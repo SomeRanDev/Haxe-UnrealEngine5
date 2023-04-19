@@ -3,42 +3,42 @@ package ue;
 
 @:native("USynth2DSlider")
 @:include("UI/Synth2DSlider.h")
-@:structAccess
+@:valueType
 extern class Synth2DSlider extends Widget {
-	public var ValueX: cpp.Float32;
-	public var ValueY: cpp.Float32;
+	public var ValueX: ucpp.num.Float32;
+	public var ValueY: ucpp.num.Float32;
 	public var ValueXDelegate: HaxeDelegateProperty<() -> Void>;
 	public var ValueYDelegate: HaxeDelegateProperty<() -> Void>;
 	public var WidgetStyle: Synth2DSliderStyle;
 	public var SliderHandleColor: LinearColor;
 	public var IndentHandle: Bool;
 	public var Locked: Bool;
-	public var StepSize: cpp.Float32;
+	public var StepSize: ucpp.num.Float32;
 	public var IsFocusable: Bool;
 	public var OnMouseCaptureBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnMouseCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnValueChangedX: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public var OnValueChangedY: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnValueChangedX: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public var OnValueChangedY: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
 	public function SetValue(InValue: Vector2D): Void;
-	public function SetStepSize(InValue: cpp.Float32): Void;
+	public function SetStepSize(InValue: ucpp.num.Float32): Void;
 	public function SetSliderHandleColor(InValue: LinearColor): Void;
 	public function SetLocked(InValue: Bool): Void;
 	public function SetIndentHandle(InValue: Bool): Void;
 	public function GetValue(): Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
 @:nativeGen
 abstract ConstSynth2DSlider(Synth2DSlider) from Synth2DSlider {
-	public extern var ValueX(get, never): cpp.Float32;
-	public inline extern function get_ValueX(): cpp.Float32 return this.ValueX;
-	public extern var ValueY(get, never): cpp.Float32;
-	public inline extern function get_ValueY(): cpp.Float32 return this.ValueY;
+	public extern var ValueX(get, never): ucpp.num.Float32;
+	public inline extern function get_ValueX(): ucpp.num.Float32 return this.ValueX;
+	public extern var ValueY(get, never): ucpp.num.Float32;
+	public inline extern function get_ValueY(): ucpp.num.Float32 return this.ValueY;
 	public extern var ValueXDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_ValueXDelegate(): HaxeDelegateProperty<() -> Void> return this.ValueXDelegate;
 	public extern var ValueYDelegate(get, never): HaxeDelegateProperty<() -> Void>;
@@ -51,8 +51,8 @@ abstract ConstSynth2DSlider(Synth2DSlider) from Synth2DSlider {
 	public inline extern function get_IndentHandle(): Bool return this.IndentHandle;
 	public extern var Locked(get, never): Bool;
 	public inline extern function get_Locked(): Bool return this.Locked;
-	public extern var StepSize(get, never): cpp.Float32;
-	public inline extern function get_StepSize(): cpp.Float32 return this.StepSize;
+	public extern var StepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_StepSize(): ucpp.num.Float32 return this.StepSize;
 	public extern var IsFocusable(get, never): Bool;
 	public inline extern function get_IsFocusable(): Bool return this.IsFocusable;
 	public extern var OnMouseCaptureBegin(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -63,16 +63,16 @@ abstract ConstSynth2DSlider(Synth2DSlider) from Synth2DSlider {
 	public inline extern function get_OnControllerCaptureBegin(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureBegin;
 	public extern var OnControllerCaptureEnd(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnControllerCaptureEnd(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureEnd;
-	public extern var OnValueChangedX(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChangedX(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChangedX;
-	public extern var OnValueChangedY(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChangedY(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChangedY;
+	public extern var OnValueChangedX(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChangedX(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChangedX;
+	public extern var OnValueChangedY(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChangedY(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChangedY;
 }
 
 @:forward
 @:nativeGen
 @:native("Synth2DSlider*")
-abstract Synth2DSliderPtr(cpp.Star<Synth2DSlider>) from cpp.Star<Synth2DSlider> to cpp.Star<Synth2DSlider>{
+abstract Synth2DSliderPtr(ucpp.Ptr<Synth2DSlider>) from ucpp.Ptr<Synth2DSlider> to ucpp.Ptr<Synth2DSlider>{
 	@:from
 	public static extern inline function fromValue(v: Synth2DSlider): Synth2DSliderPtr {
 		return untyped __cpp__("&({0})", v);

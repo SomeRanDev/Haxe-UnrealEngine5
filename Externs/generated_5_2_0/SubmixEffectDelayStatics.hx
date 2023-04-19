@@ -3,13 +3,13 @@ package ue;
 
 @:native("USubmixEffectDelayStatics")
 @:include("SubmixEffects/SubmixEffectDelay.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectDelayStatics extends BlueprintFunctionLibrary {
-	public function SetMaximumDelayLength(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, MaximumDelayLength: cpp.Float32): SubmixEffectDelaySettings;
-	public function SetInterpolationTime(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, InterpolationTime: cpp.Float32): SubmixEffectDelaySettings;
-	public function SetDelayLength(DelaySettings: cpp.Reference<SubmixEffectDelaySettings>, DelayLength: cpp.Float32): SubmixEffectDelaySettings;
+	public function SetMaximumDelayLength(DelaySettings: ucpp.Ref<SubmixEffectDelaySettings>, MaximumDelayLength: ucpp.num.Float32): SubmixEffectDelaySettings;
+	public function SetInterpolationTime(DelaySettings: ucpp.Ref<SubmixEffectDelaySettings>, InterpolationTime: ucpp.num.Float32): SubmixEffectDelaySettings;
+	public function SetDelayLength(DelaySettings: ucpp.Ref<SubmixEffectDelaySettings>, DelayLength: ucpp.num.Float32): SubmixEffectDelaySettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSubmixEffectDelayStatics(SubmixEffectDelayStatics) from SubmixEffe
 @:forward
 @:nativeGen
 @:native("SubmixEffectDelayStatics*")
-abstract SubmixEffectDelayStaticsPtr(cpp.Star<SubmixEffectDelayStatics>) from cpp.Star<SubmixEffectDelayStatics> to cpp.Star<SubmixEffectDelayStatics>{
+abstract SubmixEffectDelayStaticsPtr(ucpp.Ptr<SubmixEffectDelayStatics>) from ucpp.Ptr<SubmixEffectDelayStatics> to ucpp.Ptr<SubmixEffectDelayStatics>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectDelayStatics): SubmixEffectDelayStaticsPtr {
 		return untyped __cpp__("&({0})", v);

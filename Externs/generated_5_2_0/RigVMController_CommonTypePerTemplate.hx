@@ -3,10 +3,10 @@ package ue;
 
 @:native("FRigVMController_CommonTypePerTemplate")
 @:include("RigVMModel/RigVMController.h")
-@:structAccess
+@:valueType
 extern class RigVMController_CommonTypePerTemplate {
-	public var Counts: TMap<FString, cpp.Int32>;
+	public var Counts: TMap<FString, ucpp.num.Int32>;
 
 	@:native("FRigVMController_CommonTypePerTemplate") public function new();
-	@:native("FRigVMController_CommonTypePerTemplate") public static function make(Counts: TMap<FString, cpp.Int32>): RigVMController_CommonTypePerTemplate ;
+	@:native("FRigVMController_CommonTypePerTemplate") public static function make(Counts: TMap<FString, ucpp.num.Int32>): RigVMController_CommonTypePerTemplate ;
 }

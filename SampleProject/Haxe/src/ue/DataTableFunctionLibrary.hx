@@ -3,19 +3,19 @@ package ue;
 
 @:native("UDataTableFunctionLibrary")
 @:include("Kismet/DataTableFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class DataTableFunctionLibrary extends BlueprintFunctionLibrary {
-	public function GetDataTableRowNames(Table: cpp.Star<DataTable>, OutRowNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetDataTableRowFromName(Table: cpp.Star<DataTable>, RowName: FName, OutRow: cpp.Reference<TableRowBase>): Bool;
-	public function GetDataTableColumnAsString(DataTable: cpp.Star<DataTable.ConstDataTable>, PropertyName: FName): TArray<FString>;
-	public function FillDataTableFromJSONString(DataTable: cpp.Star<DataTable>, JSONString: FString): Bool;
-	public function FillDataTableFromJSONFile(DataTable: cpp.Star<DataTable>, JSONFilePath: FString, ImportRowStruct: cpp.Star<ScriptStruct>): Bool;
-	public function FillDataTableFromCSVString(DataTable: cpp.Star<DataTable>, CSVString: FString): Bool;
-	public function FillDataTableFromCSVFile(DataTable: cpp.Star<DataTable>, CSVFilePath: FString): Bool;
-	public function EvaluateCurveTableRow(CurveTable: cpp.Star<CurveTable>, RowName: FName, InXY: cpp.Float32, OutResult: cpp.Reference<TEnumAsByte<EEvaluateCurveTableResult>>, OutXY: cpp.Reference<cpp.Float32>, ContextString: FString): Void;
-	public function DoesDataTableRowExist(Table: cpp.Star<DataTable>, RowName: FName): Bool;
+	public function GetDataTableRowNames(Table: ucpp.Ptr<DataTable>, OutRowNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetDataTableRowFromName(Table: ucpp.Ptr<DataTable>, RowName: FName, OutRow: ucpp.Ref<TableRowBase>): Bool;
+	public function GetDataTableColumnAsString(DataTable: ucpp.Ptr<DataTable.ConstDataTable>, PropertyName: FName): TArray<FString>;
+	public function FillDataTableFromJSONString(DataTable: ucpp.Ptr<DataTable>, JSONString: FString): Bool;
+	public function FillDataTableFromJSONFile(DataTable: ucpp.Ptr<DataTable>, JSONFilePath: FString, ImportRowStruct: ucpp.Ptr<ScriptStruct>): Bool;
+	public function FillDataTableFromCSVString(DataTable: ucpp.Ptr<DataTable>, CSVString: FString): Bool;
+	public function FillDataTableFromCSVFile(DataTable: ucpp.Ptr<DataTable>, CSVFilePath: FString): Bool;
+	public function EvaluateCurveTableRow(CurveTable: ucpp.Ptr<CurveTable>, RowName: FName, InXY: ucpp.num.Float32, OutResult: ucpp.Ref<TEnumAsByte<EEvaluateCurveTableResult>>, OutXY: ucpp.Ref<ucpp.num.Float32>, ContextString: FString): Void;
+	public function DoesDataTableRowExist(Table: ucpp.Ptr<DataTable>, RowName: FName): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstDataTableFunctionLibrary(DataTableFunctionLibrary) from DataTableF
 @:forward
 @:nativeGen
 @:native("DataTableFunctionLibrary*")
-abstract DataTableFunctionLibraryPtr(cpp.Star<DataTableFunctionLibrary>) from cpp.Star<DataTableFunctionLibrary> to cpp.Star<DataTableFunctionLibrary>{
+abstract DataTableFunctionLibraryPtr(ucpp.Ptr<DataTableFunctionLibrary>) from ucpp.Ptr<DataTableFunctionLibrary> to ucpp.Ptr<DataTableFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: DataTableFunctionLibrary): DataTableFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

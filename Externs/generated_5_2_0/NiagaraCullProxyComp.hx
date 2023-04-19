@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraCullProxyComponent")
 @:include("NiagaraCullProxyComponent.h")
-@:structAccess
+@:valueType
 extern class NiagaraCullProxyComp extends NiagaraComp {
 	public var Instances: TArray<NiagaraCulledComponentInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraCullProxyComp(NiagaraCullProxyComp) from NiagaraCullProxyCo
 @:forward
 @:nativeGen
 @:native("NiagaraCullProxyComp*")
-abstract NiagaraCullProxyCompPtr(cpp.Star<NiagaraCullProxyComp>) from cpp.Star<NiagaraCullProxyComp> to cpp.Star<NiagaraCullProxyComp>{
+abstract NiagaraCullProxyCompPtr(ucpp.Ptr<NiagaraCullProxyComp>) from ucpp.Ptr<NiagaraCullProxyComp> to ucpp.Ptr<NiagaraCullProxyComp>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraCullProxyComp): NiagaraCullProxyCompPtr {
 		return untyped __cpp__("&({0})", v);

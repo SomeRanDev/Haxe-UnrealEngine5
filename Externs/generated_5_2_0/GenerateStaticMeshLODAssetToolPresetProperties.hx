@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGenerateStaticMeshLODAssetToolPresetProperties")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODAssetToolPresetProperties extends InteractiveToolPropertySet {
 	public var Preset: TWeakObjectPtr<StaticMeshLODGenerationSettings>;
 
 	public function WriteToPreset(): Void;
 	public function ReadFromPreset(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstGenerateStaticMeshLODAssetToolPresetProperties(GenerateStaticMeshL
 @:forward
 @:nativeGen
 @:native("GenerateStaticMeshLODAssetToolPresetProperties*")
-abstract GenerateStaticMeshLODAssetToolPresetPropertiesPtr(cpp.Star<GenerateStaticMeshLODAssetToolPresetProperties>) from cpp.Star<GenerateStaticMeshLODAssetToolPresetProperties> to cpp.Star<GenerateStaticMeshLODAssetToolPresetProperties>{
+abstract GenerateStaticMeshLODAssetToolPresetPropertiesPtr(ucpp.Ptr<GenerateStaticMeshLODAssetToolPresetProperties>) from ucpp.Ptr<GenerateStaticMeshLODAssetToolPresetProperties> to ucpp.Ptr<GenerateStaticMeshLODAssetToolPresetProperties>{
 	@:from
 	public static extern inline function fromValue(v: GenerateStaticMeshLODAssetToolPresetProperties): GenerateStaticMeshLODAssetToolPresetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

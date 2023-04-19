@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialParameterCollectionInstance")
 @:include("Materials/MaterialParameterCollectionInstance.h")
-@:structAccess
+@:valueType
 extern class MaterialParameterCollectionInstance extends Object {
-	@:protected public var Collection: cpp.Star<MaterialParameterCollection>;
+	@:protected public var Collection: ucpp.Ptr<MaterialParameterCollection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMaterialParameterCollectionInstance(MaterialParameterCollectionIns
 @:forward
 @:nativeGen
 @:native("MaterialParameterCollectionInstance*")
-abstract MaterialParameterCollectionInstancePtr(cpp.Star<MaterialParameterCollectionInstance>) from cpp.Star<MaterialParameterCollectionInstance> to cpp.Star<MaterialParameterCollectionInstance>{
+abstract MaterialParameterCollectionInstancePtr(ucpp.Ptr<MaterialParameterCollectionInstance>) from ucpp.Ptr<MaterialParameterCollectionInstance> to ucpp.Ptr<MaterialParameterCollectionInstance>{
 	@:from
 	public static extern inline function fromValue(v: MaterialParameterCollectionInstance): MaterialParameterCollectionInstancePtr {
 		return untyped __cpp__("&({0})", v);

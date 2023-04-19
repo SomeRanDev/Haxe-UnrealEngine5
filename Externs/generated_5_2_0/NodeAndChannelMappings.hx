@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNodeAndChannelMappings")
-@:structAccess
+@:valueType
 extern class NodeAndChannelMappings extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNodeAndChannelMappings(NodeAndChannelMappings) from NodeAndChannel
 @:forward
 @:nativeGen
 @:native("NodeAndChannelMappings*")
-abstract NodeAndChannelMappingsPtr(cpp.Star<NodeAndChannelMappings>) from cpp.Star<NodeAndChannelMappings> to cpp.Star<NodeAndChannelMappings>{
+abstract NodeAndChannelMappingsPtr(ucpp.Ptr<NodeAndChannelMappings>) from ucpp.Ptr<NodeAndChannelMappings> to ucpp.Ptr<NodeAndChannelMappings>{
 	@:from
 	public static extern inline function fromValue(v: NodeAndChannelMappings): NodeAndChannelMappingsPtr {
 		return untyped __cpp__("&({0})", v);

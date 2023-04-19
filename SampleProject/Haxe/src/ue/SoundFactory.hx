@@ -3,16 +3,16 @@ package ue;
 
 @:native("USoundFactory")
 @:include("Factories/SoundFactory.h")
-@:structAccess
+@:valueType
 extern class SoundFactory extends Factory {
 	public var bAutoCreateCue: Bool;
 	public var bIncludeAttenuationNode: Bool;
 	public var bIncludeLoopingNode: Bool;
 	public var bIncludeModulatorNode: Bool;
-	public var CueVolume: cpp.Float32;
+	public var CueVolume: ucpp.num.Float32;
 	public var CuePackageSuffix: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,8 +26,8 @@ abstract ConstSoundFactory(SoundFactory) from SoundFactory {
 	public inline extern function get_bIncludeLoopingNode(): Bool return this.bIncludeLoopingNode;
 	public extern var bIncludeModulatorNode(get, never): Bool;
 	public inline extern function get_bIncludeModulatorNode(): Bool return this.bIncludeModulatorNode;
-	public extern var CueVolume(get, never): cpp.Float32;
-	public inline extern function get_CueVolume(): cpp.Float32 return this.CueVolume;
+	public extern var CueVolume(get, never): ucpp.num.Float32;
+	public inline extern function get_CueVolume(): ucpp.num.Float32 return this.CueVolume;
 	public extern var CuePackageSuffix(get, never): FString;
 	public inline extern function get_CuePackageSuffix(): FString return this.CuePackageSuffix;
 }
@@ -35,7 +35,7 @@ abstract ConstSoundFactory(SoundFactory) from SoundFactory {
 @:forward
 @:nativeGen
 @:native("SoundFactory*")
-abstract SoundFactoryPtr(cpp.Star<SoundFactory>) from cpp.Star<SoundFactory> to cpp.Star<SoundFactory>{
+abstract SoundFactoryPtr(ucpp.Ptr<SoundFactory>) from ucpp.Ptr<SoundFactory> to ucpp.Ptr<SoundFactory>{
 	@:from
 	public static extern inline function fromValue(v: SoundFactory): SoundFactoryPtr {
 		return untyped __cpp__("&({0})", v);

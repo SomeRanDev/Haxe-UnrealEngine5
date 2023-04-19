@@ -3,25 +3,25 @@ package ue;
 
 @:native("UPlayerMappableInputConfig")
 @:include("PlayerMappableInputConfig.h")
-@:structAccess
+@:valueType
 extern class PlayerMappableInputConfig extends PrimaryDataAsset {
 	@:protected public var ConfigName: FName;
 	@:protected public var ConfigDisplayName: FText;
 	@:protected public var bIsDeprecated: Bool;
-	@:protected public var Metadata: cpp.Star<Object>;
-	@:protected public var Contexts: TMap<cpp.Star<InputMappingContext>, cpp.Int32>;
+	@:protected public var Metadata: ucpp.Ptr<Object>;
+	@:protected public var Contexts: TMap<ucpp.Ptr<InputMappingContext>, ucpp.num.Int32>;
 
 	public function ResetToDefault(): Void;
 	public function IsDeprecated(): Bool;
 	public function GetPlayerMappableKeys(): TArray<EnhancedActionKeyMapping>;
-	public function GetMetadata(): cpp.Star<Object>;
-	public function GetMappingContexts(): TMap<cpp.Star<InputMappingContext>, cpp.Int32>;
+	public function GetMetadata(): ucpp.Ptr<Object>;
+	public function GetMappingContexts(): TMap<ucpp.Ptr<InputMappingContext>, ucpp.num.Int32>;
 	public function GetMappingByName(MappingName: FName): EnhancedActionKeyMapping;
-	public function GetKeysBoundToAction(InAction: cpp.Star<InputAction.ConstInputAction>): TArray<EnhancedActionKeyMapping>;
+	public function GetKeysBoundToAction(InAction: ucpp.Ptr<InputAction.ConstInputAction>): TArray<EnhancedActionKeyMapping>;
 	public function GetDisplayName(): FText;
 	public function GetConfigName(): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsDeprecated, GetPlayerMappableKeys, GetMetadata, GetMappingContexts, GetMappingByName, GetKeysBoundToAction, GetDisplayName, GetConfigName)
@@ -32,7 +32,7 @@ abstract ConstPlayerMappableInputConfig(PlayerMappableInputConfig) from PlayerMa
 @:forward
 @:nativeGen
 @:native("PlayerMappableInputConfig*")
-abstract PlayerMappableInputConfigPtr(cpp.Star<PlayerMappableInputConfig>) from cpp.Star<PlayerMappableInputConfig> to cpp.Star<PlayerMappableInputConfig>{
+abstract PlayerMappableInputConfigPtr(ucpp.Ptr<PlayerMappableInputConfig>) from ucpp.Ptr<PlayerMappableInputConfig> to ucpp.Ptr<PlayerMappableInputConfig>{
 	@:from
 	public static extern inline function fromValue(v: PlayerMappableInputConfig): PlayerMappableInputConfigPtr {
 		return untyped __cpp__("&({0})", v);

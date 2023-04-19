@@ -3,12 +3,12 @@ package ue;
 
 @:native("FObjectReplicationBridgePollConfig")
 @:include("Iris/ReplicationSystem/ObjectReplicationBridgeConfig.h")
-@:structAccess
+@:valueType
 extern class ObjectReplicationBridgePollConfig {
 	public var ClassName: FName;
-	public var PollFramePeriod: cpp.UInt32;
+	public var PollFramePeriod: ucpp.num.UInt32;
 	public var bIncludeSubclasses: Bool;
 
 	@:native("FObjectReplicationBridgePollConfig") public function new();
-	@:native("FObjectReplicationBridgePollConfig") public static function make(ClassName: FName, PollFramePeriod: cpp.UInt32, bIncludeSubclasses: Bool): ObjectReplicationBridgePollConfig ;
+	@:native("FObjectReplicationBridgePollConfig") public static function make(ClassName: FName, PollFramePeriod: ucpp.num.UInt32, bIncludeSubclasses: Bool): ObjectReplicationBridgePollConfig ;
 }

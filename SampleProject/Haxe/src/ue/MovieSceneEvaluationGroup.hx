@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationGroup")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationGroup {
 	public var LUTIndices: TArray<MovieSceneEvaluationGroupLUTIndex>;
 	public var TrackLUT: TArray<MovieSceneFieldEntry_EvaluationTrack>;

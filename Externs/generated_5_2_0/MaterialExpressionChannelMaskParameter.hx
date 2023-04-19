@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionChannelMaskParameter")
 @:include("Materials/MaterialExpressionChannelMaskParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionChannelMaskParameter extends MaterialExpressionVectorParameter {
 	public var MaskChannel: TEnumAsByte<EChannelMaskParameterColor>;
 	public var Input: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionChannelMaskParameter(MaterialExpressionChannelMa
 @:forward
 @:nativeGen
 @:native("MaterialExpressionChannelMaskParameter*")
-abstract MaterialExpressionChannelMaskParameterPtr(cpp.Star<MaterialExpressionChannelMaskParameter>) from cpp.Star<MaterialExpressionChannelMaskParameter> to cpp.Star<MaterialExpressionChannelMaskParameter>{
+abstract MaterialExpressionChannelMaskParameterPtr(ucpp.Ptr<MaterialExpressionChannelMaskParameter>) from ucpp.Ptr<MaterialExpressionChannelMaskParameter> to ucpp.Ptr<MaterialExpressionChannelMaskParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionChannelMaskParameter): MaterialExpressionChannelMaskParameterPtr {
 		return untyped __cpp__("&({0})", v);

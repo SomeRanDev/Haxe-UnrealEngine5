@@ -3,22 +3,22 @@ package ue;
 
 @:native("USequencerScriptingRangeExtensions")
 @:include("ExtensionLibraries/SequencerScriptingRangeExtensions.h")
-@:structAccess
+@:valueType
 extern class SequencerScriptingRangeExtensions extends BlueprintFunctionLibrary {
-	public function SetStartSeconds(Range: cpp.Reference<SequencerScriptingRange>, Start: cpp.Float32): Void;
-	public function SetStartFrame(Range: cpp.Reference<SequencerScriptingRange>, Start: cpp.Int32): Void;
-	public function SetEndSeconds(Range: cpp.Reference<SequencerScriptingRange>, End: cpp.Float32): Void;
-	public function SetEndFrame(Range: cpp.Reference<SequencerScriptingRange>, End: cpp.Int32): Void;
-	public function RemoveStart(Range: cpp.Reference<SequencerScriptingRange>): Void;
-	public function RemoveEnd(Range: cpp.Reference<SequencerScriptingRange>): Void;
-	public function HasStart(Range: cpp.Reference<SequencerScriptingRange>): Bool;
-	public function HasEnd(Range: cpp.Reference<SequencerScriptingRange>): Bool;
-	public function GetStartSeconds(Range: cpp.Reference<SequencerScriptingRange>): cpp.Float32;
-	public function GetStartFrame(Range: cpp.Reference<SequencerScriptingRange>): cpp.Int32;
-	public function GetEndSeconds(Range: cpp.Reference<SequencerScriptingRange>): cpp.Float32;
-	public function GetEndFrame(Range: cpp.Reference<SequencerScriptingRange>): cpp.Int32;
+	public function SetStartSeconds(Range: ucpp.Ref<SequencerScriptingRange>, Start: ucpp.num.Float32): Void;
+	public function SetStartFrame(Range: ucpp.Ref<SequencerScriptingRange>, Start: ucpp.num.Int32): Void;
+	public function SetEndSeconds(Range: ucpp.Ref<SequencerScriptingRange>, End: ucpp.num.Float32): Void;
+	public function SetEndFrame(Range: ucpp.Ref<SequencerScriptingRange>, End: ucpp.num.Int32): Void;
+	public function RemoveStart(Range: ucpp.Ref<SequencerScriptingRange>): Void;
+	public function RemoveEnd(Range: ucpp.Ref<SequencerScriptingRange>): Void;
+	public function HasStart(Range: ucpp.Ref<SequencerScriptingRange>): Bool;
+	public function HasEnd(Range: ucpp.Ref<SequencerScriptingRange>): Bool;
+	public function GetStartSeconds(Range: ucpp.Ref<SequencerScriptingRange>): ucpp.num.Float32;
+	public function GetStartFrame(Range: ucpp.Ref<SequencerScriptingRange>): ucpp.num.Int32;
+	public function GetEndSeconds(Range: ucpp.Ref<SequencerScriptingRange>): ucpp.num.Float32;
+	public function GetEndFrame(Range: ucpp.Ref<SequencerScriptingRange>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstSequencerScriptingRangeExtensions(SequencerScriptingRangeExtension
 @:forward
 @:nativeGen
 @:native("SequencerScriptingRangeExtensions*")
-abstract SequencerScriptingRangeExtensionsPtr(cpp.Star<SequencerScriptingRangeExtensions>) from cpp.Star<SequencerScriptingRangeExtensions> to cpp.Star<SequencerScriptingRangeExtensions>{
+abstract SequencerScriptingRangeExtensionsPtr(ucpp.Ptr<SequencerScriptingRangeExtensions>) from ucpp.Ptr<SequencerScriptingRangeExtensions> to ucpp.Ptr<SequencerScriptingRangeExtensions>{
 	@:from
 	public static extern inline function fromValue(v: SequencerScriptingRangeExtensions): SequencerScriptingRangeExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

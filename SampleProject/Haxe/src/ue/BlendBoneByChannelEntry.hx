@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlendBoneByChannelEntry")
 @:include("AnimNodes/AnimNode_BlendBoneByChannel.h")
-@:structAccess
+@:valueType
 extern class BlendBoneByChannelEntry {
 	public var SourceBone: BoneReference;
 	public var TargetBone: BoneReference;

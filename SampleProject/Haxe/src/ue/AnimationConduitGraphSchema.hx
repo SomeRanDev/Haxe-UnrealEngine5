@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimationConduitGraphSchema")
 @:include("AnimationConduitGraphSchema.h")
-@:structAccess
+@:valueType
 extern class AnimationConduitGraphSchema extends EdGraphSchema_K2 {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimationConduitGraphSchema(AnimationConduitGraphSchema) from Anim
 @:forward
 @:nativeGen
 @:native("AnimationConduitGraphSchema*")
-abstract AnimationConduitGraphSchemaPtr(cpp.Star<AnimationConduitGraphSchema>) from cpp.Star<AnimationConduitGraphSchema> to cpp.Star<AnimationConduitGraphSchema>{
+abstract AnimationConduitGraphSchemaPtr(ucpp.Ptr<AnimationConduitGraphSchema>) from ucpp.Ptr<AnimationConduitGraphSchema> to ucpp.Ptr<AnimationConduitGraphSchema>{
 	@:from
 	public static extern inline function fromValue(v: AnimationConduitGraphSchema): AnimationConduitGraphSchemaPtr {
 		return untyped __cpp__("&({0})", v);

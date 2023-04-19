@@ -3,7 +3,7 @@ package ue;
 
 @:native("UUserWidget")
 @:include("Blueprint/UserWidget.h")
-@:structAccess
+@:valueType
 extern class UserWidget extends Widget {
 	public var ColorAndOpacity: LinearColor;
 	public var ColorAndOpacityDelegate: HaxeDelegateProperty<() -> Void>;
@@ -11,74 +11,74 @@ extern class UserWidget extends Widget {
 	public var ForegroundColorDelegate: HaxeDelegateProperty<() -> Void>;
 	public var OnVisibilityChanged: HaxeMulticastSparseDelegateProperty<(ESlateVisibility) -> Void>;
 	public var Padding: Margin;
-	public var Priority: cpp.Int32;
+	public var Priority: ucpp.num.Int32;
 	public var bIsFocusable: Bool;
 	public var bStopAction: Bool;
-	public var ActiveSequencePlayers: TArray<cpp.Star<UMGSequencePlayer>>;
-	public var AnimationTickManager: cpp.Star<UMGSequenceTickManager>;
-	public var StoppedSequencePlayers: TArray<cpp.Star<UMGSequencePlayer>>;
+	public var ActiveSequencePlayers: TArray<ucpp.Ptr<UMGSequencePlayer>>;
+	public var AnimationTickManager: ucpp.Ptr<UMGSequenceTickManager>;
+	public var StoppedSequencePlayers: TArray<ucpp.Ptr<UMGSequencePlayer>>;
 	private var NamedSlotBindings: TArray<NamedSlotBinding>;
-	private var Extensions: TArray<cpp.Star<UserWidgetExtension>>;
-	public var WidgetTree: cpp.Star<WidgetTree>;
+	private var Extensions: TArray<ucpp.Ptr<UserWidgetExtension>>;
+	public var WidgetTree: ucpp.Ptr<WidgetTree>;
 	public var bHasScriptImplementedTick: Bool;
 	public var bHasScriptImplementedPaint: Bool;
 	private var TickFrequency: EWidgetTickFrequency;
-	@:protected public var InputComponent: cpp.Star<InputComp>;
+	@:protected public var InputComponent: ucpp.Ptr<InputComp>;
 	@:protected public var AnimationCallbacks: TArray<AnimationEventBinding>;
 
 	@:protected public function UnregisterInputComponent(): Void;
-	public function UnbindFromAnimationStarted(Animation: cpp.Star<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
-	public function UnbindFromAnimationFinished(Animation: cpp.Star<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
-	public function UnbindAllFromAnimationStarted(Animation: cpp.Star<WidgetAnimation>): Void;
-	public function UnbindAllFromAnimationFinished(Animation: cpp.Star<WidgetAnimation>): Void;
-	public function Tick(MyGeometry: Geometry, InDeltaTime: cpp.Float32): Void;
+	public function UnbindFromAnimationStarted(Animation: ucpp.Ptr<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function UnbindFromAnimationFinished(Animation: ucpp.Ptr<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function UnbindAllFromAnimationStarted(Animation: ucpp.Ptr<WidgetAnimation>): Void;
+	public function UnbindAllFromAnimationFinished(Animation: ucpp.Ptr<WidgetAnimation>): Void;
+	public function Tick(MyGeometry: Geometry, InDeltaTime: ucpp.num.Float32): Void;
 	@:protected public function StopListeningForInputAction(ActionName: FName, EventType: TEnumAsByte<EInputEvent>): Void;
 	@:protected public function StopListeningForAllInputActions(): Void;
 	public function StopAnimationsAndLatentActions(): Void;
-	public function StopAnimation(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): Void;
+	public function StopAnimation(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): Void;
 	public function StopAllAnimations(): Void;
 	public function SetPositionInViewport(Position: Vector2D, bRemoveDPIScale: Bool): Void;
-	public function SetPlaybackSpeed(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>, PlaybackSpeed: cpp.Float32): Void;
+	public function SetPlaybackSpeed(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>, PlaybackSpeed: ucpp.num.Float32): Void;
 	public function SetPadding(InPadding: Margin): Void;
-	public function SetOwningPlayer(LocalPlayerController: cpp.Star<PlayerController>): Void;
-	public function SetNumLoopsToPlay(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>, NumLoopsToPlay: cpp.Int32): Void;
-	@:protected public function SetInputActionPriority(NewPriority: cpp.Int32): Void;
+	public function SetOwningPlayer(LocalPlayerController: ucpp.Ptr<PlayerController>): Void;
+	public function SetNumLoopsToPlay(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>, NumLoopsToPlay: ucpp.num.Int32): Void;
+	@:protected public function SetInputActionPriority(NewPriority: ucpp.num.Int32): Void;
 	@:protected public function SetInputActionBlocking(bShouldBlock: Bool): Void;
 	public function SetForegroundColor(InForegroundColor: SlateColor): Void;
 	public function SetDesiredSizeInViewport(Size: Vector2D): Void;
 	public function SetColorAndOpacity(InColorAndOpacity: LinearColor): Void;
-	public function SetAnimationCurrentTime(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>, InTime: cpp.Float32): Void;
+	public function SetAnimationCurrentTime(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>, InTime: ucpp.num.Float32): Void;
 	public function SetAnchorsInViewport(Anchors: Anchors): Void;
 	public function SetAlignmentInViewport(Alignment: Vector2D): Void;
-	public function ReverseAnimation(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): Void;
+	public function ReverseAnimation(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): Void;
 	public function RemoveFromViewport(): Void;
 	public function RemoveExtensions(InExtensionType: TSubclassOf<UserWidgetExtension>): Void;
-	public function RemoveExtension(InExtension: cpp.Star<UserWidgetExtension>): Void;
+	public function RemoveExtension(InExtension: ucpp.Ptr<UserWidgetExtension>): Void;
 	@:protected public function RegisterInputComponent(): Void;
 	public function PreConstruct(IsDesignTime: Bool): Void;
-	public function PlaySound(SoundToPlay: cpp.Star<SoundBase>): Void;
-	public function PlayAnimationTimeRange(InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, EndAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: cpp.Float32, bRestoreState: Bool): cpp.Star<UMGSequencePlayer>;
-	public function PlayAnimationReverse(InAnimation: cpp.Star<WidgetAnimation>, PlaybackSpeed: cpp.Float32, bRestoreState: Bool): cpp.Star<UMGSequencePlayer>;
-	public function PlayAnimationForward(InAnimation: cpp.Star<WidgetAnimation>, PlaybackSpeed: cpp.Float32, bRestoreState: Bool): cpp.Star<UMGSequencePlayer>;
-	public function PlayAnimation(InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: cpp.Float32, bRestoreState: Bool): cpp.Star<UMGSequencePlayer>;
-	public function PauseAnimation(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): cpp.Float32;
-	public function OnTouchStarted(MyGeometry: Geometry, InTouchEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnTouchMoved(MyGeometry: Geometry, InTouchEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnTouchGesture(MyGeometry: Geometry, GestureEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnTouchForceChanged(MyGeometry: Geometry, InTouchEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnTouchEnded(MyGeometry: Geometry, InTouchEvent: cpp.Reference<PointerEvent>): EventReply;
+	public function PlaySound(SoundToPlay: ucpp.Ptr<SoundBase>): Void;
+	public function PlayAnimationTimeRange(InAnimation: ucpp.Ptr<WidgetAnimation>, StartAtTime: ucpp.num.Float32, EndAtTime: ucpp.num.Float32, NumLoopsToPlay: ucpp.num.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: ucpp.num.Float32, bRestoreState: Bool): ucpp.Ptr<UMGSequencePlayer>;
+	public function PlayAnimationReverse(InAnimation: ucpp.Ptr<WidgetAnimation>, PlaybackSpeed: ucpp.num.Float32, bRestoreState: Bool): ucpp.Ptr<UMGSequencePlayer>;
+	public function PlayAnimationForward(InAnimation: ucpp.Ptr<WidgetAnimation>, PlaybackSpeed: ucpp.num.Float32, bRestoreState: Bool): ucpp.Ptr<UMGSequencePlayer>;
+	public function PlayAnimation(InAnimation: ucpp.Ptr<WidgetAnimation>, StartAtTime: ucpp.num.Float32, NumLoopsToPlay: ucpp.num.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: ucpp.num.Float32, bRestoreState: Bool): ucpp.Ptr<UMGSequencePlayer>;
+	public function PauseAnimation(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): ucpp.num.Float32;
+	public function OnTouchStarted(MyGeometry: Geometry, InTouchEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnTouchMoved(MyGeometry: Geometry, InTouchEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnTouchGesture(MyGeometry: Geometry, GestureEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnTouchForceChanged(MyGeometry: Geometry, InTouchEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnTouchEnded(MyGeometry: Geometry, InTouchEvent: ucpp.Ref<PointerEvent>): EventReply;
 	public function OnRemovedFromFocusPath(InFocusEvent: FocusEvent): Void;
-	public function OnPreviewMouseButtonDown(MyGeometry: Geometry, MouseEvent: cpp.Reference<PointerEvent>): EventReply;
+	public function OnPreviewMouseButtonDown(MyGeometry: Geometry, MouseEvent: ucpp.Ref<PointerEvent>): EventReply;
 	public function OnPreviewKeyDown(MyGeometry: Geometry, InKeyEvent: KeyEvent): EventReply;
-	public function OnPaint(Context: cpp.Reference<PaintContext>): Void;
-	public function OnMouseWheel(MyGeometry: Geometry, MouseEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnMouseMove(MyGeometry: Geometry, MouseEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnMouseLeave(MouseEvent: cpp.Reference<PointerEvent>): Void;
-	public function OnMouseEnter(MyGeometry: Geometry, MouseEvent: cpp.Reference<PointerEvent>): Void;
+	public function OnPaint(Context: ucpp.Ref<PaintContext>): Void;
+	public function OnMouseWheel(MyGeometry: Geometry, MouseEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnMouseMove(MyGeometry: Geometry, MouseEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnMouseLeave(MouseEvent: ucpp.Ref<PointerEvent>): Void;
+	public function OnMouseEnter(MyGeometry: Geometry, MouseEvent: ucpp.Ref<PointerEvent>): Void;
 	public function OnMouseCaptureLost(): Void;
-	public function OnMouseButtonUp(MyGeometry: Geometry, MouseEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnMouseButtonDown(MyGeometry: Geometry, MouseEvent: cpp.Reference<PointerEvent>): EventReply;
-	public function OnMouseButtonDoubleClick(InMyGeometry: Geometry, InMouseEvent: cpp.Reference<PointerEvent>): EventReply;
+	public function OnMouseButtonUp(MyGeometry: Geometry, MouseEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnMouseButtonDown(MyGeometry: Geometry, MouseEvent: ucpp.Ref<PointerEvent>): EventReply;
+	public function OnMouseButtonDoubleClick(InMyGeometry: Geometry, InMouseEvent: ucpp.Ref<PointerEvent>): EventReply;
 	public function OnMotionDetected(MyGeometry: Geometry, InMotionEvent: MotionEvent): EventReply;
 	public function OnKeyUp(MyGeometry: Geometry, InKeyEvent: KeyEvent): EventReply;
 	public function OnKeyDown(MyGeometry: Geometry, InKeyEvent: KeyEvent): EventReply;
@@ -86,14 +86,14 @@ extern class UserWidget extends Widget {
 	public function OnInitialized(): Void;
 	public function OnFocusReceived(MyGeometry: Geometry, InFocusEvent: FocusEvent): EventReply;
 	public function OnFocusLost(InFocusEvent: FocusEvent): Void;
-	public function OnDrop(MyGeometry: Geometry, PointerEvent: PointerEvent, Operation: cpp.Star<DragDropOperation>): Bool;
-	public function OnDragOver(MyGeometry: Geometry, PointerEvent: PointerEvent, Operation: cpp.Star<DragDropOperation>): Bool;
-	public function OnDragLeave(PointerEvent: PointerEvent, Operation: cpp.Star<DragDropOperation>): Void;
-	public function OnDragEnter(MyGeometry: Geometry, PointerEvent: PointerEvent, Operation: cpp.Star<DragDropOperation>): Void;
-	public function OnDragDetected(MyGeometry: Geometry, PointerEvent: cpp.Reference<PointerEvent>, Operation: cpp.Reference<cpp.Star<DragDropOperation>>): Void;
-	public function OnDragCancelled(PointerEvent: cpp.Reference<PointerEvent>, Operation: cpp.Star<DragDropOperation>): Void;
-	@:protected public function OnAnimationStarted(Animation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): Void;
-	@:protected public function OnAnimationFinished(Animation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): Void;
+	public function OnDrop(MyGeometry: Geometry, PointerEvent: PointerEvent, Operation: ucpp.Ptr<DragDropOperation>): Bool;
+	public function OnDragOver(MyGeometry: Geometry, PointerEvent: PointerEvent, Operation: ucpp.Ptr<DragDropOperation>): Bool;
+	public function OnDragLeave(PointerEvent: PointerEvent, Operation: ucpp.Ptr<DragDropOperation>): Void;
+	public function OnDragEnter(MyGeometry: Geometry, PointerEvent: PointerEvent, Operation: ucpp.Ptr<DragDropOperation>): Void;
+	public function OnDragDetected(MyGeometry: Geometry, PointerEvent: ucpp.Ref<PointerEvent>, Operation: ucpp.Ref<ucpp.Ptr<DragDropOperation>>): Void;
+	public function OnDragCancelled(PointerEvent: ucpp.Ref<PointerEvent>, Operation: ucpp.Ptr<DragDropOperation>): Void;
+	@:protected public function OnAnimationStarted(Animation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): Void;
+	@:protected public function OnAnimationFinished(Animation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): Void;
 	public function OnAnalogValueChanged(MyGeometry: Geometry, InAnalogInputEvent: AnalogInputEvent): EventReply;
 	public function OnAddedToFocusPath(InFocusEvent: FocusEvent): Void;
 	@:protected public function ListenForInputAction(ActionName: FName, EventType: TEnumAsByte<EInputEvent>, bConsume: Bool, Callback: HaxeDelegateProperty<() -> Void>): Void;
@@ -101,28 +101,28 @@ extern class UserWidget extends Widget {
 	@:protected public function IsListeningForInputAction(ActionName: FName): Bool;
 	public function IsInteractable(): Bool;
 	public function IsAnyAnimationPlaying(): Bool;
-	public function IsAnimationPlayingForward(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): Bool;
-	public function IsAnimationPlaying(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): Bool;
-	public function GetOwningPlayerPawn(): cpp.Star<Pawn>;
-	public function GetOwningPlayerCameraManager(): cpp.Star<PlayerCameraManager>;
+	public function IsAnimationPlayingForward(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): Bool;
+	public function IsAnimationPlaying(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): Bool;
+	public function GetOwningPlayerPawn(): ucpp.Ptr<Pawn>;
+	public function GetOwningPlayerCameraManager(): ucpp.Ptr<PlayerCameraManager>;
 	public function GetIsVisible(): Bool;
-	public function GetExtensions(ExtensionType: TSubclassOf<UserWidgetExtension>): TArray<cpp.Star<UserWidgetExtension>>;
-	public function GetExtension(ExtensionType: TSubclassOf<UserWidgetExtension>): cpp.Star<UserWidgetExtension>;
-	public function GetAnimationCurrentTime(InAnimation: cpp.Star<WidgetAnimation.ConstWidgetAnimation>): cpp.Float32;
+	public function GetExtensions(ExtensionType: TSubclassOf<UserWidgetExtension>): TArray<ucpp.Ptr<UserWidgetExtension>>;
+	public function GetExtension(ExtensionType: TSubclassOf<UserWidgetExtension>): ucpp.Ptr<UserWidgetExtension>;
+	public function GetAnimationCurrentTime(InAnimation: ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>): ucpp.num.Float32;
 	public function GetAnchorsInViewport(): Anchors;
 	public function GetAlignmentInViewport(): Vector2D;
 	public function FlushAnimations(): Void;
 	public function Destruct(): Void;
 	public function Construct(): Void;
 	public function CancelLatentActions(): Void;
-	public function BindToAnimationStarted(Animation: cpp.Star<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
-	public function BindToAnimationFinished(Animation: cpp.Star<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
-	public function BindToAnimationEvent(Animation: cpp.Star<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>, AnimationEvent: EWidgetAnimationEvent, UserTag: FName): Void;
-	public function AddToViewport(ZOrder: cpp.Int32): Void;
-	public function AddToPlayerScreen(ZOrder: cpp.Int32): Bool;
-	public function AddExtension(InExtensionType: TSubclassOf<UserWidgetExtension>): cpp.Star<UserWidgetExtension>;
+	public function BindToAnimationStarted(Animation: ucpp.Ptr<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function BindToAnimationFinished(Animation: ucpp.Ptr<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function BindToAnimationEvent(Animation: ucpp.Ptr<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>, AnimationEvent: EWidgetAnimationEvent, UserTag: FName): Void;
+	public function AddToViewport(ZOrder: ucpp.num.Int32): Void;
+	public function AddToPlayerScreen(ZOrder: ucpp.num.Int32): Bool;
+	public function AddExtension(InExtensionType: TSubclassOf<UserWidgetExtension>): ucpp.Ptr<UserWidgetExtension>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -144,20 +144,20 @@ abstract ConstUserWidget(UserWidget) from UserWidget {
 	public inline extern function get_OnVisibilityChanged(): HaxeMulticastSparseDelegateProperty<(ESlateVisibility) -> Void> return this.OnVisibilityChanged;
 	public extern var Padding(get, never): Margin;
 	public inline extern function get_Padding(): Margin return this.Padding;
-	public extern var Priority(get, never): cpp.Int32;
-	public inline extern function get_Priority(): cpp.Int32 return this.Priority;
+	public extern var Priority(get, never): ucpp.num.Int32;
+	public inline extern function get_Priority(): ucpp.num.Int32 return this.Priority;
 	public extern var bIsFocusable(get, never): Bool;
 	public inline extern function get_bIsFocusable(): Bool return this.bIsFocusable;
 	public extern var bStopAction(get, never): Bool;
 	public inline extern function get_bStopAction(): Bool return this.bStopAction;
-	public extern var ActiveSequencePlayers(get, never): TArray<cpp.Star<UMGSequencePlayer.ConstUMGSequencePlayer>>;
-	public inline extern function get_ActiveSequencePlayers(): TArray<cpp.Star<UMGSequencePlayer.ConstUMGSequencePlayer>> return this.ActiveSequencePlayers;
-	public extern var AnimationTickManager(get, never): cpp.Star<UMGSequenceTickManager.ConstUMGSequenceTickManager>;
-	public inline extern function get_AnimationTickManager(): cpp.Star<UMGSequenceTickManager.ConstUMGSequenceTickManager> return this.AnimationTickManager;
-	public extern var StoppedSequencePlayers(get, never): TArray<cpp.Star<UMGSequencePlayer.ConstUMGSequencePlayer>>;
-	public inline extern function get_StoppedSequencePlayers(): TArray<cpp.Star<UMGSequencePlayer.ConstUMGSequencePlayer>> return this.StoppedSequencePlayers;
-	public extern var WidgetTree(get, never): cpp.Star<WidgetTree.ConstWidgetTree>;
-	public inline extern function get_WidgetTree(): cpp.Star<WidgetTree.ConstWidgetTree> return this.WidgetTree;
+	public extern var ActiveSequencePlayers(get, never): TArray<ucpp.Ptr<UMGSequencePlayer.ConstUMGSequencePlayer>>;
+	public inline extern function get_ActiveSequencePlayers(): TArray<ucpp.Ptr<UMGSequencePlayer.ConstUMGSequencePlayer>> return this.ActiveSequencePlayers;
+	public extern var AnimationTickManager(get, never): ucpp.Ptr<UMGSequenceTickManager.ConstUMGSequenceTickManager>;
+	public inline extern function get_AnimationTickManager(): ucpp.Ptr<UMGSequenceTickManager.ConstUMGSequenceTickManager> return this.AnimationTickManager;
+	public extern var StoppedSequencePlayers(get, never): TArray<ucpp.Ptr<UMGSequencePlayer.ConstUMGSequencePlayer>>;
+	public inline extern function get_StoppedSequencePlayers(): TArray<ucpp.Ptr<UMGSequencePlayer.ConstUMGSequencePlayer>> return this.StoppedSequencePlayers;
+	public extern var WidgetTree(get, never): ucpp.Ptr<WidgetTree.ConstWidgetTree>;
+	public inline extern function get_WidgetTree(): ucpp.Ptr<WidgetTree.ConstWidgetTree> return this.WidgetTree;
 	public extern var bHasScriptImplementedTick(get, never): Bool;
 	public inline extern function get_bHasScriptImplementedTick(): Bool return this.bHasScriptImplementedTick;
 	public extern var bHasScriptImplementedPaint(get, never): Bool;
@@ -167,7 +167,7 @@ abstract ConstUserWidget(UserWidget) from UserWidget {
 @:forward
 @:nativeGen
 @:native("UserWidget*")
-abstract UserWidgetPtr(cpp.Star<UserWidget>) from cpp.Star<UserWidget> to cpp.Star<UserWidget>{
+abstract UserWidgetPtr(ucpp.Ptr<UserWidget>) from ucpp.Ptr<UserWidget> to ucpp.Ptr<UserWidget>{
 	@:from
 	public static extern inline function fromValue(v: UserWidget): UserWidgetPtr {
 		return untyped __cpp__("&({0})", v);

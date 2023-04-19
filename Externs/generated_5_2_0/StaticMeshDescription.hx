@@ -3,14 +3,14 @@ package ue;
 
 @:native("UStaticMeshDescription")
 @:include("StaticMeshDescription.h")
-@:structAccess
+@:valueType
 extern class StaticMeshDescription extends MeshDescriptionBase {
-	public function SetVertexInstanceUV(VertexInstanceID: VertexInstanceID, UV: Vector2D, UVIndex: cpp.Int32): Void;
-	public function SetPolygonGroupMaterialSlotName(PolygonGroupID: PolygonGroupID, SlotName: cpp.Reference<FName>): Void;
-	public function GetVertexInstanceUV(VertexInstanceID: VertexInstanceID, UVIndex: cpp.Int32): Vector2D;
-	public function CreateCube(Center: Vector, HalfExtents: Vector, PolygonGroup: PolygonGroupID, PolygonID_PlusX: cpp.Reference<PolygonID>, PolygonID_MinusX: cpp.Reference<PolygonID>, PolygonID_PlusY: cpp.Reference<PolygonID>, PolygonID_MinusY: cpp.Reference<PolygonID>, PolygonID_PlusZ: cpp.Reference<PolygonID>, PolygonID_MinusZ: cpp.Reference<PolygonID>): Void;
+	public function SetVertexInstanceUV(VertexInstanceID: VertexInstanceID, UV: Vector2D, UVIndex: ucpp.num.Int32): Void;
+	public function SetPolygonGroupMaterialSlotName(PolygonGroupID: PolygonGroupID, SlotName: ucpp.Ref<FName>): Void;
+	public function GetVertexInstanceUV(VertexInstanceID: VertexInstanceID, UVIndex: ucpp.num.Int32): Vector2D;
+	public function CreateCube(Center: Vector, HalfExtents: Vector, PolygonGroup: PolygonGroupID, PolygonID_PlusX: ucpp.Ref<PolygonID>, PolygonID_MinusX: ucpp.Ref<PolygonID>, PolygonID_PlusY: ucpp.Ref<PolygonID>, PolygonID_MinusY: ucpp.Ref<PolygonID>, PolygonID_PlusZ: ucpp.Ref<PolygonID>, PolygonID_MinusZ: ucpp.Ref<PolygonID>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetVertexInstanceUV)
@@ -21,7 +21,7 @@ abstract ConstStaticMeshDescription(StaticMeshDescription) from StaticMeshDescri
 @:forward
 @:nativeGen
 @:native("StaticMeshDescription*")
-abstract StaticMeshDescriptionPtr(cpp.Star<StaticMeshDescription>) from cpp.Star<StaticMeshDescription> to cpp.Star<StaticMeshDescription>{
+abstract StaticMeshDescriptionPtr(ucpp.Ptr<StaticMeshDescription>) from ucpp.Ptr<StaticMeshDescription> to ucpp.Ptr<StaticMeshDescription>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshDescription): StaticMeshDescriptionPtr {
 		return untyped __cpp__("&({0})", v);

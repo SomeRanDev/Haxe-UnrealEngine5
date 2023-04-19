@@ -3,10 +3,10 @@ package ue;
 
 @:native("FRootMotionSourceSettings")
 @:include("GameFramework/RootMotionSource.h")
-@:structAccess
+@:valueType
 extern class RootMotionSourceSettings {
-	public var Flags: cpp.UInt8;
+	public var Flags: ucpp.num.UInt8;
 
 	@:native("FRootMotionSourceSettings") public function new();
-	@:native("FRootMotionSourceSettings") public static function make(Flags: cpp.UInt8): RootMotionSourceSettings ;
+	@:native("FRootMotionSourceSettings") public static function make(Flags: ucpp.num.UInt8): RootMotionSourceSettings ;
 }

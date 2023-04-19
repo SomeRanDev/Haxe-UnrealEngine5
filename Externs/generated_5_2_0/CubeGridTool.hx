@@ -3,25 +3,25 @@ package ue;
 
 @:native("UCubeGridTool")
 @:include("CubeGridTool.h")
-@:structAccess
+@:valueType
 extern class CubeGridTool extends InteractiveTool {
-	@:protected public var GridGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var GridGizmoAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	@:protected public var GridGizmoTransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var LineSets: cpp.Star<PreviewGeometry>;
-	@:protected public var ClickDragBehavior: cpp.Star<ClickDragInputBehavior>;
-	@:protected public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
-	@:protected public var CtrlMiddleClickBehavior: cpp.Star<LocalSingleClickInputBehavior>;
-	@:protected public var MiddleClickDragBehavior: cpp.Star<LocalClickDragInputBehavior>;
-	@:protected public var Settings: cpp.Star<CubeGridToolProperties>;
-	@:protected public var ToolActions: cpp.Star<CubeGridToolActions>;
-	@:protected public var DuringActivityActions: cpp.Star<CubeGridDuringActivityActions>;
-	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var Target: cpp.Star<ToolTarget>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var GridGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var GridGizmoAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
+	@:protected public var GridGizmoTransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var LineSets: ucpp.Ptr<PreviewGeometry>;
+	@:protected public var ClickDragBehavior: ucpp.Ptr<ClickDragInputBehavior>;
+	@:protected public var HoverBehavior: ucpp.Ptr<MouseHoverBehavior>;
+	@:protected public var CtrlMiddleClickBehavior: ucpp.Ptr<LocalSingleClickInputBehavior>;
+	@:protected public var MiddleClickDragBehavior: ucpp.Ptr<LocalClickDragInputBehavior>;
+	@:protected public var Settings: ucpp.Ptr<CubeGridToolProperties>;
+	@:protected public var ToolActions: ucpp.Ptr<CubeGridToolActions>;
+	@:protected public var DuringActivityActions: ucpp.Ptr<CubeGridDuringActivityActions>;
+	@:protected public var MaterialProperties: ucpp.Ptr<NewMeshMaterialProperties>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var Target: ucpp.Ptr<ToolTarget>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstCubeGridTool(CubeGridTool) from CubeGridTool {
 @:forward
 @:nativeGen
 @:native("CubeGridTool*")
-abstract CubeGridToolPtr(cpp.Star<CubeGridTool>) from cpp.Star<CubeGridTool> to cpp.Star<CubeGridTool>{
+abstract CubeGridToolPtr(ucpp.Ptr<CubeGridTool>) from ucpp.Ptr<CubeGridTool> to ucpp.Ptr<CubeGridTool>{
 	@:from
 	public static extern inline function fromValue(v: CubeGridTool): CubeGridToolPtr {
 		return untyped __cpp__("&({0})", v);

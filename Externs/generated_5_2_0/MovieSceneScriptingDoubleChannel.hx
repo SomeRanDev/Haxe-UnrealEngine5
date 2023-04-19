@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMovieSceneScriptingDoubleChannel")
 @:include("KeysAndChannels/MovieSceneScriptingDouble.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingDoubleChannel extends MovieSceneScriptingChannel {
 	public function SetPreInfinityExtrapolation(InExtrapolation: TEnumAsByte<ERichCurveExtrapolation>): Void;
 	public function SetPostInfinityExtrapolation(InExtrapolation: TEnumAsByte<ERichCurveExtrapolation>): Void;
-	public function SetDefault(InDefaultValue: cpp.Float64): Void;
-	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
+	public function SetDefault(InDefaultValue: ucpp.num.Float64): Void;
+	public function RemoveKey(Key: ucpp.Ptr<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
 	public function HasDefault(): Bool;
 	public function GetPreInfinityExtrapolation(): TEnumAsByte<ERichCurveExtrapolation>;
 	public function GetPostInfinityExtrapolation(): TEnumAsByte<ERichCurveExtrapolation>;
-	public function GetNumKeys(): cpp.Int32;
-	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
-	public function GetDefault(): cpp.Float64;
-	public function EvaluateKeys(Range: SequencerScriptingRange, FrameRate: FrameRate): TArray<cpp.Float64>;
+	public function GetNumKeys(): ucpp.num.Int32;
+	public function GetKeys(): TArray<ucpp.Ptr<MovieSceneScriptingKey>>;
+	public function GetDefault(): ucpp.num.Float64;
+	public function EvaluateKeys(Range: SequencerScriptingRange, FrameRate: FrameRate): TArray<ucpp.num.Float64>;
 	public function ComputeEffectiveRange(): SequencerScriptingRange;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.Float64, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): cpp.Star<MovieSceneScriptingDoubleKey>;
+	public function AddKey(InTime: ucpp.Ref<FrameNumber>, NewValue: ucpp.num.Float64, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): ucpp.Ptr<MovieSceneScriptingDoubleKey>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasDefault, GetPreInfinityExtrapolation, GetPostInfinityExtrapolation, GetNumKeys, GetKeys, GetDefault, EvaluateKeys, ComputeEffectiveRange)
@@ -31,7 +31,7 @@ abstract ConstMovieSceneScriptingDoubleChannel(MovieSceneScriptingDoubleChannel)
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingDoubleChannel*")
-abstract MovieSceneScriptingDoubleChannelPtr(cpp.Star<MovieSceneScriptingDoubleChannel>) from cpp.Star<MovieSceneScriptingDoubleChannel> to cpp.Star<MovieSceneScriptingDoubleChannel>{
+abstract MovieSceneScriptingDoubleChannelPtr(ucpp.Ptr<MovieSceneScriptingDoubleChannel>) from ucpp.Ptr<MovieSceneScriptingDoubleChannel> to ucpp.Ptr<MovieSceneScriptingDoubleChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingDoubleChannel): MovieSceneScriptingDoubleChannelPtr {
 		return untyped __cpp__("&({0})", v);

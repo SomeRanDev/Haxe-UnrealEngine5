@@ -3,43 +3,43 @@ package ue;
 
 @:native("UFbxSceneImportFactory")
 @:include("Factories/FbxSceneImportFactory.h")
-@:structAccess
+@:valueType
 extern class FbxSceneImportFactory extends SceneImportFactory {
-	public var SceneImportOptions: cpp.Star<FbxSceneImportOptions>;
-	public var SceneImportOptionsStaticMesh: cpp.Star<FbxSceneImportOptionsStaticMesh>;
-	public var SceneImportOptionsSkeletalMesh: cpp.Star<FbxSceneImportOptionsSkeletalMesh>;
-	public var StaticMeshImportData: cpp.Star<FbxStaticMeshImportData>;
-	public var SkeletalMeshImportData: cpp.Star<FbxSkeletalMeshImportData>;
-	public var AnimSequenceImportData: cpp.Star<FbxAnimSequenceImportData>;
-	public var TextureImportData: cpp.Star<FbxTextureImportData>;
-	@:protected public var ReimportData: cpp.Star<FbxSceneImportData>;
+	public var SceneImportOptions: ucpp.Ptr<FbxSceneImportOptions>;
+	public var SceneImportOptionsStaticMesh: ucpp.Ptr<FbxSceneImportOptionsStaticMesh>;
+	public var SceneImportOptionsSkeletalMesh: ucpp.Ptr<FbxSceneImportOptionsSkeletalMesh>;
+	public var StaticMeshImportData: ucpp.Ptr<FbxStaticMeshImportData>;
+	public var SkeletalMeshImportData: ucpp.Ptr<FbxSkeletalMeshImportData>;
+	public var AnimSequenceImportData: ucpp.Ptr<FbxAnimSequenceImportData>;
+	public var TextureImportData: ucpp.Ptr<FbxTextureImportData>;
+	@:protected public var ReimportData: ucpp.Ptr<FbxSceneImportData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFbxSceneImportFactory(FbxSceneImportFactory) from FbxSceneImportFactory {
-	public extern var SceneImportOptions(get, never): cpp.Star<FbxSceneImportOptions.ConstFbxSceneImportOptions>;
-	public inline extern function get_SceneImportOptions(): cpp.Star<FbxSceneImportOptions.ConstFbxSceneImportOptions> return this.SceneImportOptions;
-	public extern var SceneImportOptionsStaticMesh(get, never): cpp.Star<FbxSceneImportOptionsStaticMesh.ConstFbxSceneImportOptionsStaticMesh>;
-	public inline extern function get_SceneImportOptionsStaticMesh(): cpp.Star<FbxSceneImportOptionsStaticMesh.ConstFbxSceneImportOptionsStaticMesh> return this.SceneImportOptionsStaticMesh;
-	public extern var SceneImportOptionsSkeletalMesh(get, never): cpp.Star<FbxSceneImportOptionsSkeletalMesh.ConstFbxSceneImportOptionsSkeletalMesh>;
-	public inline extern function get_SceneImportOptionsSkeletalMesh(): cpp.Star<FbxSceneImportOptionsSkeletalMesh.ConstFbxSceneImportOptionsSkeletalMesh> return this.SceneImportOptionsSkeletalMesh;
-	public extern var StaticMeshImportData(get, never): cpp.Star<FbxStaticMeshImportData.ConstFbxStaticMeshImportData>;
-	public inline extern function get_StaticMeshImportData(): cpp.Star<FbxStaticMeshImportData.ConstFbxStaticMeshImportData> return this.StaticMeshImportData;
-	public extern var SkeletalMeshImportData(get, never): cpp.Star<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData>;
-	public inline extern function get_SkeletalMeshImportData(): cpp.Star<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData> return this.SkeletalMeshImportData;
-	public extern var AnimSequenceImportData(get, never): cpp.Star<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData>;
-	public inline extern function get_AnimSequenceImportData(): cpp.Star<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData> return this.AnimSequenceImportData;
-	public extern var TextureImportData(get, never): cpp.Star<FbxTextureImportData.ConstFbxTextureImportData>;
-	public inline extern function get_TextureImportData(): cpp.Star<FbxTextureImportData.ConstFbxTextureImportData> return this.TextureImportData;
+	public extern var SceneImportOptions(get, never): ucpp.Ptr<FbxSceneImportOptions.ConstFbxSceneImportOptions>;
+	public inline extern function get_SceneImportOptions(): ucpp.Ptr<FbxSceneImportOptions.ConstFbxSceneImportOptions> return this.SceneImportOptions;
+	public extern var SceneImportOptionsStaticMesh(get, never): ucpp.Ptr<FbxSceneImportOptionsStaticMesh.ConstFbxSceneImportOptionsStaticMesh>;
+	public inline extern function get_SceneImportOptionsStaticMesh(): ucpp.Ptr<FbxSceneImportOptionsStaticMesh.ConstFbxSceneImportOptionsStaticMesh> return this.SceneImportOptionsStaticMesh;
+	public extern var SceneImportOptionsSkeletalMesh(get, never): ucpp.Ptr<FbxSceneImportOptionsSkeletalMesh.ConstFbxSceneImportOptionsSkeletalMesh>;
+	public inline extern function get_SceneImportOptionsSkeletalMesh(): ucpp.Ptr<FbxSceneImportOptionsSkeletalMesh.ConstFbxSceneImportOptionsSkeletalMesh> return this.SceneImportOptionsSkeletalMesh;
+	public extern var StaticMeshImportData(get, never): ucpp.Ptr<FbxStaticMeshImportData.ConstFbxStaticMeshImportData>;
+	public inline extern function get_StaticMeshImportData(): ucpp.Ptr<FbxStaticMeshImportData.ConstFbxStaticMeshImportData> return this.StaticMeshImportData;
+	public extern var SkeletalMeshImportData(get, never): ucpp.Ptr<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData>;
+	public inline extern function get_SkeletalMeshImportData(): ucpp.Ptr<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData> return this.SkeletalMeshImportData;
+	public extern var AnimSequenceImportData(get, never): ucpp.Ptr<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData>;
+	public inline extern function get_AnimSequenceImportData(): ucpp.Ptr<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData> return this.AnimSequenceImportData;
+	public extern var TextureImportData(get, never): ucpp.Ptr<FbxTextureImportData.ConstFbxTextureImportData>;
+	public inline extern function get_TextureImportData(): ucpp.Ptr<FbxTextureImportData.ConstFbxTextureImportData> return this.TextureImportData;
 }
 
 @:forward
 @:nativeGen
 @:native("FbxSceneImportFactory*")
-abstract FbxSceneImportFactoryPtr(cpp.Star<FbxSceneImportFactory>) from cpp.Star<FbxSceneImportFactory> to cpp.Star<FbxSceneImportFactory>{
+abstract FbxSceneImportFactoryPtr(ucpp.Ptr<FbxSceneImportFactory>) from ucpp.Ptr<FbxSceneImportFactory> to ucpp.Ptr<FbxSceneImportFactory>{
 	@:from
 	public static extern inline function fromValue(v: FbxSceneImportFactory): FbxSceneImportFactoryPtr {
 		return untyped __cpp__("&({0})", v);

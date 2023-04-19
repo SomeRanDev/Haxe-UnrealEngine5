@@ -3,20 +3,22 @@ package ue;
 
 @:native("UPointLightComponent")
 @:include("Components/PointLightComponent.h")
-@:structAccess
+@:valueType
 extern class PointLightComp extends LocalLightComp {
 	public var bUseInverseSquaredFalloff: Bool;
-	public var LightFalloffExponent: cpp.Float32;
-	public var SourceRadius: cpp.Float32;
-	public var SoftSourceRadius: cpp.Float32;
-	public var SourceLength: cpp.Float32;
+	public var LightFalloffExponent: ucpp.num.Float32;
+	public var SourceRadius: ucpp.num.Float32;
+	public var SoftSourceRadius: ucpp.num.Float32;
+	public var SourceLength: ucpp.num.Float32;
 
-	public function SetSourceRadius(bNewValue: cpp.Float32): Void;
-	public function SetSourceLength(NewValue: cpp.Float32): Void;
-	public function SetSoftSourceRadius(bNewValue: cpp.Float32): Void;
-	public function SetLightFalloffExponent(NewLightFalloffExponent: cpp.Float32): Void;
+	public function SetUseInverseSquaredFalloff(bNewValue: Bool): Void;
+	public function SetSourceRadius(bNewValue: ucpp.num.Float32): Void;
+	public function SetSourceLength(NewValue: ucpp.num.Float32): Void;
+	public function SetSoftSourceRadius(bNewValue: ucpp.num.Float32): Void;
+	public function SetLightFalloffExponent(NewLightFalloffExponent: ucpp.num.Float32): Void;
+	public function SetInverseExposureBlend(NewInverseExposureBlend: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,20 +26,20 @@ extern class PointLightComp extends LocalLightComp {
 abstract ConstPointLightComp(PointLightComp) from PointLightComp {
 	public extern var bUseInverseSquaredFalloff(get, never): Bool;
 	public inline extern function get_bUseInverseSquaredFalloff(): Bool return this.bUseInverseSquaredFalloff;
-	public extern var LightFalloffExponent(get, never): cpp.Float32;
-	public inline extern function get_LightFalloffExponent(): cpp.Float32 return this.LightFalloffExponent;
-	public extern var SourceRadius(get, never): cpp.Float32;
-	public inline extern function get_SourceRadius(): cpp.Float32 return this.SourceRadius;
-	public extern var SoftSourceRadius(get, never): cpp.Float32;
-	public inline extern function get_SoftSourceRadius(): cpp.Float32 return this.SoftSourceRadius;
-	public extern var SourceLength(get, never): cpp.Float32;
-	public inline extern function get_SourceLength(): cpp.Float32 return this.SourceLength;
+	public extern var LightFalloffExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_LightFalloffExponent(): ucpp.num.Float32 return this.LightFalloffExponent;
+	public extern var SourceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceRadius(): ucpp.num.Float32 return this.SourceRadius;
+	public extern var SoftSourceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_SoftSourceRadius(): ucpp.num.Float32 return this.SoftSourceRadius;
+	public extern var SourceLength(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceLength(): ucpp.num.Float32 return this.SourceLength;
 }
 
 @:forward
 @:nativeGen
 @:native("PointLightComp*")
-abstract PointLightCompPtr(cpp.Star<PointLightComp>) from cpp.Star<PointLightComp> to cpp.Star<PointLightComp>{
+abstract PointLightCompPtr(ucpp.Ptr<PointLightComp>) from ucpp.Ptr<PointLightComp> to ucpp.Ptr<PointLightComp>{
 	@:from
 	public static extern inline function fromValue(v: PointLightComp): PointLightCompPtr {
 		return untyped __cpp__("&({0})", v);

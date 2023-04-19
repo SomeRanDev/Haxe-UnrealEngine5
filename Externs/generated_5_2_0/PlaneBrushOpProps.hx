@@ -3,25 +3,25 @@ package ue;
 
 @:native("UPlaneBrushOpProps")
 @:include("Sculpting/MeshPlaneBrushOps.h")
-@:structAccess
+@:valueType
 extern class PlaneBrushOpProps extends BasePlaneBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
-	public var Depth: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
 	public var WhichSide: EPlaneBrushSideMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPlaneBrushOpProps(PlaneBrushOpProps) from PlaneBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
 	public extern var WhichSide(get, never): EPlaneBrushSideMode;
 	public inline extern function get_WhichSide(): EPlaneBrushSideMode return this.WhichSide;
 }
@@ -29,7 +29,7 @@ abstract ConstPlaneBrushOpProps(PlaneBrushOpProps) from PlaneBrushOpProps {
 @:forward
 @:nativeGen
 @:native("PlaneBrushOpProps*")
-abstract PlaneBrushOpPropsPtr(cpp.Star<PlaneBrushOpProps>) from cpp.Star<PlaneBrushOpProps> to cpp.Star<PlaneBrushOpProps>{
+abstract PlaneBrushOpPropsPtr(ucpp.Ptr<PlaneBrushOpProps>) from ucpp.Ptr<PlaneBrushOpProps> to ucpp.Ptr<PlaneBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: PlaneBrushOpProps): PlaneBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

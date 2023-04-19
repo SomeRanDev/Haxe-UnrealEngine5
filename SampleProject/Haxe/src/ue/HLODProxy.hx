@@ -3,12 +3,12 @@ package ue;
 
 @:native("UHLODProxy")
 @:include("Engine/HLODProxy.h")
-@:structAccess
+@:valueType
 extern class HLODProxy extends Object {
 	private var ProxyMeshes: TArray<HLODProxyMesh>;
-	private var HLODActors: TMap<cpp.Star<HLODProxyDesc>, HLODProxyMesh>;
+	private var HLODActors: TMap<ucpp.Ptr<HLODProxyDesc>, HLODProxyMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstHLODProxy(HLODProxy) from HLODProxy {
 @:forward
 @:nativeGen
 @:native("HLODProxy*")
-abstract HLODProxyPtr(cpp.Star<HLODProxy>) from cpp.Star<HLODProxy> to cpp.Star<HLODProxy>{
+abstract HLODProxyPtr(ucpp.Ptr<HLODProxy>) from ucpp.Ptr<HLODProxy> to ucpp.Ptr<HLODProxy>{
 	@:from
 	public static extern inline function fromValue(v: HLODProxy): HLODProxyPtr {
 		return untyped __cpp__("&({0})", v);

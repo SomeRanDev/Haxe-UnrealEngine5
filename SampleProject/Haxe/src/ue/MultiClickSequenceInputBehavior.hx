@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMultiClickSequenceInputBehavior")
 @:include("BaseBehaviors/MultiClickSequenceInputBehavior.h")
-@:structAccess
+@:valueType
 extern class MultiClickSequenceInputBehavior extends AnyButtonInputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMultiClickSequenceInputBehavior(MultiClickSequenceInputBehavior) f
 @:forward
 @:nativeGen
 @:native("MultiClickSequenceInputBehavior*")
-abstract MultiClickSequenceInputBehaviorPtr(cpp.Star<MultiClickSequenceInputBehavior>) from cpp.Star<MultiClickSequenceInputBehavior> to cpp.Star<MultiClickSequenceInputBehavior>{
+abstract MultiClickSequenceInputBehaviorPtr(ucpp.Ptr<MultiClickSequenceInputBehavior>) from ucpp.Ptr<MultiClickSequenceInputBehavior> to ucpp.Ptr<MultiClickSequenceInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: MultiClickSequenceInputBehavior): MultiClickSequenceInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

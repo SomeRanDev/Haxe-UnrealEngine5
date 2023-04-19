@@ -3,12 +3,12 @@ package ue;
 
 @:native("UParticleModuleVelocityOverLifetime")
 @:include("Particles/Velocity/ParticleModuleVelocityOverLifetime.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleVelocityOverLifetime extends ParticleModuleVelocityBase {
 	public var VelOverLife: RawDistributionVector;
 	public var Absolute: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstParticleModuleVelocityOverLifetime(ParticleModuleVelocityOverLifet
 @:forward
 @:nativeGen
 @:native("ParticleModuleVelocityOverLifetime*")
-abstract ParticleModuleVelocityOverLifetimePtr(cpp.Star<ParticleModuleVelocityOverLifetime>) from cpp.Star<ParticleModuleVelocityOverLifetime> to cpp.Star<ParticleModuleVelocityOverLifetime>{
+abstract ParticleModuleVelocityOverLifetimePtr(ucpp.Ptr<ParticleModuleVelocityOverLifetime>) from ucpp.Ptr<ParticleModuleVelocityOverLifetime> to ucpp.Ptr<ParticleModuleVelocityOverLifetime>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleVelocityOverLifetime): ParticleModuleVelocityOverLifetimePtr {
 		return untyped __cpp__("&({0})", v);

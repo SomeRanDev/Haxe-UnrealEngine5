@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraSimCacheCreateParameters")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheCreateParameters {
 	public var AttributeCaptureMode: ENiagaraSimCacheAttributeCaptureMode;
 	public var bAllowRebasing: Bool;

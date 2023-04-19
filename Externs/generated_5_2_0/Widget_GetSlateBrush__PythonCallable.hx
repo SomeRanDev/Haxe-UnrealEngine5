@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GetSlateBrush__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GetSlateBrush__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GetSlateBrush__PythonCallable(Widget_GetSlateBrush__PythonC
 @:forward
 @:nativeGen
 @:native("Widget_GetSlateBrush__PythonCallable*")
-abstract Widget_GetSlateBrush__PythonCallablePtr(cpp.Star<Widget_GetSlateBrush__PythonCallable>) from cpp.Star<Widget_GetSlateBrush__PythonCallable> to cpp.Star<Widget_GetSlateBrush__PythonCallable>{
+abstract Widget_GetSlateBrush__PythonCallablePtr(ucpp.Ptr<Widget_GetSlateBrush__PythonCallable>) from ucpp.Ptr<Widget_GetSlateBrush__PythonCallable> to ucpp.Ptr<Widget_GetSlateBrush__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GetSlateBrush__PythonCallable): Widget_GetSlateBrush__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraVariableDataInterfaceBinding")
 @:include("NiagaraCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariableDataInterfaceBinding {
 	public var BoundVariable: NiagaraVariable;
 

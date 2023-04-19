@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeBlueprintPipelineBaseFactory")
 @:include("InterchangePipelineFactories.h")
-@:structAccess
+@:valueType
 extern class InterchangeBlueprintPipelineBaseFactory extends Factory {
 	public var BlueprintType: TEnumAsByte<EBlueprintType>;
 	public var ParentClass: TSubclassOf<InterchangePipelineBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstInterchangeBlueprintPipelineBaseFactory(InterchangeBlueprintPipeli
 @:forward
 @:nativeGen
 @:native("InterchangeBlueprintPipelineBaseFactory*")
-abstract InterchangeBlueprintPipelineBaseFactoryPtr(cpp.Star<InterchangeBlueprintPipelineBaseFactory>) from cpp.Star<InterchangeBlueprintPipelineBaseFactory> to cpp.Star<InterchangeBlueprintPipelineBaseFactory>{
+abstract InterchangeBlueprintPipelineBaseFactoryPtr(ucpp.Ptr<InterchangeBlueprintPipelineBaseFactory>) from ucpp.Ptr<InterchangeBlueprintPipelineBaseFactory> to ucpp.Ptr<InterchangeBlueprintPipelineBaseFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeBlueprintPipelineBaseFactory): InterchangeBlueprintPipelineBaseFactoryPtr {
 		return untyped __cpp__("&({0})", v);

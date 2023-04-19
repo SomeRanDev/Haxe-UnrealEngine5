@@ -3,22 +3,22 @@ package ue;
 
 @:native("UMaterial")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class Material extends MaterialInterface {
-	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
-	public var PhysMaterialMask: cpp.Star<PhysicalMaterialMask>;
-	public var PhysicalMaterialMap: cpp.Star<PhysicalMaterial>;
-	public var RenderTracePhysicalMaterialOutputs: TArray<cpp.Star<PhysicalMaterial>>;
+	public var PhysMaterial: ucpp.Ptr<PhysicalMaterial>;
+	public var PhysMaterialMask: ucpp.Ptr<PhysicalMaterialMask>;
+	public var PhysicalMaterialMap: ucpp.Ptr<PhysicalMaterial>;
+	public var RenderTracePhysicalMaterialOutputs: TArray<ucpp.Ptr<PhysicalMaterial>>;
 	public var MaterialDomain: TEnumAsByte<EMaterialDomain>;
 	public var BlendMode: TEnumAsByte<EBlendMode>;
 	public var DecalBlendMode: TEnumAsByte<EDecalBlendMode>;
 	public var MaterialDecalResponse: TEnumAsByte<EMaterialDecalResponse>;
 	public var NaniteOverrideMaterial: MaterialOverrideNanite;
-	public var CachedConnectedInputs: cpp.UInt32;
+	public var CachedConnectedInputs: ucpp.num.UInt32;
 	private var ShadingModel: TEnumAsByte<EMaterialShadingModel>;
 	public var bCastDynamicShadowAsMasked: Bool;
 	private var ShadingModels: MaterialShadingModelField;
-	public var OpacityMaskClipValue: cpp.Float32;
+	public var OpacityMaskClipValue: ucpp.num.Float32;
 	public var bEnableResponsiveAA: Bool;
 	public var bScreenSpaceReflections: Bool;
 	public var bContactShadows: Bool;
@@ -30,15 +30,15 @@ extern class Material extends MaterialInterface {
 	public var TranslucencyPass: TEnumAsByte<EMaterialTranslucencyPass>;
 	public var TranslucencyLightingMode: TEnumAsByte<ETranslucencyLightingMode>;
 	public var bEnableMobileSeparateTranslucency: Bool;
-	public var NumCustomizedUVs: cpp.Int32;
-	public var TranslucencyDirectionalLightingIntensity: cpp.Float32;
-	public var TranslucentShadowDensityScale: cpp.Float32;
-	public var TranslucentSelfShadowDensityScale: cpp.Float32;
-	public var TranslucentSelfShadowSecondDensityScale: cpp.Float32;
-	public var TranslucentSelfShadowSecondOpacity: cpp.Float32;
-	public var TranslucentBackscatteringExponent: cpp.Float32;
+	public var NumCustomizedUVs: ucpp.num.Int32;
+	public var TranslucencyDirectionalLightingIntensity: ucpp.num.Float32;
+	public var TranslucentShadowDensityScale: ucpp.num.Float32;
+	public var TranslucentSelfShadowDensityScale: ucpp.num.Float32;
+	public var TranslucentSelfShadowSecondDensityScale: ucpp.num.Float32;
+	public var TranslucentSelfShadowSecondOpacity: ucpp.num.Float32;
+	public var TranslucentBackscatteringExponent: ucpp.num.Float32;
 	public var TranslucentMultipleScatteringExtinction: LinearColor;
-	public var TranslucentShadowStartOffset: cpp.Float32;
+	public var TranslucentShadowStartOffset: ucpp.num.Float32;
 	public var bDisableDepthTest: Bool;
 	public var bWriteOnlyAlpha: Bool;
 	public var bGenerateSphericalParticleNormals: Bool;
@@ -101,29 +101,29 @@ extern class Material extends MaterialInterface {
 	public var BlendableOutputAlpha: Bool;
 	public var bEnableStencilTest: Bool;
 	public var StencilCompare: TEnumAsByte<EMaterialStencilCompare>;
-	public var StencilRefValue: cpp.UInt8;
+	public var StencilRefValue: ucpp.num.UInt8;
 	public var RefractionMethod: TEnumAsByte<ERefractionMode>;
-	public var BlendablePriority: cpp.Int32;
+	public var BlendablePriority: ucpp.num.Int32;
 	public var bIsBlendable: Bool;
-	public var UsageFlagWarnings: cpp.UInt32;
-	public var RefractionDepthBias: cpp.Float32;
-	public var MaxWorldPositionOffsetDisplacement: cpp.Float32;
+	public var UsageFlagWarnings: ucpp.num.UInt32;
+	public var RefractionDepthBias: ucpp.num.Float32;
+	public var MaxWorldPositionOffsetDisplacement: ucpp.num.Float32;
 	public var StateId: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterial(Material) from Material {
-	public extern var PhysMaterial(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
-	public inline extern function get_PhysMaterial(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
-	public extern var PhysMaterialMask(get, never): cpp.Star<PhysicalMaterialMask.ConstPhysicalMaterialMask>;
-	public inline extern function get_PhysMaterialMask(): cpp.Star<PhysicalMaterialMask.ConstPhysicalMaterialMask> return this.PhysMaterialMask;
-	public extern var PhysicalMaterialMap(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
-	public inline extern function get_PhysicalMaterialMap(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysicalMaterialMap;
-	public extern var RenderTracePhysicalMaterialOutputs(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
-	public inline extern function get_RenderTracePhysicalMaterialOutputs(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.RenderTracePhysicalMaterialOutputs;
+	public extern var PhysMaterial(get, never): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>;
+	public inline extern function get_PhysMaterial(): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
+	public extern var PhysMaterialMask(get, never): ucpp.Ptr<PhysicalMaterialMask.ConstPhysicalMaterialMask>;
+	public inline extern function get_PhysMaterialMask(): ucpp.Ptr<PhysicalMaterialMask.ConstPhysicalMaterialMask> return this.PhysMaterialMask;
+	public extern var PhysicalMaterialMap(get, never): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>;
+	public inline extern function get_PhysicalMaterialMap(): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysicalMaterialMap;
+	public extern var RenderTracePhysicalMaterialOutputs(get, never): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>>;
+	public inline extern function get_RenderTracePhysicalMaterialOutputs(): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>> return this.RenderTracePhysicalMaterialOutputs;
 	public extern var MaterialDomain(get, never): TEnumAsByte<EMaterialDomain>;
 	public inline extern function get_MaterialDomain(): TEnumAsByte<EMaterialDomain> return this.MaterialDomain;
 	public extern var BlendMode(get, never): TEnumAsByte<EBlendMode>;
@@ -134,12 +134,12 @@ abstract ConstMaterial(Material) from Material {
 	public inline extern function get_MaterialDecalResponse(): TEnumAsByte<EMaterialDecalResponse> return this.MaterialDecalResponse;
 	public extern var NaniteOverrideMaterial(get, never): MaterialOverrideNanite;
 	public inline extern function get_NaniteOverrideMaterial(): MaterialOverrideNanite return this.NaniteOverrideMaterial;
-	public extern var CachedConnectedInputs(get, never): cpp.UInt32;
-	public inline extern function get_CachedConnectedInputs(): cpp.UInt32 return this.CachedConnectedInputs;
+	public extern var CachedConnectedInputs(get, never): ucpp.num.UInt32;
+	public inline extern function get_CachedConnectedInputs(): ucpp.num.UInt32 return this.CachedConnectedInputs;
 	public extern var bCastDynamicShadowAsMasked(get, never): Bool;
 	public inline extern function get_bCastDynamicShadowAsMasked(): Bool return this.bCastDynamicShadowAsMasked;
-	public extern var OpacityMaskClipValue(get, never): cpp.Float32;
-	public inline extern function get_OpacityMaskClipValue(): cpp.Float32 return this.OpacityMaskClipValue;
+	public extern var OpacityMaskClipValue(get, never): ucpp.num.Float32;
+	public inline extern function get_OpacityMaskClipValue(): ucpp.num.Float32 return this.OpacityMaskClipValue;
 	public extern var bEnableResponsiveAA(get, never): Bool;
 	public inline extern function get_bEnableResponsiveAA(): Bool return this.bEnableResponsiveAA;
 	public extern var bScreenSpaceReflections(get, never): Bool;
@@ -162,24 +162,24 @@ abstract ConstMaterial(Material) from Material {
 	public inline extern function get_TranslucencyLightingMode(): TEnumAsByte<ETranslucencyLightingMode> return this.TranslucencyLightingMode;
 	public extern var bEnableMobileSeparateTranslucency(get, never): Bool;
 	public inline extern function get_bEnableMobileSeparateTranslucency(): Bool return this.bEnableMobileSeparateTranslucency;
-	public extern var NumCustomizedUVs(get, never): cpp.Int32;
-	public inline extern function get_NumCustomizedUVs(): cpp.Int32 return this.NumCustomizedUVs;
-	public extern var TranslucencyDirectionalLightingIntensity(get, never): cpp.Float32;
-	public inline extern function get_TranslucencyDirectionalLightingIntensity(): cpp.Float32 return this.TranslucencyDirectionalLightingIntensity;
-	public extern var TranslucentShadowDensityScale(get, never): cpp.Float32;
-	public inline extern function get_TranslucentShadowDensityScale(): cpp.Float32 return this.TranslucentShadowDensityScale;
-	public extern var TranslucentSelfShadowDensityScale(get, never): cpp.Float32;
-	public inline extern function get_TranslucentSelfShadowDensityScale(): cpp.Float32 return this.TranslucentSelfShadowDensityScale;
-	public extern var TranslucentSelfShadowSecondDensityScale(get, never): cpp.Float32;
-	public inline extern function get_TranslucentSelfShadowSecondDensityScale(): cpp.Float32 return this.TranslucentSelfShadowSecondDensityScale;
-	public extern var TranslucentSelfShadowSecondOpacity(get, never): cpp.Float32;
-	public inline extern function get_TranslucentSelfShadowSecondOpacity(): cpp.Float32 return this.TranslucentSelfShadowSecondOpacity;
-	public extern var TranslucentBackscatteringExponent(get, never): cpp.Float32;
-	public inline extern function get_TranslucentBackscatteringExponent(): cpp.Float32 return this.TranslucentBackscatteringExponent;
+	public extern var NumCustomizedUVs(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCustomizedUVs(): ucpp.num.Int32 return this.NumCustomizedUVs;
+	public extern var TranslucencyDirectionalLightingIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucencyDirectionalLightingIntensity(): ucpp.num.Float32 return this.TranslucencyDirectionalLightingIntensity;
+	public extern var TranslucentShadowDensityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucentShadowDensityScale(): ucpp.num.Float32 return this.TranslucentShadowDensityScale;
+	public extern var TranslucentSelfShadowDensityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucentSelfShadowDensityScale(): ucpp.num.Float32 return this.TranslucentSelfShadowDensityScale;
+	public extern var TranslucentSelfShadowSecondDensityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucentSelfShadowSecondDensityScale(): ucpp.num.Float32 return this.TranslucentSelfShadowSecondDensityScale;
+	public extern var TranslucentSelfShadowSecondOpacity(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucentSelfShadowSecondOpacity(): ucpp.num.Float32 return this.TranslucentSelfShadowSecondOpacity;
+	public extern var TranslucentBackscatteringExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucentBackscatteringExponent(): ucpp.num.Float32 return this.TranslucentBackscatteringExponent;
 	public extern var TranslucentMultipleScatteringExtinction(get, never): LinearColor;
 	public inline extern function get_TranslucentMultipleScatteringExtinction(): LinearColor return this.TranslucentMultipleScatteringExtinction;
-	public extern var TranslucentShadowStartOffset(get, never): cpp.Float32;
-	public inline extern function get_TranslucentShadowStartOffset(): cpp.Float32 return this.TranslucentShadowStartOffset;
+	public extern var TranslucentShadowStartOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucentShadowStartOffset(): ucpp.num.Float32 return this.TranslucentShadowStartOffset;
 	public extern var bDisableDepthTest(get, never): Bool;
 	public inline extern function get_bDisableDepthTest(): Bool return this.bDisableDepthTest;
 	public extern var bWriteOnlyAlpha(get, never): Bool;
@@ -304,20 +304,20 @@ abstract ConstMaterial(Material) from Material {
 	public inline extern function get_bEnableStencilTest(): Bool return this.bEnableStencilTest;
 	public extern var StencilCompare(get, never): TEnumAsByte<EMaterialStencilCompare>;
 	public inline extern function get_StencilCompare(): TEnumAsByte<EMaterialStencilCompare> return this.StencilCompare;
-	public extern var StencilRefValue(get, never): cpp.UInt8;
-	public inline extern function get_StencilRefValue(): cpp.UInt8 return this.StencilRefValue;
+	public extern var StencilRefValue(get, never): ucpp.num.UInt8;
+	public inline extern function get_StencilRefValue(): ucpp.num.UInt8 return this.StencilRefValue;
 	public extern var RefractionMethod(get, never): TEnumAsByte<ERefractionMode>;
 	public inline extern function get_RefractionMethod(): TEnumAsByte<ERefractionMode> return this.RefractionMethod;
-	public extern var BlendablePriority(get, never): cpp.Int32;
-	public inline extern function get_BlendablePriority(): cpp.Int32 return this.BlendablePriority;
+	public extern var BlendablePriority(get, never): ucpp.num.Int32;
+	public inline extern function get_BlendablePriority(): ucpp.num.Int32 return this.BlendablePriority;
 	public extern var bIsBlendable(get, never): Bool;
 	public inline extern function get_bIsBlendable(): Bool return this.bIsBlendable;
-	public extern var UsageFlagWarnings(get, never): cpp.UInt32;
-	public inline extern function get_UsageFlagWarnings(): cpp.UInt32 return this.UsageFlagWarnings;
-	public extern var RefractionDepthBias(get, never): cpp.Float32;
-	public inline extern function get_RefractionDepthBias(): cpp.Float32 return this.RefractionDepthBias;
-	public extern var MaxWorldPositionOffsetDisplacement(get, never): cpp.Float32;
-	public inline extern function get_MaxWorldPositionOffsetDisplacement(): cpp.Float32 return this.MaxWorldPositionOffsetDisplacement;
+	public extern var UsageFlagWarnings(get, never): ucpp.num.UInt32;
+	public inline extern function get_UsageFlagWarnings(): ucpp.num.UInt32 return this.UsageFlagWarnings;
+	public extern var RefractionDepthBias(get, never): ucpp.num.Float32;
+	public inline extern function get_RefractionDepthBias(): ucpp.num.Float32 return this.RefractionDepthBias;
+	public extern var MaxWorldPositionOffsetDisplacement(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxWorldPositionOffsetDisplacement(): ucpp.num.Float32 return this.MaxWorldPositionOffsetDisplacement;
 	public extern var StateId(get, never): Guid;
 	public inline extern function get_StateId(): Guid return this.StateId;
 }
@@ -325,7 +325,7 @@ abstract ConstMaterial(Material) from Material {
 @:forward
 @:nativeGen
 @:native("Material*")
-abstract MaterialPtr(cpp.Star<Material>) from cpp.Star<Material> to cpp.Star<Material>{
+abstract MaterialPtr(ucpp.Ptr<Material>) from ucpp.Ptr<Material> to ucpp.Ptr<Material>{
 	@:from
 	public static extern inline function fromValue(v: Material): MaterialPtr {
 		return untyped __cpp__("&({0})", v);

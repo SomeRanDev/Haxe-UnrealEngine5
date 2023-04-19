@@ -3,9 +3,9 @@ package ue;
 
 @:native("UTimelineTemplate")
 @:include("Engine/TimelineTemplate.h")
-@:structAccess
+@:valueType
 extern class TimelineTemplate extends Object {
-	public var TimelineLength: cpp.Float32;
+	public var TimelineLength: ucpp.num.Float32;
 	public var LengthMode: TEnumAsByte<ETimelineLengthMode>;
 	public var bAutoPlay: Bool;
 	public var bLoop: Bool;
@@ -23,14 +23,14 @@ extern class TimelineTemplate extends Object {
 	private var UpdateFunctionName: FName;
 	private var FinishedFunctionName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTimelineTemplate(TimelineTemplate) from TimelineTemplate {
-	public extern var TimelineLength(get, never): cpp.Float32;
-	public inline extern function get_TimelineLength(): cpp.Float32 return this.TimelineLength;
+	public extern var TimelineLength(get, never): ucpp.num.Float32;
+	public inline extern function get_TimelineLength(): ucpp.num.Float32 return this.TimelineLength;
 	public extern var LengthMode(get, never): TEnumAsByte<ETimelineLengthMode>;
 	public inline extern function get_LengthMode(): TEnumAsByte<ETimelineLengthMode> return this.LengthMode;
 	public extern var bAutoPlay(get, never): Bool;
@@ -60,7 +60,7 @@ abstract ConstTimelineTemplate(TimelineTemplate) from TimelineTemplate {
 @:forward
 @:nativeGen
 @:native("TimelineTemplate*")
-abstract TimelineTemplatePtr(cpp.Star<TimelineTemplate>) from cpp.Star<TimelineTemplate> to cpp.Star<TimelineTemplate>{
+abstract TimelineTemplatePtr(ucpp.Ptr<TimelineTemplate>) from ucpp.Ptr<TimelineTemplate> to ucpp.Ptr<TimelineTemplate>{
 	@:from
 	public static extern inline function fromValue(v: TimelineTemplate): TimelineTemplatePtr {
 		return untyped __cpp__("&({0})", v);

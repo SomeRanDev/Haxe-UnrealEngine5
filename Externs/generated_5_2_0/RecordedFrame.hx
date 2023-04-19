@@ -3,16 +3,16 @@ package ue;
 
 @:native("FRecordedFrame")
 @:include("GeometryCollection/RecordedTransformTrack.h")
-@:structAccess
+@:valueType
 extern class RecordedFrame {
 	public var Transforms: TArray<Transform>;
-	public var TransformIndices: TArray<cpp.Int32>;
-	public var PreviousTransformIndices: TArray<cpp.Int32>;
+	public var TransformIndices: TArray<ucpp.num.Int32>;
+	public var PreviousTransformIndices: TArray<ucpp.num.Int32>;
 	public var DisabledFlags: TArray<Bool>;
 	public var Collisions: TArray<SolverCollisionData>;
 	public var Breakings: TArray<SolverBreakingData>;
 	public var Trailings: TSet<SolverTrailingData>;
-	public var Timestamp: cpp.Float32;
+	public var Timestamp: ucpp.num.Float32;
 
 	@:native("FRecordedFrame") public function new();
 }

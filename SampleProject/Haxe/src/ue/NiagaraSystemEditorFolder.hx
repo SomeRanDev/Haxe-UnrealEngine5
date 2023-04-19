@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraSystemEditorFolder")
 @:include("NiagaraSystemEditorData.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemEditorFolder extends Object {
 	private var FolderName: FName;
-	private var ChildFolders: TArray<cpp.Star<NiagaraSystemEditorFolder>>;
+	private var ChildFolders: TArray<ucpp.Ptr<NiagaraSystemEditorFolder>>;
 	private var ChildEmitterHandleIds: TArray<Guid>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraSystemEditorFolder(NiagaraSystemEditorFolder) from NiagaraS
 @:forward
 @:nativeGen
 @:native("NiagaraSystemEditorFolder*")
-abstract NiagaraSystemEditorFolderPtr(cpp.Star<NiagaraSystemEditorFolder>) from cpp.Star<NiagaraSystemEditorFolder> to cpp.Star<NiagaraSystemEditorFolder>{
+abstract NiagaraSystemEditorFolderPtr(ucpp.Ptr<NiagaraSystemEditorFolder>) from ucpp.Ptr<NiagaraSystemEditorFolder> to ucpp.Ptr<NiagaraSystemEditorFolder>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSystemEditorFolder): NiagaraSystemEditorFolderPtr {
 		return untyped __cpp__("&({0})", v);

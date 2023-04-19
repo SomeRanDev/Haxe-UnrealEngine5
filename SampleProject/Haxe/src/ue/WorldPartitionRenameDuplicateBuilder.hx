@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWorldPartitionRenameDuplicateBuilder")
 @:include("WorldPartition/WorldPartitionRenameDuplicateBuilder.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRenameDuplicateBuilder extends WorldPartitionBuilder {
-	private var DuplicatedObjects: TMap<cpp.Star<Object>, cpp.Star<Object>>;
+	private var DuplicatedObjects: TMap<ucpp.Ptr<Object>, ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstWorldPartitionRenameDuplicateBuilder(WorldPartitionRenameDuplicate
 @:forward
 @:nativeGen
 @:native("WorldPartitionRenameDuplicateBuilder*")
-abstract WorldPartitionRenameDuplicateBuilderPtr(cpp.Star<WorldPartitionRenameDuplicateBuilder>) from cpp.Star<WorldPartitionRenameDuplicateBuilder> to cpp.Star<WorldPartitionRenameDuplicateBuilder>{
+abstract WorldPartitionRenameDuplicateBuilderPtr(ucpp.Ptr<WorldPartitionRenameDuplicateBuilder>) from ucpp.Ptr<WorldPartitionRenameDuplicateBuilder> to ucpp.Ptr<WorldPartitionRenameDuplicateBuilder>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRenameDuplicateBuilder): WorldPartitionRenameDuplicateBuilderPtr {
 		return untyped __cpp__("&({0})", v);

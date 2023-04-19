@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMeshSymmetryProperties")
 @:include("MeshVertexSculptTool.h")
-@:structAccess
+@:valueType
 extern class MeshSymmetryProperties extends InteractiveToolPropertySet {
 	public var bEnableSymmetry: Bool;
 	public var bSymmetryCanBeEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMeshSymmetryProperties(MeshSymmetryProperties) from MeshSymmetryPr
 @:forward
 @:nativeGen
 @:native("MeshSymmetryProperties*")
-abstract MeshSymmetryPropertiesPtr(cpp.Star<MeshSymmetryProperties>) from cpp.Star<MeshSymmetryProperties> to cpp.Star<MeshSymmetryProperties>{
+abstract MeshSymmetryPropertiesPtr(ucpp.Ptr<MeshSymmetryProperties>) from ucpp.Ptr<MeshSymmetryProperties> to ucpp.Ptr<MeshSymmetryProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshSymmetryProperties): MeshSymmetryPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNodeColors")
 @:include("Dataflow/DataflowSettings.h")
-@:structAccess
+@:valueType
 extern class NodeColors {
 	public var NodeTitleColor: LinearColor;
 	public var NodeBodyTintColor: LinearColor;

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMeshInstancingSettings")
 @:include("Engine/MeshMerging.h")
-@:structAccess
+@:valueType
 extern class MeshInstancingSettings {
 	public var ActorClassToUse: TSubclassOf<Actor>;
-	public var InstanceReplacementThreshold: cpp.Int32;
+	public var InstanceReplacementThreshold: ucpp.num.Int32;
 	public var bSkipMeshesWithVertexColors: Bool;
 	public var bUseHLODVolumes: Bool;
 	public var ISMComponentToUse: TSubclassOf<InstancedStaticMeshComp>;
 
 	@:native("FMeshInstancingSettings") public function new();
-	@:native("FMeshInstancingSettings") public static function make(ActorClassToUse: TSubclassOf<Actor>, InstanceReplacementThreshold: cpp.Int32, bSkipMeshesWithVertexColors: Bool, bUseHLODVolumes: Bool, ISMComponentToUse: TSubclassOf<InstancedStaticMeshComp>): MeshInstancingSettings ;
+	@:native("FMeshInstancingSettings") public static function make(ActorClassToUse: TSubclassOf<Actor>, InstanceReplacementThreshold: ucpp.num.Int32, bSkipMeshesWithVertexColors: Bool, bUseHLODVolumes: Bool, ISMComponentToUse: TSubclassOf<InstancedStaticMeshComp>): MeshInstancingSettings ;
 }

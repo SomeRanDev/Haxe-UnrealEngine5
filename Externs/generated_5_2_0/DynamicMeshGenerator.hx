@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDynamicMeshGenerator")
 @:include("UDynamicMesh.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshGenerator extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDynamicMeshGenerator(DynamicMeshGenerator) from DynamicMeshGenerat
 @:forward
 @:nativeGen
 @:native("DynamicMeshGenerator*")
-abstract DynamicMeshGeneratorPtr(cpp.Star<DynamicMeshGenerator>) from cpp.Star<DynamicMeshGenerator> to cpp.Star<DynamicMeshGenerator>{
+abstract DynamicMeshGeneratorPtr(ucpp.Ptr<DynamicMeshGenerator>) from ucpp.Ptr<DynamicMeshGenerator> to ucpp.Ptr<DynamicMeshGenerator>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshGenerator): DynamicMeshGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

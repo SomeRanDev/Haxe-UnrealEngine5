@@ -2,10 +2,10 @@
 package ue;
 
 @:native("AThirdPersonMap_C")
-@:structAccess
+@:valueType
 extern class ThirdPersonMap_C extends LevelScriptActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstThirdPersonMap_C(ThirdPersonMap_C) from ThirdPersonMap_C {
 @:forward
 @:nativeGen
 @:native("ThirdPersonMap_C*")
-abstract ThirdPersonMap_CPtr(cpp.Star<ThirdPersonMap_C>) from cpp.Star<ThirdPersonMap_C> to cpp.Star<ThirdPersonMap_C>{
+abstract ThirdPersonMap_CPtr(ucpp.Ptr<ThirdPersonMap_C>) from ucpp.Ptr<ThirdPersonMap_C> to ucpp.Ptr<ThirdPersonMap_C>{
 	@:from
 	public static extern inline function fromValue(v: ThirdPersonMap_C): ThirdPersonMap_CPtr {
 		return untyped __cpp__("&({0})", v);

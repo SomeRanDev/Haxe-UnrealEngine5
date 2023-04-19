@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionMaterialProxyReplace")
 @:include("Materials/MaterialExpressionMaterialProxyReplace.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionMaterialProxyReplace extends MaterialExpression {
 	public var Realtime: ExpressionInput;
 	public var MaterialProxy: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionMaterialProxyReplace(MaterialExpressionMaterialP
 @:forward
 @:nativeGen
 @:native("MaterialExpressionMaterialProxyReplace*")
-abstract MaterialExpressionMaterialProxyReplacePtr(cpp.Star<MaterialExpressionMaterialProxyReplace>) from cpp.Star<MaterialExpressionMaterialProxyReplace> to cpp.Star<MaterialExpressionMaterialProxyReplace>{
+abstract MaterialExpressionMaterialProxyReplacePtr(ucpp.Ptr<MaterialExpressionMaterialProxyReplace>) from ucpp.Ptr<MaterialExpressionMaterialProxyReplace> to ucpp.Ptr<MaterialExpressionMaterialProxyReplace>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionMaterialProxyReplace): MaterialExpressionMaterialProxyReplacePtr {
 		return untyped __cpp__("&({0})", v);

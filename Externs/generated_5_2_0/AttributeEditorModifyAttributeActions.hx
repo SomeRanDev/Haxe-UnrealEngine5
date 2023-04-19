@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAttributeEditorModifyAttributeActions")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorModifyAttributeActions extends AttributeEditorActionPropertySet {
 	public var Attribute: FString;
 	public var AttributeNamesList: TArray<FString>;
@@ -11,7 +11,7 @@ extern class AttributeEditorModifyAttributeActions extends AttributeEditorAction
 	public function GetAttributeNamesFunc(): TArray<FString>;
 	public function DeleteSelected(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstAttributeEditorModifyAttributeActions(AttributeEditorModifyAttribu
 @:forward
 @:nativeGen
 @:native("AttributeEditorModifyAttributeActions*")
-abstract AttributeEditorModifyAttributeActionsPtr(cpp.Star<AttributeEditorModifyAttributeActions>) from cpp.Star<AttributeEditorModifyAttributeActions> to cpp.Star<AttributeEditorModifyAttributeActions>{
+abstract AttributeEditorModifyAttributeActionsPtr(ucpp.Ptr<AttributeEditorModifyAttributeActions>) from ucpp.Ptr<AttributeEditorModifyAttributeActions> to ucpp.Ptr<AttributeEditorModifyAttributeActions>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorModifyAttributeActions): AttributeEditorModifyAttributeActionsPtr {
 		return untyped __cpp__("&({0})", v);

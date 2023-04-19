@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigComputedTransform")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigComputedTransform {
 	public var Transform: Transform;
 

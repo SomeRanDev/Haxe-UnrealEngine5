@@ -3,10 +3,10 @@ package ue;
 
 @:native("AGridPathAIController")
 @:include("GridPathAIController.h")
-@:structAccess
+@:valueType
 extern class GridPathAIController extends AIController {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGridPathAIController(GridPathAIController) from GridPathAIControll
 @:forward
 @:nativeGen
 @:native("GridPathAIController*")
-abstract GridPathAIControllerPtr(cpp.Star<GridPathAIController>) from cpp.Star<GridPathAIController> to cpp.Star<GridPathAIController>{
+abstract GridPathAIControllerPtr(ucpp.Ptr<GridPathAIController>) from ucpp.Ptr<GridPathAIController> to ucpp.Ptr<GridPathAIController>{
 	@:from
 	public static extern inline function fromValue(v: GridPathAIController): GridPathAIControllerPtr {
 		return untyped __cpp__("&({0})", v);

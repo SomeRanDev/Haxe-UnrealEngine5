@@ -3,10 +3,10 @@ package ue;
 
 @:native("FMovieSceneChaosCacheParams")
 @:include("Chaos/Sequencer/MovieSceneChaosCacheSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneChaosCacheParams extends MovieSceneBaseCacheParams {
-	public var CacheCollection: cpp.Star<ChaosCacheCollection>;
+	public var CacheCollection: ucpp.Ptr<ChaosCacheCollection>;
 
 	@:native("FMovieSceneChaosCacheParams") public function new();
-	@:native("FMovieSceneChaosCacheParams") public static function make(CacheCollection: cpp.Star<ChaosCacheCollection>): MovieSceneChaosCacheParams ;
+	@:native("FMovieSceneChaosCacheParams") public static function make(CacheCollection: ucpp.Ptr<ChaosCacheCollection>): MovieSceneChaosCacheParams ;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UHLODBuilderInstancingSettings")
 @:include("HLODBuilderInstancing.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderInstancingSettings extends HLODBuilderSettings {
 	public var bDisallowNanite: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstHLODBuilderInstancingSettings(HLODBuilderInstancingSettings) from 
 @:forward
 @:nativeGen
 @:native("HLODBuilderInstancingSettings*")
-abstract HLODBuilderInstancingSettingsPtr(cpp.Star<HLODBuilderInstancingSettings>) from cpp.Star<HLODBuilderInstancingSettings> to cpp.Star<HLODBuilderInstancingSettings>{
+abstract HLODBuilderInstancingSettingsPtr(ucpp.Ptr<HLODBuilderInstancingSettings>) from ucpp.Ptr<HLODBuilderInstancingSettings> to ucpp.Ptr<HLODBuilderInstancingSettings>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderInstancingSettings): HLODBuilderInstancingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

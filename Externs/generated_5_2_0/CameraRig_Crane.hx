@@ -3,30 +3,30 @@ package ue;
 
 @:native("ACameraRig_Crane")
 @:include("CameraRig_Crane.h")
-@:structAccess
+@:valueType
 extern class CameraRig_Crane extends Actor {
-	public var CranePitch: cpp.Float32;
-	public var CraneYaw: cpp.Float32;
-	public var CraneArmLength: cpp.Float32;
+	public var CranePitch: ucpp.num.Float32;
+	public var CraneYaw: ucpp.num.Float32;
+	public var CraneArmLength: ucpp.num.Float32;
 	public var bLockMountPitch: Bool;
 	public var bLockMountYaw: Bool;
-	private var TransformComponent: cpp.Star<SceneComp>;
-	private var CraneYawControl: cpp.Star<SceneComp>;
-	private var CranePitchControl: cpp.Star<SceneComp>;
-	private var CraneCameraMount: cpp.Star<SceneComp>;
+	private var TransformComponent: ucpp.Ptr<SceneComp>;
+	private var CraneYawControl: ucpp.Ptr<SceneComp>;
+	private var CranePitchControl: ucpp.Ptr<SceneComp>;
+	private var CraneCameraMount: ucpp.Ptr<SceneComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCameraRig_Crane(CameraRig_Crane) from CameraRig_Crane {
-	public extern var CranePitch(get, never): cpp.Float32;
-	public inline extern function get_CranePitch(): cpp.Float32 return this.CranePitch;
-	public extern var CraneYaw(get, never): cpp.Float32;
-	public inline extern function get_CraneYaw(): cpp.Float32 return this.CraneYaw;
-	public extern var CraneArmLength(get, never): cpp.Float32;
-	public inline extern function get_CraneArmLength(): cpp.Float32 return this.CraneArmLength;
+	public extern var CranePitch(get, never): ucpp.num.Float32;
+	public inline extern function get_CranePitch(): ucpp.num.Float32 return this.CranePitch;
+	public extern var CraneYaw(get, never): ucpp.num.Float32;
+	public inline extern function get_CraneYaw(): ucpp.num.Float32 return this.CraneYaw;
+	public extern var CraneArmLength(get, never): ucpp.num.Float32;
+	public inline extern function get_CraneArmLength(): ucpp.num.Float32 return this.CraneArmLength;
 	public extern var bLockMountPitch(get, never): Bool;
 	public inline extern function get_bLockMountPitch(): Bool return this.bLockMountPitch;
 	public extern var bLockMountYaw(get, never): Bool;
@@ -36,7 +36,7 @@ abstract ConstCameraRig_Crane(CameraRig_Crane) from CameraRig_Crane {
 @:forward
 @:nativeGen
 @:native("CameraRig_Crane*")
-abstract CameraRig_CranePtr(cpp.Star<CameraRig_Crane>) from cpp.Star<CameraRig_Crane> to cpp.Star<CameraRig_Crane>{
+abstract CameraRig_CranePtr(ucpp.Ptr<CameraRig_Crane>) from ucpp.Ptr<CameraRig_Crane> to ucpp.Ptr<CameraRig_Crane>{
 	@:from
 	public static extern inline function fromValue(v: CameraRig_Crane): CameraRig_CranePtr {
 		return untyped __cpp__("&({0})", v);

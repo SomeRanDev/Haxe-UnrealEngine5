@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintBreakpoint")
 @:include("Kismet2/Breakpoint.h")
-@:structAccess
+@:valueType
 extern class BlueprintBreakpoint {
 	private var bEnabled: Bool;
 	private var Node: TSoftObjectPtr<EdGraphNode>;

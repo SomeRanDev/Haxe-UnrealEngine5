@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimationCurveData")
 @:include("Animation/AnimData/IAnimationDataModel.h")
-@:structAccess
+@:valueType
 extern class AnimationCurveData {
 	public var FloatCurves: TArray<FloatCurve>;
 	public var TransformCurves: TArray<TransformCurve>;

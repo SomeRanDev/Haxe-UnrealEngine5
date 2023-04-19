@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnDuplicateActorsBegin__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnDuplicateActorsBegin__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnDuplicateActorsBegin__PythonCallable(OnDuplicateActorsBegin__Pyt
 @:forward
 @:nativeGen
 @:native("OnDuplicateActorsBegin__PythonCallable*")
-abstract OnDuplicateActorsBegin__PythonCallablePtr(cpp.Star<OnDuplicateActorsBegin__PythonCallable>) from cpp.Star<OnDuplicateActorsBegin__PythonCallable> to cpp.Star<OnDuplicateActorsBegin__PythonCallable>{
+abstract OnDuplicateActorsBegin__PythonCallablePtr(ucpp.Ptr<OnDuplicateActorsBegin__PythonCallable>) from ucpp.Ptr<OnDuplicateActorsBegin__PythonCallable> to ucpp.Ptr<OnDuplicateActorsBegin__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnDuplicateActorsBegin__PythonCallable): OnDuplicateActorsBegin__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

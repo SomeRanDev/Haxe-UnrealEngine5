@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTransformableControlHandle")
 @:include("Constraints/ControlRigTransformableHandle.h")
-@:structAccess
+@:valueType
 extern class TransformableControlHandle extends TransformableHandle {
 	public var ControlRig: TSoftObjectPtr<ControlRig>;
 	public var ControlName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstTransformableControlHandle(TransformableControlHandle) from Transf
 @:forward
 @:nativeGen
 @:native("TransformableControlHandle*")
-abstract TransformableControlHandlePtr(cpp.Star<TransformableControlHandle>) from cpp.Star<TransformableControlHandle> to cpp.Star<TransformableControlHandle>{
+abstract TransformableControlHandlePtr(ucpp.Ptr<TransformableControlHandle>) from ucpp.Ptr<TransformableControlHandle> to ucpp.Ptr<TransformableControlHandle>{
 	@:from
 	public static extern inline function fromValue(v: TransformableControlHandle): TransformableControlHandlePtr {
 		return untyped __cpp__("&({0})", v);

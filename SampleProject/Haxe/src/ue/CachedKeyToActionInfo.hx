@@ -3,10 +3,10 @@ package ue;
 
 @:native("FCachedKeyToActionInfo")
 @:include("Components/InputComponent.h")
-@:structAccess
+@:valueType
 extern class CachedKeyToActionInfo {
-	public var PlayerInput: cpp.Star<PlayerInput>;
+	public var PlayerInput: TWeakObjectPtr<PlayerInput>;
 
 	@:native("FCachedKeyToActionInfo") public function new();
-	@:native("FCachedKeyToActionInfo") public static function make(PlayerInput: cpp.Star<PlayerInput>): CachedKeyToActionInfo ;
+	@:native("FCachedKeyToActionInfo") public static function make(PlayerInput: TWeakObjectPtr<PlayerInput>): CachedKeyToActionInfo ;
 }

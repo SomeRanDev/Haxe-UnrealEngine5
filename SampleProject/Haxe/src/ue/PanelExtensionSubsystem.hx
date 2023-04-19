@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPanelExtensionSubsystem")
 @:include("Subsystems/PanelExtensionSubsystem.h")
-@:structAccess
+@:valueType
 extern class PanelExtensionSubsystem extends EditorSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPanelExtensionSubsystem(PanelExtensionSubsystem) from PanelExtensi
 @:forward
 @:nativeGen
 @:native("PanelExtensionSubsystem*")
-abstract PanelExtensionSubsystemPtr(cpp.Star<PanelExtensionSubsystem>) from cpp.Star<PanelExtensionSubsystem> to cpp.Star<PanelExtensionSubsystem>{
+abstract PanelExtensionSubsystemPtr(ucpp.Ptr<PanelExtensionSubsystem>) from ucpp.Ptr<PanelExtensionSubsystem> to ucpp.Ptr<PanelExtensionSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: PanelExtensionSubsystem): PanelExtensionSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

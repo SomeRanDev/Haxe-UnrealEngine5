@@ -3,16 +3,16 @@ package ue;
 
 @:native("UBasicPointSetComponentBase")
 @:include("Drawing/BasicPointSetComponent.h")
-@:structAccess
+@:valueType
 extern class BasicPointSetComponentBase extends MeshComp {
-	@:protected public var PointMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var PointMaterial: ucpp.Ptr<MaterialInterface>;
 	@:protected public var Bounds: BoxSphereBounds;
 	@:protected public var bBoundsDirty: Bool;
 	@:protected public var Color: Color;
-	@:protected public var Size: cpp.Float32;
-	@:protected public var DepthBias: cpp.Float32;
+	@:protected public var Size: ucpp.num.Float32;
+	@:protected public var DepthBias: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstBasicPointSetComponentBase(BasicPointSetComponentBase) from BasicP
 @:forward
 @:nativeGen
 @:native("BasicPointSetComponentBase*")
-abstract BasicPointSetComponentBasePtr(cpp.Star<BasicPointSetComponentBase>) from cpp.Star<BasicPointSetComponentBase> to cpp.Star<BasicPointSetComponentBase>{
+abstract BasicPointSetComponentBasePtr(ucpp.Ptr<BasicPointSetComponentBase>) from ucpp.Ptr<BasicPointSetComponentBase> to ucpp.Ptr<BasicPointSetComponentBase>{
 	@:from
 	public static extern inline function fromValue(v: BasicPointSetComponentBase): BasicPointSetComponentBasePtr {
 		return untyped __cpp__("&({0})", v);

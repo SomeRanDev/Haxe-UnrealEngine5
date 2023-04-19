@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPropertiesToRecordForActorClass")
 @:include("SequenceRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class PropertiesToRecordForActorClass {
 	public var Class: TSubclassOf<Actor>;
 	public var Properties: TArray<FName>;

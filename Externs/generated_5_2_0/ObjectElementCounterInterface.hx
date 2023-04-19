@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectElementCounterInterface")
 @:include("Elements/Object/ObjectElementCounterInterface.h")
-@:structAccess
+@:valueType
 extern class ObjectElementCounterInterface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectElementCounterInterface(ObjectElementCounterInterface) from 
 @:forward
 @:nativeGen
 @:native("ObjectElementCounterInterface*")
-abstract ObjectElementCounterInterfacePtr(cpp.Star<ObjectElementCounterInterface>) from cpp.Star<ObjectElementCounterInterface> to cpp.Star<ObjectElementCounterInterface>{
+abstract ObjectElementCounterInterfacePtr(ucpp.Ptr<ObjectElementCounterInterface>) from ucpp.Ptr<ObjectElementCounterInterface> to ucpp.Ptr<ObjectElementCounterInterface>{
 	@:from
 	public static extern inline function fromValue(v: ObjectElementCounterInterface): ObjectElementCounterInterfacePtr {
 		return untyped __cpp__("&({0})", v);

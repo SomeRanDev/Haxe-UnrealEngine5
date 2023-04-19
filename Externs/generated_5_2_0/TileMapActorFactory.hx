@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTileMapActorFactory")
 @:include("TileMapActorFactory.h")
-@:structAccess
+@:valueType
 extern class TileMapActorFactory extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTileMapActorFactory(TileMapActorFactory) from TileMapActorFactory 
 @:forward
 @:nativeGen
 @:native("TileMapActorFactory*")
-abstract TileMapActorFactoryPtr(cpp.Star<TileMapActorFactory>) from cpp.Star<TileMapActorFactory> to cpp.Star<TileMapActorFactory>{
+abstract TileMapActorFactoryPtr(ucpp.Ptr<TileMapActorFactory>) from ucpp.Ptr<TileMapActorFactory> to ucpp.Ptr<TileMapActorFactory>{
 	@:from
 	public static extern inline function fromValue(v: TileMapActorFactory): TileMapActorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

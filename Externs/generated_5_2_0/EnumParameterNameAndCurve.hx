@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEnumParameterNameAndCurve")
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
-@:structAccess
+@:valueType
 extern class EnumParameterNameAndCurve {
 	public var ParameterName: FName;
 	public var ParameterCurve: MovieSceneByteChannel;

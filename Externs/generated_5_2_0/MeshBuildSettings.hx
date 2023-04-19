@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMeshBuildSettings")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class MeshBuildSettings {
 	public var bUseMikkTSpace: Bool;
 	public var bRecomputeNormals: Bool;
@@ -17,13 +17,13 @@ extern class MeshBuildSettings {
 	public var bGenerateLightmapUVs: Bool;
 	public var bGenerateDistanceFieldAsIfTwoSided: Bool;
 	public var bSupportFaceRemap: Bool;
-	public var MinLightmapResolution: cpp.Int32;
-	public var SrcLightmapIndex: cpp.Int32;
-	public var DstLightmapIndex: cpp.Int32;
+	public var MinLightmapResolution: ucpp.num.Int32;
+	public var SrcLightmapIndex: ucpp.num.Int32;
+	public var DstLightmapIndex: ucpp.num.Int32;
 	public var BuildScale3D: Vector;
-	public var DistanceFieldResolutionScale: cpp.Float32;
-	public var DistanceFieldReplacementMesh: cpp.Star<StaticMesh>;
-	public var MaxLumenMeshCards: cpp.Int32;
+	public var DistanceFieldResolutionScale: ucpp.num.Float32;
+	public var DistanceFieldReplacementMesh: ucpp.Ptr<StaticMesh>;
+	public var MaxLumenMeshCards: ucpp.num.Int32;
 
 	@:native("FMeshBuildSettings") public function new();
 }

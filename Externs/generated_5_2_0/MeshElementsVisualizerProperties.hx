@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshElementsVisualizerProperties")
 @:include("Drawing/MeshElementsVisualizer.h")
-@:structAccess
+@:valueType
 extern class MeshElementsVisualizerProperties extends InteractiveToolPropertySet {
 	public var bVisible: Bool;
 	public var bShowWireframe: Bool;
@@ -11,16 +11,16 @@ extern class MeshElementsVisualizerProperties extends InteractiveToolPropertySet
 	public var bShowUVSeams: Bool;
 	public var bShowNormalSeams: Bool;
 	public var bShowColorSeams: Bool;
-	public var ThicknessScale: cpp.Float32;
+	public var ThicknessScale: ucpp.num.Float32;
 	public var WireframeColor: Color;
 	public var BoundaryEdgeColor: Color;
 	public var UVSeamColor: Color;
 	public var NormalSeamColor: Color;
 	public var ColorSeamColor: Color;
-	public var DepthBias: cpp.Float32;
+	public var DepthBias: ucpp.num.Float32;
 	public var bAdjustDepthBiasUsingMeshSize: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,8 +38,8 @@ abstract ConstMeshElementsVisualizerProperties(MeshElementsVisualizerProperties)
 	public inline extern function get_bShowNormalSeams(): Bool return this.bShowNormalSeams;
 	public extern var bShowColorSeams(get, never): Bool;
 	public inline extern function get_bShowColorSeams(): Bool return this.bShowColorSeams;
-	public extern var ThicknessScale(get, never): cpp.Float32;
-	public inline extern function get_ThicknessScale(): cpp.Float32 return this.ThicknessScale;
+	public extern var ThicknessScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ThicknessScale(): ucpp.num.Float32 return this.ThicknessScale;
 	public extern var WireframeColor(get, never): Color;
 	public inline extern function get_WireframeColor(): Color return this.WireframeColor;
 	public extern var BoundaryEdgeColor(get, never): Color;
@@ -50,8 +50,8 @@ abstract ConstMeshElementsVisualizerProperties(MeshElementsVisualizerProperties)
 	public inline extern function get_NormalSeamColor(): Color return this.NormalSeamColor;
 	public extern var ColorSeamColor(get, never): Color;
 	public inline extern function get_ColorSeamColor(): Color return this.ColorSeamColor;
-	public extern var DepthBias(get, never): cpp.Float32;
-	public inline extern function get_DepthBias(): cpp.Float32 return this.DepthBias;
+	public extern var DepthBias(get, never): ucpp.num.Float32;
+	public inline extern function get_DepthBias(): ucpp.num.Float32 return this.DepthBias;
 	public extern var bAdjustDepthBiasUsingMeshSize(get, never): Bool;
 	public inline extern function get_bAdjustDepthBiasUsingMeshSize(): Bool return this.bAdjustDepthBiasUsingMeshSize;
 }
@@ -59,7 +59,7 @@ abstract ConstMeshElementsVisualizerProperties(MeshElementsVisualizerProperties)
 @:forward
 @:nativeGen
 @:native("MeshElementsVisualizerProperties*")
-abstract MeshElementsVisualizerPropertiesPtr(cpp.Star<MeshElementsVisualizerProperties>) from cpp.Star<MeshElementsVisualizerProperties> to cpp.Star<MeshElementsVisualizerProperties>{
+abstract MeshElementsVisualizerPropertiesPtr(ucpp.Ptr<MeshElementsVisualizerProperties>) from ucpp.Ptr<MeshElementsVisualizerProperties> to ucpp.Ptr<MeshElementsVisualizerProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshElementsVisualizerProperties): MeshElementsVisualizerPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

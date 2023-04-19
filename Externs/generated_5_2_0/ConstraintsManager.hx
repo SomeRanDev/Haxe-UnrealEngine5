@@ -3,31 +3,31 @@ package ue;
 
 @:native("UConstraintsManager")
 @:include("ConstraintsManager.h")
-@:structAccess
+@:valueType
 extern class ConstraintsManager extends Object {
-	public var OnConstraintAdded_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<ConstraintsManager>, cpp.Star<TickableConstraint>) -> Void>;
-	public var OnConstraintRemoved_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<ConstraintsManager>, cpp.Star<TickableConstraint>, Bool) -> Void>;
-	private var Constraints: TArray<cpp.Star<TickableConstraint>>;
+	public var OnConstraintAdded_BP: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ConstraintsManager>, ucpp.Ptr<TickableConstraint>) -> Void>;
+	public var OnConstraintRemoved_BP: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ConstraintsManager>, ucpp.Ptr<TickableConstraint>, Bool) -> Void>;
+	private var Constraints: TArray<ucpp.Ptr<TickableConstraint>>;
 
-	public function OnConstraintRemoved__DelegateSignature(Mananger: cpp.Star<ConstraintsManager>, Constraint: cpp.Star<TickableConstraint>, bDoNotCompensate: Bool): Void;
-	public function OnConstraintAdded__DelegateSignature(Mananger: cpp.Star<ConstraintsManager>, Constraint: cpp.Star<TickableConstraint>): Void;
+	public function OnConstraintRemoved__DelegateSignature(Mananger: ucpp.Ptr<ConstraintsManager>, Constraint: ucpp.Ptr<TickableConstraint>, bDoNotCompensate: Bool): Void;
+	public function OnConstraintAdded__DelegateSignature(Mananger: ucpp.Ptr<ConstraintsManager>, Constraint: ucpp.Ptr<TickableConstraint>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConstraintsManager(ConstraintsManager) from ConstraintsManager {
-	public extern var OnConstraintAdded_BP(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ConstraintsManager.ConstConstraintsManager>, cpp.Star<TickableConstraint.ConstTickableConstraint>) -> Void>;
-	public inline extern function get_OnConstraintAdded_BP(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ConstraintsManager.ConstConstraintsManager>, cpp.Star<TickableConstraint.ConstTickableConstraint>) -> Void> return this.OnConstraintAdded_BP;
-	public extern var OnConstraintRemoved_BP(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ConstraintsManager.ConstConstraintsManager>, cpp.Star<TickableConstraint.ConstTickableConstraint>, Bool) -> Void>;
-	public inline extern function get_OnConstraintRemoved_BP(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ConstraintsManager.ConstConstraintsManager>, cpp.Star<TickableConstraint.ConstTickableConstraint>, Bool) -> Void> return this.OnConstraintRemoved_BP;
+	public extern var OnConstraintAdded_BP(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ConstraintsManager.ConstConstraintsManager>, ucpp.Ptr<TickableConstraint.ConstTickableConstraint>) -> Void>;
+	public inline extern function get_OnConstraintAdded_BP(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ConstraintsManager.ConstConstraintsManager>, ucpp.Ptr<TickableConstraint.ConstTickableConstraint>) -> Void> return this.OnConstraintAdded_BP;
+	public extern var OnConstraintRemoved_BP(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ConstraintsManager.ConstConstraintsManager>, ucpp.Ptr<TickableConstraint.ConstTickableConstraint>, Bool) -> Void>;
+	public inline extern function get_OnConstraintRemoved_BP(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ConstraintsManager.ConstConstraintsManager>, ucpp.Ptr<TickableConstraint.ConstTickableConstraint>, Bool) -> Void> return this.OnConstraintRemoved_BP;
 }
 
 @:forward
 @:nativeGen
 @:native("ConstraintsManager*")
-abstract ConstraintsManagerPtr(cpp.Star<ConstraintsManager>) from cpp.Star<ConstraintsManager> to cpp.Star<ConstraintsManager>{
+abstract ConstraintsManagerPtr(ucpp.Ptr<ConstraintsManager>) from ucpp.Ptr<ConstraintsManager> to ucpp.Ptr<ConstraintsManager>{
 	@:from
 	public static extern inline function fromValue(v: ConstraintsManager): ConstraintsManagerPtr {
 		return untyped __cpp__("&({0})", v);

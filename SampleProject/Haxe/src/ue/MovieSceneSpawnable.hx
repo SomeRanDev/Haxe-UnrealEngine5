@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSpawnable")
 @:include("MovieSceneSpawnable.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSpawnable {
 	public var SpawnTransform: Transform;
 	public var Tags: TArray<FName>;
@@ -12,7 +12,7 @@ extern class MovieSceneSpawnable {
 	public var bEvaluateTracksWhenNotSpawned: Bool;
 	private var Guid: Guid;
 	private var Name: FString;
-	private var ObjectTemplate: cpp.Star<Object>;
+	private var ObjectTemplate: ucpp.Ptr<Object>;
 	private var ChildPossessables: TArray<Guid>;
 	private var Ownership: ESpawnOwnership;
 	public var LevelName: FName;

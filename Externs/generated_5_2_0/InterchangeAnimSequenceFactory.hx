@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeAnimSequenceFactory")
 @:include("Animation/InterchangeAnimSequenceFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangeAnimSequenceFactory extends InterchangeFactoryBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeAnimSequenceFactory(InterchangeAnimSequenceFactory) fro
 @:forward
 @:nativeGen
 @:native("InterchangeAnimSequenceFactory*")
-abstract InterchangeAnimSequenceFactoryPtr(cpp.Star<InterchangeAnimSequenceFactory>) from cpp.Star<InterchangeAnimSequenceFactory> to cpp.Star<InterchangeAnimSequenceFactory>{
+abstract InterchangeAnimSequenceFactoryPtr(ucpp.Ptr<InterchangeAnimSequenceFactory>) from ucpp.Ptr<InterchangeAnimSequenceFactory> to ucpp.Ptr<InterchangeAnimSequenceFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeAnimSequenceFactory): InterchangeAnimSequenceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

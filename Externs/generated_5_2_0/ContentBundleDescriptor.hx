@@ -3,14 +3,14 @@ package ue;
 
 @:native("UContentBundleDescriptor")
 @:include("WorldPartition/ContentBundle/ContentBundleDescriptor.h")
-@:structAccess
+@:valueType
 extern class ContentBundleDescriptor extends Object {
 	private var DisplayName: FString;
 	private var DebugColor: Color;
 	private var Guid: Guid;
 	private var PackageRoot: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstContentBundleDescriptor(ContentBundleDescriptor) from ContentBundl
 @:forward
 @:nativeGen
 @:native("ContentBundleDescriptor*")
-abstract ContentBundleDescriptorPtr(cpp.Star<ContentBundleDescriptor>) from cpp.Star<ContentBundleDescriptor> to cpp.Star<ContentBundleDescriptor>{
+abstract ContentBundleDescriptorPtr(ucpp.Ptr<ContentBundleDescriptor>) from ucpp.Ptr<ContentBundleDescriptor> to ucpp.Ptr<ContentBundleDescriptor>{
 	@:from
 	public static extern inline function fromValue(v: ContentBundleDescriptor): ContentBundleDescriptorPtr {
 		return untyped __cpp__("&({0})", v);

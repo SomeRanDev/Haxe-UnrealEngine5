@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPythonScriptPluginUserSettings")
 @:include("PythonScriptPluginSettings.h")
-@:structAccess
+@:valueType
 extern class PythonScriptPluginUserSettings extends DeveloperSettings {
 	public var bDeveloperMode: Bool;
 	public var TypeHintingMode: ETypeHintingMode;
 	public var bEnableContentBrowserIntegration: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstPythonScriptPluginUserSettings(PythonScriptPluginUserSettings) fro
 @:forward
 @:nativeGen
 @:native("PythonScriptPluginUserSettings*")
-abstract PythonScriptPluginUserSettingsPtr(cpp.Star<PythonScriptPluginUserSettings>) from cpp.Star<PythonScriptPluginUserSettings> to cpp.Star<PythonScriptPluginUserSettings>{
+abstract PythonScriptPluginUserSettingsPtr(ucpp.Ptr<PythonScriptPluginUserSettings>) from ucpp.Ptr<PythonScriptPluginUserSettings> to ucpp.Ptr<PythonScriptPluginUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: PythonScriptPluginUserSettings): PythonScriptPluginUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

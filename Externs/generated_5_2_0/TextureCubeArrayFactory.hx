@@ -3,24 +3,24 @@ package ue;
 
 @:native("UTextureCubeArrayFactory")
 @:include("Factories/TextureCubeArrayFactory.h")
-@:structAccess
+@:valueType
 extern class TextureCubeArrayFactory extends Factory {
-	public var InitialTextures: TArray<cpp.Star<TextureCube>>;
+	public var InitialTextures: TArray<ucpp.Ptr<TextureCube>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureCubeArrayFactory(TextureCubeArrayFactory) from TextureCubeArrayFactory {
-	public extern var InitialTextures(get, never): TArray<cpp.Star<TextureCube.ConstTextureCube>>;
-	public inline extern function get_InitialTextures(): TArray<cpp.Star<TextureCube.ConstTextureCube>> return this.InitialTextures;
+	public extern var InitialTextures(get, never): TArray<ucpp.Ptr<TextureCube.ConstTextureCube>>;
+	public inline extern function get_InitialTextures(): TArray<ucpp.Ptr<TextureCube.ConstTextureCube>> return this.InitialTextures;
 }
 
 @:forward
 @:nativeGen
 @:native("TextureCubeArrayFactory*")
-abstract TextureCubeArrayFactoryPtr(cpp.Star<TextureCubeArrayFactory>) from cpp.Star<TextureCubeArrayFactory> to cpp.Star<TextureCubeArrayFactory>{
+abstract TextureCubeArrayFactoryPtr(ucpp.Ptr<TextureCubeArrayFactory>) from ucpp.Ptr<TextureCubeArrayFactory> to ucpp.Ptr<TextureCubeArrayFactory>{
 	@:from
 	public static extern inline function fromValue(v: TextureCubeArrayFactory): TextureCubeArrayFactoryPtr {
 		return untyped __cpp__("&({0})", v);

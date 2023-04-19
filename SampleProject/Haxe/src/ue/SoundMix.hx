@@ -3,18 +3,18 @@ package ue;
 
 @:native("USoundMix")
 @:include("Sound/SoundMix.h")
-@:structAccess
+@:valueType
 extern class SoundMix extends Object {
 	public var bApplyEQ: Bool;
-	public var EQPriority: cpp.Float32;
+	public var EQPriority: ucpp.num.Float32;
 	public var EQSettings: AudioEQEffect;
 	public var SoundClassEffects: TArray<SoundClassAdjuster>;
-	public var InitialDelay: cpp.Float32;
-	public var FadeInTime: cpp.Float32;
-	public var Duration: cpp.Float32;
-	public var FadeOutTime: cpp.Float32;
+	public var InitialDelay: ucpp.num.Float32;
+	public var FadeInTime: ucpp.num.Float32;
+	public var Duration: ucpp.num.Float32;
+	public var FadeOutTime: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,26 +22,26 @@ extern class SoundMix extends Object {
 abstract ConstSoundMix(SoundMix) from SoundMix {
 	public extern var bApplyEQ(get, never): Bool;
 	public inline extern function get_bApplyEQ(): Bool return this.bApplyEQ;
-	public extern var EQPriority(get, never): cpp.Float32;
-	public inline extern function get_EQPriority(): cpp.Float32 return this.EQPriority;
+	public extern var EQPriority(get, never): ucpp.num.Float32;
+	public inline extern function get_EQPriority(): ucpp.num.Float32 return this.EQPriority;
 	public extern var EQSettings(get, never): AudioEQEffect;
 	public inline extern function get_EQSettings(): AudioEQEffect return this.EQSettings;
 	public extern var SoundClassEffects(get, never): TArray<SoundClassAdjuster>;
 	public inline extern function get_SoundClassEffects(): TArray<SoundClassAdjuster> return this.SoundClassEffects;
-	public extern var InitialDelay(get, never): cpp.Float32;
-	public inline extern function get_InitialDelay(): cpp.Float32 return this.InitialDelay;
-	public extern var FadeInTime(get, never): cpp.Float32;
-	public inline extern function get_FadeInTime(): cpp.Float32 return this.FadeInTime;
-	public extern var Duration(get, never): cpp.Float32;
-	public inline extern function get_Duration(): cpp.Float32 return this.Duration;
-	public extern var FadeOutTime(get, never): cpp.Float32;
-	public inline extern function get_FadeOutTime(): cpp.Float32 return this.FadeOutTime;
+	public extern var InitialDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_InitialDelay(): ucpp.num.Float32 return this.InitialDelay;
+	public extern var FadeInTime(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeInTime(): ucpp.num.Float32 return this.FadeInTime;
+	public extern var Duration(get, never): ucpp.num.Float32;
+	public inline extern function get_Duration(): ucpp.num.Float32 return this.Duration;
+	public extern var FadeOutTime(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeOutTime(): ucpp.num.Float32 return this.FadeOutTime;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundMix*")
-abstract SoundMixPtr(cpp.Star<SoundMix>) from cpp.Star<SoundMix> to cpp.Star<SoundMix>{
+abstract SoundMixPtr(ucpp.Ptr<SoundMix>) from ucpp.Ptr<SoundMix> to ucpp.Ptr<SoundMix>{
 	@:from
 	public static extern inline function fromValue(v: SoundMix): SoundMixPtr {
 		return untyped __cpp__("&({0})", v);

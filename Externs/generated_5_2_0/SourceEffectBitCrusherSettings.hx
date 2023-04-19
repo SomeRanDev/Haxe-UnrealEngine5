@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSourceEffectBitCrusherSettings")
 @:include("SourceEffects/SourceEffectBitCrusher.h")
-@:structAccess
+@:valueType
 extern class SourceEffectBitCrusherSettings {
-	public var CrushedSampleRate: cpp.Float32;
+	public var CrushedSampleRate: ucpp.num.Float32;
 	public var SampleRateModulation: SoundModulationDestinationSettings;
-	public var CrushedBits: cpp.Float32;
+	public var CrushedBits: ucpp.num.Float32;
 	public var BitModulation: SoundModulationDestinationSettings;
 
 	@:native("FSourceEffectBitCrusherSettings") public function new();
-	@:native("FSourceEffectBitCrusherSettings") public static function make(CrushedSampleRate: cpp.Float32, SampleRateModulation: SoundModulationDestinationSettings, CrushedBits: cpp.Float32, BitModulation: SoundModulationDestinationSettings): SourceEffectBitCrusherSettings ;
+	@:native("FSourceEffectBitCrusherSettings") public static function make(CrushedSampleRate: ucpp.num.Float32, SampleRateModulation: SoundModulationDestinationSettings, CrushedBits: ucpp.num.Float32, BitModulation: SoundModulationDestinationSettings): SourceEffectBitCrusherSettings ;
 }

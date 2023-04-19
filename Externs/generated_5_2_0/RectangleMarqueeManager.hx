@@ -3,13 +3,13 @@ package ue;
 
 @:native("URectangleMarqueeManager")
 @:include("FractureToolSelection.h")
-@:structAccess
+@:valueType
 extern class RectangleMarqueeManager extends Object {
 	public var bUseExternalClickDragBehavior: Bool;
-	public var OnDragRectangleChangedDeferredThreshold: cpp.Float64;
-	@:protected public var ClickDragBehavior: cpp.Star<ClickDragInputBehavior>;
+	public var OnDragRectangleChangedDeferredThreshold: ucpp.num.Float64;
+	@:protected public var ClickDragBehavior: ucpp.Ptr<ClickDragInputBehavior>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,14 +17,14 @@ extern class RectangleMarqueeManager extends Object {
 abstract ConstRectangleMarqueeManager(RectangleMarqueeManager) from RectangleMarqueeManager {
 	public extern var bUseExternalClickDragBehavior(get, never): Bool;
 	public inline extern function get_bUseExternalClickDragBehavior(): Bool return this.bUseExternalClickDragBehavior;
-	public extern var OnDragRectangleChangedDeferredThreshold(get, never): cpp.Float64;
-	public inline extern function get_OnDragRectangleChangedDeferredThreshold(): cpp.Float64 return this.OnDragRectangleChangedDeferredThreshold;
+	public extern var OnDragRectangleChangedDeferredThreshold(get, never): ucpp.num.Float64;
+	public inline extern function get_OnDragRectangleChangedDeferredThreshold(): ucpp.num.Float64 return this.OnDragRectangleChangedDeferredThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("RectangleMarqueeManager*")
-abstract RectangleMarqueeManagerPtr(cpp.Star<RectangleMarqueeManager>) from cpp.Star<RectangleMarqueeManager> to cpp.Star<RectangleMarqueeManager>{
+abstract RectangleMarqueeManagerPtr(ucpp.Ptr<RectangleMarqueeManager>) from ucpp.Ptr<RectangleMarqueeManager> to ucpp.Ptr<RectangleMarqueeManager>{
 	@:from
 	public static extern inline function fromValue(v: RectangleMarqueeManager): RectangleMarqueeManagerPtr {
 		return untyped __cpp__("&({0})", v);

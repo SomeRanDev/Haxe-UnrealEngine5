@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPyTestStruct")
 @:include("Private/PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestStruct {
 	public var Bool: Bool;
-	public var Int: cpp.Int32;
-	public var Float: cpp.Float32;
+	public var Int: ucpp.num.Int32;
+	public var Float: ucpp.num.Float32;
 	public var Enum: EPyTestEnum;
 	public var String: FString;
 	public var Name: FName;
@@ -16,7 +16,7 @@ extern class PyTestStruct {
 	public var StructFieldPath: TFieldPath<FStructProperty>;
 	public var StringArray: TArray<FString>;
 	public var StringSet: TSet<FString>;
-	public var StringIntMap: TMap<FString, cpp.Int32>;
+	public var StringIntMap: TMap<FString, ucpp.num.Int32>;
 	public var BoolInstanceOnly: Bool;
 	public var BoolDefaultsOnly: Bool;
 	public var BoolMutable: Bool;

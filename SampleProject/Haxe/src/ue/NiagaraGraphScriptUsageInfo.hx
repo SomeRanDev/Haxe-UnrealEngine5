@@ -3,15 +3,16 @@ package ue;
 
 @:native("FNiagaraGraphScriptUsageInfo")
 @:include("NiagaraGraph.h")
-@:structAccess
+@:valueType
 extern class NiagaraGraphScriptUsageInfo {
 	public var BaseId: Guid;
 	public var UsageType: ENiagaraScriptUsage;
 	public var UsageId: Guid;
 	public var CompileHash: NiagaraCompileHash;
 	public var CompileHashFromGraph: NiagaraCompileHash;
+	public var ReferenceHashFromGraph: NiagaraCompileHash;
 	public var CompileLastObjects: TArray<NiagaraCompileHashVisitorDebugInfo>;
-	public var Traversal: TArray<cpp.Star<NiagaraNode>>;
+	public var Traversal: TArray<ucpp.Ptr<NiagaraNode>>;
 
 	@:native("FNiagaraGraphScriptUsageInfo") public function new();
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraEditorSettings")
 @:include("NiagaraEditorSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraEditorSettings extends DeveloperSettings {
 	public var DefaultScript: SoftObjectPath;
 	public var DefaultDynamicInputScript: SoftObjectPath;
@@ -13,7 +13,7 @@ extern class NiagaraEditorSettings extends DeveloperSettings {
 	public var DefaultValidationRuleSets: TArray<TSoftObjectPtr<NiagaraValidationRuleSet>>;
 	public var GraphCreationShortcuts: TArray<NiagaraSpawnShortcut>;
 	public var bSimplifyStackNodesAtLowResolution: Bool;
-	public var LowResolutionNodeMaxNameChars: cpp.Int32;
+	public var LowResolutionNodeMaxNameChars: ucpp.num.Int32;
 	public var bAlwaysZoomToFitSystemGraph: Bool;
 	private var bAutoCompile: Bool;
 	private var bAutoPlay: Bool;
@@ -22,8 +22,8 @@ extern class NiagaraEditorSettings extends DeveloperSettings {
 	private var bResetDependentSystemsWhenEditingEmitters: Bool;
 	private var bDisplayAdvancedParameterPanelCategories: Bool;
 	private var bDisplayAffectedAssetStats: Bool;
-	private var AffectedAssetSearchLimit: cpp.Int32;
-	private var PlaybackSpeeds: TArray<cpp.Float32>;
+	private var AffectedAssetSearchLimit: ucpp.num.Int32;
+	private var PlaybackSpeeds: TArray<ucpp.num.Float32>;
 	private var ActionColors: NiagaraActionColors;
 	private var NewAssetDialogConfigMap: TMap<FName, NiagaraNewAssetDialogConfig>;
 	private var HLSLKeywordReplacements: TMap<FString, FString>;
@@ -39,7 +39,7 @@ extern class NiagaraEditorSettings extends DeveloperSettings {
 	private var bShowGpuTickInformation: Bool;
 	private var SystemParameterPanelSectionData: TArray<NiagaraParameterPanelSectionStorage>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -61,8 +61,8 @@ abstract ConstNiagaraEditorSettings(NiagaraEditorSettings) from NiagaraEditorSet
 	public inline extern function get_GraphCreationShortcuts(): TArray<NiagaraSpawnShortcut> return this.GraphCreationShortcuts;
 	public extern var bSimplifyStackNodesAtLowResolution(get, never): Bool;
 	public inline extern function get_bSimplifyStackNodesAtLowResolution(): Bool return this.bSimplifyStackNodesAtLowResolution;
-	public extern var LowResolutionNodeMaxNameChars(get, never): cpp.Int32;
-	public inline extern function get_LowResolutionNodeMaxNameChars(): cpp.Int32 return this.LowResolutionNodeMaxNameChars;
+	public extern var LowResolutionNodeMaxNameChars(get, never): ucpp.num.Int32;
+	public inline extern function get_LowResolutionNodeMaxNameChars(): ucpp.num.Int32 return this.LowResolutionNodeMaxNameChars;
 	public extern var bAlwaysZoomToFitSystemGraph(get, never): Bool;
 	public inline extern function get_bAlwaysZoomToFitSystemGraph(): Bool return this.bAlwaysZoomToFitSystemGraph;
 }
@@ -70,7 +70,7 @@ abstract ConstNiagaraEditorSettings(NiagaraEditorSettings) from NiagaraEditorSet
 @:forward
 @:nativeGen
 @:native("NiagaraEditorSettings*")
-abstract NiagaraEditorSettingsPtr(cpp.Star<NiagaraEditorSettings>) from cpp.Star<NiagaraEditorSettings> to cpp.Star<NiagaraEditorSettings>{
+abstract NiagaraEditorSettingsPtr(ucpp.Ptr<NiagaraEditorSettings>) from ucpp.Ptr<NiagaraEditorSettings> to ucpp.Ptr<NiagaraEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEditorSettings): NiagaraEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

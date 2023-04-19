@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable")
-@:structAccess
+@:valueType
 extern class NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable(
 @:forward
 @:nativeGen
 @:native("NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable*")
-abstract NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallablePtr(cpp.Star<NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable>) from cpp.Star<NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable> to cpp.Star<NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable>{
+abstract NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallablePtr(ucpp.Ptr<NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable>) from ucpp.Ptr<NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable> to ucpp.Ptr<NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallable): NiagaraClipboardFunction_OnPastedFunctionCallNode__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

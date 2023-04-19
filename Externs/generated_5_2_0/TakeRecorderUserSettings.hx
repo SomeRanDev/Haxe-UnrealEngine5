@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTakeRecorderUserSettings")
 @:include("TakeRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderUserSettings extends Object {
 	public var Settings: TakeRecorderUserParameters;
 	public var PresetSaveDir: DirectoryPath;
@@ -11,7 +11,7 @@ extern class TakeRecorderUserSettings extends Object {
 	public var bIsSequenceOpen: Bool;
 	public var bShowUserSettingsOnUI: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstTakeRecorderUserSettings(TakeRecorderUserSettings) from TakeRecord
 @:forward
 @:nativeGen
 @:native("TakeRecorderUserSettings*")
-abstract TakeRecorderUserSettingsPtr(cpp.Star<TakeRecorderUserSettings>) from cpp.Star<TakeRecorderUserSettings> to cpp.Star<TakeRecorderUserSettings>{
+abstract TakeRecorderUserSettingsPtr(ucpp.Ptr<TakeRecorderUserSettings>) from ucpp.Ptr<TakeRecorderUserSettings> to ucpp.Ptr<TakeRecorderUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderUserSettings): TakeRecorderUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

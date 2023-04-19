@@ -3,15 +3,15 @@ package ue;
 
 @:native("UBasicTriangleSetComponentBase")
 @:include("Drawing/BasicTriangleSetComponent.h")
-@:structAccess
+@:valueType
 extern class BasicTriangleSetComponentBase extends MeshComp {
-	@:protected public var TriangleMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var TriangleMaterial: ucpp.Ptr<MaterialInterface>;
 	@:protected public var Bounds: BoxSphereBounds;
 	@:protected public var bBoundsDirty: Bool;
 	@:protected public var Color: Color;
 	@:protected public var Normal: Vector3f;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstBasicTriangleSetComponentBase(BasicTriangleSetComponentBase) from 
 @:forward
 @:nativeGen
 @:native("BasicTriangleSetComponentBase*")
-abstract BasicTriangleSetComponentBasePtr(cpp.Star<BasicTriangleSetComponentBase>) from cpp.Star<BasicTriangleSetComponentBase> to cpp.Star<BasicTriangleSetComponentBase>{
+abstract BasicTriangleSetComponentBasePtr(ucpp.Ptr<BasicTriangleSetComponentBase>) from ucpp.Ptr<BasicTriangleSetComponentBase> to ucpp.Ptr<BasicTriangleSetComponentBase>{
 	@:from
 	public static extern inline function fromValue(v: BasicTriangleSetComponentBase): BasicTriangleSetComponentBasePtr {
 		return untyped __cpp__("&({0})", v);

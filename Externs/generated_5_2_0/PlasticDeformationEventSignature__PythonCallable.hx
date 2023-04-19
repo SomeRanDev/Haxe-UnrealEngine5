@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPlasticDeformationEventSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class PlasticDeformationEventSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPlasticDeformationEventSignature__PythonCallable(PlasticDeformatio
 @:forward
 @:nativeGen
 @:native("PlasticDeformationEventSignature__PythonCallable*")
-abstract PlasticDeformationEventSignature__PythonCallablePtr(cpp.Star<PlasticDeformationEventSignature__PythonCallable>) from cpp.Star<PlasticDeformationEventSignature__PythonCallable> to cpp.Star<PlasticDeformationEventSignature__PythonCallable>{
+abstract PlasticDeformationEventSignature__PythonCallablePtr(ucpp.Ptr<PlasticDeformationEventSignature__PythonCallable>) from ucpp.Ptr<PlasticDeformationEventSignature__PythonCallable> to ucpp.Ptr<PlasticDeformationEventSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PlasticDeformationEventSignature__PythonCallable): PlasticDeformationEventSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

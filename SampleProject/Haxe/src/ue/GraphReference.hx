@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGraphReference")
 @:include("EdGraph/EdGraph.h")
-@:structAccess
+@:valueType
 extern class GraphReference {
-	@:protected public var MacroGraph: cpp.Star<EdGraph>;
-	@:protected public var GraphBlueprint: cpp.Star<Blueprint>;
+	@:protected public var MacroGraph: ucpp.Ptr<EdGraph>;
+	@:protected public var GraphBlueprint: ucpp.Ptr<Blueprint>;
 	@:protected public var GraphGuid: Guid;
 
 	@:native("FGraphReference") public function new();
-	@:native("FGraphReference") public static function make(MacroGraph: cpp.Star<EdGraph>, GraphBlueprint: cpp.Star<Blueprint>, GraphGuid: Guid): GraphReference ;
+	@:native("FGraphReference") public static function make(MacroGraph: ucpp.Ptr<EdGraph>, GraphBlueprint: ucpp.Ptr<Blueprint>, GraphGuid: Guid): GraphReference ;
 }

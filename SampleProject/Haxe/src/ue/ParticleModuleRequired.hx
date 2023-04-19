@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleRequired")
 @:include("Particles/ParticleModuleRequired.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleRequired extends ParticleModule {
-	public var Material: cpp.Star<MaterialInterface>;
-	public var MinFacingCameraBlendDistance: cpp.Float32;
-	public var MaxFacingCameraBlendDistance: cpp.Float32;
+	public var Material: ucpp.Ptr<MaterialInterface>;
+	public var MinFacingCameraBlendDistance: ucpp.num.Float32;
+	public var MaxFacingCameraBlendDistance: ucpp.num.Float32;
 	public var EmitterOrigin: Vector;
 	public var EmitterRotation: Rotator;
 	public var ScreenAlignment: TEnumAsByte<EParticleScreenAlignment>;
@@ -19,11 +19,11 @@ extern class ParticleModuleRequired extends ParticleModule {
 	public var bRemoveHMDRoll: Bool;
 	public var bSupportLargeWorldCoordinates: Bool;
 	public var bEmitterDurationUseRange: Bool;
-	public var EmitterDuration: cpp.Float32;
+	public var EmitterDuration: ucpp.num.Float32;
 	public var SpawnRate: RawDistributionFloat;
 	public var BurstList: TArray<ParticleBurst>;
-	public var EmitterDelay: cpp.Float32;
-	public var EmitterDelayLow: cpp.Float32;
+	public var EmitterDelay: ucpp.num.Float32;
+	public var EmitterDelayLow: ucpp.num.Float32;
 	public var bDelayFirstLoopOnly: Bool;
 	public var InterpolationMethod: TEnumAsByte<EParticleSubUVInterpMethod>;
 	public var bScaleUV: Bool;
@@ -34,36 +34,36 @@ extern class ParticleModuleRequired extends ParticleModule {
 	public var OpacitySourceMode: TEnumAsByte<EOpacitySourceMode>;
 	public var EmitterNormalsMode: TEnumAsByte<EEmitterNormalsMode>;
 	public var bOrbitModuleAffectsVelocityAlignment: Bool;
-	public var SubImages_Horizontal: cpp.Int32;
-	public var SubImages_Vertical: cpp.Int32;
-	public var RandomImageTime: cpp.Float32;
-	public var RandomImageChanges: cpp.Int32;
+	public var SubImages_Horizontal: ucpp.num.Int32;
+	public var SubImages_Vertical: ucpp.num.Int32;
+	public var RandomImageTime: ucpp.num.Float32;
+	public var RandomImageChanges: ucpp.num.Int32;
 	public var MacroUVPosition: Vector;
-	public var MacroUVRadius: cpp.Float32;
+	public var MacroUVRadius: ucpp.num.Float32;
 	public var UVFlippingMode: EParticleUVFlipMode;
 	public var BoundingMode: TEnumAsByte<ESubUVBoundingVertexCount>;
 	public var bDurationRecalcEachLoop: Bool;
 	public var NormalsSphereCenter: Vector;
-	public var AlphaThreshold: cpp.Float32;
-	public var EmitterLoops: cpp.Int32;
-	public var CutoutTexture: cpp.Star<Texture2D>;
-	public var MaxDrawCount: cpp.Int32;
-	public var EmitterDurationLow: cpp.Float32;
+	public var AlphaThreshold: ucpp.num.Float32;
+	public var EmitterLoops: ucpp.num.Int32;
+	public var CutoutTexture: ucpp.Ptr<Texture2D>;
+	public var MaxDrawCount: ucpp.num.Int32;
+	public var EmitterDurationLow: ucpp.num.Float32;
 	public var NormalsCylinderDirection: Vector;
 	public var NamedMaterialOverrides: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleRequired(ParticleModuleRequired) from ParticleModuleRequired {
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
-	public extern var MinFacingCameraBlendDistance(get, never): cpp.Float32;
-	public inline extern function get_MinFacingCameraBlendDistance(): cpp.Float32 return this.MinFacingCameraBlendDistance;
-	public extern var MaxFacingCameraBlendDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxFacingCameraBlendDistance(): cpp.Float32 return this.MaxFacingCameraBlendDistance;
+	public extern var Material(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Material(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Material;
+	public extern var MinFacingCameraBlendDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MinFacingCameraBlendDistance(): ucpp.num.Float32 return this.MinFacingCameraBlendDistance;
+	public extern var MaxFacingCameraBlendDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxFacingCameraBlendDistance(): ucpp.num.Float32 return this.MaxFacingCameraBlendDistance;
 	public extern var EmitterOrigin(get, never): Vector;
 	public inline extern function get_EmitterOrigin(): Vector return this.EmitterOrigin;
 	public extern var EmitterRotation(get, never): Rotator;
@@ -86,16 +86,16 @@ abstract ConstParticleModuleRequired(ParticleModuleRequired) from ParticleModule
 	public inline extern function get_bSupportLargeWorldCoordinates(): Bool return this.bSupportLargeWorldCoordinates;
 	public extern var bEmitterDurationUseRange(get, never): Bool;
 	public inline extern function get_bEmitterDurationUseRange(): Bool return this.bEmitterDurationUseRange;
-	public extern var EmitterDuration(get, never): cpp.Float32;
-	public inline extern function get_EmitterDuration(): cpp.Float32 return this.EmitterDuration;
+	public extern var EmitterDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_EmitterDuration(): ucpp.num.Float32 return this.EmitterDuration;
 	public extern var SpawnRate(get, never): RawDistributionFloat;
 	public inline extern function get_SpawnRate(): RawDistributionFloat return this.SpawnRate;
 	public extern var BurstList(get, never): TArray<ParticleBurst>;
 	public inline extern function get_BurstList(): TArray<ParticleBurst> return this.BurstList;
-	public extern var EmitterDelay(get, never): cpp.Float32;
-	public inline extern function get_EmitterDelay(): cpp.Float32 return this.EmitterDelay;
-	public extern var EmitterDelayLow(get, never): cpp.Float32;
-	public inline extern function get_EmitterDelayLow(): cpp.Float32 return this.EmitterDelayLow;
+	public extern var EmitterDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_EmitterDelay(): ucpp.num.Float32 return this.EmitterDelay;
+	public extern var EmitterDelayLow(get, never): ucpp.num.Float32;
+	public inline extern function get_EmitterDelayLow(): ucpp.num.Float32 return this.EmitterDelayLow;
 	public extern var bDelayFirstLoopOnly(get, never): Bool;
 	public inline extern function get_bDelayFirstLoopOnly(): Bool return this.bDelayFirstLoopOnly;
 	public extern var InterpolationMethod(get, never): TEnumAsByte<EParticleSubUVInterpMethod>;
@@ -116,18 +116,18 @@ abstract ConstParticleModuleRequired(ParticleModuleRequired) from ParticleModule
 	public inline extern function get_EmitterNormalsMode(): TEnumAsByte<EEmitterNormalsMode> return this.EmitterNormalsMode;
 	public extern var bOrbitModuleAffectsVelocityAlignment(get, never): Bool;
 	public inline extern function get_bOrbitModuleAffectsVelocityAlignment(): Bool return this.bOrbitModuleAffectsVelocityAlignment;
-	public extern var SubImages_Horizontal(get, never): cpp.Int32;
-	public inline extern function get_SubImages_Horizontal(): cpp.Int32 return this.SubImages_Horizontal;
-	public extern var SubImages_Vertical(get, never): cpp.Int32;
-	public inline extern function get_SubImages_Vertical(): cpp.Int32 return this.SubImages_Vertical;
-	public extern var RandomImageTime(get, never): cpp.Float32;
-	public inline extern function get_RandomImageTime(): cpp.Float32 return this.RandomImageTime;
-	public extern var RandomImageChanges(get, never): cpp.Int32;
-	public inline extern function get_RandomImageChanges(): cpp.Int32 return this.RandomImageChanges;
+	public extern var SubImages_Horizontal(get, never): ucpp.num.Int32;
+	public inline extern function get_SubImages_Horizontal(): ucpp.num.Int32 return this.SubImages_Horizontal;
+	public extern var SubImages_Vertical(get, never): ucpp.num.Int32;
+	public inline extern function get_SubImages_Vertical(): ucpp.num.Int32 return this.SubImages_Vertical;
+	public extern var RandomImageTime(get, never): ucpp.num.Float32;
+	public inline extern function get_RandomImageTime(): ucpp.num.Float32 return this.RandomImageTime;
+	public extern var RandomImageChanges(get, never): ucpp.num.Int32;
+	public inline extern function get_RandomImageChanges(): ucpp.num.Int32 return this.RandomImageChanges;
 	public extern var MacroUVPosition(get, never): Vector;
 	public inline extern function get_MacroUVPosition(): Vector return this.MacroUVPosition;
-	public extern var MacroUVRadius(get, never): cpp.Float32;
-	public inline extern function get_MacroUVRadius(): cpp.Float32 return this.MacroUVRadius;
+	public extern var MacroUVRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_MacroUVRadius(): ucpp.num.Float32 return this.MacroUVRadius;
 	public extern var UVFlippingMode(get, never): EParticleUVFlipMode;
 	public inline extern function get_UVFlippingMode(): EParticleUVFlipMode return this.UVFlippingMode;
 	public extern var BoundingMode(get, never): TEnumAsByte<ESubUVBoundingVertexCount>;
@@ -136,16 +136,16 @@ abstract ConstParticleModuleRequired(ParticleModuleRequired) from ParticleModule
 	public inline extern function get_bDurationRecalcEachLoop(): Bool return this.bDurationRecalcEachLoop;
 	public extern var NormalsSphereCenter(get, never): Vector;
 	public inline extern function get_NormalsSphereCenter(): Vector return this.NormalsSphereCenter;
-	public extern var AlphaThreshold(get, never): cpp.Float32;
-	public inline extern function get_AlphaThreshold(): cpp.Float32 return this.AlphaThreshold;
-	public extern var EmitterLoops(get, never): cpp.Int32;
-	public inline extern function get_EmitterLoops(): cpp.Int32 return this.EmitterLoops;
-	public extern var CutoutTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_CutoutTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.CutoutTexture;
-	public extern var MaxDrawCount(get, never): cpp.Int32;
-	public inline extern function get_MaxDrawCount(): cpp.Int32 return this.MaxDrawCount;
-	public extern var EmitterDurationLow(get, never): cpp.Float32;
-	public inline extern function get_EmitterDurationLow(): cpp.Float32 return this.EmitterDurationLow;
+	public extern var AlphaThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_AlphaThreshold(): ucpp.num.Float32 return this.AlphaThreshold;
+	public extern var EmitterLoops(get, never): ucpp.num.Int32;
+	public inline extern function get_EmitterLoops(): ucpp.num.Int32 return this.EmitterLoops;
+	public extern var CutoutTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_CutoutTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.CutoutTexture;
+	public extern var MaxDrawCount(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxDrawCount(): ucpp.num.Int32 return this.MaxDrawCount;
+	public extern var EmitterDurationLow(get, never): ucpp.num.Float32;
+	public inline extern function get_EmitterDurationLow(): ucpp.num.Float32 return this.EmitterDurationLow;
 	public extern var NormalsCylinderDirection(get, never): Vector;
 	public inline extern function get_NormalsCylinderDirection(): Vector return this.NormalsCylinderDirection;
 	public extern var NamedMaterialOverrides(get, never): TArray<FName>;
@@ -155,7 +155,7 @@ abstract ConstParticleModuleRequired(ParticleModuleRequired) from ParticleModule
 @:forward
 @:nativeGen
 @:native("ParticleModuleRequired*")
-abstract ParticleModuleRequiredPtr(cpp.Star<ParticleModuleRequired>) from cpp.Star<ParticleModuleRequired> to cpp.Star<ParticleModuleRequired>{
+abstract ParticleModuleRequiredPtr(ucpp.Ptr<ParticleModuleRequired>) from ucpp.Ptr<ParticleModuleRequired> to ucpp.Ptr<ParticleModuleRequired>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleRequired): ParticleModuleRequiredPtr {
 		return untyped __cpp__("&({0})", v);

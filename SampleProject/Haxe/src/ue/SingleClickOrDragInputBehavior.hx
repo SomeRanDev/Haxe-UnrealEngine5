@@ -3,12 +3,12 @@ package ue;
 
 @:native("USingleClickOrDragInputBehavior")
 @:include("BaseBehaviors/SingleClickOrDragBehavior.h")
-@:structAccess
+@:valueType
 extern class SingleClickOrDragInputBehavior extends AnyButtonInputBehavior {
 	public var bBeginDragIfClickTargetNotHit: Bool;
-	public var ClickDistanceThreshold: cpp.Float32;
+	public var ClickDistanceThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class SingleClickOrDragInputBehavior extends AnyButtonInputBehavior {
 abstract ConstSingleClickOrDragInputBehavior(SingleClickOrDragInputBehavior) from SingleClickOrDragInputBehavior {
 	public extern var bBeginDragIfClickTargetNotHit(get, never): Bool;
 	public inline extern function get_bBeginDragIfClickTargetNotHit(): Bool return this.bBeginDragIfClickTargetNotHit;
-	public extern var ClickDistanceThreshold(get, never): cpp.Float32;
-	public inline extern function get_ClickDistanceThreshold(): cpp.Float32 return this.ClickDistanceThreshold;
+	public extern var ClickDistanceThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_ClickDistanceThreshold(): ucpp.num.Float32 return this.ClickDistanceThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("SingleClickOrDragInputBehavior*")
-abstract SingleClickOrDragInputBehaviorPtr(cpp.Star<SingleClickOrDragInputBehavior>) from cpp.Star<SingleClickOrDragInputBehavior> to cpp.Star<SingleClickOrDragInputBehavior>{
+abstract SingleClickOrDragInputBehaviorPtr(ucpp.Ptr<SingleClickOrDragInputBehavior>) from ucpp.Ptr<SingleClickOrDragInputBehavior> to ucpp.Ptr<SingleClickOrDragInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: SingleClickOrDragInputBehavior): SingleClickOrDragInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

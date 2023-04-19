@@ -2,11 +2,11 @@
 package ue;
 
 @:native("USoundSubmixWidgetInterface")
-@:structAccess
+@:valueType
 extern class SoundSubmixWidgetInterface extends Interface {
-	public function OnConstructed(SoundSubmix: cpp.Star<SoundSubmixBase>): Void;
+	public function OnConstructed(SoundSubmix: ucpp.Ptr<SoundSubmixBase>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundSubmixWidgetInterface(SoundSubmixWidgetInterface) from SoundS
 @:forward
 @:nativeGen
 @:native("SoundSubmixWidgetInterface*")
-abstract SoundSubmixWidgetInterfacePtr(cpp.Star<SoundSubmixWidgetInterface>) from cpp.Star<SoundSubmixWidgetInterface> to cpp.Star<SoundSubmixWidgetInterface>{
+abstract SoundSubmixWidgetInterfacePtr(ucpp.Ptr<SoundSubmixWidgetInterface>) from ucpp.Ptr<SoundSubmixWidgetInterface> to ucpp.Ptr<SoundSubmixWidgetInterface>{
 	@:from
 	public static extern inline function fromValue(v: SoundSubmixWidgetInterface): SoundSubmixWidgetInterfacePtr {
 		return untyped __cpp__("&({0})", v);

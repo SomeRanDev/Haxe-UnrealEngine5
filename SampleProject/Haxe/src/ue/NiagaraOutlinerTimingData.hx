@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraOutlinerTimingData")
 @:include("NiagaraDebuggerCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraOutlinerTimingData {
-	public var GameThread: cpp.Float32;
-	public var RenderThread: cpp.Float32;
+	public var GameThread: ucpp.num.Float32;
+	public var RenderThread: ucpp.num.Float32;
 
 	@:native("FNiagaraOutlinerTimingData") public function new();
-	@:native("FNiagaraOutlinerTimingData") public static function make(GameThread: cpp.Float32, RenderThread: cpp.Float32): NiagaraOutlinerTimingData ;
+	@:native("FNiagaraOutlinerTimingData") public static function make(GameThread: ucpp.num.Float32, RenderThread: ucpp.num.Float32): NiagaraOutlinerTimingData ;
 }

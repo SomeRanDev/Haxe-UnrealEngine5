@@ -2,8 +2,8 @@
 package ue;
 
 @:native("FAnimationCurveData")
-@:include("Animation/AnimData/AnimDataModel.h")
-@:structAccess
+@:include("Animation/AnimData/IAnimationDataModel.h")
+@:valueType
 extern class AnimationCurveData {
 	public var FloatCurves: TArray<FloatCurve>;
 	public var TransformCurves: TArray<TransformCurve>;

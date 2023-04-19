@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputModifierScaleByDeltaTime")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierScaleByDeltaTime extends InputModifier {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputModifierScaleByDeltaTime(InputModifierScaleByDeltaTime) from 
 @:forward
 @:nativeGen
 @:native("InputModifierScaleByDeltaTime*")
-abstract InputModifierScaleByDeltaTimePtr(cpp.Star<InputModifierScaleByDeltaTime>) from cpp.Star<InputModifierScaleByDeltaTime> to cpp.Star<InputModifierScaleByDeltaTime>{
+abstract InputModifierScaleByDeltaTimePtr(ucpp.Ptr<InputModifierScaleByDeltaTime>) from ucpp.Ptr<InputModifierScaleByDeltaTime> to ucpp.Ptr<InputModifierScaleByDeltaTime>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierScaleByDeltaTime): InputModifierScaleByDeltaTimePtr {
 		return untyped __cpp__("&({0})", v);

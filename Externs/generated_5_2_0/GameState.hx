@@ -3,29 +3,29 @@ package ue;
 
 @:native("AGameState")
 @:include("GameFramework/GameState.h")
-@:structAccess
+@:valueType
 extern class GameState extends GameStateBase {
 	@:protected public var MatchState: FName;
 	@:protected public var PreviousMatchState: FName;
-	public var ElapsedTime: cpp.Int32;
+	public var ElapsedTime: ucpp.num.Int32;
 
 	public function OnRep_MatchState(): Void;
 	public function OnRep_ElapsedTime(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGameState(GameState) from GameState {
-	public extern var ElapsedTime(get, never): cpp.Int32;
-	public inline extern function get_ElapsedTime(): cpp.Int32 return this.ElapsedTime;
+	public extern var ElapsedTime(get, never): ucpp.num.Int32;
+	public inline extern function get_ElapsedTime(): ucpp.num.Int32 return this.ElapsedTime;
 }
 
 @:forward
 @:nativeGen
 @:native("GameState*")
-abstract GameStatePtr(cpp.Star<GameState>) from cpp.Star<GameState> to cpp.Star<GameState>{
+abstract GameStatePtr(ucpp.Ptr<GameState>) from ucpp.Ptr<GameState> to ucpp.Ptr<GameState>{
 	@:from
 	public static extern inline function fromValue(v: GameState): GameStatePtr {
 		return untyped __cpp__("&({0})", v);

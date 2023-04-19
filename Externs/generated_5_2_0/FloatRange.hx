@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFloatRange")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class FloatRange {
 	private var LowerBound: FloatRangeBound;
 	private var UpperBound: FloatRangeBound;

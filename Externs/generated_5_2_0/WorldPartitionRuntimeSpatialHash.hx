@@ -3,13 +3,13 @@ package ue;
 
 @:native("UWorldPartitionRuntimeSpatialHash")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeSpatialHash extends WorldPartitionRuntimeHash {
 	private var bEnableZCulling: Bool;
 	@:protected public var StreamingGrids: TArray<SpatialHashStreamingGrid>;
 	private var ExternalStreamingObjects: TArray<TWeakObjectPtr<RuntimeSpatialHashExternalStreamingObject>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstWorldPartitionRuntimeSpatialHash(WorldPartitionRuntimeSpatialHash)
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeSpatialHash*")
-abstract WorldPartitionRuntimeSpatialHashPtr(cpp.Star<WorldPartitionRuntimeSpatialHash>) from cpp.Star<WorldPartitionRuntimeSpatialHash> to cpp.Star<WorldPartitionRuntimeSpatialHash>{
+abstract WorldPartitionRuntimeSpatialHashPtr(ucpp.Ptr<WorldPartitionRuntimeSpatialHash>) from ucpp.Ptr<WorldPartitionRuntimeSpatialHash> to ucpp.Ptr<WorldPartitionRuntimeSpatialHash>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeSpatialHash): WorldPartitionRuntimeSpatialHashPtr {
 		return untyped __cpp__("&({0})", v);

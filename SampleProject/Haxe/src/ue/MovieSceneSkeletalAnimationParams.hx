@@ -3,19 +3,20 @@ package ue;
 
 @:native("FMovieSceneSkeletalAnimationParams")
 @:include("Sections/MovieSceneSkeletalAnimationSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSkeletalAnimationParams {
-	public var Animation: cpp.Star<AnimSequenceBase>;
+	public var Animation: ucpp.Ptr<AnimSequenceBase>;
 	public var FirstLoopStartFrameOffset: FrameNumber;
 	public var StartFrameOffset: FrameNumber;
 	public var EndFrameOffset: FrameNumber;
-	public var PlayRate: cpp.Float32;
+	public var PlayRate: ucpp.num.Float32;
 	public var bReverse: Bool;
 	public var SlotName: FName;
-	public var MirrorDataTable: cpp.Star<MirrorDataTable>;
+	public var MirrorDataTable: ucpp.Ptr<MirrorDataTable>;
 	public var Weight: MovieSceneFloatChannel;
 	public var bSkipAnimNotifiers: Bool;
 	public var bForceCustomMode: Bool;
+	public var SwapRootBone: ESwapRootBone;
 
 	@:native("FMovieSceneSkeletalAnimationParams") public function new();
 }

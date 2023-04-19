@@ -3,15 +3,15 @@ package ue;
 
 @:native("UNiagaraParameterCollection")
 @:include("NiagaraParameterCollection.h")
-@:structAccess
+@:valueType
 extern class NiagaraParameterCollection extends Object {
 	@:protected public var Namespace: FName;
 	@:protected public var Parameters: TArray<NiagaraVariable>;
-	@:protected public var SourceMaterialCollection: cpp.Star<MaterialParameterCollection>;
-	@:protected public var DefaultInstance: cpp.Star<NiagaraParameterCollectionInstance>;
+	@:protected public var SourceMaterialCollection: ucpp.Ptr<MaterialParameterCollection>;
+	@:protected public var DefaultInstance: ucpp.Ptr<NiagaraParameterCollectionInstance>;
 	@:protected public var CompileId: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstNiagaraParameterCollection(NiagaraParameterCollection) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraParameterCollection*")
-abstract NiagaraParameterCollectionPtr(cpp.Star<NiagaraParameterCollection>) from cpp.Star<NiagaraParameterCollection> to cpp.Star<NiagaraParameterCollection>{
+abstract NiagaraParameterCollectionPtr(ucpp.Ptr<NiagaraParameterCollection>) from ucpp.Ptr<NiagaraParameterCollection> to ucpp.Ptr<NiagaraParameterCollection>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraParameterCollection): NiagaraParameterCollectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigShapeDefinition")
 @:include("ControlRigGizmoLibrary.h")
-@:structAccess
+@:valueType
 extern class ControlRigShapeDefinition {
 	public var ShapeName: FName;
 	public var StaticMesh: TSoftObjectPtr<StaticMesh>;

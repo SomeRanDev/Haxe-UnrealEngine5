@@ -3,12 +3,12 @@ package ue;
 
 @:native("FARSessionPayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARSessionPayload {
-	public var ConfigFlags: cpp.Int32;
-	public var DefaultMeshMaterial: cpp.Star<MaterialInterface>;
-	public var DefaultWireframeMeshMaterial: cpp.Star<MaterialInterface>;
+	public var ConfigFlags: ucpp.num.Int32;
+	public var DefaultMeshMaterial: ucpp.Ptr<MaterialInterface>;
+	public var DefaultWireframeMeshMaterial: ucpp.Ptr<MaterialInterface>;
 
 	@:native("FARSessionPayload") public function new();
-	@:native("FARSessionPayload") public static function make(ConfigFlags: cpp.Int32, DefaultMeshMaterial: cpp.Star<MaterialInterface>, DefaultWireframeMeshMaterial: cpp.Star<MaterialInterface>): ARSessionPayload ;
+	@:native("FARSessionPayload") public static function make(ConfigFlags: ucpp.num.Int32, DefaultMeshMaterial: ucpp.Ptr<MaterialInterface>, DefaultWireframeMeshMaterial: ucpp.Ptr<MaterialInterface>): ARSessionPayload ;
 }

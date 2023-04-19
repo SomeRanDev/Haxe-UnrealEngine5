@@ -3,64 +3,64 @@ package ue;
 
 @:native("UKismetInputLibrary")
 @:include("Kismet/KismetInputLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetInputLibrary extends BlueprintFunctionLibrary {
-	public function PointerEvent_IsTouchEvent(Input: cpp.Reference<PointerEvent>): Bool;
-	public function PointerEvent_IsMouseButtonDown(Input: cpp.Reference<PointerEvent>, MouseButton: Key): Bool;
-	public function PointerEvent_GetWheelDelta(Input: cpp.Reference<PointerEvent>): cpp.Float32;
-	public function PointerEvent_GetUserIndex(Input: cpp.Reference<PointerEvent>): cpp.Int32;
-	public function PointerEvent_GetTouchpadIndex(Input: cpp.Reference<PointerEvent>): cpp.Int32;
-	public function PointerEvent_GetScreenSpacePosition(Input: cpp.Reference<PointerEvent>): Vector2D;
-	public function PointerEvent_GetPointerIndex(Input: cpp.Reference<PointerEvent>): cpp.Int32;
-	public function PointerEvent_GetLastScreenSpacePosition(Input: cpp.Reference<PointerEvent>): Vector2D;
-	public function PointerEvent_GetGestureType(Input: cpp.Reference<PointerEvent>): ESlateGesture;
-	public function PointerEvent_GetGestureDelta(Input: cpp.Reference<PointerEvent>): Vector2D;
-	public function PointerEvent_GetEffectingButton(Input: cpp.Reference<PointerEvent>): Key;
-	public function PointerEvent_GetCursorDelta(Input: cpp.Reference<PointerEvent>): Vector2D;
-	public function ModifierKeysState_IsShiftDown(KeysState: cpp.Reference<SlateModifierKeysState>): Bool;
-	public function ModifierKeysState_IsControlDown(KeysState: cpp.Reference<SlateModifierKeysState>): Bool;
-	public function ModifierKeysState_IsCommandDown(KeysState: cpp.Reference<SlateModifierKeysState>): Bool;
-	public function ModifierKeysState_IsAltDown(KeysState: cpp.Reference<SlateModifierKeysState>): Bool;
-	public function Key_IsVectorAxis(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsValid(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsMouseButton(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsModifierKey(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsKeyboardKey(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsGamepadKey(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsDigital(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsButtonAxis(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsAxis3D(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsAxis2D(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsAxis1D(Key: cpp.Reference<Key>): Bool;
-	public function Key_IsAnalog(Key: cpp.Reference<Key>): Bool;
-	public function Key_GetNavigationDirectionFromKey(InKeyEvent: cpp.Reference<KeyEvent>): EUINavigation;
-	public function Key_GetNavigationDirectionFromAnalog(InAnalogEvent: cpp.Reference<AnalogInputEvent>): EUINavigation;
-	public function Key_GetNavigationActionFromKey(InKeyEvent: cpp.Reference<KeyEvent>): EUINavigationAction;
-	public function Key_GetNavigationAction(InKey: cpp.Reference<Key>): EUINavigationAction;
-	public function Key_GetDisplayName(Key: cpp.Reference<Key>, bLongDisplayName: Bool): FText;
-	public function InputEvent_IsShiftDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsRightShiftDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsRightControlDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsRightCommandDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsRightAltDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsRepeat(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsLeftShiftDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsLeftControlDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsLeftCommandDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsLeftAltDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsControlDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsCommandDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputEvent_IsAltDown(Input: cpp.Reference<InputEvent>): Bool;
-	public function InputChord_GetDisplayName(Key: cpp.Reference<InputChord>): FText;
-	public function GetUserIndex(Input: cpp.Reference<KeyEvent>): cpp.Int32;
+	public function PointerEvent_IsTouchEvent(Input: ucpp.Ref<PointerEvent>): Bool;
+	public function PointerEvent_IsMouseButtonDown(Input: ucpp.Ref<PointerEvent>, MouseButton: Key): Bool;
+	public function PointerEvent_GetWheelDelta(Input: ucpp.Ref<PointerEvent>): ucpp.num.Float32;
+	public function PointerEvent_GetUserIndex(Input: ucpp.Ref<PointerEvent>): ucpp.num.Int32;
+	public function PointerEvent_GetTouchpadIndex(Input: ucpp.Ref<PointerEvent>): ucpp.num.Int32;
+	public function PointerEvent_GetScreenSpacePosition(Input: ucpp.Ref<PointerEvent>): Vector2D;
+	public function PointerEvent_GetPointerIndex(Input: ucpp.Ref<PointerEvent>): ucpp.num.Int32;
+	public function PointerEvent_GetLastScreenSpacePosition(Input: ucpp.Ref<PointerEvent>): Vector2D;
+	public function PointerEvent_GetGestureType(Input: ucpp.Ref<PointerEvent>): ESlateGesture;
+	public function PointerEvent_GetGestureDelta(Input: ucpp.Ref<PointerEvent>): Vector2D;
+	public function PointerEvent_GetEffectingButton(Input: ucpp.Ref<PointerEvent>): Key;
+	public function PointerEvent_GetCursorDelta(Input: ucpp.Ref<PointerEvent>): Vector2D;
+	public function ModifierKeysState_IsShiftDown(KeysState: ucpp.Ref<SlateModifierKeysState>): Bool;
+	public function ModifierKeysState_IsControlDown(KeysState: ucpp.Ref<SlateModifierKeysState>): Bool;
+	public function ModifierKeysState_IsCommandDown(KeysState: ucpp.Ref<SlateModifierKeysState>): Bool;
+	public function ModifierKeysState_IsAltDown(KeysState: ucpp.Ref<SlateModifierKeysState>): Bool;
+	public function Key_IsVectorAxis(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsValid(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsMouseButton(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsModifierKey(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsKeyboardKey(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsGamepadKey(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsDigital(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsButtonAxis(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsAxis3D(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsAxis2D(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsAxis1D(Key: ucpp.Ref<Key>): Bool;
+	public function Key_IsAnalog(Key: ucpp.Ref<Key>): Bool;
+	public function Key_GetNavigationDirectionFromKey(InKeyEvent: ucpp.Ref<KeyEvent>): EUINavigation;
+	public function Key_GetNavigationDirectionFromAnalog(InAnalogEvent: ucpp.Ref<AnalogInputEvent>): EUINavigation;
+	public function Key_GetNavigationActionFromKey(InKeyEvent: ucpp.Ref<KeyEvent>): EUINavigationAction;
+	public function Key_GetNavigationAction(InKey: ucpp.Ref<Key>): EUINavigationAction;
+	public function Key_GetDisplayName(Key: ucpp.Ref<Key>, bLongDisplayName: Bool): FText;
+	public function InputEvent_IsShiftDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsRightShiftDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsRightControlDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsRightCommandDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsRightAltDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsRepeat(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsLeftShiftDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsLeftControlDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsLeftCommandDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsLeftAltDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsControlDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsCommandDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputEvent_IsAltDown(Input: ucpp.Ref<InputEvent>): Bool;
+	public function InputChord_GetDisplayName(Key: ucpp.Ref<InputChord>): FText;
+	public function GetUserIndex(Input: ucpp.Ref<KeyEvent>): ucpp.num.Int32;
 	public function GetModifierKeysState(): SlateModifierKeysState;
-	public function GetKey(Input: cpp.Reference<KeyEvent>): Key;
-	public function GetAnalogValue(Input: cpp.Reference<AnalogInputEvent>): cpp.Float32;
+	public function GetKey(Input: ucpp.Ref<KeyEvent>): Key;
+	public function GetAnalogValue(Input: ucpp.Ref<AnalogInputEvent>): ucpp.num.Float32;
 	public function EqualEqual_KeyKey(A: Key, B: Key): Bool;
 	public function EqualEqual_InputChordInputChord(A: InputChord, B: InputChord): Bool;
 	public function CalibrateTilt(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -71,7 +71,7 @@ abstract ConstKismetInputLibrary(KismetInputLibrary) from KismetInputLibrary {
 @:forward
 @:nativeGen
 @:native("KismetInputLibrary*")
-abstract KismetInputLibraryPtr(cpp.Star<KismetInputLibrary>) from cpp.Star<KismetInputLibrary> to cpp.Star<KismetInputLibrary>{
+abstract KismetInputLibraryPtr(ucpp.Ptr<KismetInputLibrary>) from ucpp.Ptr<KismetInputLibrary> to ucpp.Ptr<KismetInputLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetInputLibrary): KismetInputLibraryPtr {
 		return untyped __cpp__("&({0})", v);

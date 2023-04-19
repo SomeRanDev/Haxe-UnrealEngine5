@@ -3,13 +3,13 @@ package ue;
 
 @:native("USimpleConstructionScript")
 @:include("Engine/SimpleConstructionScript.h")
-@:structAccess
+@:valueType
 extern class SimpleConstructionScript extends Object {
-	private var RootNodes: TArray<cpp.Star<SCS_Node>>;
-	private var AllNodes: TArray<cpp.Star<SCS_Node>>;
-	private var DefaultSceneRootNode: cpp.Star<SCS_Node>;
+	private var RootNodes: TArray<ucpp.Ptr<SCS_Node>>;
+	private var AllNodes: TArray<ucpp.Ptr<SCS_Node>>;
+	private var DefaultSceneRootNode: ucpp.Ptr<SCS_Node>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSimpleConstructionScript(SimpleConstructionScript) from SimpleCons
 @:forward
 @:nativeGen
 @:native("SimpleConstructionScript*")
-abstract SimpleConstructionScriptPtr(cpp.Star<SimpleConstructionScript>) from cpp.Star<SimpleConstructionScript> to cpp.Star<SimpleConstructionScript>{
+abstract SimpleConstructionScriptPtr(ucpp.Ptr<SimpleConstructionScript>) from ucpp.Ptr<SimpleConstructionScript> to ucpp.Ptr<SimpleConstructionScript>{
 	@:from
 	public static extern inline function fromValue(v: SimpleConstructionScript): SimpleConstructionScriptPtr {
 		return untyped __cpp__("&({0})", v);

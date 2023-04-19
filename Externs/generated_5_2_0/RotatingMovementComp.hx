@@ -3,13 +3,13 @@ package ue;
 
 @:native("URotatingMovementComponent")
 @:include("GameFramework/RotatingMovementComponent.h")
-@:structAccess
+@:valueType
 extern class RotatingMovementComp extends MovementComp {
 	public var RotationRate: Rotator;
 	public var PivotTranslation: Vector;
 	public var bRotationInLocalSpace: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstRotatingMovementComp(RotatingMovementComp) from RotatingMovementCo
 @:forward
 @:nativeGen
 @:native("RotatingMovementComp*")
-abstract RotatingMovementCompPtr(cpp.Star<RotatingMovementComp>) from cpp.Star<RotatingMovementComp> to cpp.Star<RotatingMovementComp>{
+abstract RotatingMovementCompPtr(ucpp.Ptr<RotatingMovementComp>) from ucpp.Ptr<RotatingMovementComp> to ucpp.Ptr<RotatingMovementComp>{
 	@:from
 	public static extern inline function fromValue(v: RotatingMovementComp): RotatingMovementCompPtr {
 		return untyped __cpp__("&({0})", v);

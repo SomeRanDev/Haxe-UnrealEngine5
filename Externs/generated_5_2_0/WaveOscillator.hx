@@ -3,12 +3,12 @@ package ue;
 
 @:native("FWaveOscillator")
 @:include("WaveOscillatorCameraShakePattern.h")
-@:structAccess
+@:valueType
 extern class WaveOscillator {
-	public var Amplitude: cpp.Float32;
-	public var Frequency: cpp.Float32;
+	public var Amplitude: ucpp.num.Float32;
+	public var Frequency: ucpp.num.Float32;
 	public var InitialOffsetType: EInitialWaveOscillatorOffsetType;
 
 	@:native("FWaveOscillator") public function new();
-	@:native("FWaveOscillator") public static function make(Amplitude: cpp.Float32, Frequency: cpp.Float32, InitialOffsetType: EInitialWaveOscillatorOffsetType): WaveOscillator ;
+	@:native("FWaveOscillator") public static function make(Amplitude: ucpp.num.Float32, Frequency: ucpp.num.Float32, InitialOffsetType: EInitialWaveOscillatorOffsetType): WaveOscillator ;
 }

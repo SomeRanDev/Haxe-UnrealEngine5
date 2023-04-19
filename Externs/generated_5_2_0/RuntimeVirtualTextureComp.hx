@@ -3,25 +3,25 @@ package ue;
 
 @:native("URuntimeVirtualTextureComponent")
 @:include("Components/RuntimeVirtualTextureComponent.h")
-@:structAccess
+@:valueType
 extern class RuntimeVirtualTextureComp extends SceneComp {
 	@:protected public var BoundsAlignActor: TSoftObjectPtr<Actor>;
 	@:protected public var bSetBoundsButton: Bool;
 	@:protected public var bSnapBoundsToLandscape: Bool;
-	@:protected public var VirtualTexture: cpp.Star<RuntimeVirtualTexture>;
+	@:protected public var VirtualTexture: ucpp.Ptr<RuntimeVirtualTexture>;
 	@:protected public var bEnableScalability: Bool;
-	@:protected public var ScalabilityGroup: cpp.UInt32;
+	@:protected public var ScalabilityGroup: ucpp.num.UInt32;
 	@:protected public var bHidePrimitives: Bool;
-	@:protected public var StreamingTexture: cpp.Star<VirtualTextureBuilder>;
-	@:protected public var StreamLowMips: cpp.Int32;
+	@:protected public var StreamingTexture: ucpp.Ptr<VirtualTextureBuilder>;
+	@:protected public var StreamLowMips: ucpp.num.Int32;
 	@:protected public var bBuildStreamingMipsButton: Bool;
 	@:protected public var LossyCompressionAmount: TEnumAsByte<ETextureLossyCompressionAmount>;
 	@:protected public var bUseStreamingLowMipsInEditor: Bool;
 	@:protected public var bBuildDebugStreamingMips: Bool;
 
-	public function Invalidate(WorldBounds: cpp.Reference<BoxSphereBounds>): Void;
+	public function Invalidate(WorldBounds: ucpp.Ref<BoxSphereBounds>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstRuntimeVirtualTextureComp(RuntimeVirtualTextureComp) from RuntimeV
 @:forward
 @:nativeGen
 @:native("RuntimeVirtualTextureComp*")
-abstract RuntimeVirtualTextureCompPtr(cpp.Star<RuntimeVirtualTextureComp>) from cpp.Star<RuntimeVirtualTextureComp> to cpp.Star<RuntimeVirtualTextureComp>{
+abstract RuntimeVirtualTextureCompPtr(ucpp.Ptr<RuntimeVirtualTextureComp>) from ucpp.Ptr<RuntimeVirtualTextureComp> to ucpp.Ptr<RuntimeVirtualTextureComp>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeVirtualTextureComp): RuntimeVirtualTextureCompPtr {
 		return untyped __cpp__("&({0})", v);

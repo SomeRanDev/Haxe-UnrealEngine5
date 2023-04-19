@@ -3,27 +3,27 @@ package ue;
 
 @:native("UViewAlignedSculptBrushOpProps")
 @:include("Sculpting/MeshSculptBrushOps.h")
-@:structAccess
+@:valueType
 extern class ViewAlignedSculptBrushOpProps extends MeshSculptBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstViewAlignedSculptBrushOpProps(ViewAlignedSculptBrushOpProps) from ViewAlignedSculptBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
 }
 
 @:forward
 @:nativeGen
 @:native("ViewAlignedSculptBrushOpProps*")
-abstract ViewAlignedSculptBrushOpPropsPtr(cpp.Star<ViewAlignedSculptBrushOpProps>) from cpp.Star<ViewAlignedSculptBrushOpProps> to cpp.Star<ViewAlignedSculptBrushOpProps>{
+abstract ViewAlignedSculptBrushOpPropsPtr(ucpp.Ptr<ViewAlignedSculptBrushOpProps>) from ucpp.Ptr<ViewAlignedSculptBrushOpProps> to ucpp.Ptr<ViewAlignedSculptBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: ViewAlignedSculptBrushOpProps): ViewAlignedSculptBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

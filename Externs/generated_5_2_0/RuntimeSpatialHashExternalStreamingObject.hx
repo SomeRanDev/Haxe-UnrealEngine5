@@ -3,12 +3,12 @@ package ue;
 
 @:native("URuntimeSpatialHashExternalStreamingObject")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
-@:structAccess
+@:valueType
 extern class RuntimeSpatialHashExternalStreamingObject extends RuntimeHashExternalStreamingObjectBase {
 	public var StreamingGrids: TArray<SpatialHashStreamingGrid>;
 	private var CellToLevelStreamingPackage: TMap<FName, FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstRuntimeSpatialHashExternalStreamingObject(RuntimeSpatialHashExtern
 @:forward
 @:nativeGen
 @:native("RuntimeSpatialHashExternalStreamingObject*")
-abstract RuntimeSpatialHashExternalStreamingObjectPtr(cpp.Star<RuntimeSpatialHashExternalStreamingObject>) from cpp.Star<RuntimeSpatialHashExternalStreamingObject> to cpp.Star<RuntimeSpatialHashExternalStreamingObject>{
+abstract RuntimeSpatialHashExternalStreamingObjectPtr(ucpp.Ptr<RuntimeSpatialHashExternalStreamingObject>) from ucpp.Ptr<RuntimeSpatialHashExternalStreamingObject> to ucpp.Ptr<RuntimeSpatialHashExternalStreamingObject>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeSpatialHashExternalStreamingObject): RuntimeSpatialHashExternalStreamingObjectPtr {
 		return untyped __cpp__("&({0})", v);

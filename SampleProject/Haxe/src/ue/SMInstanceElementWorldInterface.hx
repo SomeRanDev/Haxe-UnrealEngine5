@@ -3,10 +3,10 @@ package ue;
 
 @:native("USMInstanceElementWorldInterface")
 @:include("Elements/SMInstance/SMInstanceElementWorldInterface.h")
-@:structAccess
+@:valueType
 extern class SMInstanceElementWorldInterface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSMInstanceElementWorldInterface(SMInstanceElementWorldInterface) f
 @:forward
 @:nativeGen
 @:native("SMInstanceElementWorldInterface*")
-abstract SMInstanceElementWorldInterfacePtr(cpp.Star<SMInstanceElementWorldInterface>) from cpp.Star<SMInstanceElementWorldInterface> to cpp.Star<SMInstanceElementWorldInterface>{
+abstract SMInstanceElementWorldInterfacePtr(ucpp.Ptr<SMInstanceElementWorldInterface>) from ucpp.Ptr<SMInstanceElementWorldInterface> to ucpp.Ptr<SMInstanceElementWorldInterface>{
 	@:from
 	public static extern inline function fromValue(v: SMInstanceElementWorldInterface): SMInstanceElementWorldInterfacePtr {
 		return untyped __cpp__("&({0})", v);

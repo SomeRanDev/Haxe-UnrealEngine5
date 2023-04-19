@@ -3,12 +3,12 @@ package ue;
 
 @:native("AVREditorFloatingCameraUI")
 @:include("UI/VREditorFloatingCameraUI.h")
-@:structAccess
+@:valueType
 extern class VREditorFloatingCameraUI extends VREditorFloatingUI {
 	public var OffsetFromCamera: Vector;
 	private var LinkedActor: TWeakObjectPtr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstVREditorFloatingCameraUI(VREditorFloatingCameraUI) from VREditorFl
 @:forward
 @:nativeGen
 @:native("VREditorFloatingCameraUI*")
-abstract VREditorFloatingCameraUIPtr(cpp.Star<VREditorFloatingCameraUI>) from cpp.Star<VREditorFloatingCameraUI> to cpp.Star<VREditorFloatingCameraUI>{
+abstract VREditorFloatingCameraUIPtr(ucpp.Ptr<VREditorFloatingCameraUI>) from ucpp.Ptr<VREditorFloatingCameraUI> to ucpp.Ptr<VREditorFloatingCameraUI>{
 	@:from
 	public static extern inline function fromValue(v: VREditorFloatingCameraUI): VREditorFloatingCameraUIPtr {
 		return untyped __cpp__("&({0})", v);

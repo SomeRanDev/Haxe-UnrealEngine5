@@ -3,11 +3,11 @@ package ue;
 
 @:native("UReturnResultsTerminal")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class ReturnResultsTerminal extends FieldNodeBase {
-	public function SetReturnResultsTerminal(): cpp.Star<ReturnResultsTerminal>;
+	public function SetReturnResultsTerminal(): ucpp.Ptr<ReturnResultsTerminal>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstReturnResultsTerminal(ReturnResultsTerminal) from ReturnResultsTer
 @:forward
 @:nativeGen
 @:native("ReturnResultsTerminal*")
-abstract ReturnResultsTerminalPtr(cpp.Star<ReturnResultsTerminal>) from cpp.Star<ReturnResultsTerminal> to cpp.Star<ReturnResultsTerminal>{
+abstract ReturnResultsTerminalPtr(ucpp.Ptr<ReturnResultsTerminal>) from ucpp.Ptr<ReturnResultsTerminal> to ucpp.Ptr<ReturnResultsTerminal>{
 	@:from
 	public static extern inline function fromValue(v: ReturnResultsTerminal): ReturnResultsTerminalPtr {
 		return untyped __cpp__("&({0})", v);

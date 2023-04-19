@@ -3,14 +3,14 @@ package ue;
 
 @:native("UKismetInternationalizationLibrary")
 @:include("Kismet/KismetInternationalizationLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetInternationalizationLibrary extends BlueprintFunctionLibrary {
 	public function SetCurrentLocale(Culture: FString, SaveToConfig: Bool): Bool;
 	public function SetCurrentLanguageAndLocale(Culture: FString, SaveToConfig: Bool): Bool;
 	public function SetCurrentLanguage(Culture: FString, SaveToConfig: Bool): Bool;
 	public function SetCurrentCulture(Culture: FString, SaveToConfig: Bool): Bool;
 	public function SetCurrentAssetGroupCulture(AssetGroup: FName, Culture: FString, SaveToConfig: Bool): Bool;
-	public function GetSuitableCulture(AvailableCultures: cpp.Reference<TArray<FString>>, CultureToMatch: FString, FallbackCulture: FString): FString;
+	public function GetSuitableCulture(AvailableCultures: ucpp.Ref<TArray<FString>>, CultureToMatch: FString, FallbackCulture: FString): FString;
 	public function GetNativeCulture(TextCategory: ELocalizedTextSourceCategory): FString;
 	public function GetLocalizedCultures(IncludeGame: Bool, IncludeEngine: Bool, IncludeEditor: Bool, IncludeAdditional: Bool): TArray<FString>;
 	public function GetCurrentLocale(): FString;
@@ -20,7 +20,7 @@ extern class KismetInternationalizationLibrary extends BlueprintFunctionLibrary 
 	public function GetCultureDisplayName(Culture: FString, Localized: Bool): FString;
 	public function ClearCurrentAssetGroupCulture(AssetGroup: FName, SaveToConfig: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstKismetInternationalizationLibrary(KismetInternationalizationLibrar
 @:forward
 @:nativeGen
 @:native("KismetInternationalizationLibrary*")
-abstract KismetInternationalizationLibraryPtr(cpp.Star<KismetInternationalizationLibrary>) from cpp.Star<KismetInternationalizationLibrary> to cpp.Star<KismetInternationalizationLibrary>{
+abstract KismetInternationalizationLibraryPtr(ucpp.Ptr<KismetInternationalizationLibrary>) from ucpp.Ptr<KismetInternationalizationLibrary> to ucpp.Ptr<KismetInternationalizationLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetInternationalizationLibrary): KismetInternationalizationLibraryPtr {
 		return untyped __cpp__("&({0})", v);

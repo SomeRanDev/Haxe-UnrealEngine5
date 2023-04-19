@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_Cone")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_Cone.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_Cone extends EnvQueryGenerator_ProjectedPoints {
 	@:protected public var AlignedPointsDistance: AIDataProviderFloatValue;
 	@:protected public var ConeDegrees: AIDataProviderFloatValue;
@@ -12,7 +12,7 @@ extern class EnvQueryGenerator_Cone extends EnvQueryGenerator_ProjectedPoints {
 	@:protected public var CenterActor: TSubclassOf<EnvQueryContext>;
 	@:protected public var bIncludeContextLocation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEnvQueryGenerator_Cone(EnvQueryGenerator_Cone) from EnvQueryGenera
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_Cone*")
-abstract EnvQueryGenerator_ConePtr(cpp.Star<EnvQueryGenerator_Cone>) from cpp.Star<EnvQueryGenerator_Cone> to cpp.Star<EnvQueryGenerator_Cone>{
+abstract EnvQueryGenerator_ConePtr(ucpp.Ptr<EnvQueryGenerator_Cone>) from ucpp.Ptr<EnvQueryGenerator_Cone> to ucpp.Ptr<EnvQueryGenerator_Cone>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_Cone): EnvQueryGenerator_ConePtr {
 		return untyped __cpp__("&({0})", v);

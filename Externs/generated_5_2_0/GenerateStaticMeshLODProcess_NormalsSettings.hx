@@ -3,11 +3,11 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcess_NormalsSettings")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess_NormalsSettings {
 	public var Method: EGenerateStaticMeshLODProcess_NormalsMethod;
-	public var Angle: cpp.Float32;
+	public var Angle: ucpp.num.Float32;
 
 	@:native("FGenerateStaticMeshLODProcess_NormalsSettings") public function new();
-	@:native("FGenerateStaticMeshLODProcess_NormalsSettings") public static function make(Method: EGenerateStaticMeshLODProcess_NormalsMethod, Angle: cpp.Float32): GenerateStaticMeshLODProcess_NormalsSettings ;
+	@:native("FGenerateStaticMeshLODProcess_NormalsSettings") public static function make(Method: EGenerateStaticMeshLODProcess_NormalsMethod, Angle: ucpp.num.Float32): GenerateStaticMeshLODProcess_NormalsSettings ;
 }

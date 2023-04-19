@@ -3,17 +3,17 @@ package ue;
 
 @:native("UPathFollowingComponent")
 @:include("Navigation/PathFollowingComponent.h")
-@:structAccess
+@:valueType
 extern class PathFollowingComp extends ActorComp {
-	@:protected public var MovementComp: cpp.Star<NavMovementComp>;
-	@:protected public var MyNavData: cpp.Star<NavigationData>;
+	@:protected public var MovementComp: ucpp.Ptr<NavMovementComp>;
+	@:protected public var MyNavData: ucpp.Ptr<NavigationData>;
 
-	@:protected public function OnNavDataRegistered(NavData: cpp.Star<NavigationData>): Void;
-	public function OnActorBump(SelfActor: cpp.Star<Actor>, OtherActor: cpp.Star<Actor>, NormalImpulse: Vector, Hit: cpp.Reference<HitResult>): Void;
+	@:protected public function OnNavDataRegistered(NavData: ucpp.Ptr<NavigationData>): Void;
+	public function OnActorBump(SelfActor: ucpp.Ptr<Actor>, OtherActor: ucpp.Ptr<Actor>, NormalImpulse: Vector, Hit: ucpp.Ref<HitResult>): Void;
 	public function GetPathDestination(): Vector;
 	public function GetPathActionType(): TEnumAsByte<EPathFollowingAction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPathDestination, GetPathActionType)
@@ -24,7 +24,7 @@ abstract ConstPathFollowingComp(PathFollowingComp) from PathFollowingComp {
 @:forward
 @:nativeGen
 @:native("PathFollowingComp*")
-abstract PathFollowingCompPtr(cpp.Star<PathFollowingComp>) from cpp.Star<PathFollowingComp> to cpp.Star<PathFollowingComp>{
+abstract PathFollowingCompPtr(ucpp.Ptr<PathFollowingComp>) from ucpp.Ptr<PathFollowingComp> to ucpp.Ptr<PathFollowingComp>{
 	@:from
 	public static extern inline function fromValue(v: PathFollowingComp): PathFollowingCompPtr {
 		return untyped __cpp__("&({0})", v);

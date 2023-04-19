@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSynthEnvelopeValue__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSynthEnvelopeValue__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSynthEnvelopeValue__PythonCallable(OnSynthEnvelopeValue__PythonC
 @:forward
 @:nativeGen
 @:native("OnSynthEnvelopeValue__PythonCallable*")
-abstract OnSynthEnvelopeValue__PythonCallablePtr(cpp.Star<OnSynthEnvelopeValue__PythonCallable>) from cpp.Star<OnSynthEnvelopeValue__PythonCallable> to cpp.Star<OnSynthEnvelopeValue__PythonCallable>{
+abstract OnSynthEnvelopeValue__PythonCallablePtr(ucpp.Ptr<OnSynthEnvelopeValue__PythonCallable>) from ucpp.Ptr<OnSynthEnvelopeValue__PythonCallable> to ucpp.Ptr<OnSynthEnvelopeValue__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSynthEnvelopeValue__PythonCallable): OnSynthEnvelopeValue__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

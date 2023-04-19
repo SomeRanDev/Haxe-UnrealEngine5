@@ -3,21 +3,24 @@ package ue;
 
 @:native("USkinnedMeshComponent")
 @:include("Components/SkinnedMeshComponent.h")
-@:structAccess
+@:valueType
 extern class SkinnedMeshComp extends MeshComp {
-	public var SkeletalMesh: cpp.Star<SkeletalMesh>;
-	public var MasterPoseComponent: TWeakObjectPtr<SkinnedMeshComp>;
+	public function GetSkeletalMesh_DEPRECATED(): ucpp.Ptr<SkeletalMesh>;
+	public function GetSkinnedAsset(): ucpp.Ptr<SkinnedAsset>;
+	public var LeaderPoseComponent: TWeakObjectPtr<SkinnedMeshComp>;
 	public var SkinCacheUsage: TArray<ESkinCacheUsage>;
-	public var MeshDeformer: cpp.Star<MeshDeformer>;
-	public var MeshDeformerInstance: cpp.Star<MeshDeformerInstance>;
-	public var PhysicsAssetOverride: cpp.Star<PhysicsAsset>;
-	public var ForcedLodModel: cpp.Int32;
-	public var MinLodModel: cpp.Int32;
-	public var StreamingDistanceMultiplier: cpp.Float32;
+	@:protected public var bSetMeshDeformer: Bool;
+	@:protected public var MeshDeformer: ucpp.Ptr<MeshDeformer>;
+	@:protected public var MeshDeformerInstanceSettings: ucpp.Ptr<MeshDeformerInstanceSettings>;
+	public function GetMeshDeformerInstance(): ucpp.Ptr<MeshDeformerInstance>;
+	public var PhysicsAssetOverride: ucpp.Ptr<PhysicsAsset>;
+	public var ForcedLodModel: ucpp.num.Int32;
+	public var MinLodModel: ucpp.num.Int32;
+	public var StreamingDistanceMultiplier: ucpp.num.Float32;
 	public var LODInfo: TArray<SkelMeshComponentLODInfo>;
 	public var VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption;
 	public var bOverrideMinLod: Bool;
-	public var bUseBoundsFromMasterPoseComponent: Bool;
+	public var bUseBoundsFromLeaderPoseComponent: Bool;
 	public var bForceWireframe: Bool;
 	public var bDisableMorphTarget: Bool;
 	public var bHideSkin: Bool;
@@ -33,96 +36,94 @@ extern class SkinnedMeshComp extends MeshComp {
 	public var bEnableUpdateRateOptimizations: Bool;
 	public var bDisplayDebugUpdateRateOptimizations: Bool;
 	public var bRenderStatic: Bool;
-	public var bIgnoreMasterPoseComponentLOD: Bool;
+	public var bIgnoreLeaderPoseComponentLOD: Bool;
 	@:protected public var bCachedLocalBoundsUpToDate: Bool;
 	@:protected public var bCachedWorldSpaceBoundsUpToDate: Bool;
 	private var bForceMeshObjectUpdate: Bool;
-	public var CapsuleIndirectShadowMinVisibility: cpp.Float32;
+	private var bForceUpdateDynamicDataImmediately: Bool;
+	@:protected public var bFollowerShouldTickPose: Bool;
+	public var CapsuleIndirectShadowMinVisibility: ucpp.num.Float32;
 	@:protected public var CachedWorldOrLocalSpaceBounds: BoxSphereBounds;
 	@:protected public var CachedWorldToLocalTransform: Matrix;
 
+	public function UnsetMeshDeformer(): Void;
 	public function UnloadSkinWeightProfile(InProfileName: FName): Void;
 	public function UnHideBoneByName(BoneName: FName): Void;
-	public function TransformToBoneSpace(BoneName: FName, InPosition: Vector, InRotation: Rotator, OutPosition: cpp.Reference<Vector>, OutRotation: cpp.Reference<Rotator>): Void;
-	public function TransformFromBoneSpace(BoneName: FName, InPosition: Vector, InRotation: Rotator, OutPosition: cpp.Reference<Vector>, OutRotation: cpp.Reference<Rotator>): Void;
-	public function ShowMaterialSection(MaterialID: cpp.Int32, SectionIndex: cpp.Int32, bShow: Bool, LODIndex: cpp.Int32): Void;
-	public function ShowAllMaterialSections(LODIndex: cpp.Int32): Void;
-	public function SetVertexOffsetUsage(LODIndex: cpp.Int32, Usage: cpp.Int32): Void;
-	public function SetVertexColorOverride_LinearColor(LODIndex: cpp.Int32, VertexColors: cpp.Reference<TArray<LinearColor>>): Void;
+	public function TransformToBoneSpace(BoneName: FName, InPosition: Vector, InRotation: Rotator, OutPosition: ucpp.Ref<Vector>, OutRotation: ucpp.Ref<Rotator>): Void;
+	public function TransformFromBoneSpace(BoneName: FName, InPosition: Vector, InRotation: Rotator, OutPosition: ucpp.Ref<Vector>, OutRotation: ucpp.Ref<Rotator>): Void;
+	public function ShowMaterialSection(MaterialID: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, bShow: Bool, LODIndex: ucpp.num.Int32): Void;
+	public function ShowAllMaterialSections(LODIndex: ucpp.num.Int32): Void;
+	public function SetVertexOffsetUsage(LODIndex: ucpp.num.Int32, Usage: ucpp.num.Int32): Void;
+	public function SetVertexColorOverride_LinearColor(LODIndex: ucpp.num.Int32, VertexColors: ucpp.Ref<TArray<LinearColor>>): Void;
 	public function SetSkinWeightProfile(InProfileName: FName): Bool;
-	public function SetSkinWeightOverride(LODIndex: cpp.Int32, SkinWeights: cpp.Reference<TArray<SkelMeshSkinWeightInfo>>): Void;
-	public function SetSkeletalMesh(NewMesh: cpp.Star<SkeletalMesh>, bReinitPose: Bool): Void;
+	public function SetSkinWeightOverride(LODIndex: ucpp.num.Int32, SkinWeights: ucpp.Ref<TArray<SkelMeshSkinWeightInfo>>): Void;
+	public function SetSkinnedAssetAndUpdate(NewMesh: ucpp.Ptr<SkinnedAsset>, bReinitPose: Bool): Void;
 	public function SetRenderStatic(bNewValue: Bool): Void;
-	public function SetPreSkinningOffsets(LODIndex: cpp.Int32, Offsets: TArray<Vector>): Void;
-	public function SetPostSkinningOffsets(LODIndex: cpp.Int32, Offsets: TArray<Vector>): Void;
-	public function SetPhysicsAsset(NewPhysicsAsset: cpp.Star<PhysicsAsset>, bForceReInit: Bool): Void;
-	public function SetMinLOD(InNewMinLOD: cpp.Int32): Void;
-	public function SetMeshDeformer(InMeshDeformer: cpp.Star<MeshDeformer>): Void;
-	public function SetMasterPoseComponent(NewMasterBoneComponent: cpp.Star<SkinnedMeshComp>, bForceUpdate: Bool): Void;
-	public function SetForcedLOD(InNewForcedLOD: cpp.Int32): Void;
+	public function SetPreSkinningOffsets(LODIndex: ucpp.num.Int32, Offsets: TArray<Vector>): Void;
+	public function SetPostSkinningOffsets(LODIndex: ucpp.num.Int32, Offsets: TArray<Vector>): Void;
+	public function SetPhysicsAsset(NewPhysicsAsset: ucpp.Ptr<PhysicsAsset>, bForceReInit: Bool): Void;
+	public function SetMinLOD(InNewMinLOD: ucpp.num.Int32): Void;
+	public function SetMeshDeformer(InMeshDeformer: ucpp.Ptr<MeshDeformer>): Void;
+	public function SetLeaderPoseComponent(NewLeaderBoneComponent: ucpp.Ptr<SkinnedMeshComp>, bForceUpdate: Bool, bInFollowerShouldTickPose: Bool): Void;
+	public function SetForcedLOD(InNewForcedLOD: ucpp.num.Int32): Void;
 	public function SetCastCapsuleIndirectShadow(bNewValue: Bool): Void;
 	public function SetCastCapsuleDirectShadow(bNewValue: Bool): Void;
-	public function SetCapsuleIndirectShadowMinVisibility(NewValue: cpp.Float32): Void;
+	public function SetCapsuleIndirectShadowMinVisibility(NewValue: ucpp.num.Float32): Void;
 	public function IsUsingSkinWeightProfile(): Bool;
-	public function IsMaterialSectionShown(MaterialID: cpp.Int32, LODIndex: cpp.Int32): Bool;
+	public function IsMaterialSectionShown(MaterialID: ucpp.num.Int32, LODIndex: ucpp.num.Int32): Bool;
 	public function IsBoneHiddenByName(BoneName: FName): Bool;
 	public function HideBoneByName(BoneName: FName, PhysBodyOption: TEnumAsByte<EPhysBodyOp>): Void;
-	public function GetVertexOffsetUsage(LODIndex: cpp.Int32): cpp.Int32;
-	public function GetTwistAndSwingAngleOfDeltaRotationFromRefPose(BoneName: FName, OutTwistAngle: cpp.Reference<cpp.Float32>, OutSwingAngle: cpp.Reference<cpp.Float32>): Bool;
+	public function GetVertexOffsetUsage(LODIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetTwistAndSwingAngleOfDeltaRotationFromRefPose(BoneName: FName, OutTwistAngle: ucpp.Ref<ucpp.num.Float32>, OutSwingAngle: ucpp.Ref<ucpp.num.Float32>): Bool;
 	public function GetSocketBoneName(InSocketName: FName): FName;
-	public function GetRefPoseTransform(BoneIndex: cpp.Int32): Transform;
-	public function GetRefPosePosition(BoneIndex: cpp.Int32): Vector;
+	public function GetRefPoseTransform(BoneIndex: ucpp.num.Int32): Transform;
+	public function GetRefPosePosition(BoneIndex: ucpp.num.Int32): Vector;
+	public function GetPredictedLODLevel(): ucpp.num.Int32;
 	public function GetParentBone(BoneName: FName): FName;
-	public function GetNumLODs(): cpp.Int32;
-	public function GetNumBones(): cpp.Int32;
-	public function GetForcedLOD(): cpp.Int32;
+	public function GetNumLODs(): ucpp.num.Int32;
+	public function GetNumBones(): ucpp.num.Int32;
+	public function GetForcedLOD(): ucpp.num.Int32;
 	public function GetDeltaTransformFromRefPose(BoneName: FName, BaseName: FName): Transform;
 	public function GetCurrentSkinWeightProfileName(): FName;
-	public function GetBoneName(BoneIndex: cpp.Int32): FName;
-	public function GetBoneIndex(BoneName: FName): cpp.Int32;
-	public function FindClosestBone_K2(TestLocation: Vector, BoneLocation: cpp.Reference<Vector>, IgnoreScale: cpp.Float32, bRequirePhysicsAsset: Bool): FName;
-	public function ClearVertexColorOverride(LODIndex: cpp.Int32): Void;
+	public function GetBoneName(BoneIndex: ucpp.num.Int32): FName;
+	public function GetBoneIndex(BoneName: FName): ucpp.num.Int32;
+	public function FindClosestBone_K2(TestLocation: Vector, BoneLocation: ucpp.Ref<Vector>, IgnoreScale: ucpp.num.Float32, bRequirePhysicsAsset: Bool): FName;
+	public function ClearVertexColorOverride(LODIndex: ucpp.num.Int32): Void;
 	public function ClearSkinWeightProfile(): Void;
-	public function ClearSkinWeightOverride(LODIndex: cpp.Int32): Void;
+	public function ClearSkinWeightOverride(LODIndex: ucpp.num.Int32): Void;
 	public function BoneIsChildOf(BoneName: FName, ParentBoneName: FName): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
 	TransformToBoneSpace, IsUsingSkinWeightProfile, GetVertexOffsetUsage, GetTwistAndSwingAngleOfDeltaRotationFromRefPose, GetSocketBoneName,
-	GetRefPoseTransform, GetRefPosePosition, GetParentBone, GetNumLODs, GetNumBones,
-	GetForcedLOD, GetDeltaTransformFromRefPose, GetCurrentSkinWeightProfileName, GetBoneName, GetBoneIndex,
-	FindClosestBone_K2, BoneIsChildOf
+	GetRefPoseTransform, GetRefPosePosition, GetPredictedLODLevel, GetParentBone, GetNumLODs,
+	GetNumBones, GetForcedLOD, GetDeltaTransformFromRefPose, GetCurrentSkinWeightProfileName, GetBoneName,
+	GetBoneIndex, FindClosestBone_K2, BoneIsChildOf
 )
 @:nativeGen
 abstract ConstSkinnedMeshComp(SkinnedMeshComp) from SkinnedMeshComp {
-	public extern var SkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_SkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.SkeletalMesh;
-	public extern var MasterPoseComponent(get, never): TWeakObjectPtr<SkinnedMeshComp.ConstSkinnedMeshComp>;
-	public inline extern function get_MasterPoseComponent(): TWeakObjectPtr<SkinnedMeshComp.ConstSkinnedMeshComp> return this.MasterPoseComponent;
+	public extern var LeaderPoseComponent(get, never): TWeakObjectPtr<SkinnedMeshComp.ConstSkinnedMeshComp>;
+	public inline extern function get_LeaderPoseComponent(): TWeakObjectPtr<SkinnedMeshComp.ConstSkinnedMeshComp> return this.LeaderPoseComponent;
 	public extern var SkinCacheUsage(get, never): TArray<ESkinCacheUsage>;
 	public inline extern function get_SkinCacheUsage(): TArray<ESkinCacheUsage> return this.SkinCacheUsage;
-	public extern var MeshDeformer(get, never): cpp.Star<MeshDeformer.ConstMeshDeformer>;
-	public inline extern function get_MeshDeformer(): cpp.Star<MeshDeformer.ConstMeshDeformer> return this.MeshDeformer;
-	public extern var MeshDeformerInstance(get, never): cpp.Star<MeshDeformerInstance.ConstMeshDeformerInstance>;
-	public inline extern function get_MeshDeformerInstance(): cpp.Star<MeshDeformerInstance.ConstMeshDeformerInstance> return this.MeshDeformerInstance;
-	public extern var PhysicsAssetOverride(get, never): cpp.Star<PhysicsAsset.ConstPhysicsAsset>;
-	public inline extern function get_PhysicsAssetOverride(): cpp.Star<PhysicsAsset.ConstPhysicsAsset> return this.PhysicsAssetOverride;
-	public extern var ForcedLodModel(get, never): cpp.Int32;
-	public inline extern function get_ForcedLodModel(): cpp.Int32 return this.ForcedLodModel;
-	public extern var MinLodModel(get, never): cpp.Int32;
-	public inline extern function get_MinLodModel(): cpp.Int32 return this.MinLodModel;
-	public extern var StreamingDistanceMultiplier(get, never): cpp.Float32;
-	public inline extern function get_StreamingDistanceMultiplier(): cpp.Float32 return this.StreamingDistanceMultiplier;
+	public extern var PhysicsAssetOverride(get, never): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset>;
+	public inline extern function get_PhysicsAssetOverride(): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset> return this.PhysicsAssetOverride;
+	public extern var ForcedLodModel(get, never): ucpp.num.Int32;
+	public inline extern function get_ForcedLodModel(): ucpp.num.Int32 return this.ForcedLodModel;
+	public extern var MinLodModel(get, never): ucpp.num.Int32;
+	public inline extern function get_MinLodModel(): ucpp.num.Int32 return this.MinLodModel;
+	public extern var StreamingDistanceMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_StreamingDistanceMultiplier(): ucpp.num.Float32 return this.StreamingDistanceMultiplier;
 	public extern var LODInfo(get, never): TArray<SkelMeshComponentLODInfo>;
 	public inline extern function get_LODInfo(): TArray<SkelMeshComponentLODInfo> return this.LODInfo;
 	public extern var VisibilityBasedAnimTickOption(get, never): EVisibilityBasedAnimTickOption;
 	public inline extern function get_VisibilityBasedAnimTickOption(): EVisibilityBasedAnimTickOption return this.VisibilityBasedAnimTickOption;
 	public extern var bOverrideMinLod(get, never): Bool;
 	public inline extern function get_bOverrideMinLod(): Bool return this.bOverrideMinLod;
-	public extern var bUseBoundsFromMasterPoseComponent(get, never): Bool;
-	public inline extern function get_bUseBoundsFromMasterPoseComponent(): Bool return this.bUseBoundsFromMasterPoseComponent;
+	public extern var bUseBoundsFromLeaderPoseComponent(get, never): Bool;
+	public inline extern function get_bUseBoundsFromLeaderPoseComponent(): Bool return this.bUseBoundsFromLeaderPoseComponent;
 	public extern var bForceWireframe(get, never): Bool;
 	public inline extern function get_bForceWireframe(): Bool return this.bForceWireframe;
 	public extern var bDisableMorphTarget(get, never): Bool;
@@ -153,16 +154,16 @@ abstract ConstSkinnedMeshComp(SkinnedMeshComp) from SkinnedMeshComp {
 	public inline extern function get_bDisplayDebugUpdateRateOptimizations(): Bool return this.bDisplayDebugUpdateRateOptimizations;
 	public extern var bRenderStatic(get, never): Bool;
 	public inline extern function get_bRenderStatic(): Bool return this.bRenderStatic;
-	public extern var bIgnoreMasterPoseComponentLOD(get, never): Bool;
-	public inline extern function get_bIgnoreMasterPoseComponentLOD(): Bool return this.bIgnoreMasterPoseComponentLOD;
-	public extern var CapsuleIndirectShadowMinVisibility(get, never): cpp.Float32;
-	public inline extern function get_CapsuleIndirectShadowMinVisibility(): cpp.Float32 return this.CapsuleIndirectShadowMinVisibility;
+	public extern var bIgnoreLeaderPoseComponentLOD(get, never): Bool;
+	public inline extern function get_bIgnoreLeaderPoseComponentLOD(): Bool return this.bIgnoreLeaderPoseComponentLOD;
+	public extern var CapsuleIndirectShadowMinVisibility(get, never): ucpp.num.Float32;
+	public inline extern function get_CapsuleIndirectShadowMinVisibility(): ucpp.num.Float32 return this.CapsuleIndirectShadowMinVisibility;
 }
 
 @:forward
 @:nativeGen
 @:native("SkinnedMeshComp*")
-abstract SkinnedMeshCompPtr(cpp.Star<SkinnedMeshComp>) from cpp.Star<SkinnedMeshComp> to cpp.Star<SkinnedMeshComp>{
+abstract SkinnedMeshCompPtr(ucpp.Ptr<SkinnedMeshComp>) from ucpp.Ptr<SkinnedMeshComp> to ucpp.Ptr<SkinnedMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: SkinnedMeshComp): SkinnedMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPerlinLayerProperties")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class PerlinLayerProperties {
-	public var Frequency: cpp.Float32;
-	public var Intensity: cpp.Float32;
+	public var Frequency: ucpp.num.Float32;
+	public var Intensity: ucpp.num.Float32;
 
 	@:native("FPerlinLayerProperties") public function new();
-	@:native("FPerlinLayerProperties") public static function make(Frequency: cpp.Float32, Intensity: cpp.Float32): PerlinLayerProperties ;
+	@:native("FPerlinLayerProperties") public static function make(Frequency: ucpp.num.Float32, Intensity: ucpp.num.Float32): PerlinLayerProperties ;
 }

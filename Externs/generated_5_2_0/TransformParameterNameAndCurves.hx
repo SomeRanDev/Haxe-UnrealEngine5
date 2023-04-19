@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTransformParameterNameAndCurves")
 @:include("Sections/MovieSceneParameterSection.h")
-@:structAccess
+@:valueType
 extern class TransformParameterNameAndCurves {
 	public var ParameterName: FName;
 	public var Translation: MovieSceneFloatChannel;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSnapToSurfaceSettings")
 @:include("Settings/LevelEditorViewportSettings.h")
-@:structAccess
+@:valueType
 extern class SnapToSurfaceSettings {
 	public var bEnabled: Bool;
-	public var SnapOffsetExtent: cpp.Float32;
+	public var SnapOffsetExtent: ucpp.num.Float32;
 	public var bSnapRotation: Bool;
 
 	@:native("FSnapToSurfaceSettings") public function new();
-	@:native("FSnapToSurfaceSettings") public static function make(bEnabled: Bool, SnapOffsetExtent: cpp.Float32, bSnapRotation: Bool): SnapToSurfaceSettings ;
+	@:native("FSnapToSurfaceSettings") public static function make(bEnabled: Bool, SnapOffsetExtent: ucpp.num.Float32, bSnapRotation: Bool): SnapToSurfaceSettings ;
 }

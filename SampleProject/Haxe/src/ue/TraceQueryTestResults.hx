@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTraceQueryTestResults")
 @:include("TraceQueryTestResults.h")
-@:structAccess
+@:valueType
 extern class TraceQueryTestResults extends Object {
 	public var ChannelResults: TraceQueryTestResultsInner;
 	public var ObjectResults: TraceQueryTestResultsInner;
@@ -12,7 +12,7 @@ extern class TraceQueryTestResults extends Object {
 
 	public function ToString(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstTraceQueryTestResults(TraceQueryTestResults) from TraceQueryTestRe
 @:forward
 @:nativeGen
 @:native("TraceQueryTestResults*")
-abstract TraceQueryTestResultsPtr(cpp.Star<TraceQueryTestResults>) from cpp.Star<TraceQueryTestResults> to cpp.Star<TraceQueryTestResults>{
+abstract TraceQueryTestResultsPtr(ucpp.Ptr<TraceQueryTestResults>) from ucpp.Ptr<TraceQueryTestResults> to ucpp.Ptr<TraceQueryTestResults>{
 	@:from
 	public static extern inline function fromValue(v: TraceQueryTestResults): TraceQueryTestResultsPtr {
 		return untyped __cpp__("&({0})", v);

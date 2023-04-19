@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFixedFrameRateCustomTimeStep")
 @:include("FixedFrameRateCustomTimeStep.h")
-@:structAccess
+@:valueType
 extern class FixedFrameRateCustomTimeStep extends EngineCustomTimeStep {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFixedFrameRateCustomTimeStep(FixedFrameRateCustomTimeStep) from Fi
 @:forward
 @:nativeGen
 @:native("FixedFrameRateCustomTimeStep*")
-abstract FixedFrameRateCustomTimeStepPtr(cpp.Star<FixedFrameRateCustomTimeStep>) from cpp.Star<FixedFrameRateCustomTimeStep> to cpp.Star<FixedFrameRateCustomTimeStep>{
+abstract FixedFrameRateCustomTimeStepPtr(ucpp.Ptr<FixedFrameRateCustomTimeStep>) from ucpp.Ptr<FixedFrameRateCustomTimeStep> to ucpp.Ptr<FixedFrameRateCustomTimeStep>{
 	@:from
 	public static extern inline function fromValue(v: FixedFrameRateCustomTimeStep): FixedFrameRateCustomTimeStepPtr {
 		return untyped __cpp__("&({0})", v);

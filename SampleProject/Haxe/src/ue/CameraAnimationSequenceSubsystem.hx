@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCameraAnimationSequenceSubsystem")
 @:include("CameraAnimationSequenceSubsystem.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationSequenceSubsystem extends WorldSubsystem {
-	private var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+	private var Linker: ucpp.Ptr<MovieSceneEntitySystemLinker>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstCameraAnimationSequenceSubsystem(CameraAnimationSequenceSubsystem)
 @:forward
 @:nativeGen
 @:native("CameraAnimationSequenceSubsystem*")
-abstract CameraAnimationSequenceSubsystemPtr(cpp.Star<CameraAnimationSequenceSubsystem>) from cpp.Star<CameraAnimationSequenceSubsystem> to cpp.Star<CameraAnimationSequenceSubsystem>{
+abstract CameraAnimationSequenceSubsystemPtr(ucpp.Ptr<CameraAnimationSequenceSubsystem>) from ucpp.Ptr<CameraAnimationSequenceSubsystem> to ucpp.Ptr<CameraAnimationSequenceSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: CameraAnimationSequenceSubsystem): CameraAnimationSequenceSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

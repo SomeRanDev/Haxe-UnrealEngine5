@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMouseCursorInteractor")
 @:include("MouseCursorInteractor.h")
-@:structAccess
+@:valueType
 extern class MouseCursorInteractor extends ViewportInteractor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMouseCursorInteractor(MouseCursorInteractor) from MouseCursorInter
 @:forward
 @:nativeGen
 @:native("MouseCursorInteractor*")
-abstract MouseCursorInteractorPtr(cpp.Star<MouseCursorInteractor>) from cpp.Star<MouseCursorInteractor> to cpp.Star<MouseCursorInteractor>{
+abstract MouseCursorInteractorPtr(ucpp.Ptr<MouseCursorInteractor>) from ucpp.Ptr<MouseCursorInteractor> to ucpp.Ptr<MouseCursorInteractor>{
 	@:from
 	public static extern inline function fromValue(v: MouseCursorInteractor): MouseCursorInteractorPtr {
 		return untyped __cpp__("&({0})", v);

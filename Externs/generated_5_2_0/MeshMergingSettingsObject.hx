@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshMergingSettingsObject")
 @:include("MeshMergingTool/MeshMergingTool.h")
-@:structAccess
+@:valueType
 extern class MeshMergingSettingsObject extends Object {
 	public var Settings: MeshMergingSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMeshMergingSettingsObject(MeshMergingSettingsObject) from MeshMerg
 @:forward
 @:nativeGen
 @:native("MeshMergingSettingsObject*")
-abstract MeshMergingSettingsObjectPtr(cpp.Star<MeshMergingSettingsObject>) from cpp.Star<MeshMergingSettingsObject> to cpp.Star<MeshMergingSettingsObject>{
+abstract MeshMergingSettingsObjectPtr(ucpp.Ptr<MeshMergingSettingsObject>) from ucpp.Ptr<MeshMergingSettingsObject> to ucpp.Ptr<MeshMergingSettingsObject>{
 	@:from
 	public static extern inline function fromValue(v: MeshMergingSettingsObject): MeshMergingSettingsObjectPtr {
 		return untyped __cpp__("&({0})", v);

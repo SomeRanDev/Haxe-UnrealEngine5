@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMaterialEditorPromotionSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorPromotionSettings {
 	public var DefaultMaterialAsset: FilePath;
 	public var DefaultDiffuseTexture: FilePath;

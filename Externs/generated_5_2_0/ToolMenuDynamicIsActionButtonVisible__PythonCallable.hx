@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UToolMenuDynamicIsActionButtonVisible__PythonCallable")
-@:structAccess
+@:valueType
 extern class ToolMenuDynamicIsActionButtonVisible__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstToolMenuDynamicIsActionButtonVisible__PythonCallable(ToolMenuDynam
 @:forward
 @:nativeGen
 @:native("ToolMenuDynamicIsActionButtonVisible__PythonCallable*")
-abstract ToolMenuDynamicIsActionButtonVisible__PythonCallablePtr(cpp.Star<ToolMenuDynamicIsActionButtonVisible__PythonCallable>) from cpp.Star<ToolMenuDynamicIsActionButtonVisible__PythonCallable> to cpp.Star<ToolMenuDynamicIsActionButtonVisible__PythonCallable>{
+abstract ToolMenuDynamicIsActionButtonVisible__PythonCallablePtr(ucpp.Ptr<ToolMenuDynamicIsActionButtonVisible__PythonCallable>) from ucpp.Ptr<ToolMenuDynamicIsActionButtonVisible__PythonCallable> to ucpp.Ptr<ToolMenuDynamicIsActionButtonVisible__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenuDynamicIsActionButtonVisible__PythonCallable): ToolMenuDynamicIsActionButtonVisible__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

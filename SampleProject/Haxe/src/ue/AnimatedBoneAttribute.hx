@@ -2,8 +2,8 @@
 package ue;
 
 @:native("FAnimatedBoneAttribute")
-@:include("Animation/AnimData/AnimDataModel.h")
-@:structAccess
+@:include("Animation/AnimData/IAnimationDataModel.h")
+@:valueType
 extern class AnimatedBoneAttribute {
 	public var Identifier: AnimationAttributeIdentifier;
 	public var Curve: AttributeCurve;

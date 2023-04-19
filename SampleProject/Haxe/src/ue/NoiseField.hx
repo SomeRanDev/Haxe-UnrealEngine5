@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNoiseField")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class NoiseField extends FieldNodeFloat {
-	public var MinRange: cpp.Float32;
-	public var MaxRange: cpp.Float32;
+	public var MinRange: ucpp.num.Float32;
+	public var MaxRange: ucpp.num.Float32;
 	public var Transform: Transform;
 
-	public function SetNoiseField(MinRange: cpp.Float32, MaxRange: cpp.Float32, Transform: Transform): cpp.Star<NoiseField>;
+	public function SetNoiseField(MinRange: ucpp.num.Float32, MaxRange: ucpp.num.Float32, Transform: Transform): ucpp.Ptr<NoiseField>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNoiseField(NoiseField) from NoiseField {
-	public extern var MinRange(get, never): cpp.Float32;
-	public inline extern function get_MinRange(): cpp.Float32 return this.MinRange;
-	public extern var MaxRange(get, never): cpp.Float32;
-	public inline extern function get_MaxRange(): cpp.Float32 return this.MaxRange;
+	public extern var MinRange(get, never): ucpp.num.Float32;
+	public inline extern function get_MinRange(): ucpp.num.Float32 return this.MinRange;
+	public extern var MaxRange(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxRange(): ucpp.num.Float32 return this.MaxRange;
 	public extern var Transform(get, never): Transform;
 	public inline extern function get_Transform(): Transform return this.Transform;
 }
@@ -28,7 +28,7 @@ abstract ConstNoiseField(NoiseField) from NoiseField {
 @:forward
 @:nativeGen
 @:native("NoiseField*")
-abstract NoiseFieldPtr(cpp.Star<NoiseField>) from cpp.Star<NoiseField> to cpp.Star<NoiseField>{
+abstract NoiseFieldPtr(ucpp.Ptr<NoiseField>) from ucpp.Ptr<NoiseField> to ucpp.Ptr<NoiseField>{
 	@:from
 	public static extern inline function fromValue(v: NoiseField): NoiseFieldPtr {
 		return untyped __cpp__("&({0})", v);

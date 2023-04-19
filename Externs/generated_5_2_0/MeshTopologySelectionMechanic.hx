@@ -3,30 +3,30 @@ package ue;
 
 @:native("UMeshTopologySelectionMechanic")
 @:include("Selection/MeshTopologySelectionMechanic.h")
-@:structAccess
+@:valueType
 extern class MeshTopologySelectionMechanic extends InteractionMechanic {
-	public var Properties: cpp.Star<MeshTopologySelectionMechanicProperties>;
-	@:protected public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
-	@:protected public var ClickOrDragBehavior: cpp.Star<SingleClickOrDragInputBehavior>;
-	@:protected public var MarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
-	@:protected public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
-	@:protected public var DrawnTriangleSetComponent: cpp.Star<TriangleSetComp>;
-	@:protected public var HighlightedFaceMaterial: cpp.Star<MaterialInterface>;
+	public var Properties: ucpp.Ptr<MeshTopologySelectionMechanicProperties>;
+	@:protected public var HoverBehavior: ucpp.Ptr<MouseHoverBehavior>;
+	@:protected public var ClickOrDragBehavior: ucpp.Ptr<SingleClickOrDragInputBehavior>;
+	@:protected public var MarqueeMechanic: ucpp.Ptr<RectangleMarqueeMechanic>;
+	@:protected public var PreviewGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
+	@:protected public var DrawnTriangleSetComponent: ucpp.Ptr<TriangleSetComp>;
+	@:protected public var HighlightedFaceMaterial: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshTopologySelectionMechanic(MeshTopologySelectionMechanic) from MeshTopologySelectionMechanic {
-	public extern var Properties(get, never): cpp.Star<MeshTopologySelectionMechanicProperties.ConstMeshTopologySelectionMechanicProperties>;
-	public inline extern function get_Properties(): cpp.Star<MeshTopologySelectionMechanicProperties.ConstMeshTopologySelectionMechanicProperties> return this.Properties;
+	public extern var Properties(get, never): ucpp.Ptr<MeshTopologySelectionMechanicProperties.ConstMeshTopologySelectionMechanicProperties>;
+	public inline extern function get_Properties(): ucpp.Ptr<MeshTopologySelectionMechanicProperties.ConstMeshTopologySelectionMechanicProperties> return this.Properties;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshTopologySelectionMechanic*")
-abstract MeshTopologySelectionMechanicPtr(cpp.Star<MeshTopologySelectionMechanic>) from cpp.Star<MeshTopologySelectionMechanic> to cpp.Star<MeshTopologySelectionMechanic>{
+abstract MeshTopologySelectionMechanicPtr(ucpp.Ptr<MeshTopologySelectionMechanic>) from ucpp.Ptr<MeshTopologySelectionMechanic> to ucpp.Ptr<MeshTopologySelectionMechanic>{
 	@:from
 	public static extern inline function fromValue(v: MeshTopologySelectionMechanic): MeshTopologySelectionMechanicPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,32 +3,32 @@ package ue;
 
 @:native("UEditUVIslandsTool")
 @:include("EditUVIslandsTool.h")
-@:structAccess
+@:valueType
 extern class EditUVIslandsTool extends MeshSurfacePointTool {
-	public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
-	public var CheckerMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
-	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
-	@:protected public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	public var MaterialSettings: ucpp.Ptr<ExistingMeshMaterialProperties>;
+	public var CheckerMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var PreviewMeshActor: ucpp.Ptr<InternalToolFrameworkActor>;
+	@:protected public var DynamicMeshComponent: ucpp.Ptr<DynamicMeshComp>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<PolygonSelectionMechanic>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditUVIslandsTool(EditUVIslandsTool) from EditUVIslandsTool {
-	public extern var MaterialSettings(get, never): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties>;
-	public inline extern function get_MaterialSettings(): cpp.Star<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties> return this.MaterialSettings;
-	public extern var CheckerMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_CheckerMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CheckerMaterial;
+	public extern var MaterialSettings(get, never): ucpp.Ptr<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties>;
+	public inline extern function get_MaterialSettings(): ucpp.Ptr<ExistingMeshMaterialProperties.ConstExistingMeshMaterialProperties> return this.MaterialSettings;
+	public extern var CheckerMaterial(get, never): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
+	public inline extern function get_CheckerMaterial(): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CheckerMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("EditUVIslandsTool*")
-abstract EditUVIslandsToolPtr(cpp.Star<EditUVIslandsTool>) from cpp.Star<EditUVIslandsTool> to cpp.Star<EditUVIslandsTool>{
+abstract EditUVIslandsToolPtr(ucpp.Ptr<EditUVIslandsTool>) from ucpp.Ptr<EditUVIslandsTool> to ucpp.Ptr<EditUVIslandsTool>{
 	@:from
 	public static extern inline function fromValue(v: EditUVIslandsTool): EditUVIslandsToolPtr {
 		return untyped __cpp__("&({0})", v);

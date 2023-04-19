@@ -3,13 +3,13 @@ package ue;
 
 @:native("ULevelSequenceEditorSettings")
 @:include("Misc/LevelSequenceEditorSettings.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceEditorSettings extends Object {
 	public var TrackSettings: TArray<LevelSequenceTrackSettings>;
 	public var bAutoBindToPIE: Bool;
 	public var bAutoBindToSimulate: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstLevelSequenceEditorSettings(LevelSequenceEditorSettings) from Leve
 @:forward
 @:nativeGen
 @:native("LevelSequenceEditorSettings*")
-abstract LevelSequenceEditorSettingsPtr(cpp.Star<LevelSequenceEditorSettings>) from cpp.Star<LevelSequenceEditorSettings> to cpp.Star<LevelSequenceEditorSettings>{
+abstract LevelSequenceEditorSettingsPtr(ucpp.Ptr<LevelSequenceEditorSettings>) from ucpp.Ptr<LevelSequenceEditorSettings> to ucpp.Ptr<LevelSequenceEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceEditorSettings): LevelSequenceEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

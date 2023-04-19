@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxSceneImportOptionsSkeletalMesh")
 @:include("Factories/FbxSceneImportOptionsSkeletalMesh.h")
-@:structAccess
+@:valueType
 extern class FbxSceneImportOptionsSkeletalMesh extends Object {
 	public var bUpdateSkeletonReferencePose: Bool;
 	public var bCreatePhysicsAsset: Bool;
@@ -11,15 +11,15 @@ extern class FbxSceneImportOptionsSkeletalMesh extends Object {
 	public var bPreserveSmoothingGroups: Bool;
 	public var bImportMeshesInBoneHierarchy: Bool;
 	public var bImportMorphTargets: Bool;
-	public var ThresholdPosition: cpp.Float32;
-	public var ThresholdTangentNormal: cpp.Float32;
-	public var ThresholdUV: cpp.Float32;
-	public var MorphThresholdPosition: cpp.Float32;
+	public var ThresholdPosition: ucpp.num.Float32;
+	public var ThresholdTangentNormal: ucpp.num.Float32;
+	public var ThresholdUV: ucpp.num.Float32;
+	public var MorphThresholdPosition: ucpp.num.Float32;
 	public var bImportAnimations: Bool;
 	public var AnimationLength: TEnumAsByte<EFBXAnimationLengthImportType>;
 	public var FrameImportRange: Int32Interval;
 	public var bUseDefaultSampleRate: Bool;
-	public var CustomSampleRate: cpp.Int32;
+	public var CustomSampleRate: ucpp.num.Int32;
 	public var bSnapToClosestFrameBoundary: Bool;
 	public var bImportCustomAttribute: Bool;
 	public var bDeleteExistingCustomAttributeCurves: Bool;
@@ -27,7 +27,7 @@ extern class FbxSceneImportOptionsSkeletalMesh extends Object {
 	public var bPreserveLocalTransform: Bool;
 	public var bDeleteExistingMorphTargetCurves: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -45,14 +45,14 @@ abstract ConstFbxSceneImportOptionsSkeletalMesh(FbxSceneImportOptionsSkeletalMes
 	public inline extern function get_bImportMeshesInBoneHierarchy(): Bool return this.bImportMeshesInBoneHierarchy;
 	public extern var bImportMorphTargets(get, never): Bool;
 	public inline extern function get_bImportMorphTargets(): Bool return this.bImportMorphTargets;
-	public extern var ThresholdPosition(get, never): cpp.Float32;
-	public inline extern function get_ThresholdPosition(): cpp.Float32 return this.ThresholdPosition;
-	public extern var ThresholdTangentNormal(get, never): cpp.Float32;
-	public inline extern function get_ThresholdTangentNormal(): cpp.Float32 return this.ThresholdTangentNormal;
-	public extern var ThresholdUV(get, never): cpp.Float32;
-	public inline extern function get_ThresholdUV(): cpp.Float32 return this.ThresholdUV;
-	public extern var MorphThresholdPosition(get, never): cpp.Float32;
-	public inline extern function get_MorphThresholdPosition(): cpp.Float32 return this.MorphThresholdPosition;
+	public extern var ThresholdPosition(get, never): ucpp.num.Float32;
+	public inline extern function get_ThresholdPosition(): ucpp.num.Float32 return this.ThresholdPosition;
+	public extern var ThresholdTangentNormal(get, never): ucpp.num.Float32;
+	public inline extern function get_ThresholdTangentNormal(): ucpp.num.Float32 return this.ThresholdTangentNormal;
+	public extern var ThresholdUV(get, never): ucpp.num.Float32;
+	public inline extern function get_ThresholdUV(): ucpp.num.Float32 return this.ThresholdUV;
+	public extern var MorphThresholdPosition(get, never): ucpp.num.Float32;
+	public inline extern function get_MorphThresholdPosition(): ucpp.num.Float32 return this.MorphThresholdPosition;
 	public extern var bImportAnimations(get, never): Bool;
 	public inline extern function get_bImportAnimations(): Bool return this.bImportAnimations;
 	public extern var AnimationLength(get, never): TEnumAsByte<EFBXAnimationLengthImportType>;
@@ -61,8 +61,8 @@ abstract ConstFbxSceneImportOptionsSkeletalMesh(FbxSceneImportOptionsSkeletalMes
 	public inline extern function get_FrameImportRange(): Int32Interval return this.FrameImportRange;
 	public extern var bUseDefaultSampleRate(get, never): Bool;
 	public inline extern function get_bUseDefaultSampleRate(): Bool return this.bUseDefaultSampleRate;
-	public extern var CustomSampleRate(get, never): cpp.Int32;
-	public inline extern function get_CustomSampleRate(): cpp.Int32 return this.CustomSampleRate;
+	public extern var CustomSampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_CustomSampleRate(): ucpp.num.Int32 return this.CustomSampleRate;
 	public extern var bSnapToClosestFrameBoundary(get, never): Bool;
 	public inline extern function get_bSnapToClosestFrameBoundary(): Bool return this.bSnapToClosestFrameBoundary;
 	public extern var bImportCustomAttribute(get, never): Bool;
@@ -80,7 +80,7 @@ abstract ConstFbxSceneImportOptionsSkeletalMesh(FbxSceneImportOptionsSkeletalMes
 @:forward
 @:nativeGen
 @:native("FbxSceneImportOptionsSkeletalMesh*")
-abstract FbxSceneImportOptionsSkeletalMeshPtr(cpp.Star<FbxSceneImportOptionsSkeletalMesh>) from cpp.Star<FbxSceneImportOptionsSkeletalMesh> to cpp.Star<FbxSceneImportOptionsSkeletalMesh>{
+abstract FbxSceneImportOptionsSkeletalMeshPtr(ucpp.Ptr<FbxSceneImportOptionsSkeletalMesh>) from ucpp.Ptr<FbxSceneImportOptionsSkeletalMesh> to ucpp.Ptr<FbxSceneImportOptionsSkeletalMesh>{
 	@:from
 	public static extern inline function fromValue(v: FbxSceneImportOptionsSkeletalMesh): FbxSceneImportOptionsSkeletalMeshPtr {
 		return untyped __cpp__("&({0})", v);

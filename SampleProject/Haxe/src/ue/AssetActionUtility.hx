@@ -3,15 +3,19 @@ package ue;
 
 @:native("UAssetActionUtility")
 @:include("AssetActionUtility.h")
-@:structAccess
+@:valueType
 extern class AssetActionUtility extends EditorUtilityObject {
-	public function IsActionForBlueprints(): Bool;
-	public function GetSupportedClass(): cpp.Star<Class>;
+	@:protected public var SupportedClasses: TArray<TSoftClassPtr<Class>>;
+	@:protected public var SupportedConditions: TArray<AssetActionSupportCondition>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public function IsActionForBlueprints(): Bool;
+	public function GetSupportedClasses(): TArray<TSoftClassPtr<Class>>;
+	public function GetSupportedClass(): ucpp.Ptr<Class>;
+
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(IsActionForBlueprints, GetSupportedClass)
+@:forward(IsActionForBlueprints, GetSupportedClasses, GetSupportedClass)
 @:nativeGen
 abstract ConstAssetActionUtility(AssetActionUtility) from AssetActionUtility {
 }
@@ -19,7 +23,7 @@ abstract ConstAssetActionUtility(AssetActionUtility) from AssetActionUtility {
 @:forward
 @:nativeGen
 @:native("AssetActionUtility*")
-abstract AssetActionUtilityPtr(cpp.Star<AssetActionUtility>) from cpp.Star<AssetActionUtility> to cpp.Star<AssetActionUtility>{
+abstract AssetActionUtilityPtr(ucpp.Ptr<AssetActionUtility>) from ucpp.Ptr<AssetActionUtility> to ucpp.Ptr<AssetActionUtility>{
 	@:from
 	public static extern inline function fromValue(v: AssetActionUtility): AssetActionUtilityPtr {
 		return untyped __cpp__("&({0})", v);

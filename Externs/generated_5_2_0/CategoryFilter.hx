@@ -3,12 +3,12 @@ package ue;
 
 @:native("FCategoryFilter")
 @:include("LogVisualizerSettings.h")
-@:structAccess
+@:valueType
 extern class CategoryFilter {
 	public var CategoryName: FString;
-	public var LogVerbosity: cpp.Int32;
+	public var LogVerbosity: ucpp.num.Int32;
 	public var Enabled: Bool;
 
 	@:native("FCategoryFilter") public function new();
-	@:native("FCategoryFilter") public static function make(CategoryName: FString, LogVerbosity: cpp.Int32, Enabled: Bool): CategoryFilter ;
+	@:native("FCategoryFilter") public static function make(CategoryName: FString, LogVerbosity: ucpp.num.Int32, Enabled: Bool): CategoryFilter ;
 }

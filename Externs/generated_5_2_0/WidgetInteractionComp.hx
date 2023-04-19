@@ -3,32 +3,32 @@ package ue;
 
 @:native("UWidgetInteractionComponent")
 @:include("Components/WidgetInteractionComponent.h")
-@:structAccess
+@:valueType
 extern class WidgetInteractionComp extends SceneComp {
-	public var OnHoveredWidgetChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<WidgetComp>, cpp.Star<WidgetComp>) -> Void>;
-	public var VirtualUserIndex: cpp.Int32;
-	public var PointerIndex: cpp.Int32;
+	public var OnHoveredWidgetChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<WidgetComp>, ucpp.Ptr<WidgetComp>) -> Void>;
+	public var VirtualUserIndex: ucpp.num.Int32;
+	public var PointerIndex: ucpp.num.Int32;
 	public var TraceChannel: TEnumAsByte<ECollisionChannel>;
-	public var InteractionDistance: cpp.Float32;
+	public var InteractionDistance: ucpp.num.Float32;
 	public var InteractionSource: EWidgetInteractionSource;
 	public var bEnableHitTesting: Bool;
 	public var bShowDebug: Bool;
-	public var DebugSphereLineThickness: cpp.Float32;
-	public var DebugLineThickness: cpp.Float32;
+	public var DebugSphereLineThickness: ucpp.num.Float32;
+	public var DebugLineThickness: ucpp.num.Float32;
 	public var DebugColor: LinearColor;
 	@:protected public var CustomHitResult: HitResult;
 	@:protected public var LocalHitLocation: Vector2D;
 	@:protected public var LastLocalHitLocation: Vector2D;
-	@:protected public var HoveredWidgetComponent: cpp.Star<WidgetComp>;
+	@:protected public var HoveredWidgetComponent: ucpp.Ptr<WidgetComp>;
 	@:protected public var LastHitResult: HitResult;
 	@:protected public var bIsHoveredWidgetInteractable: Bool;
 	@:protected public var bIsHoveredWidgetFocusable: Bool;
 	@:protected public var bIsHoveredWidgetHitTestVisible: Bool;
 
-	public function SetFocus(FocusWidget: cpp.Star<Widget>): Void;
-	public function SetCustomHitResult(HitResult: cpp.Reference<HitResult>): Void;
+	public function SetFocus(FocusWidget: ucpp.Ptr<Widget>): Void;
+	public function SetCustomHitResult(HitResult: ucpp.Ref<HitResult>): Void;
 	public function SendKeyChar(Characters: FString, bRepeat: Bool): Bool;
-	public function ScrollWheel(ScrollDelta: cpp.Float32): Void;
+	public function ScrollWheel(ScrollDelta: ucpp.num.Float32): Void;
 	public function ReleasePointerKey(Key: Key): Void;
 	public function ReleaseKey(Key: Key): Bool;
 	public function PressPointerKey(Key: Key): Void;
@@ -38,35 +38,35 @@ extern class WidgetInteractionComp extends SceneComp {
 	public function IsOverHitTestVisibleWidget(): Bool;
 	public function IsOverFocusableWidget(): Bool;
 	public function GetLastHitResult(): HitResult;
-	public function GetHoveredWidgetComponent(): cpp.Star<WidgetComp>;
+	public function GetHoveredWidgetComponent(): ucpp.Ptr<WidgetComp>;
 	public function Get2DHitLocation(): Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsOverInteractableWidget, IsOverHitTestVisibleWidget, IsOverFocusableWidget, GetLastHitResult, GetHoveredWidgetComponent, Get2DHitLocation)
 @:nativeGen
 abstract ConstWidgetInteractionComp(WidgetInteractionComp) from WidgetInteractionComp {
-	public extern var OnHoveredWidgetChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<WidgetComp.ConstWidgetComp>, cpp.Star<WidgetComp.ConstWidgetComp>) -> Void>;
-	public inline extern function get_OnHoveredWidgetChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<WidgetComp.ConstWidgetComp>, cpp.Star<WidgetComp.ConstWidgetComp>) -> Void> return this.OnHoveredWidgetChanged;
-	public extern var VirtualUserIndex(get, never): cpp.Int32;
-	public inline extern function get_VirtualUserIndex(): cpp.Int32 return this.VirtualUserIndex;
-	public extern var PointerIndex(get, never): cpp.Int32;
-	public inline extern function get_PointerIndex(): cpp.Int32 return this.PointerIndex;
+	public extern var OnHoveredWidgetChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<WidgetComp.ConstWidgetComp>, ucpp.Ptr<WidgetComp.ConstWidgetComp>) -> Void>;
+	public inline extern function get_OnHoveredWidgetChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<WidgetComp.ConstWidgetComp>, ucpp.Ptr<WidgetComp.ConstWidgetComp>) -> Void> return this.OnHoveredWidgetChanged;
+	public extern var VirtualUserIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_VirtualUserIndex(): ucpp.num.Int32 return this.VirtualUserIndex;
+	public extern var PointerIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_PointerIndex(): ucpp.num.Int32 return this.PointerIndex;
 	public extern var TraceChannel(get, never): TEnumAsByte<ECollisionChannel>;
 	public inline extern function get_TraceChannel(): TEnumAsByte<ECollisionChannel> return this.TraceChannel;
-	public extern var InteractionDistance(get, never): cpp.Float32;
-	public inline extern function get_InteractionDistance(): cpp.Float32 return this.InteractionDistance;
+	public extern var InteractionDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_InteractionDistance(): ucpp.num.Float32 return this.InteractionDistance;
 	public extern var InteractionSource(get, never): EWidgetInteractionSource;
 	public inline extern function get_InteractionSource(): EWidgetInteractionSource return this.InteractionSource;
 	public extern var bEnableHitTesting(get, never): Bool;
 	public inline extern function get_bEnableHitTesting(): Bool return this.bEnableHitTesting;
 	public extern var bShowDebug(get, never): Bool;
 	public inline extern function get_bShowDebug(): Bool return this.bShowDebug;
-	public extern var DebugSphereLineThickness(get, never): cpp.Float32;
-	public inline extern function get_DebugSphereLineThickness(): cpp.Float32 return this.DebugSphereLineThickness;
-	public extern var DebugLineThickness(get, never): cpp.Float32;
-	public inline extern function get_DebugLineThickness(): cpp.Float32 return this.DebugLineThickness;
+	public extern var DebugSphereLineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_DebugSphereLineThickness(): ucpp.num.Float32 return this.DebugSphereLineThickness;
+	public extern var DebugLineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_DebugLineThickness(): ucpp.num.Float32 return this.DebugLineThickness;
 	public extern var DebugColor(get, never): LinearColor;
 	public inline extern function get_DebugColor(): LinearColor return this.DebugColor;
 }
@@ -74,7 +74,7 @@ abstract ConstWidgetInteractionComp(WidgetInteractionComp) from WidgetInteractio
 @:forward
 @:nativeGen
 @:native("WidgetInteractionComp*")
-abstract WidgetInteractionCompPtr(cpp.Star<WidgetInteractionComp>) from cpp.Star<WidgetInteractionComp> to cpp.Star<WidgetInteractionComp>{
+abstract WidgetInteractionCompPtr(ucpp.Ptr<WidgetInteractionComp>) from ucpp.Ptr<WidgetInteractionComp> to ucpp.Ptr<WidgetInteractionComp>{
 	@:from
 	public static extern inline function fromValue(v: WidgetInteractionComp): WidgetInteractionCompPtr {
 		return untyped __cpp__("&({0})", v);

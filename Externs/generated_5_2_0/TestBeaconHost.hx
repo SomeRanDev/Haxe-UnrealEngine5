@@ -3,10 +3,10 @@ package ue;
 
 @:native("ATestBeaconHost")
 @:include("TestBeaconHost.h")
-@:structAccess
+@:valueType
 extern class TestBeaconHost extends OnlineBeaconHostObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestBeaconHost(TestBeaconHost) from TestBeaconHost {
 @:forward
 @:nativeGen
 @:native("TestBeaconHost*")
-abstract TestBeaconHostPtr(cpp.Star<TestBeaconHost>) from cpp.Star<TestBeaconHost> to cpp.Star<TestBeaconHost>{
+abstract TestBeaconHostPtr(ucpp.Ptr<TestBeaconHost>) from ucpp.Ptr<TestBeaconHost> to ucpp.Ptr<TestBeaconHost>{
 	@:from
 	public static extern inline function fromValue(v: TestBeaconHost): TestBeaconHostPtr {
 		return untyped __cpp__("&({0})", v);

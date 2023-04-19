@@ -2,12 +2,12 @@
 package ue;
 
 @:native("Usearch_replace_name_dialog")
-@:structAccess
+@:valueType
 extern class search_replace_name_dialog extends Object {
 	public var search: FString;
 	public var replace: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract Constsearch_replace_name_dialog(search_replace_name_dialog) from search
 @:forward
 @:nativeGen
 @:native("search_replace_name_dialog*")
-abstract search_replace_name_dialogPtr(cpp.Star<search_replace_name_dialog>) from cpp.Star<search_replace_name_dialog> to cpp.Star<search_replace_name_dialog>{
+abstract search_replace_name_dialogPtr(ucpp.Ptr<search_replace_name_dialog>) from ucpp.Ptr<search_replace_name_dialog> to ucpp.Ptr<search_replace_name_dialog>{
 	@:from
 	public static extern inline function fromValue(v: search_replace_name_dialog): search_replace_name_dialogPtr {
 		return untyped __cpp__("&({0})", v);

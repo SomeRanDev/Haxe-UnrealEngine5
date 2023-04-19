@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimationModifierSettings")
 @:include("AnimationModifierSettings.h")
-@:structAccess
+@:valueType
 extern class AnimationModifierSettings extends DeveloperSettings {
 	public var DefaultAnimationModifiers: TArray<TSubclassOf<AnimationModifier>>;
 	public var bApplyAnimationModifiersOnImport: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstAnimationModifierSettings(AnimationModifierSettings) from Animatio
 @:forward
 @:nativeGen
 @:native("AnimationModifierSettings*")
-abstract AnimationModifierSettingsPtr(cpp.Star<AnimationModifierSettings>) from cpp.Star<AnimationModifierSettings> to cpp.Star<AnimationModifierSettings>{
+abstract AnimationModifierSettingsPtr(ucpp.Ptr<AnimationModifierSettings>) from ucpp.Ptr<AnimationModifierSettings> to ucpp.Ptr<AnimationModifierSettings>{
 	@:from
 	public static extern inline function fromValue(v: AnimationModifierSettings): AnimationModifierSettingsPtr {
 		return untyped __cpp__("&({0})", v);

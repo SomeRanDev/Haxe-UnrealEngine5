@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWorldPartitionDestructibleHLODComponent")
 @:include("WorldPartition/HLOD/DestructibleHLODComponent.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionDestructibleHLODComp extends SceneComp {
 	@:protected public var DestructibleActors: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstWorldPartitionDestructibleHLODComp(WorldPartitionDestructibleHLODC
 @:forward
 @:nativeGen
 @:native("WorldPartitionDestructibleHLODComp*")
-abstract WorldPartitionDestructibleHLODCompPtr(cpp.Star<WorldPartitionDestructibleHLODComp>) from cpp.Star<WorldPartitionDestructibleHLODComp> to cpp.Star<WorldPartitionDestructibleHLODComp>{
+abstract WorldPartitionDestructibleHLODCompPtr(ucpp.Ptr<WorldPartitionDestructibleHLODComp>) from ucpp.Ptr<WorldPartitionDestructibleHLODComp> to ucpp.Ptr<WorldPartitionDestructibleHLODComp>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionDestructibleHLODComp): WorldPartitionDestructibleHLODCompPtr {
 		return untyped __cpp__("&({0})", v);

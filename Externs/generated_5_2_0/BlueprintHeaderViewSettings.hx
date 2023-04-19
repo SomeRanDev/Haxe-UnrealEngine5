@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBlueprintHeaderViewSettings")
 @:include("BlueprintHeaderViewSettings.h")
-@:structAccess
+@:valueType
 extern class BlueprintHeaderViewSettings extends DeveloperSettings {
 	public var SyntaxColors: HeaderViewSyntaxColors;
 	public var SelectionColor: LinearColor;
-	public var FontSize: cpp.Int32;
+	public var FontSize: ucpp.num.Int32;
 	public var SortMethod: EHeaderViewSortMethod;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,8 +20,8 @@ abstract ConstBlueprintHeaderViewSettings(BlueprintHeaderViewSettings) from Blue
 	public inline extern function get_SyntaxColors(): HeaderViewSyntaxColors return this.SyntaxColors;
 	public extern var SelectionColor(get, never): LinearColor;
 	public inline extern function get_SelectionColor(): LinearColor return this.SelectionColor;
-	public extern var FontSize(get, never): cpp.Int32;
-	public inline extern function get_FontSize(): cpp.Int32 return this.FontSize;
+	public extern var FontSize(get, never): ucpp.num.Int32;
+	public inline extern function get_FontSize(): ucpp.num.Int32 return this.FontSize;
 	public extern var SortMethod(get, never): EHeaderViewSortMethod;
 	public inline extern function get_SortMethod(): EHeaderViewSortMethod return this.SortMethod;
 }
@@ -29,7 +29,7 @@ abstract ConstBlueprintHeaderViewSettings(BlueprintHeaderViewSettings) from Blue
 @:forward
 @:nativeGen
 @:native("BlueprintHeaderViewSettings*")
-abstract BlueprintHeaderViewSettingsPtr(cpp.Star<BlueprintHeaderViewSettings>) from cpp.Star<BlueprintHeaderViewSettings> to cpp.Star<BlueprintHeaderViewSettings>{
+abstract BlueprintHeaderViewSettingsPtr(ucpp.Ptr<BlueprintHeaderViewSettings>) from ucpp.Ptr<BlueprintHeaderViewSettings> to ucpp.Ptr<BlueprintHeaderViewSettings>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintHeaderViewSettings): BlueprintHeaderViewSettingsPtr {
 		return untyped __cpp__("&({0})", v);

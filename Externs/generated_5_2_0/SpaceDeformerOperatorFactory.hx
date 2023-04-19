@@ -3,24 +3,24 @@ package ue;
 
 @:native("USpaceDeformerOperatorFactory")
 @:include("MeshSpaceDeformerTool.h")
-@:structAccess
+@:valueType
 extern class SpaceDeformerOperatorFactory extends Object {
-	public var SpaceDeformerTool: cpp.Star<MeshSpaceDeformerTool>;
+	public var SpaceDeformerTool: ucpp.Ptr<MeshSpaceDeformerTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSpaceDeformerOperatorFactory(SpaceDeformerOperatorFactory) from SpaceDeformerOperatorFactory {
-	public extern var SpaceDeformerTool(get, never): cpp.Star<MeshSpaceDeformerTool.ConstMeshSpaceDeformerTool>;
-	public inline extern function get_SpaceDeformerTool(): cpp.Star<MeshSpaceDeformerTool.ConstMeshSpaceDeformerTool> return this.SpaceDeformerTool;
+	public extern var SpaceDeformerTool(get, never): ucpp.Ptr<MeshSpaceDeformerTool.ConstMeshSpaceDeformerTool>;
+	public inline extern function get_SpaceDeformerTool(): ucpp.Ptr<MeshSpaceDeformerTool.ConstMeshSpaceDeformerTool> return this.SpaceDeformerTool;
 }
 
 @:forward
 @:nativeGen
 @:native("SpaceDeformerOperatorFactory*")
-abstract SpaceDeformerOperatorFactoryPtr(cpp.Star<SpaceDeformerOperatorFactory>) from cpp.Star<SpaceDeformerOperatorFactory> to cpp.Star<SpaceDeformerOperatorFactory>{
+abstract SpaceDeformerOperatorFactoryPtr(ucpp.Ptr<SpaceDeformerOperatorFactory>) from ucpp.Ptr<SpaceDeformerOperatorFactory> to ucpp.Ptr<SpaceDeformerOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: SpaceDeformerOperatorFactory): SpaceDeformerOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInputGestureHandlerDynamicSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class InputGestureHandlerDynamicSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInputGestureHandlerDynamicSignature__PythonCallable(InputGestureHa
 @:forward
 @:nativeGen
 @:native("InputGestureHandlerDynamicSignature__PythonCallable*")
-abstract InputGestureHandlerDynamicSignature__PythonCallablePtr(cpp.Star<InputGestureHandlerDynamicSignature__PythonCallable>) from cpp.Star<InputGestureHandlerDynamicSignature__PythonCallable> to cpp.Star<InputGestureHandlerDynamicSignature__PythonCallable>{
+abstract InputGestureHandlerDynamicSignature__PythonCallablePtr(ucpp.Ptr<InputGestureHandlerDynamicSignature__PythonCallable>) from ucpp.Ptr<InputGestureHandlerDynamicSignature__PythonCallable> to ucpp.Ptr<InputGestureHandlerDynamicSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InputGestureHandlerDynamicSignature__PythonCallable): InputGestureHandlerDynamicSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

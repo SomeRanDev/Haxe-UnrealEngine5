@@ -3,24 +3,24 @@ package ue;
 
 @:native("UDEditorSparseVolumeTextureParameterValue")
 @:include("MaterialEditor/DEditorSparseVolumeTextureParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorSparseVolumeTextureParameterValue extends DEditorParameterValue {
-	public var ParameterValue: cpp.Star<SparseVolumeTexture>;
+	public var ParameterValue: ucpp.Ptr<SparseVolumeTexture>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDEditorSparseVolumeTextureParameterValue(DEditorSparseVolumeTextureParameterValue) from DEditorSparseVolumeTextureParameterValue {
-	public extern var ParameterValue(get, never): cpp.Star<SparseVolumeTexture.ConstSparseVolumeTexture>;
-	public inline extern function get_ParameterValue(): cpp.Star<SparseVolumeTexture.ConstSparseVolumeTexture> return this.ParameterValue;
+	public extern var ParameterValue(get, never): ucpp.Ptr<SparseVolumeTexture.ConstSparseVolumeTexture>;
+	public inline extern function get_ParameterValue(): ucpp.Ptr<SparseVolumeTexture.ConstSparseVolumeTexture> return this.ParameterValue;
 }
 
 @:forward
 @:nativeGen
 @:native("DEditorSparseVolumeTextureParameterValue*")
-abstract DEditorSparseVolumeTextureParameterValuePtr(cpp.Star<DEditorSparseVolumeTextureParameterValue>) from cpp.Star<DEditorSparseVolumeTextureParameterValue> to cpp.Star<DEditorSparseVolumeTextureParameterValue>{
+abstract DEditorSparseVolumeTextureParameterValuePtr(ucpp.Ptr<DEditorSparseVolumeTextureParameterValue>) from ucpp.Ptr<DEditorSparseVolumeTextureParameterValue> to ucpp.Ptr<DEditorSparseVolumeTextureParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorSparseVolumeTextureParameterValue): DEditorSparseVolumeTextureParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

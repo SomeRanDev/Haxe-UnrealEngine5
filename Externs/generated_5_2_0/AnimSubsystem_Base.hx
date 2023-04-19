@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimSubsystem_Base")
 @:include("Animation/AnimSubsystem_Base.h")
-@:structAccess
+@:valueType
 extern class AnimSubsystem_Base extends AnimSubsystem {
 	private var ExposedValueHandlers: TArray<ExposedValueHandler>;
 

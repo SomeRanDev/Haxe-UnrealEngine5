@@ -2,15 +2,14 @@ package game;
 
 import ue.*;
 
-import ue_helpers.Ptr;
 import ue_helpers.UEHelper;
 import ue_helpers.FStringHX;
 
 class MyActor extends Actor {
 	// All UE classes are assumed to be value types.
-	// To specify they are pointers, cpp.Star should be used.
+	// To specify they are pointers, ucpp.Ptr should be used.
 	@:uprop
-	var Root: Ptr<SceneComp>;
+	var Root: ucpp.Ptr<SceneComp>;
 
 	// Used for testing properties in blueprints.
 	// By default, no parameters defaults to UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -50,9 +49,9 @@ class MyActor extends Actor {
 		subCls.callTest();
 	}
 
-	override function Tick(DeltaTime: cpp.Float64) {
+	override function Tick(DeltaTime: ucpp.num.Float32) {
 		// Once again, testing Haxe-based data structures
-		testMap["test"].AddWorldOffset(Vector.make(DeltaTime, 0, 0));
+		testMap["test"].AddWorldOffset(Vector.make(cast DeltaTime, 0, 0));
 	}
 
 	// This function does not need @:ueExport since it is not called from C++
@@ -78,9 +77,9 @@ class MyActor extends Actor {
 }
 
 class MyActorHelperClassTest {
-	public var actor: Ptr<MyActor>;
+	public var actor: ucpp.Ptr<MyActor>;
 
-	public function new(actor: Ptr<MyActor>) {
+	public function new(actor: ucpp.Ptr<MyActor>) {
 		this.actor = actor;
 	}
 

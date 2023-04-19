@@ -3,12 +3,12 @@ package ue;
 
 @:native("FClothVertBoneData")
 @:include("ClothVertBoneData.h")
-@:structAccess
+@:valueType
 extern class ClothVertBoneData {
-	public var NumInfluences: cpp.Int32;
-	public var BoneIndices: cpp.UInt16;
-	public var BoneWeights: cpp.Float32;
+	public var NumInfluences: ucpp.num.Int32;
+	public var BoneIndices: ucpp.num.UInt16;
+	public var BoneWeights: ucpp.num.Float32;
 
 	@:native("FClothVertBoneData") public function new();
-	@:native("FClothVertBoneData") public static function make(NumInfluences: cpp.Int32, BoneIndices: cpp.UInt16, BoneWeights: cpp.Float32): ClothVertBoneData ;
+	@:native("FClothVertBoneData") public static function make(NumInfluences: ucpp.num.Int32, BoneIndices: ucpp.num.UInt16, BoneWeights: ucpp.num.Float32): ClothVertBoneData ;
 }

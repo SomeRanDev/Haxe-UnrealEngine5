@@ -3,17 +3,17 @@ package ue;
 
 @:native("FCreateMeshObjectParams")
 @:include("ModelingObjectsCreationAPI.h")
-@:structAccess
+@:valueType
 extern class CreateMeshObjectParams {
-	public var SourceComponent: cpp.Star<PrimitiveComp>;
+	public var SourceComponent: ucpp.Ptr<PrimitiveComp>;
 	public var TypeHint: ECreateObjectTypeHint;
 	public var TypeHintClass: TSubclassOf<Object>;
-	public var TypeHintExtended: cpp.Int32;
-	public var TargetWorld: cpp.Star<World>;
+	public var TypeHintExtended: ucpp.num.Int32;
+	public var TargetWorld: ucpp.Ptr<World>;
 	public var Transform: Transform;
 	public var BaseName: FString;
-	public var Materials: TArray<cpp.Star<MaterialInterface>>;
-	public var AssetMaterials: TArray<cpp.Star<MaterialInterface>>;
+	public var Materials: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var AssetMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 	public var bEnableCollision: Bool;
 	public var CollisionMode: TEnumAsByte<ECollisionTraceFlag>;
 	public var bEnableRaytracingSupport: Bool;

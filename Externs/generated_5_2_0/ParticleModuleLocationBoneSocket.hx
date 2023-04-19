@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleLocationBoneSocket")
 @:include("Particles/Location/ParticleModuleLocationBoneSocket.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocationBoneSocket extends ParticleModuleLocationBase {
 	public var SourceType: TEnumAsByte<ELocationBoneSocketSource>;
 	public var UniversalOffset: Vector;
@@ -12,11 +12,11 @@ extern class ParticleModuleLocationBoneSocket extends ParticleModuleLocationBase
 	public var bUpdatePositionEachFrame: Bool;
 	public var bOrientMeshEmitters: Bool;
 	public var bInheritBoneVelocity: Bool;
-	public var InheritVelocityScale: cpp.Float32;
+	public var InheritVelocityScale: ucpp.num.Float32;
 	public var SkelMeshActorParamName: FName;
-	public var NumPreSelectedIndices: cpp.Int32;
+	public var NumPreSelectedIndices: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,18 +36,18 @@ abstract ConstParticleModuleLocationBoneSocket(ParticleModuleLocationBoneSocket)
 	public inline extern function get_bOrientMeshEmitters(): Bool return this.bOrientMeshEmitters;
 	public extern var bInheritBoneVelocity(get, never): Bool;
 	public inline extern function get_bInheritBoneVelocity(): Bool return this.bInheritBoneVelocity;
-	public extern var InheritVelocityScale(get, never): cpp.Float32;
-	public inline extern function get_InheritVelocityScale(): cpp.Float32 return this.InheritVelocityScale;
+	public extern var InheritVelocityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_InheritVelocityScale(): ucpp.num.Float32 return this.InheritVelocityScale;
 	public extern var SkelMeshActorParamName(get, never): FName;
 	public inline extern function get_SkelMeshActorParamName(): FName return this.SkelMeshActorParamName;
-	public extern var NumPreSelectedIndices(get, never): cpp.Int32;
-	public inline extern function get_NumPreSelectedIndices(): cpp.Int32 return this.NumPreSelectedIndices;
+	public extern var NumPreSelectedIndices(get, never): ucpp.num.Int32;
+	public inline extern function get_NumPreSelectedIndices(): ucpp.num.Int32 return this.NumPreSelectedIndices;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocationBoneSocket*")
-abstract ParticleModuleLocationBoneSocketPtr(cpp.Star<ParticleModuleLocationBoneSocket>) from cpp.Star<ParticleModuleLocationBoneSocket> to cpp.Star<ParticleModuleLocationBoneSocket>{
+abstract ParticleModuleLocationBoneSocketPtr(ucpp.Ptr<ParticleModuleLocationBoneSocket>) from ucpp.Ptr<ParticleModuleLocationBoneSocket> to ucpp.Ptr<ParticleModuleLocationBoneSocket>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocationBoneSocket): ParticleModuleLocationBoneSocketPtr {
 		return untyped __cpp__("&({0})", v);

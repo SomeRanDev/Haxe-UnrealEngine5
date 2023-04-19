@@ -3,15 +3,15 @@ package ue;
 
 @:native("UEnhancedInputWorldSubsystem")
 @:include("EnhancedInputSubsystems.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputWorldSubsystem extends WorldSubsystem {
-	@:protected public var PlayerInput: cpp.Star<EnhancedPlayerInput>;
+	@:protected public var PlayerInput: ucpp.Ptr<EnhancedPlayerInput>;
 	@:protected public var CurrentInputStack: TArray<TWeakObjectPtr<InputComp>>;
 
-	public function RemoveActorInputComponent(Actor: cpp.Star<Actor>): Bool;
-	public function AddActorInputComponent(Actor: cpp.Star<Actor>): Void;
+	public function RemoveActorInputComponent(Actor: ucpp.Ptr<Actor>): Bool;
+	public function AddActorInputComponent(Actor: ucpp.Ptr<Actor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstEnhancedInputWorldSubsystem(EnhancedInputWorldSubsystem) from Enha
 @:forward
 @:nativeGen
 @:native("EnhancedInputWorldSubsystem*")
-abstract EnhancedInputWorldSubsystemPtr(cpp.Star<EnhancedInputWorldSubsystem>) from cpp.Star<EnhancedInputWorldSubsystem> to cpp.Star<EnhancedInputWorldSubsystem>{
+abstract EnhancedInputWorldSubsystemPtr(ucpp.Ptr<EnhancedInputWorldSubsystem>) from ucpp.Ptr<EnhancedInputWorldSubsystem> to ucpp.Ptr<EnhancedInputWorldSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputWorldSubsystem): EnhancedInputWorldSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

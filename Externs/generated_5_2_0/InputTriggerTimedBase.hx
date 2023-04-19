@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInputTriggerTimedBase")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerTimedBase extends InputTrigger {
-	@:protected public var HeldDuration: cpp.Float32;
+	@:protected public var HeldDuration: ucpp.num.Float32;
 	public var bAffectedByTimeDilation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstInputTriggerTimedBase(InputTriggerTimedBase) from InputTriggerTime
 @:forward
 @:nativeGen
 @:native("InputTriggerTimedBase*")
-abstract InputTriggerTimedBasePtr(cpp.Star<InputTriggerTimedBase>) from cpp.Star<InputTriggerTimedBase> to cpp.Star<InputTriggerTimedBase>{
+abstract InputTriggerTimedBasePtr(ucpp.Ptr<InputTriggerTimedBase>) from ucpp.Ptr<InputTriggerTimedBase> to ucpp.Ptr<InputTriggerTimedBase>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerTimedBase): InputTriggerTimedBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,48 +3,48 @@ package ue;
 
 @:native("UPyTestTypeHint")
 @:include("PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestTypeHint extends Object {
 	public var BoolProp: Bool;
-	public var IntProp: cpp.Int32;
-	public var FloatProp: cpp.Float32;
+	public var IntProp: ucpp.num.Int32;
+	public var FloatProp: ucpp.num.Float32;
 	public var EnumProp: EPyTestEnum;
 	public var StringProp: FString;
 	public var NameProp: FName;
 	public var TextProp: FText;
 	public var FieldPathProp: TFieldPath<FProperty>;
 	public var StructProp: PyTestStruct;
-	public var ObjectProp: cpp.Star<PyTestObject>;
+	public var ObjectProp: ucpp.Ptr<PyTestObject>;
 	public var StrArrayProp: TArray<FString>;
 	public var NameArrayProp: TArray<FName>;
 	public var TextArrayProp: TArray<FText>;
-	public var ObjectArrayProp: TArray<cpp.Star<Object>>;
+	public var ObjectArrayProp: TArray<ucpp.Ptr<Object>>;
 	public var SetProp: TSet<FString>;
-	public var MapProp: TMap<cpp.Int32, FString>;
-	public var DelegateProp: HaxeDelegateProperty<(cpp.Int32) -> Void>;
+	public var MapProp: TMap<ucpp.num.Int32, FString>;
+	public var DelegateProp: HaxeDelegateProperty<(ucpp.num.Int32) -> Void>;
 	public var MulticastDelegateProp: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
-	public var SlateTickDelegate: HaxeDelegateProperty<(cpp.Float32) -> Void>;
+	public var SlateTickDelegate: HaxeDelegateProperty<(ucpp.num.Float32) -> Void>;
 
 	public function GetStringConst(): FString;
-	public function GetIntConst(): cpp.Int32;
-	public function CheckTupleReturnType(InOutString: cpp.Reference<FString>): cpp.Int32;
-	public function CheckTextTypeHints(Param1: cpp.Reference<FText>, Param2: cpp.Reference<FText>): FText;
-	public function CheckStructTypeHints(Param1: cpp.Reference<PyTestStruct>, Param2: cpp.Reference<PyTestStruct>): PyTestStruct;
+	public function GetIntConst(): ucpp.num.Int32;
+	public function CheckTupleReturnType(InOutString: ucpp.Ref<FString>): ucpp.num.Int32;
+	public function CheckTextTypeHints(Param1: ucpp.Ref<FText>, Param2: ucpp.Ref<FText>): FText;
+	public function CheckStructTypeHints(Param1: ucpp.Ref<PyTestStruct>, Param2: ucpp.Ref<PyTestStruct>): PyTestStruct;
 	public function CheckStringTypeHints(Param1: FString, Param2: FString): FString;
-	public function CheckStaticFunction(Param1: Bool, Param2: cpp.Int32, Param3: cpp.Float64, Param4: FString): Bool;
-	public function CheckSetTypeHints(Param1: cpp.Reference<TSet<FString>>, Param2: cpp.Reference<TSet<FName>>, Param3: cpp.Reference<TSet<cpp.Star<Object>>>): TSet<FName>;
-	public function CheckObjectTypeHints(Param1: cpp.Star<PyTestObject.ConstPyTestObject>, Param4: cpp.Star<PyTestObject.ConstPyTestObject>): cpp.Star<PyTestObject>;
-	public function CheckNameTypeHints(Param1: cpp.Reference<FName>, Param2: cpp.Reference<FName>): FName;
-	public function CheckMapTypeHints(Param1: cpp.Reference<TMap<cpp.Int32, FString>>, Param2: cpp.Reference<TMap<cpp.Int32, FName>>, Param3: cpp.Reference<TMap<cpp.Int32, FText>>, Param4: cpp.Reference<TMap<cpp.Int32, cpp.Star<Object>>>): TMap<FString, cpp.Star<Object>>;
-	public function CheckIntegerTypeHints(Param1: cpp.UInt8, Param2: cpp.Int32, Param3: cpp.Int64): cpp.Int32;
-	public function CheckFloatTypeHints(Param1: cpp.Float32, Param2: cpp.Float64, Param3: cpp.Float32, Param4: cpp.Float64): cpp.Float64;
+	public function CheckStaticFunction(Param1: Bool, Param2: ucpp.num.Int32, Param3: ucpp.num.Float64, Param4: FString): Bool;
+	public function CheckSetTypeHints(Param1: ucpp.Ref<TSet<FString>>, Param2: ucpp.Ref<TSet<FName>>, Param3: ucpp.Ref<TSet<ucpp.Ptr<Object>>>): TSet<FName>;
+	public function CheckObjectTypeHints(Param1: ucpp.Ptr<PyTestObject.ConstPyTestObject>, Param4: ucpp.Ptr<PyTestObject.ConstPyTestObject>): ucpp.Ptr<PyTestObject>;
+	public function CheckNameTypeHints(Param1: ucpp.Ref<FName>, Param2: ucpp.Ref<FName>): FName;
+	public function CheckMapTypeHints(Param1: ucpp.Ref<TMap<ucpp.num.Int32, FString>>, Param2: ucpp.Ref<TMap<ucpp.num.Int32, FName>>, Param3: ucpp.Ref<TMap<ucpp.num.Int32, FText>>, Param4: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.Ptr<Object>>>): TMap<FString, ucpp.Ptr<Object>>;
+	public function CheckIntegerTypeHints(Param1: ucpp.num.UInt8, Param2: ucpp.num.Int32, Param3: ucpp.num.Int64): ucpp.num.Int32;
+	public function CheckFloatTypeHints(Param1: ucpp.num.Float32, Param2: ucpp.num.Float64, Param3: ucpp.num.Float32, Param4: ucpp.num.Float64): ucpp.num.Float64;
 	public function CheckFieldPathTypeHints(Param1: TFieldPath<FProperty>): TFieldPath<FProperty>;
 	public function CheckEnumTypeHints(Param1: EPyTestEnum, Param2: EPyTestEnum): EPyTestEnum;
-	public function CheckDelegateTypeHints(Param1: cpp.Reference<HaxeDelegateProperty<(cpp.Int32) -> Void>>): HaxeDelegateProperty<(cpp.Int32) -> Void>;
+	public function CheckDelegateTypeHints(Param1: ucpp.Ref<HaxeDelegateProperty<(ucpp.num.Int32) -> Void>>): HaxeDelegateProperty<(ucpp.num.Int32) -> Void>;
 	public function CheckBoolTypeHints(bParam1: Bool, bParam2: Bool, bParam3: Bool): Bool;
-	public function CheckArrayTypeHints(Param1: cpp.Reference<TArray<FString>>, Param2: cpp.Reference<TArray<FName>>, Param3: cpp.Reference<TArray<FText>>, Param4: cpp.Reference<TArray<cpp.Star<Object>>>): TArray<FText>;
+	public function CheckArrayTypeHints(Param1: ucpp.Ref<TArray<FString>>, Param2: ucpp.Ref<TArray<FName>>, Param3: ucpp.Ref<TArray<FText>>, Param4: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): TArray<FText>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -52,10 +52,10 @@ extern class PyTestTypeHint extends Object {
 abstract ConstPyTestTypeHint(PyTestTypeHint) from PyTestTypeHint {
 	public extern var BoolProp(get, never): Bool;
 	public inline extern function get_BoolProp(): Bool return this.BoolProp;
-	public extern var IntProp(get, never): cpp.Int32;
-	public inline extern function get_IntProp(): cpp.Int32 return this.IntProp;
-	public extern var FloatProp(get, never): cpp.Float32;
-	public inline extern function get_FloatProp(): cpp.Float32 return this.FloatProp;
+	public extern var IntProp(get, never): ucpp.num.Int32;
+	public inline extern function get_IntProp(): ucpp.num.Int32 return this.IntProp;
+	public extern var FloatProp(get, never): ucpp.num.Float32;
+	public inline extern function get_FloatProp(): ucpp.num.Float32 return this.FloatProp;
 	public extern var EnumProp(get, never): EPyTestEnum;
 	public inline extern function get_EnumProp(): EPyTestEnum return this.EnumProp;
 	public extern var StringProp(get, never): FString;
@@ -68,32 +68,32 @@ abstract ConstPyTestTypeHint(PyTestTypeHint) from PyTestTypeHint {
 	public inline extern function get_FieldPathProp(): TFieldPath<FProperty> return this.FieldPathProp;
 	public extern var StructProp(get, never): PyTestStruct;
 	public inline extern function get_StructProp(): PyTestStruct return this.StructProp;
-	public extern var ObjectProp(get, never): cpp.Star<PyTestObject.ConstPyTestObject>;
-	public inline extern function get_ObjectProp(): cpp.Star<PyTestObject.ConstPyTestObject> return this.ObjectProp;
+	public extern var ObjectProp(get, never): ucpp.Ptr<PyTestObject.ConstPyTestObject>;
+	public inline extern function get_ObjectProp(): ucpp.Ptr<PyTestObject.ConstPyTestObject> return this.ObjectProp;
 	public extern var StrArrayProp(get, never): TArray<FString>;
 	public inline extern function get_StrArrayProp(): TArray<FString> return this.StrArrayProp;
 	public extern var NameArrayProp(get, never): TArray<FName>;
 	public inline extern function get_NameArrayProp(): TArray<FName> return this.NameArrayProp;
 	public extern var TextArrayProp(get, never): TArray<FText>;
 	public inline extern function get_TextArrayProp(): TArray<FText> return this.TextArrayProp;
-	public extern var ObjectArrayProp(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ObjectArrayProp(): TArray<cpp.Star<Object.ConstObject>> return this.ObjectArrayProp;
+	public extern var ObjectArrayProp(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_ObjectArrayProp(): TArray<ucpp.Ptr<Object.ConstObject>> return this.ObjectArrayProp;
 	public extern var SetProp(get, never): TSet<FString>;
 	public inline extern function get_SetProp(): TSet<FString> return this.SetProp;
-	public extern var MapProp(get, never): TMap<cpp.Int32, FString>;
-	public inline extern function get_MapProp(): TMap<cpp.Int32, FString> return this.MapProp;
-	public extern var DelegateProp(get, never): HaxeDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_DelegateProp(): HaxeDelegateProperty<(cpp.Int32) -> Void> return this.DelegateProp;
+	public extern var MapProp(get, never): TMap<ucpp.num.Int32, FString>;
+	public inline extern function get_MapProp(): TMap<ucpp.num.Int32, FString> return this.MapProp;
+	public extern var DelegateProp(get, never): HaxeDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_DelegateProp(): HaxeDelegateProperty<(ucpp.num.Int32) -> Void> return this.DelegateProp;
 	public extern var MulticastDelegateProp(get, never): HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public inline extern function get_MulticastDelegateProp(): HaxeMulticastSparseDelegateProperty<(FString) -> Void> return this.MulticastDelegateProp;
-	public extern var SlateTickDelegate(get, never): HaxeDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_SlateTickDelegate(): HaxeDelegateProperty<(cpp.Float32) -> Void> return this.SlateTickDelegate;
+	public extern var SlateTickDelegate(get, never): HaxeDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_SlateTickDelegate(): HaxeDelegateProperty<(ucpp.num.Float32) -> Void> return this.SlateTickDelegate;
 }
 
 @:forward
 @:nativeGen
 @:native("PyTestTypeHint*")
-abstract PyTestTypeHintPtr(cpp.Star<PyTestTypeHint>) from cpp.Star<PyTestTypeHint> to cpp.Star<PyTestTypeHint>{
+abstract PyTestTypeHintPtr(ucpp.Ptr<PyTestTypeHint>) from ucpp.Ptr<PyTestTypeHint> to ucpp.Ptr<PyTestTypeHint>{
 	@:from
 	public static extern inline function fromValue(v: PyTestTypeHint): PyTestTypeHintPtr {
 		return untyped __cpp__("&({0})", v);

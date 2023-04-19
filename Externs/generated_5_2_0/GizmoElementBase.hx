@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGizmoElementBase")
 @:include("BaseGizmos/GizmoElementBase.h")
-@:structAccess
+@:valueType
 extern class GizmoElementBase extends Object {
 	@:protected public var bEnabled: Bool;
 	@:protected public var bEnabledForPerspectiveProjection: Bool;
@@ -11,23 +11,23 @@ extern class GizmoElementBase extends Object {
 	@:protected public var bEnabledForDefaultState: Bool;
 	@:protected public var bEnabledForHoveringState: Bool;
 	@:protected public var bEnabledForInteractingState: Bool;
-	@:protected public var PartIdentifier: cpp.UInt32;
+	@:protected public var PartIdentifier: ucpp.num.UInt32;
 	@:protected public var MeshRenderAttributes: GizmoElementMeshRenderStateAttributes;
 	@:protected public var ElementState: EGizmoElementState;
 	@:protected public var ElementInteractionState: EGizmoElementInteractionState;
 	@:protected public var ViewDependentType: EGizmoElementViewDependentType;
 	@:protected public var ViewDependentAxis: Vector;
-	@:protected public var ViewDependentAngleTol: cpp.Float32;
-	@:protected public var ViewDependentAxialMaxCosAngleTol: cpp.Float32;
-	@:protected public var ViewDependentPlanarMinCosAngleTol: cpp.Float32;
+	@:protected public var ViewDependentAngleTol: ucpp.num.Float32;
+	@:protected public var ViewDependentAxialMaxCosAngleTol: ucpp.num.Float32;
+	@:protected public var ViewDependentPlanarMinCosAngleTol: ucpp.num.Float32;
 	@:protected public var ViewAlignType: EGizmoElementViewAlignType;
 	@:protected public var ViewAlignAxis: Vector;
 	@:protected public var ViewAlignNormal: Vector;
-	@:protected public var ViewAlignAxialAngleTol: cpp.Float32;
-	@:protected public var ViewAlignAxialMaxCosAngleTol: cpp.Float32;
-	@:protected public var PixelHitDistanceThreshold: cpp.Float32;
+	@:protected public var ViewAlignAxialAngleTol: ucpp.num.Float32;
+	@:protected public var ViewAlignAxialMaxCosAngleTol: ucpp.num.Float32;
+	@:protected public var PixelHitDistanceThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstGizmoElementBase(GizmoElementBase) from GizmoElementBase {
 @:forward
 @:nativeGen
 @:native("GizmoElementBase*")
-abstract GizmoElementBasePtr(cpp.Star<GizmoElementBase>) from cpp.Star<GizmoElementBase> to cpp.Star<GizmoElementBase>{
+abstract GizmoElementBasePtr(ucpp.Ptr<GizmoElementBase>) from ucpp.Ptr<GizmoElementBase> to ucpp.Ptr<GizmoElementBase>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementBase): GizmoElementBasePtr {
 		return untyped __cpp__("&({0})", v);

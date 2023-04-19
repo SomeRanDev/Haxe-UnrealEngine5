@@ -3,13 +3,13 @@ package ue;
 
 @:native("UIKRig_PoleSolver")
 @:include("Solvers/IKRig_PoleSolver.h")
-@:structAccess
+@:valueType
 extern class IKRig_PoleSolver extends IKRigSolver {
 	public var RootName: FName;
 	public var EndName: FName;
-	private var Effector: cpp.Star<IKRig_PoleSolverEffector>;
+	private var Effector: ucpp.Ptr<IKRig_PoleSolverEffector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstIKRig_PoleSolver(IKRig_PoleSolver) from IKRig_PoleSolver {
 @:forward
 @:nativeGen
 @:native("IKRig_PoleSolver*")
-abstract IKRig_PoleSolverPtr(cpp.Star<IKRig_PoleSolver>) from cpp.Star<IKRig_PoleSolver> to cpp.Star<IKRig_PoleSolver>{
+abstract IKRig_PoleSolverPtr(ucpp.Ptr<IKRig_PoleSolver>) from ucpp.Ptr<IKRig_PoleSolver> to ucpp.Ptr<IKRig_PoleSolver>{
 	@:from
 	public static extern inline function fromValue(v: IKRig_PoleSolver): IKRig_PoleSolverPtr {
 		return untyped __cpp__("&({0})", v);

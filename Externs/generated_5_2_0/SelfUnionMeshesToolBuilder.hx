@@ -3,10 +3,10 @@ package ue;
 
 @:native("USelfUnionMeshesToolBuilder")
 @:include("SelfUnionMeshesTool.h")
-@:structAccess
+@:valueType
 extern class SelfUnionMeshesToolBuilder extends BaseCreateFromSelectedToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSelfUnionMeshesToolBuilder(SelfUnionMeshesToolBuilder) from SelfUn
 @:forward
 @:nativeGen
 @:native("SelfUnionMeshesToolBuilder*")
-abstract SelfUnionMeshesToolBuilderPtr(cpp.Star<SelfUnionMeshesToolBuilder>) from cpp.Star<SelfUnionMeshesToolBuilder> to cpp.Star<SelfUnionMeshesToolBuilder>{
+abstract SelfUnionMeshesToolBuilderPtr(ucpp.Ptr<SelfUnionMeshesToolBuilder>) from ucpp.Ptr<SelfUnionMeshesToolBuilder> to ucpp.Ptr<SelfUnionMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SelfUnionMeshesToolBuilder): SelfUnionMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

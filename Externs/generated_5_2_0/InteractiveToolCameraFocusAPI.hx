@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInteractiveToolCameraFocusAPI")
-@:structAccess
+@:valueType
 extern class InteractiveToolCameraFocusAPI extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInteractiveToolCameraFocusAPI(InteractiveToolCameraFocusAPI) from 
 @:forward
 @:nativeGen
 @:native("InteractiveToolCameraFocusAPI*")
-abstract InteractiveToolCameraFocusAPIPtr(cpp.Star<InteractiveToolCameraFocusAPI>) from cpp.Star<InteractiveToolCameraFocusAPI> to cpp.Star<InteractiveToolCameraFocusAPI>{
+abstract InteractiveToolCameraFocusAPIPtr(ucpp.Ptr<InteractiveToolCameraFocusAPI>) from ucpp.Ptr<InteractiveToolCameraFocusAPI> to ucpp.Ptr<InteractiveToolCameraFocusAPI>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolCameraFocusAPI): InteractiveToolCameraFocusAPIPtr {
 		return untyped __cpp__("&({0})", v);

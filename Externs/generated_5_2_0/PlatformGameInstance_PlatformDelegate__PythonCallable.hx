@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPlatformGameInstance_PlatformDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PlatformGameInstance_PlatformDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPlatformGameInstance_PlatformDelegate__PythonCallable(PlatformGame
 @:forward
 @:nativeGen
 @:native("PlatformGameInstance_PlatformDelegate__PythonCallable*")
-abstract PlatformGameInstance_PlatformDelegate__PythonCallablePtr(cpp.Star<PlatformGameInstance_PlatformDelegate__PythonCallable>) from cpp.Star<PlatformGameInstance_PlatformDelegate__PythonCallable> to cpp.Star<PlatformGameInstance_PlatformDelegate__PythonCallable>{
+abstract PlatformGameInstance_PlatformDelegate__PythonCallablePtr(ucpp.Ptr<PlatformGameInstance_PlatformDelegate__PythonCallable>) from ucpp.Ptr<PlatformGameInstance_PlatformDelegate__PythonCallable> to ucpp.Ptr<PlatformGameInstance_PlatformDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PlatformGameInstance_PlatformDelegate__PythonCallable): PlatformGameInstance_PlatformDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

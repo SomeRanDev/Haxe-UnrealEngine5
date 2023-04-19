@@ -3,13 +3,13 @@ package ue;
 
 @:native("FIntMargin")
 @:include("IntMargin.h")
-@:structAccess
+@:valueType
 extern class IntMargin {
-	public var Left: cpp.Int32;
-	public var Top: cpp.Int32;
-	public var Right: cpp.Int32;
-	public var Bottom: cpp.Int32;
+	public var Left: ucpp.num.Int32;
+	public var Top: ucpp.num.Int32;
+	public var Right: ucpp.num.Int32;
+	public var Bottom: ucpp.num.Int32;
 
 	@:native("FIntMargin") public function new();
-	@:native("FIntMargin") public static function make(Left: cpp.Int32, Top: cpp.Int32, Right: cpp.Int32, Bottom: cpp.Int32): IntMargin ;
+	@:native("FIntMargin") public static function make(Left: ucpp.num.Int32, Top: ucpp.num.Int32, Right: ucpp.num.Int32, Bottom: ucpp.num.Int32): IntMargin ;
 }

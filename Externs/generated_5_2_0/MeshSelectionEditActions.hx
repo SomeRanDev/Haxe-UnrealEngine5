@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshSelectionEditActions")
 @:include("MeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class MeshSelectionEditActions extends MeshSelectionToolActionPropertySet {
 	public function Shrink(): Void;
 	public function SelectAll(): Void;
@@ -16,7 +16,7 @@ extern class MeshSelectionEditActions extends MeshSelectionToolActionPropertySet
 	public function ExpandToMaterials(): Void;
 	public function Clear(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstMeshSelectionEditActions(MeshSelectionEditActions) from MeshSelect
 @:forward
 @:nativeGen
 @:native("MeshSelectionEditActions*")
-abstract MeshSelectionEditActionsPtr(cpp.Star<MeshSelectionEditActions>) from cpp.Star<MeshSelectionEditActions> to cpp.Star<MeshSelectionEditActions>{
+abstract MeshSelectionEditActionsPtr(ucpp.Ptr<MeshSelectionEditActions>) from ucpp.Ptr<MeshSelectionEditActions> to ucpp.Ptr<MeshSelectionEditActions>{
 	@:from
 	public static extern inline function fromValue(v: MeshSelectionEditActions): MeshSelectionEditActionsPtr {
 		return untyped __cpp__("&({0})", v);

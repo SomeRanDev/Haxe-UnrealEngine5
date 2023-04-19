@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionMaterialLayerOutput")
 @:include("Materials/MaterialExpressionMaterialLayerOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionMaterialLayerOutput extends MaterialExpressionFunctionOutput {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionMaterialLayerOutput(MaterialExpressionMaterialLa
 @:forward
 @:nativeGen
 @:native("MaterialExpressionMaterialLayerOutput*")
-abstract MaterialExpressionMaterialLayerOutputPtr(cpp.Star<MaterialExpressionMaterialLayerOutput>) from cpp.Star<MaterialExpressionMaterialLayerOutput> to cpp.Star<MaterialExpressionMaterialLayerOutput>{
+abstract MaterialExpressionMaterialLayerOutputPtr(ucpp.Ptr<MaterialExpressionMaterialLayerOutput>) from ucpp.Ptr<MaterialExpressionMaterialLayerOutput> to ucpp.Ptr<MaterialExpressionMaterialLayerOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionMaterialLayerOutput): MaterialExpressionMaterialLayerOutputPtr {
 		return untyped __cpp__("&({0})", v);

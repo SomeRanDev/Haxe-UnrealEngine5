@@ -3,15 +3,15 @@ package ue;
 
 @:native("UUnrealEdOptions")
 @:include("Preferences/UnrealEdOptions.h")
-@:structAccess
+@:valueType
 extern class UnrealEdOptions extends Object {
 	public var EditorCategories: TArray<EditorCommandCategory>;
 	public var EditorCommands: TArray<EditorCommand>;
-	public var EditorKeyBindings: cpp.Star<UnrealEdKeyBindings>;
+	public var EditorKeyBindings: ucpp.Ptr<UnrealEdKeyBindings>;
 	public var bExpandClassPickerClassList: Bool;
 	public var NewAssetDefaultClasses: TArray<ClassPickerDefaults>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,8 +21,8 @@ abstract ConstUnrealEdOptions(UnrealEdOptions) from UnrealEdOptions {
 	public inline extern function get_EditorCategories(): TArray<EditorCommandCategory> return this.EditorCategories;
 	public extern var EditorCommands(get, never): TArray<EditorCommand>;
 	public inline extern function get_EditorCommands(): TArray<EditorCommand> return this.EditorCommands;
-	public extern var EditorKeyBindings(get, never): cpp.Star<UnrealEdKeyBindings.ConstUnrealEdKeyBindings>;
-	public inline extern function get_EditorKeyBindings(): cpp.Star<UnrealEdKeyBindings.ConstUnrealEdKeyBindings> return this.EditorKeyBindings;
+	public extern var EditorKeyBindings(get, never): ucpp.Ptr<UnrealEdKeyBindings.ConstUnrealEdKeyBindings>;
+	public inline extern function get_EditorKeyBindings(): ucpp.Ptr<UnrealEdKeyBindings.ConstUnrealEdKeyBindings> return this.EditorKeyBindings;
 	public extern var bExpandClassPickerClassList(get, never): Bool;
 	public inline extern function get_bExpandClassPickerClassList(): Bool return this.bExpandClassPickerClassList;
 	public extern var NewAssetDefaultClasses(get, never): TArray<ClassPickerDefaults>;
@@ -32,7 +32,7 @@ abstract ConstUnrealEdOptions(UnrealEdOptions) from UnrealEdOptions {
 @:forward
 @:nativeGen
 @:native("UnrealEdOptions*")
-abstract UnrealEdOptionsPtr(cpp.Star<UnrealEdOptions>) from cpp.Star<UnrealEdOptions> to cpp.Star<UnrealEdOptions>{
+abstract UnrealEdOptionsPtr(ucpp.Ptr<UnrealEdOptions>) from ucpp.Ptr<UnrealEdOptions> to ucpp.Ptr<UnrealEdOptions>{
 	@:from
 	public static extern inline function fromValue(v: UnrealEdOptions): UnrealEdOptionsPtr {
 		return untyped __cpp__("&({0})", v);

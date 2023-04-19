@@ -3,27 +3,27 @@ package ue;
 
 @:native("UDefaultSizedThumbnailRenderer")
 @:include("ThumbnailRendering/DefaultSizedThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class DefaultSizedThumbnailRenderer extends ThumbnailRenderer {
-	public var DefaultSizeX: cpp.Int32;
-	public var DefaultSizeY: cpp.Int32;
+	public var DefaultSizeX: ucpp.num.Int32;
+	public var DefaultSizeY: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDefaultSizedThumbnailRenderer(DefaultSizedThumbnailRenderer) from DefaultSizedThumbnailRenderer {
-	public extern var DefaultSizeX(get, never): cpp.Int32;
-	public inline extern function get_DefaultSizeX(): cpp.Int32 return this.DefaultSizeX;
-	public extern var DefaultSizeY(get, never): cpp.Int32;
-	public inline extern function get_DefaultSizeY(): cpp.Int32 return this.DefaultSizeY;
+	public extern var DefaultSizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultSizeX(): ucpp.num.Int32 return this.DefaultSizeX;
+	public extern var DefaultSizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultSizeY(): ucpp.num.Int32 return this.DefaultSizeY;
 }
 
 @:forward
 @:nativeGen
 @:native("DefaultSizedThumbnailRenderer*")
-abstract DefaultSizedThumbnailRendererPtr(cpp.Star<DefaultSizedThumbnailRenderer>) from cpp.Star<DefaultSizedThumbnailRenderer> to cpp.Star<DefaultSizedThumbnailRenderer>{
+abstract DefaultSizedThumbnailRendererPtr(ucpp.Ptr<DefaultSizedThumbnailRenderer>) from ucpp.Ptr<DefaultSizedThumbnailRenderer> to ucpp.Ptr<DefaultSizedThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: DefaultSizedThumbnailRenderer): DefaultSizedThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

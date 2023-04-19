@@ -3,15 +3,16 @@ package ue;
 
 @:native("UDatasmithSceneComponentTemplate")
 @:include("ObjectTemplates/DatasmithSceneComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithSceneComponentTemplate extends DatasmithObjectTemplate {
 	public var RelativeTransform: Transform;
 	public var Mobility: TEnumAsByte<EComponentMobility>;
 	public var AttachParent: TSoftObjectPtr<SceneComp>;
 	public var bVisible: Bool;
+	public var bCastShadow: Bool;
 	public var Tags: TSet<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,6 +26,8 @@ abstract ConstDatasmithSceneComponentTemplate(DatasmithSceneComponentTemplate) f
 	public inline extern function get_AttachParent(): TSoftObjectPtr<SceneComp.ConstSceneComp> return this.AttachParent;
 	public extern var bVisible(get, never): Bool;
 	public inline extern function get_bVisible(): Bool return this.bVisible;
+	public extern var bCastShadow(get, never): Bool;
+	public inline extern function get_bCastShadow(): Bool return this.bCastShadow;
 	public extern var Tags(get, never): TSet<FName>;
 	public inline extern function get_Tags(): TSet<FName> return this.Tags;
 }
@@ -32,7 +35,7 @@ abstract ConstDatasmithSceneComponentTemplate(DatasmithSceneComponentTemplate) f
 @:forward
 @:nativeGen
 @:native("DatasmithSceneComponentTemplate*")
-abstract DatasmithSceneComponentTemplatePtr(cpp.Star<DatasmithSceneComponentTemplate>) from cpp.Star<DatasmithSceneComponentTemplate> to cpp.Star<DatasmithSceneComponentTemplate>{
+abstract DatasmithSceneComponentTemplatePtr(ucpp.Ptr<DatasmithSceneComponentTemplate>) from ucpp.Ptr<DatasmithSceneComponentTemplate> to ucpp.Ptr<DatasmithSceneComponentTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithSceneComponentTemplate): DatasmithSceneComponentTemplatePtr {
 		return untyped __cpp__("&({0})", v);

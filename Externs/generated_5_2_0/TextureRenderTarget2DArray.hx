@@ -3,28 +3,28 @@ package ue;
 
 @:native("UTextureRenderTarget2DArray")
 @:include("Engine/TextureRenderTarget2DArray.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTarget2DArray extends TextureRenderTarget {
-	public var SizeX: cpp.Int32;
-	public var SizeY: cpp.Int32;
-	public var Slices: cpp.Int32;
+	public var SizeX: ucpp.num.Int32;
+	public var SizeY: ucpp.num.Int32;
+	public var Slices: ucpp.num.Int32;
 	public var ClearColor: LinearColor;
 	public var OverrideFormat: TEnumAsByte<EPixelFormat>;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTarget2DArray(TextureRenderTarget2DArray) from TextureRenderTarget2DArray {
-	public extern var SizeX(get, never): cpp.Int32;
-	public inline extern function get_SizeX(): cpp.Int32 return this.SizeX;
-	public extern var SizeY(get, never): cpp.Int32;
-	public inline extern function get_SizeY(): cpp.Int32 return this.SizeY;
-	public extern var Slices(get, never): cpp.Int32;
-	public inline extern function get_Slices(): cpp.Int32 return this.Slices;
+	public extern var SizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeX(): ucpp.num.Int32 return this.SizeX;
+	public extern var SizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeY(): ucpp.num.Int32 return this.SizeY;
+	public extern var Slices(get, never): ucpp.num.Int32;
+	public inline extern function get_Slices(): ucpp.num.Int32 return this.Slices;
 	public extern var ClearColor(get, never): LinearColor;
 	public inline extern function get_ClearColor(): LinearColor return this.ClearColor;
 	public extern var OverrideFormat(get, never): TEnumAsByte<EPixelFormat>;
@@ -38,7 +38,7 @@ abstract ConstTextureRenderTarget2DArray(TextureRenderTarget2DArray) from Textur
 @:forward
 @:nativeGen
 @:native("TextureRenderTarget2DArray*")
-abstract TextureRenderTarget2DArrayPtr(cpp.Star<TextureRenderTarget2DArray>) from cpp.Star<TextureRenderTarget2DArray> to cpp.Star<TextureRenderTarget2DArray>{
+abstract TextureRenderTarget2DArrayPtr(ucpp.Ptr<TextureRenderTarget2DArray>) from ucpp.Ptr<TextureRenderTarget2DArray> to ucpp.Ptr<TextureRenderTarget2DArray>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTarget2DArray): TextureRenderTarget2DArrayPtr {
 		return untyped __cpp__("&({0})", v);

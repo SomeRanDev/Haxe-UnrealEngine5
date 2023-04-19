@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNDIRenderTargetVolumeSimCacheFrame")
 @:include("Private/NDIRenderTargetVolumeSimCacheData.h")
-@:structAccess
+@:valueType
 extern class NDIRenderTargetVolumeSimCacheFrame {
 	public var Size: IntVector;
 	public var Format: TEnumAsByte<EPixelFormat>;
-	public var UncompressedSize: cpp.Int32;
-	public var CompressedSize: cpp.Int32;
+	public var UncompressedSize: ucpp.num.Int32;
+	public var CompressedSize: ucpp.num.Int32;
 
 	@:native("FNDIRenderTargetVolumeSimCacheFrame") public function new();
-	@:native("FNDIRenderTargetVolumeSimCacheFrame") public static function make(Size: IntVector, Format: TEnumAsByte<EPixelFormat>, UncompressedSize: cpp.Int32, CompressedSize: cpp.Int32): NDIRenderTargetVolumeSimCacheFrame ;
+	@:native("FNDIRenderTargetVolumeSimCacheFrame") public static function make(Size: IntVector, Format: TEnumAsByte<EPixelFormat>, UncompressedSize: ucpp.num.Int32, CompressedSize: ucpp.num.Int32): NDIRenderTargetVolumeSimCacheFrame ;
 }

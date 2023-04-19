@@ -3,31 +3,31 @@ package ue;
 
 @:native("UImage")
 @:include("Components/Image.h")
-@:structAccess
+@:valueType
 extern class Image extends Widget {
 	public var Brush: SlateBrush;
 	public var BrushDelegate: HaxeDelegateProperty<() -> Void>;
 	public var ColorAndOpacity: LinearColor;
 	public var ColorAndOpacityDelegate: HaxeDelegateProperty<() -> Void>;
 	public var bFlipForRightToLeftFlowDirection: Bool;
-	public var OnMouseButtonDownEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
+	public var OnMouseButtonDownEvent: HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
 
-	public function SetOpacity(InOpacity: cpp.Float32): Void;
+	public function SetOpacity(InOpacity: ucpp.num.Float32): Void;
 	public function SetDesiredSizeOverride(DesiredSize: Vector2D): Void;
 	public function SetColorAndOpacity(InColorAndOpacity: LinearColor): Void;
 	public function SetBrushTintColor(TintColor: SlateColor): Void;
-	public function SetBrushResourceObject(ResourceObject: cpp.Star<Object>): Void;
-	public function SetBrushFromTextureDynamic(Texture: cpp.Star<Texture2DDynamic>, bMatchSize: Bool): Void;
-	public function SetBrushFromTexture(Texture: cpp.Star<Texture2D>, bMatchSize: Bool): Void;
+	public function SetBrushResourceObject(ResourceObject: ucpp.Ptr<Object>): Void;
+	public function SetBrushFromTextureDynamic(Texture: ucpp.Ptr<Texture2DDynamic>, bMatchSize: Bool): Void;
+	public function SetBrushFromTexture(Texture: ucpp.Ptr<Texture2D>, bMatchSize: Bool): Void;
 	public function SetBrushFromSoftTexture(SoftTexture: TSoftObjectPtr<Texture2D>, bMatchSize: Bool): Void;
 	public function SetBrushFromSoftMaterial(SoftMaterial: TSoftObjectPtr<MaterialInterface>): Void;
-	public function SetBrushFromMaterial(Material: cpp.Star<MaterialInterface>): Void;
+	public function SetBrushFromMaterial(Material: ucpp.Ptr<MaterialInterface>): Void;
 	public function SetBrushFromAtlasInterface(AtlasRegion: SlateTextureAtlasInterface, bMatchSize: Bool): Void;
-	public function SetBrushFromAsset(Asset: cpp.Star<SlateBrushAsset>): Void;
-	public function SetBrush(InBrush: cpp.Reference<SlateBrush>): Void;
-	public function GetDynamicMaterial(): cpp.Star<MaterialInstanceDynamic>;
+	public function SetBrushFromAsset(Asset: ucpp.Ptr<SlateBrushAsset>): Void;
+	public function SetBrush(InBrush: ucpp.Ref<SlateBrush>): Void;
+	public function GetDynamicMaterial(): ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,14 +43,14 @@ abstract ConstImage(Image) from Image {
 	public inline extern function get_ColorAndOpacityDelegate(): HaxeDelegateProperty<() -> Void> return this.ColorAndOpacityDelegate;
 	public extern var bFlipForRightToLeftFlowDirection(get, never): Bool;
 	public inline extern function get_bFlipForRightToLeftFlowDirection(): Bool return this.bFlipForRightToLeftFlowDirection;
-	public extern var OnMouseButtonDownEvent(get, never): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public inline extern function get_OnMouseButtonDownEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseButtonDownEvent;
+	public extern var OnMouseButtonDownEvent(get, never): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public inline extern function get_OnMouseButtonDownEvent(): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void> return this.OnMouseButtonDownEvent;
 }
 
 @:forward
 @:nativeGen
 @:native("Image*")
-abstract ImagePtr(cpp.Star<Image>) from cpp.Star<Image> to cpp.Star<Image>{
+abstract ImagePtr(ucpp.Ptr<Image>) from ucpp.Ptr<Image> to ucpp.Ptr<Image>{
 	@:from
 	public static extern inline function fromValue(v: Image): ImagePtr {
 		return untyped __cpp__("&({0})", v);

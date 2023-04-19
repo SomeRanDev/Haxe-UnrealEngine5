@@ -3,19 +3,19 @@ package ue;
 
 @:native("AFloatingText")
 @:include("VREditorFloatingText.h")
-@:structAccess
+@:valueType
 extern class FloatingText extends Actor {
-	private var SceneComponent: cpp.Star<SceneComp>;
-	private var FirstLineComponent: cpp.Star<StaticMeshComp>;
-	private var JointSphereComponent: cpp.Star<StaticMeshComp>;
-	private var SecondLineComponent: cpp.Star<StaticMeshComp>;
-	private var TextComponent: cpp.Star<TextRenderComp>;
-	private var MaskedTextMaterial: cpp.Star<MaterialInterface>;
-	private var TranslucentTextMaterial: cpp.Star<MaterialInterface>;
-	private var LineMaterial: cpp.Star<MaterialInterface>;
-	private var LineMaterialMID: cpp.Star<MaterialInstanceDynamic>;
+	private var SceneComponent: ucpp.Ptr<SceneComp>;
+	private var FirstLineComponent: ucpp.Ptr<StaticMeshComp>;
+	private var JointSphereComponent: ucpp.Ptr<StaticMeshComp>;
+	private var SecondLineComponent: ucpp.Ptr<StaticMeshComp>;
+	private var TextComponent: ucpp.Ptr<TextRenderComp>;
+	private var MaskedTextMaterial: ucpp.Ptr<MaterialInterface>;
+	private var TranslucentTextMaterial: ucpp.Ptr<MaterialInterface>;
+	private var LineMaterial: ucpp.Ptr<MaterialInterface>;
+	private var LineMaterialMID: ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstFloatingText(FloatingText) from FloatingText {
 @:forward
 @:nativeGen
 @:native("FloatingText*")
-abstract FloatingTextPtr(cpp.Star<FloatingText>) from cpp.Star<FloatingText> to cpp.Star<FloatingText>{
+abstract FloatingTextPtr(ucpp.Ptr<FloatingText>) from ucpp.Ptr<FloatingText> to ucpp.Ptr<FloatingText>{
 	@:from
 	public static extern inline function fromValue(v: FloatingText): FloatingTextPtr {
 		return untyped __cpp__("&({0})", v);

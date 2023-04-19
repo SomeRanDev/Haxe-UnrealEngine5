@@ -3,10 +3,10 @@ package ue;
 
 @:native("UOnlineBlueprintCallProxyBase")
 @:include("Net/OnlineBlueprintCallProxyBase.h")
-@:structAccess
+@:valueType
 extern class OnlineBlueprintCallProxyBase extends BlueprintAsyncActionBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstOnlineBlueprintCallProxyBase(OnlineBlueprintCallProxyBase) from On
 @:forward
 @:nativeGen
 @:native("OnlineBlueprintCallProxyBase*")
-abstract OnlineBlueprintCallProxyBasePtr(cpp.Star<OnlineBlueprintCallProxyBase>) from cpp.Star<OnlineBlueprintCallProxyBase> to cpp.Star<OnlineBlueprintCallProxyBase>{
+abstract OnlineBlueprintCallProxyBasePtr(ucpp.Ptr<OnlineBlueprintCallProxyBase>) from ucpp.Ptr<OnlineBlueprintCallProxyBase> to ucpp.Ptr<OnlineBlueprintCallProxyBase>{
 	@:from
 	public static extern inline function fromValue(v: OnlineBlueprintCallProxyBase): OnlineBlueprintCallProxyBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FNiagaraVariable")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariable extends NiagaraVariableBase {
-	private var VarData: TArray<cpp.UInt8>;
+	private var VarData: TArray<ucpp.num.UInt8>;
 
 	@:native("FNiagaraVariable") public function new();
-	@:native("FNiagaraVariable") public static function make(VarData: TArray<cpp.UInt8>): NiagaraVariable ;
+	@:native("FNiagaraVariable") public static function make(VarData: TArray<ucpp.num.UInt8>): NiagaraVariable ;
 }

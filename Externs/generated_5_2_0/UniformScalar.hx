@@ -3,26 +3,26 @@ package ue;
 
 @:native("UUniformScalar")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class UniformScalar extends FieldNodeFloat {
-	public var Magnitude: cpp.Float32;
+	public var Magnitude: ucpp.num.Float32;
 
-	public function SetUniformScalar(Magnitude: cpp.Float32): cpp.Star<UniformScalar>;
+	public function SetUniformScalar(Magnitude: ucpp.num.Float32): ucpp.Ptr<UniformScalar>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUniformScalar(UniformScalar) from UniformScalar {
-	public extern var Magnitude(get, never): cpp.Float32;
-	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
+	public extern var Magnitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Magnitude(): ucpp.num.Float32 return this.Magnitude;
 }
 
 @:forward
 @:nativeGen
 @:native("UniformScalar*")
-abstract UniformScalarPtr(cpp.Star<UniformScalar>) from cpp.Star<UniformScalar> to cpp.Star<UniformScalar>{
+abstract UniformScalarPtr(ucpp.Ptr<UniformScalar>) from ucpp.Ptr<UniformScalar> to ucpp.Ptr<UniformScalar>{
 	@:from
 	public static extern inline function fromValue(v: UniformScalar): UniformScalarPtr {
 		return untyped __cpp__("&({0})", v);

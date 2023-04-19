@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStructRedirect")
 @:include("Engine/Engine.h")
-@:structAccess
+@:valueType
 extern class StructRedirect {
 	public var OldStructName: FName;
 	public var NewStructName: FName;

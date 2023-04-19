@@ -3,27 +3,27 @@ package ue;
 
 @:native("UTimeManagementBlueprintLibrary")
 @:include("TimeManagementBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class TimeManagementBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function TransformTime(SourceTime: cpp.Reference<FrameTime>, SourceRate: cpp.Reference<FrameRate>, DestinationRate: cpp.Reference<FrameRate>): FrameTime;
-	public function Subtract_FrameNumberInteger(A: FrameNumber, B: cpp.Int32): FrameNumber;
+	public function TransformTime(SourceTime: ucpp.Ref<FrameTime>, SourceRate: ucpp.Ref<FrameRate>, DestinationRate: ucpp.Ref<FrameRate>): FrameTime;
+	public function Subtract_FrameNumberInteger(A: FrameNumber, B: ucpp.num.Int32): FrameNumber;
 	public function Subtract_FrameNumberFrameNumber(A: FrameNumber, B: FrameNumber): FrameNumber;
-	public function SnapFrameTimeToRate(SourceTime: cpp.Reference<FrameTime>, SourceRate: cpp.Reference<FrameRate>, SnapToRate: cpp.Reference<FrameRate>): FrameTime;
-	public function Multiply_SecondsFrameRate(TimeInSeconds: cpp.Float32, FrameRate: cpp.Reference<FrameRate>): FrameTime;
-	public function Multiply_FrameNumberInteger(A: FrameNumber, B: cpp.Int32): FrameNumber;
-	public function IsValid_MultipleOf(InFrameRate: cpp.Reference<FrameRate>, OtherFramerate: cpp.Reference<FrameRate>): Bool;
-	public function IsValid_Framerate(InFrameRate: cpp.Reference<FrameRate>): Bool;
+	public function SnapFrameTimeToRate(SourceTime: ucpp.Ref<FrameTime>, SourceRate: ucpp.Ref<FrameRate>, SnapToRate: ucpp.Ref<FrameRate>): FrameTime;
+	public function Multiply_SecondsFrameRate(TimeInSeconds: ucpp.num.Float32, FrameRate: ucpp.Ref<FrameRate>): FrameTime;
+	public function Multiply_FrameNumberInteger(A: FrameNumber, B: ucpp.num.Int32): FrameNumber;
+	public function IsValid_MultipleOf(InFrameRate: ucpp.Ref<FrameRate>, OtherFramerate: ucpp.Ref<FrameRate>): Bool;
+	public function IsValid_Framerate(InFrameRate: ucpp.Ref<FrameRate>): Bool;
 	public function GetTimecodeFrameRate(): FrameRate;
 	public function GetTimecode(): Timecode;
-	public function Divide_FrameNumberInteger(A: FrameNumber, B: cpp.Int32): FrameNumber;
-	public function Conv_TimecodeToString(InTimecode: cpp.Reference<Timecode>, bForceSignDisplay: Bool): FString;
-	public function Conv_QualifiedFrameTimeToSeconds(InFrameTime: cpp.Reference<QualifiedFrameTime>): cpp.Float32;
-	public function Conv_FrameRateToSeconds(InFrameRate: cpp.Reference<FrameRate>): cpp.Float32;
-	public function Conv_FrameNumberToInteger(InFrameNumber: cpp.Reference<FrameNumber>): cpp.Int32;
-	public function Add_FrameNumberInteger(A: FrameNumber, B: cpp.Int32): FrameNumber;
+	public function Divide_FrameNumberInteger(A: FrameNumber, B: ucpp.num.Int32): FrameNumber;
+	public function Conv_TimecodeToString(InTimecode: ucpp.Ref<Timecode>, bForceSignDisplay: Bool): FString;
+	public function Conv_QualifiedFrameTimeToSeconds(InFrameTime: ucpp.Ref<QualifiedFrameTime>): ucpp.num.Float32;
+	public function Conv_FrameRateToSeconds(InFrameRate: ucpp.Ref<FrameRate>): ucpp.num.Float32;
+	public function Conv_FrameNumberToInteger(InFrameNumber: ucpp.Ref<FrameNumber>): ucpp.num.Int32;
+	public function Add_FrameNumberInteger(A: FrameNumber, B: ucpp.num.Int32): FrameNumber;
 	public function Add_FrameNumberFrameNumber(A: FrameNumber, B: FrameNumber): FrameNumber;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,7 +34,7 @@ abstract ConstTimeManagementBlueprintLibrary(TimeManagementBlueprintLibrary) fro
 @:forward
 @:nativeGen
 @:native("TimeManagementBlueprintLibrary*")
-abstract TimeManagementBlueprintLibraryPtr(cpp.Star<TimeManagementBlueprintLibrary>) from cpp.Star<TimeManagementBlueprintLibrary> to cpp.Star<TimeManagementBlueprintLibrary>{
+abstract TimeManagementBlueprintLibraryPtr(ucpp.Ptr<TimeManagementBlueprintLibrary>) from ucpp.Ptr<TimeManagementBlueprintLibrary> to ucpp.Ptr<TimeManagementBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TimeManagementBlueprintLibrary): TimeManagementBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraTypeDefinition")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraTypeDefinition {
-	public var ClassStructOrEnum: cpp.Star<Object>;
-	public var UnderlyingType: cpp.UInt16;
-	private var Flags: cpp.UInt8;
+	public var ClassStructOrEnum: ucpp.Ptr<Object>;
+	public var UnderlyingType: ucpp.num.UInt16;
+	private var Flags: ucpp.num.UInt8;
 
 	@:native("FNiagaraTypeDefinition") public function new();
-	@:native("FNiagaraTypeDefinition") public static function make(ClassStructOrEnum: cpp.Star<Object>, UnderlyingType: cpp.UInt16, Flags: cpp.UInt8, Struct_DEPRECATED: cpp.Star<Struct>, Enum_DEPRECATED: cpp.Star<Enum>): NiagaraTypeDefinition ;
+	@:native("FNiagaraTypeDefinition") public static function make(ClassStructOrEnum: ucpp.Ptr<Object>, UnderlyingType: ucpp.num.UInt16, Flags: ucpp.num.UInt8, Struct_DEPRECATED: ucpp.Ptr<Struct>, Enum_DEPRECATED: ucpp.Ptr<Enum>): NiagaraTypeDefinition ;
 }

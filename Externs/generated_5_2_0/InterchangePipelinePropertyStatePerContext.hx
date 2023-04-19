@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangePipelinePropertyStatePerContext")
 @:include("InterchangePipelineBase.h")
-@:structAccess
+@:valueType
 extern class InterchangePipelinePropertyStatePerContext {
 	public var bVisible: Bool;
 

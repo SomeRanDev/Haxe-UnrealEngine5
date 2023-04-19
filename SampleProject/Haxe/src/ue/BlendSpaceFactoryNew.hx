@@ -3,27 +3,27 @@ package ue;
 
 @:native("UBlendSpaceFactoryNew")
 @:include("Factories/BlendSpaceFactoryNew.h")
-@:structAccess
+@:valueType
 extern class BlendSpaceFactoryNew extends Factory {
-	public var TargetSkeleton: cpp.Star<Skeleton>;
-	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
+	public var PreviewSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlendSpaceFactoryNew(BlendSpaceFactoryNew) from BlendSpaceFactoryNew {
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
-	public extern var PreviewSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var PreviewSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_PreviewSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("BlendSpaceFactoryNew*")
-abstract BlendSpaceFactoryNewPtr(cpp.Star<BlendSpaceFactoryNew>) from cpp.Star<BlendSpaceFactoryNew> to cpp.Star<BlendSpaceFactoryNew>{
+abstract BlendSpaceFactoryNewPtr(ucpp.Ptr<BlendSpaceFactoryNew>) from ucpp.Ptr<BlendSpaceFactoryNew> to ucpp.Ptr<BlendSpaceFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: BlendSpaceFactoryNew): BlendSpaceFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

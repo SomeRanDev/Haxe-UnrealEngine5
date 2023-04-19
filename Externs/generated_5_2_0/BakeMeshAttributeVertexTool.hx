@@ -3,15 +3,15 @@ package ue;
 
 @:native("UBakeMeshAttributeVertexTool")
 @:include("BakeMeshAttributeVertexTool.h")
-@:structAccess
+@:valueType
 extern class BakeMeshAttributeVertexTool extends BakeMeshAttributeTool {
-	@:protected public var InputMeshSettings: cpp.Star<BakeInputMeshProperties>;
-	@:protected public var Settings: cpp.Star<BakeMeshAttributeVertexToolProperties>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var PreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var PreviewAlphaMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var InputMeshSettings: ucpp.Ptr<BakeInputMeshProperties>;
+	@:protected public var Settings: ucpp.Ptr<BakeMeshAttributeVertexToolProperties>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var PreviewMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var PreviewAlphaMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstBakeMeshAttributeVertexTool(BakeMeshAttributeVertexTool) from Bake
 @:forward
 @:nativeGen
 @:native("BakeMeshAttributeVertexTool*")
-abstract BakeMeshAttributeVertexToolPtr(cpp.Star<BakeMeshAttributeVertexTool>) from cpp.Star<BakeMeshAttributeVertexTool> to cpp.Star<BakeMeshAttributeVertexTool>{
+abstract BakeMeshAttributeVertexToolPtr(ucpp.Ptr<BakeMeshAttributeVertexTool>) from ucpp.Ptr<BakeMeshAttributeVertexTool> to ucpp.Ptr<BakeMeshAttributeVertexTool>{
 	@:from
 	public static extern inline function fromValue(v: BakeMeshAttributeVertexTool): BakeMeshAttributeVertexToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditorUtilityWidget")
 @:include("EditorUtilityWidget.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityWidget extends UserWidget {
 	@:protected public var TabDisplayName: FText;
 	@:protected public var HelpText: FString;
@@ -12,7 +12,7 @@ extern class EditorUtilityWidget extends UserWidget {
 
 	public function Run(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEditorUtilityWidget(EditorUtilityWidget) from EditorUtilityWidget 
 @:forward
 @:nativeGen
 @:native("EditorUtilityWidget*")
-abstract EditorUtilityWidgetPtr(cpp.Star<EditorUtilityWidget>) from cpp.Star<EditorUtilityWidget> to cpp.Star<EditorUtilityWidget>{
+abstract EditorUtilityWidgetPtr(ucpp.Ptr<EditorUtilityWidget>) from ucpp.Ptr<EditorUtilityWidget> to ucpp.Ptr<EditorUtilityWidget>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityWidget): EditorUtilityWidgetPtr {
 		return untyped __cpp__("&({0})", v);

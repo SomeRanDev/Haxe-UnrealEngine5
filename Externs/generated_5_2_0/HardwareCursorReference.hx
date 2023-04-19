@@ -3,7 +3,7 @@ package ue;
 
 @:native("FHardwareCursorReference")
 @:include("Engine/UserInterfaceSettings.h")
-@:structAccess
+@:valueType
 extern class HardwareCursorReference {
 	public var CursorPath: FName;
 	public var HotSpot: Vector2D;

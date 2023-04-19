@@ -3,21 +3,21 @@ package ue;
 
 @:native("FAnimNode_IKRig")
 @:include("AnimNodes/AnimNode_IKRig.h")
-@:structAccess
+@:valueType
 extern class AnimNode_IKRig extends AnimNode_CustomProperty {
 	public var Source: PoseLink;
-	public var RigDefinitionAsset: cpp.Star<IKRigDefinition>;
+	public var RigDefinitionAsset: ucpp.Ptr<IKRigDefinition>;
 	public var Goals: TArray<IKRigGoal>;
 	public var bStartFromRefPose: Bool;
 	public var AlphaInputType: EAnimAlphaInputType;
 	public var bAlphaBoolEnabled: Bool;
-	public var Alpha: cpp.Float32;
+	public var Alpha: ucpp.num.Float32;
 	public var AlphaScaleBias: InputScaleBias;
 	public var AlphaBoolBlend: InputAlphaBoolBlend;
 	public var AlphaCurveName: FName;
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;
-	private var IKRigProcessor: cpp.Star<IKRigProcessor>;
-	private var ActualAlpha: cpp.Float32;
+	private var IKRigProcessor: ucpp.Ptr<IKRigProcessor>;
+	private var ActualAlpha: ucpp.num.Float32;
 
 	@:native("FAnimNode_IKRig") public function new();
 }

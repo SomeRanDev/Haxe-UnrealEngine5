@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_FunctionResult")
 @:include("K2Node_FunctionResult.h")
-@:structAccess
+@:valueType
 extern class K2Node_FunctionResult extends K2Node_FunctionTerminator {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_FunctionResult(K2Node_FunctionResult) from K2Node_FunctionR
 @:forward
 @:nativeGen
 @:native("K2Node_FunctionResult*")
-abstract K2Node_FunctionResultPtr(cpp.Star<K2Node_FunctionResult>) from cpp.Star<K2Node_FunctionResult> to cpp.Star<K2Node_FunctionResult>{
+abstract K2Node_FunctionResultPtr(ucpp.Ptr<K2Node_FunctionResult>) from ucpp.Ptr<K2Node_FunctionResult> to ucpp.Ptr<K2Node_FunctionResult>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_FunctionResult): K2Node_FunctionResultPtr {
 		return untyped __cpp__("&({0})", v);

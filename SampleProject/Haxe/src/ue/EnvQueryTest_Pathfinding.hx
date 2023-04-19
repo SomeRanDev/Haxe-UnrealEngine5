@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnvQueryTest_Pathfinding")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Pathfinding.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_Pathfinding extends EnvQueryTest {
 	public var TestMode: TEnumAsByte<EEnvTestPathfinding>;
 	public var Context: TSubclassOf<EnvQueryContext>;
@@ -11,7 +11,7 @@ extern class EnvQueryTest_Pathfinding extends EnvQueryTest {
 	public var SkipUnreachable: AIDataProviderBoolValue;
 	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstEnvQueryTest_Pathfinding(EnvQueryTest_Pathfinding) from EnvQueryTe
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_Pathfinding*")
-abstract EnvQueryTest_PathfindingPtr(cpp.Star<EnvQueryTest_Pathfinding>) from cpp.Star<EnvQueryTest_Pathfinding> to cpp.Star<EnvQueryTest_Pathfinding>{
+abstract EnvQueryTest_PathfindingPtr(ucpp.Ptr<EnvQueryTest_Pathfinding>) from ucpp.Ptr<EnvQueryTest_Pathfinding> to ucpp.Ptr<EnvQueryTest_Pathfinding>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_Pathfinding): EnvQueryTest_PathfindingPtr {
 		return untyped __cpp__("&({0})", v);

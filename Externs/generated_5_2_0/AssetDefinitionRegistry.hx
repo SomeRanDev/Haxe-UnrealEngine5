@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAssetDefinitionRegistry")
 @:include("AssetDefinitionRegistry.h")
-@:structAccess
+@:valueType
 extern class AssetDefinitionRegistry extends Object {
-	private var AssetDefinitions: TMap<TSoftClassPtr<Class>, cpp.Star<AssetDefinition>>;
+	private var AssetDefinitions: TMap<TSoftClassPtr<Class>, ucpp.Ptr<AssetDefinition>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAssetDefinitionRegistry(AssetDefinitionRegistry) from AssetDefinit
 @:forward
 @:nativeGen
 @:native("AssetDefinitionRegistry*")
-abstract AssetDefinitionRegistryPtr(cpp.Star<AssetDefinitionRegistry>) from cpp.Star<AssetDefinitionRegistry> to cpp.Star<AssetDefinitionRegistry>{
+abstract AssetDefinitionRegistryPtr(ucpp.Ptr<AssetDefinitionRegistry>) from ucpp.Ptr<AssetDefinitionRegistry> to ucpp.Ptr<AssetDefinitionRegistry>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinitionRegistry): AssetDefinitionRegistryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneSlomoSection")
 @:include("Sections/MovieSceneSlomoSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSlomoSection extends MovieSceneSection {
 	public var FloatCurve: MovieSceneFloatChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneSlomoSection(MovieSceneSlomoSection) from MovieSceneSlom
 @:forward
 @:nativeGen
 @:native("MovieSceneSlomoSection*")
-abstract MovieSceneSlomoSectionPtr(cpp.Star<MovieSceneSlomoSection>) from cpp.Star<MovieSceneSlomoSection> to cpp.Star<MovieSceneSlomoSection>{
+abstract MovieSceneSlomoSectionPtr(ucpp.Ptr<MovieSceneSlomoSection>) from ucpp.Ptr<MovieSceneSlomoSection> to ucpp.Ptr<MovieSceneSlomoSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSlomoSection): MovieSceneSlomoSectionPtr {
 		return untyped __cpp__("&({0})", v);

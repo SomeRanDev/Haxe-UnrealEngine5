@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneScriptingDoubleAsFloatKey")
 @:include("KeysAndChannels/MovieSceneScriptingFloat.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingDoubleAsFloatKey extends MovieSceneScriptingFloatKey {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneScriptingDoubleAsFloatKey(MovieSceneScriptingDoubleAsFlo
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingDoubleAsFloatKey*")
-abstract MovieSceneScriptingDoubleAsFloatKeyPtr(cpp.Star<MovieSceneScriptingDoubleAsFloatKey>) from cpp.Star<MovieSceneScriptingDoubleAsFloatKey> to cpp.Star<MovieSceneScriptingDoubleAsFloatKey>{
+abstract MovieSceneScriptingDoubleAsFloatKeyPtr(ucpp.Ptr<MovieSceneScriptingDoubleAsFloatKey>) from ucpp.Ptr<MovieSceneScriptingDoubleAsFloatKey> to ucpp.Ptr<MovieSceneScriptingDoubleAsFloatKey>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingDoubleAsFloatKey): MovieSceneScriptingDoubleAsFloatKeyPtr {
 		return untyped __cpp__("&({0})", v);

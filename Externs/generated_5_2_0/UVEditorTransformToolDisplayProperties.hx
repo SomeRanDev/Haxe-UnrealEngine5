@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUVEditorTransformToolDisplayProperties")
 @:include("UVEditorTransformTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorTransformToolDisplayProperties extends InteractiveToolPropertySet {
 	public var bDrawPivots: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUVEditorTransformToolDisplayProperties(UVEditorTransformToolDispla
 @:forward
 @:nativeGen
 @:native("UVEditorTransformToolDisplayProperties*")
-abstract UVEditorTransformToolDisplayPropertiesPtr(cpp.Star<UVEditorTransformToolDisplayProperties>) from cpp.Star<UVEditorTransformToolDisplayProperties> to cpp.Star<UVEditorTransformToolDisplayProperties>{
+abstract UVEditorTransformToolDisplayPropertiesPtr(ucpp.Ptr<UVEditorTransformToolDisplayProperties>) from ucpp.Ptr<UVEditorTransformToolDisplayProperties> to ucpp.Ptr<UVEditorTransformToolDisplayProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorTransformToolDisplayProperties): UVEditorTransformToolDisplayPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNiagaraRenderableMeshInterface")
-@:structAccess
+@:valueType
 extern class NiagaraRenderableMeshInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNiagaraRenderableMeshInterface(NiagaraRenderableMeshInterface) fro
 @:forward
 @:nativeGen
 @:native("NiagaraRenderableMeshInterface*")
-abstract NiagaraRenderableMeshInterfacePtr(cpp.Star<NiagaraRenderableMeshInterface>) from cpp.Star<NiagaraRenderableMeshInterface> to cpp.Star<NiagaraRenderableMeshInterface>{
+abstract NiagaraRenderableMeshInterfacePtr(ucpp.Ptr<NiagaraRenderableMeshInterface>) from ucpp.Ptr<NiagaraRenderableMeshInterface> to ucpp.Ptr<NiagaraRenderableMeshInterface>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraRenderableMeshInterface): NiagaraRenderableMeshInterfacePtr {
 		return untyped __cpp__("&({0})", v);

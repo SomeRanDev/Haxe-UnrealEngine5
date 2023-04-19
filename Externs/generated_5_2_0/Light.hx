@@ -3,26 +3,26 @@ package ue;
 
 @:native("ALight")
 @:include("Engine/Light.h")
-@:structAccess
+@:valueType
 extern class Light extends Actor {
-	private var LightComponent: cpp.Star<LightComp>;
+	private var LightComponent: ucpp.Ptr<LightComp>;
 	public var bEnabled: Bool;
 
 	public function ToggleEnabled(): Void;
 	public function SetLightFunctionScale(NewLightFunctionScale: Vector): Void;
-	public function SetLightFunctionMaterial(NewLightFunctionMaterial: cpp.Star<MaterialInterface>): Void;
-	public function SetLightFunctionFadeDistance(NewLightFunctionFadeDistance: cpp.Float32): Void;
+	public function SetLightFunctionMaterial(NewLightFunctionMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetLightFunctionFadeDistance(NewLightFunctionFadeDistance: ucpp.num.Float32): Void;
 	public function SetLightColor(NewLightColor: LinearColor): Void;
 	public function SetEnabled(bSetEnabled: Bool): Void;
 	public function SetCastShadows(bNewValue: Bool): Void;
-	public function SetBrightness(NewBrightness: cpp.Float32): Void;
+	public function SetBrightness(NewBrightness: ucpp.num.Float32): Void;
 	public function SetAffectTranslucentLighting(bNewValue: Bool): Void;
 	public function OnRep_bEnabled(): Void;
 	public function IsEnabled(): Bool;
 	public function GetLightColor(): LinearColor;
-	public function GetBrightness(): cpp.Float32;
+	public function GetBrightness(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsEnabled, GetLightColor, GetBrightness)
@@ -35,7 +35,7 @@ abstract ConstLight(Light) from Light {
 @:forward
 @:nativeGen
 @:native("Light*")
-abstract LightPtr(cpp.Star<Light>) from cpp.Star<Light> to cpp.Star<Light>{
+abstract LightPtr(ucpp.Ptr<Light>) from ucpp.Ptr<Light> to ucpp.Ptr<Light>{
 	@:from
 	public static extern inline function fromValue(v: Light): LightPtr {
 		return untyped __cpp__("&({0})", v);

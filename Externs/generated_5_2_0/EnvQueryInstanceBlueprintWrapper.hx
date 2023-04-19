@@ -3,22 +3,22 @@ package ue;
 
 @:native("UEnvQueryInstanceBlueprintWrapper")
 @:include("EnvironmentQuery/EnvQueryInstanceBlueprintWrapper.h")
-@:structAccess
+@:valueType
 extern class EnvQueryInstanceBlueprintWrapper extends Object {
-	@:protected public var QueryID: cpp.Int32;
+	@:protected public var QueryID: ucpp.num.Int32;
 	@:protected public var ItemType: TSubclassOf<EnvQueryItemType>;
-	@:protected public var OptionIndex: cpp.Int32;
-	@:protected public var OnQueryFinishedEvent: HaxeMulticastSparseDelegateProperty<(cpp.Star<EnvQueryInstanceBlueprintWrapper>, TEnumAsByte<EEnvQueryStatus>) -> Void>;
+	@:protected public var OptionIndex: ucpp.num.Int32;
+	@:protected public var OnQueryFinishedEvent: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<EnvQueryInstanceBlueprintWrapper>, TEnumAsByte<EEnvQueryStatus>) -> Void>;
 
-	public function SetNamedParam(ParamName: FName, Value: cpp.Float32): Void;
+	public function SetNamedParam(ParamName: FName, Value: ucpp.num.Float32): Void;
 	public function GetResultsAsLocations(): TArray<Vector>;
-	public function GetResultsAsActors(): TArray<cpp.Star<Actor>>;
-	public function GetQueryResultsAsLocations(ResultLocations: cpp.Reference<TArray<Vector>>): Bool;
-	public function GetQueryResultsAsActors(ResultActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Bool;
-	public function GetItemScore(ItemIndex: cpp.Int32): cpp.Float32;
-	public function EQSQueryDoneSignature__DelegateSignature(QueryInstance: cpp.Star<EnvQueryInstanceBlueprintWrapper>, QueryStatus: TEnumAsByte<EEnvQueryStatus>): Void;
+	public function GetResultsAsActors(): TArray<ucpp.Ptr<Actor>>;
+	public function GetQueryResultsAsLocations(ResultLocations: ucpp.Ref<TArray<Vector>>): Bool;
+	public function GetQueryResultsAsActors(ResultActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Bool;
+	public function GetItemScore(ItemIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function EQSQueryDoneSignature__DelegateSignature(QueryInstance: ucpp.Ptr<EnvQueryInstanceBlueprintWrapper>, QueryStatus: TEnumAsByte<EEnvQueryStatus>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetResultsAsLocations, GetResultsAsActors, GetQueryResultsAsLocations, GetQueryResultsAsActors, GetItemScore)
@@ -29,7 +29,7 @@ abstract ConstEnvQueryInstanceBlueprintWrapper(EnvQueryInstanceBlueprintWrapper)
 @:forward
 @:nativeGen
 @:native("EnvQueryInstanceBlueprintWrapper*")
-abstract EnvQueryInstanceBlueprintWrapperPtr(cpp.Star<EnvQueryInstanceBlueprintWrapper>) from cpp.Star<EnvQueryInstanceBlueprintWrapper> to cpp.Star<EnvQueryInstanceBlueprintWrapper>{
+abstract EnvQueryInstanceBlueprintWrapperPtr(ucpp.Ptr<EnvQueryInstanceBlueprintWrapper>) from ucpp.Ptr<EnvQueryInstanceBlueprintWrapper> to ucpp.Ptr<EnvQueryInstanceBlueprintWrapper>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryInstanceBlueprintWrapper): EnvQueryInstanceBlueprintWrapperPtr {
 		return untyped __cpp__("&({0})", v);

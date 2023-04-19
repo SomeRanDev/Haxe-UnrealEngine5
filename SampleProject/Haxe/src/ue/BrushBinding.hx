@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBrushBinding")
 @:include("Binding/BrushBinding.h")
-@:structAccess
+@:valueType
 extern class BrushBinding extends PropertyBinding {
 	public function GetValue(): SlateBrush;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstBrushBinding(BrushBinding) from BrushBinding {
 @:forward
 @:nativeGen
 @:native("BrushBinding*")
-abstract BrushBindingPtr(cpp.Star<BrushBinding>) from cpp.Star<BrushBinding> to cpp.Star<BrushBinding>{
+abstract BrushBindingPtr(ucpp.Ptr<BrushBinding>) from ucpp.Ptr<BrushBinding> to ucpp.Ptr<BrushBinding>{
 	@:from
 	public static extern inline function fromValue(v: BrushBinding): BrushBindingPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate_
 @:forward
 @:nativeGen
 @:native("ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable*")
-abstract ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallablePtr(cpp.Star<ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable>) from cpp.Star<ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable> to cpp.Star<ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable>{
+abstract ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallablePtr(ucpp.Ptr<ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable>) from ucpp.Ptr<ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable> to ucpp.Ptr<ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallable): ApplicationLifecycleComponent_ApplicationStartupArgumentsDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraBaselineController_Basic")
 @:include("NiagaraPerfBaseline.h")
-@:structAccess
+@:valueType
 extern class NiagaraBaselineController_Basic extends NiagaraBaselineController {
-	private var NumInstances: cpp.Int32;
-	private var SpawnedComponents: TArray<cpp.Star<NiagaraComp>>;
+	private var NumInstances: ucpp.num.Int32;
+	private var SpawnedComponents: TArray<ucpp.Ptr<NiagaraComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraBaselineController_Basic(NiagaraBaselineController_Basic) f
 @:forward
 @:nativeGen
 @:native("NiagaraBaselineController_Basic*")
-abstract NiagaraBaselineController_BasicPtr(cpp.Star<NiagaraBaselineController_Basic>) from cpp.Star<NiagaraBaselineController_Basic> to cpp.Star<NiagaraBaselineController_Basic>{
+abstract NiagaraBaselineController_BasicPtr(ucpp.Ptr<NiagaraBaselineController_Basic>) from ucpp.Ptr<NiagaraBaselineController_Basic> to ucpp.Ptr<NiagaraBaselineController_Basic>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraBaselineController_Basic): NiagaraBaselineController_BasicPtr {
 		return untyped __cpp__("&({0})", v);

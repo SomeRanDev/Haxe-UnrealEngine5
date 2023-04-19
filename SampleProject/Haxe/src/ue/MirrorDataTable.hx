@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMirrorDataTable")
 @:include("Animation/MirrorDataTable.h")
-@:structAccess
+@:valueType
 extern class MirrorDataTable extends DataTable {
 	public var MirrorFindReplaceExpressions: TArray<MirrorFindReplaceExpression>;
 	public var MirrorAxis: TEnumAsByte<EAxis>;
-	public var Skeleton: cpp.Star<Skeleton>;
+	public var Skeleton: ucpp.Ptr<Skeleton>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstMirrorDataTable(MirrorDataTable) from MirrorDataTable {
 	public inline extern function get_MirrorFindReplaceExpressions(): TArray<MirrorFindReplaceExpression> return this.MirrorFindReplaceExpressions;
 	public extern var MirrorAxis(get, never): TEnumAsByte<EAxis>;
 	public inline extern function get_MirrorAxis(): TEnumAsByte<EAxis> return this.MirrorAxis;
-	public extern var Skeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_Skeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.Skeleton;
+	public extern var Skeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_Skeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.Skeleton;
 }
 
 @:forward
 @:nativeGen
 @:native("MirrorDataTable*")
-abstract MirrorDataTablePtr(cpp.Star<MirrorDataTable>) from cpp.Star<MirrorDataTable> to cpp.Star<MirrorDataTable>{
+abstract MirrorDataTablePtr(ucpp.Ptr<MirrorDataTable>) from ucpp.Ptr<MirrorDataTable> to ucpp.Ptr<MirrorDataTable>{
 	@:from
 	public static extern inline function fromValue(v: MirrorDataTable): MirrorDataTablePtr {
 		return untyped __cpp__("&({0})", v);

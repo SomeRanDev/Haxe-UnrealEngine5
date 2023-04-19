@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSourceEffectBitCrusherBaseSettings")
 @:include("SourceEffects/SourceEffectBitCrusher.h")
-@:structAccess
+@:valueType
 extern class SourceEffectBitCrusherBaseSettings {
-	public var SampleRate: cpp.Float32;
-	public var BitDepth: cpp.Float32;
+	public var SampleRate: ucpp.num.Float32;
+	public var BitDepth: ucpp.num.Float32;
 
 	@:native("FSourceEffectBitCrusherBaseSettings") public function new();
-	@:native("FSourceEffectBitCrusherBaseSettings") public static function make(SampleRate: cpp.Float32, BitDepth: cpp.Float32): SourceEffectBitCrusherBaseSettings ;
+	@:native("FSourceEffectBitCrusherBaseSettings") public static function make(SampleRate: ucpp.num.Float32, BitDepth: ucpp.num.Float32): SourceEffectBitCrusherBaseSettings ;
 }

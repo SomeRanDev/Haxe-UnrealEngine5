@@ -3,15 +3,15 @@ package ue;
 
 @:native("UFractureTinyGeoSettings")
 @:include("FractureToolFixTinyGeo.h")
-@:structAccess
+@:valueType
 extern class FractureTinyGeoSettings extends FractureToolSettings {
 	public var NeighborSelection: ENeighborSelectionMethod;
 	public var UseBoneSelection: EUseBoneSelection;
 	public var SelectionMethod: EGeometrySelectionMethod;
-	public var MinVolumeCubeRoot: cpp.Float64;
-	public var RelativeVolume: cpp.Float64;
+	public var MinVolumeCubeRoot: ucpp.num.Float64;
+	public var RelativeVolume: ucpp.num.Float64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,16 +23,16 @@ abstract ConstFractureTinyGeoSettings(FractureTinyGeoSettings) from FractureTiny
 	public inline extern function get_UseBoneSelection(): EUseBoneSelection return this.UseBoneSelection;
 	public extern var SelectionMethod(get, never): EGeometrySelectionMethod;
 	public inline extern function get_SelectionMethod(): EGeometrySelectionMethod return this.SelectionMethod;
-	public extern var MinVolumeCubeRoot(get, never): cpp.Float64;
-	public inline extern function get_MinVolumeCubeRoot(): cpp.Float64 return this.MinVolumeCubeRoot;
-	public extern var RelativeVolume(get, never): cpp.Float64;
-	public inline extern function get_RelativeVolume(): cpp.Float64 return this.RelativeVolume;
+	public extern var MinVolumeCubeRoot(get, never): ucpp.num.Float64;
+	public inline extern function get_MinVolumeCubeRoot(): ucpp.num.Float64 return this.MinVolumeCubeRoot;
+	public extern var RelativeVolume(get, never): ucpp.num.Float64;
+	public inline extern function get_RelativeVolume(): ucpp.num.Float64 return this.RelativeVolume;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureTinyGeoSettings*")
-abstract FractureTinyGeoSettingsPtr(cpp.Star<FractureTinyGeoSettings>) from cpp.Star<FractureTinyGeoSettings> to cpp.Star<FractureTinyGeoSettings>{
+abstract FractureTinyGeoSettingsPtr(ucpp.Ptr<FractureTinyGeoSettings>) from ucpp.Ptr<FractureTinyGeoSettings> to ucpp.Ptr<FractureTinyGeoSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureTinyGeoSettings): FractureTinyGeoSettingsPtr {
 		return untyped __cpp__("&({0})", v);

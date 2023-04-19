@@ -3,14 +3,14 @@ package ue;
 
 @:native("USoundClass")
 @:include("Sound/SoundClass.h")
-@:structAccess
+@:valueType
 extern class SoundClass extends Object {
 	public var Properties: SoundClassProperties;
-	public var ChildClasses: TArray<cpp.Star<SoundClass>>;
+	public var ChildClasses: TArray<ucpp.Ptr<SoundClass>>;
 	public var PassiveSoundMixModifiers: TArray<PassiveSoundMixModifier>;
-	public var ParentClass: cpp.Star<SoundClass>;
+	public var ParentClass: ucpp.Ptr<SoundClass>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,18 +18,18 @@ extern class SoundClass extends Object {
 abstract ConstSoundClass(SoundClass) from SoundClass {
 	public extern var Properties(get, never): SoundClassProperties;
 	public inline extern function get_Properties(): SoundClassProperties return this.Properties;
-	public extern var ChildClasses(get, never): TArray<cpp.Star<SoundClass.ConstSoundClass>>;
-	public inline extern function get_ChildClasses(): TArray<cpp.Star<SoundClass.ConstSoundClass>> return this.ChildClasses;
+	public extern var ChildClasses(get, never): TArray<ucpp.Ptr<SoundClass.ConstSoundClass>>;
+	public inline extern function get_ChildClasses(): TArray<ucpp.Ptr<SoundClass.ConstSoundClass>> return this.ChildClasses;
 	public extern var PassiveSoundMixModifiers(get, never): TArray<PassiveSoundMixModifier>;
 	public inline extern function get_PassiveSoundMixModifiers(): TArray<PassiveSoundMixModifier> return this.PassiveSoundMixModifiers;
-	public extern var ParentClass(get, never): cpp.Star<SoundClass.ConstSoundClass>;
-	public inline extern function get_ParentClass(): cpp.Star<SoundClass.ConstSoundClass> return this.ParentClass;
+	public extern var ParentClass(get, never): ucpp.Ptr<SoundClass.ConstSoundClass>;
+	public inline extern function get_ParentClass(): ucpp.Ptr<SoundClass.ConstSoundClass> return this.ParentClass;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundClass*")
-abstract SoundClassPtr(cpp.Star<SoundClass>) from cpp.Star<SoundClass> to cpp.Star<SoundClass>{
+abstract SoundClassPtr(ucpp.Ptr<SoundClass>) from ucpp.Ptr<SoundClass> to ucpp.Ptr<SoundClass>{
 	@:from
 	public static extern inline function fromValue(v: SoundClass): SoundClassPtr {
 		return untyped __cpp__("&({0})", v);

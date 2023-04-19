@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDiffAssetBulkDataCommandlet")
 @:include("Commandlets/DiffAssetBulkDataCommandlet.h")
-@:structAccess
+@:valueType
 extern class DiffAssetBulkDataCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDiffAssetBulkDataCommandlet(DiffAssetBulkDataCommandlet) from Diff
 @:forward
 @:nativeGen
 @:native("DiffAssetBulkDataCommandlet*")
-abstract DiffAssetBulkDataCommandletPtr(cpp.Star<DiffAssetBulkDataCommandlet>) from cpp.Star<DiffAssetBulkDataCommandlet> to cpp.Star<DiffAssetBulkDataCommandlet>{
+abstract DiffAssetBulkDataCommandletPtr(ucpp.Ptr<DiffAssetBulkDataCommandlet>) from ucpp.Ptr<DiffAssetBulkDataCommandlet> to ucpp.Ptr<DiffAssetBulkDataCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DiffAssetBulkDataCommandlet): DiffAssetBulkDataCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FTTLinearColorTrack")
 @:include("Engine/TimelineTemplate.h")
-@:structAccess
+@:valueType
 extern class TTLinearColorTrack extends TTPropertyTrack {
-	public var CurveLinearColor: cpp.Star<CurveLinearColor>;
+	public var CurveLinearColor: ucpp.Ptr<CurveLinearColor>;
 
 	@:native("FTTLinearColorTrack") public function new();
-	@:native("FTTLinearColorTrack") public static function make(CurveLinearColor: cpp.Star<CurveLinearColor>): TTLinearColorTrack ;
+	@:native("FTTLinearColorTrack") public static function make(CurveLinearColor: ucpp.Ptr<CurveLinearColor>): TTLinearColorTrack ;
 }

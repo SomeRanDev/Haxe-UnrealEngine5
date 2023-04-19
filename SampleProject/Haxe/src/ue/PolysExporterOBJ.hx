@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPolysExporterOBJ")
 @:include("Exporters/PolysExporterOBJ.h")
-@:structAccess
+@:valueType
 extern class PolysExporterOBJ extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPolysExporterOBJ(PolysExporterOBJ) from PolysExporterOBJ {
 @:forward
 @:nativeGen
 @:native("PolysExporterOBJ*")
-abstract PolysExporterOBJPtr(cpp.Star<PolysExporterOBJ>) from cpp.Star<PolysExporterOBJ> to cpp.Star<PolysExporterOBJ>{
+abstract PolysExporterOBJPtr(ucpp.Ptr<PolysExporterOBJ>) from ucpp.Ptr<PolysExporterOBJ> to ucpp.Ptr<PolysExporterOBJ>{
 	@:from
 	public static extern inline function fromValue(v: PolysExporterOBJ): PolysExporterOBJPtr {
 		return untyped __cpp__("&({0})", v);

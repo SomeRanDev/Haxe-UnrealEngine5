@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayDebuggerExtensionConfig")
 @:include("GameplayDebuggerConfig.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerExtensionConfig {
 	public var ExtensionName: FString;
 	public var UseExtension: EGameplayDebuggerOverrideMode;

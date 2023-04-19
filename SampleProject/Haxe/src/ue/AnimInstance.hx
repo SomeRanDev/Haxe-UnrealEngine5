@@ -3,9 +3,9 @@ package ue;
 
 @:native("UAnimInstance")
 @:include("Animation/AnimInstance.h")
-@:structAccess
+@:valueType
 extern class AnimInstance extends Object {
-	public var CurrentSkeleton: cpp.Star<Skeleton>;
+	public var CurrentSkeleton: ucpp.Ptr<Skeleton>;
 	public var RootMotionMode: TEnumAsByte<ERootMotionMode>;
 	public var bUseMultiThreadedAnimationUpdate: Bool;
 	public var bUsingCopyPoseFromMesh: Bool;
@@ -13,130 +13,137 @@ extern class AnimInstance extends Object {
 	public var bPropagateNotifiesToLinkedInstances: Bool;
 	public var bUseMainInstanceMontageEvaluationData: Bool;
 	private var bQueueMontageEvents: Bool;
-	public var OnMontageBlendingOut: HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage>, Bool) -> Void>;
-	public var OnMontageStarted: HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage>) -> Void>;
-	public var OnMontageEnded: HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage>, Bool) -> Void>;
+	public var OnMontageBlendingOut: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage>, Bool) -> Void>;
+	public var OnMontageStarted: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage>) -> Void>;
+	public var OnMontageEnded: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage>, Bool) -> Void>;
 	public var OnAllMontageInstancesEnded: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var NotifyQueue: AnimNotifyQueue;
 	public var ActiveAnimNotifyState: TArray<AnimNotifyEvent>;
 	public var ActiveAnimNotifyEventReference: TArray<AnimNotifyEventReference>;
 
-	public function WasAnimNotifyTriggeredInStateMachine(MachineIndex: cpp.Int32, AnimNotifyType: TSubclassOf<AnimNotify>): Bool;
-	public function WasAnimNotifyTriggeredInSourceState(MachineIndex: cpp.Int32, StateIndex: cpp.Int32, AnimNotifyType: TSubclassOf<AnimNotify>): Bool;
+	public function WasAnimNotifyTriggeredInStateMachine(MachineIndex: ucpp.num.Int32, AnimNotifyType: TSubclassOf<AnimNotify>): Bool;
+	public function WasAnimNotifyTriggeredInSourceState(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32, AnimNotifyType: TSubclassOf<AnimNotify>): Bool;
 	public function WasAnimNotifyTriggeredInAnyState(AnimNotifyType: TSubclassOf<AnimNotify>): Bool;
-	public function WasAnimNotifyStateActiveInStateMachine(MachineIndex: cpp.Int32, AnimNotifyStateType: TSubclassOf<AnimNotifyState>): Bool;
-	public function WasAnimNotifyStateActiveInSourceState(MachineIndex: cpp.Int32, StateIndex: cpp.Int32, AnimNotifyStateType: TSubclassOf<AnimNotifyState>): Bool;
+	public function WasAnimNotifyStateActiveInStateMachine(MachineIndex: ucpp.num.Int32, AnimNotifyStateType: TSubclassOf<AnimNotifyState>): Bool;
+	public function WasAnimNotifyStateActiveInSourceState(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32, AnimNotifyStateType: TSubclassOf<AnimNotifyState>): Bool;
 	public function WasAnimNotifyStateActiveInAnyState(AnimNotifyStateType: TSubclassOf<AnimNotifyState>): Bool;
-	public function WasAnimNotifyNameTriggeredInStateMachine(MachineIndex: cpp.Int32, NotifyName: FName): Bool;
-	public function WasAnimNotifyNameTriggeredInSourceState(MachineIndex: cpp.Int32, StateIndex: cpp.Int32, NotifyName: FName): Bool;
+	public function WasAnimNotifyNameTriggeredInStateMachine(MachineIndex: ucpp.num.Int32, NotifyName: FName): Bool;
+	public function WasAnimNotifyNameTriggeredInSourceState(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32, NotifyName: FName): Bool;
 	public function WasAnimNotifyNameTriggeredInAnyState(NotifyName: FName): Bool;
 	public function UnlockAIResources(bUnlockMovement: Bool, UnlockAILogic: Bool): Void;
 	public function UnlinkAnimClassLayers(InClass: TSubclassOf<AnimInstance>): Void;
-	public function TryGetPawnOwner(): cpp.Star<Pawn>;
-	public function StopSlotAnimation(InBlendOutTime: cpp.Float32, SlotNodeName: FName): Void;
-	public function SnapshotPose(Snapshot: cpp.Reference<PoseSnapshot>): Void;
+	public function TryGetPawnOwner(): ucpp.Ptr<Pawn>;
+	public function StopSlotAnimation(InBlendOutTime: ucpp.num.Float32, SlotNodeName: FName): Void;
+	public function SnapshotPose(Snapshot: ucpp.Ref<PoseSnapshot>): Void;
 	public function SetUseMainInstanceMontageEvaluationData(bSet: Bool): Void;
 	public function SetRootMotionMode(Value: TEnumAsByte<ERootMotionMode>): Void;
 	public function SetReceiveNotifiesFromLinkedInstances(bSet: Bool): Void;
 	public function SetPropagateNotifiesToLinkedInstances(bSet: Bool): Void;
-	public function SetMorphTarget(MorphTargetName: FName, Value: cpp.Float32): Void;
+	public function SetMorphTarget(MorphTargetName: FName, Value: ucpp.num.Float32): Void;
 	public function SavePoseSnapshot(SnapshotName: FName): Void;
 	public function ResetDynamics(InTeleportType: ETeleportType): Void;
-	public function RequestSlotGroupInertialization(InSlotGroupName: FName, Duration: cpp.Float32): Void;
+	public function RequestTransitionEvent(EventName: FName, RequestTimeout: ucpp.num.Float64, QueueMode: ETransitionRequestQueueMode, OverwriteMode: ETransitionRequestOverwriteMode): Bool;
+	public function RequestSlotGroupInertialization(InSlotGroupName: FName, Duration: ucpp.num.Float32, BlendProfile: ucpp.Ptr<BlendProfile.ConstBlendProfile>): Void;
 	public function RemovePoseSnapshot(SnapshotName: FName): Void;
-	public function PlaySlotAnimationAsDynamicMontage_WithBlendSettings(Asset: cpp.Star<AnimSequenceBase>, SlotNodeName: FName, BlendInSettings: cpp.Reference<MontageBlendSettings>, BlendOutSettings: cpp.Reference<MontageBlendSettings>, InPlayRate: cpp.Float32, LoopCount: cpp.Int32, BlendOutTriggerTime: cpp.Float32, InTimeToStartMontageAt: cpp.Float32): cpp.Star<AnimMontage>;
-	public function PlaySlotAnimationAsDynamicMontage_WithBlendArgs(Asset: cpp.Star<AnimSequenceBase>, SlotNodeName: FName, BlendIn: cpp.Reference<AlphaBlendArgs>, BlendOut: cpp.Reference<AlphaBlendArgs>, InPlayRate: cpp.Float32, LoopCount: cpp.Int32, BlendOutTriggerTime: cpp.Float32, InTimeToStartMontageAt: cpp.Float32): cpp.Star<AnimMontage>;
-	public function PlaySlotAnimationAsDynamicMontage(Asset: cpp.Star<AnimSequenceBase>, SlotNodeName: FName, BlendInTime: cpp.Float32, BlendOutTime: cpp.Float32, InPlayRate: cpp.Float32, LoopCount: cpp.Int32, BlendOutTriggerTime: cpp.Float32, InTimeToStartMontageAt: cpp.Float32): cpp.Star<AnimMontage>;
-	public function MontageSync_StopFollowing(MontageFollower: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function MontageSync_Follow(MontageFollower: cpp.Star<AnimMontage.ConstAnimMontage>, OtherAnimInstance: cpp.Star<AnimInstance.ConstAnimInstance>, MontageLeader: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_StopWithBlendSettings(BlendOutSettings: cpp.Reference<MontageBlendSettings>, Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_StopWithBlendOut(BlendOut: cpp.Reference<AlphaBlendArgs>, Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_StopGroupByName(InBlendOutTime: cpp.Float32, GroupName: FName): Void;
-	public function Montage_Stop(InBlendOutTime: cpp.Float32, Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_SetPosition(Montage: cpp.Star<AnimMontage.ConstAnimMontage>, NewPosition: cpp.Float32): Void;
-	public function Montage_SetPlayRate(Montage: cpp.Star<AnimMontage.ConstAnimMontage>, NewPlayRate: cpp.Float32): Void;
-	public function Montage_SetNextSection(SectionNameToChange: FName, NextSection: FName, Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_Resume(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_PlayWithBlendSettings(MontageToPlay: cpp.Star<AnimMontage>, BlendInSettings: cpp.Reference<MontageBlendSettings>, InPlayRate: cpp.Float32, ReturnValueType: EMontagePlayReturnType, InTimeToStartMontageAt: cpp.Float32, bStopAllMontages: Bool): cpp.Float32;
-	public function Montage_PlayWithBlendIn(MontageToPlay: cpp.Star<AnimMontage>, BlendIn: cpp.Reference<AlphaBlendArgs>, InPlayRate: cpp.Float32, ReturnValueType: EMontagePlayReturnType, InTimeToStartMontageAt: cpp.Float32, bStopAllMontages: Bool): cpp.Float32;
-	public function Montage_Play(MontageToPlay: cpp.Star<AnimMontage>, InPlayRate: cpp.Float32, ReturnValueType: EMontagePlayReturnType, InTimeToStartMontageAt: cpp.Float32, bStopAllMontages: Bool): cpp.Float32;
-	public function Montage_Pause(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_JumpToSectionsEnd(SectionName: FName, Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_JumpToSection(SectionName: FName, Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Void;
-	public function Montage_IsPlaying(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Bool;
-	public function Montage_IsActive(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Bool;
-	public function Montage_GetPosition(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): cpp.Float32;
-	public function Montage_GetPlayRate(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): cpp.Float32;
-	public function Montage_GetIsStopped(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): Bool;
-	public function Montage_GetCurrentSection(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): FName;
-	public function Montage_GetBlendTime(Montage: cpp.Star<AnimMontage.ConstAnimMontage>): cpp.Float32;
+	public function QueryTransitionEvent(MachineIndex: ucpp.num.Int32, TransitionIndex: ucpp.num.Int32, EventName: FName): Bool;
+	public function QueryAndMarkTransitionEvent(MachineIndex: ucpp.num.Int32, TransitionIndex: ucpp.num.Int32, EventName: FName): Bool;
+	public function PlaySlotAnimationAsDynamicMontage_WithBlendSettings(Asset: ucpp.Ptr<AnimSequenceBase>, SlotNodeName: FName, BlendInSettings: ucpp.Ref<MontageBlendSettings>, BlendOutSettings: ucpp.Ref<MontageBlendSettings>, InPlayRate: ucpp.num.Float32, LoopCount: ucpp.num.Int32, BlendOutTriggerTime: ucpp.num.Float32, InTimeToStartMontageAt: ucpp.num.Float32): ucpp.Ptr<AnimMontage>;
+	public function PlaySlotAnimationAsDynamicMontage_WithBlendArgs(Asset: ucpp.Ptr<AnimSequenceBase>, SlotNodeName: FName, BlendIn: ucpp.Ref<AlphaBlendArgs>, BlendOut: ucpp.Ref<AlphaBlendArgs>, InPlayRate: ucpp.num.Float32, LoopCount: ucpp.num.Int32, BlendOutTriggerTime: ucpp.num.Float32, InTimeToStartMontageAt: ucpp.num.Float32): ucpp.Ptr<AnimMontage>;
+	public function PlaySlotAnimationAsDynamicMontage(Asset: ucpp.Ptr<AnimSequenceBase>, SlotNodeName: FName, BlendInTime: ucpp.num.Float32, BlendOutTime: ucpp.num.Float32, InPlayRate: ucpp.num.Float32, LoopCount: ucpp.num.Int32, BlendOutTriggerTime: ucpp.num.Float32, InTimeToStartMontageAt: ucpp.num.Float32): ucpp.Ptr<AnimMontage>;
+	public function MontageSync_StopFollowing(MontageFollower: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function MontageSync_Follow(MontageFollower: ucpp.Ptr<AnimMontage.ConstAnimMontage>, OtherAnimInstance: ucpp.Ptr<AnimInstance.ConstAnimInstance>, MontageLeader: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_StopWithBlendSettings(BlendOutSettings: ucpp.Ref<MontageBlendSettings>, Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_StopWithBlendOut(BlendOut: ucpp.Ref<AlphaBlendArgs>, Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_StopGroupByName(InBlendOutTime: ucpp.num.Float32, GroupName: FName): Void;
+	public function Montage_Stop(InBlendOutTime: ucpp.num.Float32, Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_SetPosition(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>, NewPosition: ucpp.num.Float32): Void;
+	public function Montage_SetPlayRate(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>, NewPlayRate: ucpp.num.Float32): Void;
+	public function Montage_SetNextSection(SectionNameToChange: FName, NextSection: FName, Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_Resume(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_PlayWithBlendSettings(MontageToPlay: ucpp.Ptr<AnimMontage>, BlendInSettings: ucpp.Ref<MontageBlendSettings>, InPlayRate: ucpp.num.Float32, ReturnValueType: EMontagePlayReturnType, InTimeToStartMontageAt: ucpp.num.Float32, bStopAllMontages: Bool): ucpp.num.Float32;
+	public function Montage_PlayWithBlendIn(MontageToPlay: ucpp.Ptr<AnimMontage>, BlendIn: ucpp.Ref<AlphaBlendArgs>, InPlayRate: ucpp.num.Float32, ReturnValueType: EMontagePlayReturnType, InTimeToStartMontageAt: ucpp.num.Float32, bStopAllMontages: Bool): ucpp.num.Float32;
+	public function Montage_Play(MontageToPlay: ucpp.Ptr<AnimMontage>, InPlayRate: ucpp.num.Float32, ReturnValueType: EMontagePlayReturnType, InTimeToStartMontageAt: ucpp.num.Float32, bStopAllMontages: Bool): ucpp.num.Float32;
+	public function Montage_Pause(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_JumpToSectionsEnd(SectionName: FName, Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_JumpToSection(SectionName: FName, Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Void;
+	public function Montage_IsPlaying(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Bool;
+	public function Montage_IsActive(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Bool;
+	public function Montage_GetPosition(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): ucpp.num.Float32;
+	public function Montage_GetPlayRate(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): ucpp.num.Float32;
+	public function Montage_GetIsStopped(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): Bool;
+	public function Montage_GetEffectivePlayRate(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): ucpp.num.Float32;
+	public function Montage_GetCurrentSection(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): FName;
+	public function Montage_GetBlendTime(Montage: ucpp.Ptr<AnimMontage.ConstAnimMontage>): ucpp.num.Float32;
 	public function LockAIResources(bLockMovement: Bool, LockAILogic: Bool): Void;
 	public function LinkAnimGraphByTag(InTag: FName, InClass: TSubclassOf<AnimInstance>): Void;
 	public function LinkAnimClassLayers(InClass: TSubclassOf<AnimInstance>): Void;
 	public function IsUsingMainInstanceMontageEvaluationData(): Bool;
 	public function IsSyncGroupBetweenMarkers(InSyncGroupName: FName, PreviousMarker: FName, NextMarker: FName, bRespectMarkerOrder: Bool): Bool;
-	public function IsPlayingSlotAnimation(Asset: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, SlotNodeName: FName): Bool;
+	public function IsPlayingSlotAnimation(Asset: ucpp.Ptr<AnimSequenceBase.ConstAnimSequenceBase>, SlotNodeName: FName): Bool;
 	public function IsAnyMontagePlaying(): Bool;
 	public function HasMarkerBeenHitThisFrame(SyncGroup: FName, MarkerName: FName): Bool;
-	public function GetTimeToClosestMarker(SyncGroup: FName, MarkerName: FName, OutMarkerTime: cpp.Reference<cpp.Float32>): Bool;
+	public function GetTimeToClosestMarker(SyncGroup: FName, MarkerName: FName, OutMarkerTime: ucpp.Ref<ucpp.num.Float32>): Bool;
 	public function GetSyncGroupPosition(InSyncGroupName: FName): MarkerSyncAnimPosition;
-	public function GetRelevantAnimTimeRemainingFraction(MachineIndex: cpp.Int32, StateIndex: cpp.Int32): cpp.Float32;
-	public function GetRelevantAnimTimeRemaining(MachineIndex: cpp.Int32, StateIndex: cpp.Int32): cpp.Float32;
-	public function GetRelevantAnimTimeFraction(MachineIndex: cpp.Int32, StateIndex: cpp.Int32): cpp.Float32;
-	public function GetRelevantAnimTime(MachineIndex: cpp.Int32, StateIndex: cpp.Int32): cpp.Float32;
-	public function GetRelevantAnimLength(MachineIndex: cpp.Int32, StateIndex: cpp.Int32): cpp.Float32;
+	public function GetRelevantAnimTimeRemainingFraction(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetRelevantAnimTimeRemaining(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetRelevantAnimTimeFraction(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetRelevantAnimTime(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetRelevantAnimLength(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32): ucpp.num.Float32;
 	public function GetReceiveNotifiesFromLinkedInstances(): Bool;
 	public function GetPropagateNotifiesToLinkedInstances(): Bool;
-	public function GetOwningComponent(): cpp.Star<SkeletalMeshComp>;
-	public function GetOwningActor(): cpp.Star<Actor>;
-	public function GetLinkedAnimLayerInstancesByGroup(InGroup: FName, OutLinkedInstances: cpp.Reference<TArray<cpp.Star<AnimInstance>>>): Void;
-	public function GetLinkedAnimLayerInstanceByGroupAndClass(InGroup: FName, InClass: TSubclassOf<AnimInstance>): cpp.Star<AnimInstance>;
-	public function GetLinkedAnimLayerInstanceByGroup(InGroup: FName): cpp.Star<AnimInstance>;
-	public function GetLinkedAnimLayerInstanceByClass(InClass: TSubclassOf<AnimInstance>): cpp.Star<AnimInstance>;
-	public function GetLinkedAnimGraphInstancesByTag(InTag: FName, OutLinkedInstances: cpp.Reference<TArray<cpp.Star<AnimInstance>>>): Void;
-	public function GetLinkedAnimGraphInstanceByTag(InTag: FName): cpp.Star<AnimInstance>;
-	public function GetInstanceTransitionTimeElapsedFraction(MachineIndex: cpp.Int32, TransitionIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceTransitionTimeElapsed(MachineIndex: cpp.Int32, TransitionIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceTransitionCrossfadeDuration(MachineIndex: cpp.Int32, TransitionIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceStateWeight(MachineIndex: cpp.Int32, StateIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceMachineWeight(MachineIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceCurrentStateElapsedTime(MachineIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceAssetPlayerTimeFromEndFraction(AssetPlayerIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceAssetPlayerTimeFromEnd(AssetPlayerIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceAssetPlayerTimeFraction(AssetPlayerIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceAssetPlayerTime(AssetPlayerIndex: cpp.Int32): cpp.Float32;
-	public function GetInstanceAssetPlayerLength(AssetPlayerIndex: cpp.Int32): cpp.Float32;
-	public function GetDeltaSeconds(): cpp.Float32;
-	public function GetCurveValue(CurveName: FName): cpp.Float32;
-	public function GetCurrentStateName(MachineIndex: cpp.Int32): FName;
-	public function GetCurrentActiveMontage(): cpp.Star<AnimMontage>;
-	public function GetAllCurveNames(OutNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetActiveCurveNames(CurveType: EAnimCurveType, OutNames: cpp.Reference<TArray<FName>>): Void;
+	public function GetOwningComponent(): ucpp.Ptr<SkeletalMeshComp>;
+	public function GetOwningActor(): ucpp.Ptr<Actor>;
+	public function GetLinkedAnimLayerInstancesByGroup(InGroup: FName, OutLinkedInstances: ucpp.Ref<TArray<ucpp.Ptr<AnimInstance>>>): Void;
+	public function GetLinkedAnimLayerInstanceByGroupAndClass(InGroup: FName, InClass: TSubclassOf<AnimInstance>): ucpp.Ptr<AnimInstance>;
+	public function GetLinkedAnimLayerInstanceByGroup(InGroup: FName): ucpp.Ptr<AnimInstance>;
+	public function GetLinkedAnimLayerInstanceByClass(InClass: TSubclassOf<AnimInstance>): ucpp.Ptr<AnimInstance>;
+	public function GetLinkedAnimGraphInstancesByTag(InTag: FName, OutLinkedInstances: ucpp.Ref<TArray<ucpp.Ptr<AnimInstance>>>): Void;
+	public function GetLinkedAnimGraphInstanceByTag(InTag: FName): ucpp.Ptr<AnimInstance>;
+	public function GetInstanceTransitionTimeElapsedFraction(MachineIndex: ucpp.num.Int32, TransitionIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceTransitionTimeElapsed(MachineIndex: ucpp.num.Int32, TransitionIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceTransitionCrossfadeDuration(MachineIndex: ucpp.num.Int32, TransitionIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceStateWeight(MachineIndex: ucpp.num.Int32, StateIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceMachineWeight(MachineIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceCurrentStateElapsedTime(MachineIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceAssetPlayerTimeFromEndFraction(AssetPlayerIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceAssetPlayerTimeFromEnd(AssetPlayerIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceAssetPlayerTimeFraction(AssetPlayerIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceAssetPlayerTime(AssetPlayerIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetInstanceAssetPlayerLength(AssetPlayerIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetDeltaSeconds(): ucpp.num.Float32;
+	public function GetCurveValueWithDefault(CurveName: FName, DefaultValue: ucpp.num.Float32, OutValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCurveValue(CurveName: FName): ucpp.num.Float32;
+	public function GetCurrentStateName(MachineIndex: ucpp.num.Int32): FName;
+	public function GetCurrentActiveMontage(): ucpp.Ptr<AnimMontage>;
+	public function GetAllCurveNames(OutNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetActiveCurveNames(CurveType: EAnimCurveType, OutNames: ucpp.Ref<TArray<FName>>): Void;
+	public function ClearTransitionEvents(EventName: FName): Void;
 	public function ClearMorphTargets(): Void;
-	public function CalculateDirection(Velocity: cpp.Reference<Vector>, BaseRotation: cpp.Reference<Rotator>): cpp.Float32;
-	public function BlueprintUpdateAnimation(DeltaTimeX: cpp.Float32): Void;
-	public function BlueprintThreadSafeUpdateAnimation(DeltaTime: cpp.Float32): Void;
+	public function ClearAllTransitionEvents(): Void;
+	public function CalculateDirection(Velocity: ucpp.Ref<Vector>, BaseRotation: ucpp.Ref<Rotator>): ucpp.num.Float32;
+	public function BlueprintUpdateAnimation(DeltaTimeX: ucpp.num.Float32): Void;
+	public function BlueprintThreadSafeUpdateAnimation(DeltaTime: ucpp.num.Float32): Void;
 	public function BlueprintPostEvaluateAnimation(): Void;
 	public function BlueprintLinkedAnimationLayersInitialized(): Void;
 	public function BlueprintInitializeAnimation(): Void;
 	public function BlueprintBeginPlay(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
 	TryGetPawnOwner, Montage_IsPlaying, Montage_IsActive, Montage_GetPosition, Montage_GetPlayRate,
-	Montage_GetIsStopped, Montage_GetCurrentSection, Montage_GetBlendTime, IsUsingMainInstanceMontageEvaluationData, IsSyncGroupBetweenMarkers,
-	IsPlayingSlotAnimation, IsAnyMontagePlaying, HasMarkerBeenHitThisFrame, GetTimeToClosestMarker, GetSyncGroupPosition,
-	GetReceiveNotifiesFromLinkedInstances, GetPropagateNotifiesToLinkedInstances, GetOwningComponent, GetOwningActor, GetLinkedAnimLayerInstancesByGroup,
-	GetLinkedAnimLayerInstanceByGroupAndClass, GetLinkedAnimLayerInstanceByGroup, GetLinkedAnimLayerInstanceByClass, GetLinkedAnimGraphInstancesByTag, GetLinkedAnimGraphInstanceByTag,
-	GetDeltaSeconds, GetCurveValue, GetCurrentActiveMontage, GetAllCurveNames, GetActiveCurveNames,
-	CalculateDirection
+	Montage_GetIsStopped, Montage_GetEffectivePlayRate, Montage_GetCurrentSection, Montage_GetBlendTime, IsUsingMainInstanceMontageEvaluationData,
+	IsSyncGroupBetweenMarkers, IsPlayingSlotAnimation, IsAnyMontagePlaying, HasMarkerBeenHitThisFrame, GetTimeToClosestMarker,
+	GetSyncGroupPosition, GetReceiveNotifiesFromLinkedInstances, GetPropagateNotifiesToLinkedInstances, GetOwningComponent, GetOwningActor,
+	GetLinkedAnimLayerInstancesByGroup, GetLinkedAnimLayerInstanceByGroupAndClass, GetLinkedAnimLayerInstanceByGroup, GetLinkedAnimLayerInstanceByClass, GetLinkedAnimGraphInstancesByTag,
+	GetLinkedAnimGraphInstanceByTag, GetDeltaSeconds, GetCurveValue, GetCurrentActiveMontage, GetAllCurveNames,
+	GetActiveCurveNames, CalculateDirection
 )
 @:nativeGen
 abstract ConstAnimInstance(AnimInstance) from AnimInstance {
-	public extern var CurrentSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_CurrentSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.CurrentSkeleton;
+	public extern var CurrentSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_CurrentSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.CurrentSkeleton;
 	public extern var RootMotionMode(get, never): TEnumAsByte<ERootMotionMode>;
 	public inline extern function get_RootMotionMode(): TEnumAsByte<ERootMotionMode> return this.RootMotionMode;
 	public extern var bUseMultiThreadedAnimationUpdate(get, never): Bool;
@@ -149,12 +156,12 @@ abstract ConstAnimInstance(AnimInstance) from AnimInstance {
 	public inline extern function get_bPropagateNotifiesToLinkedInstances(): Bool return this.bPropagateNotifiesToLinkedInstances;
 	public extern var bUseMainInstanceMontageEvaluationData(get, never): Bool;
 	public inline extern function get_bUseMainInstanceMontageEvaluationData(): Bool return this.bUseMainInstanceMontageEvaluationData;
-	public extern var OnMontageBlendingOut(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage.ConstAnimMontage>, Bool) -> Void>;
-	public inline extern function get_OnMontageBlendingOut(): HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage.ConstAnimMontage>, Bool) -> Void> return this.OnMontageBlendingOut;
-	public extern var OnMontageStarted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage.ConstAnimMontage>) -> Void>;
-	public inline extern function get_OnMontageStarted(): HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage.ConstAnimMontage>) -> Void> return this.OnMontageStarted;
-	public extern var OnMontageEnded(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage.ConstAnimMontage>, Bool) -> Void>;
-	public inline extern function get_OnMontageEnded(): HaxeMulticastSparseDelegateProperty<(cpp.Star<AnimMontage.ConstAnimMontage>, Bool) -> Void> return this.OnMontageEnded;
+	public extern var OnMontageBlendingOut(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage.ConstAnimMontage>, Bool) -> Void>;
+	public inline extern function get_OnMontageBlendingOut(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage.ConstAnimMontage>, Bool) -> Void> return this.OnMontageBlendingOut;
+	public extern var OnMontageStarted(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage.ConstAnimMontage>) -> Void>;
+	public inline extern function get_OnMontageStarted(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage.ConstAnimMontage>) -> Void> return this.OnMontageStarted;
+	public extern var OnMontageEnded(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage.ConstAnimMontage>, Bool) -> Void>;
+	public inline extern function get_OnMontageEnded(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AnimMontage.ConstAnimMontage>, Bool) -> Void> return this.OnMontageEnded;
 	public extern var OnAllMontageInstancesEnded(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnAllMontageInstancesEnded(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnAllMontageInstancesEnded;
 	public extern var NotifyQueue(get, never): AnimNotifyQueue;
@@ -168,7 +175,7 @@ abstract ConstAnimInstance(AnimInstance) from AnimInstance {
 @:forward
 @:nativeGen
 @:native("AnimInstance*")
-abstract AnimInstancePtr(cpp.Star<AnimInstance>) from cpp.Star<AnimInstance> to cpp.Star<AnimInstance>{
+abstract AnimInstancePtr(ucpp.Ptr<AnimInstance>) from ucpp.Ptr<AnimInstance> to ucpp.Ptr<AnimInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimInstance): AnimInstancePtr {
 		return untyped __cpp__("&({0})", v);

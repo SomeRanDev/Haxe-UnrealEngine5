@@ -3,22 +3,24 @@ package ue;
 
 @:native("UAnimPoseExtensions")
 @:include("AnimPose.h")
-@:structAccess
+@:valueType
 extern class AnimPoseExtensions extends BlueprintFunctionLibrary {
-	public function SetBonePose(Pose: cpp.Reference<AnimPose>, Transform: Transform, BoneName: FName, Space: EAnimPoseSpaces): Void;
-	public function IsValid(Pose: cpp.Reference<AnimPose>): Bool;
-	public function GetRelativeTransform(Pose: cpp.Reference<AnimPose>, FromBoneName: FName, ToBoneName: FName, Space: EAnimPoseSpaces): Transform;
-	public function GetRelativeToRefPoseTransform(Pose: cpp.Reference<AnimPose>, BoneName: FName, Space: EAnimPoseSpaces): Transform;
-	public function GetRefPoseRelativeTransform(Pose: cpp.Reference<AnimPose>, FromBoneName: FName, ToBoneName: FName, Space: EAnimPoseSpaces): Transform;
-	public function GetReferencePose(Skeleton: cpp.Star<Skeleton>, OutPose: cpp.Reference<AnimPose>): Void;
-	public function GetRefBonePose(Pose: cpp.Reference<AnimPose>, BoneName: FName, Space: EAnimPoseSpaces): Transform;
-	public function GetBonePose(Pose: cpp.Reference<AnimPose>, BoneName: FName, Space: EAnimPoseSpaces): Transform;
-	public function GetBoneNames(Pose: cpp.Reference<AnimPose>, Bones: cpp.Reference<TArray<FName>>): Void;
-	public function GetAnimPoseAtTime(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, Time: cpp.Float32, EvaluationOptions: AnimPoseEvaluationOptions, Pose: cpp.Reference<AnimPose>): Void;
-	public function GetAnimPoseAtFrame(AnimationSequenceBase: cpp.Star<AnimSequenceBase.ConstAnimSequenceBase>, FrameIndex: cpp.Int32, EvaluationOptions: AnimPoseEvaluationOptions, Pose: cpp.Reference<AnimPose>): Void;
-	public function EvaluateAnimationBlueprintWithInputPose(InputPose: cpp.Reference<AnimPose>, TargetSkeletalMesh: cpp.Star<SkeletalMesh>, AnimationBlueprint: cpp.Star<AnimBlueprint>, OutPose: cpp.Reference<AnimPose>): Void;
+	public function SetBonePose(Pose: ucpp.Ref<AnimPose>, Transform: Transform, BoneName: FName, Space: EAnimPoseSpaces): Void;
+	public function IsValid(Pose: ucpp.Ref<AnimPose>): Bool;
+	public function GetRelativeTransform(Pose: ucpp.Ref<AnimPose>, FromBoneName: FName, ToBoneName: FName, Space: EAnimPoseSpaces): Transform;
+	public function GetRelativeToRefPoseTransform(Pose: ucpp.Ref<AnimPose>, BoneName: FName, Space: EAnimPoseSpaces): Transform;
+	public function GetRefPoseRelativeTransform(Pose: ucpp.Ref<AnimPose>, FromBoneName: FName, ToBoneName: FName, Space: EAnimPoseSpaces): Transform;
+	public function GetReferencePose(Skeleton: ucpp.Ptr<Skeleton>, OutPose: ucpp.Ref<AnimPose>): Void;
+	public function GetRefBonePose(Pose: ucpp.Ref<AnimPose>, BoneName: FName, Space: EAnimPoseSpaces): Transform;
+	public function GetCurveWeight(Pose: ucpp.Ref<AnimPose>, CurveName: ucpp.Ref<FName>): ucpp.num.Float32;
+	public function GetCurveNames(Pose: ucpp.Ref<AnimPose>, Curves: ucpp.Ref<TArray<FName>>): Void;
+	public function GetBonePose(Pose: ucpp.Ref<AnimPose>, BoneName: FName, Space: EAnimPoseSpaces): Transform;
+	public function GetBoneNames(Pose: ucpp.Ref<AnimPose>, Bones: ucpp.Ref<TArray<FName>>): Void;
+	public function GetAnimPoseAtTime(AnimationSequenceBase: ucpp.Ptr<AnimSequenceBase.ConstAnimSequenceBase>, Time: ucpp.num.Float64, EvaluationOptions: AnimPoseEvaluationOptions, Pose: ucpp.Ref<AnimPose>): Void;
+	public function GetAnimPoseAtFrame(AnimationSequenceBase: ucpp.Ptr<AnimSequenceBase.ConstAnimSequenceBase>, FrameIndex: ucpp.num.Int32, EvaluationOptions: AnimPoseEvaluationOptions, Pose: ucpp.Ref<AnimPose>): Void;
+	public function EvaluateAnimationBlueprintWithInputPose(InputPose: ucpp.Ref<AnimPose>, TargetSkeletalMesh: ucpp.Ptr<SkeletalMesh>, AnimationBlueprint: ucpp.Ptr<AnimBlueprint>, OutPose: ucpp.Ref<AnimPose>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +31,7 @@ abstract ConstAnimPoseExtensions(AnimPoseExtensions) from AnimPoseExtensions {
 @:forward
 @:nativeGen
 @:native("AnimPoseExtensions*")
-abstract AnimPoseExtensionsPtr(cpp.Star<AnimPoseExtensions>) from cpp.Star<AnimPoseExtensions> to cpp.Star<AnimPoseExtensions>{
+abstract AnimPoseExtensionsPtr(ucpp.Ptr<AnimPoseExtensions>) from ucpp.Ptr<AnimPoseExtensions> to ucpp.Ptr<AnimPoseExtensions>{
 	@:from
 	public static extern inline function fromValue(v: AnimPoseExtensions): AnimPoseExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

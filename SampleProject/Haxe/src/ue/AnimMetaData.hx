@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimMetaData")
 @:include("Animation/AnimMetaData.h")
-@:structAccess
+@:valueType
 extern class AnimMetaData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimMetaData(AnimMetaData) from AnimMetaData {
 @:forward
 @:nativeGen
 @:native("AnimMetaData*")
-abstract AnimMetaDataPtr(cpp.Star<AnimMetaData>) from cpp.Star<AnimMetaData> to cpp.Star<AnimMetaData>{
+abstract AnimMetaDataPtr(ucpp.Ptr<AnimMetaData>) from ucpp.Ptr<AnimMetaData> to ucpp.Ptr<AnimMetaData>{
 	@:from
 	public static extern inline function fromValue(v: AnimMetaData): AnimMetaDataPtr {
 		return untyped __cpp__("&({0})", v);

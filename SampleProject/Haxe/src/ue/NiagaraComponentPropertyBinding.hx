@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraComponentPropertyBinding")
 @:include("NiagaraComponentRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraComponentPropertyBinding {
 	public var AttributeBinding: NiagaraVariableAttributeBinding;
 	public var PropertyName: FName;
 	public var PropertyType: NiagaraTypeDefinition;
 	public var MetadataSetterName: FName;
 	public var PropertySetterParameterDefaults: TMap<FString, FString>;
-	public var WritableValue: NiagaraVariable;
 
 	@:native("FNiagaraComponentPropertyBinding") public function new();
+	@:native("FNiagaraComponentPropertyBinding") public static function make(AttributeBinding: NiagaraVariableAttributeBinding, PropertyName: FName, PropertyType: NiagaraTypeDefinition, MetadataSetterName: FName, PropertySetterParameterDefaults: TMap<FString, FString>): NiagaraComponentPropertyBinding ;
 }

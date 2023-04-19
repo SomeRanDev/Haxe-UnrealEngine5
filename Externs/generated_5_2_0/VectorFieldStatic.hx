@@ -3,25 +3,25 @@ package ue;
 
 @:native("UVectorFieldStatic")
 @:include("VectorField/VectorFieldStatic.h")
-@:structAccess
+@:valueType
 extern class VectorFieldStatic extends VectorField {
-	public var SizeX: cpp.Int32;
-	public var SizeY: cpp.Int32;
-	public var SizeZ: cpp.Int32;
+	public var SizeX: ucpp.num.Int32;
+	public var SizeY: ucpp.num.Int32;
+	public var SizeZ: ucpp.num.Int32;
 	public var bAllowCPUAccess: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVectorFieldStatic(VectorFieldStatic) from VectorFieldStatic {
-	public extern var SizeX(get, never): cpp.Int32;
-	public inline extern function get_SizeX(): cpp.Int32 return this.SizeX;
-	public extern var SizeY(get, never): cpp.Int32;
-	public inline extern function get_SizeY(): cpp.Int32 return this.SizeY;
-	public extern var SizeZ(get, never): cpp.Int32;
-	public inline extern function get_SizeZ(): cpp.Int32 return this.SizeZ;
+	public extern var SizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeX(): ucpp.num.Int32 return this.SizeX;
+	public extern var SizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeY(): ucpp.num.Int32 return this.SizeY;
+	public extern var SizeZ(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeZ(): ucpp.num.Int32 return this.SizeZ;
 	public extern var bAllowCPUAccess(get, never): Bool;
 	public inline extern function get_bAllowCPUAccess(): Bool return this.bAllowCPUAccess;
 }
@@ -29,7 +29,7 @@ abstract ConstVectorFieldStatic(VectorFieldStatic) from VectorFieldStatic {
 @:forward
 @:nativeGen
 @:native("VectorFieldStatic*")
-abstract VectorFieldStaticPtr(cpp.Star<VectorFieldStatic>) from cpp.Star<VectorFieldStatic> to cpp.Star<VectorFieldStatic>{
+abstract VectorFieldStaticPtr(ucpp.Ptr<VectorFieldStatic>) from ucpp.Ptr<VectorFieldStatic> to ucpp.Ptr<VectorFieldStatic>{
 	@:from
 	public static extern inline function fromValue(v: VectorFieldStatic): VectorFieldStaticPtr {
 		return untyped __cpp__("&({0})", v);

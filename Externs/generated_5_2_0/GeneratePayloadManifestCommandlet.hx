@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeneratePayloadManifestCommandlet")
 @:include("GeneratePayloadManifestCommandlet.h")
-@:structAccess
+@:valueType
 extern class GeneratePayloadManifestCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeneratePayloadManifestCommandlet(GeneratePayloadManifestCommandle
 @:forward
 @:nativeGen
 @:native("GeneratePayloadManifestCommandlet*")
-abstract GeneratePayloadManifestCommandletPtr(cpp.Star<GeneratePayloadManifestCommandlet>) from cpp.Star<GeneratePayloadManifestCommandlet> to cpp.Star<GeneratePayloadManifestCommandlet>{
+abstract GeneratePayloadManifestCommandletPtr(ucpp.Ptr<GeneratePayloadManifestCommandlet>) from ucpp.Ptr<GeneratePayloadManifestCommandlet> to ucpp.Ptr<GeneratePayloadManifestCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GeneratePayloadManifestCommandlet): GeneratePayloadManifestCommandletPtr {
 		return untyped __cpp__("&({0})", v);

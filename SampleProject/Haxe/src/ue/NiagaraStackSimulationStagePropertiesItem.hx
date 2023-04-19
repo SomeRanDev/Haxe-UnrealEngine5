@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraStackSimulationStagePropertiesItem")
 @:include("ViewModels/Stack/NiagaraStackSimulationStageGroup.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackSimulationStagePropertiesItem extends NiagaraStackItem {
-	private var SimulationStageObject: cpp.Star<NiagaraStackObject>;
+	private var SimulationStageObject: ucpp.Ptr<NiagaraStackObject>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraStackSimulationStagePropertiesItem(NiagaraStackSimulationSt
 @:forward
 @:nativeGen
 @:native("NiagaraStackSimulationStagePropertiesItem*")
-abstract NiagaraStackSimulationStagePropertiesItemPtr(cpp.Star<NiagaraStackSimulationStagePropertiesItem>) from cpp.Star<NiagaraStackSimulationStagePropertiesItem> to cpp.Star<NiagaraStackSimulationStagePropertiesItem>{
+abstract NiagaraStackSimulationStagePropertiesItemPtr(ucpp.Ptr<NiagaraStackSimulationStagePropertiesItem>) from ucpp.Ptr<NiagaraStackSimulationStagePropertiesItem> to ucpp.Ptr<NiagaraStackSimulationStagePropertiesItem>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackSimulationStagePropertiesItem): NiagaraStackSimulationStagePropertiesItemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FCrowdAvoidanceSamplingPattern")
 @:include("Navigation/CrowdManager.h")
-@:structAccess
+@:valueType
 extern class CrowdAvoidanceSamplingPattern {
-	public var Angles: TArray<cpp.Float32>;
-	public var Radii: TArray<cpp.Float32>;
+	public var Angles: TArray<ucpp.num.Float32>;
+	public var Radii: TArray<ucpp.num.Float32>;
 
 	@:native("FCrowdAvoidanceSamplingPattern") public function new();
-	@:native("FCrowdAvoidanceSamplingPattern") public static function make(Angles: TArray<cpp.Float32>, Radii: TArray<cpp.Float32>): CrowdAvoidanceSamplingPattern ;
+	@:native("FCrowdAvoidanceSamplingPattern") public static function make(Angles: TArray<ucpp.num.Float32>, Radii: TArray<ucpp.num.Float32>): CrowdAvoidanceSamplingPattern ;
 }

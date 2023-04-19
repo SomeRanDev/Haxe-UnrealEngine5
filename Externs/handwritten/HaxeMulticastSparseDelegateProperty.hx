@@ -1,3 +1,4 @@
 package ue;
 
-typedef HaxeMulticastSparseDelegateProperty<T> = Dynamic;
+@:extern
+typedef HaxeMulticastSparseDelegateProperty<T> = Any;

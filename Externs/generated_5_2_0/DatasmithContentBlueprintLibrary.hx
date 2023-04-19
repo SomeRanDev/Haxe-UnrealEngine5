@@ -3,16 +3,16 @@ package ue;
 
 @:native("UDatasmithContentBlueprintLibrary")
 @:include("DatasmithContentBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class DatasmithContentBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetDatasmithUserDataValuesForKey(Object: cpp.Star<Object>, Key: FName, bPartialMatchKey: Bool): TArray<FString>;
-	public function GetDatasmithUserDataValueForKey(Object: cpp.Star<Object>, Key: FName, bPartialMatchKey: Bool): FString;
-	public function GetDatasmithUserDataKeysAndValuesForValue(Object: cpp.Star<Object>, StringToMatch: FString, OutKeys: cpp.Reference<TArray<FName>>, OutValues: cpp.Reference<TArray<FString>>): Void;
-	public function GetDatasmithUserData(Object: cpp.Star<Object>): cpp.Star<DatasmithAssetUserData>;
-	public function GetAllObjectsAndValuesForKey(Key: FName, ObjectClass: TSubclassOf<Object>, OutObjects: cpp.Reference<TArray<cpp.Star<Object>>>, OutValues: cpp.Reference<TArray<FString>>): Void;
-	public function GetAllDatasmithUserData(ObjectClass: TSubclassOf<Object>, OutUserData: cpp.Reference<TArray<cpp.Star<DatasmithAssetUserData>>>): Void;
+	public function GetDatasmithUserDataValuesForKey(Object: ucpp.Ptr<Object>, Key: FName, bPartialMatchKey: Bool): TArray<FString>;
+	public function GetDatasmithUserDataValueForKey(Object: ucpp.Ptr<Object>, Key: FName, bPartialMatchKey: Bool): FString;
+	public function GetDatasmithUserDataKeysAndValuesForValue(Object: ucpp.Ptr<Object>, StringToMatch: FString, OutKeys: ucpp.Ref<TArray<FName>>, OutValues: ucpp.Ref<TArray<FString>>): Void;
+	public function GetDatasmithUserData(Object: ucpp.Ptr<Object>): ucpp.Ptr<DatasmithAssetUserData>;
+	public function GetAllObjectsAndValuesForKey(Key: FName, ObjectClass: TSubclassOf<Object>, OutObjects: ucpp.Ref<TArray<ucpp.Ptr<Object>>>, OutValues: ucpp.Ref<TArray<FString>>): Void;
+	public function GetAllDatasmithUserData(ObjectClass: TSubclassOf<Object>, OutUserData: ucpp.Ref<TArray<ucpp.Ptr<DatasmithAssetUserData>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstDatasmithContentBlueprintLibrary(DatasmithContentBlueprintLibrary)
 @:forward
 @:nativeGen
 @:native("DatasmithContentBlueprintLibrary*")
-abstract DatasmithContentBlueprintLibraryPtr(cpp.Star<DatasmithContentBlueprintLibrary>) from cpp.Star<DatasmithContentBlueprintLibrary> to cpp.Star<DatasmithContentBlueprintLibrary>{
+abstract DatasmithContentBlueprintLibraryPtr(ucpp.Ptr<DatasmithContentBlueprintLibrary>) from ucpp.Ptr<DatasmithContentBlueprintLibrary> to ucpp.Ptr<DatasmithContentBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithContentBlueprintLibrary): DatasmithContentBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

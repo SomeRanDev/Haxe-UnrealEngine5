@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTakeRecorderProjectSettings")
 @:include("TakeRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderProjectSettings extends Object {
 	public var Settings: TakeRecorderProjectParameters;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTakeRecorderProjectSettings(TakeRecorderProjectSettings) from Take
 @:forward
 @:nativeGen
 @:native("TakeRecorderProjectSettings*")
-abstract TakeRecorderProjectSettingsPtr(cpp.Star<TakeRecorderProjectSettings>) from cpp.Star<TakeRecorderProjectSettings> to cpp.Star<TakeRecorderProjectSettings>{
+abstract TakeRecorderProjectSettingsPtr(ucpp.Ptr<TakeRecorderProjectSettings>) from ucpp.Ptr<TakeRecorderProjectSettings> to ucpp.Ptr<TakeRecorderProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderProjectSettings): TakeRecorderProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

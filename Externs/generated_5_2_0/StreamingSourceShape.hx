@@ -3,13 +3,13 @@ package ue;
 
 @:native("FStreamingSourceShape")
 @:include("WorldPartition/WorldPartitionStreamingSource.h")
-@:structAccess
+@:valueType
 extern class StreamingSourceShape {
 	public var bUseGridLoadingRange: Bool;
-	public var LoadingRangeScale: cpp.Float32;
-	public var Radius: cpp.Float32;
+	public var LoadingRangeScale: ucpp.num.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var bIsSector: Bool;
-	public var SectorAngle: cpp.Float32;
+	public var SectorAngle: ucpp.num.Float32;
 	public var Location: Vector;
 	public var Rotation: Rotator;
 

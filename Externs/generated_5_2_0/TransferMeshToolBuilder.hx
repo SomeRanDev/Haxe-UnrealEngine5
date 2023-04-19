@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTransferMeshToolBuilder")
 @:include("TransferMeshTool.h")
-@:structAccess
+@:valueType
 extern class TransferMeshToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTransferMeshToolBuilder(TransferMeshToolBuilder) from TransferMesh
 @:forward
 @:nativeGen
 @:native("TransferMeshToolBuilder*")
-abstract TransferMeshToolBuilderPtr(cpp.Star<TransferMeshToolBuilder>) from cpp.Star<TransferMeshToolBuilder> to cpp.Star<TransferMeshToolBuilder>{
+abstract TransferMeshToolBuilderPtr(ucpp.Ptr<TransferMeshToolBuilder>) from ucpp.Ptr<TransferMeshToolBuilder> to ucpp.Ptr<TransferMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: TransferMeshToolBuilder): TransferMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

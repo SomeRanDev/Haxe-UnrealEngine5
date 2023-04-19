@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAudioPcmEncoderSettings")
 @:include("PcmCodec.h")
-@:structAccess
+@:valueType
 extern class AudioPcmEncoderSettings extends AudioCodecEncoderSettings {
 	public var BitDepthConversion: EPcmBitDepthConversion;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAudioPcmEncoderSettings(AudioPcmEncoderSettings) from AudioPcmEnco
 @:forward
 @:nativeGen
 @:native("AudioPcmEncoderSettings*")
-abstract AudioPcmEncoderSettingsPtr(cpp.Star<AudioPcmEncoderSettings>) from cpp.Star<AudioPcmEncoderSettings> to cpp.Star<AudioPcmEncoderSettings>{
+abstract AudioPcmEncoderSettingsPtr(ucpp.Ptr<AudioPcmEncoderSettings>) from ucpp.Ptr<AudioPcmEncoderSettings> to ucpp.Ptr<AudioPcmEncoderSettings>{
 	@:from
 	public static extern inline function fromValue(v: AudioPcmEncoderSettings): AudioPcmEncoderSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UFractureProximitySettings")
 @:include("FractureToolProximity.h")
-@:structAccess
+@:valueType
 extern class FractureProximitySettings extends FractureToolSettings {
 	public var Method: EProximityMethod;
-	public var DistanceThreshold: cpp.Float64;
+	public var DistanceThreshold: ucpp.num.Float64;
 	public var ContactMethod: EProximityContactMethod;
-	public var ContactThreshold: cpp.Float64;
+	public var ContactThreshold: ucpp.num.Float64;
 	public var bUseAsConnectionGraph: Bool;
 	public var bShowProximity: Bool;
 	public var bOnlyShowForSelected: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,12 +21,12 @@ extern class FractureProximitySettings extends FractureToolSettings {
 abstract ConstFractureProximitySettings(FractureProximitySettings) from FractureProximitySettings {
 	public extern var Method(get, never): EProximityMethod;
 	public inline extern function get_Method(): EProximityMethod return this.Method;
-	public extern var DistanceThreshold(get, never): cpp.Float64;
-	public inline extern function get_DistanceThreshold(): cpp.Float64 return this.DistanceThreshold;
+	public extern var DistanceThreshold(get, never): ucpp.num.Float64;
+	public inline extern function get_DistanceThreshold(): ucpp.num.Float64 return this.DistanceThreshold;
 	public extern var ContactMethod(get, never): EProximityContactMethod;
 	public inline extern function get_ContactMethod(): EProximityContactMethod return this.ContactMethod;
-	public extern var ContactThreshold(get, never): cpp.Float64;
-	public inline extern function get_ContactThreshold(): cpp.Float64 return this.ContactThreshold;
+	public extern var ContactThreshold(get, never): ucpp.num.Float64;
+	public inline extern function get_ContactThreshold(): ucpp.num.Float64 return this.ContactThreshold;
 	public extern var bUseAsConnectionGraph(get, never): Bool;
 	public inline extern function get_bUseAsConnectionGraph(): Bool return this.bUseAsConnectionGraph;
 	public extern var bShowProximity(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstFractureProximitySettings(FractureProximitySettings) from Fracture
 @:forward
 @:nativeGen
 @:native("FractureProximitySettings*")
-abstract FractureProximitySettingsPtr(cpp.Star<FractureProximitySettings>) from cpp.Star<FractureProximitySettings> to cpp.Star<FractureProximitySettings>{
+abstract FractureProximitySettingsPtr(ucpp.Ptr<FractureProximitySettings>) from ucpp.Ptr<FractureProximitySettings> to ucpp.Ptr<FractureProximitySettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureProximitySettings): FractureProximitySettingsPtr {
 		return untyped __cpp__("&({0})", v);

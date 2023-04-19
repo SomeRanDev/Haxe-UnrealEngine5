@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMirrorToolBuilder")
 @:include("MirrorTool.h")
-@:structAccess
+@:valueType
 extern class MirrorToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMirrorToolBuilder(MirrorToolBuilder) from MirrorToolBuilder {
 @:forward
 @:nativeGen
 @:native("MirrorToolBuilder*")
-abstract MirrorToolBuilderPtr(cpp.Star<MirrorToolBuilder>) from cpp.Star<MirrorToolBuilder> to cpp.Star<MirrorToolBuilder>{
+abstract MirrorToolBuilderPtr(ucpp.Ptr<MirrorToolBuilder>) from ucpp.Ptr<MirrorToolBuilder> to ucpp.Ptr<MirrorToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: MirrorToolBuilder): MirrorToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

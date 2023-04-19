@@ -3,10 +3,10 @@ package ue;
 
 @:native("AInfo")
 @:include("GameFramework/Info.h")
-@:structAccess
+@:valueType
 extern class Info extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInfo(Info) from Info {
 @:forward
 @:nativeGen
 @:native("Info*")
-abstract InfoPtr(cpp.Star<Info>) from cpp.Star<Info> to cpp.Star<Info>{
+abstract InfoPtr(ucpp.Ptr<Info>) from ucpp.Ptr<Info> to ucpp.Ptr<Info>{
 	@:from
 	public static extern inline function fromValue(v: Info): InfoPtr {
 		return untyped __cpp__("&({0})", v);

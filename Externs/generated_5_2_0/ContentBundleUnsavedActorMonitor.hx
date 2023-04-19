@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBundleUnsavedActorMonitor")
 @:include("WorldPartition/ContentBundle/ContentBundleEditor.h")
-@:structAccess
+@:valueType
 extern class ContentBundleUnsavedActorMonitor extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBundleUnsavedActorMonitor(ContentBundleUnsavedActorMonitor)
 @:forward
 @:nativeGen
 @:native("ContentBundleUnsavedActorMonitor*")
-abstract ContentBundleUnsavedActorMonitorPtr(cpp.Star<ContentBundleUnsavedActorMonitor>) from cpp.Star<ContentBundleUnsavedActorMonitor> to cpp.Star<ContentBundleUnsavedActorMonitor>{
+abstract ContentBundleUnsavedActorMonitorPtr(ucpp.Ptr<ContentBundleUnsavedActorMonitor>) from ucpp.Ptr<ContentBundleUnsavedActorMonitor> to ucpp.Ptr<ContentBundleUnsavedActorMonitor>{
 	@:from
 	public static extern inline function fromValue(v: ContentBundleUnsavedActorMonitor): ContentBundleUnsavedActorMonitorPtr {
 		return untyped __cpp__("&({0})", v);

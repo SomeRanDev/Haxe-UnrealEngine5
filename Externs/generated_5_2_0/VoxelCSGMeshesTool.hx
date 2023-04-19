@@ -3,14 +3,14 @@ package ue;
 
 @:native("UVoxelCSGMeshesTool")
 @:include("VoxelCSGMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelCSGMeshesTool extends MultiSelectionMeshEditingTool {
-	@:protected public var CSGProps: cpp.Star<VoxelCSGMeshesToolProperties>;
-	@:protected public var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
-	@:protected public var HandleSourcesProperties: cpp.Star<OnAcceptHandleSourcesProperties>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var CSGProps: ucpp.Ptr<VoxelCSGMeshesToolProperties>;
+	@:protected public var MeshStatisticsProperties: ucpp.Ptr<MeshStatisticsProperties>;
+	@:protected public var HandleSourcesProperties: ucpp.Ptr<OnAcceptHandleSourcesProperties>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstVoxelCSGMeshesTool(VoxelCSGMeshesTool) from VoxelCSGMeshesTool {
 @:forward
 @:nativeGen
 @:native("VoxelCSGMeshesTool*")
-abstract VoxelCSGMeshesToolPtr(cpp.Star<VoxelCSGMeshesTool>) from cpp.Star<VoxelCSGMeshesTool> to cpp.Star<VoxelCSGMeshesTool>{
+abstract VoxelCSGMeshesToolPtr(ucpp.Ptr<VoxelCSGMeshesTool>) from ucpp.Ptr<VoxelCSGMeshesTool> to ucpp.Ptr<VoxelCSGMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: VoxelCSGMeshesTool): VoxelCSGMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

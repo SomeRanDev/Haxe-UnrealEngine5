@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCollisionResponse")
 @:include("PhysicsEngine/BodyInstance.h")
-@:structAccess
+@:valueType
 extern class CollisionResponse {
 	private var ResponseToChannels: CollisionResponseContainer;
 	private var ResponseArray: TArray<ResponseChannel>;

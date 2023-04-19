@@ -3,11 +3,11 @@ package ue;
 
 @:native("UToolMenuSectionDynamic")
 @:include("ToolMenuSection.h")
-@:structAccess
+@:valueType
 extern class ToolMenuSectionDynamic extends Object {
-	public function ConstructSections(Menu: cpp.Star<ToolMenu>, Context: cpp.Reference<ToolMenuContext>): Void;
+	public function ConstructSections(Menu: ucpp.Ptr<ToolMenu>, Context: ucpp.Ref<ToolMenuContext>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstToolMenuSectionDynamic(ToolMenuSectionDynamic) from ToolMenuSectio
 @:forward
 @:nativeGen
 @:native("ToolMenuSectionDynamic*")
-abstract ToolMenuSectionDynamicPtr(cpp.Star<ToolMenuSectionDynamic>) from cpp.Star<ToolMenuSectionDynamic> to cpp.Star<ToolMenuSectionDynamic>{
+abstract ToolMenuSectionDynamicPtr(ucpp.Ptr<ToolMenuSectionDynamic>) from ucpp.Ptr<ToolMenuSectionDynamic> to ucpp.Ptr<ToolMenuSectionDynamic>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenuSectionDynamic): ToolMenuSectionDynamicPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UMaterialExpressionCurveAtlasRowParameter")
 @:include("Materials/MaterialExpressionCurveAtlasRowParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionCurveAtlasRowParameter extends MaterialExpressionScalarParameter {
-	public var Curve: cpp.Star<CurveLinearColor>;
-	public var Atlas: cpp.Star<CurveLinearColorAtlas>;
+	public var Curve: ucpp.Ptr<CurveLinearColor>;
+	public var Atlas: ucpp.Ptr<CurveLinearColorAtlas>;
 	public var InputTime: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionCurveAtlasRowParameter(MaterialExpressionCurveAtlasRowParameter) from MaterialExpressionCurveAtlasRowParameter {
-	public extern var Curve(get, never): cpp.Star<CurveLinearColor.ConstCurveLinearColor>;
-	public inline extern function get_Curve(): cpp.Star<CurveLinearColor.ConstCurveLinearColor> return this.Curve;
-	public extern var Atlas(get, never): cpp.Star<CurveLinearColorAtlas.ConstCurveLinearColorAtlas>;
-	public inline extern function get_Atlas(): cpp.Star<CurveLinearColorAtlas.ConstCurveLinearColorAtlas> return this.Atlas;
+	public extern var Curve(get, never): ucpp.Ptr<CurveLinearColor.ConstCurveLinearColor>;
+	public inline extern function get_Curve(): ucpp.Ptr<CurveLinearColor.ConstCurveLinearColor> return this.Curve;
+	public extern var Atlas(get, never): ucpp.Ptr<CurveLinearColorAtlas.ConstCurveLinearColorAtlas>;
+	public inline extern function get_Atlas(): ucpp.Ptr<CurveLinearColorAtlas.ConstCurveLinearColorAtlas> return this.Atlas;
 	public extern var InputTime(get, never): ExpressionInput;
 	public inline extern function get_InputTime(): ExpressionInput return this.InputTime;
 }
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionCurveAtlasRowParameter(MaterialExpressionCurveAt
 @:forward
 @:nativeGen
 @:native("MaterialExpressionCurveAtlasRowParameter*")
-abstract MaterialExpressionCurveAtlasRowParameterPtr(cpp.Star<MaterialExpressionCurveAtlasRowParameter>) from cpp.Star<MaterialExpressionCurveAtlasRowParameter> to cpp.Star<MaterialExpressionCurveAtlasRowParameter>{
+abstract MaterialExpressionCurveAtlasRowParameterPtr(ucpp.Ptr<MaterialExpressionCurveAtlasRowParameter>) from ucpp.Ptr<MaterialExpressionCurveAtlasRowParameter> to ucpp.Ptr<MaterialExpressionCurveAtlasRowParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionCurveAtlasRowParameter): MaterialExpressionCurveAtlasRowParameterPtr {
 		return untyped __cpp__("&({0})", v);

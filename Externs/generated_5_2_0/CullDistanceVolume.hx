@@ -3,12 +3,12 @@ package ue;
 
 @:native("ACullDistanceVolume")
 @:include("Engine/CullDistanceVolume.h")
-@:structAccess
+@:valueType
 extern class CullDistanceVolume extends Volume {
 	public var CullDistances: TArray<CullDistanceSizePair>;
 	public var bEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstCullDistanceVolume(CullDistanceVolume) from CullDistanceVolume {
 @:forward
 @:nativeGen
 @:native("CullDistanceVolume*")
-abstract CullDistanceVolumePtr(cpp.Star<CullDistanceVolume>) from cpp.Star<CullDistanceVolume> to cpp.Star<CullDistanceVolume>{
+abstract CullDistanceVolumePtr(ucpp.Ptr<CullDistanceVolume>) from ucpp.Ptr<CullDistanceVolume> to ucpp.Ptr<CullDistanceVolume>{
 	@:from
 	public static extern inline function fromValue(v: CullDistanceVolume): CullDistanceVolumePtr {
 		return untyped __cpp__("&({0})", v);

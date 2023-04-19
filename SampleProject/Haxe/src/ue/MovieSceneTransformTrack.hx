@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneTransformTrack")
 @:include("Tracks/MovieSceneTransformTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTransformTrack extends MovieScenePropertyTrack {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneTransformTrack(MovieSceneTransformTrack) from MovieScene
 @:forward
 @:nativeGen
 @:native("MovieSceneTransformTrack*")
-abstract MovieSceneTransformTrackPtr(cpp.Star<MovieSceneTransformTrack>) from cpp.Star<MovieSceneTransformTrack> to cpp.Star<MovieSceneTransformTrack>{
+abstract MovieSceneTransformTrackPtr(ucpp.Ptr<MovieSceneTransformTrack>) from ucpp.Ptr<MovieSceneTransformTrack> to ucpp.Ptr<MovieSceneTransformTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTransformTrack): MovieSceneTransformTrackPtr {
 		return untyped __cpp__("&({0})", v);

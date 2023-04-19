@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBrowserAssetViewContextMenuContext")
 @:include("ContentBrowserMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserAssetViewContextMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBrowserAssetViewContextMenuContext(ContentBrowserAssetViewC
 @:forward
 @:nativeGen
 @:native("ContentBrowserAssetViewContextMenuContext*")
-abstract ContentBrowserAssetViewContextMenuContextPtr(cpp.Star<ContentBrowserAssetViewContextMenuContext>) from cpp.Star<ContentBrowserAssetViewContextMenuContext> to cpp.Star<ContentBrowserAssetViewContextMenuContext>{
+abstract ContentBrowserAssetViewContextMenuContextPtr(ucpp.Ptr<ContentBrowserAssetViewContextMenuContext>) from ucpp.Ptr<ContentBrowserAssetViewContextMenuContext> to ucpp.Ptr<ContentBrowserAssetViewContextMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserAssetViewContextMenuContext): ContentBrowserAssetViewContextMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

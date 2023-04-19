@@ -3,14 +3,14 @@ package ue;
 
 @:native("UWorldThumbnailRenderer")
 @:include("ThumbnailRendering/WorldThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class WorldThumbnailRenderer extends DefaultSizedThumbnailRenderer {
-	private var GlobalOrbitPitchOffset: cpp.Float32;
-	private var GlobalOrbitYawOffset: cpp.Float32;
+	private var GlobalOrbitPitchOffset: ucpp.num.Float32;
+	private var GlobalOrbitYawOffset: ucpp.num.Float32;
 	private var bUseUnlitScene: Bool;
 	private var bAllowWorldThumbnails: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstWorldThumbnailRenderer(WorldThumbnailRenderer) from WorldThumbnail
 @:forward
 @:nativeGen
 @:native("WorldThumbnailRenderer*")
-abstract WorldThumbnailRendererPtr(cpp.Star<WorldThumbnailRenderer>) from cpp.Star<WorldThumbnailRenderer> to cpp.Star<WorldThumbnailRenderer>{
+abstract WorldThumbnailRendererPtr(ucpp.Ptr<WorldThumbnailRenderer>) from ucpp.Ptr<WorldThumbnailRenderer> to ucpp.Ptr<WorldThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: WorldThumbnailRenderer): WorldThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

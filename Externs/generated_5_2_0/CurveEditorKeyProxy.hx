@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UCurveEditorKeyProxy")
-@:structAccess
+@:valueType
 extern class CurveEditorKeyProxy extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstCurveEditorKeyProxy(CurveEditorKeyProxy) from CurveEditorKeyProxy 
 @:forward
 @:nativeGen
 @:native("CurveEditorKeyProxy*")
-abstract CurveEditorKeyProxyPtr(cpp.Star<CurveEditorKeyProxy>) from cpp.Star<CurveEditorKeyProxy> to cpp.Star<CurveEditorKeyProxy>{
+abstract CurveEditorKeyProxyPtr(ucpp.Ptr<CurveEditorKeyProxy>) from ucpp.Ptr<CurveEditorKeyProxy> to ucpp.Ptr<CurveEditorKeyProxy>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorKeyProxy): CurveEditorKeyProxyPtr {
 		return untyped __cpp__("&({0})", v);

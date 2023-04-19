@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMultiSelectionTool")
 @:include("MultiSelectionTool.h")
-@:structAccess
+@:valueType
 extern class MultiSelectionTool extends InteractiveTool {
-	@:protected public var Targets: TArray<cpp.Star<ToolTarget>>;
+	@:protected public var Targets: TArray<ucpp.Ptr<ToolTarget>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMultiSelectionTool(MultiSelectionTool) from MultiSelectionTool {
 @:forward
 @:nativeGen
 @:native("MultiSelectionTool*")
-abstract MultiSelectionToolPtr(cpp.Star<MultiSelectionTool>) from cpp.Star<MultiSelectionTool> to cpp.Star<MultiSelectionTool>{
+abstract MultiSelectionToolPtr(ucpp.Ptr<MultiSelectionTool>) from ucpp.Ptr<MultiSelectionTool> to ucpp.Ptr<MultiSelectionTool>{
 	@:from
 	public static extern inline function fromValue(v: MultiSelectionTool): MultiSelectionToolPtr {
 		return untyped __cpp__("&({0})", v);

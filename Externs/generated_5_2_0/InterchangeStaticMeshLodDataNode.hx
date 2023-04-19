@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInterchangeStaticMeshLodDataNode")
 @:include("InterchangeStaticMeshLodDataNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeStaticMeshLodDataNode extends InterchangeFactoryBaseNode {
 	public function SetOneConvexHullPerUCX(AttributeValue: Bool): Bool;
 	public function RemoveSphereCollisionMeshUid(MeshName: FString): Bool;
@@ -16,24 +16,24 @@ extern class InterchangeStaticMeshLodDataNode extends InterchangeFactoryBaseNode
 	public function RemoveAllConvexCollisionMeshes(): Bool;
 	public function RemoveAllCapsuleCollisionMeshes(): Bool;
 	public function RemoveAllBoxCollisionMeshes(): Bool;
-	public function GetSphereCollisionMeshUidsCount(): cpp.Int32;
-	public function GetSphereCollisionMeshUids(OutMeshNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetOneConvexHullPerUCX(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetMeshUidsCount(): cpp.Int32;
-	public function GetMeshUids(OutMeshNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetConvexCollisionMeshUidsCount(): cpp.Int32;
-	public function GetConvexCollisionMeshUids(OutMeshNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetCapsuleCollisionMeshUidsCount(): cpp.Int32;
-	public function GetCapsuleCollisionMeshUids(OutMeshNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetBoxCollisionMeshUidsCount(): cpp.Int32;
-	public function GetBoxCollisionMeshUids(OutMeshNames: cpp.Reference<TArray<FString>>): Void;
+	public function GetSphereCollisionMeshUidsCount(): ucpp.num.Int32;
+	public function GetSphereCollisionMeshUids(OutMeshNames: ucpp.Ref<TArray<FString>>): Void;
+	public function GetOneConvexHullPerUCX(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetMeshUidsCount(): ucpp.num.Int32;
+	public function GetMeshUids(OutMeshNames: ucpp.Ref<TArray<FString>>): Void;
+	public function GetConvexCollisionMeshUidsCount(): ucpp.num.Int32;
+	public function GetConvexCollisionMeshUids(OutMeshNames: ucpp.Ref<TArray<FString>>): Void;
+	public function GetCapsuleCollisionMeshUidsCount(): ucpp.num.Int32;
+	public function GetCapsuleCollisionMeshUids(OutMeshNames: ucpp.Ref<TArray<FString>>): Void;
+	public function GetBoxCollisionMeshUidsCount(): ucpp.num.Int32;
+	public function GetBoxCollisionMeshUids(OutMeshNames: ucpp.Ref<TArray<FString>>): Void;
 	public function AddSphereCollisionMeshUid(MeshName: FString): Bool;
 	public function AddMeshUid(MeshName: FString): Bool;
 	public function AddConvexCollisionMeshUid(MeshName: FString): Bool;
 	public function AddCapsuleCollisionMeshUid(MeshName: FString): Bool;
 	public function AddBoxCollisionMeshUid(MeshName: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -48,7 +48,7 @@ abstract ConstInterchangeStaticMeshLodDataNode(InterchangeStaticMeshLodDataNode)
 @:forward
 @:nativeGen
 @:native("InterchangeStaticMeshLodDataNode*")
-abstract InterchangeStaticMeshLodDataNodePtr(cpp.Star<InterchangeStaticMeshLodDataNode>) from cpp.Star<InterchangeStaticMeshLodDataNode> to cpp.Star<InterchangeStaticMeshLodDataNode>{
+abstract InterchangeStaticMeshLodDataNodePtr(ucpp.Ptr<InterchangeStaticMeshLodDataNode>) from ucpp.Ptr<InterchangeStaticMeshLodDataNode> to ucpp.Ptr<InterchangeStaticMeshLodDataNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeStaticMeshLodDataNode): InterchangeStaticMeshLodDataNodePtr {
 		return untyped __cpp__("&({0})", v);

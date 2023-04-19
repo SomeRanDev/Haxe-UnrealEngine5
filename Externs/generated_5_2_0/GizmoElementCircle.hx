@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGizmoElementCircle")
 @:include("BaseGizmos/GizmoElementCircle.h")
-@:structAccess
+@:valueType
 extern class GizmoElementCircle extends GizmoElementCircleBase {
 	@:protected public var bDrawMesh: Bool;
 	@:protected public var bDrawLine: Bool;
 	@:protected public var bHitMesh: Bool;
 	@:protected public var bHitLine: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstGizmoElementCircle(GizmoElementCircle) from GizmoElementCircle {
 @:forward
 @:nativeGen
 @:native("GizmoElementCircle*")
-abstract GizmoElementCirclePtr(cpp.Star<GizmoElementCircle>) from cpp.Star<GizmoElementCircle> to cpp.Star<GizmoElementCircle>{
+abstract GizmoElementCirclePtr(ucpp.Ptr<GizmoElementCircle>) from ucpp.Ptr<GizmoElementCircle> to ucpp.Ptr<GizmoElementCircle>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementCircle): GizmoElementCirclePtr {
 		return untyped __cpp__("&({0})", v);

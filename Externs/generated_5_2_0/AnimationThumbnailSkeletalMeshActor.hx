@@ -3,10 +3,10 @@ package ue;
 
 @:native("AAnimationThumbnailSkeletalMeshActor")
 @:include("ThumbnailHelpers.h")
-@:structAccess
+@:valueType
 extern class AnimationThumbnailSkeletalMeshActor extends SkeletalMeshActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimationThumbnailSkeletalMeshActor(AnimationThumbnailSkeletalMesh
 @:forward
 @:nativeGen
 @:native("AnimationThumbnailSkeletalMeshActor*")
-abstract AnimationThumbnailSkeletalMeshActorPtr(cpp.Star<AnimationThumbnailSkeletalMeshActor>) from cpp.Star<AnimationThumbnailSkeletalMeshActor> to cpp.Star<AnimationThumbnailSkeletalMeshActor>{
+abstract AnimationThumbnailSkeletalMeshActorPtr(ucpp.Ptr<AnimationThumbnailSkeletalMeshActor>) from ucpp.Ptr<AnimationThumbnailSkeletalMeshActor> to ucpp.Ptr<AnimationThumbnailSkeletalMeshActor>{
 	@:from
 	public static extern inline function fromValue(v: AnimationThumbnailSkeletalMeshActor): AnimationThumbnailSkeletalMeshActorPtr {
 		return untyped __cpp__("&({0})", v);

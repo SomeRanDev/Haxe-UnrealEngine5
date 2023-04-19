@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSoftClassPath")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class SoftClassPath extends SoftObjectPath {
 	@:native("FSoftClassPath") public function new();
 }

@@ -3,40 +3,40 @@ package ue;
 
 @:native("UClothingSimulationInteractor")
 @:include("ClothingSimulationInteractor.h")
-@:structAccess
+@:valueType
 extern class ClothingSimulationInteractor extends Object {
-	public var ClothingInteractors: TMap<FName, cpp.Star<ClothingInteractor>>;
+	public var ClothingInteractors: TMap<FName, ucpp.Ptr<ClothingInteractor>>;
 
-	public function SetNumSubsteps(NumSubsteps: cpp.Int32): Void;
-	public function SetNumIterations(NumIterations: cpp.Int32): Void;
-	public function SetMaxNumIterations(MaxNumIterations: cpp.Int32): Void;
-	public function SetAnimDriveSpringStiffness(InStiffness: cpp.Float32): Void;
+	public function SetNumSubsteps(NumSubsteps: ucpp.num.Int32): Void;
+	public function SetNumIterations(NumIterations: ucpp.num.Int32): Void;
+	public function SetMaxNumIterations(MaxNumIterations: ucpp.num.Int32): Void;
+	public function SetAnimDriveSpringStiffness(InStiffness: ucpp.num.Float32): Void;
 	public function PhysicsAssetUpdated(): Void;
-	public function GetSimulationTime(): cpp.Float32;
-	public function GetNumSubsteps(): cpp.Int32;
-	public function GetNumKinematicParticles(): cpp.Int32;
-	public function GetNumIterations(): cpp.Int32;
-	public function GetNumDynamicParticles(): cpp.Int32;
-	public function GetNumCloths(): cpp.Int32;
-	public function GetClothingInteractor(ClothingAssetName: FString): cpp.Star<ClothingInteractor>;
-	public function EnableGravityOverride(InVector: cpp.Reference<Vector>): Void;
+	public function GetSimulationTime(): ucpp.num.Float32;
+	public function GetNumSubsteps(): ucpp.num.Int32;
+	public function GetNumKinematicParticles(): ucpp.num.Int32;
+	public function GetNumIterations(): ucpp.num.Int32;
+	public function GetNumDynamicParticles(): ucpp.num.Int32;
+	public function GetNumCloths(): ucpp.num.Int32;
+	public function GetClothingInteractor(ClothingAssetName: FString): ucpp.Ptr<ClothingInteractor>;
+	public function EnableGravityOverride(InVector: ucpp.Ref<Vector>): Void;
 	public function DisableGravityOverride(): Void;
 	public function ClothConfigUpdated(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSimulationTime, GetNumSubsteps, GetNumKinematicParticles, GetNumIterations, GetNumDynamicParticles, GetNumCloths, GetClothingInteractor)
 @:nativeGen
 abstract ConstClothingSimulationInteractor(ClothingSimulationInteractor) from ClothingSimulationInteractor {
-	public extern var ClothingInteractors(get, never): TMap<FName, cpp.Star<ClothingInteractor.ConstClothingInteractor>>;
-	public inline extern function get_ClothingInteractors(): TMap<FName, cpp.Star<ClothingInteractor.ConstClothingInteractor>> return this.ClothingInteractors;
+	public extern var ClothingInteractors(get, never): TMap<FName, ucpp.Ptr<ClothingInteractor.ConstClothingInteractor>>;
+	public inline extern function get_ClothingInteractors(): TMap<FName, ucpp.Ptr<ClothingInteractor.ConstClothingInteractor>> return this.ClothingInteractors;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothingSimulationInteractor*")
-abstract ClothingSimulationInteractorPtr(cpp.Star<ClothingSimulationInteractor>) from cpp.Star<ClothingSimulationInteractor> to cpp.Star<ClothingSimulationInteractor>{
+abstract ClothingSimulationInteractorPtr(ucpp.Ptr<ClothingSimulationInteractor>) from ucpp.Ptr<ClothingSimulationInteractor> to ucpp.Ptr<ClothingSimulationInteractor>{
 	@:from
 	public static extern inline function fromValue(v: ClothingSimulationInteractor): ClothingSimulationInteractorPtr {
 		return untyped __cpp__("&({0})", v);

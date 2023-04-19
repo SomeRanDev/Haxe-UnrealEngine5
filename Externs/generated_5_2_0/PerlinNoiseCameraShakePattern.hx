@@ -3,40 +3,40 @@ package ue;
 
 @:native("UPerlinNoiseCameraShakePattern")
 @:include("PerlinNoiseCameraShakePattern.h")
-@:structAccess
+@:valueType
 extern class PerlinNoiseCameraShakePattern extends SimpleCameraShakePattern {
-	public var LocationAmplitudeMultiplier: cpp.Float32;
-	public var LocationFrequencyMultiplier: cpp.Float32;
+	public var LocationAmplitudeMultiplier: ucpp.num.Float32;
+	public var LocationFrequencyMultiplier: ucpp.num.Float32;
 	public var X: PerlinNoiseShaker;
 	public var Y: PerlinNoiseShaker;
 	public var Z: PerlinNoiseShaker;
-	public var RotationAmplitudeMultiplier: cpp.Float32;
-	public var RotationFrequencyMultiplier: cpp.Float32;
+	public var RotationAmplitudeMultiplier: ucpp.num.Float32;
+	public var RotationFrequencyMultiplier: ucpp.num.Float32;
 	public var Pitch: PerlinNoiseShaker;
 	public var Yaw: PerlinNoiseShaker;
 	public var Roll: PerlinNoiseShaker;
 	public var FOV: PerlinNoiseShaker;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPerlinNoiseCameraShakePattern(PerlinNoiseCameraShakePattern) from PerlinNoiseCameraShakePattern {
-	public extern var LocationAmplitudeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_LocationAmplitudeMultiplier(): cpp.Float32 return this.LocationAmplitudeMultiplier;
-	public extern var LocationFrequencyMultiplier(get, never): cpp.Float32;
-	public inline extern function get_LocationFrequencyMultiplier(): cpp.Float32 return this.LocationFrequencyMultiplier;
+	public extern var LocationAmplitudeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_LocationAmplitudeMultiplier(): ucpp.num.Float32 return this.LocationAmplitudeMultiplier;
+	public extern var LocationFrequencyMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_LocationFrequencyMultiplier(): ucpp.num.Float32 return this.LocationFrequencyMultiplier;
 	public extern var X(get, never): PerlinNoiseShaker;
 	public inline extern function get_X(): PerlinNoiseShaker return this.X;
 	public extern var Y(get, never): PerlinNoiseShaker;
 	public inline extern function get_Y(): PerlinNoiseShaker return this.Y;
 	public extern var Z(get, never): PerlinNoiseShaker;
 	public inline extern function get_Z(): PerlinNoiseShaker return this.Z;
-	public extern var RotationAmplitudeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_RotationAmplitudeMultiplier(): cpp.Float32 return this.RotationAmplitudeMultiplier;
-	public extern var RotationFrequencyMultiplier(get, never): cpp.Float32;
-	public inline extern function get_RotationFrequencyMultiplier(): cpp.Float32 return this.RotationFrequencyMultiplier;
+	public extern var RotationAmplitudeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_RotationAmplitudeMultiplier(): ucpp.num.Float32 return this.RotationAmplitudeMultiplier;
+	public extern var RotationFrequencyMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_RotationFrequencyMultiplier(): ucpp.num.Float32 return this.RotationFrequencyMultiplier;
 	public extern var Pitch(get, never): PerlinNoiseShaker;
 	public inline extern function get_Pitch(): PerlinNoiseShaker return this.Pitch;
 	public extern var Yaw(get, never): PerlinNoiseShaker;
@@ -50,7 +50,7 @@ abstract ConstPerlinNoiseCameraShakePattern(PerlinNoiseCameraShakePattern) from 
 @:forward
 @:nativeGen
 @:native("PerlinNoiseCameraShakePattern*")
-abstract PerlinNoiseCameraShakePatternPtr(cpp.Star<PerlinNoiseCameraShakePattern>) from cpp.Star<PerlinNoiseCameraShakePattern> to cpp.Star<PerlinNoiseCameraShakePattern>{
+abstract PerlinNoiseCameraShakePatternPtr(ucpp.Ptr<PerlinNoiseCameraShakePattern>) from ucpp.Ptr<PerlinNoiseCameraShakePattern> to ucpp.Ptr<PerlinNoiseCameraShakePattern>{
 	@:from
 	public static extern inline function fromValue(v: PerlinNoiseCameraShakePattern): PerlinNoiseCameraShakePatternPtr {
 		return untyped __cpp__("&({0})", v);

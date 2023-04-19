@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnvironmentQueryGraphNode")
 @:include("EnvironmentQueryGraphNode.h")
-@:structAccess
+@:valueType
 extern class EnvironmentQueryGraphNode extends AIGraphNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnvironmentQueryGraphNode(EnvironmentQueryGraphNode) from Environm
 @:forward
 @:nativeGen
 @:native("EnvironmentQueryGraphNode*")
-abstract EnvironmentQueryGraphNodePtr(cpp.Star<EnvironmentQueryGraphNode>) from cpp.Star<EnvironmentQueryGraphNode> to cpp.Star<EnvironmentQueryGraphNode>{
+abstract EnvironmentQueryGraphNodePtr(ucpp.Ptr<EnvironmentQueryGraphNode>) from ucpp.Ptr<EnvironmentQueryGraphNode> to ucpp.Ptr<EnvironmentQueryGraphNode>{
 	@:from
 	public static extern inline function fromValue(v: EnvironmentQueryGraphNode): EnvironmentQueryGraphNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UParticleModuleAttractorLine")
 @:include("Particles/Attractor/ParticleModuleAttractorLine.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleAttractorLine extends ParticleModuleAttractorBase {
 	public var EndPoint0: Vector;
 	public var EndPoint1: Vector;
 	public var Range: RawDistributionFloat;
 	public var Strength: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstParticleModuleAttractorLine(ParticleModuleAttractorLine) from Part
 @:forward
 @:nativeGen
 @:native("ParticleModuleAttractorLine*")
-abstract ParticleModuleAttractorLinePtr(cpp.Star<ParticleModuleAttractorLine>) from cpp.Star<ParticleModuleAttractorLine> to cpp.Star<ParticleModuleAttractorLine>{
+abstract ParticleModuleAttractorLinePtr(ucpp.Ptr<ParticleModuleAttractorLine>) from ucpp.Ptr<ParticleModuleAttractorLine> to ucpp.Ptr<ParticleModuleAttractorLine>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleAttractorLine): ParticleModuleAttractorLinePtr {
 		return untyped __cpp__("&({0})", v);

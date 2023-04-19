@@ -3,58 +3,43 @@ package ue;
 
 @:native("UNiagaraBakerSettings")
 @:include("NiagaraBakerSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraBakerSettings extends Object {
-	public var StartSeconds: cpp.Float32;
-	public var DurationSeconds: cpp.Float32;
-	public var FramesPerSecond: cpp.Int32;
+	public var StartSeconds: ucpp.num.Float32;
+	public var DurationSeconds: ucpp.num.Float32;
+	public var FramesPerSecond: ucpp.num.Int32;
 	public var bPreviewLooping: Bool;
 	public var FramesPerDimension: IntPoint;
-	public var OutputTextures: TArray<NiagaraBakerTextureSettings>;
-	public var CameraViewportMode: ENiagaraBakerViewMode;
-	public var CameraViewportLocation: Vector;
-	public var CameraViewportRotation: Rotator;
-	public var CameraOrbitDistance: cpp.Float32;
-	public var CameraFOV: cpp.Float32;
-	public var CameraOrthoWidth: cpp.Float32;
-	public var bUseCameraAspectRatio: Bool;
-	public var CameraAspectRatio: cpp.Float32;
+	public var Outputs: TArray<ucpp.Ptr<NiagaraBakerOutput>>;
+	public var CameraSettings: TArray<NiagaraBakerCameraSettings>;
+	public var CurrentCameraIndex: ucpp.num.Int32;
+	public var BakeQualityLevel: FName;
 	public var bRenderComponentOnly: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraBakerSettings(NiagaraBakerSettings) from NiagaraBakerSettings {
-	public extern var StartSeconds(get, never): cpp.Float32;
-	public inline extern function get_StartSeconds(): cpp.Float32 return this.StartSeconds;
-	public extern var DurationSeconds(get, never): cpp.Float32;
-	public inline extern function get_DurationSeconds(): cpp.Float32 return this.DurationSeconds;
-	public extern var FramesPerSecond(get, never): cpp.Int32;
-	public inline extern function get_FramesPerSecond(): cpp.Int32 return this.FramesPerSecond;
+	public extern var StartSeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_StartSeconds(): ucpp.num.Float32 return this.StartSeconds;
+	public extern var DurationSeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_DurationSeconds(): ucpp.num.Float32 return this.DurationSeconds;
+	public extern var FramesPerSecond(get, never): ucpp.num.Int32;
+	public inline extern function get_FramesPerSecond(): ucpp.num.Int32 return this.FramesPerSecond;
 	public extern var bPreviewLooping(get, never): Bool;
 	public inline extern function get_bPreviewLooping(): Bool return this.bPreviewLooping;
 	public extern var FramesPerDimension(get, never): IntPoint;
 	public inline extern function get_FramesPerDimension(): IntPoint return this.FramesPerDimension;
-	public extern var OutputTextures(get, never): TArray<NiagaraBakerTextureSettings>;
-	public inline extern function get_OutputTextures(): TArray<NiagaraBakerTextureSettings> return this.OutputTextures;
-	public extern var CameraViewportMode(get, never): ENiagaraBakerViewMode;
-	public inline extern function get_CameraViewportMode(): ENiagaraBakerViewMode return this.CameraViewportMode;
-	public extern var CameraViewportLocation(get, never): Vector;
-	public inline extern function get_CameraViewportLocation(): Vector return this.CameraViewportLocation;
-	public extern var CameraViewportRotation(get, never): Rotator;
-	public inline extern function get_CameraViewportRotation(): Rotator return this.CameraViewportRotation;
-	public extern var CameraOrbitDistance(get, never): cpp.Float32;
-	public inline extern function get_CameraOrbitDistance(): cpp.Float32 return this.CameraOrbitDistance;
-	public extern var CameraFOV(get, never): cpp.Float32;
-	public inline extern function get_CameraFOV(): cpp.Float32 return this.CameraFOV;
-	public extern var CameraOrthoWidth(get, never): cpp.Float32;
-	public inline extern function get_CameraOrthoWidth(): cpp.Float32 return this.CameraOrthoWidth;
-	public extern var bUseCameraAspectRatio(get, never): Bool;
-	public inline extern function get_bUseCameraAspectRatio(): Bool return this.bUseCameraAspectRatio;
-	public extern var CameraAspectRatio(get, never): cpp.Float32;
-	public inline extern function get_CameraAspectRatio(): cpp.Float32 return this.CameraAspectRatio;
+	public extern var Outputs(get, never): TArray<ucpp.Ptr<NiagaraBakerOutput.ConstNiagaraBakerOutput>>;
+	public inline extern function get_Outputs(): TArray<ucpp.Ptr<NiagaraBakerOutput.ConstNiagaraBakerOutput>> return this.Outputs;
+	public extern var CameraSettings(get, never): TArray<NiagaraBakerCameraSettings>;
+	public inline extern function get_CameraSettings(): TArray<NiagaraBakerCameraSettings> return this.CameraSettings;
+	public extern var CurrentCameraIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_CurrentCameraIndex(): ucpp.num.Int32 return this.CurrentCameraIndex;
+	public extern var BakeQualityLevel(get, never): FName;
+	public inline extern function get_BakeQualityLevel(): FName return this.BakeQualityLevel;
 	public extern var bRenderComponentOnly(get, never): Bool;
 	public inline extern function get_bRenderComponentOnly(): Bool return this.bRenderComponentOnly;
 }
@@ -62,7 +47,7 @@ abstract ConstNiagaraBakerSettings(NiagaraBakerSettings) from NiagaraBakerSettin
 @:forward
 @:nativeGen
 @:native("NiagaraBakerSettings*")
-abstract NiagaraBakerSettingsPtr(cpp.Star<NiagaraBakerSettings>) from cpp.Star<NiagaraBakerSettings> to cpp.Star<NiagaraBakerSettings>{
+abstract NiagaraBakerSettingsPtr(ucpp.Ptr<NiagaraBakerSettings>) from ucpp.Ptr<NiagaraBakerSettings> to ucpp.Ptr<NiagaraBakerSettings>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraBakerSettings): NiagaraBakerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

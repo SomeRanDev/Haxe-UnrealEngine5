@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNetFaultConfig")
 @:include("Net/NetConnectionFaultRecovery.h")
-@:structAccess
+@:valueType
 extern class NetFaultConfig extends EscalationManagerConfig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNetFaultConfig(NetFaultConfig) from NetFaultConfig {
 @:forward
 @:nativeGen
 @:native("NetFaultConfig*")
-abstract NetFaultConfigPtr(cpp.Star<NetFaultConfig>) from cpp.Star<NetFaultConfig> to cpp.Star<NetFaultConfig>{
+abstract NetFaultConfigPtr(ucpp.Ptr<NetFaultConfig>) from ucpp.Ptr<NetFaultConfig> to ucpp.Ptr<NetFaultConfig>{
 	@:from
 	public static extern inline function fromValue(v: NetFaultConfig): NetFaultConfigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FParameterDefinitionsBindingNameSubscription")
 @:include("NiagaraParameterDefinitions.h")
-@:structAccess
+@:valueType
 extern class ParameterDefinitionsBindingNameSubscription {
-	public var SubscribedParameterDefinitions: cpp.Star<NiagaraParameterDefinitions>;
+	public var SubscribedParameterDefinitions: ucpp.Ptr<NiagaraParameterDefinitions>;
 	public var BindingNameSubscriptions: TArray<ScriptVarBindingNameSubscription>;
 
 	@:native("FParameterDefinitionsBindingNameSubscription") public function new();
-	@:native("FParameterDefinitionsBindingNameSubscription") public static function make(SubscribedParameterDefinitions: cpp.Star<NiagaraParameterDefinitions>, BindingNameSubscriptions: TArray<ScriptVarBindingNameSubscription>): ParameterDefinitionsBindingNameSubscription ;
+	@:native("FParameterDefinitionsBindingNameSubscription") public static function make(SubscribedParameterDefinitions: ucpp.Ptr<NiagaraParameterDefinitions>, BindingNameSubscriptions: TArray<ScriptVarBindingNameSubscription>): ParameterDefinitionsBindingNameSubscription ;
 }

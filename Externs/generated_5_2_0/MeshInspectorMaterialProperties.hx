@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMeshInspectorMaterialProperties")
 @:include("MeshInspectorTool.h")
-@:structAccess
+@:valueType
 extern class MeshInspectorMaterialProperties extends InteractiveToolPropertySet {
 	public var MaterialMode: EMeshInspectorMaterialMode;
-	public var CheckerDensity: cpp.Float32;
-	public var OverrideMaterial: cpp.Star<MaterialInterface>;
+	public var CheckerDensity: ucpp.num.Float32;
+	public var OverrideMaterial: ucpp.Ptr<MaterialInterface>;
 	public var UVChannel: FString;
 	public var UVChannelNamesList: TArray<FString>;
 	public var bFlatShading: Bool;
 	public var Color: LinearColor;
-	public var Opacity: cpp.Float64;
+	public var Opacity: ucpp.num.Float64;
 	public var TransparentMaterialColor: LinearColor;
 	public var bTwoSided: Bool;
-	public var CheckerMaterial: cpp.Star<MaterialInstanceDynamic>;
-	public var ActiveCustomMaterial: cpp.Star<MaterialInstanceDynamic>;
+	public var CheckerMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	public var ActiveCustomMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
 
 	public function GetUVChannelNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetUVChannelNamesFunc)
@@ -28,10 +28,10 @@ extern class MeshInspectorMaterialProperties extends InteractiveToolPropertySet 
 abstract ConstMeshInspectorMaterialProperties(MeshInspectorMaterialProperties) from MeshInspectorMaterialProperties {
 	public extern var MaterialMode(get, never): EMeshInspectorMaterialMode;
 	public inline extern function get_MaterialMode(): EMeshInspectorMaterialMode return this.MaterialMode;
-	public extern var CheckerDensity(get, never): cpp.Float32;
-	public inline extern function get_CheckerDensity(): cpp.Float32 return this.CheckerDensity;
-	public extern var OverrideMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_OverrideMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.OverrideMaterial;
+	public extern var CheckerDensity(get, never): ucpp.num.Float32;
+	public inline extern function get_CheckerDensity(): ucpp.num.Float32 return this.CheckerDensity;
+	public extern var OverrideMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_OverrideMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.OverrideMaterial;
 	public extern var UVChannel(get, never): FString;
 	public inline extern function get_UVChannel(): FString return this.UVChannel;
 	public extern var UVChannelNamesList(get, never): TArray<FString>;
@@ -40,22 +40,22 @@ abstract ConstMeshInspectorMaterialProperties(MeshInspectorMaterialProperties) f
 	public inline extern function get_bFlatShading(): Bool return this.bFlatShading;
 	public extern var Color(get, never): LinearColor;
 	public inline extern function get_Color(): LinearColor return this.Color;
-	public extern var Opacity(get, never): cpp.Float64;
-	public inline extern function get_Opacity(): cpp.Float64 return this.Opacity;
+	public extern var Opacity(get, never): ucpp.num.Float64;
+	public inline extern function get_Opacity(): ucpp.num.Float64 return this.Opacity;
 	public extern var TransparentMaterialColor(get, never): LinearColor;
 	public inline extern function get_TransparentMaterialColor(): LinearColor return this.TransparentMaterialColor;
 	public extern var bTwoSided(get, never): Bool;
 	public inline extern function get_bTwoSided(): Bool return this.bTwoSided;
-	public extern var CheckerMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_CheckerMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CheckerMaterial;
-	public extern var ActiveCustomMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_ActiveCustomMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.ActiveCustomMaterial;
+	public extern var CheckerMaterial(get, never): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
+	public inline extern function get_CheckerMaterial(): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.CheckerMaterial;
+	public extern var ActiveCustomMaterial(get, never): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
+	public inline extern function get_ActiveCustomMaterial(): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.ActiveCustomMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshInspectorMaterialProperties*")
-abstract MeshInspectorMaterialPropertiesPtr(cpp.Star<MeshInspectorMaterialProperties>) from cpp.Star<MeshInspectorMaterialProperties> to cpp.Star<MeshInspectorMaterialProperties>{
+abstract MeshInspectorMaterialPropertiesPtr(ucpp.Ptr<MeshInspectorMaterialProperties>) from ucpp.Ptr<MeshInspectorMaterialProperties> to ucpp.Ptr<MeshInspectorMaterialProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshInspectorMaterialProperties): MeshInspectorMaterialPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

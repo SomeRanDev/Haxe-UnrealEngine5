@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNavLinkDefinition")
 @:include("AI/Navigation/NavLinkDefinition.h")
-@:structAccess
+@:valueType
 extern class NavLinkDefinition extends Object {
 	public var Links: TArray<NavigationLink>;
 	public var SegmentLinks: TArray<NavigationSegmentLink>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNavLinkDefinition(NavLinkDefinition) from NavLinkDefinition {
 @:forward
 @:nativeGen
 @:native("NavLinkDefinition*")
-abstract NavLinkDefinitionPtr(cpp.Star<NavLinkDefinition>) from cpp.Star<NavLinkDefinition> to cpp.Star<NavLinkDefinition>{
+abstract NavLinkDefinitionPtr(ucpp.Ptr<NavLinkDefinition>) from ucpp.Ptr<NavLinkDefinition> to ucpp.Ptr<NavLinkDefinition>{
 	@:from
 	public static extern inline function fromValue(v: NavLinkDefinition): NavLinkDefinitionPtr {
 		return untyped __cpp__("&({0})", v);

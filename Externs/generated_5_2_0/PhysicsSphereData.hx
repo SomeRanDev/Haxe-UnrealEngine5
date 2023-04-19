@@ -3,12 +3,12 @@ package ue;
 
 @:native("FPhysicsSphereData")
 @:include("Physics/CollisionPropertySets.h")
-@:structAccess
+@:valueType
 extern class PhysicsSphereData {
-	public var Radius: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var Transform: Transform;
 	public var Element: KShapeElem;
 
 	@:native("FPhysicsSphereData") public function new();
-	@:native("FPhysicsSphereData") public static function make(Radius: cpp.Float32, Transform: Transform, Element: KShapeElem): PhysicsSphereData ;
+	@:native("FPhysicsSphereData") public static function make(Radius: ucpp.num.Float32, Transform: Transform, Element: KShapeElem): PhysicsSphereData ;
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FGameViewportWidgetSlot")
 @:include("Blueprint/GameViewportSubsystem.h")
-@:structAccess
+@:valueType
 extern class GameViewportWidgetSlot {
 	public var Anchors: Anchors;
 	public var Offsets: Margin;
 	public var Alignment: Vector2D;
-	public var ZOrder: cpp.Int32;
+	public var ZOrder: ucpp.num.Int32;
 
 	@:native("FGameViewportWidgetSlot") public function new();
-	@:native("FGameViewportWidgetSlot") public static function make(Anchors: Anchors, Offsets: Margin, Alignment: Vector2D, ZOrder: cpp.Int32): GameViewportWidgetSlot ;
+	@:native("FGameViewportWidgetSlot") public static function make(Anchors: Anchors, Offsets: Margin, Alignment: Vector2D, ZOrder: ucpp.num.Int32): GameViewportWidgetSlot ;
 }

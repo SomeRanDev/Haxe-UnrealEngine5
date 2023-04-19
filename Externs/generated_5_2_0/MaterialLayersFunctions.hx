@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMaterialLayersFunctions")
 @:include("Materials/MaterialLayersFunctions.h")
-@:structAccess
+@:valueType
 extern class MaterialLayersFunctions extends MaterialLayersFunctionsRuntimeData {
 	public var EditorOnly: MaterialLayersFunctionsEditorOnlyData;
 

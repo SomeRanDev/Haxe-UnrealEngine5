@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAISenseConfig_Team")
 @:include("Perception/AISenseConfig_Team.h")
-@:structAccess
+@:valueType
 extern class AISenseConfig_Team extends AISenseConfig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAISenseConfig_Team(AISenseConfig_Team) from AISenseConfig_Team {
 @:forward
 @:nativeGen
 @:native("AISenseConfig_Team*")
-abstract AISenseConfig_TeamPtr(cpp.Star<AISenseConfig_Team>) from cpp.Star<AISenseConfig_Team> to cpp.Star<AISenseConfig_Team>{
+abstract AISenseConfig_TeamPtr(ucpp.Ptr<AISenseConfig_Team>) from ucpp.Ptr<AISenseConfig_Team> to ucpp.Ptr<AISenseConfig_Team>{
 	@:from
 	public static extern inline function fromValue(v: AISenseConfig_Team): AISenseConfig_TeamPtr {
 		return untyped __cpp__("&({0})", v);

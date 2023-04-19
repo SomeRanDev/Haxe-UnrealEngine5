@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDPICustomScalingRule")
 @:include("Engine/DPICustomScalingRule.h")
-@:structAccess
+@:valueType
 extern class DPICustomScalingRule extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDPICustomScalingRule(DPICustomScalingRule) from DPICustomScalingRu
 @:forward
 @:nativeGen
 @:native("DPICustomScalingRule*")
-abstract DPICustomScalingRulePtr(cpp.Star<DPICustomScalingRule>) from cpp.Star<DPICustomScalingRule> to cpp.Star<DPICustomScalingRule>{
+abstract DPICustomScalingRulePtr(ucpp.Ptr<DPICustomScalingRule>) from ucpp.Ptr<DPICustomScalingRule> to ucpp.Ptr<DPICustomScalingRule>{
 	@:from
 	public static extern inline function fromValue(v: DPICustomScalingRule): DPICustomScalingRulePtr {
 		return untyped __cpp__("&({0})", v);

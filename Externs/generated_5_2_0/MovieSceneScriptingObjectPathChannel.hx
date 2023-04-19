@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMovieSceneScriptingObjectPathChannel")
 @:include("KeysAndChannels/MovieSceneScriptingObjectPath.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingObjectPathChannel extends MovieSceneScriptingChannel {
-	public function SetDefault(InDefaultValue: cpp.Star<Object>): Void;
-	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
+	public function SetDefault(InDefaultValue: ucpp.Ptr<Object>): Void;
+	public function RemoveKey(Key: ucpp.Ptr<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
 	public function HasDefault(): Bool;
-	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
-	public function GetDefault(): cpp.Star<Object>;
-	public function AddKey(InTime: FrameNumber, NewValue: cpp.Star<Object>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingObjectPathKey>;
+	public function GetKeys(): TArray<ucpp.Ptr<MovieSceneScriptingKey>>;
+	public function GetDefault(): ucpp.Ptr<Object>;
+	public function AddKey(InTime: FrameNumber, NewValue: ucpp.Ptr<Object>, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): ucpp.Ptr<MovieSceneScriptingObjectPathKey>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasDefault, GetKeys, GetDefault)
@@ -24,7 +24,7 @@ abstract ConstMovieSceneScriptingObjectPathChannel(MovieSceneScriptingObjectPath
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingObjectPathChannel*")
-abstract MovieSceneScriptingObjectPathChannelPtr(cpp.Star<MovieSceneScriptingObjectPathChannel>) from cpp.Star<MovieSceneScriptingObjectPathChannel> to cpp.Star<MovieSceneScriptingObjectPathChannel>{
+abstract MovieSceneScriptingObjectPathChannelPtr(ucpp.Ptr<MovieSceneScriptingObjectPathChannel>) from ucpp.Ptr<MovieSceneScriptingObjectPathChannel> to ucpp.Ptr<MovieSceneScriptingObjectPathChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingObjectPathChannel): MovieSceneScriptingObjectPathChannelPtr {
 		return untyped __cpp__("&({0})", v);

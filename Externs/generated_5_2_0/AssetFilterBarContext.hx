@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetFilterBarContext")
 @:include("Filters/SAssetFilterBar.h")
-@:structAccess
+@:valueType
 extern class AssetFilterBarContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetFilterBarContext(AssetFilterBarContext) from AssetFilterBarCo
 @:forward
 @:nativeGen
 @:native("AssetFilterBarContext*")
-abstract AssetFilterBarContextPtr(cpp.Star<AssetFilterBarContext>) from cpp.Star<AssetFilterBarContext> to cpp.Star<AssetFilterBarContext>{
+abstract AssetFilterBarContextPtr(ucpp.Ptr<AssetFilterBarContext>) from ucpp.Ptr<AssetFilterBarContext> to ucpp.Ptr<AssetFilterBarContext>{
 	@:from
 	public static extern inline function fromValue(v: AssetFilterBarContext): AssetFilterBarContextPtr {
 		return untyped __cpp__("&({0})", v);

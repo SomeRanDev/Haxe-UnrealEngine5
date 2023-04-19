@@ -3,11 +3,11 @@ package ue;
 
 @:native("ASparseVolumeTextureViewer")
 @:include("SparseVolumeTexture/SparseVolumeTextureViewerComponent.h")
-@:structAccess
+@:valueType
 extern class SparseVolumeTextureViewer extends Info {
-	private var SparseVolumeTextureViewerComponent: cpp.Star<SparseVolumeTextureViewerComp>;
+	private var SparseVolumeTextureViewerComponent: ucpp.Ptr<SparseVolumeTextureViewerComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSparseVolumeTextureViewer(SparseVolumeTextureViewer) from SparseVo
 @:forward
 @:nativeGen
 @:native("SparseVolumeTextureViewer*")
-abstract SparseVolumeTextureViewerPtr(cpp.Star<SparseVolumeTextureViewer>) from cpp.Star<SparseVolumeTextureViewer> to cpp.Star<SparseVolumeTextureViewer>{
+abstract SparseVolumeTextureViewerPtr(ucpp.Ptr<SparseVolumeTextureViewer>) from ucpp.Ptr<SparseVolumeTextureViewer> to ucpp.Ptr<SparseVolumeTextureViewer>{
 	@:from
 	public static extern inline function fromValue(v: SparseVolumeTextureViewer): SparseVolumeTextureViewerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("AMediaPlate")
 @:include("MediaPlate.h")
-@:structAccess
+@:valueType
 extern class MediaPlate extends Actor {
-	public var MediaPlateComponent: cpp.Star<MediaPlateComp>;
-	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
+	public var MediaPlateComponent: ucpp.Ptr<MediaPlateComp>;
+	public var StaticMeshComponent: ucpp.Ptr<StaticMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMediaPlate(MediaPlate) from MediaPlate {
-	public extern var MediaPlateComponent(get, never): cpp.Star<MediaPlateComp.ConstMediaPlateComp>;
-	public inline extern function get_MediaPlateComponent(): cpp.Star<MediaPlateComp.ConstMediaPlateComp> return this.MediaPlateComponent;
-	public extern var StaticMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_StaticMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
+	public extern var MediaPlateComponent(get, never): ucpp.Ptr<MediaPlateComp.ConstMediaPlateComp>;
+	public inline extern function get_MediaPlateComponent(): ucpp.Ptr<MediaPlateComp.ConstMediaPlateComp> return this.MediaPlateComponent;
+	public extern var StaticMeshComponent(get, never): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp>;
+	public inline extern function get_StaticMeshComponent(): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("MediaPlate*")
-abstract MediaPlatePtr(cpp.Star<MediaPlate>) from cpp.Star<MediaPlate> to cpp.Star<MediaPlate>{
+abstract MediaPlatePtr(ucpp.Ptr<MediaPlate>) from ucpp.Ptr<MediaPlate> to ucpp.Ptr<MediaPlate>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlate): MediaPlatePtr {
 		return untyped __cpp__("&({0})", v);

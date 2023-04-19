@@ -3,16 +3,16 @@ package ue;
 
 @:native("UPivotRotationGizmoHandleGroup")
 @:include("Gizmo/VIPivotTransformGizmo.h")
-@:structAccess
+@:valueType
 extern class PivotRotationGizmoHandleGroup extends AxisGizmoHandleGroup {
-	private var RootFullRotationHandleComponent: cpp.Star<SceneComp>;
-	private var FullRotationHandleMeshComponent: cpp.Star<GizmoHandleMeshComp>;
-	private var StartRotationIndicatorMeshComponent: cpp.Star<GizmoHandleMeshComp>;
-	private var RootStartRotationIdicatorComponent: cpp.Star<SceneComp>;
-	private var DeltaRotationIndicatorMeshComponent: cpp.Star<GizmoHandleMeshComp>;
-	private var RootDeltaRotationIndicatorComponent: cpp.Star<SceneComp>;
+	private var RootFullRotationHandleComponent: ucpp.Ptr<SceneComp>;
+	private var FullRotationHandleMeshComponent: ucpp.Ptr<GizmoHandleMeshComp>;
+	private var StartRotationIndicatorMeshComponent: ucpp.Ptr<GizmoHandleMeshComp>;
+	private var RootStartRotationIdicatorComponent: ucpp.Ptr<SceneComp>;
+	private var DeltaRotationIndicatorMeshComponent: ucpp.Ptr<GizmoHandleMeshComp>;
+	private var RootDeltaRotationIndicatorComponent: ucpp.Ptr<SceneComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstPivotRotationGizmoHandleGroup(PivotRotationGizmoHandleGroup) from 
 @:forward
 @:nativeGen
 @:native("PivotRotationGizmoHandleGroup*")
-abstract PivotRotationGizmoHandleGroupPtr(cpp.Star<PivotRotationGizmoHandleGroup>) from cpp.Star<PivotRotationGizmoHandleGroup> to cpp.Star<PivotRotationGizmoHandleGroup>{
+abstract PivotRotationGizmoHandleGroupPtr(ucpp.Ptr<PivotRotationGizmoHandleGroup>) from ucpp.Ptr<PivotRotationGizmoHandleGroup> to ucpp.Ptr<PivotRotationGizmoHandleGroup>{
 	@:from
 	public static extern inline function fromValue(v: PivotRotationGizmoHandleGroup): PivotRotationGizmoHandleGroupPtr {
 		return untyped __cpp__("&({0})", v);

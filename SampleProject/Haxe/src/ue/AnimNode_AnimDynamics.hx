@@ -3,32 +3,28 @@ package ue;
 
 @:native("FAnimNode_AnimDynamics")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-@:structAccess
+@:valueType
 extern class AnimNode_AnimDynamics extends AnimNode_SkeletalControlBase {
-	public var LinearDampingOverride: cpp.Float32;
-	public var AngularDampingOverride: cpp.Float32;
+	public var LinearDampingOverride: ucpp.num.Float32;
+	public var AngularDampingOverride: ucpp.num.Float32;
 	public var RelativeSpaceBone: BoneReference;
 	public var BoundBone: BoneReference;
 	public var ChainEnd: BoneReference;
-	public var BoxExtents: Vector;
-	public var LocalJointOffset: Vector;
-	public var GravityScale: cpp.Float32;
+	public var PhysicsBodyDefinitions: TArray<AnimPhysBodyDefinition>;
+	public var GravityScale: ucpp.num.Float32;
 	public var GravityOverride: Vector;
-	public var LinearSpringConstant: cpp.Float32;
-	public var AngularSpringConstant: cpp.Float32;
-	public var WindScale: cpp.Float32;
+	public var LinearSpringConstant: ucpp.num.Float32;
+	public var AngularSpringConstant: ucpp.num.Float32;
+	public var WindScale: ucpp.num.Float32;
 	public var ComponentLinearAccScale: Vector;
 	public var ComponentLinearVelScale: Vector;
 	public var ComponentAppliedLinearAccClamp: Vector;
-	public var AngularBiasOverride: cpp.Float32;
-	public var NumSolverIterationsPreUpdate: cpp.Int32;
-	public var NumSolverIterationsPostUpdate: cpp.Int32;
-	public var ConstraintSetup: AnimPhysConstraintSetup;
+	public var AngularBiasOverride: ucpp.num.Float32;
+	public var NumSolverIterationsPreUpdate: ucpp.num.Int32;
+	public var NumSolverIterationsPostUpdate: ucpp.num.Int32;
 	public var SphericalLimits: TArray<AnimPhysSphericalLimit>;
-	public var SphereCollisionRadius: cpp.Float32;
 	public var ExternalForce: Vector;
 	public var PlanarLimits: TArray<AnimPhysPlanarLimit>;
-	public var CollisionType: AnimPhysCollisionType;
 	public var SimulationSpace: AnimPhysSimSpaceType;
 	public var bUseSphericalLimits: Bool;
 	public var bUsePlanarLimit: Bool;

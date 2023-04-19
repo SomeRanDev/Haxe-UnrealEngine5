@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_PhysicsAsset")
 @:include("AssetDefinition_PhysicsAsset.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_PhysicsAsset extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_PhysicsAsset(AssetDefinition_PhysicsAsset) from As
 @:forward
 @:nativeGen
 @:native("AssetDefinition_PhysicsAsset*")
-abstract AssetDefinition_PhysicsAssetPtr(cpp.Star<AssetDefinition_PhysicsAsset>) from cpp.Star<AssetDefinition_PhysicsAsset> to cpp.Star<AssetDefinition_PhysicsAsset>{
+abstract AssetDefinition_PhysicsAssetPtr(ucpp.Ptr<AssetDefinition_PhysicsAsset>) from ucpp.Ptr<AssetDefinition_PhysicsAsset> to ucpp.Ptr<AssetDefinition_PhysicsAsset>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_PhysicsAsset): AssetDefinition_PhysicsAssetPtr {
 		return untyped __cpp__("&({0})", v);

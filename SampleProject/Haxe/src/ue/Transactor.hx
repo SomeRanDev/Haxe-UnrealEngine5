@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTransactor")
 @:include("Editor/Transactor.h")
-@:structAccess
+@:valueType
 extern class Transactor extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTransactor(Transactor) from Transactor {
 @:forward
 @:nativeGen
 @:native("Transactor*")
-abstract TransactorPtr(cpp.Star<Transactor>) from cpp.Star<Transactor> to cpp.Star<Transactor>{
+abstract TransactorPtr(ucpp.Ptr<Transactor>) from ucpp.Ptr<Transactor> to ucpp.Ptr<Transactor>{
 	@:from
 	public static extern inline function fromValue(v: Transactor): TransactorPtr {
 		return untyped __cpp__("&({0})", v);

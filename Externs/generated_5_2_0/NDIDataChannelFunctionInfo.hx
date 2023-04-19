@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNDIDataChannelFunctionInfo")
 @:include("Private/DataInterface/NiagaraDataInterfaceDataChannelCommon.h")
-@:structAccess
+@:valueType
 extern class NDIDataChannelFunctionInfo {
 	public var FunctionName: FName;
 	public var Inputs: TArray<NiagaraVariableBase>;

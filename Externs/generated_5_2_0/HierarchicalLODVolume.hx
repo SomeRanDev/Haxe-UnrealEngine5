@@ -3,12 +3,12 @@ package ue;
 
 @:native("AHierarchicalLODVolume")
 @:include("HierarchicalLODVolume.h")
-@:structAccess
+@:valueType
 extern class HierarchicalLODVolume extends Volume {
 	public var bIncludeOverlappingActors: Bool;
-	public var ApplyOnlyToSpecificHLODLevels: TArray<cpp.Int32>;
+	public var ApplyOnlyToSpecificHLODLevels: TArray<ucpp.num.Int32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class HierarchicalLODVolume extends Volume {
 abstract ConstHierarchicalLODVolume(HierarchicalLODVolume) from HierarchicalLODVolume {
 	public extern var bIncludeOverlappingActors(get, never): Bool;
 	public inline extern function get_bIncludeOverlappingActors(): Bool return this.bIncludeOverlappingActors;
-	public extern var ApplyOnlyToSpecificHLODLevels(get, never): TArray<cpp.Int32>;
-	public inline extern function get_ApplyOnlyToSpecificHLODLevels(): TArray<cpp.Int32> return this.ApplyOnlyToSpecificHLODLevels;
+	public extern var ApplyOnlyToSpecificHLODLevels(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_ApplyOnlyToSpecificHLODLevels(): TArray<ucpp.num.Int32> return this.ApplyOnlyToSpecificHLODLevels;
 }
 
 @:forward
 @:nativeGen
 @:native("HierarchicalLODVolume*")
-abstract HierarchicalLODVolumePtr(cpp.Star<HierarchicalLODVolume>) from cpp.Star<HierarchicalLODVolume> to cpp.Star<HierarchicalLODVolume>{
+abstract HierarchicalLODVolumePtr(ucpp.Ptr<HierarchicalLODVolume>) from ucpp.Ptr<HierarchicalLODVolume> to ucpp.Ptr<HierarchicalLODVolume>{
 	@:from
 	public static extern inline function fromValue(v: HierarchicalLODVolume): HierarchicalLODVolumePtr {
 		return untyped __cpp__("&({0})", v);

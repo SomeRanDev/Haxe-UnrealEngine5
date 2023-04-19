@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULevelStreamingVisibilityStatus__PythonCallable")
-@:structAccess
+@:valueType
 extern class LevelStreamingVisibilityStatus__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLevelStreamingVisibilityStatus__PythonCallable(LevelStreamingVisib
 @:forward
 @:nativeGen
 @:native("LevelStreamingVisibilityStatus__PythonCallable*")
-abstract LevelStreamingVisibilityStatus__PythonCallablePtr(cpp.Star<LevelStreamingVisibilityStatus__PythonCallable>) from cpp.Star<LevelStreamingVisibilityStatus__PythonCallable> to cpp.Star<LevelStreamingVisibilityStatus__PythonCallable>{
+abstract LevelStreamingVisibilityStatus__PythonCallablePtr(ucpp.Ptr<LevelStreamingVisibilityStatus__PythonCallable>) from ucpp.Ptr<LevelStreamingVisibilityStatus__PythonCallable> to ucpp.Ptr<LevelStreamingVisibilityStatus__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreamingVisibilityStatus__PythonCallable): LevelStreamingVisibilityStatus__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

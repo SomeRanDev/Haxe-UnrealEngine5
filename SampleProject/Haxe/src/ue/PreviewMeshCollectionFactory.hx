@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPreviewMeshCollectionFactory")
 @:include("Factories/PreviewMeshCollectionFactory.h")
-@:structAccess
+@:valueType
 extern class PreviewMeshCollectionFactory extends Factory {
 	public var CurrentSkeleton: TWeakObjectPtr<Skeleton>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPreviewMeshCollectionFactory(PreviewMeshCollectionFactory) from Pr
 @:forward
 @:nativeGen
 @:native("PreviewMeshCollectionFactory*")
-abstract PreviewMeshCollectionFactoryPtr(cpp.Star<PreviewMeshCollectionFactory>) from cpp.Star<PreviewMeshCollectionFactory> to cpp.Star<PreviewMeshCollectionFactory>{
+abstract PreviewMeshCollectionFactoryPtr(ucpp.Ptr<PreviewMeshCollectionFactory>) from ucpp.Ptr<PreviewMeshCollectionFactory> to ucpp.Ptr<PreviewMeshCollectionFactory>{
 	@:from
 	public static extern inline function fromValue(v: PreviewMeshCollectionFactory): PreviewMeshCollectionFactoryPtr {
 		return untyped __cpp__("&({0})", v);

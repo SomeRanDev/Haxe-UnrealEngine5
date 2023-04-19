@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRenderTarget2DArray")
 @:include("NiagaraDataInterfaceRenderTarget2DArray.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceRenderTarget2DArray extends NiagaraDataInterfaceRWBase {
 	public var Size: IntVector;
 	public var OverrideRenderTargetFormat: TEnumAsByte<ETextureRenderTargetFormat>;
@@ -11,9 +11,9 @@ extern class NiagaraDataInterfaceRenderTarget2DArray extends NiagaraDataInterfac
 	public var bInheritUserParameterSettings: Bool;
 	public var bOverrideFormat: Bool;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
-	@:protected public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2DArray>>;
+	@:protected public var ManagedRenderTargets: TMap<ucpp.num.UInt64, ucpp.Ptr<TextureRenderTarget2DArray>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,7 +36,7 @@ abstract ConstNiagaraDataInterfaceRenderTarget2DArray(NiagaraDataInterfaceRender
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceRenderTarget2DArray*")
-abstract NiagaraDataInterfaceRenderTarget2DArrayPtr(cpp.Star<NiagaraDataInterfaceRenderTarget2DArray>) from cpp.Star<NiagaraDataInterfaceRenderTarget2DArray> to cpp.Star<NiagaraDataInterfaceRenderTarget2DArray>{
+abstract NiagaraDataInterfaceRenderTarget2DArrayPtr(ucpp.Ptr<NiagaraDataInterfaceRenderTarget2DArray>) from ucpp.Ptr<NiagaraDataInterfaceRenderTarget2DArray> to ucpp.Ptr<NiagaraDataInterfaceRenderTarget2DArray>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceRenderTarget2DArray): NiagaraDataInterfaceRenderTarget2DArrayPtr {
 		return untyped __cpp__("&({0})", v);

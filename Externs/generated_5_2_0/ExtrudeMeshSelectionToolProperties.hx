@@ -3,25 +3,25 @@ package ue;
 
 @:native("UExtrudeMeshSelectionToolProperties")
 @:include("Polymodeling/ExtrudeMeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class ExtrudeMeshSelectionToolProperties extends InteractiveToolPropertySet {
 	public var InputMode: EExtrudeMeshSelectionInteractionMode;
-	public var ExtrudeDistance: cpp.Float64;
+	public var ExtrudeDistance: ucpp.num.Float64;
 	public var RegionMode: EExtrudeMeshSelectionRegionModifierMode;
-	public var NumSubdivisions: cpp.Int32;
-	public var CreaseAngle: cpp.Float64;
-	public var RaycastMaxDistance: cpp.Float64;
+	public var NumSubdivisions: ucpp.num.Int32;
+	public var CreaseAngle: ucpp.num.Float64;
+	public var RaycastMaxDistance: ucpp.num.Float64;
 	public var bShellsToSolids: Bool;
 	public var bInferGroupsFromNbrs: Bool;
 	public var bGroupPerSubdivision: Bool;
 	public var bReplaceSelectionGroups: Bool;
-	public var UVScale: cpp.Float64;
+	public var UVScale: ucpp.num.Float64;
 	public var bUVIslandPerGroup: Bool;
 	public var bInferMaterialID: Bool;
-	public var SetMaterialID: cpp.Int32;
+	public var SetMaterialID: ucpp.num.Int32;
 	public var bShowInputMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,16 +29,16 @@ extern class ExtrudeMeshSelectionToolProperties extends InteractiveToolPropertyS
 abstract ConstExtrudeMeshSelectionToolProperties(ExtrudeMeshSelectionToolProperties) from ExtrudeMeshSelectionToolProperties {
 	public extern var InputMode(get, never): EExtrudeMeshSelectionInteractionMode;
 	public inline extern function get_InputMode(): EExtrudeMeshSelectionInteractionMode return this.InputMode;
-	public extern var ExtrudeDistance(get, never): cpp.Float64;
-	public inline extern function get_ExtrudeDistance(): cpp.Float64 return this.ExtrudeDistance;
+	public extern var ExtrudeDistance(get, never): ucpp.num.Float64;
+	public inline extern function get_ExtrudeDistance(): ucpp.num.Float64 return this.ExtrudeDistance;
 	public extern var RegionMode(get, never): EExtrudeMeshSelectionRegionModifierMode;
 	public inline extern function get_RegionMode(): EExtrudeMeshSelectionRegionModifierMode return this.RegionMode;
-	public extern var NumSubdivisions(get, never): cpp.Int32;
-	public inline extern function get_NumSubdivisions(): cpp.Int32 return this.NumSubdivisions;
-	public extern var CreaseAngle(get, never): cpp.Float64;
-	public inline extern function get_CreaseAngle(): cpp.Float64 return this.CreaseAngle;
-	public extern var RaycastMaxDistance(get, never): cpp.Float64;
-	public inline extern function get_RaycastMaxDistance(): cpp.Float64 return this.RaycastMaxDistance;
+	public extern var NumSubdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSubdivisions(): ucpp.num.Int32 return this.NumSubdivisions;
+	public extern var CreaseAngle(get, never): ucpp.num.Float64;
+	public inline extern function get_CreaseAngle(): ucpp.num.Float64 return this.CreaseAngle;
+	public extern var RaycastMaxDistance(get, never): ucpp.num.Float64;
+	public inline extern function get_RaycastMaxDistance(): ucpp.num.Float64 return this.RaycastMaxDistance;
 	public extern var bShellsToSolids(get, never): Bool;
 	public inline extern function get_bShellsToSolids(): Bool return this.bShellsToSolids;
 	public extern var bInferGroupsFromNbrs(get, never): Bool;
@@ -47,14 +47,14 @@ abstract ConstExtrudeMeshSelectionToolProperties(ExtrudeMeshSelectionToolPropert
 	public inline extern function get_bGroupPerSubdivision(): Bool return this.bGroupPerSubdivision;
 	public extern var bReplaceSelectionGroups(get, never): Bool;
 	public inline extern function get_bReplaceSelectionGroups(): Bool return this.bReplaceSelectionGroups;
-	public extern var UVScale(get, never): cpp.Float64;
-	public inline extern function get_UVScale(): cpp.Float64 return this.UVScale;
+	public extern var UVScale(get, never): ucpp.num.Float64;
+	public inline extern function get_UVScale(): ucpp.num.Float64 return this.UVScale;
 	public extern var bUVIslandPerGroup(get, never): Bool;
 	public inline extern function get_bUVIslandPerGroup(): Bool return this.bUVIslandPerGroup;
 	public extern var bInferMaterialID(get, never): Bool;
 	public inline extern function get_bInferMaterialID(): Bool return this.bInferMaterialID;
-	public extern var SetMaterialID(get, never): cpp.Int32;
-	public inline extern function get_SetMaterialID(): cpp.Int32 return this.SetMaterialID;
+	public extern var SetMaterialID(get, never): ucpp.num.Int32;
+	public inline extern function get_SetMaterialID(): ucpp.num.Int32 return this.SetMaterialID;
 	public extern var bShowInputMaterials(get, never): Bool;
 	public inline extern function get_bShowInputMaterials(): Bool return this.bShowInputMaterials;
 }
@@ -62,7 +62,7 @@ abstract ConstExtrudeMeshSelectionToolProperties(ExtrudeMeshSelectionToolPropert
 @:forward
 @:nativeGen
 @:native("ExtrudeMeshSelectionToolProperties*")
-abstract ExtrudeMeshSelectionToolPropertiesPtr(cpp.Star<ExtrudeMeshSelectionToolProperties>) from cpp.Star<ExtrudeMeshSelectionToolProperties> to cpp.Star<ExtrudeMeshSelectionToolProperties>{
+abstract ExtrudeMeshSelectionToolPropertiesPtr(ucpp.Ptr<ExtrudeMeshSelectionToolProperties>) from ucpp.Ptr<ExtrudeMeshSelectionToolProperties> to ucpp.Ptr<ExtrudeMeshSelectionToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ExtrudeMeshSelectionToolProperties): ExtrudeMeshSelectionToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

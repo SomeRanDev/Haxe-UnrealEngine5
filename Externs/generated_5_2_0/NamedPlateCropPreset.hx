@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNamedPlateCropPreset")
 @:include("CineCameraSettings.h")
-@:structAccess
+@:valueType
 extern class NamedPlateCropPreset {
 	public var Name: FString;
 	public var CropSettings: PlateCropSettings;

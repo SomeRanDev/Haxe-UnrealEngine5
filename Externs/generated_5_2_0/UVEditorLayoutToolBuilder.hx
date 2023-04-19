@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorLayoutToolBuilder")
 @:include("UVEditorLayoutTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorLayoutToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorLayoutToolBuilder(UVEditorLayoutToolBuilder) from UVEditor
 @:forward
 @:nativeGen
 @:native("UVEditorLayoutToolBuilder*")
-abstract UVEditorLayoutToolBuilderPtr(cpp.Star<UVEditorLayoutToolBuilder>) from cpp.Star<UVEditorLayoutToolBuilder> to cpp.Star<UVEditorLayoutToolBuilder>{
+abstract UVEditorLayoutToolBuilderPtr(ucpp.Ptr<UVEditorLayoutToolBuilder>) from ucpp.Ptr<UVEditorLayoutToolBuilder> to ucpp.Ptr<UVEditorLayoutToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorLayoutToolBuilder): UVEditorLayoutToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

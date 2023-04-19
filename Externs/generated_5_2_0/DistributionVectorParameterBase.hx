@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDistributionVectorParameterBase")
 @:include("Distributions/DistributionVectorParameterBase.h")
-@:structAccess
+@:valueType
 extern class DistributionVectorParameterBase extends DistributionVectorConstant {
 	public var ParameterName: FName;
 	public var MinInput: Vector;
@@ -12,7 +12,7 @@ extern class DistributionVectorParameterBase extends DistributionVectorConstant 
 	public var MaxOutput: Vector;
 	public var ParamModes: TEnumAsByte<DistributionParamMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstDistributionVectorParameterBase(DistributionVectorParameterBase) f
 @:forward
 @:nativeGen
 @:native("DistributionVectorParameterBase*")
-abstract DistributionVectorParameterBasePtr(cpp.Star<DistributionVectorParameterBase>) from cpp.Star<DistributionVectorParameterBase> to cpp.Star<DistributionVectorParameterBase>{
+abstract DistributionVectorParameterBasePtr(ucpp.Ptr<DistributionVectorParameterBase>) from ucpp.Ptr<DistributionVectorParameterBase> to ucpp.Ptr<DistributionVectorParameterBase>{
 	@:from
 	public static extern inline function fromValue(v: DistributionVectorParameterBase): DistributionVectorParameterBasePtr {
 		return untyped __cpp__("&({0})", v);

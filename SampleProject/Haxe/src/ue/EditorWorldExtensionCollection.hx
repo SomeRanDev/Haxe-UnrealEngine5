@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorWorldExtensionCollection")
 @:include("EditorWorldExtension.h")
-@:structAccess
+@:valueType
 extern class EditorWorldExtensionCollection extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorWorldExtensionCollection(EditorWorldExtensionCollection) fro
 @:forward
 @:nativeGen
 @:native("EditorWorldExtensionCollection*")
-abstract EditorWorldExtensionCollectionPtr(cpp.Star<EditorWorldExtensionCollection>) from cpp.Star<EditorWorldExtensionCollection> to cpp.Star<EditorWorldExtensionCollection>{
+abstract EditorWorldExtensionCollectionPtr(ucpp.Ptr<EditorWorldExtensionCollection>) from ucpp.Ptr<EditorWorldExtensionCollection> to ucpp.Ptr<EditorWorldExtensionCollection>{
 	@:from
 	public static extern inline function fromValue(v: EditorWorldExtensionCollection): EditorWorldExtensionCollectionPtr {
 		return untyped __cpp__("&({0})", v);

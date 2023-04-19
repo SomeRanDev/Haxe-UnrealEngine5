@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieScene3DConstraintSection")
 @:include("Sections/MovieScene3DConstraintSection.h")
-@:structAccess
+@:valueType
 extern class MovieScene3DConstraintSection extends MovieSceneSection {
 	@:protected public var ConstraintBindingID: MovieSceneObjectBindingID;
 
-	public function SetConstraintBindingID(InConstraintBindingID: cpp.Reference<MovieSceneObjectBindingID>): Void;
+	public function SetConstraintBindingID(InConstraintBindingID: ucpp.Ref<MovieSceneObjectBindingID>): Void;
 	public function GetConstraintBindingID(): MovieSceneObjectBindingID;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetConstraintBindingID)
@@ -21,7 +21,7 @@ abstract ConstMovieScene3DConstraintSection(MovieScene3DConstraintSection) from 
 @:forward
 @:nativeGen
 @:native("MovieScene3DConstraintSection*")
-abstract MovieScene3DConstraintSectionPtr(cpp.Star<MovieScene3DConstraintSection>) from cpp.Star<MovieScene3DConstraintSection> to cpp.Star<MovieScene3DConstraintSection>{
+abstract MovieScene3DConstraintSectionPtr(ucpp.Ptr<MovieScene3DConstraintSection>) from ucpp.Ptr<MovieScene3DConstraintSection> to ucpp.Ptr<MovieScene3DConstraintSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene3DConstraintSection): MovieScene3DConstraintSectionPtr {
 		return untyped __cpp__("&({0})", v);

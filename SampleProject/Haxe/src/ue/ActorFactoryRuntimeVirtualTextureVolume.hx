@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryRuntimeVirtualTextureVolume")
 @:include("ActorFactories/ActorFactoryRuntimeVirtualTextureVolume.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryRuntimeVirtualTextureVolume extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryRuntimeVirtualTextureVolume(ActorFactoryRuntimeVirtual
 @:forward
 @:nativeGen
 @:native("ActorFactoryRuntimeVirtualTextureVolume*")
-abstract ActorFactoryRuntimeVirtualTextureVolumePtr(cpp.Star<ActorFactoryRuntimeVirtualTextureVolume>) from cpp.Star<ActorFactoryRuntimeVirtualTextureVolume> to cpp.Star<ActorFactoryRuntimeVirtualTextureVolume>{
+abstract ActorFactoryRuntimeVirtualTextureVolumePtr(ucpp.Ptr<ActorFactoryRuntimeVirtualTextureVolume>) from ucpp.Ptr<ActorFactoryRuntimeVirtualTextureVolume> to ucpp.Ptr<ActorFactoryRuntimeVirtualTextureVolume>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryRuntimeVirtualTextureVolume): ActorFactoryRuntimeVirtualTextureVolumePtr {
 		return untyped __cpp__("&({0})", v);

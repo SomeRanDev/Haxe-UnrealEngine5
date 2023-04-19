@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionGenericConstant")
 @:include("Materials/MaterialExpressionGenericConstant.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionGenericConstant extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionGenericConstant(MaterialExpressionGenericConstan
 @:forward
 @:nativeGen
 @:native("MaterialExpressionGenericConstant*")
-abstract MaterialExpressionGenericConstantPtr(cpp.Star<MaterialExpressionGenericConstant>) from cpp.Star<MaterialExpressionGenericConstant> to cpp.Star<MaterialExpressionGenericConstant>{
+abstract MaterialExpressionGenericConstantPtr(ucpp.Ptr<MaterialExpressionGenericConstant>) from ucpp.Ptr<MaterialExpressionGenericConstant> to ucpp.Ptr<MaterialExpressionGenericConstant>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionGenericConstant): MaterialExpressionGenericConstantPtr {
 		return untyped __cpp__("&({0})", v);

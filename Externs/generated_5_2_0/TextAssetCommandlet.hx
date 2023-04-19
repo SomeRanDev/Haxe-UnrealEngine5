@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextAssetCommandlet")
 @:include("Commandlets/TextAssetCommandlet.h")
-@:structAccess
+@:valueType
 extern class TextAssetCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextAssetCommandlet(TextAssetCommandlet) from TextAssetCommandlet 
 @:forward
 @:nativeGen
 @:native("TextAssetCommandlet*")
-abstract TextAssetCommandletPtr(cpp.Star<TextAssetCommandlet>) from cpp.Star<TextAssetCommandlet> to cpp.Star<TextAssetCommandlet>{
+abstract TextAssetCommandletPtr(ucpp.Ptr<TextAssetCommandlet>) from ucpp.Ptr<TextAssetCommandlet> to ucpp.Ptr<TextAssetCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: TextAssetCommandlet): TextAssetCommandletPtr {
 		return untyped __cpp__("&({0})", v);

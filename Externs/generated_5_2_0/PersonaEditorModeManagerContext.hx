@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPersonaEditorModeManagerContext")
 @:include("IPersonaEditorModeManager.h")
-@:structAccess
+@:valueType
 extern class PersonaEditorModeManagerContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPersonaEditorModeManagerContext(PersonaEditorModeManagerContext) f
 @:forward
 @:nativeGen
 @:native("PersonaEditorModeManagerContext*")
-abstract PersonaEditorModeManagerContextPtr(cpp.Star<PersonaEditorModeManagerContext>) from cpp.Star<PersonaEditorModeManagerContext> to cpp.Star<PersonaEditorModeManagerContext>{
+abstract PersonaEditorModeManagerContextPtr(ucpp.Ptr<PersonaEditorModeManagerContext>) from ucpp.Ptr<PersonaEditorModeManagerContext> to ucpp.Ptr<PersonaEditorModeManagerContext>{
 	@:from
 	public static extern inline function fromValue(v: PersonaEditorModeManagerContext): PersonaEditorModeManagerContextPtr {
 		return untyped __cpp__("&({0})", v);

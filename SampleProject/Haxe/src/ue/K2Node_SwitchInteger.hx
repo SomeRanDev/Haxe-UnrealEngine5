@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_SwitchInteger")
 @:include("K2Node_SwitchInteger.h")
-@:structAccess
+@:valueType
 extern class K2Node_SwitchInteger extends K2Node_Switch {
-	public var StartIndex: cpp.Int32;
+	public var StartIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_SwitchInteger(K2Node_SwitchInteger) from K2Node_SwitchInteger {
-	public extern var StartIndex(get, never): cpp.Int32;
-	public inline extern function get_StartIndex(): cpp.Int32 return this.StartIndex;
+	public extern var StartIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_StartIndex(): ucpp.num.Int32 return this.StartIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_SwitchInteger*")
-abstract K2Node_SwitchIntegerPtr(cpp.Star<K2Node_SwitchInteger>) from cpp.Star<K2Node_SwitchInteger> to cpp.Star<K2Node_SwitchInteger>{
+abstract K2Node_SwitchIntegerPtr(ucpp.Ptr<K2Node_SwitchInteger>) from ucpp.Ptr<K2Node_SwitchInteger> to ucpp.Ptr<K2Node_SwitchInteger>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_SwitchInteger): K2Node_SwitchIntegerPtr {
 		return untyped __cpp__("&({0})", v);

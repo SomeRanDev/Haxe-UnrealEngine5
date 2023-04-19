@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_MultiGate")
 @:include("K2Node_MultiGate.h")
-@:structAccess
+@:valueType
 extern class K2Node_MultiGate extends K2Node_ExecutionSequence {
-	public var DataNode: cpp.Star<K2Node_TemporaryVariable>;
+	public var DataNode: ucpp.Ptr<K2Node_TemporaryVariable>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_MultiGate(K2Node_MultiGate) from K2Node_MultiGate {
-	public extern var DataNode(get, never): cpp.Star<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable>;
-	public inline extern function get_DataNode(): cpp.Star<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable> return this.DataNode;
+	public extern var DataNode(get, never): ucpp.Ptr<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable>;
+	public inline extern function get_DataNode(): ucpp.Ptr<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable> return this.DataNode;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_MultiGate*")
-abstract K2Node_MultiGatePtr(cpp.Star<K2Node_MultiGate>) from cpp.Star<K2Node_MultiGate> to cpp.Star<K2Node_MultiGate>{
+abstract K2Node_MultiGatePtr(ucpp.Ptr<K2Node_MultiGate>) from ucpp.Ptr<K2Node_MultiGate> to ucpp.Ptr<K2Node_MultiGate>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_MultiGate): K2Node_MultiGatePtr {
 		return untyped __cpp__("&({0})", v);

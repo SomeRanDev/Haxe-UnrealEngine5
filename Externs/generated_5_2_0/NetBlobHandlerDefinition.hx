@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNetBlobHandlerDefinition")
 @:include("Private/Iris/ReplicationSystem/NetBlob/NetBlobHandlerDefinitions.h")
-@:structAccess
+@:valueType
 extern class NetBlobHandlerDefinition {
 	public var ClassName: FName;
 

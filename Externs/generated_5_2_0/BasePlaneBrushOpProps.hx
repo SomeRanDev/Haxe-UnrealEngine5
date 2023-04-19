@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBasePlaneBrushOpProps")
 @:include("Sculpting/MeshPlaneBrushOps.h")
-@:structAccess
+@:valueType
 extern class BasePlaneBrushOpProps extends MeshSculptBrushOpProps {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBasePlaneBrushOpProps(BasePlaneBrushOpProps) from BasePlaneBrushOp
 @:forward
 @:nativeGen
 @:native("BasePlaneBrushOpProps*")
-abstract BasePlaneBrushOpPropsPtr(cpp.Star<BasePlaneBrushOpProps>) from cpp.Star<BasePlaneBrushOpProps> to cpp.Star<BasePlaneBrushOpProps>{
+abstract BasePlaneBrushOpPropsPtr(ucpp.Ptr<BasePlaneBrushOpProps>) from ucpp.Ptr<BasePlaneBrushOpProps> to ucpp.Ptr<BasePlaneBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: BasePlaneBrushOpProps): BasePlaneBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

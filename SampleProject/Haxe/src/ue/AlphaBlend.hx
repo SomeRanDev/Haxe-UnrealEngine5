@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAlphaBlend")
 @:include("AlphaBlend.h")
-@:structAccess
+@:valueType
 extern class AlphaBlend {
-	private var CustomCurve: cpp.Star<CurveFloat>;
-	private var BlendTime: cpp.Float32;
+	private var CustomCurve: ucpp.Ptr<CurveFloat>;
+	private var BlendTime: ucpp.num.Float32;
 	private var BlendOption: EAlphaBlendOption;
 
 	@:native("FAlphaBlend") public function new();
-	@:native("FAlphaBlend") public static function make(CustomCurve: cpp.Star<CurveFloat>, BlendTime: cpp.Float32, BlendOption: EAlphaBlendOption): AlphaBlend ;
+	@:native("FAlphaBlend") public static function make(CustomCurve: ucpp.Ptr<CurveFloat>, BlendTime: ucpp.num.Float32, BlendOption: EAlphaBlendOption): AlphaBlend ;
 }

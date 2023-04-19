@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAdvancedCopyMap")
 @:include("AssetToolsSettings.h")
-@:structAccess
+@:valueType
 extern class AdvancedCopyMap {
 	public var ClassToCopy: SoftClassPath;
 	public var AdvancedCopyCustomization: SoftClassPath;

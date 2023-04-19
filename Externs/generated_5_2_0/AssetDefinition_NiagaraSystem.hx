@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_NiagaraSystem")
 @:include("AssetDefinitions/AssetDefinition_NiagaraSystem.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_NiagaraSystem extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_NiagaraSystem(AssetDefinition_NiagaraSystem) from 
 @:forward
 @:nativeGen
 @:native("AssetDefinition_NiagaraSystem*")
-abstract AssetDefinition_NiagaraSystemPtr(cpp.Star<AssetDefinition_NiagaraSystem>) from cpp.Star<AssetDefinition_NiagaraSystem> to cpp.Star<AssetDefinition_NiagaraSystem>{
+abstract AssetDefinition_NiagaraSystemPtr(ucpp.Ptr<AssetDefinition_NiagaraSystem>) from ucpp.Ptr<AssetDefinition_NiagaraSystem> to ucpp.Ptr<AssetDefinition_NiagaraSystem>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_NiagaraSystem): AssetDefinition_NiagaraSystemPtr {
 		return untyped __cpp__("&({0})", v);

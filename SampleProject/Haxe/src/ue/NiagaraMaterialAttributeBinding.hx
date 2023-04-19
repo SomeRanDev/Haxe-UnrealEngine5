@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraMaterialAttributeBinding")
 @:include("NiagaraCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraMaterialAttributeBinding {
 	public var MaterialParameterName: FName;
 	public var NiagaraVariable: NiagaraVariableBase;

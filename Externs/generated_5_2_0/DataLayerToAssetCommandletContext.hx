@@ -3,12 +3,12 @@ package ue;
 
 @:native("UDataLayerToAssetCommandletContext")
 @:include("Commandlets/WorldPartitionDataLayerToAssetCommandLet.h")
-@:structAccess
+@:valueType
 extern class DataLayerToAssetCommandletContext extends Object {
-	private var DataLayerConversionInfo: TArray<cpp.Star<DataLayerConversionInfo>>;
+	private var DataLayerConversionInfo: TArray<ucpp.Ptr<DataLayerConversionInfo>>;
 	private var ConvertingDataLayerInfo: TArray<TWeakObjectPtr<DataLayerConversionInfo>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstDataLayerToAssetCommandletContext(DataLayerToAssetCommandletContex
 @:forward
 @:nativeGen
 @:native("DataLayerToAssetCommandletContext*")
-abstract DataLayerToAssetCommandletContextPtr(cpp.Star<DataLayerToAssetCommandletContext>) from cpp.Star<DataLayerToAssetCommandletContext> to cpp.Star<DataLayerToAssetCommandletContext>{
+abstract DataLayerToAssetCommandletContextPtr(ucpp.Ptr<DataLayerToAssetCommandletContext>) from ucpp.Ptr<DataLayerToAssetCommandletContext> to ucpp.Ptr<DataLayerToAssetCommandletContext>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerToAssetCommandletContext): DataLayerToAssetCommandletContextPtr {
 		return untyped __cpp__("&({0})", v);

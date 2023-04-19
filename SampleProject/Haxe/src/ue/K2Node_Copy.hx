@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_Copy")
 @:include("K2Node_Copy.h")
-@:structAccess
+@:valueType
 extern class K2Node_Copy extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_Copy(K2Node_Copy) from K2Node_Copy {
 @:forward
 @:nativeGen
 @:native("K2Node_Copy*")
-abstract K2Node_CopyPtr(cpp.Star<K2Node_Copy>) from cpp.Star<K2Node_Copy> to cpp.Star<K2Node_Copy>{
+abstract K2Node_CopyPtr(ucpp.Ptr<K2Node_Copy>) from ucpp.Ptr<K2Node_Copy> to ucpp.Ptr<K2Node_Copy>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_Copy): K2Node_CopyPtr {
 		return untyped __cpp__("&({0})", v);

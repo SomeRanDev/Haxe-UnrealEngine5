@@ -3,9 +3,9 @@ package ue;
 
 @:native("UAudioSliderBase")
 @:include("AudioSlider.h")
-@:structAccess
+@:valueType
 extern class AudioSliderBase extends Widget {
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 	public var UnitsText: FText;
 	public var TextLabelBackgroundColor: LinearColor;
 	public var TextLabelBackgroundColorDelegate: HaxeDelegateProperty<() -> Void>;
@@ -23,7 +23,7 @@ extern class AudioSliderBase extends Widget {
 	public var WidgetBackgroundColor: LinearColor;
 	public var WidgetBackgroundColorDelegate: HaxeDelegateProperty<() -> Void>;
 	public var Orientation: TEnumAsByte<EOrientation>;
-	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
 	public function SetWidgetBackgroundColor(InValue: LinearColor): Void;
 	public function SetValueTextReadOnly(bIsReadOnly: Bool): Void;
@@ -35,18 +35,18 @@ extern class AudioSliderBase extends Widget {
 	public function SetSliderBackgroundColor(InValue: LinearColor): Void;
 	public function SetShowUnitsText(bShowUnitsText: Bool): Void;
 	public function SetShowLabelOnlyOnHover(bShowLabelOnlyOnHover: Bool): Void;
-	public function GetSliderValue(OutputValue: cpp.Float32): cpp.Float32;
-	public function GetOutputValue(InSliderValue: cpp.Float32): cpp.Float32;
-	public function GetLinValue(OutputValue: cpp.Float32): cpp.Float32;
+	public function GetSliderValue(OutputValue: ucpp.num.Float32): ucpp.num.Float32;
+	public function GetOutputValue(InSliderValue: ucpp.num.Float32): ucpp.num.Float32;
+	public function GetLinValue(OutputValue: ucpp.num.Float32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAudioSliderBase(AudioSliderBase) from AudioSliderBase {
-	public extern var Value(get, never): cpp.Float32;
-	public inline extern function get_Value(): cpp.Float32 return this.Value;
+	public extern var Value(get, never): ucpp.num.Float32;
+	public inline extern function get_Value(): ucpp.num.Float32 return this.Value;
 	public extern var UnitsText(get, never): FText;
 	public inline extern function get_UnitsText(): FText return this.UnitsText;
 	public extern var TextLabelBackgroundColor(get, never): LinearColor;
@@ -81,14 +81,14 @@ abstract ConstAudioSliderBase(AudioSliderBase) from AudioSliderBase {
 	public inline extern function get_WidgetBackgroundColorDelegate(): HaxeDelegateProperty<() -> Void> return this.WidgetBackgroundColorDelegate;
 	public extern var Orientation(get, never): TEnumAsByte<EOrientation>;
 	public inline extern function get_Orientation(): TEnumAsByte<EOrientation> return this.Orientation;
-	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChanged;
+	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChanged;
 }
 
 @:forward
 @:nativeGen
 @:native("AudioSliderBase*")
-abstract AudioSliderBasePtr(cpp.Star<AudioSliderBase>) from cpp.Star<AudioSliderBase> to cpp.Star<AudioSliderBase>{
+abstract AudioSliderBasePtr(ucpp.Ptr<AudioSliderBase>) from ucpp.Ptr<AudioSliderBase> to ucpp.Ptr<AudioSliderBase>{
 	@:from
 	public static extern inline function fromValue(v: AudioSliderBase): AudioSliderBasePtr {
 		return untyped __cpp__("&({0})", v);

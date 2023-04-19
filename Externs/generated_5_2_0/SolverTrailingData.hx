@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSolverTrailingData")
 @:include("GeometryCollection/RecordedTransformTrack.h")
-@:structAccess
+@:valueType
 extern class SolverTrailingData {
 	public var Location: Vector;
 	public var Velocity: Vector;
 	public var AngularVelocity: Vector;
-	public var Mass: cpp.Float32;
-	public var ParticleIndex: cpp.Int32;
-	public var ParticleIndexMesh: cpp.Int32;
+	public var Mass: ucpp.num.Float32;
+	public var ParticleIndex: ucpp.num.Int32;
+	public var ParticleIndexMesh: ucpp.num.Int32;
 
 	@:native("FSolverTrailingData") public function new();
 }

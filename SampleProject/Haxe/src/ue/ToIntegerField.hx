@@ -3,26 +3,26 @@ package ue;
 
 @:native("UToIntegerField")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class ToIntegerField extends FieldNodeInt {
-	public var FloatField: cpp.Star<FieldNodeFloat>;
+	public var FloatField: ucpp.Ptr<FieldNodeFloat>;
 
-	public function SetToIntegerField(FloatField: cpp.Star<FieldNodeFloat.ConstFieldNodeFloat>): cpp.Star<ToIntegerField>;
+	public function SetToIntegerField(FloatField: ucpp.Ptr<FieldNodeFloat.ConstFieldNodeFloat>): ucpp.Ptr<ToIntegerField>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstToIntegerField(ToIntegerField) from ToIntegerField {
-	public extern var FloatField(get, never): cpp.Star<FieldNodeFloat.ConstFieldNodeFloat>;
-	public inline extern function get_FloatField(): cpp.Star<FieldNodeFloat.ConstFieldNodeFloat> return this.FloatField;
+	public extern var FloatField(get, never): ucpp.Ptr<FieldNodeFloat.ConstFieldNodeFloat>;
+	public inline extern function get_FloatField(): ucpp.Ptr<FieldNodeFloat.ConstFieldNodeFloat> return this.FloatField;
 }
 
 @:forward
 @:nativeGen
 @:native("ToIntegerField*")
-abstract ToIntegerFieldPtr(cpp.Star<ToIntegerField>) from cpp.Star<ToIntegerField> to cpp.Star<ToIntegerField>{
+abstract ToIntegerFieldPtr(ucpp.Ptr<ToIntegerField>) from ucpp.Ptr<ToIntegerField> to ucpp.Ptr<ToIntegerField>{
 	@:from
 	public static extern inline function fromValue(v: ToIntegerField): ToIntegerFieldPtr {
 		return untyped __cpp__("&({0})", v);

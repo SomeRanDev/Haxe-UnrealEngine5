@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBlueprintAssetNodeSpawner")
 @:include("BlueprintAssetNodeSpawner.h")
-@:structAccess
+@:valueType
 extern class BlueprintAssetNodeSpawner extends BlueprintNodeSpawner {
 	private var AssetData: AssetData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBlueprintAssetNodeSpawner(BlueprintAssetNodeSpawner) from Blueprin
 @:forward
 @:nativeGen
 @:native("BlueprintAssetNodeSpawner*")
-abstract BlueprintAssetNodeSpawnerPtr(cpp.Star<BlueprintAssetNodeSpawner>) from cpp.Star<BlueprintAssetNodeSpawner> to cpp.Star<BlueprintAssetNodeSpawner>{
+abstract BlueprintAssetNodeSpawnerPtr(ucpp.Ptr<BlueprintAssetNodeSpawner>) from ucpp.Ptr<BlueprintAssetNodeSpawner> to ucpp.Ptr<BlueprintAssetNodeSpawner>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintAssetNodeSpawner): BlueprintAssetNodeSpawnerPtr {
 		return untyped __cpp__("&({0})", v);

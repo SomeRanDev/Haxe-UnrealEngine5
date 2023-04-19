@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTableRowBase")
 @:include("Engine/DataTable.h")
-@:structAccess
+@:valueType
 extern class TableRowBase {
 	@:native("FTableRowBase") public function new();
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FPropertyAccessCopy")
 @:include("PropertyAccess.h")
-@:structAccess
+@:valueType
 extern class PropertyAccessCopy {
-	private var AccessIndex: cpp.Int32;
-	private var DestAccessStartIndex: cpp.Int32;
-	private var DestAccessEndIndex: cpp.Int32;
+	private var AccessIndex: ucpp.num.Int32;
+	private var DestAccessStartIndex: ucpp.num.Int32;
+	private var DestAccessEndIndex: ucpp.num.Int32;
 	private var Type: EPropertyAccessCopyType;
 
 	@:native("FPropertyAccessCopy") public function new();
-	@:native("FPropertyAccessCopy") public static function make(AccessIndex: cpp.Int32, DestAccessStartIndex: cpp.Int32, DestAccessEndIndex: cpp.Int32, Type: EPropertyAccessCopyType): PropertyAccessCopy ;
+	@:native("FPropertyAccessCopy") public static function make(AccessIndex: ucpp.num.Int32, DestAccessStartIndex: ucpp.num.Int32, DestAccessEndIndex: ucpp.num.Int32, Type: EPropertyAccessCopyType): PropertyAccessCopy ;
 }

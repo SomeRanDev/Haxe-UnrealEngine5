@@ -3,7 +3,7 @@ package ue;
 
 @:native("UOverlaySlot")
 @:include("Components/OverlaySlot.h")
-@:structAccess
+@:valueType
 extern class OverlaySlot extends PanelSlot {
 	public var Padding: Margin;
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
@@ -13,7 +13,7 @@ extern class OverlaySlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstOverlaySlot(OverlaySlot) from OverlaySlot {
 @:forward
 @:nativeGen
 @:native("OverlaySlot*")
-abstract OverlaySlotPtr(cpp.Star<OverlaySlot>) from cpp.Star<OverlaySlot> to cpp.Star<OverlaySlot>{
+abstract OverlaySlotPtr(ucpp.Ptr<OverlaySlot>) from ucpp.Ptr<OverlaySlot> to ucpp.Ptr<OverlaySlot>{
 	@:from
 	public static extern inline function fromValue(v: OverlaySlot): OverlaySlotPtr {
 		return untyped __cpp__("&({0})", v);

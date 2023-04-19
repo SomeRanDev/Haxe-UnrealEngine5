@@ -3,13 +3,13 @@ package ue;
 
 @:native("URigVMCompiler")
 @:include("RigVMCompiler/RigVMCompiler.h")
-@:structAccess
+@:valueType
 extern class RigVMCompiler extends Object {
 	public var Settings: RigVMCompileSettings;
 
-	public function Compile(InGraph: cpp.Star<RigVMGraph>, InController: cpp.Star<RigVMController>, OutVM: cpp.Star<RigVM>): Bool;
+	public function Compile(InGraphs: TArray<ucpp.Ptr<RigVMGraph>>, InController: ucpp.Ptr<RigVMController>, OutVM: ucpp.Ptr<RigVM>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstRigVMCompiler(RigVMCompiler) from RigVMCompiler {
 @:forward
 @:nativeGen
 @:native("RigVMCompiler*")
-abstract RigVMCompilerPtr(cpp.Star<RigVMCompiler>) from cpp.Star<RigVMCompiler> to cpp.Star<RigVMCompiler>{
+abstract RigVMCompilerPtr(ucpp.Ptr<RigVMCompiler>) from ucpp.Ptr<RigVMCompiler> to ucpp.Ptr<RigVMCompiler>{
 	@:from
 	public static extern inline function fromValue(v: RigVMCompiler): RigVMCompilerPtr {
 		return untyped __cpp__("&({0})", v);

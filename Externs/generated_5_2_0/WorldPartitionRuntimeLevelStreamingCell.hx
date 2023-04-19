@@ -3,14 +3,14 @@ package ue;
 
 @:native("UWorldPartitionRuntimeLevelStreamingCell")
 @:include("WorldPartition/WorldPartitionRuntimeLevelStreamingCell.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeLevelStreamingCell extends WorldPartitionRuntimeCell {
-	private var LevelStreaming: cpp.Star<WorldPartitionLevelStreamingDynamic>;
+	private var LevelStreaming: ucpp.Ptr<WorldPartitionLevelStreamingDynamic>;
 
 	private function OnLevelShown(): Void;
 	private function OnLevelHidden(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstWorldPartitionRuntimeLevelStreamingCell(WorldPartitionRuntimeLevel
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeLevelStreamingCell*")
-abstract WorldPartitionRuntimeLevelStreamingCellPtr(cpp.Star<WorldPartitionRuntimeLevelStreamingCell>) from cpp.Star<WorldPartitionRuntimeLevelStreamingCell> to cpp.Star<WorldPartitionRuntimeLevelStreamingCell>{
+abstract WorldPartitionRuntimeLevelStreamingCellPtr(ucpp.Ptr<WorldPartitionRuntimeLevelStreamingCell>) from ucpp.Ptr<WorldPartitionRuntimeLevelStreamingCell> to ucpp.Ptr<WorldPartitionRuntimeLevelStreamingCell>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeLevelStreamingCell): WorldPartitionRuntimeLevelStreamingCellPtr {
 		return untyped __cpp__("&({0})", v);

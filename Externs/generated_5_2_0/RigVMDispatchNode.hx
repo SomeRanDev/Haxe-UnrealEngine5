@@ -3,10 +3,10 @@ package ue;
 
 @:native("URigVMDispatchNode")
 @:include("RigVMModel/Nodes/RigVMDispatchNode.h")
-@:structAccess
+@:valueType
 extern class RigVMDispatchNode extends RigVMTemplateNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRigVMDispatchNode(RigVMDispatchNode) from RigVMDispatchNode {
 @:forward
 @:nativeGen
 @:native("RigVMDispatchNode*")
-abstract RigVMDispatchNodePtr(cpp.Star<RigVMDispatchNode>) from cpp.Star<RigVMDispatchNode> to cpp.Star<RigVMDispatchNode>{
+abstract RigVMDispatchNodePtr(ucpp.Ptr<RigVMDispatchNode>) from ucpp.Ptr<RigVMDispatchNode> to ucpp.Ptr<RigVMDispatchNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMDispatchNode): RigVMDispatchNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTransferMeshToolProperties")
 @:include("TransferMeshTool.h")
-@:structAccess
+@:valueType
 extern class TransferMeshToolProperties extends InteractiveToolPropertySet {
 	public var bTransferMaterials: Bool;
 	public var SourceLOD: FString;
@@ -16,7 +16,7 @@ extern class TransferMeshToolProperties extends InteractiveToolPropertySet {
 	public function GetTargetLODNamesFunc(): TArray<FString>;
 	public function GetSourceLODNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTargetLODNamesFunc, GetSourceLODNamesFunc)
@@ -41,7 +41,7 @@ abstract ConstTransferMeshToolProperties(TransferMeshToolProperties) from Transf
 @:forward
 @:nativeGen
 @:native("TransferMeshToolProperties*")
-abstract TransferMeshToolPropertiesPtr(cpp.Star<TransferMeshToolProperties>) from cpp.Star<TransferMeshToolProperties> to cpp.Star<TransferMeshToolProperties>{
+abstract TransferMeshToolPropertiesPtr(ucpp.Ptr<TransferMeshToolProperties>) from ucpp.Ptr<TransferMeshToolProperties> to ucpp.Ptr<TransferMeshToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: TransferMeshToolProperties): TransferMeshToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

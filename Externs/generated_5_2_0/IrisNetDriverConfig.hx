@@ -3,7 +3,7 @@ package ue;
 
 @:native("FIrisNetDriverConfig")
 @:include("Engine/Engine.h")
-@:structAccess
+@:valueType
 extern class IrisNetDriverConfig {
 	public var NetDriverDefinition: FName;
 	public var NetDriverName: FName;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInteractiveToolPresetStore")
 @:include("PresetAsset.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolPresetStore {
 	public var NamedPresets: TMap<FString, InteractiveToolPresetDefintion>;
 

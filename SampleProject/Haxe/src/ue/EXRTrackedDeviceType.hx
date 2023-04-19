@@ -7,6 +7,7 @@ extern class EXRTrackedDeviceType {
 	static var HeadMountedDisplay: EXRTrackedDeviceType;
 	static var Controller: EXRTrackedDeviceType;
 	static var TrackingReference: EXRTrackedDeviceType;
+	static var Tracker: EXRTrackedDeviceType;
 	static var Other: EXRTrackedDeviceType;
 	static var Invalid: EXRTrackedDeviceType;
 	static var Any: EXRTrackedDeviceType;

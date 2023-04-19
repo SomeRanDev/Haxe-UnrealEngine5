@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimBlueprintFunctionPinInfo")
 @:include("AnimGraphNode_LinkedInputPose.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintFunctionPinInfo {
 	public var Name: FName;
 	public var Type: EdGraphPinType;

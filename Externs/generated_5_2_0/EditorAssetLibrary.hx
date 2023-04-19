@@ -3,47 +3,47 @@ package ue;
 
 @:native("UEditorAssetLibrary")
 @:include("EditorAssetLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorAssetLibrary extends BlueprintFunctionLibrary {
-	public function SyncBrowserToObjects(AssetPaths: cpp.Reference<TArray<FString>>): Void;
-	public function SetMetadataTag(Object: cpp.Star<Object>, Tag: FName, Value: FString): Void;
-	public function SaveLoadedAssets(AssetsToSave: cpp.Reference<TArray<cpp.Star<Object>>>, bOnlyIfIsDirty: Bool): Bool;
-	public function SaveLoadedAsset(AssetToSave: cpp.Star<Object>, bOnlyIfIsDirty: Bool): Bool;
+	public function SyncBrowserToObjects(AssetPaths: ucpp.Ref<TArray<FString>>): Void;
+	public function SetMetadataTag(Object: ucpp.Ptr<Object>, Tag: FName, Value: FString): Void;
+	public function SaveLoadedAssets(AssetsToSave: ucpp.Ref<TArray<ucpp.Ptr<Object>>>, bOnlyIfIsDirty: Bool): Bool;
+	public function SaveLoadedAsset(AssetToSave: ucpp.Ptr<Object>, bOnlyIfIsDirty: Bool): Bool;
 	public function SaveDirectory(DirectoryPath: FString, bOnlyIfIsDirty: Bool, bRecursive: Bool): Bool;
 	public function SaveAsset(AssetToSave: FString, bOnlyIfIsDirty: Bool): Bool;
-	public function RenameLoadedAsset(SourceAsset: cpp.Star<Object>, DestinationAssetPath: FString): Bool;
+	public function RenameLoadedAsset(SourceAsset: ucpp.Ptr<Object>, DestinationAssetPath: FString): Bool;
 	public function RenameDirectory(SourceDirectoryPath: FString, DestinationDirectoryPath: FString): Bool;
 	public function RenameAsset(SourceAssetPath: FString, DestinationAssetPath: FString): Bool;
-	public function RemoveMetadataTag(Object: cpp.Star<Object>, Tag: FName): Void;
+	public function RemoveMetadataTag(Object: ucpp.Ptr<Object>, Tag: FName): Void;
 	public function MakeDirectory(DirectoryPath: FString): Bool;
-	public function LoadBlueprintClass(AssetPath: FString): cpp.Star<Class>;
-	public function LoadAsset(AssetPath: FString): cpp.Star<Object>;
+	public function LoadBlueprintClass(AssetPath: FString): ucpp.Ptr<Class>;
+	public function LoadAsset(AssetPath: FString): ucpp.Ptr<Object>;
 	public function ListAssets(DirectoryPath: FString, bRecursive: Bool, bIncludeFolder: Bool): TArray<FString>;
 	public function ListAssetByTagValue(TagName: FName, TagValue: FString): TArray<FString>;
 	public function GetTagValues(AssetPath: FString): TMap<FName, FString>;
-	public function GetPathNameForLoadedAsset(LoadedAsset: cpp.Star<Object>): FString;
-	public function GetMetadataTagValues(Object: cpp.Star<Object>): TMap<FName, FString>;
-	public function GetMetadataTag(Object: cpp.Star<Object>, Tag: FName): FString;
+	public function GetPathNameForLoadedAsset(LoadedAsset: ucpp.Ptr<Object>): FString;
+	public function GetMetadataTagValues(Object: ucpp.Ptr<Object>): TMap<FName, FString>;
+	public function GetMetadataTag(Object: ucpp.Ptr<Object>, Tag: FName): FString;
 	public function FindPackageReferencersForAsset(AssetPath: FString, bLoadAssetsToConfirm: Bool): TArray<FString>;
 	public function FindAssetData(AssetPath: FString): AssetData;
-	public function DuplicateLoadedAsset(SourceAsset: cpp.Star<Object>, DestinationAssetPath: FString): cpp.Star<Object>;
+	public function DuplicateLoadedAsset(SourceAsset: ucpp.Ptr<Object>, DestinationAssetPath: FString): ucpp.Ptr<Object>;
 	public function DuplicateDirectory(SourceDirectoryPath: FString, DestinationDirectoryPath: FString): Bool;
-	public function DuplicateAsset(SourceAssetPath: FString, DestinationAssetPath: FString): cpp.Star<Object>;
+	public function DuplicateAsset(SourceAssetPath: FString, DestinationAssetPath: FString): ucpp.Ptr<Object>;
 	public function DoesDirectoryHaveAssets(DirectoryPath: FString, bRecursive: Bool): Bool;
 	public function DoesDirectoryExist(DirectoryPath: FString): Bool;
 	public function DoesAssetExist(AssetPath: FString): Bool;
-	public function DoAssetsExist(AssetPaths: cpp.Reference<TArray<FString>>): Bool;
-	public function DeleteLoadedAssets(AssetsToDelete: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
-	public function DeleteLoadedAsset(AssetToDelete: cpp.Star<Object>): Bool;
+	public function DoAssetsExist(AssetPaths: ucpp.Ref<TArray<FString>>): Bool;
+	public function DeleteLoadedAssets(AssetsToDelete: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Bool;
+	public function DeleteLoadedAsset(AssetToDelete: ucpp.Ptr<Object>): Bool;
 	public function DeleteDirectory(DirectoryPath: FString): Bool;
 	public function DeleteAsset(AssetPathToDelete: FString): Bool;
-	public function ConsolidateAssets(AssetToConsolidateTo: cpp.Star<Object>, AssetsToConsolidate: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
-	public function CheckoutLoadedAssets(AssetsToCheckout: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
-	public function CheckoutLoadedAsset(AssetToCheckout: cpp.Star<Object>): Bool;
+	public function ConsolidateAssets(AssetToConsolidateTo: ucpp.Ptr<Object>, AssetsToConsolidate: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Bool;
+	public function CheckoutLoadedAssets(AssetsToCheckout: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Bool;
+	public function CheckoutLoadedAsset(AssetToCheckout: ucpp.Ptr<Object>): Bool;
 	public function CheckoutDirectory(DirectoryPath: FString, bRecursive: Bool): Bool;
 	public function CheckoutAsset(AssetToCheckout: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -54,7 +54,7 @@ abstract ConstEditorAssetLibrary(EditorAssetLibrary) from EditorAssetLibrary {
 @:forward
 @:nativeGen
 @:native("EditorAssetLibrary*")
-abstract EditorAssetLibraryPtr(cpp.Star<EditorAssetLibrary>) from cpp.Star<EditorAssetLibrary> to cpp.Star<EditorAssetLibrary>{
+abstract EditorAssetLibraryPtr(ucpp.Ptr<EditorAssetLibrary>) from ucpp.Ptr<EditorAssetLibrary> to ucpp.Ptr<EditorAssetLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorAssetLibrary): EditorAssetLibraryPtr {
 		return untyped __cpp__("&({0})", v);

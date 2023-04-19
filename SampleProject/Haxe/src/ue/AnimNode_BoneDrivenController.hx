@@ -3,15 +3,15 @@ package ue;
 
 @:native("FAnimNode_BoneDrivenController")
 @:include("BoneControllers/AnimNode_BoneDrivenController.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BoneDrivenController extends AnimNode_SkeletalControlBase {
 	public var SourceBone: BoneReference;
-	public var DrivingCurve: cpp.Star<CurveFloat>;
-	public var Multiplier: cpp.Float32;
-	public var RangeMin: cpp.Float32;
-	public var RangeMax: cpp.Float32;
-	public var RemappedMin: cpp.Float32;
-	public var RemappedMax: cpp.Float32;
+	public var DrivingCurve: ucpp.Ptr<CurveFloat>;
+	public var Multiplier: ucpp.num.Float32;
+	public var RangeMin: ucpp.num.Float64;
+	public var RangeMax: ucpp.num.Float64;
+	public var RemappedMin: ucpp.num.Float64;
+	public var RemappedMax: ucpp.num.Float64;
 	public var ParameterName: FName;
 	public var TargetBone: BoneReference;
 	public var DestinationMode: EDrivenDestinationMode;

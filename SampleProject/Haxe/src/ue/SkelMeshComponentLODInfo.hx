@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSkelMeshComponentLODInfo")
 @:include("Components/SkinnedMeshComponent.h")
-@:structAccess
+@:valueType
 extern class SkelMeshComponentLODInfo {
 	public var HiddenMaterials: TArray<Bool>;
 

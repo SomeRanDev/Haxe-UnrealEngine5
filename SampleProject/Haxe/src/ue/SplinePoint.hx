@@ -3,9 +3,9 @@ package ue;
 
 @:native("FSplinePoint")
 @:include("Components/SplineComponent.h")
-@:structAccess
+@:valueType
 extern class SplinePoint {
-	public var InputKey: cpp.Float32;
+	public var InputKey: ucpp.num.Float32;
 	public var Position: Vector;
 	public var ArriveTangent: Vector;
 	public var LeaveTangent: Vector;

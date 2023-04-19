@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshClickTool")
 @:include("MeshSelect.h")
-@:structAccess
+@:valueType
 extern class MeshClickTool extends SingleClickTool {
-	@:protected public var SelectionMechanic: cpp.Star<MeshPaintSelectionMechanic>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<MeshPaintSelectionMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMeshClickTool(MeshClickTool) from MeshClickTool {
 @:forward
 @:nativeGen
 @:native("MeshClickTool*")
-abstract MeshClickToolPtr(cpp.Star<MeshClickTool>) from cpp.Star<MeshClickTool> to cpp.Star<MeshClickTool>{
+abstract MeshClickToolPtr(ucpp.Ptr<MeshClickTool>) from ucpp.Ptr<MeshClickTool> to ucpp.Ptr<MeshClickTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshClickTool): MeshClickToolPtr {
 		return untyped __cpp__("&({0})", v);

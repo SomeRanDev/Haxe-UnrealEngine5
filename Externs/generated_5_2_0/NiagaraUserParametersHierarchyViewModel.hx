@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraUserParametersHierarchyViewModel")
 @:include("ViewModels/HierarchyEditor/NiagaraUserParametersHierarchyViewModel.h")
-@:structAccess
+@:valueType
 extern class NiagaraUserParametersHierarchyViewModel extends NiagaraHierarchyViewModelBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraUserParametersHierarchyViewModel(NiagaraUserParametersHiera
 @:forward
 @:nativeGen
 @:native("NiagaraUserParametersHierarchyViewModel*")
-abstract NiagaraUserParametersHierarchyViewModelPtr(cpp.Star<NiagaraUserParametersHierarchyViewModel>) from cpp.Star<NiagaraUserParametersHierarchyViewModel> to cpp.Star<NiagaraUserParametersHierarchyViewModel>{
+abstract NiagaraUserParametersHierarchyViewModelPtr(ucpp.Ptr<NiagaraUserParametersHierarchyViewModel>) from ucpp.Ptr<NiagaraUserParametersHierarchyViewModel> to ucpp.Ptr<NiagaraUserParametersHierarchyViewModel>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraUserParametersHierarchyViewModel): NiagaraUserParametersHierarchyViewModelPtr {
 		return untyped __cpp__("&({0})", v);

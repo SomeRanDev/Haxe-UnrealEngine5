@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ETextureEncodeSpeed")
-@:include("TextureEncodingSettings.h")
+@:include("Engine/TextureDefines.h")
 extern class ETextureEncodeSpeed {
 	static var Final: ETextureEncodeSpeed;
 	static var FinalIfAvailable: ETextureEncodeSpeed;

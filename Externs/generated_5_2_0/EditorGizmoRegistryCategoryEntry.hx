@@ -3,25 +3,25 @@ package ue;
 
 @:native("UEditorGizmoRegistryCategoryEntry")
 @:include("EditorInteractiveGizmoRegistry.h")
-@:structAccess
+@:valueType
 extern class EditorGizmoRegistryCategoryEntry extends Object {
-	public var GizmoTypes: TArray<cpp.Star<InteractiveGizmoBuilder>>;
+	public var GizmoTypes: TArray<ucpp.Ptr<InteractiveGizmoBuilder>>;
 	@:protected public var CategoryName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditorGizmoRegistryCategoryEntry(EditorGizmoRegistryCategoryEntry) from EditorGizmoRegistryCategoryEntry {
-	public extern var GizmoTypes(get, never): TArray<cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>>;
-	public inline extern function get_GizmoTypes(): TArray<cpp.Star<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>> return this.GizmoTypes;
+	public extern var GizmoTypes(get, never): TArray<ucpp.Ptr<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>>;
+	public inline extern function get_GizmoTypes(): TArray<ucpp.Ptr<InteractiveGizmoBuilder.ConstInteractiveGizmoBuilder>> return this.GizmoTypes;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorGizmoRegistryCategoryEntry*")
-abstract EditorGizmoRegistryCategoryEntryPtr(cpp.Star<EditorGizmoRegistryCategoryEntry>) from cpp.Star<EditorGizmoRegistryCategoryEntry> to cpp.Star<EditorGizmoRegistryCategoryEntry>{
+abstract EditorGizmoRegistryCategoryEntryPtr(ucpp.Ptr<EditorGizmoRegistryCategoryEntry>) from ucpp.Ptr<EditorGizmoRegistryCategoryEntry> to ucpp.Ptr<EditorGizmoRegistryCategoryEntry>{
 	@:from
 	public static extern inline function fromValue(v: EditorGizmoRegistryCategoryEntry): EditorGizmoRegistryCategoryEntryPtr {
 		return untyped __cpp__("&({0})", v);

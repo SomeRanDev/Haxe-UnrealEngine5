@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UAudioPanelWidgetInterface")
-@:structAccess
+@:valueType
 extern class AudioPanelWidgetInterface extends Interface {
 	public function GetIconBrushName(): FName;
 	public function GetEditorName(): FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAudioPanelWidgetInterface(AudioPanelWidgetInterface) from AudioPan
 @:forward
 @:nativeGen
 @:native("AudioPanelWidgetInterface*")
-abstract AudioPanelWidgetInterfacePtr(cpp.Star<AudioPanelWidgetInterface>) from cpp.Star<AudioPanelWidgetInterface> to cpp.Star<AudioPanelWidgetInterface>{
+abstract AudioPanelWidgetInterfacePtr(ucpp.Ptr<AudioPanelWidgetInterface>) from ucpp.Ptr<AudioPanelWidgetInterface> to ucpp.Ptr<AudioPanelWidgetInterface>{
 	@:from
 	public static extern inline function fromValue(v: AudioPanelWidgetInterface): AudioPanelWidgetInterfacePtr {
 		return untyped __cpp__("&({0})", v);

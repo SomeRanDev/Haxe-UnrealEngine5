@@ -3,26 +3,26 @@ package ue;
 
 @:native("URandomVector")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class RandomVector extends FieldNodeVector {
-	public var Magnitude: cpp.Float32;
+	public var Magnitude: ucpp.num.Float32;
 
-	public function SetRandomVector(Magnitude: cpp.Float32): cpp.Star<RandomVector>;
+	public function SetRandomVector(Magnitude: ucpp.num.Float32): ucpp.Ptr<RandomVector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRandomVector(RandomVector) from RandomVector {
-	public extern var Magnitude(get, never): cpp.Float32;
-	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
+	public extern var Magnitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Magnitude(): ucpp.num.Float32 return this.Magnitude;
 }
 
 @:forward
 @:nativeGen
 @:native("RandomVector*")
-abstract RandomVectorPtr(cpp.Star<RandomVector>) from cpp.Star<RandomVector> to cpp.Star<RandomVector>{
+abstract RandomVectorPtr(ucpp.Ptr<RandomVector>) from ucpp.Ptr<RandomVector> to ucpp.Ptr<RandomVector>{
 	@:from
 	public static extern inline function fromValue(v: RandomVector): RandomVectorPtr {
 		return untyped __cpp__("&({0})", v);

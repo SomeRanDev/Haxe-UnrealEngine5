@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMovieScenePasteSectionsParams")
 @:include("SequencerUtilities.h")
-@:structAccess
+@:valueType
 extern class MovieScenePasteSectionsParams {
-	public var Tracks: TArray<cpp.Star<MovieSceneTrack>>;
-	public var TrackRowIndices: TArray<cpp.Int32>;
+	public var Tracks: TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public var TrackRowIndices: TArray<ucpp.num.Int32>;
 	public var Time: FrameTime;
 
 	@:native("FMovieScenePasteSectionsParams") public function new();
-	@:native("FMovieScenePasteSectionsParams") public static function make(Tracks: TArray<cpp.Star<MovieSceneTrack>>, TrackRowIndices: TArray<cpp.Int32>, Time: FrameTime): MovieScenePasteSectionsParams ;
+	@:native("FMovieScenePasteSectionsParams") public static function make(Tracks: TArray<ucpp.Ptr<MovieSceneTrack>>, TrackRowIndices: TArray<ucpp.num.Int32>, Time: FrameTime): MovieScenePasteSectionsParams ;
 }

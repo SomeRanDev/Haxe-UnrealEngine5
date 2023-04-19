@@ -3,17 +3,17 @@ package ue;
 
 @:native("UKismetGuidLibrary")
 @:include("Kismet/KismetGuidLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetGuidLibrary extends BlueprintFunctionLibrary {
-	public function Parse_StringToGuid(GuidString: FString, OutGuid: cpp.Reference<Guid>, Success: cpp.Reference<Bool>): Void;
-	public function NotEqual_GuidGuid(A: cpp.Reference<Guid>, B: cpp.Reference<Guid>): Bool;
+	public function Parse_StringToGuid(GuidString: FString, OutGuid: ucpp.Ref<Guid>, Success: ucpp.Ref<Bool>): Void;
+	public function NotEqual_GuidGuid(A: ucpp.Ref<Guid>, B: ucpp.Ref<Guid>): Bool;
 	public function NewGuid(): Guid;
-	public function IsValid_Guid(InGuid: cpp.Reference<Guid>): Bool;
-	public function Invalidate_Guid(InGuid: cpp.Reference<Guid>): Void;
-	public function EqualEqual_GuidGuid(A: cpp.Reference<Guid>, B: cpp.Reference<Guid>): Bool;
-	public function Conv_GuidToString(InGuid: cpp.Reference<Guid>): FString;
+	public function IsValid_Guid(InGuid: ucpp.Ref<Guid>): Bool;
+	public function Invalidate_Guid(InGuid: ucpp.Ref<Guid>): Void;
+	public function EqualEqual_GuidGuid(A: ucpp.Ref<Guid>, B: ucpp.Ref<Guid>): Bool;
+	public function Conv_GuidToString(InGuid: ucpp.Ref<Guid>): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstKismetGuidLibrary(KismetGuidLibrary) from KismetGuidLibrary {
 @:forward
 @:nativeGen
 @:native("KismetGuidLibrary*")
-abstract KismetGuidLibraryPtr(cpp.Star<KismetGuidLibrary>) from cpp.Star<KismetGuidLibrary> to cpp.Star<KismetGuidLibrary>{
+abstract KismetGuidLibraryPtr(ucpp.Ptr<KismetGuidLibrary>) from ucpp.Ptr<KismetGuidLibrary> to ucpp.Ptr<KismetGuidLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetGuidLibrary): KismetGuidLibraryPtr {
 		return untyped __cpp__("&({0})", v);

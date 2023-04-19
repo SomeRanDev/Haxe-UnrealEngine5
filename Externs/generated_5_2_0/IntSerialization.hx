@@ -3,45 +3,45 @@ package ue;
 
 @:native("UIntSerialization")
 @:include("Engine/IntSerialization.h")
-@:structAccess
+@:valueType
 extern class IntSerialization extends Object {
-	public var UnsignedInt16Variable: cpp.UInt16;
-	public var UnsignedInt32Variable: cpp.UInt32;
-	public var UnsignedInt64Variable: cpp.UInt64;
-	public var SignedInt8Variable: cpp.Int8;
-	public var SignedInt16Variable: cpp.Int16;
-	public var SignedInt64Variable: cpp.Int64;
-	public var UnsignedInt8Variable: cpp.UInt8;
-	public var SignedInt32Variable: cpp.Int32;
+	public var UnsignedInt16Variable: ucpp.num.UInt16;
+	public var UnsignedInt32Variable: ucpp.num.UInt32;
+	public var UnsignedInt64Variable: ucpp.num.UInt64;
+	public var SignedInt8Variable: ucpp.num.Int8;
+	public var SignedInt16Variable: ucpp.num.Int16;
+	public var SignedInt64Variable: ucpp.num.Int64;
+	public var UnsignedInt8Variable: ucpp.num.UInt8;
+	public var SignedInt32Variable: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstIntSerialization(IntSerialization) from IntSerialization {
-	public extern var UnsignedInt16Variable(get, never): cpp.UInt16;
-	public inline extern function get_UnsignedInt16Variable(): cpp.UInt16 return this.UnsignedInt16Variable;
-	public extern var UnsignedInt32Variable(get, never): cpp.UInt32;
-	public inline extern function get_UnsignedInt32Variable(): cpp.UInt32 return this.UnsignedInt32Variable;
-	public extern var UnsignedInt64Variable(get, never): cpp.UInt64;
-	public inline extern function get_UnsignedInt64Variable(): cpp.UInt64 return this.UnsignedInt64Variable;
-	public extern var SignedInt8Variable(get, never): cpp.Int8;
-	public inline extern function get_SignedInt8Variable(): cpp.Int8 return this.SignedInt8Variable;
-	public extern var SignedInt16Variable(get, never): cpp.Int16;
-	public inline extern function get_SignedInt16Variable(): cpp.Int16 return this.SignedInt16Variable;
-	public extern var SignedInt64Variable(get, never): cpp.Int64;
-	public inline extern function get_SignedInt64Variable(): cpp.Int64 return this.SignedInt64Variable;
-	public extern var UnsignedInt8Variable(get, never): cpp.UInt8;
-	public inline extern function get_UnsignedInt8Variable(): cpp.UInt8 return this.UnsignedInt8Variable;
-	public extern var SignedInt32Variable(get, never): cpp.Int32;
-	public inline extern function get_SignedInt32Variable(): cpp.Int32 return this.SignedInt32Variable;
+	public extern var UnsignedInt16Variable(get, never): ucpp.num.UInt16;
+	public inline extern function get_UnsignedInt16Variable(): ucpp.num.UInt16 return this.UnsignedInt16Variable;
+	public extern var UnsignedInt32Variable(get, never): ucpp.num.UInt32;
+	public inline extern function get_UnsignedInt32Variable(): ucpp.num.UInt32 return this.UnsignedInt32Variable;
+	public extern var UnsignedInt64Variable(get, never): ucpp.num.UInt64;
+	public inline extern function get_UnsignedInt64Variable(): ucpp.num.UInt64 return this.UnsignedInt64Variable;
+	public extern var SignedInt8Variable(get, never): ucpp.num.Int8;
+	public inline extern function get_SignedInt8Variable(): ucpp.num.Int8 return this.SignedInt8Variable;
+	public extern var SignedInt16Variable(get, never): ucpp.num.Int16;
+	public inline extern function get_SignedInt16Variable(): ucpp.num.Int16 return this.SignedInt16Variable;
+	public extern var SignedInt64Variable(get, never): ucpp.num.Int64;
+	public inline extern function get_SignedInt64Variable(): ucpp.num.Int64 return this.SignedInt64Variable;
+	public extern var UnsignedInt8Variable(get, never): ucpp.num.UInt8;
+	public inline extern function get_UnsignedInt8Variable(): ucpp.num.UInt8 return this.UnsignedInt8Variable;
+	public extern var SignedInt32Variable(get, never): ucpp.num.Int32;
+	public inline extern function get_SignedInt32Variable(): ucpp.num.Int32 return this.SignedInt32Variable;
 }
 
 @:forward
 @:nativeGen
 @:native("IntSerialization*")
-abstract IntSerializationPtr(cpp.Star<IntSerialization>) from cpp.Star<IntSerialization> to cpp.Star<IntSerialization>{
+abstract IntSerializationPtr(ucpp.Ptr<IntSerialization>) from ucpp.Ptr<IntSerialization> to ucpp.Ptr<IntSerialization>{
 	@:from
 	public static extern inline function fromValue(v: IntSerialization): IntSerializationPtr {
 		return untyped __cpp__("&({0})", v);

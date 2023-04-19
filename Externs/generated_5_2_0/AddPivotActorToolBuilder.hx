@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAddPivotActorToolBuilder")
 @:include("AddPivotActorTool.h")
-@:structAccess
+@:valueType
 extern class AddPivotActorToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAddPivotActorToolBuilder(AddPivotActorToolBuilder) from AddPivotAc
 @:forward
 @:nativeGen
 @:native("AddPivotActorToolBuilder*")
-abstract AddPivotActorToolBuilderPtr(cpp.Star<AddPivotActorToolBuilder>) from cpp.Star<AddPivotActorToolBuilder> to cpp.Star<AddPivotActorToolBuilder>{
+abstract AddPivotActorToolBuilderPtr(ucpp.Ptr<AddPivotActorToolBuilder>) from ucpp.Ptr<AddPivotActorToolBuilder> to ucpp.Ptr<AddPivotActorToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: AddPivotActorToolBuilder): AddPivotActorToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMediaSourceRendererInterface")
-@:structAccess
+@:valueType
 extern class MediaSourceRendererInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMediaSourceRendererInterface(MediaSourceRendererInterface) from Me
 @:forward
 @:nativeGen
 @:native("MediaSourceRendererInterface*")
-abstract MediaSourceRendererInterfacePtr(cpp.Star<MediaSourceRendererInterface>) from cpp.Star<MediaSourceRendererInterface> to cpp.Star<MediaSourceRendererInterface>{
+abstract MediaSourceRendererInterfacePtr(ucpp.Ptr<MediaSourceRendererInterface>) from ucpp.Ptr<MediaSourceRendererInterface> to ucpp.Ptr<MediaSourceRendererInterface>{
 	@:from
 	public static extern inline function fromValue(v: MediaSourceRendererInterface): MediaSourceRendererInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCurveEditorEulerFilter")
 @:include("Filters/CurveEditorEulerFilter.h")
-@:structAccess
+@:valueType
 extern class CurveEditorEulerFilter extends CurveEditorFilterBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCurveEditorEulerFilter(CurveEditorEulerFilter) from CurveEditorEul
 @:forward
 @:nativeGen
 @:native("CurveEditorEulerFilter*")
-abstract CurveEditorEulerFilterPtr(cpp.Star<CurveEditorEulerFilter>) from cpp.Star<CurveEditorEulerFilter> to cpp.Star<CurveEditorEulerFilter>{
+abstract CurveEditorEulerFilterPtr(ucpp.Ptr<CurveEditorEulerFilter>) from ucpp.Ptr<CurveEditorEulerFilter> to ucpp.Ptr<CurveEditorEulerFilter>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorEulerFilter): CurveEditorEulerFilterPtr {
 		return untyped __cpp__("&({0})", v);

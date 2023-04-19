@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimCurveBase")
 @:include("Animation/AnimCurveTypes.h")
-@:structAccess
+@:valueType
 extern class AnimCurveBase {
 	public var Name: SmartName;
-	private var CurveTypeFlags: cpp.Int32;
+	private var CurveTypeFlags: ucpp.num.Int32;
 
 	@:native("FAnimCurveBase") public function new();
-	@:native("FAnimCurveBase") public static function make(LastObservedName_DEPRECATED: FName, Name: SmartName, Color: LinearColor, CurveTypeFlags: cpp.Int32): AnimCurveBase ;
+	@:native("FAnimCurveBase") public static function make(LastObservedName_DEPRECATED: FName, Name: SmartName, Color: LinearColor, CurveTypeFlags: ucpp.num.Int32): AnimCurveBase ;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FUDIMSpecifier")
 @:include("UVEditorMode.h")
-@:structAccess
+@:valueType
 extern class UDIMSpecifier {
-	public var UDIM: cpp.Int32;
-	public var UCoord: cpp.Int32;
-	public var VCoord: cpp.Int32;
+	public var UDIM: ucpp.num.Int32;
+	public var UCoord: ucpp.num.Int32;
+	public var VCoord: ucpp.num.Int32;
 
 	@:native("FUDIMSpecifier") public function new();
-	@:native("FUDIMSpecifier") public static function make(UDIM: cpp.Int32, UCoord: cpp.Int32, VCoord: cpp.Int32): UDIMSpecifier ;
+	@:native("FUDIMSpecifier") public static function make(UDIM: ucpp.num.Int32, UCoord: ucpp.num.Int32, VCoord: ucpp.num.Int32): UDIMSpecifier ;
 }

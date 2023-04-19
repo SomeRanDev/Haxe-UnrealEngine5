@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGameplayTagsK2Node_SwitchGameplayTagContainer")
 @:include("GameplayTagsK2Node_SwitchGameplayTagContainer.h")
-@:structAccess
+@:valueType
 extern class GameplayTagsK2Node_SwitchGameplayTagContainer extends K2Node_Switch {
 	public var PinContainers: TArray<GameplayTagContainer>;
 	public var PinNames: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstGameplayTagsK2Node_SwitchGameplayTagContainer(GameplayTagsK2Node_S
 @:forward
 @:nativeGen
 @:native("GameplayTagsK2Node_SwitchGameplayTagContainer*")
-abstract GameplayTagsK2Node_SwitchGameplayTagContainerPtr(cpp.Star<GameplayTagsK2Node_SwitchGameplayTagContainer>) from cpp.Star<GameplayTagsK2Node_SwitchGameplayTagContainer> to cpp.Star<GameplayTagsK2Node_SwitchGameplayTagContainer>{
+abstract GameplayTagsK2Node_SwitchGameplayTagContainerPtr(ucpp.Ptr<GameplayTagsK2Node_SwitchGameplayTagContainer>) from ucpp.Ptr<GameplayTagsK2Node_SwitchGameplayTagContainer> to ucpp.Ptr<GameplayTagsK2Node_SwitchGameplayTagContainer>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagsK2Node_SwitchGameplayTagContainer): GameplayTagsK2Node_SwitchGameplayTagContainerPtr {
 		return untyped __cpp__("&({0})", v);

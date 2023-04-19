@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBehaviorTreeDecoratorGraph")
 @:include("BehaviorTreeDecoratorGraph.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeDecoratorGraph extends EdGraph {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBehaviorTreeDecoratorGraph(BehaviorTreeDecoratorGraph) from Behavi
 @:forward
 @:nativeGen
 @:native("BehaviorTreeDecoratorGraph*")
-abstract BehaviorTreeDecoratorGraphPtr(cpp.Star<BehaviorTreeDecoratorGraph>) from cpp.Star<BehaviorTreeDecoratorGraph> to cpp.Star<BehaviorTreeDecoratorGraph>{
+abstract BehaviorTreeDecoratorGraphPtr(ucpp.Ptr<BehaviorTreeDecoratorGraph>) from ucpp.Ptr<BehaviorTreeDecoratorGraph> to ucpp.Ptr<BehaviorTreeDecoratorGraph>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeDecoratorGraph): BehaviorTreeDecoratorGraphPtr {
 		return untyped __cpp__("&({0})", v);

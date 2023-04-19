@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraDataSetID")
 @:include("NiagaraCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataSetID {
 	public var Name: FName;
 	public var Type: ENiagaraDataSetType;

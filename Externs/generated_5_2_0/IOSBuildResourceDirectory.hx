@@ -3,7 +3,7 @@ package ue;
 
 @:native("FIOSBuildResourceDirectory")
 @:include("IOSRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class IOSBuildResourceDirectory {
 	public var Path: FString;
 

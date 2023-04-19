@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAudioMeter")
 @:include("AudioMeter.h")
-@:structAccess
+@:valueType
 extern class AudioMeter extends Widget {
 	public var MeterChannelInfo: TArray<MeterChannelInfo>;
 	public var MeterChannelInfoDelegate: HaxeDelegateProperty<() -> Void>;
@@ -22,13 +22,13 @@ extern class AudioMeter extends Widget {
 	public function SetMeterScaleColor(InValue: LinearColor): Void;
 	public function SetMeterPeakColor(InValue: LinearColor): Void;
 	public function SetMeterClippingColor(InValue: LinearColor): Void;
-	public function SetMeterChannelInfo(InMeterChannelInfo: cpp.Reference<TArray<MeterChannelInfo>>): Void;
+	public function SetMeterChannelInfo(InMeterChannelInfo: ucpp.Ref<TArray<MeterChannelInfo>>): Void;
 	public function SetMeterBackgroundColor(InValue: LinearColor): Void;
 	public function SetBackgroundColor(InValue: LinearColor): Void;
 	public function GetMeterChannelInfo__DelegateSignature(): TArray<MeterChannelInfo>;
 	public function GetMeterChannelInfo(): TArray<MeterChannelInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetMeterChannelInfo)
@@ -61,7 +61,7 @@ abstract ConstAudioMeter(AudioMeter) from AudioMeter {
 @:forward
 @:nativeGen
 @:native("AudioMeter*")
-abstract AudioMeterPtr(cpp.Star<AudioMeter>) from cpp.Star<AudioMeter> to cpp.Star<AudioMeter>{
+abstract AudioMeterPtr(ucpp.Ptr<AudioMeter>) from ucpp.Ptr<AudioMeter> to ucpp.Ptr<AudioMeter>{
 	@:from
 	public static extern inline function fromValue(v: AudioMeter): AudioMeterPtr {
 		return untyped __cpp__("&({0})", v);

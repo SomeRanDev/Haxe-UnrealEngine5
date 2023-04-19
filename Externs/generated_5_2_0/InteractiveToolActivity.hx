@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInteractiveToolActivity")
 @:include("InteractiveToolActivity.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolActivity extends InteractionMechanic {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInteractiveToolActivity(InteractiveToolActivity) from InteractiveT
 @:forward
 @:nativeGen
 @:native("InteractiveToolActivity*")
-abstract InteractiveToolActivityPtr(cpp.Star<InteractiveToolActivity>) from cpp.Star<InteractiveToolActivity> to cpp.Star<InteractiveToolActivity>{
+abstract InteractiveToolActivityPtr(ucpp.Ptr<InteractiveToolActivity>) from ucpp.Ptr<InteractiveToolActivity> to ucpp.Ptr<InteractiveToolActivity>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolActivity): InteractiveToolActivityPtr {
 		return untyped __cpp__("&({0})", v);

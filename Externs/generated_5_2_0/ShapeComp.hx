@@ -3,9 +3,9 @@ package ue;
 
 @:native("UShapeComponent")
 @:include("Components/ShapeComponent.h")
-@:structAccess
+@:valueType
 extern class ShapeComp extends PrimitiveComp {
-	public var ShapeBodySetup: cpp.Star<BodySetup>;
+	public var ShapeBodySetup: ucpp.Ptr<BodySetup>;
 	public var ShapeColor: Color;
 	public var bDrawOnlyIfSelected: Bool;
 	public var bShouldCollideWhenPlacing: Bool;
@@ -13,14 +13,14 @@ extern class ShapeComp extends PrimitiveComp {
 	@:protected public var AreaClassOverride: TSubclassOf<NavAreaBase>;
 	@:protected public var bUseSystemDefaultObstacleAreaClass: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstShapeComp(ShapeComp) from ShapeComp {
-	public extern var ShapeBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_ShapeBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.ShapeBodySetup;
+	public extern var ShapeBodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_ShapeBodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.ShapeBodySetup;
 	public extern var ShapeColor(get, never): Color;
 	public inline extern function get_ShapeColor(): Color return this.ShapeColor;
 	public extern var bDrawOnlyIfSelected(get, never): Bool;
@@ -34,7 +34,7 @@ abstract ConstShapeComp(ShapeComp) from ShapeComp {
 @:forward
 @:nativeGen
 @:native("ShapeComp*")
-abstract ShapeCompPtr(cpp.Star<ShapeComp>) from cpp.Star<ShapeComp> to cpp.Star<ShapeComp>{
+abstract ShapeCompPtr(ucpp.Ptr<ShapeComp>) from ucpp.Ptr<ShapeComp> to ucpp.Ptr<ShapeComp>{
 	@:from
 	public static extern inline function fromValue(v: ShapeComp): ShapeCompPtr {
 		return untyped __cpp__("&({0})", v);

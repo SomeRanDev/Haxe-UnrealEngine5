@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFieldNotificationId")
 @:include("FieldNotification/FieldId.h")
-@:structAccess
+@:valueType
 extern class FieldNotificationId {
 	public var FieldName: FName;
 

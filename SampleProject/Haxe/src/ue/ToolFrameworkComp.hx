@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UToolFrameworkComponent")
-@:structAccess
+@:valueType
 extern class ToolFrameworkComp extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstToolFrameworkComp(ToolFrameworkComp) from ToolFrameworkComp {
 @:forward
 @:nativeGen
 @:native("ToolFrameworkComp*")
-abstract ToolFrameworkCompPtr(cpp.Star<ToolFrameworkComp>) from cpp.Star<ToolFrameworkComp> to cpp.Star<ToolFrameworkComp>{
+abstract ToolFrameworkCompPtr(ucpp.Ptr<ToolFrameworkComp>) from ucpp.Ptr<ToolFrameworkComp> to ucpp.Ptr<ToolFrameworkComp>{
 	@:from
 	public static extern inline function fromValue(v: ToolFrameworkComp): ToolFrameworkCompPtr {
 		return untyped __cpp__("&({0})", v);

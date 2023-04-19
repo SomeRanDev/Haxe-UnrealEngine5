@@ -3,14 +3,14 @@ package ue;
 
 @:native("UDetailsView")
 @:include("Components/DetailsView.h")
-@:structAccess
+@:valueType
 extern class DetailsView extends PropertyViewBase {
 	public var bAllowFiltering: Bool;
 	public var bAllowFavoriteSystem: Bool;
 	public var bShowModifiedPropertiesOption: Bool;
 	public var bShowKeyablePropertiesOption: Bool;
 	public var bShowAnimatedPropertiesOption: Bool;
-	public var ColumnWidth: cpp.Float32;
+	public var ColumnWidth: ucpp.num.Float32;
 	public var bShowScrollBar: Bool;
 	public var bForceHiddenPropertyVisibility: Bool;
 	public var ViewIdentifier: FName;
@@ -18,7 +18,7 @@ extern class DetailsView extends PropertyViewBase {
 	public var PropertiesToShow: TArray<FName>;
 	private var bShowOnlyAllowed: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,8 +34,8 @@ abstract ConstDetailsView(DetailsView) from DetailsView {
 	public inline extern function get_bShowKeyablePropertiesOption(): Bool return this.bShowKeyablePropertiesOption;
 	public extern var bShowAnimatedPropertiesOption(get, never): Bool;
 	public inline extern function get_bShowAnimatedPropertiesOption(): Bool return this.bShowAnimatedPropertiesOption;
-	public extern var ColumnWidth(get, never): cpp.Float32;
-	public inline extern function get_ColumnWidth(): cpp.Float32 return this.ColumnWidth;
+	public extern var ColumnWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_ColumnWidth(): ucpp.num.Float32 return this.ColumnWidth;
 	public extern var bShowScrollBar(get, never): Bool;
 	public inline extern function get_bShowScrollBar(): Bool return this.bShowScrollBar;
 	public extern var bForceHiddenPropertyVisibility(get, never): Bool;
@@ -51,7 +51,7 @@ abstract ConstDetailsView(DetailsView) from DetailsView {
 @:forward
 @:nativeGen
 @:native("DetailsView*")
-abstract DetailsViewPtr(cpp.Star<DetailsView>) from cpp.Star<DetailsView> to cpp.Star<DetailsView>{
+abstract DetailsViewPtr(ucpp.Ptr<DetailsView>) from ucpp.Ptr<DetailsView> to ucpp.Ptr<DetailsView>{
 	@:from
 	public static extern inline function fromValue(v: DetailsView): DetailsViewPtr {
 		return untyped __cpp__("&({0})", v);

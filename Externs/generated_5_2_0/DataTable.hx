@@ -3,22 +3,22 @@ package ue;
 
 @:native("UDataTable")
 @:include("Engine/DataTable.h")
-@:structAccess
+@:valueType
 extern class DataTable extends Object {
-	public var RowStruct: cpp.Star<ScriptStruct>;
+	public var RowStruct: ucpp.Ptr<ScriptStruct>;
 	public var bStripFromClientBuilds: Bool;
 	public var bIgnoreExtraFields: Bool;
 	public var bIgnoreMissingFields: Bool;
 	public var ImportKeyField: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDataTable(DataTable) from DataTable {
-	public extern var RowStruct(get, never): cpp.Star<ScriptStruct.ConstScriptStruct>;
-	public inline extern function get_RowStruct(): cpp.Star<ScriptStruct.ConstScriptStruct> return this.RowStruct;
+	public extern var RowStruct(get, never): ucpp.Ptr<ScriptStruct.ConstScriptStruct>;
+	public inline extern function get_RowStruct(): ucpp.Ptr<ScriptStruct.ConstScriptStruct> return this.RowStruct;
 	public extern var bStripFromClientBuilds(get, never): Bool;
 	public inline extern function get_bStripFromClientBuilds(): Bool return this.bStripFromClientBuilds;
 	public extern var bIgnoreExtraFields(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstDataTable(DataTable) from DataTable {
 @:forward
 @:nativeGen
 @:native("DataTable*")
-abstract DataTablePtr(cpp.Star<DataTable>) from cpp.Star<DataTable> to cpp.Star<DataTable>{
+abstract DataTablePtr(ucpp.Ptr<DataTable>) from ucpp.Ptr<DataTable> to ucpp.Ptr<DataTable>{
 	@:from
 	public static extern inline function fromValue(v: DataTable): DataTablePtr {
 		return untyped __cpp__("&({0})", v);

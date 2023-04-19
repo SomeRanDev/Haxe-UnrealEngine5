@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioEndpointSettingsBase")
 @:include("IAudioEndpoint.h")
-@:structAccess
+@:valueType
 extern class AudioEndpointSettingsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioEndpointSettingsBase(AudioEndpointSettingsBase) from AudioEnd
 @:forward
 @:nativeGen
 @:native("AudioEndpointSettingsBase*")
-abstract AudioEndpointSettingsBasePtr(cpp.Star<AudioEndpointSettingsBase>) from cpp.Star<AudioEndpointSettingsBase> to cpp.Star<AudioEndpointSettingsBase>{
+abstract AudioEndpointSettingsBasePtr(ucpp.Ptr<AudioEndpointSettingsBase>) from ucpp.Ptr<AudioEndpointSettingsBase> to ucpp.Ptr<AudioEndpointSettingsBase>{
 	@:from
 	public static extern inline function fromValue(v: AudioEndpointSettingsBase): AudioEndpointSettingsBasePtr {
 		return untyped __cpp__("&({0})", v);

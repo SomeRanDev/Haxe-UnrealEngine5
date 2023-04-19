@@ -3,7 +3,7 @@ package ue;
 
 @:native("FConstraintInstance")
 @:include("PhysicsEngine/ConstraintInstance.h")
-@:structAccess
+@:valueType
 extern class ConstraintInstance extends ConstraintInstanceBase {
 	public var JointName: FName;
 	public var ConstraintBone1: FName;

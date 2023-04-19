@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAppleImageUtilsImageConversionResult")
 @:include("AppleImageUtilsBlueprintProxy.h")
-@:structAccess
+@:valueType
 extern class AppleImageUtilsImageConversionResult {
 	public var Error: FString;
-	public var ImageData: TArray<cpp.UInt8>;
+	public var ImageData: TArray<ucpp.num.UInt8>;
 
 	@:native("FAppleImageUtilsImageConversionResult") public function new();
-	@:native("FAppleImageUtilsImageConversionResult") public static function make(Error: FString, ImageData: TArray<cpp.UInt8>): AppleImageUtilsImageConversionResult ;
+	@:native("FAppleImageUtilsImageConversionResult") public static function make(Error: FString, ImageData: TArray<ucpp.num.UInt8>): AppleImageUtilsImageConversionResult ;
 }

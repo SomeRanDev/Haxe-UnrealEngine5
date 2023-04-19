@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneControlRigSpaceBaseKey")
 @:include("Sequencer/MovieSceneControlRigSpaceChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneControlRigSpaceBaseKey {
 	public var SpaceType: EMovieSceneControlRigSpaceType;
 	public var ControlRigElement: RigElementKey;

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnLevelEditorMapChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnLevelEditorMapChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnLevelEditorMapChanged__PythonCallable(OnLevelEditorMapChanged__P
 @:forward
 @:nativeGen
 @:native("OnLevelEditorMapChanged__PythonCallable*")
-abstract OnLevelEditorMapChanged__PythonCallablePtr(cpp.Star<OnLevelEditorMapChanged__PythonCallable>) from cpp.Star<OnLevelEditorMapChanged__PythonCallable> to cpp.Star<OnLevelEditorMapChanged__PythonCallable>{
+abstract OnLevelEditorMapChanged__PythonCallablePtr(ucpp.Ptr<OnLevelEditorMapChanged__PythonCallable>) from ucpp.Ptr<OnLevelEditorMapChanged__PythonCallable> to ucpp.Ptr<OnLevelEditorMapChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnLevelEditorMapChanged__PythonCallable): OnLevelEditorMapChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

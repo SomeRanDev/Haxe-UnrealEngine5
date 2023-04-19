@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneKeyProxy")
-@:structAccess
+@:valueType
 extern class MovieSceneKeyProxy extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneKeyProxy(MovieSceneKeyProxy) from MovieSceneKeyProxy {
 @:forward
 @:nativeGen
 @:native("MovieSceneKeyProxy*")
-abstract MovieSceneKeyProxyPtr(cpp.Star<MovieSceneKeyProxy>) from cpp.Star<MovieSceneKeyProxy> to cpp.Star<MovieSceneKeyProxy>{
+abstract MovieSceneKeyProxyPtr(ucpp.Ptr<MovieSceneKeyProxy>) from ucpp.Ptr<MovieSceneKeyProxy> to ucpp.Ptr<MovieSceneKeyProxy>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneKeyProxy): MovieSceneKeyProxyPtr {
 		return untyped __cpp__("&({0})", v);

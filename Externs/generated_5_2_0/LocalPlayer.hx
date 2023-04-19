@@ -3,22 +3,22 @@ package ue;
 
 @:native("ULocalPlayer")
 @:include("Engine/LocalPlayer.h")
-@:structAccess
+@:valueType
 extern class LocalPlayer extends Player {
-	public var ViewportClient: cpp.Star<GameViewportClient>;
+	public var ViewportClient: ucpp.Ptr<GameViewportClient>;
 	public var AspectRatioAxisConstraint: TEnumAsByte<EAspectRatioAxisConstraint>;
 	public var PendingLevelPlayerControllerClass: TSubclassOf<PlayerController>;
 	public var bSentSplitJoin: Bool;
-	private var ControllerId: cpp.Int32;
+	private var ControllerId: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLocalPlayer(LocalPlayer) from LocalPlayer {
-	public extern var ViewportClient(get, never): cpp.Star<GameViewportClient.ConstGameViewportClient>;
-	public inline extern function get_ViewportClient(): cpp.Star<GameViewportClient.ConstGameViewportClient> return this.ViewportClient;
+	public extern var ViewportClient(get, never): ucpp.Ptr<GameViewportClient.ConstGameViewportClient>;
+	public inline extern function get_ViewportClient(): ucpp.Ptr<GameViewportClient.ConstGameViewportClient> return this.ViewportClient;
 	public extern var AspectRatioAxisConstraint(get, never): TEnumAsByte<EAspectRatioAxisConstraint>;
 	public inline extern function get_AspectRatioAxisConstraint(): TEnumAsByte<EAspectRatioAxisConstraint> return this.AspectRatioAxisConstraint;
 	public extern var PendingLevelPlayerControllerClass(get, never): TSubclassOf<PlayerController.ConstPlayerController>;
@@ -30,7 +30,7 @@ abstract ConstLocalPlayer(LocalPlayer) from LocalPlayer {
 @:forward
 @:nativeGen
 @:native("LocalPlayer*")
-abstract LocalPlayerPtr(cpp.Star<LocalPlayer>) from cpp.Star<LocalPlayer> to cpp.Star<LocalPlayer>{
+abstract LocalPlayerPtr(ucpp.Ptr<LocalPlayer>) from ucpp.Ptr<LocalPlayer> to ucpp.Ptr<LocalPlayer>{
 	@:from
 	public static extern inline function fromValue(v: LocalPlayer): LocalPlayerPtr {
 		return untyped __cpp__("&({0})", v);

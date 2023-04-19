@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGeometry")
 @:include("Layout/Geometry.h")
-@:structAccess
+@:valueType
 extern class Geometry {
 	@:native("FGeometry") public function new();
 }

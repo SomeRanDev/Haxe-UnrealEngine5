@@ -3,16 +3,16 @@ package ue;
 
 @:native("UModelingToolsEditorMode")
 @:include("ModelingToolsEditorMode.h")
-@:structAccess
+@:valueType
 extern class ModelingToolsEditorMode extends BaseLegacyWidgetEdMode {
 	public var bEnableVolumeElementSelection: Bool;
 	public var bEnableStaticMeshElementSelection: Bool;
-	@:protected public var SceneSnappingManager: cpp.Star<ModelingSceneSnappingManager>;
-	@:protected public var SelectionManager: cpp.Star<GeometrySelectionManager>;
-	@:protected public var SelectionInteraction: cpp.Star<ModelingSelectionInteraction>;
-	@:protected public var ModelingModeCommands: TArray<cpp.Star<InteractiveCommand>>;
+	@:protected public var SceneSnappingManager: ucpp.Ptr<ModelingSceneSnappingManager>;
+	@:protected public var SelectionManager: ucpp.Ptr<GeometrySelectionManager>;
+	@:protected public var SelectionInteraction: ucpp.Ptr<ModelingSelectionInteraction>;
+	@:protected public var ModelingModeCommands: TArray<ucpp.Ptr<InteractiveCommand>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstModelingToolsEditorMode(ModelingToolsEditorMode) from ModelingTool
 @:forward
 @:nativeGen
 @:native("ModelingToolsEditorMode*")
-abstract ModelingToolsEditorModePtr(cpp.Star<ModelingToolsEditorMode>) from cpp.Star<ModelingToolsEditorMode> to cpp.Star<ModelingToolsEditorMode>{
+abstract ModelingToolsEditorModePtr(ucpp.Ptr<ModelingToolsEditorMode>) from ucpp.Ptr<ModelingToolsEditorMode> to ucpp.Ptr<ModelingToolsEditorMode>{
 	@:from
 	public static extern inline function fromValue(v: ModelingToolsEditorMode): ModelingToolsEditorModePtr {
 		return untyped __cpp__("&({0})", v);

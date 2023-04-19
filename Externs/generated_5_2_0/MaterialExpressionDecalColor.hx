@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionDecalColor")
 @:include("Materials/MaterialExpressionDecalColor.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDecalColor extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionDecalColor(MaterialExpressionDecalColor) from Ma
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDecalColor*")
-abstract MaterialExpressionDecalColorPtr(cpp.Star<MaterialExpressionDecalColor>) from cpp.Star<MaterialExpressionDecalColor> to cpp.Star<MaterialExpressionDecalColor>{
+abstract MaterialExpressionDecalColorPtr(ucpp.Ptr<MaterialExpressionDecalColor>) from ucpp.Ptr<MaterialExpressionDecalColor> to ucpp.Ptr<MaterialExpressionDecalColor>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDecalColor): MaterialExpressionDecalColorPtr {
 		return untyped __cpp__("&({0})", v);

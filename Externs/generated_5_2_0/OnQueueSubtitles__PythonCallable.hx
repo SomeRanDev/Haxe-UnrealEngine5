@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnQueueSubtitles__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnQueueSubtitles__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnQueueSubtitles__PythonCallable(OnQueueSubtitles__PythonCallable)
 @:forward
 @:nativeGen
 @:native("OnQueueSubtitles__PythonCallable*")
-abstract OnQueueSubtitles__PythonCallablePtr(cpp.Star<OnQueueSubtitles__PythonCallable>) from cpp.Star<OnQueueSubtitles__PythonCallable> to cpp.Star<OnQueueSubtitles__PythonCallable>{
+abstract OnQueueSubtitles__PythonCallablePtr(ucpp.Ptr<OnQueueSubtitles__PythonCallable>) from ucpp.Ptr<OnQueueSubtitles__PythonCallable> to ucpp.Ptr<OnQueueSubtitles__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnQueueSubtitles__PythonCallable): OnQueueSubtitles__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

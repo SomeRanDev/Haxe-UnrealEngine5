@@ -3,18 +3,18 @@ package ue;
 
 @:native("UAsyncPhysicsInputComponent")
 @:include("Physics/AsyncPhysicsInputComponent.h")
-@:structAccess
+@:valueType
 extern class AsyncPhysicsInputComp extends ActorComp {
 	private var DataClass: TSubclassOf<AsyncPhysicsData>;
-	private var BufferedData: TArray<cpp.Star<AsyncPhysicsData>>;
-	private var DataToConsume: cpp.Star<AsyncPhysicsData>;
-	private var DataToWrite: cpp.Star<AsyncPhysicsData>;
+	private var BufferedData: TArray<ucpp.Ptr<AsyncPhysicsData>>;
+	private var DataToConsume: ucpp.Ptr<AsyncPhysicsData>;
+	private var DataToWrite: ucpp.Ptr<AsyncPhysicsData>;
 
-	public function ServerRPCBufferInput(AsyncPhysicsData: cpp.Star<AsyncPhysicsData>): Void;
-	public function GetDataToWrite(): cpp.Star<AsyncPhysicsData>;
-	public function GetDataToConsume(): cpp.Star<AsyncPhysicsData.ConstAsyncPhysicsData>;
+	public function ServerRPCBufferInput(AsyncPhysicsData: ucpp.Ptr<AsyncPhysicsData>): Void;
+	public function GetDataToWrite(): ucpp.Ptr<AsyncPhysicsData>;
+	public function GetDataToConsume(): ucpp.Ptr<AsyncPhysicsData.ConstAsyncPhysicsData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetDataToWrite, GetDataToConsume)
@@ -25,7 +25,7 @@ abstract ConstAsyncPhysicsInputComp(AsyncPhysicsInputComp) from AsyncPhysicsInpu
 @:forward
 @:nativeGen
 @:native("AsyncPhysicsInputComp*")
-abstract AsyncPhysicsInputCompPtr(cpp.Star<AsyncPhysicsInputComp>) from cpp.Star<AsyncPhysicsInputComp> to cpp.Star<AsyncPhysicsInputComp>{
+abstract AsyncPhysicsInputCompPtr(ucpp.Ptr<AsyncPhysicsInputComp>) from ucpp.Ptr<AsyncPhysicsInputComp> to ucpp.Ptr<AsyncPhysicsInputComp>{
 	@:from
 	public static extern inline function fromValue(v: AsyncPhysicsInputComp): AsyncPhysicsInputCompPtr {
 		return untyped __cpp__("&({0})", v);

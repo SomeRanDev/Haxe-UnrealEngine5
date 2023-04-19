@@ -3,17 +3,17 @@ package ue;
 
 @:native("UGizmoCircleComponent")
 @:include("BaseGizmos/GizmoCircleComponent.h")
-@:structAccess
+@:valueType
 extern class GizmoCircleComp extends GizmoBaseComp {
 	public var Normal: Vector;
-	public var Radius: cpp.Float32;
-	public var Thickness: cpp.Float32;
-	public var NumSides: cpp.Int32;
+	public var Radius: ucpp.num.Float32;
+	public var Thickness: ucpp.num.Float32;
+	public var NumSides: ucpp.num.Int32;
 	public var bViewAligned: Bool;
 	public var bDrawFullCircle: Bool;
 	public var bOnlyAllowFrontFacingHits: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,12 +21,12 @@ extern class GizmoCircleComp extends GizmoBaseComp {
 abstract ConstGizmoCircleComp(GizmoCircleComp) from GizmoCircleComp {
 	public extern var Normal(get, never): Vector;
 	public inline extern function get_Normal(): Vector return this.Normal;
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var Thickness(get, never): cpp.Float32;
-	public inline extern function get_Thickness(): cpp.Float32 return this.Thickness;
-	public extern var NumSides(get, never): cpp.Int32;
-	public inline extern function get_NumSides(): cpp.Int32 return this.NumSides;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
+	public extern var Thickness(get, never): ucpp.num.Float32;
+	public inline extern function get_Thickness(): ucpp.num.Float32 return this.Thickness;
+	public extern var NumSides(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSides(): ucpp.num.Int32 return this.NumSides;
 	public extern var bViewAligned(get, never): Bool;
 	public inline extern function get_bViewAligned(): Bool return this.bViewAligned;
 	public extern var bDrawFullCircle(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstGizmoCircleComp(GizmoCircleComp) from GizmoCircleComp {
 @:forward
 @:nativeGen
 @:native("GizmoCircleComp*")
-abstract GizmoCircleCompPtr(cpp.Star<GizmoCircleComp>) from cpp.Star<GizmoCircleComp> to cpp.Star<GizmoCircleComp>{
+abstract GizmoCircleCompPtr(ucpp.Ptr<GizmoCircleComp>) from ucpp.Ptr<GizmoCircleComp> to ucpp.Ptr<GizmoCircleComp>{
 	@:from
 	public static extern inline function fromValue(v: GizmoCircleComp): GizmoCircleCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODBuilderInstancing")
 @:include("HLODBuilderInstancing.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderInstancing extends HLODBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODBuilderInstancing(HLODBuilderInstancing) from HLODBuilderInsta
 @:forward
 @:nativeGen
 @:native("HLODBuilderInstancing*")
-abstract HLODBuilderInstancingPtr(cpp.Star<HLODBuilderInstancing>) from cpp.Star<HLODBuilderInstancing> to cpp.Star<HLODBuilderInstancing>{
+abstract HLODBuilderInstancingPtr(ucpp.Ptr<HLODBuilderInstancing>) from ucpp.Ptr<HLODBuilderInstancing> to ucpp.Ptr<HLODBuilderInstancing>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderInstancing): HLODBuilderInstancingPtr {
 		return untyped __cpp__("&({0})", v);

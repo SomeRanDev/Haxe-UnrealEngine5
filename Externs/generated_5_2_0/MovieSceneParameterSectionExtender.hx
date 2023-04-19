@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneParameterSectionExtender")
-@:structAccess
+@:valueType
 extern class MovieSceneParameterSectionExtender extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneParameterSectionExtender(MovieSceneParameterSectionExten
 @:forward
 @:nativeGen
 @:native("MovieSceneParameterSectionExtender*")
-abstract MovieSceneParameterSectionExtenderPtr(cpp.Star<MovieSceneParameterSectionExtender>) from cpp.Star<MovieSceneParameterSectionExtender> to cpp.Star<MovieSceneParameterSectionExtender>{
+abstract MovieSceneParameterSectionExtenderPtr(ucpp.Ptr<MovieSceneParameterSectionExtender>) from ucpp.Ptr<MovieSceneParameterSectionExtender> to ucpp.Ptr<MovieSceneParameterSectionExtender>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneParameterSectionExtender): MovieSceneParameterSectionExtenderPtr {
 		return untyped __cpp__("&({0})", v);

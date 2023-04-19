@@ -3,11 +3,11 @@ package ue;
 
 @:native("UComboButtonWidgetStyle")
 @:include("Framework/Styling/ComboButtonWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class ComboButtonWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ComboButtonStyle: ComboButtonStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstComboButtonWidgetStyle(ComboButtonWidgetStyle) from ComboButtonWid
 @:forward
 @:nativeGen
 @:native("ComboButtonWidgetStyle*")
-abstract ComboButtonWidgetStylePtr(cpp.Star<ComboButtonWidgetStyle>) from cpp.Star<ComboButtonWidgetStyle> to cpp.Star<ComboButtonWidgetStyle>{
+abstract ComboButtonWidgetStylePtr(ucpp.Ptr<ComboButtonWidgetStyle>) from ucpp.Ptr<ComboButtonWidgetStyle> to ucpp.Ptr<ComboButtonWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: ComboButtonWidgetStyle): ComboButtonWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

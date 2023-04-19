@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent_
 @:forward
 @:nativeGen
 @:native("MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable*")
-abstract MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallablePtr(cpp.Star<MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable>) from cpp.Star<MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable> to cpp.Star<MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable>{
+abstract MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallablePtr(ucpp.Ptr<MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable>) from ucpp.Ptr<MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable> to ucpp.Ptr<MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallable): MultiLineEditableTextBox_OnMultiLineEditableTextBoxCommittedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

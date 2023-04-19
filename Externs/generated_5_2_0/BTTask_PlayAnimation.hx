@@ -3,36 +3,36 @@ package ue;
 
 @:native("UBTTask_PlayAnimation")
 @:include("BehaviorTree/Tasks/BTTask_PlayAnimation.h")
-@:structAccess
+@:valueType
 extern class BTTask_PlayAnimation extends BTTaskNode {
-	public var AnimationToPlay: cpp.Star<AnimationAsset>;
+	public var AnimationToPlay: ucpp.Ptr<AnimationAsset>;
 	public var bLooping: Bool;
 	public var bNonBlocking: Bool;
-	public var MyOwnerComp: cpp.Star<BehaviorTreeComp>;
-	public var CachedSkelMesh: cpp.Star<SkeletalMeshComp>;
+	public var MyOwnerComp: ucpp.Ptr<BehaviorTreeComp>;
+	public var CachedSkelMesh: ucpp.Ptr<SkeletalMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTTask_PlayAnimation(BTTask_PlayAnimation) from BTTask_PlayAnimation {
-	public extern var AnimationToPlay(get, never): cpp.Star<AnimationAsset.ConstAnimationAsset>;
-	public inline extern function get_AnimationToPlay(): cpp.Star<AnimationAsset.ConstAnimationAsset> return this.AnimationToPlay;
+	public extern var AnimationToPlay(get, never): ucpp.Ptr<AnimationAsset.ConstAnimationAsset>;
+	public inline extern function get_AnimationToPlay(): ucpp.Ptr<AnimationAsset.ConstAnimationAsset> return this.AnimationToPlay;
 	public extern var bLooping(get, never): Bool;
 	public inline extern function get_bLooping(): Bool return this.bLooping;
 	public extern var bNonBlocking(get, never): Bool;
 	public inline extern function get_bNonBlocking(): Bool return this.bNonBlocking;
-	public extern var MyOwnerComp(get, never): cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp>;
-	public inline extern function get_MyOwnerComp(): cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp> return this.MyOwnerComp;
-	public extern var CachedSkelMesh(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
-	public inline extern function get_CachedSkelMesh(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.CachedSkelMesh;
+	public extern var MyOwnerComp(get, never): ucpp.Ptr<BehaviorTreeComp.ConstBehaviorTreeComp>;
+	public inline extern function get_MyOwnerComp(): ucpp.Ptr<BehaviorTreeComp.ConstBehaviorTreeComp> return this.MyOwnerComp;
+	public extern var CachedSkelMesh(get, never): ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>;
+	public inline extern function get_CachedSkelMesh(): ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp> return this.CachedSkelMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("BTTask_PlayAnimation*")
-abstract BTTask_PlayAnimationPtr(cpp.Star<BTTask_PlayAnimation>) from cpp.Star<BTTask_PlayAnimation> to cpp.Star<BTTask_PlayAnimation>{
+abstract BTTask_PlayAnimationPtr(ucpp.Ptr<BTTask_PlayAnimation>) from ucpp.Ptr<BTTask_PlayAnimation> to ucpp.Ptr<BTTask_PlayAnimation>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_PlayAnimation): BTTask_PlayAnimationPtr {
 		return untyped __cpp__("&({0})", v);

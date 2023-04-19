@@ -3,36 +3,36 @@ package ue;
 
 @:native("UNiagaraDataChannelWriter")
 @:include("NiagaraDataChannelAccessor.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelWriter extends Object {
-	public var Owner: cpp.Star<NiagaraDataChannelHandler>;
+	public var Owner: ucpp.Ptr<NiagaraDataChannelHandler>;
 
-	public function WriteVector4(VarName: FName, Index: cpp.Int32, InData: Vector4): Void;
-	public function WriteVector2D(VarName: FName, Index: cpp.Int32, InData: Vector2D): Void;
-	public function WriteVector(VarName: FName, Index: cpp.Int32, InData: Vector): Void;
-	public function WriteSpawnInfo(VarName: FName, Index: cpp.Int32, InData: NiagaraSpawnInfo): Void;
-	public function WriteQuat(VarName: FName, Index: cpp.Int32, InData: Quat): Void;
-	public function WriteLinearColor(VarName: FName, Index: cpp.Int32, InData: LinearColor): Void;
-	public function WriteInt(VarName: FName, Index: cpp.Int32, InData: cpp.Int32): Void;
-	public function WriteFloat(VarName: FName, Index: cpp.Int32, InData: cpp.Float64): Void;
-	public function WriteBool(VarName: FName, Index: cpp.Int32, InData: Bool): Void;
-	public function Num(): cpp.Int32;
-	public function InitWrite(OwningComponent: cpp.Star<ActorComp>, Count: cpp.Int32, bVisibleToGame: Bool, bVisibleToCPU: Bool, bVisibleToGPU: Bool): Bool;
+	public function WriteVector4(VarName: FName, Index: ucpp.num.Int32, InData: Vector4): Void;
+	public function WriteVector2D(VarName: FName, Index: ucpp.num.Int32, InData: Vector2D): Void;
+	public function WriteVector(VarName: FName, Index: ucpp.num.Int32, InData: Vector): Void;
+	public function WriteSpawnInfo(VarName: FName, Index: ucpp.num.Int32, InData: NiagaraSpawnInfo): Void;
+	public function WriteQuat(VarName: FName, Index: ucpp.num.Int32, InData: Quat): Void;
+	public function WriteLinearColor(VarName: FName, Index: ucpp.num.Int32, InData: LinearColor): Void;
+	public function WriteInt(VarName: FName, Index: ucpp.num.Int32, InData: ucpp.num.Int32): Void;
+	public function WriteFloat(VarName: FName, Index: ucpp.num.Int32, InData: ucpp.num.Float64): Void;
+	public function WriteBool(VarName: FName, Index: ucpp.num.Int32, InData: Bool): Void;
+	public function Num(): ucpp.num.Int32;
+	public function InitWrite(OwningComponent: ucpp.Ptr<ActorComp>, Count: ucpp.num.Int32, bVisibleToGame: Bool, bVisibleToCPU: Bool, bVisibleToGPU: Bool): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(Num)
 @:nativeGen
 abstract ConstNiagaraDataChannelWriter(NiagaraDataChannelWriter) from NiagaraDataChannelWriter {
-	public extern var Owner(get, never): cpp.Star<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler>;
-	public inline extern function get_Owner(): cpp.Star<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler> return this.Owner;
+	public extern var Owner(get, never): ucpp.Ptr<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler>;
+	public inline extern function get_Owner(): ucpp.Ptr<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler> return this.Owner;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannelWriter*")
-abstract NiagaraDataChannelWriterPtr(cpp.Star<NiagaraDataChannelWriter>) from cpp.Star<NiagaraDataChannelWriter> to cpp.Star<NiagaraDataChannelWriter>{
+abstract NiagaraDataChannelWriterPtr(ucpp.Ptr<NiagaraDataChannelWriter>) from ucpp.Ptr<NiagaraDataChannelWriter> to ucpp.Ptr<NiagaraDataChannelWriter>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannelWriter): NiagaraDataChannelWriterPtr {
 		return untyped __cpp__("&({0})", v);

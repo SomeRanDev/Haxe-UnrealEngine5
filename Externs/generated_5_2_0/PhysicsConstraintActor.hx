@@ -3,11 +3,11 @@ package ue;
 
 @:native("APhysicsConstraintActor")
 @:include("PhysicsEngine/PhysicsConstraintActor.h")
-@:structAccess
+@:valueType
 extern class PhysicsConstraintActor extends RigidBodyBase {
-	private var ConstraintComp: cpp.Star<PhysicsConstraintComp>;
+	private var ConstraintComp: ucpp.Ptr<PhysicsConstraintComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPhysicsConstraintActor(PhysicsConstraintActor) from PhysicsConstra
 @:forward
 @:nativeGen
 @:native("PhysicsConstraintActor*")
-abstract PhysicsConstraintActorPtr(cpp.Star<PhysicsConstraintActor>) from cpp.Star<PhysicsConstraintActor> to cpp.Star<PhysicsConstraintActor>{
+abstract PhysicsConstraintActorPtr(ucpp.Ptr<PhysicsConstraintActor>) from ucpp.Ptr<PhysicsConstraintActor> to ucpp.Ptr<PhysicsConstraintActor>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsConstraintActor): PhysicsConstraintActorPtr {
 		return untyped __cpp__("&({0})", v);

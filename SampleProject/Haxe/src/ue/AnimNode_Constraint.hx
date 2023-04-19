@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAnimNode_Constraint")
 @:include("BoneControllers/AnimNode_Constraint.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Constraint extends AnimNode_SkeletalControlBase {
 	public var BoneToModify: BoneReference;
 	public var ConstraintSetup: TArray<Constraint>;
-	public var ConstraintWeights: TArray<cpp.Float32>;
+	public var ConstraintWeights: TArray<ucpp.num.Float32>;
 
 	@:native("FAnimNode_Constraint") public function new();
-	@:native("FAnimNode_Constraint") public static function make(BoneToModify: BoneReference, ConstraintSetup: TArray<Constraint>, ConstraintWeights: TArray<cpp.Float32>): AnimNode_Constraint ;
+	@:native("FAnimNode_Constraint") public static function make(BoneToModify: BoneReference, ConstraintSetup: TArray<Constraint>, ConstraintWeights: TArray<ucpp.num.Float32>): AnimNode_Constraint ;
 }

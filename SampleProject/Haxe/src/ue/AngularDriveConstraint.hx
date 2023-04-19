@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAngularDriveConstraint")
 @:include("PhysicsEngine/ConstraintDrives.h")
-@:structAccess
+@:valueType
 extern class AngularDriveConstraint {
 	public var TwistDrive: ConstraintDrive;
 	public var SwingDrive: ConstraintDrive;

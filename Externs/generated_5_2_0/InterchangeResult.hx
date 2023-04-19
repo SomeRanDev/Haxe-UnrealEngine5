@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeResult")
 @:include("InterchangeResult.h")
-@:structAccess
+@:valueType
 extern class InterchangeResult extends Object {
 	public var SourceAssetName: FString;
 	public var DestinationAssetName: FString;
 	public var AssetType: TSubclassOf<Object>;
 	public var InterchangeKey: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstInterchangeResult(InterchangeResult) from InterchangeResult {
 @:forward
 @:nativeGen
 @:native("InterchangeResult*")
-abstract InterchangeResultPtr(cpp.Star<InterchangeResult>) from cpp.Star<InterchangeResult> to cpp.Star<InterchangeResult>{
+abstract InterchangeResultPtr(ucpp.Ptr<InterchangeResult>) from ucpp.Ptr<InterchangeResult> to ucpp.Ptr<InterchangeResult>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResult): InterchangeResultPtr {
 		return untyped __cpp__("&({0})", v);

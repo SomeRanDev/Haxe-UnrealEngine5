@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneChannelOverrideProvider")
-@:structAccess
+@:valueType
 extern class MovieSceneChannelOverrideProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneChannelOverrideProvider(MovieSceneChannelOverrideProvide
 @:forward
 @:nativeGen
 @:native("MovieSceneChannelOverrideProvider*")
-abstract MovieSceneChannelOverrideProviderPtr(cpp.Star<MovieSceneChannelOverrideProvider>) from cpp.Star<MovieSceneChannelOverrideProvider> to cpp.Star<MovieSceneChannelOverrideProvider>{
+abstract MovieSceneChannelOverrideProviderPtr(ucpp.Ptr<MovieSceneChannelOverrideProvider>) from ucpp.Ptr<MovieSceneChannelOverrideProvider> to ucpp.Ptr<MovieSceneChannelOverrideProvider>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneChannelOverrideProvider): MovieSceneChannelOverrideProviderPtr {
 		return untyped __cpp__("&({0})", v);

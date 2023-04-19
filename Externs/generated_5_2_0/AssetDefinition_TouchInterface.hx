@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_TouchInterface")
 @:include("AssetDefinition_TouchInterface.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_TouchInterface extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_TouchInterface(AssetDefinition_TouchInterface) fro
 @:forward
 @:nativeGen
 @:native("AssetDefinition_TouchInterface*")
-abstract AssetDefinition_TouchInterfacePtr(cpp.Star<AssetDefinition_TouchInterface>) from cpp.Star<AssetDefinition_TouchInterface> to cpp.Star<AssetDefinition_TouchInterface>{
+abstract AssetDefinition_TouchInterfacePtr(ucpp.Ptr<AssetDefinition_TouchInterface>) from ucpp.Ptr<AssetDefinition_TouchInterface> to ucpp.Ptr<AssetDefinition_TouchInterface>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_TouchInterface): AssetDefinition_TouchInterfacePtr {
 		return untyped __cpp__("&({0})", v);

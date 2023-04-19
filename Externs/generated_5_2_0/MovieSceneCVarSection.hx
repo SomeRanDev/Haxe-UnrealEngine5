@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneCVarSection")
 @:include("Sections/MovieSceneCVarSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCVarSection extends MovieSceneSection {
 	public var ConsoleVariableCollections: TArray<MovieSceneConsoleVariableCollection>;
 	public var ConsoleVariables: MovieSceneCVarOverrides;
@@ -11,7 +11,7 @@ extern class MovieSceneCVarSection extends MovieSceneSection {
 	public function SetFromString(InString: FString): Void;
 	public function GetString(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetString)
@@ -26,7 +26,7 @@ abstract ConstMovieSceneCVarSection(MovieSceneCVarSection) from MovieSceneCVarSe
 @:forward
 @:nativeGen
 @:native("MovieSceneCVarSection*")
-abstract MovieSceneCVarSectionPtr(cpp.Star<MovieSceneCVarSection>) from cpp.Star<MovieSceneCVarSection> to cpp.Star<MovieSceneCVarSection>{
+abstract MovieSceneCVarSectionPtr(ucpp.Ptr<MovieSceneCVarSection>) from ucpp.Ptr<MovieSceneCVarSection> to ucpp.Ptr<MovieSceneCVarSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCVarSection): MovieSceneCVarSectionPtr {
 		return untyped __cpp__("&({0})", v);

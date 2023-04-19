@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UActorBeginOverlapSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ActorBeginOverlapSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstActorBeginOverlapSignature__PythonCallable(ActorBeginOverlapSignat
 @:forward
 @:nativeGen
 @:native("ActorBeginOverlapSignature__PythonCallable*")
-abstract ActorBeginOverlapSignature__PythonCallablePtr(cpp.Star<ActorBeginOverlapSignature__PythonCallable>) from cpp.Star<ActorBeginOverlapSignature__PythonCallable> to cpp.Star<ActorBeginOverlapSignature__PythonCallable>{
+abstract ActorBeginOverlapSignature__PythonCallablePtr(ucpp.Ptr<ActorBeginOverlapSignature__PythonCallable>) from ucpp.Ptr<ActorBeginOverlapSignature__PythonCallable> to ucpp.Ptr<ActorBeginOverlapSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ActorBeginOverlapSignature__PythonCallable): ActorBeginOverlapSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

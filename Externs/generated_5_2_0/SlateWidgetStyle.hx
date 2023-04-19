@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSlateWidgetStyle")
 @:include("Styling/SlateWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class SlateWidgetStyle {
 	@:native("FSlateWidgetStyle") public function new();
 }

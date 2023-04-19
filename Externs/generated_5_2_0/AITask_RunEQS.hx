@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAITask_RunEQS")
 @:include("Tasks/AITask_RunEQS.h")
-@:structAccess
+@:valueType
 extern class AITask_RunEQS extends AITask {
-	public function RunEQS(Controller: cpp.Star<AIController>, QueryTemplate: cpp.Star<EnvQuery>): cpp.Star<AITask_RunEQS>;
+	public function RunEQS(Controller: ucpp.Ptr<AIController>, QueryTemplate: ucpp.Ptr<EnvQuery>): ucpp.Ptr<AITask_RunEQS>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAITask_RunEQS(AITask_RunEQS) from AITask_RunEQS {
 @:forward
 @:nativeGen
 @:native("AITask_RunEQS*")
-abstract AITask_RunEQSPtr(cpp.Star<AITask_RunEQS>) from cpp.Star<AITask_RunEQS> to cpp.Star<AITask_RunEQS>{
+abstract AITask_RunEQSPtr(ucpp.Ptr<AITask_RunEQS>) from ucpp.Ptr<AITask_RunEQS> to ucpp.Ptr<AITask_RunEQS>{
 	@:from
 	public static extern inline function fromValue(v: AITask_RunEQS): AITask_RunEQSPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UTakeRecorderLevelSequenceSource")
 @:include("TakeRecorderLevelSequenceSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderLevelSequenceSource extends TakeRecorderSource {
-	public var LevelSequencesToTrigger: TArray<cpp.Star<LevelSequence>>;
+	public var LevelSequencesToTrigger: TArray<ucpp.Ptr<LevelSequence>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTakeRecorderLevelSequenceSource(TakeRecorderLevelSequenceSource) from TakeRecorderLevelSequenceSource {
-	public extern var LevelSequencesToTrigger(get, never): TArray<cpp.Star<LevelSequence.ConstLevelSequence>>;
-	public inline extern function get_LevelSequencesToTrigger(): TArray<cpp.Star<LevelSequence.ConstLevelSequence>> return this.LevelSequencesToTrigger;
+	public extern var LevelSequencesToTrigger(get, never): TArray<ucpp.Ptr<LevelSequence.ConstLevelSequence>>;
+	public inline extern function get_LevelSequencesToTrigger(): TArray<ucpp.Ptr<LevelSequence.ConstLevelSequence>> return this.LevelSequencesToTrigger;
 }
 
 @:forward
 @:nativeGen
 @:native("TakeRecorderLevelSequenceSource*")
-abstract TakeRecorderLevelSequenceSourcePtr(cpp.Star<TakeRecorderLevelSequenceSource>) from cpp.Star<TakeRecorderLevelSequenceSource> to cpp.Star<TakeRecorderLevelSequenceSource>{
+abstract TakeRecorderLevelSequenceSourcePtr(ucpp.Ptr<TakeRecorderLevelSequenceSource>) from ucpp.Ptr<TakeRecorderLevelSequenceSource> to ucpp.Ptr<TakeRecorderLevelSequenceSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderLevelSequenceSource): TakeRecorderLevelSequenceSourcePtr {
 		return untyped __cpp__("&({0})", v);

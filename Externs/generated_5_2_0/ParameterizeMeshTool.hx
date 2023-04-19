@@ -3,21 +3,21 @@ package ue;
 
 @:native("UParameterizeMeshTool")
 @:include("ParameterizeMeshTool.h")
-@:structAccess
+@:valueType
 extern class ParameterizeMeshTool extends SingleSelectionMeshEditingTool {
-	@:protected public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
-	@:protected public var Settings: cpp.Star<ParameterizeMeshToolProperties>;
-	@:protected public var UVAtlasProperties: cpp.Star<ParameterizeMeshToolUVAtlasProperties>;
-	@:protected public var XAtlasProperties: cpp.Star<ParameterizeMeshToolXAtlasProperties>;
-	@:protected public var PatchBuilderProperties: cpp.Star<ParameterizeMeshToolPatchBuilderProperties>;
-	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
+	@:protected public var UVChannelProperties: ucpp.Ptr<MeshUVChannelProperties>;
+	@:protected public var Settings: ucpp.Ptr<ParameterizeMeshToolProperties>;
+	@:protected public var UVAtlasProperties: ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties>;
+	@:protected public var XAtlasProperties: ucpp.Ptr<ParameterizeMeshToolXAtlasProperties>;
+	@:protected public var PatchBuilderProperties: ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties>;
+	@:protected public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var MaterialSettings: ucpp.Ptr<ExistingMeshMaterialProperties>;
 	@:protected public var bCreateUVLayoutViewOnSetup: Bool;
-	@:protected public var UVLayoutView: cpp.Star<UVLayoutPreview>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var Factory: cpp.Star<ParameterizeMeshOperatorFactory>;
+	@:protected public var UVLayoutView: ucpp.Ptr<UVLayoutPreview>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var Factory: ucpp.Ptr<ParameterizeMeshOperatorFactory>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstParameterizeMeshTool(ParameterizeMeshTool) from ParameterizeMeshTo
 @:forward
 @:nativeGen
 @:native("ParameterizeMeshTool*")
-abstract ParameterizeMeshToolPtr(cpp.Star<ParameterizeMeshTool>) from cpp.Star<ParameterizeMeshTool> to cpp.Star<ParameterizeMeshTool>{
+abstract ParameterizeMeshToolPtr(ucpp.Ptr<ParameterizeMeshTool>) from ucpp.Ptr<ParameterizeMeshTool> to ucpp.Ptr<ParameterizeMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: ParameterizeMeshTool): ParameterizeMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

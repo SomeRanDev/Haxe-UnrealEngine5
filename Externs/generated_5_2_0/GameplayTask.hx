@@ -3,17 +3,17 @@ package ue;
 
 @:native("UGameplayTask")
 @:include("GameplayTask.h")
-@:structAccess
+@:valueType
 extern class GameplayTask extends Object {
 	@:protected public var InstanceName: FName;
 	@:protected public var ResourceOverlapPolicy: ETaskResourceOverlapPolicy;
-	@:protected public var ChildTask: cpp.Star<GameplayTask>;
+	@:protected public var ChildTask: ucpp.Ptr<GameplayTask>;
 
 	public function ReadyForActivation(): Void;
 	public function GenericGameplayTaskDelegate__DelegateSignature(): Void;
 	public function EndTask(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstGameplayTask(GameplayTask) from GameplayTask {
 @:forward
 @:nativeGen
 @:native("GameplayTask*")
-abstract GameplayTaskPtr(cpp.Star<GameplayTask>) from cpp.Star<GameplayTask> to cpp.Star<GameplayTask>{
+abstract GameplayTaskPtr(ucpp.Ptr<GameplayTask>) from ucpp.Ptr<GameplayTask> to ucpp.Ptr<GameplayTask>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTask): GameplayTaskPtr {
 		return untyped __cpp__("&({0})", v);

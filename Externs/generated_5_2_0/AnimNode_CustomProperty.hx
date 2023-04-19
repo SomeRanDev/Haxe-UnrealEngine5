@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAnimNode_CustomProperty")
 @:include("Animation/AnimNode_CustomProperty.h")
-@:structAccess
+@:valueType
 extern class AnimNode_CustomProperty extends AnimNode_Base {
 	@:protected public var SourcePropertyNames: TArray<FName>;
 	@:protected public var DestPropertyNames: TArray<FName>;
-	@:protected public var TargetInstance: cpp.Star<Object>;
+	@:protected public var TargetInstance: ucpp.Ptr<Object>;
 
 	@:native("FAnimNode_CustomProperty") public function new();
-	@:native("FAnimNode_CustomProperty") public static function make(SourcePropertyNames: TArray<FName>, DestPropertyNames: TArray<FName>, TargetInstance: cpp.Star<Object>, SourceInstance: cpp.Star<Object>): AnimNode_CustomProperty ;
+	@:native("FAnimNode_CustomProperty") public static function make(SourcePropertyNames: TArray<FName>, DestPropertyNames: TArray<FName>, TargetInstance: ucpp.Ptr<Object>, SourceInstance: ucpp.Ptr<Object>): AnimNode_CustomProperty ;
 }

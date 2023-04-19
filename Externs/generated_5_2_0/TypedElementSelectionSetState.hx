@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTypedElementSelectionSetState")
 @:include("Elements/Framework/TypedElementSelectionSet.h")
-@:structAccess
+@:valueType
 extern class TypedElementSelectionSetState {
 	private var CreatedFromSelectionSet: TWeakObjectPtr<TypedElementSelectionSet>;
 

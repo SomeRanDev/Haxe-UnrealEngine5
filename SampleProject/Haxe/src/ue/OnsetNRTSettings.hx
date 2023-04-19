@@ -3,15 +3,15 @@ package ue;
 
 @:native("UOnsetNRTSettings")
 @:include("OnsetNRT.h")
-@:structAccess
+@:valueType
 extern class OnsetNRTSettings extends AudioSynesthesiaNRTSettings {
 	public var bDownmixToMono: Bool;
-	public var GranularityInSeconds: cpp.Float32;
-	public var Sensitivity: cpp.Float32;
-	public var MinimumFrequency: cpp.Float32;
-	public var MaximumFrequency: cpp.Float32;
+	public var GranularityInSeconds: ucpp.num.Float32;
+	public var Sensitivity: ucpp.num.Float32;
+	public var MinimumFrequency: ucpp.num.Float32;
+	public var MaximumFrequency: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,20 +19,20 @@ extern class OnsetNRTSettings extends AudioSynesthesiaNRTSettings {
 abstract ConstOnsetNRTSettings(OnsetNRTSettings) from OnsetNRTSettings {
 	public extern var bDownmixToMono(get, never): Bool;
 	public inline extern function get_bDownmixToMono(): Bool return this.bDownmixToMono;
-	public extern var GranularityInSeconds(get, never): cpp.Float32;
-	public inline extern function get_GranularityInSeconds(): cpp.Float32 return this.GranularityInSeconds;
-	public extern var Sensitivity(get, never): cpp.Float32;
-	public inline extern function get_Sensitivity(): cpp.Float32 return this.Sensitivity;
-	public extern var MinimumFrequency(get, never): cpp.Float32;
-	public inline extern function get_MinimumFrequency(): cpp.Float32 return this.MinimumFrequency;
-	public extern var MaximumFrequency(get, never): cpp.Float32;
-	public inline extern function get_MaximumFrequency(): cpp.Float32 return this.MaximumFrequency;
+	public extern var GranularityInSeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_GranularityInSeconds(): ucpp.num.Float32 return this.GranularityInSeconds;
+	public extern var Sensitivity(get, never): ucpp.num.Float32;
+	public inline extern function get_Sensitivity(): ucpp.num.Float32 return this.Sensitivity;
+	public extern var MinimumFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_MinimumFrequency(): ucpp.num.Float32 return this.MinimumFrequency;
+	public extern var MaximumFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_MaximumFrequency(): ucpp.num.Float32 return this.MaximumFrequency;
 }
 
 @:forward
 @:nativeGen
 @:native("OnsetNRTSettings*")
-abstract OnsetNRTSettingsPtr(cpp.Star<OnsetNRTSettings>) from cpp.Star<OnsetNRTSettings> to cpp.Star<OnsetNRTSettings>{
+abstract OnsetNRTSettingsPtr(ucpp.Ptr<OnsetNRTSettings>) from ucpp.Ptr<OnsetNRTSettings> to ucpp.Ptr<OnsetNRTSettings>{
 	@:from
 	public static extern inline function fromValue(v: OnsetNRTSettings): OnsetNRTSettingsPtr {
 		return untyped __cpp__("&({0})", v);

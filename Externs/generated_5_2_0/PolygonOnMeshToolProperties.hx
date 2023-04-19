@@ -3,21 +3,21 @@ package ue;
 
 @:native("UPolygonOnMeshToolProperties")
 @:include("PolygonOnMeshTool.h")
-@:structAccess
+@:valueType
 extern class PolygonOnMeshToolProperties extends InteractiveToolPropertySet {
 	public var Operation: EEmbeddedPolygonOpMethod;
 	public var Shape: EPolygonType;
 	public var bCutWithBoolean: Bool;
 	public var bTryToFixHoles: Bool;
-	public var PolygonScale: cpp.Float32;
-	public var Width: cpp.Float32;
-	public var Height: cpp.Float32;
-	public var CornerRatio: cpp.Float32;
-	public var Subdivisions: cpp.Int32;
+	public var PolygonScale: ucpp.num.Float32;
+	public var Width: ucpp.num.Float32;
+	public var Height: ucpp.num.Float32;
+	public var CornerRatio: ucpp.num.Float32;
+	public var Subdivisions: ucpp.num.Int32;
 	public var bCanAcceptFailedResult: Bool;
 	public var bShowIntermediateResultOnFailure: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,16 +31,16 @@ abstract ConstPolygonOnMeshToolProperties(PolygonOnMeshToolProperties) from Poly
 	public inline extern function get_bCutWithBoolean(): Bool return this.bCutWithBoolean;
 	public extern var bTryToFixHoles(get, never): Bool;
 	public inline extern function get_bTryToFixHoles(): Bool return this.bTryToFixHoles;
-	public extern var PolygonScale(get, never): cpp.Float32;
-	public inline extern function get_PolygonScale(): cpp.Float32 return this.PolygonScale;
-	public extern var Width(get, never): cpp.Float32;
-	public inline extern function get_Width(): cpp.Float32 return this.Width;
-	public extern var Height(get, never): cpp.Float32;
-	public inline extern function get_Height(): cpp.Float32 return this.Height;
-	public extern var CornerRatio(get, never): cpp.Float32;
-	public inline extern function get_CornerRatio(): cpp.Float32 return this.CornerRatio;
-	public extern var Subdivisions(get, never): cpp.Int32;
-	public inline extern function get_Subdivisions(): cpp.Int32 return this.Subdivisions;
+	public extern var PolygonScale(get, never): ucpp.num.Float32;
+	public inline extern function get_PolygonScale(): ucpp.num.Float32 return this.PolygonScale;
+	public extern var Width(get, never): ucpp.num.Float32;
+	public inline extern function get_Width(): ucpp.num.Float32 return this.Width;
+	public extern var Height(get, never): ucpp.num.Float32;
+	public inline extern function get_Height(): ucpp.num.Float32 return this.Height;
+	public extern var CornerRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_CornerRatio(): ucpp.num.Float32 return this.CornerRatio;
+	public extern var Subdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_Subdivisions(): ucpp.num.Int32 return this.Subdivisions;
 	public extern var bCanAcceptFailedResult(get, never): Bool;
 	public inline extern function get_bCanAcceptFailedResult(): Bool return this.bCanAcceptFailedResult;
 	public extern var bShowIntermediateResultOnFailure(get, never): Bool;
@@ -50,7 +50,7 @@ abstract ConstPolygonOnMeshToolProperties(PolygonOnMeshToolProperties) from Poly
 @:forward
 @:nativeGen
 @:native("PolygonOnMeshToolProperties*")
-abstract PolygonOnMeshToolPropertiesPtr(cpp.Star<PolygonOnMeshToolProperties>) from cpp.Star<PolygonOnMeshToolProperties> to cpp.Star<PolygonOnMeshToolProperties>{
+abstract PolygonOnMeshToolPropertiesPtr(ucpp.Ptr<PolygonOnMeshToolProperties>) from ucpp.Ptr<PolygonOnMeshToolProperties> to ucpp.Ptr<PolygonOnMeshToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolygonOnMeshToolProperties): PolygonOnMeshToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

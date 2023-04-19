@@ -3,18 +3,18 @@ package ue;
 
 @:native("FTargetRootSettings")
 @:include("Retargeter/IKRetargetSettings.h")
-@:structAccess
+@:valueType
 extern class TargetRootSettings {
-	public var RotationAlpha: cpp.Float32;
-	public var TranslationAlpha: cpp.Float32;
-	public var BlendToSource: cpp.Float32;
+	public var RotationAlpha: ucpp.num.Float32;
+	public var TranslationAlpha: ucpp.num.Float32;
+	public var BlendToSource: ucpp.num.Float32;
 	public var BlendToSourceWeights: Vector;
-	public var ScaleHorizontal: cpp.Float32;
-	public var ScaleVertical: cpp.Float32;
+	public var ScaleHorizontal: ucpp.num.Float32;
+	public var ScaleVertical: ucpp.num.Float32;
 	public var TranslationOffset: Vector;
 	public var RotationOffset: Rotator;
-	public var AffectIKHorizontal: cpp.Float32;
-	public var AffectIKVertical: cpp.Float32;
+	public var AffectIKHorizontal: ucpp.num.Float32;
+	public var AffectIKVertical: ucpp.num.Float32;
 
 	@:native("FTargetRootSettings") public function new();
 }

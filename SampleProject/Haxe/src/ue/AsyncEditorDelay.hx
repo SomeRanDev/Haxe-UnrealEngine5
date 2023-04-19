@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAsyncEditorDelay")
 @:include("EditorUtilityLibrary.h")
-@:structAccess
+@:valueType
 extern class AsyncEditorDelay extends EditorUtilityBlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function AsyncEditorDelay(Seconds: cpp.Float32, MinimumFrames: cpp.Int32): cpp.Star<AsyncEditorDelay>;
+	public function AsyncEditorDelay(Seconds: ucpp.num.Float32, MinimumFrames: ucpp.num.Int32): ucpp.Ptr<AsyncEditorDelay>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAsyncEditorDelay(AsyncEditorDelay) from AsyncEditorDelay {
 @:forward
 @:nativeGen
 @:native("AsyncEditorDelay*")
-abstract AsyncEditorDelayPtr(cpp.Star<AsyncEditorDelay>) from cpp.Star<AsyncEditorDelay> to cpp.Star<AsyncEditorDelay>{
+abstract AsyncEditorDelayPtr(ucpp.Ptr<AsyncEditorDelay>) from ucpp.Ptr<AsyncEditorDelay> to ucpp.Ptr<AsyncEditorDelay>{
 	@:from
 	public static extern inline function fromValue(v: AsyncEditorDelay): AsyncEditorDelayPtr {
 		return untyped __cpp__("&({0})", v);

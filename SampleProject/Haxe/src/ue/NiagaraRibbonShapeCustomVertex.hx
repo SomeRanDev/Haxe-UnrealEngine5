@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraRibbonShapeCustomVertex")
 @:include("NiagaraRibbonRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRibbonShapeCustomVertex {
-	public var Position: Vector2D;
-	public var Normal: Vector2D;
-	public var TextureV: cpp.Float32;
+	public var Position: Vector2f;
+	public var Normal: Vector2f;
+	public var TextureV: ucpp.num.Float32;
 
 	@:native("FNiagaraRibbonShapeCustomVertex") public function new();
-	@:native("FNiagaraRibbonShapeCustomVertex") public static function make(Position: Vector2D, Normal: Vector2D, TextureV: cpp.Float32): NiagaraRibbonShapeCustomVertex ;
+	@:native("FNiagaraRibbonShapeCustomVertex") public static function make(Position: Vector2f, Normal: Vector2f, TextureV: ucpp.num.Float32): NiagaraRibbonShapeCustomVertex ;
 }

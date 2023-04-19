@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULevelSequenceImportTestFunctions")
 @:include("ImportTestFunctions/LevelSequenceImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckSequenceLength(LevelSequence: cpp.Star<LevelSequence.ConstLevelSequence>, ExpectedLevelSequenceLength: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckSectionInterpolationMode(LevelSequence: cpp.Star<LevelSequence.ConstLevelSequence>, SectionIndex: cpp.Int32, ExpectedInterpolationMode: TEnumAsByte<ERichCurveInterpMode>): InterchangeTestFunctionResult;
-	public function CheckSectionCount(LevelSequence: cpp.Star<LevelSequence.ConstLevelSequence>, ExpectedNumberOfSections: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckLevelSequenceCount(LevelSequences: cpp.Reference<TArray<cpp.Star<LevelSequence>>>, ExpectedNumberOfLevelSequences: cpp.Int32): InterchangeTestFunctionResult;
+	public function CheckSequenceLength(LevelSequence: ucpp.Ptr<LevelSequence.ConstLevelSequence>, ExpectedLevelSequenceLength: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckSectionInterpolationMode(LevelSequence: ucpp.Ptr<LevelSequence.ConstLevelSequence>, SectionIndex: ucpp.num.Int32, ExpectedInterpolationMode: TEnumAsByte<ERichCurveInterpMode>): InterchangeTestFunctionResult;
+	public function CheckSectionCount(LevelSequence: ucpp.Ptr<LevelSequence.ConstLevelSequence>, ExpectedNumberOfSections: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckLevelSequenceCount(LevelSequences: ucpp.Ref<TArray<ucpp.Ptr<LevelSequence>>>, ExpectedNumberOfLevelSequences: ucpp.num.Int32): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLevelSequenceImportTestFunctions(LevelSequenceImportTestFunctions)
 @:forward
 @:nativeGen
 @:native("LevelSequenceImportTestFunctions*")
-abstract LevelSequenceImportTestFunctionsPtr(cpp.Star<LevelSequenceImportTestFunctions>) from cpp.Star<LevelSequenceImportTestFunctions> to cpp.Star<LevelSequenceImportTestFunctions>{
+abstract LevelSequenceImportTestFunctionsPtr(ucpp.Ptr<LevelSequenceImportTestFunctions>) from ucpp.Ptr<LevelSequenceImportTestFunctions> to ucpp.Ptr<LevelSequenceImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceImportTestFunctions): LevelSequenceImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

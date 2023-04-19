@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULocalSingleClickInputBehavior")
 @:include("BaseBehaviors/SingleClickBehavior.h")
-@:structAccess
+@:valueType
 extern class LocalSingleClickInputBehavior extends SingleClickInputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLocalSingleClickInputBehavior(LocalSingleClickInputBehavior) from 
 @:forward
 @:nativeGen
 @:native("LocalSingleClickInputBehavior*")
-abstract LocalSingleClickInputBehaviorPtr(cpp.Star<LocalSingleClickInputBehavior>) from cpp.Star<LocalSingleClickInputBehavior> to cpp.Star<LocalSingleClickInputBehavior>{
+abstract LocalSingleClickInputBehaviorPtr(ucpp.Ptr<LocalSingleClickInputBehavior>) from ucpp.Ptr<LocalSingleClickInputBehavior> to ucpp.Ptr<LocalSingleClickInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: LocalSingleClickInputBehavior): LocalSingleClickInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

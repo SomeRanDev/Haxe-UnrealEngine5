@@ -3,65 +3,65 @@ package ue;
 
 @:native("USynthComponentMonoWaveTable")
 @:include("SynthComponents/SynthComponentMonoWaveTable.h")
-@:structAccess
+@:valueType
 extern class SynthComponentMonoWaveTable extends SynthComp {
-	public var OnTableAltered: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
+	public var OnTableAltered: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
 	public var OnNumTablesChanged: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	@:protected public var CurrentPreset: cpp.Star<MonoWaveTableSynthPreset>;
+	@:protected public var CurrentPreset: ucpp.Ptr<MonoWaveTableSynthPreset>;
 
-	public function SetWaveTablePosition(InPosition: cpp.Float32): Void;
+	public function SetWaveTablePosition(InPosition: ucpp.num.Float32): Void;
 	public function SetSustainPedalState(InSustainPedalState: Bool): Void;
 	public function SetPosLfoType(InLfoType: ESynthLFOType): Void;
-	public function SetPosLfoFrequency(InLfoFrequency: cpp.Float32): Void;
-	public function SetPosLfoDepth(InLfoDepth: cpp.Float32): Void;
-	public function SetPositionEnvelopeSustainGain(InSustainGain: cpp.Float32): Void;
-	public function SetPositionEnvelopeReleaseTime(InReleaseTimeMsec: cpp.Float32): Void;
+	public function SetPosLfoFrequency(InLfoFrequency: ucpp.num.Float32): Void;
+	public function SetPosLfoDepth(InLfoDepth: ucpp.num.Float32): Void;
+	public function SetPositionEnvelopeSustainGain(InSustainGain: ucpp.num.Float32): Void;
+	public function SetPositionEnvelopeReleaseTime(InReleaseTimeMsec: ucpp.num.Float32): Void;
 	public function SetPositionEnvelopeInvert(bInInvert: Bool): Void;
-	public function SetPositionEnvelopeDepth(InDepth: cpp.Float32): Void;
-	public function SetPositionEnvelopeDecayTime(InDecayTimeMsec: cpp.Float32): Void;
+	public function SetPositionEnvelopeDepth(InDepth: ucpp.num.Float32): Void;
+	public function SetPositionEnvelopeDecayTime(InDecayTimeMsec: ucpp.num.Float32): Void;
 	public function SetPositionEnvelopeBiasInvert(bInBiasInvert: Bool): Void;
-	public function SetPositionEnvelopeBiasDepth(InDepth: cpp.Float32): Void;
-	public function SetPositionEnvelopeAttackTime(InAttackTimeMsec: cpp.Float32): Void;
-	public function SetLowPassFilterResonance(InNewQ: cpp.Float32): Void;
-	public function SetFrequencyWithMidiNote(InMidiNote: cpp.Float32): Void;
-	public function SetFrequencyPitchBend(FrequencyOffsetCents: cpp.Float32): Void;
-	public function SetFrequency(FrequencyHz: cpp.Float32): Void;
-	public function SetFilterEnvelopeSustainGain(InSustainGain: cpp.Float32): Void;
-	public function SetFilterEnvelopeReleaseTime(InReleaseTimeMsec: cpp.Float32): Void;
-	public function SetFilterEnvelopenDecayTime(InDecayTimeMsec: cpp.Float32): Void;
+	public function SetPositionEnvelopeBiasDepth(InDepth: ucpp.num.Float32): Void;
+	public function SetPositionEnvelopeAttackTime(InAttackTimeMsec: ucpp.num.Float32): Void;
+	public function SetLowPassFilterResonance(InNewQ: ucpp.num.Float32): Void;
+	public function SetFrequencyWithMidiNote(InMidiNote: ucpp.num.Float32): Void;
+	public function SetFrequencyPitchBend(FrequencyOffsetCents: ucpp.num.Float32): Void;
+	public function SetFrequency(FrequencyHz: ucpp.num.Float32): Void;
+	public function SetFilterEnvelopeSustainGain(InSustainGain: ucpp.num.Float32): Void;
+	public function SetFilterEnvelopeReleaseTime(InReleaseTimeMsec: ucpp.num.Float32): Void;
+	public function SetFilterEnvelopenDecayTime(InDecayTimeMsec: ucpp.num.Float32): Void;
 	public function SetFilterEnvelopeInvert(bInInvert: Bool): Void;
-	public function SetFilterEnvelopeDepth(InDepth: cpp.Float32): Void;
+	public function SetFilterEnvelopeDepth(InDepth: ucpp.num.Float32): Void;
 	public function SetFilterEnvelopeBiasInvert(bInBiasInvert: Bool): Void;
-	public function SetFilterEnvelopeBiasDepth(InDepth: cpp.Float32): Void;
-	public function SetFilterEnvelopeAttackTime(InAttackTimeMsec: cpp.Float32): Void;
-	public function SetCurveValue(TableIndex: cpp.Int32, KeyframeIndex: cpp.Int32, NewValue: cpp.Float32): Bool;
-	public function SetCurveTangent(TableIndex: cpp.Int32, InNewTangent: cpp.Float32): Bool;
-	public function SetCurveInterpolationType(InterpolationType: CurveInterpolationType, TableIndex: cpp.Int32): Bool;
-	public function SetAmpEnvelopeSustainGain(InSustainGain: cpp.Float32): Void;
-	public function SetAmpEnvelopeReleaseTime(InReleaseTimeMsec: cpp.Float32): Void;
+	public function SetFilterEnvelopeBiasDepth(InDepth: ucpp.num.Float32): Void;
+	public function SetFilterEnvelopeAttackTime(InAttackTimeMsec: ucpp.num.Float32): Void;
+	public function SetCurveValue(TableIndex: ucpp.num.Int32, KeyframeIndex: ucpp.num.Int32, NewValue: ucpp.num.Float32): Bool;
+	public function SetCurveTangent(TableIndex: ucpp.num.Int32, InNewTangent: ucpp.num.Float32): Bool;
+	public function SetCurveInterpolationType(InterpolationType: CurveInterpolationType, TableIndex: ucpp.num.Int32): Bool;
+	public function SetAmpEnvelopeSustainGain(InSustainGain: ucpp.num.Float32): Void;
+	public function SetAmpEnvelopeReleaseTime(InReleaseTimeMsec: ucpp.num.Float32): Void;
 	public function SetAmpEnvelopeInvert(bInInvert: Bool): Void;
-	public function SetAmpEnvelopeDepth(InDepth: cpp.Float32): Void;
-	public function SetAmpEnvelopeDecayTime(InDecayTimeMsec: cpp.Float32): Void;
+	public function SetAmpEnvelopeDepth(InDepth: ucpp.num.Float32): Void;
+	public function SetAmpEnvelopeDecayTime(InDecayTimeMsec: ucpp.num.Float32): Void;
 	public function SetAmpEnvelopeBiasInvert(bInBiasInvert: Bool): Void;
-	public function SetAmpEnvelopeBiasDepth(InDepth: cpp.Float32): Void;
-	public function SetAmpEnvelopeAttackTime(InAttackTimeMsec: cpp.Float32): Void;
-	public function RefreshWaveTable(Index: cpp.Int32): Void;
+	public function SetAmpEnvelopeBiasDepth(InDepth: ucpp.num.Float32): Void;
+	public function SetAmpEnvelopeAttackTime(InAttackTimeMsec: ucpp.num.Float32): Void;
+	public function RefreshWaveTable(Index: ucpp.num.Int32): Void;
 	public function RefreshAllWaveTables(): Void;
-	public function NoteOn(InMidiNote: cpp.Float32, InVelocity: cpp.Float32): Void;
-	public function NoteOff(InMidiNote: cpp.Float32): Void;
-	public function GetNumTableEntries(): cpp.Int32;
-	public function GetMaxTableIndex(): cpp.Int32;
-	public function GetKeyFrameValuesForTable(TableIndex: cpp.Float32): TArray<cpp.Float32>;
-	public function GetCurveTangent(TableIndex: cpp.Int32): cpp.Float32;
+	public function NoteOn(InMidiNote: ucpp.num.Float32, InVelocity: ucpp.num.Float32): Void;
+	public function NoteOff(InMidiNote: ucpp.num.Float32): Void;
+	public function GetNumTableEntries(): ucpp.num.Int32;
+	public function GetMaxTableIndex(): ucpp.num.Int32;
+	public function GetKeyFrameValuesForTable(TableIndex: ucpp.num.Float32): TArray<ucpp.num.Float32>;
+	public function GetCurveTangent(TableIndex: ucpp.num.Int32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetMaxTableIndex, GetKeyFrameValuesForTable)
 @:nativeGen
 abstract ConstSynthComponentMonoWaveTable(SynthComponentMonoWaveTable) from SynthComponentMonoWaveTable {
-	public extern var OnTableAltered(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_OnTableAltered(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnTableAltered;
+	public extern var OnTableAltered(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnTableAltered(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void> return this.OnTableAltered;
 	public extern var OnNumTablesChanged(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnNumTablesChanged(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnNumTablesChanged;
 }
@@ -69,7 +69,7 @@ abstract ConstSynthComponentMonoWaveTable(SynthComponentMonoWaveTable) from Synt
 @:forward
 @:nativeGen
 @:native("SynthComponentMonoWaveTable*")
-abstract SynthComponentMonoWaveTablePtr(cpp.Star<SynthComponentMonoWaveTable>) from cpp.Star<SynthComponentMonoWaveTable> to cpp.Star<SynthComponentMonoWaveTable>{
+abstract SynthComponentMonoWaveTablePtr(ucpp.Ptr<SynthComponentMonoWaveTable>) from ucpp.Ptr<SynthComponentMonoWaveTable> to ucpp.Ptr<SynthComponentMonoWaveTable>{
 	@:from
 	public static extern inline function fromValue(v: SynthComponentMonoWaveTable): SynthComponentMonoWaveTablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -8,5 +8,6 @@ extern class ETransformConstraintType {
 	static var Rotation: ETransformConstraintType;
 	static var Scale: ETransformConstraintType;
 	static var Parent: ETransformConstraintType;
+	static var LookAt: ETransformConstraintType;
 	static var ETransformConstraintType_MAX: ETransformConstraintType;
 }

@@ -3,9 +3,9 @@ package ue;
 
 @:native("UAudioRadialSlider")
 @:include("AudioRadialSlider.h")
-@:structAccess
+@:valueType
 extern class AudioRadialSlider extends Widget {
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 	public var ValueDelegate: HaxeDelegateProperty<() -> Void>;
 	public var WidgetLayout: TEnumAsByte<EAudioRadialSliderLayout>;
 	public var CenterBackgroundColor: LinearColor;
@@ -18,16 +18,16 @@ extern class AudioRadialSlider extends Widget {
 	public var ShowUnitsText: Bool;
 	public var IsUnitsTextReadOnly: Bool;
 	public var IsValueTextReadOnly: Bool;
-	public var SliderThickness: cpp.Float32;
+	public var SliderThickness: ucpp.num.Float32;
 	public var OutputRange: Vector2D;
-	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
 	public function SetWidgetLayout(InLayout: TEnumAsByte<EAudioRadialSliderLayout>): Void;
 	public function SetValueTextReadOnly(bIsReadOnly: Bool): Void;
 	public function SetUnitsTextReadOnly(bIsReadOnly: Bool): Void;
 	public function SetUnitsText(Units: FText): Void;
 	public function SetTextLabelBackgroundColor(InColor: SlateColor): Void;
-	public function SetSliderThickness(InThickness: cpp.Float32): Void;
+	public function SetSliderThickness(InThickness: ucpp.num.Float32): Void;
 	public function SetSliderProgressColor(InValue: LinearColor): Void;
 	public function SetSliderBarColor(InValue: LinearColor): Void;
 	public function SetShowUnitsText(bShowUnitsText: Bool): Void;
@@ -35,17 +35,17 @@ extern class AudioRadialSlider extends Widget {
 	public function SetOutputRange(InOutputRange: Vector2D): Void;
 	public function SetHandStartEndRatio(InHandStartEndRatio: Vector2D): Void;
 	public function SetCenterBackgroundColor(InValue: LinearColor): Void;
-	public function GetSliderValue(OutputValue: cpp.Float32): cpp.Float32;
-	public function GetOutputValue(InSliderValue: cpp.Float32): cpp.Float32;
+	public function GetSliderValue(OutputValue: ucpp.num.Float32): ucpp.num.Float32;
+	public function GetOutputValue(InSliderValue: ucpp.num.Float32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAudioRadialSlider(AudioRadialSlider) from AudioRadialSlider {
-	public extern var Value(get, never): cpp.Float32;
-	public inline extern function get_Value(): cpp.Float32 return this.Value;
+	public extern var Value(get, never): ucpp.num.Float32;
+	public inline extern function get_Value(): ucpp.num.Float32 return this.Value;
 	public extern var ValueDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_ValueDelegate(): HaxeDelegateProperty<() -> Void> return this.ValueDelegate;
 	public extern var WidgetLayout(get, never): TEnumAsByte<EAudioRadialSliderLayout>;
@@ -70,18 +70,18 @@ abstract ConstAudioRadialSlider(AudioRadialSlider) from AudioRadialSlider {
 	public inline extern function get_IsUnitsTextReadOnly(): Bool return this.IsUnitsTextReadOnly;
 	public extern var IsValueTextReadOnly(get, never): Bool;
 	public inline extern function get_IsValueTextReadOnly(): Bool return this.IsValueTextReadOnly;
-	public extern var SliderThickness(get, never): cpp.Float32;
-	public inline extern function get_SliderThickness(): cpp.Float32 return this.SliderThickness;
+	public extern var SliderThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_SliderThickness(): ucpp.num.Float32 return this.SliderThickness;
 	public extern var OutputRange(get, never): Vector2D;
 	public inline extern function get_OutputRange(): Vector2D return this.OutputRange;
-	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChanged;
+	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChanged;
 }
 
 @:forward
 @:nativeGen
 @:native("AudioRadialSlider*")
-abstract AudioRadialSliderPtr(cpp.Star<AudioRadialSlider>) from cpp.Star<AudioRadialSlider> to cpp.Star<AudioRadialSlider>{
+abstract AudioRadialSliderPtr(ucpp.Ptr<AudioRadialSlider>) from ucpp.Ptr<AudioRadialSlider> to ucpp.Ptr<AudioRadialSlider>{
 	@:from
 	public static extern inline function fromValue(v: AudioRadialSlider): AudioRadialSliderPtr {
 		return untyped __cpp__("&({0})", v);

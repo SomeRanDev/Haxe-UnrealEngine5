@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialBlendSettings")
 @:include("MSSettings.h")
-@:structAccess
+@:valueType
 extern class MaterialBlendSettings extends Object {
 	public var BlendedMaterialName: FString;
 	public var BlendedMaterialPath: DirectoryPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialBlendSettings(MaterialBlendSettings) from MaterialBlendSet
 @:forward
 @:nativeGen
 @:native("MaterialBlendSettings*")
-abstract MaterialBlendSettingsPtr(cpp.Star<MaterialBlendSettings>) from cpp.Star<MaterialBlendSettings> to cpp.Star<MaterialBlendSettings>{
+abstract MaterialBlendSettingsPtr(ucpp.Ptr<MaterialBlendSettings>) from ucpp.Ptr<MaterialBlendSettings> to ucpp.Ptr<MaterialBlendSettings>{
 	@:from
 	public static extern inline function fromValue(v: MaterialBlendSettings): MaterialBlendSettingsPtr {
 		return untyped __cpp__("&({0})", v);

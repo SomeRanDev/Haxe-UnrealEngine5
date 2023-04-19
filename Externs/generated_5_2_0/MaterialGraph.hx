@@ -3,28 +3,28 @@ package ue;
 
 @:native("UMaterialGraph")
 @:include("MaterialGraph/MaterialGraph.h")
-@:structAccess
+@:valueType
 extern class MaterialGraph extends EdGraph {
-	public var Material: cpp.Star<Material>;
-	public var MaterialFunction: cpp.Star<MaterialFunction>;
-	public var RootNode: cpp.Star<MaterialGraphNode_Root>;
-	public var SubgraphExpression: cpp.Star<MaterialExpression>;
+	public var Material: ucpp.Ptr<Material>;
+	public var MaterialFunction: ucpp.Ptr<MaterialFunction>;
+	public var RootNode: ucpp.Ptr<MaterialGraphNode_Root>;
+	public var SubgraphExpression: ucpp.Ptr<MaterialExpression>;
 	public var OriginalMaterialFullName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialGraph(MaterialGraph) from MaterialGraph {
-	public extern var Material(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_Material(): cpp.Star<Material.ConstMaterial> return this.Material;
-	public extern var MaterialFunction(get, never): cpp.Star<MaterialFunction.ConstMaterialFunction>;
-	public inline extern function get_MaterialFunction(): cpp.Star<MaterialFunction.ConstMaterialFunction> return this.MaterialFunction;
-	public extern var RootNode(get, never): cpp.Star<MaterialGraphNode_Root.ConstMaterialGraphNode_Root>;
-	public inline extern function get_RootNode(): cpp.Star<MaterialGraphNode_Root.ConstMaterialGraphNode_Root> return this.RootNode;
-	public extern var SubgraphExpression(get, never): cpp.Star<MaterialExpression.ConstMaterialExpression>;
-	public inline extern function get_SubgraphExpression(): cpp.Star<MaterialExpression.ConstMaterialExpression> return this.SubgraphExpression;
+	public extern var Material(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_Material(): ucpp.Ptr<Material.ConstMaterial> return this.Material;
+	public extern var MaterialFunction(get, never): ucpp.Ptr<MaterialFunction.ConstMaterialFunction>;
+	public inline extern function get_MaterialFunction(): ucpp.Ptr<MaterialFunction.ConstMaterialFunction> return this.MaterialFunction;
+	public extern var RootNode(get, never): ucpp.Ptr<MaterialGraphNode_Root.ConstMaterialGraphNode_Root>;
+	public inline extern function get_RootNode(): ucpp.Ptr<MaterialGraphNode_Root.ConstMaterialGraphNode_Root> return this.RootNode;
+	public extern var SubgraphExpression(get, never): ucpp.Ptr<MaterialExpression.ConstMaterialExpression>;
+	public inline extern function get_SubgraphExpression(): ucpp.Ptr<MaterialExpression.ConstMaterialExpression> return this.SubgraphExpression;
 	public extern var OriginalMaterialFullName(get, never): FString;
 	public inline extern function get_OriginalMaterialFullName(): FString return this.OriginalMaterialFullName;
 }
@@ -32,7 +32,7 @@ abstract ConstMaterialGraph(MaterialGraph) from MaterialGraph {
 @:forward
 @:nativeGen
 @:native("MaterialGraph*")
-abstract MaterialGraphPtr(cpp.Star<MaterialGraph>) from cpp.Star<MaterialGraph> to cpp.Star<MaterialGraph>{
+abstract MaterialGraphPtr(ucpp.Ptr<MaterialGraph>) from ucpp.Ptr<MaterialGraph> to ucpp.Ptr<MaterialGraph>{
 	@:from
 	public static extern inline function fromValue(v: MaterialGraph): MaterialGraphPtr {
 		return untyped __cpp__("&({0})", v);

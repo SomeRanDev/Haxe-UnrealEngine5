@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UUVToolSupportsSelection")
-@:structAccess
+@:valueType
 extern class UVToolSupportsSelection extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstUVToolSupportsSelection(UVToolSupportsSelection) from UVToolSuppor
 @:forward
 @:nativeGen
 @:native("UVToolSupportsSelection*")
-abstract UVToolSupportsSelectionPtr(cpp.Star<UVToolSupportsSelection>) from cpp.Star<UVToolSupportsSelection> to cpp.Star<UVToolSupportsSelection>{
+abstract UVToolSupportsSelectionPtr(ucpp.Ptr<UVToolSupportsSelection>) from ucpp.Ptr<UVToolSupportsSelection> to ucpp.Ptr<UVToolSupportsSelection>{
 	@:from
 	public static extern inline function fromValue(v: UVToolSupportsSelection): UVToolSupportsSelectionPtr {
 		return untyped __cpp__("&({0})", v);

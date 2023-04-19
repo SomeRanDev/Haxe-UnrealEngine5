@@ -3,24 +3,24 @@ package ue;
 
 @:native("AProceduralFoliageVolume")
 @:include("ProceduralFoliageVolume.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageVolume extends Volume {
-	public var ProceduralComponent: cpp.Star<ProceduralFoliageComp>;
+	public var ProceduralComponent: ucpp.Ptr<ProceduralFoliageComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralFoliageVolume(ProceduralFoliageVolume) from ProceduralFoliageVolume {
-	public extern var ProceduralComponent(get, never): cpp.Star<ProceduralFoliageComp.ConstProceduralFoliageComp>;
-	public inline extern function get_ProceduralComponent(): cpp.Star<ProceduralFoliageComp.ConstProceduralFoliageComp> return this.ProceduralComponent;
+	public extern var ProceduralComponent(get, never): ucpp.Ptr<ProceduralFoliageComp.ConstProceduralFoliageComp>;
+	public inline extern function get_ProceduralComponent(): ucpp.Ptr<ProceduralFoliageComp.ConstProceduralFoliageComp> return this.ProceduralComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralFoliageVolume*")
-abstract ProceduralFoliageVolumePtr(cpp.Star<ProceduralFoliageVolume>) from cpp.Star<ProceduralFoliageVolume> to cpp.Star<ProceduralFoliageVolume>{
+abstract ProceduralFoliageVolumePtr(ucpp.Ptr<ProceduralFoliageVolume>) from ucpp.Ptr<ProceduralFoliageVolume> to ucpp.Ptr<ProceduralFoliageVolume>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralFoliageVolume): ProceduralFoliageVolumePtr {
 		return untyped __cpp__("&({0})", v);

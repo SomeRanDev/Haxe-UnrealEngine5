@@ -3,18 +3,18 @@ package ue;
 
 @:native("ULocalLightComponent")
 @:include("Components/LocalLightComponent.h")
-@:structAccess
+@:valueType
 extern class LocalLightComp extends LightComp {
 	public var IntensityUnits: ELightUnits;
-	public var InverseExposureBlend: cpp.Float32;
-	public var AttenuationRadius: cpp.Float32;
+	public var InverseExposureBlend: ucpp.num.Float32;
+	public var AttenuationRadius: ucpp.num.Float32;
 	public var LightmassSettings: LightmassPointLightSettings;
 
 	public function SetIntensityUnits(NewIntensityUnits: ELightUnits): Void;
-	public function SetAttenuationRadius(NewRadius: cpp.Float32): Void;
-	public function GetUnitsConversionFactor(SrcUnits: ELightUnits, TargetUnits: ELightUnits, CosHalfConeAngle: cpp.Float32): cpp.Float32;
+	public function SetAttenuationRadius(NewRadius: ucpp.num.Float32): Void;
+	public function GetUnitsConversionFactor(SrcUnits: ELightUnits, TargetUnits: ELightUnits, CosHalfConeAngle: ucpp.num.Float32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,10 +22,10 @@ extern class LocalLightComp extends LightComp {
 abstract ConstLocalLightComp(LocalLightComp) from LocalLightComp {
 	public extern var IntensityUnits(get, never): ELightUnits;
 	public inline extern function get_IntensityUnits(): ELightUnits return this.IntensityUnits;
-	public extern var InverseExposureBlend(get, never): cpp.Float32;
-	public inline extern function get_InverseExposureBlend(): cpp.Float32 return this.InverseExposureBlend;
-	public extern var AttenuationRadius(get, never): cpp.Float32;
-	public inline extern function get_AttenuationRadius(): cpp.Float32 return this.AttenuationRadius;
+	public extern var InverseExposureBlend(get, never): ucpp.num.Float32;
+	public inline extern function get_InverseExposureBlend(): ucpp.num.Float32 return this.InverseExposureBlend;
+	public extern var AttenuationRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_AttenuationRadius(): ucpp.num.Float32 return this.AttenuationRadius;
 	public extern var LightmassSettings(get, never): LightmassPointLightSettings;
 	public inline extern function get_LightmassSettings(): LightmassPointLightSettings return this.LightmassSettings;
 }
@@ -33,7 +33,7 @@ abstract ConstLocalLightComp(LocalLightComp) from LocalLightComp {
 @:forward
 @:nativeGen
 @:native("LocalLightComp*")
-abstract LocalLightCompPtr(cpp.Star<LocalLightComp>) from cpp.Star<LocalLightComp> to cpp.Star<LocalLightComp>{
+abstract LocalLightCompPtr(ucpp.Ptr<LocalLightComp>) from ucpp.Ptr<LocalLightComp> to ucpp.Ptr<LocalLightComp>{
 	@:from
 	public static extern inline function fromValue(v: LocalLightComp): LocalLightCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UARDependencyHandler")
 @:include("ARDependencyHandler.h")
-@:structAccess
+@:valueType
 extern class ARDependencyHandler extends Object {
-	public function StartARSessionLatent(WorldContextObject: cpp.Star<Object>, SessionConfig: cpp.Star<ARSessionConfig>, LatentInfo: LatentActionInfo): Void;
-	public function RequestARSessionPermission(WorldContextObject: cpp.Star<Object>, SessionConfig: cpp.Star<ARSessionConfig>, LatentInfo: LatentActionInfo, OutPermissionResult: cpp.Reference<EARServicePermissionRequestResult>): Void;
-	public function InstallARService(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, OutInstallResult: cpp.Reference<EARServiceInstallRequestResult>): Void;
-	public function GetARDependencyHandler(): cpp.Star<ARDependencyHandler>;
-	public function CheckARServiceAvailability(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, OutAvailability: cpp.Reference<EARServiceAvailability>): Void;
+	public function StartARSessionLatent(WorldContextObject: ucpp.Ptr<Object>, SessionConfig: ucpp.Ptr<ARSessionConfig>, LatentInfo: LatentActionInfo): Void;
+	public function RequestARSessionPermission(WorldContextObject: ucpp.Ptr<Object>, SessionConfig: ucpp.Ptr<ARSessionConfig>, LatentInfo: LatentActionInfo, OutPermissionResult: ucpp.Ref<EARServicePermissionRequestResult>): Void;
+	public function InstallARService(WorldContextObject: ucpp.Ptr<Object>, LatentInfo: LatentActionInfo, OutInstallResult: ucpp.Ref<EARServiceInstallRequestResult>): Void;
+	public function GetARDependencyHandler(): ucpp.Ptr<ARDependencyHandler>;
+	public function CheckARServiceAvailability(WorldContextObject: ucpp.Ptr<Object>, LatentInfo: LatentActionInfo, OutAvailability: ucpp.Ref<EARServiceAvailability>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstARDependencyHandler(ARDependencyHandler) from ARDependencyHandler 
 @:forward
 @:nativeGen
 @:native("ARDependencyHandler*")
-abstract ARDependencyHandlerPtr(cpp.Star<ARDependencyHandler>) from cpp.Star<ARDependencyHandler> to cpp.Star<ARDependencyHandler>{
+abstract ARDependencyHandlerPtr(ucpp.Ptr<ARDependencyHandler>) from ucpp.Ptr<ARDependencyHandler> to ucpp.Ptr<ARDependencyHandler>{
 	@:from
 	public static extern inline function fromValue(v: ARDependencyHandler): ARDependencyHandlerPtr {
 		return untyped __cpp__("&({0})", v);

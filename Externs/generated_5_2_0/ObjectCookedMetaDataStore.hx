@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectCookedMetaDataStore")
 @:include("CookedMetaData.h")
-@:structAccess
+@:valueType
 extern class ObjectCookedMetaDataStore {
 	private var ObjectMetaData: TMap<FName, FString>;
 

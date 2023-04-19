@@ -3,17 +3,17 @@ package ue;
 
 @:native("FLightmassPrimitiveSettings")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class LightmassPrimitiveSettings {
 	public var bUseTwoSidedLighting: Bool;
 	public var bShadowIndirectOnly: Bool;
 	public var bUseEmissiveForStaticLighting: Bool;
 	public var bUseVertexNormalForHemisphereGather: Bool;
-	public var EmissiveLightFalloffExponent: cpp.Float32;
-	public var EmissiveLightExplicitInfluenceRadius: cpp.Float32;
-	public var EmissiveBoost: cpp.Float32;
-	public var DiffuseBoost: cpp.Float32;
-	public var FullyOccludedSamplesFraction: cpp.Float32;
+	public var EmissiveLightFalloffExponent: ucpp.num.Float32;
+	public var EmissiveLightExplicitInfluenceRadius: ucpp.num.Float32;
+	public var EmissiveBoost: ucpp.num.Float32;
+	public var DiffuseBoost: ucpp.num.Float32;
+	public var FullyOccludedSamplesFraction: ucpp.num.Float32;
 
 	@:native("FLightmassPrimitiveSettings") public function new();
 }

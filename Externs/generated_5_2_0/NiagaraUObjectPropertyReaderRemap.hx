@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraUObjectPropertyReaderRemap")
 @:include("Private/DataInterface/NiagaraDataInterfaceUObjectPropertyReader.h")
-@:structAccess
+@:valueType
 extern class NiagaraUObjectPropertyReaderRemap {
 	public var GraphName: FName;
 	public var RemapName: FName;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("USafeZoneSlot")
 @:include("Components/SafeZoneSlot.h")
-@:structAccess
+@:valueType
 extern class SafeZoneSlot extends PanelSlot {
 	public var bIsTitleSafe: Bool;
 	public var SafeAreaScale: Margin;
@@ -11,7 +11,7 @@ extern class SafeZoneSlot extends PanelSlot {
 	public var VAlign: TEnumAsByte<EVerticalAlignment>;
 	public var Padding: Margin;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstSafeZoneSlot(SafeZoneSlot) from SafeZoneSlot {
 @:forward
 @:nativeGen
 @:native("SafeZoneSlot*")
-abstract SafeZoneSlotPtr(cpp.Star<SafeZoneSlot>) from cpp.Star<SafeZoneSlot> to cpp.Star<SafeZoneSlot>{
+abstract SafeZoneSlotPtr(ucpp.Ptr<SafeZoneSlot>) from ucpp.Ptr<SafeZoneSlot> to ucpp.Ptr<SafeZoneSlot>{
 	@:from
 	public static extern inline function fromValue(v: SafeZoneSlot): SafeZoneSlotPtr {
 		return untyped __cpp__("&({0})", v);

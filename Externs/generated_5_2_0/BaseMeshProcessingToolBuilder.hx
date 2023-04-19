@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBaseMeshProcessingToolBuilder")
 @:include("BaseTools/BaseMeshProcessingTool.h")
-@:structAccess
+@:valueType
 extern class BaseMeshProcessingToolBuilder extends InteractiveToolWithToolTargetsBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBaseMeshProcessingToolBuilder(BaseMeshProcessingToolBuilder) from 
 @:forward
 @:nativeGen
 @:native("BaseMeshProcessingToolBuilder*")
-abstract BaseMeshProcessingToolBuilderPtr(cpp.Star<BaseMeshProcessingToolBuilder>) from cpp.Star<BaseMeshProcessingToolBuilder> to cpp.Star<BaseMeshProcessingToolBuilder>{
+abstract BaseMeshProcessingToolBuilderPtr(ucpp.Ptr<BaseMeshProcessingToolBuilder>) from ucpp.Ptr<BaseMeshProcessingToolBuilder> to ucpp.Ptr<BaseMeshProcessingToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BaseMeshProcessingToolBuilder): BaseMeshProcessingToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

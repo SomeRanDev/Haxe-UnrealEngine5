@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULiveLinkFramePreProcessor")
 @:include("LiveLinkFramePreProcessor.h")
-@:structAccess
+@:valueType
 extern class LiveLinkFramePreProcessor extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLiveLinkFramePreProcessor(LiveLinkFramePreProcessor) from LiveLink
 @:forward
 @:nativeGen
 @:native("LiveLinkFramePreProcessor*")
-abstract LiveLinkFramePreProcessorPtr(cpp.Star<LiveLinkFramePreProcessor>) from cpp.Star<LiveLinkFramePreProcessor> to cpp.Star<LiveLinkFramePreProcessor>{
+abstract LiveLinkFramePreProcessorPtr(ucpp.Ptr<LiveLinkFramePreProcessor>) from ucpp.Ptr<LiveLinkFramePreProcessor> to ucpp.Ptr<LiveLinkFramePreProcessor>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkFramePreProcessor): LiveLinkFramePreProcessorPtr {
 		return untyped __cpp__("&({0})", v);

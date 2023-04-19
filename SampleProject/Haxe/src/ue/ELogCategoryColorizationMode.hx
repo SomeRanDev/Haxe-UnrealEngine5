@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ELogCategoryColorizationMode")
-@:include("EditorStyleSettings.h")
+@:include("OutputLogSettings.h")
 extern class ELogCategoryColorizationMode {
 	static var None: ELogCategoryColorizationMode;
 	static var ColorizeWholeLine: ELogCategoryColorizationMode;

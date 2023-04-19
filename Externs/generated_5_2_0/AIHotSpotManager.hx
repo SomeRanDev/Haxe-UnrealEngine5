@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAIHotSpotManager")
 @:include("HotSpots/AIHotSpotManager.h")
-@:structAccess
+@:valueType
 extern class AIHotSpotManager extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAIHotSpotManager(AIHotSpotManager) from AIHotSpotManager {
 @:forward
 @:nativeGen
 @:native("AIHotSpotManager*")
-abstract AIHotSpotManagerPtr(cpp.Star<AIHotSpotManager>) from cpp.Star<AIHotSpotManager> to cpp.Star<AIHotSpotManager>{
+abstract AIHotSpotManagerPtr(ucpp.Ptr<AIHotSpotManager>) from ucpp.Ptr<AIHotSpotManager> to ucpp.Ptr<AIHotSpotManager>{
 	@:from
 	public static extern inline function fromValue(v: AIHotSpotManager): AIHotSpotManagerPtr {
 		return untyped __cpp__("&({0})", v);

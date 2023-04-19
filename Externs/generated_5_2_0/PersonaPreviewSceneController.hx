@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPersonaPreviewSceneController")
 @:include("PersonaPreviewSceneController.h")
-@:structAccess
+@:valueType
 extern class PersonaPreviewSceneController extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPersonaPreviewSceneController(PersonaPreviewSceneController) from 
 @:forward
 @:nativeGen
 @:native("PersonaPreviewSceneController*")
-abstract PersonaPreviewSceneControllerPtr(cpp.Star<PersonaPreviewSceneController>) from cpp.Star<PersonaPreviewSceneController> to cpp.Star<PersonaPreviewSceneController>{
+abstract PersonaPreviewSceneControllerPtr(ucpp.Ptr<PersonaPreviewSceneController>) from ucpp.Ptr<PersonaPreviewSceneController> to ucpp.Ptr<PersonaPreviewSceneController>{
 	@:from
 	public static extern inline function fromValue(v: PersonaPreviewSceneController): PersonaPreviewSceneControllerPtr {
 		return untyped __cpp__("&({0})", v);

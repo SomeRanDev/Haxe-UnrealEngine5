@@ -3,10 +3,10 @@ package ue;
 
 @:native("FAIRequestID")
 @:include("AITypes.h")
-@:structAccess
+@:valueType
 extern class AIRequestID {
-	private var RequestID: cpp.UInt32;
+	private var RequestID: ucpp.num.UInt32;
 
 	@:native("FAIRequestID") public function new();
-	@:native("FAIRequestID") public static function make(RequestID: cpp.UInt32): AIRequestID ;
+	@:native("FAIRequestID") public static function make(RequestID: ucpp.num.UInt32): AIRequestID ;
 }

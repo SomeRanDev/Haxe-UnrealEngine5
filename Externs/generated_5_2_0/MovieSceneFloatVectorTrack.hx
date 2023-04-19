@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneFloatVectorTrack")
 @:include("Tracks/MovieSceneVectorTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneFloatVectorTrack extends MovieScenePropertyTrack {
-	private var NumChannelsUsed: cpp.Int32;
+	private var NumChannelsUsed: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneFloatVectorTrack(MovieSceneFloatVectorTrack) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneFloatVectorTrack*")
-abstract MovieSceneFloatVectorTrackPtr(cpp.Star<MovieSceneFloatVectorTrack>) from cpp.Star<MovieSceneFloatVectorTrack> to cpp.Star<MovieSceneFloatVectorTrack>{
+abstract MovieSceneFloatVectorTrackPtr(ucpp.Ptr<MovieSceneFloatVectorTrack>) from ucpp.Ptr<MovieSceneFloatVectorTrack> to ucpp.Ptr<MovieSceneFloatVectorTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneFloatVectorTrack): MovieSceneFloatVectorTrackPtr {
 		return untyped __cpp__("&({0})", v);

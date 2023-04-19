@@ -3,10 +3,10 @@ package ue;
 
 @:native("FUniqueNetIdRepl")
 @:include("GameFramework/OnlineReplStructs.h")
-@:structAccess
+@:valueType
 extern class UniqueNetIdRepl extends UniqueNetIdWrapper {
-	@:protected public var ReplicationBytes: TArray<cpp.UInt8>;
+	@:protected public var ReplicationBytes: TArray<ucpp.num.UInt8>;
 
 	@:native("FUniqueNetIdRepl") public function new();
-	@:native("FUniqueNetIdRepl") public static function make(ReplicationBytes: TArray<cpp.UInt8>): UniqueNetIdRepl ;
+	@:native("FUniqueNetIdRepl") public static function make(ReplicationBytes: TArray<ucpp.num.UInt8>): UniqueNetIdRepl ;
 }

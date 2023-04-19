@@ -2,10 +2,10 @@
 package ue;
 
 @:native("URigVMGraphModifiedDynamicEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class RigVMGraphModifiedDynamicEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstRigVMGraphModifiedDynamicEvent__PythonCallable(RigVMGraphModifiedD
 @:forward
 @:nativeGen
 @:native("RigVMGraphModifiedDynamicEvent__PythonCallable*")
-abstract RigVMGraphModifiedDynamicEvent__PythonCallablePtr(cpp.Star<RigVMGraphModifiedDynamicEvent__PythonCallable>) from cpp.Star<RigVMGraphModifiedDynamicEvent__PythonCallable> to cpp.Star<RigVMGraphModifiedDynamicEvent__PythonCallable>{
+abstract RigVMGraphModifiedDynamicEvent__PythonCallablePtr(ucpp.Ptr<RigVMGraphModifiedDynamicEvent__PythonCallable>) from ucpp.Ptr<RigVMGraphModifiedDynamicEvent__PythonCallable> to ucpp.Ptr<RigVMGraphModifiedDynamicEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: RigVMGraphModifiedDynamicEvent__PythonCallable): RigVMGraphModifiedDynamicEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

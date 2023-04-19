@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFractureModeCustomSectionColor")
 @:include("FractureEditorMode.h")
-@:structAccess
+@:valueType
 extern class FractureModeCustomSectionColor {
 	public var SectionName: FString;
 	public var Color: LinearColor;

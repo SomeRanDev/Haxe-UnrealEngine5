@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_SubUVAnimation")
 @:include("AssetDefinition_SubUVAnimation.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_SubUVAnimation extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_SubUVAnimation(AssetDefinition_SubUVAnimation) fro
 @:forward
 @:nativeGen
 @:native("AssetDefinition_SubUVAnimation*")
-abstract AssetDefinition_SubUVAnimationPtr(cpp.Star<AssetDefinition_SubUVAnimation>) from cpp.Star<AssetDefinition_SubUVAnimation> to cpp.Star<AssetDefinition_SubUVAnimation>{
+abstract AssetDefinition_SubUVAnimationPtr(ucpp.Ptr<AssetDefinition_SubUVAnimation>) from ucpp.Ptr<AssetDefinition_SubUVAnimation> to ucpp.Ptr<AssetDefinition_SubUVAnimation>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_SubUVAnimation): AssetDefinition_SubUVAnimationPtr {
 		return untyped __cpp__("&({0})", v);

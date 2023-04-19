@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPinnedCommandListCommand")
 @:include("Private/PinnedCommandListSettings.h")
-@:structAccess
+@:valueType
 extern class PinnedCommandListCommand {
 	public var Name: FName;
 	public var Binding: FName;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomTextFilterData")
 @:include("Filters/CustomTextFilters.h")
-@:structAccess
+@:valueType
 extern class CustomTextFilterData {
 	public var FilterLabel: FText;
 	public var FilterString: FText;

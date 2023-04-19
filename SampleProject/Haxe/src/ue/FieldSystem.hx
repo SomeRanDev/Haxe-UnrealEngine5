@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFieldSystem")
 @:include("Field/FieldSystemAsset.h")
-@:structAccess
+@:valueType
 extern class FieldSystem extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFieldSystem(FieldSystem) from FieldSystem {
 @:forward
 @:nativeGen
 @:native("FieldSystem*")
-abstract FieldSystemPtr(cpp.Star<FieldSystem>) from cpp.Star<FieldSystem> to cpp.Star<FieldSystem>{
+abstract FieldSystemPtr(ucpp.Ptr<FieldSystem>) from ucpp.Ptr<FieldSystem> to ucpp.Ptr<FieldSystem>{
 	@:from
 	public static extern inline function fromValue(v: FieldSystem): FieldSystemPtr {
 		return untyped __cpp__("&({0})", v);

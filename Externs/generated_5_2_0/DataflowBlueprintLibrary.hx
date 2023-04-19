@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataflowBlueprintLibrary")
 @:include("Dataflow/DataflowBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class DataflowBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function EvaluateTerminalNodeByName(Dataflow: cpp.Star<Dataflow>, TerminalNodeName: FName, ResultAsset: cpp.Star<Object>): Void;
+	public function EvaluateTerminalNodeByName(Dataflow: ucpp.Ptr<Dataflow>, TerminalNodeName: FName, ResultAsset: ucpp.Ptr<Object>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstDataflowBlueprintLibrary(DataflowBlueprintLibrary) from DataflowBl
 @:forward
 @:nativeGen
 @:native("DataflowBlueprintLibrary*")
-abstract DataflowBlueprintLibraryPtr(cpp.Star<DataflowBlueprintLibrary>) from cpp.Star<DataflowBlueprintLibrary> to cpp.Star<DataflowBlueprintLibrary>{
+abstract DataflowBlueprintLibraryPtr(ucpp.Ptr<DataflowBlueprintLibrary>) from ucpp.Ptr<DataflowBlueprintLibrary> to ucpp.Ptr<DataflowBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: DataflowBlueprintLibrary): DataflowBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

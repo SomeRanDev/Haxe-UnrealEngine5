@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSparseVolumeTextureSample")
 @:include("Materials/MaterialExpressionSparseVolumeTextureSample.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSparseVolumeTextureSample extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
-	public var SparseVolumeTexture: cpp.Star<SparseVolumeTexture>;
+	public var SparseVolumeTexture: ucpp.Ptr<SparseVolumeTexture>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class MaterialExpressionSparseVolumeTextureSample extends MaterialExpress
 abstract ConstMaterialExpressionSparseVolumeTextureSample(MaterialExpressionSparseVolumeTextureSample) from MaterialExpressionSparseVolumeTextureSample {
 	public extern var Coordinates(get, never): ExpressionInput;
 	public inline extern function get_Coordinates(): ExpressionInput return this.Coordinates;
-	public extern var SparseVolumeTexture(get, never): cpp.Star<SparseVolumeTexture.ConstSparseVolumeTexture>;
-	public inline extern function get_SparseVolumeTexture(): cpp.Star<SparseVolumeTexture.ConstSparseVolumeTexture> return this.SparseVolumeTexture;
+	public extern var SparseVolumeTexture(get, never): ucpp.Ptr<SparseVolumeTexture.ConstSparseVolumeTexture>;
+	public inline extern function get_SparseVolumeTexture(): ucpp.Ptr<SparseVolumeTexture.ConstSparseVolumeTexture> return this.SparseVolumeTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSparseVolumeTextureSample*")
-abstract MaterialExpressionSparseVolumeTextureSamplePtr(cpp.Star<MaterialExpressionSparseVolumeTextureSample>) from cpp.Star<MaterialExpressionSparseVolumeTextureSample> to cpp.Star<MaterialExpressionSparseVolumeTextureSample>{
+abstract MaterialExpressionSparseVolumeTextureSamplePtr(ucpp.Ptr<MaterialExpressionSparseVolumeTextureSample>) from ucpp.Ptr<MaterialExpressionSparseVolumeTextureSample> to ucpp.Ptr<MaterialExpressionSparseVolumeTextureSample>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSparseVolumeTextureSample): MaterialExpressionSparseVolumeTextureSamplePtr {
 		return untyped __cpp__("&({0})", v);

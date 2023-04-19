@@ -3,10 +3,10 @@ package ue;
 
 @:native("AVisualLoggerRenderingActor")
 @:include("VisualLoggerRenderingActor.h")
-@:structAccess
+@:valueType
 extern class VisualLoggerRenderingActor extends VisualLoggerRenderingActorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVisualLoggerRenderingActor(VisualLoggerRenderingActor) from Visual
 @:forward
 @:nativeGen
 @:native("VisualLoggerRenderingActor*")
-abstract VisualLoggerRenderingActorPtr(cpp.Star<VisualLoggerRenderingActor>) from cpp.Star<VisualLoggerRenderingActor> to cpp.Star<VisualLoggerRenderingActor>{
+abstract VisualLoggerRenderingActorPtr(ucpp.Ptr<VisualLoggerRenderingActor>) from ucpp.Ptr<VisualLoggerRenderingActor> to ucpp.Ptr<VisualLoggerRenderingActor>{
 	@:from
 	public static extern inline function fromValue(v: VisualLoggerRenderingActor): VisualLoggerRenderingActorPtr {
 		return untyped __cpp__("&({0})", v);

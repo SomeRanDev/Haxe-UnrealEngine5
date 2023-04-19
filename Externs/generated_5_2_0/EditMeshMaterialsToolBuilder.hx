@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditMeshMaterialsToolBuilder")
 @:include("EditMeshMaterialsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshMaterialsToolBuilder extends MeshSelectionToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditMeshMaterialsToolBuilder(EditMeshMaterialsToolBuilder) from Ed
 @:forward
 @:nativeGen
 @:native("EditMeshMaterialsToolBuilder*")
-abstract EditMeshMaterialsToolBuilderPtr(cpp.Star<EditMeshMaterialsToolBuilder>) from cpp.Star<EditMeshMaterialsToolBuilder> to cpp.Star<EditMeshMaterialsToolBuilder>{
+abstract EditMeshMaterialsToolBuilderPtr(ucpp.Ptr<EditMeshMaterialsToolBuilder>) from ucpp.Ptr<EditMeshMaterialsToolBuilder> to ucpp.Ptr<EditMeshMaterialsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshMaterialsToolBuilder): EditMeshMaterialsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

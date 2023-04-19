@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerSample")
 @:include("Materials/MaterialExpressionLandscapeLayerSample.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLandscapeLayerSample extends MaterialExpression {
 	public var ParameterName: FName;
-	public var PreviewWeight: cpp.Float32;
+	public var PreviewWeight: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class MaterialExpressionLandscapeLayerSample extends MaterialExpression {
 abstract ConstMaterialExpressionLandscapeLayerSample(MaterialExpressionLandscapeLayerSample) from MaterialExpressionLandscapeLayerSample {
 	public extern var ParameterName(get, never): FName;
 	public inline extern function get_ParameterName(): FName return this.ParameterName;
-	public extern var PreviewWeight(get, never): cpp.Float32;
-	public inline extern function get_PreviewWeight(): cpp.Float32 return this.PreviewWeight;
+	public extern var PreviewWeight(get, never): ucpp.num.Float32;
+	public inline extern function get_PreviewWeight(): ucpp.num.Float32 return this.PreviewWeight;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLandscapeLayerSample*")
-abstract MaterialExpressionLandscapeLayerSamplePtr(cpp.Star<MaterialExpressionLandscapeLayerSample>) from cpp.Star<MaterialExpressionLandscapeLayerSample> to cpp.Star<MaterialExpressionLandscapeLayerSample>{
+abstract MaterialExpressionLandscapeLayerSamplePtr(ucpp.Ptr<MaterialExpressionLandscapeLayerSample>) from ucpp.Ptr<MaterialExpressionLandscapeLayerSample> to ucpp.Ptr<MaterialExpressionLandscapeLayerSample>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLandscapeLayerSample): MaterialExpressionLandscapeLayerSamplePtr {
 		return untyped __cpp__("&({0})", v);

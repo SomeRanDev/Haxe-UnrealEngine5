@@ -3,11 +3,12 @@ package ue;
 
 @:native("FGameplayDebuggerDebugActor")
 @:include("GameplayDebuggerCategoryReplicator.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerDebugActor {
+	public var Actor: TWeakObjectPtr<Actor>;
 	public var ActorName: FName;
-	public var SyncCounter: cpp.Int32;
+	public var SyncCounter: ucpp.num.Int16;
 
 	@:native("FGameplayDebuggerDebugActor") public function new();
-	@:native("FGameplayDebuggerDebugActor") public static function make(ActorName: FName, SyncCounter: cpp.Int32): GameplayDebuggerDebugActor ;
+	@:native("FGameplayDebuggerDebugActor") public static function make(Actor: TWeakObjectPtr<Actor>, ActorName: FName, SyncCounter: ucpp.num.Int16): GameplayDebuggerDebugActor ;
 }

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComponentEndOverlapSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComponentEndOverlapSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComponentEndOverlapSignature__PythonCallable(ComponentEndOverlapSi
 @:forward
 @:nativeGen
 @:native("ComponentEndOverlapSignature__PythonCallable*")
-abstract ComponentEndOverlapSignature__PythonCallablePtr(cpp.Star<ComponentEndOverlapSignature__PythonCallable>) from cpp.Star<ComponentEndOverlapSignature__PythonCallable> to cpp.Star<ComponentEndOverlapSignature__PythonCallable>{
+abstract ComponentEndOverlapSignature__PythonCallablePtr(ucpp.Ptr<ComponentEndOverlapSignature__PythonCallable>) from ucpp.Ptr<ComponentEndOverlapSignature__PythonCallable> to ucpp.Ptr<ComponentEndOverlapSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComponentEndOverlapSignature__PythonCallable): ComponentEndOverlapSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

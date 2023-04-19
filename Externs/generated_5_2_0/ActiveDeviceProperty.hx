@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActiveDeviceProperty")
 @:include("GameFramework/InputDeviceSubsystem.h")
-@:structAccess
+@:valueType
 extern class ActiveDeviceProperty {
 	public var Property: TWeakObjectPtr<InputDeviceProperty>;
 

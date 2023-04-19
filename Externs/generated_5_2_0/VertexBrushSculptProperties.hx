@@ -3,7 +3,7 @@ package ue;
 
 @:native("UVertexBrushSculptProperties")
 @:include("MeshVertexSculptTool.h")
-@:structAccess
+@:valueType
 extern class VertexBrushSculptProperties extends InteractiveToolPropertySet {
 	public var PrimaryBrushType: EMeshVertexSculptBrushType;
 	public var PrimaryFalloffType: EMeshSculptFalloffType;
@@ -11,7 +11,7 @@ extern class VertexBrushSculptProperties extends InteractiveToolPropertySet {
 	public var bFreezeTarget: Bool;
 	public var Tool: TWeakObjectPtr<MeshVertexSculptTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstVertexBrushSculptProperties(VertexBrushSculptProperties) from Vert
 @:forward
 @:nativeGen
 @:native("VertexBrushSculptProperties*")
-abstract VertexBrushSculptPropertiesPtr(cpp.Star<VertexBrushSculptProperties>) from cpp.Star<VertexBrushSculptProperties> to cpp.Star<VertexBrushSculptProperties>{
+abstract VertexBrushSculptPropertiesPtr(ucpp.Ptr<VertexBrushSculptProperties>) from ucpp.Ptr<VertexBrushSculptProperties> to ucpp.Ptr<VertexBrushSculptProperties>{
 	@:from
 	public static extern inline function fromValue(v: VertexBrushSculptProperties): VertexBrushSculptPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

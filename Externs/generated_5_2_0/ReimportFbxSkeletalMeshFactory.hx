@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReimportFbxSkeletalMeshFactory")
 @:include("Factories/ReimportFbxSkeletalMeshFactory.h")
-@:structAccess
+@:valueType
 extern class ReimportFbxSkeletalMeshFactory extends FbxFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReimportFbxSkeletalMeshFactory(ReimportFbxSkeletalMeshFactory) fro
 @:forward
 @:nativeGen
 @:native("ReimportFbxSkeletalMeshFactory*")
-abstract ReimportFbxSkeletalMeshFactoryPtr(cpp.Star<ReimportFbxSkeletalMeshFactory>) from cpp.Star<ReimportFbxSkeletalMeshFactory> to cpp.Star<ReimportFbxSkeletalMeshFactory>{
+abstract ReimportFbxSkeletalMeshFactoryPtr(ucpp.Ptr<ReimportFbxSkeletalMeshFactory>) from ucpp.Ptr<ReimportFbxSkeletalMeshFactory> to ucpp.Ptr<ReimportFbxSkeletalMeshFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReimportFbxSkeletalMeshFactory): ReimportFbxSkeletalMeshFactoryPtr {
 		return untyped __cpp__("&({0})", v);

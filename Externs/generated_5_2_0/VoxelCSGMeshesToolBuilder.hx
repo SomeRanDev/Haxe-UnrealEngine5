@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVoxelCSGMeshesToolBuilder")
 @:include("VoxelCSGMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelCSGMeshesToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVoxelCSGMeshesToolBuilder(VoxelCSGMeshesToolBuilder) from VoxelCSG
 @:forward
 @:nativeGen
 @:native("VoxelCSGMeshesToolBuilder*")
-abstract VoxelCSGMeshesToolBuilderPtr(cpp.Star<VoxelCSGMeshesToolBuilder>) from cpp.Star<VoxelCSGMeshesToolBuilder> to cpp.Star<VoxelCSGMeshesToolBuilder>{
+abstract VoxelCSGMeshesToolBuilderPtr(ucpp.Ptr<VoxelCSGMeshesToolBuilder>) from ucpp.Ptr<VoxelCSGMeshesToolBuilder> to ucpp.Ptr<VoxelCSGMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: VoxelCSGMeshesToolBuilder): VoxelCSGMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelInstanceSubsystem")
 @:include("LevelInstance/LevelInstanceSubsystem.h")
-@:structAccess
+@:valueType
 extern class LevelInstanceSubsystem extends WorldSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelInstanceSubsystem(LevelInstanceSubsystem) from LevelInstanceS
 @:forward
 @:nativeGen
 @:native("LevelInstanceSubsystem*")
-abstract LevelInstanceSubsystemPtr(cpp.Star<LevelInstanceSubsystem>) from cpp.Star<LevelInstanceSubsystem> to cpp.Star<LevelInstanceSubsystem>{
+abstract LevelInstanceSubsystemPtr(ucpp.Ptr<LevelInstanceSubsystem>) from ucpp.Ptr<LevelInstanceSubsystem> to ucpp.Ptr<LevelInstanceSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstanceSubsystem): LevelInstanceSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

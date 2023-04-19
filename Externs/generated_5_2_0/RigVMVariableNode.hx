@@ -3,7 +3,7 @@ package ue;
 
 @:native("URigVMVariableNode")
 @:include("RigVMModel/Nodes/RigVMVariableNode.h")
-@:structAccess
+@:valueType
 extern class RigVMVariableNode extends RigVMNode {
 	public function IsLocalVariable(): Bool;
 	public function IsInputArgument(): Bool;
@@ -12,10 +12,10 @@ extern class RigVMVariableNode extends RigVMNode {
 	public function GetVariableName(): FName;
 	public function GetVariableDescription(): RigVMGraphVariableDescription;
 	public function GetDefaultValue(): FString;
-	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetCPPTypeObject(): ucpp.Ptr<Object>;
 	public function GetCPPType(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsLocalVariable, IsInputArgument, IsGetter, IsExternalVariable, GetVariableName, GetVariableDescription, GetDefaultValue, GetCPPTypeObject, GetCPPType)
@@ -26,7 +26,7 @@ abstract ConstRigVMVariableNode(RigVMVariableNode) from RigVMVariableNode {
 @:forward
 @:nativeGen
 @:native("RigVMVariableNode*")
-abstract RigVMVariableNodePtr(cpp.Star<RigVMVariableNode>) from cpp.Star<RigVMVariableNode> to cpp.Star<RigVMVariableNode>{
+abstract RigVMVariableNodePtr(ucpp.Ptr<RigVMVariableNode>) from ucpp.Ptr<RigVMVariableNode> to ucpp.Ptr<RigVMVariableNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMVariableNode): RigVMVariableNodePtr {
 		return untyped __cpp__("&({0})", v);

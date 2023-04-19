@@ -3,30 +3,30 @@ package ue;
 
 @:native("UEditorConfigTestObject")
 @:include("Tests/EditorConfigTests.h")
-@:structAccess
+@:valueType
 extern class EditorConfigTestObject extends Object {
-	public var Object: cpp.Star<Object>;
+	public var Object: ucpp.Ptr<Object>;
 	public var Struct: EditorConfigTestSimpleStruct;
-	public var Number: cpp.Int32;
+	public var Number: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditorConfigTestObject(EditorConfigTestObject) from EditorConfigTestObject {
-	public extern var Object(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_Object(): cpp.Star<Object.ConstObject> return this.Object;
+	public extern var Object(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_Object(): ucpp.Ptr<Object.ConstObject> return this.Object;
 	public extern var Struct(get, never): EditorConfigTestSimpleStruct;
 	public inline extern function get_Struct(): EditorConfigTestSimpleStruct return this.Struct;
-	public extern var Number(get, never): cpp.Int32;
-	public inline extern function get_Number(): cpp.Int32 return this.Number;
+	public extern var Number(get, never): ucpp.num.Int32;
+	public inline extern function get_Number(): ucpp.num.Int32 return this.Number;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorConfigTestObject*")
-abstract EditorConfigTestObjectPtr(cpp.Star<EditorConfigTestObject>) from cpp.Star<EditorConfigTestObject> to cpp.Star<EditorConfigTestObject>{
+abstract EditorConfigTestObjectPtr(ucpp.Ptr<EditorConfigTestObject>) from ucpp.Ptr<EditorConfigTestObject> to ucpp.Ptr<EditorConfigTestObject>{
 	@:from
 	public static extern inline function fromValue(v: EditorConfigTestObject): EditorConfigTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

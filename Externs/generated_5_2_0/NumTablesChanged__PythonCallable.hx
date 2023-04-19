@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNumTablesChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class NumTablesChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNumTablesChanged__PythonCallable(NumTablesChanged__PythonCallable)
 @:forward
 @:nativeGen
 @:native("NumTablesChanged__PythonCallable*")
-abstract NumTablesChanged__PythonCallablePtr(cpp.Star<NumTablesChanged__PythonCallable>) from cpp.Star<NumTablesChanged__PythonCallable> to cpp.Star<NumTablesChanged__PythonCallable>{
+abstract NumTablesChanged__PythonCallablePtr(ucpp.Ptr<NumTablesChanged__PythonCallable>) from ucpp.Ptr<NumTablesChanged__PythonCallable> to ucpp.Ptr<NumTablesChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: NumTablesChanged__PythonCallable): NumTablesChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,22 +3,22 @@ package ue;
 
 @:native("USculptBrushProperties")
 @:include("Sculpting/MeshSculptToolBase.h")
-@:structAccess
+@:valueType
 extern class SculptBrushProperties extends InteractiveToolPropertySet {
 	public var BrushSize: BrushToolRadius;
-	public var BrushFalloffAmount: cpp.Float32;
+	public var BrushFalloffAmount: ucpp.num.Float32;
 	public var bShowFalloff: Bool;
-	public var Depth: cpp.Float32;
+	public var Depth: ucpp.num.Float32;
 	public var bHitBackFaces: Bool;
-	public var FlowRate: cpp.Float32;
-	public var Spacing: cpp.Float32;
-	public var Lazyness: cpp.Float32;
+	public var FlowRate: ucpp.num.Float32;
+	public var Spacing: ucpp.num.Float32;
+	public var Lazyness: ucpp.num.Float32;
 	public var bShowPerBrushProps: Bool;
 	public var bShowLazyness: Bool;
 	public var bShowFlowRate: Bool;
 	public var bShowSpacing: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,20 +26,20 @@ extern class SculptBrushProperties extends InteractiveToolPropertySet {
 abstract ConstSculptBrushProperties(SculptBrushProperties) from SculptBrushProperties {
 	public extern var BrushSize(get, never): BrushToolRadius;
 	public inline extern function get_BrushSize(): BrushToolRadius return this.BrushSize;
-	public extern var BrushFalloffAmount(get, never): cpp.Float32;
-	public inline extern function get_BrushFalloffAmount(): cpp.Float32 return this.BrushFalloffAmount;
+	public extern var BrushFalloffAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushFalloffAmount(): ucpp.num.Float32 return this.BrushFalloffAmount;
 	public extern var bShowFalloff(get, never): Bool;
 	public inline extern function get_bShowFalloff(): Bool return this.bShowFalloff;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
 	public extern var bHitBackFaces(get, never): Bool;
 	public inline extern function get_bHitBackFaces(): Bool return this.bHitBackFaces;
-	public extern var FlowRate(get, never): cpp.Float32;
-	public inline extern function get_FlowRate(): cpp.Float32 return this.FlowRate;
-	public extern var Spacing(get, never): cpp.Float32;
-	public inline extern function get_Spacing(): cpp.Float32 return this.Spacing;
-	public extern var Lazyness(get, never): cpp.Float32;
-	public inline extern function get_Lazyness(): cpp.Float32 return this.Lazyness;
+	public extern var FlowRate(get, never): ucpp.num.Float32;
+	public inline extern function get_FlowRate(): ucpp.num.Float32 return this.FlowRate;
+	public extern var Spacing(get, never): ucpp.num.Float32;
+	public inline extern function get_Spacing(): ucpp.num.Float32 return this.Spacing;
+	public extern var Lazyness(get, never): ucpp.num.Float32;
+	public inline extern function get_Lazyness(): ucpp.num.Float32 return this.Lazyness;
 	public extern var bShowPerBrushProps(get, never): Bool;
 	public inline extern function get_bShowPerBrushProps(): Bool return this.bShowPerBrushProps;
 	public extern var bShowLazyness(get, never): Bool;
@@ -53,7 +53,7 @@ abstract ConstSculptBrushProperties(SculptBrushProperties) from SculptBrushPrope
 @:forward
 @:nativeGen
 @:native("SculptBrushProperties*")
-abstract SculptBrushPropertiesPtr(cpp.Star<SculptBrushProperties>) from cpp.Star<SculptBrushProperties> to cpp.Star<SculptBrushProperties>{
+abstract SculptBrushPropertiesPtr(ucpp.Ptr<SculptBrushProperties>) from ucpp.Ptr<SculptBrushProperties> to ucpp.Ptr<SculptBrushProperties>{
 	@:from
 	public static extern inline function fromValue(v: SculptBrushProperties): SculptBrushPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

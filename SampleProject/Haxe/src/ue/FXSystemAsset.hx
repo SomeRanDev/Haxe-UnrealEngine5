@@ -3,27 +3,27 @@ package ue;
 
 @:native("UFXSystemAsset")
 @:include("Particles/ParticleSystem.h")
-@:structAccess
+@:valueType
 extern class FXSystemAsset extends Object {
-	public var MaxPoolSize: cpp.UInt32;
-	public var PoolPrimeSize: cpp.UInt32;
+	public var MaxPoolSize: ucpp.num.UInt32;
+	public var PoolPrimeSize: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFXSystemAsset(FXSystemAsset) from FXSystemAsset {
-	public extern var MaxPoolSize(get, never): cpp.UInt32;
-	public inline extern function get_MaxPoolSize(): cpp.UInt32 return this.MaxPoolSize;
-	public extern var PoolPrimeSize(get, never): cpp.UInt32;
-	public inline extern function get_PoolPrimeSize(): cpp.UInt32 return this.PoolPrimeSize;
+	public extern var MaxPoolSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_MaxPoolSize(): ucpp.num.UInt32 return this.MaxPoolSize;
+	public extern var PoolPrimeSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_PoolPrimeSize(): ucpp.num.UInt32 return this.PoolPrimeSize;
 }
 
 @:forward
 @:nativeGen
 @:native("FXSystemAsset*")
-abstract FXSystemAssetPtr(cpp.Star<FXSystemAsset>) from cpp.Star<FXSystemAsset> to cpp.Star<FXSystemAsset>{
+abstract FXSystemAssetPtr(ucpp.Ptr<FXSystemAsset>) from ucpp.Ptr<FXSystemAsset> to ucpp.Ptr<FXSystemAsset>{
 	@:from
 	public static extern inline function fromValue(v: FXSystemAsset): FXSystemAssetPtr {
 		return untyped __cpp__("&({0})", v);

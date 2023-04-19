@@ -3,90 +3,94 @@ package ue;
 
 @:native("UWorld")
 @:include("Engine/World.h")
-@:structAccess
+@:valueType
 extern class World extends Object {
-	public var PersistentLevel: cpp.Star<Level>;
-	public var NetDriver: cpp.Star<NetDriver>;
-	public var LineBatcher: cpp.Star<LineBatchComp>;
-	public var PersistentLineBatcher: cpp.Star<LineBatchComp>;
-	public var ForegroundLineBatcher: cpp.Star<LineBatchComp>;
-	public var NetworkManager: cpp.Star<GameNetworkManager>;
-	public var PhysicsCollisionHandler: cpp.Star<PhysicsCollisionHandler>;
-	public var ExtraReferencedObjects: TArray<cpp.Star<Object>>;
-	public var PerModuleDataObjects: TArray<cpp.Star<Object>>;
-	private var StreamingLevels: TArray<cpp.Star<LevelStreaming>>;
+	public var PersistentLevel: ucpp.Ptr<Level>;
+	public var NetDriver: ucpp.Ptr<NetDriver>;
+	public var LineBatcher: ucpp.Ptr<LineBatchComp>;
+	public var PersistentLineBatcher: ucpp.Ptr<LineBatchComp>;
+	public var ForegroundLineBatcher: ucpp.Ptr<LineBatchComp>;
+	public var NetworkManager: ucpp.Ptr<GameNetworkManager>;
+	public var PhysicsCollisionHandler: ucpp.Ptr<PhysicsCollisionHandler>;
+	public var ExtraReferencedObjects: TArray<ucpp.Ptr<Object>>;
+	public var PerModuleDataObjects: TArray<ucpp.Ptr<Object>>;
+	private var StreamingLevels: TArray<ucpp.Ptr<LevelStreaming>>;
 	private var StreamingLevelsToConsider: StreamingLevelsToConsider;
+	private var ServerStreamingLevelsVisibility: ucpp.Ptr<ServerStreamingLevelsVisibility>;
 	public var StreamingLevelsPrefix: FString;
-	private var CurrentLevelPendingVisibility: cpp.Star<Level>;
-	private var CurrentLevelPendingInvisibility: cpp.Star<Level>;
-	private var DemoNetDriver: cpp.Star<DemoNetDriver>;
-	public var MyParticleEventManager: cpp.Star<ParticleEventManager>;
-	private var DefaultPhysicsVolume: cpp.Star<PhysicsVolume>;
+	private var CurrentLevelPendingVisibility: ucpp.Ptr<Level>;
+	private var CurrentLevelPendingInvisibility: ucpp.Ptr<Level>;
+	private var DemoNetDriver: ucpp.Ptr<DemoNetDriver>;
+	public var MyParticleEventManager: ucpp.Ptr<ParticleEventManager>;
+	private var DefaultPhysicsVolume: ucpp.Ptr<PhysicsVolume>;
 	public var bAreConstraintsDirty: Bool;
-	private var NavigationSystem: cpp.Star<NavigationSystemBase>;
-	private var AuthorityGameMode: cpp.Star<GameModeBase>;
-	private var GameState: cpp.Star<GameStateBase>;
-	private var AISystem: cpp.Star<AISystemBase>;
-	private var AvoidanceManager: cpp.Star<AvoidanceManager>;
-	private var Levels: TArray<cpp.Star<Level>>;
+	private var NavigationSystem: ucpp.Ptr<NavigationSystemBase>;
+	private var AuthorityGameMode: ucpp.Ptr<GameModeBase>;
+	private var GameState: ucpp.Ptr<GameStateBase>;
+	private var AISystem: ucpp.Ptr<AISystemBase>;
+	private var AvoidanceManager: ucpp.Ptr<AvoidanceManager>;
+	private var Levels: TArray<ucpp.Ptr<Level>>;
 	private var LevelCollections: TArray<LevelCollection>;
-	private var OwningGameInstance: cpp.Star<GameInstance>;
-	private var ParameterCollectionInstances: TArray<cpp.Star<MaterialParameterCollectionInstance>>;
-	private var CanvasForRenderingToTarget: cpp.Star<Canvas>;
-	private var CanvasForDrawMaterialToRenderTarget: cpp.Star<Canvas>;
-	public var PhysicsField: cpp.Star<PhysicsFieldComp>;
-	public var LWILastAssignedUID: cpp.UInt32;
-	private var ComponentsThatNeedPreEndOfFrameSync: TSet<cpp.Star<ActorComp>>;
-	private var ComponentsThatNeedEndOfFrameUpdate: TArray<cpp.Star<ActorComp>>;
-	private var ComponentsThatNeedEndOfFrameUpdate_OnGameThread: TArray<cpp.Star<ActorComp>>;
-	public var WorldComposition: cpp.Star<WorldComposition>;
+	private var OwningGameInstance: ucpp.Ptr<GameInstance>;
+	private var ParameterCollectionInstances: TArray<ucpp.Ptr<MaterialParameterCollectionInstance>>;
+	private var CanvasForRenderingToTarget: ucpp.Ptr<Canvas>;
+	private var CanvasForDrawMaterialToRenderTarget: ucpp.Ptr<Canvas>;
+	public var PhysicsField: ucpp.Ptr<PhysicsFieldComp>;
+	public var LWILastAssignedUID: ucpp.num.UInt32;
+	private var ComponentsThatNeedPreEndOfFrameSync: TSet<ucpp.Ptr<ActorComp>>;
+	private var ComponentsThatNeedEndOfFrameUpdate: TArray<ucpp.Ptr<ActorComp>>;
+	private var ComponentsThatNeedEndOfFrameUpdate_OnGameThread: TArray<ucpp.Ptr<ActorComp>>;
+	public var WorldComposition: ucpp.Ptr<WorldComposition>;
+	public var ContentBundleManager: ucpp.Ptr<ContentBundleManager>;
 	private var PSCPool: WorldPSCPool;
 
-	public function K2_GetWorldSettings(): cpp.Star<WorldSettings>;
+	public function K2_GetWorldSettings(): ucpp.Ptr<WorldSettings>;
 	public function HandleTimelineScrubbed(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWorld(World) from World {
-	public extern var PersistentLevel(get, never): cpp.Star<Level.ConstLevel>;
-	public inline extern function get_PersistentLevel(): cpp.Star<Level.ConstLevel> return this.PersistentLevel;
-	public extern var NetDriver(get, never): cpp.Star<NetDriver.ConstNetDriver>;
-	public inline extern function get_NetDriver(): cpp.Star<NetDriver.ConstNetDriver> return this.NetDriver;
-	public extern var LineBatcher(get, never): cpp.Star<LineBatchComp.ConstLineBatchComp>;
-	public inline extern function get_LineBatcher(): cpp.Star<LineBatchComp.ConstLineBatchComp> return this.LineBatcher;
-	public extern var PersistentLineBatcher(get, never): cpp.Star<LineBatchComp.ConstLineBatchComp>;
-	public inline extern function get_PersistentLineBatcher(): cpp.Star<LineBatchComp.ConstLineBatchComp> return this.PersistentLineBatcher;
-	public extern var ForegroundLineBatcher(get, never): cpp.Star<LineBatchComp.ConstLineBatchComp>;
-	public inline extern function get_ForegroundLineBatcher(): cpp.Star<LineBatchComp.ConstLineBatchComp> return this.ForegroundLineBatcher;
-	public extern var NetworkManager(get, never): cpp.Star<GameNetworkManager.ConstGameNetworkManager>;
-	public inline extern function get_NetworkManager(): cpp.Star<GameNetworkManager.ConstGameNetworkManager> return this.NetworkManager;
-	public extern var PhysicsCollisionHandler(get, never): cpp.Star<PhysicsCollisionHandler.ConstPhysicsCollisionHandler>;
-	public inline extern function get_PhysicsCollisionHandler(): cpp.Star<PhysicsCollisionHandler.ConstPhysicsCollisionHandler> return this.PhysicsCollisionHandler;
-	public extern var ExtraReferencedObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ExtraReferencedObjects(): TArray<cpp.Star<Object.ConstObject>> return this.ExtraReferencedObjects;
-	public extern var PerModuleDataObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_PerModuleDataObjects(): TArray<cpp.Star<Object.ConstObject>> return this.PerModuleDataObjects;
+	public extern var PersistentLevel(get, never): ucpp.Ptr<Level.ConstLevel>;
+	public inline extern function get_PersistentLevel(): ucpp.Ptr<Level.ConstLevel> return this.PersistentLevel;
+	public extern var NetDriver(get, never): ucpp.Ptr<NetDriver.ConstNetDriver>;
+	public inline extern function get_NetDriver(): ucpp.Ptr<NetDriver.ConstNetDriver> return this.NetDriver;
+	public extern var LineBatcher(get, never): ucpp.Ptr<LineBatchComp.ConstLineBatchComp>;
+	public inline extern function get_LineBatcher(): ucpp.Ptr<LineBatchComp.ConstLineBatchComp> return this.LineBatcher;
+	public extern var PersistentLineBatcher(get, never): ucpp.Ptr<LineBatchComp.ConstLineBatchComp>;
+	public inline extern function get_PersistentLineBatcher(): ucpp.Ptr<LineBatchComp.ConstLineBatchComp> return this.PersistentLineBatcher;
+	public extern var ForegroundLineBatcher(get, never): ucpp.Ptr<LineBatchComp.ConstLineBatchComp>;
+	public inline extern function get_ForegroundLineBatcher(): ucpp.Ptr<LineBatchComp.ConstLineBatchComp> return this.ForegroundLineBatcher;
+	public extern var NetworkManager(get, never): ucpp.Ptr<GameNetworkManager.ConstGameNetworkManager>;
+	public inline extern function get_NetworkManager(): ucpp.Ptr<GameNetworkManager.ConstGameNetworkManager> return this.NetworkManager;
+	public extern var PhysicsCollisionHandler(get, never): ucpp.Ptr<PhysicsCollisionHandler.ConstPhysicsCollisionHandler>;
+	public inline extern function get_PhysicsCollisionHandler(): ucpp.Ptr<PhysicsCollisionHandler.ConstPhysicsCollisionHandler> return this.PhysicsCollisionHandler;
+	public extern var ExtraReferencedObjects(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_ExtraReferencedObjects(): TArray<ucpp.Ptr<Object.ConstObject>> return this.ExtraReferencedObjects;
+	public extern var PerModuleDataObjects(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_PerModuleDataObjects(): TArray<ucpp.Ptr<Object.ConstObject>> return this.PerModuleDataObjects;
 	public extern var StreamingLevelsPrefix(get, never): FString;
 	public inline extern function get_StreamingLevelsPrefix(): FString return this.StreamingLevelsPrefix;
-	public extern var MyParticleEventManager(get, never): cpp.Star<ParticleEventManager.ConstParticleEventManager>;
-	public inline extern function get_MyParticleEventManager(): cpp.Star<ParticleEventManager.ConstParticleEventManager> return this.MyParticleEventManager;
+	public extern var MyParticleEventManager(get, never): ucpp.Ptr<ParticleEventManager.ConstParticleEventManager>;
+	public inline extern function get_MyParticleEventManager(): ucpp.Ptr<ParticleEventManager.ConstParticleEventManager> return this.MyParticleEventManager;
 	public extern var bAreConstraintsDirty(get, never): Bool;
 	public inline extern function get_bAreConstraintsDirty(): Bool return this.bAreConstraintsDirty;
-	public extern var PhysicsField(get, never): cpp.Star<PhysicsFieldComp.ConstPhysicsFieldComp>;
-	public inline extern function get_PhysicsField(): cpp.Star<PhysicsFieldComp.ConstPhysicsFieldComp> return this.PhysicsField;
-	public extern var LWILastAssignedUID(get, never): cpp.UInt32;
-	public inline extern function get_LWILastAssignedUID(): cpp.UInt32 return this.LWILastAssignedUID;
-	public extern var WorldComposition(get, never): cpp.Star<WorldComposition.ConstWorldComposition>;
-	public inline extern function get_WorldComposition(): cpp.Star<WorldComposition.ConstWorldComposition> return this.WorldComposition;
+	public extern var PhysicsField(get, never): ucpp.Ptr<PhysicsFieldComp.ConstPhysicsFieldComp>;
+	public inline extern function get_PhysicsField(): ucpp.Ptr<PhysicsFieldComp.ConstPhysicsFieldComp> return this.PhysicsField;
+	public extern var LWILastAssignedUID(get, never): ucpp.num.UInt32;
+	public inline extern function get_LWILastAssignedUID(): ucpp.num.UInt32 return this.LWILastAssignedUID;
+	public extern var WorldComposition(get, never): ucpp.Ptr<WorldComposition.ConstWorldComposition>;
+	public inline extern function get_WorldComposition(): ucpp.Ptr<WorldComposition.ConstWorldComposition> return this.WorldComposition;
+	public extern var ContentBundleManager(get, never): ucpp.Ptr<ContentBundleManager.ConstContentBundleManager>;
+	public inline extern function get_ContentBundleManager(): ucpp.Ptr<ContentBundleManager.ConstContentBundleManager> return this.ContentBundleManager;
 }
 
 @:forward
 @:nativeGen
 @:native("World*")
-abstract WorldPtr(cpp.Star<World>) from cpp.Star<World> to cpp.Star<World>{
+abstract WorldPtr(ucpp.Ptr<World>) from ucpp.Ptr<World> to ucpp.Ptr<World>{
 	@:from
 	public static extern inline function fromValue(v: World): WorldPtr {
 		return untyped __cpp__("&({0})", v);

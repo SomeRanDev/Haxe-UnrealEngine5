@@ -3,35 +3,35 @@ package ue;
 
 @:native("UCurvedStairBuilder")
 @:include("Builders/CurvedStairBuilder.h")
-@:structAccess
+@:valueType
 extern class CurvedStairBuilder extends EditorBrushBuilder {
-	public var InnerRadius: cpp.Int32;
-	public var StepHeight: cpp.Int32;
-	public var StepWidth: cpp.Int32;
-	public var AngleOfCurve: cpp.Int32;
-	public var NumSteps: cpp.Int32;
-	public var AddToFirstStep: cpp.Int32;
+	public var InnerRadius: ucpp.num.Int32;
+	public var StepHeight: ucpp.num.Int32;
+	public var StepWidth: ucpp.num.Int32;
+	public var AngleOfCurve: ucpp.num.Int32;
+	public var NumSteps: ucpp.num.Int32;
+	public var AddToFirstStep: ucpp.num.Int32;
 	public var GroupName: FName;
 	public var CounterClockwise: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCurvedStairBuilder(CurvedStairBuilder) from CurvedStairBuilder {
-	public extern var InnerRadius(get, never): cpp.Int32;
-	public inline extern function get_InnerRadius(): cpp.Int32 return this.InnerRadius;
-	public extern var StepHeight(get, never): cpp.Int32;
-	public inline extern function get_StepHeight(): cpp.Int32 return this.StepHeight;
-	public extern var StepWidth(get, never): cpp.Int32;
-	public inline extern function get_StepWidth(): cpp.Int32 return this.StepWidth;
-	public extern var AngleOfCurve(get, never): cpp.Int32;
-	public inline extern function get_AngleOfCurve(): cpp.Int32 return this.AngleOfCurve;
-	public extern var NumSteps(get, never): cpp.Int32;
-	public inline extern function get_NumSteps(): cpp.Int32 return this.NumSteps;
-	public extern var AddToFirstStep(get, never): cpp.Int32;
-	public inline extern function get_AddToFirstStep(): cpp.Int32 return this.AddToFirstStep;
+	public extern var InnerRadius(get, never): ucpp.num.Int32;
+	public inline extern function get_InnerRadius(): ucpp.num.Int32 return this.InnerRadius;
+	public extern var StepHeight(get, never): ucpp.num.Int32;
+	public inline extern function get_StepHeight(): ucpp.num.Int32 return this.StepHeight;
+	public extern var StepWidth(get, never): ucpp.num.Int32;
+	public inline extern function get_StepWidth(): ucpp.num.Int32 return this.StepWidth;
+	public extern var AngleOfCurve(get, never): ucpp.num.Int32;
+	public inline extern function get_AngleOfCurve(): ucpp.num.Int32 return this.AngleOfCurve;
+	public extern var NumSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSteps(): ucpp.num.Int32 return this.NumSteps;
+	public extern var AddToFirstStep(get, never): ucpp.num.Int32;
+	public inline extern function get_AddToFirstStep(): ucpp.num.Int32 return this.AddToFirstStep;
 	public extern var GroupName(get, never): FName;
 	public inline extern function get_GroupName(): FName return this.GroupName;
 	public extern var CounterClockwise(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstCurvedStairBuilder(CurvedStairBuilder) from CurvedStairBuilder {
 @:forward
 @:nativeGen
 @:native("CurvedStairBuilder*")
-abstract CurvedStairBuilderPtr(cpp.Star<CurvedStairBuilder>) from cpp.Star<CurvedStairBuilder> to cpp.Star<CurvedStairBuilder>{
+abstract CurvedStairBuilderPtr(ucpp.Ptr<CurvedStairBuilder>) from ucpp.Ptr<CurvedStairBuilder> to ucpp.Ptr<CurvedStairBuilder>{
 	@:from
 	public static extern inline function fromValue(v: CurvedStairBuilder): CurvedStairBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UMetasoundEditorGraphVariableNode")
 @:include("MetasoundEditorGraphNode.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorGraphVariableNode extends MetasoundEditorGraphMemberNode {
 	@:protected public var ClassType: EMetasoundFrontendClassType;
 	@:protected public var ClassName: MetasoundFrontendClassName;
 	@:protected public var NodeID: Guid;
-	public var Variable: cpp.Star<MetasoundEditorGraphVariable>;
+	public var Variable: ucpp.Ptr<MetasoundEditorGraphVariable>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMetasoundEditorGraphVariableNode(MetasoundEditorGraphVariableNode) from MetasoundEditorGraphVariableNode {
-	public extern var Variable(get, never): cpp.Star<MetasoundEditorGraphVariable.ConstMetasoundEditorGraphVariable>;
-	public inline extern function get_Variable(): cpp.Star<MetasoundEditorGraphVariable.ConstMetasoundEditorGraphVariable> return this.Variable;
+	public extern var Variable(get, never): ucpp.Ptr<MetasoundEditorGraphVariable.ConstMetasoundEditorGraphVariable>;
+	public inline extern function get_Variable(): ucpp.Ptr<MetasoundEditorGraphVariable.ConstMetasoundEditorGraphVariable> return this.Variable;
 }
 
 @:forward
 @:nativeGen
 @:native("MetasoundEditorGraphVariableNode*")
-abstract MetasoundEditorGraphVariableNodePtr(cpp.Star<MetasoundEditorGraphVariableNode>) from cpp.Star<MetasoundEditorGraphVariableNode> to cpp.Star<MetasoundEditorGraphVariableNode>{
+abstract MetasoundEditorGraphVariableNodePtr(ucpp.Ptr<MetasoundEditorGraphVariableNode>) from ucpp.Ptr<MetasoundEditorGraphVariableNode> to ucpp.Ptr<MetasoundEditorGraphVariableNode>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundEditorGraphVariableNode): MetasoundEditorGraphVariableNodePtr {
 		return untyped __cpp__("&({0})", v);

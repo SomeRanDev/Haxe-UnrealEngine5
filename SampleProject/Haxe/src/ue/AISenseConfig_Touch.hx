@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAISenseConfig_Touch")
 @:include("Perception/AISenseConfig_Touch.h")
-@:structAccess
+@:valueType
 extern class AISenseConfig_Touch extends AISenseConfig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAISenseConfig_Touch(AISenseConfig_Touch) from AISenseConfig_Touch 
 @:forward
 @:nativeGen
 @:native("AISenseConfig_Touch*")
-abstract AISenseConfig_TouchPtr(cpp.Star<AISenseConfig_Touch>) from cpp.Star<AISenseConfig_Touch> to cpp.Star<AISenseConfig_Touch>{
+abstract AISenseConfig_TouchPtr(ucpp.Ptr<AISenseConfig_Touch>) from ucpp.Ptr<AISenseConfig_Touch> to ucpp.Ptr<AISenseConfig_Touch>{
 	@:from
 	public static extern inline function fromValue(v: AISenseConfig_Touch): AISenseConfig_TouchPtr {
 		return untyped __cpp__("&({0})", v);

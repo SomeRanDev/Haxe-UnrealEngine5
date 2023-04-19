@@ -3,25 +3,25 @@ package ue;
 
 @:native("UGooglePADFunctionLibrary")
 @:include("GooglePADFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class GooglePADFunctionLibrary extends BlueprintFunctionLibrary {
 	public function ShowCellularDataConfirmation(): EGooglePADErrorCode;
 	public function RequestRemoval(Name: FString): EGooglePADErrorCode;
 	public function RequestInfo(AssetPacks: TArray<FString>): EGooglePADErrorCode;
 	public function RequestDownload(AssetPacks: TArray<FString>): EGooglePADErrorCode;
-	public function ReleaseDownloadState(State: cpp.Int32): Void;
-	public function ReleaseAssetPackLocation(Location: cpp.Int32): Void;
-	public function GetTotalBytesToDownload(State: cpp.Int32): cpp.Int32;
-	public function GetStorageMethod(Location: cpp.Int32): EGooglePADStorageMethod;
-	public function GetShowCellularDataConfirmationStatus(Status: cpp.Reference<EGooglePADCellularDataConfirmStatus>): EGooglePADErrorCode;
-	public function GetDownloadStatus(State: cpp.Int32): EGooglePADDownloadStatus;
-	public function GetDownloadState(Name: FString, State: cpp.Reference<cpp.Int32>): EGooglePADErrorCode;
-	public function GetBytesDownloaded(State: cpp.Int32): cpp.Int32;
-	public function GetAssetsPath(Location: cpp.Int32): FString;
-	public function GetAssetPackLocation(Name: FString, Location: cpp.Reference<cpp.Int32>): EGooglePADErrorCode;
+	public function ReleaseDownloadState(State: ucpp.num.Int32): Void;
+	public function ReleaseAssetPackLocation(Location: ucpp.num.Int32): Void;
+	public function GetTotalBytesToDownload(State: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetStorageMethod(Location: ucpp.num.Int32): EGooglePADStorageMethod;
+	public function GetShowCellularDataConfirmationStatus(Status: ucpp.Ref<EGooglePADCellularDataConfirmStatus>): EGooglePADErrorCode;
+	public function GetDownloadStatus(State: ucpp.num.Int32): EGooglePADDownloadStatus;
+	public function GetDownloadState(Name: FString, State: ucpp.Ref<ucpp.num.Int32>): EGooglePADErrorCode;
+	public function GetBytesDownloaded(State: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetAssetsPath(Location: ucpp.num.Int32): FString;
+	public function GetAssetPackLocation(Name: FString, Location: ucpp.Ref<ucpp.num.Int32>): EGooglePADErrorCode;
 	public function CancelDownload(AssetPacks: TArray<FString>): EGooglePADErrorCode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstGooglePADFunctionLibrary(GooglePADFunctionLibrary) from GooglePADF
 @:forward
 @:nativeGen
 @:native("GooglePADFunctionLibrary*")
-abstract GooglePADFunctionLibraryPtr(cpp.Star<GooglePADFunctionLibrary>) from cpp.Star<GooglePADFunctionLibrary> to cpp.Star<GooglePADFunctionLibrary>{
+abstract GooglePADFunctionLibraryPtr(ucpp.Ptr<GooglePADFunctionLibrary>) from ucpp.Ptr<GooglePADFunctionLibrary> to ucpp.Ptr<GooglePADFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: GooglePADFunctionLibrary): GooglePADFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

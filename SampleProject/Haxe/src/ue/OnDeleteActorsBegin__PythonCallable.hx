@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnDeleteActorsBegin__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnDeleteActorsBegin__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnDeleteActorsBegin__PythonCallable(OnDeleteActorsBegin__PythonCal
 @:forward
 @:nativeGen
 @:native("OnDeleteActorsBegin__PythonCallable*")
-abstract OnDeleteActorsBegin__PythonCallablePtr(cpp.Star<OnDeleteActorsBegin__PythonCallable>) from cpp.Star<OnDeleteActorsBegin__PythonCallable> to cpp.Star<OnDeleteActorsBegin__PythonCallable>{
+abstract OnDeleteActorsBegin__PythonCallablePtr(ucpp.Ptr<OnDeleteActorsBegin__PythonCallable>) from ucpp.Ptr<OnDeleteActorsBegin__PythonCallable> to ucpp.Ptr<OnDeleteActorsBegin__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnDeleteActorsBegin__PythonCallable): OnDeleteActorsBegin__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_ConvertAsset")
 @:include("K2Node_ConvertAsset.h")
-@:structAccess
+@:valueType
 extern class K2Node_ConvertAsset extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_ConvertAsset(K2Node_ConvertAsset) from K2Node_ConvertAsset 
 @:forward
 @:nativeGen
 @:native("K2Node_ConvertAsset*")
-abstract K2Node_ConvertAssetPtr(cpp.Star<K2Node_ConvertAsset>) from cpp.Star<K2Node_ConvertAsset> to cpp.Star<K2Node_ConvertAsset>{
+abstract K2Node_ConvertAssetPtr(ucpp.Ptr<K2Node_ConvertAsset>) from ucpp.Ptr<K2Node_ConvertAsset> to ucpp.Ptr<K2Node_ConvertAsset>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_ConvertAsset): K2Node_ConvertAssetPtr {
 		return untyped __cpp__("&({0})", v);

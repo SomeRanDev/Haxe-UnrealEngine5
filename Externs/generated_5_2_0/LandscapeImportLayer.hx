@@ -3,14 +3,14 @@ package ue;
 
 @:native("FLandscapeImportLayer")
 @:include("LandscapeEditorObject.h")
-@:structAccess
+@:valueType
 extern class LandscapeImportLayer extends LandscapeImportLayerInfo {
-	public var ThumbnailMIC: cpp.Star<LandscapeMaterialInstanceConstant>;
+	public var ThumbnailMIC: ucpp.Ptr<LandscapeMaterialInstanceConstant>;
 	public var ImportResult: ELandscapeImportResult;
 	public var ErrorMessage: FText;
 	public var ExportFilePath: FString;
 	public var bSelected: Bool;
 
 	@:native("FLandscapeImportLayer") public function new();
-	@:native("FLandscapeImportLayer") public static function make(ThumbnailMIC: cpp.Star<LandscapeMaterialInstanceConstant>, ImportResult: ELandscapeImportResult, ErrorMessage: FText, ExportFilePath: FString, bSelected: Bool): LandscapeImportLayer ;
+	@:native("FLandscapeImportLayer") public static function make(ThumbnailMIC: ucpp.Ptr<LandscapeMaterialInstanceConstant>, ImportResult: ELandscapeImportResult, ErrorMessage: FText, ExportFilePath: FString, bSelected: Bool): LandscapeImportLayer ;
 }

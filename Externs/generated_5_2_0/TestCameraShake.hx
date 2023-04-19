@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTestCameraShake")
 @:include("Tests/CameraShakeTestObjects.h")
-@:structAccess
+@:valueType
 extern class TestCameraShake extends CameraShakeBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestCameraShake(TestCameraShake) from TestCameraShake {
 @:forward
 @:nativeGen
 @:native("TestCameraShake*")
-abstract TestCameraShakePtr(cpp.Star<TestCameraShake>) from cpp.Star<TestCameraShake> to cpp.Star<TestCameraShake>{
+abstract TestCameraShakePtr(ucpp.Ptr<TestCameraShake>) from ucpp.Ptr<TestCameraShake> to ucpp.Ptr<TestCameraShake>{
 	@:from
 	public static extern inline function fromValue(v: TestCameraShake): TestCameraShakePtr {
 		return untyped __cpp__("&({0})", v);

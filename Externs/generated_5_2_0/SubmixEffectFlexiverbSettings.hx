@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSubmixEffectFlexiverbSettings")
 @:include("SubmixEffects/SubmixEffectFlexiverb.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectFlexiverbSettings {
-	public var PreDelay: cpp.Float32;
-	public var DecayTime: cpp.Float32;
-	public var RoomDampening: cpp.Float32;
-	public var Complexity: cpp.Int32;
+	public var PreDelay: ucpp.num.Float32;
+	public var DecayTime: ucpp.num.Float32;
+	public var RoomDampening: ucpp.num.Float32;
+	public var Complexity: ucpp.num.Int32;
 
 	@:native("FSubmixEffectFlexiverbSettings") public function new();
-	@:native("FSubmixEffectFlexiverbSettings") public static function make(PreDelay: cpp.Float32, DecayTime: cpp.Float32, RoomDampening: cpp.Float32, Complexity: cpp.Int32): SubmixEffectFlexiverbSettings ;
+	@:native("FSubmixEffectFlexiverbSettings") public static function make(PreDelay: ucpp.num.Float32, DecayTime: ucpp.num.Float32, RoomDampening: ucpp.num.Float32, Complexity: ucpp.num.Int32): SubmixEffectFlexiverbSettings ;
 }

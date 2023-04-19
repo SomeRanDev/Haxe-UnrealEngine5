@@ -3,18 +3,18 @@ package ue;
 
 @:native("UUVEditorChannelEditTool")
 @:include("UVEditorLayerEditTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorChannelEditTool extends InteractiveTool {
-	@:protected public var Targets: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var ToolActions: cpp.Star<UVEditorChannelEditToolActionPropertySet>;
-	@:protected public var ActionSelectionProperties: cpp.Star<UVEditorChannelEditSettings>;
-	@:protected public var SourceChannelProperties: cpp.Star<UVEditorChannelEditTargetProperties>;
-	@:protected public var AddActionProperties: cpp.Star<UVEditorChannelEditAddProperties>;
-	@:protected public var CopyActionProperties: cpp.Star<UVEditorChannelEditCopyProperties>;
-	@:protected public var DeleteActionProperties: cpp.Star<UVEditorChannelEditDeleteProperties>;
-	@:protected public var EmitChangeAPI: cpp.Star<UVToolEmitChangeAPI>;
+	@:protected public var Targets: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var ToolActions: ucpp.Ptr<UVEditorChannelEditToolActionPropertySet>;
+	@:protected public var ActionSelectionProperties: ucpp.Ptr<UVEditorChannelEditSettings>;
+	@:protected public var SourceChannelProperties: ucpp.Ptr<UVEditorChannelEditTargetProperties>;
+	@:protected public var AddActionProperties: ucpp.Ptr<UVEditorChannelEditAddProperties>;
+	@:protected public var CopyActionProperties: ucpp.Ptr<UVEditorChannelEditCopyProperties>;
+	@:protected public var DeleteActionProperties: ucpp.Ptr<UVEditorChannelEditDeleteProperties>;
+	@:protected public var EmitChangeAPI: ucpp.Ptr<UVToolEmitChangeAPI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstUVEditorChannelEditTool(UVEditorChannelEditTool) from UVEditorChan
 @:forward
 @:nativeGen
 @:native("UVEditorChannelEditTool*")
-abstract UVEditorChannelEditToolPtr(cpp.Star<UVEditorChannelEditTool>) from cpp.Star<UVEditorChannelEditTool> to cpp.Star<UVEditorChannelEditTool>{
+abstract UVEditorChannelEditToolPtr(ucpp.Ptr<UVEditorChannelEditTool>) from ucpp.Ptr<UVEditorChannelEditTool> to ucpp.Ptr<UVEditorChannelEditTool>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorChannelEditTool): UVEditorChannelEditToolPtr {
 		return untyped __cpp__("&({0})", v);

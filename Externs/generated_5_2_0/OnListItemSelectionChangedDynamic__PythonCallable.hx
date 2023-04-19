@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnListItemSelectionChangedDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnListItemSelectionChangedDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnListItemSelectionChangedDynamic__PythonCallable(OnListItemSelect
 @:forward
 @:nativeGen
 @:native("OnListItemSelectionChangedDynamic__PythonCallable*")
-abstract OnListItemSelectionChangedDynamic__PythonCallablePtr(cpp.Star<OnListItemSelectionChangedDynamic__PythonCallable>) from cpp.Star<OnListItemSelectionChangedDynamic__PythonCallable> to cpp.Star<OnListItemSelectionChangedDynamic__PythonCallable>{
+abstract OnListItemSelectionChangedDynamic__PythonCallablePtr(ucpp.Ptr<OnListItemSelectionChangedDynamic__PythonCallable>) from ucpp.Ptr<OnListItemSelectionChangedDynamic__PythonCallable> to ucpp.Ptr<OnListItemSelectionChangedDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnListItemSelectionChangedDynamic__PythonCallable): OnListItemSelectionChangedDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

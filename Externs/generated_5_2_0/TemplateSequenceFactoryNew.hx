@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTemplateSequenceFactoryNew")
 @:include("Factories/TemplateSequenceFactoryNew.h")
-@:structAccess
+@:valueType
 extern class TemplateSequenceFactoryNew extends Factory {
 	public var BoundActorClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTemplateSequenceFactoryNew(TemplateSequenceFactoryNew) from Templa
 @:forward
 @:nativeGen
 @:native("TemplateSequenceFactoryNew*")
-abstract TemplateSequenceFactoryNewPtr(cpp.Star<TemplateSequenceFactoryNew>) from cpp.Star<TemplateSequenceFactoryNew> to cpp.Star<TemplateSequenceFactoryNew>{
+abstract TemplateSequenceFactoryNewPtr(ucpp.Ptr<TemplateSequenceFactoryNew>) from ucpp.Ptr<TemplateSequenceFactoryNew> to ucpp.Ptr<TemplateSequenceFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequenceFactoryNew): TemplateSequenceFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

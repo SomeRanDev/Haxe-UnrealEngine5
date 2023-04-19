@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraPythonModule")
 @:include("UpgradeNiagaraScriptResults.h")
-@:structAccess
+@:valueType
 extern class NiagaraPythonModule extends Object {
-	private var ModuleItem: cpp.Star<NiagaraStackModuleItem>;
+	private var ModuleItem: ucpp.Ptr<NiagaraStackModuleItem>;
 
-	public function GetObject(): cpp.Star<NiagaraStackModuleItem>;
+	public function GetObject(): ucpp.Ptr<NiagaraStackModuleItem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetObject)
@@ -20,7 +20,7 @@ abstract ConstNiagaraPythonModule(NiagaraPythonModule) from NiagaraPythonModule 
 @:forward
 @:nativeGen
 @:native("NiagaraPythonModule*")
-abstract NiagaraPythonModulePtr(cpp.Star<NiagaraPythonModule>) from cpp.Star<NiagaraPythonModule> to cpp.Star<NiagaraPythonModule>{
+abstract NiagaraPythonModulePtr(ucpp.Ptr<NiagaraPythonModule>) from ucpp.Ptr<NiagaraPythonModule> to ucpp.Ptr<NiagaraPythonModule>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPythonModule): NiagaraPythonModulePtr {
 		return untyped __cpp__("&({0})", v);

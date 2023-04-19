@@ -3,16 +3,16 @@ package ue;
 
 @:native("UGroundTruthData")
 @:include("GroundTruthData.h")
-@:structAccess
+@:valueType
 extern class GroundTruthData extends Object {
 	public var bResetGroundTruth: Bool;
-	@:protected public var ObjectData: cpp.Star<Object>;
+	@:protected public var ObjectData: ucpp.Ptr<Object>;
 
-	public function SaveObject(GroundTruth: cpp.Star<Object>): Void;
-	public function LoadObject(): cpp.Star<Object>;
+	public function SaveObject(GroundTruth: ucpp.Ptr<Object>): Void;
+	public function LoadObject(): ucpp.Ptr<Object>;
 	public function CanModify(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(CanModify)
@@ -25,7 +25,7 @@ abstract ConstGroundTruthData(GroundTruthData) from GroundTruthData {
 @:forward
 @:nativeGen
 @:native("GroundTruthData*")
-abstract GroundTruthDataPtr(cpp.Star<GroundTruthData>) from cpp.Star<GroundTruthData> to cpp.Star<GroundTruthData>{
+abstract GroundTruthDataPtr(ucpp.Ptr<GroundTruthData>) from ucpp.Ptr<GroundTruthData> to ucpp.Ptr<GroundTruthData>{
 	@:from
 	public static extern inline function fromValue(v: GroundTruthData): GroundTruthDataPtr {
 		return untyped __cpp__("&({0})", v);

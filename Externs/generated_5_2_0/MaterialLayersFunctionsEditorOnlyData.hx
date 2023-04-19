@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMaterialLayersFunctionsEditorOnlyData")
 @:include("Materials/MaterialLayersFunctions.h")
-@:structAccess
+@:valueType
 extern class MaterialLayersFunctionsEditorOnlyData {
 	public var LayerStates: TArray<Bool>;
 	public var LayerNames: TArray<FText>;

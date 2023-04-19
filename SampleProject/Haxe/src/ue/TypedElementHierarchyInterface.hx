@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UTypedElementHierarchyInterface")
-@:structAccess
+@:valueType
 extern class TypedElementHierarchyInterface extends Interface {
-	public function GetParentElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, bAllowCreate: Bool): ScriptTypedElementHandle;
-	public function GetChildElements(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, OutElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>, bAllowCreate: Bool): Void;
+	public function GetParentElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, bAllowCreate: Bool): ScriptTypedElementHandle;
+	public function GetChildElements(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, OutElementHandles: ucpp.Ref<TArray<ScriptTypedElementHandle>>, bAllowCreate: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTypedElementHierarchyInterface(TypedElementHierarchyInterface) fro
 @:forward
 @:nativeGen
 @:native("TypedElementHierarchyInterface*")
-abstract TypedElementHierarchyInterfacePtr(cpp.Star<TypedElementHierarchyInterface>) from cpp.Star<TypedElementHierarchyInterface> to cpp.Star<TypedElementHierarchyInterface>{
+abstract TypedElementHierarchyInterfacePtr(ucpp.Ptr<TypedElementHierarchyInterface>) from ucpp.Ptr<TypedElementHierarchyInterface> to ucpp.Ptr<TypedElementHierarchyInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementHierarchyInterface): TypedElementHierarchyInterfacePtr {
 		return untyped __cpp__("&({0})", v);

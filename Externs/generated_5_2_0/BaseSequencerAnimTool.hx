@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UBaseSequencerAnimTool")
-@:structAccess
+@:valueType
 extern class BaseSequencerAnimTool extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstBaseSequencerAnimTool(BaseSequencerAnimTool) from BaseSequencerAni
 @:forward
 @:nativeGen
 @:native("BaseSequencerAnimTool*")
-abstract BaseSequencerAnimToolPtr(cpp.Star<BaseSequencerAnimTool>) from cpp.Star<BaseSequencerAnimTool> to cpp.Star<BaseSequencerAnimTool>{
+abstract BaseSequencerAnimToolPtr(ucpp.Ptr<BaseSequencerAnimTool>) from ucpp.Ptr<BaseSequencerAnimTool> to ucpp.Ptr<BaseSequencerAnimTool>{
 	@:from
 	public static extern inline function fromValue(v: BaseSequencerAnimTool): BaseSequencerAnimToolPtr {
 		return untyped __cpp__("&({0})", v);

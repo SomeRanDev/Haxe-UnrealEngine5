@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLinkedAnimLayerInstanceData")
 @:include("Animation/AnimSubsystem_SharedLinkedAnimLayers.h")
-@:structAccess
+@:valueType
 extern class LinkedAnimLayerInstanceData {
-	public var Instance: cpp.Star<AnimInstance>;
+	public var Instance: ucpp.Ptr<AnimInstance>;
 	private var LinkedFunctions: TMap<FName, TWeakObjectPtr<AnimInstance>>;
 
 	@:native("FLinkedAnimLayerInstanceData") public function new();
-	@:native("FLinkedAnimLayerInstanceData") public static function make(Instance: cpp.Star<AnimInstance>, LinkedFunctions: TMap<FName, TWeakObjectPtr<AnimInstance>>): LinkedAnimLayerInstanceData ;
+	@:native("FLinkedAnimLayerInstanceData") public static function make(Instance: ucpp.Ptr<AnimInstance>, LinkedFunctions: TMap<FName, TWeakObjectPtr<AnimInstance>>): LinkedAnimLayerInstanceData ;
 }

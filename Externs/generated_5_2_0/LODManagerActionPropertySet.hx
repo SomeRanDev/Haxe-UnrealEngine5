@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULODManagerActionPropertySet")
 @:include("Tools/LODManagerTool.h")
-@:structAccess
+@:valueType
 extern class LODManagerActionPropertySet extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLODManagerActionPropertySet(LODManagerActionPropertySet) from LODM
 @:forward
 @:nativeGen
 @:native("LODManagerActionPropertySet*")
-abstract LODManagerActionPropertySetPtr(cpp.Star<LODManagerActionPropertySet>) from cpp.Star<LODManagerActionPropertySet> to cpp.Star<LODManagerActionPropertySet>{
+abstract LODManagerActionPropertySetPtr(ucpp.Ptr<LODManagerActionPropertySet>) from ucpp.Ptr<LODManagerActionPropertySet> to ucpp.Ptr<LODManagerActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: LODManagerActionPropertySet): LODManagerActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

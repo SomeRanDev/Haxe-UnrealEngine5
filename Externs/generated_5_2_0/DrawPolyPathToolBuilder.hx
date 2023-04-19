@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDrawPolyPathToolBuilder")
 @:include("DrawPolyPathTool.h")
-@:structAccess
+@:valueType
 extern class DrawPolyPathToolBuilder extends MeshSurfacePointToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDrawPolyPathToolBuilder(DrawPolyPathToolBuilder) from DrawPolyPath
 @:forward
 @:nativeGen
 @:native("DrawPolyPathToolBuilder*")
-abstract DrawPolyPathToolBuilderPtr(cpp.Star<DrawPolyPathToolBuilder>) from cpp.Star<DrawPolyPathToolBuilder> to cpp.Star<DrawPolyPathToolBuilder>{
+abstract DrawPolyPathToolBuilderPtr(ucpp.Ptr<DrawPolyPathToolBuilder>) from ucpp.Ptr<DrawPolyPathToolBuilder> to ucpp.Ptr<DrawPolyPathToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: DrawPolyPathToolBuilder): DrawPolyPathToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

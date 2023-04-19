@@ -3,13 +3,13 @@ package ue;
 
 @:native("AWorldPartitionHLOD")
 @:include("WorldPartition/HLOD/HLODActor.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionHLOD extends Actor {
-	private var LODLevel: cpp.UInt32;
+	private var LODLevel: ucpp.num.UInt32;
 	private var bRequireWarmup: Bool;
-	private var SourceCellName: FName;
+	private var SourceCellGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstWorldPartitionHLOD(WorldPartitionHLOD) from WorldPartitionHLOD {
 @:forward
 @:nativeGen
 @:native("WorldPartitionHLOD*")
-abstract WorldPartitionHLODPtr(cpp.Star<WorldPartitionHLOD>) from cpp.Star<WorldPartitionHLOD> to cpp.Star<WorldPartitionHLOD>{
+abstract WorldPartitionHLODPtr(ucpp.Ptr<WorldPartitionHLOD>) from ucpp.Ptr<WorldPartitionHLOD> to ucpp.Ptr<WorldPartitionHLOD>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionHLOD): WorldPartitionHLODPtr {
 		return untyped __cpp__("&({0})", v);

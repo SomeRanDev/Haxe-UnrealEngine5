@@ -3,34 +3,34 @@ package ue;
 
 @:native("UInterchangeSkeletalMeshFactoryNode")
 @:include("InterchangeSkeletalMeshFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSkeletalMeshFactoryNode extends InterchangeMeshFactoryNode {
-	public function SetCustomUseHighPrecisionSkinWeights(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomThresholdUV(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomThresholdTangentNormal(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomThresholdPosition(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
-	public function SetCustomPhysicAssetSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
-	public function SetCustomMorphThresholdPosition(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomImportMorphTarget(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomImportContentType(AttributeValue: cpp.Reference<EInterchangeSkeletalMeshContentType>): Bool;
-	public function SetCustomCreatePhysicsAsset(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomBoneInfluenceLimit(AttributeValue: cpp.Reference<cpp.Int32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomUseHighPrecisionSkinWeights(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomThresholdUV(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomThresholdTangentNormal(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomThresholdPosition(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomSkeletonSoftObjectPath(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
+	public function SetCustomPhysicAssetSoftObjectPath(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
+	public function SetCustomMorphThresholdPosition(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomImportMorphTarget(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomImportContentType(AttributeValue: ucpp.Ref<EInterchangeSkeletalMeshContentType>): Bool;
+	public function SetCustomCreatePhysicsAsset(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomBoneInfluenceLimit(AttributeValue: ucpp.Ref<ucpp.num.Int32>, bAddApplyDelegate: Bool): Bool;
 	public function InitializeSkeletalMeshNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetObjectClass(): cpp.Star<Class>;
-	public function GetCustomUseHighPrecisionSkinWeights(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomThresholdUV(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomThresholdTangentNormal(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomThresholdPosition(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetCustomPhysicAssetSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetCustomMorphThresholdPosition(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomImportMorphTarget(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomImportContentType(AttributeValue: cpp.Reference<EInterchangeSkeletalMeshContentType>): Bool;
-	public function GetCustomCreatePhysicsAsset(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomBoneInfluenceLimit(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
+	public function GetObjectClass(): ucpp.Ptr<Class>;
+	public function GetCustomUseHighPrecisionSkinWeights(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomThresholdUV(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomThresholdTangentNormal(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomThresholdPosition(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomSkeletonSoftObjectPath(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetCustomPhysicAssetSoftObjectPath(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetCustomMorphThresholdPosition(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomImportMorphTarget(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomImportContentType(AttributeValue: ucpp.Ref<EInterchangeSkeletalMeshContentType>): Bool;
+	public function GetCustomCreatePhysicsAsset(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomBoneInfluenceLimit(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -45,7 +45,7 @@ abstract ConstInterchangeSkeletalMeshFactoryNode(InterchangeSkeletalMeshFactoryN
 @:forward
 @:nativeGen
 @:native("InterchangeSkeletalMeshFactoryNode*")
-abstract InterchangeSkeletalMeshFactoryNodePtr(cpp.Star<InterchangeSkeletalMeshFactoryNode>) from cpp.Star<InterchangeSkeletalMeshFactoryNode> to cpp.Star<InterchangeSkeletalMeshFactoryNode>{
+abstract InterchangeSkeletalMeshFactoryNodePtr(ucpp.Ptr<InterchangeSkeletalMeshFactoryNode>) from ucpp.Ptr<InterchangeSkeletalMeshFactoryNode> to ucpp.Ptr<InterchangeSkeletalMeshFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSkeletalMeshFactoryNode): InterchangeSkeletalMeshFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

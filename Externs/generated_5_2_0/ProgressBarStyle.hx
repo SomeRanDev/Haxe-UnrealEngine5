@@ -3,7 +3,7 @@ package ue;
 
 @:native("FProgressBarStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class ProgressBarStyle extends SlateWidgetStyle {
 	public var BackgroundImage: SlateBrush;
 	public var FillImage: SlateBrush;

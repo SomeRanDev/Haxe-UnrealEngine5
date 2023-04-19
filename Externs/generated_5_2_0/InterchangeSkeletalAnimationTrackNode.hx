@@ -3,28 +3,28 @@ package ue;
 
 @:native("UInterchangeSkeletalAnimationTrackNode")
 @:include("InterchangeAnimationTrackSetNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSkeletalAnimationTrackNode extends InterchangeAnimationTrackBaseNode {
 	public function SetCustomSkeletonNodeUid(AttributeValue: FString): Bool;
 	public function SetCustomSkeletalMeshNodeUid(AttributeValue: FString): Bool;
-	public function SetCustomAnimationStopTime(StopTime: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomAnimationStartTime(StartTime: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomAnimationSampleRate(SampleRate: cpp.Reference<cpp.Float64>): Bool;
+	public function SetCustomAnimationStopTime(StopTime: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomAnimationStartTime(StartTime: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomAnimationSampleRate(SampleRate: ucpp.Ref<ucpp.num.Float64>): Bool;
 	public function SetAnimationPayloadKeyForSceneNodeUid(SceneNodeUid: FString, PayloadKey: FString): Bool;
 	public function SetAnimationPayloadKeyForMorphTargetNodeUid(MorphTargetNodeUid: FString, PayloadKey: FString): Bool;
 	public function RemoveAnimationPayloadKeyForSceneNodeUid(SceneNodeUid: FString): Bool;
 	public function RemoveAnimationPayloadKeyForMorphTargetNodeUid(MorphTargetNodeUid: FString): Bool;
-	public function GetSceneNodeAnimationPayloadKeys(OutSceneNodeAnimationPayloadKeys: cpp.Reference<TMap<FString, FString>>): Void;
-	public function GetMorphTargetNodeAnimationPayloadKeys(OutMorphTargetNodeAnimationPayloads: cpp.Reference<TMap<FString, FString>>): Void;
-	public function GetCustomSkeletonNodeUid(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomSkeletalMeshNodeUid(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomAnimationStopTime(StopTime: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomAnimationStartTime(StartTime: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomAnimationSampleRate(SampleRate: cpp.Reference<cpp.Float64>): Bool;
-	public function GetAnimationPayloadKeyFromSceneNodeUid(SceneNodeUid: FString, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function GetAnimationPayloadKeyFromMorphTargetNodeUid(MorphTargetNodeUid: FString, OutPayloadKey: cpp.Reference<FString>): Bool;
+	public function GetSceneNodeAnimationPayloadKeys(OutSceneNodeAnimationPayloadKeys: ucpp.Ref<TMap<FString, FString>>): Void;
+	public function GetMorphTargetNodeAnimationPayloadKeys(OutMorphTargetNodeAnimationPayloads: ucpp.Ref<TMap<FString, FString>>): Void;
+	public function GetCustomSkeletonNodeUid(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomSkeletalMeshNodeUid(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomAnimationStopTime(StopTime: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomAnimationStartTime(StartTime: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomAnimationSampleRate(SampleRate: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetAnimationPayloadKeyFromSceneNodeUid(SceneNodeUid: FString, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetAnimationPayloadKeyFromMorphTargetNodeUid(MorphTargetNodeUid: FString, OutPayloadKey: ucpp.Ref<FString>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSceneNodeAnimationPayloadKeys, GetMorphTargetNodeAnimationPayloadKeys, GetCustomSkeletonNodeUid, GetCustomSkeletalMeshNodeUid, GetCustomAnimationStopTime, GetCustomAnimationStartTime, GetCustomAnimationSampleRate, GetAnimationPayloadKeyFromSceneNodeUid, GetAnimationPayloadKeyFromMorphTargetNodeUid)
@@ -35,7 +35,7 @@ abstract ConstInterchangeSkeletalAnimationTrackNode(InterchangeSkeletalAnimation
 @:forward
 @:nativeGen
 @:native("InterchangeSkeletalAnimationTrackNode*")
-abstract InterchangeSkeletalAnimationTrackNodePtr(cpp.Star<InterchangeSkeletalAnimationTrackNode>) from cpp.Star<InterchangeSkeletalAnimationTrackNode> to cpp.Star<InterchangeSkeletalAnimationTrackNode>{
+abstract InterchangeSkeletalAnimationTrackNodePtr(ucpp.Ptr<InterchangeSkeletalAnimationTrackNode>) from ucpp.Ptr<InterchangeSkeletalAnimationTrackNode> to ucpp.Ptr<InterchangeSkeletalAnimationTrackNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSkeletalAnimationTrackNode): InterchangeSkeletalAnimationTrackNodePtr {
 		return untyped __cpp__("&({0})", v);

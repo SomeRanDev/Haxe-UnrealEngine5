@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFixupNeedsLoadForEditorGameCommandlet")
 @:include("Commandlets/FixupNeedsLoadForEditorGameCommandlet.h")
-@:structAccess
+@:valueType
 extern class FixupNeedsLoadForEditorGameCommandlet extends ResavePackagesCommandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFixupNeedsLoadForEditorGameCommandlet(FixupNeedsLoadForEditorGameC
 @:forward
 @:nativeGen
 @:native("FixupNeedsLoadForEditorGameCommandlet*")
-abstract FixupNeedsLoadForEditorGameCommandletPtr(cpp.Star<FixupNeedsLoadForEditorGameCommandlet>) from cpp.Star<FixupNeedsLoadForEditorGameCommandlet> to cpp.Star<FixupNeedsLoadForEditorGameCommandlet>{
+abstract FixupNeedsLoadForEditorGameCommandletPtr(ucpp.Ptr<FixupNeedsLoadForEditorGameCommandlet>) from ucpp.Ptr<FixupNeedsLoadForEditorGameCommandlet> to ucpp.Ptr<FixupNeedsLoadForEditorGameCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: FixupNeedsLoadForEditorGameCommandlet): FixupNeedsLoadForEditorGameCommandletPtr {
 		return untyped __cpp__("&({0})", v);

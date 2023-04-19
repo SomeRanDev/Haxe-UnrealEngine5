@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_MultiWayBlend")
 @:include("AnimGraphNode_MultiWayBlend.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_MultiWayBlend extends AnimGraphNode_Base {
 	public var Node: AnimNode_MultiWayBlend;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_MultiWayBlend(AnimGraphNode_MultiWayBlend) from Anim
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_MultiWayBlend*")
-abstract AnimGraphNode_MultiWayBlendPtr(cpp.Star<AnimGraphNode_MultiWayBlend>) from cpp.Star<AnimGraphNode_MultiWayBlend> to cpp.Star<AnimGraphNode_MultiWayBlend>{
+abstract AnimGraphNode_MultiWayBlendPtr(ucpp.Ptr<AnimGraphNode_MultiWayBlend>) from ucpp.Ptr<AnimGraphNode_MultiWayBlend> to ucpp.Ptr<AnimGraphNode_MultiWayBlend>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_MultiWayBlend): AnimGraphNode_MultiWayBlendPtr {
 		return untyped __cpp__("&({0})", v);

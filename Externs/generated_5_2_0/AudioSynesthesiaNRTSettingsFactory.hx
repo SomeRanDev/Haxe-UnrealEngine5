@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAudioSynesthesiaNRTSettingsFactory")
 @:include("AudioSynesthesiaNRTSettingsFactory.h")
-@:structAccess
+@:valueType
 extern class AudioSynesthesiaNRTSettingsFactory extends Factory {
 	public var AudioSynesthesiaNRTSettingsClass: TSubclassOf<AudioSynesthesiaNRTSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAudioSynesthesiaNRTSettingsFactory(AudioSynesthesiaNRTSettingsFact
 @:forward
 @:nativeGen
 @:native("AudioSynesthesiaNRTSettingsFactory*")
-abstract AudioSynesthesiaNRTSettingsFactoryPtr(cpp.Star<AudioSynesthesiaNRTSettingsFactory>) from cpp.Star<AudioSynesthesiaNRTSettingsFactory> to cpp.Star<AudioSynesthesiaNRTSettingsFactory>{
+abstract AudioSynesthesiaNRTSettingsFactoryPtr(ucpp.Ptr<AudioSynesthesiaNRTSettingsFactory>) from ucpp.Ptr<AudioSynesthesiaNRTSettingsFactory> to ucpp.Ptr<AudioSynesthesiaNRTSettingsFactory>{
 	@:from
 	public static extern inline function fromValue(v: AudioSynesthesiaNRTSettingsFactory): AudioSynesthesiaNRTSettingsFactoryPtr {
 		return untyped __cpp__("&({0})", v);

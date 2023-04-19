@@ -3,31 +3,31 @@ package ue;
 
 @:native("UPropertyPathTestObject")
 @:include("Tests/PropertyPathHelpersTest.h")
-@:structAccess
+@:valueType
 extern class PropertyPathTestObject extends Object {
 	public var Bool: Bool;
 	public var EnumOne: TEnumAsByte<EPropertyPathTestEnum>;
 	public var EnumTwo: TEnumAsByte<EPropertyPathTestEnum>;
 	public var EnumThree: TEnumAsByte<EPropertyPathTestEnum>;
 	public var EnumFour: TEnumAsByte<EPropertyPathTestEnum>;
-	public var Integer: cpp.Int32;
+	public var Integer: ucpp.num.Int32;
 	public var String: FString;
-	public var Float: cpp.Float32;
+	public var Float: ucpp.num.Float32;
 	public var Struct: PropertyPathTestStruct;
 	public var StructRef: PropertyPathTestStruct;
 	public var StructConstRef: PropertyPathTestStruct;
-	public var InnerObject: cpp.Star<PropertyPathTestObject>;
+	public var InnerObject: ucpp.Ptr<PropertyPathTestObject>;
 
 	public function SetStructRef(InStruct: PropertyPathTestStruct): Void;
 	public function SetStructConstRef(InStruct: PropertyPathTestStruct): Void;
 	public function SetStruct(InStruct: PropertyPathTestStruct): Void;
-	public function SetFloat(InFloat: cpp.Float32): Void;
+	public function SetFloat(InFloat: ucpp.num.Float32): Void;
 	public function GetStructRef(): PropertyPathTestStruct;
 	public function GetStructConstRef(): PropertyPathTestStruct;
 	public function GetStruct(): PropertyPathTestStruct;
-	public function GetFloat(): cpp.Float32;
+	public function GetFloat(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetStructRef, GetStructConstRef, GetStruct, GetFloat)
@@ -43,26 +43,26 @@ abstract ConstPropertyPathTestObject(PropertyPathTestObject) from PropertyPathTe
 	public inline extern function get_EnumThree(): TEnumAsByte<EPropertyPathTestEnum> return this.EnumThree;
 	public extern var EnumFour(get, never): TEnumAsByte<EPropertyPathTestEnum>;
 	public inline extern function get_EnumFour(): TEnumAsByte<EPropertyPathTestEnum> return this.EnumFour;
-	public extern var Integer(get, never): cpp.Int32;
-	public inline extern function get_Integer(): cpp.Int32 return this.Integer;
+	public extern var Integer(get, never): ucpp.num.Int32;
+	public inline extern function get_Integer(): ucpp.num.Int32 return this.Integer;
 	public extern var String(get, never): FString;
 	public inline extern function get_String(): FString return this.String;
-	public extern var Float(get, never): cpp.Float32;
-	public inline extern function get_Float(): cpp.Float32 return this.Float;
+	public extern var Float(get, never): ucpp.num.Float32;
+	public inline extern function get_Float(): ucpp.num.Float32 return this.Float;
 	public extern var Struct(get, never): PropertyPathTestStruct;
 	public inline extern function get_Struct(): PropertyPathTestStruct return this.Struct;
 	public extern var StructRef(get, never): PropertyPathTestStruct;
 	public inline extern function get_StructRef(): PropertyPathTestStruct return this.StructRef;
 	public extern var StructConstRef(get, never): PropertyPathTestStruct;
 	public inline extern function get_StructConstRef(): PropertyPathTestStruct return this.StructConstRef;
-	public extern var InnerObject(get, never): cpp.Star<PropertyPathTestObject.ConstPropertyPathTestObject>;
-	public inline extern function get_InnerObject(): cpp.Star<PropertyPathTestObject.ConstPropertyPathTestObject> return this.InnerObject;
+	public extern var InnerObject(get, never): ucpp.Ptr<PropertyPathTestObject.ConstPropertyPathTestObject>;
+	public inline extern function get_InnerObject(): ucpp.Ptr<PropertyPathTestObject.ConstPropertyPathTestObject> return this.InnerObject;
 }
 
 @:forward
 @:nativeGen
 @:native("PropertyPathTestObject*")
-abstract PropertyPathTestObjectPtr(cpp.Star<PropertyPathTestObject>) from cpp.Star<PropertyPathTestObject> to cpp.Star<PropertyPathTestObject>{
+abstract PropertyPathTestObjectPtr(ucpp.Ptr<PropertyPathTestObject>) from ucpp.Ptr<PropertyPathTestObject> to ucpp.Ptr<PropertyPathTestObject>{
 	@:from
 	public static extern inline function fromValue(v: PropertyPathTestObject): PropertyPathTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

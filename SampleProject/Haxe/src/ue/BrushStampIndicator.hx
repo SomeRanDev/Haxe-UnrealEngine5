@@ -3,25 +3,25 @@ package ue;
 
 @:native("UBrushStampIndicator")
 @:include("BaseGizmos/BrushStampIndicator.h")
-@:structAccess
+@:valueType
 extern class BrushStampIndicator extends InteractiveGizmo {
 	public var bVisible: Bool;
-	public var BrushRadius: cpp.Float32;
-	public var BrushFalloff: cpp.Float32;
+	public var BrushRadius: ucpp.num.Float32;
+	public var BrushFalloff: ucpp.num.Float32;
 	public var BrushPosition: Vector;
 	public var BrushNormal: Vector;
 	public var bDrawIndicatorLines: Bool;
 	public var bDrawRadiusCircle: Bool;
-	public var SampleStepCount: cpp.Int32;
+	public var SampleStepCount: ucpp.num.Int32;
 	public var LineColor: LinearColor;
-	public var LineThickness: cpp.Float32;
+	public var LineThickness: ucpp.num.Float32;
 	public var bDepthTested: Bool;
 	public var bDrawSecondaryLines: Bool;
-	public var SecondaryLineThickness: cpp.Float32;
+	public var SecondaryLineThickness: ucpp.num.Float32;
 	public var SecondaryLineColor: LinearColor;
-	public var AttachedComponent: cpp.Star<PrimitiveComp>;
+	public var AttachedComponent: ucpp.Ptr<PrimitiveComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,10 +29,10 @@ extern class BrushStampIndicator extends InteractiveGizmo {
 abstract ConstBrushStampIndicator(BrushStampIndicator) from BrushStampIndicator {
 	public extern var bVisible(get, never): Bool;
 	public inline extern function get_bVisible(): Bool return this.bVisible;
-	public extern var BrushRadius(get, never): cpp.Float32;
-	public inline extern function get_BrushRadius(): cpp.Float32 return this.BrushRadius;
-	public extern var BrushFalloff(get, never): cpp.Float32;
-	public inline extern function get_BrushFalloff(): cpp.Float32 return this.BrushFalloff;
+	public extern var BrushRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushRadius(): ucpp.num.Float32 return this.BrushRadius;
+	public extern var BrushFalloff(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushFalloff(): ucpp.num.Float32 return this.BrushFalloff;
 	public extern var BrushPosition(get, never): Vector;
 	public inline extern function get_BrushPosition(): Vector return this.BrushPosition;
 	public extern var BrushNormal(get, never): Vector;
@@ -41,28 +41,28 @@ abstract ConstBrushStampIndicator(BrushStampIndicator) from BrushStampIndicator 
 	public inline extern function get_bDrawIndicatorLines(): Bool return this.bDrawIndicatorLines;
 	public extern var bDrawRadiusCircle(get, never): Bool;
 	public inline extern function get_bDrawRadiusCircle(): Bool return this.bDrawRadiusCircle;
-	public extern var SampleStepCount(get, never): cpp.Int32;
-	public inline extern function get_SampleStepCount(): cpp.Int32 return this.SampleStepCount;
+	public extern var SampleStepCount(get, never): ucpp.num.Int32;
+	public inline extern function get_SampleStepCount(): ucpp.num.Int32 return this.SampleStepCount;
 	public extern var LineColor(get, never): LinearColor;
 	public inline extern function get_LineColor(): LinearColor return this.LineColor;
-	public extern var LineThickness(get, never): cpp.Float32;
-	public inline extern function get_LineThickness(): cpp.Float32 return this.LineThickness;
+	public extern var LineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_LineThickness(): ucpp.num.Float32 return this.LineThickness;
 	public extern var bDepthTested(get, never): Bool;
 	public inline extern function get_bDepthTested(): Bool return this.bDepthTested;
 	public extern var bDrawSecondaryLines(get, never): Bool;
 	public inline extern function get_bDrawSecondaryLines(): Bool return this.bDrawSecondaryLines;
-	public extern var SecondaryLineThickness(get, never): cpp.Float32;
-	public inline extern function get_SecondaryLineThickness(): cpp.Float32 return this.SecondaryLineThickness;
+	public extern var SecondaryLineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_SecondaryLineThickness(): ucpp.num.Float32 return this.SecondaryLineThickness;
 	public extern var SecondaryLineColor(get, never): LinearColor;
 	public inline extern function get_SecondaryLineColor(): LinearColor return this.SecondaryLineColor;
-	public extern var AttachedComponent(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
-	public inline extern function get_AttachedComponent(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.AttachedComponent;
+	public extern var AttachedComponent(get, never): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>;
+	public inline extern function get_AttachedComponent(): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp> return this.AttachedComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("BrushStampIndicator*")
-abstract BrushStampIndicatorPtr(cpp.Star<BrushStampIndicator>) from cpp.Star<BrushStampIndicator> to cpp.Star<BrushStampIndicator>{
+abstract BrushStampIndicatorPtr(ucpp.Ptr<BrushStampIndicator>) from ucpp.Ptr<BrushStampIndicator> to ucpp.Ptr<BrushStampIndicator>{
 	@:from
 	public static extern inline function fromValue(v: BrushStampIndicator): BrushStampIndicatorPtr {
 		return untyped __cpp__("&({0})", v);

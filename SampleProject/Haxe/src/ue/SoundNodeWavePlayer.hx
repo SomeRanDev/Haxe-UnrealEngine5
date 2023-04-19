@@ -3,13 +3,13 @@ package ue;
 
 @:native("USoundNodeWavePlayer")
 @:include("Sound/SoundNodeWavePlayer.h")
-@:structAccess
+@:valueType
 extern class SoundNodeWavePlayer extends SoundNodeAssetReferencer {
 	private var SoundWaveAssetPtr: TSoftObjectPtr<SoundWave>;
-	private var SoundWave: cpp.Star<SoundWave>;
+	private var SoundWave: ucpp.Ptr<SoundWave>;
 	public var bLooping: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSoundNodeWavePlayer(SoundNodeWavePlayer) from SoundNodeWavePlayer 
 @:forward
 @:nativeGen
 @:native("SoundNodeWavePlayer*")
-abstract SoundNodeWavePlayerPtr(cpp.Star<SoundNodeWavePlayer>) from cpp.Star<SoundNodeWavePlayer> to cpp.Star<SoundNodeWavePlayer>{
+abstract SoundNodeWavePlayerPtr(ucpp.Ptr<SoundNodeWavePlayer>) from ucpp.Ptr<SoundNodeWavePlayer> to ucpp.Ptr<SoundNodeWavePlayer>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeWavePlayer): SoundNodeWavePlayerPtr {
 		return untyped __cpp__("&({0})", v);

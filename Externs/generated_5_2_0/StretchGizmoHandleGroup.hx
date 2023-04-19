@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStretchGizmoHandleGroup")
 @:include("Gizmo/VIStretchGizmoHandle.h")
-@:structAccess
+@:valueType
 extern class StretchGizmoHandleGroup extends GizmoHandleGroup {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStretchGizmoHandleGroup(StretchGizmoHandleGroup) from StretchGizmo
 @:forward
 @:nativeGen
 @:native("StretchGizmoHandleGroup*")
-abstract StretchGizmoHandleGroupPtr(cpp.Star<StretchGizmoHandleGroup>) from cpp.Star<StretchGizmoHandleGroup> to cpp.Star<StretchGizmoHandleGroup>{
+abstract StretchGizmoHandleGroupPtr(ucpp.Ptr<StretchGizmoHandleGroup>) from ucpp.Ptr<StretchGizmoHandleGroup> to ucpp.Ptr<StretchGizmoHandleGroup>{
 	@:from
 	public static extern inline function fromValue(v: StretchGizmoHandleGroup): StretchGizmoHandleGroupPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,28 +3,28 @@ package ue;
 
 @:native("UNiagaraFunctionLibrary")
 @:include("NiagaraFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class NiagaraFunctionLibrary extends BlueprintFunctionLibrary {
-	public function SpawnSystemAttachedWithParams(SpawnParams: cpp.Reference<FXSystemSpawnParameters>): cpp.Star<NiagaraComp>;
-	public function SpawnSystemAttached(SystemTemplate: cpp.Star<NiagaraSystem>, AttachToComponent: cpp.Star<SceneComp>, AttachPointName: FName, Location: Vector, Rotation: Rotator, LocationType: TEnumAsByte<EAttachLocation>, bAutoDestroy: Bool, bAutoActivate: Bool, PoolingMethod: ENCPoolMethod, bPreCullCheck: Bool): cpp.Star<NiagaraComp>;
-	public function SpawnSystemAtLocationWithParams(SpawnParams: cpp.Reference<FXSystemSpawnParameters>): cpp.Star<NiagaraComp>;
-	public function SpawnSystemAtLocation(WorldContextObject: cpp.Star<Object.ConstObject>, SystemTemplate: cpp.Star<NiagaraSystem>, Location: Vector, Rotation: Rotator, Scale: Vector, bAutoDestroy: Bool, bAutoActivate: Bool, PoolingMethod: ENCPoolMethod, bPreCullCheck: Bool): cpp.Star<NiagaraComp>;
-	public function SetVolumeTextureObject(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, Texture: cpp.Star<VolumeTexture>): Void;
-	public function SetTextureObject(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, Texture: cpp.Star<Texture>): Void;
-	public function SetTexture2DArrayObject(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, Texture: cpp.Star<Texture2DArray>): Void;
-	public function SetSkeletalMeshDataInterfaceSamplingRegions(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, SamplingRegions: cpp.Reference<TArray<FName>>): Void;
-	public function SetSkeletalMeshDataInterfaceFilteredSockets(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, FilteredSockets: cpp.Reference<TArray<FName>>): Void;
-	public function SetSkeletalMeshDataInterfaceFilteredBones(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, FilteredBones: cpp.Reference<TArray<FName>>): Void;
-	public function SetComponentNiagaraGPURayTracedCollisionGroup(WorldContextObject: cpp.Star<Object>, Primitive: cpp.Star<PrimitiveComp>, CollisionGroup: cpp.Int32): Void;
-	public function SetActorNiagaraGPURayTracedCollisionGroup(WorldContextObject: cpp.Star<Object>, Actor: cpp.Star<Actor>, CollisionGroup: cpp.Int32): Void;
-	public function ReleaseNiagaraGPURayTracedCollisionGroup(WorldContextObject: cpp.Star<Object>, CollisionGroup: cpp.Int32): Void;
-	public function OverrideSystemUserVariableStaticMeshComponent(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, StaticMeshComponent: cpp.Star<StaticMeshComp>): Void;
-	public function OverrideSystemUserVariableStaticMesh(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, StaticMesh: cpp.Star<StaticMesh>): Void;
-	public function OverrideSystemUserVariableSkeletalMeshComponent(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FString, SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
-	public function GetNiagaraParameterCollection(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<NiagaraParameterCollection>): cpp.Star<NiagaraParameterCollectionInstance>;
-	public function AcquireNiagaraGPURayTracedCollisionGroup(WorldContextObject: cpp.Star<Object>): cpp.Int32;
+	public function SpawnSystemAttachedWithParams(SpawnParams: ucpp.Ref<FXSystemSpawnParameters>): ucpp.Ptr<NiagaraComp>;
+	public function SpawnSystemAttached(SystemTemplate: ucpp.Ptr<NiagaraSystem>, AttachToComponent: ucpp.Ptr<SceneComp>, AttachPointName: FName, Location: Vector, Rotation: Rotator, LocationType: TEnumAsByte<EAttachLocation>, bAutoDestroy: Bool, bAutoActivate: Bool, PoolingMethod: ENCPoolMethod, bPreCullCheck: Bool): ucpp.Ptr<NiagaraComp>;
+	public function SpawnSystemAtLocationWithParams(SpawnParams: ucpp.Ref<FXSystemSpawnParameters>): ucpp.Ptr<NiagaraComp>;
+	public function SpawnSystemAtLocation(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SystemTemplate: ucpp.Ptr<NiagaraSystem>, Location: Vector, Rotation: Rotator, Scale: Vector, bAutoDestroy: Bool, bAutoActivate: Bool, PoolingMethod: ENCPoolMethod, bPreCullCheck: Bool): ucpp.Ptr<NiagaraComp>;
+	public function SetVolumeTextureObject(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, Texture: ucpp.Ptr<VolumeTexture>): Void;
+	public function SetTextureObject(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, Texture: ucpp.Ptr<Texture>): Void;
+	public function SetTexture2DArrayObject(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, Texture: ucpp.Ptr<Texture2DArray>): Void;
+	public function SetSkeletalMeshDataInterfaceSamplingRegions(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, SamplingRegions: ucpp.Ref<TArray<FName>>): Void;
+	public function SetSkeletalMeshDataInterfaceFilteredSockets(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, FilteredSockets: ucpp.Ref<TArray<FName>>): Void;
+	public function SetSkeletalMeshDataInterfaceFilteredBones(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, FilteredBones: ucpp.Ref<TArray<FName>>): Void;
+	public function SetComponentNiagaraGPURayTracedCollisionGroup(WorldContextObject: ucpp.Ptr<Object>, Primitive: ucpp.Ptr<PrimitiveComp>, CollisionGroup: ucpp.num.Int32): Void;
+	public function SetActorNiagaraGPURayTracedCollisionGroup(WorldContextObject: ucpp.Ptr<Object>, Actor: ucpp.Ptr<Actor>, CollisionGroup: ucpp.num.Int32): Void;
+	public function ReleaseNiagaraGPURayTracedCollisionGroup(WorldContextObject: ucpp.Ptr<Object>, CollisionGroup: ucpp.num.Int32): Void;
+	public function OverrideSystemUserVariableStaticMeshComponent(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, StaticMeshComponent: ucpp.Ptr<StaticMeshComp>): Void;
+	public function OverrideSystemUserVariableStaticMesh(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, StaticMesh: ucpp.Ptr<StaticMesh>): Void;
+	public function OverrideSystemUserVariableSkeletalMeshComponent(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FString, SkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>): Void;
+	public function GetNiagaraParameterCollection(WorldContextObject: ucpp.Ptr<Object>, Collection: ucpp.Ptr<NiagaraParameterCollection>): ucpp.Ptr<NiagaraParameterCollectionInstance>;
+	public function AcquireNiagaraGPURayTracedCollisionGroup(WorldContextObject: ucpp.Ptr<Object>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstNiagaraFunctionLibrary(NiagaraFunctionLibrary) from NiagaraFunctio
 @:forward
 @:nativeGen
 @:native("NiagaraFunctionLibrary*")
-abstract NiagaraFunctionLibraryPtr(cpp.Star<NiagaraFunctionLibrary>) from cpp.Star<NiagaraFunctionLibrary> to cpp.Star<NiagaraFunctionLibrary>{
+abstract NiagaraFunctionLibraryPtr(ucpp.Ptr<NiagaraFunctionLibrary>) from ucpp.Ptr<NiagaraFunctionLibrary> to ucpp.Ptr<NiagaraFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraFunctionLibrary): NiagaraFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

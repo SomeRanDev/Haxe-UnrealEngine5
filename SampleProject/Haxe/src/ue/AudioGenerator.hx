@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioGenerator")
 @:include("Generators/AudioGenerator.h")
-@:structAccess
+@:valueType
 extern class AudioGenerator extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioGenerator(AudioGenerator) from AudioGenerator {
 @:forward
 @:nativeGen
 @:native("AudioGenerator*")
-abstract AudioGeneratorPtr(cpp.Star<AudioGenerator>) from cpp.Star<AudioGenerator> to cpp.Star<AudioGenerator>{
+abstract AudioGeneratorPtr(ucpp.Ptr<AudioGenerator>) from ucpp.Ptr<AudioGenerator> to ucpp.Ptr<AudioGenerator>{
 	@:from
 	public static extern inline function fromValue(v: AudioGenerator): AudioGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

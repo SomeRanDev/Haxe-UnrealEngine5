@@ -3,10 +3,9 @@ package ue;
 
 @:native("FMaterialLayersFunctions")
 @:include("Materials/MaterialLayersFunctions.h")
-@:structAccess
-extern class MaterialLayersFunctions {
-	public var Layers: TArray<cpp.Star<MaterialFunctionInterface>>;
-	public var Blends: TArray<cpp.Star<MaterialFunctionInterface>>;
+@:valueType
+extern class MaterialLayersFunctions extends MaterialLayersFunctionsRuntimeData {
+	public var EditorOnly: MaterialLayersFunctionsEditorOnlyData;
 
 	@:native("FMaterialLayersFunctions") public function new();
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLandscapeFileResolution")
 @:include("LandscapeFileFormatInterface.h")
-@:structAccess
+@:valueType
 extern class LandscapeFileResolution {
-	public var Width: cpp.UInt32;
-	public var Height: cpp.UInt32;
+	public var Width: ucpp.num.UInt32;
+	public var Height: ucpp.num.UInt32;
 
 	@:native("FLandscapeFileResolution") public function new();
-	@:native("FLandscapeFileResolution") public static function make(Width: cpp.UInt32, Height: cpp.UInt32): LandscapeFileResolution ;
+	@:native("FLandscapeFileResolution") public static function make(Width: ucpp.num.UInt32, Height: ucpp.num.UInt32): LandscapeFileResolution ;
 }

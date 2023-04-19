@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCurveTable")
 @:include("Engine/CurveTable.h")
-@:structAccess
+@:valueType
 extern class CurveTable extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCurveTable(CurveTable) from CurveTable {
 @:forward
 @:nativeGen
 @:native("CurveTable*")
-abstract CurveTablePtr(cpp.Star<CurveTable>) from cpp.Star<CurveTable> to cpp.Star<CurveTable>{
+abstract CurveTablePtr(ucpp.Ptr<CurveTable>) from ucpp.Ptr<CurveTable> to ucpp.Ptr<CurveTable>{
 	@:from
 	public static extern inline function fromValue(v: CurveTable): CurveTablePtr {
 		return untyped __cpp__("&({0})", v);

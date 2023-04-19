@@ -3,10 +3,10 @@ package ue;
 
 @:native("USeamSculptToolBuilder")
 @:include("SeamSculptTool.h")
-@:structAccess
+@:valueType
 extern class SeamSculptToolBuilder extends MeshSurfacePointMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSeamSculptToolBuilder(SeamSculptToolBuilder) from SeamSculptToolBu
 @:forward
 @:nativeGen
 @:native("SeamSculptToolBuilder*")
-abstract SeamSculptToolBuilderPtr(cpp.Star<SeamSculptToolBuilder>) from cpp.Star<SeamSculptToolBuilder> to cpp.Star<SeamSculptToolBuilder>{
+abstract SeamSculptToolBuilderPtr(ucpp.Ptr<SeamSculptToolBuilder>) from ucpp.Ptr<SeamSculptToolBuilder> to ucpp.Ptr<SeamSculptToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SeamSculptToolBuilder): SeamSculptToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

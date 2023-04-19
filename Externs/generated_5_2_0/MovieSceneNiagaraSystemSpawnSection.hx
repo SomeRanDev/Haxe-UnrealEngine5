@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneNiagaraSystemSpawnSection")
 @:include("MovieScene/MovieSceneNiagaraSystemSpawnSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneNiagaraSystemSpawnSection extends MovieSceneSection {
 	private var SectionStartBehavior: ENiagaraSystemSpawnSectionStartBehavior;
 	private var SectionEvaluateBehavior: ENiagaraSystemSpawnSectionEvaluateBehavior;
@@ -11,7 +11,7 @@ extern class MovieSceneNiagaraSystemSpawnSection extends MovieSceneSection {
 	private var AgeUpdateMode: ENiagaraAgeUpdateMode;
 	private var bAllowScalability: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstMovieSceneNiagaraSystemSpawnSection(MovieSceneNiagaraSystemSpawnSe
 @:forward
 @:nativeGen
 @:native("MovieSceneNiagaraSystemSpawnSection*")
-abstract MovieSceneNiagaraSystemSpawnSectionPtr(cpp.Star<MovieSceneNiagaraSystemSpawnSection>) from cpp.Star<MovieSceneNiagaraSystemSpawnSection> to cpp.Star<MovieSceneNiagaraSystemSpawnSection>{
+abstract MovieSceneNiagaraSystemSpawnSectionPtr(ucpp.Ptr<MovieSceneNiagaraSystemSpawnSection>) from ucpp.Ptr<MovieSceneNiagaraSystemSpawnSection> to ucpp.Ptr<MovieSceneNiagaraSystemSpawnSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneNiagaraSystemSpawnSection): MovieSceneNiagaraSystemSpawnSectionPtr {
 		return untyped __cpp__("&({0})", v);

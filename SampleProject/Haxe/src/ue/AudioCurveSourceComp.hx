@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAudioCurveSourceComponent")
 @:include("AudioCurveSourceComponent.h")
-@:structAccess
+@:valueType
 extern class AudioCurveSourceComp extends AudioComp {
 	public var CurveSourceBindingName: FName;
-	public var CurveSyncOffset: cpp.Float32;
+	public var CurveSyncOffset: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class AudioCurveSourceComp extends AudioComp {
 abstract ConstAudioCurveSourceComp(AudioCurveSourceComp) from AudioCurveSourceComp {
 	public extern var CurveSourceBindingName(get, never): FName;
 	public inline extern function get_CurveSourceBindingName(): FName return this.CurveSourceBindingName;
-	public extern var CurveSyncOffset(get, never): cpp.Float32;
-	public inline extern function get_CurveSyncOffset(): cpp.Float32 return this.CurveSyncOffset;
+	public extern var CurveSyncOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_CurveSyncOffset(): ucpp.num.Float32 return this.CurveSyncOffset;
 }
 
 @:forward
 @:nativeGen
 @:native("AudioCurveSourceComp*")
-abstract AudioCurveSourceCompPtr(cpp.Star<AudioCurveSourceComp>) from cpp.Star<AudioCurveSourceComp> to cpp.Star<AudioCurveSourceComp>{
+abstract AudioCurveSourceCompPtr(ucpp.Ptr<AudioCurveSourceComp>) from ucpp.Ptr<AudioCurveSourceComp> to ucpp.Ptr<AudioCurveSourceComp>{
 	@:from
 	public static extern inline function fromValue(v: AudioCurveSourceComp): AudioCurveSourceCompPtr {
 		return untyped __cpp__("&({0})", v);

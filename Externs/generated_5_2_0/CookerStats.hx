@@ -3,14 +3,14 @@ package ue;
 
 @:native("UCookerStats")
 @:include("CookerStats.h")
-@:structAccess
+@:valueType
 extern class CookerStats extends Object {
 	public var Assets: TArray<TWeakObjectPtr<Object>>;
-	public var SizeBefore: cpp.Float32;
-	public var SizeAfter: cpp.Float32;
+	public var SizeBefore: ucpp.num.Float32;
+	public var SizeAfter: ucpp.num.Float32;
 	public var Path: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,10 +18,10 @@ extern class CookerStats extends Object {
 abstract ConstCookerStats(CookerStats) from CookerStats {
 	public extern var Assets(get, never): TArray<TWeakObjectPtr<Object.ConstObject>>;
 	public inline extern function get_Assets(): TArray<TWeakObjectPtr<Object.ConstObject>> return this.Assets;
-	public extern var SizeBefore(get, never): cpp.Float32;
-	public inline extern function get_SizeBefore(): cpp.Float32 return this.SizeBefore;
-	public extern var SizeAfter(get, never): cpp.Float32;
-	public inline extern function get_SizeAfter(): cpp.Float32 return this.SizeAfter;
+	public extern var SizeBefore(get, never): ucpp.num.Float32;
+	public inline extern function get_SizeBefore(): ucpp.num.Float32 return this.SizeBefore;
+	public extern var SizeAfter(get, never): ucpp.num.Float32;
+	public inline extern function get_SizeAfter(): ucpp.num.Float32 return this.SizeAfter;
 	public extern var Path(get, never): FString;
 	public inline extern function get_Path(): FString return this.Path;
 }
@@ -29,7 +29,7 @@ abstract ConstCookerStats(CookerStats) from CookerStats {
 @:forward
 @:nativeGen
 @:native("CookerStats*")
-abstract CookerStatsPtr(cpp.Star<CookerStats>) from cpp.Star<CookerStats> to cpp.Star<CookerStats>{
+abstract CookerStatsPtr(ucpp.Ptr<CookerStats>) from ucpp.Ptr<CookerStats> to ucpp.Ptr<CookerStats>{
 	@:from
 	public static extern inline function fromValue(v: CookerStats): CookerStatsPtr {
 		return untyped __cpp__("&({0})", v);

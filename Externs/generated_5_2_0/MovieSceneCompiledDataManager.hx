@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneCompiledDataManager")
 @:include("Compilation/MovieSceneCompiledDataManager.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCompiledDataManager extends Object {
-	private var Hierarchies: TMap<cpp.Int32, MovieSceneSequenceHierarchy>;
-	private var TrackTemplates: TMap<cpp.Int32, MovieSceneEvaluationTemplate>;
-	private var TrackTemplateFields: TMap<cpp.Int32, MovieSceneEvaluationField>;
-	private var EntityComponentFields: TMap<cpp.Int32, MovieSceneEntityComponentField>;
+	private var Hierarchies: TMap<ucpp.num.Int32, MovieSceneSequenceHierarchy>;
+	private var TrackTemplates: TMap<ucpp.num.Int32, MovieSceneEvaluationTemplate>;
+	private var TrackTemplateFields: TMap<ucpp.num.Int32, MovieSceneEvaluationField>;
+	private var EntityComponentFields: TMap<ucpp.num.Int32, MovieSceneEntityComponentField>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMovieSceneCompiledDataManager(MovieSceneCompiledDataManager) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneCompiledDataManager*")
-abstract MovieSceneCompiledDataManagerPtr(cpp.Star<MovieSceneCompiledDataManager>) from cpp.Star<MovieSceneCompiledDataManager> to cpp.Star<MovieSceneCompiledDataManager>{
+abstract MovieSceneCompiledDataManagerPtr(ucpp.Ptr<MovieSceneCompiledDataManager>) from ucpp.Ptr<MovieSceneCompiledDataManager> to ucpp.Ptr<MovieSceneCompiledDataManager>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCompiledDataManager): MovieSceneCompiledDataManagerPtr {
 		return untyped __cpp__("&({0})", v);

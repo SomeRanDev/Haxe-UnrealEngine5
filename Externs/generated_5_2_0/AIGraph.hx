@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAIGraph")
 @:include("AIGraph.h")
-@:structAccess
+@:valueType
 extern class AIGraph extends EdGraph {
-	public var GraphVersion: cpp.Int32;
+	public var GraphVersion: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAIGraph(AIGraph) from AIGraph {
-	public extern var GraphVersion(get, never): cpp.Int32;
-	public inline extern function get_GraphVersion(): cpp.Int32 return this.GraphVersion;
+	public extern var GraphVersion(get, never): ucpp.num.Int32;
+	public inline extern function get_GraphVersion(): ucpp.num.Int32 return this.GraphVersion;
 }
 
 @:forward
 @:nativeGen
 @:native("AIGraph*")
-abstract AIGraphPtr(cpp.Star<AIGraph>) from cpp.Star<AIGraph> to cpp.Star<AIGraph>{
+abstract AIGraphPtr(ucpp.Ptr<AIGraph>) from ucpp.Ptr<AIGraph> to ucpp.Ptr<AIGraph>{
 	@:from
 	public static extern inline function fromValue(v: AIGraph): AIGraphPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UInterchangeTranslatorBase")
 @:include("InterchangeTranslatorBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeTranslatorBase extends Object {
-	public var Results: cpp.Star<InterchangeResultsContainer>;
-	public var SourceData: cpp.Star<InterchangeSourceData>;
+	public var Results: ucpp.Ptr<InterchangeResultsContainer>;
+	public var SourceData: ucpp.Ptr<InterchangeSourceData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInterchangeTranslatorBase(InterchangeTranslatorBase) from InterchangeTranslatorBase {
-	public extern var Results(get, never): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer>;
-	public inline extern function get_Results(): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer> return this.Results;
-	public extern var SourceData(get, never): cpp.Star<InterchangeSourceData.ConstInterchangeSourceData>;
-	public inline extern function get_SourceData(): cpp.Star<InterchangeSourceData.ConstInterchangeSourceData> return this.SourceData;
+	public extern var Results(get, never): ucpp.Ptr<InterchangeResultsContainer.ConstInterchangeResultsContainer>;
+	public inline extern function get_Results(): ucpp.Ptr<InterchangeResultsContainer.ConstInterchangeResultsContainer> return this.Results;
+	public extern var SourceData(get, never): ucpp.Ptr<InterchangeSourceData.ConstInterchangeSourceData>;
+	public inline extern function get_SourceData(): ucpp.Ptr<InterchangeSourceData.ConstInterchangeSourceData> return this.SourceData;
 }
 
 @:forward
 @:nativeGen
 @:native("InterchangeTranslatorBase*")
-abstract InterchangeTranslatorBasePtr(cpp.Star<InterchangeTranslatorBase>) from cpp.Star<InterchangeTranslatorBase> to cpp.Star<InterchangeTranslatorBase>{
+abstract InterchangeTranslatorBasePtr(ucpp.Ptr<InterchangeTranslatorBase>) from ucpp.Ptr<InterchangeTranslatorBase> to ucpp.Ptr<InterchangeTranslatorBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTranslatorBase): InterchangeTranslatorBasePtr {
 		return untyped __cpp__("&({0})", v);

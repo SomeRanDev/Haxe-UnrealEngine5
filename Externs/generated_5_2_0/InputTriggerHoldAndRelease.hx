@@ -3,24 +3,24 @@ package ue;
 
 @:native("UInputTriggerHoldAndRelease")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerHoldAndRelease extends InputTriggerTimedBase {
-	public var HoldTimeThreshold: cpp.Float32;
+	public var HoldTimeThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputTriggerHoldAndRelease(InputTriggerHoldAndRelease) from InputTriggerHoldAndRelease {
-	public extern var HoldTimeThreshold(get, never): cpp.Float32;
-	public inline extern function get_HoldTimeThreshold(): cpp.Float32 return this.HoldTimeThreshold;
+	public extern var HoldTimeThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_HoldTimeThreshold(): ucpp.num.Float32 return this.HoldTimeThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("InputTriggerHoldAndRelease*")
-abstract InputTriggerHoldAndReleasePtr(cpp.Star<InputTriggerHoldAndRelease>) from cpp.Star<InputTriggerHoldAndRelease> to cpp.Star<InputTriggerHoldAndRelease>{
+abstract InputTriggerHoldAndReleasePtr(ucpp.Ptr<InputTriggerHoldAndRelease>) from ucpp.Ptr<InputTriggerHoldAndRelease> to ucpp.Ptr<InputTriggerHoldAndRelease>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerHoldAndRelease): InputTriggerHoldAndReleasePtr {
 		return untyped __cpp__("&({0})", v);

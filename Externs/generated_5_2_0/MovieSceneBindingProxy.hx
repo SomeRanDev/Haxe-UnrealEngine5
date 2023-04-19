@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMovieSceneBindingProxy")
 @:include("MovieSceneBindingProxy.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBindingProxy {
 	public var BindingID: Guid;
-	public var Sequence: cpp.Star<MovieSceneSequence>;
+	public var Sequence: ucpp.Ptr<MovieSceneSequence>;
 
 	@:native("FMovieSceneBindingProxy") public function new();
-	@:native("FMovieSceneBindingProxy") public static function make(BindingID: Guid, Sequence: cpp.Star<MovieSceneSequence>): MovieSceneBindingProxy ;
+	@:native("FMovieSceneBindingProxy") public static function make(BindingID: Guid, Sequence: ucpp.Ptr<MovieSceneSequence>): MovieSceneBindingProxy ;
 }

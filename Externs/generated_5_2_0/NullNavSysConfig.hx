@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNullNavSysConfig")
 @:include("AI/NavigationSystemConfig.h")
-@:structAccess
+@:valueType
 extern class NullNavSysConfig extends NavigationSystemConfig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNullNavSysConfig(NullNavSysConfig) from NullNavSysConfig {
 @:forward
 @:nativeGen
 @:native("NullNavSysConfig*")
-abstract NullNavSysConfigPtr(cpp.Star<NullNavSysConfig>) from cpp.Star<NullNavSysConfig> to cpp.Star<NullNavSysConfig>{
+abstract NullNavSysConfigPtr(ucpp.Ptr<NullNavSysConfig>) from ucpp.Ptr<NullNavSysConfig> to ucpp.Ptr<NullNavSysConfig>{
 	@:from
 	public static extern inline function fromValue(v: NullNavSysConfig): NullNavSysConfigPtr {
 		return untyped __cpp__("&({0})", v);

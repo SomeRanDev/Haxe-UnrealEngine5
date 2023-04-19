@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAddCylinderPrimitiveTool")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class AddCylinderPrimitiveTool extends AddPrimitiveTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAddCylinderPrimitiveTool(AddCylinderPrimitiveTool) from AddCylinde
 @:forward
 @:nativeGen
 @:native("AddCylinderPrimitiveTool*")
-abstract AddCylinderPrimitiveToolPtr(cpp.Star<AddCylinderPrimitiveTool>) from cpp.Star<AddCylinderPrimitiveTool> to cpp.Star<AddCylinderPrimitiveTool>{
+abstract AddCylinderPrimitiveToolPtr(ucpp.Ptr<AddCylinderPrimitiveTool>) from ucpp.Ptr<AddCylinderPrimitiveTool> to ucpp.Ptr<AddCylinderPrimitiveTool>{
 	@:from
 	public static extern inline function fromValue(v: AddCylinderPrimitiveTool): AddCylinderPrimitiveToolPtr {
 		return untyped __cpp__("&({0})", v);

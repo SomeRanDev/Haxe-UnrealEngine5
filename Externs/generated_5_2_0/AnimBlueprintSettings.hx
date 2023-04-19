@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAnimBlueprintSettings")
 @:include("Settings/AnimBlueprintSettings.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintSettings extends Object {
 	public var bAllowEventGraphs: Bool;
 	public var bAllowMacros: Bool;
@@ -11,7 +11,7 @@ extern class AnimBlueprintSettings extends Object {
 	public var bRestrictBaseFunctionOverrides: Bool;
 	public var BaseFunctionOverrideAllowList: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstAnimBlueprintSettings(AnimBlueprintSettings) from AnimBlueprintSet
 @:forward
 @:nativeGen
 @:native("AnimBlueprintSettings*")
-abstract AnimBlueprintSettingsPtr(cpp.Star<AnimBlueprintSettings>) from cpp.Star<AnimBlueprintSettings> to cpp.Star<AnimBlueprintSettings>{
+abstract AnimBlueprintSettingsPtr(ucpp.Ptr<AnimBlueprintSettings>) from ucpp.Ptr<AnimBlueprintSettings> to ucpp.Ptr<AnimBlueprintSettings>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintSettings): AnimBlueprintSettingsPtr {
 		return untyped __cpp__("&({0})", v);

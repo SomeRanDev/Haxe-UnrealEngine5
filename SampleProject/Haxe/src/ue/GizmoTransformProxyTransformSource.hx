@@ -3,24 +3,24 @@ package ue;
 
 @:native("UGizmoTransformProxyTransformSource")
 @:include("BaseGizmos/TransformSources.h")
-@:structAccess
+@:valueType
 extern class GizmoTransformProxyTransformSource extends GizmoBaseTransformSource {
-	public var Proxy: cpp.Star<TransformProxy>;
+	public var Proxy: ucpp.Ptr<TransformProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGizmoTransformProxyTransformSource(GizmoTransformProxyTransformSource) from GizmoTransformProxyTransformSource {
-	public extern var Proxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_Proxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.Proxy;
+	public extern var Proxy(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_Proxy(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.Proxy;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoTransformProxyTransformSource*")
-abstract GizmoTransformProxyTransformSourcePtr(cpp.Star<GizmoTransformProxyTransformSource>) from cpp.Star<GizmoTransformProxyTransformSource> to cpp.Star<GizmoTransformProxyTransformSource>{
+abstract GizmoTransformProxyTransformSourcePtr(ucpp.Ptr<GizmoTransformProxyTransformSource>) from ucpp.Ptr<GizmoTransformProxyTransformSource> to ucpp.Ptr<GizmoTransformProxyTransformSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoTransformProxyTransformSource): GizmoTransformProxyTransformSourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UNetObjectCountLimiterConfig")
 @:include("Iris/ReplicationSystem/Prioritization/NetObjectCountLimiter.h")
-@:structAccess
+@:valueType
 extern class NetObjectCountLimiterConfig extends NetObjectPrioritizerConfig {
 	public var Mode: ENetObjectCountLimiterMode;
-	public var MaxObjectCount: cpp.UInt32;
-	public var Priority: cpp.Float32;
-	public var OwningConnectionPriority: cpp.Float32;
+	public var MaxObjectCount: ucpp.num.UInt32;
+	public var Priority: ucpp.num.Float32;
+	public var OwningConnectionPriority: ucpp.num.Float32;
 	public var bEnableOwnedObjectsFastLane: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,12 +19,12 @@ extern class NetObjectCountLimiterConfig extends NetObjectPrioritizerConfig {
 abstract ConstNetObjectCountLimiterConfig(NetObjectCountLimiterConfig) from NetObjectCountLimiterConfig {
 	public extern var Mode(get, never): ENetObjectCountLimiterMode;
 	public inline extern function get_Mode(): ENetObjectCountLimiterMode return this.Mode;
-	public extern var MaxObjectCount(get, never): cpp.UInt32;
-	public inline extern function get_MaxObjectCount(): cpp.UInt32 return this.MaxObjectCount;
-	public extern var Priority(get, never): cpp.Float32;
-	public inline extern function get_Priority(): cpp.Float32 return this.Priority;
-	public extern var OwningConnectionPriority(get, never): cpp.Float32;
-	public inline extern function get_OwningConnectionPriority(): cpp.Float32 return this.OwningConnectionPriority;
+	public extern var MaxObjectCount(get, never): ucpp.num.UInt32;
+	public inline extern function get_MaxObjectCount(): ucpp.num.UInt32 return this.MaxObjectCount;
+	public extern var Priority(get, never): ucpp.num.Float32;
+	public inline extern function get_Priority(): ucpp.num.Float32 return this.Priority;
+	public extern var OwningConnectionPriority(get, never): ucpp.num.Float32;
+	public inline extern function get_OwningConnectionPriority(): ucpp.num.Float32 return this.OwningConnectionPriority;
 	public extern var bEnableOwnedObjectsFastLane(get, never): Bool;
 	public inline extern function get_bEnableOwnedObjectsFastLane(): Bool return this.bEnableOwnedObjectsFastLane;
 }
@@ -32,7 +32,7 @@ abstract ConstNetObjectCountLimiterConfig(NetObjectCountLimiterConfig) from NetO
 @:forward
 @:nativeGen
 @:native("NetObjectCountLimiterConfig*")
-abstract NetObjectCountLimiterConfigPtr(cpp.Star<NetObjectCountLimiterConfig>) from cpp.Star<NetObjectCountLimiterConfig> to cpp.Star<NetObjectCountLimiterConfig>{
+abstract NetObjectCountLimiterConfigPtr(ucpp.Ptr<NetObjectCountLimiterConfig>) from ucpp.Ptr<NetObjectCountLimiterConfig> to ucpp.Ptr<NetObjectCountLimiterConfig>{
 	@:from
 	public static extern inline function fromValue(v: NetObjectCountLimiterConfig): NetObjectCountLimiterConfigPtr {
 		return untyped __cpp__("&({0})", v);

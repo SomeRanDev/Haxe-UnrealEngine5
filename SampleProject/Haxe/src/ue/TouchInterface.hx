@@ -3,18 +3,18 @@ package ue;
 
 @:native("UTouchInterface")
 @:include("GameFramework/TouchInterface.h")
-@:structAccess
+@:valueType
 extern class TouchInterface extends Object {
 	public var Controls: TArray<TouchInputControl>;
-	public var ActiveOpacity: cpp.Float32;
-	public var InactiveOpacity: cpp.Float32;
-	public var TimeUntilDeactive: cpp.Float32;
-	public var TimeUntilReset: cpp.Float32;
-	public var ActivationDelay: cpp.Float32;
+	public var ActiveOpacity: ucpp.num.Float32;
+	public var InactiveOpacity: ucpp.num.Float32;
+	public var TimeUntilDeactive: ucpp.num.Float32;
+	public var TimeUntilReset: ucpp.num.Float32;
+	public var ActivationDelay: ucpp.num.Float32;
 	public var bPreventRecenter: Bool;
-	public var StartupDelay: cpp.Float32;
+	public var StartupDelay: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,26 +22,26 @@ extern class TouchInterface extends Object {
 abstract ConstTouchInterface(TouchInterface) from TouchInterface {
 	public extern var Controls(get, never): TArray<TouchInputControl>;
 	public inline extern function get_Controls(): TArray<TouchInputControl> return this.Controls;
-	public extern var ActiveOpacity(get, never): cpp.Float32;
-	public inline extern function get_ActiveOpacity(): cpp.Float32 return this.ActiveOpacity;
-	public extern var InactiveOpacity(get, never): cpp.Float32;
-	public inline extern function get_InactiveOpacity(): cpp.Float32 return this.InactiveOpacity;
-	public extern var TimeUntilDeactive(get, never): cpp.Float32;
-	public inline extern function get_TimeUntilDeactive(): cpp.Float32 return this.TimeUntilDeactive;
-	public extern var TimeUntilReset(get, never): cpp.Float32;
-	public inline extern function get_TimeUntilReset(): cpp.Float32 return this.TimeUntilReset;
-	public extern var ActivationDelay(get, never): cpp.Float32;
-	public inline extern function get_ActivationDelay(): cpp.Float32 return this.ActivationDelay;
+	public extern var ActiveOpacity(get, never): ucpp.num.Float32;
+	public inline extern function get_ActiveOpacity(): ucpp.num.Float32 return this.ActiveOpacity;
+	public extern var InactiveOpacity(get, never): ucpp.num.Float32;
+	public inline extern function get_InactiveOpacity(): ucpp.num.Float32 return this.InactiveOpacity;
+	public extern var TimeUntilDeactive(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeUntilDeactive(): ucpp.num.Float32 return this.TimeUntilDeactive;
+	public extern var TimeUntilReset(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeUntilReset(): ucpp.num.Float32 return this.TimeUntilReset;
+	public extern var ActivationDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_ActivationDelay(): ucpp.num.Float32 return this.ActivationDelay;
 	public extern var bPreventRecenter(get, never): Bool;
 	public inline extern function get_bPreventRecenter(): Bool return this.bPreventRecenter;
-	public extern var StartupDelay(get, never): cpp.Float32;
-	public inline extern function get_StartupDelay(): cpp.Float32 return this.StartupDelay;
+	public extern var StartupDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_StartupDelay(): ucpp.num.Float32 return this.StartupDelay;
 }
 
 @:forward
 @:nativeGen
 @:native("TouchInterface*")
-abstract TouchInterfacePtr(cpp.Star<TouchInterface>) from cpp.Star<TouchInterface> to cpp.Star<TouchInterface>{
+abstract TouchInterfacePtr(ucpp.Ptr<TouchInterface>) from ucpp.Ptr<TouchInterface> to ucpp.Ptr<TouchInterface>{
 	@:from
 	public static extern inline function fromValue(v: TouchInterface): TouchInterfacePtr {
 		return untyped __cpp__("&({0})", v);

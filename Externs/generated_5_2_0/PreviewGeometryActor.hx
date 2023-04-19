@@ -3,10 +3,10 @@ package ue;
 
 @:native("APreviewGeometryActor")
 @:include("Drawing/PreviewGeometryActor.h")
-@:structAccess
+@:valueType
 extern class PreviewGeometryActor extends InternalToolFrameworkActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPreviewGeometryActor(PreviewGeometryActor) from PreviewGeometryAct
 @:forward
 @:nativeGen
 @:native("PreviewGeometryActor*")
-abstract PreviewGeometryActorPtr(cpp.Star<PreviewGeometryActor>) from cpp.Star<PreviewGeometryActor> to cpp.Star<PreviewGeometryActor>{
+abstract PreviewGeometryActorPtr(ucpp.Ptr<PreviewGeometryActor>) from ucpp.Ptr<PreviewGeometryActor> to ucpp.Ptr<PreviewGeometryActor>{
 	@:from
 	public static extern inline function fromValue(v: PreviewGeometryActor): PreviewGeometryActorPtr {
 		return untyped __cpp__("&({0})", v);

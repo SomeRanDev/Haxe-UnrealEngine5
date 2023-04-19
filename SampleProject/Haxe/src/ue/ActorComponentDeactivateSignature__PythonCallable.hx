@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UActorComponentDeactivateSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ActorComponentDeactivateSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstActorComponentDeactivateSignature__PythonCallable(ActorComponentDe
 @:forward
 @:nativeGen
 @:native("ActorComponentDeactivateSignature__PythonCallable*")
-abstract ActorComponentDeactivateSignature__PythonCallablePtr(cpp.Star<ActorComponentDeactivateSignature__PythonCallable>) from cpp.Star<ActorComponentDeactivateSignature__PythonCallable> to cpp.Star<ActorComponentDeactivateSignature__PythonCallable>{
+abstract ActorComponentDeactivateSignature__PythonCallablePtr(ucpp.Ptr<ActorComponentDeactivateSignature__PythonCallable>) from ucpp.Ptr<ActorComponentDeactivateSignature__PythonCallable> to ucpp.Ptr<ActorComponentDeactivateSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ActorComponentDeactivateSignature__PythonCallable): ActorComponentDeactivateSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

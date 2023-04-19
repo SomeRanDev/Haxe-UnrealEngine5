@@ -3,24 +3,24 @@ package ue;
 
 @:native("UPhysicsAssetFactory")
 @:include("Factories/PhysicsAssetFactory.h")
-@:structAccess
+@:valueType
 extern class PhysicsAssetFactory extends Factory {
-	public var TargetSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var TargetSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPhysicsAssetFactory(PhysicsAssetFactory) from PhysicsAssetFactory {
-	public extern var TargetSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_TargetSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
+	public extern var TargetSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_TargetSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("PhysicsAssetFactory*")
-abstract PhysicsAssetFactoryPtr(cpp.Star<PhysicsAssetFactory>) from cpp.Star<PhysicsAssetFactory> to cpp.Star<PhysicsAssetFactory>{
+abstract PhysicsAssetFactoryPtr(ucpp.Ptr<PhysicsAssetFactory>) from ucpp.Ptr<PhysicsAssetFactory> to ucpp.Ptr<PhysicsAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsAssetFactory): PhysicsAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

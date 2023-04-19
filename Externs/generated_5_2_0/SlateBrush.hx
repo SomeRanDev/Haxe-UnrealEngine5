@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSlateBrush")
 @:include("Styling/SlateBrush.h")
-@:structAccess
+@:valueType
 extern class SlateBrush {
 	@:protected public var bIsDynamicallyLoaded: Bool;
 	public var DrawAs: TEnumAsByte<ESlateBrushDrawType>;
@@ -14,7 +14,7 @@ extern class SlateBrush {
 	public var Margin: Margin;
 	public var TintColor: SlateColor;
 	public var OutlineSettings: SlateBrushOutlineSettings;
-	private var ResourceObject: cpp.Star<Object>;
+	private var ResourceObject: ucpp.Ptr<Object>;
 	@:protected public var ResourceName: FName;
 	@:protected public var UVRegion: Box2f;
 

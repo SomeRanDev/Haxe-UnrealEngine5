@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMergeMeshesToolBuilder")
 @:include("MergeMeshesTool.h")
-@:structAccess
+@:valueType
 extern class MergeMeshesToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMergeMeshesToolBuilder(MergeMeshesToolBuilder) from MergeMeshesToo
 @:forward
 @:nativeGen
 @:native("MergeMeshesToolBuilder*")
-abstract MergeMeshesToolBuilderPtr(cpp.Star<MergeMeshesToolBuilder>) from cpp.Star<MergeMeshesToolBuilder> to cpp.Star<MergeMeshesToolBuilder>{
+abstract MergeMeshesToolBuilderPtr(ucpp.Ptr<MergeMeshesToolBuilder>) from ucpp.Ptr<MergeMeshesToolBuilder> to ucpp.Ptr<MergeMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: MergeMeshesToolBuilder): MergeMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBoolChannelEvaluatorSystem")
 @:include("Systems/BoolChannelEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class BoolChannelEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBoolChannelEvaluatorSystem(BoolChannelEvaluatorSystem) from BoolCh
 @:forward
 @:nativeGen
 @:native("BoolChannelEvaluatorSystem*")
-abstract BoolChannelEvaluatorSystemPtr(cpp.Star<BoolChannelEvaluatorSystem>) from cpp.Star<BoolChannelEvaluatorSystem> to cpp.Star<BoolChannelEvaluatorSystem>{
+abstract BoolChannelEvaluatorSystemPtr(ucpp.Ptr<BoolChannelEvaluatorSystem>) from ucpp.Ptr<BoolChannelEvaluatorSystem> to ucpp.Ptr<BoolChannelEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: BoolChannelEvaluatorSystem): BoolChannelEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

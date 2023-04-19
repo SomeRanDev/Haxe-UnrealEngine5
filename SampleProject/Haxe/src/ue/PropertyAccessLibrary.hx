@@ -3,15 +3,13 @@ package ue;
 
 @:native("FPropertyAccessLibrary")
 @:include("PropertyAccess.h")
-@:structAccess
+@:valueType
 extern class PropertyAccessLibrary {
 	private var PathSegments: TArray<PropertyAccessSegment>;
 	private var SrcPaths: TArray<PropertyAccessPath>;
 	private var DestPaths: TArray<PropertyAccessPath>;
 	private var CopyBatchArray: TArray<PropertyAccessCopyBatch>;
-	private var SrcAccesses: TArray<PropertyAccessIndirectionChain>;
-	private var DestAccesses: TArray<PropertyAccessIndirectionChain>;
-	private var Indirections: TArray<PropertyAccessIndirection>;
 
 	@:native("FPropertyAccessLibrary") public function new();
+	@:native("FPropertyAccessLibrary") public static function make(PathSegments: TArray<PropertyAccessSegment>, SrcPaths: TArray<PropertyAccessPath>, DestPaths: TArray<PropertyAccessPath>, CopyBatches_DEPRECATED: PropertyAccessCopyBatch, CopyBatchArray: TArray<PropertyAccessCopyBatch>): PropertyAccessLibrary ;
 }

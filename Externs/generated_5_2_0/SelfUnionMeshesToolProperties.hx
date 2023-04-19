@@ -3,16 +3,16 @@ package ue;
 
 @:native("USelfUnionMeshesToolProperties")
 @:include("SelfUnionMeshesTool.h")
-@:structAccess
+@:valueType
 extern class SelfUnionMeshesToolProperties extends InteractiveToolPropertySet {
 	public var bTrimFlaps: Bool;
 	public var bTryFixHoles: Bool;
 	public var bTryCollapseEdges: Bool;
-	public var WindingThreshold: cpp.Float32;
+	public var WindingThreshold: ucpp.num.Float32;
 	public var bShowNewBoundaryEdges: Bool;
 	public var bOnlyUseFirstMeshMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,8 +24,8 @@ abstract ConstSelfUnionMeshesToolProperties(SelfUnionMeshesToolProperties) from 
 	public inline extern function get_bTryFixHoles(): Bool return this.bTryFixHoles;
 	public extern var bTryCollapseEdges(get, never): Bool;
 	public inline extern function get_bTryCollapseEdges(): Bool return this.bTryCollapseEdges;
-	public extern var WindingThreshold(get, never): cpp.Float32;
-	public inline extern function get_WindingThreshold(): cpp.Float32 return this.WindingThreshold;
+	public extern var WindingThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_WindingThreshold(): ucpp.num.Float32 return this.WindingThreshold;
 	public extern var bShowNewBoundaryEdges(get, never): Bool;
 	public inline extern function get_bShowNewBoundaryEdges(): Bool return this.bShowNewBoundaryEdges;
 	public extern var bOnlyUseFirstMeshMaterials(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstSelfUnionMeshesToolProperties(SelfUnionMeshesToolProperties) from 
 @:forward
 @:nativeGen
 @:native("SelfUnionMeshesToolProperties*")
-abstract SelfUnionMeshesToolPropertiesPtr(cpp.Star<SelfUnionMeshesToolProperties>) from cpp.Star<SelfUnionMeshesToolProperties> to cpp.Star<SelfUnionMeshesToolProperties>{
+abstract SelfUnionMeshesToolPropertiesPtr(ucpp.Ptr<SelfUnionMeshesToolProperties>) from ucpp.Ptr<SelfUnionMeshesToolProperties> to ucpp.Ptr<SelfUnionMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: SelfUnionMeshesToolProperties): SelfUnionMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

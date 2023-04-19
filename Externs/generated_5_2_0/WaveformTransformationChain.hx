@@ -3,24 +3,24 @@ package ue;
 
 @:native("UWaveformTransformationChain")
 @:include("IWaveformTransformation.h")
-@:structAccess
+@:valueType
 extern class WaveformTransformationChain extends Object {
-	public var Transformations: TArray<cpp.Star<WaveformTransformationBase>>;
+	public var Transformations: TArray<ucpp.Ptr<WaveformTransformationBase>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWaveformTransformationChain(WaveformTransformationChain) from WaveformTransformationChain {
-	public extern var Transformations(get, never): TArray<cpp.Star<WaveformTransformationBase.ConstWaveformTransformationBase>>;
-	public inline extern function get_Transformations(): TArray<cpp.Star<WaveformTransformationBase.ConstWaveformTransformationBase>> return this.Transformations;
+	public extern var Transformations(get, never): TArray<ucpp.Ptr<WaveformTransformationBase.ConstWaveformTransformationBase>>;
+	public inline extern function get_Transformations(): TArray<ucpp.Ptr<WaveformTransformationBase.ConstWaveformTransformationBase>> return this.Transformations;
 }
 
 @:forward
 @:nativeGen
 @:native("WaveformTransformationChain*")
-abstract WaveformTransformationChainPtr(cpp.Star<WaveformTransformationChain>) from cpp.Star<WaveformTransformationChain> to cpp.Star<WaveformTransformationChain>{
+abstract WaveformTransformationChainPtr(ucpp.Ptr<WaveformTransformationChain>) from ucpp.Ptr<WaveformTransformationChain> to ucpp.Ptr<WaveformTransformationChain>{
 	@:from
 	public static extern inline function fromValue(v: WaveformTransformationChain): WaveformTransformationChainPtr {
 		return untyped __cpp__("&({0})", v);

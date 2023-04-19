@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULightmassPrimitiveSettingsObject")
 @:include("Lightmass/LightmassPrimitiveSettingsObject.h")
-@:structAccess
+@:valueType
 extern class LightmassPrimitiveSettingsObject extends Object {
 	public var LightmassSettings: LightmassPrimitiveSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLightmassPrimitiveSettingsObject(LightmassPrimitiveSettingsObject)
 @:forward
 @:nativeGen
 @:native("LightmassPrimitiveSettingsObject*")
-abstract LightmassPrimitiveSettingsObjectPtr(cpp.Star<LightmassPrimitiveSettingsObject>) from cpp.Star<LightmassPrimitiveSettingsObject> to cpp.Star<LightmassPrimitiveSettingsObject>{
+abstract LightmassPrimitiveSettingsObjectPtr(ucpp.Ptr<LightmassPrimitiveSettingsObject>) from ucpp.Ptr<LightmassPrimitiveSettingsObject> to ucpp.Ptr<LightmassPrimitiveSettingsObject>{
 	@:from
 	public static extern inline function fromValue(v: LightmassPrimitiveSettingsObject): LightmassPrimitiveSettingsObjectPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGenerateStaticMeshLODAssetToolProperties")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODAssetToolProperties extends InteractiveToolPropertySet {
 	public var Preprocessing: GenerateStaticMeshLODProcess_PreprocessSettings;
 	public var MeshGeneration: GenerateStaticMeshLODProcessSettings;
@@ -17,7 +17,7 @@ extern class GenerateStaticMeshLODAssetToolProperties extends InteractiveToolPro
 
 	public function GetGroupLayersFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -46,7 +46,7 @@ abstract ConstGenerateStaticMeshLODAssetToolProperties(GenerateStaticMeshLODAsse
 @:forward
 @:nativeGen
 @:native("GenerateStaticMeshLODAssetToolProperties*")
-abstract GenerateStaticMeshLODAssetToolPropertiesPtr(cpp.Star<GenerateStaticMeshLODAssetToolProperties>) from cpp.Star<GenerateStaticMeshLODAssetToolProperties> to cpp.Star<GenerateStaticMeshLODAssetToolProperties>{
+abstract GenerateStaticMeshLODAssetToolPropertiesPtr(ucpp.Ptr<GenerateStaticMeshLODAssetToolProperties>) from ucpp.Ptr<GenerateStaticMeshLODAssetToolProperties> to ucpp.Ptr<GenerateStaticMeshLODAssetToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: GenerateStaticMeshLODAssetToolProperties): GenerateStaticMeshLODAssetToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

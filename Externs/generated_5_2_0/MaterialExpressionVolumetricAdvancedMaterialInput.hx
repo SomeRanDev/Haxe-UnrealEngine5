@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionVolumetricAdvancedMaterialInput")
 @:include("Materials/MaterialExpressionVolumetricAdvancedMaterialInput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionVolumetricAdvancedMaterialInput extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionVolumetricAdvancedMaterialInput(MaterialExpressi
 @:forward
 @:nativeGen
 @:native("MaterialExpressionVolumetricAdvancedMaterialInput*")
-abstract MaterialExpressionVolumetricAdvancedMaterialInputPtr(cpp.Star<MaterialExpressionVolumetricAdvancedMaterialInput>) from cpp.Star<MaterialExpressionVolumetricAdvancedMaterialInput> to cpp.Star<MaterialExpressionVolumetricAdvancedMaterialInput>{
+abstract MaterialExpressionVolumetricAdvancedMaterialInputPtr(ucpp.Ptr<MaterialExpressionVolumetricAdvancedMaterialInput>) from ucpp.Ptr<MaterialExpressionVolumetricAdvancedMaterialInput> to ucpp.Ptr<MaterialExpressionVolumetricAdvancedMaterialInput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionVolumetricAdvancedMaterialInput): MaterialExpressionVolumetricAdvancedMaterialInputPtr {
 		return untyped __cpp__("&({0})", v);

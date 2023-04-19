@@ -3,7 +3,7 @@ package ue;
 
 @:native("UScrollBoxSlot")
 @:include("Components/ScrollBoxSlot.h")
-@:structAccess
+@:valueType
 extern class ScrollBoxSlot extends PanelSlot {
 	private var Size: SlateChildSize;
 	public var Padding: Margin;
@@ -14,7 +14,7 @@ extern class ScrollBoxSlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstScrollBoxSlot(ScrollBoxSlot) from ScrollBoxSlot {
 @:forward
 @:nativeGen
 @:native("ScrollBoxSlot*")
-abstract ScrollBoxSlotPtr(cpp.Star<ScrollBoxSlot>) from cpp.Star<ScrollBoxSlot> to cpp.Star<ScrollBoxSlot>{
+abstract ScrollBoxSlotPtr(ucpp.Ptr<ScrollBoxSlot>) from ucpp.Ptr<ScrollBoxSlot> to ucpp.Ptr<ScrollBoxSlot>{
 	@:from
 	public static extern inline function fromValue(v: ScrollBoxSlot): ScrollBoxSlotPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,29 +3,29 @@ package ue;
 
 @:native("UEditPivotTool")
 @:include("EditPivotTool.h")
-@:structAccess
+@:valueType
 extern class EditPivotTool extends MultiSelectionMeshEditingTool {
-	public var TransformProps: cpp.Star<EditPivotToolProperties>;
-	public var EditPivotActions: cpp.Star<EditPivotToolActionPropertySet>;
+	public var TransformProps: ucpp.Ptr<EditPivotToolProperties>;
+	public var EditPivotActions: ucpp.Ptr<EditPivotToolActionPropertySet>;
 	@:protected public var ActiveGizmos: TArray<EditPivotTarget>;
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditPivotTool(EditPivotTool) from EditPivotTool {
-	public extern var TransformProps(get, never): cpp.Star<EditPivotToolProperties.ConstEditPivotToolProperties>;
-	public inline extern function get_TransformProps(): cpp.Star<EditPivotToolProperties.ConstEditPivotToolProperties> return this.TransformProps;
-	public extern var EditPivotActions(get, never): cpp.Star<EditPivotToolActionPropertySet.ConstEditPivotToolActionPropertySet>;
-	public inline extern function get_EditPivotActions(): cpp.Star<EditPivotToolActionPropertySet.ConstEditPivotToolActionPropertySet> return this.EditPivotActions;
+	public extern var TransformProps(get, never): ucpp.Ptr<EditPivotToolProperties.ConstEditPivotToolProperties>;
+	public inline extern function get_TransformProps(): ucpp.Ptr<EditPivotToolProperties.ConstEditPivotToolProperties> return this.TransformProps;
+	public extern var EditPivotActions(get, never): ucpp.Ptr<EditPivotToolActionPropertySet.ConstEditPivotToolActionPropertySet>;
+	public inline extern function get_EditPivotActions(): ucpp.Ptr<EditPivotToolActionPropertySet.ConstEditPivotToolActionPropertySet> return this.EditPivotActions;
 }
 
 @:forward
 @:nativeGen
 @:native("EditPivotTool*")
-abstract EditPivotToolPtr(cpp.Star<EditPivotTool>) from cpp.Star<EditPivotTool> to cpp.Star<EditPivotTool>{
+abstract EditPivotToolPtr(ucpp.Ptr<EditPivotTool>) from ucpp.Ptr<EditPivotTool> to ucpp.Ptr<EditPivotTool>{
 	@:from
 	public static extern inline function fromValue(v: EditPivotTool): EditPivotToolPtr {
 		return untyped __cpp__("&({0})", v);

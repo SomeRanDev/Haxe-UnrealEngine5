@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneConsoleVariableCollection")
 @:include("Sections/MovieSceneCVarSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneConsoleVariableCollection {
 	public var Interface: MovieSceneConsoleVariableTrackInterface;
 	public var bOnlyIncludeChecked: Bool;

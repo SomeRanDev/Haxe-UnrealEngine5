@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneGeometryCollectionTrack")
 @:include("MovieSceneGeometryCollectionTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneGeometryCollectionTrack extends MovieSceneNameableTrack {
-	private var AnimationSections: TArray<cpp.Star<MovieSceneSection>>;
+	private var AnimationSections: TArray<ucpp.Ptr<MovieSceneSection>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneGeometryCollectionTrack(MovieSceneGeometryCollectionTrac
 @:forward
 @:nativeGen
 @:native("MovieSceneGeometryCollectionTrack*")
-abstract MovieSceneGeometryCollectionTrackPtr(cpp.Star<MovieSceneGeometryCollectionTrack>) from cpp.Star<MovieSceneGeometryCollectionTrack> to cpp.Star<MovieSceneGeometryCollectionTrack>{
+abstract MovieSceneGeometryCollectionTrackPtr(ucpp.Ptr<MovieSceneGeometryCollectionTrack>) from ucpp.Ptr<MovieSceneGeometryCollectionTrack> to ucpp.Ptr<MovieSceneGeometryCollectionTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneGeometryCollectionTrack): MovieSceneGeometryCollectionTrackPtr {
 		return untyped __cpp__("&({0})", v);

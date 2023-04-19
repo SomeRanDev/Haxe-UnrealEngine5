@@ -3,10 +3,10 @@ package ue;
 
 @:native("UChaosDebugDrawComponent")
 @:include("Chaos/ChaosDebugDrawComponent.h")
-@:structAccess
+@:valueType
 extern class ChaosDebugDrawComp extends ActorComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstChaosDebugDrawComp(ChaosDebugDrawComp) from ChaosDebugDrawComp {
 @:forward
 @:nativeGen
 @:native("ChaosDebugDrawComp*")
-abstract ChaosDebugDrawCompPtr(cpp.Star<ChaosDebugDrawComp>) from cpp.Star<ChaosDebugDrawComp> to cpp.Star<ChaosDebugDrawComp>{
+abstract ChaosDebugDrawCompPtr(ucpp.Ptr<ChaosDebugDrawComp>) from ucpp.Ptr<ChaosDebugDrawComp> to ucpp.Ptr<ChaosDebugDrawComp>{
 	@:from
 	public static extern inline function fromValue(v: ChaosDebugDrawComp): ChaosDebugDrawCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPatternTool_TranslationSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternTool_TranslationSettings extends InteractiveToolPropertySet {
 	public var bInterpolate: Bool;
 	public var bJitter: Bool;
@@ -11,7 +11,7 @@ extern class PatternTool_TranslationSettings extends InteractiveToolPropertySet 
 	public var EndTranslation: Vector;
 	public var Jitter: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstPatternTool_TranslationSettings(PatternTool_TranslationSettings) f
 @:forward
 @:nativeGen
 @:native("PatternTool_TranslationSettings*")
-abstract PatternTool_TranslationSettingsPtr(cpp.Star<PatternTool_TranslationSettings>) from cpp.Star<PatternTool_TranslationSettings> to cpp.Star<PatternTool_TranslationSettings>{
+abstract PatternTool_TranslationSettingsPtr(ucpp.Ptr<PatternTool_TranslationSettings>) from ucpp.Ptr<PatternTool_TranslationSettings> to ucpp.Ptr<PatternTool_TranslationSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternTool_TranslationSettings): PatternTool_TranslationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

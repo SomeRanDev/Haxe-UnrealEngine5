@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USoftClassProperty")
-@:structAccess
+@:valueType
 extern class SoftClassProperty extends SoftObjectProperty {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSoftClassProperty(SoftClassProperty) from SoftClassProperty {
 @:forward
 @:nativeGen
 @:native("SoftClassProperty*")
-abstract SoftClassPropertyPtr(cpp.Star<SoftClassProperty>) from cpp.Star<SoftClassProperty> to cpp.Star<SoftClassProperty>{
+abstract SoftClassPropertyPtr(ucpp.Ptr<SoftClassProperty>) from ucpp.Ptr<SoftClassProperty> to ucpp.Ptr<SoftClassProperty>{
 	@:from
 	public static extern inline function fromValue(v: SoftClassProperty): SoftClassPropertyPtr {
 		return untyped __cpp__("&({0})", v);

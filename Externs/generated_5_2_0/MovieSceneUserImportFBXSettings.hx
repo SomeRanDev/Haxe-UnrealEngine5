@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMovieSceneUserImportFBXSettings")
 @:include("MovieSceneToolsUserSettings.h")
-@:structAccess
+@:valueType
 extern class MovieSceneUserImportFBXSettings extends Object {
 	public var bMatchByNameOnly: Bool;
 	public var bForceFrontXAxis: Bool;
 	public var bConvertSceneUnit: Bool;
-	public var ImportUniformScale: cpp.Float32;
+	public var ImportUniformScale: ucpp.num.Float32;
 	public var bCreateCameras: Bool;
 	public var bReplaceTransformTrack: Bool;
 	public var bReduceKeys: Bool;
-	public var ReduceKeysTolerance: cpp.Float32;
+	public var ReduceKeysTolerance: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,22 +26,22 @@ abstract ConstMovieSceneUserImportFBXSettings(MovieSceneUserImportFBXSettings) f
 	public inline extern function get_bForceFrontXAxis(): Bool return this.bForceFrontXAxis;
 	public extern var bConvertSceneUnit(get, never): Bool;
 	public inline extern function get_bConvertSceneUnit(): Bool return this.bConvertSceneUnit;
-	public extern var ImportUniformScale(get, never): cpp.Float32;
-	public inline extern function get_ImportUniformScale(): cpp.Float32 return this.ImportUniformScale;
+	public extern var ImportUniformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ImportUniformScale(): ucpp.num.Float32 return this.ImportUniformScale;
 	public extern var bCreateCameras(get, never): Bool;
 	public inline extern function get_bCreateCameras(): Bool return this.bCreateCameras;
 	public extern var bReplaceTransformTrack(get, never): Bool;
 	public inline extern function get_bReplaceTransformTrack(): Bool return this.bReplaceTransformTrack;
 	public extern var bReduceKeys(get, never): Bool;
 	public inline extern function get_bReduceKeys(): Bool return this.bReduceKeys;
-	public extern var ReduceKeysTolerance(get, never): cpp.Float32;
-	public inline extern function get_ReduceKeysTolerance(): cpp.Float32 return this.ReduceKeysTolerance;
+	public extern var ReduceKeysTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_ReduceKeysTolerance(): ucpp.num.Float32 return this.ReduceKeysTolerance;
 }
 
 @:forward
 @:nativeGen
 @:native("MovieSceneUserImportFBXSettings*")
-abstract MovieSceneUserImportFBXSettingsPtr(cpp.Star<MovieSceneUserImportFBXSettings>) from cpp.Star<MovieSceneUserImportFBXSettings> to cpp.Star<MovieSceneUserImportFBXSettings>{
+abstract MovieSceneUserImportFBXSettingsPtr(ucpp.Ptr<MovieSceneUserImportFBXSettings>) from ucpp.Ptr<MovieSceneUserImportFBXSettings> to ucpp.Ptr<MovieSceneUserImportFBXSettings>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneUserImportFBXSettings): MovieSceneUserImportFBXSettingsPtr {
 		return untyped __cpp__("&({0})", v);

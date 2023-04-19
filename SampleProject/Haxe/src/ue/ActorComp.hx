@@ -3,13 +3,14 @@ package ue;
 
 @:native("UActorComponent")
 @:include("Components/ActorComponent.h")
-@:structAccess
+@:valueType
 extern class ActorComp extends Object {
 	public var PrimaryComponentTick: ActorComponentTickFunction;
 	public var ComponentTags: TArray<FName>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
-	private var UCSSerializationIndex: cpp.Int32;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
+	private var UCSSerializationIndex: ucpp.num.Int32;
 	@:protected public var bNetAddressable: Bool;
+	@:protected public var bReplicateUsingRegisteredSubObjectList: Bool;
 	private var bReplicates: Bool;
 	public var bAutoActivate: Bool;
 	private var bIsActive: Bool;
@@ -17,43 +18,43 @@ extern class ActorComp extends Object {
 	@:protected public var bCanEverAffectNavigation: Bool;
 	public var bIsEditorOnly: Bool;
 	public var CreationMethod: EComponentCreationMethod;
-	public var OnComponentActivated: HaxeMulticastSparseDelegateProperty<(cpp.Star<ActorComp>, Bool) -> Void>;
-	public var OnComponentDeactivated: HaxeMulticastSparseDelegateProperty<(cpp.Star<ActorComp>) -> Void>;
-	private var UCSModifiedProperties: TArray<SimpleMemberReference>;
+	public var OnComponentActivated: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ActorComp>, Bool) -> Void>;
+	public var OnComponentDeactivated: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ActorComp>) -> Void>;
 
 	public function ToggleActive(): Void;
 	public function SetTickGroup(NewTickGroup: TEnumAsByte<ETickingGroup>): Void;
 	public function SetTickableWhenPaused(bTickableWhenPaused: Bool): Void;
 	public function SetIsReplicated(ShouldReplicate: Bool): Void;
-	public function SetComponentTickIntervalAndCooldown(TickInterval: cpp.Float32): Void;
-	public function SetComponentTickInterval(TickInterval: cpp.Float32): Void;
+	public function SetComponentTickIntervalAndCooldown(TickInterval: ucpp.num.Float32): Void;
+	public function SetComponentTickInterval(TickInterval: ucpp.num.Float32): Void;
 	public function SetComponentTickEnabled(bEnabled: Bool): Void;
 	public function SetAutoActivate(bNewAutoActivate: Bool): Void;
 	public function SetActive(bNewActive: Bool, bReset: Bool): Void;
-	public function RemoveTickPrerequisiteComponent(PrerequisiteComponent: cpp.Star<ActorComp>): Void;
-	public function RemoveTickPrerequisiteActor(PrerequisiteActor: cpp.Star<Actor>): Void;
-	public function ReceiveTick(DeltaSeconds: cpp.Float32): Void;
+	public function RemoveTickPrerequisiteComponent(PrerequisiteComponent: ucpp.Ptr<ActorComp>): Void;
+	public function RemoveTickPrerequisiteActor(PrerequisiteActor: ucpp.Ptr<Actor>): Void;
+	public function ReceiveTick(DeltaSeconds: ucpp.num.Float32): Void;
 	public function ReceiveEndPlay(EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
 	public function ReceiveBeginPlay(): Void;
+	public function ReceiveAsyncPhysicsTick(DeltaSeconds: ucpp.num.Float32, SimSeconds: ucpp.num.Float32): Void;
 	public function OnRep_IsActive(): Void;
-	public function K2_DestroyComponent(Object: cpp.Star<Object>): Void;
+	public function K2_DestroyComponent(Object: ucpp.Ptr<Object>): Void;
 	public function IsComponentTickEnabled(): Bool;
 	public function IsBeingDestroyed(): Bool;
 	public function IsActive(): Bool;
-	public function GetOwner(): cpp.Star<Actor>;
-	public function GetComponentTickInterval(): cpp.Float32;
+	public function GetOwner(): ucpp.Ptr<Actor>;
+	public function GetComponentTickInterval(): ucpp.num.Float32;
 	public function Deactivate(): Void;
 	public function ComponentHasTag(Tag: FName): Bool;
-	public function AddTickPrerequisiteComponent(PrerequisiteComponent: cpp.Star<ActorComp>): Void;
-	public function AddTickPrerequisiteActor(PrerequisiteActor: cpp.Star<Actor>): Void;
+	public function AddTickPrerequisiteComponent(PrerequisiteComponent: ucpp.Ptr<ActorComp>): Void;
+	public function AddTickPrerequisiteActor(PrerequisiteActor: ucpp.Ptr<Actor>): Void;
 	public function Activate(bReset: Bool): Void;
 	@:protected public function BeginPlay(): Void;
 	@:protected public function EndPlay(Reason: EEndPlayReason): Void;
 	public function InitializeComponent(): Void;
 	public function UninitializeComponent(): Void;
-	public function TickComponent(DeltaTime: cpp.Float32, TickType: ELevelTick, ThisTickFunction: cpp.Star<ActorComponentTickFunction>): Void;
+	public function TickComponent(DeltaTime: ucpp.num.Float32, TickType: ELevelTick, ThisTickFunction: ucpp.Ptr<ActorComponentTickFunction>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsComponentTickEnabled, IsBeingDestroyed, IsActive, GetOwner, GetComponentTickInterval, ComponentHasTag)
@@ -71,16 +72,16 @@ abstract ConstActorComp(ActorComp) from ActorComp {
 	public inline extern function get_bIsEditorOnly(): Bool return this.bIsEditorOnly;
 	public extern var CreationMethod(get, never): EComponentCreationMethod;
 	public inline extern function get_CreationMethod(): EComponentCreationMethod return this.CreationMethod;
-	public extern var OnComponentActivated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ActorComp.ConstActorComp>, Bool) -> Void>;
-	public inline extern function get_OnComponentActivated(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ActorComp.ConstActorComp>, Bool) -> Void> return this.OnComponentActivated;
-	public extern var OnComponentDeactivated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ActorComp.ConstActorComp>) -> Void>;
-	public inline extern function get_OnComponentDeactivated(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ActorComp.ConstActorComp>) -> Void> return this.OnComponentDeactivated;
+	public extern var OnComponentActivated(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ActorComp.ConstActorComp>, Bool) -> Void>;
+	public inline extern function get_OnComponentActivated(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ActorComp.ConstActorComp>, Bool) -> Void> return this.OnComponentActivated;
+	public extern var OnComponentDeactivated(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ActorComp.ConstActorComp>) -> Void>;
+	public inline extern function get_OnComponentDeactivated(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ActorComp.ConstActorComp>) -> Void> return this.OnComponentDeactivated;
 }
 
 @:forward
 @:nativeGen
 @:native("ActorComp*")
-abstract ActorCompPtr(cpp.Star<ActorComp>) from cpp.Star<ActorComp> to cpp.Star<ActorComp>{
+abstract ActorCompPtr(ucpp.Ptr<ActorComp>) from ucpp.Ptr<ActorComp> to ucpp.Ptr<ActorComp>{
 	@:from
 	public static extern inline function fromValue(v: ActorComp): ActorCompPtr {
 		return untyped __cpp__("&({0})", v);

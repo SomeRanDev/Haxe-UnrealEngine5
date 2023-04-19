@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraValidationRule_BannedModules")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_BannedModules extends NiagaraValidationRule {
 	public var Platforms: NiagaraPlatformSet;
-	public var BannedModules: TArray<cpp.Star<NiagaraScript>>;
+	public var BannedModules: TArray<ucpp.Ptr<NiagaraScript>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class NiagaraValidationRule_BannedModules extends NiagaraValidationRule {
 abstract ConstNiagaraValidationRule_BannedModules(NiagaraValidationRule_BannedModules) from NiagaraValidationRule_BannedModules {
 	public extern var Platforms(get, never): NiagaraPlatformSet;
 	public inline extern function get_Platforms(): NiagaraPlatformSet return this.Platforms;
-	public extern var BannedModules(get, never): TArray<cpp.Star<NiagaraScript.ConstNiagaraScript>>;
-	public inline extern function get_BannedModules(): TArray<cpp.Star<NiagaraScript.ConstNiagaraScript>> return this.BannedModules;
+	public extern var BannedModules(get, never): TArray<ucpp.Ptr<NiagaraScript.ConstNiagaraScript>>;
+	public inline extern function get_BannedModules(): TArray<ucpp.Ptr<NiagaraScript.ConstNiagaraScript>> return this.BannedModules;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_BannedModules*")
-abstract NiagaraValidationRule_BannedModulesPtr(cpp.Star<NiagaraValidationRule_BannedModules>) from cpp.Star<NiagaraValidationRule_BannedModules> to cpp.Star<NiagaraValidationRule_BannedModules>{
+abstract NiagaraValidationRule_BannedModulesPtr(ucpp.Ptr<NiagaraValidationRule_BannedModules>) from ucpp.Ptr<NiagaraValidationRule_BannedModules> to ucpp.Ptr<NiagaraValidationRule_BannedModules>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_BannedModules): NiagaraValidationRule_BannedModulesPtr {
 		return untyped __cpp__("&({0})", v);

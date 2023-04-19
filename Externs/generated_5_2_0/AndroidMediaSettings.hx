@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAndroidMediaSettings")
 @:include("AndroidMediaSettings.h")
-@:structAccess
+@:valueType
 extern class AndroidMediaSettings extends Object {
 	public var CacheableVideoSampleBuffers: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAndroidMediaSettings(AndroidMediaSettings) from AndroidMediaSettin
 @:forward
 @:nativeGen
 @:native("AndroidMediaSettings*")
-abstract AndroidMediaSettingsPtr(cpp.Star<AndroidMediaSettings>) from cpp.Star<AndroidMediaSettings> to cpp.Star<AndroidMediaSettings>{
+abstract AndroidMediaSettingsPtr(ucpp.Ptr<AndroidMediaSettings>) from ucpp.Ptr<AndroidMediaSettings> to ucpp.Ptr<AndroidMediaSettings>{
 	@:from
 	public static extern inline function fromValue(v: AndroidMediaSettings): AndroidMediaSettingsPtr {
 		return untyped __cpp__("&({0})", v);

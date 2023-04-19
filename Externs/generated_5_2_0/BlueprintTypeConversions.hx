@@ -3,31 +3,31 @@ package ue;
 
 @:native("UBlueprintTypeConversions")
 @:include("Kismet/BlueprintTypeConversions.h")
-@:structAccess
+@:valueType
 extern class BlueprintTypeConversions extends Object {
-	public function ConvertSetType(InSet: cpp.Reference<TSet<cpp.Int32>>): TSet<cpp.Int32>;
-	public function ConvertMapType(InMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): TMap<cpp.Int32, cpp.Int32>;
-	public function ConvertFVector4fToFVector4d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFVector4dToFVector4f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFVector3fToFVector3d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFVector3dToFVector3f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFVector2fToFVector2d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFVector2dToFVector2f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFTransform3fToFTransform3d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFTransform3dToFTransform3f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFRotator3fToFRotator3d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFRotator3dToFRotator3f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFQuat4fToFQuat4d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFQuat4dToFQuat4f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFPlane4fToFPlane4d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFPlane4dToFPlane4f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFMatrix44fToFMatrix44d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFMatrix44dToFMatrix44f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFBox2fToFBox2d(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertFBox2dToFBox2f(InFromData: cpp.Int32): cpp.Int32;
-	public function ConvertArrayType(InArray: cpp.Reference<TArray<cpp.Int32>>): TArray<cpp.Int32>;
+	public function ConvertSetType(InSet: ucpp.Ref<TSet<ucpp.num.Int32>>): TSet<ucpp.num.Int32>;
+	public function ConvertMapType(InMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>): TMap<ucpp.num.Int32, ucpp.num.Int32>;
+	public function ConvertFVector4fToFVector4d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFVector4dToFVector4f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFVector3fToFVector3d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFVector3dToFVector3f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFVector2fToFVector2d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFVector2dToFVector2f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFTransform3fToFTransform3d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFTransform3dToFTransform3f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFRotator3fToFRotator3d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFRotator3dToFRotator3f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFQuat4fToFQuat4d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFQuat4dToFQuat4f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFPlane4fToFPlane4d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFPlane4dToFPlane4f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFMatrix44fToFMatrix44d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFMatrix44dToFMatrix44f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFBox2fToFBox2d(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertFBox2dToFBox2f(InFromData: ucpp.num.Int32): ucpp.num.Int32;
+	public function ConvertArrayType(InArray: ucpp.Ref<TArray<ucpp.num.Int32>>): TArray<ucpp.num.Int32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstBlueprintTypeConversions(BlueprintTypeConversions) from BlueprintT
 @:forward
 @:nativeGen
 @:native("BlueprintTypeConversions*")
-abstract BlueprintTypeConversionsPtr(cpp.Star<BlueprintTypeConversions>) from cpp.Star<BlueprintTypeConversions> to cpp.Star<BlueprintTypeConversions>{
+abstract BlueprintTypeConversionsPtr(ucpp.Ptr<BlueprintTypeConversions>) from ucpp.Ptr<BlueprintTypeConversions> to ucpp.Ptr<BlueprintTypeConversions>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintTypeConversions): BlueprintTypeConversionsPtr {
 		return untyped __cpp__("&({0})", v);

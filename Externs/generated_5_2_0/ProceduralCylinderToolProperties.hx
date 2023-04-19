@@ -3,33 +3,33 @@ package ue;
 
 @:native("UProceduralCylinderToolProperties")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class ProceduralCylinderToolProperties extends ProceduralShapeToolProperties {
-	public var Radius: cpp.Float32;
-	public var Height: cpp.Float32;
-	public var RadialSlices: cpp.Int32;
-	public var HeightSubdivisions: cpp.Int32;
+	public var Radius: ucpp.num.Float32;
+	public var Height: ucpp.num.Float32;
+	public var RadialSlices: ucpp.num.Int32;
+	public var HeightSubdivisions: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralCylinderToolProperties(ProceduralCylinderToolProperties) from ProceduralCylinderToolProperties {
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var Height(get, never): cpp.Float32;
-	public inline extern function get_Height(): cpp.Float32 return this.Height;
-	public extern var RadialSlices(get, never): cpp.Int32;
-	public inline extern function get_RadialSlices(): cpp.Int32 return this.RadialSlices;
-	public extern var HeightSubdivisions(get, never): cpp.Int32;
-	public inline extern function get_HeightSubdivisions(): cpp.Int32 return this.HeightSubdivisions;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
+	public extern var Height(get, never): ucpp.num.Float32;
+	public inline extern function get_Height(): ucpp.num.Float32 return this.Height;
+	public extern var RadialSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_RadialSlices(): ucpp.num.Int32 return this.RadialSlices;
+	public extern var HeightSubdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_HeightSubdivisions(): ucpp.num.Int32 return this.HeightSubdivisions;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralCylinderToolProperties*")
-abstract ProceduralCylinderToolPropertiesPtr(cpp.Star<ProceduralCylinderToolProperties>) from cpp.Star<ProceduralCylinderToolProperties> to cpp.Star<ProceduralCylinderToolProperties>{
+abstract ProceduralCylinderToolPropertiesPtr(ucpp.Ptr<ProceduralCylinderToolProperties>) from ucpp.Ptr<ProceduralCylinderToolProperties> to ucpp.Ptr<ProceduralCylinderToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralCylinderToolProperties): ProceduralCylinderToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

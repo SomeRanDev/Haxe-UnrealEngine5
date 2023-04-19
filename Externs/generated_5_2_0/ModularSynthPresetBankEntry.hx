@@ -3,7 +3,7 @@ package ue;
 
 @:native("FModularSynthPresetBankEntry")
 @:include("SynthComponents/EpicSynth1Component.h")
-@:structAccess
+@:valueType
 extern class ModularSynthPresetBankEntry {
 	public var PresetName: FString;
 	public var Preset: ModularSynthPreset;

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UDatasmithMaterialInstanceTemplate")
 @:include("ObjectTemplates/DatasmithMaterialInstanceTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithMaterialInstanceTemplate extends DatasmithObjectTemplate {
 	public var ParentMaterial: TSoftObjectPtr<MaterialInterface>;
-	public var ScalarParameterValues: TMap<FName, cpp.Float32>;
+	public var ScalarParameterValues: TMap<FName, ucpp.num.Float32>;
 	public var VectorParameterValues: TMap<FName, LinearColor>;
 	public var TextureParameterValues: TMap<FName, TSoftObjectPtr<Texture>>;
 	public var StaticParameters: DatasmithStaticParameterSetTemplate;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,8 +19,8 @@ extern class DatasmithMaterialInstanceTemplate extends DatasmithObjectTemplate {
 abstract ConstDatasmithMaterialInstanceTemplate(DatasmithMaterialInstanceTemplate) from DatasmithMaterialInstanceTemplate {
 	public extern var ParentMaterial(get, never): TSoftObjectPtr<MaterialInterface.ConstMaterialInterface>;
 	public inline extern function get_ParentMaterial(): TSoftObjectPtr<MaterialInterface.ConstMaterialInterface> return this.ParentMaterial;
-	public extern var ScalarParameterValues(get, never): TMap<FName, cpp.Float32>;
-	public inline extern function get_ScalarParameterValues(): TMap<FName, cpp.Float32> return this.ScalarParameterValues;
+	public extern var ScalarParameterValues(get, never): TMap<FName, ucpp.num.Float32>;
+	public inline extern function get_ScalarParameterValues(): TMap<FName, ucpp.num.Float32> return this.ScalarParameterValues;
 	public extern var VectorParameterValues(get, never): TMap<FName, LinearColor>;
 	public inline extern function get_VectorParameterValues(): TMap<FName, LinearColor> return this.VectorParameterValues;
 	public extern var TextureParameterValues(get, never): TMap<FName, TSoftObjectPtr<Texture.ConstTexture>>;
@@ -32,7 +32,7 @@ abstract ConstDatasmithMaterialInstanceTemplate(DatasmithMaterialInstanceTemplat
 @:forward
 @:nativeGen
 @:native("DatasmithMaterialInstanceTemplate*")
-abstract DatasmithMaterialInstanceTemplatePtr(cpp.Star<DatasmithMaterialInstanceTemplate>) from cpp.Star<DatasmithMaterialInstanceTemplate> to cpp.Star<DatasmithMaterialInstanceTemplate>{
+abstract DatasmithMaterialInstanceTemplatePtr(ucpp.Ptr<DatasmithMaterialInstanceTemplate>) from ucpp.Ptr<DatasmithMaterialInstanceTemplate> to ucpp.Ptr<DatasmithMaterialInstanceTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithMaterialInstanceTemplate): DatasmithMaterialInstanceTemplatePtr {
 		return untyped __cpp__("&({0})", v);

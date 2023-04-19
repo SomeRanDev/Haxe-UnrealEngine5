@@ -3,10 +3,10 @@ package ue;
 
 @:native("ADocumentationActor")
 @:include("Engine/DocumentationActor.h")
-@:structAccess
+@:valueType
 extern class DocumentationActor extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDocumentationActor(DocumentationActor) from DocumentationActor {
 @:forward
 @:nativeGen
 @:native("DocumentationActor*")
-abstract DocumentationActorPtr(cpp.Star<DocumentationActor>) from cpp.Star<DocumentationActor> to cpp.Star<DocumentationActor>{
+abstract DocumentationActorPtr(ucpp.Ptr<DocumentationActor>) from ucpp.Ptr<DocumentationActor> to ucpp.Ptr<DocumentationActor>{
 	@:from
 	public static extern inline function fromValue(v: DocumentationActor): DocumentationActorPtr {
 		return untyped __cpp__("&({0})", v);

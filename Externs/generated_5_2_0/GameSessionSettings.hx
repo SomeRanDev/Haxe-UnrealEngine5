@@ -3,22 +3,22 @@ package ue;
 
 @:native("UGameSessionSettings")
 @:include("GameSessionSettings.h")
-@:structAccess
+@:valueType
 extern class GameSessionSettings extends Object {
-	public var MaxSpectators: cpp.Int32;
-	public var MaxPlayers: cpp.Int32;
+	public var MaxSpectators: ucpp.num.Int32;
+	public var MaxPlayers: ucpp.num.Int32;
 	public var bRequiresPushToTalk: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGameSessionSettings(GameSessionSettings) from GameSessionSettings {
-	public extern var MaxSpectators(get, never): cpp.Int32;
-	public inline extern function get_MaxSpectators(): cpp.Int32 return this.MaxSpectators;
-	public extern var MaxPlayers(get, never): cpp.Int32;
-	public inline extern function get_MaxPlayers(): cpp.Int32 return this.MaxPlayers;
+	public extern var MaxSpectators(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxSpectators(): ucpp.num.Int32 return this.MaxSpectators;
+	public extern var MaxPlayers(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxPlayers(): ucpp.num.Int32 return this.MaxPlayers;
 	public extern var bRequiresPushToTalk(get, never): Bool;
 	public inline extern function get_bRequiresPushToTalk(): Bool return this.bRequiresPushToTalk;
 }
@@ -26,7 +26,7 @@ abstract ConstGameSessionSettings(GameSessionSettings) from GameSessionSettings 
 @:forward
 @:nativeGen
 @:native("GameSessionSettings*")
-abstract GameSessionSettingsPtr(cpp.Star<GameSessionSettings>) from cpp.Star<GameSessionSettings> to cpp.Star<GameSessionSettings>{
+abstract GameSessionSettingsPtr(ucpp.Ptr<GameSessionSettings>) from ucpp.Ptr<GameSessionSettings> to ucpp.Ptr<GameSessionSettings>{
 	@:from
 	public static extern inline function fromValue(v: GameSessionSettings): GameSessionSettingsPtr {
 		return untyped __cpp__("&({0})", v);

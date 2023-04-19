@@ -3,22 +3,22 @@ package ue;
 
 @:native("UPaperTileSet")
 @:include("PaperTileSet.h")
-@:structAccess
+@:valueType
 extern class PaperTileSet extends Object {
 	private var TileSize: IntPoint;
-	private var TileSheet: cpp.Star<Texture2D>;
-	private var AdditionalSourceTextures: TArray<cpp.Star<Texture>>;
+	private var TileSheet: ucpp.Ptr<Texture2D>;
+	private var AdditionalSourceTextures: TArray<ucpp.Ptr<Texture>>;
 	private var BorderMargin: IntMargin;
 	private var PerTileSpacing: IntPoint;
 	private var DrawingOffset: IntPoint;
-	private var WidthInTiles: cpp.Int32;
-	private var HeightInTiles: cpp.Int32;
-	private var AllocatedWidth: cpp.Int32;
-	private var AllocatedHeight: cpp.Int32;
+	private var WidthInTiles: ucpp.num.Int32;
+	private var HeightInTiles: ucpp.num.Int32;
+	private var AllocatedWidth: ucpp.num.Int32;
+	private var AllocatedHeight: ucpp.num.Int32;
 	private var PerTileData: TArray<PaperTileMetadata>;
 	private var Terrains: TArray<PaperTileSetTerrain>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstPaperTileSet(PaperTileSet) from PaperTileSet {
 @:forward
 @:nativeGen
 @:native("PaperTileSet*")
-abstract PaperTileSetPtr(cpp.Star<PaperTileSet>) from cpp.Star<PaperTileSet> to cpp.Star<PaperTileSet>{
+abstract PaperTileSetPtr(ucpp.Ptr<PaperTileSet>) from ucpp.Ptr<PaperTileSet> to ucpp.Ptr<PaperTileSet>{
 	@:from
 	public static extern inline function fromValue(v: PaperTileSet): PaperTileSetPtr {
 		return untyped __cpp__("&({0})", v);

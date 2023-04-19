@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_IKRig")
 @:include("AnimGraphNode_IKRig.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_IKRig extends AnimGraphNode_CustomProperty {
 	private var Node: AnimNode_IKRig;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimGraphNode_IKRig(AnimGraphNode_IKRig) from AnimGraphNode_IKRig 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_IKRig*")
-abstract AnimGraphNode_IKRigPtr(cpp.Star<AnimGraphNode_IKRig>) from cpp.Star<AnimGraphNode_IKRig> to cpp.Star<AnimGraphNode_IKRig>{
+abstract AnimGraphNode_IKRigPtr(ucpp.Ptr<AnimGraphNode_IKRig>) from ucpp.Ptr<AnimGraphNode_IKRig> to ucpp.Ptr<AnimGraphNode_IKRig>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_IKRig): AnimGraphNode_IKRigPtr {
 		return untyped __cpp__("&({0})", v);

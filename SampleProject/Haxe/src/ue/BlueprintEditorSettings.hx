@@ -3,12 +3,13 @@ package ue;
 
 @:native("UBlueprintEditorSettings")
 @:include("BlueprintEditorSettings.h")
-@:structAccess
+@:valueType
 extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bDrawMidpointArrowsInBlueprints: Bool;
 	public var bShowGraphInstructionText: Bool;
 	public var bHideUnrelatedNodes: Bool;
 	public var bShowShortTooltips: Bool;
+	public var bEnableInputTriggerSupportWarnings: Bool;
 	public var bSplitContextTargetSettings: Bool;
 	public var bExposeAllMemberComponentFunctions: Bool;
 	public var bShowContextualFavorites: Bool;
@@ -24,12 +25,12 @@ extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bDoubleClickNavigatesToParent: Bool;
 	public var bEnableTypePromotion: Bool;
 	public var TypePromotionPinDenyList: TSet<FName>;
+	public var AdditionalBlueprintCategories: TArray<AdditionalBlueprintCategory>;
 	public var BreakpointReloadMethod: EBlueprintBreakpointReloadMethod;
 	public var bEnablePinValueInspectionTooltips: Bool;
 	public var bEnableNamespaceEditorFeatures: Bool;
-	public var bEnableNamespaceFilteringFeatures: Bool;
-	public var bEnableNamespaceImportingFeatures: Bool;
 	public var NamespacesToAlwaysInclude: TArray<FString>;
+	public var bEnableContextMenuTimeSlicing: Bool;
 	public var bFavorPureCastNodes: Bool;
 	public var SaveOnCompile: TEnumAsByte<ESaveOnCompile>;
 	public var bJumpToNodeErrors: Bool;
@@ -37,8 +38,8 @@ extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bShowActionMenuItemSignatures: Bool;
 	public var bBlueprintNodeUniqueNames: Bool;
 	public var bShowDetailedCompileResults: Bool;
-	public var CompileEventDisplayThresholdMs: cpp.Int32;
-	public var NodeTemplateCacheCapMB: cpp.Float32;
+	public var CompileEventDisplayThresholdMs: ucpp.num.Int32;
+	public var NodeTemplateCacheCapMB: ucpp.num.Float32;
 	public var bShowInheritedVariables: Bool;
 	public var bAlwaysShowInterfacesInOverrides: Bool;
 	public var bShowParentClassInOverrides: Bool;
@@ -49,10 +50,13 @@ extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var PerBlueprintSettings: TMap<FString, PerBlueprintSettings>;
 	public var bIncludeCommentNodesInBookmarksTab: Bool;
 	public var bShowBookmarksForCurrentDocumentOnlyInTab: Bool;
-	public var GraphEditorQuickJumps: TMap<cpp.Int32, EditedDocumentInfo>;
+	public var GraphEditorQuickJumps: TMap<ucpp.num.Int32, EditedDocumentInfo>;
+	public var bEnableNamespaceFilteringFeatures: Bool;
+	public var bEnableNamespaceImportingFeatures: Bool;
+	public var bInheritImportedNamespacesFromParentBP: Bool;
 	public var BaseClassesToAllowRecompilingDuringPlayInEditor: TArray<TSoftClassPtr<Class>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -66,6 +70,8 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 	public inline extern function get_bHideUnrelatedNodes(): Bool return this.bHideUnrelatedNodes;
 	public extern var bShowShortTooltips(get, never): Bool;
 	public inline extern function get_bShowShortTooltips(): Bool return this.bShowShortTooltips;
+	public extern var bEnableInputTriggerSupportWarnings(get, never): Bool;
+	public inline extern function get_bEnableInputTriggerSupportWarnings(): Bool return this.bEnableInputTriggerSupportWarnings;
 	public extern var bSplitContextTargetSettings(get, never): Bool;
 	public inline extern function get_bSplitContextTargetSettings(): Bool return this.bSplitContextTargetSettings;
 	public extern var bExposeAllMemberComponentFunctions(get, never): Bool;
@@ -96,18 +102,18 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 	public inline extern function get_bEnableTypePromotion(): Bool return this.bEnableTypePromotion;
 	public extern var TypePromotionPinDenyList(get, never): TSet<FName>;
 	public inline extern function get_TypePromotionPinDenyList(): TSet<FName> return this.TypePromotionPinDenyList;
+	public extern var AdditionalBlueprintCategories(get, never): TArray<AdditionalBlueprintCategory>;
+	public inline extern function get_AdditionalBlueprintCategories(): TArray<AdditionalBlueprintCategory> return this.AdditionalBlueprintCategories;
 	public extern var BreakpointReloadMethod(get, never): EBlueprintBreakpointReloadMethod;
 	public inline extern function get_BreakpointReloadMethod(): EBlueprintBreakpointReloadMethod return this.BreakpointReloadMethod;
 	public extern var bEnablePinValueInspectionTooltips(get, never): Bool;
 	public inline extern function get_bEnablePinValueInspectionTooltips(): Bool return this.bEnablePinValueInspectionTooltips;
 	public extern var bEnableNamespaceEditorFeatures(get, never): Bool;
 	public inline extern function get_bEnableNamespaceEditorFeatures(): Bool return this.bEnableNamespaceEditorFeatures;
-	public extern var bEnableNamespaceFilteringFeatures(get, never): Bool;
-	public inline extern function get_bEnableNamespaceFilteringFeatures(): Bool return this.bEnableNamespaceFilteringFeatures;
-	public extern var bEnableNamespaceImportingFeatures(get, never): Bool;
-	public inline extern function get_bEnableNamespaceImportingFeatures(): Bool return this.bEnableNamespaceImportingFeatures;
 	public extern var NamespacesToAlwaysInclude(get, never): TArray<FString>;
 	public inline extern function get_NamespacesToAlwaysInclude(): TArray<FString> return this.NamespacesToAlwaysInclude;
+	public extern var bEnableContextMenuTimeSlicing(get, never): Bool;
+	public inline extern function get_bEnableContextMenuTimeSlicing(): Bool return this.bEnableContextMenuTimeSlicing;
 	public extern var bFavorPureCastNodes(get, never): Bool;
 	public inline extern function get_bFavorPureCastNodes(): Bool return this.bFavorPureCastNodes;
 	public extern var SaveOnCompile(get, never): TEnumAsByte<ESaveOnCompile>;
@@ -122,10 +128,10 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 	public inline extern function get_bBlueprintNodeUniqueNames(): Bool return this.bBlueprintNodeUniqueNames;
 	public extern var bShowDetailedCompileResults(get, never): Bool;
 	public inline extern function get_bShowDetailedCompileResults(): Bool return this.bShowDetailedCompileResults;
-	public extern var CompileEventDisplayThresholdMs(get, never): cpp.Int32;
-	public inline extern function get_CompileEventDisplayThresholdMs(): cpp.Int32 return this.CompileEventDisplayThresholdMs;
-	public extern var NodeTemplateCacheCapMB(get, never): cpp.Float32;
-	public inline extern function get_NodeTemplateCacheCapMB(): cpp.Float32 return this.NodeTemplateCacheCapMB;
+	public extern var CompileEventDisplayThresholdMs(get, never): ucpp.num.Int32;
+	public inline extern function get_CompileEventDisplayThresholdMs(): ucpp.num.Int32 return this.CompileEventDisplayThresholdMs;
+	public extern var NodeTemplateCacheCapMB(get, never): ucpp.num.Float32;
+	public inline extern function get_NodeTemplateCacheCapMB(): ucpp.num.Float32 return this.NodeTemplateCacheCapMB;
 	public extern var bShowInheritedVariables(get, never): Bool;
 	public inline extern function get_bShowInheritedVariables(): Bool return this.bShowInheritedVariables;
 	public extern var bAlwaysShowInterfacesInOverrides(get, never): Bool;
@@ -146,8 +152,14 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 	public inline extern function get_bIncludeCommentNodesInBookmarksTab(): Bool return this.bIncludeCommentNodesInBookmarksTab;
 	public extern var bShowBookmarksForCurrentDocumentOnlyInTab(get, never): Bool;
 	public inline extern function get_bShowBookmarksForCurrentDocumentOnlyInTab(): Bool return this.bShowBookmarksForCurrentDocumentOnlyInTab;
-	public extern var GraphEditorQuickJumps(get, never): TMap<cpp.Int32, EditedDocumentInfo>;
-	public inline extern function get_GraphEditorQuickJumps(): TMap<cpp.Int32, EditedDocumentInfo> return this.GraphEditorQuickJumps;
+	public extern var GraphEditorQuickJumps(get, never): TMap<ucpp.num.Int32, EditedDocumentInfo>;
+	public inline extern function get_GraphEditorQuickJumps(): TMap<ucpp.num.Int32, EditedDocumentInfo> return this.GraphEditorQuickJumps;
+	public extern var bEnableNamespaceFilteringFeatures(get, never): Bool;
+	public inline extern function get_bEnableNamespaceFilteringFeatures(): Bool return this.bEnableNamespaceFilteringFeatures;
+	public extern var bEnableNamespaceImportingFeatures(get, never): Bool;
+	public inline extern function get_bEnableNamespaceImportingFeatures(): Bool return this.bEnableNamespaceImportingFeatures;
+	public extern var bInheritImportedNamespacesFromParentBP(get, never): Bool;
+	public inline extern function get_bInheritImportedNamespacesFromParentBP(): Bool return this.bInheritImportedNamespacesFromParentBP;
 	public extern var BaseClassesToAllowRecompilingDuringPlayInEditor(get, never): TArray<TSoftClassPtr<Class.ConstClass>>;
 	public inline extern function get_BaseClassesToAllowRecompilingDuringPlayInEditor(): TArray<TSoftClassPtr<Class.ConstClass>> return this.BaseClassesToAllowRecompilingDuringPlayInEditor;
 }
@@ -155,7 +167,7 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 @:forward
 @:nativeGen
 @:native("BlueprintEditorSettings*")
-abstract BlueprintEditorSettingsPtr(cpp.Star<BlueprintEditorSettings>) from cpp.Star<BlueprintEditorSettings> to cpp.Star<BlueprintEditorSettings>{
+abstract BlueprintEditorSettingsPtr(ucpp.Ptr<BlueprintEditorSettings>) from ucpp.Ptr<BlueprintEditorSettings> to ucpp.Ptr<BlueprintEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintEditorSettings): BlueprintEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

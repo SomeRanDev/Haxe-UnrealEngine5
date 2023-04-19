@@ -3,13 +3,13 @@ package ue;
 
 @:native("ACineCameraActor")
 @:include("CineCameraActor.h")
-@:structAccess
+@:valueType
 extern class CineCameraActor extends CameraActor {
 	public var LookatTrackingSettings: CameraLookatTrackingSettings;
 
-	public function GetCineCameraComponent(): cpp.Star<CineCameraComp>;
+	public function GetCineCameraComponent(): ucpp.Ptr<CineCameraComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCineCameraComponent)
@@ -22,7 +22,7 @@ abstract ConstCineCameraActor(CineCameraActor) from CineCameraActor {
 @:forward
 @:nativeGen
 @:native("CineCameraActor*")
-abstract CineCameraActorPtr(cpp.Star<CineCameraActor>) from cpp.Star<CineCameraActor> to cpp.Star<CineCameraActor>{
+abstract CineCameraActorPtr(ucpp.Ptr<CineCameraActor>) from ucpp.Ptr<CineCameraActor> to ucpp.Ptr<CineCameraActor>{
 	@:from
 	public static extern inline function fromValue(v: CineCameraActor): CineCameraActorPtr {
 		return untyped __cpp__("&({0})", v);

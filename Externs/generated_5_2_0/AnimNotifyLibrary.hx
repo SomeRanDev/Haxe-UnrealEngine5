@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimNotifyLibrary")
 @:include("Animation/AnimNotifyLibrary.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyLibrary extends BlueprintFunctionLibrary {
-	public function NotifyStateReachedEnd(EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
+	public function NotifyStateReachedEnd(EventReference: ucpp.Ref<AnimNotifyEventReference>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimNotifyLibrary(AnimNotifyLibrary) from AnimNotifyLibrary {
 @:forward
 @:nativeGen
 @:native("AnimNotifyLibrary*")
-abstract AnimNotifyLibraryPtr(cpp.Star<AnimNotifyLibrary>) from cpp.Star<AnimNotifyLibrary> to cpp.Star<AnimNotifyLibrary>{
+abstract AnimNotifyLibraryPtr(ucpp.Ptr<AnimNotifyLibrary>) from ucpp.Ptr<AnimNotifyLibrary> to ucpp.Ptr<AnimNotifyLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyLibrary): AnimNotifyLibraryPtr {
 		return untyped __cpp__("&({0})", v);

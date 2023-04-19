@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangeTestFunctionResult")
 @:include("InterchangeTestFunction.h")
-@:structAccess
+@:valueType
 extern class InterchangeTestFunctionResult {
 	private var Infos: TArray<FString>;
 	private var Warnings: TArray<FString>;

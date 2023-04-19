@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAISenseConfig_Blueprint")
 @:include("Perception/AISenseConfig_Blueprint.h")
-@:structAccess
+@:valueType
 extern class AISenseConfig_Blueprint extends AISenseConfig {
 	public var Implementation: TSubclassOf<AISense_Blueprint>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAISenseConfig_Blueprint(AISenseConfig_Blueprint) from AISenseConfi
 @:forward
 @:nativeGen
 @:native("AISenseConfig_Blueprint*")
-abstract AISenseConfig_BlueprintPtr(cpp.Star<AISenseConfig_Blueprint>) from cpp.Star<AISenseConfig_Blueprint> to cpp.Star<AISenseConfig_Blueprint>{
+abstract AISenseConfig_BlueprintPtr(ucpp.Ptr<AISenseConfig_Blueprint>) from ucpp.Ptr<AISenseConfig_Blueprint> to ucpp.Ptr<AISenseConfig_Blueprint>{
 	@:from
 	public static extern inline function fromValue(v: AISenseConfig_Blueprint): AISenseConfig_BlueprintPtr {
 		return untyped __cpp__("&({0})", v);

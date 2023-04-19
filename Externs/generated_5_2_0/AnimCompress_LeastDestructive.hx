@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimCompress_LeastDestructive")
 @:include("Animation/AnimCompress_LeastDestructive.h")
-@:structAccess
+@:valueType
 extern class AnimCompress_LeastDestructive extends AnimCompress_BitwiseCompressOnly {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimCompress_LeastDestructive(AnimCompress_LeastDestructive) from 
 @:forward
 @:nativeGen
 @:native("AnimCompress_LeastDestructive*")
-abstract AnimCompress_LeastDestructivePtr(cpp.Star<AnimCompress_LeastDestructive>) from cpp.Star<AnimCompress_LeastDestructive> to cpp.Star<AnimCompress_LeastDestructive>{
+abstract AnimCompress_LeastDestructivePtr(ucpp.Ptr<AnimCompress_LeastDestructive>) from ucpp.Ptr<AnimCompress_LeastDestructive> to ucpp.Ptr<AnimCompress_LeastDestructive>{
 	@:from
 	public static extern inline function fromValue(v: AnimCompress_LeastDestructive): AnimCompress_LeastDestructivePtr {
 		return untyped __cpp__("&({0})", v);

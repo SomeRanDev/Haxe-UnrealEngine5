@@ -3,35 +3,35 @@ package ue;
 
 @:native("USoundCue")
 @:include("Sound/SoundCue.h")
-@:structAccess
+@:valueType
 extern class SoundCue extends SoundBase {
-	public var bPrimeOnLoad: Bool;
-	public var FirstNode: cpp.Star<SoundNode>;
-	public var VolumeMultiplier: cpp.Float32;
-	public var PitchMultiplier: cpp.Float32;
+	public var FirstNode: ucpp.Ptr<SoundNode>;
+	public var VolumeMultiplier: ucpp.num.Float32;
+	public var PitchMultiplier: ucpp.num.Float32;
 	public var AttenuationOverrides: SoundAttenuationSettings;
-	@:protected public var SubtitlePriority: cpp.Float32;
+	@:protected public var SubtitlePriority: ucpp.num.Float32;
+	public var bPrimeOnLoad: Bool;
 	public var bOverrideAttenuation: Bool;
 	public var bExcludeFromRandomNodeBranchCulling: Bool;
-	private var CookedQualityIndex: cpp.Int32;
 	private var bHasPlayWhenSilent: Bool;
+	private var CookedQualityIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundCue(SoundCue) from SoundCue {
-	public extern var bPrimeOnLoad(get, never): Bool;
-	public inline extern function get_bPrimeOnLoad(): Bool return this.bPrimeOnLoad;
-	public extern var FirstNode(get, never): cpp.Star<SoundNode.ConstSoundNode>;
-	public inline extern function get_FirstNode(): cpp.Star<SoundNode.ConstSoundNode> return this.FirstNode;
-	public extern var VolumeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_VolumeMultiplier(): cpp.Float32 return this.VolumeMultiplier;
-	public extern var PitchMultiplier(get, never): cpp.Float32;
-	public inline extern function get_PitchMultiplier(): cpp.Float32 return this.PitchMultiplier;
+	public extern var FirstNode(get, never): ucpp.Ptr<SoundNode.ConstSoundNode>;
+	public inline extern function get_FirstNode(): ucpp.Ptr<SoundNode.ConstSoundNode> return this.FirstNode;
+	public extern var VolumeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeMultiplier(): ucpp.num.Float32 return this.VolumeMultiplier;
+	public extern var PitchMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_PitchMultiplier(): ucpp.num.Float32 return this.PitchMultiplier;
 	public extern var AttenuationOverrides(get, never): SoundAttenuationSettings;
 	public inline extern function get_AttenuationOverrides(): SoundAttenuationSettings return this.AttenuationOverrides;
+	public extern var bPrimeOnLoad(get, never): Bool;
+	public inline extern function get_bPrimeOnLoad(): Bool return this.bPrimeOnLoad;
 	public extern var bOverrideAttenuation(get, never): Bool;
 	public inline extern function get_bOverrideAttenuation(): Bool return this.bOverrideAttenuation;
 	public extern var bExcludeFromRandomNodeBranchCulling(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstSoundCue(SoundCue) from SoundCue {
 @:forward
 @:nativeGen
 @:native("SoundCue*")
-abstract SoundCuePtr(cpp.Star<SoundCue>) from cpp.Star<SoundCue> to cpp.Star<SoundCue>{
+abstract SoundCuePtr(ucpp.Ptr<SoundCue>) from ucpp.Ptr<SoundCue> to ucpp.Ptr<SoundCue>{
 	@:from
 	public static extern inline function fromValue(v: SoundCue): SoundCuePtr {
 		return untyped __cpp__("&({0})", v);

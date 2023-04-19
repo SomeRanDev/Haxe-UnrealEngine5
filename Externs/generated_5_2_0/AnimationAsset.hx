@@ -3,16 +3,16 @@ package ue;
 
 @:native("UAnimationAsset")
 @:include("Animation/AnimationAsset.h")
-@:structAccess
+@:valueType
 extern class AnimationAsset extends Object {
-	private var Skeleton: cpp.Star<Skeleton>;
-	private var MetaData: TArray<cpp.Star<AnimMetaData>>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	private var Skeleton: ucpp.Ptr<Skeleton>;
+	private var MetaData: TArray<ucpp.Ptr<AnimMetaData>>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 
-	public function SetPreviewSkeletalMesh(PreviewMesh: cpp.Star<SkeletalMesh>): Void;
-	public function GetPlayLength(): cpp.Float32;
+	public function SetPreviewSkeletalMesh(PreviewMesh: ucpp.Ptr<SkeletalMesh>): Void;
+	public function GetPlayLength(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPlayLength)
@@ -23,7 +23,7 @@ abstract ConstAnimationAsset(AnimationAsset) from AnimationAsset {
 @:forward
 @:nativeGen
 @:native("AnimationAsset*")
-abstract AnimationAssetPtr(cpp.Star<AnimationAsset>) from cpp.Star<AnimationAsset> to cpp.Star<AnimationAsset>{
+abstract AnimationAssetPtr(ucpp.Ptr<AnimationAsset>) from ucpp.Ptr<AnimationAsset> to ucpp.Ptr<AnimationAsset>{
 	@:from
 	public static extern inline function fromValue(v: AnimationAsset): AnimationAssetPtr {
 		return untyped __cpp__("&({0})", v);

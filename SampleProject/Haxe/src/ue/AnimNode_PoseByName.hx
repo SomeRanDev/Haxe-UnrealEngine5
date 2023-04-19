@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimNode_PoseByName")
 @:include("AnimNodes/AnimNode_PoseByName.h")
-@:structAccess
+@:valueType
 extern class AnimNode_PoseByName extends AnimNode_PoseHandler {
 	public var PoseName: FName;
-	public var PoseWeight: cpp.Float32;
+	public var PoseWeight: ucpp.num.Float32;
 
 	@:native("FAnimNode_PoseByName") public function new();
-	@:native("FAnimNode_PoseByName") public static function make(PoseName: FName, PoseWeight: cpp.Float32): AnimNode_PoseByName ;
+	@:native("FAnimNode_PoseByName") public static function make(PoseName: FName, PoseWeight: ucpp.num.Float32): AnimNode_PoseByName ;
 }

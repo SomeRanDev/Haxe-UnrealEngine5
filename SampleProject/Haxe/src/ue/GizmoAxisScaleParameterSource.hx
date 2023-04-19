@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGizmoAxisScaleParameterSource")
 @:include("BaseGizmos/ParameterToTransformAdapters.h")
-@:structAccess
+@:valueType
 extern class GizmoAxisScaleParameterSource extends GizmoBaseFloatParameterSource {
 	public var AxisSource: GizmoAxisSource;
 	public var TransformSource: GizmoTransformSource;
-	public var ScaleMultiplier: cpp.Float32;
+	public var ScaleMultiplier: ucpp.num.Float32;
 	public var bClampToZero: Bool;
-	public var Parameter: cpp.Float32;
+	public var Parameter: ucpp.num.Float32;
 	public var LastChange: GizmoFloatParameterChange;
 	public var CurScaleAxis: Vector;
 	public var CurScaleOrigin: Vector;
 	public var InitialTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,12 +25,12 @@ abstract ConstGizmoAxisScaleParameterSource(GizmoAxisScaleParameterSource) from 
 	public inline extern function get_AxisSource(): GizmoAxisSource.ConstGizmoAxisSource return this.AxisSource;
 	public extern var TransformSource(get, never): GizmoTransformSource.ConstGizmoTransformSource;
 	public inline extern function get_TransformSource(): GizmoTransformSource.ConstGizmoTransformSource return this.TransformSource;
-	public extern var ScaleMultiplier(get, never): cpp.Float32;
-	public inline extern function get_ScaleMultiplier(): cpp.Float32 return this.ScaleMultiplier;
+	public extern var ScaleMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_ScaleMultiplier(): ucpp.num.Float32 return this.ScaleMultiplier;
 	public extern var bClampToZero(get, never): Bool;
 	public inline extern function get_bClampToZero(): Bool return this.bClampToZero;
-	public extern var Parameter(get, never): cpp.Float32;
-	public inline extern function get_Parameter(): cpp.Float32 return this.Parameter;
+	public extern var Parameter(get, never): ucpp.num.Float32;
+	public inline extern function get_Parameter(): ucpp.num.Float32 return this.Parameter;
 	public extern var LastChange(get, never): GizmoFloatParameterChange;
 	public inline extern function get_LastChange(): GizmoFloatParameterChange return this.LastChange;
 	public extern var CurScaleAxis(get, never): Vector;
@@ -44,7 +44,7 @@ abstract ConstGizmoAxisScaleParameterSource(GizmoAxisScaleParameterSource) from 
 @:forward
 @:nativeGen
 @:native("GizmoAxisScaleParameterSource*")
-abstract GizmoAxisScaleParameterSourcePtr(cpp.Star<GizmoAxisScaleParameterSource>) from cpp.Star<GizmoAxisScaleParameterSource> to cpp.Star<GizmoAxisScaleParameterSource>{
+abstract GizmoAxisScaleParameterSourcePtr(ucpp.Ptr<GizmoAxisScaleParameterSource>) from ucpp.Ptr<GizmoAxisScaleParameterSource> to ucpp.Ptr<GizmoAxisScaleParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoAxisScaleParameterSource): GizmoAxisScaleParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

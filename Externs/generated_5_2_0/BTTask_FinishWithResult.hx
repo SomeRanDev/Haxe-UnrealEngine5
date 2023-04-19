@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTTask_FinishWithResult")
 @:include("BehaviorTree/Tasks/BTTask_FinishWithResult.h")
-@:structAccess
+@:valueType
 extern class BTTask_FinishWithResult extends BTTaskNode {
 	@:protected public var Result: TEnumAsByte<EBTNodeResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTTask_FinishWithResult(BTTask_FinishWithResult) from BTTask_Finis
 @:forward
 @:nativeGen
 @:native("BTTask_FinishWithResult*")
-abstract BTTask_FinishWithResultPtr(cpp.Star<BTTask_FinishWithResult>) from cpp.Star<BTTask_FinishWithResult> to cpp.Star<BTTask_FinishWithResult>{
+abstract BTTask_FinishWithResultPtr(ucpp.Ptr<BTTask_FinishWithResult>) from ucpp.Ptr<BTTask_FinishWithResult> to ucpp.Ptr<BTTask_FinishWithResult>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_FinishWithResult): BTTask_FinishWithResultPtr {
 		return untyped __cpp__("&({0})", v);

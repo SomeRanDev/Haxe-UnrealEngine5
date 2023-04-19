@@ -3,11 +3,11 @@ package ue;
 
 @:native("ANavMeshBoundsVolume")
 @:include("NavMesh/NavMeshBoundsVolume.h")
-@:structAccess
+@:valueType
 extern class NavMeshBoundsVolume extends Volume {
 	public var SupportedAgents: NavAgentSelector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNavMeshBoundsVolume(NavMeshBoundsVolume) from NavMeshBoundsVolume 
 @:forward
 @:nativeGen
 @:native("NavMeshBoundsVolume*")
-abstract NavMeshBoundsVolumePtr(cpp.Star<NavMeshBoundsVolume>) from cpp.Star<NavMeshBoundsVolume> to cpp.Star<NavMeshBoundsVolume>{
+abstract NavMeshBoundsVolumePtr(ucpp.Ptr<NavMeshBoundsVolume>) from ucpp.Ptr<NavMeshBoundsVolume> to ucpp.Ptr<NavMeshBoundsVolume>{
 	@:from
 	public static extern inline function fromValue(v: NavMeshBoundsVolume): NavMeshBoundsVolumePtr {
 		return untyped __cpp__("&({0})", v);

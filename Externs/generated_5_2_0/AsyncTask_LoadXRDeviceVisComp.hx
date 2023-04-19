@@ -3,31 +3,31 @@ package ue;
 
 @:native("UAsyncTask_LoadXRDeviceVisComponent")
 @:include("XRAssetFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class AsyncTask_LoadXRDeviceVisComp extends BlueprintAsyncActionBase {
-	public var OnModelLoaded: HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
-	public var OnLoadFailure: HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
-	private var SpawnedComponent: cpp.Star<PrimitiveComp>;
+	public var OnModelLoaded: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
+	public var OnLoadFailure: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
+	private var SpawnedComponent: ucpp.Ptr<PrimitiveComp>;
 
-	public function AddNamedDeviceVisualizationComponentAsync(Target: cpp.Star<Actor>, SystemName: FName, DeviceName: FName, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, XRDeviceId: cpp.Reference<XRDeviceId>, NewComponent: cpp.Reference<cpp.Star<PrimitiveComp>>): cpp.Star<AsyncTask_LoadXRDeviceVisComp>;
-	public function AddDeviceVisualizationComponentAsync(Target: cpp.Star<Actor>, XRDeviceId: cpp.Reference<XRDeviceId>, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, NewComponent: cpp.Reference<cpp.Star<PrimitiveComp>>): cpp.Star<AsyncTask_LoadXRDeviceVisComp>;
+	public function AddNamedDeviceVisualizationComponentAsync(Target: ucpp.Ptr<Actor>, SystemName: FName, DeviceName: FName, bManualAttachment: Bool, RelativeTransform: ucpp.Ref<Transform>, XRDeviceId: ucpp.Ref<XRDeviceId>, NewComponent: ucpp.Ref<ucpp.Ptr<PrimitiveComp>>): ucpp.Ptr<AsyncTask_LoadXRDeviceVisComp>;
+	public function AddDeviceVisualizationComponentAsync(Target: ucpp.Ptr<Actor>, XRDeviceId: ucpp.Ref<XRDeviceId>, bManualAttachment: Bool, RelativeTransform: ucpp.Ref<Transform>, NewComponent: ucpp.Ref<ucpp.Ptr<PrimitiveComp>>): ucpp.Ptr<AsyncTask_LoadXRDeviceVisComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncTask_LoadXRDeviceVisComp(AsyncTask_LoadXRDeviceVisComp) from AsyncTask_LoadXRDeviceVisComp {
-	public extern var OnModelLoaded(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
-	public inline extern function get_OnModelLoaded(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void> return this.OnModelLoaded;
-	public extern var OnLoadFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
-	public inline extern function get_OnLoadFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PrimitiveComp.ConstPrimitiveComp>) -> Void> return this.OnLoadFailure;
+	public extern var OnModelLoaded(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
+	public inline extern function get_OnModelLoaded(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>) -> Void> return this.OnModelLoaded;
+	public extern var OnLoadFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>) -> Void>;
+	public inline extern function get_OnLoadFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>) -> Void> return this.OnLoadFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncTask_LoadXRDeviceVisComp*")
-abstract AsyncTask_LoadXRDeviceVisCompPtr(cpp.Star<AsyncTask_LoadXRDeviceVisComp>) from cpp.Star<AsyncTask_LoadXRDeviceVisComp> to cpp.Star<AsyncTask_LoadXRDeviceVisComp>{
+abstract AsyncTask_LoadXRDeviceVisCompPtr(ucpp.Ptr<AsyncTask_LoadXRDeviceVisComp>) from ucpp.Ptr<AsyncTask_LoadXRDeviceVisComp> to ucpp.Ptr<AsyncTask_LoadXRDeviceVisComp>{
 	@:from
 	public static extern inline function fromValue(v: AsyncTask_LoadXRDeviceVisComp): AsyncTask_LoadXRDeviceVisCompPtr {
 		return untyped __cpp__("&({0})", v);

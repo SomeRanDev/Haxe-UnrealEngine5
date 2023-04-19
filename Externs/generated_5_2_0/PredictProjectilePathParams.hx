@@ -3,21 +3,21 @@ package ue;
 
 @:native("FPredictProjectilePathParams")
 @:include("Kismet/GameplayStaticsTypes.h")
-@:structAccess
+@:valueType
 extern class PredictProjectilePathParams {
 	public var StartLocation: Vector;
 	public var LaunchVelocity: Vector;
 	public var bTraceWithCollision: Bool;
-	public var ProjectileRadius: cpp.Float32;
-	public var MaxSimTime: cpp.Float32;
+	public var ProjectileRadius: ucpp.num.Float32;
+	public var MaxSimTime: ucpp.num.Float32;
 	public var bTraceWithChannel: Bool;
 	public var TraceChannel: TEnumAsByte<ECollisionChannel>;
 	public var ObjectTypes: TArray<TEnumAsByte<EObjectTypeQuery>>;
-	public var ActorsToIgnore: TArray<cpp.Star<Actor>>;
-	public var SimFrequency: cpp.Float32;
-	public var OverrideGravityZ: cpp.Float32;
+	public var ActorsToIgnore: TArray<ucpp.Ptr<Actor>>;
+	public var SimFrequency: ucpp.num.Float32;
+	public var OverrideGravityZ: ucpp.num.Float32;
 	public var DrawDebugType: TEnumAsByte<EDrawDebugTrace>;
-	public var DrawDebugTime: cpp.Float32;
+	public var DrawDebugTime: ucpp.num.Float32;
 	public var bTraceComplex: Bool;
 
 	@:native("FPredictProjectilePathParams") public function new();

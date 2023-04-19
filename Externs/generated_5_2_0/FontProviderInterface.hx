@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFontProviderInterface")
-@:structAccess
+@:valueType
 extern class FontProviderInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFontProviderInterface(FontProviderInterface) from FontProviderInte
 @:forward
 @:nativeGen
 @:native("FontProviderInterface*")
-abstract FontProviderInterfacePtr(cpp.Star<FontProviderInterface>) from cpp.Star<FontProviderInterface> to cpp.Star<FontProviderInterface>{
+abstract FontProviderInterfacePtr(ucpp.Ptr<FontProviderInterface>) from ucpp.Ptr<FontProviderInterface> to ucpp.Ptr<FontProviderInterface>{
 	@:from
 	public static extern inline function fromValue(v: FontProviderInterface): FontProviderInterfacePtr {
 		return untyped __cpp__("&({0})", v);

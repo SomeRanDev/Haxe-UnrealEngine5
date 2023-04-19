@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneEventTrack")
 @:include("Tracks/MovieSceneEventTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventTrack extends MovieSceneNameableTrack {
 	public var bFireEventsWhenForwards: Bool;
 	public var bFireEventsWhenBackwards: Bool;
 	public var EventPosition: EFireEventsAtPosition;
-	private var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	private var Sections: TArray<ucpp.Ptr<MovieSceneSection>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstMovieSceneEventTrack(MovieSceneEventTrack) from MovieSceneEventTra
 @:forward
 @:nativeGen
 @:native("MovieSceneEventTrack*")
-abstract MovieSceneEventTrackPtr(cpp.Star<MovieSceneEventTrack>) from cpp.Star<MovieSceneEventTrack> to cpp.Star<MovieSceneEventTrack>{
+abstract MovieSceneEventTrackPtr(ucpp.Ptr<MovieSceneEventTrack>) from ucpp.Ptr<MovieSceneEventTrack> to ucpp.Ptr<MovieSceneEventTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEventTrack): MovieSceneEventTrackPtr {
 		return untyped __cpp__("&({0})", v);

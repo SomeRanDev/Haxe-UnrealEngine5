@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULevelCapture")
 @:include("LevelCapture.h")
-@:structAccess
+@:valueType
 extern class LevelCapture extends MovieSceneCapture {
 	public var bAutoStartCapture: Bool;
 	private var PrerequisiteActorId: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLevelCapture(LevelCapture) from LevelCapture {
 @:forward
 @:nativeGen
 @:native("LevelCapture*")
-abstract LevelCapturePtr(cpp.Star<LevelCapture>) from cpp.Star<LevelCapture> to cpp.Star<LevelCapture>{
+abstract LevelCapturePtr(ucpp.Ptr<LevelCapture>) from ucpp.Ptr<LevelCapture> to ucpp.Ptr<LevelCapture>{
 	@:from
 	public static extern inline function fromValue(v: LevelCapture): LevelCapturePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditMeshPolygonsToolEdgeActions")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshPolygonsToolEdgeActions extends EditMeshPolygonsToolActionPropertySet {
 	public function Weld(): Void;
 	public function Straighten(): Void;
@@ -11,7 +11,7 @@ extern class EditMeshPolygonsToolEdgeActions extends EditMeshPolygonsToolActionP
 	public function Bridge(): Void;
 	public function Bevel(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstEditMeshPolygonsToolEdgeActions(EditMeshPolygonsToolEdgeActions) f
 @:forward
 @:nativeGen
 @:native("EditMeshPolygonsToolEdgeActions*")
-abstract EditMeshPolygonsToolEdgeActionsPtr(cpp.Star<EditMeshPolygonsToolEdgeActions>) from cpp.Star<EditMeshPolygonsToolEdgeActions> to cpp.Star<EditMeshPolygonsToolEdgeActions>{
+abstract EditMeshPolygonsToolEdgeActionsPtr(ucpp.Ptr<EditMeshPolygonsToolEdgeActions>) from ucpp.Ptr<EditMeshPolygonsToolEdgeActions> to ucpp.Ptr<EditMeshPolygonsToolEdgeActions>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshPolygonsToolEdgeActions): EditMeshPolygonsToolEdgeActionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FWorldPartitionHLODDestructionTag")
 @:include("WorldPartition/HLOD/HLODDestruction.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionHLODDestructionTag {
-	public var HLODDestructionComponent: cpp.Star<WorldPartitionDestructibleHLODComp>;
-	public var ActorIndex: cpp.Int32;
+	public var HLODDestructionComponent: ucpp.Ptr<WorldPartitionDestructibleHLODComp>;
+	public var ActorIndex: ucpp.num.Int32;
 
 	@:native("FWorldPartitionHLODDestructionTag") public function new();
-	@:native("FWorldPartitionHLODDestructionTag") public static function make(HLODDestructionComponent: cpp.Star<WorldPartitionDestructibleHLODComp>, ActorIndex: cpp.Int32): WorldPartitionHLODDestructionTag ;
+	@:native("FWorldPartitionHLODDestructionTag") public static function make(HLODDestructionComponent: ucpp.Ptr<WorldPartitionDestructibleHLODComp>, ActorIndex: ucpp.num.Int32): WorldPartitionHLODDestructionTag ;
 }

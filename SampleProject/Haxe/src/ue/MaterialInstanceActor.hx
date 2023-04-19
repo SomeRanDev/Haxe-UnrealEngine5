@@ -3,24 +3,24 @@ package ue;
 
 @:native("AMaterialInstanceActor")
 @:include("Materials/MaterialInstanceActor.h")
-@:structAccess
+@:valueType
 extern class MaterialInstanceActor extends Actor {
-	public var TargetActors: TArray<cpp.Star<Actor>>;
+	public var TargetActors: TArray<ucpp.Ptr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialInstanceActor(MaterialInstanceActor) from MaterialInstanceActor {
-	public extern var TargetActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_TargetActors(): TArray<cpp.Star<Actor.ConstActor>> return this.TargetActors;
+	public extern var TargetActors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_TargetActors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.TargetActors;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialInstanceActor*")
-abstract MaterialInstanceActorPtr(cpp.Star<MaterialInstanceActor>) from cpp.Star<MaterialInstanceActor> to cpp.Star<MaterialInstanceActor>{
+abstract MaterialInstanceActorPtr(ucpp.Ptr<MaterialInstanceActor>) from ucpp.Ptr<MaterialInstanceActor> to ucpp.Ptr<MaterialInstanceActor>{
 	@:from
 	public static extern inline function fromValue(v: MaterialInstanceActor): MaterialInstanceActorPtr {
 		return untyped __cpp__("&({0})", v);

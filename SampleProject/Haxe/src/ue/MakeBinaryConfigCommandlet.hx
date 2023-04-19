@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMakeBinaryConfigCommandlet")
 @:include("Commandlets/MakeBinaryConfigCommandlet.h")
-@:structAccess
+@:valueType
 extern class MakeBinaryConfigCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMakeBinaryConfigCommandlet(MakeBinaryConfigCommandlet) from MakeBi
 @:forward
 @:nativeGen
 @:native("MakeBinaryConfigCommandlet*")
-abstract MakeBinaryConfigCommandletPtr(cpp.Star<MakeBinaryConfigCommandlet>) from cpp.Star<MakeBinaryConfigCommandlet> to cpp.Star<MakeBinaryConfigCommandlet>{
+abstract MakeBinaryConfigCommandletPtr(ucpp.Ptr<MakeBinaryConfigCommandlet>) from ucpp.Ptr<MakeBinaryConfigCommandlet> to ucpp.Ptr<MakeBinaryConfigCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: MakeBinaryConfigCommandlet): MakeBinaryConfigCommandletPtr {
 		return untyped __cpp__("&({0})", v);

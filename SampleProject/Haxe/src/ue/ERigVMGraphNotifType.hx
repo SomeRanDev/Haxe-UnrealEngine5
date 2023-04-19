@@ -30,9 +30,6 @@ extern class ERigVMGraphNotifType {
 	static var VariableAdded: ERigVMGraphNotifType;
 	static var VariableRemoved: ERigVMGraphNotifType;
 	static var VariableRenamed: ERigVMGraphNotifType;
-	static var ParameterAdded: ERigVMGraphNotifType;
-	static var ParameterRemoved: ERigVMGraphNotifType;
-	static var ParameterRenamed: ERigVMGraphNotifType;
 	static var InteractionBracketOpened: ERigVMGraphNotifType;
 	static var InteractionBracketClosed: ERigVMGraphNotifType;
 	static var InteractionBracketCanceled: ERigVMGraphNotifType;
@@ -43,6 +40,8 @@ extern class ERigVMGraphNotifType {
 	static var NodeKeywordsChanged: ERigVMGraphNotifType;
 	static var NodeDescriptionChanged: ERigVMGraphNotifType;
 	static var VariableRemappingChanged: ERigVMGraphNotifType;
+	static var LibraryTemplateChanged: ERigVMGraphNotifType;
+	static var FunctionAccessChanged: ERigVMGraphNotifType;
 	static var Invalid: ERigVMGraphNotifType;
 	static var ERigVMGraphNotifType_MAX: ERigVMGraphNotifType;
 }

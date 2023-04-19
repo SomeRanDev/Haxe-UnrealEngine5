@@ -3,16 +3,16 @@ package ue;
 
 @:native("UNiagaraDataChannelHandler")
 @:include("NiagaraDataChannelHandler.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelHandler extends Object {
-	@:protected public var DataChannel: cpp.Star<NiagaraDataChannel>;
-	@:protected public var Writer: cpp.Star<NiagaraDataChannelWriter>;
-	@:protected public var Reader: cpp.Star<NiagaraDataChannelReader>;
+	@:protected public var DataChannel: ucpp.Ptr<NiagaraDataChannel>;
+	@:protected public var Writer: ucpp.Ptr<NiagaraDataChannelWriter>;
+	@:protected public var Reader: ucpp.Ptr<NiagaraDataChannelReader>;
 
-	public function GetDataChannelWriter(): cpp.Star<NiagaraDataChannelWriter>;
-	public function GetDataChannelReader(): cpp.Star<NiagaraDataChannelReader>;
+	public function GetDataChannelWriter(): ucpp.Ptr<NiagaraDataChannelWriter>;
+	public function GetDataChannelReader(): ucpp.Ptr<NiagaraDataChannelReader>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraDataChannelHandler(NiagaraDataChannelHandler) from NiagaraD
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannelHandler*")
-abstract NiagaraDataChannelHandlerPtr(cpp.Star<NiagaraDataChannelHandler>) from cpp.Star<NiagaraDataChannelHandler> to cpp.Star<NiagaraDataChannelHandler>{
+abstract NiagaraDataChannelHandlerPtr(ucpp.Ptr<NiagaraDataChannelHandler>) from ucpp.Ptr<NiagaraDataChannelHandler> to ucpp.Ptr<NiagaraDataChannelHandler>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannelHandler): NiagaraDataChannelHandlerPtr {
 		return untyped __cpp__("&({0})", v);

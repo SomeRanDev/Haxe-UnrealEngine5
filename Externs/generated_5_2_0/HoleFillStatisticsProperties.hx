@@ -3,7 +3,7 @@ package ue;
 
 @:native("UHoleFillStatisticsProperties")
 @:include("HoleFillTool.h")
-@:structAccess
+@:valueType
 extern class HoleFillStatisticsProperties extends InteractiveToolPropertySet {
 	public var InitialHoles: FString;
 	public var SelectedHoles: FString;
@@ -11,7 +11,7 @@ extern class HoleFillStatisticsProperties extends InteractiveToolPropertySet {
 	public var FailedFills: FString;
 	public var RemainingHoles: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstHoleFillStatisticsProperties(HoleFillStatisticsProperties) from Ho
 @:forward
 @:nativeGen
 @:native("HoleFillStatisticsProperties*")
-abstract HoleFillStatisticsPropertiesPtr(cpp.Star<HoleFillStatisticsProperties>) from cpp.Star<HoleFillStatisticsProperties> to cpp.Star<HoleFillStatisticsProperties>{
+abstract HoleFillStatisticsPropertiesPtr(ucpp.Ptr<HoleFillStatisticsProperties>) from ucpp.Ptr<HoleFillStatisticsProperties> to ucpp.Ptr<HoleFillStatisticsProperties>{
 	@:from
 	public static extern inline function fromValue(v: HoleFillStatisticsProperties): HoleFillStatisticsPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

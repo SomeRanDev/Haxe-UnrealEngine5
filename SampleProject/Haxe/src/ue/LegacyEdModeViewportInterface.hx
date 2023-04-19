@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULegacyEdModeViewportInterface")
-@:structAccess
+@:valueType
 extern class LegacyEdModeViewportInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLegacyEdModeViewportInterface(LegacyEdModeViewportInterface) from 
 @:forward
 @:nativeGen
 @:native("LegacyEdModeViewportInterface*")
-abstract LegacyEdModeViewportInterfacePtr(cpp.Star<LegacyEdModeViewportInterface>) from cpp.Star<LegacyEdModeViewportInterface> to cpp.Star<LegacyEdModeViewportInterface>{
+abstract LegacyEdModeViewportInterfacePtr(ucpp.Ptr<LegacyEdModeViewportInterface>) from ucpp.Ptr<LegacyEdModeViewportInterface> to ucpp.Ptr<LegacyEdModeViewportInterface>{
 	@:from
 	public static extern inline function fromValue(v: LegacyEdModeViewportInterface): LegacyEdModeViewportInterfacePtr {
 		return untyped __cpp__("&({0})", v);

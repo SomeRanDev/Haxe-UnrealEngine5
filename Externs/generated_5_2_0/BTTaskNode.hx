@@ -3,25 +3,25 @@ package ue;
 
 @:native("UBTTaskNode")
 @:include("BehaviorTree/BTTaskNode.h")
-@:structAccess
+@:valueType
 extern class BTTaskNode extends BTNode {
-	public var Services: TArray<cpp.Star<BTService>>;
+	public var Services: TArray<ucpp.Ptr<BTService>>;
 	@:protected public var bIgnoreRestartSelf: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTTaskNode(BTTaskNode) from BTTaskNode {
-	public extern var Services(get, never): TArray<cpp.Star<BTService.ConstBTService>>;
-	public inline extern function get_Services(): TArray<cpp.Star<BTService.ConstBTService>> return this.Services;
+	public extern var Services(get, never): TArray<ucpp.Ptr<BTService.ConstBTService>>;
+	public inline extern function get_Services(): TArray<ucpp.Ptr<BTService.ConstBTService>> return this.Services;
 }
 
 @:forward
 @:nativeGen
 @:native("BTTaskNode*")
-abstract BTTaskNodePtr(cpp.Star<BTTaskNode>) from cpp.Star<BTTaskNode> to cpp.Star<BTTaskNode>{
+abstract BTTaskNodePtr(ucpp.Ptr<BTTaskNode>) from ucpp.Ptr<BTTaskNode> to ucpp.Ptr<BTTaskNode>{
 	@:from
 	public static extern inline function fromValue(v: BTTaskNode): BTTaskNodePtr {
 		return untyped __cpp__("&({0})", v);

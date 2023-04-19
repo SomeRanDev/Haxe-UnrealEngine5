@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionParticleDirection")
 @:include("Materials/MaterialExpressionParticleDirection.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionParticleDirection extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionParticleDirection(MaterialExpressionParticleDire
 @:forward
 @:nativeGen
 @:native("MaterialExpressionParticleDirection*")
-abstract MaterialExpressionParticleDirectionPtr(cpp.Star<MaterialExpressionParticleDirection>) from cpp.Star<MaterialExpressionParticleDirection> to cpp.Star<MaterialExpressionParticleDirection>{
+abstract MaterialExpressionParticleDirectionPtr(ucpp.Ptr<MaterialExpressionParticleDirection>) from ucpp.Ptr<MaterialExpressionParticleDirection> to ucpp.Ptr<MaterialExpressionParticleDirection>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionParticleDirection): MaterialExpressionParticleDirectionPtr {
 		return untyped __cpp__("&({0})", v);

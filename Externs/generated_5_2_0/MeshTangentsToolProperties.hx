@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMeshTangentsToolProperties")
 @:include("MeshTangentsTool.h")
-@:structAccess
+@:valueType
 extern class MeshTangentsToolProperties extends InteractiveToolPropertySet {
 	public var CalculationMethod: EMeshTangentsType;
 	public var bShowTangents: Bool;
 	public var bShowNormals: Bool;
-	public var LineLength: cpp.Float32;
-	public var LineThickness: cpp.Float32;
+	public var LineLength: ucpp.num.Float32;
+	public var LineThickness: ucpp.num.Float32;
 	public var bShowDegenerates: Bool;
 	public var bCompareWithMikkt: Bool;
-	public var CompareWithMikktThreshold: cpp.Float32;
+	public var CompareWithMikktThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,22 +26,22 @@ abstract ConstMeshTangentsToolProperties(MeshTangentsToolProperties) from MeshTa
 	public inline extern function get_bShowTangents(): Bool return this.bShowTangents;
 	public extern var bShowNormals(get, never): Bool;
 	public inline extern function get_bShowNormals(): Bool return this.bShowNormals;
-	public extern var LineLength(get, never): cpp.Float32;
-	public inline extern function get_LineLength(): cpp.Float32 return this.LineLength;
-	public extern var LineThickness(get, never): cpp.Float32;
-	public inline extern function get_LineThickness(): cpp.Float32 return this.LineThickness;
+	public extern var LineLength(get, never): ucpp.num.Float32;
+	public inline extern function get_LineLength(): ucpp.num.Float32 return this.LineLength;
+	public extern var LineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_LineThickness(): ucpp.num.Float32 return this.LineThickness;
 	public extern var bShowDegenerates(get, never): Bool;
 	public inline extern function get_bShowDegenerates(): Bool return this.bShowDegenerates;
 	public extern var bCompareWithMikkt(get, never): Bool;
 	public inline extern function get_bCompareWithMikkt(): Bool return this.bCompareWithMikkt;
-	public extern var CompareWithMikktThreshold(get, never): cpp.Float32;
-	public inline extern function get_CompareWithMikktThreshold(): cpp.Float32 return this.CompareWithMikktThreshold;
+	public extern var CompareWithMikktThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_CompareWithMikktThreshold(): ucpp.num.Float32 return this.CompareWithMikktThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshTangentsToolProperties*")
-abstract MeshTangentsToolPropertiesPtr(cpp.Star<MeshTangentsToolProperties>) from cpp.Star<MeshTangentsToolProperties> to cpp.Star<MeshTangentsToolProperties>{
+abstract MeshTangentsToolPropertiesPtr(ucpp.Ptr<MeshTangentsToolProperties>) from ucpp.Ptr<MeshTangentsToolProperties> to ucpp.Ptr<MeshTangentsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshTangentsToolProperties): MeshTangentsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

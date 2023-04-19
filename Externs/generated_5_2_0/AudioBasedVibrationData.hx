@@ -3,10 +3,10 @@ package ue;
 
 @:native("FAudioBasedVibrationData")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class AudioBasedVibrationData {
-	public var Sound: cpp.Star<SoundBase>;
+	public var Sound: ucpp.Ptr<SoundBase>;
 
 	@:native("FAudioBasedVibrationData") public function new();
-	@:native("FAudioBasedVibrationData") public static function make(Sound: cpp.Star<SoundBase>): AudioBasedVibrationData ;
+	@:native("FAudioBasedVibrationData") public static function make(Sound: ucpp.Ptr<SoundBase>): AudioBasedVibrationData ;
 }

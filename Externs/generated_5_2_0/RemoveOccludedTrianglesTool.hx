@@ -3,15 +3,15 @@ package ue;
 
 @:native("URemoveOccludedTrianglesTool")
 @:include("RemoveOccludedTrianglesTool.h")
-@:structAccess
+@:valueType
 extern class RemoveOccludedTrianglesTool extends MultiSelectionMeshEditingTool {
-	@:protected public var BasicProperties: cpp.Star<RemoveOccludedTrianglesToolProperties>;
-	@:protected public var PolygroupLayersProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var AdvancedProperties: cpp.Star<RemoveOccludedTrianglesAdvancedProperties>;
-	@:protected public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
-	@:protected public var PreviewCopies: TArray<cpp.Star<PreviewMesh>>;
+	@:protected public var BasicProperties: ucpp.Ptr<RemoveOccludedTrianglesToolProperties>;
+	@:protected public var PolygroupLayersProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var AdvancedProperties: ucpp.Ptr<RemoveOccludedTrianglesAdvancedProperties>;
+	@:protected public var Previews: TArray<ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>>;
+	@:protected public var PreviewCopies: TArray<ucpp.Ptr<PreviewMesh>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstRemoveOccludedTrianglesTool(RemoveOccludedTrianglesTool) from Remo
 @:forward
 @:nativeGen
 @:native("RemoveOccludedTrianglesTool*")
-abstract RemoveOccludedTrianglesToolPtr(cpp.Star<RemoveOccludedTrianglesTool>) from cpp.Star<RemoveOccludedTrianglesTool> to cpp.Star<RemoveOccludedTrianglesTool>{
+abstract RemoveOccludedTrianglesToolPtr(ucpp.Ptr<RemoveOccludedTrianglesTool>) from ucpp.Ptr<RemoveOccludedTrianglesTool> to ucpp.Ptr<RemoveOccludedTrianglesTool>{
 	@:from
 	public static extern inline function fromValue(v: RemoveOccludedTrianglesTool): RemoveOccludedTrianglesToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshTexturePaintingToolBuilder")
 @:include("MeshTexturePaintingTool.h")
-@:structAccess
+@:valueType
 extern class MeshTexturePaintingToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshTexturePaintingToolBuilder(MeshTexturePaintingToolBuilder) fro
 @:forward
 @:nativeGen
 @:native("MeshTexturePaintingToolBuilder*")
-abstract MeshTexturePaintingToolBuilderPtr(cpp.Star<MeshTexturePaintingToolBuilder>) from cpp.Star<MeshTexturePaintingToolBuilder> to cpp.Star<MeshTexturePaintingToolBuilder>{
+abstract MeshTexturePaintingToolBuilderPtr(ucpp.Ptr<MeshTexturePaintingToolBuilder>) from ucpp.Ptr<MeshTexturePaintingToolBuilder> to ucpp.Ptr<MeshTexturePaintingToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: MeshTexturePaintingToolBuilder): MeshTexturePaintingToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid2D")
 @:include("NiagaraDataInterfaceRW.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGrid2D extends NiagaraDataInterfaceRWBase {
 	public var ClearBeforeNonIterationStage: Bool;
-	public var NumCellsX: cpp.Int32;
-	public var NumCellsY: cpp.Int32;
-	public var NumCellsMaxAxis: cpp.Int32;
-	public var NumAttributes: cpp.Int32;
+	public var NumCellsX: ucpp.num.Int32;
+	public var NumCellsY: ucpp.num.Int32;
+	public var NumCellsMaxAxis: ucpp.num.Int32;
+	public var NumAttributes: ucpp.num.Int32;
 	public var SetGridFromMaxAxis: Bool;
 	public var WorldBBoxSize: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,14 +21,14 @@ extern class NiagaraDataInterfaceGrid2D extends NiagaraDataInterfaceRWBase {
 abstract ConstNiagaraDataInterfaceGrid2D(NiagaraDataInterfaceGrid2D) from NiagaraDataInterfaceGrid2D {
 	public extern var ClearBeforeNonIterationStage(get, never): Bool;
 	public inline extern function get_ClearBeforeNonIterationStage(): Bool return this.ClearBeforeNonIterationStage;
-	public extern var NumCellsX(get, never): cpp.Int32;
-	public inline extern function get_NumCellsX(): cpp.Int32 return this.NumCellsX;
-	public extern var NumCellsY(get, never): cpp.Int32;
-	public inline extern function get_NumCellsY(): cpp.Int32 return this.NumCellsY;
-	public extern var NumCellsMaxAxis(get, never): cpp.Int32;
-	public inline extern function get_NumCellsMaxAxis(): cpp.Int32 return this.NumCellsMaxAxis;
-	public extern var NumAttributes(get, never): cpp.Int32;
-	public inline extern function get_NumAttributes(): cpp.Int32 return this.NumAttributes;
+	public extern var NumCellsX(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCellsX(): ucpp.num.Int32 return this.NumCellsX;
+	public extern var NumCellsY(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCellsY(): ucpp.num.Int32 return this.NumCellsY;
+	public extern var NumCellsMaxAxis(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCellsMaxAxis(): ucpp.num.Int32 return this.NumCellsMaxAxis;
+	public extern var NumAttributes(get, never): ucpp.num.Int32;
+	public inline extern function get_NumAttributes(): ucpp.num.Int32 return this.NumAttributes;
 	public extern var SetGridFromMaxAxis(get, never): Bool;
 	public inline extern function get_SetGridFromMaxAxis(): Bool return this.SetGridFromMaxAxis;
 	public extern var WorldBBoxSize(get, never): Vector2D;
@@ -38,7 +38,7 @@ abstract ConstNiagaraDataInterfaceGrid2D(NiagaraDataInterfaceGrid2D) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceGrid2D*")
-abstract NiagaraDataInterfaceGrid2DPtr(cpp.Star<NiagaraDataInterfaceGrid2D>) from cpp.Star<NiagaraDataInterfaceGrid2D> to cpp.Star<NiagaraDataInterfaceGrid2D>{
+abstract NiagaraDataInterfaceGrid2DPtr(ucpp.Ptr<NiagaraDataInterfaceGrid2D>) from ucpp.Ptr<NiagaraDataInterfaceGrid2D> to ucpp.Ptr<NiagaraDataInterfaceGrid2D>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid2D): NiagaraDataInterfaceGrid2DPtr {
 		return untyped __cpp__("&({0})", v);

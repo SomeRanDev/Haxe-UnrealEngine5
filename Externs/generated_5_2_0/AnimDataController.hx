@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimDataController")
 @:include("AnimDataController.h")
-@:structAccess
+@:valueType
 extern class AnimDataController extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimDataController(AnimDataController) from AnimDataController {
 @:forward
 @:nativeGen
 @:native("AnimDataController*")
-abstract AnimDataControllerPtr(cpp.Star<AnimDataController>) from cpp.Star<AnimDataController> to cpp.Star<AnimDataController>{
+abstract AnimDataControllerPtr(ucpp.Ptr<AnimDataController>) from ucpp.Ptr<AnimDataController> to ucpp.Ptr<AnimDataController>{
 	@:from
 	public static extern inline function fromValue(v: AnimDataController): AnimDataControllerPtr {
 		return untyped __cpp__("&({0})", v);

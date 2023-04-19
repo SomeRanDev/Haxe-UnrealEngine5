@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorNotifyObject")
 @:include("Animation/EditorNotifyObject.h")
-@:structAccess
+@:valueType
 extern class EditorNotifyObject extends EditorAnimBaseObj {
 	public var Event: AnimNotifyEvent;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEditorNotifyObject(EditorNotifyObject) from EditorNotifyObject {
 @:forward
 @:nativeGen
 @:native("EditorNotifyObject*")
-abstract EditorNotifyObjectPtr(cpp.Star<EditorNotifyObject>) from cpp.Star<EditorNotifyObject> to cpp.Star<EditorNotifyObject>{
+abstract EditorNotifyObjectPtr(ucpp.Ptr<EditorNotifyObject>) from ucpp.Ptr<EditorNotifyObject> to ucpp.Ptr<EditorNotifyObject>{
 	@:from
 	public static extern inline function fromValue(v: EditorNotifyObject): EditorNotifyObjectPtr {
 		return untyped __cpp__("&({0})", v);

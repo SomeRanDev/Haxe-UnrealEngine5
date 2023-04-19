@@ -3,17 +3,17 @@ package ue;
 
 @:native("AAmbientSound")
 @:include("Sound/AmbientSound.h")
-@:structAccess
+@:valueType
 extern class AmbientSound extends Actor {
-	private var AudioComponent: cpp.Star<AudioComp>;
+	private var AudioComponent: ucpp.Ptr<AudioComp>;
 
 	public function Stop(): Void;
-	public function Play(StartTime: cpp.Float32): Void;
-	public function FadeOut(FadeOutDuration: cpp.Float32, FadeVolumeLevel: cpp.Float32): Void;
-	public function FadeIn(FadeInDuration: cpp.Float32, FadeVolumeLevel: cpp.Float32): Void;
-	public function AdjustVolume(AdjustVolumeDuration: cpp.Float32, AdjustVolumeLevel: cpp.Float32): Void;
+	public function Play(StartTime: ucpp.num.Float32): Void;
+	public function FadeOut(FadeOutDuration: ucpp.num.Float32, FadeVolumeLevel: ucpp.num.Float32): Void;
+	public function FadeIn(FadeInDuration: ucpp.num.Float32, FadeVolumeLevel: ucpp.num.Float32): Void;
+	public function AdjustVolume(AdjustVolumeDuration: ucpp.num.Float32, AdjustVolumeLevel: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAmbientSound(AmbientSound) from AmbientSound {
 @:forward
 @:nativeGen
 @:native("AmbientSound*")
-abstract AmbientSoundPtr(cpp.Star<AmbientSound>) from cpp.Star<AmbientSound> to cpp.Star<AmbientSound>{
+abstract AmbientSoundPtr(ucpp.Ptr<AmbientSound>) from ucpp.Ptr<AmbientSound> to ucpp.Ptr<AmbientSound>{
 	@:from
 	public static extern inline function fromValue(v: AmbientSound): AmbientSoundPtr {
 		return untyped __cpp__("&({0})", v);

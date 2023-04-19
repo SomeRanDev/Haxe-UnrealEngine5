@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallab
 @:forward
 @:nativeGen
 @:native("TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable*")
-abstract TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallablePtr(cpp.Star<TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable>) from cpp.Star<TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable> to cpp.Star<TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable>{
+abstract TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallablePtr(ucpp.Ptr<TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable>) from ucpp.Ptr<TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable> to ucpp.Ptr<TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallable): TakesCoreBlueprintLibrary_OnTakeRecorderSlateChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWorldPartitionRuntimeCellOwner")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeCellOwner extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWorldPartitionRuntimeCellOwner(WorldPartitionRuntimeCellOwner) fro
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeCellOwner*")
-abstract WorldPartitionRuntimeCellOwnerPtr(cpp.Star<WorldPartitionRuntimeCellOwner>) from cpp.Star<WorldPartitionRuntimeCellOwner> to cpp.Star<WorldPartitionRuntimeCellOwner>{
+abstract WorldPartitionRuntimeCellOwnerPtr(ucpp.Ptr<WorldPartitionRuntimeCellOwner>) from ucpp.Ptr<WorldPartitionRuntimeCellOwner> to ucpp.Ptr<WorldPartitionRuntimeCellOwner>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeCellOwner): WorldPartitionRuntimeCellOwnerPtr {
 		return untyped __cpp__("&({0})", v);

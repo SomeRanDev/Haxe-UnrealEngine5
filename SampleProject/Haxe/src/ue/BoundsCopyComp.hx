@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBoundsCopyComponent")
 @:include("Components/BoundsCopyComponent.h")
-@:structAccess
+@:valueType
 extern class BoundsCopyComp extends ActorComp {
 	public var BoundsSourceActor: TSoftObjectPtr<Actor>;
 	public var bUseCollidingComponentsForSourceBounds: Bool;
@@ -17,7 +17,7 @@ extern class BoundsCopyComp extends ActorComp {
 	public function SetTransformToBounds(): Void;
 	public function SetRotation(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstBoundsCopyComp(BoundsCopyComp) from BoundsCopyComp {
 @:forward
 @:nativeGen
 @:native("BoundsCopyComp*")
-abstract BoundsCopyCompPtr(cpp.Star<BoundsCopyComp>) from cpp.Star<BoundsCopyComp> to cpp.Star<BoundsCopyComp>{
+abstract BoundsCopyCompPtr(ucpp.Ptr<BoundsCopyComp>) from ucpp.Ptr<BoundsCopyComp> to ucpp.Ptr<BoundsCopyComp>{
 	@:from
 	public static extern inline function fromValue(v: BoundsCopyComp): BoundsCopyCompPtr {
 		return untyped __cpp__("&({0})", v);

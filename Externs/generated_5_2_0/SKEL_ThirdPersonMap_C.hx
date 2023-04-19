@@ -2,11 +2,11 @@
 package ue;
 
 @:native("ASKEL_ThirdPersonMap_C")
-@:structAccess
+@:valueType
 extern class SKEL_ThirdPersonMap_C extends LevelScriptActor {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstSKEL_ThirdPersonMap_C(SKEL_ThirdPersonMap_C) from SKEL_ThirdPerson
 @:forward
 @:nativeGen
 @:native("SKEL_ThirdPersonMap_C*")
-abstract SKEL_ThirdPersonMap_CPtr(cpp.Star<SKEL_ThirdPersonMap_C>) from cpp.Star<SKEL_ThirdPersonMap_C> to cpp.Star<SKEL_ThirdPersonMap_C>{
+abstract SKEL_ThirdPersonMap_CPtr(ucpp.Ptr<SKEL_ThirdPersonMap_C>) from ucpp.Ptr<SKEL_ThirdPersonMap_C> to ucpp.Ptr<SKEL_ThirdPersonMap_C>{
 	@:from
 	public static extern inline function fromValue(v: SKEL_ThirdPersonMap_C): SKEL_ThirdPersonMap_CPtr {
 		return untyped __cpp__("&({0})", v);

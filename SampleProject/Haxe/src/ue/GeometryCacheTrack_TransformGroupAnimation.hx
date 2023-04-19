@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation")
 @:include("GeometryCacheTrackTransformGroupAnimation.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheTrack_TransformGroupAnimation extends GeometryCacheTrack {
-	public function SetMesh(NewMeshData: cpp.Reference<GeometryCacheMeshData>): Void;
+	public function SetMesh(NewMeshData: ucpp.Ref<GeometryCacheMeshData>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstGeometryCacheTrack_TransformGroupAnimation(GeometryCacheTrack_Tran
 @:forward
 @:nativeGen
 @:native("GeometryCacheTrack_TransformGroupAnimation*")
-abstract GeometryCacheTrack_TransformGroupAnimationPtr(cpp.Star<GeometryCacheTrack_TransformGroupAnimation>) from cpp.Star<GeometryCacheTrack_TransformGroupAnimation> to cpp.Star<GeometryCacheTrack_TransformGroupAnimation>{
+abstract GeometryCacheTrack_TransformGroupAnimationPtr(ucpp.Ptr<GeometryCacheTrack_TransformGroupAnimation>) from ucpp.Ptr<GeometryCacheTrack_TransformGroupAnimation> to ucpp.Ptr<GeometryCacheTrack_TransformGroupAnimation>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheTrack_TransformGroupAnimation): GeometryCacheTrack_TransformGroupAnimationPtr {
 		return untyped __cpp__("&({0})", v);

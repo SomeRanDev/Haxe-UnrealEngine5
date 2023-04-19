@@ -3,25 +3,25 @@ package ue;
 
 @:native("UAnimNotifyState_Trail")
 @:include("Animation/AnimNotifies/AnimNotifyState_Trail.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyState_Trail extends AnimNotifyState {
-	public var PSTemplate: cpp.Star<ParticleSystem>;
+	public var PSTemplate: ucpp.Ptr<ParticleSystem>;
 	public var FirstSocketName: FName;
 	public var SecondSocketName: FName;
 	public var WidthScaleMode: TEnumAsByte<ETrailWidthMode>;
 	public var WidthScaleCurve: FName;
 	public var bRecycleSpawnedSystems: Bool;
 
-	public function OverridePSTemplate(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>): cpp.Star<ParticleSystem>;
+	public function OverridePSTemplate(MeshComp: ucpp.Ptr<SkeletalMeshComp>, Animation: ucpp.Ptr<AnimSequenceBase>): ucpp.Ptr<ParticleSystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(OverridePSTemplate)
 @:nativeGen
 abstract ConstAnimNotifyState_Trail(AnimNotifyState_Trail) from AnimNotifyState_Trail {
-	public extern var PSTemplate(get, never): cpp.Star<ParticleSystem.ConstParticleSystem>;
-	public inline extern function get_PSTemplate(): cpp.Star<ParticleSystem.ConstParticleSystem> return this.PSTemplate;
+	public extern var PSTemplate(get, never): ucpp.Ptr<ParticleSystem.ConstParticleSystem>;
+	public inline extern function get_PSTemplate(): ucpp.Ptr<ParticleSystem.ConstParticleSystem> return this.PSTemplate;
 	public extern var FirstSocketName(get, never): FName;
 	public inline extern function get_FirstSocketName(): FName return this.FirstSocketName;
 	public extern var SecondSocketName(get, never): FName;
@@ -37,7 +37,7 @@ abstract ConstAnimNotifyState_Trail(AnimNotifyState_Trail) from AnimNotifyState_
 @:forward
 @:nativeGen
 @:native("AnimNotifyState_Trail*")
-abstract AnimNotifyState_TrailPtr(cpp.Star<AnimNotifyState_Trail>) from cpp.Star<AnimNotifyState_Trail> to cpp.Star<AnimNotifyState_Trail>{
+abstract AnimNotifyState_TrailPtr(ucpp.Ptr<AnimNotifyState_Trail>) from ucpp.Ptr<AnimNotifyState_Trail> to ucpp.Ptr<AnimNotifyState_Trail>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyState_Trail): AnimNotifyState_TrailPtr {
 		return untyped __cpp__("&({0})", v);

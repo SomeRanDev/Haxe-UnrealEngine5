@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAITestSpawnSetBase")
 @:include("FunctionalAITest.h")
-@:structAccess
+@:valueType
 extern class AITestSpawnSetBase {
 	public var Name: FName;
 	public var bEnabled: Bool;
-	public var FallbackSpawnLocation: cpp.Star<Actor>;
+	public var FallbackSpawnLocation: ucpp.Ptr<Actor>;
 
 	@:native("FAITestSpawnSetBase") public function new();
-	@:native("FAITestSpawnSetBase") public static function make(Name: FName, bEnabled: Bool, FallbackSpawnLocation: cpp.Star<Actor>): AITestSpawnSetBase ;
+	@:native("FAITestSpawnSetBase") public static function make(Name: FName, bEnabled: Bool, FallbackSpawnLocation: ucpp.Ptr<Actor>): AITestSpawnSetBase ;
 }

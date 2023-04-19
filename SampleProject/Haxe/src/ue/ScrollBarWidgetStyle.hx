@@ -3,11 +3,11 @@ package ue;
 
 @:native("UScrollBarWidgetStyle")
 @:include("Framework/Styling/ScrollBarWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class ScrollBarWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ScrollBarStyle: ScrollBarStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstScrollBarWidgetStyle(ScrollBarWidgetStyle) from ScrollBarWidgetSty
 @:forward
 @:nativeGen
 @:native("ScrollBarWidgetStyle*")
-abstract ScrollBarWidgetStylePtr(cpp.Star<ScrollBarWidgetStyle>) from cpp.Star<ScrollBarWidgetStyle> to cpp.Star<ScrollBarWidgetStyle>{
+abstract ScrollBarWidgetStylePtr(ucpp.Ptr<ScrollBarWidgetStyle>) from ucpp.Ptr<ScrollBarWidgetStyle> to ucpp.Ptr<ScrollBarWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: ScrollBarWidgetStyle): ScrollBarWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

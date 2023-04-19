@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFloatChannelEvaluatorSystem")
 @:include("Systems/FloatChannelEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class FloatChannelEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFloatChannelEvaluatorSystem(FloatChannelEvaluatorSystem) from Floa
 @:forward
 @:nativeGen
 @:native("FloatChannelEvaluatorSystem*")
-abstract FloatChannelEvaluatorSystemPtr(cpp.Star<FloatChannelEvaluatorSystem>) from cpp.Star<FloatChannelEvaluatorSystem> to cpp.Star<FloatChannelEvaluatorSystem>{
+abstract FloatChannelEvaluatorSystemPtr(ucpp.Ptr<FloatChannelEvaluatorSystem>) from ucpp.Ptr<FloatChannelEvaluatorSystem> to ucpp.Ptr<FloatChannelEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: FloatChannelEvaluatorSystem): FloatChannelEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

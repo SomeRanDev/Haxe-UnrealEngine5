@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCheckBoxWidgetStyle")
 @:include("Framework/Styling/CheckBoxWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class CheckBoxWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var CheckBoxStyle: CheckBoxStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCheckBoxWidgetStyle(CheckBoxWidgetStyle) from CheckBoxWidgetStyle 
 @:forward
 @:nativeGen
 @:native("CheckBoxWidgetStyle*")
-abstract CheckBoxWidgetStylePtr(cpp.Star<CheckBoxWidgetStyle>) from cpp.Star<CheckBoxWidgetStyle> to cpp.Star<CheckBoxWidgetStyle>{
+abstract CheckBoxWidgetStylePtr(ucpp.Ptr<CheckBoxWidgetStyle>) from ucpp.Ptr<CheckBoxWidgetStyle> to ucpp.Ptr<CheckBoxWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: CheckBoxWidgetStyle): CheckBoxWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

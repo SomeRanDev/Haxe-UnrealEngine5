@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBrushRemeshProperties")
 @:include("DynamicMeshSculptTool.h")
-@:structAccess
+@:valueType
 extern class BrushRemeshProperties extends RemeshProperties {
 	public var bEnableRemeshing: Bool;
-	public var TriangleSize: cpp.Int32;
-	public var PreserveDetail: cpp.Int32;
-	public var Iterations: cpp.Int32;
+	public var TriangleSize: ucpp.num.Int32;
+	public var PreserveDetail: ucpp.num.Int32;
+	public var Iterations: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,18 +18,18 @@ extern class BrushRemeshProperties extends RemeshProperties {
 abstract ConstBrushRemeshProperties(BrushRemeshProperties) from BrushRemeshProperties {
 	public extern var bEnableRemeshing(get, never): Bool;
 	public inline extern function get_bEnableRemeshing(): Bool return this.bEnableRemeshing;
-	public extern var TriangleSize(get, never): cpp.Int32;
-	public inline extern function get_TriangleSize(): cpp.Int32 return this.TriangleSize;
-	public extern var PreserveDetail(get, never): cpp.Int32;
-	public inline extern function get_PreserveDetail(): cpp.Int32 return this.PreserveDetail;
-	public extern var Iterations(get, never): cpp.Int32;
-	public inline extern function get_Iterations(): cpp.Int32 return this.Iterations;
+	public extern var TriangleSize(get, never): ucpp.num.Int32;
+	public inline extern function get_TriangleSize(): ucpp.num.Int32 return this.TriangleSize;
+	public extern var PreserveDetail(get, never): ucpp.num.Int32;
+	public inline extern function get_PreserveDetail(): ucpp.num.Int32 return this.PreserveDetail;
+	public extern var Iterations(get, never): ucpp.num.Int32;
+	public inline extern function get_Iterations(): ucpp.num.Int32 return this.Iterations;
 }
 
 @:forward
 @:nativeGen
 @:native("BrushRemeshProperties*")
-abstract BrushRemeshPropertiesPtr(cpp.Star<BrushRemeshProperties>) from cpp.Star<BrushRemeshProperties> to cpp.Star<BrushRemeshProperties>{
+abstract BrushRemeshPropertiesPtr(ucpp.Ptr<BrushRemeshProperties>) from ucpp.Ptr<BrushRemeshProperties> to ucpp.Ptr<BrushRemeshProperties>{
 	@:from
 	public static extern inline function fromValue(v: BrushRemeshProperties): BrushRemeshPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

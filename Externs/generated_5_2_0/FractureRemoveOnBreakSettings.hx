@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFractureRemoveOnBreakSettings")
 @:include("FractureToolProperties.h")
-@:structAccess
+@:valueType
 extern class FractureRemoveOnBreakSettings extends FractureToolSettings {
 	public var Enabled: Bool;
 	public var PostBreakTimer: Vector2f;
@@ -12,7 +12,7 @@ extern class FractureRemoveOnBreakSettings extends FractureToolSettings {
 
 	public function DeleteRemoveOnBreakData(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstFractureRemoveOnBreakSettings(FractureRemoveOnBreakSettings) from 
 @:forward
 @:nativeGen
 @:native("FractureRemoveOnBreakSettings*")
-abstract FractureRemoveOnBreakSettingsPtr(cpp.Star<FractureRemoveOnBreakSettings>) from cpp.Star<FractureRemoveOnBreakSettings> to cpp.Star<FractureRemoveOnBreakSettings>{
+abstract FractureRemoveOnBreakSettingsPtr(ucpp.Ptr<FractureRemoveOnBreakSettings>) from ucpp.Ptr<FractureRemoveOnBreakSettings> to ucpp.Ptr<FractureRemoveOnBreakSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureRemoveOnBreakSettings): FractureRemoveOnBreakSettingsPtr {
 		return untyped __cpp__("&({0})", v);

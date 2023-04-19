@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWidgetEditorModeUISubsystem")
 @:include("ToolPalette/WidgetEditorModeUILayer.h")
-@:structAccess
+@:valueType
 extern class WidgetEditorModeUISubsystem extends AssetEditorUISubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWidgetEditorModeUISubsystem(WidgetEditorModeUISubsystem) from Widg
 @:forward
 @:nativeGen
 @:native("WidgetEditorModeUISubsystem*")
-abstract WidgetEditorModeUISubsystemPtr(cpp.Star<WidgetEditorModeUISubsystem>) from cpp.Star<WidgetEditorModeUISubsystem> to cpp.Star<WidgetEditorModeUISubsystem>{
+abstract WidgetEditorModeUISubsystemPtr(ucpp.Ptr<WidgetEditorModeUISubsystem>) from ucpp.Ptr<WidgetEditorModeUISubsystem> to ucpp.Ptr<WidgetEditorModeUISubsystem>{
 	@:from
 	public static extern inline function fromValue(v: WidgetEditorModeUISubsystem): WidgetEditorModeUISubsystemPtr {
 		return untyped __cpp__("&({0})", v);

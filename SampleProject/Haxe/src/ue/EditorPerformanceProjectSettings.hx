@@ -3,15 +3,16 @@ package ue;
 
 @:native("UEditorPerformanceProjectSettings")
 @:include("Settings/EditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class EditorPerformanceProjectSettings extends DeveloperSettings {
 	public var RealtimeScreenPercentageMode: EScreenPercentageMode;
+	public var PathTracerScreenPercentageMode: EScreenPercentageMode;
 	public var NonRealtimeScreenPercentageMode: EScreenPercentageMode;
-	public var ManualScreenPercentage: cpp.Float32;
-	public var MinViewportRenderingResolution: cpp.Int32;
-	public var MaxViewportRenderingResolution: cpp.Int32;
+	public var ManualScreenPercentage: ucpp.num.Float32;
+	public var MinViewportRenderingResolution: ucpp.num.Int32;
+	public var MaxViewportRenderingResolution: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,20 +20,22 @@ extern class EditorPerformanceProjectSettings extends DeveloperSettings {
 abstract ConstEditorPerformanceProjectSettings(EditorPerformanceProjectSettings) from EditorPerformanceProjectSettings {
 	public extern var RealtimeScreenPercentageMode(get, never): EScreenPercentageMode;
 	public inline extern function get_RealtimeScreenPercentageMode(): EScreenPercentageMode return this.RealtimeScreenPercentageMode;
+	public extern var PathTracerScreenPercentageMode(get, never): EScreenPercentageMode;
+	public inline extern function get_PathTracerScreenPercentageMode(): EScreenPercentageMode return this.PathTracerScreenPercentageMode;
 	public extern var NonRealtimeScreenPercentageMode(get, never): EScreenPercentageMode;
 	public inline extern function get_NonRealtimeScreenPercentageMode(): EScreenPercentageMode return this.NonRealtimeScreenPercentageMode;
-	public extern var ManualScreenPercentage(get, never): cpp.Float32;
-	public inline extern function get_ManualScreenPercentage(): cpp.Float32 return this.ManualScreenPercentage;
-	public extern var MinViewportRenderingResolution(get, never): cpp.Int32;
-	public inline extern function get_MinViewportRenderingResolution(): cpp.Int32 return this.MinViewportRenderingResolution;
-	public extern var MaxViewportRenderingResolution(get, never): cpp.Int32;
-	public inline extern function get_MaxViewportRenderingResolution(): cpp.Int32 return this.MaxViewportRenderingResolution;
+	public extern var ManualScreenPercentage(get, never): ucpp.num.Float32;
+	public inline extern function get_ManualScreenPercentage(): ucpp.num.Float32 return this.ManualScreenPercentage;
+	public extern var MinViewportRenderingResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_MinViewportRenderingResolution(): ucpp.num.Int32 return this.MinViewportRenderingResolution;
+	public extern var MaxViewportRenderingResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxViewportRenderingResolution(): ucpp.num.Int32 return this.MaxViewportRenderingResolution;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorPerformanceProjectSettings*")
-abstract EditorPerformanceProjectSettingsPtr(cpp.Star<EditorPerformanceProjectSettings>) from cpp.Star<EditorPerformanceProjectSettings> to cpp.Star<EditorPerformanceProjectSettings>{
+abstract EditorPerformanceProjectSettingsPtr(ucpp.Ptr<EditorPerformanceProjectSettings>) from ucpp.Ptr<EditorPerformanceProjectSettings> to ucpp.Ptr<EditorPerformanceProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorPerformanceProjectSettings): EditorPerformanceProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

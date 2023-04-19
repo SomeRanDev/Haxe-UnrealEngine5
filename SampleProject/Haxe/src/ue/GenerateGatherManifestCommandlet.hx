@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGenerateGatherManifestCommandlet")
 @:include("Commandlets/GenerateGatherManifestCommandlet.h")
-@:structAccess
+@:valueType
 extern class GenerateGatherManifestCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGenerateGatherManifestCommandlet(GenerateGatherManifestCommandlet)
 @:forward
 @:nativeGen
 @:native("GenerateGatherManifestCommandlet*")
-abstract GenerateGatherManifestCommandletPtr(cpp.Star<GenerateGatherManifestCommandlet>) from cpp.Star<GenerateGatherManifestCommandlet> to cpp.Star<GenerateGatherManifestCommandlet>{
+abstract GenerateGatherManifestCommandletPtr(ucpp.Ptr<GenerateGatherManifestCommandlet>) from ucpp.Ptr<GenerateGatherManifestCommandlet> to ucpp.Ptr<GenerateGatherManifestCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GenerateGatherManifestCommandlet): GenerateGatherManifestCommandletPtr {
 		return untyped __cpp__("&({0})", v);

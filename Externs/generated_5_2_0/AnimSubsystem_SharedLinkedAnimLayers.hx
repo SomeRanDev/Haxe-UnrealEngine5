@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimSubsystem_SharedLinkedAnimLayers")
 @:include("Animation/AnimSubsystem_SharedLinkedAnimLayers.h")
-@:structAccess
+@:valueType
 extern class AnimSubsystem_SharedLinkedAnimLayers extends AnimSubsystemInstance {
 	private var ClassesData: TArray<LinkedAnimLayerClassData>;
 

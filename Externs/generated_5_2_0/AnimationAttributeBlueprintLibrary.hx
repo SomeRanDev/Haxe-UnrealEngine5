@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimationAttributeBlueprintLibrary")
 @:include("AnimationAttributeBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class AnimationAttributeBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function SetAttributeKeys(AnimationDataController: AnimationDataController, AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, Times: cpp.Reference<TArray<cpp.Float32>>, Values: cpp.Reference<TArray<cpp.Int32>>): Bool;
-	public function SetAttributeKey(AnimationDataController: AnimationDataController, AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, Time: cpp.Float32, Value: cpp.Reference<cpp.Int32>): Bool;
-	public function GetAttributeKeys(AnimationDataModel: AnimationDataModel, AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, OutTimes: cpp.Reference<TArray<cpp.Float32>>, Values: cpp.Reference<TArray<cpp.Int32>>): Bool;
-	public function GetAttributeKey(AnimationDataModel: AnimationDataModel, AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, Time: cpp.Float32, Value: cpp.Reference<cpp.Int32>): Bool;
+	public function SetAttributeKeys(AnimationDataController: AnimationDataController, AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, Times: ucpp.Ref<TArray<ucpp.num.Float32>>, Values: ucpp.Ref<TArray<ucpp.num.Int32>>): Bool;
+	public function SetAttributeKey(AnimationDataController: AnimationDataController, AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, Time: ucpp.num.Float32, Value: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetAttributeKeys(AnimationDataModel: AnimationDataModel, AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, OutTimes: ucpp.Ref<TArray<ucpp.num.Float32>>, Values: ucpp.Ref<TArray<ucpp.num.Int32>>): Bool;
+	public function GetAttributeKey(AnimationDataModel: AnimationDataModel, AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, Time: ucpp.num.Float32, Value: ucpp.Ref<ucpp.num.Int32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAnimationAttributeBlueprintLibrary(AnimationAttributeBlueprintLibr
 @:forward
 @:nativeGen
 @:native("AnimationAttributeBlueprintLibrary*")
-abstract AnimationAttributeBlueprintLibraryPtr(cpp.Star<AnimationAttributeBlueprintLibrary>) from cpp.Star<AnimationAttributeBlueprintLibrary> to cpp.Star<AnimationAttributeBlueprintLibrary>{
+abstract AnimationAttributeBlueprintLibraryPtr(ucpp.Ptr<AnimationAttributeBlueprintLibrary>) from ucpp.Ptr<AnimationAttributeBlueprintLibrary> to ucpp.Ptr<AnimationAttributeBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AnimationAttributeBlueprintLibrary): AnimationAttributeBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnNotifyStateReplaced__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnNotifyStateReplaced__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnNotifyStateReplaced__PythonCallable(OnNotifyStateReplaced__Pytho
 @:forward
 @:nativeGen
 @:native("OnNotifyStateReplaced__PythonCallable*")
-abstract OnNotifyStateReplaced__PythonCallablePtr(cpp.Star<OnNotifyStateReplaced__PythonCallable>) from cpp.Star<OnNotifyStateReplaced__PythonCallable> to cpp.Star<OnNotifyStateReplaced__PythonCallable>{
+abstract OnNotifyStateReplaced__PythonCallablePtr(ucpp.Ptr<OnNotifyStateReplaced__PythonCallable>) from ucpp.Ptr<OnNotifyStateReplaced__PythonCallable> to ucpp.Ptr<OnNotifyStateReplaced__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnNotifyStateReplaced__PythonCallable): OnNotifyStateReplaced__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

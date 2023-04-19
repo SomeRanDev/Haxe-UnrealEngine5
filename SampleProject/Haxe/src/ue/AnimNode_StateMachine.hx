@@ -3,10 +3,11 @@ package ue;
 
 @:native("FAnimNode_StateMachine")
 @:include("Animation/AnimNode_StateMachine.h")
-@:structAccess
+@:valueType
 extern class AnimNode_StateMachine extends AnimNode_Base {
-	public var StateMachineIndexInClass: cpp.Int32;
-	public var MaxTransitionsPerFrame: cpp.Int32;
+	public var StateMachineIndexInClass: ucpp.num.Int32;
+	public var MaxTransitionsPerFrame: ucpp.num.Int32;
+	public var MaxTransitionsRequests: ucpp.num.Int32;
 	public var bSkipFirstUpdateTransition: Bool;
 	public var bReinitializeOnBecomingRelevant: Bool;
 	public var bCreateNotifyMetaData: Bool;

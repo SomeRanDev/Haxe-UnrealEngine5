@@ -3,15 +3,15 @@ package ue;
 
 @:native("UUVLayoutPreviewProperties")
 @:include("Drawing/UVLayoutPreview.h")
-@:structAccess
+@:valueType
 extern class UVLayoutPreviewProperties extends InteractiveToolPropertySet {
 	public var bEnabled: Bool;
 	public var Side: EUVLayoutPreviewSide;
-	public var Scale: cpp.Float32;
+	public var Scale: ucpp.num.Float32;
 	public var Offset: Vector2D;
 	public var bShowWireframe: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,8 +21,8 @@ abstract ConstUVLayoutPreviewProperties(UVLayoutPreviewProperties) from UVLayout
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 	public extern var Side(get, never): EUVLayoutPreviewSide;
 	public inline extern function get_Side(): EUVLayoutPreviewSide return this.Side;
-	public extern var Scale(get, never): cpp.Float32;
-	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
+	public extern var Scale(get, never): ucpp.num.Float32;
+	public inline extern function get_Scale(): ucpp.num.Float32 return this.Scale;
 	public extern var Offset(get, never): Vector2D;
 	public inline extern function get_Offset(): Vector2D return this.Offset;
 	public extern var bShowWireframe(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstUVLayoutPreviewProperties(UVLayoutPreviewProperties) from UVLayout
 @:forward
 @:nativeGen
 @:native("UVLayoutPreviewProperties*")
-abstract UVLayoutPreviewPropertiesPtr(cpp.Star<UVLayoutPreviewProperties>) from cpp.Star<UVLayoutPreviewProperties> to cpp.Star<UVLayoutPreviewProperties>{
+abstract UVLayoutPreviewPropertiesPtr(ucpp.Ptr<UVLayoutPreviewProperties>) from ucpp.Ptr<UVLayoutPreviewProperties> to ucpp.Ptr<UVLayoutPreviewProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVLayoutPreviewProperties): UVLayoutPreviewPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

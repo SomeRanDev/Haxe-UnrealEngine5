@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComponentPhysicsStateChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComponentPhysicsStateChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComponentPhysicsStateChanged__PythonCallable(ComponentPhysicsState
 @:forward
 @:nativeGen
 @:native("ComponentPhysicsStateChanged__PythonCallable*")
-abstract ComponentPhysicsStateChanged__PythonCallablePtr(cpp.Star<ComponentPhysicsStateChanged__PythonCallable>) from cpp.Star<ComponentPhysicsStateChanged__PythonCallable> to cpp.Star<ComponentPhysicsStateChanged__PythonCallable>{
+abstract ComponentPhysicsStateChanged__PythonCallablePtr(ucpp.Ptr<ComponentPhysicsStateChanged__PythonCallable>) from ucpp.Ptr<ComponentPhysicsStateChanged__PythonCallable> to ucpp.Ptr<ComponentPhysicsStateChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComponentPhysicsStateChanged__PythonCallable): ComponentPhysicsStateChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

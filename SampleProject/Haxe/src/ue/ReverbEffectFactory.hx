@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReverbEffectFactory")
 @:include("Factories/ReverbEffectFactory.h")
-@:structAccess
+@:valueType
 extern class ReverbEffectFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReverbEffectFactory(ReverbEffectFactory) from ReverbEffectFactory 
 @:forward
 @:nativeGen
 @:native("ReverbEffectFactory*")
-abstract ReverbEffectFactoryPtr(cpp.Star<ReverbEffectFactory>) from cpp.Star<ReverbEffectFactory> to cpp.Star<ReverbEffectFactory>{
+abstract ReverbEffectFactoryPtr(ucpp.Ptr<ReverbEffectFactory>) from ucpp.Ptr<ReverbEffectFactory> to ucpp.Ptr<ReverbEffectFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReverbEffectFactory): ReverbEffectFactoryPtr {
 		return untyped __cpp__("&({0})", v);

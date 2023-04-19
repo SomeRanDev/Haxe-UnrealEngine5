@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_MakeVariable")
 @:include("K2Node_MakeVariable.h")
-@:structAccess
+@:valueType
 extern class K2Node_MakeVariable extends K2Node {
 	private var VariableType: BPVariableDescription;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_MakeVariable(K2Node_MakeVariable) from K2Node_MakeVariable 
 @:forward
 @:nativeGen
 @:native("K2Node_MakeVariable*")
-abstract K2Node_MakeVariablePtr(cpp.Star<K2Node_MakeVariable>) from cpp.Star<K2Node_MakeVariable> to cpp.Star<K2Node_MakeVariable>{
+abstract K2Node_MakeVariablePtr(ucpp.Ptr<K2Node_MakeVariable>) from ucpp.Ptr<K2Node_MakeVariable> to ucpp.Ptr<K2Node_MakeVariable>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_MakeVariable): K2Node_MakeVariablePtr {
 		return untyped __cpp__("&({0})", v);

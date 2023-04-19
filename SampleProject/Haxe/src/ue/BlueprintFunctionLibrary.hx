@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBlueprintFunctionLibrary")
 @:include("Kismet/BlueprintFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class BlueprintFunctionLibrary extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlueprintFunctionLibrary(BlueprintFunctionLibrary) from BlueprintF
 @:forward
 @:nativeGen
 @:native("BlueprintFunctionLibrary*")
-abstract BlueprintFunctionLibraryPtr(cpp.Star<BlueprintFunctionLibrary>) from cpp.Star<BlueprintFunctionLibrary> to cpp.Star<BlueprintFunctionLibrary>{
+abstract BlueprintFunctionLibraryPtr(ucpp.Ptr<BlueprintFunctionLibrary>) from ucpp.Ptr<BlueprintFunctionLibrary> to ucpp.Ptr<BlueprintFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintFunctionLibrary): BlueprintFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

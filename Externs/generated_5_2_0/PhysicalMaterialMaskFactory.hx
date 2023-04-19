@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPhysicalMaterialMaskFactory")
 @:include("Factories/PhysicalMaterialMaskFactory.h")
-@:structAccess
+@:valueType
 extern class PhysicalMaterialMaskFactory extends Factory {
 	public var PhysicalMaterialMaskClass: TSubclassOf<PhysicalMaterialMask>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPhysicalMaterialMaskFactory(PhysicalMaterialMaskFactory) from Phys
 @:forward
 @:nativeGen
 @:native("PhysicalMaterialMaskFactory*")
-abstract PhysicalMaterialMaskFactoryPtr(cpp.Star<PhysicalMaterialMaskFactory>) from cpp.Star<PhysicalMaterialMaskFactory> to cpp.Star<PhysicalMaterialMaskFactory>{
+abstract PhysicalMaterialMaskFactoryPtr(ucpp.Ptr<PhysicalMaterialMaskFactory>) from ucpp.Ptr<PhysicalMaterialMaskFactory> to ucpp.Ptr<PhysicalMaterialMaskFactory>{
 	@:from
 	public static extern inline function fromValue(v: PhysicalMaterialMaskFactory): PhysicalMaterialMaskFactoryPtr {
 		return untyped __cpp__("&({0})", v);

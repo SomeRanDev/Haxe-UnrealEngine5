@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelInstanceEditorObject")
 @:include("LevelInstance/LevelInstanceEditorObject.h")
-@:structAccess
+@:valueType
 extern class LevelInstanceEditorObject extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelInstanceEditorObject(LevelInstanceEditorObject) from LevelIns
 @:forward
 @:nativeGen
 @:native("LevelInstanceEditorObject*")
-abstract LevelInstanceEditorObjectPtr(cpp.Star<LevelInstanceEditorObject>) from cpp.Star<LevelInstanceEditorObject> to cpp.Star<LevelInstanceEditorObject>{
+abstract LevelInstanceEditorObjectPtr(ucpp.Ptr<LevelInstanceEditorObject>) from ucpp.Ptr<LevelInstanceEditorObject> to ucpp.Ptr<LevelInstanceEditorObject>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstanceEditorObject): LevelInstanceEditorObjectPtr {
 		return untyped __cpp__("&({0})", v);

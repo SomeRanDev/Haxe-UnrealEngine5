@@ -3,29 +3,29 @@ package ue;
 
 @:native("UK2Node_AnimGetter")
 @:include("K2Node_AnimGetter.h")
-@:structAccess
+@:valueType
 extern class K2Node_AnimGetter extends K2Node_CallFunction {
-	public var SourceNode: cpp.Star<AnimGraphNode_Base>;
-	public var SourceStateNode: cpp.Star<AnimStateNodeBase>;
+	public var SourceNode: ucpp.Ptr<AnimGraphNode_Base>;
+	public var SourceStateNode: ucpp.Ptr<AnimStateNodeBase>;
 	public var GetterClass: TSubclassOf<Object>;
-	public var SourceAnimBlueprint: cpp.Star<AnimBlueprint>;
+	public var SourceAnimBlueprint: ucpp.Ptr<AnimBlueprint>;
 	public var CachedTitle: FText;
 	public var Contexts: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_AnimGetter(K2Node_AnimGetter) from K2Node_AnimGetter {
-	public extern var SourceNode(get, never): cpp.Star<AnimGraphNode_Base.ConstAnimGraphNode_Base>;
-	public inline extern function get_SourceNode(): cpp.Star<AnimGraphNode_Base.ConstAnimGraphNode_Base> return this.SourceNode;
-	public extern var SourceStateNode(get, never): cpp.Star<AnimStateNodeBase.ConstAnimStateNodeBase>;
-	public inline extern function get_SourceStateNode(): cpp.Star<AnimStateNodeBase.ConstAnimStateNodeBase> return this.SourceStateNode;
+	public extern var SourceNode(get, never): ucpp.Ptr<AnimGraphNode_Base.ConstAnimGraphNode_Base>;
+	public inline extern function get_SourceNode(): ucpp.Ptr<AnimGraphNode_Base.ConstAnimGraphNode_Base> return this.SourceNode;
+	public extern var SourceStateNode(get, never): ucpp.Ptr<AnimStateNodeBase.ConstAnimStateNodeBase>;
+	public inline extern function get_SourceStateNode(): ucpp.Ptr<AnimStateNodeBase.ConstAnimStateNodeBase> return this.SourceStateNode;
 	public extern var GetterClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_GetterClass(): TSubclassOf<Object.ConstObject> return this.GetterClass;
-	public extern var SourceAnimBlueprint(get, never): cpp.Star<AnimBlueprint.ConstAnimBlueprint>;
-	public inline extern function get_SourceAnimBlueprint(): cpp.Star<AnimBlueprint.ConstAnimBlueprint> return this.SourceAnimBlueprint;
+	public extern var SourceAnimBlueprint(get, never): ucpp.Ptr<AnimBlueprint.ConstAnimBlueprint>;
+	public inline extern function get_SourceAnimBlueprint(): ucpp.Ptr<AnimBlueprint.ConstAnimBlueprint> return this.SourceAnimBlueprint;
 	public extern var CachedTitle(get, never): FText;
 	public inline extern function get_CachedTitle(): FText return this.CachedTitle;
 	public extern var Contexts(get, never): TArray<FString>;
@@ -35,7 +35,7 @@ abstract ConstK2Node_AnimGetter(K2Node_AnimGetter) from K2Node_AnimGetter {
 @:forward
 @:nativeGen
 @:native("K2Node_AnimGetter*")
-abstract K2Node_AnimGetterPtr(cpp.Star<K2Node_AnimGetter>) from cpp.Star<K2Node_AnimGetter> to cpp.Star<K2Node_AnimGetter>{
+abstract K2Node_AnimGetterPtr(ucpp.Ptr<K2Node_AnimGetter>) from ucpp.Ptr<K2Node_AnimGetter> to ucpp.Ptr<K2Node_AnimGetter>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_AnimGetter): K2Node_AnimGetterPtr {
 		return untyped __cpp__("&({0})", v);

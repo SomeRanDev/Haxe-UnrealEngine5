@@ -3,11 +3,11 @@ package ue;
 
 @:native("UToolTargetManager")
 @:include("ToolTargetManager.h")
-@:structAccess
+@:valueType
 extern class ToolTargetManager extends Object {
-	@:protected public var Factories: TArray<cpp.Star<ToolTargetFactory>>;
+	@:protected public var Factories: TArray<ucpp.Ptr<ToolTargetFactory>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstToolTargetManager(ToolTargetManager) from ToolTargetManager {
 @:forward
 @:nativeGen
 @:native("ToolTargetManager*")
-abstract ToolTargetManagerPtr(cpp.Star<ToolTargetManager>) from cpp.Star<ToolTargetManager> to cpp.Star<ToolTargetManager>{
+abstract ToolTargetManagerPtr(ucpp.Ptr<ToolTargetManager>) from ucpp.Ptr<ToolTargetManager> to ucpp.Ptr<ToolTargetManager>{
 	@:from
 	public static extern inline function fromValue(v: ToolTargetManager): ToolTargetManagerPtr {
 		return untyped __cpp__("&({0})", v);

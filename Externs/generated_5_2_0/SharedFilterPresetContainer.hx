@@ -3,11 +3,11 @@ package ue;
 
 @:native("USharedFilterPresetContainer")
 @:include("FilterPresets.h")
-@:structAccess
+@:valueType
 extern class SharedFilterPresetContainer extends Object {
 	@:protected public var SharedPresets: TArray<FilterData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSharedFilterPresetContainer(SharedFilterPresetContainer) from Shar
 @:forward
 @:nativeGen
 @:native("SharedFilterPresetContainer*")
-abstract SharedFilterPresetContainerPtr(cpp.Star<SharedFilterPresetContainer>) from cpp.Star<SharedFilterPresetContainer> to cpp.Star<SharedFilterPresetContainer>{
+abstract SharedFilterPresetContainerPtr(ucpp.Ptr<SharedFilterPresetContainer>) from ucpp.Ptr<SharedFilterPresetContainer> to ucpp.Ptr<SharedFilterPresetContainer>{
 	@:from
 	public static extern inline function fromValue(v: SharedFilterPresetContainer): SharedFilterPresetContainerPtr {
 		return untyped __cpp__("&({0})", v);

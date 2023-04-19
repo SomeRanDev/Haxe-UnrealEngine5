@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionSetLocal")
 @:include("Materials/MaterialExpressionSetLocal.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSetLocal extends MaterialExpression {
 	public var Exec: ExpressionExecOutput;
 	public var Value: ExpressionInput;
 	public var LocalName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionSetLocal(MaterialExpressionSetLocal) from Materi
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSetLocal*")
-abstract MaterialExpressionSetLocalPtr(cpp.Star<MaterialExpressionSetLocal>) from cpp.Star<MaterialExpressionSetLocal> to cpp.Star<MaterialExpressionSetLocal>{
+abstract MaterialExpressionSetLocalPtr(ucpp.Ptr<MaterialExpressionSetLocal>) from ucpp.Ptr<MaterialExpressionSetLocal> to ucpp.Ptr<MaterialExpressionSetLocal>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSetLocal): MaterialExpressionSetLocalPtr {
 		return untyped __cpp__("&({0})", v);

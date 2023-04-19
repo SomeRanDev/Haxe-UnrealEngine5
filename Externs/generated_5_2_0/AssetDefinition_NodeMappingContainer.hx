@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_NodeMappingContainer")
 @:include("AssetDefinition_NodeMappingContainer.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_NodeMappingContainer extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_NodeMappingContainer(AssetDefinition_NodeMappingCo
 @:forward
 @:nativeGen
 @:native("AssetDefinition_NodeMappingContainer*")
-abstract AssetDefinition_NodeMappingContainerPtr(cpp.Star<AssetDefinition_NodeMappingContainer>) from cpp.Star<AssetDefinition_NodeMappingContainer> to cpp.Star<AssetDefinition_NodeMappingContainer>{
+abstract AssetDefinition_NodeMappingContainerPtr(ucpp.Ptr<AssetDefinition_NodeMappingContainer>) from ucpp.Ptr<AssetDefinition_NodeMappingContainer> to ucpp.Ptr<AssetDefinition_NodeMappingContainer>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_NodeMappingContainer): AssetDefinition_NodeMappingContainerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneScriptingBoolKey")
 @:include("KeysAndChannels/MovieSceneScriptingBool.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingBoolKey extends MovieSceneScriptingKey {
 	public function SetValue(InNewValue: Bool): Void;
-	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetTime(NewFrameNumber: ucpp.Ref<FrameNumber>, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): Void;
 	public function GetValue(): Bool;
 	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue, GetTime)
@@ -21,7 +21,7 @@ abstract ConstMovieSceneScriptingBoolKey(MovieSceneScriptingBoolKey) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingBoolKey*")
-abstract MovieSceneScriptingBoolKeyPtr(cpp.Star<MovieSceneScriptingBoolKey>) from cpp.Star<MovieSceneScriptingBoolKey> to cpp.Star<MovieSceneScriptingBoolKey>{
+abstract MovieSceneScriptingBoolKeyPtr(ucpp.Ptr<MovieSceneScriptingBoolKey>) from ucpp.Ptr<MovieSceneScriptingBoolKey> to ucpp.Ptr<MovieSceneScriptingBoolKey>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingBoolKey): MovieSceneScriptingBoolKeyPtr {
 		return untyped __cpp__("&({0})", v);

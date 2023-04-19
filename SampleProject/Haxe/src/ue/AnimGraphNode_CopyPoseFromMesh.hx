@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_CopyPoseFromMesh")
 @:include("AnimGraphNode_CopyPoseFromMesh.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_CopyPoseFromMesh extends AnimGraphNode_Base {
 	public var Node: AnimNode_CopyPoseFromMesh;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_CopyPoseFromMesh(AnimGraphNode_CopyPoseFromMesh) fro
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_CopyPoseFromMesh*")
-abstract AnimGraphNode_CopyPoseFromMeshPtr(cpp.Star<AnimGraphNode_CopyPoseFromMesh>) from cpp.Star<AnimGraphNode_CopyPoseFromMesh> to cpp.Star<AnimGraphNode_CopyPoseFromMesh>{
+abstract AnimGraphNode_CopyPoseFromMeshPtr(ucpp.Ptr<AnimGraphNode_CopyPoseFromMesh>) from ucpp.Ptr<AnimGraphNode_CopyPoseFromMesh> to ucpp.Ptr<AnimGraphNode_CopyPoseFromMesh>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_CopyPoseFromMesh): AnimGraphNode_CopyPoseFromMeshPtr {
 		return untyped __cpp__("&({0})", v);

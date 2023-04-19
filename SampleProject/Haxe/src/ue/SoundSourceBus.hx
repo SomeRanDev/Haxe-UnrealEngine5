@@ -3,14 +3,14 @@ package ue;
 
 @:native("USoundSourceBus")
 @:include("Sound/SoundSourceBus.h")
-@:structAccess
+@:valueType
 extern class SoundSourceBus extends SoundWave {
 	public var SourceBusChannels: ESourceBusChannels;
-	public var SourceBusDuration: cpp.Float32;
-	public var AudioBus: cpp.Star<AudioBus>;
+	public var SourceBusDuration: ucpp.num.Float32;
+	public var AudioBus: ucpp.Ptr<AudioBus>;
 	public var bAutoDeactivateWhenSilent: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,10 +18,10 @@ extern class SoundSourceBus extends SoundWave {
 abstract ConstSoundSourceBus(SoundSourceBus) from SoundSourceBus {
 	public extern var SourceBusChannels(get, never): ESourceBusChannels;
 	public inline extern function get_SourceBusChannels(): ESourceBusChannels return this.SourceBusChannels;
-	public extern var SourceBusDuration(get, never): cpp.Float32;
-	public inline extern function get_SourceBusDuration(): cpp.Float32 return this.SourceBusDuration;
-	public extern var AudioBus(get, never): cpp.Star<AudioBus.ConstAudioBus>;
-	public inline extern function get_AudioBus(): cpp.Star<AudioBus.ConstAudioBus> return this.AudioBus;
+	public extern var SourceBusDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceBusDuration(): ucpp.num.Float32 return this.SourceBusDuration;
+	public extern var AudioBus(get, never): ucpp.Ptr<AudioBus.ConstAudioBus>;
+	public inline extern function get_AudioBus(): ucpp.Ptr<AudioBus.ConstAudioBus> return this.AudioBus;
 	public extern var bAutoDeactivateWhenSilent(get, never): Bool;
 	public inline extern function get_bAutoDeactivateWhenSilent(): Bool return this.bAutoDeactivateWhenSilent;
 }
@@ -29,7 +29,7 @@ abstract ConstSoundSourceBus(SoundSourceBus) from SoundSourceBus {
 @:forward
 @:nativeGen
 @:native("SoundSourceBus*")
-abstract SoundSourceBusPtr(cpp.Star<SoundSourceBus>) from cpp.Star<SoundSourceBus> to cpp.Star<SoundSourceBus>{
+abstract SoundSourceBusPtr(ucpp.Ptr<SoundSourceBus>) from ucpp.Ptr<SoundSourceBus> to ucpp.Ptr<SoundSourceBus>{
 	@:from
 	public static extern inline function fromValue(v: SoundSourceBus): SoundSourceBusPtr {
 		return untyped __cpp__("&({0})", v);

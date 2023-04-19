@@ -3,20 +3,20 @@ package ue;
 
 @:native("UNiagaraSimulationStageBase")
 @:include("NiagaraSimulationStageBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimulationStageBase extends NiagaraMergeable {
-	public var Script: cpp.Star<NiagaraScript>;
+	public var Script: ucpp.Ptr<NiagaraScript>;
 	public var SimulationStageName: FName;
 	public var bEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraSimulationStageBase(NiagaraSimulationStageBase) from NiagaraSimulationStageBase {
-	public extern var Script(get, never): cpp.Star<NiagaraScript.ConstNiagaraScript>;
-	public inline extern function get_Script(): cpp.Star<NiagaraScript.ConstNiagaraScript> return this.Script;
+	public extern var Script(get, never): ucpp.Ptr<NiagaraScript.ConstNiagaraScript>;
+	public inline extern function get_Script(): ucpp.Ptr<NiagaraScript.ConstNiagaraScript> return this.Script;
 	public extern var SimulationStageName(get, never): FName;
 	public inline extern function get_SimulationStageName(): FName return this.SimulationStageName;
 	public extern var bEnabled(get, never): Bool;
@@ -26,7 +26,7 @@ abstract ConstNiagaraSimulationStageBase(NiagaraSimulationStageBase) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraSimulationStageBase*")
-abstract NiagaraSimulationStageBasePtr(cpp.Star<NiagaraSimulationStageBase>) from cpp.Star<NiagaraSimulationStageBase> to cpp.Star<NiagaraSimulationStageBase>{
+abstract NiagaraSimulationStageBasePtr(ucpp.Ptr<NiagaraSimulationStageBase>) from ucpp.Ptr<NiagaraSimulationStageBase> to ucpp.Ptr<NiagaraSimulationStageBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSimulationStageBase): NiagaraSimulationStageBasePtr {
 		return untyped __cpp__("&({0})", v);

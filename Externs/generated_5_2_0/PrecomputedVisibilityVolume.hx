@@ -3,10 +3,10 @@ package ue;
 
 @:native("APrecomputedVisibilityVolume")
 @:include("Lightmass/PrecomputedVisibilityVolume.h")
-@:structAccess
+@:valueType
 extern class PrecomputedVisibilityVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPrecomputedVisibilityVolume(PrecomputedVisibilityVolume) from Prec
 @:forward
 @:nativeGen
 @:native("PrecomputedVisibilityVolume*")
-abstract PrecomputedVisibilityVolumePtr(cpp.Star<PrecomputedVisibilityVolume>) from cpp.Star<PrecomputedVisibilityVolume> to cpp.Star<PrecomputedVisibilityVolume>{
+abstract PrecomputedVisibilityVolumePtr(ucpp.Ptr<PrecomputedVisibilityVolume>) from ucpp.Ptr<PrecomputedVisibilityVolume> to ucpp.Ptr<PrecomputedVisibilityVolume>{
 	@:from
 	public static extern inline function fromValue(v: PrecomputedVisibilityVolume): PrecomputedVisibilityVolumePtr {
 		return untyped __cpp__("&({0})", v);

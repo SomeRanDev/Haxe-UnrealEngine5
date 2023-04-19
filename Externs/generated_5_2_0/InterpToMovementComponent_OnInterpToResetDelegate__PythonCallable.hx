@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterpToMovementComponent_OnInterpToResetDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterpToMovementComponent_OnInterpToResetDelegate__PythonCallable(
 @:forward
 @:nativeGen
 @:native("InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable*")
-abstract InterpToMovementComponent_OnInterpToResetDelegate__PythonCallablePtr(cpp.Star<InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable>) from cpp.Star<InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable> to cpp.Star<InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable>{
+abstract InterpToMovementComponent_OnInterpToResetDelegate__PythonCallablePtr(ucpp.Ptr<InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable>) from ucpp.Ptr<InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable> to ucpp.Ptr<InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InterpToMovementComponent_OnInterpToResetDelegate__PythonCallable): InterpToMovementComponent_OnInterpToResetDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

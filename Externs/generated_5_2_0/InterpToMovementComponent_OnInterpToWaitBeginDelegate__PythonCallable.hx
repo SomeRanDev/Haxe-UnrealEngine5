@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCalla
 @:forward
 @:nativeGen
 @:native("InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable*")
-abstract InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallablePtr(cpp.Star<InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable>) from cpp.Star<InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable> to cpp.Star<InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable>{
+abstract InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallablePtr(ucpp.Ptr<InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable>) from ucpp.Ptr<InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable> to ucpp.Ptr<InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallable): InterpToMovementComponent_OnInterpToWaitBeginDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

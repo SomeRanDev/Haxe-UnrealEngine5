@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolClusterCutter")
 @:include("FractureToolClusterCutter.h")
-@:structAccess
+@:valueType
 extern class FractureToolClusterCutter extends FractureToolVoronoiCutterBase {
-	public var ClusterSettings: cpp.Star<FractureClusterCutterSettings>;
+	public var ClusterSettings: ucpp.Ptr<FractureClusterCutterSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolClusterCutter(FractureToolClusterCutter) from FractureToolClusterCutter {
-	public extern var ClusterSettings(get, never): cpp.Star<FractureClusterCutterSettings.ConstFractureClusterCutterSettings>;
-	public inline extern function get_ClusterSettings(): cpp.Star<FractureClusterCutterSettings.ConstFractureClusterCutterSettings> return this.ClusterSettings;
+	public extern var ClusterSettings(get, never): ucpp.Ptr<FractureClusterCutterSettings.ConstFractureClusterCutterSettings>;
+	public inline extern function get_ClusterSettings(): ucpp.Ptr<FractureClusterCutterSettings.ConstFractureClusterCutterSettings> return this.ClusterSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolClusterCutter*")
-abstract FractureToolClusterCutterPtr(cpp.Star<FractureToolClusterCutter>) from cpp.Star<FractureToolClusterCutter> to cpp.Star<FractureToolClusterCutter>{
+abstract FractureToolClusterCutterPtr(ucpp.Ptr<FractureToolClusterCutter>) from ucpp.Ptr<FractureToolClusterCutter> to ucpp.Ptr<FractureToolClusterCutter>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolClusterCutter): FractureToolClusterCutterPtr {
 		return untyped __cpp__("&({0})", v);

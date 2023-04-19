@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAsyncPhysicsTimestamp")
 @:include("GameFramework/PlayerController.h")
-@:structAccess
+@:valueType
 extern class AsyncPhysicsTimestamp {
-	public var ServerFrame: cpp.Int32;
-	public var LocalFrame: cpp.Int32;
+	public var ServerFrame: ucpp.num.Int32;
+	public var LocalFrame: ucpp.num.Int32;
 
 	@:native("FAsyncPhysicsTimestamp") public function new();
-	@:native("FAsyncPhysicsTimestamp") public static function make(ServerFrame: cpp.Int32, LocalFrame: cpp.Int32): AsyncPhysicsTimestamp ;
+	@:native("FAsyncPhysicsTimestamp") public static function make(ServerFrame: ucpp.num.Int32, LocalFrame: ucpp.num.Int32): AsyncPhysicsTimestamp ;
 }

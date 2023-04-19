@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimSequenceConverterFactory")
 @:include("AnimSequenceConverterFactory.h")
-@:structAccess
+@:valueType
 extern class AnimSequenceConverterFactory extends AnimSequenceFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimSequenceConverterFactory(AnimSequenceConverterFactory) from An
 @:forward
 @:nativeGen
 @:native("AnimSequenceConverterFactory*")
-abstract AnimSequenceConverterFactoryPtr(cpp.Star<AnimSequenceConverterFactory>) from cpp.Star<AnimSequenceConverterFactory> to cpp.Star<AnimSequenceConverterFactory>{
+abstract AnimSequenceConverterFactoryPtr(ucpp.Ptr<AnimSequenceConverterFactory>) from ucpp.Ptr<AnimSequenceConverterFactory> to ucpp.Ptr<AnimSequenceConverterFactory>{
 	@:from
 	public static extern inline function fromValue(v: AnimSequenceConverterFactory): AnimSequenceConverterFactoryPtr {
 		return untyped __cpp__("&({0})", v);

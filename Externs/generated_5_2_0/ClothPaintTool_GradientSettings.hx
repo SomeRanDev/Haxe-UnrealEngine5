@@ -3,22 +3,22 @@ package ue;
 
 @:native("UClothPaintTool_GradientSettings")
 @:include("ClothPaintTools.h")
-@:structAccess
+@:valueType
 extern class ClothPaintTool_GradientSettings extends Object {
-	public var GradientStartValue: cpp.Float32;
-	public var GradientEndValue: cpp.Float32;
+	public var GradientStartValue: ucpp.num.Float32;
+	public var GradientEndValue: ucpp.num.Float32;
 	public var bUseRegularBrush: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstClothPaintTool_GradientSettings(ClothPaintTool_GradientSettings) from ClothPaintTool_GradientSettings {
-	public extern var GradientStartValue(get, never): cpp.Float32;
-	public inline extern function get_GradientStartValue(): cpp.Float32 return this.GradientStartValue;
-	public extern var GradientEndValue(get, never): cpp.Float32;
-	public inline extern function get_GradientEndValue(): cpp.Float32 return this.GradientEndValue;
+	public extern var GradientStartValue(get, never): ucpp.num.Float32;
+	public inline extern function get_GradientStartValue(): ucpp.num.Float32 return this.GradientStartValue;
+	public extern var GradientEndValue(get, never): ucpp.num.Float32;
+	public inline extern function get_GradientEndValue(): ucpp.num.Float32 return this.GradientEndValue;
 	public extern var bUseRegularBrush(get, never): Bool;
 	public inline extern function get_bUseRegularBrush(): Bool return this.bUseRegularBrush;
 }
@@ -26,7 +26,7 @@ abstract ConstClothPaintTool_GradientSettings(ClothPaintTool_GradientSettings) f
 @:forward
 @:nativeGen
 @:native("ClothPaintTool_GradientSettings*")
-abstract ClothPaintTool_GradientSettingsPtr(cpp.Star<ClothPaintTool_GradientSettings>) from cpp.Star<ClothPaintTool_GradientSettings> to cpp.Star<ClothPaintTool_GradientSettings>{
+abstract ClothPaintTool_GradientSettingsPtr(ucpp.Ptr<ClothPaintTool_GradientSettings>) from ucpp.Ptr<ClothPaintTool_GradientSettings> to ucpp.Ptr<ClothPaintTool_GradientSettings>{
 	@:from
 	public static extern inline function fromValue(v: ClothPaintTool_GradientSettings): ClothPaintTool_GradientSettingsPtr {
 		return untyped __cpp__("&({0})", v);

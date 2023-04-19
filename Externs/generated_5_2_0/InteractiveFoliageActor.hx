@@ -3,55 +3,55 @@ package ue;
 
 @:native("AInteractiveFoliageActor")
 @:include("InteractiveFoliageActor.h")
-@:structAccess
+@:valueType
 extern class InteractiveFoliageActor extends StaticMeshActor {
-	private var CapsuleComponent: cpp.Star<CapsuleComp>;
+	private var CapsuleComponent: ucpp.Ptr<CapsuleComp>;
 	private var TouchingActorEntryPosition: Vector;
 	private var FoliageVelocity: Vector;
 	private var FoliageForce: Vector;
 	private var FoliagePosition: Vector;
-	public var FoliageDamageImpulseScale: cpp.Float32;
-	public var FoliageTouchImpulseScale: cpp.Float32;
-	public var FoliageStiffness: cpp.Float32;
-	public var FoliageStiffnessQuadratic: cpp.Float32;
-	public var FoliageDamping: cpp.Float32;
-	public var MaxDamageImpulse: cpp.Float32;
-	public var MaxTouchImpulse: cpp.Float32;
-	public var MaxForce: cpp.Float32;
-	public var Mass: cpp.Float32;
+	public var FoliageDamageImpulseScale: ucpp.num.Float32;
+	public var FoliageTouchImpulseScale: ucpp.num.Float32;
+	public var FoliageStiffness: ucpp.num.Float32;
+	public var FoliageStiffnessQuadratic: ucpp.num.Float32;
+	public var FoliageDamping: ucpp.num.Float32;
+	public var MaxDamageImpulse: ucpp.num.Float32;
+	public var MaxTouchImpulse: ucpp.num.Float32;
+	public var MaxForce: ucpp.num.Float32;
+	public var Mass: ucpp.num.Float32;
 
-	@:protected public function CapsuleTouched(OverlappedComp: cpp.Star<PrimitiveComp>, Other: cpp.Star<Actor>, OtherComp: cpp.Star<PrimitiveComp>, OtherBodyIndex: cpp.Int32, bFromSweep: Bool, OverlapInfo: cpp.Reference<HitResult>): Void;
+	@:protected public function CapsuleTouched(OverlappedComp: ucpp.Ptr<PrimitiveComp>, Other: ucpp.Ptr<Actor>, OtherComp: ucpp.Ptr<PrimitiveComp>, OtherBodyIndex: ucpp.num.Int32, bFromSweep: Bool, OverlapInfo: ucpp.Ref<HitResult>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInteractiveFoliageActor(InteractiveFoliageActor) from InteractiveFoliageActor {
-	public extern var FoliageDamageImpulseScale(get, never): cpp.Float32;
-	public inline extern function get_FoliageDamageImpulseScale(): cpp.Float32 return this.FoliageDamageImpulseScale;
-	public extern var FoliageTouchImpulseScale(get, never): cpp.Float32;
-	public inline extern function get_FoliageTouchImpulseScale(): cpp.Float32 return this.FoliageTouchImpulseScale;
-	public extern var FoliageStiffness(get, never): cpp.Float32;
-	public inline extern function get_FoliageStiffness(): cpp.Float32 return this.FoliageStiffness;
-	public extern var FoliageStiffnessQuadratic(get, never): cpp.Float32;
-	public inline extern function get_FoliageStiffnessQuadratic(): cpp.Float32 return this.FoliageStiffnessQuadratic;
-	public extern var FoliageDamping(get, never): cpp.Float32;
-	public inline extern function get_FoliageDamping(): cpp.Float32 return this.FoliageDamping;
-	public extern var MaxDamageImpulse(get, never): cpp.Float32;
-	public inline extern function get_MaxDamageImpulse(): cpp.Float32 return this.MaxDamageImpulse;
-	public extern var MaxTouchImpulse(get, never): cpp.Float32;
-	public inline extern function get_MaxTouchImpulse(): cpp.Float32 return this.MaxTouchImpulse;
-	public extern var MaxForce(get, never): cpp.Float32;
-	public inline extern function get_MaxForce(): cpp.Float32 return this.MaxForce;
-	public extern var Mass(get, never): cpp.Float32;
-	public inline extern function get_Mass(): cpp.Float32 return this.Mass;
+	public extern var FoliageDamageImpulseScale(get, never): ucpp.num.Float32;
+	public inline extern function get_FoliageDamageImpulseScale(): ucpp.num.Float32 return this.FoliageDamageImpulseScale;
+	public extern var FoliageTouchImpulseScale(get, never): ucpp.num.Float32;
+	public inline extern function get_FoliageTouchImpulseScale(): ucpp.num.Float32 return this.FoliageTouchImpulseScale;
+	public extern var FoliageStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_FoliageStiffness(): ucpp.num.Float32 return this.FoliageStiffness;
+	public extern var FoliageStiffnessQuadratic(get, never): ucpp.num.Float32;
+	public inline extern function get_FoliageStiffnessQuadratic(): ucpp.num.Float32 return this.FoliageStiffnessQuadratic;
+	public extern var FoliageDamping(get, never): ucpp.num.Float32;
+	public inline extern function get_FoliageDamping(): ucpp.num.Float32 return this.FoliageDamping;
+	public extern var MaxDamageImpulse(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDamageImpulse(): ucpp.num.Float32 return this.MaxDamageImpulse;
+	public extern var MaxTouchImpulse(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxTouchImpulse(): ucpp.num.Float32 return this.MaxTouchImpulse;
+	public extern var MaxForce(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxForce(): ucpp.num.Float32 return this.MaxForce;
+	public extern var Mass(get, never): ucpp.num.Float32;
+	public inline extern function get_Mass(): ucpp.num.Float32 return this.Mass;
 }
 
 @:forward
 @:nativeGen
 @:native("InteractiveFoliageActor*")
-abstract InteractiveFoliageActorPtr(cpp.Star<InteractiveFoliageActor>) from cpp.Star<InteractiveFoliageActor> to cpp.Star<InteractiveFoliageActor>{
+abstract InteractiveFoliageActorPtr(ucpp.Ptr<InteractiveFoliageActor>) from ucpp.Ptr<InteractiveFoliageActor> to ucpp.Ptr<InteractiveFoliageActor>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveFoliageActor): InteractiveFoliageActorPtr {
 		return untyped __cpp__("&({0})", v);

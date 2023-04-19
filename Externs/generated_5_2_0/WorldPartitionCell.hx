@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWorldPartitionCell")
-@:structAccess
+@:valueType
 extern class WorldPartitionCell extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWorldPartitionCell(WorldPartitionCell) from WorldPartitionCell {
 @:forward
 @:nativeGen
 @:native("WorldPartitionCell*")
-abstract WorldPartitionCellPtr(cpp.Star<WorldPartitionCell>) from cpp.Star<WorldPartitionCell> to cpp.Star<WorldPartitionCell>{
+abstract WorldPartitionCellPtr(ucpp.Ptr<WorldPartitionCell>) from ucpp.Ptr<WorldPartitionCell> to ucpp.Ptr<WorldPartitionCell>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionCell): WorldPartitionCellPtr {
 		return untyped __cpp__("&({0})", v);

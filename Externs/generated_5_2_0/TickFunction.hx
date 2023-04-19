@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTickFunction")
 @:include("Engine/EngineBaseTypes.h")
-@:structAccess
+@:valueType
 extern class TickFunction {
 	public var TickGroup: TEnumAsByte<ETickingGroup>;
 	public var EndTickGroup: TEnumAsByte<ETickingGroup>;
@@ -11,7 +11,7 @@ extern class TickFunction {
 	public var bCanEverTick: Bool;
 	public var bStartWithTickEnabled: Bool;
 	public var bAllowTickOnDedicatedServer: Bool;
-	public var TickInterval: cpp.Float32;
+	public var TickInterval: ucpp.num.Float32;
 
 	@:native("FTickFunction") public function new();
 }

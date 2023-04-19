@@ -3,41 +3,41 @@ package ue;
 
 @:native("AChaosCacheManager")
 @:include("Chaos/CacheManagerActor.h")
-@:structAccess
+@:valueType
 extern class ChaosCacheManager extends Actor {
-	public var CacheCollection: cpp.Star<ChaosCacheCollection>;
+	public var CacheCollection: ucpp.Ptr<ChaosCacheCollection>;
 	public var CacheMode: ECacheMode;
 	public var StartMode: EStartMode;
-	public var StartTime: cpp.Float32;
+	public var StartTime: ucpp.num.Float32;
 	private var ObservedComponents: TArray<ObservedComp>;
 
 	@:protected public function TriggerComponentByCache(InCacheName: FName): Void;
-	@:protected public function TriggerComponent(InComponent: cpp.Star<PrimitiveComp>): Void;
+	@:protected public function TriggerComponent(InComponent: ucpp.Ptr<PrimitiveComp>): Void;
 	@:protected public function TriggerAll(): Void;
-	public function SetStartTime(InStartTime: cpp.Float32): Void;
-	public function ResetSingleTransform(InIndex: cpp.Int32): Void;
+	public function SetStartTime(InStartTime: ucpp.num.Float32): Void;
+	public function ResetSingleTransform(InIndex: ucpp.num.Int32): Void;
 	public function ResetAllComponentTransforms(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstChaosCacheManager(ChaosCacheManager) from ChaosCacheManager {
-	public extern var CacheCollection(get, never): cpp.Star<ChaosCacheCollection.ConstChaosCacheCollection>;
-	public inline extern function get_CacheCollection(): cpp.Star<ChaosCacheCollection.ConstChaosCacheCollection> return this.CacheCollection;
+	public extern var CacheCollection(get, never): ucpp.Ptr<ChaosCacheCollection.ConstChaosCacheCollection>;
+	public inline extern function get_CacheCollection(): ucpp.Ptr<ChaosCacheCollection.ConstChaosCacheCollection> return this.CacheCollection;
 	public extern var CacheMode(get, never): ECacheMode;
 	public inline extern function get_CacheMode(): ECacheMode return this.CacheMode;
 	public extern var StartMode(get, never): EStartMode;
 	public inline extern function get_StartMode(): EStartMode return this.StartMode;
-	public extern var StartTime(get, never): cpp.Float32;
-	public inline extern function get_StartTime(): cpp.Float32 return this.StartTime;
+	public extern var StartTime(get, never): ucpp.num.Float32;
+	public inline extern function get_StartTime(): ucpp.num.Float32 return this.StartTime;
 }
 
 @:forward
 @:nativeGen
 @:native("ChaosCacheManager*")
-abstract ChaosCacheManagerPtr(cpp.Star<ChaosCacheManager>) from cpp.Star<ChaosCacheManager> to cpp.Star<ChaosCacheManager>{
+abstract ChaosCacheManagerPtr(ucpp.Ptr<ChaosCacheManager>) from ucpp.Ptr<ChaosCacheManager> to ucpp.Ptr<ChaosCacheManager>{
 	@:from
 	public static extern inline function fromValue(v: ChaosCacheManager): ChaosCacheManagerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FFloatRangeBound")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class FloatRangeBound {
 	private var Type: TEnumAsByte<ERangeBoundTypes>;
-	private var Value: cpp.Float32;
+	private var Value: ucpp.num.Float32;
 
 	@:native("FFloatRangeBound") public function new();
-	@:native("FFloatRangeBound") public static function make(Type: TEnumAsByte<ERangeBoundTypes>, Value: cpp.Float32): FloatRangeBound ;
+	@:native("FFloatRangeBound") public static function make(Type: TEnumAsByte<ERangeBoundTypes>, Value: ucpp.num.Float32): FloatRangeBound ;
 }

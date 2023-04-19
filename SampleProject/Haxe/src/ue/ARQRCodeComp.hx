@@ -3,16 +3,16 @@ package ue;
 
 @:native("UARQRCodeComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARQRCodeComp extends ARComp {
 	@:protected public var ReplicatedPayload: ARQRCodeUpdatePayload;
 
 	public function SetQRCodeComponentDebugMode(NewDebugMode: EQRCodeComponentDebugMode): Void;
 	@:protected public function ServerUpdatePayload(NewPayload: ARQRCodeUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<ARQRCodeUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<ARQRCodeUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<ARQRCodeUpdatePayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstARQRCodeComp(ARQRCodeComp) from ARQRCodeComp {
 @:forward
 @:nativeGen
 @:native("ARQRCodeComp*")
-abstract ARQRCodeCompPtr(cpp.Star<ARQRCodeComp>) from cpp.Star<ARQRCodeComp> to cpp.Star<ARQRCodeComp>{
+abstract ARQRCodeCompPtr(ucpp.Ptr<ARQRCodeComp>) from ucpp.Ptr<ARQRCodeComp> to ucpp.Ptr<ARQRCodeComp>{
 	@:from
 	public static extern inline function fromValue(v: ARQRCodeComp): ARQRCodeCompPtr {
 		return untyped __cpp__("&({0})", v);

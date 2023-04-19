@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorSubsystemBlueprintLibrary")
 @:include("Subsystems/EditorSubsystemBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorSubsystemBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetEditorSubsystem(Class: TSubclassOf<EditorSubsystem>): cpp.Star<EditorSubsystem>;
+	public function GetEditorSubsystem(Class: TSubclassOf<EditorSubsystem>): ucpp.Ptr<EditorSubsystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstEditorSubsystemBlueprintLibrary(EditorSubsystemBlueprintLibrary) f
 @:forward
 @:nativeGen
 @:native("EditorSubsystemBlueprintLibrary*")
-abstract EditorSubsystemBlueprintLibraryPtr(cpp.Star<EditorSubsystemBlueprintLibrary>) from cpp.Star<EditorSubsystemBlueprintLibrary> to cpp.Star<EditorSubsystemBlueprintLibrary>{
+abstract EditorSubsystemBlueprintLibraryPtr(ucpp.Ptr<EditorSubsystemBlueprintLibrary>) from ucpp.Ptr<EditorSubsystemBlueprintLibrary> to ucpp.Ptr<EditorSubsystemBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorSubsystemBlueprintLibrary): EditorSubsystemBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

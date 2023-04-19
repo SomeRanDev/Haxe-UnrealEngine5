@@ -3,28 +3,28 @@ package ue;
 
 @:native("UInteractiveToolManager")
 @:include("InteractiveToolManager.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolManager extends Object {
-	public var ActiveLeftTool: cpp.Star<InteractiveTool>;
-	public var ActiveRightTool: cpp.Star<InteractiveTool>;
-	@:protected public var ToolBuilders: TMap<FString, cpp.Star<InteractiveToolBuilder>>;
+	public var ActiveLeftTool: ucpp.Ptr<InteractiveTool>;
+	public var ActiveRightTool: ucpp.Ptr<InteractiveTool>;
+	@:protected public var ToolBuilders: TMap<FString, ucpp.Ptr<InteractiveToolBuilder>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInteractiveToolManager(InteractiveToolManager) from InteractiveToolManager {
-	public extern var ActiveLeftTool(get, never): cpp.Star<InteractiveTool.ConstInteractiveTool>;
-	public inline extern function get_ActiveLeftTool(): cpp.Star<InteractiveTool.ConstInteractiveTool> return this.ActiveLeftTool;
-	public extern var ActiveRightTool(get, never): cpp.Star<InteractiveTool.ConstInteractiveTool>;
-	public inline extern function get_ActiveRightTool(): cpp.Star<InteractiveTool.ConstInteractiveTool> return this.ActiveRightTool;
+	public extern var ActiveLeftTool(get, never): ucpp.Ptr<InteractiveTool.ConstInteractiveTool>;
+	public inline extern function get_ActiveLeftTool(): ucpp.Ptr<InteractiveTool.ConstInteractiveTool> return this.ActiveLeftTool;
+	public extern var ActiveRightTool(get, never): ucpp.Ptr<InteractiveTool.ConstInteractiveTool>;
+	public inline extern function get_ActiveRightTool(): ucpp.Ptr<InteractiveTool.ConstInteractiveTool> return this.ActiveRightTool;
 }
 
 @:forward
 @:nativeGen
 @:native("InteractiveToolManager*")
-abstract InteractiveToolManagerPtr(cpp.Star<InteractiveToolManager>) from cpp.Star<InteractiveToolManager> to cpp.Star<InteractiveToolManager>{
+abstract InteractiveToolManagerPtr(ucpp.Ptr<InteractiveToolManager>) from ucpp.Ptr<InteractiveToolManager> to ucpp.Ptr<InteractiveToolManager>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolManager): InteractiveToolManagerPtr {
 		return untyped __cpp__("&({0})", v);

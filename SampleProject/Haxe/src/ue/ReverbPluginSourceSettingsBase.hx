@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReverbPluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
-@:structAccess
+@:valueType
 extern class ReverbPluginSourceSettingsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReverbPluginSourceSettingsBase(ReverbPluginSourceSettingsBase) fro
 @:forward
 @:nativeGen
 @:native("ReverbPluginSourceSettingsBase*")
-abstract ReverbPluginSourceSettingsBasePtr(cpp.Star<ReverbPluginSourceSettingsBase>) from cpp.Star<ReverbPluginSourceSettingsBase> to cpp.Star<ReverbPluginSourceSettingsBase>{
+abstract ReverbPluginSourceSettingsBasePtr(ucpp.Ptr<ReverbPluginSourceSettingsBase>) from ucpp.Ptr<ReverbPluginSourceSettingsBase> to ucpp.Ptr<ReverbPluginSourceSettingsBase>{
 	@:from
 	public static extern inline function fromValue(v: ReverbPluginSourceSettingsBase): ReverbPluginSourceSettingsBasePtr {
 		return untyped __cpp__("&({0})", v);

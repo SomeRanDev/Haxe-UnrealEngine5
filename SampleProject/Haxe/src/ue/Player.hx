@@ -3,33 +3,33 @@ package ue;
 
 @:native("UPlayer")
 @:include("Engine/Player.h")
-@:structAccess
+@:valueType
 extern class Player extends Object {
-	public var PlayerController: cpp.Star<PlayerController>;
-	public var CurrentNetSpeed: cpp.Int32;
-	public var ConfiguredInternetSpeed: cpp.Int32;
-	public var ConfiguredLanSpeed: cpp.Int32;
+	public var PlayerController: ucpp.Ptr<PlayerController>;
+	public var CurrentNetSpeed: ucpp.num.Int32;
+	public var ConfiguredInternetSpeed: ucpp.num.Int32;
+	public var ConfiguredLanSpeed: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPlayer(Player) from Player {
-	public extern var PlayerController(get, never): cpp.Star<PlayerController.ConstPlayerController>;
-	public inline extern function get_PlayerController(): cpp.Star<PlayerController.ConstPlayerController> return this.PlayerController;
-	public extern var CurrentNetSpeed(get, never): cpp.Int32;
-	public inline extern function get_CurrentNetSpeed(): cpp.Int32 return this.CurrentNetSpeed;
-	public extern var ConfiguredInternetSpeed(get, never): cpp.Int32;
-	public inline extern function get_ConfiguredInternetSpeed(): cpp.Int32 return this.ConfiguredInternetSpeed;
-	public extern var ConfiguredLanSpeed(get, never): cpp.Int32;
-	public inline extern function get_ConfiguredLanSpeed(): cpp.Int32 return this.ConfiguredLanSpeed;
+	public extern var PlayerController(get, never): ucpp.Ptr<PlayerController.ConstPlayerController>;
+	public inline extern function get_PlayerController(): ucpp.Ptr<PlayerController.ConstPlayerController> return this.PlayerController;
+	public extern var CurrentNetSpeed(get, never): ucpp.num.Int32;
+	public inline extern function get_CurrentNetSpeed(): ucpp.num.Int32 return this.CurrentNetSpeed;
+	public extern var ConfiguredInternetSpeed(get, never): ucpp.num.Int32;
+	public inline extern function get_ConfiguredInternetSpeed(): ucpp.num.Int32 return this.ConfiguredInternetSpeed;
+	public extern var ConfiguredLanSpeed(get, never): ucpp.num.Int32;
+	public inline extern function get_ConfiguredLanSpeed(): ucpp.num.Int32 return this.ConfiguredLanSpeed;
 }
 
 @:forward
 @:nativeGen
 @:native("Player*")
-abstract PlayerPtr(cpp.Star<Player>) from cpp.Star<Player> to cpp.Star<Player>{
+abstract PlayerPtr(ucpp.Ptr<Player>) from ucpp.Ptr<Player> to ucpp.Ptr<Player>{
 	@:from
 	public static extern inline function fromValue(v: Player): PlayerPtr {
 		return untyped __cpp__("&({0})", v);

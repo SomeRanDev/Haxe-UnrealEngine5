@@ -3,7 +3,7 @@ package ue;
 
 @:native("USequencerSettings")
 @:include("SequencerSettings.h")
-@:structAccess
+@:valueType
 extern class SequencerSettings extends Object {
 	@:protected public var AutoChangeMode: EAutoChangeMode;
 	@:protected public var AllowEditsMode: EAllowEditsMode;
@@ -38,7 +38,7 @@ extern class SequencerSettings extends Object {
 	@:protected public var bResetPlayheadWhenNavigating: Bool;
 	@:protected public var bKeepCursorInPlayRangeWhileScrubbing: Bool;
 	@:protected public var bKeepPlayRangeInSectionBounds: Bool;
-	@:protected public var ZeroPadFrames: cpp.UInt8;
+	@:protected public var ZeroPadFrames: ucpp.num.UInt8;
 	@:protected public var JumpFrameIncrement: FrameNumber;
 	@:protected public var bShowLayerBars: Bool;
 	@:protected public var bShowKeyBars: Bool;
@@ -48,8 +48,8 @@ extern class SequencerSettings extends Object {
 	@:protected public var bShowTickLines: Bool;
 	@:protected public var bShowSequencerToolbar: Bool;
 	@:protected public var KeyAreaCurveExtents: FString;
-	@:protected public var KeyAreaHeightWithCurves: cpp.Float32;
-	@:protected public var ReduceKeysTolerance: cpp.Float32;
+	@:protected public var KeyAreaHeightWithCurves: ucpp.num.Float32;
+	@:protected public var ReduceKeysTolerance: ucpp.num.Float32;
 	@:protected public var bDeleteKeysWhenTrimming: Bool;
 	@:protected public var bDisableSectionsAfterBaking: Bool;
 	@:protected public var SectionColorTints: TArray<Color>;
@@ -60,13 +60,13 @@ extern class SequencerSettings extends Object {
 	@:protected public var bShowDebugVisualization: Bool;
 	@:protected public var bVisualizePreAndPostRoll: Bool;
 	@:protected public var bCompileDirectorOnEvaluate: Bool;
-	@:protected public var TrajectoryPathCap: cpp.UInt32;
+	@:protected public var TrajectoryPathCap: ucpp.num.UInt32;
 	@:protected public var FrameNumberDisplayFormat: EFrameNumberDisplayFormats;
 	@:protected public var MovieRendererName: FString;
 	@:protected public var bAutoExpandNodesOnSelection: Bool;
-	@:protected public var TreeViewWidth: cpp.Float32;
+	@:protected public var TreeViewWidth: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -77,7 +77,7 @@ abstract ConstSequencerSettings(SequencerSettings) from SequencerSettings {
 @:forward
 @:nativeGen
 @:native("SequencerSettings*")
-abstract SequencerSettingsPtr(cpp.Star<SequencerSettings>) from cpp.Star<SequencerSettings> to cpp.Star<SequencerSettings>{
+abstract SequencerSettingsPtr(ucpp.Ptr<SequencerSettings>) from ucpp.Ptr<SequencerSettings> to ucpp.Ptr<SequencerSettings>{
 	@:from
 	public static extern inline function fromValue(v: SequencerSettings): SequencerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

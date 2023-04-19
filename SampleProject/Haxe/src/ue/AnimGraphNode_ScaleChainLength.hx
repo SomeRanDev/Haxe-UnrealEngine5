@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ScaleChainLength")
 @:include("AnimGraphNode_ScaleChainLength.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_ScaleChainLength extends AnimGraphNode_Base {
 	public var Node: AnimNode_ScaleChainLength;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_ScaleChainLength(AnimGraphNode_ScaleChainLength) fro
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_ScaleChainLength*")
-abstract AnimGraphNode_ScaleChainLengthPtr(cpp.Star<AnimGraphNode_ScaleChainLength>) from cpp.Star<AnimGraphNode_ScaleChainLength> to cpp.Star<AnimGraphNode_ScaleChainLength>{
+abstract AnimGraphNode_ScaleChainLengthPtr(ucpp.Ptr<AnimGraphNode_ScaleChainLength>) from ucpp.Ptr<AnimGraphNode_ScaleChainLength> to ucpp.Ptr<AnimGraphNode_ScaleChainLength>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_ScaleChainLength): AnimGraphNode_ScaleChainLengthPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDatasmithStaticMaterialTemplate")
 @:include("ObjectTemplates/DatasmithStaticMeshTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithStaticMaterialTemplate {
 	public var MaterialSlotName: FName;
-	public var MaterialInterface: cpp.Star<MaterialInterface>;
+	public var MaterialInterface: ucpp.Ptr<MaterialInterface>;
 
 	@:native("FDatasmithStaticMaterialTemplate") public function new();
-	@:native("FDatasmithStaticMaterialTemplate") public static function make(MaterialSlotName: FName, MaterialInterface: cpp.Star<MaterialInterface>): DatasmithStaticMaterialTemplate ;
+	@:native("FDatasmithStaticMaterialTemplate") public static function make(MaterialSlotName: FName, MaterialInterface: ucpp.Ptr<MaterialInterface>): DatasmithStaticMaterialTemplate ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USequencerToolsEditMode")
 @:include("SequencerToolsEditMode.h")
-@:structAccess
+@:valueType
 extern class SequencerToolsEditMode extends BaseLegacyWidgetEdMode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSequencerToolsEditMode(SequencerToolsEditMode) from SequencerTools
 @:forward
 @:nativeGen
 @:native("SequencerToolsEditMode*")
-abstract SequencerToolsEditModePtr(cpp.Star<SequencerToolsEditMode>) from cpp.Star<SequencerToolsEditMode> to cpp.Star<SequencerToolsEditMode>{
+abstract SequencerToolsEditModePtr(ucpp.Ptr<SequencerToolsEditMode>) from ucpp.Ptr<SequencerToolsEditMode> to ucpp.Ptr<SequencerToolsEditMode>{
 	@:from
 	public static extern inline function fromValue(v: SequencerToolsEditMode): SequencerToolsEditModePtr {
 		return untyped __cpp__("&({0})", v);

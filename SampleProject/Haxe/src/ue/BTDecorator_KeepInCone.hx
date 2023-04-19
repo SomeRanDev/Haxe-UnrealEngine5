@@ -3,22 +3,22 @@ package ue;
 
 @:native("UBTDecorator_KeepInCone")
 @:include("BehaviorTree/Decorators/BTDecorator_KeepInCone.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_KeepInCone extends BTDecorator {
-	public var ConeHalfAngle: cpp.Float32;
+	public var ConeHalfAngle: ucpp.num.Float32;
 	public var ConeOrigin: BlackboardKeySelector;
 	public var Observed: BlackboardKeySelector;
 	public var bUseSelfAsOrigin: Bool;
 	public var bUseSelfAsObserved: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_KeepInCone(BTDecorator_KeepInCone) from BTDecorator_KeepInCone {
-	public extern var ConeHalfAngle(get, never): cpp.Float32;
-	public inline extern function get_ConeHalfAngle(): cpp.Float32 return this.ConeHalfAngle;
+	public extern var ConeHalfAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_ConeHalfAngle(): ucpp.num.Float32 return this.ConeHalfAngle;
 	public extern var ConeOrigin(get, never): BlackboardKeySelector;
 	public inline extern function get_ConeOrigin(): BlackboardKeySelector return this.ConeOrigin;
 	public extern var Observed(get, never): BlackboardKeySelector;
@@ -32,7 +32,7 @@ abstract ConstBTDecorator_KeepInCone(BTDecorator_KeepInCone) from BTDecorator_Ke
 @:forward
 @:nativeGen
 @:native("BTDecorator_KeepInCone*")
-abstract BTDecorator_KeepInConePtr(cpp.Star<BTDecorator_KeepInCone>) from cpp.Star<BTDecorator_KeepInCone> to cpp.Star<BTDecorator_KeepInCone>{
+abstract BTDecorator_KeepInConePtr(ucpp.Ptr<BTDecorator_KeepInCone>) from ucpp.Ptr<BTDecorator_KeepInCone> to ucpp.Ptr<BTDecorator_KeepInCone>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_KeepInCone): BTDecorator_KeepInConePtr {
 		return untyped __cpp__("&({0})", v);

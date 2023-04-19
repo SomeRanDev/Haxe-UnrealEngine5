@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnWidgetAnimationPlaybackStatusChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnWidgetAnimationPlaybackStatusChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnWidgetAnimationPlaybackStatusChanged__PythonCallable(OnWidgetAni
 @:forward
 @:nativeGen
 @:native("OnWidgetAnimationPlaybackStatusChanged__PythonCallable*")
-abstract OnWidgetAnimationPlaybackStatusChanged__PythonCallablePtr(cpp.Star<OnWidgetAnimationPlaybackStatusChanged__PythonCallable>) from cpp.Star<OnWidgetAnimationPlaybackStatusChanged__PythonCallable> to cpp.Star<OnWidgetAnimationPlaybackStatusChanged__PythonCallable>{
+abstract OnWidgetAnimationPlaybackStatusChanged__PythonCallablePtr(ucpp.Ptr<OnWidgetAnimationPlaybackStatusChanged__PythonCallable>) from ucpp.Ptr<OnWidgetAnimationPlaybackStatusChanged__PythonCallable> to ucpp.Ptr<OnWidgetAnimationPlaybackStatusChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnWidgetAnimationPlaybackStatusChanged__PythonCallable): OnWidgetAnimationPlaybackStatusChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

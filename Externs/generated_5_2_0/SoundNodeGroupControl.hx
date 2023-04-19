@@ -3,24 +3,24 @@ package ue;
 
 @:native("USoundNodeGroupControl")
 @:include("Sound/SoundNodeGroupControl.h")
-@:structAccess
+@:valueType
 extern class SoundNodeGroupControl extends SoundNode {
-	public var GroupSizes: TArray<cpp.Int32>;
+	public var GroupSizes: TArray<ucpp.num.Int32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeGroupControl(SoundNodeGroupControl) from SoundNodeGroupControl {
-	public extern var GroupSizes(get, never): TArray<cpp.Int32>;
-	public inline extern function get_GroupSizes(): TArray<cpp.Int32> return this.GroupSizes;
+	public extern var GroupSizes(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_GroupSizes(): TArray<ucpp.num.Int32> return this.GroupSizes;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeGroupControl*")
-abstract SoundNodeGroupControlPtr(cpp.Star<SoundNodeGroupControl>) from cpp.Star<SoundNodeGroupControl> to cpp.Star<SoundNodeGroupControl>{
+abstract SoundNodeGroupControlPtr(ucpp.Ptr<SoundNodeGroupControl>) from ucpp.Ptr<SoundNodeGroupControl> to ucpp.Ptr<SoundNodeGroupControl>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeGroupControl): SoundNodeGroupControlPtr {
 		return untyped __cpp__("&({0})", v);

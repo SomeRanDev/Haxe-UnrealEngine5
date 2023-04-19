@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneEnumTrack")
 @:include("Tracks/MovieSceneEnumTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEnumTrack extends MovieScenePropertyTrack {
-	@:protected public var Enum: cpp.Star<Enum>;
+	@:protected public var Enum: ucpp.Ptr<Enum>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneEnumTrack(MovieSceneEnumTrack) from MovieSceneEnumTrack 
 @:forward
 @:nativeGen
 @:native("MovieSceneEnumTrack*")
-abstract MovieSceneEnumTrackPtr(cpp.Star<MovieSceneEnumTrack>) from cpp.Star<MovieSceneEnumTrack> to cpp.Star<MovieSceneEnumTrack>{
+abstract MovieSceneEnumTrackPtr(ucpp.Ptr<MovieSceneEnumTrack>) from ucpp.Ptr<MovieSceneEnumTrack> to ucpp.Ptr<MovieSceneEnumTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEnumTrack): MovieSceneEnumTrackPtr {
 		return untyped __cpp__("&({0})", v);

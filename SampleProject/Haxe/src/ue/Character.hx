@@ -3,21 +3,21 @@ package ue;
 
 @:native("ACharacter")
 @:include("GameFramework/Character.h")
-@:structAccess
+@:valueType
 extern class Character extends Pawn {
-	private var Mesh: cpp.Star<SkeletalMeshComp>;
-	private var CharacterMovement: cpp.Star<CharacterMovementComp>;
-	private var CapsuleComponent: cpp.Star<CapsuleComp>;
+	private var Mesh: ucpp.Ptr<SkeletalMeshComp>;
+	private var CharacterMovement: ucpp.Ptr<CharacterMovementComp>;
+	private var CapsuleComponent: ucpp.Ptr<CapsuleComp>;
 	@:protected public var BasedMovement: BasedMovementInfo;
 	@:protected public var ReplicatedBasedMovement: BasedMovementInfo;
-	@:protected public var AnimRootMotionTranslationScale: cpp.Float32;
+	@:protected public var AnimRootMotionTranslationScale: ucpp.num.Float32;
 	@:protected public var BaseTranslationOffset: Vector;
 	@:protected public var BaseRotationOffset: Quat;
-	@:protected public var ReplicatedServerLastTransformUpdateTimeStamp: cpp.Float32;
-	@:protected public var ReplayLastTransformUpdateTimeStamp: cpp.Float32;
-	@:protected public var ReplicatedMovementMode: cpp.UInt8;
+	@:protected public var ReplicatedServerLastTransformUpdateTimeStamp: ucpp.num.Float32;
+	@:protected public var ReplayLastTransformUpdateTimeStamp: ucpp.num.Float32;
+	@:protected public var ReplicatedMovementMode: ucpp.num.UInt8;
 	@:protected public var bInBaseReplication: Bool;
-	public var CrouchedEyeHeight: cpp.Float32;
+	public var CrouchedEyeHeight: ucpp.num.Float32;
 	public var bIsCrouched: Bool;
 	public var bProxyIsJumpForceApplied: Bool;
 	public var bPressedJump: Bool;
@@ -29,16 +29,17 @@ extern class Character extends Pawn {
 	public var bClientCheckEncroachmentOnNetUpdate: Bool;
 	public var bServerMoveIgnoreRootMotion: Bool;
 	public var bWasJumping: Bool;
-	public var JumpKeyHoldTime: cpp.Float32;
-	public var JumpForceTimeRemaining: cpp.Float32;
-	public var ProxyJumpForceStartedTime: cpp.Float32;
-	public var JumpMaxHoldTime: cpp.Float32;
-	public var JumpMaxCount: cpp.Int32;
-	public var JumpCurrentCount: cpp.Int32;
-	public var JumpCurrentCountPreJump: cpp.Int32;
+	public var JumpKeyHoldTime: ucpp.num.Float32;
+	public var JumpForceTimeRemaining: ucpp.num.Float32;
+	public var ProxyJumpForceStartedTime: ucpp.num.Float32;
+	public var JumpMaxHoldTime: ucpp.num.Float32;
+	public var JumpMaxCount: ucpp.num.Int32;
+	public var JumpCurrentCount: ucpp.num.Int32;
+	public var JumpCurrentCountPreJump: ucpp.num.Int32;
 	public var OnReachedJumpApex: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var MovementModeChangedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Character>, TEnumAsByte<EMovementMode>, cpp.UInt8) -> Void>;
-	public var OnCharacterMovementUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Float32, Vector, Vector) -> Void>;
+	public var LandedDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<HitResult>) -> Void>;
+	public var MovementModeChangedDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Character>, TEnumAsByte<EMovementMode>, ucpp.num.UInt8) -> Void>;
+	public var OnCharacterMovementUpdated: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, Vector, Vector) -> Void>;
 	public var SavedRootMotion: RootMotionSourceGroup;
 	public var ClientRootMotionParams: RootMotionMovementParams;
 	public var RootMotionRepMoves: TArray<SimulatedRootMotionReplicatedMove>;
@@ -46,54 +47,54 @@ extern class Character extends Pawn {
 
 	public function UnCrouch(bClientSimulation: Bool): Void;
 	public function StopJumping(): Void;
-	public function StopAnimMontage(AnimMontage: cpp.Star<AnimMontage>): Void;
+	public function StopAnimMontage(AnimMontage: ucpp.Ptr<AnimMontage>): Void;
 	public function ServerMovePacked(PackedBits: CharacterServerMovePackedBits): Void;
-	public function ServerMoveOld(OldTimeStamp: cpp.Float32, OldAccel: Vector_NetQuantize10, OldMoveFlags: cpp.UInt8): Void;
-	public function ServerMoveNoBase(TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, CompressedMoveFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementMode: cpp.UInt8): Void;
-	public function ServerMoveDualNoBase(TimeStamp0: cpp.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: cpp.UInt8, View0: cpp.UInt32, TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementMode: cpp.UInt8): Void;
-	public function ServerMoveDualHybridRootMotion(TimeStamp0: cpp.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: cpp.UInt8, View0: cpp.UInt32, TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementBase: cpp.Star<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: cpp.UInt8): Void;
-	public function ServerMoveDual(TimeStamp0: cpp.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: cpp.UInt8, View0: cpp.UInt32, TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementBase: cpp.Star<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: cpp.UInt8): Void;
-	public function ServerMove(TimeStamp: cpp.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, CompressedMoveFlags: cpp.UInt8, ClientRoll: cpp.UInt8, View: cpp.UInt32, ClientMovementBase: cpp.Star<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: cpp.UInt8): Void;
+	public function ServerMoveOld(OldTimeStamp: ucpp.num.Float32, OldAccel: Vector_NetQuantize10, OldMoveFlags: ucpp.num.UInt8): Void;
+	public function ServerMoveNoBase(TimeStamp: ucpp.num.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, CompressedMoveFlags: ucpp.num.UInt8, ClientRoll: ucpp.num.UInt8, View: ucpp.num.UInt32, ClientMovementMode: ucpp.num.UInt8): Void;
+	public function ServerMoveDualNoBase(TimeStamp0: ucpp.num.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: ucpp.num.UInt8, View0: ucpp.num.UInt32, TimeStamp: ucpp.num.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: ucpp.num.UInt8, ClientRoll: ucpp.num.UInt8, View: ucpp.num.UInt32, ClientMovementMode: ucpp.num.UInt8): Void;
+	public function ServerMoveDualHybridRootMotion(TimeStamp0: ucpp.num.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: ucpp.num.UInt8, View0: ucpp.num.UInt32, TimeStamp: ucpp.num.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: ucpp.num.UInt8, ClientRoll: ucpp.num.UInt8, View: ucpp.num.UInt32, ClientMovementBase: ucpp.Ptr<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: ucpp.num.UInt8): Void;
+	public function ServerMoveDual(TimeStamp0: ucpp.num.Float32, InAccel0: Vector_NetQuantize10, PendingFlags: ucpp.num.UInt8, View0: ucpp.num.UInt32, TimeStamp: ucpp.num.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, NewFlags: ucpp.num.UInt8, ClientRoll: ucpp.num.UInt8, View: ucpp.num.UInt32, ClientMovementBase: ucpp.Ptr<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: ucpp.num.UInt8): Void;
+	public function ServerMove(TimeStamp: ucpp.num.Float32, InAccel: Vector_NetQuantize10, ClientLoc: Vector_NetQuantize100, CompressedMoveFlags: ucpp.num.UInt8, ClientRoll: ucpp.num.UInt8, View: ucpp.num.UInt32, ClientMovementBase: ucpp.Ptr<PrimitiveComp>, ClientBaseBoneName: FName, ClientMovementMode: ucpp.num.UInt8): Void;
 	public function RootMotionDebugClientPrintOnScreen(InString: FString): Void;
-	public function PlayAnimMontage(AnimMontage: cpp.Star<AnimMontage>, InPlayRate: cpp.Float32, StartSectionName: FName): cpp.Float32;
-	public function OnWalkingOffLedge(PreviousFloorImpactNormal: cpp.Reference<Vector>, PreviousFloorContactNormal: cpp.Reference<Vector>, PreviousLocation: cpp.Reference<Vector>, TimeDelta: cpp.Float32): Void;
+	public function PlayAnimMontage(AnimMontage: ucpp.Ptr<AnimMontage>, InPlayRate: ucpp.num.Float32, StartSectionName: FName): ucpp.num.Float32;
+	public function OnWalkingOffLedge(PreviousFloorImpactNormal: ucpp.Ref<Vector>, PreviousFloorContactNormal: ucpp.Ref<Vector>, PreviousLocation: ucpp.Ref<Vector>, TimeDelta: ucpp.num.Float32): Void;
 	public function OnRep_RootMotion(): Void;
 	public function OnRep_ReplicatedBasedMovement(): Void;
 	public function OnRep_ReplayLastTransformUpdateTimeStamp(): Void;
 	public function OnRep_IsCrouched(): Void;
 	public function OnLaunched(LaunchVelocity: Vector, bXYOverride: Bool, bZOverride: Bool): Void;
-	public function OnLanded(Hit: cpp.Reference<HitResult>): Void;
+	public function OnLanded(Hit: ucpp.Ref<HitResult>): Void;
 	public function OnJumped(): Void;
 	public function LaunchCharacter(LaunchVelocity: Vector, bXYOverride: Bool, bZOverride: Bool): Void;
-	public function K2_UpdateCustomMovement(DeltaTime: cpp.Float32): Void;
-	public function K2_OnStartCrouch(HalfHeightAdjust: cpp.Float32, ScaledHalfHeightAdjust: cpp.Float32): Void;
-	public function K2_OnMovementModeChanged(PrevMovementMode: TEnumAsByte<EMovementMode>, NewMovementMode: TEnumAsByte<EMovementMode>, PrevCustomMode: cpp.UInt8, NewCustomMode: cpp.UInt8): Void;
-	public function K2_OnEndCrouch(HalfHeightAdjust: cpp.Float32, ScaledHalfHeightAdjust: cpp.Float32): Void;
+	public function K2_UpdateCustomMovement(DeltaTime: ucpp.num.Float32): Void;
+	public function K2_OnStartCrouch(HalfHeightAdjust: ucpp.num.Float32, ScaledHalfHeightAdjust: ucpp.num.Float32): Void;
+	public function K2_OnMovementModeChanged(PrevMovementMode: TEnumAsByte<EMovementMode>, NewMovementMode: TEnumAsByte<EMovementMode>, PrevCustomMode: ucpp.num.UInt8, NewCustomMode: ucpp.num.UInt8): Void;
+	public function K2_OnEndCrouch(HalfHeightAdjust: ucpp.num.Float32, ScaledHalfHeightAdjust: ucpp.num.Float32): Void;
 	public function Jump(): Void;
 	public function IsPlayingRootMotion(): Bool;
 	public function IsPlayingNetworkedRootMotionMontage(): Bool;
 	public function IsJumpProvidingForce(): Bool;
 	public function HasAnyRootMotion(): Bool;
-	public function GetCurrentMontage(): cpp.Star<AnimMontage>;
+	public function GetCurrentMontage(): ucpp.Ptr<AnimMontage>;
 	public function GetBaseTranslationOffset(): Vector;
 	public function GetBaseRotationOffsetRotator(): Rotator;
-	public function GetAnimRootMotionTranslationScale(): cpp.Float32;
+	public function GetAnimRootMotionTranslationScale(): ucpp.num.Float32;
 	public function Crouch(bClientSimulation: Bool): Void;
-	public function ClientVeryShortAdjustPosition(TimeStamp: cpp.Float32, NewLoc: Vector, NewBase: cpp.Star<PrimitiveComp>, NewBaseBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: cpp.UInt8): Void;
+	public function ClientVeryShortAdjustPosition(TimeStamp: ucpp.num.Float32, NewLoc: Vector, NewBase: ucpp.Ptr<PrimitiveComp>, NewBaseBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: ucpp.num.UInt8): Void;
 	public function ClientMoveResponsePacked(PackedBits: CharacterMoveResponsePackedBits): Void;
 	public function ClientCheatWalk(): Void;
 	public function ClientCheatGhost(): Void;
 	public function ClientCheatFly(): Void;
-	public function ClientAdjustRootMotionSourcePosition(TimeStamp: cpp.Float32, ServerRootMotion: RootMotionSourceGroup, bHasAnimRootMotion: Bool, ServerMontageTrackPosition: cpp.Float32, ServerLoc: Vector, ServerRotation: Vector_NetQuantizeNormal, ServerVelZ: cpp.Float32, ServerBase: cpp.Star<PrimitiveComp>, ServerBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: cpp.UInt8): Void;
-	public function ClientAdjustRootMotionPosition(TimeStamp: cpp.Float32, ServerMontageTrackPosition: cpp.Float32, ServerLoc: Vector, ServerRotation: Vector_NetQuantizeNormal, ServerVelZ: cpp.Float32, ServerBase: cpp.Star<PrimitiveComp>, ServerBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: cpp.UInt8): Void;
-	public function ClientAdjustPosition(TimeStamp: cpp.Float32, NewLoc: Vector, NewVel: Vector, NewBase: cpp.Star<PrimitiveComp>, NewBaseBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: cpp.UInt8): Void;
-	public function ClientAckGoodMove(TimeStamp: cpp.Float32): Void;
+	public function ClientAdjustRootMotionSourcePosition(TimeStamp: ucpp.num.Float32, ServerRootMotion: RootMotionSourceGroup, bHasAnimRootMotion: Bool, ServerMontageTrackPosition: ucpp.num.Float32, ServerLoc: Vector, ServerRotation: Vector_NetQuantizeNormal, ServerVelZ: ucpp.num.Float32, ServerBase: ucpp.Ptr<PrimitiveComp>, ServerBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: ucpp.num.UInt8): Void;
+	public function ClientAdjustRootMotionPosition(TimeStamp: ucpp.num.Float32, ServerMontageTrackPosition: ucpp.num.Float32, ServerLoc: Vector, ServerRotation: Vector_NetQuantizeNormal, ServerVelZ: ucpp.num.Float32, ServerBase: ucpp.Ptr<PrimitiveComp>, ServerBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: ucpp.num.UInt8): Void;
+	public function ClientAdjustPosition(TimeStamp: ucpp.num.Float32, NewLoc: Vector, NewVel: Vector, NewBase: ucpp.Ptr<PrimitiveComp>, NewBaseBoneName: FName, bHasBase: Bool, bBaseRelativePosition: Bool, ServerMovementMode: ucpp.num.UInt8): Void;
+	public function ClientAckGoodMove(TimeStamp: ucpp.num.Float32): Void;
 	@:protected public function CanJumpInternal(): Bool;
 	public function CanJump(): Bool;
 	public function CanCrouch(): Bool;
 	public function CacheInitialMeshOffset(MeshRelativeLocation: Vector, MeshRelativeRotation: Rotator): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -103,8 +104,8 @@ extern class Character extends Pawn {
 )
 @:nativeGen
 abstract ConstCharacter(Character) from Character {
-	public extern var CrouchedEyeHeight(get, never): cpp.Float32;
-	public inline extern function get_CrouchedEyeHeight(): cpp.Float32 return this.CrouchedEyeHeight;
+	public extern var CrouchedEyeHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_CrouchedEyeHeight(): ucpp.num.Float32 return this.CrouchedEyeHeight;
 	public extern var bIsCrouched(get, never): Bool;
 	public inline extern function get_bIsCrouched(): Bool return this.bIsCrouched;
 	public extern var bProxyIsJumpForceApplied(get, never): Bool;
@@ -127,26 +128,28 @@ abstract ConstCharacter(Character) from Character {
 	public inline extern function get_bServerMoveIgnoreRootMotion(): Bool return this.bServerMoveIgnoreRootMotion;
 	public extern var bWasJumping(get, never): Bool;
 	public inline extern function get_bWasJumping(): Bool return this.bWasJumping;
-	public extern var JumpKeyHoldTime(get, never): cpp.Float32;
-	public inline extern function get_JumpKeyHoldTime(): cpp.Float32 return this.JumpKeyHoldTime;
-	public extern var JumpForceTimeRemaining(get, never): cpp.Float32;
-	public inline extern function get_JumpForceTimeRemaining(): cpp.Float32 return this.JumpForceTimeRemaining;
-	public extern var ProxyJumpForceStartedTime(get, never): cpp.Float32;
-	public inline extern function get_ProxyJumpForceStartedTime(): cpp.Float32 return this.ProxyJumpForceStartedTime;
-	public extern var JumpMaxHoldTime(get, never): cpp.Float32;
-	public inline extern function get_JumpMaxHoldTime(): cpp.Float32 return this.JumpMaxHoldTime;
-	public extern var JumpMaxCount(get, never): cpp.Int32;
-	public inline extern function get_JumpMaxCount(): cpp.Int32 return this.JumpMaxCount;
-	public extern var JumpCurrentCount(get, never): cpp.Int32;
-	public inline extern function get_JumpCurrentCount(): cpp.Int32 return this.JumpCurrentCount;
-	public extern var JumpCurrentCountPreJump(get, never): cpp.Int32;
-	public inline extern function get_JumpCurrentCountPreJump(): cpp.Int32 return this.JumpCurrentCountPreJump;
+	public extern var JumpKeyHoldTime(get, never): ucpp.num.Float32;
+	public inline extern function get_JumpKeyHoldTime(): ucpp.num.Float32 return this.JumpKeyHoldTime;
+	public extern var JumpForceTimeRemaining(get, never): ucpp.num.Float32;
+	public inline extern function get_JumpForceTimeRemaining(): ucpp.num.Float32 return this.JumpForceTimeRemaining;
+	public extern var ProxyJumpForceStartedTime(get, never): ucpp.num.Float32;
+	public inline extern function get_ProxyJumpForceStartedTime(): ucpp.num.Float32 return this.ProxyJumpForceStartedTime;
+	public extern var JumpMaxHoldTime(get, never): ucpp.num.Float32;
+	public inline extern function get_JumpMaxHoldTime(): ucpp.num.Float32 return this.JumpMaxHoldTime;
+	public extern var JumpMaxCount(get, never): ucpp.num.Int32;
+	public inline extern function get_JumpMaxCount(): ucpp.num.Int32 return this.JumpMaxCount;
+	public extern var JumpCurrentCount(get, never): ucpp.num.Int32;
+	public inline extern function get_JumpCurrentCount(): ucpp.num.Int32 return this.JumpCurrentCount;
+	public extern var JumpCurrentCountPreJump(get, never): ucpp.num.Int32;
+	public inline extern function get_JumpCurrentCountPreJump(): ucpp.num.Int32 return this.JumpCurrentCountPreJump;
 	public extern var OnReachedJumpApex(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnReachedJumpApex(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnReachedJumpApex;
-	public extern var MovementModeChangedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Character.ConstCharacter>, TEnumAsByte<EMovementMode>, cpp.UInt8) -> Void>;
-	public inline extern function get_MovementModeChangedDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Character.ConstCharacter>, TEnumAsByte<EMovementMode>, cpp.UInt8) -> Void> return this.MovementModeChangedDelegate;
-	public extern var OnCharacterMovementUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, Vector, Vector) -> Void>;
-	public inline extern function get_OnCharacterMovementUpdated(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, Vector, Vector) -> Void> return this.OnCharacterMovementUpdated;
+	public extern var LandedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<HitResult>) -> Void>;
+	public inline extern function get_LandedDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<HitResult>) -> Void> return this.LandedDelegate;
+	public extern var MovementModeChangedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Character.ConstCharacter>, TEnumAsByte<EMovementMode>, ucpp.num.UInt8) -> Void>;
+	public inline extern function get_MovementModeChangedDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Character.ConstCharacter>, TEnumAsByte<EMovementMode>, ucpp.num.UInt8) -> Void> return this.MovementModeChangedDelegate;
+	public extern var OnCharacterMovementUpdated(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, Vector, Vector) -> Void>;
+	public inline extern function get_OnCharacterMovementUpdated(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, Vector, Vector) -> Void> return this.OnCharacterMovementUpdated;
 	public extern var SavedRootMotion(get, never): RootMotionSourceGroup;
 	public inline extern function get_SavedRootMotion(): RootMotionSourceGroup return this.SavedRootMotion;
 	public extern var ClientRootMotionParams(get, never): RootMotionMovementParams;
@@ -160,7 +163,7 @@ abstract ConstCharacter(Character) from Character {
 @:forward
 @:nativeGen
 @:native("Character*")
-abstract CharacterPtr(cpp.Star<Character>) from cpp.Star<Character> to cpp.Star<Character>{
+abstract CharacterPtr(ucpp.Ptr<Character>) from ucpp.Ptr<Character> to ucpp.Ptr<Character>{
 	@:from
 	public static extern inline function fromValue(v: Character): CharacterPtr {
 		return untyped __cpp__("&({0})", v);

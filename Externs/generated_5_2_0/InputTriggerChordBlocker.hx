@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputTriggerChordBlocker")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerChordBlocker extends InputTriggerChordAction {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputTriggerChordBlocker(InputTriggerChordBlocker) from InputTrigg
 @:forward
 @:nativeGen
 @:native("InputTriggerChordBlocker*")
-abstract InputTriggerChordBlockerPtr(cpp.Star<InputTriggerChordBlocker>) from cpp.Star<InputTriggerChordBlocker> to cpp.Star<InputTriggerChordBlocker>{
+abstract InputTriggerChordBlockerPtr(ucpp.Ptr<InputTriggerChordBlocker>) from ucpp.Ptr<InputTriggerChordBlocker> to ucpp.Ptr<InputTriggerChordBlocker>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerChordBlocker): InputTriggerChordBlockerPtr {
 		return untyped __cpp__("&({0})", v);

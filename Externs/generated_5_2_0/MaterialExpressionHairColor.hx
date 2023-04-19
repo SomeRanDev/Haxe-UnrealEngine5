@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionHairColor")
 @:include("Materials/MaterialExpressionHairColor.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionHairColor extends MaterialExpression {
 	public var Melanin: ExpressionInput;
 	public var Redness: ExpressionInput;
 	public var DyeColor: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionHairColor(MaterialExpressionHairColor) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialExpressionHairColor*")
-abstract MaterialExpressionHairColorPtr(cpp.Star<MaterialExpressionHairColor>) from cpp.Star<MaterialExpressionHairColor> to cpp.Star<MaterialExpressionHairColor>{
+abstract MaterialExpressionHairColorPtr(ucpp.Ptr<MaterialExpressionHairColor>) from ucpp.Ptr<MaterialExpressionHairColor> to ucpp.Ptr<MaterialExpressionHairColor>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionHairColor): MaterialExpressionHairColorPtr {
 		return untyped __cpp__("&({0})", v);

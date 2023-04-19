@@ -3,24 +3,24 @@ package ue;
 
 @:native("UControlRigFloatControlProxy")
 @:include("EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlRigFloatControlProxy extends ControlRigControlsProxy {
-	public var Float: cpp.Float32;
+	public var Float: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstControlRigFloatControlProxy(ControlRigFloatControlProxy) from ControlRigFloatControlProxy {
-	public extern var Float(get, never): cpp.Float32;
-	public inline extern function get_Float(): cpp.Float32 return this.Float;
+	public extern var Float(get, never): ucpp.num.Float32;
+	public inline extern function get_Float(): ucpp.num.Float32 return this.Float;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlRigFloatControlProxy*")
-abstract ControlRigFloatControlProxyPtr(cpp.Star<ControlRigFloatControlProxy>) from cpp.Star<ControlRigFloatControlProxy> to cpp.Star<ControlRigFloatControlProxy>{
+abstract ControlRigFloatControlProxyPtr(ucpp.Ptr<ControlRigFloatControlProxy>) from ucpp.Ptr<ControlRigFloatControlProxy> to ucpp.Ptr<ControlRigFloatControlProxy>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigFloatControlProxy): ControlRigFloatControlProxyPtr {
 		return untyped __cpp__("&({0})", v);

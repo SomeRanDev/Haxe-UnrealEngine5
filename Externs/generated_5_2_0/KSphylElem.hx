@@ -3,12 +3,12 @@ package ue;
 
 @:native("FKSphylElem")
 @:include("PhysicsEngine/SphylElem.h")
-@:structAccess
+@:valueType
 extern class KSphylElem extends KShapeElem {
 	public var Center: Vector;
 	public var Rotation: Rotator;
-	public var Radius: cpp.Float32;
-	public var Length: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
+	public var Length: ucpp.num.Float32;
 
 	@:native("FKSphylElem") public function new();
 }

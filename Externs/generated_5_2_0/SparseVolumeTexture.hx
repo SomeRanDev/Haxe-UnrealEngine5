@@ -3,10 +3,10 @@ package ue;
 
 @:native("USparseVolumeTexture")
 @:include("SparseVolumeTexture/SparseVolumeTexture.h")
-@:structAccess
+@:valueType
 extern class SparseVolumeTexture extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSparseVolumeTexture(SparseVolumeTexture) from SparseVolumeTexture 
 @:forward
 @:nativeGen
 @:native("SparseVolumeTexture*")
-abstract SparseVolumeTexturePtr(cpp.Star<SparseVolumeTexture>) from cpp.Star<SparseVolumeTexture> to cpp.Star<SparseVolumeTexture>{
+abstract SparseVolumeTexturePtr(ucpp.Ptr<SparseVolumeTexture>) from ucpp.Ptr<SparseVolumeTexture> to ucpp.Ptr<SparseVolumeTexture>{
 	@:from
 	public static extern inline function fromValue(v: SparseVolumeTexture): SparseVolumeTexturePtr {
 		return untyped __cpp__("&({0})", v);

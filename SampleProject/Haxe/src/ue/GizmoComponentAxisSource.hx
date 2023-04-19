@@ -3,22 +3,22 @@ package ue;
 
 @:native("UGizmoComponentAxisSource")
 @:include("BaseGizmos/AxisSources.h")
-@:structAccess
+@:valueType
 extern class GizmoComponentAxisSource extends Object {
-	public var Component: cpp.Star<SceneComp>;
-	public var AxisIndex: cpp.Int32;
+	public var Component: ucpp.Ptr<SceneComp>;
+	public var AxisIndex: ucpp.num.Int32;
 	public var bLocalAxes: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGizmoComponentAxisSource(GizmoComponentAxisSource) from GizmoComponentAxisSource {
-	public extern var Component(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_Component(): cpp.Star<SceneComp.ConstSceneComp> return this.Component;
-	public extern var AxisIndex(get, never): cpp.Int32;
-	public inline extern function get_AxisIndex(): cpp.Int32 return this.AxisIndex;
+	public extern var Component(get, never): ucpp.Ptr<SceneComp.ConstSceneComp>;
+	public inline extern function get_Component(): ucpp.Ptr<SceneComp.ConstSceneComp> return this.Component;
+	public extern var AxisIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_AxisIndex(): ucpp.num.Int32 return this.AxisIndex;
 	public extern var bLocalAxes(get, never): Bool;
 	public inline extern function get_bLocalAxes(): Bool return this.bLocalAxes;
 }
@@ -26,7 +26,7 @@ abstract ConstGizmoComponentAxisSource(GizmoComponentAxisSource) from GizmoCompo
 @:forward
 @:nativeGen
 @:native("GizmoComponentAxisSource*")
-abstract GizmoComponentAxisSourcePtr(cpp.Star<GizmoComponentAxisSource>) from cpp.Star<GizmoComponentAxisSource> to cpp.Star<GizmoComponentAxisSource>{
+abstract GizmoComponentAxisSourcePtr(ucpp.Ptr<GizmoComponentAxisSource>) from ucpp.Ptr<GizmoComponentAxisSource> to ucpp.Ptr<GizmoComponentAxisSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoComponentAxisSource): GizmoComponentAxisSourcePtr {
 		return untyped __cpp__("&({0})", v);

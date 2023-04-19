@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPawnSensingComponent_SeePawnDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PawnSensingComponent_SeePawnDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPawnSensingComponent_SeePawnDelegate__PythonCallable(PawnSensingCo
 @:forward
 @:nativeGen
 @:native("PawnSensingComponent_SeePawnDelegate__PythonCallable*")
-abstract PawnSensingComponent_SeePawnDelegate__PythonCallablePtr(cpp.Star<PawnSensingComponent_SeePawnDelegate__PythonCallable>) from cpp.Star<PawnSensingComponent_SeePawnDelegate__PythonCallable> to cpp.Star<PawnSensingComponent_SeePawnDelegate__PythonCallable>{
+abstract PawnSensingComponent_SeePawnDelegate__PythonCallablePtr(ucpp.Ptr<PawnSensingComponent_SeePawnDelegate__PythonCallable>) from ucpp.Ptr<PawnSensingComponent_SeePawnDelegate__PythonCallable> to ucpp.Ptr<PawnSensingComponent_SeePawnDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PawnSensingComponent_SeePawnDelegate__PythonCallable): PawnSensingComponent_SeePawnDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAssetInfo")
 @:include("Private/Utilities/VersionInfoHandler.h")
-@:structAccess
+@:valueType
 extern class AssetInfo {
 	public var path: FString;
 	public var version: FString;

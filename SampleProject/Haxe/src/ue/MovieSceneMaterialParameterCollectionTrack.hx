@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMovieSceneMaterialParameterCollectionTrack")
 @:include("Tracks/MovieSceneMaterialParameterCollectionTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMaterialParameterCollectionTrack extends MovieSceneMaterialTrack {
-	public var MPC: cpp.Star<MaterialParameterCollection>;
+	public var MPC: ucpp.Ptr<MaterialParameterCollection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneMaterialParameterCollectionTrack(MovieSceneMaterialParameterCollectionTrack) from MovieSceneMaterialParameterCollectionTrack {
-	public extern var MPC(get, never): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection>;
-	public inline extern function get_MPC(): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection> return this.MPC;
+	public extern var MPC(get, never): ucpp.Ptr<MaterialParameterCollection.ConstMaterialParameterCollection>;
+	public inline extern function get_MPC(): ucpp.Ptr<MaterialParameterCollection.ConstMaterialParameterCollection> return this.MPC;
 }
 
 @:forward
 @:nativeGen
 @:native("MovieSceneMaterialParameterCollectionTrack*")
-abstract MovieSceneMaterialParameterCollectionTrackPtr(cpp.Star<MovieSceneMaterialParameterCollectionTrack>) from cpp.Star<MovieSceneMaterialParameterCollectionTrack> to cpp.Star<MovieSceneMaterialParameterCollectionTrack>{
+abstract MovieSceneMaterialParameterCollectionTrackPtr(ucpp.Ptr<MovieSceneMaterialParameterCollectionTrack>) from ucpp.Ptr<MovieSceneMaterialParameterCollectionTrack> to ucpp.Ptr<MovieSceneMaterialParameterCollectionTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMaterialParameterCollectionTrack): MovieSceneMaterialParameterCollectionTrackPtr {
 		return untyped __cpp__("&({0})", v);

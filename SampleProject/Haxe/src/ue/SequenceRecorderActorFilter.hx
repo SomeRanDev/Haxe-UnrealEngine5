@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSequenceRecorderActorFilter")
 @:include("SequenceRecorderActorFilter.h")
-@:structAccess
+@:valueType
 extern class SequenceRecorderActorFilter {
 	public var ActorClassesToRecord: TArray<TSubclassOf<Actor>>;
 

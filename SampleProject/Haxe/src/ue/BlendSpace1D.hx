@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBlendSpace1D")
 @:include("Animation/BlendSpace1D.h")
-@:structAccess
+@:valueType
 extern class BlendSpace1D extends BlendSpace {
 	public var bScaleAnimation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBlendSpace1D(BlendSpace1D) from BlendSpace1D {
 @:forward
 @:nativeGen
 @:native("BlendSpace1D*")
-abstract BlendSpace1DPtr(cpp.Star<BlendSpace1D>) from cpp.Star<BlendSpace1D> to cpp.Star<BlendSpace1D>{
+abstract BlendSpace1DPtr(ucpp.Ptr<BlendSpace1D>) from ucpp.Ptr<BlendSpace1D> to ucpp.Ptr<BlendSpace1D>{
 	@:from
 	public static extern inline function fromValue(v: BlendSpace1D): BlendSpace1DPtr {
 		return untyped __cpp__("&({0})", v);

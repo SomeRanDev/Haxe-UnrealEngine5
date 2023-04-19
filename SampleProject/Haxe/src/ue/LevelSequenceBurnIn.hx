@@ -3,15 +3,15 @@ package ue;
 
 @:native("ULevelSequenceBurnIn")
 @:include("LevelSequenceBurnIn.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceBurnIn extends UserWidget {
 	@:protected public var FrameInformation: LevelSequencePlayerSnapshot;
-	@:protected public var LevelSequenceActor: cpp.Star<LevelSequenceActor>;
+	@:protected public var LevelSequenceActor: ucpp.Ptr<LevelSequenceActor>;
 
-	public function SetSettings(InSettings: cpp.Star<Object>): Void;
+	public function SetSettings(InSettings: ucpp.Ptr<Object>): Void;
 	public function GetSettingsClass(): TSubclassOf<LevelSequenceBurnInInitSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSettingsClass)
@@ -22,7 +22,7 @@ abstract ConstLevelSequenceBurnIn(LevelSequenceBurnIn) from LevelSequenceBurnIn 
 @:forward
 @:nativeGen
 @:native("LevelSequenceBurnIn*")
-abstract LevelSequenceBurnInPtr(cpp.Star<LevelSequenceBurnIn>) from cpp.Star<LevelSequenceBurnIn> to cpp.Star<LevelSequenceBurnIn>{
+abstract LevelSequenceBurnInPtr(ucpp.Ptr<LevelSequenceBurnIn>) from ucpp.Ptr<LevelSequenceBurnIn> to ucpp.Ptr<LevelSequenceBurnIn>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceBurnIn): LevelSequenceBurnInPtr {
 		return untyped __cpp__("&({0})", v);

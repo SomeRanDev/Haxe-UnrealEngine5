@@ -3,14 +3,14 @@ package ue;
 
 @:native("UResonanceAudioSettings")
 @:include("ResonanceAudioSettings.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioSettings extends Object {
 	public var OutputSubmix: SoftObjectPath;
 	public var QualityMode: ERaQualityMode;
 	public var GlobalReverbPreset: SoftObjectPath;
 	public var GlobalSourcePreset: SoftObjectPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstResonanceAudioSettings(ResonanceAudioSettings) from ResonanceAudio
 @:forward
 @:nativeGen
 @:native("ResonanceAudioSettings*")
-abstract ResonanceAudioSettingsPtr(cpp.Star<ResonanceAudioSettings>) from cpp.Star<ResonanceAudioSettings> to cpp.Star<ResonanceAudioSettings>{
+abstract ResonanceAudioSettingsPtr(ucpp.Ptr<ResonanceAudioSettings>) from ucpp.Ptr<ResonanceAudioSettings> to ucpp.Ptr<ResonanceAudioSettings>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioSettings): ResonanceAudioSettingsPtr {
 		return untyped __cpp__("&({0})", v);

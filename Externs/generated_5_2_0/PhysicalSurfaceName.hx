@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPhysicalSurfaceName")
 @:include("PhysicsEngine/PhysicsSettings.h")
-@:structAccess
+@:valueType
 extern class PhysicalSurfaceName {
 	public var Type: TEnumAsByte<EPhysicalSurface>;
 	public var Name: FName;

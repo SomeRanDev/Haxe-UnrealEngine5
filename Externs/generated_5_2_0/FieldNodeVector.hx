@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFieldNodeVector")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class FieldNodeVector extends FieldNodeBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFieldNodeVector(FieldNodeVector) from FieldNodeVector {
 @:forward
 @:nativeGen
 @:native("FieldNodeVector*")
-abstract FieldNodeVectorPtr(cpp.Star<FieldNodeVector>) from cpp.Star<FieldNodeVector> to cpp.Star<FieldNodeVector>{
+abstract FieldNodeVectorPtr(ucpp.Ptr<FieldNodeVector>) from ucpp.Ptr<FieldNodeVector> to ucpp.Ptr<FieldNodeVector>{
 	@:from
 	public static extern inline function fromValue(v: FieldNodeVector): FieldNodeVectorPtr {
 		return untyped __cpp__("&({0})", v);

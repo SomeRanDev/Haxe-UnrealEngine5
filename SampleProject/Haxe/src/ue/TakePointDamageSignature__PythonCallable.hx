@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTakePointDamageSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class TakePointDamageSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTakePointDamageSignature__PythonCallable(TakePointDamageSignature_
 @:forward
 @:nativeGen
 @:native("TakePointDamageSignature__PythonCallable*")
-abstract TakePointDamageSignature__PythonCallablePtr(cpp.Star<TakePointDamageSignature__PythonCallable>) from cpp.Star<TakePointDamageSignature__PythonCallable> to cpp.Star<TakePointDamageSignature__PythonCallable>{
+abstract TakePointDamageSignature__PythonCallablePtr(ucpp.Ptr<TakePointDamageSignature__PythonCallable>) from ucpp.Ptr<TakePointDamageSignature__PythonCallable> to ucpp.Ptr<TakePointDamageSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: TakePointDamageSignature__PythonCallable): TakePointDamageSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

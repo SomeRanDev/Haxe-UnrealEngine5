@@ -3,19 +3,19 @@ package ue;
 
 @:native("UCubeGridToolProperties")
 @:include("CubeGridTool.h")
-@:structAccess
+@:valueType
 extern class CubeGridToolProperties extends InteractiveToolPropertySet {
 	public var GridFrameOrigin: Vector;
 	public var GridFrameOrientation: Rotator;
 	public var bShowGizmo: Bool;
-	public var GridPower: cpp.UInt8;
-	public var CurrentBlockSize: cpp.Float64;
-	public var BlocksPerStep: cpp.Int32;
+	public var GridPower: ucpp.num.UInt8;
+	public var CurrentBlockSize: ucpp.num.Float64;
+	public var BlocksPerStep: ucpp.num.Int32;
 	public var bPowerOfTwoBlockSizes: Bool;
-	public var BlockBaseSize: cpp.Float64;
+	public var BlockBaseSize: ucpp.num.Float64;
 	public var bCrosswiseDiagonal: Bool;
 	public var bKeepSideGroups: Bool;
-	public var PlaneTolerance: cpp.Float64;
+	public var PlaneTolerance: ucpp.num.Float64;
 	public var bHitUnrelatedGeometry: Bool;
 	public var bHitGridGroundPlaneIfCloser: Bool;
 	public var FaceSelectionMode: ECubeGridToolFaceSelectionMode;
@@ -30,7 +30,7 @@ extern class CubeGridToolProperties extends InteractiveToolPropertySet {
 	public var bInCornerMode: Bool;
 	public var bAllowedToEditGrid: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -42,22 +42,22 @@ abstract ConstCubeGridToolProperties(CubeGridToolProperties) from CubeGridToolPr
 	public inline extern function get_GridFrameOrientation(): Rotator return this.GridFrameOrientation;
 	public extern var bShowGizmo(get, never): Bool;
 	public inline extern function get_bShowGizmo(): Bool return this.bShowGizmo;
-	public extern var GridPower(get, never): cpp.UInt8;
-	public inline extern function get_GridPower(): cpp.UInt8 return this.GridPower;
-	public extern var CurrentBlockSize(get, never): cpp.Float64;
-	public inline extern function get_CurrentBlockSize(): cpp.Float64 return this.CurrentBlockSize;
-	public extern var BlocksPerStep(get, never): cpp.Int32;
-	public inline extern function get_BlocksPerStep(): cpp.Int32 return this.BlocksPerStep;
+	public extern var GridPower(get, never): ucpp.num.UInt8;
+	public inline extern function get_GridPower(): ucpp.num.UInt8 return this.GridPower;
+	public extern var CurrentBlockSize(get, never): ucpp.num.Float64;
+	public inline extern function get_CurrentBlockSize(): ucpp.num.Float64 return this.CurrentBlockSize;
+	public extern var BlocksPerStep(get, never): ucpp.num.Int32;
+	public inline extern function get_BlocksPerStep(): ucpp.num.Int32 return this.BlocksPerStep;
 	public extern var bPowerOfTwoBlockSizes(get, never): Bool;
 	public inline extern function get_bPowerOfTwoBlockSizes(): Bool return this.bPowerOfTwoBlockSizes;
-	public extern var BlockBaseSize(get, never): cpp.Float64;
-	public inline extern function get_BlockBaseSize(): cpp.Float64 return this.BlockBaseSize;
+	public extern var BlockBaseSize(get, never): ucpp.num.Float64;
+	public inline extern function get_BlockBaseSize(): ucpp.num.Float64 return this.BlockBaseSize;
 	public extern var bCrosswiseDiagonal(get, never): Bool;
 	public inline extern function get_bCrosswiseDiagonal(): Bool return this.bCrosswiseDiagonal;
 	public extern var bKeepSideGroups(get, never): Bool;
 	public inline extern function get_bKeepSideGroups(): Bool return this.bKeepSideGroups;
-	public extern var PlaneTolerance(get, never): cpp.Float64;
-	public inline extern function get_PlaneTolerance(): cpp.Float64 return this.PlaneTolerance;
+	public extern var PlaneTolerance(get, never): ucpp.num.Float64;
+	public inline extern function get_PlaneTolerance(): ucpp.num.Float64 return this.PlaneTolerance;
 	public extern var bHitUnrelatedGeometry(get, never): Bool;
 	public inline extern function get_bHitUnrelatedGeometry(): Bool return this.bHitUnrelatedGeometry;
 	public extern var bHitGridGroundPlaneIfCloser(get, never): Bool;
@@ -89,7 +89,7 @@ abstract ConstCubeGridToolProperties(CubeGridToolProperties) from CubeGridToolPr
 @:forward
 @:nativeGen
 @:native("CubeGridToolProperties*")
-abstract CubeGridToolPropertiesPtr(cpp.Star<CubeGridToolProperties>) from cpp.Star<CubeGridToolProperties> to cpp.Star<CubeGridToolProperties>{
+abstract CubeGridToolPropertiesPtr(ucpp.Ptr<CubeGridToolProperties>) from ucpp.Ptr<CubeGridToolProperties> to ucpp.Ptr<CubeGridToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: CubeGridToolProperties): CubeGridToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

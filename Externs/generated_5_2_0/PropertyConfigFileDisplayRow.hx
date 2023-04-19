@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPropertyConfigFileDisplayRow")
 @:include("ConfigPropertyHelper.h")
-@:structAccess
+@:valueType
 extern class PropertyConfigFileDisplayRow extends Object {
 	public var ConfigFileName: FString;
 	public var ExternalProperty: TFieldPath<FProperty>;
 	public var bIsFileWritable: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstPropertyConfigFileDisplayRow(PropertyConfigFileDisplayRow) from Pr
 @:forward
 @:nativeGen
 @:native("PropertyConfigFileDisplayRow*")
-abstract PropertyConfigFileDisplayRowPtr(cpp.Star<PropertyConfigFileDisplayRow>) from cpp.Star<PropertyConfigFileDisplayRow> to cpp.Star<PropertyConfigFileDisplayRow>{
+abstract PropertyConfigFileDisplayRowPtr(ucpp.Ptr<PropertyConfigFileDisplayRow>) from ucpp.Ptr<PropertyConfigFileDisplayRow> to ucpp.Ptr<PropertyConfigFileDisplayRow>{
 	@:from
 	public static extern inline function fromValue(v: PropertyConfigFileDisplayRow): PropertyConfigFileDisplayRowPtr {
 		return untyped __cpp__("&({0})", v);

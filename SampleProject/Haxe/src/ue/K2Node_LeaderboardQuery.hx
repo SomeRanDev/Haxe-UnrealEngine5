@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_LeaderboardQuery")
 @:include("K2Node_LeaderboardQuery.h")
-@:structAccess
+@:valueType
 extern class K2Node_LeaderboardQuery extends K2Node_BaseAsyncTask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_LeaderboardQuery(K2Node_LeaderboardQuery) from K2Node_Leade
 @:forward
 @:nativeGen
 @:native("K2Node_LeaderboardQuery*")
-abstract K2Node_LeaderboardQueryPtr(cpp.Star<K2Node_LeaderboardQuery>) from cpp.Star<K2Node_LeaderboardQuery> to cpp.Star<K2Node_LeaderboardQuery>{
+abstract K2Node_LeaderboardQueryPtr(ucpp.Ptr<K2Node_LeaderboardQuery>) from ucpp.Ptr<K2Node_LeaderboardQuery> to ucpp.Ptr<K2Node_LeaderboardQuery>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_LeaderboardQuery): K2Node_LeaderboardQueryPtr {
 		return untyped __cpp__("&({0})", v);

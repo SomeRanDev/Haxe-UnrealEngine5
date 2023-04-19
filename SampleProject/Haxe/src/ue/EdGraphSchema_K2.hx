@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEdGraphSchema_K2")
 @:include("EdGraphSchema_K2.h")
-@:structAccess
+@:valueType
 extern class EdGraphSchema_K2 extends EdGraphSchema {
 	public var EditoronlyBPFunctionRedirects: TArray<BlueprintCallableFunctionRedirect>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEdGraphSchema_K2(EdGraphSchema_K2) from EdGraphSchema_K2 {
 @:forward
 @:nativeGen
 @:native("EdGraphSchema_K2*")
-abstract EdGraphSchema_K2Ptr(cpp.Star<EdGraphSchema_K2>) from cpp.Star<EdGraphSchema_K2> to cpp.Star<EdGraphSchema_K2>{
+abstract EdGraphSchema_K2Ptr(ucpp.Ptr<EdGraphSchema_K2>) from ucpp.Ptr<EdGraphSchema_K2> to ucpp.Ptr<EdGraphSchema_K2>{
 	@:from
 	public static extern inline function fromValue(v: EdGraphSchema_K2): EdGraphSchema_K2Ptr {
 		return untyped __cpp__("&({0})", v);

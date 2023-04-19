@@ -3,13 +3,12 @@ package ue;
 
 @:native("AWorldSettings")
 @:include("GameFramework/WorldSettings.h")
-@:structAccess
+@:valueType
 extern class WorldSettings extends Info {
-	public var VisibilityCellSize: cpp.Int32;
+	public var VisibilityCellSize: ucpp.num.Int32;
 	public var VisibilityAggressiveness: TEnumAsByte<EVisibilityAggressiveness>;
 	public var bPrecomputeVisibility: Bool;
 	public var bPlaceCellsOnlyAlongCameraTracks: Bool;
-	public var bEnableLargeWorlds: Bool;
 	public var bEnableWorldBoundsChecks: Bool;
 	@:protected public var bEnableNavigationSystem: Bool;
 	@:protected public var bEnableAISystem: Bool;
@@ -26,60 +25,59 @@ extern class WorldSettings extends Info {
 	public var bGenerateSingleClusterForLevel: Bool;
 	public var AISystemClass: TSoftClassPtr<Class>;
 	public var LevelInstancePivotOffset: Vector;
-	@:protected public var NavigationSystemConfig: cpp.Star<NavigationSystemConfig>;
-	@:protected public var NavigationSystemConfigOverride: cpp.Star<NavigationSystemConfig>;
-	@:protected public var WorldPartition: cpp.Star<WorldPartition>;
-	public var WorldToMeters: cpp.Float32;
-	public var KillZ: cpp.Float32;
+	@:protected public var NavigationSystemConfig: ucpp.Ptr<NavigationSystemConfig>;
+	@:protected public var NavigationSystemConfigOverride: ucpp.Ptr<NavigationSystemConfig>;
+	@:protected public var WorldPartition: ucpp.Ptr<WorldPartition>;
+	public var BaseNavmeshDataLayers: TArray<ucpp.Ptr<DataLayerAsset>>;
+	public var WorldToMeters: ucpp.num.Float32;
+	public var KillZ: ucpp.num.Float32;
 	public var KillZDamageType: TSubclassOf<DamageType>;
-	public var WorldGravityZ: cpp.Float32;
-	public var GlobalGravityZ: cpp.Float32;
+	public var WorldGravityZ: ucpp.num.Float32;
+	public var GlobalGravityZ: ucpp.num.Float32;
 	public var DefaultPhysicsVolumeClass: TSubclassOf<DefaultPhysicsVolume>;
 	public var PhysicsCollisionHandlerClass: TSubclassOf<PhysicsCollisionHandler>;
 	public var DefaultGameMode: TSubclassOf<GameModeBase>;
 	public var GameNetworkManagerClass: TSubclassOf<GameNetworkManager>;
-	public var PackedLightAndShadowMapTextureSize: cpp.Int32;
+	public var PackedLightAndShadowMapTextureSize: ucpp.num.Int32;
 	public var DefaultColorScale: Vector;
-	public var DefaultMaxDistanceFieldOcclusionDistance: cpp.Float32;
-	public var GlobalDistanceFieldViewDistance: cpp.Float32;
-	public var DynamicIndirectShadowsSelfShadowingIntensity: cpp.Float32;
+	public var DefaultMaxDistanceFieldOcclusionDistance: ucpp.num.Float32;
+	public var GlobalDistanceFieldViewDistance: ucpp.num.Float32;
+	public var DynamicIndirectShadowsSelfShadowingIntensity: ucpp.num.Float32;
 	public var DefaultReverbSettings: ReverbSettings;
 	public var DefaultAmbientZoneSettings: InteriorSettings;
-	public var DefaultBaseSoundMix: cpp.Star<SoundMix>;
-	public var TimeDilation: cpp.Float32;
-	public var MatineeTimeDilation: cpp.Float32;
-	public var DemoPlayTimeDilation: cpp.Float32;
-	public var MinGlobalTimeDilation: cpp.Float32;
-	public var MaxGlobalTimeDilation: cpp.Float32;
-	public var MinUndilatedFrameTime: cpp.Float32;
-	public var MaxUndilatedFrameTime: cpp.Float32;
+	public var DefaultBaseSoundMix: ucpp.Ptr<SoundMix>;
+	public var TimeDilation: ucpp.num.Float32;
+	public var CinematicTimeDilation: ucpp.num.Float32;
+	public var DemoPlayTimeDilation: ucpp.num.Float32;
+	public var MinGlobalTimeDilation: ucpp.num.Float32;
+	public var MaxGlobalTimeDilation: ucpp.num.Float32;
+	public var MinUndilatedFrameTime: ucpp.num.Float32;
+	public var MaxUndilatedFrameTime: ucpp.num.Float32;
 	public var BroadphaseSettings: BroadphaseSettings;
 	public var ReplicationViewers: TArray<NetViewer>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
-	@:protected public var PauserPlayerState: cpp.Star<PlayerState>;
-	private var MaxNumberOfBookmarks: cpp.Int32;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
+	@:protected public var PauserPlayerState: ucpp.Ptr<PlayerState>;
+	private var MaxNumberOfBookmarks: ucpp.num.Int32;
 	private var DefaultBookmarkClass: TSubclassOf<BookmarkBase>;
-	private var BookmarkArray: TArray<cpp.Star<BookmarkBase>>;
+	private var BookmarkArray: TArray<ucpp.Ptr<BookmarkBase>>;
 	private var LastBookmarkClass: TSubclassOf<BookmarkBase>;
 
 	public function OnRep_WorldGravityZ(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWorldSettings(WorldSettings) from WorldSettings {
-	public extern var VisibilityCellSize(get, never): cpp.Int32;
-	public inline extern function get_VisibilityCellSize(): cpp.Int32 return this.VisibilityCellSize;
+	public extern var VisibilityCellSize(get, never): ucpp.num.Int32;
+	public inline extern function get_VisibilityCellSize(): ucpp.num.Int32 return this.VisibilityCellSize;
 	public extern var VisibilityAggressiveness(get, never): TEnumAsByte<EVisibilityAggressiveness>;
 	public inline extern function get_VisibilityAggressiveness(): TEnumAsByte<EVisibilityAggressiveness> return this.VisibilityAggressiveness;
 	public extern var bPrecomputeVisibility(get, never): Bool;
 	public inline extern function get_bPrecomputeVisibility(): Bool return this.bPrecomputeVisibility;
 	public extern var bPlaceCellsOnlyAlongCameraTracks(get, never): Bool;
 	public inline extern function get_bPlaceCellsOnlyAlongCameraTracks(): Bool return this.bPlaceCellsOnlyAlongCameraTracks;
-	public extern var bEnableLargeWorlds(get, never): Bool;
-	public inline extern function get_bEnableLargeWorlds(): Bool return this.bEnableLargeWorlds;
 	public extern var bEnableWorldBoundsChecks(get, never): Bool;
 	public inline extern function get_bEnableWorldBoundsChecks(): Bool return this.bEnableWorldBoundsChecks;
 	public extern var bEnableWorldComposition(get, never): Bool;
@@ -108,16 +106,18 @@ abstract ConstWorldSettings(WorldSettings) from WorldSettings {
 	public inline extern function get_AISystemClass(): TSoftClassPtr<Class.ConstClass> return this.AISystemClass;
 	public extern var LevelInstancePivotOffset(get, never): Vector;
 	public inline extern function get_LevelInstancePivotOffset(): Vector return this.LevelInstancePivotOffset;
-	public extern var WorldToMeters(get, never): cpp.Float32;
-	public inline extern function get_WorldToMeters(): cpp.Float32 return this.WorldToMeters;
-	public extern var KillZ(get, never): cpp.Float32;
-	public inline extern function get_KillZ(): cpp.Float32 return this.KillZ;
+	public extern var BaseNavmeshDataLayers(get, never): TArray<ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>>;
+	public inline extern function get_BaseNavmeshDataLayers(): TArray<ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>> return this.BaseNavmeshDataLayers;
+	public extern var WorldToMeters(get, never): ucpp.num.Float32;
+	public inline extern function get_WorldToMeters(): ucpp.num.Float32 return this.WorldToMeters;
+	public extern var KillZ(get, never): ucpp.num.Float32;
+	public inline extern function get_KillZ(): ucpp.num.Float32 return this.KillZ;
 	public extern var KillZDamageType(get, never): TSubclassOf<DamageType.ConstDamageType>;
 	public inline extern function get_KillZDamageType(): TSubclassOf<DamageType.ConstDamageType> return this.KillZDamageType;
-	public extern var WorldGravityZ(get, never): cpp.Float32;
-	public inline extern function get_WorldGravityZ(): cpp.Float32 return this.WorldGravityZ;
-	public extern var GlobalGravityZ(get, never): cpp.Float32;
-	public inline extern function get_GlobalGravityZ(): cpp.Float32 return this.GlobalGravityZ;
+	public extern var WorldGravityZ(get, never): ucpp.num.Float32;
+	public inline extern function get_WorldGravityZ(): ucpp.num.Float32 return this.WorldGravityZ;
+	public extern var GlobalGravityZ(get, never): ucpp.num.Float32;
+	public inline extern function get_GlobalGravityZ(): ucpp.num.Float32 return this.GlobalGravityZ;
 	public extern var DefaultPhysicsVolumeClass(get, never): TSubclassOf<DefaultPhysicsVolume.ConstDefaultPhysicsVolume>;
 	public inline extern function get_DefaultPhysicsVolumeClass(): TSubclassOf<DefaultPhysicsVolume.ConstDefaultPhysicsVolume> return this.DefaultPhysicsVolumeClass;
 	public extern var PhysicsCollisionHandlerClass(get, never): TSubclassOf<PhysicsCollisionHandler.ConstPhysicsCollisionHandler>;
@@ -126,36 +126,36 @@ abstract ConstWorldSettings(WorldSettings) from WorldSettings {
 	public inline extern function get_DefaultGameMode(): TSubclassOf<GameModeBase.ConstGameModeBase> return this.DefaultGameMode;
 	public extern var GameNetworkManagerClass(get, never): TSubclassOf<GameNetworkManager.ConstGameNetworkManager>;
 	public inline extern function get_GameNetworkManagerClass(): TSubclassOf<GameNetworkManager.ConstGameNetworkManager> return this.GameNetworkManagerClass;
-	public extern var PackedLightAndShadowMapTextureSize(get, never): cpp.Int32;
-	public inline extern function get_PackedLightAndShadowMapTextureSize(): cpp.Int32 return this.PackedLightAndShadowMapTextureSize;
+	public extern var PackedLightAndShadowMapTextureSize(get, never): ucpp.num.Int32;
+	public inline extern function get_PackedLightAndShadowMapTextureSize(): ucpp.num.Int32 return this.PackedLightAndShadowMapTextureSize;
 	public extern var DefaultColorScale(get, never): Vector;
 	public inline extern function get_DefaultColorScale(): Vector return this.DefaultColorScale;
-	public extern var DefaultMaxDistanceFieldOcclusionDistance(get, never): cpp.Float32;
-	public inline extern function get_DefaultMaxDistanceFieldOcclusionDistance(): cpp.Float32 return this.DefaultMaxDistanceFieldOcclusionDistance;
-	public extern var GlobalDistanceFieldViewDistance(get, never): cpp.Float32;
-	public inline extern function get_GlobalDistanceFieldViewDistance(): cpp.Float32 return this.GlobalDistanceFieldViewDistance;
-	public extern var DynamicIndirectShadowsSelfShadowingIntensity(get, never): cpp.Float32;
-	public inline extern function get_DynamicIndirectShadowsSelfShadowingIntensity(): cpp.Float32 return this.DynamicIndirectShadowsSelfShadowingIntensity;
+	public extern var DefaultMaxDistanceFieldOcclusionDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultMaxDistanceFieldOcclusionDistance(): ucpp.num.Float32 return this.DefaultMaxDistanceFieldOcclusionDistance;
+	public extern var GlobalDistanceFieldViewDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_GlobalDistanceFieldViewDistance(): ucpp.num.Float32 return this.GlobalDistanceFieldViewDistance;
+	public extern var DynamicIndirectShadowsSelfShadowingIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_DynamicIndirectShadowsSelfShadowingIntensity(): ucpp.num.Float32 return this.DynamicIndirectShadowsSelfShadowingIntensity;
 	public extern var DefaultReverbSettings(get, never): ReverbSettings;
 	public inline extern function get_DefaultReverbSettings(): ReverbSettings return this.DefaultReverbSettings;
 	public extern var DefaultAmbientZoneSettings(get, never): InteriorSettings;
 	public inline extern function get_DefaultAmbientZoneSettings(): InteriorSettings return this.DefaultAmbientZoneSettings;
-	public extern var DefaultBaseSoundMix(get, never): cpp.Star<SoundMix.ConstSoundMix>;
-	public inline extern function get_DefaultBaseSoundMix(): cpp.Star<SoundMix.ConstSoundMix> return this.DefaultBaseSoundMix;
-	public extern var TimeDilation(get, never): cpp.Float32;
-	public inline extern function get_TimeDilation(): cpp.Float32 return this.TimeDilation;
-	public extern var MatineeTimeDilation(get, never): cpp.Float32;
-	public inline extern function get_MatineeTimeDilation(): cpp.Float32 return this.MatineeTimeDilation;
-	public extern var DemoPlayTimeDilation(get, never): cpp.Float32;
-	public inline extern function get_DemoPlayTimeDilation(): cpp.Float32 return this.DemoPlayTimeDilation;
-	public extern var MinGlobalTimeDilation(get, never): cpp.Float32;
-	public inline extern function get_MinGlobalTimeDilation(): cpp.Float32 return this.MinGlobalTimeDilation;
-	public extern var MaxGlobalTimeDilation(get, never): cpp.Float32;
-	public inline extern function get_MaxGlobalTimeDilation(): cpp.Float32 return this.MaxGlobalTimeDilation;
-	public extern var MinUndilatedFrameTime(get, never): cpp.Float32;
-	public inline extern function get_MinUndilatedFrameTime(): cpp.Float32 return this.MinUndilatedFrameTime;
-	public extern var MaxUndilatedFrameTime(get, never): cpp.Float32;
-	public inline extern function get_MaxUndilatedFrameTime(): cpp.Float32 return this.MaxUndilatedFrameTime;
+	public extern var DefaultBaseSoundMix(get, never): ucpp.Ptr<SoundMix.ConstSoundMix>;
+	public inline extern function get_DefaultBaseSoundMix(): ucpp.Ptr<SoundMix.ConstSoundMix> return this.DefaultBaseSoundMix;
+	public extern var TimeDilation(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeDilation(): ucpp.num.Float32 return this.TimeDilation;
+	public extern var CinematicTimeDilation(get, never): ucpp.num.Float32;
+	public inline extern function get_CinematicTimeDilation(): ucpp.num.Float32 return this.CinematicTimeDilation;
+	public extern var DemoPlayTimeDilation(get, never): ucpp.num.Float32;
+	public inline extern function get_DemoPlayTimeDilation(): ucpp.num.Float32 return this.DemoPlayTimeDilation;
+	public extern var MinGlobalTimeDilation(get, never): ucpp.num.Float32;
+	public inline extern function get_MinGlobalTimeDilation(): ucpp.num.Float32 return this.MinGlobalTimeDilation;
+	public extern var MaxGlobalTimeDilation(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxGlobalTimeDilation(): ucpp.num.Float32 return this.MaxGlobalTimeDilation;
+	public extern var MinUndilatedFrameTime(get, never): ucpp.num.Float32;
+	public inline extern function get_MinUndilatedFrameTime(): ucpp.num.Float32 return this.MinUndilatedFrameTime;
+	public extern var MaxUndilatedFrameTime(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxUndilatedFrameTime(): ucpp.num.Float32 return this.MaxUndilatedFrameTime;
 	public extern var BroadphaseSettings(get, never): BroadphaseSettings;
 	public inline extern function get_BroadphaseSettings(): BroadphaseSettings return this.BroadphaseSettings;
 	public extern var ReplicationViewers(get, never): TArray<NetViewer>;
@@ -165,7 +165,7 @@ abstract ConstWorldSettings(WorldSettings) from WorldSettings {
 @:forward
 @:nativeGen
 @:native("WorldSettings*")
-abstract WorldSettingsPtr(cpp.Star<WorldSettings>) from cpp.Star<WorldSettings> to cpp.Star<WorldSettings>{
+abstract WorldSettingsPtr(ucpp.Ptr<WorldSettings>) from ucpp.Ptr<WorldSettings> to ucpp.Ptr<WorldSettings>{
 	@:from
 	public static extern inline function fromValue(v: WorldSettings): WorldSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EChannelMaskParameterColor.Type")
-@:include("Materials/MaterialExpressionChannelMaskParameter.h")
+@:include("Materials/MaterialExpressionChannelMaskParameterColor.h")
 extern class EChannelMaskParameterColor {
 	static var Red: EChannelMaskParameterColor;
 	static var Green: EChannelMaskParameterColor;

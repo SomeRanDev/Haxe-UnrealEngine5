@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraConvertInPlaceUtilityBase")
 @:include("NiagaraConvertInPlaceUtilityBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraConvertInPlaceUtilityBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraConvertInPlaceUtilityBase(NiagaraConvertInPlaceUtilityBase)
 @:forward
 @:nativeGen
 @:native("NiagaraConvertInPlaceUtilityBase*")
-abstract NiagaraConvertInPlaceUtilityBasePtr(cpp.Star<NiagaraConvertInPlaceUtilityBase>) from cpp.Star<NiagaraConvertInPlaceUtilityBase> to cpp.Star<NiagaraConvertInPlaceUtilityBase>{
+abstract NiagaraConvertInPlaceUtilityBasePtr(ucpp.Ptr<NiagaraConvertInPlaceUtilityBase>) from ucpp.Ptr<NiagaraConvertInPlaceUtilityBase> to ucpp.Ptr<NiagaraConvertInPlaceUtilityBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraConvertInPlaceUtilityBase): NiagaraConvertInPlaceUtilityBasePtr {
 		return untyped __cpp__("&({0})", v);

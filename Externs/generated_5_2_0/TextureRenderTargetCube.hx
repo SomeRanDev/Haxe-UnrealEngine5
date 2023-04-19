@@ -3,22 +3,22 @@ package ue;
 
 @:native("UTextureRenderTargetCube")
 @:include("Engine/TextureRenderTargetCube.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTargetCube extends TextureRenderTarget {
-	public var SizeX: cpp.Int32;
+	public var SizeX: ucpp.num.Int32;
 	public var ClearColor: LinearColor;
 	public var OverrideFormat: TEnumAsByte<EPixelFormat>;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTargetCube(TextureRenderTargetCube) from TextureRenderTargetCube {
-	public extern var SizeX(get, never): cpp.Int32;
-	public inline extern function get_SizeX(): cpp.Int32 return this.SizeX;
+	public extern var SizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeX(): ucpp.num.Int32 return this.SizeX;
 	public extern var ClearColor(get, never): LinearColor;
 	public inline extern function get_ClearColor(): LinearColor return this.ClearColor;
 	public extern var OverrideFormat(get, never): TEnumAsByte<EPixelFormat>;
@@ -32,7 +32,7 @@ abstract ConstTextureRenderTargetCube(TextureRenderTargetCube) from TextureRende
 @:forward
 @:nativeGen
 @:native("TextureRenderTargetCube*")
-abstract TextureRenderTargetCubePtr(cpp.Star<TextureRenderTargetCube>) from cpp.Star<TextureRenderTargetCube> to cpp.Star<TextureRenderTargetCube>{
+abstract TextureRenderTargetCubePtr(ucpp.Ptr<TextureRenderTargetCube>) from ucpp.Ptr<TextureRenderTargetCube> to ucpp.Ptr<TextureRenderTargetCube>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTargetCube): TextureRenderTargetCubePtr {
 		return untyped __cpp__("&({0})", v);

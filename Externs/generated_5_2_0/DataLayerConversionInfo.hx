@@ -3,32 +3,32 @@ package ue;
 
 @:native("UDataLayerConversionInfo")
 @:include("Commandlets/WorldPartitionDataLayerToAssetCommandLet.h")
-@:structAccess
+@:valueType
 extern class DataLayerConversionInfo extends Object {
-	public var DataLayerToConvert: cpp.Star<DeprecatedDataLayerInstance>;
-	public var DataLayerAsset: cpp.Star<DataLayerAsset>;
-	public var DataLayerInstance: cpp.Star<DataLayerInstanceWithAsset>;
+	public var DataLayerToConvert: ucpp.Ptr<DeprecatedDataLayerInstance>;
+	public var DataLayerAsset: ucpp.Ptr<DataLayerAsset>;
+	public var DataLayerInstance: ucpp.Ptr<DataLayerInstanceWithAsset>;
 	private var PreviousConversionsInfo: TArray<TWeakObjectPtr<DataLayerConversionInfo>>;
 	private var CurrentConvertingInfo: TWeakObjectPtr<DataLayerConversionInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDataLayerConversionInfo(DataLayerConversionInfo) from DataLayerConversionInfo {
-	public extern var DataLayerToConvert(get, never): cpp.Star<DeprecatedDataLayerInstance.ConstDeprecatedDataLayerInstance>;
-	public inline extern function get_DataLayerToConvert(): cpp.Star<DeprecatedDataLayerInstance.ConstDeprecatedDataLayerInstance> return this.DataLayerToConvert;
-	public extern var DataLayerAsset(get, never): cpp.Star<DataLayerAsset.ConstDataLayerAsset>;
-	public inline extern function get_DataLayerAsset(): cpp.Star<DataLayerAsset.ConstDataLayerAsset> return this.DataLayerAsset;
-	public extern var DataLayerInstance(get, never): cpp.Star<DataLayerInstanceWithAsset.ConstDataLayerInstanceWithAsset>;
-	public inline extern function get_DataLayerInstance(): cpp.Star<DataLayerInstanceWithAsset.ConstDataLayerInstanceWithAsset> return this.DataLayerInstance;
+	public extern var DataLayerToConvert(get, never): ucpp.Ptr<DeprecatedDataLayerInstance.ConstDeprecatedDataLayerInstance>;
+	public inline extern function get_DataLayerToConvert(): ucpp.Ptr<DeprecatedDataLayerInstance.ConstDeprecatedDataLayerInstance> return this.DataLayerToConvert;
+	public extern var DataLayerAsset(get, never): ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>;
+	public inline extern function get_DataLayerAsset(): ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset> return this.DataLayerAsset;
+	public extern var DataLayerInstance(get, never): ucpp.Ptr<DataLayerInstanceWithAsset.ConstDataLayerInstanceWithAsset>;
+	public inline extern function get_DataLayerInstance(): ucpp.Ptr<DataLayerInstanceWithAsset.ConstDataLayerInstanceWithAsset> return this.DataLayerInstance;
 }
 
 @:forward
 @:nativeGen
 @:native("DataLayerConversionInfo*")
-abstract DataLayerConversionInfoPtr(cpp.Star<DataLayerConversionInfo>) from cpp.Star<DataLayerConversionInfo> to cpp.Star<DataLayerConversionInfo>{
+abstract DataLayerConversionInfoPtr(ucpp.Ptr<DataLayerConversionInfo>) from ucpp.Ptr<DataLayerConversionInfo> to ucpp.Ptr<DataLayerConversionInfo>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerConversionInfo): DataLayerConversionInfoPtr {
 		return untyped __cpp__("&({0})", v);

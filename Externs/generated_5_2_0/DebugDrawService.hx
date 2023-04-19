@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDebugDrawService")
 @:include("Debug/DebugDrawService.h")
-@:structAccess
+@:valueType
 extern class DebugDrawService extends BlueprintFunctionLibrary {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDebugDrawService(DebugDrawService) from DebugDrawService {
 @:forward
 @:nativeGen
 @:native("DebugDrawService*")
-abstract DebugDrawServicePtr(cpp.Star<DebugDrawService>) from cpp.Star<DebugDrawService> to cpp.Star<DebugDrawService>{
+abstract DebugDrawServicePtr(ucpp.Ptr<DebugDrawService>) from ucpp.Ptr<DebugDrawService> to ucpp.Ptr<DebugDrawService>{
 	@:from
 	public static extern inline function fromValue(v: DebugDrawService): DebugDrawServicePtr {
 		return untyped __cpp__("&({0})", v);

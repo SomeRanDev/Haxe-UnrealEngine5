@@ -3,10 +3,10 @@ package ue;
 
 @:native("UARTraceResultDummy")
 @:include("ARTraceResult.h")
-@:structAccess
+@:valueType
 extern class ARTraceResultDummy extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstARTraceResultDummy(ARTraceResultDummy) from ARTraceResultDummy {
 @:forward
 @:nativeGen
 @:native("ARTraceResultDummy*")
-abstract ARTraceResultDummyPtr(cpp.Star<ARTraceResultDummy>) from cpp.Star<ARTraceResultDummy> to cpp.Star<ARTraceResultDummy>{
+abstract ARTraceResultDummyPtr(ucpp.Ptr<ARTraceResultDummy>) from ucpp.Ptr<ARTraceResultDummy> to ucpp.Ptr<ARTraceResultDummy>{
 	@:from
 	public static extern inline function fromValue(v: ARTraceResultDummy): ARTraceResultDummyPtr {
 		return untyped __cpp__("&({0})", v);

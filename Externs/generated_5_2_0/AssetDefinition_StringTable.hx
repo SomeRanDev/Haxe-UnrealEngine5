@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_StringTable")
 @:include("AssetDefinition_StringTable.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_StringTable extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_StringTable(AssetDefinition_StringTable) from Asse
 @:forward
 @:nativeGen
 @:native("AssetDefinition_StringTable*")
-abstract AssetDefinition_StringTablePtr(cpp.Star<AssetDefinition_StringTable>) from cpp.Star<AssetDefinition_StringTable> to cpp.Star<AssetDefinition_StringTable>{
+abstract AssetDefinition_StringTablePtr(ucpp.Ptr<AssetDefinition_StringTable>) from ucpp.Ptr<AssetDefinition_StringTable> to ucpp.Ptr<AssetDefinition_StringTable>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_StringTable): AssetDefinition_StringTablePtr {
 		return untyped __cpp__("&({0})", v);

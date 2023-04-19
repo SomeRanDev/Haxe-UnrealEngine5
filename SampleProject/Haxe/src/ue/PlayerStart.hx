@@ -3,11 +3,11 @@ package ue;
 
 @:native("APlayerStart")
 @:include("GameFramework/PlayerStart.h")
-@:structAccess
+@:valueType
 extern class PlayerStart extends NavigationObjectBase {
 	public var PlayerStartTag: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPlayerStart(PlayerStart) from PlayerStart {
 @:forward
 @:nativeGen
 @:native("PlayerStart*")
-abstract PlayerStartPtr(cpp.Star<PlayerStart>) from cpp.Star<PlayerStart> to cpp.Star<PlayerStart>{
+abstract PlayerStartPtr(ucpp.Ptr<PlayerStart>) from ucpp.Ptr<PlayerStart> to ucpp.Ptr<PlayerStart>{
 	@:from
 	public static extern inline function fromValue(v: PlayerStart): PlayerStartPtr {
 		return untyped __cpp__("&({0})", v);

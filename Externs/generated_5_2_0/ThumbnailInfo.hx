@@ -3,10 +3,10 @@ package ue;
 
 @:native("UThumbnailInfo")
 @:include("EditorFramework/ThumbnailInfo.h")
-@:structAccess
+@:valueType
 extern class ThumbnailInfo extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstThumbnailInfo(ThumbnailInfo) from ThumbnailInfo {
 @:forward
 @:nativeGen
 @:native("ThumbnailInfo*")
-abstract ThumbnailInfoPtr(cpp.Star<ThumbnailInfo>) from cpp.Star<ThumbnailInfo> to cpp.Star<ThumbnailInfo>{
+abstract ThumbnailInfoPtr(ucpp.Ptr<ThumbnailInfo>) from ucpp.Ptr<ThumbnailInfo> to ucpp.Ptr<ThumbnailInfo>{
 	@:from
 	public static extern inline function fromValue(v: ThumbnailInfo): ThumbnailInfoPtr {
 		return untyped __cpp__("&({0})", v);

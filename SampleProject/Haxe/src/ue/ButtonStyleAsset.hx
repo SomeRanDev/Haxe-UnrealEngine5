@@ -3,11 +3,11 @@ package ue;
 
 @:native("UButtonStyleAsset")
 @:include("Slate/ButtonStyleAsset.h")
-@:structAccess
+@:valueType
 extern class ButtonStyleAsset extends Object {
 	public var ButtonStyle: ButtonStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstButtonStyleAsset(ButtonStyleAsset) from ButtonStyleAsset {
 @:forward
 @:nativeGen
 @:native("ButtonStyleAsset*")
-abstract ButtonStyleAssetPtr(cpp.Star<ButtonStyleAsset>) from cpp.Star<ButtonStyleAsset> to cpp.Star<ButtonStyleAsset>{
+abstract ButtonStyleAssetPtr(ucpp.Ptr<ButtonStyleAsset>) from ucpp.Ptr<ButtonStyleAsset> to ucpp.Ptr<ButtonStyleAsset>{
 	@:from
 	public static extern inline function fromValue(v: ButtonStyleAsset): ButtonStyleAssetPtr {
 		return untyped __cpp__("&({0})", v);

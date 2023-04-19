@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAITask")
 @:include("Tasks/AITask.h")
-@:structAccess
+@:valueType
 extern class AITask extends GameplayTask {
-	@:protected public var OwnerController: cpp.Star<AIController>;
+	@:protected public var OwnerController: ucpp.Ptr<AIController>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAITask(AITask) from AITask {
 @:forward
 @:nativeGen
 @:native("AITask*")
-abstract AITaskPtr(cpp.Star<AITask>) from cpp.Star<AITask> to cpp.Star<AITask>{
+abstract AITaskPtr(ucpp.Ptr<AITask>) from ucpp.Ptr<AITask> to ucpp.Ptr<AITask>{
 	@:from
 	public static extern inline function fromValue(v: AITask): AITaskPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,47 +3,47 @@ package ue;
 
 @:native("UPaperTileMapComponent")
 @:include("PaperTileMapComponent.h")
-@:structAccess
+@:valueType
 extern class PaperTileMapComp extends MeshComp {
 	private var TileMapColor: LinearColor;
-	private var UseSingleLayerIndex: cpp.Int32;
+	private var UseSingleLayerIndex: ucpp.num.Int32;
 	private var bUseSingleLayer: Bool;
-	public var TileMap: cpp.Star<PaperTileMap>;
+	public var TileMap: ucpp.Ptr<PaperTileMap>;
 
 	public function SetTileMapColor(NewColor: LinearColor): Void;
-	public function SetTileMap(NewTileMap: cpp.Star<PaperTileMap>): Bool;
-	public function SetTile(X: cpp.Int32, Y: cpp.Int32, Layer: cpp.Int32, NewValue: PaperTileInfo): Void;
-	public function SetLayerColor(NewColor: LinearColor, Layer: cpp.Int32): Void;
-	public function SetLayerCollision(Layer: cpp.Int32, bHasCollision: Bool, bOverrideThickness: Bool, CustomThickness: cpp.Float32, bOverrideOffset: Bool, CustomOffset: cpp.Float32, bRebuildCollision: Bool): Void;
-	public function SetDefaultCollisionThickness(Thickness: cpp.Float32, bRebuildCollision: Bool): Void;
-	public function ResizeMap(NewWidthInTiles: cpp.Int32, NewHeightInTiles: cpp.Int32): Void;
+	public function SetTileMap(NewTileMap: ucpp.Ptr<PaperTileMap>): Bool;
+	public function SetTile(X: ucpp.num.Int32, Y: ucpp.num.Int32, Layer: ucpp.num.Int32, NewValue: PaperTileInfo): Void;
+	public function SetLayerColor(NewColor: LinearColor, Layer: ucpp.num.Int32): Void;
+	public function SetLayerCollision(Layer: ucpp.num.Int32, bHasCollision: Bool, bOverrideThickness: Bool, CustomThickness: ucpp.num.Float32, bOverrideOffset: Bool, CustomOffset: ucpp.num.Float32, bRebuildCollision: Bool): Void;
+	public function SetDefaultCollisionThickness(Thickness: ucpp.num.Float32, bRebuildCollision: Bool): Void;
+	public function ResizeMap(NewWidthInTiles: ucpp.num.Int32, NewHeightInTiles: ucpp.num.Int32): Void;
 	public function RebuildCollision(): Void;
 	public function OwnsTileMap(): Bool;
 	public function MakeTileMapEditable(): Void;
-	public function GetTilePolygon(TileX: cpp.Int32, TileY: cpp.Int32, Points: cpp.Reference<TArray<Vector>>, LayerIndex: cpp.Int32, bWorldSpace: Bool): Void;
+	public function GetTilePolygon(TileX: ucpp.num.Int32, TileY: ucpp.num.Int32, Points: ucpp.Ref<TArray<Vector>>, LayerIndex: ucpp.num.Int32, bWorldSpace: Bool): Void;
 	public function GetTileMapColor(): LinearColor;
-	public function GetTileCornerPosition(TileX: cpp.Int32, TileY: cpp.Int32, LayerIndex: cpp.Int32, bWorldSpace: Bool): Vector;
-	public function GetTileCenterPosition(TileX: cpp.Int32, TileY: cpp.Int32, LayerIndex: cpp.Int32, bWorldSpace: Bool): Vector;
-	public function GetTile(X: cpp.Int32, Y: cpp.Int32, Layer: cpp.Int32): PaperTileInfo;
-	public function GetMapSize(MapWidth: cpp.Reference<cpp.Int32>, MapHeight: cpp.Reference<cpp.Int32>, NumLayers: cpp.Reference<cpp.Int32>): Void;
-	public function GetLayerColor(Layer: cpp.Int32): LinearColor;
-	public function CreateNewTileMap(MapWidth: cpp.Int32, MapHeight: cpp.Int32, TileWidth: cpp.Int32, TileHeight: cpp.Int32, PixelsPerUnrealUnit: cpp.Float32, bCreateLayer: Bool): Void;
-	public function AddNewLayer(): cpp.Star<PaperTileLayer>;
+	public function GetTileCornerPosition(TileX: ucpp.num.Int32, TileY: ucpp.num.Int32, LayerIndex: ucpp.num.Int32, bWorldSpace: Bool): Vector;
+	public function GetTileCenterPosition(TileX: ucpp.num.Int32, TileY: ucpp.num.Int32, LayerIndex: ucpp.num.Int32, bWorldSpace: Bool): Vector;
+	public function GetTile(X: ucpp.num.Int32, Y: ucpp.num.Int32, Layer: ucpp.num.Int32): PaperTileInfo;
+	public function GetMapSize(MapWidth: ucpp.Ref<ucpp.num.Int32>, MapHeight: ucpp.Ref<ucpp.num.Int32>, NumLayers: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetLayerColor(Layer: ucpp.num.Int32): LinearColor;
+	public function CreateNewTileMap(MapWidth: ucpp.num.Int32, MapHeight: ucpp.num.Int32, TileWidth: ucpp.num.Int32, TileHeight: ucpp.num.Int32, PixelsPerUnrealUnit: ucpp.num.Float32, bCreateLayer: Bool): Void;
+	public function AddNewLayer(): ucpp.Ptr<PaperTileLayer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(OwnsTileMap, GetTilePolygon, GetTileMapColor, GetTileCornerPosition, GetTileCenterPosition, GetTile, GetLayerColor)
 @:nativeGen
 abstract ConstPaperTileMapComp(PaperTileMapComp) from PaperTileMapComp {
-	public extern var TileMap(get, never): cpp.Star<PaperTileMap.ConstPaperTileMap>;
-	public inline extern function get_TileMap(): cpp.Star<PaperTileMap.ConstPaperTileMap> return this.TileMap;
+	public extern var TileMap(get, never): ucpp.Ptr<PaperTileMap.ConstPaperTileMap>;
+	public inline extern function get_TileMap(): ucpp.Ptr<PaperTileMap.ConstPaperTileMap> return this.TileMap;
 }
 
 @:forward
 @:nativeGen
 @:native("PaperTileMapComp*")
-abstract PaperTileMapCompPtr(cpp.Star<PaperTileMapComp>) from cpp.Star<PaperTileMapComp> to cpp.Star<PaperTileMapComp>{
+abstract PaperTileMapCompPtr(ucpp.Ptr<PaperTileMapComp>) from ucpp.Ptr<PaperTileMapComp> to ucpp.Ptr<PaperTileMapComp>{
 	@:from
 	public static extern inline function fromValue(v: PaperTileMapComp): PaperTileMapCompPtr {
 		return untyped __cpp__("&({0})", v);

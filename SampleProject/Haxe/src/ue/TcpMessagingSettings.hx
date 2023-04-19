@@ -3,15 +3,16 @@ package ue;
 
 @:native("UTcpMessagingSettings")
 @:include("Settings/TcpMessagingSettings.h")
-@:structAccess
+@:valueType
 extern class TcpMessagingSettings extends Object {
 	private var EnableTransport: Bool;
 	private var ListenEndpoint: FString;
 	private var ConnectToEndpoints: TArray<FString>;
-	private var ConnectionRetryDelay: cpp.Int32;
+	private var ConnectionRetryDelay: ucpp.num.Int32;
+	private var ConnectionRetryPeriod: ucpp.num.Int32;
 	private var bStopServiceWhenAppDeactivates: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +23,7 @@ abstract ConstTcpMessagingSettings(TcpMessagingSettings) from TcpMessagingSettin
 @:forward
 @:nativeGen
 @:native("TcpMessagingSettings*")
-abstract TcpMessagingSettingsPtr(cpp.Star<TcpMessagingSettings>) from cpp.Star<TcpMessagingSettings> to cpp.Star<TcpMessagingSettings>{
+abstract TcpMessagingSettingsPtr(ucpp.Ptr<TcpMessagingSettings>) from ucpp.Ptr<TcpMessagingSettings> to ucpp.Ptr<TcpMessagingSettings>{
 	@:from
 	public static extern inline function fromValue(v: TcpMessagingSettings): TcpMessagingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

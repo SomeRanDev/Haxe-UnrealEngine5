@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneUserImportFBXControlRigSettings")
 @:include("MovieSceneToolsUserSettings.h")
-@:structAccess
+@:valueType
 extern class MovieSceneUserImportFBXControlRigSettings extends Object {
 	public var ImportedFileName: FString;
 	public var ImportedStartTime: FrameNumber;
@@ -13,7 +13,7 @@ extern class MovieSceneUserImportFBXControlRigSettings extends Object {
 	public var FindAndReplaceStrings: TArray<ControlFindReplaceString>;
 	public var bForceFrontXAxis: Bool;
 	public var bConvertSceneUnit: Bool;
-	public var ImportUniformScale: cpp.Float32;
+	public var ImportUniformScale: ucpp.num.Float32;
 	public var bImportOntoSelectedControls: Bool;
 	public var TimeToInsertOrReplaceAnimation: FrameNumber;
 	public var bInsertAnimation: Bool;
@@ -22,7 +22,7 @@ extern class MovieSceneUserImportFBXControlRigSettings extends Object {
 	public var EndTimeRange: FrameNumber;
 	public var ControlChannelMappings: TArray<ControlToTransformMappings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,8 +44,8 @@ abstract ConstMovieSceneUserImportFBXControlRigSettings(MovieSceneUserImportFBXC
 	public inline extern function get_bForceFrontXAxis(): Bool return this.bForceFrontXAxis;
 	public extern var bConvertSceneUnit(get, never): Bool;
 	public inline extern function get_bConvertSceneUnit(): Bool return this.bConvertSceneUnit;
-	public extern var ImportUniformScale(get, never): cpp.Float32;
-	public inline extern function get_ImportUniformScale(): cpp.Float32 return this.ImportUniformScale;
+	public extern var ImportUniformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ImportUniformScale(): ucpp.num.Float32 return this.ImportUniformScale;
 	public extern var bImportOntoSelectedControls(get, never): Bool;
 	public inline extern function get_bImportOntoSelectedControls(): Bool return this.bImportOntoSelectedControls;
 	public extern var TimeToInsertOrReplaceAnimation(get, never): FrameNumber;
@@ -65,7 +65,7 @@ abstract ConstMovieSceneUserImportFBXControlRigSettings(MovieSceneUserImportFBXC
 @:forward
 @:nativeGen
 @:native("MovieSceneUserImportFBXControlRigSettings*")
-abstract MovieSceneUserImportFBXControlRigSettingsPtr(cpp.Star<MovieSceneUserImportFBXControlRigSettings>) from cpp.Star<MovieSceneUserImportFBXControlRigSettings> to cpp.Star<MovieSceneUserImportFBXControlRigSettings>{
+abstract MovieSceneUserImportFBXControlRigSettingsPtr(ucpp.Ptr<MovieSceneUserImportFBXControlRigSettings>) from ucpp.Ptr<MovieSceneUserImportFBXControlRigSettings> to ucpp.Ptr<MovieSceneUserImportFBXControlRigSettings>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneUserImportFBXControlRigSettings): MovieSceneUserImportFBXControlRigSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnAnimInitialized__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnAnimInitialized__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnAnimInitialized__PythonCallable(OnAnimInitialized__PythonCallabl
 @:forward
 @:nativeGen
 @:native("OnAnimInitialized__PythonCallable*")
-abstract OnAnimInitialized__PythonCallablePtr(cpp.Star<OnAnimInitialized__PythonCallable>) from cpp.Star<OnAnimInitialized__PythonCallable> to cpp.Star<OnAnimInitialized__PythonCallable>{
+abstract OnAnimInitialized__PythonCallablePtr(ucpp.Ptr<OnAnimInitialized__PythonCallable>) from ucpp.Ptr<OnAnimInitialized__PythonCallable> to ucpp.Ptr<OnAnimInitialized__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnAnimInitialized__PythonCallable): OnAnimInitialized__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

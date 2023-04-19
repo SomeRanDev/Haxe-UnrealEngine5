@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNetObjectFilterDefinition")
 @:include("Iris/ReplicationSystem/Filtering/NetObjectFilterDefinitions.h")
-@:structAccess
+@:valueType
 extern class NetObjectFilterDefinition {
 	public var FilterName: FName;
 	public var ClassName: FName;

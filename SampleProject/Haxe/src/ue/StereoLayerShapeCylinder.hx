@@ -3,34 +3,34 @@ package ue;
 
 @:native("UStereoLayerShapeCylinder")
 @:include("Components/StereoLayerComponent.h")
-@:structAccess
+@:valueType
 extern class StereoLayerShapeCylinder extends StereoLayerShape {
-	public var Radius: cpp.Float32;
-	public var OverlayArc: cpp.Float32;
-	public var Height: cpp.Int32;
+	public var Radius: ucpp.num.Float32;
+	public var OverlayArc: ucpp.num.Float32;
+	public var Height: ucpp.num.Int32;
 
-	public function SetRadius(InRadius: cpp.Float32): Void;
-	public function SetOverlayArc(InOverlayArc: cpp.Float32): Void;
-	public function SetHeight(InHeight: cpp.Int32): Void;
+	public function SetRadius(InRadius: ucpp.num.Float32): Void;
+	public function SetOverlayArc(InOverlayArc: ucpp.num.Float32): Void;
+	public function SetHeight(InHeight: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstStereoLayerShapeCylinder(StereoLayerShapeCylinder) from StereoLayerShapeCylinder {
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var OverlayArc(get, never): cpp.Float32;
-	public inline extern function get_OverlayArc(): cpp.Float32 return this.OverlayArc;
-	public extern var Height(get, never): cpp.Int32;
-	public inline extern function get_Height(): cpp.Int32 return this.Height;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
+	public extern var OverlayArc(get, never): ucpp.num.Float32;
+	public inline extern function get_OverlayArc(): ucpp.num.Float32 return this.OverlayArc;
+	public extern var Height(get, never): ucpp.num.Int32;
+	public inline extern function get_Height(): ucpp.num.Int32 return this.Height;
 }
 
 @:forward
 @:nativeGen
 @:native("StereoLayerShapeCylinder*")
-abstract StereoLayerShapeCylinderPtr(cpp.Star<StereoLayerShapeCylinder>) from cpp.Star<StereoLayerShapeCylinder> to cpp.Star<StereoLayerShapeCylinder>{
+abstract StereoLayerShapeCylinderPtr(ucpp.Ptr<StereoLayerShapeCylinder>) from ucpp.Ptr<StereoLayerShapeCylinder> to ucpp.Ptr<StereoLayerShapeCylinder>{
 	@:from
 	public static extern inline function fromValue(v: StereoLayerShapeCylinder): StereoLayerShapeCylinderPtr {
 		return untyped __cpp__("&({0})", v);

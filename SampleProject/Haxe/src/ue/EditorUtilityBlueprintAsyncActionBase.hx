@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorUtilityBlueprintAsyncActionBase")
 @:include("EditorUtilityLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityBlueprintAsyncActionBase extends BlueprintAsyncActionBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorUtilityBlueprintAsyncActionBase(EditorUtilityBlueprintAsyncA
 @:forward
 @:nativeGen
 @:native("EditorUtilityBlueprintAsyncActionBase*")
-abstract EditorUtilityBlueprintAsyncActionBasePtr(cpp.Star<EditorUtilityBlueprintAsyncActionBase>) from cpp.Star<EditorUtilityBlueprintAsyncActionBase> to cpp.Star<EditorUtilityBlueprintAsyncActionBase>{
+abstract EditorUtilityBlueprintAsyncActionBasePtr(ucpp.Ptr<EditorUtilityBlueprintAsyncActionBase>) from ucpp.Ptr<EditorUtilityBlueprintAsyncActionBase> to ucpp.Ptr<EditorUtilityBlueprintAsyncActionBase>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityBlueprintAsyncActionBase): EditorUtilityBlueprintAsyncActionBasePtr {
 		return untyped __cpp__("&({0})", v);

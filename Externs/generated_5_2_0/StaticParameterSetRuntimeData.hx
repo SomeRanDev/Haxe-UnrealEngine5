@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStaticParameterSetRuntimeData")
 @:include("StaticParameterSet.h")
-@:structAccess
+@:valueType
 extern class StaticParameterSetRuntimeData {
 	public var StaticSwitchParameters: TArray<StaticSwitchParameter>;
 	public var MaterialLayers: MaterialLayersFunctionsRuntimeData;

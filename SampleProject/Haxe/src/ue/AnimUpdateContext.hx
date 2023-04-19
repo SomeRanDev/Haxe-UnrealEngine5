@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimUpdateContext")
 @:include("Animation/AnimExecutionContext.h")
-@:structAccess
+@:valueType
 extern class AnimUpdateContext extends AnimExecutionContext {
 	@:native("FAnimUpdateContext") public function new();
 }

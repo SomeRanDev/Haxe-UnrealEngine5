@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNiagaraPhysicsAssetDICollectorInterface")
-@:structAccess
+@:valueType
 extern class NiagaraPhysicsAssetDICollectorInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNiagaraPhysicsAssetDICollectorInterface(NiagaraPhysicsAssetDIColle
 @:forward
 @:nativeGen
 @:native("NiagaraPhysicsAssetDICollectorInterface*")
-abstract NiagaraPhysicsAssetDICollectorInterfacePtr(cpp.Star<NiagaraPhysicsAssetDICollectorInterface>) from cpp.Star<NiagaraPhysicsAssetDICollectorInterface> to cpp.Star<NiagaraPhysicsAssetDICollectorInterface>{
+abstract NiagaraPhysicsAssetDICollectorInterfacePtr(ucpp.Ptr<NiagaraPhysicsAssetDICollectorInterface>) from ucpp.Ptr<NiagaraPhysicsAssetDICollectorInterface> to ucpp.Ptr<NiagaraPhysicsAssetDICollectorInterface>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPhysicsAssetDICollectorInterface): NiagaraPhysicsAssetDICollectorInterfacePtr {
 		return untyped __cpp__("&({0})", v);

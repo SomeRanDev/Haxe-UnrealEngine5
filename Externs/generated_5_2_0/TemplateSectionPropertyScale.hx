@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTemplateSectionPropertyScale")
 @:include("Sections/TemplateSequenceSection.h")
-@:structAccess
+@:valueType
 extern class TemplateSectionPropertyScale {
 	public var ObjectBinding: Guid;
 	public var PropertyBinding: MovieScenePropertyBinding;

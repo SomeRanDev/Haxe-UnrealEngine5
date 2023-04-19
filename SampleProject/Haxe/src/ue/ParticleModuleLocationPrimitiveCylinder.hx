@@ -3,14 +3,14 @@ package ue;
 
 @:native("UParticleModuleLocationPrimitiveCylinder")
 @:include("Particles/Location/ParticleModuleLocationPrimitiveCylinder.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocationPrimitiveCylinder extends ParticleModuleLocationPrimitiveBase {
 	public var RadialVelocity: Bool;
 	public var StartRadius: RawDistributionFloat;
 	public var StartHeight: RawDistributionFloat;
 	public var HeightAxis: TEnumAsByte<CylinderHeightAxis>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstParticleModuleLocationPrimitiveCylinder(ParticleModuleLocationPrim
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocationPrimitiveCylinder*")
-abstract ParticleModuleLocationPrimitiveCylinderPtr(cpp.Star<ParticleModuleLocationPrimitiveCylinder>) from cpp.Star<ParticleModuleLocationPrimitiveCylinder> to cpp.Star<ParticleModuleLocationPrimitiveCylinder>{
+abstract ParticleModuleLocationPrimitiveCylinderPtr(ucpp.Ptr<ParticleModuleLocationPrimitiveCylinder>) from ucpp.Ptr<ParticleModuleLocationPrimitiveCylinder> to ucpp.Ptr<ParticleModuleLocationPrimitiveCylinder>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocationPrimitiveCylinder): ParticleModuleLocationPrimitiveCylinderPtr {
 		return untyped __cpp__("&({0})", v);

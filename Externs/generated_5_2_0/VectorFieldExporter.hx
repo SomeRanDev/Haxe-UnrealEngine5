@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVectorFieldExporter")
 @:include("Exporters/VectorFieldExporter.h")
-@:structAccess
+@:valueType
 extern class VectorFieldExporter extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVectorFieldExporter(VectorFieldExporter) from VectorFieldExporter 
 @:forward
 @:nativeGen
 @:native("VectorFieldExporter*")
-abstract VectorFieldExporterPtr(cpp.Star<VectorFieldExporter>) from cpp.Star<VectorFieldExporter> to cpp.Star<VectorFieldExporter>{
+abstract VectorFieldExporterPtr(ucpp.Ptr<VectorFieldExporter>) from ucpp.Ptr<VectorFieldExporter> to ucpp.Ptr<VectorFieldExporter>{
 	@:from
 	public static extern inline function fromValue(v: VectorFieldExporter): VectorFieldExporterPtr {
 		return untyped __cpp__("&({0})", v);

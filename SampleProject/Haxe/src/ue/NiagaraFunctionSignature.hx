@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraFunctionSignature")
 @:include("NiagaraCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraFunctionSignature {
 	public var Name: FName;
 	public var Inputs: TArray<NiagaraVariable>;
@@ -16,11 +16,14 @@ extern class NiagaraFunctionSignature {
 	public var bSupportsCPU: Bool;
 	public var bSupportsGPU: Bool;
 	public var bWriteFunction: Bool;
+	public var bReadFunction: Bool;
 	public var bSoftDeprecatedFunction: Bool;
 	public var bIsCompileTagGenerator: Bool;
 	public var bHidden: Bool;
-	public var ModuleUsageBitmask: cpp.Int32;
-	public var ContextStageIndex: cpp.Int32;
+	public var ModuleUsageBitmask: ucpp.num.Int32;
+	public var ContextStageIndex: ucpp.num.Int32;
+	public var RequiredInputs: ucpp.num.Int16;
+	public var RequiredOutputs: ucpp.num.Int16;
 	public var FunctionSpecifiers: TMap<FName, FName>;
 
 	@:native("FNiagaraFunctionSignature") public function new();

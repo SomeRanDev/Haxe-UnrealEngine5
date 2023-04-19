@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDistributionVector")
 @:include("Distributions/DistributionVector.h")
-@:structAccess
+@:valueType
 extern class DistributionVector extends Distribution {
 	public var bCanBeBaked: Bool;
 	public var bIsDirty: Bool;
 	@:protected public var bBakedDataSuccesfully: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstDistributionVector(DistributionVector) from DistributionVector {
 @:forward
 @:nativeGen
 @:native("DistributionVector*")
-abstract DistributionVectorPtr(cpp.Star<DistributionVector>) from cpp.Star<DistributionVector> to cpp.Star<DistributionVector>{
+abstract DistributionVectorPtr(ucpp.Ptr<DistributionVector>) from ucpp.Ptr<DistributionVector> to ucpp.Ptr<DistributionVector>{
 	@:from
 	public static extern inline function fromValue(v: DistributionVector): DistributionVectorPtr {
 		return untyped __cpp__("&({0})", v);

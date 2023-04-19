@@ -3,14 +3,14 @@ package ue;
 
 @:native("UHardwareTargetingSettings")
 @:include("HardwareTargetingSettings.h")
-@:structAccess
+@:valueType
 extern class HardwareTargetingSettings extends Object {
 	public var TargetedHardwareClass: EHardwareClass;
 	public var AppliedTargetedHardwareClass: EHardwareClass;
 	public var DefaultGraphicsPerformance: EGraphicsPreset;
 	public var AppliedDefaultGraphicsPerformance: EGraphicsPreset;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstHardwareTargetingSettings(HardwareTargetingSettings) from Hardware
 @:forward
 @:nativeGen
 @:native("HardwareTargetingSettings*")
-abstract HardwareTargetingSettingsPtr(cpp.Star<HardwareTargetingSettings>) from cpp.Star<HardwareTargetingSettings> to cpp.Star<HardwareTargetingSettings>{
+abstract HardwareTargetingSettingsPtr(ucpp.Ptr<HardwareTargetingSettings>) from ucpp.Ptr<HardwareTargetingSettings> to ucpp.Ptr<HardwareTargetingSettings>{
 	@:from
 	public static extern inline function fromValue(v: HardwareTargetingSettings): HardwareTargetingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

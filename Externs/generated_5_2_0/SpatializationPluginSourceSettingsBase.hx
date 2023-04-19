@@ -3,10 +3,10 @@ package ue;
 
 @:native("USpatializationPluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
-@:structAccess
+@:valueType
 extern class SpatializationPluginSourceSettingsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSpatializationPluginSourceSettingsBase(SpatializationPluginSourceS
 @:forward
 @:nativeGen
 @:native("SpatializationPluginSourceSettingsBase*")
-abstract SpatializationPluginSourceSettingsBasePtr(cpp.Star<SpatializationPluginSourceSettingsBase>) from cpp.Star<SpatializationPluginSourceSettingsBase> to cpp.Star<SpatializationPluginSourceSettingsBase>{
+abstract SpatializationPluginSourceSettingsBasePtr(ucpp.Ptr<SpatializationPluginSourceSettingsBase>) from ucpp.Ptr<SpatializationPluginSourceSettingsBase> to ucpp.Ptr<SpatializationPluginSourceSettingsBase>{
 	@:from
 	public static extern inline function fromValue(v: SpatializationPluginSourceSettingsBase): SpatializationPluginSourceSettingsBasePtr {
 		return untyped __cpp__("&({0})", v);

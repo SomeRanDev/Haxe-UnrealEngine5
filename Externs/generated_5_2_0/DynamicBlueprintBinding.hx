@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDynamicBlueprintBinding")
 @:include("Engine/DynamicBlueprintBinding.h")
-@:structAccess
+@:valueType
 extern class DynamicBlueprintBinding extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDynamicBlueprintBinding(DynamicBlueprintBinding) from DynamicBluep
 @:forward
 @:nativeGen
 @:native("DynamicBlueprintBinding*")
-abstract DynamicBlueprintBindingPtr(cpp.Star<DynamicBlueprintBinding>) from cpp.Star<DynamicBlueprintBinding> to cpp.Star<DynamicBlueprintBinding>{
+abstract DynamicBlueprintBindingPtr(ucpp.Ptr<DynamicBlueprintBinding>) from ucpp.Ptr<DynamicBlueprintBinding> to ucpp.Ptr<DynamicBlueprintBinding>{
 	@:from
 	public static extern inline function fromValue(v: DynamicBlueprintBinding): DynamicBlueprintBindingPtr {
 		return untyped __cpp__("&({0})", v);

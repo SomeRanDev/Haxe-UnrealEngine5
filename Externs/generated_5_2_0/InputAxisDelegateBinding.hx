@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputAxisDelegateBinding")
 @:include("Engine/InputAxisDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class InputAxisDelegateBinding extends InputDelegateBinding {
 	public var InputAxisDelegateBindings: TArray<BlueprintInputAxisDelegateBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputAxisDelegateBinding(InputAxisDelegateBinding) from InputAxisD
 @:forward
 @:nativeGen
 @:native("InputAxisDelegateBinding*")
-abstract InputAxisDelegateBindingPtr(cpp.Star<InputAxisDelegateBinding>) from cpp.Star<InputAxisDelegateBinding> to cpp.Star<InputAxisDelegateBinding>{
+abstract InputAxisDelegateBindingPtr(ucpp.Ptr<InputAxisDelegateBinding>) from ucpp.Ptr<InputAxisDelegateBinding> to ucpp.Ptr<InputAxisDelegateBinding>{
 	@:from
 	public static extern inline function fromValue(v: InputAxisDelegateBinding): InputAxisDelegateBindingPtr {
 		return untyped __cpp__("&({0})", v);

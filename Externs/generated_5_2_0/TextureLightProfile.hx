@@ -3,27 +3,27 @@ package ue;
 
 @:native("UTextureLightProfile")
 @:include("Engine/TextureLightProfile.h")
-@:structAccess
+@:valueType
 extern class TextureLightProfile extends Texture2D {
-	public var Brightness: cpp.Float32;
-	public var TextureMultiplier: cpp.Float32;
+	public var Brightness: ucpp.num.Float32;
+	public var TextureMultiplier: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureLightProfile(TextureLightProfile) from TextureLightProfile {
-	public extern var Brightness(get, never): cpp.Float32;
-	public inline extern function get_Brightness(): cpp.Float32 return this.Brightness;
-	public extern var TextureMultiplier(get, never): cpp.Float32;
-	public inline extern function get_TextureMultiplier(): cpp.Float32 return this.TextureMultiplier;
+	public extern var Brightness(get, never): ucpp.num.Float32;
+	public inline extern function get_Brightness(): ucpp.num.Float32 return this.Brightness;
+	public extern var TextureMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_TextureMultiplier(): ucpp.num.Float32 return this.TextureMultiplier;
 }
 
 @:forward
 @:nativeGen
 @:native("TextureLightProfile*")
-abstract TextureLightProfilePtr(cpp.Star<TextureLightProfile>) from cpp.Star<TextureLightProfile> to cpp.Star<TextureLightProfile>{
+abstract TextureLightProfilePtr(ucpp.Ptr<TextureLightProfile>) from ucpp.Ptr<TextureLightProfile> to ucpp.Ptr<TextureLightProfile>{
 	@:from
 	public static extern inline function fromValue(v: TextureLightProfile): TextureLightProfilePtr {
 		return untyped __cpp__("&({0})", v);

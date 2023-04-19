@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimNodeStructData")
 @:include("Animation/AnimNodeData.h")
-@:structAccess
+@:valueType
 extern class AnimNodeStructData {
-	private var NameToIndexMap: TMap<FName, cpp.Int32>;
-	private var NumProperties: cpp.Int32;
+	private var NameToIndexMap: TMap<FName, ucpp.num.Int32>;
+	private var NumProperties: ucpp.num.Int32;
 
 	@:native("FAnimNodeStructData") public function new();
-	@:native("FAnimNodeStructData") public static function make(NameToIndexMap: TMap<FName, cpp.Int32>, NumProperties: cpp.Int32): AnimNodeStructData ;
+	@:native("FAnimNodeStructData") public static function make(NameToIndexMap: TMap<FName, ucpp.num.Int32>, NumProperties: ucpp.num.Int32): AnimNodeStructData ;
 }

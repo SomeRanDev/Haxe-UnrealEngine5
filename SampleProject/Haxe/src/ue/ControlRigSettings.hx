@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigSettings")
 @:include("Settings/ControlRigSettings.h")
-@:structAccess
+@:valueType
 extern class ControlRigSettings extends DeveloperSettings {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigSettings(ControlRigSettings) from ControlRigSettings {
 @:forward
 @:nativeGen
 @:native("ControlRigSettings*")
-abstract ControlRigSettingsPtr(cpp.Star<ControlRigSettings>) from cpp.Star<ControlRigSettings> to cpp.Star<ControlRigSettings>{
+abstract ControlRigSettingsPtr(ucpp.Ptr<ControlRigSettings>) from ucpp.Ptr<ControlRigSettings> to ucpp.Ptr<ControlRigSettings>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigSettings): ControlRigSettingsPtr {
 		return untyped __cpp__("&({0})", v);

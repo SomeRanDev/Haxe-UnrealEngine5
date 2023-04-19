@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWeightAndEasingEvaluatorSystem")
 @:include("Systems/WeightAndEasingEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class WeightAndEasingEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWeightAndEasingEvaluatorSystem(WeightAndEasingEvaluatorSystem) fro
 @:forward
 @:nativeGen
 @:native("WeightAndEasingEvaluatorSystem*")
-abstract WeightAndEasingEvaluatorSystemPtr(cpp.Star<WeightAndEasingEvaluatorSystem>) from cpp.Star<WeightAndEasingEvaluatorSystem> to cpp.Star<WeightAndEasingEvaluatorSystem>{
+abstract WeightAndEasingEvaluatorSystemPtr(ucpp.Ptr<WeightAndEasingEvaluatorSystem>) from ucpp.Ptr<WeightAndEasingEvaluatorSystem> to ucpp.Ptr<WeightAndEasingEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: WeightAndEasingEvaluatorSystem): WeightAndEasingEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

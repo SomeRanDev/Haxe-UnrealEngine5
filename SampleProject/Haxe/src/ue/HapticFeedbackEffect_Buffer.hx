@@ -3,27 +3,27 @@ package ue;
 
 @:native("UHapticFeedbackEffect_Buffer")
 @:include("Haptics/HapticFeedbackEffect_Buffer.h")
-@:structAccess
+@:valueType
 extern class HapticFeedbackEffect_Buffer extends HapticFeedbackEffect_Base {
-	public var Amplitudes: TArray<cpp.UInt8>;
-	public var SampleRate: cpp.Int32;
+	public var Amplitudes: TArray<ucpp.num.UInt8>;
+	public var SampleRate: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstHapticFeedbackEffect_Buffer(HapticFeedbackEffect_Buffer) from HapticFeedbackEffect_Buffer {
-	public extern var Amplitudes(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_Amplitudes(): TArray<cpp.UInt8> return this.Amplitudes;
-	public extern var SampleRate(get, never): cpp.Int32;
-	public inline extern function get_SampleRate(): cpp.Int32 return this.SampleRate;
+	public extern var Amplitudes(get, never): TArray<ucpp.num.UInt8>;
+	public inline extern function get_Amplitudes(): TArray<ucpp.num.UInt8> return this.Amplitudes;
+	public extern var SampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_SampleRate(): ucpp.num.Int32 return this.SampleRate;
 }
 
 @:forward
 @:nativeGen
 @:native("HapticFeedbackEffect_Buffer*")
-abstract HapticFeedbackEffect_BufferPtr(cpp.Star<HapticFeedbackEffect_Buffer>) from cpp.Star<HapticFeedbackEffect_Buffer> to cpp.Star<HapticFeedbackEffect_Buffer>{
+abstract HapticFeedbackEffect_BufferPtr(ucpp.Ptr<HapticFeedbackEffect_Buffer>) from ucpp.Ptr<HapticFeedbackEffect_Buffer> to ucpp.Ptr<HapticFeedbackEffect_Buffer>{
 	@:from
 	public static extern inline function fromValue(v: HapticFeedbackEffect_Buffer): HapticFeedbackEffect_BufferPtr {
 		return untyped __cpp__("&({0})", v);

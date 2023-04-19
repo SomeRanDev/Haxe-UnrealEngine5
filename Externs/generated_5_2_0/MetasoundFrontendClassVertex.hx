@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendClassVertex")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendClassVertex extends MetasoundFrontendVertex {
 	public var NodeID: Guid;
 	public var AccessType: EMetasoundFrontendVertexAccessType;

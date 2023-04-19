@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAnimationGraphSchema")
 @:include("AnimationGraphSchema.h")
-@:structAccess
+@:valueType
 extern class AnimationGraphSchema extends EdGraphSchema_K2 {
 	public var PN_SequenceName: FString;
 	public var NAME_NeverAsPin: FName;
@@ -14,7 +14,7 @@ extern class AnimationGraphSchema extends EdGraphSchema_K2 {
 	public var NAME_OnEvaluate: FName;
 	public var DefaultEvaluationHandlerName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstAnimationGraphSchema(AnimationGraphSchema) from AnimationGraphSche
 @:forward
 @:nativeGen
 @:native("AnimationGraphSchema*")
-abstract AnimationGraphSchemaPtr(cpp.Star<AnimationGraphSchema>) from cpp.Star<AnimationGraphSchema> to cpp.Star<AnimationGraphSchema>{
+abstract AnimationGraphSchemaPtr(ucpp.Ptr<AnimationGraphSchema>) from ucpp.Ptr<AnimationGraphSchema> to ucpp.Ptr<AnimationGraphSchema>{
 	@:from
 	public static extern inline function fromValue(v: AnimationGraphSchema): AnimationGraphSchemaPtr {
 		return untyped __cpp__("&({0})", v);

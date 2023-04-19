@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraSystemScalabilityViewModel")
 @:include("ViewModels/NiagaraSystemScalabilityViewModel.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemScalabilityViewModel extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraSystemScalabilityViewModel(NiagaraSystemScalabilityViewMode
 @:forward
 @:nativeGen
 @:native("NiagaraSystemScalabilityViewModel*")
-abstract NiagaraSystemScalabilityViewModelPtr(cpp.Star<NiagaraSystemScalabilityViewModel>) from cpp.Star<NiagaraSystemScalabilityViewModel> to cpp.Star<NiagaraSystemScalabilityViewModel>{
+abstract NiagaraSystemScalabilityViewModelPtr(ucpp.Ptr<NiagaraSystemScalabilityViewModel>) from ucpp.Ptr<NiagaraSystemScalabilityViewModel> to ucpp.Ptr<NiagaraSystemScalabilityViewModel>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSystemScalabilityViewModel): NiagaraSystemScalabilityViewModelPtr {
 		return untyped __cpp__("&({0})", v);

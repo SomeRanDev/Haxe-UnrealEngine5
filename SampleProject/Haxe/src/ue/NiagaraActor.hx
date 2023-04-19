@@ -3,15 +3,15 @@ package ue;
 
 @:native("ANiagaraActor")
 @:include("NiagaraActor.h")
-@:structAccess
+@:valueType
 extern class NiagaraActor extends Actor {
-	private var NiagaraComponent: cpp.Star<NiagaraComp>;
+	private var NiagaraComponent: ucpp.Ptr<NiagaraComp>;
 	private var bDestroyOnSystemFinish: Bool;
 
 	public function SetDestroyOnSystemFinish(bShouldDestroyOnSystemFinish: Bool): Void;
-	private function OnNiagaraSystemFinished(FinishedComponent: cpp.Star<NiagaraComp>): Void;
+	private function OnNiagaraSystemFinished(FinishedComponent: ucpp.Ptr<NiagaraComp>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstNiagaraActor(NiagaraActor) from NiagaraActor {
 @:forward
 @:nativeGen
 @:native("NiagaraActor*")
-abstract NiagaraActorPtr(cpp.Star<NiagaraActor>) from cpp.Star<NiagaraActor> to cpp.Star<NiagaraActor>{
+abstract NiagaraActorPtr(ucpp.Ptr<NiagaraActor>) from ucpp.Ptr<NiagaraActor> to ucpp.Ptr<NiagaraActor>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraActor): NiagaraActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnvQueryItemType_Direction")
 @:include("EnvironmentQuery/Items/EnvQueryItemType_Direction.h")
-@:structAccess
+@:valueType
 extern class EnvQueryItemType_Direction extends EnvQueryItemType_VectorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnvQueryItemType_Direction(EnvQueryItemType_Direction) from EnvQue
 @:forward
 @:nativeGen
 @:native("EnvQueryItemType_Direction*")
-abstract EnvQueryItemType_DirectionPtr(cpp.Star<EnvQueryItemType_Direction>) from cpp.Star<EnvQueryItemType_Direction> to cpp.Star<EnvQueryItemType_Direction>{
+abstract EnvQueryItemType_DirectionPtr(ucpp.Ptr<EnvQueryItemType_Direction>) from ucpp.Ptr<EnvQueryItemType_Direction> to ucpp.Ptr<EnvQueryItemType_Direction>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryItemType_Direction): EnvQueryItemType_DirectionPtr {
 		return untyped __cpp__("&({0})", v);

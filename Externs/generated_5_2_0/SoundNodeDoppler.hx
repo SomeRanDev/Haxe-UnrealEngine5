@@ -3,30 +3,30 @@ package ue;
 
 @:native("USoundNodeDoppler")
 @:include("Sound/SoundNodeDoppler.h")
-@:structAccess
+@:valueType
 extern class SoundNodeDoppler extends SoundNode {
-	public var DopplerIntensity: cpp.Float32;
+	public var DopplerIntensity: ucpp.num.Float32;
 	public var bUseSmoothing: Bool;
-	public var SmoothingInterpSpeed: cpp.Float32;
+	public var SmoothingInterpSpeed: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeDoppler(SoundNodeDoppler) from SoundNodeDoppler {
-	public extern var DopplerIntensity(get, never): cpp.Float32;
-	public inline extern function get_DopplerIntensity(): cpp.Float32 return this.DopplerIntensity;
+	public extern var DopplerIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_DopplerIntensity(): ucpp.num.Float32 return this.DopplerIntensity;
 	public extern var bUseSmoothing(get, never): Bool;
 	public inline extern function get_bUseSmoothing(): Bool return this.bUseSmoothing;
-	public extern var SmoothingInterpSpeed(get, never): cpp.Float32;
-	public inline extern function get_SmoothingInterpSpeed(): cpp.Float32 return this.SmoothingInterpSpeed;
+	public extern var SmoothingInterpSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothingInterpSpeed(): ucpp.num.Float32 return this.SmoothingInterpSpeed;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeDoppler*")
-abstract SoundNodeDopplerPtr(cpp.Star<SoundNodeDoppler>) from cpp.Star<SoundNodeDoppler> to cpp.Star<SoundNodeDoppler>{
+abstract SoundNodeDopplerPtr(ucpp.Ptr<SoundNodeDoppler>) from ucpp.Ptr<SoundNodeDoppler> to ucpp.Ptr<SoundNodeDoppler>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeDoppler): SoundNodeDopplerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMeterChannelInfo")
 @:include("AudioMeterTypes.h")
-@:structAccess
+@:valueType
 extern class MeterChannelInfo {
-	public var MeterValue: cpp.Float32;
-	public var PeakValue: cpp.Float32;
-	public var ClippingValue: cpp.Float32;
+	public var MeterValue: ucpp.num.Float32;
+	public var PeakValue: ucpp.num.Float32;
+	public var ClippingValue: ucpp.num.Float32;
 
 	@:native("FMeterChannelInfo") public function new();
-	@:native("FMeterChannelInfo") public static function make(MeterValue: cpp.Float32, PeakValue: cpp.Float32, ClippingValue: cpp.Float32): MeterChannelInfo ;
+	@:native("FMeterChannelInfo") public static function make(MeterValue: ucpp.num.Float32, PeakValue: ucpp.num.Float32, ClippingValue: ucpp.num.Float32): MeterChannelInfo ;
 }

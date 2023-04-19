@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMaterialGraphNode_Composite")
 @:include("MaterialGraph/MaterialGraphNode_Composite.h")
-@:structAccess
+@:valueType
 extern class MaterialGraphNode_Composite extends MaterialGraphNode {
-	public var BoundGraph: cpp.Star<MaterialGraph>;
+	public var BoundGraph: ucpp.Ptr<MaterialGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialGraphNode_Composite(MaterialGraphNode_Composite) from MaterialGraphNode_Composite {
-	public extern var BoundGraph(get, never): cpp.Star<MaterialGraph.ConstMaterialGraph>;
-	public inline extern function get_BoundGraph(): cpp.Star<MaterialGraph.ConstMaterialGraph> return this.BoundGraph;
+	public extern var BoundGraph(get, never): ucpp.Ptr<MaterialGraph.ConstMaterialGraph>;
+	public inline extern function get_BoundGraph(): ucpp.Ptr<MaterialGraph.ConstMaterialGraph> return this.BoundGraph;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialGraphNode_Composite*")
-abstract MaterialGraphNode_CompositePtr(cpp.Star<MaterialGraphNode_Composite>) from cpp.Star<MaterialGraphNode_Composite> to cpp.Star<MaterialGraphNode_Composite>{
+abstract MaterialGraphNode_CompositePtr(ucpp.Ptr<MaterialGraphNode_Composite>) from ucpp.Ptr<MaterialGraphNode_Composite> to ucpp.Ptr<MaterialGraphNode_Composite>{
 	@:from
 	public static extern inline function fromValue(v: MaterialGraphNode_Composite): MaterialGraphNode_CompositePtr {
 		return untyped __cpp__("&({0})", v);

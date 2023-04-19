@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAbcCompressionSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcCompressionSettings {
 	public var bMergeMeshes: Bool;
 	public var bBakeMatrixAnimation: Bool;
 	public var BaseCalculationType: EBaseCalculationType;
-	public var PercentageOfTotalBases: cpp.Float32;
-	public var MaxNumberOfBases: cpp.Int32;
-	public var MinimumNumberOfVertexInfluencePercentage: cpp.Float32;
+	public var PercentageOfTotalBases: ucpp.num.Float32;
+	public var MaxNumberOfBases: ucpp.num.Int32;
+	public var MinimumNumberOfVertexInfluencePercentage: ucpp.num.Float32;
 
 	@:native("FAbcCompressionSettings") public function new();
 }

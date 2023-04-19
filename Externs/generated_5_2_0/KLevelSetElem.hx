@@ -3,7 +3,7 @@ package ue;
 
 @:native("FKLevelSetElem")
 @:include("PhysicsEngine/LevelSetElem.h")
-@:structAccess
+@:valueType
 extern class KLevelSetElem extends KShapeElem {
 	private var Transform: Transform;
 

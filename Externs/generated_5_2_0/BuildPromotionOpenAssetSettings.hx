@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBuildPromotionOpenAssetSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class BuildPromotionOpenAssetSettings {
 	public var BlueprintAsset: FilePath;
 	public var MaterialAsset: FilePath;

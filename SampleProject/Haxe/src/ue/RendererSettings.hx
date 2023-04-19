@@ -3,21 +3,20 @@ package ue;
 
 @:native("URendererSettings")
 @:include("Engine/RendererSettings.h")
-@:structAccess
+@:valueType
 extern class RendererSettings extends DeveloperSettings {
-	public var bMobileDisableVertexFog: Bool;
-	public var MaxMobileCascades: cpp.Int32;
+	public var MobileShadingPath: TEnumAsByte<EMobileShadingPath>;
+	public var bMobileSupportGPUScene: Bool;
 	public var MobileAntiAliasing: TEnumAsByte<EMobileAntiAliasingMethod>;
 	public var MobileFloatPrecisionMode: TEnumAsByte<EMobileFloatPrecisionMode>;
 	public var bMobileAllowDitheredLODTransition: Bool;
 	public var bMobileVirtualTextures: Bool;
-	public var bReflectionCaptureCompression: Bool;
 	public var bDiscardUnusedQualityLevels: Bool;
 	public var ShaderCompressionFormat: TEnumAsByte<EShaderCompressionFormat>;
 	public var bOcclusionCulling: Bool;
-	public var MinScreenRadiusForLights: cpp.Float32;
-	public var MinScreenRadiusForEarlyZPass: cpp.Float32;
-	public var MinScreenRadiusForCSMdepth: cpp.Float32;
+	public var MinScreenRadiusForLights: ucpp.num.Float32;
+	public var MinScreenRadiusForEarlyZPass: ucpp.num.Float32;
+	public var MinScreenRadiusForCSMdepth: ucpp.num.Float32;
 	public var bPrecomputedVisibilityWarning: Bool;
 	public var bTextureStreaming: Bool;
 	public var bUseDXT5NormalMaps: Bool;
@@ -25,9 +24,10 @@ extern class RendererSettings extends DeveloperSettings {
 	public var bVirtualTextureEnableAutoImport: Bool;
 	public var bVirtualTexturedLightmaps: Bool;
 	public var bVirtualTextureAnisotropicFiltering: Bool;
-	public var VirtualTextureTileSize: cpp.UInt32;
-	public var VirtualTextureTileBorderSize: cpp.UInt32;
-	public var VirtualTextureFeedbackFactor: cpp.UInt32;
+	public var bEnableVirtualTextureOpacityMask: Bool;
+	public var VirtualTextureTileSize: ucpp.num.UInt32;
+	public var VirtualTextureTileBorderSize: ucpp.num.UInt32;
+	public var VirtualTextureFeedbackFactor: ucpp.num.UInt32;
 	public var WorkingColorSpaceChoice: TEnumAsByte<EWorkingColorSpace>;
 	public var RedChromaticityCoordinate: Vector2D;
 	public var GreenChromaticityCoordinate: Vector2D;
@@ -36,10 +36,11 @@ extern class RendererSettings extends DeveloperSettings {
 	public var bClearCoatEnableSecondNormal: Bool;
 	public var DynamicGlobalIllumination: TEnumAsByte<EDynamicGlobalIlluminationMethod>;
 	public var Reflections: TEnumAsByte<EReflectionMethod>;
-	public var ReflectionCaptureResolution: cpp.Int32;
+	public var ReflectionCaptureResolution: ucpp.num.Int32;
 	public var ReflectionEnvironmentLightmapMixBasedOnRoughness: Bool;
 	public var bUseHardwareRayTracingForLumen: Bool;
 	public var LumenRayLightingMode: ELumenRayLightingMode;
+	public var LumenFrontLayerTranslucencyReflections: Bool;
 	public var LumenSoftwareTracingMode: TEnumAsByte<ELumenSoftwareTracingMode>;
 	public var ShadowMapMethod: TEnumAsByte<EShadowMapMethod>;
 	public var bEnableRayTracing: Bool;
@@ -48,7 +49,8 @@ extern class RendererSettings extends DeveloperSettings {
 	public var bEnableRayTracingTextureLOD: Bool;
 	public var bEnablePathTracing: Bool;
 	public var bGenerateMeshDistanceFields: Bool;
-	public var DistanceFieldVoxelDensity: cpp.Float32;
+	public var DistanceFieldVoxelDensity: ucpp.num.Float32;
+	public var bNanite: Bool;
 	public var bAllowStaticLighting: Bool;
 	public var bUseNormalMapsForStaticLighting: Bool;
 	public var bForwardShading: Bool;
@@ -66,7 +68,7 @@ extern class RendererSettings extends DeveloperSettings {
 	public var bDefaultFeatureAmbientOcclusionStaticFraction: Bool;
 	public var bDefaultFeatureAutoExposure: Bool;
 	public var DefaultFeatureAutoExposure: TEnumAsByte<EAutoExposureMethodUI>;
-	public var DefaultFeatureAutoExposureBias: cpp.Float32;
+	public var DefaultFeatureAutoExposureBias: ucpp.num.Float32;
 	public var bExtendDefaultLuminanceRangeInAutoExposureSettings: Bool;
 	public var bDefaultFeatureMotionBlur: Bool;
 	public var bDefaultFeatureLensFlare: Bool;
@@ -86,8 +88,8 @@ extern class RendererSettings extends DeveloperSettings {
 	public var VertexDeformationOutputsVelocity: TEnumAsByte<EVertexDeformationOutputsVelocity>;
 	public var bSelectiveBasePassOutputs: Bool;
 	public var bDefaultParticleCutouts: Bool;
-	public var GPUSimulationTextureSizeX: cpp.Int32;
-	public var GPUSimulationTextureSizeY: cpp.Int32;
+	public var GPUSimulationTextureSizeX: ucpp.num.Int32;
+	public var GPUSimulationTextureSizeY: ucpp.num.Int32;
 	public var bGlobalClipPlane: Bool;
 	public var GBufferFormat: TEnumAsByte<EGBufferFormat>;
 	public var bUseGPUMorphTargets: Bool;
@@ -97,27 +99,34 @@ extern class RendererSettings extends DeveloperSettings {
 	public var bMobileMultiView: Bool;
 	public var bMobileUseHWsRGBEncoding: Bool;
 	public var bRoundRobinOcclusion: Bool;
-	public var bODSCapture: Bool;
 	public var bMeshStreaming: Bool;
-	public var WireframeCullThreshold: cpp.Float32;
+	public var bEnableHeterogeneousVolumes: Bool;
+	public var WireframeCullThreshold: ucpp.num.Float32;
 	public var bSupportStationarySkylight: Bool;
 	public var bSupportLowQualityLightmaps: Bool;
 	public var bSupportPointLightWholeSceneShadows: Bool;
 	public var bSupportSkyAtmosphere: Bool;
 	public var bSupportSkyAtmosphereAffectsHeightFog: Bool;
 	public var bSupportCloudShadowOnForwardLitTranslucent: Bool;
+	public var bSupportTranslucentPerObjectShadow: Bool;
+	public var bSupportCloudShadowOnSingleLayerWater: Bool;
+	public var bEnableStrata: Bool;
+	public var StrataOpaqueMaterialRoughRefraction: Bool;
+	public var StrataDebugAdvancedVisualizationShaders: Bool;
 	public var bMaterialRoughDiffuse: Bool;
 	public var bMaterialEnergyConservation: Bool;
+	public var bOrderedIndependentTransparencyEnable: Bool;
 	public var bSupportSkinCacheShaders: Bool;
+	public var bSkipCompilingGPUSkinVF: Bool;
 	public var DefaultSkinCacheBehavior: ESkinCacheDefaultBehavior;
-	public var SkinCacheSceneMemoryLimitInMB: cpp.Float32;
+	public var SkinCacheSceneMemoryLimitInMB: ucpp.num.Float32;
 	public var bMobileEnableStaticAndCSMShadowReceivers: Bool;
 	public var bMobileEnableMovableLightCSMShaderCulling: Bool;
+	public var bMobileForwardEnableLocalLights: Bool;
+	public var bMobileForwardEnableClusteredReflections: Bool;
 	public var bMobileEnableNoPrecomputedLightingCSMShader: Bool;
 	public var bMobileAllowDistanceFieldShadows: Bool;
 	public var bMobileAllowMovableDirectionalLights: Bool;
-	public var MobileNumDynamicPointLights: cpp.UInt32;
-	public var bMobileAllowMovableSpotlights: Bool;
 	public var bMobileAllowMovableSpotlightShadows: Bool;
 	public var bSupport16BitBoneIndex: Bool;
 	public var bGPUSkinLimit2BoneInfluences: Bool;
@@ -125,7 +134,8 @@ extern class RendererSettings extends DeveloperSettings {
 	public var bSupportReversedIndexBuffers: Bool;
 	public var bMobileAmbientOcclusion: Bool;
 	public var bUseUnlimitedBoneInfluences: Bool;
-	public var UnlimitedBonInfluencesThreshold: cpp.Int32;
+	public var UnlimitedBonInfluencesThreshold: ucpp.num.Int32;
+	public var DefaultBoneInfluenceLimit: PerPlatformInt;
 	public var MaxSkinBones: PerPlatformInt;
 	public var MobilePlanarReflectionMode: TEnumAsByte<EMobilePlanarReflectionMode>;
 	public var bMobileSupportsGen4TAA: Bool;
@@ -135,16 +145,16 @@ extern class RendererSettings extends DeveloperSettings {
 	public var VisualizeCalibrationCustomMaterialPath: SoftObjectPath;
 	public var VisualizeCalibrationGrayscaleMaterialPath: SoftObjectPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRendererSettings(RendererSettings) from RendererSettings {
-	public extern var bMobileDisableVertexFog(get, never): Bool;
-	public inline extern function get_bMobileDisableVertexFog(): Bool return this.bMobileDisableVertexFog;
-	public extern var MaxMobileCascades(get, never): cpp.Int32;
-	public inline extern function get_MaxMobileCascades(): cpp.Int32 return this.MaxMobileCascades;
+	public extern var MobileShadingPath(get, never): TEnumAsByte<EMobileShadingPath>;
+	public inline extern function get_MobileShadingPath(): TEnumAsByte<EMobileShadingPath> return this.MobileShadingPath;
+	public extern var bMobileSupportGPUScene(get, never): Bool;
+	public inline extern function get_bMobileSupportGPUScene(): Bool return this.bMobileSupportGPUScene;
 	public extern var MobileAntiAliasing(get, never): TEnumAsByte<EMobileAntiAliasingMethod>;
 	public inline extern function get_MobileAntiAliasing(): TEnumAsByte<EMobileAntiAliasingMethod> return this.MobileAntiAliasing;
 	public extern var MobileFloatPrecisionMode(get, never): TEnumAsByte<EMobileFloatPrecisionMode>;
@@ -153,20 +163,18 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bMobileAllowDitheredLODTransition(): Bool return this.bMobileAllowDitheredLODTransition;
 	public extern var bMobileVirtualTextures(get, never): Bool;
 	public inline extern function get_bMobileVirtualTextures(): Bool return this.bMobileVirtualTextures;
-	public extern var bReflectionCaptureCompression(get, never): Bool;
-	public inline extern function get_bReflectionCaptureCompression(): Bool return this.bReflectionCaptureCompression;
 	public extern var bDiscardUnusedQualityLevels(get, never): Bool;
 	public inline extern function get_bDiscardUnusedQualityLevels(): Bool return this.bDiscardUnusedQualityLevels;
 	public extern var ShaderCompressionFormat(get, never): TEnumAsByte<EShaderCompressionFormat>;
 	public inline extern function get_ShaderCompressionFormat(): TEnumAsByte<EShaderCompressionFormat> return this.ShaderCompressionFormat;
 	public extern var bOcclusionCulling(get, never): Bool;
 	public inline extern function get_bOcclusionCulling(): Bool return this.bOcclusionCulling;
-	public extern var MinScreenRadiusForLights(get, never): cpp.Float32;
-	public inline extern function get_MinScreenRadiusForLights(): cpp.Float32 return this.MinScreenRadiusForLights;
-	public extern var MinScreenRadiusForEarlyZPass(get, never): cpp.Float32;
-	public inline extern function get_MinScreenRadiusForEarlyZPass(): cpp.Float32 return this.MinScreenRadiusForEarlyZPass;
-	public extern var MinScreenRadiusForCSMdepth(get, never): cpp.Float32;
-	public inline extern function get_MinScreenRadiusForCSMdepth(): cpp.Float32 return this.MinScreenRadiusForCSMdepth;
+	public extern var MinScreenRadiusForLights(get, never): ucpp.num.Float32;
+	public inline extern function get_MinScreenRadiusForLights(): ucpp.num.Float32 return this.MinScreenRadiusForLights;
+	public extern var MinScreenRadiusForEarlyZPass(get, never): ucpp.num.Float32;
+	public inline extern function get_MinScreenRadiusForEarlyZPass(): ucpp.num.Float32 return this.MinScreenRadiusForEarlyZPass;
+	public extern var MinScreenRadiusForCSMdepth(get, never): ucpp.num.Float32;
+	public inline extern function get_MinScreenRadiusForCSMdepth(): ucpp.num.Float32 return this.MinScreenRadiusForCSMdepth;
 	public extern var bPrecomputedVisibilityWarning(get, never): Bool;
 	public inline extern function get_bPrecomputedVisibilityWarning(): Bool return this.bPrecomputedVisibilityWarning;
 	public extern var bTextureStreaming(get, never): Bool;
@@ -181,12 +189,14 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bVirtualTexturedLightmaps(): Bool return this.bVirtualTexturedLightmaps;
 	public extern var bVirtualTextureAnisotropicFiltering(get, never): Bool;
 	public inline extern function get_bVirtualTextureAnisotropicFiltering(): Bool return this.bVirtualTextureAnisotropicFiltering;
-	public extern var VirtualTextureTileSize(get, never): cpp.UInt32;
-	public inline extern function get_VirtualTextureTileSize(): cpp.UInt32 return this.VirtualTextureTileSize;
-	public extern var VirtualTextureTileBorderSize(get, never): cpp.UInt32;
-	public inline extern function get_VirtualTextureTileBorderSize(): cpp.UInt32 return this.VirtualTextureTileBorderSize;
-	public extern var VirtualTextureFeedbackFactor(get, never): cpp.UInt32;
-	public inline extern function get_VirtualTextureFeedbackFactor(): cpp.UInt32 return this.VirtualTextureFeedbackFactor;
+	public extern var bEnableVirtualTextureOpacityMask(get, never): Bool;
+	public inline extern function get_bEnableVirtualTextureOpacityMask(): Bool return this.bEnableVirtualTextureOpacityMask;
+	public extern var VirtualTextureTileSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_VirtualTextureTileSize(): ucpp.num.UInt32 return this.VirtualTextureTileSize;
+	public extern var VirtualTextureTileBorderSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_VirtualTextureTileBorderSize(): ucpp.num.UInt32 return this.VirtualTextureTileBorderSize;
+	public extern var VirtualTextureFeedbackFactor(get, never): ucpp.num.UInt32;
+	public inline extern function get_VirtualTextureFeedbackFactor(): ucpp.num.UInt32 return this.VirtualTextureFeedbackFactor;
 	public extern var WorkingColorSpaceChoice(get, never): TEnumAsByte<EWorkingColorSpace>;
 	public inline extern function get_WorkingColorSpaceChoice(): TEnumAsByte<EWorkingColorSpace> return this.WorkingColorSpaceChoice;
 	public extern var RedChromaticityCoordinate(get, never): Vector2D;
@@ -203,14 +213,16 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_DynamicGlobalIllumination(): TEnumAsByte<EDynamicGlobalIlluminationMethod> return this.DynamicGlobalIllumination;
 	public extern var Reflections(get, never): TEnumAsByte<EReflectionMethod>;
 	public inline extern function get_Reflections(): TEnumAsByte<EReflectionMethod> return this.Reflections;
-	public extern var ReflectionCaptureResolution(get, never): cpp.Int32;
-	public inline extern function get_ReflectionCaptureResolution(): cpp.Int32 return this.ReflectionCaptureResolution;
+	public extern var ReflectionCaptureResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_ReflectionCaptureResolution(): ucpp.num.Int32 return this.ReflectionCaptureResolution;
 	public extern var ReflectionEnvironmentLightmapMixBasedOnRoughness(get, never): Bool;
 	public inline extern function get_ReflectionEnvironmentLightmapMixBasedOnRoughness(): Bool return this.ReflectionEnvironmentLightmapMixBasedOnRoughness;
 	public extern var bUseHardwareRayTracingForLumen(get, never): Bool;
 	public inline extern function get_bUseHardwareRayTracingForLumen(): Bool return this.bUseHardwareRayTracingForLumen;
 	public extern var LumenRayLightingMode(get, never): ELumenRayLightingMode;
 	public inline extern function get_LumenRayLightingMode(): ELumenRayLightingMode return this.LumenRayLightingMode;
+	public extern var LumenFrontLayerTranslucencyReflections(get, never): Bool;
+	public inline extern function get_LumenFrontLayerTranslucencyReflections(): Bool return this.LumenFrontLayerTranslucencyReflections;
 	public extern var LumenSoftwareTracingMode(get, never): TEnumAsByte<ELumenSoftwareTracingMode>;
 	public inline extern function get_LumenSoftwareTracingMode(): TEnumAsByte<ELumenSoftwareTracingMode> return this.LumenSoftwareTracingMode;
 	public extern var ShadowMapMethod(get, never): TEnumAsByte<EShadowMapMethod>;
@@ -227,8 +239,10 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bEnablePathTracing(): Bool return this.bEnablePathTracing;
 	public extern var bGenerateMeshDistanceFields(get, never): Bool;
 	public inline extern function get_bGenerateMeshDistanceFields(): Bool return this.bGenerateMeshDistanceFields;
-	public extern var DistanceFieldVoxelDensity(get, never): cpp.Float32;
-	public inline extern function get_DistanceFieldVoxelDensity(): cpp.Float32 return this.DistanceFieldVoxelDensity;
+	public extern var DistanceFieldVoxelDensity(get, never): ucpp.num.Float32;
+	public inline extern function get_DistanceFieldVoxelDensity(): ucpp.num.Float32 return this.DistanceFieldVoxelDensity;
+	public extern var bNanite(get, never): Bool;
+	public inline extern function get_bNanite(): Bool return this.bNanite;
 	public extern var bAllowStaticLighting(get, never): Bool;
 	public inline extern function get_bAllowStaticLighting(): Bool return this.bAllowStaticLighting;
 	public extern var bUseNormalMapsForStaticLighting(get, never): Bool;
@@ -263,8 +277,8 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bDefaultFeatureAutoExposure(): Bool return this.bDefaultFeatureAutoExposure;
 	public extern var DefaultFeatureAutoExposure(get, never): TEnumAsByte<EAutoExposureMethodUI>;
 	public inline extern function get_DefaultFeatureAutoExposure(): TEnumAsByte<EAutoExposureMethodUI> return this.DefaultFeatureAutoExposure;
-	public extern var DefaultFeatureAutoExposureBias(get, never): cpp.Float32;
-	public inline extern function get_DefaultFeatureAutoExposureBias(): cpp.Float32 return this.DefaultFeatureAutoExposureBias;
+	public extern var DefaultFeatureAutoExposureBias(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultFeatureAutoExposureBias(): ucpp.num.Float32 return this.DefaultFeatureAutoExposureBias;
 	public extern var bExtendDefaultLuminanceRangeInAutoExposureSettings(get, never): Bool;
 	public inline extern function get_bExtendDefaultLuminanceRangeInAutoExposureSettings(): Bool return this.bExtendDefaultLuminanceRangeInAutoExposureSettings;
 	public extern var bDefaultFeatureMotionBlur(get, never): Bool;
@@ -303,10 +317,10 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bSelectiveBasePassOutputs(): Bool return this.bSelectiveBasePassOutputs;
 	public extern var bDefaultParticleCutouts(get, never): Bool;
 	public inline extern function get_bDefaultParticleCutouts(): Bool return this.bDefaultParticleCutouts;
-	public extern var GPUSimulationTextureSizeX(get, never): cpp.Int32;
-	public inline extern function get_GPUSimulationTextureSizeX(): cpp.Int32 return this.GPUSimulationTextureSizeX;
-	public extern var GPUSimulationTextureSizeY(get, never): cpp.Int32;
-	public inline extern function get_GPUSimulationTextureSizeY(): cpp.Int32 return this.GPUSimulationTextureSizeY;
+	public extern var GPUSimulationTextureSizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_GPUSimulationTextureSizeX(): ucpp.num.Int32 return this.GPUSimulationTextureSizeX;
+	public extern var GPUSimulationTextureSizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_GPUSimulationTextureSizeY(): ucpp.num.Int32 return this.GPUSimulationTextureSizeY;
 	public extern var bGlobalClipPlane(get, never): Bool;
 	public inline extern function get_bGlobalClipPlane(): Bool return this.bGlobalClipPlane;
 	public extern var GBufferFormat(get, never): TEnumAsByte<EGBufferFormat>;
@@ -325,12 +339,12 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bMobileUseHWsRGBEncoding(): Bool return this.bMobileUseHWsRGBEncoding;
 	public extern var bRoundRobinOcclusion(get, never): Bool;
 	public inline extern function get_bRoundRobinOcclusion(): Bool return this.bRoundRobinOcclusion;
-	public extern var bODSCapture(get, never): Bool;
-	public inline extern function get_bODSCapture(): Bool return this.bODSCapture;
 	public extern var bMeshStreaming(get, never): Bool;
 	public inline extern function get_bMeshStreaming(): Bool return this.bMeshStreaming;
-	public extern var WireframeCullThreshold(get, never): cpp.Float32;
-	public inline extern function get_WireframeCullThreshold(): cpp.Float32 return this.WireframeCullThreshold;
+	public extern var bEnableHeterogeneousVolumes(get, never): Bool;
+	public inline extern function get_bEnableHeterogeneousVolumes(): Bool return this.bEnableHeterogeneousVolumes;
+	public extern var WireframeCullThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_WireframeCullThreshold(): ucpp.num.Float32 return this.WireframeCullThreshold;
 	public extern var bSupportStationarySkylight(get, never): Bool;
 	public inline extern function get_bSupportStationarySkylight(): Bool return this.bSupportStationarySkylight;
 	public extern var bSupportLowQualityLightmaps(get, never): Bool;
@@ -343,30 +357,44 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bSupportSkyAtmosphereAffectsHeightFog(): Bool return this.bSupportSkyAtmosphereAffectsHeightFog;
 	public extern var bSupportCloudShadowOnForwardLitTranslucent(get, never): Bool;
 	public inline extern function get_bSupportCloudShadowOnForwardLitTranslucent(): Bool return this.bSupportCloudShadowOnForwardLitTranslucent;
+	public extern var bSupportTranslucentPerObjectShadow(get, never): Bool;
+	public inline extern function get_bSupportTranslucentPerObjectShadow(): Bool return this.bSupportTranslucentPerObjectShadow;
+	public extern var bSupportCloudShadowOnSingleLayerWater(get, never): Bool;
+	public inline extern function get_bSupportCloudShadowOnSingleLayerWater(): Bool return this.bSupportCloudShadowOnSingleLayerWater;
+	public extern var bEnableStrata(get, never): Bool;
+	public inline extern function get_bEnableStrata(): Bool return this.bEnableStrata;
+	public extern var StrataOpaqueMaterialRoughRefraction(get, never): Bool;
+	public inline extern function get_StrataOpaqueMaterialRoughRefraction(): Bool return this.StrataOpaqueMaterialRoughRefraction;
+	public extern var StrataDebugAdvancedVisualizationShaders(get, never): Bool;
+	public inline extern function get_StrataDebugAdvancedVisualizationShaders(): Bool return this.StrataDebugAdvancedVisualizationShaders;
 	public extern var bMaterialRoughDiffuse(get, never): Bool;
 	public inline extern function get_bMaterialRoughDiffuse(): Bool return this.bMaterialRoughDiffuse;
 	public extern var bMaterialEnergyConservation(get, never): Bool;
 	public inline extern function get_bMaterialEnergyConservation(): Bool return this.bMaterialEnergyConservation;
+	public extern var bOrderedIndependentTransparencyEnable(get, never): Bool;
+	public inline extern function get_bOrderedIndependentTransparencyEnable(): Bool return this.bOrderedIndependentTransparencyEnable;
 	public extern var bSupportSkinCacheShaders(get, never): Bool;
 	public inline extern function get_bSupportSkinCacheShaders(): Bool return this.bSupportSkinCacheShaders;
+	public extern var bSkipCompilingGPUSkinVF(get, never): Bool;
+	public inline extern function get_bSkipCompilingGPUSkinVF(): Bool return this.bSkipCompilingGPUSkinVF;
 	public extern var DefaultSkinCacheBehavior(get, never): ESkinCacheDefaultBehavior;
 	public inline extern function get_DefaultSkinCacheBehavior(): ESkinCacheDefaultBehavior return this.DefaultSkinCacheBehavior;
-	public extern var SkinCacheSceneMemoryLimitInMB(get, never): cpp.Float32;
-	public inline extern function get_SkinCacheSceneMemoryLimitInMB(): cpp.Float32 return this.SkinCacheSceneMemoryLimitInMB;
+	public extern var SkinCacheSceneMemoryLimitInMB(get, never): ucpp.num.Float32;
+	public inline extern function get_SkinCacheSceneMemoryLimitInMB(): ucpp.num.Float32 return this.SkinCacheSceneMemoryLimitInMB;
 	public extern var bMobileEnableStaticAndCSMShadowReceivers(get, never): Bool;
 	public inline extern function get_bMobileEnableStaticAndCSMShadowReceivers(): Bool return this.bMobileEnableStaticAndCSMShadowReceivers;
 	public extern var bMobileEnableMovableLightCSMShaderCulling(get, never): Bool;
 	public inline extern function get_bMobileEnableMovableLightCSMShaderCulling(): Bool return this.bMobileEnableMovableLightCSMShaderCulling;
+	public extern var bMobileForwardEnableLocalLights(get, never): Bool;
+	public inline extern function get_bMobileForwardEnableLocalLights(): Bool return this.bMobileForwardEnableLocalLights;
+	public extern var bMobileForwardEnableClusteredReflections(get, never): Bool;
+	public inline extern function get_bMobileForwardEnableClusteredReflections(): Bool return this.bMobileForwardEnableClusteredReflections;
 	public extern var bMobileEnableNoPrecomputedLightingCSMShader(get, never): Bool;
 	public inline extern function get_bMobileEnableNoPrecomputedLightingCSMShader(): Bool return this.bMobileEnableNoPrecomputedLightingCSMShader;
 	public extern var bMobileAllowDistanceFieldShadows(get, never): Bool;
 	public inline extern function get_bMobileAllowDistanceFieldShadows(): Bool return this.bMobileAllowDistanceFieldShadows;
 	public extern var bMobileAllowMovableDirectionalLights(get, never): Bool;
 	public inline extern function get_bMobileAllowMovableDirectionalLights(): Bool return this.bMobileAllowMovableDirectionalLights;
-	public extern var MobileNumDynamicPointLights(get, never): cpp.UInt32;
-	public inline extern function get_MobileNumDynamicPointLights(): cpp.UInt32 return this.MobileNumDynamicPointLights;
-	public extern var bMobileAllowMovableSpotlights(get, never): Bool;
-	public inline extern function get_bMobileAllowMovableSpotlights(): Bool return this.bMobileAllowMovableSpotlights;
 	public extern var bMobileAllowMovableSpotlightShadows(get, never): Bool;
 	public inline extern function get_bMobileAllowMovableSpotlightShadows(): Bool return this.bMobileAllowMovableSpotlightShadows;
 	public extern var bSupport16BitBoneIndex(get, never): Bool;
@@ -381,8 +409,10 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 	public inline extern function get_bMobileAmbientOcclusion(): Bool return this.bMobileAmbientOcclusion;
 	public extern var bUseUnlimitedBoneInfluences(get, never): Bool;
 	public inline extern function get_bUseUnlimitedBoneInfluences(): Bool return this.bUseUnlimitedBoneInfluences;
-	public extern var UnlimitedBonInfluencesThreshold(get, never): cpp.Int32;
-	public inline extern function get_UnlimitedBonInfluencesThreshold(): cpp.Int32 return this.UnlimitedBonInfluencesThreshold;
+	public extern var UnlimitedBonInfluencesThreshold(get, never): ucpp.num.Int32;
+	public inline extern function get_UnlimitedBonInfluencesThreshold(): ucpp.num.Int32 return this.UnlimitedBonInfluencesThreshold;
+	public extern var DefaultBoneInfluenceLimit(get, never): PerPlatformInt;
+	public inline extern function get_DefaultBoneInfluenceLimit(): PerPlatformInt return this.DefaultBoneInfluenceLimit;
 	public extern var MaxSkinBones(get, never): PerPlatformInt;
 	public inline extern function get_MaxSkinBones(): PerPlatformInt return this.MaxSkinBones;
 	public extern var MobilePlanarReflectionMode(get, never): TEnumAsByte<EMobilePlanarReflectionMode>;
@@ -404,7 +434,7 @@ abstract ConstRendererSettings(RendererSettings) from RendererSettings {
 @:forward
 @:nativeGen
 @:native("RendererSettings*")
-abstract RendererSettingsPtr(cpp.Star<RendererSettings>) from cpp.Star<RendererSettings> to cpp.Star<RendererSettings>{
+abstract RendererSettingsPtr(ucpp.Ptr<RendererSettings>) from ucpp.Ptr<RendererSettings> to ucpp.Ptr<RendererSettings>{
 	@:from
 	public static extern inline function fromValue(v: RendererSettings): RendererSettingsPtr {
 		return untyped __cpp__("&({0})", v);

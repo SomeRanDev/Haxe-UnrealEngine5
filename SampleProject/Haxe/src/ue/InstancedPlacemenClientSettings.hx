@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInstancedPlacemenClientSettings")
 @:include("Instances/InstancedPlacementClientInfo.h")
-@:structAccess
+@:valueType
 extern class InstancedPlacemenClientSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInstancedPlacemenClientSettings(InstancedPlacemenClientSettings) f
 @:forward
 @:nativeGen
 @:native("InstancedPlacemenClientSettings*")
-abstract InstancedPlacemenClientSettingsPtr(cpp.Star<InstancedPlacemenClientSettings>) from cpp.Star<InstancedPlacemenClientSettings> to cpp.Star<InstancedPlacemenClientSettings>{
+abstract InstancedPlacemenClientSettingsPtr(ucpp.Ptr<InstancedPlacemenClientSettings>) from ucpp.Ptr<InstancedPlacemenClientSettings> to ucpp.Ptr<InstancedPlacemenClientSettings>{
 	@:from
 	public static extern inline function fromValue(v: InstancedPlacemenClientSettings): InstancedPlacemenClientSettingsPtr {
 		return untyped __cpp__("&({0})", v);

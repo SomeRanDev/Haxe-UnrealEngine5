@@ -3,15 +3,15 @@ package ue;
 
 @:native("ULandscapeSplinesComponent")
 @:include("LandscapeSplinesComponent.h")
-@:structAccess
+@:valueType
 extern class LandscapeSplinesComp extends PrimitiveComp {
-	@:protected public var ControlPoints: TArray<cpp.Star<LandscapeSplineControlPoint>>;
-	@:protected public var Segments: TArray<cpp.Star<LandscapeSplineSegment>>;
-	@:protected public var CookedForeignMeshComponents: TArray<cpp.Star<MeshComp>>;
+	@:protected public var ControlPoints: TArray<ucpp.Ptr<LandscapeSplineControlPoint>>;
+	@:protected public var Segments: TArray<ucpp.Ptr<LandscapeSplineSegment>>;
+	@:protected public var CookedForeignMeshComponents: TArray<ucpp.Ptr<MeshComp>>;
 
-	public function GetSplineMeshComponents(): TArray<cpp.Star<SplineMeshComp>>;
+	public function GetSplineMeshComponents(): TArray<ucpp.Ptr<SplineMeshComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstLandscapeSplinesComp(LandscapeSplinesComp) from LandscapeSplinesCo
 @:forward
 @:nativeGen
 @:native("LandscapeSplinesComp*")
-abstract LandscapeSplinesCompPtr(cpp.Star<LandscapeSplinesComp>) from cpp.Star<LandscapeSplinesComp> to cpp.Star<LandscapeSplinesComp>{
+abstract LandscapeSplinesCompPtr(ucpp.Ptr<LandscapeSplinesComp>) from ucpp.Ptr<LandscapeSplinesComp> to ucpp.Ptr<LandscapeSplinesComp>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSplinesComp): LandscapeSplinesCompPtr {
 		return untyped __cpp__("&({0})", v);

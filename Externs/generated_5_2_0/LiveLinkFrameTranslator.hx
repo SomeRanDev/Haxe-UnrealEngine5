@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULiveLinkFrameTranslator")
 @:include("LiveLinkFrameTranslator.h")
-@:structAccess
+@:valueType
 extern class LiveLinkFrameTranslator extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLiveLinkFrameTranslator(LiveLinkFrameTranslator) from LiveLinkFram
 @:forward
 @:nativeGen
 @:native("LiveLinkFrameTranslator*")
-abstract LiveLinkFrameTranslatorPtr(cpp.Star<LiveLinkFrameTranslator>) from cpp.Star<LiveLinkFrameTranslator> to cpp.Star<LiveLinkFrameTranslator>{
+abstract LiveLinkFrameTranslatorPtr(ucpp.Ptr<LiveLinkFrameTranslator>) from ucpp.Ptr<LiveLinkFrameTranslator> to ucpp.Ptr<LiveLinkFrameTranslator>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkFrameTranslator): LiveLinkFrameTranslatorPtr {
 		return untyped __cpp__("&({0})", v);

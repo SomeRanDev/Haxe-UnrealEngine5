@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCacheCollectionFactory")
 @:include("Chaos/CacheCollectionFactory.h")
-@:structAccess
+@:valueType
 extern class CacheCollectionFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCacheCollectionFactory(CacheCollectionFactory) from CacheCollectio
 @:forward
 @:nativeGen
 @:native("CacheCollectionFactory*")
-abstract CacheCollectionFactoryPtr(cpp.Star<CacheCollectionFactory>) from cpp.Star<CacheCollectionFactory> to cpp.Star<CacheCollectionFactory>{
+abstract CacheCollectionFactoryPtr(ucpp.Ptr<CacheCollectionFactory>) from ucpp.Ptr<CacheCollectionFactory> to ucpp.Ptr<CacheCollectionFactory>{
 	@:from
 	public static extern inline function fromValue(v: CacheCollectionFactory): CacheCollectionFactoryPtr {
 		return untyped __cpp__("&({0})", v);

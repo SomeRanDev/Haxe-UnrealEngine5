@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequencePropertyTrackSettings")
 @:include("Private/Misc/LevelSequenceEditorSettings.h")
-@:structAccess
+@:valueType
 extern class LevelSequencePropertyTrackSettings {
 	public var ComponentPath: FString;
 	public var PropertyPath: FString;

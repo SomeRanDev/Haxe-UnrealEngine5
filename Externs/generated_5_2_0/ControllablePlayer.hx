@@ -3,33 +3,33 @@ package ue;
 
 @:native("UControllablePlayer")
 @:include("Tests/InputTestFramework.h")
-@:structAccess
+@:valueType
 extern class ControllablePlayer extends Object {
-	public var Player: cpp.Star<PlayerController>;
+	public var Player: ucpp.Ptr<PlayerController>;
 	public var BindingTargets: TMap<FName, BindingTargets>;
-	public var InputContext: TMap<FName, cpp.Star<InputMappingContext>>;
-	public var InputAction: TMap<FName, cpp.Star<InputAction>>;
+	public var InputContext: TMap<FName, ucpp.Ptr<InputMappingContext>>;
+	public var InputAction: TMap<FName, ucpp.Ptr<InputAction>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstControllablePlayer(ControllablePlayer) from ControllablePlayer {
-	public extern var Player(get, never): cpp.Star<PlayerController.ConstPlayerController>;
-	public inline extern function get_Player(): cpp.Star<PlayerController.ConstPlayerController> return this.Player;
+	public extern var Player(get, never): ucpp.Ptr<PlayerController.ConstPlayerController>;
+	public inline extern function get_Player(): ucpp.Ptr<PlayerController.ConstPlayerController> return this.Player;
 	public extern var BindingTargets(get, never): TMap<FName, BindingTargets>;
 	public inline extern function get_BindingTargets(): TMap<FName, BindingTargets> return this.BindingTargets;
-	public extern var InputContext(get, never): TMap<FName, cpp.Star<InputMappingContext.ConstInputMappingContext>>;
-	public inline extern function get_InputContext(): TMap<FName, cpp.Star<InputMappingContext.ConstInputMappingContext>> return this.InputContext;
-	public extern var InputAction(get, never): TMap<FName, cpp.Star<InputAction.ConstInputAction>>;
-	public inline extern function get_InputAction(): TMap<FName, cpp.Star<InputAction.ConstInputAction>> return this.InputAction;
+	public extern var InputContext(get, never): TMap<FName, ucpp.Ptr<InputMappingContext.ConstInputMappingContext>>;
+	public inline extern function get_InputContext(): TMap<FName, ucpp.Ptr<InputMappingContext.ConstInputMappingContext>> return this.InputContext;
+	public extern var InputAction(get, never): TMap<FName, ucpp.Ptr<InputAction.ConstInputAction>>;
+	public inline extern function get_InputAction(): TMap<FName, ucpp.Ptr<InputAction.ConstInputAction>> return this.InputAction;
 }
 
 @:forward
 @:nativeGen
 @:native("ControllablePlayer*")
-abstract ControllablePlayerPtr(cpp.Star<ControllablePlayer>) from cpp.Star<ControllablePlayer> to cpp.Star<ControllablePlayer>{
+abstract ControllablePlayerPtr(ucpp.Ptr<ControllablePlayer>) from ucpp.Ptr<ControllablePlayer> to ucpp.Ptr<ControllablePlayer>{
 	@:from
 	public static extern inline function fromValue(v: ControllablePlayer): ControllablePlayerPtr {
 		return untyped __cpp__("&({0})", v);

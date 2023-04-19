@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextBufferExporterTXT")
 @:include("Exporters/TextBufferExporterTXT.h")
-@:structAccess
+@:valueType
 extern class TextBufferExporterTXT extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextBufferExporterTXT(TextBufferExporterTXT) from TextBufferExport
 @:forward
 @:nativeGen
 @:native("TextBufferExporterTXT*")
-abstract TextBufferExporterTXTPtr(cpp.Star<TextBufferExporterTXT>) from cpp.Star<TextBufferExporterTXT> to cpp.Star<TextBufferExporterTXT>{
+abstract TextBufferExporterTXTPtr(ucpp.Ptr<TextBufferExporterTXT>) from ucpp.Ptr<TextBufferExporterTXT> to ucpp.Ptr<TextBufferExporterTXT>{
 	@:from
 	public static extern inline function fromValue(v: TextBufferExporterTXT): TextBufferExporterTXTPtr {
 		return untyped __cpp__("&({0})", v);

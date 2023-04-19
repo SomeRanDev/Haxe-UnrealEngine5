@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMeshPaintSelectionMechanic")
 @:include("MeshPaintInteractions.h")
-@:structAccess
+@:valueType
 extern class MeshPaintSelectionMechanic extends InteractionMechanic {
-	@:protected public var CachedClickedComponents: TArray<cpp.Star<MeshComp>>;
-	@:protected public var CachedClickedActors: TArray<cpp.Star<Actor>>;
+	@:protected public var CachedClickedComponents: TArray<ucpp.Ptr<MeshComp>>;
+	@:protected public var CachedClickedActors: TArray<ucpp.Ptr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMeshPaintSelectionMechanic(MeshPaintSelectionMechanic) from MeshPa
 @:forward
 @:nativeGen
 @:native("MeshPaintSelectionMechanic*")
-abstract MeshPaintSelectionMechanicPtr(cpp.Star<MeshPaintSelectionMechanic>) from cpp.Star<MeshPaintSelectionMechanic> to cpp.Star<MeshPaintSelectionMechanic>{
+abstract MeshPaintSelectionMechanicPtr(ucpp.Ptr<MeshPaintSelectionMechanic>) from ucpp.Ptr<MeshPaintSelectionMechanic> to ucpp.Ptr<MeshPaintSelectionMechanic>{
 	@:from
 	public static extern inline function fromValue(v: MeshPaintSelectionMechanic): MeshPaintSelectionMechanicPtr {
 		return untyped __cpp__("&({0})", v);

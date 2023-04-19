@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ApplyMeshSpaceAdditive")
 @:include("AnimGraphNode_ApplyMeshSpaceAdditive.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_ApplyMeshSpaceAdditive extends AnimGraphNode_Base {
 	public var Node: AnimNode_ApplyMeshSpaceAdditive;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_ApplyMeshSpaceAdditive(AnimGraphNode_ApplyMeshSpaceA
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_ApplyMeshSpaceAdditive*")
-abstract AnimGraphNode_ApplyMeshSpaceAdditivePtr(cpp.Star<AnimGraphNode_ApplyMeshSpaceAdditive>) from cpp.Star<AnimGraphNode_ApplyMeshSpaceAdditive> to cpp.Star<AnimGraphNode_ApplyMeshSpaceAdditive>{
+abstract AnimGraphNode_ApplyMeshSpaceAdditivePtr(ucpp.Ptr<AnimGraphNode_ApplyMeshSpaceAdditive>) from ucpp.Ptr<AnimGraphNode_ApplyMeshSpaceAdditive> to ucpp.Ptr<AnimGraphNode_ApplyMeshSpaceAdditive>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_ApplyMeshSpaceAdditive): AnimGraphNode_ApplyMeshSpaceAdditivePtr {
 		return untyped __cpp__("&({0})", v);

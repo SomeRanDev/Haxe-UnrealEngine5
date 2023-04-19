@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARPose2D")
 @:include("ARTypes.h")
-@:structAccess
+@:valueType
 extern class ARPose2D {
 	public var SkeletonDefinition: ARSkeletonDefinition;
 	public var JointLocations: TArray<Vector2D>;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieScenePrimitiveMaterialSection")
 @:include("Sections/MovieScenePrimitiveMaterialSection.h")
-@:structAccess
+@:valueType
 extern class MovieScenePrimitiveMaterialSection extends MovieSceneSection {
 	public var MaterialChannel: MovieSceneObjectPathChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieScenePrimitiveMaterialSection(MovieScenePrimitiveMaterialSect
 @:forward
 @:nativeGen
 @:native("MovieScenePrimitiveMaterialSection*")
-abstract MovieScenePrimitiveMaterialSectionPtr(cpp.Star<MovieScenePrimitiveMaterialSection>) from cpp.Star<MovieScenePrimitiveMaterialSection> to cpp.Star<MovieScenePrimitiveMaterialSection>{
+abstract MovieScenePrimitiveMaterialSectionPtr(ucpp.Ptr<MovieScenePrimitiveMaterialSection>) from ucpp.Ptr<MovieScenePrimitiveMaterialSection> to ucpp.Ptr<MovieScenePrimitiveMaterialSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieScenePrimitiveMaterialSection): MovieScenePrimitiveMaterialSectionPtr {
 		return untyped __cpp__("&({0})", v);

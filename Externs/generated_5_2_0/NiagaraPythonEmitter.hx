@@ -3,16 +3,16 @@ package ue;
 
 @:native("UNiagaraPythonEmitter")
 @:include("UpgradeNiagaraScriptResults.h")
-@:structAccess
+@:valueType
 extern class NiagaraPythonEmitter extends Object {
 	public function SetProperties(Data: VersionedNiagaraEmitterData): Void;
 	public function HasModule(ModuleName: FString): Bool;
 	public function GetProperties(): VersionedNiagaraEmitterData;
-	public function GetObject(): cpp.Star<NiagaraEmitter>;
-	public function GetModules(): TArray<cpp.Star<NiagaraPythonModule>>;
-	public function GetModule(ModuleName: FString): cpp.Star<NiagaraPythonModule>;
+	public function GetObject(): ucpp.Ptr<NiagaraEmitter>;
+	public function GetModules(): TArray<ucpp.Ptr<NiagaraPythonModule>>;
+	public function GetModule(ModuleName: FString): ucpp.Ptr<NiagaraPythonModule>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasModule, GetProperties, GetModules, GetModule)
@@ -23,7 +23,7 @@ abstract ConstNiagaraPythonEmitter(NiagaraPythonEmitter) from NiagaraPythonEmitt
 @:forward
 @:nativeGen
 @:native("NiagaraPythonEmitter*")
-abstract NiagaraPythonEmitterPtr(cpp.Star<NiagaraPythonEmitter>) from cpp.Star<NiagaraPythonEmitter> to cpp.Star<NiagaraPythonEmitter>{
+abstract NiagaraPythonEmitterPtr(ucpp.Ptr<NiagaraPythonEmitter>) from ucpp.Ptr<NiagaraPythonEmitter> to ucpp.Ptr<NiagaraPythonEmitter>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPythonEmitter): NiagaraPythonEmitterPtr {
 		return untyped __cpp__("&({0})", v);

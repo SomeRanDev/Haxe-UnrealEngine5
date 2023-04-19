@@ -3,29 +3,29 @@ package ue;
 
 @:native("UAsyncCaptureScene")
 @:include("AsyncCaptureScene.h")
-@:structAccess
+@:valueType
 extern class AsyncCaptureScene extends BlueprintAsyncActionBase {
-	public var Complete: HaxeMulticastSparseDelegateProperty<(cpp.Star<TextureRenderTarget2D>) -> Void>;
-	private var SceneCapture: cpp.Star<SceneCapture2D>;
-	private var SceneCaptureRT: cpp.Star<TextureRenderTarget2D>;
+	public var Complete: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TextureRenderTarget2D>) -> Void>;
+	private var SceneCapture: ucpp.Ptr<SceneCapture2D>;
+	private var SceneCaptureRT: ucpp.Ptr<TextureRenderTarget2D>;
 
-	public function CaptureSceneWithWarmupAsync(ViewCamera: cpp.Star<CameraComp>, SceneCaptureClass: TSubclassOf<SceneCapture2D>, ResX: cpp.Int32, ResY: cpp.Int32, WarmUpFrames: cpp.Int32): cpp.Star<AsyncCaptureScene>;
-	public function CaptureSceneAsync(ViewCamera: cpp.Star<CameraComp>, SceneCaptureClass: TSubclassOf<SceneCapture2D>, ResX: cpp.Int32, ResY: cpp.Int32): cpp.Star<AsyncCaptureScene>;
+	public function CaptureSceneWithWarmupAsync(ViewCamera: ucpp.Ptr<CameraComp>, SceneCaptureClass: TSubclassOf<SceneCapture2D>, ResX: ucpp.num.Int32, ResY: ucpp.num.Int32, WarmUpFrames: ucpp.num.Int32): ucpp.Ptr<AsyncCaptureScene>;
+	public function CaptureSceneAsync(ViewCamera: ucpp.Ptr<CameraComp>, SceneCaptureClass: TSubclassOf<SceneCapture2D>, ResX: ucpp.num.Int32, ResY: ucpp.num.Int32): ucpp.Ptr<AsyncCaptureScene>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncCaptureScene(AsyncCaptureScene) from AsyncCaptureScene {
-	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D>) -> Void>;
-	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<(cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D>) -> Void> return this.Complete;
+	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TextureRenderTarget2D.ConstTextureRenderTarget2D>) -> Void>;
+	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TextureRenderTarget2D.ConstTextureRenderTarget2D>) -> Void> return this.Complete;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncCaptureScene*")
-abstract AsyncCaptureScenePtr(cpp.Star<AsyncCaptureScene>) from cpp.Star<AsyncCaptureScene> to cpp.Star<AsyncCaptureScene>{
+abstract AsyncCaptureScenePtr(ucpp.Ptr<AsyncCaptureScene>) from ucpp.Ptr<AsyncCaptureScene> to ucpp.Ptr<AsyncCaptureScene>{
 	@:from
 	public static extern inline function fromValue(v: AsyncCaptureScene): AsyncCaptureScenePtr {
 		return untyped __cpp__("&({0})", v);

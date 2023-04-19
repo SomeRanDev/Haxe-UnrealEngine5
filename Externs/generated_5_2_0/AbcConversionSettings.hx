@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAbcConversionSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcConversionSettings {
 	public var Preset: EAbcConversionPreset;
 	public var bFlipU: Bool;

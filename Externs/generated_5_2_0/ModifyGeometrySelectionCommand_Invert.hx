@@ -3,10 +3,10 @@ package ue;
 
 @:native("UModifyGeometrySelectionCommand_Invert")
 @:include("Commands/ModifyGeometrySelectionCommand.h")
-@:structAccess
+@:valueType
 extern class ModifyGeometrySelectionCommand_Invert extends ModifyGeometrySelectionCommand {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstModifyGeometrySelectionCommand_Invert(ModifyGeometrySelectionComma
 @:forward
 @:nativeGen
 @:native("ModifyGeometrySelectionCommand_Invert*")
-abstract ModifyGeometrySelectionCommand_InvertPtr(cpp.Star<ModifyGeometrySelectionCommand_Invert>) from cpp.Star<ModifyGeometrySelectionCommand_Invert> to cpp.Star<ModifyGeometrySelectionCommand_Invert>{
+abstract ModifyGeometrySelectionCommand_InvertPtr(ucpp.Ptr<ModifyGeometrySelectionCommand_Invert>) from ucpp.Ptr<ModifyGeometrySelectionCommand_Invert> to ucpp.Ptr<ModifyGeometrySelectionCommand_Invert>{
 	@:from
 	public static extern inline function fromValue(v: ModifyGeometrySelectionCommand_Invert): ModifyGeometrySelectionCommand_InvertPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UIterativeSmoothProperties")
 @:include("SmoothMeshTool.h")
-@:structAccess
+@:valueType
 extern class IterativeSmoothProperties extends InteractiveToolPropertySet {
-	public var SmoothingPerStep: cpp.Float32;
-	public var Steps: cpp.Int32;
+	public var SmoothingPerStep: ucpp.num.Float32;
+	public var Steps: ucpp.num.Int32;
 	public var bSmoothBoundary: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstIterativeSmoothProperties(IterativeSmoothProperties) from IterativeSmoothProperties {
-	public extern var SmoothingPerStep(get, never): cpp.Float32;
-	public inline extern function get_SmoothingPerStep(): cpp.Float32 return this.SmoothingPerStep;
-	public extern var Steps(get, never): cpp.Int32;
-	public inline extern function get_Steps(): cpp.Int32 return this.Steps;
+	public extern var SmoothingPerStep(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothingPerStep(): ucpp.num.Float32 return this.SmoothingPerStep;
+	public extern var Steps(get, never): ucpp.num.Int32;
+	public inline extern function get_Steps(): ucpp.num.Int32 return this.Steps;
 	public extern var bSmoothBoundary(get, never): Bool;
 	public inline extern function get_bSmoothBoundary(): Bool return this.bSmoothBoundary;
 }
@@ -26,7 +26,7 @@ abstract ConstIterativeSmoothProperties(IterativeSmoothProperties) from Iterativ
 @:forward
 @:nativeGen
 @:native("IterativeSmoothProperties*")
-abstract IterativeSmoothPropertiesPtr(cpp.Star<IterativeSmoothProperties>) from cpp.Star<IterativeSmoothProperties> to cpp.Star<IterativeSmoothProperties>{
+abstract IterativeSmoothPropertiesPtr(ucpp.Ptr<IterativeSmoothProperties>) from ucpp.Ptr<IterativeSmoothProperties> to ucpp.Ptr<IterativeSmoothProperties>{
 	@:from
 	public static extern inline function fromValue(v: IterativeSmoothProperties): IterativeSmoothPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

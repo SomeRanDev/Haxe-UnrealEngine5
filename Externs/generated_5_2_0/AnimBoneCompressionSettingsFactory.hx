@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimBoneCompressionSettingsFactory")
 @:include("Factories/AnimBoneCompressionSettingsFactory.h")
-@:structAccess
+@:valueType
 extern class AnimBoneCompressionSettingsFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimBoneCompressionSettingsFactory(AnimBoneCompressionSettingsFact
 @:forward
 @:nativeGen
 @:native("AnimBoneCompressionSettingsFactory*")
-abstract AnimBoneCompressionSettingsFactoryPtr(cpp.Star<AnimBoneCompressionSettingsFactory>) from cpp.Star<AnimBoneCompressionSettingsFactory> to cpp.Star<AnimBoneCompressionSettingsFactory>{
+abstract AnimBoneCompressionSettingsFactoryPtr(ucpp.Ptr<AnimBoneCompressionSettingsFactory>) from ucpp.Ptr<AnimBoneCompressionSettingsFactory> to ucpp.Ptr<AnimBoneCompressionSettingsFactory>{
 	@:from
 	public static extern inline function fromValue(v: AnimBoneCompressionSettingsFactory): AnimBoneCompressionSettingsFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("AARActor")
 @:include("ARActor.h")
-@:structAccess
+@:valueType
 extern class ARActor extends Actor {
-	public function AddARComponent(InComponentClass: TSubclassOf<ARComp>, NativeID: cpp.Reference<Guid>): cpp.Star<ARComp>;
+	public function AddARComponent(InComponentClass: TSubclassOf<ARComp>, NativeID: ucpp.Ref<Guid>): ucpp.Ptr<ARComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstARActor(ARActor) from ARActor {
 @:forward
 @:nativeGen
 @:native("ARActor*")
-abstract ARActorPtr(cpp.Star<ARActor>) from cpp.Star<ARActor> to cpp.Star<ARActor>{
+abstract ARActorPtr(ucpp.Ptr<ARActor>) from ucpp.Ptr<ARActor> to ucpp.Ptr<ARActor>{
 	@:from
 	public static extern inline function fromValue(v: ARActor): ARActorPtr {
 		return untyped __cpp__("&({0})", v);

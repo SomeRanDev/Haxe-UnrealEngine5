@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPawnRestartedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class PawnRestartedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPawnRestartedSignature__PythonCallable(PawnRestartedSignature__Pyt
 @:forward
 @:nativeGen
 @:native("PawnRestartedSignature__PythonCallable*")
-abstract PawnRestartedSignature__PythonCallablePtr(cpp.Star<PawnRestartedSignature__PythonCallable>) from cpp.Star<PawnRestartedSignature__PythonCallable> to cpp.Star<PawnRestartedSignature__PythonCallable>{
+abstract PawnRestartedSignature__PythonCallablePtr(ucpp.Ptr<PawnRestartedSignature__PythonCallable>) from ucpp.Ptr<PawnRestartedSignature__PythonCallable> to ucpp.Ptr<PawnRestartedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PawnRestartedSignature__PythonCallable): PawnRestartedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

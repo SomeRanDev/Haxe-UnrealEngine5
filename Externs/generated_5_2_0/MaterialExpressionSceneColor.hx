@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionSceneColor")
 @:include("Materials/MaterialExpressionSceneColor.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSceneColor extends MaterialExpression {
 	public var InputMode: TEnumAsByte<EMaterialSceneAttributeInputMode>;
 	public var Input: ExpressionInput;
 	public var ConstInput: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionSceneColor(MaterialExpressionSceneColor) from Ma
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSceneColor*")
-abstract MaterialExpressionSceneColorPtr(cpp.Star<MaterialExpressionSceneColor>) from cpp.Star<MaterialExpressionSceneColor> to cpp.Star<MaterialExpressionSceneColor>{
+abstract MaterialExpressionSceneColorPtr(ucpp.Ptr<MaterialExpressionSceneColor>) from ucpp.Ptr<MaterialExpressionSceneColor> to ucpp.Ptr<MaterialExpressionSceneColor>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSceneColor): MaterialExpressionSceneColorPtr {
 		return untyped __cpp__("&({0})", v);

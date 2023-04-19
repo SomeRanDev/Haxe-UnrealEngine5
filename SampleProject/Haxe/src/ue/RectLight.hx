@@ -3,24 +3,24 @@ package ue;
 
 @:native("ARectLight")
 @:include("Engine/RectLight.h")
-@:structAccess
+@:valueType
 extern class RectLight extends Light {
-	public var RectLightComponent: cpp.Star<RectLightComp>;
+	public var RectLightComponent: ucpp.Ptr<RectLightComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRectLight(RectLight) from RectLight {
-	public extern var RectLightComponent(get, never): cpp.Star<RectLightComp.ConstRectLightComp>;
-	public inline extern function get_RectLightComponent(): cpp.Star<RectLightComp.ConstRectLightComp> return this.RectLightComponent;
+	public extern var RectLightComponent(get, never): ucpp.Ptr<RectLightComp.ConstRectLightComp>;
+	public inline extern function get_RectLightComponent(): ucpp.Ptr<RectLightComp.ConstRectLightComp> return this.RectLightComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("RectLight*")
-abstract RectLightPtr(cpp.Star<RectLight>) from cpp.Star<RectLight> to cpp.Star<RectLight>{
+abstract RectLightPtr(ucpp.Ptr<RectLight>) from ucpp.Ptr<RectLight> to ucpp.Ptr<RectLight>{
 	@:from
 	public static extern inline function fromValue(v: RectLight): RectLightPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAssetMappingTable")
 @:include("Animation/AssetMappingTable.h")
-@:structAccess
+@:valueType
 extern class AssetMappingTable extends Object {
 	private var MappedAssets: TArray<AssetMapping>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAssetMappingTable(AssetMappingTable) from AssetMappingTable {
 @:forward
 @:nativeGen
 @:native("AssetMappingTable*")
-abstract AssetMappingTablePtr(cpp.Star<AssetMappingTable>) from cpp.Star<AssetMappingTable> to cpp.Star<AssetMappingTable>{
+abstract AssetMappingTablePtr(ucpp.Ptr<AssetMappingTable>) from ucpp.Ptr<AssetMappingTable> to ucpp.Ptr<AssetMappingTable>{
 	@:from
 	public static extern inline function fromValue(v: AssetMappingTable): AssetMappingTablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterpControlPoint")
 @:include("Components/InterpToMovementComponent.h")
-@:structAccess
+@:valueType
 extern class InterpControlPoint {
 	public var PositionControlPoint: Vector;
 	public var bPositionIsRelative: Bool;

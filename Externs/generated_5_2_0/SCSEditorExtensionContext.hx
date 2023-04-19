@@ -3,10 +3,10 @@ package ue;
 
 @:native("USCSEditorExtensionContext")
 @:include("SCSEditorExtensionContext.h")
-@:structAccess
+@:valueType
 extern class SCSEditorExtensionContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSCSEditorExtensionContext(SCSEditorExtensionContext) from SCSEdito
 @:forward
 @:nativeGen
 @:native("SCSEditorExtensionContext*")
-abstract SCSEditorExtensionContextPtr(cpp.Star<SCSEditorExtensionContext>) from cpp.Star<SCSEditorExtensionContext> to cpp.Star<SCSEditorExtensionContext>{
+abstract SCSEditorExtensionContextPtr(ucpp.Ptr<SCSEditorExtensionContext>) from ucpp.Ptr<SCSEditorExtensionContext> to ucpp.Ptr<SCSEditorExtensionContext>{
 	@:from
 	public static extern inline function fromValue(v: SCSEditorExtensionContext): SCSEditorExtensionContextPtr {
 		return untyped __cpp__("&({0})", v);

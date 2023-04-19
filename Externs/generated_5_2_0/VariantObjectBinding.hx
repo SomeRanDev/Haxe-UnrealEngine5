@@ -3,15 +3,15 @@ package ue;
 
 @:native("UVariantObjectBinding")
 @:include("VariantObjectBinding.h")
-@:structAccess
+@:valueType
 extern class VariantObjectBinding extends Object {
 	private var CachedActorLabel: FString;
 	private var ObjectPtr: SoftObjectPath;
 	private var LazyObjectPtr: TLazyObjectPtr<Object>;
-	private var CapturedProperties: TArray<cpp.Star<PropertyValue>>;
+	private var CapturedProperties: TArray<ucpp.Ptr<PropertyValue>>;
 	private var FunctionCallers: TArray<FunctionCaller>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstVariantObjectBinding(VariantObjectBinding) from VariantObjectBindi
 @:forward
 @:nativeGen
 @:native("VariantObjectBinding*")
-abstract VariantObjectBindingPtr(cpp.Star<VariantObjectBinding>) from cpp.Star<VariantObjectBinding> to cpp.Star<VariantObjectBinding>{
+abstract VariantObjectBindingPtr(ucpp.Ptr<VariantObjectBinding>) from ucpp.Ptr<VariantObjectBinding> to ucpp.Ptr<VariantObjectBinding>{
 	@:from
 	public static extern inline function fromValue(v: VariantObjectBinding): VariantObjectBindingPtr {
 		return untyped __cpp__("&({0})", v);

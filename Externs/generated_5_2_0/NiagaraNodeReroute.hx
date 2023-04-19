@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeReroute")
 @:include("NiagaraNodeReroute.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeReroute extends NiagaraNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraNodeReroute(NiagaraNodeReroute) from NiagaraNodeReroute {
 @:forward
 @:nativeGen
 @:native("NiagaraNodeReroute*")
-abstract NiagaraNodeReroutePtr(cpp.Star<NiagaraNodeReroute>) from cpp.Star<NiagaraNodeReroute> to cpp.Star<NiagaraNodeReroute>{
+abstract NiagaraNodeReroutePtr(ucpp.Ptr<NiagaraNodeReroute>) from ucpp.Ptr<NiagaraNodeReroute> to ucpp.Ptr<NiagaraNodeReroute>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeReroute): NiagaraNodeReroutePtr {
 		return untyped __cpp__("&({0})", v);

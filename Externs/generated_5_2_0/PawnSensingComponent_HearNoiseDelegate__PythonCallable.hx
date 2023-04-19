@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPawnSensingComponent_HearNoiseDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PawnSensingComponent_HearNoiseDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPawnSensingComponent_HearNoiseDelegate__PythonCallable(PawnSensing
 @:forward
 @:nativeGen
 @:native("PawnSensingComponent_HearNoiseDelegate__PythonCallable*")
-abstract PawnSensingComponent_HearNoiseDelegate__PythonCallablePtr(cpp.Star<PawnSensingComponent_HearNoiseDelegate__PythonCallable>) from cpp.Star<PawnSensingComponent_HearNoiseDelegate__PythonCallable> to cpp.Star<PawnSensingComponent_HearNoiseDelegate__PythonCallable>{
+abstract PawnSensingComponent_HearNoiseDelegate__PythonCallablePtr(ucpp.Ptr<PawnSensingComponent_HearNoiseDelegate__PythonCallable>) from ucpp.Ptr<PawnSensingComponent_HearNoiseDelegate__PythonCallable> to ucpp.Ptr<PawnSensingComponent_HearNoiseDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PawnSensingComponent_HearNoiseDelegate__PythonCallable): PawnSensingComponent_HearNoiseDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldFactory")
 @:include("Factories/WorldFactory.h")
-@:structAccess
+@:valueType
 extern class WorldFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldFactory(WorldFactory) from WorldFactory {
 @:forward
 @:nativeGen
 @:native("WorldFactory*")
-abstract WorldFactoryPtr(cpp.Star<WorldFactory>) from cpp.Star<WorldFactory> to cpp.Star<WorldFactory>{
+abstract WorldFactoryPtr(ucpp.Ptr<WorldFactory>) from ucpp.Ptr<WorldFactory> to ucpp.Ptr<WorldFactory>{
 	@:from
 	public static extern inline function fromValue(v: WorldFactory): WorldFactoryPtr {
 		return untyped __cpp__("&({0})", v);

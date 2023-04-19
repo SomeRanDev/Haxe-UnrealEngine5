@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMovieSceneDoubleVectorTrackExtensions")
 @:include("ExtensionLibraries/MovieSceneVectorTrackExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDoubleVectorTrackExtensions extends BlueprintFunctionLibrary {
-	public function SetNumChannelsUsed(Track: cpp.Star<MovieSceneDoubleVectorTrack>, InNumChannelsUsed: cpp.Int32): Void;
-	public function GetNumChannelsUsed(Track: cpp.Star<MovieSceneDoubleVectorTrack>): cpp.Int32;
+	public function SetNumChannelsUsed(Track: ucpp.Ptr<MovieSceneDoubleVectorTrack>, InNumChannelsUsed: ucpp.num.Int32): Void;
+	public function GetNumChannelsUsed(Track: ucpp.Ptr<MovieSceneDoubleVectorTrack>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMovieSceneDoubleVectorTrackExtensions(MovieSceneDoubleVectorTrackE
 @:forward
 @:nativeGen
 @:native("MovieSceneDoubleVectorTrackExtensions*")
-abstract MovieSceneDoubleVectorTrackExtensionsPtr(cpp.Star<MovieSceneDoubleVectorTrackExtensions>) from cpp.Star<MovieSceneDoubleVectorTrackExtensions> to cpp.Star<MovieSceneDoubleVectorTrackExtensions>{
+abstract MovieSceneDoubleVectorTrackExtensionsPtr(ucpp.Ptr<MovieSceneDoubleVectorTrackExtensions>) from ucpp.Ptr<MovieSceneDoubleVectorTrackExtensions> to ucpp.Ptr<MovieSceneDoubleVectorTrackExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneDoubleVectorTrackExtensions): MovieSceneDoubleVectorTrackExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

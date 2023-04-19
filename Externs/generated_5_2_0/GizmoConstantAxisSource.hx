@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGizmoConstantAxisSource")
 @:include("BaseGizmos/AxisSources.h")
-@:structAccess
+@:valueType
 extern class GizmoConstantAxisSource extends Object {
 	public var Origin: Vector;
 	public var Direction: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstGizmoConstantAxisSource(GizmoConstantAxisSource) from GizmoConstan
 @:forward
 @:nativeGen
 @:native("GizmoConstantAxisSource*")
-abstract GizmoConstantAxisSourcePtr(cpp.Star<GizmoConstantAxisSource>) from cpp.Star<GizmoConstantAxisSource> to cpp.Star<GizmoConstantAxisSource>{
+abstract GizmoConstantAxisSourcePtr(ucpp.Ptr<GizmoConstantAxisSource>) from ucpp.Ptr<GizmoConstantAxisSource> to ucpp.Ptr<GizmoConstantAxisSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoConstantAxisSource): GizmoConstantAxisSourcePtr {
 		return untyped __cpp__("&({0})", v);

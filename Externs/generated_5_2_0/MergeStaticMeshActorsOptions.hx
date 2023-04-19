@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMergeStaticMeshActorsOptions")
 @:include("StaticMeshEditorSubsystemHelpers.h")
-@:structAccess
+@:valueType
 extern class MergeStaticMeshActorsOptions extends JoinStaticMeshActorsOptions {
 	public var bSpawnMergedActor: Bool;
 	public var BasePackageName: FString;

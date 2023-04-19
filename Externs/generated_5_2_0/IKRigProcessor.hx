@@ -3,11 +3,11 @@ package ue;
 
 @:native("UIKRigProcessor")
 @:include("IKRigProcessor.h")
-@:structAccess
+@:valueType
 extern class IKRigProcessor extends Object {
-	private var Solvers: TArray<cpp.Star<IKRigSolver>>;
+	private var Solvers: TArray<ucpp.Ptr<IKRigSolver>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstIKRigProcessor(IKRigProcessor) from IKRigProcessor {
 @:forward
 @:nativeGen
 @:native("IKRigProcessor*")
-abstract IKRigProcessorPtr(cpp.Star<IKRigProcessor>) from cpp.Star<IKRigProcessor> to cpp.Star<IKRigProcessor>{
+abstract IKRigProcessorPtr(ucpp.Ptr<IKRigProcessor>) from ucpp.Ptr<IKRigProcessor> to ucpp.Ptr<IKRigProcessor>{
 	@:from
 	public static extern inline function fromValue(v: IKRigProcessor): IKRigProcessorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWorldPartitionActorLoaderInterface")
-@:structAccess
+@:valueType
 extern class WorldPartitionActorLoaderInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWorldPartitionActorLoaderInterface(WorldPartitionActorLoaderInterf
 @:forward
 @:nativeGen
 @:native("WorldPartitionActorLoaderInterface*")
-abstract WorldPartitionActorLoaderInterfacePtr(cpp.Star<WorldPartitionActorLoaderInterface>) from cpp.Star<WorldPartitionActorLoaderInterface> to cpp.Star<WorldPartitionActorLoaderInterface>{
+abstract WorldPartitionActorLoaderInterfacePtr(ucpp.Ptr<WorldPartitionActorLoaderInterface>) from ucpp.Ptr<WorldPartitionActorLoaderInterface> to ucpp.Ptr<WorldPartitionActorLoaderInterface>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionActorLoaderInterface): WorldPartitionActorLoaderInterfacePtr {
 		return untyped __cpp__("&({0})", v);

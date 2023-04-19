@@ -3,11 +3,11 @@ package ue;
 
 @:native("AInternalToolFrameworkActor")
 @:include("InteractiveToolObjects.h")
-@:structAccess
+@:valueType
 extern class InternalToolFrameworkActor extends Actor {
 	public var bIsSelectableInEditor: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInternalToolFrameworkActor(InternalToolFrameworkActor) from Intern
 @:forward
 @:nativeGen
 @:native("InternalToolFrameworkActor*")
-abstract InternalToolFrameworkActorPtr(cpp.Star<InternalToolFrameworkActor>) from cpp.Star<InternalToolFrameworkActor> to cpp.Star<InternalToolFrameworkActor>{
+abstract InternalToolFrameworkActorPtr(ucpp.Ptr<InternalToolFrameworkActor>) from ucpp.Ptr<InternalToolFrameworkActor> to ucpp.Ptr<InternalToolFrameworkActor>{
 	@:from
 	public static extern inline function fromValue(v: InternalToolFrameworkActor): InternalToolFrameworkActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UAnimSharingStateInstance")
 @:include("AnimationSharingInstances.h")
-@:structAccess
+@:valueType
 extern class AnimSharingStateInstance extends AnimInstance {
-	@:protected public var AnimationToPlay: cpp.Star<AnimSequence>;
-	@:protected public var PermutationTimeOffset: cpp.Float32;
-	@:protected public var PlayRate: cpp.Float32;
+	@:protected public var AnimationToPlay: ucpp.Ptr<AnimSequence>;
+	@:protected public var PermutationTimeOffset: ucpp.num.Float32;
+	@:protected public var PlayRate: ucpp.num.Float32;
 	@:protected public var bStateBool: Bool;
-	private var Instance: cpp.Star<AnimSharingInstance>;
+	private var Instance: ucpp.Ptr<AnimSharingInstance>;
 
-	@:protected public function GetInstancedActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	@:protected public function GetInstancedActors(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAnimSharingStateInstance(AnimSharingStateInstance) from AnimSharin
 @:forward
 @:nativeGen
 @:native("AnimSharingStateInstance*")
-abstract AnimSharingStateInstancePtr(cpp.Star<AnimSharingStateInstance>) from cpp.Star<AnimSharingStateInstance> to cpp.Star<AnimSharingStateInstance>{
+abstract AnimSharingStateInstancePtr(ucpp.Ptr<AnimSharingStateInstance>) from ucpp.Ptr<AnimSharingStateInstance> to ucpp.Ptr<AnimSharingStateInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimSharingStateInstance): AnimSharingStateInstancePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterface_AssetUserData")
-@:structAccess
+@:valueType
 extern class Interface_AssetUserData extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterface_AssetUserData(Interface_AssetUserData) from Interface_As
 @:forward
 @:nativeGen
 @:native("Interface_AssetUserData*")
-abstract Interface_AssetUserDataPtr(cpp.Star<Interface_AssetUserData>) from cpp.Star<Interface_AssetUserData> to cpp.Star<Interface_AssetUserData>{
+abstract Interface_AssetUserDataPtr(ucpp.Ptr<Interface_AssetUserData>) from ucpp.Ptr<Interface_AssetUserData> to ucpp.Ptr<Interface_AssetUserData>{
 	@:from
 	public static extern inline function fromValue(v: Interface_AssetUserData): Interface_AssetUserDataPtr {
 		return untyped __cpp__("&({0})", v);

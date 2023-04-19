@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigControlElement")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigControlElement extends RigMultiParentElement {
 	public var Settings: RigControlSettings;
 	public var Offset: RigCurrentAndInitialTransform;

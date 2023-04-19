@@ -3,17 +3,17 @@ package ue;
 
 @:native("FSourceEffectFilterAudioBusModulationSettings")
 @:include("SourceEffects/SourceEffectFilter.h")
-@:structAccess
+@:valueType
 extern class SourceEffectFilterAudioBusModulationSettings {
-	public var AudioBus: cpp.Star<AudioBus>;
-	public var EnvelopeFollowerAttackTimeMsec: cpp.Int32;
-	public var EnvelopeFollowerReleaseTimeMsec: cpp.Int32;
-	public var EnvelopeGainMultiplier: cpp.Float32;
+	public var AudioBus: ucpp.Ptr<AudioBus>;
+	public var EnvelopeFollowerAttackTimeMsec: ucpp.num.Int32;
+	public var EnvelopeFollowerReleaseTimeMsec: ucpp.num.Int32;
+	public var EnvelopeGainMultiplier: ucpp.num.Float32;
 	public var FilterParam: ESourceEffectFilterParam;
-	public var MinFrequencyModulation: cpp.Float32;
-	public var MaxFrequencyModulation: cpp.Float32;
-	public var MinResonanceModulation: cpp.Float32;
-	public var MaxResonanceModulation: cpp.Float32;
+	public var MinFrequencyModulation: ucpp.num.Float32;
+	public var MaxFrequencyModulation: ucpp.num.Float32;
+	public var MinResonanceModulation: ucpp.num.Float32;
+	public var MaxResonanceModulation: ucpp.num.Float32;
 
 	@:native("FSourceEffectFilterAudioBusModulationSettings") public function new();
 }

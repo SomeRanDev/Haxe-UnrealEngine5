@@ -3,29 +3,29 @@ package ue;
 
 @:native("UARSaveWorldAsyncTaskBlueprintProxy")
 @:include("ARBlueprintProxy.h")
-@:structAccess
+@:valueType
 extern class ARSaveWorldAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
-	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.UInt8>>) -> Void>;
+	public var OnFailed: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.UInt8>>) -> Void>;
 
-	public function ARSaveWorld(WorldContextObject: cpp.Star<Object>): cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>;
+	public function ARSaveWorld(WorldContextObject: ucpp.Ptr<Object>): ucpp.Ptr<ARSaveWorldAsyncTaskBlueprintProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstARSaveWorldAsyncTaskBlueprintProxy(ARSaveWorldAsyncTaskBlueprintProxy) from ARSaveWorldAsyncTaskBlueprintProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void> return this.OnSuccess;
-	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void>;
-	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.UInt8>>) -> Void> return this.OnFailed;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.UInt8>>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.UInt8>>) -> Void> return this.OnSuccess;
+	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.UInt8>>) -> Void>;
+	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.UInt8>>) -> Void> return this.OnFailed;
 }
 
 @:forward
 @:nativeGen
 @:native("ARSaveWorldAsyncTaskBlueprintProxy*")
-abstract ARSaveWorldAsyncTaskBlueprintProxyPtr(cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>) from cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy> to cpp.Star<ARSaveWorldAsyncTaskBlueprintProxy>{
+abstract ARSaveWorldAsyncTaskBlueprintProxyPtr(ucpp.Ptr<ARSaveWorldAsyncTaskBlueprintProxy>) from ucpp.Ptr<ARSaveWorldAsyncTaskBlueprintProxy> to ucpp.Ptr<ARSaveWorldAsyncTaskBlueprintProxy>{
 	@:from
 	public static extern inline function fromValue(v: ARSaveWorldAsyncTaskBlueprintProxy): ARSaveWorldAsyncTaskBlueprintProxyPtr {
 		return untyped __cpp__("&({0})", v);

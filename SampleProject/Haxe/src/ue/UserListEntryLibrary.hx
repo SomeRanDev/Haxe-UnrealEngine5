@@ -3,13 +3,13 @@ package ue;
 
 @:native("UUserListEntryLibrary")
 @:include("Blueprint/IUserListEntry.h")
-@:structAccess
+@:valueType
 extern class UserListEntryLibrary extends BlueprintFunctionLibrary {
 	public function IsListItemSelected(UserListEntry: UserListEntry): Bool;
 	public function IsListItemExpanded(UserListEntry: UserListEntry): Bool;
-	public function GetOwningListView(UserListEntry: UserListEntry): cpp.Star<ListViewBase>;
+	public function GetOwningListView(UserListEntry: UserListEntry): ucpp.Ptr<ListViewBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUserListEntryLibrary(UserListEntryLibrary) from UserListEntryLibra
 @:forward
 @:nativeGen
 @:native("UserListEntryLibrary*")
-abstract UserListEntryLibraryPtr(cpp.Star<UserListEntryLibrary>) from cpp.Star<UserListEntryLibrary> to cpp.Star<UserListEntryLibrary>{
+abstract UserListEntryLibraryPtr(ucpp.Ptr<UserListEntryLibrary>) from ucpp.Ptr<UserListEntryLibrary> to ucpp.Ptr<UserListEntryLibrary>{
 	@:from
 	public static extern inline function fromValue(v: UserListEntryLibrary): UserListEntryLibraryPtr {
 		return untyped __cpp__("&({0})", v);

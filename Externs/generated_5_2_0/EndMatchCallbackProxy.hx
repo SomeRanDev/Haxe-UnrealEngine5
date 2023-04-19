@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEndMatchCallbackProxy")
 @:include("EndMatchCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class EndMatchCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function EndMatch(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchActor: TurnBasedMatchInterface, MatchID: FString, LocalPlayerOutcome: TEnumAsByte<EMPMatchOutcome>, OtherPlayersOutcome: TEnumAsByte<EMPMatchOutcome>): cpp.Star<EndMatchCallbackProxy>;
+	public function EndMatch(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MatchActor: TurnBasedMatchInterface, MatchID: FString, LocalPlayerOutcome: TEnumAsByte<EMPMatchOutcome>, OtherPlayersOutcome: TEnumAsByte<EMPMatchOutcome>): ucpp.Ptr<EndMatchCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstEndMatchCallbackProxy(EndMatchCallbackProxy) from EndMatchCallback
 @:forward
 @:nativeGen
 @:native("EndMatchCallbackProxy*")
-abstract EndMatchCallbackProxyPtr(cpp.Star<EndMatchCallbackProxy>) from cpp.Star<EndMatchCallbackProxy> to cpp.Star<EndMatchCallbackProxy>{
+abstract EndMatchCallbackProxyPtr(ucpp.Ptr<EndMatchCallbackProxy>) from ucpp.Ptr<EndMatchCallbackProxy> to ucpp.Ptr<EndMatchCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: EndMatchCallbackProxy): EndMatchCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

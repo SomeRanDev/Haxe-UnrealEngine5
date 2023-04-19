@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigUnit_ModifyTransforms_PerItem")
 @:include("Private/Units/Highlevel/Hierarchy/RigUnit_ModifyTransforms.h")
-@:structAccess
+@:valueType
 extern class RigUnit_ModifyTransforms_PerItem {
 	public var Item: RigElementKey;
 	public var Transform: Transform;

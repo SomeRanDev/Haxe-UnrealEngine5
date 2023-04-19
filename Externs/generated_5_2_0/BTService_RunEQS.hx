@@ -3,12 +3,12 @@ package ue;
 
 @:native("UBTService_RunEQS")
 @:include("BehaviorTree/Services/BTService_RunEQS.h")
-@:structAccess
+@:valueType
 extern class BTService_RunEQS extends BTService_BlackboardBase {
 	@:protected public var EQSRequest: EQSParametrizedQueryExecutionRequest;
 	@:protected public var bUpdateBBOnFail: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstBTService_RunEQS(BTService_RunEQS) from BTService_RunEQS {
 @:forward
 @:nativeGen
 @:native("BTService_RunEQS*")
-abstract BTService_RunEQSPtr(cpp.Star<BTService_RunEQS>) from cpp.Star<BTService_RunEQS> to cpp.Star<BTService_RunEQS>{
+abstract BTService_RunEQSPtr(ucpp.Ptr<BTService_RunEQS>) from ucpp.Ptr<BTService_RunEQS> to ucpp.Ptr<BTService_RunEQS>{
 	@:from
 	public static extern inline function fromValue(v: BTService_RunEQS): BTService_RunEQSPtr {
 		return untyped __cpp__("&({0})", v);

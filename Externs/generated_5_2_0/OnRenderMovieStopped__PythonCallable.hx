@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnRenderMovieStopped__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnRenderMovieStopped__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnRenderMovieStopped__PythonCallable(OnRenderMovieStopped__PythonC
 @:forward
 @:nativeGen
 @:native("OnRenderMovieStopped__PythonCallable*")
-abstract OnRenderMovieStopped__PythonCallablePtr(cpp.Star<OnRenderMovieStopped__PythonCallable>) from cpp.Star<OnRenderMovieStopped__PythonCallable> to cpp.Star<OnRenderMovieStopped__PythonCallable>{
+abstract OnRenderMovieStopped__PythonCallablePtr(ucpp.Ptr<OnRenderMovieStopped__PythonCallable>) from ucpp.Ptr<OnRenderMovieStopped__PythonCallable> to ucpp.Ptr<OnRenderMovieStopped__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnRenderMovieStopped__PythonCallable): OnRenderMovieStopped__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

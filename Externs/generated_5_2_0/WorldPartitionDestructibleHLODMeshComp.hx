@@ -3,14 +3,14 @@ package ue;
 
 @:native("UWorldPartitionDestructibleHLODMeshComponent")
 @:include("WorldPartition/HLOD/DestructibleHLODComponent.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionDestructibleHLODMeshComp extends WorldPartitionDestructibleHLODComp {
-	private var DestructibleHLODMaterial: cpp.Star<MaterialInterface>;
+	private var DestructibleHLODMaterial: ucpp.Ptr<MaterialInterface>;
 	private var DestructibleHLODState: WorldPartitionDestructibleHLODState;
-	private var VisibilityMaterial: cpp.Star<MaterialInstanceDynamic>;
-	private var VisibilityTexture: cpp.Star<Texture2DDynamic>;
+	private var VisibilityMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var VisibilityTexture: ucpp.Ptr<Texture2DDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstWorldPartitionDestructibleHLODMeshComp(WorldPartitionDestructibleH
 @:forward
 @:nativeGen
 @:native("WorldPartitionDestructibleHLODMeshComp*")
-abstract WorldPartitionDestructibleHLODMeshCompPtr(cpp.Star<WorldPartitionDestructibleHLODMeshComp>) from cpp.Star<WorldPartitionDestructibleHLODMeshComp> to cpp.Star<WorldPartitionDestructibleHLODMeshComp>{
+abstract WorldPartitionDestructibleHLODMeshCompPtr(ucpp.Ptr<WorldPartitionDestructibleHLODMeshComp>) from ucpp.Ptr<WorldPartitionDestructibleHLODMeshComp> to ucpp.Ptr<WorldPartitionDestructibleHLODMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionDestructibleHLODMeshComp): WorldPartitionDestructibleHLODMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

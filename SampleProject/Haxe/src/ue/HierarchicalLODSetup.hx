@@ -3,12 +3,12 @@ package ue;
 
 @:native("UHierarchicalLODSetup")
 @:include("GameFramework/WorldSettings.h")
-@:structAccess
+@:valueType
 extern class HierarchicalLODSetup extends Object {
 	public var HierarchicalLODSetup: TArray<HierarchicalSimplification>;
 	public var OverrideBaseMaterial: TSoftObjectPtr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstHierarchicalLODSetup(HierarchicalLODSetup) from HierarchicalLODSet
 @:forward
 @:nativeGen
 @:native("HierarchicalLODSetup*")
-abstract HierarchicalLODSetupPtr(cpp.Star<HierarchicalLODSetup>) from cpp.Star<HierarchicalLODSetup> to cpp.Star<HierarchicalLODSetup>{
+abstract HierarchicalLODSetupPtr(ucpp.Ptr<HierarchicalLODSetup>) from ucpp.Ptr<HierarchicalLODSetup> to ucpp.Ptr<HierarchicalLODSetup>{
 	@:from
 	public static extern inline function fromValue(v: HierarchicalLODSetup): HierarchicalLODSetupPtr {
 		return untyped __cpp__("&({0})", v);

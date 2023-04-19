@@ -3,11 +3,11 @@ package ue;
 
 @:native("FInertializationRequest")
 @:include("Animation/AnimNode_Inertialization.h")
-@:structAccess
+@:valueType
 extern class InertializationRequest {
-	public var Duration: cpp.Float32;
-	public var BlendProfile: cpp.Star<BlendProfile>;
+	public var Duration: ucpp.num.Float32;
+	public var BlendProfile: ucpp.Ptr<BlendProfile>;
 
 	@:native("FInertializationRequest") public function new();
-	@:native("FInertializationRequest") public static function make(Duration: cpp.Float32, BlendProfile: cpp.Star<BlendProfile>): InertializationRequest ;
+	@:native("FInertializationRequest") public static function make(Duration: ucpp.num.Float32, BlendProfile: ucpp.Ptr<BlendProfile>): InertializationRequest ;
 }

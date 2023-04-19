@@ -3,11 +3,11 @@ package ue;
 
 @:native("FRigVMByteCodeEntry")
 @:include("RigVMCore/RigVMByteCode.h")
-@:structAccess
+@:valueType
 extern class RigVMByteCodeEntry {
 	public var Name: FName;
-	public var InstructionIndex: cpp.Int32;
+	public var InstructionIndex: ucpp.num.Int32;
 
 	@:native("FRigVMByteCodeEntry") public function new();
-	@:native("FRigVMByteCodeEntry") public static function make(Name: FName, InstructionIndex: cpp.Int32): RigVMByteCodeEntry ;
+	@:native("FRigVMByteCodeEntry") public static function make(Name: FName, InstructionIndex: ucpp.num.Int32): RigVMByteCodeEntry ;
 }

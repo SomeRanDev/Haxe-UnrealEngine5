@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVSplitAction")
 @:include("Actions/UVSplitAction.h")
-@:structAccess
+@:valueType
 extern class UVSplitAction extends UVToolAction {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVSplitAction(UVSplitAction) from UVSplitAction {
 @:forward
 @:nativeGen
 @:native("UVSplitAction*")
-abstract UVSplitActionPtr(cpp.Star<UVSplitAction>) from cpp.Star<UVSplitAction> to cpp.Star<UVSplitAction>{
+abstract UVSplitActionPtr(ucpp.Ptr<UVSplitAction>) from ucpp.Ptr<UVSplitAction> to ucpp.Ptr<UVSplitAction>{
 	@:from
 	public static extern inline function fromValue(v: UVSplitAction): UVSplitActionPtr {
 		return untyped __cpp__("&({0})", v);

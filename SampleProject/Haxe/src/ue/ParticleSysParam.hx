@@ -3,17 +3,17 @@ package ue;
 
 @:native("FParticleSysParam")
 @:include("Particles/ParticleSystemComponent.h")
-@:structAccess
+@:valueType
 extern class ParticleSysParam {
 	public var Name: FName;
 	public var ParamType: TEnumAsByte<EParticleSysParamType>;
-	public var Scalar: cpp.Float32;
-	public var Scalar_Low: cpp.Float32;
+	public var Scalar: ucpp.num.Float32;
+	public var Scalar_Low: ucpp.num.Float32;
 	public var Vector: Vector;
 	public var Vector_Low: Vector;
 	public var Color: Color;
-	public var Actor: cpp.Star<Actor>;
-	public var Material: cpp.Star<MaterialInterface>;
+	public var Actor: ucpp.Ptr<Actor>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 
 	@:native("FParticleSysParam") public function new();
 }

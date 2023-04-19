@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAnimNotifyStateMachineInspectionLibrary")
 @:include("Animation/AnimNotifyStateMachineInspectionLibrary.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyStateMachineInspectionLibrary extends BlueprintFunctionLibrary {
-	public function IsTriggeredByStateMachine(EventReference: cpp.Reference<AnimNotifyEventReference>, AnimInstance: cpp.Star<AnimInstance>, StateMachineName: FName): Bool;
-	public function IsTriggeredByStateInStateMachine(EventReference: cpp.Reference<AnimNotifyEventReference>, AnimInstance: cpp.Star<AnimInstance>, StateMachineName: FName, StateName: FName): Bool;
-	public function IsTriggeredByState(EventReference: cpp.Reference<AnimNotifyEventReference>, AnimInstance: cpp.Star<AnimInstance>, StateName: FName): Bool;
+	public function IsTriggeredByStateMachine(EventReference: ucpp.Ref<AnimNotifyEventReference>, AnimInstance: ucpp.Ptr<AnimInstance>, StateMachineName: FName): Bool;
+	public function IsTriggeredByStateInStateMachine(EventReference: ucpp.Ref<AnimNotifyEventReference>, AnimInstance: ucpp.Ptr<AnimInstance>, StateMachineName: FName, StateName: FName): Bool;
+	public function IsTriggeredByState(EventReference: ucpp.Ref<AnimNotifyEventReference>, AnimInstance: ucpp.Ptr<AnimInstance>, StateName: FName): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimNotifyStateMachineInspectionLibrary(AnimNotifyStateMachineInsp
 @:forward
 @:nativeGen
 @:native("AnimNotifyStateMachineInspectionLibrary*")
-abstract AnimNotifyStateMachineInspectionLibraryPtr(cpp.Star<AnimNotifyStateMachineInspectionLibrary>) from cpp.Star<AnimNotifyStateMachineInspectionLibrary> to cpp.Star<AnimNotifyStateMachineInspectionLibrary>{
+abstract AnimNotifyStateMachineInspectionLibraryPtr(ucpp.Ptr<AnimNotifyStateMachineInspectionLibrary>) from ucpp.Ptr<AnimNotifyStateMachineInspectionLibrary> to ucpp.Ptr<AnimNotifyStateMachineInspectionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyStateMachineInspectionLibrary): AnimNotifyStateMachineInspectionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

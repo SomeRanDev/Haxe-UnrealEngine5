@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUnrealPakCommandlet")
 @:include("Commandlets/UnrealPakCommandlet.h")
-@:structAccess
+@:valueType
 extern class UnrealPakCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUnrealPakCommandlet(UnrealPakCommandlet) from UnrealPakCommandlet 
 @:forward
 @:nativeGen
 @:native("UnrealPakCommandlet*")
-abstract UnrealPakCommandletPtr(cpp.Star<UnrealPakCommandlet>) from cpp.Star<UnrealPakCommandlet> to cpp.Star<UnrealPakCommandlet>{
+abstract UnrealPakCommandletPtr(ucpp.Ptr<UnrealPakCommandlet>) from ucpp.Ptr<UnrealPakCommandlet> to ucpp.Ptr<UnrealPakCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: UnrealPakCommandlet): UnrealPakCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGLTFSkeletalMeshExporter")
 @:include("Exporters/GLTFSkeletalMeshExporter.h")
-@:structAccess
+@:valueType
 extern class GLTFSkeletalMeshExporter extends GLTFExporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGLTFSkeletalMeshExporter(GLTFSkeletalMeshExporter) from GLTFSkelet
 @:forward
 @:nativeGen
 @:native("GLTFSkeletalMeshExporter*")
-abstract GLTFSkeletalMeshExporterPtr(cpp.Star<GLTFSkeletalMeshExporter>) from cpp.Star<GLTFSkeletalMeshExporter> to cpp.Star<GLTFSkeletalMeshExporter>{
+abstract GLTFSkeletalMeshExporterPtr(ucpp.Ptr<GLTFSkeletalMeshExporter>) from ucpp.Ptr<GLTFSkeletalMeshExporter> to ucpp.Ptr<GLTFSkeletalMeshExporter>{
 	@:from
 	public static extern inline function fromValue(v: GLTFSkeletalMeshExporter): GLTFSkeletalMeshExporterPtr {
 		return untyped __cpp__("&({0})", v);

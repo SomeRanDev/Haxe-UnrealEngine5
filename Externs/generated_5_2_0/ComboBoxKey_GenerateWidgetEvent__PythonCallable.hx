@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComboBoxKey_GenerateWidgetEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComboBoxKey_GenerateWidgetEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComboBoxKey_GenerateWidgetEvent__PythonCallable(ComboBoxKey_Genera
 @:forward
 @:nativeGen
 @:native("ComboBoxKey_GenerateWidgetEvent__PythonCallable*")
-abstract ComboBoxKey_GenerateWidgetEvent__PythonCallablePtr(cpp.Star<ComboBoxKey_GenerateWidgetEvent__PythonCallable>) from cpp.Star<ComboBoxKey_GenerateWidgetEvent__PythonCallable> to cpp.Star<ComboBoxKey_GenerateWidgetEvent__PythonCallable>{
+abstract ComboBoxKey_GenerateWidgetEvent__PythonCallablePtr(ucpp.Ptr<ComboBoxKey_GenerateWidgetEvent__PythonCallable>) from ucpp.Ptr<ComboBoxKey_GenerateWidgetEvent__PythonCallable> to ucpp.Ptr<ComboBoxKey_GenerateWidgetEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComboBoxKey_GenerateWidgetEvent__PythonCallable): ComboBoxKey_GenerateWidgetEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

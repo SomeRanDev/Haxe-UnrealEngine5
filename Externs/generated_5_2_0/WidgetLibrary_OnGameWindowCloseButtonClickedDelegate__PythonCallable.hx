@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallab
 @:forward
 @:nativeGen
 @:native("WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable*")
-abstract WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallablePtr(cpp.Star<WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable>) from cpp.Star<WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable> to cpp.Star<WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable>{
+abstract WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallablePtr(ucpp.Ptr<WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable>) from ucpp.Ptr<WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable> to ucpp.Ptr<WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallable): WidgetLibrary_OnGameWindowCloseButtonClickedDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

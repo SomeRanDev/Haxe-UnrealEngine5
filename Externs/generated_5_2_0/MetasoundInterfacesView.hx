@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMetasoundInterfacesView")
 @:include("MetasoundEditor.h")
-@:structAccess
+@:valueType
 extern class MetasoundInterfacesView extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMetasoundInterfacesView(MetasoundInterfacesView) from MetasoundInt
 @:forward
 @:nativeGen
 @:native("MetasoundInterfacesView*")
-abstract MetasoundInterfacesViewPtr(cpp.Star<MetasoundInterfacesView>) from cpp.Star<MetasoundInterfacesView> to cpp.Star<MetasoundInterfacesView>{
+abstract MetasoundInterfacesViewPtr(ucpp.Ptr<MetasoundInterfacesView>) from ucpp.Ptr<MetasoundInterfacesView> to ucpp.Ptr<MetasoundInterfacesView>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundInterfacesView): MetasoundInterfacesViewPtr {
 		return untyped __cpp__("&({0})", v);

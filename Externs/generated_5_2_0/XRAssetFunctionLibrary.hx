@@ -3,12 +3,12 @@ package ue;
 
 @:native("UXRAssetFunctionLibrary")
 @:include("XRAssetFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class XRAssetFunctionLibrary extends BlueprintFunctionLibrary {
-	public function AddNamedDeviceVisualizationComponentBlocking(Target: cpp.Star<Actor>, SystemName: FName, DeviceName: FName, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>, XRDeviceId: cpp.Reference<XRDeviceId>): cpp.Star<PrimitiveComp>;
-	public function AddDeviceVisualizationComponentBlocking(Target: cpp.Star<Actor>, XRDeviceId: cpp.Reference<XRDeviceId>, bManualAttachment: Bool, RelativeTransform: cpp.Reference<Transform>): cpp.Star<PrimitiveComp>;
+	public function AddNamedDeviceVisualizationComponentBlocking(Target: ucpp.Ptr<Actor>, SystemName: FName, DeviceName: FName, bManualAttachment: Bool, RelativeTransform: ucpp.Ref<Transform>, XRDeviceId: ucpp.Ref<XRDeviceId>): ucpp.Ptr<PrimitiveComp>;
+	public function AddDeviceVisualizationComponentBlocking(Target: ucpp.Ptr<Actor>, XRDeviceId: ucpp.Ref<XRDeviceId>, bManualAttachment: Bool, RelativeTransform: ucpp.Ref<Transform>): ucpp.Ptr<PrimitiveComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstXRAssetFunctionLibrary(XRAssetFunctionLibrary) from XRAssetFunctio
 @:forward
 @:nativeGen
 @:native("XRAssetFunctionLibrary*")
-abstract XRAssetFunctionLibraryPtr(cpp.Star<XRAssetFunctionLibrary>) from cpp.Star<XRAssetFunctionLibrary> to cpp.Star<XRAssetFunctionLibrary>{
+abstract XRAssetFunctionLibraryPtr(ucpp.Ptr<XRAssetFunctionLibrary>) from ucpp.Ptr<XRAssetFunctionLibrary> to ucpp.Ptr<XRAssetFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: XRAssetFunctionLibrary): XRAssetFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

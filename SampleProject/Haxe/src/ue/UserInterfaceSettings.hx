@@ -3,23 +3,24 @@ package ue;
 
 @:native("UUserInterfaceSettings")
 @:include("Engine/UserInterfaceSettings.h")
-@:structAccess
+@:valueType
 extern class UserInterfaceSettings extends DeveloperSettings {
 	public var RenderFocusRule: ERenderFocusRule;
 	public var HardwareCursors: TMap<TEnumAsByte<EMouseCursor>, HardwareCursorReference>;
 	public var SoftwareCursors: TMap<TEnumAsByte<EMouseCursor>, SoftClassPath>;
-	public var ApplicationScale: cpp.Float32;
+	public var ApplicationScale: ucpp.num.Float32;
 	public var UIScaleRule: EUIScalingRule;
 	public var CustomScalingRuleClass: SoftClassPath;
 	public var UIScaleCurve: RuntimeFloatCurve;
 	public var bAllowHighDPIInGameMode: Bool;
 	public var DesignScreenSize: IntPoint;
 	public var bLoadWidgetsOnDedicatedServer: Bool;
-	private var CursorClasses: TArray<cpp.Star<Object>>;
+	public var bAuthorizeAutomaticWidgetVariableCreation: Bool;
+	private var CursorClasses: TArray<ucpp.Ptr<Object>>;
 	private var CustomScalingRuleClassInstance: TSubclassOf<Object>;
-	private var CustomScalingRule: cpp.Star<DPICustomScalingRule>;
+	private var CustomScalingRule: ucpp.Ptr<DPICustomScalingRule>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,8 +32,8 @@ abstract ConstUserInterfaceSettings(UserInterfaceSettings) from UserInterfaceSet
 	public inline extern function get_HardwareCursors(): TMap<TEnumAsByte<EMouseCursor>, HardwareCursorReference> return this.HardwareCursors;
 	public extern var SoftwareCursors(get, never): TMap<TEnumAsByte<EMouseCursor>, SoftClassPath>;
 	public inline extern function get_SoftwareCursors(): TMap<TEnumAsByte<EMouseCursor>, SoftClassPath> return this.SoftwareCursors;
-	public extern var ApplicationScale(get, never): cpp.Float32;
-	public inline extern function get_ApplicationScale(): cpp.Float32 return this.ApplicationScale;
+	public extern var ApplicationScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ApplicationScale(): ucpp.num.Float32 return this.ApplicationScale;
 	public extern var UIScaleRule(get, never): EUIScalingRule;
 	public inline extern function get_UIScaleRule(): EUIScalingRule return this.UIScaleRule;
 	public extern var CustomScalingRuleClass(get, never): SoftClassPath;
@@ -45,12 +46,14 @@ abstract ConstUserInterfaceSettings(UserInterfaceSettings) from UserInterfaceSet
 	public inline extern function get_DesignScreenSize(): IntPoint return this.DesignScreenSize;
 	public extern var bLoadWidgetsOnDedicatedServer(get, never): Bool;
 	public inline extern function get_bLoadWidgetsOnDedicatedServer(): Bool return this.bLoadWidgetsOnDedicatedServer;
+	public extern var bAuthorizeAutomaticWidgetVariableCreation(get, never): Bool;
+	public inline extern function get_bAuthorizeAutomaticWidgetVariableCreation(): Bool return this.bAuthorizeAutomaticWidgetVariableCreation;
 }
 
 @:forward
 @:nativeGen
 @:native("UserInterfaceSettings*")
-abstract UserInterfaceSettingsPtr(cpp.Star<UserInterfaceSettings>) from cpp.Star<UserInterfaceSettings> to cpp.Star<UserInterfaceSettings>{
+abstract UserInterfaceSettingsPtr(ucpp.Ptr<UserInterfaceSettings>) from ucpp.Ptr<UserInterfaceSettings> to ucpp.Ptr<UserInterfaceSettings>{
 	@:from
 	public static extern inline function fromValue(v: UserInterfaceSettings): UserInterfaceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_PersistentMeshSelection")
 @:include("Selection/PersistentMeshSelection.h")
-@:structAccess
+@:valueType
 extern class PersistentMeshSelection extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPersistentMeshSelection(PersistentMeshSelection) from PersistentMe
 @:forward
 @:nativeGen
 @:native("PersistentMeshSelection*")
-abstract PersistentMeshSelectionPtr(cpp.Star<PersistentMeshSelection>) from cpp.Star<PersistentMeshSelection> to cpp.Star<PersistentMeshSelection>{
+abstract PersistentMeshSelectionPtr(ucpp.Ptr<PersistentMeshSelection>) from ucpp.Ptr<PersistentMeshSelection> to ucpp.Ptr<PersistentMeshSelection>{
 	@:from
 	public static extern inline function fromValue(v: PersistentMeshSelection): PersistentMeshSelectionPtr {
 		return untyped __cpp__("&({0})", v);

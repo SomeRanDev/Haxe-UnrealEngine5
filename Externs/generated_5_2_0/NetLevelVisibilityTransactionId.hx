@@ -3,10 +3,10 @@ package ue;
 
 @:native("FNetLevelVisibilityTransactionId")
 @:include("GameFramework/UpdateLevelVisibilityLevelInfo.h")
-@:structAccess
+@:valueType
 extern class NetLevelVisibilityTransactionId {
-	private var Data: cpp.UInt32;
+	private var Data: ucpp.num.UInt32;
 
 	@:native("FNetLevelVisibilityTransactionId") public function new();
-	@:native("FNetLevelVisibilityTransactionId") public static function make(Data: cpp.UInt32): NetLevelVisibilityTransactionId ;
+	@:native("FNetLevelVisibilityTransactionId") public static function make(Data: ucpp.num.UInt32): NetLevelVisibilityTransactionId ;
 }

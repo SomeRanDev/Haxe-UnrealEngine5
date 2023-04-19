@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCurveBase")
 @:include("Curves/CurveBase.h")
-@:structAccess
+@:valueType
 extern class CurveBase extends Object {
 
-	public function GetValueRange(MinValue: cpp.Reference<cpp.Float32>, MaxValue: cpp.Reference<cpp.Float32>): Void;
-	public function GetTimeRange(MinTime: cpp.Reference<cpp.Float32>, MaxTime: cpp.Reference<cpp.Float32>): Void;
+	public function GetValueRange(MinValue: ucpp.Ref<ucpp.num.Float32>, MaxValue: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetTimeRange(MinTime: ucpp.Ref<ucpp.num.Float32>, MaxTime: ucpp.Ref<ucpp.num.Float32>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValueRange, GetTimeRange)
@@ -20,7 +20,7 @@ abstract ConstCurveBase(CurveBase) from CurveBase {
 @:forward
 @:nativeGen
 @:native("CurveBase*")
-abstract CurveBasePtr(cpp.Star<CurveBase>) from cpp.Star<CurveBase> to cpp.Star<CurveBase>{
+abstract CurveBasePtr(ucpp.Ptr<CurveBase>) from ucpp.Ptr<CurveBase> to ucpp.Ptr<CurveBase>{
 	@:from
 	public static extern inline function fromValue(v: CurveBase): CurveBasePtr {
 		return untyped __cpp__("&({0})", v);

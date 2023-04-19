@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneSectionChannelOverrideRegistry")
 @:include("Channels/MovieSceneSectionChannelOverrideRegistry.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSectionChannelOverrideRegistry extends Object {
-	private var Overrides: TMap<FName, cpp.Star<MovieSceneChannelOverrideContainer>>;
+	private var Overrides: TMap<FName, ucpp.Ptr<MovieSceneChannelOverrideContainer>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneSectionChannelOverrideRegistry(MovieSceneSectionChannelO
 @:forward
 @:nativeGen
 @:native("MovieSceneSectionChannelOverrideRegistry*")
-abstract MovieSceneSectionChannelOverrideRegistryPtr(cpp.Star<MovieSceneSectionChannelOverrideRegistry>) from cpp.Star<MovieSceneSectionChannelOverrideRegistry> to cpp.Star<MovieSceneSectionChannelOverrideRegistry>{
+abstract MovieSceneSectionChannelOverrideRegistryPtr(ucpp.Ptr<MovieSceneSectionChannelOverrideRegistry>) from ucpp.Ptr<MovieSceneSectionChannelOverrideRegistry> to ucpp.Ptr<MovieSceneSectionChannelOverrideRegistry>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSectionChannelOverrideRegistry): MovieSceneSectionChannelOverrideRegistryPtr {
 		return untyped __cpp__("&({0})", v);

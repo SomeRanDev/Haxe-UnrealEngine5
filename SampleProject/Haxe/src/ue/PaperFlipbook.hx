@@ -3,22 +3,22 @@ package ue;
 
 @:native("UPaperFlipbook")
 @:include("PaperFlipbook.h")
-@:structAccess
+@:valueType
 extern class PaperFlipbook extends Object {
-	@:protected public var FramesPerSecond: cpp.Float32;
+	@:protected public var FramesPerSecond: ucpp.num.Float32;
 	@:protected public var KeyFrames: TArray<PaperFlipbookKeyFrame>;
-	@:protected public var DefaultMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var DefaultMaterial: ucpp.Ptr<MaterialInterface>;
 	@:protected public var CollisionSource: TEnumAsByte<EFlipbookCollisionMode>;
 
-	public function IsValidKeyFrameIndex(Index: cpp.Int32): Bool;
-	public function GetTotalDuration(): cpp.Float32;
-	public function GetSpriteAtTime(Time: cpp.Float32, bClampToEnds: Bool): cpp.Star<PaperSprite>;
-	public function GetSpriteAtFrame(FrameIndex: cpp.Int32): cpp.Star<PaperSprite>;
-	public function GetNumKeyFrames(): cpp.Int32;
-	public function GetNumFrames(): cpp.Int32;
-	public function GetKeyFrameIndexAtTime(Time: cpp.Float32, bClampToEnds: Bool): cpp.Int32;
+	public function IsValidKeyFrameIndex(Index: ucpp.num.Int32): Bool;
+	public function GetTotalDuration(): ucpp.num.Float32;
+	public function GetSpriteAtTime(Time: ucpp.num.Float32, bClampToEnds: Bool): ucpp.Ptr<PaperSprite>;
+	public function GetSpriteAtFrame(FrameIndex: ucpp.num.Int32): ucpp.Ptr<PaperSprite>;
+	public function GetNumKeyFrames(): ucpp.num.Int32;
+	public function GetNumFrames(): ucpp.num.Int32;
+	public function GetKeyFrameIndexAtTime(Time: ucpp.num.Float32, bClampToEnds: Bool): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsValidKeyFrameIndex, GetTotalDuration, GetSpriteAtTime, GetSpriteAtFrame, GetNumKeyFrames, GetNumFrames, GetKeyFrameIndexAtTime)
@@ -29,7 +29,7 @@ abstract ConstPaperFlipbook(PaperFlipbook) from PaperFlipbook {
 @:forward
 @:nativeGen
 @:native("PaperFlipbook*")
-abstract PaperFlipbookPtr(cpp.Star<PaperFlipbook>) from cpp.Star<PaperFlipbook> to cpp.Star<PaperFlipbook>{
+abstract PaperFlipbookPtr(ucpp.Ptr<PaperFlipbook>) from ucpp.Ptr<PaperFlipbook> to ucpp.Ptr<PaperFlipbook>{
 	@:from
 	public static extern inline function fromValue(v: PaperFlipbook): PaperFlipbookPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBoneMaskFilter")
 @:include("Animation/AnimData/BoneMaskFilter.h")
-@:structAccess
+@:valueType
 extern class BoneMaskFilter extends Object {
 	public var BlendPoses: TArray<InputBlendPose>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBoneMaskFilter(BoneMaskFilter) from BoneMaskFilter {
 @:forward
 @:nativeGen
 @:native("BoneMaskFilter*")
-abstract BoneMaskFilterPtr(cpp.Star<BoneMaskFilter>) from cpp.Star<BoneMaskFilter> to cpp.Star<BoneMaskFilter>{
+abstract BoneMaskFilterPtr(ucpp.Ptr<BoneMaskFilter>) from ucpp.Ptr<BoneMaskFilter> to ucpp.Ptr<BoneMaskFilter>{
 	@:from
 	public static extern inline function fromValue(v: BoneMaskFilter): BoneMaskFilterPtr {
 		return untyped __cpp__("&({0})", v);

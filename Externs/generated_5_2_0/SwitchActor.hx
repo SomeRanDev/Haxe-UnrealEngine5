@@ -3,16 +3,16 @@ package ue;
 
 @:native("ASwitchActor")
 @:include("SwitchActor.h")
-@:structAccess
+@:valueType
 extern class SwitchActor extends Actor {
-	private var SceneComponent: cpp.Star<SceneComp>;
-	private var LastSelectedOption: cpp.Int32;
+	private var SceneComponent: ucpp.Ptr<SceneComp>;
+	private var LastSelectedOption: ucpp.num.Int32;
 
-	public function SelectOption(OptionIndex: cpp.Int32): Void;
-	public function GetSelectedOption(): cpp.Int32;
-	public function GetOptions(): TArray<cpp.Star<Actor>>;
+	public function SelectOption(OptionIndex: ucpp.num.Int32): Void;
+	public function GetSelectedOption(): ucpp.num.Int32;
+	public function GetOptions(): TArray<ucpp.Ptr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSelectedOption, GetOptions)
@@ -23,7 +23,7 @@ abstract ConstSwitchActor(SwitchActor) from SwitchActor {
 @:forward
 @:nativeGen
 @:native("SwitchActor*")
-abstract SwitchActorPtr(cpp.Star<SwitchActor>) from cpp.Star<SwitchActor> to cpp.Star<SwitchActor>{
+abstract SwitchActorPtr(ucpp.Ptr<SwitchActor>) from ucpp.Ptr<SwitchActor> to ucpp.Ptr<SwitchActor>{
 	@:from
 	public static extern inline function fromValue(v: SwitchActor): SwitchActorPtr {
 		return untyped __cpp__("&({0})", v);

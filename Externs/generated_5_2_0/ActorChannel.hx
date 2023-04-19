@@ -3,27 +3,27 @@ package ue;
 
 @:native("UActorChannel")
 @:include("Engine/ActorChannel.h")
-@:structAccess
+@:valueType
 extern class ActorChannel extends Channel {
-	public var Actor: cpp.Star<Actor>;
-	public var CreateSubObjects: TArray<cpp.Star<Object>>;
+	public var Actor: ucpp.Ptr<Actor>;
+	public var CreateSubObjects: TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstActorChannel(ActorChannel) from ActorChannel {
-	public extern var Actor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_Actor(): cpp.Star<Actor.ConstActor> return this.Actor;
-	public extern var CreateSubObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_CreateSubObjects(): TArray<cpp.Star<Object.ConstObject>> return this.CreateSubObjects;
+	public extern var Actor(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_Actor(): ucpp.Ptr<Actor.ConstActor> return this.Actor;
+	public extern var CreateSubObjects(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_CreateSubObjects(): TArray<ucpp.Ptr<Object.ConstObject>> return this.CreateSubObjects;
 }
 
 @:forward
 @:nativeGen
 @:native("ActorChannel*")
-abstract ActorChannelPtr(cpp.Star<ActorChannel>) from cpp.Star<ActorChannel> to cpp.Star<ActorChannel>{
+abstract ActorChannelPtr(ucpp.Ptr<ActorChannel>) from ucpp.Ptr<ActorChannel> to ucpp.Ptr<ActorChannel>{
 	@:from
 	public static extern inline function fromValue(v: ActorChannel): ActorChannelPtr {
 		return untyped __cpp__("&({0})", v);

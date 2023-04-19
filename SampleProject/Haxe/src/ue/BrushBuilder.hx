@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBrushBuilder")
 @:include("Engine/BrushBuilder.h")
-@:structAccess
+@:valueType
 extern class BrushBuilder extends Object {
 	public var BitmapFilename: FString;
 	public var ToolTip: FString;
@@ -13,7 +13,7 @@ extern class BrushBuilder extends Object {
 	@:protected public var Layer: FName;
 	@:protected public var MergeCoplanars: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstBrushBuilder(BrushBuilder) from BrushBuilder {
 @:forward
 @:nativeGen
 @:native("BrushBuilder*")
-abstract BrushBuilderPtr(cpp.Star<BrushBuilder>) from cpp.Star<BrushBuilder> to cpp.Star<BrushBuilder>{
+abstract BrushBuilderPtr(ucpp.Ptr<BrushBuilder>) from ucpp.Ptr<BrushBuilder> to ucpp.Ptr<BrushBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BrushBuilder): BrushBuilderPtr {
 		return untyped __cpp__("&({0})", v);

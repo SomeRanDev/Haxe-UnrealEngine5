@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBrushStampIndicatorBuilder")
 @:include("BaseGizmos/BrushStampIndicator.h")
-@:structAccess
+@:valueType
 extern class BrushStampIndicatorBuilder extends InteractiveGizmoBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBrushStampIndicatorBuilder(BrushStampIndicatorBuilder) from BrushS
 @:forward
 @:nativeGen
 @:native("BrushStampIndicatorBuilder*")
-abstract BrushStampIndicatorBuilderPtr(cpp.Star<BrushStampIndicatorBuilder>) from cpp.Star<BrushStampIndicatorBuilder> to cpp.Star<BrushStampIndicatorBuilder>{
+abstract BrushStampIndicatorBuilderPtr(ucpp.Ptr<BrushStampIndicatorBuilder>) from ucpp.Ptr<BrushStampIndicatorBuilder> to ucpp.Ptr<BrushStampIndicatorBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BrushStampIndicatorBuilder): BrushStampIndicatorBuilderPtr {
 		return untyped __cpp__("&({0})", v);

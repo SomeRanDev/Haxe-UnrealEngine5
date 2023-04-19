@@ -3,17 +3,17 @@ package ue;
 
 @:native("FVirtualTextureSpacePoolConfig")
 @:include("VT/VirtualTexturePoolConfig.h")
-@:structAccess
+@:valueType
 extern class VirtualTextureSpacePoolConfig {
-	public var MinTileSize: cpp.Int32;
-	public var MaxTileSize: cpp.Int32;
+	public var MinTileSize: ucpp.num.Int32;
+	public var MaxTileSize: ucpp.num.Int32;
 	public var Formats: TArray<TEnumAsByte<EPixelFormat>>;
-	public var SizeInMegabyte: cpp.Int32;
+	public var SizeInMegabyte: ucpp.num.Int32;
 	public var bEnableResidencyMipMapBias: Bool;
 	public var bAllowSizeScale: Bool;
-	public var ScalabilityGroup: cpp.UInt32;
-	public var MinScaledSizeInMegabyte: cpp.Int32;
-	public var MaxScaledSizeInMegabyte: cpp.Int32;
+	public var ScalabilityGroup: ucpp.num.UInt32;
+	public var MinScaledSizeInMegabyte: ucpp.num.Int32;
+	public var MaxScaledSizeInMegabyte: ucpp.num.Int32;
 
 	@:native("FVirtualTextureSpacePoolConfig") public function new();
 }

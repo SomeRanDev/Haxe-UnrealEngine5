@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWrangleContentCommandlet")
 @:include("Commandlets/WrangleContentCommandlet.h")
-@:structAccess
+@:valueType
 extern class WrangleContentCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWrangleContentCommandlet(WrangleContentCommandlet) from WrangleCon
 @:forward
 @:nativeGen
 @:native("WrangleContentCommandlet*")
-abstract WrangleContentCommandletPtr(cpp.Star<WrangleContentCommandlet>) from cpp.Star<WrangleContentCommandlet> to cpp.Star<WrangleContentCommandlet>{
+abstract WrangleContentCommandletPtr(ucpp.Ptr<WrangleContentCommandlet>) from ucpp.Ptr<WrangleContentCommandlet> to ucpp.Ptr<WrangleContentCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: WrangleContentCommandlet): WrangleContentCommandletPtr {
 		return untyped __cpp__("&({0})", v);

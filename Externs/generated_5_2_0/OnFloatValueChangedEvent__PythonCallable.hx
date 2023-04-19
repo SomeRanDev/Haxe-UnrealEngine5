@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnFloatValueChangedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnFloatValueChangedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnFloatValueChangedEvent__PythonCallable(OnFloatValueChangedEvent_
 @:forward
 @:nativeGen
 @:native("OnFloatValueChangedEvent__PythonCallable*")
-abstract OnFloatValueChangedEvent__PythonCallablePtr(cpp.Star<OnFloatValueChangedEvent__PythonCallable>) from cpp.Star<OnFloatValueChangedEvent__PythonCallable> to cpp.Star<OnFloatValueChangedEvent__PythonCallable>{
+abstract OnFloatValueChangedEvent__PythonCallablePtr(ucpp.Ptr<OnFloatValueChangedEvent__PythonCallable>) from ucpp.Ptr<OnFloatValueChangedEvent__PythonCallable> to ucpp.Ptr<OnFloatValueChangedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnFloatValueChangedEvent__PythonCallable): OnFloatValueChangedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

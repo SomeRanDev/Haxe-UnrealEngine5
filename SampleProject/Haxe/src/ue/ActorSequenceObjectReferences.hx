@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorSequenceObjectReferences")
 @:include("ActorSequenceObjectReference.h")
-@:structAccess
+@:valueType
 extern class ActorSequenceObjectReferences {
 	public var Array: TArray<ActorSequenceObjectReference>;
 

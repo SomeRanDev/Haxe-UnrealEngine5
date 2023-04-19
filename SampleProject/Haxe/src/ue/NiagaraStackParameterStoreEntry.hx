@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraStackParameterStoreEntry")
 @:include("ViewModels/Stack/NiagaraStackParameterStoreEntry.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackParameterStoreEntry extends NiagaraStackItemContent {
-	private var ValueObjectEntry: cpp.Star<NiagaraStackObject>;
+	private var ValueObjectEntry: ucpp.Ptr<NiagaraStackObject>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraStackParameterStoreEntry(NiagaraStackParameterStoreEntry) f
 @:forward
 @:nativeGen
 @:native("NiagaraStackParameterStoreEntry*")
-abstract NiagaraStackParameterStoreEntryPtr(cpp.Star<NiagaraStackParameterStoreEntry>) from cpp.Star<NiagaraStackParameterStoreEntry> to cpp.Star<NiagaraStackParameterStoreEntry>{
+abstract NiagaraStackParameterStoreEntryPtr(ucpp.Ptr<NiagaraStackParameterStoreEntry>) from ucpp.Ptr<NiagaraStackParameterStoreEntry> to ucpp.Ptr<NiagaraStackParameterStoreEntry>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackParameterStoreEntry): NiagaraStackParameterStoreEntryPtr {
 		return untyped __cpp__("&({0})", v);

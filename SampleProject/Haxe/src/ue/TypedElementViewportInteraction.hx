@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTypedElementViewportInteraction")
 @:include("Elements/Framework/TypedElementViewportInteraction.h")
-@:structAccess
+@:valueType
 extern class TypedElementViewportInteraction extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTypedElementViewportInteraction(TypedElementViewportInteraction) f
 @:forward
 @:nativeGen
 @:native("TypedElementViewportInteraction*")
-abstract TypedElementViewportInteractionPtr(cpp.Star<TypedElementViewportInteraction>) from cpp.Star<TypedElementViewportInteraction> to cpp.Star<TypedElementViewportInteraction>{
+abstract TypedElementViewportInteractionPtr(ucpp.Ptr<TypedElementViewportInteraction>) from ucpp.Ptr<TypedElementViewportInteraction> to ucpp.Ptr<TypedElementViewportInteraction>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementViewportInteraction): TypedElementViewportInteractionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("FDynamicsBandSettings")
 @:include("SubmixEffects/SubmixEffectMultiBandCompressor.h")
-@:structAccess
+@:valueType
 extern class DynamicsBandSettings {
-	public var CrossoverTopFrequency: cpp.Float32;
-	public var AttackTimeMsec: cpp.Float32;
-	public var ReleaseTimeMsec: cpp.Float32;
-	public var ThresholdDb: cpp.Float32;
-	public var Ratio: cpp.Float32;
-	public var KneeBandwidthDb: cpp.Float32;
-	public var InputGainDb: cpp.Float32;
-	public var OutputGainDb: cpp.Float32;
+	public var CrossoverTopFrequency: ucpp.num.Float32;
+	public var AttackTimeMsec: ucpp.num.Float32;
+	public var ReleaseTimeMsec: ucpp.num.Float32;
+	public var ThresholdDb: ucpp.num.Float32;
+	public var Ratio: ucpp.num.Float32;
+	public var KneeBandwidthDb: ucpp.num.Float32;
+	public var InputGainDb: ucpp.num.Float32;
+	public var OutputGainDb: ucpp.num.Float32;
 
 	@:native("FDynamicsBandSettings") public function new();
 }

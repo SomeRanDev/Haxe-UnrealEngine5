@@ -3,7 +3,7 @@ package ue;
 
 @:native("ARecastNavMesh")
 @:include("NavMesh/RecastNavMesh.h")
-@:structAccess
+@:valueType
 extern class RecastNavMesh extends NavigationData {
 	public var bDrawTriangleEdges: Bool;
 	public var bDrawPolyEdges: Bool;
@@ -26,34 +26,34 @@ extern class RecastNavMesh extends NavigationData {
 	public var bDrawOctreeDetails: Bool;
 	public var bDrawMarkedForbiddenPolys: Bool;
 	public var bDistinctlyDrawTilesBeingBuilt: Bool;
-	public var DrawOffset: cpp.Float32;
+	public var DrawOffset: ucpp.num.Float32;
 	public var TileGenerationDebug: RecastNavMeshTileGenerationDebug;
 	public var bFixedTilePoolSize: Bool;
-	public var TilePoolSize: cpp.Int32;
-	public var TileSizeUU: cpp.Float32;
-	public var CellSize: cpp.Float32;
-	public var CellHeight: cpp.Float32;
+	public var TilePoolSize: ucpp.num.Int32;
+	public var TileSizeUU: ucpp.num.Float32;
+	public var CellSize: ucpp.num.Float32;
+	public var CellHeight: ucpp.num.Float32;
 	public var NavMeshResolutionParams: NavMeshResolutionParam;
-	public var AgentRadius: cpp.Float32;
-	public var AgentHeight: cpp.Float32;
-	public var AgentMaxSlope: cpp.Float32;
-	public var AgentMaxStepHeight: cpp.Float32;
-	public var MinRegionArea: cpp.Float32;
-	public var MergeRegionSize: cpp.Float32;
-	public var MaxSimplificationError: cpp.Float32;
-	public var MaxSimultaneousTileGenerationJobsCount: cpp.Int32;
-	public var TileNumberHardLimit: cpp.Int32;
-	public var PolyRefTileBits: cpp.Int32;
-	public var PolyRefNavPolyBits: cpp.Int32;
-	public var PolyRefSaltBits: cpp.Int32;
+	public var AgentRadius: ucpp.num.Float32;
+	public var AgentHeight: ucpp.num.Float32;
+	public var AgentMaxSlope: ucpp.num.Float32;
+	public var AgentMaxStepHeight: ucpp.num.Float32;
+	public var MinRegionArea: ucpp.num.Float32;
+	public var MergeRegionSize: ucpp.num.Float32;
+	public var MaxSimplificationError: ucpp.num.Float32;
+	public var MaxSimultaneousTileGenerationJobsCount: ucpp.num.Int32;
+	public var TileNumberHardLimit: ucpp.num.Int32;
+	public var PolyRefTileBits: ucpp.num.Int32;
+	public var PolyRefNavPolyBits: ucpp.num.Int32;
+	public var PolyRefSaltBits: ucpp.num.Int32;
 	public var NavMeshOriginOffset: Vector;
-	public var DefaultDrawDistance: cpp.Float32;
-	public var DefaultMaxSearchNodes: cpp.Float32;
-	public var DefaultMaxHierarchicalSearchNodes: cpp.Float32;
+	public var DefaultDrawDistance: ucpp.num.Float32;
+	public var DefaultMaxSearchNodes: ucpp.num.Float32;
+	public var DefaultMaxHierarchicalSearchNodes: ucpp.num.Float32;
 	public var RegionPartitioning: TEnumAsByte<ERecastPartitioning>;
 	public var LayerPartitioning: TEnumAsByte<ERecastPartitioning>;
-	public var RegionChunkSplits: cpp.Int32;
-	public var LayerChunkSplits: cpp.Int32;
+	public var RegionChunkSplits: ucpp.num.Int32;
+	public var LayerChunkSplits: ucpp.num.Int32;
 	public var bSortNavigationAreasByCost: Bool;
 	public var bIsWorldPartitioned: Bool;
 	public var bPerformVoxelFiltering: Bool;
@@ -67,16 +67,16 @@ extern class RecastNavMesh extends NavigationData {
 	public var bUseVirtualFilters: Bool;
 	public var bUseVirtualGeometryFilteringAndDirtying: Bool;
 	public var bAllowNavLinkAsPathEnd: Bool;
-	public var TimeSliceFilterLedgeSpansMaxYProcess: cpp.Int32;
-	public var TimeSliceLongDurationDebug: cpp.Float64;
+	public var TimeSliceFilterLedgeSpansMaxYProcess: ucpp.num.Int32;
+	public var TimeSliceLongDurationDebug: ucpp.num.Float64;
 	private var bUseVoxelCache: Bool;
-	private var TileSetUpdateInterval: cpp.Float32;
-	public var HeuristicScale: cpp.Float32;
-	public var VerticalDeviationFromGroundCompensation: cpp.Float32;
+	private var TileSetUpdateInterval: ucpp.num.Float32;
+	public var HeuristicScale: ucpp.num.Float32;
+	public var VerticalDeviationFromGroundCompensation: ucpp.num.Float32;
 
 	public function K2_ReplaceAreaInTileBounds(Bounds: Box, OldArea: TSubclassOf<NavArea>, NewArea: TSubclassOf<NavArea>, ReplaceLinks: Bool): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -124,62 +124,62 @@ abstract ConstRecastNavMesh(RecastNavMesh) from RecastNavMesh {
 	public inline extern function get_bDrawMarkedForbiddenPolys(): Bool return this.bDrawMarkedForbiddenPolys;
 	public extern var bDistinctlyDrawTilesBeingBuilt(get, never): Bool;
 	public inline extern function get_bDistinctlyDrawTilesBeingBuilt(): Bool return this.bDistinctlyDrawTilesBeingBuilt;
-	public extern var DrawOffset(get, never): cpp.Float32;
-	public inline extern function get_DrawOffset(): cpp.Float32 return this.DrawOffset;
+	public extern var DrawOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_DrawOffset(): ucpp.num.Float32 return this.DrawOffset;
 	public extern var TileGenerationDebug(get, never): RecastNavMeshTileGenerationDebug;
 	public inline extern function get_TileGenerationDebug(): RecastNavMeshTileGenerationDebug return this.TileGenerationDebug;
 	public extern var bFixedTilePoolSize(get, never): Bool;
 	public inline extern function get_bFixedTilePoolSize(): Bool return this.bFixedTilePoolSize;
-	public extern var TilePoolSize(get, never): cpp.Int32;
-	public inline extern function get_TilePoolSize(): cpp.Int32 return this.TilePoolSize;
-	public extern var TileSizeUU(get, never): cpp.Float32;
-	public inline extern function get_TileSizeUU(): cpp.Float32 return this.TileSizeUU;
-	public extern var CellSize(get, never): cpp.Float32;
-	public inline extern function get_CellSize(): cpp.Float32 return this.CellSize;
-	public extern var CellHeight(get, never): cpp.Float32;
-	public inline extern function get_CellHeight(): cpp.Float32 return this.CellHeight;
+	public extern var TilePoolSize(get, never): ucpp.num.Int32;
+	public inline extern function get_TilePoolSize(): ucpp.num.Int32 return this.TilePoolSize;
+	public extern var TileSizeUU(get, never): ucpp.num.Float32;
+	public inline extern function get_TileSizeUU(): ucpp.num.Float32 return this.TileSizeUU;
+	public extern var CellSize(get, never): ucpp.num.Float32;
+	public inline extern function get_CellSize(): ucpp.num.Float32 return this.CellSize;
+	public extern var CellHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_CellHeight(): ucpp.num.Float32 return this.CellHeight;
 	public extern var NavMeshResolutionParams(get, never): NavMeshResolutionParam;
 	public inline extern function get_NavMeshResolutionParams(): NavMeshResolutionParam return this.NavMeshResolutionParams;
-	public extern var AgentRadius(get, never): cpp.Float32;
-	public inline extern function get_AgentRadius(): cpp.Float32 return this.AgentRadius;
-	public extern var AgentHeight(get, never): cpp.Float32;
-	public inline extern function get_AgentHeight(): cpp.Float32 return this.AgentHeight;
-	public extern var AgentMaxSlope(get, never): cpp.Float32;
-	public inline extern function get_AgentMaxSlope(): cpp.Float32 return this.AgentMaxSlope;
-	public extern var AgentMaxStepHeight(get, never): cpp.Float32;
-	public inline extern function get_AgentMaxStepHeight(): cpp.Float32 return this.AgentMaxStepHeight;
-	public extern var MinRegionArea(get, never): cpp.Float32;
-	public inline extern function get_MinRegionArea(): cpp.Float32 return this.MinRegionArea;
-	public extern var MergeRegionSize(get, never): cpp.Float32;
-	public inline extern function get_MergeRegionSize(): cpp.Float32 return this.MergeRegionSize;
-	public extern var MaxSimplificationError(get, never): cpp.Float32;
-	public inline extern function get_MaxSimplificationError(): cpp.Float32 return this.MaxSimplificationError;
-	public extern var MaxSimultaneousTileGenerationJobsCount(get, never): cpp.Int32;
-	public inline extern function get_MaxSimultaneousTileGenerationJobsCount(): cpp.Int32 return this.MaxSimultaneousTileGenerationJobsCount;
-	public extern var TileNumberHardLimit(get, never): cpp.Int32;
-	public inline extern function get_TileNumberHardLimit(): cpp.Int32 return this.TileNumberHardLimit;
-	public extern var PolyRefTileBits(get, never): cpp.Int32;
-	public inline extern function get_PolyRefTileBits(): cpp.Int32 return this.PolyRefTileBits;
-	public extern var PolyRefNavPolyBits(get, never): cpp.Int32;
-	public inline extern function get_PolyRefNavPolyBits(): cpp.Int32 return this.PolyRefNavPolyBits;
-	public extern var PolyRefSaltBits(get, never): cpp.Int32;
-	public inline extern function get_PolyRefSaltBits(): cpp.Int32 return this.PolyRefSaltBits;
+	public extern var AgentRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_AgentRadius(): ucpp.num.Float32 return this.AgentRadius;
+	public extern var AgentHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_AgentHeight(): ucpp.num.Float32 return this.AgentHeight;
+	public extern var AgentMaxSlope(get, never): ucpp.num.Float32;
+	public inline extern function get_AgentMaxSlope(): ucpp.num.Float32 return this.AgentMaxSlope;
+	public extern var AgentMaxStepHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_AgentMaxStepHeight(): ucpp.num.Float32 return this.AgentMaxStepHeight;
+	public extern var MinRegionArea(get, never): ucpp.num.Float32;
+	public inline extern function get_MinRegionArea(): ucpp.num.Float32 return this.MinRegionArea;
+	public extern var MergeRegionSize(get, never): ucpp.num.Float32;
+	public inline extern function get_MergeRegionSize(): ucpp.num.Float32 return this.MergeRegionSize;
+	public extern var MaxSimplificationError(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxSimplificationError(): ucpp.num.Float32 return this.MaxSimplificationError;
+	public extern var MaxSimultaneousTileGenerationJobsCount(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxSimultaneousTileGenerationJobsCount(): ucpp.num.Int32 return this.MaxSimultaneousTileGenerationJobsCount;
+	public extern var TileNumberHardLimit(get, never): ucpp.num.Int32;
+	public inline extern function get_TileNumberHardLimit(): ucpp.num.Int32 return this.TileNumberHardLimit;
+	public extern var PolyRefTileBits(get, never): ucpp.num.Int32;
+	public inline extern function get_PolyRefTileBits(): ucpp.num.Int32 return this.PolyRefTileBits;
+	public extern var PolyRefNavPolyBits(get, never): ucpp.num.Int32;
+	public inline extern function get_PolyRefNavPolyBits(): ucpp.num.Int32 return this.PolyRefNavPolyBits;
+	public extern var PolyRefSaltBits(get, never): ucpp.num.Int32;
+	public inline extern function get_PolyRefSaltBits(): ucpp.num.Int32 return this.PolyRefSaltBits;
 	public extern var NavMeshOriginOffset(get, never): Vector;
 	public inline extern function get_NavMeshOriginOffset(): Vector return this.NavMeshOriginOffset;
-	public extern var DefaultDrawDistance(get, never): cpp.Float32;
-	public inline extern function get_DefaultDrawDistance(): cpp.Float32 return this.DefaultDrawDistance;
-	public extern var DefaultMaxSearchNodes(get, never): cpp.Float32;
-	public inline extern function get_DefaultMaxSearchNodes(): cpp.Float32 return this.DefaultMaxSearchNodes;
-	public extern var DefaultMaxHierarchicalSearchNodes(get, never): cpp.Float32;
-	public inline extern function get_DefaultMaxHierarchicalSearchNodes(): cpp.Float32 return this.DefaultMaxHierarchicalSearchNodes;
+	public extern var DefaultDrawDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultDrawDistance(): ucpp.num.Float32 return this.DefaultDrawDistance;
+	public extern var DefaultMaxSearchNodes(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultMaxSearchNodes(): ucpp.num.Float32 return this.DefaultMaxSearchNodes;
+	public extern var DefaultMaxHierarchicalSearchNodes(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultMaxHierarchicalSearchNodes(): ucpp.num.Float32 return this.DefaultMaxHierarchicalSearchNodes;
 	public extern var RegionPartitioning(get, never): TEnumAsByte<ERecastPartitioning>;
 	public inline extern function get_RegionPartitioning(): TEnumAsByte<ERecastPartitioning> return this.RegionPartitioning;
 	public extern var LayerPartitioning(get, never): TEnumAsByte<ERecastPartitioning>;
 	public inline extern function get_LayerPartitioning(): TEnumAsByte<ERecastPartitioning> return this.LayerPartitioning;
-	public extern var RegionChunkSplits(get, never): cpp.Int32;
-	public inline extern function get_RegionChunkSplits(): cpp.Int32 return this.RegionChunkSplits;
-	public extern var LayerChunkSplits(get, never): cpp.Int32;
-	public inline extern function get_LayerChunkSplits(): cpp.Int32 return this.LayerChunkSplits;
+	public extern var RegionChunkSplits(get, never): ucpp.num.Int32;
+	public inline extern function get_RegionChunkSplits(): ucpp.num.Int32 return this.RegionChunkSplits;
+	public extern var LayerChunkSplits(get, never): ucpp.num.Int32;
+	public inline extern function get_LayerChunkSplits(): ucpp.num.Int32 return this.LayerChunkSplits;
 	public extern var bSortNavigationAreasByCost(get, never): Bool;
 	public inline extern function get_bSortNavigationAreasByCost(): Bool return this.bSortNavigationAreasByCost;
 	public extern var bIsWorldPartitioned(get, never): Bool;
@@ -206,20 +206,20 @@ abstract ConstRecastNavMesh(RecastNavMesh) from RecastNavMesh {
 	public inline extern function get_bUseVirtualGeometryFilteringAndDirtying(): Bool return this.bUseVirtualGeometryFilteringAndDirtying;
 	public extern var bAllowNavLinkAsPathEnd(get, never): Bool;
 	public inline extern function get_bAllowNavLinkAsPathEnd(): Bool return this.bAllowNavLinkAsPathEnd;
-	public extern var TimeSliceFilterLedgeSpansMaxYProcess(get, never): cpp.Int32;
-	public inline extern function get_TimeSliceFilterLedgeSpansMaxYProcess(): cpp.Int32 return this.TimeSliceFilterLedgeSpansMaxYProcess;
-	public extern var TimeSliceLongDurationDebug(get, never): cpp.Float64;
-	public inline extern function get_TimeSliceLongDurationDebug(): cpp.Float64 return this.TimeSliceLongDurationDebug;
-	public extern var HeuristicScale(get, never): cpp.Float32;
-	public inline extern function get_HeuristicScale(): cpp.Float32 return this.HeuristicScale;
-	public extern var VerticalDeviationFromGroundCompensation(get, never): cpp.Float32;
-	public inline extern function get_VerticalDeviationFromGroundCompensation(): cpp.Float32 return this.VerticalDeviationFromGroundCompensation;
+	public extern var TimeSliceFilterLedgeSpansMaxYProcess(get, never): ucpp.num.Int32;
+	public inline extern function get_TimeSliceFilterLedgeSpansMaxYProcess(): ucpp.num.Int32 return this.TimeSliceFilterLedgeSpansMaxYProcess;
+	public extern var TimeSliceLongDurationDebug(get, never): ucpp.num.Float64;
+	public inline extern function get_TimeSliceLongDurationDebug(): ucpp.num.Float64 return this.TimeSliceLongDurationDebug;
+	public extern var HeuristicScale(get, never): ucpp.num.Float32;
+	public inline extern function get_HeuristicScale(): ucpp.num.Float32 return this.HeuristicScale;
+	public extern var VerticalDeviationFromGroundCompensation(get, never): ucpp.num.Float32;
+	public inline extern function get_VerticalDeviationFromGroundCompensation(): ucpp.num.Float32 return this.VerticalDeviationFromGroundCompensation;
 }
 
 @:forward
 @:nativeGen
 @:native("RecastNavMesh*")
-abstract RecastNavMeshPtr(cpp.Star<RecastNavMesh>) from cpp.Star<RecastNavMesh> to cpp.Star<RecastNavMesh>{
+abstract RecastNavMeshPtr(ucpp.Ptr<RecastNavMesh>) from ucpp.Ptr<RecastNavMesh> to ucpp.Ptr<RecastNavMesh>{
 	@:from
 	public static extern inline function fromValue(v: RecastNavMesh): RecastNavMeshPtr {
 		return untyped __cpp__("&({0})", v);

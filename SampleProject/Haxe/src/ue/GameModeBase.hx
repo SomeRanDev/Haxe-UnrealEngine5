@@ -3,7 +3,7 @@ package ue;
 
 @:native("AGameModeBase")
 @:include("GameFramework/GameModeBase.h")
-@:structAccess
+@:valueType
 extern class GameModeBase extends Info {
 	public var OptionsString: FString;
 	public var GameSessionClass: TSubclassOf<GameSession>;
@@ -15,45 +15,45 @@ extern class GameModeBase extends Info {
 	public var SpectatorClass: TSubclassOf<SpectatorPawn>;
 	public var ReplaySpectatorPlayerControllerClass: TSubclassOf<PlayerController>;
 	public var ServerStatReplicatorClass: TSubclassOf<ServerStatReplicator>;
-	public var GameSession: cpp.Star<GameSession>;
-	public var GameState: cpp.Star<GameStateBase>;
-	public var ServerStatReplicator: cpp.Star<ServerStatReplicator>;
+	public var GameSession: ucpp.Ptr<GameSession>;
+	public var GameState: ucpp.Ptr<GameStateBase>;
+	public var ServerStatReplicator: ucpp.Ptr<ServerStatReplicator>;
 	public var DefaultPlayerName: FText;
 	public var bUseSeamlessTravel: Bool;
 	@:protected public var bStartPlayersAsSpectators: Bool;
 	@:protected public var bPauseable: Bool;
 
 	public function StartPlay(): Void;
-	public function SpawnDefaultPawnFor(NewPlayer: cpp.Star<Controller>, StartSpot: cpp.Star<Actor>): cpp.Star<Pawn>;
-	public function SpawnDefaultPawnAtTransform(NewPlayer: cpp.Star<Controller>, SpawnTransform: cpp.Reference<Transform>): cpp.Star<Pawn>;
-	public function ShouldReset(ActorToReset: cpp.Star<Actor>): Bool;
+	public function SpawnDefaultPawnFor(NewPlayer: ucpp.Ptr<Controller>, StartSpot: ucpp.Ptr<Actor>): ucpp.Ptr<Pawn>;
+	public function SpawnDefaultPawnAtTransform(NewPlayer: ucpp.Ptr<Controller>, SpawnTransform: ucpp.Ref<Transform>): ucpp.Ptr<Pawn>;
+	public function ShouldReset(ActorToReset: ucpp.Ptr<Actor>): Bool;
 	public function ReturnToMainMenuHost(): Void;
-	public function RestartPlayerAtTransform(NewPlayer: cpp.Star<Controller>, SpawnTransform: cpp.Reference<Transform>): Void;
-	public function RestartPlayerAtPlayerStart(NewPlayer: cpp.Star<Controller>, StartSpot: cpp.Star<Actor>): Void;
-	public function RestartPlayer(NewPlayer: cpp.Star<Controller>): Void;
+	public function RestartPlayerAtTransform(NewPlayer: ucpp.Ptr<Controller>, SpawnTransform: ucpp.Ref<Transform>): Void;
+	public function RestartPlayerAtPlayerStart(NewPlayer: ucpp.Ptr<Controller>, StartSpot: ucpp.Ptr<Actor>): Void;
+	public function RestartPlayer(NewPlayer: ucpp.Ptr<Controller>): Void;
 	public function ResetLevel(): Void;
-	public function PlayerCanRestart(Player: cpp.Star<PlayerController>): Bool;
-	public function MustSpectate(NewPlayerController: cpp.Star<PlayerController>): Bool;
-	public function K2_PostLogin(NewPlayer: cpp.Star<PlayerController>): Void;
-	@:protected public function K2_OnSwapPlayerControllers(OldPC: cpp.Star<PlayerController>, NewPC: cpp.Star<PlayerController>): Void;
-	public function K2_OnRestartPlayer(NewPlayer: cpp.Star<Controller>): Void;
-	public function K2_OnLogout(ExitingController: cpp.Star<Controller>): Void;
-	public function K2_OnChangeName(Other: cpp.Star<Controller>, NewName: FString, bNameChange: Bool): Void;
-	public function K2_FindPlayerStart(Player: cpp.Star<Controller>, IncomingName: FString): cpp.Star<Actor>;
-	public function InitStartSpot(StartSpot: cpp.Star<Actor>, NewPlayer: cpp.Star<Controller>): Void;
-	@:protected public function InitializeHUDForPlayer(NewPlayer: cpp.Star<PlayerController>): Void;
+	public function PlayerCanRestart(Player: ucpp.Ptr<PlayerController>): Bool;
+	public function MustSpectate(NewPlayerController: ucpp.Ptr<PlayerController>): Bool;
+	public function K2_PostLogin(NewPlayer: ucpp.Ptr<PlayerController>): Void;
+	@:protected public function K2_OnSwapPlayerControllers(OldPC: ucpp.Ptr<PlayerController>, NewPC: ucpp.Ptr<PlayerController>): Void;
+	public function K2_OnRestartPlayer(NewPlayer: ucpp.Ptr<Controller>): Void;
+	public function K2_OnLogout(ExitingController: ucpp.Ptr<Controller>): Void;
+	public function K2_OnChangeName(Other: ucpp.Ptr<Controller>, NewName: FString, bNameChange: Bool): Void;
+	public function K2_FindPlayerStart(Player: ucpp.Ptr<Controller>, IncomingName: FString): ucpp.Ptr<Actor>;
+	public function InitStartSpot(StartSpot: ucpp.Ptr<Actor>, NewPlayer: ucpp.Ptr<Controller>): Void;
+	@:protected public function InitializeHUDForPlayer(NewPlayer: ucpp.Ptr<PlayerController>): Void;
 	public function HasMatchStarted(): Bool;
 	public function HasMatchEnded(): Bool;
-	public function HandleStartingNewPlayer(NewPlayer: cpp.Star<PlayerController>): Void;
-	public function GetNumSpectators(): cpp.Int32;
-	public function GetNumPlayers(): cpp.Int32;
-	public function GetDefaultPawnClassForController(InController: cpp.Star<Controller>): cpp.Star<Class>;
-	public function FindPlayerStart(Player: cpp.Star<Controller>, IncomingName: FString): cpp.Star<Actor>;
-	public function ChoosePlayerStart(Player: cpp.Star<Controller>): cpp.Star<Actor>;
-	public function ChangeName(Controller: cpp.Star<Controller>, NewName: FString, bNameChange: Bool): Void;
-	public function CanSpectate(Viewer: cpp.Star<PlayerController>, ViewTarget: cpp.Star<PlayerState>): Bool;
+	public function HandleStartingNewPlayer(NewPlayer: ucpp.Ptr<PlayerController>): Void;
+	public function GetNumSpectators(): ucpp.num.Int32;
+	public function GetNumPlayers(): ucpp.num.Int32;
+	public function GetDefaultPawnClassForController(InController: ucpp.Ptr<Controller>): ucpp.Ptr<Class>;
+	public function FindPlayerStart(Player: ucpp.Ptr<Controller>, IncomingName: FString): ucpp.Ptr<Actor>;
+	public function ChoosePlayerStart(Player: ucpp.Ptr<Controller>): ucpp.Ptr<Actor>;
+	public function ChangeName(Controller: ucpp.Ptr<Controller>, NewName: FString, bNameChange: Bool): Void;
+	public function CanSpectate(Viewer: ucpp.Ptr<PlayerController>, ViewTarget: ucpp.Ptr<PlayerState>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(MustSpectate, HasMatchStarted, HasMatchEnded)
@@ -79,12 +79,12 @@ abstract ConstGameModeBase(GameModeBase) from GameModeBase {
 	public inline extern function get_ReplaySpectatorPlayerControllerClass(): TSubclassOf<PlayerController.ConstPlayerController> return this.ReplaySpectatorPlayerControllerClass;
 	public extern var ServerStatReplicatorClass(get, never): TSubclassOf<ServerStatReplicator.ConstServerStatReplicator>;
 	public inline extern function get_ServerStatReplicatorClass(): TSubclassOf<ServerStatReplicator.ConstServerStatReplicator> return this.ServerStatReplicatorClass;
-	public extern var GameSession(get, never): cpp.Star<GameSession.ConstGameSession>;
-	public inline extern function get_GameSession(): cpp.Star<GameSession.ConstGameSession> return this.GameSession;
-	public extern var GameState(get, never): cpp.Star<GameStateBase.ConstGameStateBase>;
-	public inline extern function get_GameState(): cpp.Star<GameStateBase.ConstGameStateBase> return this.GameState;
-	public extern var ServerStatReplicator(get, never): cpp.Star<ServerStatReplicator.ConstServerStatReplicator>;
-	public inline extern function get_ServerStatReplicator(): cpp.Star<ServerStatReplicator.ConstServerStatReplicator> return this.ServerStatReplicator;
+	public extern var GameSession(get, never): ucpp.Ptr<GameSession.ConstGameSession>;
+	public inline extern function get_GameSession(): ucpp.Ptr<GameSession.ConstGameSession> return this.GameSession;
+	public extern var GameState(get, never): ucpp.Ptr<GameStateBase.ConstGameStateBase>;
+	public inline extern function get_GameState(): ucpp.Ptr<GameStateBase.ConstGameStateBase> return this.GameState;
+	public extern var ServerStatReplicator(get, never): ucpp.Ptr<ServerStatReplicator.ConstServerStatReplicator>;
+	public inline extern function get_ServerStatReplicator(): ucpp.Ptr<ServerStatReplicator.ConstServerStatReplicator> return this.ServerStatReplicator;
 	public extern var DefaultPlayerName(get, never): FText;
 	public inline extern function get_DefaultPlayerName(): FText return this.DefaultPlayerName;
 	public extern var bUseSeamlessTravel(get, never): Bool;
@@ -94,7 +94,7 @@ abstract ConstGameModeBase(GameModeBase) from GameModeBase {
 @:forward
 @:nativeGen
 @:native("GameModeBase*")
-abstract GameModeBasePtr(cpp.Star<GameModeBase>) from cpp.Star<GameModeBase> to cpp.Star<GameModeBase>{
+abstract GameModeBasePtr(ucpp.Ptr<GameModeBase>) from ucpp.Ptr<GameModeBase> to ucpp.Ptr<GameModeBase>{
 	@:from
 	public static extern inline function fromValue(v: GameModeBase): GameModeBasePtr {
 		return untyped __cpp__("&({0})", v);

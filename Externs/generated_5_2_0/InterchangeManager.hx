@@ -3,21 +3,21 @@ package ue;
 
 @:native("UInterchangeManager")
 @:include("InterchangeManager.h")
-@:structAccess
+@:valueType
 extern class InterchangeManager extends Object {
 	private var RegisteredTranslatorsClass: TSet<TSubclassOf<Object>>;
 	private var RegisteredFactoryClasses: TMap<TSubclassOf<Object>, TSubclassOf<Object>>;
-	private var RegisteredWriters: TMap<TSubclassOf<Object>, cpp.Star<InterchangeWriterBase>>;
+	private var RegisteredWriters: TMap<TSubclassOf<Object>, ucpp.Ptr<InterchangeWriterBase>>;
 
-	public function ImportScene(ContentPath: FString, SourceData: cpp.Star<InterchangeSourceData.ConstInterchangeSourceData>, ImportAssetParameters: cpp.Reference<ImportAssetParameters>): Bool;
-	public function ImportAsset(ContentPath: FString, SourceData: cpp.Star<InterchangeSourceData.ConstInterchangeSourceData>, ImportAssetParameters: cpp.Reference<ImportAssetParameters>): Bool;
-	public function GetRegisteredFactoryClass(ClassToMake: cpp.Star<Class>): cpp.Star<Class>;
-	public function GetInterchangeManagerScripted(): cpp.Star<InterchangeManager>;
-	public function ExportScene(World: cpp.Star<Object.ConstObject>, bIsAutomated: Bool): Bool;
-	public function ExportAsset(Asset: cpp.Star<Object.ConstObject>, bIsAutomated: Bool): Bool;
-	public function CreateSourceData(InFileName: FString): cpp.Star<InterchangeSourceData>;
+	public function ImportScene(ContentPath: FString, SourceData: ucpp.Ptr<InterchangeSourceData.ConstInterchangeSourceData>, ImportAssetParameters: ucpp.Ref<ImportAssetParameters>): Bool;
+	public function ImportAsset(ContentPath: FString, SourceData: ucpp.Ptr<InterchangeSourceData.ConstInterchangeSourceData>, ImportAssetParameters: ucpp.Ref<ImportAssetParameters>): Bool;
+	public function GetRegisteredFactoryClass(ClassToMake: ucpp.Ptr<Class>): ucpp.Ptr<Class>;
+	public function GetInterchangeManagerScripted(): ucpp.Ptr<InterchangeManager>;
+	public function ExportScene(World: ucpp.Ptr<Object.ConstObject>, bIsAutomated: Bool): Bool;
+	public function ExportAsset(Asset: ucpp.Ptr<Object.ConstObject>, bIsAutomated: Bool): Bool;
+	public function CreateSourceData(InFileName: FString): ucpp.Ptr<InterchangeSourceData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetRegisteredFactoryClass)
@@ -28,7 +28,7 @@ abstract ConstInterchangeManager(InterchangeManager) from InterchangeManager {
 @:forward
 @:nativeGen
 @:native("InterchangeManager*")
-abstract InterchangeManagerPtr(cpp.Star<InterchangeManager>) from cpp.Star<InterchangeManager> to cpp.Star<InterchangeManager>{
+abstract InterchangeManagerPtr(ucpp.Ptr<InterchangeManager>) from ucpp.Ptr<InterchangeManager> to ucpp.Ptr<InterchangeManager>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeManager): InterchangeManagerPtr {
 		return untyped __cpp__("&({0})", v);

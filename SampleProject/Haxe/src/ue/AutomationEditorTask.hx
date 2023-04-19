@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAutomationEditorTask")
 @:include("AutomationBlueprintFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class AutomationEditorTask extends Object {
 	public function IsValidTask(): Bool;
 	public function IsTaskDone(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsValidTask, IsTaskDone)
@@ -19,7 +19,7 @@ abstract ConstAutomationEditorTask(AutomationEditorTask) from AutomationEditorTa
 @:forward
 @:nativeGen
 @:native("AutomationEditorTask*")
-abstract AutomationEditorTaskPtr(cpp.Star<AutomationEditorTask>) from cpp.Star<AutomationEditorTask> to cpp.Star<AutomationEditorTask>{
+abstract AutomationEditorTaskPtr(ucpp.Ptr<AutomationEditorTask>) from ucpp.Ptr<AutomationEditorTask> to ucpp.Ptr<AutomationEditorTask>{
 	@:from
 	public static extern inline function fromValue(v: AutomationEditorTask): AutomationEditorTaskPtr {
 		return untyped __cpp__("&({0})", v);

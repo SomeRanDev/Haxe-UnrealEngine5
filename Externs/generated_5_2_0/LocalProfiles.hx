@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULocalProfiles")
 @:include("AssetViewerSettings.h")
-@:structAccess
+@:valueType
 extern class LocalProfiles extends Object {
 	public var Profiles: TArray<PreviewSceneProfile>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLocalProfiles(LocalProfiles) from LocalProfiles {
 @:forward
 @:nativeGen
 @:native("LocalProfiles*")
-abstract LocalProfilesPtr(cpp.Star<LocalProfiles>) from cpp.Star<LocalProfiles> to cpp.Star<LocalProfiles>{
+abstract LocalProfilesPtr(ucpp.Ptr<LocalProfiles>) from ucpp.Ptr<LocalProfiles> to ucpp.Ptr<LocalProfiles>{
 	@:from
 	public static extern inline function fromValue(v: LocalProfiles): LocalProfilesPtr {
 		return untyped __cpp__("&({0})", v);

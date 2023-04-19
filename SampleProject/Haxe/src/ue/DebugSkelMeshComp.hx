@@ -3,9 +3,9 @@ package ue;
 
 @:native("UDebugSkelMeshComponent")
 @:include("Animation/DebugSkelMeshComponent.h")
-@:structAccess
+@:valueType
 extern class DebugSkelMeshComp extends SkeletalMeshComp {
-	public var bRenderRawSkeleton: Bool;
+	public var SkeletonDrawMode: ESkeletonDrawMode;
 	public var bDrawMesh: Bool;
 	public var bShowBoneNames: Bool;
 	public var bDrawBoneInfluences: Bool;
@@ -26,34 +26,34 @@ extern class DebugSkelMeshComp extends SkeletalMeshComp {
 	public var bDisplayVertexColors: Bool;
 	public var WireframeMeshOverlayColor: LinearColor;
 	public var ProcessRootMotionMode: EProcessRootMotionMode;
-	public var ConsumeRootMotionPreviousPlaybackTime: cpp.Float32;
+	public var ConsumeRootMotionPreviousPlaybackTime: ucpp.num.Float32;
 	public var bShowClothData: Bool;
-	public var MinClothPropertyView: cpp.Float32;
-	public var MaxClothPropertyView: cpp.Float32;
-	public var ClothMeshOpacity: cpp.Float32;
+	public var MinClothPropertyView: ucpp.num.Float32;
+	public var MaxClothPropertyView: ucpp.num.Float32;
+	public var ClothMeshOpacity: ucpp.num.Float32;
 	public var bClothFlipNormal: Bool;
 	public var bClothCullBackface: Bool;
 	public var bRequiredBonesUpToDateDuringTick: Bool;
-	public var BoneRadiusMultiplier: cpp.Float32;
-	public var BonesOfInterest: TArray<cpp.Int32>;
-	public var MorphTargetOfInterests: TArray<cpp.Star<MorphTarget>>;
-	public var SkelMaterials: TArray<cpp.Star<MaterialInterface>>;
-	public var PreviewInstance: cpp.Star<AnimPreviewInstance>;
-	public var SavedAnimScriptInstance: cpp.Star<AnimInstance>;
+	public var BoneRadiusMultiplier: ucpp.num.Float32;
+	public var BonesOfInterest: TArray<ucpp.num.Int32>;
+	public var MorphTargetOfInterests: TArray<ucpp.Ptr<MorphTarget>>;
+	public var SkelMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var PreviewInstance: ucpp.Ptr<AnimPreviewInstance>;
+	public var SavedAnimScriptInstance: ucpp.Ptr<AnimInstance>;
 	public var bIsUsingInGameBounds: Bool;
 	public var bIsUsingPreSkinnedBounds: Bool;
 	public var bPerformSingleClothingTick: Bool;
 	public var bPauseClothingSimulationWithAnim: Bool;
 	public var bTrackAttachedInstanceLOD: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDebugSkelMeshComp(DebugSkelMeshComp) from DebugSkelMeshComp {
-	public extern var bRenderRawSkeleton(get, never): Bool;
-	public inline extern function get_bRenderRawSkeleton(): Bool return this.bRenderRawSkeleton;
+	public extern var SkeletonDrawMode(get, never): ESkeletonDrawMode;
+	public inline extern function get_SkeletonDrawMode(): ESkeletonDrawMode return this.SkeletonDrawMode;
 	public extern var bDrawMesh(get, never): Bool;
 	public inline extern function get_bDrawMesh(): Bool return this.bDrawMesh;
 	public extern var bShowBoneNames(get, never): Bool;
@@ -94,34 +94,34 @@ abstract ConstDebugSkelMeshComp(DebugSkelMeshComp) from DebugSkelMeshComp {
 	public inline extern function get_WireframeMeshOverlayColor(): LinearColor return this.WireframeMeshOverlayColor;
 	public extern var ProcessRootMotionMode(get, never): EProcessRootMotionMode;
 	public inline extern function get_ProcessRootMotionMode(): EProcessRootMotionMode return this.ProcessRootMotionMode;
-	public extern var ConsumeRootMotionPreviousPlaybackTime(get, never): cpp.Float32;
-	public inline extern function get_ConsumeRootMotionPreviousPlaybackTime(): cpp.Float32 return this.ConsumeRootMotionPreviousPlaybackTime;
+	public extern var ConsumeRootMotionPreviousPlaybackTime(get, never): ucpp.num.Float32;
+	public inline extern function get_ConsumeRootMotionPreviousPlaybackTime(): ucpp.num.Float32 return this.ConsumeRootMotionPreviousPlaybackTime;
 	public extern var bShowClothData(get, never): Bool;
 	public inline extern function get_bShowClothData(): Bool return this.bShowClothData;
-	public extern var MinClothPropertyView(get, never): cpp.Float32;
-	public inline extern function get_MinClothPropertyView(): cpp.Float32 return this.MinClothPropertyView;
-	public extern var MaxClothPropertyView(get, never): cpp.Float32;
-	public inline extern function get_MaxClothPropertyView(): cpp.Float32 return this.MaxClothPropertyView;
-	public extern var ClothMeshOpacity(get, never): cpp.Float32;
-	public inline extern function get_ClothMeshOpacity(): cpp.Float32 return this.ClothMeshOpacity;
+	public extern var MinClothPropertyView(get, never): ucpp.num.Float32;
+	public inline extern function get_MinClothPropertyView(): ucpp.num.Float32 return this.MinClothPropertyView;
+	public extern var MaxClothPropertyView(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxClothPropertyView(): ucpp.num.Float32 return this.MaxClothPropertyView;
+	public extern var ClothMeshOpacity(get, never): ucpp.num.Float32;
+	public inline extern function get_ClothMeshOpacity(): ucpp.num.Float32 return this.ClothMeshOpacity;
 	public extern var bClothFlipNormal(get, never): Bool;
 	public inline extern function get_bClothFlipNormal(): Bool return this.bClothFlipNormal;
 	public extern var bClothCullBackface(get, never): Bool;
 	public inline extern function get_bClothCullBackface(): Bool return this.bClothCullBackface;
 	public extern var bRequiredBonesUpToDateDuringTick(get, never): Bool;
 	public inline extern function get_bRequiredBonesUpToDateDuringTick(): Bool return this.bRequiredBonesUpToDateDuringTick;
-	public extern var BoneRadiusMultiplier(get, never): cpp.Float32;
-	public inline extern function get_BoneRadiusMultiplier(): cpp.Float32 return this.BoneRadiusMultiplier;
-	public extern var BonesOfInterest(get, never): TArray<cpp.Int32>;
-	public inline extern function get_BonesOfInterest(): TArray<cpp.Int32> return this.BonesOfInterest;
-	public extern var MorphTargetOfInterests(get, never): TArray<cpp.Star<MorphTarget.ConstMorphTarget>>;
-	public inline extern function get_MorphTargetOfInterests(): TArray<cpp.Star<MorphTarget.ConstMorphTarget>> return this.MorphTargetOfInterests;
-	public extern var SkelMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_SkelMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.SkelMaterials;
-	public extern var PreviewInstance(get, never): cpp.Star<AnimPreviewInstance.ConstAnimPreviewInstance>;
-	public inline extern function get_PreviewInstance(): cpp.Star<AnimPreviewInstance.ConstAnimPreviewInstance> return this.PreviewInstance;
-	public extern var SavedAnimScriptInstance(get, never): cpp.Star<AnimInstance.ConstAnimInstance>;
-	public inline extern function get_SavedAnimScriptInstance(): cpp.Star<AnimInstance.ConstAnimInstance> return this.SavedAnimScriptInstance;
+	public extern var BoneRadiusMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_BoneRadiusMultiplier(): ucpp.num.Float32 return this.BoneRadiusMultiplier;
+	public extern var BonesOfInterest(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_BonesOfInterest(): TArray<ucpp.num.Int32> return this.BonesOfInterest;
+	public extern var MorphTargetOfInterests(get, never): TArray<ucpp.Ptr<MorphTarget.ConstMorphTarget>>;
+	public inline extern function get_MorphTargetOfInterests(): TArray<ucpp.Ptr<MorphTarget.ConstMorphTarget>> return this.MorphTargetOfInterests;
+	public extern var SkelMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_SkelMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.SkelMaterials;
+	public extern var PreviewInstance(get, never): ucpp.Ptr<AnimPreviewInstance.ConstAnimPreviewInstance>;
+	public inline extern function get_PreviewInstance(): ucpp.Ptr<AnimPreviewInstance.ConstAnimPreviewInstance> return this.PreviewInstance;
+	public extern var SavedAnimScriptInstance(get, never): ucpp.Ptr<AnimInstance.ConstAnimInstance>;
+	public inline extern function get_SavedAnimScriptInstance(): ucpp.Ptr<AnimInstance.ConstAnimInstance> return this.SavedAnimScriptInstance;
 	public extern var bIsUsingInGameBounds(get, never): Bool;
 	public inline extern function get_bIsUsingInGameBounds(): Bool return this.bIsUsingInGameBounds;
 	public extern var bIsUsingPreSkinnedBounds(get, never): Bool;
@@ -137,7 +137,7 @@ abstract ConstDebugSkelMeshComp(DebugSkelMeshComp) from DebugSkelMeshComp {
 @:forward
 @:nativeGen
 @:native("DebugSkelMeshComp*")
-abstract DebugSkelMeshCompPtr(cpp.Star<DebugSkelMeshComp>) from cpp.Star<DebugSkelMeshComp> to cpp.Star<DebugSkelMeshComp>{
+abstract DebugSkelMeshCompPtr(ucpp.Ptr<DebugSkelMeshComp>) from ucpp.Ptr<DebugSkelMeshComp> to ucpp.Ptr<DebugSkelMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: DebugSkelMeshComp): DebugSkelMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleParameterDynamic_Seeded")
 @:include("Particles/Parameter/ParticleModuleParameterDynamic_Seeded.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleParameterDynamic_Seeded extends ParticleModuleParameterDynamic {
 	public var RandomSeedInfo: ParticleRandomSeedInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleParameterDynamic_Seeded(ParticleModuleParameterDynam
 @:forward
 @:nativeGen
 @:native("ParticleModuleParameterDynamic_Seeded*")
-abstract ParticleModuleParameterDynamic_SeededPtr(cpp.Star<ParticleModuleParameterDynamic_Seeded>) from cpp.Star<ParticleModuleParameterDynamic_Seeded> to cpp.Star<ParticleModuleParameterDynamic_Seeded>{
+abstract ParticleModuleParameterDynamic_SeededPtr(ucpp.Ptr<ParticleModuleParameterDynamic_Seeded>) from ucpp.Ptr<ParticleModuleParameterDynamic_Seeded> to ucpp.Ptr<ParticleModuleParameterDynamic_Seeded>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleParameterDynamic_Seeded): ParticleModuleParameterDynamic_SeededPtr {
 		return untyped __cpp__("&({0})", v);

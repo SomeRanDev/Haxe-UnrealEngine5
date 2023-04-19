@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEngineSubsystem")
 @:include("Subsystems/EngineSubsystem.h")
-@:structAccess
+@:valueType
 extern class EngineSubsystem extends DynamicSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEngineSubsystem(EngineSubsystem) from EngineSubsystem {
 @:forward
 @:nativeGen
 @:native("EngineSubsystem*")
-abstract EngineSubsystemPtr(cpp.Star<EngineSubsystem>) from cpp.Star<EngineSubsystem> to cpp.Star<EngineSubsystem>{
+abstract EngineSubsystemPtr(ucpp.Ptr<EngineSubsystem>) from ucpp.Ptr<EngineSubsystem> to ucpp.Ptr<EngineSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EngineSubsystem): EngineSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

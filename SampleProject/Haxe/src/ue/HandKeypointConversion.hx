@@ -3,11 +3,11 @@ package ue;
 
 @:native("UHandKeypointConversion")
 @:include("HeadMountedDisplayTypes.h")
-@:structAccess
+@:valueType
 extern class HandKeypointConversion extends BlueprintFunctionLibrary {
-	public function Conv_HandKeypointToInt32(input: EHandKeypoint): cpp.Int32;
+	public function Conv_HandKeypointToInt32(input: EHandKeypoint): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstHandKeypointConversion(HandKeypointConversion) from HandKeypointCo
 @:forward
 @:nativeGen
 @:native("HandKeypointConversion*")
-abstract HandKeypointConversionPtr(cpp.Star<HandKeypointConversion>) from cpp.Star<HandKeypointConversion> to cpp.Star<HandKeypointConversion>{
+abstract HandKeypointConversionPtr(ucpp.Ptr<HandKeypointConversion>) from ucpp.Ptr<HandKeypointConversion> to ucpp.Ptr<HandKeypointConversion>{
 	@:from
 	public static extern inline function fromValue(v: HandKeypointConversion): HandKeypointConversionPtr {
 		return untyped __cpp__("&({0})", v);

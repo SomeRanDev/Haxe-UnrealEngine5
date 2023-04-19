@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USoundParameterControllerInterface")
-@:structAccess
+@:valueType
 extern class SoundParameterControllerInterface extends AudioParameterControllerInterface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSoundParameterControllerInterface(SoundParameterControllerInterfac
 @:forward
 @:nativeGen
 @:native("SoundParameterControllerInterface*")
-abstract SoundParameterControllerInterfacePtr(cpp.Star<SoundParameterControllerInterface>) from cpp.Star<SoundParameterControllerInterface> to cpp.Star<SoundParameterControllerInterface>{
+abstract SoundParameterControllerInterfacePtr(ucpp.Ptr<SoundParameterControllerInterface>) from ucpp.Ptr<SoundParameterControllerInterface> to ucpp.Ptr<SoundParameterControllerInterface>{
 	@:from
 	public static extern inline function fromValue(v: SoundParameterControllerInterface): SoundParameterControllerInterfacePtr {
 		return untyped __cpp__("&({0})", v);

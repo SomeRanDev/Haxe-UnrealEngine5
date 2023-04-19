@@ -3,13 +3,13 @@ package ue;
 
 @:native("UFacialAnimationBulkImporterSettings")
 @:include("FacialAnimationBulkImporterSettings.h")
-@:structAccess
+@:valueType
 extern class FacialAnimationBulkImporterSettings extends Object {
 	public var SourceImportPath: DirectoryPath;
 	public var TargetImportPath: DirectoryPath;
 	public var CurveNodeName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstFacialAnimationBulkImporterSettings(FacialAnimationBulkImporterSet
 @:forward
 @:nativeGen
 @:native("FacialAnimationBulkImporterSettings*")
-abstract FacialAnimationBulkImporterSettingsPtr(cpp.Star<FacialAnimationBulkImporterSettings>) from cpp.Star<FacialAnimationBulkImporterSettings> to cpp.Star<FacialAnimationBulkImporterSettings>{
+abstract FacialAnimationBulkImporterSettingsPtr(ucpp.Ptr<FacialAnimationBulkImporterSettings>) from ucpp.Ptr<FacialAnimationBulkImporterSettings> to ucpp.Ptr<FacialAnimationBulkImporterSettings>{
 	@:from
 	public static extern inline function fromValue(v: FacialAnimationBulkImporterSettings): FacialAnimationBulkImporterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

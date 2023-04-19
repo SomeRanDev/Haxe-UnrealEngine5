@@ -3,19 +3,19 @@ package ue;
 
 @:native("UControlRigPoseAsset")
 @:include("Tools/ControlRigPose.h")
-@:structAccess
+@:valueType
 extern class ControlRigPoseAsset extends Object {
 	public var Pose: ControlRigControlPose;
 
-	public function SelectControls(InControlRig: cpp.Star<ControlRig>, bDoMirror: Bool): Void;
-	public function SavePose(InControlRig: cpp.Star<ControlRig>, bUseAll: Bool): Void;
-	public function ReplaceControlName(CurrentName: cpp.Reference<FName>, NewName: cpp.Reference<FName>): Void;
-	public function PastePose(InControlRig: cpp.Star<ControlRig>, bDoKey: Bool, bDoMirror: Bool): Void;
-	public function GetCurrentPose(InControlRig: cpp.Star<ControlRig>, OutPose: cpp.Reference<ControlRigControlPose>): Void;
+	public function SelectControls(InControlRig: ucpp.Ptr<ControlRig>, bDoMirror: Bool): Void;
+	public function SavePose(InControlRig: ucpp.Ptr<ControlRig>, bUseAll: Bool): Void;
+	public function ReplaceControlName(CurrentName: ucpp.Ref<FName>, NewName: ucpp.Ref<FName>): Void;
+	public function PastePose(InControlRig: ucpp.Ptr<ControlRig>, bDoKey: Bool, bDoMirror: Bool): Void;
+	public function GetCurrentPose(InControlRig: ucpp.Ptr<ControlRig>, OutPose: ucpp.Ref<ControlRigControlPose>): Void;
 	public function GetControlNames(): TArray<FName>;
-	public function DoesMirrorMatch(ControlRig: cpp.Star<ControlRig>, ControlName: cpp.Reference<FName>): Bool;
+	public function DoesMirrorMatch(ControlRig: ucpp.Ptr<ControlRig>, ControlName: ucpp.Ref<FName>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetControlNames, DoesMirrorMatch)
@@ -28,7 +28,7 @@ abstract ConstControlRigPoseAsset(ControlRigPoseAsset) from ControlRigPoseAsset 
 @:forward
 @:nativeGen
 @:native("ControlRigPoseAsset*")
-abstract ControlRigPoseAssetPtr(cpp.Star<ControlRigPoseAsset>) from cpp.Star<ControlRigPoseAsset> to cpp.Star<ControlRigPoseAsset>{
+abstract ControlRigPoseAssetPtr(ucpp.Ptr<ControlRigPoseAsset>) from ucpp.Ptr<ControlRigPoseAsset> to ucpp.Ptr<ControlRigPoseAsset>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigPoseAsset): ControlRigPoseAssetPtr {
 		return untyped __cpp__("&({0})", v);

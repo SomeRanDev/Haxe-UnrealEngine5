@@ -3,20 +3,20 @@ package ue;
 
 @:native("UNiagaraClipboardFunctionInput")
 @:include("NiagaraClipboard.h")
-@:structAccess
+@:valueType
 extern class NiagaraClipboardFunctionInput extends Object {
 	public var InputName: FName;
 	public var InputType: NiagaraTypeDefinition;
 	public var bHasEditCondition: Bool;
 	public var bEditConditionValue: Bool;
 	public var ValueMode: ENiagaraClipboardFunctionInputValueMode;
-	public var Local: TArray<cpp.UInt8>;
+	public var Local: TArray<ucpp.num.UInt8>;
 	public var Linked: FName;
-	public var Data: cpp.Star<NiagaraDataInterface>;
+	public var Data: ucpp.Ptr<NiagaraDataInterface>;
 	public var Expression: FString;
-	public var Dynamic: cpp.Star<NiagaraClipboardFunction>;
+	public var Dynamic: ucpp.Ptr<NiagaraClipboardFunction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,22 +32,22 @@ abstract ConstNiagaraClipboardFunctionInput(NiagaraClipboardFunctionInput) from 
 	public inline extern function get_bEditConditionValue(): Bool return this.bEditConditionValue;
 	public extern var ValueMode(get, never): ENiagaraClipboardFunctionInputValueMode;
 	public inline extern function get_ValueMode(): ENiagaraClipboardFunctionInputValueMode return this.ValueMode;
-	public extern var Local(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_Local(): TArray<cpp.UInt8> return this.Local;
+	public extern var Local(get, never): TArray<ucpp.num.UInt8>;
+	public inline extern function get_Local(): TArray<ucpp.num.UInt8> return this.Local;
 	public extern var Linked(get, never): FName;
 	public inline extern function get_Linked(): FName return this.Linked;
-	public extern var Data(get, never): cpp.Star<NiagaraDataInterface.ConstNiagaraDataInterface>;
-	public inline extern function get_Data(): cpp.Star<NiagaraDataInterface.ConstNiagaraDataInterface> return this.Data;
+	public extern var Data(get, never): ucpp.Ptr<NiagaraDataInterface.ConstNiagaraDataInterface>;
+	public inline extern function get_Data(): ucpp.Ptr<NiagaraDataInterface.ConstNiagaraDataInterface> return this.Data;
 	public extern var Expression(get, never): FString;
 	public inline extern function get_Expression(): FString return this.Expression;
-	public extern var Dynamic(get, never): cpp.Star<NiagaraClipboardFunction.ConstNiagaraClipboardFunction>;
-	public inline extern function get_Dynamic(): cpp.Star<NiagaraClipboardFunction.ConstNiagaraClipboardFunction> return this.Dynamic;
+	public extern var Dynamic(get, never): ucpp.Ptr<NiagaraClipboardFunction.ConstNiagaraClipboardFunction>;
+	public inline extern function get_Dynamic(): ucpp.Ptr<NiagaraClipboardFunction.ConstNiagaraClipboardFunction> return this.Dynamic;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraClipboardFunctionInput*")
-abstract NiagaraClipboardFunctionInputPtr(cpp.Star<NiagaraClipboardFunctionInput>) from cpp.Star<NiagaraClipboardFunctionInput> to cpp.Star<NiagaraClipboardFunctionInput>{
+abstract NiagaraClipboardFunctionInputPtr(ucpp.Ptr<NiagaraClipboardFunctionInput>) from ucpp.Ptr<NiagaraClipboardFunctionInput> to ucpp.Ptr<NiagaraClipboardFunctionInput>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraClipboardFunctionInput): NiagaraClipboardFunctionInputPtr {
 		return untyped __cpp__("&({0})", v);

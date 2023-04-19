@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendClassInput")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendClassInput extends MetasoundFrontendClassVertex {
 	public var DefaultLiteral: MetasoundFrontendLiteral;
 

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UCrowdManager")
 @:include("Navigation/CrowdManager.h")
-@:structAccess
+@:valueType
 extern class CrowdManager extends CrowdManagerBase {
-	@:protected public var MyNavData: cpp.Star<NavigationData>;
+	@:protected public var MyNavData: ucpp.Ptr<NavigationData>;
 	@:protected public var AvoidanceConfig: TArray<CrowdAvoidanceConfig>;
 	@:protected public var SamplingPatterns: TArray<CrowdAvoidanceSamplingPattern>;
-	@:protected public var MaxAgents: cpp.Int32;
-	@:protected public var MaxAgentRadius: cpp.Float32;
-	@:protected public var MaxAvoidedAgents: cpp.Int32;
-	@:protected public var MaxAvoidedWalls: cpp.Int32;
-	@:protected public var NavmeshCheckInterval: cpp.Float32;
-	@:protected public var PathOptimizationInterval: cpp.Float32;
-	@:protected public var SeparationDirClamp: cpp.Float32;
-	@:protected public var PathOffsetRadiusMultiplier: cpp.Float32;
+	@:protected public var MaxAgents: ucpp.num.Int32;
+	@:protected public var MaxAgentRadius: ucpp.num.Float32;
+	@:protected public var MaxAvoidedAgents: ucpp.num.Int32;
+	@:protected public var MaxAvoidedWalls: ucpp.num.Int32;
+	@:protected public var NavmeshCheckInterval: ucpp.num.Float32;
+	@:protected public var PathOptimizationInterval: ucpp.num.Float32;
+	@:protected public var SeparationDirClamp: ucpp.num.Float32;
+	@:protected public var PathOffsetRadiusMultiplier: ucpp.num.Float32;
 	@:protected public var bResolveCollisions: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstCrowdManager(CrowdManager) from CrowdManager {
 @:forward
 @:nativeGen
 @:native("CrowdManager*")
-abstract CrowdManagerPtr(cpp.Star<CrowdManager>) from cpp.Star<CrowdManager> to cpp.Star<CrowdManager>{
+abstract CrowdManagerPtr(ucpp.Ptr<CrowdManager>) from ucpp.Ptr<CrowdManager> to ucpp.Ptr<CrowdManager>{
 	@:from
 	public static extern inline function fromValue(v: CrowdManager): CrowdManagerPtr {
 		return untyped __cpp__("&({0})", v);

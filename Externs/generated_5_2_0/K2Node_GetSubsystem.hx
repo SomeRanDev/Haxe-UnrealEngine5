@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_GetSubsystem")
 @:include("K2Node_GetSubsystem.h")
-@:structAccess
+@:valueType
 extern class K2Node_GetSubsystem extends K2Node {
 	@:protected public var CustomClass: TSubclassOf<Subsystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_GetSubsystem(K2Node_GetSubsystem) from K2Node_GetSubsystem 
 @:forward
 @:nativeGen
 @:native("K2Node_GetSubsystem*")
-abstract K2Node_GetSubsystemPtr(cpp.Star<K2Node_GetSubsystem>) from cpp.Star<K2Node_GetSubsystem> to cpp.Star<K2Node_GetSubsystem>{
+abstract K2Node_GetSubsystemPtr(ucpp.Ptr<K2Node_GetSubsystem>) from ucpp.Ptr<K2Node_GetSubsystem> to ucpp.Ptr<K2Node_GetSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_GetSubsystem): K2Node_GetSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

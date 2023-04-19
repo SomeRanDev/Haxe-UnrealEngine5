@@ -3,11 +3,11 @@ package ue;
 
 @:native("FInt32RangeBound")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Int32RangeBound {
 	private var Type: TEnumAsByte<ERangeBoundTypes>;
-	private var Value: cpp.Int32;
+	private var Value: ucpp.num.Int32;
 
 	@:native("FInt32RangeBound") public function new();
-	@:native("FInt32RangeBound") public static function make(Type: TEnumAsByte<ERangeBoundTypes>, Value: cpp.Int32): Int32RangeBound ;
+	@:native("FInt32RangeBound") public static function make(Type: TEnumAsByte<ERangeBoundTypes>, Value: ucpp.num.Int32): Int32RangeBound ;
 }

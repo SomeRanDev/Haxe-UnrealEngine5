@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDiffAssetRegistriesCommandlet")
 @:include("Commandlets/DiffAssetRegistriesCommandlet.h")
-@:structAccess
+@:valueType
 extern class DiffAssetRegistriesCommandlet extends Commandlet {
 	private var AssetRegistrySearchPath: TArray<FString>;
 	private var P4Repository: FString;
@@ -13,7 +13,7 @@ extern class DiffAssetRegistriesCommandlet extends Commandlet {
 	private var P4GameAssetPath: FString;
 	private var RegexBranchCL: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstDiffAssetRegistriesCommandlet(DiffAssetRegistriesCommandlet) from 
 @:forward
 @:nativeGen
 @:native("DiffAssetRegistriesCommandlet*")
-abstract DiffAssetRegistriesCommandletPtr(cpp.Star<DiffAssetRegistriesCommandlet>) from cpp.Star<DiffAssetRegistriesCommandlet> to cpp.Star<DiffAssetRegistriesCommandlet>{
+abstract DiffAssetRegistriesCommandletPtr(ucpp.Ptr<DiffAssetRegistriesCommandlet>) from ucpp.Ptr<DiffAssetRegistriesCommandlet> to ucpp.Ptr<DiffAssetRegistriesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DiffAssetRegistriesCommandlet): DiffAssetRegistriesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

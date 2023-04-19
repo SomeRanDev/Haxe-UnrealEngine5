@@ -3,23 +3,23 @@ package ue;
 
 @:native("UPaperTileLayer")
 @:include("PaperTileLayer.h")
-@:structAccess
+@:valueType
 extern class PaperTileLayer extends Object {
 	public var LayerName: FText;
-	private var LayerWidth: cpp.Int32;
-	private var LayerHeight: cpp.Int32;
+	private var LayerWidth: ucpp.num.Int32;
+	private var LayerHeight: ucpp.num.Int32;
 	private var bHiddenInGame: Bool;
 	private var bLayerCollides: Bool;
 	private var bOverrideCollisionThickness: Bool;
 	private var bOverrideCollisionOffset: Bool;
-	private var CollisionThicknessOverride: cpp.Float32;
-	private var CollisionOffsetOverride: cpp.Float32;
+	private var CollisionThicknessOverride: ucpp.num.Float32;
+	private var CollisionOffsetOverride: ucpp.num.Float32;
 	private var LayerColor: LinearColor;
-	private var AllocatedWidth: cpp.Int32;
-	private var AllocatedHeight: cpp.Int32;
+	private var AllocatedWidth: ucpp.num.Int32;
+	private var AllocatedHeight: ucpp.num.Int32;
 	private var AllocatedCells: TArray<PaperTileInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstPaperTileLayer(PaperTileLayer) from PaperTileLayer {
 @:forward
 @:nativeGen
 @:native("PaperTileLayer*")
-abstract PaperTileLayerPtr(cpp.Star<PaperTileLayer>) from cpp.Star<PaperTileLayer> to cpp.Star<PaperTileLayer>{
+abstract PaperTileLayerPtr(ucpp.Ptr<PaperTileLayer>) from ucpp.Ptr<PaperTileLayer> to ucpp.Ptr<PaperTileLayer>{
 	@:from
 	public static extern inline function fromValue(v: PaperTileLayer): PaperTileLayerPtr {
 		return untyped __cpp__("&({0})", v);

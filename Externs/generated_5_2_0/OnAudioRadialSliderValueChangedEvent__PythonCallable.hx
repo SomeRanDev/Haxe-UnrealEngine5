@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnAudioRadialSliderValueChangedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnAudioRadialSliderValueChangedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnAudioRadialSliderValueChangedEvent__PythonCallable(OnAudioRadial
 @:forward
 @:nativeGen
 @:native("OnAudioRadialSliderValueChangedEvent__PythonCallable*")
-abstract OnAudioRadialSliderValueChangedEvent__PythonCallablePtr(cpp.Star<OnAudioRadialSliderValueChangedEvent__PythonCallable>) from cpp.Star<OnAudioRadialSliderValueChangedEvent__PythonCallable> to cpp.Star<OnAudioRadialSliderValueChangedEvent__PythonCallable>{
+abstract OnAudioRadialSliderValueChangedEvent__PythonCallablePtr(ucpp.Ptr<OnAudioRadialSliderValueChangedEvent__PythonCallable>) from ucpp.Ptr<OnAudioRadialSliderValueChangedEvent__PythonCallable> to ucpp.Ptr<OnAudioRadialSliderValueChangedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnAudioRadialSliderValueChangedEvent__PythonCallable): OnAudioRadialSliderValueChangedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

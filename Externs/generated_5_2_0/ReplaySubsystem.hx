@@ -3,17 +3,17 @@ package ue;
 
 @:native("UReplaySubsystem")
 @:include("ReplaySubsystem.h")
-@:structAccess
+@:valueType
 extern class ReplaySubsystem extends GameInstanceSubsystem {
 	public var bLoadDefaultMapOnStop: Bool;
 
 	public function RequestCheckpoint(): Void;
 	public function IsRecording(): Bool;
 	public function IsPlaying(): Bool;
-	public function GetReplayCurrentTime(): cpp.Float32;
+	public function GetReplayCurrentTime(): ucpp.num.Float32;
 	public function GetActiveReplayName(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsRecording, IsPlaying, GetReplayCurrentTime, GetActiveReplayName)
@@ -26,7 +26,7 @@ abstract ConstReplaySubsystem(ReplaySubsystem) from ReplaySubsystem {
 @:forward
 @:nativeGen
 @:native("ReplaySubsystem*")
-abstract ReplaySubsystemPtr(cpp.Star<ReplaySubsystem>) from cpp.Star<ReplaySubsystem> to cpp.Star<ReplaySubsystem>{
+abstract ReplaySubsystemPtr(ucpp.Ptr<ReplaySubsystem>) from ucpp.Ptr<ReplaySubsystem> to ucpp.Ptr<ReplaySubsystem>{
 	@:from
 	public static extern inline function fromValue(v: ReplaySubsystem): ReplaySubsystemPtr {
 		return untyped __cpp__("&({0})", v);

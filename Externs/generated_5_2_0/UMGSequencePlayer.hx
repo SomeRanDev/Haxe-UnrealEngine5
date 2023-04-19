@@ -3,15 +3,15 @@ package ue;
 
 @:native("UUMGSequencePlayer")
 @:include("Animation/UMGSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class UMGSequencePlayer extends Object {
-	private var Animation: cpp.Star<WidgetAnimation>;
+	private var Animation: ucpp.Ptr<WidgetAnimation>;
 	private var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
 
 	public function SetUserTag(InUserTag: FName): Void;
 	public function GetUserTag(): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetUserTag)
@@ -22,7 +22,7 @@ abstract ConstUMGSequencePlayer(UMGSequencePlayer) from UMGSequencePlayer {
 @:forward
 @:nativeGen
 @:native("UMGSequencePlayer*")
-abstract UMGSequencePlayerPtr(cpp.Star<UMGSequencePlayer>) from cpp.Star<UMGSequencePlayer> to cpp.Star<UMGSequencePlayer>{
+abstract UMGSequencePlayerPtr(ucpp.Ptr<UMGSequencePlayer>) from ucpp.Ptr<UMGSequencePlayer> to ucpp.Ptr<UMGSequencePlayer>{
 	@:from
 	public static extern inline function fromValue(v: UMGSequencePlayer): UMGSequencePlayerPtr {
 		return untyped __cpp__("&({0})", v);

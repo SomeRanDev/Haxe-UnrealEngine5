@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSubtitleCue")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class SubtitleCue {
 	public var Text: FText;
-	public var Time: cpp.Float32;
+	public var Time: ucpp.num.Float32;
 
 	@:native("FSubtitleCue") public function new();
-	@:native("FSubtitleCue") public static function make(Text: FText, Time: cpp.Float32): SubtitleCue ;
+	@:native("FSubtitleCue") public static function make(Text: FText, Time: ucpp.num.Float32): SubtitleCue ;
 }

@@ -3,15 +3,15 @@ package ue;
 
 @:native("FAttenuationSubmixSendSettings")
 @:include("Sound/SoundAttenuation.h")
-@:structAccess
+@:valueType
 extern class AttenuationSubmixSendSettings {
-	public var Submix: cpp.Star<SoundSubmixBase>;
+	public var Submix: ucpp.Ptr<SoundSubmixBase>;
 	public var SubmixSendMethod: ESubmixSendMethod;
-	public var SubmixSendLevelMin: cpp.Float32;
-	public var SubmixSendLevelMax: cpp.Float32;
-	public var SubmixSendDistanceMin: cpp.Float32;
-	public var SubmixSendDistanceMax: cpp.Float32;
-	public var ManualSubmixSendLevel: cpp.Float32;
+	public var SubmixSendLevelMin: ucpp.num.Float32;
+	public var SubmixSendLevelMax: ucpp.num.Float32;
+	public var SubmixSendDistanceMin: ucpp.num.Float32;
+	public var SubmixSendDistanceMax: ucpp.num.Float32;
+	public var ManualSubmixSendLevel: ucpp.num.Float32;
 	public var CustomSubmixSendCurve: RuntimeFloatCurve;
 
 	@:native("FAttenuationSubmixSendSettings") public function new();

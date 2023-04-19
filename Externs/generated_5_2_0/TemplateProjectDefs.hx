@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTemplateProjectDefs")
 @:include("TemplateProjectDefs.h")
-@:structAccess
+@:valueType
 extern class TemplateProjectDefs extends Object {
 	public var LocalizedDisplayNames: TArray<LocalizedTemplateString>;
 	public var LocalizedDescriptions: TArray<LocalizedTemplateString>;
@@ -26,7 +26,7 @@ extern class TemplateProjectDefs extends Object {
 	public var SharedContentPacks: TArray<FeaturePackLevelSet>;
 	public var StarterContent: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -77,7 +77,7 @@ abstract ConstTemplateProjectDefs(TemplateProjectDefs) from TemplateProjectDefs 
 @:forward
 @:nativeGen
 @:native("TemplateProjectDefs*")
-abstract TemplateProjectDefsPtr(cpp.Star<TemplateProjectDefs>) from cpp.Star<TemplateProjectDefs> to cpp.Star<TemplateProjectDefs>{
+abstract TemplateProjectDefsPtr(ucpp.Ptr<TemplateProjectDefs>) from ucpp.Ptr<TemplateProjectDefs> to ucpp.Ptr<TemplateProjectDefs>{
 	@:from
 	public static extern inline function fromValue(v: TemplateProjectDefs): TemplateProjectDefsPtr {
 		return untyped __cpp__("&({0})", v);

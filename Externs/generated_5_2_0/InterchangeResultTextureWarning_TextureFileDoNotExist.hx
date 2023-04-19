@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeResultTextureWarning_TextureFileDoNotExist")
 @:include("Fbx/InterchangeFbxMessages.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultTextureWarning_TextureFileDoNotExist extends InterchangeResultTextureWarning {
 	public var Text: FText;
 	public var MaterialName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstInterchangeResultTextureWarning_TextureFileDoNotExist(InterchangeR
 @:forward
 @:nativeGen
 @:native("InterchangeResultTextureWarning_TextureFileDoNotExist*")
-abstract InterchangeResultTextureWarning_TextureFileDoNotExistPtr(cpp.Star<InterchangeResultTextureWarning_TextureFileDoNotExist>) from cpp.Star<InterchangeResultTextureWarning_TextureFileDoNotExist> to cpp.Star<InterchangeResultTextureWarning_TextureFileDoNotExist>{
+abstract InterchangeResultTextureWarning_TextureFileDoNotExistPtr(ucpp.Ptr<InterchangeResultTextureWarning_TextureFileDoNotExist>) from ucpp.Ptr<InterchangeResultTextureWarning_TextureFileDoNotExist> to ucpp.Ptr<InterchangeResultTextureWarning_TextureFileDoNotExist>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultTextureWarning_TextureFileDoNotExist): InterchangeResultTextureWarning_TextureFileDoNotExistPtr {
 		return untyped __cpp__("&({0})", v);

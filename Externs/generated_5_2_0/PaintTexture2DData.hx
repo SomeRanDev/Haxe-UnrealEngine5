@@ -3,14 +3,14 @@ package ue;
 
 @:native("FPaintTexture2DData")
 @:include("MeshPaintingToolsetTypes.h")
-@:structAccess
+@:valueType
 extern class PaintTexture2DData {
-	public var PaintingTexture2D: cpp.Star<Texture2D>;
+	public var PaintingTexture2D: ucpp.Ptr<Texture2D>;
 	public var bIsPaintingTexture2DModified: Bool;
-	public var ScratchTexture: cpp.Star<Texture2D>;
-	public var PaintRenderTargetTexture: cpp.Star<TextureRenderTarget2D>;
-	public var PaintedComponents: TArray<cpp.Star<MeshComp>>;
+	public var ScratchTexture: ucpp.Ptr<Texture2D>;
+	public var PaintRenderTargetTexture: ucpp.Ptr<TextureRenderTarget2D>;
+	public var PaintedComponents: TArray<ucpp.Ptr<MeshComp>>;
 
 	@:native("FPaintTexture2DData") public function new();
-	@:native("FPaintTexture2DData") public static function make(PaintingTexture2D: cpp.Star<Texture2D>, bIsPaintingTexture2DModified: Bool, ScratchTexture: cpp.Star<Texture2D>, PaintRenderTargetTexture: cpp.Star<TextureRenderTarget2D>, PaintedComponents: TArray<cpp.Star<MeshComp>>): PaintTexture2DData ;
+	@:native("FPaintTexture2DData") public static function make(PaintingTexture2D: ucpp.Ptr<Texture2D>, bIsPaintingTexture2DModified: Bool, ScratchTexture: ucpp.Ptr<Texture2D>, PaintRenderTargetTexture: ucpp.Ptr<TextureRenderTarget2D>, PaintedComponents: TArray<ucpp.Ptr<MeshComp>>): PaintTexture2DData ;
 }

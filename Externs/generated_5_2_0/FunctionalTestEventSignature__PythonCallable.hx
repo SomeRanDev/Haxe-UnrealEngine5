@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFunctionalTestEventSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class FunctionalTestEventSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFunctionalTestEventSignature__PythonCallable(FunctionalTestEventSi
 @:forward
 @:nativeGen
 @:native("FunctionalTestEventSignature__PythonCallable*")
-abstract FunctionalTestEventSignature__PythonCallablePtr(cpp.Star<FunctionalTestEventSignature__PythonCallable>) from cpp.Star<FunctionalTestEventSignature__PythonCallable> to cpp.Star<FunctionalTestEventSignature__PythonCallable>{
+abstract FunctionalTestEventSignature__PythonCallablePtr(ucpp.Ptr<FunctionalTestEventSignature__PythonCallable>) from ucpp.Ptr<FunctionalTestEventSignature__PythonCallable> to ucpp.Ptr<FunctionalTestEventSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalTestEventSignature__PythonCallable): FunctionalTestEventSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

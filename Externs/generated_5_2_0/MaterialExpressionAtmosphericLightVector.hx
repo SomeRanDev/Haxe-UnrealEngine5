@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionAtmosphericLightVector")
 @:include("Materials/MaterialExpressionAtmosphericLightVector.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionAtmosphericLightVector extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionAtmosphericLightVector(MaterialExpressionAtmosph
 @:forward
 @:nativeGen
 @:native("MaterialExpressionAtmosphericLightVector*")
-abstract MaterialExpressionAtmosphericLightVectorPtr(cpp.Star<MaterialExpressionAtmosphericLightVector>) from cpp.Star<MaterialExpressionAtmosphericLightVector> to cpp.Star<MaterialExpressionAtmosphericLightVector>{
+abstract MaterialExpressionAtmosphericLightVectorPtr(ucpp.Ptr<MaterialExpressionAtmosphericLightVector>) from ucpp.Ptr<MaterialExpressionAtmosphericLightVector> to ucpp.Ptr<MaterialExpressionAtmosphericLightVector>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionAtmosphericLightVector): MaterialExpressionAtmosphericLightVectorPtr {
 		return untyped __cpp__("&({0})", v);

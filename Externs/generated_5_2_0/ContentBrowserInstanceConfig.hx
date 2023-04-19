@@ -3,7 +3,7 @@ package ue;
 
 @:native("FContentBrowserInstanceConfig")
 @:include("Private/ContentBrowserConfig.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserInstanceConfig {
 	public var Collections: CollectionsConfig;
 	public var PathView: PathViewConfig;

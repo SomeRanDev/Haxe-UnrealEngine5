@@ -3,14 +3,14 @@ package ue;
 
 @:native("UDeprecatedDataLayerInstance")
 @:include("WorldPartition/DataLayer/DeprecatedDataLayerInstance.h")
-@:structAccess
+@:valueType
 extern class DeprecatedDataLayerInstance extends DataLayerInstance {
 	private var Label: FName;
 	private var DeprecatedDataLayerFName: FName;
 	private var DataLayerType: EDataLayerType;
 	private var DebugColor: Color;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstDeprecatedDataLayerInstance(DeprecatedDataLayerInstance) from Depr
 @:forward
 @:nativeGen
 @:native("DeprecatedDataLayerInstance*")
-abstract DeprecatedDataLayerInstancePtr(cpp.Star<DeprecatedDataLayerInstance>) from cpp.Star<DeprecatedDataLayerInstance> to cpp.Star<DeprecatedDataLayerInstance>{
+abstract DeprecatedDataLayerInstancePtr(ucpp.Ptr<DeprecatedDataLayerInstance>) from ucpp.Ptr<DeprecatedDataLayerInstance> to ucpp.Ptr<DeprecatedDataLayerInstance>{
 	@:from
 	public static extern inline function fromValue(v: DeprecatedDataLayerInstance): DeprecatedDataLayerInstancePtr {
 		return untyped __cpp__("&({0})", v);

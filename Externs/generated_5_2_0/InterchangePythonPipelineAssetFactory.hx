@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangePythonPipelineAssetFactory")
 @:include("InterchangePipelineFactories.h")
-@:structAccess
+@:valueType
 extern class InterchangePythonPipelineAssetFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangePythonPipelineAssetFactory(InterchangePythonPipelineAss
 @:forward
 @:nativeGen
 @:native("InterchangePythonPipelineAssetFactory*")
-abstract InterchangePythonPipelineAssetFactoryPtr(cpp.Star<InterchangePythonPipelineAssetFactory>) from cpp.Star<InterchangePythonPipelineAssetFactory> to cpp.Star<InterchangePythonPipelineAssetFactory>{
+abstract InterchangePythonPipelineAssetFactoryPtr(ucpp.Ptr<InterchangePythonPipelineAssetFactory>) from ucpp.Ptr<InterchangePythonPipelineAssetFactory> to ucpp.Ptr<InterchangePythonPipelineAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePythonPipelineAssetFactory): InterchangePythonPipelineAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

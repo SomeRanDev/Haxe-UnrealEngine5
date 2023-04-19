@@ -3,7 +3,7 @@ package ue;
 
 @:native("UK2Node_InputActionEvent")
 @:include("K2Node_InputActionEvent.h")
-@:structAccess
+@:valueType
 extern class K2Node_InputActionEvent extends K2Node_Event {
 	public var InputActionName: FName;
 	public var InputKeyEvent: TEnumAsByte<EInputEvent>;
@@ -11,7 +11,7 @@ extern class K2Node_InputActionEvent extends K2Node_Event {
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstK2Node_InputActionEvent(K2Node_InputActionEvent) from K2Node_Input
 @:forward
 @:nativeGen
 @:native("K2Node_InputActionEvent*")
-abstract K2Node_InputActionEventPtr(cpp.Star<K2Node_InputActionEvent>) from cpp.Star<K2Node_InputActionEvent> to cpp.Star<K2Node_InputActionEvent>{
+abstract K2Node_InputActionEventPtr(ucpp.Ptr<K2Node_InputActionEvent>) from ucpp.Ptr<K2Node_InputActionEvent> to ucpp.Ptr<K2Node_InputActionEvent>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_InputActionEvent): K2Node_InputActionEventPtr {
 		return untyped __cpp__("&({0})", v);

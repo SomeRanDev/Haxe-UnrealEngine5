@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialEditorMeshComponent")
 @:include("MaterialEditor/MaterialEditorMeshComponent.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorMeshComp extends StaticMeshComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialEditorMeshComp(MaterialEditorMeshComp) from MaterialEditor
 @:forward
 @:nativeGen
 @:native("MaterialEditorMeshComp*")
-abstract MaterialEditorMeshCompPtr(cpp.Star<MaterialEditorMeshComp>) from cpp.Star<MaterialEditorMeshComp> to cpp.Star<MaterialEditorMeshComp>{
+abstract MaterialEditorMeshCompPtr(ucpp.Ptr<MaterialEditorMeshComp>) from ucpp.Ptr<MaterialEditorMeshComp> to ucpp.Ptr<MaterialEditorMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditorMeshComp): MaterialEditorMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

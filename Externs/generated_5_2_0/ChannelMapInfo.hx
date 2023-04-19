@@ -3,18 +3,18 @@ package ue;
 
 @:native("FChannelMapInfo")
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
-@:structAccess
+@:valueType
 extern class ChannelMapInfo {
-	public var ControlIndex: cpp.Int32;
-	public var TotalChannelIndex: cpp.Int32;
-	public var ChannelIndex: cpp.Int32;
-	public var ParentControlIndex: cpp.Int32;
+	public var ControlIndex: ucpp.num.Int32;
+	public var TotalChannelIndex: ucpp.num.Int32;
+	public var ChannelIndex: ucpp.num.Int32;
+	public var ParentControlIndex: ucpp.num.Int32;
 	public var ChannelTypeName: FName;
 	public var bDoesHaveSpace: Bool;
-	public var SpaceChannelIndex: cpp.Int32;
-	public var MaskIndex: cpp.Int32;
-	public var CategoryIndex: cpp.Int32;
-	public var ConstraintsIndex: TArray<cpp.UInt32>;
+	public var SpaceChannelIndex: ucpp.num.Int32;
+	public var MaskIndex: ucpp.num.Int32;
+	public var CategoryIndex: ucpp.num.Int32;
+	public var ConstraintsIndex: TArray<ucpp.num.UInt32>;
 
 	@:native("FChannelMapInfo") public function new();
 }

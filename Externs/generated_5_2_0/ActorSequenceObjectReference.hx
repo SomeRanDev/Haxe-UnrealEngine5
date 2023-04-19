@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorSequenceObjectReference")
 @:include("ActorSequenceObjectReference.h")
-@:structAccess
+@:valueType
 extern class ActorSequenceObjectReference {
 	private var Type: EActorSequenceObjectReferenceType;
 	private var ActorId: Guid;

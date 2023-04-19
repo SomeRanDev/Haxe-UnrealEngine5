@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAsyncActionChangePrimaryAssetBundles")
 @:include("AsyncActionLoadPrimaryAsset.h")
-@:structAccess
+@:valueType
 extern class AsyncActionChangePrimaryAssetBundles extends AsyncActionLoadPrimaryAssetBase {
 	public var Completed: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function AsyncChangeBundleStateForPrimaryAssetList(WorldContextObject: cpp.Star<Object>, PrimaryAssetList: cpp.Reference<TArray<PrimaryAssetId>>, AddBundles: cpp.Reference<TArray<FName>>, RemoveBundles: cpp.Reference<TArray<FName>>): cpp.Star<AsyncActionChangePrimaryAssetBundles>;
-	public function AsyncChangeBundleStateForMatchingPrimaryAssets(WorldContextObject: cpp.Star<Object>, NewBundles: cpp.Reference<TArray<FName>>, OldBundles: cpp.Reference<TArray<FName>>): cpp.Star<AsyncActionChangePrimaryAssetBundles>;
+	public function AsyncChangeBundleStateForPrimaryAssetList(WorldContextObject: ucpp.Ptr<Object>, PrimaryAssetList: ucpp.Ref<TArray<PrimaryAssetId>>, AddBundles: ucpp.Ref<TArray<FName>>, RemoveBundles: ucpp.Ref<TArray<FName>>): ucpp.Ptr<AsyncActionChangePrimaryAssetBundles>;
+	public function AsyncChangeBundleStateForMatchingPrimaryAssets(WorldContextObject: ucpp.Ptr<Object>, NewBundles: ucpp.Ref<TArray<FName>>, OldBundles: ucpp.Ref<TArray<FName>>): ucpp.Ptr<AsyncActionChangePrimaryAssetBundles>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstAsyncActionChangePrimaryAssetBundles(AsyncActionChangePrimaryAsset
 @:forward
 @:nativeGen
 @:native("AsyncActionChangePrimaryAssetBundles*")
-abstract AsyncActionChangePrimaryAssetBundlesPtr(cpp.Star<AsyncActionChangePrimaryAssetBundles>) from cpp.Star<AsyncActionChangePrimaryAssetBundles> to cpp.Star<AsyncActionChangePrimaryAssetBundles>{
+abstract AsyncActionChangePrimaryAssetBundlesPtr(ucpp.Ptr<AsyncActionChangePrimaryAssetBundles>) from ucpp.Ptr<AsyncActionChangePrimaryAssetBundles> to ucpp.Ptr<AsyncActionChangePrimaryAssetBundles>{
 	@:from
 	public static extern inline function fromValue(v: AsyncActionChangePrimaryAssetBundles): AsyncActionChangePrimaryAssetBundlesPtr {
 		return untyped __cpp__("&({0})", v);

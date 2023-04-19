@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUniformScaleDragOperation")
 @:include("ViewportInteractionDragOperations.h")
-@:structAccess
+@:valueType
 extern class UniformScaleDragOperation extends ViewportDragOperation {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUniformScaleDragOperation(UniformScaleDragOperation) from UniformS
 @:forward
 @:nativeGen
 @:native("UniformScaleDragOperation*")
-abstract UniformScaleDragOperationPtr(cpp.Star<UniformScaleDragOperation>) from cpp.Star<UniformScaleDragOperation> to cpp.Star<UniformScaleDragOperation>{
+abstract UniformScaleDragOperationPtr(ucpp.Ptr<UniformScaleDragOperation>) from ucpp.Ptr<UniformScaleDragOperation> to ucpp.Ptr<UniformScaleDragOperation>{
 	@:from
 	public static extern inline function fromValue(v: UniformScaleDragOperation): UniformScaleDragOperationPtr {
 		return untyped __cpp__("&({0})", v);

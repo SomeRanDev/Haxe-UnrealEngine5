@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMovieSceneScriptingActorReferenceChannel")
 @:include("KeysAndChannels/MovieSceneScriptingActorReference.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingActorReferenceChannel extends MovieSceneScriptingChannel {
 	public function SetDefault(InDefaultValue: MovieSceneObjectBindingID): Void;
-	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
+	public function RemoveKey(Key: ucpp.Ptr<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
 	public function HasDefault(): Bool;
-	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetKeys(): TArray<ucpp.Ptr<MovieSceneScriptingKey>>;
 	public function GetDefault(): MovieSceneObjectBindingID;
-	public function AddKey(InTime: FrameNumber, NewValue: MovieSceneObjectBindingID, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingActorReferenceKey>;
+	public function AddKey(InTime: FrameNumber, NewValue: MovieSceneObjectBindingID, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): ucpp.Ptr<MovieSceneScriptingActorReferenceKey>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasDefault, GetKeys, GetDefault)
@@ -24,7 +24,7 @@ abstract ConstMovieSceneScriptingActorReferenceChannel(MovieSceneScriptingActorR
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingActorReferenceChannel*")
-abstract MovieSceneScriptingActorReferenceChannelPtr(cpp.Star<MovieSceneScriptingActorReferenceChannel>) from cpp.Star<MovieSceneScriptingActorReferenceChannel> to cpp.Star<MovieSceneScriptingActorReferenceChannel>{
+abstract MovieSceneScriptingActorReferenceChannelPtr(ucpp.Ptr<MovieSceneScriptingActorReferenceChannel>) from ucpp.Ptr<MovieSceneScriptingActorReferenceChannel> to ucpp.Ptr<MovieSceneScriptingActorReferenceChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingActorReferenceChannel): MovieSceneScriptingActorReferenceChannelPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UGizmoAxisTranslationParameterSource")
 @:include("BaseGizmos/ParameterToTransformAdapters.h")
-@:structAccess
+@:valueType
 extern class GizmoAxisTranslationParameterSource extends GizmoBaseFloatParameterSource {
 	public var AxisSource: GizmoAxisSource;
 	public var TransformSource: GizmoTransformSource;
-	public var Parameter: cpp.Float32;
+	public var Parameter: ucpp.num.Float32;
 	public var LastChange: GizmoFloatParameterChange;
 	public var CurTranslationAxis: Vector;
 	public var CurTranslationOrigin: Vector;
 	public var InitialTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,8 +23,8 @@ abstract ConstGizmoAxisTranslationParameterSource(GizmoAxisTranslationParameterS
 	public inline extern function get_AxisSource(): GizmoAxisSource.ConstGizmoAxisSource return this.AxisSource;
 	public extern var TransformSource(get, never): GizmoTransformSource.ConstGizmoTransformSource;
 	public inline extern function get_TransformSource(): GizmoTransformSource.ConstGizmoTransformSource return this.TransformSource;
-	public extern var Parameter(get, never): cpp.Float32;
-	public inline extern function get_Parameter(): cpp.Float32 return this.Parameter;
+	public extern var Parameter(get, never): ucpp.num.Float32;
+	public inline extern function get_Parameter(): ucpp.num.Float32 return this.Parameter;
 	public extern var LastChange(get, never): GizmoFloatParameterChange;
 	public inline extern function get_LastChange(): GizmoFloatParameterChange return this.LastChange;
 	public extern var CurTranslationAxis(get, never): Vector;
@@ -38,7 +38,7 @@ abstract ConstGizmoAxisTranslationParameterSource(GizmoAxisTranslationParameterS
 @:forward
 @:nativeGen
 @:native("GizmoAxisTranslationParameterSource*")
-abstract GizmoAxisTranslationParameterSourcePtr(cpp.Star<GizmoAxisTranslationParameterSource>) from cpp.Star<GizmoAxisTranslationParameterSource> to cpp.Star<GizmoAxisTranslationParameterSource>{
+abstract GizmoAxisTranslationParameterSourcePtr(ucpp.Ptr<GizmoAxisTranslationParameterSource>) from ucpp.Ptr<GizmoAxisTranslationParameterSource> to ucpp.Ptr<GizmoAxisTranslationParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoAxisTranslationParameterSource): GizmoAxisTranslationParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

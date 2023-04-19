@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDEPRECATED_GeometryCacheTrack_FlipbookAnimation")
 @:include("GeometryCacheTrackFlipbookAnimation.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheTrack_FlipbookAnimation extends GeometryCacheTrack {
-	private var NumMeshSamples: cpp.UInt32;
+	private var NumMeshSamples: ucpp.num.UInt32;
 
-	public function AddMeshSample(MeshData: cpp.Reference<GeometryCacheMeshData>, SampleTime: cpp.Float32): Void;
+	public function AddMeshSample(MeshData: ucpp.Ref<GeometryCacheMeshData>, SampleTime: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstGeometryCacheTrack_FlipbookAnimation(GeometryCacheTrack_FlipbookAn
 @:forward
 @:nativeGen
 @:native("GeometryCacheTrack_FlipbookAnimation*")
-abstract GeometryCacheTrack_FlipbookAnimationPtr(cpp.Star<GeometryCacheTrack_FlipbookAnimation>) from cpp.Star<GeometryCacheTrack_FlipbookAnimation> to cpp.Star<GeometryCacheTrack_FlipbookAnimation>{
+abstract GeometryCacheTrack_FlipbookAnimationPtr(ucpp.Ptr<GeometryCacheTrack_FlipbookAnimation>) from ucpp.Ptr<GeometryCacheTrack_FlipbookAnimation> to ucpp.Ptr<GeometryCacheTrack_FlipbookAnimation>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheTrack_FlipbookAnimation): GeometryCacheTrack_FlipbookAnimationPtr {
 		return untyped __cpp__("&({0})", v);

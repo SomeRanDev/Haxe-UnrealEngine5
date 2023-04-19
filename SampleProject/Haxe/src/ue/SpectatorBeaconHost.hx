@@ -3,14 +3,14 @@ package ue;
 
 @:native("ASpectatorBeaconHost")
 @:include("SpectatorBeaconHost.h")
-@:structAccess
+@:valueType
 extern class SpectatorBeaconHost extends OnlineBeaconHostObject {
-	@:protected public var State: cpp.Star<SpectatorBeaconState>;
+	@:protected public var State: ucpp.Ptr<SpectatorBeaconState>;
 	@:protected public var bLogoutOnSessionTimeout: Bool;
-	@:protected public var SessionTimeoutSecs: cpp.Float32;
-	@:protected public var TravelSessionTimeoutSecs: cpp.Float32;
+	@:protected public var SessionTimeoutSecs: ucpp.num.Float32;
+	@:protected public var TravelSessionTimeoutSecs: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstSpectatorBeaconHost(SpectatorBeaconHost) from SpectatorBeaconHost 
 @:forward
 @:nativeGen
 @:native("SpectatorBeaconHost*")
-abstract SpectatorBeaconHostPtr(cpp.Star<SpectatorBeaconHost>) from cpp.Star<SpectatorBeaconHost> to cpp.Star<SpectatorBeaconHost>{
+abstract SpectatorBeaconHostPtr(ucpp.Ptr<SpectatorBeaconHost>) from ucpp.Ptr<SpectatorBeaconHost> to ucpp.Ptr<SpectatorBeaconHost>{
 	@:from
 	public static extern inline function fromValue(v: SpectatorBeaconHost): SpectatorBeaconHostPtr {
 		return untyped __cpp__("&({0})", v);

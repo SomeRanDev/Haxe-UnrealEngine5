@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLightmassParameterValue")
 @:include("Editor/UnrealEdTypes.h")
-@:structAccess
+@:valueType
 extern class LightmassParameterValue {
 	public var bOverride: Bool;
 

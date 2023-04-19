@@ -3,10 +3,10 @@ package ue;
 
 @:native("ATriggerVolume")
 @:include("Engine/TriggerVolume.h")
-@:structAccess
+@:valueType
 extern class TriggerVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTriggerVolume(TriggerVolume) from TriggerVolume {
 @:forward
 @:nativeGen
 @:native("TriggerVolume*")
-abstract TriggerVolumePtr(cpp.Star<TriggerVolume>) from cpp.Star<TriggerVolume> to cpp.Star<TriggerVolume>{
+abstract TriggerVolumePtr(ucpp.Ptr<TriggerVolume>) from ucpp.Ptr<TriggerVolume> to ucpp.Ptr<TriggerVolume>{
 	@:from
 	public static extern inline function fromValue(v: TriggerVolume): TriggerVolumePtr {
 		return untyped __cpp__("&({0})", v);

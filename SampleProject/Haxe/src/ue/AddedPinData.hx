@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAddedPinData")
 @:include("NiagaraNodeOp.h")
-@:structAccess
+@:valueType
 extern class AddedPinData {
 	public var PinType: EdGraphPinType;
 	public var PinName: FName;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTagAndValue")
 @:include("AssetRegistry/AssetRegistryHelpers.h")
-@:structAccess
+@:valueType
 extern class TagAndValue {
 	public var Tag: FName;
 	public var Value: FString;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAIResource_Logic")
 @:include("AIResources.h")
-@:structAccess
+@:valueType
 extern class AIResource_Logic extends GameplayTaskResource {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAIResource_Logic(AIResource_Logic) from AIResource_Logic {
 @:forward
 @:nativeGen
 @:native("AIResource_Logic*")
-abstract AIResource_LogicPtr(cpp.Star<AIResource_Logic>) from cpp.Star<AIResource_Logic> to cpp.Star<AIResource_Logic>{
+abstract AIResource_LogicPtr(ucpp.Ptr<AIResource_Logic>) from ucpp.Ptr<AIResource_Logic> to ucpp.Ptr<AIResource_Logic>{
 	@:from
 	public static extern inline function fromValue(v: AIResource_Logic): AIResource_LogicPtr {
 		return untyped __cpp__("&({0})", v);

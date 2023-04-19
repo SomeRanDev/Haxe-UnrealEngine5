@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVolumeComponentToolTarget")
 @:include("ToolTargets/VolumeComponentToolTarget.h")
-@:structAccess
+@:valueType
 extern class VolumeComponentToolTarget extends PrimitiveComponentToolTarget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVolumeComponentToolTarget(VolumeComponentToolTarget) from VolumeCo
 @:forward
 @:nativeGen
 @:native("VolumeComponentToolTarget*")
-abstract VolumeComponentToolTargetPtr(cpp.Star<VolumeComponentToolTarget>) from cpp.Star<VolumeComponentToolTarget> to cpp.Star<VolumeComponentToolTarget>{
+abstract VolumeComponentToolTargetPtr(ucpp.Ptr<VolumeComponentToolTarget>) from ucpp.Ptr<VolumeComponentToolTarget> to ucpp.Ptr<VolumeComponentToolTarget>{
 	@:from
 	public static extern inline function fromValue(v: VolumeComponentToolTarget): VolumeComponentToolTargetPtr {
 		return untyped __cpp__("&({0})", v);

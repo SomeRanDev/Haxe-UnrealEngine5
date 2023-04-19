@@ -3,49 +3,40 @@ package ue;
 
 @:native("UCanvasPanelSlot")
 @:include("Components/CanvasPanelSlot.h")
-@:structAccess
+@:valueType
 extern class CanvasPanelSlot extends PanelSlot {
-	public var LayoutData: AnchorData;
-	public var bAutoSize: Bool;
-	public var ZOrder: cpp.Int32;
+	public function GetLayout(): AnchorData;
+	public function SetLayout(input: AnchorData): Void;
+	public function GetAutoSize(): Bool;
+	public function SetAutoSize(input: Bool): Void;
+	public function GetZOrder(): ucpp.num.Int32;
+	public function SetZOrder(input: ucpp.num.Int32): Void;
 
-	public function SetZOrder(InZOrder: cpp.Int32): Void;
 	public function SetSize(InSize: Vector2D): Void;
 	public function SetPosition(InPosition: Vector2D): Void;
 	public function SetOffsets(InOffset: Margin): Void;
 	public function SetMinimum(InMinimumAnchors: Vector2D): Void;
 	public function SetMaximum(InMaximumAnchors: Vector2D): Void;
-	public function SetLayout(InLayoutData: cpp.Reference<AnchorData>): Void;
-	public function SetAutoSize(InbAutoSize: Bool): Void;
 	public function SetAnchors(InAnchors: Anchors): Void;
 	public function SetAlignment(InAlignment: Vector2D): Void;
-	public function GetZOrder(): cpp.Int32;
 	public function GetSize(): Vector2D;
 	public function GetPosition(): Vector2D;
 	public function GetOffsets(): Margin;
-	public function GetLayout(): AnchorData;
-	public function GetAutoSize(): Bool;
 	public function GetAnchors(): Anchors;
 	public function GetAlignment(): Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetZOrder, GetSize, GetPosition, GetOffsets, GetLayout, GetAutoSize, GetAnchors, GetAlignment)
+@:forward(GetSize, GetPosition, GetOffsets, GetAnchors, GetAlignment)
 @:nativeGen
 abstract ConstCanvasPanelSlot(CanvasPanelSlot) from CanvasPanelSlot {
-	public extern var LayoutData(get, never): AnchorData;
-	public inline extern function get_LayoutData(): AnchorData return this.LayoutData;
-	public extern var bAutoSize(get, never): Bool;
-	public inline extern function get_bAutoSize(): Bool return this.bAutoSize;
-	public extern var ZOrder(get, never): cpp.Int32;
-	public inline extern function get_ZOrder(): cpp.Int32 return this.ZOrder;
 }
 
 @:forward
 @:nativeGen
 @:native("CanvasPanelSlot*")
-abstract CanvasPanelSlotPtr(cpp.Star<CanvasPanelSlot>) from cpp.Star<CanvasPanelSlot> to cpp.Star<CanvasPanelSlot>{
+abstract CanvasPanelSlotPtr(ucpp.Ptr<CanvasPanelSlot>) from ucpp.Ptr<CanvasPanelSlot> to ucpp.Ptr<CanvasPanelSlot>{
 	@:from
 	public static extern inline function fromValue(v: CanvasPanelSlot): CanvasPanelSlotPtr {
 		return untyped __cpp__("&({0})", v);

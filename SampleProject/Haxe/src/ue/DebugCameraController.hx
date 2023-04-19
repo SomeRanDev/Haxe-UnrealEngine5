@@ -3,7 +3,7 @@ package ue;
 
 @:native("ADebugCameraController")
 @:include("Engine/DebugCameraController.h")
-@:structAccess
+@:valueType
 extern class DebugCameraController extends PlayerController {
 	public var bShowSelectedInfo: Bool;
 	public var bIsFrozenRendering: Bool;
@@ -13,26 +13,26 @@ extern class DebugCameraController extends PlayerController {
 	public var bEnableBufferVisualizationFullMode: Bool;
 	public var bIsBufferVisualizationInputSetup: Bool;
 	public var bLastDisplayEnabled: Bool;
-	public var DrawFrustum: cpp.Star<DrawFrustumComp>;
-	public var SelectedActor: cpp.Star<Actor>;
-	public var SelectedComponent: cpp.Star<PrimitiveComp>;
+	public var DrawFrustum: ucpp.Ptr<DrawFrustumComp>;
+	public var SelectedActor: TWeakObjectPtr<Actor>;
+	public var SelectedComponent: TWeakObjectPtr<PrimitiveComp>;
 	public var SelectedHitPoint: HitResult;
-	public var OriginalControllerRef: cpp.Star<PlayerController>;
-	public var OriginalPlayer: cpp.Star<Player>;
-	public var SpeedScale: cpp.Float32;
-	public var InitialMaxSpeed: cpp.Float32;
-	public var InitialAccel: cpp.Float32;
-	public var InitialDecel: cpp.Float32;
+	public var OriginalControllerRef: ucpp.Ptr<PlayerController>;
+	public var OriginalPlayer: ucpp.Ptr<Player>;
+	public var SpeedScale: ucpp.num.Float32;
+	public var InitialMaxSpeed: ucpp.num.Float32;
+	public var InitialAccel: ucpp.num.Float32;
+	public var InitialDecel: ucpp.num.Float32;
 
 	public function ToggleDisplay(): Void;
 	public function ShowDebugSelectedInfo(): Void;
-	public function SetPawnMovementSpeedScale(NewSpeedScale: cpp.Float32): Void;
-	public function ReceiveOnDeactivate(RestoredPC: cpp.Star<PlayerController>): Void;
-	@:protected public function ReceiveOnActorSelected(NewSelectedActor: cpp.Star<Actor>, SelectHitLocation: cpp.Reference<Vector>, SelectHitNormal: cpp.Reference<Vector>, Hit: cpp.Reference<HitResult>): Void;
-	public function ReceiveOnActivate(OriginalPC: cpp.Star<PlayerController>): Void;
-	public function GetSelectedActor(): cpp.Star<Actor>;
+	public function SetPawnMovementSpeedScale(NewSpeedScale: ucpp.num.Float32): Void;
+	public function ReceiveOnDeactivate(RestoredPC: ucpp.Ptr<PlayerController>): Void;
+	@:protected public function ReceiveOnActorSelected(NewSelectedActor: ucpp.Ptr<Actor>, SelectHitLocation: ucpp.Ref<Vector>, SelectHitNormal: ucpp.Ref<Vector>, Hit: ucpp.Ref<HitResult>): Void;
+	public function ReceiveOnActivate(OriginalPC: ucpp.Ptr<PlayerController>): Void;
+	public function GetSelectedActor(): ucpp.Ptr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSelectedActor)
@@ -54,32 +54,32 @@ abstract ConstDebugCameraController(DebugCameraController) from DebugCameraContr
 	public inline extern function get_bIsBufferVisualizationInputSetup(): Bool return this.bIsBufferVisualizationInputSetup;
 	public extern var bLastDisplayEnabled(get, never): Bool;
 	public inline extern function get_bLastDisplayEnabled(): Bool return this.bLastDisplayEnabled;
-	public extern var DrawFrustum(get, never): cpp.Star<DrawFrustumComp.ConstDrawFrustumComp>;
-	public inline extern function get_DrawFrustum(): cpp.Star<DrawFrustumComp.ConstDrawFrustumComp> return this.DrawFrustum;
-	public extern var SelectedActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_SelectedActor(): cpp.Star<Actor.ConstActor> return this.SelectedActor;
-	public extern var SelectedComponent(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
-	public inline extern function get_SelectedComponent(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.SelectedComponent;
+	public extern var DrawFrustum(get, never): ucpp.Ptr<DrawFrustumComp.ConstDrawFrustumComp>;
+	public inline extern function get_DrawFrustum(): ucpp.Ptr<DrawFrustumComp.ConstDrawFrustumComp> return this.DrawFrustum;
+	public extern var SelectedActor(get, never): TWeakObjectPtr<Actor.ConstActor>;
+	public inline extern function get_SelectedActor(): TWeakObjectPtr<Actor.ConstActor> return this.SelectedActor;
+	public extern var SelectedComponent(get, never): TWeakObjectPtr<PrimitiveComp.ConstPrimitiveComp>;
+	public inline extern function get_SelectedComponent(): TWeakObjectPtr<PrimitiveComp.ConstPrimitiveComp> return this.SelectedComponent;
 	public extern var SelectedHitPoint(get, never): HitResult;
 	public inline extern function get_SelectedHitPoint(): HitResult return this.SelectedHitPoint;
-	public extern var OriginalControllerRef(get, never): cpp.Star<PlayerController.ConstPlayerController>;
-	public inline extern function get_OriginalControllerRef(): cpp.Star<PlayerController.ConstPlayerController> return this.OriginalControllerRef;
-	public extern var OriginalPlayer(get, never): cpp.Star<Player.ConstPlayer>;
-	public inline extern function get_OriginalPlayer(): cpp.Star<Player.ConstPlayer> return this.OriginalPlayer;
-	public extern var SpeedScale(get, never): cpp.Float32;
-	public inline extern function get_SpeedScale(): cpp.Float32 return this.SpeedScale;
-	public extern var InitialMaxSpeed(get, never): cpp.Float32;
-	public inline extern function get_InitialMaxSpeed(): cpp.Float32 return this.InitialMaxSpeed;
-	public extern var InitialAccel(get, never): cpp.Float32;
-	public inline extern function get_InitialAccel(): cpp.Float32 return this.InitialAccel;
-	public extern var InitialDecel(get, never): cpp.Float32;
-	public inline extern function get_InitialDecel(): cpp.Float32 return this.InitialDecel;
+	public extern var OriginalControllerRef(get, never): ucpp.Ptr<PlayerController.ConstPlayerController>;
+	public inline extern function get_OriginalControllerRef(): ucpp.Ptr<PlayerController.ConstPlayerController> return this.OriginalControllerRef;
+	public extern var OriginalPlayer(get, never): ucpp.Ptr<Player.ConstPlayer>;
+	public inline extern function get_OriginalPlayer(): ucpp.Ptr<Player.ConstPlayer> return this.OriginalPlayer;
+	public extern var SpeedScale(get, never): ucpp.num.Float32;
+	public inline extern function get_SpeedScale(): ucpp.num.Float32 return this.SpeedScale;
+	public extern var InitialMaxSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_InitialMaxSpeed(): ucpp.num.Float32 return this.InitialMaxSpeed;
+	public extern var InitialAccel(get, never): ucpp.num.Float32;
+	public inline extern function get_InitialAccel(): ucpp.num.Float32 return this.InitialAccel;
+	public extern var InitialDecel(get, never): ucpp.num.Float32;
+	public inline extern function get_InitialDecel(): ucpp.num.Float32 return this.InitialDecel;
 }
 
 @:forward
 @:nativeGen
 @:native("DebugCameraController*")
-abstract DebugCameraControllerPtr(cpp.Star<DebugCameraController>) from cpp.Star<DebugCameraController> to cpp.Star<DebugCameraController>{
+abstract DebugCameraControllerPtr(ucpp.Ptr<DebugCameraController>) from ucpp.Ptr<DebugCameraController> to ucpp.Ptr<DebugCameraController>{
 	@:from
 	public static extern inline function fromValue(v: DebugCameraController): DebugCameraControllerPtr {
 		return untyped __cpp__("&({0})", v);

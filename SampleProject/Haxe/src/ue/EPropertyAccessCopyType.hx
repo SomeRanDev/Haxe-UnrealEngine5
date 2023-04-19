@@ -28,5 +28,7 @@ extern class EPropertyAccessCopyType {
 	static var DemoteDoubleToFloat: EPropertyAccessCopyType;
 	static var PromoteArrayFloatToDouble: EPropertyAccessCopyType;
 	static var DemoteArrayDoubleToFloat: EPropertyAccessCopyType;
+	static var PromoteMapValueFloatToDouble: EPropertyAccessCopyType;
+	static var DemoteMapValueDoubleToFloat: EPropertyAccessCopyType;
 	static var EPropertyAccessCopyType_MAX: EPropertyAccessCopyType;
 }

@@ -3,52 +3,52 @@ package ue;
 
 @:native("UCameraComponent")
 @:include("Camera/CameraComponent.h")
-@:structAccess
+@:valueType
 extern class CameraComp extends SceneComp {
-	public var FieldOfView: cpp.Float32;
-	public var OrthoWidth: cpp.Float32;
-	public var OrthoNearClipPlane: cpp.Float32;
-	public var OrthoFarClipPlane: cpp.Float32;
-	public var AspectRatio: cpp.Float32;
+	public var FieldOfView: ucpp.num.Float32;
+	public var OrthoWidth: ucpp.num.Float32;
+	public var OrthoNearClipPlane: ucpp.num.Float32;
+	public var OrthoFarClipPlane: ucpp.num.Float32;
+	public var AspectRatio: ucpp.num.Float32;
 	public var bConstrainAspectRatio: Bool;
 	public var bUseFieldOfViewForLOD: Bool;
 	public var bLockToHmd: Bool;
 	public var bUsePawnControlRotation: Bool;
 	public var ProjectionMode: TEnumAsByte<ECameraProjectionMode>;
-	public var PostProcessBlendWeight: cpp.Float32;
+	public var PostProcessBlendWeight: ucpp.num.Float32;
 	public var PostProcessSettings: PostProcessSettings;
 
 	public function SetUseFieldOfViewForLOD(bInUseFieldOfViewForLOD: Bool): Void;
 	public function SetProjectionMode(InProjectionMode: TEnumAsByte<ECameraProjectionMode>): Void;
-	public function SetPostProcessBlendWeight(InPostProcessBlendWeight: cpp.Float32): Void;
-	public function SetOrthoWidth(InOrthoWidth: cpp.Float32): Void;
-	public function SetOrthoNearClipPlane(InOrthoNearClipPlane: cpp.Float32): Void;
-	public function SetOrthoFarClipPlane(InOrthoFarClipPlane: cpp.Float32): Void;
-	public function SetFieldOfView(InFieldOfView: cpp.Float32): Void;
+	public function SetPostProcessBlendWeight(InPostProcessBlendWeight: ucpp.num.Float32): Void;
+	public function SetOrthoWidth(InOrthoWidth: ucpp.num.Float32): Void;
+	public function SetOrthoNearClipPlane(InOrthoNearClipPlane: ucpp.num.Float32): Void;
+	public function SetOrthoFarClipPlane(InOrthoFarClipPlane: ucpp.num.Float32): Void;
+	public function SetFieldOfView(InFieldOfView: ucpp.num.Float32): Void;
 	public function SetConstraintAspectRatio(bInConstrainAspectRatio: Bool): Void;
-	public function SetAspectRatio(InAspectRatio: cpp.Float32): Void;
+	public function SetAspectRatio(InAspectRatio: ucpp.num.Float32): Void;
 	public function RemoveBlendable(InBlendableObject: BlendableInterface): Void;
 	@:protected public function OnCameraMeshHiddenChanged(): Void;
 	public function GetFilmbackText(): FText;
-	public function GetCameraView(DeltaTime: cpp.Float32, DesiredView: cpp.Reference<MinimalViewInfo>): Void;
-	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: cpp.Float32): Void;
+	public function GetCameraView(DeltaTime: ucpp.num.Float32, DesiredView: ucpp.Ref<MinimalViewInfo>): Void;
+	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFilmbackText)
 @:nativeGen
 abstract ConstCameraComp(CameraComp) from CameraComp {
-	public extern var FieldOfView(get, never): cpp.Float32;
-	public inline extern function get_FieldOfView(): cpp.Float32 return this.FieldOfView;
-	public extern var OrthoWidth(get, never): cpp.Float32;
-	public inline extern function get_OrthoWidth(): cpp.Float32 return this.OrthoWidth;
-	public extern var OrthoNearClipPlane(get, never): cpp.Float32;
-	public inline extern function get_OrthoNearClipPlane(): cpp.Float32 return this.OrthoNearClipPlane;
-	public extern var OrthoFarClipPlane(get, never): cpp.Float32;
-	public inline extern function get_OrthoFarClipPlane(): cpp.Float32 return this.OrthoFarClipPlane;
-	public extern var AspectRatio(get, never): cpp.Float32;
-	public inline extern function get_AspectRatio(): cpp.Float32 return this.AspectRatio;
+	public extern var FieldOfView(get, never): ucpp.num.Float32;
+	public inline extern function get_FieldOfView(): ucpp.num.Float32 return this.FieldOfView;
+	public extern var OrthoWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_OrthoWidth(): ucpp.num.Float32 return this.OrthoWidth;
+	public extern var OrthoNearClipPlane(get, never): ucpp.num.Float32;
+	public inline extern function get_OrthoNearClipPlane(): ucpp.num.Float32 return this.OrthoNearClipPlane;
+	public extern var OrthoFarClipPlane(get, never): ucpp.num.Float32;
+	public inline extern function get_OrthoFarClipPlane(): ucpp.num.Float32 return this.OrthoFarClipPlane;
+	public extern var AspectRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_AspectRatio(): ucpp.num.Float32 return this.AspectRatio;
 	public extern var bConstrainAspectRatio(get, never): Bool;
 	public inline extern function get_bConstrainAspectRatio(): Bool return this.bConstrainAspectRatio;
 	public extern var bUseFieldOfViewForLOD(get, never): Bool;
@@ -59,8 +59,8 @@ abstract ConstCameraComp(CameraComp) from CameraComp {
 	public inline extern function get_bUsePawnControlRotation(): Bool return this.bUsePawnControlRotation;
 	public extern var ProjectionMode(get, never): TEnumAsByte<ECameraProjectionMode>;
 	public inline extern function get_ProjectionMode(): TEnumAsByte<ECameraProjectionMode> return this.ProjectionMode;
-	public extern var PostProcessBlendWeight(get, never): cpp.Float32;
-	public inline extern function get_PostProcessBlendWeight(): cpp.Float32 return this.PostProcessBlendWeight;
+	public extern var PostProcessBlendWeight(get, never): ucpp.num.Float32;
+	public inline extern function get_PostProcessBlendWeight(): ucpp.num.Float32 return this.PostProcessBlendWeight;
 	public extern var PostProcessSettings(get, never): PostProcessSettings;
 	public inline extern function get_PostProcessSettings(): PostProcessSettings return this.PostProcessSettings;
 }
@@ -68,7 +68,7 @@ abstract ConstCameraComp(CameraComp) from CameraComp {
 @:forward
 @:nativeGen
 @:native("CameraComp*")
-abstract CameraCompPtr(cpp.Star<CameraComp>) from cpp.Star<CameraComp> to cpp.Star<CameraComp>{
+abstract CameraCompPtr(ucpp.Ptr<CameraComp>) from ucpp.Ptr<CameraComp> to ucpp.Ptr<CameraComp>{
 	@:from
 	public static extern inline function fromValue(v: CameraComp): CameraCompPtr {
 		return untyped __cpp__("&({0})", v);

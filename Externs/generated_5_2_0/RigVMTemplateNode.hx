@@ -3,7 +3,7 @@ package ue;
 
 @:native("URigVMTemplateNode")
 @:include("RigVMModel/Nodes/RigVMTemplateNode.h")
-@:structAccess
+@:valueType
 extern class RigVMTemplateNode extends RigVMNode {
 	@:protected public var TemplateNotation: FName;
 	@:protected public var ResolvedFunctionName: FString;
@@ -12,10 +12,10 @@ extern class RigVMTemplateNode extends RigVMNode {
 	public function IsSingleton(): Bool;
 	public function IsResolved(): Bool;
 	public function IsFullyUnresolved(): Bool;
-	public function GetScriptStruct(): cpp.Star<ScriptStruct>;
+	public function GetScriptStruct(): ucpp.Ptr<ScriptStruct>;
 	public function GetNotation(): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsSingleton, IsResolved, IsFullyUnresolved, GetScriptStruct, GetNotation)
@@ -26,7 +26,7 @@ abstract ConstRigVMTemplateNode(RigVMTemplateNode) from RigVMTemplateNode {
 @:forward
 @:nativeGen
 @:native("RigVMTemplateNode*")
-abstract RigVMTemplateNodePtr(cpp.Star<RigVMTemplateNode>) from cpp.Star<RigVMTemplateNode> to cpp.Star<RigVMTemplateNode>{
+abstract RigVMTemplateNodePtr(ucpp.Ptr<RigVMTemplateNode>) from ucpp.Ptr<RigVMTemplateNode> to ucpp.Ptr<RigVMTemplateNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMTemplateNode): RigVMTemplateNodePtr {
 		return untyped __cpp__("&({0})", v);

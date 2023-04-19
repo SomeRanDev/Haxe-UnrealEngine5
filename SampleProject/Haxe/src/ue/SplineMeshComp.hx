@@ -3,52 +3,53 @@ package ue;
 
 @:native("USplineMeshComponent")
 @:include("Components/SplineMeshComponent.h")
-@:structAccess
+@:valueType
 extern class SplineMeshComp extends StaticMeshComp {
 	public var SplineParams: SplineMeshParams;
 	public var SplineUpDir: Vector;
-	public var SplineBoundaryMin: cpp.Float32;
+	public var SplineBoundaryMin: ucpp.num.Float32;
 	public var CachedMeshBodySetupGuid: Guid;
-	public var BodySetup: cpp.Star<BodySetup>;
-	public var SplineBoundaryMax: cpp.Float32;
+	public var BodySetup: ucpp.Ptr<BodySetup>;
+	public var SplineBoundaryMax: ucpp.num.Float32;
 	public var bAllowSplineEditingPerInstance: Bool;
 	public var bSmoothInterpRollScale: Bool;
 	public var bMeshDirty: Bool;
 	public var ForwardAxis: TEnumAsByte<ESplineMeshAxis>;
-	public var VirtualTextureMainPassMaxDrawDistance: cpp.Float32;
+	public var VirtualTextureMainPassMaxDrawDistance: ucpp.num.Float32;
+	private var bNeverNeedsCookedCollisionData: Bool;
 
 	public function UpdateMesh(): Void;
 	public function SetStartTangent(StartTangent: Vector, bUpdateMesh: Bool): Void;
 	public function SetStartScale(StartScale: Vector2D, bUpdateMesh: Bool): Void;
-	public function SetStartRoll(StartRoll: cpp.Float32, bUpdateMesh: Bool): Void;
+	public function SetStartRoll(StartRoll: ucpp.num.Float32, bUpdateMesh: Bool): Void;
 	public function SetStartPosition(StartPos: Vector, bUpdateMesh: Bool): Void;
 	public function SetStartOffset(StartOffset: Vector2D, bUpdateMesh: Bool): Void;
 	public function SetStartAndEnd(StartPos: Vector, StartTangent: Vector, EndPos: Vector, EndTangent: Vector, bUpdateMesh: Bool): Void;
-	public function SetSplineUpDir(InSplineUpDir: cpp.Reference<Vector>, bUpdateMesh: Bool): Void;
+	public function SetSplineUpDir(InSplineUpDir: ucpp.Ref<Vector>, bUpdateMesh: Bool): Void;
 	public function SetForwardAxis(InForwardAxis: TEnumAsByte<ESplineMeshAxis>, bUpdateMesh: Bool): Void;
 	public function SetEndTangent(EndTangent: Vector, bUpdateMesh: Bool): Void;
 	public function SetEndScale(EndScale: Vector2D, bUpdateMesh: Bool): Void;
-	public function SetEndRoll(EndRoll: cpp.Float32, bUpdateMesh: Bool): Void;
+	public function SetEndRoll(EndRoll: ucpp.num.Float32, bUpdateMesh: Bool): Void;
 	public function SetEndPosition(EndPos: Vector, bUpdateMesh: Bool): Void;
 	public function SetEndOffset(EndOffset: Vector2D, bUpdateMesh: Bool): Void;
-	public function SetBoundaryMin(InBoundaryMin: cpp.Float32, bUpdateMesh: Bool): Void;
-	public function SetBoundaryMax(InBoundaryMax: cpp.Float32, bUpdateMesh: Bool): Void;
+	public function SetBoundaryMin(InBoundaryMin: ucpp.num.Float32, bUpdateMesh: Bool): Void;
+	public function SetBoundaryMax(InBoundaryMax: ucpp.num.Float32, bUpdateMesh: Bool): Void;
 	public function GetStartTangent(): Vector;
 	public function GetStartScale(): Vector2D;
-	public function GetStartRoll(): cpp.Float32;
+	public function GetStartRoll(): ucpp.num.Float32;
 	public function GetStartPosition(): Vector;
 	public function GetStartOffset(): Vector2D;
 	public function GetSplineUpDir(): Vector;
 	public function GetForwardAxis(): TEnumAsByte<ESplineMeshAxis>;
 	public function GetEndTangent(): Vector;
 	public function GetEndScale(): Vector2D;
-	public function GetEndRoll(): cpp.Float32;
+	public function GetEndRoll(): ucpp.num.Float32;
 	public function GetEndPosition(): Vector;
 	public function GetEndOffset(): Vector2D;
-	public function GetBoundaryMin(): cpp.Float32;
-	public function GetBoundaryMax(): cpp.Float32;
+	public function GetBoundaryMin(): ucpp.num.Float32;
+	public function GetBoundaryMax(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -62,14 +63,14 @@ abstract ConstSplineMeshComp(SplineMeshComp) from SplineMeshComp {
 	public inline extern function get_SplineParams(): SplineMeshParams return this.SplineParams;
 	public extern var SplineUpDir(get, never): Vector;
 	public inline extern function get_SplineUpDir(): Vector return this.SplineUpDir;
-	public extern var SplineBoundaryMin(get, never): cpp.Float32;
-	public inline extern function get_SplineBoundaryMin(): cpp.Float32 return this.SplineBoundaryMin;
+	public extern var SplineBoundaryMin(get, never): ucpp.num.Float32;
+	public inline extern function get_SplineBoundaryMin(): ucpp.num.Float32 return this.SplineBoundaryMin;
 	public extern var CachedMeshBodySetupGuid(get, never): Guid;
 	public inline extern function get_CachedMeshBodySetupGuid(): Guid return this.CachedMeshBodySetupGuid;
-	public extern var BodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_BodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.BodySetup;
-	public extern var SplineBoundaryMax(get, never): cpp.Float32;
-	public inline extern function get_SplineBoundaryMax(): cpp.Float32 return this.SplineBoundaryMax;
+	public extern var BodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_BodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.BodySetup;
+	public extern var SplineBoundaryMax(get, never): ucpp.num.Float32;
+	public inline extern function get_SplineBoundaryMax(): ucpp.num.Float32 return this.SplineBoundaryMax;
 	public extern var bAllowSplineEditingPerInstance(get, never): Bool;
 	public inline extern function get_bAllowSplineEditingPerInstance(): Bool return this.bAllowSplineEditingPerInstance;
 	public extern var bSmoothInterpRollScale(get, never): Bool;
@@ -78,14 +79,14 @@ abstract ConstSplineMeshComp(SplineMeshComp) from SplineMeshComp {
 	public inline extern function get_bMeshDirty(): Bool return this.bMeshDirty;
 	public extern var ForwardAxis(get, never): TEnumAsByte<ESplineMeshAxis>;
 	public inline extern function get_ForwardAxis(): TEnumAsByte<ESplineMeshAxis> return this.ForwardAxis;
-	public extern var VirtualTextureMainPassMaxDrawDistance(get, never): cpp.Float32;
-	public inline extern function get_VirtualTextureMainPassMaxDrawDistance(): cpp.Float32 return this.VirtualTextureMainPassMaxDrawDistance;
+	public extern var VirtualTextureMainPassMaxDrawDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_VirtualTextureMainPassMaxDrawDistance(): ucpp.num.Float32 return this.VirtualTextureMainPassMaxDrawDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("SplineMeshComp*")
-abstract SplineMeshCompPtr(cpp.Star<SplineMeshComp>) from cpp.Star<SplineMeshComp> to cpp.Star<SplineMeshComp>{
+abstract SplineMeshCompPtr(ucpp.Ptr<SplineMeshComp>) from ucpp.Ptr<SplineMeshComp> to ucpp.Ptr<SplineMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: SplineMeshComp): SplineMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

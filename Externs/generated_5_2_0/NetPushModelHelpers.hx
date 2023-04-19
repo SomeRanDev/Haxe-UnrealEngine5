@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNetPushModelHelpers")
 @:include("Net/NetPushModelHelpers.h")
-@:structAccess
+@:valueType
 extern class NetPushModelHelpers extends BlueprintFunctionLibrary {
-	public function MarkPropertyDirtyFromRepIndex(Object: cpp.Star<Object>, RepIndex: cpp.Int32, PropertyName: FName): Void;
-	public function MarkPropertyDirty(Object: cpp.Star<Object>, PropertyName: FName): Void;
+	public function MarkPropertyDirtyFromRepIndex(Object: ucpp.Ptr<Object>, RepIndex: ucpp.num.Int32, PropertyName: FName): Void;
+	public function MarkPropertyDirty(Object: ucpp.Ptr<Object>, PropertyName: FName): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNetPushModelHelpers(NetPushModelHelpers) from NetPushModelHelpers 
 @:forward
 @:nativeGen
 @:native("NetPushModelHelpers*")
-abstract NetPushModelHelpersPtr(cpp.Star<NetPushModelHelpers>) from cpp.Star<NetPushModelHelpers> to cpp.Star<NetPushModelHelpers>{
+abstract NetPushModelHelpersPtr(ucpp.Ptr<NetPushModelHelpers>) from ucpp.Ptr<NetPushModelHelpers> to ucpp.Ptr<NetPushModelHelpers>{
 	@:from
 	public static extern inline function fromValue(v: NetPushModelHelpers): NetPushModelHelpersPtr {
 		return untyped __cpp__("&({0})", v);

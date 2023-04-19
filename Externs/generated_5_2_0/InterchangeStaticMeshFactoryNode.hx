@@ -3,41 +3,41 @@ package ue;
 
 @:native("UInterchangeStaticMeshFactoryNode")
 @:include("InterchangeStaticMeshFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeStaticMeshFactoryNode extends InterchangeMeshFactoryNode {
-	public function SetCustomSupportFaceRemap(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomSrcLightmapIndex(AttributeValue: cpp.Reference<cpp.Int32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomMinLightmapResolution(AttributeValue: cpp.Reference<cpp.Int32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomMaxLumenMeshCards(AttributeValue: cpp.Reference<cpp.Int32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomGenerateLightmapUVs(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomGenerateDistanceFieldAsIfTwoSided(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomDstLightmapIndex(AttributeValue: cpp.Reference<cpp.Int32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomDistanceFieldResolutionScale(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomDistanceFieldReplacementMesh(AttributeValue: cpp.Reference<SoftObjectPath>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomBuildScale3D(AttributeValue: cpp.Reference<Vector>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomBuildReversedIndexBuffer(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomBuildNanite(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomSupportFaceRemap(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomSrcLightmapIndex(AttributeValue: ucpp.Ref<ucpp.num.Int32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomMinLightmapResolution(AttributeValue: ucpp.Ref<ucpp.num.Int32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomMaxLumenMeshCards(AttributeValue: ucpp.Ref<ucpp.num.Int32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomGenerateLightmapUVs(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomGenerateDistanceFieldAsIfTwoSided(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomDstLightmapIndex(AttributeValue: ucpp.Ref<ucpp.num.Int32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomDistanceFieldResolutionScale(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomDistanceFieldReplacementMesh(AttributeValue: ucpp.Ref<SoftObjectPath>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomBuildScale3D(AttributeValue: ucpp.Ref<Vector>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomBuildReversedIndexBuffer(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomBuildNanite(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
 	public function RemoveSocketUd(SocketUid: FString): Bool;
 	public function InitializeStaticMeshNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetSocketUids(OutSocketUids: cpp.Reference<TArray<FString>>): Void;
-	public function GetSocketUidCount(): cpp.Int32;
-	public function GetObjectClass(): cpp.Star<Class>;
-	public function GetCustomSupportFaceRemap(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomSrcLightmapIndex(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomMinLightmapResolution(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomMaxLumenMeshCards(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomGenerateLightmapUVs(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomGenerateDistanceFieldAsIfTwoSided(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomDstLightmapIndex(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomDistanceFieldResolutionScale(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomDistanceFieldReplacementMesh(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetCustomBuildScale3D(AttributeValue: cpp.Reference<Vector>): Bool;
-	public function GetCustomBuildReversedIndexBuffer(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomBuildNanite(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function AddSocketUids(InSocketUids: cpp.Reference<TArray<FString>>): Bool;
+	public function GetSocketUids(OutSocketUids: ucpp.Ref<TArray<FString>>): Void;
+	public function GetSocketUidCount(): ucpp.num.Int32;
+	public function GetObjectClass(): ucpp.Ptr<Class>;
+	public function GetCustomSupportFaceRemap(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomSrcLightmapIndex(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomMinLightmapResolution(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomMaxLumenMeshCards(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomGenerateLightmapUVs(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomGenerateDistanceFieldAsIfTwoSided(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomDstLightmapIndex(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomDistanceFieldResolutionScale(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomDistanceFieldReplacementMesh(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetCustomBuildScale3D(AttributeValue: ucpp.Ref<Vector>): Bool;
+	public function GetCustomBuildReversedIndexBuffer(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomBuildNanite(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function AddSocketUids(InSocketUids: ucpp.Ref<TArray<FString>>): Bool;
 	public function AddSocketUid(SocketUid: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -52,7 +52,7 @@ abstract ConstInterchangeStaticMeshFactoryNode(InterchangeStaticMeshFactoryNode)
 @:forward
 @:nativeGen
 @:native("InterchangeStaticMeshFactoryNode*")
-abstract InterchangeStaticMeshFactoryNodePtr(cpp.Star<InterchangeStaticMeshFactoryNode>) from cpp.Star<InterchangeStaticMeshFactoryNode> to cpp.Star<InterchangeStaticMeshFactoryNode>{
+abstract InterchangeStaticMeshFactoryNodePtr(ucpp.Ptr<InterchangeStaticMeshFactoryNode>) from ucpp.Ptr<InterchangeStaticMeshFactoryNode> to ucpp.Ptr<InterchangeStaticMeshFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeStaticMeshFactoryNode): InterchangeStaticMeshFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

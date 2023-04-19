@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPreviewCollectionInterface")
-@:structAccess
+@:valueType
 extern class PreviewCollectionInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPreviewCollectionInterface(PreviewCollectionInterface) from Previe
 @:forward
 @:nativeGen
 @:native("PreviewCollectionInterface*")
-abstract PreviewCollectionInterfacePtr(cpp.Star<PreviewCollectionInterface>) from cpp.Star<PreviewCollectionInterface> to cpp.Star<PreviewCollectionInterface>{
+abstract PreviewCollectionInterfacePtr(ucpp.Ptr<PreviewCollectionInterface>) from ucpp.Ptr<PreviewCollectionInterface> to ucpp.Ptr<PreviewCollectionInterface>{
 	@:from
 	public static extern inline function fromValue(v: PreviewCollectionInterface): PreviewCollectionInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataAsset")
 @:include("Engine/DataAsset.h")
-@:structAccess
+@:valueType
 extern class DataAsset extends Object {
 	private var NativeClass: TSubclassOf<DataAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstDataAsset(DataAsset) from DataAsset {
 @:forward
 @:nativeGen
 @:native("DataAsset*")
-abstract DataAssetPtr(cpp.Star<DataAsset>) from cpp.Star<DataAsset> to cpp.Star<DataAsset>{
+abstract DataAssetPtr(ucpp.Ptr<DataAsset>) from ucpp.Ptr<DataAsset> to ucpp.Ptr<DataAsset>{
 	@:from
 	public static extern inline function fromValue(v: DataAsset): DataAssetPtr {
 		return untyped __cpp__("&({0})", v);

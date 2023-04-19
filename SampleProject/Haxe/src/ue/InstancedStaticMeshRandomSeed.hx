@@ -3,11 +3,11 @@ package ue;
 
 @:native("FInstancedStaticMeshRandomSeed")
 @:include("Components/InstancedStaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class InstancedStaticMeshRandomSeed {
-	public var StartInstanceIndex: cpp.Int32;
-	public var RandomSeed: cpp.Int32;
+	public var StartInstanceIndex: ucpp.num.Int32;
+	public var RandomSeed: ucpp.num.Int32;
 
 	@:native("FInstancedStaticMeshRandomSeed") public function new();
-	@:native("FInstancedStaticMeshRandomSeed") public static function make(StartInstanceIndex: cpp.Int32, RandomSeed: cpp.Int32): InstancedStaticMeshRandomSeed ;
+	@:native("FInstancedStaticMeshRandomSeed") public static function make(StartInstanceIndex: ucpp.num.Int32, RandomSeed: ucpp.num.Int32): InstancedStaticMeshRandomSeed ;
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimationRecordingSettings")
 @:include("Animation/AnimationRecordingSettings.h")
-@:structAccess
+@:valueType
 extern class AnimationRecordingSettings {
 	public var bRecordInWorldSpace: Bool;
 	public var bRemoveRootAnimation: Bool;
 	public var bAutoSaveAsset: Bool;
 	public var SampleFrameRate: FrameRate;
-	public var Length: cpp.Float32;
+	public var Length: ucpp.num.Float32;
 	public var Interpolation: EAnimInterpolationType;
 	public var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
 	public var TangentMode: TEnumAsByte<ERichCurveTangentMode>;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UButtonSlot")
 @:include("Components/ButtonSlot.h")
-@:structAccess
+@:valueType
 extern class ButtonSlot extends PanelSlot {
 	public var Padding: Margin;
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
@@ -13,7 +13,7 @@ extern class ButtonSlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstButtonSlot(ButtonSlot) from ButtonSlot {
 @:forward
 @:nativeGen
 @:native("ButtonSlot*")
-abstract ButtonSlotPtr(cpp.Star<ButtonSlot>) from cpp.Star<ButtonSlot> to cpp.Star<ButtonSlot>{
+abstract ButtonSlotPtr(ucpp.Ptr<ButtonSlot>) from ucpp.Ptr<ButtonSlot> to ucpp.Ptr<ButtonSlot>{
 	@:from
 	public static extern inline function fromValue(v: ButtonSlot): ButtonSlotPtr {
 		return untyped __cpp__("&({0})", v);

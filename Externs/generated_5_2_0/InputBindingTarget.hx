@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputBindingTarget")
 @:include("Tests/InputTestFramework.h")
-@:structAccess
+@:valueType
 extern class InputBindingTarget extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputBindingTarget(InputBindingTarget) from InputBindingTarget {
 @:forward
 @:nativeGen
 @:native("InputBindingTarget*")
-abstract InputBindingTargetPtr(cpp.Star<InputBindingTarget>) from cpp.Star<InputBindingTarget> to cpp.Star<InputBindingTarget>{
+abstract InputBindingTargetPtr(ucpp.Ptr<InputBindingTarget>) from ucpp.Ptr<InputBindingTarget> to ucpp.Ptr<InputBindingTarget>{
 	@:from
 	public static extern inline function fromValue(v: InputBindingTarget): InputBindingTargetPtr {
 		return untyped __cpp__("&({0})", v);

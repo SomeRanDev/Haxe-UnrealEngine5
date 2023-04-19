@@ -3,20 +3,20 @@ package ue;
 
 @:native("UPatternTool_GridSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternTool_GridSettings extends InteractiveToolPropertySet {
 	public var SpacingX: EPatternToolAxisSpacingMode;
-	public var CountX: cpp.Int32;
-	public var StepSizeX: cpp.Float64;
-	public var ExtentX: cpp.Float64;
+	public var CountX: ucpp.num.Int32;
+	public var StepSizeX: ucpp.num.Float64;
+	public var ExtentX: ucpp.num.Float64;
 	public var bCenteredX: Bool;
 	public var SpacingY: EPatternToolAxisSpacingMode;
-	public var CountY: cpp.Int32;
-	public var StepSizeY: cpp.Float64;
-	public var ExtentY: cpp.Float64;
+	public var CountY: ucpp.num.Int32;
+	public var StepSizeY: ucpp.num.Float64;
+	public var ExtentY: ucpp.num.Float64;
 	public var bCenteredY: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,22 +24,22 @@ extern class PatternTool_GridSettings extends InteractiveToolPropertySet {
 abstract ConstPatternTool_GridSettings(PatternTool_GridSettings) from PatternTool_GridSettings {
 	public extern var SpacingX(get, never): EPatternToolAxisSpacingMode;
 	public inline extern function get_SpacingX(): EPatternToolAxisSpacingMode return this.SpacingX;
-	public extern var CountX(get, never): cpp.Int32;
-	public inline extern function get_CountX(): cpp.Int32 return this.CountX;
-	public extern var StepSizeX(get, never): cpp.Float64;
-	public inline extern function get_StepSizeX(): cpp.Float64 return this.StepSizeX;
-	public extern var ExtentX(get, never): cpp.Float64;
-	public inline extern function get_ExtentX(): cpp.Float64 return this.ExtentX;
+	public extern var CountX(get, never): ucpp.num.Int32;
+	public inline extern function get_CountX(): ucpp.num.Int32 return this.CountX;
+	public extern var StepSizeX(get, never): ucpp.num.Float64;
+	public inline extern function get_StepSizeX(): ucpp.num.Float64 return this.StepSizeX;
+	public extern var ExtentX(get, never): ucpp.num.Float64;
+	public inline extern function get_ExtentX(): ucpp.num.Float64 return this.ExtentX;
 	public extern var bCenteredX(get, never): Bool;
 	public inline extern function get_bCenteredX(): Bool return this.bCenteredX;
 	public extern var SpacingY(get, never): EPatternToolAxisSpacingMode;
 	public inline extern function get_SpacingY(): EPatternToolAxisSpacingMode return this.SpacingY;
-	public extern var CountY(get, never): cpp.Int32;
-	public inline extern function get_CountY(): cpp.Int32 return this.CountY;
-	public extern var StepSizeY(get, never): cpp.Float64;
-	public inline extern function get_StepSizeY(): cpp.Float64 return this.StepSizeY;
-	public extern var ExtentY(get, never): cpp.Float64;
-	public inline extern function get_ExtentY(): cpp.Float64 return this.ExtentY;
+	public extern var CountY(get, never): ucpp.num.Int32;
+	public inline extern function get_CountY(): ucpp.num.Int32 return this.CountY;
+	public extern var StepSizeY(get, never): ucpp.num.Float64;
+	public inline extern function get_StepSizeY(): ucpp.num.Float64 return this.StepSizeY;
+	public extern var ExtentY(get, never): ucpp.num.Float64;
+	public inline extern function get_ExtentY(): ucpp.num.Float64 return this.ExtentY;
 	public extern var bCenteredY(get, never): Bool;
 	public inline extern function get_bCenteredY(): Bool return this.bCenteredY;
 }
@@ -47,7 +47,7 @@ abstract ConstPatternTool_GridSettings(PatternTool_GridSettings) from PatternToo
 @:forward
 @:nativeGen
 @:native("PatternTool_GridSettings*")
-abstract PatternTool_GridSettingsPtr(cpp.Star<PatternTool_GridSettings>) from cpp.Star<PatternTool_GridSettings> to cpp.Star<PatternTool_GridSettings>{
+abstract PatternTool_GridSettingsPtr(ucpp.Ptr<PatternTool_GridSettings>) from ucpp.Ptr<PatternTool_GridSettings> to ucpp.Ptr<PatternTool_GridSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternTool_GridSettings): PatternTool_GridSettingsPtr {
 		return untyped __cpp__("&({0})", v);

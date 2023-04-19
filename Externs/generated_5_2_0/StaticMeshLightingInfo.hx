@@ -3,7 +3,7 @@ package ue;
 
 @:native("UStaticMeshLightingInfo")
 @:include("StaticMeshLightingInfo.h")
-@:structAccess
+@:valueType
 extern class StaticMeshLightingInfo extends Object {
 	public var StaticMeshActor: TWeakObjectPtr<Actor>;
 	public var StaticMesh: TWeakObjectPtr<StaticMesh>;
@@ -11,16 +11,16 @@ extern class StaticMeshLightingInfo extends Object {
 	public var TextureMapping: FString;
 	public var bTextureMapping: Bool;
 	public var bHasLightmapTexCoords: Bool;
-	public var StaticLightingResolution: cpp.Int32;
-	public var TextureLightMapMemoryUsage: cpp.Float32;
-	public var VertexLightMapMemoryUsage: cpp.Float32;
-	public var LightMapLightCount: cpp.Int32;
-	public var TextureShadowMapMemoryUsage: cpp.Float32;
-	public var VertexShadowMapMemoryUsage: cpp.Float32;
-	public var ShadowMapLightCount: cpp.Int32;
+	public var StaticLightingResolution: ucpp.num.Int32;
+	public var TextureLightMapMemoryUsage: ucpp.num.Float32;
+	public var VertexLightMapMemoryUsage: ucpp.num.Float32;
+	public var LightMapLightCount: ucpp.num.Int32;
+	public var TextureShadowMapMemoryUsage: ucpp.num.Float32;
+	public var VertexShadowMapMemoryUsage: ucpp.num.Float32;
+	public var ShadowMapLightCount: ucpp.num.Int32;
 	public var LightmapTextureNames: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,20 +38,20 @@ abstract ConstStaticMeshLightingInfo(StaticMeshLightingInfo) from StaticMeshLigh
 	public inline extern function get_bTextureMapping(): Bool return this.bTextureMapping;
 	public extern var bHasLightmapTexCoords(get, never): Bool;
 	public inline extern function get_bHasLightmapTexCoords(): Bool return this.bHasLightmapTexCoords;
-	public extern var StaticLightingResolution(get, never): cpp.Int32;
-	public inline extern function get_StaticLightingResolution(): cpp.Int32 return this.StaticLightingResolution;
-	public extern var TextureLightMapMemoryUsage(get, never): cpp.Float32;
-	public inline extern function get_TextureLightMapMemoryUsage(): cpp.Float32 return this.TextureLightMapMemoryUsage;
-	public extern var VertexLightMapMemoryUsage(get, never): cpp.Float32;
-	public inline extern function get_VertexLightMapMemoryUsage(): cpp.Float32 return this.VertexLightMapMemoryUsage;
-	public extern var LightMapLightCount(get, never): cpp.Int32;
-	public inline extern function get_LightMapLightCount(): cpp.Int32 return this.LightMapLightCount;
-	public extern var TextureShadowMapMemoryUsage(get, never): cpp.Float32;
-	public inline extern function get_TextureShadowMapMemoryUsage(): cpp.Float32 return this.TextureShadowMapMemoryUsage;
-	public extern var VertexShadowMapMemoryUsage(get, never): cpp.Float32;
-	public inline extern function get_VertexShadowMapMemoryUsage(): cpp.Float32 return this.VertexShadowMapMemoryUsage;
-	public extern var ShadowMapLightCount(get, never): cpp.Int32;
-	public inline extern function get_ShadowMapLightCount(): cpp.Int32 return this.ShadowMapLightCount;
+	public extern var StaticLightingResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_StaticLightingResolution(): ucpp.num.Int32 return this.StaticLightingResolution;
+	public extern var TextureLightMapMemoryUsage(get, never): ucpp.num.Float32;
+	public inline extern function get_TextureLightMapMemoryUsage(): ucpp.num.Float32 return this.TextureLightMapMemoryUsage;
+	public extern var VertexLightMapMemoryUsage(get, never): ucpp.num.Float32;
+	public inline extern function get_VertexLightMapMemoryUsage(): ucpp.num.Float32 return this.VertexLightMapMemoryUsage;
+	public extern var LightMapLightCount(get, never): ucpp.num.Int32;
+	public inline extern function get_LightMapLightCount(): ucpp.num.Int32 return this.LightMapLightCount;
+	public extern var TextureShadowMapMemoryUsage(get, never): ucpp.num.Float32;
+	public inline extern function get_TextureShadowMapMemoryUsage(): ucpp.num.Float32 return this.TextureShadowMapMemoryUsage;
+	public extern var VertexShadowMapMemoryUsage(get, never): ucpp.num.Float32;
+	public inline extern function get_VertexShadowMapMemoryUsage(): ucpp.num.Float32 return this.VertexShadowMapMemoryUsage;
+	public extern var ShadowMapLightCount(get, never): ucpp.num.Int32;
+	public inline extern function get_ShadowMapLightCount(): ucpp.num.Int32 return this.ShadowMapLightCount;
 	public extern var LightmapTextureNames(get, never): TArray<FString>;
 	public inline extern function get_LightmapTextureNames(): TArray<FString> return this.LightmapTextureNames;
 }
@@ -59,7 +59,7 @@ abstract ConstStaticMeshLightingInfo(StaticMeshLightingInfo) from StaticMeshLigh
 @:forward
 @:nativeGen
 @:native("StaticMeshLightingInfo*")
-abstract StaticMeshLightingInfoPtr(cpp.Star<StaticMeshLightingInfo>) from cpp.Star<StaticMeshLightingInfo> to cpp.Star<StaticMeshLightingInfo>{
+abstract StaticMeshLightingInfoPtr(ucpp.Ptr<StaticMeshLightingInfo>) from ucpp.Ptr<StaticMeshLightingInfo> to ucpp.Ptr<StaticMeshLightingInfo>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshLightingInfo): StaticMeshLightingInfoPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshSurfacePointMeshEditingToolBuilder")
 @:include("BaseTools/MeshSurfacePointMeshEditingTool.h")
-@:structAccess
+@:valueType
 extern class MeshSurfacePointMeshEditingToolBuilder extends MeshSurfacePointToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshSurfacePointMeshEditingToolBuilder(MeshSurfacePointMeshEditing
 @:forward
 @:nativeGen
 @:native("MeshSurfacePointMeshEditingToolBuilder*")
-abstract MeshSurfacePointMeshEditingToolBuilderPtr(cpp.Star<MeshSurfacePointMeshEditingToolBuilder>) from cpp.Star<MeshSurfacePointMeshEditingToolBuilder> to cpp.Star<MeshSurfacePointMeshEditingToolBuilder>{
+abstract MeshSurfacePointMeshEditingToolBuilderPtr(ucpp.Ptr<MeshSurfacePointMeshEditingToolBuilder>) from ucpp.Ptr<MeshSurfacePointMeshEditingToolBuilder> to ucpp.Ptr<MeshSurfacePointMeshEditingToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: MeshSurfacePointMeshEditingToolBuilder): MeshSurfacePointMeshEditingToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

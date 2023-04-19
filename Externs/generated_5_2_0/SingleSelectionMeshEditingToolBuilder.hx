@@ -3,10 +3,10 @@ package ue;
 
 @:native("USingleSelectionMeshEditingToolBuilder")
 @:include("BaseTools/SingleSelectionMeshEditingTool.h")
-@:structAccess
+@:valueType
 extern class SingleSelectionMeshEditingToolBuilder extends InteractiveToolWithToolTargetsBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSingleSelectionMeshEditingToolBuilder(SingleSelectionMeshEditingTo
 @:forward
 @:nativeGen
 @:native("SingleSelectionMeshEditingToolBuilder*")
-abstract SingleSelectionMeshEditingToolBuilderPtr(cpp.Star<SingleSelectionMeshEditingToolBuilder>) from cpp.Star<SingleSelectionMeshEditingToolBuilder> to cpp.Star<SingleSelectionMeshEditingToolBuilder>{
+abstract SingleSelectionMeshEditingToolBuilderPtr(ucpp.Ptr<SingleSelectionMeshEditingToolBuilder>) from ucpp.Ptr<SingleSelectionMeshEditingToolBuilder> to ucpp.Ptr<SingleSelectionMeshEditingToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SingleSelectionMeshEditingToolBuilder): SingleSelectionMeshEditingToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

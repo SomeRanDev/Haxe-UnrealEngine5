@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorTransformer")
 @:include("ActorTransformer.h")
-@:structAccess
+@:valueType
 extern class ActorTransformer extends ViewportTransformer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorTransformer(ActorTransformer) from ActorTransformer {
 @:forward
 @:nativeGen
 @:native("ActorTransformer*")
-abstract ActorTransformerPtr(cpp.Star<ActorTransformer>) from cpp.Star<ActorTransformer> to cpp.Star<ActorTransformer>{
+abstract ActorTransformerPtr(ucpp.Ptr<ActorTransformer>) from ucpp.Ptr<ActorTransformer> to ucpp.Ptr<ActorTransformer>{
 	@:from
 	public static extern inline function fromValue(v: ActorTransformer): ActorTransformerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_PreviewRetargetPose")
 @:include("RetargetEditor/IKRetargetAnimInstance.h")
-@:structAccess
+@:valueType
 extern class AnimNode_PreviewRetargetPose extends AnimNode_Base {
 	@:native("FAnimNode_PreviewRetargetPose") public function new();
 }

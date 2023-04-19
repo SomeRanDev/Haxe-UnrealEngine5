@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_PhysicalMaterial")
 @:include("AssetDefinition_PhysicalMaterial.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_PhysicalMaterial extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_PhysicalMaterial(AssetDefinition_PhysicalMaterial)
 @:forward
 @:nativeGen
 @:native("AssetDefinition_PhysicalMaterial*")
-abstract AssetDefinition_PhysicalMaterialPtr(cpp.Star<AssetDefinition_PhysicalMaterial>) from cpp.Star<AssetDefinition_PhysicalMaterial> to cpp.Star<AssetDefinition_PhysicalMaterial>{
+abstract AssetDefinition_PhysicalMaterialPtr(ucpp.Ptr<AssetDefinition_PhysicalMaterial>) from ucpp.Ptr<AssetDefinition_PhysicalMaterial> to ucpp.Ptr<AssetDefinition_PhysicalMaterial>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_PhysicalMaterial): AssetDefinition_PhysicalMaterialPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,18 +3,18 @@ package ue;
 
 @:native("UAIPerceptionSystem")
 @:include("Perception/AIPerceptionSystem.h")
-@:structAccess
+@:valueType
 extern class AIPerceptionSystem extends AISubsystem {
-	@:protected public var Senses: TArray<cpp.Star<AISense>>;
-	@:protected public var PerceptionAgingRate: cpp.Float32;
+	@:protected public var Senses: TArray<ucpp.Ptr<AISense>>;
+	@:protected public var PerceptionAgingRate: ucpp.num.Float32;
 
-	public function ReportPerceptionEvent(WorldContextObject: cpp.Star<Object>, PerceptionEvent: cpp.Star<AISenseEvent>): Void;
-	public function ReportEvent(PerceptionEvent: cpp.Star<AISenseEvent>): Void;
-	public function RegisterPerceptionStimuliSource(WorldContextObject: cpp.Star<Object>, Sense: TSubclassOf<AISense>, Target: cpp.Star<Actor>): Bool;
-	@:protected public function OnPerceptionStimuliSourceEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
-	public function GetSenseClassForStimulus(WorldContextObject: cpp.Star<Object>, Stimulus: cpp.Reference<AIStimulus>): TSubclassOf<AISense>;
+	public function ReportPerceptionEvent(WorldContextObject: ucpp.Ptr<Object>, PerceptionEvent: ucpp.Ptr<AISenseEvent>): Void;
+	public function ReportEvent(PerceptionEvent: ucpp.Ptr<AISenseEvent>): Void;
+	public function RegisterPerceptionStimuliSource(WorldContextObject: ucpp.Ptr<Object>, Sense: TSubclassOf<AISense>, Target: ucpp.Ptr<Actor>): Bool;
+	@:protected public function OnPerceptionStimuliSourceEndPlay(Actor: ucpp.Ptr<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	public function GetSenseClassForStimulus(WorldContextObject: ucpp.Ptr<Object>, Stimulus: ucpp.Ref<AIStimulus>): TSubclassOf<AISense>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstAIPerceptionSystem(AIPerceptionSystem) from AIPerceptionSystem {
 @:forward
 @:nativeGen
 @:native("AIPerceptionSystem*")
-abstract AIPerceptionSystemPtr(cpp.Star<AIPerceptionSystem>) from cpp.Star<AIPerceptionSystem> to cpp.Star<AIPerceptionSystem>{
+abstract AIPerceptionSystemPtr(ucpp.Ptr<AIPerceptionSystem>) from ucpp.Ptr<AIPerceptionSystem> to ucpp.Ptr<AIPerceptionSystem>{
 	@:from
 	public static extern inline function fromValue(v: AIPerceptionSystem): AIPerceptionSystemPtr {
 		return untyped __cpp__("&({0})", v);

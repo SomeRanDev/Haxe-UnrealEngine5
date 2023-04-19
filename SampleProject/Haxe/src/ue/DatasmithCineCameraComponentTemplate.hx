@@ -3,16 +3,16 @@ package ue;
 
 @:native("UDatasmithCineCameraComponentTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithCineCameraComponentTemplate extends DatasmithObjectTemplate {
 	public var FilmbackSettings: DatasmithCameraFilmbackSettingsTemplate;
 	public var LensSettings: DatasmithCameraLensSettingsTemplate;
 	public var FocusSettings: DatasmithCameraFocusSettingsTemplate;
-	public var CurrentFocalLength: cpp.Float32;
-	public var CurrentAperture: cpp.Float32;
+	public var CurrentFocalLength: ucpp.num.Float32;
+	public var CurrentAperture: ucpp.num.Float32;
 	public var PostProcessSettings: DatasmithPostProcessSettingsTemplate;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,10 +24,10 @@ abstract ConstDatasmithCineCameraComponentTemplate(DatasmithCineCameraComponentT
 	public inline extern function get_LensSettings(): DatasmithCameraLensSettingsTemplate return this.LensSettings;
 	public extern var FocusSettings(get, never): DatasmithCameraFocusSettingsTemplate;
 	public inline extern function get_FocusSettings(): DatasmithCameraFocusSettingsTemplate return this.FocusSettings;
-	public extern var CurrentFocalLength(get, never): cpp.Float32;
-	public inline extern function get_CurrentFocalLength(): cpp.Float32 return this.CurrentFocalLength;
-	public extern var CurrentAperture(get, never): cpp.Float32;
-	public inline extern function get_CurrentAperture(): cpp.Float32 return this.CurrentAperture;
+	public extern var CurrentFocalLength(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentFocalLength(): ucpp.num.Float32 return this.CurrentFocalLength;
+	public extern var CurrentAperture(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentAperture(): ucpp.num.Float32 return this.CurrentAperture;
 	public extern var PostProcessSettings(get, never): DatasmithPostProcessSettingsTemplate;
 	public inline extern function get_PostProcessSettings(): DatasmithPostProcessSettingsTemplate return this.PostProcessSettings;
 }
@@ -35,7 +35,7 @@ abstract ConstDatasmithCineCameraComponentTemplate(DatasmithCineCameraComponentT
 @:forward
 @:nativeGen
 @:native("DatasmithCineCameraComponentTemplate*")
-abstract DatasmithCineCameraComponentTemplatePtr(cpp.Star<DatasmithCineCameraComponentTemplate>) from cpp.Star<DatasmithCineCameraComponentTemplate> to cpp.Star<DatasmithCineCameraComponentTemplate>{
+abstract DatasmithCineCameraComponentTemplatePtr(ucpp.Ptr<DatasmithCineCameraComponentTemplate>) from ucpp.Ptr<DatasmithCineCameraComponentTemplate> to ucpp.Ptr<DatasmithCineCameraComponentTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithCineCameraComponentTemplate): DatasmithCineCameraComponentTemplatePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("URigVMLibraryNode")
 @:include("RigVMModel/Nodes/RigVMLibraryNode.h")
-@:structAccess
-extern class RigVMLibraryNode extends RigVMNode {
-	public function GetLibrary(): cpp.Star<RigVMFunctionLibrary>;
-	public function GetContainedGraph(): cpp.Star<RigVMGraph>;
+@:valueType
+extern class RigVMLibraryNode extends RigVMTemplateNode {
+	public function GetLibrary(): ucpp.Ptr<RigVMFunctionLibrary>;
+	public function GetContainedGraph(): ucpp.Ptr<RigVMGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetLibrary, GetContainedGraph)
@@ -19,7 +19,7 @@ abstract ConstRigVMLibraryNode(RigVMLibraryNode) from RigVMLibraryNode {
 @:forward
 @:nativeGen
 @:native("RigVMLibraryNode*")
-abstract RigVMLibraryNodePtr(cpp.Star<RigVMLibraryNode>) from cpp.Star<RigVMLibraryNode> to cpp.Star<RigVMLibraryNode>{
+abstract RigVMLibraryNodePtr(ucpp.Ptr<RigVMLibraryNode>) from ucpp.Ptr<RigVMLibraryNode> to ucpp.Ptr<RigVMLibraryNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMLibraryNode): RigVMLibraryNodePtr {
 		return untyped __cpp__("&({0})", v);

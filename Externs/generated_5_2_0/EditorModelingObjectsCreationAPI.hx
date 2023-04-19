@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorModelingObjectsCreationAPI")
 @:include("EditorModelingObjectsCreationAPI.h")
-@:structAccess
+@:valueType
 extern class EditorModelingObjectsCreationAPI extends ModelingObjectsCreationAPI {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorModelingObjectsCreationAPI(EditorModelingObjectsCreationAPI)
 @:forward
 @:nativeGen
 @:native("EditorModelingObjectsCreationAPI*")
-abstract EditorModelingObjectsCreationAPIPtr(cpp.Star<EditorModelingObjectsCreationAPI>) from cpp.Star<EditorModelingObjectsCreationAPI> to cpp.Star<EditorModelingObjectsCreationAPI>{
+abstract EditorModelingObjectsCreationAPIPtr(ucpp.Ptr<EditorModelingObjectsCreationAPI>) from ucpp.Ptr<EditorModelingObjectsCreationAPI> to ucpp.Ptr<EditorModelingObjectsCreationAPI>{
 	@:from
 	public static extern inline function fromValue(v: EditorModelingObjectsCreationAPI): EditorModelingObjectsCreationAPIPtr {
 		return untyped __cpp__("&({0})", v);

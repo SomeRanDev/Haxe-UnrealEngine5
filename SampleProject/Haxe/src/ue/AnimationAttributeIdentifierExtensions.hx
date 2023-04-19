@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimationAttributeIdentifierExtensions")
 @:include("Animation/AnimData/AttributeIdentifier.h")
-@:structAccess
+@:valueType
 extern class AnimationAttributeIdentifierExtensions extends BlueprintFunctionLibrary {
-	public function IsValid(Identifier: cpp.Reference<AnimationAttributeIdentifier>): Bool;
-	public function CreateAttributeIdentifier(AnimationAsset: cpp.Star<AnimationAsset>, AttributeName: FName, BoneName: FName, AttributeType: cpp.Star<ScriptStruct>, bValidateExistsOnAsset: Bool): AnimationAttributeIdentifier;
+	public function IsValid(Identifier: ucpp.Ref<AnimationAttributeIdentifier>): Bool;
+	public function CreateAttributeIdentifier(AnimationAsset: ucpp.Ptr<AnimationAsset>, AttributeName: FName, BoneName: FName, AttributeType: ucpp.Ptr<ScriptStruct>, bValidateExistsOnAsset: Bool): AnimationAttributeIdentifier;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAnimationAttributeIdentifierExtensions(AnimationAttributeIdentifie
 @:forward
 @:nativeGen
 @:native("AnimationAttributeIdentifierExtensions*")
-abstract AnimationAttributeIdentifierExtensionsPtr(cpp.Star<AnimationAttributeIdentifierExtensions>) from cpp.Star<AnimationAttributeIdentifierExtensions> to cpp.Star<AnimationAttributeIdentifierExtensions>{
+abstract AnimationAttributeIdentifierExtensionsPtr(ucpp.Ptr<AnimationAttributeIdentifierExtensions>) from ucpp.Ptr<AnimationAttributeIdentifierExtensions> to ucpp.Ptr<AnimationAttributeIdentifierExtensions>{
 	@:from
 	public static extern inline function fromValue(v: AnimationAttributeIdentifierExtensions): AnimationAttributeIdentifierExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGenerateTextLocalizationResourceCommandlet")
 @:include("Commandlets/GenerateTextLocalizationResourceCommandlet.h")
-@:structAccess
+@:valueType
 extern class GenerateTextLocalizationResourceCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGenerateTextLocalizationResourceCommandlet(GenerateTextLocalizatio
 @:forward
 @:nativeGen
 @:native("GenerateTextLocalizationResourceCommandlet*")
-abstract GenerateTextLocalizationResourceCommandletPtr(cpp.Star<GenerateTextLocalizationResourceCommandlet>) from cpp.Star<GenerateTextLocalizationResourceCommandlet> to cpp.Star<GenerateTextLocalizationResourceCommandlet>{
+abstract GenerateTextLocalizationResourceCommandletPtr(ucpp.Ptr<GenerateTextLocalizationResourceCommandlet>) from ucpp.Ptr<GenerateTextLocalizationResourceCommandlet> to ucpp.Ptr<GenerateTextLocalizationResourceCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GenerateTextLocalizationResourceCommandlet): GenerateTextLocalizationResourceCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,21 +3,21 @@ package ue;
 
 @:native("UBlueprint")
 @:include("Engine/Blueprint.h")
-@:structAccess
+@:valueType
 extern class Blueprint extends BlueprintCore {
 	public var ParentClass: TSubclassOf<Object>;
 	public var BlueprintType: TEnumAsByte<EBlueprintType>;
 	public var bRecompileOnLoad: Bool;
 	public var bHasBeenRegenerated: Bool;
 	public var bIsRegeneratingOnLoad: Bool;
-	public var BlueprintSystemVersion: cpp.Int32;
-	public var SimpleConstructionScript: cpp.Star<SimpleConstructionScript>;
-	public var ComponentTemplates: TArray<cpp.Star<ActorComp>>;
-	public var Timelines: TArray<cpp.Star<TimelineTemplate>>;
+	public var BlueprintSystemVersion: ucpp.num.Int32;
+	public var SimpleConstructionScript: ucpp.Ptr<SimpleConstructionScript>;
+	public var ComponentTemplates: TArray<ucpp.Ptr<ActorComp>>;
+	public var Timelines: TArray<ucpp.Ptr<TimelineTemplate>>;
 	public var ComponentClassOverrides: TArray<BPComponentClassOverride>;
-	public var InheritableComponentHandler: cpp.Star<InheritableComponentHandler>;
+	public var InheritableComponentHandler: ucpp.Ptr<InheritableComponentHandler>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,24 +33,24 @@ abstract ConstBlueprint(Blueprint) from Blueprint {
 	public inline extern function get_bHasBeenRegenerated(): Bool return this.bHasBeenRegenerated;
 	public extern var bIsRegeneratingOnLoad(get, never): Bool;
 	public inline extern function get_bIsRegeneratingOnLoad(): Bool return this.bIsRegeneratingOnLoad;
-	public extern var BlueprintSystemVersion(get, never): cpp.Int32;
-	public inline extern function get_BlueprintSystemVersion(): cpp.Int32 return this.BlueprintSystemVersion;
-	public extern var SimpleConstructionScript(get, never): cpp.Star<SimpleConstructionScript.ConstSimpleConstructionScript>;
-	public inline extern function get_SimpleConstructionScript(): cpp.Star<SimpleConstructionScript.ConstSimpleConstructionScript> return this.SimpleConstructionScript;
-	public extern var ComponentTemplates(get, never): TArray<cpp.Star<ActorComp.ConstActorComp>>;
-	public inline extern function get_ComponentTemplates(): TArray<cpp.Star<ActorComp.ConstActorComp>> return this.ComponentTemplates;
-	public extern var Timelines(get, never): TArray<cpp.Star<TimelineTemplate.ConstTimelineTemplate>>;
-	public inline extern function get_Timelines(): TArray<cpp.Star<TimelineTemplate.ConstTimelineTemplate>> return this.Timelines;
+	public extern var BlueprintSystemVersion(get, never): ucpp.num.Int32;
+	public inline extern function get_BlueprintSystemVersion(): ucpp.num.Int32 return this.BlueprintSystemVersion;
+	public extern var SimpleConstructionScript(get, never): ucpp.Ptr<SimpleConstructionScript.ConstSimpleConstructionScript>;
+	public inline extern function get_SimpleConstructionScript(): ucpp.Ptr<SimpleConstructionScript.ConstSimpleConstructionScript> return this.SimpleConstructionScript;
+	public extern var ComponentTemplates(get, never): TArray<ucpp.Ptr<ActorComp.ConstActorComp>>;
+	public inline extern function get_ComponentTemplates(): TArray<ucpp.Ptr<ActorComp.ConstActorComp>> return this.ComponentTemplates;
+	public extern var Timelines(get, never): TArray<ucpp.Ptr<TimelineTemplate.ConstTimelineTemplate>>;
+	public inline extern function get_Timelines(): TArray<ucpp.Ptr<TimelineTemplate.ConstTimelineTemplate>> return this.Timelines;
 	public extern var ComponentClassOverrides(get, never): TArray<BPComponentClassOverride>;
 	public inline extern function get_ComponentClassOverrides(): TArray<BPComponentClassOverride> return this.ComponentClassOverrides;
-	public extern var InheritableComponentHandler(get, never): cpp.Star<InheritableComponentHandler.ConstInheritableComponentHandler>;
-	public inline extern function get_InheritableComponentHandler(): cpp.Star<InheritableComponentHandler.ConstInheritableComponentHandler> return this.InheritableComponentHandler;
+	public extern var InheritableComponentHandler(get, never): ucpp.Ptr<InheritableComponentHandler.ConstInheritableComponentHandler>;
+	public inline extern function get_InheritableComponentHandler(): ucpp.Ptr<InheritableComponentHandler.ConstInheritableComponentHandler> return this.InheritableComponentHandler;
 }
 
 @:forward
 @:nativeGen
 @:native("Blueprint*")
-abstract BlueprintPtr(cpp.Star<Blueprint>) from cpp.Star<Blueprint> to cpp.Star<Blueprint>{
+abstract BlueprintPtr(ucpp.Ptr<Blueprint>) from ucpp.Ptr<Blueprint> to ucpp.Ptr<Blueprint>{
 	@:from
 	public static extern inline function fromValue(v: Blueprint): BlueprintPtr {
 		return untyped __cpp__("&({0})", v);

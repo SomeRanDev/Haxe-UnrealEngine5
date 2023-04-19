@@ -3,11 +3,11 @@ package ue;
 
 @:native("FQuartzPulseOverrideStep")
 @:include("Sound/QuartzQuantizationUtilities.h")
-@:structAccess
+@:valueType
 extern class QuartzPulseOverrideStep {
-	public var NumberOfPulses: cpp.Int32;
+	public var NumberOfPulses: ucpp.num.Int32;
 	public var PulseDuration: EQuartzCommandQuantization;
 
 	@:native("FQuartzPulseOverrideStep") public function new();
-	@:native("FQuartzPulseOverrideStep") public static function make(NumberOfPulses: cpp.Int32, PulseDuration: EQuartzCommandQuantization): QuartzPulseOverrideStep ;
+	@:native("FQuartzPulseOverrideStep") public static function make(NumberOfPulses: ucpp.num.Int32, PulseDuration: EQuartzCommandQuantization): QuartzPulseOverrideStep ;
 }

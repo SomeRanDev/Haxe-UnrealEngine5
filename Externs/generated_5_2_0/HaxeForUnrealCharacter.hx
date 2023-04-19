@@ -3,26 +3,26 @@ package ue;
 
 @:native("AHaxeForUnrealCharacter")
 @:include("HaxeForUnrealCharacter.h")
-@:structAccess
+@:valueType
 extern class HaxeForUnrealCharacter extends Character {
-	private var CameraBoom: cpp.Star<SpringArmComp>;
-	private var FollowCamera: cpp.Star<CameraComp>;
-	public var TurnRateGamepad: cpp.Float32;
+	private var CameraBoom: ucpp.Ptr<SpringArmComp>;
+	private var FollowCamera: ucpp.Ptr<CameraComp>;
+	public var TurnRateGamepad: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstHaxeForUnrealCharacter(HaxeForUnrealCharacter) from HaxeForUnrealCharacter {
-	public extern var TurnRateGamepad(get, never): cpp.Float32;
-	public inline extern function get_TurnRateGamepad(): cpp.Float32 return this.TurnRateGamepad;
+	public extern var TurnRateGamepad(get, never): ucpp.num.Float32;
+	public inline extern function get_TurnRateGamepad(): ucpp.num.Float32 return this.TurnRateGamepad;
 }
 
 @:forward
 @:nativeGen
 @:native("HaxeForUnrealCharacter*")
-abstract HaxeForUnrealCharacterPtr(cpp.Star<HaxeForUnrealCharacter>) from cpp.Star<HaxeForUnrealCharacter> to cpp.Star<HaxeForUnrealCharacter>{
+abstract HaxeForUnrealCharacterPtr(ucpp.Ptr<HaxeForUnrealCharacter>) from ucpp.Ptr<HaxeForUnrealCharacter> to ucpp.Ptr<HaxeForUnrealCharacter>{
 	@:from
 	public static extern inline function fromValue(v: HaxeForUnrealCharacter): HaxeForUnrealCharacterPtr {
 		return untyped __cpp__("&({0})", v);

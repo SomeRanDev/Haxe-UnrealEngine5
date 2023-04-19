@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDatasmithImportOptions")
 @:include("DatasmithImportOptions.h")
-@:structAccess
+@:valueType
 extern class DatasmithImportOptions extends DatasmithOptionsBase {
 	public var SearchPackagePolicy: EDatasmithImportSearchPackagePolicy;
 	public var MaterialConflictPolicy: EDatasmithImportAssetConflictPolicy;
@@ -19,7 +19,7 @@ extern class DatasmithImportOptions extends DatasmithOptionsBase {
 	public var FilePath: FString;
 	public var SourceUri: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstDatasmithImportOptions(DatasmithImportOptions) from DatasmithImpor
 @:forward
 @:nativeGen
 @:native("DatasmithImportOptions*")
-abstract DatasmithImportOptionsPtr(cpp.Star<DatasmithImportOptions>) from cpp.Star<DatasmithImportOptions> to cpp.Star<DatasmithImportOptions>{
+abstract DatasmithImportOptionsPtr(ucpp.Ptr<DatasmithImportOptions>) from ucpp.Ptr<DatasmithImportOptions> to ucpp.Ptr<DatasmithImportOptions>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithImportOptions): DatasmithImportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

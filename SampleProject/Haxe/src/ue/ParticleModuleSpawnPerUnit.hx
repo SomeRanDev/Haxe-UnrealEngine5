@@ -3,31 +3,31 @@ package ue;
 
 @:native("UParticleModuleSpawnPerUnit")
 @:include("Particles/Spawn/ParticleModuleSpawnPerUnit.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleSpawnPerUnit extends ParticleModuleSpawnBase {
-	public var UnitScalar: cpp.Float32;
-	public var MovementTolerance: cpp.Float32;
+	public var UnitScalar: ucpp.num.Float32;
+	public var MovementTolerance: ucpp.num.Float32;
 	public var SpawnPerUnit: RawDistributionFloat;
-	public var MaxFrameDistance: cpp.Float32;
+	public var MaxFrameDistance: ucpp.num.Float32;
 	public var bIgnoreSpawnRateWhenMoving: Bool;
 	public var bIgnoreMovementAlongX: Bool;
 	public var bIgnoreMovementAlongY: Bool;
 	public var bIgnoreMovementAlongZ: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleSpawnPerUnit(ParticleModuleSpawnPerUnit) from ParticleModuleSpawnPerUnit {
-	public extern var UnitScalar(get, never): cpp.Float32;
-	public inline extern function get_UnitScalar(): cpp.Float32 return this.UnitScalar;
-	public extern var MovementTolerance(get, never): cpp.Float32;
-	public inline extern function get_MovementTolerance(): cpp.Float32 return this.MovementTolerance;
+	public extern var UnitScalar(get, never): ucpp.num.Float32;
+	public inline extern function get_UnitScalar(): ucpp.num.Float32 return this.UnitScalar;
+	public extern var MovementTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_MovementTolerance(): ucpp.num.Float32 return this.MovementTolerance;
 	public extern var SpawnPerUnit(get, never): RawDistributionFloat;
 	public inline extern function get_SpawnPerUnit(): RawDistributionFloat return this.SpawnPerUnit;
-	public extern var MaxFrameDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxFrameDistance(): cpp.Float32 return this.MaxFrameDistance;
+	public extern var MaxFrameDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxFrameDistance(): ucpp.num.Float32 return this.MaxFrameDistance;
 	public extern var bIgnoreSpawnRateWhenMoving(get, never): Bool;
 	public inline extern function get_bIgnoreSpawnRateWhenMoving(): Bool return this.bIgnoreSpawnRateWhenMoving;
 	public extern var bIgnoreMovementAlongX(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstParticleModuleSpawnPerUnit(ParticleModuleSpawnPerUnit) from Partic
 @:forward
 @:nativeGen
 @:native("ParticleModuleSpawnPerUnit*")
-abstract ParticleModuleSpawnPerUnitPtr(cpp.Star<ParticleModuleSpawnPerUnit>) from cpp.Star<ParticleModuleSpawnPerUnit> to cpp.Star<ParticleModuleSpawnPerUnit>{
+abstract ParticleModuleSpawnPerUnitPtr(ucpp.Ptr<ParticleModuleSpawnPerUnit>) from ucpp.Ptr<ParticleModuleSpawnPerUnit> to ucpp.Ptr<ParticleModuleSpawnPerUnit>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleSpawnPerUnit): ParticleModuleSpawnPerUnitPtr {
 		return untyped __cpp__("&({0})", v);

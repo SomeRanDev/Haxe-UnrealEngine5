@@ -3,13 +3,13 @@ package ue;
 
 @:native("UTransformMeshesTool")
 @:include("TransformMeshesTool.h")
-@:structAccess
+@:valueType
 extern class TransformMeshesTool extends MultiSelectionMeshEditingTool {
-	@:protected public var TransformProps: cpp.Star<TransformMeshesToolProperties>;
+	@:protected public var TransformProps: ucpp.Ptr<TransformMeshesToolProperties>;
 	@:protected public var ActiveGizmos: TArray<TransformMeshesTarget>;
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTransformMeshesTool(TransformMeshesTool) from TransformMeshesTool 
 @:forward
 @:nativeGen
 @:native("TransformMeshesTool*")
-abstract TransformMeshesToolPtr(cpp.Star<TransformMeshesTool>) from cpp.Star<TransformMeshesTool> to cpp.Star<TransformMeshesTool>{
+abstract TransformMeshesToolPtr(ucpp.Ptr<TransformMeshesTool>) from ucpp.Ptr<TransformMeshesTool> to ucpp.Ptr<TransformMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: TransformMeshesTool): TransformMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

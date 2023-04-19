@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCall
 @:forward
 @:nativeGen
 @:native("EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable*")
-abstract EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallablePtr(cpp.Star<EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable>) from cpp.Star<EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable> to cpp.Star<EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable>{
+abstract EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallablePtr(ucpp.Ptr<EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable>) from ucpp.Ptr<EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable> to ucpp.Ptr<EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallable): EnvQueryInstanceBlueprintWrapper_EQSQueryDoneSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

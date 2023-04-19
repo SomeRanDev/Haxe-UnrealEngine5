@@ -3,7 +3,7 @@ package ue;
 
 @:native("FViewportActionKeyInput")
 @:include("ViewportInteractionTypes.h")
-@:structAccess
+@:valueType
 extern class ViewportActionKeyInput {
 	public var ActionType: FName;
 	public var Event: TEnumAsByte<EInputEvent>;

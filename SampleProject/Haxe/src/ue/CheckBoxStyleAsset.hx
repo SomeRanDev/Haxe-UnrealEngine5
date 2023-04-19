@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCheckBoxStyleAsset")
 @:include("Slate/CheckboxStyleAsset.h")
-@:structAccess
+@:valueType
 extern class CheckBoxStyleAsset extends Object {
 	public var CheckBoxStyle: CheckBoxStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCheckBoxStyleAsset(CheckBoxStyleAsset) from CheckBoxStyleAsset {
 @:forward
 @:nativeGen
 @:native("CheckBoxStyleAsset*")
-abstract CheckBoxStyleAssetPtr(cpp.Star<CheckBoxStyleAsset>) from cpp.Star<CheckBoxStyleAsset> to cpp.Star<CheckBoxStyleAsset>{
+abstract CheckBoxStyleAssetPtr(ucpp.Ptr<CheckBoxStyleAsset>) from ucpp.Ptr<CheckBoxStyleAsset> to ucpp.Ptr<CheckBoxStyleAsset>{
 	@:from
 	public static extern inline function fromValue(v: CheckBoxStyleAsset): CheckBoxStyleAssetPtr {
 		return untyped __cpp__("&({0})", v);

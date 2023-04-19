@@ -3,7 +3,7 @@ package ue;
 
 @:native("FResonanceAudioReverbPluginSettings")
 @:include("Private/ResonanceAudioReverb.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioReverbPluginSettings {
 	public var bEnableRoomEffects: Bool;
 	public var bGetTransformFromAudioVolume: Bool;
@@ -16,10 +16,10 @@ extern class ResonanceAudioReverbPluginSettings {
 	public var CeilingMaterial: ERaMaterialName;
 	public var FrontWallMaterial: ERaMaterialName;
 	public var BackWallMaterial: ERaMaterialName;
-	public var ReflectionScalar: cpp.Float32;
-	public var ReverbGain: cpp.Float32;
-	public var ReverbTimeModifier: cpp.Float32;
-	public var ReverbBrightness: cpp.Float32;
+	public var ReflectionScalar: ucpp.num.Float32;
+	public var ReverbGain: ucpp.num.Float32;
+	public var ReverbTimeModifier: ucpp.num.Float32;
+	public var ReverbBrightness: ucpp.num.Float32;
 
 	@:native("FResonanceAudioReverbPluginSettings") public function new();
 }

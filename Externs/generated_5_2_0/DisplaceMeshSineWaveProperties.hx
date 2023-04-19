@@ -3,22 +3,22 @@ package ue;
 
 @:native("UDisplaceMeshSineWaveProperties")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class DisplaceMeshSineWaveProperties extends InteractiveToolPropertySet {
-	public var SineWaveFrequency: cpp.Float32;
-	public var SineWavePhaseShift: cpp.Float32;
+	public var SineWaveFrequency: ucpp.num.Float32;
+	public var SineWavePhaseShift: ucpp.num.Float32;
 	public var SineWaveDirection: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDisplaceMeshSineWaveProperties(DisplaceMeshSineWaveProperties) from DisplaceMeshSineWaveProperties {
-	public extern var SineWaveFrequency(get, never): cpp.Float32;
-	public inline extern function get_SineWaveFrequency(): cpp.Float32 return this.SineWaveFrequency;
-	public extern var SineWavePhaseShift(get, never): cpp.Float32;
-	public inline extern function get_SineWavePhaseShift(): cpp.Float32 return this.SineWavePhaseShift;
+	public extern var SineWaveFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_SineWaveFrequency(): ucpp.num.Float32 return this.SineWaveFrequency;
+	public extern var SineWavePhaseShift(get, never): ucpp.num.Float32;
+	public inline extern function get_SineWavePhaseShift(): ucpp.num.Float32 return this.SineWavePhaseShift;
 	public extern var SineWaveDirection(get, never): Vector;
 	public inline extern function get_SineWaveDirection(): Vector return this.SineWaveDirection;
 }
@@ -26,7 +26,7 @@ abstract ConstDisplaceMeshSineWaveProperties(DisplaceMeshSineWaveProperties) fro
 @:forward
 @:nativeGen
 @:native("DisplaceMeshSineWaveProperties*")
-abstract DisplaceMeshSineWavePropertiesPtr(cpp.Star<DisplaceMeshSineWaveProperties>) from cpp.Star<DisplaceMeshSineWaveProperties> to cpp.Star<DisplaceMeshSineWaveProperties>{
+abstract DisplaceMeshSineWavePropertiesPtr(ucpp.Ptr<DisplaceMeshSineWaveProperties>) from ucpp.Ptr<DisplaceMeshSineWaveProperties> to ucpp.Ptr<DisplaceMeshSineWaveProperties>{
 	@:from
 	public static extern inline function fromValue(v: DisplaceMeshSineWaveProperties): DisplaceMeshSineWavePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

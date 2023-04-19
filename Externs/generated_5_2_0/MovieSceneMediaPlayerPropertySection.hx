@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMovieSceneMediaPlayerPropertySection")
 @:include("MovieSceneMediaPlayerPropertySection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMediaPlayerPropertySection extends MovieSceneSection {
-	public var MediaSource: cpp.Star<MediaSource>;
+	public var MediaSource: ucpp.Ptr<MediaSource>;
 	public var bLoop: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneMediaPlayerPropertySection(MovieSceneMediaPlayerPropertySection) from MovieSceneMediaPlayerPropertySection {
-	public extern var MediaSource(get, never): cpp.Star<MediaSource.ConstMediaSource>;
-	public inline extern function get_MediaSource(): cpp.Star<MediaSource.ConstMediaSource> return this.MediaSource;
+	public extern var MediaSource(get, never): ucpp.Ptr<MediaSource.ConstMediaSource>;
+	public inline extern function get_MediaSource(): ucpp.Ptr<MediaSource.ConstMediaSource> return this.MediaSource;
 	public extern var bLoop(get, never): Bool;
 	public inline extern function get_bLoop(): Bool return this.bLoop;
 }
@@ -23,7 +23,7 @@ abstract ConstMovieSceneMediaPlayerPropertySection(MovieSceneMediaPlayerProperty
 @:forward
 @:nativeGen
 @:native("MovieSceneMediaPlayerPropertySection*")
-abstract MovieSceneMediaPlayerPropertySectionPtr(cpp.Star<MovieSceneMediaPlayerPropertySection>) from cpp.Star<MovieSceneMediaPlayerPropertySection> to cpp.Star<MovieSceneMediaPlayerPropertySection>{
+abstract MovieSceneMediaPlayerPropertySectionPtr(ucpp.Ptr<MovieSceneMediaPlayerPropertySection>) from ucpp.Ptr<MovieSceneMediaPlayerPropertySection> to ucpp.Ptr<MovieSceneMediaPlayerPropertySection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMediaPlayerPropertySection): MovieSceneMediaPlayerPropertySectionPtr {
 		return untyped __cpp__("&({0})", v);

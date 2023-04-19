@@ -3,15 +3,15 @@ package ue;
 
 @:native("UNavMovementComponent")
 @:include("GameFramework/NavMovementComponent.h")
-@:structAccess
+@:valueType
 extern class NavMovementComp extends MovementComp {
 	public var NavAgentProps: NavAgentProperties;
-	@:protected public var FixedPathBrakingDistance: cpp.Float32;
+	@:protected public var FixedPathBrakingDistance: ucpp.num.Float32;
 	@:protected public var bUpdateNavAgentWithOwnersCollision: Bool;
 	@:protected public var bUseAccelerationForPaths: Bool;
 	@:protected public var bUseFixedBrakingDistanceForPaths: Bool;
 	public var MovementState: MovementProperties;
-	private var PathFollowingComp: cpp.Star<Object>;
+	private var PathFollowingComp: ucpp.Ptr<Object>;
 
 	public function StopMovementKeepPathing(): Void;
 	public function StopActiveMovement(): Void;
@@ -21,7 +21,7 @@ extern class NavMovementComp extends MovementComp {
 	public function IsFalling(): Bool;
 	public function IsCrouching(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsSwimming, IsMovingOnGround, IsFlying, IsFalling, IsCrouching)
@@ -36,7 +36,7 @@ abstract ConstNavMovementComp(NavMovementComp) from NavMovementComp {
 @:forward
 @:nativeGen
 @:native("NavMovementComp*")
-abstract NavMovementCompPtr(cpp.Star<NavMovementComp>) from cpp.Star<NavMovementComp> to cpp.Star<NavMovementComp>{
+abstract NavMovementCompPtr(ucpp.Ptr<NavMovementComp>) from ucpp.Ptr<NavMovementComp> to ucpp.Ptr<NavMovementComp>{
 	@:from
 	public static extern inline function fromValue(v: NavMovementComp): NavMovementCompPtr {
 		return untyped __cpp__("&({0})", v);

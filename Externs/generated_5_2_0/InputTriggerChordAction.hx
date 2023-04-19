@@ -3,24 +3,24 @@ package ue;
 
 @:native("UInputTriggerChordAction")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerChordAction extends InputTrigger {
-	public var ChordAction: cpp.Star<InputAction>;
+	public var ChordAction: ucpp.Ptr<InputAction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputTriggerChordAction(InputTriggerChordAction) from InputTriggerChordAction {
-	public extern var ChordAction(get, never): cpp.Star<InputAction.ConstInputAction>;
-	public inline extern function get_ChordAction(): cpp.Star<InputAction.ConstInputAction> return this.ChordAction;
+	public extern var ChordAction(get, never): ucpp.Ptr<InputAction.ConstInputAction>;
+	public inline extern function get_ChordAction(): ucpp.Ptr<InputAction.ConstInputAction> return this.ChordAction;
 }
 
 @:forward
 @:nativeGen
 @:native("InputTriggerChordAction*")
-abstract InputTriggerChordActionPtr(cpp.Star<InputTriggerChordAction>) from cpp.Star<InputTriggerChordAction> to cpp.Star<InputTriggerChordAction>{
+abstract InputTriggerChordActionPtr(ucpp.Ptr<InputTriggerChordAction>) from ucpp.Ptr<InputTriggerChordAction> to ucpp.Ptr<InputTriggerChordAction>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerChordAction): InputTriggerChordActionPtr {
 		return untyped __cpp__("&({0})", v);

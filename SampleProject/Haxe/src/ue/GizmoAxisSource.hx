@@ -2,14 +2,14 @@
 package ue;
 
 @:native("UGizmoAxisSource")
-@:structAccess
+@:valueType
 extern class GizmoAxisSource extends Interface {
 	public function HasTangentVectors(): Bool;
-	public function GetTangentVectors(TangentXOut: cpp.Reference<Vector>, TangentYOut: cpp.Reference<Vector>): Void;
+	public function GetTangentVectors(TangentXOut: ucpp.Ref<Vector>, TangentYOut: ucpp.Ref<Vector>): Void;
 	public function GetOrigin(): Vector;
 	public function GetDirection(): Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasTangentVectors, GetTangentVectors, GetOrigin, GetDirection)
@@ -20,7 +20,7 @@ abstract ConstGizmoAxisSource(GizmoAxisSource) from GizmoAxisSource {
 @:forward
 @:nativeGen
 @:native("GizmoAxisSource*")
-abstract GizmoAxisSourcePtr(cpp.Star<GizmoAxisSource>) from cpp.Star<GizmoAxisSource> to cpp.Star<GizmoAxisSource>{
+abstract GizmoAxisSourcePtr(ucpp.Ptr<GizmoAxisSource>) from ucpp.Ptr<GizmoAxisSource> to ucpp.Ptr<GizmoAxisSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoAxisSource): GizmoAxisSourcePtr {
 		return untyped __cpp__("&({0})", v);

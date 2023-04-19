@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraParameterDefinitions")
 @:include("NiagaraParameterDefinitions.h")
-@:structAccess
+@:valueType
 extern class NiagaraParameterDefinitions extends NiagaraParameterDefinitionsBase {
 	private var bPromoteToTopInAddMenus: Bool;
-	private var MenuSortOrder: cpp.Int32;
-	private var ScriptVariables: TArray<cpp.Star<NiagaraScriptVariable>>;
+	private var MenuSortOrder: ucpp.num.Int32;
+	private var ScriptVariables: TArray<ucpp.Ptr<NiagaraScriptVariable>>;
 	private var ExternalParameterDefinitionsSubscriptions: TArray<ParameterDefinitionsBindingNameSubscription>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstNiagaraParameterDefinitions(NiagaraParameterDefinitions) from Niag
 @:forward
 @:nativeGen
 @:native("NiagaraParameterDefinitions*")
-abstract NiagaraParameterDefinitionsPtr(cpp.Star<NiagaraParameterDefinitions>) from cpp.Star<NiagaraParameterDefinitions> to cpp.Star<NiagaraParameterDefinitions>{
+abstract NiagaraParameterDefinitionsPtr(ucpp.Ptr<NiagaraParameterDefinitions>) from ucpp.Ptr<NiagaraParameterDefinitions> to ucpp.Ptr<NiagaraParameterDefinitions>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraParameterDefinitions): NiagaraParameterDefinitionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTexAlignerPlanar")
 @:include("TexAligner/TexAlignerPlanar.h")
-@:structAccess
+@:valueType
 extern class TexAlignerPlanar extends TexAligner {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTexAlignerPlanar(TexAlignerPlanar) from TexAlignerPlanar {
 @:forward
 @:nativeGen
 @:native("TexAlignerPlanar*")
-abstract TexAlignerPlanarPtr(cpp.Star<TexAlignerPlanar>) from cpp.Star<TexAlignerPlanar> to cpp.Star<TexAlignerPlanar>{
+abstract TexAlignerPlanarPtr(ucpp.Ptr<TexAlignerPlanar>) from ucpp.Ptr<TexAlignerPlanar> to ucpp.Ptr<TexAlignerPlanar>{
 	@:from
 	public static extern inline function fromValue(v: TexAlignerPlanar): TexAlignerPlanarPtr {
 		return untyped __cpp__("&({0})", v);

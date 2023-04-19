@@ -3,15 +3,15 @@ package ue;
 
 @:native("ANavSystemConfigOverride")
 @:include("NavSystemConfigOverride.h")
-@:structAccess
+@:valueType
 extern class NavSystemConfigOverride extends Actor {
-	@:protected public var NavigationSystemConfig: cpp.Star<NavigationSystemConfig>;
+	@:protected public var NavigationSystemConfig: ucpp.Ptr<NavigationSystemConfig>;
 	@:protected public var OverridePolicy: ENavSystemOverridePolicy;
 	@:protected public var bLoadOnClient: Bool;
 
 	public function ApplyChanges(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstNavSystemConfigOverride(NavSystemConfigOverride) from NavSystemCon
 @:forward
 @:nativeGen
 @:native("NavSystemConfigOverride*")
-abstract NavSystemConfigOverridePtr(cpp.Star<NavSystemConfigOverride>) from cpp.Star<NavSystemConfigOverride> to cpp.Star<NavSystemConfigOverride>{
+abstract NavSystemConfigOverridePtr(ucpp.Ptr<NavSystemConfigOverride>) from ucpp.Ptr<NavSystemConfigOverride> to ucpp.Ptr<NavSystemConfigOverride>{
 	@:from
 	public static extern inline function fromValue(v: NavSystemConfigOverride): NavSystemConfigOverridePtr {
 		return untyped __cpp__("&({0})", v);

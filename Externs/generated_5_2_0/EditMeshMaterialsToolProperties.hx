@@ -3,15 +3,15 @@ package ue;
 
 @:native("UEditMeshMaterialsToolProperties")
 @:include("EditMeshMaterialsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshMaterialsToolProperties extends InteractiveToolPropertySet {
 	public var ActiveMaterial: FString;
 	public var MaterialNamesList: TArray<FString>;
-	public var Materials: TArray<cpp.Star<MaterialInterface>>;
+	public var Materials: TArray<ucpp.Ptr<MaterialInterface>>;
 
 	public function GetMaterialNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,14 +21,14 @@ abstract ConstEditMeshMaterialsToolProperties(EditMeshMaterialsToolProperties) f
 	public inline extern function get_ActiveMaterial(): FString return this.ActiveMaterial;
 	public extern var MaterialNamesList(get, never): TArray<FString>;
 	public inline extern function get_MaterialNamesList(): TArray<FString> return this.MaterialNamesList;
-	public extern var Materials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_Materials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.Materials;
+	public extern var Materials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_Materials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.Materials;
 }
 
 @:forward
 @:nativeGen
 @:native("EditMeshMaterialsToolProperties*")
-abstract EditMeshMaterialsToolPropertiesPtr(cpp.Star<EditMeshMaterialsToolProperties>) from cpp.Star<EditMeshMaterialsToolProperties> to cpp.Star<EditMeshMaterialsToolProperties>{
+abstract EditMeshMaterialsToolPropertiesPtr(ucpp.Ptr<EditMeshMaterialsToolProperties>) from ucpp.Ptr<EditMeshMaterialsToolProperties> to ucpp.Ptr<EditMeshMaterialsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshMaterialsToolProperties): EditMeshMaterialsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

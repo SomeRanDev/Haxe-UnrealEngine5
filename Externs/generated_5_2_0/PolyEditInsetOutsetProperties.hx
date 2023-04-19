@@ -3,26 +3,26 @@ package ue;
 
 @:native("UPolyEditInsetOutsetProperties")
 @:include("ToolActivities/PolyEditInsetOutsetActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditInsetOutsetProperties extends InteractiveToolPropertySet {
-	public var Softness: cpp.Float32;
+	public var Softness: ucpp.num.Float32;
 	public var bBoundaryOnly: Bool;
-	public var AreaScale: cpp.Float32;
+	public var AreaScale: ucpp.num.Float32;
 	public var bReproject: Bool;
 	public var bOutset: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPolyEditInsetOutsetProperties(PolyEditInsetOutsetProperties) from PolyEditInsetOutsetProperties {
-	public extern var Softness(get, never): cpp.Float32;
-	public inline extern function get_Softness(): cpp.Float32 return this.Softness;
+	public extern var Softness(get, never): ucpp.num.Float32;
+	public inline extern function get_Softness(): ucpp.num.Float32 return this.Softness;
 	public extern var bBoundaryOnly(get, never): Bool;
 	public inline extern function get_bBoundaryOnly(): Bool return this.bBoundaryOnly;
-	public extern var AreaScale(get, never): cpp.Float32;
-	public inline extern function get_AreaScale(): cpp.Float32 return this.AreaScale;
+	public extern var AreaScale(get, never): ucpp.num.Float32;
+	public inline extern function get_AreaScale(): ucpp.num.Float32 return this.AreaScale;
 	public extern var bReproject(get, never): Bool;
 	public inline extern function get_bReproject(): Bool return this.bReproject;
 	public extern var bOutset(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstPolyEditInsetOutsetProperties(PolyEditInsetOutsetProperties) from 
 @:forward
 @:nativeGen
 @:native("PolyEditInsetOutsetProperties*")
-abstract PolyEditInsetOutsetPropertiesPtr(cpp.Star<PolyEditInsetOutsetProperties>) from cpp.Star<PolyEditInsetOutsetProperties> to cpp.Star<PolyEditInsetOutsetProperties>{
+abstract PolyEditInsetOutsetPropertiesPtr(ucpp.Ptr<PolyEditInsetOutsetProperties>) from ucpp.Ptr<PolyEditInsetOutsetProperties> to ucpp.Ptr<PolyEditInsetOutsetProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditInsetOutsetProperties): PolyEditInsetOutsetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

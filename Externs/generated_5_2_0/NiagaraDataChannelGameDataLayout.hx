@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraDataChannelGameDataLayout")
 @:include("NiagaraDataChannel.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelGameDataLayout {
-	public var VariableIndices: TMap<NiagaraVariableBase, cpp.Int32>;
+	public var VariableIndices: TMap<NiagaraVariableBase, ucpp.num.Int32>;
 	public var LwcConverters: TArray<NiagaraLwcStructConverter>;
 
 	@:native("FNiagaraDataChannelGameDataLayout") public function new();
-	@:native("FNiagaraDataChannelGameDataLayout") public static function make(VariableIndices: TMap<NiagaraVariableBase, cpp.Int32>, LwcConverters: TArray<NiagaraLwcStructConverter>): NiagaraDataChannelGameDataLayout ;
+	@:native("FNiagaraDataChannelGameDataLayout") public static function make(VariableIndices: TMap<NiagaraVariableBase, ucpp.num.Int32>, LwcConverters: TArray<NiagaraLwcStructConverter>): NiagaraDataChannelGameDataLayout ;
 }

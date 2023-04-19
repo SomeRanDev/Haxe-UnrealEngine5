@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCameraAnimationSequencePlayer")
 @:include("CameraAnimationSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationSequencePlayer extends Object {
-	private var BoundObjectOverride: cpp.Star<Object>;
-	private var Sequence: cpp.Star<MovieSceneSequence>;
+	private var BoundObjectOverride: ucpp.Ptr<Object>;
+	private var Sequence: ucpp.Ptr<MovieSceneSequence>;
 	private var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCameraAnimationSequencePlayer(CameraAnimationSequencePlayer) from 
 @:forward
 @:nativeGen
 @:native("CameraAnimationSequencePlayer*")
-abstract CameraAnimationSequencePlayerPtr(cpp.Star<CameraAnimationSequencePlayer>) from cpp.Star<CameraAnimationSequencePlayer> to cpp.Star<CameraAnimationSequencePlayer>{
+abstract CameraAnimationSequencePlayerPtr(ucpp.Ptr<CameraAnimationSequencePlayer>) from ucpp.Ptr<CameraAnimationSequencePlayer> to ucpp.Ptr<CameraAnimationSequencePlayer>{
 	@:from
 	public static extern inline function fromValue(v: CameraAnimationSequencePlayer): CameraAnimationSequencePlayerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNDIDataChannelWriteCompiledData")
 @:include("Private/DataInterface/NiagaraDataInterfaceDataChannelWrite.h")
-@:structAccess
+@:valueType
 extern class NDIDataChannelWriteCompiledData extends NDIDataChannelCompiledData {
 	public var DataLayout: NiagaraDataSetCompiledData;
 

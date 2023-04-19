@@ -3,26 +3,26 @@ package ue;
 
 @:native("UInterchangeBaseNodeContainer")
 @:include("Nodes/InterchangeBaseNodeContainer.h")
-@:structAccess
+@:valueType
 extern class InterchangeBaseNodeContainer extends Object {
-	private var Nodes: TMap<FString, cpp.Star<InterchangeBaseNode>>;
+	private var Nodes: TMap<FString, ucpp.Ptr<InterchangeBaseNode>>;
 
 	public function SetNodeParentUid(NodeUniqueID: FString, NewParentNodeUid: FString): Bool;
 	public function SaveToFile(Filename: FString): Void;
 	public function ResetChildrenCache(): Void;
 	public function LoadFromFile(Filename: FString): Void;
 	public function IsNodeUidValid(NodeUniqueID: FString): Bool;
-	public function GetRoots(RootNodes: cpp.Reference<TArray<FString>>): Void;
-	public function GetNodes(ClassNode: cpp.Star<Class>, OutNodes: cpp.Reference<TArray<FString>>): Void;
+	public function GetRoots(RootNodes: ucpp.Ref<TArray<FString>>): Void;
+	public function GetNodes(ClassNode: ucpp.Ptr<Class>, OutNodes: ucpp.Ref<TArray<FString>>): Void;
 	public function GetNodeChildrenUids(NodeUniqueID: FString): TArray<FString>;
-	public function GetNodeChildrenCount(NodeUniqueID: FString): cpp.Int32;
-	public function GetNodeChildren(NodeUniqueID: FString, ChildIndex: cpp.Int32): cpp.Star<InterchangeBaseNode>;
-	public function GetNode(NodeUniqueID: FString): cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>;
-	public function GetFactoryNode(NodeUniqueID: FString): cpp.Star<InterchangeFactoryBaseNode>;
+	public function GetNodeChildrenCount(NodeUniqueID: FString): ucpp.num.Int32;
+	public function GetNodeChildren(NodeUniqueID: FString, ChildIndex: ucpp.num.Int32): ucpp.Ptr<InterchangeBaseNode>;
+	public function GetNode(NodeUniqueID: FString): ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>;
+	public function GetFactoryNode(NodeUniqueID: FString): ucpp.Ptr<InterchangeFactoryBaseNode>;
 	public function ComputeChildrenCache(): Void;
-	public function AddNode(Node: cpp.Star<InterchangeBaseNode>): FString;
+	public function AddNode(Node: ucpp.Ptr<InterchangeBaseNode>): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsNodeUidValid, GetRoots, GetNodes, GetNodeChildrenUids, GetNodeChildrenCount, GetNode, GetFactoryNode)
@@ -33,7 +33,7 @@ abstract ConstInterchangeBaseNodeContainer(InterchangeBaseNodeContainer) from In
 @:forward
 @:nativeGen
 @:native("InterchangeBaseNodeContainer*")
-abstract InterchangeBaseNodeContainerPtr(cpp.Star<InterchangeBaseNodeContainer>) from cpp.Star<InterchangeBaseNodeContainer> to cpp.Star<InterchangeBaseNodeContainer>{
+abstract InterchangeBaseNodeContainerPtr(ucpp.Ptr<InterchangeBaseNodeContainer>) from ucpp.Ptr<InterchangeBaseNodeContainer> to ucpp.Ptr<InterchangeBaseNodeContainer>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeBaseNodeContainer): InterchangeBaseNodeContainerPtr {
 		return untyped __cpp__("&({0})", v);

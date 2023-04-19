@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMirrorTool")
 @:include("MirrorTool.h")
-@:structAccess
+@:valueType
 extern class MirrorTool extends MultiSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<MirrorToolProperties>;
-	@:protected public var ToolActions: cpp.Star<MirrorToolActionPropertySet>;
-	@:protected public var MeshesToMirror: TArray<cpp.Star<DynamicMeshReplacementChangeTarget>>;
-	@:protected public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
-	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
+	@:protected public var Settings: ucpp.Ptr<MirrorToolProperties>;
+	@:protected public var ToolActions: ucpp.Ptr<MirrorToolActionPropertySet>;
+	@:protected public var MeshesToMirror: TArray<ucpp.Ptr<DynamicMeshReplacementChangeTarget>>;
+	@:protected public var Previews: TArray<ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>>;
+	@:protected public var PlaneMechanic: ucpp.Ptr<ConstructionPlaneMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstMirrorTool(MirrorTool) from MirrorTool {
 @:forward
 @:nativeGen
 @:native("MirrorTool*")
-abstract MirrorToolPtr(cpp.Star<MirrorTool>) from cpp.Star<MirrorTool> to cpp.Star<MirrorTool>{
+abstract MirrorToolPtr(ucpp.Ptr<MirrorTool>) from ucpp.Ptr<MirrorTool> to ucpp.Ptr<MirrorTool>{
 	@:from
 	public static extern inline function fromValue(v: MirrorTool): MirrorToolPtr {
 		return untyped __cpp__("&({0})", v);

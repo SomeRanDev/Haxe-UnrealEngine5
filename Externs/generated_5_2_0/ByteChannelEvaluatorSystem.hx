@@ -3,10 +3,10 @@ package ue;
 
 @:native("UByteChannelEvaluatorSystem")
 @:include("Systems/ByteChannelEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class ByteChannelEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstByteChannelEvaluatorSystem(ByteChannelEvaluatorSystem) from ByteCh
 @:forward
 @:nativeGen
 @:native("ByteChannelEvaluatorSystem*")
-abstract ByteChannelEvaluatorSystemPtr(cpp.Star<ByteChannelEvaluatorSystem>) from cpp.Star<ByteChannelEvaluatorSystem> to cpp.Star<ByteChannelEvaluatorSystem>{
+abstract ByteChannelEvaluatorSystemPtr(ucpp.Ptr<ByteChannelEvaluatorSystem>) from ucpp.Ptr<ByteChannelEvaluatorSystem> to ucpp.Ptr<ByteChannelEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: ByteChannelEvaluatorSystem): ByteChannelEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

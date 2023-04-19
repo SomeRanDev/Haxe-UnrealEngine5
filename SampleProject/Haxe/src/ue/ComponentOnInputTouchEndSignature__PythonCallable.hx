@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComponentOnInputTouchEndSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComponentOnInputTouchEndSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComponentOnInputTouchEndSignature__PythonCallable(ComponentOnInput
 @:forward
 @:nativeGen
 @:native("ComponentOnInputTouchEndSignature__PythonCallable*")
-abstract ComponentOnInputTouchEndSignature__PythonCallablePtr(cpp.Star<ComponentOnInputTouchEndSignature__PythonCallable>) from cpp.Star<ComponentOnInputTouchEndSignature__PythonCallable> to cpp.Star<ComponentOnInputTouchEndSignature__PythonCallable>{
+abstract ComponentOnInputTouchEndSignature__PythonCallablePtr(ucpp.Ptr<ComponentOnInputTouchEndSignature__PythonCallable>) from ucpp.Ptr<ComponentOnInputTouchEndSignature__PythonCallable> to ucpp.Ptr<ComponentOnInputTouchEndSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComponentOnInputTouchEndSignature__PythonCallable): ComponentOnInputTouchEndSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

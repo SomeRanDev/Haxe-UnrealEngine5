@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSourceControlState")
 @:include("SourceControlHelpers.h")
-@:structAccess
+@:valueType
 extern class SourceControlState {
 	public var Filename: FString;
 	public var bIsValid: Bool;

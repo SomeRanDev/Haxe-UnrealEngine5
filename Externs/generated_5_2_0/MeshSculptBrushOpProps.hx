@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshSculptBrushOpProps")
 @:include("Sculpting/MeshBrushOpBase.h")
-@:structAccess
+@:valueType
 extern class MeshSculptBrushOpProps extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshSculptBrushOpProps(MeshSculptBrushOpProps) from MeshSculptBrus
 @:forward
 @:nativeGen
 @:native("MeshSculptBrushOpProps*")
-abstract MeshSculptBrushOpPropsPtr(cpp.Star<MeshSculptBrushOpProps>) from cpp.Star<MeshSculptBrushOpProps> to cpp.Star<MeshSculptBrushOpProps>{
+abstract MeshSculptBrushOpPropsPtr(ucpp.Ptr<MeshSculptBrushOpProps>) from ucpp.Ptr<MeshSculptBrushOpProps> to ucpp.Ptr<MeshSculptBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: MeshSculptBrushOpProps): MeshSculptBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

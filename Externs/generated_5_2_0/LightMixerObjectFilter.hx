@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULightMixerObjectFilter")
 @:include("LightMixerObjectFilter.h")
-@:structAccess
+@:valueType
 extern class LightMixerObjectFilter extends ObjectMixerObjectFilter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLightMixerObjectFilter(LightMixerObjectFilter) from LightMixerObje
 @:forward
 @:nativeGen
 @:native("LightMixerObjectFilter*")
-abstract LightMixerObjectFilterPtr(cpp.Star<LightMixerObjectFilter>) from cpp.Star<LightMixerObjectFilter> to cpp.Star<LightMixerObjectFilter>{
+abstract LightMixerObjectFilterPtr(ucpp.Ptr<LightMixerObjectFilter>) from ucpp.Ptr<LightMixerObjectFilter> to ucpp.Ptr<LightMixerObjectFilter>{
 	@:from
 	public static extern inline function fromValue(v: LightMixerObjectFilter): LightMixerObjectFilterPtr {
 		return untyped __cpp__("&({0})", v);

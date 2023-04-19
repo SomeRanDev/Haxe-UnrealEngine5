@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGizmoElementColorAttribute")
 @:include("BaseGizmos/GizmoElementRenderState.h")
-@:structAccess
+@:valueType
 extern class GizmoElementColorAttribute {
 	public var Value: LinearColor;
 	public var bHasValue: Bool;

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FFontParameterValue")
 @:include("Materials/MaterialInstance.h")
-@:structAccess
+@:valueType
 extern class FontParameterValue {
 	public var ParameterInfo: MaterialParameterInfo;
-	public var FontValue: cpp.Star<Font>;
-	public var FontPage: cpp.Int32;
+	public var FontValue: ucpp.Ptr<Font>;
+	public var FontPage: ucpp.num.Int32;
 	public var ExpressionGUID: Guid;
 
 	@:native("FFontParameterValue") public function new();
-	@:native("FFontParameterValue") public static function make(ParameterName_DEPRECATED: FName, ParameterInfo: MaterialParameterInfo, FontValue: cpp.Star<Font>, FontPage: cpp.Int32, ExpressionGUID: Guid): FontParameterValue ;
+	@:native("FFontParameterValue") public static function make(ParameterName_DEPRECATED: FName, ParameterInfo: MaterialParameterInfo, FontValue: ucpp.Ptr<Font>, FontPage: ucpp.num.Int32, ExpressionGUID: Guid): FontParameterValue ;
 }

@@ -3,21 +3,21 @@ package ue;
 
 @:native("UPlayerMappableKeySettings")
 @:include("PlayerMappableKeySettings.h")
-@:structAccess
+@:valueType
 extern class PlayerMappableKeySettings extends Object {
-	public var Metadata: cpp.Star<Object>;
+	public var Metadata: ucpp.Ptr<Object>;
 	public var Name: FName;
 	public var DisplayName: FText;
 	public var DisplayCategory: FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPlayerMappableKeySettings(PlayerMappableKeySettings) from PlayerMappableKeySettings {
-	public extern var Metadata(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_Metadata(): cpp.Star<Object.ConstObject> return this.Metadata;
+	public extern var Metadata(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_Metadata(): ucpp.Ptr<Object.ConstObject> return this.Metadata;
 	public extern var Name(get, never): FName;
 	public inline extern function get_Name(): FName return this.Name;
 	public extern var DisplayName(get, never): FText;
@@ -29,7 +29,7 @@ abstract ConstPlayerMappableKeySettings(PlayerMappableKeySettings) from PlayerMa
 @:forward
 @:nativeGen
 @:native("PlayerMappableKeySettings*")
-abstract PlayerMappableKeySettingsPtr(cpp.Star<PlayerMappableKeySettings>) from cpp.Star<PlayerMappableKeySettings> to cpp.Star<PlayerMappableKeySettings>{
+abstract PlayerMappableKeySettingsPtr(ucpp.Ptr<PlayerMappableKeySettings>) from ucpp.Ptr<PlayerMappableKeySettings> to ucpp.Ptr<PlayerMappableKeySettings>{
 	@:from
 	public static extern inline function fromValue(v: PlayerMappableKeySettings): PlayerMappableKeySettingsPtr {
 		return untyped __cpp__("&({0})", v);

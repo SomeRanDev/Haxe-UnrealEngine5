@@ -3,13 +3,13 @@ package ue;
 
 @:native("UParticleModuleCameraOffset")
 @:include("Particles/Camera/ParticleModuleCameraOffset.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleCameraOffset extends ParticleModuleCameraBase {
 	public var CameraOffset: RawDistributionFloat;
 	public var bSpawnTimeOnly: Bool;
 	public var UpdateMethod: TEnumAsByte<EParticleCameraOffsetUpdateMethod>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstParticleModuleCameraOffset(ParticleModuleCameraOffset) from Partic
 @:forward
 @:nativeGen
 @:native("ParticleModuleCameraOffset*")
-abstract ParticleModuleCameraOffsetPtr(cpp.Star<ParticleModuleCameraOffset>) from cpp.Star<ParticleModuleCameraOffset> to cpp.Star<ParticleModuleCameraOffset>{
+abstract ParticleModuleCameraOffsetPtr(ucpp.Ptr<ParticleModuleCameraOffset>) from ucpp.Ptr<ParticleModuleCameraOffset> to ucpp.Ptr<ParticleModuleCameraOffset>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleCameraOffset): ParticleModuleCameraOffsetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceCustomData3Vector")
 @:include("Materials/MaterialExpressionPerInstanceCustomData.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPerInstanceCustomData3Vector extends MaterialExpression {
 	public var DefaultValue: ExpressionInput;
 	public var ConstDefaultValue: LinearColor;
-	public var DataIndex: cpp.UInt32;
+	public var DataIndex: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstMaterialExpressionPerInstanceCustomData3Vector(MaterialExpressionP
 	public inline extern function get_DefaultValue(): ExpressionInput return this.DefaultValue;
 	public extern var ConstDefaultValue(get, never): LinearColor;
 	public inline extern function get_ConstDefaultValue(): LinearColor return this.ConstDefaultValue;
-	public extern var DataIndex(get, never): cpp.UInt32;
-	public inline extern function get_DataIndex(): cpp.UInt32 return this.DataIndex;
+	public extern var DataIndex(get, never): ucpp.num.UInt32;
+	public inline extern function get_DataIndex(): ucpp.num.UInt32 return this.DataIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPerInstanceCustomData3Vector*")
-abstract MaterialExpressionPerInstanceCustomData3VectorPtr(cpp.Star<MaterialExpressionPerInstanceCustomData3Vector>) from cpp.Star<MaterialExpressionPerInstanceCustomData3Vector> to cpp.Star<MaterialExpressionPerInstanceCustomData3Vector>{
+abstract MaterialExpressionPerInstanceCustomData3VectorPtr(ucpp.Ptr<MaterialExpressionPerInstanceCustomData3Vector>) from ucpp.Ptr<MaterialExpressionPerInstanceCustomData3Vector> to ucpp.Ptr<MaterialExpressionPerInstanceCustomData3Vector>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPerInstanceCustomData3Vector): MaterialExpressionPerInstanceCustomData3VectorPtr {
 		return untyped __cpp__("&({0})", v);

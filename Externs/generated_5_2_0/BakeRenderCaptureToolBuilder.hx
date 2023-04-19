@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBakeRenderCaptureToolBuilder")
 @:include("BakeRenderCaptureTool.h")
-@:structAccess
+@:valueType
 extern class BakeRenderCaptureToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBakeRenderCaptureToolBuilder(BakeRenderCaptureToolBuilder) from Ba
 @:forward
 @:nativeGen
 @:native("BakeRenderCaptureToolBuilder*")
-abstract BakeRenderCaptureToolBuilderPtr(cpp.Star<BakeRenderCaptureToolBuilder>) from cpp.Star<BakeRenderCaptureToolBuilder> to cpp.Star<BakeRenderCaptureToolBuilder>{
+abstract BakeRenderCaptureToolBuilderPtr(ucpp.Ptr<BakeRenderCaptureToolBuilder>) from ucpp.Ptr<BakeRenderCaptureToolBuilder> to ucpp.Ptr<BakeRenderCaptureToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BakeRenderCaptureToolBuilder): BakeRenderCaptureToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

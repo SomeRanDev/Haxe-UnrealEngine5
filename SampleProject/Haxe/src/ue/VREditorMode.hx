@@ -3,31 +3,39 @@ package ue;
 
 @:native("UVREditorMode")
 @:include("VREditorMode.h")
-@:structAccess
-extern class VREditorMode extends EditorWorldExtension {
-	@:protected public var AvatarActor: cpp.Star<VREditorAvatarActor>;
-	@:protected public var UISystem: cpp.Star<VREditorUISystem>;
-	@:protected public var TeleportActor: cpp.Star<VREditorTeleporter>;
-	@:protected public var AutoScalerSystem: cpp.Star<VREditorAutoScaler>;
-	@:protected public var WorldInteraction: cpp.Star<ViewportWorldInteraction>;
-	@:protected public var PlacementSystem: cpp.Star<VREditorPlacement>;
-	@:protected public var Interactors: TArray<cpp.Star<VREditorInteractor>>;
-	private var AssetContainer: cpp.Star<VREditorAssetContainer>;
+@:valueType
+extern class VREditorMode extends VREditorModeBase {
+	@:protected public var AvatarActor: ucpp.Ptr<VREditorAvatarActor>;
+	@:protected public var UISystem: ucpp.Ptr<VREditorUISystem>;
+	@:protected public var TeleportActor: ucpp.Ptr<VREditorTeleporter>;
+	@:protected public var AutoScalerSystem: ucpp.Ptr<VREditorAutoScaler>;
+	@:protected public var WorldInteraction: ucpp.Ptr<ViewportWorldInteraction>;
+	@:protected public var PlacementSystem: ucpp.Ptr<VREditorPlacement>;
+	@:protected public var Interactors: TArray<ucpp.Ptr<VREditorInteractor>>;
+	public var InteractorClass: TSoftClassPtr<Class>;
+	public var TeleporterClass: TSoftClassPtr<Class>;
+	private var AssetContainer: ucpp.Ptr<VREditorAssetContainer>;
 
-	public function GetWorldScaleFactor(): cpp.Float32;
+	public function SetGameView(bGameView: Bool): Void;
+	public function IsInGameView(): Bool;
+	public function GetWorldScaleFactor(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetWorldScaleFactor)
+@:forward(IsInGameView, GetWorldScaleFactor)
 @:nativeGen
 abstract ConstVREditorMode(VREditorMode) from VREditorMode {
+	public extern var InteractorClass(get, never): TSoftClassPtr<Class.ConstClass>;
+	public inline extern function get_InteractorClass(): TSoftClassPtr<Class.ConstClass> return this.InteractorClass;
+	public extern var TeleporterClass(get, never): TSoftClassPtr<Class.ConstClass>;
+	public inline extern function get_TeleporterClass(): TSoftClassPtr<Class.ConstClass> return this.TeleporterClass;
 }
 
 @:forward
 @:nativeGen
 @:native("VREditorMode*")
-abstract VREditorModePtr(cpp.Star<VREditorMode>) from cpp.Star<VREditorMode> to cpp.Star<VREditorMode>{
+abstract VREditorModePtr(ucpp.Ptr<VREditorMode>) from ucpp.Ptr<VREditorMode> to ucpp.Ptr<VREditorMode>{
 	@:from
 	public static extern inline function fromValue(v: VREditorMode): VREditorModePtr {
 		return untyped __cpp__("&({0})", v);

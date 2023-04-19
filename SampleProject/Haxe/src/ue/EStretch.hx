@@ -12,5 +12,6 @@ extern class EStretch {
 	static var ScaleToFill: EStretch;
 	static var ScaleBySafeZone: EStretch;
 	static var UserSpecified: EStretch;
+	static var UserSpecifiedWithClipping: EStretch;
 	static var EStretch_MAX: EStretch;
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMFunctionCompilationData")
 @:include("RigVMCore/RigVMGraphFunctionDefinition.h")
-@:structAccess
+@:valueType
 extern class RigVMFunctionCompilationData {
 	public var ByteCode: RigVMByteCode;
 	public var FunctionNames: TArray<FName>;
@@ -15,9 +15,9 @@ extern class RigVMFunctionCompilationData {
 	public var DebugPropertyPathDescriptions: TArray<RigVMFunctionCompilationPropertyPath>;
 	public var ExternalPropertyDescriptions: TArray<RigVMFunctionCompilationPropertyDescription>;
 	public var ExternalPropertyPathDescriptions: TArray<RigVMFunctionCompilationPropertyPath>;
-	public var ExternalRegisterIndexToVariable: TMap<cpp.Int32, FName>;
+	public var ExternalRegisterIndexToVariable: TMap<ucpp.num.Int32, FName>;
 	public var Operands: TMap<FString, RigVMOperand>;
-	public var Hash: cpp.UInt32;
+	public var Hash: ucpp.num.UInt32;
 
 	@:native("FRigVMFunctionCompilationData") public function new();
 }

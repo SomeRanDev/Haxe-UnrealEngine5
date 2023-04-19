@@ -3,14 +3,14 @@ package ue;
 
 @:native("UFileMediaSource")
 @:include("FileMediaSource.h")
-@:structAccess
+@:valueType
 extern class FileMediaSource extends BaseMediaSource {
 	public var FilePath: FString;
 	public var PrecacheFile: Bool;
 
 	public function SetFilePath(Path: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstFileMediaSource(FileMediaSource) from FileMediaSource {
 @:forward
 @:nativeGen
 @:native("FileMediaSource*")
-abstract FileMediaSourcePtr(cpp.Star<FileMediaSource>) from cpp.Star<FileMediaSource> to cpp.Star<FileMediaSource>{
+abstract FileMediaSourcePtr(ucpp.Ptr<FileMediaSource>) from ucpp.Ptr<FileMediaSource> to ucpp.Ptr<FileMediaSource>{
 	@:from
 	public static extern inline function fromValue(v: FileMediaSource): FileMediaSourcePtr {
 		return untyped __cpp__("&({0})", v);

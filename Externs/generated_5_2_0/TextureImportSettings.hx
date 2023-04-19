@@ -3,21 +3,21 @@ package ue;
 
 @:native("UTextureImportSettings")
 @:include("TextureImportSettings.h")
-@:structAccess
+@:valueType
 extern class TextureImportSettings extends DeveloperSettings {
-	public var AutoVTSize: cpp.Int32;
+	public var AutoVTSize: ucpp.num.Int32;
 	public var bEnableNormalizeNormals: Bool;
 	public var bEnableFastMipFilter: Bool;
 	public var CompressedFormatForFloatTextures: ETextureImportFloatingPointFormat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureImportSettings(TextureImportSettings) from TextureImportSettings {
-	public extern var AutoVTSize(get, never): cpp.Int32;
-	public inline extern function get_AutoVTSize(): cpp.Int32 return this.AutoVTSize;
+	public extern var AutoVTSize(get, never): ucpp.num.Int32;
+	public inline extern function get_AutoVTSize(): ucpp.num.Int32 return this.AutoVTSize;
 	public extern var bEnableNormalizeNormals(get, never): Bool;
 	public inline extern function get_bEnableNormalizeNormals(): Bool return this.bEnableNormalizeNormals;
 	public extern var bEnableFastMipFilter(get, never): Bool;
@@ -29,7 +29,7 @@ abstract ConstTextureImportSettings(TextureImportSettings) from TextureImportSet
 @:forward
 @:nativeGen
 @:native("TextureImportSettings*")
-abstract TextureImportSettingsPtr(cpp.Star<TextureImportSettings>) from cpp.Star<TextureImportSettings> to cpp.Star<TextureImportSettings>{
+abstract TextureImportSettingsPtr(ucpp.Ptr<TextureImportSettings>) from ucpp.Ptr<TextureImportSettings> to ucpp.Ptr<TextureImportSettings>{
 	@:from
 	public static extern inline function fromValue(v: TextureImportSettings): TextureImportSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTService_DefaultFocus")
 @:include("BehaviorTree/Services/BTService_DefaultFocus.h")
-@:structAccess
+@:valueType
 extern class BTService_DefaultFocus extends BTService_BlackboardBase {
-	@:protected public var FocusPriority: cpp.UInt8;
+	@:protected public var FocusPriority: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTService_DefaultFocus(BTService_DefaultFocus) from BTService_Defa
 @:forward
 @:nativeGen
 @:native("BTService_DefaultFocus*")
-abstract BTService_DefaultFocusPtr(cpp.Star<BTService_DefaultFocus>) from cpp.Star<BTService_DefaultFocus> to cpp.Star<BTService_DefaultFocus>{
+abstract BTService_DefaultFocusPtr(ucpp.Ptr<BTService_DefaultFocus>) from ucpp.Ptr<BTService_DefaultFocus> to ucpp.Ptr<BTService_DefaultFocus>{
 	@:from
 	public static extern inline function fromValue(v: BTService_DefaultFocus): BTService_DefaultFocusPtr {
 		return untyped __cpp__("&({0})", v);

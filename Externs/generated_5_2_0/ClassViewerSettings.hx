@@ -3,13 +3,13 @@ package ue;
 
 @:native("UClassViewerSettings")
 @:include("Settings/ClassViewerSettings.h")
-@:structAccess
+@:valueType
 extern class ClassViewerSettings extends Object {
 	public var AllowedClasses: TArray<FString>;
 	public var DisplayInternalClasses: Bool;
 	public var DeveloperFolderType: EClassViewerDeveloperType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstClassViewerSettings(ClassViewerSettings) from ClassViewerSettings 
 @:forward
 @:nativeGen
 @:native("ClassViewerSettings*")
-abstract ClassViewerSettingsPtr(cpp.Star<ClassViewerSettings>) from cpp.Star<ClassViewerSettings> to cpp.Star<ClassViewerSettings>{
+abstract ClassViewerSettingsPtr(ucpp.Ptr<ClassViewerSettings>) from ucpp.Ptr<ClassViewerSettings> to ucpp.Ptr<ClassViewerSettings>{
 	@:from
 	public static extern inline function fromValue(v: ClassViewerSettings): ClassViewerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

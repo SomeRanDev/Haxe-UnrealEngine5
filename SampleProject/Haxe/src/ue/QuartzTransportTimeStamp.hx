@@ -3,13 +3,13 @@ package ue;
 
 @:native("FQuartzTransportTimeStamp")
 @:include("Sound/QuartzQuantizationUtilities.h")
-@:structAccess
+@:valueType
 extern class QuartzTransportTimeStamp {
-	public var Bars: cpp.Int32;
-	public var Beat: cpp.Int32;
-	public var BeatFraction: cpp.Float32;
-	public var Seconds: cpp.Float32;
+	public var Bars: ucpp.num.Int32;
+	public var Beat: ucpp.num.Int32;
+	public var BeatFraction: ucpp.num.Float32;
+	public var Seconds: ucpp.num.Float32;
 
 	@:native("FQuartzTransportTimeStamp") public function new();
-	@:native("FQuartzTransportTimeStamp") public static function make(Bars: cpp.Int32, Beat: cpp.Int32, BeatFraction: cpp.Float32, Seconds: cpp.Float32): QuartzTransportTimeStamp ;
+	@:native("FQuartzTransportTimeStamp") public static function make(Bars: ucpp.num.Int32, Beat: ucpp.num.Int32, BeatFraction: ucpp.num.Float32, Seconds: ucpp.num.Float32): QuartzTransportTimeStamp ;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTypedElementRegistry")
 @:include("Elements/Framework/TypedElementRegistry.h")
-@:structAccess
+@:valueType
 extern class TypedElementRegistry extends Object {
-	public function GetInstance(): cpp.Star<TypedElementRegistry>;
-	public function GetElementInterface(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InBaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Star<Object>;
+	public function GetInstance(): ucpp.Ptr<TypedElementRegistry>;
+	public function GetElementInterface(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InBaseInterfaceType: TSubclassOf<Interface.ConstInterface>): ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetElementInterface)
@@ -19,7 +19,7 @@ abstract ConstTypedElementRegistry(TypedElementRegistry) from TypedElementRegist
 @:forward
 @:nativeGen
 @:native("TypedElementRegistry*")
-abstract TypedElementRegistryPtr(cpp.Star<TypedElementRegistry>) from cpp.Star<TypedElementRegistry> to cpp.Star<TypedElementRegistry>{
+abstract TypedElementRegistryPtr(ucpp.Ptr<TypedElementRegistry>) from ucpp.Ptr<TypedElementRegistry> to ucpp.Ptr<TypedElementRegistry>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementRegistry): TypedElementRegistryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayDebuggerInputConfig")
 @:include("GameplayDebuggerConfig.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerInputConfig {
 	public var ConfigName: FString;
 	public var Key: Key;

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UOperatorField")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class OperatorField extends FieldNodeBase {
-	public var Magnitude: cpp.Float32;
-	public var RightField: cpp.Star<FieldNodeBase>;
-	public var LeftField: cpp.Star<FieldNodeBase>;
+	public var Magnitude: ucpp.num.Float32;
+	public var RightField: ucpp.Ptr<FieldNodeBase>;
+	public var LeftField: ucpp.Ptr<FieldNodeBase>;
 	public var Operation: TEnumAsByte<EFieldOperationType>;
 
-	public function SetOperatorField(Magnitude: cpp.Float32, LeftField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, RightField: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: TEnumAsByte<EFieldOperationType>): cpp.Star<OperatorField>;
+	public function SetOperatorField(Magnitude: ucpp.num.Float32, LeftField: ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>, RightField: ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>, Operation: TEnumAsByte<EFieldOperationType>): ucpp.Ptr<OperatorField>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstOperatorField(OperatorField) from OperatorField {
-	public extern var Magnitude(get, never): cpp.Float32;
-	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
-	public extern var RightField(get, never): cpp.Star<FieldNodeBase.ConstFieldNodeBase>;
-	public inline extern function get_RightField(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.RightField;
-	public extern var LeftField(get, never): cpp.Star<FieldNodeBase.ConstFieldNodeBase>;
-	public inline extern function get_LeftField(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.LeftField;
+	public extern var Magnitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Magnitude(): ucpp.num.Float32 return this.Magnitude;
+	public extern var RightField(get, never): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>;
+	public inline extern function get_RightField(): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase> return this.RightField;
+	public extern var LeftField(get, never): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>;
+	public inline extern function get_LeftField(): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase> return this.LeftField;
 	public extern var Operation(get, never): TEnumAsByte<EFieldOperationType>;
 	public inline extern function get_Operation(): TEnumAsByte<EFieldOperationType> return this.Operation;
 }
@@ -31,7 +31,7 @@ abstract ConstOperatorField(OperatorField) from OperatorField {
 @:forward
 @:nativeGen
 @:native("OperatorField*")
-abstract OperatorFieldPtr(cpp.Star<OperatorField>) from cpp.Star<OperatorField> to cpp.Star<OperatorField>{
+abstract OperatorFieldPtr(ucpp.Ptr<OperatorField>) from ucpp.Ptr<OperatorField> to ucpp.Ptr<OperatorField>{
 	@:from
 	public static extern inline function fromValue(v: OperatorField): OperatorFieldPtr {
 		return untyped __cpp__("&({0})", v);

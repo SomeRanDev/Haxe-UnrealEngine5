@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactory")
 @:include("ActorFactories/ActorFactory.h")
-@:structAccess
+@:valueType
 extern class ActorFactory extends Object {
 	public var DisplayName: FText;
-	public var MenuPriority: cpp.Int32;
+	public var MenuPriority: ucpp.num.Int32;
 	public var NewActorClassName: FString;
 	public var NewActorClass: TSubclassOf<Actor>;
 	public var bShowInEditorQuickMenu: Bool;
@@ -14,7 +14,7 @@ extern class ActorFactory extends Object {
 	public var bUsePlacementExtent: Bool;
 	public var SpawnPositionOffset: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,8 +22,8 @@ extern class ActorFactory extends Object {
 abstract ConstActorFactory(ActorFactory) from ActorFactory {
 	public extern var DisplayName(get, never): FText;
 	public inline extern function get_DisplayName(): FText return this.DisplayName;
-	public extern var MenuPriority(get, never): cpp.Int32;
-	public inline extern function get_MenuPriority(): cpp.Int32 return this.MenuPriority;
+	public extern var MenuPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_MenuPriority(): ucpp.num.Int32 return this.MenuPriority;
 	public extern var NewActorClassName(get, never): FString;
 	public inline extern function get_NewActorClassName(): FString return this.NewActorClassName;
 	public extern var NewActorClass(get, never): TSubclassOf<Actor.ConstActor>;
@@ -41,7 +41,7 @@ abstract ConstActorFactory(ActorFactory) from ActorFactory {
 @:forward
 @:nativeGen
 @:native("ActorFactory*")
-abstract ActorFactoryPtr(cpp.Star<ActorFactory>) from cpp.Star<ActorFactory> to cpp.Star<ActorFactory>{
+abstract ActorFactoryPtr(ucpp.Ptr<ActorFactory>) from ucpp.Ptr<ActorFactory> to ucpp.Ptr<ActorFactory>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactory): ActorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

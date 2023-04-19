@@ -3,7 +3,7 @@ package ue;
 
 @:native("ALevelScriptActor")
 @:include("Engine/LevelScriptActor.h")
-@:structAccess
+@:valueType
 extern class LevelScriptActor extends Actor {
 	private var bInputEnabled: Bool;
 
@@ -12,7 +12,7 @@ extern class LevelScriptActor extends Actor {
 	public function RemoteEvent(EventName: FName): Bool;
 	public function LevelReset(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLevelScriptActor(LevelScriptActor) from LevelScriptActor {
 @:forward
 @:nativeGen
 @:native("LevelScriptActor*")
-abstract LevelScriptActorPtr(cpp.Star<LevelScriptActor>) from cpp.Star<LevelScriptActor> to cpp.Star<LevelScriptActor>{
+abstract LevelScriptActorPtr(ucpp.Ptr<LevelScriptActor>) from ucpp.Ptr<LevelScriptActor> to ucpp.Ptr<LevelScriptActor>{
 	@:from
 	public static extern inline function fromValue(v: LevelScriptActor): LevelScriptActorPtr {
 		return untyped __cpp__("&({0})", v);

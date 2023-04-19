@@ -3,27 +3,27 @@ package ue;
 
 @:native("UEnvQueryOption")
 @:include("EnvironmentQuery/EnvQueryOption.h")
-@:structAccess
+@:valueType
 extern class EnvQueryOption extends Object {
-	public var Generator: cpp.Star<EnvQueryGenerator>;
-	public var Tests: TArray<cpp.Star<EnvQueryTest>>;
+	public var Generator: ucpp.Ptr<EnvQueryGenerator>;
+	public var Tests: TArray<ucpp.Ptr<EnvQueryTest>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryOption(EnvQueryOption) from EnvQueryOption {
-	public extern var Generator(get, never): cpp.Star<EnvQueryGenerator.ConstEnvQueryGenerator>;
-	public inline extern function get_Generator(): cpp.Star<EnvQueryGenerator.ConstEnvQueryGenerator> return this.Generator;
-	public extern var Tests(get, never): TArray<cpp.Star<EnvQueryTest.ConstEnvQueryTest>>;
-	public inline extern function get_Tests(): TArray<cpp.Star<EnvQueryTest.ConstEnvQueryTest>> return this.Tests;
+	public extern var Generator(get, never): ucpp.Ptr<EnvQueryGenerator.ConstEnvQueryGenerator>;
+	public inline extern function get_Generator(): ucpp.Ptr<EnvQueryGenerator.ConstEnvQueryGenerator> return this.Generator;
+	public extern var Tests(get, never): TArray<ucpp.Ptr<EnvQueryTest.ConstEnvQueryTest>>;
+	public inline extern function get_Tests(): TArray<ucpp.Ptr<EnvQueryTest.ConstEnvQueryTest>> return this.Tests;
 }
 
 @:forward
 @:nativeGen
 @:native("EnvQueryOption*")
-abstract EnvQueryOptionPtr(cpp.Star<EnvQueryOption>) from cpp.Star<EnvQueryOption> to cpp.Star<EnvQueryOption>{
+abstract EnvQueryOptionPtr(ucpp.Ptr<EnvQueryOption>) from ucpp.Ptr<EnvQueryOption> to ucpp.Ptr<EnvQueryOption>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryOption): EnvQueryOptionPtr {
 		return untyped __cpp__("&({0})", v);

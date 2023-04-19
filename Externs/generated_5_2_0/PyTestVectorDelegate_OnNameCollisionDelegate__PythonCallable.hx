@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable(PyTes
 @:forward
 @:nativeGen
 @:native("PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable*")
-abstract PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallablePtr(cpp.Star<PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable>) from cpp.Star<PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable> to cpp.Star<PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable>{
+abstract PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallablePtr(ucpp.Ptr<PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable>) from ucpp.Ptr<PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable> to ucpp.Ptr<PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallable): PyTestVectorDelegate_OnNameCollisionDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

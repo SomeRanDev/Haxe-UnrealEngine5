@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetGuideline")
 @:include("Editor/AssetGuideline.h")
-@:structAccess
+@:valueType
 extern class AssetGuideline extends AssetUserData {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetGuideline(AssetGuideline) from AssetGuideline {
 @:forward
 @:nativeGen
 @:native("AssetGuideline*")
-abstract AssetGuidelinePtr(cpp.Star<AssetGuideline>) from cpp.Star<AssetGuideline> to cpp.Star<AssetGuideline>{
+abstract AssetGuidelinePtr(ucpp.Ptr<AssetGuideline>) from ucpp.Ptr<AssetGuideline> to ucpp.Ptr<AssetGuideline>{
 	@:from
 	public static extern inline function fromValue(v: AssetGuideline): AssetGuidelinePtr {
 		return untyped __cpp__("&({0})", v);

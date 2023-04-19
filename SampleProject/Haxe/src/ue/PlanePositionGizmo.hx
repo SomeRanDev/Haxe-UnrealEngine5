@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPlanePositionGizmo")
 @:include("BaseGizmos/PlanePositionGizmo.h")
-@:structAccess
+@:valueType
 extern class PlanePositionGizmo extends InteractiveGizmo {
 	public var AxisSource: GizmoAxisSource;
 	public var ParameterSource: GizmoVec2ParameterSource;
 	public var HitTarget: GizmoClickTarget;
 	public var StateTarget: GizmoStateTarget;
-	public var MouseBehavior: cpp.Star<ClickDragInputBehavior>;
+	public var MouseBehavior: ucpp.Ptr<ClickDragInputBehavior>;
 	public var bEnableSignedAxis: Bool;
 	public var bFlipX: Bool;
 	public var bFlipY: Bool;
@@ -24,7 +24,7 @@ extern class PlanePositionGizmo extends InteractiveGizmo {
 	public var InteractionCurParameter: Vector2D;
 	public var ParameterSigns: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,8 +38,8 @@ abstract ConstPlanePositionGizmo(PlanePositionGizmo) from PlanePositionGizmo {
 	public inline extern function get_HitTarget(): GizmoClickTarget.ConstGizmoClickTarget return this.HitTarget;
 	public extern var StateTarget(get, never): GizmoStateTarget.ConstGizmoStateTarget;
 	public inline extern function get_StateTarget(): GizmoStateTarget.ConstGizmoStateTarget return this.StateTarget;
-	public extern var MouseBehavior(get, never): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior>;
-	public inline extern function get_MouseBehavior(): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
+	public extern var MouseBehavior(get, never): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior>;
+	public inline extern function get_MouseBehavior(): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
 	public extern var bEnableSignedAxis(get, never): Bool;
 	public inline extern function get_bEnableSignedAxis(): Bool return this.bEnableSignedAxis;
 	public extern var bFlipX(get, never): Bool;
@@ -71,7 +71,7 @@ abstract ConstPlanePositionGizmo(PlanePositionGizmo) from PlanePositionGizmo {
 @:forward
 @:nativeGen
 @:native("PlanePositionGizmo*")
-abstract PlanePositionGizmoPtr(cpp.Star<PlanePositionGizmo>) from cpp.Star<PlanePositionGizmo> to cpp.Star<PlanePositionGizmo>{
+abstract PlanePositionGizmoPtr(ucpp.Ptr<PlanePositionGizmo>) from ucpp.Ptr<PlanePositionGizmo> to ucpp.Ptr<PlanePositionGizmo>{
 	@:from
 	public static extern inline function fromValue(v: PlanePositionGizmo): PlanePositionGizmoPtr {
 		return untyped __cpp__("&({0})", v);

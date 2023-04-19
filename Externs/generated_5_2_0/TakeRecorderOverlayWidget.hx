@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTakeRecorderOverlayWidget")
 @:include("TakeRecorderOverlayWidget.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderOverlayWidget extends UserWidget {
-	@:protected public var Recorder: cpp.Star<TakeRecorder>;
+	@:protected public var Recorder: ucpp.Ptr<TakeRecorder>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTakeRecorderOverlayWidget(TakeRecorderOverlayWidget) from TakeReco
 @:forward
 @:nativeGen
 @:native("TakeRecorderOverlayWidget*")
-abstract TakeRecorderOverlayWidgetPtr(cpp.Star<TakeRecorderOverlayWidget>) from cpp.Star<TakeRecorderOverlayWidget> to cpp.Star<TakeRecorderOverlayWidget>{
+abstract TakeRecorderOverlayWidgetPtr(ucpp.Ptr<TakeRecorderOverlayWidget>) from ucpp.Ptr<TakeRecorderOverlayWidget> to ucpp.Ptr<TakeRecorderOverlayWidget>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderOverlayWidget): TakeRecorderOverlayWidgetPtr {
 		return untyped __cpp__("&({0})", v);

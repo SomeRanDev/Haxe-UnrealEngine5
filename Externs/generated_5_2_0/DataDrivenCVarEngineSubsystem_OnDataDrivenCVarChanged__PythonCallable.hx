@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UDataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstDataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCalla
 @:forward
 @:nativeGen
 @:native("DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable*")
-abstract DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallablePtr(cpp.Star<DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable>) from cpp.Star<DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable> to cpp.Star<DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable>{
+abstract DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallablePtr(ucpp.Ptr<DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable>) from ucpp.Ptr<DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable> to ucpp.Ptr<DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallable): DataDrivenCVarEngineSubsystem_OnDataDrivenCVarChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

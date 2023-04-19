@@ -3,49 +3,52 @@ package ue;
 
 @:native("UPhysicsSettingsCore")
 @:include("PhysicsSettingsCore.h")
-@:structAccess
+@:valueType
 extern class PhysicsSettingsCore extends DeveloperSettings {
-	public var DefaultGravityZ: cpp.Float32;
-	public var DefaultTerminalVelocity: cpp.Float32;
-	public var DefaultFluidFriction: cpp.Float32;
-	public var SimulateScratchMemorySize: cpp.Int32;
-	public var RagdollAggregateThreshold: cpp.Int32;
-	public var TriangleMeshTriangleMinAreaThreshold: cpp.Float32;
+	public var DefaultGravityZ: ucpp.num.Float32;
+	public var DefaultTerminalVelocity: ucpp.num.Float32;
+	public var DefaultFluidFriction: ucpp.num.Float32;
+	public var SimulateScratchMemorySize: ucpp.num.Int32;
+	public var RagdollAggregateThreshold: ucpp.num.Int32;
+	public var TriangleMeshTriangleMinAreaThreshold: ucpp.num.Float32;
+	public var bEnableEnhancedDeterminism: Bool;
 	public var bEnableShapeSharing: Bool;
 	public var bEnablePCM: Bool;
 	public var bEnableStabilization: Bool;
 	public var bWarnMissingLocks: Bool;
 	public var bEnable2DPhysics: Bool;
-	public var BounceThresholdVelocity: cpp.Float32;
+	public var BounceThresholdVelocity: ucpp.num.Float32;
 	public var FrictionCombineMode: TEnumAsByte<EFrictionCombineMode>;
 	public var RestitutionCombineMode: TEnumAsByte<EFrictionCombineMode>;
-	public var MaxAngularVelocity: cpp.Float32;
-	public var MaxDepenetrationVelocity: cpp.Float32;
-	public var ContactOffsetMultiplier: cpp.Float32;
-	public var MinContactOffset: cpp.Float32;
-	public var MaxContactOffset: cpp.Float32;
+	public var MaxAngularVelocity: ucpp.num.Float32;
+	public var MaxDepenetrationVelocity: ucpp.num.Float32;
+	public var ContactOffsetMultiplier: ucpp.num.Float32;
+	public var MinContactOffset: ucpp.num.Float32;
+	public var MaxContactOffset: ucpp.num.Float32;
 	public var bSimulateSkeletalMeshOnDedicatedServer: Bool;
 	public var DefaultShapeComplexity: TEnumAsByte<ECollisionTraceFlag>;
 	public var SolverOptions: ChaosSolverConfiguration;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPhysicsSettingsCore(PhysicsSettingsCore) from PhysicsSettingsCore {
-	public extern var DefaultGravityZ(get, never): cpp.Float32;
-	public inline extern function get_DefaultGravityZ(): cpp.Float32 return this.DefaultGravityZ;
-	public extern var DefaultTerminalVelocity(get, never): cpp.Float32;
-	public inline extern function get_DefaultTerminalVelocity(): cpp.Float32 return this.DefaultTerminalVelocity;
-	public extern var DefaultFluidFriction(get, never): cpp.Float32;
-	public inline extern function get_DefaultFluidFriction(): cpp.Float32 return this.DefaultFluidFriction;
-	public extern var SimulateScratchMemorySize(get, never): cpp.Int32;
-	public inline extern function get_SimulateScratchMemorySize(): cpp.Int32 return this.SimulateScratchMemorySize;
-	public extern var RagdollAggregateThreshold(get, never): cpp.Int32;
-	public inline extern function get_RagdollAggregateThreshold(): cpp.Int32 return this.RagdollAggregateThreshold;
-	public extern var TriangleMeshTriangleMinAreaThreshold(get, never): cpp.Float32;
-	public inline extern function get_TriangleMeshTriangleMinAreaThreshold(): cpp.Float32 return this.TriangleMeshTriangleMinAreaThreshold;
+	public extern var DefaultGravityZ(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultGravityZ(): ucpp.num.Float32 return this.DefaultGravityZ;
+	public extern var DefaultTerminalVelocity(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultTerminalVelocity(): ucpp.num.Float32 return this.DefaultTerminalVelocity;
+	public extern var DefaultFluidFriction(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultFluidFriction(): ucpp.num.Float32 return this.DefaultFluidFriction;
+	public extern var SimulateScratchMemorySize(get, never): ucpp.num.Int32;
+	public inline extern function get_SimulateScratchMemorySize(): ucpp.num.Int32 return this.SimulateScratchMemorySize;
+	public extern var RagdollAggregateThreshold(get, never): ucpp.num.Int32;
+	public inline extern function get_RagdollAggregateThreshold(): ucpp.num.Int32 return this.RagdollAggregateThreshold;
+	public extern var TriangleMeshTriangleMinAreaThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_TriangleMeshTriangleMinAreaThreshold(): ucpp.num.Float32 return this.TriangleMeshTriangleMinAreaThreshold;
+	public extern var bEnableEnhancedDeterminism(get, never): Bool;
+	public inline extern function get_bEnableEnhancedDeterminism(): Bool return this.bEnableEnhancedDeterminism;
 	public extern var bEnableShapeSharing(get, never): Bool;
 	public inline extern function get_bEnableShapeSharing(): Bool return this.bEnableShapeSharing;
 	public extern var bEnablePCM(get, never): Bool;
@@ -56,22 +59,22 @@ abstract ConstPhysicsSettingsCore(PhysicsSettingsCore) from PhysicsSettingsCore 
 	public inline extern function get_bWarnMissingLocks(): Bool return this.bWarnMissingLocks;
 	public extern var bEnable2DPhysics(get, never): Bool;
 	public inline extern function get_bEnable2DPhysics(): Bool return this.bEnable2DPhysics;
-	public extern var BounceThresholdVelocity(get, never): cpp.Float32;
-	public inline extern function get_BounceThresholdVelocity(): cpp.Float32 return this.BounceThresholdVelocity;
+	public extern var BounceThresholdVelocity(get, never): ucpp.num.Float32;
+	public inline extern function get_BounceThresholdVelocity(): ucpp.num.Float32 return this.BounceThresholdVelocity;
 	public extern var FrictionCombineMode(get, never): TEnumAsByte<EFrictionCombineMode>;
 	public inline extern function get_FrictionCombineMode(): TEnumAsByte<EFrictionCombineMode> return this.FrictionCombineMode;
 	public extern var RestitutionCombineMode(get, never): TEnumAsByte<EFrictionCombineMode>;
 	public inline extern function get_RestitutionCombineMode(): TEnumAsByte<EFrictionCombineMode> return this.RestitutionCombineMode;
-	public extern var MaxAngularVelocity(get, never): cpp.Float32;
-	public inline extern function get_MaxAngularVelocity(): cpp.Float32 return this.MaxAngularVelocity;
-	public extern var MaxDepenetrationVelocity(get, never): cpp.Float32;
-	public inline extern function get_MaxDepenetrationVelocity(): cpp.Float32 return this.MaxDepenetrationVelocity;
-	public extern var ContactOffsetMultiplier(get, never): cpp.Float32;
-	public inline extern function get_ContactOffsetMultiplier(): cpp.Float32 return this.ContactOffsetMultiplier;
-	public extern var MinContactOffset(get, never): cpp.Float32;
-	public inline extern function get_MinContactOffset(): cpp.Float32 return this.MinContactOffset;
-	public extern var MaxContactOffset(get, never): cpp.Float32;
-	public inline extern function get_MaxContactOffset(): cpp.Float32 return this.MaxContactOffset;
+	public extern var MaxAngularVelocity(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxAngularVelocity(): ucpp.num.Float32 return this.MaxAngularVelocity;
+	public extern var MaxDepenetrationVelocity(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDepenetrationVelocity(): ucpp.num.Float32 return this.MaxDepenetrationVelocity;
+	public extern var ContactOffsetMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_ContactOffsetMultiplier(): ucpp.num.Float32 return this.ContactOffsetMultiplier;
+	public extern var MinContactOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_MinContactOffset(): ucpp.num.Float32 return this.MinContactOffset;
+	public extern var MaxContactOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxContactOffset(): ucpp.num.Float32 return this.MaxContactOffset;
 	public extern var bSimulateSkeletalMeshOnDedicatedServer(get, never): Bool;
 	public inline extern function get_bSimulateSkeletalMeshOnDedicatedServer(): Bool return this.bSimulateSkeletalMeshOnDedicatedServer;
 	public extern var DefaultShapeComplexity(get, never): TEnumAsByte<ECollisionTraceFlag>;
@@ -83,7 +86,7 @@ abstract ConstPhysicsSettingsCore(PhysicsSettingsCore) from PhysicsSettingsCore 
 @:forward
 @:nativeGen
 @:native("PhysicsSettingsCore*")
-abstract PhysicsSettingsCorePtr(cpp.Star<PhysicsSettingsCore>) from cpp.Star<PhysicsSettingsCore> to cpp.Star<PhysicsSettingsCore>{
+abstract PhysicsSettingsCorePtr(ucpp.Ptr<PhysicsSettingsCore>) from ucpp.Ptr<PhysicsSettingsCore> to ucpp.Ptr<PhysicsSettingsCore>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsSettingsCore): PhysicsSettingsCorePtr {
 		return untyped __cpp__("&({0})", v);

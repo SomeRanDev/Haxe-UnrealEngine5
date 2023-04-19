@@ -3,15 +3,15 @@ package ue;
 
 @:native("FSubmixEffectConvolutionReverbSettings")
 @:include("SubmixEffects/SubmixEffectConvolutionReverb.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectConvolutionReverbSettings {
-	public var NormalizationVolumeDb: cpp.Float32;
-	public var WetVolumeDb: cpp.Float32;
-	public var DryVolumeDb: cpp.Float32;
+	public var NormalizationVolumeDb: ucpp.num.Float32;
+	public var WetVolumeDb: ucpp.num.Float32;
+	public var DryVolumeDb: ucpp.num.Float32;
 	public var bBypass: Bool;
 	public var bMixInputChannelFormatToImpulseResponseFormat: Bool;
 	public var bMixReverbOutputToOutputChannelFormat: Bool;
-	public var SurroundRearChannelBleedDb: cpp.Float32;
+	public var SurroundRearChannelBleedDb: ucpp.num.Float32;
 	public var bInvertRearChannelBleedPhase: Bool;
 	public var bSurroundRearChannelFlip: Bool;
 

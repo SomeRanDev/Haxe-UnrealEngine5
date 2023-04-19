@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRepMovement")
 @:include("Engine/ReplicatedState.h")
-@:structAccess
+@:valueType
 extern class RepMovement {
 	public var LinearVelocity: Vector;
 	public var AngularVelocity: Vector;
@@ -11,8 +11,8 @@ extern class RepMovement {
 	public var Rotation: Rotator;
 	public var bSimulatedPhysicSleep: Bool;
 	public var bRepPhysics: Bool;
-	public var ServerFrame: cpp.Int32;
-	public var ServerPhysicsHandle: cpp.Int32;
+	public var ServerFrame: ucpp.num.Int32;
+	public var ServerPhysicsHandle: ucpp.num.Int32;
 	public var LocationQuantizationLevel: EVectorQuantization;
 	public var VelocityQuantizationLevel: EVectorQuantization;
 	public var RotationQuantizationLevel: ERotatorQuantization;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInt32Binding")
 @:include("Binding/Int32Binding.h")
-@:structAccess
+@:valueType
 extern class Int32Binding extends PropertyBinding {
-	public function GetValue(): cpp.Int32;
+	public function GetValue(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstInt32Binding(Int32Binding) from Int32Binding {
 @:forward
 @:nativeGen
 @:native("Int32Binding*")
-abstract Int32BindingPtr(cpp.Star<Int32Binding>) from cpp.Star<Int32Binding> to cpp.Star<Int32Binding>{
+abstract Int32BindingPtr(ucpp.Ptr<Int32Binding>) from ucpp.Ptr<Int32Binding> to ucpp.Ptr<Int32Binding>{
 	@:from
 	public static extern inline function fromValue(v: Int32Binding): Int32BindingPtr {
 		return untyped __cpp__("&({0})", v);

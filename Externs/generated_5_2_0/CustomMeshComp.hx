@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCustomMeshComponent")
 @:include("CustomMeshComponent.h")
-@:structAccess
+@:valueType
 extern class CustomMeshComp extends MeshComp {
-	public function SetCustomMeshTriangles(Triangles: cpp.Reference<TArray<CustomMeshTriangle>>): Bool;
+	public function SetCustomMeshTriangles(Triangles: ucpp.Ref<TArray<CustomMeshTriangle>>): Bool;
 	public function ClearCustomMeshTriangles(): Void;
-	public function AddCustomMeshTriangles(Triangles: cpp.Reference<TArray<CustomMeshTriangle>>): Void;
+	public function AddCustomMeshTriangles(Triangles: ucpp.Ref<TArray<CustomMeshTriangle>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCustomMeshComp(CustomMeshComp) from CustomMeshComp {
 @:forward
 @:nativeGen
 @:native("CustomMeshComp*")
-abstract CustomMeshCompPtr(cpp.Star<CustomMeshComp>) from cpp.Star<CustomMeshComp> to cpp.Star<CustomMeshComp>{
+abstract CustomMeshCompPtr(ucpp.Ptr<CustomMeshComp>) from ucpp.Ptr<CustomMeshComp> to ucpp.Ptr<CustomMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: CustomMeshComp): CustomMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

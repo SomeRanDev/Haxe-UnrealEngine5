@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelEditorDragDropHandler")
 @:include("LevelEditorDragDropHandler.h")
-@:structAccess
+@:valueType
 extern class LevelEditorDragDropHandler extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelEditorDragDropHandler(LevelEditorDragDropHandler) from LevelE
 @:forward
 @:nativeGen
 @:native("LevelEditorDragDropHandler*")
-abstract LevelEditorDragDropHandlerPtr(cpp.Star<LevelEditorDragDropHandler>) from cpp.Star<LevelEditorDragDropHandler> to cpp.Star<LevelEditorDragDropHandler>{
+abstract LevelEditorDragDropHandlerPtr(ucpp.Ptr<LevelEditorDragDropHandler>) from ucpp.Ptr<LevelEditorDragDropHandler> to ucpp.Ptr<LevelEditorDragDropHandler>{
 	@:from
 	public static extern inline function fromValue(v: LevelEditorDragDropHandler): LevelEditorDragDropHandlerPtr {
 		return untyped __cpp__("&({0})", v);

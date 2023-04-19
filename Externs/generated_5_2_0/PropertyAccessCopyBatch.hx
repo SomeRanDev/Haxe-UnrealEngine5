@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPropertyAccessCopyBatch")
 @:include("PropertyAccess.h")
-@:structAccess
+@:valueType
 extern class PropertyAccessCopyBatch {
 	private var Copies: TArray<PropertyAccessCopy>;
 

@@ -3,39 +3,39 @@ package ue;
 
 @:native("UVoxelBlendMeshesToolProperties")
 @:include("VoxelBlendMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelBlendMeshesToolProperties extends InteractiveToolPropertySet {
-	public var BlendPower: cpp.Float64;
-	public var BlendFalloff: cpp.Float64;
+	public var BlendPower: ucpp.num.Float64;
+	public var BlendFalloff: ucpp.num.Float64;
 	public var Operation: EVoxelBlendOperation;
 	public var bVoxWrap: Bool;
 	public var bRemoveInternalsAfterVoxWrap: Bool;
-	public var ThickenShells: cpp.Float64;
+	public var ThickenShells: ucpp.num.Float64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVoxelBlendMeshesToolProperties(VoxelBlendMeshesToolProperties) from VoxelBlendMeshesToolProperties {
-	public extern var BlendPower(get, never): cpp.Float64;
-	public inline extern function get_BlendPower(): cpp.Float64 return this.BlendPower;
-	public extern var BlendFalloff(get, never): cpp.Float64;
-	public inline extern function get_BlendFalloff(): cpp.Float64 return this.BlendFalloff;
+	public extern var BlendPower(get, never): ucpp.num.Float64;
+	public inline extern function get_BlendPower(): ucpp.num.Float64 return this.BlendPower;
+	public extern var BlendFalloff(get, never): ucpp.num.Float64;
+	public inline extern function get_BlendFalloff(): ucpp.num.Float64 return this.BlendFalloff;
 	public extern var Operation(get, never): EVoxelBlendOperation;
 	public inline extern function get_Operation(): EVoxelBlendOperation return this.Operation;
 	public extern var bVoxWrap(get, never): Bool;
 	public inline extern function get_bVoxWrap(): Bool return this.bVoxWrap;
 	public extern var bRemoveInternalsAfterVoxWrap(get, never): Bool;
 	public inline extern function get_bRemoveInternalsAfterVoxWrap(): Bool return this.bRemoveInternalsAfterVoxWrap;
-	public extern var ThickenShells(get, never): cpp.Float64;
-	public inline extern function get_ThickenShells(): cpp.Float64 return this.ThickenShells;
+	public extern var ThickenShells(get, never): ucpp.num.Float64;
+	public inline extern function get_ThickenShells(): ucpp.num.Float64 return this.ThickenShells;
 }
 
 @:forward
 @:nativeGen
 @:native("VoxelBlendMeshesToolProperties*")
-abstract VoxelBlendMeshesToolPropertiesPtr(cpp.Star<VoxelBlendMeshesToolProperties>) from cpp.Star<VoxelBlendMeshesToolProperties> to cpp.Star<VoxelBlendMeshesToolProperties>{
+abstract VoxelBlendMeshesToolPropertiesPtr(ucpp.Ptr<VoxelBlendMeshesToolProperties>) from ucpp.Ptr<VoxelBlendMeshesToolProperties> to ucpp.Ptr<VoxelBlendMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: VoxelBlendMeshesToolProperties): VoxelBlendMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

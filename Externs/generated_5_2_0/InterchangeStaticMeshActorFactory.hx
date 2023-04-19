@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeStaticMeshActorFactory")
 @:include("Scene/InterchangeStaticMeshActorFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangeStaticMeshActorFactory extends InterchangeFactoryBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeStaticMeshActorFactory(InterchangeStaticMeshActorFactor
 @:forward
 @:nativeGen
 @:native("InterchangeStaticMeshActorFactory*")
-abstract InterchangeStaticMeshActorFactoryPtr(cpp.Star<InterchangeStaticMeshActorFactory>) from cpp.Star<InterchangeStaticMeshActorFactory> to cpp.Star<InterchangeStaticMeshActorFactory>{
+abstract InterchangeStaticMeshActorFactoryPtr(ucpp.Ptr<InterchangeStaticMeshActorFactory>) from ucpp.Ptr<InterchangeStaticMeshActorFactory> to ucpp.Ptr<InterchangeStaticMeshActorFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeStaticMeshActorFactory): InterchangeStaticMeshActorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

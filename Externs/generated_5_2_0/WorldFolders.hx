@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWorldFolders")
 @:include("WorldFolders.h")
-@:structAccess
+@:valueType
 extern class WorldFolders extends Object {
 	private var CurrentFolder: ActorPlacementFolder;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstWorldFolders(WorldFolders) from WorldFolders {
 @:forward
 @:nativeGen
 @:native("WorldFolders*")
-abstract WorldFoldersPtr(cpp.Star<WorldFolders>) from cpp.Star<WorldFolders> to cpp.Star<WorldFolders>{
+abstract WorldFoldersPtr(ucpp.Ptr<WorldFolders>) from ucpp.Ptr<WorldFolders> to ucpp.Ptr<WorldFolders>{
 	@:from
 	public static extern inline function fromValue(v: WorldFolders): WorldFoldersPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWidgetBlueprintGeneratedClassExtension")
 @:include("Extensions/WidgetBlueprintGeneratedClassExtension.h")
-@:structAccess
+@:valueType
 extern class WidgetBlueprintGeneratedClassExtension extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWidgetBlueprintGeneratedClassExtension(WidgetBlueprintGeneratedCla
 @:forward
 @:nativeGen
 @:native("WidgetBlueprintGeneratedClassExtension*")
-abstract WidgetBlueprintGeneratedClassExtensionPtr(cpp.Star<WidgetBlueprintGeneratedClassExtension>) from cpp.Star<WidgetBlueprintGeneratedClassExtension> to cpp.Star<WidgetBlueprintGeneratedClassExtension>{
+abstract WidgetBlueprintGeneratedClassExtensionPtr(ucpp.Ptr<WidgetBlueprintGeneratedClassExtension>) from ucpp.Ptr<WidgetBlueprintGeneratedClassExtension> to ucpp.Ptr<WidgetBlueprintGeneratedClassExtension>{
 	@:from
 	public static extern inline function fromValue(v: WidgetBlueprintGeneratedClassExtension): WidgetBlueprintGeneratedClassExtensionPtr {
 		return untyped __cpp__("&({0})", v);

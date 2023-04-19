@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorStaticMeshFactory")
 @:include("Factories/EditorStaticMeshFactory.h")
-@:structAccess
+@:valueType
 extern class EditorStaticMeshFactory extends ActorFactoryStaticMesh {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorStaticMeshFactory(EditorStaticMeshFactory) from EditorStatic
 @:forward
 @:nativeGen
 @:native("EditorStaticMeshFactory*")
-abstract EditorStaticMeshFactoryPtr(cpp.Star<EditorStaticMeshFactory>) from cpp.Star<EditorStaticMeshFactory> to cpp.Star<EditorStaticMeshFactory>{
+abstract EditorStaticMeshFactoryPtr(ucpp.Ptr<EditorStaticMeshFactory>) from ucpp.Ptr<EditorStaticMeshFactory> to ucpp.Ptr<EditorStaticMeshFactory>{
 	@:from
 	public static extern inline function fromValue(v: EditorStaticMeshFactory): EditorStaticMeshFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,30 +3,30 @@ package ue;
 
 @:native("UPolyEditActivityContext")
 @:include("ToolActivities/PolyEditActivityContext.h")
-@:structAccess
+@:valueType
 extern class PolyEditActivityContext extends Object {
-	public var CommonProperties: cpp.Star<PolyEditCommonProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
+	public var CommonProperties: ucpp.Ptr<PolyEditCommonProperties>;
+	public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	public var SelectionMechanic: ucpp.Ptr<PolygonSelectionMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPolyEditActivityContext(PolyEditActivityContext) from PolyEditActivityContext {
-	public extern var CommonProperties(get, never): cpp.Star<PolyEditCommonProperties.ConstPolyEditCommonProperties>;
-	public inline extern function get_CommonProperties(): cpp.Star<PolyEditCommonProperties.ConstPolyEditCommonProperties> return this.CommonProperties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var SelectionMechanic(get, never): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic>;
-	public inline extern function get_SelectionMechanic(): cpp.Star<PolygonSelectionMechanic.ConstPolygonSelectionMechanic> return this.SelectionMechanic;
+	public extern var CommonProperties(get, never): ucpp.Ptr<PolyEditCommonProperties.ConstPolyEditCommonProperties>;
+	public inline extern function get_CommonProperties(): ucpp.Ptr<PolyEditCommonProperties.ConstPolyEditCommonProperties> return this.CommonProperties;
+	public extern var Preview(get, never): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
+	public inline extern function get_Preview(): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
+	public extern var SelectionMechanic(get, never): ucpp.Ptr<PolygonSelectionMechanic.ConstPolygonSelectionMechanic>;
+	public inline extern function get_SelectionMechanic(): ucpp.Ptr<PolygonSelectionMechanic.ConstPolygonSelectionMechanic> return this.SelectionMechanic;
 }
 
 @:forward
 @:nativeGen
 @:native("PolyEditActivityContext*")
-abstract PolyEditActivityContextPtr(cpp.Star<PolyEditActivityContext>) from cpp.Star<PolyEditActivityContext> to cpp.Star<PolyEditActivityContext>{
+abstract PolyEditActivityContextPtr(ucpp.Ptr<PolyEditActivityContext>) from ucpp.Ptr<PolyEditActivityContext> to ucpp.Ptr<PolyEditActivityContext>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditActivityContext): PolyEditActivityContextPtr {
 		return untyped __cpp__("&({0})", v);

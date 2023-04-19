@@ -3,11 +3,11 @@ package ue;
 
 @:native("UExportTextContainer")
 @:include("Exporters/ExportTextContainer.h")
-@:structAccess
+@:valueType
 extern class ExportTextContainer extends Object {
 	public var ExportText: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstExportTextContainer(ExportTextContainer) from ExportTextContainer 
 @:forward
 @:nativeGen
 @:native("ExportTextContainer*")
-abstract ExportTextContainerPtr(cpp.Star<ExportTextContainer>) from cpp.Star<ExportTextContainer> to cpp.Star<ExportTextContainer>{
+abstract ExportTextContainerPtr(ucpp.Ptr<ExportTextContainer>) from ucpp.Ptr<ExportTextContainer> to ucpp.Ptr<ExportTextContainer>{
 	@:from
 	public static extern inline function fromValue(v: ExportTextContainer): ExportTextContainerPtr {
 		return untyped __cpp__("&({0})", v);

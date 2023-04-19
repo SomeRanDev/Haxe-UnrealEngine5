@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionThinTranslucentMaterialOutput")
 @:include("Materials/MaterialExpressionThinTranslucentMaterialOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionThinTranslucentMaterialOutput extends MaterialExpressionCustomOutput {
 	public var TransmittanceColor: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionThinTranslucentMaterialOutput(MaterialExpression
 @:forward
 @:nativeGen
 @:native("MaterialExpressionThinTranslucentMaterialOutput*")
-abstract MaterialExpressionThinTranslucentMaterialOutputPtr(cpp.Star<MaterialExpressionThinTranslucentMaterialOutput>) from cpp.Star<MaterialExpressionThinTranslucentMaterialOutput> to cpp.Star<MaterialExpressionThinTranslucentMaterialOutput>{
+abstract MaterialExpressionThinTranslucentMaterialOutputPtr(ucpp.Ptr<MaterialExpressionThinTranslucentMaterialOutput>) from ucpp.Ptr<MaterialExpressionThinTranslucentMaterialOutput> to ucpp.Ptr<MaterialExpressionThinTranslucentMaterialOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionThinTranslucentMaterialOutput): MaterialExpressionThinTranslucentMaterialOutputPtr {
 		return untyped __cpp__("&({0})", v);

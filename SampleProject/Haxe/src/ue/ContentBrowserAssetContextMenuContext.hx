@@ -3,22 +3,27 @@ package ue;
 
 @:native("UContentBrowserAssetContextMenuContext")
 @:include("ContentBrowserMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserAssetContextMenuContext extends Object {
-	public var SelectedObjects: TArray<TWeakObjectPtr<Object>>;
+	public var CommonAssetDefinition: ucpp.Ptr<AssetDefinition>;
+	public var SelectedAssets: TArray<AssetData>;
 	public var CommonClass: TSubclassOf<Object>;
 	public var bCanBeModified: Bool;
 
-	public function GetSelectedObjects(): TArray<cpp.Star<Object>>;
+	public function LoadSelectedObjectsIfNeeded(): TArray<ucpp.Ptr<Object>>;
+	public function LoadSelectedObjects(LoadTags: TSet<FName>): TArray<ucpp.Ptr<Object>>;
+	public function GetSelectedObjects(): TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetSelectedObjects)
+@:forward(LoadSelectedObjectsIfNeeded, LoadSelectedObjects, GetSelectedObjects)
 @:nativeGen
 abstract ConstContentBrowserAssetContextMenuContext(ContentBrowserAssetContextMenuContext) from ContentBrowserAssetContextMenuContext {
-	public extern var SelectedObjects(get, never): TArray<TWeakObjectPtr<Object.ConstObject>>;
-	public inline extern function get_SelectedObjects(): TArray<TWeakObjectPtr<Object.ConstObject>> return this.SelectedObjects;
+	public extern var CommonAssetDefinition(get, never): ucpp.Ptr<AssetDefinition.ConstAssetDefinition>;
+	public inline extern function get_CommonAssetDefinition(): ucpp.Ptr<AssetDefinition.ConstAssetDefinition> return this.CommonAssetDefinition;
+	public extern var SelectedAssets(get, never): TArray<AssetData>;
+	public inline extern function get_SelectedAssets(): TArray<AssetData> return this.SelectedAssets;
 	public extern var CommonClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_CommonClass(): TSubclassOf<Object.ConstObject> return this.CommonClass;
 	public extern var bCanBeModified(get, never): Bool;
@@ -28,7 +33,7 @@ abstract ConstContentBrowserAssetContextMenuContext(ContentBrowserAssetContextMe
 @:forward
 @:nativeGen
 @:native("ContentBrowserAssetContextMenuContext*")
-abstract ContentBrowserAssetContextMenuContextPtr(cpp.Star<ContentBrowserAssetContextMenuContext>) from cpp.Star<ContentBrowserAssetContextMenuContext> to cpp.Star<ContentBrowserAssetContextMenuContext>{
+abstract ContentBrowserAssetContextMenuContextPtr(ucpp.Ptr<ContentBrowserAssetContextMenuContext>) from ucpp.Ptr<ContentBrowserAssetContextMenuContext> to ucpp.Ptr<ContentBrowserAssetContextMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserAssetContextMenuContext): ContentBrowserAssetContextMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

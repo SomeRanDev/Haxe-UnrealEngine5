@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_ForceFeedbackAttenuation")
 @:include("AssetDefinition_ForceFeedbackAttenuation.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_ForceFeedbackAttenuation extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_ForceFeedbackAttenuation(AssetDefinition_ForceFeed
 @:forward
 @:nativeGen
 @:native("AssetDefinition_ForceFeedbackAttenuation*")
-abstract AssetDefinition_ForceFeedbackAttenuationPtr(cpp.Star<AssetDefinition_ForceFeedbackAttenuation>) from cpp.Star<AssetDefinition_ForceFeedbackAttenuation> to cpp.Star<AssetDefinition_ForceFeedbackAttenuation>{
+abstract AssetDefinition_ForceFeedbackAttenuationPtr(ucpp.Ptr<AssetDefinition_ForceFeedbackAttenuation>) from ucpp.Ptr<AssetDefinition_ForceFeedbackAttenuation> to ucpp.Ptr<AssetDefinition_ForceFeedbackAttenuation>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_ForceFeedbackAttenuation): AssetDefinition_ForceFeedbackAttenuationPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPhysicsConstraintTemplate")
 @:include("PhysicsEngine/PhysicsConstraintTemplate.h")
-@:structAccess
+@:valueType
 extern class PhysicsConstraintTemplate extends Object {
 	public var DefaultInstance: ConstraintInstance;
 	public var ProfileHandles: TArray<PhysicsConstraintProfileHandle>;
 	private var DefaultProfile: ConstraintProfileProperties;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstPhysicsConstraintTemplate(PhysicsConstraintTemplate) from PhysicsC
 @:forward
 @:nativeGen
 @:native("PhysicsConstraintTemplate*")
-abstract PhysicsConstraintTemplatePtr(cpp.Star<PhysicsConstraintTemplate>) from cpp.Star<PhysicsConstraintTemplate> to cpp.Star<PhysicsConstraintTemplate>{
+abstract PhysicsConstraintTemplatePtr(ucpp.Ptr<PhysicsConstraintTemplate>) from ucpp.Ptr<PhysicsConstraintTemplate> to ucpp.Ptr<PhysicsConstraintTemplate>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsConstraintTemplate): PhysicsConstraintTemplatePtr {
 		return untyped __cpp__("&({0})", v);

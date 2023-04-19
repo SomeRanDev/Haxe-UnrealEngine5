@@ -3,12 +3,12 @@ package ue;
 
 @:native("UBakeToControlRigSettings")
 @:include("BakeToControlRigSettings.h")
-@:structAccess
+@:valueType
 extern class BakeToControlRigSettings extends Object {
 	public var bReduceKeys: Bool;
-	public var Tolerance: cpp.Float32;
+	public var Tolerance: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class BakeToControlRigSettings extends Object {
 abstract ConstBakeToControlRigSettings(BakeToControlRigSettings) from BakeToControlRigSettings {
 	public extern var bReduceKeys(get, never): Bool;
 	public inline extern function get_bReduceKeys(): Bool return this.bReduceKeys;
-	public extern var Tolerance(get, never): cpp.Float32;
-	public inline extern function get_Tolerance(): cpp.Float32 return this.Tolerance;
+	public extern var Tolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_Tolerance(): ucpp.num.Float32 return this.Tolerance;
 }
 
 @:forward
 @:nativeGen
 @:native("BakeToControlRigSettings*")
-abstract BakeToControlRigSettingsPtr(cpp.Star<BakeToControlRigSettings>) from cpp.Star<BakeToControlRigSettings> to cpp.Star<BakeToControlRigSettings>{
+abstract BakeToControlRigSettingsPtr(ucpp.Ptr<BakeToControlRigSettings>) from ucpp.Ptr<BakeToControlRigSettings> to ucpp.Ptr<BakeToControlRigSettings>{
 	@:from
 	public static extern inline function fromValue(v: BakeToControlRigSettings): BakeToControlRigSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneScriptingObjectPathKey")
 @:include("KeysAndChannels/MovieSceneScriptingObjectPath.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingObjectPathKey extends MovieSceneScriptingKey {
-	public function SetValue(InNewValue: cpp.Star<Object>): Void;
-	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
-	public function GetValue(): cpp.Star<Object>;
+	public function SetValue(InNewValue: ucpp.Ptr<Object>): Void;
+	public function SetTime(NewFrameNumber: ucpp.Ref<FrameNumber>, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): Void;
+	public function GetValue(): ucpp.Ptr<Object>;
 	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue, GetTime)
@@ -21,7 +21,7 @@ abstract ConstMovieSceneScriptingObjectPathKey(MovieSceneScriptingObjectPathKey)
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingObjectPathKey*")
-abstract MovieSceneScriptingObjectPathKeyPtr(cpp.Star<MovieSceneScriptingObjectPathKey>) from cpp.Star<MovieSceneScriptingObjectPathKey> to cpp.Star<MovieSceneScriptingObjectPathKey>{
+abstract MovieSceneScriptingObjectPathKeyPtr(ucpp.Ptr<MovieSceneScriptingObjectPathKey>) from ucpp.Ptr<MovieSceneScriptingObjectPathKey> to ucpp.Ptr<MovieSceneScriptingObjectPathKey>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingObjectPathKey): MovieSceneScriptingObjectPathKeyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FXRMotionControllerData")
 @:include("HeadMountedDisplayTypes.h")
-@:structAccess
+@:valueType
 extern class XRMotionControllerData {
 	public var bValid: Bool;
 	public var DeviceName: FName;
@@ -19,7 +19,7 @@ extern class XRMotionControllerData {
 	public var PalmRotation: Quat;
 	public var HandKeyPositions: TArray<Vector>;
 	public var HandKeyRotations: TArray<Quat>;
-	public var HandKeyRadii: TArray<cpp.Float32>;
+	public var HandKeyRadii: TArray<ucpp.num.Float32>;
 	public var bIsGrasped: Bool;
 
 	@:native("FXRMotionControllerData") public function new();

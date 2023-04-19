@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPlayerMappableInputConfig_Factory")
 @:include("InputEditorModule.h")
-@:structAccess
+@:valueType
 extern class PlayerMappableInputConfig_Factory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlayerMappableInputConfig_Factory(PlayerMappableInputConfig_Factor
 @:forward
 @:nativeGen
 @:native("PlayerMappableInputConfig_Factory*")
-abstract PlayerMappableInputConfig_FactoryPtr(cpp.Star<PlayerMappableInputConfig_Factory>) from cpp.Star<PlayerMappableInputConfig_Factory> to cpp.Star<PlayerMappableInputConfig_Factory>{
+abstract PlayerMappableInputConfig_FactoryPtr(ucpp.Ptr<PlayerMappableInputConfig_Factory>) from ucpp.Ptr<PlayerMappableInputConfig_Factory> to ucpp.Ptr<PlayerMappableInputConfig_Factory>{
 	@:from
 	public static extern inline function fromValue(v: PlayerMappableInputConfig_Factory): PlayerMappableInputConfig_FactoryPtr {
 		return untyped __cpp__("&({0})", v);

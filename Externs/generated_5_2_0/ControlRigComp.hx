@@ -3,31 +3,31 @@ package ue;
 
 @:native("UControlRigComponent")
 @:include("ControlRigComponent.h")
-@:structAccess
+@:valueType
 extern class ControlRigComp extends PrimitiveComp {
 	public var ControlRigClass: TSubclassOf<ControlRig>;
-	public var OnPreInitializeDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp>) -> Void>;
-	public var OnPostInitializeDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp>) -> Void>;
-	public var OnPreConstructionDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp>) -> Void>;
-	public var OnPostConstructionDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp>) -> Void>;
-	public var OnPreForwardsSolveDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp>) -> Void>;
-	public var OnPostForwardsSolveDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp>) -> Void>;
+	public var OnPreInitializeDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp>) -> Void>;
+	public var OnPostInitializeDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp>) -> Void>;
+	public var OnPreConstructionDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp>) -> Void>;
+	public var OnPostConstructionDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp>) -> Void>;
+	public var OnPreForwardsSolveDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp>) -> Void>;
+	public var OnPostForwardsSolveDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp>) -> Void>;
 	public var UserDefinedElements: TArray<ControlRigComponentMappedElement>;
 	public var MappedElements: TArray<ControlRigComponentMappedElement>;
 	public var bEnableLazyEvaluation: Bool;
-	public var LazyEvaluationPositionThreshold: cpp.Float32;
-	public var LazyEvaluationRotationThreshold: cpp.Float32;
-	public var LazyEvaluationScaleThreshold: cpp.Float32;
+	public var LazyEvaluationPositionThreshold: ucpp.num.Float32;
+	public var LazyEvaluationRotationThreshold: ucpp.num.Float32;
+	public var LazyEvaluationScaleThreshold: ucpp.num.Float32;
 	public var bResetTransformBeforeTick: Bool;
 	public var bResetInitialsBeforeConstruction: Bool;
 	public var bUpdateRigOnTick: Bool;
 	public var bUpdateInEditor: Bool;
 	public var bDrawBones: Bool;
 	public var bShowDebugDrawing: Bool;
-	private var ControlRig: cpp.Star<ControlRig>;
+	private var ControlRig: ucpp.Ptr<ControlRig>;
 
-	public function Update(DeltaTime: cpp.Float32): Void;
-	public function SetObjectBinding(InObjectToBind: cpp.Star<Object>): Void;
+	public function Update(DeltaTime: ucpp.num.Float32): Void;
+	public function SetObjectBinding(InObjectToBind: ucpp.Ptr<Object>): Void;
 	public function SetMappedElements(NewMappedElements: TArray<ControlRigComponentMappedElement>): Void;
 	public function SetInitialSpaceTransform(SpaceName: FName, InitialTransform: Transform, Space: EControlRigComponentSpace): Void;
 	public function SetInitialBoneTransform(BoneName: FName, InitialTransform: Transform, Space: EControlRigComponentSpace, bPropagateToChildren: Bool): Void;
@@ -38,17 +38,17 @@ extern class ControlRigComp extends PrimitiveComp {
 	public function SetControlRigClass(InControlRigClass: TSubclassOf<ControlRig>): Void;
 	public function SetControlPosition(ControlName: FName, Value: Vector, Space: EControlRigComponentSpace): Void;
 	public function SetControlOffset(ControlName: FName, OffsetTransform: Transform, Space: EControlRigComponentSpace): Void;
-	public function SetControlInt(ControlName: FName, Value: cpp.Int32): Void;
-	public function SetControlFloat(ControlName: FName, Value: cpp.Float32): Void;
+	public function SetControlInt(ControlName: FName, Value: ucpp.num.Int32): Void;
+	public function SetControlFloat(ControlName: FName, Value: ucpp.num.Float32): Void;
 	public function SetControlBool(ControlName: FName, Value: Bool): Void;
-	public function SetBoneTransform(BoneName: FName, Transform: Transform, Space: EControlRigComponentSpace, Weight: cpp.Float32, bPropagateToChildren: Bool): Void;
-	public function SetBoneInitialTransformsFromSkeletalMesh(InSkeletalMesh: cpp.Star<SkeletalMesh>): Void;
-	public function OnPreInitialize(Component: cpp.Star<ControlRigComp>): Void;
-	public function OnPreForwardsSolve(Component: cpp.Star<ControlRigComp>): Void;
-	public function OnPreConstruction(Component: cpp.Star<ControlRigComp>): Void;
-	public function OnPostInitialize(Component: cpp.Star<ControlRigComp>): Void;
-	public function OnPostForwardsSolve(Component: cpp.Star<ControlRigComp>): Void;
-	public function OnPostConstruction(Component: cpp.Star<ControlRigComp>): Void;
+	public function SetBoneTransform(BoneName: FName, Transform: Transform, Space: EControlRigComponentSpace, Weight: ucpp.num.Float32, bPropagateToChildren: Bool): Void;
+	public function SetBoneInitialTransformsFromSkeletalMesh(InSkeletalMesh: ucpp.Ptr<SkeletalMesh>): Void;
+	public function OnPreInitialize(Component: ucpp.Ptr<ControlRigComp>): Void;
+	public function OnPreForwardsSolve(Component: ucpp.Ptr<ControlRigComp>): Void;
+	public function OnPreConstruction(Component: ucpp.Ptr<ControlRigComp>): Void;
+	public function OnPostInitialize(Component: ucpp.Ptr<ControlRigComp>): Void;
+	public function OnPostForwardsSolve(Component: ucpp.Ptr<ControlRigComp>): Void;
+	public function OnPostConstruction(Component: ucpp.Ptr<ControlRigComp>): Void;
 	public function Initialize(): Void;
 	public function GetSpaceTransform(SpaceName: FName, Space: EControlRigComponentSpace): Transform;
 	public function GetInitialSpaceTransform(SpaceName: FName, Space: EControlRigComponentSpace): Transform;
@@ -58,23 +58,23 @@ extern class ControlRigComp extends PrimitiveComp {
 	public function GetControlTransform(ControlName: FName, Space: EControlRigComponentSpace): Transform;
 	public function GetControlScale(ControlName: FName, Space: EControlRigComponentSpace): Vector;
 	public function GetControlRotator(ControlName: FName, Space: EControlRigComponentSpace): Rotator;
-	public function GetControlRig(): cpp.Star<ControlRig>;
+	public function GetControlRig(): ucpp.Ptr<ControlRig>;
 	public function GetControlPosition(ControlName: FName, Space: EControlRigComponentSpace): Vector;
 	public function GetControlOffset(ControlName: FName, Space: EControlRigComponentSpace): Transform;
-	public function GetControlInt(ControlName: FName): cpp.Int32;
-	public function GetControlFloat(ControlName: FName): cpp.Float32;
+	public function GetControlInt(ControlName: FName): ucpp.num.Int32;
+	public function GetControlFloat(ControlName: FName): ucpp.num.Float32;
 	public function GetControlBool(ControlName: FName): Bool;
 	public function GetBoneTransform(BoneName: FName, Space: EControlRigComponentSpace): Transform;
-	public function GetAbsoluteTime(): cpp.Float32;
+	public function GetAbsoluteTime(): ucpp.num.Float32;
 	public function DoesElementExist(Name: FName, ElementType: ERigElementType): Bool;
 	public function ClearMappedElements(): Void;
 	public function CanExecute(): Bool;
-	public function AddMappedSkeletalMesh(SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, Bones: TArray<ControlRigComponentMappedBone>, Curves: TArray<ControlRigComponentMappedCurve>): Void;
+	public function AddMappedSkeletalMesh(SkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>, Bones: TArray<ControlRigComponentMappedBone>, Curves: TArray<ControlRigComponentMappedCurve>): Void;
 	public function AddMappedElements(NewMappedElements: TArray<ControlRigComponentMappedElement>): Void;
 	public function AddMappedComponents(Components: TArray<ControlRigComponentMappedComp>): Void;
-	public function AddMappedCompleteSkeletalMesh(SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
+	public function AddMappedCompleteSkeletalMesh(SkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAbsoluteTime)
@@ -82,30 +82,30 @@ extern class ControlRigComp extends PrimitiveComp {
 abstract ConstControlRigComp(ControlRigComp) from ControlRigComp {
 	public extern var ControlRigClass(get, never): TSubclassOf<ControlRig.ConstControlRig>;
 	public inline extern function get_ControlRigClass(): TSubclassOf<ControlRig.ConstControlRig> return this.ControlRigClass;
-	public extern var OnPreInitializeDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void>;
-	public inline extern function get_OnPreInitializeDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPreInitializeDelegate;
-	public extern var OnPostInitializeDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void>;
-	public inline extern function get_OnPostInitializeDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPostInitializeDelegate;
-	public extern var OnPreConstructionDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void>;
-	public inline extern function get_OnPreConstructionDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPreConstructionDelegate;
-	public extern var OnPostConstructionDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void>;
-	public inline extern function get_OnPostConstructionDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPostConstructionDelegate;
-	public extern var OnPreForwardsSolveDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void>;
-	public inline extern function get_OnPreForwardsSolveDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPreForwardsSolveDelegate;
-	public extern var OnPostForwardsSolveDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void>;
-	public inline extern function get_OnPostForwardsSolveDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPostForwardsSolveDelegate;
+	public extern var OnPreInitializeDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void>;
+	public inline extern function get_OnPreInitializeDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPreInitializeDelegate;
+	public extern var OnPostInitializeDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void>;
+	public inline extern function get_OnPostInitializeDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPostInitializeDelegate;
+	public extern var OnPreConstructionDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void>;
+	public inline extern function get_OnPreConstructionDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPreConstructionDelegate;
+	public extern var OnPostConstructionDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void>;
+	public inline extern function get_OnPostConstructionDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPostConstructionDelegate;
+	public extern var OnPreForwardsSolveDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void>;
+	public inline extern function get_OnPreForwardsSolveDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPreForwardsSolveDelegate;
+	public extern var OnPostForwardsSolveDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void>;
+	public inline extern function get_OnPostForwardsSolveDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRigComp.ConstControlRigComp>) -> Void> return this.OnPostForwardsSolveDelegate;
 	public extern var UserDefinedElements(get, never): TArray<ControlRigComponentMappedElement>;
 	public inline extern function get_UserDefinedElements(): TArray<ControlRigComponentMappedElement> return this.UserDefinedElements;
 	public extern var MappedElements(get, never): TArray<ControlRigComponentMappedElement>;
 	public inline extern function get_MappedElements(): TArray<ControlRigComponentMappedElement> return this.MappedElements;
 	public extern var bEnableLazyEvaluation(get, never): Bool;
 	public inline extern function get_bEnableLazyEvaluation(): Bool return this.bEnableLazyEvaluation;
-	public extern var LazyEvaluationPositionThreshold(get, never): cpp.Float32;
-	public inline extern function get_LazyEvaluationPositionThreshold(): cpp.Float32 return this.LazyEvaluationPositionThreshold;
-	public extern var LazyEvaluationRotationThreshold(get, never): cpp.Float32;
-	public inline extern function get_LazyEvaluationRotationThreshold(): cpp.Float32 return this.LazyEvaluationRotationThreshold;
-	public extern var LazyEvaluationScaleThreshold(get, never): cpp.Float32;
-	public inline extern function get_LazyEvaluationScaleThreshold(): cpp.Float32 return this.LazyEvaluationScaleThreshold;
+	public extern var LazyEvaluationPositionThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_LazyEvaluationPositionThreshold(): ucpp.num.Float32 return this.LazyEvaluationPositionThreshold;
+	public extern var LazyEvaluationRotationThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_LazyEvaluationRotationThreshold(): ucpp.num.Float32 return this.LazyEvaluationRotationThreshold;
+	public extern var LazyEvaluationScaleThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_LazyEvaluationScaleThreshold(): ucpp.num.Float32 return this.LazyEvaluationScaleThreshold;
 	public extern var bResetTransformBeforeTick(get, never): Bool;
 	public inline extern function get_bResetTransformBeforeTick(): Bool return this.bResetTransformBeforeTick;
 	public extern var bResetInitialsBeforeConstruction(get, never): Bool;
@@ -123,7 +123,7 @@ abstract ConstControlRigComp(ControlRigComp) from ControlRigComp {
 @:forward
 @:nativeGen
 @:native("ControlRigComp*")
-abstract ControlRigCompPtr(cpp.Star<ControlRigComp>) from cpp.Star<ControlRigComp> to cpp.Star<ControlRigComp>{
+abstract ControlRigCompPtr(ucpp.Ptr<ControlRigComp>) from ucpp.Ptr<ControlRigComp> to ucpp.Ptr<ControlRigComp>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigComp): ControlRigCompPtr {
 		return untyped __cpp__("&({0})", v);

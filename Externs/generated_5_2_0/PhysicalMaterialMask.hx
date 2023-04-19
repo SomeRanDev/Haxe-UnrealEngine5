@@ -3,20 +3,20 @@ package ue;
 
 @:native("UPhysicalMaterialMask")
 @:include("PhysicalMaterials/PhysicalMaterialMask.h")
-@:structAccess
+@:valueType
 extern class PhysicalMaterialMask extends Object {
-	public var UVChannelIndex: cpp.Int32;
+	public var UVChannelIndex: ucpp.num.Int32;
 	public var AddressX: TEnumAsByte<TextureAddress>;
 	public var AddressY: TEnumAsByte<TextureAddress>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPhysicalMaterialMask(PhysicalMaterialMask) from PhysicalMaterialMask {
-	public extern var UVChannelIndex(get, never): cpp.Int32;
-	public inline extern function get_UVChannelIndex(): cpp.Int32 return this.UVChannelIndex;
+	public extern var UVChannelIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_UVChannelIndex(): ucpp.num.Int32 return this.UVChannelIndex;
 	public extern var AddressX(get, never): TEnumAsByte<TextureAddress>;
 	public inline extern function get_AddressX(): TEnumAsByte<TextureAddress> return this.AddressX;
 	public extern var AddressY(get, never): TEnumAsByte<TextureAddress>;
@@ -26,7 +26,7 @@ abstract ConstPhysicalMaterialMask(PhysicalMaterialMask) from PhysicalMaterialMa
 @:forward
 @:nativeGen
 @:native("PhysicalMaterialMask*")
-abstract PhysicalMaterialMaskPtr(cpp.Star<PhysicalMaterialMask>) from cpp.Star<PhysicalMaterialMask> to cpp.Star<PhysicalMaterialMask>{
+abstract PhysicalMaterialMaskPtr(ucpp.Ptr<PhysicalMaterialMask>) from ucpp.Ptr<PhysicalMaterialMask> to ucpp.Ptr<PhysicalMaterialMask>{
 	@:from
 	public static extern inline function fromValue(v: PhysicalMaterialMask): PhysicalMaterialMaskPtr {
 		return untyped __cpp__("&({0})", v);

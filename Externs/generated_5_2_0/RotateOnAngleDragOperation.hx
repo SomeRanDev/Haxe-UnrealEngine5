@@ -3,10 +3,10 @@ package ue;
 
 @:native("URotateOnAngleDragOperation")
 @:include("ViewportInteractionDragOperations.h")
-@:structAccess
+@:valueType
 extern class RotateOnAngleDragOperation extends ViewportDragOperation {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRotateOnAngleDragOperation(RotateOnAngleDragOperation) from Rotate
 @:forward
 @:nativeGen
 @:native("RotateOnAngleDragOperation*")
-abstract RotateOnAngleDragOperationPtr(cpp.Star<RotateOnAngleDragOperation>) from cpp.Star<RotateOnAngleDragOperation> to cpp.Star<RotateOnAngleDragOperation>{
+abstract RotateOnAngleDragOperationPtr(ucpp.Ptr<RotateOnAngleDragOperation>) from ucpp.Ptr<RotateOnAngleDragOperation> to ucpp.Ptr<RotateOnAngleDragOperation>{
 	@:from
 	public static extern inline function fromValue(v: RotateOnAngleDragOperation): RotateOnAngleDragOperationPtr {
 		return untyped __cpp__("&({0})", v);

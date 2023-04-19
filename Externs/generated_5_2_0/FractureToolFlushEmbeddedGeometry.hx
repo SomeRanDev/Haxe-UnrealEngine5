@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolFlushEmbeddedGeometry")
 @:include("FractureToolEmbed.h")
-@:structAccess
+@:valueType
 extern class FractureToolFlushEmbeddedGeometry extends FractureModalTool {
-	public var FlushEmbeddedGeometrySettings: cpp.Star<FractureToolFlushEmbeddedGeometrySettings>;
+	public var FlushEmbeddedGeometrySettings: ucpp.Ptr<FractureToolFlushEmbeddedGeometrySettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolFlushEmbeddedGeometry(FractureToolFlushEmbeddedGeometry) from FractureToolFlushEmbeddedGeometry {
-	public extern var FlushEmbeddedGeometrySettings(get, never): cpp.Star<FractureToolFlushEmbeddedGeometrySettings.ConstFractureToolFlushEmbeddedGeometrySettings>;
-	public inline extern function get_FlushEmbeddedGeometrySettings(): cpp.Star<FractureToolFlushEmbeddedGeometrySettings.ConstFractureToolFlushEmbeddedGeometrySettings> return this.FlushEmbeddedGeometrySettings;
+	public extern var FlushEmbeddedGeometrySettings(get, never): ucpp.Ptr<FractureToolFlushEmbeddedGeometrySettings.ConstFractureToolFlushEmbeddedGeometrySettings>;
+	public inline extern function get_FlushEmbeddedGeometrySettings(): ucpp.Ptr<FractureToolFlushEmbeddedGeometrySettings.ConstFractureToolFlushEmbeddedGeometrySettings> return this.FlushEmbeddedGeometrySettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolFlushEmbeddedGeometry*")
-abstract FractureToolFlushEmbeddedGeometryPtr(cpp.Star<FractureToolFlushEmbeddedGeometry>) from cpp.Star<FractureToolFlushEmbeddedGeometry> to cpp.Star<FractureToolFlushEmbeddedGeometry>{
+abstract FractureToolFlushEmbeddedGeometryPtr(ucpp.Ptr<FractureToolFlushEmbeddedGeometry>) from ucpp.Ptr<FractureToolFlushEmbeddedGeometry> to ucpp.Ptr<FractureToolFlushEmbeddedGeometry>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolFlushEmbeddedGeometry): FractureToolFlushEmbeddedGeometryPtr {
 		return untyped __cpp__("&({0})", v);

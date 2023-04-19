@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLandscapeImportResolution")
 @:include("LandscapeImportHelper.h")
-@:structAccess
+@:valueType
 extern class LandscapeImportResolution {
-	public var Width: cpp.UInt32;
-	public var Height: cpp.UInt32;
+	public var Width: ucpp.num.UInt32;
+	public var Height: ucpp.num.UInt32;
 
 	@:native("FLandscapeImportResolution") public function new();
-	@:native("FLandscapeImportResolution") public static function make(Width: cpp.UInt32, Height: cpp.UInt32): LandscapeImportResolution ;
+	@:native("FLandscapeImportResolution") public static function make(Width: ucpp.num.UInt32, Height: ucpp.num.UInt32): LandscapeImportResolution ;
 }

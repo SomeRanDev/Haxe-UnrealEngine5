@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMediaPlayerMediaOpened__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMediaPlayerMediaOpened__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMediaPlayerMediaOpened__PythonCallable(OnMediaPlayerMediaOpened_
 @:forward
 @:nativeGen
 @:native("OnMediaPlayerMediaOpened__PythonCallable*")
-abstract OnMediaPlayerMediaOpened__PythonCallablePtr(cpp.Star<OnMediaPlayerMediaOpened__PythonCallable>) from cpp.Star<OnMediaPlayerMediaOpened__PythonCallable> to cpp.Star<OnMediaPlayerMediaOpened__PythonCallable>{
+abstract OnMediaPlayerMediaOpened__PythonCallablePtr(ucpp.Ptr<OnMediaPlayerMediaOpened__PythonCallable>) from ucpp.Ptr<OnMediaPlayerMediaOpened__PythonCallable> to ucpp.Ptr<OnMediaPlayerMediaOpened__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMediaPlayerMediaOpened__PythonCallable): OnMediaPlayerMediaOpened__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

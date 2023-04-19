@@ -3,10 +3,10 @@ package ue;
 
 @:native("ADebugCameraHUD")
 @:include("Engine/DebugCameraHUD.h")
-@:structAccess
+@:valueType
 extern class DebugCameraHUD extends HUD {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDebugCameraHUD(DebugCameraHUD) from DebugCameraHUD {
 @:forward
 @:nativeGen
 @:native("DebugCameraHUD*")
-abstract DebugCameraHUDPtr(cpp.Star<DebugCameraHUD>) from cpp.Star<DebugCameraHUD> to cpp.Star<DebugCameraHUD>{
+abstract DebugCameraHUDPtr(ucpp.Ptr<DebugCameraHUD>) from ucpp.Ptr<DebugCameraHUD> to ucpp.Ptr<DebugCameraHUD>{
 	@:from
 	public static extern inline function fromValue(v: DebugCameraHUD): DebugCameraHUDPtr {
 		return untyped __cpp__("&({0})", v);

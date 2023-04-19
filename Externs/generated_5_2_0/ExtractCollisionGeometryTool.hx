@@ -3,16 +3,16 @@ package ue;
 
 @:native("UExtractCollisionGeometryTool")
 @:include("Physics/ExtractCollisionGeometryTool.h")
-@:structAccess
+@:valueType
 extern class ExtractCollisionGeometryTool extends SingleSelectionMeshEditingTool {
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var Settings: cpp.Star<ExtractCollisionToolProperties>;
-	@:protected public var VizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
-	@:protected public var ObjectProps: cpp.Star<PhysicsObjectToolPropertySet>;
-	@:protected public var PreviewElements: cpp.Star<PreviewGeometry>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var Settings: ucpp.Ptr<ExtractCollisionToolProperties>;
+	@:protected public var VizSettings: ucpp.Ptr<CollisionGeometryVisualizationProperties>;
+	@:protected public var ObjectProps: ucpp.Ptr<PhysicsObjectToolPropertySet>;
+	@:protected public var PreviewElements: ucpp.Ptr<PreviewGeometry>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstExtractCollisionGeometryTool(ExtractCollisionGeometryTool) from Ex
 @:forward
 @:nativeGen
 @:native("ExtractCollisionGeometryTool*")
-abstract ExtractCollisionGeometryToolPtr(cpp.Star<ExtractCollisionGeometryTool>) from cpp.Star<ExtractCollisionGeometryTool> to cpp.Star<ExtractCollisionGeometryTool>{
+abstract ExtractCollisionGeometryToolPtr(ucpp.Ptr<ExtractCollisionGeometryTool>) from ucpp.Ptr<ExtractCollisionGeometryTool> to ucpp.Ptr<ExtractCollisionGeometryTool>{
 	@:from
 	public static extern inline function fromValue(v: ExtractCollisionGeometryTool): ExtractCollisionGeometryToolPtr {
 		return untyped __cpp__("&({0})", v);

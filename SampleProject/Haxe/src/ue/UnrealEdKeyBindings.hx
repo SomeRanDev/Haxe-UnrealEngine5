@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUnrealEdKeyBindings")
 @:include("Preferences/UnrealEdKeyBindings.h")
-@:structAccess
+@:valueType
 extern class UnrealEdKeyBindings extends Object {
 	public var KeyBindings: TArray<EditorKeyBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUnrealEdKeyBindings(UnrealEdKeyBindings) from UnrealEdKeyBindings 
 @:forward
 @:nativeGen
 @:native("UnrealEdKeyBindings*")
-abstract UnrealEdKeyBindingsPtr(cpp.Star<UnrealEdKeyBindings>) from cpp.Star<UnrealEdKeyBindings> to cpp.Star<UnrealEdKeyBindings>{
+abstract UnrealEdKeyBindingsPtr(ucpp.Ptr<UnrealEdKeyBindings>) from ucpp.Ptr<UnrealEdKeyBindings> to ucpp.Ptr<UnrealEdKeyBindings>{
 	@:from
 	public static extern inline function fromValue(v: UnrealEdKeyBindings): UnrealEdKeyBindingsPtr {
 		return untyped __cpp__("&({0})", v);

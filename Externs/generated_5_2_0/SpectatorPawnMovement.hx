@@ -3,11 +3,11 @@ package ue;
 
 @:native("USpectatorPawnMovement")
 @:include("GameFramework/SpectatorPawnMovement.h")
-@:structAccess
+@:valueType
 extern class SpectatorPawnMovement extends FloatingPawnMovement {
 	public var bIgnoreTimeDilation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSpectatorPawnMovement(SpectatorPawnMovement) from SpectatorPawnMov
 @:forward
 @:nativeGen
 @:native("SpectatorPawnMovement*")
-abstract SpectatorPawnMovementPtr(cpp.Star<SpectatorPawnMovement>) from cpp.Star<SpectatorPawnMovement> to cpp.Star<SpectatorPawnMovement>{
+abstract SpectatorPawnMovementPtr(ucpp.Ptr<SpectatorPawnMovement>) from ucpp.Ptr<SpectatorPawnMovement> to ucpp.Ptr<SpectatorPawnMovement>{
 	@:from
 	public static extern inline function fromValue(v: SpectatorPawnMovement): SpectatorPawnMovementPtr {
 		return untyped __cpp__("&({0})", v);

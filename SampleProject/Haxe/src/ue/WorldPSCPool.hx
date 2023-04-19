@@ -3,10 +3,10 @@ package ue;
 
 @:native("FWorldPSCPool")
 @:include("Particles/WorldPSCPool.h")
-@:structAccess
+@:valueType
 extern class WorldPSCPool {
-	private var WorldParticleSystemPools: TMap<cpp.Star<ParticleSystem>, PSCPool>;
+	private var WorldParticleSystemPools: TMap<ucpp.Ptr<ParticleSystem>, PSCPool>;
 
 	@:native("FWorldPSCPool") public function new();
-	@:native("FWorldPSCPool") public static function make(WorldParticleSystemPools: TMap<cpp.Star<ParticleSystem>, PSCPool>): WorldPSCPool ;
+	@:native("FWorldPSCPool") public static function make(WorldParticleSystemPools: TMap<ucpp.Ptr<ParticleSystem>, PSCPool>): WorldPSCPool ;
 }

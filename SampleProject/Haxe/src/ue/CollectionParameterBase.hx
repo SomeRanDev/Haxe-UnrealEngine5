@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCollectionParameterBase")
 @:include("Materials/MaterialParameterCollection.h")
-@:structAccess
+@:valueType
 extern class CollectionParameterBase {
 	public var ParameterName: FName;
 	public var Id: Guid;

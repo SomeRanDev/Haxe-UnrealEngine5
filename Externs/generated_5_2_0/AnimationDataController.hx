@@ -2,50 +2,50 @@
 package ue;
 
 @:native("UAnimationDataController")
-@:structAccess
+@:valueType
 extern class AnimationDataController extends Interface {
-	public function UpdateCurveNamesFromSkeleton(Skeleton: cpp.Star<Skeleton.ConstSkeleton>, SupportedCurveType: ERawCurveTrackTypes, bShouldTransact: Bool): Void;
-	public function SetTransformCurveKeys(CurveId: cpp.Reference<AnimationCurveIdentifier>, TransformValues: cpp.Reference<TArray<Transform>>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, bShouldTransact: Bool): Bool;
-	public function SetTransformCurveKey(CurveId: cpp.Reference<AnimationCurveIdentifier>, Time: cpp.Float32, Value: cpp.Reference<Transform>, bShouldTransact: Bool): Bool;
-	public function SetPlayLength(Length: cpp.Float32, bShouldTransact: Bool): Void;
+	public function UpdateCurveNamesFromSkeleton(Skeleton: ucpp.Ptr<Skeleton.ConstSkeleton>, SupportedCurveType: ERawCurveTrackTypes, bShouldTransact: Bool): Void;
+	public function SetTransformCurveKeys(CurveId: ucpp.Ref<AnimationCurveIdentifier>, TransformValues: ucpp.Ref<TArray<Transform>>, TimeKeys: ucpp.Ref<TArray<ucpp.num.Float32>>, bShouldTransact: Bool): Bool;
+	public function SetTransformCurveKey(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Time: ucpp.num.Float32, Value: ucpp.Ref<Transform>, bShouldTransact: Bool): Bool;
+	public function SetPlayLength(Length: ucpp.num.Float32, bShouldTransact: Bool): Void;
 	public function SetNumberOfFrames(NewLengthInFrames: FrameNumber, bShouldTransact: Bool): Void;
 	public function SetModel(InModel: AnimationDataModel): Void;
 	public function SetFrameRate(FrameRate: FrameRate, bShouldTransact: Bool): Void;
-	public function SetCurveKeys(CurveId: cpp.Reference<AnimationCurveIdentifier>, CurveKeys: cpp.Reference<TArray<RichCurveKey>>, bShouldTransact: Bool): Bool;
-	public function SetCurveKey(CurveId: cpp.Reference<AnimationCurveIdentifier>, Key: cpp.Reference<RichCurveKey>, bShouldTransact: Bool): Bool;
-	public function SetCurveFlags(CurveId: cpp.Reference<AnimationCurveIdentifier>, Flags: cpp.Int32, bShouldTransact: Bool): Bool;
-	public function SetCurveFlag(CurveId: cpp.Reference<AnimationCurveIdentifier>, Flag: TEnumAsByte<EAnimAssetCurveFlags>, bState: Bool, bShouldTransact: Bool): Bool;
-	public function SetCurveColor(CurveId: cpp.Reference<AnimationCurveIdentifier>, Color: LinearColor, bShouldTransact: Bool): Bool;
-	public function SetBoneTrackKeys(BoneName: FName, PositionalKeys: cpp.Reference<TArray<Vector>>, RotationalKeys: cpp.Reference<TArray<Quat>>, ScalingKeys: cpp.Reference<TArray<Vector>>, bShouldTransact: Bool): Bool;
-	public function ScaleCurve(CurveId: cpp.Reference<AnimationCurveIdentifier>, Origin: cpp.Float32, Factor: cpp.Float32, bShouldTransact: Bool): Bool;
-	public function ResizePlayLength(NewLength: cpp.Float32, T0: cpp.Float32, T1: cpp.Float32, bShouldTransact: Bool): Void;
+	public function SetCurveKeys(CurveId: ucpp.Ref<AnimationCurveIdentifier>, CurveKeys: ucpp.Ref<TArray<RichCurveKey>>, bShouldTransact: Bool): Bool;
+	public function SetCurveKey(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Key: ucpp.Ref<RichCurveKey>, bShouldTransact: Bool): Bool;
+	public function SetCurveFlags(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Flags: ucpp.num.Int32, bShouldTransact: Bool): Bool;
+	public function SetCurveFlag(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Flag: TEnumAsByte<EAnimAssetCurveFlags>, bState: Bool, bShouldTransact: Bool): Bool;
+	public function SetCurveColor(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Color: LinearColor, bShouldTransact: Bool): Bool;
+	public function SetBoneTrackKeys(BoneName: FName, PositionalKeys: ucpp.Ref<TArray<Vector>>, RotationalKeys: ucpp.Ref<TArray<Quat>>, ScalingKeys: ucpp.Ref<TArray<Vector>>, bShouldTransact: Bool): Bool;
+	public function ScaleCurve(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Origin: ucpp.num.Float32, Factor: ucpp.num.Float32, bShouldTransact: Bool): Bool;
+	public function ResizePlayLength(NewLength: ucpp.num.Float32, T0: ucpp.num.Float32, T1: ucpp.num.Float32, bShouldTransact: Bool): Void;
 	public function ResizeNumberOfFrames(NewLengthInFrames: FrameNumber, T0: FrameNumber, T1: FrameNumber, bShouldTransact: Bool): Void;
 	public function ResizeInFrames(NewLengthInFrames: FrameNumber, T0: FrameNumber, T1: FrameNumber, bShouldTransact: Bool): Void;
-	public function Resize(Length: cpp.Float32, T0: cpp.Float32, T1: cpp.Float32, bShouldTransact: Bool): Void;
-	public function RenameCurve(CurveToRenameId: cpp.Reference<AnimationCurveIdentifier>, NewCurveId: cpp.Reference<AnimationCurveIdentifier>, bShouldTransact: Bool): Bool;
-	public function RemoveTransformCurveKey(CurveId: cpp.Reference<AnimationCurveIdentifier>, Time: cpp.Float32, bShouldTransact: Bool): Bool;
-	public function RemoveCurveKey(CurveId: cpp.Reference<AnimationCurveIdentifier>, Time: cpp.Float32, bShouldTransact: Bool): Bool;
-	public function RemoveCurve(CurveId: cpp.Reference<AnimationCurveIdentifier>, bShouldTransact: Bool): Bool;
+	public function Resize(Length: ucpp.num.Float32, T0: ucpp.num.Float32, T1: ucpp.num.Float32, bShouldTransact: Bool): Void;
+	public function RenameCurve(CurveToRenameId: ucpp.Ref<AnimationCurveIdentifier>, NewCurveId: ucpp.Ref<AnimationCurveIdentifier>, bShouldTransact: Bool): Bool;
+	public function RemoveTransformCurveKey(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Time: ucpp.num.Float32, bShouldTransact: Bool): Bool;
+	public function RemoveCurveKey(CurveId: ucpp.Ref<AnimationCurveIdentifier>, Time: ucpp.num.Float32, bShouldTransact: Bool): Bool;
+	public function RemoveCurve(CurveId: ucpp.Ref<AnimationCurveIdentifier>, bShouldTransact: Bool): Bool;
 	public function RemoveBoneTrack(BoneName: FName, bShouldTransact: Bool): Bool;
-	public function RemoveAttributeKey(AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, Time: cpp.Float32, bShouldTransact: Bool): Bool;
-	public function RemoveAttribute(AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, bShouldTransact: Bool): Bool;
+	public function RemoveAttributeKey(AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, Time: ucpp.num.Float32, bShouldTransact: Bool): Bool;
+	public function RemoveAttribute(AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, bShouldTransact: Bool): Bool;
 	public function RemoveAllCurvesOfType(SupportedCurveType: ERawCurveTrackTypes, bShouldTransact: Bool): Void;
 	public function RemoveAllBoneTracks(bShouldTransact: Bool): Void;
-	public function RemoveAllAttributesForBone(BoneName: cpp.Reference<FName>, bShouldTransact: Bool): cpp.Int32;
-	public function RemoveAllAttributes(bShouldTransact: Bool): cpp.Int32;
-	public function OpenBracket(InTitle: cpp.Reference<FText>, bShouldTransact: Bool): Void;
-	public function InsertBoneTrack(BoneName: FName, DesiredIndex: cpp.Int32, bShouldTransact: Bool): cpp.Int32;
+	public function RemoveAllAttributesForBone(BoneName: ucpp.Ref<FName>, bShouldTransact: Bool): ucpp.num.Int32;
+	public function RemoveAllAttributes(bShouldTransact: Bool): ucpp.num.Int32;
+	public function OpenBracket(InTitle: ucpp.Ref<FText>, bShouldTransact: Bool): Void;
+	public function InsertBoneTrack(BoneName: FName, DesiredIndex: ucpp.num.Int32, bShouldTransact: Bool): ucpp.num.Int32;
 	public function GetModelInterface(): AnimationDataModel;
-	public function FindOrAddCurveNamesOnSkeleton(Skeleton: cpp.Star<Skeleton>, SupportedCurveType: ERawCurveTrackTypes, bShouldTransact: Bool): Void;
-	public function DuplicateCurve(CopyCurveId: cpp.Reference<AnimationCurveIdentifier>, NewCurveId: cpp.Reference<AnimationCurveIdentifier>, bShouldTransact: Bool): Bool;
-	public function DuplicateAttribute(AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, NewAttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, bShouldTransact: Bool): Bool;
+	public function FindOrAddCurveNamesOnSkeleton(Skeleton: ucpp.Ptr<Skeleton>, SupportedCurveType: ERawCurveTrackTypes, bShouldTransact: Bool): Void;
+	public function DuplicateCurve(CopyCurveId: ucpp.Ref<AnimationCurveIdentifier>, NewCurveId: ucpp.Ref<AnimationCurveIdentifier>, bShouldTransact: Bool): Bool;
+	public function DuplicateAttribute(AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, NewAttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, bShouldTransact: Bool): Bool;
 	public function CloseBracket(bShouldTransact: Bool): Void;
-	public function AddCurve(CurveId: cpp.Reference<AnimationCurveIdentifier>, CurveFlags: cpp.Int32, bShouldTransact: Bool): Bool;
-	public function AddBoneTrack(BoneName: FName, bShouldTransact: Bool): cpp.Int32;
+	public function AddCurve(CurveId: ucpp.Ref<AnimationCurveIdentifier>, CurveFlags: ucpp.num.Int32, bShouldTransact: Bool): Bool;
+	public function AddBoneTrack(BoneName: FName, bShouldTransact: Bool): ucpp.num.Int32;
 	public function AddBoneCurve(BoneName: FName, bShouldTransact: Bool): Bool;
-	public function AddAttribute(AttributeIdentifier: cpp.Reference<AnimationAttributeIdentifier>, bShouldTransact: Bool): Bool;
+	public function AddAttribute(AttributeIdentifier: ucpp.Ref<AnimationAttributeIdentifier>, bShouldTransact: Bool): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetModelInterface)
@@ -56,7 +56,7 @@ abstract ConstAnimationDataController(AnimationDataController) from AnimationDat
 @:forward
 @:nativeGen
 @:native("AnimationDataController*")
-abstract AnimationDataControllerPtr(cpp.Star<AnimationDataController>) from cpp.Star<AnimationDataController> to cpp.Star<AnimationDataController>{
+abstract AnimationDataControllerPtr(ucpp.Ptr<AnimationDataController>) from ucpp.Ptr<AnimationDataController> to ucpp.Ptr<AnimationDataController>{
 	@:from
 	public static extern inline function fromValue(v: AnimationDataController): AnimationDataControllerPtr {
 		return untyped __cpp__("&({0})", v);

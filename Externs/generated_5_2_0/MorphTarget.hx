@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMorphTarget")
 @:include("Animation/MorphTarget.h")
-@:structAccess
+@:valueType
 extern class MorphTarget extends Object {
-	public var BaseSkelMesh: cpp.Star<SkeletalMesh>;
+	public var BaseSkelMesh: ucpp.Ptr<SkeletalMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMorphTarget(MorphTarget) from MorphTarget {
-	public extern var BaseSkelMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_BaseSkelMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.BaseSkelMesh;
+	public extern var BaseSkelMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_BaseSkelMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.BaseSkelMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("MorphTarget*")
-abstract MorphTargetPtr(cpp.Star<MorphTarget>) from cpp.Star<MorphTarget> to cpp.Star<MorphTarget>{
+abstract MorphTargetPtr(ucpp.Ptr<MorphTarget>) from ucpp.Ptr<MorphTarget> to ucpp.Ptr<MorphTarget>{
 	@:from
 	public static extern inline function fromValue(v: MorphTarget): MorphTargetPtr {
 		return untyped __cpp__("&({0})", v);

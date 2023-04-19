@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAudioMeterStyle")
 @:include("AudioMeterStyle.h")
-@:structAccess
+@:valueType
 extern class AudioMeterStyle extends SlateWidgetStyle {
 	public var MeterValueImage: SlateBrush;
 	public var BackgroundImage: SlateBrush;
@@ -12,15 +12,15 @@ extern class AudioMeterStyle extends SlateWidgetStyle {
 	public var MeterPeakImage: SlateBrush;
 	public var MeterSize: Vector2D;
 	public var MeterPadding: Vector2D;
-	public var MeterValuePadding: cpp.Float32;
-	public var PeakValueWidth: cpp.Float32;
+	public var MeterValuePadding: ucpp.num.Float32;
+	public var PeakValueWidth: ucpp.num.Float32;
 	public var ValueRangeDb: Vector2D;
 	public var bShowScale: Bool;
 	public var bScaleSide: Bool;
-	public var ScaleHashOffset: cpp.Float32;
-	public var ScaleHashWidth: cpp.Float32;
-	public var ScaleHashHeight: cpp.Float32;
-	public var DecibelsPerHash: cpp.Int32;
+	public var ScaleHashOffset: ucpp.num.Float32;
+	public var ScaleHashWidth: ucpp.num.Float32;
+	public var ScaleHashHeight: ucpp.num.Float32;
+	public var DecibelsPerHash: ucpp.num.Int32;
 	public var Font: SlateFontInfo;
 
 	@:native("FAudioMeterStyle") public function new();

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_LegacyPyTestObject")
 @:include("PyTest.h")
-@:structAccess
+@:valueType
 extern class LegacyPyTestObject extends PyTestObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLegacyPyTestObject(LegacyPyTestObject) from LegacyPyTestObject {
 @:forward
 @:nativeGen
 @:native("LegacyPyTestObject*")
-abstract LegacyPyTestObjectPtr(cpp.Star<LegacyPyTestObject>) from cpp.Star<LegacyPyTestObject> to cpp.Star<LegacyPyTestObject>{
+abstract LegacyPyTestObjectPtr(ucpp.Ptr<LegacyPyTestObject>) from ucpp.Ptr<LegacyPyTestObject> to ucpp.Ptr<LegacyPyTestObject>{
 	@:from
 	public static extern inline function fromValue(v: LegacyPyTestObject): LegacyPyTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

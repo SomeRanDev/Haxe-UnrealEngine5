@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDefaultTemplateProjectDefs")
 @:include("DefaultTemplateProjectDefs.h")
-@:structAccess
+@:valueType
 extern class DefaultTemplateProjectDefs extends TemplateProjectDefs {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDefaultTemplateProjectDefs(DefaultTemplateProjectDefs) from Defaul
 @:forward
 @:nativeGen
 @:native("DefaultTemplateProjectDefs*")
-abstract DefaultTemplateProjectDefsPtr(cpp.Star<DefaultTemplateProjectDefs>) from cpp.Star<DefaultTemplateProjectDefs> to cpp.Star<DefaultTemplateProjectDefs>{
+abstract DefaultTemplateProjectDefsPtr(ucpp.Ptr<DefaultTemplateProjectDefs>) from ucpp.Ptr<DefaultTemplateProjectDefs> to ucpp.Ptr<DefaultTemplateProjectDefs>{
 	@:from
 	public static extern inline function fromValue(v: DefaultTemplateProjectDefs): DefaultTemplateProjectDefsPtr {
 		return untyped __cpp__("&({0})", v);

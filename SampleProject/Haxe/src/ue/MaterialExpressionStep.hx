@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionStep")
 @:include("Materials/MaterialExpressionStep.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStep extends MaterialExpression {
 	public var Y: ExpressionInput;
 	public var X: ExpressionInput;
-	public var ConstY: cpp.Float32;
-	public var ConstX: cpp.Float32;
+	public var ConstY: ucpp.num.Float32;
+	public var ConstX: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,16 +20,16 @@ abstract ConstMaterialExpressionStep(MaterialExpressionStep) from MaterialExpres
 	public inline extern function get_Y(): ExpressionInput return this.Y;
 	public extern var X(get, never): ExpressionInput;
 	public inline extern function get_X(): ExpressionInput return this.X;
-	public extern var ConstY(get, never): cpp.Float32;
-	public inline extern function get_ConstY(): cpp.Float32 return this.ConstY;
-	public extern var ConstX(get, never): cpp.Float32;
-	public inline extern function get_ConstX(): cpp.Float32 return this.ConstX;
+	public extern var ConstY(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstY(): ucpp.num.Float32 return this.ConstY;
+	public extern var ConstX(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstX(): ucpp.num.Float32 return this.ConstX;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStep*")
-abstract MaterialExpressionStepPtr(cpp.Star<MaterialExpressionStep>) from cpp.Star<MaterialExpressionStep> to cpp.Star<MaterialExpressionStep>{
+abstract MaterialExpressionStepPtr(ucpp.Ptr<MaterialExpressionStep>) from ucpp.Ptr<MaterialExpressionStep> to ucpp.Ptr<MaterialExpressionStep>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStep): MaterialExpressionStepPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,26 +3,26 @@ package ue;
 
 @:native("UAnimNotify_PlaySound")
 @:include("Animation/AnimNotifies/AnimNotify_PlaySound.h")
-@:structAccess
+@:valueType
 extern class AnimNotify_PlaySound extends AnimNotify {
-	public var Sound: cpp.Star<SoundBase>;
-	public var VolumeMultiplier: cpp.Float32;
-	public var PitchMultiplier: cpp.Float32;
+	public var Sound: ucpp.Ptr<SoundBase>;
+	public var VolumeMultiplier: ucpp.num.Float32;
+	public var PitchMultiplier: ucpp.num.Float32;
 	public var bFollow: Bool;
 	public var AttachName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimNotify_PlaySound(AnimNotify_PlaySound) from AnimNotify_PlaySound {
-	public extern var Sound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_Sound(): cpp.Star<SoundBase.ConstSoundBase> return this.Sound;
-	public extern var VolumeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_VolumeMultiplier(): cpp.Float32 return this.VolumeMultiplier;
-	public extern var PitchMultiplier(get, never): cpp.Float32;
-	public inline extern function get_PitchMultiplier(): cpp.Float32 return this.PitchMultiplier;
+	public extern var Sound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_Sound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.Sound;
+	public extern var VolumeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeMultiplier(): ucpp.num.Float32 return this.VolumeMultiplier;
+	public extern var PitchMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_PitchMultiplier(): ucpp.num.Float32 return this.PitchMultiplier;
 	public extern var bFollow(get, never): Bool;
 	public inline extern function get_bFollow(): Bool return this.bFollow;
 	public extern var AttachName(get, never): FName;
@@ -32,7 +32,7 @@ abstract ConstAnimNotify_PlaySound(AnimNotify_PlaySound) from AnimNotify_PlaySou
 @:forward
 @:nativeGen
 @:native("AnimNotify_PlaySound*")
-abstract AnimNotify_PlaySoundPtr(cpp.Star<AnimNotify_PlaySound>) from cpp.Star<AnimNotify_PlaySound> to cpp.Star<AnimNotify_PlaySound>{
+abstract AnimNotify_PlaySoundPtr(ucpp.Ptr<AnimNotify_PlaySound>) from ucpp.Ptr<AnimNotify_PlaySound> to ucpp.Ptr<AnimNotify_PlaySound>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotify_PlaySound): AnimNotify_PlaySoundPtr {
 		return untyped __cpp__("&({0})", v);

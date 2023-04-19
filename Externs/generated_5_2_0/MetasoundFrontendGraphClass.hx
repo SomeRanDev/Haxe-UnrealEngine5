@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendGraphClass")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendGraphClass extends MetasoundFrontendClass {
 	public var Graph: MetasoundFrontendGraph;
 	public var PresetOptions: MetasoundFrontendGraphClassPresetOptions;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraVersionMetaData")
 @:include("NiagaraVersionMetaData.h")
-@:structAccess
+@:valueType
 extern class NiagaraVersionMetaData extends Object {
 	public var bIsExposedVersion: Bool;
 	public var ChangeDescription: FText;
@@ -15,7 +15,7 @@ extern class NiagaraVersionMetaData extends Object {
 	public var PythonUpdateScript: FString;
 	public var ScriptAsset: FilePath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstNiagaraVersionMetaData(NiagaraVersionMetaData) from NiagaraVersion
 @:forward
 @:nativeGen
 @:native("NiagaraVersionMetaData*")
-abstract NiagaraVersionMetaDataPtr(cpp.Star<NiagaraVersionMetaData>) from cpp.Star<NiagaraVersionMetaData> to cpp.Star<NiagaraVersionMetaData>{
+abstract NiagaraVersionMetaDataPtr(ucpp.Ptr<NiagaraVersionMetaData>) from ucpp.Ptr<NiagaraVersionMetaData> to ucpp.Ptr<NiagaraVersionMetaData>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraVersionMetaData): NiagaraVersionMetaDataPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UK2Node_ExecutePythonScript")
 @:include("K2Node_ExecutePythonScript.h")
-@:structAccess
+@:valueType
 extern class K2Node_ExecutePythonScript extends K2Node_CallFunction {
 	private var Inputs: TArray<FName>;
 	private var Outputs: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstK2Node_ExecutePythonScript(K2Node_ExecutePythonScript) from K2Node
 @:forward
 @:nativeGen
 @:native("K2Node_ExecutePythonScript*")
-abstract K2Node_ExecutePythonScriptPtr(cpp.Star<K2Node_ExecutePythonScript>) from cpp.Star<K2Node_ExecutePythonScript> to cpp.Star<K2Node_ExecutePythonScript>{
+abstract K2Node_ExecutePythonScriptPtr(ucpp.Ptr<K2Node_ExecutePythonScript>) from ucpp.Ptr<K2Node_ExecutePythonScript> to ucpp.Ptr<K2Node_ExecutePythonScript>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_ExecutePythonScript): K2Node_ExecutePythonScriptPtr {
 		return untyped __cpp__("&({0})", v);

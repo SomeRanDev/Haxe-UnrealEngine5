@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneNiagaraColorParameterTrack")
 @:include("MovieScene/Parameters/MovieSceneNiagaraColorParameterTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneNiagaraColorParameterTrack extends MovieSceneNiagaraParameterTrack {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneNiagaraColorParameterTrack(MovieSceneNiagaraColorParamet
 @:forward
 @:nativeGen
 @:native("MovieSceneNiagaraColorParameterTrack*")
-abstract MovieSceneNiagaraColorParameterTrackPtr(cpp.Star<MovieSceneNiagaraColorParameterTrack>) from cpp.Star<MovieSceneNiagaraColorParameterTrack> to cpp.Star<MovieSceneNiagaraColorParameterTrack>{
+abstract MovieSceneNiagaraColorParameterTrackPtr(ucpp.Ptr<MovieSceneNiagaraColorParameterTrack>) from ucpp.Ptr<MovieSceneNiagaraColorParameterTrack> to ucpp.Ptr<MovieSceneNiagaraColorParameterTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneNiagaraColorParameterTrack): MovieSceneNiagaraColorParameterTrackPtr {
 		return untyped __cpp__("&({0})", v);

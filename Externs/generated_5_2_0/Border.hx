@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBorder")
 @:include("Components/Border.h")
-@:structAccess
+@:valueType
 extern class Border extends ContentWidget {
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
@@ -17,10 +17,10 @@ extern class Border extends ContentWidget {
 	public var BrushColorDelegate: HaxeDelegateProperty<() -> Void>;
 	public var DesiredSizeScale: Vector2D;
 	public var bFlipForRightToLeftFlowDirection: Bool;
-	public var OnMouseButtonDownEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public var OnMouseButtonUpEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public var OnMouseMoveEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public var OnMouseDoubleClickEvent: HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
+	public var OnMouseButtonDownEvent: HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public var OnMouseButtonUpEvent: HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public var OnMouseMoveEvent: HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public var OnMouseDoubleClickEvent: HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
 
 	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
 	public function SetShowEffectWhenDisabled(bInShowEffectWhenDisabled: Bool): Void;
@@ -28,14 +28,14 @@ extern class Border extends ContentWidget {
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 	public function SetDesiredSizeScale(InScale: Vector2D): Void;
 	public function SetContentColorAndOpacity(InContentColorAndOpacity: LinearColor): Void;
-	public function SetBrushFromTexture(Texture: cpp.Star<Texture2D>): Void;
-	public function SetBrushFromMaterial(Material: cpp.Star<MaterialInterface>): Void;
-	public function SetBrushFromAsset(Asset: cpp.Star<SlateBrushAsset>): Void;
+	public function SetBrushFromTexture(Texture: ucpp.Ptr<Texture2D>): Void;
+	public function SetBrushFromMaterial(Material: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetBrushFromAsset(Asset: ucpp.Ptr<SlateBrushAsset>): Void;
 	public function SetBrushColor(InBrushColor: LinearColor): Void;
-	public function SetBrush(InBrush: cpp.Reference<SlateBrush>): Void;
-	public function GetDynamicMaterial(): cpp.Star<MaterialInstanceDynamic>;
+	public function SetBrush(InBrush: ucpp.Ref<SlateBrush>): Void;
+	public function GetDynamicMaterial(): ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -65,20 +65,20 @@ abstract ConstBorder(Border) from Border {
 	public inline extern function get_DesiredSizeScale(): Vector2D return this.DesiredSizeScale;
 	public extern var bFlipForRightToLeftFlowDirection(get, never): Bool;
 	public inline extern function get_bFlipForRightToLeftFlowDirection(): Bool return this.bFlipForRightToLeftFlowDirection;
-	public extern var OnMouseButtonDownEvent(get, never): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public inline extern function get_OnMouseButtonDownEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseButtonDownEvent;
-	public extern var OnMouseButtonUpEvent(get, never): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public inline extern function get_OnMouseButtonUpEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseButtonUpEvent;
-	public extern var OnMouseMoveEvent(get, never): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public inline extern function get_OnMouseMoveEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseMoveEvent;
-	public extern var OnMouseDoubleClickEvent(get, never): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void>;
-	public inline extern function get_OnMouseDoubleClickEvent(): HaxeDelegateProperty<(Geometry, cpp.Reference<PointerEvent>) -> Void> return this.OnMouseDoubleClickEvent;
+	public extern var OnMouseButtonDownEvent(get, never): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public inline extern function get_OnMouseButtonDownEvent(): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void> return this.OnMouseButtonDownEvent;
+	public extern var OnMouseButtonUpEvent(get, never): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public inline extern function get_OnMouseButtonUpEvent(): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void> return this.OnMouseButtonUpEvent;
+	public extern var OnMouseMoveEvent(get, never): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public inline extern function get_OnMouseMoveEvent(): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void> return this.OnMouseMoveEvent;
+	public extern var OnMouseDoubleClickEvent(get, never): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void>;
+	public inline extern function get_OnMouseDoubleClickEvent(): HaxeDelegateProperty<(Geometry, ucpp.Ref<PointerEvent>) -> Void> return this.OnMouseDoubleClickEvent;
 }
 
 @:forward
 @:nativeGen
 @:native("Border*")
-abstract BorderPtr(cpp.Star<Border>) from cpp.Star<Border> to cpp.Star<Border>{
+abstract BorderPtr(ucpp.Ptr<Border>) from ucpp.Ptr<Border> to ucpp.Ptr<Border>{
 	@:from
 	public static extern inline function fromValue(v: Border): BorderPtr {
 		return untyped __cpp__("&({0})", v);

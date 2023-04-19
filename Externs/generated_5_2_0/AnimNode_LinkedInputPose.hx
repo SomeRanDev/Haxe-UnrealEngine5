@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_LinkedInputPose")
 @:include("Animation/AnimNode_LinkedInputPose.h")
-@:structAccess
+@:valueType
 extern class AnimNode_LinkedInputPose extends AnimNode_Base {
 	public var Name: FName;
 	public var Graph: FName;

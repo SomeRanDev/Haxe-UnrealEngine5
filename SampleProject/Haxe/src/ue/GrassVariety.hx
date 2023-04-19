@@ -3,16 +3,19 @@ package ue;
 
 @:native("FGrassVariety")
 @:include("LandscapeGrassType.h")
-@:structAccess
+@:valueType
 extern class GrassVariety {
-	public var GrassMesh: cpp.Star<StaticMesh>;
-	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
+	public var GrassMesh: ucpp.Ptr<StaticMesh>;
+	public var OverrideMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 	public var GrassDensity: PerPlatformFloat;
+	public var GrassDensityQuality: PerQualityLevelFloat;
 	public var bUseGrid: Bool;
-	public var PlacementJitter: cpp.Float32;
+	public var PlacementJitter: ucpp.num.Float32;
 	public var StartCullDistance: PerPlatformInt;
+	public var StartCullDistanceQuality: PerQualityLevelInt;
 	public var EndCullDistance: PerPlatformInt;
-	public var MinLOD: cpp.Int32;
+	public var EndCullDistanceQuality: PerQualityLevelInt;
+	public var MinLOD: ucpp.num.Int32;
 	public var Scaling: EGrassScaling;
 	public var ScaleX: FloatInterval;
 	public var ScaleY: FloatInterval;
@@ -22,8 +25,11 @@ extern class GrassVariety {
 	public var bUseLandscapeLightmap: Bool;
 	public var LightingChannels: LightingChannels;
 	public var bReceivesDecals: Bool;
+	public var bAffectDistanceFieldLighting: Bool;
 	public var bCastDynamicShadow: Bool;
+	public var bCastContactShadow: Bool;
 	public var bKeepInstanceBufferCPUCopy: Bool;
+	public var InstanceWorldPositionOffsetDisableDistance: ucpp.num.UInt32;
 
 	@:native("FGrassVariety") public function new();
 }

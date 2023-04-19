@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMovieScene3DTransformSection")
 @:include("Sections/MovieScene3DTransformSection.h")
-@:structAccess
+@:valueType
 extern class MovieScene3DTransformSection extends MovieSceneSection {
 	private var TransformMask: MovieSceneTransformMask;
 	private var Translation: MovieSceneDoubleChannel;
 	private var Rotation: MovieSceneDoubleChannel;
 	private var Scale: MovieSceneDoubleChannel;
 	private var ManualWeight: MovieSceneFloatChannel;
-	private var OverrideRegistry: cpp.Star<MovieSceneSectionChannelOverrideRegistry>;
-	private var Constraints: cpp.Star<MovieScene3DTransformSectionConstraints>;
+	private var OverrideRegistry: ucpp.Ptr<MovieSceneSectionChannelOverrideRegistry>;
+	private var Constraints: ucpp.Ptr<MovieScene3DTransformSectionConstraints>;
 	private var bUseQuaternionInterpolation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstMovieScene3DTransformSection(MovieScene3DTransformSection) from Mo
 @:forward
 @:nativeGen
 @:native("MovieScene3DTransformSection*")
-abstract MovieScene3DTransformSectionPtr(cpp.Star<MovieScene3DTransformSection>) from cpp.Star<MovieScene3DTransformSection> to cpp.Star<MovieScene3DTransformSection>{
+abstract MovieScene3DTransformSectionPtr(ucpp.Ptr<MovieScene3DTransformSection>) from ucpp.Ptr<MovieScene3DTransformSection> to ucpp.Ptr<MovieScene3DTransformSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene3DTransformSection): MovieScene3DTransformSectionPtr {
 		return untyped __cpp__("&({0})", v);

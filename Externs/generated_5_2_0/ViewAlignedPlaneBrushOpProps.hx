@@ -3,25 +3,25 @@ package ue;
 
 @:native("UViewAlignedPlaneBrushOpProps")
 @:include("Sculpting/MeshPlaneBrushOps.h")
-@:structAccess
+@:valueType
 extern class ViewAlignedPlaneBrushOpProps extends BasePlaneBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
-	public var Depth: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
 	public var WhichSide: EPlaneBrushSideMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstViewAlignedPlaneBrushOpProps(ViewAlignedPlaneBrushOpProps) from ViewAlignedPlaneBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
 	public extern var WhichSide(get, never): EPlaneBrushSideMode;
 	public inline extern function get_WhichSide(): EPlaneBrushSideMode return this.WhichSide;
 }
@@ -29,7 +29,7 @@ abstract ConstViewAlignedPlaneBrushOpProps(ViewAlignedPlaneBrushOpProps) from Vi
 @:forward
 @:nativeGen
 @:native("ViewAlignedPlaneBrushOpProps*")
-abstract ViewAlignedPlaneBrushOpPropsPtr(cpp.Star<ViewAlignedPlaneBrushOpProps>) from cpp.Star<ViewAlignedPlaneBrushOpProps> to cpp.Star<ViewAlignedPlaneBrushOpProps>{
+abstract ViewAlignedPlaneBrushOpPropsPtr(ucpp.Ptr<ViewAlignedPlaneBrushOpProps>) from ucpp.Ptr<ViewAlignedPlaneBrushOpProps> to ucpp.Ptr<ViewAlignedPlaneBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: ViewAlignedPlaneBrushOpProps): ViewAlignedPlaneBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFieldValueChangedDynamicDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class FieldValueChangedDynamicDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFieldValueChangedDynamicDelegate__PythonCallable(FieldValueChanged
 @:forward
 @:nativeGen
 @:native("FieldValueChangedDynamicDelegate__PythonCallable*")
-abstract FieldValueChangedDynamicDelegate__PythonCallablePtr(cpp.Star<FieldValueChangedDynamicDelegate__PythonCallable>) from cpp.Star<FieldValueChangedDynamicDelegate__PythonCallable> to cpp.Star<FieldValueChangedDynamicDelegate__PythonCallable>{
+abstract FieldValueChangedDynamicDelegate__PythonCallablePtr(ucpp.Ptr<FieldValueChangedDynamicDelegate__PythonCallable>) from ucpp.Ptr<FieldValueChangedDynamicDelegate__PythonCallable> to ucpp.Ptr<FieldValueChangedDynamicDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: FieldValueChangedDynamicDelegate__PythonCallable): FieldValueChangedDynamicDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,39 +3,39 @@ package ue;
 
 @:native("UBlackboardComponent")
 @:include("BehaviorTree/BlackboardComponent.h")
-@:structAccess
+@:valueType
 extern class BlackboardComp extends ActorComp {
-	@:protected public var BrainComp: cpp.Star<BrainComp>;
-	@:protected public var DefaultBlackboardAsset: cpp.Star<BlackboardData>;
-	@:protected public var BlackboardAsset: cpp.Star<BlackboardData>;
-	@:protected public var KeyInstances: TArray<cpp.Star<BlackboardKeyType>>;
+	@:protected public var BrainComp: ucpp.Ptr<BrainComp>;
+	@:protected public var DefaultBlackboardAsset: ucpp.Ptr<BlackboardData>;
+	@:protected public var BlackboardAsset: ucpp.Ptr<BlackboardData>;
+	@:protected public var KeyInstances: TArray<ucpp.Ptr<BlackboardKeyType>>;
 
-	public function SetValueAsVector(KeyName: cpp.Reference<FName>, VectorValue: Vector): Void;
-	public function SetValueAsString(KeyName: cpp.Reference<FName>, StringValue: FString): Void;
-	public function SetValueAsRotator(KeyName: cpp.Reference<FName>, VectorValue: Rotator): Void;
-	public function SetValueAsObject(KeyName: cpp.Reference<FName>, ObjectValue: cpp.Star<Object>): Void;
-	public function SetValueAsName(KeyName: cpp.Reference<FName>, NameValue: FName): Void;
-	public function SetValueAsInt(KeyName: cpp.Reference<FName>, IntValue: cpp.Int32): Void;
-	public function SetValueAsFloat(KeyName: cpp.Reference<FName>, FloatValue: cpp.Float32): Void;
-	public function SetValueAsEnum(KeyName: cpp.Reference<FName>, EnumValue: cpp.UInt8): Void;
-	public function SetValueAsClass(KeyName: cpp.Reference<FName>, ClassValue: cpp.Star<Class>): Void;
-	public function SetValueAsBool(KeyName: cpp.Reference<FName>, BoolValue: Bool): Void;
-	public function IsVectorValueSet(KeyName: cpp.Reference<FName>): Bool;
-	public function GetValueAsVector(KeyName: cpp.Reference<FName>): Vector;
-	public function GetValueAsString(KeyName: cpp.Reference<FName>): FString;
-	public function GetValueAsRotator(KeyName: cpp.Reference<FName>): Rotator;
-	public function GetValueAsObject(KeyName: cpp.Reference<FName>): cpp.Star<Object>;
-	public function GetValueAsName(KeyName: cpp.Reference<FName>): FName;
-	public function GetValueAsInt(KeyName: cpp.Reference<FName>): cpp.Int32;
-	public function GetValueAsFloat(KeyName: cpp.Reference<FName>): cpp.Float32;
-	public function GetValueAsEnum(KeyName: cpp.Reference<FName>): cpp.UInt8;
-	public function GetValueAsClass(KeyName: cpp.Reference<FName>): cpp.Star<Class>;
-	public function GetValueAsBool(KeyName: cpp.Reference<FName>): Bool;
-	public function GetRotationFromEntry(KeyName: cpp.Reference<FName>, ResultRotation: cpp.Reference<Rotator>): Bool;
-	public function GetLocationFromEntry(KeyName: cpp.Reference<FName>, ResultLocation: cpp.Reference<Vector>): Bool;
-	public function ClearValue(KeyName: cpp.Reference<FName>): Void;
+	public function SetValueAsVector(KeyName: ucpp.Ref<FName>, VectorValue: Vector): Void;
+	public function SetValueAsString(KeyName: ucpp.Ref<FName>, StringValue: FString): Void;
+	public function SetValueAsRotator(KeyName: ucpp.Ref<FName>, VectorValue: Rotator): Void;
+	public function SetValueAsObject(KeyName: ucpp.Ref<FName>, ObjectValue: ucpp.Ptr<Object>): Void;
+	public function SetValueAsName(KeyName: ucpp.Ref<FName>, NameValue: FName): Void;
+	public function SetValueAsInt(KeyName: ucpp.Ref<FName>, IntValue: ucpp.num.Int32): Void;
+	public function SetValueAsFloat(KeyName: ucpp.Ref<FName>, FloatValue: ucpp.num.Float32): Void;
+	public function SetValueAsEnum(KeyName: ucpp.Ref<FName>, EnumValue: ucpp.num.UInt8): Void;
+	public function SetValueAsClass(KeyName: ucpp.Ref<FName>, ClassValue: ucpp.Ptr<Class>): Void;
+	public function SetValueAsBool(KeyName: ucpp.Ref<FName>, BoolValue: Bool): Void;
+	public function IsVectorValueSet(KeyName: ucpp.Ref<FName>): Bool;
+	public function GetValueAsVector(KeyName: ucpp.Ref<FName>): Vector;
+	public function GetValueAsString(KeyName: ucpp.Ref<FName>): FString;
+	public function GetValueAsRotator(KeyName: ucpp.Ref<FName>): Rotator;
+	public function GetValueAsObject(KeyName: ucpp.Ref<FName>): ucpp.Ptr<Object>;
+	public function GetValueAsName(KeyName: ucpp.Ref<FName>): FName;
+	public function GetValueAsInt(KeyName: ucpp.Ref<FName>): ucpp.num.Int32;
+	public function GetValueAsFloat(KeyName: ucpp.Ref<FName>): ucpp.num.Float32;
+	public function GetValueAsEnum(KeyName: ucpp.Ref<FName>): ucpp.num.UInt8;
+	public function GetValueAsClass(KeyName: ucpp.Ref<FName>): ucpp.Ptr<Class>;
+	public function GetValueAsBool(KeyName: ucpp.Ref<FName>): Bool;
+	public function GetRotationFromEntry(KeyName: ucpp.Ref<FName>, ResultRotation: ucpp.Ref<Rotator>): Bool;
+	public function GetLocationFromEntry(KeyName: ucpp.Ref<FName>, ResultLocation: ucpp.Ref<Vector>): Bool;
+	public function ClearValue(KeyName: ucpp.Ref<FName>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -50,7 +50,7 @@ abstract ConstBlackboardComp(BlackboardComp) from BlackboardComp {
 @:forward
 @:nativeGen
 @:native("BlackboardComp*")
-abstract BlackboardCompPtr(cpp.Star<BlackboardComp>) from cpp.Star<BlackboardComp> to cpp.Star<BlackboardComp>{
+abstract BlackboardCompPtr(ucpp.Ptr<BlackboardComp>) from ucpp.Ptr<BlackboardComp> to ucpp.Ptr<BlackboardComp>{
 	@:from
 	public static extern inline function fromValue(v: BlackboardComp): BlackboardCompPtr {
 		return untyped __cpp__("&({0})", v);

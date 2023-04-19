@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceDataChannelRead")
 @:include("DataInterface/NiagaraDataInterfaceDataChannelRead.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceDataChannelRead extends NiagaraDataInterface {
 	public var Channel: NiagaraDataChannelReference;
 	public var bReadCurrentFrame: Bool;
 	@:protected public var CompiledData: NDIDataChannelCompiledData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstNiagaraDataInterfaceDataChannelRead(NiagaraDataInterfaceDataChanne
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceDataChannelRead*")
-abstract NiagaraDataInterfaceDataChannelReadPtr(cpp.Star<NiagaraDataInterfaceDataChannelRead>) from cpp.Star<NiagaraDataInterfaceDataChannelRead> to cpp.Star<NiagaraDataInterfaceDataChannelRead>{
+abstract NiagaraDataInterfaceDataChannelReadPtr(ucpp.Ptr<NiagaraDataInterfaceDataChannelRead>) from ucpp.Ptr<NiagaraDataInterfaceDataChannelRead> to ucpp.Ptr<NiagaraDataInterfaceDataChannelRead>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceDataChannelRead): NiagaraDataInterfaceDataChannelReadPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigControlSettings")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigControlSettings {
 	public var AnimationType: ERigControlAnimationType;
 	public var ControlType: ERigControlType;
@@ -19,7 +19,7 @@ extern class RigControlSettings {
 	public var ShapeName: FName;
 	public var ShapeColor: LinearColor;
 	public var bIsTransientControl: Bool;
-	public var ControlEnum: cpp.Star<Enum>;
+	public var ControlEnum: ucpp.Ptr<Enum>;
 	public var Customization: RigControlElementCustomization;
 	public var DrivenControls: TArray<RigElementKey>;
 	public var bGroupWithParentControl: Bool;

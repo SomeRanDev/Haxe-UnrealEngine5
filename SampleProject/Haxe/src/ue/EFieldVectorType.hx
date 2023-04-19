@@ -11,6 +11,7 @@ extern class EFieldVectorType {
 	static var Vector_PositionTarget: EFieldVectorType;
 	static var Vector_InitialLinearVelocity: EFieldVectorType;
 	static var Vector_InitialAngularVelocity: EFieldVectorType;
+	static var Vector_LinearImpulse: EFieldVectorType;
 	static var Vector_TargetMax: EFieldVectorType;
 	static var Vector_MAX: EFieldVectorType;
 }

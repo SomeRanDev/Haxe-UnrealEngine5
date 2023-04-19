@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSequencerQuickBindingResult")
 @:include("SequencerTools.h")
-@:structAccess
+@:valueType
 extern class SequencerQuickBindingResult {
-	public var EventEndpoint: cpp.Star<K2Node_CustomEvent>;
+	public var EventEndpoint: ucpp.Ptr<K2Node_CustomEvent>;
 	public var PayloadNames: TArray<FString>;
 
 	@:native("FSequencerQuickBindingResult") public function new();
-	@:native("FSequencerQuickBindingResult") public static function make(EventEndpoint: cpp.Star<K2Node_CustomEvent>, PayloadNames: TArray<FString>): SequencerQuickBindingResult ;
+	@:native("FSequencerQuickBindingResult") public static function make(EventEndpoint: ucpp.Ptr<K2Node_CustomEvent>, PayloadNames: TArray<FString>): SequencerQuickBindingResult ;
 }

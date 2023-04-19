@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UBlendableInterface")
-@:structAccess
+@:valueType
 extern class BlendableInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstBlendableInterface(BlendableInterface) from BlendableInterface {
 @:forward
 @:nativeGen
 @:native("BlendableInterface*")
-abstract BlendableInterfacePtr(cpp.Star<BlendableInterface>) from cpp.Star<BlendableInterface> to cpp.Star<BlendableInterface>{
+abstract BlendableInterfacePtr(ucpp.Ptr<BlendableInterface>) from ucpp.Ptr<BlendableInterface> to ucpp.Ptr<BlendableInterface>{
 	@:from
 	public static extern inline function fromValue(v: BlendableInterface): BlendableInterfacePtr {
 		return untyped __cpp__("&({0})", v);

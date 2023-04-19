@@ -3,18 +3,18 @@ package ue;
 
 @:native("USequenceRecorderActorGroup")
 @:include("SequenceRecorderActorGroup.h")
-@:structAccess
+@:valueType
 extern class SequenceRecorderActorGroup extends Object {
 	public var GroupName: FName;
 	public var SequenceName: FString;
 	public var SequenceRecordingBasePath: DirectoryPath;
 	public var bSpecifyTargetLevelSequence: Bool;
-	public var TargetLevelSequence: cpp.Star<LevelSequence>;
+	public var TargetLevelSequence: ucpp.Ptr<LevelSequence>;
 	public var bDuplicateTargetLevelSequence: Bool;
 	public var bRecordTargetLevelSequenceLength: Bool;
-	public var RecordedActors: TArray<cpp.Star<ActorRecording>>;
+	public var RecordedActors: TArray<ucpp.Ptr<ActorRecording>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,20 +28,20 @@ abstract ConstSequenceRecorderActorGroup(SequenceRecorderActorGroup) from Sequen
 	public inline extern function get_SequenceRecordingBasePath(): DirectoryPath return this.SequenceRecordingBasePath;
 	public extern var bSpecifyTargetLevelSequence(get, never): Bool;
 	public inline extern function get_bSpecifyTargetLevelSequence(): Bool return this.bSpecifyTargetLevelSequence;
-	public extern var TargetLevelSequence(get, never): cpp.Star<LevelSequence.ConstLevelSequence>;
-	public inline extern function get_TargetLevelSequence(): cpp.Star<LevelSequence.ConstLevelSequence> return this.TargetLevelSequence;
+	public extern var TargetLevelSequence(get, never): ucpp.Ptr<LevelSequence.ConstLevelSequence>;
+	public inline extern function get_TargetLevelSequence(): ucpp.Ptr<LevelSequence.ConstLevelSequence> return this.TargetLevelSequence;
 	public extern var bDuplicateTargetLevelSequence(get, never): Bool;
 	public inline extern function get_bDuplicateTargetLevelSequence(): Bool return this.bDuplicateTargetLevelSequence;
 	public extern var bRecordTargetLevelSequenceLength(get, never): Bool;
 	public inline extern function get_bRecordTargetLevelSequenceLength(): Bool return this.bRecordTargetLevelSequenceLength;
-	public extern var RecordedActors(get, never): TArray<cpp.Star<ActorRecording.ConstActorRecording>>;
-	public inline extern function get_RecordedActors(): TArray<cpp.Star<ActorRecording.ConstActorRecording>> return this.RecordedActors;
+	public extern var RecordedActors(get, never): TArray<ucpp.Ptr<ActorRecording.ConstActorRecording>>;
+	public inline extern function get_RecordedActors(): TArray<ucpp.Ptr<ActorRecording.ConstActorRecording>> return this.RecordedActors;
 }
 
 @:forward
 @:nativeGen
 @:native("SequenceRecorderActorGroup*")
-abstract SequenceRecorderActorGroupPtr(cpp.Star<SequenceRecorderActorGroup>) from cpp.Star<SequenceRecorderActorGroup> to cpp.Star<SequenceRecorderActorGroup>{
+abstract SequenceRecorderActorGroupPtr(ucpp.Ptr<SequenceRecorderActorGroup>) from ucpp.Ptr<SequenceRecorderActorGroup> to ucpp.Ptr<SequenceRecorderActorGroup>{
 	@:from
 	public static extern inline function fromValue(v: SequenceRecorderActorGroup): SequenceRecorderActorGroupPtr {
 		return untyped __cpp__("&({0})", v);

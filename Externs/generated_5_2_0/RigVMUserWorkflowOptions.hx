@@ -3,9 +3,9 @@ package ue;
 
 @:native("URigVMUserWorkflowOptions")
 @:include("RigVMCore/RigVMUserWorkflow.h")
-@:structAccess
+@:valueType
 extern class RigVMUserWorkflowOptions extends Object {
-	@:protected public var Subject: cpp.Star<Object>;
+	@:protected public var Subject: ucpp.Ptr<Object>;
 	@:protected public var Workflow: RigVMUserWorkflow;
 
 	public function RequiresDialog(): Bool;
@@ -14,7 +14,7 @@ extern class RigVMUserWorkflowOptions extends Object {
 	public function ReportError(InMessage: FString): Void;
 	public function IsValid(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(RequiresDialog, IsValid)
@@ -25,7 +25,7 @@ abstract ConstRigVMUserWorkflowOptions(RigVMUserWorkflowOptions) from RigVMUserW
 @:forward
 @:nativeGen
 @:native("RigVMUserWorkflowOptions*")
-abstract RigVMUserWorkflowOptionsPtr(cpp.Star<RigVMUserWorkflowOptions>) from cpp.Star<RigVMUserWorkflowOptions> to cpp.Star<RigVMUserWorkflowOptions>{
+abstract RigVMUserWorkflowOptionsPtr(ucpp.Ptr<RigVMUserWorkflowOptions>) from ucpp.Ptr<RigVMUserWorkflowOptions> to ucpp.Ptr<RigVMUserWorkflowOptions>{
 	@:from
 	public static extern inline function fromValue(v: RigVMUserWorkflowOptions): RigVMUserWorkflowOptionsPtr {
 		return untyped __cpp__("&({0})", v);

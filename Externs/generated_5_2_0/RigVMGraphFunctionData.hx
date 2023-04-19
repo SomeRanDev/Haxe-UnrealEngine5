@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMGraphFunctionData")
 @:include("RigVMCore/RigVMGraphFunctionDefinition.h")
-@:structAccess
+@:valueType
 extern class RigVMGraphFunctionData {
 	public var Header: RigVMGraphFunctionHeader;
 	public var CompilationData: RigVMFunctionCompilationData;

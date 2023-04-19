@@ -3,10 +3,10 @@ package ue;
 
 @:native("UViewModeUtils")
 @:include("Engine/EngineBaseTypes.h")
-@:structAccess
+@:valueType
 extern class ViewModeUtils extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstViewModeUtils(ViewModeUtils) from ViewModeUtils {
 @:forward
 @:nativeGen
 @:native("ViewModeUtils*")
-abstract ViewModeUtilsPtr(cpp.Star<ViewModeUtils>) from cpp.Star<ViewModeUtils> to cpp.Star<ViewModeUtils>{
+abstract ViewModeUtilsPtr(ucpp.Ptr<ViewModeUtils>) from ucpp.Ptr<ViewModeUtils> to ucpp.Ptr<ViewModeUtils>{
 	@:from
 	public static extern inline function fromValue(v: ViewModeUtils): ViewModeUtilsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("APlayerStartPIE")
 @:include("Engine/PlayerStartPIE.h")
-@:structAccess
+@:valueType
 extern class PlayerStartPIE extends PlayerStart {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlayerStartPIE(PlayerStartPIE) from PlayerStartPIE {
 @:forward
 @:nativeGen
 @:native("PlayerStartPIE*")
-abstract PlayerStartPIEPtr(cpp.Star<PlayerStartPIE>) from cpp.Star<PlayerStartPIE> to cpp.Star<PlayerStartPIE>{
+abstract PlayerStartPIEPtr(ucpp.Ptr<PlayerStartPIE>) from ucpp.Ptr<PlayerStartPIE> to ucpp.Ptr<PlayerStartPIE>{
 	@:from
 	public static extern inline function fromValue(v: PlayerStartPIE): PlayerStartPIEPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneNodeGroupCollection")
 @:include("MovieScene.h")
-@:structAccess
+@:valueType
 extern class MovieSceneNodeGroupCollection extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneNodeGroupCollection(MovieSceneNodeGroupCollection) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneNodeGroupCollection*")
-abstract MovieSceneNodeGroupCollectionPtr(cpp.Star<MovieSceneNodeGroupCollection>) from cpp.Star<MovieSceneNodeGroupCollection> to cpp.Star<MovieSceneNodeGroupCollection>{
+abstract MovieSceneNodeGroupCollectionPtr(ucpp.Ptr<MovieSceneNodeGroupCollection>) from ucpp.Ptr<MovieSceneNodeGroupCollection> to ucpp.Ptr<MovieSceneNodeGroupCollection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneNodeGroupCollection): MovieSceneNodeGroupCollectionPtr {
 		return untyped __cpp__("&({0})", v);

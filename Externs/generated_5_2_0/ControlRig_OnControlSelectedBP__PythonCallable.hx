@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UControlRig_OnControlSelectedBP__PythonCallable")
-@:structAccess
+@:valueType
 extern class ControlRig_OnControlSelectedBP__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstControlRig_OnControlSelectedBP__PythonCallable(ControlRig_OnContro
 @:forward
 @:nativeGen
 @:native("ControlRig_OnControlSelectedBP__PythonCallable*")
-abstract ControlRig_OnControlSelectedBP__PythonCallablePtr(cpp.Star<ControlRig_OnControlSelectedBP__PythonCallable>) from cpp.Star<ControlRig_OnControlSelectedBP__PythonCallable> to cpp.Star<ControlRig_OnControlSelectedBP__PythonCallable>{
+abstract ControlRig_OnControlSelectedBP__PythonCallablePtr(ucpp.Ptr<ControlRig_OnControlSelectedBP__PythonCallable>) from ucpp.Ptr<ControlRig_OnControlSelectedBP__PythonCallable> to ucpp.Ptr<ControlRig_OnControlSelectedBP__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ControlRig_OnControlSelectedBP__PythonCallable): ControlRig_OnControlSelectedBP__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

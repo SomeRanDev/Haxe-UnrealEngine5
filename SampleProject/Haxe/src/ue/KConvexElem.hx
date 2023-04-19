@@ -3,13 +3,13 @@ package ue;
 
 @:native("FKConvexElem")
 @:include("PhysicsEngine/ConvexElem.h")
-@:structAccess
+@:valueType
 extern class KConvexElem extends KShapeElem {
 	public var VertexData: TArray<Vector>;
-	public var IndexData: TArray<cpp.Int32>;
+	public var IndexData: TArray<ucpp.num.Int32>;
 	public var ElemBox: Box;
 	private var Transform: Transform;
 
 	@:native("FKConvexElem") public function new();
-	@:native("FKConvexElem") public static function make(VertexData: TArray<Vector>, IndexData: TArray<cpp.Int32>, ElemBox: Box, Transform: Transform): KConvexElem ;
+	@:native("FKConvexElem") public static function make(VertexData: TArray<Vector>, IndexData: TArray<ucpp.num.Int32>, ElemBox: Box, Transform: Transform): KConvexElem ;
 }

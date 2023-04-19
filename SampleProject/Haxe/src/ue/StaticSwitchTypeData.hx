@@ -3,14 +3,14 @@ package ue;
 
 @:native("FStaticSwitchTypeData")
 @:include("Private/NiagaraNodeStaticSwitch.h")
-@:structAccess
+@:valueType
 extern class StaticSwitchTypeData {
 	public var SwitchType: ENiagaraStaticSwitchType;
-	public var Enum: cpp.Star<Enum>;
+	public var Enum: ucpp.Ptr<Enum>;
 	public var SwitchConstant: FName;
 	public var bAutoRefreshEnabled: Bool;
 	public var bExposeAsPin: Bool;
 
 	@:native("FStaticSwitchTypeData") public function new();
-	@:native("FStaticSwitchTypeData") public static function make(SwitchType: ENiagaraStaticSwitchType, Enum: cpp.Star<Enum>, SwitchConstant: FName, bAutoRefreshEnabled: Bool, bExposeAsPin: Bool): StaticSwitchTypeData ;
+	@:native("FStaticSwitchTypeData") public static function make(SwitchType: ENiagaraStaticSwitchType, Enum: ucpp.Ptr<Enum>, SwitchConstant: FName, bAutoRefreshEnabled: Bool, bExposeAsPin: Bool): StaticSwitchTypeData ;
 }

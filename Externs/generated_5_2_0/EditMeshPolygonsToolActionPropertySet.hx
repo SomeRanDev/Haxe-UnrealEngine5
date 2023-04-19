@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditMeshPolygonsToolActionPropertySet")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshPolygonsToolActionPropertySet extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditMeshPolygonsToolActionPropertySet(EditMeshPolygonsToolActionPr
 @:forward
 @:nativeGen
 @:native("EditMeshPolygonsToolActionPropertySet*")
-abstract EditMeshPolygonsToolActionPropertySetPtr(cpp.Star<EditMeshPolygonsToolActionPropertySet>) from cpp.Star<EditMeshPolygonsToolActionPropertySet> to cpp.Star<EditMeshPolygonsToolActionPropertySet>{
+abstract EditMeshPolygonsToolActionPropertySetPtr(ucpp.Ptr<EditMeshPolygonsToolActionPropertySet>) from ucpp.Ptr<EditMeshPolygonsToolActionPropertySet> to ucpp.Ptr<EditMeshPolygonsToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshPolygonsToolActionPropertySet): EditMeshPolygonsToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

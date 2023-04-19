@@ -3,7 +3,7 @@ package ue;
 
 @:native("FToolMenuOwner")
 @:include("ToolMenuOwner.h")
-@:structAccess
+@:valueType
 extern class ToolMenuOwner {
 	@:native("FToolMenuOwner") public function new();
 }

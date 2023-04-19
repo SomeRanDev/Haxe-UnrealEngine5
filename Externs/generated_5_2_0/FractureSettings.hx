@@ -3,22 +3,22 @@ package ue;
 
 @:native("UFractureSettings")
 @:include("FractureSettings.h")
-@:structAccess
+@:valueType
 extern class FractureSettings extends Object {
-	public var ExplodeAmount: cpp.Float32;
-	public var FractureLevel: cpp.Int32;
+	public var ExplodeAmount: ucpp.num.Float32;
+	public var FractureLevel: ucpp.num.Int32;
 	public var bHideUnselected: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureSettings(FractureSettings) from FractureSettings {
-	public extern var ExplodeAmount(get, never): cpp.Float32;
-	public inline extern function get_ExplodeAmount(): cpp.Float32 return this.ExplodeAmount;
-	public extern var FractureLevel(get, never): cpp.Int32;
-	public inline extern function get_FractureLevel(): cpp.Int32 return this.FractureLevel;
+	public extern var ExplodeAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_ExplodeAmount(): ucpp.num.Float32 return this.ExplodeAmount;
+	public extern var FractureLevel(get, never): ucpp.num.Int32;
+	public inline extern function get_FractureLevel(): ucpp.num.Int32 return this.FractureLevel;
 	public extern var bHideUnselected(get, never): Bool;
 	public inline extern function get_bHideUnselected(): Bool return this.bHideUnselected;
 }
@@ -26,7 +26,7 @@ abstract ConstFractureSettings(FractureSettings) from FractureSettings {
 @:forward
 @:nativeGen
 @:native("FractureSettings*")
-abstract FractureSettingsPtr(cpp.Star<FractureSettings>) from cpp.Star<FractureSettings> to cpp.Star<FractureSettings>{
+abstract FractureSettingsPtr(ucpp.Ptr<FractureSettings>) from ucpp.Ptr<FractureSettings> to ucpp.Ptr<FractureSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureSettings): FractureSettingsPtr {
 		return untyped __cpp__("&({0})", v);

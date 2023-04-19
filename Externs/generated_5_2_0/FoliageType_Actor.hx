@@ -3,14 +3,14 @@ package ue;
 
 @:native("UFoliageType_Actor")
 @:include("FoliageType_Actor.h")
-@:structAccess
+@:valueType
 extern class FoliageType_Actor extends FoliageType {
 	public var ActorClass: TSubclassOf<Actor>;
 	public var bShouldAttachToBaseComponent: Bool;
 	public var bStaticMeshOnly: Bool;
 	public var StaticMeshOnlyComponentClass: TSubclassOf<FoliageInstancedStaticMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstFoliageType_Actor(FoliageType_Actor) from FoliageType_Actor {
 @:forward
 @:nativeGen
 @:native("FoliageType_Actor*")
-abstract FoliageType_ActorPtr(cpp.Star<FoliageType_Actor>) from cpp.Star<FoliageType_Actor> to cpp.Star<FoliageType_Actor>{
+abstract FoliageType_ActorPtr(ucpp.Ptr<FoliageType_Actor>) from ucpp.Ptr<FoliageType_Actor> to ucpp.Ptr<FoliageType_Actor>{
 	@:from
 	public static extern inline function fromValue(v: FoliageType_Actor): FoliageType_ActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,29 +3,29 @@ package ue;
 
 @:native("UPatternToolSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternToolSettings extends InteractiveToolPropertySet {
-	public var Seed: cpp.Int32;
+	public var Seed: ucpp.num.Int32;
 	public var bProjectElementsDown: Bool;
-	public var ProjectionOffset: cpp.Float32;
+	public var ProjectionOffset: ucpp.num.Float32;
 	public var bHideSources: Bool;
 	public var bUseRelativeTransforms: Bool;
 	public var Shape: EPatternToolShape;
 	public var SingleAxis: EPatternToolSingleAxis;
 	public var SinglePlane: EPatternToolSinglePlane;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPatternToolSettings(PatternToolSettings) from PatternToolSettings {
-	public extern var Seed(get, never): cpp.Int32;
-	public inline extern function get_Seed(): cpp.Int32 return this.Seed;
+	public extern var Seed(get, never): ucpp.num.Int32;
+	public inline extern function get_Seed(): ucpp.num.Int32 return this.Seed;
 	public extern var bProjectElementsDown(get, never): Bool;
 	public inline extern function get_bProjectElementsDown(): Bool return this.bProjectElementsDown;
-	public extern var ProjectionOffset(get, never): cpp.Float32;
-	public inline extern function get_ProjectionOffset(): cpp.Float32 return this.ProjectionOffset;
+	public extern var ProjectionOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_ProjectionOffset(): ucpp.num.Float32 return this.ProjectionOffset;
 	public extern var bHideSources(get, never): Bool;
 	public inline extern function get_bHideSources(): Bool return this.bHideSources;
 	public extern var bUseRelativeTransforms(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstPatternToolSettings(PatternToolSettings) from PatternToolSettings 
 @:forward
 @:nativeGen
 @:native("PatternToolSettings*")
-abstract PatternToolSettingsPtr(cpp.Star<PatternToolSettings>) from cpp.Star<PatternToolSettings> to cpp.Star<PatternToolSettings>{
+abstract PatternToolSettingsPtr(ucpp.Ptr<PatternToolSettings>) from ucpp.Ptr<PatternToolSettings> to ucpp.Ptr<PatternToolSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternToolSettings): PatternToolSettingsPtr {
 		return untyped __cpp__("&({0})", v);

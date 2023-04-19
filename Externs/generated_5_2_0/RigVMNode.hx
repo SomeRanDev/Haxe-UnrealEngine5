@@ -3,7 +3,7 @@ package ue;
 
 @:native("URigVMNode")
 @:include("RigVMModel/RigVMNode.h")
-@:structAccess
+@:valueType
 extern class RigVMNode extends Object {
 	@:protected public var NodeTitle: FString;
 	@:protected public var Position: Vector2D;
@@ -12,8 +12,8 @@ extern class RigVMNode extends Object {
 	@:protected public var PreviousName: FName;
 	@:protected public var bHasBreakpoint: Bool;
 	@:protected public var bHaltedAtThisNode: Bool;
-	private var Pins: TArray<cpp.Star<RigVMPin>>;
-	private var OrphanedPins: TArray<cpp.Star<RigVMPin>>;
+	private var Pins: TArray<ucpp.Ptr<RigVMPin>>;
+	private var OrphanedPins: TArray<ucpp.Ptr<RigVMPin>>;
 
 	public function SetHasBreakpoint(bValue: Bool): Void;
 	public function SetExecutionIsHaltedAtThisNode(bValue: Bool): Void;
@@ -22,7 +22,7 @@ extern class RigVMNode extends Object {
 	public function IsPure(): Bool;
 	public function IsMutable(): Bool;
 	public function IsLoopNode(): Bool;
-	public function IsLinkedTo(InNode: cpp.Star<RigVMNode>): Bool;
+	public function IsLinkedTo(InNode: ucpp.Ptr<RigVMNode>): Bool;
 	public function IsInputAggregate(): Bool;
 	public function IsInjected(): Bool;
 	public function IsEvent(): Bool;
@@ -38,37 +38,37 @@ extern class RigVMNode extends Object {
 	public function HasInputPin(bIncludeIO: Bool): Bool;
 	public function HasBreakpoint(): Bool;
 	public function GetToolTipText(): FText;
-	public function GetSupportedWorkflows(InType: ERigVMUserWorkflowType, InSubject: cpp.Star<Object.ConstObject>): TArray<RigVMUserWorkflow>;
+	public function GetSupportedWorkflows(InType: ERigVMUserWorkflowType, InSubject: ucpp.Ptr<Object.ConstObject>): TArray<RigVMUserWorkflow>;
 	public function GetSize(): Vector2D;
-	public function GetSecondAggregatePin(): cpp.Star<RigVMPin>;
-	public function GetRootGraph(): cpp.Star<RigVMGraph>;
+	public function GetSecondAggregatePin(): ucpp.Ptr<RigVMPin>;
+	public function GetRootGraph(): ucpp.Ptr<RigVMGraph>;
 	public function GetPreviousFName(): FName;
 	public function GetPosition(): Vector2D;
-	public function GetPins(): TArray<cpp.Star<RigVMPin>>;
-	public function GetOrphanedPins(): TArray<cpp.Star<RigVMPin>>;
-	public function GetOppositeAggregatePin(): cpp.Star<RigVMPin>;
+	public function GetPins(): TArray<ucpp.Ptr<RigVMPin>>;
+	public function GetOrphanedPins(): TArray<ucpp.Ptr<RigVMPin>>;
+	public function GetOppositeAggregatePin(): ucpp.Ptr<RigVMPin>;
 	public function GetNodeTitle(): FString;
 	public function GetNodePath(bRecursive: Bool): FString;
-	public function GetNodeIndex(): cpp.Int32;
+	public function GetNodeIndex(): ucpp.num.Int32;
 	public function GetNodeColor(): LinearColor;
-	public function GetNextAggregateName(InLastAggregatePinName: cpp.Reference<FName>): FName;
-	public function GetLinks(): TArray<cpp.Star<RigVMLink>>;
-	public function GetLinkedTargetNodes(): TArray<cpp.Star<RigVMNode>>;
-	public function GetLinkedSourceNodes(): TArray<cpp.Star<RigVMNode>>;
-	public function GetInjectionInfo(): cpp.Star<RigVMInjectionInfo>;
-	public function GetGraph(): cpp.Star<RigVMGraph>;
-	public function GetFirstAggregatePin(): cpp.Star<RigVMPin>;
+	public function GetNextAggregateName(InLastAggregatePinName: ucpp.Ref<FName>): FName;
+	public function GetLinks(): TArray<ucpp.Ptr<RigVMLink>>;
+	public function GetLinkedTargetNodes(): TArray<ucpp.Ptr<RigVMNode>>;
+	public function GetLinkedSourceNodes(): TArray<ucpp.Ptr<RigVMNode>>;
+	public function GetInjectionInfo(): ucpp.Ptr<RigVMInjectionInfo>;
+	public function GetGraph(): ucpp.Ptr<RigVMGraph>;
+	public function GetFirstAggregatePin(): ucpp.Ptr<RigVMPin>;
 	public function GetEventName(): FName;
-	public function GetAllPinsRecursively(): TArray<cpp.Star<RigVMPin>>;
-	public function GetAggregateOutputs(): TArray<cpp.Star<RigVMPin>>;
-	public function GetAggregateInputs(): TArray<cpp.Star<RigVMPin>>;
-	public function FindPin(InPinPath: FString): cpp.Star<RigVMPin>;
-	public function FindFunctionForNode(): cpp.Star<RigVMLibraryNode>;
+	public function GetAllPinsRecursively(): TArray<ucpp.Ptr<RigVMPin>>;
+	public function GetAggregateOutputs(): TArray<ucpp.Ptr<RigVMPin>>;
+	public function GetAggregateInputs(): TArray<ucpp.Ptr<RigVMPin>>;
+	public function FindPin(InPinPath: FString): ucpp.Ptr<RigVMPin>;
+	public function FindFunctionForNode(): ucpp.Ptr<RigVMLibraryNode>;
 	public function ExecutionIsHaltedAtThisNode(): Bool;
 	public function CanOnlyExistOnce(): Bool;
 	public function CanBeUpgraded(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -90,7 +90,7 @@ abstract ConstRigVMNode(RigVMNode) from RigVMNode {
 @:forward
 @:nativeGen
 @:native("RigVMNode*")
-abstract RigVMNodePtr(cpp.Star<RigVMNode>) from cpp.Star<RigVMNode> to cpp.Star<RigVMNode>{
+abstract RigVMNodePtr(ucpp.Ptr<RigVMNode>) from ucpp.Ptr<RigVMNode> to ucpp.Ptr<RigVMNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMNode): RigVMNodePtr {
 		return untyped __cpp__("&({0})", v);

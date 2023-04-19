@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFloatBinding")
 @:include("Binding/FloatBinding.h")
-@:structAccess
+@:valueType
 extern class FloatBinding extends PropertyBinding {
-	public function GetValue(): cpp.Float32;
+	public function GetValue(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstFloatBinding(FloatBinding) from FloatBinding {
 @:forward
 @:nativeGen
 @:native("FloatBinding*")
-abstract FloatBindingPtr(cpp.Star<FloatBinding>) from cpp.Star<FloatBinding> to cpp.Star<FloatBinding>{
+abstract FloatBindingPtr(ucpp.Ptr<FloatBinding>) from ucpp.Ptr<FloatBinding> to ucpp.Ptr<FloatBinding>{
 	@:from
 	public static extern inline function fromValue(v: FloatBinding): FloatBindingPtr {
 		return untyped __cpp__("&({0})", v);

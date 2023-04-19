@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFrameNumberRange")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class FrameNumberRange {
 	private var LowerBound: FrameNumberRangeBound;
 	private var UpperBound: FrameNumberRangeBound;

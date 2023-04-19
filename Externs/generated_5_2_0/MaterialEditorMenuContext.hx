@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialEditorMenuContext")
 @:include("MaterialEditorContext.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialEditorMenuContext(MaterialEditorMenuContext) from Material
 @:forward
 @:nativeGen
 @:native("MaterialEditorMenuContext*")
-abstract MaterialEditorMenuContextPtr(cpp.Star<MaterialEditorMenuContext>) from cpp.Star<MaterialEditorMenuContext> to cpp.Star<MaterialEditorMenuContext>{
+abstract MaterialEditorMenuContextPtr(ucpp.Ptr<MaterialEditorMenuContext>) from ucpp.Ptr<MaterialEditorMenuContext> to ucpp.Ptr<MaterialEditorMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditorMenuContext): MaterialEditorMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

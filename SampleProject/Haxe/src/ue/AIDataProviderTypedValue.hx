@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAIDataProviderTypedValue")
 @:include("DataProviders/AIDataProvider.h")
-@:structAccess
+@:valueType
 extern class AIDataProviderTypedValue extends AIDataProviderValue {
 
 	@:native("FAIDataProviderTypedValue") public function new();

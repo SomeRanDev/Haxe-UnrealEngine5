@@ -3,15 +3,15 @@ package ue;
 
 @:native("UTestBTDecorator_Blueprint")
 @:include("BehaviorTree/TestBTDecorator_Blueprint.h")
-@:structAccess
+@:valueType
 extern class TestBTDecorator_Blueprint extends BTDecorator_BlueprintBase {
 	public var BPConditionType: EBPConditionType;
-	public var LogIndexBecomeRelevant: cpp.Int32;
-	public var LogIndexCeaseRelevant: cpp.Int32;
-	public var LogIndexCalculate: cpp.Int32;
+	public var LogIndexBecomeRelevant: ucpp.num.Int32;
+	public var LogIndexCeaseRelevant: ucpp.num.Int32;
+	public var LogIndexCalculate: ucpp.num.Int32;
 	public var ObservingKeyName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,12 +19,12 @@ extern class TestBTDecorator_Blueprint extends BTDecorator_BlueprintBase {
 abstract ConstTestBTDecorator_Blueprint(TestBTDecorator_Blueprint) from TestBTDecorator_Blueprint {
 	public extern var BPConditionType(get, never): EBPConditionType;
 	public inline extern function get_BPConditionType(): EBPConditionType return this.BPConditionType;
-	public extern var LogIndexBecomeRelevant(get, never): cpp.Int32;
-	public inline extern function get_LogIndexBecomeRelevant(): cpp.Int32 return this.LogIndexBecomeRelevant;
-	public extern var LogIndexCeaseRelevant(get, never): cpp.Int32;
-	public inline extern function get_LogIndexCeaseRelevant(): cpp.Int32 return this.LogIndexCeaseRelevant;
-	public extern var LogIndexCalculate(get, never): cpp.Int32;
-	public inline extern function get_LogIndexCalculate(): cpp.Int32 return this.LogIndexCalculate;
+	public extern var LogIndexBecomeRelevant(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexBecomeRelevant(): ucpp.num.Int32 return this.LogIndexBecomeRelevant;
+	public extern var LogIndexCeaseRelevant(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexCeaseRelevant(): ucpp.num.Int32 return this.LogIndexCeaseRelevant;
+	public extern var LogIndexCalculate(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexCalculate(): ucpp.num.Int32 return this.LogIndexCalculate;
 	public extern var ObservingKeyName(get, never): FName;
 	public inline extern function get_ObservingKeyName(): FName return this.ObservingKeyName;
 }
@@ -32,7 +32,7 @@ abstract ConstTestBTDecorator_Blueprint(TestBTDecorator_Blueprint) from TestBTDe
 @:forward
 @:nativeGen
 @:native("TestBTDecorator_Blueprint*")
-abstract TestBTDecorator_BlueprintPtr(cpp.Star<TestBTDecorator_Blueprint>) from cpp.Star<TestBTDecorator_Blueprint> to cpp.Star<TestBTDecorator_Blueprint>{
+abstract TestBTDecorator_BlueprintPtr(ucpp.Ptr<TestBTDecorator_Blueprint>) from ucpp.Ptr<TestBTDecorator_Blueprint> to ucpp.Ptr<TestBTDecorator_Blueprint>{
 	@:from
 	public static extern inline function fromValue(v: TestBTDecorator_Blueprint): TestBTDecorator_BlueprintPtr {
 		return untyped __cpp__("&({0})", v);

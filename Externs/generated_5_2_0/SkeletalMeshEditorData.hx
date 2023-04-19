@@ -3,10 +3,10 @@ package ue;
 
 @:native("USkeletalMeshEditorData")
 @:include("Engine/SkeletalMeshEditorData.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshEditorData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSkeletalMeshEditorData(SkeletalMeshEditorData) from SkeletalMeshEd
 @:forward
 @:nativeGen
 @:native("SkeletalMeshEditorData*")
-abstract SkeletalMeshEditorDataPtr(cpp.Star<SkeletalMeshEditorData>) from cpp.Star<SkeletalMeshEditorData> to cpp.Star<SkeletalMeshEditorData>{
+abstract SkeletalMeshEditorDataPtr(ucpp.Ptr<SkeletalMeshEditorData>) from ucpp.Ptr<SkeletalMeshEditorData> to ucpp.Ptr<SkeletalMeshEditorData>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMeshEditorData): SkeletalMeshEditorDataPtr {
 		return untyped __cpp__("&({0})", v);

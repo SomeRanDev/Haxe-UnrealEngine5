@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneBindingOwnerInterface")
-@:structAccess
+@:valueType
 extern class MovieSceneBindingOwnerInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneBindingOwnerInterface(MovieSceneBindingOwnerInterface) f
 @:forward
 @:nativeGen
 @:native("MovieSceneBindingOwnerInterface*")
-abstract MovieSceneBindingOwnerInterfacePtr(cpp.Star<MovieSceneBindingOwnerInterface>) from cpp.Star<MovieSceneBindingOwnerInterface> to cpp.Star<MovieSceneBindingOwnerInterface>{
+abstract MovieSceneBindingOwnerInterfacePtr(ucpp.Ptr<MovieSceneBindingOwnerInterface>) from ucpp.Ptr<MovieSceneBindingOwnerInterface> to ucpp.Ptr<MovieSceneBindingOwnerInterface>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneBindingOwnerInterface): MovieSceneBindingOwnerInterfacePtr {
 		return untyped __cpp__("&({0})", v);

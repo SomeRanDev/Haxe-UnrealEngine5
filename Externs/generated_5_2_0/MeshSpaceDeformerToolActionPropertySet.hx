@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshSpaceDeformerToolActionPropertySet")
 @:include("MeshSpaceDeformerTool.h")
-@:structAccess
+@:valueType
 extern class MeshSpaceDeformerToolActionPropertySet extends InteractiveToolPropertySet {
 	public function ShiftToCenter(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMeshSpaceDeformerToolActionPropertySet(MeshSpaceDeformerToolAction
 @:forward
 @:nativeGen
 @:native("MeshSpaceDeformerToolActionPropertySet*")
-abstract MeshSpaceDeformerToolActionPropertySetPtr(cpp.Star<MeshSpaceDeformerToolActionPropertySet>) from cpp.Star<MeshSpaceDeformerToolActionPropertySet> to cpp.Star<MeshSpaceDeformerToolActionPropertySet>{
+abstract MeshSpaceDeformerToolActionPropertySetPtr(ucpp.Ptr<MeshSpaceDeformerToolActionPropertySet>) from ucpp.Ptr<MeshSpaceDeformerToolActionPropertySet> to ucpp.Ptr<MeshSpaceDeformerToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: MeshSpaceDeformerToolActionPropertySet): MeshSpaceDeformerToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

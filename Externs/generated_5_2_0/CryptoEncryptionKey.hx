@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCryptoEncryptionKey")
 @:include("CryptoKeysSettings.h")
-@:structAccess
+@:valueType
 extern class CryptoEncryptionKey {
 	public var Guid: Guid;
 	public var Name: FString;

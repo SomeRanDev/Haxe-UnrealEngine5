@@ -3,14 +3,14 @@ package ue;
 
 @:native("FRigVMBranchInfo")
 @:include("RigVMCore/RigVMMemoryStorage.h")
-@:structAccess
+@:valueType
 extern class RigVMBranchInfo {
-	public var Index: cpp.Int32;
+	public var Index: ucpp.num.Int32;
 	public var Label: FName;
-	public var InstructionIndex: cpp.Int32;
-	public var ArgumentIndex: cpp.Int32;
-	public var FirstInstruction: cpp.UInt16;
-	public var LastInstruction: cpp.UInt16;
+	public var InstructionIndex: ucpp.num.Int32;
+	public var ArgumentIndex: ucpp.num.Int32;
+	public var FirstInstruction: ucpp.num.UInt16;
+	public var LastInstruction: ucpp.num.UInt16;
 
 	@:native("FRigVMBranchInfo") public function new();
 }

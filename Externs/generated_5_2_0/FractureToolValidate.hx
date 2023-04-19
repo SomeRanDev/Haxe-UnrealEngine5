@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolValidate")
 @:include("FractureToolEditing.h")
-@:structAccess
+@:valueType
 extern class FractureToolValidate extends FractureModalTool {
-	public var ValidationSettings: cpp.Star<FractureValidateSettings>;
+	public var ValidationSettings: ucpp.Ptr<FractureValidateSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolValidate(FractureToolValidate) from FractureToolValidate {
-	public extern var ValidationSettings(get, never): cpp.Star<FractureValidateSettings.ConstFractureValidateSettings>;
-	public inline extern function get_ValidationSettings(): cpp.Star<FractureValidateSettings.ConstFractureValidateSettings> return this.ValidationSettings;
+	public extern var ValidationSettings(get, never): ucpp.Ptr<FractureValidateSettings.ConstFractureValidateSettings>;
+	public inline extern function get_ValidationSettings(): ucpp.Ptr<FractureValidateSettings.ConstFractureValidateSettings> return this.ValidationSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolValidate*")
-abstract FractureToolValidatePtr(cpp.Star<FractureToolValidate>) from cpp.Star<FractureToolValidate> to cpp.Star<FractureToolValidate>{
+abstract FractureToolValidatePtr(ucpp.Ptr<FractureToolValidate>) from ucpp.Ptr<FractureToolValidate> to ucpp.Ptr<FractureToolValidate>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolValidate): FractureToolValidatePtr {
 		return untyped __cpp__("&({0})", v);

@@ -35,6 +35,7 @@ extern class EMaterialProperty {
 	static var MP_PixelDepthOffset: EMaterialProperty;
 	static var MP_ShadingModel: EMaterialProperty;
 	static var MP_FrontMaterial: EMaterialProperty;
+	static var MP_SurfaceThickness: EMaterialProperty;
 	static var MP_MaterialAttributes: EMaterialProperty;
 	static var MP_CustomOutput: EMaterialProperty;
 	static var MP_MAX: EMaterialProperty;

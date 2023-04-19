@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVOIPStatics")
 @:include("Net/VoiceConfig.h")
-@:structAccess
+@:valueType
 extern class VOIPStatics extends BlueprintFunctionLibrary {
-	public function SetMicThreshold(InThreshold: cpp.Float32): Void;
+	public function SetMicThreshold(InThreshold: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVOIPStatics(VOIPStatics) from VOIPStatics {
 @:forward
 @:nativeGen
 @:native("VOIPStatics*")
-abstract VOIPStaticsPtr(cpp.Star<VOIPStatics>) from cpp.Star<VOIPStatics> to cpp.Star<VOIPStatics>{
+abstract VOIPStaticsPtr(ucpp.Ptr<VOIPStatics>) from ucpp.Ptr<VOIPStatics> to ucpp.Ptr<VOIPStatics>{
 	@:from
 	public static extern inline function fromValue(v: VOIPStatics): VOIPStaticsPtr {
 		return untyped __cpp__("&({0})", v);

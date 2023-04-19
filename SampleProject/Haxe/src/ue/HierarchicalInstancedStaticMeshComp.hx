@@ -3,22 +3,22 @@ package ue;
 
 @:native("UHierarchicalInstancedStaticMeshComponent")
 @:include("Components/HierarchicalInstancedStaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class HierarchicalInstancedStaticMeshComp extends InstancedStaticMeshComp {
 	public var bUseTranslatedInstanceSpace: Bool;
 	public var TranslatedInstanceSpaceOrigin: Vector;
-	public var SortedInstances: TArray<cpp.Int32>;
-	public var NumBuiltInstances: cpp.Int32;
+	public var SortedInstances: TArray<ucpp.num.Int32>;
+	public var NumBuiltInstances: ucpp.num.Int32;
 	public var BuiltInstanceBounds: Box;
 	public var UnbuiltInstanceBounds: Box;
 	public var UnbuiltInstanceBoundsList: TArray<Box>;
 	public var bEnableDensityScaling: Bool;
-	public var OcclusionLayerNumNodes: cpp.Int32;
+	public var OcclusionLayerNumNodes: ucpp.num.Int32;
 	public var CacheMeshExtendedBounds: BoxSphereBounds;
 	public var bDisableCollision: Bool;
-	public var InstanceCountToRender: cpp.Int32;
+	public var InstanceCountToRender: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,10 +28,10 @@ abstract ConstHierarchicalInstancedStaticMeshComp(HierarchicalInstancedStaticMes
 	public inline extern function get_bUseTranslatedInstanceSpace(): Bool return this.bUseTranslatedInstanceSpace;
 	public extern var TranslatedInstanceSpaceOrigin(get, never): Vector;
 	public inline extern function get_TranslatedInstanceSpaceOrigin(): Vector return this.TranslatedInstanceSpaceOrigin;
-	public extern var SortedInstances(get, never): TArray<cpp.Int32>;
-	public inline extern function get_SortedInstances(): TArray<cpp.Int32> return this.SortedInstances;
-	public extern var NumBuiltInstances(get, never): cpp.Int32;
-	public inline extern function get_NumBuiltInstances(): cpp.Int32 return this.NumBuiltInstances;
+	public extern var SortedInstances(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_SortedInstances(): TArray<ucpp.num.Int32> return this.SortedInstances;
+	public extern var NumBuiltInstances(get, never): ucpp.num.Int32;
+	public inline extern function get_NumBuiltInstances(): ucpp.num.Int32 return this.NumBuiltInstances;
 	public extern var BuiltInstanceBounds(get, never): Box;
 	public inline extern function get_BuiltInstanceBounds(): Box return this.BuiltInstanceBounds;
 	public extern var UnbuiltInstanceBounds(get, never): Box;
@@ -40,20 +40,20 @@ abstract ConstHierarchicalInstancedStaticMeshComp(HierarchicalInstancedStaticMes
 	public inline extern function get_UnbuiltInstanceBoundsList(): TArray<Box> return this.UnbuiltInstanceBoundsList;
 	public extern var bEnableDensityScaling(get, never): Bool;
 	public inline extern function get_bEnableDensityScaling(): Bool return this.bEnableDensityScaling;
-	public extern var OcclusionLayerNumNodes(get, never): cpp.Int32;
-	public inline extern function get_OcclusionLayerNumNodes(): cpp.Int32 return this.OcclusionLayerNumNodes;
+	public extern var OcclusionLayerNumNodes(get, never): ucpp.num.Int32;
+	public inline extern function get_OcclusionLayerNumNodes(): ucpp.num.Int32 return this.OcclusionLayerNumNodes;
 	public extern var CacheMeshExtendedBounds(get, never): BoxSphereBounds;
 	public inline extern function get_CacheMeshExtendedBounds(): BoxSphereBounds return this.CacheMeshExtendedBounds;
 	public extern var bDisableCollision(get, never): Bool;
 	public inline extern function get_bDisableCollision(): Bool return this.bDisableCollision;
-	public extern var InstanceCountToRender(get, never): cpp.Int32;
-	public inline extern function get_InstanceCountToRender(): cpp.Int32 return this.InstanceCountToRender;
+	public extern var InstanceCountToRender(get, never): ucpp.num.Int32;
+	public inline extern function get_InstanceCountToRender(): ucpp.num.Int32 return this.InstanceCountToRender;
 }
 
 @:forward
 @:nativeGen
 @:native("HierarchicalInstancedStaticMeshComp*")
-abstract HierarchicalInstancedStaticMeshCompPtr(cpp.Star<HierarchicalInstancedStaticMeshComp>) from cpp.Star<HierarchicalInstancedStaticMeshComp> to cpp.Star<HierarchicalInstancedStaticMeshComp>{
+abstract HierarchicalInstancedStaticMeshCompPtr(ucpp.Ptr<HierarchicalInstancedStaticMeshComp>) from ucpp.Ptr<HierarchicalInstancedStaticMeshComp> to ucpp.Ptr<HierarchicalInstancedStaticMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: HierarchicalInstancedStaticMeshComp): HierarchicalInstancedStaticMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

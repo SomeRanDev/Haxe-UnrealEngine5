@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPhysicsAssetRenderUtilities")
 @:include("PhysicsAssetRenderUtils.h")
-@:structAccess
+@:valueType
 extern class PhysicsAssetRenderUtilities extends Object {
-	private var IdToSettingsMap: TMap<cpp.UInt32, PhysicsAssetRenderSettings>;
-	private var BoneUnselectedMaterial: cpp.Star<MaterialInterface>;
-	private var BoneNoCollisionMaterial: cpp.Star<MaterialInterface>;
+	private var IdToSettingsMap: TMap<ucpp.num.UInt32, PhysicsAssetRenderSettings>;
+	private var BoneUnselectedMaterial: ucpp.Ptr<MaterialInterface>;
+	private var BoneNoCollisionMaterial: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPhysicsAssetRenderUtilities(PhysicsAssetRenderUtilities) from Phys
 @:forward
 @:nativeGen
 @:native("PhysicsAssetRenderUtilities*")
-abstract PhysicsAssetRenderUtilitiesPtr(cpp.Star<PhysicsAssetRenderUtilities>) from cpp.Star<PhysicsAssetRenderUtilities> to cpp.Star<PhysicsAssetRenderUtilities>{
+abstract PhysicsAssetRenderUtilitiesPtr(ucpp.Ptr<PhysicsAssetRenderUtilities>) from ucpp.Ptr<PhysicsAssetRenderUtilities> to ucpp.Ptr<PhysicsAssetRenderUtilities>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsAssetRenderUtilities): PhysicsAssetRenderUtilitiesPtr {
 		return untyped __cpp__("&({0})", v);

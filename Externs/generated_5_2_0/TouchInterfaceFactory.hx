@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTouchInterfaceFactory")
 @:include("Factories/TouchInterfaceFactory.h")
-@:structAccess
+@:valueType
 extern class TouchInterfaceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTouchInterfaceFactory(TouchInterfaceFactory) from TouchInterfaceFa
 @:forward
 @:nativeGen
 @:native("TouchInterfaceFactory*")
-abstract TouchInterfaceFactoryPtr(cpp.Star<TouchInterfaceFactory>) from cpp.Star<TouchInterfaceFactory> to cpp.Star<TouchInterfaceFactory>{
+abstract TouchInterfaceFactoryPtr(ucpp.Ptr<TouchInterfaceFactory>) from ucpp.Ptr<TouchInterfaceFactory> to ucpp.Ptr<TouchInterfaceFactory>{
 	@:from
 	public static extern inline function fromValue(v: TouchInterfaceFactory): TouchInterfaceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

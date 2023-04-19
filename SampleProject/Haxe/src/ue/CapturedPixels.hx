@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCapturedPixels")
 @:include("Protocols/UserDefinedCaptureProtocol.h")
-@:structAccess
+@:valueType
 extern class CapturedPixels {
 	@:native("FCapturedPixels") public function new();
 }

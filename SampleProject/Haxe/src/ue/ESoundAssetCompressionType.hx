@@ -8,5 +8,6 @@ extern class ESoundAssetCompressionType {
 	static var ADPCM: ESoundAssetCompressionType;
 	static var PCM: ESoundAssetCompressionType;
 	static var PlatformSpecific: ESoundAssetCompressionType;
+	static var ProjectDefined: ESoundAssetCompressionType;
 	static var ESoundAssetCompressionType_MAX: ESoundAssetCompressionType;
 }

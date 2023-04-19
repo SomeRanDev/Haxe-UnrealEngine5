@@ -3,9 +3,9 @@ package ue;
 
 @:native("UAnimationSettings")
 @:include("Animation/AnimationSettings.h")
-@:structAccess
+@:valueType
 extern class AnimationSettings extends DeveloperSettings {
-	public var CompressCommandletVersion: cpp.Int32;
+	public var CompressCommandletVersion: ucpp.num.Int32;
 	public var KeyEndEffectorsMatchNameArray: TArray<FString>;
 	public var ForceRecompression: Bool;
 	public var bForceBelowThreshold: Bool;
@@ -26,14 +26,14 @@ extern class AnimationSettings extends DeveloperSettings {
 
 	public function GetBoneCustomAttributeNamesToImport(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetBoneCustomAttributeNamesToImport)
 @:nativeGen
 abstract ConstAnimationSettings(AnimationSettings) from AnimationSettings {
-	public extern var CompressCommandletVersion(get, never): cpp.Int32;
-	public inline extern function get_CompressCommandletVersion(): cpp.Int32 return this.CompressCommandletVersion;
+	public extern var CompressCommandletVersion(get, never): ucpp.num.Int32;
+	public inline extern function get_CompressCommandletVersion(): ucpp.num.Int32 return this.CompressCommandletVersion;
 	public extern var KeyEndEffectorsMatchNameArray(get, never): TArray<FString>;
 	public inline extern function get_KeyEndEffectorsMatchNameArray(): TArray<FString> return this.KeyEndEffectorsMatchNameArray;
 	public extern var ForceRecompression(get, never): Bool;
@@ -73,7 +73,7 @@ abstract ConstAnimationSettings(AnimationSettings) from AnimationSettings {
 @:forward
 @:nativeGen
 @:native("AnimationSettings*")
-abstract AnimationSettingsPtr(cpp.Star<AnimationSettings>) from cpp.Star<AnimationSettings> to cpp.Star<AnimationSettings>{
+abstract AnimationSettingsPtr(ucpp.Ptr<AnimationSettings>) from ucpp.Ptr<AnimationSettings> to ucpp.Ptr<AnimationSettings>{
 	@:from
 	public static extern inline function fromValue(v: AnimationSettings): AnimationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

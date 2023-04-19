@@ -3,10 +3,10 @@ package ue;
 
 @:native("UImportDialogueScriptCommandlet")
 @:include("Commandlets/ImportDialogueScriptCommandlet.h")
-@:structAccess
+@:valueType
 extern class ImportDialogueScriptCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstImportDialogueScriptCommandlet(ImportDialogueScriptCommandlet) fro
 @:forward
 @:nativeGen
 @:native("ImportDialogueScriptCommandlet*")
-abstract ImportDialogueScriptCommandletPtr(cpp.Star<ImportDialogueScriptCommandlet>) from cpp.Star<ImportDialogueScriptCommandlet> to cpp.Star<ImportDialogueScriptCommandlet>{
+abstract ImportDialogueScriptCommandletPtr(ucpp.Ptr<ImportDialogueScriptCommandlet>) from ucpp.Ptr<ImportDialogueScriptCommandlet> to ucpp.Ptr<ImportDialogueScriptCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ImportDialogueScriptCommandlet): ImportDialogueScriptCommandletPtr {
 		return untyped __cpp__("&({0})", v);

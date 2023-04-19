@@ -3,57 +3,57 @@ package ue;
 
 @:native("ULevelSequenceEditorBlueprintLibrary")
 @:include("LevelSequenceEditorBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceEditorBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function SetTrackFilterEnabled(TrackFilterName: cpp.Reference<FText>, bEnabled: Bool): Void;
-	public function SetSelectionRangeStart(NewFrame: cpp.Int32): Void;
-	public function SetSelectionRangeEnd(NewFrame: cpp.Int32): Void;
-	public function SetRandomColorForChannels(Class: cpp.Star<Class>, Identifiers: cpp.Reference<TArray<FString>>): Void;
+	public function SetTrackFilterEnabled(TrackFilterName: ucpp.Ref<FText>, bEnabled: Bool): Void;
+	public function SetSelectionRangeStart(NewFrame: ucpp.num.Int32): Void;
+	public function SetSelectionRangeEnd(NewFrame: ucpp.num.Int32): Void;
+	public function SetRandomColorForChannels(Class: ucpp.Ptr<Class>, Identifiers: ucpp.Ref<TArray<FString>>): Void;
 	public function SetLockLevelSequence(bLock: Bool): Void;
 	public function SetLockCameraCutToViewport(bLock: Bool): Void;
-	public function SetCustomColorForChannels(Class: cpp.Star<Class>, Identifiers: cpp.Reference<TArray<FString>>, NewColors: cpp.Reference<TArray<LinearColor>>): Void;
-	public function SetCustomColorForChannel(Class: cpp.Star<Class>, Identifier: FString, NewColor: cpp.Reference<LinearColor>): Void;
-	public function SetCurrentTime(NewFrame: cpp.Int32): Void;
-	public function SetCurrentLocalTime(NewFrame: cpp.Int32): Void;
-	public function SelectTracks(Tracks: cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>): Void;
-	public function SelectSections(Sections: cpp.Reference<TArray<cpp.Star<MovieSceneSection>>>): Void;
+	public function SetCustomColorForChannels(Class: ucpp.Ptr<Class>, Identifiers: ucpp.Ref<TArray<FString>>, NewColors: ucpp.Ref<TArray<LinearColor>>): Void;
+	public function SetCustomColorForChannel(Class: ucpp.Ptr<Class>, Identifier: FString, NewColor: ucpp.Ref<LinearColor>): Void;
+	public function SetCurrentTime(NewFrame: ucpp.num.Int32): Void;
+	public function SetCurrentLocalTime(NewFrame: ucpp.num.Int32): Void;
+	public function SelectTracks(Tracks: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneTrack>>>): Void;
+	public function SelectSections(Sections: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneSection>>>): Void;
 	public function SelectObjects(ObjectBinding: TArray<Guid>): Void;
-	public function SelectFolders(Folders: cpp.Reference<TArray<cpp.Star<MovieSceneFolder>>>): Void;
-	public function SelectChannels(Channels: cpp.Reference<TArray<SequencerChannelProxy>>): Void;
-	public function SelectBindings(ObjectBindings: cpp.Reference<TArray<MovieSceneBindingProxy>>): Void;
+	public function SelectFolders(Folders: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneFolder>>>): Void;
+	public function SelectChannels(Channels: ucpp.Ref<TArray<SequencerChannelProxy>>): Void;
+	public function SelectBindings(ObjectBindings: ucpp.Ref<TArray<MovieSceneBindingProxy>>): Void;
 	public function RefreshCurrentLevelSequence(): Void;
 	public function PlayTo(PlaybackParams: MovieSceneSequencePlaybackParams): Void;
 	public function Play(): Void;
 	public function Pause(): Void;
-	public function OpenLevelSequence(LevelSequence: cpp.Star<LevelSequence>): Bool;
-	public function IsTrackFilterEnabled(TrackFilterName: cpp.Reference<FText>): Bool;
+	public function OpenLevelSequence(LevelSequence: ucpp.Ptr<LevelSequence>): Bool;
+	public function IsTrackFilterEnabled(TrackFilterName: ucpp.Ref<FText>): Bool;
 	public function IsPlaying(): Bool;
 	public function IsLevelSequenceLocked(): Bool;
 	public function IsCameraCutLockedToViewport(): Bool;
-	public function HasCustomColorForChannel(Class: cpp.Star<Class>, Identifier: FString): Bool;
+	public function HasCustomColorForChannel(Class: ucpp.Ptr<Class>, Identifier: FString): Bool;
 	public function GetTrackFilterNames(): TArray<FText>;
-	public function GetSubSequenceHierarchy(): TArray<cpp.Star<MovieSceneSubSection>>;
-	public function GetSelectionRangeStart(): cpp.Int32;
-	public function GetSelectionRangeEnd(): cpp.Int32;
-	public function GetSelectedTracks(): TArray<cpp.Star<MovieSceneTrack>>;
-	public function GetSelectedSections(): TArray<cpp.Star<MovieSceneSection>>;
+	public function GetSubSequenceHierarchy(): TArray<ucpp.Ptr<MovieSceneSubSection>>;
+	public function GetSelectionRangeStart(): ucpp.num.Int32;
+	public function GetSelectionRangeEnd(): ucpp.num.Int32;
+	public function GetSelectedTracks(): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function GetSelectedSections(): TArray<ucpp.Ptr<MovieSceneSection>>;
 	public function GetSelectedObjects(): TArray<Guid>;
-	public function GetSelectedFolders(): TArray<cpp.Star<MovieSceneFolder>>;
+	public function GetSelectedFolders(): TArray<ucpp.Ptr<MovieSceneFolder>>;
 	public function GetSelectedChannels(): TArray<SequencerChannelProxy>;
 	public function GetSelectedBindings(): TArray<MovieSceneBindingProxy>;
-	public function GetFocusedLevelSequence(): cpp.Star<LevelSequence>;
-	public function GetCustomColorForChannel(Class: cpp.Star<Class>, Identifier: FString): LinearColor;
-	public function GetCurrentTime(): cpp.Int32;
-	public function GetCurrentLocalTime(): cpp.Int32;
-	public function GetCurrentLevelSequence(): cpp.Star<LevelSequence>;
-	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): TArray<cpp.Star<Object>>;
+	public function GetFocusedLevelSequence(): ucpp.Ptr<LevelSequence>;
+	public function GetCustomColorForChannel(Class: ucpp.Ptr<Class>, Identifier: FString): LinearColor;
+	public function GetCurrentTime(): ucpp.num.Int32;
+	public function GetCurrentLocalTime(): ucpp.num.Int32;
+	public function GetCurrentLevelSequence(): ucpp.Ptr<LevelSequence>;
+	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): TArray<ucpp.Ptr<Object>>;
 	public function FocusParentSequence(): Void;
-	public function FocusLevelSequence(SubSection: cpp.Star<MovieSceneSubSection>): Void;
+	public function FocusLevelSequence(SubSection: ucpp.Ptr<MovieSceneSubSection>): Void;
 	public function EmptySelection(): Void;
-	public function DeleteColorForChannels(Class: cpp.Star<Class>, Identifier: cpp.Reference<FString>): Void;
+	public function DeleteColorForChannels(Class: ucpp.Ptr<Class>, Identifier: ucpp.Ref<FString>): Void;
 	public function CloseLevelSequence(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -64,7 +64,7 @@ abstract ConstLevelSequenceEditorBlueprintLibrary(LevelSequenceEditorBlueprintLi
 @:forward
 @:nativeGen
 @:native("LevelSequenceEditorBlueprintLibrary*")
-abstract LevelSequenceEditorBlueprintLibraryPtr(cpp.Star<LevelSequenceEditorBlueprintLibrary>) from cpp.Star<LevelSequenceEditorBlueprintLibrary> to cpp.Star<LevelSequenceEditorBlueprintLibrary>{
+abstract LevelSequenceEditorBlueprintLibraryPtr(ucpp.Ptr<LevelSequenceEditorBlueprintLibrary>) from ucpp.Ptr<LevelSequenceEditorBlueprintLibrary> to ucpp.Ptr<LevelSequenceEditorBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceEditorBlueprintLibrary): LevelSequenceEditorBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

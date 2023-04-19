@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterchangeTextureLightProfilePayloadInterface")
-@:structAccess
+@:valueType
 extern class InterchangeTextureLightProfilePayloadInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterchangeTextureLightProfilePayloadInterface(InterchangeTextureL
 @:forward
 @:nativeGen
 @:native("InterchangeTextureLightProfilePayloadInterface*")
-abstract InterchangeTextureLightProfilePayloadInterfacePtr(cpp.Star<InterchangeTextureLightProfilePayloadInterface>) from cpp.Star<InterchangeTextureLightProfilePayloadInterface> to cpp.Star<InterchangeTextureLightProfilePayloadInterface>{
+abstract InterchangeTextureLightProfilePayloadInterfacePtr(ucpp.Ptr<InterchangeTextureLightProfilePayloadInterface>) from ucpp.Ptr<InterchangeTextureLightProfilePayloadInterface> to ucpp.Ptr<InterchangeTextureLightProfilePayloadInterface>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTextureLightProfilePayloadInterface): InterchangeTextureLightProfilePayloadInterfacePtr {
 		return untyped __cpp__("&({0})", v);

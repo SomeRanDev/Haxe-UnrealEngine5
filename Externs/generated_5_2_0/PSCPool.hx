@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPSCPool")
 @:include("Particles/WorldPSCPool.h")
-@:structAccess
+@:valueType
 extern class PSCPool {
 	public var FreeElements: TArray<PSCPoolElem>;
 

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTypedElementIsSelectedOptions")
 @:include("Elements/Interfaces/TypedElementSelectionInterface.h")
-@:structAccess
+@:valueType
 extern class TypedElementIsSelectedOptions {
 	private var bAllowIndirect: Bool;
 

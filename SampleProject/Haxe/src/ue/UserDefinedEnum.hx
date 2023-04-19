@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUserDefinedEnum")
 @:include("Engine/UserDefinedEnum.h")
-@:structAccess
+@:valueType
 extern class UserDefinedEnum extends Enum {
 	public var DisplayNameMap: TMap<FName, FText>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUserDefinedEnum(UserDefinedEnum) from UserDefinedEnum {
 @:forward
 @:nativeGen
 @:native("UserDefinedEnum*")
-abstract UserDefinedEnumPtr(cpp.Star<UserDefinedEnum>) from cpp.Star<UserDefinedEnum> to cpp.Star<UserDefinedEnum>{
+abstract UserDefinedEnumPtr(ucpp.Ptr<UserDefinedEnum>) from ucpp.Ptr<UserDefinedEnum> to ucpp.Ptr<UserDefinedEnum>{
 	@:from
 	public static extern inline function fromValue(v: UserDefinedEnum): UserDefinedEnumPtr {
 		return untyped __cpp__("&({0})", v);

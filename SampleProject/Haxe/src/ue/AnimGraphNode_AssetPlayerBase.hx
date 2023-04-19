@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimGraphNode_AssetPlayerBase")
 @:include("AnimGraphNode_AssetPlayerBase.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_AssetPlayerBase extends AnimGraphNode_Base {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimGraphNode_AssetPlayerBase(AnimGraphNode_AssetPlayerBase) from 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_AssetPlayerBase*")
-abstract AnimGraphNode_AssetPlayerBasePtr(cpp.Star<AnimGraphNode_AssetPlayerBase>) from cpp.Star<AnimGraphNode_AssetPlayerBase> to cpp.Star<AnimGraphNode_AssetPlayerBase>{
+abstract AnimGraphNode_AssetPlayerBasePtr(ucpp.Ptr<AnimGraphNode_AssetPlayerBase>) from ucpp.Ptr<AnimGraphNode_AssetPlayerBase> to ucpp.Ptr<AnimGraphNode_AssetPlayerBase>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_AssetPlayerBase): AnimGraphNode_AssetPlayerBasePtr {
 		return untyped __cpp__("&({0})", v);

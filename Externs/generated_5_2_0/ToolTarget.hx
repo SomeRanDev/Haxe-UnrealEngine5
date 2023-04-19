@@ -3,10 +3,10 @@ package ue;
 
 @:native("UToolTarget")
 @:include("ToolTargets/ToolTarget.h")
-@:structAccess
+@:valueType
 extern class ToolTarget extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstToolTarget(ToolTarget) from ToolTarget {
 @:forward
 @:nativeGen
 @:native("ToolTarget*")
-abstract ToolTargetPtr(cpp.Star<ToolTarget>) from cpp.Star<ToolTarget> to cpp.Star<ToolTarget>{
+abstract ToolTargetPtr(ucpp.Ptr<ToolTarget>) from ucpp.Ptr<ToolTarget> to ucpp.Ptr<ToolTarget>{
 	@:from
 	public static extern inline function fromValue(v: ToolTarget): ToolTargetPtr {
 		return untyped __cpp__("&({0})", v);

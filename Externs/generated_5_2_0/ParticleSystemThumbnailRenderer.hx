@@ -3,27 +3,27 @@ package ue;
 
 @:native("UParticleSystemThumbnailRenderer")
 @:include("ThumbnailRendering/ParticleSystemThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class ParticleSystemThumbnailRenderer extends TextureThumbnailRenderer {
-	public var NoImage: cpp.Star<Texture2D>;
-	public var OutOfDate: cpp.Star<Texture2D>;
+	public var NoImage: ucpp.Ptr<Texture2D>;
+	public var OutOfDate: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleSystemThumbnailRenderer(ParticleSystemThumbnailRenderer) from ParticleSystemThumbnailRenderer {
-	public extern var NoImage(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_NoImage(): cpp.Star<Texture2D.ConstTexture2D> return this.NoImage;
-	public extern var OutOfDate(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_OutOfDate(): cpp.Star<Texture2D.ConstTexture2D> return this.OutOfDate;
+	public extern var NoImage(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_NoImage(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.NoImage;
+	public extern var OutOfDate(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_OutOfDate(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.OutOfDate;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleSystemThumbnailRenderer*")
-abstract ParticleSystemThumbnailRendererPtr(cpp.Star<ParticleSystemThumbnailRenderer>) from cpp.Star<ParticleSystemThumbnailRenderer> to cpp.Star<ParticleSystemThumbnailRenderer>{
+abstract ParticleSystemThumbnailRendererPtr(ucpp.Ptr<ParticleSystemThumbnailRenderer>) from ucpp.Ptr<ParticleSystemThumbnailRenderer> to ucpp.Ptr<ParticleSystemThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: ParticleSystemThumbnailRenderer): ParticleSystemThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

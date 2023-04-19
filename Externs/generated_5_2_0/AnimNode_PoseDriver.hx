@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_PoseDriver")
 @:include("AnimNodes/AnimNode_PoseDriver.h")
-@:structAccess
+@:valueType
 extern class AnimNode_PoseDriver extends AnimNode_PoseHandler {
 	public var SourcePose: PoseLink;
 	public var SourceBones: TArray<BoneReference>;
@@ -15,7 +15,7 @@ extern class AnimNode_PoseDriver extends AnimNode_PoseHandler {
 	public var DriveSource: EPoseDriverSource;
 	public var DriveOutput: EPoseDriverOutput;
 	public var bOnlyDriveSelectedBones: Bool;
-	public var LODThreshold: cpp.Int32;
+	public var LODThreshold: ucpp.num.Int32;
 
 	@:native("FAnimNode_PoseDriver") public function new();
 }

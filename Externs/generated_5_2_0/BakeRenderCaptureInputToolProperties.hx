@@ -3,23 +3,23 @@ package ue;
 
 @:native("UBakeRenderCaptureInputToolProperties")
 @:include("BakeRenderCaptureTool.h")
-@:structAccess
+@:valueType
 extern class BakeRenderCaptureInputToolProperties extends InteractiveToolPropertySet {
-	public var TargetStaticMesh: cpp.Star<StaticMesh>;
+	public var TargetStaticMesh: ucpp.Ptr<StaticMesh>;
 	public var TargetUVLayer: FString;
 	public var TargetUVLayerNamesList: TArray<FString>;
 
 	public function GetTargetUVLayerNamesFunc(): TArray<FString>;
-	public function GetTargetUVLayerIndex(): cpp.Int32;
+	public function GetTargetUVLayerIndex(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTargetUVLayerNamesFunc, GetTargetUVLayerIndex)
 @:nativeGen
 abstract ConstBakeRenderCaptureInputToolProperties(BakeRenderCaptureInputToolProperties) from BakeRenderCaptureInputToolProperties {
-	public extern var TargetStaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_TargetStaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.TargetStaticMesh;
+	public extern var TargetStaticMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_TargetStaticMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.TargetStaticMesh;
 	public extern var TargetUVLayer(get, never): FString;
 	public inline extern function get_TargetUVLayer(): FString return this.TargetUVLayer;
 	public extern var TargetUVLayerNamesList(get, never): TArray<FString>;
@@ -29,7 +29,7 @@ abstract ConstBakeRenderCaptureInputToolProperties(BakeRenderCaptureInputToolPro
 @:forward
 @:nativeGen
 @:native("BakeRenderCaptureInputToolProperties*")
-abstract BakeRenderCaptureInputToolPropertiesPtr(cpp.Star<BakeRenderCaptureInputToolProperties>) from cpp.Star<BakeRenderCaptureInputToolProperties> to cpp.Star<BakeRenderCaptureInputToolProperties>{
+abstract BakeRenderCaptureInputToolPropertiesPtr(ucpp.Ptr<BakeRenderCaptureInputToolProperties>) from ucpp.Ptr<BakeRenderCaptureInputToolProperties> to ucpp.Ptr<BakeRenderCaptureInputToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeRenderCaptureInputToolProperties): BakeRenderCaptureInputToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

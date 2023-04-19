@@ -3,27 +3,27 @@ package ue;
 
 @:native("UK2Node_DoOnceMultiInput")
 @:include("K2Node_DoOnceMultiInput.h")
-@:structAccess
+@:valueType
 extern class K2Node_DoOnceMultiInput extends K2Node {
-	public var NumAdditionalInputs: cpp.Int32;
-	public var DataNode: cpp.Star<K2Node_TemporaryVariable>;
+	public var NumAdditionalInputs: ucpp.num.Int32;
+	public var DataNode: ucpp.Ptr<K2Node_TemporaryVariable>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_DoOnceMultiInput(K2Node_DoOnceMultiInput) from K2Node_DoOnceMultiInput {
-	public extern var NumAdditionalInputs(get, never): cpp.Int32;
-	public inline extern function get_NumAdditionalInputs(): cpp.Int32 return this.NumAdditionalInputs;
-	public extern var DataNode(get, never): cpp.Star<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable>;
-	public inline extern function get_DataNode(): cpp.Star<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable> return this.DataNode;
+	public extern var NumAdditionalInputs(get, never): ucpp.num.Int32;
+	public inline extern function get_NumAdditionalInputs(): ucpp.num.Int32 return this.NumAdditionalInputs;
+	public extern var DataNode(get, never): ucpp.Ptr<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable>;
+	public inline extern function get_DataNode(): ucpp.Ptr<K2Node_TemporaryVariable.ConstK2Node_TemporaryVariable> return this.DataNode;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_DoOnceMultiInput*")
-abstract K2Node_DoOnceMultiInputPtr(cpp.Star<K2Node_DoOnceMultiInput>) from cpp.Star<K2Node_DoOnceMultiInput> to cpp.Star<K2Node_DoOnceMultiInput>{
+abstract K2Node_DoOnceMultiInputPtr(ucpp.Ptr<K2Node_DoOnceMultiInput>) from ucpp.Ptr<K2Node_DoOnceMultiInput> to ucpp.Ptr<K2Node_DoOnceMultiInput>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_DoOnceMultiInput): K2Node_DoOnceMultiInputPtr {
 		return untyped __cpp__("&({0})", v);

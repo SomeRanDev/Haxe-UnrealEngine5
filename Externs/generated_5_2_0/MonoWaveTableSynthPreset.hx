@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMonoWaveTableSynthPreset")
 @:include("SynthComponents/SynthComponentMonoWaveTable.h")
-@:structAccess
+@:valueType
 extern class MonoWaveTableSynthPreset extends Object {
 	public var PresetName: FString;
 	public var bLockKeyframesToGridBool: Bool;
-	public var LockKeyframesToGrid: cpp.Int32;
-	public var WaveTableResolution: cpp.Int32;
+	public var LockKeyframesToGrid: ucpp.num.Int32;
+	public var WaveTableResolution: ucpp.num.Int32;
 	public var WaveTable: TArray<RuntimeFloatCurve>;
 	public var bNormalizeWaveTables: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,10 +22,10 @@ abstract ConstMonoWaveTableSynthPreset(MonoWaveTableSynthPreset) from MonoWaveTa
 	public inline extern function get_PresetName(): FString return this.PresetName;
 	public extern var bLockKeyframesToGridBool(get, never): Bool;
 	public inline extern function get_bLockKeyframesToGridBool(): Bool return this.bLockKeyframesToGridBool;
-	public extern var LockKeyframesToGrid(get, never): cpp.Int32;
-	public inline extern function get_LockKeyframesToGrid(): cpp.Int32 return this.LockKeyframesToGrid;
-	public extern var WaveTableResolution(get, never): cpp.Int32;
-	public inline extern function get_WaveTableResolution(): cpp.Int32 return this.WaveTableResolution;
+	public extern var LockKeyframesToGrid(get, never): ucpp.num.Int32;
+	public inline extern function get_LockKeyframesToGrid(): ucpp.num.Int32 return this.LockKeyframesToGrid;
+	public extern var WaveTableResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_WaveTableResolution(): ucpp.num.Int32 return this.WaveTableResolution;
 	public extern var WaveTable(get, never): TArray<RuntimeFloatCurve>;
 	public inline extern function get_WaveTable(): TArray<RuntimeFloatCurve> return this.WaveTable;
 	public extern var bNormalizeWaveTables(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstMonoWaveTableSynthPreset(MonoWaveTableSynthPreset) from MonoWaveTa
 @:forward
 @:nativeGen
 @:native("MonoWaveTableSynthPreset*")
-abstract MonoWaveTableSynthPresetPtr(cpp.Star<MonoWaveTableSynthPreset>) from cpp.Star<MonoWaveTableSynthPreset> to cpp.Star<MonoWaveTableSynthPreset>{
+abstract MonoWaveTableSynthPresetPtr(ucpp.Ptr<MonoWaveTableSynthPreset>) from ucpp.Ptr<MonoWaveTableSynthPreset> to ucpp.Ptr<MonoWaveTableSynthPreset>{
 	@:from
 	public static extern inline function fromValue(v: MonoWaveTableSynthPreset): MonoWaveTableSynthPresetPtr {
 		return untyped __cpp__("&({0})", v);

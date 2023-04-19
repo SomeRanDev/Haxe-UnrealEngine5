@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_BlendListByBool")
 @:include("AnimNodes/AnimNode_BlendListByBool.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendListByBool extends AnimNode_BlendListBase {
 
 	@:native("FAnimNode_BlendListByBool") public function new();

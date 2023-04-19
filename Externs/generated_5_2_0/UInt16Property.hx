@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UUInt16Property")
-@:structAccess
+@:valueType
 extern class UInt16Property extends NumericProperty {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstUInt16Property(UInt16Property) from UInt16Property {
 @:forward
 @:nativeGen
 @:native("UInt16Property*")
-abstract UInt16PropertyPtr(cpp.Star<UInt16Property>) from cpp.Star<UInt16Property> to cpp.Star<UInt16Property>{
+abstract UInt16PropertyPtr(ucpp.Ptr<UInt16Property>) from ucpp.Ptr<UInt16Property> to ucpp.Ptr<UInt16Property>{
 	@:from
 	public static extern inline function fromValue(v: UInt16Property): UInt16PropertyPtr {
 		return untyped __cpp__("&({0})", v);

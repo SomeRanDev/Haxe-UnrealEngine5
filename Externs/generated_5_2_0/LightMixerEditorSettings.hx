@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULightMixerEditorSettings")
 @:include("LightMixerEditorSettings.h")
-@:structAccess
+@:valueType
 extern class LightMixerEditorSettings extends Object {
 	public var bHideObjectMixerMenuItem: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLightMixerEditorSettings(LightMixerEditorSettings) from LightMixer
 @:forward
 @:nativeGen
 @:native("LightMixerEditorSettings*")
-abstract LightMixerEditorSettingsPtr(cpp.Star<LightMixerEditorSettings>) from cpp.Star<LightMixerEditorSettings> to cpp.Star<LightMixerEditorSettings>{
+abstract LightMixerEditorSettingsPtr(ucpp.Ptr<LightMixerEditorSettings>) from ucpp.Ptr<LightMixerEditorSettings> to ucpp.Ptr<LightMixerEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: LightMixerEditorSettings): LightMixerEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

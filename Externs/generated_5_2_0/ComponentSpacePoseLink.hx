@@ -3,7 +3,7 @@ package ue;
 
 @:native("FComponentSpacePoseLink")
 @:include("Animation/AnimNodeBase.h")
-@:structAccess
+@:valueType
 extern class ComponentSpacePoseLink extends PoseLinkBase {
 	@:native("FComponentSpacePoseLink") public function new();
 }

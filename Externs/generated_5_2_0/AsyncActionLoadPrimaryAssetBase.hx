@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAsyncActionLoadPrimaryAssetBase")
 @:include("AsyncActionLoadPrimaryAsset.h")
-@:structAccess
+@:valueType
 extern class AsyncActionLoadPrimaryAssetBase extends BlueprintAsyncActionBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAsyncActionLoadPrimaryAssetBase(AsyncActionLoadPrimaryAssetBase) f
 @:forward
 @:nativeGen
 @:native("AsyncActionLoadPrimaryAssetBase*")
-abstract AsyncActionLoadPrimaryAssetBasePtr(cpp.Star<AsyncActionLoadPrimaryAssetBase>) from cpp.Star<AsyncActionLoadPrimaryAssetBase> to cpp.Star<AsyncActionLoadPrimaryAssetBase>{
+abstract AsyncActionLoadPrimaryAssetBasePtr(ucpp.Ptr<AsyncActionLoadPrimaryAssetBase>) from ucpp.Ptr<AsyncActionLoadPrimaryAssetBase> to ucpp.Ptr<AsyncActionLoadPrimaryAssetBase>{
 	@:from
 	public static extern inline function fromValue(v: AsyncActionLoadPrimaryAssetBase): AsyncActionLoadPrimaryAssetBasePtr {
 		return untyped __cpp__("&({0})", v);

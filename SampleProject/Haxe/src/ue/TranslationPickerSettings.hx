@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTranslationPickerSettings")
 @:include("TranslationPickerEditWindow.h")
-@:structAccess
+@:valueType
 extern class TranslationPickerSettings extends Object {
 	public var bSubmitTranslationPickerChangesToLocalizationService: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTranslationPickerSettings(TranslationPickerSettings) from Translat
 @:forward
 @:nativeGen
 @:native("TranslationPickerSettings*")
-abstract TranslationPickerSettingsPtr(cpp.Star<TranslationPickerSettings>) from cpp.Star<TranslationPickerSettings> to cpp.Star<TranslationPickerSettings>{
+abstract TranslationPickerSettingsPtr(ucpp.Ptr<TranslationPickerSettings>) from ucpp.Ptr<TranslationPickerSettings> to ucpp.Ptr<TranslationPickerSettings>{
 	@:from
 	public static extern inline function fromValue(v: TranslationPickerSettings): TranslationPickerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

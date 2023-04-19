@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMulticastDelegatePropertyWrapper")
-@:structAccess
+@:valueType
 extern class MulticastDelegatePropertyWrapper extends PropertyWrapper {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMulticastDelegatePropertyWrapper(MulticastDelegatePropertyWrapper)
 @:forward
 @:nativeGen
 @:native("MulticastDelegatePropertyWrapper*")
-abstract MulticastDelegatePropertyWrapperPtr(cpp.Star<MulticastDelegatePropertyWrapper>) from cpp.Star<MulticastDelegatePropertyWrapper> to cpp.Star<MulticastDelegatePropertyWrapper>{
+abstract MulticastDelegatePropertyWrapperPtr(ucpp.Ptr<MulticastDelegatePropertyWrapper>) from ucpp.Ptr<MulticastDelegatePropertyWrapper> to ucpp.Ptr<MulticastDelegatePropertyWrapper>{
 	@:from
 	public static extern inline function fromValue(v: MulticastDelegatePropertyWrapper): MulticastDelegatePropertyWrapperPtr {
 		return untyped __cpp__("&({0})", v);

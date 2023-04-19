@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLandscapePerLODMaterialOverride")
 @:include("LandscapeComponent.h")
-@:structAccess
+@:valueType
 extern class LandscapePerLODMaterialOverride {
-	public var LODIndex: cpp.Int32;
-	public var Material: cpp.Star<MaterialInterface>;
+	public var LODIndex: ucpp.num.Int32;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 
 	@:native("FLandscapePerLODMaterialOverride") public function new();
-	@:native("FLandscapePerLODMaterialOverride") public static function make(LODIndex: cpp.Int32, Material: cpp.Star<MaterialInterface>): LandscapePerLODMaterialOverride ;
+	@:native("FLandscapePerLODMaterialOverride") public static function make(LODIndex: ucpp.num.Int32, Material: ucpp.Ptr<MaterialInterface>): LandscapePerLODMaterialOverride ;
 }

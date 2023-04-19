@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshSamplingRegionBoneFilter")
 @:include("Engine/SkeletalMeshSampling.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshSamplingRegionBoneFilter {
 	public var BoneName: FName;
 	public var bIncludeOrExclude: Bool;

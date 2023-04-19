@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataLayerFactory")
 @:include("DataLayer/DataLayerFactory.h")
-@:structAccess
+@:valueType
 extern class DataLayerFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataLayerFactory(DataLayerFactory) from DataLayerFactory {
 @:forward
 @:nativeGen
 @:native("DataLayerFactory*")
-abstract DataLayerFactoryPtr(cpp.Star<DataLayerFactory>) from cpp.Star<DataLayerFactory> to cpp.Star<DataLayerFactory>{
+abstract DataLayerFactoryPtr(ucpp.Ptr<DataLayerFactory>) from ucpp.Ptr<DataLayerFactory> to ucpp.Ptr<DataLayerFactory>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerFactory): DataLayerFactoryPtr {
 		return untyped __cpp__("&({0})", v);

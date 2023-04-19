@@ -3,11 +3,11 @@ package ue;
 
 @:native("USharedProfiles")
 @:include("AssetViewerSettings.h")
-@:structAccess
+@:valueType
 extern class SharedProfiles extends Object {
 	public var Profiles: TArray<PreviewSceneProfile>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSharedProfiles(SharedProfiles) from SharedProfiles {
 @:forward
 @:nativeGen
 @:native("SharedProfiles*")
-abstract SharedProfilesPtr(cpp.Star<SharedProfiles>) from cpp.Star<SharedProfiles> to cpp.Star<SharedProfiles>{
+abstract SharedProfilesPtr(ucpp.Ptr<SharedProfiles>) from ucpp.Ptr<SharedProfiles> to ucpp.Ptr<SharedProfiles>{
 	@:from
 	public static extern inline function fromValue(v: SharedProfiles): SharedProfilesPtr {
 		return untyped __cpp__("&({0})", v);

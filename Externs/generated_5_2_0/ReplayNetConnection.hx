@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReplayNetConnection")
 @:include("ReplayNetConnection.h")
-@:structAccess
+@:valueType
 extern class ReplayNetConnection extends NetConnection {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReplayNetConnection(ReplayNetConnection) from ReplayNetConnection 
 @:forward
 @:nativeGen
 @:native("ReplayNetConnection*")
-abstract ReplayNetConnectionPtr(cpp.Star<ReplayNetConnection>) from cpp.Star<ReplayNetConnection> to cpp.Star<ReplayNetConnection>{
+abstract ReplayNetConnectionPtr(ucpp.Ptr<ReplayNetConnection>) from ucpp.Ptr<ReplayNetConnection> to ucpp.Ptr<ReplayNetConnection>{
 	@:from
 	public static extern inline function fromValue(v: ReplayNetConnection): ReplayNetConnectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UActorSoundParameterInterface")
-@:structAccess
+@:valueType
 extern class ActorSoundParameterInterface extends Interface {
-	public function GetActorSoundParams(Params: cpp.Reference<TArray<AudioParameter>>): Void;
+	public function GetActorSoundParams(Params: ucpp.Ref<TArray<AudioParameter>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetActorSoundParams)
@@ -17,7 +17,7 @@ abstract ConstActorSoundParameterInterface(ActorSoundParameterInterface) from Ac
 @:forward
 @:nativeGen
 @:native("ActorSoundParameterInterface*")
-abstract ActorSoundParameterInterfacePtr(cpp.Star<ActorSoundParameterInterface>) from cpp.Star<ActorSoundParameterInterface> to cpp.Star<ActorSoundParameterInterface>{
+abstract ActorSoundParameterInterfacePtr(ucpp.Ptr<ActorSoundParameterInterface>) from ucpp.Ptr<ActorSoundParameterInterface> to ucpp.Ptr<ActorSoundParameterInterface>{
 	@:from
 	public static extern inline function fromValue(v: ActorSoundParameterInterface): ActorSoundParameterInterfacePtr {
 		return untyped __cpp__("&({0})", v);

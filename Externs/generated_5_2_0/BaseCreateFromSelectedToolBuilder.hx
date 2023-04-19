@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBaseCreateFromSelectedToolBuilder")
 @:include("BaseTools/BaseCreateFromSelectedTool.h")
-@:structAccess
+@:valueType
 extern class BaseCreateFromSelectedToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBaseCreateFromSelectedToolBuilder(BaseCreateFromSelectedToolBuilde
 @:forward
 @:nativeGen
 @:native("BaseCreateFromSelectedToolBuilder*")
-abstract BaseCreateFromSelectedToolBuilderPtr(cpp.Star<BaseCreateFromSelectedToolBuilder>) from cpp.Star<BaseCreateFromSelectedToolBuilder> to cpp.Star<BaseCreateFromSelectedToolBuilder>{
+abstract BaseCreateFromSelectedToolBuilderPtr(ucpp.Ptr<BaseCreateFromSelectedToolBuilder>) from ucpp.Ptr<BaseCreateFromSelectedToolBuilder> to ucpp.Ptr<BaseCreateFromSelectedToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BaseCreateFromSelectedToolBuilder): BaseCreateFromSelectedToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

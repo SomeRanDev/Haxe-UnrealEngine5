@@ -3,36 +3,36 @@ package ue;
 
 @:native("USphereNetObjectPrioritizerConfig")
 @:include("Iris/ReplicationSystem/Prioritization/SphereNetObjectPrioritizer.h")
-@:structAccess
+@:valueType
 extern class SphereNetObjectPrioritizerConfig extends NetObjectPrioritizerConfig {
-	public var InnerRadius: cpp.Float32;
-	public var OuterRadius: cpp.Float32;
-	public var InnerPriority: cpp.Float32;
-	public var OuterPriority: cpp.Float32;
-	public var OutsidePriority: cpp.Float32;
+	public var InnerRadius: ucpp.num.Float32;
+	public var OuterRadius: ucpp.num.Float32;
+	public var InnerPriority: ucpp.num.Float32;
+	public var OuterPriority: ucpp.num.Float32;
+	public var OutsidePriority: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSphereNetObjectPrioritizerConfig(SphereNetObjectPrioritizerConfig) from SphereNetObjectPrioritizerConfig {
-	public extern var InnerRadius(get, never): cpp.Float32;
-	public inline extern function get_InnerRadius(): cpp.Float32 return this.InnerRadius;
-	public extern var OuterRadius(get, never): cpp.Float32;
-	public inline extern function get_OuterRadius(): cpp.Float32 return this.OuterRadius;
-	public extern var InnerPriority(get, never): cpp.Float32;
-	public inline extern function get_InnerPriority(): cpp.Float32 return this.InnerPriority;
-	public extern var OuterPriority(get, never): cpp.Float32;
-	public inline extern function get_OuterPriority(): cpp.Float32 return this.OuterPriority;
-	public extern var OutsidePriority(get, never): cpp.Float32;
-	public inline extern function get_OutsidePriority(): cpp.Float32 return this.OutsidePriority;
+	public extern var InnerRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_InnerRadius(): ucpp.num.Float32 return this.InnerRadius;
+	public extern var OuterRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_OuterRadius(): ucpp.num.Float32 return this.OuterRadius;
+	public extern var InnerPriority(get, never): ucpp.num.Float32;
+	public inline extern function get_InnerPriority(): ucpp.num.Float32 return this.InnerPriority;
+	public extern var OuterPriority(get, never): ucpp.num.Float32;
+	public inline extern function get_OuterPriority(): ucpp.num.Float32 return this.OuterPriority;
+	public extern var OutsidePriority(get, never): ucpp.num.Float32;
+	public inline extern function get_OutsidePriority(): ucpp.num.Float32 return this.OutsidePriority;
 }
 
 @:forward
 @:nativeGen
 @:native("SphereNetObjectPrioritizerConfig*")
-abstract SphereNetObjectPrioritizerConfigPtr(cpp.Star<SphereNetObjectPrioritizerConfig>) from cpp.Star<SphereNetObjectPrioritizerConfig> to cpp.Star<SphereNetObjectPrioritizerConfig>{
+abstract SphereNetObjectPrioritizerConfigPtr(ucpp.Ptr<SphereNetObjectPrioritizerConfig>) from ucpp.Ptr<SphereNetObjectPrioritizerConfig> to ucpp.Ptr<SphereNetObjectPrioritizerConfig>{
 	@:from
 	public static extern inline function fromValue(v: SphereNetObjectPrioritizerConfig): SphereNetObjectPrioritizerConfigPtr {
 		return untyped __cpp__("&({0})", v);

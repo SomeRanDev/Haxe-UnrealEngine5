@@ -3,13 +3,13 @@ package ue;
 
 @:native("FChaosCollisionEventRequestSettings")
 @:include("ChaosCollisionEventFilter.h")
-@:structAccess
+@:valueType
 extern class ChaosCollisionEventRequestSettings {
-	public var MaxNumberResults: cpp.Int32;
-	public var MinMass: cpp.Float32;
-	public var MinSpeed: cpp.Float32;
-	public var MinImpulse: cpp.Float32;
-	public var MaxDistance: cpp.Float32;
+	public var MaxNumberResults: ucpp.num.Int32;
+	public var MinMass: ucpp.num.Float32;
+	public var MinSpeed: ucpp.num.Float32;
+	public var MinImpulse: ucpp.num.Float32;
+	public var MaxDistance: ucpp.num.Float32;
 	public var SortMethod: EChaosCollisionSortMethod;
 
 	@:native("FChaosCollisionEventRequestSettings") public function new();

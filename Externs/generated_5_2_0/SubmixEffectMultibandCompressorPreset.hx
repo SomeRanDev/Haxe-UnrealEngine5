@@ -3,16 +3,16 @@ package ue;
 
 @:native("USubmixEffectMultibandCompressorPreset")
 @:include("SubmixEffects/SubmixEffectMultiBandCompressor.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectMultibandCompressorPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectMultibandCompressorSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectMultibandCompressorSettings>): Void;
-	public function SetExternalSubmix(Submix: cpp.Star<SoundSubmix>): Void;
-	public function SetAudioBus(AudioBus: cpp.Star<AudioBus>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectMultibandCompressorSettings>): Void;
+	public function SetExternalSubmix(Submix: ucpp.Ptr<SoundSubmix>): Void;
+	public function SetAudioBus(AudioBus: ucpp.Ptr<AudioBus>): Void;
 	public function ResetKey(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstSubmixEffectMultibandCompressorPreset(SubmixEffectMultibandCompres
 @:forward
 @:nativeGen
 @:native("SubmixEffectMultibandCompressorPreset*")
-abstract SubmixEffectMultibandCompressorPresetPtr(cpp.Star<SubmixEffectMultibandCompressorPreset>) from cpp.Star<SubmixEffectMultibandCompressorPreset> to cpp.Star<SubmixEffectMultibandCompressorPreset>{
+abstract SubmixEffectMultibandCompressorPresetPtr(ucpp.Ptr<SubmixEffectMultibandCompressorPreset>) from ucpp.Ptr<SubmixEffectMultibandCompressorPreset> to ucpp.Ptr<SubmixEffectMultibandCompressorPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectMultibandCompressorPreset): SubmixEffectMultibandCompressorPresetPtr {
 		return untyped __cpp__("&({0})", v);

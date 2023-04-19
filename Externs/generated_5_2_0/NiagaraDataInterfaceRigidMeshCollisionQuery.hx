@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRigidMeshCollisionQuery")
 @:include("NiagaraDataInterfaceRigidMeshCollisionQuery.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceRigidMeshCollisionQuery extends NiagaraDataInterface {
 	public var ActorTags: TArray<FName>;
 	public var ComponentTags: TArray<FName>;
@@ -13,9 +13,9 @@ extern class NiagaraDataInterfaceRigidMeshCollisionQuery extends NiagaraDataInte
 	public var GlobalSearchAllowed: Bool;
 	public var GlobalSearchForced: Bool;
 	public var GlobalSearchFallback_Unscripted: Bool;
-	public var MaxNumPrimitives: cpp.Int32;
+	public var MaxNumPrimitives: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,14 +37,14 @@ abstract ConstNiagaraDataInterfaceRigidMeshCollisionQuery(NiagaraDataInterfaceRi
 	public inline extern function get_GlobalSearchForced(): Bool return this.GlobalSearchForced;
 	public extern var GlobalSearchFallback_Unscripted(get, never): Bool;
 	public inline extern function get_GlobalSearchFallback_Unscripted(): Bool return this.GlobalSearchFallback_Unscripted;
-	public extern var MaxNumPrimitives(get, never): cpp.Int32;
-	public inline extern function get_MaxNumPrimitives(): cpp.Int32 return this.MaxNumPrimitives;
+	public extern var MaxNumPrimitives(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxNumPrimitives(): ucpp.num.Int32 return this.MaxNumPrimitives;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceRigidMeshCollisionQuery*")
-abstract NiagaraDataInterfaceRigidMeshCollisionQueryPtr(cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery>) from cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery> to cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery>{
+abstract NiagaraDataInterfaceRigidMeshCollisionQueryPtr(ucpp.Ptr<NiagaraDataInterfaceRigidMeshCollisionQuery>) from ucpp.Ptr<NiagaraDataInterfaceRigidMeshCollisionQuery> to ucpp.Ptr<NiagaraDataInterfaceRigidMeshCollisionQuery>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceRigidMeshCollisionQuery): NiagaraDataInterfaceRigidMeshCollisionQueryPtr {
 		return untyped __cpp__("&({0})", v);

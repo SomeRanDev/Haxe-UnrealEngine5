@@ -3,15 +3,15 @@ package ue;
 
 @:native("UK2Node_FunctionEntry")
 @:include("K2Node_FunctionEntry.h")
-@:structAccess
+@:valueType
 extern class K2Node_FunctionEntry extends K2Node_FunctionTerminator {
 	public var CustomGeneratedFunctionName: FName;
 	public var MetaData: KismetUserDeclaredFunctionMetadata;
 	public var LocalVariables: TArray<BPVariableDescription>;
 	public var bEnforceConstCorrectness: Bool;
-	@:protected public var ExtraFlags: cpp.Int32;
+	@:protected public var ExtraFlags: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstK2Node_FunctionEntry(K2Node_FunctionEntry) from K2Node_FunctionEnt
 @:forward
 @:nativeGen
 @:native("K2Node_FunctionEntry*")
-abstract K2Node_FunctionEntryPtr(cpp.Star<K2Node_FunctionEntry>) from cpp.Star<K2Node_FunctionEntry> to cpp.Star<K2Node_FunctionEntry>{
+abstract K2Node_FunctionEntryPtr(ucpp.Ptr<K2Node_FunctionEntry>) from ucpp.Ptr<K2Node_FunctionEntry> to ucpp.Ptr<K2Node_FunctionEntry>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_FunctionEntry): K2Node_FunctionEntryPtr {
 		return untyped __cpp__("&({0})", v);

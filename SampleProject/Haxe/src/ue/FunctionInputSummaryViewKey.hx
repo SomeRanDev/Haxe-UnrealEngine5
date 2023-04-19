@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFunctionInputSummaryViewKey")
 @:include("NiagaraEditorCommon.h")
-@:structAccess
+@:valueType
 extern class FunctionInputSummaryViewKey {
 	private var FunctionGuid: Guid;
 	private var InputGuid: Guid;

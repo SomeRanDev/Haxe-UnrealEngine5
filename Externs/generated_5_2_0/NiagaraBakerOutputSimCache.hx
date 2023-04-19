@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraBakerOutputSimCache")
 @:include("NiagaraBakerOutputSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraBakerOutputSimCache extends NiagaraBakerOutput {
 	public var SimCacheAssetPathFormat: FString;
 	public var CreateParameters: NiagaraSimCacheCreateParameters;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraBakerOutputSimCache(NiagaraBakerOutputSimCache) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraBakerOutputSimCache*")
-abstract NiagaraBakerOutputSimCachePtr(cpp.Star<NiagaraBakerOutputSimCache>) from cpp.Star<NiagaraBakerOutputSimCache> to cpp.Star<NiagaraBakerOutputSimCache>{
+abstract NiagaraBakerOutputSimCachePtr(ucpp.Ptr<NiagaraBakerOutputSimCache>) from ucpp.Ptr<NiagaraBakerOutputSimCache> to ucpp.Ptr<NiagaraBakerOutputSimCache>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraBakerOutputSimCache): NiagaraBakerOutputSimCachePtr {
 		return untyped __cpp__("&({0})", v);

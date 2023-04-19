@@ -3,19 +3,19 @@ package ue;
 
 @:native("UNiagaraDataInterfaceVirtualTexture")
 @:include("DataInterface/NiagaraDataInterfaceVirtualTexture.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceVirtualTexture extends NiagaraDataInterface {
-	public var Texture: cpp.Star<RuntimeVirtualTexture>;
+	public var Texture: ucpp.Ptr<RuntimeVirtualTexture>;
 	public var TextureUserParameter: NiagaraUserParameterBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceVirtualTexture(NiagaraDataInterfaceVirtualTexture) from NiagaraDataInterfaceVirtualTexture {
-	public extern var Texture(get, never): cpp.Star<RuntimeVirtualTexture.ConstRuntimeVirtualTexture>;
-	public inline extern function get_Texture(): cpp.Star<RuntimeVirtualTexture.ConstRuntimeVirtualTexture> return this.Texture;
+	public extern var Texture(get, never): ucpp.Ptr<RuntimeVirtualTexture.ConstRuntimeVirtualTexture>;
+	public inline extern function get_Texture(): ucpp.Ptr<RuntimeVirtualTexture.ConstRuntimeVirtualTexture> return this.Texture;
 	public extern var TextureUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_TextureUserParameter(): NiagaraUserParameterBinding return this.TextureUserParameter;
 }
@@ -23,7 +23,7 @@ abstract ConstNiagaraDataInterfaceVirtualTexture(NiagaraDataInterfaceVirtualText
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceVirtualTexture*")
-abstract NiagaraDataInterfaceVirtualTexturePtr(cpp.Star<NiagaraDataInterfaceVirtualTexture>) from cpp.Star<NiagaraDataInterfaceVirtualTexture> to cpp.Star<NiagaraDataInterfaceVirtualTexture>{
+abstract NiagaraDataInterfaceVirtualTexturePtr(ucpp.Ptr<NiagaraDataInterfaceVirtualTexture>) from ucpp.Ptr<NiagaraDataInterfaceVirtualTexture> to ucpp.Ptr<NiagaraDataInterfaceVirtualTexture>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceVirtualTexture): NiagaraDataInterfaceVirtualTexturePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraCurveTemplate")
 @:include("NiagaraEditorSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraCurveTemplate {
 	public var DisplayNameOverride: FString;
 	public var CurveAsset: SoftObjectPath;

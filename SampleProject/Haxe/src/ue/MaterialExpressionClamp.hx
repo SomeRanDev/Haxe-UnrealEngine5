@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionClamp")
 @:include("Materials/MaterialExpressionClamp.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionClamp extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var Min: ExpressionInput;
 	public var Max: ExpressionInput;
 	public var ClampMode: TEnumAsByte<EClampMode>;
-	public var MinDefault: cpp.Float32;
-	public var MaxDefault: cpp.Float32;
+	public var MinDefault: ucpp.num.Float32;
+	public var MaxDefault: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,16 +26,16 @@ abstract ConstMaterialExpressionClamp(MaterialExpressionClamp) from MaterialExpr
 	public inline extern function get_Max(): ExpressionInput return this.Max;
 	public extern var ClampMode(get, never): TEnumAsByte<EClampMode>;
 	public inline extern function get_ClampMode(): TEnumAsByte<EClampMode> return this.ClampMode;
-	public extern var MinDefault(get, never): cpp.Float32;
-	public inline extern function get_MinDefault(): cpp.Float32 return this.MinDefault;
-	public extern var MaxDefault(get, never): cpp.Float32;
-	public inline extern function get_MaxDefault(): cpp.Float32 return this.MaxDefault;
+	public extern var MinDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDefault(): ucpp.num.Float32 return this.MinDefault;
+	public extern var MaxDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDefault(): ucpp.num.Float32 return this.MaxDefault;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionClamp*")
-abstract MaterialExpressionClampPtr(cpp.Star<MaterialExpressionClamp>) from cpp.Star<MaterialExpressionClamp> to cpp.Star<MaterialExpressionClamp>{
+abstract MaterialExpressionClampPtr(ucpp.Ptr<MaterialExpressionClamp>) from ucpp.Ptr<MaterialExpressionClamp> to ucpp.Ptr<MaterialExpressionClamp>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionClamp): MaterialExpressionClampPtr {
 		return untyped __cpp__("&({0})", v);

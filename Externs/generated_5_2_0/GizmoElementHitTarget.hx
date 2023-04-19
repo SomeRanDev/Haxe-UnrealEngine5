@@ -3,30 +3,30 @@ package ue;
 
 @:native("UGizmoElementHitTarget")
 @:include("BaseGizmos/GizmoElementHitTargets.h")
-@:structAccess
+@:valueType
 extern class GizmoElementHitTarget extends Object {
-	public var GizmoElement: cpp.Star<GizmoElementBase>;
-	public var GizmoViewContext: cpp.Star<GizmoViewContext>;
-	public var GizmoTransformProxy: cpp.Star<TransformProxy>;
+	public var GizmoElement: ucpp.Ptr<GizmoElementBase>;
+	public var GizmoViewContext: ucpp.Ptr<GizmoViewContext>;
+	public var GizmoTransformProxy: ucpp.Ptr<TransformProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGizmoElementHitTarget(GizmoElementHitTarget) from GizmoElementHitTarget {
-	public extern var GizmoElement(get, never): cpp.Star<GizmoElementBase.ConstGizmoElementBase>;
-	public inline extern function get_GizmoElement(): cpp.Star<GizmoElementBase.ConstGizmoElementBase> return this.GizmoElement;
-	public extern var GizmoViewContext(get, never): cpp.Star<GizmoViewContext.ConstGizmoViewContext>;
-	public inline extern function get_GizmoViewContext(): cpp.Star<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
-	public extern var GizmoTransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_GizmoTransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.GizmoTransformProxy;
+	public extern var GizmoElement(get, never): ucpp.Ptr<GizmoElementBase.ConstGizmoElementBase>;
+	public inline extern function get_GizmoElement(): ucpp.Ptr<GizmoElementBase.ConstGizmoElementBase> return this.GizmoElement;
+	public extern var GizmoViewContext(get, never): ucpp.Ptr<GizmoViewContext.ConstGizmoViewContext>;
+	public inline extern function get_GizmoViewContext(): ucpp.Ptr<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
+	public extern var GizmoTransformProxy(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_GizmoTransformProxy(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.GizmoTransformProxy;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoElementHitTarget*")
-abstract GizmoElementHitTargetPtr(cpp.Star<GizmoElementHitTarget>) from cpp.Star<GizmoElementHitTarget> to cpp.Star<GizmoElementHitTarget>{
+abstract GizmoElementHitTargetPtr(ucpp.Ptr<GizmoElementHitTarget>) from ucpp.Ptr<GizmoElementHitTarget> to ucpp.Ptr<GizmoElementHitTarget>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementHitTarget): GizmoElementHitTargetPtr {
 		return untyped __cpp__("&({0})", v);

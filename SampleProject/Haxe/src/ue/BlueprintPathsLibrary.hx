@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBlueprintPathsLibrary")
 @:include("Kismet/BlueprintPathsLibrary.h")
-@:structAccess
+@:valueType
 extern class BlueprintPathsLibrary extends BlueprintFunctionLibrary {
 	public function VideoCaptureDir(): FString;
-	public function ValidatePath(InPath: FString, bDidSucceed: cpp.Reference<Bool>, OutReason: cpp.Reference<FText>): Void;
-	public function Split(InPath: FString, PathPart: cpp.Reference<FString>, FilenamePart: cpp.Reference<FString>, ExtensionPart: cpp.Reference<FString>): Void;
+	public function ValidatePath(InPath: FString, bDidSucceed: ucpp.Ref<Bool>, OutReason: ucpp.Ref<FText>): Void;
+	public function Split(InPath: FString, PathPart: ucpp.Ref<FString>, FilenamePart: ucpp.Ref<FString>, ExtensionPart: ucpp.Ref<FString>): Void;
 	public function SourceConfigDir(): FString;
 	public function ShouldSaveToUserDir(): Bool;
 	public function ShaderWorkingDir(): FString;
@@ -16,7 +16,7 @@ extern class BlueprintPathsLibrary extends BlueprintFunctionLibrary {
 	public function ScreenShotDir(): FString;
 	public function SandboxesDir(): FString;
 	public function RootDir(): FString;
-	public function RemoveDuplicateSlashes(InPath: FString, OutPath: cpp.Reference<FString>): Void;
+	public function RemoveDuplicateSlashes(InPath: FString, OutPath: ucpp.Ref<FString>): Void;
 	public function ProjectUserDir(): FString;
 	public function ProjectSavedDir(): FString;
 	public function ProjectPluginsDir(): FString;
@@ -28,12 +28,12 @@ extern class BlueprintPathsLibrary extends BlueprintFunctionLibrary {
 	public function ProjectContentDir(): FString;
 	public function ProjectConfigDir(): FString;
 	public function ProfilingDir(): FString;
-	public function NormalizeFilename(InPath: FString, OutPath: cpp.Reference<FString>): Void;
-	public function NormalizeDirectoryName(InPath: FString, OutPath: cpp.Reference<FString>): Void;
+	public function NormalizeFilename(InPath: FString, OutPath: ucpp.Ref<FString>): Void;
+	public function NormalizeDirectoryName(InPath: FString, OutPath: ucpp.Ref<FString>): Void;
 	public function MakeValidFileName(InString: FString, InReplacementChar: FString): FString;
-	public function MakeStandardFilename(InPath: FString, OutPath: cpp.Reference<FString>): Void;
-	public function MakePlatformFilename(InPath: FString, OutPath: cpp.Reference<FString>): Void;
-	public function MakePathRelativeTo(InPath: FString, InRelativeTo: FString, OutPath: cpp.Reference<FString>): Bool;
+	public function MakeStandardFilename(InPath: FString, OutPath: ucpp.Ref<FString>): Void;
+	public function MakePlatformFilename(InPath: FString, OutPath: ucpp.Ref<FString>): Void;
+	public function MakePathRelativeTo(InPath: FString, InRelativeTo: FString, OutPath: ucpp.Ref<FString>): Bool;
 	public function LaunchDir(): FString;
 	public function IsSamePath(PathA: FString, PathB: FString): Bool;
 	public function IsRestrictedPath(InPath: FString): Bool;
@@ -79,8 +79,8 @@ extern class BlueprintPathsLibrary extends BlueprintFunctionLibrary {
 	public function ConvertToSandboxPath(InPath: FString, InSandboxName: FString): FString;
 	public function ConvertRelativePathToFull(InPath: FString, InBasePath: FString): FString;
 	public function ConvertFromSandboxPath(InPath: FString, InSandboxName: FString): FString;
-	public function Combine(InPaths: cpp.Reference<TArray<FString>>): FString;
-	public function CollapseRelativeDirectories(InPath: FString, OutPath: cpp.Reference<FString>): Bool;
+	public function Combine(InPaths: ucpp.Ref<TArray<FString>>): FString;
+	public function CollapseRelativeDirectories(InPath: FString, OutPath: ucpp.Ref<FString>): Bool;
 	public function CloudDir(): FString;
 	public function ChangeExtension(InPath: FString, InNewExtension: FString): FString;
 	public function BugItDir(): FString;
@@ -88,7 +88,7 @@ extern class BlueprintPathsLibrary extends BlueprintFunctionLibrary {
 	public function AutomationLogDir(): FString;
 	public function AutomationDir(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -99,7 +99,7 @@ abstract ConstBlueprintPathsLibrary(BlueprintPathsLibrary) from BlueprintPathsLi
 @:forward
 @:nativeGen
 @:native("BlueprintPathsLibrary*")
-abstract BlueprintPathsLibraryPtr(cpp.Star<BlueprintPathsLibrary>) from cpp.Star<BlueprintPathsLibrary> to cpp.Star<BlueprintPathsLibrary>{
+abstract BlueprintPathsLibraryPtr(ucpp.Ptr<BlueprintPathsLibrary>) from ucpp.Ptr<BlueprintPathsLibrary> to ucpp.Ptr<BlueprintPathsLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintPathsLibrary): BlueprintPathsLibraryPtr {
 		return untyped __cpp__("&({0})", v);

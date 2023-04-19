@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTakeRecorderParameters")
 @:include("Recorder/TakeRecorderParameters.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderParameters {
 	public var User: TakeRecorderUserParameters;
 	public var Project: TakeRecorderProjectParameters;

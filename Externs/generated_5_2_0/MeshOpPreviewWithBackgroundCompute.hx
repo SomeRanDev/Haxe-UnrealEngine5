@@ -3,31 +3,31 @@ package ue;
 
 @:native("UMeshOpPreviewWithBackgroundCompute")
 @:include("MeshOpPreviewHelpers.h")
-@:structAccess
+@:valueType
 extern class MeshOpPreviewWithBackgroundCompute extends Object {
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var StandardMaterials: TArray<cpp.Star<MaterialInterface>>;
-	public var OverrideMaterial: cpp.Star<MaterialInterface>;
-	public var WorkingMaterial: cpp.Star<MaterialInterface>;
-	public var SecondaryMaterial: cpp.Star<MaterialInterface>;
+	public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	public var StandardMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var OverrideMaterial: ucpp.Ptr<MaterialInterface>;
+	public var WorkingMaterial: ucpp.Ptr<MaterialInterface>;
+	public var SecondaryMaterial: ucpp.Ptr<MaterialInterface>;
 	public var PreviewWorld: TWeakObjectPtr<World>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshOpPreviewWithBackgroundCompute(MeshOpPreviewWithBackgroundCompute) from MeshOpPreviewWithBackgroundCompute {
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var StandardMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_StandardMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.StandardMaterials;
-	public extern var OverrideMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_OverrideMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.OverrideMaterial;
-	public extern var WorkingMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_WorkingMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.WorkingMaterial;
-	public extern var SecondaryMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_SecondaryMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.SecondaryMaterial;
+	public extern var PreviewMesh(get, never): ucpp.Ptr<PreviewMesh.ConstPreviewMesh>;
+	public inline extern function get_PreviewMesh(): ucpp.Ptr<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
+	public extern var StandardMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_StandardMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.StandardMaterials;
+	public extern var OverrideMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_OverrideMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.OverrideMaterial;
+	public extern var WorkingMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_WorkingMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.WorkingMaterial;
+	public extern var SecondaryMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_SecondaryMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.SecondaryMaterial;
 	public extern var PreviewWorld(get, never): TWeakObjectPtr<World.ConstWorld>;
 	public inline extern function get_PreviewWorld(): TWeakObjectPtr<World.ConstWorld> return this.PreviewWorld;
 }
@@ -35,7 +35,7 @@ abstract ConstMeshOpPreviewWithBackgroundCompute(MeshOpPreviewWithBackgroundComp
 @:forward
 @:nativeGen
 @:native("MeshOpPreviewWithBackgroundCompute*")
-abstract MeshOpPreviewWithBackgroundComputePtr(cpp.Star<MeshOpPreviewWithBackgroundCompute>) from cpp.Star<MeshOpPreviewWithBackgroundCompute> to cpp.Star<MeshOpPreviewWithBackgroundCompute>{
+abstract MeshOpPreviewWithBackgroundComputePtr(ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>) from ucpp.Ptr<MeshOpPreviewWithBackgroundCompute> to ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>{
 	@:from
 	public static extern inline function fromValue(v: MeshOpPreviewWithBackgroundCompute): MeshOpPreviewWithBackgroundComputePtr {
 		return untyped __cpp__("&({0})", v);

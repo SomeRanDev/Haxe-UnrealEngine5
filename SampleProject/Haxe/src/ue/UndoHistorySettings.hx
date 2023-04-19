@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UUndoHistorySettings")
-@:include("Classes/UndoHistorySettings.h")
-@:structAccess
+@:include("UndoHistorySettings.h")
+@:valueType
 extern class UndoHistorySettings extends Object {
 	public var bShowTransactionDetails: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUndoHistorySettings(UndoHistorySettings) from UndoHistorySettings 
 @:forward
 @:nativeGen
 @:native("UndoHistorySettings*")
-abstract UndoHistorySettingsPtr(cpp.Star<UndoHistorySettings>) from cpp.Star<UndoHistorySettings> to cpp.Star<UndoHistorySettings>{
+abstract UndoHistorySettingsPtr(ucpp.Ptr<UndoHistorySettings>) from ucpp.Ptr<UndoHistorySettings> to ucpp.Ptr<UndoHistorySettings>{
 	@:from
 	public static extern inline function fromValue(v: UndoHistorySettings): UndoHistorySettingsPtr {
 		return untyped __cpp__("&({0})", v);

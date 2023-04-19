@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialFunctionThumbnailRenderer")
 @:include("ThumbnailRendering/MaterialFunctionThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class MaterialFunctionThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialFunctionThumbnailRenderer(MaterialFunctionThumbnailRendere
 @:forward
 @:nativeGen
 @:native("MaterialFunctionThumbnailRenderer*")
-abstract MaterialFunctionThumbnailRendererPtr(cpp.Star<MaterialFunctionThumbnailRenderer>) from cpp.Star<MaterialFunctionThumbnailRenderer> to cpp.Star<MaterialFunctionThumbnailRenderer>{
+abstract MaterialFunctionThumbnailRendererPtr(ucpp.Ptr<MaterialFunctionThumbnailRenderer>) from ucpp.Ptr<MaterialFunctionThumbnailRenderer> to ucpp.Ptr<MaterialFunctionThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: MaterialFunctionThumbnailRenderer): MaterialFunctionThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

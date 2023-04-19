@@ -3,30 +3,30 @@ package ue;
 
 @:native("UUVEditorBackgroundPreview")
 @:include("UVEditorBackgroundPreview.h")
-@:structAccess
+@:valueType
 extern class UVEditorBackgroundPreview extends PreviewGeometry {
-	public var Settings: cpp.Star<UVEditorBackgroundPreviewProperties>;
-	public var BackgroundComponent: cpp.Star<TriangleSetComp>;
-	public var BackgroundMaterial: cpp.Star<MaterialInstanceDynamic>;
+	public var Settings: ucpp.Ptr<UVEditorBackgroundPreviewProperties>;
+	public var BackgroundComponent: ucpp.Ptr<TriangleSetComp>;
+	public var BackgroundMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUVEditorBackgroundPreview(UVEditorBackgroundPreview) from UVEditorBackgroundPreview {
-	public extern var Settings(get, never): cpp.Star<UVEditorBackgroundPreviewProperties.ConstUVEditorBackgroundPreviewProperties>;
-	public inline extern function get_Settings(): cpp.Star<UVEditorBackgroundPreviewProperties.ConstUVEditorBackgroundPreviewProperties> return this.Settings;
-	public extern var BackgroundComponent(get, never): cpp.Star<TriangleSetComp.ConstTriangleSetComp>;
-	public inline extern function get_BackgroundComponent(): cpp.Star<TriangleSetComp.ConstTriangleSetComp> return this.BackgroundComponent;
-	public extern var BackgroundMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_BackgroundMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.BackgroundMaterial;
+	public extern var Settings(get, never): ucpp.Ptr<UVEditorBackgroundPreviewProperties.ConstUVEditorBackgroundPreviewProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<UVEditorBackgroundPreviewProperties.ConstUVEditorBackgroundPreviewProperties> return this.Settings;
+	public extern var BackgroundComponent(get, never): ucpp.Ptr<TriangleSetComp.ConstTriangleSetComp>;
+	public inline extern function get_BackgroundComponent(): ucpp.Ptr<TriangleSetComp.ConstTriangleSetComp> return this.BackgroundComponent;
+	public extern var BackgroundMaterial(get, never): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
+	public inline extern function get_BackgroundMaterial(): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.BackgroundMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("UVEditorBackgroundPreview*")
-abstract UVEditorBackgroundPreviewPtr(cpp.Star<UVEditorBackgroundPreview>) from cpp.Star<UVEditorBackgroundPreview> to cpp.Star<UVEditorBackgroundPreview>{
+abstract UVEditorBackgroundPreviewPtr(ucpp.Ptr<UVEditorBackgroundPreview>) from ucpp.Ptr<UVEditorBackgroundPreview> to ucpp.Ptr<UVEditorBackgroundPreview>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorBackgroundPreview): UVEditorBackgroundPreviewPtr {
 		return untyped __cpp__("&({0})", v);

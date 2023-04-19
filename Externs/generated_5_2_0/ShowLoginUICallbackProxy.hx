@@ -3,29 +3,29 @@ package ue;
 
 @:native("UShowLoginUICallbackProxy")
 @:include("ShowLoginUICallbackProxy.h")
-@:structAccess
+@:valueType
 extern class ShowLoginUICallbackProxy extends BlueprintAsyncActionBase {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController>) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController>) -> Void>;
 
-	public function ShowExternalLoginUI(WorldContextObject: cpp.Star<Object>, InPlayerController: cpp.Star<PlayerController>): cpp.Star<ShowLoginUICallbackProxy>;
+	public function ShowExternalLoginUI(WorldContextObject: ucpp.Ptr<Object>, InPlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<ShowLoginUICallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstShowLoginUICallbackProxy(ShowLoginUICallbackProxy) from ShowLoginUICallbackProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("ShowLoginUICallbackProxy*")
-abstract ShowLoginUICallbackProxyPtr(cpp.Star<ShowLoginUICallbackProxy>) from cpp.Star<ShowLoginUICallbackProxy> to cpp.Star<ShowLoginUICallbackProxy>{
+abstract ShowLoginUICallbackProxyPtr(ucpp.Ptr<ShowLoginUICallbackProxy>) from ucpp.Ptr<ShowLoginUICallbackProxy> to ucpp.Ptr<ShowLoginUICallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: ShowLoginUICallbackProxy): ShowLoginUICallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

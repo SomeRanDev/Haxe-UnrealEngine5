@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_SwitchName")
 @:include("K2Node_SwitchName.h")
-@:structAccess
+@:valueType
 extern class K2Node_SwitchName extends K2Node_Switch {
 	public var PinNames: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstK2Node_SwitchName(K2Node_SwitchName) from K2Node_SwitchName {
 @:forward
 @:nativeGen
 @:native("K2Node_SwitchName*")
-abstract K2Node_SwitchNamePtr(cpp.Star<K2Node_SwitchName>) from cpp.Star<K2Node_SwitchName> to cpp.Star<K2Node_SwitchName>{
+abstract K2Node_SwitchNamePtr(ucpp.Ptr<K2Node_SwitchName>) from ucpp.Ptr<K2Node_SwitchName> to ucpp.Ptr<K2Node_SwitchName>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_SwitchName): K2Node_SwitchNamePtr {
 		return untyped __cpp__("&({0})", v);

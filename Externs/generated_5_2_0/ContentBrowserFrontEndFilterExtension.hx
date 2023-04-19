@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBrowserFrontEndFilterExtension")
 @:include("ContentBrowserFrontEndFilterExtension.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserFrontEndFilterExtension extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBrowserFrontEndFilterExtension(ContentBrowserFrontEndFilter
 @:forward
 @:nativeGen
 @:native("ContentBrowserFrontEndFilterExtension*")
-abstract ContentBrowserFrontEndFilterExtensionPtr(cpp.Star<ContentBrowserFrontEndFilterExtension>) from cpp.Star<ContentBrowserFrontEndFilterExtension> to cpp.Star<ContentBrowserFrontEndFilterExtension>{
+abstract ContentBrowserFrontEndFilterExtensionPtr(ucpp.Ptr<ContentBrowserFrontEndFilterExtension>) from ucpp.Ptr<ContentBrowserFrontEndFilterExtension> to ucpp.Ptr<ContentBrowserFrontEndFilterExtension>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserFrontEndFilterExtension): ContentBrowserFrontEndFilterExtensionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReferenceViewerSchema")
 @:include("ReferenceViewer/ReferenceViewerSchema.h")
-@:structAccess
+@:valueType
 extern class ReferenceViewerSchema extends EdGraphSchema {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReferenceViewerSchema(ReferenceViewerSchema) from ReferenceViewerS
 @:forward
 @:nativeGen
 @:native("ReferenceViewerSchema*")
-abstract ReferenceViewerSchemaPtr(cpp.Star<ReferenceViewerSchema>) from cpp.Star<ReferenceViewerSchema> to cpp.Star<ReferenceViewerSchema>{
+abstract ReferenceViewerSchemaPtr(ucpp.Ptr<ReferenceViewerSchema>) from ucpp.Ptr<ReferenceViewerSchema> to ucpp.Ptr<ReferenceViewerSchema>{
 	@:from
 	public static extern inline function fromValue(v: ReferenceViewerSchema): ReferenceViewerSchemaPtr {
 		return untyped __cpp__("&({0})", v);

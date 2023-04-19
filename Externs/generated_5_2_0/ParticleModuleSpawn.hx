@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleSpawn")
 @:include("Particles/Spawn/ParticleModuleSpawn.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleSpawn extends ParticleModuleSpawnBase {
 	public var Rate: RawDistributionFloat;
 	public var RateScale: RawDistributionFloat;
@@ -12,7 +12,7 @@ extern class ParticleModuleSpawn extends ParticleModuleSpawnBase {
 	public var ParticleBurstMethod: TEnumAsByte<EParticleBurstMethod>;
 	public var bApplyGlobalSpawnRateScale: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstParticleModuleSpawn(ParticleModuleSpawn) from ParticleModuleSpawn 
 @:forward
 @:nativeGen
 @:native("ParticleModuleSpawn*")
-abstract ParticleModuleSpawnPtr(cpp.Star<ParticleModuleSpawn>) from cpp.Star<ParticleModuleSpawn> to cpp.Star<ParticleModuleSpawn>{
+abstract ParticleModuleSpawnPtr(ucpp.Ptr<ParticleModuleSpawn>) from ucpp.Ptr<ParticleModuleSpawn> to ucpp.Ptr<ParticleModuleSpawn>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleSpawn): ParticleModuleSpawnPtr {
 		return untyped __cpp__("&({0})", v);

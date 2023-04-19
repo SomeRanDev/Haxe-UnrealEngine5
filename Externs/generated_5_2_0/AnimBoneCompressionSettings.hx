@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAnimBoneCompressionSettings")
 @:include("Animation/AnimBoneCompressionSettings.h")
-@:structAccess
+@:valueType
 extern class AnimBoneCompressionSettings extends Object {
-	public var Codecs: TArray<cpp.Star<AnimBoneCompressionCodec>>;
+	public var Codecs: TArray<ucpp.Ptr<AnimBoneCompressionCodec>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimBoneCompressionSettings(AnimBoneCompressionSettings) from AnimBoneCompressionSettings {
-	public extern var Codecs(get, never): TArray<cpp.Star<AnimBoneCompressionCodec.ConstAnimBoneCompressionCodec>>;
-	public inline extern function get_Codecs(): TArray<cpp.Star<AnimBoneCompressionCodec.ConstAnimBoneCompressionCodec>> return this.Codecs;
+	public extern var Codecs(get, never): TArray<ucpp.Ptr<AnimBoneCompressionCodec.ConstAnimBoneCompressionCodec>>;
+	public inline extern function get_Codecs(): TArray<ucpp.Ptr<AnimBoneCompressionCodec.ConstAnimBoneCompressionCodec>> return this.Codecs;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimBoneCompressionSettings*")
-abstract AnimBoneCompressionSettingsPtr(cpp.Star<AnimBoneCompressionSettings>) from cpp.Star<AnimBoneCompressionSettings> to cpp.Star<AnimBoneCompressionSettings>{
+abstract AnimBoneCompressionSettingsPtr(ucpp.Ptr<AnimBoneCompressionSettings>) from ucpp.Ptr<AnimBoneCompressionSettings> to ucpp.Ptr<AnimBoneCompressionSettings>{
 	@:from
 	public static extern inline function fromValue(v: AnimBoneCompressionSettings): AnimBoneCompressionSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,92 +3,92 @@ package ue;
 
 @:native("UControlRigSequencerEditorLibrary")
 @:include("ControlRigSequencerEditorLibrary.h")
-@:structAccess
+@:valueType
 extern class ControlRigSequencerEditorLibrary extends BlueprintFunctionLibrary {
-	public function TweenControlRig(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, TweenValue: cpp.Float32): Bool;
-	public function SnapControlRig(LevelSequence: cpp.Star<LevelSequence>, StartFrame: FrameNumber, EndFrame: FrameNumber, ChildrenToSnap: cpp.Reference<ControlRigSnapperSelection>, ParentToSnap: cpp.Reference<ControlRigSnapperSelection>, SnapSettings: cpp.Star<ControlRigSnapSettings.ConstControlRigSnapSettings>, TimeUnit: ESequenceTimeUnit): Bool;
-	public function ShowAllControls(InSection: cpp.Star<MovieSceneSection>): Void;
-	public function SetLocalControlRigVector2Ds(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<Vector2D>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigVector2D(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Vector2D, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigTransforms(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<Transform>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigTransformNoScales(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<TransformNoScale>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigTransformNoScale(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: TransformNoScale, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigTransform(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Transform, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigScales(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<Vector>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigScale(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Vector, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigRotators(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<Rotator>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigRotator(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Rotator, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigPositions(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<Vector>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigPosition(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Vector, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigInts(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<cpp.Int32>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigInt(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: cpp.Int32, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigFloats(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<cpp.Float32>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigFloat(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: cpp.Float32, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigEulerTransforms(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<EulerTransform>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigEulerTransform(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: EulerTransform, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetLocalControlRigBools(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, Values: TArray<Bool>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetLocalControlRigBool(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Bool, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetControlsMask(InSection: cpp.Star<MovieSceneSection>, ControlNames: cpp.Reference<TArray<FName>>, bVisible: Bool): Void;
-	public function SetControlRigWorldTransforms(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, WorldTransforms: cpp.Reference<TArray<Transform>>, TimeUnit: ESequenceTimeUnit): Void;
-	public function SetControlRigWorldTransform(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, WorldTransform: cpp.Reference<Transform>, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
-	public function SetControlRigSpace(InSequence: cpp.Star<LevelSequence>, InControlRig: cpp.Star<ControlRig>, InControlName: FName, InSpaceKey: cpp.Reference<RigElementKey>, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function SetControlRigApplyMode(InControlRig: cpp.Star<ControlRig>, InApplyMode: EControlRigFKRigExecuteMode): Bool;
-	public function SetConstraintActiveKey(InConstraint: cpp.Star<TickableConstraint>, bActive: Bool, InFrame: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function RenameControlRigControlChannels(InSequence: cpp.Star<LevelSequence>, InControlRig: cpp.Star<ControlRig>, InOldControlNames: cpp.Reference<TArray<FName>>, InNewControlNames: cpp.Reference<TArray<FName>>): Bool;
-	public function MoveControlRigSpace(InSequence: cpp.Star<LevelSequence>, InControlRig: cpp.Star<ControlRig>, InControlName: FName, InTime: FrameNumber, InNewTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function MoveConstraintKey(Constraint: cpp.Star<TickableConstraint>, ConstraintSection: cpp.Star<MovieSceneSection>, InTime: FrameNumber, InNewTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function LoadAnimSequenceIntoControlRigSection(MovieSceneSection: cpp.Star<MovieSceneSection>, AnimSequence: cpp.Star<AnimSequence>, SkelMeshComp: cpp.Star<SkeletalMeshComp>, InStartFrame: FrameNumber, TimeUnit: ESequenceTimeUnit, bKeyReduce: Bool, Tolerance: cpp.Float32): Bool;
-	public function IsFKControlRig(InControlRig: cpp.Star<ControlRig>): Bool;
-	public function ImportFBXToControlRigTrack(World: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InTrack: cpp.Star<MovieSceneControlRigParameterTrack>, InSection: cpp.Star<MovieSceneControlRigParameterSection>, SelectedControlRigNames: cpp.Reference<TArray<FString>>, ImportFBXControlRigSettings: cpp.Star<MovieSceneUserImportFBXControlRigSettings>, ImportFilename: FString): Bool;
-	public function HideAllControls(InSection: cpp.Star<MovieSceneSection>): Void;
+	public function TweenControlRig(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, TweenValue: ucpp.num.Float32): Bool;
+	public function SnapControlRig(LevelSequence: ucpp.Ptr<LevelSequence>, StartFrame: FrameNumber, EndFrame: FrameNumber, ChildrenToSnap: ucpp.Ref<ControlRigSnapperSelection>, ParentToSnap: ucpp.Ref<ControlRigSnapperSelection>, SnapSettings: ucpp.Ptr<ControlRigSnapSettings.ConstControlRigSnapSettings>, TimeUnit: ESequenceTimeUnit): Bool;
+	public function ShowAllControls(InSection: ucpp.Ptr<MovieSceneSection>): Void;
+	public function SetLocalControlRigVector2Ds(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<Vector2D>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigVector2D(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Vector2D, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<Transform>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigTransformNoScales(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<TransformNoScale>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigTransformNoScale(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: TransformNoScale, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigTransform(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Transform, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigScales(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<Vector>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigScale(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Vector, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigRotators(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<Rotator>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigRotator(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Rotator, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigPositions(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<Vector>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigPosition(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Vector, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigInts(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<ucpp.num.Int32>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigInt(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: ucpp.num.Int32, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigFloats(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<ucpp.num.Float32>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigFloat(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigEulerTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<EulerTransform>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigEulerTransform(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: EulerTransform, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetLocalControlRigBools(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, Values: TArray<Bool>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetLocalControlRigBool(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, Value: Bool, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetControlsMask(InSection: ucpp.Ptr<MovieSceneSection>, ControlNames: ucpp.Ref<TArray<FName>>, bVisible: Bool): Void;
+	public function SetControlRigWorldTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, WorldTransforms: ucpp.Ref<TArray<Transform>>, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetControlRigWorldTransform(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, WorldTransform: ucpp.Ref<Transform>, TimeUnit: ESequenceTimeUnit, bSetKey: Bool): Void;
+	public function SetControlRigSpace(InSequence: ucpp.Ptr<LevelSequence>, InControlRig: ucpp.Ptr<ControlRig>, InControlName: FName, InSpaceKey: ucpp.Ref<RigElementKey>, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function SetControlRigApplyMode(InControlRig: ucpp.Ptr<ControlRig>, InApplyMode: EControlRigFKRigExecuteMode): Bool;
+	public function SetConstraintActiveKey(InConstraint: ucpp.Ptr<TickableConstraint>, bActive: Bool, InFrame: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function RenameControlRigControlChannels(InSequence: ucpp.Ptr<LevelSequence>, InControlRig: ucpp.Ptr<ControlRig>, InOldControlNames: ucpp.Ref<TArray<FName>>, InNewControlNames: ucpp.Ref<TArray<FName>>): Bool;
+	public function MoveControlRigSpace(InSequence: ucpp.Ptr<LevelSequence>, InControlRig: ucpp.Ptr<ControlRig>, InControlName: FName, InTime: FrameNumber, InNewTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function MoveConstraintKey(Constraint: ucpp.Ptr<TickableConstraint>, ConstraintSection: ucpp.Ptr<MovieSceneSection>, InTime: FrameNumber, InNewTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function LoadAnimSequenceIntoControlRigSection(MovieSceneSection: ucpp.Ptr<MovieSceneSection>, AnimSequence: ucpp.Ptr<AnimSequence>, SkelMeshComp: ucpp.Ptr<SkeletalMeshComp>, InStartFrame: FrameNumber, TimeUnit: ESequenceTimeUnit, bKeyReduce: Bool, Tolerance: ucpp.num.Float32): Bool;
+	public function IsFKControlRig(InControlRig: ucpp.Ptr<ControlRig>): Bool;
+	public function ImportFBXToControlRigTrack(World: ucpp.Ptr<World>, InSequence: ucpp.Ptr<LevelSequence>, InTrack: ucpp.Ptr<MovieSceneControlRigParameterTrack>, InSection: ucpp.Ptr<MovieSceneControlRigParameterSection>, SelectedControlRigNames: ucpp.Ref<TArray<FString>>, ImportFBXControlRigSettings: ucpp.Ptr<MovieSceneUserImportFBXControlRigSettings>, ImportFilename: FString): Bool;
+	public function HideAllControls(InSection: ucpp.Ptr<MovieSceneSection>): Void;
 	public function GetWorldSpaceReferenceKey(): RigElementKey;
-	public function GetVisibleControlRigs(): TArray<cpp.Star<ControlRig>>;
-	public function GetSkeletalMeshComponentWorldTransforms(LevelSequence: cpp.Star<LevelSequence>, SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit, ReferenceName: FName): TArray<Transform>;
-	public function GetSkeletalMeshComponentWorldTransform(LevelSequence: cpp.Star<LevelSequence>, SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit, ReferenceName: FName): Transform;
-	public function GetLocalControlRigVector2Ds(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Vector2D>;
-	public function GetLocalControlRigVector2D(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Vector2D;
-	public function GetLocalControlRigTransforms(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Transform>;
-	public function GetLocalControlRigTransformNoScales(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<TransformNoScale>;
-	public function GetLocalControlRigTransformNoScale(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): TransformNoScale;
-	public function GetLocalControlRigTransform(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Transform;
-	public function GetLocalControlRigScales(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Vector>;
-	public function GetLocalControlRigScale(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Vector;
-	public function GetLocalControlRigRotators(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Rotator>;
-	public function GetLocalControlRigRotator(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Rotator;
-	public function GetLocalControlRigPositions(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Vector>;
-	public function GetLocalControlRigPosition(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Vector;
-	public function GetLocalControlRigInts(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<cpp.Int32>;
-	public function GetLocalControlRigInt(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): cpp.Int32;
-	public function GetLocalControlRigFloats(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<cpp.Float32>;
-	public function GetLocalControlRigFloat(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): cpp.Float32;
-	public function GetLocalControlRigEulerTransforms(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<EulerTransform>;
-	public function GetLocalControlRigEulerTransform(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): EulerTransform;
-	public function GetLocalControlRigBools(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Bool>;
-	public function GetLocalControlRigBool(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function GetFKControlRigApplyMode(InControlRig: cpp.Star<ControlRig>): EControlRigFKRigExecuteMode;
+	public function GetVisibleControlRigs(): TArray<ucpp.Ptr<ControlRig>>;
+	public function GetSkeletalMeshComponentWorldTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, SkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit, ReferenceName: FName): TArray<Transform>;
+	public function GetSkeletalMeshComponentWorldTransform(LevelSequence: ucpp.Ptr<LevelSequence>, SkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit, ReferenceName: FName): Transform;
+	public function GetLocalControlRigVector2Ds(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Vector2D>;
+	public function GetLocalControlRigVector2D(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Vector2D;
+	public function GetLocalControlRigTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Transform>;
+	public function GetLocalControlRigTransformNoScales(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<TransformNoScale>;
+	public function GetLocalControlRigTransformNoScale(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): TransformNoScale;
+	public function GetLocalControlRigTransform(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Transform;
+	public function GetLocalControlRigScales(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Vector>;
+	public function GetLocalControlRigScale(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Vector;
+	public function GetLocalControlRigRotators(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Rotator>;
+	public function GetLocalControlRigRotator(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Rotator;
+	public function GetLocalControlRigPositions(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Vector>;
+	public function GetLocalControlRigPosition(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Vector;
+	public function GetLocalControlRigInts(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<ucpp.num.Int32>;
+	public function GetLocalControlRigInt(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): ucpp.num.Int32;
+	public function GetLocalControlRigFloats(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<ucpp.num.Float32>;
+	public function GetLocalControlRigFloat(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): ucpp.num.Float32;
+	public function GetLocalControlRigEulerTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<EulerTransform>;
+	public function GetLocalControlRigEulerTransform(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): EulerTransform;
+	public function GetLocalControlRigBools(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Bool>;
+	public function GetLocalControlRigBool(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function GetFKControlRigApplyMode(InControlRig: ucpp.Ptr<ControlRig>): EControlRigFKRigExecuteMode;
 	public function GetDefaultParentKey(): RigElementKey;
-	public function GetControlsMask(InSection: cpp.Star<MovieSceneSection>, ControlName: FName): Bool;
-	public function GetControlRigWorldTransforms(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Transform>;
-	public function GetControlRigWorldTransform(LevelSequence: cpp.Star<LevelSequence>, ControlRig: cpp.Star<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Transform;
-	public function GetControlRigs(LevelSequence: cpp.Star<LevelSequence>): TArray<ControlRigSequencerBindingProxy>;
-	public function GetConstraintsForHandle(InWorld: cpp.Star<World>, InChild: cpp.Star<TransformableHandle.ConstTransformableHandle>): TArray<cpp.Star<TickableConstraint>>;
-	public function GetConstraintKeys(InConstraint: cpp.Star<TickableConstraint>, ConstraintSection: cpp.Star<MovieSceneSection>, OutBools: cpp.Reference<TArray<Bool>>, OutFrames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): Bool;
-	public function GetActorWorldTransforms(LevelSequence: cpp.Star<LevelSequence>, Actor: cpp.Star<Actor>, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Transform>;
-	public function GetActorWorldTransform(LevelSequence: cpp.Star<LevelSequence>, Actor: cpp.Star<Actor>, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Transform;
-	public function FindOrCreateControlRigTrack(World: cpp.Star<World>, LevelSequence: cpp.Star<LevelSequence>, ControlRigClass: cpp.Star<Class>, InBinding: cpp.Reference<MovieSceneBindingProxy>): cpp.Star<MovieSceneTrack>;
-	public function FindOrCreateControlRigComponentTrack(World: cpp.Star<World>, LevelSequence: cpp.Star<LevelSequence>, InBinding: cpp.Reference<MovieSceneBindingProxy>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function DeleteControlRigSpace(InSequence: cpp.Star<LevelSequence>, InControlRig: cpp.Star<ControlRig>, InControlName: FName, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function DeleteConstraintKey(Constraint: cpp.Star<TickableConstraint>, ConstraintSection: cpp.Star<MovieSceneSection>, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function CompensateAll(InConstraint: cpp.Star<TickableConstraint>): Bool;
-	public function Compensate(InConstraint: cpp.Star<TickableConstraint>, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
-	public function CollapseControlRigAnimLayers(InSequence: cpp.Star<LevelSequence>, InTrack: cpp.Star<MovieSceneControlRigParameterTrack>, bKeyReduce: Bool, Tolerance: cpp.Float32): Bool;
-	public function BlendValuesOnSelected(LevelSequence: cpp.Star<LevelSequence>, BlendOperation: EAnimToolBlendOperation, BlendValue: cpp.Float32): Bool;
-	public function BakeToControlRig(World: cpp.Star<World>, LevelSequence: cpp.Star<LevelSequence>, ControlRigClass: cpp.Star<Class>, ExportOptions: cpp.Star<AnimSeqExportOption>, bReduceKeys: Bool, Tolerance: cpp.Float32, Binding: cpp.Reference<MovieSceneBindingProxy>): Bool;
-	public function BakeControlRigSpace(InSequence: cpp.Star<LevelSequence>, InControlRig: cpp.Star<ControlRig>, InControlNames: cpp.Reference<TArray<FName>>, InSettings: RigSpacePickerBakeSettings, TimeUnit: ESequenceTimeUnit): Bool;
-	public function BakeConstraint(World: cpp.Star<World>, Constraint: cpp.Star<TickableConstraint>, Frames: cpp.Reference<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): Bool;
-	public function AddConstraint(World: cpp.Star<World>, InType: ETransformConstraintType, InChild: cpp.Star<TransformableHandle>, InParent: cpp.Star<TransformableHandle>, bMaintainOffset: Bool): cpp.Star<TickableConstraint>;
+	public function GetControlsMask(InSection: ucpp.Ptr<MovieSceneSection>, ControlName: FName): Bool;
+	public function GetControlRigWorldTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Transform>;
+	public function GetControlRigWorldTransform(LevelSequence: ucpp.Ptr<LevelSequence>, ControlRig: ucpp.Ptr<ControlRig>, ControlName: FName, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Transform;
+	public function GetControlRigs(LevelSequence: ucpp.Ptr<LevelSequence>): TArray<ControlRigSequencerBindingProxy>;
+	public function GetConstraintsForHandle(InWorld: ucpp.Ptr<World>, InChild: ucpp.Ptr<TransformableHandle.ConstTransformableHandle>): TArray<ucpp.Ptr<TickableConstraint>>;
+	public function GetConstraintKeys(InConstraint: ucpp.Ptr<TickableConstraint>, ConstraintSection: ucpp.Ptr<MovieSceneSection>, OutBools: ucpp.Ref<TArray<Bool>>, OutFrames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): Bool;
+	public function GetActorWorldTransforms(LevelSequence: ucpp.Ptr<LevelSequence>, Actor: ucpp.Ptr<Actor>, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): TArray<Transform>;
+	public function GetActorWorldTransform(LevelSequence: ucpp.Ptr<LevelSequence>, Actor: ucpp.Ptr<Actor>, Frame: FrameNumber, TimeUnit: ESequenceTimeUnit): Transform;
+	public function FindOrCreateControlRigTrack(World: ucpp.Ptr<World>, LevelSequence: ucpp.Ptr<LevelSequence>, ControlRigClass: ucpp.Ptr<Class>, InBinding: ucpp.Ref<MovieSceneBindingProxy>): ucpp.Ptr<MovieSceneTrack>;
+	public function FindOrCreateControlRigComponentTrack(World: ucpp.Ptr<World>, LevelSequence: ucpp.Ptr<LevelSequence>, InBinding: ucpp.Ref<MovieSceneBindingProxy>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function DeleteControlRigSpace(InSequence: ucpp.Ptr<LevelSequence>, InControlRig: ucpp.Ptr<ControlRig>, InControlName: FName, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function DeleteConstraintKey(Constraint: ucpp.Ptr<TickableConstraint>, ConstraintSection: ucpp.Ptr<MovieSceneSection>, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function CompensateAll(InConstraint: ucpp.Ptr<TickableConstraint>): Bool;
+	public function Compensate(InConstraint: ucpp.Ptr<TickableConstraint>, InTime: FrameNumber, TimeUnit: ESequenceTimeUnit): Bool;
+	public function CollapseControlRigAnimLayers(InSequence: ucpp.Ptr<LevelSequence>, InTrack: ucpp.Ptr<MovieSceneControlRigParameterTrack>, bKeyReduce: Bool, Tolerance: ucpp.num.Float32): Bool;
+	public function BlendValuesOnSelected(LevelSequence: ucpp.Ptr<LevelSequence>, BlendOperation: EAnimToolBlendOperation, BlendValue: ucpp.num.Float32): Bool;
+	public function BakeToControlRig(World: ucpp.Ptr<World>, LevelSequence: ucpp.Ptr<LevelSequence>, ControlRigClass: ucpp.Ptr<Class>, ExportOptions: ucpp.Ptr<AnimSeqExportOption>, bReduceKeys: Bool, Tolerance: ucpp.num.Float32, Binding: ucpp.Ref<MovieSceneBindingProxy>): Bool;
+	public function BakeControlRigSpace(InSequence: ucpp.Ptr<LevelSequence>, InControlRig: ucpp.Ptr<ControlRig>, InControlNames: ucpp.Ref<TArray<FName>>, InSettings: RigSpacePickerBakeSettings, TimeUnit: ESequenceTimeUnit): Bool;
+	public function BakeConstraint(World: ucpp.Ptr<World>, Constraint: ucpp.Ptr<TickableConstraint>, Frames: ucpp.Ref<TArray<FrameNumber>>, TimeUnit: ESequenceTimeUnit): Bool;
+	public function AddConstraint(World: ucpp.Ptr<World>, InType: ETransformConstraintType, InChild: ucpp.Ptr<TransformableHandle>, InParent: ucpp.Ptr<TransformableHandle>, bMaintainOffset: Bool): ucpp.Ptr<TickableConstraint>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -99,7 +99,7 @@ abstract ConstControlRigSequencerEditorLibrary(ControlRigSequencerEditorLibrary)
 @:forward
 @:nativeGen
 @:native("ControlRigSequencerEditorLibrary*")
-abstract ControlRigSequencerEditorLibraryPtr(cpp.Star<ControlRigSequencerEditorLibrary>) from cpp.Star<ControlRigSequencerEditorLibrary> to cpp.Star<ControlRigSequencerEditorLibrary>{
+abstract ControlRigSequencerEditorLibraryPtr(ucpp.Ptr<ControlRigSequencerEditorLibrary>) from ucpp.Ptr<ControlRigSequencerEditorLibrary> to ucpp.Ptr<ControlRigSequencerEditorLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigSequencerEditorLibrary): ControlRigSequencerEditorLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelEditorViewportInstanceSettingsKeyValuePair")
 @:include("Settings/LevelEditorViewportSettings.h")
-@:structAccess
+@:valueType
 extern class LevelEditorViewportInstanceSettingsKeyValuePair {
 	public var ConfigName: FString;
 	public var ConfigSettings: LevelEditorViewportInstanceSettings;

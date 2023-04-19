@@ -2,15 +2,15 @@
 package ue;
 
 @:native("UDiscardedMemoryClassTemplate_2")
-@:structAccess
+@:valueType
 extern class DiscardedMemoryClassTemplate_2 extends RigVMMemoryStorage {
 	public var FunctionLibrary___FootTrace_Entry_Ik_Foot_Bone: RigElementKey;
 	public var FunctionLibrary___FootTrace_Return_Offset: Vector;
 	public var FunctionLibrary___FootTrace_MathVectorAdd_Result: Vector;
 	public var FunctionLibrary___FootTrace_GetTransform_Transform: Transform;
 	public var FunctionLibrary___FootTrace_GetTransform_CachedIndex: TArray<CachedRigElement>;
-	public var FunctionLibrary___FootTrace_MathFloatAdd_Result: cpp.Float32;
-	public var FunctionLibrary___FootTrace_MathFloatAdd_A: cpp.Float32;
+	public var FunctionLibrary___FootTrace_MathFloatAdd_Result: ucpp.num.Float32;
+	public var FunctionLibrary___FootTrace_MathFloatAdd_A: ucpp.num.Float32;
 	public var FunctionLibrary___FootTrace_GetTransform_1_Transform: Transform;
 	public var FunctionLibrary___FootTrace_GetTransform_1_CachedIndex: TArray<CachedRigElement>;
 	public var FunctionLibrary___FootTrace_MathVectorAdd_A__IO: Vector;
@@ -19,7 +19,7 @@ extern class DiscardedMemoryClassTemplate_2 extends RigVMMemoryStorage {
 	public var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_bHit: Bool;
 	public var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_HitNormal: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,10 +35,10 @@ abstract ConstDiscardedMemoryClassTemplate_2(DiscardedMemoryClassTemplate_2) fro
 	public inline extern function get_FunctionLibrary___FootTrace_GetTransform_Transform(): Transform return this.FunctionLibrary___FootTrace_GetTransform_Transform;
 	public extern var FunctionLibrary___FootTrace_GetTransform_CachedIndex(get, never): TArray<CachedRigElement>;
 	public inline extern function get_FunctionLibrary___FootTrace_GetTransform_CachedIndex(): TArray<CachedRigElement> return this.FunctionLibrary___FootTrace_GetTransform_CachedIndex;
-	public extern var FunctionLibrary___FootTrace_MathFloatAdd_Result(get, never): cpp.Float32;
-	public inline extern function get_FunctionLibrary___FootTrace_MathFloatAdd_Result(): cpp.Float32 return this.FunctionLibrary___FootTrace_MathFloatAdd_Result;
-	public extern var FunctionLibrary___FootTrace_MathFloatAdd_A(get, never): cpp.Float32;
-	public inline extern function get_FunctionLibrary___FootTrace_MathFloatAdd_A(): cpp.Float32 return this.FunctionLibrary___FootTrace_MathFloatAdd_A;
+	public extern var FunctionLibrary___FootTrace_MathFloatAdd_Result(get, never): ucpp.num.Float32;
+	public inline extern function get_FunctionLibrary___FootTrace_MathFloatAdd_Result(): ucpp.num.Float32 return this.FunctionLibrary___FootTrace_MathFloatAdd_Result;
+	public extern var FunctionLibrary___FootTrace_MathFloatAdd_A(get, never): ucpp.num.Float32;
+	public inline extern function get_FunctionLibrary___FootTrace_MathFloatAdd_A(): ucpp.num.Float32 return this.FunctionLibrary___FootTrace_MathFloatAdd_A;
 	public extern var FunctionLibrary___FootTrace_GetTransform_1_Transform(get, never): Transform;
 	public inline extern function get_FunctionLibrary___FootTrace_GetTransform_1_Transform(): Transform return this.FunctionLibrary___FootTrace_GetTransform_1_Transform;
 	public extern var FunctionLibrary___FootTrace_GetTransform_1_CachedIndex(get, never): TArray<CachedRigElement>;
@@ -58,7 +58,7 @@ abstract ConstDiscardedMemoryClassTemplate_2(DiscardedMemoryClassTemplate_2) fro
 @:forward
 @:nativeGen
 @:native("DiscardedMemoryClassTemplate_2*")
-abstract DiscardedMemoryClassTemplate_2Ptr(cpp.Star<DiscardedMemoryClassTemplate_2>) from cpp.Star<DiscardedMemoryClassTemplate_2> to cpp.Star<DiscardedMemoryClassTemplate_2>{
+abstract DiscardedMemoryClassTemplate_2Ptr(ucpp.Ptr<DiscardedMemoryClassTemplate_2>) from ucpp.Ptr<DiscardedMemoryClassTemplate_2> to ucpp.Ptr<DiscardedMemoryClassTemplate_2>{
 	@:from
 	public static extern inline function fromValue(v: DiscardedMemoryClassTemplate_2): DiscardedMemoryClassTemplate_2Ptr {
 		return untyped __cpp__("&({0})", v);

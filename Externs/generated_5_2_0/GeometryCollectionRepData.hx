@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGeometryCollectionRepData")
 @:include("GeometryCollection/GeometryCollectionComponent.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionRepData {
 	@:native("FGeometryCollectionRepData") public function new();
 }

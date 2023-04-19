@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditMeshPolygonsToolActions_Triangles")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshPolygonsToolActions_Triangles extends EditMeshPolygonsToolActionPropertySet {
 	public function RecalcNormals(): Void;
 	public function PushPull(): Void;
@@ -18,7 +18,7 @@ extern class EditMeshPolygonsToolActions_Triangles extends EditMeshPolygonsToolA
 	public function Delete(): Void;
 	public function CutFaces(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstEditMeshPolygonsToolActions_Triangles(EditMeshPolygonsToolActions_
 @:forward
 @:nativeGen
 @:native("EditMeshPolygonsToolActions_Triangles*")
-abstract EditMeshPolygonsToolActions_TrianglesPtr(cpp.Star<EditMeshPolygonsToolActions_Triangles>) from cpp.Star<EditMeshPolygonsToolActions_Triangles> to cpp.Star<EditMeshPolygonsToolActions_Triangles>{
+abstract EditMeshPolygonsToolActions_TrianglesPtr(ucpp.Ptr<EditMeshPolygonsToolActions_Triangles>) from ucpp.Ptr<EditMeshPolygonsToolActions_Triangles> to ucpp.Ptr<EditMeshPolygonsToolActions_Triangles>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshPolygonsToolActions_Triangles): EditMeshPolygonsToolActions_TrianglesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigInfluenceEntry")
 @:include("Rigs/RigInfluenceMap.h")
-@:structAccess
+@:valueType
 extern class RigInfluenceEntry {
 	@:protected public var Source: RigElementKey;
 	@:protected public var AffectedList: TArray<RigElementKey>;

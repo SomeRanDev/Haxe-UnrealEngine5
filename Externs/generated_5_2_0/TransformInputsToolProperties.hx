@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTransformInputsToolProperties")
 @:include("BaseTools/BaseCreateFromSelectedTool.h")
-@:structAccess
+@:valueType
 extern class TransformInputsToolProperties extends InteractiveToolPropertySet {
 	public var bShowTransformGizmo: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTransformInputsToolProperties(TransformInputsToolProperties) from 
 @:forward
 @:nativeGen
 @:native("TransformInputsToolProperties*")
-abstract TransformInputsToolPropertiesPtr(cpp.Star<TransformInputsToolProperties>) from cpp.Star<TransformInputsToolProperties> to cpp.Star<TransformInputsToolProperties>{
+abstract TransformInputsToolPropertiesPtr(ucpp.Ptr<TransformInputsToolProperties>) from ucpp.Ptr<TransformInputsToolProperties> to ucpp.Ptr<TransformInputsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: TransformInputsToolProperties): TransformInputsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

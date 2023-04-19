@@ -3,11 +3,11 @@ package ue;
 
 @:native("UOnAcceptHandleSourcesProperties")
 @:include("PropertySets/OnAcceptProperties.h")
-@:structAccess
+@:valueType
 extern class OnAcceptHandleSourcesProperties extends OnAcceptHandleSourcesPropertiesBase {
 	public var HandleInputs: EHandleSourcesMethod;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstOnAcceptHandleSourcesProperties(OnAcceptHandleSourcesProperties) f
 @:forward
 @:nativeGen
 @:native("OnAcceptHandleSourcesProperties*")
-abstract OnAcceptHandleSourcesPropertiesPtr(cpp.Star<OnAcceptHandleSourcesProperties>) from cpp.Star<OnAcceptHandleSourcesProperties> to cpp.Star<OnAcceptHandleSourcesProperties>{
+abstract OnAcceptHandleSourcesPropertiesPtr(ucpp.Ptr<OnAcceptHandleSourcesProperties>) from ucpp.Ptr<OnAcceptHandleSourcesProperties> to ucpp.Ptr<OnAcceptHandleSourcesProperties>{
 	@:from
 	public static extern inline function fromValue(v: OnAcceptHandleSourcesProperties): OnAcceptHandleSourcesPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

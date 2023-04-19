@@ -3,18 +3,18 @@ package ue;
 
 @:native("UEnhancedInputEditorSubsystem")
 @:include("EnhancedInputEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputEditorSubsystem extends EditorSubsystem {
-	private var PlayerInput: cpp.Star<EnhancedPlayerInput>;
+	private var PlayerInput: ucpp.Ptr<EnhancedPlayerInput>;
 	private var CurrentInputStack: TArray<TWeakObjectPtr<InputComp>>;
 
 	public function StopConsumingInput(): Void;
 	public function StartConsumingInput(): Void;
-	public function PushInputComponent(InInputComponent: cpp.Star<InputComp>): Void;
-	public function PopInputComponent(InInputComponent: cpp.Star<InputComp>): Bool;
+	public function PushInputComponent(InInputComponent: ucpp.Ptr<InputComp>): Void;
+	public function PopInputComponent(InInputComponent: ucpp.Ptr<InputComp>): Bool;
 	public function IsConsumingInput(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsConsumingInput)
@@ -25,7 +25,7 @@ abstract ConstEnhancedInputEditorSubsystem(EnhancedInputEditorSubsystem) from En
 @:forward
 @:nativeGen
 @:native("EnhancedInputEditorSubsystem*")
-abstract EnhancedInputEditorSubsystemPtr(cpp.Star<EnhancedInputEditorSubsystem>) from cpp.Star<EnhancedInputEditorSubsystem> to cpp.Star<EnhancedInputEditorSubsystem>{
+abstract EnhancedInputEditorSubsystemPtr(ucpp.Ptr<EnhancedInputEditorSubsystem>) from ucpp.Ptr<EnhancedInputEditorSubsystem> to ucpp.Ptr<EnhancedInputEditorSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputEditorSubsystem): EnhancedInputEditorSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

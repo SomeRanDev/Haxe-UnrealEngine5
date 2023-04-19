@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAudioQualitySettings")
 @:include("Sound/AudioSettings.h")
-@:structAccess
+@:valueType
 extern class AudioQualitySettings {
 	public var DisplayName: FText;
-	public var MaxChannels: cpp.Int32;
+	public var MaxChannels: ucpp.num.Int32;
 
 	@:native("FAudioQualitySettings") public function new();
-	@:native("FAudioQualitySettings") public static function make(DisplayName: FText, MaxChannels: cpp.Int32): AudioQualitySettings ;
+	@:native("FAudioQualitySettings") public static function make(DisplayName: FText, MaxChannels: ucpp.num.Int32): AudioQualitySettings ;
 }

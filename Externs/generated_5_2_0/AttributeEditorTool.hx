@@ -3,17 +3,17 @@ package ue;
 
 @:native("UAttributeEditorTool")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorTool extends MultiSelectionMeshEditingTool {
-	@:protected public var NormalsActions: cpp.Star<AttributeEditorNormalsActions>;
-	@:protected public var UVActions: cpp.Star<AttributeEditorUVActions>;
-	@:protected public var LightmapUVActions: cpp.Star<AttributeEditorLightmapUVActions>;
-	@:protected public var AttributeProps: cpp.Star<AttributeEditorAttribProperties>;
-	@:protected public var NewAttributeProps: cpp.Star<AttributeEditorNewAttributeActions>;
-	@:protected public var ModifyAttributeProps: cpp.Star<AttributeEditorModifyAttributeActions>;
-	@:protected public var CopyAttributeProps: cpp.Star<AttributeEditorCopyAttributeActions>;
+	@:protected public var NormalsActions: ucpp.Ptr<AttributeEditorNormalsActions>;
+	@:protected public var UVActions: ucpp.Ptr<AttributeEditorUVActions>;
+	@:protected public var LightmapUVActions: ucpp.Ptr<AttributeEditorLightmapUVActions>;
+	@:protected public var AttributeProps: ucpp.Ptr<AttributeEditorAttribProperties>;
+	@:protected public var NewAttributeProps: ucpp.Ptr<AttributeEditorNewAttributeActions>;
+	@:protected public var ModifyAttributeProps: ucpp.Ptr<AttributeEditorModifyAttributeActions>;
+	@:protected public var CopyAttributeProps: ucpp.Ptr<AttributeEditorCopyAttributeActions>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAttributeEditorTool(AttributeEditorTool) from AttributeEditorTool 
 @:forward
 @:nativeGen
 @:native("AttributeEditorTool*")
-abstract AttributeEditorToolPtr(cpp.Star<AttributeEditorTool>) from cpp.Star<AttributeEditorTool> to cpp.Star<AttributeEditorTool>{
+abstract AttributeEditorToolPtr(ucpp.Ptr<AttributeEditorTool>) from ucpp.Ptr<AttributeEditorTool> to ucpp.Ptr<AttributeEditorTool>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorTool): AttributeEditorToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTakeRecorderWorldSource")
 @:include("TakeRecorderWorldSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderWorldSource extends TakeRecorderWorldSourceSettings {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTakeRecorderWorldSource(TakeRecorderWorldSource) from TakeRecorder
 @:forward
 @:nativeGen
 @:native("TakeRecorderWorldSource*")
-abstract TakeRecorderWorldSourcePtr(cpp.Star<TakeRecorderWorldSource>) from cpp.Star<TakeRecorderWorldSource> to cpp.Star<TakeRecorderWorldSource>{
+abstract TakeRecorderWorldSourcePtr(ucpp.Ptr<TakeRecorderWorldSource>) from ucpp.Ptr<TakeRecorderWorldSource> to ucpp.Ptr<TakeRecorderWorldSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderWorldSource): TakeRecorderWorldSourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UTurnBasedMatchInterface")
-@:structAccess
+@:valueType
 extern class TurnBasedMatchInterface extends Interface {
 	public function OnMatchReceivedTurn(Match: FString, bDidBecomeActive: Bool): Void;
 	public function OnMatchEnded(Match: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTurnBasedMatchInterface(TurnBasedMatchInterface) from TurnBasedMat
 @:forward
 @:nativeGen
 @:native("TurnBasedMatchInterface*")
-abstract TurnBasedMatchInterfacePtr(cpp.Star<TurnBasedMatchInterface>) from cpp.Star<TurnBasedMatchInterface> to cpp.Star<TurnBasedMatchInterface>{
+abstract TurnBasedMatchInterfacePtr(ucpp.Ptr<TurnBasedMatchInterface>) from ucpp.Ptr<TurnBasedMatchInterface> to ucpp.Ptr<TurnBasedMatchInterface>{
 	@:from
 	public static extern inline function fromValue(v: TurnBasedMatchInterface): TurnBasedMatchInterfacePtr {
 		return untyped __cpp__("&({0})", v);

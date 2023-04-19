@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorUISubsystem")
 @:include("UVEditorModeUILayer.h")
-@:structAccess
+@:valueType
 extern class UVEditorUISubsystem extends AssetEditorUISubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorUISubsystem(UVEditorUISubsystem) from UVEditorUISubsystem 
 @:forward
 @:nativeGen
 @:native("UVEditorUISubsystem*")
-abstract UVEditorUISubsystemPtr(cpp.Star<UVEditorUISubsystem>) from cpp.Star<UVEditorUISubsystem> to cpp.Star<UVEditorUISubsystem>{
+abstract UVEditorUISubsystemPtr(ucpp.Ptr<UVEditorUISubsystem>) from ucpp.Ptr<UVEditorUISubsystem> to ucpp.Ptr<UVEditorUISubsystem>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorUISubsystem): UVEditorUISubsystemPtr {
 		return untyped __cpp__("&({0})", v);

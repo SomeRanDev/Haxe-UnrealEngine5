@@ -3,32 +3,32 @@ package ue;
 
 @:native("UPhysicalAnimationComponent")
 @:include("PhysicsEngine/PhysicalAnimationComponent.h")
-@:structAccess
+@:valueType
 extern class PhysicalAnimationComp extends ActorComp {
-	public var StrengthMultiplyer: cpp.Float32;
-	private var SkeletalMeshComponent: cpp.Star<SkeletalMeshComp>;
+	public var StrengthMultiplyer: ucpp.num.Float32;
+	private var SkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>;
 
-	public function SetStrengthMultiplyer(InStrengthMultiplyer: cpp.Float32): Void;
-	public function SetSkeletalMeshComponent(InSkeletalMeshComponent: cpp.Star<SkeletalMeshComp>): Void;
+	public function SetStrengthMultiplyer(InStrengthMultiplyer: ucpp.num.Float32): Void;
+	public function SetSkeletalMeshComponent(InSkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>): Void;
 	public function GetBodyTargetTransform(BodyName: FName): Transform;
-	public function ApplyPhysicalAnimationSettingsBelow(BodyName: FName, PhysicalAnimationData: cpp.Reference<PhysicalAnimationData>, bIncludeSelf: Bool): Void;
-	public function ApplyPhysicalAnimationSettings(BodyName: FName, PhysicalAnimationData: cpp.Reference<PhysicalAnimationData>): Void;
+	public function ApplyPhysicalAnimationSettingsBelow(BodyName: FName, PhysicalAnimationData: ucpp.Ref<PhysicalAnimationData>, bIncludeSelf: Bool): Void;
+	public function ApplyPhysicalAnimationSettings(BodyName: FName, PhysicalAnimationData: ucpp.Ref<PhysicalAnimationData>): Void;
 	public function ApplyPhysicalAnimationProfileBelow(BodyName: FName, ProfileName: FName, bIncludeSelf: Bool, bClearNotFound: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetBodyTargetTransform)
 @:nativeGen
 abstract ConstPhysicalAnimationComp(PhysicalAnimationComp) from PhysicalAnimationComp {
-	public extern var StrengthMultiplyer(get, never): cpp.Float32;
-	public inline extern function get_StrengthMultiplyer(): cpp.Float32 return this.StrengthMultiplyer;
+	public extern var StrengthMultiplyer(get, never): ucpp.num.Float32;
+	public inline extern function get_StrengthMultiplyer(): ucpp.num.Float32 return this.StrengthMultiplyer;
 }
 
 @:forward
 @:nativeGen
 @:native("PhysicalAnimationComp*")
-abstract PhysicalAnimationCompPtr(cpp.Star<PhysicalAnimationComp>) from cpp.Star<PhysicalAnimationComp> to cpp.Star<PhysicalAnimationComp>{
+abstract PhysicalAnimationCompPtr(ucpp.Ptr<PhysicalAnimationComp>) from ucpp.Ptr<PhysicalAnimationComp> to ucpp.Ptr<PhysicalAnimationComp>{
 	@:from
 	public static extern inline function fromValue(v: PhysicalAnimationComp): PhysicalAnimationCompPtr {
 		return untyped __cpp__("&({0})", v);

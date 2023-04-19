@@ -3,16 +3,16 @@ package ue;
 
 @:native("UPolygonOnMeshTool")
 @:include("PolygonOnMeshTool.h")
-@:structAccess
+@:valueType
 extern class PolygonOnMeshTool extends SingleSelectionMeshEditingTool {
-	@:protected public var BasicProperties: cpp.Star<PolygonOnMeshToolProperties>;
-	@:protected public var ActionProperties: cpp.Star<PolygonOnMeshToolActionPropertySet>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
-	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
-	@:protected public var DrawPolygonMechanic: cpp.Star<CollectSurfacePathMechanic>;
+	@:protected public var BasicProperties: ucpp.Ptr<PolygonOnMeshToolProperties>;
+	@:protected public var ActionProperties: ucpp.Ptr<PolygonOnMeshToolActionPropertySet>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var DrawnLineSet: ucpp.Ptr<LineSetComp>;
+	@:protected public var PlaneMechanic: ucpp.Ptr<ConstructionPlaneMechanic>;
+	@:protected public var DrawPolygonMechanic: ucpp.Ptr<CollectSurfacePathMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstPolygonOnMeshTool(PolygonOnMeshTool) from PolygonOnMeshTool {
 @:forward
 @:nativeGen
 @:native("PolygonOnMeshTool*")
-abstract PolygonOnMeshToolPtr(cpp.Star<PolygonOnMeshTool>) from cpp.Star<PolygonOnMeshTool> to cpp.Star<PolygonOnMeshTool>{
+abstract PolygonOnMeshToolPtr(ucpp.Ptr<PolygonOnMeshTool>) from ucpp.Ptr<PolygonOnMeshTool> to ucpp.Ptr<PolygonOnMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: PolygonOnMeshTool): PolygonOnMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

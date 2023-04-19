@@ -3,11 +3,11 @@ package ue;
 
 @:native("UToolMenus")
 @:include("ToolMenus.h")
-@:structAccess
+@:valueType
 extern class ToolMenus extends Object {
 	private var CustomizedMenus: TArray<CustomizedToolMenu>;
 	private var MenuSubstitutionsDuringGenerate: TMap<FName, FName>;
-	private var Menus: TMap<FName, cpp.Star<ToolMenu>>;
+	private var Menus: TMap<FName, ucpp.Ptr<ToolMenu>>;
 
 	public function UnregisterOwnerByName(InOwnerName: FName): Void;
 	public function SetSectionPosition(MenuName: FName, SectionName: FName, OtherSectionName: FName, PositionType: EToolMenuInsertType): Void;
@@ -15,17 +15,17 @@ extern class ToolMenus extends Object {
 	public function RemoveSection(MenuName: FName, Section: FName): Void;
 	public function RemoveMenu(MenuName: FName): Void;
 	public function RemoveEntry(MenuName: FName, Section: FName, Name: FName): Void;
-	public function RegisterMenu(Name: FName, Parent: FName, Type: EMultiBoxType, bWarnIfAlreadyRegistered: Bool): cpp.Star<ToolMenu>;
+	public function RegisterMenu(Name: FName, Parent: FName, Type: EMultiBoxType, bWarnIfAlreadyRegistered: Bool): ucpp.Ptr<ToolMenu>;
 	public function RefreshMenuWidget(Name: FName): Bool;
 	public function RefreshAllWidgets(): Void;
 	public function IsMenuRegistered(Name: FName): Bool;
-	public function Get(): cpp.Star<ToolMenus>;
-	public function FindMenu(Name: FName): cpp.Star<ToolMenu>;
-	public function FindContext(InContext: cpp.Reference<ToolMenuContext>, InClass: cpp.Star<Class>): cpp.Star<Object>;
-	public function ExtendMenu(Name: FName): cpp.Star<ToolMenu>;
-	public function AddMenuEntryObject(MenuEntryObject: cpp.Star<ToolMenuEntryScript>): Bool;
+	public function Get(): ucpp.Ptr<ToolMenus>;
+	public function FindMenu(Name: FName): ucpp.Ptr<ToolMenu>;
+	public function FindContext(InContext: ucpp.Ref<ToolMenuContext>, InClass: ucpp.Ptr<Class>): ucpp.Ptr<Object>;
+	public function ExtendMenu(Name: FName): ucpp.Ptr<ToolMenu>;
+	public function AddMenuEntryObject(MenuEntryObject: ucpp.Ptr<ToolMenuEntryScript>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsMenuRegistered)
@@ -36,7 +36,7 @@ abstract ConstToolMenus(ToolMenus) from ToolMenus {
 @:forward
 @:nativeGen
 @:native("ToolMenus*")
-abstract ToolMenusPtr(cpp.Star<ToolMenus>) from cpp.Star<ToolMenus> to cpp.Star<ToolMenus>{
+abstract ToolMenusPtr(ucpp.Ptr<ToolMenus>) from ucpp.Ptr<ToolMenus> to ucpp.Ptr<ToolMenus>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenus): ToolMenusPtr {
 		return untyped __cpp__("&({0})", v);

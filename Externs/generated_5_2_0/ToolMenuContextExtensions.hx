@@ -3,11 +3,11 @@ package ue;
 
 @:native("UToolMenuContextExtensions")
 @:include("ToolMenusBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ToolMenuContextExtensions extends Object {
-	public function FindByClass(Context: cpp.Reference<ToolMenuContext>, InClass: TSubclassOf<Object>): cpp.Star<Object>;
+	public function FindByClass(Context: ucpp.Ref<ToolMenuContext>, InClass: TSubclassOf<Object>): ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstToolMenuContextExtensions(ToolMenuContextExtensions) from ToolMenu
 @:forward
 @:nativeGen
 @:native("ToolMenuContextExtensions*")
-abstract ToolMenuContextExtensionsPtr(cpp.Star<ToolMenuContextExtensions>) from cpp.Star<ToolMenuContextExtensions> to cpp.Star<ToolMenuContextExtensions>{
+abstract ToolMenuContextExtensionsPtr(ucpp.Ptr<ToolMenuContextExtensions>) from ucpp.Ptr<ToolMenuContextExtensions> to ucpp.Ptr<ToolMenuContextExtensions>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenuContextExtensions): ToolMenuContextExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDatasmithStaticMeshCADImportData")
 @:include("DatasmithAssetImportData.h")
-@:structAccess
+@:valueType
 extern class DatasmithStaticMeshCADImportData extends DatasmithStaticMeshImportData {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDatasmithStaticMeshCADImportData(DatasmithStaticMeshCADImportData)
 @:forward
 @:nativeGen
 @:native("DatasmithStaticMeshCADImportData*")
-abstract DatasmithStaticMeshCADImportDataPtr(cpp.Star<DatasmithStaticMeshCADImportData>) from cpp.Star<DatasmithStaticMeshCADImportData> to cpp.Star<DatasmithStaticMeshCADImportData>{
+abstract DatasmithStaticMeshCADImportDataPtr(ucpp.Ptr<DatasmithStaticMeshCADImportData>) from ucpp.Ptr<DatasmithStaticMeshCADImportData> to ucpp.Ptr<DatasmithStaticMeshCADImportData>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithStaticMeshCADImportData): DatasmithStaticMeshCADImportDataPtr {
 		return untyped __cpp__("&({0})", v);

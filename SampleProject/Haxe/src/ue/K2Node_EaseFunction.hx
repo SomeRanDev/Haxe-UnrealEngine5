@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_EaseFunction")
 @:include("K2Node_EaseFunction.h")
-@:structAccess
+@:valueType
 extern class K2Node_EaseFunction extends K2Node {
 	private var EaseFunctionName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_EaseFunction(K2Node_EaseFunction) from K2Node_EaseFunction 
 @:forward
 @:nativeGen
 @:native("K2Node_EaseFunction*")
-abstract K2Node_EaseFunctionPtr(cpp.Star<K2Node_EaseFunction>) from cpp.Star<K2Node_EaseFunction> to cpp.Star<K2Node_EaseFunction>{
+abstract K2Node_EaseFunctionPtr(ucpp.Ptr<K2Node_EaseFunction>) from ucpp.Ptr<K2Node_EaseFunction> to ucpp.Ptr<K2Node_EaseFunction>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_EaseFunction): K2Node_EaseFunctionPtr {
 		return untyped __cpp__("&({0})", v);

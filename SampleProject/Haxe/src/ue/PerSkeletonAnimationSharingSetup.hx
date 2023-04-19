@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPerSkeletonAnimationSharingSetup")
 @:include("AnimationSharingTypes.h")
-@:structAccess
+@:valueType
 extern class PerSkeletonAnimationSharingSetup {
-	public var Skeleton: cpp.Star<Skeleton>;
-	public var SkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var Skeleton: ucpp.Ptr<Skeleton>;
+	public var SkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 	public var BlendAnimBlueprint: TSubclassOf<AnimSharingTransitionInstance>;
 	public var AdditiveAnimBlueprint: TSubclassOf<AnimSharingAdditiveInstance>;
 	public var StateProcessorClass: TSubclassOf<AnimationSharingStateProcessor>;

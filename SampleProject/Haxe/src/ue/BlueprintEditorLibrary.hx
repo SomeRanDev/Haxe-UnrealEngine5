@@ -3,24 +3,29 @@ package ue;
 
 @:native("UBlueprintEditorLibrary")
 @:include("BlueprintEditorLibrary.h")
-@:structAccess
+@:valueType
 extern class BlueprintEditorLibrary extends BlueprintFunctionLibrary {
-	public function UpgradeOperatorNodes(Blueprint: cpp.Star<Blueprint>): Void;
-	public function ReplaceVariableReferences(Blueprint: cpp.Star<Blueprint>, OldVarName: FName, NewVarName: FName): Void;
-	public function ReparentBlueprint(Blueprint: cpp.Star<Blueprint>, NewParentClass: cpp.Star<Class>): Void;
-	public function RenameGraph(Graph: cpp.Star<EdGraph>, NewNameStr: FString): Void;
-	public function RemoveUnusedVariables(Blueprint: cpp.Star<Blueprint>): cpp.Int32;
-	public function RemoveUnusedNodes(Blueprint: cpp.Star<Blueprint>): Void;
-	public function RemoveGraph(Blueprint: cpp.Star<Blueprint>, Graph: cpp.Star<EdGraph>): Void;
-	public function RemoveFunctionGraph(Blueprint: cpp.Star<Blueprint>, FuncName: FName): Void;
-	public function GetBlueprintAsset(Object: cpp.Star<Object>): cpp.Star<Blueprint>;
-	public function GeneratedClass(BlueprintObj: cpp.Star<Blueprint>): cpp.Star<Class>;
-	public function FindGraph(Blueprint: cpp.Star<Blueprint>, GraphName: FName): cpp.Star<EdGraph>;
-	public function FindEventGraph(Blueprint: cpp.Star<Blueprint>): cpp.Star<EdGraph>;
-	public function CompileBlueprint(Blueprint: cpp.Star<Blueprint>): Void;
-	public function AddFunctionGraph(Blueprint: cpp.Star<Blueprint>, FuncName: FString): cpp.Star<EdGraph>;
+	public function UpgradeOperatorNodes(Blueprint: ucpp.Ptr<Blueprint>): Void;
+	public function SetBlueprintVariableInstanceEditable(Blueprint: ucpp.Ptr<Blueprint>, VariableName: ucpp.Ref<FName>, bInstanceEditable: Bool): Void;
+	public function SetBlueprintVariableExposeToCinematics(Blueprint: ucpp.Ptr<Blueprint>, VariableName: ucpp.Ref<FName>, bExposeToCinematics: Bool): Void;
+	public function SetBlueprintVariableExposeOnSpawn(Blueprint: ucpp.Ptr<Blueprint>, VariableName: ucpp.Ref<FName>, bExposeOnSpawn: Bool): Void;
+	public function ReplaceVariableReferences(Blueprint: ucpp.Ptr<Blueprint>, OldVarName: FName, NewVarName: FName): Void;
+	public function ReparentBlueprint(Blueprint: ucpp.Ptr<Blueprint>, NewParentClass: ucpp.Ptr<Class>): Void;
+	public function RenameGraph(Graph: ucpp.Ptr<EdGraph>, NewNameStr: FString): Void;
+	public function RemoveUnusedVariables(Blueprint: ucpp.Ptr<Blueprint>): ucpp.num.Int32;
+	public function RemoveUnusedNodes(Blueprint: ucpp.Ptr<Blueprint>): Void;
+	public function RemoveGraph(Blueprint: ucpp.Ptr<Blueprint>, Graph: ucpp.Ptr<EdGraph>): Void;
+	public function RemoveFunctionGraph(Blueprint: ucpp.Ptr<Blueprint>, FuncName: FName): Void;
+	public function RefreshOpenEditorsForBlueprint(BP: ucpp.Ptr<Blueprint.ConstBlueprint>): Void;
+	public function RefreshAllOpenBlueprintEditors(): Void;
+	public function GetBlueprintAsset(Object: ucpp.Ptr<Object>): ucpp.Ptr<Blueprint>;
+	public function GeneratedClass(BlueprintObj: ucpp.Ptr<Blueprint>): ucpp.Ptr<Class>;
+	public function FindGraph(Blueprint: ucpp.Ptr<Blueprint>, GraphName: FName): ucpp.Ptr<EdGraph>;
+	public function FindEventGraph(Blueprint: ucpp.Ptr<Blueprint>): ucpp.Ptr<EdGraph>;
+	public function CompileBlueprint(Blueprint: ucpp.Ptr<Blueprint>): Void;
+	public function AddFunctionGraph(Blueprint: ucpp.Ptr<Blueprint>, FuncName: FString): ucpp.Ptr<EdGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +36,7 @@ abstract ConstBlueprintEditorLibrary(BlueprintEditorLibrary) from BlueprintEdito
 @:forward
 @:nativeGen
 @:native("BlueprintEditorLibrary*")
-abstract BlueprintEditorLibraryPtr(cpp.Star<BlueprintEditorLibrary>) from cpp.Star<BlueprintEditorLibrary> to cpp.Star<BlueprintEditorLibrary>{
+abstract BlueprintEditorLibraryPtr(ucpp.Ptr<BlueprintEditorLibrary>) from ucpp.Ptr<BlueprintEditorLibrary> to ucpp.Ptr<BlueprintEditorLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintEditorLibrary): BlueprintEditorLibraryPtr {
 		return untyped __cpp__("&({0})", v);

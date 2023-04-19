@@ -3,7 +3,7 @@ package ue;
 
 @:native("FProcMeshTangent")
 @:include("ProceduralMeshComponent.h")
-@:structAccess
+@:valueType
 extern class ProcMeshTangent {
 	public var TangentX: Vector;
 	public var bFlipTangentY: Bool;

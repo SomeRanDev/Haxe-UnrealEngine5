@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneParticleParameterTrack")
 @:include("Tracks/MovieSceneParticleParameterTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneParticleParameterTrack extends MovieSceneNameableTrack {
-	private var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	private var Sections: TArray<ucpp.Ptr<MovieSceneSection>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneParticleParameterTrack(MovieSceneParticleParameterTrack)
 @:forward
 @:nativeGen
 @:native("MovieSceneParticleParameterTrack*")
-abstract MovieSceneParticleParameterTrackPtr(cpp.Star<MovieSceneParticleParameterTrack>) from cpp.Star<MovieSceneParticleParameterTrack> to cpp.Star<MovieSceneParticleParameterTrack>{
+abstract MovieSceneParticleParameterTrackPtr(ucpp.Ptr<MovieSceneParticleParameterTrack>) from ucpp.Ptr<MovieSceneParticleParameterTrack> to ucpp.Ptr<MovieSceneParticleParameterTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneParticleParameterTrack): MovieSceneParticleParameterTrackPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorTickFunction")
 @:include("Engine/EngineBaseTypes.h")
-@:structAccess
+@:valueType
 extern class ActorTickFunction extends TickFunction {
 	@:native("FActorTickFunction") public function new();
 }

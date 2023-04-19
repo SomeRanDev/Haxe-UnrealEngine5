@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraGraphViewSettings")
 @:include("NiagaraEditorDataBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraGraphViewSettings {
 	private var Location: Vector2D;
-	private var Zoom: cpp.Float32;
+	private var Zoom: ucpp.num.Float32;
 	private var bIsValid: Bool;
 
 	@:native("FNiagaraGraphViewSettings") public function new();
-	@:native("FNiagaraGraphViewSettings") public static function make(Location: Vector2D, Zoom: cpp.Float32, bIsValid: Bool): NiagaraGraphViewSettings ;
+	@:native("FNiagaraGraphViewSettings") public static function make(Location: Vector2D, Zoom: ucpp.num.Float32, bIsValid: Bool): NiagaraGraphViewSettings ;
 }

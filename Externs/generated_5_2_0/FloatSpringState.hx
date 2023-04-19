@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFloatSpringState")
 @:include("Kismet/KismetMathLibrary.h")
-@:structAccess
+@:valueType
 extern class FloatSpringState {
 	@:native("FFloatSpringState") public function new();
 }

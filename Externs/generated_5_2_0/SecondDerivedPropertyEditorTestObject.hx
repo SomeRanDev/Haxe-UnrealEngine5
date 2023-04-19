@@ -3,11 +3,11 @@ package ue;
 
 @:native("USecondDerivedPropertyEditorTestObject")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class SecondDerivedPropertyEditorTestObject extends PropertyEditorTestInstancedObject {
 	private var Bool: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSecondDerivedPropertyEditorTestObject(SecondDerivedPropertyEditorT
 @:forward
 @:nativeGen
 @:native("SecondDerivedPropertyEditorTestObject*")
-abstract SecondDerivedPropertyEditorTestObjectPtr(cpp.Star<SecondDerivedPropertyEditorTestObject>) from cpp.Star<SecondDerivedPropertyEditorTestObject> to cpp.Star<SecondDerivedPropertyEditorTestObject>{
+abstract SecondDerivedPropertyEditorTestObjectPtr(ucpp.Ptr<SecondDerivedPropertyEditorTestObject>) from ucpp.Ptr<SecondDerivedPropertyEditorTestObject> to ucpp.Ptr<SecondDerivedPropertyEditorTestObject>{
 	@:from
 	public static extern inline function fromValue(v: SecondDerivedPropertyEditorTestObject): SecondDerivedPropertyEditorTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

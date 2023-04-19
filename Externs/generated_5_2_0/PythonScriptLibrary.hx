@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPythonScriptLibrary")
 @:include("PythonScriptLibrary.h")
-@:structAccess
+@:valueType
 extern class PythonScriptLibrary extends BlueprintFunctionLibrary {
 	public function IsPythonAvailable(): Bool;
-	public function ExecutePythonScript(PythonScript: FString, PythonInputs: cpp.Reference<TArray<FString>>, PythonOutputs: cpp.Reference<TArray<FString>>): Bool;
-	public function ExecutePythonCommandEx(PythonCommand: FString, CommandResult: cpp.Reference<FString>, LogOutput: cpp.Reference<TArray<PythonLogOutputEntry>>, ExecutionMode: EPythonCommandExecutionMode, FileExecutionScope: EPythonFileExecutionScope): Bool;
+	public function ExecutePythonScript(PythonScript: FString, PythonInputs: ucpp.Ref<TArray<FString>>, PythonOutputs: ucpp.Ref<TArray<FString>>): Bool;
+	public function ExecutePythonCommandEx(PythonCommand: FString, CommandResult: ucpp.Ref<FString>, LogOutput: ucpp.Ref<TArray<PythonLogOutputEntry>>, ExecutionMode: EPythonCommandExecutionMode, FileExecutionScope: EPythonFileExecutionScope): Bool;
 	public function ExecutePythonCommand(PythonCommand: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstPythonScriptLibrary(PythonScriptLibrary) from PythonScriptLibrary 
 @:forward
 @:nativeGen
 @:native("PythonScriptLibrary*")
-abstract PythonScriptLibraryPtr(cpp.Star<PythonScriptLibrary>) from cpp.Star<PythonScriptLibrary> to cpp.Star<PythonScriptLibrary>{
+abstract PythonScriptLibraryPtr(ucpp.Ptr<PythonScriptLibrary>) from ucpp.Ptr<PythonScriptLibrary> to ucpp.Ptr<PythonScriptLibrary>{
 	@:from
 	public static extern inline function fromValue(v: PythonScriptLibrary): PythonScriptLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBlackboardDataFactory")
 @:include("BlackboardDataFactory.h")
-@:structAccess
+@:valueType
 extern class BlackboardDataFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlackboardDataFactory(BlackboardDataFactory) from BlackboardDataFa
 @:forward
 @:nativeGen
 @:native("BlackboardDataFactory*")
-abstract BlackboardDataFactoryPtr(cpp.Star<BlackboardDataFactory>) from cpp.Star<BlackboardDataFactory> to cpp.Star<BlackboardDataFactory>{
+abstract BlackboardDataFactoryPtr(ucpp.Ptr<BlackboardDataFactory>) from ucpp.Ptr<BlackboardDataFactory> to ucpp.Ptr<BlackboardDataFactory>{
 	@:from
 	public static extern inline function fromValue(v: BlackboardDataFactory): BlackboardDataFactoryPtr {
 		return untyped __cpp__("&({0})", v);

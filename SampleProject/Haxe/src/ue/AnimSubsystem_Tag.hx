@@ -3,10 +3,10 @@ package ue;
 
 @:native("FAnimSubsystem_Tag")
 @:include("Animation/AnimSubsystem_Tag.h")
-@:structAccess
+@:valueType
 extern class AnimSubsystem_Tag extends AnimSubsystem {
-	private var NodeIndices: TMap<FName, cpp.Int32>;
+	private var NodeIndices: TMap<FName, ucpp.num.Int32>;
 
 	@:native("FAnimSubsystem_Tag") public function new();
-	@:native("FAnimSubsystem_Tag") public static function make(NodeIndices: TMap<FName, cpp.Int32>): AnimSubsystem_Tag ;
+	@:native("FAnimSubsystem_Tag") public static function make(NodeIndices: TMap<FName, ucpp.num.Int32>): AnimSubsystem_Tag ;
 }

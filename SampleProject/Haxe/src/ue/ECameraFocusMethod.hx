@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ECameraFocusMethod")
-@:include("CineCameraComponent.h")
+@:include("CineCameraSettings.h")
 extern class ECameraFocusMethod {
 	static var DoNotOverride: ECameraFocusMethod;
 	static var Manual: ECameraFocusMethod;

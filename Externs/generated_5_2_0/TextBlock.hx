@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTextBlock")
 @:include("Components/TextBlock.h")
-@:structAccess
+@:valueType
 extern class TextBlock extends TextLayoutWidget {
 	public function GetText(): FText;
 	public function SetText(input: FText): Void;
@@ -15,7 +15,7 @@ extern class TextBlock extends TextLayoutWidget {
 	public var ShadowOffset: Vector2D;
 	public var ShadowColorAndOpacity: LinearColor;
 	public var ShadowColorAndOpacityDelegate: HaxeDelegateProperty<() -> Void>;
-	public var MinDesiredWidth: cpp.Float32;
+	public var MinDesiredWidth: ucpp.num.Float32;
 	public var bWrapWithInvalidationPanel: Bool;
 	public var TextTransformPolicy: ETextTransformPolicy;
 	public var TextOverflowPolicy: ETextOverflowPolicy;
@@ -26,17 +26,17 @@ extern class TextBlock extends TextLayoutWidget {
 	public function SetStrikeBrush(InStrikeBrush: SlateBrush): Void;
 	public function SetShadowOffset(InShadowOffset: Vector2D): Void;
 	public function SetShadowColorAndOpacity(InShadowColorAndOpacity: LinearColor): Void;
-	public function SetOpacity(InOpacity: cpp.Float32): Void;
-	public function SetMinDesiredWidth(InMinDesiredWidth: cpp.Float32): Void;
-	public function SetFontOutlineMaterial(InMaterial: cpp.Star<MaterialInterface>): Void;
-	public function SetFontMaterial(InMaterial: cpp.Star<MaterialInterface>): Void;
+	public function SetOpacity(InOpacity: ucpp.num.Float32): Void;
+	public function SetMinDesiredWidth(InMinDesiredWidth: ucpp.num.Float32): Void;
+	public function SetFontOutlineMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetFontMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
 	public function SetFont(InFontInfo: SlateFontInfo): Void;
 	public function SetColorAndOpacity(InColorAndOpacity: SlateColor): Void;
 	public function SetAutoWrapText(InAutoTextWrap: Bool): Void;
-	public function GetDynamicOutlineMaterial(): cpp.Star<MaterialInstanceDynamic>;
-	public function GetDynamicFontMaterial(): cpp.Star<MaterialInstanceDynamic>;
+	public function GetDynamicOutlineMaterial(): ucpp.Ptr<MaterialInstanceDynamic>;
+	public function GetDynamicFontMaterial(): ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -58,8 +58,8 @@ abstract ConstTextBlock(TextBlock) from TextBlock {
 	public inline extern function get_ShadowColorAndOpacity(): LinearColor return this.ShadowColorAndOpacity;
 	public extern var ShadowColorAndOpacityDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_ShadowColorAndOpacityDelegate(): HaxeDelegateProperty<() -> Void> return this.ShadowColorAndOpacityDelegate;
-	public extern var MinDesiredWidth(get, never): cpp.Float32;
-	public inline extern function get_MinDesiredWidth(): cpp.Float32 return this.MinDesiredWidth;
+	public extern var MinDesiredWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDesiredWidth(): ucpp.num.Float32 return this.MinDesiredWidth;
 	public extern var bWrapWithInvalidationPanel(get, never): Bool;
 	public inline extern function get_bWrapWithInvalidationPanel(): Bool return this.bWrapWithInvalidationPanel;
 	public extern var TextTransformPolicy(get, never): ETextTransformPolicy;
@@ -71,7 +71,7 @@ abstract ConstTextBlock(TextBlock) from TextBlock {
 @:forward
 @:nativeGen
 @:native("TextBlock*")
-abstract TextBlockPtr(cpp.Star<TextBlock>) from cpp.Star<TextBlock> to cpp.Star<TextBlock>{
+abstract TextBlockPtr(ucpp.Ptr<TextBlock>) from ucpp.Ptr<TextBlock> to ucpp.Ptr<TextBlock>{
 	@:from
 	public static extern inline function fromValue(v: TextBlock): TextBlockPtr {
 		return untyped __cpp__("&({0})", v);

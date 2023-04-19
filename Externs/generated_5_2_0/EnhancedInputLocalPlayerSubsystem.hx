@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEnhancedInputLocalPlayerSubsystem")
 @:include("EnhancedInputSubsystems.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputLocalPlayerSubsystem extends LocalPlayerSubsystem {
 	public var ControlMappingsRebuiltDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function OnControlMappingsRebuilt__DelegateSignature(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstEnhancedInputLocalPlayerSubsystem(EnhancedInputLocalPlayerSubsyste
 @:forward
 @:nativeGen
 @:native("EnhancedInputLocalPlayerSubsystem*")
-abstract EnhancedInputLocalPlayerSubsystemPtr(cpp.Star<EnhancedInputLocalPlayerSubsystem>) from cpp.Star<EnhancedInputLocalPlayerSubsystem> to cpp.Star<EnhancedInputLocalPlayerSubsystem>{
+abstract EnhancedInputLocalPlayerSubsystemPtr(ucpp.Ptr<EnhancedInputLocalPlayerSubsystem>) from ucpp.Ptr<EnhancedInputLocalPlayerSubsystem> to ucpp.Ptr<EnhancedInputLocalPlayerSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputLocalPlayerSubsystem): EnhancedInputLocalPlayerSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

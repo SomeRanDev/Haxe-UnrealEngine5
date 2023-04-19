@@ -3,19 +3,19 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid2DCollection")
 @:include("NiagaraDataInterfaceGrid2DCollection.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGrid2DCollection extends NiagaraDataInterfaceGrid2D {
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
 	public var OverrideBufferFormat: ENiagaraGpuBufferFormat;
 	public var bOverrideFormat: Bool;
-	@:protected public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2DArray>>;
+	@:protected public var ManagedRenderTargets: TMap<ucpp.num.UInt64, ucpp.Ptr<TextureRenderTarget2DArray>>;
 
-	public function GetTextureSize(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, SizeX: cpp.Reference<cpp.Int32>, SizeY: cpp.Reference<cpp.Int32>): Void;
-	public function GetRawTextureSize(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, SizeX: cpp.Reference<cpp.Int32>, SizeY: cpp.Reference<cpp.Int32>): Void;
-	public function FillTexture2D(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, dest: cpp.Star<TextureRenderTarget2D>, AttributeIndex: cpp.Int32): Bool;
-	public function FillRawTexture2D(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, Dest: cpp.Star<TextureRenderTarget2D>, TilesX: cpp.Reference<cpp.Int32>, TilesY: cpp.Reference<cpp.Int32>): Bool;
+	public function GetTextureSize(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, SizeX: ucpp.Ref<ucpp.num.Int32>, SizeY: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetRawTextureSize(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, SizeX: ucpp.Ref<ucpp.num.Int32>, SizeY: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function FillTexture2D(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, dest: ucpp.Ptr<TextureRenderTarget2D>, AttributeIndex: ucpp.num.Int32): Bool;
+	public function FillRawTexture2D(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, Dest: ucpp.Ptr<TextureRenderTarget2D>, TilesX: ucpp.Ref<ucpp.num.Int32>, TilesY: ucpp.Ref<ucpp.num.Int32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstNiagaraDataInterfaceGrid2DCollection(NiagaraDataInterfaceGrid2DCol
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceGrid2DCollection*")
-abstract NiagaraDataInterfaceGrid2DCollectionPtr(cpp.Star<NiagaraDataInterfaceGrid2DCollection>) from cpp.Star<NiagaraDataInterfaceGrid2DCollection> to cpp.Star<NiagaraDataInterfaceGrid2DCollection>{
+abstract NiagaraDataInterfaceGrid2DCollectionPtr(ucpp.Ptr<NiagaraDataInterfaceGrid2DCollection>) from ucpp.Ptr<NiagaraDataInterfaceGrid2DCollection> to ucpp.Ptr<NiagaraDataInterfaceGrid2DCollection>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid2DCollection): NiagaraDataInterfaceGrid2DCollectionPtr {
 		return untyped __cpp__("&({0})", v);

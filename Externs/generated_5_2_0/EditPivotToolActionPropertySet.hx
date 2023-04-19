@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditPivotToolActionPropertySet")
 @:include("EditPivotTool.h")
-@:structAccess
+@:valueType
 extern class EditPivotToolActionPropertySet extends InteractiveToolPropertySet {
 	public var bUseWorldBox: Bool;
 
@@ -16,7 +16,7 @@ extern class EditPivotToolActionPropertySet extends InteractiveToolPropertySet {
 	public function Bottom(): Void;
 	public function Back(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstEditPivotToolActionPropertySet(EditPivotToolActionPropertySet) fro
 @:forward
 @:nativeGen
 @:native("EditPivotToolActionPropertySet*")
-abstract EditPivotToolActionPropertySetPtr(cpp.Star<EditPivotToolActionPropertySet>) from cpp.Star<EditPivotToolActionPropertySet> to cpp.Star<EditPivotToolActionPropertySet>{
+abstract EditPivotToolActionPropertySetPtr(ucpp.Ptr<EditPivotToolActionPropertySet>) from ucpp.Ptr<EditPivotToolActionPropertySet> to ucpp.Ptr<EditPivotToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: EditPivotToolActionPropertySet): EditPivotToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

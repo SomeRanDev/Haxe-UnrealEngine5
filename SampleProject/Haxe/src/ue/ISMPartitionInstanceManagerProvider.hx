@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UISMPartitionInstanceManagerProvider")
-@:structAccess
+@:valueType
 extern class ISMPartitionInstanceManagerProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstISMPartitionInstanceManagerProvider(ISMPartitionInstanceManagerPro
 @:forward
 @:nativeGen
 @:native("ISMPartitionInstanceManagerProvider*")
-abstract ISMPartitionInstanceManagerProviderPtr(cpp.Star<ISMPartitionInstanceManagerProvider>) from cpp.Star<ISMPartitionInstanceManagerProvider> to cpp.Star<ISMPartitionInstanceManagerProvider>{
+abstract ISMPartitionInstanceManagerProviderPtr(ucpp.Ptr<ISMPartitionInstanceManagerProvider>) from ucpp.Ptr<ISMPartitionInstanceManagerProvider> to ucpp.Ptr<ISMPartitionInstanceManagerProvider>{
 	@:from
 	public static extern inline function fromValue(v: ISMPartitionInstanceManagerProvider): ISMPartitionInstanceManagerProviderPtr {
 		return untyped __cpp__("&({0})", v);

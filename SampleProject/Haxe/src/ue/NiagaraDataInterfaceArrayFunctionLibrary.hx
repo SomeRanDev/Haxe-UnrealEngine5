@@ -3,46 +3,50 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArrayFunctionLibrary")
 @:include("NiagaraDataInterfaceArrayFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceArrayFunctionLibrary extends BlueprintFunctionLibrary {
-	public function SetNiagaraArrayVectorValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Vector>, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayVector4Value(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Vector4>, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayVector4(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<Vector4>>): Void;
-	public function SetNiagaraArrayVector2DValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Vector2D>, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayVector2D(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<Vector2D>>): Void;
-	public function SetNiagaraArrayVector(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<Vector>>): Void;
-	public function SetNiagaraArrayQuatValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Quat>, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayQuat(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<Quat>>): Void;
-	public function SetNiagaraArrayPositionValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Vector>, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayPosition(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<Vector>>): Void;
-	public function SetNiagaraArrayInt32Value(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Int32, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayInt32(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function SetNiagaraArrayFloatValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Float32, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayFloat(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<cpp.Float32>>): Void;
-	public function SetNiagaraArrayColorValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<LinearColor>, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayColor(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<LinearColor>>): Void;
-	public function SetNiagaraArrayBoolValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32, Value: cpp.Reference<Bool>, bSizeToFit: Bool): Void;
-	public function SetNiagaraArrayBool(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, ArrayData: cpp.Reference<TArray<Bool>>): Void;
-	public function GetNiagaraArrayVectorValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): Vector;
-	public function GetNiagaraArrayVector4Value(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): Vector4;
-	public function GetNiagaraArrayVector4(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<Vector4>;
-	public function GetNiagaraArrayVector2DValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): Vector2D;
-	public function GetNiagaraArrayVector2D(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<Vector2D>;
-	public function GetNiagaraArrayVector(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<Vector>;
-	public function GetNiagaraArrayQuatValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): Quat;
-	public function GetNiagaraArrayQuat(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<Quat>;
-	public function GetNiagaraArrayPositionValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): Vector;
-	public function GetNiagaraArrayPosition(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<Vector>;
-	public function GetNiagaraArrayInt32Value(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): cpp.Int32;
-	public function GetNiagaraArrayInt32(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<cpp.Int32>;
-	public function GetNiagaraArrayFloatValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): cpp.Float32;
-	public function GetNiagaraArrayFloat(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<cpp.Float32>;
-	public function GetNiagaraArrayColorValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): LinearColor;
-	public function GetNiagaraArrayColor(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<LinearColor>;
-	public function GetNiagaraArrayBoolValue(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, Index: cpp.Int32): Bool;
-	public function GetNiagaraArrayBool(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName): TArray<Bool>;
+	public function SetNiagaraArrayVectorValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.Ref<Vector>, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayVector4Value(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.Ref<Vector4>, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayVector4(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<Vector4>>): Void;
+	public function SetNiagaraArrayVector2DValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.Ref<Vector2D>, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayVector2D(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<Vector2D>>): Void;
+	public function SetNiagaraArrayVector(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<Vector>>): Void;
+	public function SetNiagaraArrayUInt8Value(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.num.Int32, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayUInt8(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function SetNiagaraArrayQuatValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.Ref<Quat>, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayQuat(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<Quat>>): Void;
+	public function SetNiagaraArrayPositionValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.Ref<Vector>, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayPosition(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<Vector>>): Void;
+	public function SetNiagaraArrayInt32Value(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.num.Int32, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayInt32(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function SetNiagaraArrayFloatValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.num.Float32, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayFloat(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
+	public function SetNiagaraArrayColorValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.Ref<LinearColor>, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayColor(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<LinearColor>>): Void;
+	public function SetNiagaraArrayBoolValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32, Value: ucpp.Ref<Bool>, bSizeToFit: Bool): Void;
+	public function SetNiagaraArrayBool(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, ArrayData: ucpp.Ref<TArray<Bool>>): Void;
+	public function GetNiagaraArrayVectorValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): Vector;
+	public function GetNiagaraArrayVector4Value(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): Vector4;
+	public function GetNiagaraArrayVector4(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<Vector4>;
+	public function GetNiagaraArrayVector2DValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): Vector2D;
+	public function GetNiagaraArrayVector2D(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<Vector2D>;
+	public function GetNiagaraArrayVector(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<Vector>;
+	public function GetNiagaraArrayUInt8Value(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetNiagaraArrayUInt8(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<ucpp.num.Int32>;
+	public function GetNiagaraArrayQuatValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): Quat;
+	public function GetNiagaraArrayQuat(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<Quat>;
+	public function GetNiagaraArrayPositionValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): Vector;
+	public function GetNiagaraArrayPosition(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<Vector>;
+	public function GetNiagaraArrayInt32Value(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetNiagaraArrayInt32(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<ucpp.num.Int32>;
+	public function GetNiagaraArrayFloatValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetNiagaraArrayFloat(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<ucpp.num.Float32>;
+	public function GetNiagaraArrayColorValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): LinearColor;
+	public function GetNiagaraArrayColor(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<LinearColor>;
+	public function GetNiagaraArrayBoolValue(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, Index: ucpp.num.Int32): Bool;
+	public function GetNiagaraArrayBool(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName): TArray<Bool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -53,7 +57,7 @@ abstract ConstNiagaraDataInterfaceArrayFunctionLibrary(NiagaraDataInterfaceArray
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceArrayFunctionLibrary*")
-abstract NiagaraDataInterfaceArrayFunctionLibraryPtr(cpp.Star<NiagaraDataInterfaceArrayFunctionLibrary>) from cpp.Star<NiagaraDataInterfaceArrayFunctionLibrary> to cpp.Star<NiagaraDataInterfaceArrayFunctionLibrary>{
+abstract NiagaraDataInterfaceArrayFunctionLibraryPtr(ucpp.Ptr<NiagaraDataInterfaceArrayFunctionLibrary>) from ucpp.Ptr<NiagaraDataInterfaceArrayFunctionLibrary> to ucpp.Ptr<NiagaraDataInterfaceArrayFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayFunctionLibrary): NiagaraDataInterfaceArrayFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

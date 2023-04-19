@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULandscapeSubsystem")
 @:include("LandscapeSubsystem.h")
-@:structAccess
+@:valueType
 extern class LandscapeSubsystem extends TickableWorldSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeSubsystem(LandscapeSubsystem) from LandscapeSubsystem {
 @:forward
 @:nativeGen
 @:native("LandscapeSubsystem*")
-abstract LandscapeSubsystemPtr(cpp.Star<LandscapeSubsystem>) from cpp.Star<LandscapeSubsystem> to cpp.Star<LandscapeSubsystem>{
+abstract LandscapeSubsystemPtr(ucpp.Ptr<LandscapeSubsystem>) from ucpp.Ptr<LandscapeSubsystem> to ucpp.Ptr<LandscapeSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSubsystem): LandscapeSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorTransformProxy")
 @:include("EditorGizmos/EditorTransformProxy.h")
-@:structAccess
+@:valueType
 extern class EditorTransformProxy extends TransformProxy {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorTransformProxy(EditorTransformProxy) from EditorTransformPro
 @:forward
 @:nativeGen
 @:native("EditorTransformProxy*")
-abstract EditorTransformProxyPtr(cpp.Star<EditorTransformProxy>) from cpp.Star<EditorTransformProxy> to cpp.Star<EditorTransformProxy>{
+abstract EditorTransformProxyPtr(ucpp.Ptr<EditorTransformProxy>) from ucpp.Ptr<EditorTransformProxy> to ucpp.Ptr<EditorTransformProxy>{
 	@:from
 	public static extern inline function fromValue(v: EditorTransformProxy): EditorTransformProxyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintGeneratedStruct")
 @:include("Animation/AnimBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintGeneratedStruct extends ScriptStruct {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimBlueprintGeneratedStruct(AnimBlueprintGeneratedStruct) from An
 @:forward
 @:nativeGen
 @:native("AnimBlueprintGeneratedStruct*")
-abstract AnimBlueprintGeneratedStructPtr(cpp.Star<AnimBlueprintGeneratedStruct>) from cpp.Star<AnimBlueprintGeneratedStruct> to cpp.Star<AnimBlueprintGeneratedStruct>{
+abstract AnimBlueprintGeneratedStructPtr(ucpp.Ptr<AnimBlueprintGeneratedStruct>) from ucpp.Ptr<AnimBlueprintGeneratedStruct> to ucpp.Ptr<AnimBlueprintGeneratedStruct>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintGeneratedStruct): AnimBlueprintGeneratedStructPtr {
 		return untyped __cpp__("&({0})", v);

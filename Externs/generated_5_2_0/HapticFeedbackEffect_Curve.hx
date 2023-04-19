@@ -3,11 +3,11 @@ package ue;
 
 @:native("UHapticFeedbackEffect_Curve")
 @:include("Haptics/HapticFeedbackEffect_Curve.h")
-@:structAccess
+@:valueType
 extern class HapticFeedbackEffect_Curve extends HapticFeedbackEffect_Base {
 	public var HapticDetails: HapticFeedbackDetails_Curve;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstHapticFeedbackEffect_Curve(HapticFeedbackEffect_Curve) from Haptic
 @:forward
 @:nativeGen
 @:native("HapticFeedbackEffect_Curve*")
-abstract HapticFeedbackEffect_CurvePtr(cpp.Star<HapticFeedbackEffect_Curve>) from cpp.Star<HapticFeedbackEffect_Curve> to cpp.Star<HapticFeedbackEffect_Curve>{
+abstract HapticFeedbackEffect_CurvePtr(ucpp.Ptr<HapticFeedbackEffect_Curve>) from ucpp.Ptr<HapticFeedbackEffect_Curve> to ucpp.Ptr<HapticFeedbackEffect_Curve>{
 	@:from
 	public static extern inline function fromValue(v: HapticFeedbackEffect_Curve): HapticFeedbackEffect_CurvePtr {
 		return untyped __cpp__("&({0})", v);

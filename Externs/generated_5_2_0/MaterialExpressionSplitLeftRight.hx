@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionSplitLeftRight")
 @:include("MaterialX/MaterialExpressionSplitLeftRight.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSplitLeftRight extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Center: ExpressionInput;
-	public var ConstCenter: cpp.Float32;
-	public var ConstCoordinate: cpp.UInt8;
+	public var ConstCenter: ucpp.num.Float32;
+	public var ConstCoordinate: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,16 +26,16 @@ abstract ConstMaterialExpressionSplitLeftRight(MaterialExpressionSplitLeftRight)
 	public inline extern function get_B(): ExpressionInput return this.B;
 	public extern var Center(get, never): ExpressionInput;
 	public inline extern function get_Center(): ExpressionInput return this.Center;
-	public extern var ConstCenter(get, never): cpp.Float32;
-	public inline extern function get_ConstCenter(): cpp.Float32 return this.ConstCenter;
-	public extern var ConstCoordinate(get, never): cpp.UInt8;
-	public inline extern function get_ConstCoordinate(): cpp.UInt8 return this.ConstCoordinate;
+	public extern var ConstCenter(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstCenter(): ucpp.num.Float32 return this.ConstCenter;
+	public extern var ConstCoordinate(get, never): ucpp.num.UInt8;
+	public inline extern function get_ConstCoordinate(): ucpp.num.UInt8 return this.ConstCoordinate;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSplitLeftRight*")
-abstract MaterialExpressionSplitLeftRightPtr(cpp.Star<MaterialExpressionSplitLeftRight>) from cpp.Star<MaterialExpressionSplitLeftRight> to cpp.Star<MaterialExpressionSplitLeftRight>{
+abstract MaterialExpressionSplitLeftRightPtr(ucpp.Ptr<MaterialExpressionSplitLeftRight>) from ucpp.Ptr<MaterialExpressionSplitLeftRight> to ucpp.Ptr<MaterialExpressionSplitLeftRight>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSplitLeftRight): MaterialExpressionSplitLeftRightPtr {
 		return untyped __cpp__("&({0})", v);

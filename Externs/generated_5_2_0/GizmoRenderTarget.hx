@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGizmoRenderTarget")
-@:structAccess
+@:valueType
 extern class GizmoRenderTarget extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGizmoRenderTarget(GizmoRenderTarget) from GizmoRenderTarget {
 @:forward
 @:nativeGen
 @:native("GizmoRenderTarget*")
-abstract GizmoRenderTargetPtr(cpp.Star<GizmoRenderTarget>) from cpp.Star<GizmoRenderTarget> to cpp.Star<GizmoRenderTarget>{
+abstract GizmoRenderTargetPtr(ucpp.Ptr<GizmoRenderTarget>) from ucpp.Ptr<GizmoRenderTarget> to ucpp.Ptr<GizmoRenderTarget>{
 	@:from
 	public static extern inline function fromValue(v: GizmoRenderTarget): GizmoRenderTargetPtr {
 		return untyped __cpp__("&({0})", v);

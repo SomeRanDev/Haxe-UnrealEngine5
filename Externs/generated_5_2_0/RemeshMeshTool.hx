@@ -3,33 +3,33 @@ package ue;
 
 @:native("URemeshMeshTool")
 @:include("RemeshMeshTool.h")
-@:structAccess
+@:valueType
 extern class RemeshMeshTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<RemeshMeshToolProperties>;
-	public var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
+	public var BasicProperties: ucpp.Ptr<RemeshMeshToolProperties>;
+	public var MeshStatisticsProperties: ucpp.Ptr<MeshStatisticsProperties>;
+	public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	public var MeshElementsDisplay: ucpp.Ptr<MeshElementsVisualizer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRemeshMeshTool(RemeshMeshTool) from RemeshMeshTool {
-	public extern var BasicProperties(get, never): cpp.Star<RemeshMeshToolProperties.ConstRemeshMeshToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<RemeshMeshToolProperties.ConstRemeshMeshToolProperties> return this.BasicProperties;
-	public extern var MeshStatisticsProperties(get, never): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties>;
-	public inline extern function get_MeshStatisticsProperties(): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties> return this.MeshStatisticsProperties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
-	public extern var MeshElementsDisplay(get, never): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
-	public inline extern function get_MeshElementsDisplay(): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.MeshElementsDisplay;
+	public extern var BasicProperties(get, never): ucpp.Ptr<RemeshMeshToolProperties.ConstRemeshMeshToolProperties>;
+	public inline extern function get_BasicProperties(): ucpp.Ptr<RemeshMeshToolProperties.ConstRemeshMeshToolProperties> return this.BasicProperties;
+	public extern var MeshStatisticsProperties(get, never): ucpp.Ptr<MeshStatisticsProperties.ConstMeshStatisticsProperties>;
+	public inline extern function get_MeshStatisticsProperties(): ucpp.Ptr<MeshStatisticsProperties.ConstMeshStatisticsProperties> return this.MeshStatisticsProperties;
+	public extern var Preview(get, never): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
+	public inline extern function get_Preview(): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
+	public extern var MeshElementsDisplay(get, never): ucpp.Ptr<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
+	public inline extern function get_MeshElementsDisplay(): ucpp.Ptr<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.MeshElementsDisplay;
 }
 
 @:forward
 @:nativeGen
 @:native("RemeshMeshTool*")
-abstract RemeshMeshToolPtr(cpp.Star<RemeshMeshTool>) from cpp.Star<RemeshMeshTool> to cpp.Star<RemeshMeshTool>{
+abstract RemeshMeshToolPtr(ucpp.Ptr<RemeshMeshTool>) from ucpp.Ptr<RemeshMeshTool> to ucpp.Ptr<RemeshMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: RemeshMeshTool): RemeshMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

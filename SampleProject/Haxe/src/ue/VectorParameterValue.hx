@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVectorParameterValue")
 @:include("Materials/MaterialInstance.h")
-@:structAccess
+@:valueType
 extern class VectorParameterValue {
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: LinearColor;

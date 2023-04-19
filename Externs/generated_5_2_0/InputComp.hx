@@ -3,22 +3,22 @@ package ue;
 
 @:native("UInputComponent")
 @:include("Components/InputComponent.h")
-@:structAccess
+@:valueType
 extern class InputComp extends ActorComp {
 	private var CachedKeyToActionInfo: TArray<CachedKeyToActionInfo>;
 
 	private function WasControllerKeyJustReleased(Key: Key): Bool;
 	private function WasControllerKeyJustPressed(Key: Key): Bool;
-	private function OnInputOwnerEndPlayed(InOwner: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	private function OnInputOwnerEndPlayed(InOwner: ucpp.Ptr<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
 	private function IsControllerKeyDown(Key: Key): Bool;
-	private function GetTouchState(FingerIndex: cpp.Int32, LocationX: cpp.Reference<cpp.Float32>, LocationY: cpp.Reference<cpp.Float32>, bIsCurrentlyPressed: cpp.Reference<Bool>): Void;
+	private function GetTouchState(FingerIndex: ucpp.num.Int32, LocationX: ucpp.Ref<ucpp.num.Float32>, LocationY: ucpp.Ref<ucpp.num.Float32>, bIsCurrentlyPressed: ucpp.Ref<Bool>): Void;
 	private function GetControllerVectorKeyState(Key: Key): Vector;
-	private function GetControllerMouseDelta(DeltaX: cpp.Reference<cpp.Float32>, DeltaY: cpp.Reference<cpp.Float32>): Void;
-	private function GetControllerKeyTimeDown(Key: Key): cpp.Float32;
-	private function GetControllerAnalogStickState(WhichStick: TEnumAsByte<EControllerAnalogStick>, StickX: cpp.Reference<cpp.Float32>, StickY: cpp.Reference<cpp.Float32>): Void;
-	private function GetControllerAnalogKeyState(Key: Key): cpp.Float32;
+	private function GetControllerMouseDelta(DeltaX: ucpp.Ref<ucpp.num.Float32>, DeltaY: ucpp.Ref<ucpp.num.Float32>): Void;
+	private function GetControllerKeyTimeDown(Key: Key): ucpp.num.Float32;
+	private function GetControllerAnalogStickState(WhichStick: TEnumAsByte<EControllerAnalogStick>, StickX: ucpp.Ref<ucpp.num.Float32>, StickY: ucpp.Ref<ucpp.num.Float32>): Void;
+	private function GetControllerAnalogKeyState(Key: Key): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(WasControllerKeyJustReleased, WasControllerKeyJustPressed, IsControllerKeyDown, GetTouchState, GetControllerVectorKeyState, GetControllerMouseDelta, GetControllerKeyTimeDown, GetControllerAnalogStickState, GetControllerAnalogKeyState)
@@ -29,7 +29,7 @@ abstract ConstInputComp(InputComp) from InputComp {
 @:forward
 @:nativeGen
 @:native("InputComp*")
-abstract InputCompPtr(cpp.Star<InputComp>) from cpp.Star<InputComp> to cpp.Star<InputComp>{
+abstract InputCompPtr(ucpp.Ptr<InputComp>) from ucpp.Ptr<InputComp> to ucpp.Ptr<InputComp>{
 	@:from
 	public static extern inline function fromValue(v: InputComp): InputCompPtr {
 		return untyped __cpp__("&({0})", v);

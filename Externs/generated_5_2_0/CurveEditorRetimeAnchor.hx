@@ -3,11 +3,11 @@ package ue;
 
 @:native("FCurveEditorRetimeAnchor")
 @:include("Private/Tools/CurveEditorRetimeTool.h")
-@:structAccess
+@:valueType
 extern class CurveEditorRetimeAnchor {
-	public var ValueInSeconds: cpp.Float64;
+	public var ValueInSeconds: ucpp.num.Float64;
 	public var bIsSelected: Bool;
 
 	@:native("FCurveEditorRetimeAnchor") public function new();
-	@:native("FCurveEditorRetimeAnchor") public static function make(ValueInSeconds: cpp.Float64, bIsSelected: Bool): CurveEditorRetimeAnchor ;
+	@:native("FCurveEditorRetimeAnchor") public static function make(ValueInSeconds: ucpp.num.Float64, bIsSelected: Bool): CurveEditorRetimeAnchor ;
 }

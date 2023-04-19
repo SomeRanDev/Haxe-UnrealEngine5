@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraBakerOutputTexture2D")
 @:include("NiagaraBakerOutputTexture2D.h")
-@:structAccess
+@:valueType
 extern class NiagaraBakerOutputTexture2D extends NiagaraBakerOutput {
 	public var SourceBinding: NiagaraBakerTextureSource;
 	public var bGenerateAtlas: Bool;
@@ -19,7 +19,7 @@ extern class NiagaraBakerOutputTexture2D extends NiagaraBakerOutput {
 	public var FramesAssetPathFormat: FString;
 	public var FramesExportPathFormat: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstNiagaraBakerOutputTexture2D(NiagaraBakerOutputTexture2D) from Niag
 @:forward
 @:nativeGen
 @:native("NiagaraBakerOutputTexture2D*")
-abstract NiagaraBakerOutputTexture2DPtr(cpp.Star<NiagaraBakerOutputTexture2D>) from cpp.Star<NiagaraBakerOutputTexture2D> to cpp.Star<NiagaraBakerOutputTexture2D>{
+abstract NiagaraBakerOutputTexture2DPtr(ucpp.Ptr<NiagaraBakerOutputTexture2D>) from ucpp.Ptr<NiagaraBakerOutputTexture2D> to ucpp.Ptr<NiagaraBakerOutputTexture2D>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraBakerOutputTexture2D): NiagaraBakerOutputTexture2DPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBTDecorator_CheckGameplayTagsOnActor")
 @:include("BehaviorTree/Decorators/BTDecorator_CheckGameplayTagsOnActor.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_CheckGameplayTagsOnActor extends BTDecorator {
 	@:protected public var ActorToCheck: BlackboardKeySelector;
 	@:protected public var TagsToMatch: EGameplayContainerMatchType;
 	@:protected public var GameplayTags: GameplayTagContainer;
 	@:protected public var CachedDescription: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstBTDecorator_CheckGameplayTagsOnActor(BTDecorator_CheckGameplayTags
 @:forward
 @:nativeGen
 @:native("BTDecorator_CheckGameplayTagsOnActor*")
-abstract BTDecorator_CheckGameplayTagsOnActorPtr(cpp.Star<BTDecorator_CheckGameplayTagsOnActor>) from cpp.Star<BTDecorator_CheckGameplayTagsOnActor> to cpp.Star<BTDecorator_CheckGameplayTagsOnActor>{
+abstract BTDecorator_CheckGameplayTagsOnActorPtr(ucpp.Ptr<BTDecorator_CheckGameplayTagsOnActor>) from ucpp.Ptr<BTDecorator_CheckGameplayTagsOnActor> to ucpp.Ptr<BTDecorator_CheckGameplayTagsOnActor>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_CheckGameplayTagsOnActor): BTDecorator_CheckGameplayTagsOnActorPtr {
 		return untyped __cpp__("&({0})", v);

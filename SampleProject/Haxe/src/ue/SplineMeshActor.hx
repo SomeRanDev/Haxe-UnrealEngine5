@@ -3,11 +3,11 @@ package ue;
 
 @:native("ASplineMeshActor")
 @:include("Engine/SplineMeshActor.h")
-@:structAccess
+@:valueType
 extern class SplineMeshActor extends Actor {
-	private var SplineMeshComponent: cpp.Star<SplineMeshComp>;
+	private var SplineMeshComponent: ucpp.Ptr<SplineMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSplineMeshActor(SplineMeshActor) from SplineMeshActor {
 @:forward
 @:nativeGen
 @:native("SplineMeshActor*")
-abstract SplineMeshActorPtr(cpp.Star<SplineMeshActor>) from cpp.Star<SplineMeshActor> to cpp.Star<SplineMeshActor>{
+abstract SplineMeshActorPtr(ucpp.Ptr<SplineMeshActor>) from ucpp.Ptr<SplineMeshActor> to ucpp.Ptr<SplineMeshActor>{
 	@:from
 	public static extern inline function fromValue(v: SplineMeshActor): SplineMeshActorPtr {
 		return untyped __cpp__("&({0})", v);

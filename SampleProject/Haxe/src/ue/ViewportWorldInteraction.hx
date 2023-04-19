@@ -3,32 +3,32 @@ package ue;
 
 @:native("UViewportWorldInteraction")
 @:include("ViewportWorldInteraction.h")
-@:structAccess
+@:valueType
 extern class ViewportWorldInteraction extends EditorWorldExtension {
-	private var Interactors: TArray<cpp.Star<ViewportInteractor>>;
-	private var ViewportTransformer: cpp.Star<ViewportTransformer>;
-	private var TransformGizmoActor: cpp.Star<BaseTransformGizmo>;
-	private var SnapGridActor: cpp.Star<Actor>;
-	private var SnapGridMeshComponent: cpp.Star<StaticMeshComp>;
-	private var SnapGridMID: cpp.Star<MaterialInstanceDynamic>;
-	private var DefaultMouseCursorInteractor: cpp.Star<MouseCursorInteractor>;
+	private var Interactors: TArray<ucpp.Ptr<ViewportInteractor>>;
+	private var ViewportTransformer: ucpp.Ptr<ViewportTransformer>;
+	private var TransformGizmoActor: ucpp.Ptr<BaseTransformGizmo>;
+	private var SnapGridActor: ucpp.Ptr<Actor>;
+	private var SnapGridMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var SnapGridMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var DefaultMouseCursorInteractor: ucpp.Ptr<MouseCursorInteractor>;
 	private var ActorsToExcludeFromHitTest: TArray<TWeakObjectPtr<Actor>>;
-	private var AssetContainer: cpp.Star<ViewportInteractionAssetContainer>;
+	private var AssetContainer: ucpp.Ptr<ViewportInteractionAssetContainer>;
 
-	public function SetWorldToMetersScale(NewWorldToMetersScale: cpp.Float32, bCompensateRoomWorldScale: Bool): Void;
-	public function SetRoomTransformForNextFrame(NewRoomTransform: cpp.Reference<Transform>): Void;
-	public function SetHeadTransform(NewHeadTransform: cpp.Reference<Transform>): Void;
-	public function RemoveInteractor(Interactor: cpp.Star<ViewportInteractor>): Void;
-	public function GetWorldScaleFactor(): cpp.Float32;
-	public function GetTransformGizmoActor(): cpp.Star<BaseTransformGizmo>;
+	public function SetWorldToMetersScale(NewWorldToMetersScale: ucpp.num.Float32, bCompensateRoomWorldScale: Bool): Void;
+	public function SetRoomTransformForNextFrame(NewRoomTransform: ucpp.Ref<Transform>): Void;
+	public function SetHeadTransform(NewHeadTransform: ucpp.Ref<Transform>): Void;
+	public function RemoveInteractor(Interactor: ucpp.Ptr<ViewportInteractor>): Void;
+	public function GetWorldScaleFactor(): ucpp.num.Float32;
+	public function GetTransformGizmoActor(): ucpp.Ptr<BaseTransformGizmo>;
 	public function GetRoomTransform(): Transform;
 	public function GetRoomSpaceHeadTransform(): Transform;
-	public function GetInteractors(): TArray<cpp.Star<ViewportInteractor>>;
+	public function GetInteractors(): TArray<ucpp.Ptr<ViewportInteractor>>;
 	public function GetHeadTransform(): Transform;
-	public function AddInteractor(Interactor: cpp.Star<ViewportInteractor>): Void;
-	public function AddActorToExcludeFromHitTests(ActorToExcludeFromHitTests: cpp.Star<Actor>): Void;
+	public function AddInteractor(Interactor: ucpp.Ptr<ViewportInteractor>): Void;
+	public function AddActorToExcludeFromHitTests(ActorToExcludeFromHitTests: ucpp.Ptr<Actor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetWorldScaleFactor, GetRoomTransform, GetRoomSpaceHeadTransform, GetInteractors, GetHeadTransform)
@@ -39,7 +39,7 @@ abstract ConstViewportWorldInteraction(ViewportWorldInteraction) from ViewportWo
 @:forward
 @:nativeGen
 @:native("ViewportWorldInteraction*")
-abstract ViewportWorldInteractionPtr(cpp.Star<ViewportWorldInteraction>) from cpp.Star<ViewportWorldInteraction> to cpp.Star<ViewportWorldInteraction>{
+abstract ViewportWorldInteractionPtr(ucpp.Ptr<ViewportWorldInteraction>) from ucpp.Ptr<ViewportWorldInteraction> to ucpp.Ptr<ViewportWorldInteraction>{
 	@:from
 	public static extern inline function fromValue(v: ViewportWorldInteraction): ViewportWorldInteractionPtr {
 		return untyped __cpp__("&({0})", v);

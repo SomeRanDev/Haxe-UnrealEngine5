@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimNode_BlendSpaceGraphBase")
 @:include("AnimNodes/AnimNode_BlendSpaceGraphBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendSpaceGraphBase extends AnimNode_Base {
-	@:protected public var X: cpp.Float32;
-	@:protected public var Y: cpp.Float32;
+	@:protected public var X: ucpp.num.Float32;
+	@:protected public var Y: ucpp.num.Float32;
 	@:protected public var GroupName: FName;
 	@:protected public var GroupRole: TEnumAsByte<EAnimGroupRole>;
-	@:protected public var BlendSpace: cpp.Star<BlendSpace>;
+	@:protected public var BlendSpace: ucpp.Ptr<BlendSpace>;
 	@:protected public var SamplePoseLinks: TArray<PoseLink>;
 
 	@:native("FAnimNode_BlendSpaceGraphBase") public function new();

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetExportTask")
 @:include("AssetExportTask.h")
-@:structAccess
+@:valueType
 extern class AssetExportTask extends Object {
-	public var Object: cpp.Star<Object>;
-	public var Exporter: cpp.Star<Exporter>;
+	public var Object: ucpp.Ptr<Object>;
+	public var Exporter: ucpp.Ptr<Exporter>;
 	public var Filename: FString;
 	public var bSelected: Bool;
 	public var bReplaceIdentical: Bool;
@@ -14,20 +14,20 @@ extern class AssetExportTask extends Object {
 	public var bAutomated: Bool;
 	public var bUseFileArchive: Bool;
 	public var bWriteEmptyFiles: Bool;
-	public var IgnoreObjectList: TArray<cpp.Star<Object>>;
-	public var Options: cpp.Star<Object>;
+	public var IgnoreObjectList: TArray<ucpp.Ptr<Object>>;
+	public var Options: ucpp.Ptr<Object>;
 	public var Errors: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAssetExportTask(AssetExportTask) from AssetExportTask {
-	public extern var Object(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_Object(): cpp.Star<Object.ConstObject> return this.Object;
-	public extern var Exporter(get, never): cpp.Star<Exporter.ConstExporter>;
-	public inline extern function get_Exporter(): cpp.Star<Exporter.ConstExporter> return this.Exporter;
+	public extern var Object(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_Object(): ucpp.Ptr<Object.ConstObject> return this.Object;
+	public extern var Exporter(get, never): ucpp.Ptr<Exporter.ConstExporter>;
+	public inline extern function get_Exporter(): ucpp.Ptr<Exporter.ConstExporter> return this.Exporter;
 	public extern var Filename(get, never): FString;
 	public inline extern function get_Filename(): FString return this.Filename;
 	public extern var bSelected(get, never): Bool;
@@ -42,10 +42,10 @@ abstract ConstAssetExportTask(AssetExportTask) from AssetExportTask {
 	public inline extern function get_bUseFileArchive(): Bool return this.bUseFileArchive;
 	public extern var bWriteEmptyFiles(get, never): Bool;
 	public inline extern function get_bWriteEmptyFiles(): Bool return this.bWriteEmptyFiles;
-	public extern var IgnoreObjectList(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_IgnoreObjectList(): TArray<cpp.Star<Object.ConstObject>> return this.IgnoreObjectList;
-	public extern var Options(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_Options(): cpp.Star<Object.ConstObject> return this.Options;
+	public extern var IgnoreObjectList(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_IgnoreObjectList(): TArray<ucpp.Ptr<Object.ConstObject>> return this.IgnoreObjectList;
+	public extern var Options(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_Options(): ucpp.Ptr<Object.ConstObject> return this.Options;
 	public extern var Errors(get, never): TArray<FString>;
 	public inline extern function get_Errors(): TArray<FString> return this.Errors;
 }
@@ -53,7 +53,7 @@ abstract ConstAssetExportTask(AssetExportTask) from AssetExportTask {
 @:forward
 @:nativeGen
 @:native("AssetExportTask*")
-abstract AssetExportTaskPtr(cpp.Star<AssetExportTask>) from cpp.Star<AssetExportTask> to cpp.Star<AssetExportTask>{
+abstract AssetExportTaskPtr(ucpp.Ptr<AssetExportTask>) from ucpp.Ptr<AssetExportTask> to ucpp.Ptr<AssetExportTask>{
 	@:from
 	public static extern inline function fromValue(v: AssetExportTask): AssetExportTaskPtr {
 		return untyped __cpp__("&({0})", v);

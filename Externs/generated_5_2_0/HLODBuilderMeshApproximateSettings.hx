@@ -3,12 +3,12 @@ package ue;
 
 @:native("UHLODBuilderMeshApproximateSettings")
 @:include("HLODBuilderMeshApproximate.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderMeshApproximateSettings extends HLODBuilderSettings {
 	public var MeshApproximationSettings: MeshApproximationSettings;
 	public var HLODMaterial: TSoftObjectPtr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstHLODBuilderMeshApproximateSettings(HLODBuilderMeshApproximateSetti
 @:forward
 @:nativeGen
 @:native("HLODBuilderMeshApproximateSettings*")
-abstract HLODBuilderMeshApproximateSettingsPtr(cpp.Star<HLODBuilderMeshApproximateSettings>) from cpp.Star<HLODBuilderMeshApproximateSettings> to cpp.Star<HLODBuilderMeshApproximateSettings>{
+abstract HLODBuilderMeshApproximateSettingsPtr(ucpp.Ptr<HLODBuilderMeshApproximateSettings>) from ucpp.Ptr<HLODBuilderMeshApproximateSettings> to ucpp.Ptr<HLODBuilderMeshApproximateSettings>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderMeshApproximateSettings): HLODBuilderMeshApproximateSettingsPtr {
 		return untyped __cpp__("&({0})", v);

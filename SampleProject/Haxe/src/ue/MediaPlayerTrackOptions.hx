@@ -3,15 +3,15 @@ package ue;
 
 @:native("FMediaPlayerTrackOptions")
 @:include("MediaPlayerOptions.h")
-@:structAccess
+@:valueType
 extern class MediaPlayerTrackOptions {
-	public var Audio: cpp.Int32;
-	public var Caption: cpp.Int32;
-	public var Metadata: cpp.Int32;
-	public var Script: cpp.Int32;
-	public var Subtitle: cpp.Int32;
-	public var Text: cpp.Int32;
-	public var Video: cpp.Int32;
+	public var Audio: ucpp.num.Int32;
+	public var Caption: ucpp.num.Int32;
+	public var Metadata: ucpp.num.Int32;
+	public var Script: ucpp.num.Int32;
+	public var Subtitle: ucpp.num.Int32;
+	public var Text: ucpp.num.Int32;
+	public var Video: ucpp.num.Int32;
 
 	@:native("FMediaPlayerTrackOptions") public function new();
 }

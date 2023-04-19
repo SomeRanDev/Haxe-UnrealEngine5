@@ -3,20 +3,20 @@ package ue;
 
 @:native("UARCandidateObject")
 @:include("ARTypes.h")
-@:structAccess
+@:valueType
 extern class ARCandidateObject extends DataAsset {
-	private var CandidateObjectData: TArray<cpp.UInt8>;
+	private var CandidateObjectData: TArray<ucpp.num.UInt8>;
 	private var FriendlyName: FString;
 	private var BoundingBox: Box;
 
 	public function SetFriendlyName(NewName: FString): Void;
-	public function SetCandidateObjectData(InCandidateObject: cpp.Reference<TArray<cpp.UInt8>>): Void;
-	public function SetBoundingBox(InBoundingBox: cpp.Reference<Box>): Void;
+	public function SetCandidateObjectData(InCandidateObject: ucpp.Ref<TArray<ucpp.num.UInt8>>): Void;
+	public function SetBoundingBox(InBoundingBox: ucpp.Ref<Box>): Void;
 	public function GetFriendlyName(): FString;
-	public function GetCandidateObjectData(): TArray<cpp.UInt8>;
+	public function GetCandidateObjectData(): TArray<ucpp.num.UInt8>;
 	public function GetBoundingBox(): Box;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFriendlyName, GetCandidateObjectData, GetBoundingBox)
@@ -27,7 +27,7 @@ abstract ConstARCandidateObject(ARCandidateObject) from ARCandidateObject {
 @:forward
 @:nativeGen
 @:native("ARCandidateObject*")
-abstract ARCandidateObjectPtr(cpp.Star<ARCandidateObject>) from cpp.Star<ARCandidateObject> to cpp.Star<ARCandidateObject>{
+abstract ARCandidateObjectPtr(ucpp.Ptr<ARCandidateObject>) from ucpp.Ptr<ARCandidateObject> to ucpp.Ptr<ARCandidateObject>{
 	@:from
 	public static extern inline function fromValue(v: ARCandidateObject): ARCandidateObjectPtr {
 		return untyped __cpp__("&({0})", v);

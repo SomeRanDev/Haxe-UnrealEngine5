@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionEditorLoaderAdapter")
 @:include("WorldPartition/WorldPartitionEditorLoaderAdapter.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionEditorLoaderAdapter extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionEditorLoaderAdapter(WorldPartitionEditorLoaderAdapte
 @:forward
 @:nativeGen
 @:native("WorldPartitionEditorLoaderAdapter*")
-abstract WorldPartitionEditorLoaderAdapterPtr(cpp.Star<WorldPartitionEditorLoaderAdapter>) from cpp.Star<WorldPartitionEditorLoaderAdapter> to cpp.Star<WorldPartitionEditorLoaderAdapter>{
+abstract WorldPartitionEditorLoaderAdapterPtr(ucpp.Ptr<WorldPartitionEditorLoaderAdapter>) from ucpp.Ptr<WorldPartitionEditorLoaderAdapter> to ucpp.Ptr<WorldPartitionEditorLoaderAdapter>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionEditorLoaderAdapter): WorldPartitionEditorLoaderAdapterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorKeyboardShortcutSettings")
 @:include("EditorKeyboardShortcutSettings.h")
-@:structAccess
+@:valueType
 extern class EditorKeyboardShortcutSettings extends DeveloperSettings {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorKeyboardShortcutSettings(EditorKeyboardShortcutSettings) fro
 @:forward
 @:nativeGen
 @:native("EditorKeyboardShortcutSettings*")
-abstract EditorKeyboardShortcutSettingsPtr(cpp.Star<EditorKeyboardShortcutSettings>) from cpp.Star<EditorKeyboardShortcutSettings> to cpp.Star<EditorKeyboardShortcutSettings>{
+abstract EditorKeyboardShortcutSettingsPtr(ucpp.Ptr<EditorKeyboardShortcutSettings>) from ucpp.Ptr<EditorKeyboardShortcutSettings> to ucpp.Ptr<EditorKeyboardShortcutSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorKeyboardShortcutSettings): EditorKeyboardShortcutSettingsPtr {
 		return untyped __cpp__("&({0})", v);

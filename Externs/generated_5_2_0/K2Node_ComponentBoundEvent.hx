@@ -3,13 +3,13 @@ package ue;
 
 @:native("UK2Node_ComponentBoundEvent")
 @:include("K2Node_ComponentBoundEvent.h")
-@:structAccess
+@:valueType
 extern class K2Node_ComponentBoundEvent extends K2Node_Event {
 	public var DelegatePropertyName: FName;
 	public var DelegateOwnerClass: TSubclassOf<Object>;
 	public var ComponentPropertyName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstK2Node_ComponentBoundEvent(K2Node_ComponentBoundEvent) from K2Node
 @:forward
 @:nativeGen
 @:native("K2Node_ComponentBoundEvent*")
-abstract K2Node_ComponentBoundEventPtr(cpp.Star<K2Node_ComponentBoundEvent>) from cpp.Star<K2Node_ComponentBoundEvent> to cpp.Star<K2Node_ComponentBoundEvent>{
+abstract K2Node_ComponentBoundEventPtr(ucpp.Ptr<K2Node_ComponentBoundEvent>) from ucpp.Ptr<K2Node_ComponentBoundEvent> to ucpp.Ptr<K2Node_ComponentBoundEvent>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_ComponentBoundEvent): K2Node_ComponentBoundEventPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FRootMotionMovementParams")
 @:include("Animation/AnimationAsset.h")
-@:structAccess
+@:valueType
 extern class RootMotionMovementParams {
 	public var bHasRootMotion: Bool;
-	public var BlendWeight: cpp.Float32;
+	public var BlendWeight: ucpp.num.Float32;
 	private var RootMotionTransform: Transform;
 
 	@:native("FRootMotionMovementParams") public function new();
-	@:native("FRootMotionMovementParams") public static function make(bHasRootMotion: Bool, BlendWeight: cpp.Float32, RootMotionTransform: Transform): RootMotionMovementParams ;
+	@:native("FRootMotionMovementParams") public static function make(bHasRootMotion: Bool, BlendWeight: ucpp.num.Float32, RootMotionTransform: Transform): RootMotionMovementParams ;
 }

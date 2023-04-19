@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReimportSpeedTreeFactory")
 @:include("ReimportSpeedTreeFactory.h")
-@:structAccess
+@:valueType
 extern class ReimportSpeedTreeFactory extends SpeedTreeImportFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReimportSpeedTreeFactory(ReimportSpeedTreeFactory) from ReimportSp
 @:forward
 @:nativeGen
 @:native("ReimportSpeedTreeFactory*")
-abstract ReimportSpeedTreeFactoryPtr(cpp.Star<ReimportSpeedTreeFactory>) from cpp.Star<ReimportSpeedTreeFactory> to cpp.Star<ReimportSpeedTreeFactory>{
+abstract ReimportSpeedTreeFactoryPtr(ucpp.Ptr<ReimportSpeedTreeFactory>) from ucpp.Ptr<ReimportSpeedTreeFactory> to ucpp.Ptr<ReimportSpeedTreeFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReimportSpeedTreeFactory): ReimportSpeedTreeFactoryPtr {
 		return untyped __cpp__("&({0})", v);

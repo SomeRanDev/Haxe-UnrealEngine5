@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorDomainSaveCommandlet")
 @:include("Commandlets/EditorDomainSaveCommandlet.h")
-@:structAccess
+@:valueType
 extern class EditorDomainSaveCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorDomainSaveCommandlet(EditorDomainSaveCommandlet) from Editor
 @:forward
 @:nativeGen
 @:native("EditorDomainSaveCommandlet*")
-abstract EditorDomainSaveCommandletPtr(cpp.Star<EditorDomainSaveCommandlet>) from cpp.Star<EditorDomainSaveCommandlet> to cpp.Star<EditorDomainSaveCommandlet>{
+abstract EditorDomainSaveCommandletPtr(ucpp.Ptr<EditorDomainSaveCommandlet>) from ucpp.Ptr<EditorDomainSaveCommandlet> to ucpp.Ptr<EditorDomainSaveCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: EditorDomainSaveCommandlet): EditorDomainSaveCommandletPtr {
 		return untyped __cpp__("&({0})", v);

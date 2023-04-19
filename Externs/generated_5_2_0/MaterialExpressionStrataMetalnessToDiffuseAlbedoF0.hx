@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionStrataMetalnessToDiffuseAlbedoF0")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataMetalnessToDiffuseAlbedoF0 extends MaterialExpressionStrataUtilityBase {
 	public var BaseColor: ExpressionInput;
 	public var Metallic: ExpressionInput;
 	public var Specular: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionStrataMetalnessToDiffuseAlbedoF0(MaterialExpress
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataMetalnessToDiffuseAlbedoF0*")
-abstract MaterialExpressionStrataMetalnessToDiffuseAlbedoF0Ptr(cpp.Star<MaterialExpressionStrataMetalnessToDiffuseAlbedoF0>) from cpp.Star<MaterialExpressionStrataMetalnessToDiffuseAlbedoF0> to cpp.Star<MaterialExpressionStrataMetalnessToDiffuseAlbedoF0>{
+abstract MaterialExpressionStrataMetalnessToDiffuseAlbedoF0Ptr(ucpp.Ptr<MaterialExpressionStrataMetalnessToDiffuseAlbedoF0>) from ucpp.Ptr<MaterialExpressionStrataMetalnessToDiffuseAlbedoF0> to ucpp.Ptr<MaterialExpressionStrataMetalnessToDiffuseAlbedoF0>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataMetalnessToDiffuseAlbedoF0): MaterialExpressionStrataMetalnessToDiffuseAlbedoF0Ptr {
 		return untyped __cpp__("&({0})", v);

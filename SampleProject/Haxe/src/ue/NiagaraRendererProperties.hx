@@ -3,16 +3,17 @@ package ue;
 
 @:native("UNiagaraRendererProperties")
 @:include("NiagaraRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRendererProperties extends NiagaraMergeable {
 	public var Platforms: NiagaraPlatformSet;
-	public var SortOrderHint: cpp.Int32;
+	public var SortOrderHint: ucpp.num.Int32;
 	public var MotionVectorSetting: ENiagaraRendererMotionVectorSetting;
 	public var RendererEnabledBinding: NiagaraVariableAttributeBinding;
 	public var bIsEnabled: Bool;
 	public var bAllowInCullProxies: Bool;
+	public var OuterEmitterVersion: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,8 +21,8 @@ extern class NiagaraRendererProperties extends NiagaraMergeable {
 abstract ConstNiagaraRendererProperties(NiagaraRendererProperties) from NiagaraRendererProperties {
 	public extern var Platforms(get, never): NiagaraPlatformSet;
 	public inline extern function get_Platforms(): NiagaraPlatformSet return this.Platforms;
-	public extern var SortOrderHint(get, never): cpp.Int32;
-	public inline extern function get_SortOrderHint(): cpp.Int32 return this.SortOrderHint;
+	public extern var SortOrderHint(get, never): ucpp.num.Int32;
+	public inline extern function get_SortOrderHint(): ucpp.num.Int32 return this.SortOrderHint;
 	public extern var MotionVectorSetting(get, never): ENiagaraRendererMotionVectorSetting;
 	public inline extern function get_MotionVectorSetting(): ENiagaraRendererMotionVectorSetting return this.MotionVectorSetting;
 	public extern var RendererEnabledBinding(get, never): NiagaraVariableAttributeBinding;
@@ -30,12 +31,14 @@ abstract ConstNiagaraRendererProperties(NiagaraRendererProperties) from NiagaraR
 	public inline extern function get_bIsEnabled(): Bool return this.bIsEnabled;
 	public extern var bAllowInCullProxies(get, never): Bool;
 	public inline extern function get_bAllowInCullProxies(): Bool return this.bAllowInCullProxies;
+	public extern var OuterEmitterVersion(get, never): Guid;
+	public inline extern function get_OuterEmitterVersion(): Guid return this.OuterEmitterVersion;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraRendererProperties*")
-abstract NiagaraRendererPropertiesPtr(cpp.Star<NiagaraRendererProperties>) from cpp.Star<NiagaraRendererProperties> to cpp.Star<NiagaraRendererProperties>{
+abstract NiagaraRendererPropertiesPtr(ucpp.Ptr<NiagaraRendererProperties>) from ucpp.Ptr<NiagaraRendererProperties> to ucpp.Ptr<NiagaraRendererProperties>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraRendererProperties): NiagaraRendererPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

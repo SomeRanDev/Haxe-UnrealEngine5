@@ -3,7 +3,7 @@ package ue;
 
 @:native("UControlRigEditModeSettings")
 @:include("EditMode/ControlRigEditModeSettings.h")
-@:structAccess
+@:valueType
 extern class ControlRigEditModeSettings extends Object {
 	public var bDisplayHierarchy: Bool;
 	public var bDisplayNulls: Bool;
@@ -12,14 +12,14 @@ extern class ControlRigEditModeSettings extends Object {
 	public var bShowControlsAsOverlay: Bool;
 	public var DrivenControlColor: LinearColor;
 	public var bDisplayAxesOnSelection: Bool;
-	public var AxisScale: cpp.Float32;
+	public var AxisScale: ucpp.num.Float32;
 	public var bCoordSystemPerWidgetMode: Bool;
 	public var bOnlySelectRigControls: Bool;
 	public var bLocalTransformsInEachLocalSpace: Bool;
-	public var GizmoScale: cpp.Float32;
+	public var GizmoScale: ucpp.num.Float32;
 	public var LastInViewportTweenWidgetLocation: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,16 +39,16 @@ abstract ConstControlRigEditModeSettings(ControlRigEditModeSettings) from Contro
 	public inline extern function get_DrivenControlColor(): LinearColor return this.DrivenControlColor;
 	public extern var bDisplayAxesOnSelection(get, never): Bool;
 	public inline extern function get_bDisplayAxesOnSelection(): Bool return this.bDisplayAxesOnSelection;
-	public extern var AxisScale(get, never): cpp.Float32;
-	public inline extern function get_AxisScale(): cpp.Float32 return this.AxisScale;
+	public extern var AxisScale(get, never): ucpp.num.Float32;
+	public inline extern function get_AxisScale(): ucpp.num.Float32 return this.AxisScale;
 	public extern var bCoordSystemPerWidgetMode(get, never): Bool;
 	public inline extern function get_bCoordSystemPerWidgetMode(): Bool return this.bCoordSystemPerWidgetMode;
 	public extern var bOnlySelectRigControls(get, never): Bool;
 	public inline extern function get_bOnlySelectRigControls(): Bool return this.bOnlySelectRigControls;
 	public extern var bLocalTransformsInEachLocalSpace(get, never): Bool;
 	public inline extern function get_bLocalTransformsInEachLocalSpace(): Bool return this.bLocalTransformsInEachLocalSpace;
-	public extern var GizmoScale(get, never): cpp.Float32;
-	public inline extern function get_GizmoScale(): cpp.Float32 return this.GizmoScale;
+	public extern var GizmoScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GizmoScale(): ucpp.num.Float32 return this.GizmoScale;
 	public extern var LastInViewportTweenWidgetLocation(get, never): Vector2D;
 	public inline extern function get_LastInViewportTweenWidgetLocation(): Vector2D return this.LastInViewportTweenWidgetLocation;
 }
@@ -56,7 +56,7 @@ abstract ConstControlRigEditModeSettings(ControlRigEditModeSettings) from Contro
 @:forward
 @:nativeGen
 @:native("ControlRigEditModeSettings*")
-abstract ControlRigEditModeSettingsPtr(cpp.Star<ControlRigEditModeSettings>) from cpp.Star<ControlRigEditModeSettings> to cpp.Star<ControlRigEditModeSettings>{
+abstract ControlRigEditModeSettingsPtr(ucpp.Ptr<ControlRigEditModeSettings>) from ucpp.Ptr<ControlRigEditModeSettings> to ucpp.Ptr<ControlRigEditModeSettings>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigEditModeSettings): ControlRigEditModeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

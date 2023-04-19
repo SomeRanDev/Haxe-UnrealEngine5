@@ -3,11 +3,11 @@ package ue;
 
 @:native("UComponentDelegateBinding")
 @:include("Engine/ComponentDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class ComponentDelegateBinding extends DynamicBlueprintBinding {
 	public var ComponentDelegateBindings: TArray<BlueprintComponentDelegateBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstComponentDelegateBinding(ComponentDelegateBinding) from ComponentD
 @:forward
 @:nativeGen
 @:native("ComponentDelegateBinding*")
-abstract ComponentDelegateBindingPtr(cpp.Star<ComponentDelegateBinding>) from cpp.Star<ComponentDelegateBinding> to cpp.Star<ComponentDelegateBinding>{
+abstract ComponentDelegateBindingPtr(ucpp.Ptr<ComponentDelegateBinding>) from ucpp.Ptr<ComponentDelegateBinding> to ucpp.Ptr<ComponentDelegateBinding>{
 	@:from
 	public static extern inline function fromValue(v: ComponentDelegateBinding): ComponentDelegateBindingPtr {
 		return untyped __cpp__("&({0})", v);

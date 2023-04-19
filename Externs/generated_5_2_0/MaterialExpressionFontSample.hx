@@ -3,27 +3,27 @@ package ue;
 
 @:native("UMaterialExpressionFontSample")
 @:include("Materials/MaterialExpressionFontSample.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionFontSample extends MaterialExpression {
-	public var Font: cpp.Star<Font>;
-	public var FontTexturePage: cpp.Int32;
+	public var Font: ucpp.Ptr<Font>;
+	public var FontTexturePage: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionFontSample(MaterialExpressionFontSample) from MaterialExpressionFontSample {
-	public extern var Font(get, never): cpp.Star<Font.ConstFont>;
-	public inline extern function get_Font(): cpp.Star<Font.ConstFont> return this.Font;
-	public extern var FontTexturePage(get, never): cpp.Int32;
-	public inline extern function get_FontTexturePage(): cpp.Int32 return this.FontTexturePage;
+	public extern var Font(get, never): ucpp.Ptr<Font.ConstFont>;
+	public inline extern function get_Font(): ucpp.Ptr<Font.ConstFont> return this.Font;
+	public extern var FontTexturePage(get, never): ucpp.num.Int32;
+	public inline extern function get_FontTexturePage(): ucpp.num.Int32 return this.FontTexturePage;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionFontSample*")
-abstract MaterialExpressionFontSamplePtr(cpp.Star<MaterialExpressionFontSample>) from cpp.Star<MaterialExpressionFontSample> to cpp.Star<MaterialExpressionFontSample>{
+abstract MaterialExpressionFontSamplePtr(ucpp.Ptr<MaterialExpressionFontSample>) from ucpp.Ptr<MaterialExpressionFontSample> to ucpp.Ptr<MaterialExpressionFontSample>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionFontSample): MaterialExpressionFontSamplePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("ULevelActorContainer")
 @:include("Engine/LevelActorContainer.h")
-@:structAccess
+@:valueType
 extern class LevelActorContainer extends Object {
-	public var Actors: TArray<cpp.Star<Actor>>;
+	public var Actors: TArray<ucpp.Ptr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLevelActorContainer(LevelActorContainer) from LevelActorContainer {
-	public extern var Actors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_Actors(): TArray<cpp.Star<Actor.ConstActor>> return this.Actors;
+	public extern var Actors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_Actors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.Actors;
 }
 
 @:forward
 @:nativeGen
 @:native("LevelActorContainer*")
-abstract LevelActorContainerPtr(cpp.Star<LevelActorContainer>) from cpp.Star<LevelActorContainer> to cpp.Star<LevelActorContainer>{
+abstract LevelActorContainerPtr(ucpp.Ptr<LevelActorContainer>) from ucpp.Ptr<LevelActorContainer> to ucpp.Ptr<LevelActorContainer>{
 	@:from
 	public static extern inline function fromValue(v: LevelActorContainer): LevelActorContainerPtr {
 		return untyped __cpp__("&({0})", v);

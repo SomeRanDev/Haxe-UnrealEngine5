@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneChaosCacheTrack")
 @:include("Chaos/Sequencer/MovieSceneChaosCacheTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneChaosCacheTrack extends MovieSceneNameableTrack {
-	private var AnimationSections: TArray<cpp.Star<MovieSceneSection>>;
+	private var AnimationSections: TArray<ucpp.Ptr<MovieSceneSection>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneChaosCacheTrack(MovieSceneChaosCacheTrack) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieSceneChaosCacheTrack*")
-abstract MovieSceneChaosCacheTrackPtr(cpp.Star<MovieSceneChaosCacheTrack>) from cpp.Star<MovieSceneChaosCacheTrack> to cpp.Star<MovieSceneChaosCacheTrack>{
+abstract MovieSceneChaosCacheTrackPtr(ucpp.Ptr<MovieSceneChaosCacheTrack>) from ucpp.Ptr<MovieSceneChaosCacheTrack> to ucpp.Ptr<MovieSceneChaosCacheTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneChaosCacheTrack): MovieSceneChaosCacheTrackPtr {
 		return untyped __cpp__("&({0})", v);

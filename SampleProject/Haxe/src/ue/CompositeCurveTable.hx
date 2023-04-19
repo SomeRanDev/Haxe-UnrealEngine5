@@ -3,12 +3,12 @@ package ue;
 
 @:native("UCompositeCurveTable")
 @:include("Engine/CompositeCurveTable.h")
-@:structAccess
+@:valueType
 extern class CompositeCurveTable extends CurveTable {
-	@:protected public var ParentTables: TArray<cpp.Star<CurveTable>>;
-	@:protected public var OldParentTables: TArray<cpp.Star<CurveTable>>;
+	@:protected public var ParentTables: TArray<ucpp.Ptr<CurveTable>>;
+	@:protected public var OldParentTables: TArray<ucpp.Ptr<CurveTable>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstCompositeCurveTable(CompositeCurveTable) from CompositeCurveTable 
 @:forward
 @:nativeGen
 @:native("CompositeCurveTable*")
-abstract CompositeCurveTablePtr(cpp.Star<CompositeCurveTable>) from cpp.Star<CompositeCurveTable> to cpp.Star<CompositeCurveTable>{
+abstract CompositeCurveTablePtr(ucpp.Ptr<CompositeCurveTable>) from ucpp.Ptr<CompositeCurveTable> to ucpp.Ptr<CompositeCurveTable>{
 	@:from
 	public static extern inline function fromValue(v: CompositeCurveTable): CompositeCurveTablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetUserData")
 @:include("Engine/AssetUserData.h")
-@:structAccess
+@:valueType
 extern class AssetUserData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetUserData(AssetUserData) from AssetUserData {
 @:forward
 @:nativeGen
 @:native("AssetUserData*")
-abstract AssetUserDataPtr(cpp.Star<AssetUserData>) from cpp.Star<AssetUserData> to cpp.Star<AssetUserData>{
+abstract AssetUserDataPtr(ucpp.Ptr<AssetUserData>) from ucpp.Ptr<AssetUserData> to ucpp.Ptr<AssetUserData>{
 	@:from
 	public static extern inline function fromValue(v: AssetUserData): AssetUserDataPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULegacyCameraShakeFunctionLibrary")
 @:include("LegacyCameraShake.h")
-@:structAccess
+@:valueType
 extern class LegacyCameraShakeFunctionLibrary extends BlueprintFunctionLibrary {
-	public function Conv_LegacyCameraShake(CameraShake: cpp.Star<CameraShakeBase>): cpp.Star<LegacyCameraShake>;
+	public function Conv_LegacyCameraShake(CameraShake: ucpp.Ptr<CameraShakeBase>): ucpp.Ptr<LegacyCameraShake>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstLegacyCameraShakeFunctionLibrary(LegacyCameraShakeFunctionLibrary)
 @:forward
 @:nativeGen
 @:native("LegacyCameraShakeFunctionLibrary*")
-abstract LegacyCameraShakeFunctionLibraryPtr(cpp.Star<LegacyCameraShakeFunctionLibrary>) from cpp.Star<LegacyCameraShakeFunctionLibrary> to cpp.Star<LegacyCameraShakeFunctionLibrary>{
+abstract LegacyCameraShakeFunctionLibraryPtr(ucpp.Ptr<LegacyCameraShakeFunctionLibrary>) from ucpp.Ptr<LegacyCameraShakeFunctionLibrary> to ucpp.Ptr<LegacyCameraShakeFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: LegacyCameraShakeFunctionLibrary): LegacyCameraShakeFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

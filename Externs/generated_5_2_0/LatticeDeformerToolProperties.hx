@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULatticeDeformerToolProperties")
 @:include("LatticeDeformerTool.h")
-@:structAccess
+@:valueType
 extern class LatticeDeformerToolProperties extends InteractiveToolPropertySet {
-	public var XAxisResolution: cpp.Int32;
-	public var YAxisResolution: cpp.Int32;
-	public var ZAxisResolution: cpp.Int32;
-	public var Padding: cpp.Float32;
+	public var XAxisResolution: ucpp.num.Int32;
+	public var YAxisResolution: ucpp.num.Int32;
+	public var ZAxisResolution: ucpp.num.Int32;
+	public var Padding: ucpp.num.Float32;
 	public var InterpolationType: ELatticeInterpolationType;
 	public var bDeformNormals: Bool;
 	public var bCanChangeResolution: Bool;
@@ -19,20 +19,20 @@ extern class LatticeDeformerToolProperties extends InteractiveToolPropertySet {
 	public function Constrain(): Void;
 	public function ClearConstraints(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLatticeDeformerToolProperties(LatticeDeformerToolProperties) from LatticeDeformerToolProperties {
-	public extern var XAxisResolution(get, never): cpp.Int32;
-	public inline extern function get_XAxisResolution(): cpp.Int32 return this.XAxisResolution;
-	public extern var YAxisResolution(get, never): cpp.Int32;
-	public inline extern function get_YAxisResolution(): cpp.Int32 return this.YAxisResolution;
-	public extern var ZAxisResolution(get, never): cpp.Int32;
-	public inline extern function get_ZAxisResolution(): cpp.Int32 return this.ZAxisResolution;
-	public extern var Padding(get, never): cpp.Float32;
-	public inline extern function get_Padding(): cpp.Float32 return this.Padding;
+	public extern var XAxisResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_XAxisResolution(): ucpp.num.Int32 return this.XAxisResolution;
+	public extern var YAxisResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_YAxisResolution(): ucpp.num.Int32 return this.YAxisResolution;
+	public extern var ZAxisResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_ZAxisResolution(): ucpp.num.Int32 return this.ZAxisResolution;
+	public extern var Padding(get, never): ucpp.num.Float32;
+	public inline extern function get_Padding(): ucpp.num.Float32 return this.Padding;
 	public extern var InterpolationType(get, never): ELatticeInterpolationType;
 	public inline extern function get_InterpolationType(): ELatticeInterpolationType return this.InterpolationType;
 	public extern var bDeformNormals(get, never): Bool;
@@ -50,7 +50,7 @@ abstract ConstLatticeDeformerToolProperties(LatticeDeformerToolProperties) from 
 @:forward
 @:nativeGen
 @:native("LatticeDeformerToolProperties*")
-abstract LatticeDeformerToolPropertiesPtr(cpp.Star<LatticeDeformerToolProperties>) from cpp.Star<LatticeDeformerToolProperties> to cpp.Star<LatticeDeformerToolProperties>{
+abstract LatticeDeformerToolPropertiesPtr(ucpp.Ptr<LatticeDeformerToolProperties>) from ucpp.Ptr<LatticeDeformerToolProperties> to ucpp.Ptr<LatticeDeformerToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: LatticeDeformerToolProperties): LatticeDeformerToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

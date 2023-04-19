@@ -3,20 +3,20 @@ package ue;
 
 @:native("UInterchangeMaterialInstanceNode")
 @:include("InterchangeMaterialInstanceNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeMaterialInstanceNode extends InterchangeBaseNode {
 	public function SetCustomParent(AttributeValue: FString): Bool;
-	public function GetVectorParameterValue(ParameterName: FString, AttributeValue: cpp.Reference<LinearColor>): Bool;
-	public function GetTextureParameterValue(ParameterName: FString, AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetStaticSwitchParameterValue(ParameterName: FString, AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetScalarParameterValue(ParameterName: FString, AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomParent(AttributeValue: cpp.Reference<FString>): Bool;
-	public function AddVectorParameterValue(ParameterName: FString, AttributeValue: cpp.Reference<LinearColor>): Bool;
+	public function GetVectorParameterValue(ParameterName: FString, AttributeValue: ucpp.Ref<LinearColor>): Bool;
+	public function GetTextureParameterValue(ParameterName: FString, AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetStaticSwitchParameterValue(ParameterName: FString, AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetScalarParameterValue(ParameterName: FString, AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomParent(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function AddVectorParameterValue(ParameterName: FString, AttributeValue: ucpp.Ref<LinearColor>): Bool;
 	public function AddTextureParameterValue(ParameterName: FString, AttributeValue: FString): Bool;
 	public function AddStaticSwitchParameterValue(ParameterName: FString, AttributeValue: Bool): Bool;
-	public function AddScalarParameterValue(ParameterName: FString, AttributeValue: cpp.Float32): Bool;
+	public function AddScalarParameterValue(ParameterName: FString, AttributeValue: ucpp.num.Float32): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(SetCustomParent, GetVectorParameterValue, GetTextureParameterValue, GetStaticSwitchParameterValue, GetScalarParameterValue, GetCustomParent)
@@ -27,7 +27,7 @@ abstract ConstInterchangeMaterialInstanceNode(InterchangeMaterialInstanceNode) f
 @:forward
 @:nativeGen
 @:native("InterchangeMaterialInstanceNode*")
-abstract InterchangeMaterialInstanceNodePtr(cpp.Star<InterchangeMaterialInstanceNode>) from cpp.Star<InterchangeMaterialInstanceNode> to cpp.Star<InterchangeMaterialInstanceNode>{
+abstract InterchangeMaterialInstanceNodePtr(ucpp.Ptr<InterchangeMaterialInstanceNode>) from ucpp.Ptr<InterchangeMaterialInstanceNode> to ucpp.Ptr<InterchangeMaterialInstanceNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMaterialInstanceNode): InterchangeMaterialInstanceNodePtr {
 		return untyped __cpp__("&({0})", v);

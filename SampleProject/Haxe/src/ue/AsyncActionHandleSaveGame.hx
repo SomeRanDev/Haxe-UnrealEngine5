@@ -3,28 +3,28 @@ package ue;
 
 @:native("UAsyncActionHandleSaveGame")
 @:include("GameFramework/AsyncActionHandleSaveGame.h")
-@:structAccess
+@:valueType
 extern class AsyncActionHandleSaveGame extends BlueprintAsyncActionBase {
-	public var Completed: HaxeMulticastSparseDelegateProperty<(cpp.Star<SaveGame>, Bool) -> Void>;
-	@:protected public var SaveGameObject: cpp.Star<SaveGame>;
+	public var Completed: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SaveGame>, Bool) -> Void>;
+	@:protected public var SaveGameObject: ucpp.Ptr<SaveGame>;
 
-	public function AsyncSaveGameToSlot(WorldContextObject: cpp.Star<Object>, SaveGameObject: cpp.Star<SaveGame>, SlotName: FString, UserIndex: cpp.Int32): cpp.Star<AsyncActionHandleSaveGame>;
-	public function AsyncLoadGameFromSlot(WorldContextObject: cpp.Star<Object>, SlotName: FString, UserIndex: cpp.Int32): cpp.Star<AsyncActionHandleSaveGame>;
+	public function AsyncSaveGameToSlot(WorldContextObject: ucpp.Ptr<Object>, SaveGameObject: ucpp.Ptr<SaveGame>, SlotName: FString, UserIndex: ucpp.num.Int32): ucpp.Ptr<AsyncActionHandleSaveGame>;
+	public function AsyncLoadGameFromSlot(WorldContextObject: ucpp.Ptr<Object>, SlotName: FString, UserIndex: ucpp.num.Int32): ucpp.Ptr<AsyncActionHandleSaveGame>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncActionHandleSaveGame(AsyncActionHandleSaveGame) from AsyncActionHandleSaveGame {
-	public extern var Completed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<SaveGame.ConstSaveGame>, Bool) -> Void>;
-	public inline extern function get_Completed(): HaxeMulticastSparseDelegateProperty<(cpp.Star<SaveGame.ConstSaveGame>, Bool) -> Void> return this.Completed;
+	public extern var Completed(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SaveGame.ConstSaveGame>, Bool) -> Void>;
+	public inline extern function get_Completed(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SaveGame.ConstSaveGame>, Bool) -> Void> return this.Completed;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncActionHandleSaveGame*")
-abstract AsyncActionHandleSaveGamePtr(cpp.Star<AsyncActionHandleSaveGame>) from cpp.Star<AsyncActionHandleSaveGame> to cpp.Star<AsyncActionHandleSaveGame>{
+abstract AsyncActionHandleSaveGamePtr(ucpp.Ptr<AsyncActionHandleSaveGame>) from ucpp.Ptr<AsyncActionHandleSaveGame> to ucpp.Ptr<AsyncActionHandleSaveGame>{
 	@:from
 	public static extern inline function fromValue(v: AsyncActionHandleSaveGame): AsyncActionHandleSaveGamePtr {
 		return untyped __cpp__("&({0})", v);

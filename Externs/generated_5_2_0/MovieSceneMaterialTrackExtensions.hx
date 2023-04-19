@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMovieSceneMaterialTrackExtensions")
 @:include("ExtensionLibraries/MovieSceneMaterialTrackExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMaterialTrackExtensions extends BlueprintFunctionLibrary {
-	public function SetMaterialIndex(Track: cpp.Star<MovieSceneComponentMaterialTrack>, MaterialIndex: cpp.Int32): Void;
-	public function GetMaterialIndex(Track: cpp.Star<MovieSceneComponentMaterialTrack>): cpp.Int32;
+	public function SetMaterialIndex(Track: ucpp.Ptr<MovieSceneComponentMaterialTrack>, MaterialIndex: ucpp.num.Int32): Void;
+	public function GetMaterialIndex(Track: ucpp.Ptr<MovieSceneComponentMaterialTrack>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMovieSceneMaterialTrackExtensions(MovieSceneMaterialTrackExtension
 @:forward
 @:nativeGen
 @:native("MovieSceneMaterialTrackExtensions*")
-abstract MovieSceneMaterialTrackExtensionsPtr(cpp.Star<MovieSceneMaterialTrackExtensions>) from cpp.Star<MovieSceneMaterialTrackExtensions> to cpp.Star<MovieSceneMaterialTrackExtensions>{
+abstract MovieSceneMaterialTrackExtensionsPtr(ucpp.Ptr<MovieSceneMaterialTrackExtensions>) from ucpp.Ptr<MovieSceneMaterialTrackExtensions> to ucpp.Ptr<MovieSceneMaterialTrackExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMaterialTrackExtensions): MovieSceneMaterialTrackExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

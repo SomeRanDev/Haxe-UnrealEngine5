@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGameplayDebuggerRenderingComponent")
 @:include("GameplayDebuggerRenderingComponent.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerRenderingComp extends DebugDrawComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGameplayDebuggerRenderingComp(GameplayDebuggerRenderingComp) from 
 @:forward
 @:nativeGen
 @:native("GameplayDebuggerRenderingComp*")
-abstract GameplayDebuggerRenderingCompPtr(cpp.Star<GameplayDebuggerRenderingComp>) from cpp.Star<GameplayDebuggerRenderingComp> to cpp.Star<GameplayDebuggerRenderingComp>{
+abstract GameplayDebuggerRenderingCompPtr(ucpp.Ptr<GameplayDebuggerRenderingComp>) from ucpp.Ptr<GameplayDebuggerRenderingComp> to ucpp.Ptr<GameplayDebuggerRenderingComp>{
 	@:from
 	public static extern inline function fromValue(v: GameplayDebuggerRenderingComp): GameplayDebuggerRenderingCompPtr {
 		return untyped __cpp__("&({0})", v);

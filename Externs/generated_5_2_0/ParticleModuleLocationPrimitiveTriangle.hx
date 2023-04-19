@@ -3,14 +3,14 @@ package ue;
 
 @:native("UParticleModuleLocationPrimitiveTriangle")
 @:include("Particles/Location/ParticleModuleLocationPrimitiveTriangle.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocationPrimitiveTriangle extends ParticleModuleLocationBase {
 	public var StartOffset: RawDistributionVector;
 	public var Height: RawDistributionFloat;
 	public var Angle: RawDistributionFloat;
 	public var Thickness: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstParticleModuleLocationPrimitiveTriangle(ParticleModuleLocationPrim
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocationPrimitiveTriangle*")
-abstract ParticleModuleLocationPrimitiveTrianglePtr(cpp.Star<ParticleModuleLocationPrimitiveTriangle>) from cpp.Star<ParticleModuleLocationPrimitiveTriangle> to cpp.Star<ParticleModuleLocationPrimitiveTriangle>{
+abstract ParticleModuleLocationPrimitiveTrianglePtr(ucpp.Ptr<ParticleModuleLocationPrimitiveTriangle>) from ucpp.Ptr<ParticleModuleLocationPrimitiveTriangle> to ucpp.Ptr<ParticleModuleLocationPrimitiveTriangle>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocationPrimitiveTriangle): ParticleModuleLocationPrimitiveTrianglePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,8 +2,8 @@
 package ue;
 
 @:native("FForceFeedbackParameters")
-@:include("GameFramework/ForceFeedbackEffect.h")
-@:structAccess
+@:include("GameFramework/ForceFeedbackParameters.h")
+@:valueType
 extern class ForceFeedbackParameters {
 	public var Tag: FName;
 	public var bLooping: Bool;

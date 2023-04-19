@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDrawAndRevolveToolBuilder")
 @:include("DrawAndRevolveTool.h")
-@:structAccess
+@:valueType
 extern class DrawAndRevolveToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDrawAndRevolveToolBuilder(DrawAndRevolveToolBuilder) from DrawAndR
 @:forward
 @:nativeGen
 @:native("DrawAndRevolveToolBuilder*")
-abstract DrawAndRevolveToolBuilderPtr(cpp.Star<DrawAndRevolveToolBuilder>) from cpp.Star<DrawAndRevolveToolBuilder> to cpp.Star<DrawAndRevolveToolBuilder>{
+abstract DrawAndRevolveToolBuilderPtr(ucpp.Ptr<DrawAndRevolveToolBuilder>) from ucpp.Ptr<DrawAndRevolveToolBuilder> to ucpp.Ptr<DrawAndRevolveToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: DrawAndRevolveToolBuilder): DrawAndRevolveToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

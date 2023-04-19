@@ -3,22 +3,22 @@ package ue;
 
 @:native("USmoothFillBrushOpProps")
 @:include("Sculpting/MeshSmoothingBrushOps.h")
-@:structAccess
+@:valueType
 extern class SmoothFillBrushOpProps extends BaseSmoothBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
 	public var bPreserveUVFlow: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSmoothFillBrushOpProps(SmoothFillBrushOpProps) from SmoothFillBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
 	public extern var bPreserveUVFlow(get, never): Bool;
 	public inline extern function get_bPreserveUVFlow(): Bool return this.bPreserveUVFlow;
 }
@@ -26,7 +26,7 @@ abstract ConstSmoothFillBrushOpProps(SmoothFillBrushOpProps) from SmoothFillBrus
 @:forward
 @:nativeGen
 @:native("SmoothFillBrushOpProps*")
-abstract SmoothFillBrushOpPropsPtr(cpp.Star<SmoothFillBrushOpProps>) from cpp.Star<SmoothFillBrushOpProps> to cpp.Star<SmoothFillBrushOpProps>{
+abstract SmoothFillBrushOpPropsPtr(ucpp.Ptr<SmoothFillBrushOpProps>) from ucpp.Ptr<SmoothFillBrushOpProps> to ucpp.Ptr<SmoothFillBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: SmoothFillBrushOpProps): SmoothFillBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

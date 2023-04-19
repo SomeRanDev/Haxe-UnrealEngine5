@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPivotScaleGizmoHandleGroup")
 @:include("Gizmo/VIPivotTransformGizmo.h")
-@:structAccess
+@:valueType
 extern class PivotScaleGizmoHandleGroup extends AxisGizmoHandleGroup {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPivotScaleGizmoHandleGroup(PivotScaleGizmoHandleGroup) from PivotS
 @:forward
 @:nativeGen
 @:native("PivotScaleGizmoHandleGroup*")
-abstract PivotScaleGizmoHandleGroupPtr(cpp.Star<PivotScaleGizmoHandleGroup>) from cpp.Star<PivotScaleGizmoHandleGroup> to cpp.Star<PivotScaleGizmoHandleGroup>{
+abstract PivotScaleGizmoHandleGroupPtr(ucpp.Ptr<PivotScaleGizmoHandleGroup>) from ucpp.Ptr<PivotScaleGizmoHandleGroup> to ucpp.Ptr<PivotScaleGizmoHandleGroup>{
 	@:from
 	public static extern inline function fromValue(v: PivotScaleGizmoHandleGroup): PivotScaleGizmoHandleGroupPtr {
 		return untyped __cpp__("&({0})", v);

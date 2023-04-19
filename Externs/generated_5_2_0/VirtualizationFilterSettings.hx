@@ -3,12 +3,12 @@ package ue;
 
 @:native("UVirtualizationFilterSettings")
 @:include("VirtualizationFilterSettings.h")
-@:structAccess
+@:valueType
 extern class VirtualizationFilterSettings extends Object {
 	public var ExcludePackagePaths: TArray<FString>;
 	public var IncludePackagePaths: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstVirtualizationFilterSettings(VirtualizationFilterSettings) from Vi
 @:forward
 @:nativeGen
 @:native("VirtualizationFilterSettings*")
-abstract VirtualizationFilterSettingsPtr(cpp.Star<VirtualizationFilterSettings>) from cpp.Star<VirtualizationFilterSettings> to cpp.Star<VirtualizationFilterSettings>{
+abstract VirtualizationFilterSettingsPtr(ucpp.Ptr<VirtualizationFilterSettings>) from ucpp.Ptr<VirtualizationFilterSettings> to ucpp.Ptr<VirtualizationFilterSettings>{
 	@:from
 	public static extern inline function fromValue(v: VirtualizationFilterSettings): VirtualizationFilterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

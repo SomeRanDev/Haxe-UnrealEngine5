@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULocalClickDragInputBehavior")
 @:include("BaseBehaviors/ClickDragBehavior.h")
-@:structAccess
+@:valueType
 extern class LocalClickDragInputBehavior extends ClickDragInputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLocalClickDragInputBehavior(LocalClickDragInputBehavior) from Loca
 @:forward
 @:nativeGen
 @:native("LocalClickDragInputBehavior*")
-abstract LocalClickDragInputBehaviorPtr(cpp.Star<LocalClickDragInputBehavior>) from cpp.Star<LocalClickDragInputBehavior> to cpp.Star<LocalClickDragInputBehavior>{
+abstract LocalClickDragInputBehaviorPtr(ucpp.Ptr<LocalClickDragInputBehavior>) from ucpp.Ptr<LocalClickDragInputBehavior> to ucpp.Ptr<LocalClickDragInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: LocalClickDragInputBehavior): LocalClickDragInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

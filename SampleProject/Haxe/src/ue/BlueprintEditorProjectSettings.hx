@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBlueprintEditorProjectSettings")
 @:include("Settings/BlueprintEditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class BlueprintEditorProjectSettings extends DeveloperSettings {
 	public var bForceAllDependenciesToRecompile: Bool;
 	public var bValidateUnloadedSoftActorReferences: Bool;
@@ -12,9 +12,10 @@ extern class BlueprintEditorProjectSettings extends DeveloperSettings {
 	public var NamespacesToAlwaysInclude: TArray<FString>;
 	public var DisabledCompilerMessagesExceptEditor: TArray<FName>;
 	public var DisabledCompilerMessages: TArray<FName>;
+	public var SuppressedDeprecationMessages: TArray<FString>;
 	public var BaseClassesToAllowRecompilingDuringPlayInEditor: TArray<TSoftClassPtr<Class>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,6 +35,8 @@ abstract ConstBlueprintEditorProjectSettings(BlueprintEditorProjectSettings) fro
 	public inline extern function get_DisabledCompilerMessagesExceptEditor(): TArray<FName> return this.DisabledCompilerMessagesExceptEditor;
 	public extern var DisabledCompilerMessages(get, never): TArray<FName>;
 	public inline extern function get_DisabledCompilerMessages(): TArray<FName> return this.DisabledCompilerMessages;
+	public extern var SuppressedDeprecationMessages(get, never): TArray<FString>;
+	public inline extern function get_SuppressedDeprecationMessages(): TArray<FString> return this.SuppressedDeprecationMessages;
 	public extern var BaseClassesToAllowRecompilingDuringPlayInEditor(get, never): TArray<TSoftClassPtr<Class.ConstClass>>;
 	public inline extern function get_BaseClassesToAllowRecompilingDuringPlayInEditor(): TArray<TSoftClassPtr<Class.ConstClass>> return this.BaseClassesToAllowRecompilingDuringPlayInEditor;
 }
@@ -41,7 +44,7 @@ abstract ConstBlueprintEditorProjectSettings(BlueprintEditorProjectSettings) fro
 @:forward
 @:nativeGen
 @:native("BlueprintEditorProjectSettings*")
-abstract BlueprintEditorProjectSettingsPtr(cpp.Star<BlueprintEditorProjectSettings>) from cpp.Star<BlueprintEditorProjectSettings> to cpp.Star<BlueprintEditorProjectSettings>{
+abstract BlueprintEditorProjectSettingsPtr(ucpp.Ptr<BlueprintEditorProjectSettings>) from ucpp.Ptr<BlueprintEditorProjectSettings> to ucpp.Ptr<BlueprintEditorProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintEditorProjectSettings): BlueprintEditorProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

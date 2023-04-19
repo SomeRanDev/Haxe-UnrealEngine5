@@ -3,14 +3,14 @@ package ue;
 
 @:native("ANavigationObjectBase")
 @:include("Engine/NavigationObjectBase.h")
-@:structAccess
+@:valueType
 extern class NavigationObjectBase extends Actor {
-	private var CapsuleComponent: cpp.Star<CapsuleComp>;
-	private var GoodSprite: cpp.Star<BillboardComp>;
-	private var BadSprite: cpp.Star<BillboardComp>;
+	private var CapsuleComponent: ucpp.Ptr<CapsuleComp>;
+	private var GoodSprite: ucpp.Ptr<BillboardComp>;
+	private var BadSprite: ucpp.Ptr<BillboardComp>;
 	public var bIsPIEPlayerStart: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNavigationObjectBase(NavigationObjectBase) from NavigationObjectBa
 @:forward
 @:nativeGen
 @:native("NavigationObjectBase*")
-abstract NavigationObjectBasePtr(cpp.Star<NavigationObjectBase>) from cpp.Star<NavigationObjectBase> to cpp.Star<NavigationObjectBase>{
+abstract NavigationObjectBasePtr(ucpp.Ptr<NavigationObjectBase>) from ucpp.Ptr<NavigationObjectBase> to ucpp.Ptr<NavigationObjectBase>{
 	@:from
 	public static extern inline function fromValue(v: NavigationObjectBase): NavigationObjectBasePtr {
 		return untyped __cpp__("&({0})", v);

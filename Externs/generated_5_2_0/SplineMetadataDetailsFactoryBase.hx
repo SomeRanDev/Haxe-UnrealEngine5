@@ -3,10 +3,10 @@ package ue;
 
 @:native("USplineMetadataDetailsFactoryBase")
 @:include("SplineMetadataDetailsFactory.h")
-@:structAccess
+@:valueType
 extern class SplineMetadataDetailsFactoryBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSplineMetadataDetailsFactoryBase(SplineMetadataDetailsFactoryBase)
 @:forward
 @:nativeGen
 @:native("SplineMetadataDetailsFactoryBase*")
-abstract SplineMetadataDetailsFactoryBasePtr(cpp.Star<SplineMetadataDetailsFactoryBase>) from cpp.Star<SplineMetadataDetailsFactoryBase> to cpp.Star<SplineMetadataDetailsFactoryBase>{
+abstract SplineMetadataDetailsFactoryBasePtr(ucpp.Ptr<SplineMetadataDetailsFactoryBase>) from ucpp.Ptr<SplineMetadataDetailsFactoryBase> to ucpp.Ptr<SplineMetadataDetailsFactoryBase>{
 	@:from
 	public static extern inline function fromValue(v: SplineMetadataDetailsFactoryBase): SplineMetadataDetailsFactoryBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FBoxSphereBounds")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class BoxSphereBounds {
 	public var Origin: Vector;
 	public var BoxExtent: Vector;
-	public var SphereRadius: cpp.Float64;
+	public var SphereRadius: ucpp.num.Float64;
 
 	@:native("FBoxSphereBounds") public function new();
-	@:native("FBoxSphereBounds") public static function make(Origin: Vector, BoxExtent: Vector, SphereRadius: cpp.Float64): BoxSphereBounds ;
+	@:native("FBoxSphereBounds") public static function make(Origin: Vector, BoxExtent: Vector, SphereRadius: ucpp.num.Float64): BoxSphereBounds ;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCheckedStateBinding")
 @:include("Binding/CheckedStateBinding.h")
-@:structAccess
+@:valueType
 extern class CheckedStateBinding extends PropertyBinding {
 	public function GetValue(): ECheckBoxState;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstCheckedStateBinding(CheckedStateBinding) from CheckedStateBinding 
 @:forward
 @:nativeGen
 @:native("CheckedStateBinding*")
-abstract CheckedStateBindingPtr(cpp.Star<CheckedStateBinding>) from cpp.Star<CheckedStateBinding> to cpp.Star<CheckedStateBinding>{
+abstract CheckedStateBindingPtr(ucpp.Ptr<CheckedStateBinding>) from ucpp.Ptr<CheckedStateBinding> to ucpp.Ptr<CheckedStateBinding>{
 	@:from
 	public static extern inline function fromValue(v: CheckedStateBinding): CheckedStateBindingPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPersonaPreviewSceneAnimationController")
 @:include("PersonaPreviewSceneAnimationController.h")
-@:structAccess
+@:valueType
 extern class PersonaPreviewSceneAnimationController extends PersonaPreviewSceneController {
 	public var Animation: TSoftObjectPtr<AnimationAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPersonaPreviewSceneAnimationController(PersonaPreviewSceneAnimatio
 @:forward
 @:nativeGen
 @:native("PersonaPreviewSceneAnimationController*")
-abstract PersonaPreviewSceneAnimationControllerPtr(cpp.Star<PersonaPreviewSceneAnimationController>) from cpp.Star<PersonaPreviewSceneAnimationController> to cpp.Star<PersonaPreviewSceneAnimationController>{
+abstract PersonaPreviewSceneAnimationControllerPtr(ucpp.Ptr<PersonaPreviewSceneAnimationController>) from ucpp.Ptr<PersonaPreviewSceneAnimationController> to ucpp.Ptr<PersonaPreviewSceneAnimationController>{
 	@:from
 	public static extern inline function fromValue(v: PersonaPreviewSceneAnimationController): PersonaPreviewSceneAnimationControllerPtr {
 		return untyped __cpp__("&({0})", v);

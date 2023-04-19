@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStrataPostProcess")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataPostProcess extends MaterialExpressionStrataBSDF {
 	public var Color: ExpressionInput;
 	public var Opacity: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionStrataPostProcess(MaterialExpressionStrataPostPr
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataPostProcess*")
-abstract MaterialExpressionStrataPostProcessPtr(cpp.Star<MaterialExpressionStrataPostProcess>) from cpp.Star<MaterialExpressionStrataPostProcess> to cpp.Star<MaterialExpressionStrataPostProcess>{
+abstract MaterialExpressionStrataPostProcessPtr(ucpp.Ptr<MaterialExpressionStrataPostProcess>) from ucpp.Ptr<MaterialExpressionStrataPostProcess> to ucpp.Ptr<MaterialExpressionStrataPostProcess>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataPostProcess): MaterialExpressionStrataPostProcessPtr {
 		return untyped __cpp__("&({0})", v);

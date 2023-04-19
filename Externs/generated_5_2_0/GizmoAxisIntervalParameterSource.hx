@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGizmoAxisIntervalParameterSource")
 @:include("BaseGizmos/IntervalGizmo.h")
-@:structAccess
+@:valueType
 extern class GizmoAxisIntervalParameterSource extends GizmoBaseFloatParameterSource {
 	public var FloatParameterSource: GizmoFloatParameterSource;
-	public var MinParameter: cpp.Float32;
-	public var MaxParameter: cpp.Float32;
+	public var MinParameter: ucpp.num.Float32;
+	public var MaxParameter: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class GizmoAxisIntervalParameterSource extends GizmoBaseFloatParameterSou
 abstract ConstGizmoAxisIntervalParameterSource(GizmoAxisIntervalParameterSource) from GizmoAxisIntervalParameterSource {
 	public extern var FloatParameterSource(get, never): GizmoFloatParameterSource.ConstGizmoFloatParameterSource;
 	public inline extern function get_FloatParameterSource(): GizmoFloatParameterSource.ConstGizmoFloatParameterSource return this.FloatParameterSource;
-	public extern var MinParameter(get, never): cpp.Float32;
-	public inline extern function get_MinParameter(): cpp.Float32 return this.MinParameter;
-	public extern var MaxParameter(get, never): cpp.Float32;
-	public inline extern function get_MaxParameter(): cpp.Float32 return this.MaxParameter;
+	public extern var MinParameter(get, never): ucpp.num.Float32;
+	public inline extern function get_MinParameter(): ucpp.num.Float32 return this.MinParameter;
+	public extern var MaxParameter(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxParameter(): ucpp.num.Float32 return this.MaxParameter;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoAxisIntervalParameterSource*")
-abstract GizmoAxisIntervalParameterSourcePtr(cpp.Star<GizmoAxisIntervalParameterSource>) from cpp.Star<GizmoAxisIntervalParameterSource> to cpp.Star<GizmoAxisIntervalParameterSource>{
+abstract GizmoAxisIntervalParameterSourcePtr(ucpp.Ptr<GizmoAxisIntervalParameterSource>) from ucpp.Ptr<GizmoAxisIntervalParameterSource> to ucpp.Ptr<GizmoAxisIntervalParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoAxisIntervalParameterSource): GizmoAxisIntervalParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

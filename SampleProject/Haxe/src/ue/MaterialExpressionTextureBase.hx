@@ -3,24 +3,30 @@ package ue;
 
 @:native("UMaterialExpressionTextureBase")
 @:include("Materials/MaterialExpressionTextureBase.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTextureBase extends MaterialExpression {
-	public var Texture: cpp.Star<Texture>;
+	public var Texture: ucpp.Ptr<Texture>;
+	public var SamplerType: TEnumAsByte<EMaterialSamplerType>;
+	public var IsDefaultMeshpaintTexture: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionTextureBase(MaterialExpressionTextureBase) from MaterialExpressionTextureBase {
-	public extern var Texture(get, never): cpp.Star<Texture.ConstTexture>;
-	public inline extern function get_Texture(): cpp.Star<Texture.ConstTexture> return this.Texture;
+	public extern var Texture(get, never): ucpp.Ptr<Texture.ConstTexture>;
+	public inline extern function get_Texture(): ucpp.Ptr<Texture.ConstTexture> return this.Texture;
+	public extern var SamplerType(get, never): TEnumAsByte<EMaterialSamplerType>;
+	public inline extern function get_SamplerType(): TEnumAsByte<EMaterialSamplerType> return this.SamplerType;
+	public extern var IsDefaultMeshpaintTexture(get, never): Bool;
+	public inline extern function get_IsDefaultMeshpaintTexture(): Bool return this.IsDefaultMeshpaintTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTextureBase*")
-abstract MaterialExpressionTextureBasePtr(cpp.Star<MaterialExpressionTextureBase>) from cpp.Star<MaterialExpressionTextureBase> to cpp.Star<MaterialExpressionTextureBase>{
+abstract MaterialExpressionTextureBasePtr(ucpp.Ptr<MaterialExpressionTextureBase>) from ucpp.Ptr<MaterialExpressionTextureBase> to ucpp.Ptr<MaterialExpressionTextureBase>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTextureBase): MaterialExpressionTextureBasePtr {
 		return untyped __cpp__("&({0})", v);

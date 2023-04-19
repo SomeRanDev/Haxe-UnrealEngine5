@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBehaviorTreeGraphNode_Service")
 @:include("BehaviorTreeGraphNode_Service.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeGraphNode_Service extends BehaviorTreeGraphNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBehaviorTreeGraphNode_Service(BehaviorTreeGraphNode_Service) from 
 @:forward
 @:nativeGen
 @:native("BehaviorTreeGraphNode_Service*")
-abstract BehaviorTreeGraphNode_ServicePtr(cpp.Star<BehaviorTreeGraphNode_Service>) from cpp.Star<BehaviorTreeGraphNode_Service> to cpp.Star<BehaviorTreeGraphNode_Service>{
+abstract BehaviorTreeGraphNode_ServicePtr(ucpp.Ptr<BehaviorTreeGraphNode_Service>) from ucpp.Ptr<BehaviorTreeGraphNode_Service> to ucpp.Ptr<BehaviorTreeGraphNode_Service>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeGraphNode_Service): BehaviorTreeGraphNode_ServicePtr {
 		return untyped __cpp__("&({0})", v);

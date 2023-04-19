@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangePipelineStack")
 @:include("InterchangeProjectSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangePipelineStack {
 	public var Pipelines: TArray<SoftObjectPath>;
 

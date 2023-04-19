@@ -3,26 +3,26 @@ package ue;
 
 @:native("UUniformInteger")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class UniformInteger extends FieldNodeInt {
-	public var Magnitude: cpp.Int32;
+	public var Magnitude: ucpp.num.Int32;
 
-	public function SetUniformInteger(Magnitude: cpp.Int32): cpp.Star<UniformInteger>;
+	public function SetUniformInteger(Magnitude: ucpp.num.Int32): ucpp.Ptr<UniformInteger>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUniformInteger(UniformInteger) from UniformInteger {
-	public extern var Magnitude(get, never): cpp.Int32;
-	public inline extern function get_Magnitude(): cpp.Int32 return this.Magnitude;
+	public extern var Magnitude(get, never): ucpp.num.Int32;
+	public inline extern function get_Magnitude(): ucpp.num.Int32 return this.Magnitude;
 }
 
 @:forward
 @:nativeGen
 @:native("UniformInteger*")
-abstract UniformIntegerPtr(cpp.Star<UniformInteger>) from cpp.Star<UniformInteger> to cpp.Star<UniformInteger>{
+abstract UniformIntegerPtr(ucpp.Ptr<UniformInteger>) from ucpp.Ptr<UniformInteger> to ucpp.Ptr<UniformInteger>{
 	@:from
 	public static extern inline function fromValue(v: UniformInteger): UniformIntegerPtr {
 		return untyped __cpp__("&({0})", v);

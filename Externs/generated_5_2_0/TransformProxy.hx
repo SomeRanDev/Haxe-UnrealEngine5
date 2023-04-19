@@ -3,14 +3,14 @@ package ue;
 
 @:native("UTransformProxy")
 @:include("BaseGizmos/TransformProxy.h")
-@:structAccess
+@:valueType
 extern class TransformProxy extends Object {
 	public var bRotatePerObject: Bool;
 	public var bSetPivotMode: Bool;
 	@:protected public var SharedTransform: Transform;
 	@:protected public var InitialSharedTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstTransformProxy(TransformProxy) from TransformProxy {
 @:forward
 @:nativeGen
 @:native("TransformProxy*")
-abstract TransformProxyPtr(cpp.Star<TransformProxy>) from cpp.Star<TransformProxy> to cpp.Star<TransformProxy>{
+abstract TransformProxyPtr(ucpp.Ptr<TransformProxy>) from ucpp.Ptr<TransformProxy> to ucpp.Ptr<TransformProxy>{
 	@:from
 	public static extern inline function fromValue(v: TransformProxy): TransformProxyPtr {
 		return untyped __cpp__("&({0})", v);

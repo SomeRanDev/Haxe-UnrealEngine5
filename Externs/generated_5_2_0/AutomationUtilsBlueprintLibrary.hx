@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAutomationUtilsBlueprintLibrary")
 @:include("AutomationUtilsBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class AutomationUtilsBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function TakeGameplayAutomationScreenshot(ScreenshotName: FString, MaxGlobalError: cpp.Float32, MaxLocalError: cpp.Float32, MapNameOverride: FString): Void;
+	public function TakeGameplayAutomationScreenshot(ScreenshotName: FString, MaxGlobalError: ucpp.num.Float32, MaxLocalError: ucpp.num.Float32, MapNameOverride: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAutomationUtilsBlueprintLibrary(AutomationUtilsBlueprintLibrary) f
 @:forward
 @:nativeGen
 @:native("AutomationUtilsBlueprintLibrary*")
-abstract AutomationUtilsBlueprintLibraryPtr(cpp.Star<AutomationUtilsBlueprintLibrary>) from cpp.Star<AutomationUtilsBlueprintLibrary> to cpp.Star<AutomationUtilsBlueprintLibrary>{
+abstract AutomationUtilsBlueprintLibraryPtr(ucpp.Ptr<AutomationUtilsBlueprintLibrary>) from ucpp.Ptr<AutomationUtilsBlueprintLibrary> to ucpp.Ptr<AutomationUtilsBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AutomationUtilsBlueprintLibrary): AutomationUtilsBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

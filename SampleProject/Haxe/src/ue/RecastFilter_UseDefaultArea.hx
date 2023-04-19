@@ -3,10 +3,10 @@ package ue;
 
 @:native("URecastFilter_UseDefaultArea")
 @:include("NavFilters/RecastFilter_UseDefaultArea.h")
-@:structAccess
+@:valueType
 extern class RecastFilter_UseDefaultArea extends NavigationQueryFilter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRecastFilter_UseDefaultArea(RecastFilter_UseDefaultArea) from Reca
 @:forward
 @:nativeGen
 @:native("RecastFilter_UseDefaultArea*")
-abstract RecastFilter_UseDefaultAreaPtr(cpp.Star<RecastFilter_UseDefaultArea>) from cpp.Star<RecastFilter_UseDefaultArea> to cpp.Star<RecastFilter_UseDefaultArea>{
+abstract RecastFilter_UseDefaultAreaPtr(ucpp.Ptr<RecastFilter_UseDefaultArea>) from ucpp.Ptr<RecastFilter_UseDefaultArea> to ucpp.Ptr<RecastFilter_UseDefaultArea>{
 	@:from
 	public static extern inline function fromValue(v: RecastFilter_UseDefaultArea): RecastFilter_UseDefaultAreaPtr {
 		return untyped __cpp__("&({0})", v);

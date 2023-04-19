@@ -3,16 +3,16 @@ package ue;
 
 @:native("UInterchangeSceneVariantSetsFactoryNode")
 @:include("InterchangeSceneVariantSetsFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSceneVariantSetsFactoryNode extends InterchangeFactoryBaseNode {
 	public function RemoveCustomVariantSetUid(VariantUid: FString): Bool;
-	public function GetObjectClass(): cpp.Star<Class>;
-	public function GetCustomVariantSetUids(OutVariantUids: cpp.Reference<TArray<FString>>): Void;
-	public function GetCustomVariantSetUidCount(): cpp.Int32;
-	public function GetCustomVariantSetUid(Index: cpp.Int32, OutVariantUid: cpp.Reference<FString>): Void;
+	public function GetObjectClass(): ucpp.Ptr<Class>;
+	public function GetCustomVariantSetUids(OutVariantUids: ucpp.Ref<TArray<FString>>): Void;
+	public function GetCustomVariantSetUidCount(): ucpp.num.Int32;
+	public function GetCustomVariantSetUid(Index: ucpp.num.Int32, OutVariantUid: ucpp.Ref<FString>): Void;
 	public function AddCustomVariantSetUid(VariantUid: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetObjectClass, GetCustomVariantSetUids, GetCustomVariantSetUidCount, GetCustomVariantSetUid)
@@ -23,7 +23,7 @@ abstract ConstInterchangeSceneVariantSetsFactoryNode(InterchangeSceneVariantSets
 @:forward
 @:nativeGen
 @:native("InterchangeSceneVariantSetsFactoryNode*")
-abstract InterchangeSceneVariantSetsFactoryNodePtr(cpp.Star<InterchangeSceneVariantSetsFactoryNode>) from cpp.Star<InterchangeSceneVariantSetsFactoryNode> to cpp.Star<InterchangeSceneVariantSetsFactoryNode>{
+abstract InterchangeSceneVariantSetsFactoryNodePtr(ucpp.Ptr<InterchangeSceneVariantSetsFactoryNode>) from ucpp.Ptr<InterchangeSceneVariantSetsFactoryNode> to ucpp.Ptr<InterchangeSceneVariantSetsFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSceneVariantSetsFactoryNode): InterchangeSceneVariantSetsFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

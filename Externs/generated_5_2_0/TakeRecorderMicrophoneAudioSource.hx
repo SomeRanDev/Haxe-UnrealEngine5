@@ -3,20 +3,20 @@ package ue;
 
 @:native("UTakeRecorderMicrophoneAudioSource")
 @:include("TakeRecorderMicrophoneAudioSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderMicrophoneAudioSource extends TakeRecorderMicrophoneAudioSourceSettings {
-	public var AudioGain: cpp.Float32;
+	public var AudioGain: ucpp.num.Float32;
 	public var bSplitAudioChannelsIntoSeparateTracks: Bool;
 	public var bReplaceRecordedAudio: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTakeRecorderMicrophoneAudioSource(TakeRecorderMicrophoneAudioSource) from TakeRecorderMicrophoneAudioSource {
-	public extern var AudioGain(get, never): cpp.Float32;
-	public inline extern function get_AudioGain(): cpp.Float32 return this.AudioGain;
+	public extern var AudioGain(get, never): ucpp.num.Float32;
+	public inline extern function get_AudioGain(): ucpp.num.Float32 return this.AudioGain;
 	public extern var bSplitAudioChannelsIntoSeparateTracks(get, never): Bool;
 	public inline extern function get_bSplitAudioChannelsIntoSeparateTracks(): Bool return this.bSplitAudioChannelsIntoSeparateTracks;
 	public extern var bReplaceRecordedAudio(get, never): Bool;
@@ -26,7 +26,7 @@ abstract ConstTakeRecorderMicrophoneAudioSource(TakeRecorderMicrophoneAudioSourc
 @:forward
 @:nativeGen
 @:native("TakeRecorderMicrophoneAudioSource*")
-abstract TakeRecorderMicrophoneAudioSourcePtr(cpp.Star<TakeRecorderMicrophoneAudioSource>) from cpp.Star<TakeRecorderMicrophoneAudioSource> to cpp.Star<TakeRecorderMicrophoneAudioSource>{
+abstract TakeRecorderMicrophoneAudioSourcePtr(ucpp.Ptr<TakeRecorderMicrophoneAudioSource>) from ucpp.Ptr<TakeRecorderMicrophoneAudioSource> to ucpp.Ptr<TakeRecorderMicrophoneAudioSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderMicrophoneAudioSource): TakeRecorderMicrophoneAudioSourcePtr {
 		return untyped __cpp__("&({0})", v);

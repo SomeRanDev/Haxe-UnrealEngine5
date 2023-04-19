@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBakeTransformToolBuilder")
 @:include("BakeTransformTool.h")
-@:structAccess
+@:valueType
 extern class BakeTransformToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBakeTransformToolBuilder(BakeTransformToolBuilder) from BakeTransf
 @:forward
 @:nativeGen
 @:native("BakeTransformToolBuilder*")
-abstract BakeTransformToolBuilderPtr(cpp.Star<BakeTransformToolBuilder>) from cpp.Star<BakeTransformToolBuilder> to cpp.Star<BakeTransformToolBuilder>{
+abstract BakeTransformToolBuilderPtr(ucpp.Ptr<BakeTransformToolBuilder>) from ucpp.Ptr<BakeTransformToolBuilder> to ucpp.Ptr<BakeTransformToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BakeTransformToolBuilder): BakeTransformToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

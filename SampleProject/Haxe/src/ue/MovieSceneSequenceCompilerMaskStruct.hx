@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSequenceCompilerMaskStruct")
 @:include("Compilation/MovieSceneCompiledDataManager.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceCompilerMaskStruct {
 	public var bHierarchy: Bool;
 	public var bEvaluationTemplate: Bool;

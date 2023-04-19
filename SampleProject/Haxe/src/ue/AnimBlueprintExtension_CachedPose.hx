@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintExtension_CachedPose")
 @:include("AnimBlueprintExtension_CachedPose.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintExtension_CachedPose extends AnimBlueprintExtension {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimBlueprintExtension_CachedPose(AnimBlueprintExtension_CachedPos
 @:forward
 @:nativeGen
 @:native("AnimBlueprintExtension_CachedPose*")
-abstract AnimBlueprintExtension_CachedPosePtr(cpp.Star<AnimBlueprintExtension_CachedPose>) from cpp.Star<AnimBlueprintExtension_CachedPose> to cpp.Star<AnimBlueprintExtension_CachedPose>{
+abstract AnimBlueprintExtension_CachedPosePtr(ucpp.Ptr<AnimBlueprintExtension_CachedPose>) from ucpp.Ptr<AnimBlueprintExtension_CachedPose> to ucpp.Ptr<AnimBlueprintExtension_CachedPose>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintExtension_CachedPose): AnimBlueprintExtension_CachedPosePtr {
 		return untyped __cpp__("&({0})", v);

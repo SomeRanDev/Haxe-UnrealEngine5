@@ -3,10 +3,10 @@ package ue;
 
 @:native("ATriggerBox")
 @:include("Engine/TriggerBox.h")
-@:structAccess
+@:valueType
 extern class TriggerBox extends TriggerBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTriggerBox(TriggerBox) from TriggerBox {
 @:forward
 @:nativeGen
 @:native("TriggerBox*")
-abstract TriggerBoxPtr(cpp.Star<TriggerBox>) from cpp.Star<TriggerBox> to cpp.Star<TriggerBox>{
+abstract TriggerBoxPtr(ucpp.Ptr<TriggerBox>) from ucpp.Ptr<TriggerBox> to ucpp.Ptr<TriggerBox>{
 	@:from
 	public static extern inline function fromValue(v: TriggerBox): TriggerBoxPtr {
 		return untyped __cpp__("&({0})", v);

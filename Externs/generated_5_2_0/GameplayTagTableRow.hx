@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayTagTableRow")
 @:include("GameplayTagsManager.h")
-@:structAccess
+@:valueType
 extern class GameplayTagTableRow extends TableRowBase {
 	public var Tag: FName;
 	public var DevComment: FString;

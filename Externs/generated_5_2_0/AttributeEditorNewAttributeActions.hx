@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAttributeEditorNewAttributeActions")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorNewAttributeActions extends AttributeEditorActionPropertySet {
 	public var NewName: FString;
 	public var ElementType: EAttributeEditorElementType;
@@ -12,7 +12,7 @@ extern class AttributeEditorNewAttributeActions extends AttributeEditorActionPro
 	public function AddWeightMapLayer(): Void;
 	public function AddPolyGroupLayer(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstAttributeEditorNewAttributeActions(AttributeEditorNewAttributeActi
 @:forward
 @:nativeGen
 @:native("AttributeEditorNewAttributeActions*")
-abstract AttributeEditorNewAttributeActionsPtr(cpp.Star<AttributeEditorNewAttributeActions>) from cpp.Star<AttributeEditorNewAttributeActions> to cpp.Star<AttributeEditorNewAttributeActions>{
+abstract AttributeEditorNewAttributeActionsPtr(ucpp.Ptr<AttributeEditorNewAttributeActions>) from ucpp.Ptr<AttributeEditorNewAttributeActions> to ucpp.Ptr<AttributeEditorNewAttributeActions>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorNewAttributeActions): AttributeEditorNewAttributeActionsPtr {
 		return untyped __cpp__("&({0})", v);

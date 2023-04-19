@@ -3,12 +3,12 @@ package ue;
 
 @:native("FTileLODEntryDetails")
 @:include("Private/Tiles/WorldTileDetails.h")
-@:structAccess
+@:valueType
 extern class TileLODEntryDetails {
-	public var LODIndex: cpp.Int32;
-	public var RelativeDistance: cpp.Int32;
+	public var LODIndex: ucpp.num.Int32;
+	public var RelativeDistance: ucpp.num.Int32;
 	public var SimplificationDetails: LevelSimplificationDetails;
 
 	@:native("FTileLODEntryDetails") public function new();
-	@:native("FTileLODEntryDetails") public static function make(LODIndex: cpp.Int32, RelativeDistance: cpp.Int32, SimplificationDetails: LevelSimplificationDetails): TileLODEntryDetails ;
+	@:native("FTileLODEntryDetails") public static function make(LODIndex: ucpp.num.Int32, RelativeDistance: ucpp.num.Int32, SimplificationDetails: LevelSimplificationDetails): TileLODEntryDetails ;
 }

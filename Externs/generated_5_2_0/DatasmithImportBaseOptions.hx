@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDatasmithImportBaseOptions")
 @:include("DatasmithImportOptions.h")
-@:structAccess
+@:valueType
 extern class DatasmithImportBaseOptions {
 	public var SceneHandling: EDatasmithImportScene;
 	public var bIncludeGeometry: Bool;

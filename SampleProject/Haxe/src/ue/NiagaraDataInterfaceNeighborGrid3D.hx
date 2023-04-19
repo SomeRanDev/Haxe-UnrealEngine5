@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataInterfaceNeighborGrid3D")
 @:include("NiagaraDataInterfaceNeighborGrid3D.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceNeighborGrid3D extends NiagaraDataInterfaceGrid3D {
-	public var MaxNeighborsPerCell: cpp.UInt32;
+	public var MaxNeighborsPerCell: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceNeighborGrid3D(NiagaraDataInterfaceNeighborGrid3D) from NiagaraDataInterfaceNeighborGrid3D {
-	public extern var MaxNeighborsPerCell(get, never): cpp.UInt32;
-	public inline extern function get_MaxNeighborsPerCell(): cpp.UInt32 return this.MaxNeighborsPerCell;
+	public extern var MaxNeighborsPerCell(get, never): ucpp.num.UInt32;
+	public inline extern function get_MaxNeighborsPerCell(): ucpp.num.UInt32 return this.MaxNeighborsPerCell;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceNeighborGrid3D*")
-abstract NiagaraDataInterfaceNeighborGrid3DPtr(cpp.Star<NiagaraDataInterfaceNeighborGrid3D>) from cpp.Star<NiagaraDataInterfaceNeighborGrid3D> to cpp.Star<NiagaraDataInterfaceNeighborGrid3D>{
+abstract NiagaraDataInterfaceNeighborGrid3DPtr(ucpp.Ptr<NiagaraDataInterfaceNeighborGrid3D>) from ucpp.Ptr<NiagaraDataInterfaceNeighborGrid3D> to ucpp.Ptr<NiagaraDataInterfaceNeighborGrid3D>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceNeighborGrid3D): NiagaraDataInterfaceNeighborGrid3DPtr {
 		return untyped __cpp__("&({0})", v);

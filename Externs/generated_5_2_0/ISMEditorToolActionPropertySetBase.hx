@@ -3,10 +3,10 @@ package ue;
 
 @:native("UISMEditorToolActionPropertySetBase")
 @:include("ISMEditorTool.h")
-@:structAccess
+@:valueType
 extern class ISMEditorToolActionPropertySetBase extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstISMEditorToolActionPropertySetBase(ISMEditorToolActionPropertySetB
 @:forward
 @:nativeGen
 @:native("ISMEditorToolActionPropertySetBase*")
-abstract ISMEditorToolActionPropertySetBasePtr(cpp.Star<ISMEditorToolActionPropertySetBase>) from cpp.Star<ISMEditorToolActionPropertySetBase> to cpp.Star<ISMEditorToolActionPropertySetBase>{
+abstract ISMEditorToolActionPropertySetBasePtr(ucpp.Ptr<ISMEditorToolActionPropertySetBase>) from ucpp.Ptr<ISMEditorToolActionPropertySetBase> to ucpp.Ptr<ISMEditorToolActionPropertySetBase>{
 	@:from
 	public static extern inline function fromValue(v: ISMEditorToolActionPropertySetBase): ISMEditorToolActionPropertySetBasePtr {
 		return untyped __cpp__("&({0})", v);

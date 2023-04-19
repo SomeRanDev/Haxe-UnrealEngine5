@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_ControlRigBase")
 @:include("AnimNode_ControlRigBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ControlRigBase extends AnimNode_CustomProperty {
 	@:protected public var Source: PoseLink;
 	@:protected public var bResetInputPoseToInitial: Bool;

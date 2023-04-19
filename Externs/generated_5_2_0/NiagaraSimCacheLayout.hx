@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraSimCacheLayout")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheLayout {
 	public var SystemLayout: NiagaraSimCacheDataBuffersLayout;
 	public var EmitterLayouts: TArray<NiagaraSimCacheDataBuffersLayout>;

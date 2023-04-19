@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNaniteAuditErrorArguments")
 @:include("NaniteToolsArguments.h")
-@:structAccess
+@:valueType
 extern class NaniteAuditErrorArguments extends EditorConfigBase {
 	public var ProhibitUnsupportedBlendMode: Bool;
 	public var ProhibitVertexInterpolator: Bool;
 	public var ProhibitPixelDepthOffset: Bool;
 	public var ProhibitWorldPositionOffset: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstNaniteAuditErrorArguments(NaniteAuditErrorArguments) from NaniteAu
 @:forward
 @:nativeGen
 @:native("NaniteAuditErrorArguments*")
-abstract NaniteAuditErrorArgumentsPtr(cpp.Star<NaniteAuditErrorArguments>) from cpp.Star<NaniteAuditErrorArguments> to cpp.Star<NaniteAuditErrorArguments>{
+abstract NaniteAuditErrorArgumentsPtr(ucpp.Ptr<NaniteAuditErrorArguments>) from ucpp.Ptr<NaniteAuditErrorArguments> to ucpp.Ptr<NaniteAuditErrorArguments>{
 	@:from
 	public static extern inline function fromValue(v: NaniteAuditErrorArguments): NaniteAuditErrorArgumentsPtr {
 		return untyped __cpp__("&({0})", v);

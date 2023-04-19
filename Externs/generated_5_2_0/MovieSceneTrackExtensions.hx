@@ -3,23 +3,23 @@ package ue;
 
 @:native("UMovieSceneTrackExtensions")
 @:include("ExtensionLibraries/MovieSceneTrackExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTrackExtensions extends BlueprintFunctionLibrary {
-	public function SetTrackRowDisplayName(Track: cpp.Star<MovieSceneTrack>, InName: cpp.Reference<FText>, RowIndex: cpp.Int32): Void;
-	public function SetSortingOrder(Track: cpp.Star<MovieSceneTrack>, SortingOrder: cpp.Int32): Void;
-	public function SetSectionToKey(Track: cpp.Star<MovieSceneTrack>, Section: cpp.Star<MovieSceneSection>): Void;
-	public function SetDisplayName(Track: cpp.Star<MovieSceneTrack>, InName: cpp.Reference<FText>): Void;
-	public function SetColorTint(Track: cpp.Star<MovieSceneTrack>, ColorTint: cpp.Reference<Color>): Void;
-	public function RemoveSection(Track: cpp.Star<MovieSceneTrack>, Section: cpp.Star<MovieSceneSection>): Void;
-	public function GetTrackRowDisplayName(Track: cpp.Star<MovieSceneTrack>, RowIndex: cpp.Int32): FText;
-	public function GetSortingOrder(Track: cpp.Star<MovieSceneTrack>): cpp.Int32;
-	public function GetSectionToKey(Track: cpp.Star<MovieSceneTrack>): cpp.Star<MovieSceneSection>;
-	public function GetSections(Track: cpp.Star<MovieSceneTrack>): TArray<cpp.Star<MovieSceneSection>>;
-	public function GetDisplayName(Track: cpp.Star<MovieSceneTrack>): FText;
-	public function GetColorTint(Track: cpp.Star<MovieSceneTrack>): Color;
-	public function AddSection(Track: cpp.Star<MovieSceneTrack>): cpp.Star<MovieSceneSection>;
+	public function SetTrackRowDisplayName(Track: ucpp.Ptr<MovieSceneTrack>, InName: ucpp.Ref<FText>, RowIndex: ucpp.num.Int32): Void;
+	public function SetSortingOrder(Track: ucpp.Ptr<MovieSceneTrack>, SortingOrder: ucpp.num.Int32): Void;
+	public function SetSectionToKey(Track: ucpp.Ptr<MovieSceneTrack>, Section: ucpp.Ptr<MovieSceneSection>): Void;
+	public function SetDisplayName(Track: ucpp.Ptr<MovieSceneTrack>, InName: ucpp.Ref<FText>): Void;
+	public function SetColorTint(Track: ucpp.Ptr<MovieSceneTrack>, ColorTint: ucpp.Ref<Color>): Void;
+	public function RemoveSection(Track: ucpp.Ptr<MovieSceneTrack>, Section: ucpp.Ptr<MovieSceneSection>): Void;
+	public function GetTrackRowDisplayName(Track: ucpp.Ptr<MovieSceneTrack>, RowIndex: ucpp.num.Int32): FText;
+	public function GetSortingOrder(Track: ucpp.Ptr<MovieSceneTrack>): ucpp.num.Int32;
+	public function GetSectionToKey(Track: ucpp.Ptr<MovieSceneTrack>): ucpp.Ptr<MovieSceneSection>;
+	public function GetSections(Track: ucpp.Ptr<MovieSceneTrack>): TArray<ucpp.Ptr<MovieSceneSection>>;
+	public function GetDisplayName(Track: ucpp.Ptr<MovieSceneTrack>): FText;
+	public function GetColorTint(Track: ucpp.Ptr<MovieSceneTrack>): Color;
+	public function AddSection(Track: ucpp.Ptr<MovieSceneTrack>): ucpp.Ptr<MovieSceneSection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstMovieSceneTrackExtensions(MovieSceneTrackExtensions) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieSceneTrackExtensions*")
-abstract MovieSceneTrackExtensionsPtr(cpp.Star<MovieSceneTrackExtensions>) from cpp.Star<MovieSceneTrackExtensions> to cpp.Star<MovieSceneTrackExtensions>{
+abstract MovieSceneTrackExtensionsPtr(ucpp.Ptr<MovieSceneTrackExtensions>) from ucpp.Ptr<MovieSceneTrackExtensions> to ucpp.Ptr<MovieSceneTrackExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTrackExtensions): MovieSceneTrackExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

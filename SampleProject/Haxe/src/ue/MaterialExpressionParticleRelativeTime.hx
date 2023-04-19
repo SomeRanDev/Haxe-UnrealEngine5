@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionParticleRelativeTime")
 @:include("Materials/MaterialExpressionParticleRelativeTime.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionParticleRelativeTime extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionParticleRelativeTime(MaterialExpressionParticleR
 @:forward
 @:nativeGen
 @:native("MaterialExpressionParticleRelativeTime*")
-abstract MaterialExpressionParticleRelativeTimePtr(cpp.Star<MaterialExpressionParticleRelativeTime>) from cpp.Star<MaterialExpressionParticleRelativeTime> to cpp.Star<MaterialExpressionParticleRelativeTime>{
+abstract MaterialExpressionParticleRelativeTimePtr(ucpp.Ptr<MaterialExpressionParticleRelativeTime>) from ucpp.Ptr<MaterialExpressionParticleRelativeTime> to ucpp.Ptr<MaterialExpressionParticleRelativeTime>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionParticleRelativeTime): MaterialExpressionParticleRelativeTimePtr {
 		return untyped __cpp__("&({0})", v);

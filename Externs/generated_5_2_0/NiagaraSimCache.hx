@@ -3,38 +3,38 @@ package ue;
 
 @:native("UNiagaraSimCache")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCache extends Object {
 	private var CacheGuid: Guid;
 	private var SoftNiagaraSystem: TSoftObjectPtr<NiagaraSystem>;
-	private var StartSeconds: cpp.Float32;
-	private var DurationSeconds: cpp.Float32;
+	private var StartSeconds: ucpp.num.Float32;
+	private var DurationSeconds: ucpp.num.Float32;
 	private var CreateParameters: NiagaraSimCacheCreateParameters;
 	private var bNeedsReadComponentMappingRecache: Bool;
 	private var CacheLayout: NiagaraSimCacheLayout;
 	private var CacheFrames: TArray<NiagaraSimCacheFrame>;
-	private var DataInterfaceStorage: TMap<NiagaraVariableBase, cpp.Star<Object>>;
+	private var DataInterfaceStorage: TMap<NiagaraVariableBase, ucpp.Ptr<Object>>;
 
-	public function ReadVectorAttribute(OutValues: cpp.Reference<TArray<Vector>>, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
-	public function ReadVector4Attribute(OutValues: cpp.Reference<TArray<Vector4>>, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
-	public function ReadVector2Attribute(OutValues: cpp.Reference<TArray<Vector2D>>, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
-	public function ReadQuatAttributeWithRebase(OutValues: cpp.Reference<TArray<Quat>>, Quat: Quat, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
-	public function ReadQuatAttribute(OutValues: cpp.Reference<TArray<Quat>>, AttributeName: FName, EmitterName: FName, bLocalSpaceToWorld: Bool, FrameIndex: cpp.Int32): Void;
-	public function ReadPositionAttributeWithRebase(OutValues: cpp.Reference<TArray<Vector>>, Transform: Transform, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
-	public function ReadPositionAttribute(OutValues: cpp.Reference<TArray<Vector>>, AttributeName: FName, EmitterName: FName, bLocalSpaceToWorld: Bool, FrameIndex: cpp.Int32): Void;
-	public function ReadIntAttribute(OutValues: cpp.Reference<TArray<cpp.Int32>>, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
-	public function ReadFloatAttribute(OutValues: cpp.Reference<TArray<cpp.Float32>>, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
-	public function ReadColorAttribute(OutValues: cpp.Reference<TArray<LinearColor>>, AttributeName: FName, EmitterName: FName, FrameIndex: cpp.Int32): Void;
+	public function ReadVectorAttribute(OutValues: ucpp.Ref<TArray<Vector>>, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadVector4Attribute(OutValues: ucpp.Ref<TArray<Vector4>>, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadVector2Attribute(OutValues: ucpp.Ref<TArray<Vector2D>>, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadQuatAttributeWithRebase(OutValues: ucpp.Ref<TArray<Quat>>, Quat: Quat, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadQuatAttribute(OutValues: ucpp.Ref<TArray<Quat>>, AttributeName: FName, EmitterName: FName, bLocalSpaceToWorld: Bool, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadPositionAttributeWithRebase(OutValues: ucpp.Ref<TArray<Vector>>, Transform: Transform, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadPositionAttribute(OutValues: ucpp.Ref<TArray<Vector>>, AttributeName: FName, EmitterName: FName, bLocalSpaceToWorld: Bool, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadIntAttribute(OutValues: ucpp.Ref<TArray<ucpp.num.Int32>>, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadFloatAttribute(OutValues: ucpp.Ref<TArray<ucpp.num.Float32>>, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
+	public function ReadColorAttribute(OutValues: ucpp.Ref<TArray<LinearColor>>, AttributeName: FName, EmitterName: FName, FrameIndex: ucpp.num.Int32): Void;
 	public function IsEmpty(): Bool;
 	public function IsCacheValid(): Bool;
-	public function GetStartSeconds(): cpp.Float32;
-	public function GetNumFrames(): cpp.Int32;
-	public function GetNumEmitters(): cpp.Int32;
+	public function GetStartSeconds(): ucpp.num.Float32;
+	public function GetNumFrames(): ucpp.num.Int32;
+	public function GetNumEmitters(): ucpp.num.Int32;
 	public function GetEmitterNames(): TArray<FName>;
-	public function GetEmitterName(EmitterIndex: cpp.Int32): FName;
+	public function GetEmitterName(EmitterIndex: ucpp.num.Int32): FName;
 	public function GetAttributeCaptureMode(): ENiagaraSimCacheAttributeCaptureMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -50,7 +50,7 @@ abstract ConstNiagaraSimCache(NiagaraSimCache) from NiagaraSimCache {
 @:forward
 @:nativeGen
 @:native("NiagaraSimCache*")
-abstract NiagaraSimCachePtr(cpp.Star<NiagaraSimCache>) from cpp.Star<NiagaraSimCache> to cpp.Star<NiagaraSimCache>{
+abstract NiagaraSimCachePtr(ucpp.Ptr<NiagaraSimCache>) from ucpp.Ptr<NiagaraSimCache> to ucpp.Ptr<NiagaraSimCache>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSimCache): NiagaraSimCachePtr {
 		return untyped __cpp__("&({0})", v);

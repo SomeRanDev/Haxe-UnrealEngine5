@@ -3,15 +3,15 @@ package ue;
 
 @:native("ULevelStreaming")
 @:include("Engine/LevelStreaming.h")
-@:structAccess
+@:valueType
 extern class LevelStreaming extends Object {
 	@:protected public var WorldAsset: TSoftObjectPtr<World>;
-	@:protected public var StreamingPriority: cpp.Int32;
+	@:protected public var StreamingPriority: ucpp.num.Int32;
 	public var PackageNameToLoad: FName;
 	public var LODPackageNames: TArray<FName>;
 	public var LevelTransform: Transform;
 	public var bClientOnlyVisible: Bool;
-	private var LevelLODIndex: cpp.Int32;
+	private var LevelLODIndex: ucpp.num.Int32;
 	private var bShouldBeVisible: Bool;
 	public function ShouldBeLoaded(): Bool;
 	public function SetShouldBeLoaded(input: Bool): Void;
@@ -22,29 +22,29 @@ extern class LevelStreaming extends Object {
 	public var bDisableDistanceStreaming: Bool;
 	public var bDrawOnLevelStatusMap: Bool;
 	public var LevelColor: LinearColor;
-	public var EditorStreamingVolumes: TArray<cpp.Star<LevelStreamingVolume>>;
-	public var MinTimeBetweenVolumeUnloadRequests: cpp.Float32;
+	public var EditorStreamingVolumes: TArray<ucpp.Ptr<LevelStreamingVolume>>;
+	public var MinTimeBetweenVolumeUnloadRequests: ucpp.num.Float32;
 	public var OnLevelLoaded: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnLevelUnloaded: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnLevelShown: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnLevelHidden: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	@:protected public var LoadedLevel: cpp.Star<Level>;
-	@:protected public var PendingUnloadLevel: cpp.Star<Level>;
+	@:protected public var LoadedLevel: ucpp.Ptr<Level>;
+	@:protected public var PendingUnloadLevel: ucpp.Ptr<Level>;
 
 	public function SetShouldBeVisible(bInShouldBeVisible: Bool): Void;
-	public function SetPriority(NewPriority: cpp.Int32): Void;
-	public function SetLevelLODIndex(LODIndex: cpp.Int32): Void;
+	public function SetPriority(NewPriority: ucpp.num.Int32): Void;
+	public function SetLevelLODIndex(LODIndex: ucpp.num.Int32): Void;
 	public function SetIsRequestingUnloadAndRemoval(bInIsRequestingUnloadAndRemoval: Bool): Void;
 	public function IsStreamingStatePending(): Bool;
 	public function IsLevelVisible(): Bool;
 	public function IsLevelLoaded(): Bool;
 	public function GetWorldAssetPackageFName(): FName;
-	public function GetLoadedLevel(): cpp.Star<Level>;
-	public function GetLevelScriptActor(): cpp.Star<LevelScriptActor>;
+	public function GetLoadedLevel(): ucpp.Ptr<Level>;
+	public function GetLevelScriptActor(): ucpp.Ptr<LevelScriptActor>;
 	public function GetIsRequestingUnloadAndRemoval(): Bool;
-	public function CreateInstance(UniqueInstanceName: FString): cpp.Star<LevelStreaming>;
+	public function CreateInstance(UniqueInstanceName: FString): ucpp.Ptr<LevelStreaming>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsStreamingStatePending, IsLevelVisible, IsLevelLoaded, GetWorldAssetPackageFName, GetLoadedLevel, GetIsRequestingUnloadAndRemoval)
@@ -72,10 +72,10 @@ abstract ConstLevelStreaming(LevelStreaming) from LevelStreaming {
 	public inline extern function get_bDrawOnLevelStatusMap(): Bool return this.bDrawOnLevelStatusMap;
 	public extern var LevelColor(get, never): LinearColor;
 	public inline extern function get_LevelColor(): LinearColor return this.LevelColor;
-	public extern var EditorStreamingVolumes(get, never): TArray<cpp.Star<LevelStreamingVolume.ConstLevelStreamingVolume>>;
-	public inline extern function get_EditorStreamingVolumes(): TArray<cpp.Star<LevelStreamingVolume.ConstLevelStreamingVolume>> return this.EditorStreamingVolumes;
-	public extern var MinTimeBetweenVolumeUnloadRequests(get, never): cpp.Float32;
-	public inline extern function get_MinTimeBetweenVolumeUnloadRequests(): cpp.Float32 return this.MinTimeBetweenVolumeUnloadRequests;
+	public extern var EditorStreamingVolumes(get, never): TArray<ucpp.Ptr<LevelStreamingVolume.ConstLevelStreamingVolume>>;
+	public inline extern function get_EditorStreamingVolumes(): TArray<ucpp.Ptr<LevelStreamingVolume.ConstLevelStreamingVolume>> return this.EditorStreamingVolumes;
+	public extern var MinTimeBetweenVolumeUnloadRequests(get, never): ucpp.num.Float32;
+	public inline extern function get_MinTimeBetweenVolumeUnloadRequests(): ucpp.num.Float32 return this.MinTimeBetweenVolumeUnloadRequests;
 	public extern var OnLevelLoaded(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnLevelLoaded(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnLevelLoaded;
 	public extern var OnLevelUnloaded(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -89,7 +89,7 @@ abstract ConstLevelStreaming(LevelStreaming) from LevelStreaming {
 @:forward
 @:nativeGen
 @:native("LevelStreaming*")
-abstract LevelStreamingPtr(cpp.Star<LevelStreaming>) from cpp.Star<LevelStreaming> to cpp.Star<LevelStreaming>{
+abstract LevelStreamingPtr(ucpp.Ptr<LevelStreaming>) from ucpp.Ptr<LevelStreaming> to ucpp.Ptr<LevelStreaming>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreaming): LevelStreamingPtr {
 		return untyped __cpp__("&({0})", v);

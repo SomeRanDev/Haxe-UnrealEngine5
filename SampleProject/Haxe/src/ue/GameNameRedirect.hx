@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameNameRedirect")
 @:include("Engine/Engine.h")
-@:structAccess
+@:valueType
 extern class GameNameRedirect {
 	public var OldGameName: FName;
 	public var NewGameName: FName;

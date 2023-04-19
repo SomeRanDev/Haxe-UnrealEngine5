@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnyButtonInputBehavior")
 @:include("BaseBehaviors/AnyButtonInputBehavior.h")
-@:structAccess
+@:valueType
 extern class AnyButtonInputBehavior extends InputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnyButtonInputBehavior(AnyButtonInputBehavior) from AnyButtonInput
 @:forward
 @:nativeGen
 @:native("AnyButtonInputBehavior*")
-abstract AnyButtonInputBehaviorPtr(cpp.Star<AnyButtonInputBehavior>) from cpp.Star<AnyButtonInputBehavior> to cpp.Star<AnyButtonInputBehavior>{
+abstract AnyButtonInputBehaviorPtr(ucpp.Ptr<AnyButtonInputBehavior>) from ucpp.Ptr<AnyButtonInputBehavior> to ucpp.Ptr<AnyButtonInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: AnyButtonInputBehavior): AnyButtonInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGLTFLevelSequenceExporter")
 @:include("Exporters/GLTFLevelSequenceExporter.h")
-@:structAccess
+@:valueType
 extern class GLTFLevelSequenceExporter extends GLTFExporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGLTFLevelSequenceExporter(GLTFLevelSequenceExporter) from GLTFLeve
 @:forward
 @:nativeGen
 @:native("GLTFLevelSequenceExporter*")
-abstract GLTFLevelSequenceExporterPtr(cpp.Star<GLTFLevelSequenceExporter>) from cpp.Star<GLTFLevelSequenceExporter> to cpp.Star<GLTFLevelSequenceExporter>{
+abstract GLTFLevelSequenceExporterPtr(ucpp.Ptr<GLTFLevelSequenceExporter>) from ucpp.Ptr<GLTFLevelSequenceExporter> to ucpp.Ptr<GLTFLevelSequenceExporter>{
 	@:from
 	public static extern inline function fromValue(v: GLTFLevelSequenceExporter): GLTFLevelSequenceExporterPtr {
 		return untyped __cpp__("&({0})", v);

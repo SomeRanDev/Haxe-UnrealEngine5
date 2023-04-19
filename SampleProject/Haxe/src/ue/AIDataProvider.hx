@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAIDataProvider")
 @:include("DataProviders/AIDataProvider.h")
-@:structAccess
+@:valueType
 extern class AIDataProvider extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAIDataProvider(AIDataProvider) from AIDataProvider {
 @:forward
 @:nativeGen
 @:native("AIDataProvider*")
-abstract AIDataProviderPtr(cpp.Star<AIDataProvider>) from cpp.Star<AIDataProvider> to cpp.Star<AIDataProvider>{
+abstract AIDataProviderPtr(ucpp.Ptr<AIDataProvider>) from ucpp.Ptr<AIDataProvider> to ucpp.Ptr<AIDataProvider>{
 	@:from
 	public static extern inline function fromValue(v: AIDataProvider): AIDataProviderPtr {
 		return untyped __cpp__("&({0})", v);

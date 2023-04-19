@@ -3,10 +3,10 @@ package ue;
 
 @:native("URectangleMarqueeInteraction")
 @:include("Mechanics/RectangleMarqueeMechanic.h")
-@:structAccess
+@:valueType
 extern class RectangleMarqueeInteraction extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRectangleMarqueeInteraction(RectangleMarqueeInteraction) from Rect
 @:forward
 @:nativeGen
 @:native("RectangleMarqueeInteraction*")
-abstract RectangleMarqueeInteractionPtr(cpp.Star<RectangleMarqueeInteraction>) from cpp.Star<RectangleMarqueeInteraction> to cpp.Star<RectangleMarqueeInteraction>{
+abstract RectangleMarqueeInteractionPtr(ucpp.Ptr<RectangleMarqueeInteraction>) from ucpp.Ptr<RectangleMarqueeInteraction> to ucpp.Ptr<RectangleMarqueeInteraction>{
 	@:from
 	public static extern inline function fromValue(v: RectangleMarqueeInteraction): RectangleMarqueeInteractionPtr {
 		return untyped __cpp__("&({0})", v);

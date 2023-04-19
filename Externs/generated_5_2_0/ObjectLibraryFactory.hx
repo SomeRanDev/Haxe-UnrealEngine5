@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectLibraryFactory")
 @:include("Factories/ObjectLibraryFactory.h")
-@:structAccess
+@:valueType
 extern class ObjectLibraryFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectLibraryFactory(ObjectLibraryFactory) from ObjectLibraryFacto
 @:forward
 @:nativeGen
 @:native("ObjectLibraryFactory*")
-abstract ObjectLibraryFactoryPtr(cpp.Star<ObjectLibraryFactory>) from cpp.Star<ObjectLibraryFactory> to cpp.Star<ObjectLibraryFactory>{
+abstract ObjectLibraryFactoryPtr(ucpp.Ptr<ObjectLibraryFactory>) from ucpp.Ptr<ObjectLibraryFactory> to ucpp.Ptr<ObjectLibraryFactory>{
 	@:from
 	public static extern inline function fromValue(v: ObjectLibraryFactory): ObjectLibraryFactoryPtr {
 		return untyped __cpp__("&({0})", v);

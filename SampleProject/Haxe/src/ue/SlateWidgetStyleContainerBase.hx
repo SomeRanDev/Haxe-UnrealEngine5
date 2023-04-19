@@ -3,10 +3,10 @@ package ue;
 
 @:native("USlateWidgetStyleContainerBase")
 @:include("Styling/SlateWidgetStyleContainerBase.h")
-@:structAccess
+@:valueType
 extern class SlateWidgetStyleContainerBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSlateWidgetStyleContainerBase(SlateWidgetStyleContainerBase) from 
 @:forward
 @:nativeGen
 @:native("SlateWidgetStyleContainerBase*")
-abstract SlateWidgetStyleContainerBasePtr(cpp.Star<SlateWidgetStyleContainerBase>) from cpp.Star<SlateWidgetStyleContainerBase> to cpp.Star<SlateWidgetStyleContainerBase>{
+abstract SlateWidgetStyleContainerBasePtr(ucpp.Ptr<SlateWidgetStyleContainerBase>) from ucpp.Ptr<SlateWidgetStyleContainerBase> to ucpp.Ptr<SlateWidgetStyleContainerBase>{
 	@:from
 	public static extern inline function fromValue(v: SlateWidgetStyleContainerBase): SlateWidgetStyleContainerBasePtr {
 		return untyped __cpp__("&({0})", v);

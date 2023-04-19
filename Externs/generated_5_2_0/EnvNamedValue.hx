@@ -3,12 +3,12 @@ package ue;
 
 @:native("FEnvNamedValue")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-@:structAccess
+@:valueType
 extern class EnvNamedValue {
 	public var ParamName: FName;
 	public var ParamType: EAIParamType;
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 
 	@:native("FEnvNamedValue") public function new();
-	@:native("FEnvNamedValue") public static function make(ParamName: FName, ParamType: EAIParamType, Value: cpp.Float32): EnvNamedValue ;
+	@:native("FEnvNamedValue") public static function make(ParamName: FName, ParamType: EAIParamType, Value: ucpp.num.Float32): EnvNamedValue ;
 }

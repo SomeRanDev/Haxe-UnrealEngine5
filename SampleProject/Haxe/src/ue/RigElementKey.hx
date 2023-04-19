@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigElementKey")
 @:include("Rigs/RigHierarchyDefines.h")
-@:structAccess
+@:valueType
 extern class RigElementKey {
 	public var Type: ERigElementType;
 	public var Name: FName;

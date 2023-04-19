@@ -3,10 +3,10 @@ package ue;
 
 @:native("UExportDialogueScriptCommandlet")
 @:include("Commandlets/ExportDialogueScriptCommandlet.h")
-@:structAccess
+@:valueType
 extern class ExportDialogueScriptCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstExportDialogueScriptCommandlet(ExportDialogueScriptCommandlet) fro
 @:forward
 @:nativeGen
 @:native("ExportDialogueScriptCommandlet*")
-abstract ExportDialogueScriptCommandletPtr(cpp.Star<ExportDialogueScriptCommandlet>) from cpp.Star<ExportDialogueScriptCommandlet> to cpp.Star<ExportDialogueScriptCommandlet>{
+abstract ExportDialogueScriptCommandletPtr(ucpp.Ptr<ExportDialogueScriptCommandlet>) from ucpp.Ptr<ExportDialogueScriptCommandlet> to ucpp.Ptr<ExportDialogueScriptCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ExportDialogueScriptCommandlet): ExportDialogueScriptCommandletPtr {
 		return untyped __cpp__("&({0})", v);

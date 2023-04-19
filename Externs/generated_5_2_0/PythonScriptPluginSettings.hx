@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPythonScriptPluginSettings")
 @:include("PythonScriptPluginSettings.h")
-@:structAccess
+@:valueType
 extern class PythonScriptPluginSettings extends DeveloperSettings {
 	public var StartupScripts: TArray<FString>;
 	public var AdditionalPaths: TArray<DirectoryPath>;
@@ -12,11 +12,11 @@ extern class PythonScriptPluginSettings extends DeveloperSettings {
 	public var bRemoteExecution: Bool;
 	public var RemoteExecutionMulticastGroupEndpoint: FString;
 	public var RemoteExecutionMulticastBindAddress: FString;
-	public var RemoteExecutionSendBufferSizeBytes: cpp.Int32;
-	public var RemoteExecutionReceiveBufferSizeBytes: cpp.Int32;
-	public var RemoteExecutionMulticastTtl: cpp.UInt8;
+	public var RemoteExecutionSendBufferSizeBytes: ucpp.num.Int32;
+	public var RemoteExecutionReceiveBufferSizeBytes: ucpp.num.Int32;
+	public var RemoteExecutionMulticastTtl: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,18 +36,18 @@ abstract ConstPythonScriptPluginSettings(PythonScriptPluginSettings) from Python
 	public inline extern function get_RemoteExecutionMulticastGroupEndpoint(): FString return this.RemoteExecutionMulticastGroupEndpoint;
 	public extern var RemoteExecutionMulticastBindAddress(get, never): FString;
 	public inline extern function get_RemoteExecutionMulticastBindAddress(): FString return this.RemoteExecutionMulticastBindAddress;
-	public extern var RemoteExecutionSendBufferSizeBytes(get, never): cpp.Int32;
-	public inline extern function get_RemoteExecutionSendBufferSizeBytes(): cpp.Int32 return this.RemoteExecutionSendBufferSizeBytes;
-	public extern var RemoteExecutionReceiveBufferSizeBytes(get, never): cpp.Int32;
-	public inline extern function get_RemoteExecutionReceiveBufferSizeBytes(): cpp.Int32 return this.RemoteExecutionReceiveBufferSizeBytes;
-	public extern var RemoteExecutionMulticastTtl(get, never): cpp.UInt8;
-	public inline extern function get_RemoteExecutionMulticastTtl(): cpp.UInt8 return this.RemoteExecutionMulticastTtl;
+	public extern var RemoteExecutionSendBufferSizeBytes(get, never): ucpp.num.Int32;
+	public inline extern function get_RemoteExecutionSendBufferSizeBytes(): ucpp.num.Int32 return this.RemoteExecutionSendBufferSizeBytes;
+	public extern var RemoteExecutionReceiveBufferSizeBytes(get, never): ucpp.num.Int32;
+	public inline extern function get_RemoteExecutionReceiveBufferSizeBytes(): ucpp.num.Int32 return this.RemoteExecutionReceiveBufferSizeBytes;
+	public extern var RemoteExecutionMulticastTtl(get, never): ucpp.num.UInt8;
+	public inline extern function get_RemoteExecutionMulticastTtl(): ucpp.num.UInt8 return this.RemoteExecutionMulticastTtl;
 }
 
 @:forward
 @:nativeGen
 @:native("PythonScriptPluginSettings*")
-abstract PythonScriptPluginSettingsPtr(cpp.Star<PythonScriptPluginSettings>) from cpp.Star<PythonScriptPluginSettings> to cpp.Star<PythonScriptPluginSettings>{
+abstract PythonScriptPluginSettingsPtr(ucpp.Ptr<PythonScriptPluginSettings>) from ucpp.Ptr<PythonScriptPluginSettings> to ucpp.Ptr<PythonScriptPluginSettings>{
 	@:from
 	public static extern inline function fromValue(v: PythonScriptPluginSettings): PythonScriptPluginSettingsPtr {
 		return untyped __cpp__("&({0})", v);

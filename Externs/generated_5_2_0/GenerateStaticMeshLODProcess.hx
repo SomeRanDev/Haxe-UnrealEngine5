@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGenerateStaticMeshLODProcess")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess extends Object {
-	@:protected public var SourceStaticMesh: cpp.Star<StaticMesh>;
-	@:protected public var AllDerivedTextures: TSet<cpp.Star<Texture2D>>;
-	@:protected public var DerivedNormalMapTex: cpp.Star<Texture2D>;
-	@:protected public var DerivedMultiTextureBakeResult: cpp.Star<Texture2D>;
+	@:protected public var SourceStaticMesh: ucpp.Ptr<StaticMesh>;
+	@:protected public var AllDerivedTextures: TSet<ucpp.Ptr<Texture2D>>;
+	@:protected public var DerivedNormalMapTex: ucpp.Ptr<Texture2D>;
+	@:protected public var DerivedMultiTextureBakeResult: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstGenerateStaticMeshLODProcess(GenerateStaticMeshLODProcess) from Ge
 @:forward
 @:nativeGen
 @:native("GenerateStaticMeshLODProcess*")
-abstract GenerateStaticMeshLODProcessPtr(cpp.Star<GenerateStaticMeshLODProcess>) from cpp.Star<GenerateStaticMeshLODProcess> to cpp.Star<GenerateStaticMeshLODProcess>{
+abstract GenerateStaticMeshLODProcessPtr(ucpp.Ptr<GenerateStaticMeshLODProcess>) from ucpp.Ptr<GenerateStaticMeshLODProcess> to ucpp.Ptr<GenerateStaticMeshLODProcess>{
 	@:from
 	public static extern inline function fromValue(v: GenerateStaticMeshLODProcess): GenerateStaticMeshLODProcessPtr {
 		return untyped __cpp__("&({0})", v);

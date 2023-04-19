@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ERetargetRotationMode")
-@:include("Retargeter/IKRetargeter.h")
+@:include("Retargeter/IKRetargetSettings.h")
 extern class ERetargetRotationMode {
 	static var Interpolated: ERetargetRotationMode;
 	static var OneToOne: ERetargetRotationMode;

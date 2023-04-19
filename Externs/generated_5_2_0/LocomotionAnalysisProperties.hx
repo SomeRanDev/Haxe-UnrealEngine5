@@ -3,7 +3,7 @@ package ue;
 
 @:native("ULocomotionAnalysisProperties")
 @:include("LocomotionAnalysis.h")
-@:structAccess
+@:valueType
 extern class LocomotionAnalysisProperties extends AnalysisProperties {
 	public var FunctionAxis: EAnalysisLocomotionAxis;
 	public var PrimaryBoneSocket: BoneSocketTarget;
@@ -11,7 +11,7 @@ extern class LocomotionAnalysisProperties extends AnalysisProperties {
 	public var CharacterFacingAxis: EAnalysisLinearAxis;
 	public var CharacterUpAxis: EAnalysisLinearAxis;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstLocomotionAnalysisProperties(LocomotionAnalysisProperties) from Lo
 @:forward
 @:nativeGen
 @:native("LocomotionAnalysisProperties*")
-abstract LocomotionAnalysisPropertiesPtr(cpp.Star<LocomotionAnalysisProperties>) from cpp.Star<LocomotionAnalysisProperties> to cpp.Star<LocomotionAnalysisProperties>{
+abstract LocomotionAnalysisPropertiesPtr(ucpp.Ptr<LocomotionAnalysisProperties>) from ucpp.Ptr<LocomotionAnalysisProperties> to ucpp.Ptr<LocomotionAnalysisProperties>{
 	@:from
 	public static extern inline function fromValue(v: LocomotionAnalysisProperties): LocomotionAnalysisPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

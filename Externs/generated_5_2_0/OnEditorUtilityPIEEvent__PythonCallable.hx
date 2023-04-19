@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnEditorUtilityPIEEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnEditorUtilityPIEEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnEditorUtilityPIEEvent__PythonCallable(OnEditorUtilityPIEEvent__P
 @:forward
 @:nativeGen
 @:native("OnEditorUtilityPIEEvent__PythonCallable*")
-abstract OnEditorUtilityPIEEvent__PythonCallablePtr(cpp.Star<OnEditorUtilityPIEEvent__PythonCallable>) from cpp.Star<OnEditorUtilityPIEEvent__PythonCallable> to cpp.Star<OnEditorUtilityPIEEvent__PythonCallable>{
+abstract OnEditorUtilityPIEEvent__PythonCallablePtr(ucpp.Ptr<OnEditorUtilityPIEEvent__PythonCallable>) from ucpp.Ptr<OnEditorUtilityPIEEvent__PythonCallable> to ucpp.Ptr<OnEditorUtilityPIEEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnEditorUtilityPIEEvent__PythonCallable): OnEditorUtilityPIEEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

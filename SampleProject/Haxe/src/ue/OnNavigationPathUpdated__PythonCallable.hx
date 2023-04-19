@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnNavigationPathUpdated__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnNavigationPathUpdated__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnNavigationPathUpdated__PythonCallable(OnNavigationPathUpdated__P
 @:forward
 @:nativeGen
 @:native("OnNavigationPathUpdated__PythonCallable*")
-abstract OnNavigationPathUpdated__PythonCallablePtr(cpp.Star<OnNavigationPathUpdated__PythonCallable>) from cpp.Star<OnNavigationPathUpdated__PythonCallable> to cpp.Star<OnNavigationPathUpdated__PythonCallable>{
+abstract OnNavigationPathUpdated__PythonCallablePtr(ucpp.Ptr<OnNavigationPathUpdated__PythonCallable>) from ucpp.Ptr<OnNavigationPathUpdated__PythonCallable> to ucpp.Ptr<OnNavigationPathUpdated__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnNavigationPathUpdated__PythonCallable): OnNavigationPathUpdated__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSimulationStageMetaData")
 @:include("NiagaraScriptBase.h")
-@:structAccess
+@:valueType
 extern class SimulationStageMetaData {
 	public var SimulationStageName: FName;
 	public var EnabledBinding: FName;
@@ -22,7 +22,7 @@ extern class SimulationStageMetaData {
 	public var ParticleIterationStateRange: IntPoint;
 	public var OutputDestinations: TArray<FName>;
 	public var InputDataInterfaces: TArray<FName>;
-	public var NumIterations: cpp.Int32;
+	public var NumIterations: ucpp.num.Int32;
 	public var NumIterationsBinding: FName;
 	public var GpuDispatchType: ENiagaraGpuDispatchType;
 	public var GpuDirectDispatchElementType: ENiagaraDirectDispatchElementType;

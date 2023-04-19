@@ -3,21 +3,21 @@ package ue;
 
 @:native("USceneCaptureComponentCube")
 @:include("Components/SceneCaptureComponentCube.h")
-@:structAccess
+@:valueType
 extern class SceneCaptureComponentCube extends SceneCaptureComp {
-	public var TextureTarget: cpp.Star<TextureRenderTargetCube>;
+	public var TextureTarget: ucpp.Ptr<TextureRenderTargetCube>;
 	public var bCaptureRotation: Bool;
 
 	public function CaptureScene(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSceneCaptureComponentCube(SceneCaptureComponentCube) from SceneCaptureComponentCube {
-	public extern var TextureTarget(get, never): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube>;
-	public inline extern function get_TextureTarget(): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube> return this.TextureTarget;
+	public extern var TextureTarget(get, never): ucpp.Ptr<TextureRenderTargetCube.ConstTextureRenderTargetCube>;
+	public inline extern function get_TextureTarget(): ucpp.Ptr<TextureRenderTargetCube.ConstTextureRenderTargetCube> return this.TextureTarget;
 	public extern var bCaptureRotation(get, never): Bool;
 	public inline extern function get_bCaptureRotation(): Bool return this.bCaptureRotation;
 }
@@ -25,7 +25,7 @@ abstract ConstSceneCaptureComponentCube(SceneCaptureComponentCube) from SceneCap
 @:forward
 @:nativeGen
 @:native("SceneCaptureComponentCube*")
-abstract SceneCaptureComponentCubePtr(cpp.Star<SceneCaptureComponentCube>) from cpp.Star<SceneCaptureComponentCube> to cpp.Star<SceneCaptureComponentCube>{
+abstract SceneCaptureComponentCubePtr(ucpp.Ptr<SceneCaptureComponentCube>) from ucpp.Ptr<SceneCaptureComponentCube> to ucpp.Ptr<SceneCaptureComponentCube>{
 	@:from
 	public static extern inline function fromValue(v: SceneCaptureComponentCube): SceneCaptureComponentCubePtr {
 		return untyped __cpp__("&({0})", v);

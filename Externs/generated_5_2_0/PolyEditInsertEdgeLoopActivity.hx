@@ -3,12 +3,12 @@ package ue;
 
 @:native("UPolyEditInsertEdgeLoopActivity")
 @:include("ToolActivities/PolyEditInsertEdgeLoopActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditInsertEdgeLoopActivity extends InteractiveToolActivity {
-	@:protected public var Settings: cpp.Star<EdgeLoopInsertionProperties>;
-	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var Settings: ucpp.Ptr<EdgeLoopInsertionProperties>;
+	@:protected public var ActivityContext: ucpp.Ptr<PolyEditActivityContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstPolyEditInsertEdgeLoopActivity(PolyEditInsertEdgeLoopActivity) fro
 @:forward
 @:nativeGen
 @:native("PolyEditInsertEdgeLoopActivity*")
-abstract PolyEditInsertEdgeLoopActivityPtr(cpp.Star<PolyEditInsertEdgeLoopActivity>) from cpp.Star<PolyEditInsertEdgeLoopActivity> to cpp.Star<PolyEditInsertEdgeLoopActivity>{
+abstract PolyEditInsertEdgeLoopActivityPtr(ucpp.Ptr<PolyEditInsertEdgeLoopActivity>) from ucpp.Ptr<PolyEditInsertEdgeLoopActivity> to ucpp.Ptr<PolyEditInsertEdgeLoopActivity>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditInsertEdgeLoopActivity): PolyEditInsertEdgeLoopActivityPtr {
 		return untyped __cpp__("&({0})", v);

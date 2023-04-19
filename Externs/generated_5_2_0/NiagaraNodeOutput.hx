@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraNodeOutput")
 @:include("NiagaraNodeOutput.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeOutput extends NiagaraNode {
 	public var Outputs: TArray<NiagaraVariable>;
 	public var ScriptType: ENiagaraScriptUsage;
 	public var ScriptTypeId: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstNiagaraNodeOutput(NiagaraNodeOutput) from NiagaraNodeOutput {
 @:forward
 @:nativeGen
 @:native("NiagaraNodeOutput*")
-abstract NiagaraNodeOutputPtr(cpp.Star<NiagaraNodeOutput>) from cpp.Star<NiagaraNodeOutput> to cpp.Star<NiagaraNodeOutput>{
+abstract NiagaraNodeOutputPtr(ucpp.Ptr<NiagaraNodeOutput>) from ucpp.Ptr<NiagaraNodeOutput> to ucpp.Ptr<NiagaraNodeOutput>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeOutput): NiagaraNodeOutputPtr {
 		return untyped __cpp__("&({0})", v);

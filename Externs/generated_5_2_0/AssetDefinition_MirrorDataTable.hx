@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_MirrorDataTable")
 @:include("Table/AssetDefinition_MirrorDataTable.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_MirrorDataTable extends AssetDefinition_DataTable {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_MirrorDataTable(AssetDefinition_MirrorDataTable) f
 @:forward
 @:nativeGen
 @:native("AssetDefinition_MirrorDataTable*")
-abstract AssetDefinition_MirrorDataTablePtr(cpp.Star<AssetDefinition_MirrorDataTable>) from cpp.Star<AssetDefinition_MirrorDataTable> to cpp.Star<AssetDefinition_MirrorDataTable>{
+abstract AssetDefinition_MirrorDataTablePtr(ucpp.Ptr<AssetDefinition_MirrorDataTable>) from ucpp.Ptr<AssetDefinition_MirrorDataTable> to ucpp.Ptr<AssetDefinition_MirrorDataTable>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_MirrorDataTable): AssetDefinition_MirrorDataTablePtr {
 		return untyped __cpp__("&({0})", v);

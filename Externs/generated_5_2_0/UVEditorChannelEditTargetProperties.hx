@@ -3,7 +3,7 @@ package ue;
 
 @:native("UUVEditorChannelEditTargetProperties")
 @:include("UVEditorLayerEditTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorChannelEditTargetProperties extends InteractiveToolPropertySet {
 	public var Asset: FString;
 	public var TargetChannel: FString;
@@ -15,7 +15,7 @@ extern class UVEditorChannelEditTargetProperties extends InteractiveToolProperty
 	public function GetUVChannelNames(): TArray<FString>;
 	public function GetAssetNames(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstUVEditorChannelEditTargetProperties(UVEditorChannelEditTargetPrope
 @:forward
 @:nativeGen
 @:native("UVEditorChannelEditTargetProperties*")
-abstract UVEditorChannelEditTargetPropertiesPtr(cpp.Star<UVEditorChannelEditTargetProperties>) from cpp.Star<UVEditorChannelEditTargetProperties> to cpp.Star<UVEditorChannelEditTargetProperties>{
+abstract UVEditorChannelEditTargetPropertiesPtr(ucpp.Ptr<UVEditorChannelEditTargetProperties>) from ucpp.Ptr<UVEditorChannelEditTargetProperties> to ucpp.Ptr<UVEditorChannelEditTargetProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorChannelEditTargetProperties): UVEditorChannelEditTargetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

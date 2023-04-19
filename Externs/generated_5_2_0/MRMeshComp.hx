@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMRMeshComponent")
 @:include("MRMeshComponent.h")
-@:structAccess
+@:valueType
 extern class MRMeshComp extends PrimitiveComp {
-	private var Material: cpp.Star<MaterialInterface>;
-	private var WireframeMaterial: cpp.Star<MaterialInterface>;
+	private var Material: ucpp.Ptr<MaterialInterface>;
+	private var WireframeMaterial: ucpp.Ptr<MaterialInterface>;
 	private var bCreateMeshProxySections: Bool;
 	private var bUpdateNavMeshOnMeshUpdate: Bool;
 	private var bNeverCreateCollisionMesh: Bool;
-	private var BodyHolders: TArray<cpp.Star<MRMeshBodyHolder>>;
+	private var BodyHolders: TArray<ucpp.Ptr<MRMeshBodyHolder>>;
 
-	public function SetWireframeMaterial(InMaterial: cpp.Star<MaterialInterface>): Void;
-	public function SetWireframeColor(InColor: cpp.Reference<LinearColor>): Void;
+	public function SetWireframeMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetWireframeColor(InColor: ucpp.Ref<LinearColor>): Void;
 	public function SetUseWireframe(bUseWireframe: Bool): Void;
 	public function SetEnableMeshOcclusion(bEnable: Bool): Void;
 	public function RequestNavMeshUpdate(): Void;
@@ -24,7 +24,7 @@ extern class MRMeshComp extends PrimitiveComp {
 	public function ForceNavMeshUpdate(): Void;
 	public function Clear(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsConnected, GetWireframeColor, GetUseWireframe, GetEnableMeshOcclusion)
@@ -35,7 +35,7 @@ abstract ConstMRMeshComp(MRMeshComp) from MRMeshComp {
 @:forward
 @:nativeGen
 @:native("MRMeshComp*")
-abstract MRMeshCompPtr(cpp.Star<MRMeshComp>) from cpp.Star<MRMeshComp> to cpp.Star<MRMeshComp>{
+abstract MRMeshCompPtr(ucpp.Ptr<MRMeshComp>) from ucpp.Ptr<MRMeshComp> to ucpp.Ptr<MRMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: MRMeshComp): MRMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

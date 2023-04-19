@@ -3,11 +3,11 @@ package ue;
 
 @:native("USoundNodeParamCrossFade")
 @:include("Sound/SoundNodeParamCrossFade.h")
-@:structAccess
+@:valueType
 extern class SoundNodeParamCrossFade extends SoundNodeDistanceCrossFade {
 	public var ParamName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSoundNodeParamCrossFade(SoundNodeParamCrossFade) from SoundNodePar
 @:forward
 @:nativeGen
 @:native("SoundNodeParamCrossFade*")
-abstract SoundNodeParamCrossFadePtr(cpp.Star<SoundNodeParamCrossFade>) from cpp.Star<SoundNodeParamCrossFade> to cpp.Star<SoundNodeParamCrossFade>{
+abstract SoundNodeParamCrossFadePtr(ucpp.Ptr<SoundNodeParamCrossFade>) from ucpp.Ptr<SoundNodeParamCrossFade> to ucpp.Ptr<SoundNodeParamCrossFade>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeParamCrossFade): SoundNodeParamCrossFadePtr {
 		return untyped __cpp__("&({0})", v);

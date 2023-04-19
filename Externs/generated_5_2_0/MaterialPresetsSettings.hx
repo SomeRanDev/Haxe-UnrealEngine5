@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialPresetsSettings")
 @:include("MSSettings.h")
-@:structAccess
+@:valueType
 extern class MaterialPresetsSettings extends Object {
 	public var MasterMaterial3d: TLazyObjectPtr<Material>;
 	public var MasterMaterialSurface: TLazyObjectPtr<Material>;
 	public var MasterMaterialPlant: TLazyObjectPtr<Material>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialPresetsSettings(MaterialPresetsSettings) from MaterialPres
 @:forward
 @:nativeGen
 @:native("MaterialPresetsSettings*")
-abstract MaterialPresetsSettingsPtr(cpp.Star<MaterialPresetsSettings>) from cpp.Star<MaterialPresetsSettings> to cpp.Star<MaterialPresetsSettings>{
+abstract MaterialPresetsSettingsPtr(ucpp.Ptr<MaterialPresetsSettings>) from ucpp.Ptr<MaterialPresetsSettings> to ucpp.Ptr<MaterialPresetsSettings>{
 	@:from
 	public static extern inline function fromValue(v: MaterialPresetsSettings): MaterialPresetsSettingsPtr {
 		return untyped __cpp__("&({0})", v);

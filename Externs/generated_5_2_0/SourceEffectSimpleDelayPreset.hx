@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectSimpleDelayPreset")
 @:include("SourceEffects/SourceEffectSimpleDelay.h")
-@:structAccess
+@:valueType
 extern class SourceEffectSimpleDelayPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectSimpleDelaySettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectSimpleDelaySettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectSimpleDelaySettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectSimpleDelayPreset(SourceEffectSimpleDelayPreset) from 
 @:forward
 @:nativeGen
 @:native("SourceEffectSimpleDelayPreset*")
-abstract SourceEffectSimpleDelayPresetPtr(cpp.Star<SourceEffectSimpleDelayPreset>) from cpp.Star<SourceEffectSimpleDelayPreset> to cpp.Star<SourceEffectSimpleDelayPreset>{
+abstract SourceEffectSimpleDelayPresetPtr(ucpp.Ptr<SourceEffectSimpleDelayPreset>) from ucpp.Ptr<SourceEffectSimpleDelayPreset> to ucpp.Ptr<SourceEffectSimpleDelayPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectSimpleDelayPreset): SourceEffectSimpleDelayPresetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraPropagatedVariable")
 @:include("NiagaraNodeFunctionCall.h")
-@:structAccess
+@:valueType
 extern class NiagaraPropagatedVariable {
 	public var SwitchParameter: NiagaraVariable;
 	public var PropagatedName: FString;

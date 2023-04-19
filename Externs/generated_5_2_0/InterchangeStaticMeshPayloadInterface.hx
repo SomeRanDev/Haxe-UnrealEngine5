@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterchangeStaticMeshPayloadInterface")
-@:structAccess
+@:valueType
 extern class InterchangeStaticMeshPayloadInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterchangeStaticMeshPayloadInterface(InterchangeStaticMeshPayload
 @:forward
 @:nativeGen
 @:native("InterchangeStaticMeshPayloadInterface*")
-abstract InterchangeStaticMeshPayloadInterfacePtr(cpp.Star<InterchangeStaticMeshPayloadInterface>) from cpp.Star<InterchangeStaticMeshPayloadInterface> to cpp.Star<InterchangeStaticMeshPayloadInterface>{
+abstract InterchangeStaticMeshPayloadInterfacePtr(ucpp.Ptr<InterchangeStaticMeshPayloadInterface>) from ucpp.Ptr<InterchangeStaticMeshPayloadInterface> to ucpp.Ptr<InterchangeStaticMeshPayloadInterface>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeStaticMeshPayloadInterface): InterchangeStaticMeshPayloadInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEnvDirection")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-@:structAccess
+@:valueType
 extern class EnvDirection {
 	public var LineFrom: TSubclassOf<EnvQueryContext>;
 	public var LineTo: TSubclassOf<EnvQueryContext>;

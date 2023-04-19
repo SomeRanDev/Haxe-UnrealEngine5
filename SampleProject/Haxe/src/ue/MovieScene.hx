@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieScene")
 @:include("MovieScene.h")
-@:structAccess
+@:valueType
 extern class MovieScene extends MovieSceneSignedObject {
 	private var Spawnables: TArray<MovieSceneSpawnable>;
 	private var Possessables: TArray<MovieScenePossessable>;
 	private var ObjectBindings: TArray<MovieSceneBinding>;
 	private var BindingGroups: TMap<FName, MovieSceneObjectBindingIDs>;
-	private var MasterTracks: TArray<cpp.Star<MovieSceneTrack>>;
-	private var CameraCutTrack: cpp.Star<MovieSceneTrack>;
+	private var Tracks: TArray<ucpp.Ptr<MovieSceneTrack>>;
+	private var CameraCutTrack: ucpp.Ptr<MovieSceneTrack>;
 	private var SelectionRange: MovieSceneFrameRange;
 	private var PlaybackRange: MovieSceneFrameRange;
 	private var TickResolution: FrameRate;
@@ -20,7 +20,7 @@ extern class MovieScene extends MovieSceneSignedObject {
 	private var CustomClockSourcePath: SoftObjectPath;
 	private var MarkedFrames: TArray<MovieSceneMarkedFrame>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstMovieScene(MovieScene) from MovieScene {
 @:forward
 @:nativeGen
 @:native("MovieScene*")
-abstract MovieScenePtr(cpp.Star<MovieScene>) from cpp.Star<MovieScene> to cpp.Star<MovieScene>{
+abstract MovieScenePtr(ucpp.Ptr<MovieScene>) from ucpp.Ptr<MovieScene> to ucpp.Ptr<MovieScene>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene): MovieScenePtr {
 		return untyped __cpp__("&({0})", v);

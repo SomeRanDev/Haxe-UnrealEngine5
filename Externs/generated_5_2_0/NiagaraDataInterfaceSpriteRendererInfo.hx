@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceSpriteRendererInfo")
 @:include("NiagaraDataInterfaceSpriteRendererInfo.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceSpriteRendererInfo extends NiagaraDataInterface {
-	@:protected public var SpriteRenderer: cpp.Star<NiagaraSpriteRendererProperties>;
+	@:protected public var SpriteRenderer: ucpp.Ptr<NiagaraSpriteRendererProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraDataInterfaceSpriteRendererInfo(NiagaraDataInterfaceSpriteR
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceSpriteRendererInfo*")
-abstract NiagaraDataInterfaceSpriteRendererInfoPtr(cpp.Star<NiagaraDataInterfaceSpriteRendererInfo>) from cpp.Star<NiagaraDataInterfaceSpriteRendererInfo> to cpp.Star<NiagaraDataInterfaceSpriteRendererInfo>{
+abstract NiagaraDataInterfaceSpriteRendererInfoPtr(ucpp.Ptr<NiagaraDataInterfaceSpriteRendererInfo>) from ucpp.Ptr<NiagaraDataInterfaceSpriteRendererInfo> to ucpp.Ptr<NiagaraDataInterfaceSpriteRendererInfo>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceSpriteRendererInfo): NiagaraDataInterfaceSpriteRendererInfoPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAddPrimitiveToolBuilder")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class AddPrimitiveToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAddPrimitiveToolBuilder(AddPrimitiveToolBuilder) from AddPrimitive
 @:forward
 @:nativeGen
 @:native("AddPrimitiveToolBuilder*")
-abstract AddPrimitiveToolBuilderPtr(cpp.Star<AddPrimitiveToolBuilder>) from cpp.Star<AddPrimitiveToolBuilder> to cpp.Star<AddPrimitiveToolBuilder>{
+abstract AddPrimitiveToolBuilderPtr(ucpp.Ptr<AddPrimitiveToolBuilder>) from ucpp.Ptr<AddPrimitiveToolBuilder> to ucpp.Ptr<AddPrimitiveToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: AddPrimitiveToolBuilder): AddPrimitiveToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

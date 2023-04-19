@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAlembicTestCommandlet")
 @:include("AlembicTestCommandlet.h")
-@:structAccess
+@:valueType
 extern class AlembicTestCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAlembicTestCommandlet(AlembicTestCommandlet) from AlembicTestComma
 @:forward
 @:nativeGen
 @:native("AlembicTestCommandlet*")
-abstract AlembicTestCommandletPtr(cpp.Star<AlembicTestCommandlet>) from cpp.Star<AlembicTestCommandlet> to cpp.Star<AlembicTestCommandlet>{
+abstract AlembicTestCommandletPtr(ucpp.Ptr<AlembicTestCommandlet>) from ucpp.Ptr<AlembicTestCommandlet> to ucpp.Ptr<AlembicTestCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: AlembicTestCommandlet): AlembicTestCommandletPtr {
 		return untyped __cpp__("&({0})", v);

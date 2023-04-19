@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAnimTimelineClipboardContent")
 @:include("AnimTimeline/AnimTimelineClipboard.h")
-@:structAccess
+@:valueType
 extern class AnimTimelineClipboardContent extends Object {
-	public var Curves: TArray<cpp.Star<AnimCurveBaseCopyObject>>;
+	public var Curves: TArray<ucpp.Ptr<AnimCurveBaseCopyObject>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimTimelineClipboardContent(AnimTimelineClipboardContent) from AnimTimelineClipboardContent {
-	public extern var Curves(get, never): TArray<cpp.Star<AnimCurveBaseCopyObject.ConstAnimCurveBaseCopyObject>>;
-	public inline extern function get_Curves(): TArray<cpp.Star<AnimCurveBaseCopyObject.ConstAnimCurveBaseCopyObject>> return this.Curves;
+	public extern var Curves(get, never): TArray<ucpp.Ptr<AnimCurveBaseCopyObject.ConstAnimCurveBaseCopyObject>>;
+	public inline extern function get_Curves(): TArray<ucpp.Ptr<AnimCurveBaseCopyObject.ConstAnimCurveBaseCopyObject>> return this.Curves;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimTimelineClipboardContent*")
-abstract AnimTimelineClipboardContentPtr(cpp.Star<AnimTimelineClipboardContent>) from cpp.Star<AnimTimelineClipboardContent> to cpp.Star<AnimTimelineClipboardContent>{
+abstract AnimTimelineClipboardContentPtr(ucpp.Ptr<AnimTimelineClipboardContent>) from ucpp.Ptr<AnimTimelineClipboardContent> to ucpp.Ptr<AnimTimelineClipboardContent>{
 	@:from
 	public static extern inline function fromValue(v: AnimTimelineClipboardContent): AnimTimelineClipboardContentPtr {
 		return untyped __cpp__("&({0})", v);

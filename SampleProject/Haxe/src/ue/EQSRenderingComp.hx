@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEQSRenderingComponent")
 @:include("EnvironmentQuery/EQSRenderingComponent.h")
-@:structAccess
+@:valueType
 extern class EQSRenderingComp extends DebugDrawComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEQSRenderingComp(EQSRenderingComp) from EQSRenderingComp {
 @:forward
 @:nativeGen
 @:native("EQSRenderingComp*")
-abstract EQSRenderingCompPtr(cpp.Star<EQSRenderingComp>) from cpp.Star<EQSRenderingComp> to cpp.Star<EQSRenderingComp>{
+abstract EQSRenderingCompPtr(ucpp.Ptr<EQSRenderingComp>) from ucpp.Ptr<EQSRenderingComp> to ucpp.Ptr<EQSRenderingComp>{
 	@:from
 	public static extern inline function fromValue(v: EQSRenderingComp): EQSRenderingCompPtr {
 		return untyped __cpp__("&({0})", v);

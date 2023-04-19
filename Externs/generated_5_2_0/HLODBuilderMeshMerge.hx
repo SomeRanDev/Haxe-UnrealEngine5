@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODBuilderMeshMerge")
 @:include("HLODBuilderMeshMerge.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderMeshMerge extends HLODBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODBuilderMeshMerge(HLODBuilderMeshMerge) from HLODBuilderMeshMer
 @:forward
 @:nativeGen
 @:native("HLODBuilderMeshMerge*")
-abstract HLODBuilderMeshMergePtr(cpp.Star<HLODBuilderMeshMerge>) from cpp.Star<HLODBuilderMeshMerge> to cpp.Star<HLODBuilderMeshMerge>{
+abstract HLODBuilderMeshMergePtr(ucpp.Ptr<HLODBuilderMeshMerge>) from ucpp.Ptr<HLODBuilderMeshMerge> to ucpp.Ptr<HLODBuilderMeshMerge>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderMeshMerge): HLODBuilderMeshMergePtr {
 		return untyped __cpp__("&({0})", v);

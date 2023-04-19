@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvent")
 @:include("Channels/MovieSceneEvent.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvent {
 	public var Ptrs: MovieSceneEventPtrs;
 

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDetailsViewConfig")
 @:include("Private/DetailsViewConfig.h")
-@:structAccess
+@:valueType
 extern class DetailsViewConfig {
 	public var bShowFavoritesCategory: Bool;
 	public var bShowAllAdvanced: Bool;
@@ -13,7 +13,7 @@ extern class DetailsViewConfig {
 	public var bShowOnlyAnimated: Bool;
 	public var bShowOnlyModified: Bool;
 	public var bShowSections: Bool;
-	public var ValueColumnWidth: cpp.Float32;
+	public var ValueColumnWidth: ucpp.num.Float32;
 	public var SelectedSections: TMap<FName, DetailsSectionSelection>;
 
 	@:native("FDetailsViewConfig") public function new();

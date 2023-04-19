@@ -3,12 +3,12 @@ package ue;
 
 @:native("UPivotActorTransformProperties")
 @:include("AddPivotActorTool.h")
-@:structAccess
+@:valueType
 extern class PivotActorTransformProperties extends InteractiveToolPropertySet {
 	public var Position: Vector;
 	public var Rotation: Quat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstPivotActorTransformProperties(PivotActorTransformProperties) from 
 @:forward
 @:nativeGen
 @:native("PivotActorTransformProperties*")
-abstract PivotActorTransformPropertiesPtr(cpp.Star<PivotActorTransformProperties>) from cpp.Star<PivotActorTransformProperties> to cpp.Star<PivotActorTransformProperties>{
+abstract PivotActorTransformPropertiesPtr(ucpp.Ptr<PivotActorTransformProperties>) from ucpp.Ptr<PivotActorTransformProperties> to ucpp.Ptr<PivotActorTransformProperties>{
 	@:from
 	public static extern inline function fromValue(v: PivotActorTransformProperties): PivotActorTransformPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonC
 @:forward
 @:nativeGen
 @:native("ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable*")
-abstract ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallablePtr(cpp.Star<ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable>) from cpp.Star<ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable> to cpp.Star<ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable>{
+abstract ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallablePtr(ucpp.Ptr<ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable>) from ucpp.Ptr<ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable> to ucpp.Ptr<ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallable): ApplicationLifecycleComponent_OnTemperatureChangeDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

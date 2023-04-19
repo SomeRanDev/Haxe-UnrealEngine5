@@ -3,16 +3,16 @@ package ue;
 
 @:native("UParticleModuleLocationEmitter")
 @:include("Particles/Location/ParticleModuleLocationEmitter.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocationEmitter extends ParticleModuleLocationBase {
 	public var EmitterName: FName;
 	public var SelectionMethod: TEnumAsByte<ELocationEmitterSelectionMethod>;
 	public var InheritSourceVelocity: Bool;
-	public var InheritSourceVelocityScale: cpp.Float32;
+	public var InheritSourceVelocityScale: ucpp.num.Float32;
 	public var bInheritSourceRotation: Bool;
-	public var InheritSourceRotationScale: cpp.Float32;
+	public var InheritSourceRotationScale: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,18 +24,18 @@ abstract ConstParticleModuleLocationEmitter(ParticleModuleLocationEmitter) from 
 	public inline extern function get_SelectionMethod(): TEnumAsByte<ELocationEmitterSelectionMethod> return this.SelectionMethod;
 	public extern var InheritSourceVelocity(get, never): Bool;
 	public inline extern function get_InheritSourceVelocity(): Bool return this.InheritSourceVelocity;
-	public extern var InheritSourceVelocityScale(get, never): cpp.Float32;
-	public inline extern function get_InheritSourceVelocityScale(): cpp.Float32 return this.InheritSourceVelocityScale;
+	public extern var InheritSourceVelocityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_InheritSourceVelocityScale(): ucpp.num.Float32 return this.InheritSourceVelocityScale;
 	public extern var bInheritSourceRotation(get, never): Bool;
 	public inline extern function get_bInheritSourceRotation(): Bool return this.bInheritSourceRotation;
-	public extern var InheritSourceRotationScale(get, never): cpp.Float32;
-	public inline extern function get_InheritSourceRotationScale(): cpp.Float32 return this.InheritSourceRotationScale;
+	public extern var InheritSourceRotationScale(get, never): ucpp.num.Float32;
+	public inline extern function get_InheritSourceRotationScale(): ucpp.num.Float32 return this.InheritSourceRotationScale;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocationEmitter*")
-abstract ParticleModuleLocationEmitterPtr(cpp.Star<ParticleModuleLocationEmitter>) from cpp.Star<ParticleModuleLocationEmitter> to cpp.Star<ParticleModuleLocationEmitter>{
+abstract ParticleModuleLocationEmitterPtr(ucpp.Ptr<ParticleModuleLocationEmitter>) from ucpp.Ptr<ParticleModuleLocationEmitter> to ucpp.Ptr<ParticleModuleLocationEmitter>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocationEmitter): ParticleModuleLocationEmitterPtr {
 		return untyped __cpp__("&({0})", v);

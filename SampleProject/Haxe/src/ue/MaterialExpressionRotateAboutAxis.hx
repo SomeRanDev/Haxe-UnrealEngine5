@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionRotateAboutAxis")
 @:include("Materials/MaterialExpressionRotateAboutAxis.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionRotateAboutAxis extends MaterialExpression {
 	public var NormalizedRotationAxis: ExpressionInput;
 	public var RotationAngle: ExpressionInput;
 	public var PivotPoint: ExpressionInput;
 	public var Position: ExpressionInput;
-	public var Period: cpp.Float32;
+	public var Period: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,14 +25,14 @@ abstract ConstMaterialExpressionRotateAboutAxis(MaterialExpressionRotateAboutAxi
 	public inline extern function get_PivotPoint(): ExpressionInput return this.PivotPoint;
 	public extern var Position(get, never): ExpressionInput;
 	public inline extern function get_Position(): ExpressionInput return this.Position;
-	public extern var Period(get, never): cpp.Float32;
-	public inline extern function get_Period(): cpp.Float32 return this.Period;
+	public extern var Period(get, never): ucpp.num.Float32;
+	public inline extern function get_Period(): ucpp.num.Float32 return this.Period;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionRotateAboutAxis*")
-abstract MaterialExpressionRotateAboutAxisPtr(cpp.Star<MaterialExpressionRotateAboutAxis>) from cpp.Star<MaterialExpressionRotateAboutAxis> to cpp.Star<MaterialExpressionRotateAboutAxis>{
+abstract MaterialExpressionRotateAboutAxisPtr(ucpp.Ptr<MaterialExpressionRotateAboutAxis>) from ucpp.Ptr<MaterialExpressionRotateAboutAxis> to ucpp.Ptr<MaterialExpressionRotateAboutAxis>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionRotateAboutAxis): MaterialExpressionRotateAboutAxisPtr {
 		return untyped __cpp__("&({0})", v);

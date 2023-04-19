@@ -3,27 +3,27 @@ package ue;
 
 @:native("UDatasmithLandscapeTemplate")
 @:include("ObjectTemplates/DatasmithLandscapeTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithLandscapeTemplate extends DatasmithObjectTemplate {
-	public var LandscapeMaterial: cpp.Star<MaterialInterface>;
-	public var StaticLightingLOD: cpp.Int32;
+	public var LandscapeMaterial: ucpp.Ptr<MaterialInterface>;
+	public var StaticLightingLOD: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDatasmithLandscapeTemplate(DatasmithLandscapeTemplate) from DatasmithLandscapeTemplate {
-	public extern var LandscapeMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_LandscapeMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.LandscapeMaterial;
-	public extern var StaticLightingLOD(get, never): cpp.Int32;
-	public inline extern function get_StaticLightingLOD(): cpp.Int32 return this.StaticLightingLOD;
+	public extern var LandscapeMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_LandscapeMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.LandscapeMaterial;
+	public extern var StaticLightingLOD(get, never): ucpp.num.Int32;
+	public inline extern function get_StaticLightingLOD(): ucpp.num.Int32 return this.StaticLightingLOD;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithLandscapeTemplate*")
-abstract DatasmithLandscapeTemplatePtr(cpp.Star<DatasmithLandscapeTemplate>) from cpp.Star<DatasmithLandscapeTemplate> to cpp.Star<DatasmithLandscapeTemplate>{
+abstract DatasmithLandscapeTemplatePtr(ucpp.Ptr<DatasmithLandscapeTemplate>) from ucpp.Ptr<DatasmithLandscapeTemplate> to ucpp.Ptr<DatasmithLandscapeTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithLandscapeTemplate): DatasmithLandscapeTemplatePtr {
 		return untyped __cpp__("&({0})", v);

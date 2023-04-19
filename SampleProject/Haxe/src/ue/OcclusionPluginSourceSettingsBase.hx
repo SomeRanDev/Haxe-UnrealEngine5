@@ -3,10 +3,10 @@ package ue;
 
 @:native("UOcclusionPluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
-@:structAccess
+@:valueType
 extern class OcclusionPluginSourceSettingsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstOcclusionPluginSourceSettingsBase(OcclusionPluginSourceSettingsBas
 @:forward
 @:nativeGen
 @:native("OcclusionPluginSourceSettingsBase*")
-abstract OcclusionPluginSourceSettingsBasePtr(cpp.Star<OcclusionPluginSourceSettingsBase>) from cpp.Star<OcclusionPluginSourceSettingsBase> to cpp.Star<OcclusionPluginSourceSettingsBase>{
+abstract OcclusionPluginSourceSettingsBasePtr(ucpp.Ptr<OcclusionPluginSourceSettingsBase>) from ucpp.Ptr<OcclusionPluginSourceSettingsBase> to ucpp.Ptr<OcclusionPluginSourceSettingsBase>{
 	@:from
 	public static extern inline function fromValue(v: OcclusionPluginSourceSettingsBase): OcclusionPluginSourceSettingsBasePtr {
 		return untyped __cpp__("&({0})", v);

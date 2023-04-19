@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInteractiveGizmo")
 @:include("InteractiveGizmo.h")
-@:structAccess
+@:valueType
 extern class InteractiveGizmo extends Object {
-	@:protected public var InputBehaviors: cpp.Star<InputBehaviorSet>;
+	@:protected public var InputBehaviors: ucpp.Ptr<InputBehaviorSet>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstInteractiveGizmo(InteractiveGizmo) from InteractiveGizmo {
 @:forward
 @:nativeGen
 @:native("InteractiveGizmo*")
-abstract InteractiveGizmoPtr(cpp.Star<InteractiveGizmo>) from cpp.Star<InteractiveGizmo> to cpp.Star<InteractiveGizmo>{
+abstract InteractiveGizmoPtr(ucpp.Ptr<InteractiveGizmo>) from ucpp.Ptr<InteractiveGizmo> to ucpp.Ptr<InteractiveGizmo>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveGizmo): InteractiveGizmoPtr {
 		return untyped __cpp__("&({0})", v);

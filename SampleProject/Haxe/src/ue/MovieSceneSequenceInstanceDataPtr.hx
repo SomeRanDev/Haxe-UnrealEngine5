@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSequenceInstanceDataPtr")
 @:include("Evaluation/MovieSceneSequenceInstanceData.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceInstanceDataPtr {
 	@:native("FMovieSceneSequenceInstanceDataPtr") public function new();
 }

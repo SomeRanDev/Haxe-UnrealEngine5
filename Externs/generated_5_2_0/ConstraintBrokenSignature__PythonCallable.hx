@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UConstraintBrokenSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ConstraintBrokenSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstConstraintBrokenSignature__PythonCallable(ConstraintBrokenSignatur
 @:forward
 @:nativeGen
 @:native("ConstraintBrokenSignature__PythonCallable*")
-abstract ConstraintBrokenSignature__PythonCallablePtr(cpp.Star<ConstraintBrokenSignature__PythonCallable>) from cpp.Star<ConstraintBrokenSignature__PythonCallable> to cpp.Star<ConstraintBrokenSignature__PythonCallable>{
+abstract ConstraintBrokenSignature__PythonCallablePtr(ucpp.Ptr<ConstraintBrokenSignature__PythonCallable>) from ucpp.Ptr<ConstraintBrokenSignature__PythonCallable> to ucpp.Ptr<ConstraintBrokenSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ConstraintBrokenSignature__PythonCallable): ConstraintBrokenSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

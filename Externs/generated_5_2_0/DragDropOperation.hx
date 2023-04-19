@@ -3,22 +3,22 @@ package ue;
 
 @:native("UDragDropOperation")
 @:include("Blueprint/DragDropOperation.h")
-@:structAccess
+@:valueType
 extern class DragDropOperation extends Object {
 	public var Tag: FString;
-	public var Payload: cpp.Star<Object>;
-	public var DefaultDragVisual: cpp.Star<Widget>;
+	public var Payload: ucpp.Ptr<Object>;
+	public var DefaultDragVisual: ucpp.Ptr<Widget>;
 	public var Pivot: EDragPivot;
 	public var Offset: Vector2D;
-	public var OnDrop: HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation>) -> Void>;
-	public var OnDragCancelled: HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation>) -> Void>;
-	public var OnDragged: HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation>) -> Void>;
+	public var OnDrop: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation>) -> Void>;
+	public var OnDragCancelled: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation>) -> Void>;
+	public var OnDragged: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation>) -> Void>;
 
-	public function Drop(PointerEvent: cpp.Reference<PointerEvent>): Void;
-	public function Dragged(PointerEvent: cpp.Reference<PointerEvent>): Void;
-	public function DragCancelled(PointerEvent: cpp.Reference<PointerEvent>): Void;
+	public function Drop(PointerEvent: ucpp.Ref<PointerEvent>): Void;
+	public function Dragged(PointerEvent: ucpp.Ref<PointerEvent>): Void;
+	public function DragCancelled(PointerEvent: ucpp.Ref<PointerEvent>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,26 +26,26 @@ extern class DragDropOperation extends Object {
 abstract ConstDragDropOperation(DragDropOperation) from DragDropOperation {
 	public extern var Tag(get, never): FString;
 	public inline extern function get_Tag(): FString return this.Tag;
-	public extern var Payload(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_Payload(): cpp.Star<Object.ConstObject> return this.Payload;
-	public extern var DefaultDragVisual(get, never): cpp.Star<Widget.ConstWidget>;
-	public inline extern function get_DefaultDragVisual(): cpp.Star<Widget.ConstWidget> return this.DefaultDragVisual;
+	public extern var Payload(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_Payload(): ucpp.Ptr<Object.ConstObject> return this.Payload;
+	public extern var DefaultDragVisual(get, never): ucpp.Ptr<Widget.ConstWidget>;
+	public inline extern function get_DefaultDragVisual(): ucpp.Ptr<Widget.ConstWidget> return this.DefaultDragVisual;
 	public extern var Pivot(get, never): EDragPivot;
 	public inline extern function get_Pivot(): EDragPivot return this.Pivot;
 	public extern var Offset(get, never): Vector2D;
 	public inline extern function get_Offset(): Vector2D return this.Offset;
-	public extern var OnDrop(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void>;
-	public inline extern function get_OnDrop(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void> return this.OnDrop;
-	public extern var OnDragCancelled(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void>;
-	public inline extern function get_OnDragCancelled(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void> return this.OnDragCancelled;
-	public extern var OnDragged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void>;
-	public inline extern function get_OnDragged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DragDropOperation.ConstDragDropOperation>) -> Void> return this.OnDragged;
+	public extern var OnDrop(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation.ConstDragDropOperation>) -> Void>;
+	public inline extern function get_OnDrop(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation.ConstDragDropOperation>) -> Void> return this.OnDrop;
+	public extern var OnDragCancelled(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation.ConstDragDropOperation>) -> Void>;
+	public inline extern function get_OnDragCancelled(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation.ConstDragDropOperation>) -> Void> return this.OnDragCancelled;
+	public extern var OnDragged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation.ConstDragDropOperation>) -> Void>;
+	public inline extern function get_OnDragged(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DragDropOperation.ConstDragDropOperation>) -> Void> return this.OnDragged;
 }
 
 @:forward
 @:nativeGen
 @:native("DragDropOperation*")
-abstract DragDropOperationPtr(cpp.Star<DragDropOperation>) from cpp.Star<DragDropOperation> to cpp.Star<DragDropOperation>{
+abstract DragDropOperationPtr(ucpp.Ptr<DragDropOperation>) from ucpp.Ptr<DragDropOperation> to ucpp.Ptr<DragDropOperation>{
 	@:from
 	public static extern inline function fromValue(v: DragDropOperation): DragDropOperationPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,25 +3,25 @@ package ue;
 
 @:native("AVREditorAvatarActor")
 @:include("VREditorAvatarActor.h")
-@:structAccess
+@:valueType
 extern class VREditorAvatarActor extends Actor {
-	private var HeadMeshComponent: cpp.Star<StaticMeshComp>;
-	private var WorldMovementGridMeshComponent: cpp.Star<StaticMeshComp>;
-	private var WorldMovementGridMID: cpp.Star<MaterialInstanceDynamic>;
-	private var WorldMovementGridOpacity: cpp.Float32;
+	private var HeadMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var WorldMovementGridMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var WorldMovementGridMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var WorldMovementGridOpacity: ucpp.num.Float32;
 	private var bIsDrawingWorldMovementPostProcess: Bool;
-	private var WorldMovementPostProcessMaterial: cpp.Star<MaterialInstanceDynamic>;
-	private var ScaleProgressMeshComponent: cpp.Star<StaticMeshComp>;
-	private var CurrentScaleProgressMeshComponent: cpp.Star<StaticMeshComp>;
-	private var UserScaleIndicatorText: cpp.Star<TextRenderComp>;
-	private var FixedUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	private var TranslucentFixedUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	private var CurrentUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	private var TranslucentCurrentUserScaleMID: cpp.Star<MaterialInstanceDynamic>;
-	private var PostProcessComponent: cpp.Star<PostProcessComp>;
-	private var VRMode: cpp.Star<VREditorMode>;
+	private var WorldMovementPostProcessMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var ScaleProgressMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var CurrentScaleProgressMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var UserScaleIndicatorText: ucpp.Ptr<TextRenderComp>;
+	private var FixedUserScaleMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var TranslucentFixedUserScaleMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var CurrentUserScaleMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var TranslucentCurrentUserScaleMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var PostProcessComponent: ucpp.Ptr<PostProcessComp>;
+	private var VRMode: ucpp.Ptr<VREditorMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstVREditorAvatarActor(VREditorAvatarActor) from VREditorAvatarActor 
 @:forward
 @:nativeGen
 @:native("VREditorAvatarActor*")
-abstract VREditorAvatarActorPtr(cpp.Star<VREditorAvatarActor>) from cpp.Star<VREditorAvatarActor> to cpp.Star<VREditorAvatarActor>{
+abstract VREditorAvatarActorPtr(ucpp.Ptr<VREditorAvatarActor>) from ucpp.Ptr<VREditorAvatarActor> to ucpp.Ptr<VREditorAvatarActor>{
 	@:from
 	public static extern inline function fromValue(v: VREditorAvatarActor): VREditorAvatarActorPtr {
 		return untyped __cpp__("&({0})", v);

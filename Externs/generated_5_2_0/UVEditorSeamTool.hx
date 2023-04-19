@@ -3,18 +3,18 @@ package ue;
 
 @:native("UUVEditorSeamTool")
 @:include("UVEditorSeamTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorSeamTool extends InteractiveTool {
-	@:protected public var Targets: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var Settings: cpp.Star<UVEditorSeamToolProperties>;
-	@:protected public var LivePreviewAPI: cpp.Star<UVToolLivePreviewAPI>;
-	@:protected public var EmitChangeAPI: cpp.Star<UVToolEmitChangeAPI>;
-	@:protected public var LivePreviewBehaviorSet: cpp.Star<InputBehaviorSet>;
-	@:protected public var LivePreviewBehaviorSource: cpp.Star<LocalInputBehaviorSource>;
-	@:protected public var UnwrapGeometry: cpp.Star<PreviewGeometry>;
-	@:protected public var LivePreviewGeometry: cpp.Star<PreviewGeometry>;
+	@:protected public var Targets: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var Settings: ucpp.Ptr<UVEditorSeamToolProperties>;
+	@:protected public var LivePreviewAPI: ucpp.Ptr<UVToolLivePreviewAPI>;
+	@:protected public var EmitChangeAPI: ucpp.Ptr<UVToolEmitChangeAPI>;
+	@:protected public var LivePreviewBehaviorSet: ucpp.Ptr<InputBehaviorSet>;
+	@:protected public var LivePreviewBehaviorSource: ucpp.Ptr<LocalInputBehaviorSource>;
+	@:protected public var UnwrapGeometry: ucpp.Ptr<PreviewGeometry>;
+	@:protected public var LivePreviewGeometry: ucpp.Ptr<PreviewGeometry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstUVEditorSeamTool(UVEditorSeamTool) from UVEditorSeamTool {
 @:forward
 @:nativeGen
 @:native("UVEditorSeamTool*")
-abstract UVEditorSeamToolPtr(cpp.Star<UVEditorSeamTool>) from cpp.Star<UVEditorSeamTool> to cpp.Star<UVEditorSeamTool>{
+abstract UVEditorSeamToolPtr(ucpp.Ptr<UVEditorSeamTool>) from ucpp.Ptr<UVEditorSeamTool> to ucpp.Ptr<UVEditorSeamTool>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorSeamTool): UVEditorSeamToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UARBaseAsyncTaskBlueprintProxy")
 @:include("ARBlueprintProxy.h")
-@:structAccess
+@:valueType
 extern class ARBaseAsyncTaskBlueprintProxy extends BlueprintAsyncActionBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstARBaseAsyncTaskBlueprintProxy(ARBaseAsyncTaskBlueprintProxy) from 
 @:forward
 @:nativeGen
 @:native("ARBaseAsyncTaskBlueprintProxy*")
-abstract ARBaseAsyncTaskBlueprintProxyPtr(cpp.Star<ARBaseAsyncTaskBlueprintProxy>) from cpp.Star<ARBaseAsyncTaskBlueprintProxy> to cpp.Star<ARBaseAsyncTaskBlueprintProxy>{
+abstract ARBaseAsyncTaskBlueprintProxyPtr(ucpp.Ptr<ARBaseAsyncTaskBlueprintProxy>) from ucpp.Ptr<ARBaseAsyncTaskBlueprintProxy> to ucpp.Ptr<ARBaseAsyncTaskBlueprintProxy>{
 	@:from
 	public static extern inline function fromValue(v: ARBaseAsyncTaskBlueprintProxy): ARBaseAsyncTaskBlueprintProxyPtr {
 		return untyped __cpp__("&({0})", v);

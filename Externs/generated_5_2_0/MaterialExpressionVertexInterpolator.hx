@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionVertexInterpolator")
 @:include("Materials/MaterialExpressionVertexInterpolator.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionVertexInterpolator extends MaterialExpressionCustomOutput {
 	public var Input: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionVertexInterpolator(MaterialExpressionVertexInter
 @:forward
 @:nativeGen
 @:native("MaterialExpressionVertexInterpolator*")
-abstract MaterialExpressionVertexInterpolatorPtr(cpp.Star<MaterialExpressionVertexInterpolator>) from cpp.Star<MaterialExpressionVertexInterpolator> to cpp.Star<MaterialExpressionVertexInterpolator>{
+abstract MaterialExpressionVertexInterpolatorPtr(ucpp.Ptr<MaterialExpressionVertexInterpolator>) from ucpp.Ptr<MaterialExpressionVertexInterpolator> to ucpp.Ptr<MaterialExpressionVertexInterpolator>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionVertexInterpolator): MaterialExpressionVertexInterpolatorPtr {
 		return untyped __cpp__("&({0})", v);

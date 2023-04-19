@@ -3,11 +3,11 @@ package ue;
 
 @:native("FTimelineEventEntry")
 @:include("Components/TimelineComponent.h")
-@:structAccess
+@:valueType
 extern class TimelineEventEntry {
-	public var Time: cpp.Float32;
+	public var Time: ucpp.num.Float32;
 	public var EventFunc: HaxeDelegateProperty<() -> Void>;
 
 	@:native("FTimelineEventEntry") public function new();
-	@:native("FTimelineEventEntry") public static function make(Time: cpp.Float32, EventFunc: HaxeDelegateProperty<() -> Void>): TimelineEventEntry ;
+	@:native("FTimelineEventEntry") public static function make(Time: ucpp.num.Float32, EventFunc: HaxeDelegateProperty<() -> Void>): TimelineEventEntry ;
 }

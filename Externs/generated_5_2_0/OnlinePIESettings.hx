@@ -3,12 +3,12 @@ package ue;
 
 @:native("UOnlinePIESettings")
 @:include("OnlinePIESettings.h")
-@:structAccess
+@:valueType
 extern class OnlinePIESettings extends DeveloperSettings {
 	public var bOnlinePIEEnabled: Bool;
 	public var Logins: TArray<PIELoginSettingsInternal>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstOnlinePIESettings(OnlinePIESettings) from OnlinePIESettings {
 @:forward
 @:nativeGen
 @:native("OnlinePIESettings*")
-abstract OnlinePIESettingsPtr(cpp.Star<OnlinePIESettings>) from cpp.Star<OnlinePIESettings> to cpp.Star<OnlinePIESettings>{
+abstract OnlinePIESettingsPtr(ucpp.Ptr<OnlinePIESettings>) from ucpp.Ptr<OnlinePIESettings> to ucpp.Ptr<OnlinePIESettings>{
 	@:from
 	public static extern inline function fromValue(v: OnlinePIESettings): OnlinePIESettingsPtr {
 		return untyped __cpp__("&({0})", v);

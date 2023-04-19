@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectDynamicsProcessorPreset")
 @:include("SourceEffects/SourceEffectDynamicsProcessor.h")
-@:structAccess
+@:valueType
 extern class SourceEffectDynamicsProcessorPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectDynamicsProcessorSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectDynamicsProcessorSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectDynamicsProcessorSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectDynamicsProcessorPreset(SourceEffectDynamicsProcessorP
 @:forward
 @:nativeGen
 @:native("SourceEffectDynamicsProcessorPreset*")
-abstract SourceEffectDynamicsProcessorPresetPtr(cpp.Star<SourceEffectDynamicsProcessorPreset>) from cpp.Star<SourceEffectDynamicsProcessorPreset> to cpp.Star<SourceEffectDynamicsProcessorPreset>{
+abstract SourceEffectDynamicsProcessorPresetPtr(ucpp.Ptr<SourceEffectDynamicsProcessorPreset>) from ucpp.Ptr<SourceEffectDynamicsProcessorPreset> to ucpp.Ptr<SourceEffectDynamicsProcessorPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectDynamicsProcessorPreset): SourceEffectDynamicsProcessorPresetPtr {
 		return untyped __cpp__("&({0})", v);

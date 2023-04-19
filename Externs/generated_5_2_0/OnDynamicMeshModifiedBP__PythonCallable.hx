@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnDynamicMeshModifiedBP__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnDynamicMeshModifiedBP__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnDynamicMeshModifiedBP__PythonCallable(OnDynamicMeshModifiedBP__P
 @:forward
 @:nativeGen
 @:native("OnDynamicMeshModifiedBP__PythonCallable*")
-abstract OnDynamicMeshModifiedBP__PythonCallablePtr(cpp.Star<OnDynamicMeshModifiedBP__PythonCallable>) from cpp.Star<OnDynamicMeshModifiedBP__PythonCallable> to cpp.Star<OnDynamicMeshModifiedBP__PythonCallable>{
+abstract OnDynamicMeshModifiedBP__PythonCallablePtr(ucpp.Ptr<OnDynamicMeshModifiedBP__PythonCallable>) from ucpp.Ptr<OnDynamicMeshModifiedBP__PythonCallable> to ucpp.Ptr<OnDynamicMeshModifiedBP__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnDynamicMeshModifiedBP__PythonCallable): OnDynamicMeshModifiedBP__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAutomationTestSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class AutomationTestSettings extends Object {
 	public var EngineTestModules: TArray<FString>;
 	public var EditorTestModules: TArray<FString>;
@@ -21,12 +21,12 @@ extern class AutomationTestSettings extends Object {
 	public var ImportExportTestDefinitions: TArray<EditorImportExportTestDefinition>;
 	public var LaunchOnSettings: TArray<LaunchOnTestSettings>;
 	public var DefaultScreenshotResolution: IntPoint;
-	public var PIETestDuration: cpp.Float32;
-	public var DefaultInteractiveFramerate: cpp.Float32;
-	public var DefaultInteractiveFramerateWaitTime: cpp.Float32;
-	public var DefaultInteractiveFramerateDuration: cpp.Float32;
+	public var PIETestDuration: ucpp.num.Float32;
+	public var DefaultInteractiveFramerate: ucpp.num.Float32;
+	public var DefaultInteractiveFramerateWaitTime: ucpp.num.Float32;
+	public var DefaultInteractiveFramerateDuration: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -64,20 +64,20 @@ abstract ConstAutomationTestSettings(AutomationTestSettings) from AutomationTest
 	public inline extern function get_LaunchOnSettings(): TArray<LaunchOnTestSettings> return this.LaunchOnSettings;
 	public extern var DefaultScreenshotResolution(get, never): IntPoint;
 	public inline extern function get_DefaultScreenshotResolution(): IntPoint return this.DefaultScreenshotResolution;
-	public extern var PIETestDuration(get, never): cpp.Float32;
-	public inline extern function get_PIETestDuration(): cpp.Float32 return this.PIETestDuration;
-	public extern var DefaultInteractiveFramerate(get, never): cpp.Float32;
-	public inline extern function get_DefaultInteractiveFramerate(): cpp.Float32 return this.DefaultInteractiveFramerate;
-	public extern var DefaultInteractiveFramerateWaitTime(get, never): cpp.Float32;
-	public inline extern function get_DefaultInteractiveFramerateWaitTime(): cpp.Float32 return this.DefaultInteractiveFramerateWaitTime;
-	public extern var DefaultInteractiveFramerateDuration(get, never): cpp.Float32;
-	public inline extern function get_DefaultInteractiveFramerateDuration(): cpp.Float32 return this.DefaultInteractiveFramerateDuration;
+	public extern var PIETestDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_PIETestDuration(): ucpp.num.Float32 return this.PIETestDuration;
+	public extern var DefaultInteractiveFramerate(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultInteractiveFramerate(): ucpp.num.Float32 return this.DefaultInteractiveFramerate;
+	public extern var DefaultInteractiveFramerateWaitTime(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultInteractiveFramerateWaitTime(): ucpp.num.Float32 return this.DefaultInteractiveFramerateWaitTime;
+	public extern var DefaultInteractiveFramerateDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultInteractiveFramerateDuration(): ucpp.num.Float32 return this.DefaultInteractiveFramerateDuration;
 }
 
 @:forward
 @:nativeGen
 @:native("AutomationTestSettings*")
-abstract AutomationTestSettingsPtr(cpp.Star<AutomationTestSettings>) from cpp.Star<AutomationTestSettings> to cpp.Star<AutomationTestSettings>{
+abstract AutomationTestSettingsPtr(ucpp.Ptr<AutomationTestSettings>) from ucpp.Ptr<AutomationTestSettings> to ucpp.Ptr<AutomationTestSettings>{
 	@:from
 	public static extern inline function fromValue(v: AutomationTestSettings): AutomationTestSettingsPtr {
 		return untyped __cpp__("&({0})", v);

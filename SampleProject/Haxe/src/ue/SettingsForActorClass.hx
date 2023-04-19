@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSettingsForActorClass")
 @:include("SequenceRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class SettingsForActorClass {
 	public var Class: TSubclassOf<Actor>;
 	public var bRecordToPossessable: Bool;

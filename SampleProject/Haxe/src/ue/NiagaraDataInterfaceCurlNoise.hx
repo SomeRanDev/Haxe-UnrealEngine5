@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCurlNoise")
 @:include("NiagaraDataInterfaceCurlNoise.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceCurlNoise extends NiagaraDataInterface {
-	public var Seed: cpp.UInt32;
+	public var Seed: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceCurlNoise(NiagaraDataInterfaceCurlNoise) from NiagaraDataInterfaceCurlNoise {
-	public extern var Seed(get, never): cpp.UInt32;
-	public inline extern function get_Seed(): cpp.UInt32 return this.Seed;
+	public extern var Seed(get, never): ucpp.num.UInt32;
+	public inline extern function get_Seed(): ucpp.num.UInt32 return this.Seed;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceCurlNoise*")
-abstract NiagaraDataInterfaceCurlNoisePtr(cpp.Star<NiagaraDataInterfaceCurlNoise>) from cpp.Star<NiagaraDataInterfaceCurlNoise> to cpp.Star<NiagaraDataInterfaceCurlNoise>{
+abstract NiagaraDataInterfaceCurlNoisePtr(ucpp.Ptr<NiagaraDataInterfaceCurlNoise>) from ucpp.Ptr<NiagaraDataInterfaceCurlNoise> to ucpp.Ptr<NiagaraDataInterfaceCurlNoise>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceCurlNoise): NiagaraDataInterfaceCurlNoisePtr {
 		return untyped __cpp__("&({0})", v);

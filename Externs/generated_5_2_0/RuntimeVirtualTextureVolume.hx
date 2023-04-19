@@ -3,24 +3,24 @@ package ue;
 
 @:native("ARuntimeVirtualTextureVolume")
 @:include("VT/RuntimeVirtualTextureVolume.h")
-@:structAccess
+@:valueType
 extern class RuntimeVirtualTextureVolume extends Actor {
-	public var VirtualTextureComponent: cpp.Star<RuntimeVirtualTextureComp>;
+	public var VirtualTextureComponent: ucpp.Ptr<RuntimeVirtualTextureComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRuntimeVirtualTextureVolume(RuntimeVirtualTextureVolume) from RuntimeVirtualTextureVolume {
-	public extern var VirtualTextureComponent(get, never): cpp.Star<RuntimeVirtualTextureComp.ConstRuntimeVirtualTextureComp>;
-	public inline extern function get_VirtualTextureComponent(): cpp.Star<RuntimeVirtualTextureComp.ConstRuntimeVirtualTextureComp> return this.VirtualTextureComponent;
+	public extern var VirtualTextureComponent(get, never): ucpp.Ptr<RuntimeVirtualTextureComp.ConstRuntimeVirtualTextureComp>;
+	public inline extern function get_VirtualTextureComponent(): ucpp.Ptr<RuntimeVirtualTextureComp.ConstRuntimeVirtualTextureComp> return this.VirtualTextureComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("RuntimeVirtualTextureVolume*")
-abstract RuntimeVirtualTextureVolumePtr(cpp.Star<RuntimeVirtualTextureVolume>) from cpp.Star<RuntimeVirtualTextureVolume> to cpp.Star<RuntimeVirtualTextureVolume>{
+abstract RuntimeVirtualTextureVolumePtr(ucpp.Ptr<RuntimeVirtualTextureVolume>) from ucpp.Ptr<RuntimeVirtualTextureVolume> to ucpp.Ptr<RuntimeVirtualTextureVolume>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeVirtualTextureVolume): RuntimeVirtualTextureVolumePtr {
 		return untyped __cpp__("&({0})", v);

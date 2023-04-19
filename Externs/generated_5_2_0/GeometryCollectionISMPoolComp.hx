@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeometryCollectionISMPoolComponent")
 @:include("GeometryCollection/GeometryCollectionISMPoolComponent.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionISMPoolComp extends SceneComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeometryCollectionISMPoolComp(GeometryCollectionISMPoolComp) from 
 @:forward
 @:nativeGen
 @:native("GeometryCollectionISMPoolComp*")
-abstract GeometryCollectionISMPoolCompPtr(cpp.Star<GeometryCollectionISMPoolComp>) from cpp.Star<GeometryCollectionISMPoolComp> to cpp.Star<GeometryCollectionISMPoolComp>{
+abstract GeometryCollectionISMPoolCompPtr(ucpp.Ptr<GeometryCollectionISMPoolComp>) from ucpp.Ptr<GeometryCollectionISMPoolComp> to ucpp.Ptr<GeometryCollectionISMPoolComp>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionISMPoolComp): GeometryCollectionISMPoolCompPtr {
 		return untyped __cpp__("&({0})", v);

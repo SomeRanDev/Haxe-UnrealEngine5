@@ -3,14 +3,14 @@ package ue;
 
 @:native("UWmfMediaSettings")
 @:include("WmfMediaSettings.h")
-@:structAccess
+@:valueType
 extern class WmfMediaSettings extends Object {
 	public var AllowNonStandardCodecs: Bool;
 	public var LowLatency: Bool;
 	public var NativeAudioOut: Bool;
 	public var HardwareAcceleratedVideoDecoding: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstWmfMediaSettings(WmfMediaSettings) from WmfMediaSettings {
 @:forward
 @:nativeGen
 @:native("WmfMediaSettings*")
-abstract WmfMediaSettingsPtr(cpp.Star<WmfMediaSettings>) from cpp.Star<WmfMediaSettings> to cpp.Star<WmfMediaSettings>{
+abstract WmfMediaSettingsPtr(ucpp.Ptr<WmfMediaSettings>) from ucpp.Ptr<WmfMediaSettings> to ucpp.Ptr<WmfMediaSettings>{
 	@:from
 	public static extern inline function fromValue(v: WmfMediaSettings): WmfMediaSettingsPtr {
 		return untyped __cpp__("&({0})", v);

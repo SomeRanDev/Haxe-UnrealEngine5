@@ -3,17 +3,19 @@ package ue;
 
 @:native("UNiagaraVersionMetaData")
 @:include("NiagaraVersionMetaData.h")
-@:structAccess
+@:valueType
 extern class NiagaraVersionMetaData extends Object {
 	public var bIsExposedVersion: Bool;
 	public var ChangeDescription: FText;
 	public var bIsVisibleInVersionSelector: Bool;
+	public var bDeprecated: Bool;
+	public var DeprecationMessage: FText;
 	public var VersionGuid: Guid;
 	public var UpdateScriptExecution: ENiagaraPythonUpdateScriptReference;
 	public var PythonUpdateScript: FString;
 	public var ScriptAsset: FilePath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,6 +27,10 @@ abstract ConstNiagaraVersionMetaData(NiagaraVersionMetaData) from NiagaraVersion
 	public inline extern function get_ChangeDescription(): FText return this.ChangeDescription;
 	public extern var bIsVisibleInVersionSelector(get, never): Bool;
 	public inline extern function get_bIsVisibleInVersionSelector(): Bool return this.bIsVisibleInVersionSelector;
+	public extern var bDeprecated(get, never): Bool;
+	public inline extern function get_bDeprecated(): Bool return this.bDeprecated;
+	public extern var DeprecationMessage(get, never): FText;
+	public inline extern function get_DeprecationMessage(): FText return this.DeprecationMessage;
 	public extern var VersionGuid(get, never): Guid;
 	public inline extern function get_VersionGuid(): Guid return this.VersionGuid;
 	public extern var UpdateScriptExecution(get, never): ENiagaraPythonUpdateScriptReference;
@@ -38,7 +44,7 @@ abstract ConstNiagaraVersionMetaData(NiagaraVersionMetaData) from NiagaraVersion
 @:forward
 @:nativeGen
 @:native("NiagaraVersionMetaData*")
-abstract NiagaraVersionMetaDataPtr(cpp.Star<NiagaraVersionMetaData>) from cpp.Star<NiagaraVersionMetaData> to cpp.Star<NiagaraVersionMetaData>{
+abstract NiagaraVersionMetaDataPtr(ucpp.Ptr<NiagaraVersionMetaData>) from ucpp.Ptr<NiagaraVersionMetaData> to ucpp.Ptr<NiagaraVersionMetaData>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraVersionMetaData): NiagaraVersionMetaDataPtr {
 		return untyped __cpp__("&({0})", v);

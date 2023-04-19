@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAbcSamplingSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcSamplingSettings {
 	public var SamplingType: EAlembicSamplingType;
-	public var FrameSteps: cpp.Int32;
-	public var TimeSteps: cpp.Float32;
-	public var FrameStart: cpp.Int32;
-	public var FrameEnd: cpp.Int32;
+	public var FrameSteps: ucpp.num.Int32;
+	public var TimeSteps: ucpp.num.Float32;
+	public var FrameStart: ucpp.num.Int32;
+	public var FrameEnd: ucpp.num.Int32;
 	public var bSkipEmpty: Bool;
 
 	@:native("FAbcSamplingSettings") public function new();

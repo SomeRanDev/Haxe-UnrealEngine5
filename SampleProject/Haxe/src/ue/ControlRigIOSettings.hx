@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigIOSettings")
 @:include("AnimNode_ControlRigBase.h")
-@:structAccess
+@:valueType
 extern class ControlRigIOSettings {
 	public var bUpdatePose: Bool;
 	public var bUpdateCurves: Bool;

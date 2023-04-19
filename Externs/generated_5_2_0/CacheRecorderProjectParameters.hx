@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCacheRecorderProjectParameters")
 @:include("Recorder/CacheTrackRecorder.h")
-@:structAccess
+@:valueType
 extern class CacheRecorderProjectParameters {
 	public var DefaultSlate: FString;
 	public var bCacheTrackRecorderControlsClockTime: Bool;

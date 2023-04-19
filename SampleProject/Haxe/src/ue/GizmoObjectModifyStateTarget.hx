@@ -3,21 +3,24 @@ package ue;
 
 @:native("UGizmoObjectModifyStateTarget")
 @:include("BaseGizmos/StateTargets.h")
-@:structAccess
+@:valueType
 extern class GizmoObjectModifyStateTarget extends Object {
+	public var TransactionManager: ToolContextTransactionProvider;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGizmoObjectModifyStateTarget(GizmoObjectModifyStateTarget) from GizmoObjectModifyStateTarget {
+	public extern var TransactionManager(get, never): ToolContextTransactionProvider.ConstToolContextTransactionProvider;
+	public inline extern function get_TransactionManager(): ToolContextTransactionProvider.ConstToolContextTransactionProvider return this.TransactionManager;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoObjectModifyStateTarget*")
-abstract GizmoObjectModifyStateTargetPtr(cpp.Star<GizmoObjectModifyStateTarget>) from cpp.Star<GizmoObjectModifyStateTarget> to cpp.Star<GizmoObjectModifyStateTarget>{
+abstract GizmoObjectModifyStateTargetPtr(ucpp.Ptr<GizmoObjectModifyStateTarget>) from ucpp.Ptr<GizmoObjectModifyStateTarget> to ucpp.Ptr<GizmoObjectModifyStateTarget>{
 	@:from
 	public static extern inline function fromValue(v: GizmoObjectModifyStateTarget): GizmoObjectModifyStateTargetPtr {
 		return untyped __cpp__("&({0})", v);

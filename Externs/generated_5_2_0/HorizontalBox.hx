@@ -3,11 +3,11 @@ package ue;
 
 @:native("UHorizontalBox")
 @:include("Components/HorizontalBox.h")
-@:structAccess
+@:valueType
 extern class HorizontalBox extends PanelWidget {
-	public function AddChildToHorizontalBox(Content: cpp.Star<Widget>): cpp.Star<HorizontalBoxSlot>;
+	public function AddChildToHorizontalBox(Content: ucpp.Ptr<Widget>): ucpp.Ptr<HorizontalBoxSlot>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstHorizontalBox(HorizontalBox) from HorizontalBox {
 @:forward
 @:nativeGen
 @:native("HorizontalBox*")
-abstract HorizontalBoxPtr(cpp.Star<HorizontalBox>) from cpp.Star<HorizontalBox> to cpp.Star<HorizontalBox>{
+abstract HorizontalBoxPtr(ucpp.Ptr<HorizontalBox>) from ucpp.Ptr<HorizontalBox> to ucpp.Ptr<HorizontalBox>{
 	@:from
 	public static extern inline function fromValue(v: HorizontalBox): HorizontalBoxPtr {
 		return untyped __cpp__("&({0})", v);

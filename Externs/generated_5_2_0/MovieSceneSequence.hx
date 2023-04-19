@@ -3,9 +3,9 @@ package ue;
 
 @:native("UMovieSceneSequence")
 @:include("MovieSceneSequence.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequence extends MovieSceneSignedObject {
-	private var CompiledData: cpp.Star<MovieSceneCompiledData>;
+	private var CompiledData: ucpp.Ptr<MovieSceneCompiledData>;
 	public var DefaultCompletionMode: EMovieSceneCompletionMode;
 	@:protected public var bParentContextsAreSignificant: Bool;
 	@:protected public var bPlayableDirectly: Bool;
@@ -15,7 +15,7 @@ extern class MovieSceneSequence extends MovieSceneSignedObject {
 	public function FindBindingsByTag(InBindingName: FName): TArray<MovieSceneObjectBindingID>;
 	public function FindBindingByTag(InBindingName: FName): MovieSceneObjectBindingID;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetEarliestTimecodeSource, FindBindingsByTag, FindBindingByTag)
@@ -28,7 +28,7 @@ abstract ConstMovieSceneSequence(MovieSceneSequence) from MovieSceneSequence {
 @:forward
 @:nativeGen
 @:native("MovieSceneSequence*")
-abstract MovieSceneSequencePtr(cpp.Star<MovieSceneSequence>) from cpp.Star<MovieSceneSequence> to cpp.Star<MovieSceneSequence>{
+abstract MovieSceneSequencePtr(ucpp.Ptr<MovieSceneSequence>) from ucpp.Ptr<MovieSceneSequence> to ucpp.Ptr<MovieSceneSequence>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSequence): MovieSceneSequencePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReimportBasicOverlaysFactory")
 @:include("Factories/ReimportBasicOverlaysFactory.h")
-@:structAccess
+@:valueType
 extern class ReimportBasicOverlaysFactory extends BasicOverlaysFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReimportBasicOverlaysFactory(ReimportBasicOverlaysFactory) from Re
 @:forward
 @:nativeGen
 @:native("ReimportBasicOverlaysFactory*")
-abstract ReimportBasicOverlaysFactoryPtr(cpp.Star<ReimportBasicOverlaysFactory>) from cpp.Star<ReimportBasicOverlaysFactory> to cpp.Star<ReimportBasicOverlaysFactory>{
+abstract ReimportBasicOverlaysFactoryPtr(ucpp.Ptr<ReimportBasicOverlaysFactory>) from ucpp.Ptr<ReimportBasicOverlaysFactory> to ucpp.Ptr<ReimportBasicOverlaysFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReimportBasicOverlaysFactory): ReimportBasicOverlaysFactoryPtr {
 		return untyped __cpp__("&({0})", v);

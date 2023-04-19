@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequenceAnimSequenceLinkItem")
 @:include("LevelSequenceAnimSequenceLink.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceAnimSequenceLinkItem {
 	public var SkelTrackGuid: Guid;
 	public var PathToAnimSequence: SoftObjectPath;
@@ -11,7 +11,10 @@ extern class LevelSequenceAnimSequenceLinkItem {
 	public var bExportMorphTargets: Bool;
 	public var bExportAttributeCurves: Bool;
 	public var bExportMaterialCurves: Bool;
+	public var Interpolation: EAnimInterpolationType;
+	public var CurveInterpolation: TEnumAsByte<ERichCurveInterpMode>;
 	public var bRecordInWorldSpace: Bool;
+	public var bEvaluateAllSkeletalMeshComponents: Bool;
 
 	@:native("FLevelSequenceAnimSequenceLinkItem") public function new();
 }

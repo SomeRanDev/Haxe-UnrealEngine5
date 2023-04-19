@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBspConversionToolBuilder")
 @:include("BspConversionTool.h")
-@:structAccess
+@:valueType
 extern class BspConversionToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBspConversionToolBuilder(BspConversionToolBuilder) from BspConvers
 @:forward
 @:nativeGen
 @:native("BspConversionToolBuilder*")
-abstract BspConversionToolBuilderPtr(cpp.Star<BspConversionToolBuilder>) from cpp.Star<BspConversionToolBuilder> to cpp.Star<BspConversionToolBuilder>{
+abstract BspConversionToolBuilderPtr(ucpp.Ptr<BspConversionToolBuilder>) from ucpp.Ptr<BspConversionToolBuilder> to ucpp.Ptr<BspConversionToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BspConversionToolBuilder): BspConversionToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

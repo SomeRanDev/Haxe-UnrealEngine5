@@ -3,10 +3,10 @@ package ue;
 
 @:native("AInstancedPlacementPartitionActor")
 @:include("Instances/InstancedPlacementPartitionActor.h")
-@:structAccess
+@:valueType
 extern class InstancedPlacementPartitionActor extends ISMPartitionActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInstancedPlacementPartitionActor(InstancedPlacementPartitionActor)
 @:forward
 @:nativeGen
 @:native("InstancedPlacementPartitionActor*")
-abstract InstancedPlacementPartitionActorPtr(cpp.Star<InstancedPlacementPartitionActor>) from cpp.Star<InstancedPlacementPartitionActor> to cpp.Star<InstancedPlacementPartitionActor>{
+abstract InstancedPlacementPartitionActorPtr(ucpp.Ptr<InstancedPlacementPartitionActor>) from ucpp.Ptr<InstancedPlacementPartitionActor> to ucpp.Ptr<InstancedPlacementPartitionActor>{
 	@:from
 	public static extern inline function fromValue(v: InstancedPlacementPartitionActor): InstancedPlacementPartitionActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPlaneTranslationDragOperation")
 @:include("ViewportInteractionDragOperations.h")
-@:structAccess
+@:valueType
 extern class PlaneTranslationDragOperation extends ViewportDragOperation {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlaneTranslationDragOperation(PlaneTranslationDragOperation) from 
 @:forward
 @:nativeGen
 @:native("PlaneTranslationDragOperation*")
-abstract PlaneTranslationDragOperationPtr(cpp.Star<PlaneTranslationDragOperation>) from cpp.Star<PlaneTranslationDragOperation> to cpp.Star<PlaneTranslationDragOperation>{
+abstract PlaneTranslationDragOperationPtr(ucpp.Ptr<PlaneTranslationDragOperation>) from ucpp.Ptr<PlaneTranslationDragOperation> to ucpp.Ptr<PlaneTranslationDragOperation>{
 	@:from
 	public static extern inline function fromValue(v: PlaneTranslationDragOperation): PlaneTranslationDragOperationPtr {
 		return untyped __cpp__("&({0})", v);

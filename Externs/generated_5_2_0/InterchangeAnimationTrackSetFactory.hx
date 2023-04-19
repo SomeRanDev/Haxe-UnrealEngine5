@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeAnimationTrackSetFactory")
 @:include("Animation/InterchangeAnimationTrackSetFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangeAnimationTrackSetFactory extends InterchangeFactoryBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeAnimationTrackSetFactory(InterchangeAnimationTrackSetFa
 @:forward
 @:nativeGen
 @:native("InterchangeAnimationTrackSetFactory*")
-abstract InterchangeAnimationTrackSetFactoryPtr(cpp.Star<InterchangeAnimationTrackSetFactory>) from cpp.Star<InterchangeAnimationTrackSetFactory> to cpp.Star<InterchangeAnimationTrackSetFactory>{
+abstract InterchangeAnimationTrackSetFactoryPtr(ucpp.Ptr<InterchangeAnimationTrackSetFactory>) from ucpp.Ptr<InterchangeAnimationTrackSetFactory> to ucpp.Ptr<InterchangeAnimationTrackSetFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeAnimationTrackSetFactory): InterchangeAnimationTrackSetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

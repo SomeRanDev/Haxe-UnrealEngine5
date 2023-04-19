@@ -3,12 +3,12 @@ package ue;
 
 @:native("UControlRigEditModeDelegateHelper")
 @:include("EditMode/ControlRigEditMode.h")
-@:structAccess
+@:valueType
 extern class ControlRigEditModeDelegateHelper extends Object {
 	public function PostPoseUpdate(): Void;
 	public function OnPoseInitialized(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstControlRigEditModeDelegateHelper(ControlRigEditModeDelegateHelper)
 @:forward
 @:nativeGen
 @:native("ControlRigEditModeDelegateHelper*")
-abstract ControlRigEditModeDelegateHelperPtr(cpp.Star<ControlRigEditModeDelegateHelper>) from cpp.Star<ControlRigEditModeDelegateHelper> to cpp.Star<ControlRigEditModeDelegateHelper>{
+abstract ControlRigEditModeDelegateHelperPtr(ucpp.Ptr<ControlRigEditModeDelegateHelper>) from ucpp.Ptr<ControlRigEditModeDelegateHelper> to ucpp.Ptr<ControlRigEditModeDelegateHelper>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigEditModeDelegateHelper): ControlRigEditModeDelegateHelperPtr {
 		return untyped __cpp__("&({0})", v);

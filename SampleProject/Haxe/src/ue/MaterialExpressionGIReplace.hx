@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionGIReplace")
 @:include("Materials/MaterialExpressionGIReplace.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionGIReplace extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var StaticIndirect: ExpressionInput;
 	public var DynamicIndirect: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionGIReplace(MaterialExpressionGIReplace) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialExpressionGIReplace*")
-abstract MaterialExpressionGIReplacePtr(cpp.Star<MaterialExpressionGIReplace>) from cpp.Star<MaterialExpressionGIReplace> to cpp.Star<MaterialExpressionGIReplace>{
+abstract MaterialExpressionGIReplacePtr(ucpp.Ptr<MaterialExpressionGIReplace>) from ucpp.Ptr<MaterialExpressionGIReplace> to ucpp.Ptr<MaterialExpressionGIReplace>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionGIReplace): MaterialExpressionGIReplacePtr {
 		return untyped __cpp__("&({0})", v);

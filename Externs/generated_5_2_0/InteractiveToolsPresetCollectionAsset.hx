@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInteractiveToolsPresetCollectionAsset")
 @:include("PresetAsset.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolsPresetCollectionAsset extends Object {
 	public var PerToolPresets: TMap<FString, InteractiveToolPresetStore>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInteractiveToolsPresetCollectionAsset(InteractiveToolsPresetCollec
 @:forward
 @:nativeGen
 @:native("InteractiveToolsPresetCollectionAsset*")
-abstract InteractiveToolsPresetCollectionAssetPtr(cpp.Star<InteractiveToolsPresetCollectionAsset>) from cpp.Star<InteractiveToolsPresetCollectionAsset> to cpp.Star<InteractiveToolsPresetCollectionAsset>{
+abstract InteractiveToolsPresetCollectionAssetPtr(ucpp.Ptr<InteractiveToolsPresetCollectionAsset>) from ucpp.Ptr<InteractiveToolsPresetCollectionAsset> to ucpp.Ptr<InteractiveToolsPresetCollectionAsset>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolsPresetCollectionAsset): InteractiveToolsPresetCollectionAssetPtr {
 		return untyped __cpp__("&({0})", v);

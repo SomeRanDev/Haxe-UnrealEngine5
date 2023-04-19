@@ -3,14 +3,14 @@ package ue;
 
 @:native("UTileMapBlueprintLibrary")
 @:include("TileMapBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class TileMapBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function MakeTile(TileIndex: cpp.Int32, TileSet: cpp.Star<PaperTileSet>, bFlipH: Bool, bFlipV: Bool, bFlipD: Bool): PaperTileInfo;
+	public function MakeTile(TileIndex: ucpp.num.Int32, TileSet: ucpp.Ptr<PaperTileSet>, bFlipH: Bool, bFlipV: Bool, bFlipD: Bool): PaperTileInfo;
 	public function GetTileUserData(Tile: PaperTileInfo): FName;
 	public function GetTileTransform(Tile: PaperTileInfo): Transform;
-	public function BreakTile(Tile: PaperTileInfo, TileIndex: cpp.Reference<cpp.Int32>, TileSet: cpp.Reference<cpp.Star<PaperTileSet>>, bFlipH: cpp.Reference<Bool>, bFlipV: cpp.Reference<Bool>, bFlipD: cpp.Reference<Bool>): Void;
+	public function BreakTile(Tile: PaperTileInfo, TileIndex: ucpp.Ref<ucpp.num.Int32>, TileSet: ucpp.Ref<ucpp.Ptr<PaperTileSet>>, bFlipH: ucpp.Ref<Bool>, bFlipV: ucpp.Ref<Bool>, bFlipD: ucpp.Ref<Bool>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstTileMapBlueprintLibrary(TileMapBlueprintLibrary) from TileMapBluep
 @:forward
 @:nativeGen
 @:native("TileMapBlueprintLibrary*")
-abstract TileMapBlueprintLibraryPtr(cpp.Star<TileMapBlueprintLibrary>) from cpp.Star<TileMapBlueprintLibrary> to cpp.Star<TileMapBlueprintLibrary>{
+abstract TileMapBlueprintLibraryPtr(ucpp.Ptr<TileMapBlueprintLibrary>) from ucpp.Ptr<TileMapBlueprintLibrary> to ucpp.Ptr<TileMapBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TileMapBlueprintLibrary): TileMapBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

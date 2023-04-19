@@ -3,11 +3,11 @@ package ue;
 
 @:native("FWorldPartitionDestructibleHLODState")
 @:include("WorldPartition/HLOD/DestructibleHLODComponent.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionDestructibleHLODState extends FastArraySerializer {
 	private var DamagedActors: TArray<WorldPartitionDestructibleHLODDamagedActorState>;
-	private var OwnerComponent: cpp.Star<WorldPartitionDestructibleHLODComp>;
+	private var OwnerComponent: ucpp.Ptr<WorldPartitionDestructibleHLODComp>;
 
 	@:native("FWorldPartitionDestructibleHLODState") public function new();
-	@:native("FWorldPartitionDestructibleHLODState") public static function make(DamagedActors: TArray<WorldPartitionDestructibleHLODDamagedActorState>, OwnerComponent: cpp.Star<WorldPartitionDestructibleHLODComp>): WorldPartitionDestructibleHLODState ;
+	@:native("FWorldPartitionDestructibleHLODState") public static function make(DamagedActors: TArray<WorldPartitionDestructibleHLODDamagedActorState>, OwnerComponent: ucpp.Ptr<WorldPartitionDestructibleHLODComp>): WorldPartitionDestructibleHLODState ;
 }

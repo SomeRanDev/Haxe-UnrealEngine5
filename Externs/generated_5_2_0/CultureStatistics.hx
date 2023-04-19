@@ -3,11 +3,11 @@ package ue;
 
 @:native("FCultureStatistics")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class CultureStatistics {
 	public var CultureName: FString;
-	public var WordCount: cpp.UInt32;
+	public var WordCount: ucpp.num.UInt32;
 
 	@:native("FCultureStatistics") public function new();
-	@:native("FCultureStatistics") public static function make(CultureName: FString, WordCount: cpp.UInt32): CultureStatistics ;
+	@:native("FCultureStatistics") public static function make(CultureName: FString, WordCount: ucpp.num.UInt32): CultureStatistics ;
 }

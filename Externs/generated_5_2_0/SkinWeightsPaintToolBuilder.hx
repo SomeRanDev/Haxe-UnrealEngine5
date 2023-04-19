@@ -3,10 +3,10 @@ package ue;
 
 @:native("USkinWeightsPaintToolBuilder")
 @:include("SkinWeightsPaintTool.h")
-@:structAccess
+@:valueType
 extern class SkinWeightsPaintToolBuilder extends MeshSurfacePointMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSkinWeightsPaintToolBuilder(SkinWeightsPaintToolBuilder) from Skin
 @:forward
 @:nativeGen
 @:native("SkinWeightsPaintToolBuilder*")
-abstract SkinWeightsPaintToolBuilderPtr(cpp.Star<SkinWeightsPaintToolBuilder>) from cpp.Star<SkinWeightsPaintToolBuilder> to cpp.Star<SkinWeightsPaintToolBuilder>{
+abstract SkinWeightsPaintToolBuilderPtr(ucpp.Ptr<SkinWeightsPaintToolBuilder>) from ucpp.Ptr<SkinWeightsPaintToolBuilder> to ucpp.Ptr<SkinWeightsPaintToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SkinWeightsPaintToolBuilder): SkinWeightsPaintToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

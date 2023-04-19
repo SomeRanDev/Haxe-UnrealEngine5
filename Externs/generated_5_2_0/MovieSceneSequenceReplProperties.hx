@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMovieSceneSequenceReplProperties")
 @:include("MovieSceneSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceReplProperties {
 	public var LastKnownPosition: FrameTime;
 	public var LastKnownStatus: TEnumAsByte<EMovieScenePlayerStatus>;
-	public var LastKnownNumLoops: cpp.Int32;
+	public var LastKnownNumLoops: ucpp.num.Int32;
 
 	@:native("FMovieSceneSequenceReplProperties") public function new();
-	@:native("FMovieSceneSequenceReplProperties") public static function make(LastKnownPosition: FrameTime, LastKnownStatus: TEnumAsByte<EMovieScenePlayerStatus>, LastKnownNumLoops: cpp.Int32): MovieSceneSequenceReplProperties ;
+	@:native("FMovieSceneSequenceReplProperties") public static function make(LastKnownPosition: FrameTime, LastKnownStatus: TEnumAsByte<EMovieScenePlayerStatus>, LastKnownNumLoops: ucpp.num.Int32): MovieSceneSequenceReplProperties ;
 }

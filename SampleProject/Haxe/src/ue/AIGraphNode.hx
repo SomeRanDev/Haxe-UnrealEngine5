@@ -3,18 +3,18 @@ package ue;
 
 @:native("UAIGraphNode")
 @:include("AIGraphNode.h")
-@:structAccess
+@:valueType
 extern class AIGraphNode extends EdGraphNode {
 	public var ClassData: GraphNodeClassData;
-	public var NodeInstance: cpp.Star<Object>;
-	public var ParentNode: cpp.Star<AIGraphNode>;
-	public var SubNodes: TArray<cpp.Star<AIGraphNode>>;
-	public var CopySubNodeIndex: cpp.Int32;
+	public var NodeInstance: ucpp.Ptr<Object>;
+	public var ParentNode: ucpp.Ptr<AIGraphNode>;
+	public var SubNodes: TArray<ucpp.Ptr<AIGraphNode>>;
+	public var CopySubNodeIndex: ucpp.num.Int32;
 	public var bIsReadOnly: Bool;
 	public var bIsSubNode: Bool;
 	public var ErrorMessage: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ extern class AIGraphNode extends EdGraphNode {
 abstract ConstAIGraphNode(AIGraphNode) from AIGraphNode {
 	public extern var ClassData(get, never): GraphNodeClassData;
 	public inline extern function get_ClassData(): GraphNodeClassData return this.ClassData;
-	public extern var NodeInstance(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_NodeInstance(): cpp.Star<Object.ConstObject> return this.NodeInstance;
-	public extern var ParentNode(get, never): cpp.Star<AIGraphNode.ConstAIGraphNode>;
-	public inline extern function get_ParentNode(): cpp.Star<AIGraphNode.ConstAIGraphNode> return this.ParentNode;
-	public extern var SubNodes(get, never): TArray<cpp.Star<AIGraphNode.ConstAIGraphNode>>;
-	public inline extern function get_SubNodes(): TArray<cpp.Star<AIGraphNode.ConstAIGraphNode>> return this.SubNodes;
-	public extern var CopySubNodeIndex(get, never): cpp.Int32;
-	public inline extern function get_CopySubNodeIndex(): cpp.Int32 return this.CopySubNodeIndex;
+	public extern var NodeInstance(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_NodeInstance(): ucpp.Ptr<Object.ConstObject> return this.NodeInstance;
+	public extern var ParentNode(get, never): ucpp.Ptr<AIGraphNode.ConstAIGraphNode>;
+	public inline extern function get_ParentNode(): ucpp.Ptr<AIGraphNode.ConstAIGraphNode> return this.ParentNode;
+	public extern var SubNodes(get, never): TArray<ucpp.Ptr<AIGraphNode.ConstAIGraphNode>>;
+	public inline extern function get_SubNodes(): TArray<ucpp.Ptr<AIGraphNode.ConstAIGraphNode>> return this.SubNodes;
+	public extern var CopySubNodeIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_CopySubNodeIndex(): ucpp.num.Int32 return this.CopySubNodeIndex;
 	public extern var bIsReadOnly(get, never): Bool;
 	public inline extern function get_bIsReadOnly(): Bool return this.bIsReadOnly;
 	public extern var bIsSubNode(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstAIGraphNode(AIGraphNode) from AIGraphNode {
 @:forward
 @:nativeGen
 @:native("AIGraphNode*")
-abstract AIGraphNodePtr(cpp.Star<AIGraphNode>) from cpp.Star<AIGraphNode> to cpp.Star<AIGraphNode>{
+abstract AIGraphNodePtr(ucpp.Ptr<AIGraphNode>) from ucpp.Ptr<AIGraphNode> to ucpp.Ptr<AIGraphNode>{
 	@:from
 	public static extern inline function fromValue(v: AIGraphNode): AIGraphNodePtr {
 		return untyped __cpp__("&({0})", v);

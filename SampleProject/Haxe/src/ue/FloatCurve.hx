@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFloatCurve")
 @:include("Animation/AnimCurveTypes.h")
-@:structAccess
+@:valueType
 extern class FloatCurve extends AnimCurveBase {
 	public var FloatCurve: RichCurve;
 

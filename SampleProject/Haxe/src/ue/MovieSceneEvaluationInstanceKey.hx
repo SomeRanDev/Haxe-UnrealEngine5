@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationInstanceKey")
 @:include("EntitySystem/MovieSceneEvaluationHookSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationInstanceKey {
 	@:native("FMovieSceneEvaluationInstanceKey") public function new();
 }

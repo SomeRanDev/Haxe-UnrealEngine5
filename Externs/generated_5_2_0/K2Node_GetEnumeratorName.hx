@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_GetEnumeratorName")
 @:include("K2Node_GetEnumeratorName.h")
-@:structAccess
+@:valueType
 extern class K2Node_GetEnumeratorName extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_GetEnumeratorName(K2Node_GetEnumeratorName) from K2Node_Get
 @:forward
 @:nativeGen
 @:native("K2Node_GetEnumeratorName*")
-abstract K2Node_GetEnumeratorNamePtr(cpp.Star<K2Node_GetEnumeratorName>) from cpp.Star<K2Node_GetEnumeratorName> to cpp.Star<K2Node_GetEnumeratorName>{
+abstract K2Node_GetEnumeratorNamePtr(ucpp.Ptr<K2Node_GetEnumeratorName>) from ucpp.Ptr<K2Node_GetEnumeratorName> to ucpp.Ptr<K2Node_GetEnumeratorName>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_GetEnumeratorName): K2Node_GetEnumeratorNamePtr {
 		return untyped __cpp__("&({0})", v);

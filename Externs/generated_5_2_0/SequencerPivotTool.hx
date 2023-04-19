@@ -3,13 +3,13 @@ package ue;
 
 @:native("USequencerPivotTool")
 @:include("SequencerAnimEditPivotTool.h")
-@:structAccess
+@:valueType
 extern class SequencerPivotTool extends MultiSelectionTool {
-	@:protected public var ClickBehavior: cpp.Star<SingleClickInputBehavior>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	@:protected public var ClickBehavior: ucpp.Ptr<SingleClickInputBehavior>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSequencerPivotTool(SequencerPivotTool) from SequencerPivotTool {
 @:forward
 @:nativeGen
 @:native("SequencerPivotTool*")
-abstract SequencerPivotToolPtr(cpp.Star<SequencerPivotTool>) from cpp.Star<SequencerPivotTool> to cpp.Star<SequencerPivotTool>{
+abstract SequencerPivotToolPtr(ucpp.Ptr<SequencerPivotTool>) from ucpp.Ptr<SequencerPivotTool> to ucpp.Ptr<SequencerPivotTool>{
 	@:from
 	public static extern inline function fromValue(v: SequencerPivotTool): SequencerPivotToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBodyInstance")
 @:include("PhysicsEngine/BodyInstance.h")
-@:structAccess
+@:valueType
 extern class BodyInstance extends BodyInstanceCore {
 	private var ObjectType: TEnumAsByte<ECollisionChannel>;
 	private var CollisionEnabled: TEnumAsByte<ECollisionEnabled>;
@@ -27,23 +27,23 @@ extern class BodyInstance extends BodyInstanceCore {
 	@:protected public var bInterpolateWhenSubStepping: Bool;
 	@:protected public var bInertiaConditioning: Bool;
 	private var CollisionProfileName: FName;
-	public var PositionSolverIterationCount: cpp.UInt8;
-	public var VelocitySolverIterationCount: cpp.UInt8;
+	public var PositionSolverIterationCount: ucpp.num.UInt8;
+	public var VelocitySolverIterationCount: ucpp.num.UInt8;
 	private var CollisionResponses: CollisionResponse;
-	@:protected public var MaxDepenetrationVelocity: cpp.Float32;
-	@:protected public var MassInKgOverride: cpp.Float32;
-	public var LinearDamping: cpp.Float32;
-	public var AngularDamping: cpp.Float32;
+	@:protected public var MaxDepenetrationVelocity: ucpp.num.Float32;
+	@:protected public var MassInKgOverride: ucpp.num.Float32;
+	public var LinearDamping: ucpp.num.Float32;
+	public var AngularDamping: ucpp.num.Float32;
 	public var CustomDOFPlaneNormal: Vector;
 	public var COMNudge: Vector;
-	public var MassScale: cpp.Float32;
+	public var MassScale: ucpp.num.Float32;
 	public var InertiaTensorScale: Vector;
 	@:protected public var WalkableSlopeOverride: WalkableSlopeOverride;
-	@:protected public var PhysMaterialOverride: cpp.Star<PhysicalMaterial>;
-	public var MaxAngularVelocity: cpp.Float32;
-	public var CustomSleepThresholdMultiplier: cpp.Float32;
-	public var StabilizationThresholdMultiplier: cpp.Float32;
-	public var PhysicsBlendWeight: cpp.Float32;
+	@:protected public var PhysMaterialOverride: ucpp.Ptr<PhysicalMaterial>;
+	public var MaxAngularVelocity: ucpp.num.Float32;
+	public var CustomSleepThresholdMultiplier: ucpp.num.Float32;
+	public var StabilizationThresholdMultiplier: ucpp.num.Float32;
+	public var PhysicsBlendWeight: ucpp.num.Float32;
 
 	@:native("FBodyInstance") public function new();
 }

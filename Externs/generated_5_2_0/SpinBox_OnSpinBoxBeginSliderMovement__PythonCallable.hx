@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USpinBox_OnSpinBoxBeginSliderMovement__PythonCallable")
-@:structAccess
+@:valueType
 extern class SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSpinBox_OnSpinBoxBeginSliderMovement__PythonCallable(SpinBox_OnSpi
 @:forward
 @:nativeGen
 @:native("SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable*")
-abstract SpinBox_OnSpinBoxBeginSliderMovement__PythonCallablePtr(cpp.Star<SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable>) from cpp.Star<SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable> to cpp.Star<SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable>{
+abstract SpinBox_OnSpinBoxBeginSliderMovement__PythonCallablePtr(ucpp.Ptr<SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable>) from ucpp.Ptr<SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable> to ucpp.Ptr<SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: SpinBox_OnSpinBoxBeginSliderMovement__PythonCallable): SpinBox_OnSpinBoxBeginSliderMovement__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

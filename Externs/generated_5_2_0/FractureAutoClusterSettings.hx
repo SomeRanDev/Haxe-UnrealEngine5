@@ -3,16 +3,16 @@ package ue;
 
 @:native("UFractureAutoClusterSettings")
 @:include("FractureToolAutoCluster.h")
-@:structAccess
+@:valueType
 extern class FractureAutoClusterSettings extends FractureToolSettings {
 	public var ClusterSizeMethod: EClusterSizeMethod;
-	public var SiteCount: cpp.UInt32;
-	public var SiteCountFraction: cpp.Float32;
-	public var SiteSize: cpp.Float32;
+	public var SiteCount: ucpp.num.UInt32;
+	public var SiteCountFraction: ucpp.num.Float32;
+	public var SiteSize: ucpp.num.Float32;
 	public var bEnforceConnectivity: Bool;
 	public var bAvoidIsolated: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,12 +20,12 @@ extern class FractureAutoClusterSettings extends FractureToolSettings {
 abstract ConstFractureAutoClusterSettings(FractureAutoClusterSettings) from FractureAutoClusterSettings {
 	public extern var ClusterSizeMethod(get, never): EClusterSizeMethod;
 	public inline extern function get_ClusterSizeMethod(): EClusterSizeMethod return this.ClusterSizeMethod;
-	public extern var SiteCount(get, never): cpp.UInt32;
-	public inline extern function get_SiteCount(): cpp.UInt32 return this.SiteCount;
-	public extern var SiteCountFraction(get, never): cpp.Float32;
-	public inline extern function get_SiteCountFraction(): cpp.Float32 return this.SiteCountFraction;
-	public extern var SiteSize(get, never): cpp.Float32;
-	public inline extern function get_SiteSize(): cpp.Float32 return this.SiteSize;
+	public extern var SiteCount(get, never): ucpp.num.UInt32;
+	public inline extern function get_SiteCount(): ucpp.num.UInt32 return this.SiteCount;
+	public extern var SiteCountFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_SiteCountFraction(): ucpp.num.Float32 return this.SiteCountFraction;
+	public extern var SiteSize(get, never): ucpp.num.Float32;
+	public inline extern function get_SiteSize(): ucpp.num.Float32 return this.SiteSize;
 	public extern var bEnforceConnectivity(get, never): Bool;
 	public inline extern function get_bEnforceConnectivity(): Bool return this.bEnforceConnectivity;
 	public extern var bAvoidIsolated(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstFractureAutoClusterSettings(FractureAutoClusterSettings) from Frac
 @:forward
 @:nativeGen
 @:native("FractureAutoClusterSettings*")
-abstract FractureAutoClusterSettingsPtr(cpp.Star<FractureAutoClusterSettings>) from cpp.Star<FractureAutoClusterSettings> to cpp.Star<FractureAutoClusterSettings>{
+abstract FractureAutoClusterSettingsPtr(ucpp.Ptr<FractureAutoClusterSettings>) from ucpp.Ptr<FractureAutoClusterSettings> to ucpp.Ptr<FractureAutoClusterSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureAutoClusterSettings): FractureAutoClusterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

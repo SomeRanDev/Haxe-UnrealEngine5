@@ -3,25 +3,25 @@ package ue;
 
 @:native("UAxisPositionGizmo")
 @:include("BaseGizmos/AxisPositionGizmo.h")
-@:structAccess
+@:valueType
 extern class AxisPositionGizmo extends InteractiveGizmo {
 	public var AxisSource: GizmoAxisSource;
 	public var ParameterSource: GizmoFloatParameterSource;
-	public var GizmoViewContext: cpp.Star<GizmoViewContext>;
+	public var GizmoViewContext: ucpp.Ptr<GizmoViewContext>;
 	public var HitTarget: GizmoClickTarget;
 	public var StateTarget: GizmoStateTarget;
-	public var MouseBehavior: cpp.Star<ClickDragInputBehavior>;
+	public var MouseBehavior: ucpp.Ptr<ClickDragInputBehavior>;
 	public var bEnableSignedAxis: Bool;
 	public var bInInteraction: Bool;
 	public var InteractionOrigin: Vector;
 	public var InteractionAxis: Vector;
 	public var InteractionStartPoint: Vector;
 	public var InteractionCurPoint: Vector;
-	public var InteractionStartParameter: cpp.Float32;
-	public var InteractionCurParameter: cpp.Float32;
-	public var ParameterSign: cpp.Float32;
+	public var InteractionStartParameter: ucpp.num.Float32;
+	public var InteractionCurParameter: ucpp.num.Float32;
+	public var ParameterSign: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,14 +31,14 @@ abstract ConstAxisPositionGizmo(AxisPositionGizmo) from AxisPositionGizmo {
 	public inline extern function get_AxisSource(): GizmoAxisSource.ConstGizmoAxisSource return this.AxisSource;
 	public extern var ParameterSource(get, never): GizmoFloatParameterSource.ConstGizmoFloatParameterSource;
 	public inline extern function get_ParameterSource(): GizmoFloatParameterSource.ConstGizmoFloatParameterSource return this.ParameterSource;
-	public extern var GizmoViewContext(get, never): cpp.Star<GizmoViewContext.ConstGizmoViewContext>;
-	public inline extern function get_GizmoViewContext(): cpp.Star<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
+	public extern var GizmoViewContext(get, never): ucpp.Ptr<GizmoViewContext.ConstGizmoViewContext>;
+	public inline extern function get_GizmoViewContext(): ucpp.Ptr<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
 	public extern var HitTarget(get, never): GizmoClickTarget.ConstGizmoClickTarget;
 	public inline extern function get_HitTarget(): GizmoClickTarget.ConstGizmoClickTarget return this.HitTarget;
 	public extern var StateTarget(get, never): GizmoStateTarget.ConstGizmoStateTarget;
 	public inline extern function get_StateTarget(): GizmoStateTarget.ConstGizmoStateTarget return this.StateTarget;
-	public extern var MouseBehavior(get, never): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior>;
-	public inline extern function get_MouseBehavior(): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
+	public extern var MouseBehavior(get, never): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior>;
+	public inline extern function get_MouseBehavior(): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
 	public extern var bEnableSignedAxis(get, never): Bool;
 	public inline extern function get_bEnableSignedAxis(): Bool return this.bEnableSignedAxis;
 	public extern var bInInteraction(get, never): Bool;
@@ -51,18 +51,18 @@ abstract ConstAxisPositionGizmo(AxisPositionGizmo) from AxisPositionGizmo {
 	public inline extern function get_InteractionStartPoint(): Vector return this.InteractionStartPoint;
 	public extern var InteractionCurPoint(get, never): Vector;
 	public inline extern function get_InteractionCurPoint(): Vector return this.InteractionCurPoint;
-	public extern var InteractionStartParameter(get, never): cpp.Float32;
-	public inline extern function get_InteractionStartParameter(): cpp.Float32 return this.InteractionStartParameter;
-	public extern var InteractionCurParameter(get, never): cpp.Float32;
-	public inline extern function get_InteractionCurParameter(): cpp.Float32 return this.InteractionCurParameter;
-	public extern var ParameterSign(get, never): cpp.Float32;
-	public inline extern function get_ParameterSign(): cpp.Float32 return this.ParameterSign;
+	public extern var InteractionStartParameter(get, never): ucpp.num.Float32;
+	public inline extern function get_InteractionStartParameter(): ucpp.num.Float32 return this.InteractionStartParameter;
+	public extern var InteractionCurParameter(get, never): ucpp.num.Float32;
+	public inline extern function get_InteractionCurParameter(): ucpp.num.Float32 return this.InteractionCurParameter;
+	public extern var ParameterSign(get, never): ucpp.num.Float32;
+	public inline extern function get_ParameterSign(): ucpp.num.Float32 return this.ParameterSign;
 }
 
 @:forward
 @:nativeGen
 @:native("AxisPositionGizmo*")
-abstract AxisPositionGizmoPtr(cpp.Star<AxisPositionGizmo>) from cpp.Star<AxisPositionGizmo> to cpp.Star<AxisPositionGizmo>{
+abstract AxisPositionGizmoPtr(ucpp.Ptr<AxisPositionGizmo>) from ucpp.Ptr<AxisPositionGizmo> to ucpp.Ptr<AxisPositionGizmo>{
 	@:from
 	public static extern inline function fromValue(v: AxisPositionGizmo): AxisPositionGizmoPtr {
 		return untyped __cpp__("&({0})", v);

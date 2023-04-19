@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDisconnectGeometrySelectionCommand")
 @:include("Commands/DisconnectGeometrySelectionCommand.h")
-@:structAccess
+@:valueType
 extern class DisconnectGeometrySelectionCommand extends GeometrySelectionEditCommand {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDisconnectGeometrySelectionCommand(DisconnectGeometrySelectionComm
 @:forward
 @:nativeGen
 @:native("DisconnectGeometrySelectionCommand*")
-abstract DisconnectGeometrySelectionCommandPtr(cpp.Star<DisconnectGeometrySelectionCommand>) from cpp.Star<DisconnectGeometrySelectionCommand> to cpp.Star<DisconnectGeometrySelectionCommand>{
+abstract DisconnectGeometrySelectionCommandPtr(ucpp.Ptr<DisconnectGeometrySelectionCommand>) from ucpp.Ptr<DisconnectGeometrySelectionCommand> to ucpp.Ptr<DisconnectGeometrySelectionCommand>{
 	@:from
 	public static extern inline function fromValue(v: DisconnectGeometrySelectionCommand): DisconnectGeometrySelectionCommandPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USimulatedClientNetConnection")
 @:include("Engine/NetConnection.h")
-@:structAccess
+@:valueType
 extern class SimulatedClientNetConnection extends NetConnection {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSimulatedClientNetConnection(SimulatedClientNetConnection) from Si
 @:forward
 @:nativeGen
 @:native("SimulatedClientNetConnection*")
-abstract SimulatedClientNetConnectionPtr(cpp.Star<SimulatedClientNetConnection>) from cpp.Star<SimulatedClientNetConnection> to cpp.Star<SimulatedClientNetConnection>{
+abstract SimulatedClientNetConnectionPtr(ucpp.Ptr<SimulatedClientNetConnection>) from ucpp.Ptr<SimulatedClientNetConnection> to ucpp.Ptr<SimulatedClientNetConnection>{
 	@:from
 	public static extern inline function fromValue(v: SimulatedClientNetConnection): SimulatedClientNetConnectionPtr {
 		return untyped __cpp__("&({0})", v);

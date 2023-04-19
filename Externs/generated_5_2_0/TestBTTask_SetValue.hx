@@ -3,15 +3,15 @@ package ue;
 
 @:native("UTestBTTask_SetValue")
 @:include("BehaviorTree/TestBTTask_SetValue.h")
-@:structAccess
+@:valueType
 extern class TestBTTask_SetValue extends BTTaskNode {
 	public var KeyName: FName;
-	public var Value: cpp.Int32;
+	public var Value: ucpp.num.Int32;
 	public var OnAbortKeyName: FName;
-	public var OnAbortValue: cpp.Int32;
+	public var OnAbortValue: ucpp.num.Int32;
 	public var TaskResult: TEnumAsByte<EBTNodeResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,12 +19,12 @@ extern class TestBTTask_SetValue extends BTTaskNode {
 abstract ConstTestBTTask_SetValue(TestBTTask_SetValue) from TestBTTask_SetValue {
 	public extern var KeyName(get, never): FName;
 	public inline extern function get_KeyName(): FName return this.KeyName;
-	public extern var Value(get, never): cpp.Int32;
-	public inline extern function get_Value(): cpp.Int32 return this.Value;
+	public extern var Value(get, never): ucpp.num.Int32;
+	public inline extern function get_Value(): ucpp.num.Int32 return this.Value;
 	public extern var OnAbortKeyName(get, never): FName;
 	public inline extern function get_OnAbortKeyName(): FName return this.OnAbortKeyName;
-	public extern var OnAbortValue(get, never): cpp.Int32;
-	public inline extern function get_OnAbortValue(): cpp.Int32 return this.OnAbortValue;
+	public extern var OnAbortValue(get, never): ucpp.num.Int32;
+	public inline extern function get_OnAbortValue(): ucpp.num.Int32 return this.OnAbortValue;
 	public extern var TaskResult(get, never): TEnumAsByte<EBTNodeResult>;
 	public inline extern function get_TaskResult(): TEnumAsByte<EBTNodeResult> return this.TaskResult;
 }
@@ -32,7 +32,7 @@ abstract ConstTestBTTask_SetValue(TestBTTask_SetValue) from TestBTTask_SetValue 
 @:forward
 @:nativeGen
 @:native("TestBTTask_SetValue*")
-abstract TestBTTask_SetValuePtr(cpp.Star<TestBTTask_SetValue>) from cpp.Star<TestBTTask_SetValue> to cpp.Star<TestBTTask_SetValue>{
+abstract TestBTTask_SetValuePtr(ucpp.Ptr<TestBTTask_SetValue>) from ucpp.Ptr<TestBTTask_SetValue> to ucpp.Ptr<TestBTTask_SetValue>{
 	@:from
 	public static extern inline function fromValue(v: TestBTTask_SetValue): TestBTTask_SetValuePtr {
 		return untyped __cpp__("&({0})", v);

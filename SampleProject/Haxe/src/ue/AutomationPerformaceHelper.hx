@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAutomationPerformaceHelper")
 @:include("FunctionalTest.h")
-@:structAccess
+@:valueType
 extern class AutomationPerformaceHelper extends Object {
 	public function WriteLogFile(CaptureDir: FString, CaptureExtension: FString): Void;
 	public function TriggerGPUTraceIfRecordFallsBelowBudget(): Void;
-	public function Tick(DeltaSeconds: cpp.Float32): Void;
+	public function Tick(DeltaSeconds: ucpp.num.Float32): Void;
 	public function StopCPUProfiling(): Void;
 	public function StartCPUProfiling(): Void;
-	public function Sample(DeltaSeconds: cpp.Float32): Void;
+	public function Sample(DeltaSeconds: ucpp.num.Float32): Void;
 	public function OnBeginTests(): Void;
 	public function OnAllTestsComplete(): Void;
 	public function IsRecording(): Bool;
@@ -22,9 +22,9 @@ extern class AutomationPerformaceHelper extends Object {
 	public function EndRecording(): Void;
 	public function BeginStatsFile(RecordName: FString): Void;
 	public function BeginRecordingBaseline(RecordName: FString): Void;
-	public function BeginRecording(RecordName: FString, InGPUBudget: cpp.Float32, InRenderThreadBudget: cpp.Float32, InGameThreadBudget: cpp.Float32): Void;
+	public function BeginRecording(RecordName: FString, InGPUBudget: ucpp.num.Float32, InRenderThreadBudget: ucpp.num.Float32, InGameThreadBudget: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsRecording, IsCurrentRecordWithinRenderThreadBudget, IsCurrentRecordWithinGPUBudget, IsCurrentRecordWithinGameThreadBudget)
@@ -35,7 +35,7 @@ abstract ConstAutomationPerformaceHelper(AutomationPerformaceHelper) from Automa
 @:forward
 @:nativeGen
 @:native("AutomationPerformaceHelper*")
-abstract AutomationPerformaceHelperPtr(cpp.Star<AutomationPerformaceHelper>) from cpp.Star<AutomationPerformaceHelper> to cpp.Star<AutomationPerformaceHelper>{
+abstract AutomationPerformaceHelperPtr(ucpp.Ptr<AutomationPerformaceHelper>) from ucpp.Ptr<AutomationPerformaceHelper> to ucpp.Ptr<AutomationPerformaceHelper>{
 	@:from
 	public static extern inline function fromValue(v: AutomationPerformaceHelper): AutomationPerformaceHelperPtr {
 		return untyped __cpp__("&({0})", v);

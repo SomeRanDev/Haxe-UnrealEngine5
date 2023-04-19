@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFilterOutNetObjectFilterConfig")
 @:include("Iris/ReplicationSystem/Filtering/FilterOutNetObjectFilter.h")
-@:structAccess
+@:valueType
 extern class FilterOutNetObjectFilterConfig extends NetObjectFilterConfig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFilterOutNetObjectFilterConfig(FilterOutNetObjectFilterConfig) fro
 @:forward
 @:nativeGen
 @:native("FilterOutNetObjectFilterConfig*")
-abstract FilterOutNetObjectFilterConfigPtr(cpp.Star<FilterOutNetObjectFilterConfig>) from cpp.Star<FilterOutNetObjectFilterConfig> to cpp.Star<FilterOutNetObjectFilterConfig>{
+abstract FilterOutNetObjectFilterConfigPtr(ucpp.Ptr<FilterOutNetObjectFilterConfig>) from ucpp.Ptr<FilterOutNetObjectFilterConfig> to ucpp.Ptr<FilterOutNetObjectFilterConfig>{
 	@:from
 	public static extern inline function fromValue(v: FilterOutNetObjectFilterConfig): FilterOutNetObjectFilterConfigPtr {
 		return untyped __cpp__("&({0})", v);

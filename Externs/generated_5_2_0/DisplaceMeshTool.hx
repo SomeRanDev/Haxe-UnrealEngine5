@@ -3,44 +3,44 @@ package ue;
 
 @:native("UDisplaceMeshTool")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class DisplaceMeshTool extends SingleSelectionMeshEditingTool {
-	public var CommonProperties: cpp.Star<DisplaceMeshCommonProperties>;
-	public var DirectionalFilterProperties: cpp.Star<DisplaceMeshDirectionalFilterProperties>;
-	public var TextureMapProperties: cpp.Star<DisplaceMeshTextureMapProperties>;
-	public var NoiseProperties: cpp.Star<DisplaceMeshPerlinNoiseProperties>;
-	public var SineWaveProperties: cpp.Star<DisplaceMeshSineWaveProperties>;
-	public var SelectiveTessellationProperties: cpp.Star<SelectiveTessellationProperties>;
-	public var ActiveContrastCurveTarget: cpp.Star<CurveFloat>;
-	private var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
-	private var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	public var CommonProperties: ucpp.Ptr<DisplaceMeshCommonProperties>;
+	public var DirectionalFilterProperties: ucpp.Ptr<DisplaceMeshDirectionalFilterProperties>;
+	public var TextureMapProperties: ucpp.Ptr<DisplaceMeshTextureMapProperties>;
+	public var NoiseProperties: ucpp.Ptr<DisplaceMeshPerlinNoiseProperties>;
+	public var SineWaveProperties: ucpp.Ptr<DisplaceMeshSineWaveProperties>;
+	public var SelectiveTessellationProperties: ucpp.Ptr<SelectiveTessellationProperties>;
+	public var ActiveContrastCurveTarget: ucpp.Ptr<CurveFloat>;
+	private var PreviewMeshActor: ucpp.Ptr<InternalToolFrameworkActor>;
+	private var DynamicMeshComponent: ucpp.Ptr<DynamicMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDisplaceMeshTool(DisplaceMeshTool) from DisplaceMeshTool {
-	public extern var CommonProperties(get, never): cpp.Star<DisplaceMeshCommonProperties.ConstDisplaceMeshCommonProperties>;
-	public inline extern function get_CommonProperties(): cpp.Star<DisplaceMeshCommonProperties.ConstDisplaceMeshCommonProperties> return this.CommonProperties;
-	public extern var DirectionalFilterProperties(get, never): cpp.Star<DisplaceMeshDirectionalFilterProperties.ConstDisplaceMeshDirectionalFilterProperties>;
-	public inline extern function get_DirectionalFilterProperties(): cpp.Star<DisplaceMeshDirectionalFilterProperties.ConstDisplaceMeshDirectionalFilterProperties> return this.DirectionalFilterProperties;
-	public extern var TextureMapProperties(get, never): cpp.Star<DisplaceMeshTextureMapProperties.ConstDisplaceMeshTextureMapProperties>;
-	public inline extern function get_TextureMapProperties(): cpp.Star<DisplaceMeshTextureMapProperties.ConstDisplaceMeshTextureMapProperties> return this.TextureMapProperties;
-	public extern var NoiseProperties(get, never): cpp.Star<DisplaceMeshPerlinNoiseProperties.ConstDisplaceMeshPerlinNoiseProperties>;
-	public inline extern function get_NoiseProperties(): cpp.Star<DisplaceMeshPerlinNoiseProperties.ConstDisplaceMeshPerlinNoiseProperties> return this.NoiseProperties;
-	public extern var SineWaveProperties(get, never): cpp.Star<DisplaceMeshSineWaveProperties.ConstDisplaceMeshSineWaveProperties>;
-	public inline extern function get_SineWaveProperties(): cpp.Star<DisplaceMeshSineWaveProperties.ConstDisplaceMeshSineWaveProperties> return this.SineWaveProperties;
-	public extern var SelectiveTessellationProperties(get, never): cpp.Star<SelectiveTessellationProperties.ConstSelectiveTessellationProperties>;
-	public inline extern function get_SelectiveTessellationProperties(): cpp.Star<SelectiveTessellationProperties.ConstSelectiveTessellationProperties> return this.SelectiveTessellationProperties;
-	public extern var ActiveContrastCurveTarget(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
-	public inline extern function get_ActiveContrastCurveTarget(): cpp.Star<CurveFloat.ConstCurveFloat> return this.ActiveContrastCurveTarget;
+	public extern var CommonProperties(get, never): ucpp.Ptr<DisplaceMeshCommonProperties.ConstDisplaceMeshCommonProperties>;
+	public inline extern function get_CommonProperties(): ucpp.Ptr<DisplaceMeshCommonProperties.ConstDisplaceMeshCommonProperties> return this.CommonProperties;
+	public extern var DirectionalFilterProperties(get, never): ucpp.Ptr<DisplaceMeshDirectionalFilterProperties.ConstDisplaceMeshDirectionalFilterProperties>;
+	public inline extern function get_DirectionalFilterProperties(): ucpp.Ptr<DisplaceMeshDirectionalFilterProperties.ConstDisplaceMeshDirectionalFilterProperties> return this.DirectionalFilterProperties;
+	public extern var TextureMapProperties(get, never): ucpp.Ptr<DisplaceMeshTextureMapProperties.ConstDisplaceMeshTextureMapProperties>;
+	public inline extern function get_TextureMapProperties(): ucpp.Ptr<DisplaceMeshTextureMapProperties.ConstDisplaceMeshTextureMapProperties> return this.TextureMapProperties;
+	public extern var NoiseProperties(get, never): ucpp.Ptr<DisplaceMeshPerlinNoiseProperties.ConstDisplaceMeshPerlinNoiseProperties>;
+	public inline extern function get_NoiseProperties(): ucpp.Ptr<DisplaceMeshPerlinNoiseProperties.ConstDisplaceMeshPerlinNoiseProperties> return this.NoiseProperties;
+	public extern var SineWaveProperties(get, never): ucpp.Ptr<DisplaceMeshSineWaveProperties.ConstDisplaceMeshSineWaveProperties>;
+	public inline extern function get_SineWaveProperties(): ucpp.Ptr<DisplaceMeshSineWaveProperties.ConstDisplaceMeshSineWaveProperties> return this.SineWaveProperties;
+	public extern var SelectiveTessellationProperties(get, never): ucpp.Ptr<SelectiveTessellationProperties.ConstSelectiveTessellationProperties>;
+	public inline extern function get_SelectiveTessellationProperties(): ucpp.Ptr<SelectiveTessellationProperties.ConstSelectiveTessellationProperties> return this.SelectiveTessellationProperties;
+	public extern var ActiveContrastCurveTarget(get, never): ucpp.Ptr<CurveFloat.ConstCurveFloat>;
+	public inline extern function get_ActiveContrastCurveTarget(): ucpp.Ptr<CurveFloat.ConstCurveFloat> return this.ActiveContrastCurveTarget;
 }
 
 @:forward
 @:nativeGen
 @:native("DisplaceMeshTool*")
-abstract DisplaceMeshToolPtr(cpp.Star<DisplaceMeshTool>) from cpp.Star<DisplaceMeshTool> to cpp.Star<DisplaceMeshTool>{
+abstract DisplaceMeshToolPtr(ucpp.Ptr<DisplaceMeshTool>) from ucpp.Ptr<DisplaceMeshTool> to ucpp.Ptr<DisplaceMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: DisplaceMeshTool): DisplaceMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

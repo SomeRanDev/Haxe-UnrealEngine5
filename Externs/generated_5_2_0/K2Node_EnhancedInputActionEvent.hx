@@ -3,19 +3,19 @@ package ue;
 
 @:native("UK2Node_EnhancedInputActionEvent")
 @:include("K2Node_EnhancedInputActionEvent.h")
-@:structAccess
+@:valueType
 extern class K2Node_EnhancedInputActionEvent extends K2Node_Event {
-	public var InputAction: cpp.Star<InputAction>;
+	public var InputAction: ucpp.Ptr<InputAction>;
 	public var TriggerEvent: ETriggerEvent;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_EnhancedInputActionEvent(K2Node_EnhancedInputActionEvent) from K2Node_EnhancedInputActionEvent {
-	public extern var InputAction(get, never): cpp.Star<InputAction.ConstInputAction>;
-	public inline extern function get_InputAction(): cpp.Star<InputAction.ConstInputAction> return this.InputAction;
+	public extern var InputAction(get, never): ucpp.Ptr<InputAction.ConstInputAction>;
+	public inline extern function get_InputAction(): ucpp.Ptr<InputAction.ConstInputAction> return this.InputAction;
 	public extern var TriggerEvent(get, never): ETriggerEvent;
 	public inline extern function get_TriggerEvent(): ETriggerEvent return this.TriggerEvent;
 }
@@ -23,7 +23,7 @@ abstract ConstK2Node_EnhancedInputActionEvent(K2Node_EnhancedInputActionEvent) f
 @:forward
 @:nativeGen
 @:native("K2Node_EnhancedInputActionEvent*")
-abstract K2Node_EnhancedInputActionEventPtr(cpp.Star<K2Node_EnhancedInputActionEvent>) from cpp.Star<K2Node_EnhancedInputActionEvent> to cpp.Star<K2Node_EnhancedInputActionEvent>{
+abstract K2Node_EnhancedInputActionEventPtr(ucpp.Ptr<K2Node_EnhancedInputActionEvent>) from ucpp.Ptr<K2Node_EnhancedInputActionEvent> to ucpp.Ptr<K2Node_EnhancedInputActionEvent>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_EnhancedInputActionEvent): K2Node_EnhancedInputActionEventPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEdgeID")
 @:include("MeshTypes.h")
-@:structAccess
+@:valueType
 extern class EdgeID extends ElementID {
 	@:native("FEdgeID") public function new();
 }

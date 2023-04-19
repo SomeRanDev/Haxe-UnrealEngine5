@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundWaveThumbnailRenderer")
 @:include("ThumbnailRendering/SoundWaveThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class SoundWaveThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundWaveThumbnailRenderer(SoundWaveThumbnailRenderer) from SoundW
 @:forward
 @:nativeGen
 @:native("SoundWaveThumbnailRenderer*")
-abstract SoundWaveThumbnailRendererPtr(cpp.Star<SoundWaveThumbnailRenderer>) from cpp.Star<SoundWaveThumbnailRenderer> to cpp.Star<SoundWaveThumbnailRenderer>{
+abstract SoundWaveThumbnailRendererPtr(ucpp.Ptr<SoundWaveThumbnailRenderer>) from ucpp.Ptr<SoundWaveThumbnailRenderer> to ucpp.Ptr<SoundWaveThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: SoundWaveThumbnailRenderer): SoundWaveThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

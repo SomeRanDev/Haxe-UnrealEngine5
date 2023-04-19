@@ -3,24 +3,24 @@ package ue;
 
 @:native("USoundNodeSoundClass")
 @:include("Sound/SoundNodeSoundClass.h")
-@:structAccess
+@:valueType
 extern class SoundNodeSoundClass extends SoundNode {
-	public var SoundClassOverride: cpp.Star<SoundClass>;
+	public var SoundClassOverride: ucpp.Ptr<SoundClass>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeSoundClass(SoundNodeSoundClass) from SoundNodeSoundClass {
-	public extern var SoundClassOverride(get, never): cpp.Star<SoundClass.ConstSoundClass>;
-	public inline extern function get_SoundClassOverride(): cpp.Star<SoundClass.ConstSoundClass> return this.SoundClassOverride;
+	public extern var SoundClassOverride(get, never): ucpp.Ptr<SoundClass.ConstSoundClass>;
+	public inline extern function get_SoundClassOverride(): ucpp.Ptr<SoundClass.ConstSoundClass> return this.SoundClassOverride;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeSoundClass*")
-abstract SoundNodeSoundClassPtr(cpp.Star<SoundNodeSoundClass>) from cpp.Star<SoundNodeSoundClass> to cpp.Star<SoundNodeSoundClass>{
+abstract SoundNodeSoundClassPtr(ucpp.Ptr<SoundNodeSoundClass>) from ucpp.Ptr<SoundNodeSoundClass> to ucpp.Ptr<SoundNodeSoundClass>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeSoundClass): SoundNodeSoundClassPtr {
 		return untyped __cpp__("&({0})", v);

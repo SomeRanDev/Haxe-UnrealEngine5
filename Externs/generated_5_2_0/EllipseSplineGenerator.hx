@@ -3,27 +3,27 @@ package ue;
 
 @:native("UEllipseSplineGenerator")
 @:include("SplineGeneratorPanel.h")
-@:structAccess
+@:valueType
 extern class EllipseSplineGenerator extends SplineGeneratorBase {
-	public var NumberOfPoints: cpp.Int32;
-	public var Length: cpp.Float32;
-	public var Width: cpp.Float32;
+	public var NumberOfPoints: ucpp.num.Int32;
+	public var Length: ucpp.num.Float32;
+	public var Width: ucpp.num.Float32;
 	public var bReverseDir: Bool;
 	public var bKeepFirstKeyTangent: Bool;
 	public var bBranchRight: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEllipseSplineGenerator(EllipseSplineGenerator) from EllipseSplineGenerator {
-	public extern var NumberOfPoints(get, never): cpp.Int32;
-	public inline extern function get_NumberOfPoints(): cpp.Int32 return this.NumberOfPoints;
-	public extern var Length(get, never): cpp.Float32;
-	public inline extern function get_Length(): cpp.Float32 return this.Length;
-	public extern var Width(get, never): cpp.Float32;
-	public inline extern function get_Width(): cpp.Float32 return this.Width;
+	public extern var NumberOfPoints(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberOfPoints(): ucpp.num.Int32 return this.NumberOfPoints;
+	public extern var Length(get, never): ucpp.num.Float32;
+	public inline extern function get_Length(): ucpp.num.Float32 return this.Length;
+	public extern var Width(get, never): ucpp.num.Float32;
+	public inline extern function get_Width(): ucpp.num.Float32 return this.Width;
 	public extern var bReverseDir(get, never): Bool;
 	public inline extern function get_bReverseDir(): Bool return this.bReverseDir;
 	public extern var bKeepFirstKeyTangent(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstEllipseSplineGenerator(EllipseSplineGenerator) from EllipseSplineG
 @:forward
 @:nativeGen
 @:native("EllipseSplineGenerator*")
-abstract EllipseSplineGeneratorPtr(cpp.Star<EllipseSplineGenerator>) from cpp.Star<EllipseSplineGenerator> to cpp.Star<EllipseSplineGenerator>{
+abstract EllipseSplineGeneratorPtr(ucpp.Ptr<EllipseSplineGenerator>) from ucpp.Ptr<EllipseSplineGenerator> to ucpp.Ptr<EllipseSplineGenerator>{
 	@:from
 	public static extern inline function fromValue(v: EllipseSplineGenerator): EllipseSplineGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

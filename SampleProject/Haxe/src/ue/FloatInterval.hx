@@ -3,11 +3,11 @@ package ue;
 
 @:native("FFloatInterval")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class FloatInterval {
-	public var Min: cpp.Float32;
-	public var Max: cpp.Float32;
+	public var Min: ucpp.num.Float32;
+	public var Max: ucpp.num.Float32;
 
 	@:native("FFloatInterval") public function new();
-	@:native("FFloatInterval") public static function make(Min: cpp.Float32, Max: cpp.Float32): FloatInterval ;
+	@:native("FFloatInterval") public static function make(Min: ucpp.num.Float32, Max: ucpp.num.Float32): FloatInterval ;
 }

@@ -3,15 +3,15 @@ package ue;
 
 @:native("FTargetChainFKSettings")
 @:include("Retargeter/IKRetargetSettings.h")
-@:structAccess
+@:valueType
 extern class TargetChainFKSettings {
 	public var EnableFK: Bool;
 	public var RotationMode: ERetargetRotationMode;
-	public var RotationAlpha: cpp.Float32;
+	public var RotationAlpha: ucpp.num.Float32;
 	public var TranslationMode: ERetargetTranslationMode;
-	public var TranslationAlpha: cpp.Float32;
-	public var PoleVectorMatching: cpp.Float32;
-	public var PoleVectorOffset: cpp.Float32;
+	public var TranslationAlpha: ucpp.num.Float32;
+	public var PoleVectorMatching: ucpp.num.Float32;
+	public var PoleVectorOffset: ucpp.num.Float32;
 
 	@:native("FTargetChainFKSettings") public function new();
 }

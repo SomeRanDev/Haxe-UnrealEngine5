@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAISystemBase")
 @:include("AI/AISystemBase.h")
-@:structAccess
+@:valueType
 extern class AISystemBase extends Object {
 	private var AISystemClassName: SoftClassPath;
 	private var AISystemModuleName: FName;
 	private var bInstantiateAISystemOnClient: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAISystemBase(AISystemBase) from AISystemBase {
 @:forward
 @:nativeGen
 @:native("AISystemBase*")
-abstract AISystemBasePtr(cpp.Star<AISystemBase>) from cpp.Star<AISystemBase> to cpp.Star<AISystemBase>{
+abstract AISystemBasePtr(ucpp.Ptr<AISystemBase>) from ucpp.Ptr<AISystemBase> to ucpp.Ptr<AISystemBase>{
 	@:from
 	public static extern inline function fromValue(v: AISystemBase): AISystemBasePtr {
 		return untyped __cpp__("&({0})", v);

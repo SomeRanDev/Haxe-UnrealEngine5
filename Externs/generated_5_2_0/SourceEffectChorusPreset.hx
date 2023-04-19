@@ -3,32 +3,32 @@ package ue;
 
 @:native("USourceEffectChorusPreset")
 @:include("SourceEffects/SourceEffectChorus.h")
-@:structAccess
+@:valueType
 extern class SourceEffectChorusPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectChorusSettings;
 
-	public function SetWetModulators(Modulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetWetModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
-	public function SetWet(WetAmount: cpp.Float32): Void;
-	public function SetSpreadModulators(Modulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetSpreadModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
-	public function SetSpread(Spread: cpp.Float32): Void;
-	public function SetSettings(Settings: cpp.Reference<SourceEffectChorusBaseSettings>): Void;
-	public function SetModulationSettings(ModulationSettings: cpp.Reference<SourceEffectChorusSettings>): Void;
-	public function SetFrequencyModulators(Modulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetFrequencyModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
-	public function SetFrequency(Frequency: cpp.Float32): Void;
-	public function SetFeedbackModulators(Modulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetFeedbackModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
-	public function SetFeedback(Feedback: cpp.Float32): Void;
-	public function SetDryModulators(Modulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetDryModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
-	public function SetDry(DryAmount: cpp.Float32): Void;
-	public function SetDepthModulators(Modulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetDepthModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
-	public function SetDepth(Depth: cpp.Float32): Void;
+	public function SetWetModulators(Modulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetWetModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetWet(WetAmount: ucpp.num.Float32): Void;
+	public function SetSpreadModulators(Modulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetSpreadModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetSpread(Spread: ucpp.num.Float32): Void;
+	public function SetSettings(Settings: ucpp.Ref<SourceEffectChorusBaseSettings>): Void;
+	public function SetModulationSettings(ModulationSettings: ucpp.Ref<SourceEffectChorusSettings>): Void;
+	public function SetFrequencyModulators(Modulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetFrequencyModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetFrequency(Frequency: ucpp.num.Float32): Void;
+	public function SetFeedbackModulators(Modulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetFeedbackModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetFeedback(Feedback: ucpp.num.Float32): Void;
+	public function SetDryModulators(Modulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetDryModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetDry(DryAmount: ucpp.num.Float32): Void;
+	public function SetDepthModulators(Modulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetDepthModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetDepth(Depth: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstSourceEffectChorusPreset(SourceEffectChorusPreset) from SourceEffe
 @:forward
 @:nativeGen
 @:native("SourceEffectChorusPreset*")
-abstract SourceEffectChorusPresetPtr(cpp.Star<SourceEffectChorusPreset>) from cpp.Star<SourceEffectChorusPreset> to cpp.Star<SourceEffectChorusPreset>{
+abstract SourceEffectChorusPresetPtr(ucpp.Ptr<SourceEffectChorusPreset>) from ucpp.Ptr<SourceEffectChorusPreset> to ucpp.Ptr<SourceEffectChorusPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectChorusPreset): SourceEffectChorusPresetPtr {
 		return untyped __cpp__("&({0})", v);

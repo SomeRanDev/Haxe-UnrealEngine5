@@ -3,42 +3,42 @@ package ue;
 
 @:native("UInterchangeBaseNode")
 @:include("Nodes/InterchangeBaseNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeBaseNode extends Object {
 	public function SetParentUid(ParentUid: FString): Bool;
 	public function SetEnabled(bIsEnabled: Bool): Bool;
 	public function SetDisplayLabel(DisplayName: FString): Bool;
 	public function SetAssetName(AssetName: FString): Bool;
 	public function RemoveTargetNodeUid(AssetUid: FString): Bool;
-	public function RemoveAttribute(NodeAttributeKey: cpp.Reference<FName>): Bool;
+	public function RemoveAttribute(NodeAttributeKey: ucpp.Ref<FName>): Bool;
 	public function IsEnabled(): Bool;
 	public function InitializeNode(UniqueID: FString, DisplayLabel: FString, NodeContainerType: EInterchangeNodeContainerType): Void;
-	public function GetVector2Attribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<Vector2f>): Bool;
+	public function GetVector2Attribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<Vector2f>): Bool;
 	public function GetUniqueID(): FString;
-	public function GetTargetNodeUids(OutTargetAssets: cpp.Reference<TArray<FString>>): Void;
-	public function GetTargetNodeCount(): cpp.Int32;
-	public function GetStringAttribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<FString>): Bool;
+	public function GetTargetNodeUids(OutTargetAssets: ucpp.Ref<TArray<FString>>): Void;
+	public function GetTargetNodeCount(): ucpp.num.Int32;
+	public function GetStringAttribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<FString>): Bool;
 	public function GetParentUid(): FString;
 	public function GetNodeContainerType(): EInterchangeNodeContainerType;
-	public function GetLinearColorAttribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<LinearColor>): Bool;
-	public function GetInt32Attribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetGuidAttribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<Guid>): Bool;
-	public function GetFloatAttribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetDoubleAttribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<cpp.Float64>): Bool;
+	public function GetLinearColorAttribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<LinearColor>): Bool;
+	public function GetInt32Attribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetGuidAttribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<Guid>): Bool;
+	public function GetFloatAttribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetDoubleAttribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<ucpp.num.Float64>): Bool;
 	public function GetDisplayLabel(): FString;
-	public function GetBooleanAttribute(NodeAttributeKey: cpp.Reference<FName>, OutValue: cpp.Reference<Bool>): Bool;
+	public function GetBooleanAttribute(NodeAttributeKey: ucpp.Ref<FName>, OutValue: ucpp.Ref<Bool>): Bool;
 	public function GetAssetName(): FString;
-	public function AddVector2Attribute(NodeAttributeKey: cpp.Reference<FName>, Value: cpp.Reference<Vector2f>): Bool;
+	public function AddVector2Attribute(NodeAttributeKey: ucpp.Ref<FName>, Value: ucpp.Ref<Vector2f>): Bool;
 	public function AddTargetNodeUid(AssetUid: FString): Bool;
-	public function AddStringAttribute(NodeAttributeKey: cpp.Reference<FName>, Value: FString): Bool;
-	public function AddLinearColorAttribute(NodeAttributeKey: cpp.Reference<FName>, Value: cpp.Reference<LinearColor>): Bool;
-	public function AddInt32Attribute(NodeAttributeKey: cpp.Reference<FName>, Value: cpp.Reference<cpp.Int32>): Bool;
-	public function AddGuidAttribute(NodeAttributeKey: cpp.Reference<FName>, Value: cpp.Reference<Guid>): Bool;
-	public function AddFloatAttribute(NodeAttributeKey: cpp.Reference<FName>, Value: cpp.Reference<cpp.Float32>): Bool;
-	public function AddDoubleAttribute(NodeAttributeKey: cpp.Reference<FName>, Value: cpp.Reference<cpp.Float64>): Bool;
-	public function AddBooleanAttribute(NodeAttributeKey: cpp.Reference<FName>, Value: cpp.Reference<Bool>): Bool;
+	public function AddStringAttribute(NodeAttributeKey: ucpp.Ref<FName>, Value: FString): Bool;
+	public function AddLinearColorAttribute(NodeAttributeKey: ucpp.Ref<FName>, Value: ucpp.Ref<LinearColor>): Bool;
+	public function AddInt32Attribute(NodeAttributeKey: ucpp.Ref<FName>, Value: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function AddGuidAttribute(NodeAttributeKey: ucpp.Ref<FName>, Value: ucpp.Ref<Guid>): Bool;
+	public function AddFloatAttribute(NodeAttributeKey: ucpp.Ref<FName>, Value: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function AddDoubleAttribute(NodeAttributeKey: ucpp.Ref<FName>, Value: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function AddBooleanAttribute(NodeAttributeKey: ucpp.Ref<FName>, Value: ucpp.Ref<Bool>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -54,7 +54,7 @@ abstract ConstInterchangeBaseNode(InterchangeBaseNode) from InterchangeBaseNode 
 @:forward
 @:nativeGen
 @:native("InterchangeBaseNode*")
-abstract InterchangeBaseNodePtr(cpp.Star<InterchangeBaseNode>) from cpp.Star<InterchangeBaseNode> to cpp.Star<InterchangeBaseNode>{
+abstract InterchangeBaseNodePtr(ucpp.Ptr<InterchangeBaseNode>) from ucpp.Ptr<InterchangeBaseNode> to ucpp.Ptr<InterchangeBaseNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeBaseNode): InterchangeBaseNodePtr {
 		return untyped __cpp__("&({0})", v);

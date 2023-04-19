@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSourceEffectSimpleDelaySettings")
 @:include("SourceEffects/SourceEffectSimpleDelay.h")
-@:structAccess
+@:valueType
 extern class SourceEffectSimpleDelaySettings {
-	public var SpeedOfSound: cpp.Float32;
-	public var DelayAmount: cpp.Float32;
-	public var DryAmount: cpp.Float32;
-	public var WetAmount: cpp.Float32;
-	public var Feedback: cpp.Float32;
+	public var SpeedOfSound: ucpp.num.Float32;
+	public var DelayAmount: ucpp.num.Float32;
+	public var DryAmount: ucpp.num.Float32;
+	public var WetAmount: ucpp.num.Float32;
+	public var Feedback: ucpp.num.Float32;
 	public var bDelayBasedOnDistance: Bool;
 	public var bUseDistanceOverride: Bool;
 

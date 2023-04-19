@@ -11,17 +11,17 @@ extern class EControllerHand {
 	static var ExternalCamera: EControllerHand;
 	static var Gun: EControllerHand;
 	static var HMD: EControllerHand;
-	static var Special_1: EControllerHand;
-	static var Special_2: EControllerHand;
-	static var Special_3: EControllerHand;
-	static var Special_4: EControllerHand;
-	static var Special_5: EControllerHand;
-	static var Special_6: EControllerHand;
-	static var Special_7: EControllerHand;
-	static var Special_8: EControllerHand;
-	static var Special_9: EControllerHand;
-	static var Special_10: EControllerHand;
-	static var Special_11: EControllerHand;
+	static var Chest: EControllerHand;
+	static var LeftShoulder: EControllerHand;
+	static var RightShoulder: EControllerHand;
+	static var LeftElbow: EControllerHand;
+	static var RightElbow: EControllerHand;
+	static var Waist: EControllerHand;
+	static var LeftKnee: EControllerHand;
+	static var RightKnee: EControllerHand;
+	static var LeftFoot: EControllerHand;
+	static var RightFoot: EControllerHand;
+	static var Special: EControllerHand;
 	static var ControllerHand_Count: EControllerHand;
 	static var EControllerHand_MAX: EControllerHand;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFoliageType_ActorFactory")
 @:include("FoliageTypeFactory.h")
-@:structAccess
+@:valueType
 extern class FoliageType_ActorFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFoliageType_ActorFactory(FoliageType_ActorFactory) from FoliageTyp
 @:forward
 @:nativeGen
 @:native("FoliageType_ActorFactory*")
-abstract FoliageType_ActorFactoryPtr(cpp.Star<FoliageType_ActorFactory>) from cpp.Star<FoliageType_ActorFactory> to cpp.Star<FoliageType_ActorFactory>{
+abstract FoliageType_ActorFactoryPtr(ucpp.Ptr<FoliageType_ActorFactory>) from ucpp.Ptr<FoliageType_ActorFactory> to ucpp.Ptr<FoliageType_ActorFactory>{
 	@:from
 	public static extern inline function fromValue(v: FoliageType_ActorFactory): FoliageType_ActorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,13 +2,13 @@
 package ue;
 
 @:native("UCurveSourceInterface")
-@:structAccess
+@:valueType
 extern class CurveSourceInterface extends Interface {
-	public function GetCurveValue(CurveName: FName): cpp.Float32;
-	public function GetCurves(OutValues: cpp.Reference<TArray<NamedCurveValue>>): Void;
+	public function GetCurveValue(CurveName: FName): ucpp.num.Float32;
+	public function GetCurves(OutValues: ucpp.Ref<TArray<NamedCurveValue>>): Void;
 	public function GetBindingName(): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCurveValue, GetCurves, GetBindingName)
@@ -19,7 +19,7 @@ abstract ConstCurveSourceInterface(CurveSourceInterface) from CurveSourceInterfa
 @:forward
 @:nativeGen
 @:native("CurveSourceInterface*")
-abstract CurveSourceInterfacePtr(cpp.Star<CurveSourceInterface>) from cpp.Star<CurveSourceInterface> to cpp.Star<CurveSourceInterface>{
+abstract CurveSourceInterfacePtr(ucpp.Ptr<CurveSourceInterface>) from ucpp.Ptr<CurveSourceInterface> to ucpp.Ptr<CurveSourceInterface>{
 	@:from
 	public static extern inline function fromValue(v: CurveSourceInterface): CurveSourceInterfacePtr {
 		return untyped __cpp__("&({0})", v);

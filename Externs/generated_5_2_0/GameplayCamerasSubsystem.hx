@@ -3,15 +3,15 @@ package ue;
 
 @:native("UGameplayCamerasSubsystem")
 @:include("GameplayCamerasSubsystem.h")
-@:structAccess
+@:valueType
 extern class GameplayCamerasSubsystem extends WorldSubsystem {
-	public function StopCameraAnimation(PlayerController: cpp.Star<PlayerController>, Handle: cpp.Reference<CameraAnimationHandle>, bImmediate: Bool): Void;
-	public function StopAllCameraAnimationsOf(PlayerController: cpp.Star<PlayerController>, Sequence: cpp.Star<CameraAnimationSequence>, bImmediate: Bool): Void;
-	public function StopAllCameraAnimations(PlayerController: cpp.Star<PlayerController>, bImmediate: Bool): Void;
-	public function PlayCameraAnimation(PlayerController: cpp.Star<PlayerController>, Sequence: cpp.Star<CameraAnimationSequence>, Params: CameraAnimationParams): CameraAnimationHandle;
-	public function IsCameraAnimationActive(PlayerController: cpp.Star<PlayerController>, Handle: cpp.Reference<CameraAnimationHandle>): Bool;
+	public function StopCameraAnimation(PlayerController: ucpp.Ptr<PlayerController>, Handle: ucpp.Ref<CameraAnimationHandle>, bImmediate: Bool): Void;
+	public function StopAllCameraAnimationsOf(PlayerController: ucpp.Ptr<PlayerController>, Sequence: ucpp.Ptr<CameraAnimationSequence>, bImmediate: Bool): Void;
+	public function StopAllCameraAnimations(PlayerController: ucpp.Ptr<PlayerController>, bImmediate: Bool): Void;
+	public function PlayCameraAnimation(PlayerController: ucpp.Ptr<PlayerController>, Sequence: ucpp.Ptr<CameraAnimationSequence>, Params: CameraAnimationParams): CameraAnimationHandle;
+	public function IsCameraAnimationActive(PlayerController: ucpp.Ptr<PlayerController>, Handle: ucpp.Ref<CameraAnimationHandle>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsCameraAnimationActive)
@@ -22,7 +22,7 @@ abstract ConstGameplayCamerasSubsystem(GameplayCamerasSubsystem) from GameplayCa
 @:forward
 @:nativeGen
 @:native("GameplayCamerasSubsystem*")
-abstract GameplayCamerasSubsystemPtr(cpp.Star<GameplayCamerasSubsystem>) from cpp.Star<GameplayCamerasSubsystem> to cpp.Star<GameplayCamerasSubsystem>{
+abstract GameplayCamerasSubsystemPtr(ucpp.Ptr<GameplayCamerasSubsystem>) from ucpp.Ptr<GameplayCamerasSubsystem> to ucpp.Ptr<GameplayCamerasSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: GameplayCamerasSubsystem): GameplayCamerasSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

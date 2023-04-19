@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMovieSceneSequencePlayerEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMovieSceneSequencePlayerEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMovieSceneSequencePlayerEvent__PythonCallable(OnMovieSceneSequen
 @:forward
 @:nativeGen
 @:native("OnMovieSceneSequencePlayerEvent__PythonCallable*")
-abstract OnMovieSceneSequencePlayerEvent__PythonCallablePtr(cpp.Star<OnMovieSceneSequencePlayerEvent__PythonCallable>) from cpp.Star<OnMovieSceneSequencePlayerEvent__PythonCallable> to cpp.Star<OnMovieSceneSequencePlayerEvent__PythonCallable>{
+abstract OnMovieSceneSequencePlayerEvent__PythonCallablePtr(ucpp.Ptr<OnMovieSceneSequencePlayerEvent__PythonCallable>) from ucpp.Ptr<OnMovieSceneSequencePlayerEvent__PythonCallable> to ucpp.Ptr<OnMovieSceneSequencePlayerEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMovieSceneSequencePlayerEvent__PythonCallable): OnMovieSceneSequencePlayerEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

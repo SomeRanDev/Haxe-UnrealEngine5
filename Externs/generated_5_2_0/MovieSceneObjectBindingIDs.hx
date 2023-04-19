@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneObjectBindingIDs")
 @:include("MovieScene.h")
-@:structAccess
+@:valueType
 extern class MovieSceneObjectBindingIDs {
 	public var IDs: TArray<MovieSceneObjectBindingID>;
 

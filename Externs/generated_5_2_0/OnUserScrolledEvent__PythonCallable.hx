@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnUserScrolledEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnUserScrolledEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnUserScrolledEvent__PythonCallable(OnUserScrolledEvent__PythonCal
 @:forward
 @:nativeGen
 @:native("OnUserScrolledEvent__PythonCallable*")
-abstract OnUserScrolledEvent__PythonCallablePtr(cpp.Star<OnUserScrolledEvent__PythonCallable>) from cpp.Star<OnUserScrolledEvent__PythonCallable> to cpp.Star<OnUserScrolledEvent__PythonCallable>{
+abstract OnUserScrolledEvent__PythonCallablePtr(ucpp.Ptr<OnUserScrolledEvent__PythonCallable>) from ucpp.Ptr<OnUserScrolledEvent__PythonCallable> to ucpp.Ptr<OnUserScrolledEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnUserScrolledEvent__PythonCallable): OnUserScrolledEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomDefine")
 @:include("Materials/MaterialExpressionCustom.h")
-@:structAccess
+@:valueType
 extern class CustomDefine {
 	public var DefineName: FString;
 	public var DefineValue: FString;

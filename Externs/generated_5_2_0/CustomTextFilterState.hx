@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomTextFilterState")
 @:include("Filters/FilterBarConfig.h")
-@:structAccess
+@:valueType
 extern class CustomTextFilterState {
 	public var bIsChecked: Bool;
 	public var bIsActive: Bool;

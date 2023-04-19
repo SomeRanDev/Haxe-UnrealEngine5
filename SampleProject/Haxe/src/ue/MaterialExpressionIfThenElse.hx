@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionIfThenElse")
 @:include("Materials/MaterialExpressionIfThenElse.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionIfThenElse extends MaterialExpression {
 	public var Then: ExpressionExecOutput;
 	public var Else: ExpressionExecOutput;
 	public var Condition: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionIfThenElse(MaterialExpressionIfThenElse) from Ma
 @:forward
 @:nativeGen
 @:native("MaterialExpressionIfThenElse*")
-abstract MaterialExpressionIfThenElsePtr(cpp.Star<MaterialExpressionIfThenElse>) from cpp.Star<MaterialExpressionIfThenElse> to cpp.Star<MaterialExpressionIfThenElse>{
+abstract MaterialExpressionIfThenElsePtr(ucpp.Ptr<MaterialExpressionIfThenElse>) from ucpp.Ptr<MaterialExpressionIfThenElse> to ucpp.Ptr<MaterialExpressionIfThenElse>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionIfThenElse): MaterialExpressionIfThenElsePtr {
 		return untyped __cpp__("&({0})", v);

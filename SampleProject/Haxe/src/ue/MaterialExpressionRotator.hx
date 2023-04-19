@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionRotator")
 @:include("Materials/MaterialExpressionRotator.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionRotator extends MaterialExpression {
 	public var Coordinate: ExpressionInput;
 	public var Time: ExpressionInput;
-	public var CenterX: cpp.Float32;
-	public var CenterY: cpp.Float32;
-	public var Speed: cpp.Float32;
-	public var ConstCoordinate: cpp.UInt32;
+	public var CenterX: ucpp.num.Float32;
+	public var CenterY: ucpp.num.Float32;
+	public var Speed: ucpp.num.Float32;
+	public var ConstCoordinate: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,20 +22,20 @@ abstract ConstMaterialExpressionRotator(MaterialExpressionRotator) from Material
 	public inline extern function get_Coordinate(): ExpressionInput return this.Coordinate;
 	public extern var Time(get, never): ExpressionInput;
 	public inline extern function get_Time(): ExpressionInput return this.Time;
-	public extern var CenterX(get, never): cpp.Float32;
-	public inline extern function get_CenterX(): cpp.Float32 return this.CenterX;
-	public extern var CenterY(get, never): cpp.Float32;
-	public inline extern function get_CenterY(): cpp.Float32 return this.CenterY;
-	public extern var Speed(get, never): cpp.Float32;
-	public inline extern function get_Speed(): cpp.Float32 return this.Speed;
-	public extern var ConstCoordinate(get, never): cpp.UInt32;
-	public inline extern function get_ConstCoordinate(): cpp.UInt32 return this.ConstCoordinate;
+	public extern var CenterX(get, never): ucpp.num.Float32;
+	public inline extern function get_CenterX(): ucpp.num.Float32 return this.CenterX;
+	public extern var CenterY(get, never): ucpp.num.Float32;
+	public inline extern function get_CenterY(): ucpp.num.Float32 return this.CenterY;
+	public extern var Speed(get, never): ucpp.num.Float32;
+	public inline extern function get_Speed(): ucpp.num.Float32 return this.Speed;
+	public extern var ConstCoordinate(get, never): ucpp.num.UInt32;
+	public inline extern function get_ConstCoordinate(): ucpp.num.UInt32 return this.ConstCoordinate;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionRotator*")
-abstract MaterialExpressionRotatorPtr(cpp.Star<MaterialExpressionRotator>) from cpp.Star<MaterialExpressionRotator> to cpp.Star<MaterialExpressionRotator>{
+abstract MaterialExpressionRotatorPtr(ucpp.Ptr<MaterialExpressionRotator>) from ucpp.Ptr<MaterialExpressionRotator> to ucpp.Ptr<MaterialExpressionRotator>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionRotator): MaterialExpressionRotatorPtr {
 		return untyped __cpp__("&({0})", v);

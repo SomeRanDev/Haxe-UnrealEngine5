@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidgetAnimationDynamicEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class WidgetAnimationDynamicEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidgetAnimationDynamicEvent__PythonCallable(WidgetAnimationDynamic
 @:forward
 @:nativeGen
 @:native("WidgetAnimationDynamicEvent__PythonCallable*")
-abstract WidgetAnimationDynamicEvent__PythonCallablePtr(cpp.Star<WidgetAnimationDynamicEvent__PythonCallable>) from cpp.Star<WidgetAnimationDynamicEvent__PythonCallable> to cpp.Star<WidgetAnimationDynamicEvent__PythonCallable>{
+abstract WidgetAnimationDynamicEvent__PythonCallablePtr(ucpp.Ptr<WidgetAnimationDynamicEvent__PythonCallable>) from ucpp.Ptr<WidgetAnimationDynamicEvent__PythonCallable> to ucpp.Ptr<WidgetAnimationDynamicEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: WidgetAnimationDynamicEvent__PythonCallable): WidgetAnimationDynamicEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

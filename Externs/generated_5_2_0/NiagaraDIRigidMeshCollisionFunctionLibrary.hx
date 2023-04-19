@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDIRigidMeshCollisionFunctionLibrary")
 @:include("NiagaraDataInterfaceRigidMeshCollisionQuery.h")
-@:structAccess
+@:valueType
 extern class NiagaraDIRigidMeshCollisionFunctionLibrary extends BlueprintFunctionLibrary {
-	public function SetSourceActors(NiagaraSystem: cpp.Star<NiagaraComp>, OverrideName: FName, SourceActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	public function SetSourceActors(NiagaraSystem: ucpp.Ptr<NiagaraComp>, OverrideName: FName, SourceActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraDIRigidMeshCollisionFunctionLibrary(NiagaraDIRigidMeshColli
 @:forward
 @:nativeGen
 @:native("NiagaraDIRigidMeshCollisionFunctionLibrary*")
-abstract NiagaraDIRigidMeshCollisionFunctionLibraryPtr(cpp.Star<NiagaraDIRigidMeshCollisionFunctionLibrary>) from cpp.Star<NiagaraDIRigidMeshCollisionFunctionLibrary> to cpp.Star<NiagaraDIRigidMeshCollisionFunctionLibrary>{
+abstract NiagaraDIRigidMeshCollisionFunctionLibraryPtr(ucpp.Ptr<NiagaraDIRigidMeshCollisionFunctionLibrary>) from ucpp.Ptr<NiagaraDIRigidMeshCollisionFunctionLibrary> to ucpp.Ptr<NiagaraDIRigidMeshCollisionFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDIRigidMeshCollisionFunctionLibrary): NiagaraDIRigidMeshCollisionFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

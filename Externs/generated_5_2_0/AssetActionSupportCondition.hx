@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAssetActionSupportCondition")
 @:include("AssetActionUtility.h")
-@:structAccess
+@:valueType
 extern class AssetActionSupportCondition {
 	public var Filter: FString;
 	public var FailureReason: FString;

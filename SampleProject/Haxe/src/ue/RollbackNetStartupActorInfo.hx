@@ -3,12 +3,11 @@ package ue;
 
 @:native("FRollbackNetStartupActorInfo")
 @:include("Engine/DemoNetDriver.h")
-@:structAccess
+@:valueType
 extern class RollbackNetStartupActorInfo {
-	public var Archetype: cpp.Star<Object>;
-	public var Level: cpp.Star<Level>;
-	public var ObjReferences: TArray<cpp.Star<Object>>;
+	public var Archetype: ucpp.Ptr<Object>;
+	public var ObjReferences: TArray<ucpp.Ptr<Object>>;
 
 	@:native("FRollbackNetStartupActorInfo") public function new();
-	@:native("FRollbackNetStartupActorInfo") public static function make(Archetype: cpp.Star<Object>, Level: cpp.Star<Level>, ObjReferences: TArray<cpp.Star<Object>>): RollbackNetStartupActorInfo ;
+	@:native("FRollbackNetStartupActorInfo") public static function make(Archetype: ucpp.Ptr<Object>, ObjReferences: TArray<ucpp.Ptr<Object>>): RollbackNetStartupActorInfo ;
 }

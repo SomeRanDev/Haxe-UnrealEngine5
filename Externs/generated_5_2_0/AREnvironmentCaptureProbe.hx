@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAREnvironmentCaptureProbe")
 @:include("ARTrackable.h")
-@:structAccess
+@:valueType
 extern class AREnvironmentCaptureProbe extends ARTrackedGeometry {
 	@:protected public var Extent: Vector;
-	@:protected public var EnvironmentCaptureTexture: cpp.Star<AREnvironmentCaptureProbeTexture>;
+	@:protected public var EnvironmentCaptureTexture: ucpp.Ptr<AREnvironmentCaptureProbeTexture>;
 
 	public function GetExtent(): Vector;
-	public function GetEnvironmentCaptureTexture(): cpp.Star<AREnvironmentCaptureProbeTexture>;
+	public function GetEnvironmentCaptureTexture(): ucpp.Ptr<AREnvironmentCaptureProbeTexture>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetExtent)
@@ -22,7 +22,7 @@ abstract ConstAREnvironmentCaptureProbe(AREnvironmentCaptureProbe) from AREnviro
 @:forward
 @:nativeGen
 @:native("AREnvironmentCaptureProbe*")
-abstract AREnvironmentCaptureProbePtr(cpp.Star<AREnvironmentCaptureProbe>) from cpp.Star<AREnvironmentCaptureProbe> to cpp.Star<AREnvironmentCaptureProbe>{
+abstract AREnvironmentCaptureProbePtr(ucpp.Ptr<AREnvironmentCaptureProbe>) from ucpp.Ptr<AREnvironmentCaptureProbe> to ucpp.Ptr<AREnvironmentCaptureProbe>{
 	@:from
 	public static extern inline function fromValue(v: AREnvironmentCaptureProbe): AREnvironmentCaptureProbePtr {
 		return untyped __cpp__("&({0})", v);

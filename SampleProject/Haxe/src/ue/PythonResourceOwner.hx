@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPythonResourceOwner")
-@:structAccess
+@:valueType
 extern class PythonResourceOwner extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPythonResourceOwner(PythonResourceOwner) from PythonResourceOwner 
 @:forward
 @:nativeGen
 @:native("PythonResourceOwner*")
-abstract PythonResourceOwnerPtr(cpp.Star<PythonResourceOwner>) from cpp.Star<PythonResourceOwner> to cpp.Star<PythonResourceOwner>{
+abstract PythonResourceOwnerPtr(ucpp.Ptr<PythonResourceOwner>) from ucpp.Ptr<PythonResourceOwner> to ucpp.Ptr<PythonResourceOwner>{
 	@:from
 	public static extern inline function fromValue(v: PythonResourceOwner): PythonResourceOwnerPtr {
 		return untyped __cpp__("&({0})", v);

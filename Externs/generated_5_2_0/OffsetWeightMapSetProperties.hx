@@ -3,24 +3,24 @@ package ue;
 
 @:native("UOffsetWeightMapSetProperties")
 @:include("OffsetMeshTool.h")
-@:structAccess
+@:valueType
 extern class OffsetWeightMapSetProperties extends WeightMapSetProperties {
-	public var MinDistance: cpp.Float32;
+	public var MinDistance: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstOffsetWeightMapSetProperties(OffsetWeightMapSetProperties) from OffsetWeightMapSetProperties {
-	public extern var MinDistance(get, never): cpp.Float32;
-	public inline extern function get_MinDistance(): cpp.Float32 return this.MinDistance;
+	public extern var MinDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDistance(): ucpp.num.Float32 return this.MinDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("OffsetWeightMapSetProperties*")
-abstract OffsetWeightMapSetPropertiesPtr(cpp.Star<OffsetWeightMapSetProperties>) from cpp.Star<OffsetWeightMapSetProperties> to cpp.Star<OffsetWeightMapSetProperties>{
+abstract OffsetWeightMapSetPropertiesPtr(ucpp.Ptr<OffsetWeightMapSetProperties>) from ucpp.Ptr<OffsetWeightMapSetProperties> to ucpp.Ptr<OffsetWeightMapSetProperties>{
 	@:from
 	public static extern inline function fromValue(v: OffsetWeightMapSetProperties): OffsetWeightMapSetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

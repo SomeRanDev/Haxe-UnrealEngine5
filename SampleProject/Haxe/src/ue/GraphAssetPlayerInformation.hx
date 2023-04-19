@@ -3,10 +3,10 @@ package ue;
 
 @:native("FGraphAssetPlayerInformation")
 @:include("Animation/AnimClassInterface.h")
-@:structAccess
+@:valueType
 extern class GraphAssetPlayerInformation {
-	public var PlayerNodeIndices: TArray<cpp.Int32>;
+	public var PlayerNodeIndices: TArray<ucpp.num.Int32>;
 
 	@:native("FGraphAssetPlayerInformation") public function new();
-	@:native("FGraphAssetPlayerInformation") public static function make(PlayerNodeIndices: TArray<cpp.Int32>): GraphAssetPlayerInformation ;
+	@:native("FGraphAssetPlayerInformation") public static function make(PlayerNodeIndices: TArray<ucpp.num.Int32>): GraphAssetPlayerInformation ;
 }

@@ -3,20 +3,20 @@ package ue;
 
 @:native("ADynamicMeshActor")
 @:include("DynamicMeshActor.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshActor extends Actor {
-	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	@:protected public var DynamicMeshComponent: ucpp.Ptr<DynamicMeshComp>;
 	public var bEnableComputeMeshPool: Bool;
-	@:protected public var DynamicMeshPool: cpp.Star<DynamicMeshPool>;
+	@:protected public var DynamicMeshPool: ucpp.Ptr<DynamicMeshPool>;
 
-	public function ReleaseComputeMesh(Mesh: cpp.Star<DynamicMesh>): Bool;
+	public function ReleaseComputeMesh(Mesh: ucpp.Ptr<DynamicMesh>): Bool;
 	public function ReleaseAllComputeMeshes(): Void;
-	public function GetDynamicMeshComponent(): cpp.Star<DynamicMeshComp>;
-	public function GetComputeMeshPool(): cpp.Star<DynamicMeshPool>;
+	public function GetDynamicMeshComponent(): ucpp.Ptr<DynamicMeshComp>;
+	public function GetComputeMeshPool(): ucpp.Ptr<DynamicMeshPool>;
 	public function FreeAllComputeMeshes(): Void;
-	public function AllocateComputeMesh(): cpp.Star<DynamicMesh>;
+	public function AllocateComputeMesh(): ucpp.Ptr<DynamicMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetDynamicMeshComponent)
@@ -29,7 +29,7 @@ abstract ConstDynamicMeshActor(DynamicMeshActor) from DynamicMeshActor {
 @:forward
 @:nativeGen
 @:native("DynamicMeshActor*")
-abstract DynamicMeshActorPtr(cpp.Star<DynamicMeshActor>) from cpp.Star<DynamicMeshActor> to cpp.Star<DynamicMeshActor>{
+abstract DynamicMeshActorPtr(ucpp.Ptr<DynamicMeshActor>) from ucpp.Ptr<DynamicMeshActor> to ucpp.Ptr<DynamicMeshActor>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshActor): DynamicMeshActorPtr {
 		return untyped __cpp__("&({0})", v);

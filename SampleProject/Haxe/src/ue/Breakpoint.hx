@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_Breakpoint")
 @:include("Engine/Blueprint.h")
-@:structAccess
+@:valueType
 extern class Breakpoint extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBreakpoint(Breakpoint) from Breakpoint {
 @:forward
 @:nativeGen
 @:native("Breakpoint*")
-abstract BreakpointPtr(cpp.Star<Breakpoint>) from cpp.Star<Breakpoint> to cpp.Star<Breakpoint>{
+abstract BreakpointPtr(ucpp.Ptr<Breakpoint>) from ucpp.Ptr<Breakpoint> to ucpp.Ptr<Breakpoint>{
 	@:from
 	public static extern inline function fromValue(v: Breakpoint): BreakpointPtr {
 		return untyped __cpp__("&({0})", v);

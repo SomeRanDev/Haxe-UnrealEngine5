@@ -3,9 +3,9 @@ package ue;
 
 @:native("UMovieSceneAudioSection")
 @:include("Sections/MovieSceneAudioSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneAudioSection extends MovieSceneSection {
-	private var Sound: cpp.Star<SoundBase>;
+	private var Sound: ucpp.Ptr<SoundBase>;
 	private var StartFrameOffset: FrameNumber;
 	private var SoundVolume: MovieSceneFloatChannel;
 	private var PitchMultiplier: MovieSceneFloatChannel;
@@ -18,17 +18,17 @@ extern class MovieSceneAudioSection extends MovieSceneSection {
 	private var bLooping: Bool;
 	private var bSuppressSubtitles: Bool;
 	private var bOverrideAttenuation: Bool;
-	private var AttenuationSettings: cpp.Star<SoundAttenuation>;
-	private var OnQueueSubtitles: HaxeDelegateProperty<(cpp.Reference<TArray<SubtitleCue>>, cpp.Float32) -> Void>;
+	private var AttenuationSettings: ucpp.Ptr<SoundAttenuation>;
+	private var OnQueueSubtitles: HaxeDelegateProperty<(ucpp.Ref<TArray<SubtitleCue>>, ucpp.num.Float32) -> Void>;
 	private var OnAudioFinished: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	private var OnAudioPlaybackPercent: HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void>;
+	private var OnAudioPlaybackPercent: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, ucpp.num.Float32) -> Void>;
 
 	public function SetStartOffset(InStartOffset: FrameNumber): Void;
-	public function SetSound(InSound: cpp.Star<SoundBase>): Void;
+	public function SetSound(InSound: ucpp.Ptr<SoundBase>): Void;
 	public function GetStartOffset(): FrameNumber;
-	public function GetSound(): cpp.Star<SoundBase>;
+	public function GetSound(): ucpp.Ptr<SoundBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetStartOffset, GetSound)
@@ -39,7 +39,7 @@ abstract ConstMovieSceneAudioSection(MovieSceneAudioSection) from MovieSceneAudi
 @:forward
 @:nativeGen
 @:native("MovieSceneAudioSection*")
-abstract MovieSceneAudioSectionPtr(cpp.Star<MovieSceneAudioSection>) from cpp.Star<MovieSceneAudioSection> to cpp.Star<MovieSceneAudioSection>{
+abstract MovieSceneAudioSectionPtr(ucpp.Ptr<MovieSceneAudioSection>) from ucpp.Ptr<MovieSceneAudioSection> to ucpp.Ptr<MovieSceneAudioSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneAudioSection): MovieSceneAudioSectionPtr {
 		return untyped __cpp__("&({0})", v);

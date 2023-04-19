@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UActorPerceptionForgetUpdatedDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class ActorPerceptionForgetUpdatedDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstActorPerceptionForgetUpdatedDelegate__PythonCallable(ActorPercepti
 @:forward
 @:nativeGen
 @:native("ActorPerceptionForgetUpdatedDelegate__PythonCallable*")
-abstract ActorPerceptionForgetUpdatedDelegate__PythonCallablePtr(cpp.Star<ActorPerceptionForgetUpdatedDelegate__PythonCallable>) from cpp.Star<ActorPerceptionForgetUpdatedDelegate__PythonCallable> to cpp.Star<ActorPerceptionForgetUpdatedDelegate__PythonCallable>{
+abstract ActorPerceptionForgetUpdatedDelegate__PythonCallablePtr(ucpp.Ptr<ActorPerceptionForgetUpdatedDelegate__PythonCallable>) from ucpp.Ptr<ActorPerceptionForgetUpdatedDelegate__PythonCallable> to ucpp.Ptr<ActorPerceptionForgetUpdatedDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ActorPerceptionForgetUpdatedDelegate__PythonCallable): ActorPerceptionForgetUpdatedDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

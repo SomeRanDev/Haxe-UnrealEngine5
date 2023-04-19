@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMoviePlayerSettings")
 @:include("MoviePlayerSettings.h")
-@:structAccess
+@:valueType
 extern class MoviePlayerSettings extends Object {
 	public var bWaitForMoviesToComplete: Bool;
 	public var bMoviesAreSkippable: Bool;
 	public var StartupMovies: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMoviePlayerSettings(MoviePlayerSettings) from MoviePlayerSettings 
 @:forward
 @:nativeGen
 @:native("MoviePlayerSettings*")
-abstract MoviePlayerSettingsPtr(cpp.Star<MoviePlayerSettings>) from cpp.Star<MoviePlayerSettings> to cpp.Star<MoviePlayerSettings>{
+abstract MoviePlayerSettingsPtr(ucpp.Ptr<MoviePlayerSettings>) from ucpp.Ptr<MoviePlayerSettings> to ucpp.Ptr<MoviePlayerSettings>{
 	@:from
 	public static extern inline function fromValue(v: MoviePlayerSettings): MoviePlayerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

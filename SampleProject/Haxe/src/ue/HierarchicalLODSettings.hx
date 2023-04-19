@@ -3,7 +3,7 @@ package ue;
 
 @:native("UHierarchicalLODSettings")
 @:include("HierarchicalLOD.h")
-@:structAccess
+@:valueType
 extern class HierarchicalLODSettings extends DeveloperSettings {
 	public var bForceSettingsInAllMaps: Bool;
 	public var bSaveLODActorsToHLODPackages: Bool;
@@ -12,7 +12,7 @@ extern class HierarchicalLODSettings extends DeveloperSettings {
 	public var MapsToBuild: TArray<FilePath>;
 	public var BaseMaterial: TSoftObjectPtr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstHierarchicalLODSettings(HierarchicalLODSettings) from Hierarchical
 @:forward
 @:nativeGen
 @:native("HierarchicalLODSettings*")
-abstract HierarchicalLODSettingsPtr(cpp.Star<HierarchicalLODSettings>) from cpp.Star<HierarchicalLODSettings> to cpp.Star<HierarchicalLODSettings>{
+abstract HierarchicalLODSettingsPtr(ucpp.Ptr<HierarchicalLODSettings>) from ucpp.Ptr<HierarchicalLODSettings> to ucpp.Ptr<HierarchicalLODSettings>{
 	@:from
 	public static extern inline function fromValue(v: HierarchicalLODSettings): HierarchicalLODSettingsPtr {
 		return untyped __cpp__("&({0})", v);

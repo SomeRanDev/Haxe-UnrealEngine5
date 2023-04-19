@@ -3,40 +3,40 @@ package ue;
 
 @:native("UInterchangeMeshFactoryNode")
 @:include("InterchangeMeshFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeMeshFactoryNode extends InterchangeFactoryBaseNode {
 	public function SetSlotMaterialDependencyUid(SlotName: FString, MaterialDependencyUid: FString): Bool;
-	public function SetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): Bool;
-	public function SetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomUseMikkTSpace(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomUseHighPrecisionTangentBasis(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomUseFullPrecisionUVs(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomUseBackwardsCompatibleF16TruncUVs(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomRemoveDegenerates(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomRecomputeTangents(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomRecomputeNormals(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomComputeWeightedNormals(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomVertexColorReplace(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomVertexColorOverride(AttributeValue: ucpp.Ref<Color>): Bool;
+	public function SetCustomVertexColorIgnore(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomUseMikkTSpace(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomUseHighPrecisionTangentBasis(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomUseFullPrecisionUVs(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomUseBackwardsCompatibleF16TruncUVs(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomRemoveDegenerates(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomRecomputeTangents(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomRecomputeNormals(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomComputeWeightedNormals(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
 	public function RemoveSlotMaterialDependencyUid(SlotName: FString): Bool;
 	public function RemoveLodDataUniqueId(LodDataUniqueId: FString): Bool;
-	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: cpp.Reference<FString>): Bool;
-	public function GetSlotMaterialDependencies(OutMaterialDependencies: cpp.Reference<TMap<FString, FString>>): Void;
-	public function GetLodDataUniqueIds(OutLodDataUniqueIds: cpp.Reference<TArray<FString>>): Void;
-	public function GetLodDataCount(): cpp.Int32;
-	public function GetCustomVertexColorReplace(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomVertexColorOverride(AttributeValue: cpp.Reference<Color>): Bool;
-	public function GetCustomVertexColorIgnore(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomUseMikkTSpace(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomUseHighPrecisionTangentBasis(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomUseFullPrecisionUVs(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomUseBackwardsCompatibleF16TruncUVs(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomRemoveDegenerates(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomRecomputeTangents(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomRecomputeNormals(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomComputeWeightedNormals(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: ucpp.Ref<FString>): Bool;
+	public function GetSlotMaterialDependencies(OutMaterialDependencies: ucpp.Ref<TMap<FString, FString>>): Void;
+	public function GetLodDataUniqueIds(OutLodDataUniqueIds: ucpp.Ref<TArray<FString>>): Void;
+	public function GetLodDataCount(): ucpp.num.Int32;
+	public function GetCustomVertexColorReplace(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomVertexColorOverride(AttributeValue: ucpp.Ref<Color>): Bool;
+	public function GetCustomVertexColorIgnore(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomUseMikkTSpace(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomUseHighPrecisionTangentBasis(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomUseFullPrecisionUVs(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomUseBackwardsCompatibleF16TruncUVs(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomRemoveDegenerates(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomRecomputeTangents(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomRecomputeNormals(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomComputeWeightedNormals(AttributeValue: ucpp.Ref<Bool>): Bool;
 	public function AddLodDataUniqueId(LodDataUniqueId: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -51,7 +51,7 @@ abstract ConstInterchangeMeshFactoryNode(InterchangeMeshFactoryNode) from Interc
 @:forward
 @:nativeGen
 @:native("InterchangeMeshFactoryNode*")
-abstract InterchangeMeshFactoryNodePtr(cpp.Star<InterchangeMeshFactoryNode>) from cpp.Star<InterchangeMeshFactoryNode> to cpp.Star<InterchangeMeshFactoryNode>{
+abstract InterchangeMeshFactoryNodePtr(ucpp.Ptr<InterchangeMeshFactoryNode>) from ucpp.Ptr<InterchangeMeshFactoryNode> to ucpp.Ptr<InterchangeMeshFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMeshFactoryNode): InterchangeMeshFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

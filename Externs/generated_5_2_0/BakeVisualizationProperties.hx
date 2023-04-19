@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBakeVisualizationProperties")
 @:include("BakeMeshAttributeToolCommon.h")
-@:structAccess
+@:valueType
 extern class BakeVisualizationProperties extends InteractiveToolPropertySet {
 	public var bPreviewAsMaterial: Bool;
-	public var Brightness: cpp.Float32;
-	public var AOMultiplier: cpp.Float32;
+	public var Brightness: ucpp.num.Float32;
+	public var AOMultiplier: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class BakeVisualizationProperties extends InteractiveToolPropertySet {
 abstract ConstBakeVisualizationProperties(BakeVisualizationProperties) from BakeVisualizationProperties {
 	public extern var bPreviewAsMaterial(get, never): Bool;
 	public inline extern function get_bPreviewAsMaterial(): Bool return this.bPreviewAsMaterial;
-	public extern var Brightness(get, never): cpp.Float32;
-	public inline extern function get_Brightness(): cpp.Float32 return this.Brightness;
-	public extern var AOMultiplier(get, never): cpp.Float32;
-	public inline extern function get_AOMultiplier(): cpp.Float32 return this.AOMultiplier;
+	public extern var Brightness(get, never): ucpp.num.Float32;
+	public inline extern function get_Brightness(): ucpp.num.Float32 return this.Brightness;
+	public extern var AOMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_AOMultiplier(): ucpp.num.Float32 return this.AOMultiplier;
 }
 
 @:forward
 @:nativeGen
 @:native("BakeVisualizationProperties*")
-abstract BakeVisualizationPropertiesPtr(cpp.Star<BakeVisualizationProperties>) from cpp.Star<BakeVisualizationProperties> to cpp.Star<BakeVisualizationProperties>{
+abstract BakeVisualizationPropertiesPtr(ucpp.Ptr<BakeVisualizationProperties>) from ucpp.Ptr<BakeVisualizationProperties> to ucpp.Ptr<BakeVisualizationProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeVisualizationProperties): BakeVisualizationPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

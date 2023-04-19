@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolUniform")
 @:include("FractureToolUniform.h")
-@:structAccess
+@:valueType
 extern class FractureToolUniform extends FractureToolVoronoiCutterBase {
-	public var UniformSettings: cpp.Star<FractureUniformSettings>;
+	public var UniformSettings: ucpp.Ptr<FractureUniformSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolUniform(FractureToolUniform) from FractureToolUniform {
-	public extern var UniformSettings(get, never): cpp.Star<FractureUniformSettings.ConstFractureUniformSettings>;
-	public inline extern function get_UniformSettings(): cpp.Star<FractureUniformSettings.ConstFractureUniformSettings> return this.UniformSettings;
+	public extern var UniformSettings(get, never): ucpp.Ptr<FractureUniformSettings.ConstFractureUniformSettings>;
+	public inline extern function get_UniformSettings(): ucpp.Ptr<FractureUniformSettings.ConstFractureUniformSettings> return this.UniformSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolUniform*")
-abstract FractureToolUniformPtr(cpp.Star<FractureToolUniform>) from cpp.Star<FractureToolUniform> to cpp.Star<FractureToolUniform>{
+abstract FractureToolUniformPtr(ucpp.Ptr<FractureToolUniform>) from ucpp.Ptr<FractureToolUniform> to ucpp.Ptr<FractureToolUniform>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolUniform): FractureToolUniformPtr {
 		return untyped __cpp__("&({0})", v);

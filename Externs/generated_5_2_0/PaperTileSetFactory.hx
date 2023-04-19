@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPaperTileSetFactory")
 @:include("PaperTileSetFactory.h")
-@:structAccess
+@:valueType
 extern class PaperTileSetFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPaperTileSetFactory(PaperTileSetFactory) from PaperTileSetFactory 
 @:forward
 @:nativeGen
 @:native("PaperTileSetFactory*")
-abstract PaperTileSetFactoryPtr(cpp.Star<PaperTileSetFactory>) from cpp.Star<PaperTileSetFactory> to cpp.Star<PaperTileSetFactory>{
+abstract PaperTileSetFactoryPtr(ucpp.Ptr<PaperTileSetFactory>) from ucpp.Ptr<PaperTileSetFactory> to ucpp.Ptr<PaperTileSetFactory>{
 	@:from
 	public static extern inline function fromValue(v: PaperTileSetFactory): PaperTileSetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

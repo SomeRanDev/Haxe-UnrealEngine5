@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDistributionFloatParticleParameter")
 @:include("Distributions/DistributionFloatParticleParameter.h")
-@:structAccess
+@:valueType
 extern class DistributionFloatParticleParameter extends DistributionFloatParameterBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDistributionFloatParticleParameter(DistributionFloatParticleParame
 @:forward
 @:nativeGen
 @:native("DistributionFloatParticleParameter*")
-abstract DistributionFloatParticleParameterPtr(cpp.Star<DistributionFloatParticleParameter>) from cpp.Star<DistributionFloatParticleParameter> to cpp.Star<DistributionFloatParticleParameter>{
+abstract DistributionFloatParticleParameterPtr(ucpp.Ptr<DistributionFloatParticleParameter>) from ucpp.Ptr<DistributionFloatParticleParameter> to ucpp.Ptr<DistributionFloatParticleParameter>{
 	@:from
 	public static extern inline function fromValue(v: DistributionFloatParticleParameter): DistributionFloatParticleParameterPtr {
 		return untyped __cpp__("&({0})", v);

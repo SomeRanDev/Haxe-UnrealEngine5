@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_NiagaraSimCache")
 @:include("AssetDefinitions/AssetDefinition_NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_NiagaraSimCache extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_NiagaraSimCache(AssetDefinition_NiagaraSimCache) f
 @:forward
 @:nativeGen
 @:native("AssetDefinition_NiagaraSimCache*")
-abstract AssetDefinition_NiagaraSimCachePtr(cpp.Star<AssetDefinition_NiagaraSimCache>) from cpp.Star<AssetDefinition_NiagaraSimCache> to cpp.Star<AssetDefinition_NiagaraSimCache>{
+abstract AssetDefinition_NiagaraSimCachePtr(ucpp.Ptr<AssetDefinition_NiagaraSimCache>) from ucpp.Ptr<AssetDefinition_NiagaraSimCache> to ucpp.Ptr<AssetDefinition_NiagaraSimCache>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_NiagaraSimCache): AssetDefinition_NiagaraSimCachePtr {
 		return untyped __cpp__("&({0})", v);

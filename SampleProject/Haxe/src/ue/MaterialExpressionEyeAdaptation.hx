@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionEyeAdaptation")
 @:include("Materials/MaterialExpressionEyeAdaptation.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionEyeAdaptation extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionEyeAdaptation(MaterialExpressionEyeAdaptation) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionEyeAdaptation*")
-abstract MaterialExpressionEyeAdaptationPtr(cpp.Star<MaterialExpressionEyeAdaptation>) from cpp.Star<MaterialExpressionEyeAdaptation> to cpp.Star<MaterialExpressionEyeAdaptation>{
+abstract MaterialExpressionEyeAdaptationPtr(ucpp.Ptr<MaterialExpressionEyeAdaptation>) from ucpp.Ptr<MaterialExpressionEyeAdaptation> to ucpp.Ptr<MaterialExpressionEyeAdaptation>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionEyeAdaptation): MaterialExpressionEyeAdaptationPtr {
 		return untyped __cpp__("&({0})", v);

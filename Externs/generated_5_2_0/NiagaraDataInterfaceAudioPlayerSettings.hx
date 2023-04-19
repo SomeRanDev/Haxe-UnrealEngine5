@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioPlayerSettings")
 @:include("NiagaraDataInterfaceAudioPlayer.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceAudioPlayerSettings extends Object {
 	public var bOverrideConcurrency: Bool;
-	public var Concurrency: cpp.Star<SoundConcurrency>;
+	public var Concurrency: ucpp.Ptr<SoundConcurrency>;
 	public var bOverrideAttenuationSettings: Bool;
 	public var AttenuationSettings: SoundAttenuationSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,8 +18,8 @@ extern class NiagaraDataInterfaceAudioPlayerSettings extends Object {
 abstract ConstNiagaraDataInterfaceAudioPlayerSettings(NiagaraDataInterfaceAudioPlayerSettings) from NiagaraDataInterfaceAudioPlayerSettings {
 	public extern var bOverrideConcurrency(get, never): Bool;
 	public inline extern function get_bOverrideConcurrency(): Bool return this.bOverrideConcurrency;
-	public extern var Concurrency(get, never): cpp.Star<SoundConcurrency.ConstSoundConcurrency>;
-	public inline extern function get_Concurrency(): cpp.Star<SoundConcurrency.ConstSoundConcurrency> return this.Concurrency;
+	public extern var Concurrency(get, never): ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency>;
+	public inline extern function get_Concurrency(): ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency> return this.Concurrency;
 	public extern var bOverrideAttenuationSettings(get, never): Bool;
 	public inline extern function get_bOverrideAttenuationSettings(): Bool return this.bOverrideAttenuationSettings;
 	public extern var AttenuationSettings(get, never): SoundAttenuationSettings;
@@ -29,7 +29,7 @@ abstract ConstNiagaraDataInterfaceAudioPlayerSettings(NiagaraDataInterfaceAudioP
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceAudioPlayerSettings*")
-abstract NiagaraDataInterfaceAudioPlayerSettingsPtr(cpp.Star<NiagaraDataInterfaceAudioPlayerSettings>) from cpp.Star<NiagaraDataInterfaceAudioPlayerSettings> to cpp.Star<NiagaraDataInterfaceAudioPlayerSettings>{
+abstract NiagaraDataInterfaceAudioPlayerSettingsPtr(ucpp.Ptr<NiagaraDataInterfaceAudioPlayerSettings>) from ucpp.Ptr<NiagaraDataInterfaceAudioPlayerSettings> to ucpp.Ptr<NiagaraDataInterfaceAudioPlayerSettings>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceAudioPlayerSettings): NiagaraDataInterfaceAudioPlayerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

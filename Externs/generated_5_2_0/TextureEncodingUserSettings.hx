@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTextureEncodingUserSettings")
 @:include("TextureEncodingSettings.h")
-@:structAccess
+@:valueType
 extern class TextureEncodingUserSettings extends DeveloperSettings {
 	public var ForceEncodeSpeed: ETextureEncodeSpeedOverride;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTextureEncodingUserSettings(TextureEncodingUserSettings) from Text
 @:forward
 @:nativeGen
 @:native("TextureEncodingUserSettings*")
-abstract TextureEncodingUserSettingsPtr(cpp.Star<TextureEncodingUserSettings>) from cpp.Star<TextureEncodingUserSettings> to cpp.Star<TextureEncodingUserSettings>{
+abstract TextureEncodingUserSettingsPtr(ucpp.Ptr<TextureEncodingUserSettings>) from ucpp.Ptr<TextureEncodingUserSettings> to ucpp.Ptr<TextureEncodingUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: TextureEncodingUserSettings): TextureEncodingUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

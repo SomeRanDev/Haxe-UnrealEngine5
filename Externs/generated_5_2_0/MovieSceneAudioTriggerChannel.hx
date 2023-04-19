@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneAudioTriggerChannel")
 @:include("Channels/MovieSceneAudioTriggerChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneAudioTriggerChannel extends MovieSceneChannel {
 	private var Times: TArray<FrameNumber>;
 	private var Values: TArray<Bool>;

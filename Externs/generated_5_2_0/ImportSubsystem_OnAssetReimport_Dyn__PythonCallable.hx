@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UImportSubsystem_OnAssetReimport_Dyn__PythonCallable")
-@:structAccess
+@:valueType
 extern class ImportSubsystem_OnAssetReimport_Dyn__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstImportSubsystem_OnAssetReimport_Dyn__PythonCallable(ImportSubsyste
 @:forward
 @:nativeGen
 @:native("ImportSubsystem_OnAssetReimport_Dyn__PythonCallable*")
-abstract ImportSubsystem_OnAssetReimport_Dyn__PythonCallablePtr(cpp.Star<ImportSubsystem_OnAssetReimport_Dyn__PythonCallable>) from cpp.Star<ImportSubsystem_OnAssetReimport_Dyn__PythonCallable> to cpp.Star<ImportSubsystem_OnAssetReimport_Dyn__PythonCallable>{
+abstract ImportSubsystem_OnAssetReimport_Dyn__PythonCallablePtr(ucpp.Ptr<ImportSubsystem_OnAssetReimport_Dyn__PythonCallable>) from ucpp.Ptr<ImportSubsystem_OnAssetReimport_Dyn__PythonCallable> to ucpp.Ptr<ImportSubsystem_OnAssetReimport_Dyn__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ImportSubsystem_OnAssetReimport_Dyn__PythonCallable): ImportSubsystem_OnAssetReimport_Dyn__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

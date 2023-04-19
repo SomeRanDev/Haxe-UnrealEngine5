@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPrecomputedAOMask")
 @:include("Materials/MaterialExpressionPrecomputedAOMask.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPrecomputedAOMask extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionPrecomputedAOMask(MaterialExpressionPrecomputedA
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPrecomputedAOMask*")
-abstract MaterialExpressionPrecomputedAOMaskPtr(cpp.Star<MaterialExpressionPrecomputedAOMask>) from cpp.Star<MaterialExpressionPrecomputedAOMask> to cpp.Star<MaterialExpressionPrecomputedAOMask>{
+abstract MaterialExpressionPrecomputedAOMaskPtr(ucpp.Ptr<MaterialExpressionPrecomputedAOMask>) from ucpp.Ptr<MaterialExpressionPrecomputedAOMask> to ucpp.Ptr<MaterialExpressionPrecomputedAOMask>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPrecomputedAOMask): MaterialExpressionPrecomputedAOMaskPtr {
 		return untyped __cpp__("&({0})", v);

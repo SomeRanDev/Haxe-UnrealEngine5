@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GenerateWidgetForString__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GenerateWidgetForString__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GenerateWidgetForString__PythonCallable(Widget_GenerateWidg
 @:forward
 @:nativeGen
 @:native("Widget_GenerateWidgetForString__PythonCallable*")
-abstract Widget_GenerateWidgetForString__PythonCallablePtr(cpp.Star<Widget_GenerateWidgetForString__PythonCallable>) from cpp.Star<Widget_GenerateWidgetForString__PythonCallable> to cpp.Star<Widget_GenerateWidgetForString__PythonCallable>{
+abstract Widget_GenerateWidgetForString__PythonCallablePtr(ucpp.Ptr<Widget_GenerateWidgetForString__PythonCallable>) from ucpp.Ptr<Widget_GenerateWidgetForString__PythonCallable> to ucpp.Ptr<Widget_GenerateWidgetForString__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GenerateWidgetForString__PythonCallable): Widget_GenerateWidgetForString__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

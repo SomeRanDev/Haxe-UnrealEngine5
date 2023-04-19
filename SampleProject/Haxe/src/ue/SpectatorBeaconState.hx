@@ -3,15 +3,15 @@ package ue;
 
 @:native("USpectatorBeaconState")
 @:include("SpectatorBeaconState.h")
-@:structAccess
+@:valueType
 extern class SpectatorBeaconState extends Object {
 	@:protected public var SessionName: FName;
-	@:protected public var NumConsumedReservations: cpp.Int32;
-	@:protected public var MaxReservations: cpp.Int32;
+	@:protected public var NumConsumedReservations: ucpp.num.Int32;
+	@:protected public var MaxReservations: ucpp.num.Int32;
 	@:protected public var bRestrictCrossConsole: Bool;
 	@:protected public var Reservations: TArray<SpectatorReservation>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSpectatorBeaconState(SpectatorBeaconState) from SpectatorBeaconSta
 @:forward
 @:nativeGen
 @:native("SpectatorBeaconState*")
-abstract SpectatorBeaconStatePtr(cpp.Star<SpectatorBeaconState>) from cpp.Star<SpectatorBeaconState> to cpp.Star<SpectatorBeaconState>{
+abstract SpectatorBeaconStatePtr(ucpp.Ptr<SpectatorBeaconState>) from ucpp.Ptr<SpectatorBeaconState> to ucpp.Ptr<SpectatorBeaconState>{
 	@:from
 	public static extern inline function fromValue(v: SpectatorBeaconState): SpectatorBeaconStatePtr {
 		return untyped __cpp__("&({0})", v);

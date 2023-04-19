@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVoxelMorphologyMeshesTool")
 @:include("VoxelMorphologyMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelMorphologyMeshesTool extends BaseVoxelTool {
-	@:protected public var MorphologyProperties: cpp.Star<VoxelMorphologyMeshesToolProperties>;
+	@:protected public var MorphologyProperties: ucpp.Ptr<VoxelMorphologyMeshesToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVoxelMorphologyMeshesTool(VoxelMorphologyMeshesTool) from VoxelMor
 @:forward
 @:nativeGen
 @:native("VoxelMorphologyMeshesTool*")
-abstract VoxelMorphologyMeshesToolPtr(cpp.Star<VoxelMorphologyMeshesTool>) from cpp.Star<VoxelMorphologyMeshesTool> to cpp.Star<VoxelMorphologyMeshesTool>{
+abstract VoxelMorphologyMeshesToolPtr(ucpp.Ptr<VoxelMorphologyMeshesTool>) from ucpp.Ptr<VoxelMorphologyMeshesTool> to ucpp.Ptr<VoxelMorphologyMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: VoxelMorphologyMeshesTool): VoxelMorphologyMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

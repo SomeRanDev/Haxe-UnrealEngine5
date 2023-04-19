@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnControllerCaptureEndEventSynth2D__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnControllerCaptureEndEventSynth2D__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnControllerCaptureEndEventSynth2D__PythonCallable(OnControllerCap
 @:forward
 @:nativeGen
 @:native("OnControllerCaptureEndEventSynth2D__PythonCallable*")
-abstract OnControllerCaptureEndEventSynth2D__PythonCallablePtr(cpp.Star<OnControllerCaptureEndEventSynth2D__PythonCallable>) from cpp.Star<OnControllerCaptureEndEventSynth2D__PythonCallable> to cpp.Star<OnControllerCaptureEndEventSynth2D__PythonCallable>{
+abstract OnControllerCaptureEndEventSynth2D__PythonCallablePtr(ucpp.Ptr<OnControllerCaptureEndEventSynth2D__PythonCallable>) from ucpp.Ptr<OnControllerCaptureEndEventSynth2D__PythonCallable> to ucpp.Ptr<OnControllerCaptureEndEventSynth2D__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnControllerCaptureEndEventSynth2D__PythonCallable): OnControllerCaptureEndEventSynth2D__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

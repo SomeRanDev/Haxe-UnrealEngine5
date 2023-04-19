@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimationDataModelNotifiesExtensions")
 @:include("Animation/AnimData/AnimDataNotifications.h")
-@:structAccess
+@:valueType
 extern class AnimationDataModelNotifiesExtensions extends BlueprintFunctionLibrary {
-	public function GetPayload(Payload: cpp.Reference<AnimDataModelNotifPayload>): EmptyPayload;
-	public function CopyPayload(Payload: cpp.Reference<AnimDataModelNotifPayload>, ExpectedStruct: cpp.Star<ScriptStruct>, OutPayload: cpp.Reference<EmptyPayload>): Void;
+	public function GetPayload(Payload: ucpp.Ref<AnimDataModelNotifPayload>): EmptyPayload;
+	public function CopyPayload(Payload: ucpp.Ref<AnimDataModelNotifPayload>, ExpectedStruct: ucpp.Ptr<ScriptStruct>, OutPayload: ucpp.Ref<EmptyPayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAnimationDataModelNotifiesExtensions(AnimationDataModelNotifiesExt
 @:forward
 @:nativeGen
 @:native("AnimationDataModelNotifiesExtensions*")
-abstract AnimationDataModelNotifiesExtensionsPtr(cpp.Star<AnimationDataModelNotifiesExtensions>) from cpp.Star<AnimationDataModelNotifiesExtensions> to cpp.Star<AnimationDataModelNotifiesExtensions>{
+abstract AnimationDataModelNotifiesExtensionsPtr(ucpp.Ptr<AnimationDataModelNotifiesExtensions>) from ucpp.Ptr<AnimationDataModelNotifiesExtensions> to ucpp.Ptr<AnimationDataModelNotifiesExtensions>{
 	@:from
 	public static extern inline function fromValue(v: AnimationDataModelNotifiesExtensions): AnimationDataModelNotifiesExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

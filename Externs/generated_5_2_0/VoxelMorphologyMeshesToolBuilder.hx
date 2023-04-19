@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVoxelMorphologyMeshesToolBuilder")
 @:include("VoxelMorphologyMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelMorphologyMeshesToolBuilder extends BaseCreateFromSelectedToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVoxelMorphologyMeshesToolBuilder(VoxelMorphologyMeshesToolBuilder)
 @:forward
 @:nativeGen
 @:native("VoxelMorphologyMeshesToolBuilder*")
-abstract VoxelMorphologyMeshesToolBuilderPtr(cpp.Star<VoxelMorphologyMeshesToolBuilder>) from cpp.Star<VoxelMorphologyMeshesToolBuilder> to cpp.Star<VoxelMorphologyMeshesToolBuilder>{
+abstract VoxelMorphologyMeshesToolBuilderPtr(ucpp.Ptr<VoxelMorphologyMeshesToolBuilder>) from ucpp.Ptr<VoxelMorphologyMeshesToolBuilder> to ucpp.Ptr<VoxelMorphologyMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: VoxelMorphologyMeshesToolBuilder): VoxelMorphologyMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

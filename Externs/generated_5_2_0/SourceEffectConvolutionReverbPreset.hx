@@ -3,24 +3,24 @@ package ue;
 
 @:native("USourceEffectConvolutionReverbPreset")
 @:include("SourceEffects/SourceEffectConvolutionReverb.h")
-@:structAccess
+@:valueType
 extern class SourceEffectConvolutionReverbPreset extends SoundEffectSourcePreset {
-	public var ImpulseResponse: cpp.Star<AudioImpulseResponse>;
+	public var ImpulseResponse: ucpp.Ptr<AudioImpulseResponse>;
 	public var Settings: SourceEffectConvolutionReverbSettings;
 	public var BlockSize: ESubmixEffectConvolutionReverbBlockSize;
 	public var bEnableHardwareAcceleration: Bool;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectConvolutionReverbSettings>): Void;
-	public function SetImpulseResponse(InImpulseResponse: cpp.Star<AudioImpulseResponse>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectConvolutionReverbSettings>): Void;
+	public function SetImpulseResponse(InImpulseResponse: ucpp.Ptr<AudioImpulseResponse>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSourceEffectConvolutionReverbPreset(SourceEffectConvolutionReverbPreset) from SourceEffectConvolutionReverbPreset {
-	public extern var ImpulseResponse(get, never): cpp.Star<AudioImpulseResponse.ConstAudioImpulseResponse>;
-	public inline extern function get_ImpulseResponse(): cpp.Star<AudioImpulseResponse.ConstAudioImpulseResponse> return this.ImpulseResponse;
+	public extern var ImpulseResponse(get, never): ucpp.Ptr<AudioImpulseResponse.ConstAudioImpulseResponse>;
+	public inline extern function get_ImpulseResponse(): ucpp.Ptr<AudioImpulseResponse.ConstAudioImpulseResponse> return this.ImpulseResponse;
 	public extern var Settings(get, never): SourceEffectConvolutionReverbSettings;
 	public inline extern function get_Settings(): SourceEffectConvolutionReverbSettings return this.Settings;
 	public extern var BlockSize(get, never): ESubmixEffectConvolutionReverbBlockSize;
@@ -32,7 +32,7 @@ abstract ConstSourceEffectConvolutionReverbPreset(SourceEffectConvolutionReverbP
 @:forward
 @:nativeGen
 @:native("SourceEffectConvolutionReverbPreset*")
-abstract SourceEffectConvolutionReverbPresetPtr(cpp.Star<SourceEffectConvolutionReverbPreset>) from cpp.Star<SourceEffectConvolutionReverbPreset> to cpp.Star<SourceEffectConvolutionReverbPreset>{
+abstract SourceEffectConvolutionReverbPresetPtr(ucpp.Ptr<SourceEffectConvolutionReverbPreset>) from ucpp.Ptr<SourceEffectConvolutionReverbPreset> to ucpp.Ptr<SourceEffectConvolutionReverbPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectConvolutionReverbPreset): SourceEffectConvolutionReverbPresetPtr {
 		return untyped __cpp__("&({0})", v);

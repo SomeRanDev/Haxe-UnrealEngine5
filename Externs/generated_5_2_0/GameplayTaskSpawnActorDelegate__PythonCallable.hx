@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGameplayTaskSpawnActorDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class GameplayTaskSpawnActorDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGameplayTaskSpawnActorDelegate__PythonCallable(GameplayTaskSpawnAc
 @:forward
 @:nativeGen
 @:native("GameplayTaskSpawnActorDelegate__PythonCallable*")
-abstract GameplayTaskSpawnActorDelegate__PythonCallablePtr(cpp.Star<GameplayTaskSpawnActorDelegate__PythonCallable>) from cpp.Star<GameplayTaskSpawnActorDelegate__PythonCallable> to cpp.Star<GameplayTaskSpawnActorDelegate__PythonCallable>{
+abstract GameplayTaskSpawnActorDelegate__PythonCallablePtr(ucpp.Ptr<GameplayTaskSpawnActorDelegate__PythonCallable>) from ucpp.Ptr<GameplayTaskSpawnActorDelegate__PythonCallable> to ucpp.Ptr<GameplayTaskSpawnActorDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTaskSpawnActorDelegate__PythonCallable): GameplayTaskSpawnActorDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

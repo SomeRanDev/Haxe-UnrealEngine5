@@ -3,19 +3,19 @@ package ue;
 
 @:native("UBehaviorTreeDecoratorGraphNode_Decorator")
 @:include("BehaviorTreeDecoratorGraphNode_Decorator.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeDecoratorGraphNode_Decorator extends BehaviorTreeDecoratorGraphNode {
-	public var NodeInstance: cpp.Star<Object>;
+	public var NodeInstance: ucpp.Ptr<Object>;
 	public var ClassData: GraphNodeClassData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBehaviorTreeDecoratorGraphNode_Decorator(BehaviorTreeDecoratorGraphNode_Decorator) from BehaviorTreeDecoratorGraphNode_Decorator {
-	public extern var NodeInstance(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_NodeInstance(): cpp.Star<Object.ConstObject> return this.NodeInstance;
+	public extern var NodeInstance(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_NodeInstance(): ucpp.Ptr<Object.ConstObject> return this.NodeInstance;
 	public extern var ClassData(get, never): GraphNodeClassData;
 	public inline extern function get_ClassData(): GraphNodeClassData return this.ClassData;
 }
@@ -23,7 +23,7 @@ abstract ConstBehaviorTreeDecoratorGraphNode_Decorator(BehaviorTreeDecoratorGrap
 @:forward
 @:nativeGen
 @:native("BehaviorTreeDecoratorGraphNode_Decorator*")
-abstract BehaviorTreeDecoratorGraphNode_DecoratorPtr(cpp.Star<BehaviorTreeDecoratorGraphNode_Decorator>) from cpp.Star<BehaviorTreeDecoratorGraphNode_Decorator> to cpp.Star<BehaviorTreeDecoratorGraphNode_Decorator>{
+abstract BehaviorTreeDecoratorGraphNode_DecoratorPtr(ucpp.Ptr<BehaviorTreeDecoratorGraphNode_Decorator>) from ucpp.Ptr<BehaviorTreeDecoratorGraphNode_Decorator> to ucpp.Ptr<BehaviorTreeDecoratorGraphNode_Decorator>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeDecoratorGraphNode_Decorator): BehaviorTreeDecoratorGraphNode_DecoratorPtr {
 		return untyped __cpp__("&({0})", v);

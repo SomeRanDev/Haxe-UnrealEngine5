@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMGraphFunctionStore")
 @:include("RigVMCore/RigVMGraphFunctionHost.h")
-@:structAccess
+@:valueType
 extern class RigVMGraphFunctionStore {
 	public var PublicFunctions: TArray<RigVMGraphFunctionData>;
 	public var PrivateFunctions: TArray<RigVMGraphFunctionData>;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_ModifyBone")
 @:include("BoneControllers/AnimNode_ModifyBone.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ModifyBone extends AnimNode_SkeletalControlBase {
 	public var BoneToModify: BoneReference;
 	public var Translation: Vector;

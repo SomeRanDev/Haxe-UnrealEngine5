@@ -3,11 +3,11 @@ package ue;
 
 @:native("ATriggerBase")
 @:include("Engine/TriggerBase.h")
-@:structAccess
+@:valueType
 extern class TriggerBase extends Actor {
-	private var CollisionComponent: cpp.Star<ShapeComp>;
+	private var CollisionComponent: ucpp.Ptr<ShapeComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTriggerBase(TriggerBase) from TriggerBase {
 @:forward
 @:nativeGen
 @:native("TriggerBase*")
-abstract TriggerBasePtr(cpp.Star<TriggerBase>) from cpp.Star<TriggerBase> to cpp.Star<TriggerBase>{
+abstract TriggerBasePtr(ucpp.Ptr<TriggerBase>) from ucpp.Ptr<TriggerBase> to ucpp.Ptr<TriggerBase>{
 	@:from
 	public static extern inline function fromValue(v: TriggerBase): TriggerBasePtr {
 		return untyped __cpp__("&({0})", v);

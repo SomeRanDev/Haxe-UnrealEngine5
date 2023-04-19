@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGeneralProjectSettings")
 @:include("GeneralProjectSettings.h")
-@:structAccess
+@:valueType
 extern class GeneralProjectSettings extends Object {
 	public var CompanyName: FString;
 	public var CompanyDistinguishedName: FString;
@@ -25,8 +25,10 @@ extern class GeneralProjectSettings extends Object {
 	public var bAllowClose: Bool;
 	public var bAllowMaximize: Bool;
 	public var bAllowMinimize: Bool;
+	public var EyeOffsetForFakeStereoRenderingDevice: ucpp.num.Float32;
+	public var FOVForFakeStereoRenderingDevice: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -72,12 +74,16 @@ abstract ConstGeneralProjectSettings(GeneralProjectSettings) from GeneralProject
 	public inline extern function get_bAllowMaximize(): Bool return this.bAllowMaximize;
 	public extern var bAllowMinimize(get, never): Bool;
 	public inline extern function get_bAllowMinimize(): Bool return this.bAllowMinimize;
+	public extern var EyeOffsetForFakeStereoRenderingDevice(get, never): ucpp.num.Float32;
+	public inline extern function get_EyeOffsetForFakeStereoRenderingDevice(): ucpp.num.Float32 return this.EyeOffsetForFakeStereoRenderingDevice;
+	public extern var FOVForFakeStereoRenderingDevice(get, never): ucpp.num.Float32;
+	public inline extern function get_FOVForFakeStereoRenderingDevice(): ucpp.num.Float32 return this.FOVForFakeStereoRenderingDevice;
 }
 
 @:forward
 @:nativeGen
 @:native("GeneralProjectSettings*")
-abstract GeneralProjectSettingsPtr(cpp.Star<GeneralProjectSettings>) from cpp.Star<GeneralProjectSettings> to cpp.Star<GeneralProjectSettings>{
+abstract GeneralProjectSettingsPtr(ucpp.Ptr<GeneralProjectSettings>) from ucpp.Ptr<GeneralProjectSettings> to ucpp.Ptr<GeneralProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: GeneralProjectSettings): GeneralProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

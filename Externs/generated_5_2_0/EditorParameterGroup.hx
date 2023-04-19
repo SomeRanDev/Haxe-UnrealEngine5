@@ -3,13 +3,13 @@ package ue;
 
 @:native("FEditorParameterGroup")
 @:include("MaterialEditor/MaterialEditorInstanceConstant.h")
-@:structAccess
+@:valueType
 extern class EditorParameterGroup {
 	public var GroupName: FName;
 	public var GroupAssociation: TEnumAsByte<EMaterialParameterAssociation>;
-	public var Parameters: TArray<cpp.Star<DEditorParameterValue>>;
-	public var GroupSortPriority: cpp.Int32;
+	public var Parameters: TArray<ucpp.Ptr<DEditorParameterValue>>;
+	public var GroupSortPriority: ucpp.num.Int32;
 
 	@:native("FEditorParameterGroup") public function new();
-	@:native("FEditorParameterGroup") public static function make(GroupName: FName, GroupAssociation: TEnumAsByte<EMaterialParameterAssociation>, Parameters: TArray<cpp.Star<DEditorParameterValue>>, GroupSortPriority: cpp.Int32): EditorParameterGroup ;
+	@:native("FEditorParameterGroup") public static function make(GroupName: FName, GroupAssociation: TEnumAsByte<EMaterialParameterAssociation>, Parameters: TArray<ucpp.Ptr<DEditorParameterValue>>, GroupSortPriority: ucpp.num.Int32): EditorParameterGroup ;
 }

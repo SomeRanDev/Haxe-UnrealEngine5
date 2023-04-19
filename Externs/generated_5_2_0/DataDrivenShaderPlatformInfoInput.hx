@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDataDrivenShaderPlatformInfoInput")
 @:include("Materials/MaterialExpressionDataDrivenShaderPlatformInfoSwitch.h")
-@:structAccess
+@:valueType
 extern class DataDrivenShaderPlatformInfoInput {
 	public var InputName: FName;
 	public var PropertyCondition: TEnumAsByte<EDataDrivenShaderPlatformInfoCondition>;

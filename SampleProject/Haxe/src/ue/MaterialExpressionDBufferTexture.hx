@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionDBufferTexture")
 @:include("Materials/MaterialExpressionDBufferTexture.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDBufferTexture extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 	public var DBufferTextureId: TEnumAsByte<EDBufferTextureId>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionDBufferTexture(MaterialExpressionDBufferTexture)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDBufferTexture*")
-abstract MaterialExpressionDBufferTexturePtr(cpp.Star<MaterialExpressionDBufferTexture>) from cpp.Star<MaterialExpressionDBufferTexture> to cpp.Star<MaterialExpressionDBufferTexture>{
+abstract MaterialExpressionDBufferTexturePtr(ucpp.Ptr<MaterialExpressionDBufferTexture>) from ucpp.Ptr<MaterialExpressionDBufferTexture> to ucpp.Ptr<MaterialExpressionDBufferTexture>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDBufferTexture): MaterialExpressionDBufferTexturePtr {
 		return untyped __cpp__("&({0})", v);

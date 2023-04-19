@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTriangleSetComponent")
 @:include("Drawing/TriangleSetComponent.h")
-@:structAccess
+@:valueType
 extern class TriangleSetComp extends MeshComp {
 	private var Bounds: BoxSphereBounds;
 	private var bBoundsDirty: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstTriangleSetComp(TriangleSetComp) from TriangleSetComp {
 @:forward
 @:nativeGen
 @:native("TriangleSetComp*")
-abstract TriangleSetCompPtr(cpp.Star<TriangleSetComp>) from cpp.Star<TriangleSetComp> to cpp.Star<TriangleSetComp>{
+abstract TriangleSetCompPtr(ucpp.Ptr<TriangleSetComp>) from ucpp.Ptr<TriangleSetComp> to ucpp.Ptr<TriangleSetComp>{
 	@:from
 	public static extern inline function fromValue(v: TriangleSetComp): TriangleSetCompPtr {
 		return untyped __cpp__("&({0})", v);

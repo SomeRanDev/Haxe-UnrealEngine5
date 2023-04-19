@@ -3,30 +3,30 @@ package ue;
 
 @:native("UGameEngine")
 @:include("Engine/GameEngine.h")
-@:structAccess
+@:valueType
 extern class GameEngine extends Engine {
-	public var MaxDeltaTime: cpp.Float32;
-	public var ServerFlushLogInterval: cpp.Float32;
-	public var GameInstance: cpp.Star<GameInstance>;
+	public var MaxDeltaTime: ucpp.num.Float32;
+	public var ServerFlushLogInterval: ucpp.num.Float32;
+	public var GameInstance: ucpp.Ptr<GameInstance>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGameEngine(GameEngine) from GameEngine {
-	public extern var MaxDeltaTime(get, never): cpp.Float32;
-	public inline extern function get_MaxDeltaTime(): cpp.Float32 return this.MaxDeltaTime;
-	public extern var ServerFlushLogInterval(get, never): cpp.Float32;
-	public inline extern function get_ServerFlushLogInterval(): cpp.Float32 return this.ServerFlushLogInterval;
-	public extern var GameInstance(get, never): cpp.Star<GameInstance.ConstGameInstance>;
-	public inline extern function get_GameInstance(): cpp.Star<GameInstance.ConstGameInstance> return this.GameInstance;
+	public extern var MaxDeltaTime(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDeltaTime(): ucpp.num.Float32 return this.MaxDeltaTime;
+	public extern var ServerFlushLogInterval(get, never): ucpp.num.Float32;
+	public inline extern function get_ServerFlushLogInterval(): ucpp.num.Float32 return this.ServerFlushLogInterval;
+	public extern var GameInstance(get, never): ucpp.Ptr<GameInstance.ConstGameInstance>;
+	public inline extern function get_GameInstance(): ucpp.Ptr<GameInstance.ConstGameInstance> return this.GameInstance;
 }
 
 @:forward
 @:nativeGen
 @:native("GameEngine*")
-abstract GameEnginePtr(cpp.Star<GameEngine>) from cpp.Star<GameEngine> to cpp.Star<GameEngine>{
+abstract GameEnginePtr(ucpp.Ptr<GameEngine>) from ucpp.Ptr<GameEngine> to ucpp.Ptr<GameEngine>{
 	@:from
 	public static extern inline function fromValue(v: GameEngine): GameEnginePtr {
 		return untyped __cpp__("&({0})", v);

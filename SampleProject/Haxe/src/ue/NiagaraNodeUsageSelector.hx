@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraNodeUsageSelector")
 @:include("NiagaraNodeUsageSelector.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeUsageSelector extends NiagaraNodeWithDynamicPins {
 	public var OutputVars: TArray<NiagaraVariable>;
 	public var OutputVarGuids: TArray<Guid>;
 	public var SelectorGuid: Guid;
-	public var NumOptionsPerVariable: cpp.Int32;
+	public var NumOptionsPerVariable: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstNiagaraNodeUsageSelector(NiagaraNodeUsageSelector) from NiagaraNod
 	public inline extern function get_OutputVarGuids(): TArray<Guid> return this.OutputVarGuids;
 	public extern var SelectorGuid(get, never): Guid;
 	public inline extern function get_SelectorGuid(): Guid return this.SelectorGuid;
-	public extern var NumOptionsPerVariable(get, never): cpp.Int32;
-	public inline extern function get_NumOptionsPerVariable(): cpp.Int32 return this.NumOptionsPerVariable;
+	public extern var NumOptionsPerVariable(get, never): ucpp.num.Int32;
+	public inline extern function get_NumOptionsPerVariable(): ucpp.num.Int32 return this.NumOptionsPerVariable;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraNodeUsageSelector*")
-abstract NiagaraNodeUsageSelectorPtr(cpp.Star<NiagaraNodeUsageSelector>) from cpp.Star<NiagaraNodeUsageSelector> to cpp.Star<NiagaraNodeUsageSelector>{
+abstract NiagaraNodeUsageSelectorPtr(ucpp.Ptr<NiagaraNodeUsageSelector>) from ucpp.Ptr<NiagaraNodeUsageSelector> to ucpp.Ptr<NiagaraNodeUsageSelector>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeUsageSelector): NiagaraNodeUsageSelectorPtr {
 		return untyped __cpp__("&({0})", v);

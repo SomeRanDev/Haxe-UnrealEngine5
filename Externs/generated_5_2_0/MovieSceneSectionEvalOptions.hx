@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSectionEvalOptions")
 @:include("MovieSceneSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSectionEvalOptions {
 	public var bCanEditCompletionMode: Bool;
 	public var CompletionMode: EMovieSceneCompletionMode;

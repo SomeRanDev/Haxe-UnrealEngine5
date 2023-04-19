@@ -3,7 +3,7 @@ package ue;
 
 @:native("UListView")
 @:include("Components/ListView.h")
-@:structAccess
+@:valueType
 extern class ListView extends ListViewBase {
 	@:protected public var WidgetStyle: TableViewStyle;
 	@:protected public var ScrollBarStyle: ScrollBarStyle;
@@ -12,43 +12,44 @@ extern class ListView extends ListViewBase {
 	@:protected public var ConsumeMouseWheel: EConsumeMouseWheel;
 	@:protected public var bClearSelectionOnClick: Bool;
 	@:protected public var bIsFocusable: Bool;
-	@:protected public var EntrySpacing: cpp.Float32;
+	@:protected public var EntrySpacing: ucpp.num.Float32;
 	@:protected public var bReturnFocusToSelection: Bool;
-	@:protected public var ListItems: TArray<cpp.Star<Object>>;
-	private var BP_OnEntryInitialized: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, cpp.Star<UserWidget>) -> Void>;
-	private var BP_OnItemClicked: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>) -> Void>;
-	private var BP_OnItemDoubleClicked: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>) -> Void>;
-	private var BP_OnItemIsHoveredChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, Bool) -> Void>;
-	private var BP_OnItemSelectionChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, Bool) -> Void>;
-	private var BP_OnItemScrolledIntoView: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, cpp.Star<UserWidget>) -> Void>;
+	@:protected public var ListItems: TArray<ucpp.Ptr<Object>>;
+	private var BP_OnEntryInitialized: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>, ucpp.Ptr<UserWidget>) -> Void>;
+	private var BP_OnItemClicked: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>) -> Void>;
+	private var BP_OnItemDoubleClicked: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>) -> Void>;
+	private var BP_OnItemIsHoveredChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>, Bool) -> Void>;
+	private var BP_OnItemSelectionChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>, Bool) -> Void>;
+	private var BP_OnItemScrolledIntoView: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>, ucpp.Ptr<UserWidget>) -> Void>;
+	private var BP_OnListViewScrolled: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32) -> Void>;
 
 	public function SetSelectionMode(SelectionMode: TEnumAsByte<ESelectionMode>): Void;
-	public function SetSelectedIndex(Index: cpp.Int32): Void;
-	public function ScrollIndexIntoView(Index: cpp.Int32): Void;
-	public function RemoveItem(Item: cpp.Star<Object>): Void;
-	@:protected public function OnListItemOuterEndPlayed(ItemOuter: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
-	@:protected public function OnListItemEndPlayed(Item: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
-	public function NavigateToIndex(Index: cpp.Int32): Void;
+	public function SetSelectedIndex(Index: ucpp.num.Int32): Void;
+	public function ScrollIndexIntoView(Index: ucpp.num.Int32): Void;
+	public function RemoveItem(Item: ucpp.Ptr<Object>): Void;
+	@:protected public function OnListItemOuterEndPlayed(ItemOuter: ucpp.Ptr<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	@:protected public function OnListItemEndPlayed(Item: ucpp.Ptr<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	public function NavigateToIndex(Index: ucpp.num.Int32): Void;
 	public function IsRefreshPending(): Bool;
-	public function GetNumItems(): cpp.Int32;
-	public function GetListItems(): TArray<cpp.Star<Object>>;
-	public function GetItemAt(Index: cpp.Int32): cpp.Star<Object>;
-	public function GetIndexForItem(Item: cpp.Star<Object.ConstObject>): cpp.Int32;
+	public function GetNumItems(): ucpp.num.Int32;
+	public function GetListItems(): TArray<ucpp.Ptr<Object>>;
+	public function GetItemAt(Index: ucpp.num.Int32): ucpp.Ptr<Object>;
+	public function GetIndexForItem(Item: ucpp.Ptr<Object.ConstObject>): ucpp.num.Int32;
 	public function ClearListItems(): Void;
-	private function BP_SetSelectedItem(Item: cpp.Star<Object>): Void;
-	private function BP_SetListItems(InListItems: cpp.Reference<TArray<cpp.Star<Object>>>): Void;
-	private function BP_SetItemSelection(Item: cpp.Star<Object>, bSelected: Bool): Void;
-	private function BP_ScrollItemIntoView(Item: cpp.Star<Object>): Void;
-	private function BP_NavigateToItem(Item: cpp.Star<Object>): Void;
-	private function BP_IsItemVisible(Item: cpp.Star<Object>): Bool;
-	private function BP_GetSelectedItems(Items: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
-	private function BP_GetSelectedItem(): cpp.Star<Object>;
-	private function BP_GetNumItemsSelected(): cpp.Int32;
+	private function BP_SetSelectedItem(Item: ucpp.Ptr<Object>): Void;
+	private function BP_SetListItems(InListItems: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Void;
+	private function BP_SetItemSelection(Item: ucpp.Ptr<Object>, bSelected: Bool): Void;
+	private function BP_ScrollItemIntoView(Item: ucpp.Ptr<Object>): Void;
+	private function BP_NavigateToItem(Item: ucpp.Ptr<Object>): Void;
+	private function BP_IsItemVisible(Item: ucpp.Ptr<Object>): Bool;
+	private function BP_GetSelectedItems(Items: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Bool;
+	private function BP_GetSelectedItem(): ucpp.Ptr<Object>;
+	private function BP_GetNumItemsSelected(): ucpp.num.Int32;
 	private function BP_ClearSelection(): Void;
 	private function BP_CancelScrollIntoView(): Void;
-	public function AddItem(Item: cpp.Star<Object>): Void;
+	public function AddItem(Item: ucpp.Ptr<Object>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsRefreshPending, GetNumItems, GetListItems, GetItemAt, GetIndexForItem, BP_IsItemVisible, BP_GetSelectedItems, BP_GetSelectedItem, BP_GetNumItemsSelected)
@@ -59,7 +60,7 @@ abstract ConstListView(ListView) from ListView {
 @:forward
 @:nativeGen
 @:native("ListView*")
-abstract ListViewPtr(cpp.Star<ListView>) from cpp.Star<ListView> to cpp.Star<ListView>{
+abstract ListViewPtr(ucpp.Ptr<ListView>) from ucpp.Ptr<ListView> to ucpp.Ptr<ListView>{
 	@:from
 	public static extern inline function fromValue(v: ListView): ListViewPtr {
 		return untyped __cpp__("&({0})", v);

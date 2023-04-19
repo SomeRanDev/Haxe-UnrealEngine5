@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFixConflictingLocalizationKeysCommandlet")
 @:include("Commandlets/FixConflictingLocalizationKeys.h")
-@:structAccess
+@:valueType
 extern class FixConflictingLocalizationKeysCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFixConflictingLocalizationKeysCommandlet(FixConflictingLocalizatio
 @:forward
 @:nativeGen
 @:native("FixConflictingLocalizationKeysCommandlet*")
-abstract FixConflictingLocalizationKeysCommandletPtr(cpp.Star<FixConflictingLocalizationKeysCommandlet>) from cpp.Star<FixConflictingLocalizationKeysCommandlet> to cpp.Star<FixConflictingLocalizationKeysCommandlet>{
+abstract FixConflictingLocalizationKeysCommandletPtr(ucpp.Ptr<FixConflictingLocalizationKeysCommandlet>) from ucpp.Ptr<FixConflictingLocalizationKeysCommandlet> to ucpp.Ptr<FixConflictingLocalizationKeysCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: FixConflictingLocalizationKeysCommandlet): FixConflictingLocalizationKeysCommandletPtr {
 		return untyped __cpp__("&({0})", v);

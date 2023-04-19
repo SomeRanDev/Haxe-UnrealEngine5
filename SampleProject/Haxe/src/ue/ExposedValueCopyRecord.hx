@@ -3,11 +3,11 @@ package ue;
 
 @:native("FExposedValueCopyRecord")
 @:include("Animation/ExposedValueHandler.h")
-@:structAccess
+@:valueType
 extern class ExposedValueCopyRecord {
-	public var CopyIndex: cpp.Int32;
+	public var CopyIndex: ucpp.num.Int32;
 	public var PostCopyOperation: EPostCopyOperation;
 
 	@:native("FExposedValueCopyRecord") public function new();
-	@:native("FExposedValueCopyRecord") public static function make(CopyIndex: cpp.Int32, PostCopyOperation: EPostCopyOperation): ExposedValueCopyRecord ;
+	@:native("FExposedValueCopyRecord") public static function make(CopyIndex: ucpp.num.Int32, PostCopyOperation: EPostCopyOperation): ExposedValueCopyRecord ;
 }

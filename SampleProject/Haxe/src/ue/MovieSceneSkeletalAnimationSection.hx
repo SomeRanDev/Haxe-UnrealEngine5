@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneSkeletalAnimationSection")
 @:include("Sections/MovieSceneSkeletalAnimationSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSkeletalAnimationSection extends MovieSceneSection {
 	public var Params: MovieSceneSkeletalAnimationParams;
 	public var StartLocationOffset: Vector;
@@ -18,7 +18,7 @@ extern class MovieSceneSkeletalAnimationSection extends MovieSceneSection {
 	public var bMatchRotationPitch: Bool;
 	public var bMatchRotationRoll: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -53,7 +53,7 @@ abstract ConstMovieSceneSkeletalAnimationSection(MovieSceneSkeletalAnimationSect
 @:forward
 @:nativeGen
 @:native("MovieSceneSkeletalAnimationSection*")
-abstract MovieSceneSkeletalAnimationSectionPtr(cpp.Star<MovieSceneSkeletalAnimationSection>) from cpp.Star<MovieSceneSkeletalAnimationSection> to cpp.Star<MovieSceneSkeletalAnimationSection>{
+abstract MovieSceneSkeletalAnimationSectionPtr(ucpp.Ptr<MovieSceneSkeletalAnimationSection>) from ucpp.Ptr<MovieSceneSkeletalAnimationSection> to ucpp.Ptr<MovieSceneSkeletalAnimationSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSkeletalAnimationSection): MovieSceneSkeletalAnimationSectionPtr {
 		return untyped __cpp__("&({0})", v);

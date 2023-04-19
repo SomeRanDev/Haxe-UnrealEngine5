@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARPose3D")
 @:include("ARTypes.h")
-@:structAccess
+@:valueType
 extern class ARPose3D {
 	public var SkeletonDefinition: ARSkeletonDefinition;
 	public var JointTransforms: TArray<Transform>;

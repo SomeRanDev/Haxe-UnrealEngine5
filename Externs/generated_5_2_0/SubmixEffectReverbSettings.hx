@@ -3,23 +3,23 @@ package ue;
 
 @:native("FSubmixEffectReverbSettings")
 @:include("SubmixEffects/AudioMixerSubmixEffectReverb.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectReverbSettings {
 	public var bBypassEarlyReflections: Bool;
-	public var ReflectionsDelay: cpp.Float32;
-	public var GainHF: cpp.Float32;
-	public var ReflectionsGain: cpp.Float32;
+	public var ReflectionsDelay: ucpp.num.Float32;
+	public var GainHF: ucpp.num.Float32;
+	public var ReflectionsGain: ucpp.num.Float32;
 	public var bBypassLateReflections: Bool;
-	public var LateDelay: cpp.Float32;
-	public var DecayTime: cpp.Float32;
-	public var Density: cpp.Float32;
-	public var Diffusion: cpp.Float32;
-	public var AirAbsorptionGainHF: cpp.Float32;
-	public var DecayHFRatio: cpp.Float32;
-	public var LateGain: cpp.Float32;
-	public var Gain: cpp.Float32;
-	public var WetLevel: cpp.Float32;
-	public var DryLevel: cpp.Float32;
+	public var LateDelay: ucpp.num.Float32;
+	public var DecayTime: ucpp.num.Float32;
+	public var Density: ucpp.num.Float32;
+	public var Diffusion: ucpp.num.Float32;
+	public var AirAbsorptionGainHF: ucpp.num.Float32;
+	public var DecayHFRatio: ucpp.num.Float32;
+	public var LateGain: ucpp.num.Float32;
+	public var Gain: ucpp.num.Float32;
+	public var WetLevel: ucpp.num.Float32;
+	public var DryLevel: ucpp.num.Float32;
 	public var bBypass: Bool;
 
 	@:native("FSubmixEffectReverbSettings") public function new();

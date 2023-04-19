@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGeometryCollectionDamagePropagationData")
 @:include("GeometryCollection/GeometryCollectionDamagePropagationData.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionDamagePropagationData {
 	public var bEnabled: Bool;
-	public var BreakDamagePropagationFactor: cpp.Float32;
-	public var ShockDamagePropagationFactor: cpp.Float32;
+	public var BreakDamagePropagationFactor: ucpp.num.Float32;
+	public var ShockDamagePropagationFactor: ucpp.num.Float32;
 
 	@:native("FGeometryCollectionDamagePropagationData") public function new();
-	@:native("FGeometryCollectionDamagePropagationData") public static function make(bEnabled: Bool, BreakDamagePropagationFactor: cpp.Float32, ShockDamagePropagationFactor: cpp.Float32): GeometryCollectionDamagePropagationData ;
+	@:native("FGeometryCollectionDamagePropagationData") public static function make(bEnabled: Bool, BreakDamagePropagationFactor: ucpp.num.Float32, ShockDamagePropagationFactor: ucpp.num.Float32): GeometryCollectionDamagePropagationData ;
 }

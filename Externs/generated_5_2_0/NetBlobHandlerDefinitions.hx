@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNetBlobHandlerDefinitions")
 @:include("Iris/ReplicationSystem/NetBlob/NetBlobHandlerDefinitions.h")
-@:structAccess
+@:valueType
 extern class NetBlobHandlerDefinitions extends Object {
 	private var NetBlobHandlerDefinitions: TArray<NetBlobHandlerDefinition>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNetBlobHandlerDefinitions(NetBlobHandlerDefinitions) from NetBlobH
 @:forward
 @:nativeGen
 @:native("NetBlobHandlerDefinitions*")
-abstract NetBlobHandlerDefinitionsPtr(cpp.Star<NetBlobHandlerDefinitions>) from cpp.Star<NetBlobHandlerDefinitions> to cpp.Star<NetBlobHandlerDefinitions>{
+abstract NetBlobHandlerDefinitionsPtr(ucpp.Ptr<NetBlobHandlerDefinitions>) from ucpp.Ptr<NetBlobHandlerDefinitions> to ucpp.Ptr<NetBlobHandlerDefinitions>{
 	@:from
 	public static extern inline function fromValue(v: NetBlobHandlerDefinitions): NetBlobHandlerDefinitionsPtr {
 		return untyped __cpp__("&({0})", v);

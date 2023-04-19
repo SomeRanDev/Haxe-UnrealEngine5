@@ -2,19 +2,19 @@
 package ue;
 
 @:native("Udo_rename_dialog")
-@:structAccess
+@:valueType
 extern class do_rename_dialog extends Object {
-	public var start_num: cpp.Int32;
+	public var start_num: ucpp.num.Int32;
 	public var newName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract Constdo_rename_dialog(do_rename_dialog) from do_rename_dialog {
-	public extern var start_num(get, never): cpp.Int32;
-	public inline extern function get_start_num(): cpp.Int32 return this.start_num;
+	public extern var start_num(get, never): ucpp.num.Int32;
+	public inline extern function get_start_num(): ucpp.num.Int32 return this.start_num;
 	public extern var newName(get, never): FString;
 	public inline extern function get_newName(): FString return this.newName;
 }
@@ -22,7 +22,7 @@ abstract Constdo_rename_dialog(do_rename_dialog) from do_rename_dialog {
 @:forward
 @:nativeGen
 @:native("do_rename_dialog*")
-abstract do_rename_dialogPtr(cpp.Star<do_rename_dialog>) from cpp.Star<do_rename_dialog> to cpp.Star<do_rename_dialog>{
+abstract do_rename_dialogPtr(ucpp.Ptr<do_rename_dialog>) from ucpp.Ptr<do_rename_dialog> to ucpp.Ptr<do_rename_dialog>{
 	@:from
 	public static extern inline function fromValue(v: do_rename_dialog): do_rename_dialogPtr {
 		return untyped __cpp__("&({0})", v);

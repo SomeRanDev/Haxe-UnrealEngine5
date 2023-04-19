@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnQuartzMetronomeEventBP__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnQuartzMetronomeEventBP__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnQuartzMetronomeEventBP__PythonCallable(OnQuartzMetronomeEventBP_
 @:forward
 @:nativeGen
 @:native("OnQuartzMetronomeEventBP__PythonCallable*")
-abstract OnQuartzMetronomeEventBP__PythonCallablePtr(cpp.Star<OnQuartzMetronomeEventBP__PythonCallable>) from cpp.Star<OnQuartzMetronomeEventBP__PythonCallable> to cpp.Star<OnQuartzMetronomeEventBP__PythonCallable>{
+abstract OnQuartzMetronomeEventBP__PythonCallablePtr(ucpp.Ptr<OnQuartzMetronomeEventBP__PythonCallable>) from ucpp.Ptr<OnQuartzMetronomeEventBP__PythonCallable> to ucpp.Ptr<OnQuartzMetronomeEventBP__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnQuartzMetronomeEventBP__PythonCallable): OnQuartzMetronomeEventBP__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

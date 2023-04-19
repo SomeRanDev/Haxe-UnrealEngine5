@@ -3,13 +3,13 @@ package ue;
 
 @:native("ULayer")
 @:include("Layers/Layer.h")
-@:structAccess
+@:valueType
 extern class Layer extends Object {
 	private var LayerName: FName;
 	private var bIsVisible: Bool;
 	private var ActorStats: TArray<LayerActorStats>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLayer(Layer) from Layer {
 @:forward
 @:nativeGen
 @:native("Layer*")
-abstract LayerPtr(cpp.Star<Layer>) from cpp.Star<Layer> to cpp.Star<Layer>{
+abstract LayerPtr(ucpp.Ptr<Layer>) from ucpp.Ptr<Layer> to ucpp.Ptr<Layer>{
 	@:from
 	public static extern inline function fromValue(v: Layer): LayerPtr {
 		return untyped __cpp__("&({0})", v);

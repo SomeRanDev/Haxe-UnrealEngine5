@@ -3,24 +3,24 @@ package ue;
 
 @:native("USequencerExportTask")
 @:include("SequencerExportTask.h")
-@:structAccess
+@:valueType
 extern class SequencerExportTask extends AssetExportTask {
-	public var SequencerContext: cpp.Star<Object>;
+	public var SequencerContext: ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSequencerExportTask(SequencerExportTask) from SequencerExportTask {
-	public extern var SequencerContext(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_SequencerContext(): cpp.Star<Object.ConstObject> return this.SequencerContext;
+	public extern var SequencerContext(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_SequencerContext(): ucpp.Ptr<Object.ConstObject> return this.SequencerContext;
 }
 
 @:forward
 @:nativeGen
 @:native("SequencerExportTask*")
-abstract SequencerExportTaskPtr(cpp.Star<SequencerExportTask>) from cpp.Star<SequencerExportTask> to cpp.Star<SequencerExportTask>{
+abstract SequencerExportTaskPtr(ucpp.Ptr<SequencerExportTask>) from ucpp.Ptr<SequencerExportTask> to ucpp.Ptr<SequencerExportTask>{
 	@:from
 	public static extern inline function fromValue(v: SequencerExportTask): SequencerExportTaskPtr {
 		return untyped __cpp__("&({0})", v);

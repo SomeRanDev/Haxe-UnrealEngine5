@@ -3,14 +3,17 @@ package ue;
 
 @:native("UActorActionUtility")
 @:include("ActorActionUtility.h")
-@:structAccess
+@:valueType
 extern class ActorActionUtility extends EditorUtilityObject {
-	public function GetSupportedClass(): cpp.Star<Class>;
+	private var SupportedClasses: TArray<TSoftClassPtr<Class>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public function GetSupportedClasses(): TArray<TSoftClassPtr<Class>>;
+	public function GetSupportedClass(): ucpp.Ptr<Class>;
+
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetSupportedClass)
+@:forward(GetSupportedClasses, GetSupportedClass)
 @:nativeGen
 abstract ConstActorActionUtility(ActorActionUtility) from ActorActionUtility {
 }
@@ -18,7 +21,7 @@ abstract ConstActorActionUtility(ActorActionUtility) from ActorActionUtility {
 @:forward
 @:nativeGen
 @:native("ActorActionUtility*")
-abstract ActorActionUtilityPtr(cpp.Star<ActorActionUtility>) from cpp.Star<ActorActionUtility> to cpp.Star<ActorActionUtility>{
+abstract ActorActionUtilityPtr(ucpp.Ptr<ActorActionUtility>) from ucpp.Ptr<ActorActionUtility> to ucpp.Ptr<ActorActionUtility>{
 	@:from
 	public static extern inline function fromValue(v: ActorActionUtility): ActorActionUtilityPtr {
 		return untyped __cpp__("&({0})", v);

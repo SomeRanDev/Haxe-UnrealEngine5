@@ -3,12 +3,12 @@ package ue;
 
 @:native("FControlRigGraphNodeContextMenuContext")
 @:include("Private/Editor/ControlRigContextMenuContext.h")
-@:structAccess
+@:valueType
 extern class ControlRigGraphNodeContextMenuContext {
-	public var Graph: cpp.Star<RigVMGraph>;
-	public var Node: cpp.Star<RigVMNode>;
-	public var Pin: cpp.Star<RigVMPin>;
+	public var Graph: ucpp.Ptr<RigVMGraph>;
+	public var Node: ucpp.Ptr<RigVMNode>;
+	public var Pin: ucpp.Ptr<RigVMPin>;
 
 	@:native("FControlRigGraphNodeContextMenuContext") public function new();
-	@:native("FControlRigGraphNodeContextMenuContext") public static function make(Graph: cpp.Star<RigVMGraph>, Node: cpp.Star<RigVMNode>, Pin: cpp.Star<RigVMPin>): ControlRigGraphNodeContextMenuContext ;
+	@:native("FControlRigGraphNodeContextMenuContext") public static function make(Graph: ucpp.Ptr<RigVMGraph>, Node: ucpp.Ptr<RigVMNode>, Pin: ucpp.Ptr<RigVMPin>): ControlRigGraphNodeContextMenuContext ;
 }

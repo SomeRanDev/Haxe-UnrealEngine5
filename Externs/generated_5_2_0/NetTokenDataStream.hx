@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNetTokenDataStream")
 @:include("Iris/ReplicationSystem/NetTokenDataStream.h")
-@:structAccess
+@:valueType
 extern class NetTokenDataStream extends DataStream {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNetTokenDataStream(NetTokenDataStream) from NetTokenDataStream {
 @:forward
 @:nativeGen
 @:native("NetTokenDataStream*")
-abstract NetTokenDataStreamPtr(cpp.Star<NetTokenDataStream>) from cpp.Star<NetTokenDataStream> to cpp.Star<NetTokenDataStream>{
+abstract NetTokenDataStreamPtr(ucpp.Ptr<NetTokenDataStream>) from ucpp.Ptr<NetTokenDataStream> to ucpp.Ptr<NetTokenDataStream>{
 	@:from
 	public static extern inline function fromValue(v: NetTokenDataStream): NetTokenDataStreamPtr {
 		return untyped __cpp__("&({0})", v);

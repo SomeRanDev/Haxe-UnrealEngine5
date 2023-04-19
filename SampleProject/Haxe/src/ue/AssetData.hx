@@ -3,14 +3,13 @@ package ue;
 
 @:native("FAssetData")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class AssetData {
-	public var ObjectPath: FName;
 	public var PackageName: FName;
 	public var PackagePath: FName;
 	public var AssetName: FName;
 	public var AssetClass: FName;
+	public var AssetClassPath: TopLevelAssetPath;
 
 	@:native("FAssetData") public function new();
-	@:native("FAssetData") public static function make(ObjectPath: FName, PackageName: FName, PackagePath: FName, AssetName: FName, AssetClass: FName): AssetData ;
 }

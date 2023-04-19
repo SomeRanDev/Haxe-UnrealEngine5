@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectFilterPreset")
 @:include("SourceEffects/SourceEffectFilter.h")
-@:structAccess
+@:valueType
 extern class SourceEffectFilterPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectFilterSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectFilterSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectFilterSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectFilterPreset(SourceEffectFilterPreset) from SourceEffe
 @:forward
 @:nativeGen
 @:native("SourceEffectFilterPreset*")
-abstract SourceEffectFilterPresetPtr(cpp.Star<SourceEffectFilterPreset>) from cpp.Star<SourceEffectFilterPreset> to cpp.Star<SourceEffectFilterPreset>{
+abstract SourceEffectFilterPresetPtr(ucpp.Ptr<SourceEffectFilterPreset>) from ucpp.Ptr<SourceEffectFilterPreset> to ucpp.Ptr<SourceEffectFilterPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectFilterPreset): SourceEffectFilterPresetPtr {
 		return untyped __cpp__("&({0})", v);

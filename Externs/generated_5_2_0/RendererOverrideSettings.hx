@@ -3,11 +3,11 @@ package ue;
 
 @:native("URendererOverrideSettings")
 @:include("Engine/RendererSettings.h")
-@:structAccess
+@:valueType
 extern class RendererOverrideSettings extends DeveloperSettings {
 	public var bSupportAllShaderPermutations: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstRendererOverrideSettings(RendererOverrideSettings) from RendererOv
 @:forward
 @:nativeGen
 @:native("RendererOverrideSettings*")
-abstract RendererOverrideSettingsPtr(cpp.Star<RendererOverrideSettings>) from cpp.Star<RendererOverrideSettings> to cpp.Star<RendererOverrideSettings>{
+abstract RendererOverrideSettingsPtr(ucpp.Ptr<RendererOverrideSettings>) from ucpp.Ptr<RendererOverrideSettings> to ucpp.Ptr<RendererOverrideSettings>{
 	@:from
 	public static extern inline function fromValue(v: RendererOverrideSettings): RendererOverrideSettingsPtr {
 		return untyped __cpp__("&({0})", v);

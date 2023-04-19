@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolSettings")
 @:include("FractureTool.h")
-@:structAccess
+@:valueType
 extern class FractureToolSettings extends Object {
-	public var OwnerTool: cpp.Star<FractureModalTool>;
+	public var OwnerTool: ucpp.Ptr<FractureModalTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolSettings(FractureToolSettings) from FractureToolSettings {
-	public extern var OwnerTool(get, never): cpp.Star<FractureModalTool.ConstFractureModalTool>;
-	public inline extern function get_OwnerTool(): cpp.Star<FractureModalTool.ConstFractureModalTool> return this.OwnerTool;
+	public extern var OwnerTool(get, never): ucpp.Ptr<FractureModalTool.ConstFractureModalTool>;
+	public inline extern function get_OwnerTool(): ucpp.Ptr<FractureModalTool.ConstFractureModalTool> return this.OwnerTool;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolSettings*")
-abstract FractureToolSettingsPtr(cpp.Star<FractureToolSettings>) from cpp.Star<FractureToolSettings> to cpp.Star<FractureToolSettings>{
+abstract FractureToolSettingsPtr(ucpp.Ptr<FractureToolSettings>) from ucpp.Ptr<FractureToolSettings> to ucpp.Ptr<FractureToolSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolSettings): FractureToolSettingsPtr {
 		return untyped __cpp__("&({0})", v);

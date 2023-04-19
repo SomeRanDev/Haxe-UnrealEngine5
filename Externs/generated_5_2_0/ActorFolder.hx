@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFolder")
 @:include("ActorFolder.h")
-@:structAccess
+@:valueType
 extern class ActorFolder extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFolder(ActorFolder) from ActorFolder {
 @:forward
 @:nativeGen
 @:native("ActorFolder*")
-abstract ActorFolderPtr(cpp.Star<ActorFolder>) from cpp.Star<ActorFolder> to cpp.Star<ActorFolder>{
+abstract ActorFolderPtr(ucpp.Ptr<ActorFolder>) from ucpp.Ptr<ActorFolder> to ucpp.Ptr<ActorFolder>{
 	@:from
 	public static extern inline function fromValue(v: ActorFolder): ActorFolderPtr {
 		return untyped __cpp__("&({0})", v);

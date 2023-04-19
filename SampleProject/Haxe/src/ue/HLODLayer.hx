@@ -3,10 +3,18 @@ package ue;
 
 @:native("UHLODLayer")
 @:include("WorldPartition/HLOD/HLODLayer.h")
-@:structAccess
+@:valueType
 extern class HLODLayer extends Object {
+	private var LayerType: EHLODLayerType;
+	private var HLODBuilderClass: TSubclassOf<HLODBuilder>;
+	private var HLODBuilderSettings: ucpp.Ptr<HLODBuilderSettings>;
+	private var bIsSpatiallyLoaded: Bool;
+	private var CellSize: ucpp.num.Int32;
+	private var LoadingRange: ucpp.num.Float64;
+	private var ParentLayer: TSoftObjectPtr<HLODLayer>;
+	private var HLODModifierClass: TSubclassOf<WorldPartitionHLODModifier>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +25,7 @@ abstract ConstHLODLayer(HLODLayer) from HLODLayer {
 @:forward
 @:nativeGen
 @:native("HLODLayer*")
-abstract HLODLayerPtr(cpp.Star<HLODLayer>) from cpp.Star<HLODLayer> to cpp.Star<HLODLayer>{
+abstract HLODLayerPtr(ucpp.Ptr<HLODLayer>) from ucpp.Ptr<HLODLayer> to ucpp.Ptr<HLODLayer>{
 	@:from
 	public static extern inline function fromValue(v: HLODLayer): HLODLayerPtr {
 		return untyped __cpp__("&({0})", v);

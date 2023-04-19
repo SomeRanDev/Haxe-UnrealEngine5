@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCameraAnimationSequenceFactoryNew")
 @:include("Factories/CameraAnimationSequenceFactoryNew.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationSequenceFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCameraAnimationSequenceFactoryNew(CameraAnimationSequenceFactoryNe
 @:forward
 @:nativeGen
 @:native("CameraAnimationSequenceFactoryNew*")
-abstract CameraAnimationSequenceFactoryNewPtr(cpp.Star<CameraAnimationSequenceFactoryNew>) from cpp.Star<CameraAnimationSequenceFactoryNew> to cpp.Star<CameraAnimationSequenceFactoryNew>{
+abstract CameraAnimationSequenceFactoryNewPtr(ucpp.Ptr<CameraAnimationSequenceFactoryNew>) from ucpp.Ptr<CameraAnimationSequenceFactoryNew> to ucpp.Ptr<CameraAnimationSequenceFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: CameraAnimationSequenceFactoryNew): CameraAnimationSequenceFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,31 +3,31 @@ package ue;
 
 @:native("UGeometryCacheComponent")
 @:include("GeometryCacheComponent.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheComp extends MeshComp {
-	public var GeometryCache: cpp.Star<GeometryCache>;
+	public var GeometryCache: ucpp.Ptr<GeometryCache>;
 	@:protected public var bRunning: Bool;
 	@:protected public var bLooping: Bool;
 	@:protected public var bExtrapolateFrames: Bool;
-	@:protected public var StartTimeOffset: cpp.Float32;
-	@:protected public var PlaybackSpeed: cpp.Float32;
-	@:protected public var MotionVectorScale: cpp.Float32;
-	@:protected public var NumTracks: cpp.Int32;
-	@:protected public var ElapsedTime: cpp.Float32;
-	@:protected public var Duration: cpp.Float32;
+	@:protected public var StartTimeOffset: ucpp.num.Float32;
+	@:protected public var PlaybackSpeed: ucpp.num.Float32;
+	@:protected public var MotionVectorScale: ucpp.num.Float32;
+	@:protected public var NumTracks: ucpp.num.Int32;
+	@:protected public var ElapsedTime: ucpp.num.Float32;
+	@:protected public var Duration: ucpp.num.Float32;
 	@:protected public var bManualTick: Bool;
 	@:protected public var bOverrideWireframeColor: Bool;
 	@:protected public var WireframeOverrideColor: LinearColor;
 
-	public function TickAtThisTime(Time: cpp.Float32, bInIsRunning: Bool, bInBackwards: Bool, bInIsLooping: Bool): Void;
+	public function TickAtThisTime(Time: ucpp.num.Float32, bInIsRunning: Bool, bInBackwards: Bool, bInIsLooping: Bool): Void;
 	public function Stop(): Void;
 	public function SetWireframeOverrideColor(Color: LinearColor): Void;
-	public function SetStartTimeOffset(NewStartTimeOffset: cpp.Float32): Void;
-	public function SetPlaybackSpeed(NewPlaybackSpeed: cpp.Float32): Void;
+	public function SetStartTimeOffset(NewStartTimeOffset: ucpp.num.Float32): Void;
+	public function SetPlaybackSpeed(NewPlaybackSpeed: ucpp.num.Float32): Void;
 	public function SetOverrideWireframeColor(bOverride: Bool): Void;
-	public function SetMotionVectorScale(NewMotionVectorScale: cpp.Float32): Void;
+	public function SetMotionVectorScale(NewMotionVectorScale: ucpp.num.Float32): Void;
 	public function SetLooping(bNewLooping: Bool): Void;
-	public function SetGeometryCache(NewGeomCache: cpp.Star<GeometryCache>): Bool;
+	public function SetGeometryCache(NewGeomCache: ucpp.Ptr<GeometryCache>): Bool;
 	public function SetExtrapolateFrames(bNewExtrapolating: Bool): Void;
 	public function PlayReversedFromEnd(): Void;
 	public function PlayReversed(): Void;
@@ -39,16 +39,16 @@ extern class GeometryCacheComp extends MeshComp {
 	public function IsLooping(): Bool;
 	public function IsExtrapolatingFrames(): Bool;
 	public function GetWireframeOverrideColor(): LinearColor;
-	public function GetStartTimeOffset(): cpp.Float32;
-	public function GetPlaybackSpeed(): cpp.Float32;
-	public function GetPlaybackDirection(): cpp.Float32;
+	public function GetStartTimeOffset(): ucpp.num.Float32;
+	public function GetPlaybackSpeed(): ucpp.num.Float32;
+	public function GetPlaybackDirection(): ucpp.num.Float32;
 	public function GetOverrideWireframeColor(): Bool;
-	public function GetNumberOfFrames(): cpp.Int32;
-	public function GetMotionVectorScale(): cpp.Float32;
-	public function GetDuration(): cpp.Float32;
-	public function GetAnimationTime(): cpp.Float32;
+	public function GetNumberOfFrames(): ucpp.num.Int32;
+	public function GetMotionVectorScale(): ucpp.num.Float32;
+	public function GetDuration(): ucpp.num.Float32;
+	public function GetAnimationTime(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -58,14 +58,14 @@ extern class GeometryCacheComp extends MeshComp {
 )
 @:nativeGen
 abstract ConstGeometryCacheComp(GeometryCacheComp) from GeometryCacheComp {
-	public extern var GeometryCache(get, never): cpp.Star<GeometryCache.ConstGeometryCache>;
-	public inline extern function get_GeometryCache(): cpp.Star<GeometryCache.ConstGeometryCache> return this.GeometryCache;
+	public extern var GeometryCache(get, never): ucpp.Ptr<GeometryCache.ConstGeometryCache>;
+	public inline extern function get_GeometryCache(): ucpp.Ptr<GeometryCache.ConstGeometryCache> return this.GeometryCache;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCacheComp*")
-abstract GeometryCacheCompPtr(cpp.Star<GeometryCacheComp>) from cpp.Star<GeometryCacheComp> to cpp.Star<GeometryCacheComp>{
+abstract GeometryCacheCompPtr(ucpp.Ptr<GeometryCacheComp>) from ucpp.Ptr<GeometryCacheComp> to ucpp.Ptr<GeometryCacheComp>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheComp): GeometryCacheCompPtr {
 		return untyped __cpp__("&({0})", v);

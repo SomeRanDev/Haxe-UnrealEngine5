@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULiveLinkSourceSettings")
 @:include("LiveLinkSourceSettings.h")
-@:structAccess
+@:valueType
 extern class LiveLinkSourceSettings extends Object {
 	public var Mode: ELiveLinkSourceMode;
 	public var BufferSettings: LiveLinkSourceBufferManagementSettings;
 	public var ConnectionString: FString;
 	public var Factory: TSubclassOf<LiveLinkSourceFactory>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstLiveLinkSourceSettings(LiveLinkSourceSettings) from LiveLinkSource
 @:forward
 @:nativeGen
 @:native("LiveLinkSourceSettings*")
-abstract LiveLinkSourceSettingsPtr(cpp.Star<LiveLinkSourceSettings>) from cpp.Star<LiveLinkSourceSettings> to cpp.Star<LiveLinkSourceSettings>{
+abstract LiveLinkSourceSettingsPtr(ucpp.Ptr<LiveLinkSourceSettings>) from ucpp.Ptr<LiveLinkSourceSettings> to ucpp.Ptr<LiveLinkSourceSettings>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkSourceSettings): LiveLinkSourceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

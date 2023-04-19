@@ -3,7 +3,7 @@ package ue;
 
 @:native("UImgMediaSource")
 @:include("ImgMediaSource.h")
-@:structAccess
+@:valueType
 extern class ImgMediaSource extends BaseMediaSource {
 	public var FrameRateOverride: FrameRate;
 	public var ProxyOverride: FString;
@@ -12,15 +12,15 @@ extern class ImgMediaSource extends BaseMediaSource {
 
 	public function SetTokenizedSequencePath(Path: FString): Void;
 	public function SetSequencePath(Path: FString): Void;
-	public function SetMipLevelDistance(Distance: cpp.Float32): Void;
-	public function RemoveTargetObject(InActor: cpp.Star<Actor>): Void;
-	public function RemoveGlobalCamera(InActor: cpp.Star<Actor>): Void;
+	public function SetMipLevelDistance(Distance: ucpp.num.Float32): Void;
+	public function RemoveTargetObject(InActor: ucpp.Ptr<Actor>): Void;
+	public function RemoveGlobalCamera(InActor: ucpp.Ptr<Actor>): Void;
 	public function GetSequencePath(): FString;
-	public function GetProxies(OutProxies: cpp.Reference<TArray<FString>>): Void;
-	public function AddTargetObject(InActor: cpp.Star<Actor>): Void;
-	public function AddGlobalCamera(InActor: cpp.Star<Actor>): Void;
+	public function GetProxies(OutProxies: ucpp.Ref<TArray<FString>>): Void;
+	public function AddTargetObject(InActor: ucpp.Ptr<Actor>): Void;
+	public function AddGlobalCamera(InActor: ucpp.Ptr<Actor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSequencePath, GetProxies)
@@ -37,7 +37,7 @@ abstract ConstImgMediaSource(ImgMediaSource) from ImgMediaSource {
 @:forward
 @:nativeGen
 @:native("ImgMediaSource*")
-abstract ImgMediaSourcePtr(cpp.Star<ImgMediaSource>) from cpp.Star<ImgMediaSource> to cpp.Star<ImgMediaSource>{
+abstract ImgMediaSourcePtr(ucpp.Ptr<ImgMediaSource>) from ucpp.Ptr<ImgMediaSource> to ucpp.Ptr<ImgMediaSource>{
 	@:from
 	public static extern inline function fromValue(v: ImgMediaSource): ImgMediaSourcePtr {
 		return untyped __cpp__("&({0})", v);

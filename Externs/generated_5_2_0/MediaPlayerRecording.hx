@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMediaPlayerRecording")
 @:include("Sequencer/MediaPlayerRecording.h")
-@:structAccess
+@:valueType
 extern class MediaPlayerRecording extends SequenceRecordingBase {
 	public var RecordingSettings: MediaPlayerRecordingSettings;
 	private var MediaPlayerToRecord: TWeakObjectPtr<MediaPlayer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMediaPlayerRecording(MediaPlayerRecording) from MediaPlayerRecordi
 @:forward
 @:nativeGen
 @:native("MediaPlayerRecording*")
-abstract MediaPlayerRecordingPtr(cpp.Star<MediaPlayerRecording>) from cpp.Star<MediaPlayerRecording> to cpp.Star<MediaPlayerRecording>{
+abstract MediaPlayerRecordingPtr(ucpp.Ptr<MediaPlayerRecording>) from ucpp.Ptr<MediaPlayerRecording> to ucpp.Ptr<MediaPlayerRecording>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlayerRecording): MediaPlayerRecordingPtr {
 		return untyped __cpp__("&({0})", v);

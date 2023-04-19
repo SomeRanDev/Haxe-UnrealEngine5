@@ -3,12 +3,14 @@ package ue;
 
 @:native("FUpdateLevelVisibilityLevelInfo")
 @:include("GameFramework/UpdateLevelVisibilityLevelInfo.h")
-@:structAccess
+@:valueType
 extern class UpdateLevelVisibilityLevelInfo {
 	public var PackageName: FName;
 	public var FileName: FName;
+	public var VisibilityRequestId: NetLevelVisibilityTransactionId;
 	public var bIsVisible: Bool;
+	public var bTryMakeVisible: Bool;
+	public var bSkipCloseOnError: Bool;
 
 	@:native("FUpdateLevelVisibilityLevelInfo") public function new();
-	@:native("FUpdateLevelVisibilityLevelInfo") public static function make(PackageName: FName, FileName: FName, bIsVisible: Bool): UpdateLevelVisibilityLevelInfo ;
 }

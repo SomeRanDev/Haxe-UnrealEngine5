@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTComposite_SimpleParallel")
 @:include("BehaviorTree/Composites/BTComposite_SimpleParallel.h")
-@:structAccess
+@:valueType
 extern class BTComposite_SimpleParallel extends BTCompositeNode {
 	public var FinishMode: TEnumAsByte<EBTParallelMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBTComposite_SimpleParallel(BTComposite_SimpleParallel) from BTComp
 @:forward
 @:nativeGen
 @:native("BTComposite_SimpleParallel*")
-abstract BTComposite_SimpleParallelPtr(cpp.Star<BTComposite_SimpleParallel>) from cpp.Star<BTComposite_SimpleParallel> to cpp.Star<BTComposite_SimpleParallel>{
+abstract BTComposite_SimpleParallelPtr(ucpp.Ptr<BTComposite_SimpleParallel>) from ucpp.Ptr<BTComposite_SimpleParallel> to ucpp.Ptr<BTComposite_SimpleParallel>{
 	@:from
 	public static extern inline function fromValue(v: BTComposite_SimpleParallel): BTComposite_SimpleParallelPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_TextureRenderTargetVolume")
 @:include("AssetDefinition_TextureRenderTargetVolume.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_TextureRenderTargetVolume extends AssetDefinition_TextureRenderTarget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_TextureRenderTargetVolume(AssetDefinition_TextureR
 @:forward
 @:nativeGen
 @:native("AssetDefinition_TextureRenderTargetVolume*")
-abstract AssetDefinition_TextureRenderTargetVolumePtr(cpp.Star<AssetDefinition_TextureRenderTargetVolume>) from cpp.Star<AssetDefinition_TextureRenderTargetVolume> to cpp.Star<AssetDefinition_TextureRenderTargetVolume>{
+abstract AssetDefinition_TextureRenderTargetVolumePtr(ucpp.Ptr<AssetDefinition_TextureRenderTargetVolume>) from ucpp.Ptr<AssetDefinition_TextureRenderTargetVolume> to ucpp.Ptr<AssetDefinition_TextureRenderTargetVolume>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_TextureRenderTargetVolume): AssetDefinition_TextureRenderTargetVolumePtr {
 		return untyped __cpp__("&({0})", v);

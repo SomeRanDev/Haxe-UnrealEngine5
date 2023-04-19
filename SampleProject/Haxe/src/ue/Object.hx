@@ -3,16 +3,16 @@ package ue;
 
 @:native("UObject")
 @:include("UObject/Object.h")
-@:structAccess
+@:valueType
 extern class Object extends ObjectBaseUtility {
-	public function ExecuteUbergraph(EntryPoint: cpp.Int32): Void;
-	public extern inline overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: cpp.Star<Class>): cpp.Star<Object> { return CreateDefaultSubobject(SubobjectName, ReturnType, ReturnType, true, false); };
-	public overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: cpp.Star<Class>, ClassToCreateByDefault: cpp.Star<Class>, bIsRequired: Bool, bIsTransient: Bool): cpp.Star<Object>;
+	public function ExecuteUbergraph(EntryPoint: ucpp.num.Int32): Void;
+	public extern inline overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: ucpp.Ptr<Class>): ucpp.Ptr<Object> { return CreateDefaultSubobject(SubobjectName, ReturnType, ReturnType, true, false); };
+	public overload function CreateDefaultSubobject(SubobjectName: FName, ReturnType: ucpp.Ptr<Class>, ClassToCreateByDefault: ucpp.Ptr<Class>, bIsRequired: Bool, bIsTransient: Bool): ucpp.Ptr<Object>;
 	public overload function CreateDefaultSubobject<TReturnType>(SubobjectName: FName, bTransient: Bool = false): TReturnType;
 	public overload function CreateDefaultSubobject<TReturnType, TClassToConstructByDefault>(SubobjectName: FName, bTransient: Bool = false): TReturnType;
 	public function PostLoad(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstObject(Object) from Object {
 @:forward
 @:nativeGen
 @:native("Object*")
-abstract ObjectPtr(cpp.Star<Object>) from cpp.Star<Object> to cpp.Star<Object>{
+abstract ObjectPtr(ucpp.Ptr<Object>) from ucpp.Ptr<Object> to ucpp.Ptr<Object>{
 	@:from
 	public static extern inline function fromValue(v: Object): ObjectPtr {
 		return untyped __cpp__("&({0})", v);

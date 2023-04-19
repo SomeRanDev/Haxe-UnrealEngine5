@@ -3,25 +3,25 @@ package ue;
 
 @:native("UFractureToolProximity")
 @:include("FractureToolProximity.h")
-@:structAccess
+@:valueType
 extern class FractureToolProximity extends FractureModalTool {
-	public var ProximitySettings: cpp.Star<FractureProximitySettings>;
-	private var ProximityActions: cpp.Star<FractureProximityActions>;
+	public var ProximitySettings: ucpp.Ptr<FractureProximitySettings>;
+	private var ProximityActions: ucpp.Ptr<FractureProximityActions>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolProximity(FractureToolProximity) from FractureToolProximity {
-	public extern var ProximitySettings(get, never): cpp.Star<FractureProximitySettings.ConstFractureProximitySettings>;
-	public inline extern function get_ProximitySettings(): cpp.Star<FractureProximitySettings.ConstFractureProximitySettings> return this.ProximitySettings;
+	public extern var ProximitySettings(get, never): ucpp.Ptr<FractureProximitySettings.ConstFractureProximitySettings>;
+	public inline extern function get_ProximitySettings(): ucpp.Ptr<FractureProximitySettings.ConstFractureProximitySettings> return this.ProximitySettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolProximity*")
-abstract FractureToolProximityPtr(cpp.Star<FractureToolProximity>) from cpp.Star<FractureToolProximity> to cpp.Star<FractureToolProximity>{
+abstract FractureToolProximityPtr(ucpp.Ptr<FractureToolProximity>) from ucpp.Ptr<FractureToolProximity> to ucpp.Ptr<FractureToolProximity>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolProximity): FractureToolProximityPtr {
 		return untyped __cpp__("&({0})", v);

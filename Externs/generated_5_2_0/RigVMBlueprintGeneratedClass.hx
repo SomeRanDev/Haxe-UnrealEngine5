@@ -3,11 +3,11 @@ package ue;
 
 @:native("URigVMBlueprintGeneratedClass")
 @:include("RigVMBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class RigVMBlueprintGeneratedClass extends BlueprintGeneratedClass {
 	public var GraphFunctionStore: RigVMGraphFunctionStore;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstRigVMBlueprintGeneratedClass(RigVMBlueprintGeneratedClass) from Ri
 @:forward
 @:nativeGen
 @:native("RigVMBlueprintGeneratedClass*")
-abstract RigVMBlueprintGeneratedClassPtr(cpp.Star<RigVMBlueprintGeneratedClass>) from cpp.Star<RigVMBlueprintGeneratedClass> to cpp.Star<RigVMBlueprintGeneratedClass>{
+abstract RigVMBlueprintGeneratedClassPtr(ucpp.Ptr<RigVMBlueprintGeneratedClass>) from ucpp.Ptr<RigVMBlueprintGeneratedClass> to ucpp.Ptr<RigVMBlueprintGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: RigVMBlueprintGeneratedClass): RigVMBlueprintGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

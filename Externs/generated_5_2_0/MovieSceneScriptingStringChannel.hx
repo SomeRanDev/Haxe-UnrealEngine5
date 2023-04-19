@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMovieSceneScriptingStringChannel")
 @:include("KeysAndChannels/MovieSceneScriptingString.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingStringChannel extends MovieSceneScriptingChannel {
 	public function SetDefault(InDefaultValue: FString): Void;
-	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
+	public function RemoveKey(Key: ucpp.Ptr<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
 	public function HasDefault(): Bool;
-	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetKeys(): TArray<ucpp.Ptr<MovieSceneScriptingKey>>;
 	public function GetDefault(): FString;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: FString, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingStringKey>;
+	public function AddKey(InTime: ucpp.Ref<FrameNumber>, NewValue: FString, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): ucpp.Ptr<MovieSceneScriptingStringKey>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasDefault, GetKeys, GetDefault)
@@ -24,7 +24,7 @@ abstract ConstMovieSceneScriptingStringChannel(MovieSceneScriptingStringChannel)
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingStringChannel*")
-abstract MovieSceneScriptingStringChannelPtr(cpp.Star<MovieSceneScriptingStringChannel>) from cpp.Star<MovieSceneScriptingStringChannel> to cpp.Star<MovieSceneScriptingStringChannel>{
+abstract MovieSceneScriptingStringChannelPtr(ucpp.Ptr<MovieSceneScriptingStringChannel>) from ucpp.Ptr<MovieSceneScriptingStringChannel> to ucpp.Ptr<MovieSceneScriptingStringChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingStringChannel): MovieSceneScriptingStringChannelPtr {
 		return untyped __cpp__("&({0})", v);

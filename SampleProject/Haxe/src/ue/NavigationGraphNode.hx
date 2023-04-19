@@ -3,10 +3,10 @@ package ue;
 
 @:native("ANavigationGraphNode")
 @:include("NavGraph/NavigationGraphNode.h")
-@:structAccess
+@:valueType
 extern class NavigationGraphNode extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavigationGraphNode(NavigationGraphNode) from NavigationGraphNode 
 @:forward
 @:nativeGen
 @:native("NavigationGraphNode*")
-abstract NavigationGraphNodePtr(cpp.Star<NavigationGraphNode>) from cpp.Star<NavigationGraphNode> to cpp.Star<NavigationGraphNode>{
+abstract NavigationGraphNodePtr(ucpp.Ptr<NavigationGraphNode>) from ucpp.Ptr<NavigationGraphNode> to ucpp.Ptr<NavigationGraphNode>{
 	@:from
 	public static extern inline function fromValue(v: NavigationGraphNode): NavigationGraphNodePtr {
 		return untyped __cpp__("&({0})", v);

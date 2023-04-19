@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAttributeEditorActionPropertySet")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorActionPropertySet extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAttributeEditorActionPropertySet(AttributeEditorActionPropertySet)
 @:forward
 @:nativeGen
 @:native("AttributeEditorActionPropertySet*")
-abstract AttributeEditorActionPropertySetPtr(cpp.Star<AttributeEditorActionPropertySet>) from cpp.Star<AttributeEditorActionPropertySet> to cpp.Star<AttributeEditorActionPropertySet>{
+abstract AttributeEditorActionPropertySetPtr(ucpp.Ptr<AttributeEditorActionPropertySet>) from ucpp.Ptr<AttributeEditorActionPropertySet> to ucpp.Ptr<AttributeEditorActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorActionPropertySet): AttributeEditorActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

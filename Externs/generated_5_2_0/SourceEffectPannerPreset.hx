@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectPannerPreset")
 @:include("SourceEffects/SourceEffectPanner.h")
-@:structAccess
+@:valueType
 extern class SourceEffectPannerPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectPannerSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectPannerSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectPannerSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectPannerPreset(SourceEffectPannerPreset) from SourceEffe
 @:forward
 @:nativeGen
 @:native("SourceEffectPannerPreset*")
-abstract SourceEffectPannerPresetPtr(cpp.Star<SourceEffectPannerPreset>) from cpp.Star<SourceEffectPannerPreset> to cpp.Star<SourceEffectPannerPreset>{
+abstract SourceEffectPannerPresetPtr(ucpp.Ptr<SourceEffectPannerPreset>) from ucpp.Ptr<SourceEffectPannerPreset> to ucpp.Ptr<SourceEffectPannerPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectPannerPreset): SourceEffectPannerPresetPtr {
 		return untyped __cpp__("&({0})", v);

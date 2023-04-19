@@ -3,13 +3,13 @@ package ue;
 
 @:native("UVirtualTexture2D")
 @:include("VT/VirtualTexture.h")
-@:structAccess
+@:valueType
 extern class VirtualTexture2D extends Texture2D {
 	public var Settings: VirtualTextureBuildSettings;
 	public var bContinuousUpdate: Bool;
 	public var bSinglePhysicalSpace: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstVirtualTexture2D(VirtualTexture2D) from VirtualTexture2D {
 @:forward
 @:nativeGen
 @:native("VirtualTexture2D*")
-abstract VirtualTexture2DPtr(cpp.Star<VirtualTexture2D>) from cpp.Star<VirtualTexture2D> to cpp.Star<VirtualTexture2D>{
+abstract VirtualTexture2DPtr(ucpp.Ptr<VirtualTexture2D>) from ucpp.Ptr<VirtualTexture2D> to ucpp.Ptr<VirtualTexture2D>{
 	@:from
 	public static extern inline function fromValue(v: VirtualTexture2D): VirtualTexture2DPtr {
 		return untyped __cpp__("&({0})", v);

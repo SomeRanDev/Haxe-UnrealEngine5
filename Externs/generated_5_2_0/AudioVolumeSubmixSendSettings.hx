@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAudioVolumeSubmixSendSettings")
 @:include("Sound/AudioVolume.h")
-@:structAccess
+@:valueType
 extern class AudioVolumeSubmixSendSettings {
 	public var ListenerLocationState: EAudioVolumeLocationState;
 	public var SubmixSends: TArray<SoundSubmixSendInfo>;

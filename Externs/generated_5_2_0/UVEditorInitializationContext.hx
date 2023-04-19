@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorInitializationContext")
 @:include("UVEditorInitializationContext.h")
-@:structAccess
+@:valueType
 extern class UVEditorInitializationContext extends UVToolContextObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorInitializationContext(UVEditorInitializationContext) from 
 @:forward
 @:nativeGen
 @:native("UVEditorInitializationContext*")
-abstract UVEditorInitializationContextPtr(cpp.Star<UVEditorInitializationContext>) from cpp.Star<UVEditorInitializationContext> to cpp.Star<UVEditorInitializationContext>{
+abstract UVEditorInitializationContextPtr(ucpp.Ptr<UVEditorInitializationContext>) from ucpp.Ptr<UVEditorInitializationContext> to ucpp.Ptr<UVEditorInitializationContext>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorInitializationContext): UVEditorInitializationContextPtr {
 		return untyped __cpp__("&({0})", v);

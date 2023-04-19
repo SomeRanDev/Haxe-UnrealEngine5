@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialGraphNode_Knot")
 @:include("MaterialGraphNode_Knot.h")
-@:structAccess
+@:valueType
 extern class MaterialGraphNode_Knot extends MaterialGraphNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialGraphNode_Knot(MaterialGraphNode_Knot) from MaterialGraphN
 @:forward
 @:nativeGen
 @:native("MaterialGraphNode_Knot*")
-abstract MaterialGraphNode_KnotPtr(cpp.Star<MaterialGraphNode_Knot>) from cpp.Star<MaterialGraphNode_Knot> to cpp.Star<MaterialGraphNode_Knot>{
+abstract MaterialGraphNode_KnotPtr(ucpp.Ptr<MaterialGraphNode_Knot>) from ucpp.Ptr<MaterialGraphNode_Knot> to ucpp.Ptr<MaterialGraphNode_Knot>{
 	@:from
 	public static extern inline function fromValue(v: MaterialGraphNode_Knot): MaterialGraphNode_KnotPtr {
 		return untyped __cpp__("&({0})", v);

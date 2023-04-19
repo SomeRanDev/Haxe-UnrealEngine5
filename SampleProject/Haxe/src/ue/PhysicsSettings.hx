@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPhysicsSettings")
 @:include("PhysicsEngine/PhysicsSettings.h")
-@:structAccess
+@:valueType
 extern class PhysicsSettings extends PhysicsSettingsCore {
 	public var PhysicErrorCorrection: RigidBodyErrorCorrection;
 	public var DefaultDegreesOfFreedom: TEnumAsByte<ESettingsDOF>;
@@ -13,26 +13,25 @@ extern class PhysicsSettings extends PhysicsSettingsCore {
 	public var bDisableKinematicStaticPairs: Bool;
 	public var bDisableKinematicKinematicPairs: Bool;
 	public var bDisableCCD: Bool;
-	public var bEnableEnhancedDeterminism: Bool;
-	public var AnimPhysicsMinDeltaTime: cpp.Float32;
+	public var AnimPhysicsMinDeltaTime: ucpp.num.Float32;
 	public var bSimulateAnimPhysicsAfterReset: Bool;
-	public var MinPhysicsDeltaTime: cpp.Float32;
-	public var MaxPhysicsDeltaTime: cpp.Float32;
+	public var MinPhysicsDeltaTime: ucpp.num.Float32;
+	public var MaxPhysicsDeltaTime: ucpp.num.Float32;
 	public var bSubstepping: Bool;
 	public var bSubsteppingAsync: Bool;
 	public var bTickPhysicsAsync: Bool;
-	public var AsyncFixedTimeStepSize: cpp.Float32;
-	public var MaxSubstepDeltaTime: cpp.Float32;
-	public var MaxSubsteps: cpp.Int32;
-	public var SyncSceneSmoothingFactor: cpp.Float32;
-	public var InitialAverageFrameRate: cpp.Float32;
-	public var PhysXTreeRebuildRate: cpp.Int32;
+	public var AsyncFixedTimeStepSize: ucpp.num.Float32;
+	public var MaxSubstepDeltaTime: ucpp.num.Float32;
+	public var MaxSubsteps: ucpp.num.Int32;
+	public var SyncSceneSmoothingFactor: ucpp.num.Float32;
+	public var InitialAverageFrameRate: ucpp.num.Float32;
+	public var PhysXTreeRebuildRate: ucpp.num.Int32;
 	public var PhysicalSurfaces: TArray<PhysicalSurfaceName>;
 	public var DefaultBroadphaseSettings: BroadphaseSettings;
-	public var MinDeltaVelocityForHitEvents: cpp.Float32;
+	public var MinDeltaVelocityForHitEvents: ucpp.num.Float32;
 	public var ChaosSettings: ChaosPhysicsSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -54,40 +53,38 @@ abstract ConstPhysicsSettings(PhysicsSettings) from PhysicsSettings {
 	public inline extern function get_bDisableKinematicKinematicPairs(): Bool return this.bDisableKinematicKinematicPairs;
 	public extern var bDisableCCD(get, never): Bool;
 	public inline extern function get_bDisableCCD(): Bool return this.bDisableCCD;
-	public extern var bEnableEnhancedDeterminism(get, never): Bool;
-	public inline extern function get_bEnableEnhancedDeterminism(): Bool return this.bEnableEnhancedDeterminism;
-	public extern var AnimPhysicsMinDeltaTime(get, never): cpp.Float32;
-	public inline extern function get_AnimPhysicsMinDeltaTime(): cpp.Float32 return this.AnimPhysicsMinDeltaTime;
+	public extern var AnimPhysicsMinDeltaTime(get, never): ucpp.num.Float32;
+	public inline extern function get_AnimPhysicsMinDeltaTime(): ucpp.num.Float32 return this.AnimPhysicsMinDeltaTime;
 	public extern var bSimulateAnimPhysicsAfterReset(get, never): Bool;
 	public inline extern function get_bSimulateAnimPhysicsAfterReset(): Bool return this.bSimulateAnimPhysicsAfterReset;
-	public extern var MinPhysicsDeltaTime(get, never): cpp.Float32;
-	public inline extern function get_MinPhysicsDeltaTime(): cpp.Float32 return this.MinPhysicsDeltaTime;
-	public extern var MaxPhysicsDeltaTime(get, never): cpp.Float32;
-	public inline extern function get_MaxPhysicsDeltaTime(): cpp.Float32 return this.MaxPhysicsDeltaTime;
+	public extern var MinPhysicsDeltaTime(get, never): ucpp.num.Float32;
+	public inline extern function get_MinPhysicsDeltaTime(): ucpp.num.Float32 return this.MinPhysicsDeltaTime;
+	public extern var MaxPhysicsDeltaTime(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxPhysicsDeltaTime(): ucpp.num.Float32 return this.MaxPhysicsDeltaTime;
 	public extern var bSubstepping(get, never): Bool;
 	public inline extern function get_bSubstepping(): Bool return this.bSubstepping;
 	public extern var bSubsteppingAsync(get, never): Bool;
 	public inline extern function get_bSubsteppingAsync(): Bool return this.bSubsteppingAsync;
 	public extern var bTickPhysicsAsync(get, never): Bool;
 	public inline extern function get_bTickPhysicsAsync(): Bool return this.bTickPhysicsAsync;
-	public extern var AsyncFixedTimeStepSize(get, never): cpp.Float32;
-	public inline extern function get_AsyncFixedTimeStepSize(): cpp.Float32 return this.AsyncFixedTimeStepSize;
-	public extern var MaxSubstepDeltaTime(get, never): cpp.Float32;
-	public inline extern function get_MaxSubstepDeltaTime(): cpp.Float32 return this.MaxSubstepDeltaTime;
-	public extern var MaxSubsteps(get, never): cpp.Int32;
-	public inline extern function get_MaxSubsteps(): cpp.Int32 return this.MaxSubsteps;
-	public extern var SyncSceneSmoothingFactor(get, never): cpp.Float32;
-	public inline extern function get_SyncSceneSmoothingFactor(): cpp.Float32 return this.SyncSceneSmoothingFactor;
-	public extern var InitialAverageFrameRate(get, never): cpp.Float32;
-	public inline extern function get_InitialAverageFrameRate(): cpp.Float32 return this.InitialAverageFrameRate;
-	public extern var PhysXTreeRebuildRate(get, never): cpp.Int32;
-	public inline extern function get_PhysXTreeRebuildRate(): cpp.Int32 return this.PhysXTreeRebuildRate;
+	public extern var AsyncFixedTimeStepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_AsyncFixedTimeStepSize(): ucpp.num.Float32 return this.AsyncFixedTimeStepSize;
+	public extern var MaxSubstepDeltaTime(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxSubstepDeltaTime(): ucpp.num.Float32 return this.MaxSubstepDeltaTime;
+	public extern var MaxSubsteps(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxSubsteps(): ucpp.num.Int32 return this.MaxSubsteps;
+	public extern var SyncSceneSmoothingFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_SyncSceneSmoothingFactor(): ucpp.num.Float32 return this.SyncSceneSmoothingFactor;
+	public extern var InitialAverageFrameRate(get, never): ucpp.num.Float32;
+	public inline extern function get_InitialAverageFrameRate(): ucpp.num.Float32 return this.InitialAverageFrameRate;
+	public extern var PhysXTreeRebuildRate(get, never): ucpp.num.Int32;
+	public inline extern function get_PhysXTreeRebuildRate(): ucpp.num.Int32 return this.PhysXTreeRebuildRate;
 	public extern var PhysicalSurfaces(get, never): TArray<PhysicalSurfaceName>;
 	public inline extern function get_PhysicalSurfaces(): TArray<PhysicalSurfaceName> return this.PhysicalSurfaces;
 	public extern var DefaultBroadphaseSettings(get, never): BroadphaseSettings;
 	public inline extern function get_DefaultBroadphaseSettings(): BroadphaseSettings return this.DefaultBroadphaseSettings;
-	public extern var MinDeltaVelocityForHitEvents(get, never): cpp.Float32;
-	public inline extern function get_MinDeltaVelocityForHitEvents(): cpp.Float32 return this.MinDeltaVelocityForHitEvents;
+	public extern var MinDeltaVelocityForHitEvents(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDeltaVelocityForHitEvents(): ucpp.num.Float32 return this.MinDeltaVelocityForHitEvents;
 	public extern var ChaosSettings(get, never): ChaosPhysicsSettings;
 	public inline extern function get_ChaosSettings(): ChaosPhysicsSettings return this.ChaosSettings;
 }
@@ -95,7 +92,7 @@ abstract ConstPhysicsSettings(PhysicsSettings) from PhysicsSettings {
 @:forward
 @:nativeGen
 @:native("PhysicsSettings*")
-abstract PhysicsSettingsPtr(cpp.Star<PhysicsSettings>) from cpp.Star<PhysicsSettings> to cpp.Star<PhysicsSettings>{
+abstract PhysicsSettingsPtr(ucpp.Ptr<PhysicsSettings>) from ucpp.Ptr<PhysicsSettings> to ucpp.Ptr<PhysicsSettings>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsSettings): PhysicsSettingsPtr {
 		return untyped __cpp__("&({0})", v);

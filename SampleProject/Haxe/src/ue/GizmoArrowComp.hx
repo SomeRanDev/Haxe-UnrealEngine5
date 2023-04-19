@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGizmoArrowComponent")
 @:include("BaseGizmos/GizmoArrowComponent.h")
-@:structAccess
+@:valueType
 extern class GizmoArrowComp extends GizmoBaseComp {
 	public var Direction: Vector;
-	public var Gap: cpp.Float32;
-	public var Length: cpp.Float32;
-	public var Thickness: cpp.Float32;
+	public var Gap: ucpp.num.Float32;
+	public var Length: ucpp.num.Float32;
+	public var Thickness: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,18 +18,18 @@ extern class GizmoArrowComp extends GizmoBaseComp {
 abstract ConstGizmoArrowComp(GizmoArrowComp) from GizmoArrowComp {
 	public extern var Direction(get, never): Vector;
 	public inline extern function get_Direction(): Vector return this.Direction;
-	public extern var Gap(get, never): cpp.Float32;
-	public inline extern function get_Gap(): cpp.Float32 return this.Gap;
-	public extern var Length(get, never): cpp.Float32;
-	public inline extern function get_Length(): cpp.Float32 return this.Length;
-	public extern var Thickness(get, never): cpp.Float32;
-	public inline extern function get_Thickness(): cpp.Float32 return this.Thickness;
+	public extern var Gap(get, never): ucpp.num.Float32;
+	public inline extern function get_Gap(): ucpp.num.Float32 return this.Gap;
+	public extern var Length(get, never): ucpp.num.Float32;
+	public inline extern function get_Length(): ucpp.num.Float32 return this.Length;
+	public extern var Thickness(get, never): ucpp.num.Float32;
+	public inline extern function get_Thickness(): ucpp.num.Float32 return this.Thickness;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoArrowComp*")
-abstract GizmoArrowCompPtr(cpp.Star<GizmoArrowComp>) from cpp.Star<GizmoArrowComp> to cpp.Star<GizmoArrowComp>{
+abstract GizmoArrowCompPtr(ucpp.Ptr<GizmoArrowComp>) from ucpp.Ptr<GizmoArrowComp> to ucpp.Ptr<GizmoArrowComp>{
 	@:from
 	public static extern inline function fromValue(v: GizmoArrowComp): GizmoArrowCompPtr {
 		return untyped __cpp__("&({0})", v);

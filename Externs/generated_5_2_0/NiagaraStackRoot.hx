@@ -3,22 +3,22 @@ package ue;
 
 @:native("UNiagaraStackRoot")
 @:include("ViewModels/Stack/NiagaraStackRoot.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackRoot extends NiagaraStackEntry {
-	private var SystemPropertiesGroup: cpp.Star<NiagaraStackSystemPropertiesGroup>;
-	private var SystemUserParametersGroup: cpp.Star<NiagaraStackSystemUserParametersGroup>;
-	private var SystemSpawnGroup: cpp.Star<NiagaraStackScriptItemGroup>;
-	private var SystemUpdateGroup: cpp.Star<NiagaraStackScriptItemGroup>;
-	private var EmitterPropertiesGroup: cpp.Star<NiagaraStackEmitterPropertiesGroup>;
-	private var EmitterSummaryGroup: cpp.Star<NiagaraStackEmitterSummaryGroup>;
-	private var EmitterSpawnGroup: cpp.Star<NiagaraStackScriptItemGroup>;
-	private var EmitterUpdateGroup: cpp.Star<NiagaraStackScriptItemGroup>;
-	private var ParticleSpawnGroup: cpp.Star<NiagaraStackScriptItemGroup>;
-	private var ParticleUpdateGroup: cpp.Star<NiagaraStackScriptItemGroup>;
-	private var RenderGroup: cpp.Star<NiagaraStackRenderItemGroup>;
-	private var SummaryCollapseButton: cpp.Star<NiagaraStackSummaryViewCollapseButton>;
+	private var SystemPropertiesGroup: ucpp.Ptr<NiagaraStackSystemPropertiesGroup>;
+	private var SystemUserParametersGroup: ucpp.Ptr<NiagaraStackSystemUserParametersGroup>;
+	private var SystemSpawnGroup: ucpp.Ptr<NiagaraStackScriptItemGroup>;
+	private var SystemUpdateGroup: ucpp.Ptr<NiagaraStackScriptItemGroup>;
+	private var EmitterPropertiesGroup: ucpp.Ptr<NiagaraStackEmitterPropertiesGroup>;
+	private var EmitterSummaryGroup: ucpp.Ptr<NiagaraStackEmitterSummaryGroup>;
+	private var EmitterSpawnGroup: ucpp.Ptr<NiagaraStackScriptItemGroup>;
+	private var EmitterUpdateGroup: ucpp.Ptr<NiagaraStackScriptItemGroup>;
+	private var ParticleSpawnGroup: ucpp.Ptr<NiagaraStackScriptItemGroup>;
+	private var ParticleUpdateGroup: ucpp.Ptr<NiagaraStackScriptItemGroup>;
+	private var RenderGroup: ucpp.Ptr<NiagaraStackRenderItemGroup>;
+	private var SummaryCollapseButton: ucpp.Ptr<NiagaraStackSummaryViewCollapseButton>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstNiagaraStackRoot(NiagaraStackRoot) from NiagaraStackRoot {
 @:forward
 @:nativeGen
 @:native("NiagaraStackRoot*")
-abstract NiagaraStackRootPtr(cpp.Star<NiagaraStackRoot>) from cpp.Star<NiagaraStackRoot> to cpp.Star<NiagaraStackRoot>{
+abstract NiagaraStackRootPtr(ucpp.Ptr<NiagaraStackRoot>) from ucpp.Ptr<NiagaraStackRoot> to ucpp.Ptr<NiagaraStackRoot>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackRoot): NiagaraStackRootPtr {
 		return untyped __cpp__("&({0})", v);

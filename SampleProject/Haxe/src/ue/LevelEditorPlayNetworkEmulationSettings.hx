@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelEditorPlayNetworkEmulationSettings")
 @:include("Settings/LevelEditorPlayNetworkEmulationSettings.h")
-@:structAccess
+@:valueType
 extern class LevelEditorPlayNetworkEmulationSettings {
 	public var bIsNetworkEmulationEnabled: Bool;
 	public var EmulationTarget: NetworkEmulationTarget;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReporterGraph")
 @:include("Debug/ReporterGraph.h")
-@:structAccess
+@:valueType
 extern class ReporterGraph extends ReporterBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReporterGraph(ReporterGraph) from ReporterGraph {
 @:forward
 @:nativeGen
 @:native("ReporterGraph*")
-abstract ReporterGraphPtr(cpp.Star<ReporterGraph>) from cpp.Star<ReporterGraph> to cpp.Star<ReporterGraph>{
+abstract ReporterGraphPtr(ucpp.Ptr<ReporterGraph>) from ucpp.Ptr<ReporterGraph> to ucpp.Ptr<ReporterGraph>{
 	@:from
 	public static extern inline function fromValue(v: ReporterGraph): ReporterGraphPtr {
 		return untyped __cpp__("&({0})", v);

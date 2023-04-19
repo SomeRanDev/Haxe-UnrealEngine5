@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxSkeletalMeshImportData")
 @:include("Factories/FbxSkeletalMeshImportData.h")
-@:structAccess
+@:valueType
 extern class FbxSkeletalMeshImportData extends FbxMeshImportData {
 	public var ImportContentType: TEnumAsByte<EFBXImportContentType>;
 	public var LastImportContentType: TEnumAsByte<EFBXImportContentType>;
@@ -14,12 +14,12 @@ extern class FbxSkeletalMeshImportData extends FbxMeshImportData {
 	public var bPreserveSmoothingGroups: Bool;
 	public var bImportMeshesInBoneHierarchy: Bool;
 	public var bImportMorphTargets: Bool;
-	public var ThresholdPosition: cpp.Float32;
-	public var ThresholdTangentNormal: cpp.Float32;
-	public var ThresholdUV: cpp.Float32;
-	public var MorphThresholdPosition: cpp.Float32;
+	public var ThresholdPosition: ucpp.num.Float32;
+	public var ThresholdTangentNormal: ucpp.num.Float32;
+	public var ThresholdUV: ucpp.num.Float32;
+	public var MorphThresholdPosition: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,20 +43,20 @@ abstract ConstFbxSkeletalMeshImportData(FbxSkeletalMeshImportData) from FbxSkele
 	public inline extern function get_bImportMeshesInBoneHierarchy(): Bool return this.bImportMeshesInBoneHierarchy;
 	public extern var bImportMorphTargets(get, never): Bool;
 	public inline extern function get_bImportMorphTargets(): Bool return this.bImportMorphTargets;
-	public extern var ThresholdPosition(get, never): cpp.Float32;
-	public inline extern function get_ThresholdPosition(): cpp.Float32 return this.ThresholdPosition;
-	public extern var ThresholdTangentNormal(get, never): cpp.Float32;
-	public inline extern function get_ThresholdTangentNormal(): cpp.Float32 return this.ThresholdTangentNormal;
-	public extern var ThresholdUV(get, never): cpp.Float32;
-	public inline extern function get_ThresholdUV(): cpp.Float32 return this.ThresholdUV;
-	public extern var MorphThresholdPosition(get, never): cpp.Float32;
-	public inline extern function get_MorphThresholdPosition(): cpp.Float32 return this.MorphThresholdPosition;
+	public extern var ThresholdPosition(get, never): ucpp.num.Float32;
+	public inline extern function get_ThresholdPosition(): ucpp.num.Float32 return this.ThresholdPosition;
+	public extern var ThresholdTangentNormal(get, never): ucpp.num.Float32;
+	public inline extern function get_ThresholdTangentNormal(): ucpp.num.Float32 return this.ThresholdTangentNormal;
+	public extern var ThresholdUV(get, never): ucpp.num.Float32;
+	public inline extern function get_ThresholdUV(): ucpp.num.Float32 return this.ThresholdUV;
+	public extern var MorphThresholdPosition(get, never): ucpp.num.Float32;
+	public inline extern function get_MorphThresholdPosition(): ucpp.num.Float32 return this.MorphThresholdPosition;
 }
 
 @:forward
 @:nativeGen
 @:native("FbxSkeletalMeshImportData*")
-abstract FbxSkeletalMeshImportDataPtr(cpp.Star<FbxSkeletalMeshImportData>) from cpp.Star<FbxSkeletalMeshImportData> to cpp.Star<FbxSkeletalMeshImportData>{
+abstract FbxSkeletalMeshImportDataPtr(ucpp.Ptr<FbxSkeletalMeshImportData>) from ucpp.Ptr<FbxSkeletalMeshImportData> to ucpp.Ptr<FbxSkeletalMeshImportData>{
 	@:from
 	public static extern inline function fromValue(v: FbxSkeletalMeshImportData): FbxSkeletalMeshImportDataPtr {
 		return untyped __cpp__("&({0})", v);

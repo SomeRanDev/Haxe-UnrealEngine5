@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCollisionQuery")
 @:include("NiagaraDataInterfaceCollisionQuery.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceCollisionQuery extends NiagaraDataInterface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraDataInterfaceCollisionQuery(NiagaraDataInterfaceCollisionQu
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceCollisionQuery*")
-abstract NiagaraDataInterfaceCollisionQueryPtr(cpp.Star<NiagaraDataInterfaceCollisionQuery>) from cpp.Star<NiagaraDataInterfaceCollisionQuery> to cpp.Star<NiagaraDataInterfaceCollisionQuery>{
+abstract NiagaraDataInterfaceCollisionQueryPtr(ucpp.Ptr<NiagaraDataInterfaceCollisionQuery>) from ucpp.Ptr<NiagaraDataInterfaceCollisionQuery> to ucpp.Ptr<NiagaraDataInterfaceCollisionQuery>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceCollisionQuery): NiagaraDataInterfaceCollisionQueryPtr {
 		return untyped __cpp__("&({0})", v);

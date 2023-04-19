@@ -3,8 +3,9 @@ package ue;
 
 @:native("FAnimNode_SequencePlayer")
 @:include("Animation/AnimNode_SequencePlayer.h")
-@:structAccess
+@:valueType
 extern class AnimNode_SequencePlayer extends AnimNode_SequencePlayerBase {
+	@:protected public var Sequence: ucpp.Ptr<AnimSequenceBase>;
 
 	@:native("FAnimNode_SequencePlayer") public function new();
 }

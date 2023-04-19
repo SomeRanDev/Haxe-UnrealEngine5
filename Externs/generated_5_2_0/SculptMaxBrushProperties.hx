@@ -3,19 +3,19 @@ package ue;
 
 @:native("USculptMaxBrushProperties")
 @:include("Sculpting/MeshSculptToolBase.h")
-@:structAccess
+@:valueType
 extern class SculptMaxBrushProperties extends InteractiveToolPropertySet {
-	public var MaxHeight: cpp.Float32;
+	public var MaxHeight: ucpp.num.Float32;
 	public var bFreezeCurrentHeight: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSculptMaxBrushProperties(SculptMaxBrushProperties) from SculptMaxBrushProperties {
-	public extern var MaxHeight(get, never): cpp.Float32;
-	public inline extern function get_MaxHeight(): cpp.Float32 return this.MaxHeight;
+	public extern var MaxHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxHeight(): ucpp.num.Float32 return this.MaxHeight;
 	public extern var bFreezeCurrentHeight(get, never): Bool;
 	public inline extern function get_bFreezeCurrentHeight(): Bool return this.bFreezeCurrentHeight;
 }
@@ -23,7 +23,7 @@ abstract ConstSculptMaxBrushProperties(SculptMaxBrushProperties) from SculptMaxB
 @:forward
 @:nativeGen
 @:native("SculptMaxBrushProperties*")
-abstract SculptMaxBrushPropertiesPtr(cpp.Star<SculptMaxBrushProperties>) from cpp.Star<SculptMaxBrushProperties> to cpp.Star<SculptMaxBrushProperties>{
+abstract SculptMaxBrushPropertiesPtr(ucpp.Ptr<SculptMaxBrushProperties>) from ucpp.Ptr<SculptMaxBrushProperties> to ucpp.Ptr<SculptMaxBrushProperties>{
 	@:from
 	public static extern inline function fromValue(v: SculptMaxBrushProperties): SculptMaxBrushPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

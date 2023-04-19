@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPhysAssetCreateParams")
 @:include("PhysicsAssetUtils.h")
-@:structAccess
+@:valueType
 extern class PhysAssetCreateParams {
-	public var MinBoneSize: cpp.Float32;
-	public var MinWeldSize: cpp.Float32;
+	public var MinBoneSize: ucpp.num.Float32;
+	public var MinWeldSize: ucpp.num.Float32;
 	public var GeomType: TEnumAsByte<EPhysAssetFitGeomType>;
 	public var VertWeight: TEnumAsByte<EPhysAssetFitVertWeight>;
 	public var bAutoOrientToBone: Bool;
@@ -15,9 +15,9 @@ extern class PhysAssetCreateParams {
 	public var bBodyForAll: Bool;
 	public var bDisableCollisionsByDefault: Bool;
 	public var AngularConstraintMode: TEnumAsByte<EAngularConstraintMotion>;
-	public var HullCount: cpp.Int32;
-	public var MaxHullVerts: cpp.Int32;
-	public var LevelSetResolution: cpp.Int32;
+	public var HullCount: ucpp.num.Int32;
+	public var MaxHullVerts: ucpp.num.Int32;
+	public var LevelSetResolution: ucpp.num.Int32;
 
 	@:native("FPhysAssetCreateParams") public function new();
 }

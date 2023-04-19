@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextureRenderTarget2D")
 @:include("Engine/TextureRenderTarget2D.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTarget2D extends TextureRenderTarget {
-	public var SizeX: cpp.Int32;
-	public var SizeY: cpp.Int32;
+	public var SizeX: ucpp.num.Int32;
+	public var SizeY: ucpp.num.Int32;
 	public var ClearColor: LinearColor;
 	public var AddressX: TEnumAsByte<TextureAddress>;
 	public var AddressY: TEnumAsByte<TextureAddress>;
@@ -19,16 +19,16 @@ extern class TextureRenderTarget2D extends TextureRenderTarget {
 	public var MipsAddressV: TEnumAsByte<TextureAddress>;
 	public var OverrideFormat: TEnumAsByte<EPixelFormat>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTarget2D(TextureRenderTarget2D) from TextureRenderTarget2D {
-	public extern var SizeX(get, never): cpp.Int32;
-	public inline extern function get_SizeX(): cpp.Int32 return this.SizeX;
-	public extern var SizeY(get, never): cpp.Int32;
-	public inline extern function get_SizeY(): cpp.Int32 return this.SizeY;
+	public extern var SizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeX(): ucpp.num.Int32 return this.SizeX;
+	public extern var SizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeY(): ucpp.num.Int32 return this.SizeY;
 	public extern var ClearColor(get, never): LinearColor;
 	public inline extern function get_ClearColor(): LinearColor return this.ClearColor;
 	public extern var AddressX(get, never): TEnumAsByte<TextureAddress>;
@@ -56,7 +56,7 @@ abstract ConstTextureRenderTarget2D(TextureRenderTarget2D) from TextureRenderTar
 @:forward
 @:nativeGen
 @:native("TextureRenderTarget2D*")
-abstract TextureRenderTarget2DPtr(cpp.Star<TextureRenderTarget2D>) from cpp.Star<TextureRenderTarget2D> to cpp.Star<TextureRenderTarget2D>{
+abstract TextureRenderTarget2DPtr(ucpp.Ptr<TextureRenderTarget2D>) from ucpp.Ptr<TextureRenderTarget2D> to ucpp.Ptr<TextureRenderTarget2D>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTarget2D): TextureRenderTarget2DPtr {
 		return untyped __cpp__("&({0})", v);

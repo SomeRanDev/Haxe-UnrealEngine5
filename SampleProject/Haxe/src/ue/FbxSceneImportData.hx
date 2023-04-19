@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFbxSceneImportData")
 @:include("Factories/FbxSceneImportData.h")
-@:structAccess
+@:valueType
 extern class FbxSceneImportData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFbxSceneImportData(FbxSceneImportData) from FbxSceneImportData {
 @:forward
 @:nativeGen
 @:native("FbxSceneImportData*")
-abstract FbxSceneImportDataPtr(cpp.Star<FbxSceneImportData>) from cpp.Star<FbxSceneImportData> to cpp.Star<FbxSceneImportData>{
+abstract FbxSceneImportDataPtr(ucpp.Ptr<FbxSceneImportData>) from ucpp.Ptr<FbxSceneImportData> to ucpp.Ptr<FbxSceneImportData>{
 	@:from
 	public static extern inline function fromValue(v: FbxSceneImportData): FbxSceneImportDataPtr {
 		return untyped __cpp__("&({0})", v);

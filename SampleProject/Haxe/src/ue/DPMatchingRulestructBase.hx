@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDPMatchingRulestructBase")
 @:include("DeviceProfiles/DeviceProfileMatching.h")
-@:structAccess
+@:valueType
 extern class DPMatchingRulestructBase {
 	public var RuleName: FString;
 	public var IfConditions: TArray<DPMatchingIfCondition>;

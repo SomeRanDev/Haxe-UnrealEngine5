@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEmitterDynamicParameter")
 @:include("Particles/Parameter/ParticleModuleParameterDynamic.h")
-@:structAccess
+@:valueType
 extern class EmitterDynamicParameter {
 	public var ParamName: FName;
 	public var bUseEmitterTime: Bool;

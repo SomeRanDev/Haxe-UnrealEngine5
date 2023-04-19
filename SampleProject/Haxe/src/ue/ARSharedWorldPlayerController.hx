@@ -3,14 +3,14 @@ package ue;
 
 @:native("AARSharedWorldPlayerController")
 @:include("ARSharedWorldPlayerController.h")
-@:structAccess
+@:valueType
 extern class ARSharedWorldPlayerController extends PlayerController {
 	public function ServerMarkReadyForReceiving(): Void;
-	public function ClientUpdatePreviewImageData(Offset: cpp.Int32, Buffer: TArray<cpp.UInt8>): Void;
-	public function ClientUpdateARWorldData(Offset: cpp.Int32, Buffer: TArray<cpp.UInt8>): Void;
-	public function ClientInitSharedWorld(PreviewImageSize: cpp.Int32, ARWorldDataSize: cpp.Int32): Void;
+	public function ClientUpdatePreviewImageData(Offset: ucpp.num.Int32, Buffer: TArray<ucpp.num.UInt8>): Void;
+	public function ClientUpdateARWorldData(Offset: ucpp.num.Int32, Buffer: TArray<ucpp.num.UInt8>): Void;
+	public function ClientInitSharedWorld(PreviewImageSize: ucpp.num.Int32, ARWorldDataSize: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstARSharedWorldPlayerController(ARSharedWorldPlayerController) from 
 @:forward
 @:nativeGen
 @:native("ARSharedWorldPlayerController*")
-abstract ARSharedWorldPlayerControllerPtr(cpp.Star<ARSharedWorldPlayerController>) from cpp.Star<ARSharedWorldPlayerController> to cpp.Star<ARSharedWorldPlayerController>{
+abstract ARSharedWorldPlayerControllerPtr(ucpp.Ptr<ARSharedWorldPlayerController>) from ucpp.Ptr<ARSharedWorldPlayerController> to ucpp.Ptr<ARSharedWorldPlayerController>{
 	@:from
 	public static extern inline function fromValue(v: ARSharedWorldPlayerController): ARSharedWorldPlayerControllerPtr {
 		return untyped __cpp__("&({0})", v);

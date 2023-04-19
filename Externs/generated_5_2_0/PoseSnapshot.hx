@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPoseSnapshot")
 @:include("Animation/PoseSnapshot.h")
-@:structAccess
+@:valueType
 extern class PoseSnapshot {
 	public var LocalTransforms: TArray<Transform>;
 	public var BoneNames: TArray<FName>;

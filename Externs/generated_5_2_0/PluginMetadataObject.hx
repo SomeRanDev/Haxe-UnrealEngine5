@@ -3,9 +3,9 @@ package ue;
 
 @:native("UPluginMetadataObject")
 @:include("PluginMetadataObject.h")
-@:structAccess
+@:valueType
 extern class PluginMetadataObject extends Object {
-	public var Version: cpp.Int32;
+	public var Version: ucpp.num.Int32;
 	public var VersionName: FString;
 	public var FriendlyName: FString;
 	public var Description: FString;
@@ -23,14 +23,14 @@ extern class PluginMetadataObject extends Object {
 
 	public function GetAvailablePluginDependencies(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAvailablePluginDependencies)
 @:nativeGen
 abstract ConstPluginMetadataObject(PluginMetadataObject) from PluginMetadataObject {
-	public extern var Version(get, never): cpp.Int32;
-	public inline extern function get_Version(): cpp.Int32 return this.Version;
+	public extern var Version(get, never): ucpp.num.Int32;
+	public inline extern function get_Version(): ucpp.num.Int32 return this.Version;
 	public extern var VersionName(get, never): FString;
 	public inline extern function get_VersionName(): FString return this.VersionName;
 	public extern var FriendlyName(get, never): FString;
@@ -64,7 +64,7 @@ abstract ConstPluginMetadataObject(PluginMetadataObject) from PluginMetadataObje
 @:forward
 @:nativeGen
 @:native("PluginMetadataObject*")
-abstract PluginMetadataObjectPtr(cpp.Star<PluginMetadataObject>) from cpp.Star<PluginMetadataObject> to cpp.Star<PluginMetadataObject>{
+abstract PluginMetadataObjectPtr(ucpp.Ptr<PluginMetadataObject>) from ucpp.Ptr<PluginMetadataObject> to ucpp.Ptr<PluginMetadataObject>{
 	@:from
 	public static extern inline function fromValue(v: PluginMetadataObject): PluginMetadataObjectPtr {
 		return untyped __cpp__("&({0})", v);

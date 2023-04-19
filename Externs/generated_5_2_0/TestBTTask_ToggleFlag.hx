@@ -3,25 +3,25 @@ package ue;
 
 @:native("UTestBTTask_ToggleFlag")
 @:include("BehaviorTree/TestBTTask_ToggleFlag.h")
-@:structAccess
+@:valueType
 extern class TestBTTask_ToggleFlag extends BTTaskNode {
-	public var LogIndex: cpp.Int32;
+	public var LogIndex: ucpp.num.Int32;
 	public var KeyName: FName;
-	public var NumToggles: cpp.Int32;
+	public var NumToggles: ucpp.num.Int32;
 	public var TaskResult: TEnumAsByte<EBTNodeResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTestBTTask_ToggleFlag(TestBTTask_ToggleFlag) from TestBTTask_ToggleFlag {
-	public extern var LogIndex(get, never): cpp.Int32;
-	public inline extern function get_LogIndex(): cpp.Int32 return this.LogIndex;
+	public extern var LogIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndex(): ucpp.num.Int32 return this.LogIndex;
 	public extern var KeyName(get, never): FName;
 	public inline extern function get_KeyName(): FName return this.KeyName;
-	public extern var NumToggles(get, never): cpp.Int32;
-	public inline extern function get_NumToggles(): cpp.Int32 return this.NumToggles;
+	public extern var NumToggles(get, never): ucpp.num.Int32;
+	public inline extern function get_NumToggles(): ucpp.num.Int32 return this.NumToggles;
 	public extern var TaskResult(get, never): TEnumAsByte<EBTNodeResult>;
 	public inline extern function get_TaskResult(): TEnumAsByte<EBTNodeResult> return this.TaskResult;
 }
@@ -29,7 +29,7 @@ abstract ConstTestBTTask_ToggleFlag(TestBTTask_ToggleFlag) from TestBTTask_Toggl
 @:forward
 @:nativeGen
 @:native("TestBTTask_ToggleFlag*")
-abstract TestBTTask_ToggleFlagPtr(cpp.Star<TestBTTask_ToggleFlag>) from cpp.Star<TestBTTask_ToggleFlag> to cpp.Star<TestBTTask_ToggleFlag>{
+abstract TestBTTask_ToggleFlagPtr(ucpp.Ptr<TestBTTask_ToggleFlag>) from ucpp.Ptr<TestBTTask_ToggleFlag> to ucpp.Ptr<TestBTTask_ToggleFlag>{
 	@:from
 	public static extern inline function fromValue(v: TestBTTask_ToggleFlag): TestBTTask_ToggleFlagPtr {
 		return untyped __cpp__("&({0})", v);

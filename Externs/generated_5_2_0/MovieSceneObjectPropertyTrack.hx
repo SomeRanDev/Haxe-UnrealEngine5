@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneObjectPropertyTrack")
 @:include("Tracks/MovieSceneObjectPropertyTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneObjectPropertyTrack extends MovieScenePropertyTrack {
 	public var PropertyClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneObjectPropertyTrack(MovieSceneObjectPropertyTrack) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneObjectPropertyTrack*")
-abstract MovieSceneObjectPropertyTrackPtr(cpp.Star<MovieSceneObjectPropertyTrack>) from cpp.Star<MovieSceneObjectPropertyTrack> to cpp.Star<MovieSceneObjectPropertyTrack>{
+abstract MovieSceneObjectPropertyTrackPtr(ucpp.Ptr<MovieSceneObjectPropertyTrack>) from ucpp.Ptr<MovieSceneObjectPropertyTrack> to ucpp.Ptr<MovieSceneObjectPropertyTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneObjectPropertyTrack): MovieSceneObjectPropertyTrackPtr {
 		return untyped __cpp__("&({0})", v);

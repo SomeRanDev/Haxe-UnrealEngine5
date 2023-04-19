@@ -3,18 +3,18 @@ package ue;
 
 @:native("UARPlaneComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARPlaneComp extends ARComp {
 	@:protected public var ReplicatedPayload: ARPlaneUpdatePayload;
 
 	public function SetPlaneComponentDebugMode(NewDebugMode: EPlaneComponentDebugMode): Void;
-	public function SetObjectClassificationDebugColors(InColors: cpp.Reference<TMap<EARObjectClassification, LinearColor>>): Void;
+	public function SetObjectClassificationDebugColors(InColors: ucpp.Ref<TMap<EARObjectClassification, LinearColor>>): Void;
 	@:protected public function ServerUpdatePayload(NewPayload: ARPlaneUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<ARPlaneUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<ARPlaneUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<ARPlaneUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<ARPlaneUpdatePayload>): Void;
 	public function GetObjectClassificationDebugColors(): TMap<EARObjectClassification, LinearColor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstARPlaneComp(ARPlaneComp) from ARPlaneComp {
 @:forward
 @:nativeGen
 @:native("ARPlaneComp*")
-abstract ARPlaneCompPtr(cpp.Star<ARPlaneComp>) from cpp.Star<ARPlaneComp> to cpp.Star<ARPlaneComp>{
+abstract ARPlaneCompPtr(ucpp.Ptr<ARPlaneComp>) from ucpp.Ptr<ARPlaneComp> to ucpp.Ptr<ARPlaneComp>{
 	@:from
 	public static extern inline function fromValue(v: ARPlaneComp): ARPlaneCompPtr {
 		return untyped __cpp__("&({0})", v);

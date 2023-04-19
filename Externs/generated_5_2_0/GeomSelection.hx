@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGeomSelection")
 @:include("Engine/Brush.h")
-@:structAccess
+@:valueType
 extern class GeomSelection {
-	public var Type: cpp.Int32;
-	public var Index: cpp.Int32;
-	public var SelectionIndex: cpp.Int32;
+	public var Type: ucpp.num.Int32;
+	public var Index: ucpp.num.Int32;
+	public var SelectionIndex: ucpp.num.Int32;
 
 	@:native("FGeomSelection") public function new();
-	@:native("FGeomSelection") public static function make(Type: cpp.Int32, Index: cpp.Int32, SelectionIndex: cpp.Int32): GeomSelection ;
+	@:native("FGeomSelection") public static function make(Type: ucpp.num.Int32, Index: ucpp.num.Int32, SelectionIndex: ucpp.num.Int32): GeomSelection ;
 }

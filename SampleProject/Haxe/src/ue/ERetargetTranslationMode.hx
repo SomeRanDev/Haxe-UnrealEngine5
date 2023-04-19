@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ERetargetTranslationMode")
-@:include("Retargeter/IKRetargeter.h")
+@:include("Retargeter/IKRetargetSettings.h")
 extern class ERetargetTranslationMode {
 	static var None: ERetargetTranslationMode;
 	static var GloballyScaled: ERetargetTranslationMode;

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UKismetMaterialLibrary")
 @:include("Kismet/KismetMaterialLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetMaterialLibrary extends BlueprintFunctionLibrary {
-	public function SetVectorParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName, ParameterValue: cpp.Reference<LinearColor>): Void;
-	public function SetScalarParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName, ParameterValue: cpp.Float32): Void;
-	public function GetVectorParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName): LinearColor;
-	public function GetScalarParameterValue(WorldContextObject: cpp.Star<Object>, Collection: cpp.Star<MaterialParameterCollection>, ParameterName: FName): cpp.Float32;
-	public function CreateDynamicMaterialInstance(WorldContextObject: cpp.Star<Object>, Parent: cpp.Star<MaterialInterface>, OptionalName: FName, CreationFlags: EMIDCreationFlags): cpp.Star<MaterialInstanceDynamic>;
+	public function SetVectorParameterValue(WorldContextObject: ucpp.Ptr<Object>, Collection: ucpp.Ptr<MaterialParameterCollection>, ParameterName: FName, ParameterValue: ucpp.Ref<LinearColor>): Void;
+	public function SetScalarParameterValue(WorldContextObject: ucpp.Ptr<Object>, Collection: ucpp.Ptr<MaterialParameterCollection>, ParameterName: FName, ParameterValue: ucpp.num.Float32): Void;
+	public function GetVectorParameterValue(WorldContextObject: ucpp.Ptr<Object>, Collection: ucpp.Ptr<MaterialParameterCollection>, ParameterName: FName): LinearColor;
+	public function GetScalarParameterValue(WorldContextObject: ucpp.Ptr<Object>, Collection: ucpp.Ptr<MaterialParameterCollection>, ParameterName: FName): ucpp.num.Float32;
+	public function CreateDynamicMaterialInstance(WorldContextObject: ucpp.Ptr<Object>, Parent: ucpp.Ptr<MaterialInterface>, OptionalName: FName, CreationFlags: EMIDCreationFlags): ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstKismetMaterialLibrary(KismetMaterialLibrary) from KismetMaterialLi
 @:forward
 @:nativeGen
 @:native("KismetMaterialLibrary*")
-abstract KismetMaterialLibraryPtr(cpp.Star<KismetMaterialLibrary>) from cpp.Star<KismetMaterialLibrary> to cpp.Star<KismetMaterialLibrary>{
+abstract KismetMaterialLibraryPtr(ucpp.Ptr<KismetMaterialLibrary>) from ucpp.Ptr<KismetMaterialLibrary> to ucpp.Ptr<KismetMaterialLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetMaterialLibrary): KismetMaterialLibraryPtr {
 		return untyped __cpp__("&({0})", v);

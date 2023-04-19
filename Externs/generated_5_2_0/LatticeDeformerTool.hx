@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULatticeDeformerTool")
 @:include("LatticeDeformerTool.h")
-@:structAccess
+@:valueType
 extern class LatticeDeformerTool extends SingleSelectionMeshEditingTool {
-	@:protected public var ControlPointsMechanic: cpp.Star<LatticeControlPointsMechanic>;
-	@:protected public var Settings: cpp.Star<LatticeDeformerToolProperties>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var ControlPointsMechanic: ucpp.Ptr<LatticeControlPointsMechanic>;
+	@:protected public var Settings: ucpp.Ptr<LatticeDeformerToolProperties>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 	@:protected public var bLatticeDeformed: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLatticeDeformerTool(LatticeDeformerTool) from LatticeDeformerTool 
 @:forward
 @:nativeGen
 @:native("LatticeDeformerTool*")
-abstract LatticeDeformerToolPtr(cpp.Star<LatticeDeformerTool>) from cpp.Star<LatticeDeformerTool> to cpp.Star<LatticeDeformerTool>{
+abstract LatticeDeformerToolPtr(ucpp.Ptr<LatticeDeformerTool>) from ucpp.Ptr<LatticeDeformerTool> to ucpp.Ptr<LatticeDeformerTool>{
 	@:from
 	public static extern inline function fromValue(v: LatticeDeformerTool): LatticeDeformerToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialBillboardComponent")
 @:include("Components/MaterialBillboardComponent.h")
-@:structAccess
+@:valueType
 extern class MaterialBillboardComp extends PrimitiveComp {
 	public var Elements: TArray<MaterialSpriteElement>;
 
-	public function SetElements(NewElements: cpp.Reference<TArray<MaterialSpriteElement>>): Void;
-	public function AddElement(Material: cpp.Star<MaterialInterface>, DistanceToOpacityCurve: cpp.Star<CurveFloat>, bSizeIsInScreenSpace: Bool, BaseSizeX: cpp.Float32, BaseSizeY: cpp.Float32, DistanceToSizeCurve: cpp.Star<CurveFloat>): Void;
+	public function SetElements(NewElements: ucpp.Ref<TArray<MaterialSpriteElement>>): Void;
+	public function AddElement(Material: ucpp.Ptr<MaterialInterface>, DistanceToOpacityCurve: ucpp.Ptr<CurveFloat>, bSizeIsInScreenSpace: Bool, BaseSizeX: ucpp.num.Float32, BaseSizeY: ucpp.num.Float32, DistanceToSizeCurve: ucpp.Ptr<CurveFloat>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialBillboardComp(MaterialBillboardComp) from MaterialBillboar
 @:forward
 @:nativeGen
 @:native("MaterialBillboardComp*")
-abstract MaterialBillboardCompPtr(cpp.Star<MaterialBillboardComp>) from cpp.Star<MaterialBillboardComp> to cpp.Star<MaterialBillboardComp>{
+abstract MaterialBillboardCompPtr(ucpp.Ptr<MaterialBillboardComp>) from ucpp.Ptr<MaterialBillboardComp> to ucpp.Ptr<MaterialBillboardComp>{
 	@:from
 	public static extern inline function fromValue(v: MaterialBillboardComp): MaterialBillboardCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCollisionProfileName")
 @:include("Engine/CollisionProfile.h")
-@:structAccess
+@:valueType
 extern class CollisionProfileName {
 	public var Name: FName;
 

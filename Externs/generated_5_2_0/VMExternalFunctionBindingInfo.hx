@@ -3,12 +3,12 @@ package ue;
 
 @:native("FVMExternalFunctionBindingInfo")
 @:include("NiagaraCommon.h")
-@:structAccess
+@:valueType
 extern class VMExternalFunctionBindingInfo {
 	public var Name: FName;
 	public var OwnerName: FName;
 	public var InputParamLocations: TArray<Bool>;
-	public var NumOutputs: cpp.Int32;
+	public var NumOutputs: ucpp.num.Int32;
 	public var FunctionSpecifiers: TArray<VMFunctionSpecifier>;
 	public var VariadicInputs: TArray<NiagaraVariableBase>;
 	public var VariadicOutputs: TArray<NiagaraVariableBase>;

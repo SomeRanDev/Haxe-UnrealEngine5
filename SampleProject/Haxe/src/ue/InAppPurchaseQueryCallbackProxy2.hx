@@ -3,29 +3,29 @@ package ue;
 
 @:native("UInAppPurchaseQueryCallbackProxy2")
 @:include("InAppPurchaseQueryCallbackProxy2.h")
-@:structAccess
+@:valueType
 extern class InAppPurchaseQueryCallbackProxy2 extends Object {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<OnlineProxyStoreOffer>>) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<OnlineProxyStoreOffer>>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<OnlineProxyStoreOffer>>) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<OnlineProxyStoreOffer>>) -> Void>;
 
-	public function CreateProxyObjectForInAppPurchaseQuery(PlayerController: cpp.Star<PlayerController>, ProductIdentifiers: cpp.Reference<TArray<FString>>): cpp.Star<InAppPurchaseQueryCallbackProxy2>;
+	public function CreateProxyObjectForInAppPurchaseQuery(PlayerController: ucpp.Ptr<PlayerController>, ProductIdentifiers: ucpp.Ref<TArray<FString>>): ucpp.Ptr<InAppPurchaseQueryCallbackProxy2>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInAppPurchaseQueryCallbackProxy2(InAppPurchaseQueryCallbackProxy2) from InAppPurchaseQueryCallbackProxy2 {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<OnlineProxyStoreOffer>>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<OnlineProxyStoreOffer>>) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<OnlineProxyStoreOffer>>) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<OnlineProxyStoreOffer>>) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<OnlineProxyStoreOffer>>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<OnlineProxyStoreOffer>>) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<OnlineProxyStoreOffer>>) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<OnlineProxyStoreOffer>>) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("InAppPurchaseQueryCallbackProxy2*")
-abstract InAppPurchaseQueryCallbackProxy2Ptr(cpp.Star<InAppPurchaseQueryCallbackProxy2>) from cpp.Star<InAppPurchaseQueryCallbackProxy2> to cpp.Star<InAppPurchaseQueryCallbackProxy2>{
+abstract InAppPurchaseQueryCallbackProxy2Ptr(ucpp.Ptr<InAppPurchaseQueryCallbackProxy2>) from ucpp.Ptr<InAppPurchaseQueryCallbackProxy2> to ucpp.Ptr<InAppPurchaseQueryCallbackProxy2>{
 	@:from
 	public static extern inline function fromValue(v: InAppPurchaseQueryCallbackProxy2): InAppPurchaseQueryCallbackProxy2Ptr {
 		return untyped __cpp__("&({0})", v);

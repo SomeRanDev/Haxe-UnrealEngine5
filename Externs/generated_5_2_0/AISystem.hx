@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAISystem")
 @:include("AISystem.h")
-@:structAccess
+@:valueType
 extern class AISystem extends AISystemBase {
 	@:protected public var PerceptionSystemClassName: SoftClassPath;
 	@:protected public var HotSpotManagerClassName: SoftClassPath;
 	@:protected public var EnvQueryManagerClassName: SoftClassPath;
-	public var AcceptanceRadius: cpp.Float32;
-	public var PathfollowingRegularPathPointAcceptanceRadius: cpp.Float32;
-	public var PathfollowingNavLinkAcceptanceRadius: cpp.Float32;
+	public var AcceptanceRadius: ucpp.num.Float32;
+	public var PathfollowingRegularPathPointAcceptanceRadius: ucpp.num.Float32;
+	public var PathfollowingNavLinkAcceptanceRadius: ucpp.num.Float32;
 	public var bFinishMoveOnGoalOverlap: Bool;
 	public var bAcceptPartialPaths: Bool;
 	public var bAllowStrafing: Bool;
@@ -21,28 +21,28 @@ extern class AISystem extends AISystemBase {
 	public var bClearBBEntryOnBTEQSFail: Bool;
 	public var bBlackboardKeyDecoratorAllowsNoneAsValue: Bool;
 	public var DefaultSightCollisionChannel: TEnumAsByte<ECollisionChannel>;
-	@:protected public var BehaviorTreeManager: cpp.Star<BehaviorTreeManager>;
-	@:protected public var EnvironmentQueryManager: cpp.Star<EnvQueryManager>;
-	@:protected public var PerceptionSystem: cpp.Star<AIPerceptionSystem>;
-	@:protected public var AllProxyObjects: TArray<cpp.Star<AIAsyncTaskBlueprintProxy>>;
-	@:protected public var HotSpotManager: cpp.Star<AIHotSpotManager>;
-	@:protected public var NavLocalGrids: cpp.Star<NavLocalGridManager>;
+	@:protected public var BehaviorTreeManager: ucpp.Ptr<BehaviorTreeManager>;
+	@:protected public var EnvironmentQueryManager: ucpp.Ptr<EnvQueryManager>;
+	@:protected public var PerceptionSystem: ucpp.Ptr<AIPerceptionSystem>;
+	@:protected public var AllProxyObjects: TArray<ucpp.Ptr<AIAsyncTaskBlueprintProxy>>;
+	@:protected public var HotSpotManager: ucpp.Ptr<AIHotSpotManager>;
+	@:protected public var NavLocalGrids: ucpp.Ptr<NavLocalGridManager>;
 
 	public function AILoggingVerbose(): Void;
 	public function AIIgnorePlayers(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAISystem(AISystem) from AISystem {
-	public extern var AcceptanceRadius(get, never): cpp.Float32;
-	public inline extern function get_AcceptanceRadius(): cpp.Float32 return this.AcceptanceRadius;
-	public extern var PathfollowingRegularPathPointAcceptanceRadius(get, never): cpp.Float32;
-	public inline extern function get_PathfollowingRegularPathPointAcceptanceRadius(): cpp.Float32 return this.PathfollowingRegularPathPointAcceptanceRadius;
-	public extern var PathfollowingNavLinkAcceptanceRadius(get, never): cpp.Float32;
-	public inline extern function get_PathfollowingNavLinkAcceptanceRadius(): cpp.Float32 return this.PathfollowingNavLinkAcceptanceRadius;
+	public extern var AcceptanceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_AcceptanceRadius(): ucpp.num.Float32 return this.AcceptanceRadius;
+	public extern var PathfollowingRegularPathPointAcceptanceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_PathfollowingRegularPathPointAcceptanceRadius(): ucpp.num.Float32 return this.PathfollowingRegularPathPointAcceptanceRadius;
+	public extern var PathfollowingNavLinkAcceptanceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_PathfollowingNavLinkAcceptanceRadius(): ucpp.num.Float32 return this.PathfollowingNavLinkAcceptanceRadius;
 	public extern var bFinishMoveOnGoalOverlap(get, never): Bool;
 	public inline extern function get_bFinishMoveOnGoalOverlap(): Bool return this.bFinishMoveOnGoalOverlap;
 	public extern var bAcceptPartialPaths(get, never): Bool;
@@ -68,7 +68,7 @@ abstract ConstAISystem(AISystem) from AISystem {
 @:forward
 @:nativeGen
 @:native("AISystem*")
-abstract AISystemPtr(cpp.Star<AISystem>) from cpp.Star<AISystem> to cpp.Star<AISystem>{
+abstract AISystemPtr(ucpp.Ptr<AISystem>) from ucpp.Ptr<AISystem> to ucpp.Ptr<AISystem>{
 	@:from
 	public static extern inline function fromValue(v: AISystem): AISystemPtr {
 		return untyped __cpp__("&({0})", v);

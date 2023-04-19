@@ -3,26 +3,26 @@ package ue;
 
 @:native("UMaterialExpressionTextureCoordinate")
 @:include("Materials/MaterialExpressionTextureCoordinate.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTextureCoordinate extends MaterialExpression {
-	public var CoordinateIndex: cpp.Int32;
-	public var UTiling: cpp.Float32;
-	public var VTiling: cpp.Float32;
+	public var CoordinateIndex: ucpp.num.Int32;
+	public var UTiling: ucpp.num.Float32;
+	public var VTiling: ucpp.num.Float32;
 	public var UnMirrorU: Bool;
 	public var UnMirrorV: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionTextureCoordinate(MaterialExpressionTextureCoordinate) from MaterialExpressionTextureCoordinate {
-	public extern var CoordinateIndex(get, never): cpp.Int32;
-	public inline extern function get_CoordinateIndex(): cpp.Int32 return this.CoordinateIndex;
-	public extern var UTiling(get, never): cpp.Float32;
-	public inline extern function get_UTiling(): cpp.Float32 return this.UTiling;
-	public extern var VTiling(get, never): cpp.Float32;
-	public inline extern function get_VTiling(): cpp.Float32 return this.VTiling;
+	public extern var CoordinateIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_CoordinateIndex(): ucpp.num.Int32 return this.CoordinateIndex;
+	public extern var UTiling(get, never): ucpp.num.Float32;
+	public inline extern function get_UTiling(): ucpp.num.Float32 return this.UTiling;
+	public extern var VTiling(get, never): ucpp.num.Float32;
+	public inline extern function get_VTiling(): ucpp.num.Float32 return this.VTiling;
 	public extern var UnMirrorU(get, never): Bool;
 	public inline extern function get_UnMirrorU(): Bool return this.UnMirrorU;
 	public extern var UnMirrorV(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstMaterialExpressionTextureCoordinate(MaterialExpressionTextureCoord
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTextureCoordinate*")
-abstract MaterialExpressionTextureCoordinatePtr(cpp.Star<MaterialExpressionTextureCoordinate>) from cpp.Star<MaterialExpressionTextureCoordinate> to cpp.Star<MaterialExpressionTextureCoordinate>{
+abstract MaterialExpressionTextureCoordinatePtr(ucpp.Ptr<MaterialExpressionTextureCoordinate>) from ucpp.Ptr<MaterialExpressionTextureCoordinate> to ucpp.Ptr<MaterialExpressionTextureCoordinate>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTextureCoordinate): MaterialExpressionTextureCoordinatePtr {
 		return untyped __cpp__("&({0})", v);

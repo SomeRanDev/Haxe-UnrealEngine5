@@ -3,32 +3,32 @@ package ue;
 
 @:native("UGranularSynth")
 @:include("SynthComponents/SynthComponentGranulator.h")
-@:structAccess
+@:valueType
 extern class GranularSynth extends SynthComp {
-	@:protected public var GranulatedSoundWave: cpp.Star<SoundWave>;
+	@:protected public var GranulatedSoundWave: ucpp.Ptr<SoundWave>;
 
-	public function SetSustainGain(SustainGain: cpp.Float32): Void;
-	public function SetSoundWave(InSoundWave: cpp.Star<SoundWave>): Void;
+	public function SetSustainGain(SustainGain: ucpp.num.Float32): Void;
+	public function SetSoundWave(InSoundWave: ucpp.Ptr<SoundWave>): Void;
 	public function SetScrubMode(bScrubMode: Bool): Void;
-	public function SetReleaseTimeMsec(ReleaseTimeMsec: cpp.Float32): Void;
-	public function SetPlayheadTime(InPositionSec: cpp.Float32, LerpTimeSec: cpp.Float32, SeekType: EGranularSynthSeekType): Void;
-	public function SetPlaybackSpeed(InPlayheadRate: cpp.Float32): Void;
-	public function SetGrainVolume(BaseVolume: cpp.Float32, VolumeRange: Vector2D): Void;
-	public function SetGrainsPerSecond(InGrainsPerSecond: cpp.Float32): Void;
-	public function SetGrainProbability(InGrainProbability: cpp.Float32): Void;
-	public function SetGrainPitch(BasePitch: cpp.Float32, PitchRange: Vector2D): Void;
-	public function SetGrainPan(BasePan: cpp.Float32, PanRange: Vector2D): Void;
+	public function SetReleaseTimeMsec(ReleaseTimeMsec: ucpp.num.Float32): Void;
+	public function SetPlayheadTime(InPositionSec: ucpp.num.Float32, LerpTimeSec: ucpp.num.Float32, SeekType: EGranularSynthSeekType): Void;
+	public function SetPlaybackSpeed(InPlayheadRate: ucpp.num.Float32): Void;
+	public function SetGrainVolume(BaseVolume: ucpp.num.Float32, VolumeRange: Vector2D): Void;
+	public function SetGrainsPerSecond(InGrainsPerSecond: ucpp.num.Float32): Void;
+	public function SetGrainProbability(InGrainProbability: ucpp.num.Float32): Void;
+	public function SetGrainPitch(BasePitch: ucpp.num.Float32, PitchRange: Vector2D): Void;
+	public function SetGrainPan(BasePan: ucpp.num.Float32, PanRange: Vector2D): Void;
 	public function SetGrainEnvelopeType(EnvelopeType: EGranularSynthEnvelopeType): Void;
-	public function SetGrainDuration(BaseDurationMsec: cpp.Float32, DurationRange: Vector2D): Void;
-	public function SetDecayTime(DecayTimeMsec: cpp.Float32): Void;
-	public function SetAttackTime(AttackTimeMsec: cpp.Float32): Void;
-	public function NoteOn(Note: cpp.Float32, Velocity: cpp.Int32, Duration: cpp.Float32): Void;
-	public function NoteOff(Note: cpp.Float32, bKill: Bool): Void;
+	public function SetGrainDuration(BaseDurationMsec: ucpp.num.Float32, DurationRange: Vector2D): Void;
+	public function SetDecayTime(DecayTimeMsec: ucpp.num.Float32): Void;
+	public function SetAttackTime(AttackTimeMsec: ucpp.num.Float32): Void;
+	public function NoteOn(Note: ucpp.num.Float32, Velocity: ucpp.num.Int32, Duration: ucpp.num.Float32): Void;
+	public function NoteOff(Note: ucpp.num.Float32, bKill: Bool): Void;
 	public function IsLoaded(): Bool;
-	public function GetSampleDuration(): cpp.Float32;
-	public function GetCurrentPlayheadTime(): cpp.Float32;
+	public function GetSampleDuration(): ucpp.num.Float32;
+	public function GetCurrentPlayheadTime(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsLoaded, GetSampleDuration, GetCurrentPlayheadTime)
@@ -39,7 +39,7 @@ abstract ConstGranularSynth(GranularSynth) from GranularSynth {
 @:forward
 @:nativeGen
 @:native("GranularSynth*")
-abstract GranularSynthPtr(cpp.Star<GranularSynth>) from cpp.Star<GranularSynth> to cpp.Star<GranularSynth>{
+abstract GranularSynthPtr(ucpp.Ptr<GranularSynth>) from ucpp.Ptr<GranularSynth> to ucpp.Ptr<GranularSynth>{
 	@:from
 	public static extern inline function fromValue(v: GranularSynth): GranularSynthPtr {
 		return untyped __cpp__("&({0})", v);

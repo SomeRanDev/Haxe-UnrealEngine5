@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimNode_TwoBoneIK")
 @:include("BoneControllers/AnimNode_TwoBoneIK.h")
-@:structAccess
+@:valueType
 extern class AnimNode_TwoBoneIK extends AnimNode_SkeletalControlBase {
 	public var IKBone: BoneReference;
-	public var StartStretchRatio: cpp.Float64;
-	public var MaxStretchScale: cpp.Float64;
+	public var StartStretchRatio: ucpp.num.Float64;
+	public var MaxStretchScale: ucpp.num.Float64;
 	public var EffectorLocation: Vector;
 	public var EffectorTarget: BoneSocketTarget;
 	public var JointTargetLocation: Vector;

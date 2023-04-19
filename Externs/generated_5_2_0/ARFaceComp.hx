@@ -3,7 +3,7 @@ package ue;
 
 @:native("UARFaceComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARFaceComp extends ARComp {
 	@:protected public var TransformSetting: EARFaceTransformMixing;
 	@:protected public var bUpdateVertexNormal: Bool;
@@ -12,10 +12,10 @@ extern class ARFaceComp extends ARComp {
 
 	public function SetFaceComponentDebugMode(NewDebugMode: EFaceComponentDebugMode): Void;
 	@:protected public function ServerUpdatePayload(NewPayload: ARFaceUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<ARFaceUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<ARFaceUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<ARFaceUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<ARFaceUpdatePayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstARFaceComp(ARFaceComp) from ARFaceComp {
 @:forward
 @:nativeGen
 @:native("ARFaceComp*")
-abstract ARFaceCompPtr(cpp.Star<ARFaceComp>) from cpp.Star<ARFaceComp> to cpp.Star<ARFaceComp>{
+abstract ARFaceCompPtr(ucpp.Ptr<ARFaceComp>) from ucpp.Ptr<ARFaceComp> to ucpp.Ptr<ARFaceComp>{
 	@:from
 	public static extern inline function fromValue(v: ARFaceComp): ARFaceCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UResonanceAudioBlueprintFunctionLibrary")
 @:include("ResonanceAudioBlueprintFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
-	public function SetGlobalReverbPreset(InPreset: cpp.Star<ResonanceAudioReverbPluginPreset>): Void;
-	public function GetGlobalReverbPreset(): cpp.Star<ResonanceAudioReverbPluginPreset>;
+	public function SetGlobalReverbPreset(InPreset: ucpp.Ptr<ResonanceAudioReverbPluginPreset>): Void;
+	public function GetGlobalReverbPreset(): ucpp.Ptr<ResonanceAudioReverbPluginPreset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstResonanceAudioBlueprintFunctionLibrary(ResonanceAudioBlueprintFunc
 @:forward
 @:nativeGen
 @:native("ResonanceAudioBlueprintFunctionLibrary*")
-abstract ResonanceAudioBlueprintFunctionLibraryPtr(cpp.Star<ResonanceAudioBlueprintFunctionLibrary>) from cpp.Star<ResonanceAudioBlueprintFunctionLibrary> to cpp.Star<ResonanceAudioBlueprintFunctionLibrary>{
+abstract ResonanceAudioBlueprintFunctionLibraryPtr(ucpp.Ptr<ResonanceAudioBlueprintFunctionLibrary>) from ucpp.Ptr<ResonanceAudioBlueprintFunctionLibrary> to ucpp.Ptr<ResonanceAudioBlueprintFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioBlueprintFunctionLibrary): ResonanceAudioBlueprintFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

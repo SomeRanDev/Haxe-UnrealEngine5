@@ -3,21 +3,21 @@ package ue;
 
 @:native("ABrush")
 @:include("Engine/Brush.h")
-@:structAccess
+@:valueType
 extern class Brush extends Actor {
 	public var BrushType: TEnumAsByte<EBrushType>;
 	public var BrushColor: Color;
-	public var PolyFlags: cpp.Int32;
+	public var PolyFlags: ucpp.num.Int32;
 	public var bColored: Bool;
 	public var bSolidWhenSelected: Bool;
 	public var bPlaceableFromClassBrowser: Bool;
 	public var bNotForClientOrServer: Bool;
-	public var Brush: cpp.Star<Model>;
-	private var BrushComponent: cpp.Star<BrushComp>;
+	public var Brush: ucpp.Ptr<Model>;
+	private var BrushComponent: ucpp.Ptr<BrushComp>;
 	public var bInManipulation: Bool;
 	public var SavedSelections: TArray<GeomSelection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,8 +27,8 @@ abstract ConstBrush(Brush) from Brush {
 	public inline extern function get_BrushType(): TEnumAsByte<EBrushType> return this.BrushType;
 	public extern var BrushColor(get, never): Color;
 	public inline extern function get_BrushColor(): Color return this.BrushColor;
-	public extern var PolyFlags(get, never): cpp.Int32;
-	public inline extern function get_PolyFlags(): cpp.Int32 return this.PolyFlags;
+	public extern var PolyFlags(get, never): ucpp.num.Int32;
+	public inline extern function get_PolyFlags(): ucpp.num.Int32 return this.PolyFlags;
 	public extern var bColored(get, never): Bool;
 	public inline extern function get_bColored(): Bool return this.bColored;
 	public extern var bSolidWhenSelected(get, never): Bool;
@@ -37,8 +37,8 @@ abstract ConstBrush(Brush) from Brush {
 	public inline extern function get_bPlaceableFromClassBrowser(): Bool return this.bPlaceableFromClassBrowser;
 	public extern var bNotForClientOrServer(get, never): Bool;
 	public inline extern function get_bNotForClientOrServer(): Bool return this.bNotForClientOrServer;
-	public extern var Brush(get, never): cpp.Star<Model.ConstModel>;
-	public inline extern function get_Brush(): cpp.Star<Model.ConstModel> return this.Brush;
+	public extern var Brush(get, never): ucpp.Ptr<Model.ConstModel>;
+	public inline extern function get_Brush(): ucpp.Ptr<Model.ConstModel> return this.Brush;
 	public extern var bInManipulation(get, never): Bool;
 	public inline extern function get_bInManipulation(): Bool return this.bInManipulation;
 	public extern var SavedSelections(get, never): TArray<GeomSelection>;
@@ -48,7 +48,7 @@ abstract ConstBrush(Brush) from Brush {
 @:forward
 @:nativeGen
 @:native("Brush*")
-abstract BrushPtr(cpp.Star<Brush>) from cpp.Star<Brush> to cpp.Star<Brush>{
+abstract BrushPtr(ucpp.Ptr<Brush>) from ucpp.Ptr<Brush> to ucpp.Ptr<Brush>{
 	@:from
 	public static extern inline function fromValue(v: Brush): BrushPtr {
 		return untyped __cpp__("&({0})", v);

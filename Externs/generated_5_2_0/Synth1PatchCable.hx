@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSynth1PatchCable")
 @:include("EpicSynth1Types.h")
-@:structAccess
+@:valueType
 extern class Synth1PatchCable {
-	public var Depth: cpp.Float32;
+	public var Depth: ucpp.num.Float32;
 	public var Destination: ESynth1PatchDestination;
 
 	@:native("FSynth1PatchCable") public function new();
-	@:native("FSynth1PatchCable") public static function make(Depth: cpp.Float32, Destination: ESynth1PatchDestination): Synth1PatchCable ;
+	@:native("FSynth1PatchCable") public static function make(Depth: ucpp.num.Float32, Destination: ESynth1PatchDestination): Synth1PatchCable ;
 }

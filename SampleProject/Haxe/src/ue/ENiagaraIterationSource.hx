@@ -2,9 +2,10 @@
 package ue;
 
 @:native("ENiagaraIterationSource")
-@:include("NiagaraCommon.h")
+@:include("NiagaraCore.h")
 extern class ENiagaraIterationSource {
 	static var Particles: ENiagaraIterationSource;
 	static var DataInterface: ENiagaraIterationSource;
+	static var DirectSet: ENiagaraIterationSource;
 	static var ENiagaraIterationSource_MAX: ENiagaraIterationSource;
 }

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInputDebugKeyHandlerDynamicSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class InputDebugKeyHandlerDynamicSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInputDebugKeyHandlerDynamicSignature__PythonCallable(InputDebugKey
 @:forward
 @:nativeGen
 @:native("InputDebugKeyHandlerDynamicSignature__PythonCallable*")
-abstract InputDebugKeyHandlerDynamicSignature__PythonCallablePtr(cpp.Star<InputDebugKeyHandlerDynamicSignature__PythonCallable>) from cpp.Star<InputDebugKeyHandlerDynamicSignature__PythonCallable> to cpp.Star<InputDebugKeyHandlerDynamicSignature__PythonCallable>{
+abstract InputDebugKeyHandlerDynamicSignature__PythonCallablePtr(ucpp.Ptr<InputDebugKeyHandlerDynamicSignature__PythonCallable>) from ucpp.Ptr<InputDebugKeyHandlerDynamicSignature__PythonCallable> to ucpp.Ptr<InputDebugKeyHandlerDynamicSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InputDebugKeyHandlerDynamicSignature__PythonCallable): InputDebugKeyHandlerDynamicSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

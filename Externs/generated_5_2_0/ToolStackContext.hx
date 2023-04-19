@@ -3,12 +3,12 @@ package ue;
 
 @:native("UToolStackContext")
 @:include("ToolContexts/ToolStackContext.h")
-@:structAccess
+@:valueType
 extern class ToolStackContext extends Object {
 	public var EdMode: TWeakObjectPtr<EdMode>;
 	@:protected public var ToolStacks: TMap<FString, InteractiveToolStack>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstToolStackContext(ToolStackContext) from ToolStackContext {
 @:forward
 @:nativeGen
 @:native("ToolStackContext*")
-abstract ToolStackContextPtr(cpp.Star<ToolStackContext>) from cpp.Star<ToolStackContext> to cpp.Star<ToolStackContext>{
+abstract ToolStackContextPtr(ucpp.Ptr<ToolStackContext>) from ucpp.Ptr<ToolStackContext> to ucpp.Ptr<ToolStackContext>{
 	@:from
 	public static extern inline function fromValue(v: ToolStackContext): ToolStackContextPtr {
 		return untyped __cpp__("&({0})", v);

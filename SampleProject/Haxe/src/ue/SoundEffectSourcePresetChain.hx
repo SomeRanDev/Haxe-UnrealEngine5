@@ -3,12 +3,12 @@ package ue;
 
 @:native("USoundEffectSourcePresetChain")
 @:include("Sound/SoundEffectSource.h")
-@:structAccess
+@:valueType
 extern class SoundEffectSourcePresetChain extends Object {
 	public var Chain: TArray<SourceEffectChainEntry>;
 	public var bPlayEffectChainTails: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSoundEffectSourcePresetChain(SoundEffectSourcePresetChain) from So
 @:forward
 @:nativeGen
 @:native("SoundEffectSourcePresetChain*")
-abstract SoundEffectSourcePresetChainPtr(cpp.Star<SoundEffectSourcePresetChain>) from cpp.Star<SoundEffectSourcePresetChain> to cpp.Star<SoundEffectSourcePresetChain>{
+abstract SoundEffectSourcePresetChainPtr(ucpp.Ptr<SoundEffectSourcePresetChain>) from ucpp.Ptr<SoundEffectSourcePresetChain> to ucpp.Ptr<SoundEffectSourcePresetChain>{
 	@:from
 	public static extern inline function fromValue(v: SoundEffectSourcePresetChain): SoundEffectSourcePresetChainPtr {
 		return untyped __cpp__("&({0})", v);

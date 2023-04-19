@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPackageTools")
 @:include("PackageTools.h")
-@:structAccess
+@:valueType
 extern class PackageTools extends Object {
 	public function SanitizePackageName(InPackageName: FString): FString;
 	public function PackageNameToFilename(PackageName: FString, Extension: FString): FString;
 	public function FilenameToPackageName(Filename: FString): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPackageTools(PackageTools) from PackageTools {
 @:forward
 @:nativeGen
 @:native("PackageTools*")
-abstract PackageToolsPtr(cpp.Star<PackageTools>) from cpp.Star<PackageTools> to cpp.Star<PackageTools>{
+abstract PackageToolsPtr(ucpp.Ptr<PackageTools>) from ucpp.Ptr<PackageTools> to ucpp.Ptr<PackageTools>{
 	@:from
 	public static extern inline function fromValue(v: PackageTools): PackageToolsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPreviewBackgroundSettings")
 @:include("MaterialEditorSettings.h")
-@:structAccess
+@:valueType
 extern class PreviewBackgroundSettings {
 	public var bShowBorder: Bool;
 	public var BorderColor: Color;

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UUVProjectionToolEditActions")
 @:include("UVProjectionTool.h")
-@:structAccess
+@:valueType
 extern class UVProjectionToolEditActions extends InteractiveToolPropertySet {
 	public function Reset(): Void;
 	public function AutoFitAlign(): Void;
 	public function AutoFit(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUVProjectionToolEditActions(UVProjectionToolEditActions) from UVPr
 @:forward
 @:nativeGen
 @:native("UVProjectionToolEditActions*")
-abstract UVProjectionToolEditActionsPtr(cpp.Star<UVProjectionToolEditActions>) from cpp.Star<UVProjectionToolEditActions> to cpp.Star<UVProjectionToolEditActions>{
+abstract UVProjectionToolEditActionsPtr(ucpp.Ptr<UVProjectionToolEditActions>) from ucpp.Ptr<UVProjectionToolEditActions> to ucpp.Ptr<UVProjectionToolEditActions>{
 	@:from
 	public static extern inline function fromValue(v: UVProjectionToolEditActions): UVProjectionToolEditActionsPtr {
 		return untyped __cpp__("&({0})", v);

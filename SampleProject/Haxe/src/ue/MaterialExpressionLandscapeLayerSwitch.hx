@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerSwitch")
 @:include("Materials/MaterialExpressionLandscapeLayerSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLandscapeLayerSwitch extends MaterialExpression {
 	public var LayerUsed: ExpressionInput;
 	public var LayerNotUsed: ExpressionInput;
 	public var ParameterName: FName;
 	public var PreviewUsed: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMaterialExpressionLandscapeLayerSwitch(MaterialExpressionLandscape
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLandscapeLayerSwitch*")
-abstract MaterialExpressionLandscapeLayerSwitchPtr(cpp.Star<MaterialExpressionLandscapeLayerSwitch>) from cpp.Star<MaterialExpressionLandscapeLayerSwitch> to cpp.Star<MaterialExpressionLandscapeLayerSwitch>{
+abstract MaterialExpressionLandscapeLayerSwitchPtr(ucpp.Ptr<MaterialExpressionLandscapeLayerSwitch>) from ucpp.Ptr<MaterialExpressionLandscapeLayerSwitch> to ucpp.Ptr<MaterialExpressionLandscapeLayerSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLandscapeLayerSwitch): MaterialExpressionLandscapeLayerSwitchPtr {
 		return untyped __cpp__("&({0})", v);

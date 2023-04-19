@@ -3,7 +3,7 @@ package ue;
 
 @:native("AArchVisCharacter")
 @:include("ArchVisCharacter.h")
-@:structAccess
+@:valueType
 extern class ArchVisCharacter extends Character {
 	public var LookUpAxisName: FString;
 	public var LookUpAtRateAxisName: FString;
@@ -11,10 +11,10 @@ extern class ArchVisCharacter extends Character {
 	public var TurnAtRateAxisName: FString;
 	public var MoveForwardAxisName: FString;
 	public var MoveRightAxisName: FString;
-	public var MouseSensitivityScale_Pitch: cpp.Float32;
-	public var MouseSensitivityScale_Yaw: cpp.Float32;
+	public var MouseSensitivityScale_Pitch: ucpp.num.Float32;
+	public var MouseSensitivityScale_Yaw: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,16 +32,16 @@ abstract ConstArchVisCharacter(ArchVisCharacter) from ArchVisCharacter {
 	public inline extern function get_MoveForwardAxisName(): FString return this.MoveForwardAxisName;
 	public extern var MoveRightAxisName(get, never): FString;
 	public inline extern function get_MoveRightAxisName(): FString return this.MoveRightAxisName;
-	public extern var MouseSensitivityScale_Pitch(get, never): cpp.Float32;
-	public inline extern function get_MouseSensitivityScale_Pitch(): cpp.Float32 return this.MouseSensitivityScale_Pitch;
-	public extern var MouseSensitivityScale_Yaw(get, never): cpp.Float32;
-	public inline extern function get_MouseSensitivityScale_Yaw(): cpp.Float32 return this.MouseSensitivityScale_Yaw;
+	public extern var MouseSensitivityScale_Pitch(get, never): ucpp.num.Float32;
+	public inline extern function get_MouseSensitivityScale_Pitch(): ucpp.num.Float32 return this.MouseSensitivityScale_Pitch;
+	public extern var MouseSensitivityScale_Yaw(get, never): ucpp.num.Float32;
+	public inline extern function get_MouseSensitivityScale_Yaw(): ucpp.num.Float32 return this.MouseSensitivityScale_Yaw;
 }
 
 @:forward
 @:nativeGen
 @:native("ArchVisCharacter*")
-abstract ArchVisCharacterPtr(cpp.Star<ArchVisCharacter>) from cpp.Star<ArchVisCharacter> to cpp.Star<ArchVisCharacter>{
+abstract ArchVisCharacterPtr(ucpp.Ptr<ArchVisCharacter>) from ucpp.Ptr<ArchVisCharacter> to ucpp.Ptr<ArchVisCharacter>{
 	@:from
 	public static extern inline function fromValue(v: ArchVisCharacter): ArchVisCharacterPtr {
 		return untyped __cpp__("&({0})", v);

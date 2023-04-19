@@ -3,17 +3,17 @@ package ue;
 
 @:native("UUVLayoutProperties")
 @:include("Properties/UVLayoutProperties.h")
-@:structAccess
+@:valueType
 extern class UVLayoutProperties extends InteractiveToolPropertySet {
 	public var LayoutType: EUVLayoutType;
-	public var TextureResolution: cpp.Int32;
-	public var Scale: cpp.Float32;
+	public var TextureResolution: ucpp.num.Int32;
+	public var Scale: ucpp.num.Float32;
 	public var Translation: Vector2D;
 	public var bAllowFlips: Bool;
 	public var bEnableUDIMLayout: Bool;
 	public var bUDIMCVAREnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,10 +21,10 @@ extern class UVLayoutProperties extends InteractiveToolPropertySet {
 abstract ConstUVLayoutProperties(UVLayoutProperties) from UVLayoutProperties {
 	public extern var LayoutType(get, never): EUVLayoutType;
 	public inline extern function get_LayoutType(): EUVLayoutType return this.LayoutType;
-	public extern var TextureResolution(get, never): cpp.Int32;
-	public inline extern function get_TextureResolution(): cpp.Int32 return this.TextureResolution;
-	public extern var Scale(get, never): cpp.Float32;
-	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
+	public extern var TextureResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_TextureResolution(): ucpp.num.Int32 return this.TextureResolution;
+	public extern var Scale(get, never): ucpp.num.Float32;
+	public inline extern function get_Scale(): ucpp.num.Float32 return this.Scale;
 	public extern var Translation(get, never): Vector2D;
 	public inline extern function get_Translation(): Vector2D return this.Translation;
 	public extern var bAllowFlips(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstUVLayoutProperties(UVLayoutProperties) from UVLayoutProperties {
 @:forward
 @:nativeGen
 @:native("UVLayoutProperties*")
-abstract UVLayoutPropertiesPtr(cpp.Star<UVLayoutProperties>) from cpp.Star<UVLayoutProperties> to cpp.Star<UVLayoutProperties>{
+abstract UVLayoutPropertiesPtr(ucpp.Ptr<UVLayoutProperties>) from ucpp.Ptr<UVLayoutProperties> to ucpp.Ptr<UVLayoutProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVLayoutProperties): UVLayoutPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

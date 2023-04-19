@@ -3,74 +3,74 @@ package ue;
 
 @:native("UPhysicsConstraintComponent")
 @:include("PhysicsEngine/PhysicsConstraintComponent.h")
-@:structAccess
+@:valueType
 extern class PhysicsConstraintComp extends SceneComp {
-	public var ConstraintActor1: cpp.Star<Actor>;
+	public var ConstraintActor1: ucpp.Ptr<Actor>;
 	public var ComponentName1: ConstrainComponentPropName;
-	public var ConstraintActor2: cpp.Star<Actor>;
+	public var ConstraintActor2: ucpp.Ptr<Actor>;
 	public var ComponentName2: ConstrainComponentPropName;
-	public var OnConstraintBroken: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public var OnPlasticDeformation: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
+	public var OnConstraintBroken: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public var OnPlasticDeformation: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
 	public var ConstraintInstance: ConstraintInstance;
 
 	public function SetOrientationDriveTwistAndSwing(bEnableTwistDrive: Bool, bEnableSwingDrive: Bool): Void;
 	public function SetOrientationDriveSLERP(bEnableSLERP: Bool): Void;
-	public function SetLinearZLimit(ConstraintType: TEnumAsByte<ELinearConstraintMotion>, LimitSize: cpp.Float32): Void;
-	public function SetLinearYLimit(ConstraintType: TEnumAsByte<ELinearConstraintMotion>, LimitSize: cpp.Float32): Void;
-	public function SetLinearXLimit(ConstraintType: TEnumAsByte<ELinearConstraintMotion>, LimitSize: cpp.Float32): Void;
-	public function SetLinearVelocityTarget(InVelTarget: cpp.Reference<Vector>): Void;
+	public function SetLinearZLimit(ConstraintType: TEnumAsByte<ELinearConstraintMotion>, LimitSize: ucpp.num.Float32): Void;
+	public function SetLinearYLimit(ConstraintType: TEnumAsByte<ELinearConstraintMotion>, LimitSize: ucpp.num.Float32): Void;
+	public function SetLinearXLimit(ConstraintType: TEnumAsByte<ELinearConstraintMotion>, LimitSize: ucpp.num.Float32): Void;
+	public function SetLinearVelocityTarget(InVelTarget: ucpp.Ref<Vector>): Void;
 	public function SetLinearVelocityDrive(bEnableDriveX: Bool, bEnableDriveY: Bool, bEnableDriveZ: Bool): Void;
-	public function SetLinearPositionTarget(InPosTarget: cpp.Reference<Vector>): Void;
+	public function SetLinearPositionTarget(InPosTarget: ucpp.Ref<Vector>): Void;
 	public function SetLinearPositionDrive(bEnableDriveX: Bool, bEnableDriveY: Bool, bEnableDriveZ: Bool): Void;
-	public function SetLinearPlasticity(bLinearPlasticity: Bool, LinearPlasticityThreshold: cpp.Float32, PlasticityType: TEnumAsByte<EConstraintPlasticityType>): Void;
-	public function SetLinearDriveParams(PositionStrength: cpp.Float32, VelocityStrength: cpp.Float32, InForceLimit: cpp.Float32): Void;
-	public function SetLinearBreakable(bLinearBreakable: Bool, LinearBreakThreshold: cpp.Float32): Void;
+	public function SetLinearPlasticity(bLinearPlasticity: Bool, LinearPlasticityThreshold: ucpp.num.Float32, PlasticityType: TEnumAsByte<EConstraintPlasticityType>): Void;
+	public function SetLinearDriveParams(PositionStrength: ucpp.num.Float32, VelocityStrength: ucpp.num.Float32, InForceLimit: ucpp.num.Float32): Void;
+	public function SetLinearBreakable(bLinearBreakable: Bool, LinearBreakThreshold: ucpp.num.Float32): Void;
 	public function SetDisableCollision(bDisableCollision: Bool): Void;
-	public function SetContactTransferScale(ContactTransferScale: cpp.Float32): Void;
-	public function SetConstraintReferencePosition(Frame: TEnumAsByte<EConstraintFrame>, RefPosition: cpp.Reference<Vector>): Void;
-	public function SetConstraintReferenceOrientation(Frame: TEnumAsByte<EConstraintFrame>, PriAxis: cpp.Reference<Vector>, SecAxis: cpp.Reference<Vector>): Void;
-	public function SetConstraintReferenceFrame(Frame: TEnumAsByte<EConstraintFrame>, RefFrame: cpp.Reference<Transform>): Void;
-	public function SetConstrainedComponents(Component1: cpp.Star<PrimitiveComp>, BoneName1: FName, Component2: cpp.Star<PrimitiveComp>, BoneName2: FName): Void;
-	public function SetAngularVelocityTarget(InVelTarget: cpp.Reference<Vector>): Void;
+	public function SetContactTransferScale(ContactTransferScale: ucpp.num.Float32): Void;
+	public function SetConstraintReferencePosition(Frame: TEnumAsByte<EConstraintFrame>, RefPosition: ucpp.Ref<Vector>): Void;
+	public function SetConstraintReferenceOrientation(Frame: TEnumAsByte<EConstraintFrame>, PriAxis: ucpp.Ref<Vector>, SecAxis: ucpp.Ref<Vector>): Void;
+	public function SetConstraintReferenceFrame(Frame: TEnumAsByte<EConstraintFrame>, RefFrame: ucpp.Ref<Transform>): Void;
+	public function SetConstrainedComponents(Component1: ucpp.Ptr<PrimitiveComp>, BoneName1: FName, Component2: ucpp.Ptr<PrimitiveComp>, BoneName2: FName): Void;
+	public function SetAngularVelocityTarget(InVelTarget: ucpp.Ref<Vector>): Void;
 	public function SetAngularVelocityDriveTwistAndSwing(bEnableTwistDrive: Bool, bEnableSwingDrive: Bool): Void;
 	public function SetAngularVelocityDriveSLERP(bEnableSLERP: Bool): Void;
 	public function SetAngularVelocityDrive(bEnableSwingDrive: Bool, bEnableTwistDrive: Bool): Void;
-	public function SetAngularTwistLimit(ConstraintType: TEnumAsByte<EAngularConstraintMotion>, TwistLimitAngle: cpp.Float32): Void;
-	public function SetAngularSwing2Limit(MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing2LimitAngle: cpp.Float32): Void;
-	public function SetAngularSwing1Limit(MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing1LimitAngle: cpp.Float32): Void;
-	public function SetAngularPlasticity(bAngularPlasticity: Bool, AngularPlasticityThreshold: cpp.Float32): Void;
-	public function SetAngularOrientationTarget(InPosTarget: cpp.Reference<Rotator>): Void;
+	public function SetAngularTwistLimit(ConstraintType: TEnumAsByte<EAngularConstraintMotion>, TwistLimitAngle: ucpp.num.Float32): Void;
+	public function SetAngularSwing2Limit(MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing2LimitAngle: ucpp.num.Float32): Void;
+	public function SetAngularSwing1Limit(MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing1LimitAngle: ucpp.num.Float32): Void;
+	public function SetAngularPlasticity(bAngularPlasticity: Bool, AngularPlasticityThreshold: ucpp.num.Float32): Void;
+	public function SetAngularOrientationTarget(InPosTarget: ucpp.Ref<Rotator>): Void;
 	public function SetAngularOrientationDrive(bEnableSwingDrive: Bool, bEnableTwistDrive: Bool): Void;
-	public function SetAngularDriveParams(PositionStrength: cpp.Float32, VelocityStrength: cpp.Float32, InForceLimit: cpp.Float32): Void;
+	public function SetAngularDriveParams(PositionStrength: ucpp.num.Float32, VelocityStrength: ucpp.num.Float32, InForceLimit: ucpp.num.Float32): Void;
 	public function SetAngularDriveMode(DriveMode: TEnumAsByte<EAngularDriveMode>): Void;
-	public function SetAngularBreakable(bAngularBreakable: Bool, AngularBreakThreshold: cpp.Float32): Void;
+	public function SetAngularBreakable(bAngularBreakable: Bool, AngularBreakThreshold: ucpp.num.Float32): Void;
 	public function IsBroken(): Bool;
-	public function GetCurrentTwist(): cpp.Float32;
-	public function GetCurrentSwing2(): cpp.Float32;
-	public function GetCurrentSwing1(): cpp.Float32;
-	public function GetConstraintForce(OutLinearForce: cpp.Reference<Vector>, OutAngularForce: cpp.Reference<Vector>): Void;
+	public function GetCurrentTwist(): ucpp.num.Float32;
+	public function GetCurrentSwing2(): ucpp.num.Float32;
+	public function GetCurrentSwing1(): ucpp.num.Float32;
+	public function GetConstraintForce(OutLinearForce: ucpp.Ref<Vector>, OutAngularForce: ucpp.Ref<Vector>): Void;
 	public function GetConstraint(): ConstraintInstanceAccessor;
-	public function GetConstrainedComponents(OutComponent1: cpp.Reference<cpp.Star<PrimitiveComp>>, OutBoneName1: cpp.Reference<FName>, OutComponent2: cpp.Reference<cpp.Star<PrimitiveComp>>, OutBoneName2: cpp.Reference<FName>): Void;
+	public function GetConstrainedComponents(OutComponent1: ucpp.Ref<ucpp.Ptr<PrimitiveComp>>, OutBoneName1: ucpp.Ref<FName>, OutComponent2: ucpp.Ref<ucpp.Ptr<PrimitiveComp>>, OutBoneName2: ucpp.Ref<FName>): Void;
 	public function BreakConstraint(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCurrentTwist, GetCurrentSwing2, GetCurrentSwing1)
 @:nativeGen
 abstract ConstPhysicsConstraintComp(PhysicsConstraintComp) from PhysicsConstraintComp {
-	public extern var ConstraintActor1(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ConstraintActor1(): cpp.Star<Actor.ConstActor> return this.ConstraintActor1;
+	public extern var ConstraintActor1(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_ConstraintActor1(): ucpp.Ptr<Actor.ConstActor> return this.ConstraintActor1;
 	public extern var ComponentName1(get, never): ConstrainComponentPropName;
 	public inline extern function get_ComponentName1(): ConstrainComponentPropName return this.ComponentName1;
-	public extern var ConstraintActor2(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_ConstraintActor2(): cpp.Star<Actor.ConstActor> return this.ConstraintActor2;
+	public extern var ConstraintActor2(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_ConstraintActor2(): ucpp.Ptr<Actor.ConstActor> return this.ConstraintActor2;
 	public extern var ComponentName2(get, never): ConstrainComponentPropName;
 	public inline extern function get_ComponentName2(): ConstrainComponentPropName return this.ComponentName2;
-	public extern var OnConstraintBroken(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_OnConstraintBroken(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnConstraintBroken;
-	public extern var OnPlasticDeformation(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_OnPlasticDeformation(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnPlasticDeformation;
+	public extern var OnConstraintBroken(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnConstraintBroken(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void> return this.OnConstraintBroken;
+	public extern var OnPlasticDeformation(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnPlasticDeformation(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void> return this.OnPlasticDeformation;
 	public extern var ConstraintInstance(get, never): ConstraintInstance;
 	public inline extern function get_ConstraintInstance(): ConstraintInstance return this.ConstraintInstance;
 }
@@ -78,7 +78,7 @@ abstract ConstPhysicsConstraintComp(PhysicsConstraintComp) from PhysicsConstrain
 @:forward
 @:nativeGen
 @:native("PhysicsConstraintComp*")
-abstract PhysicsConstraintCompPtr(cpp.Star<PhysicsConstraintComp>) from cpp.Star<PhysicsConstraintComp> to cpp.Star<PhysicsConstraintComp>{
+abstract PhysicsConstraintCompPtr(ucpp.Ptr<PhysicsConstraintComp>) from ucpp.Ptr<PhysicsConstraintComp> to ucpp.Ptr<PhysicsConstraintComp>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsConstraintComp): PhysicsConstraintCompPtr {
 		return untyped __cpp__("&({0})", v);

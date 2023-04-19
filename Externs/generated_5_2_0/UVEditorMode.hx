@@ -3,37 +3,37 @@ package ue;
 
 @:native("UUVEditorMode")
 @:include("UVEditorMode.h")
-@:structAccess
+@:valueType
 extern class UVEditorMode extends EdMode {
-	public var BackgroundVisualization: cpp.Star<UVEditorBackgroundPreview>;
-	public var UVEditorGridProperties: cpp.Star<UVEditorGridProperties>;
-	public var UVEditorUDIMProperties: cpp.Star<UVEditorUDIMProperties>;
-	@:protected public var RegisteredActions: TArray<cpp.Star<UVToolAction>>;
-	@:protected public var OriginalObjectsToEdit: TArray<cpp.Star<Object>>;
-	@:protected public var ToolTargets: TArray<cpp.Star<ToolTarget>>;
-	@:protected public var ToolInputObjects: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var LivePreviewWorld: cpp.Star<World>;
-	@:protected public var SelectionAPI: cpp.Star<UVToolSelectionAPI>;
-	@:protected public var PropertyObjectsToTick: TArray<cpp.Star<InteractiveToolPropertySet>>;
+	public var BackgroundVisualization: ucpp.Ptr<UVEditorBackgroundPreview>;
+	public var UVEditorGridProperties: ucpp.Ptr<UVEditorGridProperties>;
+	public var UVEditorUDIMProperties: ucpp.Ptr<UVEditorUDIMProperties>;
+	@:protected public var RegisteredActions: TArray<ucpp.Ptr<UVToolAction>>;
+	@:protected public var OriginalObjectsToEdit: TArray<ucpp.Ptr<Object>>;
+	@:protected public var ToolTargets: TArray<ucpp.Ptr<ToolTarget>>;
+	@:protected public var ToolInputObjects: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var LivePreviewWorld: ucpp.Ptr<World>;
+	@:protected public var SelectionAPI: ucpp.Ptr<UVToolSelectionAPI>;
+	@:protected public var PropertyObjectsToTick: TArray<ucpp.Ptr<InteractiveToolPropertySet>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUVEditorMode(UVEditorMode) from UVEditorMode {
-	public extern var BackgroundVisualization(get, never): cpp.Star<UVEditorBackgroundPreview.ConstUVEditorBackgroundPreview>;
-	public inline extern function get_BackgroundVisualization(): cpp.Star<UVEditorBackgroundPreview.ConstUVEditorBackgroundPreview> return this.BackgroundVisualization;
-	public extern var UVEditorGridProperties(get, never): cpp.Star<UVEditorGridProperties.ConstUVEditorGridProperties>;
-	public inline extern function get_UVEditorGridProperties(): cpp.Star<UVEditorGridProperties.ConstUVEditorGridProperties> return this.UVEditorGridProperties;
-	public extern var UVEditorUDIMProperties(get, never): cpp.Star<UVEditorUDIMProperties.ConstUVEditorUDIMProperties>;
-	public inline extern function get_UVEditorUDIMProperties(): cpp.Star<UVEditorUDIMProperties.ConstUVEditorUDIMProperties> return this.UVEditorUDIMProperties;
+	public extern var BackgroundVisualization(get, never): ucpp.Ptr<UVEditorBackgroundPreview.ConstUVEditorBackgroundPreview>;
+	public inline extern function get_BackgroundVisualization(): ucpp.Ptr<UVEditorBackgroundPreview.ConstUVEditorBackgroundPreview> return this.BackgroundVisualization;
+	public extern var UVEditorGridProperties(get, never): ucpp.Ptr<UVEditorGridProperties.ConstUVEditorGridProperties>;
+	public inline extern function get_UVEditorGridProperties(): ucpp.Ptr<UVEditorGridProperties.ConstUVEditorGridProperties> return this.UVEditorGridProperties;
+	public extern var UVEditorUDIMProperties(get, never): ucpp.Ptr<UVEditorUDIMProperties.ConstUVEditorUDIMProperties>;
+	public inline extern function get_UVEditorUDIMProperties(): ucpp.Ptr<UVEditorUDIMProperties.ConstUVEditorUDIMProperties> return this.UVEditorUDIMProperties;
 }
 
 @:forward
 @:nativeGen
 @:native("UVEditorMode*")
-abstract UVEditorModePtr(cpp.Star<UVEditorMode>) from cpp.Star<UVEditorMode> to cpp.Star<UVEditorMode>{
+abstract UVEditorModePtr(ucpp.Ptr<UVEditorMode>) from ucpp.Ptr<UVEditorMode> to ucpp.Ptr<UVEditorMode>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorMode): UVEditorModePtr {
 		return untyped __cpp__("&({0})", v);

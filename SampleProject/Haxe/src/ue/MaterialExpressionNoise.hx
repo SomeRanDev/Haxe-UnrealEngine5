@@ -3,22 +3,22 @@ package ue;
 
 @:native("UMaterialExpressionNoise")
 @:include("Materials/MaterialExpressionNoise.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionNoise extends MaterialExpression {
 	public var Position: ExpressionInput;
 	public var FilterWidth: ExpressionInput;
-	public var Scale: cpp.Float32;
-	public var Quality: cpp.Int32;
+	public var Scale: ucpp.num.Float32;
+	public var Quality: ucpp.num.Int32;
 	public var NoiseFunction: TEnumAsByte<ENoiseFunction>;
 	public var bTurbulence: Bool;
-	public var Levels: cpp.Int32;
-	public var OutputMin: cpp.Float32;
-	public var OutputMax: cpp.Float32;
-	public var LevelScale: cpp.Float32;
+	public var Levels: ucpp.num.Int32;
+	public var OutputMin: ucpp.num.Float32;
+	public var OutputMax: ucpp.num.Float32;
+	public var LevelScale: ucpp.num.Float32;
 	public var bTiling: Bool;
-	public var RepeatSize: cpp.UInt32;
+	public var RepeatSize: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,32 +28,32 @@ abstract ConstMaterialExpressionNoise(MaterialExpressionNoise) from MaterialExpr
 	public inline extern function get_Position(): ExpressionInput return this.Position;
 	public extern var FilterWidth(get, never): ExpressionInput;
 	public inline extern function get_FilterWidth(): ExpressionInput return this.FilterWidth;
-	public extern var Scale(get, never): cpp.Float32;
-	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
-	public extern var Quality(get, never): cpp.Int32;
-	public inline extern function get_Quality(): cpp.Int32 return this.Quality;
+	public extern var Scale(get, never): ucpp.num.Float32;
+	public inline extern function get_Scale(): ucpp.num.Float32 return this.Scale;
+	public extern var Quality(get, never): ucpp.num.Int32;
+	public inline extern function get_Quality(): ucpp.num.Int32 return this.Quality;
 	public extern var NoiseFunction(get, never): TEnumAsByte<ENoiseFunction>;
 	public inline extern function get_NoiseFunction(): TEnumAsByte<ENoiseFunction> return this.NoiseFunction;
 	public extern var bTurbulence(get, never): Bool;
 	public inline extern function get_bTurbulence(): Bool return this.bTurbulence;
-	public extern var Levels(get, never): cpp.Int32;
-	public inline extern function get_Levels(): cpp.Int32 return this.Levels;
-	public extern var OutputMin(get, never): cpp.Float32;
-	public inline extern function get_OutputMin(): cpp.Float32 return this.OutputMin;
-	public extern var OutputMax(get, never): cpp.Float32;
-	public inline extern function get_OutputMax(): cpp.Float32 return this.OutputMax;
-	public extern var LevelScale(get, never): cpp.Float32;
-	public inline extern function get_LevelScale(): cpp.Float32 return this.LevelScale;
+	public extern var Levels(get, never): ucpp.num.Int32;
+	public inline extern function get_Levels(): ucpp.num.Int32 return this.Levels;
+	public extern var OutputMin(get, never): ucpp.num.Float32;
+	public inline extern function get_OutputMin(): ucpp.num.Float32 return this.OutputMin;
+	public extern var OutputMax(get, never): ucpp.num.Float32;
+	public inline extern function get_OutputMax(): ucpp.num.Float32 return this.OutputMax;
+	public extern var LevelScale(get, never): ucpp.num.Float32;
+	public inline extern function get_LevelScale(): ucpp.num.Float32 return this.LevelScale;
 	public extern var bTiling(get, never): Bool;
 	public inline extern function get_bTiling(): Bool return this.bTiling;
-	public extern var RepeatSize(get, never): cpp.UInt32;
-	public inline extern function get_RepeatSize(): cpp.UInt32 return this.RepeatSize;
+	public extern var RepeatSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_RepeatSize(): ucpp.num.UInt32 return this.RepeatSize;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionNoise*")
-abstract MaterialExpressionNoisePtr(cpp.Star<MaterialExpressionNoise>) from cpp.Star<MaterialExpressionNoise> to cpp.Star<MaterialExpressionNoise>{
+abstract MaterialExpressionNoisePtr(ucpp.Ptr<MaterialExpressionNoise>) from ucpp.Ptr<MaterialExpressionNoise> to ucpp.Ptr<MaterialExpressionNoise>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionNoise): MaterialExpressionNoisePtr {
 		return untyped __cpp__("&({0})", v);

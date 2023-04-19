@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionStrataHorizontalMixing")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataHorizontalMixing extends MaterialExpressionStrataBSDF {
 	public var Background: ExpressionInput;
 	public var Foreground: ExpressionInput;
 	public var Mix: ExpressionInput;
 	public var bUseParameterBlending: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMaterialExpressionStrataHorizontalMixing(MaterialExpressionStrataH
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataHorizontalMixing*")
-abstract MaterialExpressionStrataHorizontalMixingPtr(cpp.Star<MaterialExpressionStrataHorizontalMixing>) from cpp.Star<MaterialExpressionStrataHorizontalMixing> to cpp.Star<MaterialExpressionStrataHorizontalMixing>{
+abstract MaterialExpressionStrataHorizontalMixingPtr(ucpp.Ptr<MaterialExpressionStrataHorizontalMixing>) from ucpp.Ptr<MaterialExpressionStrataHorizontalMixing> to ucpp.Ptr<MaterialExpressionStrataHorizontalMixing>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataHorizontalMixing): MaterialExpressionStrataHorizontalMixingPtr {
 		return untyped __cpp__("&({0})", v);

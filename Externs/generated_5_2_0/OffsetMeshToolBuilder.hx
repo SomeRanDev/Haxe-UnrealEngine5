@@ -3,10 +3,10 @@ package ue;
 
 @:native("UOffsetMeshToolBuilder")
 @:include("OffsetMeshTool.h")
-@:structAccess
+@:valueType
 extern class OffsetMeshToolBuilder extends BaseMeshProcessingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstOffsetMeshToolBuilder(OffsetMeshToolBuilder) from OffsetMeshToolBu
 @:forward
 @:nativeGen
 @:native("OffsetMeshToolBuilder*")
-abstract OffsetMeshToolBuilderPtr(cpp.Star<OffsetMeshToolBuilder>) from cpp.Star<OffsetMeshToolBuilder> to cpp.Star<OffsetMeshToolBuilder>{
+abstract OffsetMeshToolBuilderPtr(ucpp.Ptr<OffsetMeshToolBuilder>) from ucpp.Ptr<OffsetMeshToolBuilder> to ucpp.Ptr<OffsetMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: OffsetMeshToolBuilder): OffsetMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FVersionedNiagaraEmitter")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class VersionedNiagaraEmitter {
-	public var Emitter: cpp.Star<NiagaraEmitter>;
+	public var Emitter: ucpp.Ptr<NiagaraEmitter>;
 	public var Version: Guid;
 
 	@:native("FVersionedNiagaraEmitter") public function new();
-	@:native("FVersionedNiagaraEmitter") public static function make(Emitter: cpp.Star<NiagaraEmitter>, Version: Guid): VersionedNiagaraEmitter ;
+	@:native("FVersionedNiagaraEmitter") public static function make(Emitter: ucpp.Ptr<NiagaraEmitter>, Version: Guid): VersionedNiagaraEmitter ;
 }

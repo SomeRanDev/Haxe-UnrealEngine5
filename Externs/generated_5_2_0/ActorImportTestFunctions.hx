@@ -3,15 +3,15 @@ package ue;
 
 @:native("UActorImportTestFunctions")
 @:include("ImportTestFunctions/ActorImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class ActorImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckImportedActorCount(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, ExpectedNumberOfImportedActors: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckComponentPropertyValue(Actor: cpp.Star<Actor.ConstActor>, ComponentName: FString, PropertyName: FString, bUseRegexToMatchValue: Bool, ExpectedValue: FString): InterchangeTestFunctionResult;
-	public function CheckActorPropertyValue(Actor: cpp.Star<Actor.ConstActor>, PropertyName: FString, bUseRegexToMatchValue: Bool, ExpectedValue: FString): InterchangeTestFunctionResult;
-	public function CheckActorClassCount(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, Class: TSubclassOf<Actor>, ExpectedNumberOfActors: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckActorClass(Actor: cpp.Star<Actor.ConstActor>, ExpectedClass: TSubclassOf<Actor>): InterchangeTestFunctionResult;
+	public function CheckImportedActorCount(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, ExpectedNumberOfImportedActors: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckComponentPropertyValue(Actor: ucpp.Ptr<Actor.ConstActor>, ComponentName: FString, PropertyName: FString, bUseRegexToMatchValue: Bool, ExpectedValue: FString): InterchangeTestFunctionResult;
+	public function CheckActorPropertyValue(Actor: ucpp.Ptr<Actor.ConstActor>, PropertyName: FString, bUseRegexToMatchValue: Bool, ExpectedValue: FString): InterchangeTestFunctionResult;
+	public function CheckActorClassCount(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, Class: TSubclassOf<Actor>, ExpectedNumberOfActors: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckActorClass(Actor: ucpp.Ptr<Actor.ConstActor>, ExpectedClass: TSubclassOf<Actor>): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstActorImportTestFunctions(ActorImportTestFunctions) from ActorImpor
 @:forward
 @:nativeGen
 @:native("ActorImportTestFunctions*")
-abstract ActorImportTestFunctionsPtr(cpp.Star<ActorImportTestFunctions>) from cpp.Star<ActorImportTestFunctions> to cpp.Star<ActorImportTestFunctions>{
+abstract ActorImportTestFunctionsPtr(ucpp.Ptr<ActorImportTestFunctions>) from ucpp.Ptr<ActorImportTestFunctions> to ucpp.Ptr<ActorImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: ActorImportTestFunctions): ActorImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

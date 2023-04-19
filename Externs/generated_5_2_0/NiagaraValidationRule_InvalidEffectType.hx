@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraValidationRule_InvalidEffectType")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_InvalidEffectType extends NiagaraValidationRule {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraValidationRule_InvalidEffectType(NiagaraValidationRule_Inva
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_InvalidEffectType*")
-abstract NiagaraValidationRule_InvalidEffectTypePtr(cpp.Star<NiagaraValidationRule_InvalidEffectType>) from cpp.Star<NiagaraValidationRule_InvalidEffectType> to cpp.Star<NiagaraValidationRule_InvalidEffectType>{
+abstract NiagaraValidationRule_InvalidEffectTypePtr(ucpp.Ptr<NiagaraValidationRule_InvalidEffectType>) from ucpp.Ptr<NiagaraValidationRule_InvalidEffectType> to ucpp.Ptr<NiagaraValidationRule_InvalidEffectType>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_InvalidEffectType): NiagaraValidationRule_InvalidEffectTypePtr {
 		return untyped __cpp__("&({0})", v);

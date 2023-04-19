@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPythonOnlineDocsCommandlet")
 @:include("PythonOnlineDocsCommandlet.h")
-@:structAccess
+@:valueType
 extern class PythonOnlineDocsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPythonOnlineDocsCommandlet(PythonOnlineDocsCommandlet) from Python
 @:forward
 @:nativeGen
 @:native("PythonOnlineDocsCommandlet*")
-abstract PythonOnlineDocsCommandletPtr(cpp.Star<PythonOnlineDocsCommandlet>) from cpp.Star<PythonOnlineDocsCommandlet> to cpp.Star<PythonOnlineDocsCommandlet>{
+abstract PythonOnlineDocsCommandletPtr(ucpp.Ptr<PythonOnlineDocsCommandlet>) from ucpp.Ptr<PythonOnlineDocsCommandlet> to ucpp.Ptr<PythonOnlineDocsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: PythonOnlineDocsCommandlet): PythonOnlineDocsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

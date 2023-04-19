@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGizmoElementLineRenderStateAttributes")
 @:include("BaseGizmos/GizmoElementRenderState.h")
-@:structAccess
+@:valueType
 extern class GizmoElementLineRenderStateAttributes {
 	public var LineColor: GizmoElementColorAttribute;
 	public var HoverLineColor: GizmoElementColorAttribute;

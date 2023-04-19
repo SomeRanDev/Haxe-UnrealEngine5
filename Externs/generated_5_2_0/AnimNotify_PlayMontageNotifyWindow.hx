@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimNotify_PlayMontageNotifyWindow")
 @:include("AnimNotifies/AnimNotify_PlayMontageNotify.h")
-@:structAccess
+@:valueType
 extern class AnimNotify_PlayMontageNotifyWindow extends AnimNotifyState {
 	@:protected public var NotifyName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimNotify_PlayMontageNotifyWindow(AnimNotify_PlayMontageNotifyWin
 @:forward
 @:nativeGen
 @:native("AnimNotify_PlayMontageNotifyWindow*")
-abstract AnimNotify_PlayMontageNotifyWindowPtr(cpp.Star<AnimNotify_PlayMontageNotifyWindow>) from cpp.Star<AnimNotify_PlayMontageNotifyWindow> to cpp.Star<AnimNotify_PlayMontageNotifyWindow>{
+abstract AnimNotify_PlayMontageNotifyWindowPtr(ucpp.Ptr<AnimNotify_PlayMontageNotifyWindow>) from ucpp.Ptr<AnimNotify_PlayMontageNotifyWindow> to ucpp.Ptr<AnimNotify_PlayMontageNotifyWindow>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotify_PlayMontageNotifyWindow): AnimNotify_PlayMontageNotifyWindowPtr {
 		return untyped __cpp__("&({0})", v);

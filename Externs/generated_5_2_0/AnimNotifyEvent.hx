@@ -3,24 +3,24 @@ package ue;
 
 @:native("FAnimNotifyEvent")
 @:include("Animation/AnimTypes.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyEvent extends AnimLinkableElement {
-	public var TriggerTimeOffset: cpp.Float32;
-	public var EndTriggerTimeOffset: cpp.Float32;
-	public var TriggerWeightThreshold: cpp.Float32;
+	public var TriggerTimeOffset: ucpp.num.Float32;
+	public var EndTriggerTimeOffset: ucpp.num.Float32;
+	public var TriggerWeightThreshold: ucpp.num.Float32;
 	public var NotifyName: FName;
-	public var Notify: cpp.Star<AnimNotify>;
-	public var NotifyStateClass: cpp.Star<AnimNotifyState>;
-	public var Duration: cpp.Float32;
+	public var Notify: ucpp.Ptr<AnimNotify>;
+	public var NotifyStateClass: ucpp.Ptr<AnimNotifyState>;
+	public var Duration: ucpp.num.Float32;
 	public var EndLink: AnimLinkableElement;
 	public var bConvertedFromBranchingPoint: Bool;
 	public var MontageTickType: TEnumAsByte<EMontageNotifyTickType>;
-	public var NotifyTriggerChance: cpp.Float32;
+	public var NotifyTriggerChance: ucpp.num.Float32;
 	public var NotifyFilterType: TEnumAsByte<ENotifyFilterType>;
-	public var NotifyFilterLOD: cpp.Int32;
+	public var NotifyFilterLOD: ucpp.num.Int32;
 	public var bTriggerOnDedicatedServer: Bool;
 	public var bTriggerOnFollower: Bool;
-	public var TrackIndex: cpp.Int32;
+	public var TrackIndex: ucpp.num.Int32;
 
 	@:native("FAnimNotifyEvent") public function new();
 }

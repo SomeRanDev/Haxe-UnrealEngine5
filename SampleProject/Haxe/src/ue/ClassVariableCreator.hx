@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UClassVariableCreator")
-@:structAccess
+@:valueType
 extern class ClassVariableCreator extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstClassVariableCreator(ClassVariableCreator) from ClassVariableCreat
 @:forward
 @:nativeGen
 @:native("ClassVariableCreator*")
-abstract ClassVariableCreatorPtr(cpp.Star<ClassVariableCreator>) from cpp.Star<ClassVariableCreator> to cpp.Star<ClassVariableCreator>{
+abstract ClassVariableCreatorPtr(ucpp.Ptr<ClassVariableCreator>) from ucpp.Ptr<ClassVariableCreator> to ucpp.Ptr<ClassVariableCreator>{
 	@:from
 	public static extern inline function fromValue(v: ClassVariableCreator): ClassVariableCreatorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMovieSceneEasingExternalCurve")
 @:include("Generators/MovieSceneEasingCurves.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEasingExternalCurve extends Object {
-	public var Curve: cpp.Star<CurveFloat>;
+	public var Curve: ucpp.Ptr<CurveFloat>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneEasingExternalCurve(MovieSceneEasingExternalCurve) from MovieSceneEasingExternalCurve {
-	public extern var Curve(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
-	public inline extern function get_Curve(): cpp.Star<CurveFloat.ConstCurveFloat> return this.Curve;
+	public extern var Curve(get, never): ucpp.Ptr<CurveFloat.ConstCurveFloat>;
+	public inline extern function get_Curve(): ucpp.Ptr<CurveFloat.ConstCurveFloat> return this.Curve;
 }
 
 @:forward
 @:nativeGen
 @:native("MovieSceneEasingExternalCurve*")
-abstract MovieSceneEasingExternalCurvePtr(cpp.Star<MovieSceneEasingExternalCurve>) from cpp.Star<MovieSceneEasingExternalCurve> to cpp.Star<MovieSceneEasingExternalCurve>{
+abstract MovieSceneEasingExternalCurvePtr(ucpp.Ptr<MovieSceneEasingExternalCurve>) from ucpp.Ptr<MovieSceneEasingExternalCurve> to ucpp.Ptr<MovieSceneEasingExternalCurve>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEasingExternalCurve): MovieSceneEasingExternalCurvePtr {
 		return untyped __cpp__("&({0})", v);

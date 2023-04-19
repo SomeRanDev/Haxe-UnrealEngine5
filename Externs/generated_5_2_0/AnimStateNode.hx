@@ -3,23 +3,23 @@ package ue;
 
 @:native("UAnimStateNode")
 @:include("AnimStateNode.h")
-@:structAccess
+@:valueType
 extern class AnimStateNode extends AnimStateNodeBase {
-	public var BoundGraph: cpp.Star<EdGraph>;
+	public var BoundGraph: ucpp.Ptr<EdGraph>;
 	public var StateType: TEnumAsByte<EAnimStateType>;
 	public var StateEntered: AnimNotifyEvent;
 	public var StateLeft: AnimNotifyEvent;
 	public var StateFullyBlended: AnimNotifyEvent;
 	public var bAlwaysResetOnEntry: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimStateNode(AnimStateNode) from AnimStateNode {
-	public extern var BoundGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_BoundGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.BoundGraph;
+	public extern var BoundGraph(get, never): ucpp.Ptr<EdGraph.ConstEdGraph>;
+	public inline extern function get_BoundGraph(): ucpp.Ptr<EdGraph.ConstEdGraph> return this.BoundGraph;
 	public extern var StateType(get, never): TEnumAsByte<EAnimStateType>;
 	public inline extern function get_StateType(): TEnumAsByte<EAnimStateType> return this.StateType;
 	public extern var StateEntered(get, never): AnimNotifyEvent;
@@ -35,7 +35,7 @@ abstract ConstAnimStateNode(AnimStateNode) from AnimStateNode {
 @:forward
 @:nativeGen
 @:native("AnimStateNode*")
-abstract AnimStateNodePtr(cpp.Star<AnimStateNode>) from cpp.Star<AnimStateNode> to cpp.Star<AnimStateNode>{
+abstract AnimStateNodePtr(ucpp.Ptr<AnimStateNode>) from ucpp.Ptr<AnimStateNode> to ucpp.Ptr<AnimStateNode>{
 	@:from
 	public static extern inline function fromValue(v: AnimStateNode): AnimStateNodePtr {
 		return untyped __cpp__("&({0})", v);

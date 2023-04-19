@@ -3,12 +3,12 @@ package ue;
 
 @:native("UOverlay")
 @:include("Components/Overlay.h")
-@:structAccess
+@:valueType
 extern class Overlay extends PanelWidget {
-	public function ReplaceOverlayChildAt(Index: cpp.Int32, Content: cpp.Star<Widget>): Bool;
-	public function AddChildToOverlay(Content: cpp.Star<Widget>): cpp.Star<OverlaySlot>;
+	public function ReplaceOverlayChildAt(Index: ucpp.num.Int32, Content: ucpp.Ptr<Widget>): Bool;
+	public function AddChildToOverlay(Content: ucpp.Ptr<Widget>): ucpp.Ptr<OverlaySlot>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstOverlay(Overlay) from Overlay {
 @:forward
 @:nativeGen
 @:native("Overlay*")
-abstract OverlayPtr(cpp.Star<Overlay>) from cpp.Star<Overlay> to cpp.Star<Overlay>{
+abstract OverlayPtr(ucpp.Ptr<Overlay>) from ucpp.Ptr<Overlay> to ucpp.Ptr<Overlay>{
 	@:from
 	public static extern inline function fromValue(v: Overlay): OverlayPtr {
 		return untyped __cpp__("&({0})", v);

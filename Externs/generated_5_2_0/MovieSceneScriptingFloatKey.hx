@@ -3,28 +3,28 @@ package ue;
 
 @:native("UMovieSceneScriptingFloatKey")
 @:include("KeysAndChannels/MovieSceneScriptingFloat.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingFloatKey extends MovieSceneScriptingKey {
-	public function SetValue(InNewValue: cpp.Float32): Void;
-	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
+	public function SetValue(InNewValue: ucpp.num.Float32): Void;
+	public function SetTime(NewFrameNumber: ucpp.Ref<FrameNumber>, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): Void;
 	public function SetTangentWeightMode(InNewValue: TEnumAsByte<ERichCurveTangentWeightMode>): Void;
 	public function SetTangentMode(InNewValue: TEnumAsByte<ERichCurveTangentMode>): Void;
-	public function SetLeaveTangentWeight(InNewValue: cpp.Float32): Void;
-	public function SetLeaveTangent(InNewValue: cpp.Float32): Void;
+	public function SetLeaveTangentWeight(InNewValue: ucpp.num.Float32): Void;
+	public function SetLeaveTangent(InNewValue: ucpp.num.Float32): Void;
 	public function SetInterpolationMode(InNewValue: TEnumAsByte<ERichCurveInterpMode>): Void;
-	public function SetArriveTangentWeight(InNewValue: cpp.Float32): Void;
-	public function SetArriveTangent(InNewValue: cpp.Float32): Void;
-	public function GetValue(): cpp.Float32;
+	public function SetArriveTangentWeight(InNewValue: ucpp.num.Float32): Void;
+	public function SetArriveTangent(InNewValue: ucpp.num.Float32): Void;
+	public function GetValue(): ucpp.num.Float32;
 	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
 	public function GetTangentWeightMode(): TEnumAsByte<ERichCurveTangentWeightMode>;
 	public function GetTangentMode(): TEnumAsByte<ERichCurveTangentMode>;
-	public function GetLeaveTangentWeight(): cpp.Float32;
-	public function GetLeaveTangent(): cpp.Float32;
+	public function GetLeaveTangentWeight(): ucpp.num.Float32;
+	public function GetLeaveTangent(): ucpp.num.Float32;
 	public function GetInterpolationMode(): TEnumAsByte<ERichCurveInterpMode>;
-	public function GetArriveTangentWeight(): cpp.Float32;
-	public function GetArriveTangent(): cpp.Float32;
+	public function GetArriveTangentWeight(): ucpp.num.Float32;
+	public function GetArriveTangent(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue, GetTime, GetTangentWeightMode, GetTangentMode, GetLeaveTangentWeight, GetLeaveTangent, GetInterpolationMode, GetArriveTangentWeight, GetArriveTangent)
@@ -35,7 +35,7 @@ abstract ConstMovieSceneScriptingFloatKey(MovieSceneScriptingFloatKey) from Movi
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingFloatKey*")
-abstract MovieSceneScriptingFloatKeyPtr(cpp.Star<MovieSceneScriptingFloatKey>) from cpp.Star<MovieSceneScriptingFloatKey> to cpp.Star<MovieSceneScriptingFloatKey>{
+abstract MovieSceneScriptingFloatKeyPtr(ucpp.Ptr<MovieSceneScriptingFloatKey>) from ucpp.Ptr<MovieSceneScriptingFloatKey> to ucpp.Ptr<MovieSceneScriptingFloatKey>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingFloatKey): MovieSceneScriptingFloatKeyPtr {
 		return untyped __cpp__("&({0})", v);

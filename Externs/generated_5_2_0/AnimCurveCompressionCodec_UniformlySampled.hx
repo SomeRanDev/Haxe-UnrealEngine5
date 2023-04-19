@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimCurveCompressionCodec_UniformlySampled")
 @:include("Animation/AnimCurveCompressionCodec_UniformlySampled.h")
-@:structAccess
+@:valueType
 extern class AnimCurveCompressionCodec_UniformlySampled extends AnimCurveCompressionCodec {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimCurveCompressionCodec_UniformlySampled(AnimCurveCompressionCod
 @:forward
 @:nativeGen
 @:native("AnimCurveCompressionCodec_UniformlySampled*")
-abstract AnimCurveCompressionCodec_UniformlySampledPtr(cpp.Star<AnimCurveCompressionCodec_UniformlySampled>) from cpp.Star<AnimCurveCompressionCodec_UniformlySampled> to cpp.Star<AnimCurveCompressionCodec_UniformlySampled>{
+abstract AnimCurveCompressionCodec_UniformlySampledPtr(ucpp.Ptr<AnimCurveCompressionCodec_UniformlySampled>) from ucpp.Ptr<AnimCurveCompressionCodec_UniformlySampled> to ucpp.Ptr<AnimCurveCompressionCodec_UniformlySampled>{
 	@:from
 	public static extern inline function fromValue(v: AnimCurveCompressionCodec_UniformlySampled): AnimCurveCompressionCodec_UniformlySampledPtr {
 		return untyped __cpp__("&({0})", v);

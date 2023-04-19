@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigPreferredEulerAngles")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigPreferredEulerAngles {
 	public var RotationOrder: EEulerRotationOrder;
 	public var Current: Vector;

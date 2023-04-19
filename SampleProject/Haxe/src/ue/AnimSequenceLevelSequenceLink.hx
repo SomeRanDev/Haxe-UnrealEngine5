@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimSequenceLevelSequenceLink")
 @:include("AnimSequenceLevelSequenceLink.h")
-@:structAccess
+@:valueType
 extern class AnimSequenceLevelSequenceLink extends AssetUserData {
 	public var SkelTrackGuid: Guid;
 	public var PathToLevelSequence: SoftObjectPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstAnimSequenceLevelSequenceLink(AnimSequenceLevelSequenceLink) from 
 @:forward
 @:nativeGen
 @:native("AnimSequenceLevelSequenceLink*")
-abstract AnimSequenceLevelSequenceLinkPtr(cpp.Star<AnimSequenceLevelSequenceLink>) from cpp.Star<AnimSequenceLevelSequenceLink> to cpp.Star<AnimSequenceLevelSequenceLink>{
+abstract AnimSequenceLevelSequenceLinkPtr(ucpp.Ptr<AnimSequenceLevelSequenceLink>) from ucpp.Ptr<AnimSequenceLevelSequenceLink> to ucpp.Ptr<AnimSequenceLevelSequenceLink>{
 	@:from
 	public static extern inline function fromValue(v: AnimSequenceLevelSequenceLink): AnimSequenceLevelSequenceLinkPtr {
 		return untyped __cpp__("&({0})", v);

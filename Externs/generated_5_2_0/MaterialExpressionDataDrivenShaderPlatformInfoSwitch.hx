@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionDataDrivenShaderPlatformInfoSwitch")
 @:include("Materials/MaterialExpressionDataDrivenShaderPlatformInfoSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDataDrivenShaderPlatformInfoSwitch extends MaterialExpression {
 	public var InputTrue: ExpressionInput;
 	public var InputFalse: ExpressionInput;
@@ -12,7 +12,7 @@ extern class MaterialExpressionDataDrivenShaderPlatformInfoSwitch extends Materi
 
 	public function GetNameOptions(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNameOptions)
@@ -31,7 +31,7 @@ abstract ConstMaterialExpressionDataDrivenShaderPlatformInfoSwitch(MaterialExpre
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDataDrivenShaderPlatformInfoSwitch*")
-abstract MaterialExpressionDataDrivenShaderPlatformInfoSwitchPtr(cpp.Star<MaterialExpressionDataDrivenShaderPlatformInfoSwitch>) from cpp.Star<MaterialExpressionDataDrivenShaderPlatformInfoSwitch> to cpp.Star<MaterialExpressionDataDrivenShaderPlatformInfoSwitch>{
+abstract MaterialExpressionDataDrivenShaderPlatformInfoSwitchPtr(ucpp.Ptr<MaterialExpressionDataDrivenShaderPlatformInfoSwitch>) from ucpp.Ptr<MaterialExpressionDataDrivenShaderPlatformInfoSwitch> to ucpp.Ptr<MaterialExpressionDataDrivenShaderPlatformInfoSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDataDrivenShaderPlatformInfoSwitch): MaterialExpressionDataDrivenShaderPlatformInfoSwitchPtr {
 		return untyped __cpp__("&({0})", v);

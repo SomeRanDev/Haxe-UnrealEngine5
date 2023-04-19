@@ -3,13 +3,13 @@ package ue;
 
 @:native("FPIELoginSettingsInternal")
 @:include("Private/OnlinePIESettings.h")
-@:structAccess
+@:valueType
 extern class PIELoginSettingsInternal {
 	public var Id: FString;
 	public var Token: FString;
 	public var Type: FString;
-	public var TokenBytes: TArray<cpp.UInt8>;
+	public var TokenBytes: TArray<ucpp.num.UInt8>;
 
 	@:native("FPIELoginSettingsInternal") public function new();
-	@:native("FPIELoginSettingsInternal") public static function make(Id: FString, Token: FString, Type: FString, TokenBytes: TArray<cpp.UInt8>): PIELoginSettingsInternal ;
+	@:native("FPIELoginSettingsInternal") public static function make(Id: FString, Token: FString, Type: FString, TokenBytes: TArray<ucpp.num.UInt8>): PIELoginSettingsInternal ;
 }

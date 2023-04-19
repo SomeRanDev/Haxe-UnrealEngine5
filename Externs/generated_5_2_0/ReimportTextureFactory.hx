@@ -3,24 +3,24 @@ package ue;
 
 @:native("UReimportTextureFactory")
 @:include("Factories/ReimportTextureFactory.h")
-@:structAccess
+@:valueType
 extern class ReimportTextureFactory extends TextureFactory {
-	public var pOriginalTex: cpp.Star<Texture>;
+	public var pOriginalTex: ucpp.Ptr<Texture>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstReimportTextureFactory(ReimportTextureFactory) from ReimportTextureFactory {
-	public extern var pOriginalTex(get, never): cpp.Star<Texture.ConstTexture>;
-	public inline extern function get_pOriginalTex(): cpp.Star<Texture.ConstTexture> return this.pOriginalTex;
+	public extern var pOriginalTex(get, never): ucpp.Ptr<Texture.ConstTexture>;
+	public inline extern function get_pOriginalTex(): ucpp.Ptr<Texture.ConstTexture> return this.pOriginalTex;
 }
 
 @:forward
 @:nativeGen
 @:native("ReimportTextureFactory*")
-abstract ReimportTextureFactoryPtr(cpp.Star<ReimportTextureFactory>) from cpp.Star<ReimportTextureFactory> to cpp.Star<ReimportTextureFactory>{
+abstract ReimportTextureFactoryPtr(ucpp.Ptr<ReimportTextureFactory>) from ucpp.Ptr<ReimportTextureFactory> to ucpp.Ptr<ReimportTextureFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReimportTextureFactory): ReimportTextureFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMovieSceneEvaluationFieldEntityKey")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationFieldEntityKey {
 	public var EntityOwner: TWeakObjectPtr<Object>;
-	public var EntityID: cpp.UInt32;
+	public var EntityID: ucpp.num.UInt32;
 
 	@:native("FMovieSceneEvaluationFieldEntityKey") public function new();
-	@:native("FMovieSceneEvaluationFieldEntityKey") public static function make(EntityOwner: TWeakObjectPtr<Object>, EntityID: cpp.UInt32): MovieSceneEvaluationFieldEntityKey ;
+	@:native("FMovieSceneEvaluationFieldEntityKey") public static function make(EntityOwner: TWeakObjectPtr<Object>, EntityID: ucpp.num.UInt32): MovieSceneEvaluationFieldEntityKey ;
 }

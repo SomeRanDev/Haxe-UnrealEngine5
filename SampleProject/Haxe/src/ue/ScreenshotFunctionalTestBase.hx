@@ -3,13 +3,13 @@ package ue;
 
 @:native("AScreenshotFunctionalTestBase")
 @:include("ScreenshotFunctionalTestBase.h")
-@:structAccess
+@:valueType
 extern class ScreenshotFunctionalTestBase extends FunctionalTest {
 	@:protected public var Notes: FString;
-	@:protected public var ScreenshotCamera: cpp.Star<CameraComp>;
+	@:protected public var ScreenshotCamera: ucpp.Ptr<CameraComp>;
 	@:protected public var ScreenshotOptions: AutomationScreenshotOptions;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstScreenshotFunctionalTestBase(ScreenshotFunctionalTestBase) from Sc
 @:forward
 @:nativeGen
 @:native("ScreenshotFunctionalTestBase*")
-abstract ScreenshotFunctionalTestBasePtr(cpp.Star<ScreenshotFunctionalTestBase>) from cpp.Star<ScreenshotFunctionalTestBase> to cpp.Star<ScreenshotFunctionalTestBase>{
+abstract ScreenshotFunctionalTestBasePtr(ucpp.Ptr<ScreenshotFunctionalTestBase>) from ucpp.Ptr<ScreenshotFunctionalTestBase> to ucpp.Ptr<ScreenshotFunctionalTestBase>{
 	@:from
 	public static extern inline function fromValue(v: ScreenshotFunctionalTestBase): ScreenshotFunctionalTestBasePtr {
 		return untyped __cpp__("&({0})", v);

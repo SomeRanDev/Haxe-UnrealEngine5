@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBlueprintEditorSettings")
 @:include("BlueprintEditorSettings.h")
-@:structAccess
+@:valueType
 extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bDrawMidpointArrowsInBlueprints: Bool;
 	public var bShowGraphInstructionText: Bool;
@@ -38,8 +38,8 @@ extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var bShowActionMenuItemSignatures: Bool;
 	public var bBlueprintNodeUniqueNames: Bool;
 	public var bShowDetailedCompileResults: Bool;
-	public var CompileEventDisplayThresholdMs: cpp.Int32;
-	public var NodeTemplateCacheCapMB: cpp.Float32;
+	public var CompileEventDisplayThresholdMs: ucpp.num.Int32;
+	public var NodeTemplateCacheCapMB: ucpp.num.Float32;
 	public var bShowInheritedVariables: Bool;
 	public var bAlwaysShowInterfacesInOverrides: Bool;
 	public var bShowParentClassInOverrides: Bool;
@@ -50,13 +50,13 @@ extern class BlueprintEditorSettings extends DeveloperSettings {
 	public var PerBlueprintSettings: TMap<FString, PerBlueprintSettings>;
 	public var bIncludeCommentNodesInBookmarksTab: Bool;
 	public var bShowBookmarksForCurrentDocumentOnlyInTab: Bool;
-	public var GraphEditorQuickJumps: TMap<cpp.Int32, EditedDocumentInfo>;
+	public var GraphEditorQuickJumps: TMap<ucpp.num.Int32, EditedDocumentInfo>;
 	public var bEnableNamespaceFilteringFeatures: Bool;
 	public var bEnableNamespaceImportingFeatures: Bool;
 	public var bInheritImportedNamespacesFromParentBP: Bool;
 	public var BaseClassesToAllowRecompilingDuringPlayInEditor: TArray<TSoftClassPtr<Class>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -128,10 +128,10 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 	public inline extern function get_bBlueprintNodeUniqueNames(): Bool return this.bBlueprintNodeUniqueNames;
 	public extern var bShowDetailedCompileResults(get, never): Bool;
 	public inline extern function get_bShowDetailedCompileResults(): Bool return this.bShowDetailedCompileResults;
-	public extern var CompileEventDisplayThresholdMs(get, never): cpp.Int32;
-	public inline extern function get_CompileEventDisplayThresholdMs(): cpp.Int32 return this.CompileEventDisplayThresholdMs;
-	public extern var NodeTemplateCacheCapMB(get, never): cpp.Float32;
-	public inline extern function get_NodeTemplateCacheCapMB(): cpp.Float32 return this.NodeTemplateCacheCapMB;
+	public extern var CompileEventDisplayThresholdMs(get, never): ucpp.num.Int32;
+	public inline extern function get_CompileEventDisplayThresholdMs(): ucpp.num.Int32 return this.CompileEventDisplayThresholdMs;
+	public extern var NodeTemplateCacheCapMB(get, never): ucpp.num.Float32;
+	public inline extern function get_NodeTemplateCacheCapMB(): ucpp.num.Float32 return this.NodeTemplateCacheCapMB;
 	public extern var bShowInheritedVariables(get, never): Bool;
 	public inline extern function get_bShowInheritedVariables(): Bool return this.bShowInheritedVariables;
 	public extern var bAlwaysShowInterfacesInOverrides(get, never): Bool;
@@ -152,8 +152,8 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 	public inline extern function get_bIncludeCommentNodesInBookmarksTab(): Bool return this.bIncludeCommentNodesInBookmarksTab;
 	public extern var bShowBookmarksForCurrentDocumentOnlyInTab(get, never): Bool;
 	public inline extern function get_bShowBookmarksForCurrentDocumentOnlyInTab(): Bool return this.bShowBookmarksForCurrentDocumentOnlyInTab;
-	public extern var GraphEditorQuickJumps(get, never): TMap<cpp.Int32, EditedDocumentInfo>;
-	public inline extern function get_GraphEditorQuickJumps(): TMap<cpp.Int32, EditedDocumentInfo> return this.GraphEditorQuickJumps;
+	public extern var GraphEditorQuickJumps(get, never): TMap<ucpp.num.Int32, EditedDocumentInfo>;
+	public inline extern function get_GraphEditorQuickJumps(): TMap<ucpp.num.Int32, EditedDocumentInfo> return this.GraphEditorQuickJumps;
 	public extern var bEnableNamespaceFilteringFeatures(get, never): Bool;
 	public inline extern function get_bEnableNamespaceFilteringFeatures(): Bool return this.bEnableNamespaceFilteringFeatures;
 	public extern var bEnableNamespaceImportingFeatures(get, never): Bool;
@@ -167,7 +167,7 @@ abstract ConstBlueprintEditorSettings(BlueprintEditorSettings) from BlueprintEdi
 @:forward
 @:nativeGen
 @:native("BlueprintEditorSettings*")
-abstract BlueprintEditorSettingsPtr(cpp.Star<BlueprintEditorSettings>) from cpp.Star<BlueprintEditorSettings> to cpp.Star<BlueprintEditorSettings>{
+abstract BlueprintEditorSettingsPtr(ucpp.Ptr<BlueprintEditorSettings>) from ucpp.Ptr<BlueprintEditorSettings> to ucpp.Ptr<BlueprintEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintEditorSettings): BlueprintEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

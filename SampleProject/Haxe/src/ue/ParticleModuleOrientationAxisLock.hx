@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleOrientationAxisLock")
 @:include("Particles/Orientation/ParticleModuleOrientationAxisLock.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleOrientationAxisLock extends ParticleModuleOrientationBase {
 	public var LockAxisFlags: TEnumAsByte<EParticleAxisLock>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleOrientationAxisLock(ParticleModuleOrientationAxisLoc
 @:forward
 @:nativeGen
 @:native("ParticleModuleOrientationAxisLock*")
-abstract ParticleModuleOrientationAxisLockPtr(cpp.Star<ParticleModuleOrientationAxisLock>) from cpp.Star<ParticleModuleOrientationAxisLock> to cpp.Star<ParticleModuleOrientationAxisLock>{
+abstract ParticleModuleOrientationAxisLockPtr(ucpp.Ptr<ParticleModuleOrientationAxisLock>) from ucpp.Ptr<ParticleModuleOrientationAxisLock> to ucpp.Ptr<ParticleModuleOrientationAxisLock>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleOrientationAxisLock): ParticleModuleOrientationAxisLockPtr {
 		return untyped __cpp__("&({0})", v);

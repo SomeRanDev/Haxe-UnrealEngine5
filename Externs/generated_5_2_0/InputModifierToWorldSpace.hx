@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputModifierToWorldSpace")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierToWorldSpace extends InputModifier {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputModifierToWorldSpace(InputModifierToWorldSpace) from InputMod
 @:forward
 @:nativeGen
 @:native("InputModifierToWorldSpace*")
-abstract InputModifierToWorldSpacePtr(cpp.Star<InputModifierToWorldSpace>) from cpp.Star<InputModifierToWorldSpace> to cpp.Star<InputModifierToWorldSpace>{
+abstract InputModifierToWorldSpacePtr(ucpp.Ptr<InputModifierToWorldSpace>) from ucpp.Ptr<InputModifierToWorldSpace> to ucpp.Ptr<InputModifierToWorldSpace>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierToWorldSpace): InputModifierToWorldSpacePtr {
 		return untyped __cpp__("&({0})", v);

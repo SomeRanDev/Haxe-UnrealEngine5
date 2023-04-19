@@ -3,12 +3,14 @@ package ue;
 
 @:native("UForceFeedbackEffect")
 @:include("GameFramework/ForceFeedbackEffect.h")
-@:structAccess
+@:valueType
 extern class ForceFeedbackEffect extends Object {
 	public var ChannelDetails: TArray<ForceFeedbackChannelDetails>;
-	public var Duration: cpp.Float32;
+	public var PerDeviceOverrides: TMap<FName, ForceFeedbackEffectOverridenChannelDetails>;
+	public var DeviceProperties: TArray<ucpp.Ptr<InputDeviceProperty>>;
+	public var Duration: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +18,18 @@ extern class ForceFeedbackEffect extends Object {
 abstract ConstForceFeedbackEffect(ForceFeedbackEffect) from ForceFeedbackEffect {
 	public extern var ChannelDetails(get, never): TArray<ForceFeedbackChannelDetails>;
 	public inline extern function get_ChannelDetails(): TArray<ForceFeedbackChannelDetails> return this.ChannelDetails;
-	public extern var Duration(get, never): cpp.Float32;
-	public inline extern function get_Duration(): cpp.Float32 return this.Duration;
+	public extern var PerDeviceOverrides(get, never): TMap<FName, ForceFeedbackEffectOverridenChannelDetails>;
+	public inline extern function get_PerDeviceOverrides(): TMap<FName, ForceFeedbackEffectOverridenChannelDetails> return this.PerDeviceOverrides;
+	public extern var DeviceProperties(get, never): TArray<ucpp.Ptr<InputDeviceProperty.ConstInputDeviceProperty>>;
+	public inline extern function get_DeviceProperties(): TArray<ucpp.Ptr<InputDeviceProperty.ConstInputDeviceProperty>> return this.DeviceProperties;
+	public extern var Duration(get, never): ucpp.num.Float32;
+	public inline extern function get_Duration(): ucpp.num.Float32 return this.Duration;
 }
 
 @:forward
 @:nativeGen
 @:native("ForceFeedbackEffect*")
-abstract ForceFeedbackEffectPtr(cpp.Star<ForceFeedbackEffect>) from cpp.Star<ForceFeedbackEffect> to cpp.Star<ForceFeedbackEffect>{
+abstract ForceFeedbackEffectPtr(ucpp.Ptr<ForceFeedbackEffect>) from ucpp.Ptr<ForceFeedbackEffect> to ucpp.Ptr<ForceFeedbackEffect>{
 	@:from
 	public static extern inline function fromValue(v: ForceFeedbackEffect): ForceFeedbackEffectPtr {
 		return untyped __cpp__("&({0})", v);

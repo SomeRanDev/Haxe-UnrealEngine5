@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTickableRotationConstraint")
 @:include("TransformConstraint.h")
-@:structAccess
+@:valueType
 extern class TickableRotationConstraint extends TickableTransformConstraint {
 	@:protected public var OffsetRotation: Quat;
 	@:protected public var AxisFilter: FilterOptionPerAxis;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstTickableRotationConstraint(TickableRotationConstraint) from Tickab
 @:forward
 @:nativeGen
 @:native("TickableRotationConstraint*")
-abstract TickableRotationConstraintPtr(cpp.Star<TickableRotationConstraint>) from cpp.Star<TickableRotationConstraint> to cpp.Star<TickableRotationConstraint>{
+abstract TickableRotationConstraintPtr(ucpp.Ptr<TickableRotationConstraint>) from ucpp.Ptr<TickableRotationConstraint> to ucpp.Ptr<TickableRotationConstraint>{
 	@:from
 	public static extern inline function fromValue(v: TickableRotationConstraint): TickableRotationConstraintPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPhysicsLevelSetData")
 @:include("Physics/CollisionPropertySets.h")
-@:structAccess
+@:valueType
 extern class PhysicsLevelSetData {
 	public var Element: KShapeElem;
 

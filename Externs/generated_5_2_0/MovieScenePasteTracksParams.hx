@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMovieScenePasteTracksParams")
 @:include("SequencerUtilities.h")
-@:structAccess
+@:valueType
 extern class MovieScenePasteTracksParams {
-	public var Sequence: cpp.Star<MovieSceneSequence>;
+	public var Sequence: ucpp.Ptr<MovieSceneSequence>;
 	public var Bindings: TArray<MovieSceneBindingProxy>;
-	public var ParentFolder: cpp.Star<MovieSceneFolder>;
-	public var Folders: TArray<cpp.Star<MovieSceneFolder>>;
+	public var ParentFolder: ucpp.Ptr<MovieSceneFolder>;
+	public var Folders: TArray<ucpp.Ptr<MovieSceneFolder>>;
 
 	@:native("FMovieScenePasteTracksParams") public function new();
-	@:native("FMovieScenePasteTracksParams") public static function make(Sequence: cpp.Star<MovieSceneSequence>, Bindings: TArray<MovieSceneBindingProxy>, ParentFolder: cpp.Star<MovieSceneFolder>, Folders: TArray<cpp.Star<MovieSceneFolder>>): MovieScenePasteTracksParams ;
+	@:native("FMovieScenePasteTracksParams") public static function make(Sequence: ucpp.Ptr<MovieSceneSequence>, Bindings: TArray<MovieSceneBindingProxy>, ParentFolder: ucpp.Ptr<MovieSceneFolder>, Folders: TArray<ucpp.Ptr<MovieSceneFolder>>): MovieScenePasteTracksParams ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_Skeleton")
 @:include("Animation/AssetDefinition_Skeleton.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_Skeleton extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_Skeleton(AssetDefinition_Skeleton) from AssetDefin
 @:forward
 @:nativeGen
 @:native("AssetDefinition_Skeleton*")
-abstract AssetDefinition_SkeletonPtr(cpp.Star<AssetDefinition_Skeleton>) from cpp.Star<AssetDefinition_Skeleton> to cpp.Star<AssetDefinition_Skeleton>{
+abstract AssetDefinition_SkeletonPtr(ucpp.Ptr<AssetDefinition_Skeleton>) from ucpp.Ptr<AssetDefinition_Skeleton> to ucpp.Ptr<AssetDefinition_Skeleton>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_Skeleton): AssetDefinition_SkeletonPtr {
 		return untyped __cpp__("&({0})", v);

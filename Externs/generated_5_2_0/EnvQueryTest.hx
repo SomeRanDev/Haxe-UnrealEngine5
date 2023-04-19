@@ -3,9 +3,9 @@ package ue;
 
 @:native("UEnvQueryTest")
 @:include("EnvironmentQuery/EnvQueryTest.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest extends EnvQueryNode {
-	public var TestOrder: cpp.Int32;
+	public var TestOrder: ucpp.num.Int32;
 	public var TestPurpose: TEnumAsByte<EEnvTestPurpose>;
 	public var TestComment: FString;
 	public var MultipleContextFilterOp: TEnumAsByte<EEnvTestFilterOperator>;
@@ -25,14 +25,14 @@ extern class EnvQueryTest extends EnvQueryNode {
 	public var bDefineReferenceValue: Bool;
 	private var bWorkOnFloatValues: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryTest(EnvQueryTest) from EnvQueryTest {
-	public extern var TestOrder(get, never): cpp.Int32;
-	public inline extern function get_TestOrder(): cpp.Int32 return this.TestOrder;
+	public extern var TestOrder(get, never): ucpp.num.Int32;
+	public inline extern function get_TestOrder(): ucpp.num.Int32 return this.TestOrder;
 	public extern var TestPurpose(get, never): TEnumAsByte<EEnvTestPurpose>;
 	public inline extern function get_TestPurpose(): TEnumAsByte<EEnvTestPurpose> return this.TestPurpose;
 	public extern var TestComment(get, never): FString;
@@ -72,7 +72,7 @@ abstract ConstEnvQueryTest(EnvQueryTest) from EnvQueryTest {
 @:forward
 @:nativeGen
 @:native("EnvQueryTest*")
-abstract EnvQueryTestPtr(cpp.Star<EnvQueryTest>) from cpp.Star<EnvQueryTest> to cpp.Star<EnvQueryTest>{
+abstract EnvQueryTestPtr(ucpp.Ptr<EnvQueryTest>) from ucpp.Ptr<EnvQueryTest> to ucpp.Ptr<EnvQueryTest>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest): EnvQueryTestPtr {
 		return untyped __cpp__("&({0})", v);

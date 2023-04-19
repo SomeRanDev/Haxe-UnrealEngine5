@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAISenseConfig")
 @:include("Perception/AISenseConfig.h")
-@:structAccess
+@:valueType
 extern class AISenseConfig extends Object {
 	@:protected public var DebugColor: Color;
-	@:protected public var MaxAge: cpp.Float32;
+	@:protected public var MaxAge: ucpp.num.Float32;
 	@:protected public var bStartsEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAISenseConfig(AISenseConfig) from AISenseConfig {
 @:forward
 @:nativeGen
 @:native("AISenseConfig*")
-abstract AISenseConfigPtr(cpp.Star<AISenseConfig>) from cpp.Star<AISenseConfig> to cpp.Star<AISenseConfig>{
+abstract AISenseConfigPtr(ucpp.Ptr<AISenseConfig>) from ucpp.Ptr<AISenseConfig> to ucpp.Ptr<AISenseConfig>{
 	@:from
 	public static extern inline function fromValue(v: AISenseConfig): AISenseConfigPtr {
 		return untyped __cpp__("&({0})", v);

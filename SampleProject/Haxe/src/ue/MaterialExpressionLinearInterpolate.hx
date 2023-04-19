@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionLinearInterpolate")
 @:include("Materials/MaterialExpressionLinearInterpolate.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLinearInterpolate extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Alpha: ExpressionInput;
-	public var ConstA: cpp.Float32;
-	public var ConstB: cpp.Float32;
-	public var ConstAlpha: cpp.Float32;
+	public var ConstA: ucpp.num.Float32;
+	public var ConstB: ucpp.num.Float32;
+	public var ConstAlpha: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,18 +24,18 @@ abstract ConstMaterialExpressionLinearInterpolate(MaterialExpressionLinearInterp
 	public inline extern function get_B(): ExpressionInput return this.B;
 	public extern var Alpha(get, never): ExpressionInput;
 	public inline extern function get_Alpha(): ExpressionInput return this.Alpha;
-	public extern var ConstA(get, never): cpp.Float32;
-	public inline extern function get_ConstA(): cpp.Float32 return this.ConstA;
-	public extern var ConstB(get, never): cpp.Float32;
-	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
-	public extern var ConstAlpha(get, never): cpp.Float32;
-	public inline extern function get_ConstAlpha(): cpp.Float32 return this.ConstAlpha;
+	public extern var ConstA(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstA(): ucpp.num.Float32 return this.ConstA;
+	public extern var ConstB(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstB(): ucpp.num.Float32 return this.ConstB;
+	public extern var ConstAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstAlpha(): ucpp.num.Float32 return this.ConstAlpha;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLinearInterpolate*")
-abstract MaterialExpressionLinearInterpolatePtr(cpp.Star<MaterialExpressionLinearInterpolate>) from cpp.Star<MaterialExpressionLinearInterpolate> to cpp.Star<MaterialExpressionLinearInterpolate>{
+abstract MaterialExpressionLinearInterpolatePtr(ucpp.Ptr<MaterialExpressionLinearInterpolate>) from ucpp.Ptr<MaterialExpressionLinearInterpolate> to ucpp.Ptr<MaterialExpressionLinearInterpolate>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLinearInterpolate): MaterialExpressionLinearInterpolatePtr {
 		return untyped __cpp__("&({0})", v);

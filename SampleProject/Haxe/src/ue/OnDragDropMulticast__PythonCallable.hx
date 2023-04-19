@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnDragDropMulticast__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnDragDropMulticast__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnDragDropMulticast__PythonCallable(OnDragDropMulticast__PythonCal
 @:forward
 @:nativeGen
 @:native("OnDragDropMulticast__PythonCallable*")
-abstract OnDragDropMulticast__PythonCallablePtr(cpp.Star<OnDragDropMulticast__PythonCallable>) from cpp.Star<OnDragDropMulticast__PythonCallable> to cpp.Star<OnDragDropMulticast__PythonCallable>{
+abstract OnDragDropMulticast__PythonCallablePtr(ucpp.Ptr<OnDragDropMulticast__PythonCallable>) from ucpp.Ptr<OnDragDropMulticast__PythonCallable> to ucpp.Ptr<OnDragDropMulticast__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnDragDropMulticast__PythonCallable): OnDragDropMulticast__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

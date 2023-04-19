@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimSlotGroup")
 @:include("Animation/Skeleton.h")
-@:structAccess
+@:valueType
 extern class AnimSlotGroup {
 	public var GroupName: FName;
 	public var SlotNames: TArray<FName>;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UHudSettings")
 @:include("HudSettings.h")
-@:structAccess
+@:valueType
 extern class HudSettings extends Object {
 	public var bShowHUD: Bool;
 	public var DebugDisplay: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstHudSettings(HudSettings) from HudSettings {
 @:forward
 @:nativeGen
 @:native("HudSettings*")
-abstract HudSettingsPtr(cpp.Star<HudSettings>) from cpp.Star<HudSettings> to cpp.Star<HudSettings>{
+abstract HudSettingsPtr(ucpp.Ptr<HudSettings>) from ucpp.Ptr<HudSettings> to ucpp.Ptr<HudSettings>{
 	@:from
 	public static extern inline function fromValue(v: HudSettings): HudSettingsPtr {
 		return untyped __cpp__("&({0})", v);

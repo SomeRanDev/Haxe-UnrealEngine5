@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintInputDelegateBinding")
 @:include("Engine/InputDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class BlueprintInputDelegateBinding {
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;

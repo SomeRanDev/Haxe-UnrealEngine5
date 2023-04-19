@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UActiveSoundUpdateInterface")
-@:structAccess
+@:valueType
 extern class ActiveSoundUpdateInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstActiveSoundUpdateInterface(ActiveSoundUpdateInterface) from Active
 @:forward
 @:nativeGen
 @:native("ActiveSoundUpdateInterface*")
-abstract ActiveSoundUpdateInterfacePtr(cpp.Star<ActiveSoundUpdateInterface>) from cpp.Star<ActiveSoundUpdateInterface> to cpp.Star<ActiveSoundUpdateInterface>{
+abstract ActiveSoundUpdateInterfacePtr(ucpp.Ptr<ActiveSoundUpdateInterface>) from ucpp.Ptr<ActiveSoundUpdateInterface> to ucpp.Ptr<ActiveSoundUpdateInterface>{
 	@:from
 	public static extern inline function fromValue(v: ActiveSoundUpdateInterface): ActiveSoundUpdateInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UActorContainer")
 @:include("Engine/Level.h")
-@:structAccess
+@:valueType
 extern class ActorContainer extends Object {
-	public var Actors: TMap<FName, cpp.Star<Actor>>;
+	public var Actors: TMap<FName, ucpp.Ptr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstActorContainer(ActorContainer) from ActorContainer {
-	public extern var Actors(get, never): TMap<FName, cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_Actors(): TMap<FName, cpp.Star<Actor.ConstActor>> return this.Actors;
+	public extern var Actors(get, never): TMap<FName, ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_Actors(): TMap<FName, ucpp.Ptr<Actor.ConstActor>> return this.Actors;
 }
 
 @:forward
 @:nativeGen
 @:native("ActorContainer*")
-abstract ActorContainerPtr(cpp.Star<ActorContainer>) from cpp.Star<ActorContainer> to cpp.Star<ActorContainer>{
+abstract ActorContainerPtr(ucpp.Ptr<ActorContainer>) from ucpp.Ptr<ActorContainer> to ucpp.Ptr<ActorContainer>{
 	@:from
 	public static extern inline function fromValue(v: ActorContainer): ActorContainerPtr {
 		return untyped __cpp__("&({0})", v);

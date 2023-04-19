@@ -3,14 +3,15 @@ package ue;
 
 @:native("UComboBoxString")
 @:include("Components/ComboBoxString.h")
-@:structAccess
+@:valueType
 extern class ComboBoxString extends Widget {
 	private var DefaultOptions: TArray<FString>;
 	private var SelectedOption: FString;
 	public var WidgetStyle: ComboBoxStyle;
 	public var ItemStyle: TableRowStyle;
+	public var ScrollBarStyle: ScrollBarStyle;
 	public var ContentPadding: Margin;
-	public var MaxListHeight: cpp.Float32;
+	public var MaxListHeight: ucpp.num.Float32;
 	public var HasDownArrow: Bool;
 	public var EnableGamepadNavigationMode: Bool;
 	public var Font: SlateFontInfo;
@@ -21,22 +22,22 @@ extern class ComboBoxString extends Widget {
 	public var OnOpening: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function SetSelectedOption(Option: FString): Void;
-	public function SetSelectedIndex(Index: cpp.Int32): Void;
+	public function SetSelectedIndex(Index: ucpp.num.Int32): Void;
 	public function RemoveOption(Option: FString): Bool;
 	public function RefreshOptions(): Void;
 	public function OnSelectionChangedEvent__DelegateSignature(SelectedItem: FString, SelectionType: TEnumAsByte<ESelectInfo>): Void;
 	public function OnOpeningEvent__DelegateSignature(): Void;
 	public function IsOpen(): Bool;
 	public function GetSelectedOption(): FString;
-	public function GetSelectedIndex(): cpp.Int32;
-	public function GetOptionCount(): cpp.Int32;
-	public function GetOptionAtIndex(Index: cpp.Int32): FString;
-	public function FindOptionIndex(Option: FString): cpp.Int32;
+	public function GetSelectedIndex(): ucpp.num.Int32;
+	public function GetOptionCount(): ucpp.num.Int32;
+	public function GetOptionAtIndex(Index: ucpp.num.Int32): FString;
+	public function FindOptionIndex(Option: FString): ucpp.num.Int32;
 	public function ClearSelection(): Void;
 	public function ClearOptions(): Void;
 	public function AddOption(Option: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsOpen, GetSelectedOption, GetSelectedIndex, GetOptionCount, GetOptionAtIndex, FindOptionIndex)
@@ -46,10 +47,12 @@ abstract ConstComboBoxString(ComboBoxString) from ComboBoxString {
 	public inline extern function get_WidgetStyle(): ComboBoxStyle return this.WidgetStyle;
 	public extern var ItemStyle(get, never): TableRowStyle;
 	public inline extern function get_ItemStyle(): TableRowStyle return this.ItemStyle;
+	public extern var ScrollBarStyle(get, never): ScrollBarStyle;
+	public inline extern function get_ScrollBarStyle(): ScrollBarStyle return this.ScrollBarStyle;
 	public extern var ContentPadding(get, never): Margin;
 	public inline extern function get_ContentPadding(): Margin return this.ContentPadding;
-	public extern var MaxListHeight(get, never): cpp.Float32;
-	public inline extern function get_MaxListHeight(): cpp.Float32 return this.MaxListHeight;
+	public extern var MaxListHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxListHeight(): ucpp.num.Float32 return this.MaxListHeight;
 	public extern var HasDownArrow(get, never): Bool;
 	public inline extern function get_HasDownArrow(): Bool return this.HasDownArrow;
 	public extern var EnableGamepadNavigationMode(get, never): Bool;
@@ -71,7 +74,7 @@ abstract ConstComboBoxString(ComboBoxString) from ComboBoxString {
 @:forward
 @:nativeGen
 @:native("ComboBoxString*")
-abstract ComboBoxStringPtr(cpp.Star<ComboBoxString>) from cpp.Star<ComboBoxString> to cpp.Star<ComboBoxString>{
+abstract ComboBoxStringPtr(ucpp.Ptr<ComboBoxString>) from ucpp.Ptr<ComboBoxString> to ucpp.Ptr<ComboBoxString>{
 	@:from
 	public static extern inline function fromValue(v: ComboBoxString): ComboBoxStringPtr {
 		return untyped __cpp__("&({0})", v);

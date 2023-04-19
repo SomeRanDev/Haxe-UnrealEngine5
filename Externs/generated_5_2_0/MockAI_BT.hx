@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMockAI_BT")
 @:include("MockAI_BT.h")
-@:structAccess
+@:valueType
 extern class MockAI_BT extends MockAI {
-	public var BTComp: cpp.Star<BehaviorTreeComp>;
+	public var BTComp: ucpp.Ptr<BehaviorTreeComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMockAI_BT(MockAI_BT) from MockAI_BT {
-	public extern var BTComp(get, never): cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp>;
-	public inline extern function get_BTComp(): cpp.Star<BehaviorTreeComp.ConstBehaviorTreeComp> return this.BTComp;
+	public extern var BTComp(get, never): ucpp.Ptr<BehaviorTreeComp.ConstBehaviorTreeComp>;
+	public inline extern function get_BTComp(): ucpp.Ptr<BehaviorTreeComp.ConstBehaviorTreeComp> return this.BTComp;
 }
 
 @:forward
 @:nativeGen
 @:native("MockAI_BT*")
-abstract MockAI_BTPtr(cpp.Star<MockAI_BT>) from cpp.Star<MockAI_BT> to cpp.Star<MockAI_BT>{
+abstract MockAI_BTPtr(ucpp.Ptr<MockAI_BT>) from ucpp.Ptr<MockAI_BT> to ucpp.Ptr<MockAI_BT>{
 	@:from
 	public static extern inline function fromValue(v: MockAI_BT): MockAI_BTPtr {
 		return untyped __cpp__("&({0})", v);

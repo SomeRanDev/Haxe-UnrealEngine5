@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_VectorFieldAnimated")
 @:include("AssetDefinition_VectorFieldAnimated.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_VectorFieldAnimated extends AssetDefinition_VectorField {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_VectorFieldAnimated(AssetDefinition_VectorFieldAni
 @:forward
 @:nativeGen
 @:native("AssetDefinition_VectorFieldAnimated*")
-abstract AssetDefinition_VectorFieldAnimatedPtr(cpp.Star<AssetDefinition_VectorFieldAnimated>) from cpp.Star<AssetDefinition_VectorFieldAnimated> to cpp.Star<AssetDefinition_VectorFieldAnimated>{
+abstract AssetDefinition_VectorFieldAnimatedPtr(ucpp.Ptr<AssetDefinition_VectorFieldAnimated>) from ucpp.Ptr<AssetDefinition_VectorFieldAnimated> to ucpp.Ptr<AssetDefinition_VectorFieldAnimated>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_VectorFieldAnimated): AssetDefinition_VectorFieldAnimatedPtr {
 		return untyped __cpp__("&({0})", v);

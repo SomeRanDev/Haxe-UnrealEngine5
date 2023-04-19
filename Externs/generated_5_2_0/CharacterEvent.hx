@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCharacterEvent")
 @:include("Input/Events.h")
-@:structAccess
+@:valueType
 extern class CharacterEvent extends InputEvent {
 	@:native("FCharacterEvent") public function new();
 }

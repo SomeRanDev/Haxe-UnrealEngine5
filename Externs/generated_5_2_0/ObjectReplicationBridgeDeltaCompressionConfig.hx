@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectReplicationBridgeDeltaCompressionConfig")
 @:include("Iris/ReplicationSystem/ObjectReplicationBridgeConfig.h")
-@:structAccess
+@:valueType
 extern class ObjectReplicationBridgeDeltaCompressionConfig {
 	public var ClassName: FName;
 	public var bEnableDeltaCompression: Bool;

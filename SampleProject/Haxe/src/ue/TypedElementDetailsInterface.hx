@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTypedElementDetailsInterface")
-@:structAccess
+@:valueType
 extern class TypedElementDetailsInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTypedElementDetailsInterface(TypedElementDetailsInterface) from Ty
 @:forward
 @:nativeGen
 @:native("TypedElementDetailsInterface*")
-abstract TypedElementDetailsInterfacePtr(cpp.Star<TypedElementDetailsInterface>) from cpp.Star<TypedElementDetailsInterface> to cpp.Star<TypedElementDetailsInterface>{
+abstract TypedElementDetailsInterfacePtr(ucpp.Ptr<TypedElementDetailsInterface>) from ucpp.Ptr<TypedElementDetailsInterface> to ucpp.Ptr<TypedElementDetailsInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementDetailsInterface): TypedElementDetailsInterfacePtr {
 		return untyped __cpp__("&({0})", v);

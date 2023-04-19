@@ -3,21 +3,21 @@ package ue;
 
 @:native("UFXSystemComponent")
 @:include("Particles/ParticleSystemComponent.h")
-@:structAccess
+@:valueType
 extern class FXSystemComp extends PrimitiveComp {
 	public function SetVectorParameter(ParameterName: FName, Param: Vector): Void;
 	public function SetUseAutoManageAttachment(bAutoManage: Bool): Void;
-	public function SetIntParameter(ParameterName: FName, Param: cpp.Int32): Void;
-	public function SetFloatParameter(ParameterName: FName, Param: cpp.Float32): Void;
+	public function SetIntParameter(ParameterName: FName, Param: ucpp.num.Int32): Void;
+	public function SetFloatParameter(ParameterName: FName, Param: ucpp.num.Float32): Void;
 	public function SetEmitterEnable(EmitterName: FName, bNewEnableState: Bool): Void;
 	public function SetColorParameter(ParameterName: FName, Param: LinearColor): Void;
 	public function SetBoolParameter(ParameterName: FName, Param: Bool): Void;
-	public function SetAutoAttachmentParameters(Parent: cpp.Star<SceneComp>, SocketName: FName, LocationRule: EAttachmentRule, RotationRule: EAttachmentRule, ScaleRule: EAttachmentRule): Void;
-	public function SetActorParameter(ParameterName: FName, Param: cpp.Star<Actor>): Void;
+	public function SetAutoAttachmentParameters(Parent: ucpp.Ptr<SceneComp>, SocketName: FName, LocationRule: EAttachmentRule, RotationRule: EAttachmentRule, ScaleRule: EAttachmentRule): Void;
+	public function SetActorParameter(ParameterName: FName, Param: ucpp.Ptr<Actor>): Void;
 	public function ReleaseToPool(): Void;
-	public function GetFXSystemAsset(): cpp.Star<FXSystemAsset>;
+	public function GetFXSystemAsset(): ucpp.Ptr<FXSystemAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFXSystemAsset)
@@ -28,7 +28,7 @@ abstract ConstFXSystemComp(FXSystemComp) from FXSystemComp {
 @:forward
 @:nativeGen
 @:native("FXSystemComp*")
-abstract FXSystemCompPtr(cpp.Star<FXSystemComp>) from cpp.Star<FXSystemComp> to cpp.Star<FXSystemComp>{
+abstract FXSystemCompPtr(ucpp.Ptr<FXSystemComp>) from ucpp.Ptr<FXSystemComp> to ucpp.Ptr<FXSystemComp>{
 	@:from
 	public static extern inline function fromValue(v: FXSystemComp): FXSystemCompPtr {
 		return untyped __cpp__("&({0})", v);

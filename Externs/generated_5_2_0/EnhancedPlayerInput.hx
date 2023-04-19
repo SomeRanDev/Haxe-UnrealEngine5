@@ -3,16 +3,16 @@ package ue;
 
 @:native("UEnhancedPlayerInput")
 @:include("EnhancedPlayerInput.h")
-@:structAccess
+@:valueType
 extern class EnhancedPlayerInput extends PlayerInput {
-	private var AppliedInputContexts: TMap<cpp.Star<InputMappingContext>, cpp.Int32>;
+	private var AppliedInputContexts: TMap<ucpp.Ptr<InputMappingContext>, ucpp.num.Int32>;
 	private var EnhancedActionMappings: TArray<EnhancedActionKeyMapping>;
-	private var ActionInstanceData: TMap<cpp.Star<InputAction>, InputActionInstance>;
+	private var ActionInstanceData: TMap<ucpp.Ptr<InputAction>, InputActionInstance>;
 	private var KeysPressedThisTick: TMap<Key, Vector>;
-	private var InputsInjectedThisTick: TMap<cpp.Star<InputAction>, InjectedInputArray>;
-	private var LastInjectedActions: TSet<cpp.Star<InputAction>>;
+	private var InputsInjectedThisTick: TMap<ucpp.Ptr<InputAction>, InjectedInputArray>;
+	private var LastInjectedActions: TSet<ucpp.Ptr<InputAction>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEnhancedPlayerInput(EnhancedPlayerInput) from EnhancedPlayerInput 
 @:forward
 @:nativeGen
 @:native("EnhancedPlayerInput*")
-abstract EnhancedPlayerInputPtr(cpp.Star<EnhancedPlayerInput>) from cpp.Star<EnhancedPlayerInput> to cpp.Star<EnhancedPlayerInput>{
+abstract EnhancedPlayerInputPtr(ucpp.Ptr<EnhancedPlayerInput>) from ucpp.Ptr<EnhancedPlayerInput> to ucpp.Ptr<EnhancedPlayerInput>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedPlayerInput): EnhancedPlayerInputPtr {
 		return untyped __cpp__("&({0})", v);

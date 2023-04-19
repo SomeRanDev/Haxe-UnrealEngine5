@@ -3,10 +3,10 @@ package ue;
 
 @:native("ACameraBlockingVolume")
 @:include("GameFramework/CameraBlockingVolume.h")
-@:structAccess
+@:valueType
 extern class CameraBlockingVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCameraBlockingVolume(CameraBlockingVolume) from CameraBlockingVolu
 @:forward
 @:nativeGen
 @:native("CameraBlockingVolume*")
-abstract CameraBlockingVolumePtr(cpp.Star<CameraBlockingVolume>) from cpp.Star<CameraBlockingVolume> to cpp.Star<CameraBlockingVolume>{
+abstract CameraBlockingVolumePtr(ucpp.Ptr<CameraBlockingVolume>) from ucpp.Ptr<CameraBlockingVolume> to ucpp.Ptr<CameraBlockingVolume>{
 	@:from
 	public static extern inline function fromValue(v: CameraBlockingVolume): CameraBlockingVolumePtr {
 		return untyped __cpp__("&({0})", v);

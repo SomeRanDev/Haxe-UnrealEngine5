@@ -3,24 +3,24 @@ package ue;
 
 @:native("AFieldSystemActor")
 @:include("Field/FieldSystemActor.h")
-@:structAccess
+@:valueType
 extern class FieldSystemActor extends Actor {
-	public var FieldSystemComponent: cpp.Star<FieldSystemComp>;
+	public var FieldSystemComponent: ucpp.Ptr<FieldSystemComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFieldSystemActor(FieldSystemActor) from FieldSystemActor {
-	public extern var FieldSystemComponent(get, never): cpp.Star<FieldSystemComp.ConstFieldSystemComp>;
-	public inline extern function get_FieldSystemComponent(): cpp.Star<FieldSystemComp.ConstFieldSystemComp> return this.FieldSystemComponent;
+	public extern var FieldSystemComponent(get, never): ucpp.Ptr<FieldSystemComp.ConstFieldSystemComp>;
+	public inline extern function get_FieldSystemComponent(): ucpp.Ptr<FieldSystemComp.ConstFieldSystemComp> return this.FieldSystemComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("FieldSystemActor*")
-abstract FieldSystemActorPtr(cpp.Star<FieldSystemActor>) from cpp.Star<FieldSystemActor> to cpp.Star<FieldSystemActor>{
+abstract FieldSystemActorPtr(ucpp.Ptr<FieldSystemActor>) from ucpp.Ptr<FieldSystemActor> to ucpp.Ptr<FieldSystemActor>{
 	@:from
 	public static extern inline function fromValue(v: FieldSystemActor): FieldSystemActorPtr {
 		return untyped __cpp__("&({0})", v);

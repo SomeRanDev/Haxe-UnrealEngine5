@@ -3,10 +3,10 @@ package ue;
 
 @:native("UConvertLevelsToExternalActorsCommandlet")
 @:include("Commandlets/ConvertLevelsToExternalActorsCommandlet.h")
-@:structAccess
+@:valueType
 extern class ConvertLevelsToExternalActorsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstConvertLevelsToExternalActorsCommandlet(ConvertLevelsToExternalAct
 @:forward
 @:nativeGen
 @:native("ConvertLevelsToExternalActorsCommandlet*")
-abstract ConvertLevelsToExternalActorsCommandletPtr(cpp.Star<ConvertLevelsToExternalActorsCommandlet>) from cpp.Star<ConvertLevelsToExternalActorsCommandlet> to cpp.Star<ConvertLevelsToExternalActorsCommandlet>{
+abstract ConvertLevelsToExternalActorsCommandletPtr(ucpp.Ptr<ConvertLevelsToExternalActorsCommandlet>) from ucpp.Ptr<ConvertLevelsToExternalActorsCommandlet> to ucpp.Ptr<ConvertLevelsToExternalActorsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ConvertLevelsToExternalActorsCommandlet): ConvertLevelsToExternalActorsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

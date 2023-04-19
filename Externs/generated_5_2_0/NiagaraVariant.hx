@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNiagaraVariant")
 @:include("NiagaraVariant.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariant {
-	private var Object: cpp.Star<Object>;
-	private var DataInterface: cpp.Star<NiagaraDataInterface>;
-	private var Bytes: TArray<cpp.UInt8>;
+	private var Object: ucpp.Ptr<Object>;
+	private var DataInterface: ucpp.Ptr<NiagaraDataInterface>;
+	private var Bytes: TArray<ucpp.num.UInt8>;
 	private var CurrentMode: ENiagaraVariantMode;
 
 	@:native("FNiagaraVariant") public function new();
-	@:native("FNiagaraVariant") public static function make(Object: cpp.Star<Object>, DataInterface: cpp.Star<NiagaraDataInterface>, Bytes: TArray<cpp.UInt8>, CurrentMode: ENiagaraVariantMode): NiagaraVariant ;
+	@:native("FNiagaraVariant") public static function make(Object: ucpp.Ptr<Object>, DataInterface: ucpp.Ptr<NiagaraDataInterface>, Bytes: TArray<ucpp.num.UInt8>, CurrentMode: ENiagaraVariantMode): NiagaraVariant ;
 }

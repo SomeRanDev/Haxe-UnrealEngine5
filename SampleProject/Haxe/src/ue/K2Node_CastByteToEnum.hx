@@ -3,19 +3,19 @@ package ue;
 
 @:native("UK2Node_CastByteToEnum")
 @:include("K2Node_CastByteToEnum.h")
-@:structAccess
+@:valueType
 extern class K2Node_CastByteToEnum extends K2Node {
-	public var Enum: cpp.Star<Enum>;
+	public var Enum: ucpp.Ptr<Enum>;
 	public var bSafe: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_CastByteToEnum(K2Node_CastByteToEnum) from K2Node_CastByteToEnum {
-	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
-	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
+	public extern var Enum(get, never): ucpp.Ptr<Enum.ConstEnum>;
+	public inline extern function get_Enum(): ucpp.Ptr<Enum.ConstEnum> return this.Enum;
 	public extern var bSafe(get, never): Bool;
 	public inline extern function get_bSafe(): Bool return this.bSafe;
 }
@@ -23,7 +23,7 @@ abstract ConstK2Node_CastByteToEnum(K2Node_CastByteToEnum) from K2Node_CastByteT
 @:forward
 @:nativeGen
 @:native("K2Node_CastByteToEnum*")
-abstract K2Node_CastByteToEnumPtr(cpp.Star<K2Node_CastByteToEnum>) from cpp.Star<K2Node_CastByteToEnum> to cpp.Star<K2Node_CastByteToEnum>{
+abstract K2Node_CastByteToEnumPtr(ucpp.Ptr<K2Node_CastByteToEnum>) from ucpp.Ptr<K2Node_CastByteToEnum> to ucpp.Ptr<K2Node_CastByteToEnum>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_CastByteToEnum): K2Node_CastByteToEnumPtr {
 		return untyped __cpp__("&({0})", v);

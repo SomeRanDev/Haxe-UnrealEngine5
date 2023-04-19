@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSubmixEffectFilterSettings")
 @:include("SubmixEffects/SubmixEffectFilter.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectFilterSettings {
 	public var FilterType: ESubmixFilterType;
 	public var FilterAlgorithm: ESubmixFilterAlgorithm;
-	public var FilterFrequency: cpp.Float32;
-	public var FilterQ: cpp.Float32;
+	public var FilterFrequency: ucpp.num.Float32;
+	public var FilterQ: ucpp.num.Float32;
 
 	@:native("FSubmixEffectFilterSettings") public function new();
-	@:native("FSubmixEffectFilterSettings") public static function make(FilterType: ESubmixFilterType, FilterAlgorithm: ESubmixFilterAlgorithm, FilterFrequency: cpp.Float32, FilterQ: cpp.Float32): SubmixEffectFilterSettings ;
+	@:native("FSubmixEffectFilterSettings") public static function make(FilterType: ESubmixFilterType, FilterAlgorithm: ESubmixFilterAlgorithm, FilterFrequency: ucpp.num.Float32, FilterQ: ucpp.num.Float32): SubmixEffectFilterSettings ;
 }

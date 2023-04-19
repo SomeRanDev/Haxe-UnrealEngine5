@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAIPredictionEvent")
 @:include("Perception/AISense_Prediction.h")
-@:structAccess
+@:valueType
 extern class AIPredictionEvent {
-	public var Requestor: cpp.Star<Actor>;
-	public var PredictedActor: cpp.Star<Actor>;
+	public var Requestor: ucpp.Ptr<Actor>;
+	public var PredictedActor: ucpp.Ptr<Actor>;
 
 	@:native("FAIPredictionEvent") public function new();
-	@:native("FAIPredictionEvent") public static function make(Requestor: cpp.Star<Actor>, PredictedActor: cpp.Star<Actor>): AIPredictionEvent ;
+	@:native("FAIPredictionEvent") public static function make(Requestor: ucpp.Ptr<Actor>, PredictedActor: ucpp.Ptr<Actor>): AIPredictionEvent ;
 }

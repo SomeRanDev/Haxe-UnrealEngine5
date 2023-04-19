@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraComponentPool")
 @:include("NiagaraComponentPool.h")
-@:structAccess
+@:valueType
 extern class NiagaraComponentPool extends Object {
-	private var WorldParticleSystemPools: TMap<cpp.Star<NiagaraSystem>, NCPool>;
+	private var WorldParticleSystemPools: TMap<ucpp.Ptr<NiagaraSystem>, NCPool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraComponentPool(NiagaraComponentPool) from NiagaraComponentPo
 @:forward
 @:nativeGen
 @:native("NiagaraComponentPool*")
-abstract NiagaraComponentPoolPtr(cpp.Star<NiagaraComponentPool>) from cpp.Star<NiagaraComponentPool> to cpp.Star<NiagaraComponentPool>{
+abstract NiagaraComponentPoolPtr(ucpp.Ptr<NiagaraComponentPool>) from ucpp.Ptr<NiagaraComponentPool> to ucpp.Ptr<NiagaraComponentPool>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraComponentPool): NiagaraComponentPoolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UObjectReferencer")
 @:include("Engine/ObjectReferencer.h")
-@:structAccess
+@:valueType
 extern class ObjectReferencer extends Object {
-	public var ReferencedObjects: TArray<cpp.Star<Object>>;
+	public var ReferencedObjects: TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstObjectReferencer(ObjectReferencer) from ObjectReferencer {
-	public extern var ReferencedObjects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ReferencedObjects(): TArray<cpp.Star<Object.ConstObject>> return this.ReferencedObjects;
+	public extern var ReferencedObjects(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_ReferencedObjects(): TArray<ucpp.Ptr<Object.ConstObject>> return this.ReferencedObjects;
 }
 
 @:forward
 @:nativeGen
 @:native("ObjectReferencer*")
-abstract ObjectReferencerPtr(cpp.Star<ObjectReferencer>) from cpp.Star<ObjectReferencer> to cpp.Star<ObjectReferencer>{
+abstract ObjectReferencerPtr(ucpp.Ptr<ObjectReferencer>) from ucpp.Ptr<ObjectReferencer> to ucpp.Ptr<ObjectReferencer>{
 	@:from
 	public static extern inline function fromValue(v: ObjectReferencer): ObjectReferencerPtr {
 		return untyped __cpp__("&({0})", v);

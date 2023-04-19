@@ -3,11 +3,11 @@ package ue;
 
 @:native("AReflectionCapture")
 @:include("Engine/ReflectionCapture.h")
-@:structAccess
+@:valueType
 extern class ReflectionCapture extends Actor {
-	private var CaptureComponent: cpp.Star<ReflectionCaptureComp>;
+	private var CaptureComponent: ucpp.Ptr<ReflectionCaptureComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstReflectionCapture(ReflectionCapture) from ReflectionCapture {
 @:forward
 @:nativeGen
 @:native("ReflectionCapture*")
-abstract ReflectionCapturePtr(cpp.Star<ReflectionCapture>) from cpp.Star<ReflectionCapture> to cpp.Star<ReflectionCapture>{
+abstract ReflectionCapturePtr(ucpp.Ptr<ReflectionCapture>) from ucpp.Ptr<ReflectionCapture> to ucpp.Ptr<ReflectionCapture>{
 	@:from
 	public static extern inline function fromValue(v: ReflectionCapture): ReflectionCapturePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceFadeAmount")
 @:include("Materials/MaterialExpressionPerInstanceFadeAmount.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPerInstanceFadeAmount extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionPerInstanceFadeAmount(MaterialExpressionPerInsta
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPerInstanceFadeAmount*")
-abstract MaterialExpressionPerInstanceFadeAmountPtr(cpp.Star<MaterialExpressionPerInstanceFadeAmount>) from cpp.Star<MaterialExpressionPerInstanceFadeAmount> to cpp.Star<MaterialExpressionPerInstanceFadeAmount>{
+abstract MaterialExpressionPerInstanceFadeAmountPtr(ucpp.Ptr<MaterialExpressionPerInstanceFadeAmount>) from ucpp.Ptr<MaterialExpressionPerInstanceFadeAmount> to ucpp.Ptr<MaterialExpressionPerInstanceFadeAmount>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPerInstanceFadeAmount): MaterialExpressionPerInstanceFadeAmountPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UCompositionGraphCaptureProtocol")
 @:include("Protocols/CompositionGraphCaptureProtocol.h")
-@:structAccess
+@:valueType
 extern class CompositionGraphCaptureProtocol extends MovieSceneImageCaptureProtocolBase {
 	public var IncludeRenderPasses: CompositionGraphCapturePasses;
 	public var bCaptureFramesInHDR: Bool;
-	public var HDRCompressionQuality: cpp.Int32;
+	public var HDRCompressionQuality: ucpp.num.Int32;
 	public var CaptureGamut: TEnumAsByte<EHDRCaptureGamut>;
 	public var PostProcessingMaterial: SoftObjectPath;
 	public var bDisableScreenPercentage: Bool;
-	private var PostProcessingMaterialPtr: cpp.Star<MaterialInterface>;
+	private var PostProcessingMaterialPtr: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,8 +23,8 @@ abstract ConstCompositionGraphCaptureProtocol(CompositionGraphCaptureProtocol) f
 	public inline extern function get_IncludeRenderPasses(): CompositionGraphCapturePasses return this.IncludeRenderPasses;
 	public extern var bCaptureFramesInHDR(get, never): Bool;
 	public inline extern function get_bCaptureFramesInHDR(): Bool return this.bCaptureFramesInHDR;
-	public extern var HDRCompressionQuality(get, never): cpp.Int32;
-	public inline extern function get_HDRCompressionQuality(): cpp.Int32 return this.HDRCompressionQuality;
+	public extern var HDRCompressionQuality(get, never): ucpp.num.Int32;
+	public inline extern function get_HDRCompressionQuality(): ucpp.num.Int32 return this.HDRCompressionQuality;
 	public extern var CaptureGamut(get, never): TEnumAsByte<EHDRCaptureGamut>;
 	public inline extern function get_CaptureGamut(): TEnumAsByte<EHDRCaptureGamut> return this.CaptureGamut;
 	public extern var PostProcessingMaterial(get, never): SoftObjectPath;
@@ -36,7 +36,7 @@ abstract ConstCompositionGraphCaptureProtocol(CompositionGraphCaptureProtocol) f
 @:forward
 @:nativeGen
 @:native("CompositionGraphCaptureProtocol*")
-abstract CompositionGraphCaptureProtocolPtr(cpp.Star<CompositionGraphCaptureProtocol>) from cpp.Star<CompositionGraphCaptureProtocol> to cpp.Star<CompositionGraphCaptureProtocol>{
+abstract CompositionGraphCaptureProtocolPtr(ucpp.Ptr<CompositionGraphCaptureProtocol>) from ucpp.Ptr<CompositionGraphCaptureProtocol> to ucpp.Ptr<CompositionGraphCaptureProtocol>{
 	@:from
 	public static extern inline function fromValue(v: CompositionGraphCaptureProtocol): CompositionGraphCaptureProtocolPtr {
 		return untyped __cpp__("&({0})", v);

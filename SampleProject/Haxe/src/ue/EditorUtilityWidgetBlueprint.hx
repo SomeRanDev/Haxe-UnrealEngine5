@@ -3,11 +3,13 @@ package ue;
 
 @:native("UEditorUtilityWidgetBlueprint")
 @:include("EditorUtilityWidgetBlueprint.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityWidgetBlueprint extends WidgetBlueprint {
-	private var CreatedUMGWidget: cpp.Star<EditorUtilityWidget>;
+	private var bIsEnabledInPIE: Bool;
+	private var bIsEnabledInDebugging: Bool;
+	private var CreatedUMGWidget: ucpp.Ptr<EditorUtilityWidget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +20,7 @@ abstract ConstEditorUtilityWidgetBlueprint(EditorUtilityWidgetBlueprint) from Ed
 @:forward
 @:nativeGen
 @:native("EditorUtilityWidgetBlueprint*")
-abstract EditorUtilityWidgetBlueprintPtr(cpp.Star<EditorUtilityWidgetBlueprint>) from cpp.Star<EditorUtilityWidgetBlueprint> to cpp.Star<EditorUtilityWidgetBlueprint>{
+abstract EditorUtilityWidgetBlueprintPtr(ucpp.Ptr<EditorUtilityWidgetBlueprint>) from ucpp.Ptr<EditorUtilityWidgetBlueprint> to ucpp.Ptr<EditorUtilityWidgetBlueprint>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityWidgetBlueprint): EditorUtilityWidgetBlueprintPtr {
 		return untyped __cpp__("&({0})", v);

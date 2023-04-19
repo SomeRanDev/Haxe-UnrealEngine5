@@ -3,29 +3,29 @@ package ue;
 
 @:native("UMediaTexture")
 @:include("MediaTexture.h")
-@:structAccess
+@:valueType
 extern class MediaTexture extends Texture {
 	public var AddressX: TEnumAsByte<TextureAddress>;
 	public var AddressY: TEnumAsByte<TextureAddress>;
 	public var AutoClear: Bool;
 	public var ClearColor: LinearColor;
 	public var EnableGenMips: Bool;
-	public var NumMips: cpp.UInt8;
+	public var NumMips: ucpp.num.UInt8;
 	public var NewStyleOutput: Bool;
 	public var OutputFormat: TEnumAsByte<MediaTextureOutputFormat>;
-	public var CurrentAspectRatio: cpp.Float32;
+	public var CurrentAspectRatio: ucpp.num.Float32;
 	public var CurrentOrientation: TEnumAsByte<MediaTextureOrientation>;
-	@:protected public var MediaPlayer: cpp.Star<MediaPlayer>;
+	@:protected public var MediaPlayer: ucpp.Ptr<MediaPlayer>;
 
 	public function UpdateResource(): Void;
-	public function SetMediaPlayer(NewMediaPlayer: cpp.Star<MediaPlayer>): Void;
-	public function GetWidth(): cpp.Int32;
-	public function GetTextureNumMips(): cpp.Int32;
-	public function GetMediaPlayer(): cpp.Star<MediaPlayer>;
-	public function GetHeight(): cpp.Int32;
-	public function GetAspectRatio(): cpp.Float32;
+	public function SetMediaPlayer(NewMediaPlayer: ucpp.Ptr<MediaPlayer>): Void;
+	public function GetWidth(): ucpp.num.Int32;
+	public function GetTextureNumMips(): ucpp.num.Int32;
+	public function GetMediaPlayer(): ucpp.Ptr<MediaPlayer>;
+	public function GetHeight(): ucpp.num.Int32;
+	public function GetAspectRatio(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetWidth, GetTextureNumMips, GetMediaPlayer, GetHeight, GetAspectRatio)
@@ -41,14 +41,14 @@ abstract ConstMediaTexture(MediaTexture) from MediaTexture {
 	public inline extern function get_ClearColor(): LinearColor return this.ClearColor;
 	public extern var EnableGenMips(get, never): Bool;
 	public inline extern function get_EnableGenMips(): Bool return this.EnableGenMips;
-	public extern var NumMips(get, never): cpp.UInt8;
-	public inline extern function get_NumMips(): cpp.UInt8 return this.NumMips;
+	public extern var NumMips(get, never): ucpp.num.UInt8;
+	public inline extern function get_NumMips(): ucpp.num.UInt8 return this.NumMips;
 	public extern var NewStyleOutput(get, never): Bool;
 	public inline extern function get_NewStyleOutput(): Bool return this.NewStyleOutput;
 	public extern var OutputFormat(get, never): TEnumAsByte<MediaTextureOutputFormat>;
 	public inline extern function get_OutputFormat(): TEnumAsByte<MediaTextureOutputFormat> return this.OutputFormat;
-	public extern var CurrentAspectRatio(get, never): cpp.Float32;
-	public inline extern function get_CurrentAspectRatio(): cpp.Float32 return this.CurrentAspectRatio;
+	public extern var CurrentAspectRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentAspectRatio(): ucpp.num.Float32 return this.CurrentAspectRatio;
 	public extern var CurrentOrientation(get, never): TEnumAsByte<MediaTextureOrientation>;
 	public inline extern function get_CurrentOrientation(): TEnumAsByte<MediaTextureOrientation> return this.CurrentOrientation;
 }
@@ -56,7 +56,7 @@ abstract ConstMediaTexture(MediaTexture) from MediaTexture {
 @:forward
 @:nativeGen
 @:native("MediaTexture*")
-abstract MediaTexturePtr(cpp.Star<MediaTexture>) from cpp.Star<MediaTexture> to cpp.Star<MediaTexture>{
+abstract MediaTexturePtr(ucpp.Ptr<MediaTexture>) from ucpp.Ptr<MediaTexture> to ucpp.Ptr<MediaTexture>{
 	@:from
 	public static extern inline function fromValue(v: MediaTexture): MediaTexturePtr {
 		return untyped __cpp__("&({0})", v);

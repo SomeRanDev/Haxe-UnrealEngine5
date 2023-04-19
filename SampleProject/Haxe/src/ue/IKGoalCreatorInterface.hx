@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UIKGoalCreatorInterface")
-@:structAccess
+@:valueType
 extern class IKGoalCreatorInterface extends Interface {
-	public function AddIKGoals(OutGoals: cpp.Reference<TMap<FName, IKRigGoal>>): Void;
+	public function AddIKGoals(OutGoals: ucpp.Ref<TMap<FName, IKRigGoal>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstIKGoalCreatorInterface(IKGoalCreatorInterface) from IKGoalCreatorI
 @:forward
 @:nativeGen
 @:native("IKGoalCreatorInterface*")
-abstract IKGoalCreatorInterfacePtr(cpp.Star<IKGoalCreatorInterface>) from cpp.Star<IKGoalCreatorInterface> to cpp.Star<IKGoalCreatorInterface>{
+abstract IKGoalCreatorInterfacePtr(ucpp.Ptr<IKGoalCreatorInterface>) from ucpp.Ptr<IKGoalCreatorInterface> to ucpp.Ptr<IKGoalCreatorInterface>{
 	@:from
 	public static extern inline function fromValue(v: IKGoalCreatorInterface): IKGoalCreatorInterfacePtr {
 		return untyped __cpp__("&({0})", v);

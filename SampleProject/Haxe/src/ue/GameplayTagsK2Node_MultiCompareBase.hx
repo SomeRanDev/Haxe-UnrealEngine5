@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGameplayTagsK2Node_MultiCompareBase")
 @:include("GameplayTagsK2Node_MultiCompareBase.h")
-@:structAccess
+@:valueType
 extern class GameplayTagsK2Node_MultiCompareBase extends K2Node {
-	public var NumberOfPins: cpp.Int32;
+	public var NumberOfPins: ucpp.num.Int32;
 	public var PinNames: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGameplayTagsK2Node_MultiCompareBase(GameplayTagsK2Node_MultiCompareBase) from GameplayTagsK2Node_MultiCompareBase {
-	public extern var NumberOfPins(get, never): cpp.Int32;
-	public inline extern function get_NumberOfPins(): cpp.Int32 return this.NumberOfPins;
+	public extern var NumberOfPins(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberOfPins(): ucpp.num.Int32 return this.NumberOfPins;
 	public extern var PinNames(get, never): TArray<FName>;
 	public inline extern function get_PinNames(): TArray<FName> return this.PinNames;
 }
@@ -23,7 +23,7 @@ abstract ConstGameplayTagsK2Node_MultiCompareBase(GameplayTagsK2Node_MultiCompar
 @:forward
 @:nativeGen
 @:native("GameplayTagsK2Node_MultiCompareBase*")
-abstract GameplayTagsK2Node_MultiCompareBasePtr(cpp.Star<GameplayTagsK2Node_MultiCompareBase>) from cpp.Star<GameplayTagsK2Node_MultiCompareBase> to cpp.Star<GameplayTagsK2Node_MultiCompareBase>{
+abstract GameplayTagsK2Node_MultiCompareBasePtr(ucpp.Ptr<GameplayTagsK2Node_MultiCompareBase>) from ucpp.Ptr<GameplayTagsK2Node_MultiCompareBase> to ucpp.Ptr<GameplayTagsK2Node_MultiCompareBase>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagsK2Node_MultiCompareBase): GameplayTagsK2Node_MultiCompareBasePtr {
 		return untyped __cpp__("&({0})", v);

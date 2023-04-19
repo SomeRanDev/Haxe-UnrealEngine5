@@ -3,38 +3,38 @@ package ue;
 
 @:native("UWindDirectionalSourceComponent")
 @:include("Components/WindDirectionalSourceComponent.h")
-@:structAccess
+@:valueType
 extern class WindDirectionalSourceComp extends SceneComp {
-	public var Strength: cpp.Float32;
-	public var Speed: cpp.Float32;
-	public var MinGustAmount: cpp.Float32;
-	public var MaxGustAmount: cpp.Float32;
-	public var Radius: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Speed: ucpp.num.Float32;
+	public var MinGustAmount: ucpp.num.Float32;
+	public var MaxGustAmount: ucpp.num.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var bPointWind: Bool;
 
 	public function SetWindType(InNewType: EWindSourceType): Void;
-	public function SetStrength(InNewStrength: cpp.Float32): Void;
-	public function SetSpeed(InNewSpeed: cpp.Float32): Void;
-	public function SetRadius(InNewRadius: cpp.Float32): Void;
-	public function SetMinimumGustAmount(InNewMinGust: cpp.Float32): Void;
-	public function SetMaximumGustAmount(InNewMaxGust: cpp.Float32): Void;
+	public function SetStrength(InNewStrength: ucpp.num.Float32): Void;
+	public function SetSpeed(InNewSpeed: ucpp.num.Float32): Void;
+	public function SetRadius(InNewRadius: ucpp.num.Float32): Void;
+	public function SetMinimumGustAmount(InNewMinGust: ucpp.num.Float32): Void;
+	public function SetMaximumGustAmount(InNewMaxGust: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWindDirectionalSourceComp(WindDirectionalSourceComp) from WindDirectionalSourceComp {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Speed(get, never): cpp.Float32;
-	public inline extern function get_Speed(): cpp.Float32 return this.Speed;
-	public extern var MinGustAmount(get, never): cpp.Float32;
-	public inline extern function get_MinGustAmount(): cpp.Float32 return this.MinGustAmount;
-	public extern var MaxGustAmount(get, never): cpp.Float32;
-	public inline extern function get_MaxGustAmount(): cpp.Float32 return this.MaxGustAmount;
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Speed(get, never): ucpp.num.Float32;
+	public inline extern function get_Speed(): ucpp.num.Float32 return this.Speed;
+	public extern var MinGustAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_MinGustAmount(): ucpp.num.Float32 return this.MinGustAmount;
+	public extern var MaxGustAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxGustAmount(): ucpp.num.Float32 return this.MaxGustAmount;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
 	public extern var bPointWind(get, never): Bool;
 	public inline extern function get_bPointWind(): Bool return this.bPointWind;
 }
@@ -42,7 +42,7 @@ abstract ConstWindDirectionalSourceComp(WindDirectionalSourceComp) from WindDire
 @:forward
 @:nativeGen
 @:native("WindDirectionalSourceComp*")
-abstract WindDirectionalSourceCompPtr(cpp.Star<WindDirectionalSourceComp>) from cpp.Star<WindDirectionalSourceComp> to cpp.Star<WindDirectionalSourceComp>{
+abstract WindDirectionalSourceCompPtr(ucpp.Ptr<WindDirectionalSourceComp>) from ucpp.Ptr<WindDirectionalSourceComp> to ucpp.Ptr<WindDirectionalSourceComp>{
 	@:from
 	public static extern inline function fromValue(v: WindDirectionalSourceComp): WindDirectionalSourceCompPtr {
 		return untyped __cpp__("&({0})", v);

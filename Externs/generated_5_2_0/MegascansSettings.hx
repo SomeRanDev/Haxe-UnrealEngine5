@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMegascansSettings")
 @:include("MSSettings.h")
-@:structAccess
+@:valueType
 extern class MegascansSettings extends Object {
 	public var bCreateFoliage: Bool;
 	public var bApplyToSelection: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMegascansSettings(MegascansSettings) from MegascansSettings {
 @:forward
 @:nativeGen
 @:native("MegascansSettings*")
-abstract MegascansSettingsPtr(cpp.Star<MegascansSettings>) from cpp.Star<MegascansSettings> to cpp.Star<MegascansSettings>{
+abstract MegascansSettingsPtr(ucpp.Ptr<MegascansSettings>) from ucpp.Ptr<MegascansSettings> to ucpp.Ptr<MegascansSettings>{
 	@:from
 	public static extern inline function fromValue(v: MegascansSettings): MegascansSettingsPtr {
 		return untyped __cpp__("&({0})", v);

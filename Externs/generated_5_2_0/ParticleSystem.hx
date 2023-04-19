@@ -3,23 +3,23 @@ package ue;
 
 @:native("UParticleSystem")
 @:include("Particles/ParticleSystem.h")
-@:structAccess
+@:valueType
 extern class ParticleSystem extends FXSystemAsset {
-	public var UpdateTime_FPS: cpp.Float32;
-	public var UpdateTime_Delta: cpp.Float32;
-	public var WarmupTime: cpp.Float32;
-	public var WarmupTickRate: cpp.Float32;
-	public var Emitters: TArray<cpp.Star<ParticleEmitter>>;
-	public var PreviewComponent: cpp.Star<ParticleSystemComp>;
-	public var CurveEdSetup: cpp.Star<InterpCurveEdSetup>;
-	public var LODDistanceCheckTime: cpp.Float32;
-	public var MacroUVRadius: cpp.Float32;
-	public var LODDistances: TArray<cpp.Float32>;
+	public var UpdateTime_FPS: ucpp.num.Float32;
+	public var UpdateTime_Delta: ucpp.num.Float32;
+	public var WarmupTime: ucpp.num.Float32;
+	public var WarmupTickRate: ucpp.num.Float32;
+	public var Emitters: TArray<ucpp.Ptr<ParticleEmitter>>;
+	public var PreviewComponent: ucpp.Ptr<ParticleSystemComp>;
+	public var CurveEdSetup: ucpp.Ptr<InterpCurveEdSetup>;
+	public var LODDistanceCheckTime: ucpp.num.Float32;
+	public var MacroUVRadius: ucpp.num.Float32;
+	public var LODDistances: TArray<ucpp.num.Float32>;
 	public var LODSettings: TArray<ParticleSystemLOD>;
 	public var FixedRelativeBoundingBox: Box;
-	public var SecondsBeforeInactive: cpp.Float32;
-	public var Delay: cpp.Float32;
-	public var DelayLow: cpp.Float32;
+	public var SecondsBeforeInactive: ucpp.num.Float32;
+	public var Delay: ucpp.num.Float32;
+	public var DelayLow: ucpp.num.Float32;
 	public var bOrientZAxisTowardCamera: Bool;
 	public var bUseFixedRelativeBoundingBox: Bool;
 	public var bShouldResetPeakCounts: Bool;
@@ -35,51 +35,51 @@ extern class ParticleSystem extends FXSystemAsset {
 	public var InsignificantReaction: EParticleSystemInsignificanceReaction;
 	public var OcclusionBoundsMethod: TEnumAsByte<EParticleSystemOcclusionBoundsMethod>;
 	public var MaxSignificanceLevel: EParticleSignificanceLevel;
-	public var MinTimeBetweenTicks: cpp.UInt32;
-	public var InsignificanceDelay: cpp.Float32;
+	public var MinTimeBetweenTicks: ucpp.num.UInt32;
+	public var InsignificanceDelay: ucpp.num.Float32;
 	public var MacroUVPosition: Vector;
 	public var CustomOcclusionBounds: Box;
 	public var SoloTracking: TArray<LODSoloTrack>;
 	public var NamedMaterialSlots: TArray<NamedEmitterMaterial>;
 
-	public function ContainsEmitterType(TypeData: cpp.Star<Class>): Bool;
+	public function ContainsEmitterType(TypeData: ucpp.Ptr<Class>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleSystem(ParticleSystem) from ParticleSystem {
-	public extern var UpdateTime_FPS(get, never): cpp.Float32;
-	public inline extern function get_UpdateTime_FPS(): cpp.Float32 return this.UpdateTime_FPS;
-	public extern var UpdateTime_Delta(get, never): cpp.Float32;
-	public inline extern function get_UpdateTime_Delta(): cpp.Float32 return this.UpdateTime_Delta;
-	public extern var WarmupTime(get, never): cpp.Float32;
-	public inline extern function get_WarmupTime(): cpp.Float32 return this.WarmupTime;
-	public extern var WarmupTickRate(get, never): cpp.Float32;
-	public inline extern function get_WarmupTickRate(): cpp.Float32 return this.WarmupTickRate;
-	public extern var Emitters(get, never): TArray<cpp.Star<ParticleEmitter.ConstParticleEmitter>>;
-	public inline extern function get_Emitters(): TArray<cpp.Star<ParticleEmitter.ConstParticleEmitter>> return this.Emitters;
-	public extern var PreviewComponent(get, never): cpp.Star<ParticleSystemComp.ConstParticleSystemComp>;
-	public inline extern function get_PreviewComponent(): cpp.Star<ParticleSystemComp.ConstParticleSystemComp> return this.PreviewComponent;
-	public extern var CurveEdSetup(get, never): cpp.Star<InterpCurveEdSetup.ConstInterpCurveEdSetup>;
-	public inline extern function get_CurveEdSetup(): cpp.Star<InterpCurveEdSetup.ConstInterpCurveEdSetup> return this.CurveEdSetup;
-	public extern var LODDistanceCheckTime(get, never): cpp.Float32;
-	public inline extern function get_LODDistanceCheckTime(): cpp.Float32 return this.LODDistanceCheckTime;
-	public extern var MacroUVRadius(get, never): cpp.Float32;
-	public inline extern function get_MacroUVRadius(): cpp.Float32 return this.MacroUVRadius;
-	public extern var LODDistances(get, never): TArray<cpp.Float32>;
-	public inline extern function get_LODDistances(): TArray<cpp.Float32> return this.LODDistances;
+	public extern var UpdateTime_FPS(get, never): ucpp.num.Float32;
+	public inline extern function get_UpdateTime_FPS(): ucpp.num.Float32 return this.UpdateTime_FPS;
+	public extern var UpdateTime_Delta(get, never): ucpp.num.Float32;
+	public inline extern function get_UpdateTime_Delta(): ucpp.num.Float32 return this.UpdateTime_Delta;
+	public extern var WarmupTime(get, never): ucpp.num.Float32;
+	public inline extern function get_WarmupTime(): ucpp.num.Float32 return this.WarmupTime;
+	public extern var WarmupTickRate(get, never): ucpp.num.Float32;
+	public inline extern function get_WarmupTickRate(): ucpp.num.Float32 return this.WarmupTickRate;
+	public extern var Emitters(get, never): TArray<ucpp.Ptr<ParticleEmitter.ConstParticleEmitter>>;
+	public inline extern function get_Emitters(): TArray<ucpp.Ptr<ParticleEmitter.ConstParticleEmitter>> return this.Emitters;
+	public extern var PreviewComponent(get, never): ucpp.Ptr<ParticleSystemComp.ConstParticleSystemComp>;
+	public inline extern function get_PreviewComponent(): ucpp.Ptr<ParticleSystemComp.ConstParticleSystemComp> return this.PreviewComponent;
+	public extern var CurveEdSetup(get, never): ucpp.Ptr<InterpCurveEdSetup.ConstInterpCurveEdSetup>;
+	public inline extern function get_CurveEdSetup(): ucpp.Ptr<InterpCurveEdSetup.ConstInterpCurveEdSetup> return this.CurveEdSetup;
+	public extern var LODDistanceCheckTime(get, never): ucpp.num.Float32;
+	public inline extern function get_LODDistanceCheckTime(): ucpp.num.Float32 return this.LODDistanceCheckTime;
+	public extern var MacroUVRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_MacroUVRadius(): ucpp.num.Float32 return this.MacroUVRadius;
+	public extern var LODDistances(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_LODDistances(): TArray<ucpp.num.Float32> return this.LODDistances;
 	public extern var LODSettings(get, never): TArray<ParticleSystemLOD>;
 	public inline extern function get_LODSettings(): TArray<ParticleSystemLOD> return this.LODSettings;
 	public extern var FixedRelativeBoundingBox(get, never): Box;
 	public inline extern function get_FixedRelativeBoundingBox(): Box return this.FixedRelativeBoundingBox;
-	public extern var SecondsBeforeInactive(get, never): cpp.Float32;
-	public inline extern function get_SecondsBeforeInactive(): cpp.Float32 return this.SecondsBeforeInactive;
-	public extern var Delay(get, never): cpp.Float32;
-	public inline extern function get_Delay(): cpp.Float32 return this.Delay;
-	public extern var DelayLow(get, never): cpp.Float32;
-	public inline extern function get_DelayLow(): cpp.Float32 return this.DelayLow;
+	public extern var SecondsBeforeInactive(get, never): ucpp.num.Float32;
+	public inline extern function get_SecondsBeforeInactive(): ucpp.num.Float32 return this.SecondsBeforeInactive;
+	public extern var Delay(get, never): ucpp.num.Float32;
+	public inline extern function get_Delay(): ucpp.num.Float32 return this.Delay;
+	public extern var DelayLow(get, never): ucpp.num.Float32;
+	public inline extern function get_DelayLow(): ucpp.num.Float32 return this.DelayLow;
 	public extern var bOrientZAxisTowardCamera(get, never): Bool;
 	public inline extern function get_bOrientZAxisTowardCamera(): Bool return this.bOrientZAxisTowardCamera;
 	public extern var bUseFixedRelativeBoundingBox(get, never): Bool;
@@ -110,10 +110,10 @@ abstract ConstParticleSystem(ParticleSystem) from ParticleSystem {
 	public inline extern function get_OcclusionBoundsMethod(): TEnumAsByte<EParticleSystemOcclusionBoundsMethod> return this.OcclusionBoundsMethod;
 	public extern var MaxSignificanceLevel(get, never): EParticleSignificanceLevel;
 	public inline extern function get_MaxSignificanceLevel(): EParticleSignificanceLevel return this.MaxSignificanceLevel;
-	public extern var MinTimeBetweenTicks(get, never): cpp.UInt32;
-	public inline extern function get_MinTimeBetweenTicks(): cpp.UInt32 return this.MinTimeBetweenTicks;
-	public extern var InsignificanceDelay(get, never): cpp.Float32;
-	public inline extern function get_InsignificanceDelay(): cpp.Float32 return this.InsignificanceDelay;
+	public extern var MinTimeBetweenTicks(get, never): ucpp.num.UInt32;
+	public inline extern function get_MinTimeBetweenTicks(): ucpp.num.UInt32 return this.MinTimeBetweenTicks;
+	public extern var InsignificanceDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_InsignificanceDelay(): ucpp.num.Float32 return this.InsignificanceDelay;
 	public extern var MacroUVPosition(get, never): Vector;
 	public inline extern function get_MacroUVPosition(): Vector return this.MacroUVPosition;
 	public extern var CustomOcclusionBounds(get, never): Box;
@@ -127,7 +127,7 @@ abstract ConstParticleSystem(ParticleSystem) from ParticleSystem {
 @:forward
 @:nativeGen
 @:native("ParticleSystem*")
-abstract ParticleSystemPtr(cpp.Star<ParticleSystem>) from cpp.Star<ParticleSystem> to cpp.Star<ParticleSystem>{
+abstract ParticleSystemPtr(ucpp.Ptr<ParticleSystem>) from ucpp.Ptr<ParticleSystem> to ucpp.Ptr<ParticleSystem>{
 	@:from
 	public static extern inline function fromValue(v: ParticleSystem): ParticleSystemPtr {
 		return untyped __cpp__("&({0})", v);

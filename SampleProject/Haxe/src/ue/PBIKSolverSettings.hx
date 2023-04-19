@@ -3,13 +3,16 @@ package ue;
 
 @:native("FPBIKSolverSettings")
 @:include("Core/PBIKSolver.h")
-@:structAccess
+@:valueType
 extern class PBIKSolverSettings {
-	public var Iterations: cpp.Int32;
-	public var MassMultiplier: cpp.Float32;
-	public var MinMassMultiplier: cpp.Float32;
+	public var Iterations: ucpp.num.Int32;
+	public var MassMultiplier: ucpp.num.Float32;
 	public var bAllowStretch: Bool;
 	public var RootBehavior: EPBIKRootBehavior;
+	public var PrePullRootSettings: RootPrePullSettings;
+	public var GlobalPullChainAlpha: ucpp.num.Float32;
+	public var MaxAngle: ucpp.num.Float32;
+	public var OverRelaxation: ucpp.num.Float32;
 	public var bStartSolveFromInputPose: Bool;
 
 	@:native("FPBIKSolverSettings") public function new();

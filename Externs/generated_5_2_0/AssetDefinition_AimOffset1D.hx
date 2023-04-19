@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_AimOffset1D")
 @:include("Animation/AssetDefinition_AimOffset1D.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_AimOffset1D extends AssetDefinition_BlendSpace1D {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_AimOffset1D(AssetDefinition_AimOffset1D) from Asse
 @:forward
 @:nativeGen
 @:native("AssetDefinition_AimOffset1D*")
-abstract AssetDefinition_AimOffset1DPtr(cpp.Star<AssetDefinition_AimOffset1D>) from cpp.Star<AssetDefinition_AimOffset1D> to cpp.Star<AssetDefinition_AimOffset1D>{
+abstract AssetDefinition_AimOffset1DPtr(ucpp.Ptr<AssetDefinition_AimOffset1D>) from ucpp.Ptr<AssetDefinition_AimOffset1D> to ucpp.Ptr<AssetDefinition_AimOffset1D>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_AimOffset1D): AssetDefinition_AimOffset1DPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UFractureToolPlaneCut")
 @:include("FractureToolPlaneCut.h")
-@:structAccess
+@:valueType
 extern class FractureToolPlaneCut extends FractureToolCutterBase {
-	private var PlaneCutSettings: cpp.Star<FracturePlaneCutSettings>;
-	private var GizmoSettings: cpp.Star<FractureTransformGizmoSettings>;
-	private var NoisePreview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	private var PlaneCutSettings: ucpp.Ptr<FracturePlaneCutSettings>;
+	private var GizmoSettings: ucpp.Ptr<FractureTransformGizmoSettings>;
+	private var NoisePreview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFractureToolPlaneCut(FractureToolPlaneCut) from FractureToolPlaneC
 @:forward
 @:nativeGen
 @:native("FractureToolPlaneCut*")
-abstract FractureToolPlaneCutPtr(cpp.Star<FractureToolPlaneCut>) from cpp.Star<FractureToolPlaneCut> to cpp.Star<FractureToolPlaneCut>{
+abstract FractureToolPlaneCutPtr(ucpp.Ptr<FractureToolPlaneCut>) from ucpp.Ptr<FractureToolPlaneCut> to ucpp.Ptr<FractureToolPlaneCut>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolPlaneCut): FractureToolPlaneCutPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnRequestContentFailed__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnRequestContentFailed__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnRequestContentFailed__PythonCallable(OnRequestContentFailed__Pyt
 @:forward
 @:nativeGen
 @:native("OnRequestContentFailed__PythonCallable*")
-abstract OnRequestContentFailed__PythonCallablePtr(cpp.Star<OnRequestContentFailed__PythonCallable>) from cpp.Star<OnRequestContentFailed__PythonCallable> to cpp.Star<OnRequestContentFailed__PythonCallable>{
+abstract OnRequestContentFailed__PythonCallablePtr(ucpp.Ptr<OnRequestContentFailed__PythonCallable>) from ucpp.Ptr<OnRequestContentFailed__PythonCallable> to ucpp.Ptr<OnRequestContentFailed__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnRequestContentFailed__PythonCallable): OnRequestContentFailed__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

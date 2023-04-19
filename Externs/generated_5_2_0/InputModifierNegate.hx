@@ -3,13 +3,13 @@ package ue;
 
 @:native("UInputModifierNegate")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierNegate extends InputModifier {
 	public var bX: Bool;
 	public var bY: Bool;
 	public var bZ: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstInputModifierNegate(InputModifierNegate) from InputModifierNegate 
 @:forward
 @:nativeGen
 @:native("InputModifierNegate*")
-abstract InputModifierNegatePtr(cpp.Star<InputModifierNegate>) from cpp.Star<InputModifierNegate> to cpp.Star<InputModifierNegate>{
+abstract InputModifierNegatePtr(ucpp.Ptr<InputModifierNegate>) from ucpp.Ptr<InputModifierNegate> to ucpp.Ptr<InputModifierNegate>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierNegate): InputModifierNegatePtr {
 		return untyped __cpp__("&({0})", v);

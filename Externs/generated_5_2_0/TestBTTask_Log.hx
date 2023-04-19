@@ -3,28 +3,28 @@ package ue;
 
 @:native("UTestBTTask_Log")
 @:include("BehaviorTree/TestBTTask_Log.h")
-@:structAccess
+@:valueType
 extern class TestBTTask_Log extends BTTaskNode {
-	public var LogIndex: cpp.Int32;
-	public var LogFinished: cpp.Int32;
-	public var ExecutionTicks: cpp.Int32;
-	public var LogTickIndex: cpp.Int32;
+	public var LogIndex: ucpp.num.Int32;
+	public var LogFinished: ucpp.num.Int32;
+	public var ExecutionTicks: ucpp.num.Int32;
+	public var LogTickIndex: ucpp.num.Int32;
 	public var LogResult: TEnumAsByte<EBTNodeResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTestBTTask_Log(TestBTTask_Log) from TestBTTask_Log {
-	public extern var LogIndex(get, never): cpp.Int32;
-	public inline extern function get_LogIndex(): cpp.Int32 return this.LogIndex;
-	public extern var LogFinished(get, never): cpp.Int32;
-	public inline extern function get_LogFinished(): cpp.Int32 return this.LogFinished;
-	public extern var ExecutionTicks(get, never): cpp.Int32;
-	public inline extern function get_ExecutionTicks(): cpp.Int32 return this.ExecutionTicks;
-	public extern var LogTickIndex(get, never): cpp.Int32;
-	public inline extern function get_LogTickIndex(): cpp.Int32 return this.LogTickIndex;
+	public extern var LogIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndex(): ucpp.num.Int32 return this.LogIndex;
+	public extern var LogFinished(get, never): ucpp.num.Int32;
+	public inline extern function get_LogFinished(): ucpp.num.Int32 return this.LogFinished;
+	public extern var ExecutionTicks(get, never): ucpp.num.Int32;
+	public inline extern function get_ExecutionTicks(): ucpp.num.Int32 return this.ExecutionTicks;
+	public extern var LogTickIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LogTickIndex(): ucpp.num.Int32 return this.LogTickIndex;
 	public extern var LogResult(get, never): TEnumAsByte<EBTNodeResult>;
 	public inline extern function get_LogResult(): TEnumAsByte<EBTNodeResult> return this.LogResult;
 }
@@ -32,7 +32,7 @@ abstract ConstTestBTTask_Log(TestBTTask_Log) from TestBTTask_Log {
 @:forward
 @:nativeGen
 @:native("TestBTTask_Log*")
-abstract TestBTTask_LogPtr(cpp.Star<TestBTTask_Log>) from cpp.Star<TestBTTask_Log> to cpp.Star<TestBTTask_Log>{
+abstract TestBTTask_LogPtr(ucpp.Ptr<TestBTTask_Log>) from ucpp.Ptr<TestBTTask_Log> to ucpp.Ptr<TestBTTask_Log>{
 	@:from
 	public static extern inline function fromValue(v: TestBTTask_Log): TestBTTask_LogPtr {
 		return untyped __cpp__("&({0})", v);

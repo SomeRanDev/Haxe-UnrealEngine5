@@ -3,33 +3,33 @@ package ue;
 
 @:native("UConeBuilder")
 @:include("Builders/ConeBuilder.h")
-@:structAccess
+@:valueType
 extern class ConeBuilder extends EditorBrushBuilder {
-	public var Z: cpp.Float32;
-	public var CapZ: cpp.Float32;
-	public var OuterRadius: cpp.Float32;
-	public var InnerRadius: cpp.Float32;
-	public var Sides: cpp.Int32;
+	public var Z: ucpp.num.Float32;
+	public var CapZ: ucpp.num.Float32;
+	public var OuterRadius: ucpp.num.Float32;
+	public var InnerRadius: ucpp.num.Float32;
+	public var Sides: ucpp.num.Int32;
 	public var GroupName: FName;
 	public var AlignToSide: Bool;
 	public var Hollow: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConeBuilder(ConeBuilder) from ConeBuilder {
-	public extern var Z(get, never): cpp.Float32;
-	public inline extern function get_Z(): cpp.Float32 return this.Z;
-	public extern var CapZ(get, never): cpp.Float32;
-	public inline extern function get_CapZ(): cpp.Float32 return this.CapZ;
-	public extern var OuterRadius(get, never): cpp.Float32;
-	public inline extern function get_OuterRadius(): cpp.Float32 return this.OuterRadius;
-	public extern var InnerRadius(get, never): cpp.Float32;
-	public inline extern function get_InnerRadius(): cpp.Float32 return this.InnerRadius;
-	public extern var Sides(get, never): cpp.Int32;
-	public inline extern function get_Sides(): cpp.Int32 return this.Sides;
+	public extern var Z(get, never): ucpp.num.Float32;
+	public inline extern function get_Z(): ucpp.num.Float32 return this.Z;
+	public extern var CapZ(get, never): ucpp.num.Float32;
+	public inline extern function get_CapZ(): ucpp.num.Float32 return this.CapZ;
+	public extern var OuterRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_OuterRadius(): ucpp.num.Float32 return this.OuterRadius;
+	public extern var InnerRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_InnerRadius(): ucpp.num.Float32 return this.InnerRadius;
+	public extern var Sides(get, never): ucpp.num.Int32;
+	public inline extern function get_Sides(): ucpp.num.Int32 return this.Sides;
 	public extern var GroupName(get, never): FName;
 	public inline extern function get_GroupName(): FName return this.GroupName;
 	public extern var AlignToSide(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstConeBuilder(ConeBuilder) from ConeBuilder {
 @:forward
 @:nativeGen
 @:native("ConeBuilder*")
-abstract ConeBuilderPtr(cpp.Star<ConeBuilder>) from cpp.Star<ConeBuilder> to cpp.Star<ConeBuilder>{
+abstract ConeBuilderPtr(ucpp.Ptr<ConeBuilder>) from ucpp.Ptr<ConeBuilder> to ucpp.Ptr<ConeBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ConeBuilder): ConeBuilderPtr {
 		return untyped __cpp__("&({0})", v);

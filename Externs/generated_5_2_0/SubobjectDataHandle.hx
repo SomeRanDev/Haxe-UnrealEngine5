@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSubobjectDataHandle")
 @:include("SubobjectDataHandle.h")
-@:structAccess
+@:valueType
 extern class SubobjectDataHandle {
 	@:native("FSubobjectDataHandle") public function new();
 }

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UVRNotificationsComponent_VRNotificationsDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class VRNotificationsComponent_VRNotificationsDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstVRNotificationsComponent_VRNotificationsDelegate__PythonCallable(V
 @:forward
 @:nativeGen
 @:native("VRNotificationsComponent_VRNotificationsDelegate__PythonCallable*")
-abstract VRNotificationsComponent_VRNotificationsDelegate__PythonCallablePtr(cpp.Star<VRNotificationsComponent_VRNotificationsDelegate__PythonCallable>) from cpp.Star<VRNotificationsComponent_VRNotificationsDelegate__PythonCallable> to cpp.Star<VRNotificationsComponent_VRNotificationsDelegate__PythonCallable>{
+abstract VRNotificationsComponent_VRNotificationsDelegate__PythonCallablePtr(ucpp.Ptr<VRNotificationsComponent_VRNotificationsDelegate__PythonCallable>) from ucpp.Ptr<VRNotificationsComponent_VRNotificationsDelegate__PythonCallable> to ucpp.Ptr<VRNotificationsComponent_VRNotificationsDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: VRNotificationsComponent_VRNotificationsDelegate__PythonCallable): VRNotificationsComponent_VRNotificationsDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

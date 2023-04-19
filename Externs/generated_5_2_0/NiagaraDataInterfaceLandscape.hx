@@ -3,30 +3,30 @@ package ue;
 
 @:native("UNiagaraDataInterfaceLandscape")
 @:include("NiagaraDataInterfaceLandscape.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceLandscape extends NiagaraDataInterface {
-	public var SourceLandscape: cpp.Star<Actor>;
+	public var SourceLandscape: ucpp.Ptr<Actor>;
 	public var SourceMode: ENDILandscape_SourceMode;
-	public var PhysicalMaterials: TArray<cpp.Star<PhysicalMaterial>>;
+	public var PhysicalMaterials: TArray<ucpp.Ptr<PhysicalMaterial>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceLandscape(NiagaraDataInterfaceLandscape) from NiagaraDataInterfaceLandscape {
-	public extern var SourceLandscape(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_SourceLandscape(): cpp.Star<Actor.ConstActor> return this.SourceLandscape;
+	public extern var SourceLandscape(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_SourceLandscape(): ucpp.Ptr<Actor.ConstActor> return this.SourceLandscape;
 	public extern var SourceMode(get, never): ENDILandscape_SourceMode;
 	public inline extern function get_SourceMode(): ENDILandscape_SourceMode return this.SourceMode;
-	public extern var PhysicalMaterials(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
-	public inline extern function get_PhysicalMaterials(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.PhysicalMaterials;
+	public extern var PhysicalMaterials(get, never): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>>;
+	public inline extern function get_PhysicalMaterials(): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>> return this.PhysicalMaterials;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceLandscape*")
-abstract NiagaraDataInterfaceLandscapePtr(cpp.Star<NiagaraDataInterfaceLandscape>) from cpp.Star<NiagaraDataInterfaceLandscape> to cpp.Star<NiagaraDataInterfaceLandscape>{
+abstract NiagaraDataInterfaceLandscapePtr(ucpp.Ptr<NiagaraDataInterfaceLandscape>) from ucpp.Ptr<NiagaraDataInterfaceLandscape> to ucpp.Ptr<NiagaraDataInterfaceLandscape>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceLandscape): NiagaraDataInterfaceLandscapePtr {
 		return untyped __cpp__("&({0})", v);

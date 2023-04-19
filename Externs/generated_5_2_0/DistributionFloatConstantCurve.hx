@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDistributionFloatConstantCurve")
 @:include("Distributions/DistributionFloatConstantCurve.h")
-@:structAccess
+@:valueType
 extern class DistributionFloatConstantCurve extends DistributionFloat {
 	public var ConstantCurve: InterpCurveFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDistributionFloatConstantCurve(DistributionFloatConstantCurve) fro
 @:forward
 @:nativeGen
 @:native("DistributionFloatConstantCurve*")
-abstract DistributionFloatConstantCurvePtr(cpp.Star<DistributionFloatConstantCurve>) from cpp.Star<DistributionFloatConstantCurve> to cpp.Star<DistributionFloatConstantCurve>{
+abstract DistributionFloatConstantCurvePtr(ucpp.Ptr<DistributionFloatConstantCurve>) from ucpp.Ptr<DistributionFloatConstantCurve> to ucpp.Ptr<DistributionFloatConstantCurve>{
 	@:from
 	public static extern inline function fromValue(v: DistributionFloatConstantCurve): DistributionFloatConstantCurvePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_CurveEdPresetCurve")
 @:include("Curves/CurveEdPresetCurve.h")
-@:structAccess
+@:valueType
 extern class CurveEdPresetCurve extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCurveEdPresetCurve(CurveEdPresetCurve) from CurveEdPresetCurve {
 @:forward
 @:nativeGen
 @:native("CurveEdPresetCurve*")
-abstract CurveEdPresetCurvePtr(cpp.Star<CurveEdPresetCurve>) from cpp.Star<CurveEdPresetCurve> to cpp.Star<CurveEdPresetCurve>{
+abstract CurveEdPresetCurvePtr(ucpp.Ptr<CurveEdPresetCurve>) from ucpp.Ptr<CurveEdPresetCurve> to ucpp.Ptr<CurveEdPresetCurve>{
 	@:from
 	public static extern inline function fromValue(v: CurveEdPresetCurve): CurveEdPresetCurvePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimationSharingStateProcessor")
 @:include("AnimationSharingTypes.h")
-@:structAccess
+@:valueType
 extern class AnimationSharingStateProcessor extends Object {
 	public var AnimationStateEnum: TSoftObjectPtr<Enum>;
 
-	public function ProcessActorState(OutState: cpp.Reference<cpp.Int32>, InActor: cpp.Star<Actor>, CurrentState: cpp.UInt8, OnDemandState: cpp.UInt8, bShouldProcess: cpp.Reference<Bool>): Void;
-	public function GetAnimationStateEnum(): cpp.Star<Enum>;
+	public function ProcessActorState(OutState: ucpp.Ref<ucpp.num.Int32>, InActor: ucpp.Ptr<Actor>, CurrentState: ucpp.num.UInt8, OnDemandState: ucpp.num.UInt8, bShouldProcess: ucpp.Ref<Bool>): Void;
+	public function GetAnimationStateEnum(): ucpp.Ptr<Enum>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstAnimationSharingStateProcessor(AnimationSharingStateProcessor) fro
 @:forward
 @:nativeGen
 @:native("AnimationSharingStateProcessor*")
-abstract AnimationSharingStateProcessorPtr(cpp.Star<AnimationSharingStateProcessor>) from cpp.Star<AnimationSharingStateProcessor> to cpp.Star<AnimationSharingStateProcessor>{
+abstract AnimationSharingStateProcessorPtr(ucpp.Ptr<AnimationSharingStateProcessor>) from ucpp.Ptr<AnimationSharingStateProcessor> to ucpp.Ptr<AnimationSharingStateProcessor>{
 	@:from
 	public static extern inline function fromValue(v: AnimationSharingStateProcessor): AnimationSharingStateProcessorPtr {
 		return untyped __cpp__("&({0})", v);

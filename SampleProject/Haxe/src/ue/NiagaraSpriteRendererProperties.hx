@@ -3,29 +3,30 @@ package ue;
 
 @:native("UNiagaraSpriteRendererProperties")
 @:include("NiagaraSpriteRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraSpriteRendererProperties extends NiagaraRendererProperties {
-	public var Material: cpp.Star<MaterialInterface>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 	public var SourceMode: ENiagaraRendererSourceDataMode;
 	public var MaterialUserParamBinding: NiagaraUserParameterBinding;
 	public var Alignment: ENiagaraSpriteAlignment;
 	public var FacingMode: ENiagaraSpriteFacingMode;
 	public var PivotInUVSpace: Vector2D;
-	public var MacroUVRadius: cpp.Float32;
+	public var MacroUVRadius: ucpp.num.Float32;
 	public var SortMode: ENiagaraSortMode;
 	public var SubImageSize: Vector2D;
 	public var bSubImageBlend: Bool;
 	public var bRemoveHMDRollInVR: Bool;
 	public var bSortOnlyWhenTranslucent: Bool;
-	public var bGpuLowLatencyTranslucency: Bool;
+	public var SortPrecision: ENiagaraRendererSortPrecision;
+	public var GpuTranslucentLatency: ENiagaraRendererGpuTranslucentLatency;
 	public var PixelCoverageMode: ENiagaraRendererPixelCoverageMode;
-	public var PixelCoverageBlend: cpp.Float32;
-	public var MinFacingCameraBlendDistance: cpp.Float32;
-	public var MaxFacingCameraBlendDistance: cpp.Float32;
+	public var PixelCoverageBlend: ucpp.num.Float32;
+	public var MinFacingCameraBlendDistance: ucpp.num.Float32;
+	public var MaxFacingCameraBlendDistance: ucpp.num.Float32;
 	public var bEnableCameraDistanceCulling: Bool;
-	public var MinCameraDistance: cpp.Float32;
-	public var MaxCameraDistance: cpp.Float32;
-	public var RendererVisibility: cpp.UInt32;
+	public var MinCameraDistance: ucpp.num.Float32;
+	public var MaxCameraDistance: ucpp.num.Float32;
+	public var RendererVisibility: ucpp.num.UInt32;
 	public var PositionBinding: NiagaraVariableAttributeBinding;
 	public var ColorBinding: NiagaraVariableAttributeBinding;
 	public var VelocityBinding: NiagaraVariableAttributeBinding;
@@ -45,7 +46,7 @@ extern class NiagaraSpriteRendererProperties extends NiagaraRendererProperties {
 	public var CustomSortingBinding: NiagaraVariableAttributeBinding;
 	public var NormalizedAgeBinding: NiagaraVariableAttributeBinding;
 	public var RendererVisibilityTagBinding: NiagaraVariableAttributeBinding;
-	public var MaterialParameterBindings: TArray<NiagaraMaterialAttributeBinding>;
+	public var MaterialParameters: NiagaraRendererMaterialParameters;
 	public var PrevPositionBinding: NiagaraVariableAttributeBinding;
 	public var PrevVelocityBinding: NiagaraVariableAttributeBinding;
 	public var PrevSpriteRotationBinding: NiagaraVariableAttributeBinding;
@@ -55,14 +56,14 @@ extern class NiagaraSpriteRendererProperties extends NiagaraRendererProperties {
 	public var PrevCameraOffsetBinding: NiagaraVariableAttributeBinding;
 	public var PrevPivotOffsetBinding: NiagaraVariableAttributeBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraSpriteRendererProperties(NiagaraSpriteRendererProperties) from NiagaraSpriteRendererProperties {
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
+	public extern var Material(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Material(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Material;
 	public extern var SourceMode(get, never): ENiagaraRendererSourceDataMode;
 	public inline extern function get_SourceMode(): ENiagaraRendererSourceDataMode return this.SourceMode;
 	public extern var MaterialUserParamBinding(get, never): NiagaraUserParameterBinding;
@@ -73,8 +74,8 @@ abstract ConstNiagaraSpriteRendererProperties(NiagaraSpriteRendererProperties) f
 	public inline extern function get_FacingMode(): ENiagaraSpriteFacingMode return this.FacingMode;
 	public extern var PivotInUVSpace(get, never): Vector2D;
 	public inline extern function get_PivotInUVSpace(): Vector2D return this.PivotInUVSpace;
-	public extern var MacroUVRadius(get, never): cpp.Float32;
-	public inline extern function get_MacroUVRadius(): cpp.Float32 return this.MacroUVRadius;
+	public extern var MacroUVRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_MacroUVRadius(): ucpp.num.Float32 return this.MacroUVRadius;
 	public extern var SortMode(get, never): ENiagaraSortMode;
 	public inline extern function get_SortMode(): ENiagaraSortMode return this.SortMode;
 	public extern var SubImageSize(get, never): Vector2D;
@@ -85,24 +86,26 @@ abstract ConstNiagaraSpriteRendererProperties(NiagaraSpriteRendererProperties) f
 	public inline extern function get_bRemoveHMDRollInVR(): Bool return this.bRemoveHMDRollInVR;
 	public extern var bSortOnlyWhenTranslucent(get, never): Bool;
 	public inline extern function get_bSortOnlyWhenTranslucent(): Bool return this.bSortOnlyWhenTranslucent;
-	public extern var bGpuLowLatencyTranslucency(get, never): Bool;
-	public inline extern function get_bGpuLowLatencyTranslucency(): Bool return this.bGpuLowLatencyTranslucency;
+	public extern var SortPrecision(get, never): ENiagaraRendererSortPrecision;
+	public inline extern function get_SortPrecision(): ENiagaraRendererSortPrecision return this.SortPrecision;
+	public extern var GpuTranslucentLatency(get, never): ENiagaraRendererGpuTranslucentLatency;
+	public inline extern function get_GpuTranslucentLatency(): ENiagaraRendererGpuTranslucentLatency return this.GpuTranslucentLatency;
 	public extern var PixelCoverageMode(get, never): ENiagaraRendererPixelCoverageMode;
 	public inline extern function get_PixelCoverageMode(): ENiagaraRendererPixelCoverageMode return this.PixelCoverageMode;
-	public extern var PixelCoverageBlend(get, never): cpp.Float32;
-	public inline extern function get_PixelCoverageBlend(): cpp.Float32 return this.PixelCoverageBlend;
-	public extern var MinFacingCameraBlendDistance(get, never): cpp.Float32;
-	public inline extern function get_MinFacingCameraBlendDistance(): cpp.Float32 return this.MinFacingCameraBlendDistance;
-	public extern var MaxFacingCameraBlendDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxFacingCameraBlendDistance(): cpp.Float32 return this.MaxFacingCameraBlendDistance;
+	public extern var PixelCoverageBlend(get, never): ucpp.num.Float32;
+	public inline extern function get_PixelCoverageBlend(): ucpp.num.Float32 return this.PixelCoverageBlend;
+	public extern var MinFacingCameraBlendDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MinFacingCameraBlendDistance(): ucpp.num.Float32 return this.MinFacingCameraBlendDistance;
+	public extern var MaxFacingCameraBlendDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxFacingCameraBlendDistance(): ucpp.num.Float32 return this.MaxFacingCameraBlendDistance;
 	public extern var bEnableCameraDistanceCulling(get, never): Bool;
 	public inline extern function get_bEnableCameraDistanceCulling(): Bool return this.bEnableCameraDistanceCulling;
-	public extern var MinCameraDistance(get, never): cpp.Float32;
-	public inline extern function get_MinCameraDistance(): cpp.Float32 return this.MinCameraDistance;
-	public extern var MaxCameraDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxCameraDistance(): cpp.Float32 return this.MaxCameraDistance;
-	public extern var RendererVisibility(get, never): cpp.UInt32;
-	public inline extern function get_RendererVisibility(): cpp.UInt32 return this.RendererVisibility;
+	public extern var MinCameraDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MinCameraDistance(): ucpp.num.Float32 return this.MinCameraDistance;
+	public extern var MaxCameraDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxCameraDistance(): ucpp.num.Float32 return this.MaxCameraDistance;
+	public extern var RendererVisibility(get, never): ucpp.num.UInt32;
+	public inline extern function get_RendererVisibility(): ucpp.num.UInt32 return this.RendererVisibility;
 	public extern var PositionBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PositionBinding(): NiagaraVariableAttributeBinding return this.PositionBinding;
 	public extern var ColorBinding(get, never): NiagaraVariableAttributeBinding;
@@ -141,8 +144,8 @@ abstract ConstNiagaraSpriteRendererProperties(NiagaraSpriteRendererProperties) f
 	public inline extern function get_NormalizedAgeBinding(): NiagaraVariableAttributeBinding return this.NormalizedAgeBinding;
 	public extern var RendererVisibilityTagBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_RendererVisibilityTagBinding(): NiagaraVariableAttributeBinding return this.RendererVisibilityTagBinding;
-	public extern var MaterialParameterBindings(get, never): TArray<NiagaraMaterialAttributeBinding>;
-	public inline extern function get_MaterialParameterBindings(): TArray<NiagaraMaterialAttributeBinding> return this.MaterialParameterBindings;
+	public extern var MaterialParameters(get, never): NiagaraRendererMaterialParameters;
+	public inline extern function get_MaterialParameters(): NiagaraRendererMaterialParameters return this.MaterialParameters;
 	public extern var PrevPositionBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PrevPositionBinding(): NiagaraVariableAttributeBinding return this.PrevPositionBinding;
 	public extern var PrevVelocityBinding(get, never): NiagaraVariableAttributeBinding;
@@ -164,7 +167,7 @@ abstract ConstNiagaraSpriteRendererProperties(NiagaraSpriteRendererProperties) f
 @:forward
 @:nativeGen
 @:native("NiagaraSpriteRendererProperties*")
-abstract NiagaraSpriteRendererPropertiesPtr(cpp.Star<NiagaraSpriteRendererProperties>) from cpp.Star<NiagaraSpriteRendererProperties> to cpp.Star<NiagaraSpriteRendererProperties>{
+abstract NiagaraSpriteRendererPropertiesPtr(ucpp.Ptr<NiagaraSpriteRendererProperties>) from ucpp.Ptr<NiagaraSpriteRendererProperties> to ucpp.Ptr<NiagaraSpriteRendererProperties>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSpriteRendererProperties): NiagaraSpriteRendererPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

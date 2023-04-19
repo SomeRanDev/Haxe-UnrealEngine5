@@ -3,10 +3,10 @@ package ue;
 
 @:native("FActiveGizmo")
 @:include("InteractiveGizmoManager.h")
-@:structAccess
+@:valueType
 extern class ActiveGizmo {
-	public var Gizmo: cpp.Star<InteractiveGizmo>;
+	public var Gizmo: ucpp.Ptr<InteractiveGizmo>;
 
 	@:native("FActiveGizmo") public function new();
-	@:native("FActiveGizmo") public static function make(Gizmo: cpp.Star<InteractiveGizmo>): ActiveGizmo ;
+	@:native("FActiveGizmo") public static function make(Gizmo: ucpp.Ptr<InteractiveGizmo>): ActiveGizmo ;
 }

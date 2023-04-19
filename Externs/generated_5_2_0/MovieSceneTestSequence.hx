@@ -3,26 +3,26 @@ package ue;
 
 @:native("UMovieSceneTestSequence")
 @:include("Tests/MovieSceneTestDataBuilders.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTestSequence extends MovieSceneSequence {
-	public var MovieScene: cpp.Star<MovieScene>;
-	private var BoundObjects: TArray<cpp.Star<Object>>;
+	public var MovieScene: ucpp.Ptr<MovieScene>;
+	private var BoundObjects: TArray<ucpp.Ptr<Object>>;
 	private var BindingGuids: TArray<Guid>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneTestSequence(MovieSceneTestSequence) from MovieSceneTestSequence {
-	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
-	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
+	public extern var MovieScene(get, never): ucpp.Ptr<MovieScene.ConstMovieScene>;
+	public inline extern function get_MovieScene(): ucpp.Ptr<MovieScene.ConstMovieScene> return this.MovieScene;
 }
 
 @:forward
 @:nativeGen
 @:native("MovieSceneTestSequence*")
-abstract MovieSceneTestSequencePtr(cpp.Star<MovieSceneTestSequence>) from cpp.Star<MovieSceneTestSequence> to cpp.Star<MovieSceneTestSequence>{
+abstract MovieSceneTestSequencePtr(ucpp.Ptr<MovieSceneTestSequence>) from ucpp.Ptr<MovieSceneTestSequence> to ucpp.Ptr<MovieSceneTestSequence>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTestSequence): MovieSceneTestSequencePtr {
 		return untyped __cpp__("&({0})", v);

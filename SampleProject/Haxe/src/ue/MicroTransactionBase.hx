@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMicroTransactionBase")
 @:include("Engine/MicroTransactionBase.h")
-@:structAccess
+@:valueType
 extern class MicroTransactionBase extends PlatformInterfaceBase {
 	public var AvailableProducts: TArray<PurchaseInfo>;
 	public var LastError: FString;
 	public var LastErrorSolution: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMicroTransactionBase(MicroTransactionBase) from MicroTransactionBa
 @:forward
 @:nativeGen
 @:native("MicroTransactionBase*")
-abstract MicroTransactionBasePtr(cpp.Star<MicroTransactionBase>) from cpp.Star<MicroTransactionBase> to cpp.Star<MicroTransactionBase>{
+abstract MicroTransactionBasePtr(ucpp.Ptr<MicroTransactionBase>) from ucpp.Ptr<MicroTransactionBase> to ucpp.Ptr<MicroTransactionBase>{
 	@:from
 	public static extern inline function fromValue(v: MicroTransactionBase): MicroTransactionBasePtr {
 		return untyped __cpp__("&({0})", v);

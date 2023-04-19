@@ -3,13 +3,13 @@ package ue;
 
 @:native("FPropertyEditorTestSubStruct")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class PropertyEditorTestSubStruct {
-	public var FirstProperty: cpp.Int32;
-	public var SecondProperty: cpp.Int32;
+	public var FirstProperty: ucpp.num.Int32;
+	public var SecondProperty: ucpp.num.Int32;
 	public var CustomizedStructInsideUncustomizedStruct: LinearColor;
 	public var CustomizedStructInsideUncustomizedStruct2: SoftObjectPath;
 
 	@:native("FPropertyEditorTestSubStruct") public function new();
-	@:native("FPropertyEditorTestSubStruct") public static function make(FirstProperty: cpp.Int32, SecondProperty: cpp.Int32, CustomizedStructInsideUncustomizedStruct: LinearColor, CustomizedStructInsideUncustomizedStruct2: SoftObjectPath): PropertyEditorTestSubStruct ;
+	@:native("FPropertyEditorTestSubStruct") public static function make(FirstProperty: ucpp.num.Int32, SecondProperty: ucpp.num.Int32, CustomizedStructInsideUncustomizedStruct: LinearColor, CustomizedStructInsideUncustomizedStruct2: SoftObjectPath): PropertyEditorTestSubStruct ;
 }

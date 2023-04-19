@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPlayMontageAnimNotifyDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PlayMontageAnimNotifyDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPlayMontageAnimNotifyDelegate__PythonCallable(PlayMontageAnimNotif
 @:forward
 @:nativeGen
 @:native("PlayMontageAnimNotifyDelegate__PythonCallable*")
-abstract PlayMontageAnimNotifyDelegate__PythonCallablePtr(cpp.Star<PlayMontageAnimNotifyDelegate__PythonCallable>) from cpp.Star<PlayMontageAnimNotifyDelegate__PythonCallable> to cpp.Star<PlayMontageAnimNotifyDelegate__PythonCallable>{
+abstract PlayMontageAnimNotifyDelegate__PythonCallablePtr(ucpp.Ptr<PlayMontageAnimNotifyDelegate__PythonCallable>) from ucpp.Ptr<PlayMontageAnimNotifyDelegate__PythonCallable> to ucpp.Ptr<PlayMontageAnimNotifyDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PlayMontageAnimNotifyDelegate__PythonCallable): PlayMontageAnimNotifyDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

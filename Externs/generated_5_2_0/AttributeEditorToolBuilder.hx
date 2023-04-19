@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAttributeEditorToolBuilder")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAttributeEditorToolBuilder(AttributeEditorToolBuilder) from Attrib
 @:forward
 @:nativeGen
 @:native("AttributeEditorToolBuilder*")
-abstract AttributeEditorToolBuilderPtr(cpp.Star<AttributeEditorToolBuilder>) from cpp.Star<AttributeEditorToolBuilder> to cpp.Star<AttributeEditorToolBuilder>{
+abstract AttributeEditorToolBuilderPtr(ucpp.Ptr<AttributeEditorToolBuilder>) from ucpp.Ptr<AttributeEditorToolBuilder> to ucpp.Ptr<AttributeEditorToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorToolBuilder): AttributeEditorToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

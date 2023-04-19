@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFunctionalTestAISpawned__PythonCallable")
-@:structAccess
+@:valueType
 extern class FunctionalTestAISpawned__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFunctionalTestAISpawned__PythonCallable(FunctionalTestAISpawned__P
 @:forward
 @:nativeGen
 @:native("FunctionalTestAISpawned__PythonCallable*")
-abstract FunctionalTestAISpawned__PythonCallablePtr(cpp.Star<FunctionalTestAISpawned__PythonCallable>) from cpp.Star<FunctionalTestAISpawned__PythonCallable> to cpp.Star<FunctionalTestAISpawned__PythonCallable>{
+abstract FunctionalTestAISpawned__PythonCallablePtr(ucpp.Ptr<FunctionalTestAISpawned__PythonCallable>) from ucpp.Ptr<FunctionalTestAISpawned__PythonCallable> to ucpp.Ptr<FunctionalTestAISpawned__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalTestAISpawned__PythonCallable): FunctionalTestAISpawned__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

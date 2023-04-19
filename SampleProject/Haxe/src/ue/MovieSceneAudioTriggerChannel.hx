@@ -3,11 +3,12 @@ package ue;
 
 @:native("FMovieSceneAudioTriggerChannel")
 @:include("Channels/MovieSceneAudioTriggerChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneAudioTriggerChannel extends MovieSceneChannel {
 	private var Times: TArray<FrameNumber>;
 	private var Values: TArray<Bool>;
+	private var KeyHandles: MovieSceneKeyHandleMap;
 
 	@:native("FMovieSceneAudioTriggerChannel") public function new();
-	@:native("FMovieSceneAudioTriggerChannel") public static function make(Times: TArray<FrameNumber>, Values: TArray<Bool>): MovieSceneAudioTriggerChannel ;
+	@:native("FMovieSceneAudioTriggerChannel") public static function make(Times: TArray<FrameNumber>, Values: TArray<Bool>, KeyHandles: MovieSceneKeyHandleMap): MovieSceneAudioTriggerChannel ;
 }

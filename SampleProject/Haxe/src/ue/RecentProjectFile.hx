@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRecentProjectFile")
 @:include("Settings/EditorSettings.h")
-@:structAccess
+@:valueType
 extern class RecentProjectFile {
 	public var ProjectName: FString;
 	public var LastOpenTime: DateTime;

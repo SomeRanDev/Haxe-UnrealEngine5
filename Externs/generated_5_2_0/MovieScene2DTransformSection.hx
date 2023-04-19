@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieScene2DTransformSection")
 @:include("Animation/MovieScene2DTransformSection.h")
-@:structAccess
+@:valueType
 extern class MovieScene2DTransformSection extends MovieSceneSection {
 	public var TransformMask: MovieScene2DTransformMask;
 	public var Translation: MovieSceneFloatChannel;
@@ -11,7 +11,7 @@ extern class MovieScene2DTransformSection extends MovieSceneSection {
 	public var Scale: MovieSceneFloatChannel;
 	public var Shear: MovieSceneFloatChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstMovieScene2DTransformSection(MovieScene2DTransformSection) from Mo
 @:forward
 @:nativeGen
 @:native("MovieScene2DTransformSection*")
-abstract MovieScene2DTransformSectionPtr(cpp.Star<MovieScene2DTransformSection>) from cpp.Star<MovieScene2DTransformSection> to cpp.Star<MovieScene2DTransformSection>{
+abstract MovieScene2DTransformSectionPtr(ucpp.Ptr<MovieScene2DTransformSection>) from ucpp.Ptr<MovieScene2DTransformSection> to ucpp.Ptr<MovieScene2DTransformSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene2DTransformSection): MovieScene2DTransformSectionPtr {
 		return untyped __cpp__("&({0})", v);

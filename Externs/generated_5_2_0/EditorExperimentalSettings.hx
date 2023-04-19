@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditorExperimentalSettings")
 @:include("Settings/EditorExperimentalSettings.h")
-@:structAccess
+@:valueType
 extern class EditorExperimentalSettings extends Object {
 	public var bEnableAsyncTextureCompilation: Bool;
 	public var bEnableAsyncStaticMeshCompilation: Bool;
@@ -11,7 +11,7 @@ extern class EditorExperimentalSettings extends Object {
 	public var bEnableAsyncSkinnedAssetCompilation: Bool;
 	public var bEnableAsyncSoundWaveCompilation: Bool;
 	public var bHDREditor: Bool;
-	public var HDREditorNITLevel: cpp.Float32;
+	public var HDREditorNITLevel: ucpp.num.Float32;
 	public var bProceduralFoliage: Bool;
 	public var bEnableTranslationPicker: Bool;
 	public var ConsoleForGamepadLabels: TEnumAsByte<EConsoleForGamepadLabels>;
@@ -36,7 +36,7 @@ extern class EditorExperimentalSettings extends Object {
 	public var bPackedLevelActor: Bool;
 	public var bLevelInstance: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -54,8 +54,8 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 	public inline extern function get_bEnableAsyncSoundWaveCompilation(): Bool return this.bEnableAsyncSoundWaveCompilation;
 	public extern var bHDREditor(get, never): Bool;
 	public inline extern function get_bHDREditor(): Bool return this.bHDREditor;
-	public extern var HDREditorNITLevel(get, never): cpp.Float32;
-	public inline extern function get_HDREditorNITLevel(): cpp.Float32 return this.HDREditorNITLevel;
+	public extern var HDREditorNITLevel(get, never): ucpp.num.Float32;
+	public inline extern function get_HDREditorNITLevel(): ucpp.num.Float32 return this.HDREditorNITLevel;
 	public extern var bProceduralFoliage(get, never): Bool;
 	public inline extern function get_bProceduralFoliage(): Bool return this.bProceduralFoliage;
 	public extern var bEnableTranslationPicker(get, never): Bool;
@@ -107,7 +107,7 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 @:forward
 @:nativeGen
 @:native("EditorExperimentalSettings*")
-abstract EditorExperimentalSettingsPtr(cpp.Star<EditorExperimentalSettings>) from cpp.Star<EditorExperimentalSettings> to cpp.Star<EditorExperimentalSettings>{
+abstract EditorExperimentalSettingsPtr(ucpp.Ptr<EditorExperimentalSettings>) from ucpp.Ptr<EditorExperimentalSettings> to ucpp.Ptr<EditorExperimentalSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorExperimentalSettings): EditorExperimentalSettingsPtr {
 		return untyped __cpp__("&({0})", v);

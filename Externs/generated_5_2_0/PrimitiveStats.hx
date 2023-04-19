@@ -3,31 +3,31 @@ package ue;
 
 @:native("UPrimitiveStats")
 @:include("PrimitiveStats.h")
-@:structAccess
+@:valueType
 extern class PrimitiveStats extends Object {
 	public var Object: TWeakObjectPtr<Object>;
 	public var Actors: TArray<TWeakObjectPtr<Actor>>;
 	public var Type: FString;
-	public var Count: cpp.Int32;
-	public var Sections: cpp.Int32;
-	public var HWInstances: cpp.Int32;
-	public var InstSections: cpp.Int32;
-	public var Triangles: cpp.Int32;
-	public var InstTriangles: cpp.Int32;
-	public var ResourceSize: cpp.Float32;
-	public var VertexColorMem: cpp.Float32;
-	public var InstVertexColorMem: cpp.Float32;
-	public var LightsLM: cpp.Int32;
-	public var LightsOther: cpp.Float32;
-	public var LightsTotal: cpp.Float32;
-	public var ObjLightCost: cpp.Float32;
-	public var LightMapData: cpp.Float32;
-	public var LMSMResolution: cpp.Float32;
-	public var RadiusMin: cpp.Float64;
-	public var RadiusMax: cpp.Float64;
-	public var RadiusAvg: cpp.Float64;
+	public var Count: ucpp.num.Int32;
+	public var Sections: ucpp.num.Int32;
+	public var HWInstances: ucpp.num.Int32;
+	public var InstSections: ucpp.num.Int32;
+	public var Triangles: ucpp.num.Int32;
+	public var InstTriangles: ucpp.num.Int32;
+	public var ResourceSize: ucpp.num.Float32;
+	public var VertexColorMem: ucpp.num.Float32;
+	public var InstVertexColorMem: ucpp.num.Float32;
+	public var LightsLM: ucpp.num.Int32;
+	public var LightsOther: ucpp.num.Float32;
+	public var LightsTotal: ucpp.num.Float32;
+	public var ObjLightCost: ucpp.num.Float32;
+	public var LightMapData: ucpp.num.Float32;
+	public var LMSMResolution: ucpp.num.Float32;
+	public var RadiusMin: ucpp.num.Float64;
+	public var RadiusMax: ucpp.num.Float64;
+	public var RadiusAvg: ucpp.num.Float64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,48 +39,48 @@ abstract ConstPrimitiveStats(PrimitiveStats) from PrimitiveStats {
 	public inline extern function get_Actors(): TArray<TWeakObjectPtr<Actor.ConstActor>> return this.Actors;
 	public extern var Type(get, never): FString;
 	public inline extern function get_Type(): FString return this.Type;
-	public extern var Count(get, never): cpp.Int32;
-	public inline extern function get_Count(): cpp.Int32 return this.Count;
-	public extern var Sections(get, never): cpp.Int32;
-	public inline extern function get_Sections(): cpp.Int32 return this.Sections;
-	public extern var HWInstances(get, never): cpp.Int32;
-	public inline extern function get_HWInstances(): cpp.Int32 return this.HWInstances;
-	public extern var InstSections(get, never): cpp.Int32;
-	public inline extern function get_InstSections(): cpp.Int32 return this.InstSections;
-	public extern var Triangles(get, never): cpp.Int32;
-	public inline extern function get_Triangles(): cpp.Int32 return this.Triangles;
-	public extern var InstTriangles(get, never): cpp.Int32;
-	public inline extern function get_InstTriangles(): cpp.Int32 return this.InstTriangles;
-	public extern var ResourceSize(get, never): cpp.Float32;
-	public inline extern function get_ResourceSize(): cpp.Float32 return this.ResourceSize;
-	public extern var VertexColorMem(get, never): cpp.Float32;
-	public inline extern function get_VertexColorMem(): cpp.Float32 return this.VertexColorMem;
-	public extern var InstVertexColorMem(get, never): cpp.Float32;
-	public inline extern function get_InstVertexColorMem(): cpp.Float32 return this.InstVertexColorMem;
-	public extern var LightsLM(get, never): cpp.Int32;
-	public inline extern function get_LightsLM(): cpp.Int32 return this.LightsLM;
-	public extern var LightsOther(get, never): cpp.Float32;
-	public inline extern function get_LightsOther(): cpp.Float32 return this.LightsOther;
-	public extern var LightsTotal(get, never): cpp.Float32;
-	public inline extern function get_LightsTotal(): cpp.Float32 return this.LightsTotal;
-	public extern var ObjLightCost(get, never): cpp.Float32;
-	public inline extern function get_ObjLightCost(): cpp.Float32 return this.ObjLightCost;
-	public extern var LightMapData(get, never): cpp.Float32;
-	public inline extern function get_LightMapData(): cpp.Float32 return this.LightMapData;
-	public extern var LMSMResolution(get, never): cpp.Float32;
-	public inline extern function get_LMSMResolution(): cpp.Float32 return this.LMSMResolution;
-	public extern var RadiusMin(get, never): cpp.Float64;
-	public inline extern function get_RadiusMin(): cpp.Float64 return this.RadiusMin;
-	public extern var RadiusMax(get, never): cpp.Float64;
-	public inline extern function get_RadiusMax(): cpp.Float64 return this.RadiusMax;
-	public extern var RadiusAvg(get, never): cpp.Float64;
-	public inline extern function get_RadiusAvg(): cpp.Float64 return this.RadiusAvg;
+	public extern var Count(get, never): ucpp.num.Int32;
+	public inline extern function get_Count(): ucpp.num.Int32 return this.Count;
+	public extern var Sections(get, never): ucpp.num.Int32;
+	public inline extern function get_Sections(): ucpp.num.Int32 return this.Sections;
+	public extern var HWInstances(get, never): ucpp.num.Int32;
+	public inline extern function get_HWInstances(): ucpp.num.Int32 return this.HWInstances;
+	public extern var InstSections(get, never): ucpp.num.Int32;
+	public inline extern function get_InstSections(): ucpp.num.Int32 return this.InstSections;
+	public extern var Triangles(get, never): ucpp.num.Int32;
+	public inline extern function get_Triangles(): ucpp.num.Int32 return this.Triangles;
+	public extern var InstTriangles(get, never): ucpp.num.Int32;
+	public inline extern function get_InstTriangles(): ucpp.num.Int32 return this.InstTriangles;
+	public extern var ResourceSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ResourceSize(): ucpp.num.Float32 return this.ResourceSize;
+	public extern var VertexColorMem(get, never): ucpp.num.Float32;
+	public inline extern function get_VertexColorMem(): ucpp.num.Float32 return this.VertexColorMem;
+	public extern var InstVertexColorMem(get, never): ucpp.num.Float32;
+	public inline extern function get_InstVertexColorMem(): ucpp.num.Float32 return this.InstVertexColorMem;
+	public extern var LightsLM(get, never): ucpp.num.Int32;
+	public inline extern function get_LightsLM(): ucpp.num.Int32 return this.LightsLM;
+	public extern var LightsOther(get, never): ucpp.num.Float32;
+	public inline extern function get_LightsOther(): ucpp.num.Float32 return this.LightsOther;
+	public extern var LightsTotal(get, never): ucpp.num.Float32;
+	public inline extern function get_LightsTotal(): ucpp.num.Float32 return this.LightsTotal;
+	public extern var ObjLightCost(get, never): ucpp.num.Float32;
+	public inline extern function get_ObjLightCost(): ucpp.num.Float32 return this.ObjLightCost;
+	public extern var LightMapData(get, never): ucpp.num.Float32;
+	public inline extern function get_LightMapData(): ucpp.num.Float32 return this.LightMapData;
+	public extern var LMSMResolution(get, never): ucpp.num.Float32;
+	public inline extern function get_LMSMResolution(): ucpp.num.Float32 return this.LMSMResolution;
+	public extern var RadiusMin(get, never): ucpp.num.Float64;
+	public inline extern function get_RadiusMin(): ucpp.num.Float64 return this.RadiusMin;
+	public extern var RadiusMax(get, never): ucpp.num.Float64;
+	public inline extern function get_RadiusMax(): ucpp.num.Float64 return this.RadiusMax;
+	public extern var RadiusAvg(get, never): ucpp.num.Float64;
+	public inline extern function get_RadiusAvg(): ucpp.num.Float64 return this.RadiusAvg;
 }
 
 @:forward
 @:nativeGen
 @:native("PrimitiveStats*")
-abstract PrimitiveStatsPtr(cpp.Star<PrimitiveStats>) from cpp.Star<PrimitiveStats> to cpp.Star<PrimitiveStats>{
+abstract PrimitiveStatsPtr(ucpp.Ptr<PrimitiveStats>) from ucpp.Ptr<PrimitiveStats> to ucpp.Ptr<PrimitiveStats>{
 	@:from
 	public static extern inline function fromValue(v: PrimitiveStats): PrimitiveStatsPtr {
 		return untyped __cpp__("&({0})", v);

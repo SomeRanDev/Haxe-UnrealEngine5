@@ -3,26 +3,26 @@ package ue;
 
 @:native("UPyTestStructDelegate")
 @:include("PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestStructDelegate extends Object {
-	public var OnNameCollisionTestDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Reference<PyTestStruct>) -> Void>;
+	public var OnNameCollisionTestDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<PyTestStruct>) -> Void>;
 
-	public function OnNameCollisionDelegate__DelegateSignature(PyStruct: cpp.Reference<PyTestStruct>): Void;
+	public function OnNameCollisionDelegate__DelegateSignature(PyStruct: ucpp.Ref<PyTestStruct>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPyTestStructDelegate(PyTestStructDelegate) from PyTestStructDelegate {
-	public extern var OnNameCollisionTestDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<PyTestStruct>) -> Void>;
-	public inline extern function get_OnNameCollisionTestDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<PyTestStruct>) -> Void> return this.OnNameCollisionTestDelegate;
+	public extern var OnNameCollisionTestDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<PyTestStruct>) -> Void>;
+	public inline extern function get_OnNameCollisionTestDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<PyTestStruct>) -> Void> return this.OnNameCollisionTestDelegate;
 }
 
 @:forward
 @:nativeGen
 @:native("PyTestStructDelegate*")
-abstract PyTestStructDelegatePtr(cpp.Star<PyTestStructDelegate>) from cpp.Star<PyTestStructDelegate> to cpp.Star<PyTestStructDelegate>{
+abstract PyTestStructDelegatePtr(ucpp.Ptr<PyTestStructDelegate>) from ucpp.Ptr<PyTestStructDelegate> to ucpp.Ptr<PyTestStructDelegate>{
 	@:from
 	public static extern inline function fromValue(v: PyTestStructDelegate): PyTestStructDelegatePtr {
 		return untyped __cpp__("&({0})", v);

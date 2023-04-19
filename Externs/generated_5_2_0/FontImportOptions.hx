@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFontImportOptions")
 @:include("Engine/FontImportOptions.h")
-@:structAccess
+@:valueType
 extern class FontImportOptions extends Object {
 	public var Data: FontImportOptionsData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFontImportOptions(FontImportOptions) from FontImportOptions {
 @:forward
 @:nativeGen
 @:native("FontImportOptions*")
-abstract FontImportOptionsPtr(cpp.Star<FontImportOptions>) from cpp.Star<FontImportOptions> to cpp.Star<FontImportOptions>{
+abstract FontImportOptionsPtr(ucpp.Ptr<FontImportOptions>) from ucpp.Ptr<FontImportOptions> to ucpp.Ptr<FontImportOptions>{
 	@:from
 	public static extern inline function fromValue(v: FontImportOptions): FontImportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

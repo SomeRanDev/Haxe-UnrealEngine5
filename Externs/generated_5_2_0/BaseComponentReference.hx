@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBaseComponentReference")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class BaseComponentReference {
 	public var ComponentProperty: FName;
 	public var PathToComponent: FString;

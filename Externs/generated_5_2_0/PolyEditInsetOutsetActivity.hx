@@ -3,27 +3,27 @@ package ue;
 
 @:native("UPolyEditInsetOutsetActivity")
 @:include("ToolActivities/PolyEditInsetOutsetActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditInsetOutsetActivity extends InteractiveToolActivity {
-	public var Settings: cpp.Star<PolyEditInsetOutsetProperties>;
-	@:protected public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
-	@:protected public var CurveDistMechanic: cpp.Star<SpatialCurveDistanceMechanic>;
-	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	public var Settings: ucpp.Ptr<PolyEditInsetOutsetProperties>;
+	@:protected public var EditPreview: ucpp.Ptr<PolyEditPreviewMesh>;
+	@:protected public var CurveDistMechanic: ucpp.Ptr<SpatialCurveDistanceMechanic>;
+	@:protected public var ActivityContext: ucpp.Ptr<PolyEditActivityContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPolyEditInsetOutsetActivity(PolyEditInsetOutsetActivity) from PolyEditInsetOutsetActivity {
-	public extern var Settings(get, never): cpp.Star<PolyEditInsetOutsetProperties.ConstPolyEditInsetOutsetProperties>;
-	public inline extern function get_Settings(): cpp.Star<PolyEditInsetOutsetProperties.ConstPolyEditInsetOutsetProperties> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<PolyEditInsetOutsetProperties.ConstPolyEditInsetOutsetProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<PolyEditInsetOutsetProperties.ConstPolyEditInsetOutsetProperties> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("PolyEditInsetOutsetActivity*")
-abstract PolyEditInsetOutsetActivityPtr(cpp.Star<PolyEditInsetOutsetActivity>) from cpp.Star<PolyEditInsetOutsetActivity> to cpp.Star<PolyEditInsetOutsetActivity>{
+abstract PolyEditInsetOutsetActivityPtr(ucpp.Ptr<PolyEditInsetOutsetActivity>) from ucpp.Ptr<PolyEditInsetOutsetActivity> to ucpp.Ptr<PolyEditInsetOutsetActivity>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditInsetOutsetActivity): PolyEditInsetOutsetActivityPtr {
 		return untyped __cpp__("&({0})", v);

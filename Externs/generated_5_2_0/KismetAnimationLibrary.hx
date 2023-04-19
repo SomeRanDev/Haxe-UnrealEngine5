@@ -3,21 +3,21 @@ package ue;
 
 @:native("UKismetAnimationLibrary")
 @:include("KismetAnimationLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetAnimationLibrary extends BlueprintFunctionLibrary {
-	public function K2_TwoBoneIK(RootPos: cpp.Reference<Vector>, JointPos: cpp.Reference<Vector>, EndPos: cpp.Reference<Vector>, JointTarget: cpp.Reference<Vector>, Effector: cpp.Reference<Vector>, OutJointPos: cpp.Reference<Vector>, OutEndPos: cpp.Reference<Vector>, bAllowStretching: Bool, StartStretchRatio: cpp.Float32, MaxStretchScale: cpp.Float32): Void;
+	public function K2_TwoBoneIK(RootPos: ucpp.Ref<Vector>, JointPos: ucpp.Ref<Vector>, EndPos: ucpp.Ref<Vector>, JointTarget: ucpp.Ref<Vector>, Effector: ucpp.Ref<Vector>, OutJointPos: ucpp.Ref<Vector>, OutEndPos: ucpp.Ref<Vector>, bAllowStretching: Bool, StartStretchRatio: ucpp.num.Float32, MaxStretchScale: ucpp.num.Float32): Void;
 	public function K2_StartProfilingTimer(): Void;
-	public function K2_MakePerlinNoiseVectorAndRemap(X: cpp.Float32, Y: cpp.Float32, Z: cpp.Float32, RangeOutMinX: cpp.Float32, RangeOutMaxX: cpp.Float32, RangeOutMinY: cpp.Float32, RangeOutMaxY: cpp.Float32, RangeOutMinZ: cpp.Float32, RangeOutMaxZ: cpp.Float32): Vector;
-	public function K2_MakePerlinNoiseAndRemap(Value: cpp.Float32, RangeOutMin: cpp.Float32, RangeOutMax: cpp.Float32): cpp.Float32;
-	public function K2_LookAt(CurrentTransform: cpp.Reference<Transform>, TargetPosition: cpp.Reference<Vector>, LookAtVector: Vector, bUseUpVector: Bool, UpVector: Vector, ClampConeInDegree: cpp.Float32): Transform;
-	public function K2_EndProfilingTimer(bLog: Bool, LogPrefix: FString): cpp.Float32;
-	public function K2_DistanceBetweenTwoSocketsAndMapRange(Component: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>, SocketOrBoneNameA: FName, SocketSpaceA: TEnumAsByte<ERelativeTransformSpace>, SocketOrBoneNameB: FName, SocketSpaceB: TEnumAsByte<ERelativeTransformSpace>, bRemapRange: Bool, InRangeMin: cpp.Float32, InRangeMax: cpp.Float32, OutRangeMin: cpp.Float32, OutRangeMax: cpp.Float32): cpp.Float32;
-	public function K2_DirectionBetweenSockets(Component: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>, SocketOrBoneNameFrom: FName, SocketOrBoneNameTo: FName): Vector;
-	public function K2_CalculateVelocityFromSockets(DeltaSeconds: cpp.Float32, Component: cpp.Star<SkeletalMeshComp>, SocketOrBoneName: FName, ReferenceSocketOrBone: FName, SocketSpace: TEnumAsByte<ERelativeTransformSpace>, OffsetInBoneSpace: Vector, History: cpp.Reference<PositionHistory>, NumberOfSamples: cpp.Int32, VelocityMin: cpp.Float32, VelocityMax: cpp.Float32, EasingType: EEasingFuncType, CustomCurve: cpp.Reference<RuntimeFloatCurve>): cpp.Float32;
-	public function K2_CalculateVelocityFromPositionHistory(DeltaSeconds: cpp.Float32, Position: Vector, History: cpp.Reference<PositionHistory>, NumberOfSamples: cpp.Int32, VelocityMin: cpp.Float32, VelocityMax: cpp.Float32): cpp.Float32;
-	public function CalculateDirection(Velocity: cpp.Reference<Vector>, BaseRotation: cpp.Reference<Rotator>): cpp.Float32;
+	public function K2_MakePerlinNoiseVectorAndRemap(X: ucpp.num.Float32, Y: ucpp.num.Float32, Z: ucpp.num.Float32, RangeOutMinX: ucpp.num.Float32, RangeOutMaxX: ucpp.num.Float32, RangeOutMinY: ucpp.num.Float32, RangeOutMaxY: ucpp.num.Float32, RangeOutMinZ: ucpp.num.Float32, RangeOutMaxZ: ucpp.num.Float32): Vector;
+	public function K2_MakePerlinNoiseAndRemap(Value: ucpp.num.Float32, RangeOutMin: ucpp.num.Float32, RangeOutMax: ucpp.num.Float32): ucpp.num.Float32;
+	public function K2_LookAt(CurrentTransform: ucpp.Ref<Transform>, TargetPosition: ucpp.Ref<Vector>, LookAtVector: Vector, bUseUpVector: Bool, UpVector: Vector, ClampConeInDegree: ucpp.num.Float32): Transform;
+	public function K2_EndProfilingTimer(bLog: Bool, LogPrefix: FString): ucpp.num.Float32;
+	public function K2_DistanceBetweenTwoSocketsAndMapRange(Component: ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>, SocketOrBoneNameA: FName, SocketSpaceA: TEnumAsByte<ERelativeTransformSpace>, SocketOrBoneNameB: FName, SocketSpaceB: TEnumAsByte<ERelativeTransformSpace>, bRemapRange: Bool, InRangeMin: ucpp.num.Float32, InRangeMax: ucpp.num.Float32, OutRangeMin: ucpp.num.Float32, OutRangeMax: ucpp.num.Float32): ucpp.num.Float32;
+	public function K2_DirectionBetweenSockets(Component: ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>, SocketOrBoneNameFrom: FName, SocketOrBoneNameTo: FName): Vector;
+	public function K2_CalculateVelocityFromSockets(DeltaSeconds: ucpp.num.Float32, Component: ucpp.Ptr<SkeletalMeshComp>, SocketOrBoneName: FName, ReferenceSocketOrBone: FName, SocketSpace: TEnumAsByte<ERelativeTransformSpace>, OffsetInBoneSpace: Vector, History: ucpp.Ref<PositionHistory>, NumberOfSamples: ucpp.num.Int32, VelocityMin: ucpp.num.Float32, VelocityMax: ucpp.num.Float32, EasingType: EEasingFuncType, CustomCurve: ucpp.Ref<RuntimeFloatCurve>): ucpp.num.Float32;
+	public function K2_CalculateVelocityFromPositionHistory(DeltaSeconds: ucpp.num.Float32, Position: Vector, History: ucpp.Ref<PositionHistory>, NumberOfSamples: ucpp.num.Int32, VelocityMin: ucpp.num.Float32, VelocityMax: ucpp.num.Float32): ucpp.num.Float32;
+	public function CalculateDirection(Velocity: ucpp.Ref<Vector>, BaseRotation: ucpp.Ref<Rotator>): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstKismetAnimationLibrary(KismetAnimationLibrary) from KismetAnimatio
 @:forward
 @:nativeGen
 @:native("KismetAnimationLibrary*")
-abstract KismetAnimationLibraryPtr(cpp.Star<KismetAnimationLibrary>) from cpp.Star<KismetAnimationLibrary> to cpp.Star<KismetAnimationLibrary>{
+abstract KismetAnimationLibraryPtr(ucpp.Ptr<KismetAnimationLibrary>) from ucpp.Ptr<KismetAnimationLibrary> to ucpp.Ptr<KismetAnimationLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetAnimationLibrary): KismetAnimationLibraryPtr {
 		return untyped __cpp__("&({0})", v);

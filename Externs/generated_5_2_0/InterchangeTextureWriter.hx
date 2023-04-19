@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeTextureWriter")
 @:include("InterchangeTextureWriter.h")
-@:structAccess
+@:valueType
 extern class InterchangeTextureWriter extends InterchangeWriterBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeTextureWriter(InterchangeTextureWriter) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeTextureWriter*")
-abstract InterchangeTextureWriterPtr(cpp.Star<InterchangeTextureWriter>) from cpp.Star<InterchangeTextureWriter> to cpp.Star<InterchangeTextureWriter>{
+abstract InterchangeTextureWriterPtr(ucpp.Ptr<InterchangeTextureWriter>) from ucpp.Ptr<InterchangeTextureWriter> to ucpp.Ptr<InterchangeTextureWriter>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTextureWriter): InterchangeTextureWriterPtr {
 		return untyped __cpp__("&({0})", v);

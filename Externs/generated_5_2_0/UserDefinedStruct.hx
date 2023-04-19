@@ -3,12 +3,12 @@ package ue;
 
 @:native("UUserDefinedStruct")
 @:include("Engine/UserDefinedStruct.h")
-@:structAccess
+@:valueType
 extern class UserDefinedStruct extends ScriptStruct {
 	public var Status: TEnumAsByte<EUserDefinedStructureStatus>;
 	public var Guid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstUserDefinedStruct(UserDefinedStruct) from UserDefinedStruct {
 @:forward
 @:nativeGen
 @:native("UserDefinedStruct*")
-abstract UserDefinedStructPtr(cpp.Star<UserDefinedStruct>) from cpp.Star<UserDefinedStruct> to cpp.Star<UserDefinedStruct>{
+abstract UserDefinedStructPtr(ucpp.Ptr<UserDefinedStruct>) from ucpp.Ptr<UserDefinedStruct> to ucpp.Ptr<UserDefinedStruct>{
 	@:from
 	public static extern inline function fromValue(v: UserDefinedStruct): UserDefinedStructPtr {
 		return untyped __cpp__("&({0})", v);

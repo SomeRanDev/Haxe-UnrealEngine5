@@ -3,13 +3,13 @@ package ue;
 
 @:native("ASceneCapture2D")
 @:include("Engine/SceneCapture2D.h")
-@:structAccess
+@:valueType
 extern class SceneCapture2D extends SceneCapture {
-	private var CaptureComponent2D: cpp.Star<SceneCaptureComponent2D>;
+	private var CaptureComponent2D: ucpp.Ptr<SceneCaptureComponent2D>;
 
 	public function OnInterpToggle(bEnable: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSceneCapture2D(SceneCapture2D) from SceneCapture2D {
 @:forward
 @:nativeGen
 @:native("SceneCapture2D*")
-abstract SceneCapture2DPtr(cpp.Star<SceneCapture2D>) from cpp.Star<SceneCapture2D> to cpp.Star<SceneCapture2D>{
+abstract SceneCapture2DPtr(ucpp.Ptr<SceneCapture2D>) from ucpp.Ptr<SceneCapture2D> to ucpp.Ptr<SceneCapture2D>{
 	@:from
 	public static extern inline function fromValue(v: SceneCapture2D): SceneCapture2DPtr {
 		return untyped __cpp__("&({0})", v);

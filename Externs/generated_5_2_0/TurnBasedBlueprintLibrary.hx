@@ -3,14 +3,14 @@ package ue;
 
 @:native("UTurnBasedBlueprintLibrary")
 @:include("TurnBasedBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class TurnBasedBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function RegisterTurnBasedMatchInterfaceObject(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, Object: cpp.Star<Object>): Void;
-	public function GetPlayerDisplayName(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, PlayerIndex: cpp.Int32, PlayerDisplayName: cpp.Reference<FString>): Void;
-	public function GetMyPlayerIndex(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, PlayerIndex: cpp.Reference<cpp.Int32>): Void;
-	public function GetIsMyTurn(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, bIsMyTurn: cpp.Reference<Bool>): Void;
+	public function RegisterTurnBasedMatchInterfaceObject(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, Object: ucpp.Ptr<Object>): Void;
+	public function GetPlayerDisplayName(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MatchID: FString, PlayerIndex: ucpp.num.Int32, PlayerDisplayName: ucpp.Ref<FString>): Void;
+	public function GetMyPlayerIndex(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MatchID: FString, PlayerIndex: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetIsMyTurn(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MatchID: FString, bIsMyTurn: ucpp.Ref<Bool>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstTurnBasedBlueprintLibrary(TurnBasedBlueprintLibrary) from TurnBase
 @:forward
 @:nativeGen
 @:native("TurnBasedBlueprintLibrary*")
-abstract TurnBasedBlueprintLibraryPtr(cpp.Star<TurnBasedBlueprintLibrary>) from cpp.Star<TurnBasedBlueprintLibrary> to cpp.Star<TurnBasedBlueprintLibrary>{
+abstract TurnBasedBlueprintLibraryPtr(ucpp.Ptr<TurnBasedBlueprintLibrary>) from ucpp.Ptr<TurnBasedBlueprintLibrary> to ucpp.Ptr<TurnBasedBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TurnBasedBlueprintLibrary): TurnBasedBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

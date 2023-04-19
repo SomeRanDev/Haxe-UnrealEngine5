@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDynamicMeshBrushTool")
 @:include("DynamicMeshBrushTool.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshBrushTool extends BaseBrushTool {
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstDynamicMeshBrushTool(DynamicMeshBrushTool) from DynamicMeshBrushTo
 @:forward
 @:nativeGen
 @:native("DynamicMeshBrushTool*")
-abstract DynamicMeshBrushToolPtr(cpp.Star<DynamicMeshBrushTool>) from cpp.Star<DynamicMeshBrushTool> to cpp.Star<DynamicMeshBrushTool>{
+abstract DynamicMeshBrushToolPtr(ucpp.Ptr<DynamicMeshBrushTool>) from ucpp.Ptr<DynamicMeshBrushTool> to ucpp.Ptr<DynamicMeshBrushTool>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshBrushTool): DynamicMeshBrushToolPtr {
 		return untyped __cpp__("&({0})", v);

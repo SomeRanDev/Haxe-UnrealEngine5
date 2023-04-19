@@ -3,17 +3,17 @@ package ue;
 
 @:native("UParticleModuleTypeDataBeam2")
 @:include("Particles/TypeData/ParticleModuleTypeDataBeam2.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
 	public var BeamMethod: TEnumAsByte<EBeam2Method>;
-	public var TextureTile: cpp.Int32;
-	public var TextureTileDistance: cpp.Float32;
-	public var Sheets: cpp.Int32;
-	public var MaxBeamCount: cpp.Int32;
-	public var Speed: cpp.Float32;
-	public var InterpolationPoints: cpp.Int32;
+	public var TextureTile: ucpp.num.Int32;
+	public var TextureTileDistance: ucpp.num.Float32;
+	public var Sheets: ucpp.num.Int32;
+	public var MaxBeamCount: ucpp.num.Int32;
+	public var Speed: ucpp.num.Float32;
+	public var InterpolationPoints: ucpp.num.Int32;
 	public var bAlwaysOn: Bool;
-	public var UpVectorStepSize: cpp.Int32;
+	public var UpVectorStepSize: ucpp.num.Int32;
 	public var BranchParentName: FName;
 	public var Distance: RawDistributionFloat;
 	public var TaperMethod: TEnumAsByte<EBeamTaperMethod>;
@@ -24,7 +24,7 @@ extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
 	public var RenderLines: Bool;
 	public var RenderTessellation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,22 +32,22 @@ extern class ParticleModuleTypeDataBeam2 extends ParticleModuleTypeDataBase {
 abstract ConstParticleModuleTypeDataBeam2(ParticleModuleTypeDataBeam2) from ParticleModuleTypeDataBeam2 {
 	public extern var BeamMethod(get, never): TEnumAsByte<EBeam2Method>;
 	public inline extern function get_BeamMethod(): TEnumAsByte<EBeam2Method> return this.BeamMethod;
-	public extern var TextureTile(get, never): cpp.Int32;
-	public inline extern function get_TextureTile(): cpp.Int32 return this.TextureTile;
-	public extern var TextureTileDistance(get, never): cpp.Float32;
-	public inline extern function get_TextureTileDistance(): cpp.Float32 return this.TextureTileDistance;
-	public extern var Sheets(get, never): cpp.Int32;
-	public inline extern function get_Sheets(): cpp.Int32 return this.Sheets;
-	public extern var MaxBeamCount(get, never): cpp.Int32;
-	public inline extern function get_MaxBeamCount(): cpp.Int32 return this.MaxBeamCount;
-	public extern var Speed(get, never): cpp.Float32;
-	public inline extern function get_Speed(): cpp.Float32 return this.Speed;
-	public extern var InterpolationPoints(get, never): cpp.Int32;
-	public inline extern function get_InterpolationPoints(): cpp.Int32 return this.InterpolationPoints;
+	public extern var TextureTile(get, never): ucpp.num.Int32;
+	public inline extern function get_TextureTile(): ucpp.num.Int32 return this.TextureTile;
+	public extern var TextureTileDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_TextureTileDistance(): ucpp.num.Float32 return this.TextureTileDistance;
+	public extern var Sheets(get, never): ucpp.num.Int32;
+	public inline extern function get_Sheets(): ucpp.num.Int32 return this.Sheets;
+	public extern var MaxBeamCount(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxBeamCount(): ucpp.num.Int32 return this.MaxBeamCount;
+	public extern var Speed(get, never): ucpp.num.Float32;
+	public inline extern function get_Speed(): ucpp.num.Float32 return this.Speed;
+	public extern var InterpolationPoints(get, never): ucpp.num.Int32;
+	public inline extern function get_InterpolationPoints(): ucpp.num.Int32 return this.InterpolationPoints;
 	public extern var bAlwaysOn(get, never): Bool;
 	public inline extern function get_bAlwaysOn(): Bool return this.bAlwaysOn;
-	public extern var UpVectorStepSize(get, never): cpp.Int32;
-	public inline extern function get_UpVectorStepSize(): cpp.Int32 return this.UpVectorStepSize;
+	public extern var UpVectorStepSize(get, never): ucpp.num.Int32;
+	public inline extern function get_UpVectorStepSize(): ucpp.num.Int32 return this.UpVectorStepSize;
 	public extern var BranchParentName(get, never): FName;
 	public inline extern function get_BranchParentName(): FName return this.BranchParentName;
 	public extern var Distance(get, never): RawDistributionFloat;
@@ -71,7 +71,7 @@ abstract ConstParticleModuleTypeDataBeam2(ParticleModuleTypeDataBeam2) from Part
 @:forward
 @:nativeGen
 @:native("ParticleModuleTypeDataBeam2*")
-abstract ParticleModuleTypeDataBeam2Ptr(cpp.Star<ParticleModuleTypeDataBeam2>) from cpp.Star<ParticleModuleTypeDataBeam2> to cpp.Star<ParticleModuleTypeDataBeam2>{
+abstract ParticleModuleTypeDataBeam2Ptr(ucpp.Ptr<ParticleModuleTypeDataBeam2>) from ucpp.Ptr<ParticleModuleTypeDataBeam2> to ucpp.Ptr<ParticleModuleTypeDataBeam2>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleTypeDataBeam2): ParticleModuleTypeDataBeam2Ptr {
 		return untyped __cpp__("&({0})", v);

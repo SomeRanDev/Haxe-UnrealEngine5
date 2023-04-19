@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWidgetToolsContext")
 @:include("ToolContexts/WidgetToolsContext.h")
-@:structAccess
+@:valueType
 extern class WidgetToolsContext extends ModeManagerInteractiveToolsContext {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWidgetToolsContext(WidgetToolsContext) from WidgetToolsContext {
 @:forward
 @:nativeGen
 @:native("WidgetToolsContext*")
-abstract WidgetToolsContextPtr(cpp.Star<WidgetToolsContext>) from cpp.Star<WidgetToolsContext> to cpp.Star<WidgetToolsContext>{
+abstract WidgetToolsContextPtr(ucpp.Ptr<WidgetToolsContext>) from ucpp.Ptr<WidgetToolsContext> to ucpp.Ptr<WidgetToolsContext>{
 	@:from
 	public static extern inline function fromValue(v: WidgetToolsContext): WidgetToolsContextPtr {
 		return untyped __cpp__("&({0})", v);

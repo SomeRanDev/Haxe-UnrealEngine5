@@ -3,18 +3,18 @@ package ue;
 
 @:native("UProjectToTargetToolProperties")
 @:include("ProjectToTargetTool.h")
-@:structAccess
+@:valueType
 extern class ProjectToTargetToolProperties extends RemeshMeshToolProperties {
 	public var bWorldSpace: Bool;
 	public var bParallel: Bool;
-	public var FaceProjectionPassesPerRemeshIteration: cpp.Int32;
-	public var SurfaceProjectionSpeed: cpp.Float32;
-	public var NormalAlignmentSpeed: cpp.Float32;
+	public var FaceProjectionPassesPerRemeshIteration: ucpp.num.Int32;
+	public var SurfaceProjectionSpeed: ucpp.num.Float32;
+	public var NormalAlignmentSpeed: ucpp.num.Float32;
 	public var bSmoothInFillAreas: Bool;
-	public var FillAreaDistanceMultiplier: cpp.Float32;
-	public var FillAreaSmoothMultiplier: cpp.Float32;
+	public var FillAreaDistanceMultiplier: ucpp.num.Float32;
+	public var FillAreaSmoothMultiplier: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,24 +24,24 @@ abstract ConstProjectToTargetToolProperties(ProjectToTargetToolProperties) from 
 	public inline extern function get_bWorldSpace(): Bool return this.bWorldSpace;
 	public extern var bParallel(get, never): Bool;
 	public inline extern function get_bParallel(): Bool return this.bParallel;
-	public extern var FaceProjectionPassesPerRemeshIteration(get, never): cpp.Int32;
-	public inline extern function get_FaceProjectionPassesPerRemeshIteration(): cpp.Int32 return this.FaceProjectionPassesPerRemeshIteration;
-	public extern var SurfaceProjectionSpeed(get, never): cpp.Float32;
-	public inline extern function get_SurfaceProjectionSpeed(): cpp.Float32 return this.SurfaceProjectionSpeed;
-	public extern var NormalAlignmentSpeed(get, never): cpp.Float32;
-	public inline extern function get_NormalAlignmentSpeed(): cpp.Float32 return this.NormalAlignmentSpeed;
+	public extern var FaceProjectionPassesPerRemeshIteration(get, never): ucpp.num.Int32;
+	public inline extern function get_FaceProjectionPassesPerRemeshIteration(): ucpp.num.Int32 return this.FaceProjectionPassesPerRemeshIteration;
+	public extern var SurfaceProjectionSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_SurfaceProjectionSpeed(): ucpp.num.Float32 return this.SurfaceProjectionSpeed;
+	public extern var NormalAlignmentSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalAlignmentSpeed(): ucpp.num.Float32 return this.NormalAlignmentSpeed;
 	public extern var bSmoothInFillAreas(get, never): Bool;
 	public inline extern function get_bSmoothInFillAreas(): Bool return this.bSmoothInFillAreas;
-	public extern var FillAreaDistanceMultiplier(get, never): cpp.Float32;
-	public inline extern function get_FillAreaDistanceMultiplier(): cpp.Float32 return this.FillAreaDistanceMultiplier;
-	public extern var FillAreaSmoothMultiplier(get, never): cpp.Float32;
-	public inline extern function get_FillAreaSmoothMultiplier(): cpp.Float32 return this.FillAreaSmoothMultiplier;
+	public extern var FillAreaDistanceMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_FillAreaDistanceMultiplier(): ucpp.num.Float32 return this.FillAreaDistanceMultiplier;
+	public extern var FillAreaSmoothMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_FillAreaSmoothMultiplier(): ucpp.num.Float32 return this.FillAreaSmoothMultiplier;
 }
 
 @:forward
 @:nativeGen
 @:native("ProjectToTargetToolProperties*")
-abstract ProjectToTargetToolPropertiesPtr(cpp.Star<ProjectToTargetToolProperties>) from cpp.Star<ProjectToTargetToolProperties> to cpp.Star<ProjectToTargetToolProperties>{
+abstract ProjectToTargetToolPropertiesPtr(ucpp.Ptr<ProjectToTargetToolProperties>) from ucpp.Ptr<ProjectToTargetToolProperties> to ucpp.Ptr<ProjectToTargetToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ProjectToTargetToolProperties): ProjectToTargetToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

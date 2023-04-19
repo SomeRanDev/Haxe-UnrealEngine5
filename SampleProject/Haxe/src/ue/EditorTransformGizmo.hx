@@ -3,63 +3,21 @@ package ue;
 
 @:native("UEditorTransformGizmo")
 @:include("EditorGizmos/EditorTransformGizmo.h")
-@:structAccess
-extern class EditorTransformGizmo extends InteractiveGizmo {
-	public var ActiveTarget: cpp.Star<TransformProxy>;
-	public var bSnapToWorldGrid: Bool;
-	public var bGridSizeIsExplicit: Bool;
-	public var ExplicitGridSize: Vector;
-	public var bRotationGridSizeIsExplicit: Bool;
-	public var ExplicitRotationGridSize: Rotator;
-	public var bSnapToWorldRotGrid: Bool;
-	public var bUseContextCoordinateSystem: Bool;
-	public var CurrentCoordinateSystem: EToolContextCoordinateSystem;
-	@:protected public var ActiveObjects: TArray<cpp.Star<GizmoBaseObject>>;
-	@:protected public var NonuniformScaleObjects: TArray<cpp.Star<GizmoBaseObject>>;
-	@:protected public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
-	@:protected public var CameraAxisSource: cpp.Star<GizmoConstantFrameAxisSource>;
-	@:protected public var GizmoGroupObject: cpp.Star<GizmoGroupObject>;
-	@:protected public var AxisXSource: cpp.Star<GizmoEditorAxisSource>;
-	@:protected public var AxisYSource: cpp.Star<GizmoEditorAxisSource>;
-	@:protected public var AxisZSource: cpp.Star<GizmoEditorAxisSource>;
-	@:protected public var AxisXObject: cpp.Star<GizmoArrowObject>;
-	@:protected public var AxisYObject: cpp.Star<GizmoArrowObject>;
-	@:protected public var AxisZObject: cpp.Star<GizmoArrowObject>;
-	@:protected public var UnitAxisXSource: cpp.Star<GizmoEditorAxisSource>;
-	@:protected public var UnitAxisYSource: cpp.Star<GizmoEditorAxisSource>;
-	@:protected public var UnitAxisZSource: cpp.Star<GizmoEditorAxisSource>;
-	@:protected public var StateTarget: cpp.Star<GizmoObjectTransformChangeStateTarget>;
+@:valueType
+extern class EditorTransformGizmo extends TransformGizmo {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditorTransformGizmo(EditorTransformGizmo) from EditorTransformGizmo {
-	public extern var ActiveTarget(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_ActiveTarget(): cpp.Star<TransformProxy.ConstTransformProxy> return this.ActiveTarget;
-	public extern var bSnapToWorldGrid(get, never): Bool;
-	public inline extern function get_bSnapToWorldGrid(): Bool return this.bSnapToWorldGrid;
-	public extern var bGridSizeIsExplicit(get, never): Bool;
-	public inline extern function get_bGridSizeIsExplicit(): Bool return this.bGridSizeIsExplicit;
-	public extern var ExplicitGridSize(get, never): Vector;
-	public inline extern function get_ExplicitGridSize(): Vector return this.ExplicitGridSize;
-	public extern var bRotationGridSizeIsExplicit(get, never): Bool;
-	public inline extern function get_bRotationGridSizeIsExplicit(): Bool return this.bRotationGridSizeIsExplicit;
-	public extern var ExplicitRotationGridSize(get, never): Rotator;
-	public inline extern function get_ExplicitRotationGridSize(): Rotator return this.ExplicitRotationGridSize;
-	public extern var bSnapToWorldRotGrid(get, never): Bool;
-	public inline extern function get_bSnapToWorldRotGrid(): Bool return this.bSnapToWorldRotGrid;
-	public extern var bUseContextCoordinateSystem(get, never): Bool;
-	public inline extern function get_bUseContextCoordinateSystem(): Bool return this.bUseContextCoordinateSystem;
-	public extern var CurrentCoordinateSystem(get, never): EToolContextCoordinateSystem;
-	public inline extern function get_CurrentCoordinateSystem(): EToolContextCoordinateSystem return this.CurrentCoordinateSystem;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorTransformGizmo*")
-abstract EditorTransformGizmoPtr(cpp.Star<EditorTransformGizmo>) from cpp.Star<EditorTransformGizmo> to cpp.Star<EditorTransformGizmo>{
+abstract EditorTransformGizmoPtr(ucpp.Ptr<EditorTransformGizmo>) from ucpp.Ptr<EditorTransformGizmo> to ucpp.Ptr<EditorTransformGizmo>{
 	@:from
 	public static extern inline function fromValue(v: EditorTransformGizmo): EditorTransformGizmoPtr {
 		return untyped __cpp__("&({0})", v);

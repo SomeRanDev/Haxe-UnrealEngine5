@@ -3,7 +3,7 @@ package ue;
 
 @:native("FReferenceBoneFrame")
 @:include("BoneControllers/AnimNode_TwistCorrectiveNode.h")
-@:structAccess
+@:valueType
 extern class ReferenceBoneFrame {
 	public var Bone: BoneReference;
 	public var Axis: Axis;

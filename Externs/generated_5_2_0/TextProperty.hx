@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTextProperty")
-@:structAccess
+@:valueType
 extern class TextProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTextProperty(TextProperty) from TextProperty {
 @:forward
 @:nativeGen
 @:native("TextProperty*")
-abstract TextPropertyPtr(cpp.Star<TextProperty>) from cpp.Star<TextProperty> to cpp.Star<TextProperty>{
+abstract TextPropertyPtr(ucpp.Ptr<TextProperty>) from ucpp.Ptr<TextProperty> to ucpp.Ptr<TextProperty>{
 	@:from
 	public static extern inline function fromValue(v: TextProperty): TextPropertyPtr {
 		return untyped __cpp__("&({0})", v);

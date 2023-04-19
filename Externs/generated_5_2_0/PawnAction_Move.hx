@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDEPRECATED_PawnAction_Move")
 @:include("Actions/PawnAction_Move.h")
-@:structAccess
+@:valueType
 extern class PawnAction_Move extends PawnAction {
-	@:protected public var GoalActor: cpp.Star<Actor>;
+	@:protected public var GoalActor: ucpp.Ptr<Actor>;
 	@:protected public var GoalLocation: Vector;
-	@:protected public var AcceptableRadius: cpp.Float32;
+	@:protected public var AcceptableRadius: ucpp.num.Float32;
 	@:protected public var FilterClass: TSubclassOf<NavigationQueryFilter>;
 	@:protected public var bAllowStrafe: Bool;
 	@:protected public var bFinishOnOverlap: Bool;
@@ -17,7 +17,7 @@ extern class PawnAction_Move extends PawnAction {
 	@:protected public var bUpdatePathToGoal: Bool;
 	@:protected public var bAbortSubActionOnPathChange: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstPawnAction_Move(PawnAction_Move) from PawnAction_Move {
 @:forward
 @:nativeGen
 @:native("PawnAction_Move*")
-abstract PawnAction_MovePtr(cpp.Star<PawnAction_Move>) from cpp.Star<PawnAction_Move> to cpp.Star<PawnAction_Move>{
+abstract PawnAction_MovePtr(ucpp.Ptr<PawnAction_Move>) from ucpp.Ptr<PawnAction_Move> to ucpp.Ptr<PawnAction_Move>{
 	@:from
 	public static extern inline function fromValue(v: PawnAction_Move): PawnAction_MovePtr {
 		return untyped __cpp__("&({0})", v);

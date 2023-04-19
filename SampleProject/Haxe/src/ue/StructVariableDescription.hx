@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStructVariableDescription")
 @:include("UserDefinedStructure/UserDefinedStructEditorData.h")
-@:structAccess
+@:valueType
 extern class StructVariableDescription {
 	public var VarName: FName;
 	public var VarGuid: Guid;

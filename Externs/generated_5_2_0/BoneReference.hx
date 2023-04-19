@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBoneReference")
 @:include("BoneContainer.h")
-@:structAccess
+@:valueType
 extern class BoneReference {
 	public var BoneName: FName;
 

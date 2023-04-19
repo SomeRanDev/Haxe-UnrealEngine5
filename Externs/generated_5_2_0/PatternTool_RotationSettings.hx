@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPatternTool_RotationSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternTool_RotationSettings extends InteractiveToolPropertySet {
 	public var bInterpolate: Bool;
 	public var bJitter: Bool;
@@ -11,7 +11,7 @@ extern class PatternTool_RotationSettings extends InteractiveToolPropertySet {
 	public var EndRotation: Rotator;
 	public var Jitter: Rotator;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstPatternTool_RotationSettings(PatternTool_RotationSettings) from Pa
 @:forward
 @:nativeGen
 @:native("PatternTool_RotationSettings*")
-abstract PatternTool_RotationSettingsPtr(cpp.Star<PatternTool_RotationSettings>) from cpp.Star<PatternTool_RotationSettings> to cpp.Star<PatternTool_RotationSettings>{
+abstract PatternTool_RotationSettingsPtr(ucpp.Ptr<PatternTool_RotationSettings>) from ucpp.Ptr<PatternTool_RotationSettings> to ucpp.Ptr<PatternTool_RotationSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternTool_RotationSettings): PatternTool_RotationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

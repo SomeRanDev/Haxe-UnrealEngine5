@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ERotatorQuantization")
-@:include("Engine/EngineTypes.h")
+@:include("Engine/ReplicatedState.h")
 extern class ERotatorQuantization {
 	static var ByteComponents: ERotatorQuantization;
 	static var ShortComponents: ERotatorQuantization;

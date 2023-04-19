@@ -3,14 +3,14 @@ package ue;
 
 @:native("UK2Node_WidgetAnimationEvent")
 @:include("K2Node_WidgetAnimationEvent.h")
-@:structAccess
+@:valueType
 extern class K2Node_WidgetAnimationEvent extends K2Node_Event {
 	public var Action: EWidgetAnimationEvent;
 	public var AnimationPropertyName: FName;
 	public var UserTag: FName;
-	public var SourceWidgetBlueprint: cpp.Star<WidgetBlueprint>;
+	public var SourceWidgetBlueprint: ucpp.Ptr<WidgetBlueprint>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstK2Node_WidgetAnimationEvent(K2Node_WidgetAnimationEvent) from K2No
 	public inline extern function get_AnimationPropertyName(): FName return this.AnimationPropertyName;
 	public extern var UserTag(get, never): FName;
 	public inline extern function get_UserTag(): FName return this.UserTag;
-	public extern var SourceWidgetBlueprint(get, never): cpp.Star<WidgetBlueprint.ConstWidgetBlueprint>;
-	public inline extern function get_SourceWidgetBlueprint(): cpp.Star<WidgetBlueprint.ConstWidgetBlueprint> return this.SourceWidgetBlueprint;
+	public extern var SourceWidgetBlueprint(get, never): ucpp.Ptr<WidgetBlueprint.ConstWidgetBlueprint>;
+	public inline extern function get_SourceWidgetBlueprint(): ucpp.Ptr<WidgetBlueprint.ConstWidgetBlueprint> return this.SourceWidgetBlueprint;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_WidgetAnimationEvent*")
-abstract K2Node_WidgetAnimationEventPtr(cpp.Star<K2Node_WidgetAnimationEvent>) from cpp.Star<K2Node_WidgetAnimationEvent> to cpp.Star<K2Node_WidgetAnimationEvent>{
+abstract K2Node_WidgetAnimationEventPtr(ucpp.Ptr<K2Node_WidgetAnimationEvent>) from ucpp.Ptr<K2Node_WidgetAnimationEvent> to ucpp.Ptr<K2Node_WidgetAnimationEvent>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_WidgetAnimationEvent): K2Node_WidgetAnimationEventPtr {
 		return untyped __cpp__("&({0})", v);

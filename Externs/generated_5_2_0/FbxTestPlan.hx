@@ -3,16 +3,16 @@ package ue;
 
 @:native("UFbxTestPlan")
 @:include("Tests/FbxAutomationCommon.h")
-@:structAccess
+@:valueType
 extern class FbxTestPlan extends Object {
 	public var TestPlanName: FString;
 	public var Action: TEnumAsByte<EFBXTestPlanActionType>;
-	public var LodIndex: cpp.Int32;
+	public var LodIndex: ucpp.num.Int32;
 	public var bDeleteFolderAssets: Bool;
 	public var ExpectedResult: TArray<FbxTestPlanExpectedResult>;
-	public var ImportUI: cpp.Star<FbxImportUI>;
+	public var ImportUI: ucpp.Ptr<FbxImportUI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,20 +22,20 @@ abstract ConstFbxTestPlan(FbxTestPlan) from FbxTestPlan {
 	public inline extern function get_TestPlanName(): FString return this.TestPlanName;
 	public extern var Action(get, never): TEnumAsByte<EFBXTestPlanActionType>;
 	public inline extern function get_Action(): TEnumAsByte<EFBXTestPlanActionType> return this.Action;
-	public extern var LodIndex(get, never): cpp.Int32;
-	public inline extern function get_LodIndex(): cpp.Int32 return this.LodIndex;
+	public extern var LodIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LodIndex(): ucpp.num.Int32 return this.LodIndex;
 	public extern var bDeleteFolderAssets(get, never): Bool;
 	public inline extern function get_bDeleteFolderAssets(): Bool return this.bDeleteFolderAssets;
 	public extern var ExpectedResult(get, never): TArray<FbxTestPlanExpectedResult>;
 	public inline extern function get_ExpectedResult(): TArray<FbxTestPlanExpectedResult> return this.ExpectedResult;
-	public extern var ImportUI(get, never): cpp.Star<FbxImportUI.ConstFbxImportUI>;
-	public inline extern function get_ImportUI(): cpp.Star<FbxImportUI.ConstFbxImportUI> return this.ImportUI;
+	public extern var ImportUI(get, never): ucpp.Ptr<FbxImportUI.ConstFbxImportUI>;
+	public inline extern function get_ImportUI(): ucpp.Ptr<FbxImportUI.ConstFbxImportUI> return this.ImportUI;
 }
 
 @:forward
 @:nativeGen
 @:native("FbxTestPlan*")
-abstract FbxTestPlanPtr(cpp.Star<FbxTestPlan>) from cpp.Star<FbxTestPlan> to cpp.Star<FbxTestPlan>{
+abstract FbxTestPlanPtr(ucpp.Ptr<FbxTestPlan>) from ucpp.Ptr<FbxTestPlan> to ucpp.Ptr<FbxTestPlan>{
 	@:from
 	public static extern inline function fromValue(v: FbxTestPlan): FbxTestPlanPtr {
 		return untyped __cpp__("&({0})", v);

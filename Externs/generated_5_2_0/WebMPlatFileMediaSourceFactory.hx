@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWebMPlatFileMediaSourceFactory")
 @:include("WebMFileMediaSourceFactory.h")
-@:structAccess
+@:valueType
 extern class WebMPlatFileMediaSourceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWebMPlatFileMediaSourceFactory(WebMPlatFileMediaSourceFactory) fro
 @:forward
 @:nativeGen
 @:native("WebMPlatFileMediaSourceFactory*")
-abstract WebMPlatFileMediaSourceFactoryPtr(cpp.Star<WebMPlatFileMediaSourceFactory>) from cpp.Star<WebMPlatFileMediaSourceFactory> to cpp.Star<WebMPlatFileMediaSourceFactory>{
+abstract WebMPlatFileMediaSourceFactoryPtr(ucpp.Ptr<WebMPlatFileMediaSourceFactory>) from ucpp.Ptr<WebMPlatFileMediaSourceFactory> to ucpp.Ptr<WebMPlatFileMediaSourceFactory>{
 	@:from
 	public static extern inline function fromValue(v: WebMPlatFileMediaSourceFactory): WebMPlatFileMediaSourceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

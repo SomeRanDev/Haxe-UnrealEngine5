@@ -3,10 +3,12 @@ package ue;
 
 @:native("FNiagaraLwcStructConverter")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraLwcStructConverter {
+	private var LWCSize: ucpp.num.Int32;
+	private var SWCSize: ucpp.num.Int32;
 	private var ConversionSteps: TArray<NiagaraStructConversionStep>;
 
 	@:native("FNiagaraLwcStructConverter") public function new();
-	@:native("FNiagaraLwcStructConverter") public static function make(ConversionSteps: TArray<NiagaraStructConversionStep>): NiagaraLwcStructConverter ;
+	@:native("FNiagaraLwcStructConverter") public static function make(LWCSize: ucpp.num.Int32, SWCSize: ucpp.num.Int32, ConversionSteps: TArray<NiagaraStructConversionStep>): NiagaraLwcStructConverter ;
 }

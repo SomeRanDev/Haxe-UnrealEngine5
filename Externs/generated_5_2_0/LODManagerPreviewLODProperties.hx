@@ -3,7 +3,7 @@ package ue;
 
 @:native("ULODManagerPreviewLODProperties")
 @:include("Tools/LODManagerTool.h")
-@:structAccess
+@:valueType
 extern class LODManagerPreviewLODProperties extends InteractiveToolPropertySet {
 	public var VisibleLOD: FString;
 	public var LODNamesList: TArray<FString>;
@@ -11,7 +11,7 @@ extern class LODManagerPreviewLODProperties extends InteractiveToolPropertySet {
 
 	public function GetLODNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetLODNamesFunc)
@@ -28,7 +28,7 @@ abstract ConstLODManagerPreviewLODProperties(LODManagerPreviewLODProperties) fro
 @:forward
 @:nativeGen
 @:native("LODManagerPreviewLODProperties*")
-abstract LODManagerPreviewLODPropertiesPtr(cpp.Star<LODManagerPreviewLODProperties>) from cpp.Star<LODManagerPreviewLODProperties> to cpp.Star<LODManagerPreviewLODProperties>{
+abstract LODManagerPreviewLODPropertiesPtr(ucpp.Ptr<LODManagerPreviewLODProperties>) from ucpp.Ptr<LODManagerPreviewLODProperties> to ucpp.Ptr<LODManagerPreviewLODProperties>{
 	@:from
 	public static extern inline function fromValue(v: LODManagerPreviewLODProperties): LODManagerPreviewLODPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

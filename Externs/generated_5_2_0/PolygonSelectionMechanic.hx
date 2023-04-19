@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPolygonSelectionMechanic")
 @:include("Selection/PolygonSelectionMechanic.h")
-@:structAccess
+@:valueType
 extern class PolygonSelectionMechanic extends MeshTopologySelectionMechanic {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPolygonSelectionMechanic(PolygonSelectionMechanic) from PolygonSel
 @:forward
 @:nativeGen
 @:native("PolygonSelectionMechanic*")
-abstract PolygonSelectionMechanicPtr(cpp.Star<PolygonSelectionMechanic>) from cpp.Star<PolygonSelectionMechanic> to cpp.Star<PolygonSelectionMechanic>{
+abstract PolygonSelectionMechanicPtr(ucpp.Ptr<PolygonSelectionMechanic>) from ucpp.Ptr<PolygonSelectionMechanic> to ucpp.Ptr<PolygonSelectionMechanic>{
 	@:from
 	public static extern inline function fromValue(v: PolygonSelectionMechanic): PolygonSelectionMechanicPtr {
 		return untyped __cpp__("&({0})", v);

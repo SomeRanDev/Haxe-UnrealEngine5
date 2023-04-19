@@ -3,25 +3,25 @@ package ue;
 
 @:native("UARPin")
 @:include("ARPin.h")
-@:structAccess
+@:valueType
 extern class ARPin extends Object {
-	private var TrackedGeometry: cpp.Star<ARTrackedGeometry>;
-	private var PinnedComponent: cpp.Star<SceneComp>;
+	private var TrackedGeometry: ucpp.Ptr<ARTrackedGeometry>;
+	private var PinnedComponent: ucpp.Ptr<SceneComp>;
 	private var LocalToTrackingTransform: Transform;
 	private var LocalToAlignedTrackingTransform: Transform;
 	private var TrackingState: EARTrackingState;
 	private var OnARTrackingStateChanged: HaxeMulticastSparseDelegateProperty<(EARTrackingState) -> Void>;
-	private var OnARTransformUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Reference<Transform>) -> Void>;
+	private var OnARTransformUpdated: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<Transform>) -> Void>;
 
 	public function GetTrackingState(): EARTrackingState;
-	public function GetTrackedGeometry(): cpp.Star<ARTrackedGeometry>;
-	public function GetPinnedComponent(): cpp.Star<SceneComp>;
+	public function GetTrackedGeometry(): ucpp.Ptr<ARTrackedGeometry>;
+	public function GetPinnedComponent(): ucpp.Ptr<SceneComp>;
 	public function GetLocalToWorldTransform(): Transform;
 	public function GetLocalToTrackingTransform(): Transform;
 	public function GetDebugName(): FName;
-	public function DebugDraw(World: cpp.Star<World>, Color: cpp.Reference<LinearColor>, Scale: cpp.Float32, PersistForSeconds: cpp.Float32): Void;
+	public function DebugDraw(World: ucpp.Ptr<World>, Color: ucpp.Ref<LinearColor>, Scale: ucpp.num.Float32, PersistForSeconds: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTrackingState, GetTrackedGeometry, GetPinnedComponent, GetLocalToWorldTransform, GetLocalToTrackingTransform, GetDebugName, DebugDraw)
@@ -32,7 +32,7 @@ abstract ConstARPin(ARPin) from ARPin {
 @:forward
 @:nativeGen
 @:native("ARPin*")
-abstract ARPinPtr(cpp.Star<ARPin>) from cpp.Star<ARPin> to cpp.Star<ARPin>{
+abstract ARPinPtr(ucpp.Ptr<ARPin>) from ucpp.Ptr<ARPin> to ucpp.Ptr<ARPin>{
 	@:from
 	public static extern inline function fromValue(v: ARPin): ARPinPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UTestBTTask_BTStopAction")
 @:include("BehaviorTree/TestBTTask_BTStopAction.h")
-@:structAccess
+@:valueType
 extern class TestBTTask_BTStopAction extends BTTaskNode {
 	public var StopTiming: EBTTestTaskStopTiming;
 	public var StopAction: EBTTestStopAction;
-	public var LogIndex: cpp.Int32;
+	public var LogIndex: ucpp.num.Int32;
 	public var LogResult: TEnumAsByte<EBTNodeResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,8 +20,8 @@ abstract ConstTestBTTask_BTStopAction(TestBTTask_BTStopAction) from TestBTTask_B
 	public inline extern function get_StopTiming(): EBTTestTaskStopTiming return this.StopTiming;
 	public extern var StopAction(get, never): EBTTestStopAction;
 	public inline extern function get_StopAction(): EBTTestStopAction return this.StopAction;
-	public extern var LogIndex(get, never): cpp.Int32;
-	public inline extern function get_LogIndex(): cpp.Int32 return this.LogIndex;
+	public extern var LogIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndex(): ucpp.num.Int32 return this.LogIndex;
 	public extern var LogResult(get, never): TEnumAsByte<EBTNodeResult>;
 	public inline extern function get_LogResult(): TEnumAsByte<EBTNodeResult> return this.LogResult;
 }
@@ -29,7 +29,7 @@ abstract ConstTestBTTask_BTStopAction(TestBTTask_BTStopAction) from TestBTTask_B
 @:forward
 @:nativeGen
 @:native("TestBTTask_BTStopAction*")
-abstract TestBTTask_BTStopActionPtr(cpp.Star<TestBTTask_BTStopAction>) from cpp.Star<TestBTTask_BTStopAction> to cpp.Star<TestBTTask_BTStopAction>{
+abstract TestBTTask_BTStopActionPtr(ucpp.Ptr<TestBTTask_BTStopAction>) from ucpp.Ptr<TestBTTask_BTStopAction> to ucpp.Ptr<TestBTTask_BTStopAction>{
 	@:from
 	public static extern inline function fromValue(v: TestBTTask_BTStopAction): TestBTTask_BTStopActionPtr {
 		return untyped __cpp__("&({0})", v);

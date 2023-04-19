@@ -3,33 +3,33 @@ package ue;
 
 @:native("UMaterialExpressionComment")
 @:include("Materials/MaterialExpressionComment.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionComment extends MaterialExpression {
-	public var SizeX: cpp.Int32;
-	public var SizeY: cpp.Int32;
+	public var SizeX: ucpp.num.Int32;
+	public var SizeY: ucpp.num.Int32;
 	public var Text: FString;
 	public var CommentColor: LinearColor;
-	public var FontSize: cpp.Int32;
+	public var FontSize: ucpp.num.Int32;
 	public var bCommentBubbleVisible_InDetailsPanel: Bool;
 	public var bColorCommentBubble: Bool;
 	public var bGroupMode: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionComment(MaterialExpressionComment) from MaterialExpressionComment {
-	public extern var SizeX(get, never): cpp.Int32;
-	public inline extern function get_SizeX(): cpp.Int32 return this.SizeX;
-	public extern var SizeY(get, never): cpp.Int32;
-	public inline extern function get_SizeY(): cpp.Int32 return this.SizeY;
+	public extern var SizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeX(): ucpp.num.Int32 return this.SizeX;
+	public extern var SizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeY(): ucpp.num.Int32 return this.SizeY;
 	public extern var Text(get, never): FString;
 	public inline extern function get_Text(): FString return this.Text;
 	public extern var CommentColor(get, never): LinearColor;
 	public inline extern function get_CommentColor(): LinearColor return this.CommentColor;
-	public extern var FontSize(get, never): cpp.Int32;
-	public inline extern function get_FontSize(): cpp.Int32 return this.FontSize;
+	public extern var FontSize(get, never): ucpp.num.Int32;
+	public inline extern function get_FontSize(): ucpp.num.Int32 return this.FontSize;
 	public extern var bCommentBubbleVisible_InDetailsPanel(get, never): Bool;
 	public inline extern function get_bCommentBubbleVisible_InDetailsPanel(): Bool return this.bCommentBubbleVisible_InDetailsPanel;
 	public extern var bColorCommentBubble(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstMaterialExpressionComment(MaterialExpressionComment) from Material
 @:forward
 @:nativeGen
 @:native("MaterialExpressionComment*")
-abstract MaterialExpressionCommentPtr(cpp.Star<MaterialExpressionComment>) from cpp.Star<MaterialExpressionComment> to cpp.Star<MaterialExpressionComment>{
+abstract MaterialExpressionCommentPtr(ucpp.Ptr<MaterialExpressionComment>) from ucpp.Ptr<MaterialExpressionComment> to ucpp.Ptr<MaterialExpressionComment>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionComment): MaterialExpressionCommentPtr {
 		return untyped __cpp__("&({0})", v);

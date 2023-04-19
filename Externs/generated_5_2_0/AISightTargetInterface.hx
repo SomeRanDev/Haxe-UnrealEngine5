@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAISightTargetInterface")
-@:structAccess
+@:valueType
 extern class AISightTargetInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAISightTargetInterface(AISightTargetInterface) from AISightTargetI
 @:forward
 @:nativeGen
 @:native("AISightTargetInterface*")
-abstract AISightTargetInterfacePtr(cpp.Star<AISightTargetInterface>) from cpp.Star<AISightTargetInterface> to cpp.Star<AISightTargetInterface>{
+abstract AISightTargetInterfacePtr(ucpp.Ptr<AISightTargetInterface>) from ucpp.Ptr<AISightTargetInterface> to ucpp.Ptr<AISightTargetInterface>{
 	@:from
 	public static extern inline function fromValue(v: AISightTargetInterface): AISightTargetInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("ULandscapeSplineControlPoint")
 @:include("LandscapeSplineControlPoint.h")
-@:structAccess
+@:valueType
 extern class LandscapeSplineControlPoint extends Object {
 	public var Location: Vector;
 	public var Rotation: Rotator;
-	public var Width: cpp.Float32;
-	public var LayerWidthRatio: cpp.Float32;
-	public var SideFalloff: cpp.Float32;
-	public var LeftSideFalloffFactor: cpp.Float32;
-	public var RightSideFalloffFactor: cpp.Float32;
-	public var LeftSideLayerFalloffFactor: cpp.Float32;
-	public var RightSideLayerFalloffFactor: cpp.Float32;
-	public var EndFalloff: cpp.Float32;
+	public var Width: ucpp.num.Float32;
+	public var LayerWidthRatio: ucpp.num.Float32;
+	public var SideFalloff: ucpp.num.Float32;
+	public var LeftSideFalloffFactor: ucpp.num.Float32;
+	public var RightSideFalloffFactor: ucpp.num.Float32;
+	public var LeftSideLayerFalloffFactor: ucpp.num.Float32;
+	public var RightSideLayerFalloffFactor: ucpp.num.Float32;
+	public var EndFalloff: ucpp.num.Float32;
 	public var ConnectedSegments: TArray<LandscapeSplineConnection>;
 	@:protected public var Points: TArray<LandscapeSplineInterpPoint>;
 	@:protected public var Bounds: Box;
-	@:protected public var LocalMeshComponent: cpp.Star<ControlPointMeshComp>;
+	@:protected public var LocalMeshComponent: ucpp.Ptr<ControlPointMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,22 +30,22 @@ abstract ConstLandscapeSplineControlPoint(LandscapeSplineControlPoint) from Land
 	public inline extern function get_Location(): Vector return this.Location;
 	public extern var Rotation(get, never): Rotator;
 	public inline extern function get_Rotation(): Rotator return this.Rotation;
-	public extern var Width(get, never): cpp.Float32;
-	public inline extern function get_Width(): cpp.Float32 return this.Width;
-	public extern var LayerWidthRatio(get, never): cpp.Float32;
-	public inline extern function get_LayerWidthRatio(): cpp.Float32 return this.LayerWidthRatio;
-	public extern var SideFalloff(get, never): cpp.Float32;
-	public inline extern function get_SideFalloff(): cpp.Float32 return this.SideFalloff;
-	public extern var LeftSideFalloffFactor(get, never): cpp.Float32;
-	public inline extern function get_LeftSideFalloffFactor(): cpp.Float32 return this.LeftSideFalloffFactor;
-	public extern var RightSideFalloffFactor(get, never): cpp.Float32;
-	public inline extern function get_RightSideFalloffFactor(): cpp.Float32 return this.RightSideFalloffFactor;
-	public extern var LeftSideLayerFalloffFactor(get, never): cpp.Float32;
-	public inline extern function get_LeftSideLayerFalloffFactor(): cpp.Float32 return this.LeftSideLayerFalloffFactor;
-	public extern var RightSideLayerFalloffFactor(get, never): cpp.Float32;
-	public inline extern function get_RightSideLayerFalloffFactor(): cpp.Float32 return this.RightSideLayerFalloffFactor;
-	public extern var EndFalloff(get, never): cpp.Float32;
-	public inline extern function get_EndFalloff(): cpp.Float32 return this.EndFalloff;
+	public extern var Width(get, never): ucpp.num.Float32;
+	public inline extern function get_Width(): ucpp.num.Float32 return this.Width;
+	public extern var LayerWidthRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_LayerWidthRatio(): ucpp.num.Float32 return this.LayerWidthRatio;
+	public extern var SideFalloff(get, never): ucpp.num.Float32;
+	public inline extern function get_SideFalloff(): ucpp.num.Float32 return this.SideFalloff;
+	public extern var LeftSideFalloffFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_LeftSideFalloffFactor(): ucpp.num.Float32 return this.LeftSideFalloffFactor;
+	public extern var RightSideFalloffFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_RightSideFalloffFactor(): ucpp.num.Float32 return this.RightSideFalloffFactor;
+	public extern var LeftSideLayerFalloffFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_LeftSideLayerFalloffFactor(): ucpp.num.Float32 return this.LeftSideLayerFalloffFactor;
+	public extern var RightSideLayerFalloffFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_RightSideLayerFalloffFactor(): ucpp.num.Float32 return this.RightSideLayerFalloffFactor;
+	public extern var EndFalloff(get, never): ucpp.num.Float32;
+	public inline extern function get_EndFalloff(): ucpp.num.Float32 return this.EndFalloff;
 	public extern var ConnectedSegments(get, never): TArray<LandscapeSplineConnection>;
 	public inline extern function get_ConnectedSegments(): TArray<LandscapeSplineConnection> return this.ConnectedSegments;
 }
@@ -53,7 +53,7 @@ abstract ConstLandscapeSplineControlPoint(LandscapeSplineControlPoint) from Land
 @:forward
 @:nativeGen
 @:native("LandscapeSplineControlPoint*")
-abstract LandscapeSplineControlPointPtr(cpp.Star<LandscapeSplineControlPoint>) from cpp.Star<LandscapeSplineControlPoint> to cpp.Star<LandscapeSplineControlPoint>{
+abstract LandscapeSplineControlPointPtr(ucpp.Ptr<LandscapeSplineControlPoint>) from ucpp.Ptr<LandscapeSplineControlPoint> to ucpp.Ptr<LandscapeSplineControlPoint>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSplineControlPoint): LandscapeSplineControlPointPtr {
 		return untyped __cpp__("&({0})", v);

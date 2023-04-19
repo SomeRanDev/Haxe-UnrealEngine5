@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAddPatchTool")
 @:include("AddPatchTool.h")
-@:structAccess
+@:valueType
 extern class AddPatchTool extends SingleClickTool {
-	@:protected public var ShapeSettings: cpp.Star<AddPatchToolProperties>;
-	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var ShapeSettings: ucpp.Ptr<AddPatchToolProperties>;
+	@:protected public var MaterialProperties: ucpp.Ptr<NewMeshMaterialProperties>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAddPatchTool(AddPatchTool) from AddPatchTool {
 @:forward
 @:nativeGen
 @:native("AddPatchTool*")
-abstract AddPatchToolPtr(cpp.Star<AddPatchTool>) from cpp.Star<AddPatchTool> to cpp.Star<AddPatchTool>{
+abstract AddPatchToolPtr(ucpp.Ptr<AddPatchTool>) from ucpp.Ptr<AddPatchTool> to ucpp.Ptr<AddPatchTool>{
 	@:from
 	public static extern inline function fromValue(v: AddPatchTool): AddPatchToolPtr {
 		return untyped __cpp__("&({0})", v);

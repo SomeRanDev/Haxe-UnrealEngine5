@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UForEachAssetIteratorSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ForEachAssetIteratorSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstForEachAssetIteratorSignature__PythonCallable(ForEachAssetIterator
 @:forward
 @:nativeGen
 @:native("ForEachAssetIteratorSignature__PythonCallable*")
-abstract ForEachAssetIteratorSignature__PythonCallablePtr(cpp.Star<ForEachAssetIteratorSignature__PythonCallable>) from cpp.Star<ForEachAssetIteratorSignature__PythonCallable> to cpp.Star<ForEachAssetIteratorSignature__PythonCallable>{
+abstract ForEachAssetIteratorSignature__PythonCallablePtr(ucpp.Ptr<ForEachAssetIteratorSignature__PythonCallable>) from ucpp.Ptr<ForEachAssetIteratorSignature__PythonCallable> to ucpp.Ptr<ForEachAssetIteratorSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ForEachAssetIteratorSignature__PythonCallable): ForEachAssetIteratorSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

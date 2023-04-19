@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPhysicsFieldComponent")
 @:include("PhysicsField/PhysicsFieldComponent.h")
-@:structAccess
+@:valueType
 extern class PhysicsFieldComp extends SceneComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPhysicsFieldComp(PhysicsFieldComp) from PhysicsFieldComp {
 @:forward
 @:nativeGen
 @:native("PhysicsFieldComp*")
-abstract PhysicsFieldCompPtr(cpp.Star<PhysicsFieldComp>) from cpp.Star<PhysicsFieldComp> to cpp.Star<PhysicsFieldComp>{
+abstract PhysicsFieldCompPtr(ucpp.Ptr<PhysicsFieldComp>) from ucpp.Ptr<PhysicsFieldComp> to ucpp.Ptr<PhysicsFieldComp>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsFieldComp): PhysicsFieldCompPtr {
 		return untyped __cpp__("&({0})", v);

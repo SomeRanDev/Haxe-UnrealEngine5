@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDEditorFontParameterValue")
 @:include("MaterialEditor/DEditorFontParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorFontParameterValue extends DEditorParameterValue {
 	public var ParameterValue: DFontParameters;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDEditorFontParameterValue(DEditorFontParameterValue) from DEditorF
 @:forward
 @:nativeGen
 @:native("DEditorFontParameterValue*")
-abstract DEditorFontParameterValuePtr(cpp.Star<DEditorFontParameterValue>) from cpp.Star<DEditorFontParameterValue> to cpp.Star<DEditorFontParameterValue>{
+abstract DEditorFontParameterValuePtr(ucpp.Ptr<DEditorFontParameterValue>) from ucpp.Ptr<DEditorFontParameterValue> to ucpp.Ptr<DEditorFontParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorFontParameterValue): DEditorFontParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

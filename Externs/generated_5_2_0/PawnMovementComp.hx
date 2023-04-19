@@ -3,18 +3,18 @@ package ue;
 
 @:native("UPawnMovementComponent")
 @:include("GameFramework/PawnMovementComponent.h")
-@:structAccess
+@:valueType
 extern class PawnMovementComp extends NavMovementComp {
-	@:protected public var PawnOwner: cpp.Star<Pawn>;
+	@:protected public var PawnOwner: ucpp.Ptr<Pawn>;
 
 	public function IsMoveInputIgnored(): Bool;
 	public function GetPendingInputVector(): Vector;
-	public function GetPawnOwner(): cpp.Star<Pawn>;
+	public function GetPawnOwner(): ucpp.Ptr<Pawn>;
 	public function GetLastInputVector(): Vector;
 	public function ConsumeInputVector(): Vector;
 	public function AddInputVector(WorldVector: Vector, bForce: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsMoveInputIgnored, GetPendingInputVector, GetPawnOwner, GetLastInputVector)
@@ -25,7 +25,7 @@ abstract ConstPawnMovementComp(PawnMovementComp) from PawnMovementComp {
 @:forward
 @:nativeGen
 @:native("PawnMovementComp*")
-abstract PawnMovementCompPtr(cpp.Star<PawnMovementComp>) from cpp.Star<PawnMovementComp> to cpp.Star<PawnMovementComp>{
+abstract PawnMovementCompPtr(ucpp.Ptr<PawnMovementComp>) from ucpp.Ptr<PawnMovementComp> to ucpp.Ptr<PawnMovementComp>{
 	@:from
 	public static extern inline function fromValue(v: PawnMovementComp): PawnMovementCompPtr {
 		return untyped __cpp__("&({0})", v);

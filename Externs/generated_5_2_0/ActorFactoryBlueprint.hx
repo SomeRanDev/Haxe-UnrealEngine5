@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryBlueprint")
 @:include("ActorFactories/ActorFactoryBlueprint.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryBlueprint extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryBlueprint(ActorFactoryBlueprint) from ActorFactoryBlue
 @:forward
 @:nativeGen
 @:native("ActorFactoryBlueprint*")
-abstract ActorFactoryBlueprintPtr(cpp.Star<ActorFactoryBlueprint>) from cpp.Star<ActorFactoryBlueprint> to cpp.Star<ActorFactoryBlueprint>{
+abstract ActorFactoryBlueprintPtr(ucpp.Ptr<ActorFactoryBlueprint>) from ucpp.Ptr<ActorFactoryBlueprint> to ucpp.Ptr<ActorFactoryBlueprint>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryBlueprint): ActorFactoryBlueprintPtr {
 		return untyped __cpp__("&({0})", v);

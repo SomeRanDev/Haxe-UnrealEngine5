@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USmartLinkReachedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class SmartLinkReachedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSmartLinkReachedSignature__PythonCallable(SmartLinkReachedSignatur
 @:forward
 @:nativeGen
 @:native("SmartLinkReachedSignature__PythonCallable*")
-abstract SmartLinkReachedSignature__PythonCallablePtr(cpp.Star<SmartLinkReachedSignature__PythonCallable>) from cpp.Star<SmartLinkReachedSignature__PythonCallable> to cpp.Star<SmartLinkReachedSignature__PythonCallable>{
+abstract SmartLinkReachedSignature__PythonCallablePtr(ucpp.Ptr<SmartLinkReachedSignature__PythonCallable>) from ucpp.Ptr<SmartLinkReachedSignature__PythonCallable> to ucpp.Ptr<SmartLinkReachedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: SmartLinkReachedSignature__PythonCallable): SmartLinkReachedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

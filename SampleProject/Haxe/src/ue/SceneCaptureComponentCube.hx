@@ -3,41 +3,29 @@ package ue;
 
 @:native("USceneCaptureComponentCube")
 @:include("Components/SceneCaptureComponentCube.h")
-@:structAccess
+@:valueType
 extern class SceneCaptureComponentCube extends SceneCaptureComp {
-	public var TextureTarget: cpp.Star<TextureRenderTargetCube>;
+	public var TextureTarget: ucpp.Ptr<TextureRenderTargetCube>;
 	public var bCaptureRotation: Bool;
-	public var TextureTargetLeft: cpp.Star<TextureRenderTargetCube>;
-	public var TextureTargetRight: cpp.Star<TextureRenderTargetCube>;
-	public var TextureTargetODS: cpp.Star<TextureRenderTarget2D>;
-	public var IPD: cpp.Float32;
 
 	public function CaptureScene(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSceneCaptureComponentCube(SceneCaptureComponentCube) from SceneCaptureComponentCube {
-	public extern var TextureTarget(get, never): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube>;
-	public inline extern function get_TextureTarget(): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube> return this.TextureTarget;
+	public extern var TextureTarget(get, never): ucpp.Ptr<TextureRenderTargetCube.ConstTextureRenderTargetCube>;
+	public inline extern function get_TextureTarget(): ucpp.Ptr<TextureRenderTargetCube.ConstTextureRenderTargetCube> return this.TextureTarget;
 	public extern var bCaptureRotation(get, never): Bool;
 	public inline extern function get_bCaptureRotation(): Bool return this.bCaptureRotation;
-	public extern var TextureTargetLeft(get, never): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube>;
-	public inline extern function get_TextureTargetLeft(): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube> return this.TextureTargetLeft;
-	public extern var TextureTargetRight(get, never): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube>;
-	public inline extern function get_TextureTargetRight(): cpp.Star<TextureRenderTargetCube.ConstTextureRenderTargetCube> return this.TextureTargetRight;
-	public extern var TextureTargetODS(get, never): cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D>;
-	public inline extern function get_TextureTargetODS(): cpp.Star<TextureRenderTarget2D.ConstTextureRenderTarget2D> return this.TextureTargetODS;
-	public extern var IPD(get, never): cpp.Float32;
-	public inline extern function get_IPD(): cpp.Float32 return this.IPD;
 }
 
 @:forward
 @:nativeGen
 @:native("SceneCaptureComponentCube*")
-abstract SceneCaptureComponentCubePtr(cpp.Star<SceneCaptureComponentCube>) from cpp.Star<SceneCaptureComponentCube> to cpp.Star<SceneCaptureComponentCube>{
+abstract SceneCaptureComponentCubePtr(ucpp.Ptr<SceneCaptureComponentCube>) from ucpp.Ptr<SceneCaptureComponentCube> to ucpp.Ptr<SceneCaptureComponentCube>{
 	@:from
 	public static extern inline function fromValue(v: SceneCaptureComponentCube): SceneCaptureComponentCubePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneAnimationTrackRecorderEditorSettings")
 @:include("TrackRecorders/MovieSceneAnimationTrackRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class MovieSceneAnimationTrackRecorderEditorSettings extends MovieSceneTrackRecorderSettings {
 	public var AnimationTrackName: FText;
 	public var AnimationAssetName: FString;
@@ -13,7 +13,7 @@ extern class MovieSceneAnimationTrackRecorderEditorSettings extends MovieSceneTr
 	public var bRemoveRootAnimation: Bool;
 	public var TimecodeBoneMethod: TimecodeBoneMethod;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstMovieSceneAnimationTrackRecorderEditorSettings(MovieSceneAnimation
 @:forward
 @:nativeGen
 @:native("MovieSceneAnimationTrackRecorderEditorSettings*")
-abstract MovieSceneAnimationTrackRecorderEditorSettingsPtr(cpp.Star<MovieSceneAnimationTrackRecorderEditorSettings>) from cpp.Star<MovieSceneAnimationTrackRecorderEditorSettings> to cpp.Star<MovieSceneAnimationTrackRecorderEditorSettings>{
+abstract MovieSceneAnimationTrackRecorderEditorSettingsPtr(ucpp.Ptr<MovieSceneAnimationTrackRecorderEditorSettings>) from ucpp.Ptr<MovieSceneAnimationTrackRecorderEditorSettings> to ucpp.Ptr<MovieSceneAnimationTrackRecorderEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneAnimationTrackRecorderEditorSettings): MovieSceneAnimationTrackRecorderEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

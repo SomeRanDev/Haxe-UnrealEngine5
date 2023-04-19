@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorUtilityActorComponent")
 @:include("EditorUtilityActorComponent.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityActorComp extends ActorComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorUtilityActorComp(EditorUtilityActorComp) from EditorUtilityA
 @:forward
 @:nativeGen
 @:native("EditorUtilityActorComp*")
-abstract EditorUtilityActorCompPtr(cpp.Star<EditorUtilityActorComp>) from cpp.Star<EditorUtilityActorComp> to cpp.Star<EditorUtilityActorComp>{
+abstract EditorUtilityActorCompPtr(ucpp.Ptr<EditorUtilityActorComp>) from ucpp.Ptr<EditorUtilityActorComp> to ucpp.Ptr<EditorUtilityActorComp>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityActorComp): EditorUtilityActorCompPtr {
 		return untyped __cpp__("&({0})", v);

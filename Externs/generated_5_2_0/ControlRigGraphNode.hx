@@ -3,13 +3,13 @@ package ue;
 
 @:native("UControlRigGraphNode")
 @:include("Graph/ControlRigGraphNode.h")
-@:structAccess
+@:valueType
 extern class ControlRigGraphNode extends EdGraphNode {
 	private var ModelNodePath: FString;
 	private var CachedModelNode: TWeakObjectPtr<RigVMNode>;
 	private var PinPathToModelPin: TMap<FString, TWeakObjectPtr<RigVMPin>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstControlRigGraphNode(ControlRigGraphNode) from ControlRigGraphNode 
 @:forward
 @:nativeGen
 @:native("ControlRigGraphNode*")
-abstract ControlRigGraphNodePtr(cpp.Star<ControlRigGraphNode>) from cpp.Star<ControlRigGraphNode> to cpp.Star<ControlRigGraphNode>{
+abstract ControlRigGraphNodePtr(ucpp.Ptr<ControlRigGraphNode>) from ucpp.Ptr<ControlRigGraphNode> to ucpp.Ptr<ControlRigGraphNode>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigGraphNode): ControlRigGraphNodePtr {
 		return untyped __cpp__("&({0})", v);

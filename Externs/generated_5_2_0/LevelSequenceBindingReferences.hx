@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequenceBindingReferences")
 @:include("LevelSequenceBindingReference.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceBindingReferences {
 	private var BindingIdToReferences: TMap<Guid, LevelSequenceBindingReferenceArray>;
 	private var AnimSequenceInstances: TSet<Guid>;

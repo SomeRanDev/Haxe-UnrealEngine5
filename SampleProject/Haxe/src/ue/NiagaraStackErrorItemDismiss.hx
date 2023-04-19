@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraStackErrorItemDismiss")
 @:include("ViewModels/Stack/NiagaraStackErrorItem.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackErrorItemDismiss extends NiagaraStackErrorItemFix {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraStackErrorItemDismiss(NiagaraStackErrorItemDismiss) from Ni
 @:forward
 @:nativeGen
 @:native("NiagaraStackErrorItemDismiss*")
-abstract NiagaraStackErrorItemDismissPtr(cpp.Star<NiagaraStackErrorItemDismiss>) from cpp.Star<NiagaraStackErrorItemDismiss> to cpp.Star<NiagaraStackErrorItemDismiss>{
+abstract NiagaraStackErrorItemDismissPtr(ucpp.Ptr<NiagaraStackErrorItemDismiss>) from ucpp.Ptr<NiagaraStackErrorItemDismiss> to ucpp.Ptr<NiagaraStackErrorItemDismiss>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackErrorItemDismiss): NiagaraStackErrorItemDismissPtr {
 		return untyped __cpp__("&({0})", v);

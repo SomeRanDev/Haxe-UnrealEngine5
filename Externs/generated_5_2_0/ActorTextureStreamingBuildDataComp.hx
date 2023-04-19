@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorTextureStreamingBuildDataComponent")
 @:include("Streaming/ActorTextureStreamingBuildDataComponent.h")
-@:structAccess
+@:valueType
 extern class ActorTextureStreamingBuildDataComp extends ActorComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorTextureStreamingBuildDataComp(ActorTextureStreamingBuildDataC
 @:forward
 @:nativeGen
 @:native("ActorTextureStreamingBuildDataComp*")
-abstract ActorTextureStreamingBuildDataCompPtr(cpp.Star<ActorTextureStreamingBuildDataComp>) from cpp.Star<ActorTextureStreamingBuildDataComp> to cpp.Star<ActorTextureStreamingBuildDataComp>{
+abstract ActorTextureStreamingBuildDataCompPtr(ucpp.Ptr<ActorTextureStreamingBuildDataComp>) from ucpp.Ptr<ActorTextureStreamingBuildDataComp> to ucpp.Ptr<ActorTextureStreamingBuildDataComp>{
 	@:from
 	public static extern inline function fromValue(v: ActorTextureStreamingBuildDataComp): ActorTextureStreamingBuildDataCompPtr {
 		return untyped __cpp__("&({0})", v);

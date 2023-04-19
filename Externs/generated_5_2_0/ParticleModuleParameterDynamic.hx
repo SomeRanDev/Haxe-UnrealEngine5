@@ -3,13 +3,13 @@ package ue;
 
 @:native("UParticleModuleParameterDynamic")
 @:include("Particles/Parameter/ParticleModuleParameterDynamic.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleParameterDynamic extends ParticleModuleParameterBase {
 	public var DynamicParams: TArray<EmitterDynamicParameter>;
-	public var UpdateFlags: cpp.Int32;
+	public var UpdateFlags: ucpp.num.Int32;
 	public var bUsesVelocity: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class ParticleModuleParameterDynamic extends ParticleModuleParameterBase 
 abstract ConstParticleModuleParameterDynamic(ParticleModuleParameterDynamic) from ParticleModuleParameterDynamic {
 	public extern var DynamicParams(get, never): TArray<EmitterDynamicParameter>;
 	public inline extern function get_DynamicParams(): TArray<EmitterDynamicParameter> return this.DynamicParams;
-	public extern var UpdateFlags(get, never): cpp.Int32;
-	public inline extern function get_UpdateFlags(): cpp.Int32 return this.UpdateFlags;
+	public extern var UpdateFlags(get, never): ucpp.num.Int32;
+	public inline extern function get_UpdateFlags(): ucpp.num.Int32 return this.UpdateFlags;
 	public extern var bUsesVelocity(get, never): Bool;
 	public inline extern function get_bUsesVelocity(): Bool return this.bUsesVelocity;
 }
@@ -26,7 +26,7 @@ abstract ConstParticleModuleParameterDynamic(ParticleModuleParameterDynamic) fro
 @:forward
 @:nativeGen
 @:native("ParticleModuleParameterDynamic*")
-abstract ParticleModuleParameterDynamicPtr(cpp.Star<ParticleModuleParameterDynamic>) from cpp.Star<ParticleModuleParameterDynamic> to cpp.Star<ParticleModuleParameterDynamic>{
+abstract ParticleModuleParameterDynamicPtr(ucpp.Ptr<ParticleModuleParameterDynamic>) from ucpp.Ptr<ParticleModuleParameterDynamic> to ucpp.Ptr<ParticleModuleParameterDynamic>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleParameterDynamic): ParticleModuleParameterDynamicPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("USequencePlayerLibrary")
 @:include("SequencePlayerLibrary.h")
-@:structAccess
+@:valueType
 extern class SequencePlayerLibrary extends BlueprintFunctionLibrary {
-	public function SetStartPosition(SequencePlayer: cpp.Reference<SequencePlayerReference>, StartPosition: cpp.Float32): SequencePlayerReference;
-	public function SetSequenceWithInertialBlending(UpdateContext: cpp.Reference<AnimUpdateContext>, SequencePlayer: cpp.Reference<SequencePlayerReference>, Sequence: cpp.Star<AnimSequenceBase>, BlendTime: cpp.Float32): SequencePlayerReference;
-	public function SetSequence(SequencePlayer: cpp.Reference<SequencePlayerReference>, Sequence: cpp.Star<AnimSequenceBase>): SequencePlayerReference;
-	public function SetPlayRate(SequencePlayer: cpp.Reference<SequencePlayerReference>, PlayRate: cpp.Float32): SequencePlayerReference;
-	public function SetAccumulatedTime(SequencePlayer: cpp.Reference<SequencePlayerReference>, Time: cpp.Float32): SequencePlayerReference;
-	public function GetStartPosition(SequencePlayer: cpp.Reference<SequencePlayerReference>): cpp.Float32;
-	public function GetSequencePure(SequencePlayer: cpp.Reference<SequencePlayerReference>): cpp.Star<AnimSequenceBase>;
-	public function GetSequence(SequencePlayer: cpp.Reference<SequencePlayerReference>, SequenceBase: cpp.Reference<cpp.Star<AnimSequenceBase>>): SequencePlayerReference;
-	public function GetPlayRate(SequencePlayer: cpp.Reference<SequencePlayerReference>): cpp.Float32;
-	public function GetLoopAnimation(SequencePlayer: cpp.Reference<SequencePlayerReference>): Bool;
-	public function GetAccumulatedTime(SequencePlayer: cpp.Reference<SequencePlayerReference>): cpp.Float32;
-	public function ConvertToSequencePlayerPure(Node: cpp.Reference<AnimNodeReference>, SequencePlayer: cpp.Reference<SequencePlayerReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToSequencePlayer(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): SequencePlayerReference;
-	public function ComputePlayRateFromDuration(SequencePlayer: cpp.Reference<SequencePlayerReference>, Duration: cpp.Float32): cpp.Float32;
+	public function SetStartPosition(SequencePlayer: ucpp.Ref<SequencePlayerReference>, StartPosition: ucpp.num.Float32): SequencePlayerReference;
+	public function SetSequenceWithInertialBlending(UpdateContext: ucpp.Ref<AnimUpdateContext>, SequencePlayer: ucpp.Ref<SequencePlayerReference>, Sequence: ucpp.Ptr<AnimSequenceBase>, BlendTime: ucpp.num.Float32): SequencePlayerReference;
+	public function SetSequence(SequencePlayer: ucpp.Ref<SequencePlayerReference>, Sequence: ucpp.Ptr<AnimSequenceBase>): SequencePlayerReference;
+	public function SetPlayRate(SequencePlayer: ucpp.Ref<SequencePlayerReference>, PlayRate: ucpp.num.Float32): SequencePlayerReference;
+	public function SetAccumulatedTime(SequencePlayer: ucpp.Ref<SequencePlayerReference>, Time: ucpp.num.Float32): SequencePlayerReference;
+	public function GetStartPosition(SequencePlayer: ucpp.Ref<SequencePlayerReference>): ucpp.num.Float32;
+	public function GetSequencePure(SequencePlayer: ucpp.Ref<SequencePlayerReference>): ucpp.Ptr<AnimSequenceBase>;
+	public function GetSequence(SequencePlayer: ucpp.Ref<SequencePlayerReference>, SequenceBase: ucpp.Ref<ucpp.Ptr<AnimSequenceBase>>): SequencePlayerReference;
+	public function GetPlayRate(SequencePlayer: ucpp.Ref<SequencePlayerReference>): ucpp.num.Float32;
+	public function GetLoopAnimation(SequencePlayer: ucpp.Ref<SequencePlayerReference>): Bool;
+	public function GetAccumulatedTime(SequencePlayer: ucpp.Ref<SequencePlayerReference>): ucpp.num.Float32;
+	public function ConvertToSequencePlayerPure(Node: ucpp.Ref<AnimNodeReference>, SequencePlayer: ucpp.Ref<SequencePlayerReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToSequencePlayer(Node: ucpp.Ref<AnimNodeReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): SequencePlayerReference;
+	public function ComputePlayRateFromDuration(SequencePlayer: ucpp.Ref<SequencePlayerReference>, Duration: ucpp.num.Float32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstSequencePlayerLibrary(SequencePlayerLibrary) from SequencePlayerLi
 @:forward
 @:nativeGen
 @:native("SequencePlayerLibrary*")
-abstract SequencePlayerLibraryPtr(cpp.Star<SequencePlayerLibrary>) from cpp.Star<SequencePlayerLibrary> to cpp.Star<SequencePlayerLibrary>{
+abstract SequencePlayerLibraryPtr(ucpp.Ptr<SequencePlayerLibrary>) from ucpp.Ptr<SequencePlayerLibrary> to ucpp.Ptr<SequencePlayerLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SequencePlayerLibrary): SequencePlayerLibraryPtr {
 		return untyped __cpp__("&({0})", v);

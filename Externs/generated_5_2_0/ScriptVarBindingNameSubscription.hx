@@ -3,7 +3,7 @@ package ue;
 
 @:native("FScriptVarBindingNameSubscription")
 @:include("NiagaraParameterDefinitions.h")
-@:structAccess
+@:valueType
 extern class ScriptVarBindingNameSubscription {
 	public var ExternalScriptVarId: Guid;
 	public var InternalScriptVarIds: TArray<Guid>;

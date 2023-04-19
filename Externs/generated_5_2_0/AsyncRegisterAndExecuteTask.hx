@@ -3,26 +3,26 @@ package ue;
 
 @:native("UAsyncRegisterAndExecuteTask")
 @:include("AsyncRegisterAndExecuteTask.h")
-@:structAccess
+@:valueType
 extern class AsyncRegisterAndExecuteTask extends BlueprintAsyncActionBase {
-	public var OnFinished: HaxeMulticastSparseDelegateProperty<(cpp.Star<EditorUtilityTask>) -> Void>;
+	public var OnFinished: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<EditorUtilityTask>) -> Void>;
 
-	public function RegisterAndExecuteTask(Task: cpp.Star<EditorUtilityTask>, OptionalParentTask: cpp.Star<EditorUtilityTask>): cpp.Star<AsyncRegisterAndExecuteTask>;
+	public function RegisterAndExecuteTask(Task: ucpp.Ptr<EditorUtilityTask>, OptionalParentTask: ucpp.Ptr<EditorUtilityTask>): ucpp.Ptr<AsyncRegisterAndExecuteTask>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncRegisterAndExecuteTask(AsyncRegisterAndExecuteTask) from AsyncRegisterAndExecuteTask {
-	public extern var OnFinished(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<EditorUtilityTask.ConstEditorUtilityTask>) -> Void>;
-	public inline extern function get_OnFinished(): HaxeMulticastSparseDelegateProperty<(cpp.Star<EditorUtilityTask.ConstEditorUtilityTask>) -> Void> return this.OnFinished;
+	public extern var OnFinished(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<EditorUtilityTask.ConstEditorUtilityTask>) -> Void>;
+	public inline extern function get_OnFinished(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<EditorUtilityTask.ConstEditorUtilityTask>) -> Void> return this.OnFinished;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncRegisterAndExecuteTask*")
-abstract AsyncRegisterAndExecuteTaskPtr(cpp.Star<AsyncRegisterAndExecuteTask>) from cpp.Star<AsyncRegisterAndExecuteTask> to cpp.Star<AsyncRegisterAndExecuteTask>{
+abstract AsyncRegisterAndExecuteTaskPtr(ucpp.Ptr<AsyncRegisterAndExecuteTask>) from ucpp.Ptr<AsyncRegisterAndExecuteTask> to ucpp.Ptr<AsyncRegisterAndExecuteTask>{
 	@:from
 	public static extern inline function fromValue(v: AsyncRegisterAndExecuteTask): AsyncRegisterAndExecuteTaskPtr {
 		return untyped __cpp__("&({0})", v);

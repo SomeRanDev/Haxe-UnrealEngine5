@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMetasoundGeneratorHandle")
 @:include("MetasoundGeneratorHandle.h")
-@:structAccess
+@:valueType
 extern class MetasoundGeneratorHandle extends Object {
-	private var AudioComponent: cpp.Star<AudioComp>;
-	private var CachedMetasoundSource: cpp.Star<MetaSoundSource>;
+	private var AudioComponent: ucpp.Ptr<AudioComp>;
+	private var CachedMetasoundSource: ucpp.Ptr<MetaSoundSource>;
 
-	public function CreateMetaSoundGeneratorHandle(OnComponent: cpp.Star<AudioComp>): cpp.Star<MetasoundGeneratorHandle>;
-	public function ApplyParameterPack(Pack: cpp.Star<MetasoundParameterPack>): Bool;
+	public function CreateMetaSoundGeneratorHandle(OnComponent: ucpp.Ptr<AudioComp>): ucpp.Ptr<MetasoundGeneratorHandle>;
+	public function ApplyParameterPack(Pack: ucpp.Ptr<MetasoundParameterPack>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstMetasoundGeneratorHandle(MetasoundGeneratorHandle) from MetasoundG
 @:forward
 @:nativeGen
 @:native("MetasoundGeneratorHandle*")
-abstract MetasoundGeneratorHandlePtr(cpp.Star<MetasoundGeneratorHandle>) from cpp.Star<MetasoundGeneratorHandle> to cpp.Star<MetasoundGeneratorHandle>{
+abstract MetasoundGeneratorHandlePtr(ucpp.Ptr<MetasoundGeneratorHandle>) from ucpp.Ptr<MetasoundGeneratorHandle> to ucpp.Ptr<MetasoundGeneratorHandle>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundGeneratorHandle): MetasoundGeneratorHandlePtr {
 		return untyped __cpp__("&({0})", v);

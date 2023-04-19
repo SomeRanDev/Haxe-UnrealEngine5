@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigPoseThumbnailRenderer")
 @:include("Tools/ControlRigPoseThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class ControlRigPoseThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigPoseThumbnailRenderer(ControlRigPoseThumbnailRenderer) f
 @:forward
 @:nativeGen
 @:native("ControlRigPoseThumbnailRenderer*")
-abstract ControlRigPoseThumbnailRendererPtr(cpp.Star<ControlRigPoseThumbnailRenderer>) from cpp.Star<ControlRigPoseThumbnailRenderer> to cpp.Star<ControlRigPoseThumbnailRenderer>{
+abstract ControlRigPoseThumbnailRendererPtr(ucpp.Ptr<ControlRigPoseThumbnailRenderer>) from ucpp.Ptr<ControlRigPoseThumbnailRenderer> to ucpp.Ptr<ControlRigPoseThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigPoseThumbnailRenderer): ControlRigPoseThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

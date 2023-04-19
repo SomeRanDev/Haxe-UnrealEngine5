@@ -3,20 +3,20 @@ package ue;
 
 @:native("UGLTFMaterialExportOptions")
 @:include("UserData/GLTFMaterialUserData.h")
-@:structAccess
+@:valueType
 extern class GLTFMaterialExportOptions extends AssetUserData {
-	public var Proxy: cpp.Star<MaterialInterface>;
+	public var Proxy: ucpp.Ptr<MaterialInterface>;
 	public var Default: GLTFOverrideMaterialBakeSettings;
 	public var Inputs: TMap<EGLTFMaterialPropertyGroup, GLTFOverrideMaterialBakeSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGLTFMaterialExportOptions(GLTFMaterialExportOptions) from GLTFMaterialExportOptions {
-	public extern var Proxy(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Proxy(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Proxy;
+	public extern var Proxy(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Proxy(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Proxy;
 	public extern var Default(get, never): GLTFOverrideMaterialBakeSettings;
 	public inline extern function get_Default(): GLTFOverrideMaterialBakeSettings return this.Default;
 	public extern var Inputs(get, never): TMap<EGLTFMaterialPropertyGroup, GLTFOverrideMaterialBakeSettings>;
@@ -26,7 +26,7 @@ abstract ConstGLTFMaterialExportOptions(GLTFMaterialExportOptions) from GLTFMate
 @:forward
 @:nativeGen
 @:native("GLTFMaterialExportOptions*")
-abstract GLTFMaterialExportOptionsPtr(cpp.Star<GLTFMaterialExportOptions>) from cpp.Star<GLTFMaterialExportOptions> to cpp.Star<GLTFMaterialExportOptions>{
+abstract GLTFMaterialExportOptionsPtr(ucpp.Ptr<GLTFMaterialExportOptions>) from ucpp.Ptr<GLTFMaterialExportOptions> to ucpp.Ptr<GLTFMaterialExportOptions>{
 	@:from
 	public static extern inline function fromValue(v: GLTFMaterialExportOptions): GLTFMaterialExportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

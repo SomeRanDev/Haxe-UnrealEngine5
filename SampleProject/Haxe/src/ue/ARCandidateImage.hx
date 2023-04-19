@@ -3,21 +3,21 @@ package ue;
 
 @:native("UARCandidateImage")
 @:include("ARTypes.h")
-@:structAccess
+@:valueType
 extern class ARCandidateImage extends DataAsset {
-	@:protected public var CandidateTexture: cpp.Star<Texture2D>;
+	@:protected public var CandidateTexture: ucpp.Ptr<Texture2D>;
 	@:protected public var FriendlyName: FString;
-	@:protected public var Width: cpp.Float32;
-	@:protected public var Height: cpp.Float32;
+	@:protected public var Width: ucpp.num.Float32;
+	@:protected public var Height: ucpp.num.Float32;
 	@:protected public var Orientation: EARCandidateImageOrientation;
 
-	public function GetPhysicalWidth(): cpp.Float32;
-	public function GetPhysicalHeight(): cpp.Float32;
+	public function GetPhysicalWidth(): ucpp.num.Float32;
+	public function GetPhysicalHeight(): ucpp.num.Float32;
 	public function GetOrientation(): EARCandidateImageOrientation;
 	public function GetFriendlyName(): FString;
-	public function GetCandidateTexture(): cpp.Star<Texture2D>;
+	public function GetCandidateTexture(): ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPhysicalWidth, GetPhysicalHeight, GetOrientation, GetFriendlyName, GetCandidateTexture)
@@ -28,7 +28,7 @@ abstract ConstARCandidateImage(ARCandidateImage) from ARCandidateImage {
 @:forward
 @:nativeGen
 @:native("ARCandidateImage*")
-abstract ARCandidateImagePtr(cpp.Star<ARCandidateImage>) from cpp.Star<ARCandidateImage> to cpp.Star<ARCandidateImage>{
+abstract ARCandidateImagePtr(ucpp.Ptr<ARCandidateImage>) from ucpp.Ptr<ARCandidateImage> to ucpp.Ptr<ARCandidateImage>{
 	@:from
 	public static extern inline function fromValue(v: ARCandidateImage): ARCandidateImagePtr {
 		return untyped __cpp__("&({0})", v);

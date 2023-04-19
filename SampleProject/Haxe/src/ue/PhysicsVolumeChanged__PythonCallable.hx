@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPhysicsVolumeChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class PhysicsVolumeChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPhysicsVolumeChanged__PythonCallable(PhysicsVolumeChanged__PythonC
 @:forward
 @:nativeGen
 @:native("PhysicsVolumeChanged__PythonCallable*")
-abstract PhysicsVolumeChanged__PythonCallablePtr(cpp.Star<PhysicsVolumeChanged__PythonCallable>) from cpp.Star<PhysicsVolumeChanged__PythonCallable> to cpp.Star<PhysicsVolumeChanged__PythonCallable>{
+abstract PhysicsVolumeChanged__PythonCallablePtr(ucpp.Ptr<PhysicsVolumeChanged__PythonCallable>) from ucpp.Ptr<PhysicsVolumeChanged__PythonCallable> to ucpp.Ptr<PhysicsVolumeChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsVolumeChanged__PythonCallable): PhysicsVolumeChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

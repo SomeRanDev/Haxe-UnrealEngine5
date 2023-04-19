@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPerlinNoiseShaker")
 @:include("PerlinNoiseCameraShakePattern.h")
-@:structAccess
+@:valueType
 extern class PerlinNoiseShaker {
-	public var Amplitude: cpp.Float32;
-	public var Frequency: cpp.Float32;
+	public var Amplitude: ucpp.num.Float32;
+	public var Frequency: ucpp.num.Float32;
 
 	@:native("FPerlinNoiseShaker") public function new();
-	@:native("FPerlinNoiseShaker") public static function make(Amplitude: cpp.Float32, Frequency: cpp.Float32): PerlinNoiseShaker ;
+	@:native("FPerlinNoiseShaker") public static function make(Amplitude: ucpp.num.Float32, Frequency: ucpp.num.Float32): PerlinNoiseShaker ;
 }

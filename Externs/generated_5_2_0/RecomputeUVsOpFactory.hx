@@ -3,24 +3,24 @@ package ue;
 
 @:native("URecomputeUVsOpFactory")
 @:include("ParameterizationOps/RecomputeUVsOp.h")
-@:structAccess
+@:valueType
 extern class RecomputeUVsOpFactory extends Object {
-	public var Settings: cpp.Star<RecomputeUVsToolProperties>;
+	public var Settings: ucpp.Ptr<RecomputeUVsToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRecomputeUVsOpFactory(RecomputeUVsOpFactory) from RecomputeUVsOpFactory {
-	public extern var Settings(get, never): cpp.Star<RecomputeUVsToolProperties.ConstRecomputeUVsToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<RecomputeUVsToolProperties.ConstRecomputeUVsToolProperties> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<RecomputeUVsToolProperties.ConstRecomputeUVsToolProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<RecomputeUVsToolProperties.ConstRecomputeUVsToolProperties> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("RecomputeUVsOpFactory*")
-abstract RecomputeUVsOpFactoryPtr(cpp.Star<RecomputeUVsOpFactory>) from cpp.Star<RecomputeUVsOpFactory> to cpp.Star<RecomputeUVsOpFactory>{
+abstract RecomputeUVsOpFactoryPtr(ucpp.Ptr<RecomputeUVsOpFactory>) from ucpp.Ptr<RecomputeUVsOpFactory> to ucpp.Ptr<RecomputeUVsOpFactory>{
 	@:from
 	public static extern inline function fromValue(v: RecomputeUVsOpFactory): RecomputeUVsOpFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("ALandscapeBlueprintBrushBase")
 @:include("LandscapeBlueprintBrushBase.h")
-@:structAccess
+@:valueType
 extern class LandscapeBlueprintBrushBase extends Actor {
 
-	public function RequestLandscapeUpdate(): Void;
-	public function Render(InIsHeightmap: Bool, InCombinedResult: cpp.Star<TextureRenderTarget2D>, InWeightmapLayerName: cpp.Reference<FName>): cpp.Star<TextureRenderTarget2D>;
-	public function Initialize(InLandscapeTransform: cpp.Reference<Transform>, InLandscapeSize: cpp.Reference<IntPoint>, InLandscapeRenderTargetSize: cpp.Reference<IntPoint>): Void;
-	public function GetBlueprintRenderDependencies(OutStreamableAssets: cpp.Reference<TArray<cpp.Star<Object>>>): Void;
+	public function RequestLandscapeUpdate(bInUserTriggered: Bool): Void;
+	public function Render(InIsHeightmap: Bool, InCombinedResult: ucpp.Ptr<TextureRenderTarget2D>, InWeightmapLayerName: ucpp.Ref<FName>): ucpp.Ptr<TextureRenderTarget2D>;
+	public function Initialize(InLandscapeTransform: ucpp.Ref<Transform>, InLandscapeSize: ucpp.Ref<IntPoint>, InLandscapeRenderTargetSize: ucpp.Ref<IntPoint>): Void;
+	public function GetBlueprintRenderDependencies(OutStreamableAssets: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstLandscapeBlueprintBrushBase(LandscapeBlueprintBrushBase) from Land
 @:forward
 @:nativeGen
 @:native("LandscapeBlueprintBrushBase*")
-abstract LandscapeBlueprintBrushBasePtr(cpp.Star<LandscapeBlueprintBrushBase>) from cpp.Star<LandscapeBlueprintBrushBase> to cpp.Star<LandscapeBlueprintBrushBase>{
+abstract LandscapeBlueprintBrushBasePtr(ucpp.Ptr<LandscapeBlueprintBrushBase>) from ucpp.Ptr<LandscapeBlueprintBrushBase> to ucpp.Ptr<LandscapeBlueprintBrushBase>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeBlueprintBrushBase): LandscapeBlueprintBrushBasePtr {
 		return untyped __cpp__("&({0})", v);

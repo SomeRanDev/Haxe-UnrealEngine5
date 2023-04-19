@@ -3,22 +3,22 @@ package ue;
 
 @:native("UMeshSpaceDeformerTool")
 @:include("MeshSpaceDeformerTool.h")
-@:structAccess
+@:valueType
 extern class MeshSpaceDeformerTool extends SingleSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<MeshSpaceDeformerToolProperties>;
-	@:protected public var ToolActions: cpp.Star<MeshSpaceDeformerToolActionPropertySet>;
-	@:protected public var StateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var OriginalMeshPreview: cpp.Star<PreviewMesh>;
-	@:protected public var IntervalGizmo: cpp.Star<IntervalGizmo>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var UpIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
-	@:protected public var DownIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
-	@:protected public var ForwardIntervalSource: cpp.Star<GizmoLocalFloatParameterSource>;
+	@:protected public var Settings: ucpp.Ptr<MeshSpaceDeformerToolProperties>;
+	@:protected public var ToolActions: ucpp.Ptr<MeshSpaceDeformerToolActionPropertySet>;
+	@:protected public var StateTarget: ucpp.Ptr<GizmoTransformChangeStateTarget>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var OriginalMeshPreview: ucpp.Ptr<PreviewMesh>;
+	@:protected public var IntervalGizmo: ucpp.Ptr<IntervalGizmo>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var UpIntervalSource: ucpp.Ptr<GizmoLocalFloatParameterSource>;
+	@:protected public var DownIntervalSource: ucpp.Ptr<GizmoLocalFloatParameterSource>;
+	@:protected public var ForwardIntervalSource: ucpp.Ptr<GizmoLocalFloatParameterSource>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMeshSpaceDeformerTool(MeshSpaceDeformerTool) from MeshSpaceDeforme
 @:forward
 @:nativeGen
 @:native("MeshSpaceDeformerTool*")
-abstract MeshSpaceDeformerToolPtr(cpp.Star<MeshSpaceDeformerTool>) from cpp.Star<MeshSpaceDeformerTool> to cpp.Star<MeshSpaceDeformerTool>{
+abstract MeshSpaceDeformerToolPtr(ucpp.Ptr<MeshSpaceDeformerTool>) from ucpp.Ptr<MeshSpaceDeformerTool> to ucpp.Ptr<MeshSpaceDeformerTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshSpaceDeformerTool): MeshSpaceDeformerToolPtr {
 		return untyped __cpp__("&({0})", v);

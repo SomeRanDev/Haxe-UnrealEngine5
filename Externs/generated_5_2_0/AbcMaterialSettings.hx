@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAbcMaterialSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcMaterialSettings {
 	public var bCreateMaterials: Bool;
 	public var bFindMaterials: Bool;

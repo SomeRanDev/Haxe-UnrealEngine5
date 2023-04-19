@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMockGameplayTaskOwner")
 @:include("MockGameplayTasks.h")
-@:structAccess
+@:valueType
 extern class MockGameplayTaskOwner extends Object {
-	public var GTComponent: cpp.Star<GameplayTasksComp>;
+	public var GTComponent: ucpp.Ptr<GameplayTasksComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMockGameplayTaskOwner(MockGameplayTaskOwner) from MockGameplayTaskOwner {
-	public extern var GTComponent(get, never): cpp.Star<GameplayTasksComp.ConstGameplayTasksComp>;
-	public inline extern function get_GTComponent(): cpp.Star<GameplayTasksComp.ConstGameplayTasksComp> return this.GTComponent;
+	public extern var GTComponent(get, never): ucpp.Ptr<GameplayTasksComp.ConstGameplayTasksComp>;
+	public inline extern function get_GTComponent(): ucpp.Ptr<GameplayTasksComp.ConstGameplayTasksComp> return this.GTComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("MockGameplayTaskOwner*")
-abstract MockGameplayTaskOwnerPtr(cpp.Star<MockGameplayTaskOwner>) from cpp.Star<MockGameplayTaskOwner> to cpp.Star<MockGameplayTaskOwner>{
+abstract MockGameplayTaskOwnerPtr(ucpp.Ptr<MockGameplayTaskOwner>) from ucpp.Ptr<MockGameplayTaskOwner> to ucpp.Ptr<MockGameplayTaskOwner>{
 	@:from
 	public static extern inline function fromValue(v: MockGameplayTaskOwner): MockGameplayTaskOwnerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCheatManagerExtension")
 @:include("GameFramework/CheatManager.h")
-@:structAccess
+@:valueType
 extern class CheatManagerExtension extends Object {
 	public function RemovedFromCheatManager(): Void;
-	public function GetPlayerController(): cpp.Star<PlayerController>;
+	public function GetPlayerController(): ucpp.Ptr<PlayerController>;
 	public function AddedToCheatManager(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPlayerController)
@@ -20,7 +20,7 @@ abstract ConstCheatManagerExtension(CheatManagerExtension) from CheatManagerExte
 @:forward
 @:nativeGen
 @:native("CheatManagerExtension*")
-abstract CheatManagerExtensionPtr(cpp.Star<CheatManagerExtension>) from cpp.Star<CheatManagerExtension> to cpp.Star<CheatManagerExtension>{
+abstract CheatManagerExtensionPtr(ucpp.Ptr<CheatManagerExtension>) from ucpp.Ptr<CheatManagerExtension> to ucpp.Ptr<CheatManagerExtension>{
 	@:from
 	public static extern inline function fromValue(v: CheatManagerExtension): CheatManagerExtensionPtr {
 		return untyped __cpp__("&({0})", v);

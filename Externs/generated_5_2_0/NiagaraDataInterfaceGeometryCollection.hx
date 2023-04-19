@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGeometryCollection")
 @:include("NiagaraDataInterfaceGeometryCollection.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGeometryCollection extends NiagaraDataInterface {
-	public var GeometryCollectionActor: cpp.Star<GeometryCollectionActor>;
+	public var GeometryCollectionActor: ucpp.Ptr<GeometryCollectionActor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceGeometryCollection(NiagaraDataInterfaceGeometryCollection) from NiagaraDataInterfaceGeometryCollection {
-	public extern var GeometryCollectionActor(get, never): cpp.Star<GeometryCollectionActor.ConstGeometryCollectionActor>;
-	public inline extern function get_GeometryCollectionActor(): cpp.Star<GeometryCollectionActor.ConstGeometryCollectionActor> return this.GeometryCollectionActor;
+	public extern var GeometryCollectionActor(get, never): ucpp.Ptr<GeometryCollectionActor.ConstGeometryCollectionActor>;
+	public inline extern function get_GeometryCollectionActor(): ucpp.Ptr<GeometryCollectionActor.ConstGeometryCollectionActor> return this.GeometryCollectionActor;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceGeometryCollection*")
-abstract NiagaraDataInterfaceGeometryCollectionPtr(cpp.Star<NiagaraDataInterfaceGeometryCollection>) from cpp.Star<NiagaraDataInterfaceGeometryCollection> to cpp.Star<NiagaraDataInterfaceGeometryCollection>{
+abstract NiagaraDataInterfaceGeometryCollectionPtr(ucpp.Ptr<NiagaraDataInterfaceGeometryCollection>) from ucpp.Ptr<NiagaraDataInterfaceGeometryCollection> to ucpp.Ptr<NiagaraDataInterfaceGeometryCollection>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceGeometryCollection): NiagaraDataInterfaceGeometryCollectionPtr {
 		return untyped __cpp__("&({0})", v);

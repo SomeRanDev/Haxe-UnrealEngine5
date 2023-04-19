@@ -3,16 +3,16 @@ package ue;
 
 @:native("USizeBox")
 @:include("Components/SizeBox.h")
-@:structAccess
+@:valueType
 extern class SizeBox extends ContentWidget {
-	public var WidthOverride: cpp.Float32;
-	public var HeightOverride: cpp.Float32;
-	public var MinDesiredWidth: cpp.Float32;
-	public var MinDesiredHeight: cpp.Float32;
-	public var MaxDesiredWidth: cpp.Float32;
-	public var MaxDesiredHeight: cpp.Float32;
-	public var MinAspectRatio: cpp.Float32;
-	public var MaxAspectRatio: cpp.Float32;
+	public var WidthOverride: ucpp.num.Float32;
+	public var HeightOverride: ucpp.num.Float32;
+	public var MinDesiredWidth: ucpp.num.Float32;
+	public var MinDesiredHeight: ucpp.num.Float32;
+	public var MaxDesiredWidth: ucpp.num.Float32;
+	public var MaxDesiredHeight: ucpp.num.Float32;
+	public var MinAspectRatio: ucpp.num.Float32;
+	public var MaxAspectRatio: ucpp.num.Float32;
 	public var bOverride_WidthOverride: Bool;
 	public var bOverride_HeightOverride: Bool;
 	public var bOverride_MinDesiredWidth: Bool;
@@ -22,14 +22,14 @@ extern class SizeBox extends ContentWidget {
 	public var bOverride_MinAspectRatio: Bool;
 	public var bOverride_MaxAspectRatio: Bool;
 
-	public function SetWidthOverride(InWidthOverride: cpp.Float32): Void;
-	public function SetMinDesiredWidth(InMinDesiredWidth: cpp.Float32): Void;
-	public function SetMinDesiredHeight(InMinDesiredHeight: cpp.Float32): Void;
-	public function SetMinAspectRatio(InMinAspectRatio: cpp.Float32): Void;
-	public function SetMaxDesiredWidth(InMaxDesiredWidth: cpp.Float32): Void;
-	public function SetMaxDesiredHeight(InMaxDesiredHeight: cpp.Float32): Void;
-	public function SetMaxAspectRatio(InMaxAspectRatio: cpp.Float32): Void;
-	public function SetHeightOverride(InHeightOverride: cpp.Float32): Void;
+	public function SetWidthOverride(InWidthOverride: ucpp.num.Float32): Void;
+	public function SetMinDesiredWidth(InMinDesiredWidth: ucpp.num.Float32): Void;
+	public function SetMinDesiredHeight(InMinDesiredHeight: ucpp.num.Float32): Void;
+	public function SetMinAspectRatio(InMinAspectRatio: ucpp.num.Float32): Void;
+	public function SetMaxDesiredWidth(InMaxDesiredWidth: ucpp.num.Float32): Void;
+	public function SetMaxDesiredHeight(InMaxDesiredHeight: ucpp.num.Float32): Void;
+	public function SetMaxAspectRatio(InMaxAspectRatio: ucpp.num.Float32): Void;
+	public function SetHeightOverride(InHeightOverride: ucpp.num.Float32): Void;
 	public function ClearWidthOverride(): Void;
 	public function ClearMinDesiredWidth(): Void;
 	public function ClearMinDesiredHeight(): Void;
@@ -39,28 +39,28 @@ extern class SizeBox extends ContentWidget {
 	public function ClearMaxAspectRatio(): Void;
 	public function ClearHeightOverride(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSizeBox(SizeBox) from SizeBox {
-	public extern var WidthOverride(get, never): cpp.Float32;
-	public inline extern function get_WidthOverride(): cpp.Float32 return this.WidthOverride;
-	public extern var HeightOverride(get, never): cpp.Float32;
-	public inline extern function get_HeightOverride(): cpp.Float32 return this.HeightOverride;
-	public extern var MinDesiredWidth(get, never): cpp.Float32;
-	public inline extern function get_MinDesiredWidth(): cpp.Float32 return this.MinDesiredWidth;
-	public extern var MinDesiredHeight(get, never): cpp.Float32;
-	public inline extern function get_MinDesiredHeight(): cpp.Float32 return this.MinDesiredHeight;
-	public extern var MaxDesiredWidth(get, never): cpp.Float32;
-	public inline extern function get_MaxDesiredWidth(): cpp.Float32 return this.MaxDesiredWidth;
-	public extern var MaxDesiredHeight(get, never): cpp.Float32;
-	public inline extern function get_MaxDesiredHeight(): cpp.Float32 return this.MaxDesiredHeight;
-	public extern var MinAspectRatio(get, never): cpp.Float32;
-	public inline extern function get_MinAspectRatio(): cpp.Float32 return this.MinAspectRatio;
-	public extern var MaxAspectRatio(get, never): cpp.Float32;
-	public inline extern function get_MaxAspectRatio(): cpp.Float32 return this.MaxAspectRatio;
+	public extern var WidthOverride(get, never): ucpp.num.Float32;
+	public inline extern function get_WidthOverride(): ucpp.num.Float32 return this.WidthOverride;
+	public extern var HeightOverride(get, never): ucpp.num.Float32;
+	public inline extern function get_HeightOverride(): ucpp.num.Float32 return this.HeightOverride;
+	public extern var MinDesiredWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDesiredWidth(): ucpp.num.Float32 return this.MinDesiredWidth;
+	public extern var MinDesiredHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDesiredHeight(): ucpp.num.Float32 return this.MinDesiredHeight;
+	public extern var MaxDesiredWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDesiredWidth(): ucpp.num.Float32 return this.MaxDesiredWidth;
+	public extern var MaxDesiredHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDesiredHeight(): ucpp.num.Float32 return this.MaxDesiredHeight;
+	public extern var MinAspectRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_MinAspectRatio(): ucpp.num.Float32 return this.MinAspectRatio;
+	public extern var MaxAspectRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxAspectRatio(): ucpp.num.Float32 return this.MaxAspectRatio;
 	public extern var bOverride_WidthOverride(get, never): Bool;
 	public inline extern function get_bOverride_WidthOverride(): Bool return this.bOverride_WidthOverride;
 	public extern var bOverride_HeightOverride(get, never): Bool;
@@ -82,7 +82,7 @@ abstract ConstSizeBox(SizeBox) from SizeBox {
 @:forward
 @:nativeGen
 @:native("SizeBox*")
-abstract SizeBoxPtr(cpp.Star<SizeBox>) from cpp.Star<SizeBox> to cpp.Star<SizeBox>{
+abstract SizeBoxPtr(ucpp.Ptr<SizeBox>) from ucpp.Ptr<SizeBox> to ucpp.Ptr<SizeBox>{
 	@:from
 	public static extern inline function fromValue(v: SizeBox): SizeBoxPtr {
 		return untyped __cpp__("&({0})", v);

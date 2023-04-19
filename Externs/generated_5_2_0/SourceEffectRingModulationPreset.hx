@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectRingModulationPreset")
 @:include("SourceEffects/SourceEffectRingModulation.h")
-@:structAccess
+@:valueType
 extern class SourceEffectRingModulationPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectRingModulationSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectRingModulationSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectRingModulationSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectRingModulationPreset(SourceEffectRingModulationPreset)
 @:forward
 @:nativeGen
 @:native("SourceEffectRingModulationPreset*")
-abstract SourceEffectRingModulationPresetPtr(cpp.Star<SourceEffectRingModulationPreset>) from cpp.Star<SourceEffectRingModulationPreset> to cpp.Star<SourceEffectRingModulationPreset>{
+abstract SourceEffectRingModulationPresetPtr(ucpp.Ptr<SourceEffectRingModulationPreset>) from ucpp.Ptr<SourceEffectRingModulationPreset> to ucpp.Ptr<SourceEffectRingModulationPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectRingModulationPreset): SourceEffectRingModulationPresetPtr {
 		return untyped __cpp__("&({0})", v);

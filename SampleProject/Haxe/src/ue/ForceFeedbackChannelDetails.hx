@@ -3,7 +3,7 @@ package ue;
 
 @:native("FForceFeedbackChannelDetails")
 @:include("GameFramework/ForceFeedbackEffect.h")
-@:structAccess
+@:valueType
 extern class ForceFeedbackChannelDetails {
 	public var bAffectsLeftLarge: Bool;
 	public var bAffectsLeftSmall: Bool;

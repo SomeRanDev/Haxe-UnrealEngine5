@@ -3,36 +3,36 @@ package ue;
 
 @:native("UGameViewportClient")
 @:include("Engine/GameViewportClient.h")
-@:structAccess
+@:valueType
 extern class GameViewportClient extends ScriptViewportClient {
-	public var ViewportConsole: cpp.Star<Console>;
+	public var ViewportConsole: ucpp.Ptr<Console>;
 	public var DebugProperties: TArray<DebugDisplayProperty>;
-	public var MaxSplitscreenPlayers: cpp.Int32;
-	@:protected public var World: cpp.Star<World>;
-	@:protected public var GameInstance: cpp.Star<GameInstance>;
+	public var MaxSplitscreenPlayers: ucpp.num.Int32;
+	@:protected public var World: ucpp.Ptr<World>;
+	@:protected public var GameInstance: ucpp.Ptr<GameInstance>;
 
 	public function SSSwapControllers(): Void;
 	public function ShowTitleSafeArea(): Void;
-	public function SetConsoleTarget(PlayerIndex: cpp.Int32): Void;
+	public function SetConsoleTarget(PlayerIndex: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGameViewportClient(GameViewportClient) from GameViewportClient {
-	public extern var ViewportConsole(get, never): cpp.Star<Console.ConstConsole>;
-	public inline extern function get_ViewportConsole(): cpp.Star<Console.ConstConsole> return this.ViewportConsole;
+	public extern var ViewportConsole(get, never): ucpp.Ptr<Console.ConstConsole>;
+	public inline extern function get_ViewportConsole(): ucpp.Ptr<Console.ConstConsole> return this.ViewportConsole;
 	public extern var DebugProperties(get, never): TArray<DebugDisplayProperty>;
 	public inline extern function get_DebugProperties(): TArray<DebugDisplayProperty> return this.DebugProperties;
-	public extern var MaxSplitscreenPlayers(get, never): cpp.Int32;
-	public inline extern function get_MaxSplitscreenPlayers(): cpp.Int32 return this.MaxSplitscreenPlayers;
+	public extern var MaxSplitscreenPlayers(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxSplitscreenPlayers(): ucpp.num.Int32 return this.MaxSplitscreenPlayers;
 }
 
 @:forward
 @:nativeGen
 @:native("GameViewportClient*")
-abstract GameViewportClientPtr(cpp.Star<GameViewportClient>) from cpp.Star<GameViewportClient> to cpp.Star<GameViewportClient>{
+abstract GameViewportClientPtr(ucpp.Ptr<GameViewportClient>) from ucpp.Ptr<GameViewportClient> to ucpp.Ptr<GameViewportClient>{
 	@:from
 	public static extern inline function fromValue(v: GameViewportClient): GameViewportClientPtr {
 		return untyped __cpp__("&({0})", v);

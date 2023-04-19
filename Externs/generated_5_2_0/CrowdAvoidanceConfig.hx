@@ -3,18 +3,18 @@ package ue;
 
 @:native("FCrowdAvoidanceConfig")
 @:include("Navigation/CrowdManager.h")
-@:structAccess
+@:valueType
 extern class CrowdAvoidanceConfig {
-	public var VelocityBias: cpp.Float32;
-	public var DesiredVelocityWeight: cpp.Float32;
-	public var CurrentVelocityWeight: cpp.Float32;
-	public var SideBiasWeight: cpp.Float32;
-	public var ImpactTimeWeight: cpp.Float32;
-	public var ImpactTimeRange: cpp.Float32;
-	public var CustomPatternIdx: cpp.UInt8;
-	public var AdaptiveDivisions: cpp.UInt8;
-	public var AdaptiveRings: cpp.UInt8;
-	public var AdaptiveDepth: cpp.UInt8;
+	public var VelocityBias: ucpp.num.Float32;
+	public var DesiredVelocityWeight: ucpp.num.Float32;
+	public var CurrentVelocityWeight: ucpp.num.Float32;
+	public var SideBiasWeight: ucpp.num.Float32;
+	public var ImpactTimeWeight: ucpp.num.Float32;
+	public var ImpactTimeRange: ucpp.num.Float32;
+	public var CustomPatternIdx: ucpp.num.UInt8;
+	public var AdaptiveDivisions: ucpp.num.UInt8;
+	public var AdaptiveRings: ucpp.num.UInt8;
+	public var AdaptiveDepth: ucpp.num.UInt8;
 
 	@:native("FCrowdAvoidanceConfig") public function new();
 }

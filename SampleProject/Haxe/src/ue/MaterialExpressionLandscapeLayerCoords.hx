@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerCoords")
 @:include("Materials/MaterialExpressionLandscapeLayerCoords.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLandscapeLayerCoords extends MaterialExpression {
 	public var MappingType: TEnumAsByte<ETerrainCoordMappingType>;
 	public var CustomUVType: TEnumAsByte<ELandscapeCustomizedCoordType>;
-	public var MappingScale: cpp.Float32;
-	public var MappingRotation: cpp.Float32;
-	public var MappingPanU: cpp.Float32;
-	public var MappingPanV: cpp.Float32;
+	public var MappingScale: ucpp.num.Float32;
+	public var MappingRotation: ucpp.num.Float32;
+	public var MappingPanU: ucpp.num.Float32;
+	public var MappingPanV: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,20 +22,20 @@ abstract ConstMaterialExpressionLandscapeLayerCoords(MaterialExpressionLandscape
 	public inline extern function get_MappingType(): TEnumAsByte<ETerrainCoordMappingType> return this.MappingType;
 	public extern var CustomUVType(get, never): TEnumAsByte<ELandscapeCustomizedCoordType>;
 	public inline extern function get_CustomUVType(): TEnumAsByte<ELandscapeCustomizedCoordType> return this.CustomUVType;
-	public extern var MappingScale(get, never): cpp.Float32;
-	public inline extern function get_MappingScale(): cpp.Float32 return this.MappingScale;
-	public extern var MappingRotation(get, never): cpp.Float32;
-	public inline extern function get_MappingRotation(): cpp.Float32 return this.MappingRotation;
-	public extern var MappingPanU(get, never): cpp.Float32;
-	public inline extern function get_MappingPanU(): cpp.Float32 return this.MappingPanU;
-	public extern var MappingPanV(get, never): cpp.Float32;
-	public inline extern function get_MappingPanV(): cpp.Float32 return this.MappingPanV;
+	public extern var MappingScale(get, never): ucpp.num.Float32;
+	public inline extern function get_MappingScale(): ucpp.num.Float32 return this.MappingScale;
+	public extern var MappingRotation(get, never): ucpp.num.Float32;
+	public inline extern function get_MappingRotation(): ucpp.num.Float32 return this.MappingRotation;
+	public extern var MappingPanU(get, never): ucpp.num.Float32;
+	public inline extern function get_MappingPanU(): ucpp.num.Float32 return this.MappingPanU;
+	public extern var MappingPanV(get, never): ucpp.num.Float32;
+	public inline extern function get_MappingPanV(): ucpp.num.Float32 return this.MappingPanV;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLandscapeLayerCoords*")
-abstract MaterialExpressionLandscapeLayerCoordsPtr(cpp.Star<MaterialExpressionLandscapeLayerCoords>) from cpp.Star<MaterialExpressionLandscapeLayerCoords> to cpp.Star<MaterialExpressionLandscapeLayerCoords>{
+abstract MaterialExpressionLandscapeLayerCoordsPtr(ucpp.Ptr<MaterialExpressionLandscapeLayerCoords>) from ucpp.Ptr<MaterialExpressionLandscapeLayerCoords> to ucpp.Ptr<MaterialExpressionLandscapeLayerCoords>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLandscapeLayerCoords): MaterialExpressionLandscapeLayerCoordsPtr {
 		return untyped __cpp__("&({0})", v);

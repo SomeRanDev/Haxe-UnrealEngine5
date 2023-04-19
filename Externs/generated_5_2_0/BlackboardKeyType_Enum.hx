@@ -3,20 +3,20 @@ package ue;
 
 @:native("UBlackboardKeyType_Enum")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType_Enum.h")
-@:structAccess
+@:valueType
 extern class BlackboardKeyType_Enum extends BlackboardKeyType {
-	public var EnumType: cpp.Star<Enum>;
+	public var EnumType: ucpp.Ptr<Enum>;
 	public var EnumName: FString;
 	public var bIsEnumNameValid: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlackboardKeyType_Enum(BlackboardKeyType_Enum) from BlackboardKeyType_Enum {
-	public extern var EnumType(get, never): cpp.Star<Enum.ConstEnum>;
-	public inline extern function get_EnumType(): cpp.Star<Enum.ConstEnum> return this.EnumType;
+	public extern var EnumType(get, never): ucpp.Ptr<Enum.ConstEnum>;
+	public inline extern function get_EnumType(): ucpp.Ptr<Enum.ConstEnum> return this.EnumType;
 	public extern var EnumName(get, never): FString;
 	public inline extern function get_EnumName(): FString return this.EnumName;
 	public extern var bIsEnumNameValid(get, never): Bool;
@@ -26,7 +26,7 @@ abstract ConstBlackboardKeyType_Enum(BlackboardKeyType_Enum) from BlackboardKeyT
 @:forward
 @:nativeGen
 @:native("BlackboardKeyType_Enum*")
-abstract BlackboardKeyType_EnumPtr(cpp.Star<BlackboardKeyType_Enum>) from cpp.Star<BlackboardKeyType_Enum> to cpp.Star<BlackboardKeyType_Enum>{
+abstract BlackboardKeyType_EnumPtr(ucpp.Ptr<BlackboardKeyType_Enum>) from ucpp.Ptr<BlackboardKeyType_Enum> to ucpp.Ptr<BlackboardKeyType_Enum>{
 	@:from
 	public static extern inline function fromValue(v: BlackboardKeyType_Enum): BlackboardKeyType_EnumPtr {
 		return untyped __cpp__("&({0})", v);

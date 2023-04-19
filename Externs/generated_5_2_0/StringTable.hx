@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStringTable")
 @:include("Internationalization/StringTable.h")
-@:structAccess
+@:valueType
 extern class StringTable extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStringTable(StringTable) from StringTable {
 @:forward
 @:nativeGen
 @:native("StringTable*")
-abstract StringTablePtr(cpp.Star<StringTable>) from cpp.Star<StringTable> to cpp.Star<StringTable>{
+abstract StringTablePtr(ucpp.Ptr<StringTable>) from ucpp.Ptr<StringTable> to ucpp.Ptr<StringTable>{
 	@:from
 	public static extern inline function fromValue(v: StringTable): StringTablePtr {
 		return untyped __cpp__("&({0})", v);

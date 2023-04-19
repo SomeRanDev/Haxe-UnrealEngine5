@@ -3,10 +3,10 @@ package ue;
 
 @:native("USlateTabManagerContext")
 @:include("ToolMenuContext.h")
-@:structAccess
+@:valueType
 extern class SlateTabManagerContext extends ToolMenuContextBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSlateTabManagerContext(SlateTabManagerContext) from SlateTabManage
 @:forward
 @:nativeGen
 @:native("SlateTabManagerContext*")
-abstract SlateTabManagerContextPtr(cpp.Star<SlateTabManagerContext>) from cpp.Star<SlateTabManagerContext> to cpp.Star<SlateTabManagerContext>{
+abstract SlateTabManagerContextPtr(ucpp.Ptr<SlateTabManagerContext>) from ucpp.Ptr<SlateTabManagerContext> to ucpp.Ptr<SlateTabManagerContext>{
 	@:from
 	public static extern inline function fromValue(v: SlateTabManagerContext): SlateTabManagerContextPtr {
 		return untyped __cpp__("&({0})", v);

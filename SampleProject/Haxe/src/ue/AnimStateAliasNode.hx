@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAnimStateAliasNode")
 @:include("AnimStateAliasNode.h")
-@:structAccess
+@:valueType
 extern class AnimStateAliasNode extends AnimStateNodeBase {
 	public var bGlobalAlias: Bool;
 	public var StateAliasName: FString;
 	private var AliasedStateNodes: TSet<TWeakObjectPtr<AnimStateNodeBase>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAnimStateAliasNode(AnimStateAliasNode) from AnimStateAliasNode {
 @:forward
 @:nativeGen
 @:native("AnimStateAliasNode*")
-abstract AnimStateAliasNodePtr(cpp.Star<AnimStateAliasNode>) from cpp.Star<AnimStateAliasNode> to cpp.Star<AnimStateAliasNode>{
+abstract AnimStateAliasNodePtr(ucpp.Ptr<AnimStateAliasNode>) from ucpp.Ptr<AnimStateAliasNode> to ucpp.Ptr<AnimStateAliasNode>{
 	@:from
 	public static extern inline function fromValue(v: AnimStateAliasNode): AnimStateAliasNodePtr {
 		return untyped __cpp__("&({0})", v);

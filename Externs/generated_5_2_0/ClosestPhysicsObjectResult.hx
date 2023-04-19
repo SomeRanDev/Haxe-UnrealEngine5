@@ -3,7 +3,7 @@ package ue;
 
 @:native("FClosestPhysicsObjectResult")
 @:include("Chaos/PhysicsObjectInterface.h")
-@:structAccess
+@:valueType
 extern class ClosestPhysicsObjectResult {
 	@:native("FClosestPhysicsObjectResult") public function new();
 }

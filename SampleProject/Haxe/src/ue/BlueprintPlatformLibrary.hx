@@ -3,19 +3,21 @@ package ue;
 
 @:native("UBlueprintPlatformLibrary")
 @:include("Kismet/BlueprintPlatformLibrary.h")
-@:structAccess
+@:valueType
 extern class BlueprintPlatformLibrary extends BlueprintFunctionLibrary {
-	public function ScheduleLocalNotificationFromNow(inSecondsFromNow: cpp.Int32, Title: cpp.Reference<FText>, Body: cpp.Reference<FText>, Action: cpp.Reference<FText>, ActivationEvent: FString): cpp.Int32;
-	public function ScheduleLocalNotificationBadgeFromNow(inSecondsFromNow: cpp.Int32, ActivationEvent: FString): Void;
-	public function ScheduleLocalNotificationBadgeAtTime(FireDateTime: cpp.Reference<DateTime>, LocalTime: Bool, ActivationEvent: FString): cpp.Int32;
-	public function ScheduleLocalNotificationAtTime(FireDateTime: cpp.Reference<DateTime>, LocalTime: Bool, Title: cpp.Reference<FText>, Body: cpp.Reference<FText>, Action: cpp.Reference<FText>, ActivationEvent: FString): cpp.Int32;
-	public function GetLaunchNotification(NotificationLaunchedApp: cpp.Reference<Bool>, ActivationEvent: cpp.Reference<FString>, FireDate: cpp.Reference<cpp.Int32>): Void;
+	public function SetAllowedDeviceOrientation(NewAllowedDeviceOrientation: TEnumAsByte<EScreenOrientation>): Void;
+	public function ScheduleLocalNotificationFromNow(inSecondsFromNow: ucpp.num.Int32, Title: ucpp.Ref<FText>, Body: ucpp.Ref<FText>, Action: ucpp.Ref<FText>, ActivationEvent: FString): ucpp.num.Int32;
+	public function ScheduleLocalNotificationBadgeFromNow(inSecondsFromNow: ucpp.num.Int32, ActivationEvent: FString): Void;
+	public function ScheduleLocalNotificationBadgeAtTime(FireDateTime: ucpp.Ref<DateTime>, LocalTime: Bool, ActivationEvent: FString): ucpp.num.Int32;
+	public function ScheduleLocalNotificationAtTime(FireDateTime: ucpp.Ref<DateTime>, LocalTime: Bool, Title: ucpp.Ref<FText>, Body: ucpp.Ref<FText>, Action: ucpp.Ref<FText>, ActivationEvent: FString): ucpp.num.Int32;
+	public function GetLaunchNotification(NotificationLaunchedApp: ucpp.Ref<Bool>, ActivationEvent: ucpp.Ref<FString>, FireDate: ucpp.Ref<ucpp.num.Int32>): Void;
 	public function GetDeviceOrientation(): TEnumAsByte<EScreenOrientation>;
+	public function GetAllowedDeviceOrientation(): TEnumAsByte<EScreenOrientation>;
 	public function ClearAllLocalNotifications(): Void;
-	public function CancelLocalNotificationById(NotificationId: cpp.Int32): Void;
+	public function CancelLocalNotificationById(NotificationId: ucpp.num.Int32): Void;
 	public function CancelLocalNotification(ActivationEvent: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +28,7 @@ abstract ConstBlueprintPlatformLibrary(BlueprintPlatformLibrary) from BlueprintP
 @:forward
 @:nativeGen
 @:native("BlueprintPlatformLibrary*")
-abstract BlueprintPlatformLibraryPtr(cpp.Star<BlueprintPlatformLibrary>) from cpp.Star<BlueprintPlatformLibrary> to cpp.Star<BlueprintPlatformLibrary>{
+abstract BlueprintPlatformLibraryPtr(ucpp.Ptr<BlueprintPlatformLibrary>) from ucpp.Ptr<BlueprintPlatformLibrary> to ucpp.Ptr<BlueprintPlatformLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintPlatformLibrary): BlueprintPlatformLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,18 +3,18 @@ package ue;
 
 @:native("UStaticMesh")
 @:include("Engine/StaticMesh.h")
-@:structAccess
+@:valueType
 extern class StaticMesh extends StreamableRenderAsset {
 	public var MinQualityLevelLOD: PerQualityLevelInt;
 	public var MinLOD: PerPlatformInt;
 	public function GetStaticMaterials(): TArray<StaticMaterial>;
 	public function SetStaticMaterials(input: TArray<StaticMaterial>): Void;
-	private var LightmapUVDensity: cpp.Float32;
-	public var LightMapResolution: cpp.Int32;
-	public var LightMapCoordinateIndex: cpp.Int32;
-	public var DistanceFieldSelfShadowBias: cpp.Float32;
-	private var BodySetup: cpp.Star<BodySetup>;
-	public var LODForCollision: cpp.Int32;
+	private var LightmapUVDensity: ucpp.num.Float32;
+	public var LightMapResolution: ucpp.num.Int32;
+	public var LightMapCoordinateIndex: ucpp.num.Int32;
+	public var DistanceFieldSelfShadowBias: ucpp.num.Float32;
+	private var BodySetup: ucpp.Ptr<BodySetup>;
+	public var LODForCollision: ucpp.num.Int32;
 	public var bGenerateMeshDistanceField: Bool;
 	public var bHasNavigationData: Bool;
 	public var bSupportUniformlyDistributedSampling: Bool;
@@ -23,42 +23,42 @@ extern class StaticMesh extends StreamableRenderAsset {
 	public var bDoFastBuild: Bool;
 	public var bAllowCPUAccess: Bool;
 	public var bSupportGpuUniformlyDistributedSampling: Bool;
-	public var Sockets: TArray<cpp.Star<StaticMeshSocket>>;
+	public var Sockets: TArray<ucpp.Ptr<StaticMeshSocket>>;
 	public var PositiveBoundsExtension: Vector;
 	public var NegativeBoundsExtension: Vector;
 	public var ExtendedBounds: BoxSphereBounds;
-	@:protected public var ElementToIgnoreForTexFactor: cpp.Int32;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
-	private var NavCollision: cpp.Star<NavCollisionBase>;
+	@:protected public var ElementToIgnoreForTexFactor: ucpp.num.Int32;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
+	private var NavCollision: ucpp.Ptr<NavCollisionBase>;
 
-	public function SetNumSourceModels(Num: cpp.Int32): Void;
-	public function SetMinLODForQualityLevels(QualityLevelMinimumLODs: cpp.Reference<TMap<EPerQualityLevels, cpp.Int32>>, Default: cpp.Int32): Void;
-	public function SetMinimumLODForPlatforms(PlatformMinimumLODs: cpp.Reference<TMap<FName, cpp.Int32>>): Void;
-	public function SetMinimumLODForPlatform(PlatformName: cpp.Reference<FName>, InMinLOD: cpp.Int32): Void;
-	public function SetMaterial(MaterialIndex: cpp.Int32, NewMaterial: cpp.Star<MaterialInterface>): Void;
-	public function RemoveSocket(Socket: cpp.Star<StaticMeshSocket>): Void;
+	public function SetNumSourceModels(Num: ucpp.num.Int32): Void;
+	public function SetMinLODForQualityLevels(QualityLevelMinimumLODs: ucpp.Ref<TMap<EPerQualityLevels, ucpp.num.Int32>>, Default: ucpp.num.Int32): Void;
+	public function SetMinimumLODForPlatforms(PlatformMinimumLODs: ucpp.Ref<TMap<FName, ucpp.num.Int32>>): Void;
+	public function SetMinimumLODForPlatform(PlatformName: ucpp.Ref<FName>, InMinLOD: ucpp.num.Int32): Void;
+	public function SetMaterial(MaterialIndex: ucpp.num.Int32, NewMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function RemoveSocket(Socket: ucpp.Ptr<StaticMeshSocket>): Void;
 	public function IsLODScreenSizeAutoComputed(): Bool;
-	public function GetStaticMeshDescription(LODIndex: cpp.Int32): cpp.Star<StaticMeshDescription>;
-	public function GetSocketsByTag(InSocketTag: FString): TArray<cpp.Star<StaticMeshSocket>>;
-	public function GetNumTriangles(LODIndex: cpp.Int32): cpp.Int32;
-	public function GetNumSections(InLOD: cpp.Int32): cpp.Int32;
-	public function GetNumLODs(): cpp.Int32;
-	public function GetMinLODForQualityLevels(QualityLevelMinimumLODs: cpp.Reference<TMap<EPerQualityLevels, cpp.Int32>>, Default: cpp.Reference<cpp.Int32>): Void;
-	public function GetMinimumLODForQualityLevels(QualityLevelMinimumLODs: cpp.Reference<TMap<FName, cpp.Int32>>): Void;
-	public function GetMinimumLODForQualityLevel(QualityLevel: cpp.Reference<FName>): cpp.Int32;
-	public function GetMinimumLODForPlatforms(PlatformMinimumLODs: cpp.Reference<TMap<FName, cpp.Int32>>): Void;
-	public function GetMinimumLODForPlatform(PlatformName: cpp.Reference<FName>): cpp.Int32;
-	public function GetMaterialIndex(MaterialSlotName: FName): cpp.Int32;
-	public function GetMaterial(MaterialIndex: cpp.Int32): cpp.Star<MaterialInterface>;
+	public function GetStaticMeshDescription(LODIndex: ucpp.num.Int32): ucpp.Ptr<StaticMeshDescription>;
+	public function GetSocketsByTag(InSocketTag: FString): TArray<ucpp.Ptr<StaticMeshSocket>>;
+	public function GetNumTriangles(LODIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetNumSections(InLOD: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetNumLODs(): ucpp.num.Int32;
+	public function GetMinLODForQualityLevels(QualityLevelMinimumLODs: ucpp.Ref<TMap<EPerQualityLevels, ucpp.num.Int32>>, Default: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetMinimumLODForQualityLevels(QualityLevelMinimumLODs: ucpp.Ref<TMap<FName, ucpp.num.Int32>>): Void;
+	public function GetMinimumLODForQualityLevel(QualityLevel: ucpp.Ref<FName>): ucpp.num.Int32;
+	public function GetMinimumLODForPlatforms(PlatformMinimumLODs: ucpp.Ref<TMap<FName, ucpp.num.Int32>>): Void;
+	public function GetMinimumLODForPlatform(PlatformName: ucpp.Ref<FName>): ucpp.num.Int32;
+	public function GetMaterialIndex(MaterialSlotName: FName): ucpp.num.Int32;
+	public function GetMaterial(MaterialIndex: ucpp.num.Int32): ucpp.Ptr<MaterialInterface>;
 	public function GetBounds(): BoxSphereBounds;
 	public function GetBoundingBox(): Box;
-	public function FindSocket(InSocketName: FName): cpp.Star<StaticMeshSocket>;
-	public function CreateStaticMeshDescription(Outer: cpp.Star<Object>): cpp.Star<StaticMeshDescription>;
-	public function BuildFromStaticMeshDescriptions(StaticMeshDescriptions: cpp.Reference<TArray<cpp.Star<StaticMeshDescription>>>, bBuildSimpleCollision: Bool, bFastBuild: Bool): Void;
-	public function AddSocket(Socket: cpp.Star<StaticMeshSocket>): Void;
-	public function AddMaterial(Material: cpp.Star<MaterialInterface>): FName;
+	public function FindSocket(InSocketName: FName): ucpp.Ptr<StaticMeshSocket>;
+	public function CreateStaticMeshDescription(Outer: ucpp.Ptr<Object>): ucpp.Ptr<StaticMeshDescription>;
+	public function BuildFromStaticMeshDescriptions(StaticMeshDescriptions: ucpp.Ref<TArray<ucpp.Ptr<StaticMeshDescription>>>, bBuildSimpleCollision: Bool, bFastBuild: Bool): Void;
+	public function AddSocket(Socket: ucpp.Ptr<StaticMeshSocket>): Void;
+	public function AddMaterial(Material: ucpp.Ptr<MaterialInterface>): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -72,14 +72,14 @@ abstract ConstStaticMesh(StaticMesh) from StaticMesh {
 	public inline extern function get_MinQualityLevelLOD(): PerQualityLevelInt return this.MinQualityLevelLOD;
 	public extern var MinLOD(get, never): PerPlatformInt;
 	public inline extern function get_MinLOD(): PerPlatformInt return this.MinLOD;
-	public extern var LightMapResolution(get, never): cpp.Int32;
-	public inline extern function get_LightMapResolution(): cpp.Int32 return this.LightMapResolution;
-	public extern var LightMapCoordinateIndex(get, never): cpp.Int32;
-	public inline extern function get_LightMapCoordinateIndex(): cpp.Int32 return this.LightMapCoordinateIndex;
-	public extern var DistanceFieldSelfShadowBias(get, never): cpp.Float32;
-	public inline extern function get_DistanceFieldSelfShadowBias(): cpp.Float32 return this.DistanceFieldSelfShadowBias;
-	public extern var LODForCollision(get, never): cpp.Int32;
-	public inline extern function get_LODForCollision(): cpp.Int32 return this.LODForCollision;
+	public extern var LightMapResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_LightMapResolution(): ucpp.num.Int32 return this.LightMapResolution;
+	public extern var LightMapCoordinateIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LightMapCoordinateIndex(): ucpp.num.Int32 return this.LightMapCoordinateIndex;
+	public extern var DistanceFieldSelfShadowBias(get, never): ucpp.num.Float32;
+	public inline extern function get_DistanceFieldSelfShadowBias(): ucpp.num.Float32 return this.DistanceFieldSelfShadowBias;
+	public extern var LODForCollision(get, never): ucpp.num.Int32;
+	public inline extern function get_LODForCollision(): ucpp.num.Int32 return this.LODForCollision;
 	public extern var bGenerateMeshDistanceField(get, never): Bool;
 	public inline extern function get_bGenerateMeshDistanceField(): Bool return this.bGenerateMeshDistanceField;
 	public extern var bHasNavigationData(get, never): Bool;
@@ -96,8 +96,8 @@ abstract ConstStaticMesh(StaticMesh) from StaticMesh {
 	public inline extern function get_bAllowCPUAccess(): Bool return this.bAllowCPUAccess;
 	public extern var bSupportGpuUniformlyDistributedSampling(get, never): Bool;
 	public inline extern function get_bSupportGpuUniformlyDistributedSampling(): Bool return this.bSupportGpuUniformlyDistributedSampling;
-	public extern var Sockets(get, never): TArray<cpp.Star<StaticMeshSocket.ConstStaticMeshSocket>>;
-	public inline extern function get_Sockets(): TArray<cpp.Star<StaticMeshSocket.ConstStaticMeshSocket>> return this.Sockets;
+	public extern var Sockets(get, never): TArray<ucpp.Ptr<StaticMeshSocket.ConstStaticMeshSocket>>;
+	public inline extern function get_Sockets(): TArray<ucpp.Ptr<StaticMeshSocket.ConstStaticMeshSocket>> return this.Sockets;
 	public extern var PositiveBoundsExtension(get, never): Vector;
 	public inline extern function get_PositiveBoundsExtension(): Vector return this.PositiveBoundsExtension;
 	public extern var NegativeBoundsExtension(get, never): Vector;
@@ -109,7 +109,7 @@ abstract ConstStaticMesh(StaticMesh) from StaticMesh {
 @:forward
 @:nativeGen
 @:native("StaticMesh*")
-abstract StaticMeshPtr(cpp.Star<StaticMesh>) from cpp.Star<StaticMesh> to cpp.Star<StaticMesh>{
+abstract StaticMeshPtr(ucpp.Ptr<StaticMesh>) from ucpp.Ptr<StaticMesh> to ucpp.Ptr<StaticMesh>{
 	@:from
 	public static extern inline function fromValue(v: StaticMesh): StaticMeshPtr {
 		return untyped __cpp__("&({0})", v);

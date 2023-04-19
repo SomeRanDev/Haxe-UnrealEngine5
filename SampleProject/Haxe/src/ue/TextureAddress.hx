@@ -2,7 +2,7 @@
 package ue;
 
 @:native("TextureAddress")
-@:include("Engine/Texture.h")
+@:include("Engine/TextureDefines.h")
 extern class TextureAddress {
 	static var TA_Wrap: TextureAddress;
 	static var TA_Clamp: TextureAddress;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAnimGraphNode_Base")
 @:include("AnimGraphNode_Base.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_Base extends K2Node {
 	public var ShowPinForProperties: TArray<OptionalPinFromProperty>;
 	public var PropertyBindings: TMap<FName, AnimGraphNodePropertyBinding>;
@@ -14,7 +14,7 @@ extern class AnimGraphNode_Base extends K2Node {
 	public var UpdateFunction: MemberReference;
 	private var Tag: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +39,7 @@ abstract ConstAnimGraphNode_Base(AnimGraphNode_Base) from AnimGraphNode_Base {
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_Base*")
-abstract AnimGraphNode_BasePtr(cpp.Star<AnimGraphNode_Base>) from cpp.Star<AnimGraphNode_Base> to cpp.Star<AnimGraphNode_Base>{
+abstract AnimGraphNode_BasePtr(ucpp.Ptr<AnimGraphNode_Base>) from ucpp.Ptr<AnimGraphNode_Base> to ucpp.Ptr<AnimGraphNode_Base>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_Base): AnimGraphNode_BasePtr {
 		return untyped __cpp__("&({0})", v);

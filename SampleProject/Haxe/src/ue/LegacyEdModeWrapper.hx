@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULegacyEdModeWrapper")
 @:include("Tools/LegacyEdMode.h")
-@:structAccess
+@:valueType
 extern class LegacyEdModeWrapper extends EdMode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLegacyEdModeWrapper(LegacyEdModeWrapper) from LegacyEdModeWrapper 
 @:forward
 @:nativeGen
 @:native("LegacyEdModeWrapper*")
-abstract LegacyEdModeWrapperPtr(cpp.Star<LegacyEdModeWrapper>) from cpp.Star<LegacyEdModeWrapper> to cpp.Star<LegacyEdModeWrapper>{
+abstract LegacyEdModeWrapperPtr(ucpp.Ptr<LegacyEdModeWrapper>) from ucpp.Ptr<LegacyEdModeWrapper> to ucpp.Ptr<LegacyEdModeWrapper>{
 	@:from
 	public static extern inline function fromValue(v: LegacyEdModeWrapper): LegacyEdModeWrapperPtr {
 		return untyped __cpp__("&({0})", v);

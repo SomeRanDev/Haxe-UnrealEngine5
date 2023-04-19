@@ -3,9 +3,9 @@ package ue;
 
 @:native("FAnimNode_BlendSpacePlayer")
 @:include("AnimNodes/AnimNode_BlendSpacePlayer.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendSpacePlayer extends AnimNode_BlendSpacePlayerBase {
-	private var BlendSpace: cpp.Star<BlendSpace>;
+	private var BlendSpace: ucpp.Ptr<BlendSpace>;
 
 	@:native("FAnimNode_BlendSpacePlayer") public function new();
 }

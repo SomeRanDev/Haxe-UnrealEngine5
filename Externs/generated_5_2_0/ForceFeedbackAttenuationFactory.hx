@@ -3,10 +3,10 @@ package ue;
 
 @:native("UForceFeedbackAttenuationFactory")
 @:include("Factories/ForceFeedbackAttenuationFactory.h")
-@:structAccess
+@:valueType
 extern class ForceFeedbackAttenuationFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstForceFeedbackAttenuationFactory(ForceFeedbackAttenuationFactory) f
 @:forward
 @:nativeGen
 @:native("ForceFeedbackAttenuationFactory*")
-abstract ForceFeedbackAttenuationFactoryPtr(cpp.Star<ForceFeedbackAttenuationFactory>) from cpp.Star<ForceFeedbackAttenuationFactory> to cpp.Star<ForceFeedbackAttenuationFactory>{
+abstract ForceFeedbackAttenuationFactoryPtr(ucpp.Ptr<ForceFeedbackAttenuationFactory>) from ucpp.Ptr<ForceFeedbackAttenuationFactory> to ucpp.Ptr<ForceFeedbackAttenuationFactory>{
 	@:from
 	public static extern inline function fromValue(v: ForceFeedbackAttenuationFactory): ForceFeedbackAttenuationFactoryPtr {
 		return untyped __cpp__("&({0})", v);

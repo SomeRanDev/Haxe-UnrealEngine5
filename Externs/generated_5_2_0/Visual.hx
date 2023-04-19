@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVisual")
 @:include("Components/Visual.h")
-@:structAccess
+@:valueType
 extern class Visual extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVisual(Visual) from Visual {
 @:forward
 @:nativeGen
 @:native("Visual*")
-abstract VisualPtr(cpp.Star<Visual>) from cpp.Star<Visual> to cpp.Star<Visual>{
+abstract VisualPtr(ucpp.Ptr<Visual>) from ucpp.Ptr<Visual> to ucpp.Ptr<Visual>{
 	@:from
 	public static extern inline function fromValue(v: Visual): VisualPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAmbisonicsEncodingSettings")
 @:include("SoundFields.h")
-@:structAccess
+@:valueType
 extern class AmbisonicsEncodingSettings extends SoundfieldEncodingSettingsBase {
-	@:protected public var AmbisonicsOrder: cpp.Int32;
+	@:protected public var AmbisonicsOrder: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAmbisonicsEncodingSettings(AmbisonicsEncodingSettings) from Ambiso
 @:forward
 @:nativeGen
 @:native("AmbisonicsEncodingSettings*")
-abstract AmbisonicsEncodingSettingsPtr(cpp.Star<AmbisonicsEncodingSettings>) from cpp.Star<AmbisonicsEncodingSettings> to cpp.Star<AmbisonicsEncodingSettings>{
+abstract AmbisonicsEncodingSettingsPtr(ucpp.Ptr<AmbisonicsEncodingSettings>) from ucpp.Ptr<AmbisonicsEncodingSettings> to ucpp.Ptr<AmbisonicsEncodingSettings>{
 	@:from
 	public static extern inline function fromValue(v: AmbisonicsEncodingSettings): AmbisonicsEncodingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

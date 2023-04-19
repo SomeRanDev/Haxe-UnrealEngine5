@@ -3,9 +3,9 @@ package ue;
 
 @:native("FAnimNode_BlendListByEnum")
 @:include("AnimNodes/AnimNode_BlendListByEnum.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendListByEnum extends AnimNode_BlendListBase {
 
 	@:native("FAnimNode_BlendListByEnum") public function new();
-	@:native("FAnimNode_BlendListByEnum") public static function make(EnumToPoseIndex: TArray<cpp.Int32>, ActiveEnumValue: cpp.UInt8): AnimNode_BlendListByEnum ;
+	@:native("FAnimNode_BlendListByEnum") public static function make(EnumToPoseIndex: TArray<ucpp.num.Int32>, ActiveEnumValue: ucpp.num.UInt8): AnimNode_BlendListByEnum ;
 }

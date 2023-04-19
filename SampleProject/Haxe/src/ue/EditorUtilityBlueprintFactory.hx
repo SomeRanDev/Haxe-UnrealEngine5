@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorUtilityBlueprintFactory")
 @:include("EditorUtilityBlueprintFactory.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityBlueprintFactory extends Factory {
 	public var ParentClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEditorUtilityBlueprintFactory(EditorUtilityBlueprintFactory) from 
 @:forward
 @:nativeGen
 @:native("EditorUtilityBlueprintFactory*")
-abstract EditorUtilityBlueprintFactoryPtr(cpp.Star<EditorUtilityBlueprintFactory>) from cpp.Star<EditorUtilityBlueprintFactory> to cpp.Star<EditorUtilityBlueprintFactory>{
+abstract EditorUtilityBlueprintFactoryPtr(ucpp.Ptr<EditorUtilityBlueprintFactory>) from ucpp.Ptr<EditorUtilityBlueprintFactory> to ucpp.Ptr<EditorUtilityBlueprintFactory>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityBlueprintFactory): EditorUtilityBlueprintFactoryPtr {
 		return untyped __cpp__("&({0})", v);

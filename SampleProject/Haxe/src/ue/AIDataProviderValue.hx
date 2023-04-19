@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAIDataProviderValue")
 @:include("DataProviders/AIDataProvider.h")
-@:structAccess
+@:valueType
 extern class AIDataProviderValue {
-	public var DataBinding: cpp.Star<AIDataProvider>;
+	public var DataBinding: ucpp.Ptr<AIDataProvider>;
 	public var DataField: FName;
 
 	@:native("FAIDataProviderValue") public function new();
-	@:native("FAIDataProviderValue") public static function make(DataBinding: cpp.Star<AIDataProvider>, DataField: FName): AIDataProviderValue ;
+	@:native("FAIDataProviderValue") public static function make(DataBinding: ucpp.Ptr<AIDataProvider>, DataField: FName): AIDataProviderValue ;
 }

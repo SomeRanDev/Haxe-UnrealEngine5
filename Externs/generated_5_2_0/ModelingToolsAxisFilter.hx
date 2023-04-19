@@ -3,7 +3,7 @@ package ue;
 
 @:native("FModelingToolsAxisFilter")
 @:include("PropertySets/AxisFilterPropertyType.h")
-@:structAccess
+@:valueType
 extern class ModelingToolsAxisFilter {
 	public var bAxisX: Bool;
 	public var bAxisY: Bool;

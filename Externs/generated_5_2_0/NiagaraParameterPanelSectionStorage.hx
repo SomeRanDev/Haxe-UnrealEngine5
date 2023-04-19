@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraParameterPanelSectionStorage")
 @:include("NiagaraEditorSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraParameterPanelSectionStorage {
 	public var ParamStorageId: Guid;
 	public var ExpandedCategories: TArray<Guid>;

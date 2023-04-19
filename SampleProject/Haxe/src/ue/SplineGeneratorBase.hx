@@ -3,11 +3,11 @@ package ue;
 
 @:native("USplineGeneratorBase")
 @:include("SplineGeneratorPanel.h")
-@:structAccess
+@:valueType
 extern class SplineGeneratorBase extends Object {
 	public var ShapeAddMode: EShapeAddMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSplineGeneratorBase(SplineGeneratorBase) from SplineGeneratorBase 
 @:forward
 @:nativeGen
 @:native("SplineGeneratorBase*")
-abstract SplineGeneratorBasePtr(cpp.Star<SplineGeneratorBase>) from cpp.Star<SplineGeneratorBase> to cpp.Star<SplineGeneratorBase>{
+abstract SplineGeneratorBasePtr(ucpp.Ptr<SplineGeneratorBase>) from ucpp.Ptr<SplineGeneratorBase> to ucpp.Ptr<SplineGeneratorBase>{
 	@:from
 	public static extern inline function fromValue(v: SplineGeneratorBase): SplineGeneratorBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,40 +3,40 @@ package ue;
 
 @:native("UBlueprintGameplayTagLibrary")
 @:include("BlueprintGameplayTagLibrary.h")
-@:structAccess
+@:valueType
 extern class BlueprintGameplayTagLibrary extends BlueprintFunctionLibrary {
-	public function RemoveGameplayTag(TagContainer: cpp.Reference<GameplayTagContainer>, Tag: GameplayTag): Bool;
+	public function RemoveGameplayTag(TagContainer: ucpp.Ref<GameplayTagContainer>, Tag: GameplayTag): Bool;
 	public function NotEqual_TagTag(A: GameplayTag, B: FString): Bool;
 	public function NotEqual_TagContainerTagContainer(A: GameplayTagContainer, B: FString): Bool;
-	public function NotEqual_GameplayTagContainer(A: cpp.Reference<GameplayTagContainer>, B: cpp.Reference<GameplayTagContainer>): Bool;
+	public function NotEqual_GameplayTagContainer(A: ucpp.Ref<GameplayTagContainer>, B: ucpp.Ref<GameplayTagContainer>): Bool;
 	public function NotEqual_GameplayTag(A: GameplayTag, B: GameplayTag): Bool;
 	public function MatchesTag(TagOne: GameplayTag, TagTwo: GameplayTag, bExactMatch: Bool): Bool;
-	public function MatchesAnyTags(TagOne: GameplayTag, OtherContainer: cpp.Reference<GameplayTagContainer>, bExactMatch: Bool): Bool;
+	public function MatchesAnyTags(TagOne: GameplayTag, OtherContainer: ucpp.Ref<GameplayTagContainer>, bExactMatch: Bool): Bool;
 	public function MakeLiteralGameplayTagContainer(Value: GameplayTagContainer): GameplayTagContainer;
 	public function MakeLiteralGameplayTag(Value: GameplayTag): GameplayTag;
 	public function MakeGameplayTagQuery(TagQuery: GameplayTagQuery): GameplayTagQuery;
 	public function MakeGameplayTagContainerFromTag(SingleTag: GameplayTag): GameplayTagContainer;
-	public function MakeGameplayTagContainerFromArray(GameplayTags: cpp.Reference<TArray<GameplayTag>>): GameplayTagContainer;
-	public function IsTagQueryEmpty(TagQuery: cpp.Reference<GameplayTagQuery>): Bool;
+	public function MakeGameplayTagContainerFromArray(GameplayTags: ucpp.Ref<TArray<GameplayTag>>): GameplayTagContainer;
+	public function IsTagQueryEmpty(TagQuery: ucpp.Ref<GameplayTagQuery>): Bool;
 	public function IsGameplayTagValid(GameplayTag: GameplayTag): Bool;
-	public function HasTag(TagContainer: cpp.Reference<GameplayTagContainer>, Tag: GameplayTag, bExactMatch: Bool): Bool;
-	public function HasAnyTags(TagContainer: cpp.Reference<GameplayTagContainer>, OtherContainer: cpp.Reference<GameplayTagContainer>, bExactMatch: Bool): Bool;
-	public function HasAllTags(TagContainer: cpp.Reference<GameplayTagContainer>, OtherContainer: cpp.Reference<GameplayTagContainer>, bExactMatch: Bool): Bool;
-	public function HasAllMatchingGameplayTags(TagContainerInterface: GameplayTagAssetInterface, OtherContainer: cpp.Reference<GameplayTagContainer>): Bool;
-	public function GetTagName(GameplayTag: cpp.Reference<GameplayTag>): FName;
-	public function GetNumGameplayTagsInContainer(TagContainer: cpp.Reference<GameplayTagContainer>): cpp.Int32;
-	public function GetDebugStringFromGameplayTagContainer(TagContainer: cpp.Reference<GameplayTagContainer>): FString;
+	public function HasTag(TagContainer: ucpp.Ref<GameplayTagContainer>, Tag: GameplayTag, bExactMatch: Bool): Bool;
+	public function HasAnyTags(TagContainer: ucpp.Ref<GameplayTagContainer>, OtherContainer: ucpp.Ref<GameplayTagContainer>, bExactMatch: Bool): Bool;
+	public function HasAllTags(TagContainer: ucpp.Ref<GameplayTagContainer>, OtherContainer: ucpp.Ref<GameplayTagContainer>, bExactMatch: Bool): Bool;
+	public function HasAllMatchingGameplayTags(TagContainerInterface: GameplayTagAssetInterface, OtherContainer: ucpp.Ref<GameplayTagContainer>): Bool;
+	public function GetTagName(GameplayTag: ucpp.Ref<GameplayTag>): FName;
+	public function GetNumGameplayTagsInContainer(TagContainer: ucpp.Ref<GameplayTagContainer>): ucpp.num.Int32;
+	public function GetDebugStringFromGameplayTagContainer(TagContainer: ucpp.Ref<GameplayTagContainer>): FString;
 	public function GetDebugStringFromGameplayTag(GameplayTag: GameplayTag): FString;
-	public function GetAllActorsOfClassMatchingTagQuery(WorldContextObject: cpp.Star<Object>, ActorClass: TSubclassOf<Actor>, GameplayTagQuery: cpp.Reference<GameplayTagQuery>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
-	public function EqualEqual_GameplayTagContainer(A: cpp.Reference<GameplayTagContainer>, B: cpp.Reference<GameplayTagContainer>): Bool;
+	public function GetAllActorsOfClassMatchingTagQuery(WorldContextObject: ucpp.Ptr<Object>, ActorClass: TSubclassOf<Actor>, GameplayTagQuery: ucpp.Ref<GameplayTagQuery>, OutActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
+	public function EqualEqual_GameplayTagContainer(A: ucpp.Ref<GameplayTagContainer>, B: ucpp.Ref<GameplayTagContainer>): Bool;
 	public function EqualEqual_GameplayTag(A: GameplayTag, B: GameplayTag): Bool;
 	public function DoesTagAssetInterfaceHaveTag(TagContainerInterface: GameplayTagAssetInterface, Tag: GameplayTag): Bool;
-	public function DoesContainerMatchTagQuery(TagContainer: cpp.Reference<GameplayTagContainer>, TagQuery: cpp.Reference<GameplayTagQuery>): Bool;
-	public function BreakGameplayTagContainer(GameplayTagContainer: cpp.Reference<GameplayTagContainer>, GameplayTags: cpp.Reference<TArray<GameplayTag>>): Void;
-	public function AppendGameplayTagContainers(InOutTagContainer: cpp.Reference<GameplayTagContainer>, InTagContainer: cpp.Reference<GameplayTagContainer>): Void;
-	public function AddGameplayTag(TagContainer: cpp.Reference<GameplayTagContainer>, Tag: GameplayTag): Void;
+	public function DoesContainerMatchTagQuery(TagContainer: ucpp.Ref<GameplayTagContainer>, TagQuery: ucpp.Ref<GameplayTagQuery>): Bool;
+	public function BreakGameplayTagContainer(GameplayTagContainer: ucpp.Ref<GameplayTagContainer>, GameplayTags: ucpp.Ref<TArray<GameplayTag>>): Void;
+	public function AppendGameplayTagContainers(InOutTagContainer: ucpp.Ref<GameplayTagContainer>, InTagContainer: ucpp.Ref<GameplayTagContainer>): Void;
+	public function AddGameplayTag(TagContainer: ucpp.Ref<GameplayTagContainer>, Tag: GameplayTag): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -47,7 +47,7 @@ abstract ConstBlueprintGameplayTagLibrary(BlueprintGameplayTagLibrary) from Blue
 @:forward
 @:nativeGen
 @:native("BlueprintGameplayTagLibrary*")
-abstract BlueprintGameplayTagLibraryPtr(cpp.Star<BlueprintGameplayTagLibrary>) from cpp.Star<BlueprintGameplayTagLibrary> to cpp.Star<BlueprintGameplayTagLibrary>{
+abstract BlueprintGameplayTagLibraryPtr(ucpp.Ptr<BlueprintGameplayTagLibrary>) from ucpp.Ptr<BlueprintGameplayTagLibrary> to ucpp.Ptr<BlueprintGameplayTagLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintGameplayTagLibrary): BlueprintGameplayTagLibraryPtr {
 		return untyped __cpp__("&({0})", v);

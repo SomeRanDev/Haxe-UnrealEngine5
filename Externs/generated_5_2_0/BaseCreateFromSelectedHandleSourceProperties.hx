@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBaseCreateFromSelectedHandleSourceProperties")
 @:include("BaseTools/BaseCreateFromSelectedTool.h")
-@:structAccess
+@:valueType
 extern class BaseCreateFromSelectedHandleSourceProperties extends OnAcceptHandleSourcesProperties {
 	public var OutputWriteTo: EBaseCreateFromSelectedTargetType;
 	public var OutputNewName: FString;
 	public var OutputExistingName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstBaseCreateFromSelectedHandleSourceProperties(BaseCreateFromSelecte
 @:forward
 @:nativeGen
 @:native("BaseCreateFromSelectedHandleSourceProperties*")
-abstract BaseCreateFromSelectedHandleSourcePropertiesPtr(cpp.Star<BaseCreateFromSelectedHandleSourceProperties>) from cpp.Star<BaseCreateFromSelectedHandleSourceProperties> to cpp.Star<BaseCreateFromSelectedHandleSourceProperties>{
+abstract BaseCreateFromSelectedHandleSourcePropertiesPtr(ucpp.Ptr<BaseCreateFromSelectedHandleSourceProperties>) from ucpp.Ptr<BaseCreateFromSelectedHandleSourceProperties> to ucpp.Ptr<BaseCreateFromSelectedHandleSourceProperties>{
 	@:from
 	public static extern inline function fromValue(v: BaseCreateFromSelectedHandleSourceProperties): BaseCreateFromSelectedHandleSourcePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

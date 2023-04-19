@@ -3,11 +3,11 @@ package ue;
 
 @:native("UStructCookedMetaData")
 @:include("CookedMetaData.h")
-@:structAccess
+@:valueType
 extern class StructCookedMetaData extends Object {
 	@:protected public var StructMetaData: StructCookedMetaDataStore;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstStructCookedMetaData(StructCookedMetaData) from StructCookedMetaDa
 @:forward
 @:nativeGen
 @:native("StructCookedMetaData*")
-abstract StructCookedMetaDataPtr(cpp.Star<StructCookedMetaData>) from cpp.Star<StructCookedMetaData> to cpp.Star<StructCookedMetaData>{
+abstract StructCookedMetaDataPtr(ucpp.Ptr<StructCookedMetaData>) from ucpp.Ptr<StructCookedMetaData> to ucpp.Ptr<StructCookedMetaData>{
 	@:from
 	public static extern inline function fromValue(v: StructCookedMetaData): StructCookedMetaDataPtr {
 		return untyped __cpp__("&({0})", v);

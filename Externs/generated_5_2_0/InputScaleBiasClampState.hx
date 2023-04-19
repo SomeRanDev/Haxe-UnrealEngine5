@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInputScaleBiasClampState")
 @:include("Animation/InputScaleBias.h")
-@:structAccess
+@:valueType
 extern class InputScaleBiasClampState {
 	@:native("FInputScaleBiasClampState") public function new();
 }

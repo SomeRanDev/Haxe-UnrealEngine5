@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraClipboardFunction")
 @:include("NiagaraClipboard.h")
-@:structAccess
+@:valueType
 extern class NiagaraClipboardFunction extends Object {
 	public var FunctionName: FString;
 	public var DisplayName: FText;
@@ -11,14 +11,14 @@ extern class NiagaraClipboardFunction extends Object {
 	public var Script: TSoftObjectPtr<NiagaraScript>;
 	public var AssignmentTargets: TArray<NiagaraVariable>;
 	public var AssignmentDefaults: TArray<FString>;
-	public var Inputs: TArray<cpp.Star<NiagaraClipboardFunctionInput>>;
-	public var OnPastedFunctionCallNodeDelegate: HaxeDelegateProperty<(cpp.Star<NiagaraNodeFunctionCall>) -> Void>;
+	public var Inputs: TArray<ucpp.Ptr<NiagaraClipboardFunctionInput>>;
+	public var OnPastedFunctionCallNodeDelegate: HaxeDelegateProperty<(ucpp.Ptr<NiagaraNodeFunctionCall>) -> Void>;
 	public var ScriptVersion: Guid;
 	public var Messages: TArray<NiagaraStackMessage>;
 
-	public function OnPastedFunctionCallNode__DelegateSignature(PastedFunctionCall: cpp.Star<NiagaraNodeFunctionCall>): Void;
+	public function OnPastedFunctionCallNode__DelegateSignature(PastedFunctionCall: ucpp.Ptr<NiagaraNodeFunctionCall>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,10 +36,10 @@ abstract ConstNiagaraClipboardFunction(NiagaraClipboardFunction) from NiagaraCli
 	public inline extern function get_AssignmentTargets(): TArray<NiagaraVariable> return this.AssignmentTargets;
 	public extern var AssignmentDefaults(get, never): TArray<FString>;
 	public inline extern function get_AssignmentDefaults(): TArray<FString> return this.AssignmentDefaults;
-	public extern var Inputs(get, never): TArray<cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>>;
-	public inline extern function get_Inputs(): TArray<cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>> return this.Inputs;
-	public extern var OnPastedFunctionCallNodeDelegate(get, never): HaxeDelegateProperty<(cpp.Star<NiagaraNodeFunctionCall.ConstNiagaraNodeFunctionCall>) -> Void>;
-	public inline extern function get_OnPastedFunctionCallNodeDelegate(): HaxeDelegateProperty<(cpp.Star<NiagaraNodeFunctionCall.ConstNiagaraNodeFunctionCall>) -> Void> return this.OnPastedFunctionCallNodeDelegate;
+	public extern var Inputs(get, never): TArray<ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>>;
+	public inline extern function get_Inputs(): TArray<ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>> return this.Inputs;
+	public extern var OnPastedFunctionCallNodeDelegate(get, never): HaxeDelegateProperty<(ucpp.Ptr<NiagaraNodeFunctionCall.ConstNiagaraNodeFunctionCall>) -> Void>;
+	public inline extern function get_OnPastedFunctionCallNodeDelegate(): HaxeDelegateProperty<(ucpp.Ptr<NiagaraNodeFunctionCall.ConstNiagaraNodeFunctionCall>) -> Void> return this.OnPastedFunctionCallNodeDelegate;
 	public extern var ScriptVersion(get, never): Guid;
 	public inline extern function get_ScriptVersion(): Guid return this.ScriptVersion;
 	public extern var Messages(get, never): TArray<NiagaraStackMessage>;
@@ -49,7 +49,7 @@ abstract ConstNiagaraClipboardFunction(NiagaraClipboardFunction) from NiagaraCli
 @:forward
 @:nativeGen
 @:native("NiagaraClipboardFunction*")
-abstract NiagaraClipboardFunctionPtr(cpp.Star<NiagaraClipboardFunction>) from cpp.Star<NiagaraClipboardFunction> to cpp.Star<NiagaraClipboardFunction>{
+abstract NiagaraClipboardFunctionPtr(ucpp.Ptr<NiagaraClipboardFunction>) from ucpp.Ptr<NiagaraClipboardFunction> to ucpp.Ptr<NiagaraClipboardFunction>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraClipboardFunction): NiagaraClipboardFunctionPtr {
 		return untyped __cpp__("&({0})", v);

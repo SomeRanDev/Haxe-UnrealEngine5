@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimationSetup")
 @:include("AnimationSharingTypes.h")
-@:structAccess
+@:valueType
 extern class AnimationSetup {
-	public var AnimSequence: cpp.Star<AnimSequence>;
+	public var AnimSequence: ucpp.Ptr<AnimSequence>;
 	public var AnimBlueprint: TSubclassOf<AnimSharingStateInstance>;
 	public var NumRandomizedInstances: PerPlatformInt;
 	public var Enabled: PerPlatformBool;
 
 	@:native("FAnimationSetup") public function new();
-	@:native("FAnimationSetup") public static function make(AnimSequence: cpp.Star<AnimSequence>, AnimBlueprint: TSubclassOf<AnimSharingStateInstance>, NumRandomizedInstances: PerPlatformInt, Enabled: PerPlatformBool): AnimationSetup ;
+	@:native("FAnimationSetup") public static function make(AnimSequence: ucpp.Ptr<AnimSequence>, AnimBlueprint: TSubclassOf<AnimSharingStateInstance>, NumRandomizedInstances: PerPlatformInt, Enabled: PerPlatformBool): AnimationSetup ;
 }

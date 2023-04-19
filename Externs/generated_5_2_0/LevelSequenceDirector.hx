@@ -3,40 +3,40 @@ package ue;
 
 @:native("ULevelSequenceDirector")
 @:include("LevelSequenceDirector.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceDirector extends Object {
-	public var Player: cpp.Star<LevelSequencePlayer>;
-	public var SubSequenceID: cpp.Int32;
-	public var MovieScenePlayerIndex: cpp.Int32;
+	public var Player: ucpp.Ptr<LevelSequencePlayer>;
+	public var SubSequenceID: ucpp.num.Int32;
+	public var MovieScenePlayerIndex: ucpp.num.Int32;
 
 	public function OnCreated(): Void;
-	public function GetSequence(): cpp.Star<MovieSceneSequence>;
+	public function GetSequence(): ucpp.Ptr<MovieSceneSequence>;
 	public function GetRootSequenceTime(): QualifiedFrameTime;
 	public function GetMasterSequenceTime(): QualifiedFrameTime;
 	public function GetCurrentTime(): QualifiedFrameTime;
-	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): TArray<cpp.Star<Object>>;
-	public function GetBoundObject(ObjectBinding: MovieSceneObjectBindingID): cpp.Star<Object>;
-	public function GetBoundActors(ObjectBinding: MovieSceneObjectBindingID): TArray<cpp.Star<Actor>>;
-	public function GetBoundActor(ObjectBinding: MovieSceneObjectBindingID): cpp.Star<Actor>;
+	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): TArray<ucpp.Ptr<Object>>;
+	public function GetBoundObject(ObjectBinding: MovieSceneObjectBindingID): ucpp.Ptr<Object>;
+	public function GetBoundActors(ObjectBinding: MovieSceneObjectBindingID): TArray<ucpp.Ptr<Actor>>;
+	public function GetBoundActor(ObjectBinding: MovieSceneObjectBindingID): ucpp.Ptr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetRootSequenceTime, GetMasterSequenceTime, GetCurrentTime)
 @:nativeGen
 abstract ConstLevelSequenceDirector(LevelSequenceDirector) from LevelSequenceDirector {
-	public extern var Player(get, never): cpp.Star<LevelSequencePlayer.ConstLevelSequencePlayer>;
-	public inline extern function get_Player(): cpp.Star<LevelSequencePlayer.ConstLevelSequencePlayer> return this.Player;
-	public extern var SubSequenceID(get, never): cpp.Int32;
-	public inline extern function get_SubSequenceID(): cpp.Int32 return this.SubSequenceID;
-	public extern var MovieScenePlayerIndex(get, never): cpp.Int32;
-	public inline extern function get_MovieScenePlayerIndex(): cpp.Int32 return this.MovieScenePlayerIndex;
+	public extern var Player(get, never): ucpp.Ptr<LevelSequencePlayer.ConstLevelSequencePlayer>;
+	public inline extern function get_Player(): ucpp.Ptr<LevelSequencePlayer.ConstLevelSequencePlayer> return this.Player;
+	public extern var SubSequenceID(get, never): ucpp.num.Int32;
+	public inline extern function get_SubSequenceID(): ucpp.num.Int32 return this.SubSequenceID;
+	public extern var MovieScenePlayerIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_MovieScenePlayerIndex(): ucpp.num.Int32 return this.MovieScenePlayerIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("LevelSequenceDirector*")
-abstract LevelSequenceDirectorPtr(cpp.Star<LevelSequenceDirector>) from cpp.Star<LevelSequenceDirector> to cpp.Star<LevelSequenceDirector>{
+abstract LevelSequenceDirectorPtr(ucpp.Ptr<LevelSequenceDirector>) from ucpp.Ptr<LevelSequenceDirector> to ucpp.Ptr<LevelSequenceDirector>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceDirector): LevelSequenceDirectorPtr {
 		return untyped __cpp__("&({0})", v);

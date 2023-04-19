@@ -3,37 +3,37 @@ package ue;
 
 @:native("UInterchangeMaterialFactoryNode")
 @:include("InterchangeMaterialFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeMaterialFactoryNode extends InterchangeBaseMaterialFactoryNode {
-	public function SetCustomTwoSided(AttributeValue: cpp.Reference<Bool>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomTranslucencyLightingMode(AttributeValue: cpp.Reference<TEnumAsByte<ETranslucencyLightingMode>>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomShadingModel(AttributeValue: cpp.Reference<TEnumAsByte<EMaterialShadingModel>>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomOpacityMaskClipValue(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomBlendMode(AttributeValue: cpp.Reference<TEnumAsByte<EBlendMode>>, bAddApplyDelegate: Bool): Bool;
-	public function GetTransmissionColorConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetTangentConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetSubsurfaceConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetSpecularConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetRoughnessConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetRefractionConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetOpacityConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetOcclusionConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetObjectClass(): cpp.Star<Class>;
-	public function GetNormalConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetMetallicConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetFuzzColorConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetEmissiveColorConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetCustomTwoSided(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomTranslucencyLightingMode(AttributeValue: cpp.Reference<TEnumAsByte<ETranslucencyLightingMode>>): Bool;
-	public function GetCustomShadingModel(AttributeValue: cpp.Reference<TEnumAsByte<EMaterialShadingModel>>): Bool;
-	public function GetCustomOpacityMaskClipValue(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomBlendMode(AttributeValue: cpp.Reference<TEnumAsByte<EBlendMode>>): Bool;
-	public function GetClothConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetClearCoatRoughnessConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetClearCoatNormalConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetClearCoatConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetBaseColorConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetAnisotropyConnection(ExpressionNodeUid: cpp.Reference<FString>, OutputName: cpp.Reference<FString>): Bool;
+	public function SetCustomTwoSided(AttributeValue: ucpp.Ref<Bool>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomTranslucencyLightingMode(AttributeValue: ucpp.Ref<TEnumAsByte<ETranslucencyLightingMode>>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomShadingModel(AttributeValue: ucpp.Ref<TEnumAsByte<EMaterialShadingModel>>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomOpacityMaskClipValue(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomBlendMode(AttributeValue: ucpp.Ref<TEnumAsByte<EBlendMode>>, bAddApplyDelegate: Bool): Bool;
+	public function GetTransmissionColorConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetTangentConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetSubsurfaceConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetSpecularConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetRoughnessConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetRefractionConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetOpacityConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetOcclusionConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetObjectClass(): ucpp.Ptr<Class>;
+	public function GetNormalConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetMetallicConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetFuzzColorConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetEmissiveColorConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetCustomTwoSided(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomTranslucencyLightingMode(AttributeValue: ucpp.Ref<TEnumAsByte<ETranslucencyLightingMode>>): Bool;
+	public function GetCustomShadingModel(AttributeValue: ucpp.Ref<TEnumAsByte<EMaterialShadingModel>>): Bool;
+	public function GetCustomOpacityMaskClipValue(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomBlendMode(AttributeValue: ucpp.Ref<TEnumAsByte<EBlendMode>>): Bool;
+	public function GetClothConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetClearCoatRoughnessConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetClearCoatNormalConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetClearCoatConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetBaseColorConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetAnisotropyConnection(ExpressionNodeUid: ucpp.Ref<FString>, OutputName: ucpp.Ref<FString>): Bool;
 	public function ConnectToTransmissionColor(AttributeValue: FString): Bool;
 	public function ConnectToTangent(ExpressionNodeUid: FString): Bool;
 	public function ConnectToSubsurface(ExpressionNodeUid: FString): Bool;
@@ -71,7 +71,7 @@ extern class InterchangeMaterialFactoryNode extends InterchangeBaseMaterialFacto
 	public function ConnectOutputToBaseColor(ExpressionNodeUid: FString, OutputName: FString): Bool;
 	public function ConnectOutputToAnisotropy(ExpressionNodeUid: FString, OutputName: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -88,7 +88,7 @@ abstract ConstInterchangeMaterialFactoryNode(InterchangeMaterialFactoryNode) fro
 @:forward
 @:nativeGen
 @:native("InterchangeMaterialFactoryNode*")
-abstract InterchangeMaterialFactoryNodePtr(cpp.Star<InterchangeMaterialFactoryNode>) from cpp.Star<InterchangeMaterialFactoryNode> to cpp.Star<InterchangeMaterialFactoryNode>{
+abstract InterchangeMaterialFactoryNodePtr(ucpp.Ptr<InterchangeMaterialFactoryNode>) from ucpp.Ptr<InterchangeMaterialFactoryNode> to ucpp.Ptr<InterchangeMaterialFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMaterialFactoryNode): InterchangeMaterialFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

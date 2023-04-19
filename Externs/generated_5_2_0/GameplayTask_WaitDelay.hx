@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGameplayTask_WaitDelay")
 @:include("Tasks/GameplayTask_WaitDelay.h")
-@:structAccess
+@:valueType
 extern class GameplayTask_WaitDelay extends GameplayTask {
 	public var OnFinish: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function TaskWaitDelay(TaskOwner: GameplayTaskOwnerInterface, Time: cpp.Float32, Priority: cpp.UInt8): cpp.Star<GameplayTask_WaitDelay>;
+	public function TaskWaitDelay(TaskOwner: GameplayTaskOwnerInterface, Time: ucpp.num.Float32, Priority: ucpp.num.UInt8): ucpp.Ptr<GameplayTask_WaitDelay>;
 	public function TaskDelayDelegate__DelegateSignature(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstGameplayTask_WaitDelay(GameplayTask_WaitDelay) from GameplayTask_W
 @:forward
 @:nativeGen
 @:native("GameplayTask_WaitDelay*")
-abstract GameplayTask_WaitDelayPtr(cpp.Star<GameplayTask_WaitDelay>) from cpp.Star<GameplayTask_WaitDelay> to cpp.Star<GameplayTask_WaitDelay>{
+abstract GameplayTask_WaitDelayPtr(ucpp.Ptr<GameplayTask_WaitDelay>) from ucpp.Ptr<GameplayTask_WaitDelay> to ucpp.Ptr<GameplayTask_WaitDelay>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTask_WaitDelay): GameplayTask_WaitDelayPtr {
 		return untyped __cpp__("&({0})", v);

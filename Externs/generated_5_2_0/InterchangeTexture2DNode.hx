@@ -3,15 +3,15 @@ package ue;
 
 @:native("UInterchangeTexture2DNode")
 @:include("InterchangeTexture2DNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeTexture2DNode extends InterchangeTextureNode {
-	public function SetCustomWrapV(AttributeValue: cpp.Reference<EInterchangeTextureWrapMode>): Bool;
-	public function SetCustomWrapU(AttributeValue: cpp.Reference<EInterchangeTextureWrapMode>): Bool;
-	public function GetSourceBlocks(): TMap<cpp.Int32, FString>;
-	public function GetCustomWrapV(AttributeValue: cpp.Reference<EInterchangeTextureWrapMode>): Bool;
-	public function GetCustomWrapU(AttributeValue: cpp.Reference<EInterchangeTextureWrapMode>): Bool;
+	public function SetCustomWrapV(AttributeValue: ucpp.Ref<EInterchangeTextureWrapMode>): Bool;
+	public function SetCustomWrapU(AttributeValue: ucpp.Ref<EInterchangeTextureWrapMode>): Bool;
+	public function GetSourceBlocks(): TMap<ucpp.num.Int32, FString>;
+	public function GetCustomWrapV(AttributeValue: ucpp.Ref<EInterchangeTextureWrapMode>): Bool;
+	public function GetCustomWrapU(AttributeValue: ucpp.Ref<EInterchangeTextureWrapMode>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSourceBlocks, GetCustomWrapV, GetCustomWrapU)
@@ -22,7 +22,7 @@ abstract ConstInterchangeTexture2DNode(InterchangeTexture2DNode) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeTexture2DNode*")
-abstract InterchangeTexture2DNodePtr(cpp.Star<InterchangeTexture2DNode>) from cpp.Star<InterchangeTexture2DNode> to cpp.Star<InterchangeTexture2DNode>{
+abstract InterchangeTexture2DNodePtr(ucpp.Ptr<InterchangeTexture2DNode>) from ucpp.Ptr<InterchangeTexture2DNode> to ucpp.Ptr<InterchangeTexture2DNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTexture2DNode): InterchangeTexture2DNodePtr {
 		return untyped __cpp__("&({0})", v);

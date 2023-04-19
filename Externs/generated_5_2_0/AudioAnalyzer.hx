@@ -3,28 +3,28 @@ package ue;
 
 @:native("UAudioAnalyzer")
 @:include("AudioAnalyzer.h")
-@:structAccess
+@:valueType
 extern class AudioAnalyzer extends Object {
-	public var AudioBus: cpp.Star<AudioBus>;
-	private var AudioAnalyzerSubsystem: cpp.Star<AudioAnalyzerSubsystem>;
+	public var AudioBus: ucpp.Ptr<AudioBus>;
+	private var AudioAnalyzerSubsystem: ucpp.Ptr<AudioAnalyzerSubsystem>;
 
-	public function StopAnalyzing(WorldContextObject: cpp.Star<Object.ConstObject>): Void;
-	public function StartAnalyzing(WorldContextObject: cpp.Star<Object.ConstObject>, AudioBusToAnalyze: cpp.Star<AudioBus>): Void;
+	public function StopAnalyzing(WorldContextObject: ucpp.Ptr<Object.ConstObject>): Void;
+	public function StartAnalyzing(WorldContextObject: ucpp.Ptr<Object.ConstObject>, AudioBusToAnalyze: ucpp.Ptr<AudioBus>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAudioAnalyzer(AudioAnalyzer) from AudioAnalyzer {
-	public extern var AudioBus(get, never): cpp.Star<AudioBus.ConstAudioBus>;
-	public inline extern function get_AudioBus(): cpp.Star<AudioBus.ConstAudioBus> return this.AudioBus;
+	public extern var AudioBus(get, never): ucpp.Ptr<AudioBus.ConstAudioBus>;
+	public inline extern function get_AudioBus(): ucpp.Ptr<AudioBus.ConstAudioBus> return this.AudioBus;
 }
 
 @:forward
 @:nativeGen
 @:native("AudioAnalyzer*")
-abstract AudioAnalyzerPtr(cpp.Star<AudioAnalyzer>) from cpp.Star<AudioAnalyzer> to cpp.Star<AudioAnalyzer>{
+abstract AudioAnalyzerPtr(ucpp.Ptr<AudioAnalyzer>) from ucpp.Ptr<AudioAnalyzer> to ucpp.Ptr<AudioAnalyzer>{
 	@:from
 	public static extern inline function fromValue(v: AudioAnalyzer): AudioAnalyzerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,18 +3,18 @@ package ue;
 
 @:native("UViewportTransformer")
 @:include("ViewportTransformer.h")
-@:structAccess
+@:valueType
 extern class ViewportTransformer extends Object {
-	@:protected public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
+	@:protected public var ViewportWorldInteraction: ucpp.Ptr<ViewportWorldInteraction>;
 
 	public function Shutdown(): Void;
 	public function ShouldCenterTransformGizmoPivot(): Bool;
-	public function OnStopDragging(Interactor: cpp.Star<ViewportInteractor>): Void;
-	public function OnStartDragging(Interactor: cpp.Star<ViewportInteractor>): Void;
-	public function Init(InitViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>): Void;
+	public function OnStopDragging(Interactor: ucpp.Ptr<ViewportInteractor>): Void;
+	public function OnStartDragging(Interactor: ucpp.Ptr<ViewportInteractor>): Void;
+	public function Init(InitViewportWorldInteraction: ucpp.Ptr<ViewportWorldInteraction>): Void;
 	public function CanAlignToActors(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(ShouldCenterTransformGizmoPivot, CanAlignToActors)
@@ -25,7 +25,7 @@ abstract ConstViewportTransformer(ViewportTransformer) from ViewportTransformer 
 @:forward
 @:nativeGen
 @:native("ViewportTransformer*")
-abstract ViewportTransformerPtr(cpp.Star<ViewportTransformer>) from cpp.Star<ViewportTransformer> to cpp.Star<ViewportTransformer>{
+abstract ViewportTransformerPtr(ucpp.Ptr<ViewportTransformer>) from ucpp.Ptr<ViewportTransformer> to ucpp.Ptr<ViewportTransformer>{
 	@:from
 	public static extern inline function fromValue(v: ViewportTransformer): ViewportTransformerPtr {
 		return untyped __cpp__("&({0})", v);

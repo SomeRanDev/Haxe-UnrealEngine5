@@ -3,17 +3,17 @@ package ue;
 
 @:native("UAnimationSequencerDataModel")
 @:include("AnimSequencerDataModel.h")
-@:structAccess
+@:valueType
 extern class AnimationSequencerDataModel extends MovieSceneSequence {
-	private var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, AnimationDataModel, cpp.Reference<AnimDataModelNotifPayload>) -> Void>;
+	private var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, AnimationDataModel, ucpp.Ref<AnimDataModelNotifPayload>) -> Void>;
 	private var LegacyCurveData: AnimationCurveData;
 	private var AnimatedBoneAttributes: TArray<AnimatedBoneAttribute>;
-	private var MovieScene: cpp.Star<MovieScene>;
+	private var MovieScene: ucpp.Ptr<MovieScene>;
 	private var CurveIdentifierToMetaData: TMap<AnimationCurveIdentifier, AnimationCurveMetaData>;
 	private var bPopulated: Bool;
 	private var CachedRawDataGUID: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAnimationSequencerDataModel(AnimationSequencerDataModel) from Anim
 @:forward
 @:nativeGen
 @:native("AnimationSequencerDataModel*")
-abstract AnimationSequencerDataModelPtr(cpp.Star<AnimationSequencerDataModel>) from cpp.Star<AnimationSequencerDataModel> to cpp.Star<AnimationSequencerDataModel>{
+abstract AnimationSequencerDataModelPtr(ucpp.Ptr<AnimationSequencerDataModel>) from ucpp.Ptr<AnimationSequencerDataModel> to ucpp.Ptr<AnimationSequencerDataModel>{
 	@:from
 	public static extern inline function fromValue(v: AnimationSequencerDataModel): AnimationSequencerDataModelPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNavigationQueryFilter")
 @:include("NavFilters/NavigationQueryFilter.h")
-@:structAccess
+@:valueType
 extern class NavigationQueryFilter extends Object {
 	public var Areas: TArray<NavigationFilterArea>;
 	public var IncludeFlags: NavigationFilterFlags;
 	public var ExcludeFlags: NavigationFilterFlags;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstNavigationQueryFilter(NavigationQueryFilter) from NavigationQueryF
 @:forward
 @:nativeGen
 @:native("NavigationQueryFilter*")
-abstract NavigationQueryFilterPtr(cpp.Star<NavigationQueryFilter>) from cpp.Star<NavigationQueryFilter> to cpp.Star<NavigationQueryFilter>{
+abstract NavigationQueryFilterPtr(ucpp.Ptr<NavigationQueryFilter>) from ucpp.Ptr<NavigationQueryFilter> to ucpp.Ptr<NavigationQueryFilter>{
 	@:from
 	public static extern inline function fromValue(v: NavigationQueryFilter): NavigationQueryFilterPtr {
 		return untyped __cpp__("&({0})", v);

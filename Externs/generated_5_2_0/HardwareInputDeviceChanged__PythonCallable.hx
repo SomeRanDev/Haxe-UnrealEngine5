@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UHardwareInputDeviceChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class HardwareInputDeviceChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstHardwareInputDeviceChanged__PythonCallable(HardwareInputDeviceChan
 @:forward
 @:nativeGen
 @:native("HardwareInputDeviceChanged__PythonCallable*")
-abstract HardwareInputDeviceChanged__PythonCallablePtr(cpp.Star<HardwareInputDeviceChanged__PythonCallable>) from cpp.Star<HardwareInputDeviceChanged__PythonCallable> to cpp.Star<HardwareInputDeviceChanged__PythonCallable>{
+abstract HardwareInputDeviceChanged__PythonCallablePtr(ucpp.Ptr<HardwareInputDeviceChanged__PythonCallable>) from ucpp.Ptr<HardwareInputDeviceChanged__PythonCallable> to ucpp.Ptr<HardwareInputDeviceChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: HardwareInputDeviceChanged__PythonCallable): HardwareInputDeviceChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

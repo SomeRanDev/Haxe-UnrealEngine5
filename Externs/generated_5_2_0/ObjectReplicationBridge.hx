@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectReplicationBridge")
 @:include("Iris/ReplicationSystem/ObjectReplicationBridge.h")
-@:structAccess
+@:valueType
 extern class ObjectReplicationBridge extends ReplicationBridge {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectReplicationBridge(ObjectReplicationBridge) from ObjectReplic
 @:forward
 @:nativeGen
 @:native("ObjectReplicationBridge*")
-abstract ObjectReplicationBridgePtr(cpp.Star<ObjectReplicationBridge>) from cpp.Star<ObjectReplicationBridge> to cpp.Star<ObjectReplicationBridge>{
+abstract ObjectReplicationBridgePtr(ucpp.Ptr<ObjectReplicationBridge>) from ucpp.Ptr<ObjectReplicationBridge> to ucpp.Ptr<ObjectReplicationBridge>{
 	@:from
 	public static extern inline function fromValue(v: ObjectReplicationBridge): ObjectReplicationBridgePtr {
 		return untyped __cpp__("&({0})", v);

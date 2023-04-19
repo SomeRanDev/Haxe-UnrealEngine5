@@ -3,26 +3,26 @@ package ue;
 
 @:native("UISMEditorToolReplacePropertySet")
 @:include("ISMEditorTool.h")
-@:structAccess
+@:valueType
 extern class ISMEditorToolReplacePropertySet extends ISMEditorToolActionPropertySetBase {
-	public var ReplaceWith: cpp.Star<StaticMesh>;
+	public var ReplaceWith: ucpp.Ptr<StaticMesh>;
 
 	public function Replace(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstISMEditorToolReplacePropertySet(ISMEditorToolReplacePropertySet) from ISMEditorToolReplacePropertySet {
-	public extern var ReplaceWith(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_ReplaceWith(): cpp.Star<StaticMesh.ConstStaticMesh> return this.ReplaceWith;
+	public extern var ReplaceWith(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_ReplaceWith(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.ReplaceWith;
 }
 
 @:forward
 @:nativeGen
 @:native("ISMEditorToolReplacePropertySet*")
-abstract ISMEditorToolReplacePropertySetPtr(cpp.Star<ISMEditorToolReplacePropertySet>) from cpp.Star<ISMEditorToolReplacePropertySet> to cpp.Star<ISMEditorToolReplacePropertySet>{
+abstract ISMEditorToolReplacePropertySetPtr(ucpp.Ptr<ISMEditorToolReplacePropertySet>) from ucpp.Ptr<ISMEditorToolReplacePropertySet> to ucpp.Ptr<ISMEditorToolReplacePropertySet>{
 	@:from
 	public static extern inline function fromValue(v: ISMEditorToolReplacePropertySet): ISMEditorToolReplacePropertySetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMatrix")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Matrix {
 	public var XPlane: Plane;
 	public var YPlane: Plane;

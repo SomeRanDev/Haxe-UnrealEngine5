@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraStackEditorData")
 @:include("NiagaraStackEditorData.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackEditorData extends NiagaraEditorDataBase {
 	public var bHideDisabledModules: Bool;
 	private var StackEntryKeyToExpandedMap: TMap<FString, Bool>;
 	private var StackEntryKeyToExpandedOverviewMap: TMap<FString, Bool>;
 	private var DismissedStackIssueIds: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraStackEditorData(NiagaraStackEditorData) from NiagaraStackEd
 @:forward
 @:nativeGen
 @:native("NiagaraStackEditorData*")
-abstract NiagaraStackEditorDataPtr(cpp.Star<NiagaraStackEditorData>) from cpp.Star<NiagaraStackEditorData> to cpp.Star<NiagaraStackEditorData>{
+abstract NiagaraStackEditorDataPtr(ucpp.Ptr<NiagaraStackEditorData>) from ucpp.Ptr<NiagaraStackEditorData> to ucpp.Ptr<NiagaraStackEditorData>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackEditorData): NiagaraStackEditorDataPtr {
 		return untyped __cpp__("&({0})", v);

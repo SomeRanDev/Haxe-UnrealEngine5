@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBTDecorator_ReachedMoveGoal")
 @:include("BehaviorTree/Decorators/BTDecorator_ReachedMoveGoal.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_ReachedMoveGoal extends BTDecorator {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBTDecorator_ReachedMoveGoal(BTDecorator_ReachedMoveGoal) from BTDe
 @:forward
 @:nativeGen
 @:native("BTDecorator_ReachedMoveGoal*")
-abstract BTDecorator_ReachedMoveGoalPtr(cpp.Star<BTDecorator_ReachedMoveGoal>) from cpp.Star<BTDecorator_ReachedMoveGoal> to cpp.Star<BTDecorator_ReachedMoveGoal>{
+abstract BTDecorator_ReachedMoveGoalPtr(ucpp.Ptr<BTDecorator_ReachedMoveGoal>) from ucpp.Ptr<BTDecorator_ReachedMoveGoal> to ucpp.Ptr<BTDecorator_ReachedMoveGoal>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_ReachedMoveGoal): BTDecorator_ReachedMoveGoalPtr {
 		return untyped __cpp__("&({0})", v);

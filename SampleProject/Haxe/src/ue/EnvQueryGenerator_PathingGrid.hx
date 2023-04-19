@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEnvQueryGenerator_PathingGrid")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_PathingGrid.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_PathingGrid extends EnvQueryGenerator_SimpleGrid {
 	public var PathToItem: AIDataProviderBoolValue;
 	public var NavigationFilter: TSubclassOf<NavigationQueryFilter>;
 	public var ScanRangeMultiplier: AIDataProviderFloatValue;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstEnvQueryGenerator_PathingGrid(EnvQueryGenerator_PathingGrid) from 
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_PathingGrid*")
-abstract EnvQueryGenerator_PathingGridPtr(cpp.Star<EnvQueryGenerator_PathingGrid>) from cpp.Star<EnvQueryGenerator_PathingGrid> to cpp.Star<EnvQueryGenerator_PathingGrid>{
+abstract EnvQueryGenerator_PathingGridPtr(ucpp.Ptr<EnvQueryGenerator_PathingGrid>) from ucpp.Ptr<EnvQueryGenerator_PathingGrid> to ucpp.Ptr<EnvQueryGenerator_PathingGrid>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_PathingGrid): EnvQueryGenerator_PathingGridPtr {
 		return untyped __cpp__("&({0})", v);

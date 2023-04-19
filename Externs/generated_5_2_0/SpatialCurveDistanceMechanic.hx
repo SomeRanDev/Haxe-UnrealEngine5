@@ -3,10 +3,10 @@ package ue;
 
 @:native("USpatialCurveDistanceMechanic")
 @:include("Mechanics/SpatialCurveDistanceMechanic.h")
-@:structAccess
+@:valueType
 extern class SpatialCurveDistanceMechanic extends InteractionMechanic {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSpatialCurveDistanceMechanic(SpatialCurveDistanceMechanic) from Sp
 @:forward
 @:nativeGen
 @:native("SpatialCurveDistanceMechanic*")
-abstract SpatialCurveDistanceMechanicPtr(cpp.Star<SpatialCurveDistanceMechanic>) from cpp.Star<SpatialCurveDistanceMechanic> to cpp.Star<SpatialCurveDistanceMechanic>{
+abstract SpatialCurveDistanceMechanicPtr(ucpp.Ptr<SpatialCurveDistanceMechanic>) from ucpp.Ptr<SpatialCurveDistanceMechanic> to ucpp.Ptr<SpatialCurveDistanceMechanic>{
 	@:from
 	public static extern inline function fromValue(v: SpatialCurveDistanceMechanic): SpatialCurveDistanceMechanicPtr {
 		return untyped __cpp__("&({0})", v);

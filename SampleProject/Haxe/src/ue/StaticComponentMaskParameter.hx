@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStaticComponentMaskParameter")
 @:include("StaticParameterSet.h")
-@:structAccess
+@:valueType
 extern class StaticComponentMaskParameter extends StaticParameterBase {
 	public var R: Bool;
 	public var G: Bool;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FStaticMeshReductionSettings")
 @:include("StaticMeshEditorSubsystemHelpers.h")
-@:structAccess
+@:valueType
 extern class StaticMeshReductionSettings {
-	public var PercentTriangles: cpp.Float32;
-	public var ScreenSize: cpp.Float32;
+	public var PercentTriangles: ucpp.num.Float32;
+	public var ScreenSize: ucpp.num.Float32;
 
 	@:native("FStaticMeshReductionSettings") public function new();
-	@:native("FStaticMeshReductionSettings") public static function make(PercentTriangles: cpp.Float32, ScreenSize: cpp.Float32): StaticMeshReductionSettings ;
+	@:native("FStaticMeshReductionSettings") public static function make(PercentTriangles: ucpp.num.Float32, ScreenSize: ucpp.num.Float32): StaticMeshReductionSettings ;
 }

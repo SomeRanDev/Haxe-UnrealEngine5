@@ -3,13 +3,13 @@ package ue;
 
 @:native("FInterchangeMeshGeometry")
 @:include("InterchangePipelineMeshesUtilities.h")
-@:structAccess
+@:valueType
 extern class InterchangeMeshGeometry {
 	public var MeshUid: FString;
-	public var MeshNode: cpp.Star<InterchangeMeshNode>;
+	public var MeshNode: ucpp.Ptr<InterchangeMeshNode>;
 	public var ReferencingMeshInstanceUids: TArray<FString>;
 	public var AttachedSocketUids: TArray<FString>;
 
 	@:native("FInterchangeMeshGeometry") public function new();
-	@:native("FInterchangeMeshGeometry") public static function make(MeshUid: FString, MeshNode: cpp.Star<InterchangeMeshNode>, ReferencingMeshInstanceUids: TArray<FString>, AttachedSocketUids: TArray<FString>): InterchangeMeshGeometry ;
+	@:native("FInterchangeMeshGeometry") public static function make(MeshUid: FString, MeshNode: ucpp.Ptr<InterchangeMeshNode>, ReferencingMeshInstanceUids: TArray<FString>, AttachedSocketUids: TArray<FString>): InterchangeMeshGeometry ;
 }

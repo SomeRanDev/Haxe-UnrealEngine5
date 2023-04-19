@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSkeletalAnimRootMotionTrackParams")
 @:include("Tracks/MovieSceneSkeletalAnimationTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSkeletalAnimRootMotionTrackParams {
 	@:native("FMovieSceneSkeletalAnimRootMotionTrackParams") public function new();
 }

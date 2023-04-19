@@ -3,17 +3,17 @@ package ue;
 
 @:native("UParticleModuleEventReceiverSpawn")
 @:include("Particles/Event/ParticleModuleEventReceiverSpawn.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleEventReceiverSpawn extends ParticleModuleEventReceiverBase {
 	public var SpawnCount: RawDistributionFloat;
 	public var bUseParticleTime: Bool;
 	public var bUsePSysLocation: Bool;
 	public var bInheritVelocity: Bool;
 	public var InheritVelocityScale: RawDistributionVector;
-	public var PhysicalMaterials: TArray<cpp.Star<PhysicalMaterial>>;
+	public var PhysicalMaterials: TArray<ucpp.Ptr<PhysicalMaterial>>;
 	public var bBanPhysicalMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,8 +29,8 @@ abstract ConstParticleModuleEventReceiverSpawn(ParticleModuleEventReceiverSpawn)
 	public inline extern function get_bInheritVelocity(): Bool return this.bInheritVelocity;
 	public extern var InheritVelocityScale(get, never): RawDistributionVector;
 	public inline extern function get_InheritVelocityScale(): RawDistributionVector return this.InheritVelocityScale;
-	public extern var PhysicalMaterials(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
-	public inline extern function get_PhysicalMaterials(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.PhysicalMaterials;
+	public extern var PhysicalMaterials(get, never): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>>;
+	public inline extern function get_PhysicalMaterials(): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>> return this.PhysicalMaterials;
 	public extern var bBanPhysicalMaterials(get, never): Bool;
 	public inline extern function get_bBanPhysicalMaterials(): Bool return this.bBanPhysicalMaterials;
 }
@@ -38,7 +38,7 @@ abstract ConstParticleModuleEventReceiverSpawn(ParticleModuleEventReceiverSpawn)
 @:forward
 @:nativeGen
 @:native("ParticleModuleEventReceiverSpawn*")
-abstract ParticleModuleEventReceiverSpawnPtr(cpp.Star<ParticleModuleEventReceiverSpawn>) from cpp.Star<ParticleModuleEventReceiverSpawn> to cpp.Star<ParticleModuleEventReceiverSpawn>{
+abstract ParticleModuleEventReceiverSpawnPtr(ucpp.Ptr<ParticleModuleEventReceiverSpawn>) from ucpp.Ptr<ParticleModuleEventReceiverSpawn> to ucpp.Ptr<ParticleModuleEventReceiverSpawn>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleEventReceiverSpawn): ParticleModuleEventReceiverSpawnPtr {
 		return untyped __cpp__("&({0})", v);

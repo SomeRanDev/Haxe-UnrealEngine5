@@ -3,12 +3,13 @@ package ue;
 
 @:native("FStrataMaterialInfo")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class StrataMaterialInfo {
-	private var ShadingModelField: cpp.UInt8;
-	private var bHasShadingModelFromExpression: cpp.UInt8;
-	private var SubsurfaceProfiles: TArray<cpp.Star<SubsurfaceProfile>>;
+	private var ShadingModelField: ucpp.num.UInt16;
+	private var bHasShadingModelFromExpression: ucpp.num.UInt8;
+	private var ConnectedProperties: ucpp.num.UInt32;
+	private var SubsurfaceProfiles: TArray<ucpp.Ptr<SubsurfaceProfile>>;
 
 	@:native("FStrataMaterialInfo") public function new();
-	@:native("FStrataMaterialInfo") public static function make(ShadingModelField: cpp.UInt8, bHasShadingModelFromExpression: cpp.UInt8, SubsurfaceProfiles: TArray<cpp.Star<SubsurfaceProfile>>): StrataMaterialInfo ;
+	@:native("FStrataMaterialInfo") public static function make(ShadingModelField: ucpp.num.UInt16, bHasShadingModelFromExpression: ucpp.num.UInt8, ConnectedProperties: ucpp.num.UInt32, SubsurfaceProfiles: TArray<ucpp.Ptr<SubsurfaceProfile>>): StrataMaterialInfo ;
 }

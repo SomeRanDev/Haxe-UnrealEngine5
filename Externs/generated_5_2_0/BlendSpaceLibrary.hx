@@ -3,15 +3,15 @@ package ue;
 
 @:native("UBlendSpaceLibrary")
 @:include("BlendSpaceLibrary.h")
-@:structAccess
+@:valueType
 extern class BlendSpaceLibrary extends BlueprintFunctionLibrary {
-	public function SnapToPosition(BlendSpace: cpp.Reference<BlendSpaceReference>, NewPosition: Vector): Void;
-	public function GetPosition(BlendSpace: cpp.Reference<BlendSpaceReference>): Vector;
-	public function GetFilteredPosition(BlendSpace: cpp.Reference<BlendSpaceReference>): Vector;
-	public function ConvertToBlendSpacePure(Node: cpp.Reference<AnimNodeReference>, BlendSpace: cpp.Reference<BlendSpaceReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToBlendSpace(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): BlendSpaceReference;
+	public function SnapToPosition(BlendSpace: ucpp.Ref<BlendSpaceReference>, NewPosition: Vector): Void;
+	public function GetPosition(BlendSpace: ucpp.Ref<BlendSpaceReference>): Vector;
+	public function GetFilteredPosition(BlendSpace: ucpp.Ref<BlendSpaceReference>): Vector;
+	public function ConvertToBlendSpacePure(Node: ucpp.Ref<AnimNodeReference>, BlendSpace: ucpp.Ref<BlendSpaceReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToBlendSpace(Node: ucpp.Ref<AnimNodeReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): BlendSpaceReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstBlendSpaceLibrary(BlendSpaceLibrary) from BlendSpaceLibrary {
 @:forward
 @:nativeGen
 @:native("BlendSpaceLibrary*")
-abstract BlendSpaceLibraryPtr(cpp.Star<BlendSpaceLibrary>) from cpp.Star<BlendSpaceLibrary> to cpp.Star<BlendSpaceLibrary>{
+abstract BlendSpaceLibraryPtr(ucpp.Ptr<BlendSpaceLibrary>) from ucpp.Ptr<BlendSpaceLibrary> to ucpp.Ptr<BlendSpaceLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlendSpaceLibrary): BlendSpaceLibraryPtr {
 		return untyped __cpp__("&({0})", v);

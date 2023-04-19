@@ -3,16 +3,17 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRenderTargetVolume")
 @:include("NiagaraDataInterfaceRenderTargetVolume.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceRenderTargetVolume extends NiagaraDataInterfaceRWBase {
 	public var Size: IntVector;
 	public var OverrideRenderTargetFormat: TEnumAsByte<ETextureRenderTargetFormat>;
+	public var OverrideRenderTargetFilter: TEnumAsByte<TextureFilter>;
 	public var bInheritUserParameterSettings: Bool;
 	public var bOverrideFormat: Bool;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
-	@:protected public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTargetVolume>>;
+	@:protected public var ManagedRenderTargets: TMap<ucpp.num.UInt64, ucpp.Ptr<TextureRenderTargetVolume>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,6 +23,8 @@ abstract ConstNiagaraDataInterfaceRenderTargetVolume(NiagaraDataInterfaceRenderT
 	public inline extern function get_Size(): IntVector return this.Size;
 	public extern var OverrideRenderTargetFormat(get, never): TEnumAsByte<ETextureRenderTargetFormat>;
 	public inline extern function get_OverrideRenderTargetFormat(): TEnumAsByte<ETextureRenderTargetFormat> return this.OverrideRenderTargetFormat;
+	public extern var OverrideRenderTargetFilter(get, never): TEnumAsByte<TextureFilter>;
+	public inline extern function get_OverrideRenderTargetFilter(): TEnumAsByte<TextureFilter> return this.OverrideRenderTargetFilter;
 	public extern var bInheritUserParameterSettings(get, never): Bool;
 	public inline extern function get_bInheritUserParameterSettings(): Bool return this.bInheritUserParameterSettings;
 	public extern var bOverrideFormat(get, never): Bool;
@@ -33,7 +36,7 @@ abstract ConstNiagaraDataInterfaceRenderTargetVolume(NiagaraDataInterfaceRenderT
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceRenderTargetVolume*")
-abstract NiagaraDataInterfaceRenderTargetVolumePtr(cpp.Star<NiagaraDataInterfaceRenderTargetVolume>) from cpp.Star<NiagaraDataInterfaceRenderTargetVolume> to cpp.Star<NiagaraDataInterfaceRenderTargetVolume>{
+abstract NiagaraDataInterfaceRenderTargetVolumePtr(ucpp.Ptr<NiagaraDataInterfaceRenderTargetVolume>) from ucpp.Ptr<NiagaraDataInterfaceRenderTargetVolume> to ucpp.Ptr<NiagaraDataInterfaceRenderTargetVolume>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceRenderTargetVolume): NiagaraDataInterfaceRenderTargetVolumePtr {
 		return untyped __cpp__("&({0})", v);

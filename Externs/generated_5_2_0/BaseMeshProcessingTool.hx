@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBaseMeshProcessingTool")
 @:include("BaseTools/BaseMeshProcessingTool.h")
-@:structAccess
+@:valueType
 extern class BaseMeshProcessingTool extends SingleSelectionTool {
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBaseMeshProcessingTool(BaseMeshProcessingTool) from BaseMeshProces
 @:forward
 @:nativeGen
 @:native("BaseMeshProcessingTool*")
-abstract BaseMeshProcessingToolPtr(cpp.Star<BaseMeshProcessingTool>) from cpp.Star<BaseMeshProcessingTool> to cpp.Star<BaseMeshProcessingTool>{
+abstract BaseMeshProcessingToolPtr(ucpp.Ptr<BaseMeshProcessingTool>) from ucpp.Ptr<BaseMeshProcessingTool> to ucpp.Ptr<BaseMeshProcessingTool>{
 	@:from
 	public static extern inline function fromValue(v: BaseMeshProcessingTool): BaseMeshProcessingToolPtr {
 		return untyped __cpp__("&({0})", v);

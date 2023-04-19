@@ -3,11 +3,11 @@ package ue;
 
 @:native("FBlendSpaceBlendProfile")
 @:include("Animation/BlendSpace.h")
-@:structAccess
+@:valueType
 extern class BlendSpaceBlendProfile {
-	public var BlendProfile: cpp.Star<BlendProfile>;
-	public var TargetWeightInterpolationSpeedPerSec: cpp.Float32;
+	public var BlendProfile: ucpp.Ptr<BlendProfile>;
+	public var TargetWeightInterpolationSpeedPerSec: ucpp.num.Float32;
 
 	@:native("FBlendSpaceBlendProfile") public function new();
-	@:native("FBlendSpaceBlendProfile") public static function make(BlendProfile: cpp.Star<BlendProfile>, TargetWeightInterpolationSpeedPerSec: cpp.Float32): BlendSpaceBlendProfile ;
+	@:native("FBlendSpaceBlendProfile") public static function make(BlendProfile: ucpp.Ptr<BlendProfile>, TargetWeightInterpolationSpeedPerSec: ucpp.num.Float32): BlendSpaceBlendProfile ;
 }

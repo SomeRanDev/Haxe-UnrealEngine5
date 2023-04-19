@@ -3,10 +3,10 @@ package ue;
 
 @:native("UARTextureCameraImage")
 @:include("ARTextures.h")
-@:structAccess
+@:valueType
 extern class ARTextureCameraImage extends ARTexture {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstARTextureCameraImage(ARTextureCameraImage) from ARTextureCameraIma
 @:forward
 @:nativeGen
 @:native("ARTextureCameraImage*")
-abstract ARTextureCameraImagePtr(cpp.Star<ARTextureCameraImage>) from cpp.Star<ARTextureCameraImage> to cpp.Star<ARTextureCameraImage>{
+abstract ARTextureCameraImagePtr(ucpp.Ptr<ARTextureCameraImage>) from ucpp.Ptr<ARTextureCameraImage> to ucpp.Ptr<ARTextureCameraImage>{
 	@:from
 	public static extern inline function fromValue(v: ARTextureCameraImage): ARTextureCameraImagePtr {
 		return untyped __cpp__("&({0})", v);

@@ -7,6 +7,5 @@ extern class ENetworkSmoothingMode {
 	static var Disabled: ENetworkSmoothingMode;
 	static var Linear: ENetworkSmoothingMode;
 	static var Exponential: ENetworkSmoothingMode;
-	static var Replay: ENetworkSmoothingMode;
 	static var ENetworkSmoothingMode_MAX: ENetworkSmoothingMode;
 }

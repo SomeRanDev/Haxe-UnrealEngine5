@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPerBoneInterpolation")
 @:include("Animation/BlendSpace.h")
-@:structAccess
+@:valueType
 extern class PerBoneInterpolation {
 	public var BoneReference: BoneReference;
-	public var InterpolationSpeedPerSec: cpp.Float32;
+	public var InterpolationSpeedPerSec: ucpp.num.Float32;
 
 	@:native("FPerBoneInterpolation") public function new();
-	@:native("FPerBoneInterpolation") public static function make(BoneReference: BoneReference, InterpolationSpeedPerSec: cpp.Float32): PerBoneInterpolation ;
+	@:native("FPerBoneInterpolation") public static function make(BoneReference: BoneReference, InterpolationSpeedPerSec: ucpp.num.Float32): PerBoneInterpolation ;
 }

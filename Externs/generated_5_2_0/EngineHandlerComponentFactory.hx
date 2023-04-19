@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEngineHandlerComponentFactory")
 @:include("PacketHandlers/EngineHandlerComponentFactory.h")
-@:structAccess
+@:valueType
 extern class EngineHandlerComponentFactory extends HandlerComponentFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEngineHandlerComponentFactory(EngineHandlerComponentFactory) from 
 @:forward
 @:nativeGen
 @:native("EngineHandlerComponentFactory*")
-abstract EngineHandlerComponentFactoryPtr(cpp.Star<EngineHandlerComponentFactory>) from cpp.Star<EngineHandlerComponentFactory> to cpp.Star<EngineHandlerComponentFactory>{
+abstract EngineHandlerComponentFactoryPtr(ucpp.Ptr<EngineHandlerComponentFactory>) from ucpp.Ptr<EngineHandlerComponentFactory> to ucpp.Ptr<EngineHandlerComponentFactory>{
 	@:from
 	public static extern inline function fromValue(v: EngineHandlerComponentFactory): EngineHandlerComponentFactoryPtr {
 		return untyped __cpp__("&({0})", v);

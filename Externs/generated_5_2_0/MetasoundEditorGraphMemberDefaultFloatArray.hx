@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMetasoundEditorGraphMemberDefaultFloatArray")
 @:include("MetasoundEditorGraphMemberDefaults.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorGraphMemberDefaultFloatArray extends MetasoundEditorGraphMemberDefaultLiteral {
-	public var Default: TArray<cpp.Float32>;
+	public var Default: TArray<ucpp.num.Float32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMetasoundEditorGraphMemberDefaultFloatArray(MetasoundEditorGraphMemberDefaultFloatArray) from MetasoundEditorGraphMemberDefaultFloatArray {
-	public extern var Default(get, never): TArray<cpp.Float32>;
-	public inline extern function get_Default(): TArray<cpp.Float32> return this.Default;
+	public extern var Default(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_Default(): TArray<ucpp.num.Float32> return this.Default;
 }
 
 @:forward
 @:nativeGen
 @:native("MetasoundEditorGraphMemberDefaultFloatArray*")
-abstract MetasoundEditorGraphMemberDefaultFloatArrayPtr(cpp.Star<MetasoundEditorGraphMemberDefaultFloatArray>) from cpp.Star<MetasoundEditorGraphMemberDefaultFloatArray> to cpp.Star<MetasoundEditorGraphMemberDefaultFloatArray>{
+abstract MetasoundEditorGraphMemberDefaultFloatArrayPtr(ucpp.Ptr<MetasoundEditorGraphMemberDefaultFloatArray>) from ucpp.Ptr<MetasoundEditorGraphMemberDefaultFloatArray> to ucpp.Ptr<MetasoundEditorGraphMemberDefaultFloatArray>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundEditorGraphMemberDefaultFloatArray): MetasoundEditorGraphMemberDefaultFloatArrayPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,14 +2,14 @@
 package ue;
 
 @:native("UGizmoVec2ParameterSource")
-@:structAccess
+@:valueType
 extern class GizmoVec2ParameterSource extends Interface {
-	public function SetParameter(NewValue: cpp.Reference<Vector2D>): Void;
+	public function SetParameter(NewValue: ucpp.Ref<Vector2D>): Void;
 	public function GetParameter(): Vector2D;
 	public function EndModify(): Void;
 	public function BeginModify(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetParameter)
@@ -20,7 +20,7 @@ abstract ConstGizmoVec2ParameterSource(GizmoVec2ParameterSource) from GizmoVec2P
 @:forward
 @:nativeGen
 @:native("GizmoVec2ParameterSource*")
-abstract GizmoVec2ParameterSourcePtr(cpp.Star<GizmoVec2ParameterSource>) from cpp.Star<GizmoVec2ParameterSource> to cpp.Star<GizmoVec2ParameterSource>{
+abstract GizmoVec2ParameterSourcePtr(ucpp.Ptr<GizmoVec2ParameterSource>) from ucpp.Ptr<GizmoVec2ParameterSource> to ucpp.Ptr<GizmoVec2ParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoVec2ParameterSource): GizmoVec2ParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

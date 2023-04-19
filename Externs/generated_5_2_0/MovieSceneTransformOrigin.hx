@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UMovieSceneTransformOrigin")
-@:structAccess
+@:valueType
 extern class MovieSceneTransformOrigin extends Interface {
 	@:protected public function BP_GetTransformOrigin(): Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(BP_GetTransformOrigin)
@@ -17,7 +17,7 @@ abstract ConstMovieSceneTransformOrigin(MovieSceneTransformOrigin) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieSceneTransformOrigin*")
-abstract MovieSceneTransformOriginPtr(cpp.Star<MovieSceneTransformOrigin>) from cpp.Star<MovieSceneTransformOrigin> to cpp.Star<MovieSceneTransformOrigin>{
+abstract MovieSceneTransformOriginPtr(ucpp.Ptr<MovieSceneTransformOrigin>) from ucpp.Ptr<MovieSceneTransformOrigin> to ucpp.Ptr<MovieSceneTransformOrigin>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTransformOrigin): MovieSceneTransformOriginPtr {
 		return untyped __cpp__("&({0})", v);

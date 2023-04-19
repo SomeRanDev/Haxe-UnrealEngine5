@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBaseLegacyWidgetEdMode")
 @:include("Tools/LegacyEdModeWidgetHelpers.h")
-@:structAccess
+@:valueType
 extern class BaseLegacyWidgetEdMode extends EdMode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBaseLegacyWidgetEdMode(BaseLegacyWidgetEdMode) from BaseLegacyWidg
 @:forward
 @:nativeGen
 @:native("BaseLegacyWidgetEdMode*")
-abstract BaseLegacyWidgetEdModePtr(cpp.Star<BaseLegacyWidgetEdMode>) from cpp.Star<BaseLegacyWidgetEdMode> to cpp.Star<BaseLegacyWidgetEdMode>{
+abstract BaseLegacyWidgetEdModePtr(ucpp.Ptr<BaseLegacyWidgetEdMode>) from ucpp.Ptr<BaseLegacyWidgetEdMode> to ucpp.Ptr<BaseLegacyWidgetEdMode>{
 	@:from
 	public static extern inline function fromValue(v: BaseLegacyWidgetEdMode): BaseLegacyWidgetEdModePtr {
 		return untyped __cpp__("&({0})", v);

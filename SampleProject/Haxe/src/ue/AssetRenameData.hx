@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAssetRenameData")
 @:include("IAssetTools.h")
-@:structAccess
+@:valueType
 extern class AssetRenameData {
 	public var Asset: TWeakObjectPtr<Object>;
 	public var NewPackagePath: FString;

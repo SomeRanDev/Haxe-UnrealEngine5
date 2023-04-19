@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorBrushBuilder")
 @:include("Builders/EditorBrushBuilder.h")
-@:structAccess
+@:valueType
 extern class EditorBrushBuilder extends BrushBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorBrushBuilder(EditorBrushBuilder) from EditorBrushBuilder {
 @:forward
 @:nativeGen
 @:native("EditorBrushBuilder*")
-abstract EditorBrushBuilderPtr(cpp.Star<EditorBrushBuilder>) from cpp.Star<EditorBrushBuilder> to cpp.Star<EditorBrushBuilder>{
+abstract EditorBrushBuilderPtr(ucpp.Ptr<EditorBrushBuilder>) from ucpp.Ptr<EditorBrushBuilder> to ucpp.Ptr<EditorBrushBuilder>{
 	@:from
 	public static extern inline function fromValue(v: EditorBrushBuilder): EditorBrushBuilderPtr {
 		return untyped __cpp__("&({0})", v);

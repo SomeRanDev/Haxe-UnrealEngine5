@@ -3,23 +3,23 @@ package ue;
 
 @:native("UBehaviorTreeGraphNode_CompositeDecorator")
 @:include("BehaviorTreeGraphNode_CompositeDecorator.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeGraphNode_CompositeDecorator extends BehaviorTreeGraphNode {
-	public var BoundGraph: cpp.Star<EdGraph>;
+	public var BoundGraph: ucpp.Ptr<EdGraph>;
 	public var CompositeName: FString;
 	public var bShowOperations: Bool;
 	public var bCanAbortFlow: Bool;
-	@:protected public var ParentNodeInstance: cpp.Star<BTCompositeNode>;
+	@:protected public var ParentNodeInstance: ucpp.Ptr<BTCompositeNode>;
 	@:protected public var CachedDescription: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBehaviorTreeGraphNode_CompositeDecorator(BehaviorTreeGraphNode_CompositeDecorator) from BehaviorTreeGraphNode_CompositeDecorator {
-	public extern var BoundGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_BoundGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.BoundGraph;
+	public extern var BoundGraph(get, never): ucpp.Ptr<EdGraph.ConstEdGraph>;
+	public inline extern function get_BoundGraph(): ucpp.Ptr<EdGraph.ConstEdGraph> return this.BoundGraph;
 	public extern var CompositeName(get, never): FString;
 	public inline extern function get_CompositeName(): FString return this.CompositeName;
 	public extern var bShowOperations(get, never): Bool;
@@ -31,7 +31,7 @@ abstract ConstBehaviorTreeGraphNode_CompositeDecorator(BehaviorTreeGraphNode_Com
 @:forward
 @:nativeGen
 @:native("BehaviorTreeGraphNode_CompositeDecorator*")
-abstract BehaviorTreeGraphNode_CompositeDecoratorPtr(cpp.Star<BehaviorTreeGraphNode_CompositeDecorator>) from cpp.Star<BehaviorTreeGraphNode_CompositeDecorator> to cpp.Star<BehaviorTreeGraphNode_CompositeDecorator>{
+abstract BehaviorTreeGraphNode_CompositeDecoratorPtr(ucpp.Ptr<BehaviorTreeGraphNode_CompositeDecorator>) from ucpp.Ptr<BehaviorTreeGraphNode_CompositeDecorator> to ucpp.Ptr<BehaviorTreeGraphNode_CompositeDecorator>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeGraphNode_CompositeDecorator): BehaviorTreeGraphNode_CompositeDecoratorPtr {
 		return untyped __cpp__("&({0})", v);

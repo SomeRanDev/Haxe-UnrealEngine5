@@ -3,19 +3,19 @@ package ue;
 
 @:native("UTestBTDecorator_DelayedAbort")
 @:include("BehaviorTree/TestBTDecorator_DelayedAbort.h")
-@:structAccess
+@:valueType
 extern class TestBTDecorator_DelayedAbort extends BTDecorator {
-	public var DelayTicks: cpp.Int32;
+	public var DelayTicks: ucpp.num.Int32;
 	public var bOnlyOnce: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTestBTDecorator_DelayedAbort(TestBTDecorator_DelayedAbort) from TestBTDecorator_DelayedAbort {
-	public extern var DelayTicks(get, never): cpp.Int32;
-	public inline extern function get_DelayTicks(): cpp.Int32 return this.DelayTicks;
+	public extern var DelayTicks(get, never): ucpp.num.Int32;
+	public inline extern function get_DelayTicks(): ucpp.num.Int32 return this.DelayTicks;
 	public extern var bOnlyOnce(get, never): Bool;
 	public inline extern function get_bOnlyOnce(): Bool return this.bOnlyOnce;
 }
@@ -23,7 +23,7 @@ abstract ConstTestBTDecorator_DelayedAbort(TestBTDecorator_DelayedAbort) from Te
 @:forward
 @:nativeGen
 @:native("TestBTDecorator_DelayedAbort*")
-abstract TestBTDecorator_DelayedAbortPtr(cpp.Star<TestBTDecorator_DelayedAbort>) from cpp.Star<TestBTDecorator_DelayedAbort> to cpp.Star<TestBTDecorator_DelayedAbort>{
+abstract TestBTDecorator_DelayedAbortPtr(ucpp.Ptr<TestBTDecorator_DelayedAbort>) from ucpp.Ptr<TestBTDecorator_DelayedAbort> to ucpp.Ptr<TestBTDecorator_DelayedAbort>{
 	@:from
 	public static extern inline function fromValue(v: TestBTDecorator_DelayedAbort): TestBTDecorator_DelayedAbortPtr {
 		return untyped __cpp__("&({0})", v);

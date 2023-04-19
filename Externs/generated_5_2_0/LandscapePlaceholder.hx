@@ -3,10 +3,10 @@ package ue;
 
 @:native("ALandscapePlaceholder")
 @:include("Classes/LandscapePlaceholder.h")
-@:structAccess
+@:valueType
 extern class LandscapePlaceholder extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapePlaceholder(LandscapePlaceholder) from LandscapePlacehold
 @:forward
 @:nativeGen
 @:native("LandscapePlaceholder*")
-abstract LandscapePlaceholderPtr(cpp.Star<LandscapePlaceholder>) from cpp.Star<LandscapePlaceholder> to cpp.Star<LandscapePlaceholder>{
+abstract LandscapePlaceholderPtr(ucpp.Ptr<LandscapePlaceholder>) from ucpp.Ptr<LandscapePlaceholder> to ucpp.Ptr<LandscapePlaceholder>{
 	@:from
 	public static extern inline function fromValue(v: LandscapePlaceholder): LandscapePlaceholderPtr {
 		return untyped __cpp__("&({0})", v);

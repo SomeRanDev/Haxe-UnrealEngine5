@@ -3,11 +3,11 @@ package ue;
 
 @:native("FEditorMapPerformanceTestDefinition")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class EditorMapPerformanceTestDefinition {
 	public var PerformanceTestmap: SoftObjectPath;
-	public var TestTimer: cpp.Int32;
+	public var TestTimer: ucpp.num.Int32;
 
 	@:native("FEditorMapPerformanceTestDefinition") public function new();
-	@:native("FEditorMapPerformanceTestDefinition") public static function make(PerformanceTestmap: SoftObjectPath, TestTimer: cpp.Int32): EditorMapPerformanceTestDefinition ;
+	@:native("FEditorMapPerformanceTestDefinition") public static function make(PerformanceTestmap: SoftObjectPath, TestTimer: ucpp.num.Int32): EditorMapPerformanceTestDefinition ;
 }

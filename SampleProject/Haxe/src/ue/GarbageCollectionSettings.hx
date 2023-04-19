@@ -3,9 +3,9 @@ package ue;
 
 @:native("UGarbageCollectionSettings")
 @:include("Engine/CoreSettings.h")
-@:structAccess
+@:valueType
 extern class GarbageCollectionSettings extends DeveloperSettings {
-	@:protected public var TimeBetweenPurgingPendingKillObjects: cpp.Float32;
+	@:protected public var TimeBetweenPurgingPendingKillObjects: ucpp.num.Float32;
 	@:protected public var FlushStreamingOnGC: Bool;
 	@:protected public var AllowParallelGC: Bool;
 	@:protected public var IncrementalBeginDestroyEnabled: Bool;
@@ -18,14 +18,14 @@ extern class GarbageCollectionSettings extends DeveloperSettings {
 	@:protected public var VerifyGCObjectNames: Bool;
 	@:protected public var VerifyUObjectsAreNotFGCObjects: Bool;
 	@:protected public var PendingKillEnabled: Bool;
-	@:protected public var MinGCClusterSize: cpp.Int32;
-	@:protected public var NumRetriesBeforeForcingGC: cpp.Int32;
-	@:protected public var MaxObjectsNotConsideredByGC: cpp.Int32;
-	@:protected public var SizeOfPermanentObjectPool: cpp.Int32;
-	@:protected public var MaxObjectsInGame: cpp.Int32;
-	@:protected public var MaxObjectsInEditor: cpp.Int32;
+	@:protected public var MinGCClusterSize: ucpp.num.Int32;
+	@:protected public var NumRetriesBeforeForcingGC: ucpp.num.Int32;
+	@:protected public var MaxObjectsNotConsideredByGC: ucpp.num.Int32;
+	@:protected public var SizeOfPermanentObjectPool: ucpp.num.Int32;
+	@:protected public var MaxObjectsInGame: ucpp.num.Int32;
+	@:protected public var MaxObjectsInEditor: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,7 +36,7 @@ abstract ConstGarbageCollectionSettings(GarbageCollectionSettings) from GarbageC
 @:forward
 @:nativeGen
 @:native("GarbageCollectionSettings*")
-abstract GarbageCollectionSettingsPtr(cpp.Star<GarbageCollectionSettings>) from cpp.Star<GarbageCollectionSettings> to cpp.Star<GarbageCollectionSettings>{
+abstract GarbageCollectionSettingsPtr(ucpp.Ptr<GarbageCollectionSettings>) from ucpp.Ptr<GarbageCollectionSettings> to ucpp.Ptr<GarbageCollectionSettings>{
 	@:from
 	public static extern inline function fromValue(v: GarbageCollectionSettings): GarbageCollectionSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCachedAnimDataLibrary")
 @:include("Animation/CachedAnimDataLibrary.h")
-@:structAccess
+@:valueType
 extern class CachedAnimDataLibrary extends BlueprintFunctionLibrary {
-	public function StateMachine_IsStateRelevant(InAnimInstance: cpp.Star<AnimInstance>, CachedAnimStateData: cpp.Reference<CachedAnimStateData>): Bool;
-	public function StateMachine_GetLocalWeight(InAnimInstance: cpp.Star<AnimInstance>, CachedAnimStateData: cpp.Reference<CachedAnimStateData>): cpp.Float32;
-	public function StateMachine_GetGlobalWeight(InAnimInstance: cpp.Star<AnimInstance>, CachedAnimStateData: cpp.Reference<CachedAnimStateData>): cpp.Float32;
+	public function StateMachine_IsStateRelevant(InAnimInstance: ucpp.Ptr<AnimInstance>, CachedAnimStateData: ucpp.Ref<CachedAnimStateData>): Bool;
+	public function StateMachine_GetLocalWeight(InAnimInstance: ucpp.Ptr<AnimInstance>, CachedAnimStateData: ucpp.Ref<CachedAnimStateData>): ucpp.num.Float32;
+	public function StateMachine_GetGlobalWeight(InAnimInstance: ucpp.Ptr<AnimInstance>, CachedAnimStateData: ucpp.Ref<CachedAnimStateData>): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCachedAnimDataLibrary(CachedAnimDataLibrary) from CachedAnimDataLi
 @:forward
 @:nativeGen
 @:native("CachedAnimDataLibrary*")
-abstract CachedAnimDataLibraryPtr(cpp.Star<CachedAnimDataLibrary>) from cpp.Star<CachedAnimDataLibrary> to cpp.Star<CachedAnimDataLibrary>{
+abstract CachedAnimDataLibraryPtr(ucpp.Ptr<CachedAnimDataLibrary>) from ucpp.Ptr<CachedAnimDataLibrary> to ucpp.Ptr<CachedAnimDataLibrary>{
 	@:from
 	public static extern inline function fromValue(v: CachedAnimDataLibrary): CachedAnimDataLibraryPtr {
 		return untyped __cpp__("&({0})", v);

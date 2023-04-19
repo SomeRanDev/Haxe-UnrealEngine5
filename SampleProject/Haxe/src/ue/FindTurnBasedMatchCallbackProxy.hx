@@ -3,14 +3,14 @@ package ue;
 
 @:native("UFindTurnBasedMatchCallbackProxy")
 @:include("FindTurnBasedMatchCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class FindTurnBasedMatchCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 
-	public function FindTurnBasedMatch(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchActor: TurnBasedMatchInterface, MinPlayers: cpp.Int32, MaxPlayers: cpp.Int32, PlayerGroup: cpp.Int32, ShowExistingMatches: Bool): cpp.Star<FindTurnBasedMatchCallbackProxy>;
+	public function FindTurnBasedMatch(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MatchActor: TurnBasedMatchInterface, MinPlayers: ucpp.num.Int32, MaxPlayers: ucpp.num.Int32, PlayerGroup: ucpp.num.Int32, ShowExistingMatches: Bool): ucpp.Ptr<FindTurnBasedMatchCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstFindTurnBasedMatchCallbackProxy(FindTurnBasedMatchCallbackProxy) f
 @:forward
 @:nativeGen
 @:native("FindTurnBasedMatchCallbackProxy*")
-abstract FindTurnBasedMatchCallbackProxyPtr(cpp.Star<FindTurnBasedMatchCallbackProxy>) from cpp.Star<FindTurnBasedMatchCallbackProxy> to cpp.Star<FindTurnBasedMatchCallbackProxy>{
+abstract FindTurnBasedMatchCallbackProxyPtr(ucpp.Ptr<FindTurnBasedMatchCallbackProxy>) from ucpp.Ptr<FindTurnBasedMatchCallbackProxy> to ucpp.Ptr<FindTurnBasedMatchCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: FindTurnBasedMatchCallbackProxy): FindTurnBasedMatchCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

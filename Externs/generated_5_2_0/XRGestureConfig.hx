@@ -3,7 +3,7 @@ package ue;
 
 @:native("FXRGestureConfig")
 @:include("XRGestureConfig.h")
-@:structAccess
+@:valueType
 extern class XRGestureConfig {
 	public var bTap: Bool;
 	public var bHold: Bool;

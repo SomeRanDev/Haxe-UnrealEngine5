@@ -3,12 +3,12 @@ package ue;
 
 @:native("UPaperTerrainMaterial")
 @:include("PaperTerrainMaterial.h")
-@:structAccess
+@:valueType
 extern class PaperTerrainMaterial extends DataAsset {
 	public var Rules: TArray<PaperTerrainMaterialRule>;
-	public var InteriorFill: cpp.Star<PaperSprite>;
+	public var InteriorFill: ucpp.Ptr<PaperSprite>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class PaperTerrainMaterial extends DataAsset {
 abstract ConstPaperTerrainMaterial(PaperTerrainMaterial) from PaperTerrainMaterial {
 	public extern var Rules(get, never): TArray<PaperTerrainMaterialRule>;
 	public inline extern function get_Rules(): TArray<PaperTerrainMaterialRule> return this.Rules;
-	public extern var InteriorFill(get, never): cpp.Star<PaperSprite.ConstPaperSprite>;
-	public inline extern function get_InteriorFill(): cpp.Star<PaperSprite.ConstPaperSprite> return this.InteriorFill;
+	public extern var InteriorFill(get, never): ucpp.Ptr<PaperSprite.ConstPaperSprite>;
+	public inline extern function get_InteriorFill(): ucpp.Ptr<PaperSprite.ConstPaperSprite> return this.InteriorFill;
 }
 
 @:forward
 @:nativeGen
 @:native("PaperTerrainMaterial*")
-abstract PaperTerrainMaterialPtr(cpp.Star<PaperTerrainMaterial>) from cpp.Star<PaperTerrainMaterial> to cpp.Star<PaperTerrainMaterial>{
+abstract PaperTerrainMaterialPtr(ucpp.Ptr<PaperTerrainMaterial>) from ucpp.Ptr<PaperTerrainMaterial> to ucpp.Ptr<PaperTerrainMaterial>{
 	@:from
 	public static extern inline function fromValue(v: PaperTerrainMaterial): PaperTerrainMaterialPtr {
 		return untyped __cpp__("&({0})", v);

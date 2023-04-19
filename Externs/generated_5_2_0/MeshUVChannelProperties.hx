@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMeshUVChannelProperties")
 @:include("Properties/MeshUVChannelProperties.h")
-@:structAccess
+@:valueType
 extern class MeshUVChannelProperties extends InteractiveToolPropertySet {
 	public var UVChannel: FString;
 	public var UVChannelNamesList: TArray<FString>;
 
 	public function GetUVChannelNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetUVChannelNamesFunc)
@@ -25,7 +25,7 @@ abstract ConstMeshUVChannelProperties(MeshUVChannelProperties) from MeshUVChanne
 @:forward
 @:nativeGen
 @:native("MeshUVChannelProperties*")
-abstract MeshUVChannelPropertiesPtr(cpp.Star<MeshUVChannelProperties>) from cpp.Star<MeshUVChannelProperties> to cpp.Star<MeshUVChannelProperties>{
+abstract MeshUVChannelPropertiesPtr(ucpp.Ptr<MeshUVChannelProperties>) from ucpp.Ptr<MeshUVChannelProperties> to ucpp.Ptr<MeshUVChannelProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshUVChannelProperties): MeshUVChannelPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

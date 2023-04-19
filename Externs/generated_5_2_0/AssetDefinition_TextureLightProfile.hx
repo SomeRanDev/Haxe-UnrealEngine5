@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_TextureLightProfile")
 @:include("AssetDefinition_TextureLightProfile.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_TextureLightProfile extends AssetDefinition_Texture {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_TextureLightProfile(AssetDefinition_TextureLightPr
 @:forward
 @:nativeGen
 @:native("AssetDefinition_TextureLightProfile*")
-abstract AssetDefinition_TextureLightProfilePtr(cpp.Star<AssetDefinition_TextureLightProfile>) from cpp.Star<AssetDefinition_TextureLightProfile> to cpp.Star<AssetDefinition_TextureLightProfile>{
+abstract AssetDefinition_TextureLightProfilePtr(ucpp.Ptr<AssetDefinition_TextureLightProfile>) from ucpp.Ptr<AssetDefinition_TextureLightProfile> to ucpp.Ptr<AssetDefinition_TextureLightProfile>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_TextureLightProfile): AssetDefinition_TextureLightProfilePtr {
 		return untyped __cpp__("&({0})", v);

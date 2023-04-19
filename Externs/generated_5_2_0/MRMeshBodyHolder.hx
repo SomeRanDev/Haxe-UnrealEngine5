@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMRMeshBodyHolder")
 @:include("MRMeshComponent.h")
-@:structAccess
+@:valueType
 extern class MRMeshBodyHolder extends Object {
-	public var BodySetup: cpp.Star<BodySetup>;
+	public var BodySetup: ucpp.Ptr<BodySetup>;
 	public var BodyInstance: BodyInstance;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMRMeshBodyHolder(MRMeshBodyHolder) from MRMeshBodyHolder {
-	public extern var BodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_BodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.BodySetup;
+	public extern var BodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_BodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.BodySetup;
 	public extern var BodyInstance(get, never): BodyInstance;
 	public inline extern function get_BodyInstance(): BodyInstance return this.BodyInstance;
 }
@@ -23,7 +23,7 @@ abstract ConstMRMeshBodyHolder(MRMeshBodyHolder) from MRMeshBodyHolder {
 @:forward
 @:nativeGen
 @:native("MRMeshBodyHolder*")
-abstract MRMeshBodyHolderPtr(cpp.Star<MRMeshBodyHolder>) from cpp.Star<MRMeshBodyHolder> to cpp.Star<MRMeshBodyHolder>{
+abstract MRMeshBodyHolderPtr(ucpp.Ptr<MRMeshBodyHolder>) from ucpp.Ptr<MRMeshBodyHolder> to ucpp.Ptr<MRMeshBodyHolder>{
 	@:from
 	public static extern inline function fromValue(v: MRMeshBodyHolder): MRMeshBodyHolderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,19 @@ package ue;
 
 @:native("USquareSplineGenerator")
 @:include("SplineGeneratorPanel.h")
-@:structAccess
+@:valueType
 extern class SquareSplineGenerator extends SplineGeneratorBase {
-	public var Length: cpp.Float32;
+	public var Length: ucpp.num.Float32;
 	public var bBranchRight: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSquareSplineGenerator(SquareSplineGenerator) from SquareSplineGenerator {
-	public extern var Length(get, never): cpp.Float32;
-	public inline extern function get_Length(): cpp.Float32 return this.Length;
+	public extern var Length(get, never): ucpp.num.Float32;
+	public inline extern function get_Length(): ucpp.num.Float32 return this.Length;
 	public extern var bBranchRight(get, never): Bool;
 	public inline extern function get_bBranchRight(): Bool return this.bBranchRight;
 }
@@ -23,7 +23,7 @@ abstract ConstSquareSplineGenerator(SquareSplineGenerator) from SquareSplineGene
 @:forward
 @:nativeGen
 @:native("SquareSplineGenerator*")
-abstract SquareSplineGeneratorPtr(cpp.Star<SquareSplineGenerator>) from cpp.Star<SquareSplineGenerator> to cpp.Star<SquareSplineGenerator>{
+abstract SquareSplineGeneratorPtr(ucpp.Ptr<SquareSplineGenerator>) from ucpp.Ptr<SquareSplineGenerator> to ucpp.Ptr<SquareSplineGenerator>{
 	@:from
 	public static extern inline function fromValue(v: SquareSplineGenerator): SquareSplineGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

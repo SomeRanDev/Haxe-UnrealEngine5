@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNodePort")
 @:include("NodePort.h")
-@:structAccess
+@:valueType
 extern class NodePort extends Object {
 	public function IsNodeRunning(): Bool;
 	public function GetNodePort(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNodePort(NodePort) from NodePort {
 @:forward
 @:nativeGen
 @:native("NodePort*")
-abstract NodePortPtr(cpp.Star<NodePort>) from cpp.Star<NodePort> to cpp.Star<NodePort>{
+abstract NodePortPtr(ucpp.Ptr<NodePort>) from ucpp.Ptr<NodePort> to ucpp.Ptr<NodePort>{
 	@:from
 	public static extern inline function fromValue(v: NodePort): NodePortPtr {
 		return untyped __cpp__("&({0})", v);

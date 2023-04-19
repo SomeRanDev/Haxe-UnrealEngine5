@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVToolEmitChangeAPI")
 @:include("ContextObjects/UVToolContextObjects.h")
-@:structAccess
+@:valueType
 extern class UVToolEmitChangeAPI extends UVToolContextObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVToolEmitChangeAPI(UVToolEmitChangeAPI) from UVToolEmitChangeAPI 
 @:forward
 @:nativeGen
 @:native("UVToolEmitChangeAPI*")
-abstract UVToolEmitChangeAPIPtr(cpp.Star<UVToolEmitChangeAPI>) from cpp.Star<UVToolEmitChangeAPI> to cpp.Star<UVToolEmitChangeAPI>{
+abstract UVToolEmitChangeAPIPtr(ucpp.Ptr<UVToolEmitChangeAPI>) from ucpp.Ptr<UVToolEmitChangeAPI> to ucpp.Ptr<UVToolEmitChangeAPI>{
 	@:from
 	public static extern inline function fromValue(v: UVToolEmitChangeAPI): UVToolEmitChangeAPIPtr {
 		return untyped __cpp__("&({0})", v);

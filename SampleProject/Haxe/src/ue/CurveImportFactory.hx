@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCurveImportFactory")
 @:include("Factories/CurveImportFactory.h")
-@:structAccess
+@:valueType
 extern class CurveImportFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCurveImportFactory(CurveImportFactory) from CurveImportFactory {
 @:forward
 @:nativeGen
 @:native("CurveImportFactory*")
-abstract CurveImportFactoryPtr(cpp.Star<CurveImportFactory>) from cpp.Star<CurveImportFactory> to cpp.Star<CurveImportFactory>{
+abstract CurveImportFactoryPtr(ucpp.Ptr<CurveImportFactory>) from ucpp.Ptr<CurveImportFactory> to ucpp.Ptr<CurveImportFactory>{
 	@:from
 	public static extern inline function fromValue(v: CurveImportFactory): CurveImportFactoryPtr {
 		return untyped __cpp__("&({0})", v);

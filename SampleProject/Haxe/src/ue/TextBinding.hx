@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTextBinding")
 @:include("Binding/TextBinding.h")
-@:structAccess
+@:valueType
 extern class TextBinding extends PropertyBinding {
 	public function GetTextValue(): FText;
 	public function GetStringValue(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTextValue, GetStringValue)
@@ -19,7 +19,7 @@ abstract ConstTextBinding(TextBinding) from TextBinding {
 @:forward
 @:nativeGen
 @:native("TextBinding*")
-abstract TextBindingPtr(cpp.Star<TextBinding>) from cpp.Star<TextBinding> to cpp.Star<TextBinding>{
+abstract TextBindingPtr(ucpp.Ptr<TextBinding>) from ucpp.Ptr<TextBinding> to ucpp.Ptr<TextBinding>{
 	@:from
 	public static extern inline function fromValue(v: TextBinding): TextBindingPtr {
 		return untyped __cpp__("&({0})", v);

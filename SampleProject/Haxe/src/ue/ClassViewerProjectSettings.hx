@@ -3,10 +3,10 @@ package ue;
 
 @:native("UClassViewerProjectSettings")
 @:include("ClassViewerProjectSettings.h")
-@:structAccess
+@:valueType
 extern class ClassViewerProjectSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstClassViewerProjectSettings(ClassViewerProjectSettings) from ClassV
 @:forward
 @:nativeGen
 @:native("ClassViewerProjectSettings*")
-abstract ClassViewerProjectSettingsPtr(cpp.Star<ClassViewerProjectSettings>) from cpp.Star<ClassViewerProjectSettings> to cpp.Star<ClassViewerProjectSettings>{
+abstract ClassViewerProjectSettingsPtr(ucpp.Ptr<ClassViewerProjectSettings>) from ucpp.Ptr<ClassViewerProjectSettings> to ucpp.Ptr<ClassViewerProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: ClassViewerProjectSettings): ClassViewerProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputAction_Factory")
 @:include("InputEditorModule.h")
-@:structAccess
+@:valueType
 extern class InputAction_Factory extends Factory {
 	public var InputActionClass: TSubclassOf<InputAction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputAction_Factory(InputAction_Factory) from InputAction_Factory 
 @:forward
 @:nativeGen
 @:native("InputAction_Factory*")
-abstract InputAction_FactoryPtr(cpp.Star<InputAction_Factory>) from cpp.Star<InputAction_Factory> to cpp.Star<InputAction_Factory>{
+abstract InputAction_FactoryPtr(ucpp.Ptr<InputAction_Factory>) from ucpp.Ptr<InputAction_Factory> to ucpp.Ptr<InputAction_Factory>{
 	@:from
 	public static extern inline function fromValue(v: InputAction_Factory): InputAction_FactoryPtr {
 		return untyped __cpp__("&({0})", v);

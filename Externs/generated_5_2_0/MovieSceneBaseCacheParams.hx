@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMovieSceneBaseCacheParams")
 @:include("Sections/MovieSceneBaseCacheSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBaseCacheParams {
 	public var FirstLoopStartFrameOffset: FrameNumber;
 	public var StartFrameOffset: FrameNumber;
 	public var EndFrameOffset: FrameNumber;
-	public var PlayRate: cpp.Float32;
+	public var PlayRate: ucpp.num.Float32;
 	public var bReverse: Bool;
 
 	@:native("FMovieSceneBaseCacheParams") public function new();
-	@:native("FMovieSceneBaseCacheParams") public static function make(FirstLoopStartFrameOffset: FrameNumber, StartFrameOffset: FrameNumber, EndFrameOffset: FrameNumber, PlayRate: cpp.Float32, bReverse: Bool): MovieSceneBaseCacheParams ;
+	@:native("FMovieSceneBaseCacheParams") public static function make(FirstLoopStartFrameOffset: FrameNumber, StartFrameOffset: FrameNumber, EndFrameOffset: FrameNumber, PlayRate: ucpp.num.Float32, bReverse: Bool): MovieSceneBaseCacheParams ;
 }

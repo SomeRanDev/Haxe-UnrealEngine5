@@ -18,5 +18,6 @@ extern class EMaterialExposedViewProperty {
 	static var MEVP_RuntimeVirtualTextureOutputDerivative: EMaterialExposedViewProperty;
 	static var MEVP_PreExposure: EMaterialExposedViewProperty;
 	static var MEVP_RuntimeVirtualTextureMaxLevel: EMaterialExposedViewProperty;
+	static var MEVP_ResolutionFraction: EMaterialExposedViewProperty;
 	static var MEVP_MAX: EMaterialExposedViewProperty;
 }

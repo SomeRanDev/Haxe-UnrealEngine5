@@ -3,13 +3,13 @@ package ue;
 
 @:native("ULineSetComponent")
 @:include("Drawing/LineSetComponent.h")
-@:structAccess
+@:valueType
 extern class LineSetComp extends MeshComp {
-	private var LineMaterial: cpp.Star<MaterialInterface>;
+	private var LineMaterial: ucpp.Ptr<MaterialInterface>;
 	private var Bounds: BoxSphereBounds;
 	private var bBoundsDirty: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLineSetComp(LineSetComp) from LineSetComp {
 @:forward
 @:nativeGen
 @:native("LineSetComp*")
-abstract LineSetCompPtr(cpp.Star<LineSetComp>) from cpp.Star<LineSetComp> to cpp.Star<LineSetComp>{
+abstract LineSetCompPtr(ucpp.Ptr<LineSetComp>) from ucpp.Ptr<LineSetComp> to ucpp.Ptr<LineSetComp>{
 	@:from
 	public static extern inline function fromValue(v: LineSetComp): LineSetCompPtr {
 		return untyped __cpp__("&({0})", v);

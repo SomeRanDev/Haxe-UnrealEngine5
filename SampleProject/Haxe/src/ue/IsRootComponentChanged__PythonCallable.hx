@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UIsRootComponentChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class IsRootComponentChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstIsRootComponentChanged__PythonCallable(IsRootComponentChanged__Pyt
 @:forward
 @:nativeGen
 @:native("IsRootComponentChanged__PythonCallable*")
-abstract IsRootComponentChanged__PythonCallablePtr(cpp.Star<IsRootComponentChanged__PythonCallable>) from cpp.Star<IsRootComponentChanged__PythonCallable> to cpp.Star<IsRootComponentChanged__PythonCallable>{
+abstract IsRootComponentChanged__PythonCallablePtr(ucpp.Ptr<IsRootComponentChanged__PythonCallable>) from ucpp.Ptr<IsRootComponentChanged__PythonCallable> to ucpp.Ptr<IsRootComponentChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: IsRootComponentChanged__PythonCallable): IsRootComponentChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

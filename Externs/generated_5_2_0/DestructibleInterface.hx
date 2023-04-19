@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UDestructibleInterface")
-@:structAccess
+@:valueType
 extern class DestructibleInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstDestructibleInterface(DestructibleInterface) from DestructibleInte
 @:forward
 @:nativeGen
 @:native("DestructibleInterface*")
-abstract DestructibleInterfacePtr(cpp.Star<DestructibleInterface>) from cpp.Star<DestructibleInterface> to cpp.Star<DestructibleInterface>{
+abstract DestructibleInterfacePtr(ucpp.Ptr<DestructibleInterface>) from ucpp.Ptr<DestructibleInterface> to ucpp.Ptr<DestructibleInterface>{
 	@:from
 	public static extern inline function fromValue(v: DestructibleInterface): DestructibleInterfacePtr {
 		return untyped __cpp__("&({0})", v);

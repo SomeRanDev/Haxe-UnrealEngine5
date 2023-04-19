@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeFilePickerBase")
 @:include("InterchangeFilePickerBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeFilePickerBase extends Object {
-	public function ScriptedFilePickerForTranslatorType(TranslatorType: EInterchangeTranslatorType, Parameters: cpp.Reference<InterchangeFilePickerParameters>, OutFilenames: cpp.Reference<TArray<FString>>): Bool;
-	public function ScriptedFilePickerForTranslatorAssetType(TranslatorAssetType: EInterchangeTranslatorAssetType, Parameters: cpp.Reference<InterchangeFilePickerParameters>, OutFilenames: cpp.Reference<TArray<FString>>): Bool;
+	public function ScriptedFilePickerForTranslatorType(TranslatorType: EInterchangeTranslatorType, Parameters: ucpp.Ref<InterchangeFilePickerParameters>, OutFilenames: ucpp.Ref<TArray<FString>>): Bool;
+	public function ScriptedFilePickerForTranslatorAssetType(TranslatorAssetType: EInterchangeTranslatorAssetType, Parameters: ucpp.Ref<InterchangeFilePickerParameters>, OutFilenames: ucpp.Ref<TArray<FString>>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstInterchangeFilePickerBase(InterchangeFilePickerBase) from Intercha
 @:forward
 @:nativeGen
 @:native("InterchangeFilePickerBase*")
-abstract InterchangeFilePickerBasePtr(cpp.Star<InterchangeFilePickerBase>) from cpp.Star<InterchangeFilePickerBase> to cpp.Star<InterchangeFilePickerBase>{
+abstract InterchangeFilePickerBasePtr(ucpp.Ptr<InterchangeFilePickerBase>) from ucpp.Ptr<InterchangeFilePickerBase> to ucpp.Ptr<InterchangeFilePickerBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeFilePickerBase): InterchangeFilePickerBasePtr {
 		return untyped __cpp__("&({0})", v);

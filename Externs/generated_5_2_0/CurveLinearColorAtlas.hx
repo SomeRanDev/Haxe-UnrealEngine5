@@ -3,35 +3,35 @@ package ue;
 
 @:native("UCurveLinearColorAtlas")
 @:include("Curves/CurveLinearColorAtlas.h")
-@:structAccess
+@:valueType
 extern class CurveLinearColorAtlas extends Texture2D {
-	public var TextureSize: cpp.UInt32;
+	public var TextureSize: ucpp.num.UInt32;
 	public var bSquareResolution: Bool;
-	public var TextureHeight: cpp.UInt32;
-	public var GradientCurves: TArray<cpp.Star<CurveLinearColor>>;
+	public var TextureHeight: ucpp.num.UInt32;
+	public var GradientCurves: TArray<ucpp.Ptr<CurveLinearColor>>;
 
-	public function GetCurvePosition(InCurve: cpp.Star<CurveLinearColor>, Position: cpp.Reference<cpp.Float32>): Bool;
+	public function GetCurvePosition(InCurve: ucpp.Ptr<CurveLinearColor>, Position: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCurveLinearColorAtlas(CurveLinearColorAtlas) from CurveLinearColorAtlas {
-	public extern var TextureSize(get, never): cpp.UInt32;
-	public inline extern function get_TextureSize(): cpp.UInt32 return this.TextureSize;
+	public extern var TextureSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_TextureSize(): ucpp.num.UInt32 return this.TextureSize;
 	public extern var bSquareResolution(get, never): Bool;
 	public inline extern function get_bSquareResolution(): Bool return this.bSquareResolution;
-	public extern var TextureHeight(get, never): cpp.UInt32;
-	public inline extern function get_TextureHeight(): cpp.UInt32 return this.TextureHeight;
-	public extern var GradientCurves(get, never): TArray<cpp.Star<CurveLinearColor.ConstCurveLinearColor>>;
-	public inline extern function get_GradientCurves(): TArray<cpp.Star<CurveLinearColor.ConstCurveLinearColor>> return this.GradientCurves;
+	public extern var TextureHeight(get, never): ucpp.num.UInt32;
+	public inline extern function get_TextureHeight(): ucpp.num.UInt32 return this.TextureHeight;
+	public extern var GradientCurves(get, never): TArray<ucpp.Ptr<CurveLinearColor.ConstCurveLinearColor>>;
+	public inline extern function get_GradientCurves(): TArray<ucpp.Ptr<CurveLinearColor.ConstCurveLinearColor>> return this.GradientCurves;
 }
 
 @:forward
 @:nativeGen
 @:native("CurveLinearColorAtlas*")
-abstract CurveLinearColorAtlasPtr(cpp.Star<CurveLinearColorAtlas>) from cpp.Star<CurveLinearColorAtlas> to cpp.Star<CurveLinearColorAtlas>{
+abstract CurveLinearColorAtlasPtr(ucpp.Ptr<CurveLinearColorAtlas>) from ucpp.Ptr<CurveLinearColorAtlas> to ucpp.Ptr<CurveLinearColorAtlas>{
 	@:from
 	public static extern inline function fromValue(v: CurveLinearColorAtlas): CurveLinearColorAtlasPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FTTEventTrack")
 @:include("Engine/TimelineTemplate.h")
-@:structAccess
+@:valueType
 extern class TTEventTrack extends TTTrackBase {
 	private var FunctionName: FName;
-	public var CurveKeys: cpp.Star<CurveFloat>;
+	public var CurveKeys: ucpp.Ptr<CurveFloat>;
 
 	@:native("FTTEventTrack") public function new();
-	@:native("FTTEventTrack") public static function make(FunctionName: FName, CurveKeys: cpp.Star<CurveFloat>): TTEventTrack ;
+	@:native("FTTEventTrack") public static function make(FunctionName: FName, CurveKeys: ucpp.Ptr<CurveFloat>): TTEventTrack ;
 }

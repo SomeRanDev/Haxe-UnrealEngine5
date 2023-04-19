@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVLayoutToolBuilder")
 @:include("UVLayoutTool.h")
-@:structAccess
+@:valueType
 extern class UVLayoutToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVLayoutToolBuilder(UVLayoutToolBuilder) from UVLayoutToolBuilder 
 @:forward
 @:nativeGen
 @:native("UVLayoutToolBuilder*")
-abstract UVLayoutToolBuilderPtr(cpp.Star<UVLayoutToolBuilder>) from cpp.Star<UVLayoutToolBuilder> to cpp.Star<UVLayoutToolBuilder>{
+abstract UVLayoutToolBuilderPtr(ucpp.Ptr<UVLayoutToolBuilder>) from ucpp.Ptr<UVLayoutToolBuilder> to ucpp.Ptr<UVLayoutToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVLayoutToolBuilder): UVLayoutToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

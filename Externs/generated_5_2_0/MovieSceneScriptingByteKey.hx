@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneScriptingByteKey")
 @:include("KeysAndChannels/MovieSceneScriptingByte.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingByteKey extends MovieSceneScriptingKey {
-	public function SetValue(InNewValue: cpp.UInt8): Void;
-	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
-	public function GetValue(): cpp.UInt8;
+	public function SetValue(InNewValue: ucpp.num.UInt8): Void;
+	public function SetTime(NewFrameNumber: ucpp.Ref<FrameNumber>, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): Void;
+	public function GetValue(): ucpp.num.UInt8;
 	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue, GetTime)
@@ -21,7 +21,7 @@ abstract ConstMovieSceneScriptingByteKey(MovieSceneScriptingByteKey) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingByteKey*")
-abstract MovieSceneScriptingByteKeyPtr(cpp.Star<MovieSceneScriptingByteKey>) from cpp.Star<MovieSceneScriptingByteKey> to cpp.Star<MovieSceneScriptingByteKey>{
+abstract MovieSceneScriptingByteKeyPtr(ucpp.Ptr<MovieSceneScriptingByteKey>) from ucpp.Ptr<MovieSceneScriptingByteKey> to ucpp.Ptr<MovieSceneScriptingByteKey>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingByteKey): MovieSceneScriptingByteKeyPtr {
 		return untyped __cpp__("&({0})", v);

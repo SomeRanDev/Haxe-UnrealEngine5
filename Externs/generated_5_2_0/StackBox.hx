@@ -3,14 +3,14 @@ package ue;
 
 @:native("UStackBox")
 @:include("Components/StackBox.h")
-@:structAccess
+@:valueType
 extern class StackBox extends PanelWidget {
 	private var Orientation: TEnumAsByte<EOrientation>;
 
-	public function ReplaceStackBoxChildAt(Index: cpp.Int32, Content: cpp.Star<Widget>): Bool;
-	public function AddChildToStackBox(Content: cpp.Star<Widget>): cpp.Star<StackBoxSlot>;
+	public function ReplaceStackBoxChildAt(Index: ucpp.num.Int32, Content: ucpp.Ptr<Widget>): Bool;
+	public function AddChildToStackBox(Content: ucpp.Ptr<Widget>): ucpp.Ptr<StackBoxSlot>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstStackBox(StackBox) from StackBox {
 @:forward
 @:nativeGen
 @:native("StackBox*")
-abstract StackBoxPtr(cpp.Star<StackBox>) from cpp.Star<StackBox> to cpp.Star<StackBox>{
+abstract StackBoxPtr(ucpp.Ptr<StackBox>) from ucpp.Ptr<StackBox> to ucpp.Ptr<StackBox>{
 	@:from
 	public static extern inline function fromValue(v: StackBox): StackBoxPtr {
 		return untyped __cpp__("&({0})", v);

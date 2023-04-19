@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPkgInfoCommandlet")
 @:include("Commandlets/PkgInfoCommandlet.h")
-@:structAccess
+@:valueType
 extern class PkgInfoCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPkgInfoCommandlet(PkgInfoCommandlet) from PkgInfoCommandlet {
 @:forward
 @:nativeGen
 @:native("PkgInfoCommandlet*")
-abstract PkgInfoCommandletPtr(cpp.Star<PkgInfoCommandlet>) from cpp.Star<PkgInfoCommandlet> to cpp.Star<PkgInfoCommandlet>{
+abstract PkgInfoCommandletPtr(ucpp.Ptr<PkgInfoCommandlet>) from ucpp.Ptr<PkgInfoCommandlet> to ucpp.Ptr<PkgInfoCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: PkgInfoCommandlet): PkgInfoCommandletPtr {
 		return untyped __cpp__("&({0})", v);

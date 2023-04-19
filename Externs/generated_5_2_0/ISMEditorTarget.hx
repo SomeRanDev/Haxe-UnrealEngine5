@@ -3,11 +3,11 @@ package ue;
 
 @:native("FISMEditorTarget")
 @:include("ISMEditorTool.h")
-@:structAccess
+@:valueType
 extern class ISMEditorTarget {
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
 
 	@:native("FISMEditorTarget") public function new();
-	@:native("FISMEditorTarget") public static function make(TransformProxy: cpp.Star<TransformProxy>, TransformGizmo: cpp.Star<CombinedTransformGizmo>): ISMEditorTarget ;
+	@:native("FISMEditorTarget") public static function make(TransformProxy: ucpp.Ptr<TransformProxy>, TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>): ISMEditorTarget ;
 }

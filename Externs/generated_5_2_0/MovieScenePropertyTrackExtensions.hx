@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMovieScenePropertyTrackExtensions")
 @:include("ExtensionLibraries/MovieScenePropertyTrackExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieScenePropertyTrackExtensions extends BlueprintFunctionLibrary {
-	public function SetPropertyNameAndPath(Track: cpp.Star<MovieScenePropertyTrack>, InPropertyName: cpp.Reference<FName>, InPropertyPath: FString): Void;
-	public function SetObjectPropertyClass(Track: cpp.Star<MovieSceneObjectPropertyTrack>, PropertyClass: cpp.Star<Class>): Void;
-	public function SetByteTrackEnum(Track: cpp.Star<MovieSceneByteTrack>, InEnum: cpp.Star<Enum>): Void;
-	public function GetUniqueTrackName(Track: cpp.Star<MovieScenePropertyTrack>): FName;
-	public function GetPropertyPath(Track: cpp.Star<MovieScenePropertyTrack>): FString;
-	public function GetPropertyName(Track: cpp.Star<MovieScenePropertyTrack>): FName;
-	public function GetObjectPropertyClass(Track: cpp.Star<MovieSceneObjectPropertyTrack>): cpp.Star<Class>;
-	public function GetByteTrackEnum(Track: cpp.Star<MovieSceneByteTrack>): cpp.Star<Enum>;
+	public function SetPropertyNameAndPath(Track: ucpp.Ptr<MovieScenePropertyTrack>, InPropertyName: ucpp.Ref<FName>, InPropertyPath: FString): Void;
+	public function SetObjectPropertyClass(Track: ucpp.Ptr<MovieSceneObjectPropertyTrack>, PropertyClass: ucpp.Ptr<Class>): Void;
+	public function SetByteTrackEnum(Track: ucpp.Ptr<MovieSceneByteTrack>, InEnum: ucpp.Ptr<Enum>): Void;
+	public function GetUniqueTrackName(Track: ucpp.Ptr<MovieScenePropertyTrack>): FName;
+	public function GetPropertyPath(Track: ucpp.Ptr<MovieScenePropertyTrack>): FString;
+	public function GetPropertyName(Track: ucpp.Ptr<MovieScenePropertyTrack>): FName;
+	public function GetObjectPropertyClass(Track: ucpp.Ptr<MovieSceneObjectPropertyTrack>): ucpp.Ptr<Class>;
+	public function GetByteTrackEnum(Track: ucpp.Ptr<MovieSceneByteTrack>): ucpp.Ptr<Enum>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstMovieScenePropertyTrackExtensions(MovieScenePropertyTrackExtension
 @:forward
 @:nativeGen
 @:native("MovieScenePropertyTrackExtensions*")
-abstract MovieScenePropertyTrackExtensionsPtr(cpp.Star<MovieScenePropertyTrackExtensions>) from cpp.Star<MovieScenePropertyTrackExtensions> to cpp.Star<MovieScenePropertyTrackExtensions>{
+abstract MovieScenePropertyTrackExtensionsPtr(ucpp.Ptr<MovieScenePropertyTrackExtensions>) from ucpp.Ptr<MovieScenePropertyTrackExtensions> to ucpp.Ptr<MovieScenePropertyTrackExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieScenePropertyTrackExtensions): MovieScenePropertyTrackExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

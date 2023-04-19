@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTakeRecorderLevelVisibilitySourceSettings")
 @:include("TakeRecorderLevelVisibilitySource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderLevelVisibilitySourceSettings extends TakeRecorderSource {
 	public var LevelVisibilityTrackName: FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTakeRecorderLevelVisibilitySourceSettings(TakeRecorderLevelVisibil
 @:forward
 @:nativeGen
 @:native("TakeRecorderLevelVisibilitySourceSettings*")
-abstract TakeRecorderLevelVisibilitySourceSettingsPtr(cpp.Star<TakeRecorderLevelVisibilitySourceSettings>) from cpp.Star<TakeRecorderLevelVisibilitySourceSettings> to cpp.Star<TakeRecorderLevelVisibilitySourceSettings>{
+abstract TakeRecorderLevelVisibilitySourceSettingsPtr(ucpp.Ptr<TakeRecorderLevelVisibilitySourceSettings>) from ucpp.Ptr<TakeRecorderLevelVisibilitySourceSettings> to ucpp.Ptr<TakeRecorderLevelVisibilitySourceSettings>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderLevelVisibilitySourceSettings): TakeRecorderLevelVisibilitySourceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

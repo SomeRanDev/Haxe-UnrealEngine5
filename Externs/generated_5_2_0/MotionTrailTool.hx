@@ -3,29 +3,29 @@ package ue;
 
 @:native("UMotionTrailTool")
 @:include("MotionTrailTool.h")
-@:structAccess
+@:valueType
 extern class MotionTrailTool extends MultiSelectionTool {
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var LeftClickBehavior: cpp.Star<SingleClickInputBehavior>;
-	@:protected public var RightClickBehavior: cpp.Star<SingleClickInputBehavior>;
+	public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var LeftClickBehavior: ucpp.Ptr<SingleClickInputBehavior>;
+	@:protected public var RightClickBehavior: ucpp.Ptr<SingleClickInputBehavior>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMotionTrailTool(MotionTrailTool) from MotionTrailTool {
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
+	public extern var TransformProxy(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_TransformProxy(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.TransformProxy;
+	public extern var TransformGizmo(get, never): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
+	public inline extern function get_TransformGizmo(): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
 }
 
 @:forward
 @:nativeGen
 @:native("MotionTrailTool*")
-abstract MotionTrailToolPtr(cpp.Star<MotionTrailTool>) from cpp.Star<MotionTrailTool> to cpp.Star<MotionTrailTool>{
+abstract MotionTrailToolPtr(ucpp.Ptr<MotionTrailTool>) from ucpp.Ptr<MotionTrailTool> to ucpp.Ptr<MotionTrailTool>{
 	@:from
 	public static extern inline function fromValue(v: MotionTrailTool): MotionTrailToolPtr {
 		return untyped __cpp__("&({0})", v);

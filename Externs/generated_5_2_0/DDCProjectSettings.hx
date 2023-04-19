@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDDCProjectSettings")
 @:include("Settings/EditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class DDCProjectSettings extends DeveloperSettings {
 	public var EnableWarnings: Bool;
 	public var RecommendEveryoneSetupAGlobalLocalDDCPath: Bool;
@@ -12,7 +12,7 @@ extern class DDCProjectSettings extends DeveloperSettings {
 	public var RecommendEveryoneEnableS3DDC: Bool;
 	public var RecommendEveryoneUseUnrealCloudDDC: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstDDCProjectSettings(DDCProjectSettings) from DDCProjectSettings {
 @:forward
 @:nativeGen
 @:native("DDCProjectSettings*")
-abstract DDCProjectSettingsPtr(cpp.Star<DDCProjectSettings>) from cpp.Star<DDCProjectSettings> to cpp.Star<DDCProjectSettings>{
+abstract DDCProjectSettingsPtr(ucpp.Ptr<DDCProjectSettings>) from ucpp.Ptr<DDCProjectSettings> to ucpp.Ptr<DDCProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: DDCProjectSettings): DDCProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

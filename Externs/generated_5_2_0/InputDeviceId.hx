@@ -3,10 +3,10 @@ package ue;
 
 @:native("FInputDeviceId")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class InputDeviceId {
-	private var InternalId: cpp.Int32;
+	private var InternalId: ucpp.num.Int32;
 
 	@:native("FInputDeviceId") public function new();
-	@:native("FInputDeviceId") public static function make(InternalId: cpp.Int32): InputDeviceId ;
+	@:native("FInputDeviceId") public static function make(InternalId: ucpp.num.Int32): InputDeviceId ;
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAssetImportTask")
 @:include("AssetImportTask.h")
-@:structAccess
+@:valueType
 extern class AssetImportTask extends Object {
 	public var Filename: FString;
 	public var DestinationPath: FString;
@@ -12,15 +12,19 @@ extern class AssetImportTask extends Object {
 	public var bReplaceExistingSettings: Bool;
 	public var bAutomated: Bool;
 	public var bSave: Bool;
-	public var Factory: cpp.Star<Factory>;
-	public var Options: cpp.Star<Object>;
+	public var bAsync: Bool;
+	public var Factory: ucpp.Ptr<Factory>;
+	public var Options: ucpp.Ptr<Object>;
 	public var ImportedObjectPaths: TArray<FString>;
-	public var Result: TArray<cpp.Star<Object>>;
+	public var Result: TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public function IsAsyncImportComplete(): Bool;
+	public function GetObjects(): TArray<ucpp.Ptr<Object>>;
+
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward()
+@:forward(IsAsyncImportComplete, GetObjects)
 @:nativeGen
 abstract ConstAssetImportTask(AssetImportTask) from AssetImportTask {
 	public extern var Filename(get, never): FString;
@@ -37,20 +41,22 @@ abstract ConstAssetImportTask(AssetImportTask) from AssetImportTask {
 	public inline extern function get_bAutomated(): Bool return this.bAutomated;
 	public extern var bSave(get, never): Bool;
 	public inline extern function get_bSave(): Bool return this.bSave;
-	public extern var Factory(get, never): cpp.Star<Factory.ConstFactory>;
-	public inline extern function get_Factory(): cpp.Star<Factory.ConstFactory> return this.Factory;
-	public extern var Options(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_Options(): cpp.Star<Object.ConstObject> return this.Options;
+	public extern var bAsync(get, never): Bool;
+	public inline extern function get_bAsync(): Bool return this.bAsync;
+	public extern var Factory(get, never): ucpp.Ptr<Factory.ConstFactory>;
+	public inline extern function get_Factory(): ucpp.Ptr<Factory.ConstFactory> return this.Factory;
+	public extern var Options(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_Options(): ucpp.Ptr<Object.ConstObject> return this.Options;
 	public extern var ImportedObjectPaths(get, never): TArray<FString>;
 	public inline extern function get_ImportedObjectPaths(): TArray<FString> return this.ImportedObjectPaths;
-	public extern var Result(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_Result(): TArray<cpp.Star<Object.ConstObject>> return this.Result;
+	public extern var Result(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_Result(): TArray<ucpp.Ptr<Object.ConstObject>> return this.Result;
 }
 
 @:forward
 @:nativeGen
 @:native("AssetImportTask*")
-abstract AssetImportTaskPtr(cpp.Star<AssetImportTask>) from cpp.Star<AssetImportTask> to cpp.Star<AssetImportTask>{
+abstract AssetImportTaskPtr(ucpp.Ptr<AssetImportTask>) from ucpp.Ptr<AssetImportTask> to ucpp.Ptr<AssetImportTask>{
 	@:from
 	public static extern inline function fromValue(v: AssetImportTask): AssetImportTaskPtr {
 		return untyped __cpp__("&({0})", v);

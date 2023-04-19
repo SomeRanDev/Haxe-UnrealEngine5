@@ -3,7 +3,7 @@ package ue;
 
 @:native("FColorParameterNameAndCurves")
 @:include("Sections/MovieSceneParameterSection.h")
-@:structAccess
+@:valueType
 extern class ColorParameterNameAndCurves {
 	public var ParameterName: FName;
 	public var RedCurve: MovieSceneFloatChannel;

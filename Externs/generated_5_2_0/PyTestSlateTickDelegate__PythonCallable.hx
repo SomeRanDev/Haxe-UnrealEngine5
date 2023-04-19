@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPyTestSlateTickDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PyTestSlateTickDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPyTestSlateTickDelegate__PythonCallable(PyTestSlateTickDelegate__P
 @:forward
 @:nativeGen
 @:native("PyTestSlateTickDelegate__PythonCallable*")
-abstract PyTestSlateTickDelegate__PythonCallablePtr(cpp.Star<PyTestSlateTickDelegate__PythonCallable>) from cpp.Star<PyTestSlateTickDelegate__PythonCallable> to cpp.Star<PyTestSlateTickDelegate__PythonCallable>{
+abstract PyTestSlateTickDelegate__PythonCallablePtr(ucpp.Ptr<PyTestSlateTickDelegate__PythonCallable>) from ucpp.Ptr<PyTestSlateTickDelegate__PythonCallable> to ucpp.Ptr<PyTestSlateTickDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PyTestSlateTickDelegate__PythonCallable): PyTestSlateTickDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

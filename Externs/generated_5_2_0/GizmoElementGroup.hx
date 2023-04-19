@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGizmoElementGroup")
 @:include("BaseGizmos/GizmoElementGroup.h")
-@:structAccess
+@:valueType
 extern class GizmoElementGroup extends GizmoElementLineBase {
 	@:protected public var bConstantScale: Bool;
 	@:protected public var bHitOwner: Bool;
-	@:protected public var Elements: TArray<cpp.Star<GizmoElementBase>>;
+	@:protected public var Elements: TArray<ucpp.Ptr<GizmoElementBase>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstGizmoElementGroup(GizmoElementGroup) from GizmoElementGroup {
 @:forward
 @:nativeGen
 @:native("GizmoElementGroup*")
-abstract GizmoElementGroupPtr(cpp.Star<GizmoElementGroup>) from cpp.Star<GizmoElementGroup> to cpp.Star<GizmoElementGroup>{
+abstract GizmoElementGroupPtr(ucpp.Ptr<GizmoElementGroup>) from ucpp.Ptr<GizmoElementGroup> to ucpp.Ptr<GizmoElementGroup>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementGroup): GizmoElementGroupPtr {
 		return untyped __cpp__("&({0})", v);

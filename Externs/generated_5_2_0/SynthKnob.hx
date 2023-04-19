@@ -3,12 +3,12 @@ package ue;
 
 @:native("USynthKnob")
 @:include("UI/SynthKnob.h")
-@:structAccess
+@:valueType
 extern class SynthKnob extends Widget {
-	public var Value: cpp.Float32;
-	public var StepSize: cpp.Float32;
-	public var MouseSpeed: cpp.Float32;
-	public var MouseFineTuneSpeed: cpp.Float32;
+	public var Value: ucpp.num.Float32;
+	public var StepSize: ucpp.num.Float32;
+	public var MouseSpeed: ucpp.num.Float32;
+	public var MouseFineTuneSpeed: ucpp.num.Float32;
 	public var ShowTooltipInfo: Bool;
 	public var ParameterName: FText;
 	public var ParameterUnits: FText;
@@ -20,27 +20,27 @@ extern class SynthKnob extends Widget {
 	public var OnMouseCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
-	public function SetValue(InValue: cpp.Float32): Void;
-	public function SetStepSize(InValue: cpp.Float32): Void;
+	public function SetValue(InValue: ucpp.num.Float32): Void;
+	public function SetStepSize(InValue: ucpp.num.Float32): Void;
 	public function SetLocked(InValue: Bool): Void;
-	public function GetValue(): cpp.Float32;
+	public function GetValue(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
 @:nativeGen
 abstract ConstSynthKnob(SynthKnob) from SynthKnob {
-	public extern var Value(get, never): cpp.Float32;
-	public inline extern function get_Value(): cpp.Float32 return this.Value;
-	public extern var StepSize(get, never): cpp.Float32;
-	public inline extern function get_StepSize(): cpp.Float32 return this.StepSize;
-	public extern var MouseSpeed(get, never): cpp.Float32;
-	public inline extern function get_MouseSpeed(): cpp.Float32 return this.MouseSpeed;
-	public extern var MouseFineTuneSpeed(get, never): cpp.Float32;
-	public inline extern function get_MouseFineTuneSpeed(): cpp.Float32 return this.MouseFineTuneSpeed;
+	public extern var Value(get, never): ucpp.num.Float32;
+	public inline extern function get_Value(): ucpp.num.Float32 return this.Value;
+	public extern var StepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_StepSize(): ucpp.num.Float32 return this.StepSize;
+	public extern var MouseSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_MouseSpeed(): ucpp.num.Float32 return this.MouseSpeed;
+	public extern var MouseFineTuneSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_MouseFineTuneSpeed(): ucpp.num.Float32 return this.MouseFineTuneSpeed;
 	public extern var ShowTooltipInfo(get, never): Bool;
 	public inline extern function get_ShowTooltipInfo(): Bool return this.ShowTooltipInfo;
 	public extern var ParameterName(get, never): FText;
@@ -63,14 +63,14 @@ abstract ConstSynthKnob(SynthKnob) from SynthKnob {
 	public inline extern function get_OnControllerCaptureBegin(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureBegin;
 	public extern var OnControllerCaptureEnd(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnControllerCaptureEnd(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureEnd;
-	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChanged;
+	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChanged;
 }
 
 @:forward
 @:nativeGen
 @:native("SynthKnob*")
-abstract SynthKnobPtr(cpp.Star<SynthKnob>) from cpp.Star<SynthKnob> to cpp.Star<SynthKnob>{
+abstract SynthKnobPtr(ucpp.Ptr<SynthKnob>) from ucpp.Ptr<SynthKnob> to ucpp.Ptr<SynthKnob>{
 	@:from
 	public static extern inline function fromValue(v: SynthKnob): SynthKnobPtr {
 		return untyped __cpp__("&({0})", v);

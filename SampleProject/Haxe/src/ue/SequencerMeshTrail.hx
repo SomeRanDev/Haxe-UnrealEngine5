@@ -3,10 +3,10 @@ package ue;
 
 @:native("ASequencerMeshTrail")
 @:include("SequencerMeshTrail.h")
-@:structAccess
+@:valueType
 extern class SequencerMeshTrail extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSequencerMeshTrail(SequencerMeshTrail) from SequencerMeshTrail {
 @:forward
 @:nativeGen
 @:native("SequencerMeshTrail*")
-abstract SequencerMeshTrailPtr(cpp.Star<SequencerMeshTrail>) from cpp.Star<SequencerMeshTrail> to cpp.Star<SequencerMeshTrail>{
+abstract SequencerMeshTrailPtr(ucpp.Ptr<SequencerMeshTrail>) from ucpp.Ptr<SequencerMeshTrail> to ucpp.Ptr<SequencerMeshTrail>{
 	@:from
 	public static extern inline function fromValue(v: SequencerMeshTrail): SequencerMeshTrailPtr {
 		return untyped __cpp__("&({0})", v);

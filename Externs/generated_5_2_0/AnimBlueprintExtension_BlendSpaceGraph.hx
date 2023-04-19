@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimBlueprintExtension_BlendSpaceGraph")
 @:include("AnimBlueprintExtension_BlendSpaceGraph.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintExtension_BlendSpaceGraph extends AnimBlueprintExtension {
 	private var Class: TSubclassOf<Object>;
 	private var Subsystem: AnimSubsystem_BlendSpaceGraph;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAnimBlueprintExtension_BlendSpaceGraph(AnimBlueprintExtension_Blen
 @:forward
 @:nativeGen
 @:native("AnimBlueprintExtension_BlendSpaceGraph*")
-abstract AnimBlueprintExtension_BlendSpaceGraphPtr(cpp.Star<AnimBlueprintExtension_BlendSpaceGraph>) from cpp.Star<AnimBlueprintExtension_BlendSpaceGraph> to cpp.Star<AnimBlueprintExtension_BlendSpaceGraph>{
+abstract AnimBlueprintExtension_BlendSpaceGraphPtr(ucpp.Ptr<AnimBlueprintExtension_BlendSpaceGraph>) from ucpp.Ptr<AnimBlueprintExtension_BlendSpaceGraph> to ucpp.Ptr<AnimBlueprintExtension_BlendSpaceGraph>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintExtension_BlendSpaceGraph): AnimBlueprintExtension_BlendSpaceGraphPtr {
 		return untyped __cpp__("&({0})", v);

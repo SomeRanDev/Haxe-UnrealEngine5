@@ -3,14 +3,14 @@ package ue;
 
 @:native("FEditorDialogLibraryObjectDetailsViewOptions")
 @:include("EditorDialogLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorDialogLibraryObjectDetailsViewOptions {
 	public var bShowObjectName: Bool;
 	public var bAllowSearch: Bool;
-	public var MinWidth: cpp.Int32;
-	public var MinHeight: cpp.Int32;
-	public var ValueColumnWidthRatio: cpp.Float32;
+	public var MinWidth: ucpp.num.Int32;
+	public var MinHeight: ucpp.num.Int32;
+	public var ValueColumnWidthRatio: ucpp.num.Float32;
 
 	@:native("FEditorDialogLibraryObjectDetailsViewOptions") public function new();
-	@:native("FEditorDialogLibraryObjectDetailsViewOptions") public static function make(bShowObjectName: Bool, bAllowSearch: Bool, MinWidth: cpp.Int32, MinHeight: cpp.Int32, ValueColumnWidthRatio: cpp.Float32): EditorDialogLibraryObjectDetailsViewOptions ;
+	@:native("FEditorDialogLibraryObjectDetailsViewOptions") public static function make(bShowObjectName: Bool, bAllowSearch: Bool, MinWidth: ucpp.num.Int32, MinHeight: ucpp.num.Int32, ValueColumnWidthRatio: ucpp.num.Float32): EditorDialogLibraryObjectDetailsViewOptions ;
 }

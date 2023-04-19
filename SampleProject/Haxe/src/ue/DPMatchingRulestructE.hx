@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDPMatchingRulestructE")
 @:include("DeviceProfiles/DeviceProfileMatching.h")
-@:structAccess
+@:valueType
 extern class DPMatchingRulestructE extends DPMatchingRulestructBase {
 	public var OnTrue: TArray<DPMatchingRulestructD>;
 	public var OnFalse: TArray<DPMatchingRulestructD>;

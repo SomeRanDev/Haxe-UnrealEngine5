@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGizmoLocalFloatParameterSource")
 @:include("BaseGizmos/ParameterSourcesFloat.h")
-@:structAccess
+@:valueType
 extern class GizmoLocalFloatParameterSource extends GizmoBaseFloatParameterSource {
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 	public var LastChange: GizmoFloatParameterChange;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGizmoLocalFloatParameterSource(GizmoLocalFloatParameterSource) from GizmoLocalFloatParameterSource {
-	public extern var Value(get, never): cpp.Float32;
-	public inline extern function get_Value(): cpp.Float32 return this.Value;
+	public extern var Value(get, never): ucpp.num.Float32;
+	public inline extern function get_Value(): ucpp.num.Float32 return this.Value;
 	public extern var LastChange(get, never): GizmoFloatParameterChange;
 	public inline extern function get_LastChange(): GizmoFloatParameterChange return this.LastChange;
 }
@@ -23,7 +23,7 @@ abstract ConstGizmoLocalFloatParameterSource(GizmoLocalFloatParameterSource) fro
 @:forward
 @:nativeGen
 @:native("GizmoLocalFloatParameterSource*")
-abstract GizmoLocalFloatParameterSourcePtr(cpp.Star<GizmoLocalFloatParameterSource>) from cpp.Star<GizmoLocalFloatParameterSource> to cpp.Star<GizmoLocalFloatParameterSource>{
+abstract GizmoLocalFloatParameterSourcePtr(ucpp.Ptr<GizmoLocalFloatParameterSource>) from ucpp.Ptr<GizmoLocalFloatParameterSource> to ucpp.Ptr<GizmoLocalFloatParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoLocalFloatParameterSource): GizmoLocalFloatParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataChannelDefinitions")
 @:include("NiagaraDataChannelDefinitions.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelDefinitions extends Object {
-	public var DataChannels: TArray<cpp.Star<NiagaraDataChannel>>;
+	public var DataChannels: TArray<ucpp.Ptr<NiagaraDataChannel>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataChannelDefinitions(NiagaraDataChannelDefinitions) from NiagaraDataChannelDefinitions {
-	public extern var DataChannels(get, never): TArray<cpp.Star<NiagaraDataChannel.ConstNiagaraDataChannel>>;
-	public inline extern function get_DataChannels(): TArray<cpp.Star<NiagaraDataChannel.ConstNiagaraDataChannel>> return this.DataChannels;
+	public extern var DataChannels(get, never): TArray<ucpp.Ptr<NiagaraDataChannel.ConstNiagaraDataChannel>>;
+	public inline extern function get_DataChannels(): TArray<ucpp.Ptr<NiagaraDataChannel.ConstNiagaraDataChannel>> return this.DataChannels;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannelDefinitions*")
-abstract NiagaraDataChannelDefinitionsPtr(cpp.Star<NiagaraDataChannelDefinitions>) from cpp.Star<NiagaraDataChannelDefinitions> to cpp.Star<NiagaraDataChannelDefinitions>{
+abstract NiagaraDataChannelDefinitionsPtr(ucpp.Ptr<NiagaraDataChannelDefinitions>) from ucpp.Ptr<NiagaraDataChannelDefinitions> to ucpp.Ptr<NiagaraDataChannelDefinitions>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannelDefinitions): NiagaraDataChannelDefinitionsPtr {
 		return untyped __cpp__("&({0})", v);

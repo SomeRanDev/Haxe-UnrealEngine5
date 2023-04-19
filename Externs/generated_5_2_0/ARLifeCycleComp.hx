@@ -3,32 +3,32 @@ package ue;
 
 @:native("UARLifeCycleComponent")
 @:include("ARLifeCycleComponent.h")
-@:structAccess
+@:valueType
 extern class ARLifeCycleComp extends SceneComp {
-	public var OnARActorSpawnedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Class>, Guid, cpp.Star<ARActor>) -> Void>;
-	public var OnARActorToBeDestroyedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARActor>) -> Void>;
+	public var OnARActorSpawnedDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Class>, Guid, ucpp.Ptr<ARActor>) -> Void>;
+	public var OnARActorToBeDestroyedDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARActor>) -> Void>;
 
-	private function ServerSpawnARActor(ComponentClass: cpp.Star<Class>, NativeID: Guid): Void;
-	private function ServerDestroyARActor(Actor: cpp.Star<ARActor>): Void;
-	public function InstanceARActorToBeDestroyedDelegate__DelegateSignature(Actor: cpp.Star<ARActor>): Void;
-	public function InstanceARActorSpawnedDelegate__DelegateSignature(ComponentClass: cpp.Star<Class>, NativeID: Guid, SpawnedActor: cpp.Star<ARActor>): Void;
+	private function ServerSpawnARActor(ComponentClass: ucpp.Ptr<Class>, NativeID: Guid): Void;
+	private function ServerDestroyARActor(Actor: ucpp.Ptr<ARActor>): Void;
+	public function InstanceARActorToBeDestroyedDelegate__DelegateSignature(Actor: ucpp.Ptr<ARActor>): Void;
+	public function InstanceARActorSpawnedDelegate__DelegateSignature(ComponentClass: ucpp.Ptr<Class>, NativeID: Guid, SpawnedActor: ucpp.Ptr<ARActor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstARLifeCycleComp(ARLifeCycleComp) from ARLifeCycleComp {
-	public extern var OnARActorSpawnedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Class>, Guid, cpp.Star<ARActor.ConstARActor>) -> Void>;
-	public inline extern function get_OnARActorSpawnedDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Class>, Guid, cpp.Star<ARActor.ConstARActor>) -> Void> return this.OnARActorSpawnedDelegate;
-	public extern var OnARActorToBeDestroyedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARActor.ConstARActor>) -> Void>;
-	public inline extern function get_OnARActorToBeDestroyedDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARActor.ConstARActor>) -> Void> return this.OnARActorToBeDestroyedDelegate;
+	public extern var OnARActorSpawnedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Class>, Guid, ucpp.Ptr<ARActor.ConstARActor>) -> Void>;
+	public inline extern function get_OnARActorSpawnedDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Class>, Guid, ucpp.Ptr<ARActor.ConstARActor>) -> Void> return this.OnARActorSpawnedDelegate;
+	public extern var OnARActorToBeDestroyedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARActor.ConstARActor>) -> Void>;
+	public inline extern function get_OnARActorToBeDestroyedDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARActor.ConstARActor>) -> Void> return this.OnARActorToBeDestroyedDelegate;
 }
 
 @:forward
 @:nativeGen
 @:native("ARLifeCycleComp*")
-abstract ARLifeCycleCompPtr(cpp.Star<ARLifeCycleComp>) from cpp.Star<ARLifeCycleComp> to cpp.Star<ARLifeCycleComp>{
+abstract ARLifeCycleCompPtr(ucpp.Ptr<ARLifeCycleComp>) from ucpp.Ptr<ARLifeCycleComp> to ucpp.Ptr<ARLifeCycleComp>{
 	@:from
 	public static extern inline function fromValue(v: ARLifeCycleComp): ARLifeCycleCompPtr {
 		return untyped __cpp__("&({0})", v);

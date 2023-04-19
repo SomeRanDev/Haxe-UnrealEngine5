@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMaterialImportTestFunctions")
 @:include("ImportTestFunctions/MaterialImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class MaterialImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckVectorParameter(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, ParameterName: FString, ExpectedParameterValue: LinearColor): InterchangeTestFunctionResult;
-	public function CheckShadingModel(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, ExpectedShadingModel: TEnumAsByte<EMaterialShadingModel>): InterchangeTestFunctionResult;
-	public function CheckScalarParameter(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, ParameterName: FString, ExpectedParameterValue: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckOpacityMaskClipValue(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, ExpectedOpacityMaskClipValue: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckIsTwoSided(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, ExpectedIsTwoSided: Bool): InterchangeTestFunctionResult;
-	public function CheckImportedMaterialInstanceCount(MaterialInterfaces: cpp.Reference<TArray<cpp.Star<MaterialInterface>>>, ExpectedNumberOfImportedMaterialInstances: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckImportedMaterialCount(MaterialInterfaces: cpp.Reference<TArray<cpp.Star<MaterialInterface>>>, ExpectedNumberOfImportedMaterials: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckBlendMode(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, ExpectedBlendMode: TEnumAsByte<EBlendMode>): InterchangeTestFunctionResult;
+	public function CheckVectorParameter(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, ParameterName: FString, ExpectedParameterValue: LinearColor): InterchangeTestFunctionResult;
+	public function CheckShadingModel(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, ExpectedShadingModel: TEnumAsByte<EMaterialShadingModel>): InterchangeTestFunctionResult;
+	public function CheckScalarParameter(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, ParameterName: FString, ExpectedParameterValue: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckOpacityMaskClipValue(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, ExpectedOpacityMaskClipValue: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckIsTwoSided(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, ExpectedIsTwoSided: Bool): InterchangeTestFunctionResult;
+	public function CheckImportedMaterialInstanceCount(MaterialInterfaces: ucpp.Ref<TArray<ucpp.Ptr<MaterialInterface>>>, ExpectedNumberOfImportedMaterialInstances: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckImportedMaterialCount(MaterialInterfaces: ucpp.Ref<TArray<ucpp.Ptr<MaterialInterface>>>, ExpectedNumberOfImportedMaterials: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckBlendMode(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, ExpectedBlendMode: TEnumAsByte<EBlendMode>): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstMaterialImportTestFunctions(MaterialImportTestFunctions) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialImportTestFunctions*")
-abstract MaterialImportTestFunctionsPtr(cpp.Star<MaterialImportTestFunctions>) from cpp.Star<MaterialImportTestFunctions> to cpp.Star<MaterialImportTestFunctions>{
+abstract MaterialImportTestFunctionsPtr(ucpp.Ptr<MaterialImportTestFunctions>) from ucpp.Ptr<MaterialImportTestFunctions> to ucpp.Ptr<MaterialImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: MaterialImportTestFunctions): MaterialImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,34 +3,34 @@ package ue;
 
 @:native("UViewportInteractor")
 @:include("ViewportInteractor.h")
-@:structAccess
+@:valueType
 extern class ViewportInteractor extends Object {
 	@:protected public var KeyToActionMap: TMap<Key, ViewportActionKeyInput>;
-	@:protected public var WorldInteraction: cpp.Star<ViewportWorldInteraction>;
-	@:protected public var OtherInteractor: cpp.Star<ViewportInteractor>;
+	@:protected public var WorldInteraction: ucpp.Ptr<ViewportWorldInteraction>;
+	@:protected public var OtherInteractor: ucpp.Ptr<ViewportInteractor>;
 
-	public function Tick(DeltaTime: cpp.Float32): Void;
+	public function Tick(DeltaTime: ucpp.num.Float32): Void;
 	public function Shutdown(): Void;
 	public function SetHitResultGizmoFilterMode(newFilter: EHitResultGizmoFilterMode): Void;
 	public function SetDraggingMode(NewDraggingMode: EViewportInteractionDraggingMode): Void;
 	public function SetCanCarry(bInCanCarry: Bool): Void;
 	public function IsHoveringOverGizmo(): Bool;
-	@:protected public function HandleInputKey_BP(Action: cpp.Reference<ViewportActionKeyInput>, Key: Key, Event: TEnumAsByte<EInputEvent>, bOutWasHandled: cpp.Reference<Bool>): Void;
-	@:protected public function HandleInputAxis_BP(Action: cpp.Reference<ViewportActionKeyInput>, Key: Key, Delta: cpp.Float32, DeltaTime: cpp.Float32, bOutWasHandled: cpp.Reference<Bool>): Void;
-	public function GetWorldInteraction(): cpp.Star<ViewportWorldInteraction>;
-	public function GetTransformAndForwardVector(OutHandTransform: cpp.Reference<Transform>, OutForwardVector: cpp.Reference<Vector>): Bool;
+	@:protected public function HandleInputKey_BP(Action: ucpp.Ref<ViewportActionKeyInput>, Key: Key, Event: TEnumAsByte<EInputEvent>, bOutWasHandled: ucpp.Ref<Bool>): Void;
+	@:protected public function HandleInputAxis_BP(Action: ucpp.Ref<ViewportActionKeyInput>, Key: Key, Delta: ucpp.num.Float32, DeltaTime: ucpp.num.Float32, bOutWasHandled: ucpp.Ref<Bool>): Void;
+	public function GetWorldInteraction(): ucpp.Ptr<ViewportWorldInteraction>;
+	public function GetTransformAndForwardVector(OutHandTransform: ucpp.Ref<Transform>, OutForwardVector: ucpp.Ref<Vector>): Bool;
 	public function GetTransform(): Transform;
 	public function GetRoomSpaceTransform(): Transform;
-	public function GetOtherInteractor(): cpp.Star<ViewportInteractor>;
+	public function GetOtherInteractor(): ucpp.Ptr<ViewportInteractor>;
 	public function GetLastTransform(): Transform;
 	public function GetLastRoomSpaceTransform(): Transform;
-	public function GetLaserPointer(LaserPointerStart: cpp.Reference<Vector>, LaserPointerEnd: cpp.Reference<Vector>, bEvenIfBlocked: Bool, LaserLengthOverride: cpp.Float32): Bool;
+	public function GetLaserPointer(LaserPointerStart: ucpp.Ref<Vector>, LaserPointerEnd: ucpp.Ref<Vector>, bEvenIfBlocked: Bool, LaserLengthOverride: ucpp.num.Float32): Bool;
 	public function GetHoverLocation(): Vector;
 	public function GetHitResultGizmoFilterMode(): EHitResultGizmoFilterMode;
 	public function GetDraggingMode(): EViewportInteractionDraggingMode;
 	public function CanCarry(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -45,7 +45,7 @@ abstract ConstViewportInteractor(ViewportInteractor) from ViewportInteractor {
 @:forward
 @:nativeGen
 @:native("ViewportInteractor*")
-abstract ViewportInteractorPtr(cpp.Star<ViewportInteractor>) from cpp.Star<ViewportInteractor> to cpp.Star<ViewportInteractor>{
+abstract ViewportInteractorPtr(ucpp.Ptr<ViewportInteractor>) from ucpp.Ptr<ViewportInteractor> to ucpp.Ptr<ViewportInteractor>{
 	@:from
 	public static extern inline function fromValue(v: ViewportInteractor): ViewportInteractorPtr {
 		return untyped __cpp__("&({0})", v);

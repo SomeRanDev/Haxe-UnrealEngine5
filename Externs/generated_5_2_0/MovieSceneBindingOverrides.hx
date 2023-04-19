@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneBindingOverrides")
 @:include("MovieSceneBindingOverrides.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBindingOverrides extends Object {
 	private var BindingData: TArray<MovieSceneBindingOverrideData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneBindingOverrides(MovieSceneBindingOverrides) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneBindingOverrides*")
-abstract MovieSceneBindingOverridesPtr(cpp.Star<MovieSceneBindingOverrides>) from cpp.Star<MovieSceneBindingOverrides> to cpp.Star<MovieSceneBindingOverrides>{
+abstract MovieSceneBindingOverridesPtr(ucpp.Ptr<MovieSceneBindingOverrides>) from ucpp.Ptr<MovieSceneBindingOverrides> to ucpp.Ptr<MovieSceneBindingOverrides>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneBindingOverrides): MovieSceneBindingOverridesPtr {
 		return untyped __cpp__("&({0})", v);

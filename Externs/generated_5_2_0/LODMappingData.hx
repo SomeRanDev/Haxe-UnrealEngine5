@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLODMappingData")
 @:include("Components/LODSyncComponent.h")
-@:structAccess
+@:valueType
 extern class LODMappingData {
-	public var Mapping: TArray<cpp.Int32>;
-	public var InverseMapping: TArray<cpp.Int32>;
+	public var Mapping: TArray<ucpp.num.Int32>;
+	public var InverseMapping: TArray<ucpp.num.Int32>;
 
 	@:native("FLODMappingData") public function new();
-	@:native("FLODMappingData") public static function make(Mapping: TArray<cpp.Int32>, InverseMapping: TArray<cpp.Int32>): LODMappingData ;
+	@:native("FLODMappingData") public static function make(Mapping: TArray<ucpp.num.Int32>, InverseMapping: TArray<ucpp.num.Int32>): LODMappingData ;
 }

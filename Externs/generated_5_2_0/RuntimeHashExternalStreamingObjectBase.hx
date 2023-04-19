@@ -3,12 +3,12 @@ package ue;
 
 @:native("URuntimeHashExternalStreamingObjectBase")
 @:include("WorldPartition/WorldPartitionRuntimeHash.h")
-@:structAccess
+@:valueType
 extern class RuntimeHashExternalStreamingObjectBase extends Object {
 	private var OwningWorld: TSoftObjectPtr<World>;
 	private var OuterWorld: TSoftObjectPtr<World>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstRuntimeHashExternalStreamingObjectBase(RuntimeHashExternalStreamin
 @:forward
 @:nativeGen
 @:native("RuntimeHashExternalStreamingObjectBase*")
-abstract RuntimeHashExternalStreamingObjectBasePtr(cpp.Star<RuntimeHashExternalStreamingObjectBase>) from cpp.Star<RuntimeHashExternalStreamingObjectBase> to cpp.Star<RuntimeHashExternalStreamingObjectBase>{
+abstract RuntimeHashExternalStreamingObjectBasePtr(ucpp.Ptr<RuntimeHashExternalStreamingObjectBase>) from ucpp.Ptr<RuntimeHashExternalStreamingObjectBase> to ucpp.Ptr<RuntimeHashExternalStreamingObjectBase>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeHashExternalStreamingObjectBase): RuntimeHashExternalStreamingObjectBasePtr {
 		return untyped __cpp__("&({0})", v);

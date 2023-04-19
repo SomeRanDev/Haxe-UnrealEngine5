@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSampleLoaded__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSampleLoaded__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSampleLoaded__PythonCallable(OnSampleLoaded__PythonCallable) fro
 @:forward
 @:nativeGen
 @:native("OnSampleLoaded__PythonCallable*")
-abstract OnSampleLoaded__PythonCallablePtr(cpp.Star<OnSampleLoaded__PythonCallable>) from cpp.Star<OnSampleLoaded__PythonCallable> to cpp.Star<OnSampleLoaded__PythonCallable>{
+abstract OnSampleLoaded__PythonCallablePtr(ucpp.Ptr<OnSampleLoaded__PythonCallable>) from ucpp.Ptr<OnSampleLoaded__PythonCallable> to ucpp.Ptr<OnSampleLoaded__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSampleLoaded__PythonCallable): OnSampleLoaded__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

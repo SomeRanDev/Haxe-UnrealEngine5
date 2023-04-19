@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterfacePhysicsField")
 @:include("NiagaraDataInterfacePhysicsField.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfacePhysicsField extends NiagaraDataInterface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraDataInterfacePhysicsField(NiagaraDataInterfacePhysicsField)
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfacePhysicsField*")
-abstract NiagaraDataInterfacePhysicsFieldPtr(cpp.Star<NiagaraDataInterfacePhysicsField>) from cpp.Star<NiagaraDataInterfacePhysicsField> to cpp.Star<NiagaraDataInterfacePhysicsField>{
+abstract NiagaraDataInterfacePhysicsFieldPtr(ucpp.Ptr<NiagaraDataInterfacePhysicsField>) from ucpp.Ptr<NiagaraDataInterfacePhysicsField> to ucpp.Ptr<NiagaraDataInterfacePhysicsField>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfacePhysicsField): NiagaraDataInterfacePhysicsFieldPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMetaData")
-@:structAccess
+@:valueType
 extern class MetaData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMetaData(MetaData) from MetaData {
 @:forward
 @:nativeGen
 @:native("MetaData*")
-abstract MetaDataPtr(cpp.Star<MetaData>) from cpp.Star<MetaData> to cpp.Star<MetaData>{
+abstract MetaDataPtr(ucpp.Ptr<MetaData>) from ucpp.Ptr<MetaData> to ucpp.Ptr<MetaData>{
 	@:from
 	public static extern inline function fromValue(v: MetaData): MetaDataPtr {
 		return untyped __cpp__("&({0})", v);

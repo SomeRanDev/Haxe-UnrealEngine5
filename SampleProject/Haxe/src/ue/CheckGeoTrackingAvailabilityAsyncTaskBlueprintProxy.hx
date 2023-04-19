@@ -3,16 +3,16 @@ package ue;
 
 @:native("UCheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy")
 @:include("ARGeoTrackingSupport.h")
-@:structAccess
+@:valueType
 extern class CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(Bool, FString) -> Void>;
 	public var OnFailed: HaxeMulticastSparseDelegateProperty<(Bool, FString) -> Void>;
 
 	public function GeoTrackingAvailabilityDelegate__DelegateSignature(bIsAvailable: Bool, Error: FString): Void;
-	public function CheckGeoTrackingAvailabilityAtLocation(WorldContextObject: cpp.Star<Object>, Longitude: cpp.Float32, Latitude: cpp.Float32): cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>;
-	public function CheckGeoTrackingAvailability(WorldContextObject: cpp.Star<Object>): cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>;
+	public function CheckGeoTrackingAvailabilityAtLocation(WorldContextObject: ucpp.Ptr<Object>, Longitude: ucpp.num.Float32, Latitude: ucpp.num.Float32): ucpp.Ptr<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>;
+	public function CheckGeoTrackingAvailability(WorldContextObject: ucpp.Ptr<Object>): ucpp.Ptr<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstCheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy(CheckGeoTracki
 @:forward
 @:nativeGen
 @:native("CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy*")
-abstract CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxyPtr(cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>) from cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy> to cpp.Star<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>{
+abstract CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxyPtr(ucpp.Ptr<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>) from ucpp.Ptr<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy> to ucpp.Ptr<CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy>{
 	@:from
 	public static extern inline function fromValue(v: CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxy): CheckGeoTrackingAvailabilityAsyncTaskBlueprintProxyPtr {
 		return untyped __cpp__("&({0})", v);

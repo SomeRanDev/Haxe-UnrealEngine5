@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraValidationRule_NoFixedDeltaTime")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_NoFixedDeltaTime extends NiagaraValidationRule {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraValidationRule_NoFixedDeltaTime(NiagaraValidationRule_NoFix
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_NoFixedDeltaTime*")
-abstract NiagaraValidationRule_NoFixedDeltaTimePtr(cpp.Star<NiagaraValidationRule_NoFixedDeltaTime>) from cpp.Star<NiagaraValidationRule_NoFixedDeltaTime> to cpp.Star<NiagaraValidationRule_NoFixedDeltaTime>{
+abstract NiagaraValidationRule_NoFixedDeltaTimePtr(ucpp.Ptr<NiagaraValidationRule_NoFixedDeltaTime>) from ucpp.Ptr<NiagaraValidationRule_NoFixedDeltaTime> to ucpp.Ptr<NiagaraValidationRule_NoFixedDeltaTime>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_NoFixedDeltaTime): NiagaraValidationRule_NoFixedDeltaTimePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FWidgetNavigationData")
 @:include("Blueprint/WidgetNavigation.h")
-@:structAccess
+@:valueType
 extern class WidgetNavigationData {
 	public var Rule: EUINavigationRule;
 	public var WidgetToFocus: FName;

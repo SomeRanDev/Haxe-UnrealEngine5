@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModulePivotOffset")
 @:include("Particles/Modules/Location/ParticleModulePivotOffset.h")
-@:structAccess
+@:valueType
 extern class ParticleModulePivotOffset extends ParticleModuleLocationBase {
 	public var PivotOffset: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModulePivotOffset(ParticleModulePivotOffset) from Particle
 @:forward
 @:nativeGen
 @:native("ParticleModulePivotOffset*")
-abstract ParticleModulePivotOffsetPtr(cpp.Star<ParticleModulePivotOffset>) from cpp.Star<ParticleModulePivotOffset> to cpp.Star<ParticleModulePivotOffset>{
+abstract ParticleModulePivotOffsetPtr(ucpp.Ptr<ParticleModulePivotOffset>) from ucpp.Ptr<ParticleModulePivotOffset> to ucpp.Ptr<ParticleModulePivotOffset>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModulePivotOffset): ParticleModulePivotOffsetPtr {
 		return untyped __cpp__("&({0})", v);

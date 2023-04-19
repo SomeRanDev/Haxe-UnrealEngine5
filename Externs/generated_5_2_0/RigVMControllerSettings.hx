@@ -3,12 +3,12 @@ package ue;
 
 @:native("URigVMControllerSettings")
 @:include("RigVMModel/RigVMController.h")
-@:structAccess
+@:valueType
 extern class RigVMControllerSettings extends Object {
 	public var bAutoResolveTemplateNodesWhenLinkingExecute: Bool;
 	public var TemplateDefaultTypes: TMap<FName, RigVMController_CommonTypePerTemplate>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstRigVMControllerSettings(RigVMControllerSettings) from RigVMControl
 @:forward
 @:nativeGen
 @:native("RigVMControllerSettings*")
-abstract RigVMControllerSettingsPtr(cpp.Star<RigVMControllerSettings>) from cpp.Star<RigVMControllerSettings> to cpp.Star<RigVMControllerSettings>{
+abstract RigVMControllerSettingsPtr(ucpp.Ptr<RigVMControllerSettings>) from ucpp.Ptr<RigVMControllerSettings> to ucpp.Ptr<RigVMControllerSettings>{
 	@:from
 	public static extern inline function fromValue(v: RigVMControllerSettings): RigVMControllerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

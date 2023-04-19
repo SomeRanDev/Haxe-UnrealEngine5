@@ -3,27 +3,27 @@ package ue;
 
 @:native("UAppleImageUtilsBaseAsyncTaskBlueprintProxy")
 @:include("AppleImageUtilsBlueprintProxy.h")
-@:structAccess
+@:valueType
 extern class AppleImageUtilsBaseAsyncTaskBlueprintProxy extends Object {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Reference<AppleImageUtilsImageConversionResult>) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Reference<AppleImageUtilsImageConversionResult>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<AppleImageUtilsImageConversionResult>) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<AppleImageUtilsImageConversionResult>) -> Void>;
 	public var ConversionResult: AppleImageUtilsImageConversionResult;
 
-	public function CreateProxyObjectForConvertToTIFF(SourceImage: cpp.Star<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
-	public function CreateProxyObjectForConvertToPNG(SourceImage: cpp.Star<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
-	public function CreateProxyObjectForConvertToJPEG(SourceImage: cpp.Star<Texture>, Quality: cpp.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
-	public function CreateProxyObjectForConvertToHEIF(SourceImage: cpp.Star<Texture>, Quality: cpp.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: cpp.Float32, Rotate: ETextureRotationDirection): cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
+	public function CreateProxyObjectForConvertToTIFF(SourceImage: ucpp.Ptr<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: ucpp.num.Float32, Rotate: ETextureRotationDirection): ucpp.Ptr<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
+	public function CreateProxyObjectForConvertToPNG(SourceImage: ucpp.Ptr<Texture>, bWantColor: Bool, bUseGpu: Bool, Scale: ucpp.num.Float32, Rotate: ETextureRotationDirection): ucpp.Ptr<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
+	public function CreateProxyObjectForConvertToJPEG(SourceImage: ucpp.Ptr<Texture>, Quality: ucpp.num.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: ucpp.num.Float32, Rotate: ETextureRotationDirection): ucpp.Ptr<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
+	public function CreateProxyObjectForConvertToHEIF(SourceImage: ucpp.Ptr<Texture>, Quality: ucpp.num.Int32, bWantColor: Bool, bUseGpu: Bool, Scale: ucpp.num.Float32, Rotate: ETextureRotationDirection): ucpp.Ptr<AppleImageUtilsBaseAsyncTaskBlueprintProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAppleImageUtilsBaseAsyncTaskBlueprintProxy(AppleImageUtilsBaseAsyncTaskBlueprintProxy) from AppleImageUtilsBaseAsyncTaskBlueprintProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<AppleImageUtilsImageConversionResult>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<AppleImageUtilsImageConversionResult>) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<AppleImageUtilsImageConversionResult>) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<AppleImageUtilsImageConversionResult>) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<AppleImageUtilsImageConversionResult>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<AppleImageUtilsImageConversionResult>) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<AppleImageUtilsImageConversionResult>) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<AppleImageUtilsImageConversionResult>) -> Void> return this.OnFailure;
 	public extern var ConversionResult(get, never): AppleImageUtilsImageConversionResult;
 	public inline extern function get_ConversionResult(): AppleImageUtilsImageConversionResult return this.ConversionResult;
 }
@@ -31,7 +31,7 @@ abstract ConstAppleImageUtilsBaseAsyncTaskBlueprintProxy(AppleImageUtilsBaseAsyn
 @:forward
 @:nativeGen
 @:native("AppleImageUtilsBaseAsyncTaskBlueprintProxy*")
-abstract AppleImageUtilsBaseAsyncTaskBlueprintProxyPtr(cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>) from cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy> to cpp.Star<AppleImageUtilsBaseAsyncTaskBlueprintProxy>{
+abstract AppleImageUtilsBaseAsyncTaskBlueprintProxyPtr(ucpp.Ptr<AppleImageUtilsBaseAsyncTaskBlueprintProxy>) from ucpp.Ptr<AppleImageUtilsBaseAsyncTaskBlueprintProxy> to ucpp.Ptr<AppleImageUtilsBaseAsyncTaskBlueprintProxy>{
 	@:from
 	public static extern inline function fromValue(v: AppleImageUtilsBaseAsyncTaskBlueprintProxy): AppleImageUtilsBaseAsyncTaskBlueprintProxyPtr {
 		return untyped __cpp__("&({0})", v);

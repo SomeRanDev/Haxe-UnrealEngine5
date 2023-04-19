@@ -3,14 +3,14 @@ package ue;
 
 @:native("UK2Node_InputAxisEvent")
 @:include("K2Node_InputAxisEvent.h")
-@:structAccess
+@:valueType
 extern class K2Node_InputAxisEvent extends K2Node_Event {
 	public var InputAxisName: FName;
 	public var bConsumeInput: Bool;
 	public var bExecuteWhenPaused: Bool;
 	public var bOverrideParentBinding: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstK2Node_InputAxisEvent(K2Node_InputAxisEvent) from K2Node_InputAxis
 @:forward
 @:nativeGen
 @:native("K2Node_InputAxisEvent*")
-abstract K2Node_InputAxisEventPtr(cpp.Star<K2Node_InputAxisEvent>) from cpp.Star<K2Node_InputAxisEvent> to cpp.Star<K2Node_InputAxisEvent>{
+abstract K2Node_InputAxisEventPtr(ucpp.Ptr<K2Node_InputAxisEvent>) from ucpp.Ptr<K2Node_InputAxisEvent> to ucpp.Ptr<K2Node_InputAxisEvent>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_InputAxisEvent): K2Node_InputAxisEventPtr {
 		return untyped __cpp__("&({0})", v);

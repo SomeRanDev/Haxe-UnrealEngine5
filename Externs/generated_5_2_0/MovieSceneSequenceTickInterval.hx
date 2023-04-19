@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMovieSceneSequenceTickInterval")
 @:include("MovieSceneSequenceTickInterval.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceTickInterval {
-	public var TickIntervalSeconds: cpp.Float32;
-	public var EvaluationBudgetMicroseconds: cpp.Float32;
+	public var TickIntervalSeconds: ucpp.num.Float32;
+	public var EvaluationBudgetMicroseconds: ucpp.num.Float32;
 	public var bTickWhenPaused: Bool;
 	public var bAllowRounding: Bool;
 
 	@:native("FMovieSceneSequenceTickInterval") public function new();
-	@:native("FMovieSceneSequenceTickInterval") public static function make(TickIntervalSeconds: cpp.Float32, EvaluationBudgetMicroseconds: cpp.Float32, bTickWhenPaused: Bool, bAllowRounding: Bool): MovieSceneSequenceTickInterval ;
+	@:native("FMovieSceneSequenceTickInterval") public static function make(TickIntervalSeconds: ucpp.num.Float32, EvaluationBudgetMicroseconds: ucpp.num.Float32, bTickWhenPaused: Bool, bAllowRounding: Bool): MovieSceneSequenceTickInterval ;
 }

@@ -3,39 +3,39 @@ package ue;
 
 @:native("URichTextBlock")
 @:include("Components/RichTextBlock.h")
-@:structAccess
+@:valueType
 extern class RichTextBlock extends TextLayoutWidget {
 	public function GetText(): FText;
 	public function SetText(input: FText): Void;
-	public function GetTextStyleSet(): cpp.Star<DataTable>;
-	public function SetTextStyleSet(input: cpp.Star<DataTable>): Void;
+	public function GetTextStyleSet(): ucpp.Ptr<DataTable>;
+	public function SetTextStyleSet(input: ucpp.Ptr<DataTable>): Void;
 	@:protected public var DecoratorClasses: TArray<TSubclassOf<RichTextBlockDecorator>>;
 	@:protected public var bOverrideDefaultStyle: Bool;
 	@:protected public var DefaultTextStyleOverride: TextBlockStyle;
-	@:protected public var MinDesiredWidth: cpp.Float32;
+	@:protected public var MinDesiredWidth: ucpp.num.Float32;
 	@:protected public var TextTransformPolicy: ETextTransformPolicy;
 	@:protected public var TextOverflowPolicy: ETextOverflowPolicy;
 	@:protected public var DefaultTextStyle: TextBlockStyle;
-	@:protected public var InstanceDecorators: TArray<cpp.Star<RichTextBlockDecorator>>;
+	@:protected public var InstanceDecorators: TArray<ucpp.Ptr<RichTextBlockDecorator>>;
 
 	public function SetTextTransformPolicy(InTransformPolicy: ETextTransformPolicy): Void;
 	public function SetTextOverflowPolicy(InOverflowPolicy: ETextOverflowPolicy): Void;
-	public function SetMinDesiredWidth(InMinDesiredWidth: cpp.Float32): Void;
-	public function SetDefaultTextStyle(InDefaultTextStyle: cpp.Reference<TextBlockStyle>): Void;
-	public function SetDefaultStrikeBrush(InStrikeBrush: cpp.Reference<SlateBrush>): Void;
+	public function SetMinDesiredWidth(InMinDesiredWidth: ucpp.num.Float32): Void;
+	public function SetDefaultTextStyle(InDefaultTextStyle: ucpp.Ref<TextBlockStyle>): Void;
+	public function SetDefaultStrikeBrush(InStrikeBrush: ucpp.Ref<SlateBrush>): Void;
 	public function SetDefaultShadowOffset(InShadowOffset: Vector2D): Void;
 	public function SetDefaultShadowColorAndOpacity(InShadowColorAndOpacity: LinearColor): Void;
-	public function SetDefaultMaterial(InMaterial: cpp.Star<MaterialInterface>): Void;
+	public function SetDefaultMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
 	public function SetDefaultFont(InFontInfo: SlateFontInfo): Void;
 	public function SetDefaultColorAndOpacity(InColorAndOpacity: SlateColor): Void;
-	public function SetDecorators(InDecoratorClasses: cpp.Reference<TArray<TSubclassOf<RichTextBlockDecorator>>>): Void;
+	public function SetDecorators(InDecoratorClasses: ucpp.Ref<TArray<TSubclassOf<RichTextBlockDecorator>>>): Void;
 	public function SetAutoWrapText(InAutoTextWrap: Bool): Void;
 	public function RefreshTextLayout(): Void;
-	public function GetDefaultDynamicMaterial(): cpp.Star<MaterialInstanceDynamic>;
-	public function GetDecoratorByClass(DecoratorClass: TSubclassOf<RichTextBlockDecorator>): cpp.Star<RichTextBlockDecorator>;
+	public function GetDefaultDynamicMaterial(): ucpp.Ptr<MaterialInstanceDynamic>;
+	public function GetDecoratorByClass(DecoratorClass: TSubclassOf<RichTextBlockDecorator>): ucpp.Ptr<RichTextBlockDecorator>;
 	public function ClearAllDefaultStyleOverrides(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -46,7 +46,7 @@ abstract ConstRichTextBlock(RichTextBlock) from RichTextBlock {
 @:forward
 @:nativeGen
 @:native("RichTextBlock*")
-abstract RichTextBlockPtr(cpp.Star<RichTextBlock>) from cpp.Star<RichTextBlock> to cpp.Star<RichTextBlock>{
+abstract RichTextBlockPtr(ucpp.Ptr<RichTextBlock>) from ucpp.Ptr<RichTextBlock> to ucpp.Ptr<RichTextBlock>{
 	@:from
 	public static extern inline function fromValue(v: RichTextBlock): RichTextBlockPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneEventBlueprintExtension")
 @:include("MovieSceneEventBlueprintExtension.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventBlueprintExtension extends BlueprintExtension {
 	private var EventSections: TArray<TWeakObjectPtr<MovieSceneEventSectionBase>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneEventBlueprintExtension(MovieSceneEventBlueprintExtensio
 @:forward
 @:nativeGen
 @:native("MovieSceneEventBlueprintExtension*")
-abstract MovieSceneEventBlueprintExtensionPtr(cpp.Star<MovieSceneEventBlueprintExtension>) from cpp.Star<MovieSceneEventBlueprintExtension> to cpp.Star<MovieSceneEventBlueprintExtension>{
+abstract MovieSceneEventBlueprintExtensionPtr(ucpp.Ptr<MovieSceneEventBlueprintExtension>) from ucpp.Ptr<MovieSceneEventBlueprintExtension> to ucpp.Ptr<MovieSceneEventBlueprintExtension>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEventBlueprintExtension): MovieSceneEventBlueprintExtensionPtr {
 		return untyped __cpp__("&({0})", v);

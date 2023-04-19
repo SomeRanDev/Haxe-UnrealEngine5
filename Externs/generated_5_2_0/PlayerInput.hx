@@ -3,19 +3,19 @@ package ue;
 
 @:native("UPlayerInput")
 @:include("GameFramework/PlayerInput.h")
-@:structAccess
+@:valueType
 extern class PlayerInput extends Object {
 	public var DebugExecBindings: TArray<KeyBind>;
 	public var InvertedAxis: TArray<FName>;
 
-	public function SetMouseSensitivity(Sensitivity: cpp.Float32): Void;
+	public function SetMouseSensitivity(Sensitivity: ucpp.num.Float32): Void;
 	public function SetBind(BindName: FName, Command: FString): Void;
 	public function InvertAxisKey(AxisKey: Key): Void;
 	public function InvertAxis(AxisName: FName): Void;
-	public function GetOuterAPlayerController(): cpp.Star<PlayerController>;
+	public function GetOuterAPlayerController(): ucpp.Ptr<PlayerController>;
 	public function ClearSmoothing(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetOuterAPlayerController)
@@ -30,7 +30,7 @@ abstract ConstPlayerInput(PlayerInput) from PlayerInput {
 @:forward
 @:nativeGen
 @:native("PlayerInput*")
-abstract PlayerInputPtr(cpp.Star<PlayerInput>) from cpp.Star<PlayerInput> to cpp.Star<PlayerInput>{
+abstract PlayerInputPtr(ucpp.Ptr<PlayerInput>) from ucpp.Ptr<PlayerInput> to ucpp.Ptr<PlayerInput>{
 	@:from
 	public static extern inline function fromValue(v: PlayerInput): PlayerInputPtr {
 		return untyped __cpp__("&({0})", v);

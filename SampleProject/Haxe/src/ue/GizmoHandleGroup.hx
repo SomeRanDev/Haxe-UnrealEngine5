@@ -3,15 +3,15 @@ package ue;
 
 @:native("UGizmoHandleGroup")
 @:include("VIGizmoHandle.h")
-@:structAccess
+@:valueType
 extern class GizmoHandleGroup extends SceneComp {
-	@:protected public var GizmoMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var TranslucentGizmoMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var GizmoMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var TranslucentGizmoMaterial: ucpp.Ptr<MaterialInterface>;
 	@:protected public var Handles: TArray<GizmoHandle>;
-	@:protected public var OwningTransformGizmoActor: cpp.Star<BaseTransformGizmo>;
-	@:protected public var DragOperationComponent: cpp.Star<ViewportDragOperationComp>;
+	@:protected public var OwningTransformGizmoActor: ucpp.Ptr<BaseTransformGizmo>;
+	@:protected public var DragOperationComponent: ucpp.Ptr<ViewportDragOperationComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstGizmoHandleGroup(GizmoHandleGroup) from GizmoHandleGroup {
 @:forward
 @:nativeGen
 @:native("GizmoHandleGroup*")
-abstract GizmoHandleGroupPtr(cpp.Star<GizmoHandleGroup>) from cpp.Star<GizmoHandleGroup> to cpp.Star<GizmoHandleGroup>{
+abstract GizmoHandleGroupPtr(ucpp.Ptr<GizmoHandleGroup>) from ucpp.Ptr<GizmoHandleGroup> to ucpp.Ptr<GizmoHandleGroup>{
 	@:from
 	public static extern inline function fromValue(v: GizmoHandleGroup): GizmoHandleGroupPtr {
 		return untyped __cpp__("&({0})", v);

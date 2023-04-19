@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionObjectRadius")
 @:include("Materials/MaterialExpressionObjectRadius.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionObjectRadius extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionObjectRadius(MaterialExpressionObjectRadius) fro
 @:forward
 @:nativeGen
 @:native("MaterialExpressionObjectRadius*")
-abstract MaterialExpressionObjectRadiusPtr(cpp.Star<MaterialExpressionObjectRadius>) from cpp.Star<MaterialExpressionObjectRadius> to cpp.Star<MaterialExpressionObjectRadius>{
+abstract MaterialExpressionObjectRadiusPtr(ucpp.Ptr<MaterialExpressionObjectRadius>) from ucpp.Ptr<MaterialExpressionObjectRadius> to ucpp.Ptr<MaterialExpressionObjectRadius>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionObjectRadius): MaterialExpressionObjectRadiusPtr {
 		return untyped __cpp__("&({0})", v);

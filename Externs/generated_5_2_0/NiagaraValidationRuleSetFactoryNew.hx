@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraValidationRuleSetFactoryNew")
 @:include("NiagaraValidationRuleSetFactoryNew.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRuleSetFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraValidationRuleSetFactoryNew(NiagaraValidationRuleSetFactory
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRuleSetFactoryNew*")
-abstract NiagaraValidationRuleSetFactoryNewPtr(cpp.Star<NiagaraValidationRuleSetFactoryNew>) from cpp.Star<NiagaraValidationRuleSetFactoryNew> to cpp.Star<NiagaraValidationRuleSetFactoryNew>{
+abstract NiagaraValidationRuleSetFactoryNewPtr(ucpp.Ptr<NiagaraValidationRuleSetFactoryNew>) from ucpp.Ptr<NiagaraValidationRuleSetFactoryNew> to ucpp.Ptr<NiagaraValidationRuleSetFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRuleSetFactoryNew): NiagaraValidationRuleSetFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

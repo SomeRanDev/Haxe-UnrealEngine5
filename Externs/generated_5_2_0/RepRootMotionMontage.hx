@@ -3,14 +3,14 @@ package ue;
 
 @:native("FRepRootMotionMontage")
 @:include("GameFramework/Character.h")
-@:structAccess
+@:valueType
 extern class RepRootMotionMontage {
 	public var bIsActive: Bool;
-	public var AnimMontage: cpp.Star<AnimMontage>;
-	public var Position: cpp.Float32;
+	public var AnimMontage: ucpp.Ptr<AnimMontage>;
+	public var Position: ucpp.num.Float32;
 	public var Location: Vector_NetQuantize100;
 	public var Rotation: Rotator;
-	public var MovementBase: cpp.Star<PrimitiveComp>;
+	public var MovementBase: ucpp.Ptr<PrimitiveComp>;
 	public var MovementBaseBoneName: FName;
 	public var bRelativePosition: Bool;
 	public var bRelativeRotation: Bool;

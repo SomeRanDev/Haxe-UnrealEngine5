@@ -3,14 +3,14 @@ package ue;
 
 @:native("FWaveTableTransform")
 @:include("WaveTableTransform.h")
-@:structAccess
+@:valueType
 extern class WaveTableTransform {
 	public var Curve: EWaveTableCurve;
-	public var Scalar: cpp.Float32;
+	public var Scalar: ucpp.num.Float32;
 	public var CurveCustom: RichCurve;
-	public var CurveShared: cpp.Star<CurveFloat>;
-	public var WaveTable: TArray<cpp.Float32>;
-	private var FinalValue: cpp.Float32;
+	public var CurveShared: ucpp.Ptr<CurveFloat>;
+	public var WaveTable: TArray<ucpp.num.Float32>;
+	private var FinalValue: ucpp.num.Float32;
 
 	@:native("FWaveTableTransform") public function new();
 }

@@ -3,19 +3,19 @@ package ue;
 
 @:native("UScaleBox")
 @:include("Components/ScaleBox.h")
-@:structAccess
+@:valueType
 extern class ScaleBox extends ContentWidget {
 	public var Stretch: TEnumAsByte<EStretch>;
 	public var StretchDirection: TEnumAsByte<EStretchDirection>;
-	public var UserSpecifiedScale: cpp.Float32;
+	public var UserSpecifiedScale: ucpp.num.Float32;
 	public var IgnoreInheritedScale: Bool;
 
-	public function SetUserSpecifiedScale(InUserSpecifiedScale: cpp.Float32): Void;
+	public function SetUserSpecifiedScale(InUserSpecifiedScale: ucpp.num.Float32): Void;
 	public function SetStretchDirection(InStretchDirection: TEnumAsByte<EStretchDirection>): Void;
 	public function SetStretch(InStretch: TEnumAsByte<EStretch>): Void;
 	public function SetIgnoreInheritedScale(bInIgnoreInheritedScale: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,8 +25,8 @@ abstract ConstScaleBox(ScaleBox) from ScaleBox {
 	public inline extern function get_Stretch(): TEnumAsByte<EStretch> return this.Stretch;
 	public extern var StretchDirection(get, never): TEnumAsByte<EStretchDirection>;
 	public inline extern function get_StretchDirection(): TEnumAsByte<EStretchDirection> return this.StretchDirection;
-	public extern var UserSpecifiedScale(get, never): cpp.Float32;
-	public inline extern function get_UserSpecifiedScale(): cpp.Float32 return this.UserSpecifiedScale;
+	public extern var UserSpecifiedScale(get, never): ucpp.num.Float32;
+	public inline extern function get_UserSpecifiedScale(): ucpp.num.Float32 return this.UserSpecifiedScale;
 	public extern var IgnoreInheritedScale(get, never): Bool;
 	public inline extern function get_IgnoreInheritedScale(): Bool return this.IgnoreInheritedScale;
 }
@@ -34,7 +34,7 @@ abstract ConstScaleBox(ScaleBox) from ScaleBox {
 @:forward
 @:nativeGen
 @:native("ScaleBox*")
-abstract ScaleBoxPtr(cpp.Star<ScaleBox>) from cpp.Star<ScaleBox> to cpp.Star<ScaleBox>{
+abstract ScaleBoxPtr(ucpp.Ptr<ScaleBox>) from ucpp.Ptr<ScaleBox> to ucpp.Ptr<ScaleBox>{
 	@:from
 	public static extern inline function fromValue(v: ScaleBox): ScaleBoxPtr {
 		return untyped __cpp__("&({0})", v);

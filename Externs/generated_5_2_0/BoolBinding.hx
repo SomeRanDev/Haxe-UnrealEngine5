@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBoolBinding")
 @:include("Binding/BoolBinding.h")
-@:structAccess
+@:valueType
 extern class BoolBinding extends PropertyBinding {
 	public function GetValue(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstBoolBinding(BoolBinding) from BoolBinding {
 @:forward
 @:nativeGen
 @:native("BoolBinding*")
-abstract BoolBindingPtr(cpp.Star<BoolBinding>) from cpp.Star<BoolBinding> to cpp.Star<BoolBinding>{
+abstract BoolBindingPtr(ucpp.Ptr<BoolBinding>) from ucpp.Ptr<BoolBinding> to ucpp.Ptr<BoolBinding>{
 	@:from
 	public static extern inline function fromValue(v: BoolBinding): BoolBindingPtr {
 		return untyped __cpp__("&({0})", v);

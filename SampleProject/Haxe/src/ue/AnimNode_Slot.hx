@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_Slot")
 @:include("AnimNodes/AnimNode_Slot.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Slot extends AnimNode_Base {
 	public var Source: PoseLink;
 	public var SlotName: FName;

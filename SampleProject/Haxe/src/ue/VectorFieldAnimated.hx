@@ -3,60 +3,60 @@ package ue;
 
 @:native("UVectorFieldAnimated")
 @:include("VectorField/VectorFieldAnimated.h")
-@:structAccess
+@:valueType
 extern class VectorFieldAnimated extends VectorField {
-	public var Texture: cpp.Star<Texture2D>;
+	public var Texture: ucpp.Ptr<Texture2D>;
 	public var ConstructionOp: TEnumAsByte<EVectorFieldConstructionOp>;
-	public var VolumeSizeX: cpp.Int32;
-	public var VolumeSizeY: cpp.Int32;
-	public var VolumeSizeZ: cpp.Int32;
-	public var SubImagesX: cpp.Int32;
-	public var SubImagesY: cpp.Int32;
-	public var FrameCount: cpp.Int32;
-	public var FramesPerSecond: cpp.Float32;
+	public var VolumeSizeX: ucpp.num.Int32;
+	public var VolumeSizeY: ucpp.num.Int32;
+	public var VolumeSizeZ: ucpp.num.Int32;
+	public var SubImagesX: ucpp.num.Int32;
+	public var SubImagesY: ucpp.num.Int32;
+	public var FrameCount: ucpp.num.Int32;
+	public var FramesPerSecond: ucpp.num.Float32;
 	public var bLoop: Bool;
-	public var NoiseField: cpp.Star<VectorFieldStatic>;
-	public var NoiseScale: cpp.Float32;
-	public var NoiseMax: cpp.Float32;
+	public var NoiseField: ucpp.Ptr<VectorFieldStatic>;
+	public var NoiseScale: ucpp.num.Float32;
+	public var NoiseMax: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVectorFieldAnimated(VectorFieldAnimated) from VectorFieldAnimated {
-	public extern var Texture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_Texture(): cpp.Star<Texture2D.ConstTexture2D> return this.Texture;
+	public extern var Texture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_Texture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.Texture;
 	public extern var ConstructionOp(get, never): TEnumAsByte<EVectorFieldConstructionOp>;
 	public inline extern function get_ConstructionOp(): TEnumAsByte<EVectorFieldConstructionOp> return this.ConstructionOp;
-	public extern var VolumeSizeX(get, never): cpp.Int32;
-	public inline extern function get_VolumeSizeX(): cpp.Int32 return this.VolumeSizeX;
-	public extern var VolumeSizeY(get, never): cpp.Int32;
-	public inline extern function get_VolumeSizeY(): cpp.Int32 return this.VolumeSizeY;
-	public extern var VolumeSizeZ(get, never): cpp.Int32;
-	public inline extern function get_VolumeSizeZ(): cpp.Int32 return this.VolumeSizeZ;
-	public extern var SubImagesX(get, never): cpp.Int32;
-	public inline extern function get_SubImagesX(): cpp.Int32 return this.SubImagesX;
-	public extern var SubImagesY(get, never): cpp.Int32;
-	public inline extern function get_SubImagesY(): cpp.Int32 return this.SubImagesY;
-	public extern var FrameCount(get, never): cpp.Int32;
-	public inline extern function get_FrameCount(): cpp.Int32 return this.FrameCount;
-	public extern var FramesPerSecond(get, never): cpp.Float32;
-	public inline extern function get_FramesPerSecond(): cpp.Float32 return this.FramesPerSecond;
+	public extern var VolumeSizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_VolumeSizeX(): ucpp.num.Int32 return this.VolumeSizeX;
+	public extern var VolumeSizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_VolumeSizeY(): ucpp.num.Int32 return this.VolumeSizeY;
+	public extern var VolumeSizeZ(get, never): ucpp.num.Int32;
+	public inline extern function get_VolumeSizeZ(): ucpp.num.Int32 return this.VolumeSizeZ;
+	public extern var SubImagesX(get, never): ucpp.num.Int32;
+	public inline extern function get_SubImagesX(): ucpp.num.Int32 return this.SubImagesX;
+	public extern var SubImagesY(get, never): ucpp.num.Int32;
+	public inline extern function get_SubImagesY(): ucpp.num.Int32 return this.SubImagesY;
+	public extern var FrameCount(get, never): ucpp.num.Int32;
+	public inline extern function get_FrameCount(): ucpp.num.Int32 return this.FrameCount;
+	public extern var FramesPerSecond(get, never): ucpp.num.Float32;
+	public inline extern function get_FramesPerSecond(): ucpp.num.Float32 return this.FramesPerSecond;
 	public extern var bLoop(get, never): Bool;
 	public inline extern function get_bLoop(): Bool return this.bLoop;
-	public extern var NoiseField(get, never): cpp.Star<VectorFieldStatic.ConstVectorFieldStatic>;
-	public inline extern function get_NoiseField(): cpp.Star<VectorFieldStatic.ConstVectorFieldStatic> return this.NoiseField;
-	public extern var NoiseScale(get, never): cpp.Float32;
-	public inline extern function get_NoiseScale(): cpp.Float32 return this.NoiseScale;
-	public extern var NoiseMax(get, never): cpp.Float32;
-	public inline extern function get_NoiseMax(): cpp.Float32 return this.NoiseMax;
+	public extern var NoiseField(get, never): ucpp.Ptr<VectorFieldStatic.ConstVectorFieldStatic>;
+	public inline extern function get_NoiseField(): ucpp.Ptr<VectorFieldStatic.ConstVectorFieldStatic> return this.NoiseField;
+	public extern var NoiseScale(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseScale(): ucpp.num.Float32 return this.NoiseScale;
+	public extern var NoiseMax(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseMax(): ucpp.num.Float32 return this.NoiseMax;
 }
 
 @:forward
 @:nativeGen
 @:native("VectorFieldAnimated*")
-abstract VectorFieldAnimatedPtr(cpp.Star<VectorFieldAnimated>) from cpp.Star<VectorFieldAnimated> to cpp.Star<VectorFieldAnimated>{
+abstract VectorFieldAnimatedPtr(ucpp.Ptr<VectorFieldAnimated>) from ucpp.Ptr<VectorFieldAnimated> to ucpp.Ptr<VectorFieldAnimated>{
 	@:from
 	public static extern inline function fromValue(v: VectorFieldAnimated): VectorFieldAnimatedPtr {
 		return untyped __cpp__("&({0})", v);

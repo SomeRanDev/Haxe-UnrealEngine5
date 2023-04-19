@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDeprecateSlateVector2D")
 @:include("Types/SlateVector2.h")
-@:structAccess
+@:valueType
 extern class DeprecateSlateVector2D extends Vector2f {
 	@:native("FDeprecateSlateVector2D") public function new();
 }

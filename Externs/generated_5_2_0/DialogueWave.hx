@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDialogueWave")
 @:include("Sound/DialogueWave.h")
-@:structAccess
+@:valueType
 extern class DialogueWave extends Object {
 	public var bMature: Bool;
 	public var bOverride_SubtitleOverride: Bool;
@@ -12,7 +12,7 @@ extern class DialogueWave extends Object {
 	public var ContextMappings: TArray<DialogueContextMapping>;
 	public var LocalizationGUID: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstDialogueWave(DialogueWave) from DialogueWave {
 @:forward
 @:nativeGen
 @:native("DialogueWave*")
-abstract DialogueWavePtr(cpp.Star<DialogueWave>) from cpp.Star<DialogueWave> to cpp.Star<DialogueWave>{
+abstract DialogueWavePtr(ucpp.Ptr<DialogueWave>) from ucpp.Ptr<DialogueWave> to ucpp.Ptr<DialogueWave>{
 	@:from
 	public static extern inline function fromValue(v: DialogueWave): DialogueWavePtr {
 		return untyped __cpp__("&({0})", v);

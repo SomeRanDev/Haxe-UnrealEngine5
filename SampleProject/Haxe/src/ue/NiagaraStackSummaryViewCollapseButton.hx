@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraStackSummaryViewCollapseButton")
 @:include("ViewModels/Stack/NiagaraStackEmitterSettingsGroup.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackSummaryViewCollapseButton extends NiagaraStackEntry {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraStackSummaryViewCollapseButton(NiagaraStackSummaryViewColla
 @:forward
 @:nativeGen
 @:native("NiagaraStackSummaryViewCollapseButton*")
-abstract NiagaraStackSummaryViewCollapseButtonPtr(cpp.Star<NiagaraStackSummaryViewCollapseButton>) from cpp.Star<NiagaraStackSummaryViewCollapseButton> to cpp.Star<NiagaraStackSummaryViewCollapseButton>{
+abstract NiagaraStackSummaryViewCollapseButtonPtr(ucpp.Ptr<NiagaraStackSummaryViewCollapseButton>) from ucpp.Ptr<NiagaraStackSummaryViewCollapseButton> to ucpp.Ptr<NiagaraStackSummaryViewCollapseButton>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackSummaryViewCollapseButton): NiagaraStackSummaryViewCollapseButtonPtr {
 		return untyped __cpp__("&({0})", v);

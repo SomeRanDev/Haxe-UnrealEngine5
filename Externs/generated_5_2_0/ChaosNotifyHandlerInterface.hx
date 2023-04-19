@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UChaosNotifyHandlerInterface")
-@:structAccess
+@:valueType
 extern class ChaosNotifyHandlerInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstChaosNotifyHandlerInterface(ChaosNotifyHandlerInterface) from Chao
 @:forward
 @:nativeGen
 @:native("ChaosNotifyHandlerInterface*")
-abstract ChaosNotifyHandlerInterfacePtr(cpp.Star<ChaosNotifyHandlerInterface>) from cpp.Star<ChaosNotifyHandlerInterface> to cpp.Star<ChaosNotifyHandlerInterface>{
+abstract ChaosNotifyHandlerInterfacePtr(ucpp.Ptr<ChaosNotifyHandlerInterface>) from ucpp.Ptr<ChaosNotifyHandlerInterface> to ucpp.Ptr<ChaosNotifyHandlerInterface>{
 	@:from
 	public static extern inline function fromValue(v: ChaosNotifyHandlerInterface): ChaosNotifyHandlerInterfacePtr {
 		return untyped __cpp__("&({0})", v);

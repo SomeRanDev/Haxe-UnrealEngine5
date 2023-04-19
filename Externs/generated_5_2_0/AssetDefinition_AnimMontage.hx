@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_AnimMontage")
 @:include("Animation/AssetDefinition_AnimMontage.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_AnimMontage extends AssetDefinition_AnimationAsset {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_AnimMontage(AssetDefinition_AnimMontage) from Asse
 @:forward
 @:nativeGen
 @:native("AssetDefinition_AnimMontage*")
-abstract AssetDefinition_AnimMontagePtr(cpp.Star<AssetDefinition_AnimMontage>) from cpp.Star<AssetDefinition_AnimMontage> to cpp.Star<AssetDefinition_AnimMontage>{
+abstract AssetDefinition_AnimMontagePtr(ucpp.Ptr<AssetDefinition_AnimMontage>) from ucpp.Ptr<AssetDefinition_AnimMontage> to ucpp.Ptr<AssetDefinition_AnimMontage>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_AnimMontage): AssetDefinition_AnimMontagePtr {
 		return untyped __cpp__("&({0})", v);

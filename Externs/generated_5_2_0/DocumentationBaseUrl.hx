@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDocumentationBaseUrl")
 @:include("DocumentationSettings.h")
-@:structAccess
+@:valueType
 extern class DocumentationBaseUrl {
 	public var Id: FString;
 	public var Url: FString;

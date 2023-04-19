@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGenerateAssetManifestCommandlet")
 @:include("Commandlets/GenerateAssetManifestCommandlet.h")
-@:structAccess
+@:valueType
 extern class GenerateAssetManifestCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGenerateAssetManifestCommandlet(GenerateAssetManifestCommandlet) f
 @:forward
 @:nativeGen
 @:native("GenerateAssetManifestCommandlet*")
-abstract GenerateAssetManifestCommandletPtr(cpp.Star<GenerateAssetManifestCommandlet>) from cpp.Star<GenerateAssetManifestCommandlet> to cpp.Star<GenerateAssetManifestCommandlet>{
+abstract GenerateAssetManifestCommandletPtr(ucpp.Ptr<GenerateAssetManifestCommandlet>) from ucpp.Ptr<GenerateAssetManifestCommandlet> to ucpp.Ptr<GenerateAssetManifestCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GenerateAssetManifestCommandlet): GenerateAssetManifestCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionParticleSubUV")
 @:include("Materials/MaterialExpressionParticleSubUV.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionParticleSubUV extends MaterialExpressionTextureSample {
 	public var bBlend: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionParticleSubUV(MaterialExpressionParticleSubUV) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionParticleSubUV*")
-abstract MaterialExpressionParticleSubUVPtr(cpp.Star<MaterialExpressionParticleSubUV>) from cpp.Star<MaterialExpressionParticleSubUV> to cpp.Star<MaterialExpressionParticleSubUV>{
+abstract MaterialExpressionParticleSubUVPtr(ucpp.Ptr<MaterialExpressionParticleSubUV>) from ucpp.Ptr<MaterialExpressionParticleSubUV> to ucpp.Ptr<MaterialExpressionParticleSubUV>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionParticleSubUV): MaterialExpressionParticleSubUVPtr {
 		return untyped __cpp__("&({0})", v);

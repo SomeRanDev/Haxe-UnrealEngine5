@@ -3,12 +3,12 @@ package ue;
 
 @:native("UBlueprintVariableNodeSpawner")
 @:include("BlueprintVariableNodeSpawner.h")
-@:structAccess
+@:valueType
 extern class BlueprintVariableNodeSpawner extends BlueprintFieldNodeSpawner {
-	private var LocalVarOuter: cpp.Star<EdGraph>;
+	private var LocalVarOuter: ucpp.Ptr<EdGraph>;
 	private var LocalVarDesc: BPVariableDescription;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstBlueprintVariableNodeSpawner(BlueprintVariableNodeSpawner) from Bl
 @:forward
 @:nativeGen
 @:native("BlueprintVariableNodeSpawner*")
-abstract BlueprintVariableNodeSpawnerPtr(cpp.Star<BlueprintVariableNodeSpawner>) from cpp.Star<BlueprintVariableNodeSpawner> to cpp.Star<BlueprintVariableNodeSpawner>{
+abstract BlueprintVariableNodeSpawnerPtr(ucpp.Ptr<BlueprintVariableNodeSpawner>) from ucpp.Ptr<BlueprintVariableNodeSpawner> to ucpp.Ptr<BlueprintVariableNodeSpawner>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintVariableNodeSpawner): BlueprintVariableNodeSpawnerPtr {
 		return untyped __cpp__("&({0})", v);

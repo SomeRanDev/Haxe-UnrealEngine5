@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieScenePostSpawnEventSystem")
 @:include("Systems/MovieSceneEventSystems.h")
-@:structAccess
+@:valueType
 extern class MovieScenePostSpawnEventSystem extends MovieSceneEventSystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieScenePostSpawnEventSystem(MovieScenePostSpawnEventSystem) fro
 @:forward
 @:nativeGen
 @:native("MovieScenePostSpawnEventSystem*")
-abstract MovieScenePostSpawnEventSystemPtr(cpp.Star<MovieScenePostSpawnEventSystem>) from cpp.Star<MovieScenePostSpawnEventSystem> to cpp.Star<MovieScenePostSpawnEventSystem>{
+abstract MovieScenePostSpawnEventSystemPtr(ucpp.Ptr<MovieScenePostSpawnEventSystem>) from ucpp.Ptr<MovieScenePostSpawnEventSystem> to ucpp.Ptr<MovieScenePostSpawnEventSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieScenePostSpawnEventSystem): MovieScenePostSpawnEventSystemPtr {
 		return untyped __cpp__("&({0})", v);

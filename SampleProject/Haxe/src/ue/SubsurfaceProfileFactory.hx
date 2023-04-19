@@ -3,10 +3,10 @@ package ue;
 
 @:native("USubsurfaceProfileFactory")
 @:include("Factories/SubsurfaceProfileFactory.h")
-@:structAccess
+@:valueType
 extern class SubsurfaceProfileFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSubsurfaceProfileFactory(SubsurfaceProfileFactory) from Subsurface
 @:forward
 @:nativeGen
 @:native("SubsurfaceProfileFactory*")
-abstract SubsurfaceProfileFactoryPtr(cpp.Star<SubsurfaceProfileFactory>) from cpp.Star<SubsurfaceProfileFactory> to cpp.Star<SubsurfaceProfileFactory>{
+abstract SubsurfaceProfileFactoryPtr(ucpp.Ptr<SubsurfaceProfileFactory>) from ucpp.Ptr<SubsurfaceProfileFactory> to ucpp.Ptr<SubsurfaceProfileFactory>{
 	@:from
 	public static extern inline function fromValue(v: SubsurfaceProfileFactory): SubsurfaceProfileFactoryPtr {
 		return untyped __cpp__("&({0})", v);

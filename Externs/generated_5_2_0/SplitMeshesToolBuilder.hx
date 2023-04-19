@@ -3,10 +3,10 @@ package ue;
 
 @:native("USplitMeshesToolBuilder")
 @:include("SplitMeshesTool.h")
-@:structAccess
+@:valueType
 extern class SplitMeshesToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSplitMeshesToolBuilder(SplitMeshesToolBuilder) from SplitMeshesToo
 @:forward
 @:nativeGen
 @:native("SplitMeshesToolBuilder*")
-abstract SplitMeshesToolBuilderPtr(cpp.Star<SplitMeshesToolBuilder>) from cpp.Star<SplitMeshesToolBuilder> to cpp.Star<SplitMeshesToolBuilder>{
+abstract SplitMeshesToolBuilderPtr(ucpp.Ptr<SplitMeshesToolBuilder>) from ucpp.Ptr<SplitMeshesToolBuilder> to ucpp.Ptr<SplitMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SplitMeshesToolBuilder): SplitMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

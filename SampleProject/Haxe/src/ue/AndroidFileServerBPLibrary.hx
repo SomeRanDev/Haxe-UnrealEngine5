@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAndroidFileServerBPLibrary")
 @:include("AndroidFileServerBPLibrary.h")
-@:structAccess
+@:valueType
 extern class AndroidFileServerBPLibrary extends BlueprintFunctionLibrary {
 	public function StopFileServer(bUSB: Bool, bNetwork: Bool): Bool;
-	public function StartFileServer(bUSB: Bool, bNetwork: Bool, Port: cpp.Int32): Bool;
+	public function StartFileServer(bUSB: Bool, bNetwork: Bool, Port: ucpp.num.Int32): Bool;
 	public function IsFileServerRunning(): TEnumAsByte<EAFSActiveType>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAndroidFileServerBPLibrary(AndroidFileServerBPLibrary) from Androi
 @:forward
 @:nativeGen
 @:native("AndroidFileServerBPLibrary*")
-abstract AndroidFileServerBPLibraryPtr(cpp.Star<AndroidFileServerBPLibrary>) from cpp.Star<AndroidFileServerBPLibrary> to cpp.Star<AndroidFileServerBPLibrary>{
+abstract AndroidFileServerBPLibraryPtr(ucpp.Ptr<AndroidFileServerBPLibrary>) from ucpp.Ptr<AndroidFileServerBPLibrary> to ucpp.Ptr<AndroidFileServerBPLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AndroidFileServerBPLibrary): AndroidFileServerBPLibraryPtr {
 		return untyped __cpp__("&({0})", v);

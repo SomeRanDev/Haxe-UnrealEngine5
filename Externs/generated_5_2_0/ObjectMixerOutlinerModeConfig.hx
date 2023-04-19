@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectMixerOutlinerModeConfig")
 @:include("Views/List/Modes/ObjectMixerOutlinerMode.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerOutlinerModeConfig {
 	public var bHideTemporaryActors: Bool;
 	public var bShowOnlyActorsInCurrentLevel: Bool;

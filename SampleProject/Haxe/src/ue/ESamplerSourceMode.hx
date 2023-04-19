@@ -7,5 +7,6 @@ extern class ESamplerSourceMode {
 	static var SSM_FromTextureAsset: ESamplerSourceMode;
 	static var SSM_Wrap_WorldGroupSettings: ESamplerSourceMode;
 	static var SSM_Clamp_WorldGroupSettings: ESamplerSourceMode;
+	static var SSM_TerrainWeightmapGroupSettings: ESamplerSourceMode;
 	static var SSM_MAX: ESamplerSourceMode;
 }

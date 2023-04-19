@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputCoreTypes")
 @:include("InputCoreTypes.h")
-@:structAccess
+@:valueType
 extern class InputCoreTypes extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputCoreTypes(InputCoreTypes) from InputCoreTypes {
 @:forward
 @:nativeGen
 @:native("InputCoreTypes*")
-abstract InputCoreTypesPtr(cpp.Star<InputCoreTypes>) from cpp.Star<InputCoreTypes> to cpp.Star<InputCoreTypes>{
+abstract InputCoreTypesPtr(ucpp.Ptr<InputCoreTypes>) from ucpp.Ptr<InputCoreTypes> to ucpp.Ptr<InputCoreTypes>{
 	@:from
 	public static extern inline function fromValue(v: InputCoreTypes): InputCoreTypesPtr {
 		return untyped __cpp__("&({0})", v);

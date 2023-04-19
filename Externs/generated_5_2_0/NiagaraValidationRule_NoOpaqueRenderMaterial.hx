@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraValidationRule_NoOpaqueRenderMaterial")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_NoOpaqueRenderMaterial extends NiagaraValidationRule {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraValidationRule_NoOpaqueRenderMaterial(NiagaraValidationRule
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_NoOpaqueRenderMaterial*")
-abstract NiagaraValidationRule_NoOpaqueRenderMaterialPtr(cpp.Star<NiagaraValidationRule_NoOpaqueRenderMaterial>) from cpp.Star<NiagaraValidationRule_NoOpaqueRenderMaterial> to cpp.Star<NiagaraValidationRule_NoOpaqueRenderMaterial>{
+abstract NiagaraValidationRule_NoOpaqueRenderMaterialPtr(ucpp.Ptr<NiagaraValidationRule_NoOpaqueRenderMaterial>) from ucpp.Ptr<NiagaraValidationRule_NoOpaqueRenderMaterial> to ucpp.Ptr<NiagaraValidationRule_NoOpaqueRenderMaterial>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_NoOpaqueRenderMaterial): NiagaraValidationRule_NoOpaqueRenderMaterialPtr {
 		return untyped __cpp__("&({0})", v);

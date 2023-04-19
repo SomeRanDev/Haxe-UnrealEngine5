@@ -3,33 +3,33 @@ package ue;
 
 @:native("UPhysicsAsset")
 @:include("PhysicsEngine/PhysicsAsset.h")
-@:structAccess
+@:valueType
 extern class PhysicsAsset extends Object {
-	public var BoundsBodies: TArray<cpp.Int32>;
-	public var SkeletalBodySetups: TArray<cpp.Star<SkeletalBodySetup>>;
-	public var ConstraintSetup: TArray<cpp.Star<PhysicsConstraintTemplate>>;
+	public var BoundsBodies: TArray<ucpp.num.Int32>;
+	public var SkeletalBodySetups: TArray<ucpp.Ptr<SkeletalBodySetup>>;
+	public var ConstraintSetup: TArray<ucpp.Ptr<PhysicsConstraintTemplate>>;
 	public var SolverSettings: PhysicsAssetSolverSettings;
 	public var SolverIterations: SolverIterations;
 	public var SolverType: EPhysicsAssetSolverType;
 	public var bNotForDedicatedServer: Bool;
-	public var ThumbnailInfo: cpp.Star<ThumbnailInfo>;
+	public var ThumbnailInfo: ucpp.Ptr<ThumbnailInfo>;
 
-	public function GetConstraints(bIncludesTerminated: Bool, OutConstraints: cpp.Reference<TArray<ConstraintInstanceAccessor>>): Void;
+	public function GetConstraints(bIncludesTerminated: Bool, OutConstraints: ucpp.Ref<TArray<ConstraintInstanceAccessor>>): Void;
 	public function GetConstraintByName(ConstraintName: FName): ConstraintInstanceAccessor;
 	public function GetConstraintByBoneNames(Bone1Name: FName, Bone2Name: FName): ConstraintInstanceAccessor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPhysicsAsset(PhysicsAsset) from PhysicsAsset {
-	public extern var BoundsBodies(get, never): TArray<cpp.Int32>;
-	public inline extern function get_BoundsBodies(): TArray<cpp.Int32> return this.BoundsBodies;
-	public extern var SkeletalBodySetups(get, never): TArray<cpp.Star<SkeletalBodySetup.ConstSkeletalBodySetup>>;
-	public inline extern function get_SkeletalBodySetups(): TArray<cpp.Star<SkeletalBodySetup.ConstSkeletalBodySetup>> return this.SkeletalBodySetups;
-	public extern var ConstraintSetup(get, never): TArray<cpp.Star<PhysicsConstraintTemplate.ConstPhysicsConstraintTemplate>>;
-	public inline extern function get_ConstraintSetup(): TArray<cpp.Star<PhysicsConstraintTemplate.ConstPhysicsConstraintTemplate>> return this.ConstraintSetup;
+	public extern var BoundsBodies(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_BoundsBodies(): TArray<ucpp.num.Int32> return this.BoundsBodies;
+	public extern var SkeletalBodySetups(get, never): TArray<ucpp.Ptr<SkeletalBodySetup.ConstSkeletalBodySetup>>;
+	public inline extern function get_SkeletalBodySetups(): TArray<ucpp.Ptr<SkeletalBodySetup.ConstSkeletalBodySetup>> return this.SkeletalBodySetups;
+	public extern var ConstraintSetup(get, never): TArray<ucpp.Ptr<PhysicsConstraintTemplate.ConstPhysicsConstraintTemplate>>;
+	public inline extern function get_ConstraintSetup(): TArray<ucpp.Ptr<PhysicsConstraintTemplate.ConstPhysicsConstraintTemplate>> return this.ConstraintSetup;
 	public extern var SolverSettings(get, never): PhysicsAssetSolverSettings;
 	public inline extern function get_SolverSettings(): PhysicsAssetSolverSettings return this.SolverSettings;
 	public extern var SolverIterations(get, never): SolverIterations;
@@ -38,14 +38,14 @@ abstract ConstPhysicsAsset(PhysicsAsset) from PhysicsAsset {
 	public inline extern function get_SolverType(): EPhysicsAssetSolverType return this.SolverType;
 	public extern var bNotForDedicatedServer(get, never): Bool;
 	public inline extern function get_bNotForDedicatedServer(): Bool return this.bNotForDedicatedServer;
-	public extern var ThumbnailInfo(get, never): cpp.Star<ThumbnailInfo.ConstThumbnailInfo>;
-	public inline extern function get_ThumbnailInfo(): cpp.Star<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
+	public extern var ThumbnailInfo(get, never): ucpp.Ptr<ThumbnailInfo.ConstThumbnailInfo>;
+	public inline extern function get_ThumbnailInfo(): ucpp.Ptr<ThumbnailInfo.ConstThumbnailInfo> return this.ThumbnailInfo;
 }
 
 @:forward
 @:nativeGen
 @:native("PhysicsAsset*")
-abstract PhysicsAssetPtr(cpp.Star<PhysicsAsset>) from cpp.Star<PhysicsAsset> to cpp.Star<PhysicsAsset>{
+abstract PhysicsAssetPtr(ucpp.Ptr<PhysicsAsset>) from ucpp.Ptr<PhysicsAsset> to ucpp.Ptr<PhysicsAsset>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsAsset): PhysicsAssetPtr {
 		return untyped __cpp__("&({0})", v);

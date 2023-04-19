@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputTouchDelegateBinding")
 @:include("Engine/InputTouchDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class InputTouchDelegateBinding extends InputDelegateBinding {
 	public var InputTouchDelegateBindings: TArray<BlueprintInputTouchDelegateBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputTouchDelegateBinding(InputTouchDelegateBinding) from InputTou
 @:forward
 @:nativeGen
 @:native("InputTouchDelegateBinding*")
-abstract InputTouchDelegateBindingPtr(cpp.Star<InputTouchDelegateBinding>) from cpp.Star<InputTouchDelegateBinding> to cpp.Star<InputTouchDelegateBinding>{
+abstract InputTouchDelegateBindingPtr(ucpp.Ptr<InputTouchDelegateBinding>) from ucpp.Ptr<InputTouchDelegateBinding> to ucpp.Ptr<InputTouchDelegateBinding>{
 	@:from
 	public static extern inline function fromValue(v: InputTouchDelegateBinding): InputTouchDelegateBindingPtr {
 		return untyped __cpp__("&({0})", v);

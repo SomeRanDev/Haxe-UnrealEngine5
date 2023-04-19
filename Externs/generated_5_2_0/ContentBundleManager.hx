@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBundleManager")
 @:include("WorldPartition/ContentBundle/ContentBundleWorldSubsystem.h")
-@:structAccess
+@:valueType
 extern class ContentBundleManager extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBundleManager(ContentBundleManager) from ContentBundleManag
 @:forward
 @:nativeGen
 @:native("ContentBundleManager*")
-abstract ContentBundleManagerPtr(cpp.Star<ContentBundleManager>) from cpp.Star<ContentBundleManager> to cpp.Star<ContentBundleManager>{
+abstract ContentBundleManagerPtr(ucpp.Ptr<ContentBundleManager>) from ucpp.Ptr<ContentBundleManager> to ucpp.Ptr<ContentBundleManager>{
 	@:from
 	public static extern inline function fromValue(v: ContentBundleManager): ContentBundleManagerPtr {
 		return untyped __cpp__("&({0})", v);

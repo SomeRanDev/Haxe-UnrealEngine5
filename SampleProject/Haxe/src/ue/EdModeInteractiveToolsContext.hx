@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEdModeInteractiveToolsContext")
 @:include("EdModeInteractiveToolsContext.h")
-@:structAccess
+@:valueType
 extern class EdModeInteractiveToolsContext extends EditorInteractiveToolsContext {
-	@:protected public var ParentModeManagerToolsContext: cpp.Star<ModeManagerInteractiveToolsContext>;
+	@:protected public var ParentModeManagerToolsContext: ucpp.Ptr<ModeManagerInteractiveToolsContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstEdModeInteractiveToolsContext(EdModeInteractiveToolsContext) from 
 @:forward
 @:nativeGen
 @:native("EdModeInteractiveToolsContext*")
-abstract EdModeInteractiveToolsContextPtr(cpp.Star<EdModeInteractiveToolsContext>) from cpp.Star<EdModeInteractiveToolsContext> to cpp.Star<EdModeInteractiveToolsContext>{
+abstract EdModeInteractiveToolsContextPtr(ucpp.Ptr<EdModeInteractiveToolsContext>) from ucpp.Ptr<EdModeInteractiveToolsContext> to ucpp.Ptr<EdModeInteractiveToolsContext>{
 	@:from
 	public static extern inline function fromValue(v: EdModeInteractiveToolsContext): EdModeInteractiveToolsContextPtr {
 		return untyped __cpp__("&({0})", v);

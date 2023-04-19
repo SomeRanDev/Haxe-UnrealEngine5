@@ -3,24 +3,24 @@ package ue;
 
 @:native("UDistributionFloatConstant")
 @:include("Distributions/DistributionFloatConstant.h")
-@:structAccess
+@:valueType
 extern class DistributionFloatConstant extends DistributionFloat {
-	public var Constant: cpp.Float32;
+	public var Constant: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDistributionFloatConstant(DistributionFloatConstant) from DistributionFloatConstant {
-	public extern var Constant(get, never): cpp.Float32;
-	public inline extern function get_Constant(): cpp.Float32 return this.Constant;
+	public extern var Constant(get, never): ucpp.num.Float32;
+	public inline extern function get_Constant(): ucpp.num.Float32 return this.Constant;
 }
 
 @:forward
 @:nativeGen
 @:native("DistributionFloatConstant*")
-abstract DistributionFloatConstantPtr(cpp.Star<DistributionFloatConstant>) from cpp.Star<DistributionFloatConstant> to cpp.Star<DistributionFloatConstant>{
+abstract DistributionFloatConstantPtr(ucpp.Ptr<DistributionFloatConstant>) from ucpp.Ptr<DistributionFloatConstant> to ucpp.Ptr<DistributionFloatConstant>{
 	@:from
 	public static extern inline function fromValue(v: DistributionFloatConstant): DistributionFloatConstantPtr {
 		return untyped __cpp__("&({0})", v);

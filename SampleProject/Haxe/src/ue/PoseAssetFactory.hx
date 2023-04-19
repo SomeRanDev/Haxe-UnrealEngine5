@@ -3,33 +3,33 @@ package ue;
 
 @:native("UPoseAssetFactory")
 @:include("Factories/PoseAssetFactory.h")
-@:structAccess
+@:valueType
 extern class PoseAssetFactory extends Factory {
-	public var SourceAnimation: cpp.Star<AnimSequence>;
+	public var SourceAnimation: ucpp.Ptr<AnimSequence>;
 	public var PoseNames: TArray<FString>;
-	public var TargetSkeleton: cpp.Star<Skeleton>;
-	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
+	public var PreviewSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPoseAssetFactory(PoseAssetFactory) from PoseAssetFactory {
-	public extern var SourceAnimation(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_SourceAnimation(): cpp.Star<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
+	public extern var SourceAnimation(get, never): ucpp.Ptr<AnimSequence.ConstAnimSequence>;
+	public inline extern function get_SourceAnimation(): ucpp.Ptr<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
 	public extern var PoseNames(get, never): TArray<FString>;
 	public inline extern function get_PoseNames(): TArray<FString> return this.PoseNames;
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
-	public extern var PreviewSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var PreviewSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_PreviewSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("PoseAssetFactory*")
-abstract PoseAssetFactoryPtr(cpp.Star<PoseAssetFactory>) from cpp.Star<PoseAssetFactory> to cpp.Star<PoseAssetFactory>{
+abstract PoseAssetFactoryPtr(ucpp.Ptr<PoseAssetFactory>) from ucpp.Ptr<PoseAssetFactory> to ucpp.Ptr<PoseAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: PoseAssetFactory): PoseAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

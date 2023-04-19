@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraShaderScriptExternalConstant")
 @:include("NiagaraShared.h")
-@:structAccess
+@:valueType
 extern class NiagaraShaderScriptExternalConstant {
 	public var Type: FName;
 	public var Name: FString;

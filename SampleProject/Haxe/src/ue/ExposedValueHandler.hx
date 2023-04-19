@@ -3,12 +3,12 @@ package ue;
 
 @:native("FExposedValueHandler")
 @:include("Animation/ExposedValueHandler.h")
-@:structAccess
+@:valueType
 extern class ExposedValueHandler {
 	public var CopyRecords: TArray<ExposedValueCopyRecord>;
-	public var Function: cpp.Star<Function>;
+	public var Function: ucpp.Ptr<Function>;
 	public var BoundFunction: FName;
 
 	@:native("FExposedValueHandler") public function new();
-	@:native("FExposedValueHandler") public static function make(CopyRecords: TArray<ExposedValueCopyRecord>, Function: cpp.Star<Function>, BoundFunction: FName): ExposedValueHandler ;
+	@:native("FExposedValueHandler") public static function make(CopyRecords: TArray<ExposedValueCopyRecord>, Function: ucpp.Ptr<Function>, BoundFunction: FName): ExposedValueHandler ;
 }

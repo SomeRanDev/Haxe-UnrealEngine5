@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMyPluginObject")
 @:include("MyPluginObject.h")
-@:structAccess
+@:valueType
 extern class MyPluginObject extends Object {
 	private var MyStruct: MyPluginStruct;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMyPluginObject(MyPluginObject) from MyPluginObject {
 @:forward
 @:nativeGen
 @:native("MyPluginObject*")
-abstract MyPluginObjectPtr(cpp.Star<MyPluginObject>) from cpp.Star<MyPluginObject> to cpp.Star<MyPluginObject>{
+abstract MyPluginObjectPtr(ucpp.Ptr<MyPluginObject>) from ucpp.Ptr<MyPluginObject> to ucpp.Ptr<MyPluginObject>{
 	@:from
 	public static extern inline function fromValue(v: MyPluginObject): MyPluginObjectPtr {
 		return untyped __cpp__("&({0})", v);

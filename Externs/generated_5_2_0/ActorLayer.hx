@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorLayer")
 @:include("ActorLayerUtilities.h")
-@:structAccess
+@:valueType
 extern class ActorLayer {
 	public var Name: FName;
 

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshBoundaryToolBase")
 @:include("MeshBoundaryToolBase.h")
-@:structAccess
+@:valueType
 extern class MeshBoundaryToolBase extends SingleSelectionMeshEditingTool {
-	@:protected public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<PolygonSelectionMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMeshBoundaryToolBase(MeshBoundaryToolBase) from MeshBoundaryToolBa
 @:forward
 @:nativeGen
 @:native("MeshBoundaryToolBase*")
-abstract MeshBoundaryToolBasePtr(cpp.Star<MeshBoundaryToolBase>) from cpp.Star<MeshBoundaryToolBase> to cpp.Star<MeshBoundaryToolBase>{
+abstract MeshBoundaryToolBasePtr(ucpp.Ptr<MeshBoundaryToolBase>) from ucpp.Ptr<MeshBoundaryToolBase> to ucpp.Ptr<MeshBoundaryToolBase>{
 	@:from
 	public static extern inline function fromValue(v: MeshBoundaryToolBase): MeshBoundaryToolBasePtr {
 		return untyped __cpp__("&({0})", v);

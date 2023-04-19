@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNamedFilmbackPreset")
 @:include("CineCameraSettings.h")
-@:structAccess
+@:valueType
 extern class NamedFilmbackPreset {
 	public var Name: FString;
 	public var FilmbackSettings: CameraFilmbackSettings;

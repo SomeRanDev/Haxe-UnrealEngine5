@@ -3,20 +3,20 @@ package ue;
 
 @:native("FNiagaraSimCacheDataBuffersLayout")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheDataBuffersLayout {
 	public var LayoutName: FName;
 	public var SimTarget: ENiagaraSimTarget;
 	public var Variables: TArray<NiagaraSimCacheVariable>;
-	public var FloatCount: cpp.UInt16;
-	public var HalfCount: cpp.UInt16;
-	public var Int32Count: cpp.UInt16;
+	public var FloatCount: ucpp.num.UInt16;
+	public var HalfCount: ucpp.num.UInt16;
+	public var Int32Count: ucpp.num.UInt16;
 	public var bLocalSpace: Bool;
 	public var bAllowInterpolation: Bool;
 	public var bAllowVelocityExtrapolation: Bool;
 	public var RebaseVariableNames: TArray<FName>;
 	public var InterpVariableNames: TArray<FName>;
-	public var ComponentVelocity: cpp.UInt16;
+	public var ComponentVelocity: ucpp.num.UInt16;
 
 	@:native("FNiagaraSimCacheDataBuffersLayout") public function new();
 }

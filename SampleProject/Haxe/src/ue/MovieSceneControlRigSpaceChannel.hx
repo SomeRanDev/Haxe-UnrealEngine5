@@ -3,11 +3,12 @@ package ue;
 
 @:native("FMovieSceneControlRigSpaceChannel")
 @:include("Sequencer/MovieSceneControlRigSpaceChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneControlRigSpaceChannel extends MovieSceneChannel {
 	private var KeyTimes: TArray<FrameNumber>;
 	private var KeyValues: TArray<MovieSceneControlRigSpaceBaseKey>;
+	private var KeyHandles: MovieSceneKeyHandleMap;
 
 	@:native("FMovieSceneControlRigSpaceChannel") public function new();
-	@:native("FMovieSceneControlRigSpaceChannel") public static function make(KeyTimes: TArray<FrameNumber>, KeyValues: TArray<MovieSceneControlRigSpaceBaseKey>): MovieSceneControlRigSpaceChannel ;
+	@:native("FMovieSceneControlRigSpaceChannel") public static function make(KeyTimes: TArray<FrameNumber>, KeyValues: TArray<MovieSceneControlRigSpaceBaseKey>, KeyHandles: MovieSceneKeyHandleMap): MovieSceneControlRigSpaceChannel ;
 }

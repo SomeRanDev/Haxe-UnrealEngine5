@@ -3,17 +3,17 @@ package ue;
 
 @:native("ULocationServices")
 @:include("LocationServicesBPLibrary.h")
-@:structAccess
+@:valueType
 extern class LocationServices extends BlueprintFunctionLibrary {
 	public function StopLocationServices(): Bool;
 	public function StartLocationServices(): Bool;
 	public function IsLocationAccuracyAvailable(Accuracy: ELocationAccuracy): Bool;
-	public function InitLocationServices(Accuracy: ELocationAccuracy, UpdateFrequency: cpp.Float32, MinDistanceFilter: cpp.Float32): Bool;
-	public function GetLocationServicesImpl(): cpp.Star<LocationServicesImpl>;
+	public function InitLocationServices(Accuracy: ELocationAccuracy, UpdateFrequency: ucpp.num.Float32, MinDistanceFilter: ucpp.num.Float32): Bool;
+	public function GetLocationServicesImpl(): ucpp.Ptr<LocationServicesImpl>;
 	public function GetLastKnownLocation(): LocationServicesData;
 	public function AreLocationServicesEnabled(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstLocationServices(LocationServices) from LocationServices {
 @:forward
 @:nativeGen
 @:native("LocationServices*")
-abstract LocationServicesPtr(cpp.Star<LocationServices>) from cpp.Star<LocationServices> to cpp.Star<LocationServices>{
+abstract LocationServicesPtr(ucpp.Ptr<LocationServices>) from ucpp.Ptr<LocationServices> to ucpp.Ptr<LocationServices>{
 	@:from
 	public static extern inline function fromValue(v: LocationServices): LocationServicesPtr {
 		return untyped __cpp__("&({0})", v);

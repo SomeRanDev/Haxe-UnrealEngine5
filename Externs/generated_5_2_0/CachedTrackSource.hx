@@ -3,10 +3,10 @@ package ue;
 
 @:native("FCachedTrackSource")
 @:include("Recorder/CacheTrackRecorder.h")
-@:structAccess
+@:valueType
 extern class CachedTrackSource {
-	public var Recorder: cpp.Star<MovieSceneTrackRecorder>;
+	public var Recorder: ucpp.Ptr<MovieSceneTrackRecorder>;
 
 	@:native("FCachedTrackSource") public function new();
-	@:native("FCachedTrackSource") public static function make(Recorder: cpp.Star<MovieSceneTrackRecorder>): CachedTrackSource ;
+	@:native("FCachedTrackSource") public static function make(Recorder: ucpp.Ptr<MovieSceneTrackRecorder>): CachedTrackSource ;
 }

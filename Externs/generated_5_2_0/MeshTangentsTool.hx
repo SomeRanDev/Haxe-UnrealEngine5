@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMeshTangentsTool")
 @:include("MeshTangentsTool.h")
-@:structAccess
+@:valueType
 extern class MeshTangentsTool extends SingleSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<MeshTangentsToolProperties>;
-	@:protected public var DefaultMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var PreviewGeometry: cpp.Star<PreviewGeometry>;
+	@:protected public var Settings: ucpp.Ptr<MeshTangentsToolProperties>;
+	@:protected public var DefaultMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var PreviewGeometry: ucpp.Ptr<PreviewGeometry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMeshTangentsTool(MeshTangentsTool) from MeshTangentsTool {
 @:forward
 @:nativeGen
 @:native("MeshTangentsTool*")
-abstract MeshTangentsToolPtr(cpp.Star<MeshTangentsTool>) from cpp.Star<MeshTangentsTool> to cpp.Star<MeshTangentsTool>{
+abstract MeshTangentsToolPtr(ucpp.Ptr<MeshTangentsTool>) from ucpp.Ptr<MeshTangentsTool> to ucpp.Ptr<MeshTangentsTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshTangentsTool): MeshTangentsToolPtr {
 		return untyped __cpp__("&({0})", v);

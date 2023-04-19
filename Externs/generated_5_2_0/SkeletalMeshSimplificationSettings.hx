@@ -3,11 +3,11 @@ package ue;
 
 @:native("USkeletalMeshSimplificationSettings")
 @:include("Engine/SkeletalMeshSimplificationSettings.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshSimplificationSettings extends DeveloperSettings {
 	public var SkeletalMeshReductionModuleName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSkeletalMeshSimplificationSettings(SkeletalMeshSimplificationSetti
 @:forward
 @:nativeGen
 @:native("SkeletalMeshSimplificationSettings*")
-abstract SkeletalMeshSimplificationSettingsPtr(cpp.Star<SkeletalMeshSimplificationSettings>) from cpp.Star<SkeletalMeshSimplificationSettings> to cpp.Star<SkeletalMeshSimplificationSettings>{
+abstract SkeletalMeshSimplificationSettingsPtr(ucpp.Ptr<SkeletalMeshSimplificationSettings>) from ucpp.Ptr<SkeletalMeshSimplificationSettings> to ucpp.Ptr<SkeletalMeshSimplificationSettings>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMeshSimplificationSettings): SkeletalMeshSimplificationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

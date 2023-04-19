@@ -3,10 +3,10 @@ package ue;
 
 @:native("FTTFloatTrack")
 @:include("Engine/TimelineTemplate.h")
-@:structAccess
+@:valueType
 extern class TTFloatTrack extends TTPropertyTrack {
-	public var CurveFloat: cpp.Star<CurveFloat>;
+	public var CurveFloat: ucpp.Ptr<CurveFloat>;
 
 	@:native("FTTFloatTrack") public function new();
-	@:native("FTTFloatTrack") public static function make(CurveFloat: cpp.Star<CurveFloat>): TTFloatTrack ;
+	@:native("FTTFloatTrack") public static function make(CurveFloat: ucpp.Ptr<CurveFloat>): TTFloatTrack ;
 }

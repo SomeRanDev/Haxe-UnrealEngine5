@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraScriptVariableData")
 @:include("NiagaraScriptVariable.h")
-@:structAccess
+@:valueType
 extern class NiagaraScriptVariableData {
 	public var DefaultMode: ENiagaraDefaultMode;
 	public var DefaultBinding: NiagaraScriptVariableBinding;
 	public var Variable: NiagaraVariable;
 	public var Metadata: NiagaraVariableMetaData;
 	private var DefaultValueVariant: NiagaraVariant;
-	private var StaticSwitchDefaultValue: cpp.Int32;
+	private var StaticSwitchDefaultValue: ucpp.num.Int32;
 	private var bIsStaticSwitch: Bool;
 	private var bSubscribedToParameterDefinitions: Bool;
 	private var ChangeId: Guid;

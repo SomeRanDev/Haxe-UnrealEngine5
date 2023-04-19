@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnLevelEditorPreSaveWorld__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnLevelEditorPreSaveWorld__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnLevelEditorPreSaveWorld__PythonCallable(OnLevelEditorPreSaveWorl
 @:forward
 @:nativeGen
 @:native("OnLevelEditorPreSaveWorld__PythonCallable*")
-abstract OnLevelEditorPreSaveWorld__PythonCallablePtr(cpp.Star<OnLevelEditorPreSaveWorld__PythonCallable>) from cpp.Star<OnLevelEditorPreSaveWorld__PythonCallable> to cpp.Star<OnLevelEditorPreSaveWorld__PythonCallable>{
+abstract OnLevelEditorPreSaveWorld__PythonCallablePtr(ucpp.Ptr<OnLevelEditorPreSaveWorld__PythonCallable>) from ucpp.Ptr<OnLevelEditorPreSaveWorld__PythonCallable> to ucpp.Ptr<OnLevelEditorPreSaveWorld__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnLevelEditorPreSaveWorld__PythonCallable): OnLevelEditorPreSaveWorld__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryGeometryCollection")
 @:include("GeometryCollection/ActorFactoryGeometryCollection.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryGeometryCollection extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryGeometryCollection(ActorFactoryGeometryCollection) fro
 @:forward
 @:nativeGen
 @:native("ActorFactoryGeometryCollection*")
-abstract ActorFactoryGeometryCollectionPtr(cpp.Star<ActorFactoryGeometryCollection>) from cpp.Star<ActorFactoryGeometryCollection> to cpp.Star<ActorFactoryGeometryCollection>{
+abstract ActorFactoryGeometryCollectionPtr(ucpp.Ptr<ActorFactoryGeometryCollection>) from ucpp.Ptr<ActorFactoryGeometryCollection> to ucpp.Ptr<ActorFactoryGeometryCollection>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryGeometryCollection): ActorFactoryGeometryCollectionPtr {
 		return untyped __cpp__("&({0})", v);

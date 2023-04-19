@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraParameterDataSetBindingCollection")
 @:include("NiagaraSystem.h")
-@:structAccess
+@:valueType
 extern class NiagaraParameterDataSetBindingCollection {
 	public var FloatOffsets: TArray<NiagaraParameterDataSetBinding>;
 	public var Int32Offsets: TArray<NiagaraParameterDataSetBinding>;

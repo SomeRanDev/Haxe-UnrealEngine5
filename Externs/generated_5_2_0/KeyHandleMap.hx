@@ -3,7 +3,7 @@ package ue;
 
 @:native("FKeyHandleMap")
 @:include("Curves/KeyHandle.h")
-@:structAccess
+@:valueType
 extern class KeyHandleMap {
 	@:native("FKeyHandleMap") public function new();
 }

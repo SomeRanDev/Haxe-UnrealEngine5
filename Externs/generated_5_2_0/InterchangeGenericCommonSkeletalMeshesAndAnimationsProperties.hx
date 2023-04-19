@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties")
 @:include("InterchangeGenericAssetsPipelineSharedSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties extends InterchangePipelineBase {
 	public var bImportOnlyAnimations: Bool;
 	public var Skeleton: TWeakObjectPtr<Skeleton>;
 	public var bImportMeshesInBoneHierarchy: Bool;
 	public var bUseT0AsRefPose: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties(Inte
 @:forward
 @:nativeGen
 @:native("InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties*")
-abstract InterchangeGenericCommonSkeletalMeshesAndAnimationsPropertiesPtr(cpp.Star<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>) from cpp.Star<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties> to cpp.Star<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>{
+abstract InterchangeGenericCommonSkeletalMeshesAndAnimationsPropertiesPtr(ucpp.Ptr<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>) from ucpp.Ptr<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties> to ucpp.Ptr<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties): InterchangeGenericCommonSkeletalMeshesAndAnimationsPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,23 +3,23 @@ package ue;
 
 @:native("UPartyBeaconState")
 @:include("PartyBeaconState.h")
-@:structAccess
+@:valueType
 extern class PartyBeaconState extends Object {
 	@:protected public var SessionName: FName;
-	@:protected public var NumConsumedReservations: cpp.Int32;
-	@:protected public var MaxReservations: cpp.Int32;
-	@:protected public var NumTeams: cpp.Int32;
-	@:protected public var NumPlayersPerTeam: cpp.Int32;
+	@:protected public var NumConsumedReservations: ucpp.num.Int32;
+	@:protected public var MaxReservations: ucpp.num.Int32;
+	@:protected public var NumTeams: ucpp.num.Int32;
+	@:protected public var NumPlayersPerTeam: ucpp.num.Int32;
 	@:protected public var TeamAssignmentMethod: FName;
-	@:protected public var ReservedHostTeamNum: cpp.Int32;
-	@:protected public var ForceTeamNum: cpp.Int32;
+	@:protected public var ReservedHostTeamNum: ucpp.num.Int32;
+	@:protected public var ForceTeamNum: ucpp.num.Int32;
 	@:protected public var bRestrictCrossConsole: Bool;
 	@:protected public var PlatformCrossplayRestrictions: TArray<FString>;
 	@:protected public var PlatformTypeMapping: TArray<PartyBeaconCrossplayPlatformMapping>;
 	@:protected public var bEnableRemovalRequests: Bool;
 	@:protected public var Reservations: TArray<PartyReservation>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstPartyBeaconState(PartyBeaconState) from PartyBeaconState {
 @:forward
 @:nativeGen
 @:native("PartyBeaconState*")
-abstract PartyBeaconStatePtr(cpp.Star<PartyBeaconState>) from cpp.Star<PartyBeaconState> to cpp.Star<PartyBeaconState>{
+abstract PartyBeaconStatePtr(ucpp.Ptr<PartyBeaconState>) from ucpp.Ptr<PartyBeaconState> to ucpp.Ptr<PartyBeaconState>{
 	@:from
 	public static extern inline function fromValue(v: PartyBeaconState): PartyBeaconStatePtr {
 		return untyped __cpp__("&({0})", v);

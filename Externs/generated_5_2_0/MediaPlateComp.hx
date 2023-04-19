@@ -3,37 +3,37 @@ package ue;
 
 @:native("UMediaPlateComponent")
 @:include("MediaPlateComponent.h")
-@:structAccess
+@:valueType
 extern class MediaPlateComp extends ActorComp {
 	public var bPlayOnOpen: Bool;
 	public var bAutoPlay: Bool;
 	public var bEnableAudio: Bool;
-	public var StartTime: cpp.Float32;
-	public var SoundComponent: cpp.Star<MediaSoundComp>;
-	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
-	public var Letterboxes: TArray<cpp.Star<StaticMeshComp>>;
-	public var MediaPlaylist: cpp.Star<MediaPlaylist>;
-	public var PlaylistIndex: cpp.Int32;
+	public var StartTime: ucpp.num.Float32;
+	public var SoundComponent: ucpp.Ptr<MediaSoundComp>;
+	public var StaticMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	public var Letterboxes: TArray<ucpp.Ptr<StaticMeshComp>>;
+	public var MediaPlaylist: ucpp.Ptr<MediaPlaylist>;
+	public var PlaylistIndex: ucpp.num.Int32;
 	public var CacheSettings: MediaSourceCacheSettings;
 	public function IsMediaPlatePlaying(): Bool;
 	private var bPlayOnlyWhenVisible: Bool;
 	public function GetLoop(): Bool;
 	public function SetLoop(input: Bool): Void;
 	private var VisibleMipsTilesCalculations: EMediaTextureVisibleMipsTiles;
-	private var MipMapBias: cpp.Float32;
+	private var MipMapBias: ucpp.num.Float32;
 	public function GetIsAspectRatioAuto(): Bool;
 	public function SetIsAspectRatioAuto(input: Bool): Void;
 	private var bEnableMipMapUpscaling: Bool;
-	private var MipLevelToUpscale: cpp.Int32;
-	private var LetterboxAspectRatio: cpp.Float32;
+	private var MipLevelToUpscale: ucpp.num.Int32;
+	private var LetterboxAspectRatio: ucpp.num.Float32;
 	private var MeshRange: Vector2D;
-	private var MediaTextures: TArray<cpp.Star<MediaTexture>>;
-	private var MediaPlayer: cpp.Star<MediaPlayer>;
+	private var MediaTextures: TArray<ucpp.Ptr<MediaTexture>>;
+	private var MediaPlayer: ucpp.Ptr<MediaPlayer>;
 
 	public function SetPlayOnlyWhenVisible(bInPlayOnlyWhenVisible: Bool): Void;
 	public function SetMeshRange(InMeshRange: Vector2D): Void;
-	public function SetLetterboxAspectRatio(AspectRatio: cpp.Float32): Void;
-	public function Seek(Time: cpp.Reference<Timespan>): Bool;
+	public function SetLetterboxAspectRatio(AspectRatio: ucpp.num.Float32): Void;
+	public function Seek(Time: ucpp.Ref<Timespan>): Bool;
 	public function Rewind(): Bool;
 	public function Play(): Void;
 	public function Pause(): Void;
@@ -41,12 +41,12 @@ extern class MediaPlateComp extends ActorComp {
 	private function OnMediaOpened(DeviceUrl: FString): Void;
 	private function OnMediaEnd(): Void;
 	public function GetMeshRange(): Vector2D;
-	public function GetMediaTexture(Index: cpp.Int32): cpp.Star<MediaTexture>;
-	public function GetMediaPlayer(): cpp.Star<MediaPlayer>;
-	public function GetLetterboxAspectRatio(): cpp.Float32;
+	public function GetMediaTexture(Index: ucpp.num.Int32): ucpp.Ptr<MediaTexture>;
+	public function GetMediaPlayer(): ucpp.Ptr<MediaPlayer>;
+	public function GetLetterboxAspectRatio(): ucpp.num.Float32;
 	public function Close(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetMeshRange)
@@ -58,18 +58,18 @@ abstract ConstMediaPlateComp(MediaPlateComp) from MediaPlateComp {
 	public inline extern function get_bAutoPlay(): Bool return this.bAutoPlay;
 	public extern var bEnableAudio(get, never): Bool;
 	public inline extern function get_bEnableAudio(): Bool return this.bEnableAudio;
-	public extern var StartTime(get, never): cpp.Float32;
-	public inline extern function get_StartTime(): cpp.Float32 return this.StartTime;
-	public extern var SoundComponent(get, never): cpp.Star<MediaSoundComp.ConstMediaSoundComp>;
-	public inline extern function get_SoundComponent(): cpp.Star<MediaSoundComp.ConstMediaSoundComp> return this.SoundComponent;
-	public extern var StaticMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_StaticMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
-	public extern var Letterboxes(get, never): TArray<cpp.Star<StaticMeshComp.ConstStaticMeshComp>>;
-	public inline extern function get_Letterboxes(): TArray<cpp.Star<StaticMeshComp.ConstStaticMeshComp>> return this.Letterboxes;
-	public extern var MediaPlaylist(get, never): cpp.Star<MediaPlaylist.ConstMediaPlaylist>;
-	public inline extern function get_MediaPlaylist(): cpp.Star<MediaPlaylist.ConstMediaPlaylist> return this.MediaPlaylist;
-	public extern var PlaylistIndex(get, never): cpp.Int32;
-	public inline extern function get_PlaylistIndex(): cpp.Int32 return this.PlaylistIndex;
+	public extern var StartTime(get, never): ucpp.num.Float32;
+	public inline extern function get_StartTime(): ucpp.num.Float32 return this.StartTime;
+	public extern var SoundComponent(get, never): ucpp.Ptr<MediaSoundComp.ConstMediaSoundComp>;
+	public inline extern function get_SoundComponent(): ucpp.Ptr<MediaSoundComp.ConstMediaSoundComp> return this.SoundComponent;
+	public extern var StaticMeshComponent(get, never): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp>;
+	public inline extern function get_StaticMeshComponent(): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
+	public extern var Letterboxes(get, never): TArray<ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp>>;
+	public inline extern function get_Letterboxes(): TArray<ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp>> return this.Letterboxes;
+	public extern var MediaPlaylist(get, never): ucpp.Ptr<MediaPlaylist.ConstMediaPlaylist>;
+	public inline extern function get_MediaPlaylist(): ucpp.Ptr<MediaPlaylist.ConstMediaPlaylist> return this.MediaPlaylist;
+	public extern var PlaylistIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_PlaylistIndex(): ucpp.num.Int32 return this.PlaylistIndex;
 	public extern var CacheSettings(get, never): MediaSourceCacheSettings;
 	public inline extern function get_CacheSettings(): MediaSourceCacheSettings return this.CacheSettings;
 }
@@ -77,7 +77,7 @@ abstract ConstMediaPlateComp(MediaPlateComp) from MediaPlateComp {
 @:forward
 @:nativeGen
 @:native("MediaPlateComp*")
-abstract MediaPlateCompPtr(cpp.Star<MediaPlateComp>) from cpp.Star<MediaPlateComp> to cpp.Star<MediaPlateComp>{
+abstract MediaPlateCompPtr(ucpp.Ptr<MediaPlateComp>) from ucpp.Ptr<MediaPlateComp> to ucpp.Ptr<MediaPlateComp>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlateComp): MediaPlateCompPtr {
 		return untyped __cpp__("&({0})", v);

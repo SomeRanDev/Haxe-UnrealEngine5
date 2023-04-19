@@ -3,28 +3,28 @@ package ue;
 
 @:native("UMotionTrackedDeviceFunctionLibrary")
 @:include("MotionTrackedDeviceFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class MotionTrackedDeviceFunctionLibrary extends BlueprintFunctionLibrary {
 	public function SetIsControllerMotionTrackingEnabledByDefault(Enable: Bool): Void;
-	public function IsMotionTrackingEnabledForSource(PlayerIndex: cpp.Int32, SourceName: FName): Bool;
-	public function IsMotionTrackingEnabledForDevice(PlayerIndex: cpp.Int32, Hand: EControllerHand): Bool;
-	public function IsMotionTrackingEnabledForComponent(MotionControllerComponent: cpp.Star<MotionControllerComp.ConstMotionControllerComp>): Bool;
+	public function IsMotionTrackingEnabledForSource(PlayerIndex: ucpp.num.Int32, SourceName: FName): Bool;
+	public function IsMotionTrackingEnabledForDevice(PlayerIndex: ucpp.num.Int32, Hand: EControllerHand): Bool;
+	public function IsMotionTrackingEnabledForComponent(MotionControllerComponent: ucpp.Ptr<MotionControllerComp.ConstMotionControllerComp>): Bool;
 	public function IsMotionTrackedDeviceCountManagementNecessary(): Bool;
-	public function IsMotionSourceTracking(PlayerIndex: cpp.Int32, SourceName: FName): Bool;
-	public function GetMotionTrackingEnabledControllerCount(): cpp.Int32;
-	public function GetMaximumMotionTrackedControllerCount(): cpp.Int32;
+	public function IsMotionSourceTracking(PlayerIndex: ucpp.num.Int32, SourceName: FName): Bool;
+	public function GetMotionTrackingEnabledControllerCount(): ucpp.num.Int32;
+	public function GetMaximumMotionTrackedControllerCount(): ucpp.num.Int32;
 	public function GetActiveTrackingSystemName(): FName;
 	public function EnumerateMotionSources(): TArray<FName>;
-	public function EnableMotionTrackingOfSource(PlayerIndex: cpp.Int32, SourceName: FName): Bool;
-	public function EnableMotionTrackingOfDevice(PlayerIndex: cpp.Int32, Hand: EControllerHand): Bool;
-	public function EnableMotionTrackingForComponent(MotionControllerComponent: cpp.Star<MotionControllerComp>): Bool;
-	public function DisableMotionTrackingOfSource(PlayerIndex: cpp.Int32, SourceName: FName): Void;
-	public function DisableMotionTrackingOfDevice(PlayerIndex: cpp.Int32, Hand: EControllerHand): Void;
-	public function DisableMotionTrackingOfControllersForPlayer(PlayerIndex: cpp.Int32): Void;
+	public function EnableMotionTrackingOfSource(PlayerIndex: ucpp.num.Int32, SourceName: FName): Bool;
+	public function EnableMotionTrackingOfDevice(PlayerIndex: ucpp.num.Int32, Hand: EControllerHand): Bool;
+	public function EnableMotionTrackingForComponent(MotionControllerComponent: ucpp.Ptr<MotionControllerComp>): Bool;
+	public function DisableMotionTrackingOfSource(PlayerIndex: ucpp.num.Int32, SourceName: FName): Void;
+	public function DisableMotionTrackingOfDevice(PlayerIndex: ucpp.num.Int32, Hand: EControllerHand): Void;
+	public function DisableMotionTrackingOfControllersForPlayer(PlayerIndex: ucpp.num.Int32): Void;
 	public function DisableMotionTrackingOfAllControllers(): Void;
-	public function DisableMotionTrackingForComponent(MotionControllerComponent: cpp.Star<MotionControllerComp.ConstMotionControllerComp>): Void;
+	public function DisableMotionTrackingForComponent(MotionControllerComponent: ucpp.Ptr<MotionControllerComp.ConstMotionControllerComp>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstMotionTrackedDeviceFunctionLibrary(MotionTrackedDeviceFunctionLibr
 @:forward
 @:nativeGen
 @:native("MotionTrackedDeviceFunctionLibrary*")
-abstract MotionTrackedDeviceFunctionLibraryPtr(cpp.Star<MotionTrackedDeviceFunctionLibrary>) from cpp.Star<MotionTrackedDeviceFunctionLibrary> to cpp.Star<MotionTrackedDeviceFunctionLibrary>{
+abstract MotionTrackedDeviceFunctionLibraryPtr(ucpp.Ptr<MotionTrackedDeviceFunctionLibrary>) from ucpp.Ptr<MotionTrackedDeviceFunctionLibrary> to ucpp.Ptr<MotionTrackedDeviceFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: MotionTrackedDeviceFunctionLibrary): MotionTrackedDeviceFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

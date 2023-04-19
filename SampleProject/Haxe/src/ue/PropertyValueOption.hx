@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPropertyValueOption")
 @:include("PropertyValueOption.h")
-@:structAccess
+@:valueType
 extern class PropertyValueOption extends PropertyValue {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPropertyValueOption(PropertyValueOption) from PropertyValueOption 
 @:forward
 @:nativeGen
 @:native("PropertyValueOption*")
-abstract PropertyValueOptionPtr(cpp.Star<PropertyValueOption>) from cpp.Star<PropertyValueOption> to cpp.Star<PropertyValueOption>{
+abstract PropertyValueOptionPtr(ucpp.Ptr<PropertyValueOption>) from ucpp.Ptr<PropertyValueOption> to ucpp.Ptr<PropertyValueOption>{
 	@:from
 	public static extern inline function fromValue(v: PropertyValueOption): PropertyValueOptionPtr {
 		return untyped __cpp__("&({0})", v);

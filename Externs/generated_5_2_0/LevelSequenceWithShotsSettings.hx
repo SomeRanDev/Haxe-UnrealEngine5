@@ -3,17 +3,17 @@ package ue;
 
 @:native("ULevelSequenceWithShotsSettings")
 @:include("Misc/LevelSequenceEditorSettings.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceWithShotsSettings extends Object {
 	public var Name: FString;
 	public var Suffix: FString;
 	public var BasePath: DirectoryPath;
-	public var NumShots: cpp.UInt32;
+	public var NumShots: ucpp.num.UInt32;
 	public var SequenceToDuplicate: TLazyObjectPtr<LevelSequence>;
 	public var SubSequenceNames: TArray<FName>;
 	public var bInstanceSubSequences: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,8 +25,8 @@ abstract ConstLevelSequenceWithShotsSettings(LevelSequenceWithShotsSettings) fro
 	public inline extern function get_Suffix(): FString return this.Suffix;
 	public extern var BasePath(get, never): DirectoryPath;
 	public inline extern function get_BasePath(): DirectoryPath return this.BasePath;
-	public extern var NumShots(get, never): cpp.UInt32;
-	public inline extern function get_NumShots(): cpp.UInt32 return this.NumShots;
+	public extern var NumShots(get, never): ucpp.num.UInt32;
+	public inline extern function get_NumShots(): ucpp.num.UInt32 return this.NumShots;
 	public extern var SequenceToDuplicate(get, never): TLazyObjectPtr<LevelSequence.ConstLevelSequence>;
 	public inline extern function get_SequenceToDuplicate(): TLazyObjectPtr<LevelSequence.ConstLevelSequence> return this.SequenceToDuplicate;
 	public extern var SubSequenceNames(get, never): TArray<FName>;
@@ -38,7 +38,7 @@ abstract ConstLevelSequenceWithShotsSettings(LevelSequenceWithShotsSettings) fro
 @:forward
 @:nativeGen
 @:native("LevelSequenceWithShotsSettings*")
-abstract LevelSequenceWithShotsSettingsPtr(cpp.Star<LevelSequenceWithShotsSettings>) from cpp.Star<LevelSequenceWithShotsSettings> to cpp.Star<LevelSequenceWithShotsSettings>{
+abstract LevelSequenceWithShotsSettingsPtr(ucpp.Ptr<LevelSequenceWithShotsSettings>) from ucpp.Ptr<LevelSequenceWithShotsSettings> to ucpp.Ptr<LevelSequenceWithShotsSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceWithShotsSettings): LevelSequenceWithShotsSettingsPtr {
 		return untyped __cpp__("&({0})", v);

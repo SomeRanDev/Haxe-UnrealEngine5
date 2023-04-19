@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMeshPaintSettings")
 @:include("MeshPaintSettings.h")
-@:structAccess
+@:valueType
 extern class MeshPaintSettings extends Object {
-	public var VertexPreviewSize: cpp.Float32;
+	public var VertexPreviewSize: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshPaintSettings(MeshPaintSettings) from MeshPaintSettings {
-	public extern var VertexPreviewSize(get, never): cpp.Float32;
-	public inline extern function get_VertexPreviewSize(): cpp.Float32 return this.VertexPreviewSize;
+	public extern var VertexPreviewSize(get, never): ucpp.num.Float32;
+	public inline extern function get_VertexPreviewSize(): ucpp.num.Float32 return this.VertexPreviewSize;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshPaintSettings*")
-abstract MeshPaintSettingsPtr(cpp.Star<MeshPaintSettings>) from cpp.Star<MeshPaintSettings> to cpp.Star<MeshPaintSettings>{
+abstract MeshPaintSettingsPtr(ucpp.Ptr<MeshPaintSettings>) from ucpp.Ptr<MeshPaintSettings> to ucpp.Ptr<MeshPaintSettings>{
 	@:from
 	public static extern inline function fromValue(v: MeshPaintSettings): MeshPaintSettingsPtr {
 		return untyped __cpp__("&({0})", v);

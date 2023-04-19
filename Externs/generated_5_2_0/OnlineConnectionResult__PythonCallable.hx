@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnlineConnectionResult__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnlineConnectionResult__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnlineConnectionResult__PythonCallable(OnlineConnectionResult__Pyt
 @:forward
 @:nativeGen
 @:native("OnlineConnectionResult__PythonCallable*")
-abstract OnlineConnectionResult__PythonCallablePtr(cpp.Star<OnlineConnectionResult__PythonCallable>) from cpp.Star<OnlineConnectionResult__PythonCallable> to cpp.Star<OnlineConnectionResult__PythonCallable>{
+abstract OnlineConnectionResult__PythonCallablePtr(ucpp.Ptr<OnlineConnectionResult__PythonCallable>) from ucpp.Ptr<OnlineConnectionResult__PythonCallable> to ucpp.Ptr<OnlineConnectionResult__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnlineConnectionResult__PythonCallable): OnlineConnectionResult__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

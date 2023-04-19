@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnLevelSequencePlayerCameraCutEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnLevelSequencePlayerCameraCutEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnLevelSequencePlayerCameraCutEvent__PythonCallable(OnLevelSequenc
 @:forward
 @:nativeGen
 @:native("OnLevelSequencePlayerCameraCutEvent__PythonCallable*")
-abstract OnLevelSequencePlayerCameraCutEvent__PythonCallablePtr(cpp.Star<OnLevelSequencePlayerCameraCutEvent__PythonCallable>) from cpp.Star<OnLevelSequencePlayerCameraCutEvent__PythonCallable> to cpp.Star<OnLevelSequencePlayerCameraCutEvent__PythonCallable>{
+abstract OnLevelSequencePlayerCameraCutEvent__PythonCallablePtr(ucpp.Ptr<OnLevelSequencePlayerCameraCutEvent__PythonCallable>) from ucpp.Ptr<OnLevelSequencePlayerCameraCutEvent__PythonCallable> to ucpp.Ptr<OnLevelSequencePlayerCameraCutEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnLevelSequencePlayerCameraCutEvent__PythonCallable): OnLevelSequencePlayerCameraCutEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

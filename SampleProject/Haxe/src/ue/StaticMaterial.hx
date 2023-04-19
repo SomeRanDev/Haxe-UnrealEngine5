@@ -3,13 +3,13 @@ package ue;
 
 @:native("FStaticMaterial")
 @:include("Engine/StaticMesh.h")
-@:structAccess
+@:valueType
 extern class StaticMaterial {
-	public var MaterialInterface: cpp.Star<MaterialInterface>;
+	public var MaterialInterface: ucpp.Ptr<MaterialInterface>;
 	public var MaterialSlotName: FName;
 	public var ImportedMaterialSlotName: FName;
 	public var UVChannelData: MeshUVChannelInfo;
 
 	@:native("FStaticMaterial") public function new();
-	@:native("FStaticMaterial") public static function make(MaterialInterface: cpp.Star<MaterialInterface>, MaterialSlotName: FName, ImportedMaterialSlotName: FName, UVChannelData: MeshUVChannelInfo): StaticMaterial ;
+	@:native("FStaticMaterial") public static function make(MaterialInterface: ucpp.Ptr<MaterialInterface>, MaterialSlotName: FName, ImportedMaterialSlotName: FName, UVChannelData: MeshUVChannelInfo): StaticMaterial ;
 }

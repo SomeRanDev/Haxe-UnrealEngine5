@@ -3,14 +3,14 @@ package ue;
 
 @:native("USpaceCurveDeformationMechanicPropertySet")
 @:include("Mechanics/SpaceCurveDeformationMechanic.h")
-@:structAccess
+@:valueType
 extern class SpaceCurveDeformationMechanicPropertySet extends InteractiveToolPropertySet {
 	public var TransformMode: ESpaceCurveControlPointTransformMode;
 	public var TransformOrigin: ESpaceCurveControlPointOriginMode;
-	public var Softness: cpp.Float32;
+	public var Softness: ucpp.num.Float32;
 	public var SoftFalloff: ESpaceCurveControlPointFalloffType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,8 +20,8 @@ abstract ConstSpaceCurveDeformationMechanicPropertySet(SpaceCurveDeformationMech
 	public inline extern function get_TransformMode(): ESpaceCurveControlPointTransformMode return this.TransformMode;
 	public extern var TransformOrigin(get, never): ESpaceCurveControlPointOriginMode;
 	public inline extern function get_TransformOrigin(): ESpaceCurveControlPointOriginMode return this.TransformOrigin;
-	public extern var Softness(get, never): cpp.Float32;
-	public inline extern function get_Softness(): cpp.Float32 return this.Softness;
+	public extern var Softness(get, never): ucpp.num.Float32;
+	public inline extern function get_Softness(): ucpp.num.Float32 return this.Softness;
 	public extern var SoftFalloff(get, never): ESpaceCurveControlPointFalloffType;
 	public inline extern function get_SoftFalloff(): ESpaceCurveControlPointFalloffType return this.SoftFalloff;
 }
@@ -29,7 +29,7 @@ abstract ConstSpaceCurveDeformationMechanicPropertySet(SpaceCurveDeformationMech
 @:forward
 @:nativeGen
 @:native("SpaceCurveDeformationMechanicPropertySet*")
-abstract SpaceCurveDeformationMechanicPropertySetPtr(cpp.Star<SpaceCurveDeformationMechanicPropertySet>) from cpp.Star<SpaceCurveDeformationMechanicPropertySet> to cpp.Star<SpaceCurveDeformationMechanicPropertySet>{
+abstract SpaceCurveDeformationMechanicPropertySetPtr(ucpp.Ptr<SpaceCurveDeformationMechanicPropertySet>) from ucpp.Ptr<SpaceCurveDeformationMechanicPropertySet> to ucpp.Ptr<SpaceCurveDeformationMechanicPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: SpaceCurveDeformationMechanicPropertySet): SpaceCurveDeformationMechanicPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

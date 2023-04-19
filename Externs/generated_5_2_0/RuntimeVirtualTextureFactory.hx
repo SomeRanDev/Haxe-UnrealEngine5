@@ -3,10 +3,10 @@ package ue;
 
 @:native("URuntimeVirtualTextureFactory")
 @:include("RuntimeVirtualTextureFactory.h")
-@:structAccess
+@:valueType
 extern class RuntimeVirtualTextureFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRuntimeVirtualTextureFactory(RuntimeVirtualTextureFactory) from Ru
 @:forward
 @:nativeGen
 @:native("RuntimeVirtualTextureFactory*")
-abstract RuntimeVirtualTextureFactoryPtr(cpp.Star<RuntimeVirtualTextureFactory>) from cpp.Star<RuntimeVirtualTextureFactory> to cpp.Star<RuntimeVirtualTextureFactory>{
+abstract RuntimeVirtualTextureFactoryPtr(ucpp.Ptr<RuntimeVirtualTextureFactory>) from ucpp.Ptr<RuntimeVirtualTextureFactory> to ucpp.Ptr<RuntimeVirtualTextureFactory>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeVirtualTextureFactory): RuntimeVirtualTextureFactoryPtr {
 		return untyped __cpp__("&({0})", v);

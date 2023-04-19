@@ -3,27 +3,27 @@ package ue;
 
 @:native("UParticleSystemAuditCommandlet")
 @:include("Commandlets/ParticleSystemAuditCommandlet.h")
-@:structAccess
+@:valueType
 extern class ParticleSystemAuditCommandlet extends Commandlet {
-	public var HighSpawnRateOrBurstThreshold: cpp.Float32;
-	public var FarLODDistanceTheshold: cpp.Float32;
+	public var HighSpawnRateOrBurstThreshold: ucpp.num.Float32;
+	public var FarLODDistanceTheshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleSystemAuditCommandlet(ParticleSystemAuditCommandlet) from ParticleSystemAuditCommandlet {
-	public extern var HighSpawnRateOrBurstThreshold(get, never): cpp.Float32;
-	public inline extern function get_HighSpawnRateOrBurstThreshold(): cpp.Float32 return this.HighSpawnRateOrBurstThreshold;
-	public extern var FarLODDistanceTheshold(get, never): cpp.Float32;
-	public inline extern function get_FarLODDistanceTheshold(): cpp.Float32 return this.FarLODDistanceTheshold;
+	public extern var HighSpawnRateOrBurstThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_HighSpawnRateOrBurstThreshold(): ucpp.num.Float32 return this.HighSpawnRateOrBurstThreshold;
+	public extern var FarLODDistanceTheshold(get, never): ucpp.num.Float32;
+	public inline extern function get_FarLODDistanceTheshold(): ucpp.num.Float32 return this.FarLODDistanceTheshold;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleSystemAuditCommandlet*")
-abstract ParticleSystemAuditCommandletPtr(cpp.Star<ParticleSystemAuditCommandlet>) from cpp.Star<ParticleSystemAuditCommandlet> to cpp.Star<ParticleSystemAuditCommandlet>{
+abstract ParticleSystemAuditCommandletPtr(ucpp.Ptr<ParticleSystemAuditCommandlet>) from ucpp.Ptr<ParticleSystemAuditCommandlet> to ucpp.Ptr<ParticleSystemAuditCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ParticleSystemAuditCommandlet): ParticleSystemAuditCommandletPtr {
 		return untyped __cpp__("&({0})", v);

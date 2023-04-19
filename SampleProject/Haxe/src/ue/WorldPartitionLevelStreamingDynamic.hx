@@ -3,13 +3,13 @@ package ue;
 
 @:native("UWorldPartitionLevelStreamingDynamic")
 @:include("WorldPartition/WorldPartitionLevelStreamingDynamic.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionLevelStreamingDynamic extends LevelStreamingDynamic {
 	private var bShouldBeAlwaysLoaded: Bool;
 	private var StreamingCell: TWeakObjectPtr<WorldPartitionRuntimeLevelStreamingCell>;
 	private var OuterWorldPartition: TWeakObjectPtr<WorldPartition>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstWorldPartitionLevelStreamingDynamic(WorldPartitionLevelStreamingDy
 @:forward
 @:nativeGen
 @:native("WorldPartitionLevelStreamingDynamic*")
-abstract WorldPartitionLevelStreamingDynamicPtr(cpp.Star<WorldPartitionLevelStreamingDynamic>) from cpp.Star<WorldPartitionLevelStreamingDynamic> to cpp.Star<WorldPartitionLevelStreamingDynamic>{
+abstract WorldPartitionLevelStreamingDynamicPtr(ucpp.Ptr<WorldPartitionLevelStreamingDynamic>) from ucpp.Ptr<WorldPartitionLevelStreamingDynamic> to ucpp.Ptr<WorldPartitionLevelStreamingDynamic>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionLevelStreamingDynamic): WorldPartitionLevelStreamingDynamicPtr {
 		return untyped __cpp__("&({0})", v);

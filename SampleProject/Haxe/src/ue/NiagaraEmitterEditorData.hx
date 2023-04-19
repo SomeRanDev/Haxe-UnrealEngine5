@@ -3,16 +3,16 @@ package ue;
 
 @:native("UNiagaraEmitterEditorData")
 @:include("NiagaraEmitterEditorData.h")
-@:structAccess
+@:valueType
 extern class NiagaraEmitterEditorData extends NiagaraEditorDataBase {
-	private var StackEditorData: cpp.Star<NiagaraStackEditorData>;
-	private var PlaybackRangeMin: cpp.Float32;
-	private var PlaybackRangeMax: cpp.Float32;
+	private var StackEditorData: ucpp.Ptr<NiagaraStackEditorData>;
+	private var PlaybackRangeMin: ucpp.num.Float32;
+	private var PlaybackRangeMax: ucpp.num.Float32;
 	private var bShowSummaryView: Bool;
 	private var SummaryViewFunctionInputMetadata: TMap<FunctionInputSummaryViewKey, FunctionInputSummaryViewMetadata>;
 	private var SummarySections: TArray<NiagaraStackSection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraEmitterEditorData(NiagaraEmitterEditorData) from NiagaraEmi
 @:forward
 @:nativeGen
 @:native("NiagaraEmitterEditorData*")
-abstract NiagaraEmitterEditorDataPtr(cpp.Star<NiagaraEmitterEditorData>) from cpp.Star<NiagaraEmitterEditorData> to cpp.Star<NiagaraEmitterEditorData>{
+abstract NiagaraEmitterEditorDataPtr(ucpp.Ptr<NiagaraEmitterEditorData>) from ucpp.Ptr<NiagaraEmitterEditorData> to ucpp.Ptr<NiagaraEmitterEditorData>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEmitterEditorData): NiagaraEmitterEditorDataPtr {
 		return untyped __cpp__("&({0})", v);

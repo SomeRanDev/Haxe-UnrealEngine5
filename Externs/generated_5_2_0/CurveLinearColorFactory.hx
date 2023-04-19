@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCurveLinearColorFactory")
 @:include("Factories/CurveFactory.h")
-@:structAccess
+@:valueType
 extern class CurveLinearColorFactory extends CurveFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCurveLinearColorFactory(CurveLinearColorFactory) from CurveLinearC
 @:forward
 @:nativeGen
 @:native("CurveLinearColorFactory*")
-abstract CurveLinearColorFactoryPtr(cpp.Star<CurveLinearColorFactory>) from cpp.Star<CurveLinearColorFactory> to cpp.Star<CurveLinearColorFactory>{
+abstract CurveLinearColorFactoryPtr(ucpp.Ptr<CurveLinearColorFactory>) from ucpp.Ptr<CurveLinearColorFactory> to ucpp.Ptr<CurveLinearColorFactory>{
 	@:from
 	public static extern inline function fromValue(v: CurveLinearColorFactory): CurveLinearColorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

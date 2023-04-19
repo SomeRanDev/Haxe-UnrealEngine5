@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionNavigationDataBuilder")
 @:include("WorldPartition/WorldPartitionNavigationDataBuilder.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionNavigationDataBuilder extends WorldPartitionBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionNavigationDataBuilder(WorldPartitionNavigationDataBu
 @:forward
 @:nativeGen
 @:native("WorldPartitionNavigationDataBuilder*")
-abstract WorldPartitionNavigationDataBuilderPtr(cpp.Star<WorldPartitionNavigationDataBuilder>) from cpp.Star<WorldPartitionNavigationDataBuilder> to cpp.Star<WorldPartitionNavigationDataBuilder>{
+abstract WorldPartitionNavigationDataBuilderPtr(ucpp.Ptr<WorldPartitionNavigationDataBuilder>) from ucpp.Ptr<WorldPartitionNavigationDataBuilder> to ucpp.Ptr<WorldPartitionNavigationDataBuilder>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionNavigationDataBuilder): WorldPartitionNavigationDataBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UVRModeSettings")
 @:include("VRModeSettings.h")
-@:structAccess
+@:valueType
 extern class VRModeSettings extends VISettings {
 	public var bEnableAutoVREditMode: Bool;
 	public var bAutokeySequences: Bool;
@@ -11,16 +11,16 @@ extern class VRModeSettings extends VISettings {
 	public var bShowWorldMovementGrid: Bool;
 	public var bShowWorldMovementPostProcess: Bool;
 	public var bShowWorldScaleProgressBar: Bool;
-	public var UIBrightness: cpp.Float32;
-	public var GizmoScale: cpp.Float32;
-	public var DoubleClickTime: cpp.Float32;
-	public var TriggerPressedThreshold_Vive: cpp.Float32;
-	public var TriggerPressedThreshold_Rift: cpp.Float32;
+	public var UIBrightness: ucpp.num.Float32;
+	public var GizmoScale: ucpp.num.Float32;
+	public var DoubleClickTime: ucpp.num.Float32;
+	public var TriggerPressedThreshold_Vive: ucpp.num.Float32;
+	public var TriggerPressedThreshold_Rift: ucpp.num.Float32;
 	public var InteractorClass: TSoftClassPtr<Class>;
 	public var TeleporterClass: TSoftClassPtr<Class>;
 	public var ModeClass: TSoftClassPtr<Class>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,16 +38,16 @@ abstract ConstVRModeSettings(VRModeSettings) from VRModeSettings {
 	public inline extern function get_bShowWorldMovementPostProcess(): Bool return this.bShowWorldMovementPostProcess;
 	public extern var bShowWorldScaleProgressBar(get, never): Bool;
 	public inline extern function get_bShowWorldScaleProgressBar(): Bool return this.bShowWorldScaleProgressBar;
-	public extern var UIBrightness(get, never): cpp.Float32;
-	public inline extern function get_UIBrightness(): cpp.Float32 return this.UIBrightness;
-	public extern var GizmoScale(get, never): cpp.Float32;
-	public inline extern function get_GizmoScale(): cpp.Float32 return this.GizmoScale;
-	public extern var DoubleClickTime(get, never): cpp.Float32;
-	public inline extern function get_DoubleClickTime(): cpp.Float32 return this.DoubleClickTime;
-	public extern var TriggerPressedThreshold_Vive(get, never): cpp.Float32;
-	public inline extern function get_TriggerPressedThreshold_Vive(): cpp.Float32 return this.TriggerPressedThreshold_Vive;
-	public extern var TriggerPressedThreshold_Rift(get, never): cpp.Float32;
-	public inline extern function get_TriggerPressedThreshold_Rift(): cpp.Float32 return this.TriggerPressedThreshold_Rift;
+	public extern var UIBrightness(get, never): ucpp.num.Float32;
+	public inline extern function get_UIBrightness(): ucpp.num.Float32 return this.UIBrightness;
+	public extern var GizmoScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GizmoScale(): ucpp.num.Float32 return this.GizmoScale;
+	public extern var DoubleClickTime(get, never): ucpp.num.Float32;
+	public inline extern function get_DoubleClickTime(): ucpp.num.Float32 return this.DoubleClickTime;
+	public extern var TriggerPressedThreshold_Vive(get, never): ucpp.num.Float32;
+	public inline extern function get_TriggerPressedThreshold_Vive(): ucpp.num.Float32 return this.TriggerPressedThreshold_Vive;
+	public extern var TriggerPressedThreshold_Rift(get, never): ucpp.num.Float32;
+	public inline extern function get_TriggerPressedThreshold_Rift(): ucpp.num.Float32 return this.TriggerPressedThreshold_Rift;
 	public extern var InteractorClass(get, never): TSoftClassPtr<Class.ConstClass>;
 	public inline extern function get_InteractorClass(): TSoftClassPtr<Class.ConstClass> return this.InteractorClass;
 	public extern var TeleporterClass(get, never): TSoftClassPtr<Class.ConstClass>;
@@ -59,7 +59,7 @@ abstract ConstVRModeSettings(VRModeSettings) from VRModeSettings {
 @:forward
 @:nativeGen
 @:native("VRModeSettings*")
-abstract VRModeSettingsPtr(cpp.Star<VRModeSettings>) from cpp.Star<VRModeSettings> to cpp.Star<VRModeSettings>{
+abstract VRModeSettingsPtr(ucpp.Ptr<VRModeSettings>) from ucpp.Ptr<VRModeSettings> to ucpp.Ptr<VRModeSettings>{
 	@:from
 	public static extern inline function fromValue(v: VRModeSettings): VRModeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

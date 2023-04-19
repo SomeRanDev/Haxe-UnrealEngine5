@@ -3,39 +3,41 @@ package ue;
 
 @:native("UMaterialEditorInstanceConstant")
 @:include("MaterialEditor/MaterialEditorInstanceConstant.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorInstanceConstant extends Object {
-	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
-	public var Parent: cpp.Star<MaterialInterface>;
+	public var PhysMaterial: ucpp.Ptr<PhysicalMaterial>;
+	public var Parent: ucpp.Ptr<MaterialInterface>;
 	public var ParameterGroups: TArray<EditorParameterGroup>;
-	public var RefractionDepthBias: cpp.Float32;
-	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
+	public var RefractionDepthBias: ucpp.num.Float32;
+	public var SubsurfaceProfile: ucpp.Ptr<SubsurfaceProfile>;
 	public var bOverrideSubsurfaceProfile: Bool;
 	public var bIsFunctionPreviewMaterial: Bool;
 	public var bIsFunctionInstanceDirty: Bool;
 	public var BasePropertyOverrides: MaterialInstanceBasePropertyOverrides;
-	public var SourceInstance: cpp.Star<MaterialInstanceConstant>;
-	public var SourceFunction: cpp.Star<MaterialFunctionInstance>;
+	public var SourceInstance: ucpp.Ptr<MaterialInstanceConstant>;
+	public var SourceFunction: ucpp.Ptr<MaterialFunctionInstance>;
 	public var VisibleExpressions: TArray<MaterialParameterInfo>;
 	public var LightmassSettings: LightmassParameterizedMaterialSettings;
 	public var bUseOldStyleMICEditorGroups: Bool;
+	public var bNaniteOverride: Bool;
+	public var NaniteOverrideMaterial: TSoftObjectPtr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialEditorInstanceConstant(MaterialEditorInstanceConstant) from MaterialEditorInstanceConstant {
-	public extern var PhysMaterial(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
-	public inline extern function get_PhysMaterial(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
-	public extern var Parent(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Parent(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Parent;
+	public extern var PhysMaterial(get, never): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>;
+	public inline extern function get_PhysMaterial(): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
+	public extern var Parent(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Parent(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Parent;
 	public extern var ParameterGroups(get, never): TArray<EditorParameterGroup>;
 	public inline extern function get_ParameterGroups(): TArray<EditorParameterGroup> return this.ParameterGroups;
-	public extern var RefractionDepthBias(get, never): cpp.Float32;
-	public inline extern function get_RefractionDepthBias(): cpp.Float32 return this.RefractionDepthBias;
-	public extern var SubsurfaceProfile(get, never): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile>;
-	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
+	public extern var RefractionDepthBias(get, never): ucpp.num.Float32;
+	public inline extern function get_RefractionDepthBias(): ucpp.num.Float32 return this.RefractionDepthBias;
+	public extern var SubsurfaceProfile(get, never): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile>;
+	public inline extern function get_SubsurfaceProfile(): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
 	public extern var bOverrideSubsurfaceProfile(get, never): Bool;
 	public inline extern function get_bOverrideSubsurfaceProfile(): Bool return this.bOverrideSubsurfaceProfile;
 	public extern var bIsFunctionPreviewMaterial(get, never): Bool;
@@ -44,22 +46,26 @@ abstract ConstMaterialEditorInstanceConstant(MaterialEditorInstanceConstant) fro
 	public inline extern function get_bIsFunctionInstanceDirty(): Bool return this.bIsFunctionInstanceDirty;
 	public extern var BasePropertyOverrides(get, never): MaterialInstanceBasePropertyOverrides;
 	public inline extern function get_BasePropertyOverrides(): MaterialInstanceBasePropertyOverrides return this.BasePropertyOverrides;
-	public extern var SourceInstance(get, never): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant>;
-	public inline extern function get_SourceInstance(): cpp.Star<MaterialInstanceConstant.ConstMaterialInstanceConstant> return this.SourceInstance;
-	public extern var SourceFunction(get, never): cpp.Star<MaterialFunctionInstance.ConstMaterialFunctionInstance>;
-	public inline extern function get_SourceFunction(): cpp.Star<MaterialFunctionInstance.ConstMaterialFunctionInstance> return this.SourceFunction;
+	public extern var SourceInstance(get, never): ucpp.Ptr<MaterialInstanceConstant.ConstMaterialInstanceConstant>;
+	public inline extern function get_SourceInstance(): ucpp.Ptr<MaterialInstanceConstant.ConstMaterialInstanceConstant> return this.SourceInstance;
+	public extern var SourceFunction(get, never): ucpp.Ptr<MaterialFunctionInstance.ConstMaterialFunctionInstance>;
+	public inline extern function get_SourceFunction(): ucpp.Ptr<MaterialFunctionInstance.ConstMaterialFunctionInstance> return this.SourceFunction;
 	public extern var VisibleExpressions(get, never): TArray<MaterialParameterInfo>;
 	public inline extern function get_VisibleExpressions(): TArray<MaterialParameterInfo> return this.VisibleExpressions;
 	public extern var LightmassSettings(get, never): LightmassParameterizedMaterialSettings;
 	public inline extern function get_LightmassSettings(): LightmassParameterizedMaterialSettings return this.LightmassSettings;
 	public extern var bUseOldStyleMICEditorGroups(get, never): Bool;
 	public inline extern function get_bUseOldStyleMICEditorGroups(): Bool return this.bUseOldStyleMICEditorGroups;
+	public extern var bNaniteOverride(get, never): Bool;
+	public inline extern function get_bNaniteOverride(): Bool return this.bNaniteOverride;
+	public extern var NaniteOverrideMaterial(get, never): TSoftObjectPtr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_NaniteOverrideMaterial(): TSoftObjectPtr<MaterialInterface.ConstMaterialInterface> return this.NaniteOverrideMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialEditorInstanceConstant*")
-abstract MaterialEditorInstanceConstantPtr(cpp.Star<MaterialEditorInstanceConstant>) from cpp.Star<MaterialEditorInstanceConstant> to cpp.Star<MaterialEditorInstanceConstant>{
+abstract MaterialEditorInstanceConstantPtr(ucpp.Ptr<MaterialEditorInstanceConstant>) from ucpp.Ptr<MaterialEditorInstanceConstant> to ucpp.Ptr<MaterialEditorInstanceConstant>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditorInstanceConstant): MaterialEditorInstanceConstantPtr {
 		return untyped __cpp__("&({0})", v);

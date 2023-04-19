@@ -3,19 +3,19 @@ package ue;
 
 @:native("UBookMark2D")
 @:include("Engine/BookMark2D.h")
-@:structAccess
+@:valueType
 extern class BookMark2D extends BookmarkBase {
-	public var Zoom2D: cpp.Float32;
+	public var Zoom2D: ucpp.num.Float32;
 	public var Location: IntPoint;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBookMark2D(BookMark2D) from BookMark2D {
-	public extern var Zoom2D(get, never): cpp.Float32;
-	public inline extern function get_Zoom2D(): cpp.Float32 return this.Zoom2D;
+	public extern var Zoom2D(get, never): ucpp.num.Float32;
+	public inline extern function get_Zoom2D(): ucpp.num.Float32 return this.Zoom2D;
 	public extern var Location(get, never): IntPoint;
 	public inline extern function get_Location(): IntPoint return this.Location;
 }
@@ -23,7 +23,7 @@ abstract ConstBookMark2D(BookMark2D) from BookMark2D {
 @:forward
 @:nativeGen
 @:native("BookMark2D*")
-abstract BookMark2DPtr(cpp.Star<BookMark2D>) from cpp.Star<BookMark2D> to cpp.Star<BookMark2D>{
+abstract BookMark2DPtr(ucpp.Ptr<BookMark2D>) from ucpp.Ptr<BookMark2D> to ucpp.Ptr<BookMark2D>{
 	@:from
 	public static extern inline function fromValue(v: BookMark2D): BookMark2DPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("URetriangulateGeometrySelectionCommand")
 @:include("Commands/RetriangulateGeometrySelectionCommand.h")
-@:structAccess
+@:valueType
 extern class RetriangulateGeometrySelectionCommand extends GeometrySelectionEditCommand {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRetriangulateGeometrySelectionCommand(RetriangulateGeometrySelecti
 @:forward
 @:nativeGen
 @:native("RetriangulateGeometrySelectionCommand*")
-abstract RetriangulateGeometrySelectionCommandPtr(cpp.Star<RetriangulateGeometrySelectionCommand>) from cpp.Star<RetriangulateGeometrySelectionCommand> to cpp.Star<RetriangulateGeometrySelectionCommand>{
+abstract RetriangulateGeometrySelectionCommandPtr(ucpp.Ptr<RetriangulateGeometrySelectionCommand>) from ucpp.Ptr<RetriangulateGeometrySelectionCommand> to ucpp.Ptr<RetriangulateGeometrySelectionCommand>{
 	@:from
 	public static extern inline function fromValue(v: RetriangulateGeometrySelectionCommand): RetriangulateGeometrySelectionCommandPtr {
 		return untyped __cpp__("&({0})", v);

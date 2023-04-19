@@ -3,26 +3,26 @@ package ue;
 
 @:native("ADatasmithImportedSequencesActor")
 @:include("DatasmithImportedSequencesActor.h")
-@:structAccess
+@:valueType
 extern class DatasmithImportedSequencesActor extends Actor {
-	public var ImportedSequences: TArray<cpp.Star<LevelSequence>>;
+	public var ImportedSequences: TArray<ucpp.Ptr<LevelSequence>>;
 
-	public function PlayLevelSequence(SequenceToPlay: cpp.Star<LevelSequence>): Void;
+	public function PlayLevelSequence(SequenceToPlay: ucpp.Ptr<LevelSequence>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDatasmithImportedSequencesActor(DatasmithImportedSequencesActor) from DatasmithImportedSequencesActor {
-	public extern var ImportedSequences(get, never): TArray<cpp.Star<LevelSequence.ConstLevelSequence>>;
-	public inline extern function get_ImportedSequences(): TArray<cpp.Star<LevelSequence.ConstLevelSequence>> return this.ImportedSequences;
+	public extern var ImportedSequences(get, never): TArray<ucpp.Ptr<LevelSequence.ConstLevelSequence>>;
+	public inline extern function get_ImportedSequences(): TArray<ucpp.Ptr<LevelSequence.ConstLevelSequence>> return this.ImportedSequences;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithImportedSequencesActor*")
-abstract DatasmithImportedSequencesActorPtr(cpp.Star<DatasmithImportedSequencesActor>) from cpp.Star<DatasmithImportedSequencesActor> to cpp.Star<DatasmithImportedSequencesActor>{
+abstract DatasmithImportedSequencesActorPtr(ucpp.Ptr<DatasmithImportedSequencesActor>) from ucpp.Ptr<DatasmithImportedSequencesActor> to ucpp.Ptr<DatasmithImportedSequencesActor>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithImportedSequencesActor): DatasmithImportedSequencesActorPtr {
 		return untyped __cpp__("&({0})", v);

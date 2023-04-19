@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraSystemScalabilitySettingsArray")
 @:include("NiagaraEffectType.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemScalabilitySettingsArray {
 	public var Settings: TArray<NiagaraSystemScalabilitySettings>;
 

@@ -3,14 +3,14 @@ package ue;
 
 @:native("ALevelStreamingVolume")
 @:include("Engine/LevelStreamingVolume.h")
-@:structAccess
+@:valueType
 extern class LevelStreamingVolume extends Volume {
 	public var StreamingLevelNames: TArray<FName>;
 	public var bEditorPreVisOnly: Bool;
 	public var bDisabled: Bool;
 	public var StreamingUsage: TEnumAsByte<EStreamingVolumeUsage>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstLevelStreamingVolume(LevelStreamingVolume) from LevelStreamingVolu
 @:forward
 @:nativeGen
 @:native("LevelStreamingVolume*")
-abstract LevelStreamingVolumePtr(cpp.Star<LevelStreamingVolume>) from cpp.Star<LevelStreamingVolume> to cpp.Star<LevelStreamingVolume>{
+abstract LevelStreamingVolumePtr(ucpp.Ptr<LevelStreamingVolume>) from ucpp.Ptr<LevelStreamingVolume> to ucpp.Ptr<LevelStreamingVolume>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreamingVolume): LevelStreamingVolumePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,16 @@ package ue;
 
 @:native("UComboBoxKey")
 @:include("Components/ComboBoxKey.h")
-@:structAccess
+@:valueType
 extern class ComboBoxKey extends Widget {
 	private var Options: TArray<FName>;
 	private var SelectedOption: FName;
 	public var WidgetStyle: ComboBoxStyle;
 	public var ItemStyle: TableRowStyle;
+	public var ScrollBarStyle: ScrollBarStyle;
 	public var ForegroundColor: SlateColor;
 	public var ContentPadding: Margin;
-	public var MaxListHeight: cpp.Float32;
+	public var MaxListHeight: ucpp.num.Float32;
 	public var bHasDownArrow: Bool;
 	public var bEnableGamepadNavigationMode: Bool;
 	public var bIsFocusable: Bool;
@@ -26,12 +27,12 @@ extern class ComboBoxKey extends Widget {
 	public function OnOpeningEvent__DelegateSignature(): Void;
 	public function IsOpen(): Bool;
 	public function GetSelectedOption(): FName;
-	public function GenerateWidgetEvent__DelegateSignature(Item: FName): cpp.Star<Widget>;
+	public function GenerateWidgetEvent__DelegateSignature(Item: FName): ucpp.Ptr<Widget>;
 	public function ClearSelection(): Void;
 	public function ClearOptions(): Void;
 	public function AddOption(Option: FName): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsOpen, GetSelectedOption)
@@ -41,12 +42,14 @@ abstract ConstComboBoxKey(ComboBoxKey) from ComboBoxKey {
 	public inline extern function get_WidgetStyle(): ComboBoxStyle return this.WidgetStyle;
 	public extern var ItemStyle(get, never): TableRowStyle;
 	public inline extern function get_ItemStyle(): TableRowStyle return this.ItemStyle;
+	public extern var ScrollBarStyle(get, never): ScrollBarStyle;
+	public inline extern function get_ScrollBarStyle(): ScrollBarStyle return this.ScrollBarStyle;
 	public extern var ForegroundColor(get, never): SlateColor;
 	public inline extern function get_ForegroundColor(): SlateColor return this.ForegroundColor;
 	public extern var ContentPadding(get, never): Margin;
 	public inline extern function get_ContentPadding(): Margin return this.ContentPadding;
-	public extern var MaxListHeight(get, never): cpp.Float32;
-	public inline extern function get_MaxListHeight(): cpp.Float32 return this.MaxListHeight;
+	public extern var MaxListHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxListHeight(): ucpp.num.Float32 return this.MaxListHeight;
 	public extern var bHasDownArrow(get, never): Bool;
 	public inline extern function get_bHasDownArrow(): Bool return this.bHasDownArrow;
 	public extern var bEnableGamepadNavigationMode(get, never): Bool;
@@ -66,7 +69,7 @@ abstract ConstComboBoxKey(ComboBoxKey) from ComboBoxKey {
 @:forward
 @:nativeGen
 @:native("ComboBoxKey*")
-abstract ComboBoxKeyPtr(cpp.Star<ComboBoxKey>) from cpp.Star<ComboBoxKey> to cpp.Star<ComboBoxKey>{
+abstract ComboBoxKeyPtr(ucpp.Ptr<ComboBoxKey>) from ucpp.Ptr<ComboBoxKey> to ucpp.Ptr<ComboBoxKey>{
 	@:from
 	public static extern inline function fromValue(v: ComboBoxKey): ComboBoxKeyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionBlendMaterialAttributes")
 @:include("Materials/MaterialExpressionBlendMaterialAttributes.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionBlendMaterialAttributes extends MaterialExpression {
 	public var A: MaterialAttributesInput;
 	public var B: MaterialAttributesInput;
@@ -11,7 +11,7 @@ extern class MaterialExpressionBlendMaterialAttributes extends MaterialExpressio
 	public var PixelAttributeBlendType: TEnumAsByte<EMaterialAttributeBlend>;
 	public var VertexAttributeBlendType: TEnumAsByte<EMaterialAttributeBlend>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstMaterialExpressionBlendMaterialAttributes(MaterialExpressionBlendM
 @:forward
 @:nativeGen
 @:native("MaterialExpressionBlendMaterialAttributes*")
-abstract MaterialExpressionBlendMaterialAttributesPtr(cpp.Star<MaterialExpressionBlendMaterialAttributes>) from cpp.Star<MaterialExpressionBlendMaterialAttributes> to cpp.Star<MaterialExpressionBlendMaterialAttributes>{
+abstract MaterialExpressionBlendMaterialAttributesPtr(ucpp.Ptr<MaterialExpressionBlendMaterialAttributes>) from ucpp.Ptr<MaterialExpressionBlendMaterialAttributes> to ucpp.Ptr<MaterialExpressionBlendMaterialAttributes>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionBlendMaterialAttributes): MaterialExpressionBlendMaterialAttributesPtr {
 		return untyped __cpp__("&({0})", v);

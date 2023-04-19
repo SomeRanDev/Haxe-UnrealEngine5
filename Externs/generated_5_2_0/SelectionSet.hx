@@ -3,10 +3,10 @@ package ue;
 
 @:native("USelectionSet")
 @:include("SelectionSet.h")
-@:structAccess
+@:valueType
 extern class SelectionSet extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSelectionSet(SelectionSet) from SelectionSet {
 @:forward
 @:nativeGen
 @:native("SelectionSet*")
-abstract SelectionSetPtr(cpp.Star<SelectionSet>) from cpp.Star<SelectionSet> to cpp.Star<SelectionSet>{
+abstract SelectionSetPtr(ucpp.Ptr<SelectionSet>) from ucpp.Ptr<SelectionSet> to ucpp.Ptr<SelectionSet>{
 	@:from
 	public static extern inline function fromValue(v: SelectionSet): SelectionSetPtr {
 		return untyped __cpp__("&({0})", v);

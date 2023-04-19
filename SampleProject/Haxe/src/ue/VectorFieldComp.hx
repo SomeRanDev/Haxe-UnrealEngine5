@@ -3,27 +3,27 @@ package ue;
 
 @:native("UVectorFieldComponent")
 @:include("Components/VectorFieldComponent.h")
-@:structAccess
+@:valueType
 extern class VectorFieldComp extends PrimitiveComp {
-	public var VectorField: cpp.Star<VectorField>;
-	public var Intensity: cpp.Float32;
-	public var Tightness: cpp.Float32;
+	public var VectorField: ucpp.Ptr<VectorField>;
+	public var Intensity: ucpp.num.Float32;
+	public var Tightness: ucpp.num.Float32;
 	public var bPreviewVectorField: Bool;
 
-	public function SetIntensity(NewIntensity: cpp.Float32): Void;
+	public function SetIntensity(NewIntensity: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVectorFieldComp(VectorFieldComp) from VectorFieldComp {
-	public extern var VectorField(get, never): cpp.Star<VectorField.ConstVectorField>;
-	public inline extern function get_VectorField(): cpp.Star<VectorField.ConstVectorField> return this.VectorField;
-	public extern var Intensity(get, never): cpp.Float32;
-	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
-	public extern var Tightness(get, never): cpp.Float32;
-	public inline extern function get_Tightness(): cpp.Float32 return this.Tightness;
+	public extern var VectorField(get, never): ucpp.Ptr<VectorField.ConstVectorField>;
+	public inline extern function get_VectorField(): ucpp.Ptr<VectorField.ConstVectorField> return this.VectorField;
+	public extern var Intensity(get, never): ucpp.num.Float32;
+	public inline extern function get_Intensity(): ucpp.num.Float32 return this.Intensity;
+	public extern var Tightness(get, never): ucpp.num.Float32;
+	public inline extern function get_Tightness(): ucpp.num.Float32 return this.Tightness;
 	public extern var bPreviewVectorField(get, never): Bool;
 	public inline extern function get_bPreviewVectorField(): Bool return this.bPreviewVectorField;
 }
@@ -31,7 +31,7 @@ abstract ConstVectorFieldComp(VectorFieldComp) from VectorFieldComp {
 @:forward
 @:nativeGen
 @:native("VectorFieldComp*")
-abstract VectorFieldCompPtr(cpp.Star<VectorFieldComp>) from cpp.Star<VectorFieldComp> to cpp.Star<VectorFieldComp>{
+abstract VectorFieldCompPtr(ucpp.Ptr<VectorFieldComp>) from ucpp.Ptr<VectorFieldComp> to ucpp.Ptr<VectorFieldComp>{
 	@:from
 	public static extern inline function fromValue(v: VectorFieldComp): VectorFieldCompPtr {
 		return untyped __cpp__("&({0})", v);

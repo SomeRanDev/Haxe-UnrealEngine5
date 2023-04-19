@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBrowserFilterListContext")
 @:include("ContentBrowserMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserFilterListContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBrowserFilterListContext(ContentBrowserFilterListContext) f
 @:forward
 @:nativeGen
 @:native("ContentBrowserFilterListContext*")
-abstract ContentBrowserFilterListContextPtr(cpp.Star<ContentBrowserFilterListContext>) from cpp.Star<ContentBrowserFilterListContext> to cpp.Star<ContentBrowserFilterListContext>{
+abstract ContentBrowserFilterListContextPtr(ucpp.Ptr<ContentBrowserFilterListContext>) from ucpp.Ptr<ContentBrowserFilterListContext> to ucpp.Ptr<ContentBrowserFilterListContext>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserFilterListContext): ContentBrowserFilterListContextPtr {
 		return untyped __cpp__("&({0})", v);

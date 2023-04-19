@@ -3,24 +3,24 @@ package ue;
 
 @:native("UClothPaintTool_BrushSettings")
 @:include("ClothPaintTools.h")
-@:structAccess
+@:valueType
 extern class ClothPaintTool_BrushSettings extends Object {
-	public var PaintValue: cpp.Float32;
+	public var PaintValue: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstClothPaintTool_BrushSettings(ClothPaintTool_BrushSettings) from ClothPaintTool_BrushSettings {
-	public extern var PaintValue(get, never): cpp.Float32;
-	public inline extern function get_PaintValue(): cpp.Float32 return this.PaintValue;
+	public extern var PaintValue(get, never): ucpp.num.Float32;
+	public inline extern function get_PaintValue(): ucpp.num.Float32 return this.PaintValue;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothPaintTool_BrushSettings*")
-abstract ClothPaintTool_BrushSettingsPtr(cpp.Star<ClothPaintTool_BrushSettings>) from cpp.Star<ClothPaintTool_BrushSettings> to cpp.Star<ClothPaintTool_BrushSettings>{
+abstract ClothPaintTool_BrushSettingsPtr(ucpp.Ptr<ClothPaintTool_BrushSettings>) from ucpp.Ptr<ClothPaintTool_BrushSettings> to ucpp.Ptr<ClothPaintTool_BrushSettings>{
 	@:from
 	public static extern inline function fromValue(v: ClothPaintTool_BrushSettings): ClothPaintTool_BrushSettingsPtr {
 		return untyped __cpp__("&({0})", v);

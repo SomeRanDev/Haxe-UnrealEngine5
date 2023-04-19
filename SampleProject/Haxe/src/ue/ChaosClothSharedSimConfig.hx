@@ -3,26 +3,26 @@ package ue;
 
 @:native("UChaosClothSharedSimConfig")
 @:include("ChaosCloth/ChaosClothConfig.h")
-@:structAccess
+@:valueType
 extern class ChaosClothSharedSimConfig extends ClothSharedConfigCommon {
-	public var IterationCount: cpp.Int32;
-	public var MaxIterationCount: cpp.Int32;
-	public var SubdivisionCount: cpp.Int32;
+	public var IterationCount: ucpp.num.Int32;
+	public var MaxIterationCount: ucpp.num.Int32;
+	public var SubdivisionCount: ucpp.num.Int32;
 	public var bUseLocalSpaceSimulation: Bool;
 	public var bUseXPBDConstraints: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstChaosClothSharedSimConfig(ChaosClothSharedSimConfig) from ChaosClothSharedSimConfig {
-	public extern var IterationCount(get, never): cpp.Int32;
-	public inline extern function get_IterationCount(): cpp.Int32 return this.IterationCount;
-	public extern var MaxIterationCount(get, never): cpp.Int32;
-	public inline extern function get_MaxIterationCount(): cpp.Int32 return this.MaxIterationCount;
-	public extern var SubdivisionCount(get, never): cpp.Int32;
-	public inline extern function get_SubdivisionCount(): cpp.Int32 return this.SubdivisionCount;
+	public extern var IterationCount(get, never): ucpp.num.Int32;
+	public inline extern function get_IterationCount(): ucpp.num.Int32 return this.IterationCount;
+	public extern var MaxIterationCount(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxIterationCount(): ucpp.num.Int32 return this.MaxIterationCount;
+	public extern var SubdivisionCount(get, never): ucpp.num.Int32;
+	public inline extern function get_SubdivisionCount(): ucpp.num.Int32 return this.SubdivisionCount;
 	public extern var bUseLocalSpaceSimulation(get, never): Bool;
 	public inline extern function get_bUseLocalSpaceSimulation(): Bool return this.bUseLocalSpaceSimulation;
 	public extern var bUseXPBDConstraints(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstChaosClothSharedSimConfig(ChaosClothSharedSimConfig) from ChaosClo
 @:forward
 @:nativeGen
 @:native("ChaosClothSharedSimConfig*")
-abstract ChaosClothSharedSimConfigPtr(cpp.Star<ChaosClothSharedSimConfig>) from cpp.Star<ChaosClothSharedSimConfig> to cpp.Star<ChaosClothSharedSimConfig>{
+abstract ChaosClothSharedSimConfigPtr(ucpp.Ptr<ChaosClothSharedSimConfig>) from ucpp.Ptr<ChaosClothSharedSimConfig> to ucpp.Ptr<ChaosClothSharedSimConfig>{
 	@:from
 	public static extern inline function fromValue(v: ChaosClothSharedSimConfig): ChaosClothSharedSimConfigPtr {
 		return untyped __cpp__("&({0})", v);

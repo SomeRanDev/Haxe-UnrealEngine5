@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxImportUI")
 @:include("Factories/FbxImportUI.h")
-@:structAccess
+@:valueType
 extern class FbxImportUI extends Object {
 	public var bIsObjImport: Bool;
 	public var OriginalImportType: TEnumAsByte<EFBXImportType>;
@@ -11,30 +11,30 @@ extern class FbxImportUI extends Object {
 	public var bOverrideFullName: Bool;
 	public var bImportAsSkeletal: Bool;
 	public var bImportMesh: Bool;
-	public var Skeleton: cpp.Star<Skeleton>;
+	public var Skeleton: ucpp.Ptr<Skeleton>;
 	public var bCreatePhysicsAsset: Bool;
-	public var PhysicsAsset: cpp.Star<PhysicsAsset>;
+	public var PhysicsAsset: ucpp.Ptr<PhysicsAsset>;
 	public var bAutoComputeLodDistances: Bool;
-	public var LodDistance0: cpp.Float32;
-	public var LodDistance1: cpp.Float32;
-	public var LodDistance2: cpp.Float32;
-	public var LodDistance3: cpp.Float32;
-	public var LodDistance4: cpp.Float32;
-	public var LodDistance5: cpp.Float32;
-	public var LodDistance6: cpp.Float32;
-	public var LodDistance7: cpp.Float32;
-	public var MinimumLodNumber: cpp.Int32;
-	public var LodNumber: cpp.Int32;
+	public var LodDistance0: ucpp.num.Float32;
+	public var LodDistance1: ucpp.num.Float32;
+	public var LodDistance2: ucpp.num.Float32;
+	public var LodDistance3: ucpp.num.Float32;
+	public var LodDistance4: ucpp.num.Float32;
+	public var LodDistance5: ucpp.num.Float32;
+	public var LodDistance6: ucpp.num.Float32;
+	public var LodDistance7: ucpp.num.Float32;
+	public var MinimumLodNumber: ucpp.num.Int32;
+	public var LodNumber: ucpp.num.Int32;
 	public var bImportAnimations: Bool;
 	public var OverrideAnimationName: FString;
 	public var bImportRigidMesh: Bool;
 	public var bImportMaterials: Bool;
 	public var bImportTextures: Bool;
 	public var bResetToFbxOnMaterialConflict: Bool;
-	public var StaticMeshImportData: cpp.Star<FbxStaticMeshImportData>;
-	public var SkeletalMeshImportData: cpp.Star<FbxSkeletalMeshImportData>;
-	public var AnimSequenceImportData: cpp.Star<FbxAnimSequenceImportData>;
-	public var TextureImportData: cpp.Star<FbxTextureImportData>;
+	public var StaticMeshImportData: ucpp.Ptr<FbxStaticMeshImportData>;
+	public var SkeletalMeshImportData: ucpp.Ptr<FbxSkeletalMeshImportData>;
+	public var AnimSequenceImportData: ucpp.Ptr<FbxAnimSequenceImportData>;
+	public var TextureImportData: ucpp.Ptr<FbxTextureImportData>;
 	public var bAutomatedImportShouldDetectType: Bool;
 	public var FileVersion: FString;
 	public var FileCreator: FString;
@@ -47,7 +47,7 @@ extern class FbxImportUI extends Object {
 
 	public function ResetToDefault(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -65,34 +65,34 @@ abstract ConstFbxImportUI(FbxImportUI) from FbxImportUI {
 	public inline extern function get_bImportAsSkeletal(): Bool return this.bImportAsSkeletal;
 	public extern var bImportMesh(get, never): Bool;
 	public inline extern function get_bImportMesh(): Bool return this.bImportMesh;
-	public extern var Skeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_Skeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.Skeleton;
+	public extern var Skeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_Skeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.Skeleton;
 	public extern var bCreatePhysicsAsset(get, never): Bool;
 	public inline extern function get_bCreatePhysicsAsset(): Bool return this.bCreatePhysicsAsset;
-	public extern var PhysicsAsset(get, never): cpp.Star<PhysicsAsset.ConstPhysicsAsset>;
-	public inline extern function get_PhysicsAsset(): cpp.Star<PhysicsAsset.ConstPhysicsAsset> return this.PhysicsAsset;
+	public extern var PhysicsAsset(get, never): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset>;
+	public inline extern function get_PhysicsAsset(): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset> return this.PhysicsAsset;
 	public extern var bAutoComputeLodDistances(get, never): Bool;
 	public inline extern function get_bAutoComputeLodDistances(): Bool return this.bAutoComputeLodDistances;
-	public extern var LodDistance0(get, never): cpp.Float32;
-	public inline extern function get_LodDistance0(): cpp.Float32 return this.LodDistance0;
-	public extern var LodDistance1(get, never): cpp.Float32;
-	public inline extern function get_LodDistance1(): cpp.Float32 return this.LodDistance1;
-	public extern var LodDistance2(get, never): cpp.Float32;
-	public inline extern function get_LodDistance2(): cpp.Float32 return this.LodDistance2;
-	public extern var LodDistance3(get, never): cpp.Float32;
-	public inline extern function get_LodDistance3(): cpp.Float32 return this.LodDistance3;
-	public extern var LodDistance4(get, never): cpp.Float32;
-	public inline extern function get_LodDistance4(): cpp.Float32 return this.LodDistance4;
-	public extern var LodDistance5(get, never): cpp.Float32;
-	public inline extern function get_LodDistance5(): cpp.Float32 return this.LodDistance5;
-	public extern var LodDistance6(get, never): cpp.Float32;
-	public inline extern function get_LodDistance6(): cpp.Float32 return this.LodDistance6;
-	public extern var LodDistance7(get, never): cpp.Float32;
-	public inline extern function get_LodDistance7(): cpp.Float32 return this.LodDistance7;
-	public extern var MinimumLodNumber(get, never): cpp.Int32;
-	public inline extern function get_MinimumLodNumber(): cpp.Int32 return this.MinimumLodNumber;
-	public extern var LodNumber(get, never): cpp.Int32;
-	public inline extern function get_LodNumber(): cpp.Int32 return this.LodNumber;
+	public extern var LodDistance0(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance0(): ucpp.num.Float32 return this.LodDistance0;
+	public extern var LodDistance1(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance1(): ucpp.num.Float32 return this.LodDistance1;
+	public extern var LodDistance2(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance2(): ucpp.num.Float32 return this.LodDistance2;
+	public extern var LodDistance3(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance3(): ucpp.num.Float32 return this.LodDistance3;
+	public extern var LodDistance4(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance4(): ucpp.num.Float32 return this.LodDistance4;
+	public extern var LodDistance5(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance5(): ucpp.num.Float32 return this.LodDistance5;
+	public extern var LodDistance6(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance6(): ucpp.num.Float32 return this.LodDistance6;
+	public extern var LodDistance7(get, never): ucpp.num.Float32;
+	public inline extern function get_LodDistance7(): ucpp.num.Float32 return this.LodDistance7;
+	public extern var MinimumLodNumber(get, never): ucpp.num.Int32;
+	public inline extern function get_MinimumLodNumber(): ucpp.num.Int32 return this.MinimumLodNumber;
+	public extern var LodNumber(get, never): ucpp.num.Int32;
+	public inline extern function get_LodNumber(): ucpp.num.Int32 return this.LodNumber;
 	public extern var bImportAnimations(get, never): Bool;
 	public inline extern function get_bImportAnimations(): Bool return this.bImportAnimations;
 	public extern var OverrideAnimationName(get, never): FString;
@@ -105,14 +105,14 @@ abstract ConstFbxImportUI(FbxImportUI) from FbxImportUI {
 	public inline extern function get_bImportTextures(): Bool return this.bImportTextures;
 	public extern var bResetToFbxOnMaterialConflict(get, never): Bool;
 	public inline extern function get_bResetToFbxOnMaterialConflict(): Bool return this.bResetToFbxOnMaterialConflict;
-	public extern var StaticMeshImportData(get, never): cpp.Star<FbxStaticMeshImportData.ConstFbxStaticMeshImportData>;
-	public inline extern function get_StaticMeshImportData(): cpp.Star<FbxStaticMeshImportData.ConstFbxStaticMeshImportData> return this.StaticMeshImportData;
-	public extern var SkeletalMeshImportData(get, never): cpp.Star<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData>;
-	public inline extern function get_SkeletalMeshImportData(): cpp.Star<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData> return this.SkeletalMeshImportData;
-	public extern var AnimSequenceImportData(get, never): cpp.Star<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData>;
-	public inline extern function get_AnimSequenceImportData(): cpp.Star<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData> return this.AnimSequenceImportData;
-	public extern var TextureImportData(get, never): cpp.Star<FbxTextureImportData.ConstFbxTextureImportData>;
-	public inline extern function get_TextureImportData(): cpp.Star<FbxTextureImportData.ConstFbxTextureImportData> return this.TextureImportData;
+	public extern var StaticMeshImportData(get, never): ucpp.Ptr<FbxStaticMeshImportData.ConstFbxStaticMeshImportData>;
+	public inline extern function get_StaticMeshImportData(): ucpp.Ptr<FbxStaticMeshImportData.ConstFbxStaticMeshImportData> return this.StaticMeshImportData;
+	public extern var SkeletalMeshImportData(get, never): ucpp.Ptr<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData>;
+	public inline extern function get_SkeletalMeshImportData(): ucpp.Ptr<FbxSkeletalMeshImportData.ConstFbxSkeletalMeshImportData> return this.SkeletalMeshImportData;
+	public extern var AnimSequenceImportData(get, never): ucpp.Ptr<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData>;
+	public inline extern function get_AnimSequenceImportData(): ucpp.Ptr<FbxAnimSequenceImportData.ConstFbxAnimSequenceImportData> return this.AnimSequenceImportData;
+	public extern var TextureImportData(get, never): ucpp.Ptr<FbxTextureImportData.ConstFbxTextureImportData>;
+	public inline extern function get_TextureImportData(): ucpp.Ptr<FbxTextureImportData.ConstFbxTextureImportData> return this.TextureImportData;
 	public extern var bAutomatedImportShouldDetectType(get, never): Bool;
 	public inline extern function get_bAutomatedImportShouldDetectType(): Bool return this.bAutomatedImportShouldDetectType;
 	public extern var FileVersion(get, never): FString;
@@ -136,7 +136,7 @@ abstract ConstFbxImportUI(FbxImportUI) from FbxImportUI {
 @:forward
 @:nativeGen
 @:native("FbxImportUI*")
-abstract FbxImportUIPtr(cpp.Star<FbxImportUI>) from cpp.Star<FbxImportUI> to cpp.Star<FbxImportUI>{
+abstract FbxImportUIPtr(ucpp.Ptr<FbxImportUI>) from ucpp.Ptr<FbxImportUI> to ucpp.Ptr<FbxImportUI>{
 	@:from
 	public static extern inline function fromValue(v: FbxImportUI): FbxImportUIPtr {
 		return untyped __cpp__("&({0})", v);

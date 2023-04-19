@@ -3,39 +3,39 @@ package ue;
 
 @:native("UMeterSettings")
 @:include("Meter.h")
-@:structAccess
+@:valueType
 extern class MeterSettings extends AudioSynesthesiaSettings {
-	public var AnalysisPeriod: cpp.Float32;
+	public var AnalysisPeriod: ucpp.num.Float32;
 	public var PeakMode: EMeterPeakType;
-	public var MeterAttackTime: cpp.Int32;
-	public var MeterReleaseTime: cpp.Int32;
-	public var PeakHoldTime: cpp.Int32;
-	public var ClippingThreshold: cpp.Float32;
+	public var MeterAttackTime: ucpp.num.Int32;
+	public var MeterReleaseTime: ucpp.num.Int32;
+	public var PeakHoldTime: ucpp.num.Int32;
+	public var ClippingThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeterSettings(MeterSettings) from MeterSettings {
-	public extern var AnalysisPeriod(get, never): cpp.Float32;
-	public inline extern function get_AnalysisPeriod(): cpp.Float32 return this.AnalysisPeriod;
+	public extern var AnalysisPeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_AnalysisPeriod(): ucpp.num.Float32 return this.AnalysisPeriod;
 	public extern var PeakMode(get, never): EMeterPeakType;
 	public inline extern function get_PeakMode(): EMeterPeakType return this.PeakMode;
-	public extern var MeterAttackTime(get, never): cpp.Int32;
-	public inline extern function get_MeterAttackTime(): cpp.Int32 return this.MeterAttackTime;
-	public extern var MeterReleaseTime(get, never): cpp.Int32;
-	public inline extern function get_MeterReleaseTime(): cpp.Int32 return this.MeterReleaseTime;
-	public extern var PeakHoldTime(get, never): cpp.Int32;
-	public inline extern function get_PeakHoldTime(): cpp.Int32 return this.PeakHoldTime;
-	public extern var ClippingThreshold(get, never): cpp.Float32;
-	public inline extern function get_ClippingThreshold(): cpp.Float32 return this.ClippingThreshold;
+	public extern var MeterAttackTime(get, never): ucpp.num.Int32;
+	public inline extern function get_MeterAttackTime(): ucpp.num.Int32 return this.MeterAttackTime;
+	public extern var MeterReleaseTime(get, never): ucpp.num.Int32;
+	public inline extern function get_MeterReleaseTime(): ucpp.num.Int32 return this.MeterReleaseTime;
+	public extern var PeakHoldTime(get, never): ucpp.num.Int32;
+	public inline extern function get_PeakHoldTime(): ucpp.num.Int32 return this.PeakHoldTime;
+	public extern var ClippingThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_ClippingThreshold(): ucpp.num.Float32 return this.ClippingThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("MeterSettings*")
-abstract MeterSettingsPtr(cpp.Star<MeterSettings>) from cpp.Star<MeterSettings> to cpp.Star<MeterSettings>{
+abstract MeterSettingsPtr(ucpp.Ptr<MeterSettings>) from ucpp.Ptr<MeterSettings> to ucpp.Ptr<MeterSettings>{
 	@:from
 	public static extern inline function fromValue(v: MeterSettings): MeterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

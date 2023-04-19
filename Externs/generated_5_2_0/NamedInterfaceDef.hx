@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNamedInterfaceDef")
 @:include("NamedInterfaces.h")
-@:structAccess
+@:valueType
 extern class NamedInterfaceDef {
 	public var InterfaceName: FName;
 	public var InterfaceClassName: FString;

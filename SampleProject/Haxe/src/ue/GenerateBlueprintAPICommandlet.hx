@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGenerateBlueprintAPICommandlet")
 @:include("Commandlets/GenerateBlueprintAPICommandlet.h")
-@:structAccess
+@:valueType
 extern class GenerateBlueprintAPICommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGenerateBlueprintAPICommandlet(GenerateBlueprintAPICommandlet) fro
 @:forward
 @:nativeGen
 @:native("GenerateBlueprintAPICommandlet*")
-abstract GenerateBlueprintAPICommandletPtr(cpp.Star<GenerateBlueprintAPICommandlet>) from cpp.Star<GenerateBlueprintAPICommandlet> to cpp.Star<GenerateBlueprintAPICommandlet>{
+abstract GenerateBlueprintAPICommandletPtr(ucpp.Ptr<GenerateBlueprintAPICommandlet>) from ucpp.Ptr<GenerateBlueprintAPICommandlet> to ucpp.Ptr<GenerateBlueprintAPICommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GenerateBlueprintAPICommandlet): GenerateBlueprintAPICommandletPtr {
 		return untyped __cpp__("&({0})", v);

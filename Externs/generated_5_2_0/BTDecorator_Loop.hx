@@ -3,30 +3,30 @@ package ue;
 
 @:native("UBTDecorator_Loop")
 @:include("BehaviorTree/Decorators/BTDecorator_Loop.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_Loop extends BTDecorator {
-	public var NumLoops: cpp.Int32;
+	public var NumLoops: ucpp.num.Int32;
 	public var bInfiniteLoop: Bool;
-	public var InfiniteLoopTimeoutTime: cpp.Float32;
+	public var InfiniteLoopTimeoutTime: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_Loop(BTDecorator_Loop) from BTDecorator_Loop {
-	public extern var NumLoops(get, never): cpp.Int32;
-	public inline extern function get_NumLoops(): cpp.Int32 return this.NumLoops;
+	public extern var NumLoops(get, never): ucpp.num.Int32;
+	public inline extern function get_NumLoops(): ucpp.num.Int32 return this.NumLoops;
 	public extern var bInfiniteLoop(get, never): Bool;
 	public inline extern function get_bInfiniteLoop(): Bool return this.bInfiniteLoop;
-	public extern var InfiniteLoopTimeoutTime(get, never): cpp.Float32;
-	public inline extern function get_InfiniteLoopTimeoutTime(): cpp.Float32 return this.InfiniteLoopTimeoutTime;
+	public extern var InfiniteLoopTimeoutTime(get, never): ucpp.num.Float32;
+	public inline extern function get_InfiniteLoopTimeoutTime(): ucpp.num.Float32 return this.InfiniteLoopTimeoutTime;
 }
 
 @:forward
 @:nativeGen
 @:native("BTDecorator_Loop*")
-abstract BTDecorator_LoopPtr(cpp.Star<BTDecorator_Loop>) from cpp.Star<BTDecorator_Loop> to cpp.Star<BTDecorator_Loop>{
+abstract BTDecorator_LoopPtr(ucpp.Ptr<BTDecorator_Loop>) from ucpp.Ptr<BTDecorator_Loop> to ucpp.Ptr<BTDecorator_Loop>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_Loop): BTDecorator_LoopPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,51 +3,51 @@ package ue;
 
 @:native("UCanvas")
 @:include("Engine/Canvas.h")
-@:structAccess
+@:valueType
 extern class Canvas extends Object {
-	public var OrgX: cpp.Float32;
-	public var OrgY: cpp.Float32;
-	public var ClipX: cpp.Float32;
-	public var ClipY: cpp.Float32;
+	public var OrgX: ucpp.num.Float32;
+	public var OrgY: ucpp.num.Float32;
+	public var ClipX: ucpp.num.Float32;
+	public var ClipY: ucpp.num.Float32;
 	public var DrawColor: Color;
 	public var bCenterX: Bool;
 	public var bCenterY: Bool;
 	public var bNoSmooth: Bool;
-	public var SizeX: cpp.Int32;
-	public var SizeY: cpp.Int32;
+	public var SizeX: ucpp.num.Int32;
+	public var SizeY: ucpp.num.Int32;
 	public var ColorModulate: Plane;
-	public var DefaultTexture: cpp.Star<Texture2D>;
-	public var GradientTexture0: cpp.Star<Texture2D>;
-	public var ReporterGraph: cpp.Star<ReporterGraph>;
+	public var DefaultTexture: ucpp.Ptr<Texture2D>;
+	public var GradientTexture0: ucpp.Ptr<Texture2D>;
+	public var ReporterGraph: ucpp.Ptr<ReporterGraph>;
 
-	public function K2_TextSize(RenderFont: cpp.Star<Font>, RenderText: FString, Scale: Vector2D): Vector2D;
-	public function K2_StrLen(RenderFont: cpp.Star<Font>, RenderText: FString): Vector2D;
+	public function K2_TextSize(RenderFont: ucpp.Ptr<Font>, RenderText: FString, Scale: Vector2D): Vector2D;
+	public function K2_StrLen(RenderFont: ucpp.Ptr<Font>, RenderText: FString): Vector2D;
 	public function K2_Project(WorldLocation: Vector): Vector;
-	public function K2_DrawTriangle(RenderTexture: cpp.Star<Texture>, Triangles: TArray<CanvasUVTri>): Void;
-	public function K2_DrawTexture(RenderTexture: cpp.Star<Texture>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, RenderColor: LinearColor, BlendMode: TEnumAsByte<EBlendMode>, Rotation: cpp.Float32, PivotPoint: Vector2D): Void;
-	public function K2_DrawText(RenderFont: cpp.Star<Font>, RenderText: FString, ScreenPosition: Vector2D, Scale: Vector2D, RenderColor: LinearColor, Kerning: cpp.Float32, ShadowColor: LinearColor, ShadowOffset: Vector2D, bCentreX: Bool, bCentreY: Bool, bOutlined: Bool, OutlineColor: LinearColor): Void;
-	public function K2_DrawPolygon(RenderTexture: cpp.Star<Texture>, ScreenPosition: Vector2D, Radius: Vector2D, NumberOfSides: cpp.Int32, RenderColor: LinearColor): Void;
-	public function K2_DrawMaterialTriangle(RenderMaterial: cpp.Star<MaterialInterface>, Triangles: TArray<CanvasUVTri>): Void;
-	public function K2_DrawMaterial(RenderMaterial: cpp.Star<MaterialInterface>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, Rotation: cpp.Float32, PivotPoint: Vector2D): Void;
-	public function K2_DrawLine(ScreenPositionA: Vector2D, ScreenPositionB: Vector2D, Thickness: cpp.Float32, RenderColor: LinearColor): Void;
-	public function K2_DrawBox(ScreenPosition: Vector2D, ScreenSize: Vector2D, Thickness: cpp.Float32, RenderColor: LinearColor): Void;
-	public function K2_DrawBorder(BorderTexture: cpp.Star<Texture>, BackgroundTexture: cpp.Star<Texture>, LeftBorderTexture: cpp.Star<Texture>, RightBorderTexture: cpp.Star<Texture>, TopBorderTexture: cpp.Star<Texture>, BottomBorderTexture: cpp.Star<Texture>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, RenderColor: LinearColor, BorderScale: Vector2D, BackgroundScale: Vector2D, Rotation: cpp.Float32, PivotPoint: Vector2D, CornerSize: Vector2D): Void;
-	public function K2_Deproject(ScreenPosition: Vector2D, WorldOrigin: cpp.Reference<Vector>, WorldDirection: cpp.Reference<Vector>): Void;
+	public function K2_DrawTriangle(RenderTexture: ucpp.Ptr<Texture>, Triangles: TArray<CanvasUVTri>): Void;
+	public function K2_DrawTexture(RenderTexture: ucpp.Ptr<Texture>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, RenderColor: LinearColor, BlendMode: TEnumAsByte<EBlendMode>, Rotation: ucpp.num.Float32, PivotPoint: Vector2D): Void;
+	public function K2_DrawText(RenderFont: ucpp.Ptr<Font>, RenderText: FString, ScreenPosition: Vector2D, Scale: Vector2D, RenderColor: LinearColor, Kerning: ucpp.num.Float32, ShadowColor: LinearColor, ShadowOffset: Vector2D, bCentreX: Bool, bCentreY: Bool, bOutlined: Bool, OutlineColor: LinearColor): Void;
+	public function K2_DrawPolygon(RenderTexture: ucpp.Ptr<Texture>, ScreenPosition: Vector2D, Radius: Vector2D, NumberOfSides: ucpp.num.Int32, RenderColor: LinearColor): Void;
+	public function K2_DrawMaterialTriangle(RenderMaterial: ucpp.Ptr<MaterialInterface>, Triangles: TArray<CanvasUVTri>): Void;
+	public function K2_DrawMaterial(RenderMaterial: ucpp.Ptr<MaterialInterface>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, Rotation: ucpp.num.Float32, PivotPoint: Vector2D): Void;
+	public function K2_DrawLine(ScreenPositionA: Vector2D, ScreenPositionB: Vector2D, Thickness: ucpp.num.Float32, RenderColor: LinearColor): Void;
+	public function K2_DrawBox(ScreenPosition: Vector2D, ScreenSize: Vector2D, Thickness: ucpp.num.Float32, RenderColor: LinearColor): Void;
+	public function K2_DrawBorder(BorderTexture: ucpp.Ptr<Texture>, BackgroundTexture: ucpp.Ptr<Texture>, LeftBorderTexture: ucpp.Ptr<Texture>, RightBorderTexture: ucpp.Ptr<Texture>, TopBorderTexture: ucpp.Ptr<Texture>, BottomBorderTexture: ucpp.Ptr<Texture>, ScreenPosition: Vector2D, ScreenSize: Vector2D, CoordinatePosition: Vector2D, CoordinateSize: Vector2D, RenderColor: LinearColor, BorderScale: Vector2D, BackgroundScale: Vector2D, Rotation: ucpp.num.Float32, PivotPoint: Vector2D, CornerSize: Vector2D): Void;
+	public function K2_Deproject(ScreenPosition: Vector2D, WorldOrigin: ucpp.Ref<Vector>, WorldDirection: ucpp.Ref<Vector>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCanvas(Canvas) from Canvas {
-	public extern var OrgX(get, never): cpp.Float32;
-	public inline extern function get_OrgX(): cpp.Float32 return this.OrgX;
-	public extern var OrgY(get, never): cpp.Float32;
-	public inline extern function get_OrgY(): cpp.Float32 return this.OrgY;
-	public extern var ClipX(get, never): cpp.Float32;
-	public inline extern function get_ClipX(): cpp.Float32 return this.ClipX;
-	public extern var ClipY(get, never): cpp.Float32;
-	public inline extern function get_ClipY(): cpp.Float32 return this.ClipY;
+	public extern var OrgX(get, never): ucpp.num.Float32;
+	public inline extern function get_OrgX(): ucpp.num.Float32 return this.OrgX;
+	public extern var OrgY(get, never): ucpp.num.Float32;
+	public inline extern function get_OrgY(): ucpp.num.Float32 return this.OrgY;
+	public extern var ClipX(get, never): ucpp.num.Float32;
+	public inline extern function get_ClipX(): ucpp.num.Float32 return this.ClipX;
+	public extern var ClipY(get, never): ucpp.num.Float32;
+	public inline extern function get_ClipY(): ucpp.num.Float32 return this.ClipY;
 	public extern var DrawColor(get, never): Color;
 	public inline extern function get_DrawColor(): Color return this.DrawColor;
 	public extern var bCenterX(get, never): Bool;
@@ -56,24 +56,24 @@ abstract ConstCanvas(Canvas) from Canvas {
 	public inline extern function get_bCenterY(): Bool return this.bCenterY;
 	public extern var bNoSmooth(get, never): Bool;
 	public inline extern function get_bNoSmooth(): Bool return this.bNoSmooth;
-	public extern var SizeX(get, never): cpp.Int32;
-	public inline extern function get_SizeX(): cpp.Int32 return this.SizeX;
-	public extern var SizeY(get, never): cpp.Int32;
-	public inline extern function get_SizeY(): cpp.Int32 return this.SizeY;
+	public extern var SizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeX(): ucpp.num.Int32 return this.SizeX;
+	public extern var SizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeY(): ucpp.num.Int32 return this.SizeY;
 	public extern var ColorModulate(get, never): Plane;
 	public inline extern function get_ColorModulate(): Plane return this.ColorModulate;
-	public extern var DefaultTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_DefaultTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.DefaultTexture;
-	public extern var GradientTexture0(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_GradientTexture0(): cpp.Star<Texture2D.ConstTexture2D> return this.GradientTexture0;
-	public extern var ReporterGraph(get, never): cpp.Star<ReporterGraph.ConstReporterGraph>;
-	public inline extern function get_ReporterGraph(): cpp.Star<ReporterGraph.ConstReporterGraph> return this.ReporterGraph;
+	public extern var DefaultTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_DefaultTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.DefaultTexture;
+	public extern var GradientTexture0(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_GradientTexture0(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.GradientTexture0;
+	public extern var ReporterGraph(get, never): ucpp.Ptr<ReporterGraph.ConstReporterGraph>;
+	public inline extern function get_ReporterGraph(): ucpp.Ptr<ReporterGraph.ConstReporterGraph> return this.ReporterGraph;
 }
 
 @:forward
 @:nativeGen
 @:native("Canvas*")
-abstract CanvasPtr(cpp.Star<Canvas>) from cpp.Star<Canvas> to cpp.Star<Canvas>{
+abstract CanvasPtr(ucpp.Ptr<Canvas>) from ucpp.Ptr<Canvas> to ucpp.Ptr<Canvas>{
 	@:from
 	public static extern inline function fromValue(v: Canvas): CanvasPtr {
 		return untyped __cpp__("&({0})", v);

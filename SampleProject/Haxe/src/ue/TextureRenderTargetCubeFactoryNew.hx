@@ -3,27 +3,27 @@ package ue;
 
 @:native("UTextureRenderTargetCubeFactoryNew")
 @:include("Factories/TextureRenderTargetCubeFactoryNew.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTargetCubeFactoryNew extends Factory {
-	public var Width: cpp.Int32;
-	public var Format: cpp.UInt8;
+	public var Width: ucpp.num.Int32;
+	public var Format: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTargetCubeFactoryNew(TextureRenderTargetCubeFactoryNew) from TextureRenderTargetCubeFactoryNew {
-	public extern var Width(get, never): cpp.Int32;
-	public inline extern function get_Width(): cpp.Int32 return this.Width;
-	public extern var Format(get, never): cpp.UInt8;
-	public inline extern function get_Format(): cpp.UInt8 return this.Format;
+	public extern var Width(get, never): ucpp.num.Int32;
+	public inline extern function get_Width(): ucpp.num.Int32 return this.Width;
+	public extern var Format(get, never): ucpp.num.UInt8;
+	public inline extern function get_Format(): ucpp.num.UInt8 return this.Format;
 }
 
 @:forward
 @:nativeGen
 @:native("TextureRenderTargetCubeFactoryNew*")
-abstract TextureRenderTargetCubeFactoryNewPtr(cpp.Star<TextureRenderTargetCubeFactoryNew>) from cpp.Star<TextureRenderTargetCubeFactoryNew> to cpp.Star<TextureRenderTargetCubeFactoryNew>{
+abstract TextureRenderTargetCubeFactoryNewPtr(ucpp.Ptr<TextureRenderTargetCubeFactoryNew>) from ucpp.Ptr<TextureRenderTargetCubeFactoryNew> to ucpp.Ptr<TextureRenderTargetCubeFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTargetCubeFactoryNew): TextureRenderTargetCubeFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

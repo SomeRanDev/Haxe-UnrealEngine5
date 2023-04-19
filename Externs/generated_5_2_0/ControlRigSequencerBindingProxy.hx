@@ -3,12 +3,12 @@ package ue;
 
 @:native("FControlRigSequencerBindingProxy")
 @:include("ControlRigSequencerEditorLibrary.h")
-@:structAccess
+@:valueType
 extern class ControlRigSequencerBindingProxy {
 	public var Proxy: MovieSceneBindingProxy;
-	public var ControlRig: cpp.Star<ControlRig>;
-	public var Track: cpp.Star<MovieSceneControlRigParameterTrack>;
+	public var ControlRig: ucpp.Ptr<ControlRig>;
+	public var Track: ucpp.Ptr<MovieSceneControlRigParameterTrack>;
 
 	@:native("FControlRigSequencerBindingProxy") public function new();
-	@:native("FControlRigSequencerBindingProxy") public static function make(Proxy: MovieSceneBindingProxy, ControlRig: cpp.Star<ControlRig>, Track: cpp.Star<MovieSceneControlRigParameterTrack>): ControlRigSequencerBindingProxy ;
+	@:native("FControlRigSequencerBindingProxy") public static function make(Proxy: MovieSceneBindingProxy, ControlRig: ucpp.Ptr<ControlRig>, Track: ucpp.Ptr<MovieSceneControlRigParameterTrack>): ControlRigSequencerBindingProxy ;
 }

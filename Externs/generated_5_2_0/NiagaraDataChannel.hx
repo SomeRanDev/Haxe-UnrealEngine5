@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraDataChannel")
 @:include("NiagaraDataChannel.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannel extends Object {
 	private var ChannelName: FName;
 	private var Variables: TArray<NiagaraVariable>;
@@ -12,7 +12,7 @@ extern class NiagaraDataChannel extends Object {
 	private var CompiledDataGPU: NiagaraDataSetCompiledData;
 	private var GameDataLayout: NiagaraDataChannelGameDataLayout;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraDataChannel(NiagaraDataChannel) from NiagaraDataChannel {
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannel*")
-abstract NiagaraDataChannelPtr(cpp.Star<NiagaraDataChannel>) from cpp.Star<NiagaraDataChannel> to cpp.Star<NiagaraDataChannel>{
+abstract NiagaraDataChannelPtr(ucpp.Ptr<NiagaraDataChannel>) from ucpp.Ptr<NiagaraDataChannel> to ucpp.Ptr<NiagaraDataChannel>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannel): NiagaraDataChannelPtr {
 		return untyped __cpp__("&({0})", v);

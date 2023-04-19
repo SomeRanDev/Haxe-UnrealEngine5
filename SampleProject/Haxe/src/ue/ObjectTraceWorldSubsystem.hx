@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectTraceWorldSubsystem")
 @:include("ObjectTrace.h")
-@:structAccess
+@:valueType
 extern class ObjectTraceWorldSubsystem extends WorldSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectTraceWorldSubsystem(ObjectTraceWorldSubsystem) from ObjectTr
 @:forward
 @:nativeGen
 @:native("ObjectTraceWorldSubsystem*")
-abstract ObjectTraceWorldSubsystemPtr(cpp.Star<ObjectTraceWorldSubsystem>) from cpp.Star<ObjectTraceWorldSubsystem> to cpp.Star<ObjectTraceWorldSubsystem>{
+abstract ObjectTraceWorldSubsystemPtr(ucpp.Ptr<ObjectTraceWorldSubsystem>) from ucpp.Ptr<ObjectTraceWorldSubsystem> to ucpp.Ptr<ObjectTraceWorldSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: ObjectTraceWorldSubsystem): ObjectTraceWorldSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

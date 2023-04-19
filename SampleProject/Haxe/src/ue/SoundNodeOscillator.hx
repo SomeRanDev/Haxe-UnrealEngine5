@@ -3,20 +3,20 @@ package ue;
 
 @:native("USoundNodeOscillator")
 @:include("Sound/SoundNodeOscillator.h")
-@:structAccess
+@:valueType
 extern class SoundNodeOscillator extends SoundNode {
 	public var bModulateVolume: Bool;
 	public var bModulatePitch: Bool;
-	public var AmplitudeMin: cpp.Float32;
-	public var AmplitudeMax: cpp.Float32;
-	public var FrequencyMin: cpp.Float32;
-	public var FrequencyMax: cpp.Float32;
-	public var OffsetMin: cpp.Float32;
-	public var OffsetMax: cpp.Float32;
-	public var CenterMin: cpp.Float32;
-	public var CenterMax: cpp.Float32;
+	public var AmplitudeMin: ucpp.num.Float32;
+	public var AmplitudeMax: ucpp.num.Float32;
+	public var FrequencyMin: ucpp.num.Float32;
+	public var FrequencyMax: ucpp.num.Float32;
+	public var OffsetMin: ucpp.num.Float32;
+	public var OffsetMax: ucpp.num.Float32;
+	public var CenterMin: ucpp.num.Float32;
+	public var CenterMax: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,28 +26,28 @@ abstract ConstSoundNodeOscillator(SoundNodeOscillator) from SoundNodeOscillator 
 	public inline extern function get_bModulateVolume(): Bool return this.bModulateVolume;
 	public extern var bModulatePitch(get, never): Bool;
 	public inline extern function get_bModulatePitch(): Bool return this.bModulatePitch;
-	public extern var AmplitudeMin(get, never): cpp.Float32;
-	public inline extern function get_AmplitudeMin(): cpp.Float32 return this.AmplitudeMin;
-	public extern var AmplitudeMax(get, never): cpp.Float32;
-	public inline extern function get_AmplitudeMax(): cpp.Float32 return this.AmplitudeMax;
-	public extern var FrequencyMin(get, never): cpp.Float32;
-	public inline extern function get_FrequencyMin(): cpp.Float32 return this.FrequencyMin;
-	public extern var FrequencyMax(get, never): cpp.Float32;
-	public inline extern function get_FrequencyMax(): cpp.Float32 return this.FrequencyMax;
-	public extern var OffsetMin(get, never): cpp.Float32;
-	public inline extern function get_OffsetMin(): cpp.Float32 return this.OffsetMin;
-	public extern var OffsetMax(get, never): cpp.Float32;
-	public inline extern function get_OffsetMax(): cpp.Float32 return this.OffsetMax;
-	public extern var CenterMin(get, never): cpp.Float32;
-	public inline extern function get_CenterMin(): cpp.Float32 return this.CenterMin;
-	public extern var CenterMax(get, never): cpp.Float32;
-	public inline extern function get_CenterMax(): cpp.Float32 return this.CenterMax;
+	public extern var AmplitudeMin(get, never): ucpp.num.Float32;
+	public inline extern function get_AmplitudeMin(): ucpp.num.Float32 return this.AmplitudeMin;
+	public extern var AmplitudeMax(get, never): ucpp.num.Float32;
+	public inline extern function get_AmplitudeMax(): ucpp.num.Float32 return this.AmplitudeMax;
+	public extern var FrequencyMin(get, never): ucpp.num.Float32;
+	public inline extern function get_FrequencyMin(): ucpp.num.Float32 return this.FrequencyMin;
+	public extern var FrequencyMax(get, never): ucpp.num.Float32;
+	public inline extern function get_FrequencyMax(): ucpp.num.Float32 return this.FrequencyMax;
+	public extern var OffsetMin(get, never): ucpp.num.Float32;
+	public inline extern function get_OffsetMin(): ucpp.num.Float32 return this.OffsetMin;
+	public extern var OffsetMax(get, never): ucpp.num.Float32;
+	public inline extern function get_OffsetMax(): ucpp.num.Float32 return this.OffsetMax;
+	public extern var CenterMin(get, never): ucpp.num.Float32;
+	public inline extern function get_CenterMin(): ucpp.num.Float32 return this.CenterMin;
+	public extern var CenterMax(get, never): ucpp.num.Float32;
+	public inline extern function get_CenterMax(): ucpp.num.Float32 return this.CenterMax;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeOscillator*")
-abstract SoundNodeOscillatorPtr(cpp.Star<SoundNodeOscillator>) from cpp.Star<SoundNodeOscillator> to cpp.Star<SoundNodeOscillator>{
+abstract SoundNodeOscillatorPtr(ucpp.Ptr<SoundNodeOscillator>) from ucpp.Ptr<SoundNodeOscillator> to ucpp.Ptr<SoundNodeOscillator>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeOscillator): SoundNodeOscillatorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPerPlatformInt")
 @:include("PerPlatformProperties.h")
-@:structAccess
+@:valueType
 extern class PerPlatformInt {
-	public var Default: cpp.Int32;
+	public var Default: ucpp.num.Int32;
 
 	@:native("FPerPlatformInt") public function new();
-	@:native("FPerPlatformInt") public static function make(Default: cpp.Int32, PerPlatform: TMap<FName, cpp.Int32>): PerPlatformInt ;
+	@:native("FPerPlatformInt") public static function make(Default: ucpp.num.Int32, PerPlatform: TMap<FName, ucpp.num.Int32>): PerPlatformInt ;
 }

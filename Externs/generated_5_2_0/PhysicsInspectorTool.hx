@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPhysicsInspectorTool")
 @:include("Physics/PhysicsInspectorTool.h")
-@:structAccess
+@:valueType
 extern class PhysicsInspectorTool extends MultiSelectionMeshEditingTool {
-	@:protected public var VizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
-	@:protected public var ObjectData: TArray<cpp.Star<PhysicsObjectToolPropertySet>>;
-	@:protected public var LineMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var PreviewElements: TArray<cpp.Star<PreviewGeometry>>;
+	@:protected public var VizSettings: ucpp.Ptr<CollisionGeometryVisualizationProperties>;
+	@:protected public var ObjectData: TArray<ucpp.Ptr<PhysicsObjectToolPropertySet>>;
+	@:protected public var LineMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var PreviewElements: TArray<ucpp.Ptr<PreviewGeometry>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstPhysicsInspectorTool(PhysicsInspectorTool) from PhysicsInspectorTo
 @:forward
 @:nativeGen
 @:native("PhysicsInspectorTool*")
-abstract PhysicsInspectorToolPtr(cpp.Star<PhysicsInspectorTool>) from cpp.Star<PhysicsInspectorTool> to cpp.Star<PhysicsInspectorTool>{
+abstract PhysicsInspectorToolPtr(ucpp.Ptr<PhysicsInspectorTool>) from ucpp.Ptr<PhysicsInspectorTool> to ucpp.Ptr<PhysicsInspectorTool>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsInspectorTool): PhysicsInspectorToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,45 +3,45 @@ package ue;
 
 @:native("UMeshSculptToolBase")
 @:include("Sculpting/MeshSculptToolBase.h")
-@:structAccess
+@:valueType
 extern class MeshSculptToolBase extends MeshSurfacePointTool {
-	public var BrushProperties: cpp.Star<SculptBrushProperties>;
-	public var GizmoProperties: cpp.Star<WorkPlaneProperties>;
-	@:protected public var BrushOpPropSets: TMap<cpp.Int32, cpp.Star<MeshSculptBrushOpProps>>;
-	@:protected public var SecondaryBrushOpPropSets: TMap<cpp.Int32, cpp.Star<MeshSculptBrushOpProps>>;
-	public var ViewProperties: cpp.Star<MeshEditingViewProperties>;
-	public var ActiveOverrideMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var BrushIndicator: cpp.Star<BrushStampIndicator>;
+	public var BrushProperties: ucpp.Ptr<SculptBrushProperties>;
+	public var GizmoProperties: ucpp.Ptr<WorkPlaneProperties>;
+	@:protected public var BrushOpPropSets: TMap<ucpp.num.Int32, ucpp.Ptr<MeshSculptBrushOpProps>>;
+	@:protected public var SecondaryBrushOpPropSets: TMap<ucpp.num.Int32, ucpp.Ptr<MeshSculptBrushOpProps>>;
+	public var ViewProperties: ucpp.Ptr<MeshEditingViewProperties>;
+	public var ActiveOverrideMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var BrushIndicator: ucpp.Ptr<BrushStampIndicator>;
 	@:protected public var bIsVolumetricIndicator: Bool;
-	@:protected public var BrushIndicatorMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var BrushIndicatorMesh: cpp.Star<PreviewMesh>;
-	public var PlaneTransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var PlaneTransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var BrushIndicatorMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var BrushIndicatorMesh: ucpp.Ptr<PreviewMesh>;
+	public var PlaneTransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	public var PlaneTransformProxy: ucpp.Ptr<TransformProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshSculptToolBase(MeshSculptToolBase) from MeshSculptToolBase {
-	public extern var BrushProperties(get, never): cpp.Star<SculptBrushProperties.ConstSculptBrushProperties>;
-	public inline extern function get_BrushProperties(): cpp.Star<SculptBrushProperties.ConstSculptBrushProperties> return this.BrushProperties;
-	public extern var GizmoProperties(get, never): cpp.Star<WorkPlaneProperties.ConstWorkPlaneProperties>;
-	public inline extern function get_GizmoProperties(): cpp.Star<WorkPlaneProperties.ConstWorkPlaneProperties> return this.GizmoProperties;
-	public extern var ViewProperties(get, never): cpp.Star<MeshEditingViewProperties.ConstMeshEditingViewProperties>;
-	public inline extern function get_ViewProperties(): cpp.Star<MeshEditingViewProperties.ConstMeshEditingViewProperties> return this.ViewProperties;
-	public extern var ActiveOverrideMaterial(get, never): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
-	public inline extern function get_ActiveOverrideMaterial(): cpp.Star<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.ActiveOverrideMaterial;
-	public extern var PlaneTransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_PlaneTransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PlaneTransformGizmo;
-	public extern var PlaneTransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_PlaneTransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.PlaneTransformProxy;
+	public extern var BrushProperties(get, never): ucpp.Ptr<SculptBrushProperties.ConstSculptBrushProperties>;
+	public inline extern function get_BrushProperties(): ucpp.Ptr<SculptBrushProperties.ConstSculptBrushProperties> return this.BrushProperties;
+	public extern var GizmoProperties(get, never): ucpp.Ptr<WorkPlaneProperties.ConstWorkPlaneProperties>;
+	public inline extern function get_GizmoProperties(): ucpp.Ptr<WorkPlaneProperties.ConstWorkPlaneProperties> return this.GizmoProperties;
+	public extern var ViewProperties(get, never): ucpp.Ptr<MeshEditingViewProperties.ConstMeshEditingViewProperties>;
+	public inline extern function get_ViewProperties(): ucpp.Ptr<MeshEditingViewProperties.ConstMeshEditingViewProperties> return this.ViewProperties;
+	public extern var ActiveOverrideMaterial(get, never): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic>;
+	public inline extern function get_ActiveOverrideMaterial(): ucpp.Ptr<MaterialInstanceDynamic.ConstMaterialInstanceDynamic> return this.ActiveOverrideMaterial;
+	public extern var PlaneTransformGizmo(get, never): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
+	public inline extern function get_PlaneTransformGizmo(): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PlaneTransformGizmo;
+	public extern var PlaneTransformProxy(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_PlaneTransformProxy(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.PlaneTransformProxy;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshSculptToolBase*")
-abstract MeshSculptToolBasePtr(cpp.Star<MeshSculptToolBase>) from cpp.Star<MeshSculptToolBase> to cpp.Star<MeshSculptToolBase>{
+abstract MeshSculptToolBasePtr(ucpp.Ptr<MeshSculptToolBase>) from ucpp.Ptr<MeshSculptToolBase> to ucpp.Ptr<MeshSculptToolBase>{
 	@:from
 	public static extern inline function fromValue(v: MeshSculptToolBase): MeshSculptToolBasePtr {
 		return untyped __cpp__("&({0})", v);

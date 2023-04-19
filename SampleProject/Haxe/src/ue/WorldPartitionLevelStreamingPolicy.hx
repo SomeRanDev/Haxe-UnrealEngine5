@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWorldPartitionLevelStreamingPolicy")
 @:include("WorldPartition/WorldPartitionLevelStreamingPolicy.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionLevelStreamingPolicy extends WorldPartitionStreamingPolicy {
 	private var SubObjectsToCellRemapping: TMap<FName, FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstWorldPartitionLevelStreamingPolicy(WorldPartitionLevelStreamingPol
 @:forward
 @:nativeGen
 @:native("WorldPartitionLevelStreamingPolicy*")
-abstract WorldPartitionLevelStreamingPolicyPtr(cpp.Star<WorldPartitionLevelStreamingPolicy>) from cpp.Star<WorldPartitionLevelStreamingPolicy> to cpp.Star<WorldPartitionLevelStreamingPolicy>{
+abstract WorldPartitionLevelStreamingPolicyPtr(ucpp.Ptr<WorldPartitionLevelStreamingPolicy>) from ucpp.Ptr<WorldPartitionLevelStreamingPolicy> to ucpp.Ptr<WorldPartitionLevelStreamingPolicy>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionLevelStreamingPolicy): WorldPartitionLevelStreamingPolicyPtr {
 		return untyped __cpp__("&({0})", v);

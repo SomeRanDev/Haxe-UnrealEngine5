@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraNode")
 @:include("NiagaraNode.h")
-@:structAccess
+@:valueType
 extern class NiagaraNode extends EdGraphNode {
 	@:protected public var ChangeId: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraNode(NiagaraNode) from NiagaraNode {
 @:forward
 @:nativeGen
 @:native("NiagaraNode*")
-abstract NiagaraNodePtr(cpp.Star<NiagaraNode>) from cpp.Star<NiagaraNode> to cpp.Star<NiagaraNode>{
+abstract NiagaraNodePtr(ucpp.Ptr<NiagaraNode>) from ucpp.Ptr<NiagaraNode> to ucpp.Ptr<NiagaraNode>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNode): NiagaraNodePtr {
 		return untyped __cpp__("&({0})", v);

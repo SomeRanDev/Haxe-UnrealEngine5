@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEditMeshPolygonsToolAcceptCancelAction")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshPolygonsToolAcceptCancelAction extends EditMeshPolygonsToolActionPropertySet {
 	public function Cancel(): Void;
 	public function Apply(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstEditMeshPolygonsToolAcceptCancelAction(EditMeshPolygonsToolAcceptC
 @:forward
 @:nativeGen
 @:native("EditMeshPolygonsToolAcceptCancelAction*")
-abstract EditMeshPolygonsToolAcceptCancelActionPtr(cpp.Star<EditMeshPolygonsToolAcceptCancelAction>) from cpp.Star<EditMeshPolygonsToolAcceptCancelAction> to cpp.Star<EditMeshPolygonsToolAcceptCancelAction>{
+abstract EditMeshPolygonsToolAcceptCancelActionPtr(ucpp.Ptr<EditMeshPolygonsToolAcceptCancelAction>) from ucpp.Ptr<EditMeshPolygonsToolAcceptCancelAction> to ucpp.Ptr<EditMeshPolygonsToolAcceptCancelAction>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshPolygonsToolAcceptCancelAction): EditMeshPolygonsToolAcceptCancelActionPtr {
 		return untyped __cpp__("&({0})", v);

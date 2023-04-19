@@ -3,12 +3,12 @@ package ue;
 
 @:native("USpringArmComponent")
 @:include("GameFramework/SpringArmComponent.h")
-@:structAccess
+@:valueType
 extern class SpringArmComp extends SceneComp {
-	public var TargetArmLength: cpp.Float32;
+	public var TargetArmLength: ucpp.num.Float32;
 	public var SocketOffset: Vector;
 	public var TargetOffset: Vector;
-	public var ProbeSize: cpp.Float32;
+	public var ProbeSize: ucpp.num.Float32;
 	public var ProbeChannel: TEnumAsByte<ECollisionChannel>;
 	public var bDoCollisionTest: Bool;
 	public var bUsePawnControlRotation: Bool;
@@ -19,30 +19,30 @@ extern class SpringArmComp extends SceneComp {
 	public var bEnableCameraRotationLag: Bool;
 	public var bUseCameraLagSubstepping: Bool;
 	public var bDrawDebugLagMarkers: Bool;
-	public var CameraLagSpeed: cpp.Float32;
-	public var CameraRotationLagSpeed: cpp.Float32;
-	public var CameraLagMaxTimeStep: cpp.Float32;
-	public var CameraLagMaxDistance: cpp.Float32;
+	public var CameraLagSpeed: ucpp.num.Float32;
+	public var CameraRotationLagSpeed: ucpp.num.Float32;
+	public var CameraLagMaxTimeStep: ucpp.num.Float32;
+	public var CameraLagMaxDistance: ucpp.num.Float32;
 	public var bClampToMaxPhysicsDeltaTime: Bool;
 
 	public function IsCollisionFixApplied(): Bool;
 	public function GetUnfixedCameraPosition(): Vector;
 	public function GetTargetRotation(): Rotator;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsCollisionFixApplied, GetUnfixedCameraPosition, GetTargetRotation)
 @:nativeGen
 abstract ConstSpringArmComp(SpringArmComp) from SpringArmComp {
-	public extern var TargetArmLength(get, never): cpp.Float32;
-	public inline extern function get_TargetArmLength(): cpp.Float32 return this.TargetArmLength;
+	public extern var TargetArmLength(get, never): ucpp.num.Float32;
+	public inline extern function get_TargetArmLength(): ucpp.num.Float32 return this.TargetArmLength;
 	public extern var SocketOffset(get, never): Vector;
 	public inline extern function get_SocketOffset(): Vector return this.SocketOffset;
 	public extern var TargetOffset(get, never): Vector;
 	public inline extern function get_TargetOffset(): Vector return this.TargetOffset;
-	public extern var ProbeSize(get, never): cpp.Float32;
-	public inline extern function get_ProbeSize(): cpp.Float32 return this.ProbeSize;
+	public extern var ProbeSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ProbeSize(): ucpp.num.Float32 return this.ProbeSize;
 	public extern var ProbeChannel(get, never): TEnumAsByte<ECollisionChannel>;
 	public inline extern function get_ProbeChannel(): TEnumAsByte<ECollisionChannel> return this.ProbeChannel;
 	public extern var bDoCollisionTest(get, never): Bool;
@@ -63,14 +63,14 @@ abstract ConstSpringArmComp(SpringArmComp) from SpringArmComp {
 	public inline extern function get_bUseCameraLagSubstepping(): Bool return this.bUseCameraLagSubstepping;
 	public extern var bDrawDebugLagMarkers(get, never): Bool;
 	public inline extern function get_bDrawDebugLagMarkers(): Bool return this.bDrawDebugLagMarkers;
-	public extern var CameraLagSpeed(get, never): cpp.Float32;
-	public inline extern function get_CameraLagSpeed(): cpp.Float32 return this.CameraLagSpeed;
-	public extern var CameraRotationLagSpeed(get, never): cpp.Float32;
-	public inline extern function get_CameraRotationLagSpeed(): cpp.Float32 return this.CameraRotationLagSpeed;
-	public extern var CameraLagMaxTimeStep(get, never): cpp.Float32;
-	public inline extern function get_CameraLagMaxTimeStep(): cpp.Float32 return this.CameraLagMaxTimeStep;
-	public extern var CameraLagMaxDistance(get, never): cpp.Float32;
-	public inline extern function get_CameraLagMaxDistance(): cpp.Float32 return this.CameraLagMaxDistance;
+	public extern var CameraLagSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_CameraLagSpeed(): ucpp.num.Float32 return this.CameraLagSpeed;
+	public extern var CameraRotationLagSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_CameraRotationLagSpeed(): ucpp.num.Float32 return this.CameraRotationLagSpeed;
+	public extern var CameraLagMaxTimeStep(get, never): ucpp.num.Float32;
+	public inline extern function get_CameraLagMaxTimeStep(): ucpp.num.Float32 return this.CameraLagMaxTimeStep;
+	public extern var CameraLagMaxDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_CameraLagMaxDistance(): ucpp.num.Float32 return this.CameraLagMaxDistance;
 	public extern var bClampToMaxPhysicsDeltaTime(get, never): Bool;
 	public inline extern function get_bClampToMaxPhysicsDeltaTime(): Bool return this.bClampToMaxPhysicsDeltaTime;
 }
@@ -78,7 +78,7 @@ abstract ConstSpringArmComp(SpringArmComp) from SpringArmComp {
 @:forward
 @:nativeGen
 @:native("SpringArmComp*")
-abstract SpringArmCompPtr(cpp.Star<SpringArmComp>) from cpp.Star<SpringArmComp> to cpp.Star<SpringArmComp>{
+abstract SpringArmCompPtr(ucpp.Ptr<SpringArmComp>) from ucpp.Ptr<SpringArmComp> to ucpp.Ptr<SpringArmComp>{
 	@:from
 	public static extern inline function fromValue(v: SpringArmComp): SpringArmCompPtr {
 		return untyped __cpp__("&({0})", v);

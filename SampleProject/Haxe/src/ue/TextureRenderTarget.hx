@@ -3,24 +3,24 @@ package ue;
 
 @:native("UTextureRenderTarget")
 @:include("Engine/TextureRenderTarget.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTarget extends Texture {
-	public var TargetGamma: cpp.Float32;
+	public var TargetGamma: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTarget(TextureRenderTarget) from TextureRenderTarget {
-	public extern var TargetGamma(get, never): cpp.Float32;
-	public inline extern function get_TargetGamma(): cpp.Float32 return this.TargetGamma;
+	public extern var TargetGamma(get, never): ucpp.num.Float32;
+	public inline extern function get_TargetGamma(): ucpp.num.Float32 return this.TargetGamma;
 }
 
 @:forward
 @:nativeGen
 @:native("TextureRenderTarget*")
-abstract TextureRenderTargetPtr(cpp.Star<TextureRenderTarget>) from cpp.Star<TextureRenderTarget> to cpp.Star<TextureRenderTarget>{
+abstract TextureRenderTargetPtr(ucpp.Ptr<TextureRenderTarget>) from ucpp.Ptr<TextureRenderTarget> to ucpp.Ptr<TextureRenderTarget>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTarget): TextureRenderTargetPtr {
 		return untyped __cpp__("&({0})", v);

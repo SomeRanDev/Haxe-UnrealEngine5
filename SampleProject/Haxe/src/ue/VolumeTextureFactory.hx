@@ -3,24 +3,24 @@ package ue;
 
 @:native("UVolumeTextureFactory")
 @:include("Factories/VolumeTextureFactory.h")
-@:structAccess
+@:valueType
 extern class VolumeTextureFactory extends Factory {
-	public var InitialTexture: cpp.Star<Texture2D>;
+	public var InitialTexture: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVolumeTextureFactory(VolumeTextureFactory) from VolumeTextureFactory {
-	public extern var InitialTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_InitialTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.InitialTexture;
+	public extern var InitialTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_InitialTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.InitialTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("VolumeTextureFactory*")
-abstract VolumeTextureFactoryPtr(cpp.Star<VolumeTextureFactory>) from cpp.Star<VolumeTextureFactory> to cpp.Star<VolumeTextureFactory>{
+abstract VolumeTextureFactoryPtr(ucpp.Ptr<VolumeTextureFactory>) from ucpp.Ptr<VolumeTextureFactory> to ucpp.Ptr<VolumeTextureFactory>{
 	@:from
 	public static extern inline function fromValue(v: VolumeTextureFactory): VolumeTextureFactoryPtr {
 		return untyped __cpp__("&({0})", v);

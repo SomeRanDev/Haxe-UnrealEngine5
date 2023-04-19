@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialMergeOptions")
 @:include("MaterialOptions.h")
-@:structAccess
+@:valueType
 extern class MaterialMergeOptions extends Object {
 	public var Method: EMaterialBakeMethod;
 	public var BlendMode: TEnumAsByte<EBlendMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialMergeOptions(MaterialMergeOptions) from MaterialMergeOptio
 @:forward
 @:nativeGen
 @:native("MaterialMergeOptions*")
-abstract MaterialMergeOptionsPtr(cpp.Star<MaterialMergeOptions>) from cpp.Star<MaterialMergeOptions> to cpp.Star<MaterialMergeOptions>{
+abstract MaterialMergeOptionsPtr(ucpp.Ptr<MaterialMergeOptions>) from ucpp.Ptr<MaterialMergeOptions> to ucpp.Ptr<MaterialMergeOptions>{
 	@:from
 	public static extern inline function fromValue(v: MaterialMergeOptions): MaterialMergeOptionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UUMGEditorProjectSettings")
 @:include("UMGEditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class UMGEditorProjectSettings extends DeveloperSettings {
 	@:protected public var DefaultCompilerOptions: WidgetCompilerOptions;
 	@:protected public var DirectoryCompilerOptions: TArray<DirectoryWidgetCompilerOptions>;
@@ -19,9 +19,9 @@ extern class UMGEditorProjectSettings extends DeveloperSettings {
 	public var bUseEditorConfigPaletteFiltering: Bool;
 	public var FavoriteWidgetParentClasses: TArray<TSoftClassPtr<Class>>;
 	public var DebugResolutions: TArray<DebugResolution>;
-	@:protected public var Version: cpp.Int32;
+	@:protected public var Version: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstUMGEditorProjectSettings(UMGEditorProjectSettings) from UMGEditorP
 @:forward
 @:nativeGen
 @:native("UMGEditorProjectSettings*")
-abstract UMGEditorProjectSettingsPtr(cpp.Star<UMGEditorProjectSettings>) from cpp.Star<UMGEditorProjectSettings> to cpp.Star<UMGEditorProjectSettings>{
+abstract UMGEditorProjectSettingsPtr(ucpp.Ptr<UMGEditorProjectSettings>) from ucpp.Ptr<UMGEditorProjectSettings> to ucpp.Ptr<UMGEditorProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: UMGEditorProjectSettings): UMGEditorProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

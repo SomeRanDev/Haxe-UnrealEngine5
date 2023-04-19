@@ -3,12 +3,12 @@ package ue;
 
 @:native("UFKControlRig")
 @:include("Rigs/FKControlRig.h")
-@:structAccess
+@:valueType
 extern class FKControlRig extends ControlRig {
 	private var IsControlActive: TArray<Bool>;
 	private var ApplyMode: EControlRigFKRigExecuteMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstFKControlRig(FKControlRig) from FKControlRig {
 @:forward
 @:nativeGen
 @:native("FKControlRig*")
-abstract FKControlRigPtr(cpp.Star<FKControlRig>) from cpp.Star<FKControlRig> to cpp.Star<FKControlRig>{
+abstract FKControlRigPtr(ucpp.Ptr<FKControlRig>) from ucpp.Ptr<FKControlRig> to ucpp.Ptr<FKControlRig>{
 	@:from
 	public static extern inline function fromValue(v: FKControlRig): FKControlRigPtr {
 		return untyped __cpp__("&({0})", v);

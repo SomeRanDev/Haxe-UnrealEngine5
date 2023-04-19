@@ -3,16 +3,16 @@ package ue;
 
 @:native("UTakesCoreBlueprintLibrary")
 @:include("TakesCoreBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class TakesCoreBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function SetOnTakeRecorderTakeNumberChanged(OnTakeRecorderTakeNumberChanged: HaxeDelegateProperty<(cpp.Int32) -> Void>): Void;
+	public function SetOnTakeRecorderTakeNumberChanged(OnTakeRecorderTakeNumberChanged: HaxeDelegateProperty<(ucpp.num.Int32) -> Void>): Void;
 	public function SetOnTakeRecorderSlateChanged(OnTakeRecorderSlateChanged: HaxeDelegateProperty<(FString) -> Void>): Void;
-	public function OnTakeRecorderTakeNumberChanged__DelegateSignature(TakeNumber: cpp.Int32): Void;
+	public function OnTakeRecorderTakeNumberChanged__DelegateSignature(TakeNumber: ucpp.num.Int32): Void;
 	public function OnTakeRecorderSlateChanged__DelegateSignature(Slate: FString): Void;
-	public function FindTakes(Slate: FString, TakeNumber: cpp.Int32): TArray<AssetData>;
-	public function ComputeNextTakeNumber(Slate: FString): cpp.Int32;
+	public function FindTakes(Slate: FString, TakeNumber: ucpp.num.Int32): TArray<AssetData>;
+	public function ComputeNextTakeNumber(Slate: FString): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstTakesCoreBlueprintLibrary(TakesCoreBlueprintLibrary) from TakesCor
 @:forward
 @:nativeGen
 @:native("TakesCoreBlueprintLibrary*")
-abstract TakesCoreBlueprintLibraryPtr(cpp.Star<TakesCoreBlueprintLibrary>) from cpp.Star<TakesCoreBlueprintLibrary> to cpp.Star<TakesCoreBlueprintLibrary>{
+abstract TakesCoreBlueprintLibraryPtr(ucpp.Ptr<TakesCoreBlueprintLibrary>) from ucpp.Ptr<TakesCoreBlueprintLibrary> to ucpp.Ptr<TakesCoreBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TakesCoreBlueprintLibrary): TakesCoreBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UBoolProperty")
-@:structAccess
+@:valueType
 extern class BoolProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstBoolProperty(BoolProperty) from BoolProperty {
 @:forward
 @:nativeGen
 @:native("BoolProperty*")
-abstract BoolPropertyPtr(cpp.Star<BoolProperty>) from cpp.Star<BoolProperty> to cpp.Star<BoolProperty>{
+abstract BoolPropertyPtr(ucpp.Ptr<BoolProperty>) from ucpp.Ptr<BoolProperty> to ucpp.Ptr<BoolProperty>{
 	@:from
 	public static extern inline function fromValue(v: BoolProperty): BoolPropertyPtr {
 		return untyped __cpp__("&({0})", v);

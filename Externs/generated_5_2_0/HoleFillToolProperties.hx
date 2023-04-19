@@ -3,13 +3,13 @@ package ue;
 
 @:native("UHoleFillToolProperties")
 @:include("HoleFillTool.h")
-@:structAccess
+@:valueType
 extern class HoleFillToolProperties extends InteractiveToolPropertySet {
 	public var FillType: EHoleFillOpFillType;
 	public var bRemoveIsolatedTriangles: Bool;
 	public var bQuickFillSmallHoles: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstHoleFillToolProperties(HoleFillToolProperties) from HoleFillToolPr
 @:forward
 @:nativeGen
 @:native("HoleFillToolProperties*")
-abstract HoleFillToolPropertiesPtr(cpp.Star<HoleFillToolProperties>) from cpp.Star<HoleFillToolProperties> to cpp.Star<HoleFillToolProperties>{
+abstract HoleFillToolPropertiesPtr(ucpp.Ptr<HoleFillToolProperties>) from ucpp.Ptr<HoleFillToolProperties> to ucpp.Ptr<HoleFillToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: HoleFillToolProperties): HoleFillToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

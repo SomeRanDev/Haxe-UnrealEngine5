@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAISense_Damage")
 @:include("Perception/AISense_Damage.h")
-@:structAccess
+@:valueType
 extern class AISense_Damage extends AISense {
 	public var RegisteredEvents: TArray<AIDamageEvent>;
 
-	public function ReportDamageEvent(WorldContextObject: cpp.Star<Object>, DamagedActor: cpp.Star<Actor>, Instigator: cpp.Star<Actor>, DamageAmount: cpp.Float32, EventLocation: Vector, HitLocation: Vector, Tag: FName): Void;
+	public function ReportDamageEvent(WorldContextObject: ucpp.Ptr<Object>, DamagedActor: ucpp.Ptr<Actor>, Instigator: ucpp.Ptr<Actor>, DamageAmount: ucpp.num.Float32, EventLocation: Vector, HitLocation: Vector, Tag: FName): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAISense_Damage(AISense_Damage) from AISense_Damage {
 @:forward
 @:nativeGen
 @:native("AISense_Damage*")
-abstract AISense_DamagePtr(cpp.Star<AISense_Damage>) from cpp.Star<AISense_Damage> to cpp.Star<AISense_Damage>{
+abstract AISense_DamagePtr(ucpp.Ptr<AISense_Damage>) from ucpp.Ptr<AISense_Damage> to ucpp.Ptr<AISense_Damage>{
 	@:from
 	public static extern inline function fromValue(v: AISense_Damage): AISense_DamagePtr {
 		return untyped __cpp__("&({0})", v);

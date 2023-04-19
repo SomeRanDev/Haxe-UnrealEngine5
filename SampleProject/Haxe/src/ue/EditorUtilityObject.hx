@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorUtilityObject")
 @:include("EditorUtilityObject.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityObject extends Object {
 	public function Run(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstEditorUtilityObject(EditorUtilityObject) from EditorUtilityObject 
 @:forward
 @:nativeGen
 @:native("EditorUtilityObject*")
-abstract EditorUtilityObjectPtr(cpp.Star<EditorUtilityObject>) from cpp.Star<EditorUtilityObject> to cpp.Star<EditorUtilityObject>{
+abstract EditorUtilityObjectPtr(ucpp.Ptr<EditorUtilityObject>) from ucpp.Ptr<EditorUtilityObject> to ucpp.Ptr<EditorUtilityObject>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityObject): EditorUtilityObjectPtr {
 		return untyped __cpp__("&({0})", v);

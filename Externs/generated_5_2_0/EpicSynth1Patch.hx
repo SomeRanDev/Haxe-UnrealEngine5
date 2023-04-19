@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEpicSynth1Patch")
 @:include("SynthComponents/EpicSynth1Component.h")
-@:structAccess
+@:valueType
 extern class EpicSynth1Patch {
 	public var PatchSource: ESynth1PatchSource;
 	public var PatchCables: TArray<Synth1PatchCable>;

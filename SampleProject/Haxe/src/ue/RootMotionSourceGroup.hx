@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRootMotionSourceGroup")
 @:include("GameFramework/RootMotionSource.h")
-@:structAccess
+@:valueType
 extern class RootMotionSourceGroup {
 	public var bHasAdditiveSources: Bool;
 	public var bHasOverrideSources: Bool;

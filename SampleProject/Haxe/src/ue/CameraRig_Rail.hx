@@ -3,24 +3,24 @@ package ue;
 
 @:native("ACameraRig_Rail")
 @:include("CameraRig_Rail.h")
-@:structAccess
+@:valueType
 extern class CameraRig_Rail extends Actor {
-	public var CurrentPositionOnRail: cpp.Float32;
+	public var CurrentPositionOnRail: ucpp.num.Float32;
 	public var bLockOrientationToRail: Bool;
-	private var TransformComponent: cpp.Star<SceneComp>;
-	private var RailSplineComponent: cpp.Star<SplineComp>;
-	private var RailCameraMount: cpp.Star<SceneComp>;
+	@:protected public var TransformComponent: ucpp.Ptr<SceneComp>;
+	@:protected public var RailSplineComponent: ucpp.Ptr<SplineComp>;
+	@:protected public var RailCameraMount: ucpp.Ptr<SceneComp>;
 
-	public function GetRailSplineComponent(): cpp.Star<SplineComp>;
+	public function GetRailSplineComponent(): ucpp.Ptr<SplineComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCameraRig_Rail(CameraRig_Rail) from CameraRig_Rail {
-	public extern var CurrentPositionOnRail(get, never): cpp.Float32;
-	public inline extern function get_CurrentPositionOnRail(): cpp.Float32 return this.CurrentPositionOnRail;
+	public extern var CurrentPositionOnRail(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentPositionOnRail(): ucpp.num.Float32 return this.CurrentPositionOnRail;
 	public extern var bLockOrientationToRail(get, never): Bool;
 	public inline extern function get_bLockOrientationToRail(): Bool return this.bLockOrientationToRail;
 }
@@ -28,7 +28,7 @@ abstract ConstCameraRig_Rail(CameraRig_Rail) from CameraRig_Rail {
 @:forward
 @:nativeGen
 @:native("CameraRig_Rail*")
-abstract CameraRig_RailPtr(cpp.Star<CameraRig_Rail>) from cpp.Star<CameraRig_Rail> to cpp.Star<CameraRig_Rail>{
+abstract CameraRig_RailPtr(ucpp.Ptr<CameraRig_Rail>) from ucpp.Ptr<CameraRig_Rail> to ucpp.Ptr<CameraRig_Rail>{
 	@:from
 	public static extern inline function fromValue(v: CameraRig_Rail): CameraRig_RailPtr {
 		return untyped __cpp__("&({0})", v);

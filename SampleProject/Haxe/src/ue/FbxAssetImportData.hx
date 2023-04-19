@@ -3,18 +3,18 @@ package ue;
 
 @:native("UFbxAssetImportData")
 @:include("Factories/FbxAssetImportData.h")
-@:structAccess
+@:valueType
 extern class FbxAssetImportData extends AssetImportData {
 	public var ImportTranslation: Vector;
 	public var ImportRotation: Rotator;
-	public var ImportUniformScale: cpp.Float32;
+	public var ImportUniformScale: ucpp.num.Float32;
 	public var bConvertScene: Bool;
 	public var bForceFrontXAxis: Bool;
 	public var bConvertSceneUnit: Bool;
 	public var bImportAsScene: Bool;
-	public var FbxSceneImportDataReference: cpp.Star<FbxSceneImportData>;
+	public var FbxSceneImportDataReference: ucpp.Ptr<FbxSceneImportData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,8 +24,8 @@ abstract ConstFbxAssetImportData(FbxAssetImportData) from FbxAssetImportData {
 	public inline extern function get_ImportTranslation(): Vector return this.ImportTranslation;
 	public extern var ImportRotation(get, never): Rotator;
 	public inline extern function get_ImportRotation(): Rotator return this.ImportRotation;
-	public extern var ImportUniformScale(get, never): cpp.Float32;
-	public inline extern function get_ImportUniformScale(): cpp.Float32 return this.ImportUniformScale;
+	public extern var ImportUniformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ImportUniformScale(): ucpp.num.Float32 return this.ImportUniformScale;
 	public extern var bConvertScene(get, never): Bool;
 	public inline extern function get_bConvertScene(): Bool return this.bConvertScene;
 	public extern var bForceFrontXAxis(get, never): Bool;
@@ -34,14 +34,14 @@ abstract ConstFbxAssetImportData(FbxAssetImportData) from FbxAssetImportData {
 	public inline extern function get_bConvertSceneUnit(): Bool return this.bConvertSceneUnit;
 	public extern var bImportAsScene(get, never): Bool;
 	public inline extern function get_bImportAsScene(): Bool return this.bImportAsScene;
-	public extern var FbxSceneImportDataReference(get, never): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData>;
-	public inline extern function get_FbxSceneImportDataReference(): cpp.Star<FbxSceneImportData.ConstFbxSceneImportData> return this.FbxSceneImportDataReference;
+	public extern var FbxSceneImportDataReference(get, never): ucpp.Ptr<FbxSceneImportData.ConstFbxSceneImportData>;
+	public inline extern function get_FbxSceneImportDataReference(): ucpp.Ptr<FbxSceneImportData.ConstFbxSceneImportData> return this.FbxSceneImportDataReference;
 }
 
 @:forward
 @:nativeGen
 @:native("FbxAssetImportData*")
-abstract FbxAssetImportDataPtr(cpp.Star<FbxAssetImportData>) from cpp.Star<FbxAssetImportData> to cpp.Star<FbxAssetImportData>{
+abstract FbxAssetImportDataPtr(ucpp.Ptr<FbxAssetImportData>) from ucpp.Ptr<FbxAssetImportData> to ucpp.Ptr<FbxAssetImportData>{
 	@:from
 	public static extern inline function fromValue(v: FbxAssetImportData): FbxAssetImportDataPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("AFunctionalTestLevelScript")
 @:include("FunctionalTestLevelScript.h")
-@:structAccess
+@:valueType
 extern class FunctionalTestLevelScript extends LevelScriptActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFunctionalTestLevelScript(FunctionalTestLevelScript) from Function
 @:forward
 @:nativeGen
 @:native("FunctionalTestLevelScript*")
-abstract FunctionalTestLevelScriptPtr(cpp.Star<FunctionalTestLevelScript>) from cpp.Star<FunctionalTestLevelScript> to cpp.Star<FunctionalTestLevelScript>{
+abstract FunctionalTestLevelScriptPtr(ucpp.Ptr<FunctionalTestLevelScript>) from ucpp.Ptr<FunctionalTestLevelScript> to ucpp.Ptr<FunctionalTestLevelScript>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalTestLevelScript): FunctionalTestLevelScriptPtr {
 		return untyped __cpp__("&({0})", v);

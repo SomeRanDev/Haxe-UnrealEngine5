@@ -3,24 +3,24 @@ package ue;
 
 @:native("UGizmoComponentHitTarget")
 @:include("BaseGizmos/HitTargets.h")
-@:structAccess
+@:valueType
 extern class GizmoComponentHitTarget extends Object {
-	public var Component: cpp.Star<PrimitiveComp>;
+	public var Component: ucpp.Ptr<PrimitiveComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGizmoComponentHitTarget(GizmoComponentHitTarget) from GizmoComponentHitTarget {
-	public extern var Component(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
-	public inline extern function get_Component(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.Component;
+	public extern var Component(get, never): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>;
+	public inline extern function get_Component(): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp> return this.Component;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoComponentHitTarget*")
-abstract GizmoComponentHitTargetPtr(cpp.Star<GizmoComponentHitTarget>) from cpp.Star<GizmoComponentHitTarget> to cpp.Star<GizmoComponentHitTarget>{
+abstract GizmoComponentHitTargetPtr(ucpp.Ptr<GizmoComponentHitTarget>) from ucpp.Ptr<GizmoComponentHitTarget> to ucpp.Ptr<GizmoComponentHitTarget>{
 	@:from
 	public static extern inline function fromValue(v: GizmoComponentHitTarget): GizmoComponentHitTargetPtr {
 		return untyped __cpp__("&({0})", v);

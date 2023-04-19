@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDatasmithStaticMeshIFCImportData")
 @:include("DatasmithAssetImportData.h")
-@:structAccess
+@:valueType
 extern class DatasmithStaticMeshIFCImportData extends DatasmithStaticMeshImportData {
 	public var SourceGlobalId: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDatasmithStaticMeshIFCImportData(DatasmithStaticMeshIFCImportData)
 @:forward
 @:nativeGen
 @:native("DatasmithStaticMeshIFCImportData*")
-abstract DatasmithStaticMeshIFCImportDataPtr(cpp.Star<DatasmithStaticMeshIFCImportData>) from cpp.Star<DatasmithStaticMeshIFCImportData> to cpp.Star<DatasmithStaticMeshIFCImportData>{
+abstract DatasmithStaticMeshIFCImportDataPtr(ucpp.Ptr<DatasmithStaticMeshIFCImportData>) from ucpp.Ptr<DatasmithStaticMeshIFCImportData> to ucpp.Ptr<DatasmithStaticMeshIFCImportData>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithStaticMeshIFCImportData): DatasmithStaticMeshIFCImportDataPtr {
 		return untyped __cpp__("&({0})", v);

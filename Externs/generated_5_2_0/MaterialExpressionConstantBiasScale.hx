@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionConstantBiasScale")
 @:include("Materials/MaterialExpressionConstantBiasScale.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionConstantBiasScale extends MaterialExpression {
 	public var Input: ExpressionInput;
-	public var Bias: cpp.Float32;
-	public var Scale: cpp.Float32;
+	public var Bias: ucpp.num.Float32;
+	public var Scale: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class MaterialExpressionConstantBiasScale extends MaterialExpression {
 abstract ConstMaterialExpressionConstantBiasScale(MaterialExpressionConstantBiasScale) from MaterialExpressionConstantBiasScale {
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
-	public extern var Bias(get, never): cpp.Float32;
-	public inline extern function get_Bias(): cpp.Float32 return this.Bias;
-	public extern var Scale(get, never): cpp.Float32;
-	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
+	public extern var Bias(get, never): ucpp.num.Float32;
+	public inline extern function get_Bias(): ucpp.num.Float32 return this.Bias;
+	public extern var Scale(get, never): ucpp.num.Float32;
+	public inline extern function get_Scale(): ucpp.num.Float32 return this.Scale;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionConstantBiasScale*")
-abstract MaterialExpressionConstantBiasScalePtr(cpp.Star<MaterialExpressionConstantBiasScale>) from cpp.Star<MaterialExpressionConstantBiasScale> to cpp.Star<MaterialExpressionConstantBiasScale>{
+abstract MaterialExpressionConstantBiasScalePtr(ucpp.Ptr<MaterialExpressionConstantBiasScale>) from ucpp.Ptr<MaterialExpressionConstantBiasScale> to ucpp.Ptr<MaterialExpressionConstantBiasScale>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionConstantBiasScale): MaterialExpressionConstantBiasScalePtr {
 		return untyped __cpp__("&({0})", v);

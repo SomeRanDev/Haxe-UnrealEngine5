@@ -3,14 +3,14 @@ package ue;
 
 @:native("UDatasmithPointLightComponentTemplate")
 @:include("ObjectTemplates/DatasmithPointLightComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithPointLightComponentTemplate extends DatasmithObjectTemplate {
 	public var IntensityUnits: ELightUnits;
-	public var SourceRadius: cpp.Float32;
-	public var SourceLength: cpp.Float32;
-	public var AttenuationRadius: cpp.Float32;
+	public var SourceRadius: ucpp.num.Float32;
+	public var SourceLength: ucpp.num.Float32;
+	public var AttenuationRadius: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,18 +18,18 @@ extern class DatasmithPointLightComponentTemplate extends DatasmithObjectTemplat
 abstract ConstDatasmithPointLightComponentTemplate(DatasmithPointLightComponentTemplate) from DatasmithPointLightComponentTemplate {
 	public extern var IntensityUnits(get, never): ELightUnits;
 	public inline extern function get_IntensityUnits(): ELightUnits return this.IntensityUnits;
-	public extern var SourceRadius(get, never): cpp.Float32;
-	public inline extern function get_SourceRadius(): cpp.Float32 return this.SourceRadius;
-	public extern var SourceLength(get, never): cpp.Float32;
-	public inline extern function get_SourceLength(): cpp.Float32 return this.SourceLength;
-	public extern var AttenuationRadius(get, never): cpp.Float32;
-	public inline extern function get_AttenuationRadius(): cpp.Float32 return this.AttenuationRadius;
+	public extern var SourceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceRadius(): ucpp.num.Float32 return this.SourceRadius;
+	public extern var SourceLength(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceLength(): ucpp.num.Float32 return this.SourceLength;
+	public extern var AttenuationRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_AttenuationRadius(): ucpp.num.Float32 return this.AttenuationRadius;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithPointLightComponentTemplate*")
-abstract DatasmithPointLightComponentTemplatePtr(cpp.Star<DatasmithPointLightComponentTemplate>) from cpp.Star<DatasmithPointLightComponentTemplate> to cpp.Star<DatasmithPointLightComponentTemplate>{
+abstract DatasmithPointLightComponentTemplatePtr(ucpp.Ptr<DatasmithPointLightComponentTemplate>) from ucpp.Ptr<DatasmithPointLightComponentTemplate> to ucpp.Ptr<DatasmithPointLightComponentTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithPointLightComponentTemplate): DatasmithPointLightComponentTemplatePtr {
 		return untyped __cpp__("&({0})", v);

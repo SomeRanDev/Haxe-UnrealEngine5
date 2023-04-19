@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorComponentInstanceDataTransientOuter")
 @:include("ComponentInstanceDataCache.h")
-@:structAccess
+@:valueType
 extern class ActorComponentInstanceDataTransientOuter extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorComponentInstanceDataTransientOuter(ActorComponentInstanceDat
 @:forward
 @:nativeGen
 @:native("ActorComponentInstanceDataTransientOuter*")
-abstract ActorComponentInstanceDataTransientOuterPtr(cpp.Star<ActorComponentInstanceDataTransientOuter>) from cpp.Star<ActorComponentInstanceDataTransientOuter> to cpp.Star<ActorComponentInstanceDataTransientOuter>{
+abstract ActorComponentInstanceDataTransientOuterPtr(ucpp.Ptr<ActorComponentInstanceDataTransientOuter>) from ucpp.Ptr<ActorComponentInstanceDataTransientOuter> to ucpp.Ptr<ActorComponentInstanceDataTransientOuter>{
 	@:from
 	public static extern inline function fromValue(v: ActorComponentInstanceDataTransientOuter): ActorComponentInstanceDataTransientOuterPtr {
 		return untyped __cpp__("&({0})", v);

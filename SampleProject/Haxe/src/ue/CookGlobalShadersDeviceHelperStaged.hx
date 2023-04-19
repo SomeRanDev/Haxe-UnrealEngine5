@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCookGlobalShadersDeviceHelperStaged")
 @:include("Commandlets/CookGlobalShadersCommandlet.h")
-@:structAccess
+@:valueType
 extern class CookGlobalShadersDeviceHelperStaged extends CookGlobalShadersDeviceHelperBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCookGlobalShadersDeviceHelperStaged(CookGlobalShadersDeviceHelperS
 @:forward
 @:nativeGen
 @:native("CookGlobalShadersDeviceHelperStaged*")
-abstract CookGlobalShadersDeviceHelperStagedPtr(cpp.Star<CookGlobalShadersDeviceHelperStaged>) from cpp.Star<CookGlobalShadersDeviceHelperStaged> to cpp.Star<CookGlobalShadersDeviceHelperStaged>{
+abstract CookGlobalShadersDeviceHelperStagedPtr(ucpp.Ptr<CookGlobalShadersDeviceHelperStaged>) from ucpp.Ptr<CookGlobalShadersDeviceHelperStaged> to ucpp.Ptr<CookGlobalShadersDeviceHelperStaged>{
 	@:from
 	public static extern inline function fromValue(v: CookGlobalShadersDeviceHelperStaged): CookGlobalShadersDeviceHelperStagedPtr {
 		return untyped __cpp__("&({0})", v);

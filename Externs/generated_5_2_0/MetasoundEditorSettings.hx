@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMetasoundEditorSettings")
 @:include("MetasoundEditorSettings.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorSettings extends Object {
 	public var bPinMetaSoundPatchInAssetMenu: Bool;
 	public var bPinMetaSoundSourceInAssetMenu: Bool;
@@ -27,7 +27,7 @@ extern class MetasoundEditorSettings extends Object {
 	public var AnalyzerAnimationSettings: MetasoundAnalyzerAnimationSettings;
 	public var DetailView: EMetasoundActiveDetailView;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -80,7 +80,7 @@ abstract ConstMetasoundEditorSettings(MetasoundEditorSettings) from MetasoundEdi
 @:forward
 @:nativeGen
 @:native("MetasoundEditorSettings*")
-abstract MetasoundEditorSettingsPtr(cpp.Star<MetasoundEditorSettings>) from cpp.Star<MetasoundEditorSettings> to cpp.Star<MetasoundEditorSettings>{
+abstract MetasoundEditorSettingsPtr(ucpp.Ptr<MetasoundEditorSettings>) from ucpp.Ptr<MetasoundEditorSettings> to ucpp.Ptr<MetasoundEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundEditorSettings): MetasoundEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

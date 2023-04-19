@@ -3,12 +3,12 @@ package ue;
 
 @:native("AGameplayDebuggerPlayerManager")
 @:include("GameplayDebuggerPlayerManager.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerPlayerManager extends Actor {
 	@:protected public var PlayerData: TArray<GameplayDebuggerPlayerData>;
-	@:protected public var PendingRegistrations: TArray<cpp.Star<GameplayDebuggerCategoryReplicator>>;
+	@:protected public var PendingRegistrations: TArray<ucpp.Ptr<GameplayDebuggerCategoryReplicator>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstGameplayDebuggerPlayerManager(GameplayDebuggerPlayerManager) from 
 @:forward
 @:nativeGen
 @:native("GameplayDebuggerPlayerManager*")
-abstract GameplayDebuggerPlayerManagerPtr(cpp.Star<GameplayDebuggerPlayerManager>) from cpp.Star<GameplayDebuggerPlayerManager> to cpp.Star<GameplayDebuggerPlayerManager>{
+abstract GameplayDebuggerPlayerManagerPtr(ucpp.Ptr<GameplayDebuggerPlayerManager>) from ucpp.Ptr<GameplayDebuggerPlayerManager> to ucpp.Ptr<GameplayDebuggerPlayerManager>{
 	@:from
 	public static extern inline function fromValue(v: GameplayDebuggerPlayerManager): GameplayDebuggerPlayerManagerPtr {
 		return untyped __cpp__("&({0})", v);

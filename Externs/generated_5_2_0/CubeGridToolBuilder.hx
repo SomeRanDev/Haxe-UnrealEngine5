@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCubeGridToolBuilder")
 @:include("CubeGridTool.h")
-@:structAccess
+@:valueType
 extern class CubeGridToolBuilder extends InteractiveToolWithToolTargetsBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCubeGridToolBuilder(CubeGridToolBuilder) from CubeGridToolBuilder 
 @:forward
 @:nativeGen
 @:native("CubeGridToolBuilder*")
-abstract CubeGridToolBuilderPtr(cpp.Star<CubeGridToolBuilder>) from cpp.Star<CubeGridToolBuilder> to cpp.Star<CubeGridToolBuilder>{
+abstract CubeGridToolBuilderPtr(ucpp.Ptr<CubeGridToolBuilder>) from ucpp.Ptr<CubeGridToolBuilder> to ucpp.Ptr<CubeGridToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: CubeGridToolBuilder): CubeGridToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

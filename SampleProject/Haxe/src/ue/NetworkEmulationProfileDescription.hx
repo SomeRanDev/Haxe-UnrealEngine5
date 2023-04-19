@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNetworkEmulationProfileDescription")
 @:include("Engine/NetworkSettings.h")
-@:structAccess
+@:valueType
 extern class NetworkEmulationProfileDescription {
 	public var ProfileName: FString;
 	public var ToolTip: FString;

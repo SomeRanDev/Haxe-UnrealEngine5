@@ -3,14 +3,14 @@ package ue;
 
 @:native("UWeldMeshEdgesTool")
 @:include("WeldMeshEdgesTool.h")
-@:structAccess
+@:valueType
 extern class WeldMeshEdgesTool extends SingleSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<WeldMeshEdgesToolProperties>;
-	@:protected public var PreviewCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
-	@:protected public var OperatorFactory: cpp.Star<WeldMeshEdgesOperatorFactory>;
+	@:protected public var Settings: ucpp.Ptr<WeldMeshEdgesToolProperties>;
+	@:protected public var PreviewCompute: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var MeshElementsDisplay: ucpp.Ptr<MeshElementsVisualizer>;
+	@:protected public var OperatorFactory: ucpp.Ptr<WeldMeshEdgesOperatorFactory>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstWeldMeshEdgesTool(WeldMeshEdgesTool) from WeldMeshEdgesTool {
 @:forward
 @:nativeGen
 @:native("WeldMeshEdgesTool*")
-abstract WeldMeshEdgesToolPtr(cpp.Star<WeldMeshEdgesTool>) from cpp.Star<WeldMeshEdgesTool> to cpp.Star<WeldMeshEdgesTool>{
+abstract WeldMeshEdgesToolPtr(ucpp.Ptr<WeldMeshEdgesTool>) from ucpp.Ptr<WeldMeshEdgesTool> to ucpp.Ptr<WeldMeshEdgesTool>{
 	@:from
 	public static extern inline function fromValue(v: WeldMeshEdgesTool): WeldMeshEdgesToolPtr {
 		return untyped __cpp__("&({0})", v);

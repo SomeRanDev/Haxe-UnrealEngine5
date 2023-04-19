@@ -3,10 +3,10 @@ package ue;
 
 @:native("USmoothMeshToolBuilder")
 @:include("SmoothMeshTool.h")
-@:structAccess
+@:valueType
 extern class SmoothMeshToolBuilder extends BaseMeshProcessingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSmoothMeshToolBuilder(SmoothMeshToolBuilder) from SmoothMeshToolBu
 @:forward
 @:nativeGen
 @:native("SmoothMeshToolBuilder*")
-abstract SmoothMeshToolBuilderPtr(cpp.Star<SmoothMeshToolBuilder>) from cpp.Star<SmoothMeshToolBuilder> to cpp.Star<SmoothMeshToolBuilder>{
+abstract SmoothMeshToolBuilderPtr(ucpp.Ptr<SmoothMeshToolBuilder>) from ucpp.Ptr<SmoothMeshToolBuilder> to ucpp.Ptr<SmoothMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SmoothMeshToolBuilder): SmoothMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

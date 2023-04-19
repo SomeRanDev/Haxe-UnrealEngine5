@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBlendSpacePlayerLibrary")
 @:include("BlendSpacePlayerLibrary.h")
-@:structAccess
+@:valueType
 extern class BlendSpacePlayerLibrary extends BlueprintFunctionLibrary {
-	public function SnapToPosition(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>, NewPosition: Vector): Void;
-	public function ShouldResetPlayTimeWhenBlendSpaceChanges(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>): Bool;
-	public function SetResetPlayTimeWhenBlendSpaceChanges(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>, bReset: Bool): BlendSpacePlayerReference;
-	public function SetPlayRate(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>, PlayRate: cpp.Float32): BlendSpacePlayerReference;
-	public function SetLoop(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>, bLoop: Bool): BlendSpacePlayerReference;
-	public function SetBlendSpaceWithInertialBlending(UpdateContext: cpp.Reference<AnimUpdateContext>, BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>, BlendSpace: cpp.Star<BlendSpace>, BlendTime: cpp.Float32): BlendSpacePlayerReference;
-	public function SetBlendSpace(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>, BlendSpace: cpp.Star<BlendSpace>): BlendSpacePlayerReference;
-	public function GetStartPosition(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>): cpp.Float32;
-	public function GetPosition(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>): Vector;
-	public function GetPlayRate(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>): cpp.Float32;
-	public function GetLoop(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>): Bool;
-	public function GetBlendSpace(BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>): cpp.Star<BlendSpace>;
-	public function ConvertToBlendSpacePlayerPure(Node: cpp.Reference<AnimNodeReference>, BlendSpacePlayer: cpp.Reference<BlendSpacePlayerReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToBlendSpacePlayer(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): BlendSpacePlayerReference;
+	public function SnapToPosition(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>, NewPosition: Vector): Void;
+	public function ShouldResetPlayTimeWhenBlendSpaceChanges(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>): Bool;
+	public function SetResetPlayTimeWhenBlendSpaceChanges(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>, bReset: Bool): BlendSpacePlayerReference;
+	public function SetPlayRate(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>, PlayRate: ucpp.num.Float32): BlendSpacePlayerReference;
+	public function SetLoop(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>, bLoop: Bool): BlendSpacePlayerReference;
+	public function SetBlendSpaceWithInertialBlending(UpdateContext: ucpp.Ref<AnimUpdateContext>, BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>, BlendSpace: ucpp.Ptr<BlendSpace>, BlendTime: ucpp.num.Float32): BlendSpacePlayerReference;
+	public function SetBlendSpace(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>, BlendSpace: ucpp.Ptr<BlendSpace>): BlendSpacePlayerReference;
+	public function GetStartPosition(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>): ucpp.num.Float32;
+	public function GetPosition(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>): Vector;
+	public function GetPlayRate(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>): ucpp.num.Float32;
+	public function GetLoop(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>): Bool;
+	public function GetBlendSpace(BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>): ucpp.Ptr<BlendSpace>;
+	public function ConvertToBlendSpacePlayerPure(Node: ucpp.Ref<AnimNodeReference>, BlendSpacePlayer: ucpp.Ref<BlendSpacePlayerReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToBlendSpacePlayer(Node: ucpp.Ref<AnimNodeReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): BlendSpacePlayerReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstBlendSpacePlayerLibrary(BlendSpacePlayerLibrary) from BlendSpacePl
 @:forward
 @:nativeGen
 @:native("BlendSpacePlayerLibrary*")
-abstract BlendSpacePlayerLibraryPtr(cpp.Star<BlendSpacePlayerLibrary>) from cpp.Star<BlendSpacePlayerLibrary> to cpp.Star<BlendSpacePlayerLibrary>{
+abstract BlendSpacePlayerLibraryPtr(ucpp.Ptr<BlendSpacePlayerLibrary>) from ucpp.Ptr<BlendSpacePlayerLibrary> to ucpp.Ptr<BlendSpacePlayerLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlendSpacePlayerLibrary): BlendSpacePlayerLibraryPtr {
 		return untyped __cpp__("&({0})", v);

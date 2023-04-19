@@ -3,13 +3,13 @@ package ue;
 
 @:native("FKBoxElem")
 @:include("PhysicsEngine/BoxElem.h")
-@:structAccess
+@:valueType
 extern class KBoxElem extends KShapeElem {
 	public var Center: Vector;
 	public var Rotation: Rotator;
-	public var X: cpp.Float32;
-	public var Y: cpp.Float32;
-	public var Z: cpp.Float32;
+	public var X: ucpp.num.Float32;
+	public var Y: ucpp.num.Float32;
+	public var Z: ucpp.num.Float32;
 
 	@:native("FKBoxElem") public function new();
 }

@@ -3,12 +3,13 @@ package ue;
 
 @:native("UPythonScriptPluginUserSettings")
 @:include("PythonScriptPluginSettings.h")
-@:structAccess
+@:valueType
 extern class PythonScriptPluginUserSettings extends DeveloperSettings {
 	public var bDeveloperMode: Bool;
+	public var TypeHintingMode: ETypeHintingMode;
 	public var bEnableContentBrowserIntegration: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,6 +17,8 @@ extern class PythonScriptPluginUserSettings extends DeveloperSettings {
 abstract ConstPythonScriptPluginUserSettings(PythonScriptPluginUserSettings) from PythonScriptPluginUserSettings {
 	public extern var bDeveloperMode(get, never): Bool;
 	public inline extern function get_bDeveloperMode(): Bool return this.bDeveloperMode;
+	public extern var TypeHintingMode(get, never): ETypeHintingMode;
+	public inline extern function get_TypeHintingMode(): ETypeHintingMode return this.TypeHintingMode;
 	public extern var bEnableContentBrowserIntegration(get, never): Bool;
 	public inline extern function get_bEnableContentBrowserIntegration(): Bool return this.bEnableContentBrowserIntegration;
 }
@@ -23,7 +26,7 @@ abstract ConstPythonScriptPluginUserSettings(PythonScriptPluginUserSettings) fro
 @:forward
 @:nativeGen
 @:native("PythonScriptPluginUserSettings*")
-abstract PythonScriptPluginUserSettingsPtr(cpp.Star<PythonScriptPluginUserSettings>) from cpp.Star<PythonScriptPluginUserSettings> to cpp.Star<PythonScriptPluginUserSettings>{
+abstract PythonScriptPluginUserSettingsPtr(ucpp.Ptr<PythonScriptPluginUserSettings>) from ucpp.Ptr<PythonScriptPluginUserSettings> to ucpp.Ptr<PythonScriptPluginUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: PythonScriptPluginUserSettings): PythonScriptPluginUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

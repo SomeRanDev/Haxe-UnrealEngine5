@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigEnumNodeSpawner")
 @:include("Graph/NodeSpawners/ControlRigEnumNodeSpawner.h")
-@:structAccess
+@:valueType
 extern class ControlRigEnumNodeSpawner extends BlueprintNodeSpawner {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigEnumNodeSpawner(ControlRigEnumNodeSpawner) from ControlR
 @:forward
 @:nativeGen
 @:native("ControlRigEnumNodeSpawner*")
-abstract ControlRigEnumNodeSpawnerPtr(cpp.Star<ControlRigEnumNodeSpawner>) from cpp.Star<ControlRigEnumNodeSpawner> to cpp.Star<ControlRigEnumNodeSpawner>{
+abstract ControlRigEnumNodeSpawnerPtr(ucpp.Ptr<ControlRigEnumNodeSpawner>) from ucpp.Ptr<ControlRigEnumNodeSpawner> to ucpp.Ptr<ControlRigEnumNodeSpawner>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigEnumNodeSpawner): ControlRigEnumNodeSpawnerPtr {
 		return untyped __cpp__("&({0})", v);

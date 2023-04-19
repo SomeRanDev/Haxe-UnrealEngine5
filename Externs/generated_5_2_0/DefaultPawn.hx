@@ -3,31 +3,31 @@ package ue;
 
 @:native("ADefaultPawn")
 @:include("GameFramework/DefaultPawn.h")
-@:structAccess
+@:valueType
 extern class DefaultPawn extends Pawn {
-	public var BaseTurnRate: cpp.Float32;
-	public var BaseLookUpRate: cpp.Float32;
-	@:protected public var MovementComponent: cpp.Star<PawnMovementComp>;
-	private var CollisionComponent: cpp.Star<SphereComp>;
-	private var MeshComponent: cpp.Star<StaticMeshComp>;
+	public var BaseTurnRate: ucpp.num.Float32;
+	public var BaseLookUpRate: ucpp.num.Float32;
+	@:protected public var MovementComponent: ucpp.Ptr<PawnMovementComp>;
+	private var CollisionComponent: ucpp.Ptr<SphereComp>;
+	private var MeshComponent: ucpp.Ptr<StaticMeshComp>;
 	public var bAddDefaultMovementBindings: Bool;
 
-	public function TurnAtRate(Rate: cpp.Float32): Void;
-	public function MoveUp_World(Val: cpp.Float32): Void;
-	public function MoveRight(Val: cpp.Float32): Void;
-	public function MoveForward(Val: cpp.Float32): Void;
-	public function LookUpAtRate(Rate: cpp.Float32): Void;
+	public function TurnAtRate(Rate: ucpp.num.Float32): Void;
+	public function MoveUp_World(Val: ucpp.num.Float32): Void;
+	public function MoveRight(Val: ucpp.num.Float32): Void;
+	public function MoveForward(Val: ucpp.num.Float32): Void;
+	public function LookUpAtRate(Rate: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDefaultPawn(DefaultPawn) from DefaultPawn {
-	public extern var BaseTurnRate(get, never): cpp.Float32;
-	public inline extern function get_BaseTurnRate(): cpp.Float32 return this.BaseTurnRate;
-	public extern var BaseLookUpRate(get, never): cpp.Float32;
-	public inline extern function get_BaseLookUpRate(): cpp.Float32 return this.BaseLookUpRate;
+	public extern var BaseTurnRate(get, never): ucpp.num.Float32;
+	public inline extern function get_BaseTurnRate(): ucpp.num.Float32 return this.BaseTurnRate;
+	public extern var BaseLookUpRate(get, never): ucpp.num.Float32;
+	public inline extern function get_BaseLookUpRate(): ucpp.num.Float32 return this.BaseLookUpRate;
 	public extern var bAddDefaultMovementBindings(get, never): Bool;
 	public inline extern function get_bAddDefaultMovementBindings(): Bool return this.bAddDefaultMovementBindings;
 }
@@ -35,7 +35,7 @@ abstract ConstDefaultPawn(DefaultPawn) from DefaultPawn {
 @:forward
 @:nativeGen
 @:native("DefaultPawn*")
-abstract DefaultPawnPtr(cpp.Star<DefaultPawn>) from cpp.Star<DefaultPawn> to cpp.Star<DefaultPawn>{
+abstract DefaultPawnPtr(ucpp.Ptr<DefaultPawn>) from ucpp.Ptr<DefaultPawn> to ucpp.Ptr<DefaultPawn>{
 	@:from
 	public static extern inline function fromValue(v: DefaultPawn): DefaultPawnPtr {
 		return untyped __cpp__("&({0})", v);

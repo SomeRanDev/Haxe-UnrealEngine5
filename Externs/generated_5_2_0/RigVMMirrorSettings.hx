@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMMirrorSettings")
 @:include("RigVMFunctions/Math/RigVMMathLibrary.h")
-@:structAccess
+@:valueType
 extern class RigVMMirrorSettings {
 	public var MirrorAxis: TEnumAsByte<EAxis>;
 	public var AxisToFlip: TEnumAsByte<EAxis>;

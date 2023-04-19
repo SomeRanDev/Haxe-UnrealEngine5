@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAnimDataModelModifiedDynamicEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class AnimDataModelModifiedDynamicEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAnimDataModelModifiedDynamicEvent__PythonCallable(AnimDataModelMod
 @:forward
 @:nativeGen
 @:native("AnimDataModelModifiedDynamicEvent__PythonCallable*")
-abstract AnimDataModelModifiedDynamicEvent__PythonCallablePtr(cpp.Star<AnimDataModelModifiedDynamicEvent__PythonCallable>) from cpp.Star<AnimDataModelModifiedDynamicEvent__PythonCallable> to cpp.Star<AnimDataModelModifiedDynamicEvent__PythonCallable>{
+abstract AnimDataModelModifiedDynamicEvent__PythonCallablePtr(ucpp.Ptr<AnimDataModelModifiedDynamicEvent__PythonCallable>) from ucpp.Ptr<AnimDataModelModifiedDynamicEvent__PythonCallable> to ucpp.Ptr<AnimDataModelModifiedDynamicEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AnimDataModelModifiedDynamicEvent__PythonCallable): AnimDataModelModifiedDynamicEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

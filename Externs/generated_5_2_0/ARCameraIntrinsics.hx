@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARCameraIntrinsics")
 @:include("ARTypes.h")
-@:structAccess
+@:valueType
 extern class ARCameraIntrinsics {
 	public var ImageResolution: IntPoint;
 	public var FocalLength: Vector2D;

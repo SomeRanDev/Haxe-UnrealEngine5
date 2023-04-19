@@ -3,46 +3,23 @@ package ue;
 
 @:native("UAnimDataModel")
 @:include("Animation/AnimData/AnimDataModel.h")
-@:structAccess
+@:valueType
 extern class AnimDataModel extends Object {
-	private var BracketCounter: cpp.Int32;
-	private var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, cpp.Star<AnimDataModel>, cpp.Reference<AnimDataModelNotifPayload>) -> Void>;
+	private var BracketCounter: ucpp.num.Int32;
+	private var ModifiedEventDynamic: HaxeMulticastSparseDelegateProperty<(EAnimDataModelNotifyType, AnimationDataModel, ucpp.Ref<AnimDataModelNotifPayload>) -> Void>;
 	private var BoneAnimationTracks: TArray<BoneAnimationTrack>;
-	private var PlayLength: cpp.Float32;
+	private var PlayLength: ucpp.num.Float32;
 	private var FrameRate: FrameRate;
-	private var NumberOfFrames: cpp.Int32;
-	private var NumberOfKeys: cpp.Int32;
+	private var NumberOfFrames: ucpp.num.Int32;
+	private var NumberOfKeys: ucpp.num.Int32;
 	private var CurveData: AnimationCurveData;
 	private var AnimatedBoneAttributes: TArray<AnimatedBoneAttribute>;
-	private var RawAnimationTracks: TArray<RawAnimSequenceTrack>;
-	private var RawAnimationTrackNames: TArray<FName>;
-	private var RawAnimationTrackSkeletonMappings: TArray<TrackToSkeletonMap>;
-	private var RawCurveTracks: RawCurveTracks;
+	private var bPopulated: Bool;
 
-	public function IsValidBoneTrackIndex(TrackIndex: cpp.Int32): Bool;
-	public function GetPlayLength(): cpp.Float32;
-	public function GetNumBoneTracks(): cpp.Int32;
-	public function GetNumberOfTransformCurves(): cpp.Int32;
-	public function GetNumberOfKeys(): cpp.Int32;
-	public function GetNumberOfFrames(): cpp.Int32;
-	public function GetNumberOfFloatCurves(): cpp.Int32;
-	public function GetFrameRate(): FrameRate;
-	public function GetBoneTrackNames(OutNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetBoneTrackIndexByName(TrackName: FName): cpp.Int32;
-	public function GetBoneTrackIndex(Track: cpp.Reference<BoneAnimationTrack>): cpp.Int32;
-	public function GetBoneTrackByName(TrackName: FName): BoneAnimationTrack;
-	public function GetBoneTrackByIndex(TrackIndex: cpp.Int32): BoneAnimationTrack;
-	public function GetBoneAnimationTracks(): TArray<BoneAnimationTrack>;
-	public function GetAnimationSequence(): cpp.Star<AnimSequence>;
-
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(
-	IsValidBoneTrackIndex, GetPlayLength, GetNumBoneTracks, GetNumberOfTransformCurves, GetNumberOfKeys,
-	GetNumberOfFrames, GetNumberOfFloatCurves, GetFrameRate, GetBoneTrackNames, GetBoneTrackIndexByName,
-	GetBoneTrackIndex, GetBoneTrackByName, GetBoneTrackByIndex, GetBoneAnimationTracks, GetAnimationSequence
-)
+@:forward()
 @:nativeGen
 abstract ConstAnimDataModel(AnimDataModel) from AnimDataModel {
 }
@@ -50,7 +27,7 @@ abstract ConstAnimDataModel(AnimDataModel) from AnimDataModel {
 @:forward
 @:nativeGen
 @:native("AnimDataModel*")
-abstract AnimDataModelPtr(cpp.Star<AnimDataModel>) from cpp.Star<AnimDataModel> to cpp.Star<AnimDataModel>{
+abstract AnimDataModelPtr(ucpp.Ptr<AnimDataModel>) from ucpp.Ptr<AnimDataModel> to ucpp.Ptr<AnimDataModel>{
 	@:from
 	public static extern inline function fromValue(v: AnimDataModel): AnimDataModelPtr {
 		return untyped __cpp__("&({0})", v);

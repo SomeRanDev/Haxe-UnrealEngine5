@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionNaniteReplace")
 @:include("Materials/MaterialExpressionNaniteReplace.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionNaniteReplace extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var Nanite: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionNaniteReplace(MaterialExpressionNaniteReplace) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionNaniteReplace*")
-abstract MaterialExpressionNaniteReplacePtr(cpp.Star<MaterialExpressionNaniteReplace>) from cpp.Star<MaterialExpressionNaniteReplace> to cpp.Star<MaterialExpressionNaniteReplace>{
+abstract MaterialExpressionNaniteReplacePtr(ucpp.Ptr<MaterialExpressionNaniteReplace>) from ucpp.Ptr<MaterialExpressionNaniteReplace> to ucpp.Ptr<MaterialExpressionNaniteReplace>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionNaniteReplace): MaterialExpressionNaniteReplacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UXRDeviceOnDisconnectDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class XRDeviceOnDisconnectDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstXRDeviceOnDisconnectDelegate__PythonCallable(XRDeviceOnDisconnectD
 @:forward
 @:nativeGen
 @:native("XRDeviceOnDisconnectDelegate__PythonCallable*")
-abstract XRDeviceOnDisconnectDelegate__PythonCallablePtr(cpp.Star<XRDeviceOnDisconnectDelegate__PythonCallable>) from cpp.Star<XRDeviceOnDisconnectDelegate__PythonCallable> to cpp.Star<XRDeviceOnDisconnectDelegate__PythonCallable>{
+abstract XRDeviceOnDisconnectDelegate__PythonCallablePtr(ucpp.Ptr<XRDeviceOnDisconnectDelegate__PythonCallable>) from ucpp.Ptr<XRDeviceOnDisconnectDelegate__PythonCallable> to ucpp.Ptr<XRDeviceOnDisconnectDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: XRDeviceOnDisconnectDelegate__PythonCallable): XRDeviceOnDisconnectDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

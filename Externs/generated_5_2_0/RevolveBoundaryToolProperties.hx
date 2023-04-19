@@ -3,14 +3,14 @@ package ue;
 
 @:native("URevolveBoundaryToolProperties")
 @:include("RevolveBoundaryTool.h")
-@:structAccess
+@:valueType
 extern class RevolveBoundaryToolProperties extends RevolveProperties {
 	public var CapFillMode: ERevolvePropertiesCapFillMode;
 	public var bDisplayInputMesh: Bool;
 	public var AxisOrigin: Vector;
 	public var AxisOrientation: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstRevolveBoundaryToolProperties(RevolveBoundaryToolProperties) from 
 @:forward
 @:nativeGen
 @:native("RevolveBoundaryToolProperties*")
-abstract RevolveBoundaryToolPropertiesPtr(cpp.Star<RevolveBoundaryToolProperties>) from cpp.Star<RevolveBoundaryToolProperties> to cpp.Star<RevolveBoundaryToolProperties>{
+abstract RevolveBoundaryToolPropertiesPtr(ucpp.Ptr<RevolveBoundaryToolProperties>) from ucpp.Ptr<RevolveBoundaryToolProperties> to ucpp.Ptr<RevolveBoundaryToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: RevolveBoundaryToolProperties): RevolveBoundaryToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

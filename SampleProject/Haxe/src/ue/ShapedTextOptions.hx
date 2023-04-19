@@ -3,7 +3,7 @@ package ue;
 
 @:native("FShapedTextOptions")
 @:include("Components/TextWidgetTypes.h")
-@:structAccess
+@:valueType
 extern class ShapedTextOptions {
 	public var bOverride_TextShapingMethod: Bool;
 	public var bOverride_TextFlowDirection: Bool;

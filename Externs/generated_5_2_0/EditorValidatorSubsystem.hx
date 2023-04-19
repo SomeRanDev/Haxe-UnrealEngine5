@@ -3,21 +3,21 @@ package ue;
 
 @:native("UEditorValidatorSubsystem")
 @:include("EditorValidatorSubsystem.h")
-@:structAccess
+@:valueType
 extern class EditorValidatorSubsystem extends EditorSubsystem {
 	@:protected public var ExcludedDirectories: TArray<DirectoryPath>;
 	@:protected public var bValidateOnSave: Bool;
-	@:protected public var Validators: TMap<FString, cpp.Star<EditorValidatorBase>>;
+	@:protected public var Validators: TMap<FString, ucpp.Ptr<EditorValidatorBase>>;
 	@:protected public var bValidateAssetsWhileSavingForCook: Bool;
 	@:protected public var bAllowBlueprintValidators: Bool;
 
-	public function ValidateAssetsWithSettings(AssetDataList: cpp.Reference<TArray<AssetData>>, InSettings: cpp.Reference<ValidateAssetsSettings>, OutResults: cpp.Reference<ValidateAssetsResults>): cpp.Int32;
-	public function ValidateAssets(AssetDataList: TArray<AssetData>, bSkipExcludedDirectories: Bool, bShowIfNoFailures: Bool): cpp.Int32;
-	public function IsObjectValid(InObject: cpp.Star<Object>, ValidationErrors: cpp.Reference<TArray<FText>>, ValidationWarnings: cpp.Reference<TArray<FText>>, InValidationUsecase: EDataValidationUsecase): EDataValidationResult;
-	public function IsAssetValid(AssetData: cpp.Reference<AssetData>, ValidationErrors: cpp.Reference<TArray<FText>>, ValidationWarnings: cpp.Reference<TArray<FText>>, InValidationUsecase: EDataValidationUsecase): EDataValidationResult;
-	public function AddValidator(InValidator: cpp.Star<EditorValidatorBase>): Void;
+	public function ValidateAssetsWithSettings(AssetDataList: ucpp.Ref<TArray<AssetData>>, InSettings: ucpp.Ref<ValidateAssetsSettings>, OutResults: ucpp.Ref<ValidateAssetsResults>): ucpp.num.Int32;
+	public function ValidateAssets(AssetDataList: TArray<AssetData>, bSkipExcludedDirectories: Bool, bShowIfNoFailures: Bool): ucpp.num.Int32;
+	public function IsObjectValid(InObject: ucpp.Ptr<Object>, ValidationErrors: ucpp.Ref<TArray<FText>>, ValidationWarnings: ucpp.Ref<TArray<FText>>, InValidationUsecase: EDataValidationUsecase): EDataValidationResult;
+	public function IsAssetValid(AssetData: ucpp.Ref<AssetData>, ValidationErrors: ucpp.Ref<TArray<FText>>, ValidationWarnings: ucpp.Ref<TArray<FText>>, InValidationUsecase: EDataValidationUsecase): EDataValidationResult;
+	public function AddValidator(InValidator: ucpp.Ptr<EditorValidatorBase>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(ValidateAssetsWithSettings, ValidateAssets, IsObjectValid, IsAssetValid)
@@ -28,7 +28,7 @@ abstract ConstEditorValidatorSubsystem(EditorValidatorSubsystem) from EditorVali
 @:forward
 @:nativeGen
 @:native("EditorValidatorSubsystem*")
-abstract EditorValidatorSubsystemPtr(cpp.Star<EditorValidatorSubsystem>) from cpp.Star<EditorValidatorSubsystem> to cpp.Star<EditorValidatorSubsystem>{
+abstract EditorValidatorSubsystemPtr(ucpp.Ptr<EditorValidatorSubsystem>) from ucpp.Ptr<EditorValidatorSubsystem> to ucpp.Ptr<EditorValidatorSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EditorValidatorSubsystem): EditorValidatorSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UWidgetAnimationPlayCallbackProxy")
 @:include("Animation/WidgetAnimationPlayCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class WidgetAnimationPlayCallbackProxy extends Object {
 	public var Finished: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function CreatePlayAnimationTimeRangeProxyObject(Result: cpp.Reference<cpp.Star<UMGSequencePlayer>>, Widget: cpp.Star<UserWidget>, InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, EndAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: cpp.Float32): cpp.Star<WidgetAnimationPlayCallbackProxy>;
-	public function CreatePlayAnimationProxyObject(Result: cpp.Reference<cpp.Star<UMGSequencePlayer>>, Widget: cpp.Star<UserWidget>, InAnimation: cpp.Star<WidgetAnimation>, StartAtTime: cpp.Float32, NumLoopsToPlay: cpp.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: cpp.Float32): cpp.Star<WidgetAnimationPlayCallbackProxy>;
+	public function CreatePlayAnimationTimeRangeProxyObject(Result: ucpp.Ref<ucpp.Ptr<UMGSequencePlayer>>, Widget: ucpp.Ptr<UserWidget>, InAnimation: ucpp.Ptr<WidgetAnimation>, StartAtTime: ucpp.num.Float32, EndAtTime: ucpp.num.Float32, NumLoopsToPlay: ucpp.num.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: ucpp.num.Float32): ucpp.Ptr<WidgetAnimationPlayCallbackProxy>;
+	public function CreatePlayAnimationProxyObject(Result: ucpp.Ref<ucpp.Ptr<UMGSequencePlayer>>, Widget: ucpp.Ptr<UserWidget>, InAnimation: ucpp.Ptr<WidgetAnimation>, StartAtTime: ucpp.num.Float32, NumLoopsToPlay: ucpp.num.Int32, PlayMode: TEnumAsByte<EUMGSequencePlayMode>, PlaybackSpeed: ucpp.num.Float32): ucpp.Ptr<WidgetAnimationPlayCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstWidgetAnimationPlayCallbackProxy(WidgetAnimationPlayCallbackProxy)
 @:forward
 @:nativeGen
 @:native("WidgetAnimationPlayCallbackProxy*")
-abstract WidgetAnimationPlayCallbackProxyPtr(cpp.Star<WidgetAnimationPlayCallbackProxy>) from cpp.Star<WidgetAnimationPlayCallbackProxy> to cpp.Star<WidgetAnimationPlayCallbackProxy>{
+abstract WidgetAnimationPlayCallbackProxyPtr(ucpp.Ptr<WidgetAnimationPlayCallbackProxy>) from ucpp.Ptr<WidgetAnimationPlayCallbackProxy> to ucpp.Ptr<WidgetAnimationPlayCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: WidgetAnimationPlayCallbackProxy): WidgetAnimationPlayCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

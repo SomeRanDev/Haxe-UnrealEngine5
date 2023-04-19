@@ -3,25 +3,25 @@ package ue;
 
 @:native("UPaintBrushSettings")
 @:include("MeshPaintSettings.h")
-@:structAccess
+@:valueType
 extern class PaintBrushSettings extends Object {
-	@:protected public var BrushRadius: cpp.Float32;
-	public var BrushStrength: cpp.Float32;
-	public var BrushFalloffAmount: cpp.Float32;
+	@:protected public var BrushRadius: ucpp.num.Float32;
+	public var BrushStrength: ucpp.num.Float32;
+	public var BrushFalloffAmount: ucpp.num.Float32;
 	public var bEnableFlow: Bool;
 	public var bOnlyFrontFacingTriangles: Bool;
 	public var ColorViewMode: EMeshPaintColorViewMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPaintBrushSettings(PaintBrushSettings) from PaintBrushSettings {
-	public extern var BrushStrength(get, never): cpp.Float32;
-	public inline extern function get_BrushStrength(): cpp.Float32 return this.BrushStrength;
-	public extern var BrushFalloffAmount(get, never): cpp.Float32;
-	public inline extern function get_BrushFalloffAmount(): cpp.Float32 return this.BrushFalloffAmount;
+	public extern var BrushStrength(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushStrength(): ucpp.num.Float32 return this.BrushStrength;
+	public extern var BrushFalloffAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushFalloffAmount(): ucpp.num.Float32 return this.BrushFalloffAmount;
 	public extern var bEnableFlow(get, never): Bool;
 	public inline extern function get_bEnableFlow(): Bool return this.bEnableFlow;
 	public extern var bOnlyFrontFacingTriangles(get, never): Bool;
@@ -33,7 +33,7 @@ abstract ConstPaintBrushSettings(PaintBrushSettings) from PaintBrushSettings {
 @:forward
 @:nativeGen
 @:native("PaintBrushSettings*")
-abstract PaintBrushSettingsPtr(cpp.Star<PaintBrushSettings>) from cpp.Star<PaintBrushSettings> to cpp.Star<PaintBrushSettings>{
+abstract PaintBrushSettingsPtr(ucpp.Ptr<PaintBrushSettings>) from ucpp.Ptr<PaintBrushSettings> to ucpp.Ptr<PaintBrushSettings>{
 	@:from
 	public static extern inline function fromValue(v: PaintBrushSettings): PaintBrushSettingsPtr {
 		return untyped __cpp__("&({0})", v);

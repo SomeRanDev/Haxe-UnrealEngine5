@@ -3,36 +3,36 @@ package ue;
 
 @:native("UWeldMeshEdgesToolProperties")
 @:include("WeldMeshEdgesTool.h")
-@:structAccess
+@:valueType
 extern class WeldMeshEdgesToolProperties extends InteractiveToolPropertySet {
-	public var Tolerance: cpp.Float32;
+	public var Tolerance: ucpp.num.Float32;
 	public var bOnlyUnique: Bool;
 	public var bResolveTJunctions: Bool;
-	public var InitialEdges: cpp.Int32;
-	public var RemainingEdges: cpp.Int32;
+	public var InitialEdges: ucpp.num.Int32;
+	public var RemainingEdges: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWeldMeshEdgesToolProperties(WeldMeshEdgesToolProperties) from WeldMeshEdgesToolProperties {
-	public extern var Tolerance(get, never): cpp.Float32;
-	public inline extern function get_Tolerance(): cpp.Float32 return this.Tolerance;
+	public extern var Tolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_Tolerance(): ucpp.num.Float32 return this.Tolerance;
 	public extern var bOnlyUnique(get, never): Bool;
 	public inline extern function get_bOnlyUnique(): Bool return this.bOnlyUnique;
 	public extern var bResolveTJunctions(get, never): Bool;
 	public inline extern function get_bResolveTJunctions(): Bool return this.bResolveTJunctions;
-	public extern var InitialEdges(get, never): cpp.Int32;
-	public inline extern function get_InitialEdges(): cpp.Int32 return this.InitialEdges;
-	public extern var RemainingEdges(get, never): cpp.Int32;
-	public inline extern function get_RemainingEdges(): cpp.Int32 return this.RemainingEdges;
+	public extern var InitialEdges(get, never): ucpp.num.Int32;
+	public inline extern function get_InitialEdges(): ucpp.num.Int32 return this.InitialEdges;
+	public extern var RemainingEdges(get, never): ucpp.num.Int32;
+	public inline extern function get_RemainingEdges(): ucpp.num.Int32 return this.RemainingEdges;
 }
 
 @:forward
 @:nativeGen
 @:native("WeldMeshEdgesToolProperties*")
-abstract WeldMeshEdgesToolPropertiesPtr(cpp.Star<WeldMeshEdgesToolProperties>) from cpp.Star<WeldMeshEdgesToolProperties> to cpp.Star<WeldMeshEdgesToolProperties>{
+abstract WeldMeshEdgesToolPropertiesPtr(ucpp.Ptr<WeldMeshEdgesToolProperties>) from ucpp.Ptr<WeldMeshEdgesToolProperties> to ucpp.Ptr<WeldMeshEdgesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: WeldMeshEdgesToolProperties): WeldMeshEdgesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

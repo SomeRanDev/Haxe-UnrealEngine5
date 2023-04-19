@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTransformMeshesToolBuilder")
 @:include("TransformMeshesTool.h")
-@:structAccess
+@:valueType
 extern class TransformMeshesToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTransformMeshesToolBuilder(TransformMeshesToolBuilder) from Transf
 @:forward
 @:nativeGen
 @:native("TransformMeshesToolBuilder*")
-abstract TransformMeshesToolBuilderPtr(cpp.Star<TransformMeshesToolBuilder>) from cpp.Star<TransformMeshesToolBuilder> to cpp.Star<TransformMeshesToolBuilder>{
+abstract TransformMeshesToolBuilderPtr(ucpp.Ptr<TransformMeshesToolBuilder>) from ucpp.Ptr<TransformMeshesToolBuilder> to ucpp.Ptr<TransformMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: TransformMeshesToolBuilder): TransformMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

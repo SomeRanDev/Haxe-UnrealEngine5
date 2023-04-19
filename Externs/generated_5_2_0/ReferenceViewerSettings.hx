@@ -3,15 +3,15 @@ package ue;
 
 @:native("UReferenceViewerSettings")
 @:include("ReferenceViewer/ReferenceViewerSettings.h")
-@:structAccess
+@:valueType
 extern class ReferenceViewerSettings extends Object {
 	private var bLimitSearchDepth: Bool;
 	private var bIsShowReferencers: Bool;
-	private var MaxSearchReferencerDepth: cpp.Int32;
+	private var MaxSearchReferencerDepth: ucpp.num.Int32;
 	private var bIsShowDependencies: Bool;
-	private var MaxSearchDependencyDepth: cpp.Int32;
+	private var MaxSearchDependencyDepth: ucpp.num.Int32;
 	private var bLimitSearchBreadth: Bool;
-	private var MaxSearchBreadth: cpp.Int32;
+	private var MaxSearchBreadth: ucpp.num.Int32;
 	private var bEnableCollectionFilter: Bool;
 	private var bIsShowSoftReferences: Bool;
 	private var bIsShowHardReferences: Bool;
@@ -28,7 +28,7 @@ extern class ReferenceViewerSettings extends Object {
 	private var UserFilters: TArray<ilterState>;
 	private var bFindPathEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +39,7 @@ abstract ConstReferenceViewerSettings(ReferenceViewerSettings) from ReferenceVie
 @:forward
 @:nativeGen
 @:native("ReferenceViewerSettings*")
-abstract ReferenceViewerSettingsPtr(cpp.Star<ReferenceViewerSettings>) from cpp.Star<ReferenceViewerSettings> to cpp.Star<ReferenceViewerSettings>{
+abstract ReferenceViewerSettingsPtr(ucpp.Ptr<ReferenceViewerSettings>) from ucpp.Ptr<ReferenceViewerSettings> to ucpp.Ptr<ReferenceViewerSettings>{
 	@:from
 	public static extern inline function fromValue(v: ReferenceViewerSettings): ReferenceViewerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

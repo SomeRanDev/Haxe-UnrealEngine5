@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMeshToVolumeTool")
 @:include("MeshToVolumeTool.h")
-@:structAccess
+@:valueType
 extern class MeshToVolumeTool extends SingleSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<MeshToVolumeToolProperties>;
-	@:protected public var HandleSourcesProperties: cpp.Star<OnAcceptHandleSourcesPropertiesSingle>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var VolumeEdgesSet: cpp.Star<LineSetComp>;
+	@:protected public var Settings: ucpp.Ptr<MeshToVolumeToolProperties>;
+	@:protected public var HandleSourcesProperties: ucpp.Ptr<OnAcceptHandleSourcesPropertiesSingle>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var VolumeEdgesSet: ucpp.Ptr<LineSetComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMeshToVolumeTool(MeshToVolumeTool) from MeshToVolumeTool {
 @:forward
 @:nativeGen
 @:native("MeshToVolumeTool*")
-abstract MeshToVolumeToolPtr(cpp.Star<MeshToVolumeTool>) from cpp.Star<MeshToVolumeTool> to cpp.Star<MeshToVolumeTool>{
+abstract MeshToVolumeToolPtr(ucpp.Ptr<MeshToVolumeTool>) from ucpp.Ptr<MeshToVolumeTool> to ucpp.Ptr<MeshToVolumeTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshToVolumeTool): MeshToVolumeToolPtr {
 		return untyped __cpp__("&({0})", v);

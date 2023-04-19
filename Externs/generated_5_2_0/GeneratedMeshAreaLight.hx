@@ -3,10 +3,10 @@ package ue;
 
 @:native("AGeneratedMeshAreaLight")
 @:include("Engine/GeneratedMeshAreaLight.h")
-@:structAccess
+@:valueType
 extern class GeneratedMeshAreaLight extends SpotLight {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeneratedMeshAreaLight(GeneratedMeshAreaLight) from GeneratedMeshA
 @:forward
 @:nativeGen
 @:native("GeneratedMeshAreaLight*")
-abstract GeneratedMeshAreaLightPtr(cpp.Star<GeneratedMeshAreaLight>) from cpp.Star<GeneratedMeshAreaLight> to cpp.Star<GeneratedMeshAreaLight>{
+abstract GeneratedMeshAreaLightPtr(ucpp.Ptr<GeneratedMeshAreaLight>) from ucpp.Ptr<GeneratedMeshAreaLight> to ucpp.Ptr<GeneratedMeshAreaLight>{
 	@:from
 	public static extern inline function fromValue(v: GeneratedMeshAreaLight): GeneratedMeshAreaLightPtr {
 		return untyped __cpp__("&({0})", v);

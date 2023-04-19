@@ -2,17 +2,17 @@
 package ue;
 
 @:native("UFRigNullElement_WrapperObject")
-@:structAccess
+@:valueType
 extern class FRigNullElement_WrapperObject extends DetailsViewWrapperObject {
 	public var Pose: RigCurrentAndInitialTransform;
 	@:protected public var Key: RigElementKey;
 	@:protected public var NameString: FString;
-	@:protected public var Index: cpp.Int32;
-	@:protected public var SubIndex: cpp.Int32;
+	@:protected public var Index: ucpp.num.Int32;
+	@:protected public var SubIndex: ucpp.num.Int32;
 	@:protected public var bSelected: Bool;
-	@:protected public var CreatedAtInstructionIndex: cpp.Int32;
+	@:protected public var CreatedAtInstructionIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstFRigNullElement_WrapperObject(FRigNullElement_WrapperObject) from 
 @:forward
 @:nativeGen
 @:native("FRigNullElement_WrapperObject*")
-abstract FRigNullElement_WrapperObjectPtr(cpp.Star<FRigNullElement_WrapperObject>) from cpp.Star<FRigNullElement_WrapperObject> to cpp.Star<FRigNullElement_WrapperObject>{
+abstract FRigNullElement_WrapperObjectPtr(ucpp.Ptr<FRigNullElement_WrapperObject>) from ucpp.Ptr<FRigNullElement_WrapperObject> to ucpp.Ptr<FRigNullElement_WrapperObject>{
 	@:from
 	public static extern inline function fromValue(v: FRigNullElement_WrapperObject): FRigNullElement_WrapperObjectPtr {
 		return untyped __cpp__("&({0})", v);

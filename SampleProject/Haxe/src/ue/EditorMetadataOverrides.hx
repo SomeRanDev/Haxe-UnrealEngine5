@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorMetadataOverrides")
 @:include("EditorMetadataOverrides.h")
-@:structAccess
+@:valueType
 extern class EditorMetadataOverrides extends EditorSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorMetadataOverrides(EditorMetadataOverrides) from EditorMetada
 @:forward
 @:nativeGen
 @:native("EditorMetadataOverrides*")
-abstract EditorMetadataOverridesPtr(cpp.Star<EditorMetadataOverrides>) from cpp.Star<EditorMetadataOverrides> to cpp.Star<EditorMetadataOverrides>{
+abstract EditorMetadataOverridesPtr(ucpp.Ptr<EditorMetadataOverrides>) from ucpp.Ptr<EditorMetadataOverrides> to ucpp.Ptr<EditorMetadataOverrides>{
 	@:from
 	public static extern inline function fromValue(v: EditorMetadataOverrides): EditorMetadataOverridesPtr {
 		return untyped __cpp__("&({0})", v);

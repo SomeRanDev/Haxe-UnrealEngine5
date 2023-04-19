@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRestrictedGameplayTagTableRow")
 @:include("GameplayTagsManager.h")
-@:structAccess
+@:valueType
 extern class RestrictedGameplayTagTableRow extends GameplayTagTableRow {
 	public var bAllowNonRestrictedChildren: Bool;
 

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterface_AsyncCompilation")
-@:structAccess
+@:valueType
 extern class Interface_AsyncCompilation extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterface_AsyncCompilation(Interface_AsyncCompilation) from Interf
 @:forward
 @:nativeGen
 @:native("Interface_AsyncCompilation*")
-abstract Interface_AsyncCompilationPtr(cpp.Star<Interface_AsyncCompilation>) from cpp.Star<Interface_AsyncCompilation> to cpp.Star<Interface_AsyncCompilation>{
+abstract Interface_AsyncCompilationPtr(ucpp.Ptr<Interface_AsyncCompilation>) from ucpp.Ptr<Interface_AsyncCompilation> to ucpp.Ptr<Interface_AsyncCompilation>{
 	@:from
 	public static extern inline function fromValue(v: Interface_AsyncCompilation): Interface_AsyncCompilationPtr {
 		return untyped __cpp__("&({0})", v);

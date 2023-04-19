@@ -3,24 +3,25 @@ package ue;
 
 @:native("UChaosClothingInteractor")
 @:include("ChaosCloth/ChaosClothingSimulationInteractor.h")
-@:structAccess
+@:valueType
 extern class ChaosClothingInteractor extends ClothingInteractor {
-	public function SetWind(Drag: Vector2D, Lift: Vector2D, AirDensity: cpp.Float32, WindVelocity: Vector): Void;
-	public function SetVelocityScale(LinearVelocityScale: Vector, AngularVelocityScale: cpp.Float32, FictitiousAngularScale: cpp.Float32): Void;
-	public function SetMaterialLinear(EdgeStiffness: cpp.Float32, BendingStiffness: cpp.Float32, AreaStiffness: cpp.Float32): Void;
+	public function SetWind(Drag: Vector2D, Lift: Vector2D, AirDensity: ucpp.num.Float32, WindVelocity: Vector): Void;
+	public function SetVelocityScale(LinearVelocityScale: Vector, AngularVelocityScale: ucpp.num.Float32, FictitiousAngularScale: ucpp.num.Float32): Void;
+	public function SetPressure(Pressure: Vector2D): Void;
+	public function SetMaterialLinear(EdgeStiffness: ucpp.num.Float32, BendingStiffness: ucpp.num.Float32, AreaStiffness: ucpp.num.Float32): Void;
 	public function SetMaterial(EdgeStiffness: Vector2D, BendingStiffness: Vector2D, AreaStiffness: Vector2D): Void;
-	public function SetLongRangeAttachmentLinear(TetherStiffness: cpp.Float32, TetherScale: cpp.Float32): Void;
+	public function SetLongRangeAttachmentLinear(TetherStiffness: ucpp.num.Float32, TetherScale: ucpp.num.Float32): Void;
 	public function SetLongRangeAttachment(TetherStiffness: Vector2D, TetherScale: Vector2D): Void;
-	public function SetGravity(GravityScale: cpp.Float32, bIsGravityOverridden: Bool, GravityOverride: Vector): Void;
-	public function SetDamping(DampingCoefficient: cpp.Float32): Void;
-	public function SetCollision(CollisionThickness: cpp.Float32, FrictionCoefficient: cpp.Float32, bUseCCD: Bool, SelfCollisionThickness: cpp.Float32): Void;
+	public function SetGravity(GravityScale: ucpp.num.Float32, bIsGravityOverridden: Bool, GravityOverride: Vector): Void;
+	public function SetDamping(DampingCoefficient: ucpp.num.Float32, LocalDampingCoefficient: ucpp.num.Float32): Void;
+	public function SetCollision(CollisionThickness: ucpp.num.Float32, FrictionCoefficient: ucpp.num.Float32, bUseCCD: Bool, SelfCollisionThickness: ucpp.num.Float32): Void;
 	public function SetBackstop(bEnabled: Bool): Void;
-	public function SetAnimDriveLinear(AnimDriveStiffness: cpp.Float32): Void;
+	public function SetAnimDriveLinear(AnimDriveStiffness: ucpp.num.Float32): Void;
 	public function SetAnimDrive(AnimDriveStiffness: Vector2D, AnimDriveDamping: Vector2D): Void;
-	public function SetAerodynamics(DragCoefficient: cpp.Float32, LiftCoefficient: cpp.Float32, WindVelocity: Vector): Void;
+	public function SetAerodynamics(DragCoefficient: ucpp.num.Float32, LiftCoefficient: ucpp.num.Float32, WindVelocity: Vector): Void;
 	public function ResetAndTeleport(bReset: Bool, bTeleport: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +32,7 @@ abstract ConstChaosClothingInteractor(ChaosClothingInteractor) from ChaosClothin
 @:forward
 @:nativeGen
 @:native("ChaosClothingInteractor*")
-abstract ChaosClothingInteractorPtr(cpp.Star<ChaosClothingInteractor>) from cpp.Star<ChaosClothingInteractor> to cpp.Star<ChaosClothingInteractor>{
+abstract ChaosClothingInteractorPtr(ucpp.Ptr<ChaosClothingInteractor>) from ucpp.Ptr<ChaosClothingInteractor> to ucpp.Ptr<ChaosClothingInteractor>{
 	@:from
 	public static extern inline function fromValue(v: ChaosClothingInteractor): ChaosClothingInteractorPtr {
 		return untyped __cpp__("&({0})", v);

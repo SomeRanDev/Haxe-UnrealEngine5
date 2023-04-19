@@ -3,7 +3,7 @@ package ue;
 
 @:native("FContentBrowserDataFilter")
 @:include("ContentBrowserDataFilter.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserDataFilter {
 	public var bRecursivePaths: Bool;
 	public var ItemTypeFilter: EContentBrowserItemTypeFilter;

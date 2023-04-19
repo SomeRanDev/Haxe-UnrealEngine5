@@ -3,7 +3,7 @@ package ue;
 
 @:native("FToolMenuEntryScriptDataAdvanced")
 @:include("ToolMenuEntryScript.h")
-@:structAccess
+@:valueType
 extern class ToolMenuEntryScriptDataAdvanced {
 	public var TutorialHighlight: FName;
 	public var EntryType: EMultiBlockType;

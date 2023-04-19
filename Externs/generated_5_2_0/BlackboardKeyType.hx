@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBlackboardKeyType")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType.h")
-@:structAccess
+@:valueType
 extern class BlackboardKeyType extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlackboardKeyType(BlackboardKeyType) from BlackboardKeyType {
 @:forward
 @:nativeGen
 @:native("BlackboardKeyType*")
-abstract BlackboardKeyTypePtr(cpp.Star<BlackboardKeyType>) from cpp.Star<BlackboardKeyType> to cpp.Star<BlackboardKeyType>{
+abstract BlackboardKeyTypePtr(ucpp.Ptr<BlackboardKeyType>) from ucpp.Ptr<BlackboardKeyType> to ucpp.Ptr<BlackboardKeyType>{
 	@:from
 	public static extern inline function fromValue(v: BlackboardKeyType): BlackboardKeyTypePtr {
 		return untyped __cpp__("&({0})", v);

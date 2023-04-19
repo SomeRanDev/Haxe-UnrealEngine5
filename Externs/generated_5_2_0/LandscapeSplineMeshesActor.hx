@@ -3,11 +3,11 @@ package ue;
 
 @:native("ALandscapeSplineMeshesActor")
 @:include("LandscapeSplineMeshesActor.h")
-@:structAccess
+@:valueType
 extern class LandscapeSplineMeshesActor extends PartitionActor {
-	private var StaticMeshComponents: TArray<cpp.Star<StaticMeshComp>>;
+	private var StaticMeshComponents: TArray<ucpp.Ptr<StaticMeshComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstLandscapeSplineMeshesActor(LandscapeSplineMeshesActor) from Landsc
 @:forward
 @:nativeGen
 @:native("LandscapeSplineMeshesActor*")
-abstract LandscapeSplineMeshesActorPtr(cpp.Star<LandscapeSplineMeshesActor>) from cpp.Star<LandscapeSplineMeshesActor> to cpp.Star<LandscapeSplineMeshesActor>{
+abstract LandscapeSplineMeshesActorPtr(ucpp.Ptr<LandscapeSplineMeshesActor>) from ucpp.Ptr<LandscapeSplineMeshesActor> to ucpp.Ptr<LandscapeSplineMeshesActor>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSplineMeshesActor): LandscapeSplineMeshesActorPtr {
 		return untyped __cpp__("&({0})", v);

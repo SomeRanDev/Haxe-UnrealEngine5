@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshGroupPaintToolActionPropertySet")
 @:include("MeshGroupPaintTool.h")
-@:structAccess
+@:valueType
 extern class MeshGroupPaintToolActionPropertySet extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshGroupPaintToolActionPropertySet(MeshGroupPaintToolActionProper
 @:forward
 @:nativeGen
 @:native("MeshGroupPaintToolActionPropertySet*")
-abstract MeshGroupPaintToolActionPropertySetPtr(cpp.Star<MeshGroupPaintToolActionPropertySet>) from cpp.Star<MeshGroupPaintToolActionPropertySet> to cpp.Star<MeshGroupPaintToolActionPropertySet>{
+abstract MeshGroupPaintToolActionPropertySetPtr(ucpp.Ptr<MeshGroupPaintToolActionPropertySet>) from ucpp.Ptr<MeshGroupPaintToolActionPropertySet> to ucpp.Ptr<MeshGroupPaintToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: MeshGroupPaintToolActionPropertySet): MeshGroupPaintToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

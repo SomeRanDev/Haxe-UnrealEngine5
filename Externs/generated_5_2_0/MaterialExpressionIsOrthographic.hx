@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionIsOrthographic")
 @:include("Materials/MaterialExpressionIsOrthographic.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionIsOrthographic extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionIsOrthographic(MaterialExpressionIsOrthographic)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionIsOrthographic*")
-abstract MaterialExpressionIsOrthographicPtr(cpp.Star<MaterialExpressionIsOrthographic>) from cpp.Star<MaterialExpressionIsOrthographic> to cpp.Star<MaterialExpressionIsOrthographic>{
+abstract MaterialExpressionIsOrthographicPtr(ucpp.Ptr<MaterialExpressionIsOrthographic>) from ucpp.Ptr<MaterialExpressionIsOrthographic> to ucpp.Ptr<MaterialExpressionIsOrthographic>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionIsOrthographic): MaterialExpressionIsOrthographicPtr {
 		return untyped __cpp__("&({0})", v);

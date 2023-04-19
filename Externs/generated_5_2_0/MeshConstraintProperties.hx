@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshConstraintProperties")
 @:include("Properties/RemeshProperties.h")
-@:structAccess
+@:valueType
 extern class MeshConstraintProperties extends InteractiveToolPropertySet {
 	public var bPreserveSharpEdges: Bool;
 	public var MeshBoundaryConstraint: EMeshBoundaryConstraint;
@@ -12,7 +12,7 @@ extern class MeshConstraintProperties extends InteractiveToolPropertySet {
 	public var bPreventNormalFlips: Bool;
 	public var bPreventTinyTriangles: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstMeshConstraintProperties(MeshConstraintProperties) from MeshConstr
 @:forward
 @:nativeGen
 @:native("MeshConstraintProperties*")
-abstract MeshConstraintPropertiesPtr(cpp.Star<MeshConstraintProperties>) from cpp.Star<MeshConstraintProperties> to cpp.Star<MeshConstraintProperties>{
+abstract MeshConstraintPropertiesPtr(ucpp.Ptr<MeshConstraintProperties>) from ucpp.Ptr<MeshConstraintProperties> to ucpp.Ptr<MeshConstraintProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshConstraintProperties): MeshConstraintPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

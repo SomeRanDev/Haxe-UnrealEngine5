@@ -3,12 +3,12 @@ package ue;
 
 @:native("FCSVImportSettings")
 @:include("Factories/CSVImportFactory.h")
-@:structAccess
+@:valueType
 extern class CSVImportSettings {
-	public var ImportRowStruct: cpp.Star<ScriptStruct>;
+	public var ImportRowStruct: ucpp.Ptr<ScriptStruct>;
 	public var ImportType: ECSVImportType;
 	public var ImportCurveInterpMode: TEnumAsByte<ERichCurveInterpMode>;
 
 	@:native("FCSVImportSettings") public function new();
-	@:native("FCSVImportSettings") public static function make(ImportRowStruct: cpp.Star<ScriptStruct>, ImportType: ECSVImportType, ImportCurveInterpMode: TEnumAsByte<ERichCurveInterpMode>): CSVImportSettings ;
+	@:native("FCSVImportSettings") public static function make(ImportRowStruct: ucpp.Ptr<ScriptStruct>, ImportType: ECSVImportType, ImportCurveInterpMode: TEnumAsByte<ERichCurveInterpMode>): CSVImportSettings ;
 }

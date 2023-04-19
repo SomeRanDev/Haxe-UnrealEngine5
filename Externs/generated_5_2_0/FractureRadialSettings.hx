@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureRadialSettings")
 @:include("FractureToolRadial.h")
-@:structAccess
+@:valueType
 extern class FractureRadialSettings extends FractureToolSettings {
 	public var Center: Vector;
 	public var Normal: Vector;
 	public var bPositionedByGizmo: Bool;
-	public var AngularSteps: cpp.Int32;
-	public var AngleOffset: cpp.Float32;
-	public var AngularNoise: cpp.Float32;
-	public var Radius: cpp.Float32;
-	public var RadialSteps: cpp.Int32;
-	public var RadialStepExponent: cpp.Float32;
-	public var RadialMinStep: cpp.Float32;
-	public var RadialNoise: cpp.Float32;
-	public var RadialVariability: cpp.Float32;
-	public var AngularVariability: cpp.Float32;
-	public var AxialVariability: cpp.Float32;
+	public var AngularSteps: ucpp.num.Int32;
+	public var AngleOffset: ucpp.num.Float32;
+	public var AngularNoise: ucpp.num.Float32;
+	public var Radius: ucpp.num.Float32;
+	public var RadialSteps: ucpp.num.Int32;
+	public var RadialStepExponent: ucpp.num.Float32;
+	public var RadialMinStep: ucpp.num.Float32;
+	public var RadialNoise: ucpp.num.Float32;
+	public var RadialVariability: ucpp.num.Float32;
+	public var AngularVariability: ucpp.num.Float32;
+	public var AxialVariability: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,34 +32,34 @@ abstract ConstFractureRadialSettings(FractureRadialSettings) from FractureRadial
 	public inline extern function get_Normal(): Vector return this.Normal;
 	public extern var bPositionedByGizmo(get, never): Bool;
 	public inline extern function get_bPositionedByGizmo(): Bool return this.bPositionedByGizmo;
-	public extern var AngularSteps(get, never): cpp.Int32;
-	public inline extern function get_AngularSteps(): cpp.Int32 return this.AngularSteps;
-	public extern var AngleOffset(get, never): cpp.Float32;
-	public inline extern function get_AngleOffset(): cpp.Float32 return this.AngleOffset;
-	public extern var AngularNoise(get, never): cpp.Float32;
-	public inline extern function get_AngularNoise(): cpp.Float32 return this.AngularNoise;
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var RadialSteps(get, never): cpp.Int32;
-	public inline extern function get_RadialSteps(): cpp.Int32 return this.RadialSteps;
-	public extern var RadialStepExponent(get, never): cpp.Float32;
-	public inline extern function get_RadialStepExponent(): cpp.Float32 return this.RadialStepExponent;
-	public extern var RadialMinStep(get, never): cpp.Float32;
-	public inline extern function get_RadialMinStep(): cpp.Float32 return this.RadialMinStep;
-	public extern var RadialNoise(get, never): cpp.Float32;
-	public inline extern function get_RadialNoise(): cpp.Float32 return this.RadialNoise;
-	public extern var RadialVariability(get, never): cpp.Float32;
-	public inline extern function get_RadialVariability(): cpp.Float32 return this.RadialVariability;
-	public extern var AngularVariability(get, never): cpp.Float32;
-	public inline extern function get_AngularVariability(): cpp.Float32 return this.AngularVariability;
-	public extern var AxialVariability(get, never): cpp.Float32;
-	public inline extern function get_AxialVariability(): cpp.Float32 return this.AxialVariability;
+	public extern var AngularSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_AngularSteps(): ucpp.num.Int32 return this.AngularSteps;
+	public extern var AngleOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_AngleOffset(): ucpp.num.Float32 return this.AngleOffset;
+	public extern var AngularNoise(get, never): ucpp.num.Float32;
+	public inline extern function get_AngularNoise(): ucpp.num.Float32 return this.AngularNoise;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
+	public extern var RadialSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_RadialSteps(): ucpp.num.Int32 return this.RadialSteps;
+	public extern var RadialStepExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_RadialStepExponent(): ucpp.num.Float32 return this.RadialStepExponent;
+	public extern var RadialMinStep(get, never): ucpp.num.Float32;
+	public inline extern function get_RadialMinStep(): ucpp.num.Float32 return this.RadialMinStep;
+	public extern var RadialNoise(get, never): ucpp.num.Float32;
+	public inline extern function get_RadialNoise(): ucpp.num.Float32 return this.RadialNoise;
+	public extern var RadialVariability(get, never): ucpp.num.Float32;
+	public inline extern function get_RadialVariability(): ucpp.num.Float32 return this.RadialVariability;
+	public extern var AngularVariability(get, never): ucpp.num.Float32;
+	public inline extern function get_AngularVariability(): ucpp.num.Float32 return this.AngularVariability;
+	public extern var AxialVariability(get, never): ucpp.num.Float32;
+	public inline extern function get_AxialVariability(): ucpp.num.Float32 return this.AxialVariability;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureRadialSettings*")
-abstract FractureRadialSettingsPtr(cpp.Star<FractureRadialSettings>) from cpp.Star<FractureRadialSettings> to cpp.Star<FractureRadialSettings>{
+abstract FractureRadialSettingsPtr(ucpp.Ptr<FractureRadialSettings>) from ucpp.Ptr<FractureRadialSettings> to ucpp.Ptr<FractureRadialSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureRadialSettings): FractureRadialSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMediaComponent")
 @:include("MediaComponent.h")
-@:structAccess
+@:valueType
 extern class MediaComp extends ActorComp {
-	public function GetMediaTexture(): cpp.Star<MediaTexture>;
-	public function GetMediaPlayer(): cpp.Star<MediaPlayer>;
+	public function GetMediaTexture(): ucpp.Ptr<MediaTexture>;
+	public function GetMediaPlayer(): ucpp.Ptr<MediaPlayer>;
 
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMediaComp(MediaComp) from MediaComp {
 @:forward
 @:nativeGen
 @:native("MediaComp*")
-abstract MediaCompPtr(cpp.Star<MediaComp>) from cpp.Star<MediaComp> to cpp.Star<MediaComp>{
+abstract MediaCompPtr(ucpp.Ptr<MediaComp>) from ucpp.Ptr<MediaComp> to ucpp.Ptr<MediaComp>{
 	@:from
 	public static extern inline function fromValue(v: MediaComp): MediaCompPtr {
 		return untyped __cpp__("&({0})", v);

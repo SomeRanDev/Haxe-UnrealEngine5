@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterchangeAnimationPayloadInterface")
-@:structAccess
+@:valueType
 extern class InterchangeAnimationPayloadInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterchangeAnimationPayloadInterface(InterchangeAnimationPayloadIn
 @:forward
 @:nativeGen
 @:native("InterchangeAnimationPayloadInterface*")
-abstract InterchangeAnimationPayloadInterfacePtr(cpp.Star<InterchangeAnimationPayloadInterface>) from cpp.Star<InterchangeAnimationPayloadInterface> to cpp.Star<InterchangeAnimationPayloadInterface>{
+abstract InterchangeAnimationPayloadInterfacePtr(ucpp.Ptr<InterchangeAnimationPayloadInterface>) from ucpp.Ptr<InterchangeAnimationPayloadInterface> to ucpp.Ptr<InterchangeAnimationPayloadInterface>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeAnimationPayloadInterface): InterchangeAnimationPayloadInterfacePtr {
 		return untyped __cpp__("&({0})", v);

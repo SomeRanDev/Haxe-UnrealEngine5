@@ -3,19 +3,19 @@ package ue;
 
 @:native("UParticleModuleCollisionGPU")
 @:include("Particles/Collision/ParticleModuleCollisionGPU.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleCollisionGPU extends ParticleModuleCollisionBase {
 	public var Resilience: RawDistributionFloat;
 	public var ResilienceScaleOverLife: RawDistributionFloat;
-	public var Friction: cpp.Float32;
-	public var RandomSpread: cpp.Float32;
-	public var RandomDistribution: cpp.Float32;
-	public var RadiusScale: cpp.Float32;
-	public var RadiusBias: cpp.Float32;
+	public var Friction: ucpp.num.Float32;
+	public var RandomSpread: ucpp.num.Float32;
+	public var RandomDistribution: ucpp.num.Float32;
+	public var RadiusScale: ucpp.num.Float32;
+	public var RadiusBias: ucpp.num.Float32;
 	public var Response: TEnumAsByte<EParticleCollisionResponse>;
 	public var CollisionMode: TEnumAsByte<EParticleCollisionMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,16 +25,16 @@ abstract ConstParticleModuleCollisionGPU(ParticleModuleCollisionGPU) from Partic
 	public inline extern function get_Resilience(): RawDistributionFloat return this.Resilience;
 	public extern var ResilienceScaleOverLife(get, never): RawDistributionFloat;
 	public inline extern function get_ResilienceScaleOverLife(): RawDistributionFloat return this.ResilienceScaleOverLife;
-	public extern var Friction(get, never): cpp.Float32;
-	public inline extern function get_Friction(): cpp.Float32 return this.Friction;
-	public extern var RandomSpread(get, never): cpp.Float32;
-	public inline extern function get_RandomSpread(): cpp.Float32 return this.RandomSpread;
-	public extern var RandomDistribution(get, never): cpp.Float32;
-	public inline extern function get_RandomDistribution(): cpp.Float32 return this.RandomDistribution;
-	public extern var RadiusScale(get, never): cpp.Float32;
-	public inline extern function get_RadiusScale(): cpp.Float32 return this.RadiusScale;
-	public extern var RadiusBias(get, never): cpp.Float32;
-	public inline extern function get_RadiusBias(): cpp.Float32 return this.RadiusBias;
+	public extern var Friction(get, never): ucpp.num.Float32;
+	public inline extern function get_Friction(): ucpp.num.Float32 return this.Friction;
+	public extern var RandomSpread(get, never): ucpp.num.Float32;
+	public inline extern function get_RandomSpread(): ucpp.num.Float32 return this.RandomSpread;
+	public extern var RandomDistribution(get, never): ucpp.num.Float32;
+	public inline extern function get_RandomDistribution(): ucpp.num.Float32 return this.RandomDistribution;
+	public extern var RadiusScale(get, never): ucpp.num.Float32;
+	public inline extern function get_RadiusScale(): ucpp.num.Float32 return this.RadiusScale;
+	public extern var RadiusBias(get, never): ucpp.num.Float32;
+	public inline extern function get_RadiusBias(): ucpp.num.Float32 return this.RadiusBias;
 	public extern var Response(get, never): TEnumAsByte<EParticleCollisionResponse>;
 	public inline extern function get_Response(): TEnumAsByte<EParticleCollisionResponse> return this.Response;
 	public extern var CollisionMode(get, never): TEnumAsByte<EParticleCollisionMode>;
@@ -44,7 +44,7 @@ abstract ConstParticleModuleCollisionGPU(ParticleModuleCollisionGPU) from Partic
 @:forward
 @:nativeGen
 @:native("ParticleModuleCollisionGPU*")
-abstract ParticleModuleCollisionGPUPtr(cpp.Star<ParticleModuleCollisionGPU>) from cpp.Star<ParticleModuleCollisionGPU> to cpp.Star<ParticleModuleCollisionGPU>{
+abstract ParticleModuleCollisionGPUPtr(ucpp.Ptr<ParticleModuleCollisionGPU>) from ucpp.Ptr<ParticleModuleCollisionGPU> to ucpp.Ptr<ParticleModuleCollisionGPU>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleCollisionGPU): ParticleModuleCollisionGPUPtr {
 		return untyped __cpp__("&({0})", v);

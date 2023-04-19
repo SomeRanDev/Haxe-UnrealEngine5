@@ -3,13 +3,13 @@ package ue;
 
 @:native("UUserGeneratedContentLocalizationSettings")
 @:include("UserGeneratedContentLocalization.h")
-@:structAccess
+@:valueType
 extern class UserGeneratedContentLocalizationSettings extends Object {
 	public var CulturesToDisable: TArray<FString>;
 	public var bCompileDLCLocalizationDuringCook: Bool;
 	public var bValidateDLCLocalizationDuringCook: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstUserGeneratedContentLocalizationSettings(UserGeneratedContentLocal
 @:forward
 @:nativeGen
 @:native("UserGeneratedContentLocalizationSettings*")
-abstract UserGeneratedContentLocalizationSettingsPtr(cpp.Star<UserGeneratedContentLocalizationSettings>) from cpp.Star<UserGeneratedContentLocalizationSettings> to cpp.Star<UserGeneratedContentLocalizationSettings>{
+abstract UserGeneratedContentLocalizationSettingsPtr(ucpp.Ptr<UserGeneratedContentLocalizationSettings>) from ucpp.Ptr<UserGeneratedContentLocalizationSettings> to ucpp.Ptr<UserGeneratedContentLocalizationSettings>{
 	@:from
 	public static extern inline function fromValue(v: UserGeneratedContentLocalizationSettings): UserGeneratedContentLocalizationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

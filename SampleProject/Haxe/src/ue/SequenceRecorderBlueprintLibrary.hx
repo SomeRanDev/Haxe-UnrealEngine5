@@ -3,13 +3,13 @@ package ue;
 
 @:native("USequenceRecorderBlueprintLibrary")
 @:include("SequenceRecorderBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class SequenceRecorderBlueprintLibrary extends BlueprintFunctionLibrary {
 	private function StopRecordingSequence(): Void;
-	private function StartRecordingSequence(ActorsToRecord: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	private function StartRecordingSequence(ActorsToRecord: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
 	private function IsRecordingSequence(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSequenceRecorderBlueprintLibrary(SequenceRecorderBlueprintLibrary)
 @:forward
 @:nativeGen
 @:native("SequenceRecorderBlueprintLibrary*")
-abstract SequenceRecorderBlueprintLibraryPtr(cpp.Star<SequenceRecorderBlueprintLibrary>) from cpp.Star<SequenceRecorderBlueprintLibrary> to cpp.Star<SequenceRecorderBlueprintLibrary>{
+abstract SequenceRecorderBlueprintLibraryPtr(ucpp.Ptr<SequenceRecorderBlueprintLibrary>) from ucpp.Ptr<SequenceRecorderBlueprintLibrary> to ucpp.Ptr<SequenceRecorderBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SequenceRecorderBlueprintLibrary): SequenceRecorderBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

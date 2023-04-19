@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInteractiveToolWithToolTargetsBuilder")
 @:include("InteractiveToolBuilder.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolWithToolTargetsBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInteractiveToolWithToolTargetsBuilder(InteractiveToolWithToolTarge
 @:forward
 @:nativeGen
 @:native("InteractiveToolWithToolTargetsBuilder*")
-abstract InteractiveToolWithToolTargetsBuilderPtr(cpp.Star<InteractiveToolWithToolTargetsBuilder>) from cpp.Star<InteractiveToolWithToolTargetsBuilder> to cpp.Star<InteractiveToolWithToolTargetsBuilder>{
+abstract InteractiveToolWithToolTargetsBuilderPtr(ucpp.Ptr<InteractiveToolWithToolTargetsBuilder>) from ucpp.Ptr<InteractiveToolWithToolTargetsBuilder> to ucpp.Ptr<InteractiveToolWithToolTargetsBuilder>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolWithToolTargetsBuilder): InteractiveToolWithToolTargetsBuilderPtr {
 		return untyped __cpp__("&({0})", v);

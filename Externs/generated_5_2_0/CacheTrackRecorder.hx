@@ -3,18 +3,18 @@ package ue;
 
 @:native("UCacheTrackRecorder")
 @:include("Recorder/CacheTrackRecorder.h")
-@:structAccess
+@:valueType
 extern class CacheTrackRecorder extends Object {
-	private var SequenceAsset: cpp.Star<LevelSequence>;
+	private var SequenceAsset: ucpp.Ptr<LevelSequence>;
 	private var WeakWorld: TWeakObjectPtr<World>;
 	private var Parameters: CacheRecorderParameters;
 	private var CacheTracks: TArray<CachedTrackSource>;
 
 	public function GetState(): ECacheTrackRecorderState;
-	public function GetSequence(): cpp.Star<LevelSequence>;
-	public function GetCountdownSeconds(): cpp.Float32;
+	public function GetSequence(): ucpp.Ptr<LevelSequence>;
+	public function GetCountdownSeconds(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetState, GetSequence, GetCountdownSeconds)
@@ -25,7 +25,7 @@ abstract ConstCacheTrackRecorder(CacheTrackRecorder) from CacheTrackRecorder {
 @:forward
 @:nativeGen
 @:native("CacheTrackRecorder*")
-abstract CacheTrackRecorderPtr(cpp.Star<CacheTrackRecorder>) from cpp.Star<CacheTrackRecorder> to cpp.Star<CacheTrackRecorder>{
+abstract CacheTrackRecorderPtr(ucpp.Ptr<CacheTrackRecorder>) from ucpp.Ptr<CacheTrackRecorder> to ucpp.Ptr<CacheTrackRecorder>{
 	@:from
 	public static extern inline function fromValue(v: CacheTrackRecorder): CacheTrackRecorderPtr {
 		return untyped __cpp__("&({0})", v);

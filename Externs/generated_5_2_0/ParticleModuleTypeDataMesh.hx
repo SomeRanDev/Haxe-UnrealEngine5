@@ -3,10 +3,10 @@ package ue;
 
 @:native("UParticleModuleTypeDataMesh")
 @:include("Particles/TypeData/ParticleModuleTypeDataMesh.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleTypeDataMesh extends ParticleModuleTypeDataBase {
-	public var Mesh: cpp.Star<StaticMesh>;
-	public var LODSizeScale: cpp.Float32;
+	public var Mesh: ucpp.Ptr<StaticMesh>;
+	public var LODSizeScale: ucpp.num.Float32;
 	public var bUseStaticMeshLODs: Bool;
 	public var CastShadows: Bool;
 	public var DoCollisions: Bool;
@@ -22,16 +22,16 @@ extern class ParticleModuleTypeDataMesh extends ParticleModuleTypeDataBase {
 	public var bFaceCameraDirectionRatherThanPosition: Bool;
 	public var bCollisionsConsiderPartilceSize: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleTypeDataMesh(ParticleModuleTypeDataMesh) from ParticleModuleTypeDataMesh {
-	public extern var Mesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_Mesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.Mesh;
-	public extern var LODSizeScale(get, never): cpp.Float32;
-	public inline extern function get_LODSizeScale(): cpp.Float32 return this.LODSizeScale;
+	public extern var Mesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_Mesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.Mesh;
+	public extern var LODSizeScale(get, never): ucpp.num.Float32;
+	public inline extern function get_LODSizeScale(): ucpp.num.Float32 return this.LODSizeScale;
 	public extern var bUseStaticMeshLODs(get, never): Bool;
 	public inline extern function get_bUseStaticMeshLODs(): Bool return this.bUseStaticMeshLODs;
 	public extern var CastShadows(get, never): Bool;
@@ -65,7 +65,7 @@ abstract ConstParticleModuleTypeDataMesh(ParticleModuleTypeDataMesh) from Partic
 @:forward
 @:nativeGen
 @:native("ParticleModuleTypeDataMesh*")
-abstract ParticleModuleTypeDataMeshPtr(cpp.Star<ParticleModuleTypeDataMesh>) from cpp.Star<ParticleModuleTypeDataMesh> to cpp.Star<ParticleModuleTypeDataMesh>{
+abstract ParticleModuleTypeDataMeshPtr(ucpp.Ptr<ParticleModuleTypeDataMesh>) from ucpp.Ptr<ParticleModuleTypeDataMesh> to ucpp.Ptr<ParticleModuleTypeDataMesh>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleTypeDataMesh): ParticleModuleTypeDataMeshPtr {
 		return untyped __cpp__("&({0})", v);

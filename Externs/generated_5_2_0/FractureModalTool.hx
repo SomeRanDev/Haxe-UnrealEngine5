@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureModalTool")
 @:include("FractureTool.h")
-@:structAccess
+@:valueType
 extern class FractureModalTool extends FractureActionTool {
-	@:protected public var VisualizedCollections: TArray<cpp.Star<GeometryCollectionComp>>;
+	@:protected public var VisualizedCollections: TArray<ucpp.Ptr<GeometryCollectionComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureModalTool(FractureModalTool) from FractureModalTool {
 @:forward
 @:nativeGen
 @:native("FractureModalTool*")
-abstract FractureModalToolPtr(cpp.Star<FractureModalTool>) from cpp.Star<FractureModalTool> to cpp.Star<FractureModalTool>{
+abstract FractureModalToolPtr(ucpp.Ptr<FractureModalTool>) from ucpp.Ptr<FractureModalTool> to ucpp.Ptr<FractureModalTool>{
 	@:from
 	public static extern inline function fromValue(v: FractureModalTool): FractureModalToolPtr {
 		return untyped __cpp__("&({0})", v);

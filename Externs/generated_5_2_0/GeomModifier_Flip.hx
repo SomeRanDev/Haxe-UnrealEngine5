@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeomModifier_Flip")
 @:include("GeomModifier_Flip.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Flip extends GeomModifier_Edit {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeomModifier_Flip(GeomModifier_Flip) from GeomModifier_Flip {
 @:forward
 @:nativeGen
 @:native("GeomModifier_Flip*")
-abstract GeomModifier_FlipPtr(cpp.Star<GeomModifier_Flip>) from cpp.Star<GeomModifier_Flip> to cpp.Star<GeomModifier_Flip>{
+abstract GeomModifier_FlipPtr(ucpp.Ptr<GeomModifier_Flip>) from ucpp.Ptr<GeomModifier_Flip> to ucpp.Ptr<GeomModifier_Flip>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Flip): GeomModifier_FlipPtr {
 		return untyped __cpp__("&({0})", v);

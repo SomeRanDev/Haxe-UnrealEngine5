@@ -3,10 +3,10 @@ package ue;
 
 @:native("UIrisObjectReferencePackageMap")
 @:include("Iris/Serialization/IrisObjectReferencePackageMap.h")
-@:structAccess
+@:valueType
 extern class IrisObjectReferencePackageMap extends PackageMap {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstIrisObjectReferencePackageMap(IrisObjectReferencePackageMap) from 
 @:forward
 @:nativeGen
 @:native("IrisObjectReferencePackageMap*")
-abstract IrisObjectReferencePackageMapPtr(cpp.Star<IrisObjectReferencePackageMap>) from cpp.Star<IrisObjectReferencePackageMap> to cpp.Star<IrisObjectReferencePackageMap>{
+abstract IrisObjectReferencePackageMapPtr(ucpp.Ptr<IrisObjectReferencePackageMap>) from ucpp.Ptr<IrisObjectReferencePackageMap> to ucpp.Ptr<IrisObjectReferencePackageMap>{
 	@:from
 	public static extern inline function fromValue(v: IrisObjectReferencePackageMap): IrisObjectReferencePackageMapPtr {
 		return untyped __cpp__("&({0})", v);

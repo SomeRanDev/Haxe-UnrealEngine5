@@ -3,14 +3,14 @@ package ue;
 
 @:native("UVolumeToMeshToolProperties")
 @:include("VolumeToMeshTool.h")
-@:structAccess
+@:valueType
 extern class VolumeToMeshToolProperties extends InteractiveToolPropertySet {
 	public var bWeldEdges: Bool;
 	public var bAutoRepair: Bool;
 	public var bOptimizeMesh: Bool;
 	public var bShowWireframe: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstVolumeToMeshToolProperties(VolumeToMeshToolProperties) from Volume
 @:forward
 @:nativeGen
 @:native("VolumeToMeshToolProperties*")
-abstract VolumeToMeshToolPropertiesPtr(cpp.Star<VolumeToMeshToolProperties>) from cpp.Star<VolumeToMeshToolProperties> to cpp.Star<VolumeToMeshToolProperties>{
+abstract VolumeToMeshToolPropertiesPtr(ucpp.Ptr<VolumeToMeshToolProperties>) from ucpp.Ptr<VolumeToMeshToolProperties> to ucpp.Ptr<VolumeToMeshToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: VolumeToMeshToolProperties): VolumeToMeshToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

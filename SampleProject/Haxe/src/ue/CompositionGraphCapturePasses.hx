@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCompositionGraphCapturePasses")
 @:include("Protocols/CompositionGraphCaptureProtocol.h")
-@:structAccess
+@:valueType
 extern class CompositionGraphCapturePasses {
 	public var Value: TArray<FString>;
 

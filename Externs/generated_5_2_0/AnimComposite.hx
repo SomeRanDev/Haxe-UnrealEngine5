@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimComposite")
 @:include("Animation/AnimComposite.h")
-@:structAccess
+@:valueType
 extern class AnimComposite extends AnimCompositeBase {
 	public var AnimationTrack: AnimTrack;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimComposite(AnimComposite) from AnimComposite {
 @:forward
 @:nativeGen
 @:native("AnimComposite*")
-abstract AnimCompositePtr(cpp.Star<AnimComposite>) from cpp.Star<AnimComposite> to cpp.Star<AnimComposite>{
+abstract AnimCompositePtr(ucpp.Ptr<AnimComposite>) from ucpp.Ptr<AnimComposite> to ucpp.Ptr<AnimComposite>{
 	@:from
 	public static extern inline function fromValue(v: AnimComposite): AnimCompositePtr {
 		return untyped __cpp__("&({0})", v);

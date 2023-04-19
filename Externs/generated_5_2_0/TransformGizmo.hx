@@ -3,14 +3,14 @@ package ue;
 
 @:native("UTransformGizmo")
 @:include("EditorGizmos/TransformGizmo.h")
-@:structAccess
+@:valueType
 extern class TransformGizmo extends InteractiveGizmo {
-	public var ActiveTarget: cpp.Star<TransformProxy>;
-	public var HitTarget: cpp.Star<GizmoElementHitMultiTarget>;
-	public var MouseBehavior: cpp.Star<ClickDragInputBehavior>;
+	public var ActiveTarget: ucpp.Ptr<TransformProxy>;
+	public var HitTarget: ucpp.Ptr<GizmoElementHitMultiTarget>;
+	public var MouseBehavior: ucpp.Ptr<ClickDragInputBehavior>;
 	public var TransformGizmoSource: TransformGizmoSource;
-	public var GizmoElementRoot: cpp.Star<GizmoElementGroup>;
-	public var GizmoViewContext: cpp.Star<GizmoViewContext>;
+	public var GizmoElementRoot: ucpp.Ptr<GizmoElementGroup>;
+	public var GizmoViewContext: ucpp.Ptr<GizmoViewContext>;
 	public var bVisible: Bool;
 	public var bInInteraction: Bool;
 	public var bSnapToWorldGrid: Bool;
@@ -19,39 +19,39 @@ extern class TransformGizmo extends InteractiveGizmo {
 	public var bRotationGridSizeIsExplicit: Bool;
 	public var ExplicitRotationGridSize: Rotator;
 	public var bSnapToWorldRotGrid: Bool;
-	@:protected public var TranslateXAxisElement: cpp.Star<GizmoElementArrow>;
-	@:protected public var TranslateYAxisElement: cpp.Star<GizmoElementArrow>;
-	@:protected public var TranslateZAxisElement: cpp.Star<GizmoElementArrow>;
-	@:protected public var TranslateScreenSpaceElement: cpp.Star<GizmoElementRectangle>;
-	@:protected public var TranslatePlanarXYElement: cpp.Star<GizmoElementRectangle>;
-	@:protected public var TranslatePlanarYZElement: cpp.Star<GizmoElementRectangle>;
-	@:protected public var TranslatePlanarXZElement: cpp.Star<GizmoElementRectangle>;
-	@:protected public var RotateXAxisElement: cpp.Star<GizmoElementTorus>;
-	@:protected public var RotateYAxisElement: cpp.Star<GizmoElementTorus>;
-	@:protected public var RotateZAxisElement: cpp.Star<GizmoElementTorus>;
-	@:protected public var RotateOuterCircleElement: cpp.Star<GizmoElementCircle>;
-	@:protected public var RotateArcballOuterElement: cpp.Star<GizmoElementCircle>;
-	@:protected public var RotateArcballInnerElement: cpp.Star<GizmoElementCircle>;
-	@:protected public var RotateScreenSpaceElement: cpp.Star<GizmoElementCircle>;
-	@:protected public var ScaleXAxisElement: cpp.Star<GizmoElementArrow>;
-	@:protected public var ScaleYAxisElement: cpp.Star<GizmoElementArrow>;
-	@:protected public var ScaleZAxisElement: cpp.Star<GizmoElementArrow>;
-	@:protected public var ScalePlanarXYElement: cpp.Star<GizmoElementRectangle>;
-	@:protected public var ScalePlanarYZElement: cpp.Star<GizmoElementRectangle>;
-	@:protected public var ScalePlanarXZElement: cpp.Star<GizmoElementRectangle>;
-	@:protected public var ScaleUniformElement: cpp.Star<GizmoElementBox>;
-	@:protected public var CameraAxisSource: cpp.Star<GizmoConstantFrameAxisSource>;
-	@:protected public var StateTarget: cpp.Star<GizmoObjectModifyStateTarget>;
-	@:protected public var TransparentVertexColorMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var GridMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var AxisMaterialX: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var AxisMaterialY: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var AxisMaterialZ: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var CurrentAxisMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var GreyMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var WhiteMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var OpaquePlaneMaterialXY: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var ScaleMultiplier: cpp.Float64;
+	@:protected public var TranslateXAxisElement: ucpp.Ptr<GizmoElementArrow>;
+	@:protected public var TranslateYAxisElement: ucpp.Ptr<GizmoElementArrow>;
+	@:protected public var TranslateZAxisElement: ucpp.Ptr<GizmoElementArrow>;
+	@:protected public var TranslateScreenSpaceElement: ucpp.Ptr<GizmoElementRectangle>;
+	@:protected public var TranslatePlanarXYElement: ucpp.Ptr<GizmoElementRectangle>;
+	@:protected public var TranslatePlanarYZElement: ucpp.Ptr<GizmoElementRectangle>;
+	@:protected public var TranslatePlanarXZElement: ucpp.Ptr<GizmoElementRectangle>;
+	@:protected public var RotateXAxisElement: ucpp.Ptr<GizmoElementTorus>;
+	@:protected public var RotateYAxisElement: ucpp.Ptr<GizmoElementTorus>;
+	@:protected public var RotateZAxisElement: ucpp.Ptr<GizmoElementTorus>;
+	@:protected public var RotateOuterCircleElement: ucpp.Ptr<GizmoElementCircle>;
+	@:protected public var RotateArcballOuterElement: ucpp.Ptr<GizmoElementCircle>;
+	@:protected public var RotateArcballInnerElement: ucpp.Ptr<GizmoElementCircle>;
+	@:protected public var RotateScreenSpaceElement: ucpp.Ptr<GizmoElementCircle>;
+	@:protected public var ScaleXAxisElement: ucpp.Ptr<GizmoElementArrow>;
+	@:protected public var ScaleYAxisElement: ucpp.Ptr<GizmoElementArrow>;
+	@:protected public var ScaleZAxisElement: ucpp.Ptr<GizmoElementArrow>;
+	@:protected public var ScalePlanarXYElement: ucpp.Ptr<GizmoElementRectangle>;
+	@:protected public var ScalePlanarYZElement: ucpp.Ptr<GizmoElementRectangle>;
+	@:protected public var ScalePlanarXZElement: ucpp.Ptr<GizmoElementRectangle>;
+	@:protected public var ScaleUniformElement: ucpp.Ptr<GizmoElementBox>;
+	@:protected public var CameraAxisSource: ucpp.Ptr<GizmoConstantFrameAxisSource>;
+	@:protected public var StateTarget: ucpp.Ptr<GizmoObjectModifyStateTarget>;
+	@:protected public var TransparentVertexColorMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var GridMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var AxisMaterialX: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var AxisMaterialY: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var AxisMaterialZ: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var CurrentAxisMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var GreyMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var WhiteMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var OpaquePlaneMaterialXY: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var ScaleMultiplier: ucpp.num.Float64;
 	@:protected public var CurrentTransform: Transform;
 	@:protected public var CurrentMode: EGizmoTransformMode;
 	@:protected public var CurrentAxisToDraw: TEnumAsByte<EAxisList>;
@@ -59,39 +59,39 @@ extern class TransformGizmo extends InteractiveGizmo {
 	@:protected public var InteractionAxisList: TEnumAsByte<EAxisList>;
 	@:protected public var InteractionAxisOrigin: Vector;
 	@:protected public var InteractionAxisDirection: Vector;
-	@:protected public var InteractionAxisStartParam: cpp.Float32;
-	@:protected public var InteractionAxisCurrParam: cpp.Float32;
+	@:protected public var InteractionAxisStartParam: ucpp.num.Float32;
+	@:protected public var InteractionAxisCurrParam: ucpp.num.Float32;
 	@:protected public var InteractionPlanarOrigin: Vector;
 	@:protected public var InteractionPlanarNormal: Vector;
 	@:protected public var InteractionPlanarAxisX: Vector;
 	@:protected public var InteractionPlanarAxisY: Vector;
 	@:protected public var InteractionPlanarStartPoint: Vector;
 	@:protected public var InteractionPlanarCurrPoint: Vector;
-	@:protected public var InteractionStartAngle: cpp.Float32;
-	@:protected public var InteractionCurrAngle: cpp.Float32;
+	@:protected public var InteractionStartAngle: ucpp.num.Float32;
+	@:protected public var InteractionCurrAngle: ucpp.num.Float32;
 	@:protected public var InteractionScreenAxisDirection: Vector2D;
 	@:protected public var InteractionScreenStartPos: Vector2D;
 	@:protected public var InteractionScreenEndPos: Vector2D;
 	@:protected public var InteractionScreenCurrPos: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTransformGizmo(TransformGizmo) from TransformGizmo {
-	public extern var ActiveTarget(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_ActiveTarget(): cpp.Star<TransformProxy.ConstTransformProxy> return this.ActiveTarget;
-	public extern var HitTarget(get, never): cpp.Star<GizmoElementHitMultiTarget.ConstGizmoElementHitMultiTarget>;
-	public inline extern function get_HitTarget(): cpp.Star<GizmoElementHitMultiTarget.ConstGizmoElementHitMultiTarget> return this.HitTarget;
-	public extern var MouseBehavior(get, never): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior>;
-	public inline extern function get_MouseBehavior(): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
+	public extern var ActiveTarget(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_ActiveTarget(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.ActiveTarget;
+	public extern var HitTarget(get, never): ucpp.Ptr<GizmoElementHitMultiTarget.ConstGizmoElementHitMultiTarget>;
+	public inline extern function get_HitTarget(): ucpp.Ptr<GizmoElementHitMultiTarget.ConstGizmoElementHitMultiTarget> return this.HitTarget;
+	public extern var MouseBehavior(get, never): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior>;
+	public inline extern function get_MouseBehavior(): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
 	public extern var TransformGizmoSource(get, never): TransformGizmoSource.ConstTransformGizmoSource;
 	public inline extern function get_TransformGizmoSource(): TransformGizmoSource.ConstTransformGizmoSource return this.TransformGizmoSource;
-	public extern var GizmoElementRoot(get, never): cpp.Star<GizmoElementGroup.ConstGizmoElementGroup>;
-	public inline extern function get_GizmoElementRoot(): cpp.Star<GizmoElementGroup.ConstGizmoElementGroup> return this.GizmoElementRoot;
-	public extern var GizmoViewContext(get, never): cpp.Star<GizmoViewContext.ConstGizmoViewContext>;
-	public inline extern function get_GizmoViewContext(): cpp.Star<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
+	public extern var GizmoElementRoot(get, never): ucpp.Ptr<GizmoElementGroup.ConstGizmoElementGroup>;
+	public inline extern function get_GizmoElementRoot(): ucpp.Ptr<GizmoElementGroup.ConstGizmoElementGroup> return this.GizmoElementRoot;
+	public extern var GizmoViewContext(get, never): ucpp.Ptr<GizmoViewContext.ConstGizmoViewContext>;
+	public inline extern function get_GizmoViewContext(): ucpp.Ptr<GizmoViewContext.ConstGizmoViewContext> return this.GizmoViewContext;
 	public extern var bVisible(get, never): Bool;
 	public inline extern function get_bVisible(): Bool return this.bVisible;
 	public extern var bInInteraction(get, never): Bool;
@@ -113,7 +113,7 @@ abstract ConstTransformGizmo(TransformGizmo) from TransformGizmo {
 @:forward
 @:nativeGen
 @:native("TransformGizmo*")
-abstract TransformGizmoPtr(cpp.Star<TransformGizmo>) from cpp.Star<TransformGizmo> to cpp.Star<TransformGizmo>{
+abstract TransformGizmoPtr(ucpp.Ptr<TransformGizmo>) from ucpp.Ptr<TransformGizmo> to ucpp.Ptr<TransformGizmo>{
 	@:from
 	public static extern inline function fromValue(v: TransformGizmo): TransformGizmoPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAISense_Prediction")
 @:include("Perception/AISense_Prediction.h")
-@:structAccess
+@:valueType
 extern class AISense_Prediction extends AISense {
 	public var RegisteredEvents: TArray<AIPredictionEvent>;
 
-	public function RequestPawnPredictionEvent(Requestor: cpp.Star<Pawn>, PredictedActor: cpp.Star<Actor>, PredictionTime: cpp.Float32): Void;
-	public function RequestControllerPredictionEvent(Requestor: cpp.Star<AIController>, PredictedActor: cpp.Star<Actor>, PredictionTime: cpp.Float32): Void;
+	public function RequestPawnPredictionEvent(Requestor: ucpp.Ptr<Pawn>, PredictedActor: ucpp.Ptr<Actor>, PredictionTime: ucpp.num.Float32): Void;
+	public function RequestControllerPredictionEvent(Requestor: ucpp.Ptr<AIController>, PredictedActor: ucpp.Ptr<Actor>, PredictionTime: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstAISense_Prediction(AISense_Prediction) from AISense_Prediction {
 @:forward
 @:nativeGen
 @:native("AISense_Prediction*")
-abstract AISense_PredictionPtr(cpp.Star<AISense_Prediction>) from cpp.Star<AISense_Prediction> to cpp.Star<AISense_Prediction>{
+abstract AISense_PredictionPtr(ucpp.Ptr<AISense_Prediction>) from ucpp.Ptr<AISense_Prediction> to ucpp.Ptr<AISense_Prediction>{
 	@:from
 	public static extern inline function fromValue(v: AISense_Prediction): AISense_PredictionPtr {
 		return untyped __cpp__("&({0})", v);

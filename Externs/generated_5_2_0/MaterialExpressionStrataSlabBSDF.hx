@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataSlabBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataSlabBSDF extends MaterialExpressionStrataBSDF {
 	public var DiffuseAlbedo: ExpressionInput;
 	public var F0: ExpressionInput;
@@ -21,10 +21,10 @@ extern class MaterialExpressionStrataSlabBSDF extends MaterialExpressionStrataBS
 	public var FuzzRoughness: ExpressionInput;
 	public var FuzzAmount: ExpressionInput;
 	public var FuzzColor: ExpressionInput;
-	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
+	public var SubsurfaceProfile: ucpp.Ptr<SubsurfaceProfile>;
 	public var bUseSSSDiffusion: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -62,8 +62,8 @@ abstract ConstMaterialExpressionStrataSlabBSDF(MaterialExpressionStrataSlabBSDF)
 	public inline extern function get_FuzzAmount(): ExpressionInput return this.FuzzAmount;
 	public extern var FuzzColor(get, never): ExpressionInput;
 	public inline extern function get_FuzzColor(): ExpressionInput return this.FuzzColor;
-	public extern var SubsurfaceProfile(get, never): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile>;
-	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
+	public extern var SubsurfaceProfile(get, never): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile>;
+	public inline extern function get_SubsurfaceProfile(): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
 	public extern var bUseSSSDiffusion(get, never): Bool;
 	public inline extern function get_bUseSSSDiffusion(): Bool return this.bUseSSSDiffusion;
 }
@@ -71,7 +71,7 @@ abstract ConstMaterialExpressionStrataSlabBSDF(MaterialExpressionStrataSlabBSDF)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataSlabBSDF*")
-abstract MaterialExpressionStrataSlabBSDFPtr(cpp.Star<MaterialExpressionStrataSlabBSDF>) from cpp.Star<MaterialExpressionStrataSlabBSDF> to cpp.Star<MaterialExpressionStrataSlabBSDF>{
+abstract MaterialExpressionStrataSlabBSDFPtr(ucpp.Ptr<MaterialExpressionStrataSlabBSDF>) from ucpp.Ptr<MaterialExpressionStrataSlabBSDF> to ucpp.Ptr<MaterialExpressionStrataSlabBSDF>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataSlabBSDF): MaterialExpressionStrataSlabBSDFPtr {
 		return untyped __cpp__("&({0})", v);

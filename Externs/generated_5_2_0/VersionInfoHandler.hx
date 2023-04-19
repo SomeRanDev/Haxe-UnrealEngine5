@@ -3,13 +3,13 @@ package ue;
 
 @:native("UVersionInfoHandler")
 @:include("Utilities/VersionInfoHandler.h")
-@:structAccess
+@:valueType
 extern class VersionInfoHandler extends Object {
 	public var CommonVersionData: VersionData;
 
-	public function Get(): cpp.Star<VersionInfoHandler>;
+	public function Get(): ucpp.Ptr<VersionInfoHandler>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstVersionInfoHandler(VersionInfoHandler) from VersionInfoHandler {
 @:forward
 @:nativeGen
 @:native("VersionInfoHandler*")
-abstract VersionInfoHandlerPtr(cpp.Star<VersionInfoHandler>) from cpp.Star<VersionInfoHandler> to cpp.Star<VersionInfoHandler>{
+abstract VersionInfoHandlerPtr(ucpp.Ptr<VersionInfoHandler>) from ucpp.Ptr<VersionInfoHandler> to ucpp.Ptr<VersionInfoHandler>{
 	@:from
 	public static extern inline function fromValue(v: VersionInfoHandler): VersionInfoHandlerPtr {
 		return untyped __cpp__("&({0})", v);

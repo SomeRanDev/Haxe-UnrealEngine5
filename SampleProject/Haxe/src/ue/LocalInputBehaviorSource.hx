@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULocalInputBehaviorSource")
 @:include("InputBehaviorSet.h")
-@:structAccess
+@:valueType
 extern class LocalInputBehaviorSource extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLocalInputBehaviorSource(LocalInputBehaviorSource) from LocalInput
 @:forward
 @:nativeGen
 @:native("LocalInputBehaviorSource*")
-abstract LocalInputBehaviorSourcePtr(cpp.Star<LocalInputBehaviorSource>) from cpp.Star<LocalInputBehaviorSource> to cpp.Star<LocalInputBehaviorSource>{
+abstract LocalInputBehaviorSourcePtr(ucpp.Ptr<LocalInputBehaviorSource>) from ucpp.Ptr<LocalInputBehaviorSource> to ucpp.Ptr<LocalInputBehaviorSource>{
 	@:from
 	public static extern inline function fromValue(v: LocalInputBehaviorSource): LocalInputBehaviorSourcePtr {
 		return untyped __cpp__("&({0})", v);

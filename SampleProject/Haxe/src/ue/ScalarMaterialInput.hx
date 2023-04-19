@@ -3,9 +3,11 @@ package ue;
 
 @:native("FScalarMaterialInput")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class ScalarMaterialInput extends MaterialInput {
+	public var UseConstant: Bool;
+	public var Constant: ucpp.num.Float32;
 
 	@:native("FScalarMaterialInput") public function new();
-	@:native("FScalarMaterialInput") public static function make(UseConstant: Bool, Constant: cpp.Float32): ScalarMaterialInput ;
+	@:native("FScalarMaterialInput") public static function make(UseConstant: Bool, Constant: ucpp.num.Float32): ScalarMaterialInput ;
 }

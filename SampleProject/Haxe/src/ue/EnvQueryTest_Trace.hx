@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnvQueryTest_Trace")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Trace.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_Trace extends EnvQueryTest {
 	public var TraceData: EnvTraceData;
 	public var TraceFromContext: AIDataProviderBoolValue;
@@ -11,7 +11,7 @@ extern class EnvQueryTest_Trace extends EnvQueryTest {
 	public var ContextHeightOffset: AIDataProviderFloatValue;
 	public var Context: TSubclassOf<EnvQueryContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstEnvQueryTest_Trace(EnvQueryTest_Trace) from EnvQueryTest_Trace {
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_Trace*")
-abstract EnvQueryTest_TracePtr(cpp.Star<EnvQueryTest_Trace>) from cpp.Star<EnvQueryTest_Trace> to cpp.Star<EnvQueryTest_Trace>{
+abstract EnvQueryTest_TracePtr(ucpp.Ptr<EnvQueryTest_Trace>) from ucpp.Ptr<EnvQueryTest_Trace> to ucpp.Ptr<EnvQueryTest_Trace>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_Trace): EnvQueryTest_TracePtr {
 		return untyped __cpp__("&({0})", v);

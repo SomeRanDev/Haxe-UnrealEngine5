@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionHLODsBuilder")
 @:include("WorldPartition/WorldPartitionHLODsBuilder.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionHLODsBuilder extends WorldPartitionBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionHLODsBuilder(WorldPartitionHLODsBuilder) from WorldP
 @:forward
 @:nativeGen
 @:native("WorldPartitionHLODsBuilder*")
-abstract WorldPartitionHLODsBuilderPtr(cpp.Star<WorldPartitionHLODsBuilder>) from cpp.Star<WorldPartitionHLODsBuilder> to cpp.Star<WorldPartitionHLODsBuilder>{
+abstract WorldPartitionHLODsBuilderPtr(ucpp.Ptr<WorldPartitionHLODsBuilder>) from ucpp.Ptr<WorldPartitionHLODsBuilder> to ucpp.Ptr<WorldPartitionHLODsBuilder>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionHLODsBuilder): WorldPartitionHLODsBuilderPtr {
 		return untyped __cpp__("&({0})", v);

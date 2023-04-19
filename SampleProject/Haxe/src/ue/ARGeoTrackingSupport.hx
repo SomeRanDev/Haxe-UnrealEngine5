@@ -3,16 +3,16 @@ package ue;
 
 @:native("UARGeoTrackingSupport")
 @:include("ARGeoTrackingSupport.h")
-@:structAccess
+@:valueType
 extern class ARGeoTrackingSupport extends Object {
-	public function GetGeoTrackingSupport(): cpp.Star<ARGeoTrackingSupport>;
+	public function GetGeoTrackingSupport(): ucpp.Ptr<ARGeoTrackingSupport>;
 	public function GetGeoTrackingStateReason(): EARGeoTrackingStateReason;
 	public function GetGeoTrackingState(): EARGeoTrackingState;
 	public function GetGeoTrackingAccuracy(): EARGeoTrackingAccuracy;
-	public function AddGeoAnchorAtLocationWithAltitude(Longitude: cpp.Float32, Latitude: cpp.Float32, AltitudeMeters: cpp.Float32, OptionalAnchorName: FString): Bool;
-	public function AddGeoAnchorAtLocation(Longitude: cpp.Float32, Latitude: cpp.Float32, OptionalAnchorName: FString): Bool;
+	public function AddGeoAnchorAtLocationWithAltitude(Longitude: ucpp.num.Float32, Latitude: ucpp.num.Float32, AltitudeMeters: ucpp.num.Float32, OptionalAnchorName: FString): Bool;
+	public function AddGeoAnchorAtLocation(Longitude: ucpp.num.Float32, Latitude: ucpp.num.Float32, OptionalAnchorName: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetGeoTrackingStateReason, GetGeoTrackingState, GetGeoTrackingAccuracy)
@@ -23,7 +23,7 @@ abstract ConstARGeoTrackingSupport(ARGeoTrackingSupport) from ARGeoTrackingSuppo
 @:forward
 @:nativeGen
 @:native("ARGeoTrackingSupport*")
-abstract ARGeoTrackingSupportPtr(cpp.Star<ARGeoTrackingSupport>) from cpp.Star<ARGeoTrackingSupport> to cpp.Star<ARGeoTrackingSupport>{
+abstract ARGeoTrackingSupportPtr(ucpp.Ptr<ARGeoTrackingSupport>) from ucpp.Ptr<ARGeoTrackingSupport> to ucpp.Ptr<ARGeoTrackingSupport>{
 	@:from
 	public static extern inline function fromValue(v: ARGeoTrackingSupport): ARGeoTrackingSupportPtr {
 		return untyped __cpp__("&({0})", v);

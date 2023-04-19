@@ -3,16 +3,16 @@ package ue;
 
 @:native("FEnhancedActionKeyMapping")
 @:include("EnhancedActionKeyMapping.h")
-@:structAccess
+@:valueType
 extern class EnhancedActionKeyMapping {
 	public var PlayerMappableOptions: PlayerMappableKeyOptions;
-	public var Triggers: TArray<cpp.Star<InputTrigger>>;
-	public var Modifiers: TArray<cpp.Star<InputModifier>>;
-	public var Action: cpp.Star<InputAction>;
+	public var Triggers: TArray<ucpp.Ptr<InputTrigger>>;
+	public var Modifiers: TArray<ucpp.Ptr<InputModifier>>;
+	public var Action: ucpp.Ptr<InputAction>;
 	public var Key: Key;
 	public var bShouldBeIgnored: Bool;
 	@:protected public var SettingBehavior: EPlayerMappableKeySettingBehaviors;
-	@:protected public var PlayerMappableKeySettings: cpp.Star<PlayerMappableKeySettings>;
+	@:protected public var PlayerMappableKeySettings: ucpp.Ptr<PlayerMappableKeySettings>;
 	@:protected public var bIsPlayerMappable: Bool;
 
 	@:native("FEnhancedActionKeyMapping") public function new();

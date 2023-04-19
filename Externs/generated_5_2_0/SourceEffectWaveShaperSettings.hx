@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSourceEffectWaveShaperSettings")
 @:include("SourceEffects/SourceEffectWaveShaper.h")
-@:structAccess
+@:valueType
 extern class SourceEffectWaveShaperSettings {
-	public var Amount: cpp.Float32;
-	public var OutputGainDb: cpp.Float32;
+	public var Amount: ucpp.num.Float32;
+	public var OutputGainDb: ucpp.num.Float32;
 
 	@:native("FSourceEffectWaveShaperSettings") public function new();
-	@:native("FSourceEffectWaveShaperSettings") public static function make(Amount: cpp.Float32, OutputGainDb: cpp.Float32): SourceEffectWaveShaperSettings ;
+	@:native("FSourceEffectWaveShaperSettings") public static function make(Amount: ucpp.num.Float32, OutputGainDb: ucpp.num.Float32): SourceEffectWaveShaperSettings ;
 }

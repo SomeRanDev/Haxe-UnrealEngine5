@@ -3,19 +3,19 @@ package ue;
 
 @:native("UVirtualTexturePoolConfig")
 @:include("VT/VirtualTexturePoolConfig.h")
-@:structAccess
+@:valueType
 extern class VirtualTexturePoolConfig extends Object {
-	public var DefaultSizeInMegabyte: cpp.Int32;
+	public var DefaultSizeInMegabyte: ucpp.num.Int32;
 	public var Pools: TArray<VirtualTextureSpacePoolConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVirtualTexturePoolConfig(VirtualTexturePoolConfig) from VirtualTexturePoolConfig {
-	public extern var DefaultSizeInMegabyte(get, never): cpp.Int32;
-	public inline extern function get_DefaultSizeInMegabyte(): cpp.Int32 return this.DefaultSizeInMegabyte;
+	public extern var DefaultSizeInMegabyte(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultSizeInMegabyte(): ucpp.num.Int32 return this.DefaultSizeInMegabyte;
 	public extern var Pools(get, never): TArray<VirtualTextureSpacePoolConfig>;
 	public inline extern function get_Pools(): TArray<VirtualTextureSpacePoolConfig> return this.Pools;
 }
@@ -23,7 +23,7 @@ abstract ConstVirtualTexturePoolConfig(VirtualTexturePoolConfig) from VirtualTex
 @:forward
 @:nativeGen
 @:native("VirtualTexturePoolConfig*")
-abstract VirtualTexturePoolConfigPtr(cpp.Star<VirtualTexturePoolConfig>) from cpp.Star<VirtualTexturePoolConfig> to cpp.Star<VirtualTexturePoolConfig>{
+abstract VirtualTexturePoolConfigPtr(ucpp.Ptr<VirtualTexturePoolConfig>) from ucpp.Ptr<VirtualTexturePoolConfig> to ucpp.Ptr<VirtualTexturePoolConfig>{
 	@:from
 	public static extern inline function fromValue(v: VirtualTexturePoolConfig): VirtualTexturePoolConfigPtr {
 		return untyped __cpp__("&({0})", v);

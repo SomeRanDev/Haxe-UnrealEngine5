@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_StateMachine")
 @:include("AnimGraphNode_StateMachine.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_StateMachine extends AnimGraphNode_StateMachineBase {
 	public var Node: AnimNode_StateMachine;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_StateMachine(AnimGraphNode_StateMachine) from AnimGr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_StateMachine*")
-abstract AnimGraphNode_StateMachinePtr(cpp.Star<AnimGraphNode_StateMachine>) from cpp.Star<AnimGraphNode_StateMachine> to cpp.Star<AnimGraphNode_StateMachine>{
+abstract AnimGraphNode_StateMachinePtr(ucpp.Ptr<AnimGraphNode_StateMachine>) from ucpp.Ptr<AnimGraphNode_StateMachine> to ucpp.Ptr<AnimGraphNode_StateMachine>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_StateMachine): AnimGraphNode_StateMachinePtr {
 		return untyped __cpp__("&({0})", v);

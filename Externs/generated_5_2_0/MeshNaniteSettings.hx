@@ -3,18 +3,18 @@ package ue;
 
 @:native("FMeshNaniteSettings")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class MeshNaniteSettings {
 	public var bEnabled: Bool;
 	public var bPreserveArea: Bool;
-	public var PositionPrecision: cpp.Int32;
-	public var NormalPrecision: cpp.Int32;
-	public var TargetMinimumResidencyInKB: cpp.UInt32;
-	public var KeepPercentTriangles: cpp.Float32;
-	public var TrimRelativeError: cpp.Float32;
-	public var FallbackPercentTriangles: cpp.Float32;
-	public var FallbackRelativeError: cpp.Float32;
-	public var DisplacementUVChannel: cpp.Int32;
+	public var PositionPrecision: ucpp.num.Int32;
+	public var NormalPrecision: ucpp.num.Int32;
+	public var TargetMinimumResidencyInKB: ucpp.num.UInt32;
+	public var KeepPercentTriangles: ucpp.num.Float32;
+	public var TrimRelativeError: ucpp.num.Float32;
+	public var FallbackPercentTriangles: ucpp.num.Float32;
+	public var FallbackRelativeError: ucpp.num.Float32;
+	public var DisplacementUVChannel: ucpp.num.Int32;
 	public var DisplacementMaps: TArray<MeshDisplacementMap>;
 
 	@:native("FMeshNaniteSettings") public function new();

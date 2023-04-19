@@ -3,11 +3,11 @@ package ue;
 
 @:native("UComboBoxWidgetStyle")
 @:include("Framework/Styling/ComboBoxWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class ComboBoxWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ComboBoxStyle: ComboBoxStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstComboBoxWidgetStyle(ComboBoxWidgetStyle) from ComboBoxWidgetStyle 
 @:forward
 @:nativeGen
 @:native("ComboBoxWidgetStyle*")
-abstract ComboBoxWidgetStylePtr(cpp.Star<ComboBoxWidgetStyle>) from cpp.Star<ComboBoxWidgetStyle> to cpp.Star<ComboBoxWidgetStyle>{
+abstract ComboBoxWidgetStylePtr(ucpp.Ptr<ComboBoxWidgetStyle>) from ucpp.Ptr<ComboBoxWidgetStyle> to ucpp.Ptr<ComboBoxWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: ComboBoxWidgetStyle): ComboBoxWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

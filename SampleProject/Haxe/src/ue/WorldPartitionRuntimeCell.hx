@@ -3,30 +3,33 @@ package ue;
 
 @:native("UWorldPartitionRuntimeCell")
 @:include("WorldPartition/WorldPartitionRuntimeCell.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeCell extends Object {
 	@:protected public var bIsAlwaysLoaded: Bool;
 	private var DataLayers: TArray<FName>;
-	private var Coords: IntVector;
-	private var GridName: FName;
-	private var DebugName: FString;
-	private var Priority: cpp.Int32;
+	private var DebugInfo: WorldPartitionRuntimeCellDebugInfo;
+	private var Priority: ucpp.num.Int32;
 	private var bClientOnlyVisible: Bool;
 	private var bIsHLOD: Bool;
 	private var bBlockOnSlowLoading: Bool;
+	private var ContentBundleID: Guid;
+	@:protected public var CellGuid: Guid;
+	public var RuntimeCellData: ucpp.Ptr<WorldPartitionRuntimeCellData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWorldPartitionRuntimeCell(WorldPartitionRuntimeCell) from WorldPartitionRuntimeCell {
+	public extern var RuntimeCellData(get, never): ucpp.Ptr<WorldPartitionRuntimeCellData.ConstWorldPartitionRuntimeCellData>;
+	public inline extern function get_RuntimeCellData(): ucpp.Ptr<WorldPartitionRuntimeCellData.ConstWorldPartitionRuntimeCellData> return this.RuntimeCellData;
 }
 
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeCell*")
-abstract WorldPartitionRuntimeCellPtr(cpp.Star<WorldPartitionRuntimeCell>) from cpp.Star<WorldPartitionRuntimeCell> to cpp.Star<WorldPartitionRuntimeCell>{
+abstract WorldPartitionRuntimeCellPtr(ucpp.Ptr<WorldPartitionRuntimeCell>) from ucpp.Ptr<WorldPartitionRuntimeCell> to ucpp.Ptr<WorldPartitionRuntimeCell>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeCell): WorldPartitionRuntimeCellPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFavoritedBlueprintPaletteItem")
 @:include("BlueprintPaletteFavorites.h")
-@:structAccess
+@:valueType
 extern class FavoritedBlueprintPaletteItem {
 	@:native("FFavoritedBlueprintPaletteItem") public function new();
 }

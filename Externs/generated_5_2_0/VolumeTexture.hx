@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVolumeTexture")
 @:include("Engine/VolumeTexture.h")
-@:structAccess
+@:valueType
 extern class VolumeTexture extends Texture {
 	public var AddressMode: TEnumAsByte<TextureAddress>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstVolumeTexture(VolumeTexture) from VolumeTexture {
 @:forward
 @:nativeGen
 @:native("VolumeTexture*")
-abstract VolumeTexturePtr(cpp.Star<VolumeTexture>) from cpp.Star<VolumeTexture> to cpp.Star<VolumeTexture>{
+abstract VolumeTexturePtr(ucpp.Ptr<VolumeTexture>) from ucpp.Ptr<VolumeTexture> to ucpp.Ptr<VolumeTexture>{
 	@:from
 	public static extern inline function fromValue(v: VolumeTexture): VolumeTexturePtr {
 		return untyped __cpp__("&({0})", v);

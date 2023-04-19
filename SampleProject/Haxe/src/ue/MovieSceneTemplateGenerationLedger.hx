@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneTemplateGenerationLedger")
 @:include("Evaluation/MovieSceneEvaluationTemplate.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTemplateGenerationLedger {
 	public var LastTrackIdentifier: MovieSceneTrackIdentifier;
 	public var TrackSignatureToTrackIdentifier: TMap<Guid, MovieSceneTrackIdentifier>;

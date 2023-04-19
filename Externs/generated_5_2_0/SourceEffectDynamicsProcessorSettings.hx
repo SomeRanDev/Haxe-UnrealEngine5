@@ -3,18 +3,18 @@ package ue;
 
 @:native("FSourceEffectDynamicsProcessorSettings")
 @:include("SourceEffects/SourceEffectDynamicsProcessor.h")
-@:structAccess
+@:valueType
 extern class SourceEffectDynamicsProcessorSettings {
 	public var DynamicsProcessorType: ESourceEffectDynamicsProcessorType;
 	public var PeakMode: ESourceEffectDynamicsPeakMode;
-	public var LookAheadMsec: cpp.Float32;
-	public var AttackTimeMsec: cpp.Float32;
-	public var ReleaseTimeMsec: cpp.Float32;
-	public var ThresholdDb: cpp.Float32;
-	public var Ratio: cpp.Float32;
-	public var KneeBandwidthDb: cpp.Float32;
-	public var InputGainDb: cpp.Float32;
-	public var OutputGainDb: cpp.Float32;
+	public var LookAheadMsec: ucpp.num.Float32;
+	public var AttackTimeMsec: ucpp.num.Float32;
+	public var ReleaseTimeMsec: ucpp.num.Float32;
+	public var ThresholdDb: ucpp.num.Float32;
+	public var Ratio: ucpp.num.Float32;
+	public var KneeBandwidthDb: ucpp.num.Float32;
+	public var InputGainDb: ucpp.num.Float32;
+	public var OutputGainDb: ucpp.num.Float32;
 	public var bStereoLinked: Bool;
 	public var bAnalogMode: Bool;
 

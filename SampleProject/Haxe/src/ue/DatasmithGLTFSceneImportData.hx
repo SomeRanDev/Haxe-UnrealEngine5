@@ -3,15 +3,15 @@ package ue;
 
 @:native("UDatasmithGLTFSceneImportData")
 @:include("DatasmithAssetImportData.h")
-@:structAccess
+@:valueType
 extern class DatasmithGLTFSceneImportData extends DatasmithSceneImportData {
 	public var Generator: FString;
-	public var Version: cpp.Float32;
+	public var Version: ucpp.num.Float32;
 	public var Author: FString;
 	public var License: FString;
 	public var Source: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,8 +19,8 @@ extern class DatasmithGLTFSceneImportData extends DatasmithSceneImportData {
 abstract ConstDatasmithGLTFSceneImportData(DatasmithGLTFSceneImportData) from DatasmithGLTFSceneImportData {
 	public extern var Generator(get, never): FString;
 	public inline extern function get_Generator(): FString return this.Generator;
-	public extern var Version(get, never): cpp.Float32;
-	public inline extern function get_Version(): cpp.Float32 return this.Version;
+	public extern var Version(get, never): ucpp.num.Float32;
+	public inline extern function get_Version(): ucpp.num.Float32 return this.Version;
 	public extern var Author(get, never): FString;
 	public inline extern function get_Author(): FString return this.Author;
 	public extern var License(get, never): FString;
@@ -32,7 +32,7 @@ abstract ConstDatasmithGLTFSceneImportData(DatasmithGLTFSceneImportData) from Da
 @:forward
 @:nativeGen
 @:native("DatasmithGLTFSceneImportData*")
-abstract DatasmithGLTFSceneImportDataPtr(cpp.Star<DatasmithGLTFSceneImportData>) from cpp.Star<DatasmithGLTFSceneImportData> to cpp.Star<DatasmithGLTFSceneImportData>{
+abstract DatasmithGLTFSceneImportDataPtr(ucpp.Ptr<DatasmithGLTFSceneImportData>) from ucpp.Ptr<DatasmithGLTFSceneImportData> to ucpp.Ptr<DatasmithGLTFSceneImportData>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithGLTFSceneImportData): DatasmithGLTFSceneImportDataPtr {
 		return untyped __cpp__("&({0})", v);

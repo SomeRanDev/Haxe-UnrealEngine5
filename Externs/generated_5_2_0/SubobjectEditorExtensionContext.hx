@@ -3,10 +3,10 @@ package ue;
 
 @:native("USubobjectEditorExtensionContext")
 @:include("SubobjectEditorExtensionContext.h")
-@:structAccess
+@:valueType
 extern class SubobjectEditorExtensionContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSubobjectEditorExtensionContext(SubobjectEditorExtensionContext) f
 @:forward
 @:nativeGen
 @:native("SubobjectEditorExtensionContext*")
-abstract SubobjectEditorExtensionContextPtr(cpp.Star<SubobjectEditorExtensionContext>) from cpp.Star<SubobjectEditorExtensionContext> to cpp.Star<SubobjectEditorExtensionContext>{
+abstract SubobjectEditorExtensionContextPtr(ucpp.Ptr<SubobjectEditorExtensionContext>) from ucpp.Ptr<SubobjectEditorExtensionContext> to ucpp.Ptr<SubobjectEditorExtensionContext>{
 	@:from
 	public static extern inline function fromValue(v: SubobjectEditorExtensionContext): SubobjectEditorExtensionContextPtr {
 		return untyped __cpp__("&({0})", v);

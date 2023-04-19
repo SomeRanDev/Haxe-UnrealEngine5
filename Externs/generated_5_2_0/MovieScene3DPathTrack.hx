@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieScene3DPathTrack")
 @:include("Tracks/MovieScene3DPathTrack.h")
-@:structAccess
+@:valueType
 extern class MovieScene3DPathTrack extends MovieScene3DConstraintTrack {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieScene3DPathTrack(MovieScene3DPathTrack) from MovieScene3DPath
 @:forward
 @:nativeGen
 @:native("MovieScene3DPathTrack*")
-abstract MovieScene3DPathTrackPtr(cpp.Star<MovieScene3DPathTrack>) from cpp.Star<MovieScene3DPathTrack> to cpp.Star<MovieScene3DPathTrack>{
+abstract MovieScene3DPathTrackPtr(ucpp.Ptr<MovieScene3DPathTrack>) from ucpp.Ptr<MovieScene3DPathTrack> to ucpp.Ptr<MovieScene3DPathTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene3DPathTrack): MovieScene3DPathTrackPtr {
 		return untyped __cpp__("&({0})", v);

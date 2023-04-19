@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAIDataProvider_QueryParams")
 @:include("DataProviders/AIDataProvider_QueryParams.h")
-@:structAccess
+@:valueType
 extern class AIDataProvider_QueryParams extends AIDataProvider {
 	public var ParamName: FName;
-	public var FloatValue: cpp.Float32;
-	public var IntValue: cpp.Int32;
+	public var FloatValue: ucpp.num.Float32;
+	public var IntValue: ucpp.num.Int32;
 	public var BoolValue: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,10 +18,10 @@ extern class AIDataProvider_QueryParams extends AIDataProvider {
 abstract ConstAIDataProvider_QueryParams(AIDataProvider_QueryParams) from AIDataProvider_QueryParams {
 	public extern var ParamName(get, never): FName;
 	public inline extern function get_ParamName(): FName return this.ParamName;
-	public extern var FloatValue(get, never): cpp.Float32;
-	public inline extern function get_FloatValue(): cpp.Float32 return this.FloatValue;
-	public extern var IntValue(get, never): cpp.Int32;
-	public inline extern function get_IntValue(): cpp.Int32 return this.IntValue;
+	public extern var FloatValue(get, never): ucpp.num.Float32;
+	public inline extern function get_FloatValue(): ucpp.num.Float32 return this.FloatValue;
+	public extern var IntValue(get, never): ucpp.num.Int32;
+	public inline extern function get_IntValue(): ucpp.num.Int32 return this.IntValue;
 	public extern var BoolValue(get, never): Bool;
 	public inline extern function get_BoolValue(): Bool return this.BoolValue;
 }
@@ -29,7 +29,7 @@ abstract ConstAIDataProvider_QueryParams(AIDataProvider_QueryParams) from AIData
 @:forward
 @:nativeGen
 @:native("AIDataProvider_QueryParams*")
-abstract AIDataProvider_QueryParamsPtr(cpp.Star<AIDataProvider_QueryParams>) from cpp.Star<AIDataProvider_QueryParams> to cpp.Star<AIDataProvider_QueryParams>{
+abstract AIDataProvider_QueryParamsPtr(ucpp.Ptr<AIDataProvider_QueryParams>) from ucpp.Ptr<AIDataProvider_QueryParams> to ucpp.Ptr<AIDataProvider_QueryParams>{
 	@:from
 	public static extern inline function fromValue(v: AIDataProvider_QueryParams): AIDataProvider_QueryParamsPtr {
 		return untyped __cpp__("&({0})", v);

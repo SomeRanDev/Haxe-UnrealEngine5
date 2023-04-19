@@ -3,17 +3,17 @@ package ue;
 
 @:native("UInterchangeSkeletalMeshLodDataNode")
 @:include("InterchangeSkeletalMeshLodDataNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSkeletalMeshLodDataNode extends InterchangeFactoryBaseNode {
 	public function SetCustomSkeletonUid(AttributeValue: FString): Bool;
 	public function RemoveMeshUid(MeshName: FString): Bool;
 	public function RemoveAllMeshes(): Bool;
-	public function GetMeshUidsCount(): cpp.Int32;
-	public function GetMeshUids(OutMeshNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetCustomSkeletonUid(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetMeshUidsCount(): ucpp.num.Int32;
+	public function GetMeshUids(OutMeshNames: ucpp.Ref<TArray<FString>>): Void;
+	public function GetCustomSkeletonUid(AttributeValue: ucpp.Ref<FString>): Bool;
 	public function AddMeshUid(MeshName: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetMeshUidsCount, GetMeshUids, GetCustomSkeletonUid)
@@ -24,7 +24,7 @@ abstract ConstInterchangeSkeletalMeshLodDataNode(InterchangeSkeletalMeshLodDataN
 @:forward
 @:nativeGen
 @:native("InterchangeSkeletalMeshLodDataNode*")
-abstract InterchangeSkeletalMeshLodDataNodePtr(cpp.Star<InterchangeSkeletalMeshLodDataNode>) from cpp.Star<InterchangeSkeletalMeshLodDataNode> to cpp.Star<InterchangeSkeletalMeshLodDataNode>{
+abstract InterchangeSkeletalMeshLodDataNodePtr(ucpp.Ptr<InterchangeSkeletalMeshLodDataNode>) from ucpp.Ptr<InterchangeSkeletalMeshLodDataNode> to ucpp.Ptr<InterchangeSkeletalMeshLodDataNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSkeletalMeshLodDataNode): InterchangeSkeletalMeshLodDataNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMovieScenePredictionSystem")
 @:include("Systems/MovieScenePredictionSystem.h")
-@:structAccess
+@:valueType
 extern class MovieScenePredictionSystem extends MovieSceneEntitySystem {
-	private var PendingPredictions: TArray<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
-	private var ProcessingPredictions: TArray<cpp.Star<MovieSceneAsyncAction_SequencePrediction>>;
+	private var PendingPredictions: TArray<ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>>;
+	private var ProcessingPredictions: TArray<ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMovieScenePredictionSystem(MovieScenePredictionSystem) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieScenePredictionSystem*")
-abstract MovieScenePredictionSystemPtr(cpp.Star<MovieScenePredictionSystem>) from cpp.Star<MovieScenePredictionSystem> to cpp.Star<MovieScenePredictionSystem>{
+abstract MovieScenePredictionSystemPtr(ucpp.Ptr<MovieScenePredictionSystem>) from ucpp.Ptr<MovieScenePredictionSystem> to ucpp.Ptr<MovieScenePredictionSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieScenePredictionSystem): MovieScenePredictionSystemPtr {
 		return untyped __cpp__("&({0})", v);

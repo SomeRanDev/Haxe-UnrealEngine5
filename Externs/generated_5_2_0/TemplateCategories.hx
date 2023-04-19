@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTemplateCategories")
 @:include("TemplateProjectDefs.h")
-@:structAccess
+@:valueType
 extern class TemplateCategories extends Object {
 	public var Categories: TArray<TemplateCategoryDef>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTemplateCategories(TemplateCategories) from TemplateCategories {
 @:forward
 @:nativeGen
 @:native("TemplateCategories*")
-abstract TemplateCategoriesPtr(cpp.Star<TemplateCategories>) from cpp.Star<TemplateCategories> to cpp.Star<TemplateCategories>{
+abstract TemplateCategoriesPtr(ucpp.Ptr<TemplateCategories>) from ucpp.Ptr<TemplateCategories> to ucpp.Ptr<TemplateCategories>{
 	@:from
 	public static extern inline function fromValue(v: TemplateCategories): TemplateCategoriesPtr {
 		return untyped __cpp__("&({0})", v);

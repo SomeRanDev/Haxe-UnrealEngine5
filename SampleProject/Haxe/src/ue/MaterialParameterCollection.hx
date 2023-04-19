@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMaterialParameterCollection")
 @:include("Materials/MaterialParameterCollection.h")
-@:structAccess
+@:valueType
 extern class MaterialParameterCollection extends Object {
 	public var StateId: Guid;
 	public var ScalarParameters: TArray<CollectionScalarParameter>;
 	public var VectorParameters: TArray<CollectionVectorParameter>;
 
 	public function GetVectorParameterNames(): TArray<FName>;
-	public function GetVectorParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): LinearColor;
+	public function GetVectorParameterDefaultValue(ParameterName: FName, bParameterFound: ucpp.Ref<Bool>): LinearColor;
 	public function GetScalarParameterNames(): TArray<FName>;
-	public function GetScalarParameterDefaultValue(ParameterName: FName, bParameterFound: cpp.Reference<Bool>): cpp.Float32;
+	public function GetScalarParameterDefaultValue(ParameterName: FName, bParameterFound: ucpp.Ref<Bool>): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstMaterialParameterCollection(MaterialParameterCollection) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialParameterCollection*")
-abstract MaterialParameterCollectionPtr(cpp.Star<MaterialParameterCollection>) from cpp.Star<MaterialParameterCollection> to cpp.Star<MaterialParameterCollection>{
+abstract MaterialParameterCollectionPtr(ucpp.Ptr<MaterialParameterCollection>) from ucpp.Ptr<MaterialParameterCollection> to ucpp.Ptr<MaterialParameterCollection>{
 	@:from
 	public static extern inline function fromValue(v: MaterialParameterCollection): MaterialParameterCollectionPtr {
 		return untyped __cpp__("&({0})", v);

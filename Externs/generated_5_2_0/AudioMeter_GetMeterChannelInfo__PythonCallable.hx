@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAudioMeter_GetMeterChannelInfo__PythonCallable")
-@:structAccess
+@:valueType
 extern class AudioMeter_GetMeterChannelInfo__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAudioMeter_GetMeterChannelInfo__PythonCallable(AudioMeter_GetMeter
 @:forward
 @:nativeGen
 @:native("AudioMeter_GetMeterChannelInfo__PythonCallable*")
-abstract AudioMeter_GetMeterChannelInfo__PythonCallablePtr(cpp.Star<AudioMeter_GetMeterChannelInfo__PythonCallable>) from cpp.Star<AudioMeter_GetMeterChannelInfo__PythonCallable> to cpp.Star<AudioMeter_GetMeterChannelInfo__PythonCallable>{
+abstract AudioMeter_GetMeterChannelInfo__PythonCallablePtr(ucpp.Ptr<AudioMeter_GetMeterChannelInfo__PythonCallable>) from ucpp.Ptr<AudioMeter_GetMeterChannelInfo__PythonCallable> to ucpp.Ptr<AudioMeter_GetMeterChannelInfo__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AudioMeter_GetMeterChannelInfo__PythonCallable): AudioMeter_GetMeterChannelInfo__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

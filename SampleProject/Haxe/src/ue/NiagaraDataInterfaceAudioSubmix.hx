@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioSubmix")
 @:include("NiagaraDataInterfaceAudio.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceAudioSubmix extends NiagaraDataInterface {
-	public var Submix: cpp.Star<SoundSubmix>;
+	public var Submix: ucpp.Ptr<SoundSubmix>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceAudioSubmix(NiagaraDataInterfaceAudioSubmix) from NiagaraDataInterfaceAudioSubmix {
-	public extern var Submix(get, never): cpp.Star<SoundSubmix.ConstSoundSubmix>;
-	public inline extern function get_Submix(): cpp.Star<SoundSubmix.ConstSoundSubmix> return this.Submix;
+	public extern var Submix(get, never): ucpp.Ptr<SoundSubmix.ConstSoundSubmix>;
+	public inline extern function get_Submix(): ucpp.Ptr<SoundSubmix.ConstSoundSubmix> return this.Submix;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceAudioSubmix*")
-abstract NiagaraDataInterfaceAudioSubmixPtr(cpp.Star<NiagaraDataInterfaceAudioSubmix>) from cpp.Star<NiagaraDataInterfaceAudioSubmix> to cpp.Star<NiagaraDataInterfaceAudioSubmix>{
+abstract NiagaraDataInterfaceAudioSubmixPtr(ucpp.Ptr<NiagaraDataInterfaceAudioSubmix>) from ucpp.Ptr<NiagaraDataInterfaceAudioSubmix> to ucpp.Ptr<NiagaraDataInterfaceAudioSubmix>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceAudioSubmix): NiagaraDataInterfaceAudioSubmixPtr {
 		return untyped __cpp__("&({0})", v);

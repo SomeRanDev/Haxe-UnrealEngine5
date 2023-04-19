@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnVisibilityChangedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnVisibilityChangedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnVisibilityChangedEvent__PythonCallable(OnVisibilityChangedEvent_
 @:forward
 @:nativeGen
 @:native("OnVisibilityChangedEvent__PythonCallable*")
-abstract OnVisibilityChangedEvent__PythonCallablePtr(cpp.Star<OnVisibilityChangedEvent__PythonCallable>) from cpp.Star<OnVisibilityChangedEvent__PythonCallable> to cpp.Star<OnVisibilityChangedEvent__PythonCallable>{
+abstract OnVisibilityChangedEvent__PythonCallablePtr(ucpp.Ptr<OnVisibilityChangedEvent__PythonCallable>) from ucpp.Ptr<OnVisibilityChangedEvent__PythonCallable> to ucpp.Ptr<OnVisibilityChangedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnVisibilityChangedEvent__PythonCallable): OnVisibilityChangedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

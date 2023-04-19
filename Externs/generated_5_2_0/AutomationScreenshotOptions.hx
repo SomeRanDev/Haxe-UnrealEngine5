@@ -3,21 +3,21 @@ package ue;
 
 @:native("FAutomationScreenshotOptions")
 @:include("AutomationScreenshotOptions.h")
-@:structAccess
+@:valueType
 extern class AutomationScreenshotOptions {
 	public var Resolution: Vector2D;
-	public var Delay: cpp.Float32;
-	public var FrameDelay: cpp.Int32;
+	public var Delay: ucpp.num.Float32;
+	public var FrameDelay: ucpp.num.Int32;
 	public var bOverride_OverrideTimeTo: Bool;
-	public var OverrideTimeTo: cpp.Float64;
+	public var OverrideTimeTo: ucpp.num.Float64;
 	public var bDisableNoisyRenderingFeatures: Bool;
 	public var bDisableTonemapping: Bool;
-	public var ViewSettings: cpp.Star<AutomationViewSettings>;
+	public var ViewSettings: ucpp.Ptr<AutomationViewSettings>;
 	public var VisualizeBuffer: FName;
 	public var Tolerance: EComparisonTolerance;
 	public var ToleranceAmount: ComparisonToleranceAmount;
-	public var MaximumLocalError: cpp.Float32;
-	public var MaximumGlobalError: cpp.Float32;
+	public var MaximumLocalError: ucpp.num.Float32;
+	public var MaximumGlobalError: ucpp.num.Float32;
 	public var bIgnoreAntiAliasing: Bool;
 	public var bIgnoreColors: Bool;
 

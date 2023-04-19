@@ -3,21 +3,21 @@ package ue;
 
 @:native("UVREditorUISystem")
 @:include("UI/VREditorUISystem.h")
-@:structAccess
+@:valueType
 extern class VREditorUISystem extends Object {
-	@:protected public var VRMode: cpp.Star<VREditorMode>;
-	@:protected public var FloatingUIs: TMap<FName, cpp.Star<VREditorFloatingUI>>;
-	@:protected public var PreviewWindowInfo: TMap<FName, cpp.Star<Actor>>;
-	@:protected public var InfoDisplayPanel: cpp.Star<VREditorFloatingUI>;
-	@:protected public var QuickRadialMenu: cpp.Star<VREditorRadialFloatingUI>;
-	@:protected public var DraggingUI: cpp.Star<VREditorDockableWindow>;
-	@:protected public var ColorPickerUI: cpp.Star<VREditorDockableWindow>;
-	@:protected public var LaserInteractor: cpp.Star<VREditorInteractor>;
-	@:protected public var UIInteractor: cpp.Star<VREditorInteractor>;
+	@:protected public var VRMode: ucpp.Ptr<VREditorMode>;
+	@:protected public var FloatingUIs: TMap<FName, ucpp.Ptr<VREditorFloatingUI>>;
+	@:protected public var PreviewWindowInfo: TMap<FName, ucpp.Ptr<Actor>>;
+	@:protected public var InfoDisplayPanel: ucpp.Ptr<VREditorFloatingUI>;
+	@:protected public var QuickRadialMenu: ucpp.Ptr<VREditorRadialFloatingUI>;
+	@:protected public var DraggingUI: ucpp.Ptr<VREditorDockableWindow>;
+	@:protected public var ColorPickerUI: ucpp.Ptr<VREditorDockableWindow>;
+	@:protected public var LaserInteractor: ucpp.Ptr<VREditorInteractor>;
+	@:protected public var UIInteractor: ucpp.Ptr<VREditorInteractor>;
 	@:protected public var VRButtons: TArray<VRButton>;
-	@:protected public var RadialMenuHandler: cpp.Star<VRRadialMenuHandler>;
+	@:protected public var RadialMenuHandler: ucpp.Ptr<VRRadialMenuHandler>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstVREditorUISystem(VREditorUISystem) from VREditorUISystem {
 @:forward
 @:nativeGen
 @:native("VREditorUISystem*")
-abstract VREditorUISystemPtr(cpp.Star<VREditorUISystem>) from cpp.Star<VREditorUISystem> to cpp.Star<VREditorUISystem>{
+abstract VREditorUISystemPtr(ucpp.Ptr<VREditorUISystem>) from ucpp.Ptr<VREditorUISystem> to ucpp.Ptr<VREditorUISystem>{
 	@:from
 	public static extern inline function fromValue(v: VREditorUISystem): VREditorUISystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FParticleTransformTrack")
 @:include("Chaos/ChaosCache.h")
-@:structAccess
+@:valueType
 extern class ParticleTransformTrack {
 	public var RawTransformTrack: RawAnimSequenceTrack;
-	public var BeginOffset: cpp.Float32;
+	public var BeginOffset: ucpp.num.Float32;
 	public var bDeactivateOnEnd: Bool;
-	public var KeyTimestamps: TArray<cpp.Float32>;
+	public var KeyTimestamps: TArray<ucpp.num.Float32>;
 
 	@:native("FParticleTransformTrack") public function new();
-	@:native("FParticleTransformTrack") public static function make(RawTransformTrack: RawAnimSequenceTrack, BeginOffset: cpp.Float32, bDeactivateOnEnd: Bool, KeyTimestamps: TArray<cpp.Float32>): ParticleTransformTrack ;
+	@:native("FParticleTransformTrack") public static function make(RawTransformTrack: RawAnimSequenceTrack, BeginOffset: ucpp.num.Float32, bDeactivateOnEnd: Bool, KeyTimestamps: TArray<ucpp.num.Float32>): ParticleTransformTrack ;
 }

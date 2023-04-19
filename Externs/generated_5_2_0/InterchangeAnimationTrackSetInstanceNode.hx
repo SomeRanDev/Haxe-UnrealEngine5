@@ -3,18 +3,18 @@ package ue;
 
 @:native("UInterchangeAnimationTrackSetInstanceNode")
 @:include("InterchangeAnimationTrackSetNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeAnimationTrackSetInstanceNode extends InterchangeAnimationTrackBaseNode {
 	public function SetCustomTrackSetDependencyUid(AttributeValue: FString): Bool;
-	public function SetCustomTimeScale(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function SetCustomStartFrame(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function SetCustomDuration(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomTrackSetDependencyUid(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomTimeScale(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomStartFrame(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomDuration(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
+	public function SetCustomTimeScale(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function SetCustomStartFrame(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function SetCustomDuration(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomTrackSetDependencyUid(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomTimeScale(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomStartFrame(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomDuration(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomTrackSetDependencyUid, GetCustomTimeScale, GetCustomStartFrame, GetCustomDuration)
@@ -25,7 +25,7 @@ abstract ConstInterchangeAnimationTrackSetInstanceNode(InterchangeAnimationTrack
 @:forward
 @:nativeGen
 @:native("InterchangeAnimationTrackSetInstanceNode*")
-abstract InterchangeAnimationTrackSetInstanceNodePtr(cpp.Star<InterchangeAnimationTrackSetInstanceNode>) from cpp.Star<InterchangeAnimationTrackSetInstanceNode> to cpp.Star<InterchangeAnimationTrackSetInstanceNode>{
+abstract InterchangeAnimationTrackSetInstanceNodePtr(ucpp.Ptr<InterchangeAnimationTrackSetInstanceNode>) from ucpp.Ptr<InterchangeAnimationTrackSetInstanceNode> to ucpp.Ptr<InterchangeAnimationTrackSetInstanceNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeAnimationTrackSetInstanceNode): InterchangeAnimationTrackSetInstanceNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionAtmosphericFogColor")
 @:include("Materials/MaterialExpressionAtmosphericFogColor.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionAtmosphericFogColor extends MaterialExpression {
 	public var WorldPosition: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionAtmosphericFogColor(MaterialExpressionAtmospheri
 @:forward
 @:nativeGen
 @:native("MaterialExpressionAtmosphericFogColor*")
-abstract MaterialExpressionAtmosphericFogColorPtr(cpp.Star<MaterialExpressionAtmosphericFogColor>) from cpp.Star<MaterialExpressionAtmosphericFogColor> to cpp.Star<MaterialExpressionAtmosphericFogColor>{
+abstract MaterialExpressionAtmosphericFogColorPtr(ucpp.Ptr<MaterialExpressionAtmosphericFogColor>) from ucpp.Ptr<MaterialExpressionAtmosphericFogColor> to ucpp.Ptr<MaterialExpressionAtmosphericFogColor>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionAtmosphericFogColor): MaterialExpressionAtmosphericFogColorPtr {
 		return untyped __cpp__("&({0})", v);

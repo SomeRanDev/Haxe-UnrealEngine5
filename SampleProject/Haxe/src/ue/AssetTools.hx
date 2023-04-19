@@ -2,29 +2,33 @@
 package ue;
 
 @:native("UAssetTools")
-@:structAccess
+@:valueType
 extern class AssetTools extends Interface {
-	public function RenameReferencingSoftObjectPaths(PackagesToCheck: TArray<cpp.Star<Package>>, AssetRedirectorMap: cpp.Reference<TMap<SoftObjectPath, SoftObjectPath>>): Void;
-	public function RenameAssetsWithDialog(AssetsAndNames: cpp.Reference<TArray<AssetRenameData>>, bAutoCheckout: Bool): EAssetRenameResult;
-	public function RenameAssets(AssetsAndNames: cpp.Reference<TArray<AssetRenameData>>): Bool;
-	public function OpenEditorForAssets(Assets: cpp.Reference<TArray<cpp.Star<Object>>>): Void;
-	public function ImportAssetTasks(ImportTasks: cpp.Reference<TArray<cpp.Star<AssetImportTask>>>): Void;
-	public function ImportAssetsWithDialog(DestinationPath: FString): TArray<cpp.Star<Object>>;
-	public function ImportAssetsAutomated(ImportData: cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData>): TArray<cpp.Star<Object>>;
-	public function FindSoftReferencesToObject(TargetObject: SoftObjectPath, ReferencingObjects: cpp.Reference<TArray<cpp.Star<Object>>>): Void;
-	public function ExportAssetsWithDialog(AssetsToExport: cpp.Reference<TArray<FString>>, bPromptForIndividualFilenames: Bool): Void;
-	public function ExportAssets(AssetsToExport: cpp.Reference<TArray<FString>>, ExportPath: FString): Void;
-	public function DuplicateAssetWithDialogAndTitle(AssetName: FString, PackagePath: FString, OriginalObject: cpp.Star<Object>, DialogTitle: FText): cpp.Star<Object>;
-	public function DuplicateAssetWithDialog(AssetName: FString, PackagePath: FString, OriginalObject: cpp.Star<Object>): cpp.Star<Object>;
-	public function DuplicateAsset(AssetName: FString, PackagePath: FString, OriginalObject: cpp.Star<Object>): cpp.Star<Object>;
-	public function CreateUniqueAssetName(InBasePackageName: FString, InSuffix: FString, OutPackageName: cpp.Reference<FString>, OutAssetName: cpp.Reference<FString>): Void;
-	public function CreateAssetWithDialog(AssetName: FString, PackagePath: FString, AssetClass: cpp.Star<Class>, Factory: cpp.Star<Factory>, CallingContext: FName, bCallConfigureProperties: Bool): cpp.Star<Object>;
-	public function CreateAsset(AssetName: FString, PackagePath: FString, AssetClass: cpp.Star<Class>, Factory: cpp.Star<Factory>, CallingContext: FName): cpp.Star<Object>;
+	public function RenameReferencingSoftObjectPaths(PackagesToCheck: TArray<ucpp.Ptr<Package>>, AssetRedirectorMap: ucpp.Ref<TMap<SoftObjectPath, SoftObjectPath>>): Void;
+	public function RenameAssetsWithDialog(AssetsAndNames: ucpp.Ref<TArray<AssetRenameData>>, bAutoCheckout: Bool): EAssetRenameResult;
+	public function RenameAssets(AssetsAndNames: ucpp.Ref<TArray<AssetRenameData>>): Bool;
+	public function OpenEditorForAssets(Assets: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Void;
+	public function MigratePackages(PackageNamesToMigrate: ucpp.Ref<TArray<FName>>, DestinationPath: FString, Options: ucpp.Ref<MigrationOptions>): Void;
+	public function ImportAssetTasks(ImportTasks: ucpp.Ref<TArray<ucpp.Ptr<AssetImportTask>>>): Void;
+	public function ImportAssetsWithDialog(DestinationPath: FString): TArray<ucpp.Ptr<Object>>;
+	public function ImportAssetsAutomated(ImportData: ucpp.Ptr<AutomatedAssetImportData.ConstAutomatedAssetImportData>): TArray<ucpp.Ptr<Object>>;
+	public function FindSoftReferencesToObject(TargetObject: SoftObjectPath, ReferencingObjects: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Void;
+	public function ExportAssetsWithDialog(AssetsToExport: ucpp.Ref<TArray<FString>>, bPromptForIndividualFilenames: Bool): Void;
+	public function ExportAssets(AssetsToExport: ucpp.Ref<TArray<FString>>, ExportPath: FString): Void;
+	public function DuplicateAssetWithDialogAndTitle(AssetName: FString, PackagePath: FString, OriginalObject: ucpp.Ptr<Object>, DialogTitle: FText): ucpp.Ptr<Object>;
+	public function DuplicateAssetWithDialog(AssetName: FString, PackagePath: FString, OriginalObject: ucpp.Ptr<Object>): ucpp.Ptr<Object>;
+	public function DuplicateAsset(AssetName: FString, PackagePath: FString, OriginalObject: ucpp.Ptr<Object>): ucpp.Ptr<Object>;
+	public function DiffAssets(OldAsset: ucpp.Ptr<Object>, NewAsset: ucpp.Ptr<Object>, OldRevision: ucpp.Ref<RevisionInfo>, NewRevision: ucpp.Ref<RevisionInfo>): Void;
+	public function DiffAgainstDepot(InObject: ucpp.Ptr<Object>, InPackagePath: FString, InPackageName: FString): Void;
+	public function CreateUniqueAssetName(InBasePackageName: FString, InSuffix: FString, OutPackageName: ucpp.Ref<FString>, OutAssetName: ucpp.Ref<FString>): Void;
+	public function CreateAssetWithDialog(AssetName: FString, PackagePath: FString, AssetClass: ucpp.Ptr<Class>, Factory: ucpp.Ptr<Factory>, CallingContext: FName, bCallConfigureProperties: Bool): ucpp.Ptr<Object>;
+	public function CreateAsset(AssetName: FString, PackagePath: FString, AssetClass: ucpp.Ptr<Class>, Factory: ucpp.Ptr<Factory>, CallingContext: FName): ucpp.Ptr<Object>;
+	public function BeginAdvancedCopyPackages(InputNamesToCopy: ucpp.Ref<TArray<FName>>, TargetPath: FString, OnCopyComplete: ucpp.Ref<HaxeDelegateProperty<(Bool, ucpp.Ref<TArray<AssetRenameData>>) -> Void>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward()
+@:forward(MigratePackages, DiffAssets, DiffAgainstDepot, BeginAdvancedCopyPackages)
 @:nativeGen
 abstract ConstAssetTools(AssetTools) from AssetTools {
 }
@@ -32,7 +36,7 @@ abstract ConstAssetTools(AssetTools) from AssetTools {
 @:forward
 @:nativeGen
 @:native("AssetTools*")
-abstract AssetToolsPtr(cpp.Star<AssetTools>) from cpp.Star<AssetTools> to cpp.Star<AssetTools>{
+abstract AssetToolsPtr(ucpp.Ptr<AssetTools>) from ucpp.Ptr<AssetTools> to ucpp.Ptr<AssetTools>{
 	@:from
 	public static extern inline function fromValue(v: AssetTools): AssetToolsPtr {
 		return untyped __cpp__("&({0})", v);

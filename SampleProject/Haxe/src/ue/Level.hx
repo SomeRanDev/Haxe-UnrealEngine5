@@ -3,80 +3,80 @@ package ue;
 
 @:native("ULevel")
 @:include("Engine/Level.h")
-@:structAccess
+@:valueType
 extern class Level extends Object {
-	public var OwningWorld: cpp.Star<World>;
-	public var Model: cpp.Star<Model>;
-	public var ModelComponents: TArray<cpp.Star<ModelComp>>;
-	public var ActorCluster: cpp.Star<LevelActorContainer>;
-	public var NumTextureStreamingUnbuiltComponents: cpp.Int32;
-	public var NumTextureStreamingDirtyResources: cpp.Int32;
-	public var LevelScriptActor: cpp.Star<LevelScriptActor>;
-	public var NavListStart: cpp.Star<NavigationObjectBase>;
-	public var NavListEnd: cpp.Star<NavigationObjectBase>;
-	public var NavDataChunks: TArray<cpp.Star<NavigationDataChunk>>;
-	public var LightmapTotalSize: cpp.Float32;
-	public var ShadowmapTotalSize: cpp.Float32;
+	public var OwningWorld: ucpp.Ptr<World>;
+	public var Model: ucpp.Ptr<Model>;
+	public var ModelComponents: TArray<ucpp.Ptr<ModelComp>>;
+	public var ActorCluster: ucpp.Ptr<LevelActorContainer>;
+	public var NumTextureStreamingUnbuiltComponents: ucpp.num.Int32;
+	public var NumTextureStreamingDirtyResources: ucpp.num.Int32;
+	public var LevelScriptActor: ucpp.Ptr<LevelScriptActor>;
+	public var NavListStart: ucpp.Ptr<NavigationObjectBase>;
+	public var NavListEnd: ucpp.Ptr<NavigationObjectBase>;
+	public var NavDataChunks: TArray<ucpp.Ptr<NavigationDataChunk>>;
+	public var LightmapTotalSize: ucpp.num.Float32;
+	public var ShadowmapTotalSize: ucpp.num.Float32;
 	public var StaticNavigableGeometry: TArray<Vector>;
 	public var StreamingTextureGuids: TArray<Guid>;
 	public var StreamingTextures: TArray<FName>;
-	public var PackedTextureStreamingQualityLevelFeatureLevel: cpp.UInt32;
+	public var PackedTextureStreamingQualityLevelFeatureLevel: ucpp.num.UInt32;
 	public var LevelBuildDataId: Guid;
-	public var MapBuildData: cpp.Star<MapBuildDataRegistry>;
+	public var MapBuildData: ucpp.Ptr<MapBuildDataRegistry>;
 	public var LightBuildLevelOffset: IntVector;
 	public var bIsLightingScenario: Bool;
 	public var bTextureStreamingRotationChanged: Bool;
 	public var bStaticComponentsRegisteredInStreamingManager: Bool;
 	public var bIsVisible: Bool;
 	public var bIsPartitioned: Bool;
-	public var bIsWorldPartitionRuntimeCell: Bool;
-	private var WorldSettings: cpp.Star<WorldSettings>;
-	private var WorldDataLayers: cpp.Star<WorldDataLayers>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	private var WorldSettings: ucpp.Ptr<WorldSettings>;
+	private var WorldDataLayers: ucpp.Ptr<WorldDataLayers>;
+	private var WorldPartitionRuntimeCell: TSoftObjectPtr<WorldPartitionRuntimeCell>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 	private var DestroyedReplicatedStaticActors: TArray<ReplicatedStaticActorDestructionInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLevel(Level) from Level {
-	public extern var OwningWorld(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_OwningWorld(): cpp.Star<World.ConstWorld> return this.OwningWorld;
-	public extern var Model(get, never): cpp.Star<Model.ConstModel>;
-	public inline extern function get_Model(): cpp.Star<Model.ConstModel> return this.Model;
-	public extern var ModelComponents(get, never): TArray<cpp.Star<ModelComp.ConstModelComp>>;
-	public inline extern function get_ModelComponents(): TArray<cpp.Star<ModelComp.ConstModelComp>> return this.ModelComponents;
-	public extern var ActorCluster(get, never): cpp.Star<LevelActorContainer.ConstLevelActorContainer>;
-	public inline extern function get_ActorCluster(): cpp.Star<LevelActorContainer.ConstLevelActorContainer> return this.ActorCluster;
-	public extern var NumTextureStreamingUnbuiltComponents(get, never): cpp.Int32;
-	public inline extern function get_NumTextureStreamingUnbuiltComponents(): cpp.Int32 return this.NumTextureStreamingUnbuiltComponents;
-	public extern var NumTextureStreamingDirtyResources(get, never): cpp.Int32;
-	public inline extern function get_NumTextureStreamingDirtyResources(): cpp.Int32 return this.NumTextureStreamingDirtyResources;
-	public extern var LevelScriptActor(get, never): cpp.Star<LevelScriptActor.ConstLevelScriptActor>;
-	public inline extern function get_LevelScriptActor(): cpp.Star<LevelScriptActor.ConstLevelScriptActor> return this.LevelScriptActor;
-	public extern var NavListStart(get, never): cpp.Star<NavigationObjectBase.ConstNavigationObjectBase>;
-	public inline extern function get_NavListStart(): cpp.Star<NavigationObjectBase.ConstNavigationObjectBase> return this.NavListStart;
-	public extern var NavListEnd(get, never): cpp.Star<NavigationObjectBase.ConstNavigationObjectBase>;
-	public inline extern function get_NavListEnd(): cpp.Star<NavigationObjectBase.ConstNavigationObjectBase> return this.NavListEnd;
-	public extern var NavDataChunks(get, never): TArray<cpp.Star<NavigationDataChunk.ConstNavigationDataChunk>>;
-	public inline extern function get_NavDataChunks(): TArray<cpp.Star<NavigationDataChunk.ConstNavigationDataChunk>> return this.NavDataChunks;
-	public extern var LightmapTotalSize(get, never): cpp.Float32;
-	public inline extern function get_LightmapTotalSize(): cpp.Float32 return this.LightmapTotalSize;
-	public extern var ShadowmapTotalSize(get, never): cpp.Float32;
-	public inline extern function get_ShadowmapTotalSize(): cpp.Float32 return this.ShadowmapTotalSize;
+	public extern var OwningWorld(get, never): ucpp.Ptr<World.ConstWorld>;
+	public inline extern function get_OwningWorld(): ucpp.Ptr<World.ConstWorld> return this.OwningWorld;
+	public extern var Model(get, never): ucpp.Ptr<Model.ConstModel>;
+	public inline extern function get_Model(): ucpp.Ptr<Model.ConstModel> return this.Model;
+	public extern var ModelComponents(get, never): TArray<ucpp.Ptr<ModelComp.ConstModelComp>>;
+	public inline extern function get_ModelComponents(): TArray<ucpp.Ptr<ModelComp.ConstModelComp>> return this.ModelComponents;
+	public extern var ActorCluster(get, never): ucpp.Ptr<LevelActorContainer.ConstLevelActorContainer>;
+	public inline extern function get_ActorCluster(): ucpp.Ptr<LevelActorContainer.ConstLevelActorContainer> return this.ActorCluster;
+	public extern var NumTextureStreamingUnbuiltComponents(get, never): ucpp.num.Int32;
+	public inline extern function get_NumTextureStreamingUnbuiltComponents(): ucpp.num.Int32 return this.NumTextureStreamingUnbuiltComponents;
+	public extern var NumTextureStreamingDirtyResources(get, never): ucpp.num.Int32;
+	public inline extern function get_NumTextureStreamingDirtyResources(): ucpp.num.Int32 return this.NumTextureStreamingDirtyResources;
+	public extern var LevelScriptActor(get, never): ucpp.Ptr<LevelScriptActor.ConstLevelScriptActor>;
+	public inline extern function get_LevelScriptActor(): ucpp.Ptr<LevelScriptActor.ConstLevelScriptActor> return this.LevelScriptActor;
+	public extern var NavListStart(get, never): ucpp.Ptr<NavigationObjectBase.ConstNavigationObjectBase>;
+	public inline extern function get_NavListStart(): ucpp.Ptr<NavigationObjectBase.ConstNavigationObjectBase> return this.NavListStart;
+	public extern var NavListEnd(get, never): ucpp.Ptr<NavigationObjectBase.ConstNavigationObjectBase>;
+	public inline extern function get_NavListEnd(): ucpp.Ptr<NavigationObjectBase.ConstNavigationObjectBase> return this.NavListEnd;
+	public extern var NavDataChunks(get, never): TArray<ucpp.Ptr<NavigationDataChunk.ConstNavigationDataChunk>>;
+	public inline extern function get_NavDataChunks(): TArray<ucpp.Ptr<NavigationDataChunk.ConstNavigationDataChunk>> return this.NavDataChunks;
+	public extern var LightmapTotalSize(get, never): ucpp.num.Float32;
+	public inline extern function get_LightmapTotalSize(): ucpp.num.Float32 return this.LightmapTotalSize;
+	public extern var ShadowmapTotalSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ShadowmapTotalSize(): ucpp.num.Float32 return this.ShadowmapTotalSize;
 	public extern var StaticNavigableGeometry(get, never): TArray<Vector>;
 	public inline extern function get_StaticNavigableGeometry(): TArray<Vector> return this.StaticNavigableGeometry;
 	public extern var StreamingTextureGuids(get, never): TArray<Guid>;
 	public inline extern function get_StreamingTextureGuids(): TArray<Guid> return this.StreamingTextureGuids;
 	public extern var StreamingTextures(get, never): TArray<FName>;
 	public inline extern function get_StreamingTextures(): TArray<FName> return this.StreamingTextures;
-	public extern var PackedTextureStreamingQualityLevelFeatureLevel(get, never): cpp.UInt32;
-	public inline extern function get_PackedTextureStreamingQualityLevelFeatureLevel(): cpp.UInt32 return this.PackedTextureStreamingQualityLevelFeatureLevel;
+	public extern var PackedTextureStreamingQualityLevelFeatureLevel(get, never): ucpp.num.UInt32;
+	public inline extern function get_PackedTextureStreamingQualityLevelFeatureLevel(): ucpp.num.UInt32 return this.PackedTextureStreamingQualityLevelFeatureLevel;
 	public extern var LevelBuildDataId(get, never): Guid;
 	public inline extern function get_LevelBuildDataId(): Guid return this.LevelBuildDataId;
-	public extern var MapBuildData(get, never): cpp.Star<MapBuildDataRegistry.ConstMapBuildDataRegistry>;
-	public inline extern function get_MapBuildData(): cpp.Star<MapBuildDataRegistry.ConstMapBuildDataRegistry> return this.MapBuildData;
+	public extern var MapBuildData(get, never): ucpp.Ptr<MapBuildDataRegistry.ConstMapBuildDataRegistry>;
+	public inline extern function get_MapBuildData(): ucpp.Ptr<MapBuildDataRegistry.ConstMapBuildDataRegistry> return this.MapBuildData;
 	public extern var LightBuildLevelOffset(get, never): IntVector;
 	public inline extern function get_LightBuildLevelOffset(): IntVector return this.LightBuildLevelOffset;
 	public extern var bIsLightingScenario(get, never): Bool;
@@ -89,14 +89,12 @@ abstract ConstLevel(Level) from Level {
 	public inline extern function get_bIsVisible(): Bool return this.bIsVisible;
 	public extern var bIsPartitioned(get, never): Bool;
 	public inline extern function get_bIsPartitioned(): Bool return this.bIsPartitioned;
-	public extern var bIsWorldPartitionRuntimeCell(get, never): Bool;
-	public inline extern function get_bIsWorldPartitionRuntimeCell(): Bool return this.bIsWorldPartitionRuntimeCell;
 }
 
 @:forward
 @:nativeGen
 @:native("Level*")
-abstract LevelPtr(cpp.Star<Level>) from cpp.Star<Level> to cpp.Star<Level>{
+abstract LevelPtr(ucpp.Ptr<Level>) from ucpp.Ptr<Level> to ucpp.Ptr<Level>{
 	@:from
 	public static extern inline function fromValue(v: Level): LevelPtr {
 		return untyped __cpp__("&({0})", v);

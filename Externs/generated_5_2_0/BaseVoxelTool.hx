@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBaseVoxelTool")
 @:include("BaseTools/BaseVoxelTool.h")
-@:structAccess
+@:valueType
 extern class BaseVoxelTool extends BaseCreateFromSelectedTool {
-	@:protected public var VoxProperties: cpp.Star<VoxelProperties>;
+	@:protected public var VoxProperties: ucpp.Ptr<VoxelProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBaseVoxelTool(BaseVoxelTool) from BaseVoxelTool {
 @:forward
 @:nativeGen
 @:native("BaseVoxelTool*")
-abstract BaseVoxelToolPtr(cpp.Star<BaseVoxelTool>) from cpp.Star<BaseVoxelTool> to cpp.Star<BaseVoxelTool>{
+abstract BaseVoxelToolPtr(ucpp.Ptr<BaseVoxelTool>) from ucpp.Ptr<BaseVoxelTool> to ucpp.Ptr<BaseVoxelTool>{
 	@:from
 	public static extern inline function fromValue(v: BaseVoxelTool): BaseVoxelToolPtr {
 		return untyped __cpp__("&({0})", v);

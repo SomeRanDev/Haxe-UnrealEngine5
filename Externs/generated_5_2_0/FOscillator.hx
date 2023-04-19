@@ -3,13 +3,13 @@ package ue;
 
 @:native("FFOscillator")
 @:include("LegacyCameraShake.h")
-@:structAccess
+@:valueType
 extern class FOscillator {
-	public var Amplitude: cpp.Float32;
-	public var Frequency: cpp.Float32;
+	public var Amplitude: ucpp.num.Float32;
+	public var Frequency: ucpp.num.Float32;
 	public var InitialOffset: TEnumAsByte<EInitialOscillatorOffset>;
 	public var Waveform: EOscillatorWaveform;
 
 	@:native("FFOscillator") public function new();
-	@:native("FFOscillator") public static function make(Amplitude: cpp.Float32, Frequency: cpp.Float32, InitialOffset: TEnumAsByte<EInitialOscillatorOffset>, Waveform: EOscillatorWaveform): FOscillator ;
+	@:native("FFOscillator") public static function make(Amplitude: ucpp.num.Float32, Frequency: ucpp.num.Float32, InitialOffset: TEnumAsByte<EInitialOscillatorOffset>, Waveform: EOscillatorWaveform): FOscillator ;
 }

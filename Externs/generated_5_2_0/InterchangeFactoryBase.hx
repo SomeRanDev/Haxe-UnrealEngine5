@@ -3,26 +3,26 @@ package ue;
 
 @:native("UInterchangeFactoryBase")
 @:include("InterchangeFactoryBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeFactoryBase extends Object {
-	public var Results: cpp.Star<InterchangeResultsContainer>;
+	public var Results: ucpp.Ptr<InterchangeResultsContainer>;
 
-	public function GetFactoryClass(): cpp.Star<Class>;
+	public function GetFactoryClass(): ucpp.Ptr<Class>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFactoryClass)
 @:nativeGen
 abstract ConstInterchangeFactoryBase(InterchangeFactoryBase) from InterchangeFactoryBase {
-	public extern var Results(get, never): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer>;
-	public inline extern function get_Results(): cpp.Star<InterchangeResultsContainer.ConstInterchangeResultsContainer> return this.Results;
+	public extern var Results(get, never): ucpp.Ptr<InterchangeResultsContainer.ConstInterchangeResultsContainer>;
+	public inline extern function get_Results(): ucpp.Ptr<InterchangeResultsContainer.ConstInterchangeResultsContainer> return this.Results;
 }
 
 @:forward
 @:nativeGen
 @:native("InterchangeFactoryBase*")
-abstract InterchangeFactoryBasePtr(cpp.Star<InterchangeFactoryBase>) from cpp.Star<InterchangeFactoryBase> to cpp.Star<InterchangeFactoryBase>{
+abstract InterchangeFactoryBasePtr(ucpp.Ptr<InterchangeFactoryBase>) from ucpp.Ptr<InterchangeFactoryBase> to ucpp.Ptr<InterchangeFactoryBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeFactoryBase): InterchangeFactoryBasePtr {
 		return untyped __cpp__("&({0})", v);

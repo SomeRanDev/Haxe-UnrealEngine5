@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAIStimulus")
 @:include("Perception/AIPerceptionTypes.h")
-@:structAccess
+@:valueType
 extern class AIStimulus {
-	@:protected public var Age: cpp.Float32;
-	@:protected public var ExpirationAge: cpp.Float32;
-	public var Strength: cpp.Float32;
+	@:protected public var Age: ucpp.num.Float32;
+	@:protected public var ExpirationAge: ucpp.num.Float32;
+	public var Strength: ucpp.num.Float32;
 	public var StimulusLocation: Vector;
 	public var ReceiverLocation: Vector;
 	public var Tag: FName;

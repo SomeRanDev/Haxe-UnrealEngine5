@@ -3,14 +3,14 @@ package ue;
 
 @:native("APartyBeaconHost")
 @:include("PartyBeaconHost.h")
-@:structAccess
+@:valueType
 extern class PartyBeaconHost extends OnlineBeaconHostObject {
-	@:protected public var State: cpp.Star<PartyBeaconState>;
+	@:protected public var State: ucpp.Ptr<PartyBeaconState>;
 	@:protected public var bLogoutOnSessionTimeout: Bool;
-	@:protected public var SessionTimeoutSecs: cpp.Float32;
-	@:protected public var TravelSessionTimeoutSecs: cpp.Float32;
+	@:protected public var SessionTimeoutSecs: ucpp.num.Float32;
+	@:protected public var TravelSessionTimeoutSecs: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstPartyBeaconHost(PartyBeaconHost) from PartyBeaconHost {
 @:forward
 @:nativeGen
 @:native("PartyBeaconHost*")
-abstract PartyBeaconHostPtr(cpp.Star<PartyBeaconHost>) from cpp.Star<PartyBeaconHost> to cpp.Star<PartyBeaconHost>{
+abstract PartyBeaconHostPtr(ucpp.Ptr<PartyBeaconHost>) from ucpp.Ptr<PartyBeaconHost> to ucpp.Ptr<PartyBeaconHost>{
 	@:from
 	public static extern inline function fromValue(v: PartyBeaconHost): PartyBeaconHostPtr {
 		return untyped __cpp__("&({0})", v);

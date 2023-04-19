@@ -3,9 +3,9 @@ package ue;
 
 @:native("FNiagaraMeshRendererMeshProperties")
 @:include("NiagaraMeshRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraMeshRendererMeshProperties {
-	public var Mesh: cpp.Star<StaticMesh>;
+	public var Mesh: ucpp.Ptr<StaticMesh>;
 	public var MeshParameterBinding: NiagaraParameterBinding;
 	public var Scale: Vector;
 	public var Rotation: Rotator;

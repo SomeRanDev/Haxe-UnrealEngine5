@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ENiagaraTickBehavior")
-@:include("NiagaraCommon.h")
+@:include("NiagaraTickBehaviorEnum.h")
 extern class ENiagaraTickBehavior {
 	static var UsePrereqs: ENiagaraTickBehavior;
 	static var UseComponentTickGroup: ENiagaraTickBehavior;

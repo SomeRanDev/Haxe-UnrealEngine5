@@ -3,7 +3,7 @@ package ue;
 
 @:native("FKeyAttributes")
 @:include("CurveDataAbstraction.h")
-@:structAccess
+@:valueType
 extern class KeyAttributes {
 	private var bHasArriveTangent: Bool;
 	private var bHasLeaveTangent: Bool;
@@ -12,13 +12,13 @@ extern class KeyAttributes {
 	private var bHasTangentWeightMode: Bool;
 	private var bHasArriveTangentWeight: Bool;
 	private var bHasLeaveTangentWeight: Bool;
-	private var ArriveTangent: cpp.Float32;
-	private var LeaveTangent: cpp.Float32;
+	private var ArriveTangent: ucpp.num.Float32;
+	private var LeaveTangent: ucpp.num.Float32;
 	private var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
 	private var TangentMode: TEnumAsByte<ERichCurveTangentMode>;
 	private var TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>;
-	private var ArriveTangentWeight: cpp.Float32;
-	private var LeaveTangentWeight: cpp.Float32;
+	private var ArriveTangentWeight: ucpp.num.Float32;
+	private var LeaveTangentWeight: ucpp.num.Float32;
 
 	@:native("FKeyAttributes") public function new();
 }

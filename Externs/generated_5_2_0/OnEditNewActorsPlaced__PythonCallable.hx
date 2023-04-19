@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnEditNewActorsPlaced__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnEditNewActorsPlaced__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnEditNewActorsPlaced__PythonCallable(OnEditNewActorsPlaced__Pytho
 @:forward
 @:nativeGen
 @:native("OnEditNewActorsPlaced__PythonCallable*")
-abstract OnEditNewActorsPlaced__PythonCallablePtr(cpp.Star<OnEditNewActorsPlaced__PythonCallable>) from cpp.Star<OnEditNewActorsPlaced__PythonCallable> to cpp.Star<OnEditNewActorsPlaced__PythonCallable>{
+abstract OnEditNewActorsPlaced__PythonCallablePtr(ucpp.Ptr<OnEditNewActorsPlaced__PythonCallable>) from ucpp.Ptr<OnEditNewActorsPlaced__PythonCallable> to ucpp.Ptr<OnEditNewActorsPlaced__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnEditNewActorsPlaced__PythonCallable): OnEditNewActorsPlaced__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

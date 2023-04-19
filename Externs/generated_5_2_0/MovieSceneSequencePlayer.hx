@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneSequencePlayer")
 @:include("MovieSceneSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequencePlayer extends Object {
 	public var Observer: MovieSceneSequencePlayerObserver;
 	public var OnPlay: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -13,27 +13,27 @@ extern class MovieSceneSequencePlayer extends Object {
 	public var OnFinished: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	@:protected public var Status: TEnumAsByte<EMovieScenePlayerStatus>;
 	@:protected public var bReversePlayback: Bool;
-	@:protected public var Sequence: cpp.Star<MovieSceneSequence>;
+	@:protected public var Sequence: ucpp.Ptr<MovieSceneSequence>;
 	@:protected public var StartTime: FrameNumber;
-	@:protected public var DurationFrames: cpp.Int32;
-	@:protected public var DurationSubFrames: cpp.Float32;
-	@:protected public var CurrentNumLoops: cpp.Int32;
+	@:protected public var DurationFrames: ucpp.num.Int32;
+	@:protected public var DurationSubFrames: ucpp.num.Float32;
+	@:protected public var CurrentNumLoops: ucpp.num.Int32;
 	@:protected public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
 	@:protected public var RootTemplateInstance: MovieSceneRootEvaluationTemplateInstance;
 	@:protected public var NetSyncProps: MovieSceneSequenceReplProperties;
 	@:protected public var PlaybackClient: MovieScenePlaybackClient;
-	@:protected public var TickManager: cpp.Star<MovieSceneSequenceTickManager>;
+	@:protected public var TickManager: ucpp.Ptr<MovieSceneSequenceTickManager>;
 
 	public function StopAtCurrentTime(): Void;
 	public function Stop(): Void;
-	public function SetWeight(InWeight: cpp.Float64): Void;
-	public function SetTimeRange(StartTime: cpp.Float32, Duration: cpp.Float32): Void;
-	public function SetPlayRate(PlayRate: cpp.Float32): Void;
+	public function SetWeight(InWeight: ucpp.num.Float64): Void;
+	public function SetTimeRange(StartTime: ucpp.num.Float32, Duration: ucpp.num.Float32): Void;
+	public function SetPlayRate(PlayRate: ucpp.num.Float32): Void;
 	public function SetPlaybackPosition(PlaybackParams: MovieSceneSequencePlaybackParams): Void;
 	public function SetFrameRate(FrameRate: FrameRate): Void;
-	public function SetFrameRange(StartFrame: cpp.Int32, Duration: cpp.Int32, SubFrames: cpp.Float32): Void;
+	public function SetFrameRange(StartFrame: ucpp.num.Int32, Duration: ucpp.num.Int32, SubFrames: ucpp.num.Float32): Void;
 	public function SetDisableCameraCuts(bInDisableCameraCuts: Bool): Void;
-	public function ScrubToSeconds(TimeInSeconds: cpp.Float32): Void;
+	public function ScrubToSeconds(TimeInSeconds: ucpp.num.Float32): Void;
 	public function ScrubToMarkedFrame(InLabel: FString): Bool;
 	public function ScrubToFrame(NewPosition: FrameTime): Void;
 	public function Scrub(): Void;
@@ -42,15 +42,15 @@ extern class MovieSceneSequencePlayer extends Object {
 	private function RPC_ExplicitServerUpdateEvent(Method: EUpdatePositionMethod, RelevantTime: FrameTime): Void;
 	public function RestoreState(): Void;
 	public function RemoveWeight(): Void;
-	public function PlayToSeconds(TimeInSeconds: cpp.Float32): Void;
+	public function PlayToSeconds(TimeInSeconds: ucpp.num.Float32): Void;
 	public function PlayToMarkedFrame(InLabel: FString): Bool;
 	public function PlayToFrame(NewPosition: FrameTime): Void;
 	public function PlayTo(PlaybackParams: MovieSceneSequencePlaybackParams, PlayToParams: MovieSceneSequencePlayToParams): Void;
 	public function PlayReverse(): Void;
-	public function PlayLooping(NumLoops: cpp.Int32): Void;
+	public function PlayLooping(NumLoops: ucpp.num.Int32): Void;
 	public function Play(): Void;
 	public function Pause(): Void;
-	public function JumpToSeconds(TimeInSeconds: cpp.Float32): Void;
+	public function JumpToSeconds(TimeInSeconds: ucpp.num.Float32): Void;
 	public function JumpToMarkedFrame(InLabel: FString): Bool;
 	public function JumpToFrame(NewPosition: FrameTime): Void;
 	public function IsReversed(): Bool;
@@ -59,19 +59,19 @@ extern class MovieSceneSequencePlayer extends Object {
 	public function GoToEndAndStop(): Void;
 	public function GetStartTime(): QualifiedFrameTime;
 	public function GetSequenceName(bAddClientInfo: Bool): FString;
-	public function GetSequence(): cpp.Star<MovieSceneSequence>;
-	public function GetPlayRate(): cpp.Float32;
-	public function GetObjectBindings(InObject: cpp.Star<Object>): TArray<MovieSceneObjectBindingID>;
+	public function GetSequence(): ucpp.Ptr<MovieSceneSequence>;
+	public function GetPlayRate(): ucpp.num.Float32;
+	public function GetObjectBindings(InObject: ucpp.Ptr<Object>): TArray<MovieSceneObjectBindingID>;
 	public function GetFrameRate(): FrameRate;
-	public function GetFrameDuration(): cpp.Int32;
+	public function GetFrameDuration(): ucpp.num.Int32;
 	public function GetEndTime(): QualifiedFrameTime;
 	public function GetDuration(): QualifiedFrameTime;
 	public function GetDisableCameraCuts(): Bool;
 	public function GetCurrentTime(): QualifiedFrameTime;
-	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): TArray<cpp.Star<Object>>;
+	public function GetBoundObjects(ObjectBinding: MovieSceneObjectBindingID): TArray<ucpp.Ptr<Object>>;
 	public function ChangePlaybackDirection(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -98,7 +98,7 @@ abstract ConstMovieSceneSequencePlayer(MovieSceneSequencePlayer) from MovieScene
 @:forward
 @:nativeGen
 @:native("MovieSceneSequencePlayer*")
-abstract MovieSceneSequencePlayerPtr(cpp.Star<MovieSceneSequencePlayer>) from cpp.Star<MovieSceneSequencePlayer> to cpp.Star<MovieSceneSequencePlayer>{
+abstract MovieSceneSequencePlayerPtr(ucpp.Ptr<MovieSceneSequencePlayer>) from ucpp.Ptr<MovieSceneSequencePlayer> to ucpp.Ptr<MovieSceneSequencePlayer>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSequencePlayer): MovieSceneSequencePlayerPtr {
 		return untyped __cpp__("&({0})", v);

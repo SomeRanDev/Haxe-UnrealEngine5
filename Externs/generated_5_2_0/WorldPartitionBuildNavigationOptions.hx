@@ -3,12 +3,12 @@ package ue;
 
 @:native("UWorldPartitionBuildNavigationOptions")
 @:include("WorldPartition/WorldPartitionBuildNavigationOptions.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionBuildNavigationOptions extends Object {
 	public var bVerbose: Bool;
 	public var bCleanPackages: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstWorldPartitionBuildNavigationOptions(WorldPartitionBuildNavigation
 @:forward
 @:nativeGen
 @:native("WorldPartitionBuildNavigationOptions*")
-abstract WorldPartitionBuildNavigationOptionsPtr(cpp.Star<WorldPartitionBuildNavigationOptions>) from cpp.Star<WorldPartitionBuildNavigationOptions> to cpp.Star<WorldPartitionBuildNavigationOptions>{
+abstract WorldPartitionBuildNavigationOptionsPtr(ucpp.Ptr<WorldPartitionBuildNavigationOptions>) from ucpp.Ptr<WorldPartitionBuildNavigationOptions> to ucpp.Ptr<WorldPartitionBuildNavigationOptions>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionBuildNavigationOptions): WorldPartitionBuildNavigationOptionsPtr {
 		return untyped __cpp__("&({0})", v);

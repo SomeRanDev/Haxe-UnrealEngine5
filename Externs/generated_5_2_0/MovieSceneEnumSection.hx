@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneEnumSection")
 @:include("Sections/MovieSceneEnumSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEnumSection extends MovieSceneSection {
 	public var EnumCurve: MovieSceneByteChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneEnumSection(MovieSceneEnumSection) from MovieSceneEnumSe
 @:forward
 @:nativeGen
 @:native("MovieSceneEnumSection*")
-abstract MovieSceneEnumSectionPtr(cpp.Star<MovieSceneEnumSection>) from cpp.Star<MovieSceneEnumSection> to cpp.Star<MovieSceneEnumSection>{
+abstract MovieSceneEnumSectionPtr(ucpp.Ptr<MovieSceneEnumSection>) from ucpp.Ptr<MovieSceneEnumSection> to ucpp.Ptr<MovieSceneEnumSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEnumSection): MovieSceneEnumSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("FCurveEdEntry")
 @:include("Engine/InterpCurveEdSetup.h")
-@:structAccess
+@:valueType
 extern class CurveEdEntry {
-	public var CurveObject: cpp.Star<Object>;
+	public var CurveObject: ucpp.Ptr<Object>;
 	public var CurveColor: Color;
 	public var CurveName: FString;
-	public var bHideCurve: cpp.Int32;
-	public var bColorCurve: cpp.Int32;
-	public var bFloatingPointColorCurve: cpp.Int32;
-	public var bClamp: cpp.Int32;
-	public var ClampLow: cpp.Float32;
-	public var ClampHigh: cpp.Float32;
+	public var bHideCurve: ucpp.num.Int32;
+	public var bColorCurve: ucpp.num.Int32;
+	public var bFloatingPointColorCurve: ucpp.num.Int32;
+	public var bClamp: ucpp.num.Int32;
+	public var ClampLow: ucpp.num.Float32;
+	public var ClampHigh: ucpp.num.Float32;
 
 	@:native("FCurveEdEntry") public function new();
 }

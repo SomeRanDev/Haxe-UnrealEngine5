@@ -4,9 +4,9 @@ package ue;
 @:native("EInterchangeNodeContainerType")
 @:include("Nodes/InterchangeBaseNode.h")
 extern class EInterchangeNodeContainerType {
-	static var NodeContainerType_None: EInterchangeNodeContainerType;
-	static var NodeContainerType_TranslatedScene: EInterchangeNodeContainerType;
-	static var NodeContainerType_TranslatedAsset: EInterchangeNodeContainerType;
-	static var NodeContainerType_FactoryData: EInterchangeNodeContainerType;
-	static var NodeContainerType_MAX: EInterchangeNodeContainerType;
+	static var None: EInterchangeNodeContainerType;
+	static var TranslatedScene: EInterchangeNodeContainerType;
+	static var TranslatedAsset: EInterchangeNodeContainerType;
+	static var FactoryData: EInterchangeNodeContainerType;
+	static var EInterchangeNodeContainerType_MAX: EInterchangeNodeContainerType;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UOnlineSession")
 @:include("GameFramework/OnlineSession.h")
-@:structAccess
+@:valueType
 extern class OnlineSession extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstOnlineSession(OnlineSession) from OnlineSession {
 @:forward
 @:nativeGen
 @:native("OnlineSession*")
-abstract OnlineSessionPtr(cpp.Star<OnlineSession>) from cpp.Star<OnlineSession> to cpp.Star<OnlineSession>{
+abstract OnlineSessionPtr(ucpp.Ptr<OnlineSession>) from ucpp.Ptr<OnlineSession> to ucpp.Ptr<OnlineSession>{
 	@:from
 	public static extern inline function fromValue(v: OnlineSession): OnlineSessionPtr {
 		return untyped __cpp__("&({0})", v);

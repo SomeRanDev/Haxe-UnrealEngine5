@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintEditorPromotionSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class BlueprintEditorPromotionSettings {
 	public var FirstMeshPath: FilePath;
 	public var SecondMeshPath: FilePath;

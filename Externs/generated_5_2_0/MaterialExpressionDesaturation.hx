@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionDesaturation")
 @:include("Materials/MaterialExpressionDesaturation.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDesaturation extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var Fraction: ExpressionInput;
 	public var LuminanceFactors: LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionDesaturation(MaterialExpressionDesaturation) fro
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDesaturation*")
-abstract MaterialExpressionDesaturationPtr(cpp.Star<MaterialExpressionDesaturation>) from cpp.Star<MaterialExpressionDesaturation> to cpp.Star<MaterialExpressionDesaturation>{
+abstract MaterialExpressionDesaturationPtr(ucpp.Ptr<MaterialExpressionDesaturation>) from ucpp.Ptr<MaterialExpressionDesaturation> to ucpp.Ptr<MaterialExpressionDesaturation>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDesaturation): MaterialExpressionDesaturationPtr {
 		return untyped __cpp__("&({0})", v);

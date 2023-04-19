@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEnvQueryGenerator_SimpleGrid")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_SimpleGrid.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_SimpleGrid extends EnvQueryGenerator_ProjectedPoints {
 	public var GridSize: AIDataProviderFloatValue;
 	public var SpaceBetween: AIDataProviderFloatValue;
 	public var GenerateAround: TSubclassOf<EnvQueryContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstEnvQueryGenerator_SimpleGrid(EnvQueryGenerator_SimpleGrid) from En
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_SimpleGrid*")
-abstract EnvQueryGenerator_SimpleGridPtr(cpp.Star<EnvQueryGenerator_SimpleGrid>) from cpp.Star<EnvQueryGenerator_SimpleGrid> to cpp.Star<EnvQueryGenerator_SimpleGrid>{
+abstract EnvQueryGenerator_SimpleGridPtr(ucpp.Ptr<EnvQueryGenerator_SimpleGrid>) from ucpp.Ptr<EnvQueryGenerator_SimpleGrid> to ucpp.Ptr<EnvQueryGenerator_SimpleGrid>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_SimpleGrid): EnvQueryGenerator_SimpleGridPtr {
 		return untyped __cpp__("&({0})", v);

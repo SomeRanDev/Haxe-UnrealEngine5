@@ -3,16 +3,16 @@ package ue;
 
 @:native("UDeviceProfile")
 @:include("DeviceProfiles/DeviceProfile.h")
-@:structAccess
+@:valueType
 extern class DeviceProfile extends TextureLODSettings {
 	public var DeviceType: FString;
 	public var BaseProfileName: FString;
 	public var bIsVisibleForAssets: Bool;
-	public var Parent: cpp.Star<DeviceProfile>;
+	public var Parent: ucpp.Ptr<DeviceProfile>;
 	public var CVars: TArray<FString>;
 	public var MatchingRules: TArray<DPMatchingRulestruct>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,8 +24,8 @@ abstract ConstDeviceProfile(DeviceProfile) from DeviceProfile {
 	public inline extern function get_BaseProfileName(): FString return this.BaseProfileName;
 	public extern var bIsVisibleForAssets(get, never): Bool;
 	public inline extern function get_bIsVisibleForAssets(): Bool return this.bIsVisibleForAssets;
-	public extern var Parent(get, never): cpp.Star<DeviceProfile.ConstDeviceProfile>;
-	public inline extern function get_Parent(): cpp.Star<DeviceProfile.ConstDeviceProfile> return this.Parent;
+	public extern var Parent(get, never): ucpp.Ptr<DeviceProfile.ConstDeviceProfile>;
+	public inline extern function get_Parent(): ucpp.Ptr<DeviceProfile.ConstDeviceProfile> return this.Parent;
 	public extern var CVars(get, never): TArray<FString>;
 	public inline extern function get_CVars(): TArray<FString> return this.CVars;
 	public extern var MatchingRules(get, never): TArray<DPMatchingRulestruct>;
@@ -35,7 +35,7 @@ abstract ConstDeviceProfile(DeviceProfile) from DeviceProfile {
 @:forward
 @:nativeGen
 @:native("DeviceProfile*")
-abstract DeviceProfilePtr(cpp.Star<DeviceProfile>) from cpp.Star<DeviceProfile> to cpp.Star<DeviceProfile>{
+abstract DeviceProfilePtr(ucpp.Ptr<DeviceProfile>) from ucpp.Ptr<DeviceProfile> to ucpp.Ptr<DeviceProfile>{
 	@:from
 	public static extern inline function fromValue(v: DeviceProfile): DeviceProfilePtr {
 		return untyped __cpp__("&({0})", v);

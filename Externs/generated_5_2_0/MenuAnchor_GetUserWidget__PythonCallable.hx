@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMenuAnchor_GetUserWidget__PythonCallable")
-@:structAccess
+@:valueType
 extern class MenuAnchor_GetUserWidget__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMenuAnchor_GetUserWidget__PythonCallable(MenuAnchor_GetUserWidget_
 @:forward
 @:nativeGen
 @:native("MenuAnchor_GetUserWidget__PythonCallable*")
-abstract MenuAnchor_GetUserWidget__PythonCallablePtr(cpp.Star<MenuAnchor_GetUserWidget__PythonCallable>) from cpp.Star<MenuAnchor_GetUserWidget__PythonCallable> to cpp.Star<MenuAnchor_GetUserWidget__PythonCallable>{
+abstract MenuAnchor_GetUserWidget__PythonCallablePtr(ucpp.Ptr<MenuAnchor_GetUserWidget__PythonCallable>) from ucpp.Ptr<MenuAnchor_GetUserWidget__PythonCallable> to ucpp.Ptr<MenuAnchor_GetUserWidget__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: MenuAnchor_GetUserWidget__PythonCallable): MenuAnchor_GetUserWidget__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

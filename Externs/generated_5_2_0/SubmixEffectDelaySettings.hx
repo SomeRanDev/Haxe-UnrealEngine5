@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSubmixEffectDelaySettings")
 @:include("SubmixEffects/SubmixEffectDelay.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectDelaySettings {
-	public var MaximumDelayLength: cpp.Float32;
-	public var InterpolationTime: cpp.Float32;
-	public var DelayLength: cpp.Float32;
+	public var MaximumDelayLength: ucpp.num.Float32;
+	public var InterpolationTime: ucpp.num.Float32;
+	public var DelayLength: ucpp.num.Float32;
 
 	@:native("FSubmixEffectDelaySettings") public function new();
-	@:native("FSubmixEffectDelaySettings") public static function make(MaximumDelayLength: cpp.Float32, InterpolationTime: cpp.Float32, DelayLength: cpp.Float32): SubmixEffectDelaySettings ;
+	@:native("FSubmixEffectDelaySettings") public static function make(MaximumDelayLength: ucpp.num.Float32, InterpolationTime: ucpp.num.Float32, DelayLength: ucpp.num.Float32): SubmixEffectDelaySettings ;
 }

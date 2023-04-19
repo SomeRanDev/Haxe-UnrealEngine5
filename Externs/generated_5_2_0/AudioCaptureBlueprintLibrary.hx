@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAudioCaptureBlueprintLibrary")
 @:include("AudioCaptureBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class AudioCaptureBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetAvailableAudioInputDevices(WorldContextObject: cpp.Star<Object.ConstObject>, OnObtainDevicesEvent: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<AudioInputDeviceInfo>>) -> Void>>): Void;
-	public function Conv_AudioInputDeviceInfoToString(info: cpp.Reference<AudioInputDeviceInfo>): FString;
+	public function GetAvailableAudioInputDevices(WorldContextObject: ucpp.Ptr<Object.ConstObject>, OnObtainDevicesEvent: ucpp.Ref<HaxeDelegateProperty<(ucpp.Ref<TArray<AudioInputDeviceInfo>>) -> Void>>): Void;
+	public function Conv_AudioInputDeviceInfoToString(info: ucpp.Ref<AudioInputDeviceInfo>): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAudioCaptureBlueprintLibrary(AudioCaptureBlueprintLibrary) from Au
 @:forward
 @:nativeGen
 @:native("AudioCaptureBlueprintLibrary*")
-abstract AudioCaptureBlueprintLibraryPtr(cpp.Star<AudioCaptureBlueprintLibrary>) from cpp.Star<AudioCaptureBlueprintLibrary> to cpp.Star<AudioCaptureBlueprintLibrary>{
+abstract AudioCaptureBlueprintLibraryPtr(ucpp.Ptr<AudioCaptureBlueprintLibrary>) from ucpp.Ptr<AudioCaptureBlueprintLibrary> to ucpp.Ptr<AudioCaptureBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AudioCaptureBlueprintLibrary): AudioCaptureBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

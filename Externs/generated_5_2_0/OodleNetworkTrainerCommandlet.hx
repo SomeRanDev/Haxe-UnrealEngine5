@@ -3,18 +3,18 @@ package ue;
 
 @:native("UOodleNetworkTrainerCommandlet")
 @:include("OodleNetworkTrainerCommandlet.h")
-@:structAccess
+@:valueType
 extern class OodleNetworkTrainerCommandlet extends Commandlet {
 	public var bCompressionTest: Bool;
 	public var bWriteV5Dictionaries: Bool;
-	public var HashTableSize: cpp.Int32;
-	public var DictionarySize: cpp.Int32;
-	public var DictionaryTrials: cpp.Int32;
-	public var TrialRandomness: cpp.Int32;
-	public var TrialGenerations: cpp.Int32;
+	public var HashTableSize: ucpp.num.Int32;
+	public var DictionarySize: ucpp.num.Int32;
+	public var DictionaryTrials: ucpp.num.Int32;
+	public var TrialRandomness: ucpp.num.Int32;
+	public var TrialGenerations: ucpp.num.Int32;
 	public var bNoTrials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,16 +24,16 @@ abstract ConstOodleNetworkTrainerCommandlet(OodleNetworkTrainerCommandlet) from 
 	public inline extern function get_bCompressionTest(): Bool return this.bCompressionTest;
 	public extern var bWriteV5Dictionaries(get, never): Bool;
 	public inline extern function get_bWriteV5Dictionaries(): Bool return this.bWriteV5Dictionaries;
-	public extern var HashTableSize(get, never): cpp.Int32;
-	public inline extern function get_HashTableSize(): cpp.Int32 return this.HashTableSize;
-	public extern var DictionarySize(get, never): cpp.Int32;
-	public inline extern function get_DictionarySize(): cpp.Int32 return this.DictionarySize;
-	public extern var DictionaryTrials(get, never): cpp.Int32;
-	public inline extern function get_DictionaryTrials(): cpp.Int32 return this.DictionaryTrials;
-	public extern var TrialRandomness(get, never): cpp.Int32;
-	public inline extern function get_TrialRandomness(): cpp.Int32 return this.TrialRandomness;
-	public extern var TrialGenerations(get, never): cpp.Int32;
-	public inline extern function get_TrialGenerations(): cpp.Int32 return this.TrialGenerations;
+	public extern var HashTableSize(get, never): ucpp.num.Int32;
+	public inline extern function get_HashTableSize(): ucpp.num.Int32 return this.HashTableSize;
+	public extern var DictionarySize(get, never): ucpp.num.Int32;
+	public inline extern function get_DictionarySize(): ucpp.num.Int32 return this.DictionarySize;
+	public extern var DictionaryTrials(get, never): ucpp.num.Int32;
+	public inline extern function get_DictionaryTrials(): ucpp.num.Int32 return this.DictionaryTrials;
+	public extern var TrialRandomness(get, never): ucpp.num.Int32;
+	public inline extern function get_TrialRandomness(): ucpp.num.Int32 return this.TrialRandomness;
+	public extern var TrialGenerations(get, never): ucpp.num.Int32;
+	public inline extern function get_TrialGenerations(): ucpp.num.Int32 return this.TrialGenerations;
 	public extern var bNoTrials(get, never): Bool;
 	public inline extern function get_bNoTrials(): Bool return this.bNoTrials;
 }
@@ -41,7 +41,7 @@ abstract ConstOodleNetworkTrainerCommandlet(OodleNetworkTrainerCommandlet) from 
 @:forward
 @:nativeGen
 @:native("OodleNetworkTrainerCommandlet*")
-abstract OodleNetworkTrainerCommandletPtr(cpp.Star<OodleNetworkTrainerCommandlet>) from cpp.Star<OodleNetworkTrainerCommandlet> to cpp.Star<OodleNetworkTrainerCommandlet>{
+abstract OodleNetworkTrainerCommandletPtr(ucpp.Ptr<OodleNetworkTrainerCommandlet>) from ucpp.Ptr<OodleNetworkTrainerCommandlet> to ucpp.Ptr<OodleNetworkTrainerCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: OodleNetworkTrainerCommandlet): OodleNetworkTrainerCommandletPtr {
 		return untyped __cpp__("&({0})", v);

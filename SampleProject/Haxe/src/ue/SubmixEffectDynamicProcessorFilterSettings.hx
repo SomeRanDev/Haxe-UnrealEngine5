@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSubmixEffectDynamicProcessorFilterSettings")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectDynamicProcessorFilterSettings {
 	public var bEnabled: Bool;
-	public var Cutoff: cpp.Float32;
-	public var GainDb: cpp.Float32;
+	public var Cutoff: ucpp.num.Float32;
+	public var GainDb: ucpp.num.Float32;
 
 	@:native("FSubmixEffectDynamicProcessorFilterSettings") public function new();
-	@:native("FSubmixEffectDynamicProcessorFilterSettings") public static function make(bEnabled: Bool, Cutoff: cpp.Float32, GainDb: cpp.Float32): SubmixEffectDynamicProcessorFilterSettings ;
+	@:native("FSubmixEffectDynamicProcessorFilterSettings") public static function make(bEnabled: Bool, Cutoff: ucpp.num.Float32, GainDb: ucpp.num.Float32): SubmixEffectDynamicProcessorFilterSettings ;
 }

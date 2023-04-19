@@ -3,20 +3,20 @@ package ue;
 
 @:native("UBlendProfile")
 @:include("Animation/BlendProfile.h")
-@:structAccess
+@:valueType
 extern class BlendProfile extends Object {
-	public var OwningSkeleton: cpp.Star<Skeleton>;
+	public var OwningSkeleton: ucpp.Ptr<Skeleton>;
 	public var ProfileEntries: TArray<BlendProfileBoneEntry>;
 	public var Mode: EBlendProfileMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlendProfile(BlendProfile) from BlendProfile {
-	public extern var OwningSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_OwningSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.OwningSkeleton;
+	public extern var OwningSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_OwningSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.OwningSkeleton;
 	public extern var ProfileEntries(get, never): TArray<BlendProfileBoneEntry>;
 	public inline extern function get_ProfileEntries(): TArray<BlendProfileBoneEntry> return this.ProfileEntries;
 	public extern var Mode(get, never): EBlendProfileMode;
@@ -26,7 +26,7 @@ abstract ConstBlendProfile(BlendProfile) from BlendProfile {
 @:forward
 @:nativeGen
 @:native("BlendProfile*")
-abstract BlendProfilePtr(cpp.Star<BlendProfile>) from cpp.Star<BlendProfile> to cpp.Star<BlendProfile>{
+abstract BlendProfilePtr(ucpp.Ptr<BlendProfile>) from ucpp.Ptr<BlendProfile> to ucpp.Ptr<BlendProfile>{
 	@:from
 	public static extern inline function fromValue(v: BlendProfile): BlendProfilePtr {
 		return untyped __cpp__("&({0})", v);

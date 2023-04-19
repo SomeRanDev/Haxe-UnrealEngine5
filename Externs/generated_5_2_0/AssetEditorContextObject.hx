@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetEditorContextObject")
 @:include("Tools/AssetEditorContextObject.h")
-@:structAccess
+@:valueType
 extern class AssetEditorContextObject extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetEditorContextObject(AssetEditorContextObject) from AssetEdito
 @:forward
 @:nativeGen
 @:native("AssetEditorContextObject*")
-abstract AssetEditorContextObjectPtr(cpp.Star<AssetEditorContextObject>) from cpp.Star<AssetEditorContextObject> to cpp.Star<AssetEditorContextObject>{
+abstract AssetEditorContextObjectPtr(ucpp.Ptr<AssetEditorContextObject>) from ucpp.Ptr<AssetEditorContextObject> to ucpp.Ptr<AssetEditorContextObject>{
 	@:from
 	public static extern inline function fromValue(v: AssetEditorContextObject): AssetEditorContextObjectPtr {
 		return untyped __cpp__("&({0})", v);

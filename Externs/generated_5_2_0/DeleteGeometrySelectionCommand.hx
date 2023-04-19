@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDeleteGeometrySelectionCommand")
 @:include("Commands/DeleteGeometrySelectionCommand.h")
-@:structAccess
+@:valueType
 extern class DeleteGeometrySelectionCommand extends GeometrySelectionEditCommand {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDeleteGeometrySelectionCommand(DeleteGeometrySelectionCommand) fro
 @:forward
 @:nativeGen
 @:native("DeleteGeometrySelectionCommand*")
-abstract DeleteGeometrySelectionCommandPtr(cpp.Star<DeleteGeometrySelectionCommand>) from cpp.Star<DeleteGeometrySelectionCommand> to cpp.Star<DeleteGeometrySelectionCommand>{
+abstract DeleteGeometrySelectionCommandPtr(ucpp.Ptr<DeleteGeometrySelectionCommand>) from ucpp.Ptr<DeleteGeometrySelectionCommand> to ucpp.Ptr<DeleteGeometrySelectionCommand>{
 	@:from
 	public static extern inline function fromValue(v: DeleteGeometrySelectionCommand): DeleteGeometrySelectionCommandPtr {
 		return untyped __cpp__("&({0})", v);

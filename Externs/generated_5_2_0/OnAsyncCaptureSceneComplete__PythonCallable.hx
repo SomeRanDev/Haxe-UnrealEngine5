@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnAsyncCaptureSceneComplete__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnAsyncCaptureSceneComplete__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnAsyncCaptureSceneComplete__PythonCallable(OnAsyncCaptureSceneCom
 @:forward
 @:nativeGen
 @:native("OnAsyncCaptureSceneComplete__PythonCallable*")
-abstract OnAsyncCaptureSceneComplete__PythonCallablePtr(cpp.Star<OnAsyncCaptureSceneComplete__PythonCallable>) from cpp.Star<OnAsyncCaptureSceneComplete__PythonCallable> to cpp.Star<OnAsyncCaptureSceneComplete__PythonCallable>{
+abstract OnAsyncCaptureSceneComplete__PythonCallablePtr(ucpp.Ptr<OnAsyncCaptureSceneComplete__PythonCallable>) from ucpp.Ptr<OnAsyncCaptureSceneComplete__PythonCallable> to ucpp.Ptr<OnAsyncCaptureSceneComplete__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnAsyncCaptureSceneComplete__PythonCallable): OnAsyncCaptureSceneComplete__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

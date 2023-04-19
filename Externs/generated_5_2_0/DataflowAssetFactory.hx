@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataflowAssetFactory")
 @:include("Dataflow/DataflowAssetFactory.h")
-@:structAccess
+@:valueType
 extern class DataflowAssetFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataflowAssetFactory(DataflowAssetFactory) from DataflowAssetFacto
 @:forward
 @:nativeGen
 @:native("DataflowAssetFactory*")
-abstract DataflowAssetFactoryPtr(cpp.Star<DataflowAssetFactory>) from cpp.Star<DataflowAssetFactory> to cpp.Star<DataflowAssetFactory>{
+abstract DataflowAssetFactoryPtr(ucpp.Ptr<DataflowAssetFactory>) from ucpp.Ptr<DataflowAssetFactory> to ucpp.Ptr<DataflowAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: DataflowAssetFactory): DataflowAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

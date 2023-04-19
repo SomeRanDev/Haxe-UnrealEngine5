@@ -3,13 +3,13 @@ package ue;
 
 @:native("FVector4d")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Vector4d {
-	public var X: cpp.Float64;
-	public var Y: cpp.Float64;
-	public var Z: cpp.Float64;
-	public var W: cpp.Float64;
+	public var X: ucpp.num.Float64;
+	public var Y: ucpp.num.Float64;
+	public var Z: ucpp.num.Float64;
+	public var W: ucpp.num.Float64;
 
 	@:native("FVector4d") public function new();
-	@:native("FVector4d") public static function make(X: cpp.Float64, Y: cpp.Float64, Z: cpp.Float64, W: cpp.Float64): Vector4d ;
+	@:native("FVector4d") public static function make(X: ucpp.num.Float64, Y: ucpp.num.Float64, Z: ucpp.num.Float64, W: ucpp.num.Float64): Vector4d ;
 }

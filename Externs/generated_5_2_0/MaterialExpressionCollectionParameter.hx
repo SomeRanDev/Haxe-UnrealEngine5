@@ -3,20 +3,20 @@ package ue;
 
 @:native("UMaterialExpressionCollectionParameter")
 @:include("Materials/MaterialExpressionCollectionParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionCollectionParameter extends MaterialExpression {
-	public var Collection: cpp.Star<MaterialParameterCollection>;
+	public var Collection: ucpp.Ptr<MaterialParameterCollection>;
 	public var ParameterName: FName;
 	public var ParameterId: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionCollectionParameter(MaterialExpressionCollectionParameter) from MaterialExpressionCollectionParameter {
-	public extern var Collection(get, never): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection>;
-	public inline extern function get_Collection(): cpp.Star<MaterialParameterCollection.ConstMaterialParameterCollection> return this.Collection;
+	public extern var Collection(get, never): ucpp.Ptr<MaterialParameterCollection.ConstMaterialParameterCollection>;
+	public inline extern function get_Collection(): ucpp.Ptr<MaterialParameterCollection.ConstMaterialParameterCollection> return this.Collection;
 	public extern var ParameterName(get, never): FName;
 	public inline extern function get_ParameterName(): FName return this.ParameterName;
 	public extern var ParameterId(get, never): Guid;
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionCollectionParameter(MaterialExpressionCollection
 @:forward
 @:nativeGen
 @:native("MaterialExpressionCollectionParameter*")
-abstract MaterialExpressionCollectionParameterPtr(cpp.Star<MaterialExpressionCollectionParameter>) from cpp.Star<MaterialExpressionCollectionParameter> to cpp.Star<MaterialExpressionCollectionParameter>{
+abstract MaterialExpressionCollectionParameterPtr(ucpp.Ptr<MaterialExpressionCollectionParameter>) from ucpp.Ptr<MaterialExpressionCollectionParameter> to ucpp.Ptr<MaterialExpressionCollectionParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionCollectionParameter): MaterialExpressionCollectionParameterPtr {
 		return untyped __cpp__("&({0})", v);

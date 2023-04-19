@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneMarkedFrame")
 @:include("MovieScene.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMarkedFrame {
 	public var FrameNumber: FrameNumber;
 	public var Label: FString;

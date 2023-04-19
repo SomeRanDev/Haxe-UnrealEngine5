@@ -3,13 +3,13 @@ package ue;
 
 @:native("FDatasmithTessellationOptions")
 @:include("DatasmithImportOptions.h")
-@:structAccess
+@:valueType
 extern class DatasmithTessellationOptions {
-	public var ChordTolerance: cpp.Float32;
-	public var MaxEdgeLength: cpp.Float32;
-	public var NormalTolerance: cpp.Float32;
+	public var ChordTolerance: ucpp.num.Float32;
+	public var MaxEdgeLength: ucpp.num.Float32;
+	public var NormalTolerance: ucpp.num.Float32;
 	public var StitchingTechnique: EDatasmithCADStitchingTechnique;
 
 	@:native("FDatasmithTessellationOptions") public function new();
-	@:native("FDatasmithTessellationOptions") public static function make(ChordTolerance: cpp.Float32, MaxEdgeLength: cpp.Float32, NormalTolerance: cpp.Float32, StitchingTechnique: EDatasmithCADStitchingTechnique): DatasmithTessellationOptions ;
+	@:native("FDatasmithTessellationOptions") public static function make(ChordTolerance: ucpp.num.Float32, MaxEdgeLength: ucpp.num.Float32, NormalTolerance: ucpp.num.Float32, StitchingTechnique: EDatasmithCADStitchingTechnique): DatasmithTessellationOptions ;
 }

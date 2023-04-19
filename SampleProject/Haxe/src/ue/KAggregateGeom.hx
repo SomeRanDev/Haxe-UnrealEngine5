@@ -3,14 +3,14 @@ package ue;
 
 @:native("FKAggregateGeom")
 @:include("PhysicsEngine/AggregateGeom.h")
-@:structAccess
+@:valueType
 extern class KAggregateGeom {
 	public var SphereElems: TArray<KSphereElem>;
 	public var BoxElems: TArray<KBoxElem>;
 	public var SphylElems: TArray<KSphylElem>;
 	public var ConvexElems: TArray<KConvexElem>;
 	public var TaperedCapsuleElems: TArray<KTaperedCapsuleElem>;
+	public var LevelSetElems: TArray<KLevelSetElem>;
 
 	@:native("FKAggregateGeom") public function new();
-	@:native("FKAggregateGeom") public static function make(SphereElems: TArray<KSphereElem>, BoxElems: TArray<KBoxElem>, SphylElems: TArray<KSphylElem>, ConvexElems: TArray<KConvexElem>, TaperedCapsuleElems: TArray<KTaperedCapsuleElem>): KAggregateGeom ;
 }

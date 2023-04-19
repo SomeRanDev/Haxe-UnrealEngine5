@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSequencerExportFBXParams")
 @:include("SequencerTools.h")
-@:structAccess
+@:valueType
 extern class SequencerExportFBXParams {
-	public var World: cpp.Star<World>;
-	public var Sequence: cpp.Star<LevelSequence>;
-	public var RootSequence: cpp.Star<LevelSequence>;
+	public var World: ucpp.Ptr<World>;
+	public var Sequence: ucpp.Ptr<LevelSequence>;
+	public var RootSequence: ucpp.Ptr<LevelSequence>;
 	public var Bindings: TArray<MovieSceneBindingProxy>;
-	public var Tracks: TArray<cpp.Star<MovieSceneTrack>>;
-	public var OverrideOptions: cpp.Star<FbxExportOption>;
+	public var Tracks: TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public var OverrideOptions: ucpp.Ptr<FbxExportOption>;
 	public var FBXFileName: FString;
 
 	@:native("FSequencerExportFBXParams") public function new();

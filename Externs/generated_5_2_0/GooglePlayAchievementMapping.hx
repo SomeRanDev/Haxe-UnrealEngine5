@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGooglePlayAchievementMapping")
 @:include("AndroidRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class GooglePlayAchievementMapping {
 	public var Name: FString;
 	public var AchievementID: FString;

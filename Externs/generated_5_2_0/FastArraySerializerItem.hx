@@ -3,12 +3,12 @@ package ue;
 
 @:native("FFastArraySerializerItem")
 @:include("Net/Serialization/FastArraySerializer.h")
-@:structAccess
+@:valueType
 extern class FastArraySerializerItem {
-	public var ReplicationID: cpp.Int32;
-	public var ReplicationKey: cpp.Int32;
-	public var MostRecentArrayReplicationKey: cpp.Int32;
+	public var ReplicationID: ucpp.num.Int32;
+	public var ReplicationKey: ucpp.num.Int32;
+	public var MostRecentArrayReplicationKey: ucpp.num.Int32;
 
 	@:native("FFastArraySerializerItem") public function new();
-	@:native("FFastArraySerializerItem") public static function make(ReplicationID: cpp.Int32, ReplicationKey: cpp.Int32, MostRecentArrayReplicationKey: cpp.Int32): FastArraySerializerItem ;
+	@:native("FFastArraySerializerItem") public static function make(ReplicationID: ucpp.num.Int32, ReplicationKey: ucpp.num.Int32, MostRecentArrayReplicationKey: ucpp.num.Int32): FastArraySerializerItem ;
 }

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable")
-@:structAccess
+@:valueType
 extern class EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__Python
 @:forward
 @:nativeGen
 @:native("EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable*")
-abstract EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallablePtr(cpp.Star<EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable>) from cpp.Star<EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable> to cpp.Star<EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable>{
+abstract EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallablePtr(ucpp.Ptr<EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable>) from ucpp.Ptr<EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable> to ucpp.Ptr<EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallable): EnhancedInputLocalPlayerSubsystem_OnControlMappingsRebuilt__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

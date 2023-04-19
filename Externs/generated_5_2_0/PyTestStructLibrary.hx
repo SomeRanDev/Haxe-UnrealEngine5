@@ -3,20 +3,20 @@ package ue;
 
 @:native("UPyTestStructLibrary")
 @:include("PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestStructLibrary extends BlueprintFunctionLibrary {
-	private function SetBoolMutableViaRef(InStruct: cpp.Reference<PyTestStruct>): Void;
-	private function SetBoolMutable(InStruct: cpp.Reference<PyTestStruct>): Void;
-	private function LegacyIsBoolSet(InStruct: cpp.Reference<PyTestStruct>): Bool;
-	private function IsBoolSet(InStruct: cpp.Reference<PyTestStruct>): Bool;
-	private function GetConstantValue(): cpp.Int32;
-	private function ClearBoolMutableViaRef(InStruct: cpp.Reference<PyTestStruct>): Void;
-	private function ClearBoolMutable(InStruct: cpp.Reference<PyTestStruct>): Void;
-	private function AddStr(InStruct: cpp.Reference<PyTestStruct>, InValue: FString): PyTestStruct;
-	private function AddInt(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Int32): PyTestStruct;
-	private function AddFloat(InStruct: cpp.Reference<PyTestStruct>, InValue: cpp.Float32): PyTestStruct;
+	private function SetBoolMutableViaRef(InStruct: ucpp.Ref<PyTestStruct>): Void;
+	private function SetBoolMutable(InStruct: ucpp.Ref<PyTestStruct>): Void;
+	private function LegacyIsBoolSet(InStruct: ucpp.Ref<PyTestStruct>): Bool;
+	private function IsBoolSet(InStruct: ucpp.Ref<PyTestStruct>): Bool;
+	private function GetConstantValue(): ucpp.num.Int32;
+	private function ClearBoolMutableViaRef(InStruct: ucpp.Ref<PyTestStruct>): Void;
+	private function ClearBoolMutable(InStruct: ucpp.Ref<PyTestStruct>): Void;
+	private function AddStr(InStruct: ucpp.Ref<PyTestStruct>, InValue: FString): PyTestStruct;
+	private function AddInt(InStruct: ucpp.Ref<PyTestStruct>, InValue: ucpp.num.Int32): PyTestStruct;
+	private function AddFloat(InStruct: ucpp.Ref<PyTestStruct>, InValue: ucpp.num.Float32): PyTestStruct;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstPyTestStructLibrary(PyTestStructLibrary) from PyTestStructLibrary 
 @:forward
 @:nativeGen
 @:native("PyTestStructLibrary*")
-abstract PyTestStructLibraryPtr(cpp.Star<PyTestStructLibrary>) from cpp.Star<PyTestStructLibrary> to cpp.Star<PyTestStructLibrary>{
+abstract PyTestStructLibraryPtr(ucpp.Ptr<PyTestStructLibrary>) from ucpp.Ptr<PyTestStructLibrary> to ucpp.Ptr<PyTestStructLibrary>{
 	@:from
 	public static extern inline function fromValue(v: PyTestStructLibrary): PyTestStructLibraryPtr {
 		return untyped __cpp__("&({0})", v);

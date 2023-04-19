@@ -3,26 +3,26 @@ package ue;
 
 @:native("UEditorLoadingAndSavingUtils")
 @:include("FileHelpers.h")
-@:structAccess
+@:valueType
 extern class EditorLoadingAndSavingUtils extends Object {
-	public function UnloadPackages(PackagesToUnload: cpp.Reference<TArray<cpp.Star<Package>>>, bOutAnyPackagesUnloaded: cpp.Reference<Bool>, OutErrorMessage: cpp.Reference<FText>): Void;
-	public function SavePackagesWithDialog(PackagesToSave: cpp.Reference<TArray<cpp.Star<Package>>>, bOnlyDirty: Bool): Bool;
-	public function SavePackages(PackagesToSave: cpp.Reference<TArray<cpp.Star<Package>>>, bOnlyDirty: Bool): Bool;
-	public function SaveMap(World: cpp.Star<World>, AssetPath: FString): Bool;
+	public function UnloadPackages(PackagesToUnload: ucpp.Ref<TArray<ucpp.Ptr<Package>>>, bOutAnyPackagesUnloaded: ucpp.Ref<Bool>, OutErrorMessage: ucpp.Ref<FText>): Void;
+	public function SavePackagesWithDialog(PackagesToSave: ucpp.Ref<TArray<ucpp.Ptr<Package>>>, bOnlyDirty: Bool): Bool;
+	public function SavePackages(PackagesToSave: ucpp.Ref<TArray<ucpp.Ptr<Package>>>, bOnlyDirty: Bool): Bool;
+	public function SaveMap(World: ucpp.Ptr<World>, AssetPath: FString): Bool;
 	public function SaveDirtyPackagesWithDialog(bSaveMapPackages: Bool, bSaveContentPackages: Bool): Bool;
 	public function SaveDirtyPackages(bSaveMapPackages: Bool, bSaveContentPackages: Bool): Bool;
 	public function SaveCurrentLevel(): Bool;
-	public function ReloadPackages(PackagesToReload: cpp.Reference<TArray<cpp.Star<Package>>>, bOutAnyPackagesReloaded: cpp.Reference<Bool>, OutErrorMessage: cpp.Reference<FText>, InteractionMode: EReloadPackagesInteractionMode): Void;
-	public function NewMapFromTemplate(PathToTemplateLevel: FString, bSaveExistingMap: Bool): cpp.Star<World>;
-	public function NewBlankMap(bSaveExistingMap: Bool): cpp.Star<World>;
-	public function LoadMapWithDialog(): cpp.Star<World>;
-	public function LoadMap(Filename: FString): cpp.Star<World>;
+	public function ReloadPackages(PackagesToReload: ucpp.Ref<TArray<ucpp.Ptr<Package>>>, bOutAnyPackagesReloaded: ucpp.Ref<Bool>, OutErrorMessage: ucpp.Ref<FText>, InteractionMode: EReloadPackagesInteractionMode): Void;
+	public function NewMapFromTemplate(PathToTemplateLevel: FString, bSaveExistingMap: Bool): ucpp.Ptr<World>;
+	public function NewBlankMap(bSaveExistingMap: Bool): ucpp.Ptr<World>;
+	public function LoadMapWithDialog(): ucpp.Ptr<World>;
+	public function LoadMap(Filename: FString): ucpp.Ptr<World>;
 	public function ImportScene(Filename: FString): Void;
-	public function GetDirtyMapPackages(OutDirtyPackages: cpp.Reference<TArray<cpp.Star<Package>>>): Void;
-	public function GetDirtyContentPackages(OutDirtyPackages: cpp.Reference<TArray<cpp.Star<Package>>>): Void;
+	public function GetDirtyMapPackages(OutDirtyPackages: ucpp.Ref<TArray<ucpp.Ptr<Package>>>): Void;
+	public function GetDirtyContentPackages(OutDirtyPackages: ucpp.Ref<TArray<ucpp.Ptr<Package>>>): Void;
 	public function ExportScene(bExportSelectedActorsOnly: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,7 +33,7 @@ abstract ConstEditorLoadingAndSavingUtils(EditorLoadingAndSavingUtils) from Edit
 @:forward
 @:nativeGen
 @:native("EditorLoadingAndSavingUtils*")
-abstract EditorLoadingAndSavingUtilsPtr(cpp.Star<EditorLoadingAndSavingUtils>) from cpp.Star<EditorLoadingAndSavingUtils> to cpp.Star<EditorLoadingAndSavingUtils>{
+abstract EditorLoadingAndSavingUtilsPtr(ucpp.Ptr<EditorLoadingAndSavingUtils>) from ucpp.Ptr<EditorLoadingAndSavingUtils> to ucpp.Ptr<EditorLoadingAndSavingUtils>{
 	@:from
 	public static extern inline function fromValue(v: EditorLoadingAndSavingUtils): EditorLoadingAndSavingUtilsPtr {
 		return untyped __cpp__("&({0})", v);

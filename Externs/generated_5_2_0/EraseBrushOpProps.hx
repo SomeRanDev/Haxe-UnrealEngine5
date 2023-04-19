@@ -3,27 +3,27 @@ package ue;
 
 @:native("UEraseBrushOpProps")
 @:include("Sculpting/MeshSmoothingBrushOps.h")
-@:structAccess
+@:valueType
 extern class EraseBrushOpProps extends MeshSculptBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEraseBrushOpProps(EraseBrushOpProps) from EraseBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
 }
 
 @:forward
 @:nativeGen
 @:native("EraseBrushOpProps*")
-abstract EraseBrushOpPropsPtr(cpp.Star<EraseBrushOpProps>) from cpp.Star<EraseBrushOpProps> to cpp.Star<EraseBrushOpProps>{
+abstract EraseBrushOpPropsPtr(ucpp.Ptr<EraseBrushOpProps>) from ucpp.Ptr<EraseBrushOpProps> to ucpp.Ptr<EraseBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: EraseBrushOpProps): EraseBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("ULevelVariantSets")
 @:include("LevelVariantSets.h")
-@:structAccess
+@:valueType
 extern class LevelVariantSets extends Object {
 	private var DirectorClass: TSubclassOf<Object>;
-	private var VariantSets: TArray<cpp.Star<VariantSet>>;
+	private var VariantSets: TArray<ucpp.Ptr<VariantSet>>;
 
-	public function GetVariantSetByName(VariantSetName: FString): cpp.Star<VariantSet>;
-	public function GetVariantSet(VariantSetIndex: cpp.Int32): cpp.Star<VariantSet>;
-	public function GetNumVariantSets(): cpp.Int32;
+	public function GetVariantSetByName(VariantSetName: FString): ucpp.Ptr<VariantSet>;
+	public function GetVariantSet(VariantSetIndex: ucpp.num.Int32): ucpp.Ptr<VariantSet>;
+	public function GetNumVariantSets(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLevelVariantSets(LevelVariantSets) from LevelVariantSets {
 @:forward
 @:nativeGen
 @:native("LevelVariantSets*")
-abstract LevelVariantSetsPtr(cpp.Star<LevelVariantSets>) from cpp.Star<LevelVariantSets> to cpp.Star<LevelVariantSets>{
+abstract LevelVariantSetsPtr(ucpp.Ptr<LevelVariantSets>) from ucpp.Ptr<LevelVariantSets> to ucpp.Ptr<LevelVariantSets>{
 	@:from
 	public static extern inline function fromValue(v: LevelVariantSets): LevelVariantSetsPtr {
 		return untyped __cpp__("&({0})", v);

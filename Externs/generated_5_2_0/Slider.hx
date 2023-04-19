@@ -3,13 +3,13 @@ package ue;
 
 @:native("USlider")
 @:include("Components/Slider.h")
-@:structAccess
+@:valueType
 extern class Slider extends Widget {
-	public function GetValue(): cpp.Float32;
-	public function SetValue(input: cpp.Float32): Void;
+	public function GetValue(): ucpp.num.Float32;
+	public function SetValue(input: ucpp.num.Float32): Void;
 	public var ValueDelegate: HaxeDelegateProperty<() -> Void>;
-	public var MinValue: cpp.Float32;
-	public var MaxValue: cpp.Float32;
+	public var MinValue: ucpp.num.Float32;
+	public var MaxValue: ucpp.num.Float32;
 	public var WidgetStyle: SliderStyle;
 	public var Orientation: TEnumAsByte<EOrientation>;
 	public var SliderBarColor: LinearColor;
@@ -18,24 +18,24 @@ extern class Slider extends Widget {
 	public var Locked: Bool;
 	public var MouseUsesStep: Bool;
 	public var RequiresControllerLock: Bool;
-	public var StepSize: cpp.Float32;
+	public var StepSize: ucpp.num.Float32;
 	public var IsFocusable: Bool;
 	public var OnMouseCaptureBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnMouseCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
-	public function SetStepSize(InValue: cpp.Float32): Void;
+	public function SetStepSize(InValue: ucpp.num.Float32): Void;
 	public function SetSliderHandleColor(InValue: LinearColor): Void;
 	public function SetSliderBarColor(InValue: LinearColor): Void;
-	public function SetMinValue(InValue: cpp.Float32): Void;
-	public function SetMaxValue(InValue: cpp.Float32): Void;
+	public function SetMinValue(InValue: ucpp.num.Float32): Void;
+	public function SetMaxValue(InValue: ucpp.num.Float32): Void;
 	public function SetLocked(InValue: Bool): Void;
 	public function SetIndentHandle(InValue: Bool): Void;
-	public function GetNormalizedValue(): cpp.Float32;
+	public function GetNormalizedValue(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNormalizedValue)
@@ -43,10 +43,10 @@ extern class Slider extends Widget {
 abstract ConstSlider(Slider) from Slider {
 	public extern var ValueDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_ValueDelegate(): HaxeDelegateProperty<() -> Void> return this.ValueDelegate;
-	public extern var MinValue(get, never): cpp.Float32;
-	public inline extern function get_MinValue(): cpp.Float32 return this.MinValue;
-	public extern var MaxValue(get, never): cpp.Float32;
-	public inline extern function get_MaxValue(): cpp.Float32 return this.MaxValue;
+	public extern var MinValue(get, never): ucpp.num.Float32;
+	public inline extern function get_MinValue(): ucpp.num.Float32 return this.MinValue;
+	public extern var MaxValue(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxValue(): ucpp.num.Float32 return this.MaxValue;
 	public extern var WidgetStyle(get, never): SliderStyle;
 	public inline extern function get_WidgetStyle(): SliderStyle return this.WidgetStyle;
 	public extern var Orientation(get, never): TEnumAsByte<EOrientation>;
@@ -63,8 +63,8 @@ abstract ConstSlider(Slider) from Slider {
 	public inline extern function get_MouseUsesStep(): Bool return this.MouseUsesStep;
 	public extern var RequiresControllerLock(get, never): Bool;
 	public inline extern function get_RequiresControllerLock(): Bool return this.RequiresControllerLock;
-	public extern var StepSize(get, never): cpp.Float32;
-	public inline extern function get_StepSize(): cpp.Float32 return this.StepSize;
+	public extern var StepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_StepSize(): ucpp.num.Float32 return this.StepSize;
 	public extern var IsFocusable(get, never): Bool;
 	public inline extern function get_IsFocusable(): Bool return this.IsFocusable;
 	public extern var OnMouseCaptureBegin(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -75,14 +75,14 @@ abstract ConstSlider(Slider) from Slider {
 	public inline extern function get_OnControllerCaptureBegin(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureBegin;
 	public extern var OnControllerCaptureEnd(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnControllerCaptureEnd(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureEnd;
-	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChanged;
+	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChanged;
 }
 
 @:forward
 @:nativeGen
 @:native("Slider*")
-abstract SliderPtr(cpp.Star<Slider>) from cpp.Star<Slider> to cpp.Star<Slider>{
+abstract SliderPtr(ucpp.Ptr<Slider>) from ucpp.Ptr<Slider> to ucpp.Ptr<Slider>{
 	@:from
 	public static extern inline function fromValue(v: Slider): SliderPtr {
 		return untyped __cpp__("&({0})", v);

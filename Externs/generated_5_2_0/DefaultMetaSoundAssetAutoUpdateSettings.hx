@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDefaultMetaSoundAssetAutoUpdateSettings")
 @:include("MetasoundSettings.h")
-@:structAccess
+@:valueType
 extern class DefaultMetaSoundAssetAutoUpdateSettings {
 	public var MetaSound: SoftObjectPath;
 

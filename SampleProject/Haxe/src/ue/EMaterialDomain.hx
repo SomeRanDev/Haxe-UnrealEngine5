@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EMaterialDomain")
-@:include("MaterialShared.h")
+@:include("MaterialDomain.h")
 extern class EMaterialDomain {
 	static var MD_Surface: EMaterialDomain;
 	static var MD_DeferredDecal: EMaterialDomain;

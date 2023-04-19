@@ -3,10 +3,10 @@ package ue;
 
 @:native("FMovieSceneEvaluationTemplateSerialNumber")
 @:include("Evaluation/MovieSceneEvaluationTemplate.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationTemplateSerialNumber {
-	private var Value: cpp.UInt32;
+	private var Value: ucpp.num.UInt32;
 
 	@:native("FMovieSceneEvaluationTemplateSerialNumber") public function new();
-	@:native("FMovieSceneEvaluationTemplateSerialNumber") public static function make(Value: cpp.UInt32): MovieSceneEvaluationTemplateSerialNumber ;
+	@:native("FMovieSceneEvaluationTemplateSerialNumber") public static function make(Value: ucpp.num.UInt32): MovieSceneEvaluationTemplateSerialNumber ;
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxSceneImportOptionsStaticMesh")
 @:include("Factories/FbxSceneImportOptionsStaticMesh.h")
-@:structAccess
+@:valueType
 extern class FbxSceneImportOptionsStaticMesh extends Object {
 	public var StaticMeshLODGroup: FName;
 	public var bAutoGenerateCollision: Bool;
@@ -16,7 +16,7 @@ extern class FbxSceneImportOptionsStaticMesh extends Object {
 	public var NormalImportMethod: EFBXSceneNormalImportMethod;
 	public var NormalGenerationMethod: EFBXSceneNormalGenerationMethod;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -47,7 +47,7 @@ abstract ConstFbxSceneImportOptionsStaticMesh(FbxSceneImportOptionsStaticMesh) f
 @:forward
 @:nativeGen
 @:native("FbxSceneImportOptionsStaticMesh*")
-abstract FbxSceneImportOptionsStaticMeshPtr(cpp.Star<FbxSceneImportOptionsStaticMesh>) from cpp.Star<FbxSceneImportOptionsStaticMesh> to cpp.Star<FbxSceneImportOptionsStaticMesh>{
+abstract FbxSceneImportOptionsStaticMeshPtr(ucpp.Ptr<FbxSceneImportOptionsStaticMesh>) from ucpp.Ptr<FbxSceneImportOptionsStaticMesh> to ucpp.Ptr<FbxSceneImportOptionsStaticMesh>{
 	@:from
 	public static extern inline function fromValue(v: FbxSceneImportOptionsStaticMesh): FbxSceneImportOptionsStaticMeshPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,11 +2,11 @@
 package ue;
 
 @:native("Uadd_prefix_dialog")
-@:structAccess
+@:valueType
 extern class add_prefix_dialog extends Object {
 	public var prefix: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract Constadd_prefix_dialog(add_prefix_dialog) from add_prefix_dialog {
 @:forward
 @:nativeGen
 @:native("add_prefix_dialog*")
-abstract add_prefix_dialogPtr(cpp.Star<add_prefix_dialog>) from cpp.Star<add_prefix_dialog> to cpp.Star<add_prefix_dialog>{
+abstract add_prefix_dialogPtr(ucpp.Ptr<add_prefix_dialog>) from ucpp.Ptr<add_prefix_dialog> to ucpp.Ptr<add_prefix_dialog>{
 	@:from
 	public static extern inline function fromValue(v: add_prefix_dialog): add_prefix_dialogPtr {
 		return untyped __cpp__("&({0})", v);

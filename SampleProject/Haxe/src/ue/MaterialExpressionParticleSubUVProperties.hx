@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionParticleSubUVProperties")
 @:include("Materials/MaterialExpressionParticleSubUVProperties.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionParticleSubUVProperties extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionParticleSubUVProperties(MaterialExpressionPartic
 @:forward
 @:nativeGen
 @:native("MaterialExpressionParticleSubUVProperties*")
-abstract MaterialExpressionParticleSubUVPropertiesPtr(cpp.Star<MaterialExpressionParticleSubUVProperties>) from cpp.Star<MaterialExpressionParticleSubUVProperties> to cpp.Star<MaterialExpressionParticleSubUVProperties>{
+abstract MaterialExpressionParticleSubUVPropertiesPtr(ucpp.Ptr<MaterialExpressionParticleSubUVProperties>) from ucpp.Ptr<MaterialExpressionParticleSubUVProperties> to ucpp.Ptr<MaterialExpressionParticleSubUVProperties>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionParticleSubUVProperties): MaterialExpressionParticleSubUVPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

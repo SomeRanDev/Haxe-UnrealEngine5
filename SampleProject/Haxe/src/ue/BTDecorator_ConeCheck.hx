@@ -3,21 +3,21 @@ package ue;
 
 @:native("UBTDecorator_ConeCheck")
 @:include("BehaviorTree/Decorators/BTDecorator_ConeCheck.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_ConeCheck extends BTDecorator {
-	public var ConeHalfAngle: cpp.Float32;
+	public var ConeHalfAngle: ucpp.num.Float32;
 	public var ConeOrigin: BlackboardKeySelector;
 	public var ConeDirection: BlackboardKeySelector;
 	public var Observed: BlackboardKeySelector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_ConeCheck(BTDecorator_ConeCheck) from BTDecorator_ConeCheck {
-	public extern var ConeHalfAngle(get, never): cpp.Float32;
-	public inline extern function get_ConeHalfAngle(): cpp.Float32 return this.ConeHalfAngle;
+	public extern var ConeHalfAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_ConeHalfAngle(): ucpp.num.Float32 return this.ConeHalfAngle;
 	public extern var ConeOrigin(get, never): BlackboardKeySelector;
 	public inline extern function get_ConeOrigin(): BlackboardKeySelector return this.ConeOrigin;
 	public extern var ConeDirection(get, never): BlackboardKeySelector;
@@ -29,7 +29,7 @@ abstract ConstBTDecorator_ConeCheck(BTDecorator_ConeCheck) from BTDecorator_Cone
 @:forward
 @:nativeGen
 @:native("BTDecorator_ConeCheck*")
-abstract BTDecorator_ConeCheckPtr(cpp.Star<BTDecorator_ConeCheck>) from cpp.Star<BTDecorator_ConeCheck> to cpp.Star<BTDecorator_ConeCheck>{
+abstract BTDecorator_ConeCheckPtr(ucpp.Ptr<BTDecorator_ConeCheck>) from ucpp.Ptr<BTDecorator_ConeCheck> to ucpp.Ptr<BTDecorator_ConeCheck>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_ConeCheck): BTDecorator_ConeCheckPtr {
 		return untyped __cpp__("&({0})", v);

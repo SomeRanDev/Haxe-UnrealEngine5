@@ -3,13 +3,13 @@ package ue;
 
 @:native("FGameplayDebuggerDataPackRPCParams")
 @:include("GameplayDebuggerCategoryReplicator.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerDataPackRPCParams {
 	public var CategoryName: FName;
-	public var DataPackIdx: cpp.Int32;
+	public var DataPackIdx: ucpp.num.Int32;
 	public var Header: GameplayDebuggerDataPackHeader;
-	public var Data: TArray<cpp.UInt8>;
+	public var Data: TArray<ucpp.num.UInt8>;
 
 	@:native("FGameplayDebuggerDataPackRPCParams") public function new();
-	@:native("FGameplayDebuggerDataPackRPCParams") public static function make(CategoryName: FName, DataPackIdx: cpp.Int32, Header: GameplayDebuggerDataPackHeader, Data: TArray<cpp.UInt8>): GameplayDebuggerDataPackRPCParams ;
+	@:native("FGameplayDebuggerDataPackRPCParams") public static function make(CategoryName: FName, DataPackIdx: ucpp.num.Int32, Header: GameplayDebuggerDataPackHeader, Data: TArray<ucpp.num.UInt8>): GameplayDebuggerDataPackRPCParams ;
 }

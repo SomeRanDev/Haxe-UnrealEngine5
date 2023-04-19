@@ -3,16 +3,16 @@ package ue;
 
 @:native("ULODManagerLODProperties")
 @:include("Tools/LODManagerTool.h")
-@:structAccess
+@:valueType
 extern class LODManagerLODProperties extends InteractiveToolPropertySet {
 	public var SourceLODs: TArray<LODManagerLODInfo>;
 	public var HiResSource: TArray<LODManagerLODInfo>;
 	public var RenderLODs: TArray<LODManagerLODInfo>;
 	public var bNaniteEnabled: Bool;
-	public var PercentTriangles: cpp.Float32;
+	public var PercentTriangles: ucpp.num.Float32;
 	public var Materials: TArray<StaticMaterial>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,8 +26,8 @@ abstract ConstLODManagerLODProperties(LODManagerLODProperties) from LODManagerLO
 	public inline extern function get_RenderLODs(): TArray<LODManagerLODInfo> return this.RenderLODs;
 	public extern var bNaniteEnabled(get, never): Bool;
 	public inline extern function get_bNaniteEnabled(): Bool return this.bNaniteEnabled;
-	public extern var PercentTriangles(get, never): cpp.Float32;
-	public inline extern function get_PercentTriangles(): cpp.Float32 return this.PercentTriangles;
+	public extern var PercentTriangles(get, never): ucpp.num.Float32;
+	public inline extern function get_PercentTriangles(): ucpp.num.Float32 return this.PercentTriangles;
 	public extern var Materials(get, never): TArray<StaticMaterial>;
 	public inline extern function get_Materials(): TArray<StaticMaterial> return this.Materials;
 }
@@ -35,7 +35,7 @@ abstract ConstLODManagerLODProperties(LODManagerLODProperties) from LODManagerLO
 @:forward
 @:nativeGen
 @:native("LODManagerLODProperties*")
-abstract LODManagerLODPropertiesPtr(cpp.Star<LODManagerLODProperties>) from cpp.Star<LODManagerLODProperties> to cpp.Star<LODManagerLODProperties>{
+abstract LODManagerLODPropertiesPtr(ucpp.Ptr<LODManagerLODProperties>) from ucpp.Ptr<LODManagerLODProperties> to ucpp.Ptr<LODManagerLODProperties>{
 	@:from
 	public static extern inline function fromValue(v: LODManagerLODProperties): LODManagerLODPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FAnimSubsystem_BlendSpaceGraph")
 @:include("Animation/AnimSubsystem_BlendSpaceGraph.h")
-@:structAccess
+@:valueType
 extern class AnimSubsystem_BlendSpaceGraph extends AnimSubsystem {
-	private var BlendSpaces: TArray<cpp.Star<BlendSpace>>;
+	private var BlendSpaces: TArray<ucpp.Ptr<BlendSpace>>;
 
 	@:native("FAnimSubsystem_BlendSpaceGraph") public function new();
-	@:native("FAnimSubsystem_BlendSpaceGraph") public static function make(BlendSpaces: TArray<cpp.Star<BlendSpace>>): AnimSubsystem_BlendSpaceGraph ;
+	@:native("FAnimSubsystem_BlendSpaceGraph") public static function make(BlendSpaces: TArray<ucpp.Ptr<BlendSpace>>): AnimSubsystem_BlendSpaceGraph ;
 }

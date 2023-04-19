@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_SetFieldsInStruct")
 @:include("K2Node_SetFieldsInStruct.h")
-@:structAccess
+@:valueType
 extern class K2Node_SetFieldsInStruct extends K2Node_MakeStruct {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_SetFieldsInStruct(K2Node_SetFieldsInStruct) from K2Node_Set
 @:forward
 @:nativeGen
 @:native("K2Node_SetFieldsInStruct*")
-abstract K2Node_SetFieldsInStructPtr(cpp.Star<K2Node_SetFieldsInStruct>) from cpp.Star<K2Node_SetFieldsInStruct> to cpp.Star<K2Node_SetFieldsInStruct>{
+abstract K2Node_SetFieldsInStructPtr(ucpp.Ptr<K2Node_SetFieldsInStruct>) from ucpp.Ptr<K2Node_SetFieldsInStruct> to ucpp.Ptr<K2Node_SetFieldsInStruct>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_SetFieldsInStruct): K2Node_SetFieldsInStructPtr {
 		return untyped __cpp__("&({0})", v);

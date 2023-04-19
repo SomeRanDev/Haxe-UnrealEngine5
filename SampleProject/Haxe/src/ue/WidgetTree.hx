@@ -3,24 +3,27 @@ package ue;
 
 @:native("UWidgetTree")
 @:include("Blueprint/WidgetTree.h")
-@:structAccess
+@:valueType
 extern class WidgetTree extends Object {
-	public var RootWidget: cpp.Star<Widget>;
+	public var RootWidget: ucpp.Ptr<Widget>;
+	public var NamedSlotBindings: TMap<FName, ucpp.Ptr<Widget>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWidgetTree(WidgetTree) from WidgetTree {
-	public extern var RootWidget(get, never): cpp.Star<Widget.ConstWidget>;
-	public inline extern function get_RootWidget(): cpp.Star<Widget.ConstWidget> return this.RootWidget;
+	public extern var RootWidget(get, never): ucpp.Ptr<Widget.ConstWidget>;
+	public inline extern function get_RootWidget(): ucpp.Ptr<Widget.ConstWidget> return this.RootWidget;
+	public extern var NamedSlotBindings(get, never): TMap<FName, ucpp.Ptr<Widget.ConstWidget>>;
+	public inline extern function get_NamedSlotBindings(): TMap<FName, ucpp.Ptr<Widget.ConstWidget>> return this.NamedSlotBindings;
 }
 
 @:forward
 @:nativeGen
 @:native("WidgetTree*")
-abstract WidgetTreePtr(cpp.Star<WidgetTree>) from cpp.Star<WidgetTree> to cpp.Star<WidgetTree>{
+abstract WidgetTreePtr(ucpp.Ptr<WidgetTree>) from ucpp.Ptr<WidgetTree> to ucpp.Ptr<WidgetTree>{
 	@:from
 	public static extern inline function fromValue(v: WidgetTree): WidgetTreePtr {
 		return untyped __cpp__("&({0})", v);

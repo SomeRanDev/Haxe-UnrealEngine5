@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeFbxTranslator")
 @:include("Fbx/InterchangeFbxTranslator.h")
-@:structAccess
+@:valueType
 extern class InterchangeFbxTranslator extends InterchangeTranslatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeFbxTranslator(InterchangeFbxTranslator) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeFbxTranslator*")
-abstract InterchangeFbxTranslatorPtr(cpp.Star<InterchangeFbxTranslator>) from cpp.Star<InterchangeFbxTranslator> to cpp.Star<InterchangeFbxTranslator>{
+abstract InterchangeFbxTranslatorPtr(ucpp.Ptr<InterchangeFbxTranslator>) from ucpp.Ptr<InterchangeFbxTranslator> to ucpp.Ptr<InterchangeFbxTranslator>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeFbxTranslator): InterchangeFbxTranslatorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,40 +3,40 @@ package ue;
 
 @:native("UMovieSceneSection")
 @:include("MovieSceneSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSection extends MovieSceneSignedObject {
 	public var EvalOptions: MovieSceneSectionEvalOptions;
 	public var Easing: MovieSceneEasingSettings;
 	public var SectionRange: MovieSceneFrameRange;
 	private var PreRollFrames: FrameNumber;
 	private var PostRollFrames: FrameNumber;
-	private var RowIndex: cpp.Int32;
-	private var OverlapPriority: cpp.Int32;
+	private var RowIndex: ucpp.num.Int32;
+	private var OverlapPriority: ucpp.num.Int32;
 	private var bIsActive: Bool;
 	private var bIsLocked: Bool;
 	@:protected public var bSupportsInfiniteRange: Bool;
 	@:protected public var BlendType: OptionalMovieSceneBlendType;
 
-	public function SetRowIndex(NewRowIndex: cpp.Int32): Void;
-	public function SetPreRollFrames(InPreRollFrames: cpp.Int32): Void;
-	public function SetPostRollFrames(InPostRollFrames: cpp.Int32): Void;
-	public function SetOverlapPriority(NewPriority: cpp.Int32): Void;
+	public function SetRowIndex(NewRowIndex: ucpp.num.Int32): Void;
+	public function SetPreRollFrames(InPreRollFrames: ucpp.num.Int32): Void;
+	public function SetPostRollFrames(InPostRollFrames: ucpp.num.Int32): Void;
+	public function SetOverlapPriority(NewPriority: ucpp.num.Int32): Void;
 	public function SetIsLocked(bInIsLocked: Bool): Void;
 	public function SetIsActive(bInIsActive: Bool): Void;
 	public function SetCompletionMode(InCompletionMode: EMovieSceneCompletionMode): Void;
-	public function SetColorTint(InColorTint: cpp.Reference<Color>): Void;
+	public function SetColorTint(InColorTint: ucpp.Ref<Color>): Void;
 	public function SetBlendType(InBlendType: EMovieSceneBlendType): Void;
 	public function IsLocked(): Bool;
 	public function IsActive(): Bool;
-	public function GetRowIndex(): cpp.Int32;
-	public function GetPreRollFrames(): cpp.Int32;
-	public function GetPostRollFrames(): cpp.Int32;
-	public function GetOverlapPriority(): cpp.Int32;
+	public function GetRowIndex(): ucpp.num.Int32;
+	public function GetPreRollFrames(): ucpp.num.Int32;
+	public function GetPostRollFrames(): ucpp.num.Int32;
+	public function GetOverlapPriority(): ucpp.num.Int32;
 	public function GetCompletionMode(): EMovieSceneCompletionMode;
 	public function GetColorTint(): Color;
 	public function GetBlendType(): OptionalMovieSceneBlendType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsLocked, IsActive, GetRowIndex, GetPreRollFrames, GetPostRollFrames, GetOverlapPriority, GetCompletionMode, GetColorTint, GetBlendType)
@@ -53,7 +53,7 @@ abstract ConstMovieSceneSection(MovieSceneSection) from MovieSceneSection {
 @:forward
 @:nativeGen
 @:native("MovieSceneSection*")
-abstract MovieSceneSectionPtr(cpp.Star<MovieSceneSection>) from cpp.Star<MovieSceneSection> to cpp.Star<MovieSceneSection>{
+abstract MovieSceneSectionPtr(ucpp.Ptr<MovieSceneSection>) from ucpp.Ptr<MovieSceneSection> to ucpp.Ptr<MovieSceneSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSection): MovieSceneSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("USkeletalMeshSocket")
 @:include("Engine/SkeletalMeshSocket.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshSocket extends Object {
 	public var SocketName: FName;
 	public var BoneName: FName;
@@ -12,10 +12,10 @@ extern class SkeletalMeshSocket extends Object {
 	public var RelativeScale: Vector;
 	public var bForceAlwaysAnimated: Bool;
 
-	public function InitializeSocketFromLocation(SkelComp: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>, WorldLocation: Vector, WorldNormal: Vector): Void;
-	public function GetSocketLocation(SkelComp: cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>): Vector;
+	public function InitializeSocketFromLocation(SkelComp: ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>, WorldLocation: Vector, WorldNormal: Vector): Void;
+	public function GetSocketLocation(SkelComp: ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>): Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSocketLocation)
@@ -38,7 +38,7 @@ abstract ConstSkeletalMeshSocket(SkeletalMeshSocket) from SkeletalMeshSocket {
 @:forward
 @:nativeGen
 @:native("SkeletalMeshSocket*")
-abstract SkeletalMeshSocketPtr(cpp.Star<SkeletalMeshSocket>) from cpp.Star<SkeletalMeshSocket> to cpp.Star<SkeletalMeshSocket>{
+abstract SkeletalMeshSocketPtr(ucpp.Ptr<SkeletalMeshSocket>) from ucpp.Ptr<SkeletalMeshSocket> to ucpp.Ptr<SkeletalMeshSocket>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMeshSocket): SkeletalMeshSocketPtr {
 		return untyped __cpp__("&({0})", v);

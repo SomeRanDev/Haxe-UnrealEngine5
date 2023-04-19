@@ -3,16 +3,16 @@ package ue;
 
 @:native("UAndroidRuntimeSettings")
 @:include("AndroidRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class AndroidRuntimeSettings extends Object {
 	public var PackageName: FString;
-	public var StoreVersion: cpp.Int32;
-	public var StoreVersionOffsetArm64: cpp.Int32;
-	public var StoreVersionOffsetX8664: cpp.Int32;
+	public var StoreVersion: ucpp.num.Int32;
+	public var StoreVersionOffsetArm64: ucpp.num.Int32;
+	public var StoreVersionOffsetX8664: ucpp.num.Int32;
 	public var ApplicationDisplayName: FString;
 	public var VersionDisplayName: FString;
-	public var MinSDKVersion: cpp.Int32;
-	public var TargetSDKVersion: cpp.Int32;
+	public var MinSDKVersion: ucpp.num.Int32;
+	public var TargetSDKVersion: ucpp.num.Int32;
 	public var InstallLocation: TEnumAsByte<EAndroidInstallLocation>;
 	public var bEnableLint: Bool;
 	public var bPackageDataInsideApk: Bool;
@@ -25,7 +25,7 @@ extern class AndroidRuntimeSettings extends Object {
 	public var bUseExternalFilesDir: Bool;
 	public var bPublicLogFiles: Bool;
 	public var Orientation: TEnumAsByte<EAndroidScreenOrientation>;
-	public var MaxAspectRatio: cpp.Float32;
+	public var MaxAspectRatio: ucpp.num.Float32;
 	public var bUseDisplayCutout: Bool;
 	public var bRestoreNotificationsOnReboot: Bool;
 	public var bFullScreen: Bool;
@@ -85,43 +85,43 @@ extern class AndroidRuntimeSettings extends Object {
 	public var bBlockAndroidKeysOnControllers: Bool;
 	public var bControllersBlockDeviceFeedback: Bool;
 	public var AndroidAudio: TEnumAsByte<EAndroidAudio>;
-	public var AudioSampleRate: cpp.Int32;
-	public var AudioCallbackBufferFrameSize: cpp.Int32;
-	public var AudioNumBuffersToEnqueue: cpp.Int32;
-	public var AudioMaxChannels: cpp.Int32;
-	public var AudioNumSourceWorkers: cpp.Int32;
+	public var AudioSampleRate: ucpp.num.Int32;
+	public var AudioCallbackBufferFrameSize: ucpp.num.Int32;
+	public var AudioNumBuffersToEnqueue: ucpp.num.Int32;
+	public var AudioMaxChannels: ucpp.num.Int32;
+	public var AudioNumSourceWorkers: ucpp.num.Int32;
 	public var SpatializationPlugin: FString;
 	public var SourceDataOverridePlugin: FString;
 	public var ReverbPlugin: FString;
 	public var OcclusionPlugin: FString;
 	public var CompressionOverrides: PlatformRuntimeAudioCompressionOverrides;
-	public var CacheSizeKB: cpp.Int32;
-	public var MaxChunkSizeOverrideKB: cpp.Int32;
+	public var CacheSizeKB: ucpp.num.Int32;
+	public var MaxChunkSizeOverrideKB: ucpp.num.Int32;
 	public var bResampleForDevice: Bool;
-	public var SoundCueCookQualityIndex: cpp.Int32;
-	public var MaxSampleRate: cpp.Float32;
-	public var HighSampleRate: cpp.Float32;
-	public var MedSampleRate: cpp.Float32;
-	public var LowSampleRate: cpp.Float32;
-	public var MinSampleRate: cpp.Float32;
-	public var CompressionQualityModifier: cpp.Float32;
-	public var AutoStreamingThreshold: cpp.Float32;
+	public var SoundCueCookQualityIndex: ucpp.num.Int32;
+	public var MaxSampleRate: ucpp.num.Float32;
+	public var HighSampleRate: ucpp.num.Float32;
+	public var MedSampleRate: ucpp.num.Float32;
+	public var LowSampleRate: ucpp.num.Float32;
+	public var MinSampleRate: ucpp.num.Float32;
+	public var CompressionQualityModifier: ucpp.num.Float32;
+	public var AutoStreamingThreshold: ucpp.num.Float32;
 	public var AndroidGraphicsDebugger: TEnumAsByte<EAndroidGraphicsDebugger>;
 	public var MaliGraphicsDebuggerPath: DirectoryPath;
 	public var bEnableMaliPerfCounters: Bool;
 	public var bMultiTargetFormat_ETC2: Bool;
 	public var bMultiTargetFormat_DXT: Bool;
 	public var bMultiTargetFormat_ASTC: Bool;
-	public var TextureFormatPriority_ETC2: cpp.Float32;
-	public var TextureFormatPriority_DXT: cpp.Float32;
-	public var TextureFormatPriority_ASTC: cpp.Float32;
+	public var TextureFormatPriority_ETC2: ucpp.num.Float32;
+	public var TextureFormatPriority_DXT: ucpp.num.Float32;
+	public var TextureFormatPriority_ASTC: ucpp.num.Float32;
 	public var SDKAPILevelOverride: FString;
 	public var NDKAPILevelOverride: FString;
 	public var BuildToolsOverride: FString;
 	public var bStreamLandscapeMeshLODs: Bool;
 	public var bEnableDomStorage: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -129,20 +129,20 @@ extern class AndroidRuntimeSettings extends Object {
 abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntimeSettings {
 	public extern var PackageName(get, never): FString;
 	public inline extern function get_PackageName(): FString return this.PackageName;
-	public extern var StoreVersion(get, never): cpp.Int32;
-	public inline extern function get_StoreVersion(): cpp.Int32 return this.StoreVersion;
-	public extern var StoreVersionOffsetArm64(get, never): cpp.Int32;
-	public inline extern function get_StoreVersionOffsetArm64(): cpp.Int32 return this.StoreVersionOffsetArm64;
-	public extern var StoreVersionOffsetX8664(get, never): cpp.Int32;
-	public inline extern function get_StoreVersionOffsetX8664(): cpp.Int32 return this.StoreVersionOffsetX8664;
+	public extern var StoreVersion(get, never): ucpp.num.Int32;
+	public inline extern function get_StoreVersion(): ucpp.num.Int32 return this.StoreVersion;
+	public extern var StoreVersionOffsetArm64(get, never): ucpp.num.Int32;
+	public inline extern function get_StoreVersionOffsetArm64(): ucpp.num.Int32 return this.StoreVersionOffsetArm64;
+	public extern var StoreVersionOffsetX8664(get, never): ucpp.num.Int32;
+	public inline extern function get_StoreVersionOffsetX8664(): ucpp.num.Int32 return this.StoreVersionOffsetX8664;
 	public extern var ApplicationDisplayName(get, never): FString;
 	public inline extern function get_ApplicationDisplayName(): FString return this.ApplicationDisplayName;
 	public extern var VersionDisplayName(get, never): FString;
 	public inline extern function get_VersionDisplayName(): FString return this.VersionDisplayName;
-	public extern var MinSDKVersion(get, never): cpp.Int32;
-	public inline extern function get_MinSDKVersion(): cpp.Int32 return this.MinSDKVersion;
-	public extern var TargetSDKVersion(get, never): cpp.Int32;
-	public inline extern function get_TargetSDKVersion(): cpp.Int32 return this.TargetSDKVersion;
+	public extern var MinSDKVersion(get, never): ucpp.num.Int32;
+	public inline extern function get_MinSDKVersion(): ucpp.num.Int32 return this.MinSDKVersion;
+	public extern var TargetSDKVersion(get, never): ucpp.num.Int32;
+	public inline extern function get_TargetSDKVersion(): ucpp.num.Int32 return this.TargetSDKVersion;
 	public extern var InstallLocation(get, never): TEnumAsByte<EAndroidInstallLocation>;
 	public inline extern function get_InstallLocation(): TEnumAsByte<EAndroidInstallLocation> return this.InstallLocation;
 	public extern var bEnableLint(get, never): Bool;
@@ -167,8 +167,8 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_bPublicLogFiles(): Bool return this.bPublicLogFiles;
 	public extern var Orientation(get, never): TEnumAsByte<EAndroidScreenOrientation>;
 	public inline extern function get_Orientation(): TEnumAsByte<EAndroidScreenOrientation> return this.Orientation;
-	public extern var MaxAspectRatio(get, never): cpp.Float32;
-	public inline extern function get_MaxAspectRatio(): cpp.Float32 return this.MaxAspectRatio;
+	public extern var MaxAspectRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxAspectRatio(): ucpp.num.Float32 return this.MaxAspectRatio;
 	public extern var bUseDisplayCutout(get, never): Bool;
 	public inline extern function get_bUseDisplayCutout(): Bool return this.bUseDisplayCutout;
 	public extern var bRestoreNotificationsOnReboot(get, never): Bool;
@@ -287,16 +287,16 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_bControllersBlockDeviceFeedback(): Bool return this.bControllersBlockDeviceFeedback;
 	public extern var AndroidAudio(get, never): TEnumAsByte<EAndroidAudio>;
 	public inline extern function get_AndroidAudio(): TEnumAsByte<EAndroidAudio> return this.AndroidAudio;
-	public extern var AudioSampleRate(get, never): cpp.Int32;
-	public inline extern function get_AudioSampleRate(): cpp.Int32 return this.AudioSampleRate;
-	public extern var AudioCallbackBufferFrameSize(get, never): cpp.Int32;
-	public inline extern function get_AudioCallbackBufferFrameSize(): cpp.Int32 return this.AudioCallbackBufferFrameSize;
-	public extern var AudioNumBuffersToEnqueue(get, never): cpp.Int32;
-	public inline extern function get_AudioNumBuffersToEnqueue(): cpp.Int32 return this.AudioNumBuffersToEnqueue;
-	public extern var AudioMaxChannels(get, never): cpp.Int32;
-	public inline extern function get_AudioMaxChannels(): cpp.Int32 return this.AudioMaxChannels;
-	public extern var AudioNumSourceWorkers(get, never): cpp.Int32;
-	public inline extern function get_AudioNumSourceWorkers(): cpp.Int32 return this.AudioNumSourceWorkers;
+	public extern var AudioSampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioSampleRate(): ucpp.num.Int32 return this.AudioSampleRate;
+	public extern var AudioCallbackBufferFrameSize(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioCallbackBufferFrameSize(): ucpp.num.Int32 return this.AudioCallbackBufferFrameSize;
+	public extern var AudioNumBuffersToEnqueue(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioNumBuffersToEnqueue(): ucpp.num.Int32 return this.AudioNumBuffersToEnqueue;
+	public extern var AudioMaxChannels(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioMaxChannels(): ucpp.num.Int32 return this.AudioMaxChannels;
+	public extern var AudioNumSourceWorkers(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioNumSourceWorkers(): ucpp.num.Int32 return this.AudioNumSourceWorkers;
 	public extern var SpatializationPlugin(get, never): FString;
 	public inline extern function get_SpatializationPlugin(): FString return this.SpatializationPlugin;
 	public extern var SourceDataOverridePlugin(get, never): FString;
@@ -307,28 +307,28 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_OcclusionPlugin(): FString return this.OcclusionPlugin;
 	public extern var CompressionOverrides(get, never): PlatformRuntimeAudioCompressionOverrides;
 	public inline extern function get_CompressionOverrides(): PlatformRuntimeAudioCompressionOverrides return this.CompressionOverrides;
-	public extern var CacheSizeKB(get, never): cpp.Int32;
-	public inline extern function get_CacheSizeKB(): cpp.Int32 return this.CacheSizeKB;
-	public extern var MaxChunkSizeOverrideKB(get, never): cpp.Int32;
-	public inline extern function get_MaxChunkSizeOverrideKB(): cpp.Int32 return this.MaxChunkSizeOverrideKB;
+	public extern var CacheSizeKB(get, never): ucpp.num.Int32;
+	public inline extern function get_CacheSizeKB(): ucpp.num.Int32 return this.CacheSizeKB;
+	public extern var MaxChunkSizeOverrideKB(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxChunkSizeOverrideKB(): ucpp.num.Int32 return this.MaxChunkSizeOverrideKB;
 	public extern var bResampleForDevice(get, never): Bool;
 	public inline extern function get_bResampleForDevice(): Bool return this.bResampleForDevice;
-	public extern var SoundCueCookQualityIndex(get, never): cpp.Int32;
-	public inline extern function get_SoundCueCookQualityIndex(): cpp.Int32 return this.SoundCueCookQualityIndex;
-	public extern var MaxSampleRate(get, never): cpp.Float32;
-	public inline extern function get_MaxSampleRate(): cpp.Float32 return this.MaxSampleRate;
-	public extern var HighSampleRate(get, never): cpp.Float32;
-	public inline extern function get_HighSampleRate(): cpp.Float32 return this.HighSampleRate;
-	public extern var MedSampleRate(get, never): cpp.Float32;
-	public inline extern function get_MedSampleRate(): cpp.Float32 return this.MedSampleRate;
-	public extern var LowSampleRate(get, never): cpp.Float32;
-	public inline extern function get_LowSampleRate(): cpp.Float32 return this.LowSampleRate;
-	public extern var MinSampleRate(get, never): cpp.Float32;
-	public inline extern function get_MinSampleRate(): cpp.Float32 return this.MinSampleRate;
-	public extern var CompressionQualityModifier(get, never): cpp.Float32;
-	public inline extern function get_CompressionQualityModifier(): cpp.Float32 return this.CompressionQualityModifier;
-	public extern var AutoStreamingThreshold(get, never): cpp.Float32;
-	public inline extern function get_AutoStreamingThreshold(): cpp.Float32 return this.AutoStreamingThreshold;
+	public extern var SoundCueCookQualityIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_SoundCueCookQualityIndex(): ucpp.num.Int32 return this.SoundCueCookQualityIndex;
+	public extern var MaxSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxSampleRate(): ucpp.num.Float32 return this.MaxSampleRate;
+	public extern var HighSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_HighSampleRate(): ucpp.num.Float32 return this.HighSampleRate;
+	public extern var MedSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_MedSampleRate(): ucpp.num.Float32 return this.MedSampleRate;
+	public extern var LowSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_LowSampleRate(): ucpp.num.Float32 return this.LowSampleRate;
+	public extern var MinSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_MinSampleRate(): ucpp.num.Float32 return this.MinSampleRate;
+	public extern var CompressionQualityModifier(get, never): ucpp.num.Float32;
+	public inline extern function get_CompressionQualityModifier(): ucpp.num.Float32 return this.CompressionQualityModifier;
+	public extern var AutoStreamingThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_AutoStreamingThreshold(): ucpp.num.Float32 return this.AutoStreamingThreshold;
 	public extern var AndroidGraphicsDebugger(get, never): TEnumAsByte<EAndroidGraphicsDebugger>;
 	public inline extern function get_AndroidGraphicsDebugger(): TEnumAsByte<EAndroidGraphicsDebugger> return this.AndroidGraphicsDebugger;
 	public extern var MaliGraphicsDebuggerPath(get, never): DirectoryPath;
@@ -341,12 +341,12 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 	public inline extern function get_bMultiTargetFormat_DXT(): Bool return this.bMultiTargetFormat_DXT;
 	public extern var bMultiTargetFormat_ASTC(get, never): Bool;
 	public inline extern function get_bMultiTargetFormat_ASTC(): Bool return this.bMultiTargetFormat_ASTC;
-	public extern var TextureFormatPriority_ETC2(get, never): cpp.Float32;
-	public inline extern function get_TextureFormatPriority_ETC2(): cpp.Float32 return this.TextureFormatPriority_ETC2;
-	public extern var TextureFormatPriority_DXT(get, never): cpp.Float32;
-	public inline extern function get_TextureFormatPriority_DXT(): cpp.Float32 return this.TextureFormatPriority_DXT;
-	public extern var TextureFormatPriority_ASTC(get, never): cpp.Float32;
-	public inline extern function get_TextureFormatPriority_ASTC(): cpp.Float32 return this.TextureFormatPriority_ASTC;
+	public extern var TextureFormatPriority_ETC2(get, never): ucpp.num.Float32;
+	public inline extern function get_TextureFormatPriority_ETC2(): ucpp.num.Float32 return this.TextureFormatPriority_ETC2;
+	public extern var TextureFormatPriority_DXT(get, never): ucpp.num.Float32;
+	public inline extern function get_TextureFormatPriority_DXT(): ucpp.num.Float32 return this.TextureFormatPriority_DXT;
+	public extern var TextureFormatPriority_ASTC(get, never): ucpp.num.Float32;
+	public inline extern function get_TextureFormatPriority_ASTC(): ucpp.num.Float32 return this.TextureFormatPriority_ASTC;
 	public extern var SDKAPILevelOverride(get, never): FString;
 	public inline extern function get_SDKAPILevelOverride(): FString return this.SDKAPILevelOverride;
 	public extern var NDKAPILevelOverride(get, never): FString;
@@ -362,7 +362,7 @@ abstract ConstAndroidRuntimeSettings(AndroidRuntimeSettings) from AndroidRuntime
 @:forward
 @:nativeGen
 @:native("AndroidRuntimeSettings*")
-abstract AndroidRuntimeSettingsPtr(cpp.Star<AndroidRuntimeSettings>) from cpp.Star<AndroidRuntimeSettings> to cpp.Star<AndroidRuntimeSettings>{
+abstract AndroidRuntimeSettingsPtr(ucpp.Ptr<AndroidRuntimeSettings>) from ucpp.Ptr<AndroidRuntimeSettings> to ucpp.Ptr<AndroidRuntimeSettings>{
 	@:from
 	public static extern inline function fromValue(v: AndroidRuntimeSettings): AndroidRuntimeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

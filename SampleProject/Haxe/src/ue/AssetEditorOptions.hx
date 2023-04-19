@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAssetEditorOptions")
 @:include("Preferences/PersonaOptions.h")
-@:structAccess
+@:valueType
 extern class AssetEditorOptions {
 	public var Context: FName;
 	public var ViewportConfigs: ViewportConfigOptions;

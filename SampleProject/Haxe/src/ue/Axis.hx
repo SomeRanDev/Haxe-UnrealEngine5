@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAxis")
 @:include("CommonAnimTypes.h")
-@:structAccess
+@:valueType
 extern class Axis {
 	public var Axis: Vector;
 	public var bInLocalSpace: Bool;

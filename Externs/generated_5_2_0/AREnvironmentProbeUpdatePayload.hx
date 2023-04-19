@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAREnvironmentProbeUpdatePayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class AREnvironmentProbeUpdatePayload {
 	public var WorldTransform: Transform;
 

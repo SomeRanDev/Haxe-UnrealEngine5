@@ -3,20 +3,20 @@ package ue;
 
 @:native("UKismetProceduralMeshLibrary")
 @:include("KismetProceduralMeshLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetProceduralMeshLibrary extends BlueprintFunctionLibrary {
-	public function SliceProceduralMesh(InProcMesh: cpp.Star<ProceduralMeshComp>, PlanePosition: Vector, PlaneNormal: Vector, bCreateOtherHalf: Bool, OutOtherHalfProcMesh: cpp.Reference<cpp.Star<ProceduralMeshComp>>, CapOption: EProcMeshSliceCapOption, CapMaterial: cpp.Star<MaterialInterface>): Void;
-	public function GetSectionFromStaticMesh(InMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, UVs: cpp.Reference<TArray<Vector2D>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>): Void;
-	public function GetSectionFromProceduralMesh(InProcMesh: cpp.Star<ProceduralMeshComp>, SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, UVs: cpp.Reference<TArray<Vector2D>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>): Void;
-	public function GenerateBoxMesh(BoxRadius: Vector, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, UVs: cpp.Reference<TArray<Vector2D>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>): Void;
-	public function CreateGridMeshWelded(NumX: cpp.Int32, NumY: cpp.Int32, Triangles: cpp.Reference<TArray<cpp.Int32>>, Vertices: cpp.Reference<TArray<Vector>>, UVs: cpp.Reference<TArray<Vector2D>>, GridSpacing: cpp.Float32): Void;
-	public function CreateGridMeshTriangles(NumX: cpp.Int32, NumY: cpp.Int32, bWinding: Bool, Triangles: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function CreateGridMeshSplit(NumX: cpp.Int32, NumY: cpp.Int32, Triangles: cpp.Reference<TArray<cpp.Int32>>, Vertices: cpp.Reference<TArray<Vector>>, UVs: cpp.Reference<TArray<Vector2D>>, UV1s: cpp.Reference<TArray<Vector2D>>, GridSpacing: cpp.Float32): Void;
-	public function CopyProceduralMeshFromStaticMeshComponent(StaticMeshComponent: cpp.Star<StaticMeshComp>, LODIndex: cpp.Int32, ProcMeshComponent: cpp.Star<ProceduralMeshComp>, bCreateCollision: Bool): Void;
-	public function ConvertQuadToTriangles(Triangles: cpp.Reference<TArray<cpp.Int32>>, Vert0: cpp.Int32, Vert1: cpp.Int32, Vert2: cpp.Int32, Vert3: cpp.Int32): Void;
-	public function CalculateTangentsForMesh(Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, UVs: cpp.Reference<TArray<Vector2D>>, Normals: cpp.Reference<TArray<Vector>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>): Void;
+	public function SliceProceduralMesh(InProcMesh: ucpp.Ptr<ProceduralMeshComp>, PlanePosition: Vector, PlaneNormal: Vector, bCreateOtherHalf: Bool, OutOtherHalfProcMesh: ucpp.Ref<ucpp.Ptr<ProceduralMeshComp>>, CapOption: EProcMeshSliceCapOption, CapMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function GetSectionFromStaticMesh(InMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, Vertices: ucpp.Ref<TArray<Vector>>, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Normals: ucpp.Ref<TArray<Vector>>, UVs: ucpp.Ref<TArray<Vector2D>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>): Void;
+	public function GetSectionFromProceduralMesh(InProcMesh: ucpp.Ptr<ProceduralMeshComp>, SectionIndex: ucpp.num.Int32, Vertices: ucpp.Ref<TArray<Vector>>, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Normals: ucpp.Ref<TArray<Vector>>, UVs: ucpp.Ref<TArray<Vector2D>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>): Void;
+	public function GenerateBoxMesh(BoxRadius: Vector, Vertices: ucpp.Ref<TArray<Vector>>, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Normals: ucpp.Ref<TArray<Vector>>, UVs: ucpp.Ref<TArray<Vector2D>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>): Void;
+	public function CreateGridMeshWelded(NumX: ucpp.num.Int32, NumY: ucpp.num.Int32, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Vertices: ucpp.Ref<TArray<Vector>>, UVs: ucpp.Ref<TArray<Vector2D>>, GridSpacing: ucpp.num.Float32): Void;
+	public function CreateGridMeshTriangles(NumX: ucpp.num.Int32, NumY: ucpp.num.Int32, bWinding: Bool, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function CreateGridMeshSplit(NumX: ucpp.num.Int32, NumY: ucpp.num.Int32, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Vertices: ucpp.Ref<TArray<Vector>>, UVs: ucpp.Ref<TArray<Vector2D>>, UV1s: ucpp.Ref<TArray<Vector2D>>, GridSpacing: ucpp.num.Float32): Void;
+	public function CopyProceduralMeshFromStaticMeshComponent(StaticMeshComponent: ucpp.Ptr<StaticMeshComp>, LODIndex: ucpp.num.Int32, ProcMeshComponent: ucpp.Ptr<ProceduralMeshComp>, bCreateCollision: Bool): Void;
+	public function ConvertQuadToTriangles(Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Vert0: ucpp.num.Int32, Vert1: ucpp.num.Int32, Vert2: ucpp.num.Int32, Vert3: ucpp.num.Int32): Void;
+	public function CalculateTangentsForMesh(Vertices: ucpp.Ref<TArray<Vector>>, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, UVs: ucpp.Ref<TArray<Vector2D>>, Normals: ucpp.Ref<TArray<Vector>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstKismetProceduralMeshLibrary(KismetProceduralMeshLibrary) from Kism
 @:forward
 @:nativeGen
 @:native("KismetProceduralMeshLibrary*")
-abstract KismetProceduralMeshLibraryPtr(cpp.Star<KismetProceduralMeshLibrary>) from cpp.Star<KismetProceduralMeshLibrary> to cpp.Star<KismetProceduralMeshLibrary>{
+abstract KismetProceduralMeshLibraryPtr(ucpp.Ptr<KismetProceduralMeshLibrary>) from ucpp.Ptr<KismetProceduralMeshLibrary> to ucpp.Ptr<KismetProceduralMeshLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetProceduralMeshLibrary): KismetProceduralMeshLibraryPtr {
 		return untyped __cpp__("&({0})", v);

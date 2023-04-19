@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UDelegateProperty")
-@:structAccess
+@:valueType
 extern class DelegateProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstDelegateProperty(DelegateProperty) from DelegateProperty {
 @:forward
 @:nativeGen
 @:native("DelegateProperty*")
-abstract DelegatePropertyPtr(cpp.Star<DelegateProperty>) from cpp.Star<DelegateProperty> to cpp.Star<DelegateProperty>{
+abstract DelegatePropertyPtr(ucpp.Ptr<DelegateProperty>) from ucpp.Ptr<DelegateProperty> to ucpp.Ptr<DelegateProperty>{
 	@:from
 	public static extern inline function fromValue(v: DelegateProperty): DelegatePropertyPtr {
 		return untyped __cpp__("&({0})", v);

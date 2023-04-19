@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULiveLinkRole")
 @:include("LiveLinkRole.h")
-@:structAccess
+@:valueType
 extern class LiveLinkRole extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLiveLinkRole(LiveLinkRole) from LiveLinkRole {
 @:forward
 @:nativeGen
 @:native("LiveLinkRole*")
-abstract LiveLinkRolePtr(cpp.Star<LiveLinkRole>) from cpp.Star<LiveLinkRole> to cpp.Star<LiveLinkRole>{
+abstract LiveLinkRolePtr(ucpp.Ptr<LiveLinkRole>) from ucpp.Ptr<LiveLinkRole> to ucpp.Ptr<LiveLinkRole>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkRole): LiveLinkRolePtr {
 		return untyped __cpp__("&({0})", v);

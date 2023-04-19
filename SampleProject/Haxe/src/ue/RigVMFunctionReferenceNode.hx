@@ -3,12 +3,12 @@ package ue;
 
 @:native("URigVMFunctionReferenceNode")
 @:include("RigVMModel/Nodes/RigVMFunctionReferenceNode.h")
-@:structAccess
+@:valueType
 extern class RigVMFunctionReferenceNode extends RigVMLibraryNode {
-	private var ReferencedNodePtr: TSoftObjectPtr<RigVMLibraryNode>;
+	private var ReferencedFunctionHeader: RigVMGraphFunctionHeader;
 	private var VariableMap: TMap<FName, FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstRigVMFunctionReferenceNode(RigVMFunctionReferenceNode) from RigVMF
 @:forward
 @:nativeGen
 @:native("RigVMFunctionReferenceNode*")
-abstract RigVMFunctionReferenceNodePtr(cpp.Star<RigVMFunctionReferenceNode>) from cpp.Star<RigVMFunctionReferenceNode> to cpp.Star<RigVMFunctionReferenceNode>{
+abstract RigVMFunctionReferenceNodePtr(ucpp.Ptr<RigVMFunctionReferenceNode>) from ucpp.Ptr<RigVMFunctionReferenceNode> to ucpp.Ptr<RigVMFunctionReferenceNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMFunctionReferenceNode): RigVMFunctionReferenceNodePtr {
 		return untyped __cpp__("&({0})", v);

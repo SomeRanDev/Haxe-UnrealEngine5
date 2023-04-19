@@ -3,19 +3,19 @@ package ue;
 
 @:native("UPoseAsset")
 @:include("Animation/PoseAsset.h")
-@:structAccess
+@:valueType
 extern class PoseAsset extends AnimationAsset {
 	private var PoseContainer: PoseDataContainer;
 	private var bAdditivePose: Bool;
-	private var BasePoseIndex: cpp.Int32;
+	private var BasePoseIndex: ucpp.num.Int32;
 	public var RetargetSource: FName;
 	public var RetargetSourceAssetReferencePose: TArray<Transform>;
 
-	public function UpdatePoseFromAnimation(AnimSequence: cpp.Star<AnimSequence>): Void;
-	public function RenamePose(OriginalPoseName: cpp.Reference<FName>, NewPoseName: cpp.Reference<FName>): Void;
-	public function GetPoseNames(PoseNames: cpp.Reference<TArray<FName>>): Void;
+	public function UpdatePoseFromAnimation(AnimSequence: ucpp.Ptr<AnimSequence>): Void;
+	public function RenamePose(OriginalPoseName: ucpp.Ref<FName>, NewPoseName: ucpp.Ref<FName>): Void;
+	public function GetPoseNames(PoseNames: ucpp.Ref<TArray<FName>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPoseNames)
@@ -30,7 +30,7 @@ abstract ConstPoseAsset(PoseAsset) from PoseAsset {
 @:forward
 @:nativeGen
 @:native("PoseAsset*")
-abstract PoseAssetPtr(cpp.Star<PoseAsset>) from cpp.Star<PoseAsset> to cpp.Star<PoseAsset>{
+abstract PoseAssetPtr(ucpp.Ptr<PoseAsset>) from ucpp.Ptr<PoseAsset> to ucpp.Ptr<PoseAsset>{
 	@:from
 	public static extern inline function fromValue(v: PoseAsset): PoseAssetPtr {
 		return untyped __cpp__("&({0})", v);

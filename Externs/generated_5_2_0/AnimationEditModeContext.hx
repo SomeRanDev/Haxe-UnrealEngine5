@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimationEditModeContext")
 @:include("AnimationEditMode.h")
-@:structAccess
+@:valueType
 extern class AnimationEditModeContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimationEditModeContext(AnimationEditModeContext) from AnimationE
 @:forward
 @:nativeGen
 @:native("AnimationEditModeContext*")
-abstract AnimationEditModeContextPtr(cpp.Star<AnimationEditModeContext>) from cpp.Star<AnimationEditModeContext> to cpp.Star<AnimationEditModeContext>{
+abstract AnimationEditModeContextPtr(ucpp.Ptr<AnimationEditModeContext>) from ucpp.Ptr<AnimationEditModeContext> to ucpp.Ptr<AnimationEditModeContext>{
 	@:from
 	public static extern inline function fromValue(v: AnimationEditModeContext): AnimationEditModeContextPtr {
 		return untyped __cpp__("&({0})", v);

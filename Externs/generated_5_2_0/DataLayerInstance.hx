@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataLayerInstance")
 @:include("WorldPartition/DataLayer/DataLayerInstance.h")
-@:structAccess
+@:valueType
 extern class DataLayerInstance extends Object {
 	@:protected public var InitialRuntimeState: EDataLayerRuntimeState;
-	private var Parent: cpp.Star<DataLayerInstance>;
-	private var Children: TArray<cpp.Star<DataLayerInstance>>;
+	private var Parent: ucpp.Ptr<DataLayerInstance>;
+	private var Children: TArray<ucpp.Ptr<DataLayerInstance>>;
 
 	public function IsVisible(): Bool;
 	public function IsRuntime(): Bool;
@@ -17,7 +17,7 @@ extern class DataLayerInstance extends Object {
 	public function GetInitialRuntimeState(): EDataLayerRuntimeState;
 	public function GetDebugColor(): Color;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsVisible, IsRuntime, IsInitiallyVisible, IsEffectiveVisible, GetType, GetInitialRuntimeState, GetDebugColor)
@@ -28,7 +28,7 @@ abstract ConstDataLayerInstance(DataLayerInstance) from DataLayerInstance {
 @:forward
 @:nativeGen
 @:native("DataLayerInstance*")
-abstract DataLayerInstancePtr(cpp.Star<DataLayerInstance>) from cpp.Star<DataLayerInstance> to cpp.Star<DataLayerInstance>{
+abstract DataLayerInstancePtr(ucpp.Ptr<DataLayerInstance>) from ucpp.Ptr<DataLayerInstance> to ucpp.Ptr<DataLayerInstance>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerInstance): DataLayerInstancePtr {
 		return untyped __cpp__("&({0})", v);

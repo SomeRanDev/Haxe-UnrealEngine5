@@ -23,5 +23,6 @@ extern class EMaterialUsage {
 	static var MATUSAGE_LidarPointCloud: EMaterialUsage;
 	static var MATUSAGE_VirtualHeightfieldMesh: EMaterialUsage;
 	static var MATUSAGE_Nanite: EMaterialUsage;
+	static var MATUSAGE_VolumetricCloud: EMaterialUsage;
 	static var MATUSAGE_MAX: EMaterialUsage;
 }

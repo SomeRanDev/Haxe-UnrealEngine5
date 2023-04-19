@@ -3,42 +3,42 @@ package ue;
 
 @:native("UFractureClusterCutterSettings")
 @:include("FractureToolClusterCutter.h")
-@:structAccess
+@:valueType
 extern class FractureClusterCutterSettings extends FractureToolSettings {
-	public var NumberClustersMin: cpp.Int32;
-	public var NumberClustersMax: cpp.Int32;
-	public var SitesPerClusterMin: cpp.Int32;
-	public var SitesPerClusterMax: cpp.Int32;
-	public var ClusterRadiusFractionMin: cpp.Float32;
-	public var ClusterRadiusFractionMax: cpp.Float32;
-	public var ClusterRadiusOffset: cpp.Float32;
+	public var NumberClustersMin: ucpp.num.Int32;
+	public var NumberClustersMax: ucpp.num.Int32;
+	public var SitesPerClusterMin: ucpp.num.Int32;
+	public var SitesPerClusterMax: ucpp.num.Int32;
+	public var ClusterRadiusFractionMin: ucpp.num.Float32;
+	public var ClusterRadiusFractionMax: ucpp.num.Float32;
+	public var ClusterRadiusOffset: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureClusterCutterSettings(FractureClusterCutterSettings) from FractureClusterCutterSettings {
-	public extern var NumberClustersMin(get, never): cpp.Int32;
-	public inline extern function get_NumberClustersMin(): cpp.Int32 return this.NumberClustersMin;
-	public extern var NumberClustersMax(get, never): cpp.Int32;
-	public inline extern function get_NumberClustersMax(): cpp.Int32 return this.NumberClustersMax;
-	public extern var SitesPerClusterMin(get, never): cpp.Int32;
-	public inline extern function get_SitesPerClusterMin(): cpp.Int32 return this.SitesPerClusterMin;
-	public extern var SitesPerClusterMax(get, never): cpp.Int32;
-	public inline extern function get_SitesPerClusterMax(): cpp.Int32 return this.SitesPerClusterMax;
-	public extern var ClusterRadiusFractionMin(get, never): cpp.Float32;
-	public inline extern function get_ClusterRadiusFractionMin(): cpp.Float32 return this.ClusterRadiusFractionMin;
-	public extern var ClusterRadiusFractionMax(get, never): cpp.Float32;
-	public inline extern function get_ClusterRadiusFractionMax(): cpp.Float32 return this.ClusterRadiusFractionMax;
-	public extern var ClusterRadiusOffset(get, never): cpp.Float32;
-	public inline extern function get_ClusterRadiusOffset(): cpp.Float32 return this.ClusterRadiusOffset;
+	public extern var NumberClustersMin(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberClustersMin(): ucpp.num.Int32 return this.NumberClustersMin;
+	public extern var NumberClustersMax(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberClustersMax(): ucpp.num.Int32 return this.NumberClustersMax;
+	public extern var SitesPerClusterMin(get, never): ucpp.num.Int32;
+	public inline extern function get_SitesPerClusterMin(): ucpp.num.Int32 return this.SitesPerClusterMin;
+	public extern var SitesPerClusterMax(get, never): ucpp.num.Int32;
+	public inline extern function get_SitesPerClusterMax(): ucpp.num.Int32 return this.SitesPerClusterMax;
+	public extern var ClusterRadiusFractionMin(get, never): ucpp.num.Float32;
+	public inline extern function get_ClusterRadiusFractionMin(): ucpp.num.Float32 return this.ClusterRadiusFractionMin;
+	public extern var ClusterRadiusFractionMax(get, never): ucpp.num.Float32;
+	public inline extern function get_ClusterRadiusFractionMax(): ucpp.num.Float32 return this.ClusterRadiusFractionMax;
+	public extern var ClusterRadiusOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_ClusterRadiusOffset(): ucpp.num.Float32 return this.ClusterRadiusOffset;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureClusterCutterSettings*")
-abstract FractureClusterCutterSettingsPtr(cpp.Star<FractureClusterCutterSettings>) from cpp.Star<FractureClusterCutterSettings> to cpp.Star<FractureClusterCutterSettings>{
+abstract FractureClusterCutterSettingsPtr(ucpp.Ptr<FractureClusterCutterSettings>) from ucpp.Ptr<FractureClusterCutterSettings> to ucpp.Ptr<FractureClusterCutterSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureClusterCutterSettings): FractureClusterCutterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

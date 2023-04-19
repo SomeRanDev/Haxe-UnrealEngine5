@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLightingChannels")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class LightingChannels {
 	public var bChannel0: Bool;
 	public var bChannel1: Bool;

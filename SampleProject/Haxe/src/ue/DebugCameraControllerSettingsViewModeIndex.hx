@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDebugCameraControllerSettingsViewModeIndex")
 @:include("Engine/DebugCameraControllerSettings.h")
-@:structAccess
+@:valueType
 extern class DebugCameraControllerSettingsViewModeIndex {
 	public var ViewModeIndex: TEnumAsByte<EViewModeIndex>;
 

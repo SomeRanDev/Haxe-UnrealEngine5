@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPresetSettingsProperties")
 @:include("ModelingToolsEditorModeToolkit.h")
-@:structAccess
+@:valueType
 extern class PresetSettingsProperties extends Object {
 	public var ActivePresetCollectionsPaths: TArray<SoftObjectPath>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPresetSettingsProperties(PresetSettingsProperties) from PresetSett
 @:forward
 @:nativeGen
 @:native("PresetSettingsProperties*")
-abstract PresetSettingsPropertiesPtr(cpp.Star<PresetSettingsProperties>) from cpp.Star<PresetSettingsProperties> to cpp.Star<PresetSettingsProperties>{
+abstract PresetSettingsPropertiesPtr(ucpp.Ptr<PresetSettingsProperties>) from ucpp.Ptr<PresetSettingsProperties> to ucpp.Ptr<PresetSettingsProperties>{
 	@:from
 	public static extern inline function fromValue(v: PresetSettingsProperties): PresetSettingsPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelVariantSetsFunctionDirector")
 @:include("LevelVariantSetsFunctionDirector.h")
-@:structAccess
+@:valueType
 extern class LevelVariantSetsFunctionDirector extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelVariantSetsFunctionDirector(LevelVariantSetsFunctionDirector)
 @:forward
 @:nativeGen
 @:native("LevelVariantSetsFunctionDirector*")
-abstract LevelVariantSetsFunctionDirectorPtr(cpp.Star<LevelVariantSetsFunctionDirector>) from cpp.Star<LevelVariantSetsFunctionDirector> to cpp.Star<LevelVariantSetsFunctionDirector>{
+abstract LevelVariantSetsFunctionDirectorPtr(ucpp.Ptr<LevelVariantSetsFunctionDirector>) from ucpp.Ptr<LevelVariantSetsFunctionDirector> to ucpp.Ptr<LevelVariantSetsFunctionDirector>{
 	@:from
 	public static extern inline function fromValue(v: LevelVariantSetsFunctionDirector): LevelVariantSetsFunctionDirectorPtr {
 		return untyped __cpp__("&({0})", v);

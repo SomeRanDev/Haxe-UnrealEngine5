@@ -3,7 +3,7 @@ package ue;
 
 @:native("AAIController")
 @:include("AIController.h")
-@:structAccess
+@:valueType
 extern class AIController extends Controller {
 	@:protected public var bStartAILogicOnPossess: Bool;
 	@:protected public var bStopAILogicOnUnposses: Bool;
@@ -12,38 +12,38 @@ extern class AIController extends Controller {
 	public var bAllowStrafe: Bool;
 	public var bWantsPlayerState: Bool;
 	public var bSetControlRotationFromPawnOrientation: Bool;
-	private var PathFollowingComponent: cpp.Star<PathFollowingComp>;
-	public var BrainComponent: cpp.Star<BrainComp>;
-	public var PerceptionComponent: cpp.Star<AIPerceptionComp>;
-	@:protected public var Blackboard: cpp.Star<BlackboardComp>;
-	@:protected public var CachedGameplayTasksComponent: cpp.Star<GameplayTasksComp>;
+	private var PathFollowingComponent: ucpp.Ptr<PathFollowingComp>;
+	public var BrainComponent: ucpp.Ptr<BrainComp>;
+	public var PerceptionComponent: ucpp.Ptr<AIPerceptionComp>;
+	@:protected public var Blackboard: ucpp.Ptr<BlackboardComp>;
+	@:protected public var CachedGameplayTasksComponent: ucpp.Ptr<GameplayTasksComp>;
 	@:protected public var DefaultNavigationFilterClass: TSubclassOf<NavigationQueryFilter>;
 	public var ReceiveMoveCompleted: HaxeMulticastSparseDelegateProperty<(AIRequestID, TEnumAsByte<EPathFollowingResult>) -> Void>;
 
-	public function UseBlackboard(BlackboardAsset: cpp.Star<BlackboardData>, BlackboardComponent: cpp.Reference<cpp.Star<BlackboardComp>>): Bool;
+	public function UseBlackboard(BlackboardAsset: ucpp.Ptr<BlackboardData>, BlackboardComponent: ucpp.Ref<ucpp.Ptr<BlackboardComp>>): Bool;
 	public function UnclaimTaskResource(ResourceClass: TSubclassOf<GameplayTaskResource>): Void;
-	public function SetPathFollowingComponent(NewPFComponent: cpp.Star<PathFollowingComp>): Void;
+	public function SetPathFollowingComponent(NewPFComponent: ucpp.Ptr<PathFollowingComp>): Void;
 	public function SetMoveBlockDetection(bEnable: Bool): Void;
-	public function RunBehaviorTree(BTAsset: cpp.Star<BehaviorTree>): Bool;
-	@:protected public function OnUsingBlackBoard(BlackboardComp: cpp.Star<BlackboardComp>, BlackboardAsset: cpp.Star<BlackboardData>): Void;
+	public function RunBehaviorTree(BTAsset: ucpp.Ptr<BehaviorTree>): Bool;
+	@:protected public function OnUsingBlackBoard(BlackboardComp: ucpp.Ptr<BlackboardComp>, BlackboardAsset: ucpp.Ptr<BlackboardData>): Void;
 	public function OnGameplayTaskResourcesClaimed(NewlyClaimed: GameplayResourceSet, FreshlyReleased: GameplayResourceSet): Void;
-	public function MoveToLocation(Dest: cpp.Reference<Vector>, AcceptanceRadius: cpp.Float32, bStopOnOverlap: Bool, bUsePathfinding: Bool, bProjectDestinationToNavigation: Bool, bCanStrafe: Bool, FilterClass: TSubclassOf<NavigationQueryFilter>, bAllowPartialPath: Bool): TEnumAsByte<EPathFollowingRequestResult>;
-	public function MoveToActor(Goal: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, bStopOnOverlap: Bool, bUsePathfinding: Bool, bCanStrafe: Bool, FilterClass: TSubclassOf<NavigationQueryFilter>, bAllowPartialPath: Bool): TEnumAsByte<EPathFollowingRequestResult>;
-	public function K2_SetFocus(NewFocus: cpp.Star<Actor>): Void;
+	public function MoveToLocation(Dest: ucpp.Ref<Vector>, AcceptanceRadius: ucpp.num.Float32, bStopOnOverlap: Bool, bUsePathfinding: Bool, bProjectDestinationToNavigation: Bool, bCanStrafe: Bool, FilterClass: TSubclassOf<NavigationQueryFilter>, bAllowPartialPath: Bool): TEnumAsByte<EPathFollowingRequestResult>;
+	public function MoveToActor(Goal: ucpp.Ptr<Actor>, AcceptanceRadius: ucpp.num.Float32, bStopOnOverlap: Bool, bUsePathfinding: Bool, bCanStrafe: Bool, FilterClass: TSubclassOf<NavigationQueryFilter>, bAllowPartialPath: Bool): TEnumAsByte<EPathFollowingRequestResult>;
+	public function K2_SetFocus(NewFocus: ucpp.Ptr<Actor>): Void;
 	public function K2_SetFocalPoint(FP: Vector): Void;
 	public function K2_ClearFocus(): Void;
 	public function HasPartialPath(): Bool;
-	public function GetPathFollowingComponent(): cpp.Star<PathFollowingComp>;
+	public function GetPathFollowingComponent(): ucpp.Ptr<PathFollowingComp>;
 	public function GetMoveStatus(): TEnumAsByte<EPathFollowingStatus>;
 	public function GetImmediateMoveDestination(): Vector;
-	public function GetFocusActor(): cpp.Star<Actor>;
-	public function GetFocalPointOnActor(Actor: cpp.Star<Actor.ConstActor>): Vector;
+	public function GetFocusActor(): ucpp.Ptr<Actor>;
+	public function GetFocalPointOnActor(Actor: ucpp.Ptr<Actor.ConstActor>): Vector;
 	public function GetFocalPoint(): Vector;
-	public function GetDeprecatedActionsComponent(): cpp.Star<PawnActionsComp>;
-	public function GetAIPerceptionComponent(): cpp.Star<AIPerceptionComp>;
+	public function GetDeprecatedActionsComponent(): ucpp.Ptr<PawnActionsComp>;
+	public function GetAIPerceptionComponent(): ucpp.Ptr<AIPerceptionComp>;
 	public function ClaimTaskResource(ResourceClass: TSubclassOf<GameplayTaskResource>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasPartialPath, GetPathFollowingComponent, GetMoveStatus, GetImmediateMoveDestination, GetFocusActor, GetFocalPointOnActor, GetFocalPoint, GetDeprecatedActionsComponent)
@@ -59,10 +59,10 @@ abstract ConstAIController(AIController) from AIController {
 	public inline extern function get_bWantsPlayerState(): Bool return this.bWantsPlayerState;
 	public extern var bSetControlRotationFromPawnOrientation(get, never): Bool;
 	public inline extern function get_bSetControlRotationFromPawnOrientation(): Bool return this.bSetControlRotationFromPawnOrientation;
-	public extern var BrainComponent(get, never): cpp.Star<BrainComp.ConstBrainComp>;
-	public inline extern function get_BrainComponent(): cpp.Star<BrainComp.ConstBrainComp> return this.BrainComponent;
-	public extern var PerceptionComponent(get, never): cpp.Star<AIPerceptionComp.ConstAIPerceptionComp>;
-	public inline extern function get_PerceptionComponent(): cpp.Star<AIPerceptionComp.ConstAIPerceptionComp> return this.PerceptionComponent;
+	public extern var BrainComponent(get, never): ucpp.Ptr<BrainComp.ConstBrainComp>;
+	public inline extern function get_BrainComponent(): ucpp.Ptr<BrainComp.ConstBrainComp> return this.BrainComponent;
+	public extern var PerceptionComponent(get, never): ucpp.Ptr<AIPerceptionComp.ConstAIPerceptionComp>;
+	public inline extern function get_PerceptionComponent(): ucpp.Ptr<AIPerceptionComp.ConstAIPerceptionComp> return this.PerceptionComponent;
 	public extern var ReceiveMoveCompleted(get, never): HaxeMulticastSparseDelegateProperty<(AIRequestID, TEnumAsByte<EPathFollowingResult>) -> Void>;
 	public inline extern function get_ReceiveMoveCompleted(): HaxeMulticastSparseDelegateProperty<(AIRequestID, TEnumAsByte<EPathFollowingResult>) -> Void> return this.ReceiveMoveCompleted;
 }
@@ -70,7 +70,7 @@ abstract ConstAIController(AIController) from AIController {
 @:forward
 @:nativeGen
 @:native("AIController*")
-abstract AIControllerPtr(cpp.Star<AIController>) from cpp.Star<AIController> to cpp.Star<AIController>{
+abstract AIControllerPtr(ucpp.Ptr<AIController>) from ucpp.Ptr<AIController> to ucpp.Ptr<AIController>{
 	@:from
 	public static extern inline function fromValue(v: AIController): AIControllerPtr {
 		return untyped __cpp__("&({0})", v);

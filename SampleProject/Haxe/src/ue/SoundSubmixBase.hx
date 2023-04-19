@@ -3,13 +3,13 @@ package ue;
 
 @:native("USoundSubmixBase")
 @:include("Sound/SoundSubmix.h")
-@:structAccess
+@:valueType
 extern class SoundSubmixBase extends Object {
 	public var bAutoDisable: Bool;
-	public var AutoDisableTime: cpp.Float32;
-	public var ChildSubmixes: TArray<cpp.Star<SoundSubmixBase>>;
+	public var AutoDisableTime: ucpp.num.Float32;
+	public var ChildSubmixes: TArray<ucpp.Ptr<SoundSubmixBase>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class SoundSubmixBase extends Object {
 abstract ConstSoundSubmixBase(SoundSubmixBase) from SoundSubmixBase {
 	public extern var bAutoDisable(get, never): Bool;
 	public inline extern function get_bAutoDisable(): Bool return this.bAutoDisable;
-	public extern var AutoDisableTime(get, never): cpp.Float32;
-	public inline extern function get_AutoDisableTime(): cpp.Float32 return this.AutoDisableTime;
-	public extern var ChildSubmixes(get, never): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>>;
-	public inline extern function get_ChildSubmixes(): TArray<cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>> return this.ChildSubmixes;
+	public extern var AutoDisableTime(get, never): ucpp.num.Float32;
+	public inline extern function get_AutoDisableTime(): ucpp.num.Float32 return this.AutoDisableTime;
+	public extern var ChildSubmixes(get, never): TArray<ucpp.Ptr<SoundSubmixBase.ConstSoundSubmixBase>>;
+	public inline extern function get_ChildSubmixes(): TArray<ucpp.Ptr<SoundSubmixBase.ConstSoundSubmixBase>> return this.ChildSubmixes;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundSubmixBase*")
-abstract SoundSubmixBasePtr(cpp.Star<SoundSubmixBase>) from cpp.Star<SoundSubmixBase> to cpp.Star<SoundSubmixBase>{
+abstract SoundSubmixBasePtr(ucpp.Ptr<SoundSubmixBase>) from ucpp.Ptr<SoundSubmixBase> to ucpp.Ptr<SoundSubmixBase>{
 	@:from
 	public static extern inline function fromValue(v: SoundSubmixBase): SoundSubmixBasePtr {
 		return untyped __cpp__("&({0})", v);

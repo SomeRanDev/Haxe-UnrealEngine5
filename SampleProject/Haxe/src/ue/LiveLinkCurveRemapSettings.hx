@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULiveLinkCurveRemapSettings")
 @:include("LiveLinkCurveRemapSettings.h")
-@:structAccess
+@:valueType
 extern class LiveLinkCurveRemapSettings extends LiveLinkSourceSettings {
 	public var CurveConversionSettings: LiveLinkCurveConversionSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLiveLinkCurveRemapSettings(LiveLinkCurveRemapSettings) from LiveLi
 @:forward
 @:nativeGen
 @:native("LiveLinkCurveRemapSettings*")
-abstract LiveLinkCurveRemapSettingsPtr(cpp.Star<LiveLinkCurveRemapSettings>) from cpp.Star<LiveLinkCurveRemapSettings> to cpp.Star<LiveLinkCurveRemapSettings>{
+abstract LiveLinkCurveRemapSettingsPtr(ucpp.Ptr<LiveLinkCurveRemapSettings>) from ucpp.Ptr<LiveLinkCurveRemapSettings> to ucpp.Ptr<LiveLinkCurveRemapSettings>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkCurveRemapSettings): LiveLinkCurveRemapSettingsPtr {
 		return untyped __cpp__("&({0})", v);

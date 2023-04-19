@@ -3,11 +3,11 @@ package ue;
 
 @:native("FFastArraySerializer")
 @:include("Net/Serialization/FastArraySerializer.h")
-@:structAccess
+@:valueType
 extern class FastArraySerializer {
-	public var ArrayReplicationKey: cpp.Int32;
+	public var ArrayReplicationKey: ucpp.num.Int32;
 	private var DeltaFlags: EFastArraySerializerDeltaFlags;
 
 	@:native("FFastArraySerializer") public function new();
-	@:native("FFastArraySerializer") public static function make(ArrayReplicationKey: cpp.Int32, DeltaFlags: EFastArraySerializerDeltaFlags): FastArraySerializer ;
+	@:native("FFastArraySerializer") public static function make(ArrayReplicationKey: ucpp.num.Int32, DeltaFlags: EFastArraySerializerDeltaFlags): FastArraySerializer ;
 }

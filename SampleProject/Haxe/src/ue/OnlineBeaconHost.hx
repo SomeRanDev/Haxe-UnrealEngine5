@@ -3,27 +3,27 @@ package ue;
 
 @:native("AOnlineBeaconHost")
 @:include("OnlineBeaconHost.h")
-@:structAccess
+@:valueType
 extern class OnlineBeaconHost extends OnlineBeacon {
-	public var ListenPort: cpp.Int32;
+	public var ListenPort: ucpp.num.Int32;
 	@:protected public var bAuthRequired: Bool;
-	@:protected public var MaxAuthTokenSize: cpp.UInt32;
-	private var ClientActors: TArray<cpp.Star<OnlineBeaconClient>>;
+	@:protected public var MaxAuthTokenSize: ucpp.num.UInt32;
+	private var ClientActors: TArray<ucpp.Ptr<OnlineBeaconClient>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstOnlineBeaconHost(OnlineBeaconHost) from OnlineBeaconHost {
-	public extern var ListenPort(get, never): cpp.Int32;
-	public inline extern function get_ListenPort(): cpp.Int32 return this.ListenPort;
+	public extern var ListenPort(get, never): ucpp.num.Int32;
+	public inline extern function get_ListenPort(): ucpp.num.Int32 return this.ListenPort;
 }
 
 @:forward
 @:nativeGen
 @:native("OnlineBeaconHost*")
-abstract OnlineBeaconHostPtr(cpp.Star<OnlineBeaconHost>) from cpp.Star<OnlineBeaconHost> to cpp.Star<OnlineBeaconHost>{
+abstract OnlineBeaconHostPtr(ucpp.Ptr<OnlineBeaconHost>) from ucpp.Ptr<OnlineBeaconHost> to ucpp.Ptr<OnlineBeaconHost>{
 	@:from
 	public static extern inline function fromValue(v: OnlineBeaconHost): OnlineBeaconHostPtr {
 		return untyped __cpp__("&({0})", v);

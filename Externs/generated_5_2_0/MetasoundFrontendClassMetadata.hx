@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendClassMetadata")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendClassMetadata {
 	private var ClassName: MetasoundFrontendClassName;
 	private var Version: MetasoundFrontendVersionNumber;

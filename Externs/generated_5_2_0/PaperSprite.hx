@@ -3,31 +3,31 @@ package ue;
 
 @:native("UPaperSprite")
 @:include("PaperSprite.h")
-@:structAccess
+@:valueType
 extern class PaperSprite extends Object {
-	@:protected public var AdditionalSourceTextures: TArray<cpp.Star<Texture>>;
+	@:protected public var AdditionalSourceTextures: TArray<ucpp.Ptr<Texture>>;
 	@:protected public var BakedSourceUV: Vector2D;
 	@:protected public var BakedSourceDimension: Vector2D;
-	@:protected public var BakedSourceTexture: cpp.Star<Texture2D>;
-	@:protected public var DefaultMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var AlternateMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var BakedSourceTexture: ucpp.Ptr<Texture2D>;
+	@:protected public var DefaultMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var AlternateMaterial: ucpp.Ptr<MaterialInterface>;
 	@:protected public var Sockets: TArray<PaperSpriteSocket>;
 	@:protected public var SpriteCollisionDomain: TEnumAsByte<ESpriteCollisionMode>;
-	@:protected public var PixelsPerUnrealUnit: cpp.Float32;
-	public var BodySetup: cpp.Star<BodySetup>;
-	public var AlternateMaterialSplitIndex: cpp.Int32;
+	@:protected public var PixelsPerUnrealUnit: ucpp.num.Float32;
+	public var BodySetup: ucpp.Ptr<BodySetup>;
+	public var AlternateMaterialSplitIndex: ucpp.num.Int32;
 	public var BakedRenderData: TArray<Vector4>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPaperSprite(PaperSprite) from PaperSprite {
-	public extern var BodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_BodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.BodySetup;
-	public extern var AlternateMaterialSplitIndex(get, never): cpp.Int32;
-	public inline extern function get_AlternateMaterialSplitIndex(): cpp.Int32 return this.AlternateMaterialSplitIndex;
+	public extern var BodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_BodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.BodySetup;
+	public extern var AlternateMaterialSplitIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_AlternateMaterialSplitIndex(): ucpp.num.Int32 return this.AlternateMaterialSplitIndex;
 	public extern var BakedRenderData(get, never): TArray<Vector4>;
 	public inline extern function get_BakedRenderData(): TArray<Vector4> return this.BakedRenderData;
 }
@@ -35,7 +35,7 @@ abstract ConstPaperSprite(PaperSprite) from PaperSprite {
 @:forward
 @:nativeGen
 @:native("PaperSprite*")
-abstract PaperSpritePtr(cpp.Star<PaperSprite>) from cpp.Star<PaperSprite> to cpp.Star<PaperSprite>{
+abstract PaperSpritePtr(ucpp.Ptr<PaperSprite>) from ucpp.Ptr<PaperSprite> to ucpp.Ptr<PaperSprite>{
 	@:from
 	public static extern inline function fromValue(v: PaperSprite): PaperSpritePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FInterchangeMeshInstance")
 @:include("InterchangePipelineMeshesUtilities.h")
-@:structAccess
+@:valueType
 extern class InterchangeMeshInstance {
 	public var MeshInstanceUid: FString;
-	public var LodGroupNode: cpp.Star<InterchangeSceneNode>;
+	public var LodGroupNode: ucpp.Ptr<InterchangeSceneNode>;
 	public var bReferenceSkinnedMesh: Bool;
 	public var bReferenceMorphTarget: Bool;
-	public var SceneNodePerLodIndex: TMap<cpp.Int32, InterchangeLodSceneNodeContainer>;
+	public var SceneNodePerLodIndex: TMap<ucpp.num.Int32, InterchangeLodSceneNodeContainer>;
 	public var ReferencingMeshGeometryUids: TArray<FString>;
 
 	@:native("FInterchangeMeshInstance") public function new();

@@ -3,16 +3,16 @@ package ue;
 
 @:native("UBaseCreateFromSelectedTool")
 @:include("BaseTools/BaseCreateFromSelectedTool.h")
-@:structAccess
+@:valueType
 extern class BaseCreateFromSelectedTool extends MultiSelectionMeshEditingTool {
-	@:protected public var TransformProperties: cpp.Star<TransformInputsToolProperties>;
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var HandleSourcesProperties: cpp.Star<BaseCreateFromSelectedHandleSourceProperties>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var TransformProxies: TArray<cpp.Star<TransformProxy>>;
-	@:protected public var TransformGizmos: TArray<cpp.Star<CombinedTransformGizmo>>;
+	@:protected public var TransformProperties: ucpp.Ptr<TransformInputsToolProperties>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var HandleSourcesProperties: ucpp.Ptr<BaseCreateFromSelectedHandleSourceProperties>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var TransformProxies: TArray<ucpp.Ptr<TransformProxy>>;
+	@:protected public var TransformGizmos: TArray<ucpp.Ptr<CombinedTransformGizmo>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstBaseCreateFromSelectedTool(BaseCreateFromSelectedTool) from BaseCr
 @:forward
 @:nativeGen
 @:native("BaseCreateFromSelectedTool*")
-abstract BaseCreateFromSelectedToolPtr(cpp.Star<BaseCreateFromSelectedTool>) from cpp.Star<BaseCreateFromSelectedTool> to cpp.Star<BaseCreateFromSelectedTool>{
+abstract BaseCreateFromSelectedToolPtr(ucpp.Ptr<BaseCreateFromSelectedTool>) from ucpp.Ptr<BaseCreateFromSelectedTool> to ucpp.Ptr<BaseCreateFromSelectedTool>{
 	@:from
 	public static extern inline function fromValue(v: BaseCreateFromSelectedTool): BaseCreateFromSelectedToolPtr {
 		return untyped __cpp__("&({0})", v);

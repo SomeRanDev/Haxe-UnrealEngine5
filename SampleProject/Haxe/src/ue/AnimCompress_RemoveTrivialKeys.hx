@@ -3,30 +3,30 @@ package ue;
 
 @:native("UAnimCompress_RemoveTrivialKeys")
 @:include("Animation/AnimCompress_RemoveTrivialKeys.h")
-@:structAccess
+@:valueType
 extern class AnimCompress_RemoveTrivialKeys extends AnimCompress {
-	public var MaxPosDiff: cpp.Float32;
-	public var MaxAngleDiff: cpp.Float32;
-	public var MaxScaleDiff: cpp.Float32;
+	public var MaxPosDiff: ucpp.num.Float32;
+	public var MaxAngleDiff: ucpp.num.Float32;
+	public var MaxScaleDiff: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimCompress_RemoveTrivialKeys(AnimCompress_RemoveTrivialKeys) from AnimCompress_RemoveTrivialKeys {
-	public extern var MaxPosDiff(get, never): cpp.Float32;
-	public inline extern function get_MaxPosDiff(): cpp.Float32 return this.MaxPosDiff;
-	public extern var MaxAngleDiff(get, never): cpp.Float32;
-	public inline extern function get_MaxAngleDiff(): cpp.Float32 return this.MaxAngleDiff;
-	public extern var MaxScaleDiff(get, never): cpp.Float32;
-	public inline extern function get_MaxScaleDiff(): cpp.Float32 return this.MaxScaleDiff;
+	public extern var MaxPosDiff(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxPosDiff(): ucpp.num.Float32 return this.MaxPosDiff;
+	public extern var MaxAngleDiff(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxAngleDiff(): ucpp.num.Float32 return this.MaxAngleDiff;
+	public extern var MaxScaleDiff(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxScaleDiff(): ucpp.num.Float32 return this.MaxScaleDiff;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimCompress_RemoveTrivialKeys*")
-abstract AnimCompress_RemoveTrivialKeysPtr(cpp.Star<AnimCompress_RemoveTrivialKeys>) from cpp.Star<AnimCompress_RemoveTrivialKeys> to cpp.Star<AnimCompress_RemoveTrivialKeys>{
+abstract AnimCompress_RemoveTrivialKeysPtr(ucpp.Ptr<AnimCompress_RemoveTrivialKeys>) from ucpp.Ptr<AnimCompress_RemoveTrivialKeys> to ucpp.Ptr<AnimCompress_RemoveTrivialKeys>{
 	@:from
 	public static extern inline function fromValue(v: AnimCompress_RemoveTrivialKeys): AnimCompress_RemoveTrivialKeysPtr {
 		return untyped __cpp__("&({0})", v);

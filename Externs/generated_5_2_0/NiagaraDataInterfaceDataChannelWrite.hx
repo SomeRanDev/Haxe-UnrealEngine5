@@ -3,17 +3,17 @@ package ue;
 
 @:native("UNiagaraDataInterfaceDataChannelWrite")
 @:include("DataInterface/NiagaraDataInterfaceDataChannelWrite.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceDataChannelWrite extends NiagaraDataInterface {
 	public var AllocationMode: ENiagaraDataChannelAllocationMode;
-	public var AllocationCount: cpp.UInt32;
+	public var AllocationCount: ucpp.num.UInt32;
 	public var bPublishToGame: Bool;
 	public var bPublishToCPU: Bool;
 	public var bPublishToGPU: Bool;
 	public var Channel: NiagaraDataChannelReference;
 	@:protected public var CompiledData: NDIDataChannelWriteCompiledData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,8 +21,8 @@ extern class NiagaraDataInterfaceDataChannelWrite extends NiagaraDataInterface {
 abstract ConstNiagaraDataInterfaceDataChannelWrite(NiagaraDataInterfaceDataChannelWrite) from NiagaraDataInterfaceDataChannelWrite {
 	public extern var AllocationMode(get, never): ENiagaraDataChannelAllocationMode;
 	public inline extern function get_AllocationMode(): ENiagaraDataChannelAllocationMode return this.AllocationMode;
-	public extern var AllocationCount(get, never): cpp.UInt32;
-	public inline extern function get_AllocationCount(): cpp.UInt32 return this.AllocationCount;
+	public extern var AllocationCount(get, never): ucpp.num.UInt32;
+	public inline extern function get_AllocationCount(): ucpp.num.UInt32 return this.AllocationCount;
 	public extern var bPublishToGame(get, never): Bool;
 	public inline extern function get_bPublishToGame(): Bool return this.bPublishToGame;
 	public extern var bPublishToCPU(get, never): Bool;
@@ -36,7 +36,7 @@ abstract ConstNiagaraDataInterfaceDataChannelWrite(NiagaraDataInterfaceDataChann
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceDataChannelWrite*")
-abstract NiagaraDataInterfaceDataChannelWritePtr(cpp.Star<NiagaraDataInterfaceDataChannelWrite>) from cpp.Star<NiagaraDataInterfaceDataChannelWrite> to cpp.Star<NiagaraDataInterfaceDataChannelWrite>{
+abstract NiagaraDataInterfaceDataChannelWritePtr(ucpp.Ptr<NiagaraDataInterfaceDataChannelWrite>) from ucpp.Ptr<NiagaraDataInterfaceDataChannelWrite> to ucpp.Ptr<NiagaraDataInterfaceDataChannelWrite>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceDataChannelWrite): NiagaraDataInterfaceDataChannelWritePtr {
 		return untyped __cpp__("&({0})", v);

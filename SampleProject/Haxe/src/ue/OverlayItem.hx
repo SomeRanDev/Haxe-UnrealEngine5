@@ -3,7 +3,7 @@ package ue;
 
 @:native("FOverlayItem")
 @:include("Overlays.h")
-@:structAccess
+@:valueType
 extern class OverlayItem {
 	public var StartTime: Timespan;
 	public var EndTime: Timespan;

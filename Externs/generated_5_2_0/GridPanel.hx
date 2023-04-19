@@ -3,31 +3,31 @@ package ue;
 
 @:native("UGridPanel")
 @:include("Components/GridPanel.h")
-@:structAccess
+@:valueType
 extern class GridPanel extends PanelWidget {
-	public var ColumnFill: TArray<cpp.Float32>;
-	public var RowFill: TArray<cpp.Float32>;
+	public var ColumnFill: TArray<ucpp.num.Float32>;
+	public var RowFill: TArray<ucpp.num.Float32>;
 
-	public function SetRowFill(RowIndex: cpp.Int32, Coefficient: cpp.Float32): Void;
-	public function SetColumnFill(ColumnIndex: cpp.Int32, Coefficient: cpp.Float32): Void;
-	public function AddChildToGrid(Content: cpp.Star<Widget>, InRow: cpp.Int32, InColumn: cpp.Int32): cpp.Star<GridSlot>;
+	public function SetRowFill(RowIndex: ucpp.num.Int32, Coefficient: ucpp.num.Float32): Void;
+	public function SetColumnFill(ColumnIndex: ucpp.num.Int32, Coefficient: ucpp.num.Float32): Void;
+	public function AddChildToGrid(Content: ucpp.Ptr<Widget>, InRow: ucpp.num.Int32, InColumn: ucpp.num.Int32): ucpp.Ptr<GridSlot>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGridPanel(GridPanel) from GridPanel {
-	public extern var ColumnFill(get, never): TArray<cpp.Float32>;
-	public inline extern function get_ColumnFill(): TArray<cpp.Float32> return this.ColumnFill;
-	public extern var RowFill(get, never): TArray<cpp.Float32>;
-	public inline extern function get_RowFill(): TArray<cpp.Float32> return this.RowFill;
+	public extern var ColumnFill(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_ColumnFill(): TArray<ucpp.num.Float32> return this.ColumnFill;
+	public extern var RowFill(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_RowFill(): TArray<ucpp.num.Float32> return this.RowFill;
 }
 
 @:forward
 @:nativeGen
 @:native("GridPanel*")
-abstract GridPanelPtr(cpp.Star<GridPanel>) from cpp.Star<GridPanel> to cpp.Star<GridPanel>{
+abstract GridPanelPtr(ucpp.Ptr<GridPanel>) from ucpp.Ptr<GridPanel> to ucpp.Ptr<GridPanel>{
 	@:from
 	public static extern inline function fromValue(v: GridPanel): GridPanelPtr {
 		return untyped __cpp__("&({0})", v);

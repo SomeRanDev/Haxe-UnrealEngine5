@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangeFilePickerParameters")
 @:include("InterchangeFilePickerBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeFilePickerParameters {
 	public var bAllowMultipleFiles: Bool;
 	public var Title: FText;

@@ -3,19 +3,19 @@ package ue;
 
 @:native("UAnimatedSparseVolumeTexture")
 @:include("SparseVolumeTexture/SparseVolumeTexture.h")
-@:structAccess
+@:valueType
 extern class AnimatedSparseVolumeTexture extends SparseVolumeTexture {
-	public var FrameCount: cpp.Int32;
+	public var FrameCount: ucpp.num.Int32;
 	public var VolumeBounds: Box;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimatedSparseVolumeTexture(AnimatedSparseVolumeTexture) from AnimatedSparseVolumeTexture {
-	public extern var FrameCount(get, never): cpp.Int32;
-	public inline extern function get_FrameCount(): cpp.Int32 return this.FrameCount;
+	public extern var FrameCount(get, never): ucpp.num.Int32;
+	public inline extern function get_FrameCount(): ucpp.num.Int32 return this.FrameCount;
 	public extern var VolumeBounds(get, never): Box;
 	public inline extern function get_VolumeBounds(): Box return this.VolumeBounds;
 }
@@ -23,7 +23,7 @@ abstract ConstAnimatedSparseVolumeTexture(AnimatedSparseVolumeTexture) from Anim
 @:forward
 @:nativeGen
 @:native("AnimatedSparseVolumeTexture*")
-abstract AnimatedSparseVolumeTexturePtr(cpp.Star<AnimatedSparseVolumeTexture>) from cpp.Star<AnimatedSparseVolumeTexture> to cpp.Star<AnimatedSparseVolumeTexture>{
+abstract AnimatedSparseVolumeTexturePtr(ucpp.Ptr<AnimatedSparseVolumeTexture>) from ucpp.Ptr<AnimatedSparseVolumeTexture> to ucpp.Ptr<AnimatedSparseVolumeTexture>{
 	@:from
 	public static extern inline function fromValue(v: AnimatedSparseVolumeTexture): AnimatedSparseVolumeTexturePtr {
 		return untyped __cpp__("&({0})", v);

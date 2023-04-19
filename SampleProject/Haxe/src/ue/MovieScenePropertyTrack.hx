@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMovieScenePropertyTrack")
 @:include("Tracks/MovieScenePropertyTrack.h")
-@:structAccess
+@:valueType
 extern class MovieScenePropertyTrack extends MovieSceneNameableTrack {
-	private var SectionToKey: cpp.Star<MovieSceneSection>;
+	private var SectionToKey: ucpp.Ptr<MovieSceneSection>;
 	@:protected public var PropertyBinding: MovieScenePropertyBinding;
-	@:protected public var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	@:protected public var Sections: TArray<ucpp.Ptr<MovieSceneSection>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieScenePropertyTrack(MovieScenePropertyTrack) from MovieScenePr
 @:forward
 @:nativeGen
 @:native("MovieScenePropertyTrack*")
-abstract MovieScenePropertyTrackPtr(cpp.Star<MovieScenePropertyTrack>) from cpp.Star<MovieScenePropertyTrack> to cpp.Star<MovieScenePropertyTrack>{
+abstract MovieScenePropertyTrackPtr(ucpp.Ptr<MovieScenePropertyTrack>) from ucpp.Ptr<MovieScenePropertyTrack> to ucpp.Ptr<MovieScenePropertyTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieScenePropertyTrack): MovieScenePropertyTrackPtr {
 		return untyped __cpp__("&({0})", v);

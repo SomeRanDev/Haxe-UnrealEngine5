@@ -3,7 +3,11 @@ package ue;
 
 @:native("FNiagaraDataInterfaceGeneratedFunction")
 @:include("NiagaraShared.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGeneratedFunction {
+	public var VariadicInputs: TArray<NiagaraVariableCommonReference>;
+	public var VariadicOutputs: TArray<NiagaraVariableCommonReference>;
+
 	@:native("FNiagaraDataInterfaceGeneratedFunction") public function new();
+	@:native("FNiagaraDataInterfaceGeneratedFunction") public static function make(VariadicInputs: TArray<NiagaraVariableCommonReference>, VariadicOutputs: TArray<NiagaraVariableCommonReference>): NiagaraDataInterfaceGeneratedFunction ;
 }

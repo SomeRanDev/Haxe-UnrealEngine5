@@ -3,7 +3,7 @@ package ue;
 
 @:native("FModelingModeCustomToolColor")
 @:include("ModelingToolsEditorModeSettings.h")
-@:structAccess
+@:valueType
 extern class ModelingModeCustomToolColor {
 	public var ToolName: FString;
 	public var Color: LinearColor;

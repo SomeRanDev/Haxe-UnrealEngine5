@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGameplayCamerasFunctionLibrary")
 @:include("CameraAnimationCameraModifier.h")
-@:structAccess
+@:valueType
 extern class GameplayCamerasFunctionLibrary extends BlueprintFunctionLibrary {
 	public function Conv_CameraShakePlaySpace(CameraAnimationPlaySpace: ECameraAnimationPlaySpace): ECameraShakePlaySpace;
 	public function Conv_CameraAnimationPlaySpace(CameraShakePlaySpace: ECameraShakePlaySpace): ECameraAnimationPlaySpace;
-	public function Conv_CameraAnimationCameraModifier(PlayerCameraManager: cpp.Star<PlayerCameraManager>): cpp.Star<CameraAnimationCameraModifier>;
+	public function Conv_CameraAnimationCameraModifier(PlayerCameraManager: ucpp.Ptr<PlayerCameraManager>): ucpp.Ptr<CameraAnimationCameraModifier>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstGameplayCamerasFunctionLibrary(GameplayCamerasFunctionLibrary) fro
 @:forward
 @:nativeGen
 @:native("GameplayCamerasFunctionLibrary*")
-abstract GameplayCamerasFunctionLibraryPtr(cpp.Star<GameplayCamerasFunctionLibrary>) from cpp.Star<GameplayCamerasFunctionLibrary> to cpp.Star<GameplayCamerasFunctionLibrary>{
+abstract GameplayCamerasFunctionLibraryPtr(ucpp.Ptr<GameplayCamerasFunctionLibrary>) from ucpp.Ptr<GameplayCamerasFunctionLibrary> to ucpp.Ptr<GameplayCamerasFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: GameplayCamerasFunctionLibrary): GameplayCamerasFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UClickDragTool")
 @:include("BaseTools/ClickDragTool.h")
-@:structAccess
+@:valueType
 extern class ClickDragTool extends InteractiveTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstClickDragTool(ClickDragTool) from ClickDragTool {
 @:forward
 @:nativeGen
 @:native("ClickDragTool*")
-abstract ClickDragToolPtr(cpp.Star<ClickDragTool>) from cpp.Star<ClickDragTool> to cpp.Star<ClickDragTool>{
+abstract ClickDragToolPtr(ucpp.Ptr<ClickDragTool>) from ucpp.Ptr<ClickDragTool> to ucpp.Ptr<ClickDragTool>{
 	@:from
 	public static extern inline function fromValue(v: ClickDragTool): ClickDragToolPtr {
 		return untyped __cpp__("&({0})", v);

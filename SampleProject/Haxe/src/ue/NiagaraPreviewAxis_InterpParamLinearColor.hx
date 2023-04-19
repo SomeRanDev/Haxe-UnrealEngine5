@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraPreviewAxis_InterpParamLinearColor")
 @:include("NiagaraPreviewGrid.h")
-@:structAccess
+@:valueType
 extern class NiagaraPreviewAxis_InterpParamLinearColor extends NiagaraPreviewAxis_InterpParamBase {
 	private var Min: LinearColor;
 	private var Max: LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraPreviewAxis_InterpParamLinearColor(NiagaraPreviewAxis_Inter
 @:forward
 @:nativeGen
 @:native("NiagaraPreviewAxis_InterpParamLinearColor*")
-abstract NiagaraPreviewAxis_InterpParamLinearColorPtr(cpp.Star<NiagaraPreviewAxis_InterpParamLinearColor>) from cpp.Star<NiagaraPreviewAxis_InterpParamLinearColor> to cpp.Star<NiagaraPreviewAxis_InterpParamLinearColor>{
+abstract NiagaraPreviewAxis_InterpParamLinearColorPtr(ucpp.Ptr<NiagaraPreviewAxis_InterpParamLinearColor>) from ucpp.Ptr<NiagaraPreviewAxis_InterpParamLinearColor> to ucpp.Ptr<NiagaraPreviewAxis_InterpParamLinearColor>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPreviewAxis_InterpParamLinearColor): NiagaraPreviewAxis_InterpParamLinearColorPtr {
 		return untyped __cpp__("&({0})", v);

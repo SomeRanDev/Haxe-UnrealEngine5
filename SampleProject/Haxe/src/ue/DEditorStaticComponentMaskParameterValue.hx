@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDEditorStaticComponentMaskParameterValue")
 @:include("MaterialEditor/DEditorStaticComponentMaskParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorStaticComponentMaskParameterValue extends DEditorParameterValue {
 	public var ParameterValue: DComponentMaskParameter;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDEditorStaticComponentMaskParameterValue(DEditorStaticComponentMas
 @:forward
 @:nativeGen
 @:native("DEditorStaticComponentMaskParameterValue*")
-abstract DEditorStaticComponentMaskParameterValuePtr(cpp.Star<DEditorStaticComponentMaskParameterValue>) from cpp.Star<DEditorStaticComponentMaskParameterValue> to cpp.Star<DEditorStaticComponentMaskParameterValue>{
+abstract DEditorStaticComponentMaskParameterValuePtr(ucpp.Ptr<DEditorStaticComponentMaskParameterValue>) from ucpp.Ptr<DEditorStaticComponentMaskParameterValue> to ucpp.Ptr<DEditorStaticComponentMaskParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorStaticComponentMaskParameterValue): DEditorStaticComponentMaskParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

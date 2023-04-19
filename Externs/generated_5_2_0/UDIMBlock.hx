@@ -3,10 +3,10 @@ package ue;
 
 @:native("FUDIMBlock")
 @:include("ContextObjects/UVToolContextObjects.h")
-@:structAccess
+@:valueType
 extern class UDIMBlock {
-	public var UDIM: cpp.Int32;
+	public var UDIM: ucpp.num.Int32;
 
 	@:native("FUDIMBlock") public function new();
-	@:native("FUDIMBlock") public static function make(UDIM: cpp.Int32): UDIMBlock ;
+	@:native("FUDIMBlock") public static function make(UDIM: ucpp.num.Int32): UDIMBlock ;
 }

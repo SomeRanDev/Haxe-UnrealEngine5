@@ -3,17 +3,17 @@ package ue;
 
 @:native("UTransactionDiffingTestObject")
 @:include("Tests/TransactionDiffingTests.h")
-@:structAccess
+@:valueType
 extern class TransactionDiffingTestObject extends Object {
 	public var NamesArray: TArray<FName>;
 	public var AdditionalName: FName;
-	public var ObjectsArray: TArray<cpp.Star<Object>>;
-	public var AdditionalObject: cpp.Star<Object>;
+	public var ObjectsArray: TArray<ucpp.Ptr<Object>>;
+	public var AdditionalObject: ucpp.Ptr<Object>;
 	public var SoftObjectsArray: TArray<TSoftObjectPtr<Object>>;
 	public var AdditionalSoftObject: TSoftObjectPtr<Object>;
-	public var PropertyData: cpp.Int32;
+	public var PropertyData: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,22 +23,22 @@ abstract ConstTransactionDiffingTestObject(TransactionDiffingTestObject) from Tr
 	public inline extern function get_NamesArray(): TArray<FName> return this.NamesArray;
 	public extern var AdditionalName(get, never): FName;
 	public inline extern function get_AdditionalName(): FName return this.AdditionalName;
-	public extern var ObjectsArray(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_ObjectsArray(): TArray<cpp.Star<Object.ConstObject>> return this.ObjectsArray;
-	public extern var AdditionalObject(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_AdditionalObject(): cpp.Star<Object.ConstObject> return this.AdditionalObject;
+	public extern var ObjectsArray(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_ObjectsArray(): TArray<ucpp.Ptr<Object.ConstObject>> return this.ObjectsArray;
+	public extern var AdditionalObject(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_AdditionalObject(): ucpp.Ptr<Object.ConstObject> return this.AdditionalObject;
 	public extern var SoftObjectsArray(get, never): TArray<TSoftObjectPtr<Object.ConstObject>>;
 	public inline extern function get_SoftObjectsArray(): TArray<TSoftObjectPtr<Object.ConstObject>> return this.SoftObjectsArray;
 	public extern var AdditionalSoftObject(get, never): TSoftObjectPtr<Object.ConstObject>;
 	public inline extern function get_AdditionalSoftObject(): TSoftObjectPtr<Object.ConstObject> return this.AdditionalSoftObject;
-	public extern var PropertyData(get, never): cpp.Int32;
-	public inline extern function get_PropertyData(): cpp.Int32 return this.PropertyData;
+	public extern var PropertyData(get, never): ucpp.num.Int32;
+	public inline extern function get_PropertyData(): ucpp.num.Int32 return this.PropertyData;
 }
 
 @:forward
 @:nativeGen
 @:native("TransactionDiffingTestObject*")
-abstract TransactionDiffingTestObjectPtr(cpp.Star<TransactionDiffingTestObject>) from cpp.Star<TransactionDiffingTestObject> to cpp.Star<TransactionDiffingTestObject>{
+abstract TransactionDiffingTestObjectPtr(ucpp.Ptr<TransactionDiffingTestObject>) from ucpp.Ptr<TransactionDiffingTestObject> to ucpp.Ptr<TransactionDiffingTestObject>{
 	@:from
 	public static extern inline function fromValue(v: TransactionDiffingTestObject): TransactionDiffingTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

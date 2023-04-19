@@ -3,21 +3,21 @@ package ue;
 
 @:native("UUniformVector")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class UniformVector extends FieldNodeVector {
-	public var Magnitude: cpp.Float32;
+	public var Magnitude: ucpp.num.Float32;
 	public var Direction: Vector;
 
-	public function SetUniformVector(Magnitude: cpp.Float32, Direction: Vector): cpp.Star<UniformVector>;
+	public function SetUniformVector(Magnitude: ucpp.num.Float32, Direction: Vector): ucpp.Ptr<UniformVector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUniformVector(UniformVector) from UniformVector {
-	public extern var Magnitude(get, never): cpp.Float32;
-	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
+	public extern var Magnitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Magnitude(): ucpp.num.Float32 return this.Magnitude;
 	public extern var Direction(get, never): Vector;
 	public inline extern function get_Direction(): Vector return this.Direction;
 }
@@ -25,7 +25,7 @@ abstract ConstUniformVector(UniformVector) from UniformVector {
 @:forward
 @:nativeGen
 @:native("UniformVector*")
-abstract UniformVectorPtr(cpp.Star<UniformVector>) from cpp.Star<UniformVector> to cpp.Star<UniformVector>{
+abstract UniformVectorPtr(ucpp.Ptr<UniformVector>) from ucpp.Ptr<UniformVector> to ucpp.Ptr<UniformVector>{
 	@:from
 	public static extern inline function fromValue(v: UniformVector): UniformVectorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UDEPRECATED_K2Node_LocalVariable")
 @:include("K2Node_LocalVariable.h")
-@:structAccess
+@:valueType
 extern class K2Node_LocalVariable extends K2Node_TemporaryVariable {
 	public var CustomVariableName: FName;
 	public var VariableTooltip: FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstK2Node_LocalVariable(K2Node_LocalVariable) from K2Node_LocalVariab
 @:forward
 @:nativeGen
 @:native("K2Node_LocalVariable*")
-abstract K2Node_LocalVariablePtr(cpp.Star<K2Node_LocalVariable>) from cpp.Star<K2Node_LocalVariable> to cpp.Star<K2Node_LocalVariable>{
+abstract K2Node_LocalVariablePtr(ucpp.Ptr<K2Node_LocalVariable>) from ucpp.Ptr<K2Node_LocalVariable> to ucpp.Ptr<K2Node_LocalVariable>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_LocalVariable): K2Node_LocalVariablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionRampLeftRight")
 @:include("MaterialX/MaterialExpressionRampLeftRight.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionRampLeftRight extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
-	public var ConstCoordinate: cpp.UInt8;
+	public var ConstCoordinate: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstMaterialExpressionRampLeftRight(MaterialExpressionRampLeftRight) f
 	public inline extern function get_A(): ExpressionInput return this.A;
 	public extern var B(get, never): ExpressionInput;
 	public inline extern function get_B(): ExpressionInput return this.B;
-	public extern var ConstCoordinate(get, never): cpp.UInt8;
-	public inline extern function get_ConstCoordinate(): cpp.UInt8 return this.ConstCoordinate;
+	public extern var ConstCoordinate(get, never): ucpp.num.UInt8;
+	public inline extern function get_ConstCoordinate(): ucpp.num.UInt8 return this.ConstCoordinate;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionRampLeftRight*")
-abstract MaterialExpressionRampLeftRightPtr(cpp.Star<MaterialExpressionRampLeftRight>) from cpp.Star<MaterialExpressionRampLeftRight> to cpp.Star<MaterialExpressionRampLeftRight>{
+abstract MaterialExpressionRampLeftRightPtr(ucpp.Ptr<MaterialExpressionRampLeftRight>) from ucpp.Ptr<MaterialExpressionRampLeftRight> to ucpp.Ptr<MaterialExpressionRampLeftRight>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionRampLeftRight): MaterialExpressionRampLeftRightPtr {
 		return untyped __cpp__("&({0})", v);

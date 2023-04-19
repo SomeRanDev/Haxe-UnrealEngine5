@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Sync")
 @:include("AnimGraphNode_Sync.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_Sync extends AnimGraphNode_Base {
 	private var Node: AnimNode_Sync;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimGraphNode_Sync(AnimGraphNode_Sync) from AnimGraphNode_Sync {
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_Sync*")
-abstract AnimGraphNode_SyncPtr(cpp.Star<AnimGraphNode_Sync>) from cpp.Star<AnimGraphNode_Sync> to cpp.Star<AnimGraphNode_Sync>{
+abstract AnimGraphNode_SyncPtr(ucpp.Ptr<AnimGraphNode_Sync>) from ucpp.Ptr<AnimGraphNode_Sync> to ucpp.Ptr<AnimGraphNode_Sync>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_Sync): AnimGraphNode_SyncPtr {
 		return untyped __cpp__("&({0})", v);

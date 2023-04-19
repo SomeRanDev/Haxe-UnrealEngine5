@@ -3,10 +3,10 @@ package ue;
 
 @:native("USavePackageUtilitiesCommandlet")
 @:include("Commandlets/SavePackageUtilitiesCommandlet.h")
-@:structAccess
+@:valueType
 extern class SavePackageUtilitiesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSavePackageUtilitiesCommandlet(SavePackageUtilitiesCommandlet) fro
 @:forward
 @:nativeGen
 @:native("SavePackageUtilitiesCommandlet*")
-abstract SavePackageUtilitiesCommandletPtr(cpp.Star<SavePackageUtilitiesCommandlet>) from cpp.Star<SavePackageUtilitiesCommandlet> to cpp.Star<SavePackageUtilitiesCommandlet>{
+abstract SavePackageUtilitiesCommandletPtr(ucpp.Ptr<SavePackageUtilitiesCommandlet>) from ucpp.Ptr<SavePackageUtilitiesCommandlet> to ucpp.Ptr<SavePackageUtilitiesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: SavePackageUtilitiesCommandlet): SavePackageUtilitiesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

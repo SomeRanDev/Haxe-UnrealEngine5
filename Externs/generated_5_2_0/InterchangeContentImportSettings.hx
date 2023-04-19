@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangeContentImportSettings")
 @:include("InterchangeProjectSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangeContentImportSettings extends InterchangeImportSettings {
 	public var DefaultPipelineStackOverride: TMap<EInterchangeTranslatorAssetType, FName>;
 	public var ShowPipelineStacksConfigurationDialogOverride: TMap<EInterchangeTranslatorAssetType, Bool>;

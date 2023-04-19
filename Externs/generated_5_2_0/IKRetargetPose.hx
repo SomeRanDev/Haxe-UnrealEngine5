@@ -3,7 +3,7 @@ package ue;
 
 @:native("FIKRetargetPose")
 @:include("Retargeter/IKRetargeter.h")
-@:structAccess
+@:valueType
 extern class IKRetargetPose {
 	private var RootTranslationOffset: Vector;
 	private var BoneRotationOffsets: TMap<FName, Quat>;

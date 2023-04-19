@@ -3,25 +3,25 @@ package ue;
 
 @:native("UFlattenBrushOpProps")
 @:include("Sculpting/MeshSmoothingBrushOps.h")
-@:structAccess
+@:valueType
 extern class FlattenBrushOpProps extends MeshSculptBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
-	public var Depth: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
 	public var WhichSide: EPlaneBrushSideMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFlattenBrushOpProps(FlattenBrushOpProps) from FlattenBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
 	public extern var WhichSide(get, never): EPlaneBrushSideMode;
 	public inline extern function get_WhichSide(): EPlaneBrushSideMode return this.WhichSide;
 }
@@ -29,7 +29,7 @@ abstract ConstFlattenBrushOpProps(FlattenBrushOpProps) from FlattenBrushOpProps 
 @:forward
 @:nativeGen
 @:native("FlattenBrushOpProps*")
-abstract FlattenBrushOpPropsPtr(cpp.Star<FlattenBrushOpProps>) from cpp.Star<FlattenBrushOpProps> to cpp.Star<FlattenBrushOpProps>{
+abstract FlattenBrushOpPropsPtr(ucpp.Ptr<FlattenBrushOpProps>) from ucpp.Ptr<FlattenBrushOpProps> to ucpp.Ptr<FlattenBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: FlattenBrushOpProps): FlattenBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

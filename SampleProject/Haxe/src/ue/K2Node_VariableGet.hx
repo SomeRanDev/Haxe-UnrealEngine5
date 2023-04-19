@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_VariableGet")
 @:include("K2Node_VariableGet.h")
-@:structAccess
+@:valueType
 extern class K2Node_VariableGet extends K2Node_Variable {
 	private var bIsPureGet: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_VariableGet(K2Node_VariableGet) from K2Node_VariableGet {
 @:forward
 @:nativeGen
 @:native("K2Node_VariableGet*")
-abstract K2Node_VariableGetPtr(cpp.Star<K2Node_VariableGet>) from cpp.Star<K2Node_VariableGet> to cpp.Star<K2Node_VariableGet>{
+abstract K2Node_VariableGetPtr(ucpp.Ptr<K2Node_VariableGet>) from ucpp.Ptr<K2Node_VariableGet> to ucpp.Ptr<K2Node_VariableGet>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_VariableGet): K2Node_VariableGetPtr {
 		return untyped __cpp__("&({0})", v);

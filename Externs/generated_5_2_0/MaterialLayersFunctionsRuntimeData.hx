@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMaterialLayersFunctionsRuntimeData")
 @:include("Materials/MaterialLayersFunctions.h")
-@:structAccess
+@:valueType
 extern class MaterialLayersFunctionsRuntimeData {
-	public var Layers: TArray<cpp.Star<MaterialFunctionInterface>>;
-	public var Blends: TArray<cpp.Star<MaterialFunctionInterface>>;
+	public var Layers: TArray<ucpp.Ptr<MaterialFunctionInterface>>;
+	public var Blends: TArray<ucpp.Ptr<MaterialFunctionInterface>>;
 
 	@:native("FMaterialLayersFunctionsRuntimeData") public function new();
-	@:native("FMaterialLayersFunctionsRuntimeData") public static function make(Layers: TArray<cpp.Star<MaterialFunctionInterface>>, Blends: TArray<cpp.Star<MaterialFunctionInterface>>): MaterialLayersFunctionsRuntimeData ;
+	@:native("FMaterialLayersFunctionsRuntimeData") public static function make(Layers: TArray<ucpp.Ptr<MaterialFunctionInterface>>, Blends: TArray<ucpp.Ptr<MaterialFunctionInterface>>): MaterialLayersFunctionsRuntimeData ;
 }

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UImportantToggleSettingInterface")
-@:structAccess
+@:valueType
 extern class ImportantToggleSettingInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstImportantToggleSettingInterface(ImportantToggleSettingInterface) f
 @:forward
 @:nativeGen
 @:native("ImportantToggleSettingInterface*")
-abstract ImportantToggleSettingInterfacePtr(cpp.Star<ImportantToggleSettingInterface>) from cpp.Star<ImportantToggleSettingInterface> to cpp.Star<ImportantToggleSettingInterface>{
+abstract ImportantToggleSettingInterfacePtr(ucpp.Ptr<ImportantToggleSettingInterface>) from ucpp.Ptr<ImportantToggleSettingInterface> to ucpp.Ptr<ImportantToggleSettingInterface>{
 	@:from
 	public static extern inline function fromValue(v: ImportantToggleSettingInterface): ImportantToggleSettingInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UObjectMixerEditorUWidget")
 @:include("Views/Widgets/ObjectMixerEditorUWidget.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerEditorUWidget extends Widget {
 	public var ObjectMixerWidgetUserConfig: ObjectMixerWidgetUserConfig;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstObjectMixerEditorUWidget(ObjectMixerEditorUWidget) from ObjectMixe
 @:forward
 @:nativeGen
 @:native("ObjectMixerEditorUWidget*")
-abstract ObjectMixerEditorUWidgetPtr(cpp.Star<ObjectMixerEditorUWidget>) from cpp.Star<ObjectMixerEditorUWidget> to cpp.Star<ObjectMixerEditorUWidget>{
+abstract ObjectMixerEditorUWidgetPtr(ucpp.Ptr<ObjectMixerEditorUWidget>) from ucpp.Ptr<ObjectMixerEditorUWidget> to ucpp.Ptr<ObjectMixerEditorUWidget>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerEditorUWidget): ObjectMixerEditorUWidgetPtr {
 		return untyped __cpp__("&({0})", v);

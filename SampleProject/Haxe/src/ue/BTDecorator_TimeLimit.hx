@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBTDecorator_TimeLimit")
 @:include("BehaviorTree/Decorators/BTDecorator_TimeLimit.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_TimeLimit extends BTDecorator {
-	public var TimeLimit: cpp.Float32;
+	public var TimeLimit: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_TimeLimit(BTDecorator_TimeLimit) from BTDecorator_TimeLimit {
-	public extern var TimeLimit(get, never): cpp.Float32;
-	public inline extern function get_TimeLimit(): cpp.Float32 return this.TimeLimit;
+	public extern var TimeLimit(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeLimit(): ucpp.num.Float32 return this.TimeLimit;
 }
 
 @:forward
 @:nativeGen
 @:native("BTDecorator_TimeLimit*")
-abstract BTDecorator_TimeLimitPtr(cpp.Star<BTDecorator_TimeLimit>) from cpp.Star<BTDecorator_TimeLimit> to cpp.Star<BTDecorator_TimeLimit>{
+abstract BTDecorator_TimeLimitPtr(ucpp.Ptr<BTDecorator_TimeLimit>) from ucpp.Ptr<BTDecorator_TimeLimit> to ucpp.Ptr<BTDecorator_TimeLimit>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_TimeLimit): BTDecorator_TimeLimitPtr {
 		return untyped __cpp__("&({0})", v);

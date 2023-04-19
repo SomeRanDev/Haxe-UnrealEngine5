@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_Sync")
 @:include("AnimNodes/AnimNode_Sync.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Sync extends AnimNode_Base {
 	private var Source: PoseLink;
 	private var GroupName: FName;

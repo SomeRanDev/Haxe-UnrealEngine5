@@ -3,28 +3,32 @@ package ue;
 
 @:native("UVRScoutingInteractor")
 @:include("VRScoutingInteractor.h")
-@:structAccess
+@:valueType
 extern class VRScoutingInteractor extends VREditorInteractor {
-	public var FlyingIndicatorComponent: cpp.Star<StaticMeshComp>;
+	public var FlyingIndicatorComponent: ucpp.Ptr<StaticMeshComp>;
+	private var EditorOnlyInputComponent: ucpp.Ptr<InputComp>;
+	public function GetReceivesEditorInput(): Bool;
+	public function SetReceivesEditorInput(input: Bool): Void;
 
 	public function SetGizmoMode(InGizmoMode: EGizmoHandleTypes): Void;
-	public function GetSelectedActors(): TArray<cpp.Star<Actor>>;
+	public function GetSelectedActors(): TArray<ucpp.Ptr<Actor>>;
+	public function GetInputComponent(): ucpp.Ptr<InputComp>;
 	public function GetGizmoMode(): EGizmoHandleTypes;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetGizmoMode)
+@:forward(GetInputComponent, GetGizmoMode)
 @:nativeGen
 abstract ConstVRScoutingInteractor(VRScoutingInteractor) from VRScoutingInteractor {
-	public extern var FlyingIndicatorComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_FlyingIndicatorComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.FlyingIndicatorComponent;
+	public extern var FlyingIndicatorComponent(get, never): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp>;
+	public inline extern function get_FlyingIndicatorComponent(): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp> return this.FlyingIndicatorComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("VRScoutingInteractor*")
-abstract VRScoutingInteractorPtr(cpp.Star<VRScoutingInteractor>) from cpp.Star<VRScoutingInteractor> to cpp.Star<VRScoutingInteractor>{
+abstract VRScoutingInteractorPtr(ucpp.Ptr<VRScoutingInteractor>) from ucpp.Ptr<VRScoutingInteractor> to ucpp.Ptr<VRScoutingInteractor>{
 	@:from
 	public static extern inline function fromValue(v: VRScoutingInteractor): VRScoutingInteractorPtr {
 		return untyped __cpp__("&({0})", v);

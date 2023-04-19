@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULightWeightInstanceFactory")
 @:include("Factories/LightWeightInstanceFactory.h")
-@:structAccess
+@:valueType
 extern class LightWeightInstanceFactory extends Factory {
 	@:protected public var ParentClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstLightWeightInstanceFactory(LightWeightInstanceFactory) from LightW
 @:forward
 @:nativeGen
 @:native("LightWeightInstanceFactory*")
-abstract LightWeightInstanceFactoryPtr(cpp.Star<LightWeightInstanceFactory>) from cpp.Star<LightWeightInstanceFactory> to cpp.Star<LightWeightInstanceFactory>{
+abstract LightWeightInstanceFactoryPtr(ucpp.Ptr<LightWeightInstanceFactory>) from ucpp.Ptr<LightWeightInstanceFactory> to ucpp.Ptr<LightWeightInstanceFactory>{
 	@:from
 	public static extern inline function fromValue(v: LightWeightInstanceFactory): LightWeightInstanceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

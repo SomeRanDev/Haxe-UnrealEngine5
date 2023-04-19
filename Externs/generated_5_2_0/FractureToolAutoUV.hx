@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolAutoUV")
 @:include("FractureToolUV.h")
-@:structAccess
+@:valueType
 extern class FractureToolAutoUV extends FractureModalTool {
-	@:protected public var AutoUVSettings: cpp.Star<FractureAutoUVSettings>;
+	@:protected public var AutoUVSettings: ucpp.Ptr<FractureAutoUVSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolAutoUV(FractureToolAutoUV) from FractureToolAutoUV {
 @:forward
 @:nativeGen
 @:native("FractureToolAutoUV*")
-abstract FractureToolAutoUVPtr(cpp.Star<FractureToolAutoUV>) from cpp.Star<FractureToolAutoUV> to cpp.Star<FractureToolAutoUV>{
+abstract FractureToolAutoUVPtr(ucpp.Ptr<FractureToolAutoUV>) from ucpp.Ptr<FractureToolAutoUV> to ucpp.Ptr<FractureToolAutoUV>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolAutoUV): FractureToolAutoUVPtr {
 		return untyped __cpp__("&({0})", v);

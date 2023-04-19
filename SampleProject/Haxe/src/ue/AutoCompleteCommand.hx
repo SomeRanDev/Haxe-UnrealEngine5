@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAutoCompleteCommand")
 @:include("ConsoleSettings.h")
-@:structAccess
+@:valueType
 extern class AutoCompleteCommand {
 	public var Command: FString;
 	public var Desc: FString;

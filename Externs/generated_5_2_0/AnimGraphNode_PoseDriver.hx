@@ -3,29 +3,29 @@ package ue;
 
 @:native("UAnimGraphNode_PoseDriver")
 @:include("AnimGraphNode_PoseDriver.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_PoseDriver extends AnimGraphNode_PoseHandler {
 	public var Node: AnimNode_PoseDriver;
-	public var AxisLength: cpp.Float32;
-	public var ConeSubdivision: cpp.Int32;
+	public var AxisLength: ucpp.num.Float32;
+	public var ConeSubdivision: ucpp.num.Int32;
 	public var bDrawDebugCones: Bool;
-	public var LastPreviewComponent: cpp.Star<SkeletalMeshComp>;
+	public var LastPreviewComponent: ucpp.Ptr<SkeletalMeshComp>;
 
-	public function SetSourceBones(BoneNames: cpp.Reference<TArray<FName>>): Void;
+	public function SetSourceBones(BoneNames: ucpp.Ref<TArray<FName>>): Void;
 	public function SetRBFParameters(Parameters: RBFParams): Void;
 	public function SetPoseDriverSource(DriverSource: EPoseDriverSource): Void;
 	public function SetPoseDriverOutput(DriverOutput: EPoseDriverOutput): Void;
 	public function SetOnlyDriveSelectedBones(bOnlyDriveSelectedBones: Bool): Void;
-	public function SetDrivingBones(BoneNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetSourceBoneNames(BoneNames: cpp.Reference<TArray<FName>>): Void;
+	public function SetDrivingBones(BoneNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetSourceBoneNames(BoneNames: ucpp.Ref<TArray<FName>>): Void;
 	public function GetRBFParameters(): RBFParams;
 	public function GetPoseDriverSource(): EPoseDriverSource;
 	public function GetPoseDriverOutput(): EPoseDriverOutput;
 	public function GetOnlyDriveSelectedBones(): Bool;
-	public function GetDrivingBoneNames(BoneNames: cpp.Reference<TArray<FName>>): Void;
+	public function GetDrivingBoneNames(BoneNames: ucpp.Ref<TArray<FName>>): Void;
 	public function CopyTargetsFromPoseAsset(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,20 +33,20 @@ extern class AnimGraphNode_PoseDriver extends AnimGraphNode_PoseHandler {
 abstract ConstAnimGraphNode_PoseDriver(AnimGraphNode_PoseDriver) from AnimGraphNode_PoseDriver {
 	public extern var Node(get, never): AnimNode_PoseDriver;
 	public inline extern function get_Node(): AnimNode_PoseDriver return this.Node;
-	public extern var AxisLength(get, never): cpp.Float32;
-	public inline extern function get_AxisLength(): cpp.Float32 return this.AxisLength;
-	public extern var ConeSubdivision(get, never): cpp.Int32;
-	public inline extern function get_ConeSubdivision(): cpp.Int32 return this.ConeSubdivision;
+	public extern var AxisLength(get, never): ucpp.num.Float32;
+	public inline extern function get_AxisLength(): ucpp.num.Float32 return this.AxisLength;
+	public extern var ConeSubdivision(get, never): ucpp.num.Int32;
+	public inline extern function get_ConeSubdivision(): ucpp.num.Int32 return this.ConeSubdivision;
 	public extern var bDrawDebugCones(get, never): Bool;
 	public inline extern function get_bDrawDebugCones(): Bool return this.bDrawDebugCones;
-	public extern var LastPreviewComponent(get, never): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>;
-	public inline extern function get_LastPreviewComponent(): cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp> return this.LastPreviewComponent;
+	public extern var LastPreviewComponent(get, never): ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>;
+	public inline extern function get_LastPreviewComponent(): ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp> return this.LastPreviewComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_PoseDriver*")
-abstract AnimGraphNode_PoseDriverPtr(cpp.Star<AnimGraphNode_PoseDriver>) from cpp.Star<AnimGraphNode_PoseDriver> to cpp.Star<AnimGraphNode_PoseDriver>{
+abstract AnimGraphNode_PoseDriverPtr(ucpp.Ptr<AnimGraphNode_PoseDriver>) from ucpp.Ptr<AnimGraphNode_PoseDriver> to ucpp.Ptr<AnimGraphNode_PoseDriver>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_PoseDriver): AnimGraphNode_PoseDriverPtr {
 		return untyped __cpp__("&({0})", v);

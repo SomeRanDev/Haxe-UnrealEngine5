@@ -3,22 +3,24 @@ package ue;
 
 @:native("UParticleModuleLight")
 @:include("Particles/Light/ParticleModuleLight.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLight extends ParticleModuleLightBase {
 	public var bUseInverseSquaredFalloff: Bool;
 	public var bAffectsTranslucency: Bool;
+	public var bOverrideInverseExposureBlend: Bool;
 	public var bPreviewLightRadius: Bool;
-	public var SpawnFraction: cpp.Float32;
+	public var SpawnFraction: ucpp.num.Float32;
 	public var ColorScaleOverLife: RawDistributionVector;
 	public var BrightnessOverLife: RawDistributionFloat;
 	public var RadiusScale: RawDistributionFloat;
 	public var LightExponent: RawDistributionFloat;
+	public var InverseExposureBlend: ucpp.num.Float32;
 	public var LightingChannels: LightingChannels;
-	public var VolumetricScatteringIntensity: cpp.Float32;
+	public var VolumetricScatteringIntensity: ucpp.num.Float32;
 	public var bHighQualityLights: Bool;
 	public var bShadowCastingLights: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,10 +30,12 @@ abstract ConstParticleModuleLight(ParticleModuleLight) from ParticleModuleLight 
 	public inline extern function get_bUseInverseSquaredFalloff(): Bool return this.bUseInverseSquaredFalloff;
 	public extern var bAffectsTranslucency(get, never): Bool;
 	public inline extern function get_bAffectsTranslucency(): Bool return this.bAffectsTranslucency;
+	public extern var bOverrideInverseExposureBlend(get, never): Bool;
+	public inline extern function get_bOverrideInverseExposureBlend(): Bool return this.bOverrideInverseExposureBlend;
 	public extern var bPreviewLightRadius(get, never): Bool;
 	public inline extern function get_bPreviewLightRadius(): Bool return this.bPreviewLightRadius;
-	public extern var SpawnFraction(get, never): cpp.Float32;
-	public inline extern function get_SpawnFraction(): cpp.Float32 return this.SpawnFraction;
+	public extern var SpawnFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_SpawnFraction(): ucpp.num.Float32 return this.SpawnFraction;
 	public extern var ColorScaleOverLife(get, never): RawDistributionVector;
 	public inline extern function get_ColorScaleOverLife(): RawDistributionVector return this.ColorScaleOverLife;
 	public extern var BrightnessOverLife(get, never): RawDistributionFloat;
@@ -40,10 +44,12 @@ abstract ConstParticleModuleLight(ParticleModuleLight) from ParticleModuleLight 
 	public inline extern function get_RadiusScale(): RawDistributionFloat return this.RadiusScale;
 	public extern var LightExponent(get, never): RawDistributionFloat;
 	public inline extern function get_LightExponent(): RawDistributionFloat return this.LightExponent;
+	public extern var InverseExposureBlend(get, never): ucpp.num.Float32;
+	public inline extern function get_InverseExposureBlend(): ucpp.num.Float32 return this.InverseExposureBlend;
 	public extern var LightingChannels(get, never): LightingChannels;
 	public inline extern function get_LightingChannels(): LightingChannels return this.LightingChannels;
-	public extern var VolumetricScatteringIntensity(get, never): cpp.Float32;
-	public inline extern function get_VolumetricScatteringIntensity(): cpp.Float32 return this.VolumetricScatteringIntensity;
+	public extern var VolumetricScatteringIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricScatteringIntensity(): ucpp.num.Float32 return this.VolumetricScatteringIntensity;
 	public extern var bHighQualityLights(get, never): Bool;
 	public inline extern function get_bHighQualityLights(): Bool return this.bHighQualityLights;
 	public extern var bShadowCastingLights(get, never): Bool;
@@ -53,7 +59,7 @@ abstract ConstParticleModuleLight(ParticleModuleLight) from ParticleModuleLight 
 @:forward
 @:nativeGen
 @:native("ParticleModuleLight*")
-abstract ParticleModuleLightPtr(cpp.Star<ParticleModuleLight>) from cpp.Star<ParticleModuleLight> to cpp.Star<ParticleModuleLight>{
+abstract ParticleModuleLightPtr(ucpp.Ptr<ParticleModuleLight>) from ucpp.Ptr<ParticleModuleLight> to ucpp.Ptr<ParticleModuleLight>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLight): ParticleModuleLightPtr {
 		return untyped __cpp__("&({0})", v);

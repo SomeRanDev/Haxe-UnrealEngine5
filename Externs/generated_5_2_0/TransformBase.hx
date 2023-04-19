@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTransformBase")
 @:include("Animation/Rig.h")
-@:structAccess
+@:valueType
 extern class TransformBase {
 	public var Node: FName;
 	public var Constraints: TransformBaseConstraint;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPlatformSettings")
 @:include("Engine/PlatformSettings.h")
-@:structAccess
+@:valueType
 extern class PlatformSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlatformSettings(PlatformSettings) from PlatformSettings {
 @:forward
 @:nativeGen
 @:native("PlatformSettings*")
-abstract PlatformSettingsPtr(cpp.Star<PlatformSettings>) from cpp.Star<PlatformSettings> to cpp.Star<PlatformSettings>{
+abstract PlatformSettingsPtr(ucpp.Ptr<PlatformSettings>) from ucpp.Ptr<PlatformSettings> to ucpp.Ptr<PlatformSettings>{
 	@:from
 	public static extern inline function fromValue(v: PlatformSettings): PlatformSettingsPtr {
 		return untyped __cpp__("&({0})", v);

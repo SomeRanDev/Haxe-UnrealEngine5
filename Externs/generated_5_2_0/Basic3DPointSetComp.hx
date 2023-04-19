@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBasic3DPointSetComponent")
 @:include("Drawing/BasicPointSetComponent.h")
-@:structAccess
+@:valueType
 extern class Basic3DPointSetComp extends BasicPointSetComponentBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBasic3DPointSetComp(Basic3DPointSetComp) from Basic3DPointSetComp 
 @:forward
 @:nativeGen
 @:native("Basic3DPointSetComp*")
-abstract Basic3DPointSetCompPtr(cpp.Star<Basic3DPointSetComp>) from cpp.Star<Basic3DPointSetComp> to cpp.Star<Basic3DPointSetComp>{
+abstract Basic3DPointSetCompPtr(ucpp.Ptr<Basic3DPointSetComp>) from ucpp.Ptr<Basic3DPointSetComp> to ucpp.Ptr<Basic3DPointSetComp>{
 	@:from
 	public static extern inline function fromValue(v: Basic3DPointSetComp): Basic3DPointSetCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcess_PreprocessSettings")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess_PreprocessSettings {
 	public var FilterGroupLayer: FName;
 	public var ThickenWeightMapName: FName;
-	public var ThickenAmount: cpp.Float32;
+	public var ThickenAmount: ucpp.num.Float32;
 
 	@:native("FGenerateStaticMeshLODProcess_PreprocessSettings") public function new();
-	@:native("FGenerateStaticMeshLODProcess_PreprocessSettings") public static function make(FilterGroupLayer: FName, ThickenWeightMapName: FName, ThickenAmount: cpp.Float32): GenerateStaticMeshLODProcess_PreprocessSettings ;
+	@:native("FGenerateStaticMeshLODProcess_PreprocessSettings") public static function make(FilterGroupLayer: FName, ThickenWeightMapName: FName, ThickenAmount: ucpp.num.Float32): GenerateStaticMeshLODProcess_PreprocessSettings ;
 }

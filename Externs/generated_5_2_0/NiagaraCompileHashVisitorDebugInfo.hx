@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraCompileHashVisitorDebugInfo")
 @:include("NiagaraCompileHashVisitor.h")
-@:structAccess
+@:valueType
 extern class NiagaraCompileHashVisitorDebugInfo {
 	public var Object: FString;
 	public var PropertyKeys: TArray<FString>;

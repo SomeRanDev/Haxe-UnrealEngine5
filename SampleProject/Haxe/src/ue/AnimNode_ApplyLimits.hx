@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_ApplyLimits")
 @:include("BoneControllers/AnimNode_ApplyLimits.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ApplyLimits extends AnimNode_SkeletalControlBase {
 	public var AngularRangeLimits: TArray<AngularRangeLimit>;
 	public var AngularOffsets: TArray<Vector>;

@@ -3,28 +3,28 @@ package ue;
 
 @:native("UTakeRecorderActorSource")
 @:include("TakeRecorderActorSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderActorSource extends TakeRecorderSource {
 	public var Target: TSoftObjectPtr<Actor>;
 	public var RecordType: ETakeRecorderActorRecordType;
 	public var bRecordParentHierarchy: Bool;
 	public var bReduceKeys: Bool;
-	public var RecordedProperties: cpp.Star<ActorRecorderPropertyMap>;
+	public var RecordedProperties: ucpp.Ptr<ActorRecorderPropertyMap>;
 	public var IncludeAnimationNames: TArray<FString>;
 	public var ExcludeAnimationNames: TArray<FString>;
-	public var TargetLevelSequence: cpp.Star<LevelSequence>;
-	public var RootLevelSequence: cpp.Star<LevelSequence>;
-	public var FactorySettings: TArray<cpp.Star<Object>>;
-	public var TrackRecorders: TArray<cpp.Star<MovieSceneTrackRecorder>>;
-	public var ParentSource: cpp.Star<TakeRecorderActorSource>;
+	public var TargetLevelSequence: ucpp.Ptr<LevelSequence>;
+	public var RootLevelSequence: ucpp.Ptr<LevelSequence>;
+	public var FactorySettings: TArray<ucpp.Ptr<Object>>;
+	public var TrackRecorders: TArray<ucpp.Ptr<MovieSceneTrackRecorder>>;
+	public var ParentSource: ucpp.Ptr<TakeRecorderActorSource>;
 	public var bShowProgressDialog: Bool;
 
 	public function SetSourceActor(InTarget: TSoftObjectPtr<Actor>): Void;
-	public function RemoveActorFromSources(InActor: cpp.Star<Actor>, InSources: cpp.Star<TakeRecorderSources>): Void;
+	public function RemoveActorFromSources(InActor: ucpp.Ptr<Actor>, InSources: ucpp.Ptr<TakeRecorderSources>): Void;
 	public function GetSourceActor(): TSoftObjectPtr<Actor>;
-	public function AddSourceForActor(InActor: cpp.Star<Actor>, InSources: cpp.Star<TakeRecorderSources>): cpp.Star<TakeRecorderSource>;
+	public function AddSourceForActor(InActor: ucpp.Ptr<Actor>, InSources: ucpp.Ptr<TakeRecorderSources>): ucpp.Ptr<TakeRecorderSource>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSourceActor)
@@ -38,22 +38,22 @@ abstract ConstTakeRecorderActorSource(TakeRecorderActorSource) from TakeRecorder
 	public inline extern function get_bRecordParentHierarchy(): Bool return this.bRecordParentHierarchy;
 	public extern var bReduceKeys(get, never): Bool;
 	public inline extern function get_bReduceKeys(): Bool return this.bReduceKeys;
-	public extern var RecordedProperties(get, never): cpp.Star<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap>;
-	public inline extern function get_RecordedProperties(): cpp.Star<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap> return this.RecordedProperties;
+	public extern var RecordedProperties(get, never): ucpp.Ptr<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap>;
+	public inline extern function get_RecordedProperties(): ucpp.Ptr<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap> return this.RecordedProperties;
 	public extern var IncludeAnimationNames(get, never): TArray<FString>;
 	public inline extern function get_IncludeAnimationNames(): TArray<FString> return this.IncludeAnimationNames;
 	public extern var ExcludeAnimationNames(get, never): TArray<FString>;
 	public inline extern function get_ExcludeAnimationNames(): TArray<FString> return this.ExcludeAnimationNames;
-	public extern var TargetLevelSequence(get, never): cpp.Star<LevelSequence.ConstLevelSequence>;
-	public inline extern function get_TargetLevelSequence(): cpp.Star<LevelSequence.ConstLevelSequence> return this.TargetLevelSequence;
-	public extern var RootLevelSequence(get, never): cpp.Star<LevelSequence.ConstLevelSequence>;
-	public inline extern function get_RootLevelSequence(): cpp.Star<LevelSequence.ConstLevelSequence> return this.RootLevelSequence;
-	public extern var FactorySettings(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_FactorySettings(): TArray<cpp.Star<Object.ConstObject>> return this.FactorySettings;
-	public extern var TrackRecorders(get, never): TArray<cpp.Star<MovieSceneTrackRecorder.ConstMovieSceneTrackRecorder>>;
-	public inline extern function get_TrackRecorders(): TArray<cpp.Star<MovieSceneTrackRecorder.ConstMovieSceneTrackRecorder>> return this.TrackRecorders;
-	public extern var ParentSource(get, never): cpp.Star<TakeRecorderActorSource.ConstTakeRecorderActorSource>;
-	public inline extern function get_ParentSource(): cpp.Star<TakeRecorderActorSource.ConstTakeRecorderActorSource> return this.ParentSource;
+	public extern var TargetLevelSequence(get, never): ucpp.Ptr<LevelSequence.ConstLevelSequence>;
+	public inline extern function get_TargetLevelSequence(): ucpp.Ptr<LevelSequence.ConstLevelSequence> return this.TargetLevelSequence;
+	public extern var RootLevelSequence(get, never): ucpp.Ptr<LevelSequence.ConstLevelSequence>;
+	public inline extern function get_RootLevelSequence(): ucpp.Ptr<LevelSequence.ConstLevelSequence> return this.RootLevelSequence;
+	public extern var FactorySettings(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_FactorySettings(): TArray<ucpp.Ptr<Object.ConstObject>> return this.FactorySettings;
+	public extern var TrackRecorders(get, never): TArray<ucpp.Ptr<MovieSceneTrackRecorder.ConstMovieSceneTrackRecorder>>;
+	public inline extern function get_TrackRecorders(): TArray<ucpp.Ptr<MovieSceneTrackRecorder.ConstMovieSceneTrackRecorder>> return this.TrackRecorders;
+	public extern var ParentSource(get, never): ucpp.Ptr<TakeRecorderActorSource.ConstTakeRecorderActorSource>;
+	public inline extern function get_ParentSource(): ucpp.Ptr<TakeRecorderActorSource.ConstTakeRecorderActorSource> return this.ParentSource;
 	public extern var bShowProgressDialog(get, never): Bool;
 	public inline extern function get_bShowProgressDialog(): Bool return this.bShowProgressDialog;
 }
@@ -61,7 +61,7 @@ abstract ConstTakeRecorderActorSource(TakeRecorderActorSource) from TakeRecorder
 @:forward
 @:nativeGen
 @:native("TakeRecorderActorSource*")
-abstract TakeRecorderActorSourcePtr(cpp.Star<TakeRecorderActorSource>) from cpp.Star<TakeRecorderActorSource> to cpp.Star<TakeRecorderActorSource>{
+abstract TakeRecorderActorSourcePtr(ucpp.Ptr<TakeRecorderActorSource>) from ucpp.Ptr<TakeRecorderActorSource> to ucpp.Ptr<TakeRecorderActorSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderActorSource): TakeRecorderActorSourcePtr {
 		return untyped __cpp__("&({0})", v);

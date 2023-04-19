@@ -3,14 +3,14 @@ package ue;
 
 @:native("UJoinSessionCallbackProxy")
 @:include("JoinSessionCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class JoinSessionCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function JoinSession(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, SearchResult: cpp.Reference<BlueprintSessionResult>): cpp.Star<JoinSessionCallbackProxy>;
+	public function JoinSession(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, SearchResult: ucpp.Ref<BlueprintSessionResult>): ucpp.Ptr<JoinSessionCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstJoinSessionCallbackProxy(JoinSessionCallbackProxy) from JoinSessio
 @:forward
 @:nativeGen
 @:native("JoinSessionCallbackProxy*")
-abstract JoinSessionCallbackProxyPtr(cpp.Star<JoinSessionCallbackProxy>) from cpp.Star<JoinSessionCallbackProxy> to cpp.Star<JoinSessionCallbackProxy>{
+abstract JoinSessionCallbackProxyPtr(ucpp.Ptr<JoinSessionCallbackProxy>) from ucpp.Ptr<JoinSessionCallbackProxy> to ucpp.Ptr<JoinSessionCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: JoinSessionCallbackProxy): JoinSessionCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

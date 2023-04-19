@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraConvertConnection")
 @:include("Private/NiagaraNodeConvert.h")
-@:structAccess
+@:valueType
 extern class NiagaraConvertConnection {
 	public var SourcePinId: Guid;
 	public var SourcePath: TArray<FName>;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDiffFilesCommandlet")
 @:include("Commandlets/DiffFilesCommandlet.h")
-@:structAccess
+@:valueType
 extern class DiffFilesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDiffFilesCommandlet(DiffFilesCommandlet) from DiffFilesCommandlet 
 @:forward
 @:nativeGen
 @:native("DiffFilesCommandlet*")
-abstract DiffFilesCommandletPtr(cpp.Star<DiffFilesCommandlet>) from cpp.Star<DiffFilesCommandlet> to cpp.Star<DiffFilesCommandlet>{
+abstract DiffFilesCommandletPtr(ucpp.Ptr<DiffFilesCommandlet>) from ucpp.Ptr<DiffFilesCommandlet> to ucpp.Ptr<DiffFilesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DiffFilesCommandlet): DiffFilesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

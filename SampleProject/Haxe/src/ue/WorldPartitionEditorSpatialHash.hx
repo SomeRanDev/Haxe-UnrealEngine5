@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionEditorSpatialHash")
 @:include("WorldPartition/WorldPartitionEditorSpatialHash.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionEditorSpatialHash extends WorldPartitionEditorHash {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionEditorSpatialHash(WorldPartitionEditorSpatialHash) f
 @:forward
 @:nativeGen
 @:native("WorldPartitionEditorSpatialHash*")
-abstract WorldPartitionEditorSpatialHashPtr(cpp.Star<WorldPartitionEditorSpatialHash>) from cpp.Star<WorldPartitionEditorSpatialHash> to cpp.Star<WorldPartitionEditorSpatialHash>{
+abstract WorldPartitionEditorSpatialHashPtr(ucpp.Ptr<WorldPartitionEditorSpatialHash>) from ucpp.Ptr<WorldPartitionEditorSpatialHash> to ucpp.Ptr<WorldPartitionEditorSpatialHash>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionEditorSpatialHash): WorldPartitionEditorSpatialHashPtr {
 		return untyped __cpp__("&({0})", v);

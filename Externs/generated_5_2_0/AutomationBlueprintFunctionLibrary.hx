@@ -3,35 +3,35 @@ package ue;
 
 @:native("UAutomationBlueprintFunctionLibrary")
 @:include("AutomationBlueprintFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class AutomationBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
-	public function TakeHighResScreenshot(ResX: cpp.Int32, ResY: cpp.Int32, Filename: FString, Camera: cpp.Star<CameraActor>, bMaskEnabled: Bool, bCaptureHDR: Bool, ComparisonTolerance: EComparisonTolerance, ComparisonNotes: FString, Delay: cpp.Float32): cpp.Star<AutomationEditorTask>;
-	public function TakeAutomationScreenshotOfUI(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, Name: FString, Options: cpp.Reference<AutomationScreenshotOptions>): Void;
-	public function TakeAutomationScreenshotAtCamera(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, Camera: cpp.Star<CameraActor>, NameOverride: FString, Notes: FString, Options: cpp.Reference<AutomationScreenshotOptions>): Void;
-	public function TakeAutomationScreenshot(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, Name: FString, Notes: FString, Options: cpp.Reference<AutomationScreenshotOptions>): Void;
+	public function TakeHighResScreenshot(ResX: ucpp.num.Int32, ResY: ucpp.num.Int32, Filename: FString, Camera: ucpp.Ptr<CameraActor>, bMaskEnabled: Bool, bCaptureHDR: Bool, ComparisonTolerance: EComparisonTolerance, ComparisonNotes: FString, Delay: ucpp.num.Float32): ucpp.Ptr<AutomationEditorTask>;
+	public function TakeAutomationScreenshotOfUI(WorldContextObject: ucpp.Ptr<Object>, LatentInfo: LatentActionInfo, Name: FString, Options: ucpp.Ref<AutomationScreenshotOptions>): Void;
+	public function TakeAutomationScreenshotAtCamera(WorldContextObject: ucpp.Ptr<Object>, LatentInfo: LatentActionInfo, Camera: ucpp.Ptr<CameraActor>, NameOverride: FString, Notes: FString, Options: ucpp.Ref<AutomationScreenshotOptions>): Void;
+	public function TakeAutomationScreenshot(WorldContextObject: ucpp.Ptr<Object>, LatentInfo: LatentActionInfo, Name: FString, Notes: FString, Options: ucpp.Ref<AutomationScreenshotOptions>): Void;
 	public function SetTestTelemetryStorage(StorageName: FString): Void;
-	public function SetScalabilityQualityToLow(WorldContextObject: cpp.Star<Object>): Void;
-	public function SetScalabilityQualityToEpic(WorldContextObject: cpp.Star<Object>): Void;
-	public function SetScalabilityQualityLevelRelativeToMax(WorldContextObject: cpp.Star<Object>, Value: cpp.Int32): Void;
+	public function SetScalabilityQualityToLow(WorldContextObject: ucpp.Ptr<Object>): Void;
+	public function SetScalabilityQualityToEpic(WorldContextObject: ucpp.Ptr<Object>): Void;
+	public function SetScalabilityQualityLevelRelativeToMax(WorldContextObject: ucpp.Ptr<Object>, Value: ucpp.num.Int32): Void;
 	public function SetEditorViewportVisualizeBuffer(BufferName: FName): Void;
 	public function SetEditorViewportViewMode(Index: TEnumAsByte<EViewModeIndex>): Void;
-	public function GetStatIncMax(StatName: FName): cpp.Float32;
-	public function GetStatIncAverage(StatName: FName): cpp.Float32;
-	public function GetStatExcMax(StatName: FName): cpp.Float32;
-	public function GetStatExcAverage(StatName: FName): cpp.Float32;
-	public function GetStatCallCount(StatName: FName): cpp.Float32;
-	public function GetDefaultScreenshotOptionsForRendering(Tolerance: EComparisonTolerance, Delay: cpp.Float32): AutomationScreenshotOptions;
-	public function GetDefaultScreenshotOptionsForGameplay(Tolerance: EComparisonTolerance, Delay: cpp.Float32): AutomationScreenshotOptions;
+	public function GetStatIncMax(StatName: FName): ucpp.num.Float32;
+	public function GetStatIncAverage(StatName: FName): ucpp.num.Float32;
+	public function GetStatExcMax(StatName: FName): ucpp.num.Float32;
+	public function GetStatExcAverage(StatName: FName): ucpp.num.Float32;
+	public function GetStatCallCount(StatName: FName): ucpp.num.Float32;
+	public function GetDefaultScreenshotOptionsForRendering(Tolerance: EComparisonTolerance, Delay: ucpp.num.Float32): AutomationScreenshotOptions;
+	public function GetDefaultScreenshotOptionsForGameplay(Tolerance: EComparisonTolerance, Delay: ucpp.num.Float32): AutomationScreenshotOptions;
 	public function FinishLoadingBeforeScreenshot(): Void;
-	public function EnableStatGroup(WorldContextObject: cpp.Star<Object>, GroupName: FName): Void;
-	public function DisableStatGroup(WorldContextObject: cpp.Star<Object>, GroupName: FName): Void;
-	public function CompareImageAgainstReference(ImageFilePath: FString, ComparisonName: FString, ComparisonTolerance: EComparisonTolerance, ComparisonNotes: FString, WorldContextObject: cpp.Star<Object>): Bool;
-	public function AutomationWaitForLoading(WorldContextObject: cpp.Star<Object>, LatentInfo: LatentActionInfo, Options: AutomationWaitForLoadingOptions): Void;
+	public function EnableStatGroup(WorldContextObject: ucpp.Ptr<Object>, GroupName: FName): Void;
+	public function DisableStatGroup(WorldContextObject: ucpp.Ptr<Object>, GroupName: FName): Void;
+	public function CompareImageAgainstReference(ImageFilePath: FString, ComparisonName: FString, ComparisonTolerance: EComparisonTolerance, ComparisonNotes: FString, WorldContextObject: ucpp.Ptr<Object>): Bool;
+	public function AutomationWaitForLoading(WorldContextObject: ucpp.Ptr<Object>, LatentInfo: LatentActionInfo, Options: AutomationWaitForLoadingOptions): Void;
 	public function AreAutomatedTestsRunning(): Bool;
-	public function AddTestTelemetryData(DataPoint: FString, Measurement: cpp.Float32, Context: FString): Void;
-	public function AddExpectedLogError(ExpectedPatternString: FString, Occurrences: cpp.Int32, ExactMatch: Bool): Void;
+	public function AddTestTelemetryData(DataPoint: FString, Measurement: ucpp.num.Float32, Context: FString): Void;
+	public function AddExpectedLogError(ExpectedPatternString: FString, Occurrences: ucpp.num.Int32, ExactMatch: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -42,7 +42,7 @@ abstract ConstAutomationBlueprintFunctionLibrary(AutomationBlueprintFunctionLibr
 @:forward
 @:nativeGen
 @:native("AutomationBlueprintFunctionLibrary*")
-abstract AutomationBlueprintFunctionLibraryPtr(cpp.Star<AutomationBlueprintFunctionLibrary>) from cpp.Star<AutomationBlueprintFunctionLibrary> to cpp.Star<AutomationBlueprintFunctionLibrary>{
+abstract AutomationBlueprintFunctionLibraryPtr(ucpp.Ptr<AutomationBlueprintFunctionLibrary>) from ucpp.Ptr<AutomationBlueprintFunctionLibrary> to ucpp.Ptr<AutomationBlueprintFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AutomationBlueprintFunctionLibrary): AutomationBlueprintFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

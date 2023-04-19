@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMFunctionCompilationPropertyDescription")
 @:include("RigVMCore/RigVMGraphFunctionDefinition.h")
-@:structAccess
+@:valueType
 extern class RigVMFunctionCompilationPropertyDescription {
 	public var Name: FName;
 	public var CPPType: FString;

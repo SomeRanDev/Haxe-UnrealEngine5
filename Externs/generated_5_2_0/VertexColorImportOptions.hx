@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVertexColorImportOptions")
 @:include("SImportVertexColorOptions.h")
-@:structAccess
+@:valueType
 extern class VertexColorImportOptions extends Object {
-	public var UVIndex: cpp.Int32;
-	public var LODIndex: cpp.Int32;
+	public var UVIndex: ucpp.num.Int32;
+	public var LODIndex: ucpp.num.Int32;
 	public var bRed: Bool;
 	public var bBlue: Bool;
 	public var bGreen: Bool;
@@ -14,16 +14,16 @@ extern class VertexColorImportOptions extends Object {
 	public var bImportToInstance: Bool;
 	public var bCanImportToInstance: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVertexColorImportOptions(VertexColorImportOptions) from VertexColorImportOptions {
-	public extern var UVIndex(get, never): cpp.Int32;
-	public inline extern function get_UVIndex(): cpp.Int32 return this.UVIndex;
-	public extern var LODIndex(get, never): cpp.Int32;
-	public inline extern function get_LODIndex(): cpp.Int32 return this.LODIndex;
+	public extern var UVIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_UVIndex(): ucpp.num.Int32 return this.UVIndex;
+	public extern var LODIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LODIndex(): ucpp.num.Int32 return this.LODIndex;
 	public extern var bRed(get, never): Bool;
 	public inline extern function get_bRed(): Bool return this.bRed;
 	public extern var bBlue(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstVertexColorImportOptions(VertexColorImportOptions) from VertexColo
 @:forward
 @:nativeGen
 @:native("VertexColorImportOptions*")
-abstract VertexColorImportOptionsPtr(cpp.Star<VertexColorImportOptions>) from cpp.Star<VertexColorImportOptions> to cpp.Star<VertexColorImportOptions>{
+abstract VertexColorImportOptionsPtr(ucpp.Ptr<VertexColorImportOptions>) from ucpp.Ptr<VertexColorImportOptions> to ucpp.Ptr<VertexColorImportOptions>{
 	@:from
 	public static extern inline function fromValue(v: VertexColorImportOptions): VertexColorImportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

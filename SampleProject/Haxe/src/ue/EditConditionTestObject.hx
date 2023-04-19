@@ -3,22 +3,46 @@ package ue;
 
 @:native("UEditConditionTestObject")
 @:include("EditConditionParserTests.h")
-@:structAccess
+@:valueType
 extern class EditConditionTestObject extends Object {
 	public var BoolProperty: Bool;
 	public var EnumProperty: EditConditionTestEnum;
 	public var ByteEnumProperty: TEnumAsByte<EditConditionByteEnum>;
-	public var DoubleProperty: cpp.Float64;
-	public var IntegerProperty: cpp.Int32;
+	public var DoubleProperty: ucpp.num.Float64;
+	public var IntegerProperty: ucpp.num.Int32;
 	public var UintBitfieldProperty: Bool;
-	public var UObjectPtr: cpp.Star<Object>;
+	public var UObjectPtr: ucpp.Ptr<Object>;
 	public var SoftClassPtr: TSoftClassPtr<Class>;
 	public var WeakObjectPtr: TWeakObjectPtr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public function VoidFunction(): Void;
+	public function StaticVoidFunction(): Void;
+	public function StaticGetWeakObjectPtrFunction(): TWeakObjectPtr<Object>;
+	public function StaticGetUObjectPtrFunction(): ucpp.Ptr<Object>;
+	public function StaticGetUintBitfieldFunction(): ucpp.num.UInt8;
+	public function StaticGetSoftClassPtrFunction(): TSoftClassPtr<Class>;
+	public function StaticGetIntegerFunction(): ucpp.num.Int32;
+	public function StaticGetEnumFunction(): EditConditionTestEnum;
+	public function StaticGetDoubleFunction(): ucpp.num.Float64;
+	public function StaticGetByteEnumFunction(): TEnumAsByte<EditConditionByteEnum>;
+	public function StaticGetBoolFunction(): Bool;
+	public function GetWeakObjectPtrFunction(): TWeakObjectPtr<Object>;
+	public function GetUObjectPtrFunction(): ucpp.Ptr<Object>;
+	public function GetUintBitfieldFunction(): ucpp.num.UInt8;
+	public function GetSoftClassPtrFunction(): TSoftClassPtr<Class>;
+	public function GetIntegerFunction(): ucpp.num.Int32;
+	public function GetEnumFunction(): EditConditionTestEnum;
+	public function GetDoubleFunction(): ucpp.num.Float64;
+	public function GetByteEnumFunction(): TEnumAsByte<EditConditionByteEnum>;
+	public function GetBoolFunction(): Bool;
+
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward()
+@:forward(
+	VoidFunction, GetWeakObjectPtrFunction, GetUObjectPtrFunction, GetUintBitfieldFunction, GetSoftClassPtrFunction,
+	GetIntegerFunction, GetEnumFunction, GetDoubleFunction, GetByteEnumFunction, GetBoolFunction
+)
 @:nativeGen
 abstract ConstEditConditionTestObject(EditConditionTestObject) from EditConditionTestObject {
 	public extern var BoolProperty(get, never): Bool;
@@ -27,14 +51,14 @@ abstract ConstEditConditionTestObject(EditConditionTestObject) from EditConditio
 	public inline extern function get_EnumProperty(): EditConditionTestEnum return this.EnumProperty;
 	public extern var ByteEnumProperty(get, never): TEnumAsByte<EditConditionByteEnum>;
 	public inline extern function get_ByteEnumProperty(): TEnumAsByte<EditConditionByteEnum> return this.ByteEnumProperty;
-	public extern var DoubleProperty(get, never): cpp.Float64;
-	public inline extern function get_DoubleProperty(): cpp.Float64 return this.DoubleProperty;
-	public extern var IntegerProperty(get, never): cpp.Int32;
-	public inline extern function get_IntegerProperty(): cpp.Int32 return this.IntegerProperty;
+	public extern var DoubleProperty(get, never): ucpp.num.Float64;
+	public inline extern function get_DoubleProperty(): ucpp.num.Float64 return this.DoubleProperty;
+	public extern var IntegerProperty(get, never): ucpp.num.Int32;
+	public inline extern function get_IntegerProperty(): ucpp.num.Int32 return this.IntegerProperty;
 	public extern var UintBitfieldProperty(get, never): Bool;
 	public inline extern function get_UintBitfieldProperty(): Bool return this.UintBitfieldProperty;
-	public extern var UObjectPtr(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_UObjectPtr(): cpp.Star<Object.ConstObject> return this.UObjectPtr;
+	public extern var UObjectPtr(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_UObjectPtr(): ucpp.Ptr<Object.ConstObject> return this.UObjectPtr;
 	public extern var SoftClassPtr(get, never): TSoftClassPtr<Class.ConstClass>;
 	public inline extern function get_SoftClassPtr(): TSoftClassPtr<Class.ConstClass> return this.SoftClassPtr;
 	public extern var WeakObjectPtr(get, never): TWeakObjectPtr<Object.ConstObject>;
@@ -44,7 +68,7 @@ abstract ConstEditConditionTestObject(EditConditionTestObject) from EditConditio
 @:forward
 @:nativeGen
 @:native("EditConditionTestObject*")
-abstract EditConditionTestObjectPtr(cpp.Star<EditConditionTestObject>) from cpp.Star<EditConditionTestObject> to cpp.Star<EditConditionTestObject>{
+abstract EditConditionTestObjectPtr(ucpp.Ptr<EditConditionTestObject>) from ucpp.Ptr<EditConditionTestObject> to ucpp.Ptr<EditConditionTestObject>{
 	@:from
 	public static extern inline function fromValue(v: EditConditionTestObject): EditConditionTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

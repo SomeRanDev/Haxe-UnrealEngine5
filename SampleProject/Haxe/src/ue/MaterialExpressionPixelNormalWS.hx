@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPixelNormalWS")
 @:include("Materials/MaterialExpressionPixelNormalWS.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPixelNormalWS extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionPixelNormalWS(MaterialExpressionPixelNormalWS) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPixelNormalWS*")
-abstract MaterialExpressionPixelNormalWSPtr(cpp.Star<MaterialExpressionPixelNormalWS>) from cpp.Star<MaterialExpressionPixelNormalWS> to cpp.Star<MaterialExpressionPixelNormalWS>{
+abstract MaterialExpressionPixelNormalWSPtr(ucpp.Ptr<MaterialExpressionPixelNormalWS>) from ucpp.Ptr<MaterialExpressionPixelNormalWS> to ucpp.Ptr<MaterialExpressionPixelNormalWS>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPixelNormalWS): MaterialExpressionPixelNormalWSPtr {
 		return untyped __cpp__("&({0})", v);

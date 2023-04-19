@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraNodeSelect")
 @:include("NiagaraNodeSelect.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeSelect extends NiagaraNodeUsageSelector {
 	public var SelectorPinType: NiagaraTypeDefinition;
 	public var SelectorPinGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraNodeSelect(NiagaraNodeSelect) from NiagaraNodeSelect {
 @:forward
 @:nativeGen
 @:native("NiagaraNodeSelect*")
-abstract NiagaraNodeSelectPtr(cpp.Star<NiagaraNodeSelect>) from cpp.Star<NiagaraNodeSelect> to cpp.Star<NiagaraNodeSelect>{
+abstract NiagaraNodeSelectPtr(ucpp.Ptr<NiagaraNodeSelect>) from ucpp.Ptr<NiagaraNodeSelect> to ucpp.Ptr<NiagaraNodeSelect>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeSelect): NiagaraNodeSelectPtr {
 		return untyped __cpp__("&({0})", v);

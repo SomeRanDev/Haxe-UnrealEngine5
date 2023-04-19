@@ -3,11 +3,11 @@ package ue;
 
 @:native("ACameraShakeSourceActor")
 @:include("Camera/CameraShakeSourceActor.h")
-@:structAccess
+@:valueType
 extern class CameraShakeSourceActor extends Actor {
-	private var CameraShakeSourceComponent: cpp.Star<CameraShakeSourceComp>;
+	private var CameraShakeSourceComponent: ucpp.Ptr<CameraShakeSourceComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstCameraShakeSourceActor(CameraShakeSourceActor) from CameraShakeSou
 @:forward
 @:nativeGen
 @:native("CameraShakeSourceActor*")
-abstract CameraShakeSourceActorPtr(cpp.Star<CameraShakeSourceActor>) from cpp.Star<CameraShakeSourceActor> to cpp.Star<CameraShakeSourceActor>{
+abstract CameraShakeSourceActorPtr(ucpp.Ptr<CameraShakeSourceActor>) from ucpp.Ptr<CameraShakeSourceActor> to ucpp.Ptr<CameraShakeSourceActor>{
 	@:from
 	public static extern inline function fromValue(v: CameraShakeSourceActor): CameraShakeSourceActorPtr {
 		return untyped __cpp__("&({0})", v);

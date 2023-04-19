@@ -3,24 +3,24 @@ package ue;
 
 @:native("USlateBrushAssetFactory")
 @:include("Factories/SlateBrushAssetFactory.h")
-@:structAccess
+@:valueType
 extern class SlateBrushAssetFactory extends Factory {
-	public var InitialTexture: cpp.Star<Texture2D>;
+	public var InitialTexture: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSlateBrushAssetFactory(SlateBrushAssetFactory) from SlateBrushAssetFactory {
-	public extern var InitialTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_InitialTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.InitialTexture;
+	public extern var InitialTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_InitialTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.InitialTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("SlateBrushAssetFactory*")
-abstract SlateBrushAssetFactoryPtr(cpp.Star<SlateBrushAssetFactory>) from cpp.Star<SlateBrushAssetFactory> to cpp.Star<SlateBrushAssetFactory>{
+abstract SlateBrushAssetFactoryPtr(ucpp.Ptr<SlateBrushAssetFactory>) from ucpp.Ptr<SlateBrushAssetFactory> to ucpp.Ptr<SlateBrushAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: SlateBrushAssetFactory): SlateBrushAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

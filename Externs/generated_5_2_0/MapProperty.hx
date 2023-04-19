@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMapProperty")
-@:structAccess
+@:valueType
 extern class MapProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMapProperty(MapProperty) from MapProperty {
 @:forward
 @:nativeGen
 @:native("MapProperty*")
-abstract MapPropertyPtr(cpp.Star<MapProperty>) from cpp.Star<MapProperty> to cpp.Star<MapProperty>{
+abstract MapPropertyPtr(ucpp.Ptr<MapProperty>) from ucpp.Ptr<MapProperty> to ucpp.Ptr<MapProperty>{
 	@:from
 	public static extern inline function fromValue(v: MapProperty): MapPropertyPtr {
 		return untyped __cpp__("&({0})", v);

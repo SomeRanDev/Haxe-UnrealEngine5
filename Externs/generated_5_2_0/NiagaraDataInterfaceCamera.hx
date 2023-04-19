@@ -3,19 +3,19 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCamera")
 @:include("NiagaraDataInterfaceCamera.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceCamera extends NiagaraDataInterface {
-	public var PlayerControllerIndex: cpp.Int32;
+	public var PlayerControllerIndex: ucpp.num.Int32;
 	public var bRequireCurrentFrameData: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceCamera(NiagaraDataInterfaceCamera) from NiagaraDataInterfaceCamera {
-	public extern var PlayerControllerIndex(get, never): cpp.Int32;
-	public inline extern function get_PlayerControllerIndex(): cpp.Int32 return this.PlayerControllerIndex;
+	public extern var PlayerControllerIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_PlayerControllerIndex(): ucpp.num.Int32 return this.PlayerControllerIndex;
 	public extern var bRequireCurrentFrameData(get, never): Bool;
 	public inline extern function get_bRequireCurrentFrameData(): Bool return this.bRequireCurrentFrameData;
 }
@@ -23,7 +23,7 @@ abstract ConstNiagaraDataInterfaceCamera(NiagaraDataInterfaceCamera) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceCamera*")
-abstract NiagaraDataInterfaceCameraPtr(cpp.Star<NiagaraDataInterfaceCamera>) from cpp.Star<NiagaraDataInterfaceCamera> to cpp.Star<NiagaraDataInterfaceCamera>{
+abstract NiagaraDataInterfaceCameraPtr(ucpp.Ptr<NiagaraDataInterfaceCamera>) from ucpp.Ptr<NiagaraDataInterfaceCamera> to ucpp.Ptr<NiagaraDataInterfaceCamera>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceCamera): NiagaraDataInterfaceCameraPtr {
 		return untyped __cpp__("&({0})", v);

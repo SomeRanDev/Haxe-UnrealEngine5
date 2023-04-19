@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULevelSequenceAnimSequenceLink")
 @:include("LevelSequenceAnimSequenceLink.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceAnimSequenceLink extends AssetUserData {
 	public var AnimSequenceLinks: TArray<LevelSequenceAnimSequenceLinkItem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLevelSequenceAnimSequenceLink(LevelSequenceAnimSequenceLink) from 
 @:forward
 @:nativeGen
 @:native("LevelSequenceAnimSequenceLink*")
-abstract LevelSequenceAnimSequenceLinkPtr(cpp.Star<LevelSequenceAnimSequenceLink>) from cpp.Star<LevelSequenceAnimSequenceLink> to cpp.Star<LevelSequenceAnimSequenceLink>{
+abstract LevelSequenceAnimSequenceLinkPtr(ucpp.Ptr<LevelSequenceAnimSequenceLink>) from ucpp.Ptr<LevelSequenceAnimSequenceLink> to ucpp.Ptr<LevelSequenceAnimSequenceLink>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceAnimSequenceLink): LevelSequenceAnimSequenceLinkPtr {
 		return untyped __cpp__("&({0})", v);

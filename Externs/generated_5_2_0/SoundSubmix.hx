@@ -3,37 +3,37 @@ package ue;
 
 @:native("USoundSubmix")
 @:include("Sound/SoundSubmix.h")
-@:structAccess
+@:valueType
 extern class SoundSubmix extends SoundSubmixWithParentBase {
 	public var bMuteWhenBackgrounded: Bool;
-	public var SubmixEffectChain: TArray<cpp.Star<SoundEffectSubmixPreset>>;
-	public var AmbisonicsPluginSettings: cpp.Star<SoundfieldEncodingSettingsBase>;
-	public var EnvelopeFollowerAttackTime: cpp.Int32;
-	public var EnvelopeFollowerReleaseTime: cpp.Int32;
-	public var OutputVolume: cpp.Float32;
-	public var WetLevel: cpp.Float32;
-	public var DryLevel: cpp.Float32;
+	public var SubmixEffectChain: TArray<ucpp.Ptr<SoundEffectSubmixPreset>>;
+	public var AmbisonicsPluginSettings: ucpp.Ptr<SoundfieldEncodingSettingsBase>;
+	public var EnvelopeFollowerAttackTime: ucpp.num.Int32;
+	public var EnvelopeFollowerReleaseTime: ucpp.num.Int32;
+	public var OutputVolume: ucpp.num.Float32;
+	public var WetLevel: ucpp.num.Float32;
+	public var DryLevel: ucpp.num.Float32;
 	public var OutputVolumeModulation: SoundModulationDestinationSettings;
 	public var WetLevelModulation: SoundModulationDestinationSettings;
 	public var DryLevelModulation: SoundModulationDestinationSettings;
 	public var bSendToAudioLink: Bool;
-	public var AudioLinkSettings: cpp.Star<AudioLinkSettingsAbstract>;
-	public var OnSubmixRecordedFileDone: HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>) -> Void>;
+	public var AudioLinkSettings: ucpp.Ptr<AudioLinkSettingsAbstract>;
+	public var OnSubmixRecordedFileDone: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>) -> Void>;
 
-	public function StopSpectralAnalysis(WorldContextObject: cpp.Star<Object.ConstObject>): Void;
-	public function StopRecordingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, ExportType: EAudioRecordingExportType, Name: FString, Path: FString, ExistingSoundWaveToOverwrite: cpp.Star<SoundWave>): Void;
-	public function StopEnvelopeFollowing(WorldContextObject: cpp.Star<Object.ConstObject>): Void;
-	public function StartSpectralAnalysis(WorldContextObject: cpp.Star<Object.ConstObject>, FFTSize: EFFTSize, InterpolationMethod: EFFTPeakInterpolationMethod, WindowType: EFFTWindowType, HopSize: cpp.Float32, SpectrumType: EAudioSpectrumType): Void;
-	public function StartRecordingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, ExpectedDuration: cpp.Float32): Void;
-	public function StartEnvelopeFollowing(WorldContextObject: cpp.Star<Object.ConstObject>): Void;
-	public function SetSubmixWetLevel(WorldContextObject: cpp.Star<Object.ConstObject>, InWetLevel: cpp.Float32): Void;
-	public function SetSubmixOutputVolume(WorldContextObject: cpp.Star<Object.ConstObject>, InOutputVolume: cpp.Float32): Void;
-	public function SetSubmixDryLevel(WorldContextObject: cpp.Star<Object.ConstObject>, InDryLevel: cpp.Float32): Void;
-	public function RemoveSpectralAnalysisDelegate(WorldContextObject: cpp.Star<Object.ConstObject>, OnSubmixSpectralAnalysisBP: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Float32>>) -> Void>>): Void;
-	public function AddSpectralAnalysisDelegate(WorldContextObject: cpp.Star<Object.ConstObject>, InBandSettings: cpp.Reference<TArray<SoundSubmixSpectralAnalysisBandSettings>>, OnSubmixSpectralAnalysisBP: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Float32>>) -> Void>>, UpdateRate: cpp.Float32, DecibelNoiseFloor: cpp.Float32, bDoNormalize: Bool, bDoAutoRange: Bool, AutoRangeAttackTime: cpp.Float32, AutoRangeReleaseTime: cpp.Float32): Void;
-	public function AddEnvelopeFollowerDelegate(WorldContextObject: cpp.Star<Object.ConstObject>, OnSubmixEnvelopeBP: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Float32>>) -> Void>>): Void;
+	public function StopSpectralAnalysis(WorldContextObject: ucpp.Ptr<Object.ConstObject>): Void;
+	public function StopRecordingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ExportType: EAudioRecordingExportType, Name: FString, Path: FString, ExistingSoundWaveToOverwrite: ucpp.Ptr<SoundWave>): Void;
+	public function StopEnvelopeFollowing(WorldContextObject: ucpp.Ptr<Object.ConstObject>): Void;
+	public function StartSpectralAnalysis(WorldContextObject: ucpp.Ptr<Object.ConstObject>, FFTSize: EFFTSize, InterpolationMethod: EFFTPeakInterpolationMethod, WindowType: EFFTWindowType, HopSize: ucpp.num.Float32, SpectrumType: EAudioSpectrumType): Void;
+	public function StartRecordingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ExpectedDuration: ucpp.num.Float32): Void;
+	public function StartEnvelopeFollowing(WorldContextObject: ucpp.Ptr<Object.ConstObject>): Void;
+	public function SetSubmixWetLevel(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InWetLevel: ucpp.num.Float32): Void;
+	public function SetSubmixOutputVolume(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InOutputVolume: ucpp.num.Float32): Void;
+	public function SetSubmixDryLevel(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InDryLevel: ucpp.num.Float32): Void;
+	public function RemoveSpectralAnalysisDelegate(WorldContextObject: ucpp.Ptr<Object.ConstObject>, OnSubmixSpectralAnalysisBP: ucpp.Ref<HaxeDelegateProperty<(ucpp.Ref<TArray<ucpp.num.Float32>>) -> Void>>): Void;
+	public function AddSpectralAnalysisDelegate(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InBandSettings: ucpp.Ref<TArray<SoundSubmixSpectralAnalysisBandSettings>>, OnSubmixSpectralAnalysisBP: ucpp.Ref<HaxeDelegateProperty<(ucpp.Ref<TArray<ucpp.num.Float32>>) -> Void>>, UpdateRate: ucpp.num.Float32, DecibelNoiseFloor: ucpp.num.Float32, bDoNormalize: Bool, bDoAutoRange: Bool, AutoRangeAttackTime: ucpp.num.Float32, AutoRangeReleaseTime: ucpp.num.Float32): Void;
+	public function AddEnvelopeFollowerDelegate(WorldContextObject: ucpp.Ptr<Object.ConstObject>, OnSubmixEnvelopeBP: ucpp.Ref<HaxeDelegateProperty<(ucpp.Ref<TArray<ucpp.num.Float32>>) -> Void>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,20 +41,20 @@ extern class SoundSubmix extends SoundSubmixWithParentBase {
 abstract ConstSoundSubmix(SoundSubmix) from SoundSubmix {
 	public extern var bMuteWhenBackgrounded(get, never): Bool;
 	public inline extern function get_bMuteWhenBackgrounded(): Bool return this.bMuteWhenBackgrounded;
-	public extern var SubmixEffectChain(get, never): TArray<cpp.Star<SoundEffectSubmixPreset.ConstSoundEffectSubmixPreset>>;
-	public inline extern function get_SubmixEffectChain(): TArray<cpp.Star<SoundEffectSubmixPreset.ConstSoundEffectSubmixPreset>> return this.SubmixEffectChain;
-	public extern var AmbisonicsPluginSettings(get, never): cpp.Star<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase>;
-	public inline extern function get_AmbisonicsPluginSettings(): cpp.Star<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase> return this.AmbisonicsPluginSettings;
-	public extern var EnvelopeFollowerAttackTime(get, never): cpp.Int32;
-	public inline extern function get_EnvelopeFollowerAttackTime(): cpp.Int32 return this.EnvelopeFollowerAttackTime;
-	public extern var EnvelopeFollowerReleaseTime(get, never): cpp.Int32;
-	public inline extern function get_EnvelopeFollowerReleaseTime(): cpp.Int32 return this.EnvelopeFollowerReleaseTime;
-	public extern var OutputVolume(get, never): cpp.Float32;
-	public inline extern function get_OutputVolume(): cpp.Float32 return this.OutputVolume;
-	public extern var WetLevel(get, never): cpp.Float32;
-	public inline extern function get_WetLevel(): cpp.Float32 return this.WetLevel;
-	public extern var DryLevel(get, never): cpp.Float32;
-	public inline extern function get_DryLevel(): cpp.Float32 return this.DryLevel;
+	public extern var SubmixEffectChain(get, never): TArray<ucpp.Ptr<SoundEffectSubmixPreset.ConstSoundEffectSubmixPreset>>;
+	public inline extern function get_SubmixEffectChain(): TArray<ucpp.Ptr<SoundEffectSubmixPreset.ConstSoundEffectSubmixPreset>> return this.SubmixEffectChain;
+	public extern var AmbisonicsPluginSettings(get, never): ucpp.Ptr<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase>;
+	public inline extern function get_AmbisonicsPluginSettings(): ucpp.Ptr<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase> return this.AmbisonicsPluginSettings;
+	public extern var EnvelopeFollowerAttackTime(get, never): ucpp.num.Int32;
+	public inline extern function get_EnvelopeFollowerAttackTime(): ucpp.num.Int32 return this.EnvelopeFollowerAttackTime;
+	public extern var EnvelopeFollowerReleaseTime(get, never): ucpp.num.Int32;
+	public inline extern function get_EnvelopeFollowerReleaseTime(): ucpp.num.Int32 return this.EnvelopeFollowerReleaseTime;
+	public extern var OutputVolume(get, never): ucpp.num.Float32;
+	public inline extern function get_OutputVolume(): ucpp.num.Float32 return this.OutputVolume;
+	public extern var WetLevel(get, never): ucpp.num.Float32;
+	public inline extern function get_WetLevel(): ucpp.num.Float32 return this.WetLevel;
+	public extern var DryLevel(get, never): ucpp.num.Float32;
+	public inline extern function get_DryLevel(): ucpp.num.Float32 return this.DryLevel;
 	public extern var OutputVolumeModulation(get, never): SoundModulationDestinationSettings;
 	public inline extern function get_OutputVolumeModulation(): SoundModulationDestinationSettings return this.OutputVolumeModulation;
 	public extern var WetLevelModulation(get, never): SoundModulationDestinationSettings;
@@ -63,16 +63,16 @@ abstract ConstSoundSubmix(SoundSubmix) from SoundSubmix {
 	public inline extern function get_DryLevelModulation(): SoundModulationDestinationSettings return this.DryLevelModulation;
 	public extern var bSendToAudioLink(get, never): Bool;
 	public inline extern function get_bSendToAudioLink(): Bool return this.bSendToAudioLink;
-	public extern var AudioLinkSettings(get, never): cpp.Star<AudioLinkSettingsAbstract.ConstAudioLinkSettingsAbstract>;
-	public inline extern function get_AudioLinkSettings(): cpp.Star<AudioLinkSettingsAbstract.ConstAudioLinkSettingsAbstract> return this.AudioLinkSettings;
-	public extern var OnSubmixRecordedFileDone(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>) -> Void>;
-	public inline extern function get_OnSubmixRecordedFileDone(): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>) -> Void> return this.OnSubmixRecordedFileDone;
+	public extern var AudioLinkSettings(get, never): ucpp.Ptr<AudioLinkSettingsAbstract.ConstAudioLinkSettingsAbstract>;
+	public inline extern function get_AudioLinkSettings(): ucpp.Ptr<AudioLinkSettingsAbstract.ConstAudioLinkSettingsAbstract> return this.AudioLinkSettings;
+	public extern var OnSubmixRecordedFileDone(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>) -> Void>;
+	public inline extern function get_OnSubmixRecordedFileDone(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>) -> Void> return this.OnSubmixRecordedFileDone;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundSubmix*")
-abstract SoundSubmixPtr(cpp.Star<SoundSubmix>) from cpp.Star<SoundSubmix> to cpp.Star<SoundSubmix>{
+abstract SoundSubmixPtr(ucpp.Ptr<SoundSubmix>) from ucpp.Ptr<SoundSubmix> to ucpp.Ptr<SoundSubmix>{
 	@:from
 	public static extern inline function fromValue(v: SoundSubmix): SoundSubmixPtr {
 		return untyped __cpp__("&({0})", v);

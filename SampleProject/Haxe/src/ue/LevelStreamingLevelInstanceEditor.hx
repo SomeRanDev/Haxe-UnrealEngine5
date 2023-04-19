@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelStreamingLevelInstanceEditor")
 @:include("LevelInstance/LevelInstanceEditorLevelStreaming.h")
-@:structAccess
+@:valueType
 extern class LevelStreamingLevelInstanceEditor extends LevelStreamingAlwaysLoaded {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelStreamingLevelInstanceEditor(LevelStreamingLevelInstanceEdito
 @:forward
 @:nativeGen
 @:native("LevelStreamingLevelInstanceEditor*")
-abstract LevelStreamingLevelInstanceEditorPtr(cpp.Star<LevelStreamingLevelInstanceEditor>) from cpp.Star<LevelStreamingLevelInstanceEditor> to cpp.Star<LevelStreamingLevelInstanceEditor>{
+abstract LevelStreamingLevelInstanceEditorPtr(ucpp.Ptr<LevelStreamingLevelInstanceEditor>) from ucpp.Ptr<LevelStreamingLevelInstanceEditor> to ucpp.Ptr<LevelStreamingLevelInstanceEditor>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreamingLevelInstanceEditor): LevelStreamingLevelInstanceEditorPtr {
 		return untyped __cpp__("&({0})", v);

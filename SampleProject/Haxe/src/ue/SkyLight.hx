@@ -3,14 +3,14 @@ package ue;
 
 @:native("ASkyLight")
 @:include("Engine/SkyLight.h")
-@:structAccess
+@:valueType
 extern class SkyLight extends Info {
-	private var LightComponent: cpp.Star<SkyLightComp>;
+	private var LightComponent: ucpp.Ptr<SkyLightComp>;
 	public var bEnabled: Bool;
 
 	public function OnRep_bEnabled(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSkyLight(SkyLight) from SkyLight {
 @:forward
 @:nativeGen
 @:native("SkyLight*")
-abstract SkyLightPtr(cpp.Star<SkyLight>) from cpp.Star<SkyLight> to cpp.Star<SkyLight>{
+abstract SkyLightPtr(ucpp.Ptr<SkyLight>) from ucpp.Ptr<SkyLight> to ucpp.Ptr<SkyLight>{
 	@:from
 	public static extern inline function fromValue(v: SkyLight): SkyLightPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInputDeviceTriggerResistanceProperty")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class InputDeviceTriggerResistanceProperty extends InputDeviceTriggerEffect {
 	@:protected public var TriggerData: DeviceTriggerTriggerResistanceData;
 	@:protected public var DeviceOverrideData: TMap<FName, DeviceTriggerTriggerResistanceData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstInputDeviceTriggerResistanceProperty(InputDeviceTriggerResistanceP
 @:forward
 @:nativeGen
 @:native("InputDeviceTriggerResistanceProperty*")
-abstract InputDeviceTriggerResistancePropertyPtr(cpp.Star<InputDeviceTriggerResistanceProperty>) from cpp.Star<InputDeviceTriggerResistanceProperty> to cpp.Star<InputDeviceTriggerResistanceProperty>{
+abstract InputDeviceTriggerResistancePropertyPtr(ucpp.Ptr<InputDeviceTriggerResistanceProperty>) from ucpp.Ptr<InputDeviceTriggerResistanceProperty> to ucpp.Ptr<InputDeviceTriggerResistanceProperty>{
 	@:from
 	public static extern inline function fromValue(v: InputDeviceTriggerResistanceProperty): InputDeviceTriggerResistancePropertyPtr {
 		return untyped __cpp__("&({0})", v);

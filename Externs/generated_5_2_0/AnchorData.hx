@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnchorData")
 @:include("Components/CanvasPanelSlot.h")
-@:structAccess
+@:valueType
 extern class AnchorData {
 	public var Offsets: Margin;
 	public var Anchors: Anchors;

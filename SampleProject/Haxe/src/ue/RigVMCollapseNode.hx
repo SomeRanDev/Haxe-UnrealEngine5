@@ -3,14 +3,14 @@ package ue;
 
 @:native("URigVMCollapseNode")
 @:include("RigVMModel/Nodes/RigVMCollapseNode.h")
-@:structAccess
+@:valueType
 extern class RigVMCollapseNode extends RigVMLibraryNode {
-	private var ContainedGraph: cpp.Star<RigVMGraph>;
+	private var ContainedGraph: ucpp.Ptr<RigVMGraph>;
 	private var NodeCategory: FString;
 	private var NodeKeywords: FString;
 	private var NodeDescription: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstRigVMCollapseNode(RigVMCollapseNode) from RigVMCollapseNode {
 @:forward
 @:nativeGen
 @:native("RigVMCollapseNode*")
-abstract RigVMCollapseNodePtr(cpp.Star<RigVMCollapseNode>) from cpp.Star<RigVMCollapseNode> to cpp.Star<RigVMCollapseNode>{
+abstract RigVMCollapseNodePtr(ucpp.Ptr<RigVMCollapseNode>) from ucpp.Ptr<RigVMCollapseNode> to ucpp.Ptr<RigVMCollapseNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMCollapseNode): RigVMCollapseNodePtr {
 		return untyped __cpp__("&({0})", v);

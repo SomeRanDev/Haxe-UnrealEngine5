@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLinkedAnimGraphReference")
 @:include("LinkedAnimGraphLibrary.h")
-@:structAccess
+@:valueType
 extern class LinkedAnimGraphReference extends AnimNodeReference {
 	@:native("FLinkedAnimGraphReference") public function new();
 }

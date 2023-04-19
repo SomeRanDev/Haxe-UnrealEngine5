@@ -3,27 +3,27 @@ package ue;
 
 @:native("UFbxFactory")
 @:include("Factories/FbxFactory.h")
-@:structAccess
+@:valueType
 extern class FbxFactory extends Factory {
-	public var ImportUI: cpp.Star<FbxImportUI>;
-	public var OriginalImportUI: cpp.Star<FbxImportUI>;
+	public var ImportUI: ucpp.Ptr<FbxImportUI>;
+	public var OriginalImportUI: ucpp.Ptr<FbxImportUI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFbxFactory(FbxFactory) from FbxFactory {
-	public extern var ImportUI(get, never): cpp.Star<FbxImportUI.ConstFbxImportUI>;
-	public inline extern function get_ImportUI(): cpp.Star<FbxImportUI.ConstFbxImportUI> return this.ImportUI;
-	public extern var OriginalImportUI(get, never): cpp.Star<FbxImportUI.ConstFbxImportUI>;
-	public inline extern function get_OriginalImportUI(): cpp.Star<FbxImportUI.ConstFbxImportUI> return this.OriginalImportUI;
+	public extern var ImportUI(get, never): ucpp.Ptr<FbxImportUI.ConstFbxImportUI>;
+	public inline extern function get_ImportUI(): ucpp.Ptr<FbxImportUI.ConstFbxImportUI> return this.ImportUI;
+	public extern var OriginalImportUI(get, never): ucpp.Ptr<FbxImportUI.ConstFbxImportUI>;
+	public inline extern function get_OriginalImportUI(): ucpp.Ptr<FbxImportUI.ConstFbxImportUI> return this.OriginalImportUI;
 }
 
 @:forward
 @:nativeGen
 @:native("FbxFactory*")
-abstract FbxFactoryPtr(cpp.Star<FbxFactory>) from cpp.Star<FbxFactory> to cpp.Star<FbxFactory>{
+abstract FbxFactoryPtr(ucpp.Ptr<FbxFactory>) from ucpp.Ptr<FbxFactory> to ucpp.Ptr<FbxFactory>{
 	@:from
 	public static extern inline function fromValue(v: FbxFactory): FbxFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USaveGame")
 @:include("GameFramework/SaveGame.h")
-@:structAccess
+@:valueType
 extern class SaveGame extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSaveGame(SaveGame) from SaveGame {
 @:forward
 @:nativeGen
 @:native("SaveGame*")
-abstract SaveGamePtr(cpp.Star<SaveGame>) from cpp.Star<SaveGame> to cpp.Star<SaveGame>{
+abstract SaveGamePtr(ucpp.Ptr<SaveGame>) from ucpp.Ptr<SaveGame> to ucpp.Ptr<SaveGame>{
 	@:from
 	public static extern inline function fromValue(v: SaveGame): SaveGamePtr {
 		return untyped __cpp__("&({0})", v);

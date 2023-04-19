@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetBakeOptions")
 @:include("MaterialOptions.h")
-@:structAccess
+@:valueType
 extern class AssetBakeOptions extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetBakeOptions(AssetBakeOptions) from AssetBakeOptions {
 @:forward
 @:nativeGen
 @:native("AssetBakeOptions*")
-abstract AssetBakeOptionsPtr(cpp.Star<AssetBakeOptions>) from cpp.Star<AssetBakeOptions> to cpp.Star<AssetBakeOptions>{
+abstract AssetBakeOptionsPtr(ucpp.Ptr<AssetBakeOptions>) from ucpp.Ptr<AssetBakeOptions> to ucpp.Ptr<AssetBakeOptions>{
 	@:from
 	public static extern inline function fromValue(v: AssetBakeOptions): AssetBakeOptionsPtr {
 		return untyped __cpp__("&({0})", v);

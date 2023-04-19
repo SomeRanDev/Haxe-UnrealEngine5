@@ -3,46 +3,46 @@ package ue;
 
 @:native("UPaperTerrainComponent")
 @:include("PaperTerrainComponent.h")
-@:structAccess
+@:valueType
 extern class PaperTerrainComp extends PrimitiveComp {
-	public var TerrainMaterial: cpp.Star<PaperTerrainMaterial>;
+	public var TerrainMaterial: ucpp.Ptr<PaperTerrainMaterial>;
 	public var bClosedSpline: Bool;
 	public var bFilledSpline: Bool;
-	public var AssociatedSpline: cpp.Star<PaperTerrainSplineComp>;
-	public var RandomSeed: cpp.Int32;
-	public var SegmentOverlapAmount: cpp.Float32;
+	public var AssociatedSpline: ucpp.Ptr<PaperTerrainSplineComp>;
+	public var RandomSeed: ucpp.num.Int32;
+	public var SegmentOverlapAmount: ucpp.num.Float32;
 	@:protected public var TerrainColor: LinearColor;
-	@:protected public var ReparamStepsPerSegment: cpp.Int32;
+	@:protected public var ReparamStepsPerSegment: ucpp.num.Int32;
 	@:protected public var SpriteCollisionDomain: TEnumAsByte<ESpriteCollisionMode>;
-	@:protected public var CollisionThickness: cpp.Float32;
-	@:protected public var CachedBodySetup: cpp.Star<BodySetup>;
+	@:protected public var CollisionThickness: ucpp.num.Float32;
+	@:protected public var CachedBodySetup: ucpp.Ptr<BodySetup>;
 
 	public function SetTerrainColor(NewColor: LinearColor): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPaperTerrainComp(PaperTerrainComp) from PaperTerrainComp {
-	public extern var TerrainMaterial(get, never): cpp.Star<PaperTerrainMaterial.ConstPaperTerrainMaterial>;
-	public inline extern function get_TerrainMaterial(): cpp.Star<PaperTerrainMaterial.ConstPaperTerrainMaterial> return this.TerrainMaterial;
+	public extern var TerrainMaterial(get, never): ucpp.Ptr<PaperTerrainMaterial.ConstPaperTerrainMaterial>;
+	public inline extern function get_TerrainMaterial(): ucpp.Ptr<PaperTerrainMaterial.ConstPaperTerrainMaterial> return this.TerrainMaterial;
 	public extern var bClosedSpline(get, never): Bool;
 	public inline extern function get_bClosedSpline(): Bool return this.bClosedSpline;
 	public extern var bFilledSpline(get, never): Bool;
 	public inline extern function get_bFilledSpline(): Bool return this.bFilledSpline;
-	public extern var AssociatedSpline(get, never): cpp.Star<PaperTerrainSplineComp.ConstPaperTerrainSplineComp>;
-	public inline extern function get_AssociatedSpline(): cpp.Star<PaperTerrainSplineComp.ConstPaperTerrainSplineComp> return this.AssociatedSpline;
-	public extern var RandomSeed(get, never): cpp.Int32;
-	public inline extern function get_RandomSeed(): cpp.Int32 return this.RandomSeed;
-	public extern var SegmentOverlapAmount(get, never): cpp.Float32;
-	public inline extern function get_SegmentOverlapAmount(): cpp.Float32 return this.SegmentOverlapAmount;
+	public extern var AssociatedSpline(get, never): ucpp.Ptr<PaperTerrainSplineComp.ConstPaperTerrainSplineComp>;
+	public inline extern function get_AssociatedSpline(): ucpp.Ptr<PaperTerrainSplineComp.ConstPaperTerrainSplineComp> return this.AssociatedSpline;
+	public extern var RandomSeed(get, never): ucpp.num.Int32;
+	public inline extern function get_RandomSeed(): ucpp.num.Int32 return this.RandomSeed;
+	public extern var SegmentOverlapAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_SegmentOverlapAmount(): ucpp.num.Float32 return this.SegmentOverlapAmount;
 }
 
 @:forward
 @:nativeGen
 @:native("PaperTerrainComp*")
-abstract PaperTerrainCompPtr(cpp.Star<PaperTerrainComp>) from cpp.Star<PaperTerrainComp> to cpp.Star<PaperTerrainComp>{
+abstract PaperTerrainCompPtr(ucpp.Ptr<PaperTerrainComp>) from ucpp.Ptr<PaperTerrainComp> to ucpp.Ptr<PaperTerrainComp>{
 	@:from
 	public static extern inline function fromValue(v: PaperTerrainComp): PaperTerrainCompPtr {
 		return untyped __cpp__("&({0})", v);

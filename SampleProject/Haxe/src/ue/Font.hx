@@ -3,26 +3,26 @@ package ue;
 
 @:native("UFont")
 @:include("Engine/Font.h")
-@:structAccess
+@:valueType
 extern class Font extends Object {
 	public var FontCacheType: EFontCacheType;
 	public var Characters: TArray<FontCharacter>;
-	public var Textures: TArray<cpp.Star<Texture2D>>;
-	public var IsRemapped: cpp.Int32;
-	public var EmScale: cpp.Float32;
-	public var Ascent: cpp.Float32;
-	public var Descent: cpp.Float32;
-	public var Leading: cpp.Float32;
-	public var Kerning: cpp.Int32;
+	public var Textures: TArray<ucpp.Ptr<Texture2D>>;
+	public var IsRemapped: ucpp.num.Int32;
+	public var EmScale: ucpp.num.Float32;
+	public var Ascent: ucpp.num.Float32;
+	public var Descent: ucpp.num.Float32;
+	public var Leading: ucpp.num.Float32;
+	public var Kerning: ucpp.num.Int32;
 	public var ImportOptions: FontImportOptionsData;
-	public var NumCharacters: cpp.Int32;
-	public var MaxCharHeight: TArray<cpp.Int32>;
-	public var ScalingFactor: cpp.Float32;
-	public var LegacyFontSize: cpp.Int32;
+	public var NumCharacters: ucpp.num.Int32;
+	public var MaxCharHeight: TArray<ucpp.num.Int32>;
+	public var ScalingFactor: ucpp.num.Float32;
+	public var LegacyFontSize: ucpp.num.Int32;
 	public var LegacyFontName: FName;
 	public var CompositeFont: CompositeFont;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,30 +32,30 @@ abstract ConstFont(Font) from Font {
 	public inline extern function get_FontCacheType(): EFontCacheType return this.FontCacheType;
 	public extern var Characters(get, never): TArray<FontCharacter>;
 	public inline extern function get_Characters(): TArray<FontCharacter> return this.Characters;
-	public extern var Textures(get, never): TArray<cpp.Star<Texture2D.ConstTexture2D>>;
-	public inline extern function get_Textures(): TArray<cpp.Star<Texture2D.ConstTexture2D>> return this.Textures;
-	public extern var IsRemapped(get, never): cpp.Int32;
-	public inline extern function get_IsRemapped(): cpp.Int32 return this.IsRemapped;
-	public extern var EmScale(get, never): cpp.Float32;
-	public inline extern function get_EmScale(): cpp.Float32 return this.EmScale;
-	public extern var Ascent(get, never): cpp.Float32;
-	public inline extern function get_Ascent(): cpp.Float32 return this.Ascent;
-	public extern var Descent(get, never): cpp.Float32;
-	public inline extern function get_Descent(): cpp.Float32 return this.Descent;
-	public extern var Leading(get, never): cpp.Float32;
-	public inline extern function get_Leading(): cpp.Float32 return this.Leading;
-	public extern var Kerning(get, never): cpp.Int32;
-	public inline extern function get_Kerning(): cpp.Int32 return this.Kerning;
+	public extern var Textures(get, never): TArray<ucpp.Ptr<Texture2D.ConstTexture2D>>;
+	public inline extern function get_Textures(): TArray<ucpp.Ptr<Texture2D.ConstTexture2D>> return this.Textures;
+	public extern var IsRemapped(get, never): ucpp.num.Int32;
+	public inline extern function get_IsRemapped(): ucpp.num.Int32 return this.IsRemapped;
+	public extern var EmScale(get, never): ucpp.num.Float32;
+	public inline extern function get_EmScale(): ucpp.num.Float32 return this.EmScale;
+	public extern var Ascent(get, never): ucpp.num.Float32;
+	public inline extern function get_Ascent(): ucpp.num.Float32 return this.Ascent;
+	public extern var Descent(get, never): ucpp.num.Float32;
+	public inline extern function get_Descent(): ucpp.num.Float32 return this.Descent;
+	public extern var Leading(get, never): ucpp.num.Float32;
+	public inline extern function get_Leading(): ucpp.num.Float32 return this.Leading;
+	public extern var Kerning(get, never): ucpp.num.Int32;
+	public inline extern function get_Kerning(): ucpp.num.Int32 return this.Kerning;
 	public extern var ImportOptions(get, never): FontImportOptionsData;
 	public inline extern function get_ImportOptions(): FontImportOptionsData return this.ImportOptions;
-	public extern var NumCharacters(get, never): cpp.Int32;
-	public inline extern function get_NumCharacters(): cpp.Int32 return this.NumCharacters;
-	public extern var MaxCharHeight(get, never): TArray<cpp.Int32>;
-	public inline extern function get_MaxCharHeight(): TArray<cpp.Int32> return this.MaxCharHeight;
-	public extern var ScalingFactor(get, never): cpp.Float32;
-	public inline extern function get_ScalingFactor(): cpp.Float32 return this.ScalingFactor;
-	public extern var LegacyFontSize(get, never): cpp.Int32;
-	public inline extern function get_LegacyFontSize(): cpp.Int32 return this.LegacyFontSize;
+	public extern var NumCharacters(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCharacters(): ucpp.num.Int32 return this.NumCharacters;
+	public extern var MaxCharHeight(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_MaxCharHeight(): TArray<ucpp.num.Int32> return this.MaxCharHeight;
+	public extern var ScalingFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_ScalingFactor(): ucpp.num.Float32 return this.ScalingFactor;
+	public extern var LegacyFontSize(get, never): ucpp.num.Int32;
+	public inline extern function get_LegacyFontSize(): ucpp.num.Int32 return this.LegacyFontSize;
 	public extern var LegacyFontName(get, never): FName;
 	public inline extern function get_LegacyFontName(): FName return this.LegacyFontName;
 	public extern var CompositeFont(get, never): CompositeFont;
@@ -65,7 +65,7 @@ abstract ConstFont(Font) from Font {
 @:forward
 @:nativeGen
 @:native("Font*")
-abstract FontPtr(cpp.Star<Font>) from cpp.Star<Font> to cpp.Star<Font>{
+abstract FontPtr(ucpp.Ptr<Font>) from ucpp.Ptr<Font> to ucpp.Ptr<Font>{
 	@:from
 	public static extern inline function fromValue(v: Font): FontPtr {
 		return untyped __cpp__("&({0})", v);

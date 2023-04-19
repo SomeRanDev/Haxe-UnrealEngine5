@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeParameterMapBase")
 @:include("NiagaraNodeParameterMapBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeParameterMapBase extends NiagaraNodeWithDynamicPins {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraNodeParameterMapBase(NiagaraNodeParameterMapBase) from Niag
 @:forward
 @:nativeGen
 @:native("NiagaraNodeParameterMapBase*")
-abstract NiagaraNodeParameterMapBasePtr(cpp.Star<NiagaraNodeParameterMapBase>) from cpp.Star<NiagaraNodeParameterMapBase> to cpp.Star<NiagaraNodeParameterMapBase>{
+abstract NiagaraNodeParameterMapBasePtr(ucpp.Ptr<NiagaraNodeParameterMapBase>) from ucpp.Ptr<NiagaraNodeParameterMapBase> to ucpp.Ptr<NiagaraNodeParameterMapBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeParameterMapBase): NiagaraNodeParameterMapBasePtr {
 		return untyped __cpp__("&({0})", v);

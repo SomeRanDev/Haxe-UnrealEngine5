@@ -3,42 +3,42 @@ package ue;
 
 @:native("UTestBTTask_LatentWithFlags")
 @:include("BehaviorTree/TestBTTask_LatentWithFlags.h")
-@:structAccess
+@:valueType
 extern class TestBTTask_LatentWithFlags extends BTTaskNode {
-	public var LogIndexExecuteStart: cpp.Int32;
-	public var LogIndexExecuting: cpp.Int32;
-	public var LogIndexExecuteFinish: cpp.Int32;
-	public var LogIndexAbortStart: cpp.Int32;
-	public var LogIndexAborting: cpp.Int32;
-	public var LogIndexAbortFinish: cpp.Int32;
-	public var ExecuteHalfTicks: cpp.Int32;
-	public var AbortHalfTicks: cpp.Int32;
+	public var LogIndexExecuteStart: ucpp.num.Int32;
+	public var LogIndexExecuting: ucpp.num.Int32;
+	public var LogIndexExecuteFinish: ucpp.num.Int32;
+	public var LogIndexAbortStart: ucpp.num.Int32;
+	public var LogIndexAborting: ucpp.num.Int32;
+	public var LogIndexAbortFinish: ucpp.num.Int32;
+	public var ExecuteHalfTicks: ucpp.num.Int32;
+	public var AbortHalfTicks: ucpp.num.Int32;
 	public var KeyNameExecute: FName;
 	public var KeyNameAbort: FName;
 	public var LogResult: TEnumAsByte<EBTNodeResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTestBTTask_LatentWithFlags(TestBTTask_LatentWithFlags) from TestBTTask_LatentWithFlags {
-	public extern var LogIndexExecuteStart(get, never): cpp.Int32;
-	public inline extern function get_LogIndexExecuteStart(): cpp.Int32 return this.LogIndexExecuteStart;
-	public extern var LogIndexExecuting(get, never): cpp.Int32;
-	public inline extern function get_LogIndexExecuting(): cpp.Int32 return this.LogIndexExecuting;
-	public extern var LogIndexExecuteFinish(get, never): cpp.Int32;
-	public inline extern function get_LogIndexExecuteFinish(): cpp.Int32 return this.LogIndexExecuteFinish;
-	public extern var LogIndexAbortStart(get, never): cpp.Int32;
-	public inline extern function get_LogIndexAbortStart(): cpp.Int32 return this.LogIndexAbortStart;
-	public extern var LogIndexAborting(get, never): cpp.Int32;
-	public inline extern function get_LogIndexAborting(): cpp.Int32 return this.LogIndexAborting;
-	public extern var LogIndexAbortFinish(get, never): cpp.Int32;
-	public inline extern function get_LogIndexAbortFinish(): cpp.Int32 return this.LogIndexAbortFinish;
-	public extern var ExecuteHalfTicks(get, never): cpp.Int32;
-	public inline extern function get_ExecuteHalfTicks(): cpp.Int32 return this.ExecuteHalfTicks;
-	public extern var AbortHalfTicks(get, never): cpp.Int32;
-	public inline extern function get_AbortHalfTicks(): cpp.Int32 return this.AbortHalfTicks;
+	public extern var LogIndexExecuteStart(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexExecuteStart(): ucpp.num.Int32 return this.LogIndexExecuteStart;
+	public extern var LogIndexExecuting(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexExecuting(): ucpp.num.Int32 return this.LogIndexExecuting;
+	public extern var LogIndexExecuteFinish(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexExecuteFinish(): ucpp.num.Int32 return this.LogIndexExecuteFinish;
+	public extern var LogIndexAbortStart(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexAbortStart(): ucpp.num.Int32 return this.LogIndexAbortStart;
+	public extern var LogIndexAborting(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexAborting(): ucpp.num.Int32 return this.LogIndexAborting;
+	public extern var LogIndexAbortFinish(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexAbortFinish(): ucpp.num.Int32 return this.LogIndexAbortFinish;
+	public extern var ExecuteHalfTicks(get, never): ucpp.num.Int32;
+	public inline extern function get_ExecuteHalfTicks(): ucpp.num.Int32 return this.ExecuteHalfTicks;
+	public extern var AbortHalfTicks(get, never): ucpp.num.Int32;
+	public inline extern function get_AbortHalfTicks(): ucpp.num.Int32 return this.AbortHalfTicks;
 	public extern var KeyNameExecute(get, never): FName;
 	public inline extern function get_KeyNameExecute(): FName return this.KeyNameExecute;
 	public extern var KeyNameAbort(get, never): FName;
@@ -50,7 +50,7 @@ abstract ConstTestBTTask_LatentWithFlags(TestBTTask_LatentWithFlags) from TestBT
 @:forward
 @:nativeGen
 @:native("TestBTTask_LatentWithFlags*")
-abstract TestBTTask_LatentWithFlagsPtr(cpp.Star<TestBTTask_LatentWithFlags>) from cpp.Star<TestBTTask_LatentWithFlags> to cpp.Star<TestBTTask_LatentWithFlags>{
+abstract TestBTTask_LatentWithFlagsPtr(ucpp.Ptr<TestBTTask_LatentWithFlags>) from ucpp.Ptr<TestBTTask_LatentWithFlags> to ucpp.Ptr<TestBTTask_LatentWithFlags>{
 	@:from
 	public static extern inline function fromValue(v: TestBTTask_LatentWithFlags): TestBTTask_LatentWithFlagsPtr {
 		return untyped __cpp__("&({0})", v);

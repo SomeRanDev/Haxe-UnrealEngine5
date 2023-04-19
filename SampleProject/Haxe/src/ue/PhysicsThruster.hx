@@ -3,11 +3,11 @@ package ue;
 
 @:native("APhysicsThruster")
 @:include("PhysicsEngine/PhysicsThruster.h")
-@:structAccess
+@:valueType
 extern class PhysicsThruster extends RigidBodyBase {
-	private var ThrusterComponent: cpp.Star<PhysicsThrusterComp>;
+	private var ThrusterComponent: ucpp.Ptr<PhysicsThrusterComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPhysicsThruster(PhysicsThruster) from PhysicsThruster {
 @:forward
 @:nativeGen
 @:native("PhysicsThruster*")
-abstract PhysicsThrusterPtr(cpp.Star<PhysicsThruster>) from cpp.Star<PhysicsThruster> to cpp.Star<PhysicsThruster>{
+abstract PhysicsThrusterPtr(ucpp.Ptr<PhysicsThruster>) from ucpp.Ptr<PhysicsThruster> to ucpp.Ptr<PhysicsThruster>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsThruster): PhysicsThrusterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,22 @@ package ue;
 
 @:native("UMovieSceneCVarSection")
 @:include("Sections/MovieSceneCVarSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCVarSection extends MovieSceneSection {
+	public var ConsoleVariableCollections: TArray<MovieSceneConsoleVariableCollection>;
 	public var ConsoleVariables: MovieSceneCVarOverrides;
 
 	public function SetFromString(InString: FString): Void;
 	public function GetString(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetString)
 @:nativeGen
 abstract ConstMovieSceneCVarSection(MovieSceneCVarSection) from MovieSceneCVarSection {
+	public extern var ConsoleVariableCollections(get, never): TArray<MovieSceneConsoleVariableCollection>;
+	public inline extern function get_ConsoleVariableCollections(): TArray<MovieSceneConsoleVariableCollection> return this.ConsoleVariableCollections;
 	public extern var ConsoleVariables(get, never): MovieSceneCVarOverrides;
 	public inline extern function get_ConsoleVariables(): MovieSceneCVarOverrides return this.ConsoleVariables;
 }
@@ -23,7 +26,7 @@ abstract ConstMovieSceneCVarSection(MovieSceneCVarSection) from MovieSceneCVarSe
 @:forward
 @:nativeGen
 @:native("MovieSceneCVarSection*")
-abstract MovieSceneCVarSectionPtr(cpp.Star<MovieSceneCVarSection>) from cpp.Star<MovieSceneCVarSection> to cpp.Star<MovieSceneCVarSection>{
+abstract MovieSceneCVarSectionPtr(ucpp.Ptr<MovieSceneCVarSection>) from ucpp.Ptr<MovieSceneCVarSection> to ucpp.Ptr<MovieSceneCVarSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCVarSection): MovieSceneCVarSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,23 +3,23 @@ package ue;
 
 @:native("ULineSplineGenerator")
 @:include("SplineGeneratorPanel.h")
-@:structAccess
+@:valueType
 extern class LineSplineGenerator extends SplineGeneratorBase {
-	public var NumberOfPoints: cpp.Int32;
-	public var Length: cpp.Float32;
+	public var NumberOfPoints: ucpp.num.Int32;
+	public var Length: ucpp.num.Float64;
 	public var bEnableUpToNextPoint: Bool;
 	public var bUpToNextPoint: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLineSplineGenerator(LineSplineGenerator) from LineSplineGenerator {
-	public extern var NumberOfPoints(get, never): cpp.Int32;
-	public inline extern function get_NumberOfPoints(): cpp.Int32 return this.NumberOfPoints;
-	public extern var Length(get, never): cpp.Float32;
-	public inline extern function get_Length(): cpp.Float32 return this.Length;
+	public extern var NumberOfPoints(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberOfPoints(): ucpp.num.Int32 return this.NumberOfPoints;
+	public extern var Length(get, never): ucpp.num.Float64;
+	public inline extern function get_Length(): ucpp.num.Float64 return this.Length;
 	public extern var bEnableUpToNextPoint(get, never): Bool;
 	public inline extern function get_bEnableUpToNextPoint(): Bool return this.bEnableUpToNextPoint;
 	public extern var bUpToNextPoint(get, never): Bool;
@@ -29,7 +29,7 @@ abstract ConstLineSplineGenerator(LineSplineGenerator) from LineSplineGenerator 
 @:forward
 @:nativeGen
 @:native("LineSplineGenerator*")
-abstract LineSplineGeneratorPtr(cpp.Star<LineSplineGenerator>) from cpp.Star<LineSplineGenerator> to cpp.Star<LineSplineGenerator>{
+abstract LineSplineGeneratorPtr(ucpp.Ptr<LineSplineGenerator>) from ucpp.Ptr<LineSplineGenerator> to ucpp.Ptr<LineSplineGenerator>{
 	@:from
 	public static extern inline function fromValue(v: LineSplineGenerator): LineSplineGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

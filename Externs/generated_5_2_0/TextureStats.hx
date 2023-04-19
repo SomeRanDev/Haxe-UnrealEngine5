@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTextureStats")
 @:include("TextureStats.h")
-@:structAccess
+@:valueType
 extern class TextureStats extends Object {
 	public var Texture: TWeakObjectPtr<Texture>;
 	public var Actors: TArray<TWeakObjectPtr<Actor>>;
@@ -13,14 +13,14 @@ extern class TextureStats extends Object {
 	public var CurrentDim: Vector2D;
 	public var Format: TEnumAsByte<EPixelFormat>;
 	public var Group: TEnumAsByte<TextureGroup>;
-	public var LODBias: cpp.Int32;
-	public var CurrentKB: cpp.Float32;
-	public var FullyLoadedKB: cpp.Float32;
-	public var NumUses: cpp.Int32;
-	public var LastTimeRendered: cpp.Float32;
+	public var LODBias: ucpp.num.Int32;
+	public var CurrentKB: ucpp.num.Float32;
+	public var FullyLoadedKB: ucpp.num.Float32;
+	public var NumUses: ucpp.num.Int32;
+	public var LastTimeRendered: ucpp.num.Float32;
 	public var Path: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -42,16 +42,16 @@ abstract ConstTextureStats(TextureStats) from TextureStats {
 	public inline extern function get_Format(): TEnumAsByte<EPixelFormat> return this.Format;
 	public extern var Group(get, never): TEnumAsByte<TextureGroup>;
 	public inline extern function get_Group(): TEnumAsByte<TextureGroup> return this.Group;
-	public extern var LODBias(get, never): cpp.Int32;
-	public inline extern function get_LODBias(): cpp.Int32 return this.LODBias;
-	public extern var CurrentKB(get, never): cpp.Float32;
-	public inline extern function get_CurrentKB(): cpp.Float32 return this.CurrentKB;
-	public extern var FullyLoadedKB(get, never): cpp.Float32;
-	public inline extern function get_FullyLoadedKB(): cpp.Float32 return this.FullyLoadedKB;
-	public extern var NumUses(get, never): cpp.Int32;
-	public inline extern function get_NumUses(): cpp.Int32 return this.NumUses;
-	public extern var LastTimeRendered(get, never): cpp.Float32;
-	public inline extern function get_LastTimeRendered(): cpp.Float32 return this.LastTimeRendered;
+	public extern var LODBias(get, never): ucpp.num.Int32;
+	public inline extern function get_LODBias(): ucpp.num.Int32 return this.LODBias;
+	public extern var CurrentKB(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentKB(): ucpp.num.Float32 return this.CurrentKB;
+	public extern var FullyLoadedKB(get, never): ucpp.num.Float32;
+	public inline extern function get_FullyLoadedKB(): ucpp.num.Float32 return this.FullyLoadedKB;
+	public extern var NumUses(get, never): ucpp.num.Int32;
+	public inline extern function get_NumUses(): ucpp.num.Int32 return this.NumUses;
+	public extern var LastTimeRendered(get, never): ucpp.num.Float32;
+	public inline extern function get_LastTimeRendered(): ucpp.num.Float32 return this.LastTimeRendered;
 	public extern var Path(get, never): FString;
 	public inline extern function get_Path(): FString return this.Path;
 }
@@ -59,7 +59,7 @@ abstract ConstTextureStats(TextureStats) from TextureStats {
 @:forward
 @:nativeGen
 @:native("TextureStats*")
-abstract TextureStatsPtr(cpp.Star<TextureStats>) from cpp.Star<TextureStats> to cpp.Star<TextureStats>{
+abstract TextureStatsPtr(ucpp.Ptr<TextureStats>) from ucpp.Ptr<TextureStats> to ucpp.Ptr<TextureStats>{
 	@:from
 	public static extern inline function fromValue(v: TextureStats): TextureStatsPtr {
 		return untyped __cpp__("&({0})", v);

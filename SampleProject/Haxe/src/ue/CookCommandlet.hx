@@ -3,24 +3,21 @@ package ue;
 
 @:native("UCookCommandlet")
 @:include("Commandlets/CookCommandlet.h")
-@:structAccess
+@:valueType
 extern class CookCommandlet extends Commandlet {
-	public var FullGCAssetClassNames: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCookCommandlet(CookCommandlet) from CookCommandlet {
-	public extern var FullGCAssetClassNames(get, never): TArray<FString>;
-	public inline extern function get_FullGCAssetClassNames(): TArray<FString> return this.FullGCAssetClassNames;
 }
 
 @:forward
 @:nativeGen
 @:native("CookCommandlet*")
-abstract CookCommandletPtr(cpp.Star<CookCommandlet>) from cpp.Star<CookCommandlet> to cpp.Star<CookCommandlet>{
+abstract CookCommandletPtr(ucpp.Ptr<CookCommandlet>) from ucpp.Ptr<CookCommandlet> to ucpp.Ptr<CookCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: CookCommandlet): CookCommandletPtr {
 		return untyped __cpp__("&({0})", v);

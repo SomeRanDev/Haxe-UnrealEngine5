@@ -3,10 +3,10 @@ package ue;
 
 @:native("UShaderCodeLibraryToolsCommandlet")
 @:include("Commandlets/ShaderCodeLibraryToolsCommandlet.h")
-@:structAccess
+@:valueType
 extern class ShaderCodeLibraryToolsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstShaderCodeLibraryToolsCommandlet(ShaderCodeLibraryToolsCommandlet)
 @:forward
 @:nativeGen
 @:native("ShaderCodeLibraryToolsCommandlet*")
-abstract ShaderCodeLibraryToolsCommandletPtr(cpp.Star<ShaderCodeLibraryToolsCommandlet>) from cpp.Star<ShaderCodeLibraryToolsCommandlet> to cpp.Star<ShaderCodeLibraryToolsCommandlet>{
+abstract ShaderCodeLibraryToolsCommandletPtr(ucpp.Ptr<ShaderCodeLibraryToolsCommandlet>) from ucpp.Ptr<ShaderCodeLibraryToolsCommandlet> to ucpp.Ptr<ShaderCodeLibraryToolsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ShaderCodeLibraryToolsCommandlet): ShaderCodeLibraryToolsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMouseCaptureBeginEventSynth2D__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMouseCaptureBeginEventSynth2D__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMouseCaptureBeginEventSynth2D__PythonCallable(OnMouseCaptureBegi
 @:forward
 @:nativeGen
 @:native("OnMouseCaptureBeginEventSynth2D__PythonCallable*")
-abstract OnMouseCaptureBeginEventSynth2D__PythonCallablePtr(cpp.Star<OnMouseCaptureBeginEventSynth2D__PythonCallable>) from cpp.Star<OnMouseCaptureBeginEventSynth2D__PythonCallable> to cpp.Star<OnMouseCaptureBeginEventSynth2D__PythonCallable>{
+abstract OnMouseCaptureBeginEventSynth2D__PythonCallablePtr(ucpp.Ptr<OnMouseCaptureBeginEventSynth2D__PythonCallable>) from ucpp.Ptr<OnMouseCaptureBeginEventSynth2D__PythonCallable> to ucpp.Ptr<OnMouseCaptureBeginEventSynth2D__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMouseCaptureBeginEventSynth2D__PythonCallable): OnMouseCaptureBeginEventSynth2D__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,31 +3,31 @@ package ue;
 
 @:native("AEmitter")
 @:include("Particles/Emitter.h")
-@:structAccess
+@:valueType
 extern class Emitter extends Actor {
-	private var ParticleSystemComponent: cpp.Star<ParticleSystemComp>;
+	private var ParticleSystemComponent: ucpp.Ptr<ParticleSystemComp>;
 	public var bDestroyOnSystemFinish: Bool;
 	public var bPostUpdateTickGroup: Bool;
 	public var bCurrentlyActive: Bool;
-	public var OnParticleSpawn: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, Vector, Vector) -> Void>;
-	public var OnParticleBurst: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
-	public var OnParticleDeath: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector) -> Void>;
-	public var OnParticleCollide: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector, Vector, FName, cpp.Star<PhysicalMaterial>) -> Void>;
+	public var OnParticleSpawn: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, Vector, Vector) -> Void>;
+	public var OnParticleBurst: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public var OnParticleDeath: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector) -> Void>;
+	public var OnParticleCollide: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector, Vector, FName, ucpp.Ptr<PhysicalMaterial>) -> Void>;
 
 	public function ToggleActive(): Void;
 	public function SetVectorParameter(ParameterName: FName, Param: Vector): Void;
-	public function SetTemplate(NewTemplate: cpp.Star<ParticleSystem>): Void;
-	public function SetMaterialParameter(ParameterName: FName, Param: cpp.Star<MaterialInterface>): Void;
-	public function SetFloatParameter(ParameterName: FName, Param: cpp.Float32): Void;
+	public function SetTemplate(NewTemplate: ucpp.Ptr<ParticleSystem>): Void;
+	public function SetMaterialParameter(ParameterName: FName, Param: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetFloatParameter(ParameterName: FName, Param: ucpp.num.Float32): Void;
 	public function SetColorParameter(ParameterName: FName, Param: LinearColor): Void;
-	public function SetActorParameter(ParameterName: FName, Param: cpp.Star<Actor>): Void;
+	public function SetActorParameter(ParameterName: FName, Param: ucpp.Ptr<Actor>): Void;
 	public function OnRep_bCurrentlyActive(): Void;
-	public function OnParticleSystemFinished(FinishedComponent: cpp.Star<ParticleSystemComp>): Void;
+	public function OnParticleSystemFinished(FinishedComponent: ucpp.Ptr<ParticleSystemComp>): Void;
 	public function IsActive(): Bool;
 	public function Deactivate(): Void;
 	public function Activate(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsActive)
@@ -39,20 +39,20 @@ abstract ConstEmitter(Emitter) from Emitter {
 	public inline extern function get_bPostUpdateTickGroup(): Bool return this.bPostUpdateTickGroup;
 	public extern var bCurrentlyActive(get, never): Bool;
 	public inline extern function get_bCurrentlyActive(): Bool return this.bCurrentlyActive;
-	public extern var OnParticleSpawn(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, Vector, Vector) -> Void>;
-	public inline extern function get_OnParticleSpawn(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, Vector, Vector) -> Void> return this.OnParticleSpawn;
-	public extern var OnParticleBurst(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
-	public inline extern function get_OnParticleBurst(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void> return this.OnParticleBurst;
-	public extern var OnParticleDeath(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector) -> Void>;
-	public inline extern function get_OnParticleDeath(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector) -> Void> return this.OnParticleDeath;
-	public extern var OnParticleCollide(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector, Vector, FName, cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>) -> Void>;
-	public inline extern function get_OnParticleCollide(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector, Vector, FName, cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>) -> Void> return this.OnParticleCollide;
+	public extern var OnParticleSpawn(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, Vector, Vector) -> Void>;
+	public inline extern function get_OnParticleSpawn(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, Vector, Vector) -> Void> return this.OnParticleSpawn;
+	public extern var OnParticleBurst(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnParticleBurst(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void> return this.OnParticleBurst;
+	public extern var OnParticleDeath(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector) -> Void>;
+	public inline extern function get_OnParticleDeath(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector) -> Void> return this.OnParticleDeath;
+	public extern var OnParticleCollide(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector, Vector, FName, ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>) -> Void>;
+	public inline extern function get_OnParticleCollide(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector, Vector, FName, ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>) -> Void> return this.OnParticleCollide;
 }
 
 @:forward
 @:nativeGen
 @:native("Emitter*")
-abstract EmitterPtr(cpp.Star<Emitter>) from cpp.Star<Emitter> to cpp.Star<Emitter>{
+abstract EmitterPtr(ucpp.Ptr<Emitter>) from ucpp.Ptr<Emitter> to ucpp.Ptr<Emitter>{
 	@:from
 	public static extern inline function fromValue(v: Emitter): EmitterPtr {
 		return untyped __cpp__("&({0})", v);

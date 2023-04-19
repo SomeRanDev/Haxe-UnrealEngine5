@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSimulatedRootMotionReplicatedMove")
 @:include("GameFramework/Character.h")
-@:structAccess
+@:valueType
 extern class SimulatedRootMotionReplicatedMove {
-	public var Time: cpp.Float32;
+	public var Time: ucpp.num.Float32;
 	public var RootMotion: RepRootMotionMontage;
 
 	@:native("FSimulatedRootMotionReplicatedMove") public function new();
-	@:native("FSimulatedRootMotionReplicatedMove") public static function make(Time: cpp.Float32, RootMotion: RepRootMotionMontage): SimulatedRootMotionReplicatedMove ;
+	@:native("FSimulatedRootMotionReplicatedMove") public static function make(Time: ucpp.num.Float32, RootMotion: RepRootMotionMontage): SimulatedRootMotionReplicatedMove ;
 }

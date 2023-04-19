@@ -3,11 +3,11 @@ package ue;
 
 @:native("UReplicationStateDescriptorConfig")
 @:include("Iris/ReplicationState/ReplicationStateDescriptorConfig.h")
-@:structAccess
+@:valueType
 extern class ReplicationStateDescriptorConfig extends Object {
 	private var SupportsStructNetSerializerList: TArray<SupportsStructNetSerializerConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstReplicationStateDescriptorConfig(ReplicationStateDescriptorConfig)
 @:forward
 @:nativeGen
 @:native("ReplicationStateDescriptorConfig*")
-abstract ReplicationStateDescriptorConfigPtr(cpp.Star<ReplicationStateDescriptorConfig>) from cpp.Star<ReplicationStateDescriptorConfig> to cpp.Star<ReplicationStateDescriptorConfig>{
+abstract ReplicationStateDescriptorConfigPtr(ucpp.Ptr<ReplicationStateDescriptorConfig>) from ucpp.Ptr<ReplicationStateDescriptorConfig> to ucpp.Ptr<ReplicationStateDescriptorConfig>{
 	@:from
 	public static extern inline function fromValue(v: ReplicationStateDescriptorConfig): ReplicationStateDescriptorConfigPtr {
 		return untyped __cpp__("&({0})", v);

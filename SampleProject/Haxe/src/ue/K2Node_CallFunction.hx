@@ -3,7 +3,7 @@ package ue;
 
 @:native("UK2Node_CallFunction")
 @:include("K2Node_CallFunction.h")
-@:structAccess
+@:valueType
 extern class K2Node_CallFunction extends K2Node {
 	public var bIsPureFunc: Bool;
 	public var bIsConstFunc: Bool;
@@ -13,7 +13,7 @@ extern class K2Node_CallFunction extends K2Node {
 	public var bIsBeadFunction: Bool;
 	public var FunctionReference: MemberReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstK2Node_CallFunction(K2Node_CallFunction) from K2Node_CallFunction 
 @:forward
 @:nativeGen
 @:native("K2Node_CallFunction*")
-abstract K2Node_CallFunctionPtr(cpp.Star<K2Node_CallFunction>) from cpp.Star<K2Node_CallFunction> to cpp.Star<K2Node_CallFunction>{
+abstract K2Node_CallFunctionPtr(ucpp.Ptr<K2Node_CallFunction>) from ucpp.Ptr<K2Node_CallFunction> to ucpp.Ptr<K2Node_CallFunction>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_CallFunction): K2Node_CallFunctionPtr {
 		return untyped __cpp__("&({0})", v);

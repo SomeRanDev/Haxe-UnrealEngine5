@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimNode_AssetPlayerBase")
 @:include("Animation/AnimNode_AssetPlayerBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_AssetPlayerBase extends AnimNode_AssetPlayerRelevancyBase {
-	@:protected public var BlendWeight: cpp.Float32;
-	@:protected public var InternalTimeAccumulator: cpp.Float32;
+	@:protected public var BlendWeight: ucpp.num.Float32;
+	@:protected public var InternalTimeAccumulator: ucpp.num.Float32;
 
 	@:native("FAnimNode_AssetPlayerBase") public function new();
-	@:native("FAnimNode_AssetPlayerBase") public static function make(GroupIndex_DEPRECATED: cpp.Int32, GroupScope_DEPRECATED: EAnimSyncGroupScope, BlendWeight: cpp.Float32, InternalTimeAccumulator: cpp.Float32): AnimNode_AssetPlayerBase ;
+	@:native("FAnimNode_AssetPlayerBase") public static function make(GroupIndex_DEPRECATED: ucpp.num.Int32, GroupScope_DEPRECATED: EAnimSyncGroupScope, BlendWeight: ucpp.num.Float32, InternalTimeAccumulator: ucpp.num.Float32): AnimNode_AssetPlayerBase ;
 }

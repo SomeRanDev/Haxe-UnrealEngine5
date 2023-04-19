@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGenericTeamAgentInterface")
-@:structAccess
+@:valueType
 extern class GenericTeamAgentInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGenericTeamAgentInterface(GenericTeamAgentInterface) from GenericT
 @:forward
 @:nativeGen
 @:native("GenericTeamAgentInterface*")
-abstract GenericTeamAgentInterfacePtr(cpp.Star<GenericTeamAgentInterface>) from cpp.Star<GenericTeamAgentInterface> to cpp.Star<GenericTeamAgentInterface>{
+abstract GenericTeamAgentInterfacePtr(ucpp.Ptr<GenericTeamAgentInterface>) from ucpp.Ptr<GenericTeamAgentInterface> to ucpp.Ptr<GenericTeamAgentInterface>{
 	@:from
 	public static extern inline function fromValue(v: GenericTeamAgentInterface): GenericTeamAgentInterfacePtr {
 		return untyped __cpp__("&({0})", v);

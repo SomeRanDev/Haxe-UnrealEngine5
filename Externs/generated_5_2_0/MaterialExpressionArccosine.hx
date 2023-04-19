@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionArccosine")
 @:include("Materials/MaterialExpressionArccosine.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionArccosine extends MaterialExpression {
 	public var Input: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionArccosine(MaterialExpressionArccosine) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialExpressionArccosine*")
-abstract MaterialExpressionArccosinePtr(cpp.Star<MaterialExpressionArccosine>) from cpp.Star<MaterialExpressionArccosine> to cpp.Star<MaterialExpressionArccosine>{
+abstract MaterialExpressionArccosinePtr(ucpp.Ptr<MaterialExpressionArccosine>) from ucpp.Ptr<MaterialExpressionArccosine> to ucpp.Ptr<MaterialExpressionArccosine>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionArccosine): MaterialExpressionArccosinePtr {
 		return untyped __cpp__("&({0})", v);

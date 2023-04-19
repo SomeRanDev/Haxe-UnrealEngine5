@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAttributeEditorCopyAttributeActions")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorCopyAttributeActions extends AttributeEditorActionPropertySet {
 	public var FromAttribute: TArray<FString>;
 	public var ToAttribute: TArray<FString>;
 
 	public function CopyFromTo(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstAttributeEditorCopyAttributeActions(AttributeEditorCopyAttributeAc
 @:forward
 @:nativeGen
 @:native("AttributeEditorCopyAttributeActions*")
-abstract AttributeEditorCopyAttributeActionsPtr(cpp.Star<AttributeEditorCopyAttributeActions>) from cpp.Star<AttributeEditorCopyAttributeActions> to cpp.Star<AttributeEditorCopyAttributeActions>{
+abstract AttributeEditorCopyAttributeActionsPtr(ucpp.Ptr<AttributeEditorCopyAttributeActions>) from ucpp.Ptr<AttributeEditorCopyAttributeActions> to ucpp.Ptr<AttributeEditorCopyAttributeActions>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorCopyAttributeActions): AttributeEditorCopyAttributeActionsPtr {
 		return untyped __cpp__("&({0})", v);

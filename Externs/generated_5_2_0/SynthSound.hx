@@ -3,11 +3,11 @@ package ue;
 
 @:native("USynthSound")
 @:include("Components/SynthComponent.h")
-@:structAccess
+@:valueType
 extern class SynthSound extends SoundWaveProcedural {
 	@:protected public var OwningSynthComponent: TWeakObjectPtr<SynthComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSynthSound(SynthSound) from SynthSound {
 @:forward
 @:nativeGen
 @:native("SynthSound*")
-abstract SynthSoundPtr(cpp.Star<SynthSound>) from cpp.Star<SynthSound> to cpp.Star<SynthSound>{
+abstract SynthSoundPtr(ucpp.Ptr<SynthSound>) from ucpp.Ptr<SynthSound> to ucpp.Ptr<SynthSound>{
 	@:from
 	public static extern inline function fromValue(v: SynthSound): SynthSoundPtr {
 		return untyped __cpp__("&({0})", v);

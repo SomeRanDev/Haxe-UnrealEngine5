@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULevelInstanceEditorPivotInterface")
-@:structAccess
+@:valueType
 extern class LevelInstanceEditorPivotInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLevelInstanceEditorPivotInterface(LevelInstanceEditorPivotInterfac
 @:forward
 @:nativeGen
 @:native("LevelInstanceEditorPivotInterface*")
-abstract LevelInstanceEditorPivotInterfacePtr(cpp.Star<LevelInstanceEditorPivotInterface>) from cpp.Star<LevelInstanceEditorPivotInterface> to cpp.Star<LevelInstanceEditorPivotInterface>{
+abstract LevelInstanceEditorPivotInterfacePtr(ucpp.Ptr<LevelInstanceEditorPivotInterface>) from ucpp.Ptr<LevelInstanceEditorPivotInterface> to ucpp.Ptr<LevelInstanceEditorPivotInterface>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstanceEditorPivotInterface): LevelInstanceEditorPivotInterfacePtr {
 		return untyped __cpp__("&({0})", v);

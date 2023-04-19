@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorGizmoRegistryCategoryEntry_ConditionalSelection")
 @:include("EditorInteractiveGizmoRegistry.h")
-@:structAccess
+@:valueType
 extern class EditorGizmoRegistryCategoryEntry_ConditionalSelection extends EditorGizmoRegistryCategoryEntry {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorGizmoRegistryCategoryEntry_ConditionalSelection(EditorGizmoR
 @:forward
 @:nativeGen
 @:native("EditorGizmoRegistryCategoryEntry_ConditionalSelection*")
-abstract EditorGizmoRegistryCategoryEntry_ConditionalSelectionPtr(cpp.Star<EditorGizmoRegistryCategoryEntry_ConditionalSelection>) from cpp.Star<EditorGizmoRegistryCategoryEntry_ConditionalSelection> to cpp.Star<EditorGizmoRegistryCategoryEntry_ConditionalSelection>{
+abstract EditorGizmoRegistryCategoryEntry_ConditionalSelectionPtr(ucpp.Ptr<EditorGizmoRegistryCategoryEntry_ConditionalSelection>) from ucpp.Ptr<EditorGizmoRegistryCategoryEntry_ConditionalSelection> to ucpp.Ptr<EditorGizmoRegistryCategoryEntry_ConditionalSelection>{
 	@:from
 	public static extern inline function fromValue(v: EditorGizmoRegistryCategoryEntry_ConditionalSelection): EditorGizmoRegistryCategoryEntry_ConditionalSelectionPtr {
 		return untyped __cpp__("&({0})", v);

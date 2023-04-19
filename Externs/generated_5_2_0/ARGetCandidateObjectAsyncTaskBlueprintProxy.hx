@@ -3,29 +3,29 @@ package ue;
 
 @:native("UARGetCandidateObjectAsyncTaskBlueprintProxy")
 @:include("ARBlueprintProxy.h")
-@:structAccess
+@:valueType
 extern class ARGetCandidateObjectAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject>) -> Void>;
-	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARCandidateObject>) -> Void>;
+	public var OnFailed: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARCandidateObject>) -> Void>;
 
-	public function ARGetCandidateObject(WorldContextObject: cpp.Star<Object>, Location: Vector, Extent: Vector): cpp.Star<ARGetCandidateObjectAsyncTaskBlueprintProxy>;
+	public function ARGetCandidateObject(WorldContextObject: ucpp.Ptr<Object>, Location: Vector, Extent: Vector): ucpp.Ptr<ARGetCandidateObjectAsyncTaskBlueprintProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstARGetCandidateObjectAsyncTaskBlueprintProxy(ARGetCandidateObjectAsyncTaskBlueprintProxy) from ARGetCandidateObjectAsyncTaskBlueprintProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject.ConstARCandidateObject>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject.ConstARCandidateObject>) -> Void> return this.OnSuccess;
-	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject.ConstARCandidateObject>) -> Void>;
-	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARCandidateObject.ConstARCandidateObject>) -> Void> return this.OnFailed;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARCandidateObject.ConstARCandidateObject>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARCandidateObject.ConstARCandidateObject>) -> Void> return this.OnSuccess;
+	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARCandidateObject.ConstARCandidateObject>) -> Void>;
+	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARCandidateObject.ConstARCandidateObject>) -> Void> return this.OnFailed;
 }
 
 @:forward
 @:nativeGen
 @:native("ARGetCandidateObjectAsyncTaskBlueprintProxy*")
-abstract ARGetCandidateObjectAsyncTaskBlueprintProxyPtr(cpp.Star<ARGetCandidateObjectAsyncTaskBlueprintProxy>) from cpp.Star<ARGetCandidateObjectAsyncTaskBlueprintProxy> to cpp.Star<ARGetCandidateObjectAsyncTaskBlueprintProxy>{
+abstract ARGetCandidateObjectAsyncTaskBlueprintProxyPtr(ucpp.Ptr<ARGetCandidateObjectAsyncTaskBlueprintProxy>) from ucpp.Ptr<ARGetCandidateObjectAsyncTaskBlueprintProxy> to ucpp.Ptr<ARGetCandidateObjectAsyncTaskBlueprintProxy>{
 	@:from
 	public static extern inline function fromValue(v: ARGetCandidateObjectAsyncTaskBlueprintProxy): ARGetCandidateObjectAsyncTaskBlueprintProxyPtr {
 		return untyped __cpp__("&({0})", v);

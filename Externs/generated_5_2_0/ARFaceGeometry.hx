@@ -3,20 +3,20 @@ package ue;
 
 @:native("UARFaceGeometry")
 @:include("ARTrackable.h")
-@:structAccess
+@:valueType
 extern class ARFaceGeometry extends ARTrackedGeometry {
 	public var LookAtTarget: Vector;
 	public var bIsTracked: Bool;
-	private var BlendShapes: TMap<EARFaceBlendShape, cpp.Float32>;
+	private var BlendShapes: TMap<EARFaceBlendShape, ucpp.num.Float32>;
 	private var LeftEyeTransform: Transform;
 	private var RightEyeTransform: Transform;
 
 	public function GetWorldSpaceEyeTransform(Eye: EAREye): Transform;
 	public function GetLocalSpaceEyeTransform(Eye: EAREye): Transform;
-	public function GetBlendShapeValue(BlendShape: EARFaceBlendShape): cpp.Float32;
-	public function GetBlendShapes(): TMap<EARFaceBlendShape, cpp.Float32>;
+	public function GetBlendShapeValue(BlendShape: EARFaceBlendShape): ucpp.num.Float32;
+	public function GetBlendShapes(): TMap<EARFaceBlendShape, ucpp.num.Float32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetWorldSpaceEyeTransform, GetLocalSpaceEyeTransform, GetBlendShapeValue, GetBlendShapes)
@@ -31,7 +31,7 @@ abstract ConstARFaceGeometry(ARFaceGeometry) from ARFaceGeometry {
 @:forward
 @:nativeGen
 @:native("ARFaceGeometry*")
-abstract ARFaceGeometryPtr(cpp.Star<ARFaceGeometry>) from cpp.Star<ARFaceGeometry> to cpp.Star<ARFaceGeometry>{
+abstract ARFaceGeometryPtr(ucpp.Ptr<ARFaceGeometry>) from ucpp.Ptr<ARFaceGeometry> to ucpp.Ptr<ARFaceGeometry>{
 	@:from
 	public static extern inline function fromValue(v: ARFaceGeometry): ARFaceGeometryPtr {
 		return untyped __cpp__("&({0})", v);

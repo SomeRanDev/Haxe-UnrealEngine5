@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVoxelSolidifyMeshesToolBuilder")
 @:include("VoxelSolidifyMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelSolidifyMeshesToolBuilder extends BaseCreateFromSelectedToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVoxelSolidifyMeshesToolBuilder(VoxelSolidifyMeshesToolBuilder) fro
 @:forward
 @:nativeGen
 @:native("VoxelSolidifyMeshesToolBuilder*")
-abstract VoxelSolidifyMeshesToolBuilderPtr(cpp.Star<VoxelSolidifyMeshesToolBuilder>) from cpp.Star<VoxelSolidifyMeshesToolBuilder> to cpp.Star<VoxelSolidifyMeshesToolBuilder>{
+abstract VoxelSolidifyMeshesToolBuilderPtr(ucpp.Ptr<VoxelSolidifyMeshesToolBuilder>) from ucpp.Ptr<VoxelSolidifyMeshesToolBuilder> to ucpp.Ptr<VoxelSolidifyMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: VoxelSolidifyMeshesToolBuilder): VoxelSolidifyMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

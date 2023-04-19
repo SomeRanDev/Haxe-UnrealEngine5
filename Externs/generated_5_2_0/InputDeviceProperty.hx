@@ -3,15 +3,15 @@ package ue;
 
 @:native("UInputDeviceProperty")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class InputDeviceProperty extends Object {
-	@:protected public var PropertyDuration: cpp.Float32;
+	@:protected public var PropertyDuration: ucpp.num.Float32;
 
 	@:protected public function ResetDeviceProperty(PlatformUser: PlatformUserId, DeviceId: InputDeviceId): Void;
-	@:protected public function EvaluateDeviceProperty(PlatformUser: PlatformUserId, DeviceId: InputDeviceId, DeltaTime: cpp.Float32, Duration: cpp.Float32): Void;
+	@:protected public function EvaluateDeviceProperty(PlatformUser: PlatformUserId, DeviceId: InputDeviceId, DeltaTime: ucpp.num.Float32, Duration: ucpp.num.Float32): Void;
 	@:protected public function ApplyDeviceProperty(UserId: PlatformUserId, DeviceId: InputDeviceId): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstInputDeviceProperty(InputDeviceProperty) from InputDeviceProperty 
 @:forward
 @:nativeGen
 @:native("InputDeviceProperty*")
-abstract InputDevicePropertyPtr(cpp.Star<InputDeviceProperty>) from cpp.Star<InputDeviceProperty> to cpp.Star<InputDeviceProperty>{
+abstract InputDevicePropertyPtr(ucpp.Ptr<InputDeviceProperty>) from ucpp.Ptr<InputDeviceProperty> to ucpp.Ptr<InputDeviceProperty>{
 	@:from
 	public static extern inline function fromValue(v: InputDeviceProperty): InputDevicePropertyPtr {
 		return untyped __cpp__("&({0})", v);

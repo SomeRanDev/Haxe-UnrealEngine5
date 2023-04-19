@@ -3,17 +3,17 @@ package ue;
 
 @:native("UProceduralRectangleToolProperties")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class ProceduralRectangleToolProperties extends ProceduralShapeToolProperties {
 	public var RectangleType: EProceduralRectType;
-	public var Width: cpp.Float32;
-	public var Depth: cpp.Float32;
-	public var WidthSubdivisions: cpp.Int32;
-	public var DepthSubdivisions: cpp.Int32;
-	public var CornerRadius: cpp.Float32;
-	public var CornerSlices: cpp.Int32;
+	public var Width: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
+	public var WidthSubdivisions: ucpp.num.Int32;
+	public var DepthSubdivisions: ucpp.num.Int32;
+	public var CornerRadius: ucpp.num.Float32;
+	public var CornerSlices: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,24 +21,24 @@ extern class ProceduralRectangleToolProperties extends ProceduralShapeToolProper
 abstract ConstProceduralRectangleToolProperties(ProceduralRectangleToolProperties) from ProceduralRectangleToolProperties {
 	public extern var RectangleType(get, never): EProceduralRectType;
 	public inline extern function get_RectangleType(): EProceduralRectType return this.RectangleType;
-	public extern var Width(get, never): cpp.Float32;
-	public inline extern function get_Width(): cpp.Float32 return this.Width;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
-	public extern var WidthSubdivisions(get, never): cpp.Int32;
-	public inline extern function get_WidthSubdivisions(): cpp.Int32 return this.WidthSubdivisions;
-	public extern var DepthSubdivisions(get, never): cpp.Int32;
-	public inline extern function get_DepthSubdivisions(): cpp.Int32 return this.DepthSubdivisions;
-	public extern var CornerRadius(get, never): cpp.Float32;
-	public inline extern function get_CornerRadius(): cpp.Float32 return this.CornerRadius;
-	public extern var CornerSlices(get, never): cpp.Int32;
-	public inline extern function get_CornerSlices(): cpp.Int32 return this.CornerSlices;
+	public extern var Width(get, never): ucpp.num.Float32;
+	public inline extern function get_Width(): ucpp.num.Float32 return this.Width;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
+	public extern var WidthSubdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_WidthSubdivisions(): ucpp.num.Int32 return this.WidthSubdivisions;
+	public extern var DepthSubdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_DepthSubdivisions(): ucpp.num.Int32 return this.DepthSubdivisions;
+	public extern var CornerRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_CornerRadius(): ucpp.num.Float32 return this.CornerRadius;
+	public extern var CornerSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_CornerSlices(): ucpp.num.Int32 return this.CornerSlices;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralRectangleToolProperties*")
-abstract ProceduralRectangleToolPropertiesPtr(cpp.Star<ProceduralRectangleToolProperties>) from cpp.Star<ProceduralRectangleToolProperties> to cpp.Star<ProceduralRectangleToolProperties>{
+abstract ProceduralRectangleToolPropertiesPtr(ucpp.Ptr<ProceduralRectangleToolProperties>) from ucpp.Ptr<ProceduralRectangleToolProperties> to ucpp.Ptr<ProceduralRectangleToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralRectangleToolProperties): ProceduralRectangleToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

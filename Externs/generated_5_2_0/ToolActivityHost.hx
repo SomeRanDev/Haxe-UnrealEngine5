@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UToolActivityHost")
-@:structAccess
+@:valueType
 extern class ToolActivityHost extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstToolActivityHost(ToolActivityHost) from ToolActivityHost {
 @:forward
 @:nativeGen
 @:native("ToolActivityHost*")
-abstract ToolActivityHostPtr(cpp.Star<ToolActivityHost>) from cpp.Star<ToolActivityHost> to cpp.Star<ToolActivityHost>{
+abstract ToolActivityHostPtr(ucpp.Ptr<ToolActivityHost>) from ucpp.Ptr<ToolActivityHost> to ucpp.Ptr<ToolActivityHost>{
 	@:from
 	public static extern inline function fromValue(v: ToolActivityHost): ToolActivityHostPtr {
 		return untyped __cpp__("&({0})", v);

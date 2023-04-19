@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTimerDynamicDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class TimerDynamicDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTimerDynamicDelegate__PythonCallable(TimerDynamicDelegate__PythonC
 @:forward
 @:nativeGen
 @:native("TimerDynamicDelegate__PythonCallable*")
-abstract TimerDynamicDelegate__PythonCallablePtr(cpp.Star<TimerDynamicDelegate__PythonCallable>) from cpp.Star<TimerDynamicDelegate__PythonCallable> to cpp.Star<TimerDynamicDelegate__PythonCallable>{
+abstract TimerDynamicDelegate__PythonCallablePtr(ucpp.Ptr<TimerDynamicDelegate__PythonCallable>) from ucpp.Ptr<TimerDynamicDelegate__PythonCallable> to ucpp.Ptr<TimerDynamicDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: TimerDynamicDelegate__PythonCallable): TimerDynamicDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,36 +3,36 @@ package ue;
 
 @:native("UUVLayoutPreview")
 @:include("Drawing/UVLayoutPreview.h")
-@:structAccess
+@:valueType
 extern class UVLayoutPreview extends Object {
-	public var Settings: cpp.Star<UVLayoutPreviewProperties>;
-	public var PreviewMesh: cpp.Star<PreviewMesh>;
-	public var TriangleComponent: cpp.Star<TriangleSetComp>;
+	public var Settings: ucpp.Ptr<UVLayoutPreviewProperties>;
+	public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	public var TriangleComponent: ucpp.Ptr<TriangleSetComp>;
 	public var bShowBackingRectangle: Bool;
-	public var BackingRectangleMaterial: cpp.Star<MaterialInterface>;
+	public var BackingRectangleMaterial: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUVLayoutPreview(UVLayoutPreview) from UVLayoutPreview {
-	public extern var Settings(get, never): cpp.Star<UVLayoutPreviewProperties.ConstUVLayoutPreviewProperties>;
-	public inline extern function get_Settings(): cpp.Star<UVLayoutPreviewProperties.ConstUVLayoutPreviewProperties> return this.Settings;
-	public extern var PreviewMesh(get, never): cpp.Star<PreviewMesh.ConstPreviewMesh>;
-	public inline extern function get_PreviewMesh(): cpp.Star<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
-	public extern var TriangleComponent(get, never): cpp.Star<TriangleSetComp.ConstTriangleSetComp>;
-	public inline extern function get_TriangleComponent(): cpp.Star<TriangleSetComp.ConstTriangleSetComp> return this.TriangleComponent;
+	public extern var Settings(get, never): ucpp.Ptr<UVLayoutPreviewProperties.ConstUVLayoutPreviewProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<UVLayoutPreviewProperties.ConstUVLayoutPreviewProperties> return this.Settings;
+	public extern var PreviewMesh(get, never): ucpp.Ptr<PreviewMesh.ConstPreviewMesh>;
+	public inline extern function get_PreviewMesh(): ucpp.Ptr<PreviewMesh.ConstPreviewMesh> return this.PreviewMesh;
+	public extern var TriangleComponent(get, never): ucpp.Ptr<TriangleSetComp.ConstTriangleSetComp>;
+	public inline extern function get_TriangleComponent(): ucpp.Ptr<TriangleSetComp.ConstTriangleSetComp> return this.TriangleComponent;
 	public extern var bShowBackingRectangle(get, never): Bool;
 	public inline extern function get_bShowBackingRectangle(): Bool return this.bShowBackingRectangle;
-	public extern var BackingRectangleMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_BackingRectangleMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.BackingRectangleMaterial;
+	public extern var BackingRectangleMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_BackingRectangleMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.BackingRectangleMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("UVLayoutPreview*")
-abstract UVLayoutPreviewPtr(cpp.Star<UVLayoutPreview>) from cpp.Star<UVLayoutPreview> to cpp.Star<UVLayoutPreview>{
+abstract UVLayoutPreviewPtr(ucpp.Ptr<UVLayoutPreview>) from ucpp.Ptr<UVLayoutPreview> to ucpp.Ptr<UVLayoutPreview>{
 	@:from
 	public static extern inline function fromValue(v: UVLayoutPreview): UVLayoutPreviewPtr {
 		return untyped __cpp__("&({0})", v);

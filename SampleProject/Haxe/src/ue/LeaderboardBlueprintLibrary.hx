@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULeaderboardBlueprintLibrary")
 @:include("LeaderboardBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class LeaderboardBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function WriteLeaderboardInteger(PlayerController: cpp.Star<PlayerController>, StatName: FName, StatValue: cpp.Int32): Bool;
+	public function WriteLeaderboardInteger(PlayerController: ucpp.Ptr<PlayerController>, StatName: FName, StatValue: ucpp.num.Int32): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstLeaderboardBlueprintLibrary(LeaderboardBlueprintLibrary) from Lead
 @:forward
 @:nativeGen
 @:native("LeaderboardBlueprintLibrary*")
-abstract LeaderboardBlueprintLibraryPtr(cpp.Star<LeaderboardBlueprintLibrary>) from cpp.Star<LeaderboardBlueprintLibrary> to cpp.Star<LeaderboardBlueprintLibrary>{
+abstract LeaderboardBlueprintLibraryPtr(ucpp.Ptr<LeaderboardBlueprintLibrary>) from ucpp.Ptr<LeaderboardBlueprintLibrary> to ucpp.Ptr<LeaderboardBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: LeaderboardBlueprintLibrary): LeaderboardBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

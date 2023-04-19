@@ -3,14 +3,14 @@ package ue;
 
 @:native("UContentBrowserDataMenuContext_DragDropMenu")
 @:include("ContentBrowserDataMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserDataMenuContext_DragDropMenu extends Object {
 	public var DropTargetItem: ContentBrowserItem;
 	public var DraggedItems: TArray<ContentBrowserItem>;
 	public var bCanMove: Bool;
 	public var bCanCopy: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstContentBrowserDataMenuContext_DragDropMenu(ContentBrowserDataMenuC
 @:forward
 @:nativeGen
 @:native("ContentBrowserDataMenuContext_DragDropMenu*")
-abstract ContentBrowserDataMenuContext_DragDropMenuPtr(cpp.Star<ContentBrowserDataMenuContext_DragDropMenu>) from cpp.Star<ContentBrowserDataMenuContext_DragDropMenu> to cpp.Star<ContentBrowserDataMenuContext_DragDropMenu>{
+abstract ContentBrowserDataMenuContext_DragDropMenuPtr(ucpp.Ptr<ContentBrowserDataMenuContext_DragDropMenu>) from ucpp.Ptr<ContentBrowserDataMenuContext_DragDropMenu> to ucpp.Ptr<ContentBrowserDataMenuContext_DragDropMenu>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserDataMenuContext_DragDropMenu): ContentBrowserDataMenuContext_DragDropMenuPtr {
 		return untyped __cpp__("&({0})", v);

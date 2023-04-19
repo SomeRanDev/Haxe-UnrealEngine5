@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBrushEditingSubsystemImpl")
 @:include("BrushEditingSubsystemImpl.h")
-@:structAccess
+@:valueType
 extern class BrushEditingSubsystemImpl extends BrushEditingSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBrushEditingSubsystemImpl(BrushEditingSubsystemImpl) from BrushEdi
 @:forward
 @:nativeGen
 @:native("BrushEditingSubsystemImpl*")
-abstract BrushEditingSubsystemImplPtr(cpp.Star<BrushEditingSubsystemImpl>) from cpp.Star<BrushEditingSubsystemImpl> to cpp.Star<BrushEditingSubsystemImpl>{
+abstract BrushEditingSubsystemImplPtr(ucpp.Ptr<BrushEditingSubsystemImpl>) from ucpp.Ptr<BrushEditingSubsystemImpl> to ucpp.Ptr<BrushEditingSubsystemImpl>{
 	@:from
 	public static extern inline function fromValue(v: BrushEditingSubsystemImpl): BrushEditingSubsystemImplPtr {
 		return untyped __cpp__("&({0})", v);

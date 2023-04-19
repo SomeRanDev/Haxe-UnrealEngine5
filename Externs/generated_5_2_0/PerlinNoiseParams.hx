@@ -3,12 +3,12 @@ package ue;
 
 @:native("FPerlinNoiseParams")
 @:include("MovieSceneTracksComponentTypes.h")
-@:structAccess
+@:valueType
 extern class PerlinNoiseParams {
-	public var Frequency: cpp.Float32;
-	public var Amplitude: cpp.Float64;
-	public var Offset: cpp.Float32;
+	public var Frequency: ucpp.num.Float32;
+	public var Amplitude: ucpp.num.Float64;
+	public var Offset: ucpp.num.Float32;
 
 	@:native("FPerlinNoiseParams") public function new();
-	@:native("FPerlinNoiseParams") public static function make(Frequency: cpp.Float32, Amplitude: cpp.Float64, Offset: cpp.Float32): PerlinNoiseParams ;
+	@:native("FPerlinNoiseParams") public static function make(Frequency: ucpp.num.Float32, Amplitude: ucpp.num.Float64, Offset: ucpp.num.Float32): PerlinNoiseParams ;
 }

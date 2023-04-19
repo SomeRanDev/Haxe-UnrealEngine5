@@ -3,7 +3,7 @@ package ue;
 
 @:native("FJoinStaticMeshActorsOptions")
 @:include("StaticMeshEditorSubsystemHelpers.h")
-@:structAccess
+@:valueType
 extern class JoinStaticMeshActorsOptions {
 	public var bDestroySourceActors: Bool;
 	public var NewActorLabel: FString;

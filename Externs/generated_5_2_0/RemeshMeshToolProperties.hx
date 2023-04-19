@@ -3,30 +3,30 @@ package ue;
 
 @:native("URemeshMeshToolProperties")
 @:include("RemeshMeshTool.h")
-@:structAccess
+@:valueType
 extern class RemeshMeshToolProperties extends RemeshProperties {
-	public var TargetTriangleCount: cpp.Int32;
+	public var TargetTriangleCount: ucpp.num.Int32;
 	public var SmoothingType: ERemeshSmoothingType;
 	public var bDiscardAttributes: Bool;
 	public var bShowGroupColors: Bool;
 	public var RemeshType: ERemeshType;
-	public var RemeshIterations: cpp.Int32;
-	public var MaxRemeshIterations: cpp.Int32;
-	public var ExtraProjectionIterations: cpp.Int32;
+	public var RemeshIterations: ucpp.num.Int32;
+	public var MaxRemeshIterations: ucpp.num.Int32;
+	public var ExtraProjectionIterations: ucpp.num.Int32;
 	public var bUseTargetEdgeLength: Bool;
-	public var TargetEdgeLength: cpp.Float32;
+	public var TargetEdgeLength: ucpp.num.Float32;
 	public var bReproject: Bool;
 	public var bReprojectConstraints: Bool;
-	public var BoundaryCornerAngleThreshold: cpp.Float32;
+	public var BoundaryCornerAngleThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRemeshMeshToolProperties(RemeshMeshToolProperties) from RemeshMeshToolProperties {
-	public extern var TargetTriangleCount(get, never): cpp.Int32;
-	public inline extern function get_TargetTriangleCount(): cpp.Int32 return this.TargetTriangleCount;
+	public extern var TargetTriangleCount(get, never): ucpp.num.Int32;
+	public inline extern function get_TargetTriangleCount(): ucpp.num.Int32 return this.TargetTriangleCount;
 	public extern var SmoothingType(get, never): ERemeshSmoothingType;
 	public inline extern function get_SmoothingType(): ERemeshSmoothingType return this.SmoothingType;
 	public extern var bDiscardAttributes(get, never): Bool;
@@ -35,28 +35,28 @@ abstract ConstRemeshMeshToolProperties(RemeshMeshToolProperties) from RemeshMesh
 	public inline extern function get_bShowGroupColors(): Bool return this.bShowGroupColors;
 	public extern var RemeshType(get, never): ERemeshType;
 	public inline extern function get_RemeshType(): ERemeshType return this.RemeshType;
-	public extern var RemeshIterations(get, never): cpp.Int32;
-	public inline extern function get_RemeshIterations(): cpp.Int32 return this.RemeshIterations;
-	public extern var MaxRemeshIterations(get, never): cpp.Int32;
-	public inline extern function get_MaxRemeshIterations(): cpp.Int32 return this.MaxRemeshIterations;
-	public extern var ExtraProjectionIterations(get, never): cpp.Int32;
-	public inline extern function get_ExtraProjectionIterations(): cpp.Int32 return this.ExtraProjectionIterations;
+	public extern var RemeshIterations(get, never): ucpp.num.Int32;
+	public inline extern function get_RemeshIterations(): ucpp.num.Int32 return this.RemeshIterations;
+	public extern var MaxRemeshIterations(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxRemeshIterations(): ucpp.num.Int32 return this.MaxRemeshIterations;
+	public extern var ExtraProjectionIterations(get, never): ucpp.num.Int32;
+	public inline extern function get_ExtraProjectionIterations(): ucpp.num.Int32 return this.ExtraProjectionIterations;
 	public extern var bUseTargetEdgeLength(get, never): Bool;
 	public inline extern function get_bUseTargetEdgeLength(): Bool return this.bUseTargetEdgeLength;
-	public extern var TargetEdgeLength(get, never): cpp.Float32;
-	public inline extern function get_TargetEdgeLength(): cpp.Float32 return this.TargetEdgeLength;
+	public extern var TargetEdgeLength(get, never): ucpp.num.Float32;
+	public inline extern function get_TargetEdgeLength(): ucpp.num.Float32 return this.TargetEdgeLength;
 	public extern var bReproject(get, never): Bool;
 	public inline extern function get_bReproject(): Bool return this.bReproject;
 	public extern var bReprojectConstraints(get, never): Bool;
 	public inline extern function get_bReprojectConstraints(): Bool return this.bReprojectConstraints;
-	public extern var BoundaryCornerAngleThreshold(get, never): cpp.Float32;
-	public inline extern function get_BoundaryCornerAngleThreshold(): cpp.Float32 return this.BoundaryCornerAngleThreshold;
+	public extern var BoundaryCornerAngleThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_BoundaryCornerAngleThreshold(): ucpp.num.Float32 return this.BoundaryCornerAngleThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("RemeshMeshToolProperties*")
-abstract RemeshMeshToolPropertiesPtr(cpp.Star<RemeshMeshToolProperties>) from cpp.Star<RemeshMeshToolProperties> to cpp.Star<RemeshMeshToolProperties>{
+abstract RemeshMeshToolPropertiesPtr(ucpp.Ptr<RemeshMeshToolProperties>) from ucpp.Ptr<RemeshMeshToolProperties> to ucpp.Ptr<RemeshMeshToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: RemeshMeshToolProperties): RemeshMeshToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

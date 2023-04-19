@@ -3,14 +3,14 @@ package ue;
 
 @:native("FInterpCurvePointQuat")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class InterpCurvePointQuat {
-	public var InVal: cpp.Float32;
+	public var InVal: ucpp.num.Float32;
 	public var OutVal: Quat;
 	public var ArriveTangent: Quat;
 	public var LeaveTangent: Quat;
 	public var InterpMode: TEnumAsByte<EInterpCurveMode>;
 
 	@:native("FInterpCurvePointQuat") public function new();
-	@:native("FInterpCurvePointQuat") public static function make(InVal: cpp.Float32, OutVal: Quat, ArriveTangent: Quat, LeaveTangent: Quat, InterpMode: TEnumAsByte<EInterpCurveMode>): InterpCurvePointQuat ;
+	@:native("FInterpCurvePointQuat") public static function make(InVal: ucpp.num.Float32, OutVal: Quat, ArriveTangent: Quat, LeaveTangent: Quat, InterpMode: TEnumAsByte<EInterpCurveMode>): InterpCurvePointQuat ;
 }

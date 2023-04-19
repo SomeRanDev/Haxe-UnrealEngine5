@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSoftObjectPath")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class SoftObjectPath {
 	public var AssetPath: TopLevelAssetPath;
 	public var SubPathString: FString;

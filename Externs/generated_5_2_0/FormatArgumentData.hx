@@ -3,14 +3,14 @@ package ue;
 
 @:native("FFormatArgumentData")
 @:include("Kismet/KismetTextLibrary.h")
-@:structAccess
+@:valueType
 extern class FormatArgumentData {
 	public var ArgumentName: FString;
 	public var ArgumentValueType: TEnumAsByte<EFormatArgumentType>;
 	public var ArgumentValue: FText;
-	public var ArgumentValueInt: cpp.Int64;
-	public var ArgumentValueFloat: cpp.Float32;
-	public var ArgumentValueDouble: cpp.Float64;
+	public var ArgumentValueInt: ucpp.num.Int64;
+	public var ArgumentValueFloat: ucpp.num.Float32;
+	public var ArgumentValueDouble: ucpp.num.Float64;
 	public var ArgumentValueGender: ETextGender;
 
 	@:native("FFormatArgumentData") public function new();

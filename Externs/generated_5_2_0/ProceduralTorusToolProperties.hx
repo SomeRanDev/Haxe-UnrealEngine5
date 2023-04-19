@@ -3,33 +3,33 @@ package ue;
 
 @:native("UProceduralTorusToolProperties")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class ProceduralTorusToolProperties extends ProceduralShapeToolProperties {
-	public var MajorRadius: cpp.Float32;
-	public var MinorRadius: cpp.Float32;
-	public var MajorSlices: cpp.Int32;
-	public var MinorSlices: cpp.Int32;
+	public var MajorRadius: ucpp.num.Float32;
+	public var MinorRadius: ucpp.num.Float32;
+	public var MajorSlices: ucpp.num.Int32;
+	public var MinorSlices: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralTorusToolProperties(ProceduralTorusToolProperties) from ProceduralTorusToolProperties {
-	public extern var MajorRadius(get, never): cpp.Float32;
-	public inline extern function get_MajorRadius(): cpp.Float32 return this.MajorRadius;
-	public extern var MinorRadius(get, never): cpp.Float32;
-	public inline extern function get_MinorRadius(): cpp.Float32 return this.MinorRadius;
-	public extern var MajorSlices(get, never): cpp.Int32;
-	public inline extern function get_MajorSlices(): cpp.Int32 return this.MajorSlices;
-	public extern var MinorSlices(get, never): cpp.Int32;
-	public inline extern function get_MinorSlices(): cpp.Int32 return this.MinorSlices;
+	public extern var MajorRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_MajorRadius(): ucpp.num.Float32 return this.MajorRadius;
+	public extern var MinorRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_MinorRadius(): ucpp.num.Float32 return this.MinorRadius;
+	public extern var MajorSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_MajorSlices(): ucpp.num.Int32 return this.MajorSlices;
+	public extern var MinorSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_MinorSlices(): ucpp.num.Int32 return this.MinorSlices;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralTorusToolProperties*")
-abstract ProceduralTorusToolPropertiesPtr(cpp.Star<ProceduralTorusToolProperties>) from cpp.Star<ProceduralTorusToolProperties> to cpp.Star<ProceduralTorusToolProperties>{
+abstract ProceduralTorusToolPropertiesPtr(ucpp.Ptr<ProceduralTorusToolProperties>) from ucpp.Ptr<ProceduralTorusToolProperties> to ucpp.Ptr<ProceduralTorusToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralTorusToolProperties): ProceduralTorusToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

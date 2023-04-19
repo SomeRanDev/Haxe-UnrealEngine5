@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleSystemComponent")
 @:include("Particles/ParticleSystemComponent.h")
-@:structAccess
+@:valueType
 extern class ParticleSystemComp extends FXSystemComp {
-	public var Template: cpp.Star<ParticleSystem>;
-	public var EmitterMaterials: TArray<cpp.Star<MaterialInterface>>;
-	public var SkelMeshComponents: TArray<cpp.Star<SkeletalMeshComp>>;
+	public var Template: ucpp.Ptr<ParticleSystem>;
+	public var EmitterMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var SkelMeshComponents: TArray<ucpp.Ptr<SkeletalMeshComp>>;
 	public var bResetOnDetach: Bool;
 	public var bUpdateOnDedicatedServer: Bool;
 	public var bAllowRecycling: Bool;
@@ -19,63 +19,63 @@ extern class ParticleSystemComp extends FXSystemComp {
 	public var LODMethod: TEnumAsByte<ParticleSystemLODMethod>;
 	public var RequiredSignificance: EParticleSignificanceLevel;
 	public var InstanceParameters: TArray<ParticleSysParam>;
-	public var OnParticleSpawn: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, Vector, Vector) -> Void>;
-	public var OnParticleBurst: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
-	public var OnParticleDeath: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector) -> Void>;
-	public var OnParticleCollide: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector, Vector, FName, cpp.Star<PhysicalMaterial>) -> Void>;
+	public var OnParticleSpawn: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, Vector, Vector) -> Void>;
+	public var OnParticleBurst: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public var OnParticleDeath: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector) -> Void>;
+	public var OnParticleCollide: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector, Vector, FName, ucpp.Ptr<PhysicalMaterial>) -> Void>;
 	public var bOldPositionValid: Bool;
 	public var OldPosition: Vector;
 	public var PartSysVelocity: Vector;
-	public var WarmupTime: cpp.Float32;
-	public var WarmupTickRate: cpp.Float32;
-	public var SecondsBeforeInactive: cpp.Float32;
-	public var MaxTimeBeforeForceUpdateTransform: cpp.Float32;
-	public var ReplayClips: TArray<cpp.Star<ParticleSystemReplay>>;
-	public var CustomTimeDilation: cpp.Float32;
+	public var WarmupTime: ucpp.num.Float32;
+	public var WarmupTickRate: ucpp.num.Float32;
+	public var SecondsBeforeInactive: ucpp.num.Float32;
+	public var MaxTimeBeforeForceUpdateTransform: ucpp.num.Float32;
+	public var ReplayClips: TArray<ucpp.Ptr<ParticleSystemReplay>>;
+	public var CustomTimeDilation: ucpp.num.Float32;
 	public var AutoAttachParent: TWeakObjectPtr<SceneComp>;
 	public var AutoAttachSocketName: FName;
 	public var AutoAttachLocationRule: EAttachmentRule;
 	public var AutoAttachRotationRule: EAttachmentRule;
 	public var AutoAttachScaleRule: EAttachmentRule;
-	public var OnSystemFinished: HaxeMulticastSparseDelegateProperty<(cpp.Star<ParticleSystemComp>) -> Void>;
+	public var OnSystemFinished: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ParticleSystemComp>) -> Void>;
 
-	public function SetTrailSourceData(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: TEnumAsByte<ETrailWidthMode>, InWidth: cpp.Float32): Void;
-	public function SetTemplate(NewTemplate: cpp.Star<ParticleSystem>): Void;
-	public function SetMaterialParameter(ParameterName: FName, Param: cpp.Star<MaterialInterface>): Void;
-	public function SetBeamTargetTangent(EmitterIndex: cpp.Int32, NewTangentPoint: Vector, TargetIndex: cpp.Int32): Void;
-	public function SetBeamTargetStrength(EmitterIndex: cpp.Int32, NewTargetStrength: cpp.Float32, TargetIndex: cpp.Int32): Void;
-	public function SetBeamTargetPoint(EmitterIndex: cpp.Int32, NewTargetPoint: Vector, TargetIndex: cpp.Int32): Void;
-	public function SetBeamSourceTangent(EmitterIndex: cpp.Int32, NewTangentPoint: Vector, SourceIndex: cpp.Int32): Void;
-	public function SetBeamSourceStrength(EmitterIndex: cpp.Int32, NewSourceStrength: cpp.Float32, SourceIndex: cpp.Int32): Void;
-	public function SetBeamSourcePoint(EmitterIndex: cpp.Int32, NewSourcePoint: Vector, SourceIndex: cpp.Int32): Void;
-	public function SetBeamEndPoint(EmitterIndex: cpp.Int32, NewEndPoint: Vector): Void;
-	public function SetAutoAttachParams(Parent: cpp.Star<SceneComp>, SocketName: FName, LocationType: TEnumAsByte<EAttachLocation>): Void;
-	public function GetNumActiveParticles(): cpp.Int32;
-	public function GetNamedMaterial(InName: FName): cpp.Star<MaterialInterface>;
-	public function GetBeamTargetTangent(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTangentPoint: cpp.Reference<Vector>): Bool;
-	public function GetBeamTargetStrength(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTargetStrength: cpp.Reference<cpp.Float32>): Bool;
-	public function GetBeamTargetPoint(EmitterIndex: cpp.Int32, TargetIndex: cpp.Int32, OutTargetPoint: cpp.Reference<Vector>): Bool;
-	public function GetBeamSourceTangent(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutTangentPoint: cpp.Reference<Vector>): Bool;
-	public function GetBeamSourceStrength(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutSourceStrength: cpp.Reference<cpp.Float32>): Bool;
-	public function GetBeamSourcePoint(EmitterIndex: cpp.Int32, SourceIndex: cpp.Int32, OutSourcePoint: cpp.Reference<Vector>): Bool;
-	public function GetBeamEndPoint(EmitterIndex: cpp.Int32, OutEndPoint: cpp.Reference<Vector>): Bool;
-	public function GenerateParticleEvent(InEventName: FName, InEmitterTime: cpp.Float32, InLocation: Vector, InDirection: Vector, InVelocity: Vector): Void;
+	public function SetTrailSourceData(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: TEnumAsByte<ETrailWidthMode>, InWidth: ucpp.num.Float32): Void;
+	public function SetTemplate(NewTemplate: ucpp.Ptr<ParticleSystem>): Void;
+	public function SetMaterialParameter(ParameterName: FName, Param: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetBeamTargetTangent(EmitterIndex: ucpp.num.Int32, NewTangentPoint: Vector, TargetIndex: ucpp.num.Int32): Void;
+	public function SetBeamTargetStrength(EmitterIndex: ucpp.num.Int32, NewTargetStrength: ucpp.num.Float32, TargetIndex: ucpp.num.Int32): Void;
+	public function SetBeamTargetPoint(EmitterIndex: ucpp.num.Int32, NewTargetPoint: Vector, TargetIndex: ucpp.num.Int32): Void;
+	public function SetBeamSourceTangent(EmitterIndex: ucpp.num.Int32, NewTangentPoint: Vector, SourceIndex: ucpp.num.Int32): Void;
+	public function SetBeamSourceStrength(EmitterIndex: ucpp.num.Int32, NewSourceStrength: ucpp.num.Float32, SourceIndex: ucpp.num.Int32): Void;
+	public function SetBeamSourcePoint(EmitterIndex: ucpp.num.Int32, NewSourcePoint: Vector, SourceIndex: ucpp.num.Int32): Void;
+	public function SetBeamEndPoint(EmitterIndex: ucpp.num.Int32, NewEndPoint: Vector): Void;
+	public function SetAutoAttachParams(Parent: ucpp.Ptr<SceneComp>, SocketName: FName, LocationType: TEnumAsByte<EAttachLocation>): Void;
+	public function GetNumActiveParticles(): ucpp.num.Int32;
+	public function GetNamedMaterial(InName: FName): ucpp.Ptr<MaterialInterface>;
+	public function GetBeamTargetTangent(EmitterIndex: ucpp.num.Int32, TargetIndex: ucpp.num.Int32, OutTangentPoint: ucpp.Ref<Vector>): Bool;
+	public function GetBeamTargetStrength(EmitterIndex: ucpp.num.Int32, TargetIndex: ucpp.num.Int32, OutTargetStrength: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetBeamTargetPoint(EmitterIndex: ucpp.num.Int32, TargetIndex: ucpp.num.Int32, OutTargetPoint: ucpp.Ref<Vector>): Bool;
+	public function GetBeamSourceTangent(EmitterIndex: ucpp.num.Int32, SourceIndex: ucpp.num.Int32, OutTangentPoint: ucpp.Ref<Vector>): Bool;
+	public function GetBeamSourceStrength(EmitterIndex: ucpp.num.Int32, SourceIndex: ucpp.num.Int32, OutSourceStrength: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetBeamSourcePoint(EmitterIndex: ucpp.num.Int32, SourceIndex: ucpp.num.Int32, OutSourcePoint: ucpp.Ref<Vector>): Bool;
+	public function GetBeamEndPoint(EmitterIndex: ucpp.num.Int32, OutEndPoint: ucpp.Ref<Vector>): Bool;
+	public function GenerateParticleEvent(InEventName: FName, InEmitterTime: ucpp.num.Float32, InLocation: Vector, InDirection: Vector, InVelocity: Vector): Void;
 	public function EndTrails(): Void;
-	public function CreateNamedDynamicMaterialInstance(InName: FName, SourceMaterial: cpp.Star<MaterialInterface>): cpp.Star<MaterialInstanceDynamic>;
-	public function BeginTrails(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: TEnumAsByte<ETrailWidthMode>, InWidth: cpp.Float32): Void;
+	public function CreateNamedDynamicMaterialInstance(InName: FName, SourceMaterial: ucpp.Ptr<MaterialInterface>): ucpp.Ptr<MaterialInstanceDynamic>;
+	public function BeginTrails(InFirstSocketName: FName, InSecondSocketName: FName, InWidthMode: TEnumAsByte<ETrailWidthMode>, InWidth: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNumActiveParticles, GetNamedMaterial, GetBeamTargetTangent, GetBeamTargetStrength, GetBeamTargetPoint, GetBeamSourceTangent, GetBeamSourceStrength, GetBeamSourcePoint, GetBeamEndPoint)
 @:nativeGen
 abstract ConstParticleSystemComp(ParticleSystemComp) from ParticleSystemComp {
-	public extern var Template(get, never): cpp.Star<ParticleSystem.ConstParticleSystem>;
-	public inline extern function get_Template(): cpp.Star<ParticleSystem.ConstParticleSystem> return this.Template;
-	public extern var EmitterMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_EmitterMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.EmitterMaterials;
-	public extern var SkelMeshComponents(get, never): TArray<cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>>;
-	public inline extern function get_SkelMeshComponents(): TArray<cpp.Star<SkeletalMeshComp.ConstSkeletalMeshComp>> return this.SkelMeshComponents;
+	public extern var Template(get, never): ucpp.Ptr<ParticleSystem.ConstParticleSystem>;
+	public inline extern function get_Template(): ucpp.Ptr<ParticleSystem.ConstParticleSystem> return this.Template;
+	public extern var EmitterMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_EmitterMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.EmitterMaterials;
+	public extern var SkelMeshComponents(get, never): TArray<ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>>;
+	public inline extern function get_SkelMeshComponents(): TArray<ucpp.Ptr<SkeletalMeshComp.ConstSkeletalMeshComp>> return this.SkelMeshComponents;
 	public extern var bResetOnDetach(get, never): Bool;
 	public inline extern function get_bResetOnDetach(): Bool return this.bResetOnDetach;
 	public extern var bUpdateOnDedicatedServer(get, never): Bool;
@@ -98,32 +98,32 @@ abstract ConstParticleSystemComp(ParticleSystemComp) from ParticleSystemComp {
 	public inline extern function get_RequiredSignificance(): EParticleSignificanceLevel return this.RequiredSignificance;
 	public extern var InstanceParameters(get, never): TArray<ParticleSysParam>;
 	public inline extern function get_InstanceParameters(): TArray<ParticleSysParam> return this.InstanceParameters;
-	public extern var OnParticleSpawn(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, Vector, Vector) -> Void>;
-	public inline extern function get_OnParticleSpawn(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, Vector, Vector) -> Void> return this.OnParticleSpawn;
-	public extern var OnParticleBurst(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
-	public inline extern function get_OnParticleBurst(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void> return this.OnParticleBurst;
-	public extern var OnParticleDeath(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector) -> Void>;
-	public inline extern function get_OnParticleDeath(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector) -> Void> return this.OnParticleDeath;
-	public extern var OnParticleCollide(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector, Vector, FName, cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>) -> Void>;
-	public inline extern function get_OnParticleCollide(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32, Vector, Vector, Vector, Vector, FName, cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>) -> Void> return this.OnParticleCollide;
+	public extern var OnParticleSpawn(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, Vector, Vector) -> Void>;
+	public inline extern function get_OnParticleSpawn(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, Vector, Vector) -> Void> return this.OnParticleSpawn;
+	public extern var OnParticleBurst(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnParticleBurst(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void> return this.OnParticleBurst;
+	public extern var OnParticleDeath(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector) -> Void>;
+	public inline extern function get_OnParticleDeath(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector) -> Void> return this.OnParticleDeath;
+	public extern var OnParticleCollide(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector, Vector, FName, ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>) -> Void>;
+	public inline extern function get_OnParticleCollide(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32, Vector, Vector, Vector, Vector, FName, ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>) -> Void> return this.OnParticleCollide;
 	public extern var bOldPositionValid(get, never): Bool;
 	public inline extern function get_bOldPositionValid(): Bool return this.bOldPositionValid;
 	public extern var OldPosition(get, never): Vector;
 	public inline extern function get_OldPosition(): Vector return this.OldPosition;
 	public extern var PartSysVelocity(get, never): Vector;
 	public inline extern function get_PartSysVelocity(): Vector return this.PartSysVelocity;
-	public extern var WarmupTime(get, never): cpp.Float32;
-	public inline extern function get_WarmupTime(): cpp.Float32 return this.WarmupTime;
-	public extern var WarmupTickRate(get, never): cpp.Float32;
-	public inline extern function get_WarmupTickRate(): cpp.Float32 return this.WarmupTickRate;
-	public extern var SecondsBeforeInactive(get, never): cpp.Float32;
-	public inline extern function get_SecondsBeforeInactive(): cpp.Float32 return this.SecondsBeforeInactive;
-	public extern var MaxTimeBeforeForceUpdateTransform(get, never): cpp.Float32;
-	public inline extern function get_MaxTimeBeforeForceUpdateTransform(): cpp.Float32 return this.MaxTimeBeforeForceUpdateTransform;
-	public extern var ReplayClips(get, never): TArray<cpp.Star<ParticleSystemReplay.ConstParticleSystemReplay>>;
-	public inline extern function get_ReplayClips(): TArray<cpp.Star<ParticleSystemReplay.ConstParticleSystemReplay>> return this.ReplayClips;
-	public extern var CustomTimeDilation(get, never): cpp.Float32;
-	public inline extern function get_CustomTimeDilation(): cpp.Float32 return this.CustomTimeDilation;
+	public extern var WarmupTime(get, never): ucpp.num.Float32;
+	public inline extern function get_WarmupTime(): ucpp.num.Float32 return this.WarmupTime;
+	public extern var WarmupTickRate(get, never): ucpp.num.Float32;
+	public inline extern function get_WarmupTickRate(): ucpp.num.Float32 return this.WarmupTickRate;
+	public extern var SecondsBeforeInactive(get, never): ucpp.num.Float32;
+	public inline extern function get_SecondsBeforeInactive(): ucpp.num.Float32 return this.SecondsBeforeInactive;
+	public extern var MaxTimeBeforeForceUpdateTransform(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxTimeBeforeForceUpdateTransform(): ucpp.num.Float32 return this.MaxTimeBeforeForceUpdateTransform;
+	public extern var ReplayClips(get, never): TArray<ucpp.Ptr<ParticleSystemReplay.ConstParticleSystemReplay>>;
+	public inline extern function get_ReplayClips(): TArray<ucpp.Ptr<ParticleSystemReplay.ConstParticleSystemReplay>> return this.ReplayClips;
+	public extern var CustomTimeDilation(get, never): ucpp.num.Float32;
+	public inline extern function get_CustomTimeDilation(): ucpp.num.Float32 return this.CustomTimeDilation;
 	public extern var AutoAttachParent(get, never): TWeakObjectPtr<SceneComp.ConstSceneComp>;
 	public inline extern function get_AutoAttachParent(): TWeakObjectPtr<SceneComp.ConstSceneComp> return this.AutoAttachParent;
 	public extern var AutoAttachSocketName(get, never): FName;
@@ -134,14 +134,14 @@ abstract ConstParticleSystemComp(ParticleSystemComp) from ParticleSystemComp {
 	public inline extern function get_AutoAttachRotationRule(): EAttachmentRule return this.AutoAttachRotationRule;
 	public extern var AutoAttachScaleRule(get, never): EAttachmentRule;
 	public inline extern function get_AutoAttachScaleRule(): EAttachmentRule return this.AutoAttachScaleRule;
-	public extern var OnSystemFinished(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ParticleSystemComp.ConstParticleSystemComp>) -> Void>;
-	public inline extern function get_OnSystemFinished(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ParticleSystemComp.ConstParticleSystemComp>) -> Void> return this.OnSystemFinished;
+	public extern var OnSystemFinished(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ParticleSystemComp.ConstParticleSystemComp>) -> Void>;
+	public inline extern function get_OnSystemFinished(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ParticleSystemComp.ConstParticleSystemComp>) -> Void> return this.OnSystemFinished;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleSystemComp*")
-abstract ParticleSystemCompPtr(cpp.Star<ParticleSystemComp>) from cpp.Star<ParticleSystemComp> to cpp.Star<ParticleSystemComp>{
+abstract ParticleSystemCompPtr(ucpp.Ptr<ParticleSystemComp>) from ucpp.Ptr<ParticleSystemComp> to ucpp.Ptr<ParticleSystemComp>{
 	@:from
 	public static extern inline function fromValue(v: ParticleSystemComp): ParticleSystemCompPtr {
 		return untyped __cpp__("&({0})", v);

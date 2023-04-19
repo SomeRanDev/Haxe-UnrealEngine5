@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSubmixRecordedFileDone__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSubmixRecordedFileDone__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSubmixRecordedFileDone__PythonCallable(OnSubmixRecordedFileDone_
 @:forward
 @:nativeGen
 @:native("OnSubmixRecordedFileDone__PythonCallable*")
-abstract OnSubmixRecordedFileDone__PythonCallablePtr(cpp.Star<OnSubmixRecordedFileDone__PythonCallable>) from cpp.Star<OnSubmixRecordedFileDone__PythonCallable> to cpp.Star<OnSubmixRecordedFileDone__PythonCallable>{
+abstract OnSubmixRecordedFileDone__PythonCallablePtr(ucpp.Ptr<OnSubmixRecordedFileDone__PythonCallable>) from ucpp.Ptr<OnSubmixRecordedFileDone__PythonCallable> to ucpp.Ptr<OnSubmixRecordedFileDone__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSubmixRecordedFileDone__PythonCallable): OnSubmixRecordedFileDone__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

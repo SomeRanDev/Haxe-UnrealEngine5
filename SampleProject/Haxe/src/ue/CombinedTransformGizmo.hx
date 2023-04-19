@@ -3,9 +3,9 @@ package ue;
 
 @:native("UCombinedTransformGizmo")
 @:include("BaseGizmos/CombinedTransformGizmo.h")
-@:structAccess
+@:valueType
 extern class CombinedTransformGizmo extends InteractiveGizmo {
-	public var ActiveTarget: cpp.Star<TransformProxy>;
+	public var ActiveTarget: ucpp.Ptr<TransformProxy>;
 	public var bSnapToWorldGrid: Bool;
 	public var bGridSizeIsExplicit: Bool;
 	public var ExplicitGridSize: Vector;
@@ -14,26 +14,27 @@ extern class CombinedTransformGizmo extends InteractiveGizmo {
 	public var bSnapToWorldRotGrid: Bool;
 	public var bUseContextCoordinateSystem: Bool;
 	public var CurrentCoordinateSystem: EToolContextCoordinateSystem;
-	@:protected public var ActiveComponents: TArray<cpp.Star<PrimitiveComp>>;
-	@:protected public var NonuniformScaleComponents: TArray<cpp.Star<PrimitiveComp>>;
-	@:protected public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
-	@:protected public var CameraAxisSource: cpp.Star<GizmoConstantFrameAxisSource>;
-	@:protected public var AxisXSource: cpp.Star<GizmoComponentAxisSource>;
-	@:protected public var AxisYSource: cpp.Star<GizmoComponentAxisSource>;
-	@:protected public var AxisZSource: cpp.Star<GizmoComponentAxisSource>;
-	@:protected public var UnitAxisXSource: cpp.Star<GizmoComponentAxisSource>;
-	@:protected public var UnitAxisYSource: cpp.Star<GizmoComponentAxisSource>;
-	@:protected public var UnitAxisZSource: cpp.Star<GizmoComponentAxisSource>;
-	@:protected public var StateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
+	public var bUseContextGizmoMode: Bool;
+	public var ActiveGizmoMode: EToolContextTransformGizmoMode;
+	@:protected public var ActiveComponents: TArray<ucpp.Ptr<PrimitiveComp>>;
+	@:protected public var ActiveGizmos: TArray<ucpp.Ptr<InteractiveGizmo>>;
+	@:protected public var CameraAxisSource: ucpp.Ptr<GizmoConstantFrameAxisSource>;
+	@:protected public var AxisXSource: ucpp.Ptr<GizmoComponentAxisSource>;
+	@:protected public var AxisYSource: ucpp.Ptr<GizmoComponentAxisSource>;
+	@:protected public var AxisZSource: ucpp.Ptr<GizmoComponentAxisSource>;
+	@:protected public var UnitAxisXSource: ucpp.Ptr<GizmoComponentAxisSource>;
+	@:protected public var UnitAxisYSource: ucpp.Ptr<GizmoComponentAxisSource>;
+	@:protected public var UnitAxisZSource: ucpp.Ptr<GizmoComponentAxisSource>;
+	@:protected public var StateTarget: ucpp.Ptr<GizmoTransformChangeStateTarget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCombinedTransformGizmo(CombinedTransformGizmo) from CombinedTransformGizmo {
-	public extern var ActiveTarget(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_ActiveTarget(): cpp.Star<TransformProxy.ConstTransformProxy> return this.ActiveTarget;
+	public extern var ActiveTarget(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_ActiveTarget(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.ActiveTarget;
 	public extern var bSnapToWorldGrid(get, never): Bool;
 	public inline extern function get_bSnapToWorldGrid(): Bool return this.bSnapToWorldGrid;
 	public extern var bGridSizeIsExplicit(get, never): Bool;
@@ -50,12 +51,16 @@ abstract ConstCombinedTransformGizmo(CombinedTransformGizmo) from CombinedTransf
 	public inline extern function get_bUseContextCoordinateSystem(): Bool return this.bUseContextCoordinateSystem;
 	public extern var CurrentCoordinateSystem(get, never): EToolContextCoordinateSystem;
 	public inline extern function get_CurrentCoordinateSystem(): EToolContextCoordinateSystem return this.CurrentCoordinateSystem;
+	public extern var bUseContextGizmoMode(get, never): Bool;
+	public inline extern function get_bUseContextGizmoMode(): Bool return this.bUseContextGizmoMode;
+	public extern var ActiveGizmoMode(get, never): EToolContextTransformGizmoMode;
+	public inline extern function get_ActiveGizmoMode(): EToolContextTransformGizmoMode return this.ActiveGizmoMode;
 }
 
 @:forward
 @:nativeGen
 @:native("CombinedTransformGizmo*")
-abstract CombinedTransformGizmoPtr(cpp.Star<CombinedTransformGizmo>) from cpp.Star<CombinedTransformGizmo> to cpp.Star<CombinedTransformGizmo>{
+abstract CombinedTransformGizmoPtr(ucpp.Ptr<CombinedTransformGizmo>) from ucpp.Ptr<CombinedTransformGizmo> to ucpp.Ptr<CombinedTransformGizmo>{
 	@:from
 	public static extern inline function fromValue(v: CombinedTransformGizmo): CombinedTransformGizmoPtr {
 		return untyped __cpp__("&({0})", v);

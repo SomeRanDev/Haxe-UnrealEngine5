@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorElementSelectionInterface")
 @:include("Elements/Actor/ActorElementSelectionInterface.h")
-@:structAccess
+@:valueType
 extern class ActorElementSelectionInterface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorElementSelectionInterface(ActorElementSelectionInterface) fro
 @:forward
 @:nativeGen
 @:native("ActorElementSelectionInterface*")
-abstract ActorElementSelectionInterfacePtr(cpp.Star<ActorElementSelectionInterface>) from cpp.Star<ActorElementSelectionInterface> to cpp.Star<ActorElementSelectionInterface>{
+abstract ActorElementSelectionInterfacePtr(ucpp.Ptr<ActorElementSelectionInterface>) from ucpp.Ptr<ActorElementSelectionInterface> to ucpp.Ptr<ActorElementSelectionInterface>{
 	@:from
 	public static extern inline function fromValue(v: ActorElementSelectionInterface): ActorElementSelectionInterfacePtr {
 		return untyped __cpp__("&({0})", v);

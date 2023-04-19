@@ -3,11 +3,11 @@ package ue;
 
 @:native("USoundGroups")
 @:include("Sound/SoundGroups.h")
-@:structAccess
+@:valueType
 extern class SoundGroups extends Object {
 	private var SoundGroupProfiles: TArray<SoundGroup>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSoundGroups(SoundGroups) from SoundGroups {
 @:forward
 @:nativeGen
 @:native("SoundGroups*")
-abstract SoundGroupsPtr(cpp.Star<SoundGroups>) from cpp.Star<SoundGroups> to cpp.Star<SoundGroups>{
+abstract SoundGroupsPtr(ucpp.Ptr<SoundGroups>) from ucpp.Ptr<SoundGroups> to ucpp.Ptr<SoundGroups>{
 	@:from
 	public static extern inline function fromValue(v: SoundGroups): SoundGroupsPtr {
 		return untyped __cpp__("&({0})", v);

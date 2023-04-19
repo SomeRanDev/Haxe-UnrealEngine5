@@ -3,10 +3,10 @@ package ue;
 
 @:native("FCustomPrimitiveData")
 @:include("SceneTypes.h")
-@:structAccess
+@:valueType
 extern class CustomPrimitiveData {
-	public var Data: TArray<cpp.Float32>;
+	public var Data: TArray<ucpp.num.Float32>;
 
 	@:native("FCustomPrimitiveData") public function new();
-	@:native("FCustomPrimitiveData") public static function make(Data: TArray<cpp.Float32>): CustomPrimitiveData ;
+	@:native("FCustomPrimitiveData") public static function make(Data: TArray<ucpp.num.Float32>): CustomPrimitiveData ;
 }

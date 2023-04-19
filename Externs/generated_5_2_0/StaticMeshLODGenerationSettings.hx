@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStaticMeshLODGenerationSettings")
 @:include("Tools/LODGenerationSettingsAsset.h")
-@:structAccess
+@:valueType
 extern class StaticMeshLODGenerationSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStaticMeshLODGenerationSettings(StaticMeshLODGenerationSettings) f
 @:forward
 @:nativeGen
 @:native("StaticMeshLODGenerationSettings*")
-abstract StaticMeshLODGenerationSettingsPtr(cpp.Star<StaticMeshLODGenerationSettings>) from cpp.Star<StaticMeshLODGenerationSettings> to cpp.Star<StaticMeshLODGenerationSettings>{
+abstract StaticMeshLODGenerationSettingsPtr(ucpp.Ptr<StaticMeshLODGenerationSettings>) from ucpp.Ptr<StaticMeshLODGenerationSettings> to ucpp.Ptr<StaticMeshLODGenerationSettings>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshLODGenerationSettings): StaticMeshLODGenerationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

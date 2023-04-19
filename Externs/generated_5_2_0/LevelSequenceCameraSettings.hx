@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequenceCameraSettings")
 @:include("LevelSequenceCameraSettings.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceCameraSettings {
 	public var bOverrideAspectRatioAxisConstraint: Bool;
 	public var AspectRatioAxisConstraint: TEnumAsByte<EAspectRatioAxisConstraint>;

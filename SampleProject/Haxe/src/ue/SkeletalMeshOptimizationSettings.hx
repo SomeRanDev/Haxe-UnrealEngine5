@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSkeletalMeshOptimizationSettings")
 @:include("SkeletalMeshReductionSettings.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshOptimizationSettings {
 	public var TerminationCriterion: TEnumAsByte<SkeletalMeshTerminationCriterion>;
-	public var NumOfTrianglesPercentage: cpp.Float32;
-	public var NumOfVertPercentage: cpp.Float32;
-	public var MaxNumOfTriangles: cpp.UInt32;
-	public var MaxNumOfVerts: cpp.UInt32;
-	public var MaxDeviationPercentage: cpp.Float32;
+	public var NumOfTrianglesPercentage: ucpp.num.Float32;
+	public var NumOfVertPercentage: ucpp.num.Float32;
+	public var MaxNumOfTriangles: ucpp.num.UInt32;
+	public var MaxNumOfVerts: ucpp.num.UInt32;
+	public var MaxDeviationPercentage: ucpp.num.Float32;
 	public var ReductionMethod: TEnumAsByte<SkeletalMeshOptimizationType>;
 	public var SilhouetteImportance: TEnumAsByte<SkeletalMeshOptimizationImportance>;
 	public var TextureImportance: TEnumAsByte<SkeletalMeshOptimizationImportance>;
@@ -18,15 +18,15 @@ extern class SkeletalMeshOptimizationSettings {
 	public var SkinningImportance: TEnumAsByte<SkeletalMeshOptimizationImportance>;
 	public var bRemapMorphTargets: Bool;
 	public var bRecalcNormals: Bool;
-	public var WeldingThreshold: cpp.Float32;
-	public var NormalsThreshold: cpp.Float32;
-	public var MaxBonesPerVertex: cpp.Int32;
+	public var WeldingThreshold: ucpp.num.Float32;
+	public var NormalsThreshold: ucpp.num.Float32;
+	public var MaxBonesPerVertex: ucpp.num.Int32;
 	public var bEnforceBoneBoundaries: Bool;
 	public var bMergeCoincidentVertBones: Bool;
-	public var VolumeImportance: cpp.Float32;
+	public var VolumeImportance: ucpp.num.Float32;
 	public var bLockEdges: Bool;
 	public var bLockColorBounaries: Bool;
-	public var BaseLOD: cpp.Int32;
+	public var BaseLOD: ucpp.num.Int32;
 
 	@:native("FSkeletalMeshOptimizationSettings") public function new();
 }

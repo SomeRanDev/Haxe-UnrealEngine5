@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLandscapeImportDescriptor")
 @:include("LandscapeImportHelper.h")
-@:structAccess
+@:valueType
 extern class LandscapeImportDescriptor {
 	public var ImportResolutions: TArray<LandscapeImportResolution>;
 	public var FileResolutions: TArray<LandscapeFileResolution>;

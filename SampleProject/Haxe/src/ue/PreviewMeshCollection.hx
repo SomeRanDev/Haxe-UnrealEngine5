@@ -3,19 +3,19 @@ package ue;
 
 @:native("UPreviewMeshCollection")
 @:include("Engine/PreviewMeshCollection.h")
-@:structAccess
+@:valueType
 extern class PreviewMeshCollection extends DataAsset {
-	public var Skeleton: cpp.Star<Skeleton>;
+	public var Skeleton: ucpp.Ptr<Skeleton>;
 	public var SkeletalMeshes: TArray<PreviewMeshCollectionEntry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPreviewMeshCollection(PreviewMeshCollection) from PreviewMeshCollection {
-	public extern var Skeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_Skeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.Skeleton;
+	public extern var Skeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_Skeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.Skeleton;
 	public extern var SkeletalMeshes(get, never): TArray<PreviewMeshCollectionEntry>;
 	public inline extern function get_SkeletalMeshes(): TArray<PreviewMeshCollectionEntry> return this.SkeletalMeshes;
 }
@@ -23,7 +23,7 @@ abstract ConstPreviewMeshCollection(PreviewMeshCollection) from PreviewMeshColle
 @:forward
 @:nativeGen
 @:native("PreviewMeshCollection*")
-abstract PreviewMeshCollectionPtr(cpp.Star<PreviewMeshCollection>) from cpp.Star<PreviewMeshCollection> to cpp.Star<PreviewMeshCollection>{
+abstract PreviewMeshCollectionPtr(ucpp.Ptr<PreviewMeshCollection>) from ucpp.Ptr<PreviewMeshCollection> to ucpp.Ptr<PreviewMeshCollection>{
 	@:from
 	public static extern inline function fromValue(v: PreviewMeshCollection): PreviewMeshCollectionPtr {
 		return untyped __cpp__("&({0})", v);

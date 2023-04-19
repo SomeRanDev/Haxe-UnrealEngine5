@@ -3,24 +3,24 @@ package ue;
 
 @:native("UInterchangePipelineStackOverride")
 @:include("InterchangeManager.h")
-@:structAccess
+@:valueType
 extern class InterchangePipelineStackOverride extends Object {
-	public var OverridePipelines: TArray<cpp.Star<InterchangePipelineBase>>;
+	public var OverridePipelines: TArray<ucpp.Ptr<InterchangePipelineBase>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInterchangePipelineStackOverride(InterchangePipelineStackOverride) from InterchangePipelineStackOverride {
-	public extern var OverridePipelines(get, never): TArray<cpp.Star<InterchangePipelineBase.ConstInterchangePipelineBase>>;
-	public inline extern function get_OverridePipelines(): TArray<cpp.Star<InterchangePipelineBase.ConstInterchangePipelineBase>> return this.OverridePipelines;
+	public extern var OverridePipelines(get, never): TArray<ucpp.Ptr<InterchangePipelineBase.ConstInterchangePipelineBase>>;
+	public inline extern function get_OverridePipelines(): TArray<ucpp.Ptr<InterchangePipelineBase.ConstInterchangePipelineBase>> return this.OverridePipelines;
 }
 
 @:forward
 @:nativeGen
 @:native("InterchangePipelineStackOverride*")
-abstract InterchangePipelineStackOverridePtr(cpp.Star<InterchangePipelineStackOverride>) from cpp.Star<InterchangePipelineStackOverride> to cpp.Star<InterchangePipelineStackOverride>{
+abstract InterchangePipelineStackOverridePtr(ucpp.Ptr<InterchangePipelineStackOverride>) from ucpp.Ptr<InterchangePipelineStackOverride> to ucpp.Ptr<InterchangePipelineStackOverride>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePipelineStackOverride): InterchangePipelineStackOverridePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,30 +3,30 @@ package ue;
 
 @:native("USphereReflectionCaptureComponent")
 @:include("Components/SphereReflectionCaptureComponent.h")
-@:structAccess
+@:valueType
 extern class SphereReflectionCaptureComp extends ReflectionCaptureComp {
-	public var InfluenceRadius: cpp.Float32;
-	public var CaptureDistanceScale: cpp.Float32;
-	public var PreviewInfluenceRadius: cpp.Star<DrawSphereComp>;
+	public var InfluenceRadius: ucpp.num.Float32;
+	public var CaptureDistanceScale: ucpp.num.Float32;
+	public var PreviewInfluenceRadius: ucpp.Ptr<DrawSphereComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSphereReflectionCaptureComp(SphereReflectionCaptureComp) from SphereReflectionCaptureComp {
-	public extern var InfluenceRadius(get, never): cpp.Float32;
-	public inline extern function get_InfluenceRadius(): cpp.Float32 return this.InfluenceRadius;
-	public extern var CaptureDistanceScale(get, never): cpp.Float32;
-	public inline extern function get_CaptureDistanceScale(): cpp.Float32 return this.CaptureDistanceScale;
-	public extern var PreviewInfluenceRadius(get, never): cpp.Star<DrawSphereComp.ConstDrawSphereComp>;
-	public inline extern function get_PreviewInfluenceRadius(): cpp.Star<DrawSphereComp.ConstDrawSphereComp> return this.PreviewInfluenceRadius;
+	public extern var InfluenceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_InfluenceRadius(): ucpp.num.Float32 return this.InfluenceRadius;
+	public extern var CaptureDistanceScale(get, never): ucpp.num.Float32;
+	public inline extern function get_CaptureDistanceScale(): ucpp.num.Float32 return this.CaptureDistanceScale;
+	public extern var PreviewInfluenceRadius(get, never): ucpp.Ptr<DrawSphereComp.ConstDrawSphereComp>;
+	public inline extern function get_PreviewInfluenceRadius(): ucpp.Ptr<DrawSphereComp.ConstDrawSphereComp> return this.PreviewInfluenceRadius;
 }
 
 @:forward
 @:nativeGen
 @:native("SphereReflectionCaptureComp*")
-abstract SphereReflectionCaptureCompPtr(cpp.Star<SphereReflectionCaptureComp>) from cpp.Star<SphereReflectionCaptureComp> to cpp.Star<SphereReflectionCaptureComp>{
+abstract SphereReflectionCaptureCompPtr(ucpp.Ptr<SphereReflectionCaptureComp>) from ucpp.Ptr<SphereReflectionCaptureComp> to ucpp.Ptr<SphereReflectionCaptureComp>{
 	@:from
 	public static extern inline function fromValue(v: SphereReflectionCaptureComp): SphereReflectionCaptureCompPtr {
 		return untyped __cpp__("&({0})", v);

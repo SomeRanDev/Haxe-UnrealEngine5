@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneMediaPlayerPropertyTrack")
 @:include("MovieSceneMediaPlayerPropertyTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMediaPlayerPropertyTrack extends MovieScenePropertyTrack {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneMediaPlayerPropertyTrack(MovieSceneMediaPlayerPropertyTr
 @:forward
 @:nativeGen
 @:native("MovieSceneMediaPlayerPropertyTrack*")
-abstract MovieSceneMediaPlayerPropertyTrackPtr(cpp.Star<MovieSceneMediaPlayerPropertyTrack>) from cpp.Star<MovieSceneMediaPlayerPropertyTrack> to cpp.Star<MovieSceneMediaPlayerPropertyTrack>{
+abstract MovieSceneMediaPlayerPropertyTrackPtr(ucpp.Ptr<MovieSceneMediaPlayerPropertyTrack>) from ucpp.Ptr<MovieSceneMediaPlayerPropertyTrack> to ucpp.Ptr<MovieSceneMediaPlayerPropertyTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMediaPlayerPropertyTrack): MovieSceneMediaPlayerPropertyTrackPtr {
 		return untyped __cpp__("&({0})", v);

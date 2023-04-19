@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULocationServicesData_OnLocationChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class LocationServicesData_OnLocationChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLocationServicesData_OnLocationChanged__PythonCallable(LocationSer
 @:forward
 @:nativeGen
 @:native("LocationServicesData_OnLocationChanged__PythonCallable*")
-abstract LocationServicesData_OnLocationChanged__PythonCallablePtr(cpp.Star<LocationServicesData_OnLocationChanged__PythonCallable>) from cpp.Star<LocationServicesData_OnLocationChanged__PythonCallable> to cpp.Star<LocationServicesData_OnLocationChanged__PythonCallable>{
+abstract LocationServicesData_OnLocationChanged__PythonCallablePtr(ucpp.Ptr<LocationServicesData_OnLocationChanged__PythonCallable>) from ucpp.Ptr<LocationServicesData_OnLocationChanged__PythonCallable> to ucpp.Ptr<LocationServicesData_OnLocationChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: LocationServicesData_OnLocationChanged__PythonCallable): LocationServicesData_OnLocationChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

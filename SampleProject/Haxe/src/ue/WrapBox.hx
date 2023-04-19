@@ -3,19 +3,19 @@ package ue;
 
 @:native("UWrapBox")
 @:include("Components/WrapBox.h")
-@:structAccess
+@:valueType
 extern class WrapBox extends PanelWidget {
 	public var InnerSlotPadding: Vector2D;
-	public var WrapSize: cpp.Float32;
+	public var WrapSize: ucpp.num.Float32;
 	public var bExplicitWrapSize: Bool;
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	public var Orientation: TEnumAsByte<EOrientation>;
 
 	public function SetInnerSlotPadding(InPadding: Vector2D): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
-	public function AddChildToWrapBox(Content: cpp.Star<Widget>): cpp.Star<WrapBoxSlot>;
+	public function AddChildToWrapBox(Content: ucpp.Ptr<Widget>): ucpp.Ptr<WrapBoxSlot>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,8 +23,8 @@ extern class WrapBox extends PanelWidget {
 abstract ConstWrapBox(WrapBox) from WrapBox {
 	public extern var InnerSlotPadding(get, never): Vector2D;
 	public inline extern function get_InnerSlotPadding(): Vector2D return this.InnerSlotPadding;
-	public extern var WrapSize(get, never): cpp.Float32;
-	public inline extern function get_WrapSize(): cpp.Float32 return this.WrapSize;
+	public extern var WrapSize(get, never): ucpp.num.Float32;
+	public inline extern function get_WrapSize(): ucpp.num.Float32 return this.WrapSize;
 	public extern var bExplicitWrapSize(get, never): Bool;
 	public inline extern function get_bExplicitWrapSize(): Bool return this.bExplicitWrapSize;
 	public extern var HorizontalAlignment(get, never): TEnumAsByte<EHorizontalAlignment>;
@@ -36,7 +36,7 @@ abstract ConstWrapBox(WrapBox) from WrapBox {
 @:forward
 @:nativeGen
 @:native("WrapBox*")
-abstract WrapBoxPtr(cpp.Star<WrapBox>) from cpp.Star<WrapBox> to cpp.Star<WrapBox>{
+abstract WrapBoxPtr(ucpp.Ptr<WrapBox>) from ucpp.Ptr<WrapBox> to ucpp.Ptr<WrapBox>{
 	@:from
 	public static extern inline function fromValue(v: WrapBox): WrapBoxPtr {
 		return untyped __cpp__("&({0})", v);

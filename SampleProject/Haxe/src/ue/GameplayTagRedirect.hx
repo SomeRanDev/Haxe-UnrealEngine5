@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayTagRedirect")
 @:include("GameplayTagRedirectors.h")
-@:structAccess
+@:valueType
 extern class GameplayTagRedirect {
 	public var OldTagName: FName;
 	public var NewTagName: FName;

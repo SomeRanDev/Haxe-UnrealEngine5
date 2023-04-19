@@ -3,20 +3,20 @@ package ue;
 
 @:native("UControlRigNumericalValidationPass")
 @:include("Validation/ControlRigNumericalValidationPass.h")
-@:structAccess
+@:valueType
 extern class ControlRigNumericalValidationPass extends ControlRigValidationPass {
 	public var bCheckControls: Bool;
 	public var bCheckBones: Bool;
 	public var bCheckCurves: Bool;
-	public var TranslationPrecision: cpp.Float32;
-	public var RotationPrecision: cpp.Float32;
-	public var ScalePrecision: cpp.Float32;
-	public var CurvePrecision: cpp.Float32;
+	public var TranslationPrecision: ucpp.num.Float32;
+	public var RotationPrecision: ucpp.num.Float32;
+	public var ScalePrecision: ucpp.num.Float32;
+	public var CurvePrecision: ucpp.num.Float32;
 	private var EventNameA: FName;
 	private var EventNameB: FName;
 	private var Pose: RigPose;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,20 +28,20 @@ abstract ConstControlRigNumericalValidationPass(ControlRigNumericalValidationPas
 	public inline extern function get_bCheckBones(): Bool return this.bCheckBones;
 	public extern var bCheckCurves(get, never): Bool;
 	public inline extern function get_bCheckCurves(): Bool return this.bCheckCurves;
-	public extern var TranslationPrecision(get, never): cpp.Float32;
-	public inline extern function get_TranslationPrecision(): cpp.Float32 return this.TranslationPrecision;
-	public extern var RotationPrecision(get, never): cpp.Float32;
-	public inline extern function get_RotationPrecision(): cpp.Float32 return this.RotationPrecision;
-	public extern var ScalePrecision(get, never): cpp.Float32;
-	public inline extern function get_ScalePrecision(): cpp.Float32 return this.ScalePrecision;
-	public extern var CurvePrecision(get, never): cpp.Float32;
-	public inline extern function get_CurvePrecision(): cpp.Float32 return this.CurvePrecision;
+	public extern var TranslationPrecision(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslationPrecision(): ucpp.num.Float32 return this.TranslationPrecision;
+	public extern var RotationPrecision(get, never): ucpp.num.Float32;
+	public inline extern function get_RotationPrecision(): ucpp.num.Float32 return this.RotationPrecision;
+	public extern var ScalePrecision(get, never): ucpp.num.Float32;
+	public inline extern function get_ScalePrecision(): ucpp.num.Float32 return this.ScalePrecision;
+	public extern var CurvePrecision(get, never): ucpp.num.Float32;
+	public inline extern function get_CurvePrecision(): ucpp.num.Float32 return this.CurvePrecision;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlRigNumericalValidationPass*")
-abstract ControlRigNumericalValidationPassPtr(cpp.Star<ControlRigNumericalValidationPass>) from cpp.Star<ControlRigNumericalValidationPass> to cpp.Star<ControlRigNumericalValidationPass>{
+abstract ControlRigNumericalValidationPassPtr(ucpp.Ptr<ControlRigNumericalValidationPass>) from ucpp.Ptr<ControlRigNumericalValidationPass> to ucpp.Ptr<ControlRigNumericalValidationPass>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigNumericalValidationPass): ControlRigNumericalValidationPassPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,50 +3,50 @@ package ue;
 
 @:native("UBillboardComponent")
 @:include("Components/BillboardComponent.h")
-@:structAccess
+@:valueType
 extern class BillboardComp extends PrimitiveComp {
-	public var Sprite: cpp.Star<Texture2D>;
+	public var Sprite: ucpp.Ptr<Texture2D>;
 	public var bIsScreenSizeScaled: Bool;
-	public var ScreenSize: cpp.Float32;
-	public var U: cpp.Float32;
-	public var UL: cpp.Float32;
-	public var V: cpp.Float32;
-	public var VL: cpp.Float32;
-	public var OpacityMaskRefVal: cpp.Float32;
+	public var ScreenSize: ucpp.num.Float32;
+	public var U: ucpp.num.Float32;
+	public var UL: ucpp.num.Float32;
+	public var V: ucpp.num.Float32;
+	public var VL: ucpp.num.Float32;
+	public var OpacityMaskRefVal: ucpp.num.Float32;
 
-	public function SetUV(NewU: cpp.Int32, NewUL: cpp.Int32, NewV: cpp.Int32, NewVL: cpp.Int32): Void;
-	public function SetSpriteAndUV(NewSprite: cpp.Star<Texture2D>, NewU: cpp.Int32, NewUL: cpp.Int32, NewV: cpp.Int32, NewVL: cpp.Int32): Void;
-	public function SetSprite(NewSprite: cpp.Star<Texture2D>): Void;
-	public function SetOpacityMaskRefVal(RefVal: cpp.Float32): Void;
+	public function SetUV(NewU: ucpp.num.Int32, NewUL: ucpp.num.Int32, NewV: ucpp.num.Int32, NewVL: ucpp.num.Int32): Void;
+	public function SetSpriteAndUV(NewSprite: ucpp.Ptr<Texture2D>, NewU: ucpp.num.Int32, NewUL: ucpp.num.Int32, NewV: ucpp.num.Int32, NewVL: ucpp.num.Int32): Void;
+	public function SetSprite(NewSprite: ucpp.Ptr<Texture2D>): Void;
+	public function SetOpacityMaskRefVal(RefVal: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBillboardComp(BillboardComp) from BillboardComp {
-	public extern var Sprite(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_Sprite(): cpp.Star<Texture2D.ConstTexture2D> return this.Sprite;
+	public extern var Sprite(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_Sprite(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.Sprite;
 	public extern var bIsScreenSizeScaled(get, never): Bool;
 	public inline extern function get_bIsScreenSizeScaled(): Bool return this.bIsScreenSizeScaled;
-	public extern var ScreenSize(get, never): cpp.Float32;
-	public inline extern function get_ScreenSize(): cpp.Float32 return this.ScreenSize;
-	public extern var U(get, never): cpp.Float32;
-	public inline extern function get_U(): cpp.Float32 return this.U;
-	public extern var UL(get, never): cpp.Float32;
-	public inline extern function get_UL(): cpp.Float32 return this.UL;
-	public extern var V(get, never): cpp.Float32;
-	public inline extern function get_V(): cpp.Float32 return this.V;
-	public extern var VL(get, never): cpp.Float32;
-	public inline extern function get_VL(): cpp.Float32 return this.VL;
-	public extern var OpacityMaskRefVal(get, never): cpp.Float32;
-	public inline extern function get_OpacityMaskRefVal(): cpp.Float32 return this.OpacityMaskRefVal;
+	public extern var ScreenSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ScreenSize(): ucpp.num.Float32 return this.ScreenSize;
+	public extern var U(get, never): ucpp.num.Float32;
+	public inline extern function get_U(): ucpp.num.Float32 return this.U;
+	public extern var UL(get, never): ucpp.num.Float32;
+	public inline extern function get_UL(): ucpp.num.Float32 return this.UL;
+	public extern var V(get, never): ucpp.num.Float32;
+	public inline extern function get_V(): ucpp.num.Float32 return this.V;
+	public extern var VL(get, never): ucpp.num.Float32;
+	public inline extern function get_VL(): ucpp.num.Float32 return this.VL;
+	public extern var OpacityMaskRefVal(get, never): ucpp.num.Float32;
+	public inline extern function get_OpacityMaskRefVal(): ucpp.num.Float32 return this.OpacityMaskRefVal;
 }
 
 @:forward
 @:nativeGen
 @:native("BillboardComp*")
-abstract BillboardCompPtr(cpp.Star<BillboardComp>) from cpp.Star<BillboardComp> to cpp.Star<BillboardComp>{
+abstract BillboardCompPtr(ucpp.Ptr<BillboardComp>) from ucpp.Ptr<BillboardComp> to ucpp.Ptr<BillboardComp>{
 	@:from
 	public static extern inline function fromValue(v: BillboardComp): BillboardCompPtr {
 		return untyped __cpp__("&({0})", v);

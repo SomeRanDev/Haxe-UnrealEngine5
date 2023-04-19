@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGameInstance")
 @:include("Engine/GameInstance.h")
-@:structAccess
+@:valueType
 extern class GameInstance extends Object {
-	@:protected public var LocalPlayers: TArray<cpp.Star<LocalPlayer>>;
-	@:protected public var OnlineSession: cpp.Star<OnlineSession>;
-	@:protected public var ReferencedObjects: TArray<cpp.Star<Object>>;
-	@:protected public var OnPawnControllerChangedDelegates: HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn>, cpp.Star<Controller>) -> Void>;
+	@:protected public var LocalPlayers: TArray<ucpp.Ptr<LocalPlayer>>;
+	@:protected public var OnlineSession: ucpp.Ptr<OnlineSession>;
+	@:protected public var ReferencedObjects: TArray<ucpp.Ptr<Object>>;
+	@:protected public var OnPawnControllerChangedDelegates: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Pawn>, ucpp.Ptr<Controller>) -> Void>;
 	public var OnInputDeviceConnectionChange: HaxeMulticastSparseDelegateProperty<(EInputDeviceConnectionState, PlatformUserId, InputDeviceId) -> Void>;
 	public var OnUserInputDevicePairingChange: HaxeMulticastSparseDelegateProperty<(InputDeviceId, PlatformUserId, PlatformUserId) -> Void>;
 
@@ -16,10 +16,10 @@ extern class GameInstance extends Object {
 	public function ReceiveInit(): Void;
 	public function HandleTravelError(FailureType: TEnumAsByte<ETravelFailure>): Void;
 	public function HandleNetworkError(FailureType: TEnumAsByte<ENetworkFailure>, bIsServer: Bool): Void;
-	public function DebugRemovePlayer(ControllerId: cpp.Int32): Void;
-	public function DebugCreatePlayer(ControllerId: cpp.Int32): Void;
+	public function DebugRemovePlayer(ControllerId: ucpp.num.Int32): Void;
+	public function DebugCreatePlayer(ControllerId: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,7 +34,7 @@ abstract ConstGameInstance(GameInstance) from GameInstance {
 @:forward
 @:nativeGen
 @:native("GameInstance*")
-abstract GameInstancePtr(cpp.Star<GameInstance>) from cpp.Star<GameInstance> to cpp.Star<GameInstance>{
+abstract GameInstancePtr(ucpp.Ptr<GameInstance>) from ucpp.Ptr<GameInstance> to ucpp.Ptr<GameInstance>{
 	@:from
 	public static extern inline function fromValue(v: GameInstance): GameInstancePtr {
 		return untyped __cpp__("&({0})", v);

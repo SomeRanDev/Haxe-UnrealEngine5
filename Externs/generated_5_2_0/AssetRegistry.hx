@@ -2,37 +2,37 @@
 package ue;
 
 @:native("UAssetRegistry")
-@:structAccess
+@:valueType
 extern class AssetRegistry extends Interface {
 	public function WaitForPackage(PackageName: FString): Void;
 	public function WaitForCompletion(): Void;
-	public function UseFilterToExcludeAssets(AssetDataList: cpp.Reference<TArray<AssetData>>, Filter: cpp.Reference<ARFilter>): Void;
+	public function UseFilterToExcludeAssets(AssetDataList: ucpp.Ref<TArray<AssetData>>, Filter: ucpp.Ref<ARFilter>): Void;
 	public function SearchAllAssets(bSynchronousSearch: Bool): Void;
-	public function ScanPathsSynchronous(InPaths: cpp.Reference<TArray<FString>>, bForceRescan: Bool, bIgnoreDenyListScanFilters: Bool): Void;
-	public function ScanModifiedAssetFiles(InFilePaths: cpp.Reference<TArray<FString>>): Void;
-	public function ScanFilesSynchronous(InFilePaths: cpp.Reference<TArray<FString>>, bForceRescan: Bool): Void;
-	public function RunAssetsThroughFilter(AssetDataList: cpp.Reference<TArray<AssetData>>, Filter: cpp.Reference<ARFilter>): Void;
+	public function ScanPathsSynchronous(InPaths: ucpp.Ref<TArray<FString>>, bForceRescan: Bool, bIgnoreDenyListScanFilters: Bool): Void;
+	public function ScanModifiedAssetFiles(InFilePaths: ucpp.Ref<TArray<FString>>): Void;
+	public function ScanFilesSynchronous(InFilePaths: ucpp.Ref<TArray<FString>>, bForceRescan: Bool): Void;
+	public function RunAssetsThroughFilter(AssetDataList: ucpp.Ref<TArray<AssetData>>, Filter: ucpp.Ref<ARFilter>): Void;
 	public function PrioritizeSearchPath(PathToPrioritize: FString): Void;
-	public function K2_GetReferencers(PackageName: FName, ReferenceOptions: cpp.Reference<AssetRegistryDependencyOptions>, OutReferencers: cpp.Reference<TArray<FName>>): Bool;
-	public function K2_GetDependencies(PackageName: FName, DependencyOptions: cpp.Reference<AssetRegistryDependencyOptions>, OutDependencies: cpp.Reference<TArray<FName>>): Bool;
-	public function K2_GetAssetByObjectPath(ObjectPath: cpp.Reference<SoftObjectPath>, bIncludeOnlyOnDiskAssets: Bool): AssetData;
+	public function K2_GetReferencers(PackageName: FName, ReferenceOptions: ucpp.Ref<AssetRegistryDependencyOptions>, OutReferencers: ucpp.Ref<TArray<FName>>): Bool;
+	public function K2_GetDependencies(PackageName: FName, DependencyOptions: ucpp.Ref<AssetRegistryDependencyOptions>, OutDependencies: ucpp.Ref<TArray<FName>>): Bool;
+	public function K2_GetAssetByObjectPath(ObjectPath: ucpp.Ref<SoftObjectPath>, bIncludeOnlyOnDiskAssets: Bool): AssetData;
 	public function IsSearchAsync(): Bool;
 	public function IsSearchAllAssets(): Bool;
 	public function IsLoadingAssets(): Bool;
 	public function HasAssets(PackagePath: FName, bRecursive: Bool): Bool;
-	public function GetSubPaths(InBasePath: FString, OutPathList: cpp.Reference<TArray<FString>>, bInRecurse: Bool): Void;
-	public function GetDerivedClassNames(ClassNames: cpp.Reference<TArray<TopLevelAssetPath>>, ExcludedClassNames: cpp.Reference<TSet<TopLevelAssetPath>>, OutDerivedClassNames: cpp.Reference<TSet<TopLevelAssetPath>>): Void;
-	public function GetAssetsByPaths(PackagePaths: TArray<FName>, OutAssetData: cpp.Reference<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): Bool;
-	public function GetAssetsByPath(PackagePath: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): Bool;
-	public function GetAssetsByPackageName(PackageName: FName, OutAssetData: cpp.Reference<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool, bSkipARFilteredAssets: Bool): Bool;
-	public function GetAssetsByClass(ClassPathName: TopLevelAssetPath, OutAssetData: cpp.Reference<TArray<AssetData>>, bSearchSubClasses: Bool): Bool;
-	public function GetAssets(Filter: cpp.Reference<ARFilter>, OutAssetData: cpp.Reference<TArray<AssetData>>, bSkipARFilteredAssets: Bool): Bool;
+	public function GetSubPaths(InBasePath: FString, OutPathList: ucpp.Ref<TArray<FString>>, bInRecurse: Bool): Void;
+	public function GetDerivedClassNames(ClassNames: ucpp.Ref<TArray<TopLevelAssetPath>>, ExcludedClassNames: ucpp.Ref<TSet<TopLevelAssetPath>>, OutDerivedClassNames: ucpp.Ref<TSet<TopLevelAssetPath>>): Void;
+	public function GetAssetsByPaths(PackagePaths: TArray<FName>, OutAssetData: ucpp.Ref<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): Bool;
+	public function GetAssetsByPath(PackagePath: FName, OutAssetData: ucpp.Ref<TArray<AssetData>>, bRecursive: Bool, bIncludeOnlyOnDiskAssets: Bool): Bool;
+	public function GetAssetsByPackageName(PackageName: FName, OutAssetData: ucpp.Ref<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool, bSkipARFilteredAssets: Bool): Bool;
+	public function GetAssetsByClass(ClassPathName: TopLevelAssetPath, OutAssetData: ucpp.Ref<TArray<AssetData>>, bSearchSubClasses: Bool): Bool;
+	public function GetAssets(Filter: ucpp.Ref<ARFilter>, OutAssetData: ucpp.Ref<TArray<AssetData>>, bSkipARFilteredAssets: Bool): Bool;
 	public function GetAssetByObjectPath(ObjectPath: FName, bIncludeOnlyOnDiskAssets: Bool): AssetData;
-	public function GetAncestorClassNames(ClassPathName: TopLevelAssetPath, OutAncestorClassNames: cpp.Reference<TArray<TopLevelAssetPath>>): Bool;
-	public function GetAllCachedPaths(OutPathList: cpp.Reference<TArray<FString>>): Void;
-	public function GetAllAssets(OutAssetData: cpp.Reference<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool): Bool;
+	public function GetAncestorClassNames(ClassPathName: TopLevelAssetPath, OutAncestorClassNames: ucpp.Ref<TArray<TopLevelAssetPath>>): Bool;
+	public function GetAllCachedPaths(OutPathList: ucpp.Ref<TArray<FString>>): Void;
+	public function GetAllAssets(OutAssetData: ucpp.Ref<TArray<AssetData>>, bIncludeOnlyOnDiskAssets: Bool): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -48,7 +48,7 @@ abstract ConstAssetRegistry(AssetRegistry) from AssetRegistry {
 @:forward
 @:nativeGen
 @:native("AssetRegistry*")
-abstract AssetRegistryPtr(cpp.Star<AssetRegistry>) from cpp.Star<AssetRegistry> to cpp.Star<AssetRegistry>{
+abstract AssetRegistryPtr(ucpp.Ptr<AssetRegistry>) from ucpp.Ptr<AssetRegistry> to ucpp.Ptr<AssetRegistry>{
 	@:from
 	public static extern inline function fromValue(v: AssetRegistry): AssetRegistryPtr {
 		return untyped __cpp__("&({0})", v);

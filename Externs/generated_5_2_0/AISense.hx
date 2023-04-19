@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAISense")
 @:include("Perception/AISense.h")
-@:structAccess
+@:valueType
 extern class AISense extends Object {
-	@:protected public var DefaultExpirationAge: cpp.Float32;
+	@:protected public var DefaultExpirationAge: ucpp.num.Float32;
 	@:protected public var NotifyType: EAISenseNotifyType;
 	@:protected public var bWantsNewPawnNotification: Bool;
 	@:protected public var bAutoRegisterAllPawnsAsSources: Bool;
-	private var PerceptionSystemInstance: cpp.Star<AIPerceptionSystem>;
+	private var PerceptionSystemInstance: ucpp.Ptr<AIPerceptionSystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAISense(AISense) from AISense {
 @:forward
 @:nativeGen
 @:native("AISense*")
-abstract AISensePtr(cpp.Star<AISense>) from cpp.Star<AISense> to cpp.Star<AISense>{
+abstract AISensePtr(ucpp.Ptr<AISense>) from ucpp.Ptr<AISense> to ucpp.Ptr<AISense>{
 	@:from
 	public static extern inline function fromValue(v: AISense): AISensePtr {
 		return untyped __cpp__("&({0})", v);

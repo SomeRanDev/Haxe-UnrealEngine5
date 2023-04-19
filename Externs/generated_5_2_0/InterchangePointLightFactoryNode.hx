@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangePointLightFactoryNode")
 @:include("InterchangeLightFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangePointLightFactoryNode extends InterchangeLightFactoryNode {
 	public function SetCustomUseInverseSquaredFalloff(AttributeValue: Bool, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomLightFalloffExponent(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
-	public function GetCustomUseInverseSquaredFalloff(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomLightFalloffExponent(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function SetCustomLightFalloffExponent(AttributeValue: ucpp.num.Float32, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomUseInverseSquaredFalloff(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomLightFalloffExponent(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomUseInverseSquaredFalloff, GetCustomLightFalloffExponent)
@@ -21,7 +21,7 @@ abstract ConstInterchangePointLightFactoryNode(InterchangePointLightFactoryNode)
 @:forward
 @:nativeGen
 @:native("InterchangePointLightFactoryNode*")
-abstract InterchangePointLightFactoryNodePtr(cpp.Star<InterchangePointLightFactoryNode>) from cpp.Star<InterchangePointLightFactoryNode> to cpp.Star<InterchangePointLightFactoryNode>{
+abstract InterchangePointLightFactoryNodePtr(ucpp.Ptr<InterchangePointLightFactoryNode>) from ucpp.Ptr<InterchangePointLightFactoryNode> to ucpp.Ptr<InterchangePointLightFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePointLightFactoryNode): InterchangePointLightFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMeshStatisticsProperties")
 @:include("Properties/MeshStatisticsProperties.h")
-@:structAccess
+@:valueType
 extern class MeshStatisticsProperties extends InteractiveToolPropertySet {
 	public var Mesh: FString;
 	public var UV: FString;
 	public var Attributes: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMeshStatisticsProperties(MeshStatisticsProperties) from MeshStatis
 @:forward
 @:nativeGen
 @:native("MeshStatisticsProperties*")
-abstract MeshStatisticsPropertiesPtr(cpp.Star<MeshStatisticsProperties>) from cpp.Star<MeshStatisticsProperties> to cpp.Star<MeshStatisticsProperties>{
+abstract MeshStatisticsPropertiesPtr(ucpp.Ptr<MeshStatisticsProperties>) from ucpp.Ptr<MeshStatisticsProperties> to ucpp.Ptr<MeshStatisticsProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshStatisticsProperties): MeshStatisticsPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

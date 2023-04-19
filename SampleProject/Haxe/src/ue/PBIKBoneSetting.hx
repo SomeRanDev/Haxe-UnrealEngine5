@@ -3,20 +3,20 @@ package ue;
 
 @:native("FPBIKBoneSetting")
 @:include("PBIK_Shared.h")
-@:structAccess
+@:valueType
 extern class PBIKBoneSetting {
 	public var Bone: FName;
-	public var RotationStiffness: cpp.Float32;
-	public var PositionStiffness: cpp.Float32;
+	public var RotationStiffness: ucpp.num.Float32;
+	public var PositionStiffness: ucpp.num.Float32;
 	public var X: EPBIKLimitType;
-	public var MinX: cpp.Float32;
-	public var MaxX: cpp.Float32;
+	public var MinX: ucpp.num.Float32;
+	public var MaxX: ucpp.num.Float32;
 	public var Y: EPBIKLimitType;
-	public var MinY: cpp.Float32;
-	public var MaxY: cpp.Float32;
+	public var MinY: ucpp.num.Float32;
+	public var MaxY: ucpp.num.Float32;
 	public var Z: EPBIKLimitType;
-	public var MinZ: cpp.Float32;
-	public var MaxZ: cpp.Float32;
+	public var MinZ: ucpp.num.Float32;
+	public var MaxZ: ucpp.num.Float32;
 	public var bUsePreferredAngles: Bool;
 	public var PreferredAngles: Vector;
 

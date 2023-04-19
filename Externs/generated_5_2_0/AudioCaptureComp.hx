@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAudioCaptureComponent")
 @:include("AudioCaptureComponent.h")
-@:structAccess
+@:valueType
 extern class AudioCaptureComp extends SynthComp {
-	public var JitterLatencyFrames: cpp.Int32;
+	public var JitterLatencyFrames: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAudioCaptureComp(AudioCaptureComp) from AudioCaptureComp {
-	public extern var JitterLatencyFrames(get, never): cpp.Int32;
-	public inline extern function get_JitterLatencyFrames(): cpp.Int32 return this.JitterLatencyFrames;
+	public extern var JitterLatencyFrames(get, never): ucpp.num.Int32;
+	public inline extern function get_JitterLatencyFrames(): ucpp.num.Int32 return this.JitterLatencyFrames;
 }
 
 @:forward
 @:nativeGen
 @:native("AudioCaptureComp*")
-abstract AudioCaptureCompPtr(cpp.Star<AudioCaptureComp>) from cpp.Star<AudioCaptureComp> to cpp.Star<AudioCaptureComp>{
+abstract AudioCaptureCompPtr(ucpp.Ptr<AudioCaptureComp>) from ucpp.Ptr<AudioCaptureComp> to ucpp.Ptr<AudioCaptureComp>{
 	@:from
 	public static extern inline function fromValue(v: AudioCaptureComp): AudioCaptureCompPtr {
 		return untyped __cpp__("&({0})", v);

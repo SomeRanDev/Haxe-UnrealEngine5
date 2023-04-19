@@ -3,46 +3,51 @@ package ue;
 
 @:native("UChaosClothConfig")
 @:include("ChaosCloth/ChaosClothConfig.h")
-@:structAccess
+@:valueType
 extern class ChaosClothConfig extends ClothConfigCommon {
 	public var MassMode: EClothMassMode;
-	public var UniformMass: cpp.Float32;
-	public var TotalMass: cpp.Float32;
-	public var Density: cpp.Float32;
-	public var MinPerParticleMass: cpp.Float32;
+	public var UniformMass: ucpp.num.Float32;
+	public var TotalMass: ucpp.num.Float32;
+	public var Density: ucpp.num.Float32;
+	public var MinPerParticleMass: ucpp.num.Float32;
 	public var EdgeStiffnessWeighted: ChaosClothWeightedValue;
 	public var BendingStiffnessWeighted: ChaosClothWeightedValue;
 	public var bUseBendingElements: Bool;
+	public var BucklingRatio: ucpp.num.Float32;
+	public var BucklingStiffnessWeighted: ChaosClothWeightedValue;
 	public var AreaStiffnessWeighted: ChaosClothWeightedValue;
-	public var VolumeStiffness: cpp.Float32;
+	public var VolumeStiffness: ucpp.num.Float32;
 	public var TetherStiffness: ChaosClothWeightedValue;
 	public var TetherScale: ChaosClothWeightedValue;
 	public var bUseGeodesicDistance: Bool;
-	public var ShapeTargetStiffness: cpp.Float32;
-	public var CollisionThickness: cpp.Float32;
-	public var FrictionCoefficient: cpp.Float32;
+	public var ShapeTargetStiffness: ucpp.num.Float32;
+	public var CollisionThickness: ucpp.num.Float32;
+	public var FrictionCoefficient: ucpp.num.Float32;
 	public var bUseCCD: Bool;
 	public var bUseSelfCollisions: Bool;
-	public var SelfCollisionThickness: cpp.Float32;
+	public var SelfCollisionThickness: ucpp.num.Float32;
+	public var SelfCollisionFriction: ucpp.num.Float32;
+	public var bUseSelfIntersections: Bool;
 	public var bUseLegacyBackstop: Bool;
-	public var DampingCoefficient: cpp.Float32;
-	public var LocalDampingCoefficient: cpp.Float32;
+	public var DampingCoefficient: ucpp.num.Float32;
+	public var LocalDampingCoefficient: ucpp.num.Float32;
 	public var bUsePointBasedWindModel: Bool;
 	public var Drag: ChaosClothWeightedValue;
 	public var Lift: ChaosClothWeightedValue;
 	public var bUseGravityOverride: Bool;
-	public var GravityScale: cpp.Float32;
+	public var GravityScale: ucpp.num.Float32;
 	public var Gravity: Vector;
+	public var Pressure: ChaosClothWeightedValue;
 	public var AnimDriveStiffness: ChaosClothWeightedValue;
 	public var AnimDriveDamping: ChaosClothWeightedValue;
 	public var LinearVelocityScale: Vector;
-	public var AngularVelocityScale: cpp.Float32;
-	public var FictitiousAngularScale: cpp.Float32;
+	public var AngularVelocityScale: ucpp.num.Float32;
+	public var FictitiousAngularScale: ucpp.num.Float32;
 	public var bUseTetrahedralConstraints: Bool;
 	public var bUseThinShellVolumeConstraints: Bool;
 	public var bUseContinuousCollisionDetection: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -50,48 +55,56 @@ extern class ChaosClothConfig extends ClothConfigCommon {
 abstract ConstChaosClothConfig(ChaosClothConfig) from ChaosClothConfig {
 	public extern var MassMode(get, never): EClothMassMode;
 	public inline extern function get_MassMode(): EClothMassMode return this.MassMode;
-	public extern var UniformMass(get, never): cpp.Float32;
-	public inline extern function get_UniformMass(): cpp.Float32 return this.UniformMass;
-	public extern var TotalMass(get, never): cpp.Float32;
-	public inline extern function get_TotalMass(): cpp.Float32 return this.TotalMass;
-	public extern var Density(get, never): cpp.Float32;
-	public inline extern function get_Density(): cpp.Float32 return this.Density;
-	public extern var MinPerParticleMass(get, never): cpp.Float32;
-	public inline extern function get_MinPerParticleMass(): cpp.Float32 return this.MinPerParticleMass;
+	public extern var UniformMass(get, never): ucpp.num.Float32;
+	public inline extern function get_UniformMass(): ucpp.num.Float32 return this.UniformMass;
+	public extern var TotalMass(get, never): ucpp.num.Float32;
+	public inline extern function get_TotalMass(): ucpp.num.Float32 return this.TotalMass;
+	public extern var Density(get, never): ucpp.num.Float32;
+	public inline extern function get_Density(): ucpp.num.Float32 return this.Density;
+	public extern var MinPerParticleMass(get, never): ucpp.num.Float32;
+	public inline extern function get_MinPerParticleMass(): ucpp.num.Float32 return this.MinPerParticleMass;
 	public extern var EdgeStiffnessWeighted(get, never): ChaosClothWeightedValue;
 	public inline extern function get_EdgeStiffnessWeighted(): ChaosClothWeightedValue return this.EdgeStiffnessWeighted;
 	public extern var BendingStiffnessWeighted(get, never): ChaosClothWeightedValue;
 	public inline extern function get_BendingStiffnessWeighted(): ChaosClothWeightedValue return this.BendingStiffnessWeighted;
 	public extern var bUseBendingElements(get, never): Bool;
 	public inline extern function get_bUseBendingElements(): Bool return this.bUseBendingElements;
+	public extern var BucklingRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_BucklingRatio(): ucpp.num.Float32 return this.BucklingRatio;
+	public extern var BucklingStiffnessWeighted(get, never): ChaosClothWeightedValue;
+	public inline extern function get_BucklingStiffnessWeighted(): ChaosClothWeightedValue return this.BucklingStiffnessWeighted;
 	public extern var AreaStiffnessWeighted(get, never): ChaosClothWeightedValue;
 	public inline extern function get_AreaStiffnessWeighted(): ChaosClothWeightedValue return this.AreaStiffnessWeighted;
-	public extern var VolumeStiffness(get, never): cpp.Float32;
-	public inline extern function get_VolumeStiffness(): cpp.Float32 return this.VolumeStiffness;
+	public extern var VolumeStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeStiffness(): ucpp.num.Float32 return this.VolumeStiffness;
 	public extern var TetherStiffness(get, never): ChaosClothWeightedValue;
 	public inline extern function get_TetherStiffness(): ChaosClothWeightedValue return this.TetherStiffness;
 	public extern var TetherScale(get, never): ChaosClothWeightedValue;
 	public inline extern function get_TetherScale(): ChaosClothWeightedValue return this.TetherScale;
 	public extern var bUseGeodesicDistance(get, never): Bool;
 	public inline extern function get_bUseGeodesicDistance(): Bool return this.bUseGeodesicDistance;
-	public extern var ShapeTargetStiffness(get, never): cpp.Float32;
-	public inline extern function get_ShapeTargetStiffness(): cpp.Float32 return this.ShapeTargetStiffness;
-	public extern var CollisionThickness(get, never): cpp.Float32;
-	public inline extern function get_CollisionThickness(): cpp.Float32 return this.CollisionThickness;
-	public extern var FrictionCoefficient(get, never): cpp.Float32;
-	public inline extern function get_FrictionCoefficient(): cpp.Float32 return this.FrictionCoefficient;
+	public extern var ShapeTargetStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_ShapeTargetStiffness(): ucpp.num.Float32 return this.ShapeTargetStiffness;
+	public extern var CollisionThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_CollisionThickness(): ucpp.num.Float32 return this.CollisionThickness;
+	public extern var FrictionCoefficient(get, never): ucpp.num.Float32;
+	public inline extern function get_FrictionCoefficient(): ucpp.num.Float32 return this.FrictionCoefficient;
 	public extern var bUseCCD(get, never): Bool;
 	public inline extern function get_bUseCCD(): Bool return this.bUseCCD;
 	public extern var bUseSelfCollisions(get, never): Bool;
 	public inline extern function get_bUseSelfCollisions(): Bool return this.bUseSelfCollisions;
-	public extern var SelfCollisionThickness(get, never): cpp.Float32;
-	public inline extern function get_SelfCollisionThickness(): cpp.Float32 return this.SelfCollisionThickness;
+	public extern var SelfCollisionThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_SelfCollisionThickness(): ucpp.num.Float32 return this.SelfCollisionThickness;
+	public extern var SelfCollisionFriction(get, never): ucpp.num.Float32;
+	public inline extern function get_SelfCollisionFriction(): ucpp.num.Float32 return this.SelfCollisionFriction;
+	public extern var bUseSelfIntersections(get, never): Bool;
+	public inline extern function get_bUseSelfIntersections(): Bool return this.bUseSelfIntersections;
 	public extern var bUseLegacyBackstop(get, never): Bool;
 	public inline extern function get_bUseLegacyBackstop(): Bool return this.bUseLegacyBackstop;
-	public extern var DampingCoefficient(get, never): cpp.Float32;
-	public inline extern function get_DampingCoefficient(): cpp.Float32 return this.DampingCoefficient;
-	public extern var LocalDampingCoefficient(get, never): cpp.Float32;
-	public inline extern function get_LocalDampingCoefficient(): cpp.Float32 return this.LocalDampingCoefficient;
+	public extern var DampingCoefficient(get, never): ucpp.num.Float32;
+	public inline extern function get_DampingCoefficient(): ucpp.num.Float32 return this.DampingCoefficient;
+	public extern var LocalDampingCoefficient(get, never): ucpp.num.Float32;
+	public inline extern function get_LocalDampingCoefficient(): ucpp.num.Float32 return this.LocalDampingCoefficient;
 	public extern var bUsePointBasedWindModel(get, never): Bool;
 	public inline extern function get_bUsePointBasedWindModel(): Bool return this.bUsePointBasedWindModel;
 	public extern var Drag(get, never): ChaosClothWeightedValue;
@@ -100,20 +113,22 @@ abstract ConstChaosClothConfig(ChaosClothConfig) from ChaosClothConfig {
 	public inline extern function get_Lift(): ChaosClothWeightedValue return this.Lift;
 	public extern var bUseGravityOverride(get, never): Bool;
 	public inline extern function get_bUseGravityOverride(): Bool return this.bUseGravityOverride;
-	public extern var GravityScale(get, never): cpp.Float32;
-	public inline extern function get_GravityScale(): cpp.Float32 return this.GravityScale;
+	public extern var GravityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GravityScale(): ucpp.num.Float32 return this.GravityScale;
 	public extern var Gravity(get, never): Vector;
 	public inline extern function get_Gravity(): Vector return this.Gravity;
+	public extern var Pressure(get, never): ChaosClothWeightedValue;
+	public inline extern function get_Pressure(): ChaosClothWeightedValue return this.Pressure;
 	public extern var AnimDriveStiffness(get, never): ChaosClothWeightedValue;
 	public inline extern function get_AnimDriveStiffness(): ChaosClothWeightedValue return this.AnimDriveStiffness;
 	public extern var AnimDriveDamping(get, never): ChaosClothWeightedValue;
 	public inline extern function get_AnimDriveDamping(): ChaosClothWeightedValue return this.AnimDriveDamping;
 	public extern var LinearVelocityScale(get, never): Vector;
 	public inline extern function get_LinearVelocityScale(): Vector return this.LinearVelocityScale;
-	public extern var AngularVelocityScale(get, never): cpp.Float32;
-	public inline extern function get_AngularVelocityScale(): cpp.Float32 return this.AngularVelocityScale;
-	public extern var FictitiousAngularScale(get, never): cpp.Float32;
-	public inline extern function get_FictitiousAngularScale(): cpp.Float32 return this.FictitiousAngularScale;
+	public extern var AngularVelocityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_AngularVelocityScale(): ucpp.num.Float32 return this.AngularVelocityScale;
+	public extern var FictitiousAngularScale(get, never): ucpp.num.Float32;
+	public inline extern function get_FictitiousAngularScale(): ucpp.num.Float32 return this.FictitiousAngularScale;
 	public extern var bUseTetrahedralConstraints(get, never): Bool;
 	public inline extern function get_bUseTetrahedralConstraints(): Bool return this.bUseTetrahedralConstraints;
 	public extern var bUseThinShellVolumeConstraints(get, never): Bool;
@@ -125,7 +140,7 @@ abstract ConstChaosClothConfig(ChaosClothConfig) from ChaosClothConfig {
 @:forward
 @:nativeGen
 @:native("ChaosClothConfig*")
-abstract ChaosClothConfigPtr(cpp.Star<ChaosClothConfig>) from cpp.Star<ChaosClothConfig> to cpp.Star<ChaosClothConfig>{
+abstract ChaosClothConfigPtr(ucpp.Ptr<ChaosClothConfig>) from ucpp.Ptr<ChaosClothConfig> to ucpp.Ptr<ChaosClothConfig>{
 	@:from
 	public static extern inline function fromValue(v: ChaosClothConfig): ChaosClothConfigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("URuntimeOptionsBase")
 @:include("Engine/RuntimeOptionsBase.h")
-@:structAccess
+@:valueType
 extern class RuntimeOptionsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRuntimeOptionsBase(RuntimeOptionsBase) from RuntimeOptionsBase {
 @:forward
 @:nativeGen
 @:native("RuntimeOptionsBase*")
-abstract RuntimeOptionsBasePtr(cpp.Star<RuntimeOptionsBase>) from cpp.Star<RuntimeOptionsBase> to cpp.Star<RuntimeOptionsBase>{
+abstract RuntimeOptionsBasePtr(ucpp.Ptr<RuntimeOptionsBase>) from ucpp.Ptr<RuntimeOptionsBase> to ucpp.Ptr<RuntimeOptionsBase>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeOptionsBase): RuntimeOptionsBasePtr {
 		return untyped __cpp__("&({0})", v);

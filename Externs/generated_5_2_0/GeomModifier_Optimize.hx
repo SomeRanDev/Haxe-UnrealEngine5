@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeomModifier_Optimize")
 @:include("GeomModifier_Optimize.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Optimize extends GeomModifier_Triangulate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeomModifier_Optimize(GeomModifier_Optimize) from GeomModifier_Opt
 @:forward
 @:nativeGen
 @:native("GeomModifier_Optimize*")
-abstract GeomModifier_OptimizePtr(cpp.Star<GeomModifier_Optimize>) from cpp.Star<GeomModifier_Optimize> to cpp.Star<GeomModifier_Optimize>{
+abstract GeomModifier_OptimizePtr(ucpp.Ptr<GeomModifier_Optimize>) from ucpp.Ptr<GeomModifier_Optimize> to ucpp.Ptr<GeomModifier_Optimize>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Optimize): GeomModifier_OptimizePtr {
 		return untyped __cpp__("&({0})", v);

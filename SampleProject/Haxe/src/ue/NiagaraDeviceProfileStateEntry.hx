@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraDeviceProfileStateEntry")
 @:include("NiagaraPlatformSet.h")
-@:structAccess
+@:valueType
 extern class NiagaraDeviceProfileStateEntry {
 	public var ProfileName: FName;
-	public var QualityLevelMask: cpp.UInt32;
-	public var SetQualityLevelMask: cpp.UInt32;
+	public var QualityLevelMask: ucpp.num.UInt32;
+	public var SetQualityLevelMask: ucpp.num.UInt32;
 
 	@:native("FNiagaraDeviceProfileStateEntry") public function new();
-	@:native("FNiagaraDeviceProfileStateEntry") public static function make(ProfileName: FName, QualityLevelMask: cpp.UInt32, SetQualityLevelMask: cpp.UInt32): NiagaraDeviceProfileStateEntry ;
+	@:native("FNiagaraDeviceProfileStateEntry") public static function make(ProfileName: FName, QualityLevelMask: ucpp.num.UInt32, SetQualityLevelMask: ucpp.num.UInt32): NiagaraDeviceProfileStateEntry ;
 }

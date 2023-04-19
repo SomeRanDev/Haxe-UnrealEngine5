@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialInstance")
 @:include("Materials/MaterialInstance.h")
-@:structAccess
+@:valueType
 extern class MaterialInstance extends MaterialInterface {
-	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
-	public var PhysicalMaterialMap: cpp.Star<PhysicalMaterial>;
-	public var Parent: cpp.Star<MaterialInterface>;
+	public var PhysMaterial: ucpp.Ptr<PhysicalMaterial>;
+	public var PhysicalMaterialMap: ucpp.Ptr<PhysicalMaterial>;
+	public var Parent: ucpp.Ptr<MaterialInterface>;
 	public var NaniteOverrideMaterial: MaterialOverrideNanite;
 	public var bHasStaticPermutationResource: Bool;
 	public var bOverrideSubsurfaceProfile: Bool;
@@ -21,18 +21,18 @@ extern class MaterialInstance extends MaterialInterface {
 	public var BasePropertyOverrides: MaterialInstanceBasePropertyOverrides;
 	private var StaticParametersRuntime: StaticParameterSetRuntimeData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialInstance(MaterialInstance) from MaterialInstance {
-	public extern var PhysMaterial(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
-	public inline extern function get_PhysMaterial(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
-	public extern var PhysicalMaterialMap(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
-	public inline extern function get_PhysicalMaterialMap(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysicalMaterialMap;
-	public extern var Parent(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Parent(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Parent;
+	public extern var PhysMaterial(get, never): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>;
+	public inline extern function get_PhysMaterial(): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
+	public extern var PhysicalMaterialMap(get, never): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>;
+	public inline extern function get_PhysicalMaterialMap(): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysicalMaterialMap;
+	public extern var Parent(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Parent(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Parent;
 	public extern var NaniteOverrideMaterial(get, never): MaterialOverrideNanite;
 	public inline extern function get_NaniteOverrideMaterial(): MaterialOverrideNanite return this.NaniteOverrideMaterial;
 	public extern var bHasStaticPermutationResource(get, never): Bool;
@@ -60,7 +60,7 @@ abstract ConstMaterialInstance(MaterialInstance) from MaterialInstance {
 @:forward
 @:nativeGen
 @:native("MaterialInstance*")
-abstract MaterialInstancePtr(cpp.Star<MaterialInstance>) from cpp.Star<MaterialInstance> to cpp.Star<MaterialInstance>{
+abstract MaterialInstancePtr(ucpp.Ptr<MaterialInstance>) from ucpp.Ptr<MaterialInstance> to ucpp.Ptr<MaterialInstance>{
 	@:from
 	public static extern inline function fromValue(v: MaterialInstance): MaterialInstancePtr {
 		return untyped __cpp__("&({0})", v);

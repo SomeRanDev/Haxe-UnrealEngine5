@@ -3,17 +3,17 @@ package ue;
 
 @:native("ALevelVariantSetsActor")
 @:include("LevelVariantSetsActor.h")
-@:structAccess
+@:valueType
 extern class LevelVariantSetsActor extends Actor {
 	public var LevelVariantSets: SoftObjectPath;
-	private var DirectorInstances: TMap<TSubclassOf<Object>, cpp.Star<LevelVariantSetsFunctionDirector>>;
+	private var DirectorInstances: TMap<TSubclassOf<Object>, ucpp.Ptr<LevelVariantSetsFunctionDirector>>;
 
 	public function SwitchOnVariantByName(VariantSetName: FString, VariantName: FString): Bool;
-	public function SwitchOnVariantByIndex(VariantSetIndex: cpp.Int32, VariantIndex: cpp.Int32): Bool;
-	public function SetLevelVariantSets(InVariantSets: cpp.Star<LevelVariantSets>): Void;
-	public function GetLevelVariantSets(bLoad: Bool): cpp.Star<LevelVariantSets>;
+	public function SwitchOnVariantByIndex(VariantSetIndex: ucpp.num.Int32, VariantIndex: ucpp.num.Int32): Bool;
+	public function SetLevelVariantSets(InVariantSets: ucpp.Ptr<LevelVariantSets>): Void;
+	public function GetLevelVariantSets(bLoad: Bool): ucpp.Ptr<LevelVariantSets>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstLevelVariantSetsActor(LevelVariantSetsActor) from LevelVariantSets
 @:forward
 @:nativeGen
 @:native("LevelVariantSetsActor*")
-abstract LevelVariantSetsActorPtr(cpp.Star<LevelVariantSetsActor>) from cpp.Star<LevelVariantSetsActor> to cpp.Star<LevelVariantSetsActor>{
+abstract LevelVariantSetsActorPtr(ucpp.Ptr<LevelVariantSetsActor>) from ucpp.Ptr<LevelVariantSetsActor> to ucpp.Ptr<LevelVariantSetsActor>{
 	@:from
 	public static extern inline function fromValue(v: LevelVariantSetsActor): LevelVariantSetsActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPropertyEditorRowGeneratorTest")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class PropertyEditorRowGeneratorTest extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPropertyEditorRowGeneratorTest(PropertyEditorRowGeneratorTest) fro
 @:forward
 @:nativeGen
 @:native("PropertyEditorRowGeneratorTest*")
-abstract PropertyEditorRowGeneratorTestPtr(cpp.Star<PropertyEditorRowGeneratorTest>) from cpp.Star<PropertyEditorRowGeneratorTest> to cpp.Star<PropertyEditorRowGeneratorTest>{
+abstract PropertyEditorRowGeneratorTestPtr(ucpp.Ptr<PropertyEditorRowGeneratorTest>) from ucpp.Ptr<PropertyEditorRowGeneratorTest> to ucpp.Ptr<PropertyEditorRowGeneratorTest>{
 	@:from
 	public static extern inline function fromValue(v: PropertyEditorRowGeneratorTest): PropertyEditorRowGeneratorTestPtr {
 		return untyped __cpp__("&({0})", v);

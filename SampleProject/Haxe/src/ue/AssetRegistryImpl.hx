@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetRegistryImpl")
 @:include("AssetRegistry.h")
-@:structAccess
+@:valueType
 extern class AssetRegistryImpl extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetRegistryImpl(AssetRegistryImpl) from AssetRegistryImpl {
 @:forward
 @:nativeGen
 @:native("AssetRegistryImpl*")
-abstract AssetRegistryImplPtr(cpp.Star<AssetRegistryImpl>) from cpp.Star<AssetRegistryImpl> to cpp.Star<AssetRegistryImpl>{
+abstract AssetRegistryImplPtr(ucpp.Ptr<AssetRegistryImpl>) from ucpp.Ptr<AssetRegistryImpl> to ucpp.Ptr<AssetRegistryImpl>{
 	@:from
 	public static extern inline function fromValue(v: AssetRegistryImpl): AssetRegistryImplPtr {
 		return untyped __cpp__("&({0})", v);

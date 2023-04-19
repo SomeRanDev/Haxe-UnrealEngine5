@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAnimationBlendSpaceSampleGraph")
 @:include("AnimationBlendSpaceSampleGraph.h")
-@:structAccess
+@:valueType
 extern class AnimationBlendSpaceSampleGraph extends AnimationGraph {
-	public var ResultNode: cpp.Star<AnimGraphNode_BlendSpaceSampleResult>;
+	public var ResultNode: ucpp.Ptr<AnimGraphNode_BlendSpaceSampleResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimationBlendSpaceSampleGraph(AnimationBlendSpaceSampleGraph) from AnimationBlendSpaceSampleGraph {
-	public extern var ResultNode(get, never): cpp.Star<AnimGraphNode_BlendSpaceSampleResult.ConstAnimGraphNode_BlendSpaceSampleResult>;
-	public inline extern function get_ResultNode(): cpp.Star<AnimGraphNode_BlendSpaceSampleResult.ConstAnimGraphNode_BlendSpaceSampleResult> return this.ResultNode;
+	public extern var ResultNode(get, never): ucpp.Ptr<AnimGraphNode_BlendSpaceSampleResult.ConstAnimGraphNode_BlendSpaceSampleResult>;
+	public inline extern function get_ResultNode(): ucpp.Ptr<AnimGraphNode_BlendSpaceSampleResult.ConstAnimGraphNode_BlendSpaceSampleResult> return this.ResultNode;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimationBlendSpaceSampleGraph*")
-abstract AnimationBlendSpaceSampleGraphPtr(cpp.Star<AnimationBlendSpaceSampleGraph>) from cpp.Star<AnimationBlendSpaceSampleGraph> to cpp.Star<AnimationBlendSpaceSampleGraph>{
+abstract AnimationBlendSpaceSampleGraphPtr(ucpp.Ptr<AnimationBlendSpaceSampleGraph>) from ucpp.Ptr<AnimationBlendSpaceSampleGraph> to ucpp.Ptr<AnimationBlendSpaceSampleGraph>{
 	@:from
 	public static extern inline function fromValue(v: AnimationBlendSpaceSampleGraph): AnimationBlendSpaceSampleGraphPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UARComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARComp extends SceneComp {
 	public var NativeID: Guid;
 	@:protected public var bUseDefaultReplication: Bool;
-	@:protected public var DefaultMeshMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var DefaultWireframeMeshMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var MRMeshComponent: cpp.Star<MRMeshComp>;
-	@:protected public var MyTrackedGeometry: cpp.Star<ARTrackedGeometry>;
+	@:protected public var DefaultMeshMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var DefaultWireframeMeshMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var MRMeshComponent: ucpp.Ptr<MRMeshComp>;
+	@:protected public var MyTrackedGeometry: ucpp.Ptr<ARTrackedGeometry>;
 
 	public function UpdateVisualization(): Void;
 	public function SetNativeID(NativeID: Guid): Void;
 	public function ReceiveRemove(): Void;
 	@:protected public function OnRep_Payload(): Void;
-	public function GetMRMesh(): cpp.Star<MRMeshComp>;
+	public function GetMRMesh(): ucpp.Ptr<MRMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstARComp(ARComp) from ARComp {
 @:forward
 @:nativeGen
 @:native("ARComp*")
-abstract ARCompPtr(cpp.Star<ARComp>) from cpp.Star<ARComp> to cpp.Star<ARComp>{
+abstract ARCompPtr(ucpp.Ptr<ARComp>) from ucpp.Ptr<ARComp> to ucpp.Ptr<ARComp>{
 	@:from
 	public static extern inline function fromValue(v: ARComp): ARCompPtr {
 		return untyped __cpp__("&({0})", v);

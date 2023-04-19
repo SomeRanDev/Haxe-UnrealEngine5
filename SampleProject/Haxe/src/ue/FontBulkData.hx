@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFontBulkData")
 @:include("Fonts/FontBulkData.h")
-@:structAccess
+@:valueType
 extern class FontBulkData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFontBulkData(FontBulkData) from FontBulkData {
 @:forward
 @:nativeGen
 @:native("FontBulkData*")
-abstract FontBulkDataPtr(cpp.Star<FontBulkData>) from cpp.Star<FontBulkData> to cpp.Star<FontBulkData>{
+abstract FontBulkDataPtr(ucpp.Ptr<FontBulkData>) from ucpp.Ptr<FontBulkData> to ucpp.Ptr<FontBulkData>{
 	@:from
 	public static extern inline function fromValue(v: FontBulkData): FontBulkDataPtr {
 		return untyped __cpp__("&({0})", v);

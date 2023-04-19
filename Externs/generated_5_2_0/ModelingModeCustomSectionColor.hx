@@ -3,7 +3,7 @@ package ue;
 
 @:native("FModelingModeCustomSectionColor")
 @:include("ModelingToolsEditorModeSettings.h")
-@:structAccess
+@:valueType
 extern class ModelingModeCustomSectionColor {
 	public var SectionName: FString;
 	public var Color: LinearColor;

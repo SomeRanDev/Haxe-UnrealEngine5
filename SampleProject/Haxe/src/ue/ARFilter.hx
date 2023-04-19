@@ -3,13 +3,15 @@ package ue;
 
 @:native("FARFilter")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class ARFilter {
 	public var PackageNames: TArray<FName>;
 	public var PackagePaths: TArray<FName>;
-	public var ObjectPaths: TArray<FName>;
+	public var SoftObjectPaths: TArray<SoftObjectPath>;
 	public var ClassNames: TArray<FName>;
+	public var ClassPaths: TArray<TopLevelAssetPath>;
 	public var RecursiveClassesExclusionSet: TSet<FName>;
+	public var RecursiveClassPathsExclusionSet: TSet<TopLevelAssetPath>;
 	public var bRecursivePaths: Bool;
 	public var bRecursiveClasses: Bool;
 	public var bIncludeOnlyOnDiskAssets: Bool;

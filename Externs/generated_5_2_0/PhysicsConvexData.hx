@@ -3,12 +3,12 @@ package ue;
 
 @:native("FPhysicsConvexData")
 @:include("Physics/CollisionPropertySets.h")
-@:structAccess
+@:valueType
 extern class PhysicsConvexData {
-	public var NumVertices: cpp.Int32;
-	public var NumFaces: cpp.Int32;
+	public var NumVertices: ucpp.num.Int32;
+	public var NumFaces: ucpp.num.Int32;
 	public var Element: KShapeElem;
 
 	@:native("FPhysicsConvexData") public function new();
-	@:native("FPhysicsConvexData") public static function make(NumVertices: cpp.Int32, NumFaces: cpp.Int32, Element: KShapeElem): PhysicsConvexData ;
+	@:native("FPhysicsConvexData") public static function make(NumVertices: ucpp.num.Int32, NumFaces: ucpp.num.Int32, Element: KShapeElem): PhysicsConvexData ;
 }

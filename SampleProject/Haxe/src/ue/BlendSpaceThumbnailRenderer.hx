@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBlendSpaceThumbnailRenderer")
 @:include("ThumbnailRendering/BlendSpaceThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class BlendSpaceThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlendSpaceThumbnailRenderer(BlendSpaceThumbnailRenderer) from Blen
 @:forward
 @:nativeGen
 @:native("BlendSpaceThumbnailRenderer*")
-abstract BlendSpaceThumbnailRendererPtr(cpp.Star<BlendSpaceThumbnailRenderer>) from cpp.Star<BlendSpaceThumbnailRenderer> to cpp.Star<BlendSpaceThumbnailRenderer>{
+abstract BlendSpaceThumbnailRendererPtr(ucpp.Ptr<BlendSpaceThumbnailRenderer>) from ucpp.Ptr<BlendSpaceThumbnailRenderer> to ucpp.Ptr<BlendSpaceThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: BlendSpaceThumbnailRenderer): BlendSpaceThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

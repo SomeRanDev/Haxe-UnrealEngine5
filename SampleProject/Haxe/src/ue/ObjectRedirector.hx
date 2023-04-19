@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UObjectRedirector")
-@:structAccess
+@:valueType
 extern class ObjectRedirector extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstObjectRedirector(ObjectRedirector) from ObjectRedirector {
 @:forward
 @:nativeGen
 @:native("ObjectRedirector*")
-abstract ObjectRedirectorPtr(cpp.Star<ObjectRedirector>) from cpp.Star<ObjectRedirector> to cpp.Star<ObjectRedirector>{
+abstract ObjectRedirectorPtr(ucpp.Ptr<ObjectRedirector>) from ucpp.Ptr<ObjectRedirector> to ucpp.Ptr<ObjectRedirector>{
 	@:from
 	public static extern inline function fromValue(v: ObjectRedirector): ObjectRedirectorPtr {
 		return untyped __cpp__("&({0})", v);

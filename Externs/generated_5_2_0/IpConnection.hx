@@ -3,11 +3,11 @@ package ue;
 
 @:native("UIpConnection")
 @:include("IpConnection.h")
-@:structAccess
+@:valueType
 extern class IpConnection extends NetConnection {
-	private var SocketErrorDisconnectDelay: cpp.Float32;
+	private var SocketErrorDisconnectDelay: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstIpConnection(IpConnection) from IpConnection {
 @:forward
 @:nativeGen
 @:native("IpConnection*")
-abstract IpConnectionPtr(cpp.Star<IpConnection>) from cpp.Star<IpConnection> to cpp.Star<IpConnection>{
+abstract IpConnectionPtr(ucpp.Ptr<IpConnection>) from ucpp.Ptr<IpConnection> to ucpp.Ptr<IpConnection>{
 	@:from
 	public static extern inline function fromValue(v: IpConnection): IpConnectionPtr {
 		return untyped __cpp__("&({0})", v);

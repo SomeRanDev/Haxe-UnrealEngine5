@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleOrbit")
 @:include("Particles/Orbit/ParticleModuleOrbit.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleOrbit extends ParticleModuleOrbitBase {
 	public var ChainMode: TEnumAsByte<EOrbitChainMode>;
 	public var OffsetAmount: RawDistributionVector;
@@ -13,7 +13,7 @@ extern class ParticleModuleOrbit extends ParticleModuleOrbitBase {
 	public var RotationRateAmount: RawDistributionVector;
 	public var RotationRateOptions: OrbitOptions;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstParticleModuleOrbit(ParticleModuleOrbit) from ParticleModuleOrbit 
 @:forward
 @:nativeGen
 @:native("ParticleModuleOrbit*")
-abstract ParticleModuleOrbitPtr(cpp.Star<ParticleModuleOrbit>) from cpp.Star<ParticleModuleOrbit> to cpp.Star<ParticleModuleOrbit>{
+abstract ParticleModuleOrbitPtr(ucpp.Ptr<ParticleModuleOrbit>) from ucpp.Ptr<ParticleModuleOrbit> to ucpp.Ptr<ParticleModuleOrbit>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleOrbit): ParticleModuleOrbitPtr {
 		return untyped __cpp__("&({0})", v);

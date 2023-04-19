@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAutomationViewSettings")
 @:include("AutomationViewSettings.h")
-@:structAccess
+@:valueType
 extern class AutomationViewSettings extends DataAsset {
 	public var AntiAliasing: Bool;
 	public var MotionBlur: Bool;
@@ -15,7 +15,7 @@ extern class AutomationViewSettings extends DataAsset {
 	public var EyeAdaptation: Bool;
 	public var Bloom: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstAutomationViewSettings(AutomationViewSettings) from AutomationView
 @:forward
 @:nativeGen
 @:native("AutomationViewSettings*")
-abstract AutomationViewSettingsPtr(cpp.Star<AutomationViewSettings>) from cpp.Star<AutomationViewSettings> to cpp.Star<AutomationViewSettings>{
+abstract AutomationViewSettingsPtr(ucpp.Ptr<AutomationViewSettings>) from ucpp.Ptr<AutomationViewSettings> to ucpp.Ptr<AutomationViewSettings>{
 	@:from
 	public static extern inline function fromValue(v: AutomationViewSettings): AutomationViewSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UGenlockedCustomTimeStep")
 @:include("GenlockedCustomTimeStep.h")
-@:structAccess
+@:valueType
 extern class GenlockedCustomTimeStep extends FixedFrameRateCustomTimeStep {
 	public var bAutoDetectFormat: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstGenlockedCustomTimeStep(GenlockedCustomTimeStep) from GenlockedCus
 @:forward
 @:nativeGen
 @:native("GenlockedCustomTimeStep*")
-abstract GenlockedCustomTimeStepPtr(cpp.Star<GenlockedCustomTimeStep>) from cpp.Star<GenlockedCustomTimeStep> to cpp.Star<GenlockedCustomTimeStep>{
+abstract GenlockedCustomTimeStepPtr(ucpp.Ptr<GenlockedCustomTimeStep>) from ucpp.Ptr<GenlockedCustomTimeStep> to ucpp.Ptr<GenlockedCustomTimeStep>{
 	@:from
 	public static extern inline function fromValue(v: GenlockedCustomTimeStep): GenlockedCustomTimeStepPtr {
 		return untyped __cpp__("&({0})", v);

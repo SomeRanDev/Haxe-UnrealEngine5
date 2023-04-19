@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneCameraShakeEvaluator")
 @:include("Evaluation/MovieSceneCameraShakeTemplate.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCameraShakeEvaluator extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneCameraShakeEvaluator(MovieSceneCameraShakeEvaluator) fro
 @:forward
 @:nativeGen
 @:native("MovieSceneCameraShakeEvaluator*")
-abstract MovieSceneCameraShakeEvaluatorPtr(cpp.Star<MovieSceneCameraShakeEvaluator>) from cpp.Star<MovieSceneCameraShakeEvaluator> to cpp.Star<MovieSceneCameraShakeEvaluator>{
+abstract MovieSceneCameraShakeEvaluatorPtr(ucpp.Ptr<MovieSceneCameraShakeEvaluator>) from ucpp.Ptr<MovieSceneCameraShakeEvaluator> to ucpp.Ptr<MovieSceneCameraShakeEvaluator>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCameraShakeEvaluator): MovieSceneCameraShakeEvaluatorPtr {
 		return untyped __cpp__("&({0})", v);

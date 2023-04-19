@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMediaPlayerRecordingSettings")
 @:include("Private/Sequencer/MediaPlayerRecording.h")
-@:structAccess
+@:valueType
 extern class MediaPlayerRecordingSettings {
 	public var bActive: Bool;
 	public var bRecordMediaFrame: Bool;
 	public var BaseFilename: FString;
 	public var NumerationStyle: EMediaPlayerRecordingNumerationStyle;
 	public var ImageFormat: EMediaPlayerRecordingImageFormat;
-	public var CompressionQuality: cpp.Int32;
+	public var CompressionQuality: ucpp.num.Int32;
 	public var bResetAlpha: Bool;
 
 	@:native("FMediaPlayerRecordingSettings") public function new();

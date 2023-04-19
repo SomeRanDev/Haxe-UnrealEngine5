@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFileServerCommandlet")
 @:include("Commandlets/FileServerCommandlet.h")
-@:structAccess
+@:valueType
 extern class FileServerCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFileServerCommandlet(FileServerCommandlet) from FileServerCommandl
 @:forward
 @:nativeGen
 @:native("FileServerCommandlet*")
-abstract FileServerCommandletPtr(cpp.Star<FileServerCommandlet>) from cpp.Star<FileServerCommandlet> to cpp.Star<FileServerCommandlet>{
+abstract FileServerCommandletPtr(ucpp.Ptr<FileServerCommandlet>) from ucpp.Ptr<FileServerCommandlet> to ucpp.Ptr<FileServerCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: FileServerCommandlet): FileServerCommandletPtr {
 		return untyped __cpp__("&({0})", v);

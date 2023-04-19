@@ -3,14 +3,14 @@ package ue;
 
 @:native("FRigVMClient")
 @:include("RigVMModel/RigVMClient.h")
-@:structAccess
+@:valueType
 extern class RigVMClient {
-	private var ExecuteContextStruct: cpp.Star<ScriptStruct>;
-	private var Models: TArray<cpp.Star<RigVMGraph>>;
-	private var FunctionLibrary: cpp.Star<RigVMFunctionLibrary>;
-	private var Controllers: TMap<SoftObjectPath, cpp.Star<RigVMController>>;
-	private var UndoRedoIndex: cpp.Int32;
+	private var ExecuteContextStruct: ucpp.Ptr<ScriptStruct>;
+	private var Models: TArray<ucpp.Ptr<RigVMGraph>>;
+	private var FunctionLibrary: ucpp.Ptr<RigVMFunctionLibrary>;
+	private var Controllers: TMap<SoftObjectPath, ucpp.Ptr<RigVMController>>;
+	private var UndoRedoIndex: ucpp.num.Int32;
 
 	@:native("FRigVMClient") public function new();
-	@:native("FRigVMClient") public static function make(ExecuteContextStruct: cpp.Star<ScriptStruct>, Models: TArray<cpp.Star<RigVMGraph>>, FunctionLibrary: cpp.Star<RigVMFunctionLibrary>, Controllers: TMap<SoftObjectPath, cpp.Star<RigVMController>>, UndoRedoIndex: cpp.Int32): RigVMClient ;
+	@:native("FRigVMClient") public static function make(ExecuteContextStruct: ucpp.Ptr<ScriptStruct>, Models: TArray<ucpp.Ptr<RigVMGraph>>, FunctionLibrary: ucpp.Ptr<RigVMFunctionLibrary>, Controllers: TMap<SoftObjectPath, ucpp.Ptr<RigVMController>>, UndoRedoIndex: ucpp.num.Int32): RigVMClient ;
 }

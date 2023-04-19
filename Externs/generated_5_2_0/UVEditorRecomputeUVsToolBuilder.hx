@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorRecomputeUVsToolBuilder")
 @:include("UVEditorRecomputeUVsTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorRecomputeUVsToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorRecomputeUVsToolBuilder(UVEditorRecomputeUVsToolBuilder) f
 @:forward
 @:nativeGen
 @:native("UVEditorRecomputeUVsToolBuilder*")
-abstract UVEditorRecomputeUVsToolBuilderPtr(cpp.Star<UVEditorRecomputeUVsToolBuilder>) from cpp.Star<UVEditorRecomputeUVsToolBuilder> to cpp.Star<UVEditorRecomputeUVsToolBuilder>{
+abstract UVEditorRecomputeUVsToolBuilderPtr(ucpp.Ptr<UVEditorRecomputeUVsToolBuilder>) from ucpp.Ptr<UVEditorRecomputeUVsToolBuilder> to ucpp.Ptr<UVEditorRecomputeUVsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorRecomputeUVsToolBuilder): UVEditorRecomputeUVsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

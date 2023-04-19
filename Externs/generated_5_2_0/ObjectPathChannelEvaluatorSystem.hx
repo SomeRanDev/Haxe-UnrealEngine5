@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectPathChannelEvaluatorSystem")
 @:include("Systems/ObjectPathChannelEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class ObjectPathChannelEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectPathChannelEvaluatorSystem(ObjectPathChannelEvaluatorSystem)
 @:forward
 @:nativeGen
 @:native("ObjectPathChannelEvaluatorSystem*")
-abstract ObjectPathChannelEvaluatorSystemPtr(cpp.Star<ObjectPathChannelEvaluatorSystem>) from cpp.Star<ObjectPathChannelEvaluatorSystem> to cpp.Star<ObjectPathChannelEvaluatorSystem>{
+abstract ObjectPathChannelEvaluatorSystemPtr(ucpp.Ptr<ObjectPathChannelEvaluatorSystem>) from ucpp.Ptr<ObjectPathChannelEvaluatorSystem> to ucpp.Ptr<ObjectPathChannelEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: ObjectPathChannelEvaluatorSystem): ObjectPathChannelEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

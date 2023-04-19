@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSceneOutlinerConfig")
 @:include("Private/SceneOutlinerConfig.h")
-@:structAccess
+@:valueType
 extern class SceneOutlinerConfig {
 	public var ColumnVisibilities: TMap<FName, Bool>;
 	public var bShouldStackHierarchyHeaders: Bool;

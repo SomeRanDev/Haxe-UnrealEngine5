@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBakeNormalMapToolProperties")
 @:include("BakeMeshAttributeToolCommon.h")
-@:structAccess
+@:valueType
 extern class BakeNormalMapToolProperties extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBakeNormalMapToolProperties(BakeNormalMapToolProperties) from Bake
 @:forward
 @:nativeGen
 @:native("BakeNormalMapToolProperties*")
-abstract BakeNormalMapToolPropertiesPtr(cpp.Star<BakeNormalMapToolProperties>) from cpp.Star<BakeNormalMapToolProperties> to cpp.Star<BakeNormalMapToolProperties>{
+abstract BakeNormalMapToolPropertiesPtr(ucpp.Ptr<BakeNormalMapToolProperties>) from ucpp.Ptr<BakeNormalMapToolProperties> to ucpp.Ptr<BakeNormalMapToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeNormalMapToolProperties): BakeNormalMapToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

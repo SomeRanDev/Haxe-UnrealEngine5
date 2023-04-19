@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULevelPartitionInterface")
-@:structAccess
+@:valueType
 extern class LevelPartitionInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLevelPartitionInterface(LevelPartitionInterface) from LevelPartiti
 @:forward
 @:nativeGen
 @:native("LevelPartitionInterface*")
-abstract LevelPartitionInterfacePtr(cpp.Star<LevelPartitionInterface>) from cpp.Star<LevelPartitionInterface> to cpp.Star<LevelPartitionInterface>{
+abstract LevelPartitionInterfacePtr(ucpp.Ptr<LevelPartitionInterface>) from ucpp.Ptr<LevelPartitionInterface> to ucpp.Ptr<LevelPartitionInterface>{
 	@:from
 	public static extern inline function fromValue(v: LevelPartitionInterface): LevelPartitionInterfacePtr {
 		return untyped __cpp__("&({0})", v);

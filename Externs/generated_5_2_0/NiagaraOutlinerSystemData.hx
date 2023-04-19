@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraOutlinerSystemData")
 @:include("NiagaraDebuggerCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraOutlinerSystemData {
 	public var SystemInstances: TArray<NiagaraOutlinerSystemInstanceData>;
 	public var AveragePerFrameTime: NiagaraOutlinerTimingData;

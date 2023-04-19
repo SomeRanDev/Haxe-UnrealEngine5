@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTranslationContextInfo")
 @:include("Private/TranslationUnit.h")
-@:structAccess
+@:valueType
 extern class TranslationContextInfo {
 	public var Key: FString;
 	public var Context: FString;

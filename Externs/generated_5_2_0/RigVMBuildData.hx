@@ -3,11 +3,11 @@ package ue;
 
 @:native("URigVMBuildData")
 @:include("RigVMModel/RigVMBuildData.h")
-@:structAccess
+@:valueType
 extern class RigVMBuildData extends Object {
 	private var GraphFunctionReferences: TMap<RigVMGraphFunctionIdentifier, RigVMFunctionReferenceArray>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstRigVMBuildData(RigVMBuildData) from RigVMBuildData {
 @:forward
 @:nativeGen
 @:native("RigVMBuildData*")
-abstract RigVMBuildDataPtr(cpp.Star<RigVMBuildData>) from cpp.Star<RigVMBuildData> to cpp.Star<RigVMBuildData>{
+abstract RigVMBuildDataPtr(ucpp.Ptr<RigVMBuildData>) from ucpp.Ptr<RigVMBuildData> to ucpp.Ptr<RigVMBuildData>{
 	@:from
 	public static extern inline function fromValue(v: RigVMBuildData): RigVMBuildDataPtr {
 		return untyped __cpp__("&({0})", v);

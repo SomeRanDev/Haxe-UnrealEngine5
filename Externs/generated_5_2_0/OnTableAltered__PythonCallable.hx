@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnTableAltered__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnTableAltered__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnTableAltered__PythonCallable(OnTableAltered__PythonCallable) fro
 @:forward
 @:nativeGen
 @:native("OnTableAltered__PythonCallable*")
-abstract OnTableAltered__PythonCallablePtr(cpp.Star<OnTableAltered__PythonCallable>) from cpp.Star<OnTableAltered__PythonCallable> to cpp.Star<OnTableAltered__PythonCallable>{
+abstract OnTableAltered__PythonCallablePtr(ucpp.Ptr<OnTableAltered__PythonCallable>) from ucpp.Ptr<OnTableAltered__PythonCallable> to ucpp.Ptr<OnTableAltered__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnTableAltered__PythonCallable): OnTableAltered__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

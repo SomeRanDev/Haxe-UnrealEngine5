@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UUserObjectListEntry")
-@:structAccess
+@:valueType
 extern class UserObjectListEntry extends UserListEntry {
-	@:protected public function OnListItemObjectSet(ListItemObject: cpp.Star<Object>): Void;
+	@:protected public function OnListItemObjectSet(ListItemObject: ucpp.Ptr<Object>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUserObjectListEntry(UserObjectListEntry) from UserObjectListEntry 
 @:forward
 @:nativeGen
 @:native("UserObjectListEntry*")
-abstract UserObjectListEntryPtr(cpp.Star<UserObjectListEntry>) from cpp.Star<UserObjectListEntry> to cpp.Star<UserObjectListEntry>{
+abstract UserObjectListEntryPtr(ucpp.Ptr<UserObjectListEntry>) from ucpp.Ptr<UserObjectListEntry> to ucpp.Ptr<UserObjectListEntry>{
 	@:from
 	public static extern inline function fromValue(v: UserObjectListEntry): UserObjectListEntryPtr {
 		return untyped __cpp__("&({0})", v);

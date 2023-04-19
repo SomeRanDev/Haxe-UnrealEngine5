@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryExponentialHeightFog")
 @:include("ActorFactories/ActorFactoryExponentialHeightFog.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryExponentialHeightFog extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryExponentialHeightFog(ActorFactoryExponentialHeightFog)
 @:forward
 @:nativeGen
 @:native("ActorFactoryExponentialHeightFog*")
-abstract ActorFactoryExponentialHeightFogPtr(cpp.Star<ActorFactoryExponentialHeightFog>) from cpp.Star<ActorFactoryExponentialHeightFog> to cpp.Star<ActorFactoryExponentialHeightFog>{
+abstract ActorFactoryExponentialHeightFogPtr(ucpp.Ptr<ActorFactoryExponentialHeightFog>) from ucpp.Ptr<ActorFactoryExponentialHeightFog> to ucpp.Ptr<ActorFactoryExponentialHeightFog>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryExponentialHeightFog): ActorFactoryExponentialHeightFogPtr {
 		return untyped __cpp__("&({0})", v);

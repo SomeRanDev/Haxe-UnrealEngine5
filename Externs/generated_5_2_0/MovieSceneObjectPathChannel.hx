@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneObjectPathChannel")
 @:include("Channels/MovieSceneObjectPathChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneObjectPathChannel extends MovieSceneChannel {
 	private var PropertyClass: TSubclassOf<Object>;
 	private var Times: TArray<FrameNumber>;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionTwoSidedSign")
 @:include("Materials/MaterialExpressionTwoSidedSign.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTwoSidedSign extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionTwoSidedSign(MaterialExpressionTwoSidedSign) fro
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTwoSidedSign*")
-abstract MaterialExpressionTwoSidedSignPtr(cpp.Star<MaterialExpressionTwoSidedSign>) from cpp.Star<MaterialExpressionTwoSidedSign> to cpp.Star<MaterialExpressionTwoSidedSign>{
+abstract MaterialExpressionTwoSidedSignPtr(ucpp.Ptr<MaterialExpressionTwoSidedSign>) from ucpp.Ptr<MaterialExpressionTwoSidedSign> to ucpp.Ptr<MaterialExpressionTwoSidedSign>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTwoSidedSign): MaterialExpressionTwoSidedSignPtr {
 		return untyped __cpp__("&({0})", v);

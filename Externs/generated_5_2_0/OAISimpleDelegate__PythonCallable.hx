@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOAISimpleDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class OAISimpleDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOAISimpleDelegate__PythonCallable(OAISimpleDelegate__PythonCallabl
 @:forward
 @:nativeGen
 @:native("OAISimpleDelegate__PythonCallable*")
-abstract OAISimpleDelegate__PythonCallablePtr(cpp.Star<OAISimpleDelegate__PythonCallable>) from cpp.Star<OAISimpleDelegate__PythonCallable> to cpp.Star<OAISimpleDelegate__PythonCallable>{
+abstract OAISimpleDelegate__PythonCallablePtr(ucpp.Ptr<OAISimpleDelegate__PythonCallable>) from ucpp.Ptr<OAISimpleDelegate__PythonCallable> to ucpp.Ptr<OAISimpleDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OAISimpleDelegate__PythonCallable): OAISimpleDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

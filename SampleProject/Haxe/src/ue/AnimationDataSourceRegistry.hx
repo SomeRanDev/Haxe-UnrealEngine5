@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimationDataSourceRegistry")
 @:include("AnimationDataSource.h")
-@:structAccess
+@:valueType
 extern class AnimationDataSourceRegistry extends Object {
 	private var DataSources: TMap<FName, TWeakObjectPtr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimationDataSourceRegistry(AnimationDataSourceRegistry) from Anim
 @:forward
 @:nativeGen
 @:native("AnimationDataSourceRegistry*")
-abstract AnimationDataSourceRegistryPtr(cpp.Star<AnimationDataSourceRegistry>) from cpp.Star<AnimationDataSourceRegistry> to cpp.Star<AnimationDataSourceRegistry>{
+abstract AnimationDataSourceRegistryPtr(ucpp.Ptr<AnimationDataSourceRegistry>) from ucpp.Ptr<AnimationDataSourceRegistry> to ucpp.Ptr<AnimationDataSourceRegistry>{
 	@:from
 	public static extern inline function fromValue(v: AnimationDataSourceRegistry): AnimationDataSourceRegistryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAxisAngleGizmoBuilder")
 @:include("BaseGizmos/AxisAngleGizmo.h")
-@:structAccess
+@:valueType
 extern class AxisAngleGizmoBuilder extends InteractiveGizmoBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAxisAngleGizmoBuilder(AxisAngleGizmoBuilder) from AxisAngleGizmoBu
 @:forward
 @:nativeGen
 @:native("AxisAngleGizmoBuilder*")
-abstract AxisAngleGizmoBuilderPtr(cpp.Star<AxisAngleGizmoBuilder>) from cpp.Star<AxisAngleGizmoBuilder> to cpp.Star<AxisAngleGizmoBuilder>{
+abstract AxisAngleGizmoBuilderPtr(ucpp.Ptr<AxisAngleGizmoBuilder>) from ucpp.Ptr<AxisAngleGizmoBuilder> to ucpp.Ptr<AxisAngleGizmoBuilder>{
 	@:from
 	public static extern inline function fromValue(v: AxisAngleGizmoBuilder): AxisAngleGizmoBuilderPtr {
 		return untyped __cpp__("&({0})", v);

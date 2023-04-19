@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARQRCodeUpdatePayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARQRCodeUpdatePayload {
 	public var SessionPayload: ARSessionPayload;
 	public var WorldTransform: Transform;

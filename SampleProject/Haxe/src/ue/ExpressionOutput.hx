@@ -3,14 +3,14 @@ package ue;
 
 @:native("FExpressionOutput")
 @:include("Materials/MaterialExpression.h")
-@:structAccess
+@:valueType
 extern class ExpressionOutput {
 	public var OutputName: FName;
-	public var Mask: cpp.Int32;
-	public var MaskR: cpp.Int32;
-	public var MaskG: cpp.Int32;
-	public var MaskB: cpp.Int32;
-	public var MaskA: cpp.Int32;
+	public var Mask: ucpp.num.Int32;
+	public var MaskR: ucpp.num.Int32;
+	public var MaskG: ucpp.num.Int32;
+	public var MaskB: ucpp.num.Int32;
+	public var MaskA: ucpp.num.Int32;
 
 	@:native("FExpressionOutput") public function new();
 }

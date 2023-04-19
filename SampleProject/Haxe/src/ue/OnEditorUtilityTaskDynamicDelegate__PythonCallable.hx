@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnEditorUtilityTaskDynamicDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnEditorUtilityTaskDynamicDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnEditorUtilityTaskDynamicDelegate__PythonCallable(OnEditorUtility
 @:forward
 @:nativeGen
 @:native("OnEditorUtilityTaskDynamicDelegate__PythonCallable*")
-abstract OnEditorUtilityTaskDynamicDelegate__PythonCallablePtr(cpp.Star<OnEditorUtilityTaskDynamicDelegate__PythonCallable>) from cpp.Star<OnEditorUtilityTaskDynamicDelegate__PythonCallable> to cpp.Star<OnEditorUtilityTaskDynamicDelegate__PythonCallable>{
+abstract OnEditorUtilityTaskDynamicDelegate__PythonCallablePtr(ucpp.Ptr<OnEditorUtilityTaskDynamicDelegate__PythonCallable>) from ucpp.Ptr<OnEditorUtilityTaskDynamicDelegate__PythonCallable> to ucpp.Ptr<OnEditorUtilityTaskDynamicDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnEditorUtilityTaskDynamicDelegate__PythonCallable): OnEditorUtilityTaskDynamicDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

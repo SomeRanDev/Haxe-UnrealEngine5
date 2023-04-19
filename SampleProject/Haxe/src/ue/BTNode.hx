@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBTNode")
 @:include("BehaviorTree/BTNode.h")
-@:structAccess
+@:valueType
 extern class BTNode extends Object {
 	public var NodeName: FString;
-	private var TreeAsset: cpp.Star<BehaviorTree>;
-	private var ParentNode: cpp.Star<BTCompositeNode>;
+	private var TreeAsset: ucpp.Ptr<BehaviorTree>;
+	private var ParentNode: ucpp.Ptr<BTCompositeNode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstBTNode(BTNode) from BTNode {
 @:forward
 @:nativeGen
 @:native("BTNode*")
-abstract BTNodePtr(cpp.Star<BTNode>) from cpp.Star<BTNode> to cpp.Star<BTNode>{
+abstract BTNodePtr(ucpp.Ptr<BTNode>) from ucpp.Ptr<BTNode> to ucpp.Ptr<BTNode>{
 	@:from
 	public static extern inline function fromValue(v: BTNode): BTNodePtr {
 		return untyped __cpp__("&({0})", v);

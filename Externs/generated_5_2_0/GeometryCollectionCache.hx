@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGeometryCollectionCache")
 @:include("GeometryCollection/GeometryCollectionCache.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionCache extends Object {
 	private var RecordedData: RecordedTransformTrack;
-	private var SupportedCollection: cpp.Star<GeometryCollection>;
+	private var SupportedCollection: ucpp.Ptr<GeometryCollection>;
 	private var CompatibleCollectionState: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstGeometryCollectionCache(GeometryCollectionCache) from GeometryColl
 @:forward
 @:nativeGen
 @:native("GeometryCollectionCache*")
-abstract GeometryCollectionCachePtr(cpp.Star<GeometryCollectionCache>) from cpp.Star<GeometryCollectionCache> to cpp.Star<GeometryCollectionCache>{
+abstract GeometryCollectionCachePtr(ucpp.Ptr<GeometryCollectionCache>) from ucpp.Ptr<GeometryCollectionCache> to ucpp.Ptr<GeometryCollectionCache>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionCache): GeometryCollectionCachePtr {
 		return untyped __cpp__("&({0})", v);

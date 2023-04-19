@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAbcNormalGenerationSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcNormalGenerationSettings {
 	public var bForceOneSmoothingGroupPerObject: Bool;
-	public var HardEdgeAngleThreshold: cpp.Float32;
+	public var HardEdgeAngleThreshold: ucpp.num.Float32;
 	public var bRecomputeNormals: Bool;
 	public var bIgnoreDegenerateTriangles: Bool;
 	public var bSkipComputingTangents: Bool;
 
 	@:native("FAbcNormalGenerationSettings") public function new();
-	@:native("FAbcNormalGenerationSettings") public static function make(bForceOneSmoothingGroupPerObject: Bool, HardEdgeAngleThreshold: cpp.Float32, bRecomputeNormals: Bool, bIgnoreDegenerateTriangles: Bool, bSkipComputingTangents: Bool): AbcNormalGenerationSettings ;
+	@:native("FAbcNormalGenerationSettings") public static function make(bForceOneSmoothingGroupPerObject: Bool, HardEdgeAngleThreshold: ucpp.num.Float32, bRecomputeNormals: Bool, bIgnoreDegenerateTriangles: Bool, bSkipComputingTangents: Bool): AbcNormalGenerationSettings ;
 }

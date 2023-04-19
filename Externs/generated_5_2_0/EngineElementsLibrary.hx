@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEngineElementsLibrary")
 @:include("Elements/Framework/EngineElementsLibrary.h")
-@:structAccess
+@:valueType
 extern class EngineElementsLibrary extends BlueprintFunctionLibrary {
-	public function K2_AcquireEditorSMInstanceElementHandle(ISMComponent: cpp.Star<InstancedStaticMeshComp.ConstInstancedStaticMeshComp>, InstanceIndex: cpp.Int32, bAllowCreate: Bool): ScriptTypedElementHandle;
-	public function K2_AcquireEditorObjectElementHandle(Object: cpp.Star<Object.ConstObject>, bAllowCreate: Bool): ScriptTypedElementHandle;
-	public function K2_AcquireEditorComponentElementHandle(Component: cpp.Star<ActorComp.ConstActorComp>, bAllowCreate: Bool): ScriptTypedElementHandle;
-	public function K2_AcquireEditorActorElementHandle(Actor: cpp.Star<Actor.ConstActor>, bAllowCreate: Bool): ScriptTypedElementHandle;
+	public function K2_AcquireEditorSMInstanceElementHandle(ISMComponent: ucpp.Ptr<InstancedStaticMeshComp.ConstInstancedStaticMeshComp>, InstanceIndex: ucpp.num.Int32, bAllowCreate: Bool): ScriptTypedElementHandle;
+	public function K2_AcquireEditorObjectElementHandle(Object: ucpp.Ptr<Object.ConstObject>, bAllowCreate: Bool): ScriptTypedElementHandle;
+	public function K2_AcquireEditorComponentElementHandle(Component: ucpp.Ptr<ActorComp.ConstActorComp>, bAllowCreate: Bool): ScriptTypedElementHandle;
+	public function K2_AcquireEditorActorElementHandle(Actor: ucpp.Ptr<Actor.ConstActor>, bAllowCreate: Bool): ScriptTypedElementHandle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstEngineElementsLibrary(EngineElementsLibrary) from EngineElementsLi
 @:forward
 @:nativeGen
 @:native("EngineElementsLibrary*")
-abstract EngineElementsLibraryPtr(cpp.Star<EngineElementsLibrary>) from cpp.Star<EngineElementsLibrary> to cpp.Star<EngineElementsLibrary>{
+abstract EngineElementsLibraryPtr(ucpp.Ptr<EngineElementsLibrary>) from ucpp.Ptr<EngineElementsLibrary> to ucpp.Ptr<EngineElementsLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EngineElementsLibrary): EngineElementsLibraryPtr {
 		return untyped __cpp__("&({0})", v);

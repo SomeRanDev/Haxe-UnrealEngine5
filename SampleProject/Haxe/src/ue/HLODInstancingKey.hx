@@ -3,11 +3,11 @@ package ue;
 
 @:native("FHLODInstancingKey")
 @:include("Engine/LODActor.h")
-@:structAccess
+@:valueType
 extern class HLODInstancingKey {
-	public var StaticMesh: cpp.Star<StaticMesh>;
-	public var Material: cpp.Star<MaterialInterface>;
+	public var StaticMesh: ucpp.Ptr<StaticMesh>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 
 	@:native("FHLODInstancingKey") public function new();
-	@:native("FHLODInstancingKey") public static function make(StaticMesh: cpp.Star<StaticMesh>, Material: cpp.Star<MaterialInterface>): HLODInstancingKey ;
+	@:native("FHLODInstancingKey") public static function make(StaticMesh: ucpp.Ptr<StaticMesh>, Material: ucpp.Ptr<MaterialInterface>): HLODInstancingKey ;
 }

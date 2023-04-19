@@ -3,14 +3,14 @@ package ue;
 
 @:native("FRigBaseElement")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigBaseElement {
 	@:protected public var Key: RigElementKey;
 	@:protected public var NameString: FString;
-	@:protected public var Index: cpp.Int32;
-	@:protected public var SubIndex: cpp.Int32;
+	@:protected public var Index: ucpp.num.Int32;
+	@:protected public var SubIndex: ucpp.num.Int32;
 	@:protected public var bSelected: Bool;
-	@:protected public var CreatedAtInstructionIndex: cpp.Int32;
+	@:protected public var CreatedAtInstructionIndex: ucpp.num.Int32;
 
 	@:native("FRigBaseElement") public function new();
 }

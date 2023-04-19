@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnCanvasRenderTargetUpdate__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnCanvasRenderTargetUpdate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnCanvasRenderTargetUpdate__PythonCallable(OnCanvasRenderTargetUpd
 @:forward
 @:nativeGen
 @:native("OnCanvasRenderTargetUpdate__PythonCallable*")
-abstract OnCanvasRenderTargetUpdate__PythonCallablePtr(cpp.Star<OnCanvasRenderTargetUpdate__PythonCallable>) from cpp.Star<OnCanvasRenderTargetUpdate__PythonCallable> to cpp.Star<OnCanvasRenderTargetUpdate__PythonCallable>{
+abstract OnCanvasRenderTargetUpdate__PythonCallablePtr(ucpp.Ptr<OnCanvasRenderTargetUpdate__PythonCallable>) from ucpp.Ptr<OnCanvasRenderTargetUpdate__PythonCallable> to ucpp.Ptr<OnCanvasRenderTargetUpdate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnCanvasRenderTargetUpdate__PythonCallable): OnCanvasRenderTargetUpdate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("USkeletalBodySetup")
 @:include("PhysicsEngine/PhysicsAsset.h")
-@:structAccess
+@:valueType
 extern class SkeletalBodySetup extends BodySetup {
 	public var bSkipScaleFromAnimation: Bool;
 	private var PhysicalAnimationData: TArray<PhysicalAnimationProfile>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstSkeletalBodySetup(SkeletalBodySetup) from SkeletalBodySetup {
 @:forward
 @:nativeGen
 @:native("SkeletalBodySetup*")
-abstract SkeletalBodySetupPtr(cpp.Star<SkeletalBodySetup>) from cpp.Star<SkeletalBodySetup> to cpp.Star<SkeletalBodySetup>{
+abstract SkeletalBodySetupPtr(ucpp.Ptr<SkeletalBodySetup>) from ucpp.Ptr<SkeletalBodySetup> to ucpp.Ptr<SkeletalBodySetup>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalBodySetup): SkeletalBodySetupPtr {
 		return untyped __cpp__("&({0})", v);

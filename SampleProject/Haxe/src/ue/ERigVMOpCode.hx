@@ -103,6 +103,8 @@ extern class ERigVMOpCode {
 	static var ArrayDifference: ERigVMOpCode;
 	static var ArrayIntersection: ERigVMOpCode;
 	static var ArrayReverse: ERigVMOpCode;
+	static var InvokeEntry: ERigVMOpCode;
+	static var JumpToBranch: ERigVMOpCode;
 	static var Invalid: ERigVMOpCode;
 	static var FirstArrayOpCode: ERigVMOpCode;
 	static var LastArrayOpCode: ERigVMOpCode;

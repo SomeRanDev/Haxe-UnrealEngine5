@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputModifierScalar")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierScalar extends InputModifier {
 	public var Scalar: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputModifierScalar(InputModifierScalar) from InputModifierScalar 
 @:forward
 @:nativeGen
 @:native("InputModifierScalar*")
-abstract InputModifierScalarPtr(cpp.Star<InputModifierScalar>) from cpp.Star<InputModifierScalar> to cpp.Star<InputModifierScalar>{
+abstract InputModifierScalarPtr(ucpp.Ptr<InputModifierScalar>) from ucpp.Ptr<InputModifierScalar> to ucpp.Ptr<InputModifierScalar>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierScalar): InputModifierScalarPtr {
 		return untyped __cpp__("&({0})", v);

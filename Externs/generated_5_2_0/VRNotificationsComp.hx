@@ -3,7 +3,7 @@ package ue;
 
 @:native("UVRNotificationsComponent")
 @:include("VRNotificationsComponent.h")
-@:structAccess
+@:valueType
 extern class VRNotificationsComp extends ActorComp {
 	public var HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var HMDTrackingInitializedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -20,7 +20,7 @@ extern class VRNotificationsComp extends ActorComp {
 
 	public function VRNotificationsDelegate__DelegateSignature(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -55,7 +55,7 @@ abstract ConstVRNotificationsComp(VRNotificationsComp) from VRNotificationsComp 
 @:forward
 @:nativeGen
 @:native("VRNotificationsComp*")
-abstract VRNotificationsCompPtr(cpp.Star<VRNotificationsComp>) from cpp.Star<VRNotificationsComp> to cpp.Star<VRNotificationsComp>{
+abstract VRNotificationsCompPtr(ucpp.Ptr<VRNotificationsComp>) from ucpp.Ptr<VRNotificationsComp> to ucpp.Ptr<VRNotificationsComp>{
 	@:from
 	public static extern inline function fromValue(v: VRNotificationsComp): VRNotificationsCompPtr {
 		return untyped __cpp__("&({0})", v);

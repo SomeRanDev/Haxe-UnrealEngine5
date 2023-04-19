@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionPathTracingRayTypeSwitch")
 @:include("Materials/MaterialExpressionPathTracingRayTypeSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPathTracingRayTypeSwitch extends MaterialExpression {
 	public var Main: ExpressionInput;
 	public var Shadow: ExpressionInput;
@@ -11,7 +11,7 @@ extern class MaterialExpressionPathTracingRayTypeSwitch extends MaterialExpressi
 	public var IndirectSpecular: ExpressionInput;
 	public var IndirectVolume: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstMaterialExpressionPathTracingRayTypeSwitch(MaterialExpressionPathT
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPathTracingRayTypeSwitch*")
-abstract MaterialExpressionPathTracingRayTypeSwitchPtr(cpp.Star<MaterialExpressionPathTracingRayTypeSwitch>) from cpp.Star<MaterialExpressionPathTracingRayTypeSwitch> to cpp.Star<MaterialExpressionPathTracingRayTypeSwitch>{
+abstract MaterialExpressionPathTracingRayTypeSwitchPtr(ucpp.Ptr<MaterialExpressionPathTracingRayTypeSwitch>) from ucpp.Ptr<MaterialExpressionPathTracingRayTypeSwitch> to ucpp.Ptr<MaterialExpressionPathTracingRayTypeSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPathTracingRayTypeSwitch): MaterialExpressionPathTracingRayTypeSwitchPtr {
 		return untyped __cpp__("&({0})", v);

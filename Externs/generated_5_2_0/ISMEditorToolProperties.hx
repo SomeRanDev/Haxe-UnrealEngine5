@@ -3,7 +3,7 @@ package ue;
 
 @:native("UISMEditorToolProperties")
 @:include("ISMEditorTool.h")
-@:structAccess
+@:valueType
 extern class ISMEditorToolProperties extends InteractiveToolPropertySet {
 	public var TransformMode: EISMEditorTransformMode;
 	public var bSetPivotMode: Bool;
@@ -12,7 +12,7 @@ extern class ISMEditorToolProperties extends InteractiveToolPropertySet {
 	public var bHideWhenDragging: Bool;
 	public var SelectedInstances: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstISMEditorToolProperties(ISMEditorToolProperties) from ISMEditorToo
 @:forward
 @:nativeGen
 @:native("ISMEditorToolProperties*")
-abstract ISMEditorToolPropertiesPtr(cpp.Star<ISMEditorToolProperties>) from cpp.Star<ISMEditorToolProperties> to cpp.Star<ISMEditorToolProperties>{
+abstract ISMEditorToolPropertiesPtr(ucpp.Ptr<ISMEditorToolProperties>) from ucpp.Ptr<ISMEditorToolProperties> to ucpp.Ptr<ISMEditorToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ISMEditorToolProperties): ISMEditorToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

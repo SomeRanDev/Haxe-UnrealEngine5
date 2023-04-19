@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionTextureSampleParameter")
 @:include("Materials/MaterialExpressionTextureSampleParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTextureSampleParameter extends MaterialExpressionTextureSample {
 	public var ParameterName: FName;
 	public var ExpressionGUID: Guid;
 	public var Group: FName;
-	public var SortPriority: cpp.Int32;
+	public var SortPriority: ucpp.num.Int32;
 	public var ChannelNames: ParameterChannelNames;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,8 +23,8 @@ abstract ConstMaterialExpressionTextureSampleParameter(MaterialExpressionTexture
 	public inline extern function get_ExpressionGUID(): Guid return this.ExpressionGUID;
 	public extern var Group(get, never): FName;
 	public inline extern function get_Group(): FName return this.Group;
-	public extern var SortPriority(get, never): cpp.Int32;
-	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
+	public extern var SortPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_SortPriority(): ucpp.num.Int32 return this.SortPriority;
 	public extern var ChannelNames(get, never): ParameterChannelNames;
 	public inline extern function get_ChannelNames(): ParameterChannelNames return this.ChannelNames;
 }
@@ -32,7 +32,7 @@ abstract ConstMaterialExpressionTextureSampleParameter(MaterialExpressionTexture
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTextureSampleParameter*")
-abstract MaterialExpressionTextureSampleParameterPtr(cpp.Star<MaterialExpressionTextureSampleParameter>) from cpp.Star<MaterialExpressionTextureSampleParameter> to cpp.Star<MaterialExpressionTextureSampleParameter>{
+abstract MaterialExpressionTextureSampleParameterPtr(ucpp.Ptr<MaterialExpressionTextureSampleParameter>) from ucpp.Ptr<MaterialExpressionTextureSampleParameter> to ucpp.Ptr<MaterialExpressionTextureSampleParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTextureSampleParameter): MaterialExpressionTextureSampleParameterPtr {
 		return untyped __cpp__("&({0})", v);

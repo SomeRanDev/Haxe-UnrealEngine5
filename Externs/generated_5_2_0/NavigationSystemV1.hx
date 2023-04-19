@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavigationSystemV1")
 @:include("NavigationSystem.h")
-@:structAccess
+@:valueType
 extern class NavigationSystemV1 extends NavigationSystemBase {
-	public var MainNavData: cpp.Star<NavigationData>;
-	public var AbstractNavData: cpp.Star<NavigationData>;
+	public var MainNavData: ucpp.Ptr<NavigationData>;
+	public var AbstractNavData: ucpp.Ptr<NavigationData>;
 	@:protected public var DefaultAgentName: FName;
 	@:protected public var CrowdManagerClass: TSoftClassPtr<Class>;
 	@:protected public var bAutoCreateNavigationData: Bool;
@@ -17,73 +17,73 @@ extern class NavigationSystemV1 extends NavigationSystemBase {
 	@:protected public var bSupportRebuilding: Bool;
 	public var bInitialBuildingLocked: Bool;
 	public var bSkipAgentHeightCheckWhenPickingNavData: Bool;
-	public var GeometryExportTriangleCountWarningThreshold: cpp.Int32;
+	public var GeometryExportTriangleCountWarningThreshold: ucpp.num.Int32;
 	@:protected public var bGenerateNavigationOnlyAroundNavigationInvokers: Bool;
-	@:protected public var ActiveTilesUpdateInterval: cpp.Float32;
+	@:protected public var ActiveTilesUpdateInterval: ucpp.num.Float32;
 	@:protected public var DataGatheringMode: ENavDataGatheringModeConfig;
-	@:protected public var DirtyAreaWarningSizeThreshold: cpp.Float32;
-	@:protected public var GatheringNavModifiersWarningLimitTime: cpp.Float32;
+	@:protected public var DirtyAreaWarningSizeThreshold: ucpp.num.Float32;
+	@:protected public var GatheringNavModifiersWarningLimitTime: ucpp.num.Float32;
 	@:protected public var SupportedAgents: TArray<NavDataConfig>;
 	@:protected public var SupportedAgentsMask: NavAgentSelector;
 	public var BuildBounds: Box;
-	public var NavDataSet: TArray<cpp.Star<NavigationData>>;
-	public var NavDataRegistrationQueue: TArray<cpp.Star<NavigationData>>;
-	public var OnNavDataRegisteredEvent: HaxeMulticastSparseDelegateProperty<(cpp.Star<NavigationData>) -> Void>;
-	public var OnNavigationGenerationFinishedDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Star<NavigationData>) -> Void>;
+	public var NavDataSet: TArray<ucpp.Ptr<NavigationData>>;
+	public var NavDataRegistrationQueue: TArray<ucpp.Ptr<NavigationData>>;
+	public var OnNavDataRegisteredEvent: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NavigationData>) -> Void>;
+	public var OnNavigationGenerationFinishedDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NavigationData>) -> Void>;
 	@:protected public var OperationMode: FNavigationSystemRunMode;
 
-	public function UnregisterNavigationInvoker(Invoker: cpp.Star<Actor>): Void;
-	public function SetMaxSimultaneousTileGenerationJobsCount(MaxNumberOfJobs: cpp.Int32): Void;
+	public function UnregisterNavigationInvoker(Invoker: ucpp.Ptr<Actor>): Void;
+	public function SetMaxSimultaneousTileGenerationJobsCount(MaxNumberOfJobs: ucpp.num.Int32): Void;
 	public function SetGeometryGatheringMode(NewMode: ENavDataGatheringModeConfig): Void;
 	public function ResetMaxSimultaneousTileGenerationJobsCount(): Void;
-	public function RegisterNavigationInvoker(Invoker: cpp.Star<Actor>, TileGenerationRadius: cpp.Float32, TileRemovalRadius: cpp.Float32): Void;
-	public function OnNavigationBoundsUpdated(NavVolume: cpp.Star<NavMeshBoundsVolume>): Void;
-	public function NavigationRaycast(WorldContextObject: cpp.Star<Object>, RayStart: cpp.Reference<Vector>, RayEnd: cpp.Reference<Vector>, HitLocation: cpp.Reference<Vector>, FilterClass: TSubclassOf<NavigationQueryFilter>, Querier: cpp.Star<Controller>): Bool;
-	public function K2_ReplaceAreaInOctreeData(Object: cpp.Star<Object.ConstObject>, OldArea: TSubclassOf<NavArea>, NewArea: TSubclassOf<NavArea>): Bool;
-	public function K2_ProjectPointToNavigation(WorldContextObject: cpp.Star<Object>, Point: cpp.Reference<Vector>, ProjectedLocation: cpp.Reference<Vector>, NavData: cpp.Star<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>, QueryExtent: Vector): Bool;
-	public function K2_GetRandomReachablePointInRadius(WorldContextObject: cpp.Star<Object>, Origin: cpp.Reference<Vector>, RandomLocation: cpp.Reference<Vector>, Radius: cpp.Float32, NavData: cpp.Star<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): Bool;
-	public function K2_GetRandomPointInNavigableRadius(WorldContextObject: cpp.Star<Object>, Origin: cpp.Reference<Vector>, RandomLocation: cpp.Reference<Vector>, Radius: cpp.Float32, NavData: cpp.Star<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): Bool;
-	public function K2_GetRandomLocationInNavigableRadius(WorldContextObject: cpp.Star<Object>, Origin: cpp.Reference<Vector>, RandomLocation: cpp.Reference<Vector>, Radius: cpp.Float32, NavData: cpp.Star<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): Bool;
-	public function IsNavigationBeingBuiltOrLocked(WorldContextObject: cpp.Star<Object>): Bool;
-	public function IsNavigationBeingBuilt(WorldContextObject: cpp.Star<Object>): Bool;
-	public function GetPathLength(WorldContextObject: cpp.Star<Object>, PathStart: cpp.Reference<Vector>, PathEnd: cpp.Reference<Vector>, PathLength: cpp.Reference<cpp.Float64>, NavData: cpp.Star<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): TEnumAsByte<ENavigationQueryResult>;
-	public function GetPathCost(WorldContextObject: cpp.Star<Object>, PathStart: cpp.Reference<Vector>, PathEnd: cpp.Reference<Vector>, PathCost: cpp.Reference<cpp.Float64>, NavData: cpp.Star<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): TEnumAsByte<ENavigationQueryResult>;
-	public function GetNavigationSystem(WorldContextObject: cpp.Star<Object>): cpp.Star<NavigationSystemV1>;
-	public function FindPathToLocationSynchronously(WorldContextObject: cpp.Star<Object>, PathStart: cpp.Reference<Vector>, PathEnd: cpp.Reference<Vector>, PathfindingContext: cpp.Star<Actor>, FilterClass: TSubclassOf<NavigationQueryFilter>): cpp.Star<NavigationPath>;
-	public function FindPathToActorSynchronously(WorldContextObject: cpp.Star<Object>, PathStart: cpp.Reference<Vector>, GoalActor: cpp.Star<Actor>, TetherDistance: cpp.Float32, PathfindingContext: cpp.Star<Actor>, FilterClass: TSubclassOf<NavigationQueryFilter>): cpp.Star<NavigationPath>;
+	public function RegisterNavigationInvoker(Invoker: ucpp.Ptr<Actor>, TileGenerationRadius: ucpp.num.Float32, TileRemovalRadius: ucpp.num.Float32): Void;
+	public function OnNavigationBoundsUpdated(NavVolume: ucpp.Ptr<NavMeshBoundsVolume>): Void;
+	public function NavigationRaycast(WorldContextObject: ucpp.Ptr<Object>, RayStart: ucpp.Ref<Vector>, RayEnd: ucpp.Ref<Vector>, HitLocation: ucpp.Ref<Vector>, FilterClass: TSubclassOf<NavigationQueryFilter>, Querier: ucpp.Ptr<Controller>): Bool;
+	public function K2_ReplaceAreaInOctreeData(Object: ucpp.Ptr<Object.ConstObject>, OldArea: TSubclassOf<NavArea>, NewArea: TSubclassOf<NavArea>): Bool;
+	public function K2_ProjectPointToNavigation(WorldContextObject: ucpp.Ptr<Object>, Point: ucpp.Ref<Vector>, ProjectedLocation: ucpp.Ref<Vector>, NavData: ucpp.Ptr<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>, QueryExtent: Vector): Bool;
+	public function K2_GetRandomReachablePointInRadius(WorldContextObject: ucpp.Ptr<Object>, Origin: ucpp.Ref<Vector>, RandomLocation: ucpp.Ref<Vector>, Radius: ucpp.num.Float32, NavData: ucpp.Ptr<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): Bool;
+	public function K2_GetRandomPointInNavigableRadius(WorldContextObject: ucpp.Ptr<Object>, Origin: ucpp.Ref<Vector>, RandomLocation: ucpp.Ref<Vector>, Radius: ucpp.num.Float32, NavData: ucpp.Ptr<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): Bool;
+	public function K2_GetRandomLocationInNavigableRadius(WorldContextObject: ucpp.Ptr<Object>, Origin: ucpp.Ref<Vector>, RandomLocation: ucpp.Ref<Vector>, Radius: ucpp.num.Float32, NavData: ucpp.Ptr<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): Bool;
+	public function IsNavigationBeingBuiltOrLocked(WorldContextObject: ucpp.Ptr<Object>): Bool;
+	public function IsNavigationBeingBuilt(WorldContextObject: ucpp.Ptr<Object>): Bool;
+	public function GetPathLength(WorldContextObject: ucpp.Ptr<Object>, PathStart: ucpp.Ref<Vector>, PathEnd: ucpp.Ref<Vector>, PathLength: ucpp.Ref<ucpp.num.Float64>, NavData: ucpp.Ptr<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): TEnumAsByte<ENavigationQueryResult>;
+	public function GetPathCost(WorldContextObject: ucpp.Ptr<Object>, PathStart: ucpp.Ref<Vector>, PathEnd: ucpp.Ref<Vector>, PathCost: ucpp.Ref<ucpp.num.Float64>, NavData: ucpp.Ptr<NavigationData>, FilterClass: TSubclassOf<NavigationQueryFilter>): TEnumAsByte<ENavigationQueryResult>;
+	public function GetNavigationSystem(WorldContextObject: ucpp.Ptr<Object>): ucpp.Ptr<NavigationSystemV1>;
+	public function FindPathToLocationSynchronously(WorldContextObject: ucpp.Ptr<Object>, PathStart: ucpp.Ref<Vector>, PathEnd: ucpp.Ref<Vector>, PathfindingContext: ucpp.Ptr<Actor>, FilterClass: TSubclassOf<NavigationQueryFilter>): ucpp.Ptr<NavigationPath>;
+	public function FindPathToActorSynchronously(WorldContextObject: ucpp.Ptr<Object>, PathStart: ucpp.Ref<Vector>, GoalActor: ucpp.Ptr<Actor>, TetherDistance: ucpp.num.Float32, PathfindingContext: ucpp.Ptr<Actor>, FilterClass: TSubclassOf<NavigationQueryFilter>): ucpp.Ptr<NavigationPath>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNavigationSystemV1(NavigationSystemV1) from NavigationSystemV1 {
-	public extern var MainNavData(get, never): cpp.Star<NavigationData.ConstNavigationData>;
-	public inline extern function get_MainNavData(): cpp.Star<NavigationData.ConstNavigationData> return this.MainNavData;
-	public extern var AbstractNavData(get, never): cpp.Star<NavigationData.ConstNavigationData>;
-	public inline extern function get_AbstractNavData(): cpp.Star<NavigationData.ConstNavigationData> return this.AbstractNavData;
+	public extern var MainNavData(get, never): ucpp.Ptr<NavigationData.ConstNavigationData>;
+	public inline extern function get_MainNavData(): ucpp.Ptr<NavigationData.ConstNavigationData> return this.MainNavData;
+	public extern var AbstractNavData(get, never): ucpp.Ptr<NavigationData.ConstNavigationData>;
+	public inline extern function get_AbstractNavData(): ucpp.Ptr<NavigationData.ConstNavigationData> return this.AbstractNavData;
 	public extern var bInitialBuildingLocked(get, never): Bool;
 	public inline extern function get_bInitialBuildingLocked(): Bool return this.bInitialBuildingLocked;
 	public extern var bSkipAgentHeightCheckWhenPickingNavData(get, never): Bool;
 	public inline extern function get_bSkipAgentHeightCheckWhenPickingNavData(): Bool return this.bSkipAgentHeightCheckWhenPickingNavData;
-	public extern var GeometryExportTriangleCountWarningThreshold(get, never): cpp.Int32;
-	public inline extern function get_GeometryExportTriangleCountWarningThreshold(): cpp.Int32 return this.GeometryExportTriangleCountWarningThreshold;
+	public extern var GeometryExportTriangleCountWarningThreshold(get, never): ucpp.num.Int32;
+	public inline extern function get_GeometryExportTriangleCountWarningThreshold(): ucpp.num.Int32 return this.GeometryExportTriangleCountWarningThreshold;
 	public extern var BuildBounds(get, never): Box;
 	public inline extern function get_BuildBounds(): Box return this.BuildBounds;
-	public extern var NavDataSet(get, never): TArray<cpp.Star<NavigationData.ConstNavigationData>>;
-	public inline extern function get_NavDataSet(): TArray<cpp.Star<NavigationData.ConstNavigationData>> return this.NavDataSet;
-	public extern var NavDataRegistrationQueue(get, never): TArray<cpp.Star<NavigationData.ConstNavigationData>>;
-	public inline extern function get_NavDataRegistrationQueue(): TArray<cpp.Star<NavigationData.ConstNavigationData>> return this.NavDataRegistrationQueue;
-	public extern var OnNavDataRegisteredEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<NavigationData.ConstNavigationData>) -> Void>;
-	public inline extern function get_OnNavDataRegisteredEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Star<NavigationData.ConstNavigationData>) -> Void> return this.OnNavDataRegisteredEvent;
-	public extern var OnNavigationGenerationFinishedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<NavigationData.ConstNavigationData>) -> Void>;
-	public inline extern function get_OnNavigationGenerationFinishedDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<NavigationData.ConstNavigationData>) -> Void> return this.OnNavigationGenerationFinishedDelegate;
+	public extern var NavDataSet(get, never): TArray<ucpp.Ptr<NavigationData.ConstNavigationData>>;
+	public inline extern function get_NavDataSet(): TArray<ucpp.Ptr<NavigationData.ConstNavigationData>> return this.NavDataSet;
+	public extern var NavDataRegistrationQueue(get, never): TArray<ucpp.Ptr<NavigationData.ConstNavigationData>>;
+	public inline extern function get_NavDataRegistrationQueue(): TArray<ucpp.Ptr<NavigationData.ConstNavigationData>> return this.NavDataRegistrationQueue;
+	public extern var OnNavDataRegisteredEvent(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NavigationData.ConstNavigationData>) -> Void>;
+	public inline extern function get_OnNavDataRegisteredEvent(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NavigationData.ConstNavigationData>) -> Void> return this.OnNavDataRegisteredEvent;
+	public extern var OnNavigationGenerationFinishedDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NavigationData.ConstNavigationData>) -> Void>;
+	public inline extern function get_OnNavigationGenerationFinishedDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NavigationData.ConstNavigationData>) -> Void> return this.OnNavigationGenerationFinishedDelegate;
 }
 
 @:forward
 @:nativeGen
 @:native("NavigationSystemV1*")
-abstract NavigationSystemV1Ptr(cpp.Star<NavigationSystemV1>) from cpp.Star<NavigationSystemV1> to cpp.Star<NavigationSystemV1>{
+abstract NavigationSystemV1Ptr(ucpp.Ptr<NavigationSystemV1>) from ucpp.Ptr<NavigationSystemV1> to ucpp.Ptr<NavigationSystemV1>{
 	@:from
 	public static extern inline function fromValue(v: NavigationSystemV1): NavigationSystemV1Ptr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_AssetTypeActionsProxy")
 @:include("AssetDefinition_AssetTypeActionsProxy.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_AssetTypeActionsProxy extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_AssetTypeActionsProxy(AssetDefinition_AssetTypeAct
 @:forward
 @:nativeGen
 @:native("AssetDefinition_AssetTypeActionsProxy*")
-abstract AssetDefinition_AssetTypeActionsProxyPtr(cpp.Star<AssetDefinition_AssetTypeActionsProxy>) from cpp.Star<AssetDefinition_AssetTypeActionsProxy> to cpp.Star<AssetDefinition_AssetTypeActionsProxy>{
+abstract AssetDefinition_AssetTypeActionsProxyPtr(ucpp.Ptr<AssetDefinition_AssetTypeActionsProxy>) from ucpp.Ptr<AssetDefinition_AssetTypeActionsProxy> to ucpp.Ptr<AssetDefinition_AssetTypeActionsProxy>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_AssetTypeActionsProxy): AssetDefinition_AssetTypeActionsProxyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UNaniteAuditOptimizeArguments")
 @:include("NaniteToolsArguments.h")
-@:structAccess
+@:valueType
 extern class NaniteAuditOptimizeArguments extends EditorConfigBase {
-	public var TriangleThreshold: cpp.UInt32;
+	public var TriangleThreshold: ucpp.num.UInt32;
 	public var DisallowUnsupportedBlendMode: Bool;
 	public var DisallowVertexInterpolator: Bool;
 	public var DisallowPixelDepthOffset: Bool;
 	public var DisallowWorldPositionOffset: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNaniteAuditOptimizeArguments(NaniteAuditOptimizeArguments) from NaniteAuditOptimizeArguments {
-	public extern var TriangleThreshold(get, never): cpp.UInt32;
-	public inline extern function get_TriangleThreshold(): cpp.UInt32 return this.TriangleThreshold;
+	public extern var TriangleThreshold(get, never): ucpp.num.UInt32;
+	public inline extern function get_TriangleThreshold(): ucpp.num.UInt32 return this.TriangleThreshold;
 	public extern var DisallowUnsupportedBlendMode(get, never): Bool;
 	public inline extern function get_DisallowUnsupportedBlendMode(): Bool return this.DisallowUnsupportedBlendMode;
 	public extern var DisallowVertexInterpolator(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstNaniteAuditOptimizeArguments(NaniteAuditOptimizeArguments) from Na
 @:forward
 @:nativeGen
 @:native("NaniteAuditOptimizeArguments*")
-abstract NaniteAuditOptimizeArgumentsPtr(cpp.Star<NaniteAuditOptimizeArguments>) from cpp.Star<NaniteAuditOptimizeArguments> to cpp.Star<NaniteAuditOptimizeArguments>{
+abstract NaniteAuditOptimizeArgumentsPtr(ucpp.Ptr<NaniteAuditOptimizeArguments>) from ucpp.Ptr<NaniteAuditOptimizeArguments> to ucpp.Ptr<NaniteAuditOptimizeArguments>{
 	@:from
 	public static extern inline function fromValue(v: NaniteAuditOptimizeArguments): NaniteAuditOptimizeArgumentsPtr {
 		return untyped __cpp__("&({0})", v);

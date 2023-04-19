@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBasic2DLineSetComponent")
 @:include("Drawing/BasicLineSetComponent.h")
-@:structAccess
+@:valueType
 extern class Basic2DLineSetComp extends BasicLineSetComponentBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBasic2DLineSetComp(Basic2DLineSetComp) from Basic2DLineSetComp {
 @:forward
 @:nativeGen
 @:native("Basic2DLineSetComp*")
-abstract Basic2DLineSetCompPtr(cpp.Star<Basic2DLineSetComp>) from cpp.Star<Basic2DLineSetComp> to cpp.Star<Basic2DLineSetComp>{
+abstract Basic2DLineSetCompPtr(ucpp.Ptr<Basic2DLineSetComp>) from ucpp.Ptr<Basic2DLineSetComp> to ucpp.Ptr<Basic2DLineSetComp>{
 	@:from
 	public static extern inline function fromValue(v: Basic2DLineSetComp): Basic2DLineSetCompPtr {
 		return untyped __cpp__("&({0})", v);

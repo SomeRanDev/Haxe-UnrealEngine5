@@ -3,12 +3,12 @@ package ue;
 
 @:native("UObjectMixerEditorSettings")
 @:include("ObjectMixerEditorSettings.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerEditorSettings extends Object {
 	public var bSyncSelection: Bool;
 	public var bExpandTreeViewItemsByDefault: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstObjectMixerEditorSettings(ObjectMixerEditorSettings) from ObjectMi
 @:forward
 @:nativeGen
 @:native("ObjectMixerEditorSettings*")
-abstract ObjectMixerEditorSettingsPtr(cpp.Star<ObjectMixerEditorSettings>) from cpp.Star<ObjectMixerEditorSettings> to cpp.Star<ObjectMixerEditorSettings>{
+abstract ObjectMixerEditorSettingsPtr(ucpp.Ptr<ObjectMixerEditorSettings>) from ucpp.Ptr<ObjectMixerEditorSettings> to ucpp.Ptr<ObjectMixerEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerEditorSettings): ObjectMixerEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

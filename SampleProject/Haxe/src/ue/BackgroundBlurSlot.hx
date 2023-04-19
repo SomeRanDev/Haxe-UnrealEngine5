@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBackgroundBlurSlot")
 @:include("Components/BackgroundBlurSlot.h")
-@:structAccess
+@:valueType
 extern class BackgroundBlurSlot extends PanelSlot {
 	@:protected public var Padding: Margin;
 	@:protected public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
@@ -13,7 +13,7 @@ extern class BackgroundBlurSlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstBackgroundBlurSlot(BackgroundBlurSlot) from BackgroundBlurSlot {
 @:forward
 @:nativeGen
 @:native("BackgroundBlurSlot*")
-abstract BackgroundBlurSlotPtr(cpp.Star<BackgroundBlurSlot>) from cpp.Star<BackgroundBlurSlot> to cpp.Star<BackgroundBlurSlot>{
+abstract BackgroundBlurSlotPtr(ucpp.Ptr<BackgroundBlurSlot>) from ucpp.Ptr<BackgroundBlurSlot> to ucpp.Ptr<BackgroundBlurSlot>{
 	@:from
 	public static extern inline function fromValue(v: BackgroundBlurSlot): BackgroundBlurSlotPtr {
 		return untyped __cpp__("&({0})", v);

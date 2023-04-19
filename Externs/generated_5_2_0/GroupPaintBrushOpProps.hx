@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGroupPaintBrushOpProps")
 @:include("Sculpting/MeshGroupPaintBrushOps.h")
-@:structAccess
+@:valueType
 extern class GroupPaintBrushOpProps extends MeshSculptBrushOpProps {
-	public var Group: cpp.Int32;
+	public var Group: ucpp.num.Int32;
 	public var bOnlyPaintUngrouped: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGroupPaintBrushOpProps(GroupPaintBrushOpProps) from GroupPaintBrushOpProps {
-	public extern var Group(get, never): cpp.Int32;
-	public inline extern function get_Group(): cpp.Int32 return this.Group;
+	public extern var Group(get, never): ucpp.num.Int32;
+	public inline extern function get_Group(): ucpp.num.Int32 return this.Group;
 	public extern var bOnlyPaintUngrouped(get, never): Bool;
 	public inline extern function get_bOnlyPaintUngrouped(): Bool return this.bOnlyPaintUngrouped;
 }
@@ -23,7 +23,7 @@ abstract ConstGroupPaintBrushOpProps(GroupPaintBrushOpProps) from GroupPaintBrus
 @:forward
 @:nativeGen
 @:native("GroupPaintBrushOpProps*")
-abstract GroupPaintBrushOpPropsPtr(cpp.Star<GroupPaintBrushOpProps>) from cpp.Star<GroupPaintBrushOpProps> to cpp.Star<GroupPaintBrushOpProps>{
+abstract GroupPaintBrushOpPropsPtr(ucpp.Ptr<GroupPaintBrushOpProps>) from ucpp.Ptr<GroupPaintBrushOpProps> to ucpp.Ptr<GroupPaintBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: GroupPaintBrushOpProps): GroupPaintBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

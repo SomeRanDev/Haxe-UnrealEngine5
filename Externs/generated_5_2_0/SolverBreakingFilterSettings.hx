@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSolverBreakingFilterSettings")
 @:include("SolverEventFilters.h")
-@:structAccess
+@:valueType
 extern class SolverBreakingFilterSettings {
 	public var FilterEnabled: Bool;
-	public var MinMass: cpp.Float32;
-	public var MinSpeed: cpp.Float32;
-	public var MinVolume: cpp.Float32;
+	public var MinMass: ucpp.num.Float32;
+	public var MinSpeed: ucpp.num.Float32;
+	public var MinVolume: ucpp.num.Float32;
 
 	@:native("FSolverBreakingFilterSettings") public function new();
-	@:native("FSolverBreakingFilterSettings") public static function make(FilterEnabled: Bool, MinMass: cpp.Float32, MinSpeed: cpp.Float32, MinVolume: cpp.Float32): SolverBreakingFilterSettings ;
+	@:native("FSolverBreakingFilterSettings") public static function make(FilterEnabled: Bool, MinMass: ucpp.num.Float32, MinSpeed: ucpp.num.Float32, MinVolume: ucpp.num.Float32): SolverBreakingFilterSettings ;
 }

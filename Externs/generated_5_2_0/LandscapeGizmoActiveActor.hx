@@ -3,10 +3,10 @@ package ue;
 
 @:native("ALandscapeGizmoActiveActor")
 @:include("LandscapeGizmoActiveActor.h")
-@:structAccess
+@:valueType
 extern class LandscapeGizmoActiveActor extends LandscapeGizmoActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeGizmoActiveActor(LandscapeGizmoActiveActor) from Landscap
 @:forward
 @:nativeGen
 @:native("LandscapeGizmoActiveActor*")
-abstract LandscapeGizmoActiveActorPtr(cpp.Star<LandscapeGizmoActiveActor>) from cpp.Star<LandscapeGizmoActiveActor> to cpp.Star<LandscapeGizmoActiveActor>{
+abstract LandscapeGizmoActiveActorPtr(ucpp.Ptr<LandscapeGizmoActiveActor>) from ucpp.Ptr<LandscapeGizmoActiveActor> to ucpp.Ptr<LandscapeGizmoActiveActor>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeGizmoActiveActor): LandscapeGizmoActiveActorPtr {
 		return untyped __cpp__("&({0})", v);

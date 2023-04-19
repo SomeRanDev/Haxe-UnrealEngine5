@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTickableLookAtConstraint")
 @:include("TransformConstraint.h")
-@:structAccess
+@:valueType
 extern class TickableLookAtConstraint extends TickableTransformConstraint {
 	@:protected public var Axis: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTickableLookAtConstraint(TickableLookAtConstraint) from TickableLo
 @:forward
 @:nativeGen
 @:native("TickableLookAtConstraint*")
-abstract TickableLookAtConstraintPtr(cpp.Star<TickableLookAtConstraint>) from cpp.Star<TickableLookAtConstraint> to cpp.Star<TickableLookAtConstraint>{
+abstract TickableLookAtConstraintPtr(ucpp.Ptr<TickableLookAtConstraint>) from ucpp.Ptr<TickableLookAtConstraint> to ucpp.Ptr<TickableLookAtConstraint>{
 	@:from
 	public static extern inline function fromValue(v: TickableLookAtConstraint): TickableLookAtConstraintPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("UUVEditorBackgroundPreviewProperties")
 @:include("UVEditorBackgroundPreview.h")
-@:structAccess
+@:valueType
 extern class UVEditorBackgroundPreviewProperties extends InteractiveToolPropertySet {
 	public var bVisible: Bool;
 	public var SourceType: EUVEditorBackgroundSourceType;
-	public var SourceTexture: cpp.Star<Texture2D>;
-	public var SourceMaterial: cpp.Star<Material>;
-	public var UDIMBlocks: TArray<cpp.Int32>;
+	public var SourceTexture: ucpp.Ptr<Texture2D>;
+	public var SourceMaterial: ucpp.Ptr<Material>;
+	public var UDIMBlocks: TArray<ucpp.num.Int32>;
 	public var bUDIMsEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,12 +22,12 @@ abstract ConstUVEditorBackgroundPreviewProperties(UVEditorBackgroundPreviewPrope
 	public inline extern function get_bVisible(): Bool return this.bVisible;
 	public extern var SourceType(get, never): EUVEditorBackgroundSourceType;
 	public inline extern function get_SourceType(): EUVEditorBackgroundSourceType return this.SourceType;
-	public extern var SourceTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_SourceTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.SourceTexture;
-	public extern var SourceMaterial(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_SourceMaterial(): cpp.Star<Material.ConstMaterial> return this.SourceMaterial;
-	public extern var UDIMBlocks(get, never): TArray<cpp.Int32>;
-	public inline extern function get_UDIMBlocks(): TArray<cpp.Int32> return this.UDIMBlocks;
+	public extern var SourceTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_SourceTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.SourceTexture;
+	public extern var SourceMaterial(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_SourceMaterial(): ucpp.Ptr<Material.ConstMaterial> return this.SourceMaterial;
+	public extern var UDIMBlocks(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_UDIMBlocks(): TArray<ucpp.num.Int32> return this.UDIMBlocks;
 	public extern var bUDIMsEnabled(get, never): Bool;
 	public inline extern function get_bUDIMsEnabled(): Bool return this.bUDIMsEnabled;
 }
@@ -35,7 +35,7 @@ abstract ConstUVEditorBackgroundPreviewProperties(UVEditorBackgroundPreviewPrope
 @:forward
 @:nativeGen
 @:native("UVEditorBackgroundPreviewProperties*")
-abstract UVEditorBackgroundPreviewPropertiesPtr(cpp.Star<UVEditorBackgroundPreviewProperties>) from cpp.Star<UVEditorBackgroundPreviewProperties> to cpp.Star<UVEditorBackgroundPreviewProperties>{
+abstract UVEditorBackgroundPreviewPropertiesPtr(ucpp.Ptr<UVEditorBackgroundPreviewProperties>) from ucpp.Ptr<UVEditorBackgroundPreviewProperties> to ucpp.Ptr<UVEditorBackgroundPreviewProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorBackgroundPreviewProperties): UVEditorBackgroundPreviewPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

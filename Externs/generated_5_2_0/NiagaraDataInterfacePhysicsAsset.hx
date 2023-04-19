@@ -3,20 +3,20 @@ package ue;
 
 @:native("UNiagaraDataInterfacePhysicsAsset")
 @:include("NiagaraDataInterfacePhysicsAsset.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfacePhysicsAsset extends NiagaraDataInterface {
-	public var DefaultSource: cpp.Star<PhysicsAsset>;
+	public var DefaultSource: ucpp.Ptr<PhysicsAsset>;
 	public var SoftSourceActor: TSoftObjectPtr<Actor>;
 	public var MeshUserParameter: NiagaraUserParameterBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfacePhysicsAsset(NiagaraDataInterfacePhysicsAsset) from NiagaraDataInterfacePhysicsAsset {
-	public extern var DefaultSource(get, never): cpp.Star<PhysicsAsset.ConstPhysicsAsset>;
-	public inline extern function get_DefaultSource(): cpp.Star<PhysicsAsset.ConstPhysicsAsset> return this.DefaultSource;
+	public extern var DefaultSource(get, never): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset>;
+	public inline extern function get_DefaultSource(): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset> return this.DefaultSource;
 	public extern var SoftSourceActor(get, never): TSoftObjectPtr<Actor.ConstActor>;
 	public inline extern function get_SoftSourceActor(): TSoftObjectPtr<Actor.ConstActor> return this.SoftSourceActor;
 	public extern var MeshUserParameter(get, never): NiagaraUserParameterBinding;
@@ -26,7 +26,7 @@ abstract ConstNiagaraDataInterfacePhysicsAsset(NiagaraDataInterfacePhysicsAsset)
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfacePhysicsAsset*")
-abstract NiagaraDataInterfacePhysicsAssetPtr(cpp.Star<NiagaraDataInterfacePhysicsAsset>) from cpp.Star<NiagaraDataInterfacePhysicsAsset> to cpp.Star<NiagaraDataInterfacePhysicsAsset>{
+abstract NiagaraDataInterfacePhysicsAssetPtr(ucpp.Ptr<NiagaraDataInterfacePhysicsAsset>) from ucpp.Ptr<NiagaraDataInterfacePhysicsAsset> to ucpp.Ptr<NiagaraDataInterfacePhysicsAsset>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfacePhysicsAsset): NiagaraDataInterfacePhysicsAssetPtr {
 		return untyped __cpp__("&({0})", v);

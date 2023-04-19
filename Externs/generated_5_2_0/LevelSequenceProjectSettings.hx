@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULevelSequenceProjectSettings")
 @:include("LevelSequenceProjectSettings.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceProjectSettings extends DeveloperSettings {
 	public var bDefaultLockEngineToDisplayRate: Bool;
 	public var DefaultDisplayRate: FString;
 	public var DefaultTickResolution: FString;
 	public var DefaultClockSource: EUpdateClockSource;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstLevelSequenceProjectSettings(LevelSequenceProjectSettings) from Le
 @:forward
 @:nativeGen
 @:native("LevelSequenceProjectSettings*")
-abstract LevelSequenceProjectSettingsPtr(cpp.Star<LevelSequenceProjectSettings>) from cpp.Star<LevelSequenceProjectSettings> to cpp.Star<LevelSequenceProjectSettings>{
+abstract LevelSequenceProjectSettingsPtr(ucpp.Ptr<LevelSequenceProjectSettings>) from ucpp.Ptr<LevelSequenceProjectSettings> to ucpp.Ptr<LevelSequenceProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceProjectSettings): LevelSequenceProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

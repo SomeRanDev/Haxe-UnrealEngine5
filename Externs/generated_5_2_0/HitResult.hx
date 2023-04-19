@@ -3,21 +3,21 @@ package ue;
 
 @:native("FHitResult")
 @:include("Engine/HitResult.h")
-@:structAccess
+@:valueType
 extern class HitResult {
-	public var FaceIndex: cpp.Int32;
-	public var Time: cpp.Float32;
-	public var Distance: cpp.Float32;
+	public var FaceIndex: ucpp.num.Int32;
+	public var Time: ucpp.num.Float32;
+	public var Distance: ucpp.num.Float32;
 	public var Location: Vector_NetQuantize;
 	public var ImpactPoint: Vector_NetQuantize;
 	public var Normal: Vector_NetQuantizeNormal;
 	public var ImpactNormal: Vector_NetQuantizeNormal;
 	public var TraceStart: Vector_NetQuantize;
 	public var TraceEnd: Vector_NetQuantize;
-	public var PenetrationDepth: cpp.Float32;
-	public var MyItem: cpp.Int32;
-	public var Item: cpp.Int32;
-	public var ElementIndex: cpp.UInt8;
+	public var PenetrationDepth: ucpp.num.Float32;
+	public var MyItem: ucpp.num.Int32;
+	public var Item: ucpp.num.Int32;
+	public var ElementIndex: ucpp.num.UInt8;
 	public var bBlockingHit: Bool;
 	public var bStartPenetrating: Bool;
 	public var PhysMaterial: TWeakObjectPtr<PhysicalMaterial>;

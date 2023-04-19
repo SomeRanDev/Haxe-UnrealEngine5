@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPlatformGameInstance_PlatformRegisteredForUserNotificationsDelegat
 @:forward
 @:nativeGen
 @:native("PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable*")
-abstract PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallablePtr(cpp.Star<PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable>) from cpp.Star<PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable> to cpp.Star<PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable>{
+abstract PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallablePtr(ucpp.Ptr<PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable>) from ucpp.Ptr<PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable> to ucpp.Ptr<PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallable): PlatformGameInstance_PlatformRegisteredForUserNotificationsDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

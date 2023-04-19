@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPatternTool_BoundingBoxSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternTool_BoundingBoxSettings extends InteractiveToolPropertySet {
 	public var bIgnoreTransforms: Bool;
-	public var Adjustment: cpp.Float32;
+	public var Adjustment: ucpp.num.Float32;
 	public var bVisualize: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class PatternTool_BoundingBoxSettings extends InteractiveToolPropertySet 
 abstract ConstPatternTool_BoundingBoxSettings(PatternTool_BoundingBoxSettings) from PatternTool_BoundingBoxSettings {
 	public extern var bIgnoreTransforms(get, never): Bool;
 	public inline extern function get_bIgnoreTransforms(): Bool return this.bIgnoreTransforms;
-	public extern var Adjustment(get, never): cpp.Float32;
-	public inline extern function get_Adjustment(): cpp.Float32 return this.Adjustment;
+	public extern var Adjustment(get, never): ucpp.num.Float32;
+	public inline extern function get_Adjustment(): ucpp.num.Float32 return this.Adjustment;
 	public extern var bVisualize(get, never): Bool;
 	public inline extern function get_bVisualize(): Bool return this.bVisualize;
 }
@@ -26,7 +26,7 @@ abstract ConstPatternTool_BoundingBoxSettings(PatternTool_BoundingBoxSettings) f
 @:forward
 @:nativeGen
 @:native("PatternTool_BoundingBoxSettings*")
-abstract PatternTool_BoundingBoxSettingsPtr(cpp.Star<PatternTool_BoundingBoxSettings>) from cpp.Star<PatternTool_BoundingBoxSettings> to cpp.Star<PatternTool_BoundingBoxSettings>{
+abstract PatternTool_BoundingBoxSettingsPtr(ucpp.Ptr<PatternTool_BoundingBoxSettings>) from ucpp.Ptr<PatternTool_BoundingBoxSettings> to ucpp.Ptr<PatternTool_BoundingBoxSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternTool_BoundingBoxSettings): PatternTool_BoundingBoxSettingsPtr {
 		return untyped __cpp__("&({0})", v);

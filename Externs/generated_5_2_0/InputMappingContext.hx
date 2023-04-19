@@ -3,18 +3,18 @@ package ue;
 
 @:native("UInputMappingContext")
 @:include("InputMappingContext.h")
-@:structAccess
+@:valueType
 extern class InputMappingContext extends DataAsset {
 	@:protected public var Mappings: TArray<EnhancedActionKeyMapping>;
 	public var ContextDescription: FText;
 
-	public function UnmapKey(Action: cpp.Star<InputAction.ConstInputAction>, Key: Key): Void;
-	public function UnmapAllKeysFromAction(Action: cpp.Star<InputAction.ConstInputAction>): Void;
+	public function UnmapKey(Action: ucpp.Ptr<InputAction.ConstInputAction>, Key: Key): Void;
+	public function UnmapAllKeysFromAction(Action: ucpp.Ptr<InputAction.ConstInputAction>): Void;
 	public function UnmapAll(): Void;
-	public function UnmapAction(Action: cpp.Star<InputAction.ConstInputAction>): Void;
-	public function MapKey(Action: cpp.Star<InputAction.ConstInputAction>, ToKey: Key): EnhancedActionKeyMapping;
+	public function UnmapAction(Action: ucpp.Ptr<InputAction.ConstInputAction>): Void;
+	public function MapKey(Action: ucpp.Ptr<InputAction.ConstInputAction>, ToKey: Key): EnhancedActionKeyMapping;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstInputMappingContext(InputMappingContext) from InputMappingContext 
 @:forward
 @:nativeGen
 @:native("InputMappingContext*")
-abstract InputMappingContextPtr(cpp.Star<InputMappingContext>) from cpp.Star<InputMappingContext> to cpp.Star<InputMappingContext>{
+abstract InputMappingContextPtr(ucpp.Ptr<InputMappingContext>) from ucpp.Ptr<InputMappingContext> to ucpp.Ptr<InputMappingContext>{
 	@:from
 	public static extern inline function fromValue(v: InputMappingContext): InputMappingContextPtr {
 		return untyped __cpp__("&({0})", v);

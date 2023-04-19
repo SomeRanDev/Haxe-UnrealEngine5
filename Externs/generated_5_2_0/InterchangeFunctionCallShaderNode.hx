@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeFunctionCallShaderNode")
 @:include("InterchangeShaderGraphNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeFunctionCallShaderNode extends InterchangeShaderNode {
 	public function SetCustomMaterialFunction(AttributeValue: FString): Bool;
-	public function GetCustomMaterialFunction(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetCustomMaterialFunction(AttributeValue: ucpp.Ref<FString>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomMaterialFunction)
@@ -19,7 +19,7 @@ abstract ConstInterchangeFunctionCallShaderNode(InterchangeFunctionCallShaderNod
 @:forward
 @:nativeGen
 @:native("InterchangeFunctionCallShaderNode*")
-abstract InterchangeFunctionCallShaderNodePtr(cpp.Star<InterchangeFunctionCallShaderNode>) from cpp.Star<InterchangeFunctionCallShaderNode> to cpp.Star<InterchangeFunctionCallShaderNode>{
+abstract InterchangeFunctionCallShaderNodePtr(ucpp.Ptr<InterchangeFunctionCallShaderNode>) from ucpp.Ptr<InterchangeFunctionCallShaderNode> to ucpp.Ptr<InterchangeFunctionCallShaderNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeFunctionCallShaderNode): InterchangeFunctionCallShaderNodePtr {
 		return untyped __cpp__("&({0})", v);

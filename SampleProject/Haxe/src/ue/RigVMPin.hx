@@ -3,7 +3,7 @@ package ue;
 
 @:native("URigVMPin")
 @:include("RigVMModel/RigVMPin.h")
-@:structAccess
+@:valueType
 extern class RigVMPin extends Object {
 	private var DisplayName: FName;
 	private var Direction: ERigVMPinDirection;
@@ -12,70 +12,79 @@ extern class RigVMPin extends Object {
 	private var bRequiresWatch: Bool;
 	private var bIsDynamicArray: Bool;
 	private var CPPType: FString;
-	private var CPPTypeObject: cpp.Star<Object>;
+	private var CPPTypeObject: ucpp.Ptr<Object>;
 	private var CPPTypeObjectPath: FName;
 	private var DefaultValue: FString;
 	private var CustomWidgetName: FName;
-	private var SubPins: TArray<cpp.Star<RigVMPin>>;
-	private var Links: TArray<cpp.Star<RigVMLink>>;
-	private var InjectionInfos: TArray<cpp.Star<RigVMInjectionInfo>>;
+	private var SubPins: TArray<ucpp.Ptr<RigVMPin>>;
+	private var Links: TArray<ucpp.Ptr<RigVMLink>>;
+	private var InjectionInfos: TArray<ucpp.Ptr<RigVMInjectionInfo>>;
 
 	public function RequiresWatch(bCheckExposedPinChain: Bool): Bool;
+	public function IsWildCard(): Bool;
 	public function IsUObject(): Bool;
-	public function IsUnknownType(): Bool;
 	public function IsStructMember(): Bool;
 	public function IsStruct(): Bool;
 	public function IsStringType(): Bool;
 	public function IsRootPin(): Bool;
 	public function IsReferenceCountedContainer(): Bool;
-	public function IsLinkedTo(InPin: cpp.Star<RigVMPin>): Bool;
+	public function IsLinkedTo(InPin: ucpp.Ptr<RigVMPin>): Bool;
+	public function IsLazy(): Bool;
+	public function IsInterface(): Bool;
+	public function IsFixedSizeArray(): Bool;
 	public function IsExpanded(): Bool;
 	public function IsExecuteContext(): Bool;
+	public function IsEnum(): Bool;
 	public function IsDynamicArray(): Bool;
 	public function IsDefinedAsConstant(): Bool;
 	public function IsArrayElement(): Bool;
 	public function IsArray(): Bool;
 	public function GetToolTipText(): FText;
-	public function GetTargetLinks(bRecursive: Bool): TArray<cpp.Star<RigVMLink>>;
-	public function GetSubPins(): TArray<cpp.Star<RigVMPin>>;
-	public function GetSourceLinks(bRecursive: Bool): TArray<cpp.Star<RigVMLink>>;
+	public function GetTargetLinks(bRecursive: Bool): TArray<ucpp.Ptr<RigVMLink>>;
+	public function GetSubPins(): TArray<ucpp.Ptr<RigVMPin>>;
+	public function GetSubPinPath(InParentPin: ucpp.Ptr<RigVMPin.ConstRigVMPin>, bIncludeParentPinName: Bool): FString;
+	public function GetSourceLinks(bRecursive: Bool): TArray<ucpp.Ptr<RigVMLink>>;
 	public function GetSegmentPath(bIncludeRootPin: Bool): FString;
-	public function GetScriptStruct(): cpp.Star<ScriptStruct>;
-	public function GetRootPin(): cpp.Star<RigVMPin>;
+	public function GetScriptStruct(): ucpp.Ptr<ScriptStruct>;
+	public function GetRootPin(): ucpp.Ptr<RigVMPin>;
 	public function GetPinPath(bUseNodePath: Bool): FString;
-	public function GetPinIndex(): cpp.Int32;
-	public function GetPinForLink(): cpp.Star<RigVMPin>;
-	public function GetParentPin(): cpp.Star<RigVMPin>;
-	public function GetOriginalPinFromInjectedNode(): cpp.Star<RigVMPin>;
-	public function GetNode(): cpp.Star<RigVMNode>;
-	public function GetLinks(): TArray<cpp.Star<RigVMLink>>;
-	public function GetLinkedTargetPins(bRecursive: Bool): TArray<cpp.Star<RigVMPin>>;
-	public function GetLinkedSourcePins(bRecursive: Bool): TArray<cpp.Star<RigVMPin>>;
-	public function GetGraph(): cpp.Star<RigVMGraph>;
-	public function GetEnum(): cpp.Star<Enum>;
+	public function GetPinIndex(): ucpp.num.Int32;
+	public function GetPinForLink(): ucpp.Ptr<RigVMPin>;
+	public function GetParentPin(): ucpp.Ptr<RigVMPin>;
+	public function GetOriginalPinFromInjectedNode(): ucpp.Ptr<RigVMPin>;
+	public function GetNode(): ucpp.Ptr<RigVMNode>;
+	public function GetLinks(): TArray<ucpp.Ptr<RigVMLink>>;
+	public function GetLinkedTargetPins(bRecursive: Bool): TArray<ucpp.Ptr<RigVMPin>>;
+	public function GetLinkedSourcePins(bRecursive: Bool): TArray<ucpp.Ptr<RigVMPin>>;
+	public function GetGraph(): ucpp.Ptr<RigVMGraph>;
+	public function GetEnum(): ucpp.Ptr<Enum>;
 	public function GetDisplayName(): FName;
 	public function GetDirection(): ERigVMPinDirection;
 	public function GetDefaultValue(): FString;
 	public function GetCustomWidgetName(): FName;
-	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetCPPTypeObject(): ucpp.Ptr<Object>;
 	public function GetCPPType(): FString;
-	public function GetArraySize(): cpp.Int32;
+	public function GetArraySize(): ucpp.num.Int32;
 	public function GetArrayElementCppType(): FString;
-	public function FindSubPin(InPinPath: FString): cpp.Star<RigVMPin>;
+	public function GetAbsolutePinIndex(): ucpp.num.Int32;
+	public function FindSubPin(InPinPath: FString): ucpp.Ptr<RigVMPin>;
+	public function FindLinkForPin(InOtherPin: ucpp.Ptr<RigVMPin.ConstRigVMPin>): ucpp.Ptr<RigVMLink>;
+	public function ContainsWildCardSubPin(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
-	RequiresWatch, IsUObject, IsUnknownType, IsStructMember, IsStruct,
-	IsStringType, IsRootPin, IsReferenceCountedContainer, IsLinkedTo, IsExpanded,
-	IsExecuteContext, IsDynamicArray, IsDefinedAsConstant, IsArrayElement, IsArray,
-	GetToolTipText, GetTargetLinks, GetSubPins, GetSourceLinks, GetSegmentPath,
+	RequiresWatch, IsWildCard, IsUObject, IsStructMember, IsStruct,
+	IsStringType, IsRootPin, IsReferenceCountedContainer, IsLinkedTo, IsLazy,
+	IsInterface, IsFixedSizeArray, IsExpanded, IsExecuteContext, IsEnum,
+	IsDynamicArray, IsDefinedAsConstant, IsArrayElement, IsArray, GetToolTipText,
+	GetTargetLinks, GetSubPins, GetSubPinPath, GetSourceLinks, GetSegmentPath,
 	GetScriptStruct, GetRootPin, GetPinPath, GetPinIndex, GetPinForLink,
 	GetParentPin, GetOriginalPinFromInjectedNode, GetNode, GetLinks, GetLinkedTargetPins,
 	GetLinkedSourcePins, GetGraph, GetEnum, GetDisplayName, GetDirection,
 	GetDefaultValue, GetCustomWidgetName, GetCPPTypeObject, GetCPPType, GetArraySize,
-	GetArrayElementCppType, FindSubPin
+	GetArrayElementCppType, GetAbsolutePinIndex, FindSubPin, FindLinkForPin, ContainsWildCardSubPin
 )
 @:nativeGen
 abstract ConstRigVMPin(RigVMPin) from RigVMPin {
@@ -84,7 +93,7 @@ abstract ConstRigVMPin(RigVMPin) from RigVMPin {
 @:forward
 @:nativeGen
 @:native("RigVMPin*")
-abstract RigVMPinPtr(cpp.Star<RigVMPin>) from cpp.Star<RigVMPin> to cpp.Star<RigVMPin>{
+abstract RigVMPinPtr(ucpp.Ptr<RigVMPin>) from ucpp.Ptr<RigVMPin> to ucpp.Ptr<RigVMPin>{
 	@:from
 	public static extern inline function fromValue(v: RigVMPin): RigVMPinPtr {
 		return untyped __cpp__("&({0})", v);

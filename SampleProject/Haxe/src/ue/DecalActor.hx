@@ -3,15 +3,15 @@ package ue;
 
 @:native("ADecalActor")
 @:include("Engine/DecalActor.h")
-@:structAccess
+@:valueType
 extern class DecalActor extends Actor {
-	private var Decal: cpp.Star<DecalComp>;
+	private var Decal: ucpp.Ptr<DecalComp>;
 
-	public function SetDecalMaterial(NewDecalMaterial: cpp.Star<MaterialInterface>): Void;
-	public function GetDecalMaterial(): cpp.Star<MaterialInterface>;
-	public function CreateDynamicMaterialInstance(): cpp.Star<MaterialInstanceDynamic>;
+	public function SetDecalMaterial(NewDecalMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function GetDecalMaterial(): ucpp.Ptr<MaterialInterface>;
+	public function CreateDynamicMaterialInstance(): ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetDecalMaterial)
@@ -22,7 +22,7 @@ abstract ConstDecalActor(DecalActor) from DecalActor {
 @:forward
 @:nativeGen
 @:native("DecalActor*")
-abstract DecalActorPtr(cpp.Star<DecalActor>) from cpp.Star<DecalActor> to cpp.Star<DecalActor>{
+abstract DecalActorPtr(ucpp.Ptr<DecalActor>) from ucpp.Ptr<DecalActor> to ucpp.Ptr<DecalActor>{
 	@:from
 	public static extern inline function fromValue(v: DecalActor): DecalActorPtr {
 		return untyped __cpp__("&({0})", v);

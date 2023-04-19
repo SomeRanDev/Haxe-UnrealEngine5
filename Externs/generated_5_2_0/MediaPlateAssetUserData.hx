@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMediaPlateAssetUserData")
 @:include("MediaPlateAssetUserData.h")
-@:structAccess
+@:valueType
 extern class MediaPlateAssetUserData extends AssetUserData {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMediaPlateAssetUserData(MediaPlateAssetUserData) from MediaPlateAs
 @:forward
 @:nativeGen
 @:native("MediaPlateAssetUserData*")
-abstract MediaPlateAssetUserDataPtr(cpp.Star<MediaPlateAssetUserData>) from cpp.Star<MediaPlateAssetUserData> to cpp.Star<MediaPlateAssetUserData>{
+abstract MediaPlateAssetUserDataPtr(ucpp.Ptr<MediaPlateAssetUserData>) from ucpp.Ptr<MediaPlateAssetUserData> to ucpp.Ptr<MediaPlateAssetUserData>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlateAssetUserData): MediaPlateAssetUserDataPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_BlendSpaceGraph")
 @:include("AnimNodes/AnimNode_BlendSpaceGraph.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendSpaceGraph extends AnimNode_BlendSpaceGraphBase {
 	@:native("FAnimNode_BlendSpaceGraph") public function new();
 }

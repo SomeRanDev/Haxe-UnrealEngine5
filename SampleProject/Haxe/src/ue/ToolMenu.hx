@@ -3,7 +3,7 @@ package ue;
 
 @:native("UToolMenu")
 @:include("ToolMenu.h")
-@:structAccess
+@:valueType
 extern class ToolMenu extends ToolMenuBase {
 	public var MenuName: FName;
 	public var MenuParent: FName;
@@ -20,17 +20,17 @@ extern class ToolMenu extends ToolMenuBase {
 	public var MenuOwner: ToolMenuOwner;
 	public var Context: ToolMenuContext;
 	public var Sections: TArray<ToolMenuSection>;
-	public var SubMenuParent: cpp.Star<ToolMenu>;
+	public var SubMenuParent: ucpp.Ptr<ToolMenu>;
 	public var SubMenuSourceEntryName: FName;
 
 	public function InitMenu(Owner: ToolMenuOwner, Name: FName, Parent: FName, Type: EMultiBoxType): Void;
-	public function AddSubMenuScript(Owner: FName, SectionName: FName, Name: FName, Label: cpp.Reference<FText>, ToolTip: cpp.Reference<FText>): cpp.Star<ToolMenu>;
-	public function AddSectionScript(SectionName: FName, Label: cpp.Reference<FText>, InsertName: FName, InsertType: EToolMenuInsertType): Void;
-	public function AddMenuEntryObject(InObject: cpp.Star<ToolMenuEntryScript>): Void;
-	public function AddMenuEntry(SectionName: FName, Args: cpp.Reference<ToolMenuEntry>): Void;
-	public function AddDynamicSectionScript(SectionName: FName, Object: cpp.Star<ToolMenuSectionDynamic>): Void;
+	public function AddSubMenuScript(Owner: FName, SectionName: FName, Name: FName, Label: ucpp.Ref<FText>, ToolTip: ucpp.Ref<FText>): ucpp.Ptr<ToolMenu>;
+	public function AddSectionScript(SectionName: FName, Label: ucpp.Ref<FText>, InsertName: FName, InsertType: EToolMenuInsertType): Void;
+	public function AddMenuEntryObject(InObject: ucpp.Ptr<ToolMenuEntryScript>): Void;
+	public function AddMenuEntry(SectionName: FName, Args: ucpp.Ref<ToolMenuEntry>): Void;
+	public function AddDynamicSectionScript(SectionName: FName, Object: ucpp.Ptr<ToolMenuSectionDynamic>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -66,8 +66,8 @@ abstract ConstToolMenu(ToolMenu) from ToolMenu {
 	public inline extern function get_Context(): ToolMenuContext return this.Context;
 	public extern var Sections(get, never): TArray<ToolMenuSection>;
 	public inline extern function get_Sections(): TArray<ToolMenuSection> return this.Sections;
-	public extern var SubMenuParent(get, never): cpp.Star<ToolMenu.ConstToolMenu>;
-	public inline extern function get_SubMenuParent(): cpp.Star<ToolMenu.ConstToolMenu> return this.SubMenuParent;
+	public extern var SubMenuParent(get, never): ucpp.Ptr<ToolMenu.ConstToolMenu>;
+	public inline extern function get_SubMenuParent(): ucpp.Ptr<ToolMenu.ConstToolMenu> return this.SubMenuParent;
 	public extern var SubMenuSourceEntryName(get, never): FName;
 	public inline extern function get_SubMenuSourceEntryName(): FName return this.SubMenuSourceEntryName;
 }
@@ -75,7 +75,7 @@ abstract ConstToolMenu(ToolMenu) from ToolMenu {
 @:forward
 @:nativeGen
 @:native("ToolMenu*")
-abstract ToolMenuPtr(cpp.Star<ToolMenu>) from cpp.Star<ToolMenu> to cpp.Star<ToolMenu>{
+abstract ToolMenuPtr(ucpp.Ptr<ToolMenu>) from ucpp.Ptr<ToolMenu> to ucpp.Ptr<ToolMenu>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenu): ToolMenuPtr {
 		return untyped __cpp__("&({0})", v);

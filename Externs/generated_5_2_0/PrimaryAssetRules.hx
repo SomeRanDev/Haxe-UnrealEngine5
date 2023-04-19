@@ -3,13 +3,13 @@ package ue;
 
 @:native("FPrimaryAssetRules")
 @:include("Engine/AssetManagerTypes.h")
-@:structAccess
+@:valueType
 extern class PrimaryAssetRules {
-	public var Priority: cpp.Int32;
-	public var ChunkId: cpp.Int32;
+	public var Priority: ucpp.num.Int32;
+	public var ChunkId: ucpp.num.Int32;
 	public var bApplyRecursively: Bool;
 	public var CookRule: EPrimaryAssetCookRule;
 
 	@:native("FPrimaryAssetRules") public function new();
-	@:native("FPrimaryAssetRules") public static function make(Priority: cpp.Int32, ChunkId: cpp.Int32, bApplyRecursively: Bool, CookRule: EPrimaryAssetCookRule): PrimaryAssetRules ;
+	@:native("FPrimaryAssetRules") public static function make(Priority: ucpp.num.Int32, ChunkId: ucpp.num.Int32, bApplyRecursively: Bool, CookRule: EPrimaryAssetCookRule): PrimaryAssetRules ;
 }

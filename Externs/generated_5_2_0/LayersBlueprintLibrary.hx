@@ -3,13 +3,13 @@ package ue;
 
 @:native("ULayersBlueprintLibrary")
 @:include("ActorLayerUtilities.h")
-@:structAccess
+@:valueType
 extern class LayersBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function RemoveActorFromLayer(InActor: cpp.Star<Actor>, Layer: cpp.Reference<ActorLayer>): Void;
-	public function GetActors(WorldContextObject: cpp.Star<Object>, ActorLayer: cpp.Reference<ActorLayer>): TArray<cpp.Star<Actor>>;
-	public function AddActorToLayer(InActor: cpp.Star<Actor>, Layer: cpp.Reference<ActorLayer>): Void;
+	public function RemoveActorFromLayer(InActor: ucpp.Ptr<Actor>, Layer: ucpp.Ref<ActorLayer>): Void;
+	public function GetActors(WorldContextObject: ucpp.Ptr<Object>, ActorLayer: ucpp.Ref<ActorLayer>): TArray<ucpp.Ptr<Actor>>;
+	public function AddActorToLayer(InActor: ucpp.Ptr<Actor>, Layer: ucpp.Ref<ActorLayer>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLayersBlueprintLibrary(LayersBlueprintLibrary) from LayersBlueprin
 @:forward
 @:nativeGen
 @:native("LayersBlueprintLibrary*")
-abstract LayersBlueprintLibraryPtr(cpp.Star<LayersBlueprintLibrary>) from cpp.Star<LayersBlueprintLibrary> to cpp.Star<LayersBlueprintLibrary>{
+abstract LayersBlueprintLibraryPtr(ucpp.Ptr<LayersBlueprintLibrary>) from ucpp.Ptr<LayersBlueprintLibrary> to ucpp.Ptr<LayersBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: LayersBlueprintLibrary): LayersBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

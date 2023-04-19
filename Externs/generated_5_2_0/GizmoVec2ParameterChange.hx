@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGizmoVec2ParameterChange")
 @:include("BaseGizmos/ParameterSourcesVec2.h")
-@:structAccess
+@:valueType
 extern class GizmoVec2ParameterChange {
 	public var InitialValue: Vector2D;
 	public var CurrentValue: Vector2D;

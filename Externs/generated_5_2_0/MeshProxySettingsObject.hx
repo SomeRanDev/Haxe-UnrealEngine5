@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshProxySettingsObject")
 @:include("MeshProxyTool/MeshProxyTool.h")
-@:structAccess
+@:valueType
 extern class MeshProxySettingsObject extends Object {
 	public var Settings: MeshProxySettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMeshProxySettingsObject(MeshProxySettingsObject) from MeshProxySet
 @:forward
 @:nativeGen
 @:native("MeshProxySettingsObject*")
-abstract MeshProxySettingsObjectPtr(cpp.Star<MeshProxySettingsObject>) from cpp.Star<MeshProxySettingsObject> to cpp.Star<MeshProxySettingsObject>{
+abstract MeshProxySettingsObjectPtr(ucpp.Ptr<MeshProxySettingsObject>) from ucpp.Ptr<MeshProxySettingsObject> to ucpp.Ptr<MeshProxySettingsObject>{
 	@:from
 	public static extern inline function fromValue(v: MeshProxySettingsObject): MeshProxySettingsObjectPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UIKRig_LimbEffector")
 @:include("Solvers/IKRig_LimbSolver.h")
-@:structAccess
+@:valueType
 extern class IKRig_LimbEffector extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstIKRig_LimbEffector(IKRig_LimbEffector) from IKRig_LimbEffector {
 @:forward
 @:nativeGen
 @:native("IKRig_LimbEffector*")
-abstract IKRig_LimbEffectorPtr(cpp.Star<IKRig_LimbEffector>) from cpp.Star<IKRig_LimbEffector> to cpp.Star<IKRig_LimbEffector>{
+abstract IKRig_LimbEffectorPtr(ucpp.Ptr<IKRig_LimbEffector>) from ucpp.Ptr<IKRig_LimbEffector> to ucpp.Ptr<IKRig_LimbEffector>{
 	@:from
 	public static extern inline function fromValue(v: IKRig_LimbEffector): IKRig_LimbEffectorPtr {
 		return untyped __cpp__("&({0})", v);

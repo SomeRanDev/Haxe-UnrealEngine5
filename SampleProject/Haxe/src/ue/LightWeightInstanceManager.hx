@@ -3,17 +3,17 @@ package ue;
 
 @:native("ALightWeightInstanceManager")
 @:include("GameFramework/LightWeightInstanceManager.h")
-@:structAccess
+@:valueType
 extern class LightWeightInstanceManager extends Actor {
 	@:protected public var RepresentedClass: TSubclassOf<Actor>;
 	@:protected public var AcceptedClass: TSubclassOf<Actor>;
 	@:protected public var InstanceTransforms: TArray<Transform>;
-	@:protected public var FreeIndices: TArray<cpp.Int32>;
+	@:protected public var FreeIndices: TArray<ucpp.num.Int32>;
 	@:protected public var ValidIndices: TArray<Bool>;
 
 	@:protected public function OnRep_Transforms(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstLightWeightInstanceManager(LightWeightInstanceManager) from LightW
 @:forward
 @:nativeGen
 @:native("LightWeightInstanceManager*")
-abstract LightWeightInstanceManagerPtr(cpp.Star<LightWeightInstanceManager>) from cpp.Star<LightWeightInstanceManager> to cpp.Star<LightWeightInstanceManager>{
+abstract LightWeightInstanceManagerPtr(ucpp.Ptr<LightWeightInstanceManager>) from ucpp.Ptr<LightWeightInstanceManager> to ucpp.Ptr<LightWeightInstanceManager>{
 	@:from
 	public static extern inline function fromValue(v: LightWeightInstanceManager): LightWeightInstanceManagerPtr {
 		return untyped __cpp__("&({0})", v);

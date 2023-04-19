@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEntitySystemGraph")
 @:include("EntitySystem/MovieSceneEntitySystemGraphs.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEntitySystemGraph {
 	private var Nodes: MovieSceneEntitySystemGraphNodes;
 

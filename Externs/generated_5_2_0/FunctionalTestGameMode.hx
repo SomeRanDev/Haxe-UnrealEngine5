@@ -3,10 +3,10 @@ package ue;
 
 @:native("AFunctionalTestGameMode")
 @:include("FunctionalTestGameMode.h")
-@:structAccess
+@:valueType
 extern class FunctionalTestGameMode extends GameModeBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFunctionalTestGameMode(FunctionalTestGameMode) from FunctionalTest
 @:forward
 @:nativeGen
 @:native("FunctionalTestGameMode*")
-abstract FunctionalTestGameModePtr(cpp.Star<FunctionalTestGameMode>) from cpp.Star<FunctionalTestGameMode> to cpp.Star<FunctionalTestGameMode>{
+abstract FunctionalTestGameModePtr(ucpp.Ptr<FunctionalTestGameMode>) from ucpp.Ptr<FunctionalTestGameMode> to ucpp.Ptr<FunctionalTestGameMode>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalTestGameMode): FunctionalTestGameModePtr {
 		return untyped __cpp__("&({0})", v);

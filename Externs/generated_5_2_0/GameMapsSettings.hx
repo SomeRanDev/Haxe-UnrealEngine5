@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGameMapsSettings")
 @:include("GameMapsSettings.h")
-@:structAccess
+@:valueType
 extern class GameMapsSettings extends Object {
 	public var LocalMapOptions: FString;
 	public var TransitionMap: SoftObjectPath;
@@ -22,9 +22,9 @@ extern class GameMapsSettings extends Object {
 
 	public function SetSkipAssigningGamepadToPlayer1(bSkipFirstPlayer: Bool): Void;
 	public function GetSkipAssigningGamepadToPlayer1(): Bool;
-	public function GetGameMapsSettings(): cpp.Star<GameMapsSettings>;
+	public function GetGameMapsSettings(): ucpp.Ptr<GameMapsSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSkipAssigningGamepadToPlayer1)
@@ -51,7 +51,7 @@ abstract ConstGameMapsSettings(GameMapsSettings) from GameMapsSettings {
 @:forward
 @:nativeGen
 @:native("GameMapsSettings*")
-abstract GameMapsSettingsPtr(cpp.Star<GameMapsSettings>) from cpp.Star<GameMapsSettings> to cpp.Star<GameMapsSettings>{
+abstract GameMapsSettingsPtr(ucpp.Ptr<GameMapsSettings>) from ucpp.Ptr<GameMapsSettings> to ucpp.Ptr<GameMapsSettings>{
 	@:from
 	public static extern inline function fromValue(v: GameMapsSettings): GameMapsSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputActionDelegateBinding")
 @:include("Engine/InputActionDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class InputActionDelegateBinding extends InputDelegateBinding {
 	public var InputActionDelegateBindings: TArray<BlueprintInputActionDelegateBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputActionDelegateBinding(InputActionDelegateBinding) from InputA
 @:forward
 @:nativeGen
 @:native("InputActionDelegateBinding*")
-abstract InputActionDelegateBindingPtr(cpp.Star<InputActionDelegateBinding>) from cpp.Star<InputActionDelegateBinding> to cpp.Star<InputActionDelegateBinding>{
+abstract InputActionDelegateBindingPtr(ucpp.Ptr<InputActionDelegateBinding>) from ucpp.Ptr<InputActionDelegateBinding> to ucpp.Ptr<InputActionDelegateBinding>{
 	@:from
 	public static extern inline function fromValue(v: InputActionDelegateBinding): InputActionDelegateBindingPtr {
 		return untyped __cpp__("&({0})", v);

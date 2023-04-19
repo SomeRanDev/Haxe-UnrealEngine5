@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UStaticMeshBackedTarget")
-@:structAccess
+@:valueType
 extern class StaticMeshBackedTarget extends AssetBackedTarget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstStaticMeshBackedTarget(StaticMeshBackedTarget) from StaticMeshBack
 @:forward
 @:nativeGen
 @:native("StaticMeshBackedTarget*")
-abstract StaticMeshBackedTargetPtr(cpp.Star<StaticMeshBackedTarget>) from cpp.Star<StaticMeshBackedTarget> to cpp.Star<StaticMeshBackedTarget>{
+abstract StaticMeshBackedTargetPtr(ucpp.Ptr<StaticMeshBackedTarget>) from ucpp.Ptr<StaticMeshBackedTarget> to ucpp.Ptr<StaticMeshBackedTarget>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshBackedTarget): StaticMeshBackedTargetPtr {
 		return untyped __cpp__("&({0})", v);

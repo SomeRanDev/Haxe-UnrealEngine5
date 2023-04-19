@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBlueprintEditorProjectSettings")
 @:include("Settings/BlueprintEditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class BlueprintEditorProjectSettings extends DeveloperSettings {
 	public var bForceAllDependenciesToRecompile: Bool;
 	public var bValidateUnloadedSoftActorReferences: Bool;
@@ -15,7 +15,7 @@ extern class BlueprintEditorProjectSettings extends DeveloperSettings {
 	public var SuppressedDeprecationMessages: TArray<FString>;
 	public var BaseClassesToAllowRecompilingDuringPlayInEditor: TArray<TSoftClassPtr<Class>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstBlueprintEditorProjectSettings(BlueprintEditorProjectSettings) fro
 @:forward
 @:nativeGen
 @:native("BlueprintEditorProjectSettings*")
-abstract BlueprintEditorProjectSettingsPtr(cpp.Star<BlueprintEditorProjectSettings>) from cpp.Star<BlueprintEditorProjectSettings> to cpp.Star<BlueprintEditorProjectSettings>{
+abstract BlueprintEditorProjectSettingsPtr(ucpp.Ptr<BlueprintEditorProjectSettings>) from ucpp.Ptr<BlueprintEditorProjectSettings> to ucpp.Ptr<BlueprintEditorProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintEditorProjectSettings): BlueprintEditorProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

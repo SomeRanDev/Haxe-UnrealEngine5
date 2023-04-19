@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTraceQueryTestResultsInner")
 @:include("TraceQueryTestResults.h")
-@:structAccess
+@:valueType
 extern class TraceQueryTestResultsInner {
 	public var LineResults: TraceQueryTestResultsInnerMost;
 	public var SphereResults: TraceQueryTestResultsInnerMost;

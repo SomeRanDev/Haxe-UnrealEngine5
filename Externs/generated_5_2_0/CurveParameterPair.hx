@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCurveParameterPair")
 @:include("AnimNotifyState_TimedNiagaraEffect.h")
-@:structAccess
+@:valueType
 extern class CurveParameterPair {
 	public var AnimCurveName: FName;
 	public var UserVariableName: FName;

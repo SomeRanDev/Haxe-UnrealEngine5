@@ -3,11 +3,11 @@ package ue;
 
 @:native("FCreateTextureObjectResult")
 @:include("ModelingObjectsCreationAPI.h")
-@:structAccess
+@:valueType
 extern class CreateTextureObjectResult {
 	public var ResultCode: ECreateModelingObjectResult;
-	public var NewAsset: cpp.Star<Object>;
+	public var NewAsset: ucpp.Ptr<Object>;
 
 	@:native("FCreateTextureObjectResult") public function new();
-	@:native("FCreateTextureObjectResult") public static function make(ResultCode: ECreateModelingObjectResult, NewAsset: cpp.Star<Object>): CreateTextureObjectResult ;
+	@:native("FCreateTextureObjectResult") public static function make(ResultCode: ECreateModelingObjectResult, NewAsset: ucpp.Ptr<Object>): CreateTextureObjectResult ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_PlayAnimation")
 @:include("Nodes/K2Node_PlayAnimation.h")
-@:structAccess
+@:valueType
 extern class K2Node_PlayAnimation extends K2Node_BaseAsyncTask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_PlayAnimation(K2Node_PlayAnimation) from K2Node_PlayAnimati
 @:forward
 @:nativeGen
 @:native("K2Node_PlayAnimation*")
-abstract K2Node_PlayAnimationPtr(cpp.Star<K2Node_PlayAnimation>) from cpp.Star<K2Node_PlayAnimation> to cpp.Star<K2Node_PlayAnimation>{
+abstract K2Node_PlayAnimationPtr(ucpp.Ptr<K2Node_PlayAnimation>) from ucpp.Ptr<K2Node_PlayAnimation> to ucpp.Ptr<K2Node_PlayAnimation>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_PlayAnimation): K2Node_PlayAnimationPtr {
 		return untyped __cpp__("&({0})", v);

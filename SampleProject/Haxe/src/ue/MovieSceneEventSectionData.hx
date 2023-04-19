@@ -3,11 +3,12 @@ package ue;
 
 @:native("FMovieSceneEventSectionData")
 @:include("Sections/MovieSceneEventSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventSectionData extends MovieSceneChannel {
 	private var Times: TArray<FrameNumber>;
 	private var KeyValues: TArray<EventPayload>;
+	private var KeyHandles: MovieSceneKeyHandleMap;
 
 	@:native("FMovieSceneEventSectionData") public function new();
-	@:native("FMovieSceneEventSectionData") public static function make(Times: TArray<FrameNumber>, KeyValues: TArray<EventPayload>, KeyTimes_DEPRECATED: TArray<cpp.Float32>): MovieSceneEventSectionData ;
+	@:native("FMovieSceneEventSectionData") public static function make(Times: TArray<FrameNumber>, KeyValues: TArray<EventPayload>, KeyHandles: MovieSceneKeyHandleMap, KeyTimes_DEPRECATED: TArray<ucpp.num.Float32>): MovieSceneEventSectionData ;
 }

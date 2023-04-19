@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_Base")
 @:include("Animation/AnimNodeBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Base {
 
 	@:native("FAnimNode_Base") public function new();

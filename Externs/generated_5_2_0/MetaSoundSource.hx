@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMetaSoundSource")
 @:include("MetasoundSource.h")
-@:structAccess
+@:valueType
 extern class MetaSoundSource extends SoundWaveProcedural {
 	@:protected public var RootMetasoundDocument: MetasoundFrontendDocument;
 	@:protected public var ReferencedAssetClassKeys: TSet<FString>;
-	@:protected public var ReferencedAssetClassObjects: TSet<cpp.Star<Object>>;
+	@:protected public var ReferencedAssetClassObjects: TSet<ucpp.Ptr<Object>>;
 	@:protected public var ReferenceAssetClassCache: TSet<SoftObjectPath>;
 	public var OutputFormat: EMetasoundSourceAudioFormat;
 	public var AssetClassID: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstMetaSoundSource(MetaSoundSource) from MetaSoundSource {
 @:forward
 @:nativeGen
 @:native("MetaSoundSource*")
-abstract MetaSoundSourcePtr(cpp.Star<MetaSoundSource>) from cpp.Star<MetaSoundSource> to cpp.Star<MetaSoundSource>{
+abstract MetaSoundSourcePtr(ucpp.Ptr<MetaSoundSource>) from ucpp.Ptr<MetaSoundSource> to ucpp.Ptr<MetaSoundSource>{
 	@:from
 	public static extern inline function fromValue(v: MetaSoundSource): MetaSoundSourcePtr {
 		return untyped __cpp__("&({0})", v);

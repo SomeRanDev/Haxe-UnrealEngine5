@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEmptyOnlineDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class EmptyOnlineDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEmptyOnlineDelegate__PythonCallable(EmptyOnlineDelegate__PythonCal
 @:forward
 @:nativeGen
 @:native("EmptyOnlineDelegate__PythonCallable*")
-abstract EmptyOnlineDelegate__PythonCallablePtr(cpp.Star<EmptyOnlineDelegate__PythonCallable>) from cpp.Star<EmptyOnlineDelegate__PythonCallable> to cpp.Star<EmptyOnlineDelegate__PythonCallable>{
+abstract EmptyOnlineDelegate__PythonCallablePtr(ucpp.Ptr<EmptyOnlineDelegate__PythonCallable>) from ucpp.Ptr<EmptyOnlineDelegate__PythonCallable> to ucpp.Ptr<EmptyOnlineDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: EmptyOnlineDelegate__PythonCallable): EmptyOnlineDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

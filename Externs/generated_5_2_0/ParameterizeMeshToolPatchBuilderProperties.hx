@@ -3,43 +3,43 @@ package ue;
 
 @:native("UParameterizeMeshToolPatchBuilderProperties")
 @:include("Properties/ParameterizeMeshProperties.h")
-@:structAccess
+@:valueType
 extern class ParameterizeMeshToolPatchBuilderProperties extends InteractiveToolPropertySet {
-	public var InitialPatches: cpp.Int32;
-	public var CurvatureAlignment: cpp.Float32;
-	public var MergingDistortionThreshold: cpp.Float32;
-	public var MergingAngleThreshold: cpp.Float32;
-	public var SmoothingSteps: cpp.Int32;
-	public var SmoothingAlpha: cpp.Float32;
+	public var InitialPatches: ucpp.num.Int32;
+	public var CurvatureAlignment: ucpp.num.Float32;
+	public var MergingDistortionThreshold: ucpp.num.Float32;
+	public var MergingAngleThreshold: ucpp.num.Float32;
+	public var SmoothingSteps: ucpp.num.Int32;
+	public var SmoothingAlpha: ucpp.num.Float32;
 	public var bRepack: Bool;
-	public var TextureResolution: cpp.Int32;
+	public var TextureResolution: ucpp.num.Int32;
 	public var bUsePolygroups: Bool;
 	public var bLayoutUDIMPerPolygroup: Bool;
 	public var bPolygroupsEnabled: Bool;
 	public var bUDIMsEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParameterizeMeshToolPatchBuilderProperties(ParameterizeMeshToolPatchBuilderProperties) from ParameterizeMeshToolPatchBuilderProperties {
-	public extern var InitialPatches(get, never): cpp.Int32;
-	public inline extern function get_InitialPatches(): cpp.Int32 return this.InitialPatches;
-	public extern var CurvatureAlignment(get, never): cpp.Float32;
-	public inline extern function get_CurvatureAlignment(): cpp.Float32 return this.CurvatureAlignment;
-	public extern var MergingDistortionThreshold(get, never): cpp.Float32;
-	public inline extern function get_MergingDistortionThreshold(): cpp.Float32 return this.MergingDistortionThreshold;
-	public extern var MergingAngleThreshold(get, never): cpp.Float32;
-	public inline extern function get_MergingAngleThreshold(): cpp.Float32 return this.MergingAngleThreshold;
-	public extern var SmoothingSteps(get, never): cpp.Int32;
-	public inline extern function get_SmoothingSteps(): cpp.Int32 return this.SmoothingSteps;
-	public extern var SmoothingAlpha(get, never): cpp.Float32;
-	public inline extern function get_SmoothingAlpha(): cpp.Float32 return this.SmoothingAlpha;
+	public extern var InitialPatches(get, never): ucpp.num.Int32;
+	public inline extern function get_InitialPatches(): ucpp.num.Int32 return this.InitialPatches;
+	public extern var CurvatureAlignment(get, never): ucpp.num.Float32;
+	public inline extern function get_CurvatureAlignment(): ucpp.num.Float32 return this.CurvatureAlignment;
+	public extern var MergingDistortionThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_MergingDistortionThreshold(): ucpp.num.Float32 return this.MergingDistortionThreshold;
+	public extern var MergingAngleThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_MergingAngleThreshold(): ucpp.num.Float32 return this.MergingAngleThreshold;
+	public extern var SmoothingSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_SmoothingSteps(): ucpp.num.Int32 return this.SmoothingSteps;
+	public extern var SmoothingAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothingAlpha(): ucpp.num.Float32 return this.SmoothingAlpha;
 	public extern var bRepack(get, never): Bool;
 	public inline extern function get_bRepack(): Bool return this.bRepack;
-	public extern var TextureResolution(get, never): cpp.Int32;
-	public inline extern function get_TextureResolution(): cpp.Int32 return this.TextureResolution;
+	public extern var TextureResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_TextureResolution(): ucpp.num.Int32 return this.TextureResolution;
 	public extern var bUsePolygroups(get, never): Bool;
 	public inline extern function get_bUsePolygroups(): Bool return this.bUsePolygroups;
 	public extern var bLayoutUDIMPerPolygroup(get, never): Bool;
@@ -53,7 +53,7 @@ abstract ConstParameterizeMeshToolPatchBuilderProperties(ParameterizeMeshToolPat
 @:forward
 @:nativeGen
 @:native("ParameterizeMeshToolPatchBuilderProperties*")
-abstract ParameterizeMeshToolPatchBuilderPropertiesPtr(cpp.Star<ParameterizeMeshToolPatchBuilderProperties>) from cpp.Star<ParameterizeMeshToolPatchBuilderProperties> to cpp.Star<ParameterizeMeshToolPatchBuilderProperties>{
+abstract ParameterizeMeshToolPatchBuilderPropertiesPtr(ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties>) from ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties> to ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties>{
 	@:from
 	public static extern inline function fromValue(v: ParameterizeMeshToolPatchBuilderProperties): ParameterizeMeshToolPatchBuilderPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

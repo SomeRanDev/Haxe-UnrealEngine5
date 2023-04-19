@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterchangeBlockedTexturePayloadInterface")
-@:structAccess
+@:valueType
 extern class InterchangeBlockedTexturePayloadInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterchangeBlockedTexturePayloadInterface(InterchangeBlockedTextur
 @:forward
 @:nativeGen
 @:native("InterchangeBlockedTexturePayloadInterface*")
-abstract InterchangeBlockedTexturePayloadInterfacePtr(cpp.Star<InterchangeBlockedTexturePayloadInterface>) from cpp.Star<InterchangeBlockedTexturePayloadInterface> to cpp.Star<InterchangeBlockedTexturePayloadInterface>{
+abstract InterchangeBlockedTexturePayloadInterfacePtr(ucpp.Ptr<InterchangeBlockedTexturePayloadInterface>) from ucpp.Ptr<InterchangeBlockedTexturePayloadInterface> to ucpp.Ptr<InterchangeBlockedTexturePayloadInterface>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeBlockedTexturePayloadInterface): InterchangeBlockedTexturePayloadInterfacePtr {
 		return untyped __cpp__("&({0})", v);

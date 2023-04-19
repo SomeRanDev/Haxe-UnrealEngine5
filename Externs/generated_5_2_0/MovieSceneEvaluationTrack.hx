@@ -3,10 +3,10 @@ package ue;
 
 @:native("FMovieSceneEvaluationTrack")
 @:include("Evaluation/MovieSceneEvaluationTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationTrack {
 	private var ObjectBindingID: Guid;
-	private var EvaluationPriority: cpp.UInt16;
+	private var EvaluationPriority: ucpp.num.UInt16;
 	private var EvaluationMethod: EEvaluationMethod;
 	private var SourceTrack: TWeakObjectPtr<MovieSceneTrack>;
 	private var ChildTemplates: TArray<MovieSceneEvalTemplatePtr>;

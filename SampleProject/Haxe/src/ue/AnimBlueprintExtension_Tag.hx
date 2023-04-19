@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimBlueprintExtension_Tag")
 @:include("AnimBlueprintExtension_Tag.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintExtension_Tag extends AnimBlueprintExtension {
 	private var Subsystem: AnimSubsystem_Tag;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimBlueprintExtension_Tag(AnimBlueprintExtension_Tag) from AnimBl
 @:forward
 @:nativeGen
 @:native("AnimBlueprintExtension_Tag*")
-abstract AnimBlueprintExtension_TagPtr(cpp.Star<AnimBlueprintExtension_Tag>) from cpp.Star<AnimBlueprintExtension_Tag> to cpp.Star<AnimBlueprintExtension_Tag>{
+abstract AnimBlueprintExtension_TagPtr(ucpp.Ptr<AnimBlueprintExtension_Tag>) from ucpp.Ptr<AnimBlueprintExtension_Tag> to ucpp.Ptr<AnimBlueprintExtension_Tag>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintExtension_Tag): AnimBlueprintExtension_TagPtr {
 		return untyped __cpp__("&({0})", v);

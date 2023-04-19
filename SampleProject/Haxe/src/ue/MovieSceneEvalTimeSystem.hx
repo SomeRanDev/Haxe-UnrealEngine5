@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneEvalTimeSystem")
 @:include("EntitySystem/MovieSceneEvalTimeSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvalTimeSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneEvalTimeSystem(MovieSceneEvalTimeSystem) from MovieScene
 @:forward
 @:nativeGen
 @:native("MovieSceneEvalTimeSystem*")
-abstract MovieSceneEvalTimeSystemPtr(cpp.Star<MovieSceneEvalTimeSystem>) from cpp.Star<MovieSceneEvalTimeSystem> to cpp.Star<MovieSceneEvalTimeSystem>{
+abstract MovieSceneEvalTimeSystemPtr(ucpp.Ptr<MovieSceneEvalTimeSystem>) from ucpp.Ptr<MovieSceneEvalTimeSystem> to ucpp.Ptr<MovieSceneEvalTimeSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEvalTimeSystem): MovieSceneEvalTimeSystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UScriptViewportClient")
 @:include("Engine/ScriptViewportClient.h")
-@:structAccess
+@:valueType
 extern class ScriptViewportClient extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstScriptViewportClient(ScriptViewportClient) from ScriptViewportClie
 @:forward
 @:nativeGen
 @:native("ScriptViewportClient*")
-abstract ScriptViewportClientPtr(cpp.Star<ScriptViewportClient>) from cpp.Star<ScriptViewportClient> to cpp.Star<ScriptViewportClient>{
+abstract ScriptViewportClientPtr(ucpp.Ptr<ScriptViewportClient>) from ucpp.Ptr<ScriptViewportClient> to ucpp.Ptr<ScriptViewportClient>{
 	@:from
 	public static extern inline function fromValue(v: ScriptViewportClient): ScriptViewportClientPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCrashReportsPrivacySettings")
 @:include("Analytics/CrashReportsPrivacySettings.h")
-@:structAccess
+@:valueType
 extern class CrashReportsPrivacySettings extends Object {
 	public var bSendUnattendedBugReports: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCrashReportsPrivacySettings(CrashReportsPrivacySettings) from Cras
 @:forward
 @:nativeGen
 @:native("CrashReportsPrivacySettings*")
-abstract CrashReportsPrivacySettingsPtr(cpp.Star<CrashReportsPrivacySettings>) from cpp.Star<CrashReportsPrivacySettings> to cpp.Star<CrashReportsPrivacySettings>{
+abstract CrashReportsPrivacySettingsPtr(ucpp.Ptr<CrashReportsPrivacySettings>) from ucpp.Ptr<CrashReportsPrivacySettings> to ucpp.Ptr<CrashReportsPrivacySettings>{
 	@:from
 	public static extern inline function fromValue(v: CrashReportsPrivacySettings): CrashReportsPrivacySettingsPtr {
 		return untyped __cpp__("&({0})", v);

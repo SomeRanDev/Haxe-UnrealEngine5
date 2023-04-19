@@ -3,10 +3,10 @@ package ue;
 
 @:native("FDatasmithCameraLensSettingsTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithCameraLensSettingsTemplate {
-	public var MaxFStop: cpp.Float32;
+	public var MaxFStop: ucpp.num.Float32;
 
 	@:native("FDatasmithCameraLensSettingsTemplate") public function new();
-	@:native("FDatasmithCameraLensSettingsTemplate") public static function make(MaxFStop: cpp.Float32): DatasmithCameraLensSettingsTemplate ;
+	@:native("FDatasmithCameraLensSettingsTemplate") public static function make(MaxFStop: ucpp.num.Float32): DatasmithCameraLensSettingsTemplate ;
 }

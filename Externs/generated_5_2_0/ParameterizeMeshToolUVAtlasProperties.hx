@@ -3,28 +3,28 @@ package ue;
 
 @:native("UParameterizeMeshToolUVAtlasProperties")
 @:include("Properties/ParameterizeMeshProperties.h")
-@:structAccess
+@:valueType
 extern class ParameterizeMeshToolUVAtlasProperties extends InteractiveToolPropertySet {
-	public var IslandStretch: cpp.Float32;
-	public var NumIslands: cpp.Int32;
-	public var TextureResolution: cpp.Int32;
+	public var IslandStretch: ucpp.num.Float32;
+	public var NumIslands: ucpp.num.Int32;
+	public var TextureResolution: ucpp.num.Int32;
 	public var bUsePolygroups: Bool;
 	public var bLayoutUDIMPerPolygroup: Bool;
 	public var bPolygroupsEnabled: Bool;
 	public var bUDIMsEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParameterizeMeshToolUVAtlasProperties(ParameterizeMeshToolUVAtlasProperties) from ParameterizeMeshToolUVAtlasProperties {
-	public extern var IslandStretch(get, never): cpp.Float32;
-	public inline extern function get_IslandStretch(): cpp.Float32 return this.IslandStretch;
-	public extern var NumIslands(get, never): cpp.Int32;
-	public inline extern function get_NumIslands(): cpp.Int32 return this.NumIslands;
-	public extern var TextureResolution(get, never): cpp.Int32;
-	public inline extern function get_TextureResolution(): cpp.Int32 return this.TextureResolution;
+	public extern var IslandStretch(get, never): ucpp.num.Float32;
+	public inline extern function get_IslandStretch(): ucpp.num.Float32 return this.IslandStretch;
+	public extern var NumIslands(get, never): ucpp.num.Int32;
+	public inline extern function get_NumIslands(): ucpp.num.Int32 return this.NumIslands;
+	public extern var TextureResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_TextureResolution(): ucpp.num.Int32 return this.TextureResolution;
 	public extern var bUsePolygroups(get, never): Bool;
 	public inline extern function get_bUsePolygroups(): Bool return this.bUsePolygroups;
 	public extern var bLayoutUDIMPerPolygroup(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstParameterizeMeshToolUVAtlasProperties(ParameterizeMeshToolUVAtlasP
 @:forward
 @:nativeGen
 @:native("ParameterizeMeshToolUVAtlasProperties*")
-abstract ParameterizeMeshToolUVAtlasPropertiesPtr(cpp.Star<ParameterizeMeshToolUVAtlasProperties>) from cpp.Star<ParameterizeMeshToolUVAtlasProperties> to cpp.Star<ParameterizeMeshToolUVAtlasProperties>{
+abstract ParameterizeMeshToolUVAtlasPropertiesPtr(ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties>) from ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties> to ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties>{
 	@:from
 	public static extern inline function fromValue(v: ParameterizeMeshToolUVAtlasProperties): ParameterizeMeshToolUVAtlasPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

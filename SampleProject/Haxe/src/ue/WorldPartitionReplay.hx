@@ -3,11 +3,11 @@ package ue;
 
 @:native("AWorldPartitionReplay")
 @:include("WorldPartition/WorldPartitionReplay.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionReplay extends Actor {
 	private var StreamingSourceNames: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstWorldPartitionReplay(WorldPartitionReplay) from WorldPartitionRepl
 @:forward
 @:nativeGen
 @:native("WorldPartitionReplay*")
-abstract WorldPartitionReplayPtr(cpp.Star<WorldPartitionReplay>) from cpp.Star<WorldPartitionReplay> to cpp.Star<WorldPartitionReplay>{
+abstract WorldPartitionReplayPtr(ucpp.Ptr<WorldPartitionReplay>) from ucpp.Ptr<WorldPartitionReplay> to ucpp.Ptr<WorldPartitionReplay>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionReplay): WorldPartitionReplayPtr {
 		return untyped __cpp__("&({0})", v);

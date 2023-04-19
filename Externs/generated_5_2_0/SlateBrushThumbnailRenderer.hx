@@ -3,10 +3,10 @@ package ue;
 
 @:native("USlateBrushThumbnailRenderer")
 @:include("ThumbnailRendering/SlateBrushThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class SlateBrushThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSlateBrushThumbnailRenderer(SlateBrushThumbnailRenderer) from Slat
 @:forward
 @:nativeGen
 @:native("SlateBrushThumbnailRenderer*")
-abstract SlateBrushThumbnailRendererPtr(cpp.Star<SlateBrushThumbnailRenderer>) from cpp.Star<SlateBrushThumbnailRenderer> to cpp.Star<SlateBrushThumbnailRenderer>{
+abstract SlateBrushThumbnailRendererPtr(ucpp.Ptr<SlateBrushThumbnailRenderer>) from ucpp.Ptr<SlateBrushThumbnailRenderer> to ucpp.Ptr<SlateBrushThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: SlateBrushThumbnailRenderer): SlateBrushThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPhysicalAnimationProfile")
 @:include("PhysicsEngine/PhysicsAsset.h")
-@:structAccess
+@:valueType
 extern class PhysicalAnimationProfile {
 	public var ProfileName: FName;
 	public var PhysicalAnimationData: PhysicalAnimationData;

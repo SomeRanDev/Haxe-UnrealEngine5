@@ -3,30 +3,30 @@ package ue;
 
 @:native("UTextureRenderTargetFactoryNew")
 @:include("Factories/TextureRenderTargetFactoryNew.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTargetFactoryNew extends Factory {
-	public var Width: cpp.Int32;
-	public var Height: cpp.Int32;
-	public var Format: cpp.UInt8;
+	public var Width: ucpp.num.Int32;
+	public var Height: ucpp.num.Int32;
+	public var Format: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTargetFactoryNew(TextureRenderTargetFactoryNew) from TextureRenderTargetFactoryNew {
-	public extern var Width(get, never): cpp.Int32;
-	public inline extern function get_Width(): cpp.Int32 return this.Width;
-	public extern var Height(get, never): cpp.Int32;
-	public inline extern function get_Height(): cpp.Int32 return this.Height;
-	public extern var Format(get, never): cpp.UInt8;
-	public inline extern function get_Format(): cpp.UInt8 return this.Format;
+	public extern var Width(get, never): ucpp.num.Int32;
+	public inline extern function get_Width(): ucpp.num.Int32 return this.Width;
+	public extern var Height(get, never): ucpp.num.Int32;
+	public inline extern function get_Height(): ucpp.num.Int32 return this.Height;
+	public extern var Format(get, never): ucpp.num.UInt8;
+	public inline extern function get_Format(): ucpp.num.UInt8 return this.Format;
 }
 
 @:forward
 @:nativeGen
 @:native("TextureRenderTargetFactoryNew*")
-abstract TextureRenderTargetFactoryNewPtr(cpp.Star<TextureRenderTargetFactoryNew>) from cpp.Star<TextureRenderTargetFactoryNew> to cpp.Star<TextureRenderTargetFactoryNew>{
+abstract TextureRenderTargetFactoryNewPtr(ucpp.Ptr<TextureRenderTargetFactoryNew>) from ucpp.Ptr<TextureRenderTargetFactoryNew> to ucpp.Ptr<TextureRenderTargetFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTargetFactoryNew): TextureRenderTargetFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

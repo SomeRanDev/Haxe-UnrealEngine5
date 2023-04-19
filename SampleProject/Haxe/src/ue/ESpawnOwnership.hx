@@ -5,7 +5,7 @@ package ue;
 @:include("MovieSceneSpawnable.h")
 extern class ESpawnOwnership {
 	static var InnerSequence: ESpawnOwnership;
-	static var MasterSequence: ESpawnOwnership;
+	static var RootSequence: ESpawnOwnership;
 	static var External: ESpawnOwnership;
 	static var ESpawnOwnership_MAX: ESpawnOwnership;
 }

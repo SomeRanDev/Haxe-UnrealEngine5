@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionNamedRerouteBase")
 @:include("Materials/MaterialExpressionNamedReroute.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionNamedRerouteBase extends MaterialExpressionRerouteBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionNamedRerouteBase(MaterialExpressionNamedRerouteB
 @:forward
 @:nativeGen
 @:native("MaterialExpressionNamedRerouteBase*")
-abstract MaterialExpressionNamedRerouteBasePtr(cpp.Star<MaterialExpressionNamedRerouteBase>) from cpp.Star<MaterialExpressionNamedRerouteBase> to cpp.Star<MaterialExpressionNamedRerouteBase>{
+abstract MaterialExpressionNamedRerouteBasePtr(ucpp.Ptr<MaterialExpressionNamedRerouteBase>) from ucpp.Ptr<MaterialExpressionNamedRerouteBase> to ucpp.Ptr<MaterialExpressionNamedRerouteBase>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionNamedRerouteBase): MaterialExpressionNamedRerouteBasePtr {
 		return untyped __cpp__("&({0})", v);

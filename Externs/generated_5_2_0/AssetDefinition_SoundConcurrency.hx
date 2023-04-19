@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_SoundConcurrency")
 @:include("AssetTypeActions/AssetDefinition_SoundConcurrency.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_SoundConcurrency extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_SoundConcurrency(AssetDefinition_SoundConcurrency)
 @:forward
 @:nativeGen
 @:native("AssetDefinition_SoundConcurrency*")
-abstract AssetDefinition_SoundConcurrencyPtr(cpp.Star<AssetDefinition_SoundConcurrency>) from cpp.Star<AssetDefinition_SoundConcurrency> to cpp.Star<AssetDefinition_SoundConcurrency>{
+abstract AssetDefinition_SoundConcurrencyPtr(ucpp.Ptr<AssetDefinition_SoundConcurrency>) from ucpp.Ptr<AssetDefinition_SoundConcurrency> to ucpp.Ptr<AssetDefinition_SoundConcurrency>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_SoundConcurrency): AssetDefinition_SoundConcurrencyPtr {
 		return untyped __cpp__("&({0})", v);

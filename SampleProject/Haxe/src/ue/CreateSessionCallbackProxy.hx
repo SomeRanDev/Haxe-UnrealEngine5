@@ -3,14 +3,14 @@ package ue;
 
 @:native("UCreateSessionCallbackProxy")
 @:include("CreateSessionCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class CreateSessionCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function CreateSession(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, PublicConnections: cpp.Int32, bUseLAN: Bool): cpp.Star<CreateSessionCallbackProxy>;
+	public function CreateSession(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, PublicConnections: ucpp.num.Int32, bUseLAN: Bool): ucpp.Ptr<CreateSessionCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstCreateSessionCallbackProxy(CreateSessionCallbackProxy) from Create
 @:forward
 @:nativeGen
 @:native("CreateSessionCallbackProxy*")
-abstract CreateSessionCallbackProxyPtr(cpp.Star<CreateSessionCallbackProxy>) from cpp.Star<CreateSessionCallbackProxy> to cpp.Star<CreateSessionCallbackProxy>{
+abstract CreateSessionCallbackProxyPtr(ucpp.Ptr<CreateSessionCallbackProxy>) from ucpp.Ptr<CreateSessionCallbackProxy> to ucpp.Ptr<CreateSessionCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: CreateSessionCallbackProxy): CreateSessionCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

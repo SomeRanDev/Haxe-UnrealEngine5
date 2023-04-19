@@ -3,14 +3,14 @@ package ue;
 
 @:native("UStereoLayerFunctionLibrary")
 @:include("Kismet/StereoLayerFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class StereoLayerFunctionLibrary extends BlueprintFunctionLibrary {
 	public function ShowSplashScreen(): Void;
-	public function SetSplashScreen(Texture: cpp.Star<Texture>, Scale: Vector2D, Offset: Vector, bShowLoadingMovie: Bool, bShowOnSet: Bool): Void;
+	public function SetSplashScreen(Texture: ucpp.Ptr<Texture>, Scale: Vector2D, Offset: Vector, bShowLoadingMovie: Bool, bShowOnSet: Bool): Void;
 	public function HideSplashScreen(): Void;
 	public function EnableAutoLoadingSplashScreen(InAutoShowEnabled: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstStereoLayerFunctionLibrary(StereoLayerFunctionLibrary) from Stereo
 @:forward
 @:nativeGen
 @:native("StereoLayerFunctionLibrary*")
-abstract StereoLayerFunctionLibraryPtr(cpp.Star<StereoLayerFunctionLibrary>) from cpp.Star<StereoLayerFunctionLibrary> to cpp.Star<StereoLayerFunctionLibrary>{
+abstract StereoLayerFunctionLibraryPtr(ucpp.Ptr<StereoLayerFunctionLibrary>) from ucpp.Ptr<StereoLayerFunctionLibrary> to ucpp.Ptr<StereoLayerFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: StereoLayerFunctionLibrary): StereoLayerFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

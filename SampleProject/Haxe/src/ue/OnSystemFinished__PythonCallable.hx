@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSystemFinished__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSystemFinished__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSystemFinished__PythonCallable(OnSystemFinished__PythonCallable)
 @:forward
 @:nativeGen
 @:native("OnSystemFinished__PythonCallable*")
-abstract OnSystemFinished__PythonCallablePtr(cpp.Star<OnSystemFinished__PythonCallable>) from cpp.Star<OnSystemFinished__PythonCallable> to cpp.Star<OnSystemFinished__PythonCallable>{
+abstract OnSystemFinished__PythonCallablePtr(ucpp.Ptr<OnSystemFinished__PythonCallable>) from ucpp.Ptr<OnSystemFinished__PythonCallable> to ucpp.Ptr<OnSystemFinished__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSystemFinished__PythonCallable): OnSystemFinished__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FComponentReference")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class ComponentReference extends BaseComponentReference {
 	public var OtherActor: TWeakObjectPtr<Actor>;
 

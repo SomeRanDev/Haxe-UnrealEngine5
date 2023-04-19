@@ -3,43 +3,43 @@ package ue;
 
 @:native("FMeshApproximationSettings")
 @:include("Engine/MeshMerging.h")
-@:structAccess
+@:valueType
 extern class MeshApproximationSettings {
 	public var OutputType: EMeshApproximationType;
-	public var ApproximationAccuracy: cpp.Float32;
-	public var ClampVoxelDimension: cpp.Int32;
+	public var ApproximationAccuracy: ucpp.num.Float32;
+	public var ClampVoxelDimension: ucpp.num.Int32;
 	public var bAttemptAutoThickening: Bool;
-	public var TargetMinThicknessMultiplier: cpp.Float32;
+	public var TargetMinThicknessMultiplier: ucpp.num.Float32;
 	public var bIgnoreTinyParts: Bool;
-	public var TinyPartSizeMultiplier: cpp.Float32;
+	public var TinyPartSizeMultiplier: ucpp.num.Float32;
 	public var BaseCapping: EMeshApproximationBaseCappingType;
-	public var WindingThreshold: cpp.Float32;
+	public var WindingThreshold: ucpp.num.Float32;
 	public var bFillGaps: Bool;
-	public var GapDistance: cpp.Float32;
+	public var GapDistance: ucpp.num.Float32;
 	public var OcclusionMethod: EOccludedGeometryFilteringPolicy;
 	public var bOccludeFromBottom: Bool;
 	public var SimplifyMethod: EMeshApproximationSimplificationPolicy;
-	public var TargetTriCount: cpp.Int32;
-	public var TrianglesPerM: cpp.Float32;
-	public var GeometricDeviation: cpp.Float32;
+	public var TargetTriCount: ucpp.num.Int32;
+	public var TrianglesPerM: ucpp.num.Float32;
+	public var GeometricDeviation: ucpp.num.Float32;
 	public var GroundClipping: EMeshApproximationGroundPlaneClippingPolicy;
-	public var GroundClippingZHeight: cpp.Float32;
+	public var GroundClippingZHeight: ucpp.num.Float32;
 	public var bEstimateHardNormals: Bool;
-	public var HardNormalAngle: cpp.Float32;
+	public var HardNormalAngle: ucpp.num.Float32;
 	public var UVGenerationMethod: EMeshApproximationUVGenerationPolicy;
-	public var InitialPatchCount: cpp.Int32;
-	public var CurvatureAlignment: cpp.Float32;
-	public var MergingThreshold: cpp.Float32;
-	public var MaxAngleDeviation: cpp.Float32;
+	public var InitialPatchCount: ucpp.num.Int32;
+	public var CurvatureAlignment: ucpp.num.Float32;
+	public var MergingThreshold: ucpp.num.Float32;
+	public var MaxAngleDeviation: ucpp.num.Float32;
 	public var bGenerateNaniteEnabledMesh: Bool;
-	public var NaniteProxyTrianglePercent: cpp.Float32;
+	public var NaniteProxyTrianglePercent: ucpp.num.Float32;
 	public var bSupportRayTracing: Bool;
 	public var bAllowDistanceField: Bool;
-	public var MultiSamplingAA: cpp.Int32;
-	public var RenderCaptureResolution: cpp.Int32;
+	public var MultiSamplingAA: ucpp.num.Int32;
+	public var RenderCaptureResolution: ucpp.num.Int32;
 	public var MaterialSettings: MaterialProxySettings;
-	public var CaptureFieldOfView: cpp.Float32;
-	public var NearPlaneDist: cpp.Float32;
+	public var CaptureFieldOfView: ucpp.num.Float32;
+	public var NearPlaneDist: ucpp.num.Float32;
 	public var bUseRenderLODMeshes: Bool;
 	public var bEnableSimplifyPrePass: Bool;
 	public var bEnableParallelBaking: Bool;

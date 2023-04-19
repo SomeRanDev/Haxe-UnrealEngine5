@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULandscapeSplineInterface")
-@:structAccess
+@:valueType
 extern class LandscapeSplineInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLandscapeSplineInterface(LandscapeSplineInterface) from LandscapeS
 @:forward
 @:nativeGen
 @:native("LandscapeSplineInterface*")
-abstract LandscapeSplineInterfacePtr(cpp.Star<LandscapeSplineInterface>) from cpp.Star<LandscapeSplineInterface> to cpp.Star<LandscapeSplineInterface>{
+abstract LandscapeSplineInterfacePtr(ucpp.Ptr<LandscapeSplineInterface>) from ucpp.Ptr<LandscapeSplineInterface> to ucpp.Ptr<LandscapeSplineInterface>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSplineInterface): LandscapeSplineInterfacePtr {
 		return untyped __cpp__("&({0})", v);

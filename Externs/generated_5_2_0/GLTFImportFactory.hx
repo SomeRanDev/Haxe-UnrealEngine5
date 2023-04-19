@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGLTFImportFactory")
 @:include("GLTFImportFactory.h")
-@:structAccess
+@:valueType
 extern class GLTFImportFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGLTFImportFactory(GLTFImportFactory) from GLTFImportFactory {
 @:forward
 @:nativeGen
 @:native("GLTFImportFactory*")
-abstract GLTFImportFactoryPtr(cpp.Star<GLTFImportFactory>) from cpp.Star<GLTFImportFactory> to cpp.Star<GLTFImportFactory>{
+abstract GLTFImportFactoryPtr(ucpp.Ptr<GLTFImportFactory>) from ucpp.Ptr<GLTFImportFactory> to ucpp.Ptr<GLTFImportFactory>{
 	@:from
 	public static extern inline function fromValue(v: GLTFImportFactory): GLTFImportFactoryPtr {
 		return untyped __cpp__("&({0})", v);

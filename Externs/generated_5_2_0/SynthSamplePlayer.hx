@@ -3,40 +3,40 @@ package ue;
 
 @:native("USynthSamplePlayer")
 @:include("SynthComponents/SynthComponentWaveTable.h")
-@:structAccess
+@:valueType
 extern class SynthSamplePlayer extends SynthComp {
-	public var SoundWave: cpp.Star<SoundWave>;
+	public var SoundWave: ucpp.Ptr<SoundWave>;
 	public var OnSampleLoaded: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnSamplePlaybackProgress: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32) -> Void>;
+	public var OnSamplePlaybackProgress: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32) -> Void>;
 
-	public function SetSoundWave(InSoundWave: cpp.Star<SoundWave>): Void;
-	public function SetScrubTimeWidth(InScrubTimeWidthSec: cpp.Float32): Void;
+	public function SetSoundWave(InSoundWave: ucpp.Ptr<SoundWave>): Void;
+	public function SetScrubTimeWidth(InScrubTimeWidthSec: ucpp.num.Float32): Void;
 	public function SetScrubMode(bScrubMode: Bool): Void;
-	public function SetPitch(InPitch: cpp.Float32, TimeSec: cpp.Float32): Void;
-	public function SeekToTime(TimeSec: cpp.Float32, SeekType: ESamplePlayerSeekType, bWrap: Bool): Void;
+	public function SetPitch(InPitch: ucpp.num.Float32, TimeSec: ucpp.num.Float32): Void;
+	public function SeekToTime(TimeSec: ucpp.num.Float32, SeekType: ESamplePlayerSeekType, bWrap: Bool): Void;
 	public function IsLoaded(): Bool;
-	public function GetSampleDuration(): cpp.Float32;
-	public function GetCurrentPlaybackProgressTime(): cpp.Float32;
-	public function GetCurrentPlaybackProgressPercent(): cpp.Float32;
+	public function GetSampleDuration(): ucpp.num.Float32;
+	public function GetCurrentPlaybackProgressTime(): ucpp.num.Float32;
+	public function GetCurrentPlaybackProgressPercent(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsLoaded, GetSampleDuration, GetCurrentPlaybackProgressTime, GetCurrentPlaybackProgressPercent)
 @:nativeGen
 abstract ConstSynthSamplePlayer(SynthSamplePlayer) from SynthSamplePlayer {
-	public extern var SoundWave(get, never): cpp.Star<SoundWave.ConstSoundWave>;
-	public inline extern function get_SoundWave(): cpp.Star<SoundWave.ConstSoundWave> return this.SoundWave;
+	public extern var SoundWave(get, never): ucpp.Ptr<SoundWave.ConstSoundWave>;
+	public inline extern function get_SoundWave(): ucpp.Ptr<SoundWave.ConstSoundWave> return this.SoundWave;
 	public extern var OnSampleLoaded(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnSampleLoaded(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnSampleLoaded;
-	public extern var OnSamplePlaybackProgress(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32) -> Void>;
-	public inline extern function get_OnSamplePlaybackProgress(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32) -> Void> return this.OnSamplePlaybackProgress;
+	public extern var OnSamplePlaybackProgress(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnSamplePlaybackProgress(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32) -> Void> return this.OnSamplePlaybackProgress;
 }
 
 @:forward
 @:nativeGen
 @:native("SynthSamplePlayer*")
-abstract SynthSamplePlayerPtr(cpp.Star<SynthSamplePlayer>) from cpp.Star<SynthSamplePlayer> to cpp.Star<SynthSamplePlayer>{
+abstract SynthSamplePlayerPtr(ucpp.Ptr<SynthSamplePlayer>) from ucpp.Ptr<SynthSamplePlayer> to ucpp.Ptr<SynthSamplePlayer>{
 	@:from
 	public static extern inline function fromValue(v: SynthSamplePlayer): SynthSamplePlayerPtr {
 		return untyped __cpp__("&({0})", v);

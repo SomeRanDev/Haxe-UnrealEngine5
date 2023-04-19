@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTestBTTask_SetFlag")
 @:include("BehaviorTree/TestBTTask_SetFlag.h")
-@:structAccess
+@:valueType
 extern class TestBTTask_SetFlag extends BTTaskNode {
 	public var KeyName: FName;
 	public var bValue: Bool;
@@ -11,7 +11,7 @@ extern class TestBTTask_SetFlag extends BTTaskNode {
 	public var bOnAbortValue: Bool;
 	public var TaskResult: TEnumAsByte<EBTNodeResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstTestBTTask_SetFlag(TestBTTask_SetFlag) from TestBTTask_SetFlag {
 @:forward
 @:nativeGen
 @:native("TestBTTask_SetFlag*")
-abstract TestBTTask_SetFlagPtr(cpp.Star<TestBTTask_SetFlag>) from cpp.Star<TestBTTask_SetFlag> to cpp.Star<TestBTTask_SetFlag>{
+abstract TestBTTask_SetFlagPtr(ucpp.Ptr<TestBTTask_SetFlag>) from ucpp.Ptr<TestBTTask_SetFlag> to ucpp.Ptr<TestBTTask_SetFlag>{
 	@:from
 	public static extern inline function fromValue(v: TestBTTask_SetFlag): TestBTTask_SetFlagPtr {
 		return untyped __cpp__("&({0})", v);

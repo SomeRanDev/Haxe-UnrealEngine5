@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDumpMaterialShaderTypesCommandlet")
 @:include("Commandlets/DumpMaterialShaderTypes.h")
-@:structAccess
+@:valueType
 extern class DumpMaterialShaderTypesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDumpMaterialShaderTypesCommandlet(DumpMaterialShaderTypesCommandle
 @:forward
 @:nativeGen
 @:native("DumpMaterialShaderTypesCommandlet*")
-abstract DumpMaterialShaderTypesCommandletPtr(cpp.Star<DumpMaterialShaderTypesCommandlet>) from cpp.Star<DumpMaterialShaderTypesCommandlet> to cpp.Star<DumpMaterialShaderTypesCommandlet>{
+abstract DumpMaterialShaderTypesCommandletPtr(ucpp.Ptr<DumpMaterialShaderTypesCommandlet>) from ucpp.Ptr<DumpMaterialShaderTypesCommandlet> to ucpp.Ptr<DumpMaterialShaderTypesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DumpMaterialShaderTypesCommandlet): DumpMaterialShaderTypesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

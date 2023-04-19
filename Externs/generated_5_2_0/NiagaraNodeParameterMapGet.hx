@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraNodeParameterMapGet")
 @:include("NiagaraNodeParameterMapGet.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeParameterMapGet extends NiagaraNodeParameterMapBase {
 	@:protected public var PinOutputToPinDefaultPersistentId: TMap<Guid, Guid>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraNodeParameterMapGet(NiagaraNodeParameterMapGet) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraNodeParameterMapGet*")
-abstract NiagaraNodeParameterMapGetPtr(cpp.Star<NiagaraNodeParameterMapGet>) from cpp.Star<NiagaraNodeParameterMapGet> to cpp.Star<NiagaraNodeParameterMapGet>{
+abstract NiagaraNodeParameterMapGetPtr(ucpp.Ptr<NiagaraNodeParameterMapGet>) from ucpp.Ptr<NiagaraNodeParameterMapGet> to ucpp.Ptr<NiagaraNodeParameterMapGet>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeParameterMapGet): NiagaraNodeParameterMapGetPtr {
 		return untyped __cpp__("&({0})", v);

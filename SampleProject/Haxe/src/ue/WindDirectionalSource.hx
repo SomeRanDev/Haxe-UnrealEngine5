@@ -3,11 +3,11 @@ package ue;
 
 @:native("AWindDirectionalSource")
 @:include("Engine/WindDirectionalSource.h")
-@:structAccess
+@:valueType
 extern class WindDirectionalSource extends Info {
-	private var Component: cpp.Star<WindDirectionalSourceComp>;
+	private var Component: ucpp.Ptr<WindDirectionalSourceComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstWindDirectionalSource(WindDirectionalSource) from WindDirectionalS
 @:forward
 @:nativeGen
 @:native("WindDirectionalSource*")
-abstract WindDirectionalSourcePtr(cpp.Star<WindDirectionalSource>) from cpp.Star<WindDirectionalSource> to cpp.Star<WindDirectionalSource>{
+abstract WindDirectionalSourcePtr(ucpp.Ptr<WindDirectionalSource>) from ucpp.Ptr<WindDirectionalSource> to ucpp.Ptr<WindDirectionalSource>{
 	@:from
 	public static extern inline function fromValue(v: WindDirectionalSource): WindDirectionalSourcePtr {
 		return untyped __cpp__("&({0})", v);

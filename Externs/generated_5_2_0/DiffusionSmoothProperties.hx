@@ -3,22 +3,22 @@ package ue;
 
 @:native("UDiffusionSmoothProperties")
 @:include("SmoothMeshTool.h")
-@:structAccess
+@:valueType
 extern class DiffusionSmoothProperties extends InteractiveToolPropertySet {
-	public var SmoothingPerStep: cpp.Float32;
-	public var Steps: cpp.Int32;
+	public var SmoothingPerStep: ucpp.num.Float32;
+	public var Steps: ucpp.num.Int32;
 	public var bPreserveUVs: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDiffusionSmoothProperties(DiffusionSmoothProperties) from DiffusionSmoothProperties {
-	public extern var SmoothingPerStep(get, never): cpp.Float32;
-	public inline extern function get_SmoothingPerStep(): cpp.Float32 return this.SmoothingPerStep;
-	public extern var Steps(get, never): cpp.Int32;
-	public inline extern function get_Steps(): cpp.Int32 return this.Steps;
+	public extern var SmoothingPerStep(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothingPerStep(): ucpp.num.Float32 return this.SmoothingPerStep;
+	public extern var Steps(get, never): ucpp.num.Int32;
+	public inline extern function get_Steps(): ucpp.num.Int32 return this.Steps;
 	public extern var bPreserveUVs(get, never): Bool;
 	public inline extern function get_bPreserveUVs(): Bool return this.bPreserveUVs;
 }
@@ -26,7 +26,7 @@ abstract ConstDiffusionSmoothProperties(DiffusionSmoothProperties) from Diffusio
 @:forward
 @:nativeGen
 @:native("DiffusionSmoothProperties*")
-abstract DiffusionSmoothPropertiesPtr(cpp.Star<DiffusionSmoothProperties>) from cpp.Star<DiffusionSmoothProperties> to cpp.Star<DiffusionSmoothProperties>{
+abstract DiffusionSmoothPropertiesPtr(ucpp.Ptr<DiffusionSmoothProperties>) from ucpp.Ptr<DiffusionSmoothProperties> to ucpp.Ptr<DiffusionSmoothProperties>{
 	@:from
 	public static extern inline function fromValue(v: DiffusionSmoothProperties): DiffusionSmoothPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

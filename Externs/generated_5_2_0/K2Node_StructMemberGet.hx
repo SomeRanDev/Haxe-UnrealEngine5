@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_StructMemberGet")
 @:include("K2Node_StructMemberGet.h")
-@:structAccess
+@:valueType
 extern class K2Node_StructMemberGet extends K2Node_StructOperation {
 	public var ShowPinForProperties: TArray<OptionalPinFromProperty>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstK2Node_StructMemberGet(K2Node_StructMemberGet) from K2Node_StructM
 @:forward
 @:nativeGen
 @:native("K2Node_StructMemberGet*")
-abstract K2Node_StructMemberGetPtr(cpp.Star<K2Node_StructMemberGet>) from cpp.Star<K2Node_StructMemberGet> to cpp.Star<K2Node_StructMemberGet>{
+abstract K2Node_StructMemberGetPtr(ucpp.Ptr<K2Node_StructMemberGet>) from ucpp.Ptr<K2Node_StructMemberGet> to ucpp.Ptr<K2Node_StructMemberGet>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_StructMemberGet): K2Node_StructMemberGetPtr {
 		return untyped __cpp__("&({0})", v);

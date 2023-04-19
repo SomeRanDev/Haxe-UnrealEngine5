@@ -3,67 +3,48 @@ package ue;
 
 @:native("UControlRig")
 @:include("ControlRig.h")
-@:structAccess
-extern class ControlRig extends Object {
+@:valueType
+extern class ControlRig extends RigVMHost {
 	public var ExecutionType: ERigExecutionType;
-	public var VMRuntimeSettings: RigVMRuntimeSettings;
-	private var ControlCustomizations: TMap<RigElementKey, RigControlElementCustomization>;
-	private var VM: cpp.Star<RigVM>;
-	private var DynamicHierarchy: cpp.Star<RigHierarchy>;
-	private var ShapeLibraries: TArray<TSoftObjectPtr<ControlRigShapeLibrary>>;
-	private var DrawContainer: ControlRigDrawContainer;
-	private var DataSourceRegistry: cpp.Star<AnimationDataSourceRegistry>;
-	private var EventQueue: TArray<FName>;
+	public var HierarchySettings: RigHierarchySettings;
+	@:protected public var ControlCustomizations: TMap<RigElementKey, RigControlElementCustomization>;
+	@:protected public var DynamicHierarchy: ucpp.Ptr<RigHierarchy>;
+	@:protected public var ShapeLibraries: TArray<TSoftObjectPtr<ControlRigShapeLibrary>>;
+	private var DataSourceRegistry: ucpp.Ptr<AnimationDataSourceRegistry>;
 	private var Influences: RigInfluenceMapPerEvent;
-	public function GetInteractionRig(): cpp.Star<ControlRig>;
-	public function SetInteractionRig(input: cpp.Star<ControlRig>): Void;
+	public function GetInteractionRig(): ucpp.Ptr<ControlRig>;
+	public function SetInteractionRig(input: ucpp.Ptr<ControlRig>): Void;
 	public function GetInteractionRigClass(): TSubclassOf<ControlRig>;
 	public function SetInteractionRigClass(input: TSubclassOf<ControlRig>): Void;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	@:protected public var OnControlSelected_BP: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ControlRig>, ucpp.Ref<RigControlElement>, Bool) -> Void>;
 
-	public function SupportsEvent(InEventName: cpp.Reference<FName>): Bool;
-	public function SetVariableFromString(InVariableName: cpp.Reference<FName>, InValue: FString): Bool;
-	public function SetFramesPerSecond(InFramesPerSecond: cpp.Float32): Void;
-	public function SetDeltaTime(InDeltaTime: cpp.Float32): Void;
-	public function SetAbsoluteTime(InAbsoluteTime: cpp.Float32, InSetDeltaTimeZero: Bool): Void;
-	public function SetAbsoluteAndDeltaTime(InAbsoluteTime: cpp.Float32, InDeltaTime: cpp.Float32): Void;
-	public function SelectControl(InControlName: cpp.Reference<FName>, bSelect: Bool): Void;
-	public function RequestSetup(): Void;
-	public function RequestInit(): Void;
-	public function IsControlSelected(InControlName: cpp.Reference<FName>): Bool;
-	public function GetVM(): cpp.Star<RigVM>;
-	public function GetVariableType(InVariableName: cpp.Reference<FName>): FName;
-	public function GetVariableAsString(InVariableName: cpp.Reference<FName>): FString;
-	public function GetSupportedEvents(): TArray<FName>;
-	public function GetScriptAccessibleVariables(): TArray<FName>;
-	public function GetHierarchy(): cpp.Star<RigHierarchy>;
-	public function GetCurrentFramesPerSecond(): cpp.Float32;
-	public function GetAbsoluteTime(): cpp.Float32;
-	public function FindControlRigs(Outer: cpp.Star<Object>, OptionalClass: TSubclassOf<ControlRig>): TArray<cpp.Star<ControlRig>>;
-	public function Execute(State: EControlRigState, InEventName: cpp.Reference<FName>): Void;
+	public function SelectControl(InControlName: ucpp.Ref<FName>, bSelect: Bool): Void;
+	public function RequestConstruction(): Void;
+	public function OnControlSelectedBP__DelegateSignature(Rig: ucpp.Ptr<ControlRig>, Control: ucpp.Ref<RigControlElement>, bSelected: Bool): Void;
+	public function IsControlSelected(InControlName: ucpp.Ref<FName>): Bool;
+	public function GetHostingActor(): ucpp.Ptr<Actor>;
+	public function GetHierarchy(): ucpp.Ptr<RigHierarchy>;
+	public function FindControlRigs(Outer: ucpp.Ptr<Object>, OptionalClass: TSubclassOf<ControlRig>): TArray<ucpp.Ptr<ControlRig>>;
 	public function CurrentControlSelection(): TArray<FName>;
+	public function CreateTransformableControlHandle(Outer: ucpp.Ptr<Object>, ControlName: ucpp.Ref<FName>): ucpp.Ptr<TransformableControlHandle>;
 	public function ClearControlSelection(): Bool;
-	public function CanExecute(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(
-	SupportsEvent, IsControlSelected, GetVariableType, GetVariableAsString, GetSupportedEvents,
-	GetScriptAccessibleVariables, GetCurrentFramesPerSecond, GetAbsoluteTime, CurrentControlSelection, CanExecute
-)
+@:forward(IsControlSelected, GetHostingActor, CurrentControlSelection, CreateTransformableControlHandle)
 @:nativeGen
 abstract ConstControlRig(ControlRig) from ControlRig {
 	public extern var ExecutionType(get, never): ERigExecutionType;
 	public inline extern function get_ExecutionType(): ERigExecutionType return this.ExecutionType;
-	public extern var VMRuntimeSettings(get, never): RigVMRuntimeSettings;
-	public inline extern function get_VMRuntimeSettings(): RigVMRuntimeSettings return this.VMRuntimeSettings;
+	public extern var HierarchySettings(get, never): RigHierarchySettings;
+	public inline extern function get_HierarchySettings(): RigHierarchySettings return this.HierarchySettings;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlRig*")
-abstract ControlRigPtr(cpp.Star<ControlRig>) from cpp.Star<ControlRig> to cpp.Star<ControlRig>{
+abstract ControlRigPtr(ucpp.Ptr<ControlRig>) from ucpp.Ptr<ControlRig> to ucpp.Ptr<ControlRig>{
 	@:from
 	public static extern inline function fromValue(v: ControlRig): ControlRigPtr {
 		return untyped __cpp__("&({0})", v);

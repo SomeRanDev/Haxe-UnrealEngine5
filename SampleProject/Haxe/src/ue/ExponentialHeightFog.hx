@@ -3,14 +3,14 @@ package ue;
 
 @:native("AExponentialHeightFog")
 @:include("Engine/ExponentialHeightFog.h")
-@:structAccess
+@:valueType
 extern class ExponentialHeightFog extends Info {
-	private var Component: cpp.Star<ExponentialHeightFogComp>;
+	private var Component: ucpp.Ptr<ExponentialHeightFogComp>;
 	public var bEnabled: Bool;
 
 	public function OnRep_bEnabled(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstExponentialHeightFog(ExponentialHeightFog) from ExponentialHeightF
 @:forward
 @:nativeGen
 @:native("ExponentialHeightFog*")
-abstract ExponentialHeightFogPtr(cpp.Star<ExponentialHeightFog>) from cpp.Star<ExponentialHeightFog> to cpp.Star<ExponentialHeightFog>{
+abstract ExponentialHeightFogPtr(ucpp.Ptr<ExponentialHeightFog>) from ucpp.Ptr<ExponentialHeightFog> to ucpp.Ptr<ExponentialHeightFog>{
 	@:from
 	public static extern inline function fromValue(v: ExponentialHeightFog): ExponentialHeightFogPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBaseDynamicMeshComponent")
 @:include("Components/BaseDynamicMeshComponent.h")
-@:structAccess
+@:valueType
 extern class BaseDynamicMeshComp extends MeshComp {
 	public var bExplicitShowWireframe: Bool;
 	public var WireframeColor: LinearColor;
@@ -11,37 +11,37 @@ extern class BaseDynamicMeshComp extends MeshComp {
 	public var ConstantColor: Color;
 	public var bEnableFlatShading: Bool;
 	public var bEnableViewModeOverrides: Bool;
-	@:protected public var OverrideRenderMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var SecondaryRenderMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var OverrideRenderMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var SecondaryRenderMaterial: ucpp.Ptr<MaterialInterface>;
 	public var bEnableRaytracing: Bool;
-	public var BaseMaterials: TArray<cpp.Star<MaterialInterface>>;
+	public var BaseMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 
 	public function SetViewModeOverridesEnabled(bEnabled: Bool): Void;
 	public function SetShadowsEnabled(bEnabled: Bool): Void;
-	public function SetSecondaryRenderMaterial(Material: cpp.Star<MaterialInterface>): Void;
+	public function SetSecondaryRenderMaterial(Material: ucpp.Ptr<MaterialInterface>): Void;
 	public function SetSecondaryBuffersVisibility(bSetVisible: Bool): Void;
-	public function SetOverrideRenderMaterial(Material: cpp.Star<MaterialInterface>): Void;
+	public function SetOverrideRenderMaterial(Material: ucpp.Ptr<MaterialInterface>): Void;
 	public function SetEnableWireframeRenderPass(bEnable: Bool): Void;
 	public function SetEnableRaytracing(bSetEnabled: Bool): Void;
 	public function SetEnableFlatShading(bEnable: Bool): Void;
 	public function SetConstantOverrideColor(NewColor: Color): Void;
 	public function SetColorOverrideMode(NewMode: EDynamicMeshComponentColorOverrideMode): Void;
-	public function HasOverrideRenderMaterial(k: cpp.Int32): Bool;
+	public function HasOverrideRenderMaterial(k: ucpp.num.Int32): Bool;
 	public function GetViewModeOverridesEnabled(): Bool;
 	public function GetShadowsEnabled(): Bool;
-	public function GetSecondaryRenderMaterial(): cpp.Star<MaterialInterface>;
+	public function GetSecondaryRenderMaterial(): ucpp.Ptr<MaterialInterface>;
 	public function GetSecondaryBuffersVisibility(): Bool;
-	public function GetOverrideRenderMaterial(MaterialIndex: cpp.Int32): cpp.Star<MaterialInterface>;
+	public function GetOverrideRenderMaterial(MaterialIndex: ucpp.num.Int32): ucpp.Ptr<MaterialInterface>;
 	public function GetFlatShadingEnabled(): Bool;
 	public function GetEnableWireframeRenderPass(): Bool;
 	public function GetEnableRaytracing(): Bool;
-	public function GetDynamicMesh(): cpp.Star<DynamicMesh>;
+	public function GetDynamicMesh(): ucpp.Ptr<DynamicMesh>;
 	public function GetConstantOverrideColor(): Color;
 	public function GetColorOverrideMode(): EDynamicMeshComponentColorOverrideMode;
 	public function ClearSecondaryRenderMaterial(): Void;
 	public function ClearOverrideRenderMaterial(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -65,14 +65,14 @@ abstract ConstBaseDynamicMeshComp(BaseDynamicMeshComp) from BaseDynamicMeshComp 
 	public inline extern function get_bEnableViewModeOverrides(): Bool return this.bEnableViewModeOverrides;
 	public extern var bEnableRaytracing(get, never): Bool;
 	public inline extern function get_bEnableRaytracing(): Bool return this.bEnableRaytracing;
-	public extern var BaseMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_BaseMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.BaseMaterials;
+	public extern var BaseMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_BaseMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.BaseMaterials;
 }
 
 @:forward
 @:nativeGen
 @:native("BaseDynamicMeshComp*")
-abstract BaseDynamicMeshCompPtr(cpp.Star<BaseDynamicMeshComp>) from cpp.Star<BaseDynamicMeshComp> to cpp.Star<BaseDynamicMeshComp>{
+abstract BaseDynamicMeshCompPtr(ucpp.Ptr<BaseDynamicMeshComp>) from ucpp.Ptr<BaseDynamicMeshComp> to ucpp.Ptr<BaseDynamicMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: BaseDynamicMeshComp): BaseDynamicMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

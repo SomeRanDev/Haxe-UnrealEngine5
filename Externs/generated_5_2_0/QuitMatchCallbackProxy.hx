@@ -3,14 +3,14 @@ package ue;
 
 @:native("UQuitMatchCallbackProxy")
 @:include("QuitMatchCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class QuitMatchCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function QuitMatch(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, Outcome: TEnumAsByte<EMPMatchOutcome>, TurnTimeoutInSeconds: cpp.Int32): cpp.Star<QuitMatchCallbackProxy>;
+	public function QuitMatch(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MatchID: FString, Outcome: TEnumAsByte<EMPMatchOutcome>, TurnTimeoutInSeconds: ucpp.num.Int32): ucpp.Ptr<QuitMatchCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstQuitMatchCallbackProxy(QuitMatchCallbackProxy) from QuitMatchCallb
 @:forward
 @:nativeGen
 @:native("QuitMatchCallbackProxy*")
-abstract QuitMatchCallbackProxyPtr(cpp.Star<QuitMatchCallbackProxy>) from cpp.Star<QuitMatchCallbackProxy> to cpp.Star<QuitMatchCallbackProxy>{
+abstract QuitMatchCallbackProxyPtr(ucpp.Ptr<QuitMatchCallbackProxy>) from ucpp.Ptr<QuitMatchCallbackProxy> to ucpp.Ptr<QuitMatchCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: QuitMatchCallbackProxy): QuitMatchCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

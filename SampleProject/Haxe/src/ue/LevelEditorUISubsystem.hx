@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelEditorUISubsystem")
 @:include("SLevelEditorToolBox.h")
-@:structAccess
+@:valueType
 extern class LevelEditorUISubsystem extends AssetEditorUISubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelEditorUISubsystem(LevelEditorUISubsystem) from LevelEditorUIS
 @:forward
 @:nativeGen
 @:native("LevelEditorUISubsystem*")
-abstract LevelEditorUISubsystemPtr(cpp.Star<LevelEditorUISubsystem>) from cpp.Star<LevelEditorUISubsystem> to cpp.Star<LevelEditorUISubsystem>{
+abstract LevelEditorUISubsystemPtr(ucpp.Ptr<LevelEditorUISubsystem>) from ucpp.Ptr<LevelEditorUISubsystem> to ucpp.Ptr<LevelEditorUISubsystem>{
 	@:from
 	public static extern inline function fromValue(v: LevelEditorUISubsystem): LevelEditorUISubsystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimationCurveMetaData")
 @:include("Private/AnimSequencerDataModel.h")
-@:structAccess
+@:valueType
 extern class AnimationCurveMetaData {
-	public var Flags: cpp.Int32;
+	public var Flags: ucpp.num.Int32;
 	public var Color: LinearColor;
 
 	@:native("FAnimationCurveMetaData") public function new();
-	@:native("FAnimationCurveMetaData") public static function make(Flags: cpp.Int32, Color: LinearColor): AnimationCurveMetaData ;
+	@:native("FAnimationCurveMetaData") public static function make(Flags: ucpp.num.Int32, Color: LinearColor): AnimationCurveMetaData ;
 }

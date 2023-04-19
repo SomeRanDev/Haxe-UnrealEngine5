@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionTruncateLWC")
 @:include("Materials/MaterialExpressionTruncateLWC.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTruncateLWC extends MaterialExpression {
 	public var Input: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionTruncateLWC(MaterialExpressionTruncateLWC) from 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTruncateLWC*")
-abstract MaterialExpressionTruncateLWCPtr(cpp.Star<MaterialExpressionTruncateLWC>) from cpp.Star<MaterialExpressionTruncateLWC> to cpp.Star<MaterialExpressionTruncateLWC>{
+abstract MaterialExpressionTruncateLWCPtr(ucpp.Ptr<MaterialExpressionTruncateLWC>) from ucpp.Ptr<MaterialExpressionTruncateLWC> to ucpp.Ptr<MaterialExpressionTruncateLWC>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTruncateLWC): MaterialExpressionTruncateLWCPtr {
 		return untyped __cpp__("&({0})", v);

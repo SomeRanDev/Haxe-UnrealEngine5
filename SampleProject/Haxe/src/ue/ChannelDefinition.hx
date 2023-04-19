@@ -3,12 +3,12 @@ package ue;
 
 @:native("FChannelDefinition")
 @:include("Engine/NetDriver.h")
-@:structAccess
+@:valueType
 extern class ChannelDefinition {
 	public var ChannelName: FName;
 	public var ClassName: FName;
 	public var ChannelClass: TSubclassOf<Object>;
-	public var StaticChannelIndex: cpp.Int32;
+	public var StaticChannelIndex: ucpp.num.Int32;
 	public var bTickOnCreate: Bool;
 	public var bServerOpen: Bool;
 	public var bClientOpen: Bool;

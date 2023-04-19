@@ -3,16 +3,16 @@ package ue;
 
 @:native("UGizmoLineHandleComponent")
 @:include("BaseGizmos/GizmoLineHandleComponent.h")
-@:structAccess
+@:valueType
 extern class GizmoLineHandleComp extends GizmoBaseComp {
 	public var Normal: Vector;
-	public var HandleSize: cpp.Float32;
-	public var Thickness: cpp.Float32;
+	public var HandleSize: ucpp.num.Float32;
+	public var Thickness: ucpp.num.Float32;
 	public var Direction: Vector;
-	public var Length: cpp.Float32;
+	public var Length: ucpp.num.Float32;
 	public var bImageScale: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,14 +20,14 @@ extern class GizmoLineHandleComp extends GizmoBaseComp {
 abstract ConstGizmoLineHandleComp(GizmoLineHandleComp) from GizmoLineHandleComp {
 	public extern var Normal(get, never): Vector;
 	public inline extern function get_Normal(): Vector return this.Normal;
-	public extern var HandleSize(get, never): cpp.Float32;
-	public inline extern function get_HandleSize(): cpp.Float32 return this.HandleSize;
-	public extern var Thickness(get, never): cpp.Float32;
-	public inline extern function get_Thickness(): cpp.Float32 return this.Thickness;
+	public extern var HandleSize(get, never): ucpp.num.Float32;
+	public inline extern function get_HandleSize(): ucpp.num.Float32 return this.HandleSize;
+	public extern var Thickness(get, never): ucpp.num.Float32;
+	public inline extern function get_Thickness(): ucpp.num.Float32 return this.Thickness;
 	public extern var Direction(get, never): Vector;
 	public inline extern function get_Direction(): Vector return this.Direction;
-	public extern var Length(get, never): cpp.Float32;
-	public inline extern function get_Length(): cpp.Float32 return this.Length;
+	public extern var Length(get, never): ucpp.num.Float32;
+	public inline extern function get_Length(): ucpp.num.Float32 return this.Length;
 	public extern var bImageScale(get, never): Bool;
 	public inline extern function get_bImageScale(): Bool return this.bImageScale;
 }
@@ -35,7 +35,7 @@ abstract ConstGizmoLineHandleComp(GizmoLineHandleComp) from GizmoLineHandleComp 
 @:forward
 @:nativeGen
 @:native("GizmoLineHandleComp*")
-abstract GizmoLineHandleCompPtr(cpp.Star<GizmoLineHandleComp>) from cpp.Star<GizmoLineHandleComp> to cpp.Star<GizmoLineHandleComp>{
+abstract GizmoLineHandleCompPtr(ucpp.Ptr<GizmoLineHandleComp>) from ucpp.Ptr<GizmoLineHandleComp> to ucpp.Ptr<GizmoLineHandleComp>{
 	@:from
 	public static extern inline function fromValue(v: GizmoLineHandleComp): GizmoLineHandleCompPtr {
 		return untyped __cpp__("&({0})", v);

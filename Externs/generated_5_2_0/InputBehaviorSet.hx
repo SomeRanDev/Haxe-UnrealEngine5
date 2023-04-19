@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputBehaviorSet")
 @:include("InputBehaviorSet.h")
-@:structAccess
+@:valueType
 extern class InputBehaviorSet extends Object {
 	@:protected public var Behaviors: TArray<BehaviorInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstInputBehaviorSet(InputBehaviorSet) from InputBehaviorSet {
 @:forward
 @:nativeGen
 @:native("InputBehaviorSet*")
-abstract InputBehaviorSetPtr(cpp.Star<InputBehaviorSet>) from cpp.Star<InputBehaviorSet> to cpp.Star<InputBehaviorSet>{
+abstract InputBehaviorSetPtr(ucpp.Ptr<InputBehaviorSet>) from ucpp.Ptr<InputBehaviorSet> to ucpp.Ptr<InputBehaviorSet>{
 	@:from
 	public static extern inline function fromValue(v: InputBehaviorSet): InputBehaviorSetPtr {
 		return untyped __cpp__("&({0})", v);

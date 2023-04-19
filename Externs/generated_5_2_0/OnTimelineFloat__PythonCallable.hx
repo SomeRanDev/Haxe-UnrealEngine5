@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnTimelineFloat__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnTimelineFloat__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnTimelineFloat__PythonCallable(OnTimelineFloat__PythonCallable) f
 @:forward
 @:nativeGen
 @:native("OnTimelineFloat__PythonCallable*")
-abstract OnTimelineFloat__PythonCallablePtr(cpp.Star<OnTimelineFloat__PythonCallable>) from cpp.Star<OnTimelineFloat__PythonCallable> to cpp.Star<OnTimelineFloat__PythonCallable>{
+abstract OnTimelineFloat__PythonCallablePtr(ucpp.Ptr<OnTimelineFloat__PythonCallable>) from ucpp.Ptr<OnTimelineFloat__PythonCallable> to ucpp.Ptr<OnTimelineFloat__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnTimelineFloat__PythonCallable): OnTimelineFloat__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

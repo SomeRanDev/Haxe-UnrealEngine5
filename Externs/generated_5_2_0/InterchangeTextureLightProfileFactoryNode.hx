@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeTextureLightProfileFactoryNode")
 @:include("InterchangeTextureLightProfileFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeTextureLightProfileFactoryNode extends InterchangeTexture2DFactoryNode {
-	public function SetCustomTextureMultiplier(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomBrightness(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
-	public function GetCustomTextureMultiplier(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomBrightness(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function SetCustomTextureMultiplier(AttributeValue: ucpp.num.Float32, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomBrightness(AttributeValue: ucpp.num.Float32, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomTextureMultiplier(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomBrightness(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomTextureMultiplier, GetCustomBrightness)
@@ -21,7 +21,7 @@ abstract ConstInterchangeTextureLightProfileFactoryNode(InterchangeTextureLightP
 @:forward
 @:nativeGen
 @:native("InterchangeTextureLightProfileFactoryNode*")
-abstract InterchangeTextureLightProfileFactoryNodePtr(cpp.Star<InterchangeTextureLightProfileFactoryNode>) from cpp.Star<InterchangeTextureLightProfileFactoryNode> to cpp.Star<InterchangeTextureLightProfileFactoryNode>{
+abstract InterchangeTextureLightProfileFactoryNodePtr(ucpp.Ptr<InterchangeTextureLightProfileFactoryNode>) from ucpp.Ptr<InterchangeTextureLightProfileFactoryNode> to ucpp.Ptr<InterchangeTextureLightProfileFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTextureLightProfileFactoryNode): InterchangeTextureLightProfileFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("ULevelEditorMiscSettings")
 @:include("Settings/LevelEditorMiscSettings.h")
-@:structAccess
+@:valueType
 extern class LevelEditorMiscSettings extends DeveloperSettings {
 	public var bAutoApplyLightingEnable: Bool;
 	public var bBSPAutoUpdate: Bool;
@@ -14,16 +14,16 @@ extern class LevelEditorMiscSettings extends DeveloperSettings {
 	public var bAllowBackgroundAudio: Bool;
 	public var bCreateNewAudioDeviceForPlayInEditor: Bool;
 	public var bEnableRealTimeAudio: Bool;
-	public var EditorVolumeLevel: cpp.Float32;
+	public var EditorVolumeLevel: ucpp.num.Float32;
 	public var bEnableEditorSounds: Bool;
 	public var DefaultLevelStreamingClass: TSubclassOf<LevelStreaming>;
 	public var bPromptWhenAddingToLevelBeforeCheckout: Bool;
 	public var bPromptWhenAddingToLevelOutsideBounds: Bool;
-	public var PercentageThresholdForPrompt: cpp.Float32;
+	public var PercentageThresholdForPrompt: ucpp.num.Float32;
 	public var MinimumBoundsForCheckingSize: Vector;
 	public var EditorScreenshotSaveDirectory: DirectoryPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -47,8 +47,8 @@ abstract ConstLevelEditorMiscSettings(LevelEditorMiscSettings) from LevelEditorM
 	public inline extern function get_bCreateNewAudioDeviceForPlayInEditor(): Bool return this.bCreateNewAudioDeviceForPlayInEditor;
 	public extern var bEnableRealTimeAudio(get, never): Bool;
 	public inline extern function get_bEnableRealTimeAudio(): Bool return this.bEnableRealTimeAudio;
-	public extern var EditorVolumeLevel(get, never): cpp.Float32;
-	public inline extern function get_EditorVolumeLevel(): cpp.Float32 return this.EditorVolumeLevel;
+	public extern var EditorVolumeLevel(get, never): ucpp.num.Float32;
+	public inline extern function get_EditorVolumeLevel(): ucpp.num.Float32 return this.EditorVolumeLevel;
 	public extern var bEnableEditorSounds(get, never): Bool;
 	public inline extern function get_bEnableEditorSounds(): Bool return this.bEnableEditorSounds;
 	public extern var DefaultLevelStreamingClass(get, never): TSubclassOf<LevelStreaming.ConstLevelStreaming>;
@@ -57,8 +57,8 @@ abstract ConstLevelEditorMiscSettings(LevelEditorMiscSettings) from LevelEditorM
 	public inline extern function get_bPromptWhenAddingToLevelBeforeCheckout(): Bool return this.bPromptWhenAddingToLevelBeforeCheckout;
 	public extern var bPromptWhenAddingToLevelOutsideBounds(get, never): Bool;
 	public inline extern function get_bPromptWhenAddingToLevelOutsideBounds(): Bool return this.bPromptWhenAddingToLevelOutsideBounds;
-	public extern var PercentageThresholdForPrompt(get, never): cpp.Float32;
-	public inline extern function get_PercentageThresholdForPrompt(): cpp.Float32 return this.PercentageThresholdForPrompt;
+	public extern var PercentageThresholdForPrompt(get, never): ucpp.num.Float32;
+	public inline extern function get_PercentageThresholdForPrompt(): ucpp.num.Float32 return this.PercentageThresholdForPrompt;
 	public extern var MinimumBoundsForCheckingSize(get, never): Vector;
 	public inline extern function get_MinimumBoundsForCheckingSize(): Vector return this.MinimumBoundsForCheckingSize;
 	public extern var EditorScreenshotSaveDirectory(get, never): DirectoryPath;
@@ -68,7 +68,7 @@ abstract ConstLevelEditorMiscSettings(LevelEditorMiscSettings) from LevelEditorM
 @:forward
 @:nativeGen
 @:native("LevelEditorMiscSettings*")
-abstract LevelEditorMiscSettingsPtr(cpp.Star<LevelEditorMiscSettings>) from cpp.Star<LevelEditorMiscSettings> to cpp.Star<LevelEditorMiscSettings>{
+abstract LevelEditorMiscSettingsPtr(ucpp.Ptr<LevelEditorMiscSettings>) from ucpp.Ptr<LevelEditorMiscSettings> to ucpp.Ptr<LevelEditorMiscSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelEditorMiscSettings): LevelEditorMiscSettingsPtr {
 		return untyped __cpp__("&({0})", v);

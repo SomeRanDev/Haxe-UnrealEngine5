@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPaperRuntimeSettings")
 @:include("PaperRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class PaperRuntimeSettings extends Object {
 	public var bEnableSpriteAtlasGroups: Bool;
 	public var bEnableTerrainSplineEditing: Bool;
 	public var bResizeSpriteDataToMatchTextures: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstPaperRuntimeSettings(PaperRuntimeSettings) from PaperRuntimeSettin
 @:forward
 @:nativeGen
 @:native("PaperRuntimeSettings*")
-abstract PaperRuntimeSettingsPtr(cpp.Star<PaperRuntimeSettings>) from cpp.Star<PaperRuntimeSettings> to cpp.Star<PaperRuntimeSettings>{
+abstract PaperRuntimeSettingsPtr(ucpp.Ptr<PaperRuntimeSettings>) from ucpp.Ptr<PaperRuntimeSettings> to ucpp.Ptr<PaperRuntimeSettings>{
 	@:from
 	public static extern inline function fromValue(v: PaperRuntimeSettings): PaperRuntimeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

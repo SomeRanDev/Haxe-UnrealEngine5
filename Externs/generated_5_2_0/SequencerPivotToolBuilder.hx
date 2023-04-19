@@ -3,10 +3,10 @@ package ue;
 
 @:native("USequencerPivotToolBuilder")
 @:include("SequencerAnimEditPivotTool.h")
-@:structAccess
+@:valueType
 extern class SequencerPivotToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSequencerPivotToolBuilder(SequencerPivotToolBuilder) from Sequence
 @:forward
 @:nativeGen
 @:native("SequencerPivotToolBuilder*")
-abstract SequencerPivotToolBuilderPtr(cpp.Star<SequencerPivotToolBuilder>) from cpp.Star<SequencerPivotToolBuilder> to cpp.Star<SequencerPivotToolBuilder>{
+abstract SequencerPivotToolBuilderPtr(ucpp.Ptr<SequencerPivotToolBuilder>) from ucpp.Ptr<SequencerPivotToolBuilder> to ucpp.Ptr<SequencerPivotToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SequencerPivotToolBuilder): SequencerPivotToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

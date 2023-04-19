@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMGraphFunctionHeader")
 @:include("RigVMCore/RigVMGraphFunctionDefinition.h")
-@:structAccess
+@:valueType
 extern class RigVMGraphFunctionHeader {
 	public var LibraryPointer: RigVMGraphFunctionIdentifier;
 	public var Name: FName;
@@ -13,7 +13,7 @@ extern class RigVMGraphFunctionHeader {
 	public var Category: FString;
 	public var Keywords: FString;
 	public var Arguments: TArray<RigVMGraphFunctionArgument>;
-	public var Dependencies: TMap<RigVMGraphFunctionIdentifier, cpp.UInt32>;
+	public var Dependencies: TMap<RigVMGraphFunctionIdentifier, ucpp.num.UInt32>;
 	public var ExternalVariables: TArray<RigVMExternalVariable>;
 
 	@:native("FRigVMGraphFunctionHeader") public function new();

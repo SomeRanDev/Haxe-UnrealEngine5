@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCombineMeshesTool")
 @:include("CombineMeshesTool.h")
-@:structAccess
+@:valueType
 extern class CombineMeshesTool extends MultiSelectionMeshEditingTool {
-	@:protected public var BasicProperties: cpp.Star<CombineMeshesToolProperties>;
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var HandleSourceProperties: cpp.Star<OnAcceptHandleSourcesPropertiesBase>;
+	@:protected public var BasicProperties: ucpp.Ptr<CombineMeshesToolProperties>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var HandleSourceProperties: ucpp.Ptr<OnAcceptHandleSourcesPropertiesBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCombineMeshesTool(CombineMeshesTool) from CombineMeshesTool {
 @:forward
 @:nativeGen
 @:native("CombineMeshesTool*")
-abstract CombineMeshesToolPtr(cpp.Star<CombineMeshesTool>) from cpp.Star<CombineMeshesTool> to cpp.Star<CombineMeshesTool>{
+abstract CombineMeshesToolPtr(ucpp.Ptr<CombineMeshesTool>) from ucpp.Ptr<CombineMeshesTool> to ucpp.Ptr<CombineMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: CombineMeshesTool): CombineMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

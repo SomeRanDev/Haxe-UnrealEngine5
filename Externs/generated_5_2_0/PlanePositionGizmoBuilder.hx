@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPlanePositionGizmoBuilder")
 @:include("BaseGizmos/PlanePositionGizmo.h")
-@:structAccess
+@:valueType
 extern class PlanePositionGizmoBuilder extends InteractiveGizmoBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlanePositionGizmoBuilder(PlanePositionGizmoBuilder) from PlanePos
 @:forward
 @:nativeGen
 @:native("PlanePositionGizmoBuilder*")
-abstract PlanePositionGizmoBuilderPtr(cpp.Star<PlanePositionGizmoBuilder>) from cpp.Star<PlanePositionGizmoBuilder> to cpp.Star<PlanePositionGizmoBuilder>{
+abstract PlanePositionGizmoBuilderPtr(ucpp.Ptr<PlanePositionGizmoBuilder>) from ucpp.Ptr<PlanePositionGizmoBuilder> to ucpp.Ptr<PlanePositionGizmoBuilder>{
 	@:from
 	public static extern inline function fromValue(v: PlanePositionGizmoBuilder): PlanePositionGizmoBuilderPtr {
 		return untyped __cpp__("&({0})", v);

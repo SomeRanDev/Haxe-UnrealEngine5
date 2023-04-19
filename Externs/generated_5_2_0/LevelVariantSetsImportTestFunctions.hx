@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULevelVariantSetsImportTestFunctions")
 @:include("ImportTestFunctions/LevelVariantSetsImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class LevelVariantSetsImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckVariantSetsCount(LevelVariantSets: cpp.Star<LevelVariantSets>, ExpectedNumberOfVariantSets: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckVariantsCount(LevelVariantSets: cpp.Star<LevelVariantSets>, VariantSetName: FString, ExpectedNumberOfVariants: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckLevelVariantSetsCount(LevelVariantSetsAssets: cpp.Reference<TArray<cpp.Star<LevelVariantSets>>>, ExpectedNumberOfLevelVariantSets: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckBindingsCount(LevelVariantSets: cpp.Star<LevelVariantSets>, VariantSetName: FString, VariantName: FString, ExpectedNumberOfBindings: cpp.Int32): InterchangeTestFunctionResult;
+	public function CheckVariantSetsCount(LevelVariantSets: ucpp.Ptr<LevelVariantSets>, ExpectedNumberOfVariantSets: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckVariantsCount(LevelVariantSets: ucpp.Ptr<LevelVariantSets>, VariantSetName: FString, ExpectedNumberOfVariants: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckLevelVariantSetsCount(LevelVariantSetsAssets: ucpp.Ref<TArray<ucpp.Ptr<LevelVariantSets>>>, ExpectedNumberOfLevelVariantSets: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckBindingsCount(LevelVariantSets: ucpp.Ptr<LevelVariantSets>, VariantSetName: FString, VariantName: FString, ExpectedNumberOfBindings: ucpp.num.Int32): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLevelVariantSetsImportTestFunctions(LevelVariantSetsImportTestFunc
 @:forward
 @:nativeGen
 @:native("LevelVariantSetsImportTestFunctions*")
-abstract LevelVariantSetsImportTestFunctionsPtr(cpp.Star<LevelVariantSetsImportTestFunctions>) from cpp.Star<LevelVariantSetsImportTestFunctions> to cpp.Star<LevelVariantSetsImportTestFunctions>{
+abstract LevelVariantSetsImportTestFunctionsPtr(ucpp.Ptr<LevelVariantSetsImportTestFunctions>) from ucpp.Ptr<LevelVariantSetsImportTestFunctions> to ucpp.Ptr<LevelVariantSetsImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: LevelVariantSetsImportTestFunctions): LevelVariantSetsImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

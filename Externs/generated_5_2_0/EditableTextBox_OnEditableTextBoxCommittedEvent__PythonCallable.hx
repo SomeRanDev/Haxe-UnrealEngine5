@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable(Ed
 @:forward
 @:nativeGen
 @:native("EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable*")
-abstract EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallablePtr(cpp.Star<EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable>) from cpp.Star<EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable> to cpp.Star<EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable>{
+abstract EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallablePtr(ucpp.Ptr<EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable>) from ucpp.Ptr<EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable> to ucpp.Ptr<EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallable): EditableTextBox_OnEditableTextBoxCommittedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

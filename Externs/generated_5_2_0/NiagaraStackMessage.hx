@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraStackMessage")
 @:include("NiagaraMessages.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackMessage {
 	public var MessageText: FText;
 	public var ShortDescription: FText;

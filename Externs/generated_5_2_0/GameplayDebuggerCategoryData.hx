@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayDebuggerCategoryData")
 @:include("GameplayDebuggerCategoryReplicator.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerCategoryData {
 	public var CategoryName: FName;
 	public var TextLines: TArray<FString>;

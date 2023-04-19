@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnPrimaryAssetClassListLoaded__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnPrimaryAssetClassListLoaded__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnPrimaryAssetClassListLoaded__PythonCallable(OnPrimaryAssetClassL
 @:forward
 @:nativeGen
 @:native("OnPrimaryAssetClassListLoaded__PythonCallable*")
-abstract OnPrimaryAssetClassListLoaded__PythonCallablePtr(cpp.Star<OnPrimaryAssetClassListLoaded__PythonCallable>) from cpp.Star<OnPrimaryAssetClassListLoaded__PythonCallable> to cpp.Star<OnPrimaryAssetClassListLoaded__PythonCallable>{
+abstract OnPrimaryAssetClassListLoaded__PythonCallablePtr(ucpp.Ptr<OnPrimaryAssetClassListLoaded__PythonCallable>) from ucpp.Ptr<OnPrimaryAssetClassListLoaded__PythonCallable> to ucpp.Ptr<OnPrimaryAssetClassListLoaded__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnPrimaryAssetClassListLoaded__PythonCallable): OnPrimaryAssetClassListLoaded__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

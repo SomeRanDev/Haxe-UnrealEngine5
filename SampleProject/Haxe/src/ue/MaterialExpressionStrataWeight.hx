@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStrataWeight")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataWeight extends MaterialExpressionStrataBSDF {
 	public var A: ExpressionInput;
 	public var Weight: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionStrataWeight(MaterialExpressionStrataWeight) fro
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataWeight*")
-abstract MaterialExpressionStrataWeightPtr(cpp.Star<MaterialExpressionStrataWeight>) from cpp.Star<MaterialExpressionStrataWeight> to cpp.Star<MaterialExpressionStrataWeight>{
+abstract MaterialExpressionStrataWeightPtr(ucpp.Ptr<MaterialExpressionStrataWeight>) from ucpp.Ptr<MaterialExpressionStrataWeight> to ucpp.Ptr<MaterialExpressionStrataWeight>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataWeight): MaterialExpressionStrataWeightPtr {
 		return untyped __cpp__("&({0})", v);

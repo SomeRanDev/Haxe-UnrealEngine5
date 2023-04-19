@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryVectorFieldVolume")
 @:include("ActorFactories/ActorFactoryVectorFieldVolume.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryVectorFieldVolume extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryVectorFieldVolume(ActorFactoryVectorFieldVolume) from 
 @:forward
 @:nativeGen
 @:native("ActorFactoryVectorFieldVolume*")
-abstract ActorFactoryVectorFieldVolumePtr(cpp.Star<ActorFactoryVectorFieldVolume>) from cpp.Star<ActorFactoryVectorFieldVolume> to cpp.Star<ActorFactoryVectorFieldVolume>{
+abstract ActorFactoryVectorFieldVolumePtr(ucpp.Ptr<ActorFactoryVectorFieldVolume>) from ucpp.Ptr<ActorFactoryVectorFieldVolume> to ucpp.Ptr<ActorFactoryVectorFieldVolume>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryVectorFieldVolume): ActorFactoryVectorFieldVolumePtr {
 		return untyped __cpp__("&({0})", v);

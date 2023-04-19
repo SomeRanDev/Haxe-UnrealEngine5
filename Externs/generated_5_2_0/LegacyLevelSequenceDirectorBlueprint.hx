@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULegacyLevelSequenceDirectorBlueprint")
 @:include("LevelSequenceDirector.h")
-@:structAccess
+@:valueType
 extern class LegacyLevelSequenceDirectorBlueprint extends Blueprint {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLegacyLevelSequenceDirectorBlueprint(LegacyLevelSequenceDirectorBl
 @:forward
 @:nativeGen
 @:native("LegacyLevelSequenceDirectorBlueprint*")
-abstract LegacyLevelSequenceDirectorBlueprintPtr(cpp.Star<LegacyLevelSequenceDirectorBlueprint>) from cpp.Star<LegacyLevelSequenceDirectorBlueprint> to cpp.Star<LegacyLevelSequenceDirectorBlueprint>{
+abstract LegacyLevelSequenceDirectorBlueprintPtr(ucpp.Ptr<LegacyLevelSequenceDirectorBlueprint>) from ucpp.Ptr<LegacyLevelSequenceDirectorBlueprint> to ucpp.Ptr<LegacyLevelSequenceDirectorBlueprint>{
 	@:from
 	public static extern inline function fromValue(v: LegacyLevelSequenceDirectorBlueprint): LegacyLevelSequenceDirectorBlueprintPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UUVEditorUVDistributeProperties")
 @:include("Operators/UVEditorUVTransformOp.h")
-@:structAccess
+@:valueType
 extern class UVEditorUVDistributeProperties extends UVEditorUVTransformPropertiesBase {
 	public var DistributeMode: EUVEditorDistributeMode;
 	public var Grouping: EUVEditorAlignDistributeGroupingMode;
 	public var bEnableManualDistances: Bool;
-	public var ManualExtent: cpp.Float32;
-	public var ManualSpacing: cpp.Float32;
+	public var ManualExtent: ucpp.num.Float32;
+	public var ManualSpacing: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,16 +23,16 @@ abstract ConstUVEditorUVDistributeProperties(UVEditorUVDistributeProperties) fro
 	public inline extern function get_Grouping(): EUVEditorAlignDistributeGroupingMode return this.Grouping;
 	public extern var bEnableManualDistances(get, never): Bool;
 	public inline extern function get_bEnableManualDistances(): Bool return this.bEnableManualDistances;
-	public extern var ManualExtent(get, never): cpp.Float32;
-	public inline extern function get_ManualExtent(): cpp.Float32 return this.ManualExtent;
-	public extern var ManualSpacing(get, never): cpp.Float32;
-	public inline extern function get_ManualSpacing(): cpp.Float32 return this.ManualSpacing;
+	public extern var ManualExtent(get, never): ucpp.num.Float32;
+	public inline extern function get_ManualExtent(): ucpp.num.Float32 return this.ManualExtent;
+	public extern var ManualSpacing(get, never): ucpp.num.Float32;
+	public inline extern function get_ManualSpacing(): ucpp.num.Float32 return this.ManualSpacing;
 }
 
 @:forward
 @:nativeGen
 @:native("UVEditorUVDistributeProperties*")
-abstract UVEditorUVDistributePropertiesPtr(cpp.Star<UVEditorUVDistributeProperties>) from cpp.Star<UVEditorUVDistributeProperties> to cpp.Star<UVEditorUVDistributeProperties>{
+abstract UVEditorUVDistributePropertiesPtr(ucpp.Ptr<UVEditorUVDistributeProperties>) from ucpp.Ptr<UVEditorUVDistributeProperties> to ucpp.Ptr<UVEditorUVDistributeProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorUVDistributeProperties): UVEditorUVDistributePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

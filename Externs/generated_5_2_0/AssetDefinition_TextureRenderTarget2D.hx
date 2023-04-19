@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_TextureRenderTarget2D")
 @:include("AssetDefinition_TextureRenderTarget2D.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_TextureRenderTarget2D extends AssetDefinition_TextureRenderTarget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_TextureRenderTarget2D(AssetDefinition_TextureRende
 @:forward
 @:nativeGen
 @:native("AssetDefinition_TextureRenderTarget2D*")
-abstract AssetDefinition_TextureRenderTarget2DPtr(cpp.Star<AssetDefinition_TextureRenderTarget2D>) from cpp.Star<AssetDefinition_TextureRenderTarget2D> to cpp.Star<AssetDefinition_TextureRenderTarget2D>{
+abstract AssetDefinition_TextureRenderTarget2DPtr(ucpp.Ptr<AssetDefinition_TextureRenderTarget2D>) from ucpp.Ptr<AssetDefinition_TextureRenderTarget2D> to ucpp.Ptr<AssetDefinition_TextureRenderTarget2D>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_TextureRenderTarget2D): AssetDefinition_TextureRenderTarget2DPtr {
 		return untyped __cpp__("&({0})", v);

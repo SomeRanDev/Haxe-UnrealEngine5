@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomMeshTriangle")
 @:include("CustomMeshComponent.h")
-@:structAccess
+@:valueType
 extern class CustomMeshTriangle {
 	public var Vertex0: Vector;
 	public var Vertex1: Vector;

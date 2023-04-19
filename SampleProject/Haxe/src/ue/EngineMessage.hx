@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEngineMessage")
 @:include("GameFramework/EngineMessage.h")
-@:structAccess
+@:valueType
 extern class EngineMessage extends LocalMessage {
 	public var FailedPlaceMessage: FString;
 	public var MaxedOutMessage: FString;
@@ -14,7 +14,7 @@ extern class EngineMessage extends LocalMessage {
 	public var NewPlayerMessage: FString;
 	public var NewSpecMessage: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstEngineMessage(EngineMessage) from EngineMessage {
 @:forward
 @:nativeGen
 @:native("EngineMessage*")
-abstract EngineMessagePtr(cpp.Star<EngineMessage>) from cpp.Star<EngineMessage> to cpp.Star<EngineMessage>{
+abstract EngineMessagePtr(ucpp.Ptr<EngineMessage>) from ucpp.Ptr<EngineMessage> to ucpp.Ptr<EngineMessage>{
 	@:from
 	public static extern inline function fromValue(v: EngineMessage): EngineMessagePtr {
 		return untyped __cpp__("&({0})", v);

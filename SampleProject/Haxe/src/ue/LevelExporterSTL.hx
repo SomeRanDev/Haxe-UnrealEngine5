@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelExporterSTL")
 @:include("Exporters/LevelExporterSTL.h")
-@:structAccess
+@:valueType
 extern class LevelExporterSTL extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelExporterSTL(LevelExporterSTL) from LevelExporterSTL {
 @:forward
 @:nativeGen
 @:native("LevelExporterSTL*")
-abstract LevelExporterSTLPtr(cpp.Star<LevelExporterSTL>) from cpp.Star<LevelExporterSTL> to cpp.Star<LevelExporterSTL>{
+abstract LevelExporterSTLPtr(ucpp.Ptr<LevelExporterSTL>) from ucpp.Ptr<LevelExporterSTL> to ucpp.Ptr<LevelExporterSTL>{
 	@:from
 	public static extern inline function fromValue(v: LevelExporterSTL): LevelExporterSTLPtr {
 		return untyped __cpp__("&({0})", v);

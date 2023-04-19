@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionObjectLocalBounds")
 @:include("Materials/MaterialExpressionObjectLocalBounds.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionObjectLocalBounds extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionObjectLocalBounds(MaterialExpressionObjectLocalB
 @:forward
 @:nativeGen
 @:native("MaterialExpressionObjectLocalBounds*")
-abstract MaterialExpressionObjectLocalBoundsPtr(cpp.Star<MaterialExpressionObjectLocalBounds>) from cpp.Star<MaterialExpressionObjectLocalBounds> to cpp.Star<MaterialExpressionObjectLocalBounds>{
+abstract MaterialExpressionObjectLocalBoundsPtr(ucpp.Ptr<MaterialExpressionObjectLocalBounds>) from ucpp.Ptr<MaterialExpressionObjectLocalBounds> to ucpp.Ptr<MaterialExpressionObjectLocalBounds>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionObjectLocalBounds): MaterialExpressionObjectLocalBoundsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionLightmassReplace")
 @:include("Materials/MaterialExpressionLightmassReplace.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLightmassReplace extends MaterialExpression {
 	public var Realtime: ExpressionInput;
 	public var Lightmass: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionLightmassReplace(MaterialExpressionLightmassRepl
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLightmassReplace*")
-abstract MaterialExpressionLightmassReplacePtr(cpp.Star<MaterialExpressionLightmassReplace>) from cpp.Star<MaterialExpressionLightmassReplace> to cpp.Star<MaterialExpressionLightmassReplace>{
+abstract MaterialExpressionLightmassReplacePtr(ucpp.Ptr<MaterialExpressionLightmassReplace>) from ucpp.Ptr<MaterialExpressionLightmassReplace> to ucpp.Ptr<MaterialExpressionLightmassReplace>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLightmassReplace): MaterialExpressionLightmassReplacePtr {
 		return untyped __cpp__("&({0})", v);

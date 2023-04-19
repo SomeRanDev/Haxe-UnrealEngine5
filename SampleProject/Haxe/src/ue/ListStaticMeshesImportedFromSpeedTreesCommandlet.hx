@@ -3,10 +3,10 @@ package ue;
 
 @:native("UListStaticMeshesImportedFromSpeedTreesCommandlet")
 @:include("Commandlets/ListStaticMeshesImportedFromSpeedTreesCommandlet.h")
-@:structAccess
+@:valueType
 extern class ListStaticMeshesImportedFromSpeedTreesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstListStaticMeshesImportedFromSpeedTreesCommandlet(ListStaticMeshesI
 @:forward
 @:nativeGen
 @:native("ListStaticMeshesImportedFromSpeedTreesCommandlet*")
-abstract ListStaticMeshesImportedFromSpeedTreesCommandletPtr(cpp.Star<ListStaticMeshesImportedFromSpeedTreesCommandlet>) from cpp.Star<ListStaticMeshesImportedFromSpeedTreesCommandlet> to cpp.Star<ListStaticMeshesImportedFromSpeedTreesCommandlet>{
+abstract ListStaticMeshesImportedFromSpeedTreesCommandletPtr(ucpp.Ptr<ListStaticMeshesImportedFromSpeedTreesCommandlet>) from ucpp.Ptr<ListStaticMeshesImportedFromSpeedTreesCommandlet> to ucpp.Ptr<ListStaticMeshesImportedFromSpeedTreesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ListStaticMeshesImportedFromSpeedTreesCommandlet): ListStaticMeshesImportedFromSpeedTreesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

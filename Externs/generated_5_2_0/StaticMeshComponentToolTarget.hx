@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStaticMeshComponentToolTarget")
 @:include("ToolTargets/StaticMeshComponentToolTarget.h")
-@:structAccess
+@:valueType
 extern class StaticMeshComponentToolTarget extends PrimitiveComponentToolTarget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStaticMeshComponentToolTarget(StaticMeshComponentToolTarget) from 
 @:forward
 @:nativeGen
 @:native("StaticMeshComponentToolTarget*")
-abstract StaticMeshComponentToolTargetPtr(cpp.Star<StaticMeshComponentToolTarget>) from cpp.Star<StaticMeshComponentToolTarget> to cpp.Star<StaticMeshComponentToolTarget>{
+abstract StaticMeshComponentToolTargetPtr(ucpp.Ptr<StaticMeshComponentToolTarget>) from ucpp.Ptr<StaticMeshComponentToolTarget> to ucpp.Ptr<StaticMeshComponentToolTarget>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshComponentToolTarget): StaticMeshComponentToolTargetPtr {
 		return untyped __cpp__("&({0})", v);

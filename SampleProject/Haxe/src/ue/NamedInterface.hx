@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNamedInterface")
 @:include("NamedInterfaces.h")
-@:structAccess
+@:valueType
 extern class NamedInterface {
 	public var InterfaceName: FName;
-	public var InterfaceObject: cpp.Star<Object>;
+	public var InterfaceObject: ucpp.Ptr<Object>;
 
 	@:native("FNamedInterface") public function new();
-	@:native("FNamedInterface") public static function make(InterfaceName: FName, InterfaceObject: cpp.Star<Object>): NamedInterface ;
+	@:native("FNamedInterface") public static function make(InterfaceName: FName, InterfaceObject: ucpp.Ptr<Object>): NamedInterface ;
 }

@@ -3,20 +3,20 @@ package ue;
 
 @:native("UDatasmithLightComponentTemplate")
 @:include("ObjectTemplates/DatasmithLightComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithLightComponentTemplate extends DatasmithObjectTemplate {
 	public var bVisible: Bool;
 	public var CastShadows: Bool;
 	public var bUseTemperature: Bool;
 	public var bUseIESBrightness: Bool;
-	public var Intensity: cpp.Float32;
-	public var Temperature: cpp.Float32;
-	public var IESBrightnessScale: cpp.Float32;
+	public var Intensity: ucpp.num.Float32;
+	public var Temperature: ucpp.num.Float32;
+	public var IESBrightnessScale: ucpp.num.Float32;
 	public var LightColor: LinearColor;
-	public var LightFunctionMaterial: cpp.Star<MaterialInterface>;
-	public var IESTexture: cpp.Star<TextureLightProfile>;
+	public var LightFunctionMaterial: ucpp.Ptr<MaterialInterface>;
+	public var IESTexture: ucpp.Ptr<TextureLightProfile>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,24 +30,24 @@ abstract ConstDatasmithLightComponentTemplate(DatasmithLightComponentTemplate) f
 	public inline extern function get_bUseTemperature(): Bool return this.bUseTemperature;
 	public extern var bUseIESBrightness(get, never): Bool;
 	public inline extern function get_bUseIESBrightness(): Bool return this.bUseIESBrightness;
-	public extern var Intensity(get, never): cpp.Float32;
-	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
-	public extern var Temperature(get, never): cpp.Float32;
-	public inline extern function get_Temperature(): cpp.Float32 return this.Temperature;
-	public extern var IESBrightnessScale(get, never): cpp.Float32;
-	public inline extern function get_IESBrightnessScale(): cpp.Float32 return this.IESBrightnessScale;
+	public extern var Intensity(get, never): ucpp.num.Float32;
+	public inline extern function get_Intensity(): ucpp.num.Float32 return this.Intensity;
+	public extern var Temperature(get, never): ucpp.num.Float32;
+	public inline extern function get_Temperature(): ucpp.num.Float32 return this.Temperature;
+	public extern var IESBrightnessScale(get, never): ucpp.num.Float32;
+	public inline extern function get_IESBrightnessScale(): ucpp.num.Float32 return this.IESBrightnessScale;
 	public extern var LightColor(get, never): LinearColor;
 	public inline extern function get_LightColor(): LinearColor return this.LightColor;
-	public extern var LightFunctionMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_LightFunctionMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.LightFunctionMaterial;
-	public extern var IESTexture(get, never): cpp.Star<TextureLightProfile.ConstTextureLightProfile>;
-	public inline extern function get_IESTexture(): cpp.Star<TextureLightProfile.ConstTextureLightProfile> return this.IESTexture;
+	public extern var LightFunctionMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_LightFunctionMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.LightFunctionMaterial;
+	public extern var IESTexture(get, never): ucpp.Ptr<TextureLightProfile.ConstTextureLightProfile>;
+	public inline extern function get_IESTexture(): ucpp.Ptr<TextureLightProfile.ConstTextureLightProfile> return this.IESTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithLightComponentTemplate*")
-abstract DatasmithLightComponentTemplatePtr(cpp.Star<DatasmithLightComponentTemplate>) from cpp.Star<DatasmithLightComponentTemplate> to cpp.Star<DatasmithLightComponentTemplate>{
+abstract DatasmithLightComponentTemplatePtr(ucpp.Ptr<DatasmithLightComponentTemplate>) from ucpp.Ptr<DatasmithLightComponentTemplate> to ucpp.Ptr<DatasmithLightComponentTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithLightComponentTemplate): DatasmithLightComponentTemplatePtr {
 		return untyped __cpp__("&({0})", v);

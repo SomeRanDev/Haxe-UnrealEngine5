@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMirrorToolActionPropertySet")
 @:include("MirrorTool.h")
-@:structAccess
+@:valueType
 extern class MirrorToolActionPropertySet extends InteractiveToolPropertySet {
 	public function Up(): Void;
 	public function ShiftToCenter(): Void;
@@ -13,7 +13,7 @@ extern class MirrorToolActionPropertySet extends InteractiveToolPropertySet {
 	public function Down(): Void;
 	public function Backward(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstMirrorToolActionPropertySet(MirrorToolActionPropertySet) from Mirr
 @:forward
 @:nativeGen
 @:native("MirrorToolActionPropertySet*")
-abstract MirrorToolActionPropertySetPtr(cpp.Star<MirrorToolActionPropertySet>) from cpp.Star<MirrorToolActionPropertySet> to cpp.Star<MirrorToolActionPropertySet>{
+abstract MirrorToolActionPropertySetPtr(ucpp.Ptr<MirrorToolActionPropertySet>) from ucpp.Ptr<MirrorToolActionPropertySet> to ucpp.Ptr<MirrorToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: MirrorToolActionPropertySet): MirrorToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

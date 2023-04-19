@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPropertyAccessLibrary")
 @:include("PropertyAccess.h")
-@:structAccess
+@:valueType
 extern class PropertyAccessLibrary {
 	private var PathSegments: TArray<PropertyAccessSegment>;
 	private var SrcPaths: TArray<PropertyAccessPath>;

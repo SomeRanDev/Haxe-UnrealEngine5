@@ -3,12 +3,12 @@ package ue;
 
 @:native("UContentBrowserDataMenuContext_FolderMenu")
 @:include("ContentBrowserDataMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserDataMenuContext_FolderMenu extends Object {
 	public var SelectedItems: TArray<ContentBrowserItem>;
 	public var bCanBeModified: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstContentBrowserDataMenuContext_FolderMenu(ContentBrowserDataMenuCon
 @:forward
 @:nativeGen
 @:native("ContentBrowserDataMenuContext_FolderMenu*")
-abstract ContentBrowserDataMenuContext_FolderMenuPtr(cpp.Star<ContentBrowserDataMenuContext_FolderMenu>) from cpp.Star<ContentBrowserDataMenuContext_FolderMenu> to cpp.Star<ContentBrowserDataMenuContext_FolderMenu>{
+abstract ContentBrowserDataMenuContext_FolderMenuPtr(ucpp.Ptr<ContentBrowserDataMenuContext_FolderMenu>) from ucpp.Ptr<ContentBrowserDataMenuContext_FolderMenu> to ucpp.Ptr<ContentBrowserDataMenuContext_FolderMenu>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserDataMenuContext_FolderMenu): ContentBrowserDataMenuContext_FolderMenuPtr {
 		return untyped __cpp__("&({0})", v);

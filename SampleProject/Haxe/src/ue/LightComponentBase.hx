@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULightComponentBase")
 @:include("Components/LightComponentBase.h")
-@:structAccess
+@:valueType
 extern class LightComponentBase extends SceneComp {
 	public var LightGuid: Guid;
-	public var Intensity: cpp.Float32;
+	public var Intensity: ucpp.num.Float32;
 	public var LightColor: Color;
 	public var bAffectsWorld: Bool;
 	public var CastShadows: Bool;
@@ -19,12 +19,12 @@ extern class LightComponentBase extends SceneComp {
 	public var CastRaytracedShadow: TEnumAsByte<ECastRayTracedShadow>;
 	public var bAffectReflection: Bool;
 	public var bAffectGlobalIllumination: Bool;
-	public var DeepShadowLayerDistribution: cpp.Float32;
-	public var IndirectLightingIntensity: cpp.Float32;
-	public var VolumetricScatteringIntensity: cpp.Float32;
-	public var SamplesPerPixel: cpp.Int32;
+	public var DeepShadowLayerDistribution: ucpp.num.Float32;
+	public var IndirectLightingIntensity: ucpp.num.Float32;
+	public var VolumetricScatteringIntensity: ucpp.num.Float32;
+	public var SamplesPerPixel: ucpp.num.Int32;
 
-	public function SetSamplesPerPixel(NewValue: cpp.Int32): Void;
+	public function SetSamplesPerPixel(NewValue: ucpp.num.Int32): Void;
 	public function SetCastVolumetricShadow(bNewValue: Bool): Void;
 	public function SetCastShadows(bNewValue: Bool): Void;
 	public function SetCastRaytracedShadows(bNewValue: TEnumAsByte<ECastRayTracedShadow>): Void;
@@ -34,7 +34,7 @@ extern class LightComponentBase extends SceneComp {
 	public function SetAffectGlobalIllumination(bNewValue: Bool): Void;
 	public function GetLightColor(): LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetLightColor)
@@ -42,8 +42,8 @@ extern class LightComponentBase extends SceneComp {
 abstract ConstLightComponentBase(LightComponentBase) from LightComponentBase {
 	public extern var LightGuid(get, never): Guid;
 	public inline extern function get_LightGuid(): Guid return this.LightGuid;
-	public extern var Intensity(get, never): cpp.Float32;
-	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
+	public extern var Intensity(get, never): ucpp.num.Float32;
+	public inline extern function get_Intensity(): ucpp.num.Float32 return this.Intensity;
 	public extern var LightColor(get, never): Color;
 	public inline extern function get_LightColor(): Color return this.LightColor;
 	public extern var bAffectsWorld(get, never): Bool;
@@ -68,20 +68,20 @@ abstract ConstLightComponentBase(LightComponentBase) from LightComponentBase {
 	public inline extern function get_bAffectReflection(): Bool return this.bAffectReflection;
 	public extern var bAffectGlobalIllumination(get, never): Bool;
 	public inline extern function get_bAffectGlobalIllumination(): Bool return this.bAffectGlobalIllumination;
-	public extern var DeepShadowLayerDistribution(get, never): cpp.Float32;
-	public inline extern function get_DeepShadowLayerDistribution(): cpp.Float32 return this.DeepShadowLayerDistribution;
-	public extern var IndirectLightingIntensity(get, never): cpp.Float32;
-	public inline extern function get_IndirectLightingIntensity(): cpp.Float32 return this.IndirectLightingIntensity;
-	public extern var VolumetricScatteringIntensity(get, never): cpp.Float32;
-	public inline extern function get_VolumetricScatteringIntensity(): cpp.Float32 return this.VolumetricScatteringIntensity;
-	public extern var SamplesPerPixel(get, never): cpp.Int32;
-	public inline extern function get_SamplesPerPixel(): cpp.Int32 return this.SamplesPerPixel;
+	public extern var DeepShadowLayerDistribution(get, never): ucpp.num.Float32;
+	public inline extern function get_DeepShadowLayerDistribution(): ucpp.num.Float32 return this.DeepShadowLayerDistribution;
+	public extern var IndirectLightingIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_IndirectLightingIntensity(): ucpp.num.Float32 return this.IndirectLightingIntensity;
+	public extern var VolumetricScatteringIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricScatteringIntensity(): ucpp.num.Float32 return this.VolumetricScatteringIntensity;
+	public extern var SamplesPerPixel(get, never): ucpp.num.Int32;
+	public inline extern function get_SamplesPerPixel(): ucpp.num.Int32 return this.SamplesPerPixel;
 }
 
 @:forward
 @:nativeGen
 @:native("LightComponentBase*")
-abstract LightComponentBasePtr(cpp.Star<LightComponentBase>) from cpp.Star<LightComponentBase> to cpp.Star<LightComponentBase>{
+abstract LightComponentBasePtr(ucpp.Ptr<LightComponentBase>) from ucpp.Ptr<LightComponentBase> to ucpp.Ptr<LightComponentBase>{
 	@:from
 	public static extern inline function fromValue(v: LightComponentBase): LightComponentBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraBakerOutputVolumeTexture")
 @:include("NiagaraBakerOutputVolumeTexture.h")
-@:structAccess
+@:valueType
 extern class NiagaraBakerOutputVolumeTexture extends NiagaraBakerOutput {
 	public var SourceBinding: NiagaraBakerTextureSource;
 	public var bGenerateAtlas: Bool;
@@ -13,7 +13,7 @@ extern class NiagaraBakerOutputVolumeTexture extends NiagaraBakerOutput {
 	public var FramesAssetPathFormat: FString;
 	public var FramesExportPathFormat: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstNiagaraBakerOutputVolumeTexture(NiagaraBakerOutputVolumeTexture) f
 @:forward
 @:nativeGen
 @:native("NiagaraBakerOutputVolumeTexture*")
-abstract NiagaraBakerOutputVolumeTexturePtr(cpp.Star<NiagaraBakerOutputVolumeTexture>) from cpp.Star<NiagaraBakerOutputVolumeTexture> to cpp.Star<NiagaraBakerOutputVolumeTexture>{
+abstract NiagaraBakerOutputVolumeTexturePtr(ucpp.Ptr<NiagaraBakerOutputVolumeTexture>) from ucpp.Ptr<NiagaraBakerOutputVolumeTexture> to ucpp.Ptr<NiagaraBakerOutputVolumeTexture>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraBakerOutputVolumeTexture): NiagaraBakerOutputVolumeTexturePtr {
 		return untyped __cpp__("&({0})", v);

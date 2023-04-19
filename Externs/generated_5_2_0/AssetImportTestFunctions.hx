@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAssetImportTestFunctions")
 @:include("ImportTestFunctions/AssetImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class AssetImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckMetadataValue(Object: cpp.Star<Object.ConstObject>, ExpectedMetadataKey: FString, ExpectedMetadataValue: FString): InterchangeTestFunctionResult;
-	public function CheckMetadataExist(Object: cpp.Star<Object.ConstObject>, ExpectedMetadataKey: FString): InterchangeTestFunctionResult;
-	public function CheckImportedMetadataCount(Object: cpp.Star<Object.ConstObject>, ExpectedNumberOfMetadataForThisObject: cpp.Int32): InterchangeTestFunctionResult;
+	public function CheckMetadataValue(Object: ucpp.Ptr<Object.ConstObject>, ExpectedMetadataKey: FString, ExpectedMetadataValue: FString): InterchangeTestFunctionResult;
+	public function CheckMetadataExist(Object: ucpp.Ptr<Object.ConstObject>, ExpectedMetadataKey: FString): InterchangeTestFunctionResult;
+	public function CheckImportedMetadataCount(Object: ucpp.Ptr<Object.ConstObject>, ExpectedNumberOfMetadataForThisObject: ucpp.num.Int32): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAssetImportTestFunctions(AssetImportTestFunctions) from AssetImpor
 @:forward
 @:nativeGen
 @:native("AssetImportTestFunctions*")
-abstract AssetImportTestFunctionsPtr(cpp.Star<AssetImportTestFunctions>) from cpp.Star<AssetImportTestFunctions> to cpp.Star<AssetImportTestFunctions>{
+abstract AssetImportTestFunctionsPtr(ucpp.Ptr<AssetImportTestFunctions>) from ucpp.Ptr<AssetImportTestFunctions> to ucpp.Ptr<AssetImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: AssetImportTestFunctions): AssetImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

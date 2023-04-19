@@ -3,47 +3,47 @@ package ue;
 
 @:native("UPhysicsSpringComponent")
 @:include("PhysicsEngine/PhysicsSpringComponent.h")
-@:structAccess
+@:valueType
 extern class PhysicsSpringComp extends SceneComp {
-	public var SpringStiffness: cpp.Float32;
-	public var SpringDamping: cpp.Float32;
-	public var SpringLengthAtRest: cpp.Float32;
-	public var SpringRadius: cpp.Float32;
+	public var SpringStiffness: ucpp.num.Float32;
+	public var SpringDamping: ucpp.num.Float32;
+	public var SpringLengthAtRest: ucpp.num.Float32;
+	public var SpringRadius: ucpp.num.Float32;
 	public var SpringChannel: TEnumAsByte<ECollisionChannel>;
 	public var bIgnoreSelf: Bool;
-	public var SpringCompression: cpp.Float32;
+	public var SpringCompression: ucpp.num.Float32;
 
 	public function GetSpringRestingPoint(): Vector;
 	public function GetSpringDirection(): Vector;
 	public function GetSpringCurrentEndPoint(): Vector;
-	public function GetNormalizedCompressionScalar(): cpp.Float32;
+	public function GetNormalizedCompressionScalar(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSpringRestingPoint, GetSpringDirection, GetSpringCurrentEndPoint, GetNormalizedCompressionScalar)
 @:nativeGen
 abstract ConstPhysicsSpringComp(PhysicsSpringComp) from PhysicsSpringComp {
-	public extern var SpringStiffness(get, never): cpp.Float32;
-	public inline extern function get_SpringStiffness(): cpp.Float32 return this.SpringStiffness;
-	public extern var SpringDamping(get, never): cpp.Float32;
-	public inline extern function get_SpringDamping(): cpp.Float32 return this.SpringDamping;
-	public extern var SpringLengthAtRest(get, never): cpp.Float32;
-	public inline extern function get_SpringLengthAtRest(): cpp.Float32 return this.SpringLengthAtRest;
-	public extern var SpringRadius(get, never): cpp.Float32;
-	public inline extern function get_SpringRadius(): cpp.Float32 return this.SpringRadius;
+	public extern var SpringStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_SpringStiffness(): ucpp.num.Float32 return this.SpringStiffness;
+	public extern var SpringDamping(get, never): ucpp.num.Float32;
+	public inline extern function get_SpringDamping(): ucpp.num.Float32 return this.SpringDamping;
+	public extern var SpringLengthAtRest(get, never): ucpp.num.Float32;
+	public inline extern function get_SpringLengthAtRest(): ucpp.num.Float32 return this.SpringLengthAtRest;
+	public extern var SpringRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_SpringRadius(): ucpp.num.Float32 return this.SpringRadius;
 	public extern var SpringChannel(get, never): TEnumAsByte<ECollisionChannel>;
 	public inline extern function get_SpringChannel(): TEnumAsByte<ECollisionChannel> return this.SpringChannel;
 	public extern var bIgnoreSelf(get, never): Bool;
 	public inline extern function get_bIgnoreSelf(): Bool return this.bIgnoreSelf;
-	public extern var SpringCompression(get, never): cpp.Float32;
-	public inline extern function get_SpringCompression(): cpp.Float32 return this.SpringCompression;
+	public extern var SpringCompression(get, never): ucpp.num.Float32;
+	public inline extern function get_SpringCompression(): ucpp.num.Float32 return this.SpringCompression;
 }
 
 @:forward
 @:nativeGen
 @:native("PhysicsSpringComp*")
-abstract PhysicsSpringCompPtr(cpp.Star<PhysicsSpringComp>) from cpp.Star<PhysicsSpringComp> to cpp.Star<PhysicsSpringComp>{
+abstract PhysicsSpringCompPtr(ucpp.Ptr<PhysicsSpringComp>) from ucpp.Ptr<PhysicsSpringComp> to ucpp.Ptr<PhysicsSpringComp>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsSpringComp): PhysicsSpringCompPtr {
 		return untyped __cpp__("&({0})", v);

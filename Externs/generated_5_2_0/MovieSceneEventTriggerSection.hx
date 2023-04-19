@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneEventTriggerSection")
 @:include("Sections/MovieSceneEventTriggerSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventTriggerSection extends MovieSceneEventSectionBase {
 	public var EventChannel: MovieSceneEventChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneEventTriggerSection(MovieSceneEventTriggerSection) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneEventTriggerSection*")
-abstract MovieSceneEventTriggerSectionPtr(cpp.Star<MovieSceneEventTriggerSection>) from cpp.Star<MovieSceneEventTriggerSection> to cpp.Star<MovieSceneEventTriggerSection>{
+abstract MovieSceneEventTriggerSectionPtr(ucpp.Ptr<MovieSceneEventTriggerSection>) from ucpp.Ptr<MovieSceneEventTriggerSection> to ucpp.Ptr<MovieSceneEventTriggerSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEventTriggerSection): MovieSceneEventTriggerSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAutomatedAssetImportData")
 @:include("AutomatedAssetImportData.h")
-@:structAccess
+@:valueType
 extern class AutomatedAssetImportData extends Object {
 	public var GroupName: FString;
 	public var Filenames: TArray<FString>;
@@ -11,10 +11,10 @@ extern class AutomatedAssetImportData extends Object {
 	public var FactoryName: FString;
 	public var bReplaceExisting: Bool;
 	public var bSkipReadOnly: Bool;
-	public var Factory: cpp.Star<Factory>;
+	public var Factory: ucpp.Ptr<Factory>;
 	public var LevelToLoad: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,8 +32,8 @@ abstract ConstAutomatedAssetImportData(AutomatedAssetImportData) from AutomatedA
 	public inline extern function get_bReplaceExisting(): Bool return this.bReplaceExisting;
 	public extern var bSkipReadOnly(get, never): Bool;
 	public inline extern function get_bSkipReadOnly(): Bool return this.bSkipReadOnly;
-	public extern var Factory(get, never): cpp.Star<Factory.ConstFactory>;
-	public inline extern function get_Factory(): cpp.Star<Factory.ConstFactory> return this.Factory;
+	public extern var Factory(get, never): ucpp.Ptr<Factory.ConstFactory>;
+	public inline extern function get_Factory(): ucpp.Ptr<Factory.ConstFactory> return this.Factory;
 	public extern var LevelToLoad(get, never): FString;
 	public inline extern function get_LevelToLoad(): FString return this.LevelToLoad;
 }
@@ -41,7 +41,7 @@ abstract ConstAutomatedAssetImportData(AutomatedAssetImportData) from AutomatedA
 @:forward
 @:nativeGen
 @:native("AutomatedAssetImportData*")
-abstract AutomatedAssetImportDataPtr(cpp.Star<AutomatedAssetImportData>) from cpp.Star<AutomatedAssetImportData> to cpp.Star<AutomatedAssetImportData>{
+abstract AutomatedAssetImportDataPtr(ucpp.Ptr<AutomatedAssetImportData>) from ucpp.Ptr<AutomatedAssetImportData> to ucpp.Ptr<AutomatedAssetImportData>{
 	@:from
 	public static extern inline function fromValue(v: AutomatedAssetImportData): AutomatedAssetImportDataPtr {
 		return untyped __cpp__("&({0})", v);

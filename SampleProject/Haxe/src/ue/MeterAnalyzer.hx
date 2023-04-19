@@ -3,36 +3,36 @@ package ue;
 
 @:native("UMeterAnalyzer")
 @:include("Meter.h")
-@:structAccess
+@:valueType
 extern class MeterAnalyzer extends AudioAnalyzer {
-	public var Settings: cpp.Star<MeterSettings>;
-	public var OnOverallMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<MeterResults>>) -> Void>;
-	public var OnPerChannelMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<MeterResults>>) -> Void>;
-	public var OnLatestOverallMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<MeterResults>) -> Void>;
-	public var OnLatestPerChannelMeterResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<MeterResults>) -> Void>;
+	public var Settings: ucpp.Ptr<MeterSettings>;
+	public var OnOverallMeterResults: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<MeterResults>>) -> Void>;
+	public var OnPerChannelMeterResults: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<MeterResults>>) -> Void>;
+	public var OnLatestOverallMeterResults: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<MeterResults>) -> Void>;
+	public var OnLatestPerChannelMeterResults: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<MeterResults>) -> Void>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeterAnalyzer(MeterAnalyzer) from MeterAnalyzer {
-	public extern var Settings(get, never): cpp.Star<MeterSettings.ConstMeterSettings>;
-	public inline extern function get_Settings(): cpp.Star<MeterSettings.ConstMeterSettings> return this.Settings;
-	public extern var OnOverallMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<MeterResults>>) -> Void>;
-	public inline extern function get_OnOverallMeterResults(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<MeterResults>>) -> Void> return this.OnOverallMeterResults;
-	public extern var OnPerChannelMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<MeterResults>>) -> Void>;
-	public inline extern function get_OnPerChannelMeterResults(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<MeterResults>>) -> Void> return this.OnPerChannelMeterResults;
-	public extern var OnLatestOverallMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<MeterResults>) -> Void>;
-	public inline extern function get_OnLatestOverallMeterResults(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<MeterResults>) -> Void> return this.OnLatestOverallMeterResults;
-	public extern var OnLatestPerChannelMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<MeterResults>) -> Void>;
-	public inline extern function get_OnLatestPerChannelMeterResults(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<MeterResults>) -> Void> return this.OnLatestPerChannelMeterResults;
+	public extern var Settings(get, never): ucpp.Ptr<MeterSettings.ConstMeterSettings>;
+	public inline extern function get_Settings(): ucpp.Ptr<MeterSettings.ConstMeterSettings> return this.Settings;
+	public extern var OnOverallMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<MeterResults>>) -> Void>;
+	public inline extern function get_OnOverallMeterResults(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<MeterResults>>) -> Void> return this.OnOverallMeterResults;
+	public extern var OnPerChannelMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<MeterResults>>) -> Void>;
+	public inline extern function get_OnPerChannelMeterResults(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<MeterResults>>) -> Void> return this.OnPerChannelMeterResults;
+	public extern var OnLatestOverallMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<MeterResults>) -> Void>;
+	public inline extern function get_OnLatestOverallMeterResults(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<MeterResults>) -> Void> return this.OnLatestOverallMeterResults;
+	public extern var OnLatestPerChannelMeterResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<MeterResults>) -> Void>;
+	public inline extern function get_OnLatestPerChannelMeterResults(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<MeterResults>) -> Void> return this.OnLatestPerChannelMeterResults;
 }
 
 @:forward
 @:nativeGen
 @:native("MeterAnalyzer*")
-abstract MeterAnalyzerPtr(cpp.Star<MeterAnalyzer>) from cpp.Star<MeterAnalyzer> to cpp.Star<MeterAnalyzer>{
+abstract MeterAnalyzerPtr(ucpp.Ptr<MeterAnalyzer>) from ucpp.Ptr<MeterAnalyzer> to ucpp.Ptr<MeterAnalyzer>{
 	@:from
 	public static extern inline function fromValue(v: MeterAnalyzer): MeterAnalyzerPtr {
 		return untyped __cpp__("&({0})", v);

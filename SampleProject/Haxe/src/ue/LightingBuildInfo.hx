@@ -3,16 +3,16 @@ package ue;
 
 @:native("ULightingBuildInfo")
 @:include("LightingBuildInfo.h")
-@:structAccess
+@:valueType
 extern class LightingBuildInfo extends Object {
 	public var Object: TWeakObjectPtr<Object>;
-	public var LightingTime: cpp.Float32;
-	public var UnmappedTexelsPercentage: cpp.Float32;
-	public var UnmappedTexelsMemory: cpp.Float32;
-	public var TotalTexelMemory: cpp.Float32;
+	public var LightingTime: ucpp.num.Float32;
+	public var UnmappedTexelsPercentage: ucpp.num.Float32;
+	public var UnmappedTexelsMemory: ucpp.num.Float32;
+	public var TotalTexelMemory: ucpp.num.Float32;
 	public var LevelName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,14 +20,14 @@ extern class LightingBuildInfo extends Object {
 abstract ConstLightingBuildInfo(LightingBuildInfo) from LightingBuildInfo {
 	public extern var Object(get, never): TWeakObjectPtr<Object.ConstObject>;
 	public inline extern function get_Object(): TWeakObjectPtr<Object.ConstObject> return this.Object;
-	public extern var LightingTime(get, never): cpp.Float32;
-	public inline extern function get_LightingTime(): cpp.Float32 return this.LightingTime;
-	public extern var UnmappedTexelsPercentage(get, never): cpp.Float32;
-	public inline extern function get_UnmappedTexelsPercentage(): cpp.Float32 return this.UnmappedTexelsPercentage;
-	public extern var UnmappedTexelsMemory(get, never): cpp.Float32;
-	public inline extern function get_UnmappedTexelsMemory(): cpp.Float32 return this.UnmappedTexelsMemory;
-	public extern var TotalTexelMemory(get, never): cpp.Float32;
-	public inline extern function get_TotalTexelMemory(): cpp.Float32 return this.TotalTexelMemory;
+	public extern var LightingTime(get, never): ucpp.num.Float32;
+	public inline extern function get_LightingTime(): ucpp.num.Float32 return this.LightingTime;
+	public extern var UnmappedTexelsPercentage(get, never): ucpp.num.Float32;
+	public inline extern function get_UnmappedTexelsPercentage(): ucpp.num.Float32 return this.UnmappedTexelsPercentage;
+	public extern var UnmappedTexelsMemory(get, never): ucpp.num.Float32;
+	public inline extern function get_UnmappedTexelsMemory(): ucpp.num.Float32 return this.UnmappedTexelsMemory;
+	public extern var TotalTexelMemory(get, never): ucpp.num.Float32;
+	public inline extern function get_TotalTexelMemory(): ucpp.num.Float32 return this.TotalTexelMemory;
 	public extern var LevelName(get, never): FString;
 	public inline extern function get_LevelName(): FString return this.LevelName;
 }
@@ -35,7 +35,7 @@ abstract ConstLightingBuildInfo(LightingBuildInfo) from LightingBuildInfo {
 @:forward
 @:nativeGen
 @:native("LightingBuildInfo*")
-abstract LightingBuildInfoPtr(cpp.Star<LightingBuildInfo>) from cpp.Star<LightingBuildInfo> to cpp.Star<LightingBuildInfo>{
+abstract LightingBuildInfoPtr(ucpp.Ptr<LightingBuildInfo>) from ucpp.Ptr<LightingBuildInfo> to ucpp.Ptr<LightingBuildInfo>{
 	@:from
 	public static extern inline function fromValue(v: LightingBuildInfo): LightingBuildInfoPtr {
 		return untyped __cpp__("&({0})", v);

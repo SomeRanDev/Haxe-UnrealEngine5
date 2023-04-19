@@ -3,12 +3,12 @@ package ue;
 
 @:native("FBlendSpaceTriangle")
 @:include("Animation/BlendSpace.h")
-@:structAccess
+@:valueType
 extern class BlendSpaceTriangle {
-	public var SampleIndices: cpp.Int32;
+	public var SampleIndices: ucpp.num.Int32;
 	public var Vertices: Vector2D;
 	public var EdgeInfo: BlendSpaceTriangleEdgeInfo;
 
 	@:native("FBlendSpaceTriangle") public function new();
-	@:native("FBlendSpaceTriangle") public static function make(SampleIndices: cpp.Int32, Vertices: Vector2D, EdgeInfo: BlendSpaceTriangleEdgeInfo): BlendSpaceTriangle ;
+	@:native("FBlendSpaceTriangle") public static function make(SampleIndices: ucpp.num.Int32, Vertices: Vector2D, EdgeInfo: BlendSpaceTriangleEdgeInfo): BlendSpaceTriangle ;
 }

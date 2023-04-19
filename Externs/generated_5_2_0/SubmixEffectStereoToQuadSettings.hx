@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSubmixEffectStereoToQuadSettings")
 @:include("SubmixEffects/SubmixEffectStereoToQuad.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectStereoToQuadSettings {
 	public var bFlipChannels: Bool;
-	public var RearChannelGain: cpp.Float32;
+	public var RearChannelGain: ucpp.num.Float32;
 
 	@:native("FSubmixEffectStereoToQuadSettings") public function new();
-	@:native("FSubmixEffectStereoToQuadSettings") public static function make(bFlipChannels: Bool, RearChannelGain: cpp.Float32): SubmixEffectStereoToQuadSettings ;
+	@:native("FSubmixEffectStereoToQuadSettings") public static function make(bFlipChannels: Bool, RearChannelGain: ucpp.num.Float32): SubmixEffectStereoToQuadSettings ;
 }

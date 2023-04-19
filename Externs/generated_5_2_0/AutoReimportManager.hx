@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAutoReimportManager")
 @:include("AutoReimport/AutoReimportManager.h")
-@:structAccess
+@:valueType
 extern class AutoReimportManager extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAutoReimportManager(AutoReimportManager) from AutoReimportManager 
 @:forward
 @:nativeGen
 @:native("AutoReimportManager*")
-abstract AutoReimportManagerPtr(cpp.Star<AutoReimportManager>) from cpp.Star<AutoReimportManager> to cpp.Star<AutoReimportManager>{
+abstract AutoReimportManagerPtr(ucpp.Ptr<AutoReimportManager>) from ucpp.Ptr<AutoReimportManager> to ucpp.Ptr<AutoReimportManager>{
 	@:from
 	public static extern inline function fromValue(v: AutoReimportManager): AutoReimportManagerPtr {
 		return untyped __cpp__("&({0})", v);

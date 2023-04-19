@@ -3,26 +3,26 @@ package ue;
 
 @:native("UMovieSceneCopyableBinding")
 @:include("MovieSceneCopyableBinding.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCopyableBinding extends Object {
-	public var SpawnableObjectTemplate: cpp.Star<Object>;
-	public var Tracks: TArray<cpp.Star<MovieSceneTrack>>;
+	public var SpawnableObjectTemplate: ucpp.Ptr<Object>;
+	public var Tracks: TArray<ucpp.Ptr<MovieSceneTrack>>;
 	public var Binding: MovieSceneBinding;
 	public var Spawnable: MovieSceneSpawnable;
 	public var Possessable: MovieScenePossessable;
 	public var BoundObjectNames: TArray<FString>;
 	public var FolderPath: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneCopyableBinding(MovieSceneCopyableBinding) from MovieSceneCopyableBinding {
-	public extern var SpawnableObjectTemplate(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_SpawnableObjectTemplate(): cpp.Star<Object.ConstObject> return this.SpawnableObjectTemplate;
-	public extern var Tracks(get, never): TArray<cpp.Star<MovieSceneTrack.ConstMovieSceneTrack>>;
-	public inline extern function get_Tracks(): TArray<cpp.Star<MovieSceneTrack.ConstMovieSceneTrack>> return this.Tracks;
+	public extern var SpawnableObjectTemplate(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_SpawnableObjectTemplate(): ucpp.Ptr<Object.ConstObject> return this.SpawnableObjectTemplate;
+	public extern var Tracks(get, never): TArray<ucpp.Ptr<MovieSceneTrack.ConstMovieSceneTrack>>;
+	public inline extern function get_Tracks(): TArray<ucpp.Ptr<MovieSceneTrack.ConstMovieSceneTrack>> return this.Tracks;
 	public extern var Binding(get, never): MovieSceneBinding;
 	public inline extern function get_Binding(): MovieSceneBinding return this.Binding;
 	public extern var Spawnable(get, never): MovieSceneSpawnable;
@@ -38,7 +38,7 @@ abstract ConstMovieSceneCopyableBinding(MovieSceneCopyableBinding) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieSceneCopyableBinding*")
-abstract MovieSceneCopyableBindingPtr(cpp.Star<MovieSceneCopyableBinding>) from cpp.Star<MovieSceneCopyableBinding> to cpp.Star<MovieSceneCopyableBinding>{
+abstract MovieSceneCopyableBindingPtr(ucpp.Ptr<MovieSceneCopyableBinding>) from ucpp.Ptr<MovieSceneCopyableBinding> to ucpp.Ptr<MovieSceneCopyableBinding>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCopyableBinding): MovieSceneCopyableBindingPtr {
 		return untyped __cpp__("&({0})", v);

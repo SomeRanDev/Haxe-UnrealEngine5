@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPolyEditPreviewMesh")
 @:include("Drawing/PolyEditPreviewMesh.h")
-@:structAccess
+@:valueType
 extern class PolyEditPreviewMesh extends PreviewMesh {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPolyEditPreviewMesh(PolyEditPreviewMesh) from PolyEditPreviewMesh 
 @:forward
 @:nativeGen
 @:native("PolyEditPreviewMesh*")
-abstract PolyEditPreviewMeshPtr(cpp.Star<PolyEditPreviewMesh>) from cpp.Star<PolyEditPreviewMesh> to cpp.Star<PolyEditPreviewMesh>{
+abstract PolyEditPreviewMeshPtr(ucpp.Ptr<PolyEditPreviewMesh>) from ucpp.Ptr<PolyEditPreviewMesh> to ucpp.Ptr<PolyEditPreviewMesh>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditPreviewMesh): PolyEditPreviewMeshPtr {
 		return untyped __cpp__("&({0})", v);

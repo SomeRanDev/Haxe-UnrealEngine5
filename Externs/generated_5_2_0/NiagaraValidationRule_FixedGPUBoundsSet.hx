@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraValidationRule_FixedGPUBoundsSet")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_FixedGPUBoundsSet extends NiagaraValidationRule {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraValidationRule_FixedGPUBoundsSet(NiagaraValidationRule_Fixe
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_FixedGPUBoundsSet*")
-abstract NiagaraValidationRule_FixedGPUBoundsSetPtr(cpp.Star<NiagaraValidationRule_FixedGPUBoundsSet>) from cpp.Star<NiagaraValidationRule_FixedGPUBoundsSet> to cpp.Star<NiagaraValidationRule_FixedGPUBoundsSet>{
+abstract NiagaraValidationRule_FixedGPUBoundsSetPtr(ucpp.Ptr<NiagaraValidationRule_FixedGPUBoundsSet>) from ucpp.Ptr<NiagaraValidationRule_FixedGPUBoundsSet> to ucpp.Ptr<NiagaraValidationRule_FixedGPUBoundsSet>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_FixedGPUBoundsSet): NiagaraValidationRule_FixedGPUBoundsSetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAIMoveRequest")
 @:include("AITypes.h")
-@:structAccess
+@:valueType
 extern class AIMoveRequest {
 	@:protected public var GoalActor: TWeakObjectPtr<Actor>;
 

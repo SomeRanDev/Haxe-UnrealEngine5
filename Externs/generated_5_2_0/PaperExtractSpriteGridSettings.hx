@@ -3,45 +3,45 @@ package ue;
 
 @:native("UPaperExtractSpriteGridSettings")
 @:include("ExtractSprites/PaperExtractSpritesSettings.h")
-@:structAccess
+@:valueType
 extern class PaperExtractSpriteGridSettings extends Object {
-	public var CellWidth: cpp.Int32;
-	public var CellHeight: cpp.Int32;
-	public var NumCellsX: cpp.Int32;
-	public var NumCellsY: cpp.Int32;
-	public var MarginX: cpp.Int32;
-	public var MarginY: cpp.Int32;
-	public var SpacingX: cpp.Int32;
-	public var SpacingY: cpp.Int32;
+	public var CellWidth: ucpp.num.Int32;
+	public var CellHeight: ucpp.num.Int32;
+	public var NumCellsX: ucpp.num.Int32;
+	public var NumCellsY: ucpp.num.Int32;
+	public var MarginX: ucpp.num.Int32;
+	public var MarginY: ucpp.num.Int32;
+	public var SpacingX: ucpp.num.Int32;
+	public var SpacingY: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPaperExtractSpriteGridSettings(PaperExtractSpriteGridSettings) from PaperExtractSpriteGridSettings {
-	public extern var CellWidth(get, never): cpp.Int32;
-	public inline extern function get_CellWidth(): cpp.Int32 return this.CellWidth;
-	public extern var CellHeight(get, never): cpp.Int32;
-	public inline extern function get_CellHeight(): cpp.Int32 return this.CellHeight;
-	public extern var NumCellsX(get, never): cpp.Int32;
-	public inline extern function get_NumCellsX(): cpp.Int32 return this.NumCellsX;
-	public extern var NumCellsY(get, never): cpp.Int32;
-	public inline extern function get_NumCellsY(): cpp.Int32 return this.NumCellsY;
-	public extern var MarginX(get, never): cpp.Int32;
-	public inline extern function get_MarginX(): cpp.Int32 return this.MarginX;
-	public extern var MarginY(get, never): cpp.Int32;
-	public inline extern function get_MarginY(): cpp.Int32 return this.MarginY;
-	public extern var SpacingX(get, never): cpp.Int32;
-	public inline extern function get_SpacingX(): cpp.Int32 return this.SpacingX;
-	public extern var SpacingY(get, never): cpp.Int32;
-	public inline extern function get_SpacingY(): cpp.Int32 return this.SpacingY;
+	public extern var CellWidth(get, never): ucpp.num.Int32;
+	public inline extern function get_CellWidth(): ucpp.num.Int32 return this.CellWidth;
+	public extern var CellHeight(get, never): ucpp.num.Int32;
+	public inline extern function get_CellHeight(): ucpp.num.Int32 return this.CellHeight;
+	public extern var NumCellsX(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCellsX(): ucpp.num.Int32 return this.NumCellsX;
+	public extern var NumCellsY(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCellsY(): ucpp.num.Int32 return this.NumCellsY;
+	public extern var MarginX(get, never): ucpp.num.Int32;
+	public inline extern function get_MarginX(): ucpp.num.Int32 return this.MarginX;
+	public extern var MarginY(get, never): ucpp.num.Int32;
+	public inline extern function get_MarginY(): ucpp.num.Int32 return this.MarginY;
+	public extern var SpacingX(get, never): ucpp.num.Int32;
+	public inline extern function get_SpacingX(): ucpp.num.Int32 return this.SpacingX;
+	public extern var SpacingY(get, never): ucpp.num.Int32;
+	public inline extern function get_SpacingY(): ucpp.num.Int32 return this.SpacingY;
 }
 
 @:forward
 @:nativeGen
 @:native("PaperExtractSpriteGridSettings*")
-abstract PaperExtractSpriteGridSettingsPtr(cpp.Star<PaperExtractSpriteGridSettings>) from cpp.Star<PaperExtractSpriteGridSettings> to cpp.Star<PaperExtractSpriteGridSettings>{
+abstract PaperExtractSpriteGridSettingsPtr(ucpp.Ptr<PaperExtractSpriteGridSettings>) from ucpp.Ptr<PaperExtractSpriteGridSettings> to ucpp.Ptr<PaperExtractSpriteGridSettings>{
 	@:from
 	public static extern inline function fromValue(v: PaperExtractSpriteGridSettings): PaperExtractSpriteGridSettingsPtr {
 		return untyped __cpp__("&({0})", v);

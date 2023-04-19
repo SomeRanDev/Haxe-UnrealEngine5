@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayDebuggerShape")
 @:include("GameplayDebuggerTypes.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerShape {
 	public var ShapeData: TArray<Vector>;
 	public var Description: FString;

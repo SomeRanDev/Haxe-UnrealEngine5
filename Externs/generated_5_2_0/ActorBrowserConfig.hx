@@ -3,11 +3,11 @@ package ue;
 
 @:native("UActorBrowserConfig")
 @:include("ActorBrowsingModeSettings.h")
-@:structAccess
+@:valueType
 extern class ActorBrowserConfig extends EditorConfigBase {
 	public var ActorBrowsers: TMap<FName, ActorBrowsingModeConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstActorBrowserConfig(ActorBrowserConfig) from ActorBrowserConfig {
 @:forward
 @:nativeGen
 @:native("ActorBrowserConfig*")
-abstract ActorBrowserConfigPtr(cpp.Star<ActorBrowserConfig>) from cpp.Star<ActorBrowserConfig> to cpp.Star<ActorBrowserConfig>{
+abstract ActorBrowserConfigPtr(ucpp.Ptr<ActorBrowserConfig>) from ucpp.Ptr<ActorBrowserConfig> to ucpp.Ptr<ActorBrowserConfig>{
 	@:from
 	public static extern inline function fromValue(v: ActorBrowserConfig): ActorBrowserConfigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraCompilerTag")
 @:include("NiagaraScript.h")
-@:structAccess
+@:valueType
 extern class NiagaraCompilerTag {
 	public var Variable: NiagaraVariable;
 	public var StringValue: FString;

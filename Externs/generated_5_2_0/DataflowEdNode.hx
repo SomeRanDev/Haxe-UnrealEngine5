@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataflowEdNode")
 @:include("Dataflow/DataflowEdNode.h")
-@:structAccess
+@:valueType
 extern class DataflowEdNode extends EdGraphNode {
 	public var bRenderInAssetEditor: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDataflowEdNode(DataflowEdNode) from DataflowEdNode {
 @:forward
 @:nativeGen
 @:native("DataflowEdNode*")
-abstract DataflowEdNodePtr(cpp.Star<DataflowEdNode>) from cpp.Star<DataflowEdNode> to cpp.Star<DataflowEdNode>{
+abstract DataflowEdNodePtr(ucpp.Ptr<DataflowEdNode>) from ucpp.Ptr<DataflowEdNode> to ucpp.Ptr<DataflowEdNode>{
 	@:from
 	public static extern inline function fromValue(v: DataflowEdNode): DataflowEdNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("USkinWeightsPaintToolProperties")
 @:include("SkinWeightsPaintTool.h")
-@:structAccess
+@:valueType
 extern class SkinWeightsPaintToolProperties extends InteractiveToolPropertySet {
 	public var CurrentBone: BoneReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSkinWeightsPaintToolProperties(SkinWeightsPaintToolProperties) fro
 @:forward
 @:nativeGen
 @:native("SkinWeightsPaintToolProperties*")
-abstract SkinWeightsPaintToolPropertiesPtr(cpp.Star<SkinWeightsPaintToolProperties>) from cpp.Star<SkinWeightsPaintToolProperties> to cpp.Star<SkinWeightsPaintToolProperties>{
+abstract SkinWeightsPaintToolPropertiesPtr(ucpp.Ptr<SkinWeightsPaintToolProperties>) from ucpp.Ptr<SkinWeightsPaintToolProperties> to ucpp.Ptr<SkinWeightsPaintToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: SkinWeightsPaintToolProperties): SkinWeightsPaintToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

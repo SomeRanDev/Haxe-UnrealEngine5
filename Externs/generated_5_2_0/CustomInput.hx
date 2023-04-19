@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomInput")
 @:include("Materials/MaterialExpressionCustom.h")
-@:structAccess
+@:valueType
 extern class CustomInput {
 	public var InputName: FName;
 	public var Input: ExpressionInput;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UCopyBonesModifier")
 @:include("CopyBonesModifier.h")
-@:structAccess
+@:valueType
 extern class CopyBonesModifier extends AnimationModifier {
 	public var BonePairs: TArray<BoneReferencePair>;
 	public var BonePoseSpace: EAnimPoseSpaces;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstCopyBonesModifier(CopyBonesModifier) from CopyBonesModifier {
 @:forward
 @:nativeGen
 @:native("CopyBonesModifier*")
-abstract CopyBonesModifierPtr(cpp.Star<CopyBonesModifier>) from cpp.Star<CopyBonesModifier> to cpp.Star<CopyBonesModifier>{
+abstract CopyBonesModifierPtr(ucpp.Ptr<CopyBonesModifier>) from ucpp.Ptr<CopyBonesModifier> to ucpp.Ptr<CopyBonesModifier>{
 	@:from
 	public static extern inline function fromValue(v: CopyBonesModifier): CopyBonesModifierPtr {
 		return untyped __cpp__("&({0})", v);

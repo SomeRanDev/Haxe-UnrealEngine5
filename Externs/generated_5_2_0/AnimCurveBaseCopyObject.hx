@@ -3,16 +3,16 @@ package ue;
 
 @:native("UAnimCurveBaseCopyObject")
 @:include("AnimTimeline/AnimTimelineClipboard.h")
-@:structAccess
+@:valueType
 extern class AnimCurveBaseCopyObject extends Object {
 	public var DisplayName: FName;
-	public var UID: cpp.UInt16;
+	public var UID: ucpp.num.UInt16;
 	public var CurveType: ERawCurveTrackTypes;
 	public var Channel: ETransformCurveChannel;
 	public var Axis: EVectorCurveChannel;
 	public var OriginName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,8 +20,8 @@ extern class AnimCurveBaseCopyObject extends Object {
 abstract ConstAnimCurveBaseCopyObject(AnimCurveBaseCopyObject) from AnimCurveBaseCopyObject {
 	public extern var DisplayName(get, never): FName;
 	public inline extern function get_DisplayName(): FName return this.DisplayName;
-	public extern var UID(get, never): cpp.UInt16;
-	public inline extern function get_UID(): cpp.UInt16 return this.UID;
+	public extern var UID(get, never): ucpp.num.UInt16;
+	public inline extern function get_UID(): ucpp.num.UInt16 return this.UID;
 	public extern var CurveType(get, never): ERawCurveTrackTypes;
 	public inline extern function get_CurveType(): ERawCurveTrackTypes return this.CurveType;
 	public extern var Channel(get, never): ETransformCurveChannel;
@@ -35,7 +35,7 @@ abstract ConstAnimCurveBaseCopyObject(AnimCurveBaseCopyObject) from AnimCurveBas
 @:forward
 @:nativeGen
 @:native("AnimCurveBaseCopyObject*")
-abstract AnimCurveBaseCopyObjectPtr(cpp.Star<AnimCurveBaseCopyObject>) from cpp.Star<AnimCurveBaseCopyObject> to cpp.Star<AnimCurveBaseCopyObject>{
+abstract AnimCurveBaseCopyObjectPtr(ucpp.Ptr<AnimCurveBaseCopyObject>) from ucpp.Ptr<AnimCurveBaseCopyObject> to ucpp.Ptr<AnimCurveBaseCopyObject>{
 	@:from
 	public static extern inline function fromValue(v: AnimCurveBaseCopyObject): AnimCurveBaseCopyObjectPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTransformMeshesToolProperties")
 @:include("TransformMeshesTool.h")
-@:structAccess
+@:valueType
 extern class TransformMeshesToolProperties extends InteractiveToolPropertySet {
 	public var TransformMode: ETransformMeshesTransformMode;
 	public var bApplyToInstances: Bool;
@@ -13,7 +13,7 @@ extern class TransformMeshesToolProperties extends InteractiveToolPropertySet {
 	public var RotationMode: ETransformMeshesSnapDragRotationMode;
 	public var bHaveInstances: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstTransformMeshesToolProperties(TransformMeshesToolProperties) from 
 @:forward
 @:nativeGen
 @:native("TransformMeshesToolProperties*")
-abstract TransformMeshesToolPropertiesPtr(cpp.Star<TransformMeshesToolProperties>) from cpp.Star<TransformMeshesToolProperties> to cpp.Star<TransformMeshesToolProperties>{
+abstract TransformMeshesToolPropertiesPtr(ucpp.Ptr<TransformMeshesToolProperties>) from ucpp.Ptr<TransformMeshesToolProperties> to ucpp.Ptr<TransformMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: TransformMeshesToolProperties): TransformMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

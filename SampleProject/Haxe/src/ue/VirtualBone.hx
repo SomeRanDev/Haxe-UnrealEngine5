@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVirtualBone")
 @:include("Animation/Skeleton.h")
-@:structAccess
+@:valueType
 extern class VirtualBone {
 	public var SourceBoneName: FName;
 	public var TargetBoneName: FName;

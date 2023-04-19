@@ -3,23 +3,23 @@ package ue;
 
 @:native("UPluginBlueprintLibrary")
 @:include("PluginBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class PluginBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function IsPluginMounted(PluginName: FString): Bool;
-	public function GetPluginVersionName(PluginName: FString, OutVersionName: cpp.Reference<FString>): Bool;
-	public function GetPluginVersion(PluginName: FString, OutVersion: cpp.Reference<cpp.Int32>): Bool;
-	public function GetPluginNameForObjectPath(ObjectPath: cpp.Reference<SoftObjectPath>, OutPluginName: cpp.Reference<FString>): Bool;
-	public function GetPluginMountedAssetPath(PluginName: FString, OutAssetPath: cpp.Reference<FString>): Bool;
-	public function GetPluginEditorCustomVirtualPath(PluginName: FString, OutVirtualPath: cpp.Reference<FString>): Bool;
-	public function GetPluginDescriptorFilePath(PluginName: FString, OutFilePath: cpp.Reference<FString>): Bool;
-	public function GetPluginDescription(PluginName: FString, OutDescription: cpp.Reference<FString>): Bool;
-	public function GetPluginContentDir(PluginName: FString, OutContentDir: cpp.Reference<FString>): Bool;
-	public function GetPluginBaseDir(PluginName: FString, OutBaseDir: cpp.Reference<FString>): Bool;
+	public function GetPluginVersionName(PluginName: FString, OutVersionName: ucpp.Ref<FString>): Bool;
+	public function GetPluginVersion(PluginName: FString, OutVersion: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetPluginNameForObjectPath(ObjectPath: ucpp.Ref<SoftObjectPath>, OutPluginName: ucpp.Ref<FString>): Bool;
+	public function GetPluginMountedAssetPath(PluginName: FString, OutAssetPath: ucpp.Ref<FString>): Bool;
+	public function GetPluginEditorCustomVirtualPath(PluginName: FString, OutVirtualPath: ucpp.Ref<FString>): Bool;
+	public function GetPluginDescriptorFilePath(PluginName: FString, OutFilePath: ucpp.Ref<FString>): Bool;
+	public function GetPluginDescription(PluginName: FString, OutDescription: ucpp.Ref<FString>): Bool;
+	public function GetPluginContentDir(PluginName: FString, OutContentDir: ucpp.Ref<FString>): Bool;
+	public function GetPluginBaseDir(PluginName: FString, OutBaseDir: ucpp.Ref<FString>): Bool;
 	public function GetEnabledPluginNames(): TArray<FString>;
 	public function GetAdditionalProjectPluginSearchPaths(): TArray<FString>;
 	public function GetAdditionalPluginSearchPaths(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstPluginBlueprintLibrary(PluginBlueprintLibrary) from PluginBlueprin
 @:forward
 @:nativeGen
 @:native("PluginBlueprintLibrary*")
-abstract PluginBlueprintLibraryPtr(cpp.Star<PluginBlueprintLibrary>) from cpp.Star<PluginBlueprintLibrary> to cpp.Star<PluginBlueprintLibrary>{
+abstract PluginBlueprintLibraryPtr(ucpp.Ptr<PluginBlueprintLibrary>) from ucpp.Ptr<PluginBlueprintLibrary> to ucpp.Ptr<PluginBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: PluginBlueprintLibrary): PluginBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

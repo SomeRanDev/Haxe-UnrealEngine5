@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraOutlinerFilterSettings")
 @:include("Private/NiagaraOutliner.h")
-@:structAccess
+@:valueType
 extern class NiagaraOutlinerFilterSettings {
 	public var bFilterBySystemExecutionState: Bool;
 	public var bFilterByEmitterExecutionState: Bool;

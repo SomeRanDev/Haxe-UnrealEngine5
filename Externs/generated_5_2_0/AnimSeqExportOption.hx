@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAnimSeqExportOption")
 @:include("Exporters/AnimSeqExportOption.h")
-@:structAccess
+@:valueType
 extern class AnimSeqExportOption extends Object {
 	public var bExportTransforms: Bool;
 	public var bExportMorphTargets: Bool;
@@ -19,7 +19,7 @@ extern class AnimSeqExportOption extends Object {
 	public var DelayBeforeStart: FrameNumber;
 	public var bTransactRecording: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstAnimSeqExportOption(AnimSeqExportOption) from AnimSeqExportOption 
 @:forward
 @:nativeGen
 @:native("AnimSeqExportOption*")
-abstract AnimSeqExportOptionPtr(cpp.Star<AnimSeqExportOption>) from cpp.Star<AnimSeqExportOption> to cpp.Star<AnimSeqExportOption>{
+abstract AnimSeqExportOptionPtr(ucpp.Ptr<AnimSeqExportOption>) from ucpp.Ptr<AnimSeqExportOption> to ucpp.Ptr<AnimSeqExportOption>{
 	@:from
 	public static extern inline function fromValue(v: AnimSeqExportOption): AnimSeqExportOptionPtr {
 		return untyped __cpp__("&({0})", v);

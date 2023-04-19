@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraEmitterThumbnailRenderer")
 @:include("NiagaraThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class NiagaraEmitterThumbnailRenderer extends NiagaraThumbnailRendererBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraEmitterThumbnailRenderer(NiagaraEmitterThumbnailRenderer) f
 @:forward
 @:nativeGen
 @:native("NiagaraEmitterThumbnailRenderer*")
-abstract NiagaraEmitterThumbnailRendererPtr(cpp.Star<NiagaraEmitterThumbnailRenderer>) from cpp.Star<NiagaraEmitterThumbnailRenderer> to cpp.Star<NiagaraEmitterThumbnailRenderer>{
+abstract NiagaraEmitterThumbnailRendererPtr(ucpp.Ptr<NiagaraEmitterThumbnailRenderer>) from ucpp.Ptr<NiagaraEmitterThumbnailRenderer> to ucpp.Ptr<NiagaraEmitterThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEmitterThumbnailRenderer): NiagaraEmitterThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

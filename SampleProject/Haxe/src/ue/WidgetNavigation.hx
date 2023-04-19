@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWidgetNavigation")
 @:include("Blueprint/WidgetNavigation.h")
-@:structAccess
+@:valueType
 extern class WidgetNavigation extends Object {
 	public var Up: WidgetNavigationData;
 	public var Down: WidgetNavigationData;
@@ -12,7 +12,7 @@ extern class WidgetNavigation extends Object {
 	public var Next: WidgetNavigationData;
 	public var Previous: WidgetNavigationData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstWidgetNavigation(WidgetNavigation) from WidgetNavigation {
 @:forward
 @:nativeGen
 @:native("WidgetNavigation*")
-abstract WidgetNavigationPtr(cpp.Star<WidgetNavigation>) from cpp.Star<WidgetNavigation> to cpp.Star<WidgetNavigation>{
+abstract WidgetNavigationPtr(ucpp.Ptr<WidgetNavigation>) from ucpp.Ptr<WidgetNavigation> to ucpp.Ptr<WidgetNavigation>{
 	@:from
 	public static extern inline function fromValue(v: WidgetNavigation): WidgetNavigationPtr {
 		return untyped __cpp__("&({0})", v);

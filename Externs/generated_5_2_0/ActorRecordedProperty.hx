@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorRecordedProperty")
 @:include("TakeRecorderSourceProperty.h")
-@:structAccess
+@:valueType
 extern class ActorRecordedProperty {
 	public var PropertyName: FName;
 	public var bEnabled: Bool;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavAreaMeta")
 @:include("NavAreas/NavAreaMeta.h")
-@:structAccess
+@:valueType
 extern class NavAreaMeta extends NavArea {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavAreaMeta(NavAreaMeta) from NavAreaMeta {
 @:forward
 @:nativeGen
 @:native("NavAreaMeta*")
-abstract NavAreaMetaPtr(cpp.Star<NavAreaMeta>) from cpp.Star<NavAreaMeta> to cpp.Star<NavAreaMeta>{
+abstract NavAreaMetaPtr(ucpp.Ptr<NavAreaMeta>) from ucpp.Ptr<NavAreaMeta> to ucpp.Ptr<NavAreaMeta>{
 	@:from
 	public static extern inline function fromValue(v: NavAreaMeta): NavAreaMetaPtr {
 		return untyped __cpp__("&({0})", v);

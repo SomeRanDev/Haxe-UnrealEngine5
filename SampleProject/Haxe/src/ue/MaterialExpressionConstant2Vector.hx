@@ -3,27 +3,27 @@ package ue;
 
 @:native("UMaterialExpressionConstant2Vector")
 @:include("Materials/MaterialExpressionConstant2Vector.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionConstant2Vector extends MaterialExpression {
-	public var R: cpp.Float32;
-	public var G: cpp.Float32;
+	public var R: ucpp.num.Float32;
+	public var G: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionConstant2Vector(MaterialExpressionConstant2Vector) from MaterialExpressionConstant2Vector {
-	public extern var R(get, never): cpp.Float32;
-	public inline extern function get_R(): cpp.Float32 return this.R;
-	public extern var G(get, never): cpp.Float32;
-	public inline extern function get_G(): cpp.Float32 return this.G;
+	public extern var R(get, never): ucpp.num.Float32;
+	public inline extern function get_R(): ucpp.num.Float32 return this.R;
+	public extern var G(get, never): ucpp.num.Float32;
+	public inline extern function get_G(): ucpp.num.Float32 return this.G;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionConstant2Vector*")
-abstract MaterialExpressionConstant2VectorPtr(cpp.Star<MaterialExpressionConstant2Vector>) from cpp.Star<MaterialExpressionConstant2Vector> to cpp.Star<MaterialExpressionConstant2Vector>{
+abstract MaterialExpressionConstant2VectorPtr(ucpp.Ptr<MaterialExpressionConstant2Vector>) from ucpp.Ptr<MaterialExpressionConstant2Vector> to ucpp.Ptr<MaterialExpressionConstant2Vector>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionConstant2Vector): MaterialExpressionConstant2VectorPtr {
 		return untyped __cpp__("&({0})", v);

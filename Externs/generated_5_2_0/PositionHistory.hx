@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPositionHistory")
 @:include("KismetAnimationTypes.h")
-@:structAccess
+@:valueType
 extern class PositionHistory {
 	public var Positions: TArray<Vector>;
-	public var Range: cpp.Float32;
+	public var Range: ucpp.num.Float32;
 
 	@:native("FPositionHistory") public function new();
-	@:native("FPositionHistory") public static function make(Positions: TArray<Vector>, Range: cpp.Float32): PositionHistory ;
+	@:native("FPositionHistory") public static function make(Positions: TArray<Vector>, Range: ucpp.num.Float32): PositionHistory ;
 }

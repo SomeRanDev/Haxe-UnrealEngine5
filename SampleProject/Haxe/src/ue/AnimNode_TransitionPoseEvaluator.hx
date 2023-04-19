@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAnimNode_TransitionPoseEvaluator")
 @:include("Animation/AnimNode_TransitionPoseEvaluator.h")
-@:structAccess
+@:valueType
 extern class AnimNode_TransitionPoseEvaluator extends AnimNode_Base {
-	public var FramesToCachePose: cpp.Int32;
+	public var FramesToCachePose: ucpp.num.Int32;
 	public var DataSource: TEnumAsByte<EEvaluatorDataSource>;
 	public var EvaluatorMode: TEnumAsByte<EEvaluatorMode>;
 
 	@:native("FAnimNode_TransitionPoseEvaluator") public function new();
-	@:native("FAnimNode_TransitionPoseEvaluator") public static function make(FramesToCachePose: cpp.Int32, DataSource: TEnumAsByte<EEvaluatorDataSource>, EvaluatorMode: TEnumAsByte<EEvaluatorMode>): AnimNode_TransitionPoseEvaluator ;
+	@:native("FAnimNode_TransitionPoseEvaluator") public static function make(FramesToCachePose: ucpp.num.Int32, DataSource: TEnumAsByte<EEvaluatorDataSource>, EvaluatorMode: TEnumAsByte<EEvaluatorMode>): AnimNode_TransitionPoseEvaluator ;
 }

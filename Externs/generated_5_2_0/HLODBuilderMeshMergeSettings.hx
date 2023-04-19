@@ -3,12 +3,12 @@ package ue;
 
 @:native("UHLODBuilderMeshMergeSettings")
 @:include("HLODBuilderMeshMerge.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderMeshMergeSettings extends HLODBuilderSettings {
 	public var MeshMergeSettings: MeshMergingSettings;
 	public var HLODMaterial: TSoftObjectPtr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstHLODBuilderMeshMergeSettings(HLODBuilderMeshMergeSettings) from HL
 @:forward
 @:nativeGen
 @:native("HLODBuilderMeshMergeSettings*")
-abstract HLODBuilderMeshMergeSettingsPtr(cpp.Star<HLODBuilderMeshMergeSettings>) from cpp.Star<HLODBuilderMeshMergeSettings> to cpp.Star<HLODBuilderMeshMergeSettings>{
+abstract HLODBuilderMeshMergeSettingsPtr(ucpp.Ptr<HLODBuilderMeshMergeSettings>) from ucpp.Ptr<HLODBuilderMeshMergeSettings> to ucpp.Ptr<HLODBuilderMeshMergeSettings>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderMeshMergeSettings): HLODBuilderMeshMergeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

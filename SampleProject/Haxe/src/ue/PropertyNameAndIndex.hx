@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPropertyNameAndIndex")
 @:include("ComponentVisualizer.h")
-@:structAccess
+@:valueType
 extern class PropertyNameAndIndex {
 	public var Name: FName;
-	public var Index: cpp.Int32;
+	public var Index: ucpp.num.Int32;
 
 	@:native("FPropertyNameAndIndex") public function new();
-	@:native("FPropertyNameAndIndex") public static function make(Name: FName, Index: cpp.Int32): PropertyNameAndIndex ;
+	@:native("FPropertyNameAndIndex") public static function make(Name: FName, Index: ucpp.num.Int32): PropertyNameAndIndex ;
 }

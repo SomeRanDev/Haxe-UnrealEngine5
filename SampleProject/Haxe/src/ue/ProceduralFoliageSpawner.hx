@@ -3,36 +3,36 @@ package ue;
 
 @:native("UProceduralFoliageSpawner")
 @:include("ProceduralFoliageSpawner.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageSpawner extends Object {
-	public var RandomSeed: cpp.Int32;
-	public var TileSize: cpp.Float32;
-	public var NumUniqueTiles: cpp.Int32;
-	public var MinimumQuadTreeSize: cpp.Float32;
+	public var RandomSeed: ucpp.num.Int32;
+	public var TileSize: ucpp.num.Float32;
+	public var NumUniqueTiles: ucpp.num.Int32;
+	public var MinimumQuadTreeSize: ucpp.num.Float32;
 	private var FoliageTypes: TArray<FoliageTypeObject>;
 
-	public function Simulate(NumSteps: cpp.Int32): Void;
+	public function Simulate(NumSteps: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralFoliageSpawner(ProceduralFoliageSpawner) from ProceduralFoliageSpawner {
-	public extern var RandomSeed(get, never): cpp.Int32;
-	public inline extern function get_RandomSeed(): cpp.Int32 return this.RandomSeed;
-	public extern var TileSize(get, never): cpp.Float32;
-	public inline extern function get_TileSize(): cpp.Float32 return this.TileSize;
-	public extern var NumUniqueTiles(get, never): cpp.Int32;
-	public inline extern function get_NumUniqueTiles(): cpp.Int32 return this.NumUniqueTiles;
-	public extern var MinimumQuadTreeSize(get, never): cpp.Float32;
-	public inline extern function get_MinimumQuadTreeSize(): cpp.Float32 return this.MinimumQuadTreeSize;
+	public extern var RandomSeed(get, never): ucpp.num.Int32;
+	public inline extern function get_RandomSeed(): ucpp.num.Int32 return this.RandomSeed;
+	public extern var TileSize(get, never): ucpp.num.Float32;
+	public inline extern function get_TileSize(): ucpp.num.Float32 return this.TileSize;
+	public extern var NumUniqueTiles(get, never): ucpp.num.Int32;
+	public inline extern function get_NumUniqueTiles(): ucpp.num.Int32 return this.NumUniqueTiles;
+	public extern var MinimumQuadTreeSize(get, never): ucpp.num.Float32;
+	public inline extern function get_MinimumQuadTreeSize(): ucpp.num.Float32 return this.MinimumQuadTreeSize;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralFoliageSpawner*")
-abstract ProceduralFoliageSpawnerPtr(cpp.Star<ProceduralFoliageSpawner>) from cpp.Star<ProceduralFoliageSpawner> to cpp.Star<ProceduralFoliageSpawner>{
+abstract ProceduralFoliageSpawnerPtr(ucpp.Ptr<ProceduralFoliageSpawner>) from ucpp.Ptr<ProceduralFoliageSpawner> to ucpp.Ptr<ProceduralFoliageSpawner>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralFoliageSpawner): ProceduralFoliageSpawnerPtr {
 		return untyped __cpp__("&({0})", v);

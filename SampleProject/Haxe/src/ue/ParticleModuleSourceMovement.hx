@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleSourceMovement")
 @:include("Particles/Location/ParticleModuleSourceMovement.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleSourceMovement extends ParticleModuleLocationBase {
 	public var SourceMovementScale: RawDistributionVector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleSourceMovement(ParticleModuleSourceMovement) from Pa
 @:forward
 @:nativeGen
 @:native("ParticleModuleSourceMovement*")
-abstract ParticleModuleSourceMovementPtr(cpp.Star<ParticleModuleSourceMovement>) from cpp.Star<ParticleModuleSourceMovement> to cpp.Star<ParticleModuleSourceMovement>{
+abstract ParticleModuleSourceMovementPtr(ucpp.Ptr<ParticleModuleSourceMovement>) from ucpp.Ptr<ParticleModuleSourceMovement> to ucpp.Ptr<ParticleModuleSourceMovement>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleSourceMovement): ParticleModuleSourceMovementPtr {
 		return untyped __cpp__("&({0})", v);

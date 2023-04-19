@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioSynesthesiaNRTSettings")
 @:include("AudioSynesthesiaNRT.h")
-@:structAccess
+@:valueType
 extern class AudioSynesthesiaNRTSettings extends AudioAnalyzerNRTSettings {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioSynesthesiaNRTSettings(AudioSynesthesiaNRTSettings) from Audi
 @:forward
 @:nativeGen
 @:native("AudioSynesthesiaNRTSettings*")
-abstract AudioSynesthesiaNRTSettingsPtr(cpp.Star<AudioSynesthesiaNRTSettings>) from cpp.Star<AudioSynesthesiaNRTSettings> to cpp.Star<AudioSynesthesiaNRTSettings>{
+abstract AudioSynesthesiaNRTSettingsPtr(ucpp.Ptr<AudioSynesthesiaNRTSettings>) from ucpp.Ptr<AudioSynesthesiaNRTSettings> to ucpp.Ptr<AudioSynesthesiaNRTSettings>{
 	@:from
 	public static extern inline function fromValue(v: AudioSynesthesiaNRTSettings): AudioSynesthesiaNRTSettingsPtr {
 		return untyped __cpp__("&({0})", v);

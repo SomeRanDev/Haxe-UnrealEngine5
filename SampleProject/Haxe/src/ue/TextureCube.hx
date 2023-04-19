@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextureCube")
 @:include("Engine/TextureCube.h")
-@:structAccess
+@:valueType
 extern class TextureCube extends Texture {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextureCube(TextureCube) from TextureCube {
 @:forward
 @:nativeGen
 @:native("TextureCube*")
-abstract TextureCubePtr(cpp.Star<TextureCube>) from cpp.Star<TextureCube> to cpp.Star<TextureCube>{
+abstract TextureCubePtr(ucpp.Ptr<TextureCube>) from ucpp.Ptr<TextureCube> to ucpp.Ptr<TextureCube>{
 	@:from
 	public static extern inline function fromValue(v: TextureCube): TextureCubePtr {
 		return untyped __cpp__("&({0})", v);

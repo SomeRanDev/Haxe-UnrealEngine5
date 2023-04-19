@@ -3,15 +3,15 @@ package ue;
 
 @:native("UConvertToPolygonsTool")
 @:include("ConvertToPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class ConvertToPolygonsTool extends SingleSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<ConvertToPolygonsToolProperties>;
-	@:protected public var CopyFromLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var OutputProperties: cpp.Star<OutputPolygroupLayerProperties>;
-	@:protected public var PreviewCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var PreviewGeometry: cpp.Star<PreviewGeometry>;
+	@:protected public var Settings: ucpp.Ptr<ConvertToPolygonsToolProperties>;
+	@:protected public var CopyFromLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var OutputProperties: ucpp.Ptr<OutputPolygroupLayerProperties>;
+	@:protected public var PreviewCompute: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var PreviewGeometry: ucpp.Ptr<PreviewGeometry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstConvertToPolygonsTool(ConvertToPolygonsTool) from ConvertToPolygon
 @:forward
 @:nativeGen
 @:native("ConvertToPolygonsTool*")
-abstract ConvertToPolygonsToolPtr(cpp.Star<ConvertToPolygonsTool>) from cpp.Star<ConvertToPolygonsTool> to cpp.Star<ConvertToPolygonsTool>{
+abstract ConvertToPolygonsToolPtr(ucpp.Ptr<ConvertToPolygonsTool>) from ucpp.Ptr<ConvertToPolygonsTool> to ucpp.Ptr<ConvertToPolygonsTool>{
 	@:from
 	public static extern inline function fromValue(v: ConvertToPolygonsTool): ConvertToPolygonsToolPtr {
 		return untyped __cpp__("&({0})", v);

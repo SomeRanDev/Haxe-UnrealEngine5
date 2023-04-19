@@ -3,7 +3,7 @@ package ue;
 
 @:native("FShadingModelMaterialInput")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class ShadingModelMaterialInput extends MaterialInput {
 	@:native("FShadingModelMaterialInput") public function new();
 }

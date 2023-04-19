@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGLTFProxyOptions")
 @:include("Options/GLTFProxyOptions.h")
-@:structAccess
+@:valueType
 extern class GLTFProxyOptions extends Object {
 	public var bBakeMaterialInputs: Bool;
 	public var DefaultMaterialBakeSize: EGLTFMaterialBakeSizePOT;
@@ -13,7 +13,7 @@ extern class GLTFProxyOptions extends Object {
 
 	public function ResetToDefault(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,7 +34,7 @@ abstract ConstGLTFProxyOptions(GLTFProxyOptions) from GLTFProxyOptions {
 @:forward
 @:nativeGen
 @:native("GLTFProxyOptions*")
-abstract GLTFProxyOptionsPtr(cpp.Star<GLTFProxyOptions>) from cpp.Star<GLTFProxyOptions> to cpp.Star<GLTFProxyOptions>{
+abstract GLTFProxyOptionsPtr(ucpp.Ptr<GLTFProxyOptions>) from ucpp.Ptr<GLTFProxyOptions> to ucpp.Ptr<GLTFProxyOptions>{
 	@:from
 	public static extern inline function fromValue(v: GLTFProxyOptions): GLTFProxyOptionsPtr {
 		return untyped __cpp__("&({0})", v);

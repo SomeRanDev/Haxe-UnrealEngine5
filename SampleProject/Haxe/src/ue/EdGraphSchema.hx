@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEdGraphSchema")
 @:include("EdGraph/EdGraphSchema.h")
-@:structAccess
+@:valueType
 extern class EdGraphSchema extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEdGraphSchema(EdGraphSchema) from EdGraphSchema {
 @:forward
 @:nativeGen
 @:native("EdGraphSchema*")
-abstract EdGraphSchemaPtr(cpp.Star<EdGraphSchema>) from cpp.Star<EdGraphSchema> to cpp.Star<EdGraphSchema>{
+abstract EdGraphSchemaPtr(ucpp.Ptr<EdGraphSchema>) from ucpp.Ptr<EdGraphSchema> to ucpp.Ptr<EdGraphSchema>{
 	@:from
 	public static extern inline function fromValue(v: EdGraphSchema): EdGraphSchemaPtr {
 		return untyped __cpp__("&({0})", v);

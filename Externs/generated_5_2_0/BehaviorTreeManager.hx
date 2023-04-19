@@ -3,26 +3,26 @@ package ue;
 
 @:native("UBehaviorTreeManager")
 @:include("BehaviorTree/BehaviorTreeManager.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeManager extends Object {
-	public var MaxDebuggerSteps: cpp.Int32;
+	public var MaxDebuggerSteps: ucpp.num.Int32;
 	@:protected public var LoadedTemplates: TArray<BehaviorTreeTemplateInfo>;
-	@:protected public var ActiveComponents: TArray<cpp.Star<BehaviorTreeComp>>;
+	@:protected public var ActiveComponents: TArray<ucpp.Ptr<BehaviorTreeComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBehaviorTreeManager(BehaviorTreeManager) from BehaviorTreeManager {
-	public extern var MaxDebuggerSteps(get, never): cpp.Int32;
-	public inline extern function get_MaxDebuggerSteps(): cpp.Int32 return this.MaxDebuggerSteps;
+	public extern var MaxDebuggerSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxDebuggerSteps(): ucpp.num.Int32 return this.MaxDebuggerSteps;
 }
 
 @:forward
 @:nativeGen
 @:native("BehaviorTreeManager*")
-abstract BehaviorTreeManagerPtr(cpp.Star<BehaviorTreeManager>) from cpp.Star<BehaviorTreeManager> to cpp.Star<BehaviorTreeManager>{
+abstract BehaviorTreeManagerPtr(ucpp.Ptr<BehaviorTreeManager>) from ucpp.Ptr<BehaviorTreeManager> to ucpp.Ptr<BehaviorTreeManager>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeManager): BehaviorTreeManagerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMovieSceneScriptingByteChannel")
 @:include("KeysAndChannels/MovieSceneScriptingByte.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingByteChannel extends MovieSceneScriptingChannel {
-	public function SetDefault(InDefaultValue: cpp.UInt8): Void;
-	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
+	public function SetDefault(InDefaultValue: ucpp.num.UInt8): Void;
+	public function RemoveKey(Key: ucpp.Ptr<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
 	public function HasDefault(): Bool;
-	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
-	public function GetDefault(): cpp.UInt8;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.UInt8, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): cpp.Star<MovieSceneScriptingByteKey>;
+	public function GetKeys(): TArray<ucpp.Ptr<MovieSceneScriptingKey>>;
+	public function GetDefault(): ucpp.num.UInt8;
+	public function AddKey(InTime: ucpp.Ref<FrameNumber>, NewValue: ucpp.num.UInt8, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit, InInterpolation: EMovieSceneKeyInterpolation): ucpp.Ptr<MovieSceneScriptingByteKey>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasDefault, GetKeys, GetDefault)
@@ -24,7 +24,7 @@ abstract ConstMovieSceneScriptingByteChannel(MovieSceneScriptingByteChannel) fro
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingByteChannel*")
-abstract MovieSceneScriptingByteChannelPtr(cpp.Star<MovieSceneScriptingByteChannel>) from cpp.Star<MovieSceneScriptingByteChannel> to cpp.Star<MovieSceneScriptingByteChannel>{
+abstract MovieSceneScriptingByteChannelPtr(ucpp.Ptr<MovieSceneScriptingByteChannel>) from ucpp.Ptr<MovieSceneScriptingByteChannel> to ucpp.Ptr<MovieSceneScriptingByteChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingByteChannel): MovieSceneScriptingByteChannelPtr {
 		return untyped __cpp__("&({0})", v);

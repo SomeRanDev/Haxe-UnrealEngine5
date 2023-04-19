@@ -3,10 +3,10 @@ package ue;
 
 @:native("UViewportToolBarContext")
 @:include("ViewportToolBarContext.h")
-@:structAccess
+@:valueType
 extern class ViewportToolBarContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstViewportToolBarContext(ViewportToolBarContext) from ViewportToolBa
 @:forward
 @:nativeGen
 @:native("ViewportToolBarContext*")
-abstract ViewportToolBarContextPtr(cpp.Star<ViewportToolBarContext>) from cpp.Star<ViewportToolBarContext> to cpp.Star<ViewportToolBarContext>{
+abstract ViewportToolBarContextPtr(ucpp.Ptr<ViewportToolBarContext>) from ucpp.Ptr<ViewportToolBarContext> to ucpp.Ptr<ViewportToolBarContext>{
 	@:from
 	public static extern inline function fromValue(v: ViewportToolBarContext): ViewportToolBarContextPtr {
 		return untyped __cpp__("&({0})", v);

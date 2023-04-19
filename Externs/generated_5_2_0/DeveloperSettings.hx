@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDeveloperSettings")
 @:include("Engine/DeveloperSettings.h")
-@:structAccess
+@:valueType
 extern class DeveloperSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDeveloperSettings(DeveloperSettings) from DeveloperSettings {
 @:forward
 @:nativeGen
 @:native("DeveloperSettings*")
-abstract DeveloperSettingsPtr(cpp.Star<DeveloperSettings>) from cpp.Star<DeveloperSettings> to cpp.Star<DeveloperSettings>{
+abstract DeveloperSettingsPtr(ucpp.Ptr<DeveloperSettings>) from ucpp.Ptr<DeveloperSettings> to ucpp.Ptr<DeveloperSettings>{
 	@:from
 	public static extern inline function fromValue(v: DeveloperSettings): DeveloperSettingsPtr {
 		return untyped __cpp__("&({0})", v);

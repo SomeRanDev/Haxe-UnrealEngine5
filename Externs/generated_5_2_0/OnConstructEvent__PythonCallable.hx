@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnConstructEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnConstructEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnConstructEvent__PythonCallable(OnConstructEvent__PythonCallable)
 @:forward
 @:nativeGen
 @:native("OnConstructEvent__PythonCallable*")
-abstract OnConstructEvent__PythonCallablePtr(cpp.Star<OnConstructEvent__PythonCallable>) from cpp.Star<OnConstructEvent__PythonCallable> to cpp.Star<OnConstructEvent__PythonCallable>{
+abstract OnConstructEvent__PythonCallablePtr(ucpp.Ptr<OnConstructEvent__PythonCallable>) from ucpp.Ptr<OnConstructEvent__PythonCallable> to ucpp.Ptr<OnConstructEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnConstructEvent__PythonCallable): OnConstructEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

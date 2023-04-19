@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolGenerateAsset")
 @:include("FractureToolGenerators.h")
-@:structAccess
+@:valueType
 extern class FractureToolGenerateAsset extends FractureActionTool {
 	private var AssetPath: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolGenerateAsset(FractureToolGenerateAsset) from Fracture
 @:forward
 @:nativeGen
 @:native("FractureToolGenerateAsset*")
-abstract FractureToolGenerateAssetPtr(cpp.Star<FractureToolGenerateAsset>) from cpp.Star<FractureToolGenerateAsset> to cpp.Star<FractureToolGenerateAsset>{
+abstract FractureToolGenerateAssetPtr(ucpp.Ptr<FractureToolGenerateAsset>) from ucpp.Ptr<FractureToolGenerateAsset> to ucpp.Ptr<FractureToolGenerateAsset>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolGenerateAsset): FractureToolGenerateAssetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,31 +3,31 @@ package ue;
 
 @:native("UInAppPurchaseCallbackProxy2")
 @:include("InAppPurchaseCallbackProxy2.h")
-@:structAccess
+@:valueType
 extern class InAppPurchaseCallbackProxy2 extends Object {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, ucpp.Ref<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, ucpp.Ref<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
 
-	public function CreateProxyObjectForInAppPurchaseUnprocessedPurchases(PlayerController: cpp.Star<PlayerController>): cpp.Star<InAppPurchaseCallbackProxy2>;
-	public function CreateProxyObjectForInAppPurchaseQueryOwned(PlayerController: cpp.Star<PlayerController>): cpp.Star<InAppPurchaseCallbackProxy2>;
-	public function CreateProxyObjectForInAppPurchase(PlayerController: cpp.Star<PlayerController>, ProductRequest: cpp.Reference<InAppPurchaseProductRequest2>): cpp.Star<InAppPurchaseCallbackProxy2>;
+	public function CreateProxyObjectForInAppPurchaseUnprocessedPurchases(PlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<InAppPurchaseCallbackProxy2>;
+	public function CreateProxyObjectForInAppPurchaseQueryOwned(PlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<InAppPurchaseCallbackProxy2>;
+	public function CreateProxyObjectForInAppPurchase(PlayerController: ucpp.Ptr<PlayerController>, ProductRequest: ucpp.Ref<InAppPurchaseProductRequest2>): ucpp.Ptr<InAppPurchaseCallbackProxy2>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInAppPurchaseCallbackProxy2(InAppPurchaseCallbackProxy2) from InAppPurchaseCallbackProxy2 {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, cpp.Reference<TArray<InAppPurchaseReceiptInfo2>>) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, ucpp.Ref<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, ucpp.Ref<TArray<InAppPurchaseReceiptInfo2>>) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, ucpp.Ref<TArray<InAppPurchaseReceiptInfo2>>) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(EInAppPurchaseStatus, ucpp.Ref<TArray<InAppPurchaseReceiptInfo2>>) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("InAppPurchaseCallbackProxy2*")
-abstract InAppPurchaseCallbackProxy2Ptr(cpp.Star<InAppPurchaseCallbackProxy2>) from cpp.Star<InAppPurchaseCallbackProxy2> to cpp.Star<InAppPurchaseCallbackProxy2>{
+abstract InAppPurchaseCallbackProxy2Ptr(ucpp.Ptr<InAppPurchaseCallbackProxy2>) from ucpp.Ptr<InAppPurchaseCallbackProxy2> to ucpp.Ptr<InAppPurchaseCallbackProxy2>{
 	@:from
 	public static extern inline function fromValue(v: InAppPurchaseCallbackProxy2): InAppPurchaseCallbackProxy2Ptr {
 		return untyped __cpp__("&({0})", v);

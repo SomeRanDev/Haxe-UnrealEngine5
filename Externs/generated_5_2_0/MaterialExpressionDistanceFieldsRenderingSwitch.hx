@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionDistanceFieldsRenderingSwitch")
 @:include("Materials/MaterialExpressionDistanceFieldsRenderingSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDistanceFieldsRenderingSwitch extends MaterialExpression {
 	public var No: ExpressionInput;
 	public var Yes: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionDistanceFieldsRenderingSwitch(MaterialExpression
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDistanceFieldsRenderingSwitch*")
-abstract MaterialExpressionDistanceFieldsRenderingSwitchPtr(cpp.Star<MaterialExpressionDistanceFieldsRenderingSwitch>) from cpp.Star<MaterialExpressionDistanceFieldsRenderingSwitch> to cpp.Star<MaterialExpressionDistanceFieldsRenderingSwitch>{
+abstract MaterialExpressionDistanceFieldsRenderingSwitchPtr(ucpp.Ptr<MaterialExpressionDistanceFieldsRenderingSwitch>) from ucpp.Ptr<MaterialExpressionDistanceFieldsRenderingSwitch> to ucpp.Ptr<MaterialExpressionDistanceFieldsRenderingSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDistanceFieldsRenderingSwitch): MaterialExpressionDistanceFieldsRenderingSwitchPtr {
 		return untyped __cpp__("&({0})", v);

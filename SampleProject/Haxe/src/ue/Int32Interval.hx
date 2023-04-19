@@ -3,11 +3,11 @@ package ue;
 
 @:native("FInt32Interval")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Int32Interval {
-	public var Min: cpp.Int32;
-	public var Max: cpp.Int32;
+	public var Min: ucpp.num.Int32;
+	public var Max: ucpp.num.Int32;
 
 	@:native("FInt32Interval") public function new();
-	@:native("FInt32Interval") public static function make(Min: cpp.Int32, Max: cpp.Int32): Int32Interval ;
+	@:native("FInt32Interval") public static function make(Min: ucpp.num.Int32, Max: ucpp.num.Int32): Int32Interval ;
 }

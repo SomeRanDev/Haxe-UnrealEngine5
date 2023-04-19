@@ -3,13 +3,13 @@ package ue;
 
 @:native("FCreateMeshObjectResult")
 @:include("ModelingObjectsCreationAPI.h")
-@:structAccess
+@:valueType
 extern class CreateMeshObjectResult {
 	public var ResultCode: ECreateModelingObjectResult;
-	public var NewActor: cpp.Star<Actor>;
-	public var NewComponent: cpp.Star<PrimitiveComp>;
-	public var NewAsset: cpp.Star<Object>;
+	public var NewActor: ucpp.Ptr<Actor>;
+	public var NewComponent: ucpp.Ptr<PrimitiveComp>;
+	public var NewAsset: ucpp.Ptr<Object>;
 
 	@:native("FCreateMeshObjectResult") public function new();
-	@:native("FCreateMeshObjectResult") public static function make(ResultCode: ECreateModelingObjectResult, NewActor: cpp.Star<Actor>, NewComponent: cpp.Star<PrimitiveComp>, NewAsset: cpp.Star<Object>): CreateMeshObjectResult ;
+	@:native("FCreateMeshObjectResult") public static function make(ResultCode: ECreateModelingObjectResult, NewActor: ucpp.Ptr<Actor>, NewComponent: ucpp.Ptr<PrimitiveComp>, NewAsset: ucpp.Ptr<Object>): CreateMeshObjectResult ;
 }

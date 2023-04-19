@@ -3,35 +3,35 @@ package ue;
 
 @:native("UAnimSingleNodeInstance")
 @:include("Animation/AnimSingleNodeInstance.h")
-@:structAccess
+@:valueType
 extern class AnimSingleNodeInstance extends AnimInstance {
-	public var CurrentAsset: cpp.Star<AnimationAsset>;
+	public var CurrentAsset: ucpp.Ptr<AnimationAsset>;
 	public var PostEvaluateAnimEvent: HaxeDelegateProperty<() -> Void>;
 
 	public function StopAnim(): Void;
 	public function SetReverse(bInReverse: Bool): Void;
-	public function SetPreviewCurveOverride(PoseName: cpp.Reference<FName>, Value: cpp.Float32, bRemoveIfZero: Bool): Void;
-	public function SetPositionWithPreviousTime(InPosition: cpp.Float32, InPreviousTime: cpp.Float32, bFireNotifies: Bool): Void;
-	public function SetPosition(InPosition: cpp.Float32, bFireNotifies: Bool): Void;
-	public function SetPlayRate(InPlayRate: cpp.Float32): Void;
+	public function SetPreviewCurveOverride(PoseName: ucpp.Ref<FName>, Value: ucpp.num.Float32, bRemoveIfZero: Bool): Void;
+	public function SetPositionWithPreviousTime(InPosition: ucpp.num.Float32, InPreviousTime: ucpp.num.Float32, bFireNotifies: Bool): Void;
+	public function SetPosition(InPosition: ucpp.num.Float32, bFireNotifies: Bool): Void;
+	public function SetPlayRate(InPlayRate: ucpp.num.Float32): Void;
 	public function SetPlaying(bIsPlaying: Bool): Void;
-	public function SetMirrorDataTable(MirrorDataTable: cpp.Star<MirrorDataTable.ConstMirrorDataTable>): Void;
+	public function SetMirrorDataTable(MirrorDataTable: ucpp.Ptr<MirrorDataTable.ConstMirrorDataTable>): Void;
 	public function SetLooping(bIsLooping: Bool): Void;
-	public function SetBlendSpacePosition(InPosition: cpp.Reference<Vector>): Void;
-	public function SetAnimationAsset(NewAsset: cpp.Star<AnimationAsset>, bIsLooping: Bool, InPlayRate: cpp.Float32): Void;
-	public function PlayAnim(bIsLooping: Bool, InPlayRate: cpp.Float32, InStartPosition: cpp.Float32): Void;
-	public function GetMirrorDataTable(): cpp.Star<MirrorDataTable.ConstMirrorDataTable>;
-	public function GetLength(): cpp.Float32;
-	public function GetAnimationAsset(): cpp.Star<AnimationAsset>;
+	public function SetBlendSpacePosition(InPosition: ucpp.Ref<Vector>): Void;
+	public function SetAnimationAsset(NewAsset: ucpp.Ptr<AnimationAsset>, bIsLooping: Bool, InPlayRate: ucpp.num.Float32): Void;
+	public function PlayAnim(bIsLooping: Bool, InPlayRate: ucpp.num.Float32, InStartPosition: ucpp.num.Float32): Void;
+	public function GetMirrorDataTable(): ucpp.Ptr<MirrorDataTable.ConstMirrorDataTable>;
+	public function GetLength(): ucpp.num.Float32;
+	public function GetAnimationAsset(): ucpp.Ptr<AnimationAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAnimationAsset)
 @:nativeGen
 abstract ConstAnimSingleNodeInstance(AnimSingleNodeInstance) from AnimSingleNodeInstance {
-	public extern var CurrentAsset(get, never): cpp.Star<AnimationAsset.ConstAnimationAsset>;
-	public inline extern function get_CurrentAsset(): cpp.Star<AnimationAsset.ConstAnimationAsset> return this.CurrentAsset;
+	public extern var CurrentAsset(get, never): ucpp.Ptr<AnimationAsset.ConstAnimationAsset>;
+	public inline extern function get_CurrentAsset(): ucpp.Ptr<AnimationAsset.ConstAnimationAsset> return this.CurrentAsset;
 	public extern var PostEvaluateAnimEvent(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_PostEvaluateAnimEvent(): HaxeDelegateProperty<() -> Void> return this.PostEvaluateAnimEvent;
 }
@@ -39,7 +39,7 @@ abstract ConstAnimSingleNodeInstance(AnimSingleNodeInstance) from AnimSingleNode
 @:forward
 @:nativeGen
 @:native("AnimSingleNodeInstance*")
-abstract AnimSingleNodeInstancePtr(cpp.Star<AnimSingleNodeInstance>) from cpp.Star<AnimSingleNodeInstance> to cpp.Star<AnimSingleNodeInstance>{
+abstract AnimSingleNodeInstancePtr(ucpp.Ptr<AnimSingleNodeInstance>) from ucpp.Ptr<AnimSingleNodeInstance> to ucpp.Ptr<AnimSingleNodeInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimSingleNodeInstance): AnimSingleNodeInstancePtr {
 		return untyped __cpp__("&({0})", v);

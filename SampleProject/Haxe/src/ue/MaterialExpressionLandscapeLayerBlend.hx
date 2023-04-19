@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeLayerBlend")
 @:include("Materials/MaterialExpressionLandscapeLayerBlend.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLandscapeLayerBlend extends MaterialExpression {
 	public var Layers: TArray<LayerBlendInput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionLandscapeLayerBlend(MaterialExpressionLandscapeL
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLandscapeLayerBlend*")
-abstract MaterialExpressionLandscapeLayerBlendPtr(cpp.Star<MaterialExpressionLandscapeLayerBlend>) from cpp.Star<MaterialExpressionLandscapeLayerBlend> to cpp.Star<MaterialExpressionLandscapeLayerBlend>{
+abstract MaterialExpressionLandscapeLayerBlendPtr(ucpp.Ptr<MaterialExpressionLandscapeLayerBlend>) from ucpp.Ptr<MaterialExpressionLandscapeLayerBlend> to ucpp.Ptr<MaterialExpressionLandscapeLayerBlend>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLandscapeLayerBlend): MaterialExpressionLandscapeLayerBlendPtr {
 		return untyped __cpp__("&({0})", v);

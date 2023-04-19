@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigAnimNodeEventName")
 @:include("AnimNode_ControlRigBase.h")
-@:structAccess
+@:valueType
 extern class ControlRigAnimNodeEventName {
 	public var EventName: FName;
 

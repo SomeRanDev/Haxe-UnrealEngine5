@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ENCPoolMethod")
-@:include("NiagaraCommon.h")
+@:include("NiagaraComponentPoolMethodEnum.h")
 extern class ENCPoolMethod {
 	static var None: ENCPoolMethod;
 	static var AutoRelease: ENCPoolMethod;

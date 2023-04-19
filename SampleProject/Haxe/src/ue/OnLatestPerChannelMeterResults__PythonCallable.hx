@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnLatestPerChannelMeterResults__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnLatestPerChannelMeterResults__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnLatestPerChannelMeterResults__PythonCallable(OnLatestPerChannelM
 @:forward
 @:nativeGen
 @:native("OnLatestPerChannelMeterResults__PythonCallable*")
-abstract OnLatestPerChannelMeterResults__PythonCallablePtr(cpp.Star<OnLatestPerChannelMeterResults__PythonCallable>) from cpp.Star<OnLatestPerChannelMeterResults__PythonCallable> to cpp.Star<OnLatestPerChannelMeterResults__PythonCallable>{
+abstract OnLatestPerChannelMeterResults__PythonCallablePtr(ucpp.Ptr<OnLatestPerChannelMeterResults__PythonCallable>) from ucpp.Ptr<OnLatestPerChannelMeterResults__PythonCallable> to ucpp.Ptr<OnLatestPerChannelMeterResults__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnLatestPerChannelMeterResults__PythonCallable): OnLatestPerChannelMeterResults__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

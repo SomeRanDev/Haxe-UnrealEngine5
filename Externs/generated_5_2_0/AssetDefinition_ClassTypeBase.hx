@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_ClassTypeBase")
 @:include("Script/AssetDefinition_ClassTypeBase.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_ClassTypeBase extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_ClassTypeBase(AssetDefinition_ClassTypeBase) from 
 @:forward
 @:nativeGen
 @:native("AssetDefinition_ClassTypeBase*")
-abstract AssetDefinition_ClassTypeBasePtr(cpp.Star<AssetDefinition_ClassTypeBase>) from cpp.Star<AssetDefinition_ClassTypeBase> to cpp.Star<AssetDefinition_ClassTypeBase>{
+abstract AssetDefinition_ClassTypeBasePtr(ucpp.Ptr<AssetDefinition_ClassTypeBase>) from ucpp.Ptr<AssetDefinition_ClassTypeBase> to ucpp.Ptr<AssetDefinition_ClassTypeBase>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_ClassTypeBase): AssetDefinition_ClassTypeBasePtr {
 		return untyped __cpp__("&({0})", v);

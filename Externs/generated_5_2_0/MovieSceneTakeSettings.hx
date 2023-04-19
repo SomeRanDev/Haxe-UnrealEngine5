@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneTakeSettings")
 @:include("MovieSceneTakeSettings.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTakeSettings extends Object {
 	public var HoursName: FString;
 	public var MinutesName: FString;
@@ -12,7 +12,7 @@ extern class MovieSceneTakeSettings extends Object {
 	public var SubFramesName: FString;
 	public var SlateName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstMovieSceneTakeSettings(MovieSceneTakeSettings) from MovieSceneTake
 @:forward
 @:nativeGen
 @:native("MovieSceneTakeSettings*")
-abstract MovieSceneTakeSettingsPtr(cpp.Star<MovieSceneTakeSettings>) from cpp.Star<MovieSceneTakeSettings> to cpp.Star<MovieSceneTakeSettings>{
+abstract MovieSceneTakeSettingsPtr(ucpp.Ptr<MovieSceneTakeSettings>) from ucpp.Ptr<MovieSceneTakeSettings> to ucpp.Ptr<MovieSceneTakeSettings>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTakeSettings): MovieSceneTakeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

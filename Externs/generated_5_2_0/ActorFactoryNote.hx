@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryNote")
 @:include("ActorFactories/ActorFactoryNote.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryNote extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryNote(ActorFactoryNote) from ActorFactoryNote {
 @:forward
 @:nativeGen
 @:native("ActorFactoryNote*")
-abstract ActorFactoryNotePtr(cpp.Star<ActorFactoryNote>) from cpp.Star<ActorFactoryNote> to cpp.Star<ActorFactoryNote>{
+abstract ActorFactoryNotePtr(ucpp.Ptr<ActorFactoryNote>) from ucpp.Ptr<ActorFactoryNote> to ucpp.Ptr<ActorFactoryNote>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryNote): ActorFactoryNotePtr {
 		return untyped __cpp__("&({0})", v);

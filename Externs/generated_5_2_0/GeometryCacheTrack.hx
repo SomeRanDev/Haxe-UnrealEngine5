@@ -3,11 +3,11 @@ package ue;
 
 @:native("UGeometryCacheTrack")
 @:include("GeometryCacheTrack.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheTrack extends Object {
-	@:protected public var Duration: cpp.Float32;
+	@:protected public var Duration: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstGeometryCacheTrack(GeometryCacheTrack) from GeometryCacheTrack {
 @:forward
 @:nativeGen
 @:native("GeometryCacheTrack*")
-abstract GeometryCacheTrackPtr(cpp.Star<GeometryCacheTrack>) from cpp.Star<GeometryCacheTrack> to cpp.Star<GeometryCacheTrack>{
+abstract GeometryCacheTrackPtr(ucpp.Ptr<GeometryCacheTrack>) from ucpp.Ptr<GeometryCacheTrack> to ucpp.Ptr<GeometryCacheTrack>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheTrack): GeometryCacheTrackPtr {
 		return untyped __cpp__("&({0})", v);

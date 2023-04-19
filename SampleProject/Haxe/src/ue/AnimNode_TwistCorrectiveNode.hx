@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAnimNode_TwistCorrectiveNode")
 @:include("BoneControllers/AnimNode_TwistCorrectiveNode.h")
-@:structAccess
+@:valueType
 extern class AnimNode_TwistCorrectiveNode extends AnimNode_SkeletalControlBase {
 	public var BaseFrame: ReferenceBoneFrame;
 	public var TwistFrame: ReferenceBoneFrame;
 	public var TwistPlaneNormalAxis: Axis;
-	public var RangeMax: cpp.Float32;
-	public var RemappedMin: cpp.Float32;
-	public var RemappedMax: cpp.Float32;
+	public var RangeMax: ucpp.num.Float32;
+	public var RemappedMin: ucpp.num.Float32;
+	public var RemappedMax: ucpp.num.Float32;
 	public var Curve: AnimCurveParam;
 
 	@:native("FAnimNode_TwistCorrectiveNode") public function new();

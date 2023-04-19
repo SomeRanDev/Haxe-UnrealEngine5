@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionParticleSpeed")
 @:include("Materials/MaterialExpressionParticleSpeed.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionParticleSpeed extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionParticleSpeed(MaterialExpressionParticleSpeed) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionParticleSpeed*")
-abstract MaterialExpressionParticleSpeedPtr(cpp.Star<MaterialExpressionParticleSpeed>) from cpp.Star<MaterialExpressionParticleSpeed> to cpp.Star<MaterialExpressionParticleSpeed>{
+abstract MaterialExpressionParticleSpeedPtr(ucpp.Ptr<MaterialExpressionParticleSpeed>) from ucpp.Ptr<MaterialExpressionParticleSpeed> to ucpp.Ptr<MaterialExpressionParticleSpeed>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionParticleSpeed): MaterialExpressionParticleSpeedPtr {
 		return untyped __cpp__("&({0})", v);

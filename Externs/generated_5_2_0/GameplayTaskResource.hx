@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGameplayTaskResource")
 @:include("GameplayTaskResource.h")
-@:structAccess
+@:valueType
 extern class GameplayTaskResource extends Object {
-	@:protected public var ManualResourceID: cpp.Int32;
-	private var AutoResourceID: cpp.Int8;
+	@:protected public var ManualResourceID: ucpp.num.Int32;
+	private var AutoResourceID: ucpp.num.Int8;
 	public var bManuallySetID: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstGameplayTaskResource(GameplayTaskResource) from GameplayTaskResour
 @:forward
 @:nativeGen
 @:native("GameplayTaskResource*")
-abstract GameplayTaskResourcePtr(cpp.Star<GameplayTaskResource>) from cpp.Star<GameplayTaskResource> to cpp.Star<GameplayTaskResource>{
+abstract GameplayTaskResourcePtr(ucpp.Ptr<GameplayTaskResource>) from ucpp.Ptr<GameplayTaskResource> to ucpp.Ptr<GameplayTaskResource>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTaskResource): GameplayTaskResourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArrayInt32")
 @:include("NiagaraDataInterfaceArrayInt.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceArrayInt32 extends NiagaraDataInterfaceArray {
-	public var IntData: TArray<cpp.Int32>;
+	public var IntData: TArray<ucpp.num.Int32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceArrayInt32(NiagaraDataInterfaceArrayInt32) from NiagaraDataInterfaceArrayInt32 {
-	public extern var IntData(get, never): TArray<cpp.Int32>;
-	public inline extern function get_IntData(): TArray<cpp.Int32> return this.IntData;
+	public extern var IntData(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_IntData(): TArray<ucpp.num.Int32> return this.IntData;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceArrayInt32*")
-abstract NiagaraDataInterfaceArrayInt32Ptr(cpp.Star<NiagaraDataInterfaceArrayInt32>) from cpp.Star<NiagaraDataInterfaceArrayInt32> to cpp.Star<NiagaraDataInterfaceArrayInt32>{
+abstract NiagaraDataInterfaceArrayInt32Ptr(ucpp.Ptr<NiagaraDataInterfaceArrayInt32>) from ucpp.Ptr<NiagaraDataInterfaceArrayInt32> to ucpp.Ptr<NiagaraDataInterfaceArrayInt32>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayInt32): NiagaraDataInterfaceArrayInt32Ptr {
 		return untyped __cpp__("&({0})", v);

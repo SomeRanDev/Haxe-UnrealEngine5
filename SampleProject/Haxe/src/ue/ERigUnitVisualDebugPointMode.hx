@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ERigUnitVisualDebugPointMode")
-@:include("Private/Units/Debug/RigUnit_VisualDebug.h")
+@:include("RigVMFunctions/Debug/RigVMFunction_VisualDebug.h")
 extern class ERigUnitVisualDebugPointMode {
 	static var Point: ERigUnitVisualDebugPointMode;
 	static var Vector: ERigUnitVisualDebugPointMode;

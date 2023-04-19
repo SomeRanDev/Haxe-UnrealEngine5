@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAssetEditorContextInterface")
-@:structAccess
+@:valueType
 extern class AssetEditorContextInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAssetEditorContextInterface(AssetEditorContextInterface) from Asse
 @:forward
 @:nativeGen
 @:native("AssetEditorContextInterface*")
-abstract AssetEditorContextInterfacePtr(cpp.Star<AssetEditorContextInterface>) from cpp.Star<AssetEditorContextInterface> to cpp.Star<AssetEditorContextInterface>{
+abstract AssetEditorContextInterfacePtr(ucpp.Ptr<AssetEditorContextInterface>) from ucpp.Ptr<AssetEditorContextInterface> to ucpp.Ptr<AssetEditorContextInterface>{
 	@:from
 	public static extern inline function fromValue(v: AssetEditorContextInterface): AssetEditorContextInterfacePtr {
 		return untyped __cpp__("&({0})", v);

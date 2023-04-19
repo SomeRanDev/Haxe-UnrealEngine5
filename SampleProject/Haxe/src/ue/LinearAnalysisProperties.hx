@@ -3,16 +3,16 @@ package ue;
 
 @:native("ULinearAnalysisProperties")
 @:include("BlendSpaceAnalysis.h")
-@:structAccess
+@:valueType
 extern class LinearAnalysisProperties extends AnalysisProperties {
 	public var FunctionAxis: EAnalysisLinearAxis;
 	public var BoneSocket: BoneSocketTarget;
 	public var Space: EAnalysisSpace;
 	public var SpaceBoneSocket: BoneSocketTarget;
-	public var StartTimeFraction: cpp.Float32;
-	public var EndTimeFraction: cpp.Float32;
+	public var StartTimeFraction: ucpp.num.Float32;
+	public var EndTimeFraction: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,16 +26,16 @@ abstract ConstLinearAnalysisProperties(LinearAnalysisProperties) from LinearAnal
 	public inline extern function get_Space(): EAnalysisSpace return this.Space;
 	public extern var SpaceBoneSocket(get, never): BoneSocketTarget;
 	public inline extern function get_SpaceBoneSocket(): BoneSocketTarget return this.SpaceBoneSocket;
-	public extern var StartTimeFraction(get, never): cpp.Float32;
-	public inline extern function get_StartTimeFraction(): cpp.Float32 return this.StartTimeFraction;
-	public extern var EndTimeFraction(get, never): cpp.Float32;
-	public inline extern function get_EndTimeFraction(): cpp.Float32 return this.EndTimeFraction;
+	public extern var StartTimeFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_StartTimeFraction(): ucpp.num.Float32 return this.StartTimeFraction;
+	public extern var EndTimeFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_EndTimeFraction(): ucpp.num.Float32 return this.EndTimeFraction;
 }
 
 @:forward
 @:nativeGen
 @:native("LinearAnalysisProperties*")
-abstract LinearAnalysisPropertiesPtr(cpp.Star<LinearAnalysisProperties>) from cpp.Star<LinearAnalysisProperties> to cpp.Star<LinearAnalysisProperties>{
+abstract LinearAnalysisPropertiesPtr(ucpp.Ptr<LinearAnalysisProperties>) from ucpp.Ptr<LinearAnalysisProperties> to ucpp.Ptr<LinearAnalysisProperties>{
 	@:from
 	public static extern inline function fromValue(v: LinearAnalysisProperties): LinearAnalysisPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

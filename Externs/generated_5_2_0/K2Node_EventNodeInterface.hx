@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UK2Node_EventNodeInterface")
-@:structAccess
+@:valueType
 extern class K2Node_EventNodeInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstK2Node_EventNodeInterface(K2Node_EventNodeInterface) from K2Node_E
 @:forward
 @:nativeGen
 @:native("K2Node_EventNodeInterface*")
-abstract K2Node_EventNodeInterfacePtr(cpp.Star<K2Node_EventNodeInterface>) from cpp.Star<K2Node_EventNodeInterface> to cpp.Star<K2Node_EventNodeInterface>{
+abstract K2Node_EventNodeInterfacePtr(ucpp.Ptr<K2Node_EventNodeInterface>) from ucpp.Ptr<K2Node_EventNodeInterface> to ucpp.Ptr<K2Node_EventNodeInterface>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_EventNodeInterface): K2Node_EventNodeInterfacePtr {
 		return untyped __cpp__("&({0})", v);

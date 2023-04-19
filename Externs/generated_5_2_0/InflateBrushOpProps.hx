@@ -3,27 +3,27 @@ package ue;
 
 @:native("UInflateBrushOpProps")
 @:include("Sculpting/MeshInflateBrushOps.h")
-@:structAccess
+@:valueType
 extern class InflateBrushOpProps extends MeshSculptBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInflateBrushOpProps(InflateBrushOpProps) from InflateBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
 }
 
 @:forward
 @:nativeGen
 @:native("InflateBrushOpProps*")
-abstract InflateBrushOpPropsPtr(cpp.Star<InflateBrushOpProps>) from cpp.Star<InflateBrushOpProps> to cpp.Star<InflateBrushOpProps>{
+abstract InflateBrushOpPropsPtr(ucpp.Ptr<InflateBrushOpProps>) from ucpp.Ptr<InflateBrushOpProps> to ucpp.Ptr<InflateBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: InflateBrushOpProps): InflateBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

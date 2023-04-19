@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMovieSceneCaptureEnvironment")
 @:include("MovieSceneCaptureEnvironment.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCaptureEnvironment extends Object {
 	public function IsCaptureInProgress(): Bool;
-	public function GetCaptureFrameNumber(): cpp.Int32;
-	public function GetCaptureElapsedTime(): cpp.Float32;
-	public function FindImageCaptureProtocol(): cpp.Star<MovieSceneImageCaptureProtocolBase>;
-	public function FindAudioCaptureProtocol(): cpp.Star<MovieSceneAudioCaptureProtocolBase>;
+	public function GetCaptureFrameNumber(): ucpp.num.Int32;
+	public function GetCaptureElapsedTime(): ucpp.num.Float32;
+	public function FindImageCaptureProtocol(): ucpp.Ptr<MovieSceneImageCaptureProtocolBase>;
+	public function FindAudioCaptureProtocol(): ucpp.Ptr<MovieSceneAudioCaptureProtocolBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstMovieSceneCaptureEnvironment(MovieSceneCaptureEnvironment) from Mo
 @:forward
 @:nativeGen
 @:native("MovieSceneCaptureEnvironment*")
-abstract MovieSceneCaptureEnvironmentPtr(cpp.Star<MovieSceneCaptureEnvironment>) from cpp.Star<MovieSceneCaptureEnvironment> to cpp.Star<MovieSceneCaptureEnvironment>{
+abstract MovieSceneCaptureEnvironmentPtr(ucpp.Ptr<MovieSceneCaptureEnvironment>) from ucpp.Ptr<MovieSceneCaptureEnvironment> to ucpp.Ptr<MovieSceneCaptureEnvironment>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCaptureEnvironment): MovieSceneCaptureEnvironmentPtr {
 		return untyped __cpp__("&({0})", v);

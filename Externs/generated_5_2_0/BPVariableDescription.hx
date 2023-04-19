@@ -3,14 +3,14 @@ package ue;
 
 @:native("FBPVariableDescription")
 @:include("Engine/Blueprint.h")
-@:structAccess
+@:valueType
 extern class BPVariableDescription {
 	public var VarName: FName;
 	public var VarGuid: Guid;
 	public var VarType: EdGraphPinType;
 	public var FriendlyName: FString;
 	public var Category: FText;
-	public var PropertyFlags: cpp.UInt64;
+	public var PropertyFlags: ucpp.num.UInt64;
 	public var RepNotifyFunc: FName;
 	public var ReplicationCondition: TEnumAsByte<ELifetimeCondition>;
 	public var MetaDataArray: TArray<BPVariableMetaDataEntry>;

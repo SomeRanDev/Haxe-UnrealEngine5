@@ -3,17 +3,17 @@ package ue;
 
 @:native("UTwitterIntegrationBase")
 @:include("Engine/TwitterIntegrationBase.h")
-@:structAccess
+@:valueType
 extern class TwitterIntegrationBase extends PlatformInterfaceBase {
-	public function TwitterRequest(URL: FString, ParamKeysAndValues: cpp.Reference<TArray<FString>>, RequestMethod: TEnumAsByte<ETwitterRequestMethod>, AccountIndex: cpp.Int32): Bool;
+	public function TwitterRequest(URL: FString, ParamKeysAndValues: ucpp.Ref<TArray<FString>>, RequestMethod: TEnumAsByte<ETwitterRequestMethod>, AccountIndex: ucpp.num.Int32): Bool;
 	public function ShowTweetUI(InitialMessage: FString, URL: FString, Picture: FString): Bool;
 	public function Init(): Void;
-	public function GetNumAccounts(): cpp.Int32;
-	public function GetAccountName(AccountIndex: cpp.Int32): FString;
+	public function GetNumAccounts(): ucpp.num.Int32;
+	public function GetAccountName(AccountIndex: ucpp.num.Int32): FString;
 	public function CanShowTweetUI(): Bool;
 	public function AuthorizeAccounts(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstTwitterIntegrationBase(TwitterIntegrationBase) from TwitterIntegra
 @:forward
 @:nativeGen
 @:native("TwitterIntegrationBase*")
-abstract TwitterIntegrationBasePtr(cpp.Star<TwitterIntegrationBase>) from cpp.Star<TwitterIntegrationBase> to cpp.Star<TwitterIntegrationBase>{
+abstract TwitterIntegrationBasePtr(ucpp.Ptr<TwitterIntegrationBase>) from ucpp.Ptr<TwitterIntegrationBase> to ucpp.Ptr<TwitterIntegrationBase>{
 	@:from
 	public static extern inline function fromValue(v: TwitterIntegrationBase): TwitterIntegrationBasePtr {
 		return untyped __cpp__("&({0})", v);

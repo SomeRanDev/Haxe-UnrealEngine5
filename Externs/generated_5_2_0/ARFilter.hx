@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARFilter")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class ARFilter {
 	public var PackageNames: TArray<FName>;
 	public var PackagePaths: TArray<FName>;

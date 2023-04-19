@@ -3,35 +3,35 @@ package ue;
 
 @:native("UMaterialInterface")
 @:include("Materials/MaterialInterface.h")
-@:structAccess
+@:valueType
 extern class MaterialInterface extends Object {
-	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
+	public var SubsurfaceProfile: ucpp.Ptr<SubsurfaceProfile>;
 	@:protected public var LightmassSettings: LightmassMaterialInterfaceSettings;
 	@:protected public var TextureStreamingData: TArray<MaterialTextureInfo>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 
-	public function SetForceMipLevelsToBeResident(OverrideForceMiplevelsToBeResident: Bool, bForceMiplevelsToBeResidentValue: Bool, ForceDuration: cpp.Float32, CinematicTextureGroups: cpp.Int32, bFastResponse: Bool): Void;
-	public function GetPhysicalMaterialMask(): cpp.Star<PhysicalMaterialMask>;
-	public function GetPhysicalMaterialFromMap(Index: cpp.Int32): cpp.Star<PhysicalMaterial>;
-	public function GetPhysicalMaterial(): cpp.Star<PhysicalMaterial>;
-	public function GetParameterInfo(Association: TEnumAsByte<EMaterialParameterAssociation>, ParameterName: FName, LayerFunction: cpp.Star<MaterialFunctionInterface>): MaterialParameterInfo;
+	public function SetForceMipLevelsToBeResident(OverrideForceMiplevelsToBeResident: Bool, bForceMiplevelsToBeResidentValue: Bool, ForceDuration: ucpp.num.Float32, CinematicTextureGroups: ucpp.num.Int32, bFastResponse: Bool): Void;
+	public function GetPhysicalMaterialMask(): ucpp.Ptr<PhysicalMaterialMask>;
+	public function GetPhysicalMaterialFromMap(Index: ucpp.num.Int32): ucpp.Ptr<PhysicalMaterial>;
+	public function GetPhysicalMaterial(): ucpp.Ptr<PhysicalMaterial>;
+	public function GetParameterInfo(Association: TEnumAsByte<EMaterialParameterAssociation>, ParameterName: FName, LayerFunction: ucpp.Ptr<MaterialFunctionInterface>): MaterialParameterInfo;
 	public function GetBlendMode(): TEnumAsByte<EBlendMode>;
-	public function GetBaseMaterial(): cpp.Star<Material>;
+	public function GetBaseMaterial(): ucpp.Ptr<Material>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPhysicalMaterialMask, GetPhysicalMaterialFromMap, GetPhysicalMaterial, GetParameterInfo, GetBlendMode)
 @:nativeGen
 abstract ConstMaterialInterface(MaterialInterface) from MaterialInterface {
-	public extern var SubsurfaceProfile(get, never): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile>;
-	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
+	public extern var SubsurfaceProfile(get, never): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile>;
+	public inline extern function get_SubsurfaceProfile(): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialInterface*")
-abstract MaterialInterfacePtr(cpp.Star<MaterialInterface>) from cpp.Star<MaterialInterface> to cpp.Star<MaterialInterface>{
+abstract MaterialInterfacePtr(ucpp.Ptr<MaterialInterface>) from ucpp.Ptr<MaterialInterface> to ucpp.Ptr<MaterialInterface>{
 	@:from
 	public static extern inline function fromValue(v: MaterialInterface): MaterialInterfacePtr {
 		return untyped __cpp__("&({0})", v);

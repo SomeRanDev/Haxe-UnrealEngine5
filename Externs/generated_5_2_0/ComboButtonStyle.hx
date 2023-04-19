@@ -3,7 +3,7 @@ package ue;
 
 @:native("FComboButtonStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class ComboButtonStyle extends SlateWidgetStyle {
 	public var ButtonStyle: ButtonStyle;
 	public var DownArrowImage: SlateBrush;

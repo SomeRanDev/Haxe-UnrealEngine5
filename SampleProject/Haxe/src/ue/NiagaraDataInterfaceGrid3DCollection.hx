@@ -3,26 +3,26 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid3DCollection")
 @:include("NiagaraDataInterfaceGrid3DCollection.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGrid3DCollection extends NiagaraDataInterfaceGrid3D {
-	public var NumAttributes: cpp.Int32;
+	public var NumAttributes: ucpp.num.Int32;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
 	public var OverrideBufferFormat: ENiagaraGpuBufferFormat;
 	public var bOverrideFormat: Bool;
 
-	public function GetTextureSize(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, SizeX: cpp.Reference<cpp.Int32>, SizeY: cpp.Reference<cpp.Int32>, SizeZ: cpp.Reference<cpp.Int32>): Void;
-	public function GetRawTextureSize(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, SizeX: cpp.Reference<cpp.Int32>, SizeY: cpp.Reference<cpp.Int32>, SizeZ: cpp.Reference<cpp.Int32>): Void;
-	public function FillVolumeTexture(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, dest: cpp.Star<VolumeTexture>, AttributeIndex: cpp.Int32): Bool;
-	public function FillRawVolumeTexture(Component: cpp.Star<NiagaraComp.ConstNiagaraComp>, Dest: cpp.Star<VolumeTexture>, TilesX: cpp.Reference<cpp.Int32>, TilesY: cpp.Reference<cpp.Int32>, TileZ: cpp.Reference<cpp.Int32>): Bool;
+	public function GetTextureSize(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, SizeX: ucpp.Ref<ucpp.num.Int32>, SizeY: ucpp.Ref<ucpp.num.Int32>, SizeZ: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetRawTextureSize(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, SizeX: ucpp.Ref<ucpp.num.Int32>, SizeY: ucpp.Ref<ucpp.num.Int32>, SizeZ: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function FillVolumeTexture(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, dest: ucpp.Ptr<VolumeTexture>, AttributeIndex: ucpp.num.Int32): Bool;
+	public function FillRawVolumeTexture(Component: ucpp.Ptr<NiagaraComp.ConstNiagaraComp>, Dest: ucpp.Ptr<VolumeTexture>, TilesX: ucpp.Ref<ucpp.num.Int32>, TilesY: ucpp.Ref<ucpp.num.Int32>, TileZ: ucpp.Ref<ucpp.num.Int32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceGrid3DCollection(NiagaraDataInterfaceGrid3DCollection) from NiagaraDataInterfaceGrid3DCollection {
-	public extern var NumAttributes(get, never): cpp.Int32;
-	public inline extern function get_NumAttributes(): cpp.Int32 return this.NumAttributes;
+	public extern var NumAttributes(get, never): ucpp.num.Int32;
+	public inline extern function get_NumAttributes(): ucpp.num.Int32 return this.NumAttributes;
 	public extern var RenderTargetUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_RenderTargetUserParameter(): NiagaraUserParameterBinding return this.RenderTargetUserParameter;
 	public extern var OverrideBufferFormat(get, never): ENiagaraGpuBufferFormat;
@@ -34,7 +34,7 @@ abstract ConstNiagaraDataInterfaceGrid3DCollection(NiagaraDataInterfaceGrid3DCol
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceGrid3DCollection*")
-abstract NiagaraDataInterfaceGrid3DCollectionPtr(cpp.Star<NiagaraDataInterfaceGrid3DCollection>) from cpp.Star<NiagaraDataInterfaceGrid3DCollection> to cpp.Star<NiagaraDataInterfaceGrid3DCollection>{
+abstract NiagaraDataInterfaceGrid3DCollectionPtr(ucpp.Ptr<NiagaraDataInterfaceGrid3DCollection>) from ucpp.Ptr<NiagaraDataInterfaceGrid3DCollection> to ucpp.Ptr<NiagaraDataInterfaceGrid3DCollection>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid3DCollection): NiagaraDataInterfaceGrid3DCollectionPtr {
 		return untyped __cpp__("&({0})", v);

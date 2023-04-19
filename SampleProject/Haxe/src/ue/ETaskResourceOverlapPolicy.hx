@@ -6,5 +6,7 @@ package ue;
 extern class ETaskResourceOverlapPolicy {
 	static var StartOnTop: ETaskResourceOverlapPolicy;
 	static var StartAtEnd: ETaskResourceOverlapPolicy;
+	static var RequestCancelAndStartOnTop: ETaskResourceOverlapPolicy;
+	static var RequestCancelAndStartAtEnd: ETaskResourceOverlapPolicy;
 	static var ETaskResourceOverlapPolicy_MAX: ETaskResourceOverlapPolicy;
 }

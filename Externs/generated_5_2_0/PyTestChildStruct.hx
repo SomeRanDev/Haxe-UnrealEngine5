@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPyTestChildStruct")
 @:include("Private/PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestChildStruct extends PyTestStruct {
 	@:native("FPyTestChildStruct") public function new();
 }

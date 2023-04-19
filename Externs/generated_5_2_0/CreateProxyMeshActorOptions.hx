@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCreateProxyMeshActorOptions")
 @:include("StaticMeshEditorSubsystemHelpers.h")
-@:structAccess
+@:valueType
 extern class CreateProxyMeshActorOptions extends JoinStaticMeshActorsOptions {
 	public var bSpawnMergedActor: Bool;
 	public var BasePackageName: FString;

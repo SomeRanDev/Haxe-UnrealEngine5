@@ -3,7 +3,7 @@ package ue;
 
 @:native("URootMotionAnalysisProperties")
 @:include("RootMotionAnalysis.h")
-@:structAccess
+@:valueType
 extern class RootMotionAnalysisProperties extends AnalysisProperties {
 	public var FunctionAxis: EAnalysisRootMotionAxis;
 	public var BoneSocket: BoneSocketTarget;
@@ -11,10 +11,10 @@ extern class RootMotionAnalysisProperties extends AnalysisProperties {
 	public var SpaceBoneSocket: BoneSocketTarget;
 	public var CharacterFacingAxis: EAnalysisLinearAxis;
 	public var CharacterUpAxis: EAnalysisLinearAxis;
-	public var StartTimeFraction: cpp.Float32;
-	public var EndTimeFraction: cpp.Float32;
+	public var StartTimeFraction: ucpp.num.Float32;
+	public var EndTimeFraction: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,16 +32,16 @@ abstract ConstRootMotionAnalysisProperties(RootMotionAnalysisProperties) from Ro
 	public inline extern function get_CharacterFacingAxis(): EAnalysisLinearAxis return this.CharacterFacingAxis;
 	public extern var CharacterUpAxis(get, never): EAnalysisLinearAxis;
 	public inline extern function get_CharacterUpAxis(): EAnalysisLinearAxis return this.CharacterUpAxis;
-	public extern var StartTimeFraction(get, never): cpp.Float32;
-	public inline extern function get_StartTimeFraction(): cpp.Float32 return this.StartTimeFraction;
-	public extern var EndTimeFraction(get, never): cpp.Float32;
-	public inline extern function get_EndTimeFraction(): cpp.Float32 return this.EndTimeFraction;
+	public extern var StartTimeFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_StartTimeFraction(): ucpp.num.Float32 return this.StartTimeFraction;
+	public extern var EndTimeFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_EndTimeFraction(): ucpp.num.Float32 return this.EndTimeFraction;
 }
 
 @:forward
 @:nativeGen
 @:native("RootMotionAnalysisProperties*")
-abstract RootMotionAnalysisPropertiesPtr(cpp.Star<RootMotionAnalysisProperties>) from cpp.Star<RootMotionAnalysisProperties> to cpp.Star<RootMotionAnalysisProperties>{
+abstract RootMotionAnalysisPropertiesPtr(ucpp.Ptr<RootMotionAnalysisProperties>) from ucpp.Ptr<RootMotionAnalysisProperties> to ucpp.Ptr<RootMotionAnalysisProperties>{
 	@:from
 	public static extern inline function fromValue(v: RootMotionAnalysisProperties): RootMotionAnalysisPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

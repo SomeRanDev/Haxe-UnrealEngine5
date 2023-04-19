@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditNormalsAdvancedProperties")
 @:include("EditNormalsTool.h")
-@:structAccess
+@:valueType
 extern class EditNormalsAdvancedProperties extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditNormalsAdvancedProperties(EditNormalsAdvancedProperties) from 
 @:forward
 @:nativeGen
 @:native("EditNormalsAdvancedProperties*")
-abstract EditNormalsAdvancedPropertiesPtr(cpp.Star<EditNormalsAdvancedProperties>) from cpp.Star<EditNormalsAdvancedProperties> to cpp.Star<EditNormalsAdvancedProperties>{
+abstract EditNormalsAdvancedPropertiesPtr(ucpp.Ptr<EditNormalsAdvancedProperties>) from ucpp.Ptr<EditNormalsAdvancedProperties> to ucpp.Ptr<EditNormalsAdvancedProperties>{
 	@:from
 	public static extern inline function fromValue(v: EditNormalsAdvancedProperties): EditNormalsAdvancedPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

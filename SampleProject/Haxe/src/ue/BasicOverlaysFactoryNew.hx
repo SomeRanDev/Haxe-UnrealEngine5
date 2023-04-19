@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBasicOverlaysFactoryNew")
 @:include("Factories/BasicOverlaysFactoryNew.h")
-@:structAccess
+@:valueType
 extern class BasicOverlaysFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBasicOverlaysFactoryNew(BasicOverlaysFactoryNew) from BasicOverlay
 @:forward
 @:nativeGen
 @:native("BasicOverlaysFactoryNew*")
-abstract BasicOverlaysFactoryNewPtr(cpp.Star<BasicOverlaysFactoryNew>) from cpp.Star<BasicOverlaysFactoryNew> to cpp.Star<BasicOverlaysFactoryNew>{
+abstract BasicOverlaysFactoryNewPtr(ucpp.Ptr<BasicOverlaysFactoryNew>) from ucpp.Ptr<BasicOverlaysFactoryNew> to ucpp.Ptr<BasicOverlaysFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: BasicOverlaysFactoryNew): BasicOverlaysFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

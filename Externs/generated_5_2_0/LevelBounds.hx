@@ -3,19 +3,19 @@ package ue;
 
 @:native("ALevelBounds")
 @:include("Engine/LevelBounds.h")
-@:structAccess
+@:valueType
 extern class LevelBounds extends Actor {
-	public var BoxComponent: cpp.Star<BoxComp>;
+	public var BoxComponent: ucpp.Ptr<BoxComp>;
 	public var bAutoUpdateBounds: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLevelBounds(LevelBounds) from LevelBounds {
-	public extern var BoxComponent(get, never): cpp.Star<BoxComp.ConstBoxComp>;
-	public inline extern function get_BoxComponent(): cpp.Star<BoxComp.ConstBoxComp> return this.BoxComponent;
+	public extern var BoxComponent(get, never): ucpp.Ptr<BoxComp.ConstBoxComp>;
+	public inline extern function get_BoxComponent(): ucpp.Ptr<BoxComp.ConstBoxComp> return this.BoxComponent;
 	public extern var bAutoUpdateBounds(get, never): Bool;
 	public inline extern function get_bAutoUpdateBounds(): Bool return this.bAutoUpdateBounds;
 }
@@ -23,7 +23,7 @@ abstract ConstLevelBounds(LevelBounds) from LevelBounds {
 @:forward
 @:nativeGen
 @:native("LevelBounds*")
-abstract LevelBoundsPtr(cpp.Star<LevelBounds>) from cpp.Star<LevelBounds> to cpp.Star<LevelBounds>{
+abstract LevelBoundsPtr(ucpp.Ptr<LevelBounds>) from ucpp.Ptr<LevelBounds> to ucpp.Ptr<LevelBounds>{
 	@:from
 	public static extern inline function fromValue(v: LevelBounds): LevelBoundsPtr {
 		return untyped __cpp__("&({0})", v);

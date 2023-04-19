@@ -3,12 +3,12 @@ package ue;
 
 @:native("UCancellableAsyncAction")
 @:include("Engine/CancellableAsyncAction.h")
-@:structAccess
+@:valueType
 extern class CancellableAsyncAction extends BlueprintAsyncActionBase {
 	public function IsActive(): Bool;
 	public function Cancel(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsActive)
@@ -19,7 +19,7 @@ abstract ConstCancellableAsyncAction(CancellableAsyncAction) from CancellableAsy
 @:forward
 @:nativeGen
 @:native("CancellableAsyncAction*")
-abstract CancellableAsyncActionPtr(cpp.Star<CancellableAsyncAction>) from cpp.Star<CancellableAsyncAction> to cpp.Star<CancellableAsyncAction>{
+abstract CancellableAsyncActionPtr(ucpp.Ptr<CancellableAsyncAction>) from ucpp.Ptr<CancellableAsyncAction> to ucpp.Ptr<CancellableAsyncAction>{
 	@:from
 	public static extern inline function fromValue(v: CancellableAsyncAction): CancellableAsyncActionPtr {
 		return untyped __cpp__("&({0})", v);

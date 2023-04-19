@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAISenseConfig_Prediction")
 @:include("Perception/AISenseConfig_Prediction.h")
-@:structAccess
+@:valueType
 extern class AISenseConfig_Prediction extends AISenseConfig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAISenseConfig_Prediction(AISenseConfig_Prediction) from AISenseCon
 @:forward
 @:nativeGen
 @:native("AISenseConfig_Prediction*")
-abstract AISenseConfig_PredictionPtr(cpp.Star<AISenseConfig_Prediction>) from cpp.Star<AISenseConfig_Prediction> to cpp.Star<AISenseConfig_Prediction>{
+abstract AISenseConfig_PredictionPtr(ucpp.Ptr<AISenseConfig_Prediction>) from ucpp.Ptr<AISenseConfig_Prediction> to ucpp.Ptr<AISenseConfig_Prediction>{
 	@:from
 	public static extern inline function fromValue(v: AISenseConfig_Prediction): AISenseConfig_PredictionPtr {
 		return untyped __cpp__("&({0})", v);

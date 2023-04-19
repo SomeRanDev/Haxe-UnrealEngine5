@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraHierarchyRoot")
 @:include("ViewModels/HierarchyEditor/NiagaraHierarchyViewModelBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraHierarchyRoot extends NiagaraHierarchyItemBase {
-	@:protected public var Sections: TArray<cpp.Star<NiagaraHierarchySection>>;
+	@:protected public var Sections: TArray<ucpp.Ptr<NiagaraHierarchySection>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraHierarchyRoot(NiagaraHierarchyRoot) from NiagaraHierarchyRo
 @:forward
 @:nativeGen
 @:native("NiagaraHierarchyRoot*")
-abstract NiagaraHierarchyRootPtr(cpp.Star<NiagaraHierarchyRoot>) from cpp.Star<NiagaraHierarchyRoot> to cpp.Star<NiagaraHierarchyRoot>{
+abstract NiagaraHierarchyRootPtr(ucpp.Ptr<NiagaraHierarchyRoot>) from ucpp.Ptr<NiagaraHierarchyRoot> to ucpp.Ptr<NiagaraHierarchyRoot>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraHierarchyRoot): NiagaraHierarchyRootPtr {
 		return untyped __cpp__("&({0})", v);

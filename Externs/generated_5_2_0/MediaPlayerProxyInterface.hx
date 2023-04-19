@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMediaPlayerProxyInterface")
-@:structAccess
+@:valueType
 extern class MediaPlayerProxyInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMediaPlayerProxyInterface(MediaPlayerProxyInterface) from MediaPla
 @:forward
 @:nativeGen
 @:native("MediaPlayerProxyInterface*")
-abstract MediaPlayerProxyInterfacePtr(cpp.Star<MediaPlayerProxyInterface>) from cpp.Star<MediaPlayerProxyInterface> to cpp.Star<MediaPlayerProxyInterface>{
+abstract MediaPlayerProxyInterfacePtr(ucpp.Ptr<MediaPlayerProxyInterface>) from ucpp.Ptr<MediaPlayerProxyInterface> to ucpp.Ptr<MediaPlayerProxyInterface>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlayerProxyInterface): MediaPlayerProxyInterfacePtr {
 		return untyped __cpp__("&({0})", v);

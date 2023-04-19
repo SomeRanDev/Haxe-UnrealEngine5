@@ -3,12 +3,12 @@ package ue;
 
 @:native("FFunctionExpressionInput")
 @:include("Materials/MaterialExpressionMaterialFunctionCall.h")
-@:structAccess
+@:valueType
 extern class FunctionExpressionInput {
-	public var ExpressionInput: cpp.Star<MaterialExpressionFunctionInput>;
+	public var ExpressionInput: ucpp.Ptr<MaterialExpressionFunctionInput>;
 	public var ExpressionInputId: Guid;
 	public var Input: ExpressionInput;
 
 	@:native("FFunctionExpressionInput") public function new();
-	@:native("FFunctionExpressionInput") public static function make(ExpressionInput: cpp.Star<MaterialExpressionFunctionInput>, ExpressionInputId: Guid, Input: ExpressionInput): FunctionExpressionInput ;
+	@:native("FFunctionExpressionInput") public static function make(ExpressionInput: ucpp.Ptr<MaterialExpressionFunctionInput>, ExpressionInputId: Guid, Input: ExpressionInput): FunctionExpressionInput ;
 }

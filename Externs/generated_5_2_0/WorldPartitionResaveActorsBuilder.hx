@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWorldPartitionResaveActorsBuilder")
 @:include("WorldPartition/WorldPartitionResaveActorsBuilder.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionResaveActorsBuilder extends WorldPartitionBuilder {
 	private var ActorClassName: FString;
 	private var ActorClassesFromFile: FString;
@@ -15,7 +15,7 @@ extern class WorldPartitionResaveActorsBuilder extends WorldPartitionBuilder {
 	private var ActorTags: TSet<FName>;
 	private var ActorProperties: TMap<FName, FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstWorldPartitionResaveActorsBuilder(WorldPartitionResaveActorsBuilde
 @:forward
 @:nativeGen
 @:native("WorldPartitionResaveActorsBuilder*")
-abstract WorldPartitionResaveActorsBuilderPtr(cpp.Star<WorldPartitionResaveActorsBuilder>) from cpp.Star<WorldPartitionResaveActorsBuilder> to cpp.Star<WorldPartitionResaveActorsBuilder>{
+abstract WorldPartitionResaveActorsBuilderPtr(ucpp.Ptr<WorldPartitionResaveActorsBuilder>) from ucpp.Ptr<WorldPartitionResaveActorsBuilder> to ucpp.Ptr<WorldPartitionResaveActorsBuilder>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionResaveActorsBuilder): WorldPartitionResaveActorsBuilderPtr {
 		return untyped __cpp__("&({0})", v);

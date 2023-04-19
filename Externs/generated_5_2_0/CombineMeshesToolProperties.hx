@@ -3,14 +3,14 @@ package ue;
 
 @:native("UCombineMeshesToolProperties")
 @:include("CombineMeshesTool.h")
-@:structAccess
+@:valueType
 extern class CombineMeshesToolProperties extends InteractiveToolPropertySet {
 	public var bIsDuplicateMode: Bool;
 	public var OutputWriteTo: EBaseCreateFromSelectedTargetType;
 	public var OutputNewName: FString;
 	public var OutputExistingName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstCombineMeshesToolProperties(CombineMeshesToolProperties) from Comb
 @:forward
 @:nativeGen
 @:native("CombineMeshesToolProperties*")
-abstract CombineMeshesToolPropertiesPtr(cpp.Star<CombineMeshesToolProperties>) from cpp.Star<CombineMeshesToolProperties> to cpp.Star<CombineMeshesToolProperties>{
+abstract CombineMeshesToolPropertiesPtr(ucpp.Ptr<CombineMeshesToolProperties>) from ucpp.Ptr<CombineMeshesToolProperties> to ucpp.Ptr<CombineMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: CombineMeshesToolProperties): CombineMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FInputDevicePropertyHandle")
 @:include("GameFramework/InputDevicePropertyHandle.h")
-@:structAccess
+@:valueType
 extern class InputDevicePropertyHandle {
-	private var InternalId: cpp.UInt32;
+	private var InternalId: ucpp.num.UInt32;
 
 	@:native("FInputDevicePropertyHandle") public function new();
-	@:native("FInputDevicePropertyHandle") public static function make(InternalId: cpp.UInt32): InputDevicePropertyHandle ;
+	@:native("FInputDevicePropertyHandle") public static function make(InternalId: ucpp.num.UInt32): InputDevicePropertyHandle ;
 }

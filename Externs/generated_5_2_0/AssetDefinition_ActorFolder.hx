@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_ActorFolder")
 @:include("AssetDefinition_ActorFolder.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_ActorFolder extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_ActorFolder(AssetDefinition_ActorFolder) from Asse
 @:forward
 @:nativeGen
 @:native("AssetDefinition_ActorFolder*")
-abstract AssetDefinition_ActorFolderPtr(cpp.Star<AssetDefinition_ActorFolder>) from cpp.Star<AssetDefinition_ActorFolder> to cpp.Star<AssetDefinition_ActorFolder>{
+abstract AssetDefinition_ActorFolderPtr(ucpp.Ptr<AssetDefinition_ActorFolder>) from ucpp.Ptr<AssetDefinition_ActorFolder> to ucpp.Ptr<AssetDefinition_ActorFolder>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_ActorFolder): AssetDefinition_ActorFolderPtr {
 		return untyped __cpp__("&({0})", v);

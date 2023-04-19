@@ -3,12 +3,12 @@ package ue;
 
 @:native("URig")
 @:include("Animation/Rig.h")
-@:structAccess
+@:valueType
 extern class Rig extends Object {
 	private var TransformBases: TArray<TransformBase>;
 	private var Nodes: TArray<Node>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstRig(Rig) from Rig {
 @:forward
 @:nativeGen
 @:native("Rig*")
-abstract RigPtr(cpp.Star<Rig>) from cpp.Star<Rig> to cpp.Star<Rig>{
+abstract RigPtr(ucpp.Ptr<Rig>) from ucpp.Ptr<Rig> to ucpp.Ptr<Rig>{
 	@:from
 	public static extern inline function fromValue(v: Rig): RigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnumFactory")
 @:include("Factories/EnumFactory.h")
-@:structAccess
+@:valueType
 extern class EnumFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnumFactory(EnumFactory) from EnumFactory {
 @:forward
 @:nativeGen
 @:native("EnumFactory*")
-abstract EnumFactoryPtr(cpp.Star<EnumFactory>) from cpp.Star<EnumFactory> to cpp.Star<EnumFactory>{
+abstract EnumFactoryPtr(ucpp.Ptr<EnumFactory>) from ucpp.Ptr<EnumFactory> to ucpp.Ptr<EnumFactory>{
 	@:from
 	public static extern inline function fromValue(v: EnumFactory): EnumFactoryPtr {
 		return untyped __cpp__("&({0})", v);

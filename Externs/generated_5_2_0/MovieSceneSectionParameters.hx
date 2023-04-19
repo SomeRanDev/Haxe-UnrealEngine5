@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMovieSceneSectionParameters")
 @:include("Evaluation/MovieSceneSectionParameters.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSectionParameters {
 	public var StartFrameOffset: FrameNumber;
 	public var bCanLoop: Bool;
 	public var EndFrameOffset: FrameNumber;
 	public var FirstLoopStartFrameOffset: FrameNumber;
-	public var TimeScale: cpp.Float32;
-	public var HierarchicalBias: cpp.Int32;
+	public var TimeScale: ucpp.num.Float32;
+	public var HierarchicalBias: ucpp.num.Int32;
 
 	@:native("FMovieSceneSectionParameters") public function new();
 }

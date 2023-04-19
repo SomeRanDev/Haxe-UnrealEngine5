@@ -3,10 +3,10 @@ package ue;
 
 @:native("URemeshMeshToolBuilder")
 @:include("RemeshMeshTool.h")
-@:structAccess
+@:valueType
 extern class RemeshMeshToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRemeshMeshToolBuilder(RemeshMeshToolBuilder) from RemeshMeshToolBu
 @:forward
 @:nativeGen
 @:native("RemeshMeshToolBuilder*")
-abstract RemeshMeshToolBuilderPtr(cpp.Star<RemeshMeshToolBuilder>) from cpp.Star<RemeshMeshToolBuilder> to cpp.Star<RemeshMeshToolBuilder>{
+abstract RemeshMeshToolBuilderPtr(ucpp.Ptr<RemeshMeshToolBuilder>) from ucpp.Ptr<RemeshMeshToolBuilder> to ucpp.Ptr<RemeshMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: RemeshMeshToolBuilder): RemeshMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

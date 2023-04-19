@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNavModifierComponent")
 @:include("NavModifierComponent.h")
-@:structAccess
+@:valueType
 extern class NavModifierComp extends NavRelevantComp {
 	public var AreaClass: TSubclassOf<NavArea>;
 	public var FailsafeExtent: Vector;
@@ -11,7 +11,7 @@ extern class NavModifierComp extends NavRelevantComp {
 
 	public function SetAreaClass(NewAreaClass: TSubclassOf<NavArea>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstNavModifierComp(NavModifierComp) from NavModifierComp {
 @:forward
 @:nativeGen
 @:native("NavModifierComp*")
-abstract NavModifierCompPtr(cpp.Star<NavModifierComp>) from cpp.Star<NavModifierComp> to cpp.Star<NavModifierComp>{
+abstract NavModifierCompPtr(ucpp.Ptr<NavModifierComp>) from ucpp.Ptr<NavModifierComp> to ucpp.Ptr<NavModifierComp>{
 	@:from
 	public static extern inline function fromValue(v: NavModifierComp): NavModifierCompPtr {
 		return untyped __cpp__("&({0})", v);

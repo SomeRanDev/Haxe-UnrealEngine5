@@ -3,13 +3,13 @@ package ue;
 
 @:native("FLandscapePatternBrushWorldSpaceSettings")
 @:include("LandscapeEditorObject.h")
-@:structAccess
+@:valueType
 extern class LandscapePatternBrushWorldSpaceSettings {
 	public var Origin: Vector2D;
-	public var Rotation: cpp.Float32;
+	public var Rotation: ucpp.num.Float32;
 	public var bCenterTextureOnOrigin: Bool;
-	public var RepeatSize: cpp.Float32;
+	public var RepeatSize: ucpp.num.Float32;
 
 	@:native("FLandscapePatternBrushWorldSpaceSettings") public function new();
-	@:native("FLandscapePatternBrushWorldSpaceSettings") public static function make(Origin: Vector2D, Rotation: cpp.Float32, bCenterTextureOnOrigin: Bool, RepeatSize: cpp.Float32): LandscapePatternBrushWorldSpaceSettings ;
+	@:native("FLandscapePatternBrushWorldSpaceSettings") public static function make(Origin: Vector2D, Rotation: ucpp.num.Float32, bCenterTextureOnOrigin: Bool, RepeatSize: ucpp.num.Float32): LandscapePatternBrushWorldSpaceSettings ;
 }

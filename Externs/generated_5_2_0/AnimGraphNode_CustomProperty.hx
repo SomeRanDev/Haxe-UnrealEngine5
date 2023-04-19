@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_CustomProperty")
 @:include("AnimGraphNode_CustomProperty.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_CustomProperty extends AnimGraphNode_Base {
 	@:protected public var CustomPinProperties: TArray<OptionalPinFromProperty>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimGraphNode_CustomProperty(AnimGraphNode_CustomProperty) from An
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_CustomProperty*")
-abstract AnimGraphNode_CustomPropertyPtr(cpp.Star<AnimGraphNode_CustomProperty>) from cpp.Star<AnimGraphNode_CustomProperty> to cpp.Star<AnimGraphNode_CustomProperty>{
+abstract AnimGraphNode_CustomPropertyPtr(ucpp.Ptr<AnimGraphNode_CustomProperty>) from ucpp.Ptr<AnimGraphNode_CustomProperty> to ucpp.Ptr<AnimGraphNode_CustomProperty>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_CustomProperty): AnimGraphNode_CustomPropertyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEnhancedInputComponent")
 @:include("EnhancedInputComponent.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputComp extends InputComp {
-	public function GetBoundActionValue(Action: cpp.Star<InputAction.ConstInputAction>): InputActionValue;
+	public function GetBoundActionValue(Action: ucpp.Ptr<InputAction.ConstInputAction>): InputActionValue;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetBoundActionValue)
@@ -18,7 +18,7 @@ abstract ConstEnhancedInputComp(EnhancedInputComp) from EnhancedInputComp {
 @:forward
 @:nativeGen
 @:native("EnhancedInputComp*")
-abstract EnhancedInputCompPtr(cpp.Star<EnhancedInputComp>) from cpp.Star<EnhancedInputComp> to cpp.Star<EnhancedInputComp>{
+abstract EnhancedInputCompPtr(ucpp.Ptr<EnhancedInputComp>) from ucpp.Ptr<EnhancedInputComp> to ucpp.Ptr<EnhancedInputComp>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputComp): EnhancedInputCompPtr {
 		return untyped __cpp__("&({0})", v);

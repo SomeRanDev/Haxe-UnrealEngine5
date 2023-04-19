@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_TransitionPoseEvaluator")
 @:include("AnimGraphNode_TransitionPoseEvaluator.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_TransitionPoseEvaluator extends AnimGraphNode_Base {
 	public var Node: AnimNode_TransitionPoseEvaluator;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_TransitionPoseEvaluator(AnimGraphNode_TransitionPose
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_TransitionPoseEvaluator*")
-abstract AnimGraphNode_TransitionPoseEvaluatorPtr(cpp.Star<AnimGraphNode_TransitionPoseEvaluator>) from cpp.Star<AnimGraphNode_TransitionPoseEvaluator> to cpp.Star<AnimGraphNode_TransitionPoseEvaluator>{
+abstract AnimGraphNode_TransitionPoseEvaluatorPtr(ucpp.Ptr<AnimGraphNode_TransitionPoseEvaluator>) from ucpp.Ptr<AnimGraphNode_TransitionPoseEvaluator> to ucpp.Ptr<AnimGraphNode_TransitionPoseEvaluator>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_TransitionPoseEvaluator): AnimGraphNode_TransitionPoseEvaluatorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,18 +3,17 @@ package ue;
 
 @:native("UInvalidationBox")
 @:include("Components/InvalidationBox.h")
-@:structAccess
+@:valueType
 extern class InvalidationBox extends ContentWidget {
-	@:protected public var bCanCache: Bool;
-
-	public function SetCanCache(CanCache: Bool): Void;
-	public function InvalidateCache(): Void;
 	public function GetCanCache(): Bool;
+	public function SetCanCache(input: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public function InvalidateCache(): Void;
+
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetCanCache)
+@:forward()
 @:nativeGen
 abstract ConstInvalidationBox(InvalidationBox) from InvalidationBox {
 }
@@ -22,7 +21,7 @@ abstract ConstInvalidationBox(InvalidationBox) from InvalidationBox {
 @:forward
 @:nativeGen
 @:native("InvalidationBox*")
-abstract InvalidationBoxPtr(cpp.Star<InvalidationBox>) from cpp.Star<InvalidationBox> to cpp.Star<InvalidationBox>{
+abstract InvalidationBoxPtr(ucpp.Ptr<InvalidationBox>) from ucpp.Ptr<InvalidationBox> to ucpp.Ptr<InvalidationBox>{
 	@:from
 	public static extern inline function fromValue(v: InvalidationBox): InvalidationBoxPtr {
 		return untyped __cpp__("&({0})", v);

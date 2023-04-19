@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendGraphClassPresetOptions")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendGraphClassPresetOptions {
 	public var bIsPreset: Bool;
 	public var InputsInheritingDefault: TSet<FName>;

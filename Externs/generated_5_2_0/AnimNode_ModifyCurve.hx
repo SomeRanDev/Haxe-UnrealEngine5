@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimNode_ModifyCurve")
 @:include("AnimNodes/AnimNode_ModifyCurve.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ModifyCurve extends AnimNode_Base {
 	public var SourcePose: PoseLink;
-	public var CurveMap: TMap<FName, cpp.Float32>;
-	public var CurveValues: TArray<cpp.Float32>;
+	public var CurveMap: TMap<FName, ucpp.num.Float32>;
+	public var CurveValues: TArray<ucpp.num.Float32>;
 	public var CurveNames: TArray<FName>;
-	public var Alpha: cpp.Float32;
+	public var Alpha: ucpp.num.Float32;
 	public var ApplyMode: EModifyCurveApplyMode;
 
 	@:native("FAnimNode_ModifyCurve") public function new();

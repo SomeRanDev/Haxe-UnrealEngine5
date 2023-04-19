@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNiagaraEnumParameterMetaData")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraEnumParameterMetaData {
 	public var OverrideName: FName;
-	public var IconOverride: cpp.Star<Texture2D>;
+	public var IconOverride: ucpp.Ptr<Texture2D>;
 	public var bUseColorOverride: Bool;
 	public var ColorOverride: LinearColor;
 
 	@:native("FNiagaraEnumParameterMetaData") public function new();
-	@:native("FNiagaraEnumParameterMetaData") public static function make(OverrideName: FName, IconOverride: cpp.Star<Texture2D>, bUseColorOverride: Bool, ColorOverride: LinearColor): NiagaraEnumParameterMetaData ;
+	@:native("FNiagaraEnumParameterMetaData") public static function make(OverrideName: FName, IconOverride: ucpp.Ptr<Texture2D>, bUseColorOverride: Bool, ColorOverride: LinearColor): NiagaraEnumParameterMetaData ;
 }

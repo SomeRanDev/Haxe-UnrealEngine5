@@ -3,10 +3,10 @@ package ue;
 
 @:native("UARLightEstimate")
 @:include("ARLightEstimate.h")
-@:structAccess
+@:valueType
 extern class ARLightEstimate extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstARLightEstimate(ARLightEstimate) from ARLightEstimate {
 @:forward
 @:nativeGen
 @:native("ARLightEstimate*")
-abstract ARLightEstimatePtr(cpp.Star<ARLightEstimate>) from cpp.Star<ARLightEstimate> to cpp.Star<ARLightEstimate>{
+abstract ARLightEstimatePtr(ucpp.Ptr<ARLightEstimate>) from ucpp.Ptr<ARLightEstimate> to ucpp.Ptr<ARLightEstimate>{
 	@:from
 	public static extern inline function fromValue(v: ARLightEstimate): ARLightEstimatePtr {
 		return untyped __cpp__("&({0})", v);

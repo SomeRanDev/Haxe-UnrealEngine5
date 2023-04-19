@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMovieSceneFloatValue")
 @:include("Channels/MovieSceneFloatChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneFloatValue {
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 	public var Tangent: MovieSceneTangentData;
 	public var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
 	public var TangentMode: TEnumAsByte<ERichCurveTangentMode>;
-	public var PaddingByte: cpp.UInt8;
+	public var PaddingByte: ucpp.num.UInt8;
 
 	@:native("FMovieSceneFloatValue") public function new();
-	@:native("FMovieSceneFloatValue") public static function make(Value: cpp.Float32, Tangent: MovieSceneTangentData, InterpMode: TEnumAsByte<ERichCurveInterpMode>, TangentMode: TEnumAsByte<ERichCurveTangentMode>, PaddingByte: cpp.UInt8): MovieSceneFloatValue ;
+	@:native("FMovieSceneFloatValue") public static function make(Value: ucpp.num.Float32, Tangent: MovieSceneTangentData, InterpMode: TEnumAsByte<ERichCurveInterpMode>, TangentMode: TEnumAsByte<ERichCurveTangentMode>, PaddingByte: ucpp.num.UInt8): MovieSceneFloatValue ;
 }

@@ -3,21 +3,21 @@ package ue;
 
 @:native("FMinimalViewInfo")
 @:include("Camera/CameraTypes.h")
-@:structAccess
+@:valueType
 extern class MinimalViewInfo {
 	public var Location: Vector;
 	public var Rotation: Rotator;
-	public var FOV: cpp.Float32;
-	public var DesiredFOV: cpp.Float32;
-	public var OrthoWidth: cpp.Float32;
-	public var OrthoNearClipPlane: cpp.Float32;
-	public var OrthoFarClipPlane: cpp.Float32;
-	public var PerspectiveNearClipPlane: cpp.Float32;
-	public var AspectRatio: cpp.Float32;
+	public var FOV: ucpp.num.Float32;
+	public var DesiredFOV: ucpp.num.Float32;
+	public var OrthoWidth: ucpp.num.Float32;
+	public var OrthoNearClipPlane: ucpp.num.Float32;
+	public var OrthoFarClipPlane: ucpp.num.Float32;
+	public var PerspectiveNearClipPlane: ucpp.num.Float32;
+	public var AspectRatio: ucpp.num.Float32;
 	public var bConstrainAspectRatio: Bool;
 	public var bUseFieldOfViewForLOD: Bool;
 	public var ProjectionMode: TEnumAsByte<ECameraProjectionMode>;
-	public var PostProcessBlendWeight: cpp.Float32;
+	public var PostProcessBlendWeight: ucpp.num.Float32;
 	public var PostProcessSettings: PostProcessSettings;
 	public var OffCenterProjectionOffset: Vector2D;
 

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARFaceUpdatePayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARFaceUpdatePayload {
 	public var SessionPayload: ARSessionPayload;
 	public var LeftEyePosition: Vector;

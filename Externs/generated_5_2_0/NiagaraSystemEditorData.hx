@@ -3,22 +3,22 @@ package ue;
 
 @:native("UNiagaraSystemEditorData")
 @:include("NiagaraSystemEditorData.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemEditorData extends NiagaraEditorDataBase {
 	public var bSetOrbitModeByAsset: Bool;
 	public var bSystemViewportInOrbitMode: Bool;
-	public var UserParameterHierarchy: cpp.Star<NiagaraHierarchyRoot>;
-	private var RootFolder: cpp.Star<NiagaraSystemEditorFolder>;
-	private var StackEditorData: cpp.Star<NiagaraStackEditorData>;
+	public var UserParameterHierarchy: ucpp.Ptr<NiagaraHierarchyRoot>;
+	private var RootFolder: ucpp.Ptr<NiagaraSystemEditorFolder>;
+	private var StackEditorData: ucpp.Ptr<NiagaraStackEditorData>;
 	private var OwnerTransform: Transform;
-	private var PlaybackRangeMin: cpp.Float32;
-	private var PlaybackRangeMax: cpp.Float32;
-	private var SystemOverviewGraph: cpp.Star<EdGraph>;
+	private var PlaybackRangeMin: ucpp.num.Float32;
+	private var PlaybackRangeMax: ucpp.num.Float32;
+	private var SystemOverviewGraph: ucpp.Ptr<EdGraph>;
 	private var OverviewGraphViewSettings: NiagaraGraphViewSettings;
 	private var bSystemIsPlaceholder: Bool;
-	private var UserParameterMetaData: TArray<cpp.Star<NiagaraScriptVariable>>;
+	private var UserParameterMetaData: TArray<ucpp.Ptr<NiagaraScriptVariable>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,14 +28,14 @@ abstract ConstNiagaraSystemEditorData(NiagaraSystemEditorData) from NiagaraSyste
 	public inline extern function get_bSetOrbitModeByAsset(): Bool return this.bSetOrbitModeByAsset;
 	public extern var bSystemViewportInOrbitMode(get, never): Bool;
 	public inline extern function get_bSystemViewportInOrbitMode(): Bool return this.bSystemViewportInOrbitMode;
-	public extern var UserParameterHierarchy(get, never): cpp.Star<NiagaraHierarchyRoot.ConstNiagaraHierarchyRoot>;
-	public inline extern function get_UserParameterHierarchy(): cpp.Star<NiagaraHierarchyRoot.ConstNiagaraHierarchyRoot> return this.UserParameterHierarchy;
+	public extern var UserParameterHierarchy(get, never): ucpp.Ptr<NiagaraHierarchyRoot.ConstNiagaraHierarchyRoot>;
+	public inline extern function get_UserParameterHierarchy(): ucpp.Ptr<NiagaraHierarchyRoot.ConstNiagaraHierarchyRoot> return this.UserParameterHierarchy;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraSystemEditorData*")
-abstract NiagaraSystemEditorDataPtr(cpp.Star<NiagaraSystemEditorData>) from cpp.Star<NiagaraSystemEditorData> to cpp.Star<NiagaraSystemEditorData>{
+abstract NiagaraSystemEditorDataPtr(ucpp.Ptr<NiagaraSystemEditorData>) from ucpp.Ptr<NiagaraSystemEditorData> to ucpp.Ptr<NiagaraSystemEditorData>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSystemEditorData): NiagaraSystemEditorDataPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Fabrik")
 @:include("AnimGraphNode_Fabrik.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_Fabrik extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_Fabrik;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_Fabrik(AnimGraphNode_Fabrik) from AnimGraphNode_Fabr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_Fabrik*")
-abstract AnimGraphNode_FabrikPtr(cpp.Star<AnimGraphNode_Fabrik>) from cpp.Star<AnimGraphNode_Fabrik> to cpp.Star<AnimGraphNode_Fabrik>{
+abstract AnimGraphNode_FabrikPtr(ucpp.Ptr<AnimGraphNode_Fabrik>) from ucpp.Ptr<AnimGraphNode_Fabrik> to ucpp.Ptr<AnimGraphNode_Fabrik>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_Fabrik): AnimGraphNode_FabrikPtr {
 		return untyped __cpp__("&({0})", v);

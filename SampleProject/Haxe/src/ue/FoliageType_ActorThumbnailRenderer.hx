@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFoliageType_ActorThumbnailRenderer")
 @:include("FoliageType_ActorThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class FoliageType_ActorThumbnailRenderer extends BlueprintThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFoliageType_ActorThumbnailRenderer(FoliageType_ActorThumbnailRende
 @:forward
 @:nativeGen
 @:native("FoliageType_ActorThumbnailRenderer*")
-abstract FoliageType_ActorThumbnailRendererPtr(cpp.Star<FoliageType_ActorThumbnailRenderer>) from cpp.Star<FoliageType_ActorThumbnailRenderer> to cpp.Star<FoliageType_ActorThumbnailRenderer>{
+abstract FoliageType_ActorThumbnailRendererPtr(ucpp.Ptr<FoliageType_ActorThumbnailRenderer>) from ucpp.Ptr<FoliageType_ActorThumbnailRenderer> to ucpp.Ptr<FoliageType_ActorThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: FoliageType_ActorThumbnailRenderer): FoliageType_ActorThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

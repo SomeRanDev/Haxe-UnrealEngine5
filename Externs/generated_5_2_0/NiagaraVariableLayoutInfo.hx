@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNiagaraVariableLayoutInfo")
 @:include("NiagaraDataSetCompiledData.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariableLayoutInfo {
-	public var FloatComponentStart: cpp.UInt32;
-	public var Int32ComponentStart: cpp.UInt32;
-	public var HalfComponentStart: cpp.UInt32;
+	public var FloatComponentStart: ucpp.num.UInt32;
+	public var Int32ComponentStart: ucpp.num.UInt32;
+	public var HalfComponentStart: ucpp.num.UInt32;
 	public var LayoutInfo: NiagaraTypeLayoutInfo;
 
 	@:native("FNiagaraVariableLayoutInfo") public function new();
-	@:native("FNiagaraVariableLayoutInfo") public static function make(FloatComponentStart: cpp.UInt32, Int32ComponentStart: cpp.UInt32, HalfComponentStart: cpp.UInt32, LayoutInfo: NiagaraTypeLayoutInfo): NiagaraVariableLayoutInfo ;
+	@:native("FNiagaraVariableLayoutInfo") public static function make(FloatComponentStart: ucpp.num.UInt32, Int32ComponentStart: ucpp.num.UInt32, HalfComponentStart: ucpp.num.UInt32, LayoutInfo: NiagaraTypeLayoutInfo): NiagaraVariableLayoutInfo ;
 }

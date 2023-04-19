@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVirtualTexture")
 @:include("VT/VirtualTexture.h")
-@:structAccess
+@:valueType
 extern class VirtualTexture extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVirtualTexture(VirtualTexture) from VirtualTexture {
 @:forward
 @:nativeGen
 @:native("VirtualTexture*")
-abstract VirtualTexturePtr(cpp.Star<VirtualTexture>) from cpp.Star<VirtualTexture> to cpp.Star<VirtualTexture>{
+abstract VirtualTexturePtr(ucpp.Ptr<VirtualTexture>) from ucpp.Ptr<VirtualTexture> to ucpp.Ptr<VirtualTexture>{
 	@:from
 	public static extern inline function fromValue(v: VirtualTexture): VirtualTexturePtr {
 		return untyped __cpp__("&({0})", v);

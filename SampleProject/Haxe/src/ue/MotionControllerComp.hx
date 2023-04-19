@@ -3,38 +3,38 @@ package ue;
 
 @:native("UMotionControllerComponent")
 @:include("MotionControllerComponent.h")
-@:structAccess
+@:valueType
 extern class MotionControllerComp extends PrimitiveComp {
-	public var PlayerIndex: cpp.Int32;
+	public var PlayerIndex: ucpp.num.Int32;
 	public var MotionSource: FName;
 	public var bDisableLowLatencyUpdate: Bool;
 	public var CurrentTrackingStatus: ETrackingStatus;
 	public var bDisplayDeviceModel: Bool;
 	public var DisplayModelSource: FName;
-	public var CustomDisplayMesh: cpp.Star<StaticMesh>;
-	public var DisplayMeshMaterialOverrides: TArray<cpp.Star<MaterialInterface>>;
-	private var DisplayComponent: cpp.Star<PrimitiveComp>;
+	public var CustomDisplayMesh: ucpp.Ptr<StaticMesh>;
+	public var DisplayMeshMaterialOverrides: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var DisplayComponent: ucpp.Ptr<PrimitiveComp>;
 
 	public function SetTrackingSource(NewSource: EControllerHand): Void;
 	public function SetTrackingMotionSource(NewSource: FName): Void;
 	public function SetShowDeviceModel(bShowControllerModel: Bool): Void;
 	public function SetDisplayModelSource(NewDisplayModelSource: FName): Void;
-	public function SetCustomDisplayMesh(NewDisplayMesh: cpp.Star<StaticMesh>): Void;
-	public function SetAssociatedPlayerIndex(NewPlayer: cpp.Int32): Void;
+	public function SetCustomDisplayMesh(NewDisplayMesh: ucpp.Ptr<StaticMesh>): Void;
+	public function SetAssociatedPlayerIndex(NewPlayer: ucpp.num.Int32): Void;
 	@:protected public function OnMotionControllerUpdated(): Void;
 	public function IsTracked(): Bool;
 	public function GetTrackingSource(): EControllerHand;
-	@:protected public function GetParameterValue(InName: FName, bValueFound: cpp.Reference<Bool>): cpp.Float32;
-	@:protected public function GetHandJointPosition(jointIndex: cpp.Int32, bValueFound: cpp.Reference<Bool>): Vector;
+	@:protected public function GetParameterValue(InName: FName, bValueFound: ucpp.Ref<Bool>): ucpp.num.Float32;
+	@:protected public function GetHandJointPosition(jointIndex: ucpp.num.Int32, bValueFound: ucpp.Ref<Bool>): Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsTracked, GetTrackingSource)
 @:nativeGen
 abstract ConstMotionControllerComp(MotionControllerComp) from MotionControllerComp {
-	public extern var PlayerIndex(get, never): cpp.Int32;
-	public inline extern function get_PlayerIndex(): cpp.Int32 return this.PlayerIndex;
+	public extern var PlayerIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_PlayerIndex(): ucpp.num.Int32 return this.PlayerIndex;
 	public extern var MotionSource(get, never): FName;
 	public inline extern function get_MotionSource(): FName return this.MotionSource;
 	public extern var bDisableLowLatencyUpdate(get, never): Bool;
@@ -45,16 +45,18 @@ abstract ConstMotionControllerComp(MotionControllerComp) from MotionControllerCo
 	public inline extern function get_bDisplayDeviceModel(): Bool return this.bDisplayDeviceModel;
 	public extern var DisplayModelSource(get, never): FName;
 	public inline extern function get_DisplayModelSource(): FName return this.DisplayModelSource;
-	public extern var CustomDisplayMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_CustomDisplayMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.CustomDisplayMesh;
-	public extern var DisplayMeshMaterialOverrides(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_DisplayMeshMaterialOverrides(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.DisplayMeshMaterialOverrides;
+	public extern var CustomDisplayMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_CustomDisplayMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.CustomDisplayMesh;
+	public extern var DisplayMeshMaterialOverrides(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_DisplayMeshMaterialOverrides(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.DisplayMeshMaterialOverrides;
+	public extern var DisplayComponent(get, never): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>;
+	public inline extern function get_DisplayComponent(): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp> return this.DisplayComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("MotionControllerComp*")
-abstract MotionControllerCompPtr(cpp.Star<MotionControllerComp>) from cpp.Star<MotionControllerComp> to cpp.Star<MotionControllerComp>{
+abstract MotionControllerCompPtr(ucpp.Ptr<MotionControllerComp>) from ucpp.Ptr<MotionControllerComp> to ucpp.Ptr<MotionControllerComp>{
 	@:from
 	public static extern inline function fromValue(v: MotionControllerComp): MotionControllerCompPtr {
 		return untyped __cpp__("&({0})", v);

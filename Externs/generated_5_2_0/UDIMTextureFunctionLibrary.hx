@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUDIMTextureFunctionLibrary")
 @:include("Factories/TextureFactory.h")
-@:structAccess
+@:valueType
 extern class UDIMTextureFunctionLibrary extends BlueprintFunctionLibrary {
-	public function MakeUDIMVirtualTextureFromTexture2Ds(OutputPathName: FString, SourceTextures: cpp.Reference<TArray<cpp.Star<Texture2D>>>, BlockCoords: cpp.Reference<TArray<IntPoint>>, bKeepExistingSettings: Bool, bCheckOutAndSave: Bool): cpp.Star<Texture2D>;
+	public function MakeUDIMVirtualTextureFromTexture2Ds(OutputPathName: FString, SourceTextures: ucpp.Ref<TArray<ucpp.Ptr<Texture2D>>>, BlockCoords: ucpp.Ref<TArray<IntPoint>>, bKeepExistingSettings: Bool, bCheckOutAndSave: Bool): ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstUDIMTextureFunctionLibrary(UDIMTextureFunctionLibrary) from UDIMTe
 @:forward
 @:nativeGen
 @:native("UDIMTextureFunctionLibrary*")
-abstract UDIMTextureFunctionLibraryPtr(cpp.Star<UDIMTextureFunctionLibrary>) from cpp.Star<UDIMTextureFunctionLibrary> to cpp.Star<UDIMTextureFunctionLibrary>{
+abstract UDIMTextureFunctionLibraryPtr(ucpp.Ptr<UDIMTextureFunctionLibrary>) from ucpp.Ptr<UDIMTextureFunctionLibrary> to ucpp.Ptr<UDIMTextureFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: UDIMTextureFunctionLibrary): UDIMTextureFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

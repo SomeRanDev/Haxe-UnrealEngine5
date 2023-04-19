@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSubmixEnvelopeBP__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSubmixEnvelopeBP__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSubmixEnvelopeBP__PythonCallable(OnSubmixEnvelopeBP__PythonCalla
 @:forward
 @:nativeGen
 @:native("OnSubmixEnvelopeBP__PythonCallable*")
-abstract OnSubmixEnvelopeBP__PythonCallablePtr(cpp.Star<OnSubmixEnvelopeBP__PythonCallable>) from cpp.Star<OnSubmixEnvelopeBP__PythonCallable> to cpp.Star<OnSubmixEnvelopeBP__PythonCallable>{
+abstract OnSubmixEnvelopeBP__PythonCallablePtr(ucpp.Ptr<OnSubmixEnvelopeBP__PythonCallable>) from ucpp.Ptr<OnSubmixEnvelopeBP__PythonCallable> to ucpp.Ptr<OnSubmixEnvelopeBP__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSubmixEnvelopeBP__PythonCallable): OnSubmixEnvelopeBP__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraPreviewAxis")
 @:include("NiagaraPreviewGrid.h")
-@:structAccess
+@:valueType
 extern class NiagaraPreviewAxis extends Object {
-	public function Num(): cpp.Int32;
-	public function ApplyToPreview(PreviewComponent: cpp.Star<NiagaraComp>, PreviewIndex: cpp.Int32, bIsXAxis: Bool, OutLabelText: cpp.Reference<FString>): Void;
+	public function Num(): ucpp.num.Int32;
+	public function ApplyToPreview(PreviewComponent: ucpp.Ptr<NiagaraComp>, PreviewIndex: ucpp.num.Int32, bIsXAxis: Bool, OutLabelText: ucpp.Ref<FString>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraPreviewAxis(NiagaraPreviewAxis) from NiagaraPreviewAxis {
 @:forward
 @:nativeGen
 @:native("NiagaraPreviewAxis*")
-abstract NiagaraPreviewAxisPtr(cpp.Star<NiagaraPreviewAxis>) from cpp.Star<NiagaraPreviewAxis> to cpp.Star<NiagaraPreviewAxis>{
+abstract NiagaraPreviewAxisPtr(ucpp.Ptr<NiagaraPreviewAxis>) from ucpp.Ptr<NiagaraPreviewAxis> to ucpp.Ptr<NiagaraPreviewAxis>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPreviewAxis): NiagaraPreviewAxisPtr {
 		return untyped __cpp__("&({0})", v);

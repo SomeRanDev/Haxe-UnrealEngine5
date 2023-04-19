@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshInstancingSettingsObject")
 @:include("MeshInstancingTool/MeshInstancingTool.h")
-@:structAccess
+@:valueType
 extern class MeshInstancingSettingsObject extends Object {
 	public var Settings: MeshInstancingSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMeshInstancingSettingsObject(MeshInstancingSettingsObject) from Me
 @:forward
 @:nativeGen
 @:native("MeshInstancingSettingsObject*")
-abstract MeshInstancingSettingsObjectPtr(cpp.Star<MeshInstancingSettingsObject>) from cpp.Star<MeshInstancingSettingsObject> to cpp.Star<MeshInstancingSettingsObject>{
+abstract MeshInstancingSettingsObjectPtr(ucpp.Ptr<MeshInstancingSettingsObject>) from ucpp.Ptr<MeshInstancingSettingsObject> to ucpp.Ptr<MeshInstancingSettingsObject>{
 	@:from
 	public static extern inline function fromValue(v: MeshInstancingSettingsObject): MeshInstancingSettingsObjectPtr {
 		return untyped __cpp__("&({0})", v);

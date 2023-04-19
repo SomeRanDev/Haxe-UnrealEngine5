@@ -3,12 +3,13 @@ package ue;
 
 @:native("UBlueprintFactory")
 @:include("Factories/BlueprintFactory.h")
-@:structAccess
+@:valueType
 extern class BlueprintFactory extends Factory {
 	public var ParentClass: TSubclassOf<Object>;
+	public var BlueprintType: TEnumAsByte<EBlueprintType>;
 	public var bSkipClassPicker: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,6 +17,8 @@ extern class BlueprintFactory extends Factory {
 abstract ConstBlueprintFactory(BlueprintFactory) from BlueprintFactory {
 	public extern var ParentClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_ParentClass(): TSubclassOf<Object.ConstObject> return this.ParentClass;
+	public extern var BlueprintType(get, never): TEnumAsByte<EBlueprintType>;
+	public inline extern function get_BlueprintType(): TEnumAsByte<EBlueprintType> return this.BlueprintType;
 	public extern var bSkipClassPicker(get, never): Bool;
 	public inline extern function get_bSkipClassPicker(): Bool return this.bSkipClassPicker;
 }
@@ -23,7 +26,7 @@ abstract ConstBlueprintFactory(BlueprintFactory) from BlueprintFactory {
 @:forward
 @:nativeGen
 @:native("BlueprintFactory*")
-abstract BlueprintFactoryPtr(cpp.Star<BlueprintFactory>) from cpp.Star<BlueprintFactory> to cpp.Star<BlueprintFactory>{
+abstract BlueprintFactoryPtr(ucpp.Ptr<BlueprintFactory>) from ucpp.Ptr<BlueprintFactory> to ucpp.Ptr<BlueprintFactory>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintFactory): BlueprintFactoryPtr {
 		return untyped __cpp__("&({0})", v);

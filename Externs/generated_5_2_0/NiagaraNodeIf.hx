@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraNodeIf")
 @:include("NiagaraNodeIf.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeIf extends NiagaraNodeWithDynamicPins {
 	public var OutputVars: TArray<NiagaraVariable>;
 	public var PathAssociatedPinGuids: TArray<PinGuidsForPath>;
 	public var ConditionPinGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstNiagaraNodeIf(NiagaraNodeIf) from NiagaraNodeIf {
 @:forward
 @:nativeGen
 @:native("NiagaraNodeIf*")
-abstract NiagaraNodeIfPtr(cpp.Star<NiagaraNodeIf>) from cpp.Star<NiagaraNodeIf> to cpp.Star<NiagaraNodeIf>{
+abstract NiagaraNodeIfPtr(ucpp.Ptr<NiagaraNodeIf>) from ucpp.Ptr<NiagaraNodeIf> to ucpp.Ptr<NiagaraNodeIf>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeIf): NiagaraNodeIfPtr {
 		return untyped __cpp__("&({0})", v);

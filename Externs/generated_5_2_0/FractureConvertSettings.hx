@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFractureConvertSettings")
 @:include("FractureToolConvert.h")
-@:structAccess
+@:valueType
 extern class FractureConvertSettings extends FractureToolSettings {
 	public var bPromptForBaseName: Bool;
 	public var bPerBone: Bool;
@@ -11,7 +11,7 @@ extern class FractureConvertSettings extends FractureToolSettings {
 	public var bPlaceInWorld: Bool;
 	public var bSelectNewActors: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstFractureConvertSettings(FractureConvertSettings) from FractureConv
 @:forward
 @:nativeGen
 @:native("FractureConvertSettings*")
-abstract FractureConvertSettingsPtr(cpp.Star<FractureConvertSettings>) from cpp.Star<FractureConvertSettings> to cpp.Star<FractureConvertSettings>{
+abstract FractureConvertSettingsPtr(ucpp.Ptr<FractureConvertSettings>) from ucpp.Ptr<FractureConvertSettings> to ucpp.Ptr<FractureConvertSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureConvertSettings): FractureConvertSettingsPtr {
 		return untyped __cpp__("&({0})", v);

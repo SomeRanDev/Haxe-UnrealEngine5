@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMInstructionArray")
 @:include("RigVMCore/RigVMByteCode.h")
-@:structAccess
+@:valueType
 extern class RigVMInstructionArray {
 	private var Instructions: TArray<RigVMInstruction>;
 

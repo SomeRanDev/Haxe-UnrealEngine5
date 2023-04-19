@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraBakerTextureSource")
 @:include("NiagaraBakerOutput.h")
-@:structAccess
+@:valueType
 extern class NiagaraBakerTextureSource {
 	public var DisplayString: FString;
 	public var SourceName: FName;

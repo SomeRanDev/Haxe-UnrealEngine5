@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWaveTableBankFactory")
 @:include("WaveTableBankFactory.h")
-@:structAccess
+@:valueType
 extern class WaveTableBankFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWaveTableBankFactory(WaveTableBankFactory) from WaveTableBankFacto
 @:forward
 @:nativeGen
 @:native("WaveTableBankFactory*")
-abstract WaveTableBankFactoryPtr(cpp.Star<WaveTableBankFactory>) from cpp.Star<WaveTableBankFactory> to cpp.Star<WaveTableBankFactory>{
+abstract WaveTableBankFactoryPtr(ucpp.Ptr<WaveTableBankFactory>) from ucpp.Ptr<WaveTableBankFactory> to ucpp.Ptr<WaveTableBankFactory>{
 	@:from
 	public static extern inline function fromValue(v: WaveTableBankFactory): WaveTableBankFactoryPtr {
 		return untyped __cpp__("&({0})", v);

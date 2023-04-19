@@ -3,15 +3,15 @@ package ue;
 
 @:native("ULevelSequenceBurnInOptions")
 @:include("LevelSequenceActor.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceBurnInOptions extends Object {
 	public var bUseBurnIn: Bool;
 	public var BurnInClass: SoftClassPath;
-	public var Settings: cpp.Star<LevelSequenceBurnInInitSettings>;
+	public var Settings: ucpp.Ptr<LevelSequenceBurnInInitSettings>;
 
 	public function SetBurnIn(InBurnInClass: SoftClassPath): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,14 +21,14 @@ abstract ConstLevelSequenceBurnInOptions(LevelSequenceBurnInOptions) from LevelS
 	public inline extern function get_bUseBurnIn(): Bool return this.bUseBurnIn;
 	public extern var BurnInClass(get, never): SoftClassPath;
 	public inline extern function get_BurnInClass(): SoftClassPath return this.BurnInClass;
-	public extern var Settings(get, never): cpp.Star<LevelSequenceBurnInInitSettings.ConstLevelSequenceBurnInInitSettings>;
-	public inline extern function get_Settings(): cpp.Star<LevelSequenceBurnInInitSettings.ConstLevelSequenceBurnInInitSettings> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<LevelSequenceBurnInInitSettings.ConstLevelSequenceBurnInInitSettings>;
+	public inline extern function get_Settings(): ucpp.Ptr<LevelSequenceBurnInInitSettings.ConstLevelSequenceBurnInInitSettings> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("LevelSequenceBurnInOptions*")
-abstract LevelSequenceBurnInOptionsPtr(cpp.Star<LevelSequenceBurnInOptions>) from cpp.Star<LevelSequenceBurnInOptions> to cpp.Star<LevelSequenceBurnInOptions>{
+abstract LevelSequenceBurnInOptionsPtr(ucpp.Ptr<LevelSequenceBurnInOptions>) from ucpp.Ptr<LevelSequenceBurnInOptions> to ucpp.Ptr<LevelSequenceBurnInOptions>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceBurnInOptions): LevelSequenceBurnInOptionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimNode_CurveSource")
 @:include("AnimNodes/AnimNode_CurveSource.h")
-@:structAccess
+@:valueType
 extern class AnimNode_CurveSource extends AnimNode_Base {
 	public var SourcePose: PoseLink;
 	public var SourceBinding: FName;
-	public var Alpha: cpp.Float32;
+	public var Alpha: ucpp.num.Float32;
 	public var CurveSource: CurveSourceInterface;
 
 	@:native("FAnimNode_CurveSource") public function new();
-	@:native("FAnimNode_CurveSource") public static function make(SourcePose: PoseLink, SourceBinding: FName, Alpha: cpp.Float32, CurveSource: CurveSourceInterface): AnimNode_CurveSource ;
+	@:native("FAnimNode_CurveSource") public static function make(SourcePose: PoseLink, SourceBinding: FName, Alpha: ucpp.num.Float32, CurveSource: CurveSourceInterface): AnimNode_CurveSource ;
 }

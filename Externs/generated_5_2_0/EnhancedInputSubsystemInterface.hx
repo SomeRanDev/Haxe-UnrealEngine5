@@ -2,29 +2,29 @@
 package ue;
 
 @:native("UEnhancedInputSubsystemInterface")
-@:structAccess
+@:valueType
 extern class EnhancedInputSubsystemInterface extends Interface {
-	public function RequestRebuildControlMappings(Options: cpp.Reference<ModifyContextOptions>, RebuildType: EInputMappingRebuildType): Void;
-	public function RemovePlayerMappableConfig(Config: cpp.Star<PlayerMappableInputConfig.ConstPlayerMappableInputConfig>, Options: cpp.Reference<ModifyContextOptions>): Void;
-	public function RemoveMappingContext(MappingContext: cpp.Star<InputMappingContext.ConstInputMappingContext>, Options: cpp.Reference<ModifyContextOptions>): Void;
-	public function RemoveAllPlayerMappedKeysForMapping(MappingName: FName, Options: cpp.Reference<ModifyContextOptions>): cpp.Int32;
-	public function RemoveAllPlayerMappedKeys(Options: cpp.Reference<ModifyContextOptions>): Void;
-	public function QueryMapKeyInContextSet(PrioritizedActiveContexts: cpp.Reference<TArray<cpp.Star<InputMappingContext>>>, InputContext: cpp.Star<InputMappingContext.ConstInputMappingContext>, Action: cpp.Star<InputAction.ConstInputAction>, Key: Key, OutIssues: cpp.Reference<TArray<MappingQueryIssue>>, BlockingIssues: EMappingQueryIssue): EMappingQueryResult;
-	public function QueryMapKeyInActiveContextSet(InputContext: cpp.Star<InputMappingContext.ConstInputMappingContext>, Action: cpp.Star<InputAction.ConstInputAction>, Key: Key, OutIssues: cpp.Reference<TArray<MappingQueryIssue>>, BlockingIssues: EMappingQueryIssue): EMappingQueryResult;
-	public function QueryKeysMappedToAction(Action: cpp.Star<InputAction.ConstInputAction>): TArray<Key>;
-	public function K2_RemovePlayerMappedKeyInSlot(MappingName: FName, KeySlot: cpp.Reference<PlayerMappableKeySlot>, Options: cpp.Reference<ModifyContextOptions>): cpp.Int32;
-	public function K2_GetPlayerMappedKeyInSlot(MappingName: FName, KeySlot: cpp.Reference<PlayerMappableKeySlot>): Key;
-	public function K2_AddPlayerMappedKeyInSlot(MappingName: FName, NewKey: Key, KeySlot: cpp.Reference<PlayerMappableKeySlot>, Options: cpp.Reference<ModifyContextOptions>): cpp.Int32;
-	public function InjectInputVectorForAction(Action: cpp.Star<InputAction.ConstInputAction>, Value: Vector, Modifiers: cpp.Reference<TArray<cpp.Star<InputModifier>>>, Triggers: cpp.Reference<TArray<cpp.Star<InputTrigger>>>): Void;
-	public function InjectInputForAction(Action: cpp.Star<InputAction.ConstInputAction>, RawValue: InputActionValue, Modifiers: cpp.Reference<TArray<cpp.Star<InputModifier>>>, Triggers: cpp.Reference<TArray<cpp.Star<InputTrigger>>>): Void;
-	public function HasMappingContext(MappingContext: cpp.Star<InputMappingContext.ConstInputMappingContext>, OutFoundPriority: cpp.Reference<cpp.Int32>): Bool;
+	public function RequestRebuildControlMappings(Options: ucpp.Ref<ModifyContextOptions>, RebuildType: EInputMappingRebuildType): Void;
+	public function RemovePlayerMappableConfig(Config: ucpp.Ptr<PlayerMappableInputConfig.ConstPlayerMappableInputConfig>, Options: ucpp.Ref<ModifyContextOptions>): Void;
+	public function RemoveMappingContext(MappingContext: ucpp.Ptr<InputMappingContext.ConstInputMappingContext>, Options: ucpp.Ref<ModifyContextOptions>): Void;
+	public function RemoveAllPlayerMappedKeysForMapping(MappingName: FName, Options: ucpp.Ref<ModifyContextOptions>): ucpp.num.Int32;
+	public function RemoveAllPlayerMappedKeys(Options: ucpp.Ref<ModifyContextOptions>): Void;
+	public function QueryMapKeyInContextSet(PrioritizedActiveContexts: ucpp.Ref<TArray<ucpp.Ptr<InputMappingContext>>>, InputContext: ucpp.Ptr<InputMappingContext.ConstInputMappingContext>, Action: ucpp.Ptr<InputAction.ConstInputAction>, Key: Key, OutIssues: ucpp.Ref<TArray<MappingQueryIssue>>, BlockingIssues: EMappingQueryIssue): EMappingQueryResult;
+	public function QueryMapKeyInActiveContextSet(InputContext: ucpp.Ptr<InputMappingContext.ConstInputMappingContext>, Action: ucpp.Ptr<InputAction.ConstInputAction>, Key: Key, OutIssues: ucpp.Ref<TArray<MappingQueryIssue>>, BlockingIssues: EMappingQueryIssue): EMappingQueryResult;
+	public function QueryKeysMappedToAction(Action: ucpp.Ptr<InputAction.ConstInputAction>): TArray<Key>;
+	public function K2_RemovePlayerMappedKeyInSlot(MappingName: FName, KeySlot: ucpp.Ref<PlayerMappableKeySlot>, Options: ucpp.Ref<ModifyContextOptions>): ucpp.num.Int32;
+	public function K2_GetPlayerMappedKeyInSlot(MappingName: FName, KeySlot: ucpp.Ref<PlayerMappableKeySlot>): Key;
+	public function K2_AddPlayerMappedKeyInSlot(MappingName: FName, NewKey: Key, KeySlot: ucpp.Ref<PlayerMappableKeySlot>, Options: ucpp.Ref<ModifyContextOptions>): ucpp.num.Int32;
+	public function InjectInputVectorForAction(Action: ucpp.Ptr<InputAction.ConstInputAction>, Value: Vector, Modifiers: ucpp.Ref<TArray<ucpp.Ptr<InputModifier>>>, Triggers: ucpp.Ref<TArray<ucpp.Ptr<InputTrigger>>>): Void;
+	public function InjectInputForAction(Action: ucpp.Ptr<InputAction.ConstInputAction>, RawValue: InputActionValue, Modifiers: ucpp.Ref<TArray<ucpp.Ptr<InputModifier>>>, Triggers: ucpp.Ref<TArray<ucpp.Ptr<InputTrigger>>>): Void;
+	public function HasMappingContext(MappingContext: ucpp.Ptr<InputMappingContext.ConstInputMappingContext>, OutFoundPriority: ucpp.Ref<ucpp.num.Int32>): Bool;
 	public function GetAllPlayerMappedKeys(MappingName: FName): TArray<Key>;
 	public function GetAllPlayerMappableActionKeyMappings(): TArray<EnhancedActionKeyMapping>;
 	public function ClearAllMappings(): Void;
-	public function AddPlayerMappableConfig(Config: cpp.Star<PlayerMappableInputConfig.ConstPlayerMappableInputConfig>, Options: cpp.Reference<ModifyContextOptions>): Void;
-	public function AddMappingContext(MappingContext: cpp.Star<InputMappingContext.ConstInputMappingContext>, Priority: cpp.Int32, Options: cpp.Reference<ModifyContextOptions>): Void;
+	public function AddPlayerMappableConfig(Config: ucpp.Ptr<PlayerMappableInputConfig.ConstPlayerMappableInputConfig>, Options: ucpp.Ref<ModifyContextOptions>): Void;
+	public function AddMappingContext(MappingContext: ucpp.Ptr<InputMappingContext.ConstInputMappingContext>, Priority: ucpp.num.Int32, Options: ucpp.Ref<ModifyContextOptions>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(QueryKeysMappedToAction, K2_GetPlayerMappedKeyInSlot, HasMappingContext, GetAllPlayerMappedKeys, GetAllPlayerMappableActionKeyMappings)
@@ -35,7 +35,7 @@ abstract ConstEnhancedInputSubsystemInterface(EnhancedInputSubsystemInterface) f
 @:forward
 @:nativeGen
 @:native("EnhancedInputSubsystemInterface*")
-abstract EnhancedInputSubsystemInterfacePtr(cpp.Star<EnhancedInputSubsystemInterface>) from cpp.Star<EnhancedInputSubsystemInterface> to cpp.Star<EnhancedInputSubsystemInterface>{
+abstract EnhancedInputSubsystemInterfacePtr(ucpp.Ptr<EnhancedInputSubsystemInterface>) from ucpp.Ptr<EnhancedInputSubsystemInterface> to ucpp.Ptr<EnhancedInputSubsystemInterface>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputSubsystemInterface): EnhancedInputSubsystemInterfacePtr {
 		return untyped __cpp__("&({0})", v);

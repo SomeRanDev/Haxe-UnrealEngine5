@@ -3,12 +3,12 @@ package ue;
 
 @:native("FChaosRemovalEventData")
 @:include("ChaosRemovalEventFilter.h")
-@:structAccess
+@:valueType
 extern class ChaosRemovalEventData {
 	public var Location: Vector;
-	public var Mass: cpp.Float32;
-	public var ParticleIndex: cpp.Int32;
+	public var Mass: ucpp.num.Float32;
+	public var ParticleIndex: ucpp.num.Int32;
 
 	@:native("FChaosRemovalEventData") public function new();
-	@:native("FChaosRemovalEventData") public static function make(Location: Vector, Mass: cpp.Float32, ParticleIndex: cpp.Int32): ChaosRemovalEventData ;
+	@:native("FChaosRemovalEventData") public static function make(Location: Vector, Mass: ucpp.num.Float32, ParticleIndex: ucpp.num.Int32): ChaosRemovalEventData ;
 }

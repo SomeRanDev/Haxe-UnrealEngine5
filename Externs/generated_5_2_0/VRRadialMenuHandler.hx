@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVRRadialMenuHandler")
 @:include("UI/VRRadialMenuHandler.h")
-@:structAccess
+@:valueType
 extern class VRRadialMenuHandler extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVRRadialMenuHandler(VRRadialMenuHandler) from VRRadialMenuHandler 
 @:forward
 @:nativeGen
 @:native("VRRadialMenuHandler*")
-abstract VRRadialMenuHandlerPtr(cpp.Star<VRRadialMenuHandler>) from cpp.Star<VRRadialMenuHandler> to cpp.Star<VRRadialMenuHandler>{
+abstract VRRadialMenuHandlerPtr(ucpp.Ptr<VRRadialMenuHandler>) from ucpp.Ptr<VRRadialMenuHandler> to ucpp.Ptr<VRRadialMenuHandler>{
 	@:from
 	public static extern inline function fromValue(v: VRRadialMenuHandler): VRRadialMenuHandlerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,25 +3,25 @@ package ue;
 
 @:native("UPinchBrushOpProps")
 @:include("Sculpting/MeshPinchBrushOps.h")
-@:structAccess
+@:valueType
 extern class PinchBrushOpProps extends MeshSculptBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
-	public var Depth: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
 	public var bPerpDamping: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPinchBrushOpProps(PinchBrushOpProps) from PinchBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
 	public extern var bPerpDamping(get, never): Bool;
 	public inline extern function get_bPerpDamping(): Bool return this.bPerpDamping;
 }
@@ -29,7 +29,7 @@ abstract ConstPinchBrushOpProps(PinchBrushOpProps) from PinchBrushOpProps {
 @:forward
 @:nativeGen
 @:native("PinchBrushOpProps*")
-abstract PinchBrushOpPropsPtr(cpp.Star<PinchBrushOpProps>) from cpp.Star<PinchBrushOpProps> to cpp.Star<PinchBrushOpProps>{
+abstract PinchBrushOpPropsPtr(ucpp.Ptr<PinchBrushOpProps>) from ucpp.Ptr<PinchBrushOpProps> to ucpp.Ptr<PinchBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: PinchBrushOpProps): PinchBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

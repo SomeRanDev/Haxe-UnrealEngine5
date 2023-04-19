@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_PoseSnapshot")
 @:include("AnimGraphNode_PoseSnapshot.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_PoseSnapshot extends AnimGraphNode_Base {
 	public var Node: AnimNode_PoseSnapshot;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_PoseSnapshot(AnimGraphNode_PoseSnapshot) from AnimGr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_PoseSnapshot*")
-abstract AnimGraphNode_PoseSnapshotPtr(cpp.Star<AnimGraphNode_PoseSnapshot>) from cpp.Star<AnimGraphNode_PoseSnapshot> to cpp.Star<AnimGraphNode_PoseSnapshot>{
+abstract AnimGraphNode_PoseSnapshotPtr(ucpp.Ptr<AnimGraphNode_PoseSnapshot>) from ucpp.Ptr<AnimGraphNode_PoseSnapshot> to ucpp.Ptr<AnimGraphNode_PoseSnapshot>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_PoseSnapshot): AnimGraphNode_PoseSnapshotPtr {
 		return untyped __cpp__("&({0})", v);

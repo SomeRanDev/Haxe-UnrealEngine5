@@ -3,25 +3,25 @@ package ue;
 
 @:native("UPendingNetGame")
 @:include("Engine/PendingNetGame.h")
-@:structAccess
+@:valueType
 extern class PendingNetGame extends Object {
-	public var NetDriver: cpp.Star<NetDriver>;
-	private var DemoNetDriver: cpp.Star<DemoNetDriver>;
+	public var NetDriver: ucpp.Ptr<NetDriver>;
+	private var DemoNetDriver: ucpp.Ptr<DemoNetDriver>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPendingNetGame(PendingNetGame) from PendingNetGame {
-	public extern var NetDriver(get, never): cpp.Star<NetDriver.ConstNetDriver>;
-	public inline extern function get_NetDriver(): cpp.Star<NetDriver.ConstNetDriver> return this.NetDriver;
+	public extern var NetDriver(get, never): ucpp.Ptr<NetDriver.ConstNetDriver>;
+	public inline extern function get_NetDriver(): ucpp.Ptr<NetDriver.ConstNetDriver> return this.NetDriver;
 }
 
 @:forward
 @:nativeGen
 @:native("PendingNetGame*")
-abstract PendingNetGamePtr(cpp.Star<PendingNetGame>) from cpp.Star<PendingNetGame> to cpp.Star<PendingNetGame>{
+abstract PendingNetGamePtr(ucpp.Ptr<PendingNetGame>) from ucpp.Ptr<PendingNetGame> to ucpp.Ptr<PendingNetGame>{
 	@:from
 	public static extern inline function fromValue(v: PendingNetGame): PendingNetGamePtr {
 		return untyped __cpp__("&({0})", v);

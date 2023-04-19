@@ -3,10 +3,10 @@ package ue;
 
 @:native("UListMaterialsUsedWithMeshEmittersCommandlet")
 @:include("Commandlets/ListMaterialsUsedWithMeshEmittersCommandlet.h")
-@:structAccess
+@:valueType
 extern class ListMaterialsUsedWithMeshEmittersCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstListMaterialsUsedWithMeshEmittersCommandlet(ListMaterialsUsedWithM
 @:forward
 @:nativeGen
 @:native("ListMaterialsUsedWithMeshEmittersCommandlet*")
-abstract ListMaterialsUsedWithMeshEmittersCommandletPtr(cpp.Star<ListMaterialsUsedWithMeshEmittersCommandlet>) from cpp.Star<ListMaterialsUsedWithMeshEmittersCommandlet> to cpp.Star<ListMaterialsUsedWithMeshEmittersCommandlet>{
+abstract ListMaterialsUsedWithMeshEmittersCommandletPtr(ucpp.Ptr<ListMaterialsUsedWithMeshEmittersCommandlet>) from ucpp.Ptr<ListMaterialsUsedWithMeshEmittersCommandlet> to ucpp.Ptr<ListMaterialsUsedWithMeshEmittersCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ListMaterialsUsedWithMeshEmittersCommandlet): ListMaterialsUsedWithMeshEmittersCommandletPtr {
 		return untyped __cpp__("&({0})", v);

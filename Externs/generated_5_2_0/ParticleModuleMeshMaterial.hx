@@ -3,24 +3,24 @@ package ue;
 
 @:native("UParticleModuleMeshMaterial")
 @:include("Particles/Material/ParticleModuleMeshMaterial.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleMeshMaterial extends ParticleModuleMaterialBase {
-	public var MeshMaterials: TArray<cpp.Star<MaterialInterface>>;
+	public var MeshMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleMeshMaterial(ParticleModuleMeshMaterial) from ParticleModuleMeshMaterial {
-	public extern var MeshMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_MeshMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.MeshMaterials;
+	public extern var MeshMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_MeshMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.MeshMaterials;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleMeshMaterial*")
-abstract ParticleModuleMeshMaterialPtr(cpp.Star<ParticleModuleMeshMaterial>) from cpp.Star<ParticleModuleMeshMaterial> to cpp.Star<ParticleModuleMeshMaterial>{
+abstract ParticleModuleMeshMaterialPtr(ucpp.Ptr<ParticleModuleMeshMaterial>) from ucpp.Ptr<ParticleModuleMeshMaterial> to ucpp.Ptr<ParticleModuleMeshMaterial>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleMeshMaterial): ParticleModuleMeshMaterialPtr {
 		return untyped __cpp__("&({0})", v);

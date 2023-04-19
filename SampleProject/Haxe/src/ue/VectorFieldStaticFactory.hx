@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVectorFieldStaticFactory")
 @:include("Factories/VectorFieldStaticFactory.h")
-@:structAccess
+@:valueType
 extern class VectorFieldStaticFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVectorFieldStaticFactory(VectorFieldStaticFactory) from VectorFiel
 @:forward
 @:nativeGen
 @:native("VectorFieldStaticFactory*")
-abstract VectorFieldStaticFactoryPtr(cpp.Star<VectorFieldStaticFactory>) from cpp.Star<VectorFieldStaticFactory> to cpp.Star<VectorFieldStaticFactory>{
+abstract VectorFieldStaticFactoryPtr(ucpp.Ptr<VectorFieldStaticFactory>) from ucpp.Ptr<VectorFieldStaticFactory> to ucpp.Ptr<VectorFieldStaticFactory>{
 	@:from
 	public static extern inline function fromValue(v: VectorFieldStaticFactory): VectorFieldStaticFactoryPtr {
 		return untyped __cpp__("&({0})", v);

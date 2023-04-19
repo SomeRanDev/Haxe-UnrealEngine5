@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnButtonReleasedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnButtonReleasedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnButtonReleasedEvent__PythonCallable(OnButtonReleasedEvent__Pytho
 @:forward
 @:nativeGen
 @:native("OnButtonReleasedEvent__PythonCallable*")
-abstract OnButtonReleasedEvent__PythonCallablePtr(cpp.Star<OnButtonReleasedEvent__PythonCallable>) from cpp.Star<OnButtonReleasedEvent__PythonCallable> to cpp.Star<OnButtonReleasedEvent__PythonCallable>{
+abstract OnButtonReleasedEvent__PythonCallablePtr(ucpp.Ptr<OnButtonReleasedEvent__PythonCallable>) from ucpp.Ptr<OnButtonReleasedEvent__PythonCallable> to ucpp.Ptr<OnButtonReleasedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnButtonReleasedEvent__PythonCallable): OnButtonReleasedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

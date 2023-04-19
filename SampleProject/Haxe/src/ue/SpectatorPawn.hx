@@ -3,10 +3,10 @@ package ue;
 
 @:native("ASpectatorPawn")
 @:include("GameFramework/SpectatorPawn.h")
-@:structAccess
+@:valueType
 extern class SpectatorPawn extends DefaultPawn {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSpectatorPawn(SpectatorPawn) from SpectatorPawn {
 @:forward
 @:nativeGen
 @:native("SpectatorPawn*")
-abstract SpectatorPawnPtr(cpp.Star<SpectatorPawn>) from cpp.Star<SpectatorPawn> to cpp.Star<SpectatorPawn>{
+abstract SpectatorPawnPtr(ucpp.Ptr<SpectatorPawn>) from ucpp.Ptr<SpectatorPawn> to ucpp.Ptr<SpectatorPawn>{
 	@:from
 	public static extern inline function fromValue(v: SpectatorPawn): SpectatorPawnPtr {
 		return untyped __cpp__("&({0})", v);

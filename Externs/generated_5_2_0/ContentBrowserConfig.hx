@@ -3,12 +3,12 @@ package ue;
 
 @:native("UContentBrowserConfig")
 @:include("ContentBrowserConfig.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserConfig extends EditorConfigBase {
 	public var Favorites: TSet<FString>;
 	public var Instances: TMap<FName, ContentBrowserInstanceConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstContentBrowserConfig(ContentBrowserConfig) from ContentBrowserConf
 @:forward
 @:nativeGen
 @:native("ContentBrowserConfig*")
-abstract ContentBrowserConfigPtr(cpp.Star<ContentBrowserConfig>) from cpp.Star<ContentBrowserConfig> to cpp.Star<ContentBrowserConfig>{
+abstract ContentBrowserConfigPtr(ucpp.Ptr<ContentBrowserConfig>) from ucpp.Ptr<ContentBrowserConfig> to ucpp.Ptr<ContentBrowserConfig>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserConfig): ContentBrowserConfigPtr {
 		return untyped __cpp__("&({0})", v);

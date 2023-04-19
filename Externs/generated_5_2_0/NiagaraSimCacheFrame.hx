@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraSimCacheFrame")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheFrame {
 	public var LocalToWorld: Transform;
 	public var LWCTile: Vector3f;
-	public var SimulationAge: cpp.Float32;
+	public var SimulationAge: ucpp.num.Float32;
 	public var SystemData: NiagaraSimCacheSystemFrame;
 	public var EmitterData: TArray<NiagaraSimCacheEmitterFrame>;
 

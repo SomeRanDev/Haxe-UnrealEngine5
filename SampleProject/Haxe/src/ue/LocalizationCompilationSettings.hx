@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLocalizationCompilationSettings")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class LocalizationCompilationSettings {
 	public var SkipSourceCheck: Bool;
 	public var ValidateFormatPatterns: Bool;

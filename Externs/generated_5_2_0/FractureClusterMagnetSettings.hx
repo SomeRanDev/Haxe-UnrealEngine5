@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureClusterMagnetSettings")
 @:include("FractureToolClusterMagnet.h")
-@:structAccess
+@:valueType
 extern class FractureClusterMagnetSettings extends FractureToolSettings {
-	public var Iterations: cpp.UInt32;
+	public var Iterations: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureClusterMagnetSettings(FractureClusterMagnetSettings) from FractureClusterMagnetSettings {
-	public extern var Iterations(get, never): cpp.UInt32;
-	public inline extern function get_Iterations(): cpp.UInt32 return this.Iterations;
+	public extern var Iterations(get, never): ucpp.num.UInt32;
+	public inline extern function get_Iterations(): ucpp.num.UInt32 return this.Iterations;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureClusterMagnetSettings*")
-abstract FractureClusterMagnetSettingsPtr(cpp.Star<FractureClusterMagnetSettings>) from cpp.Star<FractureClusterMagnetSettings> to cpp.Star<FractureClusterMagnetSettings>{
+abstract FractureClusterMagnetSettingsPtr(ucpp.Ptr<FractureClusterMagnetSettings>) from ucpp.Ptr<FractureClusterMagnetSettings> to ucpp.Ptr<FractureClusterMagnetSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureClusterMagnetSettings): FractureClusterMagnetSettingsPtr {
 		return untyped __cpp__("&({0})", v);

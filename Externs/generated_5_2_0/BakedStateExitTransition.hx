@@ -3,15 +3,15 @@ package ue;
 
 @:native("FBakedStateExitTransition")
 @:include("Animation/AnimStateMachineTypes.h")
-@:structAccess
+@:valueType
 extern class BakedStateExitTransition {
-	public var CanTakeDelegateIndex: cpp.Int32;
-	public var CustomResultNodeIndex: cpp.Int32;
-	public var TransitionIndex: cpp.Int32;
+	public var CanTakeDelegateIndex: ucpp.num.Int32;
+	public var CustomResultNodeIndex: ucpp.num.Int32;
+	public var TransitionIndex: ucpp.num.Int32;
 	public var bDesiredTransitionReturnValue: Bool;
 	public var bAutomaticRemainingTimeRule: Bool;
 	public var SyncGroupNameToRequireValidMarkersRule: FName;
-	public var PoseEvaluatorLinks: TArray<cpp.Int32>;
+	public var PoseEvaluatorLinks: TArray<ucpp.num.Int32>;
 
 	@:native("FBakedStateExitTransition") public function new();
 }

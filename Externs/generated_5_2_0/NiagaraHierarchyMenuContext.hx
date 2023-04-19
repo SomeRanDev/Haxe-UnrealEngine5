@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraHierarchyMenuContext")
 @:include("ViewModels/HierarchyEditor/NiagaraHierarchyViewModelBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraHierarchyMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraHierarchyMenuContext(NiagaraHierarchyMenuContext) from Niag
 @:forward
 @:nativeGen
 @:native("NiagaraHierarchyMenuContext*")
-abstract NiagaraHierarchyMenuContextPtr(cpp.Star<NiagaraHierarchyMenuContext>) from cpp.Star<NiagaraHierarchyMenuContext> to cpp.Star<NiagaraHierarchyMenuContext>{
+abstract NiagaraHierarchyMenuContextPtr(ucpp.Ptr<NiagaraHierarchyMenuContext>) from ucpp.Ptr<NiagaraHierarchyMenuContext> to ucpp.Ptr<NiagaraHierarchyMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraHierarchyMenuContext): NiagaraHierarchyMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

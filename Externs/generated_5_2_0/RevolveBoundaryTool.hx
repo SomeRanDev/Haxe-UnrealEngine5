@@ -3,15 +3,15 @@ package ue;
 
 @:native("URevolveBoundaryTool")
 @:include("RevolveBoundaryTool.h")
-@:structAccess
+@:valueType
 extern class RevolveBoundaryTool extends MeshBoundaryToolBase {
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var Settings: cpp.Star<RevolveBoundaryToolProperties>;
-	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var Settings: ucpp.Ptr<RevolveBoundaryToolProperties>;
+	@:protected public var MaterialProperties: ucpp.Ptr<NewMeshMaterialProperties>;
+	@:protected public var PlaneMechanic: ucpp.Ptr<ConstructionPlaneMechanic>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstRevolveBoundaryTool(RevolveBoundaryTool) from RevolveBoundaryTool 
 @:forward
 @:nativeGen
 @:native("RevolveBoundaryTool*")
-abstract RevolveBoundaryToolPtr(cpp.Star<RevolveBoundaryTool>) from cpp.Star<RevolveBoundaryTool> to cpp.Star<RevolveBoundaryTool>{
+abstract RevolveBoundaryToolPtr(ucpp.Ptr<RevolveBoundaryTool>) from ucpp.Ptr<RevolveBoundaryTool> to ucpp.Ptr<RevolveBoundaryTool>{
 	@:from
 	public static extern inline function fromValue(v: RevolveBoundaryTool): RevolveBoundaryToolPtr {
 		return untyped __cpp__("&({0})", v);

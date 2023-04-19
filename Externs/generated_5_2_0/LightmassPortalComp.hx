@@ -3,24 +3,24 @@ package ue;
 
 @:native("ULightmassPortalComponent")
 @:include("Components/LightmassPortalComponent.h")
-@:structAccess
+@:valueType
 extern class LightmassPortalComp extends SceneComp {
-	public var PreviewBox: cpp.Star<BoxComp>;
+	public var PreviewBox: ucpp.Ptr<BoxComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLightmassPortalComp(LightmassPortalComp) from LightmassPortalComp {
-	public extern var PreviewBox(get, never): cpp.Star<BoxComp.ConstBoxComp>;
-	public inline extern function get_PreviewBox(): cpp.Star<BoxComp.ConstBoxComp> return this.PreviewBox;
+	public extern var PreviewBox(get, never): ucpp.Ptr<BoxComp.ConstBoxComp>;
+	public inline extern function get_PreviewBox(): ucpp.Ptr<BoxComp.ConstBoxComp> return this.PreviewBox;
 }
 
 @:forward
 @:nativeGen
 @:native("LightmassPortalComp*")
-abstract LightmassPortalCompPtr(cpp.Star<LightmassPortalComp>) from cpp.Star<LightmassPortalComp> to cpp.Star<LightmassPortalComp>{
+abstract LightmassPortalCompPtr(ucpp.Ptr<LightmassPortalComp>) from ucpp.Ptr<LightmassPortalComp> to ucpp.Ptr<LightmassPortalComp>{
 	@:from
 	public static extern inline function fromValue(v: LightmassPortalComp): LightmassPortalCompPtr {
 		return untyped __cpp__("&({0})", v);

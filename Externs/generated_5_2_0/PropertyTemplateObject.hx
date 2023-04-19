@@ -3,20 +3,20 @@ package ue;
 
 @:native("UPropertyTemplateObject")
 @:include("PropertyTemplateObject.h")
-@:structAccess
+@:valueType
 extern class PropertyTemplateObject extends Object {
-	public var CapturedByteProperty: cpp.UInt8;
-	public var CapturedUInt16Property: cpp.UInt16;
-	public var CapturedUInt32Property: cpp.UInt32;
-	public var CapturedUInt64Property: cpp.UInt64;
-	public var CapturedInt8Property: cpp.Int8;
-	public var CapturedInt16Property: cpp.Int16;
-	public var CapturedIntProperty: cpp.Int32;
-	public var CapturedInt64Property: cpp.Int64;
-	public var CapturedFloatProperty: cpp.Float32;
-	public var CapturedDoubleProperty: cpp.Float64;
+	public var CapturedByteProperty: ucpp.num.UInt8;
+	public var CapturedUInt16Property: ucpp.num.UInt16;
+	public var CapturedUInt32Property: ucpp.num.UInt32;
+	public var CapturedUInt64Property: ucpp.num.UInt64;
+	public var CapturedInt8Property: ucpp.num.Int8;
+	public var CapturedInt16Property: ucpp.num.Int16;
+	public var CapturedIntProperty: ucpp.num.Int32;
+	public var CapturedInt64Property: ucpp.num.Int64;
+	public var CapturedFloatProperty: ucpp.num.Float32;
+	public var CapturedDoubleProperty: ucpp.num.Float64;
 	public var bCapturedBoolProperty: Bool;
-	public var CapturedObjectProperty: cpp.Star<Object>;
+	public var CapturedObjectProperty: ucpp.Ptr<Object>;
 	public var CapturedSoftObjectProperty: TSoftObjectPtr<Object>;
 	public var CapturedInterfaceProperty: Interface;
 	public var CapturedNameProperty: FName;
@@ -24,36 +24,36 @@ extern class PropertyTemplateObject extends Object {
 	public var CapturedTextProperty: FText;
 	public var CapturedVectorProperty: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPropertyTemplateObject(PropertyTemplateObject) from PropertyTemplateObject {
-	public extern var CapturedByteProperty(get, never): cpp.UInt8;
-	public inline extern function get_CapturedByteProperty(): cpp.UInt8 return this.CapturedByteProperty;
-	public extern var CapturedUInt16Property(get, never): cpp.UInt16;
-	public inline extern function get_CapturedUInt16Property(): cpp.UInt16 return this.CapturedUInt16Property;
-	public extern var CapturedUInt32Property(get, never): cpp.UInt32;
-	public inline extern function get_CapturedUInt32Property(): cpp.UInt32 return this.CapturedUInt32Property;
-	public extern var CapturedUInt64Property(get, never): cpp.UInt64;
-	public inline extern function get_CapturedUInt64Property(): cpp.UInt64 return this.CapturedUInt64Property;
-	public extern var CapturedInt8Property(get, never): cpp.Int8;
-	public inline extern function get_CapturedInt8Property(): cpp.Int8 return this.CapturedInt8Property;
-	public extern var CapturedInt16Property(get, never): cpp.Int16;
-	public inline extern function get_CapturedInt16Property(): cpp.Int16 return this.CapturedInt16Property;
-	public extern var CapturedIntProperty(get, never): cpp.Int32;
-	public inline extern function get_CapturedIntProperty(): cpp.Int32 return this.CapturedIntProperty;
-	public extern var CapturedInt64Property(get, never): cpp.Int64;
-	public inline extern function get_CapturedInt64Property(): cpp.Int64 return this.CapturedInt64Property;
-	public extern var CapturedFloatProperty(get, never): cpp.Float32;
-	public inline extern function get_CapturedFloatProperty(): cpp.Float32 return this.CapturedFloatProperty;
-	public extern var CapturedDoubleProperty(get, never): cpp.Float64;
-	public inline extern function get_CapturedDoubleProperty(): cpp.Float64 return this.CapturedDoubleProperty;
+	public extern var CapturedByteProperty(get, never): ucpp.num.UInt8;
+	public inline extern function get_CapturedByteProperty(): ucpp.num.UInt8 return this.CapturedByteProperty;
+	public extern var CapturedUInt16Property(get, never): ucpp.num.UInt16;
+	public inline extern function get_CapturedUInt16Property(): ucpp.num.UInt16 return this.CapturedUInt16Property;
+	public extern var CapturedUInt32Property(get, never): ucpp.num.UInt32;
+	public inline extern function get_CapturedUInt32Property(): ucpp.num.UInt32 return this.CapturedUInt32Property;
+	public extern var CapturedUInt64Property(get, never): ucpp.num.UInt64;
+	public inline extern function get_CapturedUInt64Property(): ucpp.num.UInt64 return this.CapturedUInt64Property;
+	public extern var CapturedInt8Property(get, never): ucpp.num.Int8;
+	public inline extern function get_CapturedInt8Property(): ucpp.num.Int8 return this.CapturedInt8Property;
+	public extern var CapturedInt16Property(get, never): ucpp.num.Int16;
+	public inline extern function get_CapturedInt16Property(): ucpp.num.Int16 return this.CapturedInt16Property;
+	public extern var CapturedIntProperty(get, never): ucpp.num.Int32;
+	public inline extern function get_CapturedIntProperty(): ucpp.num.Int32 return this.CapturedIntProperty;
+	public extern var CapturedInt64Property(get, never): ucpp.num.Int64;
+	public inline extern function get_CapturedInt64Property(): ucpp.num.Int64 return this.CapturedInt64Property;
+	public extern var CapturedFloatProperty(get, never): ucpp.num.Float32;
+	public inline extern function get_CapturedFloatProperty(): ucpp.num.Float32 return this.CapturedFloatProperty;
+	public extern var CapturedDoubleProperty(get, never): ucpp.num.Float64;
+	public inline extern function get_CapturedDoubleProperty(): ucpp.num.Float64 return this.CapturedDoubleProperty;
 	public extern var bCapturedBoolProperty(get, never): Bool;
 	public inline extern function get_bCapturedBoolProperty(): Bool return this.bCapturedBoolProperty;
-	public extern var CapturedObjectProperty(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_CapturedObjectProperty(): cpp.Star<Object.ConstObject> return this.CapturedObjectProperty;
+	public extern var CapturedObjectProperty(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_CapturedObjectProperty(): ucpp.Ptr<Object.ConstObject> return this.CapturedObjectProperty;
 	public extern var CapturedSoftObjectProperty(get, never): TSoftObjectPtr<Object.ConstObject>;
 	public inline extern function get_CapturedSoftObjectProperty(): TSoftObjectPtr<Object.ConstObject> return this.CapturedSoftObjectProperty;
 	public extern var CapturedInterfaceProperty(get, never): Interface.ConstInterface;
@@ -71,7 +71,7 @@ abstract ConstPropertyTemplateObject(PropertyTemplateObject) from PropertyTempla
 @:forward
 @:nativeGen
 @:native("PropertyTemplateObject*")
-abstract PropertyTemplateObjectPtr(cpp.Star<PropertyTemplateObject>) from cpp.Star<PropertyTemplateObject> to cpp.Star<PropertyTemplateObject>{
+abstract PropertyTemplateObjectPtr(ucpp.Ptr<PropertyTemplateObject>) from ucpp.Ptr<PropertyTemplateObject> to ucpp.Ptr<PropertyTemplateObject>{
 	@:from
 	public static extern inline function fromValue(v: PropertyTemplateObject): PropertyTemplateObjectPtr {
 		return untyped __cpp__("&({0})", v);

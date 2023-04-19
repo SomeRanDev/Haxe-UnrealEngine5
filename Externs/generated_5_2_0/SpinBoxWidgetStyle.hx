@@ -3,11 +3,11 @@ package ue;
 
 @:native("USpinBoxWidgetStyle")
 @:include("Framework/Styling/SpinBoxWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class SpinBoxWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var SpinBoxStyle: SpinBoxStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSpinBoxWidgetStyle(SpinBoxWidgetStyle) from SpinBoxWidgetStyle {
 @:forward
 @:nativeGen
 @:native("SpinBoxWidgetStyle*")
-abstract SpinBoxWidgetStylePtr(cpp.Star<SpinBoxWidgetStyle>) from cpp.Star<SpinBoxWidgetStyle> to cpp.Star<SpinBoxWidgetStyle>{
+abstract SpinBoxWidgetStylePtr(ucpp.Ptr<SpinBoxWidgetStyle>) from ucpp.Ptr<SpinBoxWidgetStyle> to ucpp.Ptr<SpinBoxWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: SpinBoxWidgetStyle): SpinBoxWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

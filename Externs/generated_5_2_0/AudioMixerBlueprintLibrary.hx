@@ -3,48 +3,48 @@ package ue;
 
 @:native("UAudioMixerBlueprintLibrary")
 @:include("AudioMixerBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class AudioMixerBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function TrimAudioCache(InMegabytesToFree: cpp.Float32): cpp.Float32;
-	public function SwapAudioOutputDevice(WorldContextObject: cpp.Star<Object.ConstObject>, NewDeviceId: FString, OnCompletedDeviceSwap: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<SwapAudioOutputResult>) -> Void>>): Void;
-	public function StopRecordingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, ExportType: EAudioRecordingExportType, Name: FString, Path: FString, SubmixToRecord: cpp.Star<SoundSubmix>, ExistingSoundWaveToOverwrite: cpp.Star<SoundWave>): cpp.Star<SoundWave>;
-	public function StopAudioBus(WorldContextObject: cpp.Star<Object.ConstObject>, AudioBus: cpp.Star<AudioBus>): Void;
-	public function StopAnalyzingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, SubmixToStopAnalyzing: cpp.Star<SoundSubmix>): Void;
-	public function StartRecordingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, ExpectedDuration: cpp.Float32, SubmixToRecord: cpp.Star<SoundSubmix>): Void;
-	public function StartAudioBus(WorldContextObject: cpp.Star<Object.ConstObject>, AudioBus: cpp.Star<AudioBus>): Void;
-	public function StartAnalyzingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, SubmixToAnalyze: cpp.Star<SoundSubmix>, FFTSize: EFFTSize, InterpolationMethod: EFFTPeakInterpolationMethod, WindowType: EFFTWindowType, HopSize: cpp.Float32, SpectrumType: EAudioSpectrumType): Void;
-	public function SetSubmixEffectChainOverride(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, SubmixEffectPresetChain: TArray<cpp.Star<SoundEffectSubmixPreset>>, FadeTimeSec: cpp.Float32): Void;
-	public function SetBypassSourceEffectChainEntry(WorldContextObject: cpp.Star<Object.ConstObject>, PresetChain: cpp.Star<SoundEffectSourcePresetChain>, EntryIndex: cpp.Int32, bBypassed: Bool): Void;
-	public function ResumeRecordingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, SubmixToPause: cpp.Star<SoundSubmix>): Void;
-	public function ReplaceSubmixEffect(WorldContextObject: cpp.Star<Object.ConstObject>, InSoundSubmix: cpp.Star<SoundSubmix>, SubmixChainIndex: cpp.Int32, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): Void;
-	public function ReplaceSoundEffectSubmix(WorldContextObject: cpp.Star<Object.ConstObject>, InSoundSubmix: cpp.Star<SoundSubmix>, SubmixChainIndex: cpp.Int32, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): Void;
-	public function RemoveSubmixEffectPresetAtIndex(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, SubmixChainIndex: cpp.Int32): Void;
-	public function RemoveSubmixEffectPreset(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): Void;
-	public function RemoveSubmixEffectAtIndex(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, SubmixChainIndex: cpp.Int32): Void;
-	public function RemoveSubmixEffect(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): Void;
-	public function RemoveSourceEffectFromPresetChain(WorldContextObject: cpp.Star<Object.ConstObject>, PresetChain: cpp.Star<SoundEffectSourcePresetChain>, EntryIndex: cpp.Int32): Void;
-	public function RemoveMasterSubmixEffect(WorldContextObject: cpp.Star<Object.ConstObject>, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): Void;
-	public function PrimeSoundForPlayback(SoundWave: cpp.Star<SoundWave>, OnLoadCompletion: HaxeDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, Bool) -> Void>): Void;
-	public function PrimeSoundCueForPlayback(SoundCue: cpp.Star<SoundCue>): Void;
-	public function PauseRecordingOutput(WorldContextObject: cpp.Star<Object.ConstObject>, SubmixToPause: cpp.Star<SoundSubmix>): Void;
-	public function MakePresetSpectralAnalysisBandSettings(InBandPresetType: EAudioSpectrumBandPresetType, InNumBands: cpp.Int32, InAttackTimeMsec: cpp.Int32, InReleaseTimeMsec: cpp.Int32): TArray<SoundSubmixSpectralAnalysisBandSettings>;
-	public function MakeMusicalSpectralAnalysisBandSettings(InNumSemitones: cpp.Int32, InStartingMusicalNote: EMusicalNoteName, InStartingOctave: cpp.Int32, InAttackTimeMsec: cpp.Int32, InReleaseTimeMsec: cpp.Int32): TArray<SoundSubmixSpectralAnalysisBandSettings>;
-	public function MakeFullSpectrumSpectralAnalysisBandSettings(InNumBands: cpp.Int32, InMinimumFrequency: cpp.Float32, InMaximumFrequency: cpp.Float32, InAttackTimeMsec: cpp.Int32, InReleaseTimeMsec: cpp.Int32): TArray<SoundSubmixSpectralAnalysisBandSettings>;
-	public function IsAudioBusActive(WorldContextObject: cpp.Star<Object.ConstObject>, AudioBus: cpp.Star<AudioBus>): Bool;
-	public function GetPhaseForFrequencies(WorldContextObject: cpp.Star<Object.ConstObject>, Frequencies: cpp.Reference<TArray<cpp.Float32>>, Phases: cpp.Reference<TArray<cpp.Float32>>, SubmixToAnalyze: cpp.Star<SoundSubmix>): Void;
-	public function GetNumberOfEntriesInSourceEffectChain(WorldContextObject: cpp.Star<Object.ConstObject>, PresetChain: cpp.Star<SoundEffectSourcePresetChain>): cpp.Int32;
-	public function GetMagnitudeForFrequencies(WorldContextObject: cpp.Star<Object.ConstObject>, Frequencies: cpp.Reference<TArray<cpp.Float32>>, Magnitudes: cpp.Reference<TArray<cpp.Float32>>, SubmixToAnalyze: cpp.Star<SoundSubmix>): Void;
-	public function GetCurrentAudioOutputDeviceName(WorldContextObject: cpp.Star<Object.ConstObject>, OnObtainCurrentDeviceEvent: cpp.Reference<HaxeDelegateProperty<(FString) -> Void>>): Void;
-	public function GetAvailableAudioOutputDevices(WorldContextObject: cpp.Star<Object.ConstObject>, OnObtainDevicesEvent: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<TArray<AudioOutputDeviceInfo>>) -> Void>>): Void;
-	public function Conv_AudioOutputDeviceInfoToString(Info: cpp.Reference<AudioOutputDeviceInfo>): FString;
-	public function ClearSubmixEffects(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>): Void;
-	public function ClearSubmixEffectChainOverride(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, FadeTimeSec: cpp.Float32): Void;
-	public function ClearMasterSubmixEffects(WorldContextObject: cpp.Star<Object.ConstObject>): Void;
-	public function AddSubmixEffect(WorldContextObject: cpp.Star<Object.ConstObject>, SoundSubmix: cpp.Star<SoundSubmix>, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): cpp.Int32;
-	public function AddSourceEffectToPresetChain(WorldContextObject: cpp.Star<Object.ConstObject>, PresetChain: cpp.Star<SoundEffectSourcePresetChain>, Entry: SourceEffectChainEntry): Void;
-	public function AddMasterSubmixEffect(WorldContextObject: cpp.Star<Object.ConstObject>, SubmixEffectPreset: cpp.Star<SoundEffectSubmixPreset>): Void;
+	public function TrimAudioCache(InMegabytesToFree: ucpp.num.Float32): ucpp.num.Float32;
+	public function SwapAudioOutputDevice(WorldContextObject: ucpp.Ptr<Object.ConstObject>, NewDeviceId: FString, OnCompletedDeviceSwap: ucpp.Ref<HaxeDelegateProperty<(ucpp.Ref<SwapAudioOutputResult>) -> Void>>): Void;
+	public function StopRecordingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ExportType: EAudioRecordingExportType, Name: FString, Path: FString, SubmixToRecord: ucpp.Ptr<SoundSubmix>, ExistingSoundWaveToOverwrite: ucpp.Ptr<SoundWave>): ucpp.Ptr<SoundWave>;
+	public function StopAudioBus(WorldContextObject: ucpp.Ptr<Object.ConstObject>, AudioBus: ucpp.Ptr<AudioBus>): Void;
+	public function StopAnalyzingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SubmixToStopAnalyzing: ucpp.Ptr<SoundSubmix>): Void;
+	public function StartRecordingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ExpectedDuration: ucpp.num.Float32, SubmixToRecord: ucpp.Ptr<SoundSubmix>): Void;
+	public function StartAudioBus(WorldContextObject: ucpp.Ptr<Object.ConstObject>, AudioBus: ucpp.Ptr<AudioBus>): Void;
+	public function StartAnalyzingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SubmixToAnalyze: ucpp.Ptr<SoundSubmix>, FFTSize: EFFTSize, InterpolationMethod: EFFTPeakInterpolationMethod, WindowType: EFFTWindowType, HopSize: ucpp.num.Float32, SpectrumType: EAudioSpectrumType): Void;
+	public function SetSubmixEffectChainOverride(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixEffectPresetChain: TArray<ucpp.Ptr<SoundEffectSubmixPreset>>, FadeTimeSec: ucpp.num.Float32): Void;
+	public function SetBypassSourceEffectChainEntry(WorldContextObject: ucpp.Ptr<Object.ConstObject>, PresetChain: ucpp.Ptr<SoundEffectSourcePresetChain>, EntryIndex: ucpp.num.Int32, bBypassed: Bool): Void;
+	public function ResumeRecordingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SubmixToPause: ucpp.Ptr<SoundSubmix>): Void;
+	public function ReplaceSubmixEffect(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InSoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixChainIndex: ucpp.num.Int32, SubmixEffectPreset: ucpp.Ptr<SoundEffectSubmixPreset>): Void;
+	public function ReplaceSoundEffectSubmix(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InSoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixChainIndex: ucpp.num.Int32, SubmixEffectPreset: ucpp.Ptr<SoundEffectSubmixPreset>): Void;
+	public function RemoveSubmixEffectPresetAtIndex(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixChainIndex: ucpp.num.Int32): Void;
+	public function RemoveSubmixEffectPreset(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixEffectPreset: ucpp.Ptr<SoundEffectSubmixPreset>): Void;
+	public function RemoveSubmixEffectAtIndex(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixChainIndex: ucpp.num.Int32): Void;
+	public function RemoveSubmixEffect(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixEffectPreset: ucpp.Ptr<SoundEffectSubmixPreset>): Void;
+	public function RemoveSourceEffectFromPresetChain(WorldContextObject: ucpp.Ptr<Object.ConstObject>, PresetChain: ucpp.Ptr<SoundEffectSourcePresetChain>, EntryIndex: ucpp.num.Int32): Void;
+	public function RemoveMasterSubmixEffect(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SubmixEffectPreset: ucpp.Ptr<SoundEffectSubmixPreset>): Void;
+	public function PrimeSoundForPlayback(SoundWave: ucpp.Ptr<SoundWave>, OnLoadCompletion: HaxeDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, Bool) -> Void>): Void;
+	public function PrimeSoundCueForPlayback(SoundCue: ucpp.Ptr<SoundCue>): Void;
+	public function PauseRecordingOutput(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SubmixToPause: ucpp.Ptr<SoundSubmix>): Void;
+	public function MakePresetSpectralAnalysisBandSettings(InBandPresetType: EAudioSpectrumBandPresetType, InNumBands: ucpp.num.Int32, InAttackTimeMsec: ucpp.num.Int32, InReleaseTimeMsec: ucpp.num.Int32): TArray<SoundSubmixSpectralAnalysisBandSettings>;
+	public function MakeMusicalSpectralAnalysisBandSettings(InNumSemitones: ucpp.num.Int32, InStartingMusicalNote: EMusicalNoteName, InStartingOctave: ucpp.num.Int32, InAttackTimeMsec: ucpp.num.Int32, InReleaseTimeMsec: ucpp.num.Int32): TArray<SoundSubmixSpectralAnalysisBandSettings>;
+	public function MakeFullSpectrumSpectralAnalysisBandSettings(InNumBands: ucpp.num.Int32, InMinimumFrequency: ucpp.num.Float32, InMaximumFrequency: ucpp.num.Float32, InAttackTimeMsec: ucpp.num.Int32, InReleaseTimeMsec: ucpp.num.Int32): TArray<SoundSubmixSpectralAnalysisBandSettings>;
+	public function IsAudioBusActive(WorldContextObject: ucpp.Ptr<Object.ConstObject>, AudioBus: ucpp.Ptr<AudioBus>): Bool;
+	public function GetPhaseForFrequencies(WorldContextObject: ucpp.Ptr<Object.ConstObject>, Frequencies: ucpp.Ref<TArray<ucpp.num.Float32>>, Phases: ucpp.Ref<TArray<ucpp.num.Float32>>, SubmixToAnalyze: ucpp.Ptr<SoundSubmix>): Void;
+	public function GetNumberOfEntriesInSourceEffectChain(WorldContextObject: ucpp.Ptr<Object.ConstObject>, PresetChain: ucpp.Ptr<SoundEffectSourcePresetChain>): ucpp.num.Int32;
+	public function GetMagnitudeForFrequencies(WorldContextObject: ucpp.Ptr<Object.ConstObject>, Frequencies: ucpp.Ref<TArray<ucpp.num.Float32>>, Magnitudes: ucpp.Ref<TArray<ucpp.num.Float32>>, SubmixToAnalyze: ucpp.Ptr<SoundSubmix>): Void;
+	public function GetCurrentAudioOutputDeviceName(WorldContextObject: ucpp.Ptr<Object.ConstObject>, OnObtainCurrentDeviceEvent: ucpp.Ref<HaxeDelegateProperty<(FString) -> Void>>): Void;
+	public function GetAvailableAudioOutputDevices(WorldContextObject: ucpp.Ptr<Object.ConstObject>, OnObtainDevicesEvent: ucpp.Ref<HaxeDelegateProperty<(ucpp.Ref<TArray<AudioOutputDeviceInfo>>) -> Void>>): Void;
+	public function Conv_AudioOutputDeviceInfoToString(Info: ucpp.Ref<AudioOutputDeviceInfo>): FString;
+	public function ClearSubmixEffects(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>): Void;
+	public function ClearSubmixEffectChainOverride(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>, FadeTimeSec: ucpp.num.Float32): Void;
+	public function ClearMasterSubmixEffects(WorldContextObject: ucpp.Ptr<Object.ConstObject>): Void;
+	public function AddSubmixEffect(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SoundSubmix: ucpp.Ptr<SoundSubmix>, SubmixEffectPreset: ucpp.Ptr<SoundEffectSubmixPreset>): ucpp.num.Int32;
+	public function AddSourceEffectToPresetChain(WorldContextObject: ucpp.Ptr<Object.ConstObject>, PresetChain: ucpp.Ptr<SoundEffectSourcePresetChain>, Entry: SourceEffectChainEntry): Void;
+	public function AddMasterSubmixEffect(WorldContextObject: ucpp.Ptr<Object.ConstObject>, SubmixEffectPreset: ucpp.Ptr<SoundEffectSubmixPreset>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -55,7 +55,7 @@ abstract ConstAudioMixerBlueprintLibrary(AudioMixerBlueprintLibrary) from AudioM
 @:forward
 @:nativeGen
 @:native("AudioMixerBlueprintLibrary*")
-abstract AudioMixerBlueprintLibraryPtr(cpp.Star<AudioMixerBlueprintLibrary>) from cpp.Star<AudioMixerBlueprintLibrary> to cpp.Star<AudioMixerBlueprintLibrary>{
+abstract AudioMixerBlueprintLibraryPtr(ucpp.Ptr<AudioMixerBlueprintLibrary>) from ucpp.Ptr<AudioMixerBlueprintLibrary> to ucpp.Ptr<AudioMixerBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AudioMixerBlueprintLibrary): AudioMixerBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

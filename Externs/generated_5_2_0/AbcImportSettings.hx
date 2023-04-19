@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAbcImportSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcImportSettings extends Object {
 	public var ImportType: EAlembicImportType;
 	public var SamplingSettings: AbcSamplingSettings;
@@ -14,7 +14,7 @@ extern class AbcImportSettings extends Object {
 	public var GeometryCacheSettings: AbcGeometryCacheSettings;
 	public var ConversionSettings: AbcConversionSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstAbcImportSettings(AbcImportSettings) from AbcImportSettings {
 @:forward
 @:nativeGen
 @:native("AbcImportSettings*")
-abstract AbcImportSettingsPtr(cpp.Star<AbcImportSettings>) from cpp.Star<AbcImportSettings> to cpp.Star<AbcImportSettings>{
+abstract AbcImportSettingsPtr(ucpp.Ptr<AbcImportSettings>) from ucpp.Ptr<AbcImportSettings> to ucpp.Ptr<AbcImportSettings>{
 	@:from
 	public static extern inline function fromValue(v: AbcImportSettings): AbcImportSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequenceBindingReference")
 @:include("LevelSequenceBindingReference.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceBindingReference {
 	private var ExternalObjectPath: SoftObjectPath;
 	private var ObjectPath: FString;

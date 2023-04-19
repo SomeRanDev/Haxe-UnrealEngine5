@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRestrictedConfigInfo")
 @:include("GameplayTagsSettings.h")
-@:structAccess
+@:valueType
 extern class RestrictedConfigInfo {
 	public var RestrictedConfigName: FString;
 	public var Owners: TArray<FString>;

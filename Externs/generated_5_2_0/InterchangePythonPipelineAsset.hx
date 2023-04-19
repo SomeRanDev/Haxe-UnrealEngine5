@@ -3,13 +3,13 @@ package ue;
 
 @:native("UInterchangePythonPipelineAsset")
 @:include("InterchangePythonPipelineBase.h")
-@:structAccess
+@:valueType
 extern class InterchangePythonPipelineAsset extends Object {
 	public var PythonClass: TSoftClassPtr<Class>;
-	public var GeneratedPipeline: cpp.Star<InterchangePythonPipelineBase>;
+	public var GeneratedPipeline: ucpp.Ptr<InterchangePythonPipelineBase>;
 	public var JsonDefaultProperties: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class InterchangePythonPipelineAsset extends Object {
 abstract ConstInterchangePythonPipelineAsset(InterchangePythonPipelineAsset) from InterchangePythonPipelineAsset {
 	public extern var PythonClass(get, never): TSoftClassPtr<Class.ConstClass>;
 	public inline extern function get_PythonClass(): TSoftClassPtr<Class.ConstClass> return this.PythonClass;
-	public extern var GeneratedPipeline(get, never): cpp.Star<InterchangePythonPipelineBase.ConstInterchangePythonPipelineBase>;
-	public inline extern function get_GeneratedPipeline(): cpp.Star<InterchangePythonPipelineBase.ConstInterchangePythonPipelineBase> return this.GeneratedPipeline;
+	public extern var GeneratedPipeline(get, never): ucpp.Ptr<InterchangePythonPipelineBase.ConstInterchangePythonPipelineBase>;
+	public inline extern function get_GeneratedPipeline(): ucpp.Ptr<InterchangePythonPipelineBase.ConstInterchangePythonPipelineBase> return this.GeneratedPipeline;
 	public extern var JsonDefaultProperties(get, never): FString;
 	public inline extern function get_JsonDefaultProperties(): FString return this.JsonDefaultProperties;
 }
@@ -26,7 +26,7 @@ abstract ConstInterchangePythonPipelineAsset(InterchangePythonPipelineAsset) fro
 @:forward
 @:nativeGen
 @:native("InterchangePythonPipelineAsset*")
-abstract InterchangePythonPipelineAssetPtr(cpp.Star<InterchangePythonPipelineAsset>) from cpp.Star<InterchangePythonPipelineAsset> to cpp.Star<InterchangePythonPipelineAsset>{
+abstract InterchangePythonPipelineAssetPtr(ucpp.Ptr<InterchangePythonPipelineAsset>) from ucpp.Ptr<InterchangePythonPipelineAsset> to ucpp.Ptr<InterchangePythonPipelineAsset>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePythonPipelineAsset): InterchangePythonPipelineAssetPtr {
 		return untyped __cpp__("&({0})", v);

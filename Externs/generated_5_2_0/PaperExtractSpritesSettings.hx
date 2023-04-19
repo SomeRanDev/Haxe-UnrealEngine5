@@ -3,16 +3,16 @@ package ue;
 
 @:native("UPaperExtractSpritesSettings")
 @:include("ExtractSprites/PaperExtractSpritesSettings.h")
-@:structAccess
+@:valueType
 extern class PaperExtractSpritesSettings extends Object {
 	public var SpriteExtractMode: ESpriteExtractMode;
 	public var OutlineColor: LinearColor;
 	public var ViewportTextureTint: LinearColor;
 	public var BackgroundColor: LinearColor;
 	public var NamingTemplate: FString;
-	public var NamingStartIndex: cpp.Int32;
+	public var NamingStartIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,14 +28,14 @@ abstract ConstPaperExtractSpritesSettings(PaperExtractSpritesSettings) from Pape
 	public inline extern function get_BackgroundColor(): LinearColor return this.BackgroundColor;
 	public extern var NamingTemplate(get, never): FString;
 	public inline extern function get_NamingTemplate(): FString return this.NamingTemplate;
-	public extern var NamingStartIndex(get, never): cpp.Int32;
-	public inline extern function get_NamingStartIndex(): cpp.Int32 return this.NamingStartIndex;
+	public extern var NamingStartIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_NamingStartIndex(): ucpp.num.Int32 return this.NamingStartIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("PaperExtractSpritesSettings*")
-abstract PaperExtractSpritesSettingsPtr(cpp.Star<PaperExtractSpritesSettings>) from cpp.Star<PaperExtractSpritesSettings> to cpp.Star<PaperExtractSpritesSettings>{
+abstract PaperExtractSpritesSettingsPtr(ucpp.Ptr<PaperExtractSpritesSettings>) from ucpp.Ptr<PaperExtractSpritesSettings> to ucpp.Ptr<PaperExtractSpritesSettings>{
 	@:from
 	public static extern inline function fromValue(v: PaperExtractSpritesSettings): PaperExtractSpritesSettingsPtr {
 		return untyped __cpp__("&({0})", v);

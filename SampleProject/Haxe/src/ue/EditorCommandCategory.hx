@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEditorCommandCategory")
 @:include("Preferences/UnrealEdOptions.h")
-@:structAccess
+@:valueType
 extern class EditorCommandCategory {
 	public var Parent: FName;
 	public var Name: FName;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneBindingOverrideData")
 @:include("MovieSceneBindingOverrides.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBindingOverrideData {
 	public var ObjectBindingId: MovieSceneObjectBindingID;
 	public var Object: TSoftObjectPtr<Object>;

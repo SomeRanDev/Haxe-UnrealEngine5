@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequenceAnimSequenceLinkItem")
 @:include("LevelSequenceAnimSequenceLink.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceAnimSequenceLinkItem {
 	public var SkelTrackGuid: Guid;
 	public var PathToAnimSequence: SoftObjectPath;

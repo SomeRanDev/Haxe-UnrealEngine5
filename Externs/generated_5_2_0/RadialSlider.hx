@@ -3,17 +3,17 @@ package ue;
 
 @:native("URadialSlider")
 @:include("Components/RadialSlider.h")
-@:structAccess
+@:valueType
 extern class RadialSlider extends Widget {
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 	public var ValueDelegate: HaxeDelegateProperty<() -> Void>;
 	public var bUseCustomDefaultValue: Bool;
-	public var CustomDefaultValue: cpp.Float32;
+	public var CustomDefaultValue: ucpp.num.Float32;
 	public var SliderRange: RuntimeFloatCurve;
-	public var ValueTags: TArray<cpp.Float32>;
-	public var SliderHandleStartAngle: cpp.Float32;
-	public var SliderHandleEndAngle: cpp.Float32;
-	public var AngularOffset: cpp.Float32;
+	public var ValueTags: TArray<ucpp.num.Float32>;
+	public var SliderHandleStartAngle: ucpp.num.Float32;
+	public var SliderHandleEndAngle: ucpp.num.Float32;
+	public var AngularOffset: ucpp.num.Float32;
 	public var HandStartEndRatio: Vector2D;
 	public var WidgetStyle: SliderStyle;
 	public var SliderBarColor: LinearColor;
@@ -23,7 +23,7 @@ extern class RadialSlider extends Widget {
 	public var Locked: Bool;
 	public var MouseUsesStep: Bool;
 	public var RequiresControllerLock: Bool;
-	public var StepSize: cpp.Float32;
+	public var StepSize: ucpp.num.Float32;
 	public var IsFocusable: Bool;
 	public var UseVerticalDrag: Bool;
 	public var ShowSliderHandle: Bool;
@@ -32,53 +32,53 @@ extern class RadialSlider extends Widget {
 	public var OnMouseCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnControllerCaptureEnd: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
-	public function SetValueTags(InValueTags: cpp.Reference<TArray<cpp.Float32>>): Void;
-	public function SetValue(InValue: cpp.Float32): Void;
+	public function SetValueTags(InValueTags: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
+	public function SetValue(InValue: ucpp.num.Float32): Void;
 	public function SetUseVerticalDrag(InUseVerticalDrag: Bool): Void;
-	public function SetStepSize(InValue: cpp.Float32): Void;
-	public function SetSliderRange(InSliderRange: cpp.Reference<RuntimeFloatCurve>): Void;
+	public function SetStepSize(InValue: ucpp.num.Float32): Void;
+	public function SetSliderRange(InSliderRange: ucpp.Ref<RuntimeFloatCurve>): Void;
 	public function SetSliderProgressColor(InValue: LinearColor): Void;
-	public function SetSliderHandleStartAngle(InValue: cpp.Float32): Void;
-	public function SetSliderHandleEndAngle(InValue: cpp.Float32): Void;
+	public function SetSliderHandleStartAngle(InValue: ucpp.num.Float32): Void;
+	public function SetSliderHandleEndAngle(InValue: ucpp.num.Float32): Void;
 	public function SetSliderHandleColor(InValue: LinearColor): Void;
 	public function SetSliderBarColor(InValue: LinearColor): Void;
 	public function SetShowSliderHandle(InShowSliderHandle: Bool): Void;
 	public function SetShowSliderHand(InShowSliderHand: Bool): Void;
 	public function SetLocked(InValue: Bool): Void;
 	public function SetHandStartEndRatio(InValue: Vector2D): Void;
-	public function SetCustomDefaultValue(InValue: cpp.Float32): Void;
+	public function SetCustomDefaultValue(InValue: ucpp.num.Float32): Void;
 	public function SetCenterBackgroundColor(InValue: LinearColor): Void;
-	public function SetAngularOffset(InValue: cpp.Float32): Void;
-	public function GetValue(): cpp.Float32;
-	public function GetNormalizedSliderHandlePosition(): cpp.Float32;
-	public function GetCustomDefaultValue(): cpp.Float32;
+	public function SetAngularOffset(InValue: ucpp.num.Float32): Void;
+	public function GetValue(): ucpp.num.Float32;
+	public function GetNormalizedSliderHandlePosition(): ucpp.num.Float32;
+	public function GetCustomDefaultValue(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue, GetNormalizedSliderHandlePosition, GetCustomDefaultValue)
 @:nativeGen
 abstract ConstRadialSlider(RadialSlider) from RadialSlider {
-	public extern var Value(get, never): cpp.Float32;
-	public inline extern function get_Value(): cpp.Float32 return this.Value;
+	public extern var Value(get, never): ucpp.num.Float32;
+	public inline extern function get_Value(): ucpp.num.Float32 return this.Value;
 	public extern var ValueDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_ValueDelegate(): HaxeDelegateProperty<() -> Void> return this.ValueDelegate;
 	public extern var bUseCustomDefaultValue(get, never): Bool;
 	public inline extern function get_bUseCustomDefaultValue(): Bool return this.bUseCustomDefaultValue;
-	public extern var CustomDefaultValue(get, never): cpp.Float32;
-	public inline extern function get_CustomDefaultValue(): cpp.Float32 return this.CustomDefaultValue;
+	public extern var CustomDefaultValue(get, never): ucpp.num.Float32;
+	public inline extern function get_CustomDefaultValue(): ucpp.num.Float32 return this.CustomDefaultValue;
 	public extern var SliderRange(get, never): RuntimeFloatCurve;
 	public inline extern function get_SliderRange(): RuntimeFloatCurve return this.SliderRange;
-	public extern var ValueTags(get, never): TArray<cpp.Float32>;
-	public inline extern function get_ValueTags(): TArray<cpp.Float32> return this.ValueTags;
-	public extern var SliderHandleStartAngle(get, never): cpp.Float32;
-	public inline extern function get_SliderHandleStartAngle(): cpp.Float32 return this.SliderHandleStartAngle;
-	public extern var SliderHandleEndAngle(get, never): cpp.Float32;
-	public inline extern function get_SliderHandleEndAngle(): cpp.Float32 return this.SliderHandleEndAngle;
-	public extern var AngularOffset(get, never): cpp.Float32;
-	public inline extern function get_AngularOffset(): cpp.Float32 return this.AngularOffset;
+	public extern var ValueTags(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_ValueTags(): TArray<ucpp.num.Float32> return this.ValueTags;
+	public extern var SliderHandleStartAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_SliderHandleStartAngle(): ucpp.num.Float32 return this.SliderHandleStartAngle;
+	public extern var SliderHandleEndAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_SliderHandleEndAngle(): ucpp.num.Float32 return this.SliderHandleEndAngle;
+	public extern var AngularOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_AngularOffset(): ucpp.num.Float32 return this.AngularOffset;
 	public extern var HandStartEndRatio(get, never): Vector2D;
 	public inline extern function get_HandStartEndRatio(): Vector2D return this.HandStartEndRatio;
 	public extern var WidgetStyle(get, never): SliderStyle;
@@ -97,8 +97,8 @@ abstract ConstRadialSlider(RadialSlider) from RadialSlider {
 	public inline extern function get_MouseUsesStep(): Bool return this.MouseUsesStep;
 	public extern var RequiresControllerLock(get, never): Bool;
 	public inline extern function get_RequiresControllerLock(): Bool return this.RequiresControllerLock;
-	public extern var StepSize(get, never): cpp.Float32;
-	public inline extern function get_StepSize(): cpp.Float32 return this.StepSize;
+	public extern var StepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_StepSize(): ucpp.num.Float32 return this.StepSize;
 	public extern var IsFocusable(get, never): Bool;
 	public inline extern function get_IsFocusable(): Bool return this.IsFocusable;
 	public extern var UseVerticalDrag(get, never): Bool;
@@ -115,14 +115,14 @@ abstract ConstRadialSlider(RadialSlider) from RadialSlider {
 	public inline extern function get_OnControllerCaptureBegin(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureBegin;
 	public extern var OnControllerCaptureEnd(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnControllerCaptureEnd(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnControllerCaptureEnd;
-	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChanged;
+	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChanged;
 }
 
 @:forward
 @:nativeGen
 @:native("RadialSlider*")
-abstract RadialSliderPtr(cpp.Star<RadialSlider>) from cpp.Star<RadialSlider> to cpp.Star<RadialSlider>{
+abstract RadialSliderPtr(ucpp.Ptr<RadialSlider>) from ucpp.Ptr<RadialSlider> to ucpp.Ptr<RadialSlider>{
 	@:from
 	public static extern inline function fromValue(v: RadialSlider): RadialSliderPtr {
 		return untyped __cpp__("&({0})", v);

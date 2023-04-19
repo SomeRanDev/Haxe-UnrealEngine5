@@ -3,24 +3,24 @@ package ue;
 
 @:native("URevolveOperatorFactory")
 @:include("DrawAndRevolveTool.h")
-@:structAccess
+@:valueType
 extern class RevolveOperatorFactory extends Object {
-	public var RevolveTool: cpp.Star<DrawAndRevolveTool>;
+	public var RevolveTool: ucpp.Ptr<DrawAndRevolveTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRevolveOperatorFactory(RevolveOperatorFactory) from RevolveOperatorFactory {
-	public extern var RevolveTool(get, never): cpp.Star<DrawAndRevolveTool.ConstDrawAndRevolveTool>;
-	public inline extern function get_RevolveTool(): cpp.Star<DrawAndRevolveTool.ConstDrawAndRevolveTool> return this.RevolveTool;
+	public extern var RevolveTool(get, never): ucpp.Ptr<DrawAndRevolveTool.ConstDrawAndRevolveTool>;
+	public inline extern function get_RevolveTool(): ucpp.Ptr<DrawAndRevolveTool.ConstDrawAndRevolveTool> return this.RevolveTool;
 }
 
 @:forward
 @:nativeGen
 @:native("RevolveOperatorFactory*")
-abstract RevolveOperatorFactoryPtr(cpp.Star<RevolveOperatorFactory>) from cpp.Star<RevolveOperatorFactory> to cpp.Star<RevolveOperatorFactory>{
+abstract RevolveOperatorFactoryPtr(ucpp.Ptr<RevolveOperatorFactory>) from ucpp.Ptr<RevolveOperatorFactory> to ucpp.Ptr<RevolveOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: RevolveOperatorFactory): RevolveOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

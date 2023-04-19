@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSoundLoadComplete__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSoundLoadComplete__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSoundLoadComplete__PythonCallable(OnSoundLoadComplete__PythonCal
 @:forward
 @:nativeGen
 @:native("OnSoundLoadComplete__PythonCallable*")
-abstract OnSoundLoadComplete__PythonCallablePtr(cpp.Star<OnSoundLoadComplete__PythonCallable>) from cpp.Star<OnSoundLoadComplete__PythonCallable> to cpp.Star<OnSoundLoadComplete__PythonCallable>{
+abstract OnSoundLoadComplete__PythonCallablePtr(ucpp.Ptr<OnSoundLoadComplete__PythonCallable>) from ucpp.Ptr<OnSoundLoadComplete__PythonCallable> to ucpp.Ptr<OnSoundLoadComplete__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSoundLoadComplete__PythonCallable): OnSoundLoadComplete__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

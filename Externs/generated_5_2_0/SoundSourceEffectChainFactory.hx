@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundSourceEffectChainFactory")
 @:include("Factories/SoundSourceEffectFactory.h")
-@:structAccess
+@:valueType
 extern class SoundSourceEffectChainFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundSourceEffectChainFactory(SoundSourceEffectChainFactory) from 
 @:forward
 @:nativeGen
 @:native("SoundSourceEffectChainFactory*")
-abstract SoundSourceEffectChainFactoryPtr(cpp.Star<SoundSourceEffectChainFactory>) from cpp.Star<SoundSourceEffectChainFactory> to cpp.Star<SoundSourceEffectChainFactory>{
+abstract SoundSourceEffectChainFactoryPtr(ucpp.Ptr<SoundSourceEffectChainFactory>) from ucpp.Ptr<SoundSourceEffectChainFactory> to ucpp.Ptr<SoundSourceEffectChainFactory>{
 	@:from
 	public static extern inline function fromValue(v: SoundSourceEffectChainFactory): SoundSourceEffectChainFactoryPtr {
 		return untyped __cpp__("&({0})", v);

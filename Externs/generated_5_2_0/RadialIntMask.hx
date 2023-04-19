@@ -3,30 +3,30 @@ package ue;
 
 @:native("URadialIntMask")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class RadialIntMask extends FieldNodeInt {
-	public var Radius: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var Position: Vector;
-	public var InteriorValue: cpp.Int32;
-	public var ExteriorValue: cpp.Int32;
+	public var InteriorValue: ucpp.num.Int32;
+	public var ExteriorValue: ucpp.num.Int32;
 	public var SetMaskCondition: TEnumAsByte<ESetMaskConditionType>;
 
-	public function SetRadialIntMask(Radius: cpp.Float32, Position: Vector, InteriorValue: cpp.Int32, ExteriorValue: cpp.Int32, SetMaskConditionIn: TEnumAsByte<ESetMaskConditionType>): cpp.Star<RadialIntMask>;
+	public function SetRadialIntMask(Radius: ucpp.num.Float32, Position: Vector, InteriorValue: ucpp.num.Int32, ExteriorValue: ucpp.num.Int32, SetMaskConditionIn: TEnumAsByte<ESetMaskConditionType>): ucpp.Ptr<RadialIntMask>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRadialIntMask(RadialIntMask) from RadialIntMask {
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
 	public extern var Position(get, never): Vector;
 	public inline extern function get_Position(): Vector return this.Position;
-	public extern var InteriorValue(get, never): cpp.Int32;
-	public inline extern function get_InteriorValue(): cpp.Int32 return this.InteriorValue;
-	public extern var ExteriorValue(get, never): cpp.Int32;
-	public inline extern function get_ExteriorValue(): cpp.Int32 return this.ExteriorValue;
+	public extern var InteriorValue(get, never): ucpp.num.Int32;
+	public inline extern function get_InteriorValue(): ucpp.num.Int32 return this.InteriorValue;
+	public extern var ExteriorValue(get, never): ucpp.num.Int32;
+	public inline extern function get_ExteriorValue(): ucpp.num.Int32 return this.ExteriorValue;
 	public extern var SetMaskCondition(get, never): TEnumAsByte<ESetMaskConditionType>;
 	public inline extern function get_SetMaskCondition(): TEnumAsByte<ESetMaskConditionType> return this.SetMaskCondition;
 }
@@ -34,7 +34,7 @@ abstract ConstRadialIntMask(RadialIntMask) from RadialIntMask {
 @:forward
 @:nativeGen
 @:native("RadialIntMask*")
-abstract RadialIntMaskPtr(cpp.Star<RadialIntMask>) from cpp.Star<RadialIntMask> to cpp.Star<RadialIntMask>{
+abstract RadialIntMaskPtr(ucpp.Ptr<RadialIntMask>) from ucpp.Ptr<RadialIntMask> to ucpp.Ptr<RadialIntMask>{
 	@:from
 	public static extern inline function fromValue(v: RadialIntMask): RadialIntMaskPtr {
 		return untyped __cpp__("&({0})", v);

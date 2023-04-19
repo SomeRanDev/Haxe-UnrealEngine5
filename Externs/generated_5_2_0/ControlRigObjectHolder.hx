@@ -3,24 +3,24 @@ package ue;
 
 @:native("UControlRigObjectHolder")
 @:include("Sequencer/ControlRigObjectSpawner.h")
-@:structAccess
+@:valueType
 extern class ControlRigObjectHolder extends Object {
-	public var Objects: TArray<cpp.Star<Object>>;
+	public var Objects: TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstControlRigObjectHolder(ControlRigObjectHolder) from ControlRigObjectHolder {
-	public extern var Objects(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_Objects(): TArray<cpp.Star<Object.ConstObject>> return this.Objects;
+	public extern var Objects(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_Objects(): TArray<ucpp.Ptr<Object.ConstObject>> return this.Objects;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlRigObjectHolder*")
-abstract ControlRigObjectHolderPtr(cpp.Star<ControlRigObjectHolder>) from cpp.Star<ControlRigObjectHolder> to cpp.Star<ControlRigObjectHolder>{
+abstract ControlRigObjectHolderPtr(ucpp.Ptr<ControlRigObjectHolder>) from ucpp.Ptr<ControlRigObjectHolder> to ucpp.Ptr<ControlRigObjectHolder>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigObjectHolder): ControlRigObjectHolderPtr {
 		return untyped __cpp__("&({0})", v);

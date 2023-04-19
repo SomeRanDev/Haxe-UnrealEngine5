@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAssetViewConfig")
 @:include("AssetView/AssetViewConfig.h")
-@:structAccess
+@:valueType
 extern class AssetViewConfig extends EditorConfigBase {
 	public var Instances: TMap<FName, AssetViewInstanceConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAssetViewConfig(AssetViewConfig) from AssetViewConfig {
 @:forward
 @:nativeGen
 @:native("AssetViewConfig*")
-abstract AssetViewConfigPtr(cpp.Star<AssetViewConfig>) from cpp.Star<AssetViewConfig> to cpp.Star<AssetViewConfig>{
+abstract AssetViewConfigPtr(ucpp.Ptr<AssetViewConfig>) from ucpp.Ptr<AssetViewConfig> to ucpp.Ptr<AssetViewConfig>{
 	@:from
 	public static extern inline function fromValue(v: AssetViewConfig): AssetViewConfigPtr {
 		return untyped __cpp__("&({0})", v);

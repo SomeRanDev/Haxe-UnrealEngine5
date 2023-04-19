@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeResultTextureWarning")
 @:include("Fbx/InterchangeFbxMessages.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultTextureWarning extends InterchangeResultWarning {
 	public var TextureName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInterchangeResultTextureWarning(InterchangeResultTextureWarning) f
 @:forward
 @:nativeGen
 @:native("InterchangeResultTextureWarning*")
-abstract InterchangeResultTextureWarningPtr(cpp.Star<InterchangeResultTextureWarning>) from cpp.Star<InterchangeResultTextureWarning> to cpp.Star<InterchangeResultTextureWarning>{
+abstract InterchangeResultTextureWarningPtr(ucpp.Ptr<InterchangeResultTextureWarning>) from ucpp.Ptr<InterchangeResultTextureWarning> to ucpp.Ptr<InterchangeResultTextureWarning>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultTextureWarning): InterchangeResultTextureWarningPtr {
 		return untyped __cpp__("&({0})", v);

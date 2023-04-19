@@ -3,15 +3,15 @@ package ue;
 
 @:native("AVariantManagerTestActor")
 @:include("VariantManagerTestActor.h")
-@:structAccess
+@:valueType
 extern class VariantManagerTestActor extends Actor {
 	public var EnumWithNoDefault: EVariantManagerTestEnum;
 	public var EnumWithSecondDefault: EVariantManagerTestEnum;
-	public var CapturedByteProperty: cpp.UInt8;
-	public var CapturedIntProperty: cpp.Int32;
-	public var CapturedFloatProperty: cpp.Float32;
+	public var CapturedByteProperty: ucpp.num.UInt8;
+	public var CapturedIntProperty: ucpp.num.Int32;
+	public var CapturedFloatProperty: ucpp.num.Float32;
 	public var bCapturedBoolProperty: Bool;
-	public var CapturedObjectProperty: cpp.Star<Object>;
+	public var CapturedObjectProperty: ucpp.Ptr<Object>;
 	public var CapturedInterfaceProperty: Interface;
 	public var CapturedNameProperty: FName;
 	public var CapturedStrProperty: FString;
@@ -24,10 +24,10 @@ extern class VariantManagerTestActor extends Actor {
 	public var CapturedVector4Property: Vector4;
 	public var CapturedVector2DProperty: Vector2D;
 	public var CapturedIntPointProperty: IntPoint;
-	public var CapturedUObjectArrayProperty: TArray<cpp.Star<Object>>;
+	public var CapturedUObjectArrayProperty: TArray<ucpp.Ptr<Object>>;
 	public var CapturedVectorArrayProperty: TArray<Vector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,16 +37,16 @@ abstract ConstVariantManagerTestActor(VariantManagerTestActor) from VariantManag
 	public inline extern function get_EnumWithNoDefault(): EVariantManagerTestEnum return this.EnumWithNoDefault;
 	public extern var EnumWithSecondDefault(get, never): EVariantManagerTestEnum;
 	public inline extern function get_EnumWithSecondDefault(): EVariantManagerTestEnum return this.EnumWithSecondDefault;
-	public extern var CapturedByteProperty(get, never): cpp.UInt8;
-	public inline extern function get_CapturedByteProperty(): cpp.UInt8 return this.CapturedByteProperty;
-	public extern var CapturedIntProperty(get, never): cpp.Int32;
-	public inline extern function get_CapturedIntProperty(): cpp.Int32 return this.CapturedIntProperty;
-	public extern var CapturedFloatProperty(get, never): cpp.Float32;
-	public inline extern function get_CapturedFloatProperty(): cpp.Float32 return this.CapturedFloatProperty;
+	public extern var CapturedByteProperty(get, never): ucpp.num.UInt8;
+	public inline extern function get_CapturedByteProperty(): ucpp.num.UInt8 return this.CapturedByteProperty;
+	public extern var CapturedIntProperty(get, never): ucpp.num.Int32;
+	public inline extern function get_CapturedIntProperty(): ucpp.num.Int32 return this.CapturedIntProperty;
+	public extern var CapturedFloatProperty(get, never): ucpp.num.Float32;
+	public inline extern function get_CapturedFloatProperty(): ucpp.num.Float32 return this.CapturedFloatProperty;
 	public extern var bCapturedBoolProperty(get, never): Bool;
 	public inline extern function get_bCapturedBoolProperty(): Bool return this.bCapturedBoolProperty;
-	public extern var CapturedObjectProperty(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_CapturedObjectProperty(): cpp.Star<Object.ConstObject> return this.CapturedObjectProperty;
+	public extern var CapturedObjectProperty(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_CapturedObjectProperty(): ucpp.Ptr<Object.ConstObject> return this.CapturedObjectProperty;
 	public extern var CapturedInterfaceProperty(get, never): Interface.ConstInterface;
 	public inline extern function get_CapturedInterfaceProperty(): Interface.ConstInterface return this.CapturedInterfaceProperty;
 	public extern var CapturedNameProperty(get, never): FName;
@@ -71,8 +71,8 @@ abstract ConstVariantManagerTestActor(VariantManagerTestActor) from VariantManag
 	public inline extern function get_CapturedVector2DProperty(): Vector2D return this.CapturedVector2DProperty;
 	public extern var CapturedIntPointProperty(get, never): IntPoint;
 	public inline extern function get_CapturedIntPointProperty(): IntPoint return this.CapturedIntPointProperty;
-	public extern var CapturedUObjectArrayProperty(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_CapturedUObjectArrayProperty(): TArray<cpp.Star<Object.ConstObject>> return this.CapturedUObjectArrayProperty;
+	public extern var CapturedUObjectArrayProperty(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_CapturedUObjectArrayProperty(): TArray<ucpp.Ptr<Object.ConstObject>> return this.CapturedUObjectArrayProperty;
 	public extern var CapturedVectorArrayProperty(get, never): TArray<Vector>;
 	public inline extern function get_CapturedVectorArrayProperty(): TArray<Vector> return this.CapturedVectorArrayProperty;
 }
@@ -80,7 +80,7 @@ abstract ConstVariantManagerTestActor(VariantManagerTestActor) from VariantManag
 @:forward
 @:nativeGen
 @:native("VariantManagerTestActor*")
-abstract VariantManagerTestActorPtr(cpp.Star<VariantManagerTestActor>) from cpp.Star<VariantManagerTestActor> to cpp.Star<VariantManagerTestActor>{
+abstract VariantManagerTestActorPtr(ucpp.Ptr<VariantManagerTestActor>) from ucpp.Ptr<VariantManagerTestActor> to ucpp.Ptr<VariantManagerTestActor>{
 	@:from
 	public static extern inline function fromValue(v: VariantManagerTestActor): VariantManagerTestActorPtr {
 		return untyped __cpp__("&({0})", v);

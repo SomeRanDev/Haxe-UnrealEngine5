@@ -3,15 +3,15 @@ package ue;
 
 @:native("AOnlineBeaconClient")
 @:include("OnlineBeaconClient.h")
-@:structAccess
+@:valueType
 extern class OnlineBeaconClient extends OnlineBeacon {
-	@:protected public var BeaconOwner: cpp.Star<OnlineBeaconHostObject>;
-	@:protected public var BeaconConnection: cpp.Star<NetConnection>;
+	@:protected public var BeaconOwner: ucpp.Ptr<OnlineBeaconHostObject>;
+	@:protected public var BeaconConnection: ucpp.Ptr<NetConnection>;
 	@:protected public var ConnectionState: EBeaconConnectionState;
 
 	private function ClientOnConnected(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstOnlineBeaconClient(OnlineBeaconClient) from OnlineBeaconClient {
 @:forward
 @:nativeGen
 @:native("OnlineBeaconClient*")
-abstract OnlineBeaconClientPtr(cpp.Star<OnlineBeaconClient>) from cpp.Star<OnlineBeaconClient> to cpp.Star<OnlineBeaconClient>{
+abstract OnlineBeaconClientPtr(ucpp.Ptr<OnlineBeaconClient>) from ucpp.Ptr<OnlineBeaconClient> to ucpp.Ptr<OnlineBeaconClient>{
 	@:from
 	public static extern inline function fromValue(v: OnlineBeaconClient): OnlineBeaconClientPtr {
 		return untyped __cpp__("&({0})", v);

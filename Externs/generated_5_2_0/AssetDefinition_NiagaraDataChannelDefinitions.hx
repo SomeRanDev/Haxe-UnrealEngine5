@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_NiagaraDataChannelDefinitions")
 @:include("AssetDefinitions/AssetDefinition_NiagaraDataChannelDefinitions.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_NiagaraDataChannelDefinitions extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_NiagaraDataChannelDefinitions(AssetDefinition_Niag
 @:forward
 @:nativeGen
 @:native("AssetDefinition_NiagaraDataChannelDefinitions*")
-abstract AssetDefinition_NiagaraDataChannelDefinitionsPtr(cpp.Star<AssetDefinition_NiagaraDataChannelDefinitions>) from cpp.Star<AssetDefinition_NiagaraDataChannelDefinitions> to cpp.Star<AssetDefinition_NiagaraDataChannelDefinitions>{
+abstract AssetDefinition_NiagaraDataChannelDefinitionsPtr(ucpp.Ptr<AssetDefinition_NiagaraDataChannelDefinitions>) from ucpp.Ptr<AssetDefinition_NiagaraDataChannelDefinitions> to ucpp.Ptr<AssetDefinition_NiagaraDataChannelDefinitions>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_NiagaraDataChannelDefinitions): AssetDefinition_NiagaraDataChannelDefinitionsPtr {
 		return untyped __cpp__("&({0})", v);

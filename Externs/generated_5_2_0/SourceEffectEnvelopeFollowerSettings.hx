@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSourceEffectEnvelopeFollowerSettings")
 @:include("SourceEffects/SourceEffectEnvelopeFollower.h")
-@:structAccess
+@:valueType
 extern class SourceEffectEnvelopeFollowerSettings {
-	public var AttackTime: cpp.Float32;
-	public var ReleaseTime: cpp.Float32;
+	public var AttackTime: ucpp.num.Float32;
+	public var ReleaseTime: ucpp.num.Float32;
 	public var PeakMode: EEnvelopeFollowerPeakMode;
 	public var bIsAnalogMode: Bool;
 
 	@:native("FSourceEffectEnvelopeFollowerSettings") public function new();
-	@:native("FSourceEffectEnvelopeFollowerSettings") public static function make(AttackTime: cpp.Float32, ReleaseTime: cpp.Float32, PeakMode: EEnvelopeFollowerPeakMode, bIsAnalogMode: Bool): SourceEffectEnvelopeFollowerSettings ;
+	@:native("FSourceEffectEnvelopeFollowerSettings") public static function make(AttackTime: ucpp.num.Float32, ReleaseTime: ucpp.num.Float32, PeakMode: EEnvelopeFollowerPeakMode, bIsAnalogMode: Bool): SourceEffectEnvelopeFollowerSettings ;
 }

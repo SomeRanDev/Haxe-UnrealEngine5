@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULoadPackageCommandlet")
 @:include("Commandlets/LoadPackageCommandlet.h")
-@:structAccess
+@:valueType
 extern class LoadPackageCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLoadPackageCommandlet(LoadPackageCommandlet) from LoadPackageComma
 @:forward
 @:nativeGen
 @:native("LoadPackageCommandlet*")
-abstract LoadPackageCommandletPtr(cpp.Star<LoadPackageCommandlet>) from cpp.Star<LoadPackageCommandlet> to cpp.Star<LoadPackageCommandlet>{
+abstract LoadPackageCommandletPtr(ucpp.Ptr<LoadPackageCommandlet>) from ucpp.Ptr<LoadPackageCommandlet> to ucpp.Ptr<LoadPackageCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: LoadPackageCommandlet): LoadPackageCommandletPtr {
 		return untyped __cpp__("&({0})", v);

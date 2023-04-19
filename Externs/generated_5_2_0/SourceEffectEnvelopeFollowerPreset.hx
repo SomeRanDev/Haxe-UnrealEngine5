@@ -3,15 +3,15 @@ package ue;
 
 @:native("USourceEffectEnvelopeFollowerPreset")
 @:include("SourceEffects/SourceEffectEnvelopeFollower.h")
-@:structAccess
+@:valueType
 extern class SourceEffectEnvelopeFollowerPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectEnvelopeFollowerSettings;
 
-	public function UnregisterEnvelopeFollowerListener(EnvelopeFollowerListener: cpp.Star<EnvelopeFollowerListener>): Void;
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectEnvelopeFollowerSettings>): Void;
-	public function RegisterEnvelopeFollowerListener(EnvelopeFollowerListener: cpp.Star<EnvelopeFollowerListener>): Void;
+	public function UnregisterEnvelopeFollowerListener(EnvelopeFollowerListener: ucpp.Ptr<EnvelopeFollowerListener>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectEnvelopeFollowerSettings>): Void;
+	public function RegisterEnvelopeFollowerListener(EnvelopeFollowerListener: ucpp.Ptr<EnvelopeFollowerListener>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstSourceEffectEnvelopeFollowerPreset(SourceEffectEnvelopeFollowerPre
 @:forward
 @:nativeGen
 @:native("SourceEffectEnvelopeFollowerPreset*")
-abstract SourceEffectEnvelopeFollowerPresetPtr(cpp.Star<SourceEffectEnvelopeFollowerPreset>) from cpp.Star<SourceEffectEnvelopeFollowerPreset> to cpp.Star<SourceEffectEnvelopeFollowerPreset>{
+abstract SourceEffectEnvelopeFollowerPresetPtr(ucpp.Ptr<SourceEffectEnvelopeFollowerPreset>) from ucpp.Ptr<SourceEffectEnvelopeFollowerPreset> to ucpp.Ptr<SourceEffectEnvelopeFollowerPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectEnvelopeFollowerPreset): SourceEffectEnvelopeFollowerPresetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USequenceRecordingBase")
 @:include("SequenceRecordingBase.h")
-@:structAccess
+@:valueType
 extern class SequenceRecordingBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSequenceRecordingBase(SequenceRecordingBase) from SequenceRecordin
 @:forward
 @:nativeGen
 @:native("SequenceRecordingBase*")
-abstract SequenceRecordingBasePtr(cpp.Star<SequenceRecordingBase>) from cpp.Star<SequenceRecordingBase> to cpp.Star<SequenceRecordingBase>{
+abstract SequenceRecordingBasePtr(ucpp.Ptr<SequenceRecordingBase>) from ucpp.Ptr<SequenceRecordingBase> to ucpp.Ptr<SequenceRecordingBase>{
 	@:from
 	public static extern inline function fromValue(v: SequenceRecordingBase): SequenceRecordingBasePtr {
 		return untyped __cpp__("&({0})", v);

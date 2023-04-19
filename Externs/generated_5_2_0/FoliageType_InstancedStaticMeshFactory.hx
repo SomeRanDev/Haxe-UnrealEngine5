@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFoliageType_InstancedStaticMeshFactory")
 @:include("FoliageTypeFactory.h")
-@:structAccess
+@:valueType
 extern class FoliageType_InstancedStaticMeshFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFoliageType_InstancedStaticMeshFactory(FoliageType_InstancedStatic
 @:forward
 @:nativeGen
 @:native("FoliageType_InstancedStaticMeshFactory*")
-abstract FoliageType_InstancedStaticMeshFactoryPtr(cpp.Star<FoliageType_InstancedStaticMeshFactory>) from cpp.Star<FoliageType_InstancedStaticMeshFactory> to cpp.Star<FoliageType_InstancedStaticMeshFactory>{
+abstract FoliageType_InstancedStaticMeshFactoryPtr(ucpp.Ptr<FoliageType_InstancedStaticMeshFactory>) from ucpp.Ptr<FoliageType_InstancedStaticMeshFactory> to ucpp.Ptr<FoliageType_InstancedStaticMeshFactory>{
 	@:from
 	public static extern inline function fromValue(v: FoliageType_InstancedStaticMeshFactory): FoliageType_InstancedStaticMeshFactoryPtr {
 		return untyped __cpp__("&({0})", v);

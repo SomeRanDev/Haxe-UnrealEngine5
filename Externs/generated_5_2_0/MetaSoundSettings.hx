@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMetaSoundSettings")
 @:include("MetasoundSettings.h")
-@:structAccess
+@:valueType
 extern class MetaSoundSettings extends DeveloperSettings {
 	public var bAutoUpdateEnabled: Bool;
 	public var AutoUpdateDenylist: TArray<MetasoundFrontendClassName>;
 	public var AutoUpdateAssetDenylist: TArray<DefaultMetaSoundAssetAutoUpdateSettings>;
 	public var bAutoUpdateLogWarningOnDroppedConnection: Bool;
 	public var DirectoriesToRegister: TArray<DirectoryPath>;
-	public var DenyListCacheChangeID: cpp.Int32;
+	public var DenyListCacheChangeID: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,14 +28,14 @@ abstract ConstMetaSoundSettings(MetaSoundSettings) from MetaSoundSettings {
 	public inline extern function get_bAutoUpdateLogWarningOnDroppedConnection(): Bool return this.bAutoUpdateLogWarningOnDroppedConnection;
 	public extern var DirectoriesToRegister(get, never): TArray<DirectoryPath>;
 	public inline extern function get_DirectoriesToRegister(): TArray<DirectoryPath> return this.DirectoriesToRegister;
-	public extern var DenyListCacheChangeID(get, never): cpp.Int32;
-	public inline extern function get_DenyListCacheChangeID(): cpp.Int32 return this.DenyListCacheChangeID;
+	public extern var DenyListCacheChangeID(get, never): ucpp.num.Int32;
+	public inline extern function get_DenyListCacheChangeID(): ucpp.num.Int32 return this.DenyListCacheChangeID;
 }
 
 @:forward
 @:nativeGen
 @:native("MetaSoundSettings*")
-abstract MetaSoundSettingsPtr(cpp.Star<MetaSoundSettings>) from cpp.Star<MetaSoundSettings> to cpp.Star<MetaSoundSettings>{
+abstract MetaSoundSettingsPtr(ucpp.Ptr<MetaSoundSettings>) from ucpp.Ptr<MetaSoundSettings> to ucpp.Ptr<MetaSoundSettings>{
 	@:from
 	public static extern inline function fromValue(v: MetaSoundSettings): MetaSoundSettingsPtr {
 		return untyped __cpp__("&({0})", v);

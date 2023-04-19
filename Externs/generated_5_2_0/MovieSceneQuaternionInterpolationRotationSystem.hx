@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneQuaternionInterpolationRotationSystem")
 @:include("Systems/MovieSceneQuaternionInterpolationRotationSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneQuaternionInterpolationRotationSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneQuaternionInterpolationRotationSystem(MovieSceneQuaterni
 @:forward
 @:nativeGen
 @:native("MovieSceneQuaternionInterpolationRotationSystem*")
-abstract MovieSceneQuaternionInterpolationRotationSystemPtr(cpp.Star<MovieSceneQuaternionInterpolationRotationSystem>) from cpp.Star<MovieSceneQuaternionInterpolationRotationSystem> to cpp.Star<MovieSceneQuaternionInterpolationRotationSystem>{
+abstract MovieSceneQuaternionInterpolationRotationSystemPtr(ucpp.Ptr<MovieSceneQuaternionInterpolationRotationSystem>) from ucpp.Ptr<MovieSceneQuaternionInterpolationRotationSystem> to ucpp.Ptr<MovieSceneQuaternionInterpolationRotationSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneQuaternionInterpolationRotationSystem): MovieSceneQuaternionInterpolationRotationSystemPtr {
 		return untyped __cpp__("&({0})", v);

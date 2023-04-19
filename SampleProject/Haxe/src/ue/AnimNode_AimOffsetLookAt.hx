@@ -3,15 +3,15 @@ package ue;
 
 @:native("FAnimNode_AimOffsetLookAt")
 @:include("AnimNodes/AnimNode_AimOffsetLookAt.h")
-@:structAccess
+@:valueType
 extern class AnimNode_AimOffsetLookAt extends AnimNode_BlendSpacePlayer {
 	public var BasePose: PoseLink;
-	public var LODThreshold: cpp.Int32;
+	public var LODThreshold: ucpp.num.Int32;
 	public var SourceSocketName: FName;
 	public var PivotSocketName: FName;
 	public var LookAtLocation: Vector;
 	public var SocketAxis: Vector;
-	public var Alpha: cpp.Float32;
+	public var Alpha: ucpp.num.Float32;
 
 	@:native("FAnimNode_AimOffsetLookAt") public function new();
 }

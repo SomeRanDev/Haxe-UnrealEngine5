@@ -3,10 +3,10 @@ package ue;
 
 @:native("UProgressBar")
 @:include("Components/ProgressBar.h")
-@:structAccess
+@:valueType
 extern class ProgressBar extends Widget {
 	public var WidgetStyle: ProgressBarStyle;
-	public var Percent: cpp.Float32;
+	public var Percent: ucpp.num.Float32;
 	public var BarFillType: TEnumAsByte<EProgressBarFillType>;
 	public var BarFillStyle: TEnumAsByte<EProgressBarFillStyle>;
 	public var bIsMarquee: Bool;
@@ -15,11 +15,11 @@ extern class ProgressBar extends Widget {
 	public var FillColorAndOpacity: LinearColor;
 	public var FillColorAndOpacityDelegate: HaxeDelegateProperty<() -> Void>;
 
-	public function SetPercent(InPercent: cpp.Float32): Void;
+	public function SetPercent(InPercent: ucpp.num.Float32): Void;
 	public function SetIsMarquee(InbIsMarquee: Bool): Void;
 	public function SetFillColorAndOpacity(InColor: LinearColor): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,8 +27,8 @@ extern class ProgressBar extends Widget {
 abstract ConstProgressBar(ProgressBar) from ProgressBar {
 	public extern var WidgetStyle(get, never): ProgressBarStyle;
 	public inline extern function get_WidgetStyle(): ProgressBarStyle return this.WidgetStyle;
-	public extern var Percent(get, never): cpp.Float32;
-	public inline extern function get_Percent(): cpp.Float32 return this.Percent;
+	public extern var Percent(get, never): ucpp.num.Float32;
+	public inline extern function get_Percent(): ucpp.num.Float32 return this.Percent;
 	public extern var BarFillType(get, never): TEnumAsByte<EProgressBarFillType>;
 	public inline extern function get_BarFillType(): TEnumAsByte<EProgressBarFillType> return this.BarFillType;
 	public extern var BarFillStyle(get, never): TEnumAsByte<EProgressBarFillStyle>;
@@ -48,7 +48,7 @@ abstract ConstProgressBar(ProgressBar) from ProgressBar {
 @:forward
 @:nativeGen
 @:native("ProgressBar*")
-abstract ProgressBarPtr(cpp.Star<ProgressBar>) from cpp.Star<ProgressBar> to cpp.Star<ProgressBar>{
+abstract ProgressBarPtr(ucpp.Ptr<ProgressBar>) from ucpp.Ptr<ProgressBar> to ucpp.Ptr<ProgressBar>{
 	@:from
 	public static extern inline function fromValue(v: ProgressBar): ProgressBarPtr {
 		return untyped __cpp__("&({0})", v);

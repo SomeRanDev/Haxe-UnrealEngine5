@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolConvert")
 @:include("FractureToolConvert.h")
-@:structAccess
+@:valueType
 extern class FractureToolConvert extends FractureModalTool {
-	@:protected public var ConvertSettings: cpp.Star<FractureConvertSettings>;
+	@:protected public var ConvertSettings: ucpp.Ptr<FractureConvertSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolConvert(FractureToolConvert) from FractureToolConvert 
 @:forward
 @:nativeGen
 @:native("FractureToolConvert*")
-abstract FractureToolConvertPtr(cpp.Star<FractureToolConvert>) from cpp.Star<FractureToolConvert> to cpp.Star<FractureToolConvert>{
+abstract FractureToolConvertPtr(ucpp.Ptr<FractureToolConvert>) from ucpp.Ptr<FractureToolConvert> to ucpp.Ptr<FractureToolConvert>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolConvert): FractureToolConvertPtr {
 		return untyped __cpp__("&({0})", v);

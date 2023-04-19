@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDFontParameters")
 @:include("MaterialEditor/DEditorFontParameterValue.h")
-@:structAccess
+@:valueType
 extern class DFontParameters {
-	public var FontValue: cpp.Star<Font>;
-	public var FontPage: cpp.Int32;
+	public var FontValue: ucpp.Ptr<Font>;
+	public var FontPage: ucpp.num.Int32;
 
 	@:native("FDFontParameters") public function new();
-	@:native("FDFontParameters") public static function make(FontValue: cpp.Star<Font>, FontPage: cpp.Int32): DFontParameters ;
+	@:native("FDFontParameters") public static function make(FontValue: ucpp.Ptr<Font>, FontPage: ucpp.num.Int32): DFontParameters ;
 }

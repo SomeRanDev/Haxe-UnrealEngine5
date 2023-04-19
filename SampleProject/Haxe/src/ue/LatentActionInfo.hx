@@ -3,13 +3,13 @@ package ue;
 
 @:native("FLatentActionInfo")
 @:include("Engine/LatentActionManager.h")
-@:structAccess
+@:valueType
 extern class LatentActionInfo {
-	public var Linkage: cpp.Int32;
-	public var UUID: cpp.Int32;
+	public var Linkage: ucpp.num.Int32;
+	public var UUID: ucpp.num.Int32;
 	public var ExecutionFunction: FName;
-	public var CallbackTarget: cpp.Star<Object>;
+	public var CallbackTarget: ucpp.Ptr<Object>;
 
 	@:native("FLatentActionInfo") public function new();
-	@:native("FLatentActionInfo") public static function make(Linkage: cpp.Int32, UUID: cpp.Int32, ExecutionFunction: FName, CallbackTarget: cpp.Star<Object>): LatentActionInfo ;
+	@:native("FLatentActionInfo") public static function make(Linkage: ucpp.num.Int32, UUID: ucpp.num.Int32, ExecutionFunction: FName, CallbackTarget: ucpp.Ptr<Object>): LatentActionInfo ;
 }

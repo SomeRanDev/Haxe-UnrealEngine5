@@ -3,10 +3,10 @@ package ue;
 
 @:native("APackedLevelActor")
 @:include("PackedLevelActor/PackedLevelActor.h")
-@:structAccess
+@:valueType
 extern class PackedLevelActor extends LevelInstance {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPackedLevelActor(PackedLevelActor) from PackedLevelActor {
 @:forward
 @:nativeGen
 @:native("PackedLevelActor*")
-abstract PackedLevelActorPtr(cpp.Star<PackedLevelActor>) from cpp.Star<PackedLevelActor> to cpp.Star<PackedLevelActor>{
+abstract PackedLevelActorPtr(ucpp.Ptr<PackedLevelActor>) from ucpp.Ptr<PackedLevelActor> to ucpp.Ptr<PackedLevelActor>{
 	@:from
 	public static extern inline function fromValue(v: PackedLevelActor): PackedLevelActorPtr {
 		return untyped __cpp__("&({0})", v);

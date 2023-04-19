@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEndpointSubmix")
 @:include("Sound/SoundSubmix.h")
-@:structAccess
+@:valueType
 extern class EndpointSubmix extends SoundSubmixBase {
 	public var EndpointType: FName;
 	public var EndpointSettingsClass: TSubclassOf<AudioEndpointSettingsBase>;
-	public var EndpointSettings: cpp.Star<AudioEndpointSettingsBase>;
+	public var EndpointSettings: ucpp.Ptr<AudioEndpointSettingsBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstEndpointSubmix(EndpointSubmix) from EndpointSubmix {
 	public inline extern function get_EndpointType(): FName return this.EndpointType;
 	public extern var EndpointSettingsClass(get, never): TSubclassOf<AudioEndpointSettingsBase.ConstAudioEndpointSettingsBase>;
 	public inline extern function get_EndpointSettingsClass(): TSubclassOf<AudioEndpointSettingsBase.ConstAudioEndpointSettingsBase> return this.EndpointSettingsClass;
-	public extern var EndpointSettings(get, never): cpp.Star<AudioEndpointSettingsBase.ConstAudioEndpointSettingsBase>;
-	public inline extern function get_EndpointSettings(): cpp.Star<AudioEndpointSettingsBase.ConstAudioEndpointSettingsBase> return this.EndpointSettings;
+	public extern var EndpointSettings(get, never): ucpp.Ptr<AudioEndpointSettingsBase.ConstAudioEndpointSettingsBase>;
+	public inline extern function get_EndpointSettings(): ucpp.Ptr<AudioEndpointSettingsBase.ConstAudioEndpointSettingsBase> return this.EndpointSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("EndpointSubmix*")
-abstract EndpointSubmixPtr(cpp.Star<EndpointSubmix>) from cpp.Star<EndpointSubmix> to cpp.Star<EndpointSubmix>{
+abstract EndpointSubmixPtr(ucpp.Ptr<EndpointSubmix>) from ucpp.Ptr<EndpointSubmix> to ucpp.Ptr<EndpointSubmix>{
 	@:from
 	public static extern inline function fromValue(v: EndpointSubmix): EndpointSubmixPtr {
 		return untyped __cpp__("&({0})", v);

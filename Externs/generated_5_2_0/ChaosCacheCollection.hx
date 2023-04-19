@@ -3,24 +3,24 @@ package ue;
 
 @:native("UChaosCacheCollection")
 @:include("Chaos/CacheCollection.h")
-@:structAccess
+@:valueType
 extern class ChaosCacheCollection extends Object {
-	public var Caches: TArray<cpp.Star<ChaosCache>>;
+	public var Caches: TArray<ucpp.Ptr<ChaosCache>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstChaosCacheCollection(ChaosCacheCollection) from ChaosCacheCollection {
-	public extern var Caches(get, never): TArray<cpp.Star<ChaosCache.ConstChaosCache>>;
-	public inline extern function get_Caches(): TArray<cpp.Star<ChaosCache.ConstChaosCache>> return this.Caches;
+	public extern var Caches(get, never): TArray<ucpp.Ptr<ChaosCache.ConstChaosCache>>;
+	public inline extern function get_Caches(): TArray<ucpp.Ptr<ChaosCache.ConstChaosCache>> return this.Caches;
 }
 
 @:forward
 @:nativeGen
 @:native("ChaosCacheCollection*")
-abstract ChaosCacheCollectionPtr(cpp.Star<ChaosCacheCollection>) from cpp.Star<ChaosCacheCollection> to cpp.Star<ChaosCacheCollection>{
+abstract ChaosCacheCollectionPtr(ucpp.Ptr<ChaosCacheCollection>) from ucpp.Ptr<ChaosCacheCollection> to ucpp.Ptr<ChaosCacheCollection>{
 	@:from
 	public static extern inline function fromValue(v: ChaosCacheCollection): ChaosCacheCollectionPtr {
 		return untyped __cpp__("&({0})", v);

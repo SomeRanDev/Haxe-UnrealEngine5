@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimationBlueprintEditorOptions")
 @:include("Preferences/AnimationBlueprintEditorOptions.h")
-@:structAccess
+@:valueType
 extern class AnimationBlueprintEditorOptions extends Object {
 	public var bHideUnrelatedNodes: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimationBlueprintEditorOptions(AnimationBlueprintEditorOptions) f
 @:forward
 @:nativeGen
 @:native("AnimationBlueprintEditorOptions*")
-abstract AnimationBlueprintEditorOptionsPtr(cpp.Star<AnimationBlueprintEditorOptions>) from cpp.Star<AnimationBlueprintEditorOptions> to cpp.Star<AnimationBlueprintEditorOptions>{
+abstract AnimationBlueprintEditorOptionsPtr(ucpp.Ptr<AnimationBlueprintEditorOptions>) from ucpp.Ptr<AnimationBlueprintEditorOptions> to ucpp.Ptr<AnimationBlueprintEditorOptions>{
 	@:from
 	public static extern inline function fromValue(v: AnimationBlueprintEditorOptions): AnimationBlueprintEditorOptionsPtr {
 		return untyped __cpp__("&({0})", v);

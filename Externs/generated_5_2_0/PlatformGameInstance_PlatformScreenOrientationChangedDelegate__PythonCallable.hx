@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPlatformGameInstance_PlatformScreenOrientationChangedDelegate__Pyt
 @:forward
 @:nativeGen
 @:native("PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable*")
-abstract PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallablePtr(cpp.Star<PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable>) from cpp.Star<PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable> to cpp.Star<PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable>{
+abstract PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallablePtr(ucpp.Ptr<PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable>) from ucpp.Ptr<PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable> to ucpp.Ptr<PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallable): PlatformGameInstance_PlatformScreenOrientationChangedDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

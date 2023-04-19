@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialShaderQualitySettings")
 @:include("MaterialShaderQualitySettings.h")
-@:structAccess
+@:valueType
 extern class MaterialShaderQualitySettings extends Object {
-	private var ForwardSettingMap: TMap<FName, cpp.Star<ShaderPlatformQualitySettings>>;
+	private var ForwardSettingMap: TMap<FName, ucpp.Ptr<ShaderPlatformQualitySettings>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMaterialShaderQualitySettings(MaterialShaderQualitySettings) from 
 @:forward
 @:nativeGen
 @:native("MaterialShaderQualitySettings*")
-abstract MaterialShaderQualitySettingsPtr(cpp.Star<MaterialShaderQualitySettings>) from cpp.Star<MaterialShaderQualitySettings> to cpp.Star<MaterialShaderQualitySettings>{
+abstract MaterialShaderQualitySettingsPtr(ucpp.Ptr<MaterialShaderQualitySettings>) from ucpp.Ptr<MaterialShaderQualitySettings> to ucpp.Ptr<MaterialShaderQualitySettings>{
 	@:from
 	public static extern inline function fromValue(v: MaterialShaderQualitySettings): MaterialShaderQualitySettingsPtr {
 		return untyped __cpp__("&({0})", v);

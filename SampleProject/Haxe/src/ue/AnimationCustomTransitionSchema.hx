@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimationCustomTransitionSchema")
 @:include("AnimationCustomTransitionSchema.h")
-@:structAccess
+@:valueType
 extern class AnimationCustomTransitionSchema extends AnimationGraphSchema {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimationCustomTransitionSchema(AnimationCustomTransitionSchema) f
 @:forward
 @:nativeGen
 @:native("AnimationCustomTransitionSchema*")
-abstract AnimationCustomTransitionSchemaPtr(cpp.Star<AnimationCustomTransitionSchema>) from cpp.Star<AnimationCustomTransitionSchema> to cpp.Star<AnimationCustomTransitionSchema>{
+abstract AnimationCustomTransitionSchemaPtr(ucpp.Ptr<AnimationCustomTransitionSchema>) from ucpp.Ptr<AnimationCustomTransitionSchema> to ucpp.Ptr<AnimationCustomTransitionSchema>{
 	@:from
 	public static extern inline function fromValue(v: AnimationCustomTransitionSchema): AnimationCustomTransitionSchemaPtr {
 		return untyped __cpp__("&({0})", v);

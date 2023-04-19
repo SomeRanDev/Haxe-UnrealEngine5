@@ -3,10 +3,11 @@ package ue;
 
 @:native("FPreviewMeshCollectionEntry")
 @:include("Engine/PreviewMeshCollection.h")
-@:structAccess
+@:valueType
 extern class PreviewMeshCollectionEntry {
 	public var SkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
+	public var AnimBlueprint: TSoftObjectPtr<AnimBlueprint>;
 
 	@:native("FPreviewMeshCollectionEntry") public function new();
-	@:native("FPreviewMeshCollectionEntry") public static function make(SkeletalMesh: TSoftObjectPtr<SkeletalMesh>): PreviewMeshCollectionEntry ;
+	@:native("FPreviewMeshCollectionEntry") public static function make(SkeletalMesh: TSoftObjectPtr<SkeletalMesh>, AnimBlueprint: TSoftObjectPtr<AnimBlueprint>): PreviewMeshCollectionEntry ;
 }

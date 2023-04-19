@@ -3,10 +3,10 @@ package ue;
 
 @:native("APartitionActor")
 @:include("ActorPartition/PartitionActor.h")
-@:structAccess
+@:valueType
 extern class PartitionActor extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPartitionActor(PartitionActor) from PartitionActor {
 @:forward
 @:nativeGen
 @:native("PartitionActor*")
-abstract PartitionActorPtr(cpp.Star<PartitionActor>) from cpp.Star<PartitionActor> to cpp.Star<PartitionActor>{
+abstract PartitionActorPtr(ucpp.Ptr<PartitionActor>) from ucpp.Ptr<PartitionActor> to ucpp.Ptr<PartitionActor>{
 	@:from
 	public static extern inline function fromValue(v: PartitionActor): PartitionActorPtr {
 		return untyped __cpp__("&({0})", v);

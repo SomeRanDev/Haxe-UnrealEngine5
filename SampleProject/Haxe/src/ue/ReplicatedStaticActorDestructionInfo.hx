@@ -3,7 +3,7 @@ package ue;
 
 @:native("FReplicatedStaticActorDestructionInfo")
 @:include("Engine/Level.h")
-@:structAccess
+@:valueType
 extern class ReplicatedStaticActorDestructionInfo {
 	public var ObjClass: TSubclassOf<Object>;
 

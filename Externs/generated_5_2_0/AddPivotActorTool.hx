@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAddPivotActorTool")
 @:include("AddPivotActorTool.h")
-@:structAccess
+@:valueType
 extern class AddPivotActorTool extends MultiSelectionMeshEditingTool {
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var TransformProperties: cpp.Star<PivotActorTransformProperties>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var TransformProperties: ucpp.Ptr<PivotActorTransformProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAddPivotActorTool(AddPivotActorTool) from AddPivotActorTool {
 @:forward
 @:nativeGen
 @:native("AddPivotActorTool*")
-abstract AddPivotActorToolPtr(cpp.Star<AddPivotActorTool>) from cpp.Star<AddPivotActorTool> to cpp.Star<AddPivotActorTool>{
+abstract AddPivotActorToolPtr(ucpp.Ptr<AddPivotActorTool>) from ucpp.Ptr<AddPivotActorTool> to ucpp.Ptr<AddPivotActorTool>{
 	@:from
 	public static extern inline function fromValue(v: AddPivotActorTool): AddPivotActorToolPtr {
 		return untyped __cpp__("&({0})", v);

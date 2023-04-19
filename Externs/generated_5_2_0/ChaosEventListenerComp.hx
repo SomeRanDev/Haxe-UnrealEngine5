@@ -3,10 +3,10 @@ package ue;
 
 @:native("UChaosEventListenerComponent")
 @:include("Chaos/ChaosEventListenerComponent.h")
-@:structAccess
+@:valueType
 extern class ChaosEventListenerComp extends ActorComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstChaosEventListenerComp(ChaosEventListenerComp) from ChaosEventList
 @:forward
 @:nativeGen
 @:native("ChaosEventListenerComp*")
-abstract ChaosEventListenerCompPtr(cpp.Star<ChaosEventListenerComp>) from cpp.Star<ChaosEventListenerComp> to cpp.Star<ChaosEventListenerComp>{
+abstract ChaosEventListenerCompPtr(ucpp.Ptr<ChaosEventListenerComp>) from ucpp.Ptr<ChaosEventListenerComp> to ucpp.Ptr<ChaosEventListenerComp>{
 	@:from
 	public static extern inline function fromValue(v: ChaosEventListenerComp): ChaosEventListenerCompPtr {
 		return untyped __cpp__("&({0})", v);

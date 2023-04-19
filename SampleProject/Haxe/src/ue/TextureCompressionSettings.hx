@@ -19,5 +19,7 @@ extern class TextureCompressionSettings {
 	static var TC_HalfFloat: TextureCompressionSettings;
 	static var TC_LQ: TextureCompressionSettings;
 	static var TC_EncodedReflectionCapture: TextureCompressionSettings;
+	static var TC_SingleFloat: TextureCompressionSettings;
+	static var TC_HDR_F32: TextureCompressionSettings;
 	static var TC_MAX: TextureCompressionSettings;
 }

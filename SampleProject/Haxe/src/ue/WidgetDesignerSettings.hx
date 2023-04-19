@@ -3,19 +3,20 @@ package ue;
 
 @:native("UWidgetDesignerSettings")
 @:include("Settings/WidgetDesignerSettings.h")
-@:structAccess
+@:valueType
 extern class WidgetDesignerSettings extends DeveloperSettings {
 	public var GridSnapEnabled: Bool;
-	public var GridSnapSize: cpp.Int32;
+	public var GridSnapSize: ucpp.num.Int32;
 	public var bLockToPanelOnDragByDefault: Bool;
+	public var DefaultPreviewResolution: UintVector2;
 	public var bShowOutlines: Bool;
 	public var bExecutePreConstructEvent: Bool;
 	public var bRespectLocks: Bool;
 	public var CreateOnCompile: TEnumAsByte<EDisplayOnCompile>;
 	public var DismissOnCompile: TEnumAsByte<EDisplayOnCompile>;
-	public var Favorites: cpp.Star<WidgetPaletteFavorites>;
+	public var Favorites: ucpp.Ptr<WidgetPaletteFavorites>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,10 +24,12 @@ extern class WidgetDesignerSettings extends DeveloperSettings {
 abstract ConstWidgetDesignerSettings(WidgetDesignerSettings) from WidgetDesignerSettings {
 	public extern var GridSnapEnabled(get, never): Bool;
 	public inline extern function get_GridSnapEnabled(): Bool return this.GridSnapEnabled;
-	public extern var GridSnapSize(get, never): cpp.Int32;
-	public inline extern function get_GridSnapSize(): cpp.Int32 return this.GridSnapSize;
+	public extern var GridSnapSize(get, never): ucpp.num.Int32;
+	public inline extern function get_GridSnapSize(): ucpp.num.Int32 return this.GridSnapSize;
 	public extern var bLockToPanelOnDragByDefault(get, never): Bool;
 	public inline extern function get_bLockToPanelOnDragByDefault(): Bool return this.bLockToPanelOnDragByDefault;
+	public extern var DefaultPreviewResolution(get, never): UintVector2;
+	public inline extern function get_DefaultPreviewResolution(): UintVector2 return this.DefaultPreviewResolution;
 	public extern var bShowOutlines(get, never): Bool;
 	public inline extern function get_bShowOutlines(): Bool return this.bShowOutlines;
 	public extern var bExecutePreConstructEvent(get, never): Bool;
@@ -37,14 +40,14 @@ abstract ConstWidgetDesignerSettings(WidgetDesignerSettings) from WidgetDesigner
 	public inline extern function get_CreateOnCompile(): TEnumAsByte<EDisplayOnCompile> return this.CreateOnCompile;
 	public extern var DismissOnCompile(get, never): TEnumAsByte<EDisplayOnCompile>;
 	public inline extern function get_DismissOnCompile(): TEnumAsByte<EDisplayOnCompile> return this.DismissOnCompile;
-	public extern var Favorites(get, never): cpp.Star<WidgetPaletteFavorites.ConstWidgetPaletteFavorites>;
-	public inline extern function get_Favorites(): cpp.Star<WidgetPaletteFavorites.ConstWidgetPaletteFavorites> return this.Favorites;
+	public extern var Favorites(get, never): ucpp.Ptr<WidgetPaletteFavorites.ConstWidgetPaletteFavorites>;
+	public inline extern function get_Favorites(): ucpp.Ptr<WidgetPaletteFavorites.ConstWidgetPaletteFavorites> return this.Favorites;
 }
 
 @:forward
 @:nativeGen
 @:native("WidgetDesignerSettings*")
-abstract WidgetDesignerSettingsPtr(cpp.Star<WidgetDesignerSettings>) from cpp.Star<WidgetDesignerSettings> to cpp.Star<WidgetDesignerSettings>{
+abstract WidgetDesignerSettingsPtr(ucpp.Ptr<WidgetDesignerSettings>) from ucpp.Ptr<WidgetDesignerSettings> to ucpp.Ptr<WidgetDesignerSettings>{
 	@:from
 	public static extern inline function fromValue(v: WidgetDesignerSettings): WidgetDesignerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

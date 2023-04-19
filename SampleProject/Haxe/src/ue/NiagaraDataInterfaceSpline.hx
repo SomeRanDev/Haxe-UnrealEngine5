@@ -3,33 +3,33 @@ package ue;
 
 @:native("UNiagaraDataInterfaceSpline")
 @:include("NiagaraDataInterfaceSpline.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceSpline extends NiagaraDataInterface {
-	public var Source: cpp.Star<Actor>;
+	public var Source: ucpp.Ptr<Actor>;
 	public var SplineUserParameter: NiagaraUserParameterBinding;
 	public var bUseLUT: Bool;
-	public var NumLUTSteps: cpp.Int32;
+	public var NumLUTSteps: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceSpline(NiagaraDataInterfaceSpline) from NiagaraDataInterfaceSpline {
-	public extern var Source(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_Source(): cpp.Star<Actor.ConstActor> return this.Source;
+	public extern var Source(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_Source(): ucpp.Ptr<Actor.ConstActor> return this.Source;
 	public extern var SplineUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_SplineUserParameter(): NiagaraUserParameterBinding return this.SplineUserParameter;
 	public extern var bUseLUT(get, never): Bool;
 	public inline extern function get_bUseLUT(): Bool return this.bUseLUT;
-	public extern var NumLUTSteps(get, never): cpp.Int32;
-	public inline extern function get_NumLUTSteps(): cpp.Int32 return this.NumLUTSteps;
+	public extern var NumLUTSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_NumLUTSteps(): ucpp.num.Int32 return this.NumLUTSteps;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceSpline*")
-abstract NiagaraDataInterfaceSplinePtr(cpp.Star<NiagaraDataInterfaceSpline>) from cpp.Star<NiagaraDataInterfaceSpline> to cpp.Star<NiagaraDataInterfaceSpline>{
+abstract NiagaraDataInterfaceSplinePtr(ucpp.Ptr<NiagaraDataInterfaceSpline>) from ucpp.Ptr<NiagaraDataInterfaceSpline> to ucpp.Ptr<NiagaraDataInterfaceSpline>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceSpline): NiagaraDataInterfaceSplinePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Ualign_translation_rotation")
-@:structAccess
+@:valueType
 extern class align_translation_rotation extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constalign_translation_rotation(align_translation_rotation) from align_
 @:forward
 @:nativeGen
 @:native("align_translation_rotation*")
-abstract align_translation_rotationPtr(cpp.Star<align_translation_rotation>) from cpp.Star<align_translation_rotation> to cpp.Star<align_translation_rotation>{
+abstract align_translation_rotationPtr(ucpp.Ptr<align_translation_rotation>) from ucpp.Ptr<align_translation_rotation> to ucpp.Ptr<align_translation_rotation>{
 	@:from
 	public static extern inline function fromValue(v: align_translation_rotation): align_translation_rotationPtr {
 		return untyped __cpp__("&({0})", v);

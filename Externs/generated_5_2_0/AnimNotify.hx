@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimNotify")
 @:include("Animation/AnimNotifies/AnimNotify.h")
-@:structAccess
+@:valueType
 extern class AnimNotify extends Object {
 
-	public function Received_Notify(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
+	public function Received_Notify(MeshComp: ucpp.Ptr<SkeletalMeshComp>, Animation: ucpp.Ptr<AnimSequenceBase>, EventReference: ucpp.Ref<AnimNotifyEventReference>): Bool;
 	public function GetNotifyName(): FString;
-	public function GetDefaultTriggerWeightThreshold(): cpp.Float32;
+	public function GetDefaultTriggerWeightThreshold(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(Received_Notify, GetNotifyName, GetDefaultTriggerWeightThreshold)
@@ -21,7 +21,7 @@ abstract ConstAnimNotify(AnimNotify) from AnimNotify {
 @:forward
 @:nativeGen
 @:native("AnimNotify*")
-abstract AnimNotifyPtr(cpp.Star<AnimNotify>) from cpp.Star<AnimNotify> to cpp.Star<AnimNotify>{
+abstract AnimNotifyPtr(ucpp.Ptr<AnimNotify>) from ucpp.Ptr<AnimNotify> to ucpp.Ptr<AnimNotify>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotify): AnimNotifyPtr {
 		return untyped __cpp__("&({0})", v);

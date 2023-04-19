@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGameplayTagSearchFilter")
 @:include("GameplayTagSearchFilter.h")
-@:structAccess
+@:valueType
 extern class GameplayTagSearchFilter extends ContentBrowserFrontEndFilterExtension {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGameplayTagSearchFilter(GameplayTagSearchFilter) from GameplayTagS
 @:forward
 @:nativeGen
 @:native("GameplayTagSearchFilter*")
-abstract GameplayTagSearchFilterPtr(cpp.Star<GameplayTagSearchFilter>) from cpp.Star<GameplayTagSearchFilter> to cpp.Star<GameplayTagSearchFilter>{
+abstract GameplayTagSearchFilterPtr(ucpp.Ptr<GameplayTagSearchFilter>) from ucpp.Ptr<GameplayTagSearchFilter> to ucpp.Ptr<GameplayTagSearchFilter>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagSearchFilter): GameplayTagSearchFilterPtr {
 		return untyped __cpp__("&({0})", v);

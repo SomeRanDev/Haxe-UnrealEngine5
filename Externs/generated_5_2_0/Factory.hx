@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFactory")
 @:include("Factories/Factory.h")
-@:structAccess
+@:valueType
 extern class Factory extends Object {
 	@:protected public var bCreateNew: Bool;
 	public var SupportedClass: TSubclassOf<Object>;
@@ -12,15 +12,15 @@ extern class Factory extends Object {
 	public var bEditAfterNew: Bool;
 	public var bEditorImport: Bool;
 	public var bText: Bool;
-	public var ImportPriority: cpp.Int32;
-	public var AutomatedImportData: cpp.Star<AutomatedAssetImportData>;
-	public var AssetImportTask: cpp.Star<AssetImportTask>;
-	@:protected public var OverwriteYesOrNoToAllState: cpp.Int32;
+	public var ImportPriority: ucpp.num.Int32;
+	public var AutomatedImportData: ucpp.Ptr<AutomatedAssetImportData>;
+	public var AssetImportTask: ucpp.Ptr<AssetImportTask>;
+	@:protected public var OverwriteYesOrNoToAllState: ucpp.num.Int32;
 
-	public function ScriptFactoryCreateFile(InTask: cpp.Star<AssetImportTask>): Bool;
+	public function ScriptFactoryCreateFile(InTask: ucpp.Ptr<AssetImportTask>): Bool;
 	public function ScriptFactoryCanImport(Filename: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,18 +38,18 @@ abstract ConstFactory(Factory) from Factory {
 	public inline extern function get_bEditorImport(): Bool return this.bEditorImport;
 	public extern var bText(get, never): Bool;
 	public inline extern function get_bText(): Bool return this.bText;
-	public extern var ImportPriority(get, never): cpp.Int32;
-	public inline extern function get_ImportPriority(): cpp.Int32 return this.ImportPriority;
-	public extern var AutomatedImportData(get, never): cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData>;
-	public inline extern function get_AutomatedImportData(): cpp.Star<AutomatedAssetImportData.ConstAutomatedAssetImportData> return this.AutomatedImportData;
-	public extern var AssetImportTask(get, never): cpp.Star<AssetImportTask.ConstAssetImportTask>;
-	public inline extern function get_AssetImportTask(): cpp.Star<AssetImportTask.ConstAssetImportTask> return this.AssetImportTask;
+	public extern var ImportPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_ImportPriority(): ucpp.num.Int32 return this.ImportPriority;
+	public extern var AutomatedImportData(get, never): ucpp.Ptr<AutomatedAssetImportData.ConstAutomatedAssetImportData>;
+	public inline extern function get_AutomatedImportData(): ucpp.Ptr<AutomatedAssetImportData.ConstAutomatedAssetImportData> return this.AutomatedImportData;
+	public extern var AssetImportTask(get, never): ucpp.Ptr<AssetImportTask.ConstAssetImportTask>;
+	public inline extern function get_AssetImportTask(): ucpp.Ptr<AssetImportTask.ConstAssetImportTask> return this.AssetImportTask;
 }
 
 @:forward
 @:nativeGen
 @:native("Factory*")
-abstract FactoryPtr(cpp.Star<Factory>) from cpp.Star<Factory> to cpp.Star<Factory>{
+abstract FactoryPtr(ucpp.Ptr<Factory>) from ucpp.Ptr<Factory> to ucpp.Ptr<Factory>{
 	@:from
 	public static extern inline function fromValue(v: Factory): FactoryPtr {
 		return untyped __cpp__("&({0})", v);

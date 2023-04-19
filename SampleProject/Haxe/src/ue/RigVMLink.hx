@@ -3,21 +3,22 @@ package ue;
 
 @:native("URigVMLink")
 @:include("RigVMModel/RigVMLink.h")
-@:structAccess
+@:valueType
 extern class RigVMLink extends Object {
 	private var SourcePinPath: FString;
 	private var TargetPinPath: FString;
 
-	public function GetTargetPin(): cpp.Star<RigVMPin>;
-	public function GetSourcePin(): cpp.Star<RigVMPin>;
+	public function GetTargetPin(): ucpp.Ptr<RigVMPin>;
+	public function GetSourcePin(): ucpp.Ptr<RigVMPin>;
 	public function GetPinPathRepresentation(): FString;
-	public function GetLinkIndex(): cpp.Int32;
-	public function GetGraph(): cpp.Star<RigVMGraph>;
+	public function GetOppositePin(InPin: ucpp.Ptr<RigVMPin.ConstRigVMPin>): ucpp.Ptr<RigVMPin>;
+	public function GetLinkIndex(): ucpp.num.Int32;
+	public function GetGraph(): ucpp.Ptr<RigVMGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetLinkIndex, GetGraph)
+@:forward(GetTargetPin, GetSourcePin, GetOppositePin, GetLinkIndex, GetGraph)
 @:nativeGen
 abstract ConstRigVMLink(RigVMLink) from RigVMLink {
 }
@@ -25,7 +26,7 @@ abstract ConstRigVMLink(RigVMLink) from RigVMLink {
 @:forward
 @:nativeGen
 @:native("RigVMLink*")
-abstract RigVMLinkPtr(cpp.Star<RigVMLink>) from cpp.Star<RigVMLink> to cpp.Star<RigVMLink>{
+abstract RigVMLinkPtr(ucpp.Ptr<RigVMLink>) from ucpp.Ptr<RigVMLink> to ucpp.Ptr<RigVMLink>{
 	@:from
 	public static extern inline function fromValue(v: RigVMLink): RigVMLinkPtr {
 		return untyped __cpp__("&({0})", v);

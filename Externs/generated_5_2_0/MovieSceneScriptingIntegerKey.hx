@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneScriptingIntegerKey")
 @:include("KeysAndChannels/MovieSceneScriptingInteger.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingIntegerKey extends MovieSceneScriptingKey {
-	public function SetValue(InNewValue: cpp.Int32): Void;
-	public function SetTime(NewFrameNumber: cpp.Reference<FrameNumber>, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): Void;
-	public function GetValue(): cpp.Int32;
+	public function SetValue(InNewValue: ucpp.num.Int32): Void;
+	public function SetTime(NewFrameNumber: ucpp.Ref<FrameNumber>, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): Void;
+	public function GetValue(): ucpp.num.Int32;
 	public function GetTime(TimeUnit: ESequenceTimeUnit): FrameTime;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue, GetTime)
@@ -21,7 +21,7 @@ abstract ConstMovieSceneScriptingIntegerKey(MovieSceneScriptingIntegerKey) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingIntegerKey*")
-abstract MovieSceneScriptingIntegerKeyPtr(cpp.Star<MovieSceneScriptingIntegerKey>) from cpp.Star<MovieSceneScriptingIntegerKey> to cpp.Star<MovieSceneScriptingIntegerKey>{
+abstract MovieSceneScriptingIntegerKeyPtr(ucpp.Ptr<MovieSceneScriptingIntegerKey>) from ucpp.Ptr<MovieSceneScriptingIntegerKey> to ucpp.Ptr<MovieSceneScriptingIntegerKey>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingIntegerKey): MovieSceneScriptingIntegerKeyPtr {
 		return untyped __cpp__("&({0})", v);

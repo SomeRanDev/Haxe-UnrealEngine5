@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGizmoElementMeshRenderStateAttributes")
 @:include("BaseGizmos/GizmoElementRenderState.h")
-@:structAccess
+@:valueType
 extern class GizmoElementMeshRenderStateAttributes {
 	public var Material: GizmoElementMaterialAttribute;
 	public var HoverMaterial: GizmoElementMaterialAttribute;

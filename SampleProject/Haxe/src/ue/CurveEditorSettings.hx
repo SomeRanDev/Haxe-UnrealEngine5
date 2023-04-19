@@ -3,20 +3,24 @@ package ue;
 
 @:native("UCurveEditorSettings")
 @:include("CurveEditorSettings.h")
-@:structAccess
+@:valueType
 extern class CurveEditorSettings extends Object {
 	@:protected public var bAutoFrameCurveEditor: Bool;
-	@:protected public var FrameInputPadding: cpp.Int32;
-	@:protected public var FrameOutputPadding: cpp.Int32;
+	@:protected public var FrameInputPadding: ucpp.num.Int32;
+	@:protected public var FrameOutputPadding: ucpp.num.Int32;
+	@:protected public var bShowBufferedCurves: Bool;
 	@:protected public var bShowCurveEditorCurveToolTips: Bool;
 	@:protected public var TangentVisibility: ECurveEditorTangentVisibility;
 	@:protected public var ZoomPosition: ECurveEditorZoomPosition;
+	@:protected public var bSnapTimeToSelection: Bool;
+	@:protected public var SelectionColor: LinearColor;
 	@:protected public var CustomColors: TArray<CustomColorForChannel>;
 	@:protected public var ParentSpaceCustomColor: LinearColor;
 	@:protected public var WorldSpaceCustomColor: LinearColor;
 	@:protected public var ControlSpaceCustomColors: TArray<CustomColorForSpaceSwitch>;
+	@:protected public var TreeViewWidth: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +31,7 @@ abstract ConstCurveEditorSettings(CurveEditorSettings) from CurveEditorSettings 
 @:forward
 @:nativeGen
 @:native("CurveEditorSettings*")
-abstract CurveEditorSettingsPtr(cpp.Star<CurveEditorSettings>) from cpp.Star<CurveEditorSettings> to cpp.Star<CurveEditorSettings>{
+abstract CurveEditorSettingsPtr(ucpp.Ptr<CurveEditorSettings>) from ucpp.Ptr<CurveEditorSettings> to ucpp.Ptr<CurveEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorSettings): CurveEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

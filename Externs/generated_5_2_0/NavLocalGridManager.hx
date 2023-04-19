@@ -3,17 +3,17 @@ package ue;
 
 @:native("UNavLocalGridManager")
 @:include("Navigation/NavLocalGridManager.h")
-@:structAccess
+@:valueType
 extern class NavLocalGridManager extends Object {
-	public function SetLocalNavigationGridDensity(WorldContextObject: cpp.Star<Object>, CellSize: cpp.Float32): Bool;
-	public function RemoveLocalNavigationGrid(WorldContextObject: cpp.Star<Object>, GridId: cpp.Int32, bRebuildGrids: Bool): Void;
-	public function FindLocalNavigationGridPath(WorldContextObject: cpp.Star<Object>, Start: cpp.Reference<Vector>, End: cpp.Reference<Vector>, PathPoints: cpp.Reference<TArray<Vector>>): Bool;
-	public function AddLocalNavigationGridForPoints(WorldContextObject: cpp.Star<Object>, Locations: cpp.Reference<TArray<Vector>>, Radius2D: cpp.Int32, Height: cpp.Float32, bRebuildGrids: Bool): cpp.Int32;
-	public function AddLocalNavigationGridForPoint(WorldContextObject: cpp.Star<Object>, Location: cpp.Reference<Vector>, Radius2D: cpp.Int32, Height: cpp.Float32, bRebuildGrids: Bool): cpp.Int32;
-	public function AddLocalNavigationGridForCapsule(WorldContextObject: cpp.Star<Object>, Location: cpp.Reference<Vector>, CapsuleRadius: cpp.Float32, CapsuleHalfHeight: cpp.Float32, Radius2D: cpp.Int32, Height: cpp.Float32, bRebuildGrids: Bool): cpp.Int32;
-	public function AddLocalNavigationGridForBox(WorldContextObject: cpp.Star<Object>, Location: cpp.Reference<Vector>, Extent: Vector, Rotation: Rotator, Radius2D: cpp.Int32, Height: cpp.Float32, bRebuildGrids: Bool): cpp.Int32;
+	public function SetLocalNavigationGridDensity(WorldContextObject: ucpp.Ptr<Object>, CellSize: ucpp.num.Float32): Bool;
+	public function RemoveLocalNavigationGrid(WorldContextObject: ucpp.Ptr<Object>, GridId: ucpp.num.Int32, bRebuildGrids: Bool): Void;
+	public function FindLocalNavigationGridPath(WorldContextObject: ucpp.Ptr<Object>, Start: ucpp.Ref<Vector>, End: ucpp.Ref<Vector>, PathPoints: ucpp.Ref<TArray<Vector>>): Bool;
+	public function AddLocalNavigationGridForPoints(WorldContextObject: ucpp.Ptr<Object>, Locations: ucpp.Ref<TArray<Vector>>, Radius2D: ucpp.num.Int32, Height: ucpp.num.Float32, bRebuildGrids: Bool): ucpp.num.Int32;
+	public function AddLocalNavigationGridForPoint(WorldContextObject: ucpp.Ptr<Object>, Location: ucpp.Ref<Vector>, Radius2D: ucpp.num.Int32, Height: ucpp.num.Float32, bRebuildGrids: Bool): ucpp.num.Int32;
+	public function AddLocalNavigationGridForCapsule(WorldContextObject: ucpp.Ptr<Object>, Location: ucpp.Ref<Vector>, CapsuleRadius: ucpp.num.Float32, CapsuleHalfHeight: ucpp.num.Float32, Radius2D: ucpp.num.Int32, Height: ucpp.num.Float32, bRebuildGrids: Bool): ucpp.num.Int32;
+	public function AddLocalNavigationGridForBox(WorldContextObject: ucpp.Ptr<Object>, Location: ucpp.Ref<Vector>, Extent: Vector, Rotation: Rotator, Radius2D: ucpp.num.Int32, Height: ucpp.num.Float32, bRebuildGrids: Bool): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstNavLocalGridManager(NavLocalGridManager) from NavLocalGridManager 
 @:forward
 @:nativeGen
 @:native("NavLocalGridManager*")
-abstract NavLocalGridManagerPtr(cpp.Star<NavLocalGridManager>) from cpp.Star<NavLocalGridManager> to cpp.Star<NavLocalGridManager>{
+abstract NavLocalGridManagerPtr(ucpp.Ptr<NavLocalGridManager>) from ucpp.Ptr<NavLocalGridManager> to ucpp.Ptr<NavLocalGridManager>{
 	@:from
 	public static extern inline function fromValue(v: NavLocalGridManager): NavLocalGridManagerPtr {
 		return untyped __cpp__("&({0})", v);

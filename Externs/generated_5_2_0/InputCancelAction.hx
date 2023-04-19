@@ -3,11 +3,11 @@ package ue;
 
 @:native("FInputCancelAction")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputCancelAction {
-	public var CancelAction: cpp.Star<InputAction>;
-	public var CancellationStates: cpp.UInt8;
+	public var CancelAction: ucpp.Ptr<InputAction>;
+	public var CancellationStates: ucpp.num.UInt8;
 
 	@:native("FInputCancelAction") public function new();
-	@:native("FInputCancelAction") public static function make(CancelAction: cpp.Star<InputAction>, CancellationStates: cpp.UInt8): InputCancelAction ;
+	@:native("FInputCancelAction") public static function make(CancelAction: ucpp.Ptr<InputAction>, CancellationStates: ucpp.num.UInt8): InputCancelAction ;
 }

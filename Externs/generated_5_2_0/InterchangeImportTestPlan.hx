@@ -3,22 +3,22 @@ package ue;
 
 @:native("UInterchangeImportTestPlan")
 @:include("InterchangeImportTestPlan.h")
-@:structAccess
+@:valueType
 extern class InterchangeImportTestPlan extends Object {
-	public var Steps: TArray<cpp.Star<InterchangeImportTestStepBase>>;
+	public var Steps: TArray<ucpp.Ptr<InterchangeImportTestStepBase>>;
 	public var bIsEnabledInAutomationTests: Bool;
 	public var DisabledTestReason: FString;
 
 	public function RunThisTest(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInterchangeImportTestPlan(InterchangeImportTestPlan) from InterchangeImportTestPlan {
-	public extern var Steps(get, never): TArray<cpp.Star<InterchangeImportTestStepBase.ConstInterchangeImportTestStepBase>>;
-	public inline extern function get_Steps(): TArray<cpp.Star<InterchangeImportTestStepBase.ConstInterchangeImportTestStepBase>> return this.Steps;
+	public extern var Steps(get, never): TArray<ucpp.Ptr<InterchangeImportTestStepBase.ConstInterchangeImportTestStepBase>>;
+	public inline extern function get_Steps(): TArray<ucpp.Ptr<InterchangeImportTestStepBase.ConstInterchangeImportTestStepBase>> return this.Steps;
 	public extern var bIsEnabledInAutomationTests(get, never): Bool;
 	public inline extern function get_bIsEnabledInAutomationTests(): Bool return this.bIsEnabledInAutomationTests;
 	public extern var DisabledTestReason(get, never): FString;
@@ -28,7 +28,7 @@ abstract ConstInterchangeImportTestPlan(InterchangeImportTestPlan) from Intercha
 @:forward
 @:nativeGen
 @:native("InterchangeImportTestPlan*")
-abstract InterchangeImportTestPlanPtr(cpp.Star<InterchangeImportTestPlan>) from cpp.Star<InterchangeImportTestPlan> to cpp.Star<InterchangeImportTestPlan>{
+abstract InterchangeImportTestPlanPtr(ucpp.Ptr<InterchangeImportTestPlan>) from ucpp.Ptr<InterchangeImportTestPlan> to ucpp.Ptr<InterchangeImportTestPlan>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeImportTestPlan): InterchangeImportTestPlanPtr {
 		return untyped __cpp__("&({0})", v);

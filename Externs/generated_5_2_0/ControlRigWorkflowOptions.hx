@@ -3,21 +3,21 @@ package ue;
 
 @:native("UControlRigWorkflowOptions")
 @:include("Units/ControlRigNodeWorkflow.h")
-@:structAccess
+@:valueType
 extern class ControlRigWorkflowOptions extends RigVMUserWorkflowOptions {
-	public var Hierarchy: cpp.Star<RigHierarchy>;
+	public var Hierarchy: ucpp.Ptr<RigHierarchy>;
 	public var Selection: TArray<RigElementKey>;
 
 	public function EnsureAtLeastOneRigElementSelected(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(EnsureAtLeastOneRigElementSelected)
 @:nativeGen
 abstract ConstControlRigWorkflowOptions(ControlRigWorkflowOptions) from ControlRigWorkflowOptions {
-	public extern var Hierarchy(get, never): cpp.Star<RigHierarchy.ConstRigHierarchy>;
-	public inline extern function get_Hierarchy(): cpp.Star<RigHierarchy.ConstRigHierarchy> return this.Hierarchy;
+	public extern var Hierarchy(get, never): ucpp.Ptr<RigHierarchy.ConstRigHierarchy>;
+	public inline extern function get_Hierarchy(): ucpp.Ptr<RigHierarchy.ConstRigHierarchy> return this.Hierarchy;
 	public extern var Selection(get, never): TArray<RigElementKey>;
 	public inline extern function get_Selection(): TArray<RigElementKey> return this.Selection;
 }
@@ -25,7 +25,7 @@ abstract ConstControlRigWorkflowOptions(ControlRigWorkflowOptions) from ControlR
 @:forward
 @:nativeGen
 @:native("ControlRigWorkflowOptions*")
-abstract ControlRigWorkflowOptionsPtr(cpp.Star<ControlRigWorkflowOptions>) from cpp.Star<ControlRigWorkflowOptions> to cpp.Star<ControlRigWorkflowOptions>{
+abstract ControlRigWorkflowOptionsPtr(ucpp.Ptr<ControlRigWorkflowOptions>) from ucpp.Ptr<ControlRigWorkflowOptions> to ucpp.Ptr<ControlRigWorkflowOptions>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigWorkflowOptions): ControlRigWorkflowOptionsPtr {
 		return untyped __cpp__("&({0})", v);

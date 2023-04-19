@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULandscapeHLODBuilder")
 @:include("LandscapeHLODBuilder.h")
-@:structAccess
+@:valueType
 extern class LandscapeHLODBuilder extends HLODBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeHLODBuilder(LandscapeHLODBuilder) from LandscapeHLODBuild
 @:forward
 @:nativeGen
 @:native("LandscapeHLODBuilder*")
-abstract LandscapeHLODBuilderPtr(cpp.Star<LandscapeHLODBuilder>) from cpp.Star<LandscapeHLODBuilder> to cpp.Star<LandscapeHLODBuilder>{
+abstract LandscapeHLODBuilderPtr(ucpp.Ptr<LandscapeHLODBuilder>) from ucpp.Ptr<LandscapeHLODBuilder> to ucpp.Ptr<LandscapeHLODBuilder>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeHLODBuilder): LandscapeHLODBuilderPtr {
 		return untyped __cpp__("&({0})", v);

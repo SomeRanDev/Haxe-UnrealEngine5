@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_TemplateMapMetadata")
 @:include("Editor/TemplateMapMetadata.h")
-@:structAccess
+@:valueType
 extern class TemplateMapMetadata extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTemplateMapMetadata(TemplateMapMetadata) from TemplateMapMetadata 
 @:forward
 @:nativeGen
 @:native("TemplateMapMetadata*")
-abstract TemplateMapMetadataPtr(cpp.Star<TemplateMapMetadata>) from cpp.Star<TemplateMapMetadata> to cpp.Star<TemplateMapMetadata>{
+abstract TemplateMapMetadataPtr(ucpp.Ptr<TemplateMapMetadata>) from ucpp.Ptr<TemplateMapMetadata> to ucpp.Ptr<TemplateMapMetadata>{
 	@:from
 	public static extern inline function fromValue(v: TemplateMapMetadata): TemplateMapMetadataPtr {
 		return untyped __cpp__("&({0})", v);

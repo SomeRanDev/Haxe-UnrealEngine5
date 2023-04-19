@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMovieSceneLevelVisibilitySection")
 @:include("Sections/MovieSceneLevelVisibilitySection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneLevelVisibilitySection extends MovieSceneSection {
 	private var Visibility: ELevelVisibility;
 	private var LevelNames: TArray<FName>;
 
 	public function SetVisibility(InVisibility: ELevelVisibility): Void;
-	public function SetLevelNames(InLevelNames: cpp.Reference<TArray<FName>>): Void;
+	public function SetLevelNames(InLevelNames: ucpp.Ref<TArray<FName>>): Void;
 	public function GetVisibility(): ELevelVisibility;
 	public function GetLevelNames(): TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetVisibility, GetLevelNames)
@@ -24,7 +24,7 @@ abstract ConstMovieSceneLevelVisibilitySection(MovieSceneLevelVisibilitySection)
 @:forward
 @:nativeGen
 @:native("MovieSceneLevelVisibilitySection*")
-abstract MovieSceneLevelVisibilitySectionPtr(cpp.Star<MovieSceneLevelVisibilitySection>) from cpp.Star<MovieSceneLevelVisibilitySection> to cpp.Star<MovieSceneLevelVisibilitySection>{
+abstract MovieSceneLevelVisibilitySectionPtr(ucpp.Ptr<MovieSceneLevelVisibilitySection>) from ucpp.Ptr<MovieSceneLevelVisibilitySection> to ucpp.Ptr<MovieSceneLevelVisibilitySection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneLevelVisibilitySection): MovieSceneLevelVisibilitySectionPtr {
 		return untyped __cpp__("&({0})", v);

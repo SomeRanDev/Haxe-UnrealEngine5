@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDistributionVectorUniform")
 @:include("Distributions/DistributionVectorUniform.h")
-@:structAccess
+@:valueType
 extern class DistributionVectorUniform extends DistributionVector {
 	public var Max: Vector;
 	public var Min: Vector;
@@ -12,7 +12,7 @@ extern class DistributionVectorUniform extends DistributionVector {
 	public var MirrorFlags: TEnumAsByte<EDistributionVectorMirrorFlags>;
 	public var bUseExtremes: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstDistributionVectorUniform(DistributionVectorUniform) from Distribu
 @:forward
 @:nativeGen
 @:native("DistributionVectorUniform*")
-abstract DistributionVectorUniformPtr(cpp.Star<DistributionVectorUniform>) from cpp.Star<DistributionVectorUniform> to cpp.Star<DistributionVectorUniform>{
+abstract DistributionVectorUniformPtr(ucpp.Ptr<DistributionVectorUniform>) from ucpp.Ptr<DistributionVectorUniform> to ucpp.Ptr<DistributionVectorUniform>{
 	@:from
 	public static extern inline function fromValue(v: DistributionVectorUniform): DistributionVectorUniformPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReimportSoundFactory")
 @:include("Factories/ReimportSoundFactory.h")
-@:structAccess
+@:valueType
 extern class ReimportSoundFactory extends SoundFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReimportSoundFactory(ReimportSoundFactory) from ReimportSoundFacto
 @:forward
 @:nativeGen
 @:native("ReimportSoundFactory*")
-abstract ReimportSoundFactoryPtr(cpp.Star<ReimportSoundFactory>) from cpp.Star<ReimportSoundFactory> to cpp.Star<ReimportSoundFactory>{
+abstract ReimportSoundFactoryPtr(ucpp.Ptr<ReimportSoundFactory>) from ucpp.Ptr<ReimportSoundFactory> to ucpp.Ptr<ReimportSoundFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReimportSoundFactory): ReimportSoundFactoryPtr {
 		return untyped __cpp__("&({0})", v);

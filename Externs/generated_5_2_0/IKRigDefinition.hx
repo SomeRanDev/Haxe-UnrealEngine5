@@ -3,15 +3,15 @@ package ue;
 
 @:native("UIKRigDefinition")
 @:include("IKRigDefinition.h")
-@:structAccess
+@:valueType
 extern class IKRigDefinition extends Object {
 	public var PreviewSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
 	private var Skeleton: IKRigSkeleton;
-	private var Goals: TArray<cpp.Star<IKRigEffectorGoal>>;
-	private var Solvers: TArray<cpp.Star<IKRigSolver>>;
+	private var Goals: TArray<ucpp.Ptr<IKRigEffectorGoal>>;
+	private var Solvers: TArray<ucpp.Ptr<IKRigSolver>>;
 	private var RetargetDefinition: RetargetDefinition;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstIKRigDefinition(IKRigDefinition) from IKRigDefinition {
 @:forward
 @:nativeGen
 @:native("IKRigDefinition*")
-abstract IKRigDefinitionPtr(cpp.Star<IKRigDefinition>) from cpp.Star<IKRigDefinition> to cpp.Star<IKRigDefinition>{
+abstract IKRigDefinitionPtr(ucpp.Ptr<IKRigDefinition>) from ucpp.Ptr<IKRigDefinition> to ucpp.Ptr<IKRigDefinition>{
 	@:from
 	public static extern inline function fromValue(v: IKRigDefinition): IKRigDefinitionPtr {
 		return untyped __cpp__("&({0})", v);

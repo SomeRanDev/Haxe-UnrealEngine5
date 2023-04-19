@@ -3,42 +3,42 @@ package ue;
 
 @:native("UMeshComponent")
 @:include("Components/MeshComponent.h")
-@:structAccess
+@:valueType
 extern class MeshComp extends PrimitiveComp {
-	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
-	public var OverlayMaterial: cpp.Star<MaterialInterface>;
-	public var OverlayMaterialMaxDrawDistance: cpp.Float32;
+	public var OverrideMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var OverlayMaterial: ucpp.Ptr<MaterialInterface>;
+	public var OverlayMaterialMaxDrawDistance: ucpp.num.Float32;
 	@:protected public var bEnableMaterialParameterCaching: Bool;
 
 	public function SetVectorParameterValueOnMaterials(ParameterName: FName, ParameterValue: Vector): Void;
-	public function SetScalarParameterValueOnMaterials(ParameterName: FName, ParameterValue: cpp.Float32): Void;
-	public function SetOverlayMaterialMaxDrawDistance(InMaxDrawDistance: cpp.Float32): Void;
-	public function SetOverlayMaterial(NewOverlayMaterial: cpp.Star<MaterialInterface>): Void;
-	public function PrestreamTextures(Seconds: cpp.Float32, bPrioritizeCharacterTextures: Bool, CinematicTextureGroups: cpp.Int32): Void;
+	public function SetScalarParameterValueOnMaterials(ParameterName: FName, ParameterValue: ucpp.num.Float32): Void;
+	public function SetOverlayMaterialMaxDrawDistance(InMaxDrawDistance: ucpp.num.Float32): Void;
+	public function SetOverlayMaterial(NewOverlayMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function PrestreamTextures(Seconds: ucpp.num.Float32, bPrioritizeCharacterTextures: Bool, CinematicTextureGroups: ucpp.num.Int32): Void;
 	public function IsMaterialSlotNameValid(MaterialSlotName: FName): Bool;
-	public function GetOverlayMaterial(): cpp.Star<MaterialInterface>;
+	public function GetOverlayMaterial(): ucpp.Ptr<MaterialInterface>;
 	public function GetMaterialSlotNames(): TArray<FName>;
-	public function GetMaterials(): TArray<cpp.Star<MaterialInterface>>;
-	public function GetMaterialIndex(MaterialSlotName: FName): cpp.Int32;
+	public function GetMaterials(): TArray<ucpp.Ptr<MaterialInterface>>;
+	public function GetMaterialIndex(MaterialSlotName: FName): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsMaterialSlotNameValid, GetOverlayMaterial, GetMaterialSlotNames, GetMaterials, GetMaterialIndex)
 @:nativeGen
 abstract ConstMeshComp(MeshComp) from MeshComp {
-	public extern var OverrideMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_OverrideMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
-	public extern var OverlayMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_OverlayMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.OverlayMaterial;
-	public extern var OverlayMaterialMaxDrawDistance(get, never): cpp.Float32;
-	public inline extern function get_OverlayMaterialMaxDrawDistance(): cpp.Float32 return this.OverlayMaterialMaxDrawDistance;
+	public extern var OverrideMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_OverrideMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
+	public extern var OverlayMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_OverlayMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.OverlayMaterial;
+	public extern var OverlayMaterialMaxDrawDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_OverlayMaterialMaxDrawDistance(): ucpp.num.Float32 return this.OverlayMaterialMaxDrawDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshComp*")
-abstract MeshCompPtr(cpp.Star<MeshComp>) from cpp.Star<MeshComp> to cpp.Star<MeshComp>{
+abstract MeshCompPtr(ucpp.Ptr<MeshComp>) from ucpp.Ptr<MeshComp> to ucpp.Ptr<MeshComp>{
 	@:from
 	public static extern inline function fromValue(v: MeshComp): MeshCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDistributionVectorParticleParameter")
 @:include("Distributions/DistributionVectorParticleParameter.h")
-@:structAccess
+@:valueType
 extern class DistributionVectorParticleParameter extends DistributionVectorParameterBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDistributionVectorParticleParameter(DistributionVectorParticlePara
 @:forward
 @:nativeGen
 @:native("DistributionVectorParticleParameter*")
-abstract DistributionVectorParticleParameterPtr(cpp.Star<DistributionVectorParticleParameter>) from cpp.Star<DistributionVectorParticleParameter> to cpp.Star<DistributionVectorParticleParameter>{
+abstract DistributionVectorParticleParameterPtr(ucpp.Ptr<DistributionVectorParticleParameter>) from ucpp.Ptr<DistributionVectorParticleParameter> to ucpp.Ptr<DistributionVectorParticleParameter>{
 	@:from
 	public static extern inline function fromValue(v: DistributionVectorParticleParameter): DistributionVectorParticleParameterPtr {
 		return untyped __cpp__("&({0})", v);

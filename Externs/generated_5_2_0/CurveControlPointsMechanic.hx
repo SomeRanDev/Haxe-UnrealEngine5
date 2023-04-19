@@ -3,34 +3,34 @@ package ue;
 
 @:native("UCurveControlPointsMechanic")
 @:include("Mechanics/CurveControlPointsMechanic.h")
-@:structAccess
+@:valueType
 extern class CurveControlPointsMechanic extends InteractionMechanic {
-	public var ClickBehavior: cpp.Star<SingleClickInputBehavior>;
-	public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
-	@:protected public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
-	@:protected public var DrawnControlPoints: cpp.Star<PointSetComp>;
-	@:protected public var DrawnControlSegments: cpp.Star<LineSetComp>;
-	@:protected public var PreviewPoint: cpp.Star<PointSetComp>;
-	@:protected public var PreviewSegment: cpp.Star<LineSetComp>;
-	@:protected public var PointTransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var PointTransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	public var ClickBehavior: ucpp.Ptr<SingleClickInputBehavior>;
+	public var HoverBehavior: ucpp.Ptr<MouseHoverBehavior>;
+	@:protected public var PreviewGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
+	@:protected public var DrawnControlPoints: ucpp.Ptr<PointSetComp>;
+	@:protected public var DrawnControlSegments: ucpp.Ptr<LineSetComp>;
+	@:protected public var PreviewPoint: ucpp.Ptr<PointSetComp>;
+	@:protected public var PreviewSegment: ucpp.Ptr<LineSetComp>;
+	@:protected public var PointTransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var PointTransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCurveControlPointsMechanic(CurveControlPointsMechanic) from CurveControlPointsMechanic {
-	public extern var ClickBehavior(get, never): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
-	public inline extern function get_ClickBehavior(): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.ClickBehavior;
-	public extern var HoverBehavior(get, never): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior>;
-	public inline extern function get_HoverBehavior(): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior> return this.HoverBehavior;
+	public extern var ClickBehavior(get, never): ucpp.Ptr<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
+	public inline extern function get_ClickBehavior(): ucpp.Ptr<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.ClickBehavior;
+	public extern var HoverBehavior(get, never): ucpp.Ptr<MouseHoverBehavior.ConstMouseHoverBehavior>;
+	public inline extern function get_HoverBehavior(): ucpp.Ptr<MouseHoverBehavior.ConstMouseHoverBehavior> return this.HoverBehavior;
 }
 
 @:forward
 @:nativeGen
 @:native("CurveControlPointsMechanic*")
-abstract CurveControlPointsMechanicPtr(cpp.Star<CurveControlPointsMechanic>) from cpp.Star<CurveControlPointsMechanic> to cpp.Star<CurveControlPointsMechanic>{
+abstract CurveControlPointsMechanicPtr(ucpp.Ptr<CurveControlPointsMechanic>) from ucpp.Ptr<CurveControlPointsMechanic> to ucpp.Ptr<CurveControlPointsMechanic>{
 	@:from
 	public static extern inline function fromValue(v: CurveControlPointsMechanic): CurveControlPointsMechanicPtr {
 		return untyped __cpp__("&({0})", v);

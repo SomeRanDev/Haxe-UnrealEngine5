@@ -3,14 +3,14 @@ package ue;
 
 @:native("UContentBrowserItemLibrary")
 @:include("ContentBrowserItem.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserItemLibrary extends BlueprintFunctionLibrary {
-	public function IsFolder(Item: cpp.Reference<ContentBrowserItem>): Bool;
-	public function IsFile(Item: cpp.Reference<ContentBrowserItem>): Bool;
-	public function GetVirtualPath(Item: cpp.Reference<ContentBrowserItem>): FName;
-	public function GetDisplayName(Item: cpp.Reference<ContentBrowserItem>): FText;
+	public function IsFolder(Item: ucpp.Ref<ContentBrowserItem>): Bool;
+	public function IsFile(Item: ucpp.Ref<ContentBrowserItem>): Bool;
+	public function GetVirtualPath(Item: ucpp.Ref<ContentBrowserItem>): FName;
+	public function GetDisplayName(Item: ucpp.Ref<ContentBrowserItem>): FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstContentBrowserItemLibrary(ContentBrowserItemLibrary) from ContentB
 @:forward
 @:nativeGen
 @:native("ContentBrowserItemLibrary*")
-abstract ContentBrowserItemLibraryPtr(cpp.Star<ContentBrowserItemLibrary>) from cpp.Star<ContentBrowserItemLibrary> to cpp.Star<ContentBrowserItemLibrary>{
+abstract ContentBrowserItemLibraryPtr(ucpp.Ptr<ContentBrowserItemLibrary>) from ucpp.Ptr<ContentBrowserItemLibrary> to ucpp.Ptr<ContentBrowserItemLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserItemLibrary): ContentBrowserItemLibraryPtr {
 		return untyped __cpp__("&({0})", v);

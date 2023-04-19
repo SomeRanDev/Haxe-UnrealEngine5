@@ -3,10 +3,10 @@ package ue;
 
 @:native("AISMPartitionActor")
 @:include("ISMPartition/ISMPartitionActor.h")
-@:structAccess
+@:valueType
 extern class ISMPartitionActor extends PartitionActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstISMPartitionActor(ISMPartitionActor) from ISMPartitionActor {
 @:forward
 @:nativeGen
 @:native("ISMPartitionActor*")
-abstract ISMPartitionActorPtr(cpp.Star<ISMPartitionActor>) from cpp.Star<ISMPartitionActor> to cpp.Star<ISMPartitionActor>{
+abstract ISMPartitionActorPtr(ucpp.Ptr<ISMPartitionActor>) from ucpp.Ptr<ISMPartitionActor> to ucpp.Ptr<ISMPartitionActor>{
 	@:from
 	public static extern inline function fromValue(v: ISMPartitionActor): ISMPartitionActorPtr {
 		return untyped __cpp__("&({0})", v);

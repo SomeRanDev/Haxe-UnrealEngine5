@@ -3,27 +3,27 @@ package ue;
 
 @:native("UPolyLassoMarqueeMechanic")
 @:include("Mechanics/PolyLassoMarqueeMechanic.h")
-@:structAccess
+@:valueType
 extern class PolyLassoMarqueeMechanic extends InteractionMechanic {
-	public var SpacingTolerance: cpp.Float32;
-	public var LineThickness: cpp.Float32;
+	public var SpacingTolerance: ucpp.num.Float32;
+	public var LineThickness: ucpp.num.Float32;
 	public var LineColor: LinearColor;
 	public var ClosedColor: LinearColor;
 	public var bEnableFreehandPolygons: Bool;
 	public var bEnableMultiClickPolygons: Bool;
-	@:protected public var ClickDragBehavior: cpp.Star<ClickDragInputBehavior>;
-	@:protected public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
+	@:protected public var ClickDragBehavior: ucpp.Ptr<ClickDragInputBehavior>;
+	@:protected public var HoverBehavior: ucpp.Ptr<MouseHoverBehavior>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPolyLassoMarqueeMechanic(PolyLassoMarqueeMechanic) from PolyLassoMarqueeMechanic {
-	public extern var SpacingTolerance(get, never): cpp.Float32;
-	public inline extern function get_SpacingTolerance(): cpp.Float32 return this.SpacingTolerance;
-	public extern var LineThickness(get, never): cpp.Float32;
-	public inline extern function get_LineThickness(): cpp.Float32 return this.LineThickness;
+	public extern var SpacingTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_SpacingTolerance(): ucpp.num.Float32 return this.SpacingTolerance;
+	public extern var LineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_LineThickness(): ucpp.num.Float32 return this.LineThickness;
 	public extern var LineColor(get, never): LinearColor;
 	public inline extern function get_LineColor(): LinearColor return this.LineColor;
 	public extern var ClosedColor(get, never): LinearColor;
@@ -37,7 +37,7 @@ abstract ConstPolyLassoMarqueeMechanic(PolyLassoMarqueeMechanic) from PolyLassoM
 @:forward
 @:nativeGen
 @:native("PolyLassoMarqueeMechanic*")
-abstract PolyLassoMarqueeMechanicPtr(cpp.Star<PolyLassoMarqueeMechanic>) from cpp.Star<PolyLassoMarqueeMechanic> to cpp.Star<PolyLassoMarqueeMechanic>{
+abstract PolyLassoMarqueeMechanicPtr(ucpp.Ptr<PolyLassoMarqueeMechanic>) from ucpp.Ptr<PolyLassoMarqueeMechanic> to ucpp.Ptr<PolyLassoMarqueeMechanic>{
 	@:from
 	public static extern inline function fromValue(v: PolyLassoMarqueeMechanic): PolyLassoMarqueeMechanicPtr {
 		return untyped __cpp__("&({0})", v);

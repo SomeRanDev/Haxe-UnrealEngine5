@@ -3,15 +3,15 @@ package ue;
 
 @:native("UVoxelCSGMeshesToolProperties")
 @:include("VoxelCSGMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelCSGMeshesToolProperties extends InteractiveToolPropertySet {
 	public var Operation: EVoxelCSGOperation;
-	public var VoxelCount: cpp.Int32;
-	public var MeshAdaptivity: cpp.Float32;
-	public var OffsetDistance: cpp.Float32;
+	public var VoxelCount: ucpp.num.Int32;
+	public var MeshAdaptivity: ucpp.num.Float32;
+	public var OffsetDistance: ucpp.num.Float32;
 	public var bAutoSimplify: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,12 +19,12 @@ extern class VoxelCSGMeshesToolProperties extends InteractiveToolPropertySet {
 abstract ConstVoxelCSGMeshesToolProperties(VoxelCSGMeshesToolProperties) from VoxelCSGMeshesToolProperties {
 	public extern var Operation(get, never): EVoxelCSGOperation;
 	public inline extern function get_Operation(): EVoxelCSGOperation return this.Operation;
-	public extern var VoxelCount(get, never): cpp.Int32;
-	public inline extern function get_VoxelCount(): cpp.Int32 return this.VoxelCount;
-	public extern var MeshAdaptivity(get, never): cpp.Float32;
-	public inline extern function get_MeshAdaptivity(): cpp.Float32 return this.MeshAdaptivity;
-	public extern var OffsetDistance(get, never): cpp.Float32;
-	public inline extern function get_OffsetDistance(): cpp.Float32 return this.OffsetDistance;
+	public extern var VoxelCount(get, never): ucpp.num.Int32;
+	public inline extern function get_VoxelCount(): ucpp.num.Int32 return this.VoxelCount;
+	public extern var MeshAdaptivity(get, never): ucpp.num.Float32;
+	public inline extern function get_MeshAdaptivity(): ucpp.num.Float32 return this.MeshAdaptivity;
+	public extern var OffsetDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_OffsetDistance(): ucpp.num.Float32 return this.OffsetDistance;
 	public extern var bAutoSimplify(get, never): Bool;
 	public inline extern function get_bAutoSimplify(): Bool return this.bAutoSimplify;
 }
@@ -32,7 +32,7 @@ abstract ConstVoxelCSGMeshesToolProperties(VoxelCSGMeshesToolProperties) from Vo
 @:forward
 @:nativeGen
 @:native("VoxelCSGMeshesToolProperties*")
-abstract VoxelCSGMeshesToolPropertiesPtr(cpp.Star<VoxelCSGMeshesToolProperties>) from cpp.Star<VoxelCSGMeshesToolProperties> to cpp.Star<VoxelCSGMeshesToolProperties>{
+abstract VoxelCSGMeshesToolPropertiesPtr(ucpp.Ptr<VoxelCSGMeshesToolProperties>) from ucpp.Ptr<VoxelCSGMeshesToolProperties> to ucpp.Ptr<VoxelCSGMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: VoxelCSGMeshesToolProperties): VoxelCSGMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

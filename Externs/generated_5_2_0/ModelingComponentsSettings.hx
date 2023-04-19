@@ -3,14 +3,14 @@ package ue;
 
 @:native("UModelingComponentsSettings")
 @:include("ModelingComponentsSettings.h")
-@:structAccess
+@:valueType
 extern class ModelingComponentsSettings extends DeveloperSettings {
 	public var bEnableRayTracingWhileEditing: Bool;
 	public var bEnableRayTracing: Bool;
 	public var bEnableCollision: Bool;
 	public var CollisionMode: TEnumAsByte<ECollisionTraceFlag>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstModelingComponentsSettings(ModelingComponentsSettings) from Modeli
 @:forward
 @:nativeGen
 @:native("ModelingComponentsSettings*")
-abstract ModelingComponentsSettingsPtr(cpp.Star<ModelingComponentsSettings>) from cpp.Star<ModelingComponentsSettings> to cpp.Star<ModelingComponentsSettings>{
+abstract ModelingComponentsSettingsPtr(ucpp.Ptr<ModelingComponentsSettings>) from ucpp.Ptr<ModelingComponentsSettings> to ucpp.Ptr<ModelingComponentsSettings>{
 	@:from
 	public static extern inline function fromValue(v: ModelingComponentsSettings): ModelingComponentsSettingsPtr {
 		return untyped __cpp__("&({0})", v);

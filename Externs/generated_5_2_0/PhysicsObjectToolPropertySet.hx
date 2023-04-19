@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPhysicsObjectToolPropertySet")
 @:include("Physics/CollisionPropertySets.h")
-@:structAccess
+@:valueType
 extern class PhysicsObjectToolPropertySet extends InteractiveToolPropertySet {
 	public var ObjectName: FString;
 	public var CollisionType: ECollisionGeometryMode;
@@ -13,7 +13,7 @@ extern class PhysicsObjectToolPropertySet extends InteractiveToolPropertySet {
 	public var Convexes: TArray<PhysicsConvexData>;
 	public var LevelSets: TArray<PhysicsLevelSetData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstPhysicsObjectToolPropertySet(PhysicsObjectToolPropertySet) from Ph
 @:forward
 @:nativeGen
 @:native("PhysicsObjectToolPropertySet*")
-abstract PhysicsObjectToolPropertySetPtr(cpp.Star<PhysicsObjectToolPropertySet>) from cpp.Star<PhysicsObjectToolPropertySet> to cpp.Star<PhysicsObjectToolPropertySet>{
+abstract PhysicsObjectToolPropertySetPtr(ucpp.Ptr<PhysicsObjectToolPropertySet>) from ucpp.Ptr<PhysicsObjectToolPropertySet> to ucpp.Ptr<PhysicsObjectToolPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsObjectToolPropertySet): PhysicsObjectToolPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

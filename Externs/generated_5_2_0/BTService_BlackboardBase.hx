@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTService_BlackboardBase")
 @:include("BehaviorTree/Services/BTService_BlackboardBase.h")
-@:structAccess
+@:valueType
 extern class BTService_BlackboardBase extends BTService {
 	@:protected public var BlackboardKey: BlackboardKeySelector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTService_BlackboardBase(BTService_BlackboardBase) from BTService_
 @:forward
 @:nativeGen
 @:native("BTService_BlackboardBase*")
-abstract BTService_BlackboardBasePtr(cpp.Star<BTService_BlackboardBase>) from cpp.Star<BTService_BlackboardBase> to cpp.Star<BTService_BlackboardBase>{
+abstract BTService_BlackboardBasePtr(ucpp.Ptr<BTService_BlackboardBase>) from ucpp.Ptr<BTService_BlackboardBase> to ucpp.Ptr<BTService_BlackboardBase>{
 	@:from
 	public static extern inline function fromValue(v: BTService_BlackboardBase): BTService_BlackboardBasePtr {
 		return untyped __cpp__("&({0})", v);

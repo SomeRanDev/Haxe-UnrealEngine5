@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSoundModulationDefaultRoutingSettings")
 @:include("Sound/SoundModulationDestination.h")
-@:structAccess
+@:valueType
 extern class SoundModulationDefaultRoutingSettings extends SoundModulationDefaultSettings {
 	public var VolumeRouting: EModulationRouting;
 	public var PitchRouting: EModulationRouting;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHoleFillToolBuilder")
 @:include("HoleFillTool.h")
-@:structAccess
+@:valueType
 extern class HoleFillToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHoleFillToolBuilder(HoleFillToolBuilder) from HoleFillToolBuilder 
 @:forward
 @:nativeGen
 @:native("HoleFillToolBuilder*")
-abstract HoleFillToolBuilderPtr(cpp.Star<HoleFillToolBuilder>) from cpp.Star<HoleFillToolBuilder> to cpp.Star<HoleFillToolBuilder>{
+abstract HoleFillToolBuilderPtr(ucpp.Ptr<HoleFillToolBuilder>) from ucpp.Ptr<HoleFillToolBuilder> to ucpp.Ptr<HoleFillToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: HoleFillToolBuilder): HoleFillToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

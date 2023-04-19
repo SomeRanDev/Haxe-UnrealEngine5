@@ -3,22 +3,22 @@ package ue;
 
 @:native("UBakeTexture2DProperties")
 @:include("BakeMeshAttributeToolCommon.h")
-@:structAccess
+@:valueType
 extern class BakeTexture2DProperties extends InteractiveToolPropertySet {
-	public var SourceTexture: cpp.Star<Texture2D>;
+	public var SourceTexture: ucpp.Ptr<Texture2D>;
 	public var UVLayer: FString;
 	public var UVLayerNamesList: TArray<FString>;
 
 	public function GetUVLayerNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetUVLayerNamesFunc)
 @:nativeGen
 abstract ConstBakeTexture2DProperties(BakeTexture2DProperties) from BakeTexture2DProperties {
-	public extern var SourceTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_SourceTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.SourceTexture;
+	public extern var SourceTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_SourceTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.SourceTexture;
 	public extern var UVLayer(get, never): FString;
 	public inline extern function get_UVLayer(): FString return this.UVLayer;
 	public extern var UVLayerNamesList(get, never): TArray<FString>;
@@ -28,7 +28,7 @@ abstract ConstBakeTexture2DProperties(BakeTexture2DProperties) from BakeTexture2
 @:forward
 @:nativeGen
 @:native("BakeTexture2DProperties*")
-abstract BakeTexture2DPropertiesPtr(cpp.Star<BakeTexture2DProperties>) from cpp.Star<BakeTexture2DProperties> to cpp.Star<BakeTexture2DProperties>{
+abstract BakeTexture2DPropertiesPtr(ucpp.Ptr<BakeTexture2DProperties>) from ucpp.Ptr<BakeTexture2DProperties> to ucpp.Ptr<BakeTexture2DProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeTexture2DProperties): BakeTexture2DPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

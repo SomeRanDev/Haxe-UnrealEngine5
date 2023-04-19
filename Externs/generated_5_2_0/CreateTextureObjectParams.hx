@@ -3,14 +3,14 @@ package ue;
 
 @:native("FCreateTextureObjectParams")
 @:include("ModelingObjectsCreationAPI.h")
-@:structAccess
+@:valueType
 extern class CreateTextureObjectParams {
-	public var TypeHintExtended: cpp.Int32;
-	public var TargetWorld: cpp.Star<World>;
-	public var StoreRelativeToObject: cpp.Star<Object>;
+	public var TypeHintExtended: ucpp.num.Int32;
+	public var TargetWorld: ucpp.Ptr<World>;
+	public var StoreRelativeToObject: ucpp.Ptr<Object>;
 	public var BaseName: FString;
-	public var GeneratedTransientTexture: cpp.Star<Texture2D>;
+	public var GeneratedTransientTexture: ucpp.Ptr<Texture2D>;
 
 	@:native("FCreateTextureObjectParams") public function new();
-	@:native("FCreateTextureObjectParams") public static function make(TypeHintExtended: cpp.Int32, TargetWorld: cpp.Star<World>, StoreRelativeToObject: cpp.Star<Object>, BaseName: FString, GeneratedTransientTexture: cpp.Star<Texture2D>): CreateTextureObjectParams ;
+	@:native("FCreateTextureObjectParams") public static function make(TypeHintExtended: ucpp.num.Int32, TargetWorld: ucpp.Ptr<World>, StoreRelativeToObject: ucpp.Ptr<Object>, BaseName: FString, GeneratedTransientTexture: ucpp.Ptr<Texture2D>): CreateTextureObjectParams ;
 }

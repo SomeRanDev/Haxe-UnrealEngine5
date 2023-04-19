@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigControlCopy")
 @:include("Tools/ControlRigPose.h")
-@:structAccess
+@:valueType
 extern class RigControlCopy {
 	public var Name: FName;
 	public var ControlType: ERigControlType;

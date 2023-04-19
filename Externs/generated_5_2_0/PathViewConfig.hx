@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPathViewConfig")
 @:include("Private/ContentBrowserConfig.h")
-@:structAccess
+@:valueType
 extern class PathViewConfig {
 	public var bExpanded: Bool;
 	public var SelectedPaths: TArray<FName>;

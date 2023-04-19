@@ -3,9 +3,9 @@ package ue;
 
 @:native("UContentBrowserSettings")
 @:include("Settings/ContentBrowserSettings.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserSettings extends Object {
-	public var NumObjectsToLoadBeforeWarning: cpp.Int32;
+	public var NumObjectsToLoadBeforeWarning: ucpp.num.Int32;
 	public var bOpenSourcesPanelByDefault: Bool;
 	public var RealTimeThumbnails: Bool;
 	public var DisplayFolders: Bool;
@@ -15,7 +15,7 @@ extern class ContentBrowserSettings extends Object {
 	public var bOrganizeFolders: Bool;
 	public var bDisplayContentFolderSuffix: Bool;
 	public var bDisplayFriendlyNameForPluginFolders: Bool;
-	public var NumObjectsInRecentList: cpp.Int32;
+	public var NumObjectsInRecentList: ucpp.num.Int32;
 	public var bEnableRealtimeMaterialInstanceThumbnails: Bool;
 	private var DisplayEngineFolder: Bool;
 	private var DisplayDevelopersFolder: Bool;
@@ -28,14 +28,14 @@ extern class ContentBrowserSettings extends Object {
 	private var IncludeAssetPaths: Bool;
 	private var IncludeCollectionNames: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstContentBrowserSettings(ContentBrowserSettings) from ContentBrowserSettings {
-	public extern var NumObjectsToLoadBeforeWarning(get, never): cpp.Int32;
-	public inline extern function get_NumObjectsToLoadBeforeWarning(): cpp.Int32 return this.NumObjectsToLoadBeforeWarning;
+	public extern var NumObjectsToLoadBeforeWarning(get, never): ucpp.num.Int32;
+	public inline extern function get_NumObjectsToLoadBeforeWarning(): ucpp.num.Int32 return this.NumObjectsToLoadBeforeWarning;
 	public extern var bOpenSourcesPanelByDefault(get, never): Bool;
 	public inline extern function get_bOpenSourcesPanelByDefault(): Bool return this.bOpenSourcesPanelByDefault;
 	public extern var RealTimeThumbnails(get, never): Bool;
@@ -54,8 +54,8 @@ abstract ConstContentBrowserSettings(ContentBrowserSettings) from ContentBrowser
 	public inline extern function get_bDisplayContentFolderSuffix(): Bool return this.bDisplayContentFolderSuffix;
 	public extern var bDisplayFriendlyNameForPluginFolders(get, never): Bool;
 	public inline extern function get_bDisplayFriendlyNameForPluginFolders(): Bool return this.bDisplayFriendlyNameForPluginFolders;
-	public extern var NumObjectsInRecentList(get, never): cpp.Int32;
-	public inline extern function get_NumObjectsInRecentList(): cpp.Int32 return this.NumObjectsInRecentList;
+	public extern var NumObjectsInRecentList(get, never): ucpp.num.Int32;
+	public inline extern function get_NumObjectsInRecentList(): ucpp.num.Int32 return this.NumObjectsInRecentList;
 	public extern var bEnableRealtimeMaterialInstanceThumbnails(get, never): Bool;
 	public inline extern function get_bEnableRealtimeMaterialInstanceThumbnails(): Bool return this.bEnableRealtimeMaterialInstanceThumbnails;
 }
@@ -63,7 +63,7 @@ abstract ConstContentBrowserSettings(ContentBrowserSettings) from ContentBrowser
 @:forward
 @:nativeGen
 @:native("ContentBrowserSettings*")
-abstract ContentBrowserSettingsPtr(cpp.Star<ContentBrowserSettings>) from cpp.Star<ContentBrowserSettings> to cpp.Star<ContentBrowserSettings>{
+abstract ContentBrowserSettingsPtr(ucpp.Ptr<ContentBrowserSettings>) from ucpp.Ptr<ContentBrowserSettings> to ucpp.Ptr<ContentBrowserSettings>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserSettings): ContentBrowserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

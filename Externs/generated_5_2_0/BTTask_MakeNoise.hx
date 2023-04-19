@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBTTask_MakeNoise")
 @:include("BehaviorTree/Tasks/BTTask_MakeNoise.h")
-@:structAccess
+@:valueType
 extern class BTTask_MakeNoise extends BTTaskNode {
-	public var Loudnes: cpp.Float32;
+	public var Loudnes: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTTask_MakeNoise(BTTask_MakeNoise) from BTTask_MakeNoise {
-	public extern var Loudnes(get, never): cpp.Float32;
-	public inline extern function get_Loudnes(): cpp.Float32 return this.Loudnes;
+	public extern var Loudnes(get, never): ucpp.num.Float32;
+	public inline extern function get_Loudnes(): ucpp.num.Float32 return this.Loudnes;
 }
 
 @:forward
 @:nativeGen
 @:native("BTTask_MakeNoise*")
-abstract BTTask_MakeNoisePtr(cpp.Star<BTTask_MakeNoise>) from cpp.Star<BTTask_MakeNoise> to cpp.Star<BTTask_MakeNoise>{
+abstract BTTask_MakeNoisePtr(ucpp.Ptr<BTTask_MakeNoise>) from ucpp.Ptr<BTTask_MakeNoise> to ucpp.Ptr<BTTask_MakeNoise>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_MakeNoise): BTTask_MakeNoisePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionHLODModifierMeshDestruction")
 @:include("WorldPartition/HLOD/Modifiers/HLODModifierMeshDestruction.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionHLODModifierMeshDestruction extends WorldPartitionHLODModifier {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionHLODModifierMeshDestruction(WorldPartitionHLODModifi
 @:forward
 @:nativeGen
 @:native("WorldPartitionHLODModifierMeshDestruction*")
-abstract WorldPartitionHLODModifierMeshDestructionPtr(cpp.Star<WorldPartitionHLODModifierMeshDestruction>) from cpp.Star<WorldPartitionHLODModifierMeshDestruction> to cpp.Star<WorldPartitionHLODModifierMeshDestruction>{
+abstract WorldPartitionHLODModifierMeshDestructionPtr(ucpp.Ptr<WorldPartitionHLODModifierMeshDestruction>) from ucpp.Ptr<WorldPartitionHLODModifierMeshDestruction> to ucpp.Ptr<WorldPartitionHLODModifierMeshDestruction>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionHLODModifierMeshDestruction): WorldPartitionHLODModifierMeshDestructionPtr {
 		return untyped __cpp__("&({0})", v);

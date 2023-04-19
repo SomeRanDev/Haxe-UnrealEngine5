@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBlueprintFunctionLibraryFactory")
 @:include("Factories/BlueprintFunctionLibraryFactory.h")
-@:structAccess
+@:valueType
 extern class BlueprintFunctionLibraryFactory extends BlueprintFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlueprintFunctionLibraryFactory(BlueprintFunctionLibraryFactory) f
 @:forward
 @:nativeGen
 @:native("BlueprintFunctionLibraryFactory*")
-abstract BlueprintFunctionLibraryFactoryPtr(cpp.Star<BlueprintFunctionLibraryFactory>) from cpp.Star<BlueprintFunctionLibraryFactory> to cpp.Star<BlueprintFunctionLibraryFactory>{
+abstract BlueprintFunctionLibraryFactoryPtr(ucpp.Ptr<BlueprintFunctionLibraryFactory>) from ucpp.Ptr<BlueprintFunctionLibraryFactory> to ucpp.Ptr<BlueprintFunctionLibraryFactory>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintFunctionLibraryFactory): BlueprintFunctionLibraryFactoryPtr {
 		return untyped __cpp__("&({0})", v);

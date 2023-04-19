@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshSamplingBuiltData")
 @:include("Engine/SkeletalMeshSampling.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshSamplingBuiltData {
 	public var WholeMeshBuiltData: TArray<SkeletalMeshSamplingLODBuiltData>;
 	public var RegionBuiltData: TArray<SkeletalMeshSamplingRegionBuiltData>;

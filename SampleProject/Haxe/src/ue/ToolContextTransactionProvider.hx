@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UToolContextTransactionProvider")
-@:structAccess
+@:valueType
 extern class ToolContextTransactionProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstToolContextTransactionProvider(ToolContextTransactionProvider) fro
 @:forward
 @:nativeGen
 @:native("ToolContextTransactionProvider*")
-abstract ToolContextTransactionProviderPtr(cpp.Star<ToolContextTransactionProvider>) from cpp.Star<ToolContextTransactionProvider> to cpp.Star<ToolContextTransactionProvider>{
+abstract ToolContextTransactionProviderPtr(ucpp.Ptr<ToolContextTransactionProvider>) from ucpp.Ptr<ToolContextTransactionProvider> to ucpp.Ptr<ToolContextTransactionProvider>{
 	@:from
 	public static extern inline function fromValue(v: ToolContextTransactionProvider): ToolContextTransactionProviderPtr {
 		return untyped __cpp__("&({0})", v);

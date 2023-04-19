@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFontFaceInterface")
-@:structAccess
+@:valueType
 extern class FontFaceInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFontFaceInterface(FontFaceInterface) from FontFaceInterface {
 @:forward
 @:nativeGen
 @:native("FontFaceInterface*")
-abstract FontFaceInterfacePtr(cpp.Star<FontFaceInterface>) from cpp.Star<FontFaceInterface> to cpp.Star<FontFaceInterface>{
+abstract FontFaceInterfacePtr(ucpp.Ptr<FontFaceInterface>) from ucpp.Ptr<FontFaceInterface> to ucpp.Ptr<FontFaceInterface>{
 	@:from
 	public static extern inline function fromValue(v: FontFaceInterface): FontFaceInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPhysicsBoxData")
 @:include("Physics/CollisionPropertySets.h")
-@:structAccess
+@:valueType
 extern class PhysicsBoxData {
 	public var Dimensions: Vector;
 	public var Transform: Transform;

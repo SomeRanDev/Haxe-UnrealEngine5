@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInteractiveToolsPresetCollectionAssetFactory")
 @:include("PresetAsset.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolsPresetCollectionAssetFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInteractiveToolsPresetCollectionAssetFactory(InteractiveToolsPrese
 @:forward
 @:nativeGen
 @:native("InteractiveToolsPresetCollectionAssetFactory*")
-abstract InteractiveToolsPresetCollectionAssetFactoryPtr(cpp.Star<InteractiveToolsPresetCollectionAssetFactory>) from cpp.Star<InteractiveToolsPresetCollectionAssetFactory> to cpp.Star<InteractiveToolsPresetCollectionAssetFactory>{
+abstract InteractiveToolsPresetCollectionAssetFactoryPtr(ucpp.Ptr<InteractiveToolsPresetCollectionAssetFactory>) from ucpp.Ptr<InteractiveToolsPresetCollectionAssetFactory> to ucpp.Ptr<InteractiveToolsPresetCollectionAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolsPresetCollectionAssetFactory): InteractiveToolsPresetCollectionAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

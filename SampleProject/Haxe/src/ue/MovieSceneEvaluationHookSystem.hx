@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneEvaluationHookSystem")
 @:include("EntitySystem/MovieSceneEvaluationHookSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationHookSystem extends MovieSceneEntitySystem {
 	private var PendingEventsByRootInstance: TMap<MovieSceneEvaluationInstanceKey, MovieSceneEvaluationHookEventContainer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneEvaluationHookSystem(MovieSceneEvaluationHookSystem) fro
 @:forward
 @:nativeGen
 @:native("MovieSceneEvaluationHookSystem*")
-abstract MovieSceneEvaluationHookSystemPtr(cpp.Star<MovieSceneEvaluationHookSystem>) from cpp.Star<MovieSceneEvaluationHookSystem> to cpp.Star<MovieSceneEvaluationHookSystem>{
+abstract MovieSceneEvaluationHookSystemPtr(ucpp.Ptr<MovieSceneEvaluationHookSystem>) from ucpp.Ptr<MovieSceneEvaluationHookSystem> to ucpp.Ptr<MovieSceneEvaluationHookSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEvaluationHookSystem): MovieSceneEvaluationHookSystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDetailsViewWrapperObject")
 @:include("Editor/DetailsViewWrapperObject.h")
-@:structAccess
+@:valueType
 extern class DetailsViewWrapperObject extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDetailsViewWrapperObject(DetailsViewWrapperObject) from DetailsVie
 @:forward
 @:nativeGen
 @:native("DetailsViewWrapperObject*")
-abstract DetailsViewWrapperObjectPtr(cpp.Star<DetailsViewWrapperObject>) from cpp.Star<DetailsViewWrapperObject> to cpp.Star<DetailsViewWrapperObject>{
+abstract DetailsViewWrapperObjectPtr(ucpp.Ptr<DetailsViewWrapperObject>) from ucpp.Ptr<DetailsViewWrapperObject> to ucpp.Ptr<DetailsViewWrapperObject>{
 	@:from
 	public static extern inline function fromValue(v: DetailsViewWrapperObject): DetailsViewWrapperObjectPtr {
 		return untyped __cpp__("&({0})", v);

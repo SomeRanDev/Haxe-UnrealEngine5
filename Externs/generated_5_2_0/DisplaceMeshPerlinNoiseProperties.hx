@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDisplaceMeshPerlinNoiseProperties")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class DisplaceMeshPerlinNoiseProperties extends InteractiveToolPropertySet {
 	public var PerlinLayerProperties: TArray<PerlinLayerProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDisplaceMeshPerlinNoiseProperties(DisplaceMeshPerlinNoisePropertie
 @:forward
 @:nativeGen
 @:native("DisplaceMeshPerlinNoiseProperties*")
-abstract DisplaceMeshPerlinNoisePropertiesPtr(cpp.Star<DisplaceMeshPerlinNoiseProperties>) from cpp.Star<DisplaceMeshPerlinNoiseProperties> to cpp.Star<DisplaceMeshPerlinNoiseProperties>{
+abstract DisplaceMeshPerlinNoisePropertiesPtr(ucpp.Ptr<DisplaceMeshPerlinNoiseProperties>) from ucpp.Ptr<DisplaceMeshPerlinNoiseProperties> to ucpp.Ptr<DisplaceMeshPerlinNoiseProperties>{
 	@:from
 	public static extern inline function fromValue(v: DisplaceMeshPerlinNoiseProperties): DisplaceMeshPerlinNoisePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

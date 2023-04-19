@@ -3,10 +3,10 @@ package ue;
 
 @:native("ABrushShape")
 @:include("Engine/BrushShape.h")
-@:structAccess
+@:valueType
 extern class BrushShape extends Brush {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBrushShape(BrushShape) from BrushShape {
 @:forward
 @:nativeGen
 @:native("BrushShape*")
-abstract BrushShapePtr(cpp.Star<BrushShape>) from cpp.Star<BrushShape> to cpp.Star<BrushShape>{
+abstract BrushShapePtr(ucpp.Ptr<BrushShape>) from ucpp.Ptr<BrushShape> to ucpp.Ptr<BrushShape>{
 	@:from
 	public static extern inline function fromValue(v: BrushShape): BrushShapePtr {
 		return untyped __cpp__("&({0})", v);

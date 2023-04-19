@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectMixerEditorListMenuContext")
 @:include("Views/Widgets/ObjectMixerEditorListMenuContext.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerEditorListMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectMixerEditorListMenuContext(ObjectMixerEditorListMenuContext)
 @:forward
 @:nativeGen
 @:native("ObjectMixerEditorListMenuContext*")
-abstract ObjectMixerEditorListMenuContextPtr(cpp.Star<ObjectMixerEditorListMenuContext>) from cpp.Star<ObjectMixerEditorListMenuContext> to cpp.Star<ObjectMixerEditorListMenuContext>{
+abstract ObjectMixerEditorListMenuContextPtr(ucpp.Ptr<ObjectMixerEditorListMenuContext>) from ucpp.Ptr<ObjectMixerEditorListMenuContext> to ucpp.Ptr<ObjectMixerEditorListMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerEditorListMenuContext): ObjectMixerEditorListMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

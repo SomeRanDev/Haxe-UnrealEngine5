@@ -3,10 +3,10 @@ package ue;
 
 @:native("URuntimeVirtualTextureStreamingProxy")
 @:include("VT/VirtualTexture.h")
-@:structAccess
+@:valueType
 extern class RuntimeVirtualTextureStreamingProxy extends Texture2D {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRuntimeVirtualTextureStreamingProxy(RuntimeVirtualTextureStreaming
 @:forward
 @:nativeGen
 @:native("RuntimeVirtualTextureStreamingProxy*")
-abstract RuntimeVirtualTextureStreamingProxyPtr(cpp.Star<RuntimeVirtualTextureStreamingProxy>) from cpp.Star<RuntimeVirtualTextureStreamingProxy> to cpp.Star<RuntimeVirtualTextureStreamingProxy>{
+abstract RuntimeVirtualTextureStreamingProxyPtr(ucpp.Ptr<RuntimeVirtualTextureStreamingProxy>) from ucpp.Ptr<RuntimeVirtualTextureStreamingProxy> to ucpp.Ptr<RuntimeVirtualTextureStreamingProxy>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeVirtualTextureStreamingProxy): RuntimeVirtualTextureStreamingProxyPtr {
 		return untyped __cpp__("&({0})", v);

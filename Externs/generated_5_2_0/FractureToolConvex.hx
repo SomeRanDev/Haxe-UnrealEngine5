@@ -3,25 +3,25 @@ package ue;
 
 @:native("UFractureToolConvex")
 @:include("FractureToolConvex.h")
-@:structAccess
+@:valueType
 extern class FractureToolConvex extends FractureModalTool {
-	public var ConvexSettings: cpp.Star<FractureConvexSettings>;
-	@:protected public var ConvexActions: cpp.Star<FractureConvexActions>;
+	public var ConvexSettings: ucpp.Ptr<FractureConvexSettings>;
+	@:protected public var ConvexActions: ucpp.Ptr<FractureConvexActions>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolConvex(FractureToolConvex) from FractureToolConvex {
-	public extern var ConvexSettings(get, never): cpp.Star<FractureConvexSettings.ConstFractureConvexSettings>;
-	public inline extern function get_ConvexSettings(): cpp.Star<FractureConvexSettings.ConstFractureConvexSettings> return this.ConvexSettings;
+	public extern var ConvexSettings(get, never): ucpp.Ptr<FractureConvexSettings.ConstFractureConvexSettings>;
+	public inline extern function get_ConvexSettings(): ucpp.Ptr<FractureConvexSettings.ConstFractureConvexSettings> return this.ConvexSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolConvex*")
-abstract FractureToolConvexPtr(cpp.Star<FractureToolConvex>) from cpp.Star<FractureToolConvex> to cpp.Star<FractureToolConvex>{
+abstract FractureToolConvexPtr(ucpp.Ptr<FractureToolConvex>) from ucpp.Ptr<FractureToolConvex> to ucpp.Ptr<FractureToolConvex>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolConvex): FractureToolConvexPtr {
 		return untyped __cpp__("&({0})", v);

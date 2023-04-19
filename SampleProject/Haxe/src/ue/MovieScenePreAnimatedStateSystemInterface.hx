@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieScenePreAnimatedStateSystemInterface")
-@:structAccess
+@:valueType
 extern class MovieScenePreAnimatedStateSystemInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieScenePreAnimatedStateSystemInterface(MovieScenePreAnimatedSta
 @:forward
 @:nativeGen
 @:native("MovieScenePreAnimatedStateSystemInterface*")
-abstract MovieScenePreAnimatedStateSystemInterfacePtr(cpp.Star<MovieScenePreAnimatedStateSystemInterface>) from cpp.Star<MovieScenePreAnimatedStateSystemInterface> to cpp.Star<MovieScenePreAnimatedStateSystemInterface>{
+abstract MovieScenePreAnimatedStateSystemInterfacePtr(ucpp.Ptr<MovieScenePreAnimatedStateSystemInterface>) from ucpp.Ptr<MovieScenePreAnimatedStateSystemInterface> to ucpp.Ptr<MovieScenePreAnimatedStateSystemInterface>{
 	@:from
 	public static extern inline function fromValue(v: MovieScenePreAnimatedStateSystemInterface): MovieScenePreAnimatedStateSystemInterfacePtr {
 		return untyped __cpp__("&({0})", v);

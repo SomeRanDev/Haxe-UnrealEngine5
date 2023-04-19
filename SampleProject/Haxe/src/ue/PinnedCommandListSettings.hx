@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPinnedCommandListSettings")
 @:include("PinnedCommandListSettings.h")
-@:structAccess
+@:valueType
 extern class PinnedCommandListSettings extends Object {
 	public var Contexts: TArray<PinnedCommandListContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPinnedCommandListSettings(PinnedCommandListSettings) from PinnedCo
 @:forward
 @:nativeGen
 @:native("PinnedCommandListSettings*")
-abstract PinnedCommandListSettingsPtr(cpp.Star<PinnedCommandListSettings>) from cpp.Star<PinnedCommandListSettings> to cpp.Star<PinnedCommandListSettings>{
+abstract PinnedCommandListSettingsPtr(ucpp.Ptr<PinnedCommandListSettings>) from ucpp.Ptr<PinnedCommandListSettings> to ucpp.Ptr<PinnedCommandListSettings>{
 	@:from
 	public static extern inline function fromValue(v: PinnedCommandListSettings): PinnedCommandListSettingsPtr {
 		return untyped __cpp__("&({0})", v);

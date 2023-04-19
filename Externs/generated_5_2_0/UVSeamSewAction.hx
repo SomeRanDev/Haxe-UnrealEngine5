@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVSeamSewAction")
 @:include("Actions/UVSeamSewAction.h")
-@:structAccess
+@:valueType
 extern class UVSeamSewAction extends UVToolAction {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVSeamSewAction(UVSeamSewAction) from UVSeamSewAction {
 @:forward
 @:nativeGen
 @:native("UVSeamSewAction*")
-abstract UVSeamSewActionPtr(cpp.Star<UVSeamSewAction>) from cpp.Star<UVSeamSewAction> to cpp.Star<UVSeamSewAction>{
+abstract UVSeamSewActionPtr(ucpp.Ptr<UVSeamSewAction>) from ucpp.Ptr<UVSeamSewAction> to ucpp.Ptr<UVSeamSewAction>{
 	@:from
 	public static extern inline function fromValue(v: UVSeamSewAction): UVSeamSewActionPtr {
 		return untyped __cpp__("&({0})", v);

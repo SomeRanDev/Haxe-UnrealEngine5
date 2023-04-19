@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNamedSlotInterface")
-@:structAccess
+@:valueType
 extern class NamedSlotInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNamedSlotInterface(NamedSlotInterface) from NamedSlotInterface {
 @:forward
 @:nativeGen
 @:native("NamedSlotInterface*")
-abstract NamedSlotInterfacePtr(cpp.Star<NamedSlotInterface>) from cpp.Star<NamedSlotInterface> to cpp.Star<NamedSlotInterface>{
+abstract NamedSlotInterfacePtr(ucpp.Ptr<NamedSlotInterface>) from ucpp.Ptr<NamedSlotInterface> to ucpp.Ptr<NamedSlotInterface>{
 	@:from
 	public static extern inline function fromValue(v: NamedSlotInterface): NamedSlotInterfacePtr {
 		return untyped __cpp__("&({0})", v);

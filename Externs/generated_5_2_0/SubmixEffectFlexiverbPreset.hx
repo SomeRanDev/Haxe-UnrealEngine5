@@ -3,13 +3,13 @@ package ue;
 
 @:native("USubmixEffectFlexiverbPreset")
 @:include("SubmixEffects/SubmixEffectFlexiverb.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectFlexiverbPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectFlexiverbSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectFlexiverbSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectFlexiverbSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSubmixEffectFlexiverbPreset(SubmixEffectFlexiverbPreset) from Subm
 @:forward
 @:nativeGen
 @:native("SubmixEffectFlexiverbPreset*")
-abstract SubmixEffectFlexiverbPresetPtr(cpp.Star<SubmixEffectFlexiverbPreset>) from cpp.Star<SubmixEffectFlexiverbPreset> to cpp.Star<SubmixEffectFlexiverbPreset>{
+abstract SubmixEffectFlexiverbPresetPtr(ucpp.Ptr<SubmixEffectFlexiverbPreset>) from ucpp.Ptr<SubmixEffectFlexiverbPreset> to ucpp.Ptr<SubmixEffectFlexiverbPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectFlexiverbPreset): SubmixEffectFlexiverbPresetPtr {
 		return untyped __cpp__("&({0})", v);

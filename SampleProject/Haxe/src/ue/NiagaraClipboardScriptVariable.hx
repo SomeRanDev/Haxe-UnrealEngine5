@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraClipboardScriptVariable")
 @:include("NiagaraClipboard.h")
-@:structAccess
+@:valueType
 extern class NiagaraClipboardScriptVariable {
-	public var ScriptVariable: cpp.Star<NiagaraScriptVariable>;
+	public var ScriptVariable: ucpp.Ptr<NiagaraScriptVariable>;
 	public var OriginalChangeId: Guid;
 
 	@:native("FNiagaraClipboardScriptVariable") public function new();
-	@:native("FNiagaraClipboardScriptVariable") public static function make(ScriptVariable: cpp.Star<NiagaraScriptVariable>, OriginalChangeId: Guid): NiagaraClipboardScriptVariable ;
+	@:native("FNiagaraClipboardScriptVariable") public static function make(ScriptVariable: ucpp.Ptr<NiagaraScriptVariable>, OriginalChangeId: Guid): NiagaraClipboardScriptVariable ;
 }

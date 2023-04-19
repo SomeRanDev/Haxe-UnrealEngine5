@@ -3,21 +3,21 @@ package ue;
 
 @:native("URadialVector")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class RadialVector extends FieldNodeVector {
-	public var Magnitude: cpp.Float32;
+	public var Magnitude: ucpp.num.Float32;
 	public var Position: Vector;
 
-	public function SetRadialVector(Magnitude: cpp.Float32, Position: Vector): cpp.Star<RadialVector>;
+	public function SetRadialVector(Magnitude: ucpp.num.Float32, Position: Vector): ucpp.Ptr<RadialVector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRadialVector(RadialVector) from RadialVector {
-	public extern var Magnitude(get, never): cpp.Float32;
-	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
+	public extern var Magnitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Magnitude(): ucpp.num.Float32 return this.Magnitude;
 	public extern var Position(get, never): Vector;
 	public inline extern function get_Position(): Vector return this.Position;
 }
@@ -25,7 +25,7 @@ abstract ConstRadialVector(RadialVector) from RadialVector {
 @:forward
 @:nativeGen
 @:native("RadialVector*")
-abstract RadialVectorPtr(cpp.Star<RadialVector>) from cpp.Star<RadialVector> to cpp.Star<RadialVector>{
+abstract RadialVectorPtr(ucpp.Ptr<RadialVector>) from ucpp.Ptr<RadialVector> to ucpp.Ptr<RadialVector>{
 	@:from
 	public static extern inline function fromValue(v: RadialVector): RadialVectorPtr {
 		return untyped __cpp__("&({0})", v);

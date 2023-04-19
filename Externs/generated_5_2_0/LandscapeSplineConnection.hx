@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLandscapeSplineConnection")
 @:include("LandscapeSplineControlPoint.h")
-@:structAccess
+@:valueType
 extern class LandscapeSplineConnection {
-	public var Segment: cpp.Star<LandscapeSplineSegment>;
+	public var Segment: ucpp.Ptr<LandscapeSplineSegment>;
 	public var End: Bool;
 
 	@:native("FLandscapeSplineConnection") public function new();
-	@:native("FLandscapeSplineConnection") public static function make(Segment: cpp.Star<LandscapeSplineSegment>, End: Bool): LandscapeSplineConnection ;
+	@:native("FLandscapeSplineConnection") public static function make(Segment: ucpp.Ptr<LandscapeSplineSegment>, End: Bool): LandscapeSplineConnection ;
 }

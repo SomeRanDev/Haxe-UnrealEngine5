@@ -3,10 +3,10 @@ package ue;
 
 @:native("ABlockingVolume")
 @:include("Engine/BlockingVolume.h")
-@:structAccess
+@:valueType
 extern class BlockingVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlockingVolume(BlockingVolume) from BlockingVolume {
 @:forward
 @:nativeGen
 @:native("BlockingVolume*")
-abstract BlockingVolumePtr(cpp.Star<BlockingVolume>) from cpp.Star<BlockingVolume> to cpp.Star<BlockingVolume>{
+abstract BlockingVolumePtr(ucpp.Ptr<BlockingVolume>) from ucpp.Ptr<BlockingVolume> to ucpp.Ptr<BlockingVolume>{
 	@:from
 	public static extern inline function fromValue(v: BlockingVolume): BlockingVolumePtr {
 		return untyped __cpp__("&({0})", v);

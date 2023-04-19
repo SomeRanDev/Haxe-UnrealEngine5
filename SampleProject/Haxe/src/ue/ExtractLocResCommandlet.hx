@@ -3,10 +3,10 @@ package ue;
 
 @:native("UExtractLocResCommandlet")
 @:include("Commandlets/ExtractLocResCommandlet.h")
-@:structAccess
+@:valueType
 extern class ExtractLocResCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstExtractLocResCommandlet(ExtractLocResCommandlet) from ExtractLocRe
 @:forward
 @:nativeGen
 @:native("ExtractLocResCommandlet*")
-abstract ExtractLocResCommandletPtr(cpp.Star<ExtractLocResCommandlet>) from cpp.Star<ExtractLocResCommandlet> to cpp.Star<ExtractLocResCommandlet>{
+abstract ExtractLocResCommandletPtr(ucpp.Ptr<ExtractLocResCommandlet>) from ucpp.Ptr<ExtractLocResCommandlet> to ucpp.Ptr<ExtractLocResCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ExtractLocResCommandlet): ExtractLocResCommandletPtr {
 		return untyped __cpp__("&({0})", v);

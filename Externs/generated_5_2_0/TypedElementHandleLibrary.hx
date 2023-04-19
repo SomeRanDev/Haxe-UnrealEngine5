@@ -3,14 +3,14 @@ package ue;
 
 @:native("UTypedElementHandleLibrary")
 @:include("Elements/Framework/TypedElementHandle.h")
-@:structAccess
+@:valueType
 extern class TypedElementHandleLibrary extends Object {
-	public function Release(ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Void;
-	public function NotEqual(LHS: cpp.Reference<ScriptTypedElementHandle>, RHS: cpp.Reference<ScriptTypedElementHandle>): Bool;
-	public function IsSet(ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
-	public function Equal(LHS: cpp.Reference<ScriptTypedElementHandle>, RHS: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function Release(ElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Void;
+	public function NotEqual(LHS: ucpp.Ref<ScriptTypedElementHandle>, RHS: ucpp.Ref<ScriptTypedElementHandle>): Bool;
+	public function IsSet(ElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
+	public function Equal(LHS: ucpp.Ref<ScriptTypedElementHandle>, RHS: ucpp.Ref<ScriptTypedElementHandle>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstTypedElementHandleLibrary(TypedElementHandleLibrary) from TypedEle
 @:forward
 @:nativeGen
 @:native("TypedElementHandleLibrary*")
-abstract TypedElementHandleLibraryPtr(cpp.Star<TypedElementHandleLibrary>) from cpp.Star<TypedElementHandleLibrary> to cpp.Star<TypedElementHandleLibrary>{
+abstract TypedElementHandleLibraryPtr(ucpp.Ptr<TypedElementHandleLibrary>) from ucpp.Ptr<TypedElementHandleLibrary> to ucpp.Ptr<TypedElementHandleLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementHandleLibrary): TypedElementHandleLibraryPtr {
 		return untyped __cpp__("&({0})", v);

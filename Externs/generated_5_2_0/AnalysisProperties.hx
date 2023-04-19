@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnalysisProperties")
 @:include("Animation/BlendSpace.h")
-@:structAccess
+@:valueType
 extern class AnalysisProperties extends Object {
 	public var Function: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnalysisProperties(AnalysisProperties) from AnalysisProperties {
 @:forward
 @:nativeGen
 @:native("AnalysisProperties*")
-abstract AnalysisPropertiesPtr(cpp.Star<AnalysisProperties>) from cpp.Star<AnalysisProperties> to cpp.Star<AnalysisProperties>{
+abstract AnalysisPropertiesPtr(ucpp.Ptr<AnalysisProperties>) from ucpp.Ptr<AnalysisProperties> to ucpp.Ptr<AnalysisProperties>{
 	@:from
 	public static extern inline function fromValue(v: AnalysisProperties): AnalysisPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

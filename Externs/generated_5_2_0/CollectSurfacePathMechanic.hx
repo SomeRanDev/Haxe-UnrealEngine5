@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCollectSurfacePathMechanic")
 @:include("Mechanics/CollectSurfacePathMechanic.h")
-@:structAccess
+@:valueType
 extern class CollectSurfacePathMechanic extends InteractionMechanic {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCollectSurfacePathMechanic(CollectSurfacePathMechanic) from Collec
 @:forward
 @:nativeGen
 @:native("CollectSurfacePathMechanic*")
-abstract CollectSurfacePathMechanicPtr(cpp.Star<CollectSurfacePathMechanic>) from cpp.Star<CollectSurfacePathMechanic> to cpp.Star<CollectSurfacePathMechanic>{
+abstract CollectSurfacePathMechanicPtr(ucpp.Ptr<CollectSurfacePathMechanic>) from ucpp.Ptr<CollectSurfacePathMechanic> to ucpp.Ptr<CollectSurfacePathMechanic>{
 	@:from
 	public static extern inline function fromValue(v: CollectSurfacePathMechanic): CollectSurfacePathMechanicPtr {
 		return untyped __cpp__("&({0})", v);

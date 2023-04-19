@@ -3,19 +3,19 @@ package ue;
 
 @:native("UImportanceSamplingLibrary")
 @:include("Kismet/ImportanceSamplingLibrary.h")
-@:structAccess
+@:valueType
 extern class ImportanceSamplingLibrary extends BlueprintFunctionLibrary {
-	public function RandomSobolFloat(Index: cpp.Int32, Dimension: cpp.Int32, Seed: cpp.Float32): cpp.Float32;
-	public function RandomSobolCell3D(Index: cpp.Int32, NumCells: cpp.Int32, Cell: Vector, Seed: Vector): Vector;
-	public function RandomSobolCell2D(Index: cpp.Int32, NumCells: cpp.Int32, Cell: Vector2D, Seed: Vector2D): Vector2D;
-	public function NextSobolFloat(Index: cpp.Int32, Dimension: cpp.Int32, PreviousValue: cpp.Float32): cpp.Float32;
-	public function NextSobolCell3D(Index: cpp.Int32, NumCells: cpp.Int32, PreviousValue: Vector): Vector;
-	public function NextSobolCell2D(Index: cpp.Int32, NumCells: cpp.Int32, PreviousValue: Vector2D): Vector2D;
-	public function MakeImportanceTexture(Texture: cpp.Star<Texture2D>, WeightingFunc: TEnumAsByte<EImportanceWeight>): ImportanceTexture;
-	public function ImportanceSample(Texture: cpp.Reference<ImportanceTexture>, Rand: cpp.Reference<Vector2D>, Samples: cpp.Int32, Intensity: cpp.Float32, SamplePosition: cpp.Reference<Vector2D>, SampleColor: cpp.Reference<LinearColor>, SampleIntensity: cpp.Reference<cpp.Float32>, SampleSize: cpp.Reference<cpp.Float32>): Void;
-	public function BreakImportanceTexture(ImportanceTexture: cpp.Reference<ImportanceTexture>, Texture: cpp.Reference<cpp.Star<Texture2D>>, WeightingFunc: cpp.Reference<TEnumAsByte<EImportanceWeight>>): Void;
+	public function RandomSobolFloat(Index: ucpp.num.Int32, Dimension: ucpp.num.Int32, Seed: ucpp.num.Float32): ucpp.num.Float32;
+	public function RandomSobolCell3D(Index: ucpp.num.Int32, NumCells: ucpp.num.Int32, Cell: Vector, Seed: Vector): Vector;
+	public function RandomSobolCell2D(Index: ucpp.num.Int32, NumCells: ucpp.num.Int32, Cell: Vector2D, Seed: Vector2D): Vector2D;
+	public function NextSobolFloat(Index: ucpp.num.Int32, Dimension: ucpp.num.Int32, PreviousValue: ucpp.num.Float32): ucpp.num.Float32;
+	public function NextSobolCell3D(Index: ucpp.num.Int32, NumCells: ucpp.num.Int32, PreviousValue: Vector): Vector;
+	public function NextSobolCell2D(Index: ucpp.num.Int32, NumCells: ucpp.num.Int32, PreviousValue: Vector2D): Vector2D;
+	public function MakeImportanceTexture(Texture: ucpp.Ptr<Texture2D>, WeightingFunc: TEnumAsByte<EImportanceWeight>): ImportanceTexture;
+	public function ImportanceSample(Texture: ucpp.Ref<ImportanceTexture>, Rand: ucpp.Ref<Vector2D>, Samples: ucpp.num.Int32, Intensity: ucpp.num.Float32, SamplePosition: ucpp.Ref<Vector2D>, SampleColor: ucpp.Ref<LinearColor>, SampleIntensity: ucpp.Ref<ucpp.num.Float32>, SampleSize: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function BreakImportanceTexture(ImportanceTexture: ucpp.Ref<ImportanceTexture>, Texture: ucpp.Ref<ucpp.Ptr<Texture2D>>, WeightingFunc: ucpp.Ref<TEnumAsByte<EImportanceWeight>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstImportanceSamplingLibrary(ImportanceSamplingLibrary) from Importan
 @:forward
 @:nativeGen
 @:native("ImportanceSamplingLibrary*")
-abstract ImportanceSamplingLibraryPtr(cpp.Star<ImportanceSamplingLibrary>) from cpp.Star<ImportanceSamplingLibrary> to cpp.Star<ImportanceSamplingLibrary>{
+abstract ImportanceSamplingLibraryPtr(ucpp.Ptr<ImportanceSamplingLibrary>) from ucpp.Ptr<ImportanceSamplingLibrary> to ucpp.Ptr<ImportanceSamplingLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ImportanceSamplingLibrary): ImportanceSamplingLibraryPtr {
 		return untyped __cpp__("&({0})", v);

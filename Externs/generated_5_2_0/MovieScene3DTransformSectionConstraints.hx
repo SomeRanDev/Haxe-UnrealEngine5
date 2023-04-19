@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieScene3DTransformSectionConstraints")
 @:include("Sections/MovieScene3DTransformSection.h")
-@:structAccess
+@:valueType
 extern class MovieScene3DTransformSectionConstraints extends Object {
 	public var ConstraintsChannels: TArray<ConstraintAndActiveChannel>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieScene3DTransformSectionConstraints(MovieScene3DTransformSecti
 @:forward
 @:nativeGen
 @:native("MovieScene3DTransformSectionConstraints*")
-abstract MovieScene3DTransformSectionConstraintsPtr(cpp.Star<MovieScene3DTransformSectionConstraints>) from cpp.Star<MovieScene3DTransformSectionConstraints> to cpp.Star<MovieScene3DTransformSectionConstraints>{
+abstract MovieScene3DTransformSectionConstraintsPtr(ucpp.Ptr<MovieScene3DTransformSectionConstraints>) from ucpp.Ptr<MovieScene3DTransformSectionConstraints> to ucpp.Ptr<MovieScene3DTransformSectionConstraints>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene3DTransformSectionConstraints): MovieScene3DTransformSectionConstraintsPtr {
 		return untyped __cpp__("&({0})", v);

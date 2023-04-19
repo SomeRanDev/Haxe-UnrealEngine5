@@ -3,36 +3,36 @@ package ue;
 
 @:native("UVoxelProperties")
 @:include("PropertySets/VoxelProperties.h")
-@:structAccess
+@:valueType
 extern class VoxelProperties extends InteractiveToolPropertySet {
-	public var VoxelCount: cpp.Int32;
+	public var VoxelCount: ucpp.num.Int32;
 	public var bAutoSimplify: Bool;
 	public var bRemoveInternalSurfaces: Bool;
-	public var SimplifyMaxErrorFactor: cpp.Float64;
-	public var CubeRootMinComponentVolume: cpp.Float64;
+	public var SimplifyMaxErrorFactor: ucpp.num.Float64;
+	public var CubeRootMinComponentVolume: ucpp.num.Float64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVoxelProperties(VoxelProperties) from VoxelProperties {
-	public extern var VoxelCount(get, never): cpp.Int32;
-	public inline extern function get_VoxelCount(): cpp.Int32 return this.VoxelCount;
+	public extern var VoxelCount(get, never): ucpp.num.Int32;
+	public inline extern function get_VoxelCount(): ucpp.num.Int32 return this.VoxelCount;
 	public extern var bAutoSimplify(get, never): Bool;
 	public inline extern function get_bAutoSimplify(): Bool return this.bAutoSimplify;
 	public extern var bRemoveInternalSurfaces(get, never): Bool;
 	public inline extern function get_bRemoveInternalSurfaces(): Bool return this.bRemoveInternalSurfaces;
-	public extern var SimplifyMaxErrorFactor(get, never): cpp.Float64;
-	public inline extern function get_SimplifyMaxErrorFactor(): cpp.Float64 return this.SimplifyMaxErrorFactor;
-	public extern var CubeRootMinComponentVolume(get, never): cpp.Float64;
-	public inline extern function get_CubeRootMinComponentVolume(): cpp.Float64 return this.CubeRootMinComponentVolume;
+	public extern var SimplifyMaxErrorFactor(get, never): ucpp.num.Float64;
+	public inline extern function get_SimplifyMaxErrorFactor(): ucpp.num.Float64 return this.SimplifyMaxErrorFactor;
+	public extern var CubeRootMinComponentVolume(get, never): ucpp.num.Float64;
+	public inline extern function get_CubeRootMinComponentVolume(): ucpp.num.Float64 return this.CubeRootMinComponentVolume;
 }
 
 @:forward
 @:nativeGen
 @:native("VoxelProperties*")
-abstract VoxelPropertiesPtr(cpp.Star<VoxelProperties>) from cpp.Star<VoxelProperties> to cpp.Star<VoxelProperties>{
+abstract VoxelPropertiesPtr(ucpp.Ptr<VoxelProperties>) from ucpp.Ptr<VoxelProperties> to ucpp.Ptr<VoxelProperties>{
 	@:from
 	public static extern inline function fromValue(v: VoxelProperties): VoxelPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

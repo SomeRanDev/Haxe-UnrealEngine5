@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVirtualTextureBuilderThumbnailRenderer")
 @:include("VirtualTextureBuilderThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class VirtualTextureBuilderThumbnailRenderer extends TextureThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVirtualTextureBuilderThumbnailRenderer(VirtualTextureBuilderThumbn
 @:forward
 @:nativeGen
 @:native("VirtualTextureBuilderThumbnailRenderer*")
-abstract VirtualTextureBuilderThumbnailRendererPtr(cpp.Star<VirtualTextureBuilderThumbnailRenderer>) from cpp.Star<VirtualTextureBuilderThumbnailRenderer> to cpp.Star<VirtualTextureBuilderThumbnailRenderer>{
+abstract VirtualTextureBuilderThumbnailRendererPtr(ucpp.Ptr<VirtualTextureBuilderThumbnailRenderer>) from ucpp.Ptr<VirtualTextureBuilderThumbnailRenderer> to ucpp.Ptr<VirtualTextureBuilderThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: VirtualTextureBuilderThumbnailRenderer): VirtualTextureBuilderThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

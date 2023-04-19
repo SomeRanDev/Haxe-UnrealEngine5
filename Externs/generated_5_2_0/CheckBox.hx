@@ -3,7 +3,7 @@ package ue;
 
 @:native("UCheckBox")
 @:include("Components/CheckBox.h")
-@:structAccess
+@:valueType
 extern class CheckBox extends ContentWidget {
 	public function GetCheckedState(): ECheckBoxState;
 	public function SetCheckedState(input: ECheckBoxState): Void;
@@ -23,7 +23,7 @@ extern class CheckBox extends ContentWidget {
 	public function IsPressed(): Bool;
 	public function IsChecked(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsPressed, IsChecked)
@@ -50,7 +50,7 @@ abstract ConstCheckBox(CheckBox) from CheckBox {
 @:forward
 @:nativeGen
 @:native("CheckBox*")
-abstract CheckBoxPtr(cpp.Star<CheckBox>) from cpp.Star<CheckBox> to cpp.Star<CheckBox>{
+abstract CheckBoxPtr(ucpp.Ptr<CheckBox>) from ucpp.Ptr<CheckBox> to ucpp.Ptr<CheckBox>{
 	@:from
 	public static extern inline function fromValue(v: CheckBox): CheckBoxPtr {
 		return untyped __cpp__("&({0})", v);

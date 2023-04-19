@@ -3,25 +3,25 @@ package ue;
 
 @:native("UIterativeOffsetProperties")
 @:include("OffsetMeshTool.h")
-@:structAccess
+@:valueType
 extern class IterativeOffsetProperties extends InteractiveToolPropertySet {
-	public var Steps: cpp.Int32;
+	public var Steps: ucpp.num.Int32;
 	public var bOffsetBoundaries: Bool;
-	public var SmoothingPerStep: cpp.Float32;
+	public var SmoothingPerStep: ucpp.num.Float32;
 	public var bReprojectSmooth: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstIterativeOffsetProperties(IterativeOffsetProperties) from IterativeOffsetProperties {
-	public extern var Steps(get, never): cpp.Int32;
-	public inline extern function get_Steps(): cpp.Int32 return this.Steps;
+	public extern var Steps(get, never): ucpp.num.Int32;
+	public inline extern function get_Steps(): ucpp.num.Int32 return this.Steps;
 	public extern var bOffsetBoundaries(get, never): Bool;
 	public inline extern function get_bOffsetBoundaries(): Bool return this.bOffsetBoundaries;
-	public extern var SmoothingPerStep(get, never): cpp.Float32;
-	public inline extern function get_SmoothingPerStep(): cpp.Float32 return this.SmoothingPerStep;
+	public extern var SmoothingPerStep(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothingPerStep(): ucpp.num.Float32 return this.SmoothingPerStep;
 	public extern var bReprojectSmooth(get, never): Bool;
 	public inline extern function get_bReprojectSmooth(): Bool return this.bReprojectSmooth;
 }
@@ -29,7 +29,7 @@ abstract ConstIterativeOffsetProperties(IterativeOffsetProperties) from Iterativ
 @:forward
 @:nativeGen
 @:native("IterativeOffsetProperties*")
-abstract IterativeOffsetPropertiesPtr(cpp.Star<IterativeOffsetProperties>) from cpp.Star<IterativeOffsetProperties> to cpp.Star<IterativeOffsetProperties>{
+abstract IterativeOffsetPropertiesPtr(ucpp.Ptr<IterativeOffsetProperties>) from ucpp.Ptr<IterativeOffsetProperties> to ucpp.Ptr<IterativeOffsetProperties>{
 	@:from
 	public static extern inline function fromValue(v: IterativeOffsetProperties): IterativeOffsetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

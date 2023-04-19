@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBaseSmoothBrushOpProps")
 @:include("Sculpting/MeshSmoothingBrushOps.h")
-@:structAccess
+@:valueType
 extern class BaseSmoothBrushOpProps extends MeshSculptBrushOpProps {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBaseSmoothBrushOpProps(BaseSmoothBrushOpProps) from BaseSmoothBrus
 @:forward
 @:nativeGen
 @:native("BaseSmoothBrushOpProps*")
-abstract BaseSmoothBrushOpPropsPtr(cpp.Star<BaseSmoothBrushOpProps>) from cpp.Star<BaseSmoothBrushOpProps> to cpp.Star<BaseSmoothBrushOpProps>{
+abstract BaseSmoothBrushOpPropsPtr(ucpp.Ptr<BaseSmoothBrushOpProps>) from ucpp.Ptr<BaseSmoothBrushOpProps> to ucpp.Ptr<BaseSmoothBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: BaseSmoothBrushOpProps): BaseSmoothBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

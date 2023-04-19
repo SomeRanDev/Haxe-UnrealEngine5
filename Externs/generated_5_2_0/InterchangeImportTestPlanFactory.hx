@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeImportTestPlanFactory")
 @:include("InterchangeImportTestPlanFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangeImportTestPlanFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeImportTestPlanFactory(InterchangeImportTestPlanFactory)
 @:forward
 @:nativeGen
 @:native("InterchangeImportTestPlanFactory*")
-abstract InterchangeImportTestPlanFactoryPtr(cpp.Star<InterchangeImportTestPlanFactory>) from cpp.Star<InterchangeImportTestPlanFactory> to cpp.Star<InterchangeImportTestPlanFactory>{
+abstract InterchangeImportTestPlanFactoryPtr(ucpp.Ptr<InterchangeImportTestPlanFactory>) from ucpp.Ptr<InterchangeImportTestPlanFactory> to ucpp.Ptr<InterchangeImportTestPlanFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeImportTestPlanFactory): InterchangeImportTestPlanFactoryPtr {
 		return untyped __cpp__("&({0})", v);

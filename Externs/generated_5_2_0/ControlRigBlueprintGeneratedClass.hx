@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigBlueprintGeneratedClass")
 @:include("ControlRigBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class ControlRigBlueprintGeneratedClass extends RigVMBlueprintGeneratedClass {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigBlueprintGeneratedClass(ControlRigBlueprintGeneratedClas
 @:forward
 @:nativeGen
 @:native("ControlRigBlueprintGeneratedClass*")
-abstract ControlRigBlueprintGeneratedClassPtr(cpp.Star<ControlRigBlueprintGeneratedClass>) from cpp.Star<ControlRigBlueprintGeneratedClass> to cpp.Star<ControlRigBlueprintGeneratedClass>{
+abstract ControlRigBlueprintGeneratedClassPtr(ucpp.Ptr<ControlRigBlueprintGeneratedClass>) from ucpp.Ptr<ControlRigBlueprintGeneratedClass> to ucpp.Ptr<ControlRigBlueprintGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigBlueprintGeneratedClass): ControlRigBlueprintGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

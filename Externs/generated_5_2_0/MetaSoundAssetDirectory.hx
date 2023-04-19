@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetaSoundAssetDirectory")
 @:include("MetasoundAssetSubsystem.h")
-@:structAccess
+@:valueType
 extern class MetaSoundAssetDirectory {
 	public var Directory: DirectoryPath;
 

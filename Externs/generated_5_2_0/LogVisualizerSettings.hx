@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULogVisualizerSettings")
 @:include("LogVisualizerSettings.h")
-@:structAccess
+@:valueType
 extern class LogVisualizerSettings extends Object {
 	public var bIgnoreTrivialLogs: Bool;
-	public var TrivialLogsThreshold: cpp.Int32;
+	public var TrivialLogsThreshold: ucpp.num.Int32;
 	public var bStickToRecentData: Bool;
 	public var bResetDataWithNewSession: Bool;
 	public var bShowHistogramLabelsOutside: Bool;
-	public var DefaultCameraDistance: cpp.Float32;
+	public var DefaultCameraDistance: ucpp.num.Float32;
 	public var bSearchInsideLogs: Bool;
 	public var bUseFilterVolumes: Bool;
 	public var GraphsBackgroundColor: Color;
@@ -21,10 +21,10 @@ extern class LogVisualizerSettings extends Object {
 	public var bLogNavOctreeOnStop: Bool;
 	public var bForceUniqueLogNames: Bool;
 	@:protected public var PersistentFilters: VisualLoggerFiltersData;
-	@:protected public var DebugMeshMaterialFakeLight: cpp.Star<Material>;
+	@:protected public var DebugMeshMaterialFakeLight: ucpp.Ptr<Material>;
 	@:protected public var DebugMeshMaterialFakeLightName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,16 +32,16 @@ extern class LogVisualizerSettings extends Object {
 abstract ConstLogVisualizerSettings(LogVisualizerSettings) from LogVisualizerSettings {
 	public extern var bIgnoreTrivialLogs(get, never): Bool;
 	public inline extern function get_bIgnoreTrivialLogs(): Bool return this.bIgnoreTrivialLogs;
-	public extern var TrivialLogsThreshold(get, never): cpp.Int32;
-	public inline extern function get_TrivialLogsThreshold(): cpp.Int32 return this.TrivialLogsThreshold;
+	public extern var TrivialLogsThreshold(get, never): ucpp.num.Int32;
+	public inline extern function get_TrivialLogsThreshold(): ucpp.num.Int32 return this.TrivialLogsThreshold;
 	public extern var bStickToRecentData(get, never): Bool;
 	public inline extern function get_bStickToRecentData(): Bool return this.bStickToRecentData;
 	public extern var bResetDataWithNewSession(get, never): Bool;
 	public inline extern function get_bResetDataWithNewSession(): Bool return this.bResetDataWithNewSession;
 	public extern var bShowHistogramLabelsOutside(get, never): Bool;
 	public inline extern function get_bShowHistogramLabelsOutside(): Bool return this.bShowHistogramLabelsOutside;
-	public extern var DefaultCameraDistance(get, never): cpp.Float32;
-	public inline extern function get_DefaultCameraDistance(): cpp.Float32 return this.DefaultCameraDistance;
+	public extern var DefaultCameraDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultCameraDistance(): ucpp.num.Float32 return this.DefaultCameraDistance;
 	public extern var bSearchInsideLogs(get, never): Bool;
 	public inline extern function get_bSearchInsideLogs(): Bool return this.bSearchInsideLogs;
 	public extern var bUseFilterVolumes(get, never): Bool;
@@ -65,7 +65,7 @@ abstract ConstLogVisualizerSettings(LogVisualizerSettings) from LogVisualizerSet
 @:forward
 @:nativeGen
 @:native("LogVisualizerSettings*")
-abstract LogVisualizerSettingsPtr(cpp.Star<LogVisualizerSettings>) from cpp.Star<LogVisualizerSettings> to cpp.Star<LogVisualizerSettings>{
+abstract LogVisualizerSettingsPtr(ucpp.Ptr<LogVisualizerSettings>) from ucpp.Ptr<LogVisualizerSettings> to ucpp.Ptr<LogVisualizerSettings>{
 	@:from
 	public static extern inline function fromValue(v: LogVisualizerSettings): LogVisualizerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

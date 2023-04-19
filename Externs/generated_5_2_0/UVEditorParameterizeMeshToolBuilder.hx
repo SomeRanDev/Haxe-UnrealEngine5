@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorParameterizeMeshToolBuilder")
 @:include("UVEditorParameterizeMeshTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorParameterizeMeshToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorParameterizeMeshToolBuilder(UVEditorParameterizeMeshToolBu
 @:forward
 @:nativeGen
 @:native("UVEditorParameterizeMeshToolBuilder*")
-abstract UVEditorParameterizeMeshToolBuilderPtr(cpp.Star<UVEditorParameterizeMeshToolBuilder>) from cpp.Star<UVEditorParameterizeMeshToolBuilder> to cpp.Star<UVEditorParameterizeMeshToolBuilder>{
+abstract UVEditorParameterizeMeshToolBuilderPtr(ucpp.Ptr<UVEditorParameterizeMeshToolBuilder>) from ucpp.Ptr<UVEditorParameterizeMeshToolBuilder> to ucpp.Ptr<UVEditorParameterizeMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorParameterizeMeshToolBuilder): UVEditorParameterizeMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

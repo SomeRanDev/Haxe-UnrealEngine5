@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionStreamingPolicy")
 @:include("WorldPartition/WorldPartitionStreamingPolicy.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionStreamingPolicy extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionStreamingPolicy(WorldPartitionStreamingPolicy) from 
 @:forward
 @:nativeGen
 @:native("WorldPartitionStreamingPolicy*")
-abstract WorldPartitionStreamingPolicyPtr(cpp.Star<WorldPartitionStreamingPolicy>) from cpp.Star<WorldPartitionStreamingPolicy> to cpp.Star<WorldPartitionStreamingPolicy>{
+abstract WorldPartitionStreamingPolicyPtr(ucpp.Ptr<WorldPartitionStreamingPolicy>) from ucpp.Ptr<WorldPartitionStreamingPolicy> to ucpp.Ptr<WorldPartitionStreamingPolicy>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionStreamingPolicy): WorldPartitionStreamingPolicyPtr {
 		return untyped __cpp__("&({0})", v);

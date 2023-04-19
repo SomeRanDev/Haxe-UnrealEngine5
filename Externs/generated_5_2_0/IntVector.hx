@@ -3,12 +3,12 @@ package ue;
 
 @:native("FIntVector")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class IntVector {
-	public var X: cpp.Int32;
-	public var Y: cpp.Int32;
-	public var Z: cpp.Int32;
+	public var X: ucpp.num.Int32;
+	public var Y: ucpp.num.Int32;
+	public var Z: ucpp.num.Int32;
 
 	@:native("FIntVector") public function new();
-	@:native("FIntVector") public static function make(X: cpp.Int32, Y: cpp.Int32, Z: cpp.Int32): IntVector ;
+	@:native("FIntVector") public static function make(X: ucpp.num.Int32, Y: ucpp.num.Int32, Z: ucpp.num.Int32): IntVector ;
 }

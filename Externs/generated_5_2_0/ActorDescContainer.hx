@@ -3,24 +3,24 @@ package ue;
 
 @:native("UActorDescContainer")
 @:include("WorldPartition/ActorDescContainer.h")
-@:structAccess
+@:valueType
 extern class ActorDescContainer extends Object {
-	public var World: cpp.Star<World>;
+	public var World: ucpp.Ptr<World>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstActorDescContainer(ActorDescContainer) from ActorDescContainer {
-	public extern var World(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_World(): cpp.Star<World.ConstWorld> return this.World;
+	public extern var World(get, never): ucpp.Ptr<World.ConstWorld>;
+	public inline extern function get_World(): ucpp.Ptr<World.ConstWorld> return this.World;
 }
 
 @:forward
 @:nativeGen
 @:native("ActorDescContainer*")
-abstract ActorDescContainerPtr(cpp.Star<ActorDescContainer>) from cpp.Star<ActorDescContainer> to cpp.Star<ActorDescContainer>{
+abstract ActorDescContainerPtr(ucpp.Ptr<ActorDescContainer>) from ucpp.Ptr<ActorDescContainer> to ucpp.Ptr<ActorDescContainer>{
 	@:from
 	public static extern inline function fromValue(v: ActorDescContainer): ActorDescContainerPtr {
 		return untyped __cpp__("&({0})", v);

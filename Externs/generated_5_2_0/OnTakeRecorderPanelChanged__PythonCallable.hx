@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnTakeRecorderPanelChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnTakeRecorderPanelChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnTakeRecorderPanelChanged__PythonCallable(OnTakeRecorderPanelChan
 @:forward
 @:nativeGen
 @:native("OnTakeRecorderPanelChanged__PythonCallable*")
-abstract OnTakeRecorderPanelChanged__PythonCallablePtr(cpp.Star<OnTakeRecorderPanelChanged__PythonCallable>) from cpp.Star<OnTakeRecorderPanelChanged__PythonCallable> to cpp.Star<OnTakeRecorderPanelChanged__PythonCallable>{
+abstract OnTakeRecorderPanelChanged__PythonCallablePtr(ucpp.Ptr<OnTakeRecorderPanelChanged__PythonCallable>) from ucpp.Ptr<OnTakeRecorderPanelChanged__PythonCallable> to ucpp.Ptr<OnTakeRecorderPanelChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnTakeRecorderPanelChanged__PythonCallable): OnTakeRecorderPanelChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

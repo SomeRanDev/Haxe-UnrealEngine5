@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMetaSoundBaseFactory")
 @:include("MetasoundFactory.h")
-@:structAccess
+@:valueType
 extern class MetaSoundBaseFactory extends Factory {
-	public var ReferencedMetaSoundObject: cpp.Star<Object>;
+	public var ReferencedMetaSoundObject: ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMetaSoundBaseFactory(MetaSoundBaseFactory) from MetaSoundBaseFactory {
-	public extern var ReferencedMetaSoundObject(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_ReferencedMetaSoundObject(): cpp.Star<Object.ConstObject> return this.ReferencedMetaSoundObject;
+	public extern var ReferencedMetaSoundObject(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_ReferencedMetaSoundObject(): ucpp.Ptr<Object.ConstObject> return this.ReferencedMetaSoundObject;
 }
 
 @:forward
 @:nativeGen
 @:native("MetaSoundBaseFactory*")
-abstract MetaSoundBaseFactoryPtr(cpp.Star<MetaSoundBaseFactory>) from cpp.Star<MetaSoundBaseFactory> to cpp.Star<MetaSoundBaseFactory>{
+abstract MetaSoundBaseFactoryPtr(ucpp.Ptr<MetaSoundBaseFactory>) from ucpp.Ptr<MetaSoundBaseFactory> to ucpp.Ptr<MetaSoundBaseFactory>{
 	@:from
 	public static extern inline function fromValue(v: MetaSoundBaseFactory): MetaSoundBaseFactoryPtr {
 		return untyped __cpp__("&({0})", v);

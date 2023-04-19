@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEnvQuery")
 @:include("EnvironmentQuery/EnvQuery.h")
-@:structAccess
+@:valueType
 extern class EnvQuery extends DataAsset {
 	@:protected public var QueryName: FName;
-	@:protected public var Options: TArray<cpp.Star<EnvQueryOption>>;
+	@:protected public var Options: TArray<ucpp.Ptr<EnvQueryOption>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstEnvQuery(EnvQuery) from EnvQuery {
 @:forward
 @:nativeGen
 @:native("EnvQuery*")
-abstract EnvQueryPtr(cpp.Star<EnvQuery>) from cpp.Star<EnvQuery> to cpp.Star<EnvQuery>{
+abstract EnvQueryPtr(ucpp.Ptr<EnvQuery>) from ucpp.Ptr<EnvQuery> to ucpp.Ptr<EnvQuery>{
 	@:from
 	public static extern inline function fromValue(v: EnvQuery): EnvQueryPtr {
 		return untyped __cpp__("&({0})", v);

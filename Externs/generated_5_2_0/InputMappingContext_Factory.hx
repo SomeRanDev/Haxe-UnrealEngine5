@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputMappingContext_Factory")
 @:include("InputEditorModule.h")
-@:structAccess
+@:valueType
 extern class InputMappingContext_Factory extends Factory {
 	public var InputMappingContextClass: TSubclassOf<InputMappingContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputMappingContext_Factory(InputMappingContext_Factory) from Inpu
 @:forward
 @:nativeGen
 @:native("InputMappingContext_Factory*")
-abstract InputMappingContext_FactoryPtr(cpp.Star<InputMappingContext_Factory>) from cpp.Star<InputMappingContext_Factory> to cpp.Star<InputMappingContext_Factory>{
+abstract InputMappingContext_FactoryPtr(ucpp.Ptr<InputMappingContext_Factory>) from ucpp.Ptr<InputMappingContext_Factory> to ucpp.Ptr<InputMappingContext_Factory>{
 	@:from
 	public static extern inline function fromValue(v: InputMappingContext_Factory): InputMappingContext_FactoryPtr {
 		return untyped __cpp__("&({0})", v);

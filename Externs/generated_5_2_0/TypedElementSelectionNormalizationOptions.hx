@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTypedElementSelectionNormalizationOptions")
 @:include("Elements/Framework/TypedElementSelectionSet.h")
-@:structAccess
+@:valueType
 extern class TypedElementSelectionNormalizationOptions {
 	private var bExpandGroups: Bool;
 	private var bFollowAttachment: Bool;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWidgetCompilerRule")
 @:include("WidgetCompilerRule.h")
-@:structAccess
+@:valueType
 extern class WidgetCompilerRule extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWidgetCompilerRule(WidgetCompilerRule) from WidgetCompilerRule {
 @:forward
 @:nativeGen
 @:native("WidgetCompilerRule*")
-abstract WidgetCompilerRulePtr(cpp.Star<WidgetCompilerRule>) from cpp.Star<WidgetCompilerRule> to cpp.Star<WidgetCompilerRule>{
+abstract WidgetCompilerRulePtr(ucpp.Ptr<WidgetCompilerRule>) from ucpp.Ptr<WidgetCompilerRule> to ucpp.Ptr<WidgetCompilerRule>{
 	@:from
 	public static extern inline function fromValue(v: WidgetCompilerRule): WidgetCompilerRulePtr {
 		return untyped __cpp__("&({0})", v);

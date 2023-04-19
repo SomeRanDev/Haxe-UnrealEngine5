@@ -3,23 +3,23 @@ package ue;
 
 @:native("UAssetTagsSubsystem")
 @:include("AssetTagsSubsystem.h")
-@:structAccess
+@:valueType
 extern class AssetTagsSubsystem extends EngineSubsystem {
 	public function ReparentCollection(Name: FName, NewParentName: FName): Bool;
 	public function RenameCollection(Name: FName, NewName: FName): Bool;
-	public function RemoveAssetsFromCollection(Name: FName, AssetPathNames: cpp.Reference<TArray<FName>>): Bool;
-	public function RemoveAssetPtrsFromCollection(Name: FName, AssetPtrs: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
-	public function RemoveAssetPtrFromCollection(Name: FName, AssetPtr: cpp.Star<Object.ConstObject>): Bool;
+	public function RemoveAssetsFromCollection(Name: FName, AssetPathNames: ucpp.Ref<TArray<FName>>): Bool;
+	public function RemoveAssetPtrsFromCollection(Name: FName, AssetPtrs: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Bool;
+	public function RemoveAssetPtrFromCollection(Name: FName, AssetPtr: ucpp.Ptr<Object.ConstObject>): Bool;
 	public function RemoveAssetFromCollection(Name: FName, AssetPathName: FName): Bool;
-	public function RemoveAssetDatasFromCollection(Name: FName, AssetDatas: cpp.Reference<TArray<AssetData>>): Bool;
-	public function RemoveAssetDataFromCollection(Name: FName, AssetData: cpp.Reference<AssetData>): Bool;
-	public function K2_RemoveAssetsFromCollection(Name: FName, AssetPaths: cpp.Reference<TArray<SoftObjectPath>>): Bool;
-	public function K2_RemoveAssetFromCollection(Name: FName, AssetPath: cpp.Reference<SoftObjectPath>): Bool;
-	public function K2_GetCollectionsContainingAsset(AssetPath: cpp.Reference<SoftObjectPath>): TArray<FName>;
-	public function K2_AddAssetToCollection(Name: FName, AssetPath: cpp.Reference<SoftObjectPath>): Bool;
-	public function K2_AddAssetsToCollection(Name: FName, AssetPaths: cpp.Reference<TArray<SoftObjectPath>>): Bool;
-	public function GetCollectionsContainingAssetPtr(AssetPtr: cpp.Star<Object.ConstObject>): TArray<FName>;
-	public function GetCollectionsContainingAssetData(AssetData: cpp.Reference<AssetData>): TArray<FName>;
+	public function RemoveAssetDatasFromCollection(Name: FName, AssetDatas: ucpp.Ref<TArray<AssetData>>): Bool;
+	public function RemoveAssetDataFromCollection(Name: FName, AssetData: ucpp.Ref<AssetData>): Bool;
+	public function K2_RemoveAssetsFromCollection(Name: FName, AssetPaths: ucpp.Ref<TArray<SoftObjectPath>>): Bool;
+	public function K2_RemoveAssetFromCollection(Name: FName, AssetPath: ucpp.Ref<SoftObjectPath>): Bool;
+	public function K2_GetCollectionsContainingAsset(AssetPath: ucpp.Ref<SoftObjectPath>): TArray<FName>;
+	public function K2_AddAssetToCollection(Name: FName, AssetPath: ucpp.Ref<SoftObjectPath>): Bool;
+	public function K2_AddAssetsToCollection(Name: FName, AssetPaths: ucpp.Ref<TArray<SoftObjectPath>>): Bool;
+	public function GetCollectionsContainingAssetPtr(AssetPtr: ucpp.Ptr<Object.ConstObject>): TArray<FName>;
+	public function GetCollectionsContainingAssetData(AssetData: ucpp.Ref<AssetData>): TArray<FName>;
 	public function GetCollectionsContainingAsset(AssetPathName: FName): TArray<FName>;
 	public function GetCollections(): TArray<FName>;
 	public function GetAssetsInCollection(Name: FName): TArray<AssetData>;
@@ -28,13 +28,13 @@ extern class AssetTagsSubsystem extends EngineSubsystem {
 	public function CreateCollection(Name: FName, ShareType: ECollectionScriptingShareType): Bool;
 	public function CollectionExists(Name: FName): Bool;
 	public function AddAssetToCollection(Name: FName, AssetPathName: FName): Bool;
-	public function AddAssetsToCollection(Name: FName, AssetPathNames: cpp.Reference<TArray<FName>>): Bool;
-	public function AddAssetPtrToCollection(Name: FName, AssetPtr: cpp.Star<Object.ConstObject>): Bool;
-	public function AddAssetPtrsToCollection(Name: FName, AssetPtrs: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
-	public function AddAssetDataToCollection(Name: FName, AssetData: cpp.Reference<AssetData>): Bool;
-	public function AddAssetDatasToCollection(Name: FName, AssetDatas: cpp.Reference<TArray<AssetData>>): Bool;
+	public function AddAssetsToCollection(Name: FName, AssetPathNames: ucpp.Ref<TArray<FName>>): Bool;
+	public function AddAssetPtrToCollection(Name: FName, AssetPtr: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AddAssetPtrsToCollection(Name: FName, AssetPtrs: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Bool;
+	public function AddAssetDataToCollection(Name: FName, AssetData: ucpp.Ref<AssetData>): Bool;
+	public function AddAssetDatasToCollection(Name: FName, AssetDatas: ucpp.Ref<TArray<AssetData>>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -45,7 +45,7 @@ abstract ConstAssetTagsSubsystem(AssetTagsSubsystem) from AssetTagsSubsystem {
 @:forward
 @:nativeGen
 @:native("AssetTagsSubsystem*")
-abstract AssetTagsSubsystemPtr(cpp.Star<AssetTagsSubsystem>) from cpp.Star<AssetTagsSubsystem> to cpp.Star<AssetTagsSubsystem>{
+abstract AssetTagsSubsystemPtr(ucpp.Ptr<AssetTagsSubsystem>) from ucpp.Ptr<AssetTagsSubsystem> to ucpp.Ptr<AssetTagsSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: AssetTagsSubsystem): AssetTagsSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInitialActiveSoundParams")
 @:include("Components/AudioComponent.h")
-@:structAccess
+@:valueType
 extern class InitialActiveSoundParams extends Object {
 	public var AudioParams: TArray<AudioParameter>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInitialActiveSoundParams(InitialActiveSoundParams) from InitialAct
 @:forward
 @:nativeGen
 @:native("InitialActiveSoundParams*")
-abstract InitialActiveSoundParamsPtr(cpp.Star<InitialActiveSoundParams>) from cpp.Star<InitialActiveSoundParams> to cpp.Star<InitialActiveSoundParams>{
+abstract InitialActiveSoundParamsPtr(ucpp.Ptr<InitialActiveSoundParams>) from ucpp.Ptr<InitialActiveSoundParams> to ucpp.Ptr<InitialActiveSoundParams>{
 	@:from
 	public static extern inline function fromValue(v: InitialActiveSoundParams): InitialActiveSoundParamsPtr {
 		return untyped __cpp__("&({0})", v);

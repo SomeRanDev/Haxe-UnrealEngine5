@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPaperTileInfo")
 @:include("PaperTileLayer.h")
-@:structAccess
+@:valueType
 extern class PaperTileInfo {
-	public var TileSet: cpp.Star<PaperTileSet>;
-	public var PackedTileIndex: cpp.Int32;
+	public var TileSet: ucpp.Ptr<PaperTileSet>;
+	public var PackedTileIndex: ucpp.num.Int32;
 
 	@:native("FPaperTileInfo") public function new();
-	@:native("FPaperTileInfo") public static function make(TileSet: cpp.Star<PaperTileSet>, PackedTileIndex: cpp.Int32): PaperTileInfo ;
+	@:native("FPaperTileInfo") public static function make(TileSet: ucpp.Ptr<PaperTileSet>, PackedTileIndex: ucpp.num.Int32): PaperTileInfo ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionEditorPerProjectUserSettings")
 @:include("WorldPartition/WorldPartitionEditorPerProjectUserSettings.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionEditorPerProjectUserSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionEditorPerProjectUserSettings(WorldPartitionEditorPer
 @:forward
 @:nativeGen
 @:native("WorldPartitionEditorPerProjectUserSettings*")
-abstract WorldPartitionEditorPerProjectUserSettingsPtr(cpp.Star<WorldPartitionEditorPerProjectUserSettings>) from cpp.Star<WorldPartitionEditorPerProjectUserSettings> to cpp.Star<WorldPartitionEditorPerProjectUserSettings>{
+abstract WorldPartitionEditorPerProjectUserSettingsPtr(ucpp.Ptr<WorldPartitionEditorPerProjectUserSettings>) from ucpp.Ptr<WorldPartitionEditorPerProjectUserSettings> to ucpp.Ptr<WorldPartitionEditorPerProjectUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionEditorPerProjectUserSettings): WorldPartitionEditorPerProjectUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("FDistributionLookupTable")
 @:include("Distributions/Distribution.h")
-@:structAccess
+@:valueType
 extern class DistributionLookupTable {
-	public var TimeScale: cpp.Float32;
-	public var TimeBias: cpp.Float32;
-	public var Values: TArray<cpp.Float32>;
-	public var Op: cpp.UInt8;
-	public var EntryCount: cpp.UInt8;
-	public var EntryStride: cpp.UInt8;
-	public var SubEntryStride: cpp.UInt8;
-	public var LockFlag: cpp.UInt8;
+	public var TimeScale: ucpp.num.Float32;
+	public var TimeBias: ucpp.num.Float32;
+	public var Values: TArray<ucpp.num.Float32>;
+	public var Op: ucpp.num.UInt8;
+	public var EntryCount: ucpp.num.UInt8;
+	public var EntryStride: ucpp.num.UInt8;
+	public var SubEntryStride: ucpp.num.UInt8;
+	public var LockFlag: ucpp.num.UInt8;
 
 	@:native("FDistributionLookupTable") public function new();
 }

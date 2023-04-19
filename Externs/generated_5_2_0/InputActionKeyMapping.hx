@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInputActionKeyMapping")
 @:include("GameFramework/PlayerInput.h")
-@:structAccess
+@:valueType
 extern class InputActionKeyMapping {
 	public var ActionName: FName;
 	public var bShift: Bool;

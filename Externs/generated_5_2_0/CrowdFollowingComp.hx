@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCrowdFollowingComponent")
 @:include("Navigation/CrowdFollowingComponent.h")
-@:structAccess
+@:valueType
 extern class CrowdFollowingComp extends PathFollowingComp {
 	public var CrowdAgentMoveDirection: Vector;
 
 	public function SuspendCrowdSteering(bSuspend: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstCrowdFollowingComp(CrowdFollowingComp) from CrowdFollowingComp {
 @:forward
 @:nativeGen
 @:native("CrowdFollowingComp*")
-abstract CrowdFollowingCompPtr(cpp.Star<CrowdFollowingComp>) from cpp.Star<CrowdFollowingComp> to cpp.Star<CrowdFollowingComp>{
+abstract CrowdFollowingCompPtr(ucpp.Ptr<CrowdFollowingComp>) from ucpp.Ptr<CrowdFollowingComp> to ucpp.Ptr<CrowdFollowingComp>{
 	@:from
 	public static extern inline function fromValue(v: CrowdFollowingComp): CrowdFollowingCompPtr {
 		return untyped __cpp__("&({0})", v);

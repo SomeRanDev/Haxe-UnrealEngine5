@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMenuOpenChangedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMenuOpenChangedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMenuOpenChangedEvent__PythonCallable(OnMenuOpenChangedEvent__Pyt
 @:forward
 @:nativeGen
 @:native("OnMenuOpenChangedEvent__PythonCallable*")
-abstract OnMenuOpenChangedEvent__PythonCallablePtr(cpp.Star<OnMenuOpenChangedEvent__PythonCallable>) from cpp.Star<OnMenuOpenChangedEvent__PythonCallable> to cpp.Star<OnMenuOpenChangedEvent__PythonCallable>{
+abstract OnMenuOpenChangedEvent__PythonCallablePtr(ucpp.Ptr<OnMenuOpenChangedEvent__PythonCallable>) from ucpp.Ptr<OnMenuOpenChangedEvent__PythonCallable> to ucpp.Ptr<OnMenuOpenChangedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMenuOpenChangedEvent__PythonCallable): OnMenuOpenChangedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

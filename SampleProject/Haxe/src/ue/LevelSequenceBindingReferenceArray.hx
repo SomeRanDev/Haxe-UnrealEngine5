@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequenceBindingReferenceArray")
 @:include("LevelSequenceBindingReference.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceBindingReferenceArray {
 	public var References: TArray<LevelSequenceBindingReference>;
 

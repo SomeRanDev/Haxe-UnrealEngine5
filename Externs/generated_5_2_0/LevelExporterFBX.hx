@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelExporterFBX")
 @:include("Exporters/LevelExporterFBX.h")
-@:structAccess
+@:valueType
 extern class LevelExporterFBX extends ExporterFBX {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelExporterFBX(LevelExporterFBX) from LevelExporterFBX {
 @:forward
 @:nativeGen
 @:native("LevelExporterFBX*")
-abstract LevelExporterFBXPtr(cpp.Star<LevelExporterFBX>) from cpp.Star<LevelExporterFBX> to cpp.Star<LevelExporterFBX>{
+abstract LevelExporterFBXPtr(ucpp.Ptr<LevelExporterFBX>) from ucpp.Ptr<LevelExporterFBX> to ucpp.Ptr<LevelExporterFBX>{
 	@:from
 	public static extern inline function fromValue(v: LevelExporterFBX): LevelExporterFBXPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("FInputActionInstance")
 @:include("InputAction.h")
-@:structAccess
+@:valueType
 extern class InputActionInstance {
-	private var SourceAction: cpp.Star<InputAction>;
+	private var SourceAction: ucpp.Ptr<InputAction>;
 	@:protected public var TriggerEvent: ETriggerEvent;
-	@:protected public var LastTriggeredWorldTime: cpp.Float32;
-	@:protected public var Triggers: TArray<cpp.Star<InputTrigger>>;
-	@:protected public var Modifiers: TArray<cpp.Star<InputModifier>>;
-	@:protected public var ElapsedProcessedTime: cpp.Float32;
-	@:protected public var ElapsedTriggeredTime: cpp.Float32;
+	@:protected public var LastTriggeredWorldTime: ucpp.num.Float32;
+	@:protected public var Triggers: TArray<ucpp.Ptr<InputTrigger>>;
+	@:protected public var Modifiers: TArray<ucpp.Ptr<InputModifier>>;
+	@:protected public var ElapsedProcessedTime: ucpp.num.Float32;
+	@:protected public var ElapsedTriggeredTime: ucpp.num.Float32;
 
 	@:native("FInputActionInstance") public function new();
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectReplicationBridgePrioritizerConfig")
 @:include("Iris/ReplicationSystem/ObjectReplicationBridgeConfig.h")
-@:structAccess
+@:valueType
 extern class ObjectReplicationBridgePrioritizerConfig {
 	public var ClassName: FName;
 	public var PrioritizerName: FName;

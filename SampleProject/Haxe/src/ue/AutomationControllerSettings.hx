@@ -3,19 +3,21 @@ package ue;
 
 @:native("UAutomationControllerSettings")
 @:include("AutomationControllerSettings.h")
-@:structAccess
+@:valueType
 extern class AutomationControllerSettings extends Object {
 	public var Groups: TArray<AutomatedTestGroup>;
 	public var bSuppressLogErrors: Bool;
 	public var bSuppressLogWarnings: Bool;
 	public var bElevateLogWarningsToErrors: Bool;
+	public var SuppressedLogCategories: TArray<FString>;
+	public var bKeepPIEOpen: Bool;
 	private var bTreatLogWarningsAsTestErrors: Bool;
-	public var CheckTestIntervalSeconds: cpp.Float32;
-	public var GameInstanceLostTimerSeconds: cpp.Float32;
+	public var CheckTestIntervalSeconds: ucpp.num.Float32;
+	public var GameInstanceLostTimerSeconds: ucpp.num.Float32;
 	public var TelemetryDirectory: FString;
 	public var bResetTelemetryStorageOnNewSession: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,10 +31,14 @@ abstract ConstAutomationControllerSettings(AutomationControllerSettings) from Au
 	public inline extern function get_bSuppressLogWarnings(): Bool return this.bSuppressLogWarnings;
 	public extern var bElevateLogWarningsToErrors(get, never): Bool;
 	public inline extern function get_bElevateLogWarningsToErrors(): Bool return this.bElevateLogWarningsToErrors;
-	public extern var CheckTestIntervalSeconds(get, never): cpp.Float32;
-	public inline extern function get_CheckTestIntervalSeconds(): cpp.Float32 return this.CheckTestIntervalSeconds;
-	public extern var GameInstanceLostTimerSeconds(get, never): cpp.Float32;
-	public inline extern function get_GameInstanceLostTimerSeconds(): cpp.Float32 return this.GameInstanceLostTimerSeconds;
+	public extern var SuppressedLogCategories(get, never): TArray<FString>;
+	public inline extern function get_SuppressedLogCategories(): TArray<FString> return this.SuppressedLogCategories;
+	public extern var bKeepPIEOpen(get, never): Bool;
+	public inline extern function get_bKeepPIEOpen(): Bool return this.bKeepPIEOpen;
+	public extern var CheckTestIntervalSeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_CheckTestIntervalSeconds(): ucpp.num.Float32 return this.CheckTestIntervalSeconds;
+	public extern var GameInstanceLostTimerSeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_GameInstanceLostTimerSeconds(): ucpp.num.Float32 return this.GameInstanceLostTimerSeconds;
 	public extern var TelemetryDirectory(get, never): FString;
 	public inline extern function get_TelemetryDirectory(): FString return this.TelemetryDirectory;
 	public extern var bResetTelemetryStorageOnNewSession(get, never): Bool;
@@ -42,7 +48,7 @@ abstract ConstAutomationControllerSettings(AutomationControllerSettings) from Au
 @:forward
 @:nativeGen
 @:native("AutomationControllerSettings*")
-abstract AutomationControllerSettingsPtr(cpp.Star<AutomationControllerSettings>) from cpp.Star<AutomationControllerSettings> to cpp.Star<AutomationControllerSettings>{
+abstract AutomationControllerSettingsPtr(ucpp.Ptr<AutomationControllerSettings>) from ucpp.Ptr<AutomationControllerSettings> to ucpp.Ptr<AutomationControllerSettings>{
 	@:from
 	public static extern inline function fromValue(v: AutomationControllerSettings): AutomationControllerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

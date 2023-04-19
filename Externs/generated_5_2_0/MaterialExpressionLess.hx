@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionLess")
 @:include("Materials/MaterialExpressionBinaryOp.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLess extends MaterialExpressionBinaryOp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionLess(MaterialExpressionLess) from MaterialExpres
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLess*")
-abstract MaterialExpressionLessPtr(cpp.Star<MaterialExpressionLess>) from cpp.Star<MaterialExpressionLess> to cpp.Star<MaterialExpressionLess>{
+abstract MaterialExpressionLessPtr(ucpp.Ptr<MaterialExpressionLess>) from ucpp.Ptr<MaterialExpressionLess> to ucpp.Ptr<MaterialExpressionLess>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLess): MaterialExpressionLessPtr {
 		return untyped __cpp__("&({0})", v);

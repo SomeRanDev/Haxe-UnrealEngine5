@@ -3,33 +3,33 @@ package ue;
 
 @:native("UMeshSelectionSet")
 @:include("SelectionSet.h")
-@:structAccess
+@:valueType
 extern class MeshSelectionSet extends SelectionSet {
-	public var Vertices: TArray<cpp.Int32>;
-	public var Edges: TArray<cpp.Int32>;
-	public var Faces: TArray<cpp.Int32>;
-	public var Groups: TArray<cpp.Int32>;
+	public var Vertices: TArray<ucpp.num.Int32>;
+	public var Edges: TArray<ucpp.num.Int32>;
+	public var Faces: TArray<ucpp.num.Int32>;
+	public var Groups: TArray<ucpp.num.Int32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshSelectionSet(MeshSelectionSet) from MeshSelectionSet {
-	public extern var Vertices(get, never): TArray<cpp.Int32>;
-	public inline extern function get_Vertices(): TArray<cpp.Int32> return this.Vertices;
-	public extern var Edges(get, never): TArray<cpp.Int32>;
-	public inline extern function get_Edges(): TArray<cpp.Int32> return this.Edges;
-	public extern var Faces(get, never): TArray<cpp.Int32>;
-	public inline extern function get_Faces(): TArray<cpp.Int32> return this.Faces;
-	public extern var Groups(get, never): TArray<cpp.Int32>;
-	public inline extern function get_Groups(): TArray<cpp.Int32> return this.Groups;
+	public extern var Vertices(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_Vertices(): TArray<ucpp.num.Int32> return this.Vertices;
+	public extern var Edges(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_Edges(): TArray<ucpp.num.Int32> return this.Edges;
+	public extern var Faces(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_Faces(): TArray<ucpp.num.Int32> return this.Faces;
+	public extern var Groups(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_Groups(): TArray<ucpp.num.Int32> return this.Groups;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshSelectionSet*")
-abstract MeshSelectionSetPtr(cpp.Star<MeshSelectionSet>) from cpp.Star<MeshSelectionSet> to cpp.Star<MeshSelectionSet>{
+abstract MeshSelectionSetPtr(ucpp.Ptr<MeshSelectionSet>) from ucpp.Ptr<MeshSelectionSet> to ucpp.Ptr<MeshSelectionSet>{
 	@:from
 	public static extern inline function fromValue(v: MeshSelectionSet): MeshSelectionSetPtr {
 		return untyped __cpp__("&({0})", v);

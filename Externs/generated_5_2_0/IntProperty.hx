@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UIntProperty")
-@:structAccess
+@:valueType
 extern class IntProperty extends NumericProperty {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstIntProperty(IntProperty) from IntProperty {
 @:forward
 @:nativeGen
 @:native("IntProperty*")
-abstract IntPropertyPtr(cpp.Star<IntProperty>) from cpp.Star<IntProperty> to cpp.Star<IntProperty>{
+abstract IntPropertyPtr(ucpp.Ptr<IntProperty>) from ucpp.Ptr<IntProperty> to ucpp.Ptr<IntProperty>{
 	@:from
 	public static extern inline function fromValue(v: IntProperty): IntPropertyPtr {
 		return untyped __cpp__("&({0})", v);

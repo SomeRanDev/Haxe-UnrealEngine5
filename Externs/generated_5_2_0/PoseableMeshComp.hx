@@ -3,9 +3,9 @@ package ue;
 
 @:native("UPoseableMeshComponent")
 @:include("Components/PoseableMeshComponent.h")
-@:structAccess
+@:valueType
 extern class PoseableMeshComp extends SkinnedMeshComp {
-	public function SetBoneTransformByName(BoneName: FName, InTransform: cpp.Reference<Transform>, BoneSpace: TEnumAsByte<EBoneSpaces>): Void;
+	public function SetBoneTransformByName(BoneName: FName, InTransform: ucpp.Ref<Transform>, BoneSpace: TEnumAsByte<EBoneSpaces>): Void;
 	public function SetBoneScaleByName(BoneName: FName, InScale3D: Vector, BoneSpace: TEnumAsByte<EBoneSpaces>): Void;
 	public function SetBoneRotationByName(BoneName: FName, InRotation: Rotator, BoneSpace: TEnumAsByte<EBoneSpaces>): Void;
 	public function SetBoneLocationByName(BoneName: FName, InLocation: Vector, BoneSpace: TEnumAsByte<EBoneSpaces>): Void;
@@ -14,9 +14,9 @@ extern class PoseableMeshComp extends SkinnedMeshComp {
 	public function GetBoneScaleByName(BoneName: FName, BoneSpace: TEnumAsByte<EBoneSpaces>): Vector;
 	public function GetBoneRotationByName(BoneName: FName, BoneSpace: TEnumAsByte<EBoneSpaces>): Rotator;
 	public function GetBoneLocationByName(BoneName: FName, BoneSpace: TEnumAsByte<EBoneSpaces>): Vector;
-	public function CopyPoseFromSkeletalComponent(InComponentToCopy: cpp.Star<SkeletalMeshComp>): Void;
+	public function CopyPoseFromSkeletalComponent(InComponentToCopy: ucpp.Ptr<SkeletalMeshComp>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstPoseableMeshComp(PoseableMeshComp) from PoseableMeshComp {
 @:forward
 @:nativeGen
 @:native("PoseableMeshComp*")
-abstract PoseableMeshCompPtr(cpp.Star<PoseableMeshComp>) from cpp.Star<PoseableMeshComp> to cpp.Star<PoseableMeshComp>{
+abstract PoseableMeshCompPtr(ucpp.Ptr<PoseableMeshComp>) from ucpp.Ptr<PoseableMeshComp> to ucpp.Ptr<PoseableMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: PoseableMeshComp): PoseableMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

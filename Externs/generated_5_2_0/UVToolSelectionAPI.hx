@@ -3,15 +3,15 @@ package ue;
 
 @:native("UUVToolSelectionAPI")
 @:include("Selection/UVToolSelectionAPI.h")
-@:structAccess
+@:valueType
 extern class UVToolSelectionAPI extends UVToolContextObject {
-	@:protected public var Targets: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var MechanicAdapter: cpp.Star<UVEditorMechanicAdapterTool>;
-	@:protected public var HighlightMechanic: cpp.Star<UVToolSelectionHighlightMechanic>;
-	@:protected public var SelectionMechanic: cpp.Star<UVEditorMeshSelectionMechanic>;
-	@:protected public var EmitChangeAPI: cpp.Star<UVToolEmitChangeAPI>;
+	@:protected public var Targets: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var MechanicAdapter: ucpp.Ptr<UVEditorMechanicAdapterTool>;
+	@:protected public var HighlightMechanic: ucpp.Ptr<UVToolSelectionHighlightMechanic>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<UVEditorMeshSelectionMechanic>;
+	@:protected public var EmitChangeAPI: ucpp.Ptr<UVToolEmitChangeAPI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstUVToolSelectionAPI(UVToolSelectionAPI) from UVToolSelectionAPI {
 @:forward
 @:nativeGen
 @:native("UVToolSelectionAPI*")
-abstract UVToolSelectionAPIPtr(cpp.Star<UVToolSelectionAPI>) from cpp.Star<UVToolSelectionAPI> to cpp.Star<UVToolSelectionAPI>{
+abstract UVToolSelectionAPIPtr(ucpp.Ptr<UVToolSelectionAPI>) from ucpp.Ptr<UVToolSelectionAPI> to ucpp.Ptr<UVToolSelectionAPI>{
 	@:from
 	public static extern inline function fromValue(v: UVToolSelectionAPI): UVToolSelectionAPIPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshSelectionMeshEditActions")
 @:include("MeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class MeshSelectionMeshEditActions extends MeshSelectionToolActionPropertySet {
 	public function SmoothBorder(): Void;
 	public function Separate(): Void;
@@ -13,7 +13,7 @@ extern class MeshSelectionMeshEditActions extends MeshSelectionToolActionPropert
 	public function Delete(): Void;
 	public function CreatePolygroup(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstMeshSelectionMeshEditActions(MeshSelectionMeshEditActions) from Me
 @:forward
 @:nativeGen
 @:native("MeshSelectionMeshEditActions*")
-abstract MeshSelectionMeshEditActionsPtr(cpp.Star<MeshSelectionMeshEditActions>) from cpp.Star<MeshSelectionMeshEditActions> to cpp.Star<MeshSelectionMeshEditActions>{
+abstract MeshSelectionMeshEditActionsPtr(ucpp.Ptr<MeshSelectionMeshEditActions>) from ucpp.Ptr<MeshSelectionMeshEditActions> to ucpp.Ptr<MeshSelectionMeshEditActions>{
 	@:from
 	public static extern inline function fromValue(v: MeshSelectionMeshEditActions): MeshSelectionMeshEditActionsPtr {
 		return untyped __cpp__("&({0})", v);

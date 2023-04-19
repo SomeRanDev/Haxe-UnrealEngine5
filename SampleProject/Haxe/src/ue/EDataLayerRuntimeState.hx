@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EDataLayerRuntimeState")
-@:include("WorldPartition/DataLayer/DataLayer.h")
+@:include("WorldPartition/DataLayer/DataLayerInstance.h")
 extern class EDataLayerRuntimeState {
 	static var Unloaded: EDataLayerRuntimeState;
 	static var Loaded: EDataLayerRuntimeState;

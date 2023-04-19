@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNavCollisionCylinder")
 @:include("NavCollision.h")
-@:structAccess
+@:valueType
 extern class NavCollisionCylinder {
 	public var Offset: Vector;
-	public var Radius: cpp.Float32;
-	public var Height: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
+	public var Height: ucpp.num.Float32;
 
 	@:native("FNavCollisionCylinder") public function new();
-	@:native("FNavCollisionCylinder") public static function make(Offset: Vector, Radius: cpp.Float32, Height: cpp.Float32): NavCollisionCylinder ;
+	@:native("FNavCollisionCylinder") public static function make(Offset: Vector, Radius: ucpp.num.Float32, Height: ucpp.num.Float32): NavCollisionCylinder ;
 }

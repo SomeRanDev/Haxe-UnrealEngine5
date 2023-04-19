@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigSequenceFactory")
 @:include("Sequencer/ControlRigSequenceFactory.h")
-@:structAccess
+@:valueType
 extern class ControlRigSequenceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigSequenceFactory(ControlRigSequenceFactory) from ControlR
 @:forward
 @:nativeGen
 @:native("ControlRigSequenceFactory*")
-abstract ControlRigSequenceFactoryPtr(cpp.Star<ControlRigSequenceFactory>) from cpp.Star<ControlRigSequenceFactory> to cpp.Star<ControlRigSequenceFactory>{
+abstract ControlRigSequenceFactoryPtr(ucpp.Ptr<ControlRigSequenceFactory>) from ucpp.Ptr<ControlRigSequenceFactory> to ucpp.Ptr<ControlRigSequenceFactory>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigSequenceFactory): ControlRigSequenceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

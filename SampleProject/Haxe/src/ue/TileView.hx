@@ -3,19 +3,19 @@ package ue;
 
 @:native("UTileView")
 @:include("Components/TileView.h")
-@:structAccess
+@:valueType
 extern class TileView extends ListView {
-	@:protected public var EntryHeight: cpp.Float32;
-	@:protected public var EntryWidth: cpp.Float32;
+	@:protected public var EntryHeight: ucpp.num.Float32;
+	@:protected public var EntryWidth: ucpp.num.Float32;
 	@:protected public var TileAlignment: EListItemAlignment;
 	@:protected public var bWrapHorizontalNavigation: Bool;
 
-	public function SetEntryWidth(NewWidth: cpp.Float32): Void;
-	public function SetEntryHeight(NewHeight: cpp.Float32): Void;
-	public function GetEntryWidth(): cpp.Float32;
-	public function GetEntryHeight(): cpp.Float32;
+	public function SetEntryWidth(NewWidth: ucpp.num.Float32): Void;
+	public function SetEntryHeight(NewHeight: ucpp.num.Float32): Void;
+	public function GetEntryWidth(): ucpp.num.Float32;
+	public function GetEntryHeight(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetEntryWidth, GetEntryHeight)
@@ -26,7 +26,7 @@ abstract ConstTileView(TileView) from TileView {
 @:forward
 @:nativeGen
 @:native("TileView*")
-abstract TileViewPtr(cpp.Star<TileView>) from cpp.Star<TileView> to cpp.Star<TileView>{
+abstract TileViewPtr(ucpp.Ptr<TileView>) from ucpp.Ptr<TileView> to ucpp.Ptr<TileView>{
 	@:from
 	public static extern inline function fromValue(v: TileView): TileViewPtr {
 		return untyped __cpp__("&({0})", v);

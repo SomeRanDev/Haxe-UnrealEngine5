@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDisplaceMeshCommonProperties")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class DisplaceMeshCommonProperties extends InteractiveToolPropertySet {
 	public var DisplacementType: EDisplaceMeshToolDisplaceType;
-	public var DisplaceIntensity: cpp.Float32;
-	public var RandomSeed: cpp.Int32;
+	public var DisplaceIntensity: ucpp.num.Float32;
+	public var RandomSeed: ucpp.num.Int32;
 	public var SubdivisionType: EDisplaceMeshToolSubdivisionType;
-	public var Subdivisions: cpp.Int32;
+	public var Subdivisions: ucpp.num.Int32;
 	public var WeightMap: FName;
 	public var WeightMapsList: TArray<FString>;
 	public var bInvertWeightMap: Bool;
@@ -18,7 +18,7 @@ extern class DisplaceMeshCommonProperties extends InteractiveToolPropertySet {
 
 	public function GetWeightMapsFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,14 +26,14 @@ extern class DisplaceMeshCommonProperties extends InteractiveToolPropertySet {
 abstract ConstDisplaceMeshCommonProperties(DisplaceMeshCommonProperties) from DisplaceMeshCommonProperties {
 	public extern var DisplacementType(get, never): EDisplaceMeshToolDisplaceType;
 	public inline extern function get_DisplacementType(): EDisplaceMeshToolDisplaceType return this.DisplacementType;
-	public extern var DisplaceIntensity(get, never): cpp.Float32;
-	public inline extern function get_DisplaceIntensity(): cpp.Float32 return this.DisplaceIntensity;
-	public extern var RandomSeed(get, never): cpp.Int32;
-	public inline extern function get_RandomSeed(): cpp.Int32 return this.RandomSeed;
+	public extern var DisplaceIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_DisplaceIntensity(): ucpp.num.Float32 return this.DisplaceIntensity;
+	public extern var RandomSeed(get, never): ucpp.num.Int32;
+	public inline extern function get_RandomSeed(): ucpp.num.Int32 return this.RandomSeed;
 	public extern var SubdivisionType(get, never): EDisplaceMeshToolSubdivisionType;
 	public inline extern function get_SubdivisionType(): EDisplaceMeshToolSubdivisionType return this.SubdivisionType;
-	public extern var Subdivisions(get, never): cpp.Int32;
-	public inline extern function get_Subdivisions(): cpp.Int32 return this.Subdivisions;
+	public extern var Subdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_Subdivisions(): ucpp.num.Int32 return this.Subdivisions;
 	public extern var WeightMap(get, never): FName;
 	public inline extern function get_WeightMap(): FName return this.WeightMap;
 	public extern var WeightMapsList(get, never): TArray<FString>;
@@ -49,7 +49,7 @@ abstract ConstDisplaceMeshCommonProperties(DisplaceMeshCommonProperties) from Di
 @:forward
 @:nativeGen
 @:native("DisplaceMeshCommonProperties*")
-abstract DisplaceMeshCommonPropertiesPtr(cpp.Star<DisplaceMeshCommonProperties>) from cpp.Star<DisplaceMeshCommonProperties> to cpp.Star<DisplaceMeshCommonProperties>{
+abstract DisplaceMeshCommonPropertiesPtr(ucpp.Ptr<DisplaceMeshCommonProperties>) from ucpp.Ptr<DisplaceMeshCommonProperties> to ucpp.Ptr<DisplaceMeshCommonProperties>{
 	@:from
 	public static extern inline function fromValue(v: DisplaceMeshCommonProperties): DisplaceMeshCommonPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

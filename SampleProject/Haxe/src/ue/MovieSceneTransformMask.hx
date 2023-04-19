@@ -3,10 +3,10 @@ package ue;
 
 @:native("FMovieSceneTransformMask")
 @:include("Sections/MovieScene3DTransformSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTransformMask {
-	private var Mask: cpp.UInt32;
+	private var Mask: ucpp.num.UInt32;
 
 	@:native("FMovieSceneTransformMask") public function new();
-	@:native("FMovieSceneTransformMask") public static function make(Mask: cpp.UInt32): MovieSceneTransformMask ;
+	@:native("FMovieSceneTransformMask") public static function make(Mask: ucpp.num.UInt32): MovieSceneTransformMask ;
 }

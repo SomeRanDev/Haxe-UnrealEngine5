@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionFunctionOutput")
 @:include("Materials/MaterialExpressionFunctionOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionFunctionOutput extends MaterialExpression {
 	public var OutputName: FName;
 	public var Description: FString;
-	public var SortPriority: cpp.Int32;
+	public var SortPriority: ucpp.num.Int32;
 	public var A: ExpressionInput;
 	public var bLastPreviewed: Bool;
 	public var Id: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,8 +22,8 @@ abstract ConstMaterialExpressionFunctionOutput(MaterialExpressionFunctionOutput)
 	public inline extern function get_OutputName(): FName return this.OutputName;
 	public extern var Description(get, never): FString;
 	public inline extern function get_Description(): FString return this.Description;
-	public extern var SortPriority(get, never): cpp.Int32;
-	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
+	public extern var SortPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_SortPriority(): ucpp.num.Int32 return this.SortPriority;
 	public extern var A(get, never): ExpressionInput;
 	public inline extern function get_A(): ExpressionInput return this.A;
 	public extern var bLastPreviewed(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstMaterialExpressionFunctionOutput(MaterialExpressionFunctionOutput)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionFunctionOutput*")
-abstract MaterialExpressionFunctionOutputPtr(cpp.Star<MaterialExpressionFunctionOutput>) from cpp.Star<MaterialExpressionFunctionOutput> to cpp.Star<MaterialExpressionFunctionOutput>{
+abstract MaterialExpressionFunctionOutputPtr(ucpp.Ptr<MaterialExpressionFunctionOutput>) from ucpp.Ptr<MaterialExpressionFunctionOutput> to ucpp.Ptr<MaterialExpressionFunctionOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionFunctionOutput): MaterialExpressionFunctionOutputPtr {
 		return untyped __cpp__("&({0})", v);

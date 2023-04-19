@@ -3,29 +3,29 @@ package ue;
 
 @:native("USheetBuilder")
 @:include("Builders/SheetBuilder.h")
-@:structAccess
+@:valueType
 extern class SheetBuilder extends EditorBrushBuilder {
-	public var X: cpp.Int32;
-	public var Y: cpp.Int32;
-	public var XSegments: cpp.Int32;
-	public var YSegments: cpp.Int32;
+	public var X: ucpp.num.Int32;
+	public var Y: ucpp.num.Int32;
+	public var XSegments: ucpp.num.Int32;
+	public var YSegments: ucpp.num.Int32;
 	public var Axis: TEnumAsByte<ESheetAxis>;
 	public var GroupName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSheetBuilder(SheetBuilder) from SheetBuilder {
-	public extern var X(get, never): cpp.Int32;
-	public inline extern function get_X(): cpp.Int32 return this.X;
-	public extern var Y(get, never): cpp.Int32;
-	public inline extern function get_Y(): cpp.Int32 return this.Y;
-	public extern var XSegments(get, never): cpp.Int32;
-	public inline extern function get_XSegments(): cpp.Int32 return this.XSegments;
-	public extern var YSegments(get, never): cpp.Int32;
-	public inline extern function get_YSegments(): cpp.Int32 return this.YSegments;
+	public extern var X(get, never): ucpp.num.Int32;
+	public inline extern function get_X(): ucpp.num.Int32 return this.X;
+	public extern var Y(get, never): ucpp.num.Int32;
+	public inline extern function get_Y(): ucpp.num.Int32 return this.Y;
+	public extern var XSegments(get, never): ucpp.num.Int32;
+	public inline extern function get_XSegments(): ucpp.num.Int32 return this.XSegments;
+	public extern var YSegments(get, never): ucpp.num.Int32;
+	public inline extern function get_YSegments(): ucpp.num.Int32 return this.YSegments;
 	public extern var Axis(get, never): TEnumAsByte<ESheetAxis>;
 	public inline extern function get_Axis(): TEnumAsByte<ESheetAxis> return this.Axis;
 	public extern var GroupName(get, never): FName;
@@ -35,7 +35,7 @@ abstract ConstSheetBuilder(SheetBuilder) from SheetBuilder {
 @:forward
 @:nativeGen
 @:native("SheetBuilder*")
-abstract SheetBuilderPtr(cpp.Star<SheetBuilder>) from cpp.Star<SheetBuilder> to cpp.Star<SheetBuilder>{
+abstract SheetBuilderPtr(ucpp.Ptr<SheetBuilder>) from ucpp.Ptr<SheetBuilder> to ucpp.Ptr<SheetBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SheetBuilder): SheetBuilderPtr {
 		return untyped __cpp__("&({0})", v);

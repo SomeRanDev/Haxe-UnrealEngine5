@@ -3,21 +3,21 @@ package ue;
 
 @:native("UInterchangeFactoryBaseNode")
 @:include("Nodes/InterchangeFactoryBaseNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeFactoryBaseNode extends InterchangeBaseNode {
-	public function SetReimportStrategyFlags(ReimportStrategyFlags: cpp.Reference<EReimportStrategyFlags>): Bool;
+	public function SetReimportStrategyFlags(ReimportStrategyFlags: ucpp.Ref<EReimportStrategyFlags>): Bool;
 	public function SetCustomSubPath(AttributeValue: FString): Bool;
-	public function SetCustomReferenceObject(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
+	public function SetCustomReferenceObject(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
 	public function RemoveFactoryDependencyUid(DependencyUid: FString): Bool;
 	public function GetReimportStrategyFlags(): EReimportStrategyFlags;
-	public function GetFactoryDependency(Index: cpp.Int32, OutDependency: cpp.Reference<FString>): Void;
-	public function GetFactoryDependenciesCount(): cpp.Int32;
-	public function GetFactoryDependencies(OutDependencies: cpp.Reference<TArray<FString>>): Void;
-	public function GetCustomSubPath(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomReferenceObject(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
+	public function GetFactoryDependency(Index: ucpp.num.Int32, OutDependency: ucpp.Ref<FString>): Void;
+	public function GetFactoryDependenciesCount(): ucpp.num.Int32;
+	public function GetFactoryDependencies(OutDependencies: ucpp.Ref<TArray<FString>>): Void;
+	public function GetCustomSubPath(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomReferenceObject(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
 	public function AddFactoryDependencyUid(DependencyUid: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetReimportStrategyFlags, GetFactoryDependency, GetFactoryDependenciesCount, GetFactoryDependencies, GetCustomSubPath, GetCustomReferenceObject)
@@ -28,7 +28,7 @@ abstract ConstInterchangeFactoryBaseNode(InterchangeFactoryBaseNode) from Interc
 @:forward
 @:nativeGen
 @:native("InterchangeFactoryBaseNode*")
-abstract InterchangeFactoryBaseNodePtr(cpp.Star<InterchangeFactoryBaseNode>) from cpp.Star<InterchangeFactoryBaseNode> to cpp.Star<InterchangeFactoryBaseNode>{
+abstract InterchangeFactoryBaseNodePtr(ucpp.Ptr<InterchangeFactoryBaseNode>) from ucpp.Ptr<InterchangeFactoryBaseNode> to ucpp.Ptr<InterchangeFactoryBaseNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeFactoryBaseNode): InterchangeFactoryBaseNodePtr {
 		return untyped __cpp__("&({0})", v);

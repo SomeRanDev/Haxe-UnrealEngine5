@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVirtualizeProjectCommandlet")
 @:include("VirtualizeProjectCommandlet.h")
-@:structAccess
+@:valueType
 extern class VirtualizeProjectCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVirtualizeProjectCommandlet(VirtualizeProjectCommandlet) from Virt
 @:forward
 @:nativeGen
 @:native("VirtualizeProjectCommandlet*")
-abstract VirtualizeProjectCommandletPtr(cpp.Star<VirtualizeProjectCommandlet>) from cpp.Star<VirtualizeProjectCommandlet> to cpp.Star<VirtualizeProjectCommandlet>{
+abstract VirtualizeProjectCommandletPtr(ucpp.Ptr<VirtualizeProjectCommandlet>) from ucpp.Ptr<VirtualizeProjectCommandlet> to ucpp.Ptr<VirtualizeProjectCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: VirtualizeProjectCommandlet): VirtualizeProjectCommandletPtr {
 		return untyped __cpp__("&({0})", v);

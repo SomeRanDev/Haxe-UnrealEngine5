@@ -3,22 +3,22 @@ package ue;
 
 @:native("UTypedElementCommonActions")
 @:include("Elements/Framework/TypedElementCommonActions.h")
-@:structAccess
+@:valueType
 extern class TypedElementCommonActions extends Object {
-	public function PasteNormalizedElementsFromString(ElementList: cpp.Reference<ScriptTypedElementListProxy>, World: cpp.Star<World>, PasteOption: cpp.Reference<TypedElementPasteOptions>, InputString: FString): TArray<ScriptTypedElementHandle>;
-	public function PasteElementsFromString(SelectionSet: cpp.Star<TypedElementSelectionSet>, World: cpp.Star<World>, PasteOption: cpp.Reference<TypedElementPasteOptions>, InputString: FString): TArray<ScriptTypedElementHandle>;
-	public function K2_PasteNormalizedElements(ElementList: cpp.Reference<ScriptTypedElementListProxy>, World: cpp.Star<World>, PasteOption: cpp.Reference<TypedElementPasteOptions>): TArray<ScriptTypedElementHandle>;
-	public function K2_PasteElements(SelectionSet: cpp.Star<TypedElementSelectionSet>, World: cpp.Star<World>, PasteOption: cpp.Reference<TypedElementPasteOptions>): TArray<ScriptTypedElementHandle>;
-	public function K2_DuplicateSelectedElements(SelectionSet: cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>, World: cpp.Star<World>, LocationOffset: cpp.Reference<Vector>): TArray<ScriptTypedElementHandle>;
-	public function DuplicateNormalizedElements(ElementList: ScriptTypedElementListProxy, World: cpp.Star<World>, LocationOffset: cpp.Reference<Vector>): TArray<ScriptTypedElementHandle>;
-	public function DeleteSelectedElements(SelectionSet: cpp.Star<TypedElementSelectionSet>, World: cpp.Star<World>, DeletionOptions: cpp.Reference<TypedElementDeletionOptions>): Bool;
-	public function DeleteNormalizedElements(ElementList: ScriptTypedElementListProxy, World: cpp.Star<World>, InSelectionSet: cpp.Star<TypedElementSelectionSet>, DeletionOptions: cpp.Reference<TypedElementDeletionOptions>): Bool;
-	public function CopySelectedElementsToString(SelectionSet: cpp.Star<TypedElementSelectionSet>, OutputString: cpp.Reference<FString>): Bool;
-	public function CopySelectedElements(SelectionSet: cpp.Star<TypedElementSelectionSet>): Bool;
-	public function CopyNormalizedElementsToString(ElementList: cpp.Reference<ScriptTypedElementListProxy>, OutputString: cpp.Reference<FString>): Bool;
-	public function CopyNormalizedElements(ElementList: cpp.Reference<ScriptTypedElementListProxy>): Bool;
+	public function PasteNormalizedElementsFromString(ElementList: ucpp.Ref<ScriptTypedElementListProxy>, World: ucpp.Ptr<World>, PasteOption: ucpp.Ref<TypedElementPasteOptions>, InputString: FString): TArray<ScriptTypedElementHandle>;
+	public function PasteElementsFromString(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, World: ucpp.Ptr<World>, PasteOption: ucpp.Ref<TypedElementPasteOptions>, InputString: FString): TArray<ScriptTypedElementHandle>;
+	public function K2_PasteNormalizedElements(ElementList: ucpp.Ref<ScriptTypedElementListProxy>, World: ucpp.Ptr<World>, PasteOption: ucpp.Ref<TypedElementPasteOptions>): TArray<ScriptTypedElementHandle>;
+	public function K2_PasteElements(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, World: ucpp.Ptr<World>, PasteOption: ucpp.Ref<TypedElementPasteOptions>): TArray<ScriptTypedElementHandle>;
+	public function K2_DuplicateSelectedElements(SelectionSet: ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>, World: ucpp.Ptr<World>, LocationOffset: ucpp.Ref<Vector>): TArray<ScriptTypedElementHandle>;
+	public function DuplicateNormalizedElements(ElementList: ScriptTypedElementListProxy, World: ucpp.Ptr<World>, LocationOffset: ucpp.Ref<Vector>): TArray<ScriptTypedElementHandle>;
+	public function DeleteSelectedElements(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, World: ucpp.Ptr<World>, DeletionOptions: ucpp.Ref<TypedElementDeletionOptions>): Bool;
+	public function DeleteNormalizedElements(ElementList: ScriptTypedElementListProxy, World: ucpp.Ptr<World>, InSelectionSet: ucpp.Ptr<TypedElementSelectionSet>, DeletionOptions: ucpp.Ref<TypedElementDeletionOptions>): Bool;
+	public function CopySelectedElementsToString(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, OutputString: ucpp.Ref<FString>): Bool;
+	public function CopySelectedElements(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>): Bool;
+	public function CopyNormalizedElementsToString(ElementList: ucpp.Ref<ScriptTypedElementListProxy>, OutputString: ucpp.Ref<FString>): Bool;
+	public function CopyNormalizedElements(ElementList: ucpp.Ref<ScriptTypedElementListProxy>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstTypedElementCommonActions(TypedElementCommonActions) from TypedEle
 @:forward
 @:nativeGen
 @:native("TypedElementCommonActions*")
-abstract TypedElementCommonActionsPtr(cpp.Star<TypedElementCommonActions>) from cpp.Star<TypedElementCommonActions> to cpp.Star<TypedElementCommonActions>{
+abstract TypedElementCommonActionsPtr(ucpp.Ptr<TypedElementCommonActions>) from ucpp.Ptr<TypedElementCommonActions> to ucpp.Ptr<TypedElementCommonActions>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementCommonActions): TypedElementCommonActionsPtr {
 		return untyped __cpp__("&({0})", v);

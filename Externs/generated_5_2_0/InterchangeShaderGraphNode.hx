@@ -3,16 +3,16 @@ package ue;
 
 @:native("UInterchangeShaderGraphNode")
 @:include("InterchangeShaderGraphNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeShaderGraphNode extends InterchangeShaderNode {
-	public function SetCustomTwoSided(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomOpacityMaskClipValue(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomIsAShaderFunction(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomTwoSided(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomOpacityMaskClipValue(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomIsAShaderFunction(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomTwoSided(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomOpacityMaskClipValue(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomIsAShaderFunction(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomTwoSided(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomOpacityMaskClipValue(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomIsAShaderFunction(AttributeValue: ucpp.Ref<Bool>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomTwoSided, GetCustomOpacityMaskClipValue, GetCustomIsAShaderFunction)
@@ -23,7 +23,7 @@ abstract ConstInterchangeShaderGraphNode(InterchangeShaderGraphNode) from Interc
 @:forward
 @:nativeGen
 @:native("InterchangeShaderGraphNode*")
-abstract InterchangeShaderGraphNodePtr(cpp.Star<InterchangeShaderGraphNode>) from cpp.Star<InterchangeShaderGraphNode> to cpp.Star<InterchangeShaderGraphNode>{
+abstract InterchangeShaderGraphNodePtr(ucpp.Ptr<InterchangeShaderGraphNode>) from ucpp.Ptr<InterchangeShaderGraphNode> to ucpp.Ptr<InterchangeShaderGraphNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeShaderGraphNode): InterchangeShaderGraphNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraSystemCompiledData")
 @:include("NiagaraSystem.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemCompiledData {
 	public var InstanceParamStore: NiagaraParameterStore;
 	public var DataSetCompiledData: NiagaraDataSetCompiledData;

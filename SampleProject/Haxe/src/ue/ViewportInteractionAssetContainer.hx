@@ -3,87 +3,87 @@ package ue;
 
 @:native("UViewportInteractionAssetContainer")
 @:include("ViewportInteractionAssetContainer.h")
-@:structAccess
+@:valueType
 extern class ViewportInteractionAssetContainer extends DataAsset {
-	public var GizmoHandleSelectedSound: cpp.Star<SoundBase>;
-	public var GizmoHandleDropSound: cpp.Star<SoundBase>;
-	public var SelectionChangeSound: cpp.Star<SoundBase>;
-	public var SelectionDropSound: cpp.Star<SoundBase>;
-	public var SelectionStartDragSound: cpp.Star<SoundBase>;
-	public var GridSnapSound: cpp.Star<SoundBase>;
-	public var ActorSnapSound: cpp.Star<SoundBase>;
-	public var UndoSound: cpp.Star<SoundBase>;
-	public var RedoSound: cpp.Star<SoundBase>;
-	public var GridMesh: cpp.Star<StaticMesh>;
-	public var TranslationHandleMesh: cpp.Star<StaticMesh>;
-	public var UniformScaleHandleMesh: cpp.Star<StaticMesh>;
-	public var ScaleHandleMesh: cpp.Star<StaticMesh>;
-	public var PlaneTranslationHandleMesh: cpp.Star<StaticMesh>;
-	public var RotationHandleMesh: cpp.Star<StaticMesh>;
-	public var RotationHandleSelectedMesh: cpp.Star<StaticMesh>;
-	public var StartRotationIndicatorMesh: cpp.Star<StaticMesh>;
-	public var CurrentRotationIndicatorMesh: cpp.Star<StaticMesh>;
-	public var FreeRotationHandleMesh: cpp.Star<StaticMesh>;
-	public var GridMaterial: cpp.Star<MaterialInterface>;
-	public var TransformGizmoMaterial: cpp.Star<MaterialInterface>;
-	public var TranslucentTransformGizmoMaterial: cpp.Star<MaterialInterface>;
+	public var GizmoHandleSelectedSound: ucpp.Ptr<SoundBase>;
+	public var GizmoHandleDropSound: ucpp.Ptr<SoundBase>;
+	public var SelectionChangeSound: ucpp.Ptr<SoundBase>;
+	public var SelectionDropSound: ucpp.Ptr<SoundBase>;
+	public var SelectionStartDragSound: ucpp.Ptr<SoundBase>;
+	public var GridSnapSound: ucpp.Ptr<SoundBase>;
+	public var ActorSnapSound: ucpp.Ptr<SoundBase>;
+	public var UndoSound: ucpp.Ptr<SoundBase>;
+	public var RedoSound: ucpp.Ptr<SoundBase>;
+	public var GridMesh: ucpp.Ptr<StaticMesh>;
+	public var TranslationHandleMesh: ucpp.Ptr<StaticMesh>;
+	public var UniformScaleHandleMesh: ucpp.Ptr<StaticMesh>;
+	public var ScaleHandleMesh: ucpp.Ptr<StaticMesh>;
+	public var PlaneTranslationHandleMesh: ucpp.Ptr<StaticMesh>;
+	public var RotationHandleMesh: ucpp.Ptr<StaticMesh>;
+	public var RotationHandleSelectedMesh: ucpp.Ptr<StaticMesh>;
+	public var StartRotationIndicatorMesh: ucpp.Ptr<StaticMesh>;
+	public var CurrentRotationIndicatorMesh: ucpp.Ptr<StaticMesh>;
+	public var FreeRotationHandleMesh: ucpp.Ptr<StaticMesh>;
+	public var GridMaterial: ucpp.Ptr<MaterialInterface>;
+	public var TransformGizmoMaterial: ucpp.Ptr<MaterialInterface>;
+	public var TranslucentTransformGizmoMaterial: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstViewportInteractionAssetContainer(ViewportInteractionAssetContainer) from ViewportInteractionAssetContainer {
-	public extern var GizmoHandleSelectedSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_GizmoHandleSelectedSound(): cpp.Star<SoundBase.ConstSoundBase> return this.GizmoHandleSelectedSound;
-	public extern var GizmoHandleDropSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_GizmoHandleDropSound(): cpp.Star<SoundBase.ConstSoundBase> return this.GizmoHandleDropSound;
-	public extern var SelectionChangeSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_SelectionChangeSound(): cpp.Star<SoundBase.ConstSoundBase> return this.SelectionChangeSound;
-	public extern var SelectionDropSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_SelectionDropSound(): cpp.Star<SoundBase.ConstSoundBase> return this.SelectionDropSound;
-	public extern var SelectionStartDragSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_SelectionStartDragSound(): cpp.Star<SoundBase.ConstSoundBase> return this.SelectionStartDragSound;
-	public extern var GridSnapSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_GridSnapSound(): cpp.Star<SoundBase.ConstSoundBase> return this.GridSnapSound;
-	public extern var ActorSnapSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_ActorSnapSound(): cpp.Star<SoundBase.ConstSoundBase> return this.ActorSnapSound;
-	public extern var UndoSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_UndoSound(): cpp.Star<SoundBase.ConstSoundBase> return this.UndoSound;
-	public extern var RedoSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_RedoSound(): cpp.Star<SoundBase.ConstSoundBase> return this.RedoSound;
-	public extern var GridMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_GridMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.GridMesh;
-	public extern var TranslationHandleMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_TranslationHandleMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.TranslationHandleMesh;
-	public extern var UniformScaleHandleMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_UniformScaleHandleMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.UniformScaleHandleMesh;
-	public extern var ScaleHandleMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_ScaleHandleMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.ScaleHandleMesh;
-	public extern var PlaneTranslationHandleMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_PlaneTranslationHandleMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.PlaneTranslationHandleMesh;
-	public extern var RotationHandleMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_RotationHandleMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.RotationHandleMesh;
-	public extern var RotationHandleSelectedMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_RotationHandleSelectedMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.RotationHandleSelectedMesh;
-	public extern var StartRotationIndicatorMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_StartRotationIndicatorMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.StartRotationIndicatorMesh;
-	public extern var CurrentRotationIndicatorMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_CurrentRotationIndicatorMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.CurrentRotationIndicatorMesh;
-	public extern var FreeRotationHandleMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_FreeRotationHandleMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.FreeRotationHandleMesh;
-	public extern var GridMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_GridMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.GridMaterial;
-	public extern var TransformGizmoMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_TransformGizmoMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.TransformGizmoMaterial;
-	public extern var TranslucentTransformGizmoMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_TranslucentTransformGizmoMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.TranslucentTransformGizmoMaterial;
+	public extern var GizmoHandleSelectedSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_GizmoHandleSelectedSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.GizmoHandleSelectedSound;
+	public extern var GizmoHandleDropSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_GizmoHandleDropSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.GizmoHandleDropSound;
+	public extern var SelectionChangeSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_SelectionChangeSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.SelectionChangeSound;
+	public extern var SelectionDropSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_SelectionDropSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.SelectionDropSound;
+	public extern var SelectionStartDragSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_SelectionStartDragSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.SelectionStartDragSound;
+	public extern var GridSnapSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_GridSnapSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.GridSnapSound;
+	public extern var ActorSnapSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_ActorSnapSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.ActorSnapSound;
+	public extern var UndoSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_UndoSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.UndoSound;
+	public extern var RedoSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_RedoSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.RedoSound;
+	public extern var GridMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_GridMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.GridMesh;
+	public extern var TranslationHandleMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_TranslationHandleMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.TranslationHandleMesh;
+	public extern var UniformScaleHandleMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_UniformScaleHandleMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.UniformScaleHandleMesh;
+	public extern var ScaleHandleMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_ScaleHandleMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.ScaleHandleMesh;
+	public extern var PlaneTranslationHandleMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_PlaneTranslationHandleMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.PlaneTranslationHandleMesh;
+	public extern var RotationHandleMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_RotationHandleMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.RotationHandleMesh;
+	public extern var RotationHandleSelectedMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_RotationHandleSelectedMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.RotationHandleSelectedMesh;
+	public extern var StartRotationIndicatorMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_StartRotationIndicatorMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.StartRotationIndicatorMesh;
+	public extern var CurrentRotationIndicatorMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_CurrentRotationIndicatorMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.CurrentRotationIndicatorMesh;
+	public extern var FreeRotationHandleMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_FreeRotationHandleMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.FreeRotationHandleMesh;
+	public extern var GridMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_GridMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.GridMaterial;
+	public extern var TransformGizmoMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_TransformGizmoMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.TransformGizmoMaterial;
+	public extern var TranslucentTransformGizmoMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_TranslucentTransformGizmoMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.TranslucentTransformGizmoMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("ViewportInteractionAssetContainer*")
-abstract ViewportInteractionAssetContainerPtr(cpp.Star<ViewportInteractionAssetContainer>) from cpp.Star<ViewportInteractionAssetContainer> to cpp.Star<ViewportInteractionAssetContainer>{
+abstract ViewportInteractionAssetContainerPtr(ucpp.Ptr<ViewportInteractionAssetContainer>) from ucpp.Ptr<ViewportInteractionAssetContainer> to ucpp.Ptr<ViewportInteractionAssetContainer>{
 	@:from
 	public static extern inline function fromValue(v: ViewportInteractionAssetContainer): ViewportInteractionAssetContainerPtr {
 		return untyped __cpp__("&({0})", v);

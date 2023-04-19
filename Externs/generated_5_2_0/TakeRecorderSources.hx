@@ -3,18 +3,18 @@ package ue;
 
 @:native("UTakeRecorderSources")
 @:include("TakeRecorderSources.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderSources extends Object {
-	private var Sources: TArray<cpp.Star<TakeRecorderSource>>;
-	private var SourceSubSequenceMap: TMap<cpp.Star<TakeRecorderSource>, cpp.Star<LevelSequence>>;
-	private var ActiveSubSections: TArray<cpp.Star<MovieSceneSubSection>>;
+	private var Sources: TArray<ucpp.Ptr<TakeRecorderSource>>;
+	private var SourceSubSequenceMap: TMap<ucpp.Ptr<TakeRecorderSource>, ucpp.Ptr<LevelSequence>>;
+	private var ActiveSubSections: TArray<ucpp.Ptr<MovieSceneSubSection>>;
 
-	public function StartRecordingSource(InSources: TArray<cpp.Star<TakeRecorderSource>>, CurrentFrameTime: cpp.Reference<QualifiedFrameTime>): Void;
-	public function RemoveSource(InSource: cpp.Star<TakeRecorderSource>): Void;
-	public function GetSourcesCopy(): TArray<cpp.Star<TakeRecorderSource>>;
-	public function AddSource(InSourceType: TSubclassOf<TakeRecorderSource>): cpp.Star<TakeRecorderSource>;
+	public function StartRecordingSource(InSources: TArray<ucpp.Ptr<TakeRecorderSource>>, CurrentFrameTime: ucpp.Ref<QualifiedFrameTime>): Void;
+	public function RemoveSource(InSource: ucpp.Ptr<TakeRecorderSource>): Void;
+	public function GetSourcesCopy(): TArray<ucpp.Ptr<TakeRecorderSource>>;
+	public function AddSource(InSourceType: TSubclassOf<TakeRecorderSource>): ucpp.Ptr<TakeRecorderSource>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSourcesCopy)
@@ -25,7 +25,7 @@ abstract ConstTakeRecorderSources(TakeRecorderSources) from TakeRecorderSources 
 @:forward
 @:nativeGen
 @:native("TakeRecorderSources*")
-abstract TakeRecorderSourcesPtr(cpp.Star<TakeRecorderSources>) from cpp.Star<TakeRecorderSources> to cpp.Star<TakeRecorderSources>{
+abstract TakeRecorderSourcesPtr(ucpp.Ptr<TakeRecorderSources>) from ucpp.Ptr<TakeRecorderSources> to ucpp.Ptr<TakeRecorderSources>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderSources): TakeRecorderSourcesPtr {
 		return untyped __cpp__("&({0})", v);

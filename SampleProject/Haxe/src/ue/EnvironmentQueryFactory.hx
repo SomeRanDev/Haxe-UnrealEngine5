@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnvironmentQueryFactory")
 @:include("EnvironmentQueryFactory.h")
-@:structAccess
+@:valueType
 extern class EnvironmentQueryFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnvironmentQueryFactory(EnvironmentQueryFactory) from EnvironmentQ
 @:forward
 @:nativeGen
 @:native("EnvironmentQueryFactory*")
-abstract EnvironmentQueryFactoryPtr(cpp.Star<EnvironmentQueryFactory>) from cpp.Star<EnvironmentQueryFactory> to cpp.Star<EnvironmentQueryFactory>{
+abstract EnvironmentQueryFactoryPtr(ucpp.Ptr<EnvironmentQueryFactory>) from ucpp.Ptr<EnvironmentQueryFactory> to ucpp.Ptr<EnvironmentQueryFactory>{
 	@:from
 	public static extern inline function fromValue(v: EnvironmentQueryFactory): EnvironmentQueryFactoryPtr {
 		return untyped __cpp__("&({0})", v);

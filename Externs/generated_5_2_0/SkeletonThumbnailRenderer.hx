@@ -3,10 +3,10 @@ package ue;
 
 @:native("USkeletonThumbnailRenderer")
 @:include("ThumbnailRendering/SkeletonThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class SkeletonThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSkeletonThumbnailRenderer(SkeletonThumbnailRenderer) from Skeleton
 @:forward
 @:nativeGen
 @:native("SkeletonThumbnailRenderer*")
-abstract SkeletonThumbnailRendererPtr(cpp.Star<SkeletonThumbnailRenderer>) from cpp.Star<SkeletonThumbnailRenderer> to cpp.Star<SkeletonThumbnailRenderer>{
+abstract SkeletonThumbnailRendererPtr(ucpp.Ptr<SkeletonThumbnailRenderer>) from ucpp.Ptr<SkeletonThumbnailRenderer> to ucpp.Ptr<SkeletonThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: SkeletonThumbnailRenderer): SkeletonThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBoolParameterNameAndCurve")
 @:include("Sections/MovieSceneParameterSection.h")
-@:structAccess
+@:valueType
 extern class BoolParameterNameAndCurve {
 	public var ParameterName: FName;
 	public var ParameterCurve: MovieSceneBoolChannel;

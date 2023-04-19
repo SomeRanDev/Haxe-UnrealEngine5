@@ -3,19 +3,16 @@ package ue;
 
 @:native("FChaosSolverConfiguration")
 @:include("ChaosSolverConfiguration.h")
-@:structAccess
+@:valueType
 extern class ChaosSolverConfiguration {
-	public var Iterations: cpp.Int32;
-	public var CollisionPairIterations: cpp.Int32;
-	public var PushOutIterations: cpp.Int32;
-	public var CollisionPushOutPairIterations: cpp.Int32;
-	public var CollisionMarginFraction: cpp.Float32;
-	public var CollisionMarginMax: cpp.Float32;
-	public var CollisionCullDistance: cpp.Float32;
-	public var CollisionMaxPushOutVelocity: cpp.Float32;
-	public var JointPairIterations: cpp.Int32;
-	public var JointPushOutPairIterations: cpp.Int32;
-	public var ClusterConnectionFactor: cpp.Float32;
+	public var PositionIterations: ucpp.num.Int32;
+	public var VelocityIterations: ucpp.num.Int32;
+	public var ProjectionIterations: ucpp.num.Int32;
+	public var CollisionMarginFraction: ucpp.num.Float32;
+	public var CollisionMarginMax: ucpp.num.Float32;
+	public var CollisionCullDistance: ucpp.num.Float32;
+	public var CollisionMaxPushOutVelocity: ucpp.num.Float32;
+	public var ClusterConnectionFactor: ucpp.num.Float32;
 	public var ClusterUnionConnectionType: EClusterUnionMethod;
 	public var bGenerateCollisionData: Bool;
 	public var CollisionFilterSettings: SolverCollisionFilterSettings;
@@ -23,7 +20,6 @@ extern class ChaosSolverConfiguration {
 	public var BreakingFilterSettings: SolverBreakingFilterSettings;
 	public var bGenerateTrailingData: Bool;
 	public var TrailingFilterSettings: SolverTrailingFilterSettings;
-	public var bGenerateContactGraph: Bool;
 
 	@:native("FChaosSolverConfiguration") public function new();
 }

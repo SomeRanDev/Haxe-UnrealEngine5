@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_HapticFeedbackEffectCurve")
 @:include("AssetDefinition_HapticFeedbackEffectCurve.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_HapticFeedbackEffectCurve extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_HapticFeedbackEffectCurve(AssetDefinition_HapticFe
 @:forward
 @:nativeGen
 @:native("AssetDefinition_HapticFeedbackEffectCurve*")
-abstract AssetDefinition_HapticFeedbackEffectCurvePtr(cpp.Star<AssetDefinition_HapticFeedbackEffectCurve>) from cpp.Star<AssetDefinition_HapticFeedbackEffectCurve> to cpp.Star<AssetDefinition_HapticFeedbackEffectCurve>{
+abstract AssetDefinition_HapticFeedbackEffectCurvePtr(ucpp.Ptr<AssetDefinition_HapticFeedbackEffectCurve>) from ucpp.Ptr<AssetDefinition_HapticFeedbackEffectCurve> to ucpp.Ptr<AssetDefinition_HapticFeedbackEffectCurve>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_HapticFeedbackEffectCurve): AssetDefinition_HapticFeedbackEffectCurvePtr {
 		return untyped __cpp__("&({0})", v);

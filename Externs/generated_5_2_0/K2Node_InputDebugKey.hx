@@ -3,7 +3,7 @@ package ue;
 
 @:native("UK2Node_InputDebugKey")
 @:include("K2Node_InputDebugKey.h")
-@:structAccess
+@:valueType
 extern class K2Node_InputDebugKey extends K2Node {
 	public var InputKey: Key;
 	public var bExecuteWhenPaused: Bool;
@@ -12,7 +12,7 @@ extern class K2Node_InputDebugKey extends K2Node {
 	public var bShift: Bool;
 	public var bCommand: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstK2Node_InputDebugKey(K2Node_InputDebugKey) from K2Node_InputDebugK
 @:forward
 @:nativeGen
 @:native("K2Node_InputDebugKey*")
-abstract K2Node_InputDebugKeyPtr(cpp.Star<K2Node_InputDebugKey>) from cpp.Star<K2Node_InputDebugKey> to cpp.Star<K2Node_InputDebugKey>{
+abstract K2Node_InputDebugKeyPtr(ucpp.Ptr<K2Node_InputDebugKey>) from ucpp.Ptr<K2Node_InputDebugKey> to ucpp.Ptr<K2Node_InputDebugKey>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_InputDebugKey): K2Node_InputDebugKeyPtr {
 		return untyped __cpp__("&({0})", v);

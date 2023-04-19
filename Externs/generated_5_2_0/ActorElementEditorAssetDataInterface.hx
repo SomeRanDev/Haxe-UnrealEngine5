@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorElementEditorAssetDataInterface")
 @:include("Elements/Actor/ActorElementEditorAssetDataInterface.h")
-@:structAccess
+@:valueType
 extern class ActorElementEditorAssetDataInterface extends ActorElementAssetDataInterface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorElementEditorAssetDataInterface(ActorElementEditorAssetDataIn
 @:forward
 @:nativeGen
 @:native("ActorElementEditorAssetDataInterface*")
-abstract ActorElementEditorAssetDataInterfacePtr(cpp.Star<ActorElementEditorAssetDataInterface>) from cpp.Star<ActorElementEditorAssetDataInterface> to cpp.Star<ActorElementEditorAssetDataInterface>{
+abstract ActorElementEditorAssetDataInterfacePtr(ucpp.Ptr<ActorElementEditorAssetDataInterface>) from ucpp.Ptr<ActorElementEditorAssetDataInterface> to ucpp.Ptr<ActorElementEditorAssetDataInterface>{
 	@:from
 	public static extern inline function fromValue(v: ActorElementEditorAssetDataInterface): ActorElementEditorAssetDataInterfacePtr {
 		return untyped __cpp__("&({0})", v);

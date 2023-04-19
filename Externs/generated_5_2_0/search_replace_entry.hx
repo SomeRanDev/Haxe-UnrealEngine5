@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Usearch_replace_entry")
-@:structAccess
+@:valueType
 extern class search_replace_entry extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constsearch_replace_entry(search_replace_entry) from search_replace_ent
 @:forward
 @:nativeGen
 @:native("search_replace_entry*")
-abstract search_replace_entryPtr(cpp.Star<search_replace_entry>) from cpp.Star<search_replace_entry> to cpp.Star<search_replace_entry>{
+abstract search_replace_entryPtr(ucpp.Ptr<search_replace_entry>) from ucpp.Ptr<search_replace_entry> to ucpp.Ptr<search_replace_entry>{
 	@:from
 	public static extern inline function fromValue(v: search_replace_entry): search_replace_entryPtr {
 		return untyped __cpp__("&({0})", v);

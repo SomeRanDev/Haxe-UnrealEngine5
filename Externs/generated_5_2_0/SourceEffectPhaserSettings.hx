@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSourceEffectPhaserSettings")
 @:include("SourceEffects/SourceEffectPhaser.h")
-@:structAccess
+@:valueType
 extern class SourceEffectPhaserSettings {
-	public var WetLevel: cpp.Float32;
-	public var Frequency: cpp.Float32;
-	public var Feedback: cpp.Float32;
+	public var WetLevel: ucpp.num.Float32;
+	public var Frequency: ucpp.num.Float32;
+	public var Feedback: ucpp.num.Float32;
 	public var LFOType: EPhaserLFOType;
 	public var UseQuadraturePhase: Bool;
 
 	@:native("FSourceEffectPhaserSettings") public function new();
-	@:native("FSourceEffectPhaserSettings") public static function make(WetLevel: cpp.Float32, Frequency: cpp.Float32, Feedback: cpp.Float32, LFOType: EPhaserLFOType, UseQuadraturePhase: Bool): SourceEffectPhaserSettings ;
+	@:native("FSourceEffectPhaserSettings") public static function make(WetLevel: ucpp.num.Float32, Frequency: ucpp.num.Float32, Feedback: ucpp.num.Float32, LFOType: EPhaserLFOType, UseQuadraturePhase: Bool): SourceEffectPhaserSettings ;
 }

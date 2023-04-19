@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInputBlendPose")
 @:include("Animation/AnimData/BoneMaskFilter.h")
-@:structAccess
+@:valueType
 extern class InputBlendPose {
 	public var BranchFilters: TArray<BranchFilter>;
 

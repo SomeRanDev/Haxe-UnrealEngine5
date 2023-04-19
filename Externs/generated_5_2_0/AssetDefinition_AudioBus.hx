@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_AudioBus")
 @:include("AssetTypeActions/AssetDefinition_AudioBus.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_AudioBus extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_AudioBus(AssetDefinition_AudioBus) from AssetDefin
 @:forward
 @:nativeGen
 @:native("AssetDefinition_AudioBus*")
-abstract AssetDefinition_AudioBusPtr(cpp.Star<AssetDefinition_AudioBus>) from cpp.Star<AssetDefinition_AudioBus> to cpp.Star<AssetDefinition_AudioBus>{
+abstract AssetDefinition_AudioBusPtr(ucpp.Ptr<AssetDefinition_AudioBus>) from ucpp.Ptr<AssetDefinition_AudioBus> to ucpp.Ptr<AssetDefinition_AudioBus>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_AudioBus): AssetDefinition_AudioBusPtr {
 		return untyped __cpp__("&({0})", v);

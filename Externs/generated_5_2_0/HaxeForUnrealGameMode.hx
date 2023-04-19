@@ -3,10 +3,10 @@ package ue;
 
 @:native("AHaxeForUnrealGameMode")
 @:include("HaxeForUnrealGameMode.h")
-@:structAccess
+@:valueType
 extern class HaxeForUnrealGameMode extends GameModeBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHaxeForUnrealGameMode(HaxeForUnrealGameMode) from HaxeForUnrealGam
 @:forward
 @:nativeGen
 @:native("HaxeForUnrealGameMode*")
-abstract HaxeForUnrealGameModePtr(cpp.Star<HaxeForUnrealGameMode>) from cpp.Star<HaxeForUnrealGameMode> to cpp.Star<HaxeForUnrealGameMode>{
+abstract HaxeForUnrealGameModePtr(ucpp.Ptr<HaxeForUnrealGameMode>) from ucpp.Ptr<HaxeForUnrealGameMode> to ucpp.Ptr<HaxeForUnrealGameMode>{
 	@:from
 	public static extern inline function fromValue(v: HaxeForUnrealGameMode): HaxeForUnrealGameModePtr {
 		return untyped __cpp__("&({0})", v);

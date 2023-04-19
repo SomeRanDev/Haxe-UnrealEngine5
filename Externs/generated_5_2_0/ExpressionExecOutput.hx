@@ -3,10 +3,10 @@ package ue;
 
 @:native("FExpressionExecOutput")
 @:include("Materials/MaterialExpression.h")
-@:structAccess
+@:valueType
 extern class ExpressionExecOutput {
-	private var Expression: cpp.Star<MaterialExpression>;
+	private var Expression: ucpp.Ptr<MaterialExpression>;
 
 	@:native("FExpressionExecOutput") public function new();
-	@:native("FExpressionExecOutput") public static function make(Expression: cpp.Star<MaterialExpression>): ExpressionExecOutput ;
+	@:native("FExpressionExecOutput") public static function make(Expression: ucpp.Ptr<MaterialExpression>): ExpressionExecOutput ;
 }

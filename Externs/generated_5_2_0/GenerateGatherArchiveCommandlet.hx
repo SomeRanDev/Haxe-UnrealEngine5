@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGenerateGatherArchiveCommandlet")
 @:include("Commandlets/GenerateGatherArchiveCommandlet.h")
-@:structAccess
+@:valueType
 extern class GenerateGatherArchiveCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGenerateGatherArchiveCommandlet(GenerateGatherArchiveCommandlet) f
 @:forward
 @:nativeGen
 @:native("GenerateGatherArchiveCommandlet*")
-abstract GenerateGatherArchiveCommandletPtr(cpp.Star<GenerateGatherArchiveCommandlet>) from cpp.Star<GenerateGatherArchiveCommandlet> to cpp.Star<GenerateGatherArchiveCommandlet>{
+abstract GenerateGatherArchiveCommandletPtr(ucpp.Ptr<GenerateGatherArchiveCommandlet>) from ucpp.Ptr<GenerateGatherArchiveCommandlet> to ucpp.Ptr<GenerateGatherArchiveCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GenerateGatherArchiveCommandlet): GenerateGatherArchiveCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FCameraFocusSettings")
 @:include("CineCameraSettings.h")
-@:structAccess
+@:valueType
 extern class CameraFocusSettings {
 	public var FocusMethod: ECameraFocusMethod;
-	public var ManualFocusDistance: cpp.Float32;
+	public var ManualFocusDistance: ucpp.num.Float32;
 	public var TrackingFocusSettings: CameraTrackingFocusSettings;
 	public var bSmoothFocusChanges: Bool;
-	public var FocusSmoothingInterpSpeed: cpp.Float32;
-	public var FocusOffset: cpp.Float32;
+	public var FocusSmoothingInterpSpeed: ucpp.num.Float32;
+	public var FocusOffset: ucpp.num.Float32;
 
 	@:native("FCameraFocusSettings") public function new();
 }

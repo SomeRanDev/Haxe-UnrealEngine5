@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULeaderboardFlushCallbackProxy")
 @:include("LeaderboardFlushCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class LeaderboardFlushCallbackProxy extends Object {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 
-	public function CreateProxyObjectForFlush(PlayerController: cpp.Star<PlayerController>, SessionName: FName): cpp.Star<LeaderboardFlushCallbackProxy>;
+	public function CreateProxyObjectForFlush(PlayerController: ucpp.Ptr<PlayerController>, SessionName: FName): ucpp.Ptr<LeaderboardFlushCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstLeaderboardFlushCallbackProxy(LeaderboardFlushCallbackProxy) from 
 @:forward
 @:nativeGen
 @:native("LeaderboardFlushCallbackProxy*")
-abstract LeaderboardFlushCallbackProxyPtr(cpp.Star<LeaderboardFlushCallbackProxy>) from cpp.Star<LeaderboardFlushCallbackProxy> to cpp.Star<LeaderboardFlushCallbackProxy>{
+abstract LeaderboardFlushCallbackProxyPtr(ucpp.Ptr<LeaderboardFlushCallbackProxy>) from ucpp.Ptr<LeaderboardFlushCallbackProxy> to ucpp.Ptr<LeaderboardFlushCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: LeaderboardFlushCallbackProxy): LeaderboardFlushCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

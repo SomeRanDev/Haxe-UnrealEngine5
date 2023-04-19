@@ -3,14 +3,14 @@ package ue;
 
 @:native("FModulatorContinuousParams")
 @:include("Sound/SoundNodeModulatorContinuous.h")
-@:structAccess
+@:valueType
 extern class ModulatorContinuousParams {
 	public var ParameterName: FName;
-	public var Default: cpp.Float32;
-	public var MinInput: cpp.Float32;
-	public var MaxInput: cpp.Float32;
-	public var MinOutput: cpp.Float32;
-	public var MaxOutput: cpp.Float32;
+	public var Default: ucpp.num.Float32;
+	public var MinInput: ucpp.num.Float32;
+	public var MaxInput: ucpp.num.Float32;
+	public var MinOutput: ucpp.num.Float32;
+	public var MaxOutput: ucpp.num.Float32;
 	public var ParamMode: TEnumAsByte<ModulationParamMode>;
 
 	@:native("FModulatorContinuousParams") public function new();

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBakeMultiMeshAttributeMapsTool")
 @:include("BakeMultiMeshAttributeMapsTool.h")
-@:structAccess
+@:valueType
 extern class BakeMultiMeshAttributeMapsTool extends BakeMeshAttributeMapsToolBase {
-	@:protected public var Settings: cpp.Star<BakeMultiMeshAttributeMapsToolProperties>;
-	@:protected public var InputMeshSettings: cpp.Star<BakeMultiMeshInputToolProperties>;
-	@:protected public var ResultSettings: cpp.Star<BakeMeshAttributeMapsResultToolProperties>;
+	@:protected public var Settings: ucpp.Ptr<BakeMultiMeshAttributeMapsToolProperties>;
+	@:protected public var InputMeshSettings: ucpp.Ptr<BakeMultiMeshInputToolProperties>;
+	@:protected public var ResultSettings: ucpp.Ptr<BakeMeshAttributeMapsResultToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBakeMultiMeshAttributeMapsTool(BakeMultiMeshAttributeMapsTool) fro
 @:forward
 @:nativeGen
 @:native("BakeMultiMeshAttributeMapsTool*")
-abstract BakeMultiMeshAttributeMapsToolPtr(cpp.Star<BakeMultiMeshAttributeMapsTool>) from cpp.Star<BakeMultiMeshAttributeMapsTool> to cpp.Star<BakeMultiMeshAttributeMapsTool>{
+abstract BakeMultiMeshAttributeMapsToolPtr(ucpp.Ptr<BakeMultiMeshAttributeMapsTool>) from ucpp.Ptr<BakeMultiMeshAttributeMapsTool> to ucpp.Ptr<BakeMultiMeshAttributeMapsTool>{
 	@:from
 	public static extern inline function fromValue(v: BakeMultiMeshAttributeMapsTool): BakeMultiMeshAttributeMapsToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UAttributeEditorLightmapUVActions")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorLightmapUVActions extends AttributeEditorActionPropertySet {
 	public var bGenerateLightmapUVs: Bool;
-	public var SourceUVIndex: cpp.Int32;
-	public var DestinationUVIndex: cpp.Int32;
+	public var SourceUVIndex: ucpp.num.Int32;
+	public var DestinationUVIndex: ucpp.num.Int32;
 
 	public function Reset(): Void;
 	public function Enable(): Void;
 	public function Disable(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,16 +21,16 @@ extern class AttributeEditorLightmapUVActions extends AttributeEditorActionPrope
 abstract ConstAttributeEditorLightmapUVActions(AttributeEditorLightmapUVActions) from AttributeEditorLightmapUVActions {
 	public extern var bGenerateLightmapUVs(get, never): Bool;
 	public inline extern function get_bGenerateLightmapUVs(): Bool return this.bGenerateLightmapUVs;
-	public extern var SourceUVIndex(get, never): cpp.Int32;
-	public inline extern function get_SourceUVIndex(): cpp.Int32 return this.SourceUVIndex;
-	public extern var DestinationUVIndex(get, never): cpp.Int32;
-	public inline extern function get_DestinationUVIndex(): cpp.Int32 return this.DestinationUVIndex;
+	public extern var SourceUVIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_SourceUVIndex(): ucpp.num.Int32 return this.SourceUVIndex;
+	public extern var DestinationUVIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_DestinationUVIndex(): ucpp.num.Int32 return this.DestinationUVIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("AttributeEditorLightmapUVActions*")
-abstract AttributeEditorLightmapUVActionsPtr(cpp.Star<AttributeEditorLightmapUVActions>) from cpp.Star<AttributeEditorLightmapUVActions> to cpp.Star<AttributeEditorLightmapUVActions>{
+abstract AttributeEditorLightmapUVActionsPtr(ucpp.Ptr<AttributeEditorLightmapUVActions>) from ucpp.Ptr<AttributeEditorLightmapUVActions> to ucpp.Ptr<AttributeEditorLightmapUVActions>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorLightmapUVActions): AttributeEditorLightmapUVActionsPtr {
 		return untyped __cpp__("&({0})", v);

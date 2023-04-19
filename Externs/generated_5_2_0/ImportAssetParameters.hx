@@ -3,16 +3,16 @@ package ue;
 
 @:native("FImportAssetParameters")
 @:include("InterchangeManager.h")
-@:structAccess
+@:valueType
 extern class ImportAssetParameters {
-	public var ReimportAsset: cpp.Star<Object>;
-	public var ReimportSourceIndex: cpp.Int32;
+	public var ReimportAsset: ucpp.Ptr<Object>;
+	public var ReimportSourceIndex: ucpp.num.Int32;
 	public var bIsAutomated: Bool;
-	public var OverridePipelines: TArray<cpp.Star<InterchangePipelineBase>>;
-	public var OnAssetDone: HaxeDelegateProperty<(cpp.Star<Object>) -> Void>;
-	public var OnAssetsImportDone: HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
-	public var OnSceneObjectDone: HaxeDelegateProperty<(cpp.Star<Object>) -> Void>;
-	public var OnSceneImportDone: HaxeDelegateProperty<(cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
+	public var OverridePipelines: TArray<ucpp.Ptr<InterchangePipelineBase>>;
+	public var OnAssetDone: HaxeDelegateProperty<(ucpp.Ptr<Object>) -> Void>;
+	public var OnAssetsImportDone: HaxeDelegateProperty<(ucpp.Ref<TArray<ucpp.Ptr<Object>>>) -> Void>;
+	public var OnSceneObjectDone: HaxeDelegateProperty<(ucpp.Ptr<Object>) -> Void>;
+	public var OnSceneImportDone: HaxeDelegateProperty<(ucpp.Ref<TArray<ucpp.Ptr<Object>>>) -> Void>;
 
 	@:native("FImportAssetParameters") public function new();
 }

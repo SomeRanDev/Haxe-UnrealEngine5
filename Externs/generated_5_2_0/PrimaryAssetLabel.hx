@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPrimaryAssetLabel")
 @:include("Engine/PrimaryAssetLabel.h")
-@:structAccess
+@:valueType
 extern class PrimaryAssetLabel extends PrimaryDataAsset {
 	public var Rules: PrimaryAssetRules;
 	public var bLabelAssetsInMyDirectory: Bool;
@@ -12,7 +12,7 @@ extern class PrimaryAssetLabel extends PrimaryDataAsset {
 	public var ExplicitBlueprints: TArray<TSoftClassPtr<Class>>;
 	public var AssetCollection: CollectionReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstPrimaryAssetLabel(PrimaryAssetLabel) from PrimaryAssetLabel {
 @:forward
 @:nativeGen
 @:native("PrimaryAssetLabel*")
-abstract PrimaryAssetLabelPtr(cpp.Star<PrimaryAssetLabel>) from cpp.Star<PrimaryAssetLabel> to cpp.Star<PrimaryAssetLabel>{
+abstract PrimaryAssetLabelPtr(ucpp.Ptr<PrimaryAssetLabel>) from ucpp.Ptr<PrimaryAssetLabel> to ucpp.Ptr<PrimaryAssetLabel>{
 	@:from
 	public static extern inline function fromValue(v: PrimaryAssetLabel): PrimaryAssetLabelPtr {
 		return untyped __cpp__("&({0})", v);

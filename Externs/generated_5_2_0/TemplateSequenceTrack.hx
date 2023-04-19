@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTemplateSequenceTrack")
 @:include("Tracks/TemplateSequenceTrack.h")
-@:structAccess
+@:valueType
 extern class TemplateSequenceTrack extends MovieSceneSubTrack {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTemplateSequenceTrack(TemplateSequenceTrack) from TemplateSequence
 @:forward
 @:nativeGen
 @:native("TemplateSequenceTrack*")
-abstract TemplateSequenceTrackPtr(cpp.Star<TemplateSequenceTrack>) from cpp.Star<TemplateSequenceTrack> to cpp.Star<TemplateSequenceTrack>{
+abstract TemplateSequenceTrackPtr(ucpp.Ptr<TemplateSequenceTrack>) from ucpp.Ptr<TemplateSequenceTrack> to ucpp.Ptr<TemplateSequenceTrack>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequenceTrack): TemplateSequenceTrackPtr {
 		return untyped __cpp__("&({0})", v);

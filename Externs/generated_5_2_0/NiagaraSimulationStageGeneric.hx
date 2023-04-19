@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraSimulationStageGeneric")
 @:include("NiagaraSimulationStageBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimulationStageGeneric extends NiagaraSimulationStageBase {
 	public var EnabledBinding: NiagaraVariableAttributeBinding;
 	public var IterationSource: ENiagaraIterationSource;
-	public var Iterations: cpp.Int32;
+	public var Iterations: ucpp.num.Int32;
 	public var NumIterationsBinding: NiagaraVariableAttributeBinding;
 	public var ExecuteBehavior: ENiagaraSimStageExecuteBehavior;
 	public var bDisablePartialParticleUpdate: Bool;
@@ -24,7 +24,7 @@ extern class NiagaraSimulationStageGeneric extends NiagaraSimulationStageBase {
 	public var ElementCountYBinding: NiagaraVariableAttributeBinding;
 	public var ElementCountZBinding: NiagaraVariableAttributeBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,8 +34,8 @@ abstract ConstNiagaraSimulationStageGeneric(NiagaraSimulationStageGeneric) from 
 	public inline extern function get_EnabledBinding(): NiagaraVariableAttributeBinding return this.EnabledBinding;
 	public extern var IterationSource(get, never): ENiagaraIterationSource;
 	public inline extern function get_IterationSource(): ENiagaraIterationSource return this.IterationSource;
-	public extern var Iterations(get, never): cpp.Int32;
-	public inline extern function get_Iterations(): cpp.Int32 return this.Iterations;
+	public extern var Iterations(get, never): ucpp.num.Int32;
+	public inline extern function get_Iterations(): ucpp.num.Int32 return this.Iterations;
 	public extern var NumIterationsBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_NumIterationsBinding(): NiagaraVariableAttributeBinding return this.NumIterationsBinding;
 	public extern var ExecuteBehavior(get, never): ENiagaraSimStageExecuteBehavior;
@@ -71,7 +71,7 @@ abstract ConstNiagaraSimulationStageGeneric(NiagaraSimulationStageGeneric) from 
 @:forward
 @:nativeGen
 @:native("NiagaraSimulationStageGeneric*")
-abstract NiagaraSimulationStageGenericPtr(cpp.Star<NiagaraSimulationStageGeneric>) from cpp.Star<NiagaraSimulationStageGeneric> to cpp.Star<NiagaraSimulationStageGeneric>{
+abstract NiagaraSimulationStageGenericPtr(ucpp.Ptr<NiagaraSimulationStageGeneric>) from ucpp.Ptr<NiagaraSimulationStageGeneric> to ucpp.Ptr<NiagaraSimulationStageGeneric>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSimulationStageGeneric): NiagaraSimulationStageGenericPtr {
 		return untyped __cpp__("&({0})", v);

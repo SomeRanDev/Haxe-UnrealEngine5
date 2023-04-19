@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEnvQueryGenerator")
 @:include("EnvironmentQuery/EnvQueryGenerator.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator extends EnvQueryNode {
 	public var OptionName: FString;
 	public var ItemType: TSubclassOf<EnvQueryItemType>;
 	public var bAutoSortTests: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstEnvQueryGenerator(EnvQueryGenerator) from EnvQueryGenerator {
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator*")
-abstract EnvQueryGeneratorPtr(cpp.Star<EnvQueryGenerator>) from cpp.Star<EnvQueryGenerator> to cpp.Star<EnvQueryGenerator>{
+abstract EnvQueryGeneratorPtr(ucpp.Ptr<EnvQueryGenerator>) from ucpp.Ptr<EnvQueryGenerator> to ucpp.Ptr<EnvQueryGenerator>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator): EnvQueryGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

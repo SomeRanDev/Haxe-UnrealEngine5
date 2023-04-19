@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNavigationGraphNodeComponent")
 @:include("NavGraph/NavigationGraphNodeComponent.h")
-@:structAccess
+@:valueType
 extern class NavigationGraphNodeComp extends SceneComp {
 	public var Node: NavGraphNode;
-	public var NextNodeComponent: cpp.Star<NavigationGraphNodeComp>;
-	public var PrevNodeComponent: cpp.Star<NavigationGraphNodeComp>;
+	public var NextNodeComponent: ucpp.Ptr<NavigationGraphNodeComp>;
+	public var PrevNodeComponent: ucpp.Ptr<NavigationGraphNodeComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class NavigationGraphNodeComp extends SceneComp {
 abstract ConstNavigationGraphNodeComp(NavigationGraphNodeComp) from NavigationGraphNodeComp {
 	public extern var Node(get, never): NavGraphNode;
 	public inline extern function get_Node(): NavGraphNode return this.Node;
-	public extern var NextNodeComponent(get, never): cpp.Star<NavigationGraphNodeComp.ConstNavigationGraphNodeComp>;
-	public inline extern function get_NextNodeComponent(): cpp.Star<NavigationGraphNodeComp.ConstNavigationGraphNodeComp> return this.NextNodeComponent;
-	public extern var PrevNodeComponent(get, never): cpp.Star<NavigationGraphNodeComp.ConstNavigationGraphNodeComp>;
-	public inline extern function get_PrevNodeComponent(): cpp.Star<NavigationGraphNodeComp.ConstNavigationGraphNodeComp> return this.PrevNodeComponent;
+	public extern var NextNodeComponent(get, never): ucpp.Ptr<NavigationGraphNodeComp.ConstNavigationGraphNodeComp>;
+	public inline extern function get_NextNodeComponent(): ucpp.Ptr<NavigationGraphNodeComp.ConstNavigationGraphNodeComp> return this.NextNodeComponent;
+	public extern var PrevNodeComponent(get, never): ucpp.Ptr<NavigationGraphNodeComp.ConstNavigationGraphNodeComp>;
+	public inline extern function get_PrevNodeComponent(): ucpp.Ptr<NavigationGraphNodeComp.ConstNavigationGraphNodeComp> return this.PrevNodeComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("NavigationGraphNodeComp*")
-abstract NavigationGraphNodeCompPtr(cpp.Star<NavigationGraphNodeComp>) from cpp.Star<NavigationGraphNodeComp> to cpp.Star<NavigationGraphNodeComp>{
+abstract NavigationGraphNodeCompPtr(ucpp.Ptr<NavigationGraphNodeComp>) from ucpp.Ptr<NavigationGraphNodeComp> to ucpp.Ptr<NavigationGraphNodeComp>{
 	@:from
 	public static extern inline function fromValue(v: NavigationGraphNodeComp): NavigationGraphNodeCompPtr {
 		return untyped __cpp__("&({0})", v);

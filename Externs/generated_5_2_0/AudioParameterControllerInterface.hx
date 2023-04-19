@@ -2,23 +2,23 @@
 package ue;
 
 @:native("UAudioParameterControllerInterface")
-@:structAccess
+@:valueType
 extern class AudioParameterControllerInterface extends Interface {
 	public function SetTriggerParameter(InName: FName): Void;
 	public function SetStringParameter(InName: FName, InValue: FString): Void;
-	public function SetStringArrayParameter(InName: FName, InValue: cpp.Reference<TArray<FString>>): Void;
-	public function SetParameters_Blueprint(InParameters: cpp.Reference<TArray<AudioParameter>>): Void;
-	public function SetObjectParameter(InName: FName, InValue: cpp.Star<Object>): Void;
-	public function SetObjectArrayParameter(InName: FName, InValue: cpp.Reference<TArray<cpp.Star<Object>>>): Void;
-	public function SetIntParameter(InName: FName, InInt: cpp.Int32): Void;
-	public function SetIntArrayParameter(InName: FName, InValue: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function SetFloatParameter(InName: FName, InFloat: cpp.Float32): Void;
-	public function SetFloatArrayParameter(InName: FName, InValue: cpp.Reference<TArray<cpp.Float32>>): Void;
+	public function SetStringArrayParameter(InName: FName, InValue: ucpp.Ref<TArray<FString>>): Void;
+	public function SetParameters_Blueprint(InParameters: ucpp.Ref<TArray<AudioParameter>>): Void;
+	public function SetObjectParameter(InName: FName, InValue: ucpp.Ptr<Object>): Void;
+	public function SetObjectArrayParameter(InName: FName, InValue: ucpp.Ref<TArray<ucpp.Ptr<Object>>>): Void;
+	public function SetIntParameter(InName: FName, InInt: ucpp.num.Int32): Void;
+	public function SetIntArrayParameter(InName: FName, InValue: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function SetFloatParameter(InName: FName, InFloat: ucpp.num.Float32): Void;
+	public function SetFloatArrayParameter(InName: FName, InValue: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
 	public function SetBoolParameter(InName: FName, InBool: Bool): Void;
-	public function SetBoolArrayParameter(InName: FName, InValue: cpp.Reference<TArray<Bool>>): Void;
+	public function SetBoolArrayParameter(InName: FName, InValue: ucpp.Ref<TArray<Bool>>): Void;
 	public function ResetParameters(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstAudioParameterControllerInterface(AudioParameterControllerInterfac
 @:forward
 @:nativeGen
 @:native("AudioParameterControllerInterface*")
-abstract AudioParameterControllerInterfacePtr(cpp.Star<AudioParameterControllerInterface>) from cpp.Star<AudioParameterControllerInterface> to cpp.Star<AudioParameterControllerInterface>{
+abstract AudioParameterControllerInterfacePtr(ucpp.Ptr<AudioParameterControllerInterface>) from ucpp.Ptr<AudioParameterControllerInterface> to ucpp.Ptr<AudioParameterControllerInterface>{
 	@:from
 	public static extern inline function fromValue(v: AudioParameterControllerInterface): AudioParameterControllerInterfacePtr {
 		return untyped __cpp__("&({0})", v);

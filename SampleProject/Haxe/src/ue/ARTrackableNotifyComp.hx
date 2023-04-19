@@ -3,84 +3,84 @@ package ue;
 
 @:native("UARTrackableNotifyComponent")
 @:include("ARTrackableNotifyComponent.h")
-@:structAccess
+@:valueType
 extern class ARTrackableNotifyComp extends ActorComp {
-	public var OnAddTrackedGeometry: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry>) -> Void>;
-	public var OnUpdateTrackedGeometry: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry>) -> Void>;
-	public var OnRemoveTrackedGeometry: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry>) -> Void>;
-	public var OnAddTrackedPlane: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry>) -> Void>;
-	public var OnUpdateTrackedPlane: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry>) -> Void>;
-	public var OnRemoveTrackedPlane: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry>) -> Void>;
-	public var OnAddTrackedPoint: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint>) -> Void>;
-	public var OnUpdateTrackedPoint: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint>) -> Void>;
-	public var OnRemoveTrackedPoint: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint>) -> Void>;
-	public var OnAddTrackedImage: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage>) -> Void>;
-	public var OnUpdateTrackedImage: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage>) -> Void>;
-	public var OnRemoveTrackedImage: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage>) -> Void>;
-	public var OnAddTrackedFace: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry>) -> Void>;
-	public var OnUpdateTrackedFace: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry>) -> Void>;
-	public var OnRemoveTrackedFace: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry>) -> Void>;
-	public var OnAddTrackedEnvProbe: HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe>) -> Void>;
-	public var OnUpdateTrackedEnvProbe: HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe>) -> Void>;
-	public var OnRemoveTrackedEnvProbe: HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe>) -> Void>;
-	public var OnAddTrackedObject: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject>) -> Void>;
-	public var OnUpdateTrackedObject: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject>) -> Void>;
-	public var OnRemoveTrackedObject: HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject>) -> Void>;
+	public var OnAddTrackedGeometry: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry>) -> Void>;
+	public var OnUpdateTrackedGeometry: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry>) -> Void>;
+	public var OnRemoveTrackedGeometry: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry>) -> Void>;
+	public var OnAddTrackedPlane: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry>) -> Void>;
+	public var OnUpdateTrackedPlane: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry>) -> Void>;
+	public var OnRemoveTrackedPlane: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry>) -> Void>;
+	public var OnAddTrackedPoint: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint>) -> Void>;
+	public var OnUpdateTrackedPoint: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint>) -> Void>;
+	public var OnRemoveTrackedPoint: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint>) -> Void>;
+	public var OnAddTrackedImage: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage>) -> Void>;
+	public var OnUpdateTrackedImage: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage>) -> Void>;
+	public var OnRemoveTrackedImage: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage>) -> Void>;
+	public var OnAddTrackedFace: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry>) -> Void>;
+	public var OnUpdateTrackedFace: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry>) -> Void>;
+	public var OnRemoveTrackedFace: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry>) -> Void>;
+	public var OnAddTrackedEnvProbe: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe>) -> Void>;
+	public var OnUpdateTrackedEnvProbe: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe>) -> Void>;
+	public var OnRemoveTrackedEnvProbe: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe>) -> Void>;
+	public var OnAddTrackedObject: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject>) -> Void>;
+	public var OnUpdateTrackedObject: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject>) -> Void>;
+	public var OnRemoveTrackedObject: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject>) -> Void>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstARTrackableNotifyComp(ARTrackableNotifyComp) from ARTrackableNotifyComp {
-	public extern var OnAddTrackedGeometry(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void>;
-	public inline extern function get_OnAddTrackedGeometry(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void> return this.OnAddTrackedGeometry;
-	public extern var OnUpdateTrackedGeometry(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void>;
-	public inline extern function get_OnUpdateTrackedGeometry(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void> return this.OnUpdateTrackedGeometry;
-	public extern var OnRemoveTrackedGeometry(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void>;
-	public inline extern function get_OnRemoveTrackedGeometry(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void> return this.OnRemoveTrackedGeometry;
-	public extern var OnAddTrackedPlane(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void>;
-	public inline extern function get_OnAddTrackedPlane(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void> return this.OnAddTrackedPlane;
-	public extern var OnUpdateTrackedPlane(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void>;
-	public inline extern function get_OnUpdateTrackedPlane(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void> return this.OnUpdateTrackedPlane;
-	public extern var OnRemoveTrackedPlane(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void>;
-	public inline extern function get_OnRemoveTrackedPlane(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void> return this.OnRemoveTrackedPlane;
-	public extern var OnAddTrackedPoint(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint.ConstARTrackedPoint>) -> Void>;
-	public inline extern function get_OnAddTrackedPoint(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint.ConstARTrackedPoint>) -> Void> return this.OnAddTrackedPoint;
-	public extern var OnUpdateTrackedPoint(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint.ConstARTrackedPoint>) -> Void>;
-	public inline extern function get_OnUpdateTrackedPoint(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint.ConstARTrackedPoint>) -> Void> return this.OnUpdateTrackedPoint;
-	public extern var OnRemoveTrackedPoint(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint.ConstARTrackedPoint>) -> Void>;
-	public inline extern function get_OnRemoveTrackedPoint(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedPoint.ConstARTrackedPoint>) -> Void> return this.OnRemoveTrackedPoint;
-	public extern var OnAddTrackedImage(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage.ConstARTrackedImage>) -> Void>;
-	public inline extern function get_OnAddTrackedImage(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage.ConstARTrackedImage>) -> Void> return this.OnAddTrackedImage;
-	public extern var OnUpdateTrackedImage(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage.ConstARTrackedImage>) -> Void>;
-	public inline extern function get_OnUpdateTrackedImage(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage.ConstARTrackedImage>) -> Void> return this.OnUpdateTrackedImage;
-	public extern var OnRemoveTrackedImage(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage.ConstARTrackedImage>) -> Void>;
-	public inline extern function get_OnRemoveTrackedImage(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedImage.ConstARTrackedImage>) -> Void> return this.OnRemoveTrackedImage;
-	public extern var OnAddTrackedFace(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry.ConstARFaceGeometry>) -> Void>;
-	public inline extern function get_OnAddTrackedFace(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry.ConstARFaceGeometry>) -> Void> return this.OnAddTrackedFace;
-	public extern var OnUpdateTrackedFace(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry.ConstARFaceGeometry>) -> Void>;
-	public inline extern function get_OnUpdateTrackedFace(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry.ConstARFaceGeometry>) -> Void> return this.OnUpdateTrackedFace;
-	public extern var OnRemoveTrackedFace(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry.ConstARFaceGeometry>) -> Void>;
-	public inline extern function get_OnRemoveTrackedFace(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARFaceGeometry.ConstARFaceGeometry>) -> Void> return this.OnRemoveTrackedFace;
-	public extern var OnAddTrackedEnvProbe(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void>;
-	public inline extern function get_OnAddTrackedEnvProbe(): HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void> return this.OnAddTrackedEnvProbe;
-	public extern var OnUpdateTrackedEnvProbe(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void>;
-	public inline extern function get_OnUpdateTrackedEnvProbe(): HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void> return this.OnUpdateTrackedEnvProbe;
-	public extern var OnRemoveTrackedEnvProbe(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void>;
-	public inline extern function get_OnRemoveTrackedEnvProbe(): HaxeMulticastSparseDelegateProperty<(cpp.Star<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void> return this.OnRemoveTrackedEnvProbe;
-	public extern var OnAddTrackedObject(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void>;
-	public inline extern function get_OnAddTrackedObject(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void> return this.OnAddTrackedObject;
-	public extern var OnUpdateTrackedObject(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void>;
-	public inline extern function get_OnUpdateTrackedObject(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void> return this.OnUpdateTrackedObject;
-	public extern var OnRemoveTrackedObject(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void>;
-	public inline extern function get_OnRemoveTrackedObject(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ARTrackedObject.ConstARTrackedObject>) -> Void> return this.OnRemoveTrackedObject;
+	public extern var OnAddTrackedGeometry(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void>;
+	public inline extern function get_OnAddTrackedGeometry(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void> return this.OnAddTrackedGeometry;
+	public extern var OnUpdateTrackedGeometry(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void>;
+	public inline extern function get_OnUpdateTrackedGeometry(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void> return this.OnUpdateTrackedGeometry;
+	public extern var OnRemoveTrackedGeometry(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void>;
+	public inline extern function get_OnRemoveTrackedGeometry(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedGeometry.ConstARTrackedGeometry>) -> Void> return this.OnRemoveTrackedGeometry;
+	public extern var OnAddTrackedPlane(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void>;
+	public inline extern function get_OnAddTrackedPlane(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void> return this.OnAddTrackedPlane;
+	public extern var OnUpdateTrackedPlane(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void>;
+	public inline extern function get_OnUpdateTrackedPlane(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void> return this.OnUpdateTrackedPlane;
+	public extern var OnRemoveTrackedPlane(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void>;
+	public inline extern function get_OnRemoveTrackedPlane(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARPlaneGeometry.ConstARPlaneGeometry>) -> Void> return this.OnRemoveTrackedPlane;
+	public extern var OnAddTrackedPoint(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint.ConstARTrackedPoint>) -> Void>;
+	public inline extern function get_OnAddTrackedPoint(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint.ConstARTrackedPoint>) -> Void> return this.OnAddTrackedPoint;
+	public extern var OnUpdateTrackedPoint(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint.ConstARTrackedPoint>) -> Void>;
+	public inline extern function get_OnUpdateTrackedPoint(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint.ConstARTrackedPoint>) -> Void> return this.OnUpdateTrackedPoint;
+	public extern var OnRemoveTrackedPoint(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint.ConstARTrackedPoint>) -> Void>;
+	public inline extern function get_OnRemoveTrackedPoint(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedPoint.ConstARTrackedPoint>) -> Void> return this.OnRemoveTrackedPoint;
+	public extern var OnAddTrackedImage(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage.ConstARTrackedImage>) -> Void>;
+	public inline extern function get_OnAddTrackedImage(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage.ConstARTrackedImage>) -> Void> return this.OnAddTrackedImage;
+	public extern var OnUpdateTrackedImage(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage.ConstARTrackedImage>) -> Void>;
+	public inline extern function get_OnUpdateTrackedImage(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage.ConstARTrackedImage>) -> Void> return this.OnUpdateTrackedImage;
+	public extern var OnRemoveTrackedImage(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage.ConstARTrackedImage>) -> Void>;
+	public inline extern function get_OnRemoveTrackedImage(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedImage.ConstARTrackedImage>) -> Void> return this.OnRemoveTrackedImage;
+	public extern var OnAddTrackedFace(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry.ConstARFaceGeometry>) -> Void>;
+	public inline extern function get_OnAddTrackedFace(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry.ConstARFaceGeometry>) -> Void> return this.OnAddTrackedFace;
+	public extern var OnUpdateTrackedFace(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry.ConstARFaceGeometry>) -> Void>;
+	public inline extern function get_OnUpdateTrackedFace(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry.ConstARFaceGeometry>) -> Void> return this.OnUpdateTrackedFace;
+	public extern var OnRemoveTrackedFace(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry.ConstARFaceGeometry>) -> Void>;
+	public inline extern function get_OnRemoveTrackedFace(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARFaceGeometry.ConstARFaceGeometry>) -> Void> return this.OnRemoveTrackedFace;
+	public extern var OnAddTrackedEnvProbe(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void>;
+	public inline extern function get_OnAddTrackedEnvProbe(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void> return this.OnAddTrackedEnvProbe;
+	public extern var OnUpdateTrackedEnvProbe(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void>;
+	public inline extern function get_OnUpdateTrackedEnvProbe(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void> return this.OnUpdateTrackedEnvProbe;
+	public extern var OnRemoveTrackedEnvProbe(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void>;
+	public inline extern function get_OnRemoveTrackedEnvProbe(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AREnvironmentCaptureProbe.ConstAREnvironmentCaptureProbe>) -> Void> return this.OnRemoveTrackedEnvProbe;
+	public extern var OnAddTrackedObject(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject.ConstARTrackedObject>) -> Void>;
+	public inline extern function get_OnAddTrackedObject(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject.ConstARTrackedObject>) -> Void> return this.OnAddTrackedObject;
+	public extern var OnUpdateTrackedObject(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject.ConstARTrackedObject>) -> Void>;
+	public inline extern function get_OnUpdateTrackedObject(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject.ConstARTrackedObject>) -> Void> return this.OnUpdateTrackedObject;
+	public extern var OnRemoveTrackedObject(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject.ConstARTrackedObject>) -> Void>;
+	public inline extern function get_OnRemoveTrackedObject(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ARTrackedObject.ConstARTrackedObject>) -> Void> return this.OnRemoveTrackedObject;
 }
 
 @:forward
 @:nativeGen
 @:native("ARTrackableNotifyComp*")
-abstract ARTrackableNotifyCompPtr(cpp.Star<ARTrackableNotifyComp>) from cpp.Star<ARTrackableNotifyComp> to cpp.Star<ARTrackableNotifyComp>{
+abstract ARTrackableNotifyCompPtr(ucpp.Ptr<ARTrackableNotifyComp>) from ucpp.Ptr<ARTrackableNotifyComp> to ucpp.Ptr<ARTrackableNotifyComp>{
 	@:from
 	public static extern inline function fromValue(v: ARTrackableNotifyComp): ARTrackableNotifyCompPtr {
 		return untyped __cpp__("&({0})", v);

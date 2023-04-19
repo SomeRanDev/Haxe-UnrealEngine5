@@ -3,12 +3,12 @@ package ue;
 
 @:native("FBranchingPointMarker")
 @:include("Animation/AnimMontage.h")
-@:structAccess
+@:valueType
 extern class BranchingPointMarker {
-	public var NotifyIndex: cpp.Int32;
-	public var TriggerTime: cpp.Float32;
+	public var NotifyIndex: ucpp.num.Int32;
+	public var TriggerTime: ucpp.num.Float32;
 	public var NotifyEventType: TEnumAsByte<EAnimNotifyEventType>;
 
 	@:native("FBranchingPointMarker") public function new();
-	@:native("FBranchingPointMarker") public static function make(NotifyIndex: cpp.Int32, TriggerTime: cpp.Float32, NotifyEventType: TEnumAsByte<EAnimNotifyEventType>): BranchingPointMarker ;
+	@:native("FBranchingPointMarker") public static function make(NotifyIndex: ucpp.num.Int32, TriggerTime: ucpp.num.Float32, NotifyEventType: TEnumAsByte<EAnimNotifyEventType>): BranchingPointMarker ;
 }

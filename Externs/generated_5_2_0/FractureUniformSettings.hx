@@ -3,27 +3,27 @@ package ue;
 
 @:native("UFractureUniformSettings")
 @:include("FractureToolUniform.h")
-@:structAccess
+@:valueType
 extern class FractureUniformSettings extends FractureToolSettings {
-	public var NumberVoronoiSitesMin: cpp.Int32;
-	public var NumberVoronoiSitesMax: cpp.Int32;
+	public var NumberVoronoiSitesMin: ucpp.num.Int32;
+	public var NumberVoronoiSitesMax: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureUniformSettings(FractureUniformSettings) from FractureUniformSettings {
-	public extern var NumberVoronoiSitesMin(get, never): cpp.Int32;
-	public inline extern function get_NumberVoronoiSitesMin(): cpp.Int32 return this.NumberVoronoiSitesMin;
-	public extern var NumberVoronoiSitesMax(get, never): cpp.Int32;
-	public inline extern function get_NumberVoronoiSitesMax(): cpp.Int32 return this.NumberVoronoiSitesMax;
+	public extern var NumberVoronoiSitesMin(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberVoronoiSitesMin(): ucpp.num.Int32 return this.NumberVoronoiSitesMin;
+	public extern var NumberVoronoiSitesMax(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberVoronoiSitesMax(): ucpp.num.Int32 return this.NumberVoronoiSitesMax;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureUniformSettings*")
-abstract FractureUniformSettingsPtr(cpp.Star<FractureUniformSettings>) from cpp.Star<FractureUniformSettings> to cpp.Star<FractureUniformSettings>{
+abstract FractureUniformSettingsPtr(ucpp.Ptr<FractureUniformSettings>) from ucpp.Ptr<FractureUniformSettings> to ucpp.Ptr<FractureUniformSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureUniformSettings): FractureUniformSettingsPtr {
 		return untyped __cpp__("&({0})", v);

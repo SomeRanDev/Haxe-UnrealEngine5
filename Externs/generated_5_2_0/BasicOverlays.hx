@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBasicOverlays")
 @:include("BasicOverlays.h")
-@:structAccess
+@:valueType
 extern class BasicOverlays extends Overlays {
 	public var Overlays: TArray<OverlayItem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBasicOverlays(BasicOverlays) from BasicOverlays {
 @:forward
 @:nativeGen
 @:native("BasicOverlays*")
-abstract BasicOverlaysPtr(cpp.Star<BasicOverlays>) from cpp.Star<BasicOverlays> to cpp.Star<BasicOverlays>{
+abstract BasicOverlaysPtr(ucpp.Ptr<BasicOverlays>) from ucpp.Ptr<BasicOverlays> to ucpp.Ptr<BasicOverlays>{
 	@:from
 	public static extern inline function fromValue(v: BasicOverlays): BasicOverlaysPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAlignObjectsToolProperties")
 @:include("AlignObjectsTool.h")
-@:structAccess
+@:valueType
 extern class AlignObjectsToolProperties extends InteractiveToolPropertySet {
 	public var AlignType: EAlignObjectsAlignTypes;
 	public var AlignTo: EAlignObjectsAlignToOptions;
@@ -12,7 +12,7 @@ extern class AlignObjectsToolProperties extends InteractiveToolPropertySet {
 	public var bAlignY: Bool;
 	public var bAlignZ: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstAlignObjectsToolProperties(AlignObjectsToolProperties) from AlignO
 @:forward
 @:nativeGen
 @:native("AlignObjectsToolProperties*")
-abstract AlignObjectsToolPropertiesPtr(cpp.Star<AlignObjectsToolProperties>) from cpp.Star<AlignObjectsToolProperties> to cpp.Star<AlignObjectsToolProperties>{
+abstract AlignObjectsToolPropertiesPtr(ucpp.Ptr<AlignObjectsToolProperties>) from ucpp.Ptr<AlignObjectsToolProperties> to ucpp.Ptr<AlignObjectsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: AlignObjectsToolProperties): AlignObjectsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

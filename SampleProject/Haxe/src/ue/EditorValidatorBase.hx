@@ -3,19 +3,19 @@ package ue;
 
 @:native("UEditorValidatorBase")
 @:include("EditorValidatorBase.h")
-@:structAccess
+@:valueType
 extern class EditorValidatorBase extends Object {
 	@:protected public var bIsEnabled: Bool;
 
-	public function ValidateLoadedAsset(InAsset: cpp.Star<Object>, ValidationErrors: cpp.Reference<TArray<FText>>): EDataValidationResult;
+	public function ValidateLoadedAsset(InAsset: ucpp.Ptr<Object>, ValidationErrors: ucpp.Ref<TArray<FText>>): EDataValidationResult;
 	public function GetValidationResult(): EDataValidationResult;
-	public function CanValidateAsset(InAsset: cpp.Star<Object>): Bool;
+	public function CanValidateAsset(InAsset: ucpp.Ptr<Object>): Bool;
 	public function CanValidate(InUsecase: EDataValidationUsecase): Bool;
-	public function AssetWarning(InAsset: cpp.Star<Object>, InMessage: cpp.Reference<FText>): Void;
-	public function AssetPasses(InAsset: cpp.Star<Object>): Void;
-	public function AssetFails(InAsset: cpp.Star<Object>, InMessage: cpp.Reference<FText>, ValidationErrors: cpp.Reference<TArray<FText>>): Void;
+	public function AssetWarning(InAsset: ucpp.Ptr<Object>, InMessage: ucpp.Ref<FText>): Void;
+	public function AssetPasses(InAsset: ucpp.Ptr<Object>): Void;
+	public function AssetFails(InAsset: ucpp.Ptr<Object>, InMessage: ucpp.Ref<FText>, ValidationErrors: ucpp.Ref<TArray<FText>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValidationResult, CanValidateAsset, CanValidate)
@@ -26,7 +26,7 @@ abstract ConstEditorValidatorBase(EditorValidatorBase) from EditorValidatorBase 
 @:forward
 @:nativeGen
 @:native("EditorValidatorBase*")
-abstract EditorValidatorBasePtr(cpp.Star<EditorValidatorBase>) from cpp.Star<EditorValidatorBase> to cpp.Star<EditorValidatorBase>{
+abstract EditorValidatorBasePtr(ucpp.Ptr<EditorValidatorBase>) from ucpp.Ptr<EditorValidatorBase> to ucpp.Ptr<EditorValidatorBase>{
 	@:from
 	public static extern inline function fromValue(v: EditorValidatorBase): EditorValidatorBasePtr {
 		return untyped __cpp__("&({0})", v);

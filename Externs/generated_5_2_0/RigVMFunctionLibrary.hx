@@ -3,18 +3,18 @@ package ue;
 
 @:native("URigVMFunctionLibrary")
 @:include("RigVMModel/RigVMFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class RigVMFunctionLibrary extends RigVMGraph {
 	private var PublicFunctionNames: TArray<FName>;
-	private var LocalizedFunctions: TMap<FString, cpp.Star<RigVMLibraryNode>>;
+	private var LocalizedFunctions: TMap<FString, ucpp.Ptr<RigVMLibraryNode>>;
 
-	public function GetReferencesForFunction(InFunctionName: cpp.Reference<FName>): TArray<TSoftObjectPtr<RigVMFunctionReferenceNode>>;
-	public function GetReferencePathsForFunction(InFunctionName: cpp.Reference<FName>): TArray<FString>;
-	public function GetFunctions(): TArray<cpp.Star<RigVMLibraryNode>>;
-	public function FindFunctionForNode(InNode: cpp.Star<RigVMNode>): cpp.Star<RigVMLibraryNode>;
-	public function FindFunction(InFunctionName: cpp.Reference<FName>): cpp.Star<RigVMLibraryNode>;
+	public function GetReferencesForFunction(InFunctionName: ucpp.Ref<FName>): TArray<TSoftObjectPtr<RigVMFunctionReferenceNode>>;
+	public function GetReferencePathsForFunction(InFunctionName: ucpp.Ref<FName>): TArray<FString>;
+	public function GetFunctions(): TArray<ucpp.Ptr<RigVMLibraryNode>>;
+	public function FindFunctionForNode(InNode: ucpp.Ptr<RigVMNode>): ucpp.Ptr<RigVMLibraryNode>;
+	public function FindFunction(InFunctionName: ucpp.Ref<FName>): ucpp.Ptr<RigVMLibraryNode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFunctions, FindFunctionForNode, FindFunction)
@@ -25,7 +25,7 @@ abstract ConstRigVMFunctionLibrary(RigVMFunctionLibrary) from RigVMFunctionLibra
 @:forward
 @:nativeGen
 @:native("RigVMFunctionLibrary*")
-abstract RigVMFunctionLibraryPtr(cpp.Star<RigVMFunctionLibrary>) from cpp.Star<RigVMFunctionLibrary> to cpp.Star<RigVMFunctionLibrary>{
+abstract RigVMFunctionLibraryPtr(ucpp.Ptr<RigVMFunctionLibrary>) from ucpp.Ptr<RigVMFunctionLibrary> to ucpp.Ptr<RigVMFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: RigVMFunctionLibrary): RigVMFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

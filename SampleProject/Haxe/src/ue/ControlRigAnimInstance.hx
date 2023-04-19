@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigAnimInstance")
 @:include("ControlRigAnimInstance.h")
-@:structAccess
+@:valueType
 extern class ControlRigAnimInstance extends AnimInstance {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigAnimInstance(ControlRigAnimInstance) from ControlRigAnim
 @:forward
 @:nativeGen
 @:native("ControlRigAnimInstance*")
-abstract ControlRigAnimInstancePtr(cpp.Star<ControlRigAnimInstance>) from cpp.Star<ControlRigAnimInstance> to cpp.Star<ControlRigAnimInstance>{
+abstract ControlRigAnimInstancePtr(ucpp.Ptr<ControlRigAnimInstance>) from ucpp.Ptr<ControlRigAnimInstance> to ucpp.Ptr<ControlRigAnimInstance>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigAnimInstance): ControlRigAnimInstancePtr {
 		return untyped __cpp__("&({0})", v);

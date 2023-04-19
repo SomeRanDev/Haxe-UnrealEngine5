@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULightmassOptionsObject")
 @:include("Preferences/LightmassOptionsObject.h")
-@:structAccess
+@:valueType
 extern class LightmassOptionsObject extends Object {
 	public var DebugSettings: LightmassDebugOptions;
 	public var SwarmSettings: SwarmDebugOptions;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLightmassOptionsObject(LightmassOptionsObject) from LightmassOptio
 @:forward
 @:nativeGen
 @:native("LightmassOptionsObject*")
-abstract LightmassOptionsObjectPtr(cpp.Star<LightmassOptionsObject>) from cpp.Star<LightmassOptionsObject> to cpp.Star<LightmassOptionsObject>{
+abstract LightmassOptionsObjectPtr(ucpp.Ptr<LightmassOptionsObject>) from ucpp.Ptr<LightmassOptionsObject> to ucpp.Ptr<LightmassOptionsObject>{
 	@:from
 	public static extern inline function fromValue(v: LightmassOptionsObject): LightmassOptionsObjectPtr {
 		return untyped __cpp__("&({0})", v);

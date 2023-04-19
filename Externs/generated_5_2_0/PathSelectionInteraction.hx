@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPathSelectionInteraction")
 @:include("ModelingSelectionInteraction.h")
-@:structAccess
+@:valueType
 extern class PathSelectionInteraction extends Object {
 	@:protected public var SelectionInteraction: TWeakObjectPtr<ModelingSelectionInteraction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPathSelectionInteraction(PathSelectionInteraction) from PathSelect
 @:forward
 @:nativeGen
 @:native("PathSelectionInteraction*")
-abstract PathSelectionInteractionPtr(cpp.Star<PathSelectionInteraction>) from cpp.Star<PathSelectionInteraction> to cpp.Star<PathSelectionInteraction>{
+abstract PathSelectionInteractionPtr(ucpp.Ptr<PathSelectionInteraction>) from ucpp.Ptr<PathSelectionInteraction> to ucpp.Ptr<PathSelectionInteraction>{
 	@:from
 	public static extern inline function fromValue(v: PathSelectionInteraction): PathSelectionInteractionPtr {
 		return untyped __cpp__("&({0})", v);

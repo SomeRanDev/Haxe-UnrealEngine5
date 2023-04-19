@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMasterAudioSubmixCaptureProtocol")
 @:include("Protocols/AudioCaptureProtocol.h")
-@:structAccess
+@:valueType
 extern class MasterAudioSubmixCaptureProtocol extends MovieSceneAudioCaptureProtocolBase {
 	@:protected public var FileName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMasterAudioSubmixCaptureProtocol(MasterAudioSubmixCaptureProtocol)
 @:forward
 @:nativeGen
 @:native("MasterAudioSubmixCaptureProtocol*")
-abstract MasterAudioSubmixCaptureProtocolPtr(cpp.Star<MasterAudioSubmixCaptureProtocol>) from cpp.Star<MasterAudioSubmixCaptureProtocol> to cpp.Star<MasterAudioSubmixCaptureProtocol>{
+abstract MasterAudioSubmixCaptureProtocolPtr(ucpp.Ptr<MasterAudioSubmixCaptureProtocol>) from ucpp.Ptr<MasterAudioSubmixCaptureProtocol> to ucpp.Ptr<MasterAudioSubmixCaptureProtocol>{
 	@:from
 	public static extern inline function fromValue(v: MasterAudioSubmixCaptureProtocol): MasterAudioSubmixCaptureProtocolPtr {
 		return untyped __cpp__("&({0})", v);

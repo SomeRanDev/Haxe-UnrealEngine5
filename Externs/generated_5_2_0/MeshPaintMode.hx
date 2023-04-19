@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshPaintMode")
 @:include("MeshPaintMode.h")
-@:structAccess
+@:valueType
 extern class MeshPaintMode extends EdMode {
-	@:protected public var ModeSettings: cpp.Star<MeshPaintModeSettings>;
+	@:protected public var ModeSettings: ucpp.Ptr<MeshPaintModeSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMeshPaintMode(MeshPaintMode) from MeshPaintMode {
 @:forward
 @:nativeGen
 @:native("MeshPaintMode*")
-abstract MeshPaintModePtr(cpp.Star<MeshPaintMode>) from cpp.Star<MeshPaintMode> to cpp.Star<MeshPaintMode>{
+abstract MeshPaintModePtr(ucpp.Ptr<MeshPaintMode>) from ucpp.Ptr<MeshPaintMode> to ucpp.Ptr<MeshPaintMode>{
 	@:from
 	public static extern inline function fromValue(v: MeshPaintMode): MeshPaintModePtr {
 		return untyped __cpp__("&({0})", v);

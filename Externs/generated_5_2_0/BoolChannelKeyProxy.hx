@@ -3,12 +3,12 @@ package ue;
 
 @:native("UBoolChannelKeyProxy")
 @:include("Channels/BoolChannelKeyProxy.h")
-@:structAccess
+@:valueType
 extern class BoolChannelKeyProxy extends Object {
 	private var Time: FrameNumber;
 	private var bValue: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstBoolChannelKeyProxy(BoolChannelKeyProxy) from BoolChannelKeyProxy 
 @:forward
 @:nativeGen
 @:native("BoolChannelKeyProxy*")
-abstract BoolChannelKeyProxyPtr(cpp.Star<BoolChannelKeyProxy>) from cpp.Star<BoolChannelKeyProxy> to cpp.Star<BoolChannelKeyProxy>{
+abstract BoolChannelKeyProxyPtr(ucpp.Ptr<BoolChannelKeyProxy>) from ucpp.Ptr<BoolChannelKeyProxy> to ucpp.Ptr<BoolChannelKeyProxy>{
 	@:from
 	public static extern inline function fromValue(v: BoolChannelKeyProxy): BoolChannelKeyProxyPtr {
 		return untyped __cpp__("&({0})", v);

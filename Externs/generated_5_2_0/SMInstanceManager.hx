@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USMInstanceManager")
-@:structAccess
+@:valueType
 extern class SMInstanceManager extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSMInstanceManager(SMInstanceManager) from SMInstanceManager {
 @:forward
 @:nativeGen
 @:native("SMInstanceManager*")
-abstract SMInstanceManagerPtr(cpp.Star<SMInstanceManager>) from cpp.Star<SMInstanceManager> to cpp.Star<SMInstanceManager>{
+abstract SMInstanceManagerPtr(ucpp.Ptr<SMInstanceManager>) from ucpp.Ptr<SMInstanceManager> to ucpp.Ptr<SMInstanceManager>{
 	@:from
 	public static extern inline function fromValue(v: SMInstanceManager): SMInstanceManagerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMergeShaderPipelineCachesCommandlet")
 @:include("Commandlets/MergeShaderPipelineCachesCommandlet.h")
-@:structAccess
+@:valueType
 extern class MergeShaderPipelineCachesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMergeShaderPipelineCachesCommandlet(MergeShaderPipelineCachesComma
 @:forward
 @:nativeGen
 @:native("MergeShaderPipelineCachesCommandlet*")
-abstract MergeShaderPipelineCachesCommandletPtr(cpp.Star<MergeShaderPipelineCachesCommandlet>) from cpp.Star<MergeShaderPipelineCachesCommandlet> to cpp.Star<MergeShaderPipelineCachesCommandlet>{
+abstract MergeShaderPipelineCachesCommandletPtr(ucpp.Ptr<MergeShaderPipelineCachesCommandlet>) from ucpp.Ptr<MergeShaderPipelineCachesCommandlet> to ucpp.Ptr<MergeShaderPipelineCachesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: MergeShaderPipelineCachesCommandlet): MergeShaderPipelineCachesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

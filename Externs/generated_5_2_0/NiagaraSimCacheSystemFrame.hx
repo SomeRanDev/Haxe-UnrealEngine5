@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraSimCacheSystemFrame")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheSystemFrame {
 	public var LocalBounds: Box;
 	public var SystemDataBuffers: NiagaraSimCacheDataBuffers;

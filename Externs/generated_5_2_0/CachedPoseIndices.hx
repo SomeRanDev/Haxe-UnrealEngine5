@@ -3,10 +3,10 @@ package ue;
 
 @:native("FCachedPoseIndices")
 @:include("Animation/AnimClassInterface.h")
-@:structAccess
+@:valueType
 extern class CachedPoseIndices {
-	public var OrderedSavedPoseNodeIndices: TArray<cpp.Int32>;
+	public var OrderedSavedPoseNodeIndices: TArray<ucpp.num.Int32>;
 
 	@:native("FCachedPoseIndices") public function new();
-	@:native("FCachedPoseIndices") public static function make(OrderedSavedPoseNodeIndices: TArray<cpp.Int32>): CachedPoseIndices ;
+	@:native("FCachedPoseIndices") public static function make(OrderedSavedPoseNodeIndices: TArray<ucpp.num.Int32>): CachedPoseIndices ;
 }

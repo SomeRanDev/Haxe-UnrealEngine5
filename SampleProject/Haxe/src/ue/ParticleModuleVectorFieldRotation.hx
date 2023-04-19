@@ -3,12 +3,12 @@ package ue;
 
 @:native("UParticleModuleVectorFieldRotation")
 @:include("Particles/VectorField/ParticleModuleVectorFieldRotation.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleVectorFieldRotation extends ParticleModuleVectorFieldBase {
 	public var MinInitialRotation: Vector;
 	public var MaxInitialRotation: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstParticleModuleVectorFieldRotation(ParticleModuleVectorFieldRotatio
 @:forward
 @:nativeGen
 @:native("ParticleModuleVectorFieldRotation*")
-abstract ParticleModuleVectorFieldRotationPtr(cpp.Star<ParticleModuleVectorFieldRotation>) from cpp.Star<ParticleModuleVectorFieldRotation> to cpp.Star<ParticleModuleVectorFieldRotation>{
+abstract ParticleModuleVectorFieldRotationPtr(ucpp.Ptr<ParticleModuleVectorFieldRotation>) from ucpp.Ptr<ParticleModuleVectorFieldRotation> to ucpp.Ptr<ParticleModuleVectorFieldRotation>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleVectorFieldRotation): ParticleModuleVectorFieldRotationPtr {
 		return untyped __cpp__("&({0})", v);

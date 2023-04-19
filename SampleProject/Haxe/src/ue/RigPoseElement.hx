@@ -3,13 +3,13 @@ package ue;
 
 @:native("FRigPoseElement")
 @:include("Rigs/RigHierarchyPose.h")
-@:structAccess
+@:valueType
 extern class RigPoseElement {
 	public var Index: CachedRigElement;
 	public var GlobalTransform: Transform;
 	public var LocalTransform: Transform;
-	public var CurveValue: cpp.Float32;
+	public var CurveValue: ucpp.num.Float32;
 
 	@:native("FRigPoseElement") public function new();
-	@:native("FRigPoseElement") public static function make(Index: CachedRigElement, GlobalTransform: Transform, LocalTransform: Transform, CurveValue: cpp.Float32): RigPoseElement ;
+	@:native("FRigPoseElement") public static function make(Index: CachedRigElement, GlobalTransform: Transform, LocalTransform: Transform, CurveValue: ucpp.num.Float32): RigPoseElement ;
 }

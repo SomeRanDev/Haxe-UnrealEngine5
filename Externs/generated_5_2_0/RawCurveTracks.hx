@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRawCurveTracks")
 @:include("Animation/AnimCurveTypes.h")
-@:structAccess
+@:valueType
 extern class RawCurveTracks {
 	public var FloatCurves: TArray<FloatCurve>;
 

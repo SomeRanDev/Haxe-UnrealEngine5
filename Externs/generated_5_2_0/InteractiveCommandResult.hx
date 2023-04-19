@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInteractiveCommandResult")
 @:include("InteractiveCommand.h")
-@:structAccess
+@:valueType
 extern class InteractiveCommandResult extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInteractiveCommandResult(InteractiveCommandResult) from Interactiv
 @:forward
 @:nativeGen
 @:native("InteractiveCommandResult*")
-abstract InteractiveCommandResultPtr(cpp.Star<InteractiveCommandResult>) from cpp.Star<InteractiveCommandResult> to cpp.Star<InteractiveCommandResult>{
+abstract InteractiveCommandResultPtr(ucpp.Ptr<InteractiveCommandResult>) from ucpp.Ptr<InteractiveCommandResult> to ucpp.Ptr<InteractiveCommandResult>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveCommandResult): InteractiveCommandResultPtr {
 		return untyped __cpp__("&({0})", v);

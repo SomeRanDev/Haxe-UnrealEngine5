@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeMaterialFunctionCallExpressionFactoryNode")
 @:include("InterchangeMaterialFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeMaterialFunctionCallExpressionFactoryNode extends InterchangeMaterialExpressionFactoryNode {
 	public function SetCustomMaterialFunctionDependency(AttributeValue: FString): Bool;
-	public function GetCustomMaterialFunctionDependency(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetCustomMaterialFunctionDependency(AttributeValue: ucpp.Ref<FString>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomMaterialFunctionDependency)
@@ -19,7 +19,7 @@ abstract ConstInterchangeMaterialFunctionCallExpressionFactoryNode(InterchangeMa
 @:forward
 @:nativeGen
 @:native("InterchangeMaterialFunctionCallExpressionFactoryNode*")
-abstract InterchangeMaterialFunctionCallExpressionFactoryNodePtr(cpp.Star<InterchangeMaterialFunctionCallExpressionFactoryNode>) from cpp.Star<InterchangeMaterialFunctionCallExpressionFactoryNode> to cpp.Star<InterchangeMaterialFunctionCallExpressionFactoryNode>{
+abstract InterchangeMaterialFunctionCallExpressionFactoryNodePtr(ucpp.Ptr<InterchangeMaterialFunctionCallExpressionFactoryNode>) from ucpp.Ptr<InterchangeMaterialFunctionCallExpressionFactoryNode> to ucpp.Ptr<InterchangeMaterialFunctionCallExpressionFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMaterialFunctionCallExpressionFactoryNode): InterchangeMaterialFunctionCallExpressionFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UTickableParentConstraint")
 @:include("TransformConstraint.h")
-@:structAccess
+@:valueType
 extern class TickableParentConstraint extends TickableTransformConstraint {
 	@:protected public var OffsetTransform: Transform;
 	@:protected public var bScaling: Bool;
 	@:protected public var TransformFilter: TransformFilter;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTickableParentConstraint(TickableParentConstraint) from TickablePa
 @:forward
 @:nativeGen
 @:native("TickableParentConstraint*")
-abstract TickableParentConstraintPtr(cpp.Star<TickableParentConstraint>) from cpp.Star<TickableParentConstraint> to cpp.Star<TickableParentConstraint>{
+abstract TickableParentConstraintPtr(ucpp.Ptr<TickableParentConstraint>) from ucpp.Ptr<TickableParentConstraint> to ucpp.Ptr<TickableParentConstraint>{
 	@:from
 	public static extern inline function fromValue(v: TickableParentConstraint): TickableParentConstraintPtr {
 		return untyped __cpp__("&({0})", v);

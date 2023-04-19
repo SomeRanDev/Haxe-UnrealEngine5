@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraComponentPropertyBinding")
 @:include("NiagaraComponentRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraComponentPropertyBinding {
 	public var AttributeBinding: NiagaraVariableAttributeBinding;
 	public var PropertyName: FName;

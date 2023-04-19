@@ -3,13 +3,13 @@ package ue;
 
 @:native("ASceneCaptureCube")
 @:include("Engine/SceneCaptureCube.h")
-@:structAccess
+@:valueType
 extern class SceneCaptureCube extends SceneCapture {
-	private var CaptureComponentCube: cpp.Star<SceneCaptureComponentCube>;
+	private var CaptureComponentCube: ucpp.Ptr<SceneCaptureComponentCube>;
 
 	public function OnInterpToggle(bEnable: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSceneCaptureCube(SceneCaptureCube) from SceneCaptureCube {
 @:forward
 @:nativeGen
 @:native("SceneCaptureCube*")
-abstract SceneCaptureCubePtr(cpp.Star<SceneCaptureCube>) from cpp.Star<SceneCaptureCube> to cpp.Star<SceneCaptureCube>{
+abstract SceneCaptureCubePtr(ucpp.Ptr<SceneCaptureCube>) from ucpp.Ptr<SceneCaptureCube> to ucpp.Ptr<SceneCaptureCube>{
 	@:from
 	public static extern inline function fromValue(v: SceneCaptureCube): SceneCaptureCubePtr {
 		return untyped __cpp__("&({0})", v);

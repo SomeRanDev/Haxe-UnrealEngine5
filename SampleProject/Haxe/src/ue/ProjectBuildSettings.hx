@@ -3,12 +3,13 @@ package ue;
 
 @:native("FProjectBuildSettings")
 @:include("Settings/ProjectPackagingSettings.h")
-@:structAccess
+@:valueType
 extern class ProjectBuildSettings {
 	public var Name: FString;
+	public var HelpText: FString;
 	public var SpecificPlatforms: TArray<FString>;
 	public var BuildCookRunParams: FString;
 
 	@:native("FProjectBuildSettings") public function new();
-	@:native("FProjectBuildSettings") public static function make(Name: FString, SpecificPlatforms: TArray<FString>, BuildCookRunParams: FString): ProjectBuildSettings ;
+	@:native("FProjectBuildSettings") public static function make(Name: FString, HelpText: FString, SpecificPlatforms: TArray<FString>, BuildCookRunParams: FString): ProjectBuildSettings ;
 }

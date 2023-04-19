@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSoundAttenuationPluginSettings")
 @:include("Sound/SoundAttenuation.h")
-@:structAccess
+@:valueType
 extern class SoundAttenuationPluginSettings {
-	public var SpatializationPluginSettingsArray: TArray<cpp.Star<SpatializationPluginSourceSettingsBase>>;
-	public var OcclusionPluginSettingsArray: TArray<cpp.Star<OcclusionPluginSourceSettingsBase>>;
-	public var ReverbPluginSettingsArray: TArray<cpp.Star<ReverbPluginSourceSettingsBase>>;
-	public var SourceDataOverridePluginSettingsArray: TArray<cpp.Star<SourceDataOverridePluginSourceSettingsBase>>;
+	public var SpatializationPluginSettingsArray: TArray<ucpp.Ptr<SpatializationPluginSourceSettingsBase>>;
+	public var OcclusionPluginSettingsArray: TArray<ucpp.Ptr<OcclusionPluginSourceSettingsBase>>;
+	public var ReverbPluginSettingsArray: TArray<ucpp.Ptr<ReverbPluginSourceSettingsBase>>;
+	public var SourceDataOverridePluginSettingsArray: TArray<ucpp.Ptr<SourceDataOverridePluginSourceSettingsBase>>;
 
 	@:native("FSoundAttenuationPluginSettings") public function new();
-	@:native("FSoundAttenuationPluginSettings") public static function make(SpatializationPluginSettingsArray: TArray<cpp.Star<SpatializationPluginSourceSettingsBase>>, OcclusionPluginSettingsArray: TArray<cpp.Star<OcclusionPluginSourceSettingsBase>>, ReverbPluginSettingsArray: TArray<cpp.Star<ReverbPluginSourceSettingsBase>>, SourceDataOverridePluginSettingsArray: TArray<cpp.Star<SourceDataOverridePluginSourceSettingsBase>>): SoundAttenuationPluginSettings ;
+	@:native("FSoundAttenuationPluginSettings") public static function make(SpatializationPluginSettingsArray: TArray<ucpp.Ptr<SpatializationPluginSourceSettingsBase>>, OcclusionPluginSettingsArray: TArray<ucpp.Ptr<OcclusionPluginSourceSettingsBase>>, ReverbPluginSettingsArray: TArray<ucpp.Ptr<ReverbPluginSourceSettingsBase>>, SourceDataOverridePluginSettingsArray: TArray<ucpp.Ptr<SourceDataOverridePluginSourceSettingsBase>>): SoundAttenuationPluginSettings ;
 }

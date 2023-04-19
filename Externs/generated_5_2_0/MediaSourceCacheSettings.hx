@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMediaSourceCacheSettings")
 @:include("MediaSource.h")
-@:structAccess
+@:valueType
 extern class MediaSourceCacheSettings {
 	public var bOverride: Bool;
-	public var TimeToLookAhead: cpp.Float32;
+	public var TimeToLookAhead: ucpp.num.Float32;
 
 	@:native("FMediaSourceCacheSettings") public function new();
-	@:native("FMediaSourceCacheSettings") public static function make(bOverride: Bool, TimeToLookAhead: cpp.Float32): MediaSourceCacheSettings ;
+	@:native("FMediaSourceCacheSettings") public static function make(bOverride: Bool, TimeToLookAhead: ucpp.num.Float32): MediaSourceCacheSettings ;
 }

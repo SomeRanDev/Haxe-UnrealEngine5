@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_AimOffsetLookAt")
 @:include("AnimGraphNode_AimOffsetLookAt.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_AimOffsetLookAt extends AnimGraphNode_BlendSpaceBase {
 	public var Node: AnimNode_AimOffsetLookAt;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_AimOffsetLookAt(AnimGraphNode_AimOffsetLookAt) from 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_AimOffsetLookAt*")
-abstract AnimGraphNode_AimOffsetLookAtPtr(cpp.Star<AnimGraphNode_AimOffsetLookAt>) from cpp.Star<AnimGraphNode_AimOffsetLookAt> to cpp.Star<AnimGraphNode_AimOffsetLookAt>{
+abstract AnimGraphNode_AimOffsetLookAtPtr(ucpp.Ptr<AnimGraphNode_AimOffsetLookAt>) from ucpp.Ptr<AnimGraphNode_AimOffsetLookAt> to ucpp.Ptr<AnimGraphNode_AimOffsetLookAt>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_AimOffsetLookAt): AnimGraphNode_AimOffsetLookAtPtr {
 		return untyped __cpp__("&({0})", v);

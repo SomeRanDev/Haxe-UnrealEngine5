@@ -3,10 +3,10 @@ package ue;
 
 @:native("UIoStoreCommandlet")
 @:include("Commandlets/IoStoreCommandlet.h")
-@:structAccess
+@:valueType
 extern class IoStoreCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstIoStoreCommandlet(IoStoreCommandlet) from IoStoreCommandlet {
 @:forward
 @:nativeGen
 @:native("IoStoreCommandlet*")
-abstract IoStoreCommandletPtr(cpp.Star<IoStoreCommandlet>) from cpp.Star<IoStoreCommandlet> to cpp.Star<IoStoreCommandlet>{
+abstract IoStoreCommandletPtr(ucpp.Ptr<IoStoreCommandlet>) from ucpp.Ptr<IoStoreCommandlet> to ucpp.Ptr<IoStoreCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: IoStoreCommandlet): IoStoreCommandletPtr {
 		return untyped __cpp__("&({0})", v);

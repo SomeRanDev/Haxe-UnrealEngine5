@@ -3,31 +3,31 @@ package ue;
 
 @:native("UListViewBase")
 @:include("Components/ListViewBase.h")
-@:structAccess
+@:valueType
 extern class ListViewBase extends Widget {
-	@:protected public var BP_OnEntryGenerated: HaxeMulticastSparseDelegateProperty<(cpp.Star<UserWidget>) -> Void>;
+	@:protected public var BP_OnEntryGenerated: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<UserWidget>) -> Void>;
 	@:protected public var EntryWidgetClass: TSubclassOf<UserWidget>;
-	@:protected public var WheelScrollMultiplier: cpp.Float32;
+	@:protected public var WheelScrollMultiplier: ucpp.num.Float32;
 	@:protected public var bEnableScrollAnimation: Bool;
 	@:protected public var AllowOverscroll: Bool;
 	@:protected public var bEnableRightClickScrolling: Bool;
 	@:protected public var bEnableFixedLineOffset: Bool;
-	@:protected public var FixedLineScrollOffset: cpp.Float32;
+	@:protected public var FixedLineScrollOffset: ucpp.num.Float32;
 	@:protected public var bAllowDragging: Bool;
-	private var BP_OnEntryReleased: HaxeMulticastSparseDelegateProperty<(cpp.Star<UserWidget>) -> Void>;
+	private var BP_OnEntryReleased: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<UserWidget>) -> Void>;
 	private var EntryWidgetPool: UserWidgetPool;
 
-	public function SetWheelScrollMultiplier(NewWheelScrollMultiplier: cpp.Float32): Void;
-	public function SetScrollOffset(InScrollOffset: cpp.Float32): Void;
+	public function SetWheelScrollMultiplier(NewWheelScrollMultiplier: ucpp.num.Float32): Void;
+	public function SetScrollOffset(InScrollOffset: ucpp.num.Float32): Void;
 	public function SetScrollbarVisibility(InVisibility: ESlateVisibility): Void;
 	public function ScrollToTop(): Void;
 	public function ScrollToBottom(): Void;
 	public function RequestRefresh(): Void;
 	public function RegenerateAllEntries(): Void;
-	public function GetScrollOffset(): cpp.Float32;
-	public function GetDisplayedEntryWidgets(): TArray<cpp.Star<UserWidget>>;
+	public function GetScrollOffset(): ucpp.num.Float32;
+	public function GetDisplayedEntryWidgets(): TArray<ucpp.Ptr<UserWidget>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetScrollOffset, GetDisplayedEntryWidgets)
@@ -38,7 +38,7 @@ abstract ConstListViewBase(ListViewBase) from ListViewBase {
 @:forward
 @:nativeGen
 @:native("ListViewBase*")
-abstract ListViewBasePtr(cpp.Star<ListViewBase>) from cpp.Star<ListViewBase> to cpp.Star<ListViewBase>{
+abstract ListViewBasePtr(ucpp.Ptr<ListViewBase>) from ucpp.Ptr<ListViewBase> to ucpp.Ptr<ListViewBase>{
 	@:from
 	public static extern inline function fromValue(v: ListViewBase): ListViewBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,19 @@ package ue;
 
 @:native("UDEditorScalarParameterValue")
 @:include("MaterialEditor/DEditorScalarParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorScalarParameterValue extends DEditorParameterValue {
-	public var ParameterValue: cpp.Float32;
+	public var ParameterValue: ucpp.num.Float32;
 	public var AtlasData: ScalarParameterAtlasData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDEditorScalarParameterValue(DEditorScalarParameterValue) from DEditorScalarParameterValue {
-	public extern var ParameterValue(get, never): cpp.Float32;
-	public inline extern function get_ParameterValue(): cpp.Float32 return this.ParameterValue;
+	public extern var ParameterValue(get, never): ucpp.num.Float32;
+	public inline extern function get_ParameterValue(): ucpp.num.Float32 return this.ParameterValue;
 	public extern var AtlasData(get, never): ScalarParameterAtlasData;
 	public inline extern function get_AtlasData(): ScalarParameterAtlasData return this.AtlasData;
 }
@@ -23,7 +23,7 @@ abstract ConstDEditorScalarParameterValue(DEditorScalarParameterValue) from DEdi
 @:forward
 @:nativeGen
 @:native("DEditorScalarParameterValue*")
-abstract DEditorScalarParameterValuePtr(cpp.Star<DEditorScalarParameterValue>) from cpp.Star<DEditorScalarParameterValue> to cpp.Star<DEditorScalarParameterValue>{
+abstract DEditorScalarParameterValuePtr(ucpp.Ptr<DEditorScalarParameterValue>) from ucpp.Ptr<DEditorScalarParameterValue> to ucpp.Ptr<DEditorScalarParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorScalarParameterValue): DEditorScalarParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

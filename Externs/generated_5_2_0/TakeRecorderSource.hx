@@ -3,13 +3,13 @@ package ue;
 
 @:native("UTakeRecorderSource")
 @:include("TakeRecorderSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderSource extends Object {
 	public var bEnabled: Bool;
-	public var TakeNumber: cpp.Int32;
+	public var TakeNumber: ucpp.num.Int32;
 	public var TrackTint: Color;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class TakeRecorderSource extends Object {
 abstract ConstTakeRecorderSource(TakeRecorderSource) from TakeRecorderSource {
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
-	public extern var TakeNumber(get, never): cpp.Int32;
-	public inline extern function get_TakeNumber(): cpp.Int32 return this.TakeNumber;
+	public extern var TakeNumber(get, never): ucpp.num.Int32;
+	public inline extern function get_TakeNumber(): ucpp.num.Int32 return this.TakeNumber;
 	public extern var TrackTint(get, never): Color;
 	public inline extern function get_TrackTint(): Color return this.TrackTint;
 }
@@ -26,7 +26,7 @@ abstract ConstTakeRecorderSource(TakeRecorderSource) from TakeRecorderSource {
 @:forward
 @:nativeGen
 @:native("TakeRecorderSource*")
-abstract TakeRecorderSourcePtr(cpp.Star<TakeRecorderSource>) from cpp.Star<TakeRecorderSource> to cpp.Star<TakeRecorderSource>{
+abstract TakeRecorderSourcePtr(ucpp.Ptr<TakeRecorderSource>) from ucpp.Ptr<TakeRecorderSource> to ucpp.Ptr<TakeRecorderSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderSource): TakeRecorderSourcePtr {
 		return untyped __cpp__("&({0})", v);

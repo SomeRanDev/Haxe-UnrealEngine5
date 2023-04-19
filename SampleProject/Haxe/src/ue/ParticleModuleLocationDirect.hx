@@ -3,14 +3,14 @@ package ue;
 
 @:native("UParticleModuleLocationDirect")
 @:include("Particles/Location/ParticleModuleLocationDirect.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocationDirect extends ParticleModuleLocationBase {
 	public var Location: RawDistributionVector;
 	public var LocationOffset: RawDistributionVector;
 	public var ScaleFactor: RawDistributionVector;
 	public var Direction: RawDistributionVector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstParticleModuleLocationDirect(ParticleModuleLocationDirect) from Pa
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocationDirect*")
-abstract ParticleModuleLocationDirectPtr(cpp.Star<ParticleModuleLocationDirect>) from cpp.Star<ParticleModuleLocationDirect> to cpp.Star<ParticleModuleLocationDirect>{
+abstract ParticleModuleLocationDirectPtr(ucpp.Ptr<ParticleModuleLocationDirect>) from ucpp.Ptr<ParticleModuleLocationDirect> to ucpp.Ptr<ParticleModuleLocationDirect>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocationDirect): ParticleModuleLocationDirectPtr {
 		return untyped __cpp__("&({0})", v);

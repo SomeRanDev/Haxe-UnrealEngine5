@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDialogueContext")
 @:include("Sound/DialogueTypes.h")
-@:structAccess
+@:valueType
 extern class DialogueContext {
-	public var Speaker: cpp.Star<DialogueVoice>;
-	public var Targets: TArray<cpp.Star<DialogueVoice>>;
+	public var Speaker: ucpp.Ptr<DialogueVoice>;
+	public var Targets: TArray<ucpp.Ptr<DialogueVoice>>;
 
 	@:native("FDialogueContext") public function new();
-	@:native("FDialogueContext") public static function make(Speaker: cpp.Star<DialogueVoice>, Targets: TArray<cpp.Star<DialogueVoice>>): DialogueContext ;
+	@:native("FDialogueContext") public static function make(Speaker: ucpp.Ptr<DialogueVoice>, Targets: TArray<ucpp.Ptr<DialogueVoice>>): DialogueContext ;
 }

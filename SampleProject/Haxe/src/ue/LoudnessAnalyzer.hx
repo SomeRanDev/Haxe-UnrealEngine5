@@ -3,36 +3,36 @@ package ue;
 
 @:native("ULoudnessAnalyzer")
 @:include("Loudness.h")
-@:structAccess
+@:valueType
 extern class LoudnessAnalyzer extends AudioAnalyzer {
-	public var Settings: cpp.Star<LoudnessSettings>;
-	public var OnOverallLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<LoudnessResults>>) -> Void>;
-	public var OnPerChannelLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<LoudnessResults>>) -> Void>;
-	public var OnLatestOverallLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Reference<LoudnessResults>) -> Void>;
-	public var OnLatestPerChannelLoudnessResults: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<LoudnessResults>) -> Void>;
+	public var Settings: ucpp.Ptr<LoudnessSettings>;
+	public var OnOverallLoudnessResults: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<LoudnessResults>>) -> Void>;
+	public var OnPerChannelLoudnessResults: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<LoudnessResults>>) -> Void>;
+	public var OnLatestOverallLoudnessResults: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<LoudnessResults>) -> Void>;
+	public var OnLatestPerChannelLoudnessResults: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<LoudnessResults>) -> Void>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLoudnessAnalyzer(LoudnessAnalyzer) from LoudnessAnalyzer {
-	public extern var Settings(get, never): cpp.Star<LoudnessSettings.ConstLoudnessSettings>;
-	public inline extern function get_Settings(): cpp.Star<LoudnessSettings.ConstLoudnessSettings> return this.Settings;
-	public extern var OnOverallLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<LoudnessResults>>) -> Void>;
-	public inline extern function get_OnOverallLoudnessResults(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<LoudnessResults>>) -> Void> return this.OnOverallLoudnessResults;
-	public extern var OnPerChannelLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<LoudnessResults>>) -> Void>;
-	public inline extern function get_OnPerChannelLoudnessResults(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<LoudnessResults>>) -> Void> return this.OnPerChannelLoudnessResults;
-	public extern var OnLatestOverallLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<LoudnessResults>) -> Void>;
-	public inline extern function get_OnLatestOverallLoudnessResults(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<LoudnessResults>) -> Void> return this.OnLatestOverallLoudnessResults;
-	public extern var OnLatestPerChannelLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<LoudnessResults>) -> Void>;
-	public inline extern function get_OnLatestPerChannelLoudnessResults(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<LoudnessResults>) -> Void> return this.OnLatestPerChannelLoudnessResults;
+	public extern var Settings(get, never): ucpp.Ptr<LoudnessSettings.ConstLoudnessSettings>;
+	public inline extern function get_Settings(): ucpp.Ptr<LoudnessSettings.ConstLoudnessSettings> return this.Settings;
+	public extern var OnOverallLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<LoudnessResults>>) -> Void>;
+	public inline extern function get_OnOverallLoudnessResults(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<LoudnessResults>>) -> Void> return this.OnOverallLoudnessResults;
+	public extern var OnPerChannelLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<LoudnessResults>>) -> Void>;
+	public inline extern function get_OnPerChannelLoudnessResults(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<LoudnessResults>>) -> Void> return this.OnPerChannelLoudnessResults;
+	public extern var OnLatestOverallLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<LoudnessResults>) -> Void>;
+	public inline extern function get_OnLatestOverallLoudnessResults(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<LoudnessResults>) -> Void> return this.OnLatestOverallLoudnessResults;
+	public extern var OnLatestPerChannelLoudnessResults(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<LoudnessResults>) -> Void>;
+	public inline extern function get_OnLatestPerChannelLoudnessResults(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<LoudnessResults>) -> Void> return this.OnLatestPerChannelLoudnessResults;
 }
 
 @:forward
 @:nativeGen
 @:native("LoudnessAnalyzer*")
-abstract LoudnessAnalyzerPtr(cpp.Star<LoudnessAnalyzer>) from cpp.Star<LoudnessAnalyzer> to cpp.Star<LoudnessAnalyzer>{
+abstract LoudnessAnalyzerPtr(ucpp.Ptr<LoudnessAnalyzer>) from ucpp.Ptr<LoudnessAnalyzer> to ucpp.Ptr<LoudnessAnalyzer>{
 	@:from
 	public static extern inline function fromValue(v: LoudnessAnalyzer): LoudnessAnalyzerPtr {
 		return untyped __cpp__("&({0})", v);

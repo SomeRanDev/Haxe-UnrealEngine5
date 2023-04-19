@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectMixerColumnData")
 @:include("ObjectMixerEditorSerializedData.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerColumnData {
 	public var ColumnName: FName;
 	public var bShouldBeEnabled: Bool;

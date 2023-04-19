@@ -3,25 +3,25 @@ package ue;
 
 @:native("UCameraModifier")
 @:include("Camera/CameraModifier.h")
-@:structAccess
+@:valueType
 extern class CameraModifier extends Object {
 	public var bDebug: Bool;
 	public var bExclusive: Bool;
-	public var Priority: cpp.UInt8;
-	@:protected public var CameraOwner: cpp.Star<PlayerCameraManager>;
-	@:protected public var AlphaInTime: cpp.Float32;
-	@:protected public var AlphaOutTime: cpp.Float32;
-	@:protected public var Alpha: cpp.Float32;
+	public var Priority: ucpp.num.UInt8;
+	@:protected public var CameraOwner: ucpp.Ptr<PlayerCameraManager>;
+	@:protected public var AlphaInTime: ucpp.num.Float32;
+	@:protected public var AlphaOutTime: ucpp.num.Float32;
+	@:protected public var Alpha: ucpp.num.Float32;
 
-	@:protected public function OnCameraOwnerDestroyed(InOwner: cpp.Star<Actor>): Void;
+	@:protected public function OnCameraOwnerDestroyed(InOwner: ucpp.Ptr<Actor>): Void;
 	public function IsDisabled(): Bool;
-	public function GetViewTarget(): cpp.Star<Actor>;
+	public function GetViewTarget(): ucpp.Ptr<Actor>;
 	public function EnableModifier(): Void;
 	public function DisableModifier(bImmediate: Bool): Void;
-	public function BlueprintModifyPostProcess(DeltaTime: cpp.Float32, PostProcessBlendWeight: cpp.Reference<cpp.Float32>, PostProcessSettings: cpp.Reference<PostProcessSettings>): Void;
-	public function BlueprintModifyCamera(DeltaTime: cpp.Float32, ViewLocation: Vector, ViewRotation: Rotator, FOV: cpp.Float32, NewViewLocation: cpp.Reference<Vector>, NewViewRotation: cpp.Reference<Rotator>, NewFOV: cpp.Reference<cpp.Float32>): Void;
+	public function BlueprintModifyPostProcess(DeltaTime: ucpp.num.Float32, PostProcessBlendWeight: ucpp.Ref<ucpp.num.Float32>, PostProcessSettings: ucpp.Ref<PostProcessSettings>): Void;
+	public function BlueprintModifyCamera(DeltaTime: ucpp.num.Float32, ViewLocation: Vector, ViewRotation: Rotator, FOV: ucpp.num.Float32, NewViewLocation: ucpp.Ref<Vector>, NewViewRotation: ucpp.Ref<Rotator>, NewFOV: ucpp.Ref<ucpp.num.Float32>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsDisabled, GetViewTarget)
@@ -31,14 +31,14 @@ abstract ConstCameraModifier(CameraModifier) from CameraModifier {
 	public inline extern function get_bDebug(): Bool return this.bDebug;
 	public extern var bExclusive(get, never): Bool;
 	public inline extern function get_bExclusive(): Bool return this.bExclusive;
-	public extern var Priority(get, never): cpp.UInt8;
-	public inline extern function get_Priority(): cpp.UInt8 return this.Priority;
+	public extern var Priority(get, never): ucpp.num.UInt8;
+	public inline extern function get_Priority(): ucpp.num.UInt8 return this.Priority;
 }
 
 @:forward
 @:nativeGen
 @:native("CameraModifier*")
-abstract CameraModifierPtr(cpp.Star<CameraModifier>) from cpp.Star<CameraModifier> to cpp.Star<CameraModifier>{
+abstract CameraModifierPtr(ucpp.Ptr<CameraModifier>) from ucpp.Ptr<CameraModifier> to ucpp.Ptr<CameraModifier>{
 	@:from
 	public static extern inline function fromValue(v: CameraModifier): CameraModifierPtr {
 		return untyped __cpp__("&({0})", v);

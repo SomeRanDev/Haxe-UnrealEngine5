@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorLevelFolders")
 @:include("LevelFolders.h")
-@:structAccess
+@:valueType
 extern class EditorLevelFolders extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorLevelFolders(EditorLevelFolders) from EditorLevelFolders {
 @:forward
 @:nativeGen
 @:native("EditorLevelFolders*")
-abstract EditorLevelFoldersPtr(cpp.Star<EditorLevelFolders>) from cpp.Star<EditorLevelFolders> to cpp.Star<EditorLevelFolders>{
+abstract EditorLevelFoldersPtr(ucpp.Ptr<EditorLevelFolders>) from ucpp.Ptr<EditorLevelFolders> to ucpp.Ptr<EditorLevelFolders>{
 	@:from
 	public static extern inline function fromValue(v: EditorLevelFolders): EditorLevelFoldersPtr {
 		return untyped __cpp__("&({0})", v);

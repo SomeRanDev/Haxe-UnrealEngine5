@@ -3,27 +3,27 @@ package ue;
 
 @:native("UEnhancedInputLibrary")
 @:include("EnhancedInputLibrary.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputLibrary extends BlueprintFunctionLibrary {
-	public function RequestRebuildControlMappingsUsingContext(Context: cpp.Star<InputMappingContext.ConstInputMappingContext>, bForceImmediately: Bool): Void;
-	public function MakeInputActionValueOfType(X: cpp.Float64, Y: cpp.Float64, Z: cpp.Float64, ValueType: EInputActionValueType): InputActionValue;
-	public function MakeInputActionValue(X: cpp.Float64, Y: cpp.Float64, Z: cpp.Float64, MatchValueType: cpp.Reference<InputActionValue>): InputActionValue;
-	public function IsActionKeyMappingPlayerMappable(ActionKeyMapping: cpp.Reference<EnhancedActionKeyMapping>): Bool;
+	public function RequestRebuildControlMappingsUsingContext(Context: ucpp.Ptr<InputMappingContext.ConstInputMappingContext>, bForceImmediately: Bool): Void;
+	public function MakeInputActionValueOfType(X: ucpp.num.Float64, Y: ucpp.num.Float64, Z: ucpp.num.Float64, ValueType: EInputActionValueType): InputActionValue;
+	public function MakeInputActionValue(X: ucpp.num.Float64, Y: ucpp.num.Float64, Z: ucpp.num.Float64, MatchValueType: ucpp.Ref<InputActionValue>): InputActionValue;
+	public function IsActionKeyMappingPlayerMappable(ActionKeyMapping: ucpp.Ref<EnhancedActionKeyMapping>): Bool;
 	public function GetThirdPlayerMappableKeySlot(): PlayerMappableKeySlot;
 	public function GetSecondPlayerMappableKeySlot(): PlayerMappableKeySlot;
-	public function GetPlayerMappableKeySettings(ActionKeyMapping: cpp.Reference<EnhancedActionKeyMapping>): cpp.Star<PlayerMappableKeySettings>;
-	public function GetMappingName(ActionKeyMapping: cpp.Reference<EnhancedActionKeyMapping>): FName;
+	public function GetPlayerMappableKeySettings(ActionKeyMapping: ucpp.Ref<EnhancedActionKeyMapping>): ucpp.Ptr<PlayerMappableKeySettings>;
+	public function GetMappingName(ActionKeyMapping: ucpp.Ref<EnhancedActionKeyMapping>): FName;
 	public function GetFourthPlayerMappableKeySlot(): PlayerMappableKeySlot;
 	public function GetFirstPlayerMappableKeySlot(): PlayerMappableKeySlot;
-	public function GetBoundActionValue(Actor: cpp.Star<Actor>, Action: cpp.Star<InputAction.ConstInputAction>): InputActionValue;
+	public function GetBoundActionValue(Actor: ucpp.Ptr<Actor>, Action: ucpp.Ptr<InputAction.ConstInputAction>): InputActionValue;
 	public function Conv_InputActionValueToString(ActionValue: InputActionValue): FString;
 	public function Conv_InputActionValueToBool(InValue: InputActionValue): Bool;
 	public function Conv_InputActionValueToAxis3D(ActionValue: InputActionValue): Vector;
 	public function Conv_InputActionValueToAxis2D(InValue: InputActionValue): Vector2D;
-	public function Conv_InputActionValueToAxis1D(InValue: InputActionValue): cpp.Float64;
-	public function BreakInputActionValue(InActionValue: InputActionValue, X: cpp.Reference<cpp.Float64>, Y: cpp.Reference<cpp.Float64>, Z: cpp.Reference<cpp.Float64>, Type: cpp.Reference<EInputActionValueType>): Void;
+	public function Conv_InputActionValueToAxis1D(InValue: InputActionValue): ucpp.num.Float64;
+	public function BreakInputActionValue(InActionValue: InputActionValue, X: ucpp.Ref<ucpp.num.Float64>, Y: ucpp.Ref<ucpp.num.Float64>, Z: ucpp.Ref<ucpp.num.Float64>, Type: ucpp.Ref<EInputActionValueType>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,7 +34,7 @@ abstract ConstEnhancedInputLibrary(EnhancedInputLibrary) from EnhancedInputLibra
 @:forward
 @:nativeGen
 @:native("EnhancedInputLibrary*")
-abstract EnhancedInputLibraryPtr(cpp.Star<EnhancedInputLibrary>) from cpp.Star<EnhancedInputLibrary> to cpp.Star<EnhancedInputLibrary>{
+abstract EnhancedInputLibraryPtr(ucpp.Ptr<EnhancedInputLibrary>) from ucpp.Ptr<EnhancedInputLibrary> to ucpp.Ptr<EnhancedInputLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputLibrary): EnhancedInputLibraryPtr {
 		return untyped __cpp__("&({0})", v);

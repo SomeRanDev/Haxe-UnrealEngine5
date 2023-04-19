@@ -3,10 +3,10 @@ package ue;
 
 @:native("AGroupActor")
 @:include("Editor/GroupActor.h")
-@:structAccess
+@:valueType
 extern class GroupActor extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGroupActor(GroupActor) from GroupActor {
 @:forward
 @:nativeGen
 @:native("GroupActor*")
-abstract GroupActorPtr(cpp.Star<GroupActor>) from cpp.Star<GroupActor> to cpp.Star<GroupActor>{
+abstract GroupActorPtr(ucpp.Ptr<GroupActor>) from ucpp.Ptr<GroupActor> to ucpp.Ptr<GroupActor>{
 	@:from
 	public static extern inline function fromValue(v: GroupActor): GroupActorPtr {
 		return untyped __cpp__("&({0})", v);

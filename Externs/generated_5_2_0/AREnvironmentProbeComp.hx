@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAREnvironmentProbeComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class AREnvironmentProbeComp extends ARComp {
 	@:protected public var ReplicatedPayload: AREnvironmentProbeUpdatePayload;
 
 	@:protected public function ServerUpdatePayload(NewPayload: AREnvironmentProbeUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<AREnvironmentProbeUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<AREnvironmentProbeUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<AREnvironmentProbeUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<AREnvironmentProbeUpdatePayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAREnvironmentProbeComp(AREnvironmentProbeComp) from AREnvironmentP
 @:forward
 @:nativeGen
 @:native("AREnvironmentProbeComp*")
-abstract AREnvironmentProbeCompPtr(cpp.Star<AREnvironmentProbeComp>) from cpp.Star<AREnvironmentProbeComp> to cpp.Star<AREnvironmentProbeComp>{
+abstract AREnvironmentProbeCompPtr(ucpp.Ptr<AREnvironmentProbeComp>) from ucpp.Ptr<AREnvironmentProbeComp> to ucpp.Ptr<AREnvironmentProbeComp>{
 	@:from
 	public static extern inline function fromValue(v: AREnvironmentProbeComp): AREnvironmentProbeCompPtr {
 		return untyped __cpp__("&({0})", v);

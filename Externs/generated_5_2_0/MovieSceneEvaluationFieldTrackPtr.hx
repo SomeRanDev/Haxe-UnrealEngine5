@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationFieldTrackPtr")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationFieldTrackPtr {
 	public var SequenceID: MovieSceneSequenceID;
 	public var TrackIdentifier: MovieSceneTrackIdentifier;

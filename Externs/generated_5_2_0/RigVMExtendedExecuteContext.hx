@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMExtendedExecuteContext")
 @:include("RigVMCore/RigVMExecuteContext.h")
-@:structAccess
+@:valueType
 extern class RigVMExtendedExecuteContext {
 	@:native("FRigVMExtendedExecuteContext") public function new();
 }

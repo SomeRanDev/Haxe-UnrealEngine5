@@ -3,10 +3,10 @@ package ue;
 
 @:native("URigVMMemoryStorage")
 @:include("RigVMCore/RigVMMemoryStorage.h")
-@:structAccess
+@:valueType
 extern class RigVMMemoryStorage extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRigVMMemoryStorage(RigVMMemoryStorage) from RigVMMemoryStorage {
 @:forward
 @:nativeGen
 @:native("RigVMMemoryStorage*")
-abstract RigVMMemoryStoragePtr(cpp.Star<RigVMMemoryStorage>) from cpp.Star<RigVMMemoryStorage> to cpp.Star<RigVMMemoryStorage>{
+abstract RigVMMemoryStoragePtr(ucpp.Ptr<RigVMMemoryStorage>) from ucpp.Ptr<RigVMMemoryStorage> to ucpp.Ptr<RigVMMemoryStorage>{
 	@:from
 	public static extern inline function fromValue(v: RigVMMemoryStorage): RigVMMemoryStoragePtr {
 		return untyped __cpp__("&({0})", v);

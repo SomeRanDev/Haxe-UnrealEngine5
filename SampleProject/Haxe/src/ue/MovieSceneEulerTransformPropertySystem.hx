@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneEulerTransformPropertySystem")
 @:include("Systems/MovieSceneEulerTransformPropertySystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEulerTransformPropertySystem extends MovieScenePropertySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneEulerTransformPropertySystem(MovieSceneEulerTransformPro
 @:forward
 @:nativeGen
 @:native("MovieSceneEulerTransformPropertySystem*")
-abstract MovieSceneEulerTransformPropertySystemPtr(cpp.Star<MovieSceneEulerTransformPropertySystem>) from cpp.Star<MovieSceneEulerTransformPropertySystem> to cpp.Star<MovieSceneEulerTransformPropertySystem>{
+abstract MovieSceneEulerTransformPropertySystemPtr(ucpp.Ptr<MovieSceneEulerTransformPropertySystem>) from ucpp.Ptr<MovieSceneEulerTransformPropertySystem> to ucpp.Ptr<MovieSceneEulerTransformPropertySystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEulerTransformPropertySystem): MovieSceneEulerTransformPropertySystemPtr {
 		return untyped __cpp__("&({0})", v);

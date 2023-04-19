@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraStackSection")
 @:include("NiagaraStackSection.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackSection {
 	public var SectionIdentifier: FName;
 	public var SectionDisplayName: FText;

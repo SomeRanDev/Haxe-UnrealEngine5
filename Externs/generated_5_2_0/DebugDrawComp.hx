@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDebugDrawComponent")
 @:include("Debug/DebugDrawComponent.h")
-@:structAccess
+@:valueType
 extern class DebugDrawComp extends PrimitiveComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDebugDrawComp(DebugDrawComp) from DebugDrawComp {
 @:forward
 @:nativeGen
 @:native("DebugDrawComp*")
-abstract DebugDrawCompPtr(cpp.Star<DebugDrawComp>) from cpp.Star<DebugDrawComp> to cpp.Star<DebugDrawComp>{
+abstract DebugDrawCompPtr(ucpp.Ptr<DebugDrawComp>) from ucpp.Ptr<DebugDrawComp> to ucpp.Ptr<DebugDrawComp>{
 	@:from
 	public static extern inline function fromValue(v: DebugDrawComp): DebugDrawCompPtr {
 		return untyped __cpp__("&({0})", v);

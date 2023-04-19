@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBlueprintAsyncActionBase")
 @:include("Kismet/BlueprintAsyncActionBase.h")
-@:structAccess
+@:valueType
 extern class BlueprintAsyncActionBase extends Object {
 	public function Activate(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBlueprintAsyncActionBase(BlueprintAsyncActionBase) from BlueprintA
 @:forward
 @:nativeGen
 @:native("BlueprintAsyncActionBase*")
-abstract BlueprintAsyncActionBasePtr(cpp.Star<BlueprintAsyncActionBase>) from cpp.Star<BlueprintAsyncActionBase> to cpp.Star<BlueprintAsyncActionBase>{
+abstract BlueprintAsyncActionBasePtr(ucpp.Ptr<BlueprintAsyncActionBase>) from ucpp.Ptr<BlueprintAsyncActionBase> to ucpp.Ptr<BlueprintAsyncActionBase>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintAsyncActionBase): BlueprintAsyncActionBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("USlateBrushAsset")
 @:include("Slate/SlateBrushAsset.h")
-@:structAccess
+@:valueType
 extern class SlateBrushAsset extends Object {
 	public var Brush: SlateBrush;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSlateBrushAsset(SlateBrushAsset) from SlateBrushAsset {
 @:forward
 @:nativeGen
 @:native("SlateBrushAsset*")
-abstract SlateBrushAssetPtr(cpp.Star<SlateBrushAsset>) from cpp.Star<SlateBrushAsset> to cpp.Star<SlateBrushAsset>{
+abstract SlateBrushAssetPtr(ucpp.Ptr<SlateBrushAsset>) from ucpp.Ptr<SlateBrushAsset> to ucpp.Ptr<SlateBrushAsset>{
 	@:from
 	public static extern inline function fromValue(v: SlateBrushAsset): SlateBrushAssetPtr {
 		return untyped __cpp__("&({0})", v);

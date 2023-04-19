@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWidgetBinding")
 @:include("Binding/WidgetBinding.h")
-@:structAccess
+@:valueType
 extern class WidgetBinding extends PropertyBinding {
-	public function GetValue(): cpp.Star<Widget>;
+	public function GetValue(): ucpp.Ptr<Widget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstWidgetBinding(WidgetBinding) from WidgetBinding {
 @:forward
 @:nativeGen
 @:native("WidgetBinding*")
-abstract WidgetBindingPtr(cpp.Star<WidgetBinding>) from cpp.Star<WidgetBinding> to cpp.Star<WidgetBinding>{
+abstract WidgetBindingPtr(ucpp.Ptr<WidgetBinding>) from ucpp.Ptr<WidgetBinding> to ucpp.Ptr<WidgetBinding>{
 	@:from
 	public static extern inline function fromValue(v: WidgetBinding): WidgetBindingPtr {
 		return untyped __cpp__("&({0})", v);

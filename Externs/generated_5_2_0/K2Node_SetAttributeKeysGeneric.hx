@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_SetAttributeKeysGeneric")
 @:include("K2_AnimationAttributeNodes.h")
-@:structAccess
+@:valueType
 extern class K2Node_SetAttributeKeysGeneric extends K2Node_BaseAttributeActionNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_SetAttributeKeysGeneric(K2Node_SetAttributeKeysGeneric) fro
 @:forward
 @:nativeGen
 @:native("K2Node_SetAttributeKeysGeneric*")
-abstract K2Node_SetAttributeKeysGenericPtr(cpp.Star<K2Node_SetAttributeKeysGeneric>) from cpp.Star<K2Node_SetAttributeKeysGeneric> to cpp.Star<K2Node_SetAttributeKeysGeneric>{
+abstract K2Node_SetAttributeKeysGenericPtr(ucpp.Ptr<K2Node_SetAttributeKeysGeneric>) from ucpp.Ptr<K2Node_SetAttributeKeysGeneric> to ucpp.Ptr<K2Node_SetAttributeKeysGeneric>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_SetAttributeKeysGeneric): K2Node_SetAttributeKeysGenericPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimPreviewInstance")
 @:include("AnimPreviewInstance.h")
-@:structAccess
+@:valueType
 extern class AnimPreviewInstance extends AnimSingleNodeInstance {
 	public var MontagePreviewType: TEnumAsByte<EMontagePreviewType>;
-	public var MontagePreviewStartSectionIdx: cpp.Int32;
+	public var MontagePreviewStartSectionIdx: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class AnimPreviewInstance extends AnimSingleNodeInstance {
 abstract ConstAnimPreviewInstance(AnimPreviewInstance) from AnimPreviewInstance {
 	public extern var MontagePreviewType(get, never): TEnumAsByte<EMontagePreviewType>;
 	public inline extern function get_MontagePreviewType(): TEnumAsByte<EMontagePreviewType> return this.MontagePreviewType;
-	public extern var MontagePreviewStartSectionIdx(get, never): cpp.Int32;
-	public inline extern function get_MontagePreviewStartSectionIdx(): cpp.Int32 return this.MontagePreviewStartSectionIdx;
+	public extern var MontagePreviewStartSectionIdx(get, never): ucpp.num.Int32;
+	public inline extern function get_MontagePreviewStartSectionIdx(): ucpp.num.Int32 return this.MontagePreviewStartSectionIdx;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimPreviewInstance*")
-abstract AnimPreviewInstancePtr(cpp.Star<AnimPreviewInstance>) from cpp.Star<AnimPreviewInstance> to cpp.Star<AnimPreviewInstance>{
+abstract AnimPreviewInstancePtr(ucpp.Ptr<AnimPreviewInstance>) from ucpp.Ptr<AnimPreviewInstance> to ucpp.Ptr<AnimPreviewInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimPreviewInstance): AnimPreviewInstancePtr {
 		return untyped __cpp__("&({0})", v);

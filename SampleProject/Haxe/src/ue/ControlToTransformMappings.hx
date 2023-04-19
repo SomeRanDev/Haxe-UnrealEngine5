@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlToTransformMappings")
 @:include("MovieSceneToolsUserSettings.h")
-@:structAccess
+@:valueType
 extern class ControlToTransformMappings {
 	public var ControlChannel: FControlRigChannelEnum;
 	public var FBXChannel: FTransformChannelEnum;

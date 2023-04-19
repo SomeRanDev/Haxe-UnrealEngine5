@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPlatformEventsComponent_PlatformEventDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PlatformEventsComponent_PlatformEventDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPlatformEventsComponent_PlatformEventDelegate__PythonCallable(Plat
 @:forward
 @:nativeGen
 @:native("PlatformEventsComponent_PlatformEventDelegate__PythonCallable*")
-abstract PlatformEventsComponent_PlatformEventDelegate__PythonCallablePtr(cpp.Star<PlatformEventsComponent_PlatformEventDelegate__PythonCallable>) from cpp.Star<PlatformEventsComponent_PlatformEventDelegate__PythonCallable> to cpp.Star<PlatformEventsComponent_PlatformEventDelegate__PythonCallable>{
+abstract PlatformEventsComponent_PlatformEventDelegate__PythonCallablePtr(ucpp.Ptr<PlatformEventsComponent_PlatformEventDelegate__PythonCallable>) from ucpp.Ptr<PlatformEventsComponent_PlatformEventDelegate__PythonCallable> to ucpp.Ptr<PlatformEventsComponent_PlatformEventDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PlatformEventsComponent_PlatformEventDelegate__PythonCallable): PlatformEventsComponent_PlatformEventDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

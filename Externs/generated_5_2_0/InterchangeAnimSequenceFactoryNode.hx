@@ -3,21 +3,21 @@ package ue;
 
 @:native("UInterchangeAnimSequenceFactoryNode")
 @:include("InterchangeAnimSequenceFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeAnimSequenceFactoryNode extends InterchangeFactoryBaseNode {
-	public function SetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
+	public function SetCustomSkeletonSoftObjectPath(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
 	public function SetCustomSkeletonFactoryNodeUid(AttributeValue: FString): Bool;
-	public function SetCustomRemoveCurveRedundantKeys(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomMaterialDriveParameterOnCustomAttribute(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomImportBoneTracksSampleRate(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomImportBoneTracksRangeStop(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomImportBoneTracksRangeStart(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomImportBoneTracks(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomImportAttributeCurves(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomDoNotImportCurveWithZero(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomDeleteExistingNonCurveCustomAttributes(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomDeleteExistingMorphTargetCurves(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomDeleteExistingCustomAttributeCurves(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomRemoveCurveRedundantKeys(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomMaterialDriveParameterOnCustomAttribute(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomImportBoneTracksSampleRate(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomImportBoneTracksRangeStop(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomImportBoneTracksRangeStart(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomImportBoneTracks(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomImportAttributeCurves(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomDoNotImportCurveWithZero(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomDeleteExistingNonCurveCustomAttributes(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomDeleteExistingMorphTargetCurves(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomDeleteExistingCustomAttributeCurves(AttributeValue: ucpp.Ref<Bool>): Bool;
 	public function SetAnimationPayloadKeyForSceneNodeUid(SceneNodeUid: FString, PayloadKey: FString): Bool;
 	public function SetAnimationPayloadKeyForMorphTargetNodeUid(MorphTargetNodeUid: FString, PayloadKey: FString): Bool;
 	public function SetAnimatedMorphTargetDependencyUid(DependencyUid: FString): Bool;
@@ -31,38 +31,38 @@ extern class InterchangeAnimSequenceFactoryNode extends InterchangeFactoryBaseNo
 	public function RemoveAnimatedAttributeStepCurveName(AttributeStepCurveName: FString): Bool;
 	public function RemoveAnimatedAttributeCurveName(AttributeCurveName: FString): Bool;
 	public function InitializeAnimSequenceNode(UniqueID: FString, DisplayLabel: FString): Void;
-	public function GetSceneNodeAnimationPayloadKeys(OutSceneNodeAnimationPayloads: cpp.Reference<TMap<FString, FString>>): Void;
-	public function GetObjectClass(): cpp.Star<Class>;
-	public function GetMorphTargetNodeAnimationPayloadKeys(OutMorphTargetNodeAnimationPayloads: cpp.Reference<TMap<FString, FString>>): Void;
-	public function GetCustomSkeletonSoftObjectPath(AttributeValue: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetCustomSkeletonFactoryNodeUid(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomRemoveCurveRedundantKeys(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomMaterialDriveParameterOnCustomAttribute(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomImportBoneTracksSampleRate(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomImportBoneTracksRangeStop(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomImportBoneTracksRangeStart(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomImportBoneTracks(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomImportAttributeCurves(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomDoNotImportCurveWithZero(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomDeleteExistingNonCurveCustomAttributes(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomDeleteExistingMorphTargetCurves(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomDeleteExistingCustomAttributeCurves(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetAnimationPayloadKeyFromSceneNodeUid(SceneNodeUid: FString, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function GetAnimationPayloadKeyFromMorphTargetNodeUid(MorphTargetNodeUid: FString, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function GetAnimatedMorphTargetDependency(Index: cpp.Int32, OutDependency: cpp.Reference<FString>): Void;
-	public function GetAnimatedMorphTargetDependencies(OutDependencies: cpp.Reference<TArray<FString>>): Void;
-	public function GetAnimatedMorphTargetDependeciesCount(): cpp.Int32;
-	public function GetAnimatedMaterialCurveSuffixesCount(): cpp.Int32;
-	public function GetAnimatedMaterialCurveSuffixes(OutMaterialCurveSuffixes: cpp.Reference<TArray<FString>>): Void;
-	public function GetAnimatedMaterialCurveSuffixe(Index: cpp.Int32, OutMaterialCurveSuffixe: cpp.Reference<FString>): Void;
-	public function GetAnimatedAttributeStepCurveNamesCount(): cpp.Int32;
-	public function GetAnimatedAttributeStepCurveNames(OutAttributeStepCurveNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetAnimatedAttributeStepCurveName(Index: cpp.Int32, OutAttributeStepCurveName: cpp.Reference<FString>): Void;
-	public function GetAnimatedAttributeCurveNamesCount(): cpp.Int32;
-	public function GetAnimatedAttributeCurveNames(OutAttributeCurveNames: cpp.Reference<TArray<FString>>): Void;
-	public function GetAnimatedAttributeCurveName(Index: cpp.Int32, OutAttributeCurveName: cpp.Reference<FString>): Void;
+	public function GetSceneNodeAnimationPayloadKeys(OutSceneNodeAnimationPayloads: ucpp.Ref<TMap<FString, FString>>): Void;
+	public function GetObjectClass(): ucpp.Ptr<Class>;
+	public function GetMorphTargetNodeAnimationPayloadKeys(OutMorphTargetNodeAnimationPayloads: ucpp.Ref<TMap<FString, FString>>): Void;
+	public function GetCustomSkeletonSoftObjectPath(AttributeValue: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetCustomSkeletonFactoryNodeUid(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomRemoveCurveRedundantKeys(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomMaterialDriveParameterOnCustomAttribute(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomImportBoneTracksSampleRate(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomImportBoneTracksRangeStop(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomImportBoneTracksRangeStart(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomImportBoneTracks(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomImportAttributeCurves(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomDoNotImportCurveWithZero(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomDeleteExistingNonCurveCustomAttributes(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomDeleteExistingMorphTargetCurves(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomDeleteExistingCustomAttributeCurves(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetAnimationPayloadKeyFromSceneNodeUid(SceneNodeUid: FString, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetAnimationPayloadKeyFromMorphTargetNodeUid(MorphTargetNodeUid: FString, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetAnimatedMorphTargetDependency(Index: ucpp.num.Int32, OutDependency: ucpp.Ref<FString>): Void;
+	public function GetAnimatedMorphTargetDependencies(OutDependencies: ucpp.Ref<TArray<FString>>): Void;
+	public function GetAnimatedMorphTargetDependeciesCount(): ucpp.num.Int32;
+	public function GetAnimatedMaterialCurveSuffixesCount(): ucpp.num.Int32;
+	public function GetAnimatedMaterialCurveSuffixes(OutMaterialCurveSuffixes: ucpp.Ref<TArray<FString>>): Void;
+	public function GetAnimatedMaterialCurveSuffixe(Index: ucpp.num.Int32, OutMaterialCurveSuffixe: ucpp.Ref<FString>): Void;
+	public function GetAnimatedAttributeStepCurveNamesCount(): ucpp.num.Int32;
+	public function GetAnimatedAttributeStepCurveNames(OutAttributeStepCurveNames: ucpp.Ref<TArray<FString>>): Void;
+	public function GetAnimatedAttributeStepCurveName(Index: ucpp.num.Int32, OutAttributeStepCurveName: ucpp.Ref<FString>): Void;
+	public function GetAnimatedAttributeCurveNamesCount(): ucpp.num.Int32;
+	public function GetAnimatedAttributeCurveNames(OutAttributeCurveNames: ucpp.Ref<TArray<FString>>): Void;
+	public function GetAnimatedAttributeCurveName(Index: ucpp.num.Int32, OutAttributeCurveName: ucpp.Ref<FString>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -80,7 +80,7 @@ abstract ConstInterchangeAnimSequenceFactoryNode(InterchangeAnimSequenceFactoryN
 @:forward
 @:nativeGen
 @:native("InterchangeAnimSequenceFactoryNode*")
-abstract InterchangeAnimSequenceFactoryNodePtr(cpp.Star<InterchangeAnimSequenceFactoryNode>) from cpp.Star<InterchangeAnimSequenceFactoryNode> to cpp.Star<InterchangeAnimSequenceFactoryNode>{
+abstract InterchangeAnimSequenceFactoryNodePtr(ucpp.Ptr<InterchangeAnimSequenceFactoryNode>) from ucpp.Ptr<InterchangeAnimSequenceFactoryNode> to ucpp.Ptr<InterchangeAnimSequenceFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeAnimSequenceFactoryNode): InterchangeAnimSequenceFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

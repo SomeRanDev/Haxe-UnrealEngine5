@@ -3,77 +3,77 @@ package ue;
 
 @:native("UMeshWireframeComponent")
 @:include("Drawing/MeshWireframeComponent.h")
-@:structAccess
+@:valueType
 extern class MeshWireframeComp extends MeshComp {
-	public var LineDepthBias: cpp.Float32;
-	public var LineDepthBiasSizeScale: cpp.Float32;
-	public var ThicknessScale: cpp.Float32;
+	public var LineDepthBias: ucpp.num.Float32;
+	public var LineDepthBiasSizeScale: ucpp.num.Float32;
+	public var ThicknessScale: ucpp.num.Float32;
 	public var bEnableWireframe: Bool;
 	public var WireframeColor: Color;
-	public var WireframeThickness: cpp.Float32;
+	public var WireframeThickness: ucpp.num.Float32;
 	public var bEnableBoundaryEdges: Bool;
 	public var BoundaryEdgeColor: Color;
-	public var BoundaryEdgeThickness: cpp.Float32;
+	public var BoundaryEdgeThickness: ucpp.num.Float32;
 	public var bEnableUVSeams: Bool;
 	public var UVSeamColor: Color;
-	public var UVSeamThickness: cpp.Float32;
+	public var UVSeamThickness: ucpp.num.Float32;
 	public var bEnableNormalSeams: Bool;
 	public var NormalSeamColor: Color;
-	public var NormalSeamThickness: cpp.Float32;
+	public var NormalSeamThickness: ucpp.num.Float32;
 	public var bEnableColorSeams: Bool;
 	public var ColorSeamColor: Color;
-	public var ColorSeamThickness: cpp.Float32;
-	private var LineMaterial: cpp.Star<MaterialInterface>;
+	public var ColorSeamThickness: ucpp.num.Float32;
+	private var LineMaterial: ucpp.Ptr<MaterialInterface>;
 	private var LocalBounds: BoxSphereBounds;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshWireframeComp(MeshWireframeComp) from MeshWireframeComp {
-	public extern var LineDepthBias(get, never): cpp.Float32;
-	public inline extern function get_LineDepthBias(): cpp.Float32 return this.LineDepthBias;
-	public extern var LineDepthBiasSizeScale(get, never): cpp.Float32;
-	public inline extern function get_LineDepthBiasSizeScale(): cpp.Float32 return this.LineDepthBiasSizeScale;
-	public extern var ThicknessScale(get, never): cpp.Float32;
-	public inline extern function get_ThicknessScale(): cpp.Float32 return this.ThicknessScale;
+	public extern var LineDepthBias(get, never): ucpp.num.Float32;
+	public inline extern function get_LineDepthBias(): ucpp.num.Float32 return this.LineDepthBias;
+	public extern var LineDepthBiasSizeScale(get, never): ucpp.num.Float32;
+	public inline extern function get_LineDepthBiasSizeScale(): ucpp.num.Float32 return this.LineDepthBiasSizeScale;
+	public extern var ThicknessScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ThicknessScale(): ucpp.num.Float32 return this.ThicknessScale;
 	public extern var bEnableWireframe(get, never): Bool;
 	public inline extern function get_bEnableWireframe(): Bool return this.bEnableWireframe;
 	public extern var WireframeColor(get, never): Color;
 	public inline extern function get_WireframeColor(): Color return this.WireframeColor;
-	public extern var WireframeThickness(get, never): cpp.Float32;
-	public inline extern function get_WireframeThickness(): cpp.Float32 return this.WireframeThickness;
+	public extern var WireframeThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_WireframeThickness(): ucpp.num.Float32 return this.WireframeThickness;
 	public extern var bEnableBoundaryEdges(get, never): Bool;
 	public inline extern function get_bEnableBoundaryEdges(): Bool return this.bEnableBoundaryEdges;
 	public extern var BoundaryEdgeColor(get, never): Color;
 	public inline extern function get_BoundaryEdgeColor(): Color return this.BoundaryEdgeColor;
-	public extern var BoundaryEdgeThickness(get, never): cpp.Float32;
-	public inline extern function get_BoundaryEdgeThickness(): cpp.Float32 return this.BoundaryEdgeThickness;
+	public extern var BoundaryEdgeThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_BoundaryEdgeThickness(): ucpp.num.Float32 return this.BoundaryEdgeThickness;
 	public extern var bEnableUVSeams(get, never): Bool;
 	public inline extern function get_bEnableUVSeams(): Bool return this.bEnableUVSeams;
 	public extern var UVSeamColor(get, never): Color;
 	public inline extern function get_UVSeamColor(): Color return this.UVSeamColor;
-	public extern var UVSeamThickness(get, never): cpp.Float32;
-	public inline extern function get_UVSeamThickness(): cpp.Float32 return this.UVSeamThickness;
+	public extern var UVSeamThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_UVSeamThickness(): ucpp.num.Float32 return this.UVSeamThickness;
 	public extern var bEnableNormalSeams(get, never): Bool;
 	public inline extern function get_bEnableNormalSeams(): Bool return this.bEnableNormalSeams;
 	public extern var NormalSeamColor(get, never): Color;
 	public inline extern function get_NormalSeamColor(): Color return this.NormalSeamColor;
-	public extern var NormalSeamThickness(get, never): cpp.Float32;
-	public inline extern function get_NormalSeamThickness(): cpp.Float32 return this.NormalSeamThickness;
+	public extern var NormalSeamThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalSeamThickness(): ucpp.num.Float32 return this.NormalSeamThickness;
 	public extern var bEnableColorSeams(get, never): Bool;
 	public inline extern function get_bEnableColorSeams(): Bool return this.bEnableColorSeams;
 	public extern var ColorSeamColor(get, never): Color;
 	public inline extern function get_ColorSeamColor(): Color return this.ColorSeamColor;
-	public extern var ColorSeamThickness(get, never): cpp.Float32;
-	public inline extern function get_ColorSeamThickness(): cpp.Float32 return this.ColorSeamThickness;
+	public extern var ColorSeamThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_ColorSeamThickness(): ucpp.num.Float32 return this.ColorSeamThickness;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshWireframeComp*")
-abstract MeshWireframeCompPtr(cpp.Star<MeshWireframeComp>) from cpp.Star<MeshWireframeComp> to cpp.Star<MeshWireframeComp>{
+abstract MeshWireframeCompPtr(ucpp.Ptr<MeshWireframeComp>) from ucpp.Ptr<MeshWireframeComp> to ucpp.Ptr<MeshWireframeComp>{
 	@:from
 	public static extern inline function fromValue(v: MeshWireframeComp): MeshWireframeCompPtr {
 		return untyped __cpp__("&({0})", v);

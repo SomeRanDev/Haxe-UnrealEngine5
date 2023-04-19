@@ -3,14 +3,14 @@ package ue;
 
 @:native("UStackBoxSlot")
 @:include("Components/StackBoxSlot.h")
-@:structAccess
+@:valueType
 extern class StackBoxSlot extends PanelSlot {
 	private var Padding: Margin;
 	private var Size: SlateChildSize;
 	private var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	private var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstStackBoxSlot(StackBoxSlot) from StackBoxSlot {
 @:forward
 @:nativeGen
 @:native("StackBoxSlot*")
-abstract StackBoxSlotPtr(cpp.Star<StackBoxSlot>) from cpp.Star<StackBoxSlot> to cpp.Star<StackBoxSlot>{
+abstract StackBoxSlotPtr(ucpp.Ptr<StackBoxSlot>) from ucpp.Ptr<StackBoxSlot> to ucpp.Ptr<StackBoxSlot>{
 	@:from
 	public static extern inline function fromValue(v: StackBoxSlot): StackBoxSlotPtr {
 		return untyped __cpp__("&({0})", v);

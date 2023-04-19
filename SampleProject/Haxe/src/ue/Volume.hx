@@ -3,10 +3,10 @@ package ue;
 
 @:native("AVolume")
 @:include("GameFramework/Volume.h")
-@:structAccess
+@:valueType
 extern class Volume extends Brush {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVolume(Volume) from Volume {
 @:forward
 @:nativeGen
 @:native("Volume*")
-abstract VolumePtr(cpp.Star<Volume>) from cpp.Star<Volume> to cpp.Star<Volume>{
+abstract VolumePtr(ucpp.Ptr<Volume>) from ucpp.Ptr<Volume> to ucpp.Ptr<Volume>{
 	@:from
 	public static extern inline function fromValue(v: Volume): VolumePtr {
 		return untyped __cpp__("&({0})", v);

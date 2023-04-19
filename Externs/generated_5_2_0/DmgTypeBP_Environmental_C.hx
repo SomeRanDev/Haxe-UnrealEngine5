@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UDmgTypeBP_Environmental_C")
-@:structAccess
+@:valueType
 extern class DmgTypeBP_Environmental_C extends DamageType {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstDmgTypeBP_Environmental_C(DmgTypeBP_Environmental_C) from DmgTypeB
 @:forward
 @:nativeGen
 @:native("DmgTypeBP_Environmental_C*")
-abstract DmgTypeBP_Environmental_CPtr(cpp.Star<DmgTypeBP_Environmental_C>) from cpp.Star<DmgTypeBP_Environmental_C> to cpp.Star<DmgTypeBP_Environmental_C>{
+abstract DmgTypeBP_Environmental_CPtr(ucpp.Ptr<DmgTypeBP_Environmental_C>) from ucpp.Ptr<DmgTypeBP_Environmental_C> to ucpp.Ptr<DmgTypeBP_Environmental_C>{
 	@:from
 	public static extern inline function fromValue(v: DmgTypeBP_Environmental_C): DmgTypeBP_Environmental_CPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("FRichCurveKey")
 @:include("Curves/RichCurve.h")
-@:structAccess
+@:valueType
 extern class RichCurveKey {
 	public var InterpMode: TEnumAsByte<ERichCurveInterpMode>;
 	public var TangentMode: TEnumAsByte<ERichCurveTangentMode>;
 	public var TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>;
-	public var Time: cpp.Float32;
-	public var Value: cpp.Float32;
-	public var ArriveTangent: cpp.Float32;
-	public var ArriveTangentWeight: cpp.Float32;
-	public var LeaveTangent: cpp.Float32;
-	public var LeaveTangentWeight: cpp.Float32;
+	public var Time: ucpp.num.Float32;
+	public var Value: ucpp.num.Float32;
+	public var ArriveTangent: ucpp.num.Float32;
+	public var ArriveTangentWeight: ucpp.num.Float32;
+	public var LeaveTangent: ucpp.num.Float32;
+	public var LeaveTangentWeight: ucpp.num.Float32;
 
 	@:native("FRichCurveKey") public function new();
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_AnimBlueprintGeneratedClass")
 @:include("Animation/AssetDefinition_AnimBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_AnimBlueprintGeneratedClass extends AssetDefinition_BlueprintGeneratedClass {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_AnimBlueprintGeneratedClass(AssetDefinition_AnimBl
 @:forward
 @:nativeGen
 @:native("AssetDefinition_AnimBlueprintGeneratedClass*")
-abstract AssetDefinition_AnimBlueprintGeneratedClassPtr(cpp.Star<AssetDefinition_AnimBlueprintGeneratedClass>) from cpp.Star<AssetDefinition_AnimBlueprintGeneratedClass> to cpp.Star<AssetDefinition_AnimBlueprintGeneratedClass>{
+abstract AssetDefinition_AnimBlueprintGeneratedClassPtr(ucpp.Ptr<AssetDefinition_AnimBlueprintGeneratedClass>) from ucpp.Ptr<AssetDefinition_AnimBlueprintGeneratedClass> to ucpp.Ptr<AssetDefinition_AnimBlueprintGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_AnimBlueprintGeneratedClass): AssetDefinition_AnimBlueprintGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

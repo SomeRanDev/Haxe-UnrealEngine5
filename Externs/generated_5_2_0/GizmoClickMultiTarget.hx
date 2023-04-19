@@ -2,13 +2,13 @@
 package ue;
 
 @:native("UGizmoClickMultiTarget")
-@:structAccess
+@:valueType
 extern class GizmoClickMultiTarget extends Interface {
-	public function UpdateInteractingState(bInteracting: Bool, InPartIdentifier: cpp.UInt32): Void;
-	public function UpdateHoverState(bHovering: Bool, InPartIdentifier: cpp.UInt32): Void;
-	public function UpdateHittableState(bHittable: Bool, InPartIdentifier: cpp.UInt32): Void;
+	public function UpdateInteractingState(bInteracting: Bool, InPartIdentifier: ucpp.num.UInt32): Void;
+	public function UpdateHoverState(bHovering: Bool, InPartIdentifier: ucpp.num.UInt32): Void;
+	public function UpdateHittableState(bHittable: Bool, InPartIdentifier: ucpp.num.UInt32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstGizmoClickMultiTarget(GizmoClickMultiTarget) from GizmoClickMultiT
 @:forward
 @:nativeGen
 @:native("GizmoClickMultiTarget*")
-abstract GizmoClickMultiTargetPtr(cpp.Star<GizmoClickMultiTarget>) from cpp.Star<GizmoClickMultiTarget> to cpp.Star<GizmoClickMultiTarget>{
+abstract GizmoClickMultiTargetPtr(ucpp.Ptr<GizmoClickMultiTarget>) from ucpp.Ptr<GizmoClickMultiTarget> to ucpp.Ptr<GizmoClickMultiTarget>{
 	@:from
 	public static extern inline function fromValue(v: GizmoClickMultiTarget): GizmoClickMultiTargetPtr {
 		return untyped __cpp__("&({0})", v);

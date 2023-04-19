@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_TwistCorrectiveNode")
 @:include("AnimGraphNode_TwistCorrectiveNode.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_TwistCorrectiveNode extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_TwistCorrectiveNode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_TwistCorrectiveNode(AnimGraphNode_TwistCorrectiveNod
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_TwistCorrectiveNode*")
-abstract AnimGraphNode_TwistCorrectiveNodePtr(cpp.Star<AnimGraphNode_TwistCorrectiveNode>) from cpp.Star<AnimGraphNode_TwistCorrectiveNode> to cpp.Star<AnimGraphNode_TwistCorrectiveNode>{
+abstract AnimGraphNode_TwistCorrectiveNodePtr(ucpp.Ptr<AnimGraphNode_TwistCorrectiveNode>) from ucpp.Ptr<AnimGraphNode_TwistCorrectiveNode> to ucpp.Ptr<AnimGraphNode_TwistCorrectiveNode>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_TwistCorrectiveNode): AnimGraphNode_TwistCorrectiveNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("AEmitterCameraLensEffectBase")
 @:include("Particles/EmitterCameraLensEffectBase.h")
-@:structAccess
+@:valueType
 extern class EmitterCameraLensEffectBase extends Emitter {
-	@:protected public var PS_CameraEffect: cpp.Star<ParticleSystem>;
-	@:protected public var BaseCamera: cpp.Star<PlayerCameraManager>;
+	@:protected public var PS_CameraEffect: ucpp.Ptr<ParticleSystem>;
+	@:protected public var BaseCamera: ucpp.Ptr<PlayerCameraManager>;
 	@:protected public var RelativeTransform: Transform;
-	public var BaseFOV: cpp.Float32;
+	public var BaseFOV: ucpp.num.Float32;
 	public var bAllowMultipleInstances: Bool;
 	public var bResetWhenRetriggered: Bool;
 	public var EmittersToTreatAsSame: TArray<TSubclassOf<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEmitterCameraLensEffectBase(EmitterCameraLensEffectBase) from EmitterCameraLensEffectBase {
-	public extern var BaseFOV(get, never): cpp.Float32;
-	public inline extern function get_BaseFOV(): cpp.Float32 return this.BaseFOV;
+	public extern var BaseFOV(get, never): ucpp.num.Float32;
+	public inline extern function get_BaseFOV(): ucpp.num.Float32 return this.BaseFOV;
 	public extern var bAllowMultipleInstances(get, never): Bool;
 	public inline extern function get_bAllowMultipleInstances(): Bool return this.bAllowMultipleInstances;
 	public extern var bResetWhenRetriggered(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstEmitterCameraLensEffectBase(EmitterCameraLensEffectBase) from Emit
 @:forward
 @:nativeGen
 @:native("EmitterCameraLensEffectBase*")
-abstract EmitterCameraLensEffectBasePtr(cpp.Star<EmitterCameraLensEffectBase>) from cpp.Star<EmitterCameraLensEffectBase> to cpp.Star<EmitterCameraLensEffectBase>{
+abstract EmitterCameraLensEffectBasePtr(ucpp.Ptr<EmitterCameraLensEffectBase>) from ucpp.Ptr<EmitterCameraLensEffectBase> to ucpp.Ptr<EmitterCameraLensEffectBase>{
 	@:from
 	public static extern inline function fromValue(v: EmitterCameraLensEffectBase): EmitterCameraLensEffectBasePtr {
 		return untyped __cpp__("&({0})", v);

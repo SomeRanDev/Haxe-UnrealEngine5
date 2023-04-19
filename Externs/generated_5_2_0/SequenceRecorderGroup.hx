@@ -3,24 +3,24 @@ package ue;
 
 @:native("ASequenceRecorderGroup")
 @:include("SequenceRecorderActorGroup.h")
-@:structAccess
+@:valueType
 extern class SequenceRecorderGroup extends Actor {
-	public var ActorGroups: TArray<cpp.Star<SequenceRecorderActorGroup>>;
+	public var ActorGroups: TArray<ucpp.Ptr<SequenceRecorderActorGroup>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSequenceRecorderGroup(SequenceRecorderGroup) from SequenceRecorderGroup {
-	public extern var ActorGroups(get, never): TArray<cpp.Star<SequenceRecorderActorGroup.ConstSequenceRecorderActorGroup>>;
-	public inline extern function get_ActorGroups(): TArray<cpp.Star<SequenceRecorderActorGroup.ConstSequenceRecorderActorGroup>> return this.ActorGroups;
+	public extern var ActorGroups(get, never): TArray<ucpp.Ptr<SequenceRecorderActorGroup.ConstSequenceRecorderActorGroup>>;
+	public inline extern function get_ActorGroups(): TArray<ucpp.Ptr<SequenceRecorderActorGroup.ConstSequenceRecorderActorGroup>> return this.ActorGroups;
 }
 
 @:forward
 @:nativeGen
 @:native("SequenceRecorderGroup*")
-abstract SequenceRecorderGroupPtr(cpp.Star<SequenceRecorderGroup>) from cpp.Star<SequenceRecorderGroup> to cpp.Star<SequenceRecorderGroup>{
+abstract SequenceRecorderGroupPtr(ucpp.Ptr<SequenceRecorderGroup>) from ucpp.Ptr<SequenceRecorderGroup> to ucpp.Ptr<SequenceRecorderGroup>{
 	@:from
 	public static extern inline function fromValue(v: SequenceRecorderGroup): SequenceRecorderGroupPtr {
 		return untyped __cpp__("&({0})", v);

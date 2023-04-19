@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAdditiveControlRig")
 @:include("Rigs/AdditiveControlRig.h")
-@:structAccess
+@:valueType
 extern class AdditiveControlRig extends ControlRig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAdditiveControlRig(AdditiveControlRig) from AdditiveControlRig {
 @:forward
 @:nativeGen
 @:native("AdditiveControlRig*")
-abstract AdditiveControlRigPtr(cpp.Star<AdditiveControlRig>) from cpp.Star<AdditiveControlRig> to cpp.Star<AdditiveControlRig>{
+abstract AdditiveControlRigPtr(ucpp.Ptr<AdditiveControlRig>) from ucpp.Ptr<AdditiveControlRig> to ucpp.Ptr<AdditiveControlRig>{
 	@:from
 	public static extern inline function fromValue(v: AdditiveControlRig): AdditiveControlRigPtr {
 		return untyped __cpp__("&({0})", v);

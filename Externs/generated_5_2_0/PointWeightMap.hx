@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPointWeightMap")
 @:include("PointWeightMap.h")
-@:structAccess
+@:valueType
 extern class PointWeightMap {
-	public var Values: TArray<cpp.Float32>;
+	public var Values: TArray<ucpp.num.Float32>;
 
 	@:native("FPointWeightMap") public function new();
-	@:native("FPointWeightMap") public static function make(Values: TArray<cpp.Float32>, Name: FName, CurrentTarget: cpp.UInt8, bEnabled: Bool): PointWeightMap ;
+	@:native("FPointWeightMap") public static function make(Values: TArray<ucpp.num.Float32>, Name: FName, CurrentTarget: ucpp.num.UInt8, bEnabled: Bool): PointWeightMap ;
 }

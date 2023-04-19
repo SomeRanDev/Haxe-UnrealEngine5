@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNetObjectPrioritizerDefinition")
 @:include("Private/Iris/ReplicationSystem/Prioritization/NetObjectPrioritizerDefinitions.h")
-@:structAccess
+@:valueType
 extern class NetObjectPrioritizerDefinition {
 	public var PrioritizerName: FName;
 	public var ClassName: FName;

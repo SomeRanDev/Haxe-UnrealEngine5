@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMetaSoundAssetSubsystem")
 @:include("MetasoundAssetSubsystem.h")
-@:structAccess
+@:valueType
 extern class MetaSoundAssetSubsystem extends EngineSubsystem {
 	private var LoadingDependencies: TArray<MetaSoundAsyncAssetDependencies>;
 
-	public function UnregisterAssetClassesInDirectories(Directories: cpp.Reference<TArray<MetaSoundAssetDirectory>>): Void;
-	public function RegisterAssetClassesInDirectories(Directories: cpp.Reference<TArray<MetaSoundAssetDirectory>>): Void;
+	public function UnregisterAssetClassesInDirectories(Directories: ucpp.Ref<TArray<MetaSoundAssetDirectory>>): Void;
+	public function RegisterAssetClassesInDirectories(Directories: ucpp.Ref<TArray<MetaSoundAssetDirectory>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMetaSoundAssetSubsystem(MetaSoundAssetSubsystem) from MetaSoundAss
 @:forward
 @:nativeGen
 @:native("MetaSoundAssetSubsystem*")
-abstract MetaSoundAssetSubsystemPtr(cpp.Star<MetaSoundAssetSubsystem>) from cpp.Star<MetaSoundAssetSubsystem> to cpp.Star<MetaSoundAssetSubsystem>{
+abstract MetaSoundAssetSubsystemPtr(ucpp.Ptr<MetaSoundAssetSubsystem>) from ucpp.Ptr<MetaSoundAssetSubsystem> to ucpp.Ptr<MetaSoundAssetSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: MetaSoundAssetSubsystem): MetaSoundAssetSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

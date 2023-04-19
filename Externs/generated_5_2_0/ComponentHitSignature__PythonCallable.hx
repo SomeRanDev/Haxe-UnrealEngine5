@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComponentHitSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComponentHitSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComponentHitSignature__PythonCallable(ComponentHitSignature__Pytho
 @:forward
 @:nativeGen
 @:native("ComponentHitSignature__PythonCallable*")
-abstract ComponentHitSignature__PythonCallablePtr(cpp.Star<ComponentHitSignature__PythonCallable>) from cpp.Star<ComponentHitSignature__PythonCallable> to cpp.Star<ComponentHitSignature__PythonCallable>{
+abstract ComponentHitSignature__PythonCallablePtr(ucpp.Ptr<ComponentHitSignature__PythonCallable>) from ucpp.Ptr<ComponentHitSignature__PythonCallable> to ucpp.Ptr<ComponentHitSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComponentHitSignature__PythonCallable): ComponentHitSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

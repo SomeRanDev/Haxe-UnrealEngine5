@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneNiagaraEmitterSectionBase")
 @:include("Sequencer/NiagaraSequence/MovieSceneNiagaraEmitterTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneNiagaraEmitterSectionBase extends MovieSceneSection {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneNiagaraEmitterSectionBase(MovieSceneNiagaraEmitterSectio
 @:forward
 @:nativeGen
 @:native("MovieSceneNiagaraEmitterSectionBase*")
-abstract MovieSceneNiagaraEmitterSectionBasePtr(cpp.Star<MovieSceneNiagaraEmitterSectionBase>) from cpp.Star<MovieSceneNiagaraEmitterSectionBase> to cpp.Star<MovieSceneNiagaraEmitterSectionBase>{
+abstract MovieSceneNiagaraEmitterSectionBasePtr(ucpp.Ptr<MovieSceneNiagaraEmitterSectionBase>) from ucpp.Ptr<MovieSceneNiagaraEmitterSectionBase> to ucpp.Ptr<MovieSceneNiagaraEmitterSectionBase>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneNiagaraEmitterSectionBase): MovieSceneNiagaraEmitterSectionBasePtr {
 		return untyped __cpp__("&({0})", v);

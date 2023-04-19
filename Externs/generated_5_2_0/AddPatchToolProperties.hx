@@ -3,33 +3,33 @@ package ue;
 
 @:native("UAddPatchToolProperties")
 @:include("AddPatchTool.h")
-@:structAccess
+@:valueType
 extern class AddPatchToolProperties extends InteractiveToolPropertySet {
-	public var Width: cpp.Float32;
-	public var Rotation: cpp.Float32;
-	public var Subdivisions: cpp.Int32;
-	public var Shift: cpp.Float32;
+	public var Width: ucpp.num.Float32;
+	public var Rotation: ucpp.num.Float32;
+	public var Subdivisions: ucpp.num.Int32;
+	public var Shift: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAddPatchToolProperties(AddPatchToolProperties) from AddPatchToolProperties {
-	public extern var Width(get, never): cpp.Float32;
-	public inline extern function get_Width(): cpp.Float32 return this.Width;
-	public extern var Rotation(get, never): cpp.Float32;
-	public inline extern function get_Rotation(): cpp.Float32 return this.Rotation;
-	public extern var Subdivisions(get, never): cpp.Int32;
-	public inline extern function get_Subdivisions(): cpp.Int32 return this.Subdivisions;
-	public extern var Shift(get, never): cpp.Float32;
-	public inline extern function get_Shift(): cpp.Float32 return this.Shift;
+	public extern var Width(get, never): ucpp.num.Float32;
+	public inline extern function get_Width(): ucpp.num.Float32 return this.Width;
+	public extern var Rotation(get, never): ucpp.num.Float32;
+	public inline extern function get_Rotation(): ucpp.num.Float32 return this.Rotation;
+	public extern var Subdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_Subdivisions(): ucpp.num.Int32 return this.Subdivisions;
+	public extern var Shift(get, never): ucpp.num.Float32;
+	public inline extern function get_Shift(): ucpp.num.Float32 return this.Shift;
 }
 
 @:forward
 @:nativeGen
 @:native("AddPatchToolProperties*")
-abstract AddPatchToolPropertiesPtr(cpp.Star<AddPatchToolProperties>) from cpp.Star<AddPatchToolProperties> to cpp.Star<AddPatchToolProperties>{
+abstract AddPatchToolPropertiesPtr(ucpp.Ptr<AddPatchToolProperties>) from ucpp.Ptr<AddPatchToolProperties> to ucpp.Ptr<AddPatchToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: AddPatchToolProperties): AddPatchToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

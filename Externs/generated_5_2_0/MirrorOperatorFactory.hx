@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMirrorOperatorFactory")
 @:include("MirrorTool.h")
-@:structAccess
+@:valueType
 extern class MirrorOperatorFactory extends Object {
-	public var MirrorTool: cpp.Star<MirrorTool>;
+	public var MirrorTool: ucpp.Ptr<MirrorTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMirrorOperatorFactory(MirrorOperatorFactory) from MirrorOperatorFactory {
-	public extern var MirrorTool(get, never): cpp.Star<MirrorTool.ConstMirrorTool>;
-	public inline extern function get_MirrorTool(): cpp.Star<MirrorTool.ConstMirrorTool> return this.MirrorTool;
+	public extern var MirrorTool(get, never): ucpp.Ptr<MirrorTool.ConstMirrorTool>;
+	public inline extern function get_MirrorTool(): ucpp.Ptr<MirrorTool.ConstMirrorTool> return this.MirrorTool;
 }
 
 @:forward
 @:nativeGen
 @:native("MirrorOperatorFactory*")
-abstract MirrorOperatorFactoryPtr(cpp.Star<MirrorOperatorFactory>) from cpp.Star<MirrorOperatorFactory> to cpp.Star<MirrorOperatorFactory>{
+abstract MirrorOperatorFactoryPtr(ucpp.Ptr<MirrorOperatorFactory>) from ucpp.Ptr<MirrorOperatorFactory> to ucpp.Ptr<MirrorOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: MirrorOperatorFactory): MirrorOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,19 @@ package ue;
 
 @:native("USoundNodeLooping")
 @:include("Sound/SoundNodeLooping.h")
-@:structAccess
+@:valueType
 extern class SoundNodeLooping extends SoundNode {
-	public var LoopCount: cpp.Int32;
+	public var LoopCount: ucpp.num.Int32;
 	public var bLoopIndefinitely: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeLooping(SoundNodeLooping) from SoundNodeLooping {
-	public extern var LoopCount(get, never): cpp.Int32;
-	public inline extern function get_LoopCount(): cpp.Int32 return this.LoopCount;
+	public extern var LoopCount(get, never): ucpp.num.Int32;
+	public inline extern function get_LoopCount(): ucpp.num.Int32 return this.LoopCount;
 	public extern var bLoopIndefinitely(get, never): Bool;
 	public inline extern function get_bLoopIndefinitely(): Bool return this.bLoopIndefinitely;
 }
@@ -23,7 +23,7 @@ abstract ConstSoundNodeLooping(SoundNodeLooping) from SoundNodeLooping {
 @:forward
 @:nativeGen
 @:native("SoundNodeLooping*")
-abstract SoundNodeLoopingPtr(cpp.Star<SoundNodeLooping>) from cpp.Star<SoundNodeLooping> to cpp.Star<SoundNodeLooping>{
+abstract SoundNodeLoopingPtr(ucpp.Ptr<SoundNodeLooping>) from ucpp.Ptr<SoundNodeLooping> to ucpp.Ptr<SoundNodeLooping>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeLooping): SoundNodeLoopingPtr {
 		return untyped __cpp__("&({0})", v);

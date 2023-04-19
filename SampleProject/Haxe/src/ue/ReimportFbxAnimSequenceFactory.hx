@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReimportFbxAnimSequenceFactory")
 @:include("Factories/ReimportFbxAnimSequenceFactory.h")
-@:structAccess
+@:valueType
 extern class ReimportFbxAnimSequenceFactory extends FbxFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReimportFbxAnimSequenceFactory(ReimportFbxAnimSequenceFactory) fro
 @:forward
 @:nativeGen
 @:native("ReimportFbxAnimSequenceFactory*")
-abstract ReimportFbxAnimSequenceFactoryPtr(cpp.Star<ReimportFbxAnimSequenceFactory>) from cpp.Star<ReimportFbxAnimSequenceFactory> to cpp.Star<ReimportFbxAnimSequenceFactory>{
+abstract ReimportFbxAnimSequenceFactoryPtr(ucpp.Ptr<ReimportFbxAnimSequenceFactory>) from ucpp.Ptr<ReimportFbxAnimSequenceFactory> to ucpp.Ptr<ReimportFbxAnimSequenceFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReimportFbxAnimSequenceFactory): ReimportFbxAnimSequenceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

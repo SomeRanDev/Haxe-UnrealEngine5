@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNavMeshResolutionParam")
 @:include("NavMesh/RecastNavMesh.h")
-@:structAccess
+@:valueType
 extern class NavMeshResolutionParam {
-	public var CellSize: cpp.Float32;
-	public var CellHeight: cpp.Float32;
+	public var CellSize: ucpp.num.Float32;
+	public var CellHeight: ucpp.num.Float32;
 
 	@:native("FNavMeshResolutionParam") public function new();
-	@:native("FNavMeshResolutionParam") public static function make(CellSize: cpp.Float32, CellHeight: cpp.Float32): NavMeshResolutionParam ;
+	@:native("FNavMeshResolutionParam") public static function make(CellSize: ucpp.num.Float32, CellHeight: ucpp.num.Float32): NavMeshResolutionParam ;
 }

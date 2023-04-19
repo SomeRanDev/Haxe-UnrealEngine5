@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeResultSuccess")
 @:include("InterchangeResult.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultSuccess extends InterchangeResult {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeResultSuccess(InterchangeResultSuccess) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeResultSuccess*")
-abstract InterchangeResultSuccessPtr(cpp.Star<InterchangeResultSuccess>) from cpp.Star<InterchangeResultSuccess> to cpp.Star<InterchangeResultSuccess>{
+abstract InterchangeResultSuccessPtr(ucpp.Ptr<InterchangeResultSuccess>) from ucpp.Ptr<InterchangeResultSuccess> to ucpp.Ptr<InterchangeResultSuccess>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultSuccess): InterchangeResultSuccessPtr {
 		return untyped __cpp__("&({0})", v);

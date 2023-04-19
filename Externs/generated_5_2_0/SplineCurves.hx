@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSplineCurves")
 @:include("Components/SplineComponent.h")
-@:structAccess
+@:valueType
 extern class SplineCurves {
 	public var Position: InterpCurveVector;
 	public var Rotation: InterpCurveQuat;
 	public var Scale: InterpCurveVector;
 	public var ReparamTable: InterpCurveFloat;
-	public var Version: cpp.UInt32;
+	public var Version: ucpp.num.UInt32;
 
 	@:native("FSplineCurves") public function new();
 }

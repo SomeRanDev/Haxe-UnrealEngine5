@@ -3,24 +3,28 @@ package ue;
 
 @:native("FRigControlSettings")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigControlSettings {
+	public var AnimationType: ERigControlAnimationType;
 	public var ControlType: ERigControlType;
 	public var DisplayName: FName;
 	public var PrimaryAxis: ERigControlAxis;
 	public var bIsCurve: Bool;
-	public var bAnimatable: Bool;
 	public var LimitEnabled: TArray<RigControlLimitEnabled>;
 	public var bDrawLimits: Bool;
 	public var MinimumValue: RigControlValue;
 	public var MaximumValue: RigControlValue;
-	public var bShapeEnabled: Bool;
 	public var bShapeVisible: Bool;
+	public var ShapeVisibility: ERigControlVisibility;
 	public var ShapeName: FName;
 	public var ShapeColor: LinearColor;
 	public var bIsTransientControl: Bool;
-	public var ControlEnum: cpp.Star<Enum>;
+	public var ControlEnum: ucpp.Ptr<Enum>;
 	public var Customization: RigControlElementCustomization;
+	public var DrivenControls: TArray<RigElementKey>;
+	public var bGroupWithParentControl: Bool;
+	public var bRestrictSpaceSwitching: Bool;
+	public var FilteredChannels: TArray<ERigControlTransformChannel>;
 
 	@:native("FRigControlSettings") public function new();
 }

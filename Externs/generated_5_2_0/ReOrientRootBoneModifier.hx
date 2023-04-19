@@ -3,11 +3,11 @@ package ue;
 
 @:native("UReOrientRootBoneModifier")
 @:include("ReOrientRootBoneModifier.h")
-@:structAccess
+@:valueType
 extern class ReOrientRootBoneModifier extends AnimationModifier {
 	public var Rotator: Rotator;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstReOrientRootBoneModifier(ReOrientRootBoneModifier) from ReOrientRo
 @:forward
 @:nativeGen
 @:native("ReOrientRootBoneModifier*")
-abstract ReOrientRootBoneModifierPtr(cpp.Star<ReOrientRootBoneModifier>) from cpp.Star<ReOrientRootBoneModifier> to cpp.Star<ReOrientRootBoneModifier>{
+abstract ReOrientRootBoneModifierPtr(ucpp.Ptr<ReOrientRootBoneModifier>) from ucpp.Ptr<ReOrientRootBoneModifier> to ucpp.Ptr<ReOrientRootBoneModifier>{
 	@:from
 	public static extern inline function fromValue(v: ReOrientRootBoneModifier): ReOrientRootBoneModifierPtr {
 		return untyped __cpp__("&({0})", v);

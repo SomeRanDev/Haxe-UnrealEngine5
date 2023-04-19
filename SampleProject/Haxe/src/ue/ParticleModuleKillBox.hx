@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleKillBox")
 @:include("Particles/Kill/ParticleModuleKillBox.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleKillBox extends ParticleModuleKillBase {
 	public var LowerLeftCorner: RawDistributionVector;
 	public var UpperRightCorner: RawDistributionVector;
@@ -11,7 +11,7 @@ extern class ParticleModuleKillBox extends ParticleModuleKillBase {
 	public var bKillInside: Bool;
 	public var bAxisAlignedAndFixedSize: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstParticleModuleKillBox(ParticleModuleKillBox) from ParticleModuleKi
 @:forward
 @:nativeGen
 @:native("ParticleModuleKillBox*")
-abstract ParticleModuleKillBoxPtr(cpp.Star<ParticleModuleKillBox>) from cpp.Star<ParticleModuleKillBox> to cpp.Star<ParticleModuleKillBox>{
+abstract ParticleModuleKillBoxPtr(ucpp.Ptr<ParticleModuleKillBox>) from ucpp.Ptr<ParticleModuleKillBox> to ucpp.Ptr<ParticleModuleKillBox>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleKillBox): ParticleModuleKillBoxPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UPersonaToolMenuContext")
 @:include("PersonaToolMenuContext.h")
-@:structAccess
+@:valueType
 extern class PersonaToolMenuContext extends Object {
-	public function GetSkeleton(): cpp.Star<Skeleton>;
-	public function GetPreviewMeshComponent(): cpp.Star<DebugSkelMeshComp>;
-	public function GetMesh(): cpp.Star<SkeletalMesh>;
-	public function GetAnimBlueprint(): cpp.Star<AnimBlueprint>;
-	public function GetAnimationAsset(): cpp.Star<AnimationAsset>;
+	public function GetSkeleton(): ucpp.Ptr<Skeleton>;
+	public function GetPreviewMeshComponent(): ucpp.Ptr<DebugSkelMeshComp>;
+	public function GetMesh(): ucpp.Ptr<SkeletalMesh>;
+	public function GetAnimBlueprint(): ucpp.Ptr<AnimBlueprint>;
+	public function GetAnimationAsset(): ucpp.Ptr<AnimationAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSkeleton, GetPreviewMeshComponent, GetMesh, GetAnimBlueprint, GetAnimationAsset)
@@ -22,7 +22,7 @@ abstract ConstPersonaToolMenuContext(PersonaToolMenuContext) from PersonaToolMen
 @:forward
 @:nativeGen
 @:native("PersonaToolMenuContext*")
-abstract PersonaToolMenuContextPtr(cpp.Star<PersonaToolMenuContext>) from cpp.Star<PersonaToolMenuContext> to cpp.Star<PersonaToolMenuContext>{
+abstract PersonaToolMenuContextPtr(ucpp.Ptr<PersonaToolMenuContext>) from ucpp.Ptr<PersonaToolMenuContext> to ucpp.Ptr<PersonaToolMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: PersonaToolMenuContext): PersonaToolMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

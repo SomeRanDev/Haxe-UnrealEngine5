@@ -3,16 +3,16 @@ package ue;
 
 @:native("UIKRig_FBIKEffector")
 @:include("Solvers/IKRig_FBIKSolver.h")
-@:structAccess
+@:valueType
 extern class IKRig_FBIKEffector extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
-	public var StrengthAlpha: cpp.Float32;
-	public var PullChainAlpha: cpp.Float32;
-	public var PinRotation: cpp.Float32;
-	public var IndexInSolver: cpp.Int32;
+	public var StrengthAlpha: ucpp.num.Float32;
+	public var PullChainAlpha: ucpp.num.Float32;
+	public var PinRotation: ucpp.num.Float32;
+	public var IndexInSolver: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,20 +22,20 @@ abstract ConstIKRig_FBIKEffector(IKRig_FBIKEffector) from IKRig_FBIKEffector {
 	public inline extern function get_GoalName(): FName return this.GoalName;
 	public extern var BoneName(get, never): FName;
 	public inline extern function get_BoneName(): FName return this.BoneName;
-	public extern var StrengthAlpha(get, never): cpp.Float32;
-	public inline extern function get_StrengthAlpha(): cpp.Float32 return this.StrengthAlpha;
-	public extern var PullChainAlpha(get, never): cpp.Float32;
-	public inline extern function get_PullChainAlpha(): cpp.Float32 return this.PullChainAlpha;
-	public extern var PinRotation(get, never): cpp.Float32;
-	public inline extern function get_PinRotation(): cpp.Float32 return this.PinRotation;
-	public extern var IndexInSolver(get, never): cpp.Int32;
-	public inline extern function get_IndexInSolver(): cpp.Int32 return this.IndexInSolver;
+	public extern var StrengthAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_StrengthAlpha(): ucpp.num.Float32 return this.StrengthAlpha;
+	public extern var PullChainAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_PullChainAlpha(): ucpp.num.Float32 return this.PullChainAlpha;
+	public extern var PinRotation(get, never): ucpp.num.Float32;
+	public inline extern function get_PinRotation(): ucpp.num.Float32 return this.PinRotation;
+	public extern var IndexInSolver(get, never): ucpp.num.Int32;
+	public inline extern function get_IndexInSolver(): ucpp.num.Int32 return this.IndexInSolver;
 }
 
 @:forward
 @:nativeGen
 @:native("IKRig_FBIKEffector*")
-abstract IKRig_FBIKEffectorPtr(cpp.Star<IKRig_FBIKEffector>) from cpp.Star<IKRig_FBIKEffector> to cpp.Star<IKRig_FBIKEffector>{
+abstract IKRig_FBIKEffectorPtr(ucpp.Ptr<IKRig_FBIKEffector>) from ucpp.Ptr<IKRig_FBIKEffector> to ucpp.Ptr<IKRig_FBIKEffector>{
 	@:from
 	public static extern inline function fromValue(v: IKRig_FBIKEffector): IKRig_FBIKEffectorPtr {
 		return untyped __cpp__("&({0})", v);

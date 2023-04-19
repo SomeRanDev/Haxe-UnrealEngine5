@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceCustomData")
 @:include("Materials/MaterialExpressionPerInstanceCustomData.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPerInstanceCustomData extends MaterialExpression {
 	public var DefaultValue: ExpressionInput;
-	public var ConstDefaultValue: cpp.Float32;
-	public var DataIndex: cpp.UInt32;
+	public var ConstDefaultValue: ucpp.num.Float32;
+	public var DataIndex: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class MaterialExpressionPerInstanceCustomData extends MaterialExpression 
 abstract ConstMaterialExpressionPerInstanceCustomData(MaterialExpressionPerInstanceCustomData) from MaterialExpressionPerInstanceCustomData {
 	public extern var DefaultValue(get, never): ExpressionInput;
 	public inline extern function get_DefaultValue(): ExpressionInput return this.DefaultValue;
-	public extern var ConstDefaultValue(get, never): cpp.Float32;
-	public inline extern function get_ConstDefaultValue(): cpp.Float32 return this.ConstDefaultValue;
-	public extern var DataIndex(get, never): cpp.UInt32;
-	public inline extern function get_DataIndex(): cpp.UInt32 return this.DataIndex;
+	public extern var ConstDefaultValue(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstDefaultValue(): ucpp.num.Float32 return this.ConstDefaultValue;
+	public extern var DataIndex(get, never): ucpp.num.UInt32;
+	public inline extern function get_DataIndex(): ucpp.num.UInt32 return this.DataIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPerInstanceCustomData*")
-abstract MaterialExpressionPerInstanceCustomDataPtr(cpp.Star<MaterialExpressionPerInstanceCustomData>) from cpp.Star<MaterialExpressionPerInstanceCustomData> to cpp.Star<MaterialExpressionPerInstanceCustomData>{
+abstract MaterialExpressionPerInstanceCustomDataPtr(ucpp.Ptr<MaterialExpressionPerInstanceCustomData>) from ucpp.Ptr<MaterialExpressionPerInstanceCustomData> to ucpp.Ptr<MaterialExpressionPerInstanceCustomData>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPerInstanceCustomData): MaterialExpressionPerInstanceCustomDataPtr {
 		return untyped __cpp__("&({0})", v);

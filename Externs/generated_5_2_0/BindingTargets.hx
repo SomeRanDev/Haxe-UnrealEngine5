@@ -3,14 +3,14 @@ package ue;
 
 @:native("FBindingTargets")
 @:include("Private/Tests/InputTestFramework.h")
-@:structAccess
+@:valueType
 extern class BindingTargets {
-	public var Started: cpp.Star<InputBindingTarget>;
-	public var Ongoing: cpp.Star<InputBindingTarget>;
-	public var Canceled: cpp.Star<InputBindingTarget>;
-	public var Completed: cpp.Star<InputBindingTarget>;
-	public var Triggered: cpp.Star<InputBindingTarget>;
+	public var Started: ucpp.Ptr<InputBindingTarget>;
+	public var Ongoing: ucpp.Ptr<InputBindingTarget>;
+	public var Canceled: ucpp.Ptr<InputBindingTarget>;
+	public var Completed: ucpp.Ptr<InputBindingTarget>;
+	public var Triggered: ucpp.Ptr<InputBindingTarget>;
 
 	@:native("FBindingTargets") public function new();
-	@:native("FBindingTargets") public static function make(Started: cpp.Star<InputBindingTarget>, Ongoing: cpp.Star<InputBindingTarget>, Canceled: cpp.Star<InputBindingTarget>, Completed: cpp.Star<InputBindingTarget>, Triggered: cpp.Star<InputBindingTarget>): BindingTargets ;
+	@:native("FBindingTargets") public static function make(Started: ucpp.Ptr<InputBindingTarget>, Ongoing: ucpp.Ptr<InputBindingTarget>, Canceled: ucpp.Ptr<InputBindingTarget>, Completed: ucpp.Ptr<InputBindingTarget>, Triggered: ucpp.Ptr<InputBindingTarget>): BindingTargets ;
 }

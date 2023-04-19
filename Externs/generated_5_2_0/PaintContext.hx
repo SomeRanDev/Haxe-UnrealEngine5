@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPaintContext")
 @:include("Blueprint/UserWidget.h")
-@:structAccess
+@:valueType
 extern class PaintContext {
 	@:native("FPaintContext") public function new();
 }

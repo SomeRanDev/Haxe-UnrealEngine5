@@ -3,13 +3,13 @@ package ue;
 
 @:native("UIKRetargeter")
 @:include("Retargeter/IKRetargeter.h")
-@:structAccess
+@:valueType
 extern class IKRetargeter extends Object {
 	private var SourceIKRigAsset: TSoftObjectPtr<IKRigDefinition>;
 	private var TargetIKRigAsset: TSoftObjectPtr<IKRigDefinition>;
-	private var ChainSettings: TArray<cpp.Star<RetargetChainSettings>>;
-	private var RootSettings: cpp.Star<RetargetRootSettings>;
-	private var GlobalSettings: cpp.Star<IKRetargetGlobalSettings>;
+	private var ChainSettings: TArray<ucpp.Ptr<RetargetChainSettings>>;
+	private var RootSettings: ucpp.Ptr<RetargetRootSettings>;
+	private var GlobalSettings: ucpp.Ptr<IKRetargetGlobalSettings>;
 	private var Profiles: TMap<FName, RetargetProfile>;
 	private var CurrentProfile: FName;
 	private var SourceRetargetPoses: TMap<FName, IKRetargetPose>;
@@ -17,21 +17,21 @@ extern class IKRetargeter extends Object {
 	private var CurrentSourceRetargetPose: FName;
 	private var CurrentTargetRetargetPose: FName;
 
-	public function SetRootSettingsInRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>, RootSettings: cpp.Reference<TargetRootSettings>): Void;
-	public function SetGlobalSettingsInRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>, GlobalSettings: cpp.Reference<RetargetGlobalSettings>): Void;
-	public function SetChainSpeedPlantSettingsInRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>, SpeedPlantSettings: cpp.Reference<TargetChainSpeedPlantSettings>, TargetChainName: FName): Void;
-	public function SetChainSettingsInRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>, ChainSettings: cpp.Reference<TargetChainSettings>, TargetChainName: FName): Void;
-	public function SetChainIKSettingsInRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>, IKSettings: cpp.Reference<TargetChainIKSettings>, TargetChainName: FName): Void;
-	public function SetChainFKSettingsInRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>, FKSettings: cpp.Reference<TargetChainFKSettings>, TargetChainName: FName): Void;
-	public function GetRootSettingsFromRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>): TargetRootSettings;
-	public function GetRootSettingsFromRetargetAsset(RetargetAsset: cpp.Star<IKRetargeter.ConstIKRetargeter>, OptionalProfileName: FName, OutSettings: cpp.Reference<TargetRootSettings>): Void;
-	public function GetGlobalSettingsFromRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>): RetargetGlobalSettings;
-	public function GetGlobalSettingsFromRetargetAsset(RetargetAsset: cpp.Star<IKRetargeter.ConstIKRetargeter>, OptionalProfileName: FName, OutSettings: cpp.Reference<RetargetGlobalSettings>): Void;
-	public function GetChainUsingGoalFromRetargetAsset(RetargetAsset: cpp.Star<IKRetargeter.ConstIKRetargeter>, IKGoalName: FName): TargetChainSettings;
-	public function GetChainSettingsFromRetargetProfile(RetargetProfile: cpp.Reference<RetargetProfile>, TargetChainName: FName): TargetChainSettings;
-	public function GetChainSettingsFromRetargetAsset(RetargetAsset: cpp.Star<IKRetargeter.ConstIKRetargeter>, TargetChainName: FName, OptionalProfileName: FName): TargetChainSettings;
+	public function SetRootSettingsInRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>, RootSettings: ucpp.Ref<TargetRootSettings>): Void;
+	public function SetGlobalSettingsInRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>, GlobalSettings: ucpp.Ref<RetargetGlobalSettings>): Void;
+	public function SetChainSpeedPlantSettingsInRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>, SpeedPlantSettings: ucpp.Ref<TargetChainSpeedPlantSettings>, TargetChainName: FName): Void;
+	public function SetChainSettingsInRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>, ChainSettings: ucpp.Ref<TargetChainSettings>, TargetChainName: FName): Void;
+	public function SetChainIKSettingsInRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>, IKSettings: ucpp.Ref<TargetChainIKSettings>, TargetChainName: FName): Void;
+	public function SetChainFKSettingsInRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>, FKSettings: ucpp.Ref<TargetChainFKSettings>, TargetChainName: FName): Void;
+	public function GetRootSettingsFromRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>): TargetRootSettings;
+	public function GetRootSettingsFromRetargetAsset(RetargetAsset: ucpp.Ptr<IKRetargeter.ConstIKRetargeter>, OptionalProfileName: FName, OutSettings: ucpp.Ref<TargetRootSettings>): Void;
+	public function GetGlobalSettingsFromRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>): RetargetGlobalSettings;
+	public function GetGlobalSettingsFromRetargetAsset(RetargetAsset: ucpp.Ptr<IKRetargeter.ConstIKRetargeter>, OptionalProfileName: FName, OutSettings: ucpp.Ref<RetargetGlobalSettings>): Void;
+	public function GetChainUsingGoalFromRetargetAsset(RetargetAsset: ucpp.Ptr<IKRetargeter.ConstIKRetargeter>, IKGoalName: FName): TargetChainSettings;
+	public function GetChainSettingsFromRetargetProfile(RetargetProfile: ucpp.Ref<RetargetProfile>, TargetChainName: FName): TargetChainSettings;
+	public function GetChainSettingsFromRetargetAsset(RetargetAsset: ucpp.Ptr<IKRetargeter.ConstIKRetargeter>, TargetChainName: FName, OptionalProfileName: FName): TargetChainSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -42,7 +42,7 @@ abstract ConstIKRetargeter(IKRetargeter) from IKRetargeter {
 @:forward
 @:nativeGen
 @:native("IKRetargeter*")
-abstract IKRetargeterPtr(cpp.Star<IKRetargeter>) from cpp.Star<IKRetargeter> to cpp.Star<IKRetargeter>{
+abstract IKRetargeterPtr(ucpp.Ptr<IKRetargeter>) from ucpp.Ptr<IKRetargeter> to ucpp.Ptr<IKRetargeter>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargeter): IKRetargeterPtr {
 		return untyped __cpp__("&({0})", v);

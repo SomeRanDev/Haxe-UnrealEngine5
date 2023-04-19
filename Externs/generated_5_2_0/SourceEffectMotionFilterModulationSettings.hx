@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSourceEffectMotionFilterModulationSettings")
 @:include("SourceEffects/SourceEffectMotionFilter.h")
-@:structAccess
+@:valueType
 extern class SourceEffectMotionFilterModulationSettings {
 	public var ModulationSource: ESourceEffectMotionFilterModSource;
 	public var ModulationInputRange: Vector2D;
 	public var ModulationOutputMinimumRange: Vector2D;
 	public var ModulationOutputMaximumRange: Vector2D;
-	public var UpdateEaseMS: cpp.Float32;
+	public var UpdateEaseMS: ucpp.num.Float32;
 
 	@:native("FSourceEffectMotionFilterModulationSettings") public function new();
-	@:native("FSourceEffectMotionFilterModulationSettings") public static function make(ModulationSource: ESourceEffectMotionFilterModSource, ModulationInputRange: Vector2D, ModulationOutputMinimumRange: Vector2D, ModulationOutputMaximumRange: Vector2D, UpdateEaseMS: cpp.Float32): SourceEffectMotionFilterModulationSettings ;
+	@:native("FSourceEffectMotionFilterModulationSettings") public static function make(ModulationSource: ESourceEffectMotionFilterModSource, ModulationInputRange: Vector2D, ModulationOutputMinimumRange: Vector2D, ModulationOutputMaximumRange: Vector2D, UpdateEaseMS: ucpp.num.Float32): SourceEffectMotionFilterModulationSettings ;
 }

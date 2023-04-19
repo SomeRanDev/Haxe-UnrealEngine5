@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArrayColor")
 @:include("NiagaraDataInterfaceArrayFloat.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceArrayColor extends NiagaraDataInterfaceArray {
 	public var ColorData: TArray<LinearColor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraDataInterfaceArrayColor(NiagaraDataInterfaceArrayColor) fro
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceArrayColor*")
-abstract NiagaraDataInterfaceArrayColorPtr(cpp.Star<NiagaraDataInterfaceArrayColor>) from cpp.Star<NiagaraDataInterfaceArrayColor> to cpp.Star<NiagaraDataInterfaceArrayColor>{
+abstract NiagaraDataInterfaceArrayColorPtr(ucpp.Ptr<NiagaraDataInterfaceArrayColor>) from ucpp.Ptr<NiagaraDataInterfaceArrayColor> to ucpp.Ptr<NiagaraDataInterfaceArrayColor>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayColor): NiagaraDataInterfaceArrayColorPtr {
 		return untyped __cpp__("&({0})", v);

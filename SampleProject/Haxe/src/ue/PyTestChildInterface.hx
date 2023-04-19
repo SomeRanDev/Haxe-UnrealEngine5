@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UPyTestChildInterface")
-@:structAccess
+@:valueType
 extern class PyTestChildInterface extends PyTestInterface {
-	public function FuncInterfaceChild(InValue: cpp.Int32): cpp.Int32;
+	public function FuncInterfaceChild(InValue: ucpp.num.Int32): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(FuncInterfaceChild)
@@ -17,7 +17,7 @@ abstract ConstPyTestChildInterface(PyTestChildInterface) from PyTestChildInterfa
 @:forward
 @:nativeGen
 @:native("PyTestChildInterface*")
-abstract PyTestChildInterfacePtr(cpp.Star<PyTestChildInterface>) from cpp.Star<PyTestChildInterface> to cpp.Star<PyTestChildInterface>{
+abstract PyTestChildInterfacePtr(ucpp.Ptr<PyTestChildInterface>) from ucpp.Ptr<PyTestChildInterface> to ucpp.Ptr<PyTestChildInterface>{
 	@:from
 	public static extern inline function fromValue(v: PyTestChildInterface): PyTestChildInterfacePtr {
 		return untyped __cpp__("&({0})", v);

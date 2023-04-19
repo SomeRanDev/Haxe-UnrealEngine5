@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMovieSceneFieldEntry_EvaluationTrack")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneFieldEntry_EvaluationTrack {
 	public var TrackPtr: MovieSceneEvaluationFieldTrackPtr;
-	public var NumChildren: cpp.UInt16;
+	public var NumChildren: ucpp.num.UInt16;
 
 	@:native("FMovieSceneFieldEntry_EvaluationTrack") public function new();
-	@:native("FMovieSceneFieldEntry_EvaluationTrack") public static function make(TrackPtr: MovieSceneEvaluationFieldTrackPtr, NumChildren: cpp.UInt16): MovieSceneFieldEntry_EvaluationTrack ;
+	@:native("FMovieSceneFieldEntry_EvaluationTrack") public static function make(TrackPtr: MovieSceneEvaluationFieldTrackPtr, NumChildren: ucpp.num.UInt16): MovieSceneFieldEntry_EvaluationTrack ;
 }

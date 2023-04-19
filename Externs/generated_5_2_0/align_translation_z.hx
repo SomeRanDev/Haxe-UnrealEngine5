@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Ualign_translation_z")
-@:structAccess
+@:valueType
 extern class align_translation_z extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constalign_translation_z(align_translation_z) from align_translation_z 
 @:forward
 @:nativeGen
 @:native("align_translation_z*")
-abstract align_translation_zPtr(cpp.Star<align_translation_z>) from cpp.Star<align_translation_z> to cpp.Star<align_translation_z>{
+abstract align_translation_zPtr(ucpp.Ptr<align_translation_z>) from ucpp.Ptr<align_translation_z> to ucpp.Ptr<align_translation_z>{
 	@:from
 	public static extern inline function fromValue(v: align_translation_z): align_translation_zPtr {
 		return untyped __cpp__("&({0})", v);

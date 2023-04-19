@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovementComponent")
 @:include("GameFramework/MovementComponent.h")
-@:structAccess
+@:valueType
 extern class MovementComp extends ActorComp {
-	public var UpdatedComponent: cpp.Star<SceneComp>;
-	public var UpdatedPrimitive: cpp.Star<PrimitiveComp>;
+	public var UpdatedComponent: ucpp.Ptr<SceneComp>;
+	public var UpdatedPrimitive: ucpp.Ptr<PrimitiveComp>;
 	public var Velocity: Vector;
 	@:protected public var PlaneConstraintNormal: Vector;
 	@:protected public var PlaneConstraintOrigin: Vector;
@@ -22,26 +22,26 @@ extern class MovementComp extends ActorComp {
 
 	public function StopMovementImmediately(): Void;
 	public function SnapUpdatedComponentToPlane(): Void;
-	public function SetUpdatedComponent(NewUpdatedComponent: cpp.Star<SceneComp>): Void;
+	public function SetUpdatedComponent(NewUpdatedComponent: ucpp.Ptr<SceneComp>): Void;
 	public function SetPlaneConstraintOrigin(PlaneOrigin: Vector): Void;
 	public function SetPlaneConstraintNormal(PlaneNormal: Vector): Void;
 	public function SetPlaneConstraintFromVectors(Forward: Vector, Up: Vector): Void;
 	public function SetPlaneConstraintEnabled(bEnabled: Bool): Void;
 	public function SetPlaneConstraintAxisSetting(NewAxisSetting: EPlaneConstraintAxisSetting): Void;
-	public function PhysicsVolumeChanged(NewVolume: cpp.Star<PhysicsVolume>): Void;
-	public function K2_MoveUpdatedComponent(Delta: Vector, NewRotation: Rotator, OutHit: cpp.Reference<HitResult>, bSweep: Bool, bTeleport: Bool): Bool;
-	public function IsExceedingMaxSpeed(MaxSpeed: cpp.Float32): Bool;
+	public function PhysicsVolumeChanged(NewVolume: ucpp.Ptr<PhysicsVolume>): Void;
+	public function K2_MoveUpdatedComponent(Delta: Vector, NewRotation: Rotator, OutHit: ucpp.Ref<HitResult>, bSweep: Bool, bTeleport: Bool): Bool;
+	public function IsExceedingMaxSpeed(MaxSpeed: ucpp.num.Float32): Bool;
 	public function GetPlaneConstraintOrigin(): Vector;
 	public function GetPlaneConstraintNormal(): Vector;
 	public function GetPlaneConstraintAxisSetting(): EPlaneConstraintAxisSetting;
-	public function GetPhysicsVolume(): cpp.Star<PhysicsVolume>;
-	public function GetMaxSpeed(): cpp.Float32;
-	public function GetGravityZ(): cpp.Float32;
+	public function GetPhysicsVolume(): ucpp.Ptr<PhysicsVolume>;
+	public function GetMaxSpeed(): ucpp.num.Float32;
+	public function GetGravityZ(): ucpp.num.Float32;
 	public function ConstrainNormalToPlane(Normal: Vector): Vector;
 	public function ConstrainLocationToPlane(Location: Vector): Vector;
 	public function ConstrainDirectionToPlane(Direction: Vector): Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -50,10 +50,10 @@ extern class MovementComp extends ActorComp {
 )
 @:nativeGen
 abstract ConstMovementComp(MovementComp) from MovementComp {
-	public extern var UpdatedComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_UpdatedComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.UpdatedComponent;
-	public extern var UpdatedPrimitive(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
-	public inline extern function get_UpdatedPrimitive(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.UpdatedPrimitive;
+	public extern var UpdatedComponent(get, never): ucpp.Ptr<SceneComp.ConstSceneComp>;
+	public inline extern function get_UpdatedComponent(): ucpp.Ptr<SceneComp.ConstSceneComp> return this.UpdatedComponent;
+	public extern var UpdatedPrimitive(get, never): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>;
+	public inline extern function get_UpdatedPrimitive(): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp> return this.UpdatedPrimitive;
 	public extern var Velocity(get, never): Vector;
 	public inline extern function get_Velocity(): Vector return this.Velocity;
 	public extern var bUpdateOnlyIfRendered(get, never): Bool;
@@ -77,7 +77,7 @@ abstract ConstMovementComp(MovementComp) from MovementComp {
 @:forward
 @:nativeGen
 @:native("MovementComp*")
-abstract MovementCompPtr(cpp.Star<MovementComp>) from cpp.Star<MovementComp> to cpp.Star<MovementComp>{
+abstract MovementCompPtr(ucpp.Ptr<MovementComp>) from ucpp.Ptr<MovementComp> to ucpp.Ptr<MovementComp>{
 	@:from
 	public static extern inline function fromValue(v: MovementComp): MovementCompPtr {
 		return untyped __cpp__("&({0})", v);

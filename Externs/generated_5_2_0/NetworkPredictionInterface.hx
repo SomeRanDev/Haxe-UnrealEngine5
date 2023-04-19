@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNetworkPredictionInterface")
-@:structAccess
+@:valueType
 extern class NetworkPredictionInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNetworkPredictionInterface(NetworkPredictionInterface) from Networ
 @:forward
 @:nativeGen
 @:native("NetworkPredictionInterface*")
-abstract NetworkPredictionInterfacePtr(cpp.Star<NetworkPredictionInterface>) from cpp.Star<NetworkPredictionInterface> to cpp.Star<NetworkPredictionInterface>{
+abstract NetworkPredictionInterfacePtr(ucpp.Ptr<NetworkPredictionInterface>) from ucpp.Ptr<NetworkPredictionInterface> to ucpp.Ptr<NetworkPredictionInterface>{
 	@:from
 	public static extern inline function fromValue(v: NetworkPredictionInterface): NetworkPredictionInterfacePtr {
 		return untyped __cpp__("&({0})", v);

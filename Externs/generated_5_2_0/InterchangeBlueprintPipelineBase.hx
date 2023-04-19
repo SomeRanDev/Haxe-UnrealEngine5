@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeBlueprintPipelineBase")
 @:include("InterchangeBlueprintPipelineBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeBlueprintPipelineBase extends Blueprint {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeBlueprintPipelineBase(InterchangeBlueprintPipelineBase)
 @:forward
 @:nativeGen
 @:native("InterchangeBlueprintPipelineBase*")
-abstract InterchangeBlueprintPipelineBasePtr(cpp.Star<InterchangeBlueprintPipelineBase>) from cpp.Star<InterchangeBlueprintPipelineBase> to cpp.Star<InterchangeBlueprintPipelineBase>{
+abstract InterchangeBlueprintPipelineBasePtr(ucpp.Ptr<InterchangeBlueprintPipelineBase>) from ucpp.Ptr<InterchangeBlueprintPipelineBase> to ucpp.Ptr<InterchangeBlueprintPipelineBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeBlueprintPipelineBase): InterchangeBlueprintPipelineBasePtr {
 		return untyped __cpp__("&({0})", v);

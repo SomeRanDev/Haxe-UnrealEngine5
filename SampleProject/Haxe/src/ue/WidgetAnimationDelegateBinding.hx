@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWidgetAnimationDelegateBinding")
 @:include("Animation/WidgetAnimationDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class WidgetAnimationDelegateBinding extends DynamicBlueprintBinding {
 	public var WidgetAnimationDelegateBindings: TArray<BlueprintWidgetAnimationDelegateBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstWidgetAnimationDelegateBinding(WidgetAnimationDelegateBinding) fro
 @:forward
 @:nativeGen
 @:native("WidgetAnimationDelegateBinding*")
-abstract WidgetAnimationDelegateBindingPtr(cpp.Star<WidgetAnimationDelegateBinding>) from cpp.Star<WidgetAnimationDelegateBinding> to cpp.Star<WidgetAnimationDelegateBinding>{
+abstract WidgetAnimationDelegateBindingPtr(ucpp.Ptr<WidgetAnimationDelegateBinding>) from ucpp.Ptr<WidgetAnimationDelegateBinding> to ucpp.Ptr<WidgetAnimationDelegateBinding>{
 	@:from
 	public static extern inline function fromValue(v: WidgetAnimationDelegateBinding): WidgetAnimationDelegateBindingPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UButtonWidgetStyle")
 @:include("Framework/Styling/ButtonWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class ButtonWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ButtonStyle: ButtonStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstButtonWidgetStyle(ButtonWidgetStyle) from ButtonWidgetStyle {
 @:forward
 @:nativeGen
 @:native("ButtonWidgetStyle*")
-abstract ButtonWidgetStylePtr(cpp.Star<ButtonWidgetStyle>) from cpp.Star<ButtonWidgetStyle> to cpp.Star<ButtonWidgetStyle>{
+abstract ButtonWidgetStylePtr(ucpp.Ptr<ButtonWidgetStyle>) from ucpp.Ptr<ButtonWidgetStyle> to ucpp.Ptr<ButtonWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: ButtonWidgetStyle): ButtonWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

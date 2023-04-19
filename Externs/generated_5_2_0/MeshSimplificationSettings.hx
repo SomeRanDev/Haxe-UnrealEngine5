@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMeshSimplificationSettings")
 @:include("Engine/MeshSimplificationSettings.h")
-@:structAccess
+@:valueType
 extern class MeshSimplificationSettings extends DeveloperSettings {
 	public var MeshReductionModuleName: FName;
 	public var bMeshReductionBackwardCompatible: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMeshSimplificationSettings(MeshSimplificationSettings) from MeshSi
 @:forward
 @:nativeGen
 @:native("MeshSimplificationSettings*")
-abstract MeshSimplificationSettingsPtr(cpp.Star<MeshSimplificationSettings>) from cpp.Star<MeshSimplificationSettings> to cpp.Star<MeshSimplificationSettings>{
+abstract MeshSimplificationSettingsPtr(ucpp.Ptr<MeshSimplificationSettings>) from ucpp.Ptr<MeshSimplificationSettings> to ucpp.Ptr<MeshSimplificationSettings>{
 	@:from
 	public static extern inline function fromValue(v: MeshSimplificationSettings): MeshSimplificationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBuildPatchManifest")
 @:include("Data/ManifestUObject.h")
-@:structAccess
+@:valueType
 extern class BuildPatchManifest extends Object {
-	public var ManifestFileVersion: cpp.UInt8;
+	public var ManifestFileVersion: ucpp.num.UInt8;
 	public var bIsFileData: Bool;
-	public var AppID: cpp.UInt32;
+	public var AppID: ucpp.num.UInt32;
 	public var AppName: FString;
 	public var BuildVersion: FString;
 	public var LaunchExe: FString;
@@ -20,18 +20,18 @@ extern class BuildPatchManifest extends Object {
 	public var ChunkList: TArray<ChunkInfoData>;
 	public var CustomFields: TArray<CustomFieldData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBuildPatchManifest(BuildPatchManifest) from BuildPatchManifest {
-	public extern var ManifestFileVersion(get, never): cpp.UInt8;
-	public inline extern function get_ManifestFileVersion(): cpp.UInt8 return this.ManifestFileVersion;
+	public extern var ManifestFileVersion(get, never): ucpp.num.UInt8;
+	public inline extern function get_ManifestFileVersion(): ucpp.num.UInt8 return this.ManifestFileVersion;
 	public extern var bIsFileData(get, never): Bool;
 	public inline extern function get_bIsFileData(): Bool return this.bIsFileData;
-	public extern var AppID(get, never): cpp.UInt32;
-	public inline extern function get_AppID(): cpp.UInt32 return this.AppID;
+	public extern var AppID(get, never): ucpp.num.UInt32;
+	public inline extern function get_AppID(): ucpp.num.UInt32 return this.AppID;
 	public extern var AppName(get, never): FString;
 	public inline extern function get_AppName(): FString return this.AppName;
 	public extern var BuildVersion(get, never): FString;
@@ -59,7 +59,7 @@ abstract ConstBuildPatchManifest(BuildPatchManifest) from BuildPatchManifest {
 @:forward
 @:nativeGen
 @:native("BuildPatchManifest*")
-abstract BuildPatchManifestPtr(cpp.Star<BuildPatchManifest>) from cpp.Star<BuildPatchManifest> to cpp.Star<BuildPatchManifest>{
+abstract BuildPatchManifestPtr(ucpp.Ptr<BuildPatchManifest>) from ucpp.Ptr<BuildPatchManifest> to ucpp.Ptr<BuildPatchManifest>{
 	@:from
 	public static extern inline function fromValue(v: BuildPatchManifest): BuildPatchManifestPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ADEPRECATED_WorldPartitionVolume")
 @:include("WorldPartition/WorldPartitionVolume.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionVolume(WorldPartitionVolume) from WorldPartitionVolu
 @:forward
 @:nativeGen
 @:native("WorldPartitionVolume*")
-abstract WorldPartitionVolumePtr(cpp.Star<WorldPartitionVolume>) from cpp.Star<WorldPartitionVolume> to cpp.Star<WorldPartitionVolume>{
+abstract WorldPartitionVolumePtr(ucpp.Ptr<WorldPartitionVolume>) from ucpp.Ptr<WorldPartitionVolume> to ucpp.Ptr<WorldPartitionVolume>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionVolume): WorldPartitionVolumePtr {
 		return untyped __cpp__("&({0})", v);

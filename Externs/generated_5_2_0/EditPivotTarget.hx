@@ -3,11 +3,11 @@ package ue;
 
 @:native("FEditPivotTarget")
 @:include("EditPivotTool.h")
-@:structAccess
+@:valueType
 extern class EditPivotTarget {
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
 
 	@:native("FEditPivotTarget") public function new();
-	@:native("FEditPivotTarget") public static function make(TransformProxy: cpp.Star<TransformProxy>, TransformGizmo: cpp.Star<CombinedTransformGizmo>): EditPivotTarget ;
+	@:native("FEditPivotTarget") public static function make(TransformProxy: ucpp.Ptr<TransformProxy>, TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>): EditPivotTarget ;
 }

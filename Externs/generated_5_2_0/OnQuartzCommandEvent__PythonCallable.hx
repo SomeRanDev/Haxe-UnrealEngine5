@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnQuartzCommandEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnQuartzCommandEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnQuartzCommandEvent__PythonCallable(OnQuartzCommandEvent__PythonC
 @:forward
 @:nativeGen
 @:native("OnQuartzCommandEvent__PythonCallable*")
-abstract OnQuartzCommandEvent__PythonCallablePtr(cpp.Star<OnQuartzCommandEvent__PythonCallable>) from cpp.Star<OnQuartzCommandEvent__PythonCallable> to cpp.Star<OnQuartzCommandEvent__PythonCallable>{
+abstract OnQuartzCommandEvent__PythonCallablePtr(ucpp.Ptr<OnQuartzCommandEvent__PythonCallable>) from ucpp.Ptr<OnQuartzCommandEvent__PythonCallable> to ucpp.Ptr<OnQuartzCommandEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnQuartzCommandEvent__PythonCallable): OnQuartzCommandEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

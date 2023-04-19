@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRawAnimSequenceTrack")
 @:include("Animation/AnimTypes.h")
-@:structAccess
+@:valueType
 extern class RawAnimSequenceTrack {
 	public var PosKeys: TArray<Vector3f>;
 	public var RotKeys: TArray<Quat4f>;

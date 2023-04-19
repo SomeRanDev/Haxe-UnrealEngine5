@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorAlignToolBuilder")
 @:include("UVEditorTransformTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorAlignToolBuilder extends UVEditorBaseTransformToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorAlignToolBuilder(UVEditorAlignToolBuilder) from UVEditorAl
 @:forward
 @:nativeGen
 @:native("UVEditorAlignToolBuilder*")
-abstract UVEditorAlignToolBuilderPtr(cpp.Star<UVEditorAlignToolBuilder>) from cpp.Star<UVEditorAlignToolBuilder> to cpp.Star<UVEditorAlignToolBuilder>{
+abstract UVEditorAlignToolBuilderPtr(ucpp.Ptr<UVEditorAlignToolBuilder>) from ucpp.Ptr<UVEditorAlignToolBuilder> to ucpp.Ptr<UVEditorAlignToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorAlignToolBuilder): UVEditorAlignToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

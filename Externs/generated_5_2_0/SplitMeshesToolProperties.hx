@@ -3,11 +3,11 @@ package ue;
 
 @:native("USplitMeshesToolProperties")
 @:include("SplitMeshesTool.h")
-@:structAccess
+@:valueType
 extern class SplitMeshesToolProperties extends InteractiveToolPropertySet {
 	public var bTransferMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSplitMeshesToolProperties(SplitMeshesToolProperties) from SplitMes
 @:forward
 @:nativeGen
 @:native("SplitMeshesToolProperties*")
-abstract SplitMeshesToolPropertiesPtr(cpp.Star<SplitMeshesToolProperties>) from cpp.Star<SplitMeshesToolProperties> to cpp.Star<SplitMeshesToolProperties>{
+abstract SplitMeshesToolPropertiesPtr(ucpp.Ptr<SplitMeshesToolProperties>) from ucpp.Ptr<SplitMeshesToolProperties> to ucpp.Ptr<SplitMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: SplitMeshesToolProperties): SplitMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

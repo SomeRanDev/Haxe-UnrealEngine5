@@ -3,12 +3,12 @@ package ue;
 
 @:native("FCheckerboardSettings")
 @:include("MaterialEditorSettings.h")
-@:structAccess
+@:valueType
 extern class CheckerboardSettings {
 	public var ColorOne: Color;
 	public var ColorTwo: Color;
-	public var Size: cpp.Int32;
+	public var Size: ucpp.num.Int32;
 
 	@:native("FCheckerboardSettings") public function new();
-	@:native("FCheckerboardSettings") public static function make(ColorOne: Color, ColorTwo: Color, Size: cpp.Int32): CheckerboardSettings ;
+	@:native("FCheckerboardSettings") public static function make(ColorOne: Color, ColorTwo: Color, Size: ucpp.num.Int32): CheckerboardSettings ;
 }

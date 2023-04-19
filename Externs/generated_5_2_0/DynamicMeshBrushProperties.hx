@@ -3,14 +3,14 @@ package ue;
 
 @:native("UDynamicMeshBrushProperties")
 @:include("DynamicMeshSculptTool.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshBrushProperties extends InteractiveToolPropertySet {
 	public var BrushSize: BrushToolRadius;
-	public var BrushFalloffAmount: cpp.Float32;
-	public var Depth: cpp.Float32;
+	public var BrushFalloffAmount: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
 	public var bHitBackFaces: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,10 +18,10 @@ extern class DynamicMeshBrushProperties extends InteractiveToolPropertySet {
 abstract ConstDynamicMeshBrushProperties(DynamicMeshBrushProperties) from DynamicMeshBrushProperties {
 	public extern var BrushSize(get, never): BrushToolRadius;
 	public inline extern function get_BrushSize(): BrushToolRadius return this.BrushSize;
-	public extern var BrushFalloffAmount(get, never): cpp.Float32;
-	public inline extern function get_BrushFalloffAmount(): cpp.Float32 return this.BrushFalloffAmount;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
+	public extern var BrushFalloffAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushFalloffAmount(): ucpp.num.Float32 return this.BrushFalloffAmount;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
 	public extern var bHitBackFaces(get, never): Bool;
 	public inline extern function get_bHitBackFaces(): Bool return this.bHitBackFaces;
 }
@@ -29,7 +29,7 @@ abstract ConstDynamicMeshBrushProperties(DynamicMeshBrushProperties) from Dynami
 @:forward
 @:nativeGen
 @:native("DynamicMeshBrushProperties*")
-abstract DynamicMeshBrushPropertiesPtr(cpp.Star<DynamicMeshBrushProperties>) from cpp.Star<DynamicMeshBrushProperties> to cpp.Star<DynamicMeshBrushProperties>{
+abstract DynamicMeshBrushPropertiesPtr(ucpp.Ptr<DynamicMeshBrushProperties>) from ucpp.Ptr<DynamicMeshBrushProperties> to ucpp.Ptr<DynamicMeshBrushProperties>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshBrushProperties): DynamicMeshBrushPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

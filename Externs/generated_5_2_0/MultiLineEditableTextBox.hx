@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMultiLineEditableTextBox")
 @:include("Components/MultiLineEditableTextBox.h")
-@:structAccess
+@:valueType
 extern class MultiLineEditableTextBox extends TextLayoutWidget {
 	public function GetText(): FText;
 	public function SetText(input: FText): Void;
@@ -15,17 +15,17 @@ extern class MultiLineEditableTextBox extends TextLayoutWidget {
 	public var AllowContextMenu: Bool;
 	public var VirtualKeyboardOptions: VirtualKeyboardOptions;
 	public var VirtualKeyboardDismissAction: EVirtualKeyboardDismissAction;
-	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void>;
+	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void>;
 
-	public function SetTextStyle(InTextStyle: cpp.Reference<TextBlockStyle>): Void;
+	public function SetTextStyle(InTextStyle: ucpp.Ref<TextBlockStyle>): Void;
 	public function SetIsReadOnly(bReadOnly: Bool): Void;
 	public function SetForegroundColor(color: LinearColor): Void;
 	public function SetError(InError: FText): Void;
-	public function OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
-	public function OnMultiLineEditableTextBoxChangedEvent__DelegateSignature(Text: cpp.Reference<FText>): Void;
+	public function OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature(Text: ucpp.Ref<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
+	public function OnMultiLineEditableTextBoxChangedEvent__DelegateSignature(Text: ucpp.Ref<FText>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,16 +43,16 @@ abstract ConstMultiLineEditableTextBox(MultiLineEditableTextBox) from MultiLineE
 	public inline extern function get_VirtualKeyboardOptions(): VirtualKeyboardOptions return this.VirtualKeyboardOptions;
 	public extern var VirtualKeyboardDismissAction(get, never): EVirtualKeyboardDismissAction;
 	public inline extern function get_VirtualKeyboardDismissAction(): EVirtualKeyboardDismissAction return this.VirtualKeyboardDismissAction;
-	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void> return this.OnTextChanged;
-	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
-	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
+	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void>;
+	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void> return this.OnTextChanged;
+	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
 }
 
 @:forward
 @:nativeGen
 @:native("MultiLineEditableTextBox*")
-abstract MultiLineEditableTextBoxPtr(cpp.Star<MultiLineEditableTextBox>) from cpp.Star<MultiLineEditableTextBox> to cpp.Star<MultiLineEditableTextBox>{
+abstract MultiLineEditableTextBoxPtr(ucpp.Ptr<MultiLineEditableTextBox>) from ucpp.Ptr<MultiLineEditableTextBox> to ucpp.Ptr<MultiLineEditableTextBox>{
 	@:from
 	public static extern inline function fromValue(v: MultiLineEditableTextBox): MultiLineEditableTextBoxPtr {
 		return untyped __cpp__("&({0})", v);

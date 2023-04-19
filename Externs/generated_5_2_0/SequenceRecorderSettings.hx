@@ -3,24 +3,24 @@ package ue;
 
 @:native("USequenceRecorderSettings")
 @:include("SequenceRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class SequenceRecorderSettings extends Object {
 	public var bCreateLevelSequence: Bool;
 	public var bImmersiveMode: Bool;
-	public var SequenceLength: cpp.Float32;
-	public var RecordingDelay: cpp.Float32;
+	public var SequenceLength: ucpp.num.Float32;
+	public var RecordingDelay: ucpp.num.Float32;
 	public var bAllowLooping: Bool;
-	public var GlobalTimeDilation: cpp.Float32;
+	public var GlobalTimeDilation: ucpp.num.Float32;
 	public var bIgnoreTimeDilation: Bool;
 	public var AnimationSubDirectory: FString;
 	public var RecordAudio: EAudioRecordingMode;
-	public var AudioGain: cpp.Float32;
+	public var AudioGain: ucpp.num.Float32;
 	public var bSplitAudioChannelsIntoSeparateTracks: Bool;
 	public var bReplaceRecordedAudio: Bool;
 	public var AudioTrackName: FText;
 	public var AudioSubDirectory: FString;
 	public var bRecordNearbySpawnedActors: Bool;
-	public var NearbyActorRecordingProximity: cpp.Float32;
+	public var NearbyActorRecordingProximity: ucpp.num.Float32;
 	public var bRecordWorldSettingsActor: Bool;
 	public var bReduceKeys: Bool;
 	public var bAutoSaveAsset: Bool;
@@ -32,7 +32,7 @@ extern class SequenceRecorderSettings extends Object {
 	public var ActorsAndPropertiesToRecord: TArray<PropertiesToRecordForActorClass>;
 	public var PerActorSettings: TArray<SettingsForActorClass>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -42,22 +42,22 @@ abstract ConstSequenceRecorderSettings(SequenceRecorderSettings) from SequenceRe
 	public inline extern function get_bCreateLevelSequence(): Bool return this.bCreateLevelSequence;
 	public extern var bImmersiveMode(get, never): Bool;
 	public inline extern function get_bImmersiveMode(): Bool return this.bImmersiveMode;
-	public extern var SequenceLength(get, never): cpp.Float32;
-	public inline extern function get_SequenceLength(): cpp.Float32 return this.SequenceLength;
-	public extern var RecordingDelay(get, never): cpp.Float32;
-	public inline extern function get_RecordingDelay(): cpp.Float32 return this.RecordingDelay;
+	public extern var SequenceLength(get, never): ucpp.num.Float32;
+	public inline extern function get_SequenceLength(): ucpp.num.Float32 return this.SequenceLength;
+	public extern var RecordingDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_RecordingDelay(): ucpp.num.Float32 return this.RecordingDelay;
 	public extern var bAllowLooping(get, never): Bool;
 	public inline extern function get_bAllowLooping(): Bool return this.bAllowLooping;
-	public extern var GlobalTimeDilation(get, never): cpp.Float32;
-	public inline extern function get_GlobalTimeDilation(): cpp.Float32 return this.GlobalTimeDilation;
+	public extern var GlobalTimeDilation(get, never): ucpp.num.Float32;
+	public inline extern function get_GlobalTimeDilation(): ucpp.num.Float32 return this.GlobalTimeDilation;
 	public extern var bIgnoreTimeDilation(get, never): Bool;
 	public inline extern function get_bIgnoreTimeDilation(): Bool return this.bIgnoreTimeDilation;
 	public extern var AnimationSubDirectory(get, never): FString;
 	public inline extern function get_AnimationSubDirectory(): FString return this.AnimationSubDirectory;
 	public extern var RecordAudio(get, never): EAudioRecordingMode;
 	public inline extern function get_RecordAudio(): EAudioRecordingMode return this.RecordAudio;
-	public extern var AudioGain(get, never): cpp.Float32;
-	public inline extern function get_AudioGain(): cpp.Float32 return this.AudioGain;
+	public extern var AudioGain(get, never): ucpp.num.Float32;
+	public inline extern function get_AudioGain(): ucpp.num.Float32 return this.AudioGain;
 	public extern var bSplitAudioChannelsIntoSeparateTracks(get, never): Bool;
 	public inline extern function get_bSplitAudioChannelsIntoSeparateTracks(): Bool return this.bSplitAudioChannelsIntoSeparateTracks;
 	public extern var bReplaceRecordedAudio(get, never): Bool;
@@ -68,8 +68,8 @@ abstract ConstSequenceRecorderSettings(SequenceRecorderSettings) from SequenceRe
 	public inline extern function get_AudioSubDirectory(): FString return this.AudioSubDirectory;
 	public extern var bRecordNearbySpawnedActors(get, never): Bool;
 	public inline extern function get_bRecordNearbySpawnedActors(): Bool return this.bRecordNearbySpawnedActors;
-	public extern var NearbyActorRecordingProximity(get, never): cpp.Float32;
-	public inline extern function get_NearbyActorRecordingProximity(): cpp.Float32 return this.NearbyActorRecordingProximity;
+	public extern var NearbyActorRecordingProximity(get, never): ucpp.num.Float32;
+	public inline extern function get_NearbyActorRecordingProximity(): ucpp.num.Float32 return this.NearbyActorRecordingProximity;
 	public extern var bRecordWorldSettingsActor(get, never): Bool;
 	public inline extern function get_bRecordWorldSettingsActor(): Bool return this.bRecordWorldSettingsActor;
 	public extern var bReduceKeys(get, never): Bool;
@@ -95,7 +95,7 @@ abstract ConstSequenceRecorderSettings(SequenceRecorderSettings) from SequenceRe
 @:forward
 @:nativeGen
 @:native("SequenceRecorderSettings*")
-abstract SequenceRecorderSettingsPtr(cpp.Star<SequenceRecorderSettings>) from cpp.Star<SequenceRecorderSettings> to cpp.Star<SequenceRecorderSettings>{
+abstract SequenceRecorderSettingsPtr(ucpp.Ptr<SequenceRecorderSettings>) from ucpp.Ptr<SequenceRecorderSettings> to ucpp.Ptr<SequenceRecorderSettings>{
 	@:from
 	public static extern inline function fromValue(v: SequenceRecorderSettings): SequenceRecorderSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_NiagaraValidationRuleSet")
 @:include("AssetDefinitions/AssetDefinition_NiagaraValidationRuleSet.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_NiagaraValidationRuleSet extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_NiagaraValidationRuleSet(AssetDefinition_NiagaraVa
 @:forward
 @:nativeGen
 @:native("AssetDefinition_NiagaraValidationRuleSet*")
-abstract AssetDefinition_NiagaraValidationRuleSetPtr(cpp.Star<AssetDefinition_NiagaraValidationRuleSet>) from cpp.Star<AssetDefinition_NiagaraValidationRuleSet> to cpp.Star<AssetDefinition_NiagaraValidationRuleSet>{
+abstract AssetDefinition_NiagaraValidationRuleSetPtr(ucpp.Ptr<AssetDefinition_NiagaraValidationRuleSet>) from ucpp.Ptr<AssetDefinition_NiagaraValidationRuleSet> to ucpp.Ptr<AssetDefinition_NiagaraValidationRuleSet>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_NiagaraValidationRuleSet): AssetDefinition_NiagaraValidationRuleSetPtr {
 		return untyped __cpp__("&({0})", v);

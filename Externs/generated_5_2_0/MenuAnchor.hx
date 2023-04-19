@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMenuAnchor")
 @:include("Components/MenuAnchor.h")
-@:structAccess
+@:valueType
 extern class MenuAnchor extends ContentWidget {
 	public var MenuClass: TSubclassOf<UserWidget>;
 	public var OnGetMenuContentEvent: HaxeDelegateProperty<() -> Void>;
@@ -20,12 +20,12 @@ extern class MenuAnchor extends ContentWidget {
 	public function Open(bFocusMenu: Bool): Void;
 	public function IsOpen(): Bool;
 	public function HasOpenSubMenus(): Bool;
-	public function GetUserWidget__DelegateSignature(): cpp.Star<UserWidget>;
+	public function GetUserWidget__DelegateSignature(): ucpp.Ptr<UserWidget>;
 	public function GetMenuPosition(): Vector2D;
 	public function FitInWindow(bFit: Bool): Void;
 	public function Close(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(ShouldOpenDueToClick, IsOpen, HasOpenSubMenus, GetMenuPosition)
@@ -52,7 +52,7 @@ abstract ConstMenuAnchor(MenuAnchor) from MenuAnchor {
 @:forward
 @:nativeGen
 @:native("MenuAnchor*")
-abstract MenuAnchorPtr(cpp.Star<MenuAnchor>) from cpp.Star<MenuAnchor> to cpp.Star<MenuAnchor>{
+abstract MenuAnchorPtr(ucpp.Ptr<MenuAnchor>) from ucpp.Ptr<MenuAnchor> to ucpp.Ptr<MenuAnchor>{
 	@:from
 	public static extern inline function fromValue(v: MenuAnchor): MenuAnchorPtr {
 		return untyped __cpp__("&({0})", v);

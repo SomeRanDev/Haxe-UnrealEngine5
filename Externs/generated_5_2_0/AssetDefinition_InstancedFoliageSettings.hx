@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_InstancedFoliageSettings")
 @:include("AssetDefinition_InstancedFoliageSettings.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_InstancedFoliageSettings extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_InstancedFoliageSettings(AssetDefinition_Instanced
 @:forward
 @:nativeGen
 @:native("AssetDefinition_InstancedFoliageSettings*")
-abstract AssetDefinition_InstancedFoliageSettingsPtr(cpp.Star<AssetDefinition_InstancedFoliageSettings>) from cpp.Star<AssetDefinition_InstancedFoliageSettings> to cpp.Star<AssetDefinition_InstancedFoliageSettings>{
+abstract AssetDefinition_InstancedFoliageSettingsPtr(ucpp.Ptr<AssetDefinition_InstancedFoliageSettings>) from ucpp.Ptr<AssetDefinition_InstancedFoliageSettings> to ucpp.Ptr<AssetDefinition_InstancedFoliageSettings>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_InstancedFoliageSettings): AssetDefinition_InstancedFoliageSettingsPtr {
 		return untyped __cpp__("&({0})", v);

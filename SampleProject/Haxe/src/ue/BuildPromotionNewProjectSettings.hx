@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBuildPromotionNewProjectSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class BuildPromotionNewProjectSettings {
 	public var NewProjectFolderOverride: DirectoryPath;
 	public var NewProjectNameOverride: FString;

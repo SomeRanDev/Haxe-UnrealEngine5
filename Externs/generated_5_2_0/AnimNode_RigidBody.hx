@@ -3,16 +3,16 @@ package ue;
 
 @:native("FAnimNode_RigidBody")
 @:include("BoneControllers/AnimNode_RigidBody.h")
-@:structAccess
+@:valueType
 extern class AnimNode_RigidBody extends AnimNode_SkeletalControlBase {
-	public var OverridePhysicsAsset: cpp.Star<PhysicsAsset>;
+	public var OverridePhysicsAsset: ucpp.Ptr<PhysicsAsset>;
 	public var OverrideWorldGravity: Vector;
 	public var ExternalForce: Vector;
 	public var ComponentLinearAccScale: Vector;
 	public var ComponentLinearVelScale: Vector;
 	public var ComponentAppliedLinearAccClamp: Vector;
 	public var SimSpaceSettings: SimSpaceSettings;
-	public var CachedBoundsScale: cpp.Float32;
+	public var CachedBoundsScale: ucpp.num.Float32;
 	public var BaseBoneRef: BoneReference;
 	public var OverlapChannel: TEnumAsByte<ECollisionChannel>;
 	public var SimulationSpace: ESimulationSpace;
@@ -23,8 +23,8 @@ extern class AnimNode_RigidBody extends AnimNode_SkeletalControlBase {
 	public var bTransferBoneVelocities: Bool;
 	public var bFreezeIncomingPoseOnStart: Bool;
 	public var bClampLinearTranslationLimitToRefPose: Bool;
-	public var WorldSpaceMinimumScale: cpp.Float32;
-	public var EvaluationResetTime: cpp.Float32;
+	public var WorldSpaceMinimumScale: ucpp.num.Float32;
+	public var EvaluationResetTime: ucpp.num.Float32;
 	public var SimulationTiming: ESimulationTiming;
 
 	@:native("FAnimNode_RigidBody") public function new();

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UARMeshComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARMeshComp extends ARComp {
 	@:protected public var ReplicatedPayload: ARMeshUpdatePayload;
 
 	@:protected public function ServerUpdatePayload(NewPayload: ARMeshUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<ARMeshUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<ARMeshUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<ARMeshUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<ARMeshUpdatePayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstARMeshComp(ARMeshComp) from ARMeshComp {
 @:forward
 @:nativeGen
 @:native("ARMeshComp*")
-abstract ARMeshCompPtr(cpp.Star<ARMeshComp>) from cpp.Star<ARMeshComp> to cpp.Star<ARMeshComp>{
+abstract ARMeshCompPtr(ucpp.Ptr<ARMeshComp>) from ucpp.Ptr<ARMeshComp> to ucpp.Ptr<ARMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: ARMeshComp): ARMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

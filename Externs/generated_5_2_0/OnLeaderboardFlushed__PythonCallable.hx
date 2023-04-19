@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnLeaderboardFlushed__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnLeaderboardFlushed__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnLeaderboardFlushed__PythonCallable(OnLeaderboardFlushed__PythonC
 @:forward
 @:nativeGen
 @:native("OnLeaderboardFlushed__PythonCallable*")
-abstract OnLeaderboardFlushed__PythonCallablePtr(cpp.Star<OnLeaderboardFlushed__PythonCallable>) from cpp.Star<OnLeaderboardFlushed__PythonCallable> to cpp.Star<OnLeaderboardFlushed__PythonCallable>{
+abstract OnLeaderboardFlushed__PythonCallablePtr(ucpp.Ptr<OnLeaderboardFlushed__PythonCallable>) from ucpp.Ptr<OnLeaderboardFlushed__PythonCallable> to ucpp.Ptr<OnLeaderboardFlushed__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnLeaderboardFlushed__PythonCallable): OnLeaderboardFlushed__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

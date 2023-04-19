@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAnimGraphNodePropertyBinding")
 @:include("AnimGraphNode_Base.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNodePropertyBinding {
 	public var PinType: EdGraphPinType;
 	public var PromotedPinType: EdGraphPinType;
 	public var PropertyName: FName;
-	public var ArrayIndex: cpp.Int32;
+	public var ArrayIndex: ucpp.num.Int32;
 	public var PathAsText: FText;
 	public var PropertyPath: TArray<FString>;
 	public var ContextId: FName;

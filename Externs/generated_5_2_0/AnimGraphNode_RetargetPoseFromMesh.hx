@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RetargetPoseFromMesh")
 @:include("AnimGraphNode_RetargetPoseFromMesh.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_RetargetPoseFromMesh extends AnimGraphNode_Base {
 	private var Node: AnimNode_RetargetPoseFromMesh;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimGraphNode_RetargetPoseFromMesh(AnimGraphNode_RetargetPoseFromM
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_RetargetPoseFromMesh*")
-abstract AnimGraphNode_RetargetPoseFromMeshPtr(cpp.Star<AnimGraphNode_RetargetPoseFromMesh>) from cpp.Star<AnimGraphNode_RetargetPoseFromMesh> to cpp.Star<AnimGraphNode_RetargetPoseFromMesh>{
+abstract AnimGraphNode_RetargetPoseFromMeshPtr(ucpp.Ptr<AnimGraphNode_RetargetPoseFromMesh>) from ucpp.Ptr<AnimGraphNode_RetargetPoseFromMesh> to ucpp.Ptr<AnimGraphNode_RetargetPoseFromMesh>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_RetargetPoseFromMesh): AnimGraphNode_RetargetPoseFromMeshPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,30 +3,30 @@ package ue;
 
 @:native("UAnimMontageFactory")
 @:include("Factories/AnimMontageFactory.h")
-@:structAccess
+@:valueType
 extern class AnimMontageFactory extends Factory {
-	public var TargetSkeleton: cpp.Star<Skeleton>;
-	public var SourceAnimation: cpp.Star<AnimSequence>;
-	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
+	public var SourceAnimation: ucpp.Ptr<AnimSequence>;
+	public var PreviewSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimMontageFactory(AnimMontageFactory) from AnimMontageFactory {
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
-	public extern var SourceAnimation(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_SourceAnimation(): cpp.Star<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
-	public extern var PreviewSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var SourceAnimation(get, never): ucpp.Ptr<AnimSequence.ConstAnimSequence>;
+	public inline extern function get_SourceAnimation(): ucpp.Ptr<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
+	public extern var PreviewSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_PreviewSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimMontageFactory*")
-abstract AnimMontageFactoryPtr(cpp.Star<AnimMontageFactory>) from cpp.Star<AnimMontageFactory> to cpp.Star<AnimMontageFactory>{
+abstract AnimMontageFactoryPtr(ucpp.Ptr<AnimMontageFactory>) from ucpp.Ptr<AnimMontageFactory> to ucpp.Ptr<AnimMontageFactory>{
 	@:from
 	public static extern inline function fromValue(v: AnimMontageFactory): AnimMontageFactoryPtr {
 		return untyped __cpp__("&({0})", v);

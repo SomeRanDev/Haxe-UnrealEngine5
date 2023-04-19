@@ -3,16 +3,16 @@ package ue;
 
 @:native("UDynamicEntryBox")
 @:include("Components/DynamicEntryBox.h")
-@:structAccess
+@:valueType
 extern class DynamicEntryBox extends DynamicEntryBoxBase {
 	private var EntryWidgetClass: TSubclassOf<UserWidget>;
 
 	public function Reset(bDeleteWidgets: Bool): Void;
-	public function RemoveEntry(EntryWidget: cpp.Star<UserWidget>): Void;
-	private function BP_CreateEntryOfClass(EntryClass: TSubclassOf<UserWidget>): cpp.Star<UserWidget>;
-	private function BP_CreateEntry(): cpp.Star<UserWidget>;
+	public function RemoveEntry(EntryWidget: ucpp.Ptr<UserWidget>): Void;
+	private function BP_CreateEntryOfClass(EntryClass: TSubclassOf<UserWidget>): ucpp.Ptr<UserWidget>;
+	private function BP_CreateEntry(): ucpp.Ptr<UserWidget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstDynamicEntryBox(DynamicEntryBox) from DynamicEntryBox {
 @:forward
 @:nativeGen
 @:native("DynamicEntryBox*")
-abstract DynamicEntryBoxPtr(cpp.Star<DynamicEntryBox>) from cpp.Star<DynamicEntryBox> to cpp.Star<DynamicEntryBox>{
+abstract DynamicEntryBoxPtr(ucpp.Ptr<DynamicEntryBox>) from ucpp.Ptr<DynamicEntryBox> to ucpp.Ptr<DynamicEntryBox>{
 	@:from
 	public static extern inline function fromValue(v: DynamicEntryBox): DynamicEntryBoxPtr {
 		return untyped __cpp__("&({0})", v);

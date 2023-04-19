@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_CopyBone")
 @:include("BoneControllers/AnimNode_CopyBone.h")
-@:structAccess
+@:valueType
 extern class AnimNode_CopyBone extends AnimNode_SkeletalControlBase {
 	public var SourceBone: BoneReference;
 	public var TargetBone: BoneReference;

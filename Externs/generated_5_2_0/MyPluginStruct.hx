@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMyPluginStruct")
 @:include("MyPluginObject.h")
-@:structAccess
+@:valueType
 extern class MyPluginStruct {
 	public var TestString: FString;
 

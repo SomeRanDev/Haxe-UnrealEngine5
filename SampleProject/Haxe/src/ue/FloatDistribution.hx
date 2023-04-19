@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFloatDistribution")
 @:include("Distributions/DistributionFloat.h")
-@:structAccess
+@:valueType
 extern class FloatDistribution {
 	public var Table: DistributionLookupTable;
 

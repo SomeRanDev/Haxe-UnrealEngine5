@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimSubsystem_PropertyAccess")
 @:include("Animation/AnimSubsystem_PropertyAccess.h")
-@:structAccess
+@:valueType
 extern class AnimSubsystem_PropertyAccess extends AnimSubsystem {
 	private var Library: PropertyAccessLibrary;
 

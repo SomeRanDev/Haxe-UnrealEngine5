@@ -3,19 +3,19 @@ package ue;
 
 @:native("AChaosSolverActor")
 @:include("Chaos/ChaosSolverActor.h")
-@:structAccess
+@:valueType
 extern class ChaosSolverActor extends Actor {
 	public var Properties: ChaosSolverConfiguration;
 	public var bHasFloor: Bool;
-	public var FloorHeight: cpp.Float32;
+	public var FloorHeight: ucpp.num.Float32;
 	public var ChaosDebugSubstepControl: ChaosDebugSubstepControl;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
-	private var GameplayEventDispatcherComponent: cpp.Star<ChaosGameplayEventDispatcher>;
+	public var SpriteComponent: ucpp.Ptr<BillboardComp>;
+	private var GameplayEventDispatcherComponent: ucpp.Ptr<ChaosGameplayEventDispatcher>;
 
 	public function SetSolverActive(bActive: Bool): Void;
 	public function SetAsCurrentWorldSolver(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,18 +25,18 @@ abstract ConstChaosSolverActor(ChaosSolverActor) from ChaosSolverActor {
 	public inline extern function get_Properties(): ChaosSolverConfiguration return this.Properties;
 	public extern var bHasFloor(get, never): Bool;
 	public inline extern function get_bHasFloor(): Bool return this.bHasFloor;
-	public extern var FloorHeight(get, never): cpp.Float32;
-	public inline extern function get_FloorHeight(): cpp.Float32 return this.FloorHeight;
+	public extern var FloorHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_FloorHeight(): ucpp.num.Float32 return this.FloorHeight;
 	public extern var ChaosDebugSubstepControl(get, never): ChaosDebugSubstepControl;
 	public inline extern function get_ChaosDebugSubstepControl(): ChaosDebugSubstepControl return this.ChaosDebugSubstepControl;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
+	public extern var SpriteComponent(get, never): ucpp.Ptr<BillboardComp.ConstBillboardComp>;
+	public inline extern function get_SpriteComponent(): ucpp.Ptr<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("ChaosSolverActor*")
-abstract ChaosSolverActorPtr(cpp.Star<ChaosSolverActor>) from cpp.Star<ChaosSolverActor> to cpp.Star<ChaosSolverActor>{
+abstract ChaosSolverActorPtr(ucpp.Ptr<ChaosSolverActor>) from ucpp.Ptr<ChaosSolverActor> to ucpp.Ptr<ChaosSolverActor>{
 	@:from
 	public static extern inline function fromValue(v: ChaosSolverActor): ChaosSolverActorPtr {
 		return untyped __cpp__("&({0})", v);

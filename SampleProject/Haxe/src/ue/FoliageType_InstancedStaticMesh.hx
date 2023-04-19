@@ -3,22 +3,25 @@ package ue;
 
 @:native("UFoliageType_InstancedStaticMesh")
 @:include("FoliageType_InstancedStaticMesh.h")
-@:structAccess
+@:valueType
 extern class FoliageType_InstancedStaticMesh extends FoliageType {
-	public var Mesh: cpp.Star<StaticMesh>;
-	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
+	public var Mesh: ucpp.Ptr<StaticMesh>;
+	public var OverrideMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var NaniteOverrideMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 	public var ComponentClass: TSubclassOf<FoliageInstancedStaticMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFoliageType_InstancedStaticMesh(FoliageType_InstancedStaticMesh) from FoliageType_InstancedStaticMesh {
-	public extern var Mesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_Mesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.Mesh;
-	public extern var OverrideMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_OverrideMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
+	public extern var Mesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_Mesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.Mesh;
+	public extern var OverrideMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_OverrideMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
+	public extern var NaniteOverrideMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_NaniteOverrideMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.NaniteOverrideMaterials;
 	public extern var ComponentClass(get, never): TSubclassOf<FoliageInstancedStaticMeshComp.ConstFoliageInstancedStaticMeshComp>;
 	public inline extern function get_ComponentClass(): TSubclassOf<FoliageInstancedStaticMeshComp.ConstFoliageInstancedStaticMeshComp> return this.ComponentClass;
 }
@@ -26,7 +29,7 @@ abstract ConstFoliageType_InstancedStaticMesh(FoliageType_InstancedStaticMesh) f
 @:forward
 @:nativeGen
 @:native("FoliageType_InstancedStaticMesh*")
-abstract FoliageType_InstancedStaticMeshPtr(cpp.Star<FoliageType_InstancedStaticMesh>) from cpp.Star<FoliageType_InstancedStaticMesh> to cpp.Star<FoliageType_InstancedStaticMesh>{
+abstract FoliageType_InstancedStaticMeshPtr(ucpp.Ptr<FoliageType_InstancedStaticMesh>) from ucpp.Ptr<FoliageType_InstancedStaticMesh> to ucpp.Ptr<FoliageType_InstancedStaticMesh>{
 	@:from
 	public static extern inline function fromValue(v: FoliageType_InstancedStaticMesh): FoliageType_InstancedStaticMeshPtr {
 		return untyped __cpp__("&({0})", v);

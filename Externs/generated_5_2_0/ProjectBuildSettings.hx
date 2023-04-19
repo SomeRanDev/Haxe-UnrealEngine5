@@ -3,7 +3,7 @@ package ue;
 
 @:native("FProjectBuildSettings")
 @:include("Settings/ProjectPackagingSettings.h")
-@:structAccess
+@:valueType
 extern class ProjectBuildSettings {
 	public var Name: FString;
 	public var HelpText: FString;

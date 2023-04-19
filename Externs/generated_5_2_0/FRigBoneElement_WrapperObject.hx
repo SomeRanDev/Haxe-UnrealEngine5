@@ -2,18 +2,18 @@
 package ue;
 
 @:native("UFRigBoneElement_WrapperObject")
-@:structAccess
+@:valueType
 extern class FRigBoneElement_WrapperObject extends DetailsViewWrapperObject {
 	public var BoneType: ERigBoneType;
 	public var Pose: RigCurrentAndInitialTransform;
 	@:protected public var Key: RigElementKey;
 	@:protected public var NameString: FString;
-	@:protected public var Index: cpp.Int32;
-	@:protected public var SubIndex: cpp.Int32;
+	@:protected public var Index: ucpp.num.Int32;
+	@:protected public var SubIndex: ucpp.num.Int32;
 	@:protected public var bSelected: Bool;
-	@:protected public var CreatedAtInstructionIndex: cpp.Int32;
+	@:protected public var CreatedAtInstructionIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstFRigBoneElement_WrapperObject(FRigBoneElement_WrapperObject) from 
 @:forward
 @:nativeGen
 @:native("FRigBoneElement_WrapperObject*")
-abstract FRigBoneElement_WrapperObjectPtr(cpp.Star<FRigBoneElement_WrapperObject>) from cpp.Star<FRigBoneElement_WrapperObject> to cpp.Star<FRigBoneElement_WrapperObject>{
+abstract FRigBoneElement_WrapperObjectPtr(ucpp.Ptr<FRigBoneElement_WrapperObject>) from ucpp.Ptr<FRigBoneElement_WrapperObject> to ucpp.Ptr<FRigBoneElement_WrapperObject>{
 	@:from
 	public static extern inline function fromValue(v: FRigBoneElement_WrapperObject): FRigBoneElement_WrapperObjectPtr {
 		return untyped __cpp__("&({0})", v);

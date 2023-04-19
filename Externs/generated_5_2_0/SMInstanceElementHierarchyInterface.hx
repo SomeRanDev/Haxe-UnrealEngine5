@@ -3,10 +3,10 @@ package ue;
 
 @:native("USMInstanceElementHierarchyInterface")
 @:include("Elements/SMInstance/SMInstanceElementHierarchyInterface.h")
-@:structAccess
+@:valueType
 extern class SMInstanceElementHierarchyInterface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSMInstanceElementHierarchyInterface(SMInstanceElementHierarchyInte
 @:forward
 @:nativeGen
 @:native("SMInstanceElementHierarchyInterface*")
-abstract SMInstanceElementHierarchyInterfacePtr(cpp.Star<SMInstanceElementHierarchyInterface>) from cpp.Star<SMInstanceElementHierarchyInterface> to cpp.Star<SMInstanceElementHierarchyInterface>{
+abstract SMInstanceElementHierarchyInterfacePtr(ucpp.Ptr<SMInstanceElementHierarchyInterface>) from ucpp.Ptr<SMInstanceElementHierarchyInterface> to ucpp.Ptr<SMInstanceElementHierarchyInterface>{
 	@:from
 	public static extern inline function fromValue(v: SMInstanceElementHierarchyInterface): SMInstanceElementHierarchyInterfacePtr {
 		return untyped __cpp__("&({0})", v);

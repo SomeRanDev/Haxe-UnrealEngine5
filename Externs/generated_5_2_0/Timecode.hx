@@ -3,14 +3,14 @@ package ue;
 
 @:native("FTimecode")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Timecode {
-	public var Hours: cpp.Int32;
-	public var Minutes: cpp.Int32;
-	public var Seconds: cpp.Int32;
-	public var Frames: cpp.Int32;
+	public var Hours: ucpp.num.Int32;
+	public var Minutes: ucpp.num.Int32;
+	public var Seconds: ucpp.num.Int32;
+	public var Frames: ucpp.num.Int32;
 	public var bDropFrameFormat: Bool;
 
 	@:native("FTimecode") public function new();
-	@:native("FTimecode") public static function make(Hours: cpp.Int32, Minutes: cpp.Int32, Seconds: cpp.Int32, Frames: cpp.Int32, bDropFrameFormat: Bool): Timecode ;
+	@:native("FTimecode") public static function make(Hours: ucpp.num.Int32, Minutes: ucpp.num.Int32, Seconds: ucpp.num.Int32, Frames: ucpp.num.Int32, bDropFrameFormat: Bool): Timecode ;
 }

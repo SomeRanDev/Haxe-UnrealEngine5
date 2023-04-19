@@ -3,52 +3,52 @@ package ue;
 
 @:native("UDynamicMeshSculptTool")
 @:include("DynamicMeshSculptTool.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshSculptTool extends MeshSurfacePointTool {
-	public var BrushProperties: cpp.Star<DynamicMeshBrushProperties>;
-	public var SculptProperties: cpp.Star<DynamicMeshBrushSculptProperties>;
-	public var SculptMaxBrushProperties: cpp.Star<SculptMaxBrushProperties>;
-	public var KelvinBrushProperties: cpp.Star<KelvinBrushProperties>;
-	public var RemeshProperties: cpp.Star<BrushRemeshProperties>;
-	public var GizmoProperties: cpp.Star<FixedPlaneBrushProperties>;
-	public var ViewProperties: cpp.Star<MeshEditingViewProperties>;
-	public var SculptToolActions: cpp.Star<DynamicSculptToolActions>;
-	private var BrushIndicator: cpp.Star<BrushStampIndicator>;
-	private var BrushIndicatorMaterial: cpp.Star<MaterialInstanceDynamic>;
-	private var BrushIndicatorMesh: cpp.Star<PreviewMesh>;
-	private var DynamicMeshComponent: cpp.Star<OctreeDynamicMeshComp>;
-	private var ActiveOverrideMaterial: cpp.Star<MaterialInstanceDynamic>;
-	private var PlaneTransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	private var PlaneTransformProxy: cpp.Star<TransformProxy>;
+	public var BrushProperties: ucpp.Ptr<DynamicMeshBrushProperties>;
+	public var SculptProperties: ucpp.Ptr<DynamicMeshBrushSculptProperties>;
+	public var SculptMaxBrushProperties: ucpp.Ptr<SculptMaxBrushProperties>;
+	public var KelvinBrushProperties: ucpp.Ptr<KelvinBrushProperties>;
+	public var RemeshProperties: ucpp.Ptr<BrushRemeshProperties>;
+	public var GizmoProperties: ucpp.Ptr<FixedPlaneBrushProperties>;
+	public var ViewProperties: ucpp.Ptr<MeshEditingViewProperties>;
+	public var SculptToolActions: ucpp.Ptr<DynamicSculptToolActions>;
+	private var BrushIndicator: ucpp.Ptr<BrushStampIndicator>;
+	private var BrushIndicatorMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var BrushIndicatorMesh: ucpp.Ptr<PreviewMesh>;
+	private var DynamicMeshComponent: ucpp.Ptr<OctreeDynamicMeshComp>;
+	private var ActiveOverrideMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var PlaneTransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	private var PlaneTransformProxy: ucpp.Ptr<TransformProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDynamicMeshSculptTool(DynamicMeshSculptTool) from DynamicMeshSculptTool {
-	public extern var BrushProperties(get, never): cpp.Star<DynamicMeshBrushProperties.ConstDynamicMeshBrushProperties>;
-	public inline extern function get_BrushProperties(): cpp.Star<DynamicMeshBrushProperties.ConstDynamicMeshBrushProperties> return this.BrushProperties;
-	public extern var SculptProperties(get, never): cpp.Star<DynamicMeshBrushSculptProperties.ConstDynamicMeshBrushSculptProperties>;
-	public inline extern function get_SculptProperties(): cpp.Star<DynamicMeshBrushSculptProperties.ConstDynamicMeshBrushSculptProperties> return this.SculptProperties;
-	public extern var SculptMaxBrushProperties(get, never): cpp.Star<SculptMaxBrushProperties.ConstSculptMaxBrushProperties>;
-	public inline extern function get_SculptMaxBrushProperties(): cpp.Star<SculptMaxBrushProperties.ConstSculptMaxBrushProperties> return this.SculptMaxBrushProperties;
-	public extern var KelvinBrushProperties(get, never): cpp.Star<KelvinBrushProperties.ConstKelvinBrushProperties>;
-	public inline extern function get_KelvinBrushProperties(): cpp.Star<KelvinBrushProperties.ConstKelvinBrushProperties> return this.KelvinBrushProperties;
-	public extern var RemeshProperties(get, never): cpp.Star<BrushRemeshProperties.ConstBrushRemeshProperties>;
-	public inline extern function get_RemeshProperties(): cpp.Star<BrushRemeshProperties.ConstBrushRemeshProperties> return this.RemeshProperties;
-	public extern var GizmoProperties(get, never): cpp.Star<FixedPlaneBrushProperties.ConstFixedPlaneBrushProperties>;
-	public inline extern function get_GizmoProperties(): cpp.Star<FixedPlaneBrushProperties.ConstFixedPlaneBrushProperties> return this.GizmoProperties;
-	public extern var ViewProperties(get, never): cpp.Star<MeshEditingViewProperties.ConstMeshEditingViewProperties>;
-	public inline extern function get_ViewProperties(): cpp.Star<MeshEditingViewProperties.ConstMeshEditingViewProperties> return this.ViewProperties;
-	public extern var SculptToolActions(get, never): cpp.Star<DynamicSculptToolActions.ConstDynamicSculptToolActions>;
-	public inline extern function get_SculptToolActions(): cpp.Star<DynamicSculptToolActions.ConstDynamicSculptToolActions> return this.SculptToolActions;
+	public extern var BrushProperties(get, never): ucpp.Ptr<DynamicMeshBrushProperties.ConstDynamicMeshBrushProperties>;
+	public inline extern function get_BrushProperties(): ucpp.Ptr<DynamicMeshBrushProperties.ConstDynamicMeshBrushProperties> return this.BrushProperties;
+	public extern var SculptProperties(get, never): ucpp.Ptr<DynamicMeshBrushSculptProperties.ConstDynamicMeshBrushSculptProperties>;
+	public inline extern function get_SculptProperties(): ucpp.Ptr<DynamicMeshBrushSculptProperties.ConstDynamicMeshBrushSculptProperties> return this.SculptProperties;
+	public extern var SculptMaxBrushProperties(get, never): ucpp.Ptr<SculptMaxBrushProperties.ConstSculptMaxBrushProperties>;
+	public inline extern function get_SculptMaxBrushProperties(): ucpp.Ptr<SculptMaxBrushProperties.ConstSculptMaxBrushProperties> return this.SculptMaxBrushProperties;
+	public extern var KelvinBrushProperties(get, never): ucpp.Ptr<KelvinBrushProperties.ConstKelvinBrushProperties>;
+	public inline extern function get_KelvinBrushProperties(): ucpp.Ptr<KelvinBrushProperties.ConstKelvinBrushProperties> return this.KelvinBrushProperties;
+	public extern var RemeshProperties(get, never): ucpp.Ptr<BrushRemeshProperties.ConstBrushRemeshProperties>;
+	public inline extern function get_RemeshProperties(): ucpp.Ptr<BrushRemeshProperties.ConstBrushRemeshProperties> return this.RemeshProperties;
+	public extern var GizmoProperties(get, never): ucpp.Ptr<FixedPlaneBrushProperties.ConstFixedPlaneBrushProperties>;
+	public inline extern function get_GizmoProperties(): ucpp.Ptr<FixedPlaneBrushProperties.ConstFixedPlaneBrushProperties> return this.GizmoProperties;
+	public extern var ViewProperties(get, never): ucpp.Ptr<MeshEditingViewProperties.ConstMeshEditingViewProperties>;
+	public inline extern function get_ViewProperties(): ucpp.Ptr<MeshEditingViewProperties.ConstMeshEditingViewProperties> return this.ViewProperties;
+	public extern var SculptToolActions(get, never): ucpp.Ptr<DynamicSculptToolActions.ConstDynamicSculptToolActions>;
+	public inline extern function get_SculptToolActions(): ucpp.Ptr<DynamicSculptToolActions.ConstDynamicSculptToolActions> return this.SculptToolActions;
 }
 
 @:forward
 @:nativeGen
 @:native("DynamicMeshSculptTool*")
-abstract DynamicMeshSculptToolPtr(cpp.Star<DynamicMeshSculptTool>) from cpp.Star<DynamicMeshSculptTool> to cpp.Star<DynamicMeshSculptTool>{
+abstract DynamicMeshSculptToolPtr(ucpp.Ptr<DynamicMeshSculptTool>) from ucpp.Ptr<DynamicMeshSculptTool> to ucpp.Ptr<DynamicMeshSculptTool>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshSculptTool): DynamicMeshSculptToolPtr {
 		return untyped __cpp__("&({0})", v);

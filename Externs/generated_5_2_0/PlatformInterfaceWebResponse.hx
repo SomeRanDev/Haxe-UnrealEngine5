@@ -3,19 +3,19 @@ package ue;
 
 @:native("UPlatformInterfaceWebResponse")
 @:include("Engine/PlatformInterfaceWebResponse.h")
-@:structAccess
+@:valueType
 extern class PlatformInterfaceWebResponse extends Object {
 	public var OriginalURL: FString;
-	public var ResponseCode: cpp.Int32;
-	public var Tag: cpp.Int32;
+	public var ResponseCode: ucpp.num.Int32;
+	public var Tag: ucpp.num.Int32;
 	public var StringResponse: FString;
-	public var BinaryResponse: TArray<cpp.UInt8>;
+	public var BinaryResponse: TArray<ucpp.num.UInt8>;
 
-	public function GetNumHeaders(): cpp.Int32;
+	public function GetNumHeaders(): ucpp.num.Int32;
 	public function GetHeaderValue(HeaderName: FString): FString;
-	public function GetHeader(HeaderIndex: cpp.Int32, Header: cpp.Reference<FString>, Value: cpp.Reference<FString>): Void;
+	public function GetHeader(HeaderIndex: ucpp.num.Int32, Header: ucpp.Ref<FString>, Value: ucpp.Ref<FString>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,20 +23,20 @@ extern class PlatformInterfaceWebResponse extends Object {
 abstract ConstPlatformInterfaceWebResponse(PlatformInterfaceWebResponse) from PlatformInterfaceWebResponse {
 	public extern var OriginalURL(get, never): FString;
 	public inline extern function get_OriginalURL(): FString return this.OriginalURL;
-	public extern var ResponseCode(get, never): cpp.Int32;
-	public inline extern function get_ResponseCode(): cpp.Int32 return this.ResponseCode;
-	public extern var Tag(get, never): cpp.Int32;
-	public inline extern function get_Tag(): cpp.Int32 return this.Tag;
+	public extern var ResponseCode(get, never): ucpp.num.Int32;
+	public inline extern function get_ResponseCode(): ucpp.num.Int32 return this.ResponseCode;
+	public extern var Tag(get, never): ucpp.num.Int32;
+	public inline extern function get_Tag(): ucpp.num.Int32 return this.Tag;
 	public extern var StringResponse(get, never): FString;
 	public inline extern function get_StringResponse(): FString return this.StringResponse;
-	public extern var BinaryResponse(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_BinaryResponse(): TArray<cpp.UInt8> return this.BinaryResponse;
+	public extern var BinaryResponse(get, never): TArray<ucpp.num.UInt8>;
+	public inline extern function get_BinaryResponse(): TArray<ucpp.num.UInt8> return this.BinaryResponse;
 }
 
 @:forward
 @:nativeGen
 @:native("PlatformInterfaceWebResponse*")
-abstract PlatformInterfaceWebResponsePtr(cpp.Star<PlatformInterfaceWebResponse>) from cpp.Star<PlatformInterfaceWebResponse> to cpp.Star<PlatformInterfaceWebResponse>{
+abstract PlatformInterfaceWebResponsePtr(ucpp.Ptr<PlatformInterfaceWebResponse>) from ucpp.Ptr<PlatformInterfaceWebResponse> to ucpp.Ptr<PlatformInterfaceWebResponse>{
 	@:from
 	public static extern inline function fromValue(v: PlatformInterfaceWebResponse): PlatformInterfaceWebResponsePtr {
 		return untyped __cpp__("&({0})", v);

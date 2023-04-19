@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULODInfoUILayout")
 @:include("LODInfoUILayout.h")
-@:structAccess
+@:valueType
 extern class LODInfoUILayout extends Object {
 	public var LODInfo: SkeletalMeshLODInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLODInfoUILayout(LODInfoUILayout) from LODInfoUILayout {
 @:forward
 @:nativeGen
 @:native("LODInfoUILayout*")
-abstract LODInfoUILayoutPtr(cpp.Star<LODInfoUILayout>) from cpp.Star<LODInfoUILayout> to cpp.Star<LODInfoUILayout>{
+abstract LODInfoUILayoutPtr(ucpp.Ptr<LODInfoUILayout>) from ucpp.Ptr<LODInfoUILayout> to ucpp.Ptr<LODInfoUILayout>{
 	@:from
 	public static extern inline function fromValue(v: LODInfoUILayout): LODInfoUILayoutPtr {
 		return untyped __cpp__("&({0})", v);

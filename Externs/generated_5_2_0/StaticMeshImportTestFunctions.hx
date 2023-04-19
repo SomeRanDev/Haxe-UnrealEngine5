@@ -3,41 +3,41 @@ package ue;
 
 @:native("UStaticMeshImportTestFunctions")
 @:include("ImportTestFunctions/StaticMeshImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class StaticMeshImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckVertexIndexPosition(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, VertexIndex: cpp.Int32, ExpectedVertexPosition: cpp.Reference<Vector>): InterchangeTestFunctionResult;
-	public function CheckVertexCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedNumberOfVertices: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckUVChannelCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedNumberOfUVChannels: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckTriangleCountInPolygonGroup(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, PolygonGroupIndex: cpp.Int32, ExpectedNumberOfTriangles: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckTriangleCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedTotalNumberOfTriangles: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckThatMeshHasQuadsOrNgons(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, bMeshHasQuadsOrNgons: Bool): InterchangeTestFunctionResult;
-	public function CheckSocketName(Mesh: cpp.Star<StaticMesh>, SocketIndex: cpp.Int32, ExpectedSocketName: FString): InterchangeTestFunctionResult;
-	public function CheckSocketLocation(Mesh: cpp.Star<StaticMesh>, SocketIndex: cpp.Int32, ExpectedSocketLocation: cpp.Reference<Vector>): InterchangeTestFunctionResult;
-	public function CheckSocketCount(Mesh: cpp.Star<StaticMesh>, ExpectedSocketCount: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckSimpleCollisionPrimitiveCount(Mesh: cpp.Star<StaticMesh>, ExpectedSphereElementCount: cpp.Int32, ExpectedBoxElementCount: cpp.Int32, ExpectedCapsuleElementCount: cpp.Int32, ExpectedConvexElementCount: cpp.Int32, ExpectedTaperedCapsuleElementCount: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckSectionMaterialName(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, SectionIndex: cpp.Int32, ExpectedMaterialName: FString): InterchangeTestFunctionResult;
-	public function CheckSectionMaterialIndex(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, SectionIndex: cpp.Int32, ExpectedMaterialIndex: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckSectionImportedMaterialSlotName(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, SectionIndex: cpp.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
-	public function CheckSectionCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedNumberOfSections: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckRenderVertexIndexNormal(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, VertexIndex: cpp.Int32, ExpectedVertexNormal: cpp.Reference<Vector4f>): InterchangeTestFunctionResult;
-	public function CheckRenderVertexIndexColor(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, VertexIndex: cpp.Int32, ExpectedVertexColor: cpp.Reference<Color>): InterchangeTestFunctionResult;
-	public function CheckRenderVertexCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedNumberOfRenderVertices: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckRenderUVChannelCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedNumberOfUVChannels: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckRenderTriangleCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedTotalNumberOfTriangles: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckRenderHasVertexColors(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, bExpectedHasVertexColors: Bool): InterchangeTestFunctionResult;
-	public function CheckPolygonGroupImportedMaterialSlotName(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, PolygonGroupIndex: cpp.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
-	public function CheckPolygonGroupCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedNumberOfPolygonGroups: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckPolygonCountInPolygonGroup(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, PolygonGroupIndex: cpp.Int32, ExpectedNumberOfPolygons: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckPolygonCount(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedNumberOfPolygons: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckNaniteSettings(Mesh: cpp.Star<StaticMesh>, ExpectedNaniteSettings: cpp.Reference<MeshNaniteSettings>): InterchangeTestFunctionResult;
-	public function CheckMaterialSlotCount(Mesh: cpp.Star<StaticMesh>, ExpectedNumberOfMaterialSlots: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckLodCount(Mesh: cpp.Star<StaticMesh>, ExpectedNumberOfLods: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckImportedStaticMeshCount(Meshes: cpp.Reference<TArray<cpp.Star<StaticMesh>>>, ExpectedNumberOfImportedStaticMeshes: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckImportedMaterialSlotName(Mesh: cpp.Star<StaticMesh>, MaterialIndex: cpp.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
-	public function CheckBuildSettings(Mesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ExpectedBuildSettings: cpp.Reference<MeshBuildSettings>): InterchangeTestFunctionResult;
-	public function CheckAgainstGroundTruth(Mesh: cpp.Star<StaticMesh>, MeshToCompare: TSoftObjectPtr<StaticMesh>, bCheckVertexCountEqual: Bool, bCheckTriangleCountEqual: Bool, bCheckUVChannelCountEqual: Bool, bCheckCollisionPrimitiveCountEqual: Bool, bCheckVertexPositionsEqual: Bool, bCheckNormalsEqual: Bool): InterchangeTestFunctionResult;
+	public function CheckVertexIndexPosition(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, VertexIndex: ucpp.num.Int32, ExpectedVertexPosition: ucpp.Ref<Vector>): InterchangeTestFunctionResult;
+	public function CheckVertexCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfVertices: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckUVChannelCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfUVChannels: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckTriangleCountInPolygonGroup(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, PolygonGroupIndex: ucpp.num.Int32, ExpectedNumberOfTriangles: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckTriangleCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedTotalNumberOfTriangles: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckThatMeshHasQuadsOrNgons(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, bMeshHasQuadsOrNgons: Bool): InterchangeTestFunctionResult;
+	public function CheckSocketName(Mesh: ucpp.Ptr<StaticMesh>, SocketIndex: ucpp.num.Int32, ExpectedSocketName: FString): InterchangeTestFunctionResult;
+	public function CheckSocketLocation(Mesh: ucpp.Ptr<StaticMesh>, SocketIndex: ucpp.num.Int32, ExpectedSocketLocation: ucpp.Ref<Vector>): InterchangeTestFunctionResult;
+	public function CheckSocketCount(Mesh: ucpp.Ptr<StaticMesh>, ExpectedSocketCount: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckSimpleCollisionPrimitiveCount(Mesh: ucpp.Ptr<StaticMesh>, ExpectedSphereElementCount: ucpp.num.Int32, ExpectedBoxElementCount: ucpp.num.Int32, ExpectedCapsuleElementCount: ucpp.num.Int32, ExpectedConvexElementCount: ucpp.num.Int32, ExpectedTaperedCapsuleElementCount: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckSectionMaterialName(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, ExpectedMaterialName: FString): InterchangeTestFunctionResult;
+	public function CheckSectionMaterialIndex(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, ExpectedMaterialIndex: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckSectionImportedMaterialSlotName(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
+	public function CheckSectionCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfSections: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckRenderVertexIndexNormal(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, VertexIndex: ucpp.num.Int32, ExpectedVertexNormal: ucpp.Ref<Vector4f>): InterchangeTestFunctionResult;
+	public function CheckRenderVertexIndexColor(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, VertexIndex: ucpp.num.Int32, ExpectedVertexColor: ucpp.Ref<Color>): InterchangeTestFunctionResult;
+	public function CheckRenderVertexCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfRenderVertices: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckRenderUVChannelCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfUVChannels: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckRenderTriangleCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedTotalNumberOfTriangles: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckRenderHasVertexColors(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, bExpectedHasVertexColors: Bool): InterchangeTestFunctionResult;
+	public function CheckPolygonGroupImportedMaterialSlotName(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, PolygonGroupIndex: ucpp.num.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
+	public function CheckPolygonGroupCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfPolygonGroups: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckPolygonCountInPolygonGroup(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, PolygonGroupIndex: ucpp.num.Int32, ExpectedNumberOfPolygons: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckPolygonCount(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfPolygons: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckNaniteSettings(Mesh: ucpp.Ptr<StaticMesh>, ExpectedNaniteSettings: ucpp.Ref<MeshNaniteSettings>): InterchangeTestFunctionResult;
+	public function CheckMaterialSlotCount(Mesh: ucpp.Ptr<StaticMesh>, ExpectedNumberOfMaterialSlots: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckLodCount(Mesh: ucpp.Ptr<StaticMesh>, ExpectedNumberOfLods: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckImportedStaticMeshCount(Meshes: ucpp.Ref<TArray<ucpp.Ptr<StaticMesh>>>, ExpectedNumberOfImportedStaticMeshes: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckImportedMaterialSlotName(Mesh: ucpp.Ptr<StaticMesh>, MaterialIndex: ucpp.num.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
+	public function CheckBuildSettings(Mesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ExpectedBuildSettings: ucpp.Ref<MeshBuildSettings>): InterchangeTestFunctionResult;
+	public function CheckAgainstGroundTruth(Mesh: ucpp.Ptr<StaticMesh>, MeshToCompare: TSoftObjectPtr<StaticMesh>, bCheckVertexCountEqual: Bool, bCheckTriangleCountEqual: Bool, bCheckUVChannelCountEqual: Bool, bCheckCollisionPrimitiveCountEqual: Bool, bCheckVertexPositionsEqual: Bool, bCheckNormalsEqual: Bool): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -48,7 +48,7 @@ abstract ConstStaticMeshImportTestFunctions(StaticMeshImportTestFunctions) from 
 @:forward
 @:nativeGen
 @:native("StaticMeshImportTestFunctions*")
-abstract StaticMeshImportTestFunctionsPtr(cpp.Star<StaticMeshImportTestFunctions>) from cpp.Star<StaticMeshImportTestFunctions> to cpp.Star<StaticMeshImportTestFunctions>{
+abstract StaticMeshImportTestFunctionsPtr(ucpp.Ptr<StaticMeshImportTestFunctions>) from ucpp.Ptr<StaticMeshImportTestFunctions> to ucpp.Ptr<StaticMeshImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshImportTestFunctions): StaticMeshImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

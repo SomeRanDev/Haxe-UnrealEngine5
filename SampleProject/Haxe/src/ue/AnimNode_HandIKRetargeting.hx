@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAnimNode_HandIKRetargeting")
 @:include("BoneControllers/AnimNode_HandIKRetargeting.h")
-@:structAccess
+@:valueType
 extern class AnimNode_HandIKRetargeting extends AnimNode_SkeletalControlBase {
 	public var RightHandFK: BoneReference;
 	public var LeftHandFK: BoneReference;
 	public var RightHandIK: BoneReference;
 	public var LeftHandIK: BoneReference;
 	public var IKBonesToMove: TArray<BoneReference>;
-	public var HandFKWeight: cpp.Float32;
+	public var HandFKWeight: ucpp.num.Float32;
 
 	@:native("FAnimNode_HandIKRetargeting") public function new();
 }

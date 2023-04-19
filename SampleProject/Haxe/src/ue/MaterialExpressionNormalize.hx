@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionNormalize")
 @:include("Materials/MaterialExpressionNormalize.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionNormalize extends MaterialExpression {
 	public var VectorInput: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionNormalize(MaterialExpressionNormalize) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialExpressionNormalize*")
-abstract MaterialExpressionNormalizePtr(cpp.Star<MaterialExpressionNormalize>) from cpp.Star<MaterialExpressionNormalize> to cpp.Star<MaterialExpressionNormalize>{
+abstract MaterialExpressionNormalizePtr(ucpp.Ptr<MaterialExpressionNormalize>) from ucpp.Ptr<MaterialExpressionNormalize> to ucpp.Ptr<MaterialExpressionNormalize>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionNormalize): MaterialExpressionNormalizePtr {
 		return untyped __cpp__("&({0})", v);

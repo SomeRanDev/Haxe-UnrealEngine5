@@ -3,16 +3,16 @@ package ue;
 
 @:native("FEnvTraceData")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-@:structAccess
+@:valueType
 extern class EnvTraceData {
-	public var VersionNum: cpp.Int32;
+	public var VersionNum: ucpp.num.Int32;
 	public var NavigationFilter: TSubclassOf<NavigationQueryFilter>;
-	public var ProjectDown: cpp.Float32;
-	public var ProjectUp: cpp.Float32;
-	public var ExtentX: cpp.Float32;
-	public var ExtentY: cpp.Float32;
-	public var ExtentZ: cpp.Float32;
-	public var PostProjectionVerticalOffset: cpp.Float32;
+	public var ProjectDown: ucpp.num.Float32;
+	public var ProjectUp: ucpp.num.Float32;
+	public var ExtentX: ucpp.num.Float32;
+	public var ExtentY: ucpp.num.Float32;
+	public var ExtentZ: ucpp.num.Float32;
+	public var PostProjectionVerticalOffset: ucpp.num.Float32;
 	public var TraceChannel: TEnumAsByte<ETraceTypeQuery>;
 	public var SerializedChannel: TEnumAsByte<ECollisionChannel>;
 	public var TraceProfileName: FName;

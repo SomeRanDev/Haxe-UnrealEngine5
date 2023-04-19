@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMirrorToolProperties")
 @:include("MirrorTool.h")
-@:structAccess
+@:valueType
 extern class MirrorToolProperties extends InteractiveToolPropertySet {
 	public var OperationMode: EMirrorOperationMode;
 	public var bCropAlongMirrorPlaneFirst: Bool;
 	public var bWeldVerticesOnMirrorPlane: Bool;
-	public var PlaneTolerance: cpp.Float64;
+	public var PlaneTolerance: ucpp.num.Float64;
 	public var bAllowBowtieVertexCreation: Bool;
 	public var CtrlClickBehavior: EMirrorCtrlClickBehavior;
 	public var bButtonsOnlyChangeOrientation: Bool;
 	public var bShowPreview: Bool;
 	public var SaveMode: EMirrorSaveMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,8 +27,8 @@ abstract ConstMirrorToolProperties(MirrorToolProperties) from MirrorToolProperti
 	public inline extern function get_bCropAlongMirrorPlaneFirst(): Bool return this.bCropAlongMirrorPlaneFirst;
 	public extern var bWeldVerticesOnMirrorPlane(get, never): Bool;
 	public inline extern function get_bWeldVerticesOnMirrorPlane(): Bool return this.bWeldVerticesOnMirrorPlane;
-	public extern var PlaneTolerance(get, never): cpp.Float64;
-	public inline extern function get_PlaneTolerance(): cpp.Float64 return this.PlaneTolerance;
+	public extern var PlaneTolerance(get, never): ucpp.num.Float64;
+	public inline extern function get_PlaneTolerance(): ucpp.num.Float64 return this.PlaneTolerance;
 	public extern var bAllowBowtieVertexCreation(get, never): Bool;
 	public inline extern function get_bAllowBowtieVertexCreation(): Bool return this.bAllowBowtieVertexCreation;
 	public extern var CtrlClickBehavior(get, never): EMirrorCtrlClickBehavior;
@@ -44,7 +44,7 @@ abstract ConstMirrorToolProperties(MirrorToolProperties) from MirrorToolProperti
 @:forward
 @:nativeGen
 @:native("MirrorToolProperties*")
-abstract MirrorToolPropertiesPtr(cpp.Star<MirrorToolProperties>) from cpp.Star<MirrorToolProperties> to cpp.Star<MirrorToolProperties>{
+abstract MirrorToolPropertiesPtr(ucpp.Ptr<MirrorToolProperties>) from ucpp.Ptr<MirrorToolProperties> to ucpp.Ptr<MirrorToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MirrorToolProperties): MirrorToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("UXRLoadingScreenFunctionLibrary")
 @:include("XRLoadingScreenFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class XRLoadingScreenFunctionLibrary extends BlueprintFunctionLibrary {
 	public function ShowLoadingScreen(): Void;
-	public function SetLoadingScreen(Texture: cpp.Star<Texture>, Scale: Vector2D, Offset: Vector, bShowLoadingMovie: Bool, bShowOnSet: Bool): Void;
+	public function SetLoadingScreen(Texture: ucpp.Ptr<Texture>, Scale: Vector2D, Offset: Vector, bShowLoadingMovie: Bool, bShowOnSet: Bool): Void;
 	public function HideLoadingScreen(): Void;
 	public function ClearLoadingScreenSplashes(): Void;
-	public function AddLoadingScreenSplash(Texture: cpp.Star<Texture>, Translation: Vector, Rotation: Rotator, Size: Vector2D, DeltaRotation: Rotator, bClearBeforeAdd: Bool): Void;
+	public function AddLoadingScreenSplash(Texture: ucpp.Ptr<Texture>, Translation: Vector, Rotation: Rotator, Size: Vector2D, DeltaRotation: Rotator, bClearBeforeAdd: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstXRLoadingScreenFunctionLibrary(XRLoadingScreenFunctionLibrary) fro
 @:forward
 @:nativeGen
 @:native("XRLoadingScreenFunctionLibrary*")
-abstract XRLoadingScreenFunctionLibraryPtr(cpp.Star<XRLoadingScreenFunctionLibrary>) from cpp.Star<XRLoadingScreenFunctionLibrary> to cpp.Star<XRLoadingScreenFunctionLibrary>{
+abstract XRLoadingScreenFunctionLibraryPtr(ucpp.Ptr<XRLoadingScreenFunctionLibrary>) from ucpp.Ptr<XRLoadingScreenFunctionLibrary> to ucpp.Ptr<XRLoadingScreenFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: XRLoadingScreenFunctionLibrary): XRLoadingScreenFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

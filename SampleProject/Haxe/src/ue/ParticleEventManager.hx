@@ -3,10 +3,10 @@ package ue;
 
 @:native("AParticleEventManager")
 @:include("Particles/ParticleEventManager.h")
-@:structAccess
+@:valueType
 extern class ParticleEventManager extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstParticleEventManager(ParticleEventManager) from ParticleEventManag
 @:forward
 @:nativeGen
 @:native("ParticleEventManager*")
-abstract ParticleEventManagerPtr(cpp.Star<ParticleEventManager>) from cpp.Star<ParticleEventManager> to cpp.Star<ParticleEventManager>{
+abstract ParticleEventManagerPtr(ucpp.Ptr<ParticleEventManager>) from ucpp.Ptr<ParticleEventManager> to ucpp.Ptr<ParticleEventManager>{
 	@:from
 	public static extern inline function fromValue(v: ParticleEventManager): ParticleEventManagerPtr {
 		return untyped __cpp__("&({0})", v);

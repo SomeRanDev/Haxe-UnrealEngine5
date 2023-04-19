@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundExporterWAV")
 @:include("Exporters/SoundExporterWAV.h")
-@:structAccess
+@:valueType
 extern class SoundExporterWAV extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundExporterWAV(SoundExporterWAV) from SoundExporterWAV {
 @:forward
 @:nativeGen
 @:native("SoundExporterWAV*")
-abstract SoundExporterWAVPtr(cpp.Star<SoundExporterWAV>) from cpp.Star<SoundExporterWAV> to cpp.Star<SoundExporterWAV>{
+abstract SoundExporterWAVPtr(ucpp.Ptr<SoundExporterWAV>) from ucpp.Ptr<SoundExporterWAV> to ucpp.Ptr<SoundExporterWAV>{
 	@:from
 	public static extern inline function fromValue(v: SoundExporterWAV): SoundExporterWAVPtr {
 		return untyped __cpp__("&({0})", v);

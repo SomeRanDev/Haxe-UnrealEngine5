@@ -3,24 +3,24 @@ package ue;
 
 @:native("UImgMediaPlaybackComponent")
 @:include("Unreal/ImgMediaPlaybackComponent.h")
-@:structAccess
+@:valueType
 extern class ImgMediaPlaybackComp extends ActorComp {
-	public var LODBias: cpp.Float32;
+	public var LODBias: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstImgMediaPlaybackComp(ImgMediaPlaybackComp) from ImgMediaPlaybackComp {
-	public extern var LODBias(get, never): cpp.Float32;
-	public inline extern function get_LODBias(): cpp.Float32 return this.LODBias;
+	public extern var LODBias(get, never): ucpp.num.Float32;
+	public inline extern function get_LODBias(): ucpp.num.Float32 return this.LODBias;
 }
 
 @:forward
 @:nativeGen
 @:native("ImgMediaPlaybackComp*")
-abstract ImgMediaPlaybackCompPtr(cpp.Star<ImgMediaPlaybackComp>) from cpp.Star<ImgMediaPlaybackComp> to cpp.Star<ImgMediaPlaybackComp>{
+abstract ImgMediaPlaybackCompPtr(ucpp.Ptr<ImgMediaPlaybackComp>) from ucpp.Ptr<ImgMediaPlaybackComp> to ucpp.Ptr<ImgMediaPlaybackComp>{
 	@:from
 	public static extern inline function fromValue(v: ImgMediaPlaybackComp): ImgMediaPlaybackCompPtr {
 		return untyped __cpp__("&({0})", v);

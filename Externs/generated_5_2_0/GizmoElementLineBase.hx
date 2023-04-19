@@ -3,15 +3,15 @@ package ue;
 
 @:native("UGizmoElementLineBase")
 @:include("BaseGizmos/GizmoElementLineBase.h")
-@:structAccess
+@:valueType
 extern class GizmoElementLineBase extends GizmoElementBase {
 	@:protected public var LineRenderAttributes: GizmoElementLineRenderStateAttributes;
-	@:protected public var LineThickness: cpp.Float32;
+	@:protected public var LineThickness: ucpp.num.Float32;
 	@:protected public var bScreenSpaceLine: Bool;
-	@:protected public var HoverLineThicknessMultiplier: cpp.Float32;
-	@:protected public var InteractLineThicknessMultiplier: cpp.Float32;
+	@:protected public var HoverLineThicknessMultiplier: ucpp.num.Float32;
+	@:protected public var InteractLineThicknessMultiplier: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstGizmoElementLineBase(GizmoElementLineBase) from GizmoElementLineBa
 @:forward
 @:nativeGen
 @:native("GizmoElementLineBase*")
-abstract GizmoElementLineBasePtr(cpp.Star<GizmoElementLineBase>) from cpp.Star<GizmoElementLineBase> to cpp.Star<GizmoElementLineBase>{
+abstract GizmoElementLineBasePtr(ucpp.Ptr<GizmoElementLineBase>) from ucpp.Ptr<GizmoElementLineBase> to ucpp.Ptr<GizmoElementLineBase>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementLineBase): GizmoElementLineBasePtr {
 		return untyped __cpp__("&({0})", v);

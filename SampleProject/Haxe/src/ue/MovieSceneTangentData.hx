@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMovieSceneTangentData")
 @:include("Channels/MovieSceneCurveChannelCommon.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTangentData {
-	public var ArriveTangent: cpp.Float32;
-	public var LeaveTangent: cpp.Float32;
-	public var ArriveTangentWeight: cpp.Float32;
-	public var LeaveTangentWeight: cpp.Float32;
+	public var ArriveTangent: ucpp.num.Float32;
+	public var LeaveTangent: ucpp.num.Float32;
+	public var ArriveTangentWeight: ucpp.num.Float32;
+	public var LeaveTangentWeight: ucpp.num.Float32;
 	public var TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>;
 
 	@:native("FMovieSceneTangentData") public function new();
-	@:native("FMovieSceneTangentData") public static function make(ArriveTangent: cpp.Float32, LeaveTangent: cpp.Float32, ArriveTangentWeight: cpp.Float32, LeaveTangentWeight: cpp.Float32, TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>): MovieSceneTangentData ;
+	@:native("FMovieSceneTangentData") public static function make(ArriveTangent: ucpp.num.Float32, LeaveTangent: ucpp.num.Float32, ArriveTangentWeight: ucpp.num.Float32, LeaveTangentWeight: ucpp.num.Float32, TangentWeightMode: TEnumAsByte<ERichCurveTangentWeightMode>): MovieSceneTangentData ;
 }

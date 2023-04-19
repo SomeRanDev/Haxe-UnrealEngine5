@@ -3,16 +3,16 @@ package ue;
 
 @:native("FMaterialStatistics")
 @:include("MaterialEditingLibrary.h")
-@:structAccess
+@:valueType
 extern class MaterialStatistics {
-	public var NumVertexShaderInstructions: cpp.Int32;
-	public var NumPixelShaderInstructions: cpp.Int32;
-	public var NumSamplers: cpp.Int32;
-	public var NumVertexTextureSamples: cpp.Int32;
-	public var NumPixelTextureSamples: cpp.Int32;
-	public var NumVirtualTextureSamples: cpp.Int32;
-	public var NumUVScalars: cpp.Int32;
-	public var NumInterpolatorScalars: cpp.Int32;
+	public var NumVertexShaderInstructions: ucpp.num.Int32;
+	public var NumPixelShaderInstructions: ucpp.num.Int32;
+	public var NumSamplers: ucpp.num.Int32;
+	public var NumVertexTextureSamples: ucpp.num.Int32;
+	public var NumPixelTextureSamples: ucpp.num.Int32;
+	public var NumVirtualTextureSamples: ucpp.num.Int32;
+	public var NumUVScalars: ucpp.num.Int32;
+	public var NumInterpolatorScalars: ucpp.num.Int32;
 
 	@:native("FMaterialStatistics") public function new();
 }

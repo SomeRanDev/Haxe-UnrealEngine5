@@ -3,10 +3,10 @@ package ue;
 
 @:native("USwitchActorFactory")
 @:include("SwitchActorFactory.h")
-@:structAccess
+@:valueType
 extern class SwitchActorFactory extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSwitchActorFactory(SwitchActorFactory) from SwitchActorFactory {
 @:forward
 @:nativeGen
 @:native("SwitchActorFactory*")
-abstract SwitchActorFactoryPtr(cpp.Star<SwitchActorFactory>) from cpp.Star<SwitchActorFactory> to cpp.Star<SwitchActorFactory>{
+abstract SwitchActorFactoryPtr(ucpp.Ptr<SwitchActorFactory>) from ucpp.Ptr<SwitchActorFactory> to ucpp.Ptr<SwitchActorFactory>{
 	@:from
 	public static extern inline function fromValue(v: SwitchActorFactory): SwitchActorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

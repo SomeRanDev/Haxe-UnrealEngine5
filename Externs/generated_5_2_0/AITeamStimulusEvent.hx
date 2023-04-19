@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAITeamStimulusEvent")
 @:include("Perception/AISense_Team.h")
-@:structAccess
+@:valueType
 extern class AITeamStimulusEvent {
-	private var Broadcaster: cpp.Star<Actor>;
-	public var Enemy: cpp.Star<Actor>;
+	private var Broadcaster: ucpp.Ptr<Actor>;
+	public var Enemy: ucpp.Ptr<Actor>;
 
 	@:native("FAITeamStimulusEvent") public function new();
-	@:native("FAITeamStimulusEvent") public static function make(Broadcaster: cpp.Star<Actor>, Enemy: cpp.Star<Actor>): AITeamStimulusEvent ;
+	@:native("FAITeamStimulusEvent") public static function make(Broadcaster: ucpp.Ptr<Actor>, Enemy: ucpp.Ptr<Actor>): AITeamStimulusEvent ;
 }

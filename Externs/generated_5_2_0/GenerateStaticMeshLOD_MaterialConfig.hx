@@ -3,11 +3,11 @@ package ue;
 
 @:native("FGenerateStaticMeshLOD_MaterialConfig")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLOD_MaterialConfig {
-	public var Material: cpp.Star<MaterialInterface>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 	public var Constraint: EGenerateStaticMeshLOD_BakeConstraint;
 
 	@:native("FGenerateStaticMeshLOD_MaterialConfig") public function new();
-	@:native("FGenerateStaticMeshLOD_MaterialConfig") public static function make(Material: cpp.Star<MaterialInterface>, Constraint: EGenerateStaticMeshLOD_BakeConstraint): GenerateStaticMeshLOD_MaterialConfig ;
+	@:native("FGenerateStaticMeshLOD_MaterialConfig") public static function make(Material: ucpp.Ptr<MaterialInterface>, Constraint: EGenerateStaticMeshLOD_BakeConstraint): GenerateStaticMeshLOD_MaterialConfig ;
 }

@@ -3,16 +3,16 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid3D")
 @:include("NiagaraDataInterfaceRW.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGrid3D extends NiagaraDataInterfaceRWBase {
 	public var ClearBeforeNonIterationStage: Bool;
 	public var NumCells: IntVector;
-	public var CellSize: cpp.Float32;
-	public var NumCellsMaxAxis: cpp.Int32;
+	public var CellSize: ucpp.num.Float32;
+	public var NumCellsMaxAxis: ucpp.num.Int32;
 	public var SetResolutionMethod: ESetResolutionMethod;
 	public var WorldBBoxSize: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,10 +22,10 @@ abstract ConstNiagaraDataInterfaceGrid3D(NiagaraDataInterfaceGrid3D) from Niagar
 	public inline extern function get_ClearBeforeNonIterationStage(): Bool return this.ClearBeforeNonIterationStage;
 	public extern var NumCells(get, never): IntVector;
 	public inline extern function get_NumCells(): IntVector return this.NumCells;
-	public extern var CellSize(get, never): cpp.Float32;
-	public inline extern function get_CellSize(): cpp.Float32 return this.CellSize;
-	public extern var NumCellsMaxAxis(get, never): cpp.Int32;
-	public inline extern function get_NumCellsMaxAxis(): cpp.Int32 return this.NumCellsMaxAxis;
+	public extern var CellSize(get, never): ucpp.num.Float32;
+	public inline extern function get_CellSize(): ucpp.num.Float32 return this.CellSize;
+	public extern var NumCellsMaxAxis(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCellsMaxAxis(): ucpp.num.Int32 return this.NumCellsMaxAxis;
 	public extern var SetResolutionMethod(get, never): ESetResolutionMethod;
 	public inline extern function get_SetResolutionMethod(): ESetResolutionMethod return this.SetResolutionMethod;
 	public extern var WorldBBoxSize(get, never): Vector;
@@ -35,7 +35,7 @@ abstract ConstNiagaraDataInterfaceGrid3D(NiagaraDataInterfaceGrid3D) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceGrid3D*")
-abstract NiagaraDataInterfaceGrid3DPtr(cpp.Star<NiagaraDataInterfaceGrid3D>) from cpp.Star<NiagaraDataInterfaceGrid3D> to cpp.Star<NiagaraDataInterfaceGrid3D>{
+abstract NiagaraDataInterfaceGrid3DPtr(ucpp.Ptr<NiagaraDataInterfaceGrid3D>) from ucpp.Ptr<NiagaraDataInterfaceGrid3D> to ucpp.Ptr<NiagaraDataInterfaceGrid3D>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid3D): NiagaraDataInterfaceGrid3DPtr {
 		return untyped __cpp__("&({0})", v);

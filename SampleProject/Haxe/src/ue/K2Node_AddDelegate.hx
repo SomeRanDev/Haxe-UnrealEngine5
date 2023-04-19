@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_AddDelegate")
 @:include("K2Node_AddDelegate.h")
-@:structAccess
+@:valueType
 extern class K2Node_AddDelegate extends K2Node_BaseMCDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_AddDelegate(K2Node_AddDelegate) from K2Node_AddDelegate {
 @:forward
 @:nativeGen
 @:native("K2Node_AddDelegate*")
-abstract K2Node_AddDelegatePtr(cpp.Star<K2Node_AddDelegate>) from cpp.Star<K2Node_AddDelegate> to cpp.Star<K2Node_AddDelegate>{
+abstract K2Node_AddDelegatePtr(ucpp.Ptr<K2Node_AddDelegate>) from ucpp.Ptr<K2Node_AddDelegate> to ucpp.Ptr<K2Node_AddDelegate>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_AddDelegate): K2Node_AddDelegatePtr {
 		return untyped __cpp__("&({0})", v);

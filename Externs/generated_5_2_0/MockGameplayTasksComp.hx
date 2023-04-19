@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMockGameplayTasksComponent")
 @:include("MockGameplayTasks.h")
-@:structAccess
+@:valueType
 extern class MockGameplayTasksComp extends GameplayTasksComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMockGameplayTasksComp(MockGameplayTasksComp) from MockGameplayTask
 @:forward
 @:nativeGen
 @:native("MockGameplayTasksComp*")
-abstract MockGameplayTasksCompPtr(cpp.Star<MockGameplayTasksComp>) from cpp.Star<MockGameplayTasksComp> to cpp.Star<MockGameplayTasksComp>{
+abstract MockGameplayTasksCompPtr(ucpp.Ptr<MockGameplayTasksComp>) from ucpp.Ptr<MockGameplayTasksComp> to ucpp.Ptr<MockGameplayTasksComp>{
 	@:from
 	public static extern inline function fromValue(v: MockGameplayTasksComp): MockGameplayTasksCompPtr {
 		return untyped __cpp__("&({0})", v);

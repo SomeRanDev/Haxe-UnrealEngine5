@@ -3,20 +3,20 @@ package ue;
 
 @:native("UAnimExecutionContextLibrary")
 @:include("AnimExecutionContextLibrary.h")
-@:structAccess
+@:valueType
 extern class AnimExecutionContextLibrary extends BlueprintFunctionLibrary {
-	public function Prototype_ThreadSafeAnimUpdateCall(Context: cpp.Reference<AnimUpdateContext>, Node: cpp.Reference<AnimNodeReference>): Void;
-	public function Prototype_ThreadSafeAnimNodeCall(Context: cpp.Reference<AnimExecutionContext>, Node: cpp.Reference<AnimNodeReference>): Void;
-	public function GetDeltaTime(Context: cpp.Reference<AnimUpdateContext>): cpp.Float32;
-	public function GetCurrentWeight(Context: cpp.Reference<AnimUpdateContext>): cpp.Float32;
-	public function GetAnimNodeReference(Instance: cpp.Star<AnimInstance>, Index: cpp.Int32): AnimNodeReference;
-	public function GetAnimInstance(Context: cpp.Reference<AnimExecutionContext>): cpp.Star<AnimInstance>;
-	public function ConvertToUpdateContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimUpdateContext;
-	public function ConvertToPoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimPoseContext;
-	public function ConvertToInitializationContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimInitializationContext;
-	public function ConvertToComponentSpacePoseContext(Context: cpp.Reference<AnimExecutionContext>, Result: cpp.Reference<EAnimExecutionContextConversionResult>): AnimComponentSpacePoseContext;
+	public function Prototype_ThreadSafeAnimUpdateCall(Context: ucpp.Ref<AnimUpdateContext>, Node: ucpp.Ref<AnimNodeReference>): Void;
+	public function Prototype_ThreadSafeAnimNodeCall(Context: ucpp.Ref<AnimExecutionContext>, Node: ucpp.Ref<AnimNodeReference>): Void;
+	public function GetDeltaTime(Context: ucpp.Ref<AnimUpdateContext>): ucpp.num.Float32;
+	public function GetCurrentWeight(Context: ucpp.Ref<AnimUpdateContext>): ucpp.num.Float32;
+	public function GetAnimNodeReference(Instance: ucpp.Ptr<AnimInstance>, Index: ucpp.num.Int32): AnimNodeReference;
+	public function GetAnimInstance(Context: ucpp.Ref<AnimExecutionContext>): ucpp.Ptr<AnimInstance>;
+	public function ConvertToUpdateContext(Context: ucpp.Ref<AnimExecutionContext>, Result: ucpp.Ref<EAnimExecutionContextConversionResult>): AnimUpdateContext;
+	public function ConvertToPoseContext(Context: ucpp.Ref<AnimExecutionContext>, Result: ucpp.Ref<EAnimExecutionContextConversionResult>): AnimPoseContext;
+	public function ConvertToInitializationContext(Context: ucpp.Ref<AnimExecutionContext>, Result: ucpp.Ref<EAnimExecutionContextConversionResult>): AnimInitializationContext;
+	public function ConvertToComponentSpacePoseContext(Context: ucpp.Ref<AnimExecutionContext>, Result: ucpp.Ref<EAnimExecutionContextConversionResult>): AnimComponentSpacePoseContext;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstAnimExecutionContextLibrary(AnimExecutionContextLibrary) from Anim
 @:forward
 @:nativeGen
 @:native("AnimExecutionContextLibrary*")
-abstract AnimExecutionContextLibraryPtr(cpp.Star<AnimExecutionContextLibrary>) from cpp.Star<AnimExecutionContextLibrary> to cpp.Star<AnimExecutionContextLibrary>{
+abstract AnimExecutionContextLibraryPtr(ucpp.Ptr<AnimExecutionContextLibrary>) from ucpp.Ptr<AnimExecutionContextLibrary> to ucpp.Ptr<AnimExecutionContextLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AnimExecutionContextLibrary): AnimExecutionContextLibraryPtr {
 		return untyped __cpp__("&({0})", v);

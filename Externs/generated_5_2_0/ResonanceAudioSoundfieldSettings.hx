@@ -3,11 +3,11 @@ package ue;
 
 @:native("UResonanceAudioSoundfieldSettings")
 @:include("ResonanceAudioAmbisonicsSettings.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioSoundfieldSettings extends SoundfieldEncodingSettingsBase {
 	public var RenderMode: EResonanceRenderMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstResonanceAudioSoundfieldSettings(ResonanceAudioSoundfieldSettings)
 @:forward
 @:nativeGen
 @:native("ResonanceAudioSoundfieldSettings*")
-abstract ResonanceAudioSoundfieldSettingsPtr(cpp.Star<ResonanceAudioSoundfieldSettings>) from cpp.Star<ResonanceAudioSoundfieldSettings> to cpp.Star<ResonanceAudioSoundfieldSettings>{
+abstract ResonanceAudioSoundfieldSettingsPtr(ucpp.Ptr<ResonanceAudioSoundfieldSettings>) from ucpp.Ptr<ResonanceAudioSoundfieldSettings> to ucpp.Ptr<ResonanceAudioSoundfieldSettings>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioSoundfieldSettings): ResonanceAudioSoundfieldSettingsPtr {
 		return untyped __cpp__("&({0})", v);

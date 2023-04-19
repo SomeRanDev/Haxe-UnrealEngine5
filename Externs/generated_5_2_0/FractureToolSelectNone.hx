@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFractureToolSelectNone")
 @:include("FractureToolSelectors.h")
-@:structAccess
+@:valueType
 extern class FractureToolSelectNone extends FractureToolSelectAll {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFractureToolSelectNone(FractureToolSelectNone) from FractureToolSe
 @:forward
 @:nativeGen
 @:native("FractureToolSelectNone*")
-abstract FractureToolSelectNonePtr(cpp.Star<FractureToolSelectNone>) from cpp.Star<FractureToolSelectNone> to cpp.Star<FractureToolSelectNone>{
+abstract FractureToolSelectNonePtr(ucpp.Ptr<FractureToolSelectNone>) from ucpp.Ptr<FractureToolSelectNone> to ucpp.Ptr<FractureToolSelectNone>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolSelectNone): FractureToolSelectNonePtr {
 		return untyped __cpp__("&({0})", v);

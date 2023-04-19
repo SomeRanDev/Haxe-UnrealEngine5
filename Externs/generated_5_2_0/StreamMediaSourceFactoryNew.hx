@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStreamMediaSourceFactoryNew")
 @:include("Factories/StreamMediaSourceFactoryNew.h")
-@:structAccess
+@:valueType
 extern class StreamMediaSourceFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStreamMediaSourceFactoryNew(StreamMediaSourceFactoryNew) from Stre
 @:forward
 @:nativeGen
 @:native("StreamMediaSourceFactoryNew*")
-abstract StreamMediaSourceFactoryNewPtr(cpp.Star<StreamMediaSourceFactoryNew>) from cpp.Star<StreamMediaSourceFactoryNew> to cpp.Star<StreamMediaSourceFactoryNew>{
+abstract StreamMediaSourceFactoryNewPtr(ucpp.Ptr<StreamMediaSourceFactoryNew>) from ucpp.Ptr<StreamMediaSourceFactoryNew> to ucpp.Ptr<StreamMediaSourceFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: StreamMediaSourceFactoryNew): StreamMediaSourceFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GetText__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GetText__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GetText__PythonCallable(Widget_GetText__PythonCallable) fro
 @:forward
 @:nativeGen
 @:native("Widget_GetText__PythonCallable*")
-abstract Widget_GetText__PythonCallablePtr(cpp.Star<Widget_GetText__PythonCallable>) from cpp.Star<Widget_GetText__PythonCallable> to cpp.Star<Widget_GetText__PythonCallable>{
+abstract Widget_GetText__PythonCallablePtr(ucpp.Ptr<Widget_GetText__PythonCallable>) from ucpp.Ptr<Widget_GetText__PythonCallable> to ucpp.Ptr<Widget_GetText__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GetText__PythonCallable): Widget_GetText__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

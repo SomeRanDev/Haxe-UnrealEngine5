@@ -3,63 +3,63 @@ package ue;
 
 @:native("UMaterialEditingLibrary")
 @:include("MaterialEditingLibrary.h")
-@:structAccess
+@:valueType
 extern class MaterialEditingLibrary extends BlueprintFunctionLibrary {
-	public function UpdateMaterialInstance(Instance: cpp.Star<MaterialInstanceConstant>): Void;
-	public function UpdateMaterialFunction(MaterialFunction: cpp.Star<MaterialFunctionInterface>, PreviewMaterial: cpp.Star<Material>): Void;
-	public function SetMaterialUsage(Material: cpp.Star<Material>, Usage: TEnumAsByte<EMaterialUsage>, bNeedsRecompile: cpp.Reference<Bool>): Bool;
-	public function SetMaterialInstanceVectorParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Value: LinearColor, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
-	public function SetMaterialInstanceTextureParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Value: cpp.Star<Texture>, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
-	public function SetMaterialInstanceStaticSwitchParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Value: Bool, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
-	public function SetMaterialInstanceSparseVolumeTextureParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Value: cpp.Star<SparseVolumeTexture>, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
-	public function SetMaterialInstanceScalarParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Value: cpp.Float32, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
-	public function SetMaterialInstanceRuntimeVirtualTextureParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Value: cpp.Star<RuntimeVirtualTexture>, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
-	public function SetMaterialInstanceParent(Instance: cpp.Star<MaterialInstanceConstant>, NewParent: cpp.Star<MaterialInterface>): Void;
-	public function RecompileMaterial(Material: cpp.Star<Material>): Void;
-	public function LayoutMaterialFunctionExpressions(MaterialFunction: cpp.Star<MaterialFunction>): Void;
-	public function LayoutMaterialExpressions(Material: cpp.Star<Material>): Void;
-	public function HasMaterialUsage(Material: cpp.Star<Material>, Usage: TEnumAsByte<EMaterialUsage>): Bool;
-	public function GetVectorParameterSource(Material: cpp.Star<MaterialInterface>, ParameterName: FName, ParameterSource: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetVectorParameterNames(Material: cpp.Star<MaterialInterface>, ParameterNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetUsedTextures(Material: cpp.Star<Material>): TArray<cpp.Star<Texture>>;
-	public function GetTextureParameterSource(Material: cpp.Star<MaterialInterface>, ParameterName: FName, ParameterSource: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetTextureParameterNames(Material: cpp.Star<MaterialInterface>, ParameterNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetStatistics(Material: cpp.Star<MaterialInterface>): MaterialStatistics;
-	public function GetStaticSwitchParameterSource(Material: cpp.Star<MaterialInterface>, ParameterName: FName, ParameterSource: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetStaticSwitchParameterNames(Material: cpp.Star<MaterialInterface>, ParameterNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetScalarParameterSource(Material: cpp.Star<MaterialInterface>, ParameterName: FName, ParameterSource: cpp.Reference<SoftObjectPath>): Bool;
-	public function GetScalarParameterNames(Material: cpp.Star<MaterialInterface>, ParameterNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetNumMaterialExpressionsInFunction(MaterialFunction: cpp.Star<MaterialFunction.ConstMaterialFunction>): cpp.Int32;
-	public function GetNumMaterialExpressions(Material: cpp.Star<Material.ConstMaterial>): cpp.Int32;
-	public function GetMaterialSelectedNodes(Material: cpp.Star<Material>): TSet<cpp.Star<Object>>;
-	public function GetMaterialPropertyInputNodeOutputName(Material: cpp.Star<Material>, Property: TEnumAsByte<EMaterialProperty>): FString;
-	public function GetMaterialPropertyInputNode(Material: cpp.Star<Material>, Property: TEnumAsByte<EMaterialProperty>): cpp.Star<MaterialExpression>;
-	public function GetMaterialInstanceVectorParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): LinearColor;
-	public function GetMaterialInstanceTextureParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): cpp.Star<Texture>;
-	public function GetMaterialInstanceStaticSwitchParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
-	public function GetMaterialInstanceSparseVolumeTextureParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): cpp.Star<SparseVolumeTexture>;
-	public function GetMaterialInstanceScalarParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): cpp.Float32;
-	public function GetMaterialInstanceRuntimeVirtualTextureParameterValue(Instance: cpp.Star<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): cpp.Star<RuntimeVirtualTexture>;
-	public function GetMaterialExpressionNodePosition(MaterialExpression: cpp.Star<MaterialExpression>, NodePosX: cpp.Reference<cpp.Int32>, NodePosY: cpp.Reference<cpp.Int32>): Void;
-	public function GetMaterialDefaultVectorParameterValue(Material: cpp.Star<Material>, ParameterName: FName): LinearColor;
-	public function GetMaterialDefaultTextureParameterValue(Material: cpp.Star<Material>, ParameterName: FName): cpp.Star<Texture>;
-	public function GetMaterialDefaultStaticSwitchParameterValue(Material: cpp.Star<Material>, ParameterName: FName): Bool;
-	public function GetMaterialDefaultScalarParameterValue(Material: cpp.Star<Material>, ParameterName: FName): cpp.Float32;
-	public function GetInputsForMaterialExpression(Material: cpp.Star<Material>, MaterialExpression: cpp.Star<MaterialExpression>): TArray<cpp.Star<MaterialExpression>>;
-	public function GetInputNodeOutputNameForMaterialExpression(MaterialExpression: cpp.Star<MaterialExpression>, InputNode: cpp.Star<MaterialExpression>, OutputName: cpp.Reference<FString>): Bool;
-	public function GetChildInstances(Parent: cpp.Star<MaterialInterface>, ChildInstances: cpp.Reference<TArray<AssetData>>): Void;
-	public function DuplicateMaterialExpression(Material: cpp.Star<Material>, MaterialFunction: cpp.Star<MaterialFunction>, Expression: cpp.Star<MaterialExpression>): cpp.Star<MaterialExpression>;
-	public function DeleteMaterialExpressionInFunction(MaterialFunction: cpp.Star<MaterialFunction>, Expression: cpp.Star<MaterialExpression>): Void;
-	public function DeleteMaterialExpression(Material: cpp.Star<Material>, Expression: cpp.Star<MaterialExpression>): Void;
-	public function DeleteAllMaterialExpressionsInFunction(MaterialFunction: cpp.Star<MaterialFunction>): Void;
-	public function DeleteAllMaterialExpressions(Material: cpp.Star<Material>): Void;
-	public function CreateMaterialExpressionInFunction(MaterialFunction: cpp.Star<MaterialFunction>, ExpressionClass: TSubclassOf<MaterialExpression>, NodePosX: cpp.Int32, NodePosY: cpp.Int32): cpp.Star<MaterialExpression>;
-	public function CreateMaterialExpression(Material: cpp.Star<Material>, ExpressionClass: TSubclassOf<MaterialExpression>, NodePosX: cpp.Int32, NodePosY: cpp.Int32): cpp.Star<MaterialExpression>;
-	public function ConnectMaterialProperty(FromExpression: cpp.Star<MaterialExpression>, FromOutputName: FString, Property: TEnumAsByte<EMaterialProperty>): Bool;
-	public function ConnectMaterialExpressions(FromExpression: cpp.Star<MaterialExpression>, FromOutputName: FString, ToExpression: cpp.Star<MaterialExpression>, ToInputName: FString): Bool;
-	public function ClearAllMaterialInstanceParameters(Instance: cpp.Star<MaterialInstanceConstant>): Void;
+	public function UpdateMaterialInstance(Instance: ucpp.Ptr<MaterialInstanceConstant>): Void;
+	public function UpdateMaterialFunction(MaterialFunction: ucpp.Ptr<MaterialFunctionInterface>, PreviewMaterial: ucpp.Ptr<Material>): Void;
+	public function SetMaterialUsage(Material: ucpp.Ptr<Material>, Usage: TEnumAsByte<EMaterialUsage>, bNeedsRecompile: ucpp.Ref<Bool>): Bool;
+	public function SetMaterialInstanceVectorParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Value: LinearColor, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
+	public function SetMaterialInstanceTextureParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Value: ucpp.Ptr<Texture>, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
+	public function SetMaterialInstanceStaticSwitchParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Value: Bool, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
+	public function SetMaterialInstanceSparseVolumeTextureParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Value: ucpp.Ptr<SparseVolumeTexture>, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
+	public function SetMaterialInstanceScalarParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Value: ucpp.num.Float32, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
+	public function SetMaterialInstanceRuntimeVirtualTextureParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Value: ucpp.Ptr<RuntimeVirtualTexture>, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
+	public function SetMaterialInstanceParent(Instance: ucpp.Ptr<MaterialInstanceConstant>, NewParent: ucpp.Ptr<MaterialInterface>): Void;
+	public function RecompileMaterial(Material: ucpp.Ptr<Material>): Void;
+	public function LayoutMaterialFunctionExpressions(MaterialFunction: ucpp.Ptr<MaterialFunction>): Void;
+	public function LayoutMaterialExpressions(Material: ucpp.Ptr<Material>): Void;
+	public function HasMaterialUsage(Material: ucpp.Ptr<Material>, Usage: TEnumAsByte<EMaterialUsage>): Bool;
+	public function GetVectorParameterSource(Material: ucpp.Ptr<MaterialInterface>, ParameterName: FName, ParameterSource: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetVectorParameterNames(Material: ucpp.Ptr<MaterialInterface>, ParameterNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetUsedTextures(Material: ucpp.Ptr<Material>): TArray<ucpp.Ptr<Texture>>;
+	public function GetTextureParameterSource(Material: ucpp.Ptr<MaterialInterface>, ParameterName: FName, ParameterSource: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetTextureParameterNames(Material: ucpp.Ptr<MaterialInterface>, ParameterNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetStatistics(Material: ucpp.Ptr<MaterialInterface>): MaterialStatistics;
+	public function GetStaticSwitchParameterSource(Material: ucpp.Ptr<MaterialInterface>, ParameterName: FName, ParameterSource: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetStaticSwitchParameterNames(Material: ucpp.Ptr<MaterialInterface>, ParameterNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetScalarParameterSource(Material: ucpp.Ptr<MaterialInterface>, ParameterName: FName, ParameterSource: ucpp.Ref<SoftObjectPath>): Bool;
+	public function GetScalarParameterNames(Material: ucpp.Ptr<MaterialInterface>, ParameterNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetNumMaterialExpressionsInFunction(MaterialFunction: ucpp.Ptr<MaterialFunction.ConstMaterialFunction>): ucpp.num.Int32;
+	public function GetNumMaterialExpressions(Material: ucpp.Ptr<Material.ConstMaterial>): ucpp.num.Int32;
+	public function GetMaterialSelectedNodes(Material: ucpp.Ptr<Material>): TSet<ucpp.Ptr<Object>>;
+	public function GetMaterialPropertyInputNodeOutputName(Material: ucpp.Ptr<Material>, Property: TEnumAsByte<EMaterialProperty>): FString;
+	public function GetMaterialPropertyInputNode(Material: ucpp.Ptr<Material>, Property: TEnumAsByte<EMaterialProperty>): ucpp.Ptr<MaterialExpression>;
+	public function GetMaterialInstanceVectorParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): LinearColor;
+	public function GetMaterialInstanceTextureParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): ucpp.Ptr<Texture>;
+	public function GetMaterialInstanceStaticSwitchParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): Bool;
+	public function GetMaterialInstanceSparseVolumeTextureParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): ucpp.Ptr<SparseVolumeTexture>;
+	public function GetMaterialInstanceScalarParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): ucpp.num.Float32;
+	public function GetMaterialInstanceRuntimeVirtualTextureParameterValue(Instance: ucpp.Ptr<MaterialInstanceConstant>, ParameterName: FName, Association: TEnumAsByte<EMaterialParameterAssociation>): ucpp.Ptr<RuntimeVirtualTexture>;
+	public function GetMaterialExpressionNodePosition(MaterialExpression: ucpp.Ptr<MaterialExpression>, NodePosX: ucpp.Ref<ucpp.num.Int32>, NodePosY: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetMaterialDefaultVectorParameterValue(Material: ucpp.Ptr<Material>, ParameterName: FName): LinearColor;
+	public function GetMaterialDefaultTextureParameterValue(Material: ucpp.Ptr<Material>, ParameterName: FName): ucpp.Ptr<Texture>;
+	public function GetMaterialDefaultStaticSwitchParameterValue(Material: ucpp.Ptr<Material>, ParameterName: FName): Bool;
+	public function GetMaterialDefaultScalarParameterValue(Material: ucpp.Ptr<Material>, ParameterName: FName): ucpp.num.Float32;
+	public function GetInputsForMaterialExpression(Material: ucpp.Ptr<Material>, MaterialExpression: ucpp.Ptr<MaterialExpression>): TArray<ucpp.Ptr<MaterialExpression>>;
+	public function GetInputNodeOutputNameForMaterialExpression(MaterialExpression: ucpp.Ptr<MaterialExpression>, InputNode: ucpp.Ptr<MaterialExpression>, OutputName: ucpp.Ref<FString>): Bool;
+	public function GetChildInstances(Parent: ucpp.Ptr<MaterialInterface>, ChildInstances: ucpp.Ref<TArray<AssetData>>): Void;
+	public function DuplicateMaterialExpression(Material: ucpp.Ptr<Material>, MaterialFunction: ucpp.Ptr<MaterialFunction>, Expression: ucpp.Ptr<MaterialExpression>): ucpp.Ptr<MaterialExpression>;
+	public function DeleteMaterialExpressionInFunction(MaterialFunction: ucpp.Ptr<MaterialFunction>, Expression: ucpp.Ptr<MaterialExpression>): Void;
+	public function DeleteMaterialExpression(Material: ucpp.Ptr<Material>, Expression: ucpp.Ptr<MaterialExpression>): Void;
+	public function DeleteAllMaterialExpressionsInFunction(MaterialFunction: ucpp.Ptr<MaterialFunction>): Void;
+	public function DeleteAllMaterialExpressions(Material: ucpp.Ptr<Material>): Void;
+	public function CreateMaterialExpressionInFunction(MaterialFunction: ucpp.Ptr<MaterialFunction>, ExpressionClass: TSubclassOf<MaterialExpression>, NodePosX: ucpp.num.Int32, NodePosY: ucpp.num.Int32): ucpp.Ptr<MaterialExpression>;
+	public function CreateMaterialExpression(Material: ucpp.Ptr<Material>, ExpressionClass: TSubclassOf<MaterialExpression>, NodePosX: ucpp.num.Int32, NodePosY: ucpp.num.Int32): ucpp.Ptr<MaterialExpression>;
+	public function ConnectMaterialProperty(FromExpression: ucpp.Ptr<MaterialExpression>, FromOutputName: FString, Property: TEnumAsByte<EMaterialProperty>): Bool;
+	public function ConnectMaterialExpressions(FromExpression: ucpp.Ptr<MaterialExpression>, FromOutputName: FString, ToExpression: ucpp.Ptr<MaterialExpression>, ToInputName: FString): Bool;
+	public function ClearAllMaterialInstanceParameters(Instance: ucpp.Ptr<MaterialInstanceConstant>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -70,7 +70,7 @@ abstract ConstMaterialEditingLibrary(MaterialEditingLibrary) from MaterialEditin
 @:forward
 @:nativeGen
 @:native("MaterialEditingLibrary*")
-abstract MaterialEditingLibraryPtr(cpp.Star<MaterialEditingLibrary>) from cpp.Star<MaterialEditingLibrary> to cpp.Star<MaterialEditingLibrary>{
+abstract MaterialEditingLibraryPtr(ucpp.Ptr<MaterialEditingLibrary>) from ucpp.Ptr<MaterialEditingLibrary> to ucpp.Ptr<MaterialEditingLibrary>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditingLibrary): MaterialEditingLibraryPtr {
 		return untyped __cpp__("&({0})", v);

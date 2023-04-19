@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangePhysicsAssetFactory")
 @:include("Mesh/InterchangePhysicsAssetFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangePhysicsAssetFactory extends InterchangeFactoryBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangePhysicsAssetFactory(InterchangePhysicsAssetFactory) fro
 @:forward
 @:nativeGen
 @:native("InterchangePhysicsAssetFactory*")
-abstract InterchangePhysicsAssetFactoryPtr(cpp.Star<InterchangePhysicsAssetFactory>) from cpp.Star<InterchangePhysicsAssetFactory> to cpp.Star<InterchangePhysicsAssetFactory>{
+abstract InterchangePhysicsAssetFactoryPtr(ucpp.Ptr<InterchangePhysicsAssetFactory>) from ucpp.Ptr<InterchangePhysicsAssetFactory> to ucpp.Ptr<InterchangePhysicsAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePhysicsAssetFactory): InterchangePhysicsAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

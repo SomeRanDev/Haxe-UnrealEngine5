@@ -3,10 +3,10 @@ package ue;
 
 @:native("URigVMAggregateNode")
 @:include("RigVMModel/Nodes/RigVMAggregateNode.h")
-@:structAccess
+@:valueType
 extern class RigVMAggregateNode extends RigVMCollapseNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRigVMAggregateNode(RigVMAggregateNode) from RigVMAggregateNode {
 @:forward
 @:nativeGen
 @:native("RigVMAggregateNode*")
-abstract RigVMAggregateNodePtr(cpp.Star<RigVMAggregateNode>) from cpp.Star<RigVMAggregateNode> to cpp.Star<RigVMAggregateNode>{
+abstract RigVMAggregateNodePtr(ucpp.Ptr<RigVMAggregateNode>) from ucpp.Ptr<RigVMAggregateNode> to ucpp.Ptr<RigVMAggregateNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMAggregateNode): RigVMAggregateNodePtr {
 		return untyped __cpp__("&({0})", v);

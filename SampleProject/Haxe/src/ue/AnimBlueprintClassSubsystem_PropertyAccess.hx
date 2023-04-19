@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintClassSubsystem_PropertyAccess")
 @:include("Animation/AnimBlueprintClassSubsystem_PropertyAccess.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintClassSubsystem_PropertyAccess extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimBlueprintClassSubsystem_PropertyAccess(AnimBlueprintClassSubsy
 @:forward
 @:nativeGen
 @:native("AnimBlueprintClassSubsystem_PropertyAccess*")
-abstract AnimBlueprintClassSubsystem_PropertyAccessPtr(cpp.Star<AnimBlueprintClassSubsystem_PropertyAccess>) from cpp.Star<AnimBlueprintClassSubsystem_PropertyAccess> to cpp.Star<AnimBlueprintClassSubsystem_PropertyAccess>{
+abstract AnimBlueprintClassSubsystem_PropertyAccessPtr(ucpp.Ptr<AnimBlueprintClassSubsystem_PropertyAccess>) from ucpp.Ptr<AnimBlueprintClassSubsystem_PropertyAccess> to ucpp.Ptr<AnimBlueprintClassSubsystem_PropertyAccess>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintClassSubsystem_PropertyAccess): AnimBlueprintClassSubsystem_PropertyAccessPtr {
 		return untyped __cpp__("&({0})", v);

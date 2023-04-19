@@ -3,11 +3,11 @@ package ue;
 
 @:native("UModelingSceneSnappingManager")
 @:include("Snapping/ModelingSceneSnappingManager.h")
-@:structAccess
+@:valueType
 extern class ModelingSceneSnappingManager extends SceneSnappingManager {
-	@:protected public var ParentContext: cpp.Star<InteractiveToolsContext>;
+	@:protected public var ParentContext: ucpp.Ptr<InteractiveToolsContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstModelingSceneSnappingManager(ModelingSceneSnappingManager) from Mo
 @:forward
 @:nativeGen
 @:native("ModelingSceneSnappingManager*")
-abstract ModelingSceneSnappingManagerPtr(cpp.Star<ModelingSceneSnappingManager>) from cpp.Star<ModelingSceneSnappingManager> to cpp.Star<ModelingSceneSnappingManager>{
+abstract ModelingSceneSnappingManagerPtr(ucpp.Ptr<ModelingSceneSnappingManager>) from ucpp.Ptr<ModelingSceneSnappingManager> to ucpp.Ptr<ModelingSceneSnappingManager>{
 	@:from
 	public static extern inline function fromValue(v: ModelingSceneSnappingManager): ModelingSceneSnappingManagerPtr {
 		return untyped __cpp__("&({0})", v);

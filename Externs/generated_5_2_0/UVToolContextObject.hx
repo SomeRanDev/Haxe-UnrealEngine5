@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVToolContextObject")
 @:include("ContextObjects/UVToolContextObjects.h")
-@:structAccess
+@:valueType
 extern class UVToolContextObject extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVToolContextObject(UVToolContextObject) from UVToolContextObject 
 @:forward
 @:nativeGen
 @:native("UVToolContextObject*")
-abstract UVToolContextObjectPtr(cpp.Star<UVToolContextObject>) from cpp.Star<UVToolContextObject> to cpp.Star<UVToolContextObject>{
+abstract UVToolContextObjectPtr(ucpp.Ptr<UVToolContextObject>) from ucpp.Ptr<UVToolContextObject> to ucpp.Ptr<UVToolContextObject>{
 	@:from
 	public static extern inline function fromValue(v: UVToolContextObject): UVToolContextObjectPtr {
 		return untyped __cpp__("&({0})", v);

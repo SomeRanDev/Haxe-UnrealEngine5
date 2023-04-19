@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleVectorFieldScale")
 @:include("Particles/VectorField/ParticleModuleVectorFieldScale.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleVectorFieldScale extends ParticleModuleVectorFieldBase {
 	public var VectorFieldScaleRaw: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleVectorFieldScale(ParticleModuleVectorFieldScale) fro
 @:forward
 @:nativeGen
 @:native("ParticleModuleVectorFieldScale*")
-abstract ParticleModuleVectorFieldScalePtr(cpp.Star<ParticleModuleVectorFieldScale>) from cpp.Star<ParticleModuleVectorFieldScale> to cpp.Star<ParticleModuleVectorFieldScale>{
+abstract ParticleModuleVectorFieldScalePtr(ucpp.Ptr<ParticleModuleVectorFieldScale>) from ucpp.Ptr<ParticleModuleVectorFieldScale> to ucpp.Ptr<ParticleModuleVectorFieldScale>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleVectorFieldScale): ParticleModuleVectorFieldScalePtr {
 		return untyped __cpp__("&({0})", v);

@@ -19,6 +19,7 @@ extern class ELifetimeCondition {
 	static var COND_SimulatedOrPhysicsNoReplay: ELifetimeCondition;
 	static var COND_SkipReplay: ELifetimeCondition;
 	static var COND_Never: ELifetimeCondition;
+	static var COND_NetGroup: ELifetimeCondition;
 	static var COND_Max: ELifetimeCondition;
 	static var COND_MAX: ELifetimeCondition;
 }

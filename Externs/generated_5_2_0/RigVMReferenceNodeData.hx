@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMReferenceNodeData")
 @:include("RigVMModel/RigVMBuildData.h")
-@:structAccess
+@:valueType
 extern class RigVMReferenceNodeData {
 	public var ReferenceNodePath: FString;
 	public var ReferencedHeader: RigVMGraphFunctionHeader;

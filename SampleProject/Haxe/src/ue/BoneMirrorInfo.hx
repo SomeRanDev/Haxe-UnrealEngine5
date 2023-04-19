@@ -3,11 +3,11 @@ package ue;
 
 @:native("FBoneMirrorInfo")
 @:include("Engine/SkeletalMesh.h")
-@:structAccess
+@:valueType
 extern class BoneMirrorInfo {
-	public var SourceIndex: cpp.Int32;
+	public var SourceIndex: ucpp.num.Int32;
 	public var BoneFlipAxis: TEnumAsByte<EAxis>;
 
 	@:native("FBoneMirrorInfo") public function new();
-	@:native("FBoneMirrorInfo") public static function make(SourceIndex: cpp.Int32, BoneFlipAxis: TEnumAsByte<EAxis>): BoneMirrorInfo ;
+	@:native("FBoneMirrorInfo") public static function make(SourceIndex: ucpp.num.Int32, BoneFlipAxis: TEnumAsByte<EAxis>): BoneMirrorInfo ;
 }

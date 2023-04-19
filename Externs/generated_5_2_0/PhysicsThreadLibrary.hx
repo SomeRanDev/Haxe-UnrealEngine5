@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPhysicsThreadLibrary")
 @:include("Physics/Experimental/PhysicsThreadLibrary.h")
-@:structAccess
+@:valueType
 extern class PhysicsThreadLibrary extends BlueprintFunctionLibrary {
 	private function AddForce(Handle: BodyInstanceAsyncPhysicsTickHandle, Force: Vector, bAccelChange: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPhysicsThreadLibrary(PhysicsThreadLibrary) from PhysicsThreadLibra
 @:forward
 @:nativeGen
 @:native("PhysicsThreadLibrary*")
-abstract PhysicsThreadLibraryPtr(cpp.Star<PhysicsThreadLibrary>) from cpp.Star<PhysicsThreadLibrary> to cpp.Star<PhysicsThreadLibrary>{
+abstract PhysicsThreadLibraryPtr(ucpp.Ptr<PhysicsThreadLibrary>) from ucpp.Ptr<PhysicsThreadLibrary> to ucpp.Ptr<PhysicsThreadLibrary>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsThreadLibrary): PhysicsThreadLibraryPtr {
 		return untyped __cpp__("&({0})", v);

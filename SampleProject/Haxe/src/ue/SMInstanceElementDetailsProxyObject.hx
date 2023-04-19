@@ -3,11 +3,11 @@ package ue;
 
 @:native("USMInstanceElementDetailsProxyObject")
 @:include("Elements/SMInstance/SMInstanceElementDetailsProxyObject.h")
-@:structAccess
+@:valueType
 extern class SMInstanceElementDetailsProxyObject extends Object {
 	public var Transform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSMInstanceElementDetailsProxyObject(SMInstanceElementDetailsProxyO
 @:forward
 @:nativeGen
 @:native("SMInstanceElementDetailsProxyObject*")
-abstract SMInstanceElementDetailsProxyObjectPtr(cpp.Star<SMInstanceElementDetailsProxyObject>) from cpp.Star<SMInstanceElementDetailsProxyObject> to cpp.Star<SMInstanceElementDetailsProxyObject>{
+abstract SMInstanceElementDetailsProxyObjectPtr(ucpp.Ptr<SMInstanceElementDetailsProxyObject>) from ucpp.Ptr<SMInstanceElementDetailsProxyObject> to ucpp.Ptr<SMInstanceElementDetailsProxyObject>{
 	@:from
 	public static extern inline function fromValue(v: SMInstanceElementDetailsProxyObject): SMInstanceElementDetailsProxyObjectPtr {
 		return untyped __cpp__("&({0})", v);

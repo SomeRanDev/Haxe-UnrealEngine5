@@ -3,7 +3,7 @@ package ue;
 
 @:native("FModifyContextOptions")
 @:include("EnhancedInputSubsystemInterface.h")
-@:structAccess
+@:valueType
 extern class ModifyContextOptions {
 	public var bIgnoreAllPressedKeysUntilRelease: Bool;
 	public var bForceImmediately: Bool;

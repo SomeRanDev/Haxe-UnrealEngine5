@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UDeviceModelLoadedDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class DeviceModelLoadedDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstDeviceModelLoadedDelegate__PythonCallable(DeviceModelLoadedDelegat
 @:forward
 @:nativeGen
 @:native("DeviceModelLoadedDelegate__PythonCallable*")
-abstract DeviceModelLoadedDelegate__PythonCallablePtr(cpp.Star<DeviceModelLoadedDelegate__PythonCallable>) from cpp.Star<DeviceModelLoadedDelegate__PythonCallable> to cpp.Star<DeviceModelLoadedDelegate__PythonCallable>{
+abstract DeviceModelLoadedDelegate__PythonCallablePtr(ucpp.Ptr<DeviceModelLoadedDelegate__PythonCallable>) from ucpp.Ptr<DeviceModelLoadedDelegate__PythonCallable> to ucpp.Ptr<DeviceModelLoadedDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: DeviceModelLoadedDelegate__PythonCallable): DeviceModelLoadedDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

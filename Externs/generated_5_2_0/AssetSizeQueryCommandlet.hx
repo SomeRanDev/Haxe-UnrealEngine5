@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetSizeQueryCommandlet")
 @:include("Commandlets/AssetSizeQueryCommandlet.h")
-@:structAccess
+@:valueType
 extern class AssetSizeQueryCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetSizeQueryCommandlet(AssetSizeQueryCommandlet) from AssetSizeQ
 @:forward
 @:nativeGen
 @:native("AssetSizeQueryCommandlet*")
-abstract AssetSizeQueryCommandletPtr(cpp.Star<AssetSizeQueryCommandlet>) from cpp.Star<AssetSizeQueryCommandlet> to cpp.Star<AssetSizeQueryCommandlet>{
+abstract AssetSizeQueryCommandletPtr(ucpp.Ptr<AssetSizeQueryCommandlet>) from ucpp.Ptr<AssetSizeQueryCommandlet> to ucpp.Ptr<AssetSizeQueryCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: AssetSizeQueryCommandlet): AssetSizeQueryCommandletPtr {
 		return untyped __cpp__("&({0})", v);

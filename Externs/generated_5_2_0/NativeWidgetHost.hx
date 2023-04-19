@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNativeWidgetHost")
 @:include("Components/NativeWidgetHost.h")
-@:structAccess
+@:valueType
 extern class NativeWidgetHost extends Widget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNativeWidgetHost(NativeWidgetHost) from NativeWidgetHost {
 @:forward
 @:nativeGen
 @:native("NativeWidgetHost*")
-abstract NativeWidgetHostPtr(cpp.Star<NativeWidgetHost>) from cpp.Star<NativeWidgetHost> to cpp.Star<NativeWidgetHost>{
+abstract NativeWidgetHostPtr(ucpp.Ptr<NativeWidgetHost>) from ucpp.Ptr<NativeWidgetHost> to ucpp.Ptr<NativeWidgetHost>{
 	@:from
 	public static extern inline function fromValue(v: NativeWidgetHost): NativeWidgetHostPtr {
 		return untyped __cpp__("&({0})", v);

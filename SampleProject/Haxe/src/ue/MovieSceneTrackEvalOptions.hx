@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneTrackEvalOptions")
 @:include("MovieSceneTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTrackEvalOptions {
 	public var bCanEvaluateNearestSection: Bool;
 	public var bEvalNearestSection: Bool;

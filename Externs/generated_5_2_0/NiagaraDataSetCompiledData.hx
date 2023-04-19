@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraDataSetCompiledData")
 @:include("NiagaraDataSetCompiledData.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataSetCompiledData {
 	public var Variables: TArray<NiagaraVariable>;
 	public var VariableLayouts: TArray<NiagaraVariableLayoutInfo>;
 	public var ID: NiagaraDataSetID;
-	public var TotalFloatComponents: cpp.UInt32;
-	public var TotalInt32Components: cpp.UInt32;
-	public var TotalHalfComponents: cpp.UInt32;
+	public var TotalFloatComponents: ucpp.num.UInt32;
+	public var TotalInt32Components: ucpp.num.UInt32;
+	public var TotalHalfComponents: ucpp.num.UInt32;
 	public var bRequiresPersistentIDs: Bool;
 	public var SimTarget: ENiagaraSimTarget;
 

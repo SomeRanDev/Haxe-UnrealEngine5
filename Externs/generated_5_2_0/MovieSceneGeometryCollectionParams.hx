@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMovieSceneGeometryCollectionParams")
 @:include("MovieSceneGeometryCollectionSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneGeometryCollectionParams {
 	public var GeometryCollectionCache: SoftObjectPath;
 	public var StartFrameOffset: FrameNumber;
 	public var EndFrameOffset: FrameNumber;
-	public var PlayRate: cpp.Float32;
+	public var PlayRate: ucpp.num.Float32;
 
 	@:native("FMovieSceneGeometryCollectionParams") public function new();
-	@:native("FMovieSceneGeometryCollectionParams") public static function make(GeometryCollectionCache: SoftObjectPath, StartFrameOffset: FrameNumber, EndFrameOffset: FrameNumber, PlayRate: cpp.Float32): MovieSceneGeometryCollectionParams ;
+	@:native("FMovieSceneGeometryCollectionParams") public static function make(GeometryCollectionCache: SoftObjectPath, StartFrameOffset: FrameNumber, EndFrameOffset: FrameNumber, PlayRate: ucpp.num.Float32): MovieSceneGeometryCollectionParams ;
 }

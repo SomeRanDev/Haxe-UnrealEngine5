@@ -3,12 +3,12 @@ package ue;
 
 @:native("UCloudStorageBase")
 @:include("Engine/CloudStorageBase.h")
-@:structAccess
+@:valueType
 extern class CloudStorageBase extends PlatformInterfaceBase {
 	public var LocalCloudFiles: TArray<FString>;
 	public var bSuppressDelegateCalls: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstCloudStorageBase(CloudStorageBase) from CloudStorageBase {
 @:forward
 @:nativeGen
 @:native("CloudStorageBase*")
-abstract CloudStorageBasePtr(cpp.Star<CloudStorageBase>) from cpp.Star<CloudStorageBase> to cpp.Star<CloudStorageBase>{
+abstract CloudStorageBasePtr(ucpp.Ptr<CloudStorageBase>) from ucpp.Ptr<CloudStorageBase> to ucpp.Ptr<CloudStorageBase>{
 	@:from
 	public static extern inline function fromValue(v: CloudStorageBase): CloudStorageBasePtr {
 		return untyped __cpp__("&({0})", v);

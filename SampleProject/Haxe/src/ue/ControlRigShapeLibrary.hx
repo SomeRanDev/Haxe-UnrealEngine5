@@ -3,14 +3,15 @@ package ue;
 
 @:native("UControlRigShapeLibrary")
 @:include("ControlRigGizmoLibrary.h")
-@:structAccess
+@:valueType
 extern class ControlRigShapeLibrary extends Object {
 	public var DefaultShape: ControlRigShapeDefinition;
 	public var DefaultMaterial: TSoftObjectPtr<Material>;
+	public var XRayMaterial: TSoftObjectPtr<Material>;
 	public var MaterialColorParameter: FName;
 	public var Shapes: TArray<ControlRigShapeDefinition>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,6 +21,8 @@ abstract ConstControlRigShapeLibrary(ControlRigShapeLibrary) from ControlRigShap
 	public inline extern function get_DefaultShape(): ControlRigShapeDefinition return this.DefaultShape;
 	public extern var DefaultMaterial(get, never): TSoftObjectPtr<Material.ConstMaterial>;
 	public inline extern function get_DefaultMaterial(): TSoftObjectPtr<Material.ConstMaterial> return this.DefaultMaterial;
+	public extern var XRayMaterial(get, never): TSoftObjectPtr<Material.ConstMaterial>;
+	public inline extern function get_XRayMaterial(): TSoftObjectPtr<Material.ConstMaterial> return this.XRayMaterial;
 	public extern var MaterialColorParameter(get, never): FName;
 	public inline extern function get_MaterialColorParameter(): FName return this.MaterialColorParameter;
 	public extern var Shapes(get, never): TArray<ControlRigShapeDefinition>;
@@ -29,7 +32,7 @@ abstract ConstControlRigShapeLibrary(ControlRigShapeLibrary) from ControlRigShap
 @:forward
 @:nativeGen
 @:native("ControlRigShapeLibrary*")
-abstract ControlRigShapeLibraryPtr(cpp.Star<ControlRigShapeLibrary>) from cpp.Star<ControlRigShapeLibrary> to cpp.Star<ControlRigShapeLibrary>{
+abstract ControlRigShapeLibraryPtr(ucpp.Ptr<ControlRigShapeLibrary>) from ucpp.Ptr<ControlRigShapeLibrary> to ucpp.Ptr<ControlRigShapeLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigShapeLibrary): ControlRigShapeLibraryPtr {
 		return untyped __cpp__("&({0})", v);

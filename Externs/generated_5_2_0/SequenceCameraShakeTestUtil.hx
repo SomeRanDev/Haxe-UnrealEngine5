@@ -3,13 +3,13 @@ package ue;
 
 @:native("USequenceCameraShakeTestUtil")
 @:include("Tests/SequenceCameraShakeTestUtil.h")
-@:structAccess
+@:valueType
 extern class SequenceCameraShakeTestUtil extends BlueprintFunctionLibrary {
-	public function GetPostProcessBlendCache(PlayerController: cpp.Star<PlayerController>, PPIndex: cpp.Int32, OutPPSettings: cpp.Reference<PostProcessSettings>, OutPPBlendWeight: cpp.Reference<cpp.Float32>): Bool;
-	public function GetLastFrameCameraCachePOV(PlayerController: cpp.Star<PlayerController>): MinimalViewInfo;
-	public function GetCameraCachePOV(PlayerController: cpp.Star<PlayerController>): MinimalViewInfo;
+	public function GetPostProcessBlendCache(PlayerController: ucpp.Ptr<PlayerController>, PPIndex: ucpp.num.Int32, OutPPSettings: ucpp.Ref<PostProcessSettings>, OutPPBlendWeight: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetLastFrameCameraCachePOV(PlayerController: ucpp.Ptr<PlayerController>): MinimalViewInfo;
+	public function GetCameraCachePOV(PlayerController: ucpp.Ptr<PlayerController>): MinimalViewInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSequenceCameraShakeTestUtil(SequenceCameraShakeTestUtil) from Sequ
 @:forward
 @:nativeGen
 @:native("SequenceCameraShakeTestUtil*")
-abstract SequenceCameraShakeTestUtilPtr(cpp.Star<SequenceCameraShakeTestUtil>) from cpp.Star<SequenceCameraShakeTestUtil> to cpp.Star<SequenceCameraShakeTestUtil>{
+abstract SequenceCameraShakeTestUtilPtr(ucpp.Ptr<SequenceCameraShakeTestUtil>) from ucpp.Ptr<SequenceCameraShakeTestUtil> to ucpp.Ptr<SequenceCameraShakeTestUtil>{
 	@:from
 	public static extern inline function fromValue(v: SequenceCameraShakeTestUtil): SequenceCameraShakeTestUtilPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterface_CollisionDataProvider")
-@:structAccess
+@:valueType
 extern class Interface_CollisionDataProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterface_CollisionDataProvider(Interface_CollisionDataProvider) f
 @:forward
 @:nativeGen
 @:native("Interface_CollisionDataProvider*")
-abstract Interface_CollisionDataProviderPtr(cpp.Star<Interface_CollisionDataProvider>) from cpp.Star<Interface_CollisionDataProvider> to cpp.Star<Interface_CollisionDataProvider>{
+abstract Interface_CollisionDataProviderPtr(ucpp.Ptr<Interface_CollisionDataProvider>) from ucpp.Ptr<Interface_CollisionDataProvider> to ucpp.Ptr<Interface_CollisionDataProvider>{
 	@:from
 	public static extern inline function fromValue(v: Interface_CollisionDataProvider): Interface_CollisionDataProviderPtr {
 		return untyped __cpp__("&({0})", v);

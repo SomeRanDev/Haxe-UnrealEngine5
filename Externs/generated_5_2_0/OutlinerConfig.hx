@@ -3,11 +3,11 @@ package ue;
 
 @:native("UOutlinerConfig")
 @:include("SceneOutlinerConfig.h")
-@:structAccess
+@:valueType
 extern class OutlinerConfig extends EditorConfigBase {
 	public var Outliners: TMap<FName, SceneOutlinerConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstOutlinerConfig(OutlinerConfig) from OutlinerConfig {
 @:forward
 @:nativeGen
 @:native("OutlinerConfig*")
-abstract OutlinerConfigPtr(cpp.Star<OutlinerConfig>) from cpp.Star<OutlinerConfig> to cpp.Star<OutlinerConfig>{
+abstract OutlinerConfigPtr(ucpp.Ptr<OutlinerConfig>) from ucpp.Ptr<OutlinerConfig> to ucpp.Ptr<OutlinerConfig>{
 	@:from
 	public static extern inline function fromValue(v: OutlinerConfig): OutlinerConfigPtr {
 		return untyped __cpp__("&({0})", v);

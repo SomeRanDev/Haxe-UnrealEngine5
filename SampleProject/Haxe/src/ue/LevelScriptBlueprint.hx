@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelScriptBlueprint")
 @:include("Engine/LevelScriptBlueprint.h")
-@:structAccess
+@:valueType
 extern class LevelScriptBlueprint extends Blueprint {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelScriptBlueprint(LevelScriptBlueprint) from LevelScriptBluepri
 @:forward
 @:nativeGen
 @:native("LevelScriptBlueprint*")
-abstract LevelScriptBlueprintPtr(cpp.Star<LevelScriptBlueprint>) from cpp.Star<LevelScriptBlueprint> to cpp.Star<LevelScriptBlueprint>{
+abstract LevelScriptBlueprintPtr(ucpp.Ptr<LevelScriptBlueprint>) from ucpp.Ptr<LevelScriptBlueprint> to ucpp.Ptr<LevelScriptBlueprint>{
 	@:from
 	public static extern inline function fromValue(v: LevelScriptBlueprint): LevelScriptBlueprintPtr {
 		return untyped __cpp__("&({0})", v);

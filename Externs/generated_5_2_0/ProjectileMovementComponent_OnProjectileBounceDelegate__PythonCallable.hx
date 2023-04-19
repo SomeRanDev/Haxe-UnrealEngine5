@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstProjectileMovementComponent_OnProjectileBounceDelegate__PythonCall
 @:forward
 @:nativeGen
 @:native("ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable*")
-abstract ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallablePtr(cpp.Star<ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable>) from cpp.Star<ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable> to cpp.Star<ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable>{
+abstract ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallablePtr(ucpp.Ptr<ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable>) from ucpp.Ptr<ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable> to ucpp.Ptr<ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallable): ProjectileMovementComponent_OnProjectileBounceDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

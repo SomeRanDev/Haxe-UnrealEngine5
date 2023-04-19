@@ -3,12 +3,12 @@ package ue;
 
 @:native("UColorInputDeviceProperty")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class ColorInputDeviceProperty extends InputDeviceProperty {
 	public var ColorData: DeviceColorData;
 	public var DeviceOverrideData: TMap<FName, DeviceColorData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstColorInputDeviceProperty(ColorInputDeviceProperty) from ColorInput
 @:forward
 @:nativeGen
 @:native("ColorInputDeviceProperty*")
-abstract ColorInputDevicePropertyPtr(cpp.Star<ColorInputDeviceProperty>) from cpp.Star<ColorInputDeviceProperty> to cpp.Star<ColorInputDeviceProperty>{
+abstract ColorInputDevicePropertyPtr(ucpp.Ptr<ColorInputDeviceProperty>) from ucpp.Ptr<ColorInputDeviceProperty> to ucpp.Ptr<ColorInputDeviceProperty>{
 	@:from
 	public static extern inline function fromValue(v: ColorInputDeviceProperty): ColorInputDevicePropertyPtr {
 		return untyped __cpp__("&({0})", v);

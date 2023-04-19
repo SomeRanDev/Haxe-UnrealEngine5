@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInputModifier")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifier extends Object {
-	public function ModifyRaw(PlayerInput: cpp.Star<EnhancedPlayerInput.ConstEnhancedPlayerInput>, CurrentValue: InputActionValue, DeltaTime: cpp.Float32): InputActionValue;
+	public function ModifyRaw(PlayerInput: ucpp.Ptr<EnhancedPlayerInput.ConstEnhancedPlayerInput>, CurrentValue: InputActionValue, DeltaTime: ucpp.num.Float32): InputActionValue;
 	public function GetVisualizationColor(SampleValue: InputActionValue, FinalValue: InputActionValue): LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(ModifyRaw, GetVisualizationColor)
@@ -19,7 +19,7 @@ abstract ConstInputModifier(InputModifier) from InputModifier {
 @:forward
 @:nativeGen
 @:native("InputModifier*")
-abstract InputModifierPtr(cpp.Star<InputModifier>) from cpp.Star<InputModifier> to cpp.Star<InputModifier>{
+abstract InputModifierPtr(ucpp.Ptr<InputModifier>) from ucpp.Ptr<InputModifier> to ucpp.Ptr<InputModifier>{
 	@:from
 	public static extern inline function fromValue(v: InputModifier): InputModifierPtr {
 		return untyped __cpp__("&({0})", v);

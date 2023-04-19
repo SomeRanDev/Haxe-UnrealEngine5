@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDumpHiddenCategoriesCommandlet")
 @:include("Commandlets/DumpHiddenCategoriesCommandlet.h")
-@:structAccess
+@:valueType
 extern class DumpHiddenCategoriesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDumpHiddenCategoriesCommandlet(DumpHiddenCategoriesCommandlet) fro
 @:forward
 @:nativeGen
 @:native("DumpHiddenCategoriesCommandlet*")
-abstract DumpHiddenCategoriesCommandletPtr(cpp.Star<DumpHiddenCategoriesCommandlet>) from cpp.Star<DumpHiddenCategoriesCommandlet> to cpp.Star<DumpHiddenCategoriesCommandlet>{
+abstract DumpHiddenCategoriesCommandletPtr(ucpp.Ptr<DumpHiddenCategoriesCommandlet>) from ucpp.Ptr<DumpHiddenCategoriesCommandlet> to ucpp.Ptr<DumpHiddenCategoriesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DumpHiddenCategoriesCommandlet): DumpHiddenCategoriesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

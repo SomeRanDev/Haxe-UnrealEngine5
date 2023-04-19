@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterchangeVariantSetPayloadInterface")
-@:structAccess
+@:valueType
 extern class InterchangeVariantSetPayloadInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterchangeVariantSetPayloadInterface(InterchangeVariantSetPayload
 @:forward
 @:nativeGen
 @:native("InterchangeVariantSetPayloadInterface*")
-abstract InterchangeVariantSetPayloadInterfacePtr(cpp.Star<InterchangeVariantSetPayloadInterface>) from cpp.Star<InterchangeVariantSetPayloadInterface> to cpp.Star<InterchangeVariantSetPayloadInterface>{
+abstract InterchangeVariantSetPayloadInterfacePtr(ucpp.Ptr<InterchangeVariantSetPayloadInterface>) from ucpp.Ptr<InterchangeVariantSetPayloadInterface> to ucpp.Ptr<InterchangeVariantSetPayloadInterface>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeVariantSetPayloadInterface): InterchangeVariantSetPayloadInterfacePtr {
 		return untyped __cpp__("&({0})", v);

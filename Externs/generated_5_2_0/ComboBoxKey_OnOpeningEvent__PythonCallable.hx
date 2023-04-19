@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComboBoxKey_OnOpeningEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComboBoxKey_OnOpeningEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComboBoxKey_OnOpeningEvent__PythonCallable(ComboBoxKey_OnOpeningEv
 @:forward
 @:nativeGen
 @:native("ComboBoxKey_OnOpeningEvent__PythonCallable*")
-abstract ComboBoxKey_OnOpeningEvent__PythonCallablePtr(cpp.Star<ComboBoxKey_OnOpeningEvent__PythonCallable>) from cpp.Star<ComboBoxKey_OnOpeningEvent__PythonCallable> to cpp.Star<ComboBoxKey_OnOpeningEvent__PythonCallable>{
+abstract ComboBoxKey_OnOpeningEvent__PythonCallablePtr(ucpp.Ptr<ComboBoxKey_OnOpeningEvent__PythonCallable>) from ucpp.Ptr<ComboBoxKey_OnOpeningEvent__PythonCallable> to ucpp.Ptr<ComboBoxKey_OnOpeningEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComboBoxKey_OnOpeningEvent__PythonCallable): ComboBoxKey_OnOpeningEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

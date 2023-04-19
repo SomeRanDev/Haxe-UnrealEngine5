@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UBoneReferenceSkeletonProvider")
-@:structAccess
+@:valueType
 extern class BoneReferenceSkeletonProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstBoneReferenceSkeletonProvider(BoneReferenceSkeletonProvider) from 
 @:forward
 @:nativeGen
 @:native("BoneReferenceSkeletonProvider*")
-abstract BoneReferenceSkeletonProviderPtr(cpp.Star<BoneReferenceSkeletonProvider>) from cpp.Star<BoneReferenceSkeletonProvider> to cpp.Star<BoneReferenceSkeletonProvider>{
+abstract BoneReferenceSkeletonProviderPtr(ucpp.Ptr<BoneReferenceSkeletonProvider>) from ucpp.Ptr<BoneReferenceSkeletonProvider> to ucpp.Ptr<BoneReferenceSkeletonProvider>{
 	@:from
 	public static extern inline function fromValue(v: BoneReferenceSkeletonProvider): BoneReferenceSkeletonProviderPtr {
 		return untyped __cpp__("&({0})", v);

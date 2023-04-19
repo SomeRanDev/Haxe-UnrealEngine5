@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMeshVertexPaintingToolProperties")
 @:include("MeshVertexPaintingTool.h")
-@:structAccess
+@:valueType
 extern class MeshVertexPaintingToolProperties extends BrushBaseProperties {
 	public var PaintColor: LinearColor;
 	public var EraseColor: LinearColor;
 	public var bEnableFlow: Bool;
 	public var bOnlyFrontFacingTriangles: Bool;
-	public var VertexPreviewSize: cpp.Float32;
+	public var VertexPreviewSize: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,14 +25,14 @@ abstract ConstMeshVertexPaintingToolProperties(MeshVertexPaintingToolProperties)
 	public inline extern function get_bEnableFlow(): Bool return this.bEnableFlow;
 	public extern var bOnlyFrontFacingTriangles(get, never): Bool;
 	public inline extern function get_bOnlyFrontFacingTriangles(): Bool return this.bOnlyFrontFacingTriangles;
-	public extern var VertexPreviewSize(get, never): cpp.Float32;
-	public inline extern function get_VertexPreviewSize(): cpp.Float32 return this.VertexPreviewSize;
+	public extern var VertexPreviewSize(get, never): ucpp.num.Float32;
+	public inline extern function get_VertexPreviewSize(): ucpp.num.Float32 return this.VertexPreviewSize;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshVertexPaintingToolProperties*")
-abstract MeshVertexPaintingToolPropertiesPtr(cpp.Star<MeshVertexPaintingToolProperties>) from cpp.Star<MeshVertexPaintingToolProperties> to cpp.Star<MeshVertexPaintingToolProperties>{
+abstract MeshVertexPaintingToolPropertiesPtr(ucpp.Ptr<MeshVertexPaintingToolProperties>) from ucpp.Ptr<MeshVertexPaintingToolProperties> to ucpp.Ptr<MeshVertexPaintingToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshVertexPaintingToolProperties): MeshVertexPaintingToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

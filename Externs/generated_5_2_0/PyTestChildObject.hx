@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPyTestChildObject")
 @:include("PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestChildObject extends PyTestObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPyTestChildObject(PyTestChildObject) from PyTestChildObject {
 @:forward
 @:nativeGen
 @:native("PyTestChildObject*")
-abstract PyTestChildObjectPtr(cpp.Star<PyTestChildObject>) from cpp.Star<PyTestChildObject> to cpp.Star<PyTestChildObject>{
+abstract PyTestChildObjectPtr(ucpp.Ptr<PyTestChildObject>) from ucpp.Ptr<PyTestChildObject> to ucpp.Ptr<PyTestChildObject>{
 	@:from
 	public static extern inline function fromValue(v: PyTestChildObject): PyTestChildObjectPtr {
 		return untyped __cpp__("&({0})", v);

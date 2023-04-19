@@ -3,13 +3,13 @@ package ue;
 
 @:native("ULandscapeMeshProxyComponent")
 @:include("LandscapeMeshProxyComponent.h")
-@:structAccess
+@:valueType
 extern class LandscapeMeshProxyComp extends StaticMeshComp {
 	private var LandscapeGuid: Guid;
 	private var ProxyComponentBases: TArray<IntPoint>;
-	private var ProxyLOD: cpp.Int8;
+	private var ProxyLOD: ucpp.num.Int8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLandscapeMeshProxyComp(LandscapeMeshProxyComp) from LandscapeMeshP
 @:forward
 @:nativeGen
 @:native("LandscapeMeshProxyComp*")
-abstract LandscapeMeshProxyCompPtr(cpp.Star<LandscapeMeshProxyComp>) from cpp.Star<LandscapeMeshProxyComp> to cpp.Star<LandscapeMeshProxyComp>{
+abstract LandscapeMeshProxyCompPtr(ucpp.Ptr<LandscapeMeshProxyComp>) from ucpp.Ptr<LandscapeMeshProxyComp> to ucpp.Ptr<LandscapeMeshProxyComp>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeMeshProxyComp): LandscapeMeshProxyCompPtr {
 		return untyped __cpp__("&({0})", v);

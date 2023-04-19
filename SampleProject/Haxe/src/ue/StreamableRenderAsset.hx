@@ -3,13 +3,12 @@ package ue;
 
 @:native("UStreamableRenderAsset")
 @:include("Engine/StreamableRenderAsset.h")
-@:structAccess
+@:valueType
 extern class StreamableRenderAsset extends Object {
-	@:protected public var ForceMipLevelsToBeResidentTimestamp: cpp.Float64;
-	public var NumCinematicMipLevels: cpp.Int32;
+	@:protected public var ForceMipLevelsToBeResidentTimestamp: ucpp.num.Float64;
+	public var NumCinematicMipLevels: ucpp.num.Int32;
 	@:protected public var NoRefStreamingLODBias: PerQualityLevelInt;
-	@:protected public var StreamingIndex: cpp.Int32;
-	@:protected public var CachedCombinedLODBias: cpp.Int32;
+	@:protected public var StreamingIndex: ucpp.num.Int32;
 	public var NeverStream: Bool;
 	public var bGlobalForceMipLevelsToBeResident: Bool;
 	public var bHasStreamingUpdatePending: Bool;
@@ -17,16 +16,16 @@ extern class StreamableRenderAsset extends Object {
 	public var bIgnoreStreamingMipBias: Bool;
 	@:protected public var bUseCinematicMipLevels: Bool;
 
-	public function SetForceMipLevelsToBeResident(Seconds: cpp.Float32, CinematicLODGroupMask: cpp.Int32): Void;
+	public function SetForceMipLevelsToBeResident(Seconds: ucpp.num.Float32, CinematicLODGroupMask: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstStreamableRenderAsset(StreamableRenderAsset) from StreamableRenderAsset {
-	public extern var NumCinematicMipLevels(get, never): cpp.Int32;
-	public inline extern function get_NumCinematicMipLevels(): cpp.Int32 return this.NumCinematicMipLevels;
+	public extern var NumCinematicMipLevels(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCinematicMipLevels(): ucpp.num.Int32 return this.NumCinematicMipLevels;
 	public extern var NeverStream(get, never): Bool;
 	public inline extern function get_NeverStream(): Bool return this.NeverStream;
 	public extern var bGlobalForceMipLevelsToBeResident(get, never): Bool;
@@ -42,7 +41,7 @@ abstract ConstStreamableRenderAsset(StreamableRenderAsset) from StreamableRender
 @:forward
 @:nativeGen
 @:native("StreamableRenderAsset*")
-abstract StreamableRenderAssetPtr(cpp.Star<StreamableRenderAsset>) from cpp.Star<StreamableRenderAsset> to cpp.Star<StreamableRenderAsset>{
+abstract StreamableRenderAssetPtr(ucpp.Ptr<StreamableRenderAsset>) from ucpp.Ptr<StreamableRenderAsset> to ucpp.Ptr<StreamableRenderAsset>{
 	@:from
 	public static extern inline function fromValue(v: StreamableRenderAsset): StreamableRenderAssetPtr {
 		return untyped __cpp__("&({0})", v);

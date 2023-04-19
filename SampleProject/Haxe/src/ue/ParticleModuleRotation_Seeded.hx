@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleRotation_Seeded")
 @:include("Particles/Rotation/ParticleModuleRotation_Seeded.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleRotation_Seeded extends ParticleModuleRotation {
 	public var RandomSeedInfo: ParticleRandomSeedInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleRotation_Seeded(ParticleModuleRotation_Seeded) from 
 @:forward
 @:nativeGen
 @:native("ParticleModuleRotation_Seeded*")
-abstract ParticleModuleRotation_SeededPtr(cpp.Star<ParticleModuleRotation_Seeded>) from cpp.Star<ParticleModuleRotation_Seeded> to cpp.Star<ParticleModuleRotation_Seeded>{
+abstract ParticleModuleRotation_SeededPtr(ucpp.Ptr<ParticleModuleRotation_Seeded>) from ucpp.Ptr<ParticleModuleRotation_Seeded> to ucpp.Ptr<ParticleModuleRotation_Seeded>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleRotation_Seeded): ParticleModuleRotation_SeededPtr {
 		return untyped __cpp__("&({0})", v);

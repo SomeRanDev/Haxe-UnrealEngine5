@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSequencerBoundObjects")
 @:include("SequencerTools.h")
-@:structAccess
+@:valueType
 extern class SequencerBoundObjects {
 	public var BindingProxy: MovieSceneBindingProxy;
-	public var BoundObjects: TArray<cpp.Star<Object>>;
+	public var BoundObjects: TArray<ucpp.Ptr<Object>>;
 
 	@:native("FSequencerBoundObjects") public function new();
-	@:native("FSequencerBoundObjects") public static function make(BindingProxy: MovieSceneBindingProxy, BoundObjects: TArray<cpp.Star<Object>>): SequencerBoundObjects ;
+	@:native("FSequencerBoundObjects") public static function make(BindingProxy: MovieSceneBindingProxy, BoundObjects: TArray<ucpp.Ptr<Object>>): SequencerBoundObjects ;
 }

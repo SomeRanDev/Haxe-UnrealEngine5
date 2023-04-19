@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInAppPurchaseResult2__PythonCallable")
-@:structAccess
+@:valueType
 extern class InAppPurchaseResult2__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInAppPurchaseResult2__PythonCallable(InAppPurchaseResult2__PythonC
 @:forward
 @:nativeGen
 @:native("InAppPurchaseResult2__PythonCallable*")
-abstract InAppPurchaseResult2__PythonCallablePtr(cpp.Star<InAppPurchaseResult2__PythonCallable>) from cpp.Star<InAppPurchaseResult2__PythonCallable> to cpp.Star<InAppPurchaseResult2__PythonCallable>{
+abstract InAppPurchaseResult2__PythonCallablePtr(ucpp.Ptr<InAppPurchaseResult2__PythonCallable>) from ucpp.Ptr<InAppPurchaseResult2__PythonCallable> to ucpp.Ptr<InAppPurchaseResult2__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InAppPurchaseResult2__PythonCallable): InAppPurchaseResult2__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

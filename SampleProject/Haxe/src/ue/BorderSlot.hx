@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBorderSlot")
 @:include("Components/BorderSlot.h")
-@:structAccess
+@:valueType
 extern class BorderSlot extends PanelSlot {
 	@:protected public var Padding: Margin;
 	@:protected public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
@@ -13,7 +13,7 @@ extern class BorderSlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstBorderSlot(BorderSlot) from BorderSlot {
 @:forward
 @:nativeGen
 @:native("BorderSlot*")
-abstract BorderSlotPtr(cpp.Star<BorderSlot>) from cpp.Star<BorderSlot> to cpp.Star<BorderSlot>{
+abstract BorderSlotPtr(ucpp.Ptr<BorderSlot>) from ucpp.Ptr<BorderSlot> to ucpp.Ptr<BorderSlot>{
 	@:from
 	public static extern inline function fromValue(v: BorderSlot): BorderSlotPtr {
 		return untyped __cpp__("&({0})", v);

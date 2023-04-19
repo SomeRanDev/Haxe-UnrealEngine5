@@ -3,16 +3,16 @@ package ue;
 
 @:native("UAnimNotifyState")
 @:include("Animation/AnimNotifies/AnimNotifyState.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyState extends Object {
 
-	public function Received_NotifyTick(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, FrameDeltaTime: cpp.Float32, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
-	public function Received_NotifyEnd(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
-	public function Received_NotifyBegin(MeshComp: cpp.Star<SkeletalMeshComp>, Animation: cpp.Star<AnimSequenceBase>, TotalDuration: cpp.Float32, EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
+	public function Received_NotifyTick(MeshComp: ucpp.Ptr<SkeletalMeshComp>, Animation: ucpp.Ptr<AnimSequenceBase>, FrameDeltaTime: ucpp.num.Float32, EventReference: ucpp.Ref<AnimNotifyEventReference>): Bool;
+	public function Received_NotifyEnd(MeshComp: ucpp.Ptr<SkeletalMeshComp>, Animation: ucpp.Ptr<AnimSequenceBase>, EventReference: ucpp.Ref<AnimNotifyEventReference>): Bool;
+	public function Received_NotifyBegin(MeshComp: ucpp.Ptr<SkeletalMeshComp>, Animation: ucpp.Ptr<AnimSequenceBase>, TotalDuration: ucpp.num.Float32, EventReference: ucpp.Ref<AnimNotifyEventReference>): Bool;
 	public function GetNotifyName(): FString;
-	public function GetDefaultTriggerWeightThreshold(): cpp.Float32;
+	public function GetDefaultTriggerWeightThreshold(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(Received_NotifyTick, Received_NotifyEnd, Received_NotifyBegin, GetNotifyName, GetDefaultTriggerWeightThreshold)
@@ -23,7 +23,7 @@ abstract ConstAnimNotifyState(AnimNotifyState) from AnimNotifyState {
 @:forward
 @:nativeGen
 @:native("AnimNotifyState*")
-abstract AnimNotifyStatePtr(cpp.Star<AnimNotifyState>) from cpp.Star<AnimNotifyState> to cpp.Star<AnimNotifyState>{
+abstract AnimNotifyStatePtr(ucpp.Ptr<AnimNotifyState>) from ucpp.Ptr<AnimNotifyState> to ucpp.Ptr<AnimNotifyState>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyState): AnimNotifyStatePtr {
 		return untyped __cpp__("&({0})", v);

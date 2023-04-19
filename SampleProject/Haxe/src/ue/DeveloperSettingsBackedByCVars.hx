@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDeveloperSettingsBackedByCVars")
 @:include("Engine/DeveloperSettingsBackedByCVars.h")
-@:structAccess
+@:valueType
 extern class DeveloperSettingsBackedByCVars extends DeveloperSettings {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDeveloperSettingsBackedByCVars(DeveloperSettingsBackedByCVars) fro
 @:forward
 @:nativeGen
 @:native("DeveloperSettingsBackedByCVars*")
-abstract DeveloperSettingsBackedByCVarsPtr(cpp.Star<DeveloperSettingsBackedByCVars>) from cpp.Star<DeveloperSettingsBackedByCVars> to cpp.Star<DeveloperSettingsBackedByCVars>{
+abstract DeveloperSettingsBackedByCVarsPtr(ucpp.Ptr<DeveloperSettingsBackedByCVars>) from ucpp.Ptr<DeveloperSettingsBackedByCVars> to ucpp.Ptr<DeveloperSettingsBackedByCVars>{
 	@:from
 	public static extern inline function fromValue(v: DeveloperSettingsBackedByCVars): DeveloperSettingsBackedByCVarsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimSequence")
 @:include("Animation/AnimSequence.h")
-@:structAccess
+@:valueType
 extern class AnimSequence extends AnimSequenceBase {
-	public var BoneCompressionSettings: cpp.Star<AnimBoneCompressionSettings>;
-	public var CurveCompressionSettings: cpp.Star<AnimCurveCompressionSettings>;
+	public var BoneCompressionSettings: ucpp.Ptr<AnimBoneCompressionSettings>;
+	public var CurveCompressionSettings: ucpp.Ptr<AnimCurveCompressionSettings>;
 	public var AdditiveAnimType: TEnumAsByte<EAdditiveAnimationType>;
 	public var RefPoseType: TEnumAsByte<EAdditiveBasePoseType>;
-	public var RefFrameIndex: cpp.Int32;
-	public var RefPoseSeq: cpp.Star<AnimSequence>;
+	public var RefFrameIndex: ucpp.num.Int32;
+	public var RefPoseSeq: ucpp.Ptr<AnimSequence>;
 	public var RetargetSource: FName;
 	public var RetargetSourceAssetReferencePose: TArray<Transform>;
 	public var Interpolation: EAnimInterpolationType;
@@ -21,33 +21,34 @@ extern class AnimSequence extends AnimSequenceBase {
 	public var bRootMotionSettingsCopiedFromMontage: Bool;
 	public var AuthoredSyncMarkers: TArray<AnimSyncMarker>;
 	@:protected public var TargetFrameRate: FrameRate;
+	@:protected public var PlatformTargetFrameRate: PerPlatformFrameRate;
 	@:protected public var AttributeCurves: TMap<AnimationAttributeIdentifier, AttributeCurve>;
 
-	public function RemoveCustomAttribute(BoneName: cpp.Reference<FName>, AttributeName: cpp.Reference<FName>): Void;
-	public function RemoveAllCustomAttributesForBone(BoneName: cpp.Reference<FName>): Void;
+	public function RemoveCustomAttribute(BoneName: ucpp.Ref<FName>, AttributeName: ucpp.Ref<FName>): Void;
+	public function RemoveAllCustomAttributesForBone(BoneName: ucpp.Ref<FName>): Void;
 	public function RemoveAllCustomAttributes(): Void;
-	public function AddBoneStringCustomAttribute(BoneName: cpp.Reference<FName>, AttributeName: cpp.Reference<FName>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, ValueKeys: cpp.Reference<TArray<FString>>): Void;
-	public function AddBoneIntegerCustomAttribute(BoneName: cpp.Reference<FName>, AttributeName: cpp.Reference<FName>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, ValueKeys: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function AddBoneFloatCustomAttribute(BoneName: cpp.Reference<FName>, AttributeName: cpp.Reference<FName>, TimeKeys: cpp.Reference<TArray<cpp.Float32>>, ValueKeys: cpp.Reference<TArray<cpp.Float32>>): Void;
+	public function AddBoneStringCustomAttribute(BoneName: ucpp.Ref<FName>, AttributeName: ucpp.Ref<FName>, TimeKeys: ucpp.Ref<TArray<ucpp.num.Float32>>, ValueKeys: ucpp.Ref<TArray<FString>>): Void;
+	public function AddBoneIntegerCustomAttribute(BoneName: ucpp.Ref<FName>, AttributeName: ucpp.Ref<FName>, TimeKeys: ucpp.Ref<TArray<ucpp.num.Float32>>, ValueKeys: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function AddBoneFloatCustomAttribute(BoneName: ucpp.Ref<FName>, AttributeName: ucpp.Ref<FName>, TimeKeys: ucpp.Ref<TArray<ucpp.num.Float32>>, ValueKeys: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimSequence(AnimSequence) from AnimSequence {
-	public extern var BoneCompressionSettings(get, never): cpp.Star<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings>;
-	public inline extern function get_BoneCompressionSettings(): cpp.Star<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings> return this.BoneCompressionSettings;
-	public extern var CurveCompressionSettings(get, never): cpp.Star<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings>;
-	public inline extern function get_CurveCompressionSettings(): cpp.Star<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings> return this.CurveCompressionSettings;
+	public extern var BoneCompressionSettings(get, never): ucpp.Ptr<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings>;
+	public inline extern function get_BoneCompressionSettings(): ucpp.Ptr<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings> return this.BoneCompressionSettings;
+	public extern var CurveCompressionSettings(get, never): ucpp.Ptr<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings>;
+	public inline extern function get_CurveCompressionSettings(): ucpp.Ptr<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings> return this.CurveCompressionSettings;
 	public extern var AdditiveAnimType(get, never): TEnumAsByte<EAdditiveAnimationType>;
 	public inline extern function get_AdditiveAnimType(): TEnumAsByte<EAdditiveAnimationType> return this.AdditiveAnimType;
 	public extern var RefPoseType(get, never): TEnumAsByte<EAdditiveBasePoseType>;
 	public inline extern function get_RefPoseType(): TEnumAsByte<EAdditiveBasePoseType> return this.RefPoseType;
-	public extern var RefFrameIndex(get, never): cpp.Int32;
-	public inline extern function get_RefFrameIndex(): cpp.Int32 return this.RefFrameIndex;
-	public extern var RefPoseSeq(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_RefPoseSeq(): cpp.Star<AnimSequence.ConstAnimSequence> return this.RefPoseSeq;
+	public extern var RefFrameIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_RefFrameIndex(): ucpp.num.Int32 return this.RefFrameIndex;
+	public extern var RefPoseSeq(get, never): ucpp.Ptr<AnimSequence.ConstAnimSequence>;
+	public inline extern function get_RefPoseSeq(): ucpp.Ptr<AnimSequence.ConstAnimSequence> return this.RefPoseSeq;
 	public extern var RetargetSource(get, never): FName;
 	public inline extern function get_RetargetSource(): FName return this.RetargetSource;
 	public extern var RetargetSourceAssetReferencePose(get, never): TArray<Transform>;
@@ -71,7 +72,7 @@ abstract ConstAnimSequence(AnimSequence) from AnimSequence {
 @:forward
 @:nativeGen
 @:native("AnimSequence*")
-abstract AnimSequencePtr(cpp.Star<AnimSequence>) from cpp.Star<AnimSequence> to cpp.Star<AnimSequence>{
+abstract AnimSequencePtr(ucpp.Ptr<AnimSequence>) from ucpp.Ptr<AnimSequence> to ucpp.Ptr<AnimSequence>{
 	@:from
 	public static extern inline function fromValue(v: AnimSequence): AnimSequencePtr {
 		return untyped __cpp__("&({0})", v);

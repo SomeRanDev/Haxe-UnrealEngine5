@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBoneReferencePair")
 @:include("CopyBonesModifier.h")
-@:structAccess
+@:valueType
 extern class BoneReferencePair {
 	public var SourceBone: BoneReference;
 	public var TargetBone: BoneReference;

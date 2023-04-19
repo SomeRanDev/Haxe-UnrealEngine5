@@ -3,7 +3,7 @@ package ue;
 
 @:native("UHistogramSettings")
 @:include("SGeometryCollectionHistogram.h")
-@:structAccess
+@:valueType
 extern class HistogramSettings extends Object {
 	public var InspectedAttribute: EInspectedAttributeEnum;
 	public var bSorted: Bool;
@@ -11,7 +11,7 @@ extern class HistogramSettings extends Object {
 	public var bShowRigids: Bool;
 	public var bShowEmbedded: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstHistogramSettings(HistogramSettings) from HistogramSettings {
 @:forward
 @:nativeGen
 @:native("HistogramSettings*")
-abstract HistogramSettingsPtr(cpp.Star<HistogramSettings>) from cpp.Star<HistogramSettings> to cpp.Star<HistogramSettings>{
+abstract HistogramSettingsPtr(ucpp.Ptr<HistogramSettings>) from ucpp.Ptr<HistogramSettings> to ucpp.Ptr<HistogramSettings>{
 	@:from
 	public static extern inline function fromValue(v: HistogramSettings): HistogramSettingsPtr {
 		return untyped __cpp__("&({0})", v);

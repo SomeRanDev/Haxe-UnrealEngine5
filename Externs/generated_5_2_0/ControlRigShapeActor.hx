@@ -3,11 +3,11 @@ package ue;
 
 @:native("AControlRigShapeActor")
 @:include("ControlRigGizmoActor.h")
-@:structAccess
+@:valueType
 extern class ControlRigShapeActor extends Actor {
-	public var ActorRootComponent: cpp.Star<SceneComp>;
-	public var StaticMeshComponent: cpp.Star<StaticMeshComp>;
-	public var ControlRigIndex: cpp.UInt32;
+	public var ActorRootComponent: ucpp.Ptr<SceneComp>;
+	public var StaticMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	public var ControlRigIndex: ucpp.num.UInt32;
 	public var ControlRig: TWeakObjectPtr<ControlRig>;
 	public var ControlName: FName;
 	public var ShapeName: FName;
@@ -18,9 +18,9 @@ extern class ControlRigShapeActor extends Actor {
 	public function SetHovered(input: Bool): Void;
 
 	public function SetSelectable(bInSelectable: Bool): Void;
-	public function SetGlobalTransform(InTransform: cpp.Reference<Transform>): Void;
+	public function SetGlobalTransform(InTransform: ucpp.Ref<Transform>): Void;
 	public function SetEnabled(bInEnabled: Bool): Void;
-	public function OnTransformChanged(NewTransform: cpp.Reference<Transform>): Void;
+	public function OnTransformChanged(NewTransform: ucpp.Ref<Transform>): Void;
 	public function OnSelectionChanged(bIsSelected: Bool): Void;
 	public function OnManipulatingChanged(bIsManipulating: Bool): Void;
 	public function OnHoveredChanged(bIsSelected: Bool): Void;
@@ -28,18 +28,18 @@ extern class ControlRigShapeActor extends Actor {
 	public function IsEnabled(): Bool;
 	public function GetGlobalTransform(): Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsEnabled, GetGlobalTransform)
 @:nativeGen
 abstract ConstControlRigShapeActor(ControlRigShapeActor) from ControlRigShapeActor {
-	public extern var ActorRootComponent(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_ActorRootComponent(): cpp.Star<SceneComp.ConstSceneComp> return this.ActorRootComponent;
-	public extern var StaticMeshComponent(get, never): cpp.Star<StaticMeshComp.ConstStaticMeshComp>;
-	public inline extern function get_StaticMeshComponent(): cpp.Star<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
-	public extern var ControlRigIndex(get, never): cpp.UInt32;
-	public inline extern function get_ControlRigIndex(): cpp.UInt32 return this.ControlRigIndex;
+	public extern var ActorRootComponent(get, never): ucpp.Ptr<SceneComp.ConstSceneComp>;
+	public inline extern function get_ActorRootComponent(): ucpp.Ptr<SceneComp.ConstSceneComp> return this.ActorRootComponent;
+	public extern var StaticMeshComponent(get, never): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp>;
+	public inline extern function get_StaticMeshComponent(): ucpp.Ptr<StaticMeshComp.ConstStaticMeshComp> return this.StaticMeshComponent;
+	public extern var ControlRigIndex(get, never): ucpp.num.UInt32;
+	public inline extern function get_ControlRigIndex(): ucpp.num.UInt32 return this.ControlRigIndex;
 	public extern var ControlRig(get, never): TWeakObjectPtr<ControlRig.ConstControlRig>;
 	public inline extern function get_ControlRig(): TWeakObjectPtr<ControlRig.ConstControlRig> return this.ControlRig;
 	public extern var ControlName(get, never): FName;
@@ -53,7 +53,7 @@ abstract ConstControlRigShapeActor(ControlRigShapeActor) from ControlRigShapeAct
 @:forward
 @:nativeGen
 @:native("ControlRigShapeActor*")
-abstract ControlRigShapeActorPtr(cpp.Star<ControlRigShapeActor>) from cpp.Star<ControlRigShapeActor> to cpp.Star<ControlRigShapeActor>{
+abstract ControlRigShapeActorPtr(ucpp.Ptr<ControlRigShapeActor>) from ucpp.Ptr<ControlRigShapeActor> to ucpp.Ptr<ControlRigShapeActor>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigShapeActor): ControlRigShapeActorPtr {
 		return untyped __cpp__("&({0})", v);

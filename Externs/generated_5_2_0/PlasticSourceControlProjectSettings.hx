@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPlasticSourceControlProjectSettings")
 @:include("PlasticSourceControlProjectSettings.h")
-@:structAccess
+@:valueType
 extern class PlasticSourceControlProjectSettings extends DeveloperSettings {
 	public var UserNameToDisplayName: TMap<FString, FString>;
 	public var bHideEmailDomainInUsername: Bool;
 	public var bPromptForCheckoutOnChange: Bool;
-	public var LimitNumberOfRevisionsInHistory: cpp.Int32;
+	public var LimitNumberOfRevisionsInHistory: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstPlasticSourceControlProjectSettings(PlasticSourceControlProjectSet
 	public inline extern function get_bHideEmailDomainInUsername(): Bool return this.bHideEmailDomainInUsername;
 	public extern var bPromptForCheckoutOnChange(get, never): Bool;
 	public inline extern function get_bPromptForCheckoutOnChange(): Bool return this.bPromptForCheckoutOnChange;
-	public extern var LimitNumberOfRevisionsInHistory(get, never): cpp.Int32;
-	public inline extern function get_LimitNumberOfRevisionsInHistory(): cpp.Int32 return this.LimitNumberOfRevisionsInHistory;
+	public extern var LimitNumberOfRevisionsInHistory(get, never): ucpp.num.Int32;
+	public inline extern function get_LimitNumberOfRevisionsInHistory(): ucpp.num.Int32 return this.LimitNumberOfRevisionsInHistory;
 }
 
 @:forward
 @:nativeGen
 @:native("PlasticSourceControlProjectSettings*")
-abstract PlasticSourceControlProjectSettingsPtr(cpp.Star<PlasticSourceControlProjectSettings>) from cpp.Star<PlasticSourceControlProjectSettings> to cpp.Star<PlasticSourceControlProjectSettings>{
+abstract PlasticSourceControlProjectSettingsPtr(ucpp.Ptr<PlasticSourceControlProjectSettings>) from ucpp.Ptr<PlasticSourceControlProjectSettings> to ucpp.Ptr<PlasticSourceControlProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: PlasticSourceControlProjectSettings): PlasticSourceControlProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

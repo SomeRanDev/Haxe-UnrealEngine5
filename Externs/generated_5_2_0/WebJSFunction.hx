@@ -3,7 +3,7 @@ package ue;
 
 @:native("FWebJSFunction")
 @:include("WebJSFunction.h")
-@:structAccess
+@:valueType
 extern class WebJSFunction extends WebJSCallbackBase {
 	@:native("FWebJSFunction") public function new();
 }

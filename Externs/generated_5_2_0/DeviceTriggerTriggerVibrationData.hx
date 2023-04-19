@@ -3,12 +3,12 @@ package ue;
 
 @:native("FDeviceTriggerTriggerVibrationData")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class DeviceTriggerTriggerVibrationData {
-	public var TriggerPositionCurve: cpp.Star<CurveFloat>;
-	public var VibrationFrequencyCurve: cpp.Star<CurveFloat>;
-	public var VibrationAmplitudeCurve: cpp.Star<CurveFloat>;
+	public var TriggerPositionCurve: ucpp.Ptr<CurveFloat>;
+	public var VibrationFrequencyCurve: ucpp.Ptr<CurveFloat>;
+	public var VibrationAmplitudeCurve: ucpp.Ptr<CurveFloat>;
 
 	@:native("FDeviceTriggerTriggerVibrationData") public function new();
-	@:native("FDeviceTriggerTriggerVibrationData") public static function make(TriggerPositionCurve: cpp.Star<CurveFloat>, VibrationFrequencyCurve: cpp.Star<CurveFloat>, VibrationAmplitudeCurve: cpp.Star<CurveFloat>): DeviceTriggerTriggerVibrationData ;
+	@:native("FDeviceTriggerTriggerVibrationData") public static function make(TriggerPositionCurve: ucpp.Ptr<CurveFloat>, VibrationFrequencyCurve: ucpp.Ptr<CurveFloat>, VibrationAmplitudeCurve: ucpp.Ptr<CurveFloat>): DeviceTriggerTriggerVibrationData ;
 }

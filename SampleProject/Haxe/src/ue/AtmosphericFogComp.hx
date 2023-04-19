@@ -3,23 +3,23 @@ package ue;
 
 @:native("UAtmosphericFogComponent")
 @:include("Atmosphere/AtmosphericFogComponent.h")
-@:structAccess
+@:valueType
 extern class AtmosphericFogComp extends SkyAtmosphereComp {
-	public function SetSunMultiplier(NewSunMultiplier: cpp.Float32): Void;
-	public function SetStartDistance(NewStartDistance: cpp.Float32): Void;
-	public function SetPrecomputeParams(DensityHeight: cpp.Float32, MaxScatteringOrder: cpp.Int32, InscatterAltitudeSampleNum: cpp.Int32): Void;
-	public function SetFogMultiplier(NewFogMultiplier: cpp.Float32): Void;
-	public function SetDistanceScale(NewDistanceScale: cpp.Float32): Void;
-	public function SetDistanceOffset(NewDistanceOffset: cpp.Float32): Void;
-	public function SetDensityOffset(NewDensityOffset: cpp.Float32): Void;
-	public function SetDensityMultiplier(NewDensityMultiplier: cpp.Float32): Void;
+	public function SetSunMultiplier(NewSunMultiplier: ucpp.num.Float32): Void;
+	public function SetStartDistance(NewStartDistance: ucpp.num.Float32): Void;
+	public function SetPrecomputeParams(DensityHeight: ucpp.num.Float32, MaxScatteringOrder: ucpp.num.Int32, InscatterAltitudeSampleNum: ucpp.num.Int32): Void;
+	public function SetFogMultiplier(NewFogMultiplier: ucpp.num.Float32): Void;
+	public function SetDistanceScale(NewDistanceScale: ucpp.num.Float32): Void;
+	public function SetDistanceOffset(NewDistanceOffset: ucpp.num.Float32): Void;
+	public function SetDensityOffset(NewDensityOffset: ucpp.num.Float32): Void;
+	public function SetDensityMultiplier(NewDensityMultiplier: ucpp.num.Float32): Void;
 	public function SetDefaultLightColor(NewLightColor: LinearColor): Void;
-	public function SetDefaultBrightness(NewBrightness: cpp.Float32): Void;
-	public function SetAltitudeScale(NewAltitudeScale: cpp.Float32): Void;
+	public function SetDefaultBrightness(NewBrightness: ucpp.num.Float32): Void;
+	public function SetAltitudeScale(NewAltitudeScale: ucpp.num.Float32): Void;
 	public function DisableSunDisk(NewSunDisk: Bool): Void;
 	public function DisableGroundScattering(NewGroundScattering: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstAtmosphericFogComp(AtmosphericFogComp) from AtmosphericFogComp {
 @:forward
 @:nativeGen
 @:native("AtmosphericFogComp*")
-abstract AtmosphericFogCompPtr(cpp.Star<AtmosphericFogComp>) from cpp.Star<AtmosphericFogComp> to cpp.Star<AtmosphericFogComp>{
+abstract AtmosphericFogCompPtr(ucpp.Ptr<AtmosphericFogComp>) from ucpp.Ptr<AtmosphericFogComp> to ucpp.Ptr<AtmosphericFogComp>{
 	@:from
 	public static extern inline function fromValue(v: AtmosphericFogComp): AtmosphericFogCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionHairAttributes")
 @:include("Materials/MaterialExpressionHairAttributes.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionHairAttributes extends MaterialExpression {
 	public var bUseTangentSpace: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionHairAttributes(MaterialExpressionHairAttributes)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionHairAttributes*")
-abstract MaterialExpressionHairAttributesPtr(cpp.Star<MaterialExpressionHairAttributes>) from cpp.Star<MaterialExpressionHairAttributes> to cpp.Star<MaterialExpressionHairAttributes>{
+abstract MaterialExpressionHairAttributesPtr(ucpp.Ptr<MaterialExpressionHairAttributes>) from ucpp.Ptr<MaterialExpressionHairAttributes> to ucpp.Ptr<MaterialExpressionHairAttributes>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionHairAttributes): MaterialExpressionHairAttributesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,26 +3,26 @@ package ue;
 
 @:native("UNiagaraClipboardEditorScriptingUtilities")
 @:include("NiagaraClipboard.h")
-@:structAccess
+@:valueType
 extern class NiagaraClipboardEditorScriptingUtilities extends Object {
-	public function TrySetLocalValueAsInt(InInput: cpp.Star<NiagaraClipboardFunctionInput>, bOutSucceeded: cpp.Reference<Bool>, InValue: cpp.Int32, bLooseTyping: Bool): Void;
-	public function TryGetLocalValueAsInt(InInput: cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>, bOutSucceeded: cpp.Reference<Bool>, OutValue: cpp.Reference<cpp.Int32>): Void;
-	public function TryGetLocalValueAsFloat(InInput: cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>, bOutSucceeded: cpp.Reference<Bool>, OutValue: cpp.Reference<cpp.Float32>): Void;
-	public function TryGetInputByName(InInputs: cpp.Reference<TArray<cpp.Star<NiagaraClipboardFunctionInput>>>, InInputName: FName, bOutSucceeded: cpp.Reference<Bool>, OutInput: cpp.Reference<cpp.Star<NiagaraClipboardFunctionInput>>): Void;
-	public function GetTypeName(InInput: cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>): FName;
-	public function CreateVec3LocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InVec3Value: Vector): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateVec2LocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InVec2Value: Vector2D): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateStructLocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InStructValue: cpp.Star<UserDefinedStruct>): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateLinkedValueInput(InOuter: cpp.Star<Object>, InInputName: FName, InInputTypeName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InLinkedValue: FName): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateIntLocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InLocalValue: cpp.Int32): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateFloatLocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InLocalValue: cpp.Float32): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateExpressionValueInput(InOuter: cpp.Star<Object>, InInputName: FName, InInputTypeName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InExpressionValue: FString): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateEnumLocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditCoditionValue: Bool, InEnumType: cpp.Star<UserDefinedEnum>, InEnumValue: cpp.Int32): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateDynamicValueInput(InOuter: cpp.Star<Object>, InInputName: FName, InInputTypeName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InDynamicValueName: FString, InDynamicValue: cpp.Star<NiagaraScript>): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateDataValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InDataValue: cpp.Star<NiagaraDataInterface>): cpp.Star<NiagaraClipboardFunctionInput>;
-	public function CreateBoolLocalValueInput(InOuter: cpp.Star<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InBoolValue: Bool): cpp.Star<NiagaraClipboardFunctionInput>;
+	public function TrySetLocalValueAsInt(InInput: ucpp.Ptr<NiagaraClipboardFunctionInput>, bOutSucceeded: ucpp.Ref<Bool>, InValue: ucpp.num.Int32, bLooseTyping: Bool): Void;
+	public function TryGetLocalValueAsInt(InInput: ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>, bOutSucceeded: ucpp.Ref<Bool>, OutValue: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function TryGetLocalValueAsFloat(InInput: ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>, bOutSucceeded: ucpp.Ref<Bool>, OutValue: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function TryGetInputByName(InInputs: ucpp.Ref<TArray<ucpp.Ptr<NiagaraClipboardFunctionInput>>>, InInputName: FName, bOutSucceeded: ucpp.Ref<Bool>, OutInput: ucpp.Ref<ucpp.Ptr<NiagaraClipboardFunctionInput>>): Void;
+	public function GetTypeName(InInput: ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>): FName;
+	public function CreateVec3LocalValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InVec3Value: Vector): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateVec2LocalValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InVec2Value: Vector2D): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateStructLocalValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InStructValue: ucpp.Ptr<UserDefinedStruct>): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateLinkedValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, InInputTypeName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InLinkedValue: FName): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateIntLocalValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InLocalValue: ucpp.num.Int32): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateFloatLocalValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InLocalValue: ucpp.num.Float32): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateExpressionValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, InInputTypeName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InExpressionValue: FString): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateEnumLocalValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditCoditionValue: Bool, InEnumType: ucpp.Ptr<UserDefinedEnum>, InEnumValue: ucpp.num.Int32): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateDynamicValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, InInputTypeName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InDynamicValueName: FString, InDynamicValue: ucpp.Ptr<NiagaraScript>): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateDataValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InDataValue: ucpp.Ptr<NiagaraDataInterface>): ucpp.Ptr<NiagaraClipboardFunctionInput>;
+	public function CreateBoolLocalValueInput(InOuter: ucpp.Ptr<Object>, InInputName: FName, bInHasEditCondition: Bool, bInEditConditionValue: Bool, InBoolValue: Bool): ucpp.Ptr<NiagaraClipboardFunctionInput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,7 +33,7 @@ abstract ConstNiagaraClipboardEditorScriptingUtilities(NiagaraClipboardEditorScr
 @:forward
 @:nativeGen
 @:native("NiagaraClipboardEditorScriptingUtilities*")
-abstract NiagaraClipboardEditorScriptingUtilitiesPtr(cpp.Star<NiagaraClipboardEditorScriptingUtilities>) from cpp.Star<NiagaraClipboardEditorScriptingUtilities> to cpp.Star<NiagaraClipboardEditorScriptingUtilities>{
+abstract NiagaraClipboardEditorScriptingUtilitiesPtr(ucpp.Ptr<NiagaraClipboardEditorScriptingUtilities>) from ucpp.Ptr<NiagaraClipboardEditorScriptingUtilities> to ucpp.Ptr<NiagaraClipboardEditorScriptingUtilities>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraClipboardEditorScriptingUtilities): NiagaraClipboardEditorScriptingUtilitiesPtr {
 		return untyped __cpp__("&({0})", v);

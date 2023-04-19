@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMetasoundEditorGraphMemberDefaultLiteral")
 @:include("MetasoundEditorGraph.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorGraphMemberDefaultLiteral extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMetasoundEditorGraphMemberDefaultLiteral(MetasoundEditorGraphMembe
 @:forward
 @:nativeGen
 @:native("MetasoundEditorGraphMemberDefaultLiteral*")
-abstract MetasoundEditorGraphMemberDefaultLiteralPtr(cpp.Star<MetasoundEditorGraphMemberDefaultLiteral>) from cpp.Star<MetasoundEditorGraphMemberDefaultLiteral> to cpp.Star<MetasoundEditorGraphMemberDefaultLiteral>{
+abstract MetasoundEditorGraphMemberDefaultLiteralPtr(ucpp.Ptr<MetasoundEditorGraphMemberDefaultLiteral>) from ucpp.Ptr<MetasoundEditorGraphMemberDefaultLiteral> to ucpp.Ptr<MetasoundEditorGraphMemberDefaultLiteral>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundEditorGraphMemberDefaultLiteral): MetasoundEditorGraphMemberDefaultLiteralPtr {
 		return untyped __cpp__("&({0})", v);

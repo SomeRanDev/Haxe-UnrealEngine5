@@ -3,33 +3,33 @@ package ue;
 
 @:native("UKelvinBrushProperties")
 @:include("Sculpting/MeshSculptToolBase.h")
-@:structAccess
+@:valueType
 extern class KelvinBrushProperties extends InteractiveToolPropertySet {
-	public var FallOffDistance: cpp.Float32;
-	public var Stiffness: cpp.Float32;
-	public var Incompressiblity: cpp.Float32;
-	public var BrushSteps: cpp.Int32;
+	public var FallOffDistance: ucpp.num.Float32;
+	public var Stiffness: ucpp.num.Float32;
+	public var Incompressiblity: ucpp.num.Float32;
+	public var BrushSteps: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstKelvinBrushProperties(KelvinBrushProperties) from KelvinBrushProperties {
-	public extern var FallOffDistance(get, never): cpp.Float32;
-	public inline extern function get_FallOffDistance(): cpp.Float32 return this.FallOffDistance;
-	public extern var Stiffness(get, never): cpp.Float32;
-	public inline extern function get_Stiffness(): cpp.Float32 return this.Stiffness;
-	public extern var Incompressiblity(get, never): cpp.Float32;
-	public inline extern function get_Incompressiblity(): cpp.Float32 return this.Incompressiblity;
-	public extern var BrushSteps(get, never): cpp.Int32;
-	public inline extern function get_BrushSteps(): cpp.Int32 return this.BrushSteps;
+	public extern var FallOffDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_FallOffDistance(): ucpp.num.Float32 return this.FallOffDistance;
+	public extern var Stiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_Stiffness(): ucpp.num.Float32 return this.Stiffness;
+	public extern var Incompressiblity(get, never): ucpp.num.Float32;
+	public inline extern function get_Incompressiblity(): ucpp.num.Float32 return this.Incompressiblity;
+	public extern var BrushSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_BrushSteps(): ucpp.num.Int32 return this.BrushSteps;
 }
 
 @:forward
 @:nativeGen
 @:native("KelvinBrushProperties*")
-abstract KelvinBrushPropertiesPtr(cpp.Star<KelvinBrushProperties>) from cpp.Star<KelvinBrushProperties> to cpp.Star<KelvinBrushProperties>{
+abstract KelvinBrushPropertiesPtr(ucpp.Ptr<KelvinBrushProperties>) from ucpp.Ptr<KelvinBrushProperties> to ucpp.Ptr<KelvinBrushProperties>{
 	@:from
 	public static extern inline function fromValue(v: KelvinBrushProperties): KelvinBrushPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

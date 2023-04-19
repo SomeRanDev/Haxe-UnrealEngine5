@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditUVIslandsToolBuilder")
 @:include("EditUVIslandsTool.h")
-@:structAccess
+@:valueType
 extern class EditUVIslandsToolBuilder extends MeshSurfacePointMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditUVIslandsToolBuilder(EditUVIslandsToolBuilder) from EditUVIsla
 @:forward
 @:nativeGen
 @:native("EditUVIslandsToolBuilder*")
-abstract EditUVIslandsToolBuilderPtr(cpp.Star<EditUVIslandsToolBuilder>) from cpp.Star<EditUVIslandsToolBuilder> to cpp.Star<EditUVIslandsToolBuilder>{
+abstract EditUVIslandsToolBuilderPtr(ucpp.Ptr<EditUVIslandsToolBuilder>) from ucpp.Ptr<EditUVIslandsToolBuilder> to ucpp.Ptr<EditUVIslandsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: EditUVIslandsToolBuilder): EditUVIslandsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

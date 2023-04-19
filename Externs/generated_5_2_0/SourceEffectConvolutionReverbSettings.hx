@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSourceEffectConvolutionReverbSettings")
 @:include("SourceEffects/SourceEffectConvolutionReverb.h")
-@:structAccess
+@:valueType
 extern class SourceEffectConvolutionReverbSettings {
-	public var NormalizationVolumeDb: cpp.Float32;
-	public var WetVolumeDb: cpp.Float32;
-	public var DryVolumeDb: cpp.Float32;
+	public var NormalizationVolumeDb: ucpp.num.Float32;
+	public var WetVolumeDb: ucpp.num.Float32;
+	public var DryVolumeDb: ucpp.num.Float32;
 	public var bBypass: Bool;
 
 	@:native("FSourceEffectConvolutionReverbSettings") public function new();
-	@:native("FSourceEffectConvolutionReverbSettings") public static function make(NormalizationVolumeDb: cpp.Float32, WetVolumeDb: cpp.Float32, DryVolumeDb: cpp.Float32, bBypass: Bool): SourceEffectConvolutionReverbSettings ;
+	@:native("FSourceEffectConvolutionReverbSettings") public static function make(NormalizationVolumeDb: ucpp.num.Float32, WetVolumeDb: ucpp.num.Float32, DryVolumeDb: ucpp.num.Float32, bBypass: Bool): SourceEffectConvolutionReverbSettings ;
 }

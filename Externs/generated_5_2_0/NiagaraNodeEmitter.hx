@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraNodeEmitter")
 @:include("NiagaraNodeEmitter.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeEmitter extends NiagaraNodeWithDynamicPins {
-	private var OwnerSystem: cpp.Star<NiagaraSystem>;
+	private var OwnerSystem: ucpp.Ptr<NiagaraSystem>;
 	private var EmitterHandleId: Guid;
 	private var DisplayName: FText;
 	private var ScriptType: ENiagaraScriptUsage;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstNiagaraNodeEmitter(NiagaraNodeEmitter) from NiagaraNodeEmitter {
 @:forward
 @:nativeGen
 @:native("NiagaraNodeEmitter*")
-abstract NiagaraNodeEmitterPtr(cpp.Star<NiagaraNodeEmitter>) from cpp.Star<NiagaraNodeEmitter> to cpp.Star<NiagaraNodeEmitter>{
+abstract NiagaraNodeEmitterPtr(ucpp.Ptr<NiagaraNodeEmitter>) from ucpp.Ptr<NiagaraNodeEmitter> to ucpp.Ptr<NiagaraNodeEmitter>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeEmitter): NiagaraNodeEmitterPtr {
 		return untyped __cpp__("&({0})", v);

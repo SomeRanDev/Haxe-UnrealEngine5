@@ -3,36 +3,36 @@ package ue;
 
 @:native("USequenceCameraShakePattern")
 @:include("SequenceCameraShake.h")
-@:structAccess
+@:valueType
 extern class SequenceCameraShakePattern extends CameraShakePattern {
-	public var Sequence: cpp.Star<CameraAnimationSequence>;
-	public var PlayRate: cpp.Float32;
-	public var Scale: cpp.Float32;
-	public var BlendInTime: cpp.Float32;
-	public var BlendOutTime: cpp.Float32;
-	public var RandomSegmentDuration: cpp.Float32;
+	public var Sequence: ucpp.Ptr<CameraAnimationSequence>;
+	public var PlayRate: ucpp.num.Float32;
+	public var Scale: ucpp.num.Float32;
+	public var BlendInTime: ucpp.num.Float32;
+	public var BlendOutTime: ucpp.num.Float32;
+	public var RandomSegmentDuration: ucpp.num.Float32;
 	public var bRandomSegment: Bool;
-	private var Player: cpp.Star<CameraAnimationSequencePlayer>;
-	private var CameraStandIn: cpp.Star<CameraAnimationSequenceCameraStandIn>;
+	private var Player: ucpp.Ptr<CameraAnimationSequencePlayer>;
+	private var CameraStandIn: ucpp.Ptr<CameraAnimationSequenceCameraStandIn>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSequenceCameraShakePattern(SequenceCameraShakePattern) from SequenceCameraShakePattern {
-	public extern var Sequence(get, never): cpp.Star<CameraAnimationSequence.ConstCameraAnimationSequence>;
-	public inline extern function get_Sequence(): cpp.Star<CameraAnimationSequence.ConstCameraAnimationSequence> return this.Sequence;
-	public extern var PlayRate(get, never): cpp.Float32;
-	public inline extern function get_PlayRate(): cpp.Float32 return this.PlayRate;
-	public extern var Scale(get, never): cpp.Float32;
-	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
-	public extern var BlendInTime(get, never): cpp.Float32;
-	public inline extern function get_BlendInTime(): cpp.Float32 return this.BlendInTime;
-	public extern var BlendOutTime(get, never): cpp.Float32;
-	public inline extern function get_BlendOutTime(): cpp.Float32 return this.BlendOutTime;
-	public extern var RandomSegmentDuration(get, never): cpp.Float32;
-	public inline extern function get_RandomSegmentDuration(): cpp.Float32 return this.RandomSegmentDuration;
+	public extern var Sequence(get, never): ucpp.Ptr<CameraAnimationSequence.ConstCameraAnimationSequence>;
+	public inline extern function get_Sequence(): ucpp.Ptr<CameraAnimationSequence.ConstCameraAnimationSequence> return this.Sequence;
+	public extern var PlayRate(get, never): ucpp.num.Float32;
+	public inline extern function get_PlayRate(): ucpp.num.Float32 return this.PlayRate;
+	public extern var Scale(get, never): ucpp.num.Float32;
+	public inline extern function get_Scale(): ucpp.num.Float32 return this.Scale;
+	public extern var BlendInTime(get, never): ucpp.num.Float32;
+	public inline extern function get_BlendInTime(): ucpp.num.Float32 return this.BlendInTime;
+	public extern var BlendOutTime(get, never): ucpp.num.Float32;
+	public inline extern function get_BlendOutTime(): ucpp.num.Float32 return this.BlendOutTime;
+	public extern var RandomSegmentDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_RandomSegmentDuration(): ucpp.num.Float32 return this.RandomSegmentDuration;
 	public extern var bRandomSegment(get, never): Bool;
 	public inline extern function get_bRandomSegment(): Bool return this.bRandomSegment;
 }
@@ -40,7 +40,7 @@ abstract ConstSequenceCameraShakePattern(SequenceCameraShakePattern) from Sequen
 @:forward
 @:nativeGen
 @:native("SequenceCameraShakePattern*")
-abstract SequenceCameraShakePatternPtr(cpp.Star<SequenceCameraShakePattern>) from cpp.Star<SequenceCameraShakePattern> to cpp.Star<SequenceCameraShakePattern>{
+abstract SequenceCameraShakePatternPtr(ucpp.Ptr<SequenceCameraShakePattern>) from ucpp.Ptr<SequenceCameraShakePattern> to ucpp.Ptr<SequenceCameraShakePattern>{
 	@:from
 	public static extern inline function fromValue(v: SequenceCameraShakePattern): SequenceCameraShakePatternPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTransformableComponentHandle")
 @:include("TransformableHandle.h")
-@:structAccess
+@:valueType
 extern class TransformableComponentHandle extends TransformableHandle {
 	public var Component: TWeakObjectPtr<SceneComp>;
 	public var SocketName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstTransformableComponentHandle(TransformableComponentHandle) from Tr
 @:forward
 @:nativeGen
 @:native("TransformableComponentHandle*")
-abstract TransformableComponentHandlePtr(cpp.Star<TransformableComponentHandle>) from cpp.Star<TransformableComponentHandle> to cpp.Star<TransformableComponentHandle>{
+abstract TransformableComponentHandlePtr(ucpp.Ptr<TransformableComponentHandle>) from ucpp.Ptr<TransformableComponentHandle> to ucpp.Ptr<TransformableComponentHandle>{
 	@:from
 	public static extern inline function fromValue(v: TransformableComponentHandle): TransformableComponentHandlePtr {
 		return untyped __cpp__("&({0})", v);

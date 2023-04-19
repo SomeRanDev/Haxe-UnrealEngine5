@@ -3,34 +3,34 @@ package ue;
 
 @:native("UFloatingPawnMovement")
 @:include("GameFramework/FloatingPawnMovement.h")
-@:structAccess
+@:valueType
 extern class FloatingPawnMovement extends PawnMovementComp {
-	public var MaxSpeed: cpp.Float32;
-	public var Acceleration: cpp.Float32;
-	public var Deceleration: cpp.Float32;
-	public var TurningBoost: cpp.Float32;
+	public var MaxSpeed: ucpp.num.Float32;
+	public var Acceleration: ucpp.num.Float32;
+	public var Deceleration: ucpp.num.Float32;
+	public var TurningBoost: ucpp.num.Float32;
 	@:protected public var bPositionCorrected: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFloatingPawnMovement(FloatingPawnMovement) from FloatingPawnMovement {
-	public extern var MaxSpeed(get, never): cpp.Float32;
-	public inline extern function get_MaxSpeed(): cpp.Float32 return this.MaxSpeed;
-	public extern var Acceleration(get, never): cpp.Float32;
-	public inline extern function get_Acceleration(): cpp.Float32 return this.Acceleration;
-	public extern var Deceleration(get, never): cpp.Float32;
-	public inline extern function get_Deceleration(): cpp.Float32 return this.Deceleration;
-	public extern var TurningBoost(get, never): cpp.Float32;
-	public inline extern function get_TurningBoost(): cpp.Float32 return this.TurningBoost;
+	public extern var MaxSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxSpeed(): ucpp.num.Float32 return this.MaxSpeed;
+	public extern var Acceleration(get, never): ucpp.num.Float32;
+	public inline extern function get_Acceleration(): ucpp.num.Float32 return this.Acceleration;
+	public extern var Deceleration(get, never): ucpp.num.Float32;
+	public inline extern function get_Deceleration(): ucpp.num.Float32 return this.Deceleration;
+	public extern var TurningBoost(get, never): ucpp.num.Float32;
+	public inline extern function get_TurningBoost(): ucpp.num.Float32 return this.TurningBoost;
 }
 
 @:forward
 @:nativeGen
 @:native("FloatingPawnMovement*")
-abstract FloatingPawnMovementPtr(cpp.Star<FloatingPawnMovement>) from cpp.Star<FloatingPawnMovement> to cpp.Star<FloatingPawnMovement>{
+abstract FloatingPawnMovementPtr(ucpp.Ptr<FloatingPawnMovement>) from ucpp.Ptr<FloatingPawnMovement> to ucpp.Ptr<FloatingPawnMovement>{
 	@:from
 	public static extern inline function fromValue(v: FloatingPawnMovement): FloatingPawnMovementPtr {
 		return untyped __cpp__("&({0})", v);

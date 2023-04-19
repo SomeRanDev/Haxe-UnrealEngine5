@@ -3,7 +3,7 @@ package ue;
 
 @:native("UControlRigBlueprint")
 @:include("ControlRigBlueprint.h")
-@:structAccess
+@:valueType
 extern class ControlRigBlueprint extends Blueprint {
 	public var RigGraphDisplaySettings: RigGraphDisplaySettings;
 	public var HierarchySettings: RigHierarchySettings;
@@ -16,7 +16,7 @@ extern class ControlRigBlueprint extends Blueprint {
 	public var PinToOperandMap: TMap<FString, RigVMOperand>;
 	public var DrawContainer: RigVMDrawContainer;
 	public var Influences: RigInfluenceMapPerEvent;
-	public var Hierarchy: cpp.Star<RigHierarchy>;
+	public var Hierarchy: ucpp.Ptr<RigHierarchy>;
 	private var bSupportsInversion: Bool;
 	private var bSupportsControls: Bool;
 	private var SourceHierarchyImport: TSoftObjectPtr<Object>;
@@ -26,40 +26,40 @@ extern class ControlRigBlueprint extends Blueprint {
 	private var bAutoRecompileVM: Bool;
 	private var bVMRecompilationRequired: Bool;
 	private var bIsCompiling: Bool;
-	private var VMRecompilationBracket: cpp.Int32;
-	private var Validator: cpp.Star<ControlRigValidator>;
-	private var DebugBoneRadius: cpp.Float32;
+	private var VMRecompilationBracket: ucpp.num.Int32;
+	private var Validator: ucpp.Ptr<ControlRigValidator>;
+	private var DebugBoneRadius: ucpp.num.Float32;
 
 	private function SuspendNotifications(bSuspendNotifs: Bool): Void;
-	public function SetPreviewMesh(PreviewMesh: cpp.Star<SkeletalMesh>, bMarkAsDirty: Bool): Void;
+	public function SetPreviewMesh(PreviewMesh: ucpp.Ptr<SkeletalMesh>, bMarkAsDirty: Bool): Void;
 	public function SetAutoVMRecompile(bAutoRecompile: Bool): Void;
 	public function RequestControlRigInit(): Void;
 	public function RequestAutoVMRecompilation(): Void;
-	public function RenameMemberVariable(InOldName: cpp.Reference<FName>, InNewName: cpp.Reference<FName>): Bool;
+	public function RenameMemberVariable(InOldName: ucpp.Ref<FName>, InNewName: ucpp.Ref<FName>): Bool;
 	public function RemoveModel(InName: FString, bSetupUndoRedo: Bool, bPrintPythonCommand: Bool): Bool;
-	public function RemoveMemberVariable(InName: cpp.Reference<FName>): Bool;
+	public function RemoveMemberVariable(InName: ucpp.Ref<FName>): Bool;
 	public function RecompileVMIfRequired(): Void;
 	public function RecompileVM(): Void;
-	public function GetPreviewMesh(): cpp.Star<SkeletalMesh>;
-	public function GetOrCreateController(InGraph: cpp.Star<RigVMGraph>): cpp.Star<RigVMController>;
-	public function GetModel(InEdGraph: cpp.Star<EdGraph.ConstEdGraph>): cpp.Star<RigVMGraph>;
+	public function GetPreviewMesh(): ucpp.Ptr<SkeletalMesh>;
+	public function GetOrCreateController(InGraph: ucpp.Ptr<RigVMGraph>): ucpp.Ptr<RigVMController>;
+	public function GetModel(InEdGraph: ucpp.Ptr<EdGraph.ConstEdGraph>): ucpp.Ptr<RigVMGraph>;
 	public function GetMemberVariables(): TArray<RigVMGraphVariableDescription>;
-	public function GetLocalFunctionLibrary(): cpp.Star<RigVMFunctionLibrary>;
-	public function GetHierarchyController(): cpp.Star<RigHierarchyController>;
-	public function GetDefaultModel(): cpp.Star<RigVMGraph>;
-	public function GetCurrentlyOpenRigBlueprints(): TArray<cpp.Star<ControlRigBlueprint>>;
-	public function GetControlRigClass(): cpp.Star<Class>;
-	public function GetControllerByName(InGraphName: FString): cpp.Star<RigVMController>;
-	public function GetController(InGraph: cpp.Star<RigVMGraph.ConstRigVMGraph>): cpp.Star<RigVMController>;
-	public function GetAvailableRigUnits(): TArray<cpp.Star<Struct>>;
-	public function GetAllModels(): TArray<cpp.Star<RigVMGraph>>;
+	public function GetLocalFunctionLibrary(): ucpp.Ptr<RigVMFunctionLibrary>;
+	public function GetHierarchyController(): ucpp.Ptr<RigHierarchyController>;
+	public function GetDefaultModel(): ucpp.Ptr<RigVMGraph>;
+	public function GetCurrentlyOpenRigBlueprints(): TArray<ucpp.Ptr<ControlRigBlueprint>>;
+	public function GetControlRigClass(): ucpp.Ptr<Class>;
+	public function GetControllerByName(InGraphName: FString): ucpp.Ptr<RigVMController>;
+	public function GetController(InGraph: ucpp.Ptr<RigVMGraph.ConstRigVMGraph>): ucpp.Ptr<RigVMController>;
+	public function GetAvailableRigUnits(): TArray<ucpp.Ptr<Struct>>;
+	public function GetAllModels(): TArray<ucpp.Ptr<RigVMGraph>>;
 	public function GeneratePythonCommands(InNewBlueprintName: FString): TArray<FString>;
-	public function CreateControlRig(): cpp.Star<ControlRig>;
-	public function ChangeMemberVariableType(InName: cpp.Reference<FName>, InCPPType: FString, bIsPublic: Bool, bIsReadOnly: Bool, InDefaultValue: FString): Bool;
-	public function AddModel(InName: FString, bSetupUndoRedo: Bool, bPrintPythonCommand: Bool): cpp.Star<RigVMGraph>;
-	public function AddMemberVariable(InName: cpp.Reference<FName>, InCPPType: FString, bIsPublic: Bool, bIsReadOnly: Bool, InDefaultValue: FString): FName;
+	public function CreateControlRig(): ucpp.Ptr<ControlRig>;
+	public function ChangeMemberVariableType(InName: ucpp.Ref<FName>, InCPPType: FString, bIsPublic: Bool, bIsReadOnly: Bool, InDefaultValue: FString): Bool;
+	public function AddModel(InName: FString, bSetupUndoRedo: Bool, bPrintPythonCommand: Bool): ucpp.Ptr<RigVMGraph>;
+	public function AddMemberVariable(InName: ucpp.Ref<FName>, InCPPType: FString, bIsPublic: Bool, bIsReadOnly: Bool, InDefaultValue: FString): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPreviewMesh, GetModel, GetMemberVariables, GetLocalFunctionLibrary, GetDefaultModel, GetControllerByName, GetController, GetAllModels)
@@ -81,14 +81,14 @@ abstract ConstControlRigBlueprint(ControlRigBlueprint) from ControlRigBlueprint 
 	public inline extern function get_DrawContainer(): RigVMDrawContainer return this.DrawContainer;
 	public extern var Influences(get, never): RigInfluenceMapPerEvent;
 	public inline extern function get_Influences(): RigInfluenceMapPerEvent return this.Influences;
-	public extern var Hierarchy(get, never): cpp.Star<RigHierarchy.ConstRigHierarchy>;
-	public inline extern function get_Hierarchy(): cpp.Star<RigHierarchy.ConstRigHierarchy> return this.Hierarchy;
+	public extern var Hierarchy(get, never): ucpp.Ptr<RigHierarchy.ConstRigHierarchy>;
+	public inline extern function get_Hierarchy(): ucpp.Ptr<RigHierarchy.ConstRigHierarchy> return this.Hierarchy;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlRigBlueprint*")
-abstract ControlRigBlueprintPtr(cpp.Star<ControlRigBlueprint>) from cpp.Star<ControlRigBlueprint> to cpp.Star<ControlRigBlueprint>{
+abstract ControlRigBlueprintPtr(ucpp.Ptr<ControlRigBlueprint>) from ucpp.Ptr<ControlRigBlueprint> to ucpp.Ptr<ControlRigBlueprint>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigBlueprint): ControlRigBlueprintPtr {
 		return untyped __cpp__("&({0})", v);

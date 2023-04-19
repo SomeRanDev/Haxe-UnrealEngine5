@@ -3,13 +3,13 @@ package ue;
 
 @:native("FPlatformRuntimeAudioCompressionOverrides")
 @:include("AudioCompressionSettings.h")
-@:structAccess
+@:valueType
 extern class PlatformRuntimeAudioCompressionOverrides {
 	public var bOverrideCompressionTimes: Bool;
-	public var DurationThreshold: cpp.Float32;
-	public var MaxNumRandomBranches: cpp.Int32;
-	public var SoundCueQualityIndex: cpp.Int32;
+	public var DurationThreshold: ucpp.num.Float32;
+	public var MaxNumRandomBranches: ucpp.num.Int32;
+	public var SoundCueQualityIndex: ucpp.num.Int32;
 
 	@:native("FPlatformRuntimeAudioCompressionOverrides") public function new();
-	@:native("FPlatformRuntimeAudioCompressionOverrides") public static function make(bOverrideCompressionTimes: Bool, DurationThreshold: cpp.Float32, MaxNumRandomBranches: cpp.Int32, SoundCueQualityIndex: cpp.Int32): PlatformRuntimeAudioCompressionOverrides ;
+	@:native("FPlatformRuntimeAudioCompressionOverrides") public static function make(bOverrideCompressionTimes: Bool, DurationThreshold: ucpp.num.Float32, MaxNumRandomBranches: ucpp.num.Int32, SoundCueQualityIndex: ucpp.num.Int32): PlatformRuntimeAudioCompressionOverrides ;
 }

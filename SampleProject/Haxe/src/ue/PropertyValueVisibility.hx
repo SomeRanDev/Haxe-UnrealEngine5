@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPropertyValueVisibility")
 @:include("PropertyValue.h")
-@:structAccess
+@:valueType
 extern class PropertyValueVisibility extends PropertyValue {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPropertyValueVisibility(PropertyValueVisibility) from PropertyValu
 @:forward
 @:nativeGen
 @:native("PropertyValueVisibility*")
-abstract PropertyValueVisibilityPtr(cpp.Star<PropertyValueVisibility>) from cpp.Star<PropertyValueVisibility> to cpp.Star<PropertyValueVisibility>{
+abstract PropertyValueVisibilityPtr(ucpp.Ptr<PropertyValueVisibility>) from ucpp.Ptr<PropertyValueVisibility> to ucpp.Ptr<PropertyValueVisibility>{
 	@:from
 	public static extern inline function fromValue(v: PropertyValueVisibility): PropertyValueVisibilityPtr {
 		return untyped __cpp__("&({0})", v);

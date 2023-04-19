@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UDownloadImageDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class DownloadImageDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstDownloadImageDelegate__PythonCallable(DownloadImageDelegate__Pytho
 @:forward
 @:nativeGen
 @:native("DownloadImageDelegate__PythonCallable*")
-abstract DownloadImageDelegate__PythonCallablePtr(cpp.Star<DownloadImageDelegate__PythonCallable>) from cpp.Star<DownloadImageDelegate__PythonCallable> to cpp.Star<DownloadImageDelegate__PythonCallable>{
+abstract DownloadImageDelegate__PythonCallablePtr(ucpp.Ptr<DownloadImageDelegate__PythonCallable>) from ucpp.Ptr<DownloadImageDelegate__PythonCallable> to ucpp.Ptr<DownloadImageDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: DownloadImageDelegate__PythonCallable): DownloadImageDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

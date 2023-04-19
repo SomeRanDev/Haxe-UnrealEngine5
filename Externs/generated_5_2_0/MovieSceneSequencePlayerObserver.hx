@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneSequencePlayerObserver")
-@:structAccess
+@:valueType
 extern class MovieSceneSequencePlayerObserver extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneSequencePlayerObserver(MovieSceneSequencePlayerObserver)
 @:forward
 @:nativeGen
 @:native("MovieSceneSequencePlayerObserver*")
-abstract MovieSceneSequencePlayerObserverPtr(cpp.Star<MovieSceneSequencePlayerObserver>) from cpp.Star<MovieSceneSequencePlayerObserver> to cpp.Star<MovieSceneSequencePlayerObserver>{
+abstract MovieSceneSequencePlayerObserverPtr(ucpp.Ptr<MovieSceneSequencePlayerObserver>) from ucpp.Ptr<MovieSceneSequencePlayerObserver> to ucpp.Ptr<MovieSceneSequencePlayerObserver>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSequencePlayerObserver): MovieSceneSequencePlayerObserverPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPrimaryAssetRulesCustomOverride")
 @:include("Engine/AssetManagerSettings.h")
-@:structAccess
+@:valueType
 extern class PrimaryAssetRulesCustomOverride {
 	public var PrimaryAssetType: PrimaryAssetType;
 	public var FilterDirectory: DirectoryPath;

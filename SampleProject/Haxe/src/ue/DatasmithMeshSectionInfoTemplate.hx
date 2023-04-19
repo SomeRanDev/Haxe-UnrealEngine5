@@ -3,10 +3,10 @@ package ue;
 
 @:native("FDatasmithMeshSectionInfoTemplate")
 @:include("ObjectTemplates/DatasmithStaticMeshTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithMeshSectionInfoTemplate {
-	public var MaterialIndex: cpp.Int32;
+	public var MaterialIndex: ucpp.num.Int32;
 
 	@:native("FDatasmithMeshSectionInfoTemplate") public function new();
-	@:native("FDatasmithMeshSectionInfoTemplate") public static function make(MaterialIndex: cpp.Int32): DatasmithMeshSectionInfoTemplate ;
+	@:native("FDatasmithMeshSectionInfoTemplate") public static function make(MaterialIndex: ucpp.num.Int32): DatasmithMeshSectionInfoTemplate ;
 }

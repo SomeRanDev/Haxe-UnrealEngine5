@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraSimCacheFunctionLibrary")
 @:include("NiagaraSimCacheFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheFunctionLibrary extends BlueprintFunctionLibrary {
-	public function CreateNiagaraSimCache(WorldContextObject: cpp.Star<Object>): cpp.Star<NiagaraSimCache>;
-	public function CaptureNiagaraSimCacheImmediate(SimCache: cpp.Star<NiagaraSimCache>, CreateParameters: NiagaraSimCacheCreateParameters, NiagaraComponent: cpp.Star<NiagaraComp>, OutSimCache: cpp.Reference<cpp.Star<NiagaraSimCache>>, bAdvanceSimulation: Bool, AdvanceDeltaTime: cpp.Float32): Bool;
+	public function CreateNiagaraSimCache(WorldContextObject: ucpp.Ptr<Object>): ucpp.Ptr<NiagaraSimCache>;
+	public function CaptureNiagaraSimCacheImmediate(SimCache: ucpp.Ptr<NiagaraSimCache>, CreateParameters: NiagaraSimCacheCreateParameters, NiagaraComponent: ucpp.Ptr<NiagaraComp>, OutSimCache: ucpp.Ref<ucpp.Ptr<NiagaraSimCache>>, bAdvanceSimulation: Bool, AdvanceDeltaTime: ucpp.num.Float32): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraSimCacheFunctionLibrary(NiagaraSimCacheFunctionLibrary) fro
 @:forward
 @:nativeGen
 @:native("NiagaraSimCacheFunctionLibrary*")
-abstract NiagaraSimCacheFunctionLibraryPtr(cpp.Star<NiagaraSimCacheFunctionLibrary>) from cpp.Star<NiagaraSimCacheFunctionLibrary> to cpp.Star<NiagaraSimCacheFunctionLibrary>{
+abstract NiagaraSimCacheFunctionLibraryPtr(ucpp.Ptr<NiagaraSimCacheFunctionLibrary>) from ucpp.Ptr<NiagaraSimCacheFunctionLibrary> to ucpp.Ptr<NiagaraSimCacheFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSimCacheFunctionLibrary): NiagaraSimCacheFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

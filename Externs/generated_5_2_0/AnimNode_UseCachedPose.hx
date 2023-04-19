@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_UseCachedPose")
 @:include("Animation/AnimNode_UseCachedPose.h")
-@:structAccess
+@:valueType
 extern class AnimNode_UseCachedPose extends AnimNode_Base {
 	public var LinkToCachingNode: PoseLink;
 	public var CachePoseName: FName;

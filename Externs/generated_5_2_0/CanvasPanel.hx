@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCanvasPanel")
 @:include("Components/CanvasPanel.h")
-@:structAccess
+@:valueType
 extern class CanvasPanel extends PanelWidget {
-	public function AddChildToCanvas(Content: cpp.Star<Widget>): cpp.Star<CanvasPanelSlot>;
+	public function AddChildToCanvas(Content: ucpp.Ptr<Widget>): ucpp.Ptr<CanvasPanelSlot>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstCanvasPanel(CanvasPanel) from CanvasPanel {
 @:forward
 @:nativeGen
 @:native("CanvasPanel*")
-abstract CanvasPanelPtr(cpp.Star<CanvasPanel>) from cpp.Star<CanvasPanel> to cpp.Star<CanvasPanel>{
+abstract CanvasPanelPtr(ucpp.Ptr<CanvasPanel>) from ucpp.Ptr<CanvasPanel> to ucpp.Ptr<CanvasPanel>{
 	@:from
 	public static extern inline function fromValue(v: CanvasPanel): CanvasPanelPtr {
 		return untyped __cpp__("&({0})", v);

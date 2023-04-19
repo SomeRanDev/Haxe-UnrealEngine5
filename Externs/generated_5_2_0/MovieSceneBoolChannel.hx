@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneBoolChannel")
 @:include("Channels/MovieSceneBoolChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBoolChannel extends MovieSceneChannel {
 	@:protected public var Times: TArray<FrameNumber>;
 	@:protected public var DefaultValue: Bool;

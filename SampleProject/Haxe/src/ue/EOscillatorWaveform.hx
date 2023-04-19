@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EOscillatorWaveform")
-@:include("MatineeCameraShake.h")
+@:include("LegacyCameraShake.h")
 extern class EOscillatorWaveform {
 	static var SineWave: EOscillatorWaveform;
 	static var PerlinNoise: EOscillatorWaveform;

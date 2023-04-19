@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorSkeletonNotifyObj")
 @:include("Animation/EditorSkeletonNotifyObj.h")
-@:structAccess
+@:valueType
 extern class EditorSkeletonNotifyObj extends Object {
 	public var Name: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEditorSkeletonNotifyObj(EditorSkeletonNotifyObj) from EditorSkelet
 @:forward
 @:nativeGen
 @:native("EditorSkeletonNotifyObj*")
-abstract EditorSkeletonNotifyObjPtr(cpp.Star<EditorSkeletonNotifyObj>) from cpp.Star<EditorSkeletonNotifyObj> to cpp.Star<EditorSkeletonNotifyObj>{
+abstract EditorSkeletonNotifyObjPtr(ucpp.Ptr<EditorSkeletonNotifyObj>) from ucpp.Ptr<EditorSkeletonNotifyObj> to ucpp.Ptr<EditorSkeletonNotifyObj>{
 	@:from
 	public static extern inline function fromValue(v: EditorSkeletonNotifyObj): EditorSkeletonNotifyObjPtr {
 		return untyped __cpp__("&({0})", v);

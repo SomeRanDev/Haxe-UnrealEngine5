@@ -3,24 +3,24 @@ package ue;
 
 @:native("UGraphEditorSettings")
 @:include("GraphEditorSettings.h")
-@:structAccess
+@:valueType
 extern class GraphEditorSettings extends Object {
 	public var DataPinStyle: TEnumAsByte<EBlueprintPinStyleType>;
 	public var PanningMouseButton: EGraphPanningMouseButton;
-	public var PaddingAbovePin: cpp.Float32;
-	public var PaddingBelowPin: cpp.Float32;
-	public var PaddingRightOfInput: cpp.Float32;
-	public var PaddingLeftOfOutput: cpp.Float32;
-	public var PaddingTowardsNodeEdge: cpp.Float32;
+	public var PaddingAbovePin: ucpp.num.Float32;
+	public var PaddingBelowPin: ucpp.num.Float32;
+	public var PaddingRightOfInput: ucpp.num.Float32;
+	public var PaddingLeftOfOutput: ucpp.num.Float32;
+	public var PaddingTowardsNodeEdge: ucpp.num.Float32;
 	public var bTreatSplinesLikePins: Bool;
-	public var SplineHoverTolerance: cpp.Float32;
-	public var SplineCloseTolerance: cpp.Float32;
-	public var ForwardSplineHorizontalDeltaRange: cpp.Float32;
-	public var ForwardSplineVerticalDeltaRange: cpp.Float32;
+	public var SplineHoverTolerance: ucpp.num.Float32;
+	public var SplineCloseTolerance: ucpp.num.Float32;
+	public var ForwardSplineHorizontalDeltaRange: ucpp.num.Float32;
+	public var ForwardSplineVerticalDeltaRange: ucpp.num.Float32;
 	public var ForwardSplineTangentFromHorizontalDelta: Vector2D;
 	public var ForwardSplineTangentFromVerticalDelta: Vector2D;
-	public var BackwardSplineHorizontalDeltaRange: cpp.Float32;
-	public var BackwardSplineVerticalDeltaRange: cpp.Float32;
+	public var BackwardSplineHorizontalDeltaRange: ucpp.num.Float32;
+	public var BackwardSplineVerticalDeltaRange: ucpp.num.Float32;
 	public var BackwardSplineTangentFromHorizontalDelta: Vector2D;
 	public var BackwardSplineTangentFromVerticalDelta: Vector2D;
 	public var DefaultPinTypeColor: LinearColor;
@@ -57,28 +57,28 @@ extern class GraphEditorSettings extends Object {
 	public var ResultNodeTitleColor: LinearColor;
 	public var DefaultCommentNodeTitleColor: LinearColor;
 	public var PreviewNodeTitleColor: LinearColor;
-	public var DefaultDataWireThickness: cpp.Float32;
-	public var DefaultExecutionWireThickness: cpp.Float32;
+	public var DefaultDataWireThickness: ucpp.num.Float32;
+	public var DefaultExecutionWireThickness: ucpp.num.Float32;
 	public var TraceAttackColor: LinearColor;
-	public var TraceAttackWireThickness: cpp.Float32;
-	public var TraceAttackHoldPeriod: cpp.Float32;
-	public var TraceDecayPeriod: cpp.Float32;
-	public var TraceDecayExponent: cpp.Float32;
+	public var TraceAttackWireThickness: ucpp.num.Float32;
+	public var TraceAttackHoldPeriod: ucpp.num.Float32;
+	public var TraceDecayPeriod: ucpp.num.Float32;
+	public var TraceDecayExponent: ucpp.num.Float32;
 	public var TraceSustainColor: LinearColor;
-	public var TraceSustainWireThickness: cpp.Float32;
-	public var TraceSustainHoldPeriod: cpp.Float32;
+	public var TraceSustainWireThickness: ucpp.num.Float32;
+	public var TraceSustainHoldPeriod: ucpp.num.Float32;
 	public var TraceReleaseColor: LinearColor;
-	public var TraceReleaseWireThickness: cpp.Float32;
-	public var TraceReleasePeriod: cpp.Float32;
-	public var TraceReleaseExponent: cpp.Float32;
-	public var TracePositionBonusPeriod: cpp.Float32;
-	public var TracePositionExponent: cpp.Float32;
-	public var PaddingAutoCollateIncrement: cpp.Float32;
+	public var TraceReleaseWireThickness: ucpp.num.Float32;
+	public var TraceReleasePeriod: ucpp.num.Float32;
+	public var TraceReleaseExponent: ucpp.num.Float32;
+	public var TracePositionBonusPeriod: ucpp.num.Float32;
+	public var TracePositionExponent: ucpp.num.Float32;
+	public var PaddingAutoCollateIncrement: ucpp.num.Float32;
 	public var bOpenCreateMenuOnBlankGraphAreas: Bool;
 	public var DefaultCommentNodeMoveMode: TEnumAsByte<ECommentBoxMode>;
 	public var bShowCommentBubbleWhenZoomedOut: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -88,34 +88,34 @@ abstract ConstGraphEditorSettings(GraphEditorSettings) from GraphEditorSettings 
 	public inline extern function get_DataPinStyle(): TEnumAsByte<EBlueprintPinStyleType> return this.DataPinStyle;
 	public extern var PanningMouseButton(get, never): EGraphPanningMouseButton;
 	public inline extern function get_PanningMouseButton(): EGraphPanningMouseButton return this.PanningMouseButton;
-	public extern var PaddingAbovePin(get, never): cpp.Float32;
-	public inline extern function get_PaddingAbovePin(): cpp.Float32 return this.PaddingAbovePin;
-	public extern var PaddingBelowPin(get, never): cpp.Float32;
-	public inline extern function get_PaddingBelowPin(): cpp.Float32 return this.PaddingBelowPin;
-	public extern var PaddingRightOfInput(get, never): cpp.Float32;
-	public inline extern function get_PaddingRightOfInput(): cpp.Float32 return this.PaddingRightOfInput;
-	public extern var PaddingLeftOfOutput(get, never): cpp.Float32;
-	public inline extern function get_PaddingLeftOfOutput(): cpp.Float32 return this.PaddingLeftOfOutput;
-	public extern var PaddingTowardsNodeEdge(get, never): cpp.Float32;
-	public inline extern function get_PaddingTowardsNodeEdge(): cpp.Float32 return this.PaddingTowardsNodeEdge;
+	public extern var PaddingAbovePin(get, never): ucpp.num.Float32;
+	public inline extern function get_PaddingAbovePin(): ucpp.num.Float32 return this.PaddingAbovePin;
+	public extern var PaddingBelowPin(get, never): ucpp.num.Float32;
+	public inline extern function get_PaddingBelowPin(): ucpp.num.Float32 return this.PaddingBelowPin;
+	public extern var PaddingRightOfInput(get, never): ucpp.num.Float32;
+	public inline extern function get_PaddingRightOfInput(): ucpp.num.Float32 return this.PaddingRightOfInput;
+	public extern var PaddingLeftOfOutput(get, never): ucpp.num.Float32;
+	public inline extern function get_PaddingLeftOfOutput(): ucpp.num.Float32 return this.PaddingLeftOfOutput;
+	public extern var PaddingTowardsNodeEdge(get, never): ucpp.num.Float32;
+	public inline extern function get_PaddingTowardsNodeEdge(): ucpp.num.Float32 return this.PaddingTowardsNodeEdge;
 	public extern var bTreatSplinesLikePins(get, never): Bool;
 	public inline extern function get_bTreatSplinesLikePins(): Bool return this.bTreatSplinesLikePins;
-	public extern var SplineHoverTolerance(get, never): cpp.Float32;
-	public inline extern function get_SplineHoverTolerance(): cpp.Float32 return this.SplineHoverTolerance;
-	public extern var SplineCloseTolerance(get, never): cpp.Float32;
-	public inline extern function get_SplineCloseTolerance(): cpp.Float32 return this.SplineCloseTolerance;
-	public extern var ForwardSplineHorizontalDeltaRange(get, never): cpp.Float32;
-	public inline extern function get_ForwardSplineHorizontalDeltaRange(): cpp.Float32 return this.ForwardSplineHorizontalDeltaRange;
-	public extern var ForwardSplineVerticalDeltaRange(get, never): cpp.Float32;
-	public inline extern function get_ForwardSplineVerticalDeltaRange(): cpp.Float32 return this.ForwardSplineVerticalDeltaRange;
+	public extern var SplineHoverTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_SplineHoverTolerance(): ucpp.num.Float32 return this.SplineHoverTolerance;
+	public extern var SplineCloseTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_SplineCloseTolerance(): ucpp.num.Float32 return this.SplineCloseTolerance;
+	public extern var ForwardSplineHorizontalDeltaRange(get, never): ucpp.num.Float32;
+	public inline extern function get_ForwardSplineHorizontalDeltaRange(): ucpp.num.Float32 return this.ForwardSplineHorizontalDeltaRange;
+	public extern var ForwardSplineVerticalDeltaRange(get, never): ucpp.num.Float32;
+	public inline extern function get_ForwardSplineVerticalDeltaRange(): ucpp.num.Float32 return this.ForwardSplineVerticalDeltaRange;
 	public extern var ForwardSplineTangentFromHorizontalDelta(get, never): Vector2D;
 	public inline extern function get_ForwardSplineTangentFromHorizontalDelta(): Vector2D return this.ForwardSplineTangentFromHorizontalDelta;
 	public extern var ForwardSplineTangentFromVerticalDelta(get, never): Vector2D;
 	public inline extern function get_ForwardSplineTangentFromVerticalDelta(): Vector2D return this.ForwardSplineTangentFromVerticalDelta;
-	public extern var BackwardSplineHorizontalDeltaRange(get, never): cpp.Float32;
-	public inline extern function get_BackwardSplineHorizontalDeltaRange(): cpp.Float32 return this.BackwardSplineHorizontalDeltaRange;
-	public extern var BackwardSplineVerticalDeltaRange(get, never): cpp.Float32;
-	public inline extern function get_BackwardSplineVerticalDeltaRange(): cpp.Float32 return this.BackwardSplineVerticalDeltaRange;
+	public extern var BackwardSplineHorizontalDeltaRange(get, never): ucpp.num.Float32;
+	public inline extern function get_BackwardSplineHorizontalDeltaRange(): ucpp.num.Float32 return this.BackwardSplineHorizontalDeltaRange;
+	public extern var BackwardSplineVerticalDeltaRange(get, never): ucpp.num.Float32;
+	public inline extern function get_BackwardSplineVerticalDeltaRange(): ucpp.num.Float32 return this.BackwardSplineVerticalDeltaRange;
 	public extern var BackwardSplineTangentFromHorizontalDelta(get, never): Vector2D;
 	public inline extern function get_BackwardSplineTangentFromHorizontalDelta(): Vector2D return this.BackwardSplineTangentFromHorizontalDelta;
 	public extern var BackwardSplineTangentFromVerticalDelta(get, never): Vector2D;
@@ -188,40 +188,40 @@ abstract ConstGraphEditorSettings(GraphEditorSettings) from GraphEditorSettings 
 	public inline extern function get_DefaultCommentNodeTitleColor(): LinearColor return this.DefaultCommentNodeTitleColor;
 	public extern var PreviewNodeTitleColor(get, never): LinearColor;
 	public inline extern function get_PreviewNodeTitleColor(): LinearColor return this.PreviewNodeTitleColor;
-	public extern var DefaultDataWireThickness(get, never): cpp.Float32;
-	public inline extern function get_DefaultDataWireThickness(): cpp.Float32 return this.DefaultDataWireThickness;
-	public extern var DefaultExecutionWireThickness(get, never): cpp.Float32;
-	public inline extern function get_DefaultExecutionWireThickness(): cpp.Float32 return this.DefaultExecutionWireThickness;
+	public extern var DefaultDataWireThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultDataWireThickness(): ucpp.num.Float32 return this.DefaultDataWireThickness;
+	public extern var DefaultExecutionWireThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultExecutionWireThickness(): ucpp.num.Float32 return this.DefaultExecutionWireThickness;
 	public extern var TraceAttackColor(get, never): LinearColor;
 	public inline extern function get_TraceAttackColor(): LinearColor return this.TraceAttackColor;
-	public extern var TraceAttackWireThickness(get, never): cpp.Float32;
-	public inline extern function get_TraceAttackWireThickness(): cpp.Float32 return this.TraceAttackWireThickness;
-	public extern var TraceAttackHoldPeriod(get, never): cpp.Float32;
-	public inline extern function get_TraceAttackHoldPeriod(): cpp.Float32 return this.TraceAttackHoldPeriod;
-	public extern var TraceDecayPeriod(get, never): cpp.Float32;
-	public inline extern function get_TraceDecayPeriod(): cpp.Float32 return this.TraceDecayPeriod;
-	public extern var TraceDecayExponent(get, never): cpp.Float32;
-	public inline extern function get_TraceDecayExponent(): cpp.Float32 return this.TraceDecayExponent;
+	public extern var TraceAttackWireThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceAttackWireThickness(): ucpp.num.Float32 return this.TraceAttackWireThickness;
+	public extern var TraceAttackHoldPeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceAttackHoldPeriod(): ucpp.num.Float32 return this.TraceAttackHoldPeriod;
+	public extern var TraceDecayPeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceDecayPeriod(): ucpp.num.Float32 return this.TraceDecayPeriod;
+	public extern var TraceDecayExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceDecayExponent(): ucpp.num.Float32 return this.TraceDecayExponent;
 	public extern var TraceSustainColor(get, never): LinearColor;
 	public inline extern function get_TraceSustainColor(): LinearColor return this.TraceSustainColor;
-	public extern var TraceSustainWireThickness(get, never): cpp.Float32;
-	public inline extern function get_TraceSustainWireThickness(): cpp.Float32 return this.TraceSustainWireThickness;
-	public extern var TraceSustainHoldPeriod(get, never): cpp.Float32;
-	public inline extern function get_TraceSustainHoldPeriod(): cpp.Float32 return this.TraceSustainHoldPeriod;
+	public extern var TraceSustainWireThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceSustainWireThickness(): ucpp.num.Float32 return this.TraceSustainWireThickness;
+	public extern var TraceSustainHoldPeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceSustainHoldPeriod(): ucpp.num.Float32 return this.TraceSustainHoldPeriod;
 	public extern var TraceReleaseColor(get, never): LinearColor;
 	public inline extern function get_TraceReleaseColor(): LinearColor return this.TraceReleaseColor;
-	public extern var TraceReleaseWireThickness(get, never): cpp.Float32;
-	public inline extern function get_TraceReleaseWireThickness(): cpp.Float32 return this.TraceReleaseWireThickness;
-	public extern var TraceReleasePeriod(get, never): cpp.Float32;
-	public inline extern function get_TraceReleasePeriod(): cpp.Float32 return this.TraceReleasePeriod;
-	public extern var TraceReleaseExponent(get, never): cpp.Float32;
-	public inline extern function get_TraceReleaseExponent(): cpp.Float32 return this.TraceReleaseExponent;
-	public extern var TracePositionBonusPeriod(get, never): cpp.Float32;
-	public inline extern function get_TracePositionBonusPeriod(): cpp.Float32 return this.TracePositionBonusPeriod;
-	public extern var TracePositionExponent(get, never): cpp.Float32;
-	public inline extern function get_TracePositionExponent(): cpp.Float32 return this.TracePositionExponent;
-	public extern var PaddingAutoCollateIncrement(get, never): cpp.Float32;
-	public inline extern function get_PaddingAutoCollateIncrement(): cpp.Float32 return this.PaddingAutoCollateIncrement;
+	public extern var TraceReleaseWireThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceReleaseWireThickness(): ucpp.num.Float32 return this.TraceReleaseWireThickness;
+	public extern var TraceReleasePeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceReleasePeriod(): ucpp.num.Float32 return this.TraceReleasePeriod;
+	public extern var TraceReleaseExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceReleaseExponent(): ucpp.num.Float32 return this.TraceReleaseExponent;
+	public extern var TracePositionBonusPeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_TracePositionBonusPeriod(): ucpp.num.Float32 return this.TracePositionBonusPeriod;
+	public extern var TracePositionExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_TracePositionExponent(): ucpp.num.Float32 return this.TracePositionExponent;
+	public extern var PaddingAutoCollateIncrement(get, never): ucpp.num.Float32;
+	public inline extern function get_PaddingAutoCollateIncrement(): ucpp.num.Float32 return this.PaddingAutoCollateIncrement;
 	public extern var bOpenCreateMenuOnBlankGraphAreas(get, never): Bool;
 	public inline extern function get_bOpenCreateMenuOnBlankGraphAreas(): Bool return this.bOpenCreateMenuOnBlankGraphAreas;
 	public extern var DefaultCommentNodeMoveMode(get, never): TEnumAsByte<ECommentBoxMode>;
@@ -233,7 +233,7 @@ abstract ConstGraphEditorSettings(GraphEditorSettings) from GraphEditorSettings 
 @:forward
 @:nativeGen
 @:native("GraphEditorSettings*")
-abstract GraphEditorSettingsPtr(cpp.Star<GraphEditorSettings>) from cpp.Star<GraphEditorSettings> to cpp.Star<GraphEditorSettings>{
+abstract GraphEditorSettingsPtr(ucpp.Ptr<GraphEditorSettings>) from ucpp.Ptr<GraphEditorSettings> to ucpp.Ptr<GraphEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: GraphEditorSettings): GraphEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPinGuidsForPath")
 @:include("Private/NiagaraNodeIf.h")
-@:structAccess
+@:valueType
 extern class PinGuidsForPath {
 	public var OutputPinGuid: Guid;
 	public var InputTruePinGuid: Guid;

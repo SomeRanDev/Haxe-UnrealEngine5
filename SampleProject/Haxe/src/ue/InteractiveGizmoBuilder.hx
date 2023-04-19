@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInteractiveGizmoBuilder")
 @:include("InteractiveGizmoBuilder.h")
-@:structAccess
+@:valueType
 extern class InteractiveGizmoBuilder extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInteractiveGizmoBuilder(InteractiveGizmoBuilder) from InteractiveG
 @:forward
 @:nativeGen
 @:native("InteractiveGizmoBuilder*")
-abstract InteractiveGizmoBuilderPtr(cpp.Star<InteractiveGizmoBuilder>) from cpp.Star<InteractiveGizmoBuilder> to cpp.Star<InteractiveGizmoBuilder>{
+abstract InteractiveGizmoBuilderPtr(ucpp.Ptr<InteractiveGizmoBuilder>) from ucpp.Ptr<InteractiveGizmoBuilder> to ucpp.Ptr<InteractiveGizmoBuilder>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveGizmoBuilder): InteractiveGizmoBuilderPtr {
 		return untyped __cpp__("&({0})", v);

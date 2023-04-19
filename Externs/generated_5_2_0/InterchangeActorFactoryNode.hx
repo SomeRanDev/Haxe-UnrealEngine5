@@ -3,16 +3,16 @@ package ue;
 
 @:native("UInterchangeActorFactoryNode")
 @:include("InterchangeActorFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeActorFactoryNode extends InterchangeFactoryBaseNode {
-	public function SetCustomMobility(AttributeValue: cpp.Reference<cpp.UInt8>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
+	public function SetCustomMobility(AttributeValue: ucpp.Ref<ucpp.num.UInt8>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomGlobalTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
 	public function SetCustomActorClassName(AttributeValue: FString): Bool;
-	public function GetCustomMobility(AttributeValue: cpp.Reference<cpp.UInt8>): Bool;
-	public function GetCustomGlobalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
-	public function GetCustomActorClassName(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetCustomMobility(AttributeValue: ucpp.Ref<ucpp.num.UInt8>): Bool;
+	public function GetCustomGlobalTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function GetCustomActorClassName(AttributeValue: ucpp.Ref<FString>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomMobility, GetCustomGlobalTransform, GetCustomActorClassName)
@@ -23,7 +23,7 @@ abstract ConstInterchangeActorFactoryNode(InterchangeActorFactoryNode) from Inte
 @:forward
 @:nativeGen
 @:native("InterchangeActorFactoryNode*")
-abstract InterchangeActorFactoryNodePtr(cpp.Star<InterchangeActorFactoryNode>) from cpp.Star<InterchangeActorFactoryNode> to cpp.Star<InterchangeActorFactoryNode>{
+abstract InterchangeActorFactoryNodePtr(ucpp.Ptr<InterchangeActorFactoryNode>) from ucpp.Ptr<InterchangeActorFactoryNode> to ucpp.Ptr<InterchangeActorFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeActorFactoryNode): InterchangeActorFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

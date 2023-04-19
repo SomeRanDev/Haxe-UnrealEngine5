@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPoseDriverTransform")
 @:include("AnimNodes/AnimNode_PoseDriver.h")
-@:structAccess
+@:valueType
 extern class PoseDriverTransform {
 	public var TargetTranslation: Vector;
 	public var TargetRotation: Rotator;

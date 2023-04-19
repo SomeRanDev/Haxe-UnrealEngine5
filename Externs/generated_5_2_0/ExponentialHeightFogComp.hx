@@ -3,116 +3,116 @@ package ue;
 
 @:native("UExponentialHeightFogComponent")
 @:include("Components/ExponentialHeightFogComponent.h")
-@:structAccess
+@:valueType
 extern class ExponentialHeightFogComp extends SceneComp {
-	public var FogDensity: cpp.Float32;
-	public var FogHeightFalloff: cpp.Float32;
+	public var FogDensity: ucpp.num.Float32;
+	public var FogHeightFalloff: ucpp.num.Float32;
 	public var SecondFogData: ExponentialHeightFogData;
 	public var FogInscatteringLuminance: LinearColor;
 	public var SkyAtmosphereAmbientContributionColorScale: LinearColor;
-	public var InscatteringColorCubemap: cpp.Star<TextureCube>;
-	public var InscatteringColorCubemapAngle: cpp.Float32;
+	public var InscatteringColorCubemap: ucpp.Ptr<TextureCube>;
+	public var InscatteringColorCubemapAngle: ucpp.num.Float32;
 	public var InscatteringTextureTint: LinearColor;
-	public var FullyDirectionalInscatteringColorDistance: cpp.Float32;
-	public var NonDirectionalInscatteringColorDistance: cpp.Float32;
-	public var DirectionalInscatteringExponent: cpp.Float32;
-	public var DirectionalInscatteringStartDistance: cpp.Float32;
+	public var FullyDirectionalInscatteringColorDistance: ucpp.num.Float32;
+	public var NonDirectionalInscatteringColorDistance: ucpp.num.Float32;
+	public var DirectionalInscatteringExponent: ucpp.num.Float32;
+	public var DirectionalInscatteringStartDistance: ucpp.num.Float32;
 	public var DirectionalInscatteringLuminance: LinearColor;
-	public var FogMaxOpacity: cpp.Float32;
-	public var StartDistance: cpp.Float32;
-	public var FogCutoffDistance: cpp.Float32;
+	public var FogMaxOpacity: ucpp.num.Float32;
+	public var StartDistance: ucpp.num.Float32;
+	public var FogCutoffDistance: ucpp.num.Float32;
 	public var bEnableVolumetricFog: Bool;
-	public var VolumetricFogScatteringDistribution: cpp.Float32;
+	public var VolumetricFogScatteringDistribution: ucpp.num.Float32;
 	public var VolumetricFogAlbedo: Color;
 	public var VolumetricFogEmissive: LinearColor;
-	public var VolumetricFogExtinctionScale: cpp.Float32;
-	public var VolumetricFogDistance: cpp.Float32;
-	public var VolumetricFogStartDistance: cpp.Float32;
-	public var VolumetricFogNearFadeInDistance: cpp.Float32;
-	public var VolumetricFogStaticLightingScatteringIntensity: cpp.Float32;
+	public var VolumetricFogExtinctionScale: ucpp.num.Float32;
+	public var VolumetricFogDistance: ucpp.num.Float32;
+	public var VolumetricFogStartDistance: ucpp.num.Float32;
+	public var VolumetricFogNearFadeInDistance: ucpp.num.Float32;
+	public var VolumetricFogStaticLightingScatteringIntensity: ucpp.num.Float32;
 	public var bOverrideLightColorsWithFogInscatteringColors: Bool;
 
-	public function SetVolumetricFogScatteringDistribution(NewValue: cpp.Float32): Void;
-	public function SetVolumetricFogExtinctionScale(NewValue: cpp.Float32): Void;
+	public function SetVolumetricFogScatteringDistribution(NewValue: ucpp.num.Float32): Void;
+	public function SetVolumetricFogExtinctionScale(NewValue: ucpp.num.Float32): Void;
 	public function SetVolumetricFogEmissive(NewValue: LinearColor): Void;
-	public function SetVolumetricFogDistance(NewValue: cpp.Float32): Void;
+	public function SetVolumetricFogDistance(NewValue: ucpp.num.Float32): Void;
 	public function SetVolumetricFogAlbedo(NewValue: Color): Void;
 	public function SetVolumetricFog(bNewValue: Bool): Void;
-	public function SetStartDistance(Value: cpp.Float32): Void;
-	public function SetSecondFogHeightOffset(Value: cpp.Float32): Void;
-	public function SetSecondFogHeightFalloff(Value: cpp.Float32): Void;
-	public function SetSecondFogDensity(Value: cpp.Float32): Void;
+	public function SetStartDistance(Value: ucpp.num.Float32): Void;
+	public function SetSecondFogHeightOffset(Value: ucpp.num.Float32): Void;
+	public function SetSecondFogHeightFalloff(Value: ucpp.num.Float32): Void;
+	public function SetSecondFogDensity(Value: ucpp.num.Float32): Void;
 	public function SetSecondFogData(NewValue: ExponentialHeightFogData): Void;
-	public function SetNonDirectionalInscatteringColorDistance(Value: cpp.Float32): Void;
+	public function SetNonDirectionalInscatteringColorDistance(Value: ucpp.num.Float32): Void;
 	public function SetInscatteringTextureTint(Value: LinearColor): Void;
-	public function SetInscatteringColorCubemapAngle(Value: cpp.Float32): Void;
-	public function SetInscatteringColorCubemap(Value: cpp.Star<TextureCube>): Void;
-	public function SetFullyDirectionalInscatteringColorDistance(Value: cpp.Float32): Void;
-	public function SetFogMaxOpacity(Value: cpp.Float32): Void;
+	public function SetInscatteringColorCubemapAngle(Value: ucpp.num.Float32): Void;
+	public function SetInscatteringColorCubemap(Value: ucpp.Ptr<TextureCube>): Void;
+	public function SetFullyDirectionalInscatteringColorDistance(Value: ucpp.num.Float32): Void;
+	public function SetFogMaxOpacity(Value: ucpp.num.Float32): Void;
 	public function SetFogInscatteringColor(Value: LinearColor): Void;
-	public function SetFogHeightFalloff(Value: cpp.Float32): Void;
-	public function SetFogDensity(Value: cpp.Float32): Void;
-	public function SetFogCutoffDistance(Value: cpp.Float32): Void;
-	public function SetDirectionalInscatteringStartDistance(Value: cpp.Float32): Void;
-	public function SetDirectionalInscatteringExponent(Value: cpp.Float32): Void;
+	public function SetFogHeightFalloff(Value: ucpp.num.Float32): Void;
+	public function SetFogDensity(Value: ucpp.num.Float32): Void;
+	public function SetFogCutoffDistance(Value: ucpp.num.Float32): Void;
+	public function SetDirectionalInscatteringStartDistance(Value: ucpp.num.Float32): Void;
+	public function SetDirectionalInscatteringExponent(Value: ucpp.num.Float32): Void;
 	public function SetDirectionalInscatteringColor(Value: LinearColor): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstExponentialHeightFogComp(ExponentialHeightFogComp) from ExponentialHeightFogComp {
-	public extern var FogDensity(get, never): cpp.Float32;
-	public inline extern function get_FogDensity(): cpp.Float32 return this.FogDensity;
-	public extern var FogHeightFalloff(get, never): cpp.Float32;
-	public inline extern function get_FogHeightFalloff(): cpp.Float32 return this.FogHeightFalloff;
+	public extern var FogDensity(get, never): ucpp.num.Float32;
+	public inline extern function get_FogDensity(): ucpp.num.Float32 return this.FogDensity;
+	public extern var FogHeightFalloff(get, never): ucpp.num.Float32;
+	public inline extern function get_FogHeightFalloff(): ucpp.num.Float32 return this.FogHeightFalloff;
 	public extern var SecondFogData(get, never): ExponentialHeightFogData;
 	public inline extern function get_SecondFogData(): ExponentialHeightFogData return this.SecondFogData;
 	public extern var FogInscatteringLuminance(get, never): LinearColor;
 	public inline extern function get_FogInscatteringLuminance(): LinearColor return this.FogInscatteringLuminance;
 	public extern var SkyAtmosphereAmbientContributionColorScale(get, never): LinearColor;
 	public inline extern function get_SkyAtmosphereAmbientContributionColorScale(): LinearColor return this.SkyAtmosphereAmbientContributionColorScale;
-	public extern var InscatteringColorCubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
-	public inline extern function get_InscatteringColorCubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.InscatteringColorCubemap;
-	public extern var InscatteringColorCubemapAngle(get, never): cpp.Float32;
-	public inline extern function get_InscatteringColorCubemapAngle(): cpp.Float32 return this.InscatteringColorCubemapAngle;
+	public extern var InscatteringColorCubemap(get, never): ucpp.Ptr<TextureCube.ConstTextureCube>;
+	public inline extern function get_InscatteringColorCubemap(): ucpp.Ptr<TextureCube.ConstTextureCube> return this.InscatteringColorCubemap;
+	public extern var InscatteringColorCubemapAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_InscatteringColorCubemapAngle(): ucpp.num.Float32 return this.InscatteringColorCubemapAngle;
 	public extern var InscatteringTextureTint(get, never): LinearColor;
 	public inline extern function get_InscatteringTextureTint(): LinearColor return this.InscatteringTextureTint;
-	public extern var FullyDirectionalInscatteringColorDistance(get, never): cpp.Float32;
-	public inline extern function get_FullyDirectionalInscatteringColorDistance(): cpp.Float32 return this.FullyDirectionalInscatteringColorDistance;
-	public extern var NonDirectionalInscatteringColorDistance(get, never): cpp.Float32;
-	public inline extern function get_NonDirectionalInscatteringColorDistance(): cpp.Float32 return this.NonDirectionalInscatteringColorDistance;
-	public extern var DirectionalInscatteringExponent(get, never): cpp.Float32;
-	public inline extern function get_DirectionalInscatteringExponent(): cpp.Float32 return this.DirectionalInscatteringExponent;
-	public extern var DirectionalInscatteringStartDistance(get, never): cpp.Float32;
-	public inline extern function get_DirectionalInscatteringStartDistance(): cpp.Float32 return this.DirectionalInscatteringStartDistance;
+	public extern var FullyDirectionalInscatteringColorDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_FullyDirectionalInscatteringColorDistance(): ucpp.num.Float32 return this.FullyDirectionalInscatteringColorDistance;
+	public extern var NonDirectionalInscatteringColorDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_NonDirectionalInscatteringColorDistance(): ucpp.num.Float32 return this.NonDirectionalInscatteringColorDistance;
+	public extern var DirectionalInscatteringExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_DirectionalInscatteringExponent(): ucpp.num.Float32 return this.DirectionalInscatteringExponent;
+	public extern var DirectionalInscatteringStartDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_DirectionalInscatteringStartDistance(): ucpp.num.Float32 return this.DirectionalInscatteringStartDistance;
 	public extern var DirectionalInscatteringLuminance(get, never): LinearColor;
 	public inline extern function get_DirectionalInscatteringLuminance(): LinearColor return this.DirectionalInscatteringLuminance;
-	public extern var FogMaxOpacity(get, never): cpp.Float32;
-	public inline extern function get_FogMaxOpacity(): cpp.Float32 return this.FogMaxOpacity;
-	public extern var StartDistance(get, never): cpp.Float32;
-	public inline extern function get_StartDistance(): cpp.Float32 return this.StartDistance;
-	public extern var FogCutoffDistance(get, never): cpp.Float32;
-	public inline extern function get_FogCutoffDistance(): cpp.Float32 return this.FogCutoffDistance;
+	public extern var FogMaxOpacity(get, never): ucpp.num.Float32;
+	public inline extern function get_FogMaxOpacity(): ucpp.num.Float32 return this.FogMaxOpacity;
+	public extern var StartDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_StartDistance(): ucpp.num.Float32 return this.StartDistance;
+	public extern var FogCutoffDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_FogCutoffDistance(): ucpp.num.Float32 return this.FogCutoffDistance;
 	public extern var bEnableVolumetricFog(get, never): Bool;
 	public inline extern function get_bEnableVolumetricFog(): Bool return this.bEnableVolumetricFog;
-	public extern var VolumetricFogScatteringDistribution(get, never): cpp.Float32;
-	public inline extern function get_VolumetricFogScatteringDistribution(): cpp.Float32 return this.VolumetricFogScatteringDistribution;
+	public extern var VolumetricFogScatteringDistribution(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricFogScatteringDistribution(): ucpp.num.Float32 return this.VolumetricFogScatteringDistribution;
 	public extern var VolumetricFogAlbedo(get, never): Color;
 	public inline extern function get_VolumetricFogAlbedo(): Color return this.VolumetricFogAlbedo;
 	public extern var VolumetricFogEmissive(get, never): LinearColor;
 	public inline extern function get_VolumetricFogEmissive(): LinearColor return this.VolumetricFogEmissive;
-	public extern var VolumetricFogExtinctionScale(get, never): cpp.Float32;
-	public inline extern function get_VolumetricFogExtinctionScale(): cpp.Float32 return this.VolumetricFogExtinctionScale;
-	public extern var VolumetricFogDistance(get, never): cpp.Float32;
-	public inline extern function get_VolumetricFogDistance(): cpp.Float32 return this.VolumetricFogDistance;
-	public extern var VolumetricFogStartDistance(get, never): cpp.Float32;
-	public inline extern function get_VolumetricFogStartDistance(): cpp.Float32 return this.VolumetricFogStartDistance;
-	public extern var VolumetricFogNearFadeInDistance(get, never): cpp.Float32;
-	public inline extern function get_VolumetricFogNearFadeInDistance(): cpp.Float32 return this.VolumetricFogNearFadeInDistance;
-	public extern var VolumetricFogStaticLightingScatteringIntensity(get, never): cpp.Float32;
-	public inline extern function get_VolumetricFogStaticLightingScatteringIntensity(): cpp.Float32 return this.VolumetricFogStaticLightingScatteringIntensity;
+	public extern var VolumetricFogExtinctionScale(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricFogExtinctionScale(): ucpp.num.Float32 return this.VolumetricFogExtinctionScale;
+	public extern var VolumetricFogDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricFogDistance(): ucpp.num.Float32 return this.VolumetricFogDistance;
+	public extern var VolumetricFogStartDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricFogStartDistance(): ucpp.num.Float32 return this.VolumetricFogStartDistance;
+	public extern var VolumetricFogNearFadeInDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricFogNearFadeInDistance(): ucpp.num.Float32 return this.VolumetricFogNearFadeInDistance;
+	public extern var VolumetricFogStaticLightingScatteringIntensity(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumetricFogStaticLightingScatteringIntensity(): ucpp.num.Float32 return this.VolumetricFogStaticLightingScatteringIntensity;
 	public extern var bOverrideLightColorsWithFogInscatteringColors(get, never): Bool;
 	public inline extern function get_bOverrideLightColorsWithFogInscatteringColors(): Bool return this.bOverrideLightColorsWithFogInscatteringColors;
 }
@@ -120,7 +120,7 @@ abstract ConstExponentialHeightFogComp(ExponentialHeightFogComp) from Exponentia
 @:forward
 @:nativeGen
 @:native("ExponentialHeightFogComp*")
-abstract ExponentialHeightFogCompPtr(cpp.Star<ExponentialHeightFogComp>) from cpp.Star<ExponentialHeightFogComp> to cpp.Star<ExponentialHeightFogComp>{
+abstract ExponentialHeightFogCompPtr(ucpp.Ptr<ExponentialHeightFogComp>) from ucpp.Ptr<ExponentialHeightFogComp> to ucpp.Ptr<ExponentialHeightFogComp>{
 	@:from
 	public static extern inline function fromValue(v: ExponentialHeightFogComp): ExponentialHeightFogCompPtr {
 		return untyped __cpp__("&({0})", v);

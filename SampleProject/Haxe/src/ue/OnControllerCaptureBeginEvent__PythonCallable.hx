@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnControllerCaptureBeginEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnControllerCaptureBeginEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnControllerCaptureBeginEvent__PythonCallable(OnControllerCaptureB
 @:forward
 @:nativeGen
 @:native("OnControllerCaptureBeginEvent__PythonCallable*")
-abstract OnControllerCaptureBeginEvent__PythonCallablePtr(cpp.Star<OnControllerCaptureBeginEvent__PythonCallable>) from cpp.Star<OnControllerCaptureBeginEvent__PythonCallable> to cpp.Star<OnControllerCaptureBeginEvent__PythonCallable>{
+abstract OnControllerCaptureBeginEvent__PythonCallablePtr(ucpp.Ptr<OnControllerCaptureBeginEvent__PythonCallable>) from ucpp.Ptr<OnControllerCaptureBeginEvent__PythonCallable> to ucpp.Ptr<OnControllerCaptureBeginEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnControllerCaptureBeginEvent__PythonCallable): OnControllerCaptureBeginEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

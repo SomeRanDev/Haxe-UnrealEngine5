@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAudioFrequencySlider")
 @:include("AudioSlider.h")
-@:structAccess
+@:valueType
 extern class AudioFrequencySlider extends AudioSliderBase {
 	public var OutputRange: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAudioFrequencySlider(AudioFrequencySlider) from AudioFrequencySlid
 @:forward
 @:nativeGen
 @:native("AudioFrequencySlider*")
-abstract AudioFrequencySliderPtr(cpp.Star<AudioFrequencySlider>) from cpp.Star<AudioFrequencySlider> to cpp.Star<AudioFrequencySlider>{
+abstract AudioFrequencySliderPtr(ucpp.Ptr<AudioFrequencySlider>) from ucpp.Ptr<AudioFrequencySlider> to ucpp.Ptr<AudioFrequencySlider>{
 	@:from
 	public static extern inline function fromValue(v: AudioFrequencySlider): AudioFrequencySliderPtr {
 		return untyped __cpp__("&({0})", v);

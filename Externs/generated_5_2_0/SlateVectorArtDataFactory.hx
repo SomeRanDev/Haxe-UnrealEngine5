@@ -3,10 +3,10 @@ package ue;
 
 @:native("USlateVectorArtDataFactory")
 @:include("SlateVectorArtDataFactory.h")
-@:structAccess
+@:valueType
 extern class SlateVectorArtDataFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSlateVectorArtDataFactory(SlateVectorArtDataFactory) from SlateVec
 @:forward
 @:nativeGen
 @:native("SlateVectorArtDataFactory*")
-abstract SlateVectorArtDataFactoryPtr(cpp.Star<SlateVectorArtDataFactory>) from cpp.Star<SlateVectorArtDataFactory> to cpp.Star<SlateVectorArtDataFactory>{
+abstract SlateVectorArtDataFactoryPtr(ucpp.Ptr<SlateVectorArtDataFactory>) from ucpp.Ptr<SlateVectorArtDataFactory> to ucpp.Ptr<SlateVectorArtDataFactory>{
 	@:from
 	public static extern inline function fromValue(v: SlateVectorArtDataFactory): SlateVectorArtDataFactoryPtr {
 		return untyped __cpp__("&({0})", v);

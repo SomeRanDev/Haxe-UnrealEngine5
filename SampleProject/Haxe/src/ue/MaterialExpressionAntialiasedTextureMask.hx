@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMaterialExpressionAntialiasedTextureMask")
 @:include("Materials/MaterialExpressionAntialiasedTextureMask.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionAntialiasedTextureMask extends MaterialExpressionTextureSampleParameter2D {
-	public var Threshold: cpp.Float32;
+	public var Threshold: ucpp.num.Float32;
 	public var Channel: TEnumAsByte<ETextureColorChannel>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionAntialiasedTextureMask(MaterialExpressionAntialiasedTextureMask) from MaterialExpressionAntialiasedTextureMask {
-	public extern var Threshold(get, never): cpp.Float32;
-	public inline extern function get_Threshold(): cpp.Float32 return this.Threshold;
+	public extern var Threshold(get, never): ucpp.num.Float32;
+	public inline extern function get_Threshold(): ucpp.num.Float32 return this.Threshold;
 	public extern var Channel(get, never): TEnumAsByte<ETextureColorChannel>;
 	public inline extern function get_Channel(): TEnumAsByte<ETextureColorChannel> return this.Channel;
 }
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionAntialiasedTextureMask(MaterialExpressionAntiali
 @:forward
 @:nativeGen
 @:native("MaterialExpressionAntialiasedTextureMask*")
-abstract MaterialExpressionAntialiasedTextureMaskPtr(cpp.Star<MaterialExpressionAntialiasedTextureMask>) from cpp.Star<MaterialExpressionAntialiasedTextureMask> to cpp.Star<MaterialExpressionAntialiasedTextureMask>{
+abstract MaterialExpressionAntialiasedTextureMaskPtr(ucpp.Ptr<MaterialExpressionAntialiasedTextureMask>) from ucpp.Ptr<MaterialExpressionAntialiasedTextureMask> to ucpp.Ptr<MaterialExpressionAntialiasedTextureMask>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionAntialiasedTextureMask): MaterialExpressionAntialiasedTextureMaskPtr {
 		return untyped __cpp__("&({0})", v);

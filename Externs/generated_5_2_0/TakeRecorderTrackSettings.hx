@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTakeRecorderTrackSettings")
 @:include("TrackRecorders/IMovieSceneTrackRecorderHost.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderTrackSettings {
 	public var MatchingActorClass: SoftClassPath;
 	public var DefaultPropertyTracks: TArray<TakeRecorderPropertyTrackSettings>;

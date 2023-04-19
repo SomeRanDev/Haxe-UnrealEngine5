@@ -3,24 +3,24 @@ package ue;
 
 @:native("UDEditorRuntimeVirtualTextureParameterValue")
 @:include("MaterialEditor/DEditorRuntimeVirtualTextureParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorRuntimeVirtualTextureParameterValue extends DEditorParameterValue {
-	public var ParameterValue: cpp.Star<RuntimeVirtualTexture>;
+	public var ParameterValue: ucpp.Ptr<RuntimeVirtualTexture>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDEditorRuntimeVirtualTextureParameterValue(DEditorRuntimeVirtualTextureParameterValue) from DEditorRuntimeVirtualTextureParameterValue {
-	public extern var ParameterValue(get, never): cpp.Star<RuntimeVirtualTexture.ConstRuntimeVirtualTexture>;
-	public inline extern function get_ParameterValue(): cpp.Star<RuntimeVirtualTexture.ConstRuntimeVirtualTexture> return this.ParameterValue;
+	public extern var ParameterValue(get, never): ucpp.Ptr<RuntimeVirtualTexture.ConstRuntimeVirtualTexture>;
+	public inline extern function get_ParameterValue(): ucpp.Ptr<RuntimeVirtualTexture.ConstRuntimeVirtualTexture> return this.ParameterValue;
 }
 
 @:forward
 @:nativeGen
 @:native("DEditorRuntimeVirtualTextureParameterValue*")
-abstract DEditorRuntimeVirtualTextureParameterValuePtr(cpp.Star<DEditorRuntimeVirtualTextureParameterValue>) from cpp.Star<DEditorRuntimeVirtualTextureParameterValue> to cpp.Star<DEditorRuntimeVirtualTextureParameterValue>{
+abstract DEditorRuntimeVirtualTextureParameterValuePtr(ucpp.Ptr<DEditorRuntimeVirtualTextureParameterValue>) from ucpp.Ptr<DEditorRuntimeVirtualTextureParameterValue> to ucpp.Ptr<DEditorRuntimeVirtualTextureParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorRuntimeVirtualTextureParameterValue): DEditorRuntimeVirtualTextureParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

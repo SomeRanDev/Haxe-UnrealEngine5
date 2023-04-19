@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGatherTextFromTextFilesConfiguration")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class GatherTextFromTextFilesConfiguration {
 	public var IsEnabled: Bool;
 	public var SearchDirectories: TArray<GatherTextSearchDirectory>;

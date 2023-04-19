@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneBytePropertySystem")
 @:include("Systems/MovieSceneBytePropertySystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBytePropertySystem extends MovieScenePropertySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneBytePropertySystem(MovieSceneBytePropertySystem) from Mo
 @:forward
 @:nativeGen
 @:native("MovieSceneBytePropertySystem*")
-abstract MovieSceneBytePropertySystemPtr(cpp.Star<MovieSceneBytePropertySystem>) from cpp.Star<MovieSceneBytePropertySystem> to cpp.Star<MovieSceneBytePropertySystem>{
+abstract MovieSceneBytePropertySystemPtr(ucpp.Ptr<MovieSceneBytePropertySystem>) from ucpp.Ptr<MovieSceneBytePropertySystem> to ucpp.Ptr<MovieSceneBytePropertySystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneBytePropertySystem): MovieSceneBytePropertySystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("USingleSelectionMeshEditingTool")
 @:include("BaseTools/SingleSelectionMeshEditingTool.h")
-@:structAccess
+@:valueType
 extern class SingleSelectionMeshEditingTool extends SingleSelectionTool {
 	@:protected public var TargetWorld: TWeakObjectPtr<World>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSingleSelectionMeshEditingTool(SingleSelectionMeshEditingTool) fro
 @:forward
 @:nativeGen
 @:native("SingleSelectionMeshEditingTool*")
-abstract SingleSelectionMeshEditingToolPtr(cpp.Star<SingleSelectionMeshEditingTool>) from cpp.Star<SingleSelectionMeshEditingTool> to cpp.Star<SingleSelectionMeshEditingTool>{
+abstract SingleSelectionMeshEditingToolPtr(ucpp.Ptr<SingleSelectionMeshEditingTool>) from ucpp.Ptr<SingleSelectionMeshEditingTool> to ucpp.Ptr<SingleSelectionMeshEditingTool>{
 	@:from
 	public static extern inline function fromValue(v: SingleSelectionMeshEditingTool): SingleSelectionMeshEditingToolPtr {
 		return untyped __cpp__("&({0})", v);

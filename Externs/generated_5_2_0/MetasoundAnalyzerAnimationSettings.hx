@@ -3,15 +3,15 @@ package ue;
 
 @:native("FMetasoundAnalyzerAnimationSettings")
 @:include("Private/MetasoundEditorSettings.h")
-@:structAccess
+@:valueType
 extern class MetasoundAnalyzerAnimationSettings {
 	public var bAnimateConnections: Bool;
-	public var EnvelopeWireThickness: cpp.Float32;
-	public var EnvelopeSpeed: cpp.Float32;
+	public var EnvelopeWireThickness: ucpp.num.Float32;
+	public var EnvelopeSpeed: ucpp.num.Float32;
 	public var EnvelopeDirection: EMetasoundActiveAnalyzerEnvelopeDirection;
-	public var NumericWireThickness: cpp.Float32;
-	public var WireScalarMin: cpp.Float32;
-	public var WireScalarMax: cpp.Float32;
+	public var NumericWireThickness: ucpp.num.Float32;
+	public var WireScalarMin: ucpp.num.Float32;
+	public var WireScalarMax: ucpp.num.Float32;
 
 	@:native("FMetasoundAnalyzerAnimationSettings") public function new();
 }

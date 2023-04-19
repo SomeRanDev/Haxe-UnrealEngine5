@@ -3,13 +3,13 @@ package ue;
 
 @:native("FTimelineLinearColorTrack")
 @:include("Components/TimelineComponent.h")
-@:structAccess
+@:valueType
 extern class TimelineLinearColorTrack {
-	public var LinearColorCurve: cpp.Star<CurveLinearColor>;
+	public var LinearColorCurve: ucpp.Ptr<CurveLinearColor>;
 	public var InterpFunc: HaxeDelegateProperty<(LinearColor) -> Void>;
 	public var TrackName: FName;
 	public var LinearColorPropertyName: FName;
 
 	@:native("FTimelineLinearColorTrack") public function new();
-	@:native("FTimelineLinearColorTrack") public static function make(LinearColorCurve: cpp.Star<CurveLinearColor>, InterpFunc: HaxeDelegateProperty<(LinearColor) -> Void>, TrackName: FName, LinearColorPropertyName: FName): TimelineLinearColorTrack ;
+	@:native("FTimelineLinearColorTrack") public static function make(LinearColorCurve: ucpp.Ptr<CurveLinearColor>, InterpFunc: HaxeDelegateProperty<(LinearColor) -> Void>, TrackName: FName, LinearColorPropertyName: FName): TimelineLinearColorTrack ;
 }

@@ -1,3 +1,4 @@
 package ue;
 
-typedef HaxeDelegateProperty<T> = Dynamic;
+@:extern
+typedef HaxeDelegateProperty<T> = Any;

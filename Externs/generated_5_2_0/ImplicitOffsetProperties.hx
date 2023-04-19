@@ -3,19 +3,19 @@ package ue;
 
 @:native("UImplicitOffsetProperties")
 @:include("OffsetMeshTool.h")
-@:structAccess
+@:valueType
 extern class ImplicitOffsetProperties extends InteractiveToolPropertySet {
-	public var Smoothness: cpp.Float32;
+	public var Smoothness: ucpp.num.Float32;
 	public var bPreserveUVs: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstImplicitOffsetProperties(ImplicitOffsetProperties) from ImplicitOffsetProperties {
-	public extern var Smoothness(get, never): cpp.Float32;
-	public inline extern function get_Smoothness(): cpp.Float32 return this.Smoothness;
+	public extern var Smoothness(get, never): ucpp.num.Float32;
+	public inline extern function get_Smoothness(): ucpp.num.Float32 return this.Smoothness;
 	public extern var bPreserveUVs(get, never): Bool;
 	public inline extern function get_bPreserveUVs(): Bool return this.bPreserveUVs;
 }
@@ -23,7 +23,7 @@ abstract ConstImplicitOffsetProperties(ImplicitOffsetProperties) from ImplicitOf
 @:forward
 @:nativeGen
 @:native("ImplicitOffsetProperties*")
-abstract ImplicitOffsetPropertiesPtr(cpp.Star<ImplicitOffsetProperties>) from cpp.Star<ImplicitOffsetProperties> to cpp.Star<ImplicitOffsetProperties>{
+abstract ImplicitOffsetPropertiesPtr(ucpp.Ptr<ImplicitOffsetProperties>) from ucpp.Ptr<ImplicitOffsetProperties> to ucpp.Ptr<ImplicitOffsetProperties>{
 	@:from
 	public static extern inline function fromValue(v: ImplicitOffsetProperties): ImplicitOffsetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

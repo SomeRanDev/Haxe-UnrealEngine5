@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARPlaneUpdatePayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARPlaneUpdatePayload {
 	public var SessionPayload: ARSessionPayload;
 	public var WorldTransform: Transform;

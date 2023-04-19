@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneHierarchicalBiasSystem")
 @:include("Systems/MovieSceneHierarchicalBiasSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneHierarchicalBiasSystem extends MovieSceneEntityInstantiatorSystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneHierarchicalBiasSystem(MovieSceneHierarchicalBiasSystem)
 @:forward
 @:nativeGen
 @:native("MovieSceneHierarchicalBiasSystem*")
-abstract MovieSceneHierarchicalBiasSystemPtr(cpp.Star<MovieSceneHierarchicalBiasSystem>) from cpp.Star<MovieSceneHierarchicalBiasSystem> to cpp.Star<MovieSceneHierarchicalBiasSystem>{
+abstract MovieSceneHierarchicalBiasSystemPtr(ucpp.Ptr<MovieSceneHierarchicalBiasSystem>) from ucpp.Ptr<MovieSceneHierarchicalBiasSystem> to ucpp.Ptr<MovieSceneHierarchicalBiasSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneHierarchicalBiasSystem): MovieSceneHierarchicalBiasSystemPtr {
 		return untyped __cpp__("&({0})", v);

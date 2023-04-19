@@ -2,8 +2,8 @@
 package ue;
 
 @:native("FTemplateMapInfo")
-@:include("Editor/UnrealEdEngine.h")
-@:structAccess
+@:include("Editor/TemplateMapInfo.h")
+@:valueType
 extern class TemplateMapInfo {
 	public var ThumbnailTexture: TSoftObjectPtr<Texture2D>;
 	public var Thumbnail: SoftObjectPath;

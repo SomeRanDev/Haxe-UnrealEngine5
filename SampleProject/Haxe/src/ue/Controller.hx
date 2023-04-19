@@ -3,48 +3,48 @@ package ue;
 
 @:native("AController")
 @:include("GameFramework/Controller.h")
-@:structAccess
+@:valueType
 extern class Controller extends Actor {
-	public var PlayerState: cpp.Star<PlayerState>;
-	public var OnInstigatedAnyDamage: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor>, cpp.Star<Actor>) -> Void>;
-	public var OnPossessedPawnChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn>, cpp.Star<Pawn>) -> Void>;
+	public var PlayerState: ucpp.Ptr<PlayerState>;
+	public var OnInstigatedAnyDamage: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor>, ucpp.Ptr<Actor>) -> Void>;
+	public var OnPossessedPawnChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Pawn>, ucpp.Ptr<Pawn>) -> Void>;
 	public var StateName: FName;
-	private var Pawn: cpp.Star<Pawn>;
-	private var Character: cpp.Star<Character>;
-	private var TransformComponent: cpp.Star<SceneComp>;
+	private var Pawn: ucpp.Ptr<Pawn>;
+	private var Character: ucpp.Ptr<Character>;
+	private var TransformComponent: ucpp.Ptr<SceneComp>;
 	@:protected public var ControlRotation: Rotator;
 	@:protected public var bAttachToPawn: Bool;
 
 	public function UnPossess(): Void;
 	public function StopMovement(): Void;
-	public function SetInitialLocationAndRotation(NewLocation: cpp.Reference<Vector>, NewRotation: cpp.Reference<Rotator>): Void;
+	public function SetInitialLocationAndRotation(NewLocation: ucpp.Ref<Vector>, NewRotation: ucpp.Ref<Rotator>): Void;
 	public function SetIgnoreMoveInput(bNewMoveInput: Bool): Void;
 	public function SetIgnoreLookInput(bNewLookInput: Bool): Void;
-	public function SetControlRotation(NewRotation: cpp.Reference<Rotator>): Void;
+	public function SetControlRotation(NewRotation: ucpp.Ref<Rotator>): Void;
 	public function ResetIgnoreMoveInput(): Void;
 	public function ResetIgnoreLookInput(): Void;
 	public function ResetIgnoreInputFlags(): Void;
-	@:protected public function ReceiveUnPossess(UnpossessedPawn: cpp.Star<Pawn>): Void;
-	@:protected public function ReceivePossess(PossessedPawn: cpp.Star<Pawn>): Void;
-	@:protected public function ReceiveInstigatedAnyDamage(Damage: cpp.Float32, DamageType: cpp.Star<DamageType.ConstDamageType>, DamagedActor: cpp.Star<Actor>, DamageCauser: cpp.Star<Actor>): Void;
-	public function Possess(InPawn: cpp.Star<Pawn>): Void;
+	@:protected public function ReceiveUnPossess(UnpossessedPawn: ucpp.Ptr<Pawn>): Void;
+	@:protected public function ReceivePossess(PossessedPawn: ucpp.Ptr<Pawn>): Void;
+	@:protected public function ReceiveInstigatedAnyDamage(Damage: ucpp.num.Float32, DamageType: ucpp.Ptr<DamageType.ConstDamageType>, DamagedActor: ucpp.Ptr<Actor>, DamageCauser: ucpp.Ptr<Actor>): Void;
+	public function Possess(InPawn: ucpp.Ptr<Pawn>): Void;
 	public function OnRep_PlayerState(): Void;
 	public function OnRep_Pawn(): Void;
-	public function LineOfSightTo(Other: cpp.Star<Actor.ConstActor>, ViewPoint: Vector, bAlternateChecks: Bool): Bool;
-	public function K2_GetPawn(): cpp.Star<Pawn>;
+	public function LineOfSightTo(Other: ucpp.Ptr<Actor.ConstActor>, ViewPoint: Vector, bAlternateChecks: Bool): Bool;
+	public function K2_GetPawn(): ucpp.Ptr<Pawn>;
 	public function IsPlayerController(): Bool;
 	public function IsMoveInputIgnored(): Bool;
 	public function IsLookInputIgnored(): Bool;
 	public function IsLocalPlayerController(): Bool;
 	public function IsLocalController(): Bool;
-	public function GetViewTarget(): cpp.Star<Actor>;
-	public function GetPlayerViewPoint(Location: cpp.Reference<Vector>, Rotation: cpp.Reference<Rotator>): Void;
+	public function GetViewTarget(): ucpp.Ptr<Actor>;
+	public function GetPlayerViewPoint(Location: ucpp.Ref<Vector>, Rotation: ucpp.Ref<Rotator>): Void;
 	public function GetDesiredRotation(): Rotator;
 	public function GetControlRotation(): Rotator;
 	public function ClientSetRotation(NewRotation: Rotator, bResetCamera: Bool): Void;
 	public function ClientSetLocation(NewLocation: Vector, NewRotation: Rotator): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -54,12 +54,12 @@ extern class Controller extends Actor {
 )
 @:nativeGen
 abstract ConstController(Controller) from Controller {
-	public extern var PlayerState(get, never): cpp.Star<PlayerState.ConstPlayerState>;
-	public inline extern function get_PlayerState(): cpp.Star<PlayerState.ConstPlayerState> return this.PlayerState;
-	public extern var OnInstigatedAnyDamage(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor.ConstActor>, cpp.Star<Actor.ConstActor>) -> Void>;
-	public inline extern function get_OnInstigatedAnyDamage(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor.ConstActor>, cpp.Star<Actor.ConstActor>) -> Void> return this.OnInstigatedAnyDamage;
-	public extern var OnPossessedPawnChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Star<Pawn.ConstPawn>) -> Void>;
-	public inline extern function get_OnPossessedPawnChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Pawn.ConstPawn>, cpp.Star<Pawn.ConstPawn>) -> Void> return this.OnPossessedPawnChanged;
+	public extern var PlayerState(get, never): ucpp.Ptr<PlayerState.ConstPlayerState>;
+	public inline extern function get_PlayerState(): ucpp.Ptr<PlayerState.ConstPlayerState> return this.PlayerState;
+	public extern var OnInstigatedAnyDamage(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor.ConstActor>, ucpp.Ptr<Actor.ConstActor>) -> Void>;
+	public inline extern function get_OnInstigatedAnyDamage(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor.ConstActor>, ucpp.Ptr<Actor.ConstActor>) -> Void> return this.OnInstigatedAnyDamage;
+	public extern var OnPossessedPawnChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Pawn.ConstPawn>, ucpp.Ptr<Pawn.ConstPawn>) -> Void>;
+	public inline extern function get_OnPossessedPawnChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Pawn.ConstPawn>, ucpp.Ptr<Pawn.ConstPawn>) -> Void> return this.OnPossessedPawnChanged;
 	public extern var StateName(get, never): FName;
 	public inline extern function get_StateName(): FName return this.StateName;
 }
@@ -67,7 +67,7 @@ abstract ConstController(Controller) from Controller {
 @:forward
 @:nativeGen
 @:native("Controller*")
-abstract ControllerPtr(cpp.Star<Controller>) from cpp.Star<Controller> to cpp.Star<Controller>{
+abstract ControllerPtr(ucpp.Ptr<Controller>) from ucpp.Ptr<Controller> to ucpp.Ptr<Controller>{
 	@:from
 	public static extern inline function fromValue(v: Controller): ControllerPtr {
 		return untyped __cpp__("&({0})", v);

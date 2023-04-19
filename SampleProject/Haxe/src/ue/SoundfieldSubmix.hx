@@ -3,14 +3,14 @@ package ue;
 
 @:native("USoundfieldSubmix")
 @:include("Sound/SoundSubmix.h")
-@:structAccess
+@:valueType
 extern class SoundfieldSubmix extends SoundSubmixWithParentBase {
 	public var SoundfieldEncodingFormat: FName;
-	public var EncodingSettings: cpp.Star<SoundfieldEncodingSettingsBase>;
-	public var SoundfieldEffectChain: TArray<cpp.Star<SoundfieldEffectBase>>;
+	public var EncodingSettings: ucpp.Ptr<SoundfieldEncodingSettingsBase>;
+	public var SoundfieldEffectChain: TArray<ucpp.Ptr<SoundfieldEffectBase>>;
 	public var EncodingSettingsClass: TSubclassOf<SoundfieldEncodingSettingsBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,10 +18,10 @@ extern class SoundfieldSubmix extends SoundSubmixWithParentBase {
 abstract ConstSoundfieldSubmix(SoundfieldSubmix) from SoundfieldSubmix {
 	public extern var SoundfieldEncodingFormat(get, never): FName;
 	public inline extern function get_SoundfieldEncodingFormat(): FName return this.SoundfieldEncodingFormat;
-	public extern var EncodingSettings(get, never): cpp.Star<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase>;
-	public inline extern function get_EncodingSettings(): cpp.Star<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase> return this.EncodingSettings;
-	public extern var SoundfieldEffectChain(get, never): TArray<cpp.Star<SoundfieldEffectBase.ConstSoundfieldEffectBase>>;
-	public inline extern function get_SoundfieldEffectChain(): TArray<cpp.Star<SoundfieldEffectBase.ConstSoundfieldEffectBase>> return this.SoundfieldEffectChain;
+	public extern var EncodingSettings(get, never): ucpp.Ptr<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase>;
+	public inline extern function get_EncodingSettings(): ucpp.Ptr<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase> return this.EncodingSettings;
+	public extern var SoundfieldEffectChain(get, never): TArray<ucpp.Ptr<SoundfieldEffectBase.ConstSoundfieldEffectBase>>;
+	public inline extern function get_SoundfieldEffectChain(): TArray<ucpp.Ptr<SoundfieldEffectBase.ConstSoundfieldEffectBase>> return this.SoundfieldEffectChain;
 	public extern var EncodingSettingsClass(get, never): TSubclassOf<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase>;
 	public inline extern function get_EncodingSettingsClass(): TSubclassOf<SoundfieldEncodingSettingsBase.ConstSoundfieldEncodingSettingsBase> return this.EncodingSettingsClass;
 }
@@ -29,7 +29,7 @@ abstract ConstSoundfieldSubmix(SoundfieldSubmix) from SoundfieldSubmix {
 @:forward
 @:nativeGen
 @:native("SoundfieldSubmix*")
-abstract SoundfieldSubmixPtr(cpp.Star<SoundfieldSubmix>) from cpp.Star<SoundfieldSubmix> to cpp.Star<SoundfieldSubmix>{
+abstract SoundfieldSubmixPtr(ucpp.Ptr<SoundfieldSubmix>) from ucpp.Ptr<SoundfieldSubmix> to ucpp.Ptr<SoundfieldSubmix>{
 	@:from
 	public static extern inline function fromValue(v: SoundfieldSubmix): SoundfieldSubmixPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_PerceivedActors")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_PerceivedActors.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_PerceivedActors extends EnvQueryGenerator {
 	@:protected public var AllowedActorClass: TSubclassOf<Actor>;
 	@:protected public var SearchRadius: AIDataProviderFloatValue;
@@ -11,7 +11,7 @@ extern class EnvQueryGenerator_PerceivedActors extends EnvQueryGenerator {
 	@:protected public var SenseToUse: TSubclassOf<AISense>;
 	@:protected public var bIncludeKnownActors: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstEnvQueryGenerator_PerceivedActors(EnvQueryGenerator_PerceivedActor
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_PerceivedActors*")
-abstract EnvQueryGenerator_PerceivedActorsPtr(cpp.Star<EnvQueryGenerator_PerceivedActors>) from cpp.Star<EnvQueryGenerator_PerceivedActors> to cpp.Star<EnvQueryGenerator_PerceivedActors>{
+abstract EnvQueryGenerator_PerceivedActorsPtr(ucpp.Ptr<EnvQueryGenerator_PerceivedActors>) from ucpp.Ptr<EnvQueryGenerator_PerceivedActors> to ucpp.Ptr<EnvQueryGenerator_PerceivedActors>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_PerceivedActors): EnvQueryGenerator_PerceivedActorsPtr {
 		return untyped __cpp__("&({0})", v);

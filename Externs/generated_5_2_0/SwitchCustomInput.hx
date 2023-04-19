@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSwitchCustomInput")
 @:include("Materials/MaterialExpressionSwitch.h")
-@:structAccess
+@:valueType
 extern class SwitchCustomInput {
 	public var InputName: FName;
 	public var Input: ExpressionInput;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULightWeightInstanceBlueprintFunctionLibrary")
 @:include("GameFramework/LightWeightInstanceBlueprintFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class LightWeightInstanceBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
-	public function CreateNewLightWeightInstance(ActorClass: cpp.Star<Class>, Transform: Transform, Layer: cpp.Star<DataLayer>, World: cpp.Star<World>): ActorInstanceHandle;
-	public function ConvertActorToLightWeightInstance(Actor: cpp.Star<Actor>): ActorInstanceHandle;
+	public function CreateNewLightWeightInstance(ActorClass: ucpp.Ptr<Class>, Transform: Transform, Layer: ucpp.Ptr<DataLayerInstance>, World: ucpp.Ptr<World>): ActorInstanceHandle;
+	public function ConvertActorToLightWeightInstance(Actor: ucpp.Ptr<Actor>): ActorInstanceHandle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstLightWeightInstanceBlueprintFunctionLibrary(LightWeightInstanceBlu
 @:forward
 @:nativeGen
 @:native("LightWeightInstanceBlueprintFunctionLibrary*")
-abstract LightWeightInstanceBlueprintFunctionLibraryPtr(cpp.Star<LightWeightInstanceBlueprintFunctionLibrary>) from cpp.Star<LightWeightInstanceBlueprintFunctionLibrary> to cpp.Star<LightWeightInstanceBlueprintFunctionLibrary>{
+abstract LightWeightInstanceBlueprintFunctionLibraryPtr(ucpp.Ptr<LightWeightInstanceBlueprintFunctionLibrary>) from ucpp.Ptr<LightWeightInstanceBlueprintFunctionLibrary> to ucpp.Ptr<LightWeightInstanceBlueprintFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: LightWeightInstanceBlueprintFunctionLibrary): LightWeightInstanceBlueprintFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

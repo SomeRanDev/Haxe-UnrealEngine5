@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInputSettings")
 @:include("GameFramework/InputSettings.h")
-@:structAccess
+@:valueType
 extern class InputSettings extends Object {
 	public var AxisConfig: TArray<InputAxisConfigEntry>;
 	public var PlatformSettings: PerPlatformSettings;
@@ -28,8 +28,8 @@ extern class InputSettings extends Object {
 	public var ExcludedAutocorrectDeviceModels: TArray<FString>;
 	public var DefaultViewportMouseCaptureMode: EMouseCaptureMode;
 	public var DefaultViewportMouseLockMode: EMouseLockMode;
-	public var FOVScale: cpp.Float32;
-	public var DoubleClickTime: cpp.Float32;
+	public var FOVScale: ucpp.num.Float32;
+	public var DoubleClickTime: ucpp.num.Float32;
 	private var ActionMappings: TArray<InputActionKeyMapping>;
 	private var AxisMappings: TArray<InputAxisKeyMapping>;
 	private var SpeechMappings: TArray<InputActionSpeechMapping>;
@@ -39,18 +39,18 @@ extern class InputSettings extends Object {
 	public var ConsoleKeys: TArray<Key>;
 
 	public function SaveKeyMappings(): Void;
-	public function RemoveAxisMapping(KeyMapping: cpp.Reference<InputAxisKeyMapping>, bForceRebuildKeymaps: Bool): Void;
-	public function RemoveActionMapping(KeyMapping: cpp.Reference<InputActionKeyMapping>, bForceRebuildKeymaps: Bool): Void;
-	public function GetInputSettings(): cpp.Star<InputSettings>;
-	public function GetAxisNames(AxisNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetAxisMappingByName(InAxisName: FName, OutMappings: cpp.Reference<TArray<InputAxisKeyMapping>>): Void;
-	public function GetActionNames(ActionNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetActionMappingByName(InActionName: FName, OutMappings: cpp.Reference<TArray<InputActionKeyMapping>>): Void;
+	public function RemoveAxisMapping(KeyMapping: ucpp.Ref<InputAxisKeyMapping>, bForceRebuildKeymaps: Bool): Void;
+	public function RemoveActionMapping(KeyMapping: ucpp.Ref<InputActionKeyMapping>, bForceRebuildKeymaps: Bool): Void;
+	public function GetInputSettings(): ucpp.Ptr<InputSettings>;
+	public function GetAxisNames(AxisNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetAxisMappingByName(InAxisName: FName, OutMappings: ucpp.Ref<TArray<InputAxisKeyMapping>>): Void;
+	public function GetActionNames(ActionNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetActionMappingByName(InActionName: FName, OutMappings: ucpp.Ref<TArray<InputActionKeyMapping>>): Void;
 	public function ForceRebuildKeymaps(): Void;
-	public function AddAxisMapping(KeyMapping: cpp.Reference<InputAxisKeyMapping>, bForceRebuildKeymaps: Bool): Void;
-	public function AddActionMapping(KeyMapping: cpp.Reference<InputActionKeyMapping>, bForceRebuildKeymaps: Bool): Void;
+	public function AddAxisMapping(KeyMapping: ucpp.Ref<InputAxisKeyMapping>, bForceRebuildKeymaps: Bool): Void;
+	public function AddActionMapping(KeyMapping: ucpp.Ref<InputActionKeyMapping>, bForceRebuildKeymaps: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAxisNames, GetAxisMappingByName, GetActionNames, GetActionMappingByName)
@@ -102,10 +102,10 @@ abstract ConstInputSettings(InputSettings) from InputSettings {
 	public inline extern function get_DefaultViewportMouseCaptureMode(): EMouseCaptureMode return this.DefaultViewportMouseCaptureMode;
 	public extern var DefaultViewportMouseLockMode(get, never): EMouseLockMode;
 	public inline extern function get_DefaultViewportMouseLockMode(): EMouseLockMode return this.DefaultViewportMouseLockMode;
-	public extern var FOVScale(get, never): cpp.Float32;
-	public inline extern function get_FOVScale(): cpp.Float32 return this.FOVScale;
-	public extern var DoubleClickTime(get, never): cpp.Float32;
-	public inline extern function get_DoubleClickTime(): cpp.Float32 return this.DoubleClickTime;
+	public extern var FOVScale(get, never): ucpp.num.Float32;
+	public inline extern function get_FOVScale(): ucpp.num.Float32 return this.FOVScale;
+	public extern var DoubleClickTime(get, never): ucpp.num.Float32;
+	public inline extern function get_DoubleClickTime(): ucpp.num.Float32 return this.DoubleClickTime;
 	public extern var DefaultTouchInterface(get, never): SoftObjectPath;
 	public inline extern function get_DefaultTouchInterface(): SoftObjectPath return this.DefaultTouchInterface;
 	public extern var ConsoleKeys(get, never): TArray<Key>;
@@ -115,7 +115,7 @@ abstract ConstInputSettings(InputSettings) from InputSettings {
 @:forward
 @:nativeGen
 @:native("InputSettings*")
-abstract InputSettingsPtr(cpp.Star<InputSettings>) from cpp.Star<InputSettings> to cpp.Star<InputSettings>{
+abstract InputSettingsPtr(ucpp.Ptr<InputSettings>) from ucpp.Ptr<InputSettings> to ucpp.Ptr<InputSettings>{
 	@:from
 	public static extern inline function fromValue(v: InputSettings): InputSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,46 +3,46 @@ package ue;
 
 @:native("USkyLightComponent")
 @:include("Components/SkyLightComponent.h")
-@:structAccess
+@:valueType
 extern class SkyLightComp extends LightComponentBase {
 	public var bRealTimeCapture: Bool;
 	public var SourceType: TEnumAsByte<ESkyLightSourceType>;
-	public var Cubemap: cpp.Star<TextureCube>;
-	public var SourceCubemapAngle: cpp.Float32;
-	public var CubemapResolution: cpp.Int32;
-	public var SkyDistanceThreshold: cpp.Float32;
+	public var Cubemap: ucpp.Ptr<TextureCube>;
+	public var SourceCubemapAngle: ucpp.num.Float32;
+	public var CubemapResolution: ucpp.num.Int32;
+	public var SkyDistanceThreshold: ucpp.num.Float32;
 	public var bCaptureEmissiveOnly: Bool;
 	public var bLowerHemisphereIsBlack: Bool;
 	public var LowerHemisphereColor: LinearColor;
-	public var OcclusionMaxDistance: cpp.Float32;
-	public var Contrast: cpp.Float32;
-	public var OcclusionExponent: cpp.Float32;
-	public var MinOcclusion: cpp.Float32;
+	public var OcclusionMaxDistance: ucpp.num.Float32;
+	public var Contrast: ucpp.num.Float32;
+	public var OcclusionExponent: ucpp.num.Float32;
+	public var MinOcclusion: ucpp.num.Float32;
 	public var OcclusionTint: Color;
 	public var bCloudAmbientOcclusion: Bool;
-	public var CloudAmbientOcclusionStrength: cpp.Float32;
-	public var CloudAmbientOcclusionExtent: cpp.Float32;
-	public var CloudAmbientOcclusionMapResolutionScale: cpp.Float32;
-	public var CloudAmbientOcclusionApertureScale: cpp.Float32;
+	public var CloudAmbientOcclusionStrength: ucpp.num.Float32;
+	public var CloudAmbientOcclusionExtent: ucpp.num.Float32;
+	public var CloudAmbientOcclusionMapResolutionScale: ucpp.num.Float32;
+	public var CloudAmbientOcclusionApertureScale: ucpp.num.Float32;
 	public var OcclusionCombineMode: TEnumAsByte<EOcclusionCombineMode>;
 	public var bShowIlluminanceMeter: Bool;
-	@:protected public var BlendDestinationCubemap: cpp.Star<TextureCube>;
+	@:protected public var BlendDestinationCubemap: ucpp.Ptr<TextureCube>;
 
-	public function SetVolumetricScatteringIntensity(NewIntensity: cpp.Float32): Void;
-	public function SetSourceCubemapAngle(NewValue: cpp.Float32): Void;
-	public function SetOcclusionTint(InTint: cpp.Reference<Color>): Void;
-	public function SetOcclusionExponent(InOcclusionExponent: cpp.Float32): Void;
-	public function SetOcclusionContrast(InOcclusionContrast: cpp.Float32): Void;
-	public function SetMinOcclusion(InMinOcclusion: cpp.Float32): Void;
-	public function SetLowerHemisphereColor(InLowerHemisphereColor: cpp.Reference<LinearColor>): Void;
+	public function SetVolumetricScatteringIntensity(NewIntensity: ucpp.num.Float32): Void;
+	public function SetSourceCubemapAngle(NewValue: ucpp.num.Float32): Void;
+	public function SetOcclusionTint(InTint: ucpp.Ref<Color>): Void;
+	public function SetOcclusionExponent(InOcclusionExponent: ucpp.num.Float32): Void;
+	public function SetOcclusionContrast(InOcclusionContrast: ucpp.num.Float32): Void;
+	public function SetMinOcclusion(InMinOcclusion: ucpp.num.Float32): Void;
+	public function SetLowerHemisphereColor(InLowerHemisphereColor: ucpp.Ref<LinearColor>): Void;
 	public function SetLightColor(NewLightColor: LinearColor): Void;
-	public function SetIntensity(NewIntensity: cpp.Float32): Void;
-	public function SetIndirectLightingIntensity(NewIntensity: cpp.Float32): Void;
-	public function SetCubemapBlend(SourceCubemap: cpp.Star<TextureCube>, DestinationCubemap: cpp.Star<TextureCube>, InBlendFraction: cpp.Float32): Void;
-	public function SetCubemap(NewCubemap: cpp.Star<TextureCube>): Void;
+	public function SetIntensity(NewIntensity: ucpp.num.Float32): Void;
+	public function SetIndirectLightingIntensity(NewIntensity: ucpp.num.Float32): Void;
+	public function SetCubemapBlend(SourceCubemap: ucpp.Ptr<TextureCube>, DestinationCubemap: ucpp.Ptr<TextureCube>, InBlendFraction: ucpp.num.Float32): Void;
+	public function SetCubemap(NewCubemap: ucpp.Ptr<TextureCube>): Void;
 	public function RecaptureSky(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -52,40 +52,40 @@ abstract ConstSkyLightComp(SkyLightComp) from SkyLightComp {
 	public inline extern function get_bRealTimeCapture(): Bool return this.bRealTimeCapture;
 	public extern var SourceType(get, never): TEnumAsByte<ESkyLightSourceType>;
 	public inline extern function get_SourceType(): TEnumAsByte<ESkyLightSourceType> return this.SourceType;
-	public extern var Cubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
-	public inline extern function get_Cubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.Cubemap;
-	public extern var SourceCubemapAngle(get, never): cpp.Float32;
-	public inline extern function get_SourceCubemapAngle(): cpp.Float32 return this.SourceCubemapAngle;
-	public extern var CubemapResolution(get, never): cpp.Int32;
-	public inline extern function get_CubemapResolution(): cpp.Int32 return this.CubemapResolution;
-	public extern var SkyDistanceThreshold(get, never): cpp.Float32;
-	public inline extern function get_SkyDistanceThreshold(): cpp.Float32 return this.SkyDistanceThreshold;
+	public extern var Cubemap(get, never): ucpp.Ptr<TextureCube.ConstTextureCube>;
+	public inline extern function get_Cubemap(): ucpp.Ptr<TextureCube.ConstTextureCube> return this.Cubemap;
+	public extern var SourceCubemapAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceCubemapAngle(): ucpp.num.Float32 return this.SourceCubemapAngle;
+	public extern var CubemapResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_CubemapResolution(): ucpp.num.Int32 return this.CubemapResolution;
+	public extern var SkyDistanceThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_SkyDistanceThreshold(): ucpp.num.Float32 return this.SkyDistanceThreshold;
 	public extern var bCaptureEmissiveOnly(get, never): Bool;
 	public inline extern function get_bCaptureEmissiveOnly(): Bool return this.bCaptureEmissiveOnly;
 	public extern var bLowerHemisphereIsBlack(get, never): Bool;
 	public inline extern function get_bLowerHemisphereIsBlack(): Bool return this.bLowerHemisphereIsBlack;
 	public extern var LowerHemisphereColor(get, never): LinearColor;
 	public inline extern function get_LowerHemisphereColor(): LinearColor return this.LowerHemisphereColor;
-	public extern var OcclusionMaxDistance(get, never): cpp.Float32;
-	public inline extern function get_OcclusionMaxDistance(): cpp.Float32 return this.OcclusionMaxDistance;
-	public extern var Contrast(get, never): cpp.Float32;
-	public inline extern function get_Contrast(): cpp.Float32 return this.Contrast;
-	public extern var OcclusionExponent(get, never): cpp.Float32;
-	public inline extern function get_OcclusionExponent(): cpp.Float32 return this.OcclusionExponent;
-	public extern var MinOcclusion(get, never): cpp.Float32;
-	public inline extern function get_MinOcclusion(): cpp.Float32 return this.MinOcclusion;
+	public extern var OcclusionMaxDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_OcclusionMaxDistance(): ucpp.num.Float32 return this.OcclusionMaxDistance;
+	public extern var Contrast(get, never): ucpp.num.Float32;
+	public inline extern function get_Contrast(): ucpp.num.Float32 return this.Contrast;
+	public extern var OcclusionExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_OcclusionExponent(): ucpp.num.Float32 return this.OcclusionExponent;
+	public extern var MinOcclusion(get, never): ucpp.num.Float32;
+	public inline extern function get_MinOcclusion(): ucpp.num.Float32 return this.MinOcclusion;
 	public extern var OcclusionTint(get, never): Color;
 	public inline extern function get_OcclusionTint(): Color return this.OcclusionTint;
 	public extern var bCloudAmbientOcclusion(get, never): Bool;
 	public inline extern function get_bCloudAmbientOcclusion(): Bool return this.bCloudAmbientOcclusion;
-	public extern var CloudAmbientOcclusionStrength(get, never): cpp.Float32;
-	public inline extern function get_CloudAmbientOcclusionStrength(): cpp.Float32 return this.CloudAmbientOcclusionStrength;
-	public extern var CloudAmbientOcclusionExtent(get, never): cpp.Float32;
-	public inline extern function get_CloudAmbientOcclusionExtent(): cpp.Float32 return this.CloudAmbientOcclusionExtent;
-	public extern var CloudAmbientOcclusionMapResolutionScale(get, never): cpp.Float32;
-	public inline extern function get_CloudAmbientOcclusionMapResolutionScale(): cpp.Float32 return this.CloudAmbientOcclusionMapResolutionScale;
-	public extern var CloudAmbientOcclusionApertureScale(get, never): cpp.Float32;
-	public inline extern function get_CloudAmbientOcclusionApertureScale(): cpp.Float32 return this.CloudAmbientOcclusionApertureScale;
+	public extern var CloudAmbientOcclusionStrength(get, never): ucpp.num.Float32;
+	public inline extern function get_CloudAmbientOcclusionStrength(): ucpp.num.Float32 return this.CloudAmbientOcclusionStrength;
+	public extern var CloudAmbientOcclusionExtent(get, never): ucpp.num.Float32;
+	public inline extern function get_CloudAmbientOcclusionExtent(): ucpp.num.Float32 return this.CloudAmbientOcclusionExtent;
+	public extern var CloudAmbientOcclusionMapResolutionScale(get, never): ucpp.num.Float32;
+	public inline extern function get_CloudAmbientOcclusionMapResolutionScale(): ucpp.num.Float32 return this.CloudAmbientOcclusionMapResolutionScale;
+	public extern var CloudAmbientOcclusionApertureScale(get, never): ucpp.num.Float32;
+	public inline extern function get_CloudAmbientOcclusionApertureScale(): ucpp.num.Float32 return this.CloudAmbientOcclusionApertureScale;
 	public extern var OcclusionCombineMode(get, never): TEnumAsByte<EOcclusionCombineMode>;
 	public inline extern function get_OcclusionCombineMode(): TEnumAsByte<EOcclusionCombineMode> return this.OcclusionCombineMode;
 	public extern var bShowIlluminanceMeter(get, never): Bool;
@@ -95,7 +95,7 @@ abstract ConstSkyLightComp(SkyLightComp) from SkyLightComp {
 @:forward
 @:nativeGen
 @:native("SkyLightComp*")
-abstract SkyLightCompPtr(cpp.Star<SkyLightComp>) from cpp.Star<SkyLightComp> to cpp.Star<SkyLightComp>{
+abstract SkyLightCompPtr(ucpp.Ptr<SkyLightComp>) from ucpp.Ptr<SkyLightComp> to ucpp.Ptr<SkyLightComp>{
 	@:from
 	public static extern inline function fromValue(v: SkyLightComp): SkyLightCompPtr {
 		return untyped __cpp__("&({0})", v);

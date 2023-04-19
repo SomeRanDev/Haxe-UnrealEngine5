@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPlatformInterfaceDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PlatformInterfaceDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPlatformInterfaceDelegate__PythonCallable(PlatformInterfaceDelegat
 @:forward
 @:nativeGen
 @:native("PlatformInterfaceDelegate__PythonCallable*")
-abstract PlatformInterfaceDelegate__PythonCallablePtr(cpp.Star<PlatformInterfaceDelegate__PythonCallable>) from cpp.Star<PlatformInterfaceDelegate__PythonCallable> to cpp.Star<PlatformInterfaceDelegate__PythonCallable>{
+abstract PlatformInterfaceDelegate__PythonCallablePtr(ucpp.Ptr<PlatformInterfaceDelegate__PythonCallable>) from ucpp.Ptr<PlatformInterfaceDelegate__PythonCallable> to ucpp.Ptr<PlatformInterfaceDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PlatformInterfaceDelegate__PythonCallable): PlatformInterfaceDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

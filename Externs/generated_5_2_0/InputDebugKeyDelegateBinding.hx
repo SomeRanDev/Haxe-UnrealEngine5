@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputDebugKeyDelegateBinding")
 @:include("InputDebugKeyDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class InputDebugKeyDelegateBinding extends InputDelegateBinding {
 	public var InputDebugKeyDelegateBindings: TArray<BlueprintInputDebugKeyDelegateBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputDebugKeyDelegateBinding(InputDebugKeyDelegateBinding) from In
 @:forward
 @:nativeGen
 @:native("InputDebugKeyDelegateBinding*")
-abstract InputDebugKeyDelegateBindingPtr(cpp.Star<InputDebugKeyDelegateBinding>) from cpp.Star<InputDebugKeyDelegateBinding> to cpp.Star<InputDebugKeyDelegateBinding>{
+abstract InputDebugKeyDelegateBindingPtr(ucpp.Ptr<InputDebugKeyDelegateBinding>) from ucpp.Ptr<InputDebugKeyDelegateBinding> to ucpp.Ptr<InputDebugKeyDelegateBinding>{
 	@:from
 	public static extern inline function fromValue(v: InputDebugKeyDelegateBinding): InputDebugKeyDelegateBindingPtr {
 		return untyped __cpp__("&({0})", v);

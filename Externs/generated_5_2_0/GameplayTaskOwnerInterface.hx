@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGameplayTaskOwnerInterface")
-@:structAccess
+@:valueType
 extern class GameplayTaskOwnerInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGameplayTaskOwnerInterface(GameplayTaskOwnerInterface) from Gamepl
 @:forward
 @:nativeGen
 @:native("GameplayTaskOwnerInterface*")
-abstract GameplayTaskOwnerInterfacePtr(cpp.Star<GameplayTaskOwnerInterface>) from cpp.Star<GameplayTaskOwnerInterface> to cpp.Star<GameplayTaskOwnerInterface>{
+abstract GameplayTaskOwnerInterfacePtr(ucpp.Ptr<GameplayTaskOwnerInterface>) from ucpp.Ptr<GameplayTaskOwnerInterface> to ucpp.Ptr<GameplayTaskOwnerInterface>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTaskOwnerInterface): GameplayTaskOwnerInterfacePtr {
 		return untyped __cpp__("&({0})", v);

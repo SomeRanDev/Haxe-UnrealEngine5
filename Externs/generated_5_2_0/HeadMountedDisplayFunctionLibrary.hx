@@ -3,57 +3,57 @@ package ue;
 
 @:native("UHeadMountedDisplayFunctionLibrary")
 @:include("HeadMountedDisplayFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class HeadMountedDisplayFunctionLibrary extends BlueprintFunctionLibrary {
-	public function UpdateExternalTrackingHMDPosition(ExternalTrackingTransform: cpp.Reference<Transform>): Void;
-	public function SetXRTimedInputActionDelegate(ActionName: cpp.Reference<FName>, InDelegate: cpp.Reference<HaxeDelegateProperty<(cpp.Float32, Timespan) -> Void>>): Void;
-	public function SetXRDisconnectDelegate(InDisconnectedDelegate: cpp.Reference<HaxeDelegateProperty<(FString) -> Void>>): Void;
-	public function SetWorldToMetersScale(WorldContext: cpp.Star<Object>, NewScale: cpp.Float32): Void;
+	public function UpdateExternalTrackingHMDPosition(ExternalTrackingTransform: ucpp.Ref<Transform>): Void;
+	public function SetXRTimedInputActionDelegate(ActionName: ucpp.Ref<FName>, InDelegate: ucpp.Ref<HaxeDelegateProperty<(ucpp.num.Float32, Timespan) -> Void>>): Void;
+	public function SetXRDisconnectDelegate(InDisconnectedDelegate: ucpp.Ref<HaxeDelegateProperty<(FString) -> Void>>): Void;
+	public function SetWorldToMetersScale(WorldContext: ucpp.Ptr<Object>, NewScale: ucpp.num.Float32): Void;
 	public function SetTrackingOrigin(Origin: TEnumAsByte<EHMDTrackingOrigin>): Void;
-	public function SetSpectatorScreenTexture(InTexture: cpp.Star<Texture>): Void;
+	public function SetSpectatorScreenTexture(InTexture: ucpp.Ptr<Texture>): Void;
 	public function SetSpectatorScreenModeTexturePlusEyeLayout(EyeRectMin: Vector2D, EyeRectMax: Vector2D, TextureRectMin: Vector2D, TextureRectMax: Vector2D, bDrawEyeFirst: Bool, bClearBlack: Bool, bUseAlpha: Bool): Void;
 	public function SetSpectatorScreenMode(Mode: ESpectatorScreenMode): Void;
-	public function SetClippingPlanes(Near: cpp.Float32, Far: cpp.Float32): Void;
-	public function ResetOrientationAndPosition(Yaw: cpp.Float32, Options: TEnumAsByte<EOrientPositionSelector>): Void;
+	public function SetClippingPlanes(Near: ucpp.num.Float32, Far: ucpp.num.Float32): Void;
+	public function ResetOrientationAndPosition(Yaw: ucpp.num.Float32, Options: TEnumAsByte<EOrientPositionSelector>): Void;
 	public function IsSpectatorScreenModeControllable(): Bool;
 	public function IsInLowPersistenceMode(): Bool;
 	public function IsHeadMountedDisplayEnabled(): Bool;
 	public function IsHeadMountedDisplayConnected(): Bool;
-	public function IsDeviceTracking(XRDeviceId: cpp.Reference<XRDeviceId>): Bool;
+	public function IsDeviceTracking(XRDeviceId: ucpp.Ref<XRDeviceId>): Bool;
 	public function HasValidTrackingPosition(): Bool;
-	public function GetXRSystemFlags(): cpp.Int32;
-	public function GetWorldToMetersScale(WorldContext: cpp.Star<Object>): cpp.Float32;
-	public function GetVRFocusState(bUseFocus: cpp.Reference<Bool>, bHasFocus: cpp.Reference<Bool>): Void;
+	public function GetXRSystemFlags(): ucpp.num.Int32;
+	public function GetWorldToMetersScale(WorldContext: ucpp.Ptr<Object>): ucpp.num.Float32;
+	public function GetVRFocusState(bUseFocus: ucpp.Ref<Bool>, bHasFocus: ucpp.Ref<Bool>): Void;
 	public function GetVersionString(): FString;
-	public function GetTrackingToWorldTransform(WorldContext: cpp.Star<Object>): Transform;
-	public function GetTrackingSensorParameters(Origin: cpp.Reference<Vector>, Rotation: cpp.Reference<Rotator>, LeftFOV: cpp.Reference<cpp.Float32>, RightFOV: cpp.Reference<cpp.Float32>, TopFOV: cpp.Reference<cpp.Float32>, BottomFOV: cpp.Reference<cpp.Float32>, Distance: cpp.Reference<cpp.Float32>, NearPlane: cpp.Reference<cpp.Float32>, FarPlane: cpp.Reference<cpp.Float32>, IsActive: cpp.Reference<Bool>, Index: cpp.Int32): Void;
-	public function GetTrackingOriginTransform(Origin: TEnumAsByte<EHMDTrackingOrigin>, OutTransform: cpp.Reference<Transform>): Bool;
+	public function GetTrackingToWorldTransform(WorldContext: ucpp.Ptr<Object>): Transform;
+	public function GetTrackingSensorParameters(Origin: ucpp.Ref<Vector>, Rotation: ucpp.Ref<Rotator>, LeftFOV: ucpp.Ref<ucpp.num.Float32>, RightFOV: ucpp.Ref<ucpp.num.Float32>, TopFOV: ucpp.Ref<ucpp.num.Float32>, BottomFOV: ucpp.Ref<ucpp.num.Float32>, Distance: ucpp.Ref<ucpp.num.Float32>, NearPlane: ucpp.Ref<ucpp.num.Float32>, FarPlane: ucpp.Ref<ucpp.num.Float32>, IsActive: ucpp.Ref<Bool>, Index: ucpp.num.Int32): Void;
+	public function GetTrackingOriginTransform(Origin: TEnumAsByte<EHMDTrackingOrigin>, OutTransform: ucpp.Ref<Transform>): Bool;
 	public function GetTrackingOrigin(): TEnumAsByte<EHMDTrackingOrigin>;
-	public function GetPositionalTrackingCameraParameters(CameraOrigin: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>, HFOV: cpp.Reference<cpp.Float32>, VFOV: cpp.Reference<cpp.Float32>, CameraDistance: cpp.Reference<cpp.Float32>, NearPlane: cpp.Reference<cpp.Float32>, FarPlane: cpp.Reference<cpp.Float32>): Void;
-	public function GetPlayAreaRect(OutTransform: cpp.Reference<Transform>, OutRect: cpp.Reference<Vector2D>): Bool;
+	public function GetPositionalTrackingCameraParameters(CameraOrigin: ucpp.Ref<Vector>, CameraRotation: ucpp.Ref<Rotator>, HFOV: ucpp.Ref<ucpp.num.Float32>, VFOV: ucpp.Ref<ucpp.num.Float32>, CameraDistance: ucpp.Ref<ucpp.num.Float32>, NearPlane: ucpp.Ref<ucpp.num.Float32>, FarPlane: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetPlayAreaRect(OutTransform: ucpp.Ref<Transform>, OutRect: ucpp.Ref<Vector2D>): Bool;
 	public function GetPlayAreaBounds(Origin: TEnumAsByte<EHMDTrackingOrigin>): Vector2D;
-	public function GetPixelDensity(): cpp.Float32;
-	public function GetOrientationAndPosition(DeviceRotation: cpp.Reference<Rotator>, DevicePosition: cpp.Reference<Vector>): Void;
-	public function GetNumOfTrackingSensors(): cpp.Int32;
-	public function GetMotionControllerData(WorldContext: cpp.Star<Object>, Hand: EControllerHand, MotionControllerData: cpp.Reference<XRMotionControllerData>): Void;
+	public function GetPixelDensity(): ucpp.num.Float32;
+	public function GetOrientationAndPosition(DeviceRotation: ucpp.Ref<Rotator>, DevicePosition: ucpp.Ref<Vector>): Void;
+	public function GetNumOfTrackingSensors(): ucpp.num.Int32;
+	public function GetMotionControllerData(WorldContext: ucpp.Ptr<Object>, Hand: EControllerHand, MotionControllerData: ucpp.Ref<XRMotionControllerData>): Void;
 	public function GetHMDWornState(): TEnumAsByte<EHMDWornState>;
 	public function GetHMDDeviceName(): FName;
-	public function GetHMDData(WorldContext: cpp.Star<Object>, HMDData: cpp.Reference<XRHMDData>): Void;
-	public function GetDeviceWorldPose(WorldContext: cpp.Star<Object>, XRDeviceId: cpp.Reference<XRDeviceId>, bIsTracked: cpp.Reference<Bool>, Orientation: cpp.Reference<Rotator>, bHasPositionalTracking: cpp.Reference<Bool>, Position: cpp.Reference<Vector>): Void;
-	public function GetDevicePose(XRDeviceId: cpp.Reference<XRDeviceId>, bIsTracked: cpp.Reference<Bool>, Orientation: cpp.Reference<Rotator>, bHasPositionalTracking: cpp.Reference<Bool>, Position: cpp.Reference<Vector>): Void;
-	public function GetCurrentInteractionProfile(Hand: EControllerHand, InteractionProfile: cpp.Reference<FString>): Bool;
-	public function GetControllerTransformForTime(WorldContext: cpp.Star<Object>, ControllerIndex: cpp.Int32, MotionSource: FName, Time: Timespan, bTimeWasUsed: cpp.Reference<Bool>, Orientation: cpp.Reference<Rotator>, Position: cpp.Reference<Vector>, bProvidedLinearVelocity: cpp.Reference<Bool>, LinearVelocity: cpp.Reference<Vector>, bProvidedAngularVelocity: cpp.Reference<Bool>, AngularVelocityRadPerSec: cpp.Reference<Vector>, bProvidedLinearAcceleration: cpp.Reference<Bool>, LinearAcceleration: cpp.Reference<Vector>): Bool;
+	public function GetHMDData(WorldContext: ucpp.Ptr<Object>, HMDData: ucpp.Ref<XRHMDData>): Void;
+	public function GetDeviceWorldPose(WorldContext: ucpp.Ptr<Object>, XRDeviceId: ucpp.Ref<XRDeviceId>, bIsTracked: ucpp.Ref<Bool>, Orientation: ucpp.Ref<Rotator>, bHasPositionalTracking: ucpp.Ref<Bool>, Position: ucpp.Ref<Vector>): Void;
+	public function GetDevicePose(XRDeviceId: ucpp.Ref<XRDeviceId>, bIsTracked: ucpp.Ref<Bool>, Orientation: ucpp.Ref<Rotator>, bHasPositionalTracking: ucpp.Ref<Bool>, Position: ucpp.Ref<Vector>): Void;
+	public function GetCurrentInteractionProfile(Hand: EControllerHand, InteractionProfile: ucpp.Ref<FString>): Bool;
+	public function GetControllerTransformForTime(WorldContext: ucpp.Ptr<Object>, ControllerIndex: ucpp.num.Int32, MotionSource: FName, Time: Timespan, bTimeWasUsed: ucpp.Ref<Bool>, Orientation: ucpp.Ref<Rotator>, Position: ucpp.Ref<Vector>, bProvidedLinearVelocity: ucpp.Ref<Bool>, LinearVelocity: ucpp.Ref<Vector>, bProvidedAngularVelocity: ucpp.Ref<Bool>, AngularVelocityRadPerSec: ucpp.Ref<Vector>, bProvidedLinearAcceleration: ucpp.Ref<Bool>, LinearAcceleration: ucpp.Ref<Vector>): Bool;
 	public function EnumerateTrackedDevices(SystemId: FName, DeviceType: EXRTrackedDeviceType): TArray<XRDeviceId>;
 	public function EnableLowPersistenceMode(bEnable: Bool): Void;
 	public function EnableHMD(bEnable: Bool): Bool;
 	public function DisconnectRemoteXRDevice(): Void;
-	public function ConnectRemoteXRDevice(IpAddress: FString, BitRate: cpp.Int32): TEnumAsByte<EXRDeviceConnectionResult>;
-	public function ConfigureGestures(GestureConfig: cpp.Reference<XRGestureConfig>): Bool;
-	public function ClearXRTimedInputActionDelegate(ActionPath: cpp.Reference<FName>): Void;
-	public function CalibrateExternalTrackingToHMD(ExternalTrackingTransform: cpp.Reference<Transform>): Void;
-	public function BreakKey(InKey: Key, InteractionProfile: cpp.Reference<FString>, Hand: cpp.Reference<EControllerHand>, MotionSource: cpp.Reference<FName>, Indentifier: cpp.Reference<FString>, Component: cpp.Reference<FString>): Void;
+	public function ConnectRemoteXRDevice(IpAddress: FString, BitRate: ucpp.num.Int32): TEnumAsByte<EXRDeviceConnectionResult>;
+	public function ConfigureGestures(GestureConfig: ucpp.Ref<XRGestureConfig>): Bool;
+	public function ClearXRTimedInputActionDelegate(ActionPath: ucpp.Ref<FName>): Void;
+	public function CalibrateExternalTrackingToHMD(ExternalTrackingTransform: ucpp.Ref<Transform>): Void;
+	public function BreakKey(InKey: Key, InteractionProfile: ucpp.Ref<FString>, Hand: ucpp.Ref<EControllerHand>, MotionSource: ucpp.Ref<FName>, Indentifier: ucpp.Ref<FString>, Component: ucpp.Ref<FString>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -64,7 +64,7 @@ abstract ConstHeadMountedDisplayFunctionLibrary(HeadMountedDisplayFunctionLibrar
 @:forward
 @:nativeGen
 @:native("HeadMountedDisplayFunctionLibrary*")
-abstract HeadMountedDisplayFunctionLibraryPtr(cpp.Star<HeadMountedDisplayFunctionLibrary>) from cpp.Star<HeadMountedDisplayFunctionLibrary> to cpp.Star<HeadMountedDisplayFunctionLibrary>{
+abstract HeadMountedDisplayFunctionLibraryPtr(ucpp.Ptr<HeadMountedDisplayFunctionLibrary>) from ucpp.Ptr<HeadMountedDisplayFunctionLibrary> to ucpp.Ptr<HeadMountedDisplayFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: HeadMountedDisplayFunctionLibrary): HeadMountedDisplayFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

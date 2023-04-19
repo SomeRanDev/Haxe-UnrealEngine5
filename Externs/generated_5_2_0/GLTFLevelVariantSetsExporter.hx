@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGLTFLevelVariantSetsExporter")
 @:include("Exporters/GLTFLevelVariantSetsExporter.h")
-@:structAccess
+@:valueType
 extern class GLTFLevelVariantSetsExporter extends GLTFExporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGLTFLevelVariantSetsExporter(GLTFLevelVariantSetsExporter) from GL
 @:forward
 @:nativeGen
 @:native("GLTFLevelVariantSetsExporter*")
-abstract GLTFLevelVariantSetsExporterPtr(cpp.Star<GLTFLevelVariantSetsExporter>) from cpp.Star<GLTFLevelVariantSetsExporter> to cpp.Star<GLTFLevelVariantSetsExporter>{
+abstract GLTFLevelVariantSetsExporterPtr(ucpp.Ptr<GLTFLevelVariantSetsExporter>) from ucpp.Ptr<GLTFLevelVariantSetsExporter> to ucpp.Ptr<GLTFLevelVariantSetsExporter>{
 	@:from
 	public static extern inline function fromValue(v: GLTFLevelVariantSetsExporter): GLTFLevelVariantSetsExporterPtr {
 		return untyped __cpp__("&({0})", v);

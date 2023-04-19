@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPolyEditPlanarProjectionUVActivity")
 @:include("ToolActivities/PolyEditPlanarProjectionUVActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditPlanarProjectionUVActivity extends InteractiveToolActivity {
-	@:protected public var SetUVProperties: cpp.Star<PolyEditSetUVProperties>;
-	@:protected public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
-	@:protected public var SurfacePathMechanic: cpp.Star<CollectSurfacePathMechanic>;
-	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var SetUVProperties: ucpp.Ptr<PolyEditSetUVProperties>;
+	@:protected public var EditPreview: ucpp.Ptr<PolyEditPreviewMesh>;
+	@:protected public var SurfacePathMechanic: ucpp.Ptr<CollectSurfacePathMechanic>;
+	@:protected public var ActivityContext: ucpp.Ptr<PolyEditActivityContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstPolyEditPlanarProjectionUVActivity(PolyEditPlanarProjectionUVActiv
 @:forward
 @:nativeGen
 @:native("PolyEditPlanarProjectionUVActivity*")
-abstract PolyEditPlanarProjectionUVActivityPtr(cpp.Star<PolyEditPlanarProjectionUVActivity>) from cpp.Star<PolyEditPlanarProjectionUVActivity> to cpp.Star<PolyEditPlanarProjectionUVActivity>{
+abstract PolyEditPlanarProjectionUVActivityPtr(ucpp.Ptr<PolyEditPlanarProjectionUVActivity>) from ucpp.Ptr<PolyEditPlanarProjectionUVActivity> to ucpp.Ptr<PolyEditPlanarProjectionUVActivity>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditPlanarProjectionUVActivity): PolyEditPlanarProjectionUVActivityPtr {
 		return untyped __cpp__("&({0})", v);

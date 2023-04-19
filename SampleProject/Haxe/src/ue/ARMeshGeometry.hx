@@ -3,11 +3,11 @@ package ue;
 
 @:native("UARMeshGeometry")
 @:include("ARTrackable.h")
-@:structAccess
+@:valueType
 extern class ARMeshGeometry extends ARTrackedGeometry {
-	public function GetObjectClassificationAtLocation(InWorldLocation: cpp.Reference<Vector>, OutClassification: cpp.Reference<EARObjectClassification>, OutClassificationLocation: cpp.Reference<Vector>, MaxLocationDiff: cpp.Float32): Bool;
+	public function GetObjectClassificationAtLocation(InWorldLocation: ucpp.Ref<Vector>, OutClassification: ucpp.Ref<EARObjectClassification>, OutClassificationLocation: ucpp.Ref<Vector>, MaxLocationDiff: ucpp.num.Float32): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstARMeshGeometry(ARMeshGeometry) from ARMeshGeometry {
 @:forward
 @:nativeGen
 @:native("ARMeshGeometry*")
-abstract ARMeshGeometryPtr(cpp.Star<ARMeshGeometry>) from cpp.Star<ARMeshGeometry> to cpp.Star<ARMeshGeometry>{
+abstract ARMeshGeometryPtr(ucpp.Ptr<ARMeshGeometry>) from ucpp.Ptr<ARMeshGeometry> to ucpp.Ptr<ARMeshGeometry>{
 	@:from
 	public static extern inline function fromValue(v: ARMeshGeometry): ARMeshGeometryPtr {
 		return untyped __cpp__("&({0})", v);

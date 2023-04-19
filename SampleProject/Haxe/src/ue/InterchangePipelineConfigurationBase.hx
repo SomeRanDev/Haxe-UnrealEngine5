@@ -3,11 +3,13 @@ package ue;
 
 @:native("UInterchangePipelineConfigurationBase")
 @:include("InterchangePipelineConfigurationBase.h")
-@:structAccess
+@:valueType
 extern class InterchangePipelineConfigurationBase extends Object {
-	public function ScriptedShowPipelineConfigurationDialog(): EInterchangePipelineConfigurationDialogResult;
+	public function ScriptedShowScenePipelineConfigurationDialog(PipelineStacks: ucpp.Ref<TArray<InterchangeStackInfo>>, OutPipelines: ucpp.Ref<TArray<ucpp.Ptr<InterchangePipelineBase>>>, SourceData: ucpp.Ptr<InterchangeSourceData>): EInterchangePipelineConfigurationDialogResult;
+	public function ScriptedShowReimportPipelineConfigurationDialog(PipelineStacks: ucpp.Ref<TArray<InterchangeStackInfo>>, OutPipelines: ucpp.Ref<TArray<ucpp.Ptr<InterchangePipelineBase>>>, SourceData: ucpp.Ptr<InterchangeSourceData>): EInterchangePipelineConfigurationDialogResult;
+	public function ScriptedShowPipelineConfigurationDialog(PipelineStacks: ucpp.Ref<TArray<InterchangeStackInfo>>, OutPipelines: ucpp.Ref<TArray<ucpp.Ptr<InterchangePipelineBase>>>, SourceData: ucpp.Ptr<InterchangeSourceData>): EInterchangePipelineConfigurationDialogResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +20,7 @@ abstract ConstInterchangePipelineConfigurationBase(InterchangePipelineConfigurat
 @:forward
 @:nativeGen
 @:native("InterchangePipelineConfigurationBase*")
-abstract InterchangePipelineConfigurationBasePtr(cpp.Star<InterchangePipelineConfigurationBase>) from cpp.Star<InterchangePipelineConfigurationBase> to cpp.Star<InterchangePipelineConfigurationBase>{
+abstract InterchangePipelineConfigurationBasePtr(ucpp.Ptr<InterchangePipelineConfigurationBase>) from ucpp.Ptr<InterchangePipelineConfigurationBase> to ucpp.Ptr<InterchangePipelineConfigurationBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePipelineConfigurationBase): InterchangePipelineConfigurationBasePtr {
 		return untyped __cpp__("&({0})", v);

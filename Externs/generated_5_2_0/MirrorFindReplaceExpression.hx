@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMirrorFindReplaceExpression")
 @:include("Animation/MirrorDataTable.h")
-@:structAccess
+@:valueType
 extern class MirrorFindReplaceExpression {
 	public var FindExpression: FName;
 	public var ReplaceExpression: FName;

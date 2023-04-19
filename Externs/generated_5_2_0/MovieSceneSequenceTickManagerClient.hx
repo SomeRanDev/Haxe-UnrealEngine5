@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneSequenceTickManagerClient")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceTickManagerClient extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneSequenceTickManagerClient(MovieSceneSequenceTickManagerC
 @:forward
 @:nativeGen
 @:native("MovieSceneSequenceTickManagerClient*")
-abstract MovieSceneSequenceTickManagerClientPtr(cpp.Star<MovieSceneSequenceTickManagerClient>) from cpp.Star<MovieSceneSequenceTickManagerClient> to cpp.Star<MovieSceneSequenceTickManagerClient>{
+abstract MovieSceneSequenceTickManagerClientPtr(ucpp.Ptr<MovieSceneSequenceTickManagerClient>) from ucpp.Ptr<MovieSceneSequenceTickManagerClient> to ucpp.Ptr<MovieSceneSequenceTickManagerClient>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSequenceTickManagerClient): MovieSceneSequenceTickManagerClientPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPopulateDialogueWaveFromCharacterSheetCommandlet")
 @:include("Commandlets/PopulateDialogueWaveFromCharacterSheetCommandlet.h")
-@:structAccess
+@:valueType
 extern class PopulateDialogueWaveFromCharacterSheetCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPopulateDialogueWaveFromCharacterSheetCommandlet(PopulateDialogueW
 @:forward
 @:nativeGen
 @:native("PopulateDialogueWaveFromCharacterSheetCommandlet*")
-abstract PopulateDialogueWaveFromCharacterSheetCommandletPtr(cpp.Star<PopulateDialogueWaveFromCharacterSheetCommandlet>) from cpp.Star<PopulateDialogueWaveFromCharacterSheetCommandlet> to cpp.Star<PopulateDialogueWaveFromCharacterSheetCommandlet>{
+abstract PopulateDialogueWaveFromCharacterSheetCommandletPtr(ucpp.Ptr<PopulateDialogueWaveFromCharacterSheetCommandlet>) from ucpp.Ptr<PopulateDialogueWaveFromCharacterSheetCommandlet> to ucpp.Ptr<PopulateDialogueWaveFromCharacterSheetCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: PopulateDialogueWaveFromCharacterSheetCommandlet): PopulateDialogueWaveFromCharacterSheetCommandletPtr {
 		return untyped __cpp__("&({0})", v);

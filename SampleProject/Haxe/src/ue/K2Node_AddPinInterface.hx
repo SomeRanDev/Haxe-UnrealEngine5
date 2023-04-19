@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UK2Node_AddPinInterface")
-@:structAccess
+@:valueType
 extern class K2Node_AddPinInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstK2Node_AddPinInterface(K2Node_AddPinInterface) from K2Node_AddPinI
 @:forward
 @:nativeGen
 @:native("K2Node_AddPinInterface*")
-abstract K2Node_AddPinInterfacePtr(cpp.Star<K2Node_AddPinInterface>) from cpp.Star<K2Node_AddPinInterface> to cpp.Star<K2Node_AddPinInterface>{
+abstract K2Node_AddPinInterfacePtr(ucpp.Ptr<K2Node_AddPinInterface>) from ucpp.Ptr<K2Node_AddPinInterface> to ucpp.Ptr<K2Node_AddPinInterface>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_AddPinInterface): K2Node_AddPinInterfacePtr {
 		return untyped __cpp__("&({0})", v);

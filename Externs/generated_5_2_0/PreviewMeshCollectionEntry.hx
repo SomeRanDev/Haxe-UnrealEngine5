@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPreviewMeshCollectionEntry")
 @:include("Engine/PreviewMeshCollection.h")
-@:structAccess
+@:valueType
 extern class PreviewMeshCollectionEntry {
 	public var SkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
 	public var AnimBlueprint: TSoftObjectPtr<AnimBlueprint>;

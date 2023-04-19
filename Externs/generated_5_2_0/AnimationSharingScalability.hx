@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimationSharingScalability")
 @:include("AnimationSharingTypes.h")
-@:structAccess
+@:valueType
 extern class AnimationSharingScalability {
 	public var UseBlendTransitions: PerPlatformBool;
 	public var BlendSignificanceValue: PerPlatformFloat;

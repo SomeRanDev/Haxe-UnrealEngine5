@@ -3,30 +3,30 @@ package ue;
 
 @:native("UTestBTDecorator_Blackboard")
 @:include("BehaviorTree/TestBTDecorator_Blackboard.h")
-@:structAccess
+@:valueType
 extern class TestBTDecorator_Blackboard extends BTDecorator_Blackboard {
-	public var LogIndexBecomeRelevant: cpp.Int32;
-	public var LogIndexCeaseRelevant: cpp.Int32;
-	public var LogIndexCalculate: cpp.Int32;
+	public var LogIndexBecomeRelevant: ucpp.num.Int32;
+	public var LogIndexCeaseRelevant: ucpp.num.Int32;
+	public var LogIndexCalculate: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTestBTDecorator_Blackboard(TestBTDecorator_Blackboard) from TestBTDecorator_Blackboard {
-	public extern var LogIndexBecomeRelevant(get, never): cpp.Int32;
-	public inline extern function get_LogIndexBecomeRelevant(): cpp.Int32 return this.LogIndexBecomeRelevant;
-	public extern var LogIndexCeaseRelevant(get, never): cpp.Int32;
-	public inline extern function get_LogIndexCeaseRelevant(): cpp.Int32 return this.LogIndexCeaseRelevant;
-	public extern var LogIndexCalculate(get, never): cpp.Int32;
-	public inline extern function get_LogIndexCalculate(): cpp.Int32 return this.LogIndexCalculate;
+	public extern var LogIndexBecomeRelevant(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexBecomeRelevant(): ucpp.num.Int32 return this.LogIndexBecomeRelevant;
+	public extern var LogIndexCeaseRelevant(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexCeaseRelevant(): ucpp.num.Int32 return this.LogIndexCeaseRelevant;
+	public extern var LogIndexCalculate(get, never): ucpp.num.Int32;
+	public inline extern function get_LogIndexCalculate(): ucpp.num.Int32 return this.LogIndexCalculate;
 }
 
 @:forward
 @:nativeGen
 @:native("TestBTDecorator_Blackboard*")
-abstract TestBTDecorator_BlackboardPtr(cpp.Star<TestBTDecorator_Blackboard>) from cpp.Star<TestBTDecorator_Blackboard> to cpp.Star<TestBTDecorator_Blackboard>{
+abstract TestBTDecorator_BlackboardPtr(ucpp.Ptr<TestBTDecorator_Blackboard>) from ucpp.Ptr<TestBTDecorator_Blackboard> to ucpp.Ptr<TestBTDecorator_Blackboard>{
 	@:from
 	public static extern inline function fromValue(v: TestBTDecorator_Blackboard): TestBTDecorator_BlackboardPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAndroidPermissionCallbackProxy")
 @:include("AndroidPermissionCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class AndroidPermissionCallbackProxy extends Object {
-	public var OnPermissionsGrantedDynamicDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<FString>>, cpp.Reference<TArray<Bool>>) -> Void>;
+	public var OnPermissionsGrantedDynamicDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<FString>>, ucpp.Ref<TArray<Bool>>) -> Void>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAndroidPermissionCallbackProxy(AndroidPermissionCallbackProxy) from AndroidPermissionCallbackProxy {
-	public extern var OnPermissionsGrantedDynamicDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<FString>>, cpp.Reference<TArray<Bool>>) -> Void>;
-	public inline extern function get_OnPermissionsGrantedDynamicDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<FString>>, cpp.Reference<TArray<Bool>>) -> Void> return this.OnPermissionsGrantedDynamicDelegate;
+	public extern var OnPermissionsGrantedDynamicDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<FString>>, ucpp.Ref<TArray<Bool>>) -> Void>;
+	public inline extern function get_OnPermissionsGrantedDynamicDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<FString>>, ucpp.Ref<TArray<Bool>>) -> Void> return this.OnPermissionsGrantedDynamicDelegate;
 }
 
 @:forward
 @:nativeGen
 @:native("AndroidPermissionCallbackProxy*")
-abstract AndroidPermissionCallbackProxyPtr(cpp.Star<AndroidPermissionCallbackProxy>) from cpp.Star<AndroidPermissionCallbackProxy> to cpp.Star<AndroidPermissionCallbackProxy>{
+abstract AndroidPermissionCallbackProxyPtr(ucpp.Ptr<AndroidPermissionCallbackProxy>) from ucpp.Ptr<AndroidPermissionCallbackProxy> to ucpp.Ptr<AndroidPermissionCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: AndroidPermissionCallbackProxy): AndroidPermissionCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

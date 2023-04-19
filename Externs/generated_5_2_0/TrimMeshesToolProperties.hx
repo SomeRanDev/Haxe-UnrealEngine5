@@ -3,16 +3,16 @@ package ue;
 
 @:native("UTrimMeshesToolProperties")
 @:include("CSGMeshesTool.h")
-@:structAccess
+@:valueType
 extern class TrimMeshesToolProperties extends InteractiveToolPropertySet {
 	public var WhichMesh: ETrimOperation;
 	public var TrimSide: ETrimSide;
-	public var WindingThreshold: cpp.Float32;
+	public var WindingThreshold: ucpp.num.Float32;
 	public var bShowTrimmingMesh: Bool;
-	public var OpacityOfTrimmingMesh: cpp.Float32;
+	public var OpacityOfTrimmingMesh: ucpp.num.Float32;
 	public var ColorOfTrimmingMesh: LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,12 +22,12 @@ abstract ConstTrimMeshesToolProperties(TrimMeshesToolProperties) from TrimMeshes
 	public inline extern function get_WhichMesh(): ETrimOperation return this.WhichMesh;
 	public extern var TrimSide(get, never): ETrimSide;
 	public inline extern function get_TrimSide(): ETrimSide return this.TrimSide;
-	public extern var WindingThreshold(get, never): cpp.Float32;
-	public inline extern function get_WindingThreshold(): cpp.Float32 return this.WindingThreshold;
+	public extern var WindingThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_WindingThreshold(): ucpp.num.Float32 return this.WindingThreshold;
 	public extern var bShowTrimmingMesh(get, never): Bool;
 	public inline extern function get_bShowTrimmingMesh(): Bool return this.bShowTrimmingMesh;
-	public extern var OpacityOfTrimmingMesh(get, never): cpp.Float32;
-	public inline extern function get_OpacityOfTrimmingMesh(): cpp.Float32 return this.OpacityOfTrimmingMesh;
+	public extern var OpacityOfTrimmingMesh(get, never): ucpp.num.Float32;
+	public inline extern function get_OpacityOfTrimmingMesh(): ucpp.num.Float32 return this.OpacityOfTrimmingMesh;
 	public extern var ColorOfTrimmingMesh(get, never): LinearColor;
 	public inline extern function get_ColorOfTrimmingMesh(): LinearColor return this.ColorOfTrimmingMesh;
 }
@@ -35,7 +35,7 @@ abstract ConstTrimMeshesToolProperties(TrimMeshesToolProperties) from TrimMeshes
 @:forward
 @:nativeGen
 @:native("TrimMeshesToolProperties*")
-abstract TrimMeshesToolPropertiesPtr(cpp.Star<TrimMeshesToolProperties>) from cpp.Star<TrimMeshesToolProperties> to cpp.Star<TrimMeshesToolProperties>{
+abstract TrimMeshesToolPropertiesPtr(ucpp.Ptr<TrimMeshesToolProperties>) from ucpp.Ptr<TrimMeshesToolProperties> to ucpp.Ptr<TrimMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: TrimMeshesToolProperties): TrimMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

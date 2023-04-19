@@ -3,77 +3,77 @@ package ue;
 
 @:native("UMovieSceneSequenceExtensions")
 @:include("ExtensionLibraries/MovieSceneSequenceExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceExtensions extends BlueprintFunctionLibrary {
-	public function SortMarkedFrames(Sequence: cpp.Star<MovieSceneSequence>): Void;
-	public function SetWorkRangeStart(InSequence: cpp.Star<MovieSceneSequence>, StartTimeInSeconds: cpp.Float32): Void;
-	public function SetWorkRangeEnd(InSequence: cpp.Star<MovieSceneSequence>, EndTimeInSeconds: cpp.Float32): Void;
-	public function SetViewRangeStart(InSequence: cpp.Star<MovieSceneSequence>, StartTimeInSeconds: cpp.Float32): Void;
-	public function SetViewRangeEnd(InSequence: cpp.Star<MovieSceneSequence>, EndTimeInSeconds: cpp.Float32): Void;
-	public function SetTickResolutionDirectly(Sequence: cpp.Star<MovieSceneSequence>, TickResolution: FrameRate): Void;
-	public function SetTickResolution(Sequence: cpp.Star<MovieSceneSequence>, TickResolution: FrameRate): Void;
-	public function SetReadOnly(Sequence: cpp.Star<MovieSceneSequence>, bInReadOnly: Bool): Void;
-	public function SetPlaybackStartSeconds(Sequence: cpp.Star<MovieSceneSequence>, StartTime: cpp.Float32): Void;
-	public function SetPlaybackStart(Sequence: cpp.Star<MovieSceneSequence>, StartFrame: cpp.Int32): Void;
-	public function SetPlaybackEndSeconds(Sequence: cpp.Star<MovieSceneSequence>, EndTime: cpp.Float32): Void;
-	public function SetPlaybackEnd(Sequence: cpp.Star<MovieSceneSequence>, EndFrame: cpp.Int32): Void;
-	public function SetMarkedFrame(Sequence: cpp.Star<MovieSceneSequence>, InMarkIndex: cpp.Int32, InFrameNumber: FrameNumber): Void;
-	public function SetEvaluationType(InSequence: cpp.Star<MovieSceneSequence>, InEvaluationType: EMovieSceneEvaluationType): Void;
-	public function SetDisplayRate(Sequence: cpp.Star<MovieSceneSequence>, DisplayRate: FrameRate): Void;
-	public function SetClockSource(InSequence: cpp.Star<MovieSceneSequence>, InClockSource: EUpdateClockSource): Void;
-	public function ResolveBindingID(RootSequence: cpp.Star<MovieSceneSequence>, InObjectBindingID: MovieSceneObjectBindingID): MovieSceneBindingProxy;
-	public function RemoveTrack(Sequence: cpp.Star<MovieSceneSequence>, Track: cpp.Star<MovieSceneTrack>): Bool;
-	public function RemoveRootFolderFromSequence(Sequence: cpp.Star<MovieSceneSequence>, Folder: cpp.Star<MovieSceneFolder>): Void;
-	public function RemoveMasterTrack(Sequence: cpp.Star<MovieSceneSequence>, Track: cpp.Star<MovieSceneTrack>): Bool;
-	public function MakeRangeSeconds(Sequence: cpp.Star<MovieSceneSequence>, StartTime: cpp.Float32, Duration: cpp.Float32): SequencerScriptingRange;
-	public function MakeRange(Sequence: cpp.Star<MovieSceneSequence>, StartFrame: cpp.Int32, Duration: cpp.Int32): SequencerScriptingRange;
-	public function MakeBindingID(Sequence: cpp.Star<MovieSceneSequence>, InBinding: cpp.Reference<MovieSceneBindingProxy>, Space: EMovieSceneObjectBindingSpace): MovieSceneObjectBindingID;
-	public function LocateBoundObjects(Sequence: cpp.Star<MovieSceneSequence>, InBinding: cpp.Reference<MovieSceneBindingProxy>, Context: cpp.Star<Object>): TArray<cpp.Star<Object>>;
-	public function IsReadOnly(Sequence: cpp.Star<MovieSceneSequence>): Bool;
-	public function GetWorkRangeStart(InSequence: cpp.Star<MovieSceneSequence>): cpp.Float32;
-	public function GetWorkRangeEnd(InSequence: cpp.Star<MovieSceneSequence>): cpp.Float32;
-	public function GetViewRangeStart(InSequence: cpp.Star<MovieSceneSequence>): cpp.Float32;
-	public function GetViewRangeEnd(InSequence: cpp.Star<MovieSceneSequence>): cpp.Float32;
-	public function GetTracks(Sequence: cpp.Star<MovieSceneSequence>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function GetTimecodeSource(Sequence: cpp.Star<MovieSceneSequence>): Timecode;
-	public function GetTickResolution(Sequence: cpp.Star<MovieSceneSequence>): FrameRate;
-	public function GetSpawnables(Sequence: cpp.Star<MovieSceneSequence>): TArray<MovieSceneBindingProxy>;
-	public function GetRootFoldersInSequence(Sequence: cpp.Star<MovieSceneSequence>): TArray<cpp.Star<MovieSceneFolder>>;
-	public function GetPossessables(Sequence: cpp.Star<MovieSceneSequence>): TArray<MovieSceneBindingProxy>;
-	public function GetPortableBindingID(RootSequence: cpp.Star<MovieSceneSequence>, DestinationSequence: cpp.Star<MovieSceneSequence>, InBinding: cpp.Reference<MovieSceneBindingProxy>): MovieSceneObjectBindingID;
-	public function GetPlaybackStartSeconds(Sequence: cpp.Star<MovieSceneSequence>): cpp.Float32;
-	public function GetPlaybackStart(Sequence: cpp.Star<MovieSceneSequence>): cpp.Int32;
-	public function GetPlaybackRange(Sequence: cpp.Star<MovieSceneSequence>): SequencerScriptingRange;
-	public function GetPlaybackEndSeconds(Sequence: cpp.Star<MovieSceneSequence>): cpp.Float32;
-	public function GetPlaybackEnd(Sequence: cpp.Star<MovieSceneSequence>): cpp.Int32;
-	public function GetMovieScene(Sequence: cpp.Star<MovieSceneSequence>): cpp.Star<MovieScene>;
-	public function GetMasterTracks(Sequence: cpp.Star<MovieSceneSequence>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function GetMarkedFrames(Sequence: cpp.Star<MovieSceneSequence>): TArray<MovieSceneMarkedFrame>;
-	public function GetEvaluationType(InSequence: cpp.Star<MovieSceneSequence>): EMovieSceneEvaluationType;
-	public function GetDisplayRate(Sequence: cpp.Star<MovieSceneSequence>): FrameRate;
-	public function GetClockSource(InSequence: cpp.Star<MovieSceneSequence>): EUpdateClockSource;
-	public function GetBindings(Sequence: cpp.Star<MovieSceneSequence>): TArray<MovieSceneBindingProxy>;
-	public function GetBindingID(InBinding: cpp.Reference<MovieSceneBindingProxy>): MovieSceneObjectBindingID;
-	public function FindTracksByType(Sequence: cpp.Star<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function FindTracksByExactType(Sequence: cpp.Star<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function FindNextMarkedFrame(Sequence: cpp.Star<MovieSceneSequence>, InFrameNumber: FrameNumber, bForward: Bool): cpp.Int32;
-	public function FindMasterTracksByType(Sequence: cpp.Star<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function FindMasterTracksByExactType(Sequence: cpp.Star<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function FindMarkedFrameByLabel(Sequence: cpp.Star<MovieSceneSequence>, InLabel: FString): cpp.Int32;
-	public function FindMarkedFrameByFrameNumber(Sequence: cpp.Star<MovieSceneSequence>, InFrameNumber: FrameNumber): cpp.Int32;
-	public function FindBindingByName(Sequence: cpp.Star<MovieSceneSequence>, Name: FString): MovieSceneBindingProxy;
-	public function FindBindingById(Sequence: cpp.Star<MovieSceneSequence>, BindingId: Guid): MovieSceneBindingProxy;
-	public function DeleteMarkedFrames(Sequence: cpp.Star<MovieSceneSequence>): Void;
-	public function DeleteMarkedFrame(Sequence: cpp.Star<MovieSceneSequence>, DeleteIndex: cpp.Int32): Void;
-	public function AddTrack(Sequence: cpp.Star<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): cpp.Star<MovieSceneTrack>;
-	public function AddSpawnableFromInstance(Sequence: cpp.Star<MovieSceneSequence>, ObjectToSpawn: cpp.Star<Object>): MovieSceneBindingProxy;
-	public function AddSpawnableFromClass(Sequence: cpp.Star<MovieSceneSequence>, ClassToSpawn: cpp.Star<Class>): MovieSceneBindingProxy;
-	public function AddRootFolderToSequence(Sequence: cpp.Star<MovieSceneSequence>, NewFolderName: FString): cpp.Star<MovieSceneFolder>;
-	public function AddPossessable(Sequence: cpp.Star<MovieSceneSequence>, ObjectToPossess: cpp.Star<Object>): MovieSceneBindingProxy;
-	public function AddMasterTrack(Sequence: cpp.Star<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): cpp.Star<MovieSceneTrack>;
-	public function AddMarkedFrame(Sequence: cpp.Star<MovieSceneSequence>, InMarkedFrame: cpp.Reference<MovieSceneMarkedFrame>): cpp.Int32;
+	public function SortMarkedFrames(Sequence: ucpp.Ptr<MovieSceneSequence>): Void;
+	public function SetWorkRangeStart(InSequence: ucpp.Ptr<MovieSceneSequence>, StartTimeInSeconds: ucpp.num.Float32): Void;
+	public function SetWorkRangeEnd(InSequence: ucpp.Ptr<MovieSceneSequence>, EndTimeInSeconds: ucpp.num.Float32): Void;
+	public function SetViewRangeStart(InSequence: ucpp.Ptr<MovieSceneSequence>, StartTimeInSeconds: ucpp.num.Float32): Void;
+	public function SetViewRangeEnd(InSequence: ucpp.Ptr<MovieSceneSequence>, EndTimeInSeconds: ucpp.num.Float32): Void;
+	public function SetTickResolutionDirectly(Sequence: ucpp.Ptr<MovieSceneSequence>, TickResolution: FrameRate): Void;
+	public function SetTickResolution(Sequence: ucpp.Ptr<MovieSceneSequence>, TickResolution: FrameRate): Void;
+	public function SetReadOnly(Sequence: ucpp.Ptr<MovieSceneSequence>, bInReadOnly: Bool): Void;
+	public function SetPlaybackStartSeconds(Sequence: ucpp.Ptr<MovieSceneSequence>, StartTime: ucpp.num.Float32): Void;
+	public function SetPlaybackStart(Sequence: ucpp.Ptr<MovieSceneSequence>, StartFrame: ucpp.num.Int32): Void;
+	public function SetPlaybackEndSeconds(Sequence: ucpp.Ptr<MovieSceneSequence>, EndTime: ucpp.num.Float32): Void;
+	public function SetPlaybackEnd(Sequence: ucpp.Ptr<MovieSceneSequence>, EndFrame: ucpp.num.Int32): Void;
+	public function SetMarkedFrame(Sequence: ucpp.Ptr<MovieSceneSequence>, InMarkIndex: ucpp.num.Int32, InFrameNumber: FrameNumber): Void;
+	public function SetEvaluationType(InSequence: ucpp.Ptr<MovieSceneSequence>, InEvaluationType: EMovieSceneEvaluationType): Void;
+	public function SetDisplayRate(Sequence: ucpp.Ptr<MovieSceneSequence>, DisplayRate: FrameRate): Void;
+	public function SetClockSource(InSequence: ucpp.Ptr<MovieSceneSequence>, InClockSource: EUpdateClockSource): Void;
+	public function ResolveBindingID(RootSequence: ucpp.Ptr<MovieSceneSequence>, InObjectBindingID: MovieSceneObjectBindingID): MovieSceneBindingProxy;
+	public function RemoveTrack(Sequence: ucpp.Ptr<MovieSceneSequence>, Track: ucpp.Ptr<MovieSceneTrack>): Bool;
+	public function RemoveRootFolderFromSequence(Sequence: ucpp.Ptr<MovieSceneSequence>, Folder: ucpp.Ptr<MovieSceneFolder>): Void;
+	public function RemoveMasterTrack(Sequence: ucpp.Ptr<MovieSceneSequence>, Track: ucpp.Ptr<MovieSceneTrack>): Bool;
+	public function MakeRangeSeconds(Sequence: ucpp.Ptr<MovieSceneSequence>, StartTime: ucpp.num.Float32, Duration: ucpp.num.Float32): SequencerScriptingRange;
+	public function MakeRange(Sequence: ucpp.Ptr<MovieSceneSequence>, StartFrame: ucpp.num.Int32, Duration: ucpp.num.Int32): SequencerScriptingRange;
+	public function MakeBindingID(Sequence: ucpp.Ptr<MovieSceneSequence>, InBinding: ucpp.Ref<MovieSceneBindingProxy>, Space: EMovieSceneObjectBindingSpace): MovieSceneObjectBindingID;
+	public function LocateBoundObjects(Sequence: ucpp.Ptr<MovieSceneSequence>, InBinding: ucpp.Ref<MovieSceneBindingProxy>, Context: ucpp.Ptr<Object>): TArray<ucpp.Ptr<Object>>;
+	public function IsReadOnly(Sequence: ucpp.Ptr<MovieSceneSequence>): Bool;
+	public function GetWorkRangeStart(InSequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Float32;
+	public function GetWorkRangeEnd(InSequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Float32;
+	public function GetViewRangeStart(InSequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Float32;
+	public function GetViewRangeEnd(InSequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Float32;
+	public function GetTracks(Sequence: ucpp.Ptr<MovieSceneSequence>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function GetTimecodeSource(Sequence: ucpp.Ptr<MovieSceneSequence>): Timecode;
+	public function GetTickResolution(Sequence: ucpp.Ptr<MovieSceneSequence>): FrameRate;
+	public function GetSpawnables(Sequence: ucpp.Ptr<MovieSceneSequence>): TArray<MovieSceneBindingProxy>;
+	public function GetRootFoldersInSequence(Sequence: ucpp.Ptr<MovieSceneSequence>): TArray<ucpp.Ptr<MovieSceneFolder>>;
+	public function GetPossessables(Sequence: ucpp.Ptr<MovieSceneSequence>): TArray<MovieSceneBindingProxy>;
+	public function GetPortableBindingID(RootSequence: ucpp.Ptr<MovieSceneSequence>, DestinationSequence: ucpp.Ptr<MovieSceneSequence>, InBinding: ucpp.Ref<MovieSceneBindingProxy>): MovieSceneObjectBindingID;
+	public function GetPlaybackStartSeconds(Sequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Float32;
+	public function GetPlaybackStart(Sequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Int32;
+	public function GetPlaybackRange(Sequence: ucpp.Ptr<MovieSceneSequence>): SequencerScriptingRange;
+	public function GetPlaybackEndSeconds(Sequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Float32;
+	public function GetPlaybackEnd(Sequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Int32;
+	public function GetMovieScene(Sequence: ucpp.Ptr<MovieSceneSequence>): ucpp.Ptr<MovieScene>;
+	public function GetMasterTracks(Sequence: ucpp.Ptr<MovieSceneSequence>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function GetMarkedFrames(Sequence: ucpp.Ptr<MovieSceneSequence>): TArray<MovieSceneMarkedFrame>;
+	public function GetEvaluationType(InSequence: ucpp.Ptr<MovieSceneSequence>): EMovieSceneEvaluationType;
+	public function GetDisplayRate(Sequence: ucpp.Ptr<MovieSceneSequence>): FrameRate;
+	public function GetClockSource(InSequence: ucpp.Ptr<MovieSceneSequence>): EUpdateClockSource;
+	public function GetBindings(Sequence: ucpp.Ptr<MovieSceneSequence>): TArray<MovieSceneBindingProxy>;
+	public function GetBindingID(InBinding: ucpp.Ref<MovieSceneBindingProxy>): MovieSceneObjectBindingID;
+	public function FindTracksByType(Sequence: ucpp.Ptr<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function FindTracksByExactType(Sequence: ucpp.Ptr<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function FindNextMarkedFrame(Sequence: ucpp.Ptr<MovieSceneSequence>, InFrameNumber: FrameNumber, bForward: Bool): ucpp.num.Int32;
+	public function FindMasterTracksByType(Sequence: ucpp.Ptr<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function FindMasterTracksByExactType(Sequence: ucpp.Ptr<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function FindMarkedFrameByLabel(Sequence: ucpp.Ptr<MovieSceneSequence>, InLabel: FString): ucpp.num.Int32;
+	public function FindMarkedFrameByFrameNumber(Sequence: ucpp.Ptr<MovieSceneSequence>, InFrameNumber: FrameNumber): ucpp.num.Int32;
+	public function FindBindingByName(Sequence: ucpp.Ptr<MovieSceneSequence>, Name: FString): MovieSceneBindingProxy;
+	public function FindBindingById(Sequence: ucpp.Ptr<MovieSceneSequence>, BindingId: Guid): MovieSceneBindingProxy;
+	public function DeleteMarkedFrames(Sequence: ucpp.Ptr<MovieSceneSequence>): Void;
+	public function DeleteMarkedFrame(Sequence: ucpp.Ptr<MovieSceneSequence>, DeleteIndex: ucpp.num.Int32): Void;
+	public function AddTrack(Sequence: ucpp.Ptr<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): ucpp.Ptr<MovieSceneTrack>;
+	public function AddSpawnableFromInstance(Sequence: ucpp.Ptr<MovieSceneSequence>, ObjectToSpawn: ucpp.Ptr<Object>): MovieSceneBindingProxy;
+	public function AddSpawnableFromClass(Sequence: ucpp.Ptr<MovieSceneSequence>, ClassToSpawn: ucpp.Ptr<Class>): MovieSceneBindingProxy;
+	public function AddRootFolderToSequence(Sequence: ucpp.Ptr<MovieSceneSequence>, NewFolderName: FString): ucpp.Ptr<MovieSceneFolder>;
+	public function AddPossessable(Sequence: ucpp.Ptr<MovieSceneSequence>, ObjectToPossess: ucpp.Ptr<Object>): MovieSceneBindingProxy;
+	public function AddMasterTrack(Sequence: ucpp.Ptr<MovieSceneSequence>, TrackType: TSubclassOf<MovieSceneTrack>): ucpp.Ptr<MovieSceneTrack>;
+	public function AddMarkedFrame(Sequence: ucpp.Ptr<MovieSceneSequence>, InMarkedFrame: ucpp.Ref<MovieSceneMarkedFrame>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -84,7 +84,7 @@ abstract ConstMovieSceneSequenceExtensions(MovieSceneSequenceExtensions) from Mo
 @:forward
 @:nativeGen
 @:native("MovieSceneSequenceExtensions*")
-abstract MovieSceneSequenceExtensionsPtr(cpp.Star<MovieSceneSequenceExtensions>) from cpp.Star<MovieSceneSequenceExtensions> to cpp.Star<MovieSceneSequenceExtensions>{
+abstract MovieSceneSequenceExtensionsPtr(ucpp.Ptr<MovieSceneSequenceExtensions>) from ucpp.Ptr<MovieSceneSequenceExtensions> to ucpp.Ptr<MovieSceneSequenceExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSequenceExtensions): MovieSceneSequenceExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

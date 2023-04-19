@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorMechanicAdapterTool")
 @:include("UVEditorMechanicAdapterTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorMechanicAdapterTool extends InteractiveTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorMechanicAdapterTool(UVEditorMechanicAdapterTool) from UVEd
 @:forward
 @:nativeGen
 @:native("UVEditorMechanicAdapterTool*")
-abstract UVEditorMechanicAdapterToolPtr(cpp.Star<UVEditorMechanicAdapterTool>) from cpp.Star<UVEditorMechanicAdapterTool> to cpp.Star<UVEditorMechanicAdapterTool>{
+abstract UVEditorMechanicAdapterToolPtr(ucpp.Ptr<UVEditorMechanicAdapterTool>) from ucpp.Ptr<UVEditorMechanicAdapterTool> to ucpp.Ptr<UVEditorMechanicAdapterTool>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorMechanicAdapterTool): UVEditorMechanicAdapterToolPtr {
 		return untyped __cpp__("&({0})", v);

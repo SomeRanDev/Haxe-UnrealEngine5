@@ -14,6 +14,6 @@ extern class ERigElementType {
 	static var Reference: ERigElementType;
 	static var Last: ERigElementType;
 	static var All: ERigElementType;
-	static var ToResetAfterSetupEvent: ERigElementType;
+	static var ToResetAfterConstructionEvent: ERigElementType;
 	static var ERigElementType_MAX: ERigElementType;
 }

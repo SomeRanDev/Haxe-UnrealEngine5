@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGameplayTagsK2Node_LiteralGameplayTag")
 @:include("GameplayTagsK2Node_LiteralGameplayTag.h")
-@:structAccess
+@:valueType
 extern class GameplayTagsK2Node_LiteralGameplayTag extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGameplayTagsK2Node_LiteralGameplayTag(GameplayTagsK2Node_LiteralGa
 @:forward
 @:nativeGen
 @:native("GameplayTagsK2Node_LiteralGameplayTag*")
-abstract GameplayTagsK2Node_LiteralGameplayTagPtr(cpp.Star<GameplayTagsK2Node_LiteralGameplayTag>) from cpp.Star<GameplayTagsK2Node_LiteralGameplayTag> to cpp.Star<GameplayTagsK2Node_LiteralGameplayTag>{
+abstract GameplayTagsK2Node_LiteralGameplayTagPtr(ucpp.Ptr<GameplayTagsK2Node_LiteralGameplayTag>) from ucpp.Ptr<GameplayTagsK2Node_LiteralGameplayTag> to ucpp.Ptr<GameplayTagsK2Node_LiteralGameplayTag>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagsK2Node_LiteralGameplayTag): GameplayTagsK2Node_LiteralGameplayTagPtr {
 		return untyped __cpp__("&({0})", v);

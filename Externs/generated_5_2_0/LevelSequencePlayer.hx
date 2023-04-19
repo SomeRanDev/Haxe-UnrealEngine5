@@ -3,27 +3,27 @@ package ue;
 
 @:native("ULevelSequencePlayer")
 @:include("LevelSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class LevelSequencePlayer extends MovieSceneSequencePlayer {
-	public var OnCameraCut: HaxeMulticastSparseDelegateProperty<(cpp.Star<CameraComp>) -> Void>;
+	public var OnCameraCut: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<CameraComp>) -> Void>;
 
-	public function GetActiveCameraComponent(): cpp.Star<CameraComp>;
-	public function CreateLevelSequencePlayer(WorldContextObject: cpp.Star<Object>, LevelSequence: cpp.Star<LevelSequence>, Settings: MovieSceneSequencePlaybackSettings, OutActor: cpp.Reference<cpp.Star<LevelSequenceActor>>): cpp.Star<LevelSequencePlayer>;
+	public function GetActiveCameraComponent(): ucpp.Ptr<CameraComp>;
+	public function CreateLevelSequencePlayer(WorldContextObject: ucpp.Ptr<Object>, LevelSequence: ucpp.Ptr<LevelSequence>, Settings: MovieSceneSequencePlaybackSettings, OutActor: ucpp.Ref<ucpp.Ptr<LevelSequenceActor>>): ucpp.Ptr<LevelSequencePlayer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetActiveCameraComponent)
 @:nativeGen
 abstract ConstLevelSequencePlayer(LevelSequencePlayer) from LevelSequencePlayer {
-	public extern var OnCameraCut(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<CameraComp.ConstCameraComp>) -> Void>;
-	public inline extern function get_OnCameraCut(): HaxeMulticastSparseDelegateProperty<(cpp.Star<CameraComp.ConstCameraComp>) -> Void> return this.OnCameraCut;
+	public extern var OnCameraCut(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<CameraComp.ConstCameraComp>) -> Void>;
+	public inline extern function get_OnCameraCut(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<CameraComp.ConstCameraComp>) -> Void> return this.OnCameraCut;
 }
 
 @:forward
 @:nativeGen
 @:native("LevelSequencePlayer*")
-abstract LevelSequencePlayerPtr(cpp.Star<LevelSequencePlayer>) from cpp.Star<LevelSequencePlayer> to cpp.Star<LevelSequencePlayer>{
+abstract LevelSequencePlayerPtr(ucpp.Ptr<LevelSequencePlayer>) from ucpp.Ptr<LevelSequencePlayer> to ucpp.Ptr<LevelSequencePlayer>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequencePlayer): LevelSequencePlayerPtr {
 		return untyped __cpp__("&({0})", v);

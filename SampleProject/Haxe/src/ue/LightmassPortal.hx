@@ -3,11 +3,11 @@ package ue;
 
 @:native("ALightmassPortal")
 @:include("Lightmass/LightmassPortal.h")
-@:structAccess
+@:valueType
 extern class LightmassPortal extends Actor {
-	private var PortalComponent: cpp.Star<LightmassPortalComp>;
+	private var PortalComponent: ucpp.Ptr<LightmassPortalComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstLightmassPortal(LightmassPortal) from LightmassPortal {
 @:forward
 @:nativeGen
 @:native("LightmassPortal*")
-abstract LightmassPortalPtr(cpp.Star<LightmassPortal>) from cpp.Star<LightmassPortal> to cpp.Star<LightmassPortal>{
+abstract LightmassPortalPtr(ucpp.Ptr<LightmassPortal>) from ucpp.Ptr<LightmassPortal> to ucpp.Ptr<LightmassPortal>{
 	@:from
 	public static extern inline function fromValue(v: LightmassPortal): LightmassPortalPtr {
 		return untyped __cpp__("&({0})", v);

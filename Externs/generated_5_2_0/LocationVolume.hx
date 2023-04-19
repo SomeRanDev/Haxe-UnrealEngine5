@@ -3,7 +3,7 @@ package ue;
 
 @:native("ALocationVolume")
 @:include("LocationVolume.h")
-@:structAccess
+@:valueType
 extern class LocationVolume extends Volume {
 	public var DebugColor: Color;
 	public var bIsRuntime: Bool;
@@ -12,7 +12,7 @@ extern class LocationVolume extends Volume {
 	public function Load(): Void;
 	public function IsLoaded(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsLoaded)
@@ -27,7 +27,7 @@ abstract ConstLocationVolume(LocationVolume) from LocationVolume {
 @:forward
 @:nativeGen
 @:native("LocationVolume*")
-abstract LocationVolumePtr(cpp.Star<LocationVolume>) from cpp.Star<LocationVolume> to cpp.Star<LocationVolume>{
+abstract LocationVolumePtr(ucpp.Ptr<LocationVolume>) from ucpp.Ptr<LocationVolume> to ucpp.Ptr<LocationVolume>{
 	@:from
 	public static extern inline function fromValue(v: LocationVolume): LocationVolumePtr {
 		return untyped __cpp__("&({0})", v);

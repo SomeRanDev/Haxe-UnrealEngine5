@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UNiagaraParticleCallbackHandler")
-@:structAccess
+@:valueType
 extern class NiagaraParticleCallbackHandler extends Interface {
-	public function ReceiveParticleData(Data: cpp.Reference<TArray<BasicParticleData>>, NiagaraSystem: cpp.Star<NiagaraSystem>, SimulationPositionOffset: cpp.Reference<Vector>): Void;
+	public function ReceiveParticleData(Data: ucpp.Ref<TArray<BasicParticleData>>, NiagaraSystem: ucpp.Ptr<NiagaraSystem>, SimulationPositionOffset: ucpp.Ref<Vector>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraParticleCallbackHandler(NiagaraParticleCallbackHandler) fro
 @:forward
 @:nativeGen
 @:native("NiagaraParticleCallbackHandler*")
-abstract NiagaraParticleCallbackHandlerPtr(cpp.Star<NiagaraParticleCallbackHandler>) from cpp.Star<NiagaraParticleCallbackHandler> to cpp.Star<NiagaraParticleCallbackHandler>{
+abstract NiagaraParticleCallbackHandlerPtr(ucpp.Ptr<NiagaraParticleCallbackHandler>) from ucpp.Ptr<NiagaraParticleCallbackHandler> to ucpp.Ptr<NiagaraParticleCallbackHandler>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraParticleCallbackHandler): NiagaraParticleCallbackHandlerPtr {
 		return untyped __cpp__("&({0})", v);

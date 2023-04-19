@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextureMipDataProviderFactory")
 @:include("Engine/TextureMipDataProviderFactory.h")
-@:structAccess
+@:valueType
 extern class TextureMipDataProviderFactory extends AssetUserData {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextureMipDataProviderFactory(TextureMipDataProviderFactory) from 
 @:forward
 @:nativeGen
 @:native("TextureMipDataProviderFactory*")
-abstract TextureMipDataProviderFactoryPtr(cpp.Star<TextureMipDataProviderFactory>) from cpp.Star<TextureMipDataProviderFactory> to cpp.Star<TextureMipDataProviderFactory>{
+abstract TextureMipDataProviderFactoryPtr(ucpp.Ptr<TextureMipDataProviderFactory>) from ucpp.Ptr<TextureMipDataProviderFactory> to ucpp.Ptr<TextureMipDataProviderFactory>{
 	@:from
 	public static extern inline function fromValue(v: TextureMipDataProviderFactory): TextureMipDataProviderFactoryPtr {
 		return untyped __cpp__("&({0})", v);

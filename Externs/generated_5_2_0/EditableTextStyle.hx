@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEditableTextStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class EditableTextStyle extends SlateWidgetStyle {
 	public var Font: SlateFontInfo;
 	public var ColorAndOpacity: SlateColor;

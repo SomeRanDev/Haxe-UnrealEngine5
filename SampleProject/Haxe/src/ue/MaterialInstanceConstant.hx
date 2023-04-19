@@ -3,28 +3,29 @@ package ue;
 
 @:native("UMaterialInstanceConstant")
 @:include("Materials/MaterialInstanceConstant.h")
-@:structAccess
+@:valueType
 extern class MaterialInstanceConstant extends MaterialInstance {
-	public var PhysMaterialMask: cpp.Star<PhysicalMaterialMask>;
+	public var PhysMaterialMask: ucpp.Ptr<PhysicalMaterialMask>;
 
+	public function SetNaniteOverrideMaterial(bInEnableOverride: Bool, InOverrideMaterial: ucpp.Ptr<MaterialInterface>): Void;
 	public function K2_GetVectorParameterValue(ParameterName: FName): LinearColor;
-	public function K2_GetTextureParameterValue(ParameterName: FName): cpp.Star<Texture>;
-	public function K2_GetScalarParameterValue(ParameterName: FName): cpp.Float32;
+	public function K2_GetTextureParameterValue(ParameterName: FName): ucpp.Ptr<Texture>;
+	public function K2_GetScalarParameterValue(ParameterName: FName): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialInstanceConstant(MaterialInstanceConstant) from MaterialInstanceConstant {
-	public extern var PhysMaterialMask(get, never): cpp.Star<PhysicalMaterialMask.ConstPhysicalMaterialMask>;
-	public inline extern function get_PhysMaterialMask(): cpp.Star<PhysicalMaterialMask.ConstPhysicalMaterialMask> return this.PhysMaterialMask;
+	public extern var PhysMaterialMask(get, never): ucpp.Ptr<PhysicalMaterialMask.ConstPhysicalMaterialMask>;
+	public inline extern function get_PhysMaterialMask(): ucpp.Ptr<PhysicalMaterialMask.ConstPhysicalMaterialMask> return this.PhysMaterialMask;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialInstanceConstant*")
-abstract MaterialInstanceConstantPtr(cpp.Star<MaterialInstanceConstant>) from cpp.Star<MaterialInstanceConstant> to cpp.Star<MaterialInstanceConstant>{
+abstract MaterialInstanceConstantPtr(ucpp.Ptr<MaterialInstanceConstant>) from ucpp.Ptr<MaterialInstanceConstant> to ucpp.Ptr<MaterialInstanceConstant>{
 	@:from
 	public static extern inline function fromValue(v: MaterialInstanceConstant): MaterialInstanceConstantPtr {
 		return untyped __cpp__("&({0})", v);

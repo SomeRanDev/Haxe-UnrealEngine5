@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_LandscapeLayer")
 @:include("AssetDefinition_LandscapeLayer.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_LandscapeLayer extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_LandscapeLayer(AssetDefinition_LandscapeLayer) fro
 @:forward
 @:nativeGen
 @:native("AssetDefinition_LandscapeLayer*")
-abstract AssetDefinition_LandscapeLayerPtr(cpp.Star<AssetDefinition_LandscapeLayer>) from cpp.Star<AssetDefinition_LandscapeLayer> to cpp.Star<AssetDefinition_LandscapeLayer>{
+abstract AssetDefinition_LandscapeLayerPtr(ucpp.Ptr<AssetDefinition_LandscapeLayer>) from ucpp.Ptr<AssetDefinition_LandscapeLayer> to ucpp.Ptr<AssetDefinition_LandscapeLayer>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_LandscapeLayer): AssetDefinition_LandscapeLayerPtr {
 		return untyped __cpp__("&({0})", v);

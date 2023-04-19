@@ -3,22 +3,22 @@ package ue;
 
 @:native("USynesthesiaSpectrumAnalysisSettings")
 @:include("SynesthesiaSpectrumAnalysis.h")
-@:structAccess
+@:valueType
 extern class SynesthesiaSpectrumAnalysisSettings extends AudioSynesthesiaSettings {
-	public var AnalysisPeriod: cpp.Float32;
+	public var AnalysisPeriod: ucpp.num.Float32;
 	public var FFTSize: EFFTSize;
 	public var SpectrumType: EAudioSpectrumType;
 	public var WindowType: EFFTWindowType;
 	public var bDownmixToMono: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSynesthesiaSpectrumAnalysisSettings(SynesthesiaSpectrumAnalysisSettings) from SynesthesiaSpectrumAnalysisSettings {
-	public extern var AnalysisPeriod(get, never): cpp.Float32;
-	public inline extern function get_AnalysisPeriod(): cpp.Float32 return this.AnalysisPeriod;
+	public extern var AnalysisPeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_AnalysisPeriod(): ucpp.num.Float32 return this.AnalysisPeriod;
 	public extern var FFTSize(get, never): EFFTSize;
 	public inline extern function get_FFTSize(): EFFTSize return this.FFTSize;
 	public extern var SpectrumType(get, never): EAudioSpectrumType;
@@ -32,7 +32,7 @@ abstract ConstSynesthesiaSpectrumAnalysisSettings(SynesthesiaSpectrumAnalysisSet
 @:forward
 @:nativeGen
 @:native("SynesthesiaSpectrumAnalysisSettings*")
-abstract SynesthesiaSpectrumAnalysisSettingsPtr(cpp.Star<SynesthesiaSpectrumAnalysisSettings>) from cpp.Star<SynesthesiaSpectrumAnalysisSettings> to cpp.Star<SynesthesiaSpectrumAnalysisSettings>{
+abstract SynesthesiaSpectrumAnalysisSettingsPtr(ucpp.Ptr<SynesthesiaSpectrumAnalysisSettings>) from ucpp.Ptr<SynesthesiaSpectrumAnalysisSettings> to ucpp.Ptr<SynesthesiaSpectrumAnalysisSettings>{
 	@:from
 	public static extern inline function fromValue(v: SynesthesiaSpectrumAnalysisSettings): SynesthesiaSpectrumAnalysisSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,9 +3,9 @@ package ue;
 
 @:native("FAnimNode_StateResult")
 @:include("AnimNodes/AnimNode_StateResult.h")
-@:structAccess
+@:valueType
 extern class AnimNode_StateResult extends AnimNode_Root {
 
 	@:native("FAnimNode_StateResult") public function new();
-	@:native("FAnimNode_StateResult") public static function make(StateIndex: cpp.Int32): AnimNode_StateResult ;
+	@:native("FAnimNode_StateResult") public static function make(StateIndex: ucpp.num.Int32): AnimNode_StateResult ;
 }

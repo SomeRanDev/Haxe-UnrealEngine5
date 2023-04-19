@@ -3,24 +3,24 @@ package ue;
 
 @:native("UDEPRECATED_DiffPackagesCommandlet")
 @:include("Commandlets/DiffPackagesCommandlet.h")
-@:structAccess
+@:valueType
 extern class DiffPackagesCommandlet extends Commandlet {
-	public var Packages: cpp.Star<Package>;
+	public var Packages: ucpp.Ptr<Package>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDiffPackagesCommandlet(DiffPackagesCommandlet) from DiffPackagesCommandlet {
-	public extern var Packages(get, never): cpp.Star<Package.ConstPackage>;
-	public inline extern function get_Packages(): cpp.Star<Package.ConstPackage> return this.Packages;
+	public extern var Packages(get, never): ucpp.Ptr<Package.ConstPackage>;
+	public inline extern function get_Packages(): ucpp.Ptr<Package.ConstPackage> return this.Packages;
 }
 
 @:forward
 @:nativeGen
 @:native("DiffPackagesCommandlet*")
-abstract DiffPackagesCommandletPtr(cpp.Star<DiffPackagesCommandlet>) from cpp.Star<DiffPackagesCommandlet> to cpp.Star<DiffPackagesCommandlet>{
+abstract DiffPackagesCommandletPtr(ucpp.Ptr<DiffPackagesCommandlet>) from ucpp.Ptr<DiffPackagesCommandlet> to ucpp.Ptr<DiffPackagesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DiffPackagesCommandlet): DiffPackagesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

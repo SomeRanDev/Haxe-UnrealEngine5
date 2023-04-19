@@ -3,19 +3,19 @@ package ue;
 
 @:native("UXRDeviceVisualizationComponent")
 @:include("XRDeviceVisualizationComponent.h")
-@:structAccess
+@:valueType
 extern class XRDeviceVisualizationComp extends StaticMeshComp {
 	public var bIsVisualizationActive: Bool;
 	public var DisplayModelSource: FName;
-	public var CustomDisplayMesh: cpp.Star<StaticMesh>;
-	public var DisplayMeshMaterialOverrides: TArray<cpp.Star<MaterialInterface>>;
+	public var CustomDisplayMesh: ucpp.Ptr<StaticMesh>;
+	public var DisplayMeshMaterialOverrides: TArray<ucpp.Ptr<MaterialInterface>>;
 
 	public function SetIsVisualizationActive(bNewVisualizationState: Bool): Void;
 	public function SetIsRenderingActive(bRenderingIsActive: Bool): Void;
 	public function SetDisplayModelSource(NewDisplayModelSource: FName): Void;
-	public function SetCustomDisplayMesh(NewDisplayMesh: cpp.Star<StaticMesh>): Void;
+	public function SetCustomDisplayMesh(NewDisplayMesh: ucpp.Ptr<StaticMesh>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,16 +25,16 @@ abstract ConstXRDeviceVisualizationComp(XRDeviceVisualizationComp) from XRDevice
 	public inline extern function get_bIsVisualizationActive(): Bool return this.bIsVisualizationActive;
 	public extern var DisplayModelSource(get, never): FName;
 	public inline extern function get_DisplayModelSource(): FName return this.DisplayModelSource;
-	public extern var CustomDisplayMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_CustomDisplayMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.CustomDisplayMesh;
-	public extern var DisplayMeshMaterialOverrides(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_DisplayMeshMaterialOverrides(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.DisplayMeshMaterialOverrides;
+	public extern var CustomDisplayMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_CustomDisplayMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.CustomDisplayMesh;
+	public extern var DisplayMeshMaterialOverrides(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_DisplayMeshMaterialOverrides(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.DisplayMeshMaterialOverrides;
 }
 
 @:forward
 @:nativeGen
 @:native("XRDeviceVisualizationComp*")
-abstract XRDeviceVisualizationCompPtr(cpp.Star<XRDeviceVisualizationComp>) from cpp.Star<XRDeviceVisualizationComp> to cpp.Star<XRDeviceVisualizationComp>{
+abstract XRDeviceVisualizationCompPtr(ucpp.Ptr<XRDeviceVisualizationComp>) from ucpp.Ptr<XRDeviceVisualizationComp> to ucpp.Ptr<XRDeviceVisualizationComp>{
 	@:from
 	public static extern inline function fromValue(v: XRDeviceVisualizationComp): XRDeviceVisualizationCompPtr {
 		return untyped __cpp__("&({0})", v);

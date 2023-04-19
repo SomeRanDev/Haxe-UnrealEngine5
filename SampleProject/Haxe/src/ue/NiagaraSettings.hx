@@ -3,10 +3,11 @@ package ue;
 
 @:native("UNiagaraSettings")
 @:include("NiagaraSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraSettings extends DeveloperSettings {
 	public var bSystemsSupportLargeWorldCoordinates: Bool;
 	public var bEnforceStrictStackTypes: Bool;
+	public var bExperimentalVMEnabled: Bool;
 	public var DefaultEffectType: SoftObjectPath;
 	public var PositionPinTypeColor: LinearColor;
 	public var QualityLevels: TArray<FText>;
@@ -15,13 +16,19 @@ extern class NiagaraSettings extends DeveloperSettings {
 	public var DefaultGridFormat: ENiagaraGpuBufferFormat;
 	public var DefaultRendererMotionVectorSetting: ENiagaraDefaultRendererMotionVectorSetting;
 	public var DefaultPixelCoverageMode: ENiagaraDefaultRendererPixelCoverageMode;
+	public var DefaultSortPrecision: ENiagaraDefaultSortPrecision;
+	public var DefaultGpuTranslucentLatency: ENiagaraDefaultGpuTranslucentLatency;
+	public var DefaultLightInverseExposureBlend: ucpp.num.Float32;
 	public var NDISkelMesh_GpuMaxInfluences: TEnumAsByte<ENDISkelMesh_GpuMaxInfluences>;
 	public var NDISkelMesh_GpuUniformSamplingFormat: TEnumAsByte<ENDISkelMesh_GpuUniformSamplingFormat>;
 	public var NDISkelMesh_AdjacencyTriangleIndexFormat: TEnumAsByte<ENDISkelMesh_AdjacencyTriangleIndexFormat>;
 	public var NDIStaticMesh_AllowDistanceFields: Bool;
 	public var NDICollisionQuery_AsyncGpuTraceProviderOrder: TArray<TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider>>;
+	public var SimCacheAuxiliaryFileBasePath: FString;
+	public var SimCacheMaxCPUMemoryVolumetrics: ucpp.num.Int64;
+	public var PlatformSetRedirects: TArray<NiagaraPlatformSetRedirect>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,6 +38,8 @@ abstract ConstNiagaraSettings(NiagaraSettings) from NiagaraSettings {
 	public inline extern function get_bSystemsSupportLargeWorldCoordinates(): Bool return this.bSystemsSupportLargeWorldCoordinates;
 	public extern var bEnforceStrictStackTypes(get, never): Bool;
 	public inline extern function get_bEnforceStrictStackTypes(): Bool return this.bEnforceStrictStackTypes;
+	public extern var bExperimentalVMEnabled(get, never): Bool;
+	public inline extern function get_bExperimentalVMEnabled(): Bool return this.bExperimentalVMEnabled;
 	public extern var DefaultEffectType(get, never): SoftObjectPath;
 	public inline extern function get_DefaultEffectType(): SoftObjectPath return this.DefaultEffectType;
 	public extern var PositionPinTypeColor(get, never): LinearColor;
@@ -47,6 +56,12 @@ abstract ConstNiagaraSettings(NiagaraSettings) from NiagaraSettings {
 	public inline extern function get_DefaultRendererMotionVectorSetting(): ENiagaraDefaultRendererMotionVectorSetting return this.DefaultRendererMotionVectorSetting;
 	public extern var DefaultPixelCoverageMode(get, never): ENiagaraDefaultRendererPixelCoverageMode;
 	public inline extern function get_DefaultPixelCoverageMode(): ENiagaraDefaultRendererPixelCoverageMode return this.DefaultPixelCoverageMode;
+	public extern var DefaultSortPrecision(get, never): ENiagaraDefaultSortPrecision;
+	public inline extern function get_DefaultSortPrecision(): ENiagaraDefaultSortPrecision return this.DefaultSortPrecision;
+	public extern var DefaultGpuTranslucentLatency(get, never): ENiagaraDefaultGpuTranslucentLatency;
+	public inline extern function get_DefaultGpuTranslucentLatency(): ENiagaraDefaultGpuTranslucentLatency return this.DefaultGpuTranslucentLatency;
+	public extern var DefaultLightInverseExposureBlend(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultLightInverseExposureBlend(): ucpp.num.Float32 return this.DefaultLightInverseExposureBlend;
 	public extern var NDISkelMesh_GpuMaxInfluences(get, never): TEnumAsByte<ENDISkelMesh_GpuMaxInfluences>;
 	public inline extern function get_NDISkelMesh_GpuMaxInfluences(): TEnumAsByte<ENDISkelMesh_GpuMaxInfluences> return this.NDISkelMesh_GpuMaxInfluences;
 	public extern var NDISkelMesh_GpuUniformSamplingFormat(get, never): TEnumAsByte<ENDISkelMesh_GpuUniformSamplingFormat>;
@@ -57,12 +72,18 @@ abstract ConstNiagaraSettings(NiagaraSettings) from NiagaraSettings {
 	public inline extern function get_NDIStaticMesh_AllowDistanceFields(): Bool return this.NDIStaticMesh_AllowDistanceFields;
 	public extern var NDICollisionQuery_AsyncGpuTraceProviderOrder(get, never): TArray<TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider>>;
 	public inline extern function get_NDICollisionQuery_AsyncGpuTraceProviderOrder(): TArray<TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider>> return this.NDICollisionQuery_AsyncGpuTraceProviderOrder;
+	public extern var SimCacheAuxiliaryFileBasePath(get, never): FString;
+	public inline extern function get_SimCacheAuxiliaryFileBasePath(): FString return this.SimCacheAuxiliaryFileBasePath;
+	public extern var SimCacheMaxCPUMemoryVolumetrics(get, never): ucpp.num.Int64;
+	public inline extern function get_SimCacheMaxCPUMemoryVolumetrics(): ucpp.num.Int64 return this.SimCacheMaxCPUMemoryVolumetrics;
+	public extern var PlatformSetRedirects(get, never): TArray<NiagaraPlatformSetRedirect>;
+	public inline extern function get_PlatformSetRedirects(): TArray<NiagaraPlatformSetRedirect> return this.PlatformSetRedirects;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraSettings*")
-abstract NiagaraSettingsPtr(cpp.Star<NiagaraSettings>) from cpp.Star<NiagaraSettings> to cpp.Star<NiagaraSettings>{
+abstract NiagaraSettingsPtr(ucpp.Ptr<NiagaraSettings>) from ucpp.Ptr<NiagaraSettings> to ucpp.Ptr<NiagaraSettings>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSettings): NiagaraSettingsPtr {
 		return untyped __cpp__("&({0})", v);

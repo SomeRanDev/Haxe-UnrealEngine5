@@ -3,11 +3,11 @@ package ue;
 
 @:native("FGeometryCollectionAutoInstanceMesh")
 @:include("GeometryCollection/GeometryCollectionObject.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionAutoInstanceMesh {
 	public var StaticMesh: SoftObjectPath;
-	public var Materials: TArray<cpp.Star<MaterialInterface>>;
+	public var Materials: TArray<ucpp.Ptr<MaterialInterface>>;
 
 	@:native("FGeometryCollectionAutoInstanceMesh") public function new();
-	@:native("FGeometryCollectionAutoInstanceMesh") public static function make(StaticMesh: SoftObjectPath, Materials: TArray<cpp.Star<MaterialInterface>>): GeometryCollectionAutoInstanceMesh ;
+	@:native("FGeometryCollectionAutoInstanceMesh") public static function make(StaticMesh: SoftObjectPath, Materials: TArray<ucpp.Ptr<MaterialInterface>>): GeometryCollectionAutoInstanceMesh ;
 }

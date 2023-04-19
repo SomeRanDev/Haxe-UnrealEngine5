@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVisualLoggerFiltersData")
 @:include("LogVisualizerSettings.h")
-@:structAccess
+@:valueType
 extern class VisualLoggerFiltersData {
 	public var SearchBoxFilter: FString;
 	public var ObjectNameFilter: FString;

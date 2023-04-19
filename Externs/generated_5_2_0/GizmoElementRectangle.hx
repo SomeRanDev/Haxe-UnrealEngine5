@@ -3,11 +3,11 @@ package ue;
 
 @:native("UGizmoElementRectangle")
 @:include("BaseGizmos/GizmoElementRectangle.h")
-@:structAccess
+@:valueType
 extern class GizmoElementRectangle extends GizmoElementLineBase {
 	@:protected public var Center: Vector;
-	@:protected public var Width: cpp.Float32;
-	@:protected public var Height: cpp.Float32;
+	@:protected public var Width: ucpp.num.Float32;
+	@:protected public var Height: ucpp.num.Float32;
 	@:protected public var UpDirection: Vector;
 	@:protected public var SideDirection: Vector;
 	@:protected public var bDrawMesh: Bool;
@@ -15,7 +15,7 @@ extern class GizmoElementRectangle extends GizmoElementLineBase {
 	@:protected public var bHitMesh: Bool;
 	@:protected public var bHitLine: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstGizmoElementRectangle(GizmoElementRectangle) from GizmoElementRect
 @:forward
 @:nativeGen
 @:native("GizmoElementRectangle*")
-abstract GizmoElementRectanglePtr(cpp.Star<GizmoElementRectangle>) from cpp.Star<GizmoElementRectangle> to cpp.Star<GizmoElementRectangle>{
+abstract GizmoElementRectanglePtr(ucpp.Ptr<GizmoElementRectangle>) from ucpp.Ptr<GizmoElementRectangle> to ucpp.Ptr<GizmoElementRectangle>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementRectangle): GizmoElementRectanglePtr {
 		return untyped __cpp__("&({0})", v);

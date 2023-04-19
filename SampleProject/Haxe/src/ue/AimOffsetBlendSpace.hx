@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAimOffsetBlendSpace")
 @:include("Animation/AimOffsetBlendSpace.h")
-@:structAccess
+@:valueType
 extern class AimOffsetBlendSpace extends BlendSpace {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAimOffsetBlendSpace(AimOffsetBlendSpace) from AimOffsetBlendSpace 
 @:forward
 @:nativeGen
 @:native("AimOffsetBlendSpace*")
-abstract AimOffsetBlendSpacePtr(cpp.Star<AimOffsetBlendSpace>) from cpp.Star<AimOffsetBlendSpace> to cpp.Star<AimOffsetBlendSpace>{
+abstract AimOffsetBlendSpacePtr(ucpp.Ptr<AimOffsetBlendSpace>) from ucpp.Ptr<AimOffsetBlendSpace> to ucpp.Ptr<AimOffsetBlendSpace>{
 	@:from
 	public static extern inline function fromValue(v: AimOffsetBlendSpace): AimOffsetBlendSpacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTextBuffer")
-@:structAccess
+@:valueType
 extern class TextBuffer extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTextBuffer(TextBuffer) from TextBuffer {
 @:forward
 @:nativeGen
 @:native("TextBuffer*")
-abstract TextBufferPtr(cpp.Star<TextBuffer>) from cpp.Star<TextBuffer> to cpp.Star<TextBuffer>{
+abstract TextBufferPtr(ucpp.Ptr<TextBuffer>) from ucpp.Ptr<TextBuffer> to ucpp.Ptr<TextBuffer>{
 	@:from
 	public static extern inline function fromValue(v: TextBuffer): TextBufferPtr {
 		return untyped __cpp__("&({0})", v);

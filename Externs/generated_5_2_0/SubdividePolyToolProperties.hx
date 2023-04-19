@@ -3,9 +3,9 @@ package ue;
 
 @:native("USubdividePolyToolProperties")
 @:include("SubdividePolyTool.h")
-@:structAccess
+@:valueType
 extern class SubdividePolyToolProperties extends InteractiveToolPropertySet {
-	public var SubdivisionLevel: cpp.Int32;
+	public var SubdivisionLevel: ucpp.num.Int32;
 	public var bCatmullClarkOK: Bool;
 	public var SubdivisionScheme: ESubdivisionScheme;
 	public var NormalComputationMethod: ESubdivisionOutputNormals;
@@ -14,14 +14,14 @@ extern class SubdividePolyToolProperties extends InteractiveToolPropertySet {
 	public var bRenderGroups: Bool;
 	public var bRenderCage: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSubdividePolyToolProperties(SubdividePolyToolProperties) from SubdividePolyToolProperties {
-	public extern var SubdivisionLevel(get, never): cpp.Int32;
-	public inline extern function get_SubdivisionLevel(): cpp.Int32 return this.SubdivisionLevel;
+	public extern var SubdivisionLevel(get, never): ucpp.num.Int32;
+	public inline extern function get_SubdivisionLevel(): ucpp.num.Int32 return this.SubdivisionLevel;
 	public extern var bCatmullClarkOK(get, never): Bool;
 	public inline extern function get_bCatmullClarkOK(): Bool return this.bCatmullClarkOK;
 	public extern var SubdivisionScheme(get, never): ESubdivisionScheme;
@@ -41,7 +41,7 @@ abstract ConstSubdividePolyToolProperties(SubdividePolyToolProperties) from Subd
 @:forward
 @:nativeGen
 @:native("SubdividePolyToolProperties*")
-abstract SubdividePolyToolPropertiesPtr(cpp.Star<SubdividePolyToolProperties>) from cpp.Star<SubdividePolyToolProperties> to cpp.Star<SubdividePolyToolProperties>{
+abstract SubdividePolyToolPropertiesPtr(ucpp.Ptr<SubdividePolyToolProperties>) from ucpp.Ptr<SubdividePolyToolProperties> to ucpp.Ptr<SubdividePolyToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: SubdividePolyToolProperties): SubdividePolyToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

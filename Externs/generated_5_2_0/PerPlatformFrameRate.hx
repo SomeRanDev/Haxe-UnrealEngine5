@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPerPlatformFrameRate")
 @:include("PerPlatformProperties.h")
-@:structAccess
+@:valueType
 extern class PerPlatformFrameRate {
 	public var Default: FrameRate;
 

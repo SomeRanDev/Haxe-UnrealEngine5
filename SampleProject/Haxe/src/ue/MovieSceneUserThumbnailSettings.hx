@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneUserThumbnailSettings")
 @:include("MovieSceneToolsUserSettings.h")
-@:structAccess
+@:valueType
 extern class MovieSceneUserThumbnailSettings extends Object {
 	public var bDrawThumbnails: Bool;
 	public var bDrawSingleThumbnails: Bool;
 	public var ThumbnailSize: IntPoint;
 	public var Quality: EThumbnailQuality;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMovieSceneUserThumbnailSettings(MovieSceneUserThumbnailSettings) f
 @:forward
 @:nativeGen
 @:native("MovieSceneUserThumbnailSettings*")
-abstract MovieSceneUserThumbnailSettingsPtr(cpp.Star<MovieSceneUserThumbnailSettings>) from cpp.Star<MovieSceneUserThumbnailSettings> to cpp.Star<MovieSceneUserThumbnailSettings>{
+abstract MovieSceneUserThumbnailSettingsPtr(ucpp.Ptr<MovieSceneUserThumbnailSettings>) from ucpp.Ptr<MovieSceneUserThumbnailSettings> to ucpp.Ptr<MovieSceneUserThumbnailSettings>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneUserThumbnailSettings): MovieSceneUserThumbnailSettingsPtr {
 		return untyped __cpp__("&({0})", v);

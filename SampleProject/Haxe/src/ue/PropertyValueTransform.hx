@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPropertyValueTransform")
 @:include("PropertyValue.h")
-@:structAccess
+@:valueType
 extern class PropertyValueTransform extends PropertyValue {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPropertyValueTransform(PropertyValueTransform) from PropertyValueT
 @:forward
 @:nativeGen
 @:native("PropertyValueTransform*")
-abstract PropertyValueTransformPtr(cpp.Star<PropertyValueTransform>) from cpp.Star<PropertyValueTransform> to cpp.Star<PropertyValueTransform>{
+abstract PropertyValueTransformPtr(ucpp.Ptr<PropertyValueTransform>) from ucpp.Ptr<PropertyValueTransform> to ucpp.Ptr<PropertyValueTransform>{
 	@:from
 	public static extern inline function fromValue(v: PropertyValueTransform): PropertyValueTransformPtr {
 		return untyped __cpp__("&({0})", v);

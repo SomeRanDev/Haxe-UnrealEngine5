@@ -3,16 +3,16 @@ package ue;
 
 @:native("UPropertyViewBase")
 @:include("Components/PropertyViewBase.h")
-@:structAccess
+@:valueType
 extern class PropertyViewBase extends Widget {
 	@:protected public var Object: TSoftObjectPtr<Object>;
 	@:protected public var bAutoLoadAsset: Bool;
 	@:protected public var OnPropertyChanged: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 
-	public function SetObject(NewObject: cpp.Star<Object>): Void;
-	public function GetObject(): cpp.Star<Object>;
+	public function SetObject(NewObject: ucpp.Ptr<Object>): Void;
+	public function GetObject(): ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetObject)
@@ -23,7 +23,7 @@ abstract ConstPropertyViewBase(PropertyViewBase) from PropertyViewBase {
 @:forward
 @:nativeGen
 @:native("PropertyViewBase*")
-abstract PropertyViewBasePtr(cpp.Star<PropertyViewBase>) from cpp.Star<PropertyViewBase> to cpp.Star<PropertyViewBase>{
+abstract PropertyViewBasePtr(ucpp.Ptr<PropertyViewBase>) from ucpp.Ptr<PropertyViewBase> to ucpp.Ptr<PropertyViewBase>{
 	@:from
 	public static extern inline function fromValue(v: PropertyViewBase): PropertyViewBasePtr {
 		return untyped __cpp__("&({0})", v);

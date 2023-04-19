@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnAudioFadeChangeSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnAudioFadeChangeSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnAudioFadeChangeSignature__PythonCallable(OnAudioFadeChangeSignat
 @:forward
 @:nativeGen
 @:native("OnAudioFadeChangeSignature__PythonCallable*")
-abstract OnAudioFadeChangeSignature__PythonCallablePtr(cpp.Star<OnAudioFadeChangeSignature__PythonCallable>) from cpp.Star<OnAudioFadeChangeSignature__PythonCallable> to cpp.Star<OnAudioFadeChangeSignature__PythonCallable>{
+abstract OnAudioFadeChangeSignature__PythonCallablePtr(ucpp.Ptr<OnAudioFadeChangeSignature__PythonCallable>) from ucpp.Ptr<OnAudioFadeChangeSignature__PythonCallable> to ucpp.Ptr<OnAudioFadeChangeSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnAudioFadeChangeSignature__PythonCallable): OnAudioFadeChangeSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

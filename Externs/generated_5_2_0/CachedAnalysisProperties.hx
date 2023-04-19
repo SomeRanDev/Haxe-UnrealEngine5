@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCachedAnalysisProperties")
 @:include("BlendSpaceAnalysis.h")
-@:structAccess
+@:valueType
 extern class CachedAnalysisProperties extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCachedAnalysisProperties(CachedAnalysisProperties) from CachedAnal
 @:forward
 @:nativeGen
 @:native("CachedAnalysisProperties*")
-abstract CachedAnalysisPropertiesPtr(cpp.Star<CachedAnalysisProperties>) from cpp.Star<CachedAnalysisProperties> to cpp.Star<CachedAnalysisProperties>{
+abstract CachedAnalysisPropertiesPtr(ucpp.Ptr<CachedAnalysisProperties>) from ucpp.Ptr<CachedAnalysisProperties> to ucpp.Ptr<CachedAnalysisProperties>{
 	@:from
 	public static extern inline function fromValue(v: CachedAnalysisProperties): CachedAnalysisPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

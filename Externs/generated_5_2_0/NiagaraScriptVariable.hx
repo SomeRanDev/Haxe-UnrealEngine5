@@ -3,20 +3,20 @@ package ue;
 
 @:native("UNiagaraScriptVariable")
 @:include("NiagaraScriptVariable.h")
-@:structAccess
+@:valueType
 extern class NiagaraScriptVariable extends Object {
 	public var DefaultMode: ENiagaraDefaultMode;
 	public var DefaultBinding: NiagaraScriptVariableBinding;
 	public var Variable: NiagaraVariable;
 	public var Metadata: NiagaraVariableMetaData;
 	private var DefaultValueVariant: NiagaraVariant;
-	private var StaticSwitchDefaultValue: cpp.Int32;
+	private var StaticSwitchDefaultValue: ucpp.num.Int32;
 	private var bIsStaticSwitch: Bool;
 	private var bSubscribedToParameterDefinitions: Bool;
 	private var ChangeId: Guid;
 	private var bOverrideParameterDefinitionsDefaultValue: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstNiagaraScriptVariable(NiagaraScriptVariable) from NiagaraScriptVar
 @:forward
 @:nativeGen
 @:native("NiagaraScriptVariable*")
-abstract NiagaraScriptVariablePtr(cpp.Star<NiagaraScriptVariable>) from cpp.Star<NiagaraScriptVariable> to cpp.Star<NiagaraScriptVariable>{
+abstract NiagaraScriptVariablePtr(ucpp.Ptr<NiagaraScriptVariable>) from ucpp.Ptr<NiagaraScriptVariable> to ucpp.Ptr<NiagaraScriptVariable>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraScriptVariable): NiagaraScriptVariablePtr {
 		return untyped __cpp__("&({0})", v);

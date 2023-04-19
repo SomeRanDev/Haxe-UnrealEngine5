@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAndroidPermissionDynamicDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class AndroidPermissionDynamicDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAndroidPermissionDynamicDelegate__PythonCallable(AndroidPermission
 @:forward
 @:nativeGen
 @:native("AndroidPermissionDynamicDelegate__PythonCallable*")
-abstract AndroidPermissionDynamicDelegate__PythonCallablePtr(cpp.Star<AndroidPermissionDynamicDelegate__PythonCallable>) from cpp.Star<AndroidPermissionDynamicDelegate__PythonCallable> to cpp.Star<AndroidPermissionDynamicDelegate__PythonCallable>{
+abstract AndroidPermissionDynamicDelegate__PythonCallablePtr(ucpp.Ptr<AndroidPermissionDynamicDelegate__PythonCallable>) from ucpp.Ptr<AndroidPermissionDynamicDelegate__PythonCallable> to ucpp.Ptr<AndroidPermissionDynamicDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AndroidPermissionDynamicDelegate__PythonCallable): AndroidPermissionDynamicDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

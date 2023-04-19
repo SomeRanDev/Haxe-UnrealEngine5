@@ -3,10 +3,10 @@ package ue;
 
 @:native("FFunctionCaller")
 @:include("FunctionCaller.h")
-@:structAccess
+@:valueType
 extern class FunctionCaller {
 	public var FunctionName: FName;
 
 	@:native("FFunctionCaller") public function new();
-	@:native("FFunctionCaller") public static function make(FunctionName: FName, FunctionEntry: TWeakObjectPtr<Object>, DisplayOrder: cpp.UInt32): FunctionCaller ;
+	@:native("FFunctionCaller") public static function make(FunctionName: FName, FunctionEntry: TWeakObjectPtr<Object>, DisplayOrder: ucpp.num.UInt32): FunctionCaller ;
 }

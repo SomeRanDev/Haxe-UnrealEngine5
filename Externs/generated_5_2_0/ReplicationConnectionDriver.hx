@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReplicationConnectionDriver")
 @:include("Engine/ReplicationDriver.h")
-@:structAccess
+@:valueType
 extern class ReplicationConnectionDriver extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReplicationConnectionDriver(ReplicationConnectionDriver) from Repl
 @:forward
 @:nativeGen
 @:native("ReplicationConnectionDriver*")
-abstract ReplicationConnectionDriverPtr(cpp.Star<ReplicationConnectionDriver>) from cpp.Star<ReplicationConnectionDriver> to cpp.Star<ReplicationConnectionDriver>{
+abstract ReplicationConnectionDriverPtr(ucpp.Ptr<ReplicationConnectionDriver>) from ucpp.Ptr<ReplicationConnectionDriver> to ucpp.Ptr<ReplicationConnectionDriver>{
 	@:from
 	public static extern inline function fromValue(v: ReplicationConnectionDriver): ReplicationConnectionDriverPtr {
 		return untyped __cpp__("&({0})", v);

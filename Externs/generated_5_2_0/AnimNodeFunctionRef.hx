@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimNodeFunctionRef")
 @:include("Animation/AnimNodeFunctionRef.h")
-@:structAccess
+@:valueType
 extern class AnimNodeFunctionRef {
 	private var ClassName: FName;
 	private var FunctionName: FName;
 	private var Class: TSubclassOf<Object>;
-	private var Function: cpp.Star<Function>;
+	private var Function: ucpp.Ptr<Function>;
 
 	@:native("FAnimNodeFunctionRef") public function new();
-	@:native("FAnimNodeFunctionRef") public static function make(ClassName: FName, FunctionName: FName, Class: TSubclassOf<Object>, Function: cpp.Star<Function>): AnimNodeFunctionRef ;
+	@:native("FAnimNodeFunctionRef") public static function make(ClassName: FName, FunctionName: FName, Class: TSubclassOf<Object>, Function: ucpp.Ptr<Function>): AnimNodeFunctionRef ;
 }

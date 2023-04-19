@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMontageStartedMCDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMontageStartedMCDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMontageStartedMCDelegate__PythonCallable(OnMontageStartedMCDeleg
 @:forward
 @:nativeGen
 @:native("OnMontageStartedMCDelegate__PythonCallable*")
-abstract OnMontageStartedMCDelegate__PythonCallablePtr(cpp.Star<OnMontageStartedMCDelegate__PythonCallable>) from cpp.Star<OnMontageStartedMCDelegate__PythonCallable> to cpp.Star<OnMontageStartedMCDelegate__PythonCallable>{
+abstract OnMontageStartedMCDelegate__PythonCallablePtr(ucpp.Ptr<OnMontageStartedMCDelegate__PythonCallable>) from ucpp.Ptr<OnMontageStartedMCDelegate__PythonCallable> to ucpp.Ptr<OnMontageStartedMCDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMontageStartedMCDelegate__PythonCallable): OnMontageStartedMCDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

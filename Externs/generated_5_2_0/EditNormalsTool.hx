@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEditNormalsTool")
 @:include("EditNormalsTool.h")
-@:structAccess
+@:valueType
 extern class EditNormalsTool extends MultiSelectionMeshEditingTool {
-	@:protected public var BasicProperties: cpp.Star<EditNormalsToolProperties>;
-	@:protected public var AdvancedProperties: cpp.Star<EditNormalsAdvancedProperties>;
-	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
+	@:protected public var BasicProperties: ucpp.Ptr<EditNormalsToolProperties>;
+	@:protected public var AdvancedProperties: ucpp.Ptr<EditNormalsAdvancedProperties>;
+	@:protected public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var Previews: TArray<ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstEditNormalsTool(EditNormalsTool) from EditNormalsTool {
 @:forward
 @:nativeGen
 @:native("EditNormalsTool*")
-abstract EditNormalsToolPtr(cpp.Star<EditNormalsTool>) from cpp.Star<EditNormalsTool> to cpp.Star<EditNormalsTool>{
+abstract EditNormalsToolPtr(ucpp.Ptr<EditNormalsTool>) from ucpp.Ptr<EditNormalsTool> to ucpp.Ptr<EditNormalsTool>{
 	@:from
 	public static extern inline function fromValue(v: EditNormalsTool): EditNormalsToolPtr {
 		return untyped __cpp__("&({0})", v);

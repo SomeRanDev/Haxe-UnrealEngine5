@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UARGetCandidateObjectPin__PythonCallable")
-@:structAccess
+@:valueType
 extern class ARGetCandidateObjectPin__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstARGetCandidateObjectPin__PythonCallable(ARGetCandidateObjectPin__P
 @:forward
 @:nativeGen
 @:native("ARGetCandidateObjectPin__PythonCallable*")
-abstract ARGetCandidateObjectPin__PythonCallablePtr(cpp.Star<ARGetCandidateObjectPin__PythonCallable>) from cpp.Star<ARGetCandidateObjectPin__PythonCallable> to cpp.Star<ARGetCandidateObjectPin__PythonCallable>{
+abstract ARGetCandidateObjectPin__PythonCallablePtr(ucpp.Ptr<ARGetCandidateObjectPin__PythonCallable>) from ucpp.Ptr<ARGetCandidateObjectPin__PythonCallable> to ucpp.Ptr<ARGetCandidateObjectPin__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ARGetCandidateObjectPin__PythonCallable): ARGetCandidateObjectPin__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

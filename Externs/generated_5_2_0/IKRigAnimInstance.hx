@@ -3,11 +3,11 @@ package ue;
 
 @:native("UIKRigAnimInstance")
 @:include("RigEditor/IKRigAnimInstance.h")
-@:structAccess
+@:valueType
 extern class IKRigAnimInstance extends AnimPreviewInstance {
 	@:protected public var IKRigNode: AnimNode_IKRig;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstIKRigAnimInstance(IKRigAnimInstance) from IKRigAnimInstance {
 @:forward
 @:nativeGen
 @:native("IKRigAnimInstance*")
-abstract IKRigAnimInstancePtr(cpp.Star<IKRigAnimInstance>) from cpp.Star<IKRigAnimInstance> to cpp.Star<IKRigAnimInstance>{
+abstract IKRigAnimInstancePtr(ucpp.Ptr<IKRigAnimInstance>) from ucpp.Ptr<IKRigAnimInstance> to ucpp.Ptr<IKRigAnimInstance>{
 	@:from
 	public static extern inline function fromValue(v: IKRigAnimInstance): IKRigAnimInstancePtr {
 		return untyped __cpp__("&({0})", v);

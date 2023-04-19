@@ -3,14 +3,14 @@ package ue;
 
 @:native("UFractureBrickSettings")
 @:include("FractureToolBrick.h")
-@:structAccess
+@:valueType
 extern class FractureBrickSettings extends FractureToolSettings {
 	public var Bond: EFractureBrickBond;
-	public var BrickLength: cpp.Float32;
-	public var BrickHeight: cpp.Float32;
-	public var BrickDepth: cpp.Float32;
+	public var BrickLength: ucpp.num.Float32;
+	public var BrickHeight: ucpp.num.Float32;
+	public var BrickDepth: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,18 +18,18 @@ extern class FractureBrickSettings extends FractureToolSettings {
 abstract ConstFractureBrickSettings(FractureBrickSettings) from FractureBrickSettings {
 	public extern var Bond(get, never): EFractureBrickBond;
 	public inline extern function get_Bond(): EFractureBrickBond return this.Bond;
-	public extern var BrickLength(get, never): cpp.Float32;
-	public inline extern function get_BrickLength(): cpp.Float32 return this.BrickLength;
-	public extern var BrickHeight(get, never): cpp.Float32;
-	public inline extern function get_BrickHeight(): cpp.Float32 return this.BrickHeight;
-	public extern var BrickDepth(get, never): cpp.Float32;
-	public inline extern function get_BrickDepth(): cpp.Float32 return this.BrickDepth;
+	public extern var BrickLength(get, never): ucpp.num.Float32;
+	public inline extern function get_BrickLength(): ucpp.num.Float32 return this.BrickLength;
+	public extern var BrickHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_BrickHeight(): ucpp.num.Float32 return this.BrickHeight;
+	public extern var BrickDepth(get, never): ucpp.num.Float32;
+	public inline extern function get_BrickDepth(): ucpp.num.Float32 return this.BrickDepth;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureBrickSettings*")
-abstract FractureBrickSettingsPtr(cpp.Star<FractureBrickSettings>) from cpp.Star<FractureBrickSettings> to cpp.Star<FractureBrickSettings>{
+abstract FractureBrickSettingsPtr(ucpp.Ptr<FractureBrickSettings>) from ucpp.Ptr<FractureBrickSettings> to ucpp.Ptr<FractureBrickSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureBrickSettings): FractureBrickSettingsPtr {
 		return untyped __cpp__("&({0})", v);

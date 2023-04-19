@@ -3,11 +3,10 @@ package ue;
 
 @:native("UBTTask_PushPawnAction")
 @:include("BehaviorTree/Tasks/BTTask_PushPawnAction.h")
-@:structAccess
+@:valueType
 extern class BTTask_PushPawnAction extends BTTask_PawnActionBase {
-	@:protected public var Action: cpp.Star<PawnAction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +17,7 @@ abstract ConstBTTask_PushPawnAction(BTTask_PushPawnAction) from BTTask_PushPawnA
 @:forward
 @:nativeGen
 @:native("BTTask_PushPawnAction*")
-abstract BTTask_PushPawnActionPtr(cpp.Star<BTTask_PushPawnAction>) from cpp.Star<BTTask_PushPawnAction> to cpp.Star<BTTask_PushPawnAction>{
+abstract BTTask_PushPawnActionPtr(ucpp.Ptr<BTTask_PushPawnAction>) from ucpp.Ptr<BTTask_PushPawnAction> to ucpp.Ptr<BTTask_PushPawnAction>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_PushPawnAction): BTTask_PushPawnActionPtr {
 		return untyped __cpp__("&({0})", v);

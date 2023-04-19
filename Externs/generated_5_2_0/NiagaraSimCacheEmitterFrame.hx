@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraSimCacheEmitterFrame")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheEmitterFrame {
 	public var LocalBounds: Box;
-	public var TotalSpawnedParticles: cpp.Int32;
+	public var TotalSpawnedParticles: ucpp.num.Int32;
 	public var ParticleDataBuffers: NiagaraSimCacheDataBuffers;
 
 	@:native("FNiagaraSimCacheEmitterFrame") public function new();
-	@:native("FNiagaraSimCacheEmitterFrame") public static function make(LocalBounds: Box, TotalSpawnedParticles: cpp.Int32, ParticleDataBuffers: NiagaraSimCacheDataBuffers): NiagaraSimCacheEmitterFrame ;
+	@:native("FNiagaraSimCacheEmitterFrame") public static function make(LocalBounds: Box, TotalSpawnedParticles: ucpp.num.Int32, ParticleDataBuffers: NiagaraSimCacheDataBuffers): NiagaraSimCacheEmitterFrame ;
 }

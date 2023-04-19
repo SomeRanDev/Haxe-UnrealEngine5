@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMetasoundEditorGraphOutputNode")
 @:include("MetasoundEditorGraphNode.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorGraphOutputNode extends MetasoundEditorGraphMemberNode {
-	public var Output: cpp.Star<MetasoundEditorGraphOutput>;
+	public var Output: ucpp.Ptr<MetasoundEditorGraphOutput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMetasoundEditorGraphOutputNode(MetasoundEditorGraphOutputNode) from MetasoundEditorGraphOutputNode {
-	public extern var Output(get, never): cpp.Star<MetasoundEditorGraphOutput.ConstMetasoundEditorGraphOutput>;
-	public inline extern function get_Output(): cpp.Star<MetasoundEditorGraphOutput.ConstMetasoundEditorGraphOutput> return this.Output;
+	public extern var Output(get, never): ucpp.Ptr<MetasoundEditorGraphOutput.ConstMetasoundEditorGraphOutput>;
+	public inline extern function get_Output(): ucpp.Ptr<MetasoundEditorGraphOutput.ConstMetasoundEditorGraphOutput> return this.Output;
 }
 
 @:forward
 @:nativeGen
 @:native("MetasoundEditorGraphOutputNode*")
-abstract MetasoundEditorGraphOutputNodePtr(cpp.Star<MetasoundEditorGraphOutputNode>) from cpp.Star<MetasoundEditorGraphOutputNode> to cpp.Star<MetasoundEditorGraphOutputNode>{
+abstract MetasoundEditorGraphOutputNodePtr(ucpp.Ptr<MetasoundEditorGraphOutputNode>) from ucpp.Ptr<MetasoundEditorGraphOutputNode> to ucpp.Ptr<MetasoundEditorGraphOutputNode>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundEditorGraphOutputNode): MetasoundEditorGraphOutputNodePtr {
 		return untyped __cpp__("&({0})", v);

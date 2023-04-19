@@ -3,23 +3,23 @@ package ue;
 
 @:native("UInterchangeUserDefinedAttributesAPI")
 @:include("Nodes/InterchangeUserDefinedAttribute.h")
-@:structAccess
+@:valueType
 extern class InterchangeUserDefinedAttributesAPI extends Object {
-	public function RemoveUserDefinedAttribute(InterchangeNode: cpp.Star<InterchangeBaseNode>, UserDefinedAttributeName: FString): Bool;
-	public function GetUserDefinedAttributeInfos(InterchangeNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeInfos: cpp.Reference<TArray<InterchangeUserDefinedAttributeInfo>>): Void;
-	public function GetUserDefinedAttribute_Int32(InterchangeNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: cpp.Reference<cpp.Int32>, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function GetUserDefinedAttribute_FString(InterchangeNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: cpp.Reference<FString>, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function GetUserDefinedAttribute_Float(InterchangeNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: cpp.Reference<cpp.Float32>, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function GetUserDefinedAttribute_Double(InterchangeNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: cpp.Reference<cpp.Float64>, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function GetUserDefinedAttribute_Boolean(InterchangeNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: cpp.Reference<Bool>, OutPayloadKey: cpp.Reference<FString>): Bool;
-	public function DuplicateAllUserDefinedAttribute(InterchangeSourceNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, InterchangeDestinationNode: cpp.Star<InterchangeBaseNode>, bAddSourceNodeName: Bool): Void;
-	public function CreateUserDefinedAttribute_Int32(InterchangeNode: cpp.Star<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: cpp.Reference<cpp.Int32>, PayloadKey: FString): Bool;
-	public function CreateUserDefinedAttribute_FString(InterchangeNode: cpp.Star<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: FString, PayloadKey: FString): Bool;
-	public function CreateUserDefinedAttribute_Float(InterchangeNode: cpp.Star<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: cpp.Reference<cpp.Float32>, PayloadKey: FString): Bool;
-	public function CreateUserDefinedAttribute_Double(InterchangeNode: cpp.Star<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: cpp.Reference<cpp.Float64>, PayloadKey: FString): Bool;
-	public function CreateUserDefinedAttribute_Boolean(InterchangeNode: cpp.Star<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: cpp.Reference<Bool>, PayloadKey: FString): Bool;
+	public function RemoveUserDefinedAttribute(InterchangeNode: ucpp.Ptr<InterchangeBaseNode>, UserDefinedAttributeName: FString): Bool;
+	public function GetUserDefinedAttributeInfos(InterchangeNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeInfos: ucpp.Ref<TArray<InterchangeUserDefinedAttributeInfo>>): Void;
+	public function GetUserDefinedAttribute_Int32(InterchangeNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: ucpp.Ref<ucpp.num.Int32>, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetUserDefinedAttribute_FString(InterchangeNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: ucpp.Ref<FString>, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetUserDefinedAttribute_Float(InterchangeNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: ucpp.Ref<ucpp.num.Float32>, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetUserDefinedAttribute_Double(InterchangeNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: ucpp.Ref<ucpp.num.Float64>, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetUserDefinedAttribute_Boolean(InterchangeNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, UserDefinedAttributeName: FString, OutValue: ucpp.Ref<Bool>, OutPayloadKey: ucpp.Ref<FString>): Bool;
+	public function DuplicateAllUserDefinedAttribute(InterchangeSourceNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, InterchangeDestinationNode: ucpp.Ptr<InterchangeBaseNode>, bAddSourceNodeName: Bool): Void;
+	public function CreateUserDefinedAttribute_Int32(InterchangeNode: ucpp.Ptr<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: ucpp.Ref<ucpp.num.Int32>, PayloadKey: FString): Bool;
+	public function CreateUserDefinedAttribute_FString(InterchangeNode: ucpp.Ptr<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: FString, PayloadKey: FString): Bool;
+	public function CreateUserDefinedAttribute_Float(InterchangeNode: ucpp.Ptr<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: ucpp.Ref<ucpp.num.Float32>, PayloadKey: FString): Bool;
+	public function CreateUserDefinedAttribute_Double(InterchangeNode: ucpp.Ptr<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: ucpp.Ref<ucpp.num.Float64>, PayloadKey: FString): Bool;
+	public function CreateUserDefinedAttribute_Boolean(InterchangeNode: ucpp.Ptr<InterchangeBaseNode>, UserDefinedAttributeName: FString, Value: ucpp.Ref<Bool>, PayloadKey: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstInterchangeUserDefinedAttributesAPI(InterchangeUserDefinedAttribut
 @:forward
 @:nativeGen
 @:native("InterchangeUserDefinedAttributesAPI*")
-abstract InterchangeUserDefinedAttributesAPIPtr(cpp.Star<InterchangeUserDefinedAttributesAPI>) from cpp.Star<InterchangeUserDefinedAttributesAPI> to cpp.Star<InterchangeUserDefinedAttributesAPI>{
+abstract InterchangeUserDefinedAttributesAPIPtr(ucpp.Ptr<InterchangeUserDefinedAttributesAPI>) from ucpp.Ptr<InterchangeUserDefinedAttributesAPI> to ucpp.Ptr<InterchangeUserDefinedAttributesAPI>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeUserDefinedAttributesAPI): InterchangeUserDefinedAttributesAPIPtr {
 		return untyped __cpp__("&({0})", v);

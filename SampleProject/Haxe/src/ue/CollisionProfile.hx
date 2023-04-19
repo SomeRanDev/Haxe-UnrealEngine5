@@ -3,7 +3,7 @@ package ue;
 
 @:native("UCollisionProfile")
 @:include("Engine/CollisionProfile.h")
-@:structAccess
+@:valueType
 extern class CollisionProfile extends DeveloperSettings {
 	private var Profiles: TArray<CollisionResponseTemplate>;
 	private var DefaultChannelResponses: TArray<CustomChannelSetup>;
@@ -11,7 +11,7 @@ extern class CollisionProfile extends DeveloperSettings {
 	private var ProfileRedirects: TArray<Redirector>;
 	private var CollisionChannelRedirects: TArray<Redirector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstCollisionProfile(CollisionProfile) from CollisionProfile {
 @:forward
 @:nativeGen
 @:native("CollisionProfile*")
-abstract CollisionProfilePtr(cpp.Star<CollisionProfile>) from cpp.Star<CollisionProfile> to cpp.Star<CollisionProfile>{
+abstract CollisionProfilePtr(ucpp.Ptr<CollisionProfile>) from ucpp.Ptr<CollisionProfile> to ucpp.Ptr<CollisionProfile>{
 	@:from
 	public static extern inline function fromValue(v: CollisionProfile): CollisionProfilePtr {
 		return untyped __cpp__("&({0})", v);

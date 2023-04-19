@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundModulatorBase")
 @:include("IAudioModulation.h")
-@:structAccess
+@:valueType
 extern class SoundModulatorBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundModulatorBase(SoundModulatorBase) from SoundModulatorBase {
 @:forward
 @:nativeGen
 @:native("SoundModulatorBase*")
-abstract SoundModulatorBasePtr(cpp.Star<SoundModulatorBase>) from cpp.Star<SoundModulatorBase> to cpp.Star<SoundModulatorBase>{
+abstract SoundModulatorBasePtr(ucpp.Ptr<SoundModulatorBase>) from ucpp.Ptr<SoundModulatorBase> to ucpp.Ptr<SoundModulatorBase>{
 	@:from
 	public static extern inline function fromValue(v: SoundModulatorBase): SoundModulatorBasePtr {
 		return untyped __cpp__("&({0})", v);

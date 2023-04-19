@@ -3,19 +3,19 @@ package ue;
 
 @:native("FSubmixEffectMultibandCompressorSettings")
 @:include("SubmixEffects/SubmixEffectMultiBandCompressor.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectMultibandCompressorSettings {
 	public var DynamicsProcessorType: ESubmixEffectDynamicsProcessorType;
 	public var PeakMode: ESubmixEffectDynamicsPeakMode;
 	public var LinkMode: ESubmixEffectDynamicsChannelLinkMode;
-	public var LookAheadMsec: cpp.Float32;
+	public var LookAheadMsec: ucpp.num.Float32;
 	public var bAnalogMode: Bool;
 	public var bFourPole: Bool;
 	public var bBypass: Bool;
 	public var KeySource: ESubmixEffectDynamicsKeySource;
-	public var ExternalAudioBus: cpp.Star<AudioBus>;
-	public var ExternalSubmix: cpp.Star<SoundSubmix>;
-	public var KeyGainDb: cpp.Float32;
+	public var ExternalAudioBus: ucpp.Ptr<AudioBus>;
+	public var ExternalSubmix: ucpp.Ptr<SoundSubmix>;
+	public var KeyGainDb: ucpp.num.Float32;
 	public var bKeyAudition: Bool;
 	public var Bands: TArray<DynamicsBandSettings>;
 

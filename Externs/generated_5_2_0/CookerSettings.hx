@@ -3,7 +3,7 @@ package ue;
 
 @:native("UCookerSettings")
 @:include("CookerSettings.h")
-@:structAccess
+@:valueType
 extern class CookerSettings extends DeveloperSettings {
 	public var bEnableCookOnTheSide: Bool;
 	public var bEnableBuildDDCInBackground: Bool;
@@ -21,14 +21,14 @@ extern class CookerSettings extends DeveloperSettings {
 	public var ClassesExcludedOnDedicatedClient: TArray<FString>;
 	public var ModulesExcludedOnDedicatedClient: TArray<FString>;
 	public var VersionedIntRValues: TArray<FString>;
-	public var DefaultASTCQualityBySpeed: cpp.Int32;
-	public var DefaultASTCQualityBySize: cpp.Int32;
+	public var DefaultASTCQualityBySpeed: ucpp.num.Int32;
+	public var DefaultASTCQualityBySize: ucpp.num.Int32;
 	public var DefaultASTCCompressor: ETextureFormatASTCCompressor;
 	public var bAllowASTCHDRProfile: Bool;
 	public var bAllowCookedDataInEditorBuilds: Bool;
 	private var bCookBlueprintComponentTemplateData: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -66,10 +66,10 @@ abstract ConstCookerSettings(CookerSettings) from CookerSettings {
 	public inline extern function get_ModulesExcludedOnDedicatedClient(): TArray<FString> return this.ModulesExcludedOnDedicatedClient;
 	public extern var VersionedIntRValues(get, never): TArray<FString>;
 	public inline extern function get_VersionedIntRValues(): TArray<FString> return this.VersionedIntRValues;
-	public extern var DefaultASTCQualityBySpeed(get, never): cpp.Int32;
-	public inline extern function get_DefaultASTCQualityBySpeed(): cpp.Int32 return this.DefaultASTCQualityBySpeed;
-	public extern var DefaultASTCQualityBySize(get, never): cpp.Int32;
-	public inline extern function get_DefaultASTCQualityBySize(): cpp.Int32 return this.DefaultASTCQualityBySize;
+	public extern var DefaultASTCQualityBySpeed(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultASTCQualityBySpeed(): ucpp.num.Int32 return this.DefaultASTCQualityBySpeed;
+	public extern var DefaultASTCQualityBySize(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultASTCQualityBySize(): ucpp.num.Int32 return this.DefaultASTCQualityBySize;
 	public extern var DefaultASTCCompressor(get, never): ETextureFormatASTCCompressor;
 	public inline extern function get_DefaultASTCCompressor(): ETextureFormatASTCCompressor return this.DefaultASTCCompressor;
 	public extern var bAllowASTCHDRProfile(get, never): Bool;
@@ -81,7 +81,7 @@ abstract ConstCookerSettings(CookerSettings) from CookerSettings {
 @:forward
 @:nativeGen
 @:native("CookerSettings*")
-abstract CookerSettingsPtr(cpp.Star<CookerSettings>) from cpp.Star<CookerSettings> to cpp.Star<CookerSettings>{
+abstract CookerSettingsPtr(ucpp.Ptr<CookerSettings>) from ucpp.Ptr<CookerSettings> to ucpp.Ptr<CookerSettings>{
 	@:from
 	public static extern inline function fromValue(v: CookerSettings): CookerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

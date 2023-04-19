@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEulerTransform")
 @:include("EulerTransform.h")
-@:structAccess
+@:valueType
 extern class EulerTransform {
 	public var Location: Vector;
 	public var Rotation: Rotator;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeMaterialFunctionFactory")
 @:include("Material/InterchangeMaterialFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangeMaterialFunctionFactory extends InterchangeFactoryBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeMaterialFunctionFactory(InterchangeMaterialFunctionFact
 @:forward
 @:nativeGen
 @:native("InterchangeMaterialFunctionFactory*")
-abstract InterchangeMaterialFunctionFactoryPtr(cpp.Star<InterchangeMaterialFunctionFactory>) from cpp.Star<InterchangeMaterialFunctionFactory> to cpp.Star<InterchangeMaterialFunctionFactory>{
+abstract InterchangeMaterialFunctionFactoryPtr(ucpp.Ptr<InterchangeMaterialFunctionFactory>) from ucpp.Ptr<InterchangeMaterialFunctionFactory> to ucpp.Ptr<InterchangeMaterialFunctionFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMaterialFunctionFactory): InterchangeMaterialFunctionFactoryPtr {
 		return untyped __cpp__("&({0})", v);

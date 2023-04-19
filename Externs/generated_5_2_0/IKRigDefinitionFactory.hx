@@ -3,10 +3,10 @@ package ue;
 
 @:native("UIKRigDefinitionFactory")
 @:include("RigEditor/IKRigDefinitionFactory.h")
-@:structAccess
+@:valueType
 extern class IKRigDefinitionFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstIKRigDefinitionFactory(IKRigDefinitionFactory) from IKRigDefinitio
 @:forward
 @:nativeGen
 @:native("IKRigDefinitionFactory*")
-abstract IKRigDefinitionFactoryPtr(cpp.Star<IKRigDefinitionFactory>) from cpp.Star<IKRigDefinitionFactory> to cpp.Star<IKRigDefinitionFactory>{
+abstract IKRigDefinitionFactoryPtr(ucpp.Ptr<IKRigDefinitionFactory>) from ucpp.Ptr<IKRigDefinitionFactory> to ucpp.Ptr<IKRigDefinitionFactory>{
 	@:from
 	public static extern inline function fromValue(v: IKRigDefinitionFactory): IKRigDefinitionFactoryPtr {
 		return untyped __cpp__("&({0})", v);

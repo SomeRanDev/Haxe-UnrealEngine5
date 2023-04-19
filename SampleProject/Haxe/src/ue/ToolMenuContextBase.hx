@@ -3,10 +3,10 @@ package ue;
 
 @:native("UToolMenuContextBase")
 @:include("ToolMenuContext.h")
-@:structAccess
+@:valueType
 extern class ToolMenuContextBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstToolMenuContextBase(ToolMenuContextBase) from ToolMenuContextBase 
 @:forward
 @:nativeGen
 @:native("ToolMenuContextBase*")
-abstract ToolMenuContextBasePtr(cpp.Star<ToolMenuContextBase>) from cpp.Star<ToolMenuContextBase> to cpp.Star<ToolMenuContextBase>{
+abstract ToolMenuContextBasePtr(ucpp.Ptr<ToolMenuContextBase>) from ucpp.Ptr<ToolMenuContextBase> to ucpp.Ptr<ToolMenuContextBase>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenuContextBase): ToolMenuContextBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UScene")
 @:include("Engine/Scene.h")
-@:structAccess
+@:valueType
 extern class Scene extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstScene(Scene) from Scene {
 @:forward
 @:nativeGen
 @:native("Scene*")
-abstract ScenePtr(cpp.Star<Scene>) from cpp.Star<Scene> to cpp.Star<Scene>{
+abstract ScenePtr(ucpp.Ptr<Scene>) from ucpp.Ptr<Scene> to ucpp.Ptr<Scene>{
 	@:from
 	public static extern inline function fromValue(v: Scene): ScenePtr {
 		return untyped __cpp__("&({0})", v);

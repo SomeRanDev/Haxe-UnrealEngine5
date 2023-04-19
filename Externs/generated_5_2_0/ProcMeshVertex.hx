@@ -3,7 +3,7 @@ package ue;
 
 @:native("FProcMeshVertex")
 @:include("ProceduralMeshComponent.h")
-@:structAccess
+@:valueType
 extern class ProcMeshVertex {
 	public var Position: Vector;
 	public var Normal: Vector;

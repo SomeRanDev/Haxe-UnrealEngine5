@@ -3,14 +3,14 @@ package ue;
 
 @:native("UProceduralFoliageEditorLibrary")
 @:include("ProceduralFoliageEditorLibrary.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageEditorLibrary extends BlueprintFunctionLibrary {
-	public function ResimulateProceduralFoliageVolumes(ProceduralFoliageVolumes: cpp.Reference<TArray<cpp.Star<ProceduralFoliageVolume>>>): Void;
-	public function ResimulateProceduralFoliageComponents(ProceduralFoliageComponents: cpp.Reference<TArray<cpp.Star<ProceduralFoliageComp>>>): Void;
-	public function ClearProceduralFoliageVolumes(ProceduralFoliageVolumes: cpp.Reference<TArray<cpp.Star<ProceduralFoliageVolume>>>): Void;
-	public function ClearProceduralFoliageComponents(ProceduralFoliageComponents: cpp.Reference<TArray<cpp.Star<ProceduralFoliageComp>>>): Void;
+	public function ResimulateProceduralFoliageVolumes(ProceduralFoliageVolumes: ucpp.Ref<TArray<ucpp.Ptr<ProceduralFoliageVolume>>>): Void;
+	public function ResimulateProceduralFoliageComponents(ProceduralFoliageComponents: ucpp.Ref<TArray<ucpp.Ptr<ProceduralFoliageComp>>>): Void;
+	public function ClearProceduralFoliageVolumes(ProceduralFoliageVolumes: ucpp.Ref<TArray<ucpp.Ptr<ProceduralFoliageVolume>>>): Void;
+	public function ClearProceduralFoliageComponents(ProceduralFoliageComponents: ucpp.Ref<TArray<ucpp.Ptr<ProceduralFoliageComp>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstProceduralFoliageEditorLibrary(ProceduralFoliageEditorLibrary) fro
 @:forward
 @:nativeGen
 @:native("ProceduralFoliageEditorLibrary*")
-abstract ProceduralFoliageEditorLibraryPtr(cpp.Star<ProceduralFoliageEditorLibrary>) from cpp.Star<ProceduralFoliageEditorLibrary> to cpp.Star<ProceduralFoliageEditorLibrary>{
+abstract ProceduralFoliageEditorLibraryPtr(ucpp.Ptr<ProceduralFoliageEditorLibrary>) from ucpp.Ptr<ProceduralFoliageEditorLibrary> to ucpp.Ptr<ProceduralFoliageEditorLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralFoliageEditorLibrary): ProceduralFoliageEditorLibraryPtr {
 		return untyped __cpp__("&({0})", v);

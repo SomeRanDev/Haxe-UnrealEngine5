@@ -3,10 +3,10 @@ package ue;
 
 @:native("USourceDataOverridePluginSourceSettingsBase")
 @:include("IAudioExtensionPlugin.h")
-@:structAccess
+@:valueType
 extern class SourceDataOverridePluginSourceSettingsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSourceDataOverridePluginSourceSettingsBase(SourceDataOverridePlugi
 @:forward
 @:nativeGen
 @:native("SourceDataOverridePluginSourceSettingsBase*")
-abstract SourceDataOverridePluginSourceSettingsBasePtr(cpp.Star<SourceDataOverridePluginSourceSettingsBase>) from cpp.Star<SourceDataOverridePluginSourceSettingsBase> to cpp.Star<SourceDataOverridePluginSourceSettingsBase>{
+abstract SourceDataOverridePluginSourceSettingsBasePtr(ucpp.Ptr<SourceDataOverridePluginSourceSettingsBase>) from ucpp.Ptr<SourceDataOverridePluginSourceSettingsBase> to ucpp.Ptr<SourceDataOverridePluginSourceSettingsBase>{
 	@:from
 	public static extern inline function fromValue(v: SourceDataOverridePluginSourceSettingsBase): SourceDataOverridePluginSourceSettingsBasePtr {
 		return untyped __cpp__("&({0})", v);

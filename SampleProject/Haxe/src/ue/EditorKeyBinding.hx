@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEditorKeyBinding")
 @:include("Preferences/UnrealEdKeyBindings.h")
-@:structAccess
+@:valueType
 extern class EditorKeyBinding {
 	public var bCtrlDown: Bool;
 	public var bAltDown: Bool;

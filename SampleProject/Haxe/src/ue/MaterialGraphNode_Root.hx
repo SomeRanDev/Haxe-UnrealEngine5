@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMaterialGraphNode_Root")
 @:include("MaterialGraph/MaterialGraphNode_Root.h")
-@:structAccess
+@:valueType
 extern class MaterialGraphNode_Root extends MaterialGraphNode_Base {
-	public var Material: cpp.Star<Material>;
+	public var Material: ucpp.Ptr<Material>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialGraphNode_Root(MaterialGraphNode_Root) from MaterialGraphNode_Root {
-	public extern var Material(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_Material(): cpp.Star<Material.ConstMaterial> return this.Material;
+	public extern var Material(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_Material(): ucpp.Ptr<Material.ConstMaterial> return this.Material;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialGraphNode_Root*")
-abstract MaterialGraphNode_RootPtr(cpp.Star<MaterialGraphNode_Root>) from cpp.Star<MaterialGraphNode_Root> to cpp.Star<MaterialGraphNode_Root>{
+abstract MaterialGraphNode_RootPtr(ucpp.Ptr<MaterialGraphNode_Root>) from ucpp.Ptr<MaterialGraphNode_Root> to ucpp.Ptr<MaterialGraphNode_Root>{
 	@:from
 	public static extern inline function fromValue(v: MaterialGraphNode_Root): MaterialGraphNode_RootPtr {
 		return untyped __cpp__("&({0})", v);

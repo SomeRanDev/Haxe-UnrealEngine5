@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMaterialInstanceBasePropertyOverrides")
 @:include("Materials/MaterialInstanceBasePropertyOverrides.h")
-@:structAccess
+@:valueType
 extern class MaterialInstanceBasePropertyOverrides {
 	public var bOverride_OpacityMaskClipValue: Bool;
 	public var bOverride_BlendMode: Bool;
@@ -21,8 +21,8 @@ extern class MaterialInstanceBasePropertyOverrides {
 	public var bOutputTranslucentVelocity: Bool;
 	public var BlendMode: TEnumAsByte<EBlendMode>;
 	public var ShadingModel: TEnumAsByte<EMaterialShadingModel>;
-	public var OpacityMaskClipValue: cpp.Float32;
-	public var MaxWorldPositionOffsetDisplacement: cpp.Float32;
+	public var OpacityMaskClipValue: ucpp.num.Float32;
+	public var MaxWorldPositionOffsetDisplacement: ucpp.num.Float32;
 
 	@:native("FMaterialInstanceBasePropertyOverrides") public function new();
 }

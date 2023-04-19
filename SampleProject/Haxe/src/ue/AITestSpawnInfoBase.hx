@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAITestSpawnInfoBase")
 @:include("FunctionalAITest.h")
-@:structAccess
+@:valueType
 extern class AITestSpawnInfoBase {
-	public var SpawnLocation: cpp.Star<Actor>;
-	public var NumberToSpawn: cpp.Int32;
-	public var SpawnDelay: cpp.Float32;
-	public var PreSpawnDelay: cpp.Float32;
+	public var SpawnLocation: ucpp.Ptr<Actor>;
+	public var NumberToSpawn: ucpp.num.Int32;
+	public var SpawnDelay: ucpp.num.Float32;
+	public var PreSpawnDelay: ucpp.num.Float32;
 
 	@:native("FAITestSpawnInfoBase") public function new();
-	@:native("FAITestSpawnInfoBase") public static function make(SpawnLocation: cpp.Star<Actor>, NumberToSpawn: cpp.Int32, SpawnDelay: cpp.Float32, PreSpawnDelay: cpp.Float32): AITestSpawnInfoBase ;
+	@:native("FAITestSpawnInfoBase") public static function make(SpawnLocation: ucpp.Ptr<Actor>, NumberToSpawn: ucpp.num.Int32, SpawnDelay: ucpp.num.Float32, PreSpawnDelay: ucpp.num.Float32): AITestSpawnInfoBase ;
 }

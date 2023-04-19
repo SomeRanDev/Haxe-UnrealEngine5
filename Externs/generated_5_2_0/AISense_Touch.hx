@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAISense_Touch")
 @:include("Perception/AISense_Touch.h")
-@:structAccess
+@:valueType
 extern class AISense_Touch extends AISense {
 	public var RegisteredEvents: TArray<AITouchEvent>;
 
-	public function ReportTouchEvent(WorldContextObject: cpp.Star<Object>, TouchReceiver: cpp.Star<Actor>, OtherActor: cpp.Star<Actor>, Location: Vector): Void;
+	public function ReportTouchEvent(WorldContextObject: ucpp.Ptr<Object>, TouchReceiver: ucpp.Ptr<Actor>, OtherActor: ucpp.Ptr<Actor>, Location: Vector): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAISense_Touch(AISense_Touch) from AISense_Touch {
 @:forward
 @:nativeGen
 @:native("AISense_Touch*")
-abstract AISense_TouchPtr(cpp.Star<AISense_Touch>) from cpp.Star<AISense_Touch> to cpp.Star<AISense_Touch>{
+abstract AISense_TouchPtr(ucpp.Ptr<AISense_Touch>) from ucpp.Ptr<AISense_Touch> to ucpp.Ptr<AISense_Touch>{
 	@:from
 	public static extern inline function fromValue(v: AISense_Touch): AISense_TouchPtr {
 		return untyped __cpp__("&({0})", v);

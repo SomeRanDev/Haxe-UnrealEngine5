@@ -3,24 +3,24 @@ package ue;
 
 @:native("USubUVAnimationFactory")
 @:include("Factories/SubUVAnimationFactory.h")
-@:structAccess
+@:valueType
 extern class SubUVAnimationFactory extends Factory {
-	public var InitialTexture: cpp.Star<Texture2D>;
+	public var InitialTexture: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSubUVAnimationFactory(SubUVAnimationFactory) from SubUVAnimationFactory {
-	public extern var InitialTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_InitialTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.InitialTexture;
+	public extern var InitialTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_InitialTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.InitialTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("SubUVAnimationFactory*")
-abstract SubUVAnimationFactoryPtr(cpp.Star<SubUVAnimationFactory>) from cpp.Star<SubUVAnimationFactory> to cpp.Star<SubUVAnimationFactory>{
+abstract SubUVAnimationFactoryPtr(ucpp.Ptr<SubUVAnimationFactory>) from ucpp.Ptr<SubUVAnimationFactory> to ucpp.Ptr<SubUVAnimationFactory>{
 	@:from
 	public static extern inline function fromValue(v: SubUVAnimationFactory): SubUVAnimationFactoryPtr {
 		return untyped __cpp__("&({0})", v);

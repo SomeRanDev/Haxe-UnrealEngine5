@@ -3,11 +3,11 @@ package ue;
 
 @:native("FGeometryCollectionSizeSpecificData")
 @:include("GeometryCollection/GeometryCollectionObject.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionSizeSpecificData {
-	public var MaxSize: cpp.Float32;
+	public var MaxSize: ucpp.num.Float32;
 	public var CollisionShapes: TArray<GeometryCollectionCollisionTypeData>;
-	public var DamageThreshold: cpp.Int32;
+	public var DamageThreshold: ucpp.num.Int32;
 
 	@:native("FGeometryCollectionSizeSpecificData") public function new();
 }

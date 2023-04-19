@@ -3,24 +3,24 @@ package ue;
 
 @:native("UCullingField")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class CullingField extends FieldNodeBase {
-	public var Culling: cpp.Star<FieldNodeBase>;
-	public var Field: cpp.Star<FieldNodeBase>;
+	public var Culling: ucpp.Ptr<FieldNodeBase>;
+	public var Field: ucpp.Ptr<FieldNodeBase>;
 	public var Operation: TEnumAsByte<EFieldCullingOperationType>;
 
-	public function SetCullingField(Culling: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Field: cpp.Star<FieldNodeBase.ConstFieldNodeBase>, Operation: TEnumAsByte<EFieldCullingOperationType>): cpp.Star<CullingField>;
+	public function SetCullingField(Culling: ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>, Field: ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>, Operation: TEnumAsByte<EFieldCullingOperationType>): ucpp.Ptr<CullingField>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCullingField(CullingField) from CullingField {
-	public extern var Culling(get, never): cpp.Star<FieldNodeBase.ConstFieldNodeBase>;
-	public inline extern function get_Culling(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.Culling;
-	public extern var Field(get, never): cpp.Star<FieldNodeBase.ConstFieldNodeBase>;
-	public inline extern function get_Field(): cpp.Star<FieldNodeBase.ConstFieldNodeBase> return this.Field;
+	public extern var Culling(get, never): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>;
+	public inline extern function get_Culling(): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase> return this.Culling;
+	public extern var Field(get, never): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase>;
+	public inline extern function get_Field(): ucpp.Ptr<FieldNodeBase.ConstFieldNodeBase> return this.Field;
 	public extern var Operation(get, never): TEnumAsByte<EFieldCullingOperationType>;
 	public inline extern function get_Operation(): TEnumAsByte<EFieldCullingOperationType> return this.Operation;
 }
@@ -28,7 +28,7 @@ abstract ConstCullingField(CullingField) from CullingField {
 @:forward
 @:nativeGen
 @:native("CullingField*")
-abstract CullingFieldPtr(cpp.Star<CullingField>) from cpp.Star<CullingField> to cpp.Star<CullingField>{
+abstract CullingFieldPtr(ucpp.Ptr<CullingField>) from ucpp.Ptr<CullingField> to ucpp.Ptr<CullingField>{
 	@:from
 	public static extern inline function fromValue(v: CullingField): CullingFieldPtr {
 		return untyped __cpp__("&({0})", v);

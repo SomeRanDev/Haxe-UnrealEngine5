@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNavCollision")
 @:include("NavCollision.h")
-@:structAccess
+@:valueType
 extern class NavCollision extends NavCollisionBase {
 	public var CylinderCollision: TArray<NavCollisionCylinder>;
 	public var BoxCollision: TArray<NavCollisionBox>;
@@ -11,7 +11,7 @@ extern class NavCollision extends NavCollisionBase {
 	public var bGatherConvexGeometry: Bool;
 	public var bCreateOnClient: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstNavCollision(NavCollision) from NavCollision {
 @:forward
 @:nativeGen
 @:native("NavCollision*")
-abstract NavCollisionPtr(cpp.Star<NavCollision>) from cpp.Star<NavCollision> to cpp.Star<NavCollision>{
+abstract NavCollisionPtr(ucpp.Ptr<NavCollision>) from ucpp.Ptr<NavCollision> to ucpp.Ptr<NavCollision>{
 	@:from
 	public static extern inline function fromValue(v: NavCollision): NavCollisionPtr {
 		return untyped __cpp__("&({0})", v);

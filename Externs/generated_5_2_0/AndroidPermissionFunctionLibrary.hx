@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAndroidPermissionFunctionLibrary")
 @:include("AndroidPermissionFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class AndroidPermissionFunctionLibrary extends BlueprintFunctionLibrary {
 	public function CheckPermission(permission: FString): Bool;
-	public function AcquirePermissions(permissions: cpp.Reference<TArray<FString>>): cpp.Star<AndroidPermissionCallbackProxy>;
+	public function AcquirePermissions(permissions: ucpp.Ref<TArray<FString>>): ucpp.Ptr<AndroidPermissionCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAndroidPermissionFunctionLibrary(AndroidPermissionFunctionLibrary)
 @:forward
 @:nativeGen
 @:native("AndroidPermissionFunctionLibrary*")
-abstract AndroidPermissionFunctionLibraryPtr(cpp.Star<AndroidPermissionFunctionLibrary>) from cpp.Star<AndroidPermissionFunctionLibrary> to cpp.Star<AndroidPermissionFunctionLibrary>{
+abstract AndroidPermissionFunctionLibraryPtr(ucpp.Ptr<AndroidPermissionFunctionLibrary>) from ucpp.Ptr<AndroidPermissionFunctionLibrary> to ucpp.Ptr<AndroidPermissionFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AndroidPermissionFunctionLibrary): AndroidPermissionFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

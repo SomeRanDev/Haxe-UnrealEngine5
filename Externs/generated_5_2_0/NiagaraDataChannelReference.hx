@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraDataChannelReference")
 @:include("Private/NiagaraDataChannelCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelReference {
 	public var ChannelName: FName;
 

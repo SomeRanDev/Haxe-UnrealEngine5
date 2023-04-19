@@ -3,12 +3,12 @@ package ue;
 
 @:native("USkinnedAsset")
 @:include("Engine/SkinnedAsset.h")
-@:structAccess
+@:valueType
 extern class SkinnedAsset extends StreamableRenderAsset {
-	public function FindSocketInfo(InSocketName: FName, OutTransform: cpp.Reference<Transform>, OutBoneIndex: cpp.Reference<cpp.Int32>, OutIndex: cpp.Reference<cpp.Int32>): cpp.Star<SkeletalMeshSocket>;
-	public function FindSocket(InSocketName: FName): cpp.Star<SkeletalMeshSocket>;
+	public function FindSocketInfo(InSocketName: FName, OutTransform: ucpp.Ref<Transform>, OutBoneIndex: ucpp.Ref<ucpp.num.Int32>, OutIndex: ucpp.Ref<ucpp.num.Int32>): ucpp.Ptr<SkeletalMeshSocket>;
+	public function FindSocket(InSocketName: FName): ucpp.Ptr<SkeletalMeshSocket>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(FindSocketInfo, FindSocket)
@@ -19,7 +19,7 @@ abstract ConstSkinnedAsset(SkinnedAsset) from SkinnedAsset {
 @:forward
 @:nativeGen
 @:native("SkinnedAsset*")
-abstract SkinnedAssetPtr(cpp.Star<SkinnedAsset>) from cpp.Star<SkinnedAsset> to cpp.Star<SkinnedAsset>{
+abstract SkinnedAssetPtr(ucpp.Ptr<SkinnedAsset>) from ucpp.Ptr<SkinnedAsset> to ucpp.Ptr<SkinnedAsset>{
 	@:from
 	public static extern inline function fromValue(v: SkinnedAsset): SkinnedAssetPtr {
 		return untyped __cpp__("&({0})", v);

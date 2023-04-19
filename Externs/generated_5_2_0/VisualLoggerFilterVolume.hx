@@ -3,10 +3,10 @@ package ue;
 
 @:native("AVisualLoggerFilterVolume")
 @:include("VisualLogger/VisualLoggerFilterVolume.h")
-@:structAccess
+@:valueType
 extern class VisualLoggerFilterVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVisualLoggerFilterVolume(VisualLoggerFilterVolume) from VisualLogg
 @:forward
 @:nativeGen
 @:native("VisualLoggerFilterVolume*")
-abstract VisualLoggerFilterVolumePtr(cpp.Star<VisualLoggerFilterVolume>) from cpp.Star<VisualLoggerFilterVolume> to cpp.Star<VisualLoggerFilterVolume>{
+abstract VisualLoggerFilterVolumePtr(ucpp.Ptr<VisualLoggerFilterVolume>) from ucpp.Ptr<VisualLoggerFilterVolume> to ucpp.Ptr<VisualLoggerFilterVolume>{
 	@:from
 	public static extern inline function fromValue(v: VisualLoggerFilterVolume): VisualLoggerFilterVolumePtr {
 		return untyped __cpp__("&({0})", v);

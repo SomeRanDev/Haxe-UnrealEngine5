@@ -3,16 +3,16 @@ package ue;
 
 @:native("ARadialForceActor")
 @:include("PhysicsEngine/RadialForceActor.h")
-@:structAccess
+@:valueType
 extern class RadialForceActor extends RigidBodyBase {
-	private var ForceComponent: cpp.Star<RadialForceComp>;
+	private var ForceComponent: ucpp.Ptr<RadialForceComp>;
 
 	public function ToggleForce(): Void;
 	public function FireImpulse(): Void;
 	public function EnableForce(): Void;
 	public function DisableForce(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstRadialForceActor(RadialForceActor) from RadialForceActor {
 @:forward
 @:nativeGen
 @:native("RadialForceActor*")
-abstract RadialForceActorPtr(cpp.Star<RadialForceActor>) from cpp.Star<RadialForceActor> to cpp.Star<RadialForceActor>{
+abstract RadialForceActorPtr(ucpp.Ptr<RadialForceActor>) from ucpp.Ptr<RadialForceActor> to ucpp.Ptr<RadialForceActor>{
 	@:from
 	public static extern inline function fromValue(v: RadialForceActor): RadialForceActorPtr {
 		return untyped __cpp__("&({0})", v);

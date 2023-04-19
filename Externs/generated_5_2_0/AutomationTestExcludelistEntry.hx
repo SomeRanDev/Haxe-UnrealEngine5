@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAutomationTestExcludelistEntry")
 @:include("AutomationTestExcludelist.h")
-@:structAccess
+@:valueType
 extern class AutomationTestExcludelistEntry {
 	public var Map: FName;
 	public var Test: FName;

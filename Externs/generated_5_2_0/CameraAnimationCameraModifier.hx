@@ -3,21 +3,21 @@ package ue;
 
 @:native("UCameraAnimationCameraModifier")
 @:include("CameraAnimationCameraModifier.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationCameraModifier extends CameraModifier {
 	@:protected public var ActiveAnimations: TArray<ActiveCameraAnimationInfo>;
-	@:protected public var NextInstanceSerialNumber: cpp.UInt16;
+	@:protected public var NextInstanceSerialNumber: ucpp.num.UInt16;
 
-	public function StopCameraAnimation(Handle: cpp.Reference<CameraAnimationHandle>, bImmediate: Bool): Void;
-	public function StopAllCameraAnimationsOf(Sequence: cpp.Star<CameraAnimationSequence>, bImmediate: Bool): Void;
+	public function StopCameraAnimation(Handle: ucpp.Ref<CameraAnimationHandle>, bImmediate: Bool): Void;
+	public function StopAllCameraAnimationsOf(Sequence: ucpp.Ptr<CameraAnimationSequence>, bImmediate: Bool): Void;
 	public function StopAllCameraAnimations(bImmediate: Bool): Void;
-	public function PlayCameraAnimation(Sequence: cpp.Star<CameraAnimationSequence>, Params: CameraAnimationParams): CameraAnimationHandle;
-	public function IsCameraAnimationActive(Handle: cpp.Reference<CameraAnimationHandle>): Bool;
-	public function GetCameraAnimationCameraModifierFromPlayerController(PlayerController: cpp.Star<PlayerController.ConstPlayerController>): cpp.Star<CameraAnimationCameraModifier>;
-	public function GetCameraAnimationCameraModifierFromID(WorldContextObject: cpp.Star<Object.ConstObject>, ControllerID: cpp.Int32): cpp.Star<CameraAnimationCameraModifier>;
-	public function GetCameraAnimationCameraModifier(WorldContextObject: cpp.Star<Object.ConstObject>, PlayerIndex: cpp.Int32): cpp.Star<CameraAnimationCameraModifier>;
+	public function PlayCameraAnimation(Sequence: ucpp.Ptr<CameraAnimationSequence>, Params: CameraAnimationParams): CameraAnimationHandle;
+	public function IsCameraAnimationActive(Handle: ucpp.Ref<CameraAnimationHandle>): Bool;
+	public function GetCameraAnimationCameraModifierFromPlayerController(PlayerController: ucpp.Ptr<PlayerController.ConstPlayerController>): ucpp.Ptr<CameraAnimationCameraModifier>;
+	public function GetCameraAnimationCameraModifierFromID(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ControllerID: ucpp.num.Int32): ucpp.Ptr<CameraAnimationCameraModifier>;
+	public function GetCameraAnimationCameraModifier(WorldContextObject: ucpp.Ptr<Object.ConstObject>, PlayerIndex: ucpp.num.Int32): ucpp.Ptr<CameraAnimationCameraModifier>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsCameraAnimationActive)
@@ -28,7 +28,7 @@ abstract ConstCameraAnimationCameraModifier(CameraAnimationCameraModifier) from 
 @:forward
 @:nativeGen
 @:native("CameraAnimationCameraModifier*")
-abstract CameraAnimationCameraModifierPtr(cpp.Star<CameraAnimationCameraModifier>) from cpp.Star<CameraAnimationCameraModifier> to cpp.Star<CameraAnimationCameraModifier>{
+abstract CameraAnimationCameraModifierPtr(ucpp.Ptr<CameraAnimationCameraModifier>) from ucpp.Ptr<CameraAnimationCameraModifier> to ucpp.Ptr<CameraAnimationCameraModifier>{
 	@:from
 	public static extern inline function fromValue(v: CameraAnimationCameraModifier): CameraAnimationCameraModifierPtr {
 		return untyped __cpp__("&({0})", v);

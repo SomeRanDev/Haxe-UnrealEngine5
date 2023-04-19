@@ -3,17 +3,17 @@ package ue;
 
 @:native("UEditNormalsToolProperties")
 @:include("EditNormalsTool.h")
-@:structAccess
+@:valueType
 extern class EditNormalsToolProperties extends InteractiveToolPropertySet {
 	public var bRecomputeNormals: Bool;
 	public var NormalCalculationMethod: ENormalCalculationMethod;
 	public var bFixInconsistentNormals: Bool;
 	public var bInvertNormals: Bool;
 	public var SplitNormalMethod: ESplitNormalMethod;
-	public var SharpEdgeAngleThreshold: cpp.Float32;
+	public var SharpEdgeAngleThreshold: ucpp.num.Float32;
 	public var bAllowSharpVertices: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,8 +29,8 @@ abstract ConstEditNormalsToolProperties(EditNormalsToolProperties) from EditNorm
 	public inline extern function get_bInvertNormals(): Bool return this.bInvertNormals;
 	public extern var SplitNormalMethod(get, never): ESplitNormalMethod;
 	public inline extern function get_SplitNormalMethod(): ESplitNormalMethod return this.SplitNormalMethod;
-	public extern var SharpEdgeAngleThreshold(get, never): cpp.Float32;
-	public inline extern function get_SharpEdgeAngleThreshold(): cpp.Float32 return this.SharpEdgeAngleThreshold;
+	public extern var SharpEdgeAngleThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_SharpEdgeAngleThreshold(): ucpp.num.Float32 return this.SharpEdgeAngleThreshold;
 	public extern var bAllowSharpVertices(get, never): Bool;
 	public inline extern function get_bAllowSharpVertices(): Bool return this.bAllowSharpVertices;
 }
@@ -38,7 +38,7 @@ abstract ConstEditNormalsToolProperties(EditNormalsToolProperties) from EditNorm
 @:forward
 @:nativeGen
 @:native("EditNormalsToolProperties*")
-abstract EditNormalsToolPropertiesPtr(cpp.Star<EditNormalsToolProperties>) from cpp.Star<EditNormalsToolProperties> to cpp.Star<EditNormalsToolProperties>{
+abstract EditNormalsToolPropertiesPtr(ucpp.Ptr<EditNormalsToolProperties>) from ucpp.Ptr<EditNormalsToolProperties> to ucpp.Ptr<EditNormalsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: EditNormalsToolProperties): EditNormalsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

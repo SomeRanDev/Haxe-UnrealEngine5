@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAnimPhysBodyDefinition")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-@:structAccess
+@:valueType
 extern class AnimPhysBodyDefinition {
 	public var BoundBone: BoneReference;
 	public var BoxExtents: Vector;
 	public var LocalJointOffset: Vector;
 	public var ConstraintSetup: AnimPhysConstraintSetup;
 	public var CollisionType: AnimPhysCollisionType;
-	public var SphereCollisionRadius: cpp.Float32;
+	public var SphereCollisionRadius: ucpp.num.Float32;
 
 	@:native("FAnimPhysBodyDefinition") public function new();
 }

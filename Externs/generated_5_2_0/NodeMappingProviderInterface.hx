@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNodeMappingProviderInterface")
-@:structAccess
+@:valueType
 extern class NodeMappingProviderInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNodeMappingProviderInterface(NodeMappingProviderInterface) from No
 @:forward
 @:nativeGen
 @:native("NodeMappingProviderInterface*")
-abstract NodeMappingProviderInterfacePtr(cpp.Star<NodeMappingProviderInterface>) from cpp.Star<NodeMappingProviderInterface> to cpp.Star<NodeMappingProviderInterface>{
+abstract NodeMappingProviderInterfacePtr(ucpp.Ptr<NodeMappingProviderInterface>) from ucpp.Ptr<NodeMappingProviderInterface> to ucpp.Ptr<NodeMappingProviderInterface>{
 	@:from
 	public static extern inline function fromValue(v: NodeMappingProviderInterface): NodeMappingProviderInterfacePtr {
 		return untyped __cpp__("&({0})", v);

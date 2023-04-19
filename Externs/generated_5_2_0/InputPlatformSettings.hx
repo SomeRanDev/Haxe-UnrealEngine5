@@ -3,39 +3,39 @@ package ue;
 
 @:native("UInputPlatformSettings")
 @:include("GameFramework/InputSettings.h")
-@:structAccess
+@:valueType
 extern class InputPlatformSettings extends PlatformSettings {
-	public var MaxTriggerFeedbackPosition: cpp.Int32;
-	public var MaxTriggerFeedbackStrength: cpp.Int32;
-	public var MaxTriggerVibrationTriggerPosition: cpp.Int32;
-	public var MaxTriggerVibrationFrequency: cpp.Int32;
-	public var MaxTriggerVibrationAmplitude: cpp.Int32;
+	public var MaxTriggerFeedbackPosition: ucpp.num.Int32;
+	public var MaxTriggerFeedbackStrength: ucpp.num.Int32;
+	public var MaxTriggerVibrationTriggerPosition: ucpp.num.Int32;
+	public var MaxTriggerVibrationFrequency: ucpp.num.Int32;
+	public var MaxTriggerVibrationAmplitude: ucpp.num.Int32;
 	@:protected public var HardwareDevices: TArray<HardwareDeviceIdentifier>;
 
 	public function GetAllHardwareDeviceNames(): TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputPlatformSettings(InputPlatformSettings) from InputPlatformSettings {
-	public extern var MaxTriggerFeedbackPosition(get, never): cpp.Int32;
-	public inline extern function get_MaxTriggerFeedbackPosition(): cpp.Int32 return this.MaxTriggerFeedbackPosition;
-	public extern var MaxTriggerFeedbackStrength(get, never): cpp.Int32;
-	public inline extern function get_MaxTriggerFeedbackStrength(): cpp.Int32 return this.MaxTriggerFeedbackStrength;
-	public extern var MaxTriggerVibrationTriggerPosition(get, never): cpp.Int32;
-	public inline extern function get_MaxTriggerVibrationTriggerPosition(): cpp.Int32 return this.MaxTriggerVibrationTriggerPosition;
-	public extern var MaxTriggerVibrationFrequency(get, never): cpp.Int32;
-	public inline extern function get_MaxTriggerVibrationFrequency(): cpp.Int32 return this.MaxTriggerVibrationFrequency;
-	public extern var MaxTriggerVibrationAmplitude(get, never): cpp.Int32;
-	public inline extern function get_MaxTriggerVibrationAmplitude(): cpp.Int32 return this.MaxTriggerVibrationAmplitude;
+	public extern var MaxTriggerFeedbackPosition(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTriggerFeedbackPosition(): ucpp.num.Int32 return this.MaxTriggerFeedbackPosition;
+	public extern var MaxTriggerFeedbackStrength(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTriggerFeedbackStrength(): ucpp.num.Int32 return this.MaxTriggerFeedbackStrength;
+	public extern var MaxTriggerVibrationTriggerPosition(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTriggerVibrationTriggerPosition(): ucpp.num.Int32 return this.MaxTriggerVibrationTriggerPosition;
+	public extern var MaxTriggerVibrationFrequency(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTriggerVibrationFrequency(): ucpp.num.Int32 return this.MaxTriggerVibrationFrequency;
+	public extern var MaxTriggerVibrationAmplitude(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTriggerVibrationAmplitude(): ucpp.num.Int32 return this.MaxTriggerVibrationAmplitude;
 }
 
 @:forward
 @:nativeGen
 @:native("InputPlatformSettings*")
-abstract InputPlatformSettingsPtr(cpp.Star<InputPlatformSettings>) from cpp.Star<InputPlatformSettings> to cpp.Star<InputPlatformSettings>{
+abstract InputPlatformSettingsPtr(ucpp.Ptr<InputPlatformSettings>) from ucpp.Ptr<InputPlatformSettings> to ucpp.Ptr<InputPlatformSettings>{
 	@:from
 	public static extern inline function fromValue(v: InputPlatformSettings): InputPlatformSettingsPtr {
 		return untyped __cpp__("&({0})", v);

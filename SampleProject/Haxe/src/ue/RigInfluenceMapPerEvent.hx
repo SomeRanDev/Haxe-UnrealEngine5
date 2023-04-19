@@ -3,11 +3,11 @@ package ue;
 
 @:native("FRigInfluenceMapPerEvent")
 @:include("Rigs/RigInfluenceMap.h")
-@:structAccess
+@:valueType
 extern class RigInfluenceMapPerEvent {
 	@:protected public var Maps: TArray<RigInfluenceMap>;
-	@:protected public var EventToIndex: TMap<FName, cpp.Int32>;
+	@:protected public var EventToIndex: TMap<FName, ucpp.num.Int32>;
 
 	@:native("FRigInfluenceMapPerEvent") public function new();
-	@:native("FRigInfluenceMapPerEvent") public static function make(Maps: TArray<RigInfluenceMap>, EventToIndex: TMap<FName, cpp.Int32>): RigInfluenceMapPerEvent ;
+	@:native("FRigInfluenceMapPerEvent") public static function make(Maps: TArray<RigInfluenceMap>, EventToIndex: TMap<FName, ucpp.num.Int32>): RigInfluenceMapPerEvent ;
 }

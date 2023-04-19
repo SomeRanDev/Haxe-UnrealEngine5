@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAnimationSequenceBrowserContextMenuContext")
 @:include("AnimationSequenceBrowserMenuContexts.h")
-@:structAccess
+@:valueType
 extern class AnimationSequenceBrowserContextMenuContext extends Object {
 	public var SelectedObjects: TArray<TWeakObjectPtr<Object>>;
 
-	public function GetSelectedObjects(): TArray<cpp.Star<Object>>;
+	public function GetSelectedObjects(): TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSelectedObjects)
@@ -22,7 +22,7 @@ abstract ConstAnimationSequenceBrowserContextMenuContext(AnimationSequenceBrowse
 @:forward
 @:nativeGen
 @:native("AnimationSequenceBrowserContextMenuContext*")
-abstract AnimationSequenceBrowserContextMenuContextPtr(cpp.Star<AnimationSequenceBrowserContextMenuContext>) from cpp.Star<AnimationSequenceBrowserContextMenuContext> to cpp.Star<AnimationSequenceBrowserContextMenuContext>{
+abstract AnimationSequenceBrowserContextMenuContextPtr(ucpp.Ptr<AnimationSequenceBrowserContextMenuContext>) from ucpp.Ptr<AnimationSequenceBrowserContextMenuContext> to ucpp.Ptr<AnimationSequenceBrowserContextMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: AnimationSequenceBrowserContextMenuContext): AnimationSequenceBrowserContextMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

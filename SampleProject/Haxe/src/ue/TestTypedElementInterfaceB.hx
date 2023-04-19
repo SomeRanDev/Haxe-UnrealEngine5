@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UTestTypedElementInterfaceB")
-@:structAccess
+@:valueType
 extern class TestTypedElementInterfaceB extends Interface {
-	public function MarkAsTested(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function MarkAsTested(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestTypedElementInterfaceB(TestTypedElementInterfaceB) from TestTy
 @:forward
 @:nativeGen
 @:native("TestTypedElementInterfaceB*")
-abstract TestTypedElementInterfaceBPtr(cpp.Star<TestTypedElementInterfaceB>) from cpp.Star<TestTypedElementInterfaceB> to cpp.Star<TestTypedElementInterfaceB>{
+abstract TestTypedElementInterfaceBPtr(ucpp.Ptr<TestTypedElementInterfaceB>) from ucpp.Ptr<TestTypedElementInterfaceB> to ucpp.Ptr<TestTypedElementInterfaceB>{
 	@:from
 	public static extern inline function fromValue(v: TestTypedElementInterfaceB): TestTypedElementInterfaceBPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FEditableTextBoxStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class EditableTextBoxStyle extends SlateWidgetStyle {
 	public var BackgroundImageNormal: SlateBrush;
 	public var BackgroundImageHovered: SlateBrush;
 	public var BackgroundImageFocused: SlateBrush;
 	public var BackgroundImageReadOnly: SlateBrush;
 	public var Padding: Margin;
-	public var Font: SlateFontInfo;
+	public var TextStyle: TextBlockStyle;
 	public var ForegroundColor: SlateColor;
 	public var BackgroundColor: SlateColor;
 	public var ReadOnlyForegroundColor: SlateColor;

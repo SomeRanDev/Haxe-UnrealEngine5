@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPatternTool_ScaleSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternTool_ScaleSettings extends InteractiveToolPropertySet {
 	public var bProportional: Bool;
 	public var bInterpolate: Bool;
@@ -12,7 +12,7 @@ extern class PatternTool_ScaleSettings extends InteractiveToolPropertySet {
 	public var EndScale: Vector;
 	public var Jitter: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstPatternTool_ScaleSettings(PatternTool_ScaleSettings) from PatternT
 @:forward
 @:nativeGen
 @:native("PatternTool_ScaleSettings*")
-abstract PatternTool_ScaleSettingsPtr(cpp.Star<PatternTool_ScaleSettings>) from cpp.Star<PatternTool_ScaleSettings> to cpp.Star<PatternTool_ScaleSettings>{
+abstract PatternTool_ScaleSettingsPtr(ucpp.Ptr<PatternTool_ScaleSettings>) from ucpp.Ptr<PatternTool_ScaleSettings> to ucpp.Ptr<PatternTool_ScaleSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternTool_ScaleSettings): PatternTool_ScaleSettingsPtr {
 		return untyped __cpp__("&({0})", v);

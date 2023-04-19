@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendClassEnvironmentVariable")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendClassEnvironmentVariable {
 	public var Name: FName;
 	public var TypeName: FName;

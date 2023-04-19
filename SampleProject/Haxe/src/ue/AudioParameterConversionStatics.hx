@@ -3,20 +3,20 @@ package ue;
 
 @:native("UAudioParameterConversionStatics")
 @:include("Audio/SoundParameterControllerInterface.h")
-@:structAccess
+@:valueType
 extern class AudioParameterConversionStatics extends BlueprintFunctionLibrary {
 	public function StringToAudioParameter(Name: FName, String: FString): AudioParameter;
 	public function StringArrayToAudioParameter(Name: FName, Strings: TArray<FString>): AudioParameter;
-	public function ObjectToAudioParameter(Name: FName, Object: cpp.Star<Object>): AudioParameter;
-	public function ObjectArrayToAudioParameter(Name: FName, Objects: TArray<cpp.Star<Object>>): AudioParameter;
-	public function IntegerToAudioParameter(Name: FName, Integer: cpp.Int32): AudioParameter;
-	public function IntegerArrayToAudioParameter(Name: FName, Integers: TArray<cpp.Int32>): AudioParameter;
-	public function FloatToAudioParameter(Name: FName, Float: cpp.Float32): AudioParameter;
-	public function FloatArrayToAudioParameter(Name: FName, Floats: TArray<cpp.Float32>): AudioParameter;
+	public function ObjectToAudioParameter(Name: FName, Object: ucpp.Ptr<Object>): AudioParameter;
+	public function ObjectArrayToAudioParameter(Name: FName, Objects: TArray<ucpp.Ptr<Object>>): AudioParameter;
+	public function IntegerToAudioParameter(Name: FName, Integer: ucpp.num.Int32): AudioParameter;
+	public function IntegerArrayToAudioParameter(Name: FName, Integers: TArray<ucpp.num.Int32>): AudioParameter;
+	public function FloatToAudioParameter(Name: FName, Float: ucpp.num.Float32): AudioParameter;
+	public function FloatArrayToAudioParameter(Name: FName, Floats: TArray<ucpp.num.Float32>): AudioParameter;
 	public function BooleanToAudioParameter(Name: FName, Bool: Bool): AudioParameter;
 	public function BooleanArrayToAudioParameter(Name: FName, Bools: TArray<Bool>): AudioParameter;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstAudioParameterConversionStatics(AudioParameterConversionStatics) f
 @:forward
 @:nativeGen
 @:native("AudioParameterConversionStatics*")
-abstract AudioParameterConversionStaticsPtr(cpp.Star<AudioParameterConversionStatics>) from cpp.Star<AudioParameterConversionStatics> to cpp.Star<AudioParameterConversionStatics>{
+abstract AudioParameterConversionStaticsPtr(ucpp.Ptr<AudioParameterConversionStatics>) from ucpp.Ptr<AudioParameterConversionStatics> to ucpp.Ptr<AudioParameterConversionStatics>{
 	@:from
 	public static extern inline function fromValue(v: AudioParameterConversionStatics): AudioParameterConversionStaticsPtr {
 		return untyped __cpp__("&({0})", v);

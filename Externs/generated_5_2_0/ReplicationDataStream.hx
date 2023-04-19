@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReplicationDataStream")
 @:include("Iris/ReplicationSystem/ReplicationDataStream.h")
-@:structAccess
+@:valueType
 extern class ReplicationDataStream extends DataStream {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReplicationDataStream(ReplicationDataStream) from ReplicationDataS
 @:forward
 @:nativeGen
 @:native("ReplicationDataStream*")
-abstract ReplicationDataStreamPtr(cpp.Star<ReplicationDataStream>) from cpp.Star<ReplicationDataStream> to cpp.Star<ReplicationDataStream>{
+abstract ReplicationDataStreamPtr(ucpp.Ptr<ReplicationDataStream>) from ucpp.Ptr<ReplicationDataStream> to ucpp.Ptr<ReplicationDataStream>{
 	@:from
 	public static extern inline function fromValue(v: ReplicationDataStream): ReplicationDataStreamPtr {
 		return untyped __cpp__("&({0})", v);

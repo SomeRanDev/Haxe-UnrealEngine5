@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintInputAxisKeyDelegateBinding")
 @:include("Engine/InputAxisKeyDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class BlueprintInputAxisKeyDelegateBinding extends BlueprintInputDelegateBinding {
 	public var AxisKey: Key;
 	public var FunctionNameToBind: FName;

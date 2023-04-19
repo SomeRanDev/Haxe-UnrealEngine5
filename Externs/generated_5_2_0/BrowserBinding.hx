@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBrowserBinding")
 @:include("UI/BrowserBinding.h")
-@:structAccess
+@:valueType
 extern class BrowserBinding extends Object {
 	public function StartNodeProcess(): Void;
 	public function ShowLoginDialog(LoginUrl: FString, ResponseCodeUrl: FString): Void;
@@ -25,7 +25,7 @@ extern class BrowserBinding extends Object {
 	public function DialogSuccessCallback(DialogJSCallback: WebJSFunction): Void;
 	public function DialogFailCallback(DialogJSCallback: WebJSFunction): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,7 +36,7 @@ abstract ConstBrowserBinding(BrowserBinding) from BrowserBinding {
 @:forward
 @:nativeGen
 @:native("BrowserBinding*")
-abstract BrowserBindingPtr(cpp.Star<BrowserBinding>) from cpp.Star<BrowserBinding> to cpp.Star<BrowserBinding>{
+abstract BrowserBindingPtr(ucpp.Ptr<BrowserBinding>) from ucpp.Ptr<BrowserBinding> to ucpp.Ptr<BrowserBinding>{
 	@:from
 	public static extern inline function fromValue(v: BrowserBinding): BrowserBindingPtr {
 		return untyped __cpp__("&({0})", v);

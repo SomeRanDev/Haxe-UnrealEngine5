@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAsyncPhysicsData")
 @:include("Physics/AsyncPhysicsData.h")
-@:structAccess
+@:valueType
 extern class AsyncPhysicsData extends Object {
-	private var ServerFrame: cpp.Int32;
-	@:protected public var ReplicationRedundancy: cpp.Int32;
+	private var ServerFrame: ucpp.num.Int32;
+	@:protected public var ReplicationRedundancy: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAsyncPhysicsData(AsyncPhysicsData) from AsyncPhysicsData {
 @:forward
 @:nativeGen
 @:native("AsyncPhysicsData*")
-abstract AsyncPhysicsDataPtr(cpp.Star<AsyncPhysicsData>) from cpp.Star<AsyncPhysicsData> to cpp.Star<AsyncPhysicsData>{
+abstract AsyncPhysicsDataPtr(ucpp.Ptr<AsyncPhysicsData>) from ucpp.Ptr<AsyncPhysicsData> to ucpp.Ptr<AsyncPhysicsData>{
 	@:from
 	public static extern inline function fromValue(v: AsyncPhysicsData): AsyncPhysicsDataPtr {
 		return untyped __cpp__("&({0})", v);

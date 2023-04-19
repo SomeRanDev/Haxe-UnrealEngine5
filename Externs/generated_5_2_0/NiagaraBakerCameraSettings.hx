@@ -3,16 +3,16 @@ package ue;
 
 @:native("FNiagaraBakerCameraSettings")
 @:include("NiagaraBakerSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraBakerCameraSettings {
 	public var ViewMode: ENiagaraBakerViewMode;
 	public var ViewportLocation: Vector;
 	public var ViewportRotation: Rotator;
-	public var OrbitDistance: cpp.Float32;
-	public var FOV: cpp.Float32;
-	public var OrthoWidth: cpp.Float32;
+	public var OrbitDistance: ucpp.num.Float32;
+	public var FOV: ucpp.num.Float32;
+	public var OrthoWidth: ucpp.num.Float32;
 	public var bUseAspectRatio: Bool;
-	public var AspectRatio: cpp.Float32;
+	public var AspectRatio: ucpp.num.Float32;
 
 	@:native("FNiagaraBakerCameraSettings") public function new();
 }

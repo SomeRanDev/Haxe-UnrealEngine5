@@ -3,10 +3,10 @@ package ue;
 
 @:native("URemoveOccludedTrianglesToolBuilder")
 @:include("RemoveOccludedTrianglesTool.h")
-@:structAccess
+@:valueType
 extern class RemoveOccludedTrianglesToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRemoveOccludedTrianglesToolBuilder(RemoveOccludedTrianglesToolBuil
 @:forward
 @:nativeGen
 @:native("RemoveOccludedTrianglesToolBuilder*")
-abstract RemoveOccludedTrianglesToolBuilderPtr(cpp.Star<RemoveOccludedTrianglesToolBuilder>) from cpp.Star<RemoveOccludedTrianglesToolBuilder> to cpp.Star<RemoveOccludedTrianglesToolBuilder>{
+abstract RemoveOccludedTrianglesToolBuilderPtr(ucpp.Ptr<RemoveOccludedTrianglesToolBuilder>) from ucpp.Ptr<RemoveOccludedTrianglesToolBuilder> to ucpp.Ptr<RemoveOccludedTrianglesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: RemoveOccludedTrianglesToolBuilder): RemoveOccludedTrianglesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

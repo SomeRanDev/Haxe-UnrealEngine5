@@ -3,10 +3,10 @@ package ue;
 
 @:native("FInterchangePipelineStack")
 @:include("InterchangeProjectSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangePipelineStack {
-	public var Pipelines: TArray<TSoftClassPtr<Class>>;
+	public var Pipelines: TArray<SoftObjectPath>;
 
 	@:native("FInterchangePipelineStack") public function new();
-	@:native("FInterchangePipelineStack") public static function make(Pipelines: TArray<TSoftClassPtr<Class>>): InterchangePipelineStack ;
+	@:native("FInterchangePipelineStack") public static function make(Pipelines: TArray<SoftObjectPath>): InterchangePipelineStack ;
 }

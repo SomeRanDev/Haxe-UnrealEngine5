@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSpectrumResults__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSpectrumResults__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSpectrumResults__PythonCallable(OnSpectrumResults__PythonCallabl
 @:forward
 @:nativeGen
 @:native("OnSpectrumResults__PythonCallable*")
-abstract OnSpectrumResults__PythonCallablePtr(cpp.Star<OnSpectrumResults__PythonCallable>) from cpp.Star<OnSpectrumResults__PythonCallable> to cpp.Star<OnSpectrumResults__PythonCallable>{
+abstract OnSpectrumResults__PythonCallablePtr(ucpp.Ptr<OnSpectrumResults__PythonCallable>) from ucpp.Ptr<OnSpectrumResults__PythonCallable> to ucpp.Ptr<OnSpectrumResults__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSpectrumResults__PythonCallable): OnSpectrumResults__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USlateAccessibleWidgetData_GetText__PythonCallable")
-@:structAccess
+@:valueType
 extern class SlateAccessibleWidgetData_GetText__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSlateAccessibleWidgetData_GetText__PythonCallable(SlateAccessibleW
 @:forward
 @:nativeGen
 @:native("SlateAccessibleWidgetData_GetText__PythonCallable*")
-abstract SlateAccessibleWidgetData_GetText__PythonCallablePtr(cpp.Star<SlateAccessibleWidgetData_GetText__PythonCallable>) from cpp.Star<SlateAccessibleWidgetData_GetText__PythonCallable> to cpp.Star<SlateAccessibleWidgetData_GetText__PythonCallable>{
+abstract SlateAccessibleWidgetData_GetText__PythonCallablePtr(ucpp.Ptr<SlateAccessibleWidgetData_GetText__PythonCallable>) from ucpp.Ptr<SlateAccessibleWidgetData_GetText__PythonCallable> to ucpp.Ptr<SlateAccessibleWidgetData_GetText__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: SlateAccessibleWidgetData_GetText__PythonCallable): SlateAccessibleWidgetData_GetText__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUVEditorToolPropertiesAPI")
 @:include("ContextObjects/UVToolContextObjects.h")
-@:structAccess
+@:valueType
 extern class UVEditorToolPropertiesAPI extends UVToolContextObject {
-	@:protected public var ToolDisplayProperties: cpp.Star<Object>;
+	@:protected public var ToolDisplayProperties: ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstUVEditorToolPropertiesAPI(UVEditorToolPropertiesAPI) from UVEditor
 @:forward
 @:nativeGen
 @:native("UVEditorToolPropertiesAPI*")
-abstract UVEditorToolPropertiesAPIPtr(cpp.Star<UVEditorToolPropertiesAPI>) from cpp.Star<UVEditorToolPropertiesAPI> to cpp.Star<UVEditorToolPropertiesAPI>{
+abstract UVEditorToolPropertiesAPIPtr(ucpp.Ptr<UVEditorToolPropertiesAPI>) from ucpp.Ptr<UVEditorToolPropertiesAPI> to ucpp.Ptr<UVEditorToolPropertiesAPI>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorToolPropertiesAPI): UVEditorToolPropertiesAPIPtr {
 		return untyped __cpp__("&({0})", v);

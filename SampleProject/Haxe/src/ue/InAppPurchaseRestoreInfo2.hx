@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInAppPurchaseRestoreInfo2")
 @:include("InAppPurchaseRestoreCallbackProxy2.h")
-@:structAccess
+@:valueType
 extern class InAppPurchaseRestoreInfo2 {
 	public var ItemName: FString;
 	public var ItemId: FString;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FFrameTime")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class FrameTime {
 	public var FrameNumber: FrameNumber;
-	private var SubFrame: cpp.Float32;
+	private var SubFrame: ucpp.num.Float32;
 
 	@:native("FFrameTime") public function new();
-	@:native("FFrameTime") public static function make(FrameNumber: FrameNumber, SubFrame: cpp.Float32): FrameTime ;
+	@:native("FFrameTime") public static function make(FrameNumber: FrameNumber, SubFrame: ucpp.num.Float32): FrameTime ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeomModifier_Weld")
 @:include("GeomModifier_Weld.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Weld extends GeomModifier_Edit {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeomModifier_Weld(GeomModifier_Weld) from GeomModifier_Weld {
 @:forward
 @:nativeGen
 @:native("GeomModifier_Weld*")
-abstract GeomModifier_WeldPtr(cpp.Star<GeomModifier_Weld>) from cpp.Star<GeomModifier_Weld> to cpp.Star<GeomModifier_Weld>{
+abstract GeomModifier_WeldPtr(ucpp.Ptr<GeomModifier_Weld>) from ucpp.Ptr<GeomModifier_Weld> to ucpp.Ptr<GeomModifier_Weld>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Weld): GeomModifier_WeldPtr {
 		return untyped __cpp__("&({0})", v);

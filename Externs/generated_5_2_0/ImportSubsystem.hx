@@ -3,19 +3,19 @@ package ue;
 
 @:native("UImportSubsystem")
 @:include("Subsystems/ImportSubsystem.h")
-@:structAccess
+@:valueType
 extern class ImportSubsystem extends EditorSubsystem {
-	private var OnAssetPreImport_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<Factory>, cpp.Star<Class>, cpp.Star<Object>, cpp.Reference<FName>, FString) -> Void>;
-	private var OnAssetPostImport_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<Factory>, cpp.Star<Object>) -> Void>;
-	private var OnAssetReimport_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>) -> Void>;
-	private var OnAssetPostLODImport_BP: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, cpp.Int32) -> Void>;
+	private var OnAssetPreImport_BP: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Factory>, ucpp.Ptr<Class>, ucpp.Ptr<Object>, ucpp.Ref<FName>, FString) -> Void>;
+	private var OnAssetPostImport_BP: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Factory>, ucpp.Ptr<Object>) -> Void>;
+	private var OnAssetReimport_BP: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>) -> Void>;
+	private var OnAssetPostLODImport_BP: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>, ucpp.num.Int32) -> Void>;
 
-	public function OnAssetReimport_Dyn__DelegateSignature(InCreatedObject: cpp.Star<Object>): Void;
-	public function OnAssetPreImport_Dyn__DelegateSignature(InFactory: cpp.Star<Factory>, InClass: cpp.Star<Class>, InParent: cpp.Star<Object>, Name: cpp.Reference<FName>, Type: FString): Void;
-	public function OnAssetPostLODImport_Dyn__DelegateSignature(InObject: cpp.Star<Object>, InLODIndex: cpp.Int32): Void;
-	public function OnAssetPostImport_Dyn__DelegateSignature(InFactory: cpp.Star<Factory>, InCreatedObject: cpp.Star<Object>): Void;
+	public function OnAssetReimport_Dyn__DelegateSignature(InCreatedObject: ucpp.Ptr<Object>): Void;
+	public function OnAssetPreImport_Dyn__DelegateSignature(InFactory: ucpp.Ptr<Factory>, InClass: ucpp.Ptr<Class>, InParent: ucpp.Ptr<Object>, Name: ucpp.Ref<FName>, Type: FString): Void;
+	public function OnAssetPostLODImport_Dyn__DelegateSignature(InObject: ucpp.Ptr<Object>, InLODIndex: ucpp.num.Int32): Void;
+	public function OnAssetPostImport_Dyn__DelegateSignature(InFactory: ucpp.Ptr<Factory>, InCreatedObject: ucpp.Ptr<Object>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstImportSubsystem(ImportSubsystem) from ImportSubsystem {
 @:forward
 @:nativeGen
 @:native("ImportSubsystem*")
-abstract ImportSubsystemPtr(cpp.Star<ImportSubsystem>) from cpp.Star<ImportSubsystem> to cpp.Star<ImportSubsystem>{
+abstract ImportSubsystemPtr(ucpp.Ptr<ImportSubsystem>) from ucpp.Ptr<ImportSubsystem> to ucpp.Ptr<ImportSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: ImportSubsystem): ImportSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCrumblingEventCallbackWrapper")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
-@:structAccess
+@:valueType
 extern class CrumblingEventCallbackWrapper {
 	@:native("FCrumblingEventCallbackWrapper") public function new();
 }

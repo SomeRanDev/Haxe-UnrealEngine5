@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendGraphStyle")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendGraphStyle {
 	public var bIsGraphEditable: Bool;
 	public var EdgeStyles: TArray<MetasoundFrontendEdgeStyle>;

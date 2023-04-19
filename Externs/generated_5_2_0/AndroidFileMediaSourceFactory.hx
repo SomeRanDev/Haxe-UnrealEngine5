@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAndroidFileMediaSourceFactory")
 @:include("AndroidFileMediaSourceFactory.h")
-@:structAccess
+@:valueType
 extern class AndroidFileMediaSourceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAndroidFileMediaSourceFactory(AndroidFileMediaSourceFactory) from 
 @:forward
 @:nativeGen
 @:native("AndroidFileMediaSourceFactory*")
-abstract AndroidFileMediaSourceFactoryPtr(cpp.Star<AndroidFileMediaSourceFactory>) from cpp.Star<AndroidFileMediaSourceFactory> to cpp.Star<AndroidFileMediaSourceFactory>{
+abstract AndroidFileMediaSourceFactoryPtr(ucpp.Ptr<AndroidFileMediaSourceFactory>) from ucpp.Ptr<AndroidFileMediaSourceFactory> to ucpp.Ptr<AndroidFileMediaSourceFactory>{
 	@:from
 	public static extern inline function fromValue(v: AndroidFileMediaSourceFactory): AndroidFileMediaSourceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

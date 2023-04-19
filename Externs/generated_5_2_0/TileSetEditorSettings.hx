@@ -3,15 +3,15 @@ package ue;
 
 @:native("UTileSetEditorSettings")
 @:include("TileSetEditor/TileSetEditorSettings.h")
-@:structAccess
+@:valueType
 extern class TileSetEditorSettings extends Object {
 	public var DefaultBackgroundColor: Color;
 	public var bShowGridByDefault: Bool;
-	public var ExtrusionAmount: cpp.Int32;
+	public var ExtrusionAmount: ucpp.num.Int32;
 	public var bPadToPowerOf2: Bool;
 	public var bFillWithTransparentBlack: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,8 +21,8 @@ abstract ConstTileSetEditorSettings(TileSetEditorSettings) from TileSetEditorSet
 	public inline extern function get_DefaultBackgroundColor(): Color return this.DefaultBackgroundColor;
 	public extern var bShowGridByDefault(get, never): Bool;
 	public inline extern function get_bShowGridByDefault(): Bool return this.bShowGridByDefault;
-	public extern var ExtrusionAmount(get, never): cpp.Int32;
-	public inline extern function get_ExtrusionAmount(): cpp.Int32 return this.ExtrusionAmount;
+	public extern var ExtrusionAmount(get, never): ucpp.num.Int32;
+	public inline extern function get_ExtrusionAmount(): ucpp.num.Int32 return this.ExtrusionAmount;
 	public extern var bPadToPowerOf2(get, never): Bool;
 	public inline extern function get_bPadToPowerOf2(): Bool return this.bPadToPowerOf2;
 	public extern var bFillWithTransparentBlack(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstTileSetEditorSettings(TileSetEditorSettings) from TileSetEditorSet
 @:forward
 @:nativeGen
 @:native("TileSetEditorSettings*")
-abstract TileSetEditorSettingsPtr(cpp.Star<TileSetEditorSettings>) from cpp.Star<TileSetEditorSettings> to cpp.Star<TileSetEditorSettings>{
+abstract TileSetEditorSettingsPtr(ucpp.Ptr<TileSetEditorSettings>) from ucpp.Ptr<TileSetEditorSettings> to ucpp.Ptr<TileSetEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: TileSetEditorSettings): TileSetEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

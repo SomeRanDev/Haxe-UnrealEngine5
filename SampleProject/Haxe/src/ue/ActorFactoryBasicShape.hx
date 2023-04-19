@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryBasicShape")
 @:include("ActorFactories/ActorFactoryBasicShape.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryBasicShape extends ActorFactoryStaticMesh {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryBasicShape(ActorFactoryBasicShape) from ActorFactoryBa
 @:forward
 @:nativeGen
 @:native("ActorFactoryBasicShape*")
-abstract ActorFactoryBasicShapePtr(cpp.Star<ActorFactoryBasicShape>) from cpp.Star<ActorFactoryBasicShape> to cpp.Star<ActorFactoryBasicShape>{
+abstract ActorFactoryBasicShapePtr(ucpp.Ptr<ActorFactoryBasicShape>) from ucpp.Ptr<ActorFactoryBasicShape> to ucpp.Ptr<ActorFactoryBasicShape>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryBasicShape): ActorFactoryBasicShapePtr {
 		return untyped __cpp__("&({0})", v);

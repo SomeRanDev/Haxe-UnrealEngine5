@@ -3,10 +3,10 @@ package ue;
 
 @:native("UExporterFBX")
 @:include("Exporters/ExporterFbx.h")
-@:structAccess
+@:valueType
 extern class ExporterFBX extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstExporterFBX(ExporterFBX) from ExporterFBX {
 @:forward
 @:nativeGen
 @:native("ExporterFBX*")
-abstract ExporterFBXPtr(cpp.Star<ExporterFBX>) from cpp.Star<ExporterFBX> to cpp.Star<ExporterFBX>{
+abstract ExporterFBXPtr(ucpp.Ptr<ExporterFBX>) from ucpp.Ptr<ExporterFBX> to ucpp.Ptr<ExporterFBX>{
 	@:from
 	public static extern inline function fromValue(v: ExporterFBX): ExporterFBXPtr {
 		return untyped __cpp__("&({0})", v);

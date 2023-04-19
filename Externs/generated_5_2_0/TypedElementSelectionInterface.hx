@@ -2,17 +2,17 @@
 package ue;
 
 @:native("UTypedElementSelectionInterface")
-@:structAccess
+@:valueType
 extern class TypedElementSelectionInterface extends Interface {
-	public function SelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
-	public function IsElementSelected(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementIsSelectedOptions>): Bool;
-	public function GetSelectionElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InCurrentSelection: ScriptTypedElementListProxy, InSelectionMethod: ETypedElementSelectionMethod): ScriptTypedElementHandle;
-	public function DeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
-	public function CanSelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
-	public function CanDeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: cpp.Reference<TypedElementSelectionOptions>): Bool;
-	public function AllowSelectionModifiers(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy): Bool;
+	public function SelectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: ucpp.Ref<TypedElementSelectionOptions>): Bool;
+	public function IsElementSelected(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: ucpp.Ref<TypedElementIsSelectedOptions>): Bool;
+	public function GetSelectionElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InCurrentSelection: ScriptTypedElementListProxy, InSelectionMethod: ETypedElementSelectionMethod): ScriptTypedElementHandle;
+	public function DeselectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy, InSelectionOptions: ucpp.Ref<TypedElementSelectionOptions>): Bool;
+	public function CanSelectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionOptions: ucpp.Ref<TypedElementSelectionOptions>): Bool;
+	public function CanDeselectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionOptions: ucpp.Ref<TypedElementSelectionOptions>): Bool;
+	public function AllowSelectionModifiers(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionSet: ScriptTypedElementListProxy): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstTypedElementSelectionInterface(TypedElementSelectionInterface) fro
 @:forward
 @:nativeGen
 @:native("TypedElementSelectionInterface*")
-abstract TypedElementSelectionInterfacePtr(cpp.Star<TypedElementSelectionInterface>) from cpp.Star<TypedElementSelectionInterface> to cpp.Star<TypedElementSelectionInterface>{
+abstract TypedElementSelectionInterfacePtr(ucpp.Ptr<TypedElementSelectionInterface>) from ucpp.Ptr<TypedElementSelectionInterface> to ucpp.Ptr<TypedElementSelectionInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementSelectionInterface): TypedElementSelectionInterfacePtr {
 		return untyped __cpp__("&({0})", v);

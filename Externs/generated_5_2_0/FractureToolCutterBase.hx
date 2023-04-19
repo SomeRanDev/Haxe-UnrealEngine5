@@ -3,12 +3,12 @@ package ue;
 
 @:native("UFractureToolCutterBase")
 @:include("FractureToolCutter.h")
-@:structAccess
+@:valueType
 extern class FractureToolCutterBase extends FractureInteractiveTool {
-	@:protected public var CutterSettings: cpp.Star<FractureCutterSettings>;
-	@:protected public var CollisionSettings: cpp.Star<FractureCollisionSettings>;
+	@:protected public var CutterSettings: ucpp.Ptr<FractureCutterSettings>;
+	@:protected public var CollisionSettings: ucpp.Ptr<FractureCollisionSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstFractureToolCutterBase(FractureToolCutterBase) from FractureToolCu
 @:forward
 @:nativeGen
 @:native("FractureToolCutterBase*")
-abstract FractureToolCutterBasePtr(cpp.Star<FractureToolCutterBase>) from cpp.Star<FractureToolCutterBase> to cpp.Star<FractureToolCutterBase>{
+abstract FractureToolCutterBasePtr(ucpp.Ptr<FractureToolCutterBase>) from ucpp.Ptr<FractureToolCutterBase> to ucpp.Ptr<FractureToolCutterBase>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolCutterBase): FractureToolCutterBasePtr {
 		return untyped __cpp__("&({0})", v);

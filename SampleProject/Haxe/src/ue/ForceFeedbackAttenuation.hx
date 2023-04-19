@@ -3,11 +3,11 @@ package ue;
 
 @:native("UForceFeedbackAttenuation")
 @:include("GameFramework/ForceFeedbackAttenuation.h")
-@:structAccess
+@:valueType
 extern class ForceFeedbackAttenuation extends Object {
 	public var Attenuation: ForceFeedbackAttenuationSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstForceFeedbackAttenuation(ForceFeedbackAttenuation) from ForceFeedb
 @:forward
 @:nativeGen
 @:native("ForceFeedbackAttenuation*")
-abstract ForceFeedbackAttenuationPtr(cpp.Star<ForceFeedbackAttenuation>) from cpp.Star<ForceFeedbackAttenuation> to cpp.Star<ForceFeedbackAttenuation>{
+abstract ForceFeedbackAttenuationPtr(ucpp.Ptr<ForceFeedbackAttenuation>) from ucpp.Ptr<ForceFeedbackAttenuation> to ucpp.Ptr<ForceFeedbackAttenuation>{
 	@:from
 	public static extern inline function fromValue(v: ForceFeedbackAttenuation): ForceFeedbackAttenuationPtr {
 		return untyped __cpp__("&({0})", v);

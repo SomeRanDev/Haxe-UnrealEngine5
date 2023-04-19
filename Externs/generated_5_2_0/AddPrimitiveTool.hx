@@ -3,17 +3,17 @@ package ue;
 
 @:native("UAddPrimitiveTool")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class AddPrimitiveTool extends SingleClickTool {
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var ShapeSettings: cpp.Star<ProceduralShapeToolProperties>;
-	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var Gizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var ShapeSettings: ucpp.Ptr<ProceduralShapeToolProperties>;
+	@:protected public var MaterialProperties: ucpp.Ptr<NewMeshMaterialProperties>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var Gizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
 	@:protected public var AssetName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAddPrimitiveTool(AddPrimitiveTool) from AddPrimitiveTool {
 @:forward
 @:nativeGen
 @:native("AddPrimitiveTool*")
-abstract AddPrimitiveToolPtr(cpp.Star<AddPrimitiveTool>) from cpp.Star<AddPrimitiveTool> to cpp.Star<AddPrimitiveTool>{
+abstract AddPrimitiveToolPtr(ucpp.Ptr<AddPrimitiveTool>) from ucpp.Ptr<AddPrimitiveTool> to ucpp.Ptr<AddPrimitiveTool>{
 	@:from
 	public static extern inline function fromValue(v: AddPrimitiveTool): AddPrimitiveToolPtr {
 		return untyped __cpp__("&({0})", v);

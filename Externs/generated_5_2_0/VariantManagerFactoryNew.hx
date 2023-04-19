@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVariantManagerFactoryNew")
 @:include("VariantManagerFactoryNew.h")
-@:structAccess
+@:valueType
 extern class VariantManagerFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVariantManagerFactoryNew(VariantManagerFactoryNew) from VariantMan
 @:forward
 @:nativeGen
 @:native("VariantManagerFactoryNew*")
-abstract VariantManagerFactoryNewPtr(cpp.Star<VariantManagerFactoryNew>) from cpp.Star<VariantManagerFactoryNew> to cpp.Star<VariantManagerFactoryNew>{
+abstract VariantManagerFactoryNewPtr(ucpp.Ptr<VariantManagerFactoryNew>) from ucpp.Ptr<VariantManagerFactoryNew> to ucpp.Ptr<VariantManagerFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: VariantManagerFactoryNew): VariantManagerFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

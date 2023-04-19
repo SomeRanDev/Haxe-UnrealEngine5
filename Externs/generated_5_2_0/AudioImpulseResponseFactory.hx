@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioImpulseResponseFactory")
 @:include("AudioImpulseResponseAsset.h")
-@:structAccess
+@:valueType
 extern class AudioImpulseResponseFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioImpulseResponseFactory(AudioImpulseResponseFactory) from Audi
 @:forward
 @:nativeGen
 @:native("AudioImpulseResponseFactory*")
-abstract AudioImpulseResponseFactoryPtr(cpp.Star<AudioImpulseResponseFactory>) from cpp.Star<AudioImpulseResponseFactory> to cpp.Star<AudioImpulseResponseFactory>{
+abstract AudioImpulseResponseFactoryPtr(ucpp.Ptr<AudioImpulseResponseFactory>) from ucpp.Ptr<AudioImpulseResponseFactory> to ucpp.Ptr<AudioImpulseResponseFactory>{
 	@:from
 	public static extern inline function fromValue(v: AudioImpulseResponseFactory): AudioImpulseResponseFactoryPtr {
 		return untyped __cpp__("&({0})", v);

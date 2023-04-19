@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceParticleRead")
 @:include("NiagaraDataInterfaceParticleRead.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceParticleRead extends NiagaraDataInterfaceRWBase {
 	public var EmitterName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraDataInterfaceParticleRead(NiagaraDataInterfaceParticleRead)
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceParticleRead*")
-abstract NiagaraDataInterfaceParticleReadPtr(cpp.Star<NiagaraDataInterfaceParticleRead>) from cpp.Star<NiagaraDataInterfaceParticleRead> to cpp.Star<NiagaraDataInterfaceParticleRead>{
+abstract NiagaraDataInterfaceParticleReadPtr(ucpp.Ptr<NiagaraDataInterfaceParticleRead>) from ucpp.Ptr<NiagaraDataInterfaceParticleRead> to ucpp.Ptr<NiagaraDataInterfaceParticleRead>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceParticleRead): NiagaraDataInterfaceParticleReadPtr {
 		return untyped __cpp__("&({0})", v);

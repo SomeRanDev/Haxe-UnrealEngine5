@@ -3,49 +3,49 @@ package ue;
 
 @:native("UDEPRECATED_EditorStaticMeshLibrary")
 @:include("EditorStaticMeshLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorStaticMeshLibrary extends BlueprintFunctionLibrary {
-	public function SetLodsWithNotification(StaticMesh: cpp.Star<StaticMesh>, ReductionOptions: cpp.Reference<StaticMeshReductionOptions>, bApplyChanges: Bool): cpp.Int32;
-	public function SetLods(StaticMesh: cpp.Star<StaticMesh>, ReductionOptions: cpp.Reference<StaticMeshReductionOptions>): cpp.Int32;
-	public function SetLodReductionSettings(StaticMesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, ReductionOptions: cpp.Reference<MeshReductionSettings>): Void;
-	public function SetLodFromStaticMesh(DestinationStaticMesh: cpp.Star<StaticMesh>, DestinationLodIndex: cpp.Int32, SourceStaticMesh: cpp.Star<StaticMesh>, SourceLodIndex: cpp.Int32, bReuseExistingMaterialSlots: Bool): cpp.Int32;
-	public function SetLodBuildSettings(StaticMesh: cpp.Star<StaticMesh>, LodIndex: cpp.Int32, BuildOptions: cpp.Reference<MeshBuildSettings>): Void;
-	public function SetGenerateLightmapUVs(StaticMesh: cpp.Star<StaticMesh>, bGenerateLightmapUVs: Bool): Bool;
-	public function SetConvexDecompositionCollisionsWithNotification(StaticMesh: cpp.Star<StaticMesh>, HullCount: cpp.Int32, MaxHullVerts: cpp.Int32, HullPrecision: cpp.Int32, bApplyChanges: Bool): Bool;
-	public function SetConvexDecompositionCollisions(StaticMesh: cpp.Star<StaticMesh>, HullCount: cpp.Int32, MaxHullVerts: cpp.Int32, HullPrecision: cpp.Int32): Bool;
-	public function SetAllowCPUAccess(StaticMesh: cpp.Star<StaticMesh>, bAllowCPUAccess: Bool): Void;
-	public function RemoveUVChannel(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, UVChannelIndex: cpp.Int32): Bool;
-	public function RemoveLods(StaticMesh: cpp.Star<StaticMesh>): Bool;
-	public function RemoveCollisionsWithNotification(StaticMesh: cpp.Star<StaticMesh>, bApplyChanges: Bool): Bool;
-	public function RemoveCollisions(StaticMesh: cpp.Star<StaticMesh>): Bool;
-	public function ReimportAllCustomLODs(StaticMesh: cpp.Star<StaticMesh>): Bool;
-	public function IsSectionCollisionEnabled(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, SectionIndex: cpp.Int32): Bool;
-	public function InsertUVChannel(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, UVChannelIndex: cpp.Int32): Bool;
-	public function ImportLOD(BaseStaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, SourceFilename: FString): cpp.Int32;
-	public function HasVertexColors(StaticMesh: cpp.Star<StaticMesh>): Bool;
-	public function HasInstanceVertexColors(StaticMeshComponent: cpp.Star<StaticMeshComp>): Bool;
-	public function GetSimpleCollisionCount(StaticMesh: cpp.Star<StaticMesh>): cpp.Int32;
-	public function GetNumUVChannels(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32): cpp.Int32;
-	public function GetNumberVerts(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32): cpp.Int32;
-	public function GetNumberMaterials(StaticMesh: cpp.Star<StaticMesh>): cpp.Int32;
-	public function GetLodScreenSizes(StaticMesh: cpp.Star<StaticMesh>): TArray<cpp.Float32>;
-	public function GetLodReductionSettings(StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, LodIndex: cpp.Int32, OutReductionOptions: cpp.Reference<MeshReductionSettings>): Void;
-	public function GetLodCount(StaticMesh: cpp.Star<StaticMesh>): cpp.Int32;
-	public function GetLodBuildSettings(StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, LodIndex: cpp.Int32, OutBuildOptions: cpp.Reference<MeshBuildSettings>): Void;
-	public function GetConvexCollisionCount(StaticMesh: cpp.Star<StaticMesh>): cpp.Int32;
-	public function GetCollisionComplexity(StaticMesh: cpp.Star<StaticMesh>): TEnumAsByte<ECollisionTraceFlag>;
-	public function GeneratePlanarUVChannel(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, UVChannelIndex: cpp.Int32, Position: cpp.Reference<Vector>, Orientation: cpp.Reference<Rotator>, Tiling: cpp.Reference<Vector2D>): Bool;
-	public function GenerateCylindricalUVChannel(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, UVChannelIndex: cpp.Int32, Position: cpp.Reference<Vector>, Orientation: cpp.Reference<Rotator>, Tiling: cpp.Reference<Vector2D>): Bool;
-	public function GenerateBoxUVChannel(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32, UVChannelIndex: cpp.Int32, Position: cpp.Reference<Vector>, Orientation: cpp.Reference<Rotator>, Size: cpp.Reference<Vector>): Bool;
-	public function EnableSectionCollision(StaticMesh: cpp.Star<StaticMesh>, bCollisionEnabled: Bool, LODIndex: cpp.Int32, SectionIndex: cpp.Int32): Void;
-	public function EnableSectionCastShadow(StaticMesh: cpp.Star<StaticMesh>, bCastShadow: Bool, LODIndex: cpp.Int32, SectionIndex: cpp.Int32): Void;
-	public function BulkSetConvexDecompositionCollisionsWithNotification(StaticMeshes: cpp.Reference<TArray<cpp.Star<StaticMesh>>>, HullCount: cpp.Int32, MaxHullVerts: cpp.Int32, HullPrecision: cpp.Int32, bApplyChanges: Bool): Bool;
-	public function BulkSetConvexDecompositionCollisions(StaticMeshes: cpp.Reference<TArray<cpp.Star<StaticMesh>>>, HullCount: cpp.Int32, MaxHullVerts: cpp.Int32, HullPrecision: cpp.Int32): Bool;
-	public function AddUVChannel(StaticMesh: cpp.Star<StaticMesh>, LODIndex: cpp.Int32): Bool;
-	public function AddSimpleCollisionsWithNotification(StaticMesh: cpp.Star<StaticMesh>, ShapeType: EScriptCollisionShapeType, bApplyChanges: Bool): cpp.Int32;
-	public function AddSimpleCollisions(StaticMesh: cpp.Star<StaticMesh>, ShapeType: EScriptCollisionShapeType): cpp.Int32;
+	public function SetLodsWithNotification(StaticMesh: ucpp.Ptr<StaticMesh>, ReductionOptions: ucpp.Ref<StaticMeshReductionOptions>, bApplyChanges: Bool): ucpp.num.Int32;
+	public function SetLods(StaticMesh: ucpp.Ptr<StaticMesh>, ReductionOptions: ucpp.Ref<StaticMeshReductionOptions>): ucpp.num.Int32;
+	public function SetLodReductionSettings(StaticMesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, ReductionOptions: ucpp.Ref<MeshReductionSettings>): Void;
+	public function SetLodFromStaticMesh(DestinationStaticMesh: ucpp.Ptr<StaticMesh>, DestinationLodIndex: ucpp.num.Int32, SourceStaticMesh: ucpp.Ptr<StaticMesh>, SourceLodIndex: ucpp.num.Int32, bReuseExistingMaterialSlots: Bool): ucpp.num.Int32;
+	public function SetLodBuildSettings(StaticMesh: ucpp.Ptr<StaticMesh>, LodIndex: ucpp.num.Int32, BuildOptions: ucpp.Ref<MeshBuildSettings>): Void;
+	public function SetGenerateLightmapUVs(StaticMesh: ucpp.Ptr<StaticMesh>, bGenerateLightmapUVs: Bool): Bool;
+	public function SetConvexDecompositionCollisionsWithNotification(StaticMesh: ucpp.Ptr<StaticMesh>, HullCount: ucpp.num.Int32, MaxHullVerts: ucpp.num.Int32, HullPrecision: ucpp.num.Int32, bApplyChanges: Bool): Bool;
+	public function SetConvexDecompositionCollisions(StaticMesh: ucpp.Ptr<StaticMesh>, HullCount: ucpp.num.Int32, MaxHullVerts: ucpp.num.Int32, HullPrecision: ucpp.num.Int32): Bool;
+	public function SetAllowCPUAccess(StaticMesh: ucpp.Ptr<StaticMesh>, bAllowCPUAccess: Bool): Void;
+	public function RemoveUVChannel(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, UVChannelIndex: ucpp.num.Int32): Bool;
+	public function RemoveLods(StaticMesh: ucpp.Ptr<StaticMesh>): Bool;
+	public function RemoveCollisionsWithNotification(StaticMesh: ucpp.Ptr<StaticMesh>, bApplyChanges: Bool): Bool;
+	public function RemoveCollisions(StaticMesh: ucpp.Ptr<StaticMesh>): Bool;
+	public function ReimportAllCustomLODs(StaticMesh: ucpp.Ptr<StaticMesh>): Bool;
+	public function IsSectionCollisionEnabled(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32): Bool;
+	public function InsertUVChannel(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, UVChannelIndex: ucpp.num.Int32): Bool;
+	public function ImportLOD(BaseStaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, SourceFilename: FString): ucpp.num.Int32;
+	public function HasVertexColors(StaticMesh: ucpp.Ptr<StaticMesh>): Bool;
+	public function HasInstanceVertexColors(StaticMeshComponent: ucpp.Ptr<StaticMeshComp>): Bool;
+	public function GetSimpleCollisionCount(StaticMesh: ucpp.Ptr<StaticMesh>): ucpp.num.Int32;
+	public function GetNumUVChannels(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetNumberVerts(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetNumberMaterials(StaticMesh: ucpp.Ptr<StaticMesh>): ucpp.num.Int32;
+	public function GetLodScreenSizes(StaticMesh: ucpp.Ptr<StaticMesh>): TArray<ucpp.num.Float32>;
+	public function GetLodReductionSettings(StaticMesh: ucpp.Ptr<StaticMesh.ConstStaticMesh>, LodIndex: ucpp.num.Int32, OutReductionOptions: ucpp.Ref<MeshReductionSettings>): Void;
+	public function GetLodCount(StaticMesh: ucpp.Ptr<StaticMesh>): ucpp.num.Int32;
+	public function GetLodBuildSettings(StaticMesh: ucpp.Ptr<StaticMesh.ConstStaticMesh>, LodIndex: ucpp.num.Int32, OutBuildOptions: ucpp.Ref<MeshBuildSettings>): Void;
+	public function GetConvexCollisionCount(StaticMesh: ucpp.Ptr<StaticMesh>): ucpp.num.Int32;
+	public function GetCollisionComplexity(StaticMesh: ucpp.Ptr<StaticMesh>): TEnumAsByte<ECollisionTraceFlag>;
+	public function GeneratePlanarUVChannel(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, UVChannelIndex: ucpp.num.Int32, Position: ucpp.Ref<Vector>, Orientation: ucpp.Ref<Rotator>, Tiling: ucpp.Ref<Vector2D>): Bool;
+	public function GenerateCylindricalUVChannel(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, UVChannelIndex: ucpp.num.Int32, Position: ucpp.Ref<Vector>, Orientation: ucpp.Ref<Rotator>, Tiling: ucpp.Ref<Vector2D>): Bool;
+	public function GenerateBoxUVChannel(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32, UVChannelIndex: ucpp.num.Int32, Position: ucpp.Ref<Vector>, Orientation: ucpp.Ref<Rotator>, Size: ucpp.Ref<Vector>): Bool;
+	public function EnableSectionCollision(StaticMesh: ucpp.Ptr<StaticMesh>, bCollisionEnabled: Bool, LODIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32): Void;
+	public function EnableSectionCastShadow(StaticMesh: ucpp.Ptr<StaticMesh>, bCastShadow: Bool, LODIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32): Void;
+	public function BulkSetConvexDecompositionCollisionsWithNotification(StaticMeshes: ucpp.Ref<TArray<ucpp.Ptr<StaticMesh>>>, HullCount: ucpp.num.Int32, MaxHullVerts: ucpp.num.Int32, HullPrecision: ucpp.num.Int32, bApplyChanges: Bool): Bool;
+	public function BulkSetConvexDecompositionCollisions(StaticMeshes: ucpp.Ref<TArray<ucpp.Ptr<StaticMesh>>>, HullCount: ucpp.num.Int32, MaxHullVerts: ucpp.num.Int32, HullPrecision: ucpp.num.Int32): Bool;
+	public function AddUVChannel(StaticMesh: ucpp.Ptr<StaticMesh>, LODIndex: ucpp.num.Int32): Bool;
+	public function AddSimpleCollisionsWithNotification(StaticMesh: ucpp.Ptr<StaticMesh>, ShapeType: EScriptCollisionShapeType, bApplyChanges: Bool): ucpp.num.Int32;
+	public function AddSimpleCollisions(StaticMesh: ucpp.Ptr<StaticMesh>, ShapeType: EScriptCollisionShapeType): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstEditorStaticMeshLibrary(EditorStaticMeshLibrary) from EditorStatic
 @:forward
 @:nativeGen
 @:native("EditorStaticMeshLibrary*")
-abstract EditorStaticMeshLibraryPtr(cpp.Star<EditorStaticMeshLibrary>) from cpp.Star<EditorStaticMeshLibrary> to cpp.Star<EditorStaticMeshLibrary>{
+abstract EditorStaticMeshLibraryPtr(ucpp.Ptr<EditorStaticMeshLibrary>) from ucpp.Ptr<EditorStaticMeshLibrary> to ucpp.Ptr<EditorStaticMeshLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorStaticMeshLibrary): EditorStaticMeshLibraryPtr {
 		return untyped __cpp__("&({0})", v);

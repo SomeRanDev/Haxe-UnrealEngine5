@@ -3,16 +3,16 @@ package ue;
 
 @:native("USubsystemBlueprintLibrary")
 @:include("Subsystems/SubsystemBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class SubsystemBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetWorldSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<WorldSubsystem>): cpp.Star<WorldSubsystem>;
-	public function GetLocalPlayerSubSystemFromPlayerController(PlayerController: cpp.Star<PlayerController>, Class: TSubclassOf<LocalPlayerSubsystem>): cpp.Star<LocalPlayerSubsystem>;
-	public function GetLocalPlayerSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<LocalPlayerSubsystem>): cpp.Star<LocalPlayerSubsystem>;
-	public function GetGameInstanceSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<GameInstanceSubsystem>): cpp.Star<GameInstanceSubsystem>;
-	public function GetEngineSubsystem(Class: TSubclassOf<EngineSubsystem>): cpp.Star<EngineSubsystem>;
-	public function GetAudioEngineSubsystem(ContextObject: cpp.Star<Object>, Class: TSubclassOf<AudioEngineSubsystem>): cpp.Star<AudioEngineSubsystem>;
+	public function GetWorldSubsystem(ContextObject: ucpp.Ptr<Object>, Class: TSubclassOf<WorldSubsystem>): ucpp.Ptr<WorldSubsystem>;
+	public function GetLocalPlayerSubSystemFromPlayerController(PlayerController: ucpp.Ptr<PlayerController>, Class: TSubclassOf<LocalPlayerSubsystem>): ucpp.Ptr<LocalPlayerSubsystem>;
+	public function GetLocalPlayerSubsystem(ContextObject: ucpp.Ptr<Object>, Class: TSubclassOf<LocalPlayerSubsystem>): ucpp.Ptr<LocalPlayerSubsystem>;
+	public function GetGameInstanceSubsystem(ContextObject: ucpp.Ptr<Object>, Class: TSubclassOf<GameInstanceSubsystem>): ucpp.Ptr<GameInstanceSubsystem>;
+	public function GetEngineSubsystem(Class: TSubclassOf<EngineSubsystem>): ucpp.Ptr<EngineSubsystem>;
+	public function GetAudioEngineSubsystem(ContextObject: ucpp.Ptr<Object>, Class: TSubclassOf<AudioEngineSubsystem>): ucpp.Ptr<AudioEngineSubsystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSubsystemBlueprintLibrary(SubsystemBlueprintLibrary) from Subsyste
 @:forward
 @:nativeGen
 @:native("SubsystemBlueprintLibrary*")
-abstract SubsystemBlueprintLibraryPtr(cpp.Star<SubsystemBlueprintLibrary>) from cpp.Star<SubsystemBlueprintLibrary> to cpp.Star<SubsystemBlueprintLibrary>{
+abstract SubsystemBlueprintLibraryPtr(ucpp.Ptr<SubsystemBlueprintLibrary>) from ucpp.Ptr<SubsystemBlueprintLibrary> to ucpp.Ptr<SubsystemBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SubsystemBlueprintLibrary): SubsystemBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

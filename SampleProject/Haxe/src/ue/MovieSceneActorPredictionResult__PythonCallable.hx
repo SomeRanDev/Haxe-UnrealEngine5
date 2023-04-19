@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneActorPredictionResult__PythonCallable")
-@:structAccess
+@:valueType
 extern class MovieSceneActorPredictionResult__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneActorPredictionResult__PythonCallable(MovieSceneActorPre
 @:forward
 @:nativeGen
 @:native("MovieSceneActorPredictionResult__PythonCallable*")
-abstract MovieSceneActorPredictionResult__PythonCallablePtr(cpp.Star<MovieSceneActorPredictionResult__PythonCallable>) from cpp.Star<MovieSceneActorPredictionResult__PythonCallable> to cpp.Star<MovieSceneActorPredictionResult__PythonCallable>{
+abstract MovieSceneActorPredictionResult__PythonCallablePtr(ucpp.Ptr<MovieSceneActorPredictionResult__PythonCallable>) from ucpp.Ptr<MovieSceneActorPredictionResult__PythonCallable> to ucpp.Ptr<MovieSceneActorPredictionResult__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneActorPredictionResult__PythonCallable): MovieSceneActorPredictionResult__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

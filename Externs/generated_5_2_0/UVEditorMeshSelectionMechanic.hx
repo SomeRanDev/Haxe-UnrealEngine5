@@ -3,25 +3,25 @@ package ue;
 
 @:native("UUVEditorMeshSelectionMechanic")
 @:include("Selection/UVEditorMeshSelectionMechanic.h")
-@:structAccess
+@:valueType
 extern class UVEditorMeshSelectionMechanic extends InteractionMechanic {
-	@:protected public var SelectionAPI: cpp.Star<UVToolSelectionAPI>;
-	@:protected public var ViewportButtonsAPI: cpp.Star<UVToolViewportButtonsAPI>;
-	@:protected public var EmitChangeAPI: cpp.Star<UVToolEmitChangeAPI>;
-	@:protected public var LivePreviewAPI: cpp.Star<UVToolLivePreviewAPI>;
-	@:protected public var UnwrapClickTargetRouter: cpp.Star<LocalSingleClickInputBehavior>;
-	@:protected public var LivePreviewClickTargetRouter: cpp.Star<LocalSingleClickInputBehavior>;
-	@:protected public var UnwrapHoverBehaviorTargetRouter: cpp.Star<LocalMouseHoverBehavior>;
-	@:protected public var LivePreviewHoverBehaviorTargetRouter: cpp.Star<LocalMouseHoverBehavior>;
-	@:protected public var MarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
-	@:protected public var LivePreviewMarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
-	@:protected public var HoverTriangleSetMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var HoverGeometryActor: cpp.Star<PreviewGeometryActor>;
-	@:protected public var LivePreviewBehaviorSet: cpp.Star<InputBehaviorSet>;
-	@:protected public var LivePreviewBehaviorSource: cpp.Star<LocalInputBehaviorSource>;
-	@:protected public var LivePreviewHoverGeometryActor: cpp.Star<PreviewGeometryActor>;
+	@:protected public var SelectionAPI: ucpp.Ptr<UVToolSelectionAPI>;
+	@:protected public var ViewportButtonsAPI: ucpp.Ptr<UVToolViewportButtonsAPI>;
+	@:protected public var EmitChangeAPI: ucpp.Ptr<UVToolEmitChangeAPI>;
+	@:protected public var LivePreviewAPI: ucpp.Ptr<UVToolLivePreviewAPI>;
+	@:protected public var UnwrapClickTargetRouter: ucpp.Ptr<LocalSingleClickInputBehavior>;
+	@:protected public var LivePreviewClickTargetRouter: ucpp.Ptr<LocalSingleClickInputBehavior>;
+	@:protected public var UnwrapHoverBehaviorTargetRouter: ucpp.Ptr<LocalMouseHoverBehavior>;
+	@:protected public var LivePreviewHoverBehaviorTargetRouter: ucpp.Ptr<LocalMouseHoverBehavior>;
+	@:protected public var MarqueeMechanic: ucpp.Ptr<RectangleMarqueeMechanic>;
+	@:protected public var LivePreviewMarqueeMechanic: ucpp.Ptr<RectangleMarqueeMechanic>;
+	@:protected public var HoverTriangleSetMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var HoverGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
+	@:protected public var LivePreviewBehaviorSet: ucpp.Ptr<InputBehaviorSet>;
+	@:protected public var LivePreviewBehaviorSource: ucpp.Ptr<LocalInputBehaviorSource>;
+	@:protected public var LivePreviewHoverGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstUVEditorMeshSelectionMechanic(UVEditorMeshSelectionMechanic) from 
 @:forward
 @:nativeGen
 @:native("UVEditorMeshSelectionMechanic*")
-abstract UVEditorMeshSelectionMechanicPtr(cpp.Star<UVEditorMeshSelectionMechanic>) from cpp.Star<UVEditorMeshSelectionMechanic> to cpp.Star<UVEditorMeshSelectionMechanic>{
+abstract UVEditorMeshSelectionMechanicPtr(ucpp.Ptr<UVEditorMeshSelectionMechanic>) from ucpp.Ptr<UVEditorMeshSelectionMechanic> to ucpp.Ptr<UVEditorMeshSelectionMechanic>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorMeshSelectionMechanic): UVEditorMeshSelectionMechanicPtr {
 		return untyped __cpp__("&({0})", v);

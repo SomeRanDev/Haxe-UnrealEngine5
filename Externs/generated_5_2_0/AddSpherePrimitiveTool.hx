@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAddSpherePrimitiveTool")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class AddSpherePrimitiveTool extends AddPrimitiveTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAddSpherePrimitiveTool(AddSpherePrimitiveTool) from AddSpherePrimi
 @:forward
 @:nativeGen
 @:native("AddSpherePrimitiveTool*")
-abstract AddSpherePrimitiveToolPtr(cpp.Star<AddSpherePrimitiveTool>) from cpp.Star<AddSpherePrimitiveTool> to cpp.Star<AddSpherePrimitiveTool>{
+abstract AddSpherePrimitiveToolPtr(ucpp.Ptr<AddSpherePrimitiveTool>) from ucpp.Ptr<AddSpherePrimitiveTool> to ucpp.Ptr<AddSpherePrimitiveTool>{
 	@:from
 	public static extern inline function fromValue(v: AddSpherePrimitiveTool): AddSpherePrimitiveToolPtr {
 		return untyped __cpp__("&({0})", v);

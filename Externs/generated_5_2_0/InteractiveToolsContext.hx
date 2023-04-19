@@ -3,37 +3,37 @@ package ue;
 
 @:native("UInteractiveToolsContext")
 @:include("InteractiveToolsContext.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolsContext extends Object {
-	public var InputRouter: cpp.Star<InputRouter>;
-	public var TargetManager: cpp.Star<ToolTargetManager>;
-	public var ToolManager: cpp.Star<InteractiveToolManager>;
-	public var GizmoManager: cpp.Star<InteractiveGizmoManager>;
-	public var ContextObjectStore: cpp.Star<ContextObjectStore>;
+	public var InputRouter: ucpp.Ptr<InputRouter>;
+	public var TargetManager: ucpp.Ptr<ToolTargetManager>;
+	public var ToolManager: ucpp.Ptr<InteractiveToolManager>;
+	public var GizmoManager: ucpp.Ptr<InteractiveGizmoManager>;
+	public var ContextObjectStore: ucpp.Ptr<ContextObjectStore>;
 	@:protected public var ToolManagerClass: TSoftClassPtr<Class>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInteractiveToolsContext(InteractiveToolsContext) from InteractiveToolsContext {
-	public extern var InputRouter(get, never): cpp.Star<InputRouter.ConstInputRouter>;
-	public inline extern function get_InputRouter(): cpp.Star<InputRouter.ConstInputRouter> return this.InputRouter;
-	public extern var TargetManager(get, never): cpp.Star<ToolTargetManager.ConstToolTargetManager>;
-	public inline extern function get_TargetManager(): cpp.Star<ToolTargetManager.ConstToolTargetManager> return this.TargetManager;
-	public extern var ToolManager(get, never): cpp.Star<InteractiveToolManager.ConstInteractiveToolManager>;
-	public inline extern function get_ToolManager(): cpp.Star<InteractiveToolManager.ConstInteractiveToolManager> return this.ToolManager;
-	public extern var GizmoManager(get, never): cpp.Star<InteractiveGizmoManager.ConstInteractiveGizmoManager>;
-	public inline extern function get_GizmoManager(): cpp.Star<InteractiveGizmoManager.ConstInteractiveGizmoManager> return this.GizmoManager;
-	public extern var ContextObjectStore(get, never): cpp.Star<ContextObjectStore.ConstContextObjectStore>;
-	public inline extern function get_ContextObjectStore(): cpp.Star<ContextObjectStore.ConstContextObjectStore> return this.ContextObjectStore;
+	public extern var InputRouter(get, never): ucpp.Ptr<InputRouter.ConstInputRouter>;
+	public inline extern function get_InputRouter(): ucpp.Ptr<InputRouter.ConstInputRouter> return this.InputRouter;
+	public extern var TargetManager(get, never): ucpp.Ptr<ToolTargetManager.ConstToolTargetManager>;
+	public inline extern function get_TargetManager(): ucpp.Ptr<ToolTargetManager.ConstToolTargetManager> return this.TargetManager;
+	public extern var ToolManager(get, never): ucpp.Ptr<InteractiveToolManager.ConstInteractiveToolManager>;
+	public inline extern function get_ToolManager(): ucpp.Ptr<InteractiveToolManager.ConstInteractiveToolManager> return this.ToolManager;
+	public extern var GizmoManager(get, never): ucpp.Ptr<InteractiveGizmoManager.ConstInteractiveGizmoManager>;
+	public inline extern function get_GizmoManager(): ucpp.Ptr<InteractiveGizmoManager.ConstInteractiveGizmoManager> return this.GizmoManager;
+	public extern var ContextObjectStore(get, never): ucpp.Ptr<ContextObjectStore.ConstContextObjectStore>;
+	public inline extern function get_ContextObjectStore(): ucpp.Ptr<ContextObjectStore.ConstContextObjectStore> return this.ContextObjectStore;
 }
 
 @:forward
 @:nativeGen
 @:native("InteractiveToolsContext*")
-abstract InteractiveToolsContextPtr(cpp.Star<InteractiveToolsContext>) from cpp.Star<InteractiveToolsContext> to cpp.Star<InteractiveToolsContext>{
+abstract InteractiveToolsContextPtr(ucpp.Ptr<InteractiveToolsContext>) from ucpp.Ptr<InteractiveToolsContext> to ucpp.Ptr<InteractiveToolsContext>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolsContext): InteractiveToolsContextPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("ACableActor")
 @:include("CableActor.h")
-@:structAccess
+@:valueType
 extern class CableActor extends Actor {
-	public var CableComponent: cpp.Star<CableComp>;
+	public var CableComponent: ucpp.Ptr<CableComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCableActor(CableActor) from CableActor {
-	public extern var CableComponent(get, never): cpp.Star<CableComp.ConstCableComp>;
-	public inline extern function get_CableComponent(): cpp.Star<CableComp.ConstCableComp> return this.CableComponent;
+	public extern var CableComponent(get, never): ucpp.Ptr<CableComp.ConstCableComp>;
+	public inline extern function get_CableComponent(): ucpp.Ptr<CableComp.ConstCableComp> return this.CableComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("CableActor*")
-abstract CableActorPtr(cpp.Star<CableActor>) from cpp.Star<CableActor> to cpp.Star<CableActor>{
+abstract CableActorPtr(ucpp.Ptr<CableActor>) from ucpp.Ptr<CableActor> to ucpp.Ptr<CableActor>{
 	@:from
 	public static extern inline function fromValue(v: CableActor): CableActorPtr {
 		return untyped __cpp__("&({0})", v);

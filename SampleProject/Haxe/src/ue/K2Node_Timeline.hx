@@ -3,7 +3,7 @@ package ue;
 
 @:native("UK2Node_Timeline")
 @:include("K2Node_Timeline.h")
-@:structAccess
+@:valueType
 extern class K2Node_Timeline extends K2Node {
 	public var TimelineName: FName;
 	public var bAutoPlay: Bool;
@@ -12,7 +12,7 @@ extern class K2Node_Timeline extends K2Node {
 	public var bReplicated: Bool;
 	public var bIgnoreTimeDilation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstK2Node_Timeline(K2Node_Timeline) from K2Node_Timeline {
 @:forward
 @:nativeGen
 @:native("K2Node_Timeline*")
-abstract K2Node_TimelinePtr(cpp.Star<K2Node_Timeline>) from cpp.Star<K2Node_Timeline> to cpp.Star<K2Node_Timeline>{
+abstract K2Node_TimelinePtr(ucpp.Ptr<K2Node_Timeline>) from ucpp.Ptr<K2Node_Timeline> to ucpp.Ptr<K2Node_Timeline>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_Timeline): K2Node_TimelinePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAITouchEvent")
 @:include("Perception/AISense_Touch.h")
-@:structAccess
+@:valueType
 extern class AITouchEvent {
-	public var TouchReceiver: cpp.Star<Actor>;
-	public var OtherActor: cpp.Star<Actor>;
+	public var TouchReceiver: ucpp.Ptr<Actor>;
+	public var OtherActor: ucpp.Ptr<Actor>;
 
 	@:native("FAITouchEvent") public function new();
-	@:native("FAITouchEvent") public static function make(TouchReceiver: cpp.Star<Actor>, OtherActor: cpp.Star<Actor>): AITouchEvent ;
+	@:native("FAITouchEvent") public static function make(TouchReceiver: ucpp.Ptr<Actor>, OtherActor: ucpp.Ptr<Actor>): AITouchEvent ;
 }

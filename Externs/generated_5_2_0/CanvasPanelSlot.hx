@@ -3,14 +3,14 @@ package ue;
 
 @:native("UCanvasPanelSlot")
 @:include("Components/CanvasPanelSlot.h")
-@:structAccess
+@:valueType
 extern class CanvasPanelSlot extends PanelSlot {
 	public function GetLayout(): AnchorData;
 	public function SetLayout(input: AnchorData): Void;
 	public function GetAutoSize(): Bool;
 	public function SetAutoSize(input: Bool): Void;
-	public function GetZOrder(): cpp.Int32;
-	public function SetZOrder(input: cpp.Int32): Void;
+	public function GetZOrder(): ucpp.num.Int32;
+	public function SetZOrder(input: ucpp.num.Int32): Void;
 
 	public function SetSize(InSize: Vector2D): Void;
 	public function SetPosition(InPosition: Vector2D): Void;
@@ -25,7 +25,7 @@ extern class CanvasPanelSlot extends PanelSlot {
 	public function GetAnchors(): Anchors;
 	public function GetAlignment(): Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSize, GetPosition, GetOffsets, GetAnchors, GetAlignment)
@@ -36,7 +36,7 @@ abstract ConstCanvasPanelSlot(CanvasPanelSlot) from CanvasPanelSlot {
 @:forward
 @:nativeGen
 @:native("CanvasPanelSlot*")
-abstract CanvasPanelSlotPtr(cpp.Star<CanvasPanelSlot>) from cpp.Star<CanvasPanelSlot> to cpp.Star<CanvasPanelSlot>{
+abstract CanvasPanelSlotPtr(ucpp.Ptr<CanvasPanelSlot>) from ucpp.Ptr<CanvasPanelSlot> to ucpp.Ptr<CanvasPanelSlot>{
 	@:from
 	public static extern inline function fromValue(v: CanvasPanelSlot): CanvasPanelSlotPtr {
 		return untyped __cpp__("&({0})", v);

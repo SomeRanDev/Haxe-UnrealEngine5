@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMovieSceneWidgetMaterialTrack")
 @:include("Animation/MovieSceneWidgetMaterialTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneWidgetMaterialTrack extends MovieSceneMaterialTrack {
 	private var BrushPropertyNamePath: TArray<FName>;
 	private var TrackName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMovieSceneWidgetMaterialTrack(MovieSceneWidgetMaterialTrack) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneWidgetMaterialTrack*")
-abstract MovieSceneWidgetMaterialTrackPtr(cpp.Star<MovieSceneWidgetMaterialTrack>) from cpp.Star<MovieSceneWidgetMaterialTrack> to cpp.Star<MovieSceneWidgetMaterialTrack>{
+abstract MovieSceneWidgetMaterialTrackPtr(ucpp.Ptr<MovieSceneWidgetMaterialTrack>) from ucpp.Ptr<MovieSceneWidgetMaterialTrack> to ucpp.Ptr<MovieSceneWidgetMaterialTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneWidgetMaterialTrack): MovieSceneWidgetMaterialTrackPtr {
 		return untyped __cpp__("&({0})", v);

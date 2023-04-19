@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMeshVertexPainterKismetLibrary")
 @:include("MeshVertexPainter/MeshVertexPainterKismetLibrary.h")
-@:structAccess
+@:valueType
 extern class MeshVertexPainterKismetLibrary extends BlueprintFunctionLibrary {
-	public function RemovePaintedVertices(StaticMeshComponent: cpp.Star<StaticMeshComp>): Void;
-	public function PaintVerticesSingleColor(StaticMeshComponent: cpp.Star<StaticMeshComp>, FillColor: cpp.Reference<LinearColor>, bConvertToSRGB: Bool): Void;
-	public function PaintVerticesLerpAlongAxis(StaticMeshComponent: cpp.Star<StaticMeshComp>, StartColor: cpp.Reference<LinearColor>, EndColor: cpp.Reference<LinearColor>, Axis: EVertexPaintAxis, bConvertToSRGB: Bool): Void;
+	public function RemovePaintedVertices(StaticMeshComponent: ucpp.Ptr<StaticMeshComp>): Void;
+	public function PaintVerticesSingleColor(StaticMeshComponent: ucpp.Ptr<StaticMeshComp>, FillColor: ucpp.Ref<LinearColor>, bConvertToSRGB: Bool): Void;
+	public function PaintVerticesLerpAlongAxis(StaticMeshComponent: ucpp.Ptr<StaticMeshComp>, StartColor: ucpp.Ref<LinearColor>, EndColor: ucpp.Ref<LinearColor>, Axis: EVertexPaintAxis, bConvertToSRGB: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMeshVertexPainterKismetLibrary(MeshVertexPainterKismetLibrary) fro
 @:forward
 @:nativeGen
 @:native("MeshVertexPainterKismetLibrary*")
-abstract MeshVertexPainterKismetLibraryPtr(cpp.Star<MeshVertexPainterKismetLibrary>) from cpp.Star<MeshVertexPainterKismetLibrary> to cpp.Star<MeshVertexPainterKismetLibrary>{
+abstract MeshVertexPainterKismetLibraryPtr(ucpp.Ptr<MeshVertexPainterKismetLibrary>) from ucpp.Ptr<MeshVertexPainterKismetLibrary> to ucpp.Ptr<MeshVertexPainterKismetLibrary>{
 	@:from
 	public static extern inline function fromValue(v: MeshVertexPainterKismetLibrary): MeshVertexPainterKismetLibraryPtr {
 		return untyped __cpp__("&({0})", v);

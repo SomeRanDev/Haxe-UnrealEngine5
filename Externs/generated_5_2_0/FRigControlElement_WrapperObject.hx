@@ -2,7 +2,7 @@
 package ue;
 
 @:native("UFRigControlElement_WrapperObject")
-@:structAccess
+@:valueType
 extern class FRigControlElement_WrapperObject extends DetailsViewWrapperObject {
 	public var Settings: RigControlSettings;
 	public var Offset: RigCurrentAndInitialTransform;
@@ -11,12 +11,12 @@ extern class FRigControlElement_WrapperObject extends DetailsViewWrapperObject {
 	public var Pose: RigCurrentAndInitialTransform;
 	@:protected public var Key: RigElementKey;
 	@:protected public var NameString: FString;
-	@:protected public var Index: cpp.Int32;
-	@:protected public var SubIndex: cpp.Int32;
+	@:protected public var Index: ucpp.num.Int32;
+	@:protected public var SubIndex: ucpp.num.Int32;
 	@:protected public var bSelected: Bool;
-	@:protected public var CreatedAtInstructionIndex: cpp.Int32;
+	@:protected public var CreatedAtInstructionIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstFRigControlElement_WrapperObject(FRigControlElement_WrapperObject)
 @:forward
 @:nativeGen
 @:native("FRigControlElement_WrapperObject*")
-abstract FRigControlElement_WrapperObjectPtr(cpp.Star<FRigControlElement_WrapperObject>) from cpp.Star<FRigControlElement_WrapperObject> to cpp.Star<FRigControlElement_WrapperObject>{
+abstract FRigControlElement_WrapperObjectPtr(ucpp.Ptr<FRigControlElement_WrapperObject>) from ucpp.Ptr<FRigControlElement_WrapperObject> to ucpp.Ptr<FRigControlElement_WrapperObject>{
 	@:from
 	public static extern inline function fromValue(v: FRigControlElement_WrapperObject): FRigControlElement_WrapperObjectPtr {
 		return untyped __cpp__("&({0})", v);

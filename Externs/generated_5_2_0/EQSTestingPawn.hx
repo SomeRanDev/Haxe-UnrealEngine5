@@ -3,13 +3,13 @@ package ue;
 
 @:native("AEQSTestingPawn")
 @:include("EnvironmentQuery/EQSTestingPawn.h")
-@:structAccess
+@:valueType
 extern class EQSTestingPawn extends Character {
-	public var QueryTemplate: cpp.Star<EnvQuery>;
+	public var QueryTemplate: ucpp.Ptr<EnvQuery>;
 	public var QueryParams: TArray<EnvNamedValue>;
 	public var QueryConfig: TArray<AIDynamicParam>;
-	public var TimeLimitPerStep: cpp.Float32;
-	public var StepToDebugDraw: cpp.Int32;
+	public var TimeLimitPerStep: ucpp.num.Float32;
+	public var StepToDebugDraw: ucpp.num.Int32;
 	public var HighlightMode: EEnvQueryHightlightMode;
 	public var bDrawLabels: Bool;
 	public var bDrawFailedItems: Bool;
@@ -19,22 +19,22 @@ extern class EQSTestingPawn extends Character {
 	public var QueryingMode: TEnumAsByte<EEnvQueryRunMode>;
 	public var NavAgentProperties: NavAgentProperties;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEQSTestingPawn(EQSTestingPawn) from EQSTestingPawn {
-	public extern var QueryTemplate(get, never): cpp.Star<EnvQuery.ConstEnvQuery>;
-	public inline extern function get_QueryTemplate(): cpp.Star<EnvQuery.ConstEnvQuery> return this.QueryTemplate;
+	public extern var QueryTemplate(get, never): ucpp.Ptr<EnvQuery.ConstEnvQuery>;
+	public inline extern function get_QueryTemplate(): ucpp.Ptr<EnvQuery.ConstEnvQuery> return this.QueryTemplate;
 	public extern var QueryParams(get, never): TArray<EnvNamedValue>;
 	public inline extern function get_QueryParams(): TArray<EnvNamedValue> return this.QueryParams;
 	public extern var QueryConfig(get, never): TArray<AIDynamicParam>;
 	public inline extern function get_QueryConfig(): TArray<AIDynamicParam> return this.QueryConfig;
-	public extern var TimeLimitPerStep(get, never): cpp.Float32;
-	public inline extern function get_TimeLimitPerStep(): cpp.Float32 return this.TimeLimitPerStep;
-	public extern var StepToDebugDraw(get, never): cpp.Int32;
-	public inline extern function get_StepToDebugDraw(): cpp.Int32 return this.StepToDebugDraw;
+	public extern var TimeLimitPerStep(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeLimitPerStep(): ucpp.num.Float32 return this.TimeLimitPerStep;
+	public extern var StepToDebugDraw(get, never): ucpp.num.Int32;
+	public inline extern function get_StepToDebugDraw(): ucpp.num.Int32 return this.StepToDebugDraw;
 	public extern var HighlightMode(get, never): EEnvQueryHightlightMode;
 	public inline extern function get_HighlightMode(): EEnvQueryHightlightMode return this.HighlightMode;
 	public extern var bDrawLabels(get, never): Bool;
@@ -56,7 +56,7 @@ abstract ConstEQSTestingPawn(EQSTestingPawn) from EQSTestingPawn {
 @:forward
 @:nativeGen
 @:native("EQSTestingPawn*")
-abstract EQSTestingPawnPtr(cpp.Star<EQSTestingPawn>) from cpp.Star<EQSTestingPawn> to cpp.Star<EQSTestingPawn>{
+abstract EQSTestingPawnPtr(ucpp.Ptr<EQSTestingPawn>) from ucpp.Ptr<EQSTestingPawn> to ucpp.Ptr<EQSTestingPawn>{
 	@:from
 	public static extern inline function fromValue(v: EQSTestingPawn): EQSTestingPawnPtr {
 		return untyped __cpp__("&({0})", v);

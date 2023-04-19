@@ -3,15 +3,15 @@ package ue;
 
 @:native("FVREditorFloatingUICreationContext")
 @:include("UI/VREditorFloatingUI.h")
-@:structAccess
+@:valueType
 extern class VREditorFloatingUICreationContext {
 	public var WidgetClass: TSubclassOf<UserWidget>;
 	public var PanelID: FName;
-	public var ParentActor: cpp.Star<Actor>;
+	public var ParentActor: ucpp.Ptr<Actor>;
 	public var PanelSpawnOffset: Transform;
 	public var PanelSize: Vector2D;
-	public var PanelMesh: cpp.Star<StaticMesh>;
-	public var EditorUISize: cpp.Float32;
+	public var PanelMesh: ucpp.Ptr<StaticMesh>;
+	public var EditorUISize: ucpp.num.Float32;
 	public var bHideWindowHandles: Bool;
 	public var bMaskOutWidgetBackground: Bool;
 	public var bNoCloseButton: Bool;

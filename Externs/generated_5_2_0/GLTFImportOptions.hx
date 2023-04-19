@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGLTFImportOptions")
 @:include("GLTFImportOptions.h")
-@:structAccess
+@:valueType
 extern class GLTFImportOptions extends Object {
 	public var bGenerateLightmapUVs: Bool;
-	public var ImportScale: cpp.Float32;
+	public var ImportScale: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class GLTFImportOptions extends Object {
 abstract ConstGLTFImportOptions(GLTFImportOptions) from GLTFImportOptions {
 	public extern var bGenerateLightmapUVs(get, never): Bool;
 	public inline extern function get_bGenerateLightmapUVs(): Bool return this.bGenerateLightmapUVs;
-	public extern var ImportScale(get, never): cpp.Float32;
-	public inline extern function get_ImportScale(): cpp.Float32 return this.ImportScale;
+	public extern var ImportScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ImportScale(): ucpp.num.Float32 return this.ImportScale;
 }
 
 @:forward
 @:nativeGen
 @:native("GLTFImportOptions*")
-abstract GLTFImportOptionsPtr(cpp.Star<GLTFImportOptions>) from cpp.Star<GLTFImportOptions> to cpp.Star<GLTFImportOptions>{
+abstract GLTFImportOptionsPtr(ucpp.Ptr<GLTFImportOptions>) from ucpp.Ptr<GLTFImportOptions> to ucpp.Ptr<GLTFImportOptions>{
 	@:from
 	public static extern inline function fromValue(v: GLTFImportOptions): GLTFImportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

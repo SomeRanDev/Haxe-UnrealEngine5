@@ -3,13 +3,13 @@ package ue;
 
 @:native("URigVMEnumNode")
 @:include("RigVMModel/Nodes/RigVMEnumNode.h")
-@:structAccess
+@:valueType
 extern class RigVMEnumNode extends RigVMNode {
-	public function GetEnum(): cpp.Star<Enum>;
-	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetEnum(): ucpp.Ptr<Enum>;
+	public function GetCPPTypeObject(): ucpp.Ptr<Object>;
 	public function GetCPPType(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetEnum, GetCPPTypeObject, GetCPPType)
@@ -20,7 +20,7 @@ abstract ConstRigVMEnumNode(RigVMEnumNode) from RigVMEnumNode {
 @:forward
 @:nativeGen
 @:native("RigVMEnumNode*")
-abstract RigVMEnumNodePtr(cpp.Star<RigVMEnumNode>) from cpp.Star<RigVMEnumNode> to cpp.Star<RigVMEnumNode>{
+abstract RigVMEnumNodePtr(ucpp.Ptr<RigVMEnumNode>) from ucpp.Ptr<RigVMEnumNode> to ucpp.Ptr<RigVMEnumNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMEnumNode): RigVMEnumNodePtr {
 		return untyped __cpp__("&({0})", v);

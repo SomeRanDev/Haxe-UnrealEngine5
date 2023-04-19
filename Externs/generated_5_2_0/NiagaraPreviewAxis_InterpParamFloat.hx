@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraPreviewAxis_InterpParamFloat")
 @:include("NiagaraPreviewGrid.h")
-@:structAccess
+@:valueType
 extern class NiagaraPreviewAxis_InterpParamFloat extends NiagaraPreviewAxis_InterpParamBase {
-	private var Min: cpp.Float32;
-	private var Max: cpp.Float32;
+	private var Min: ucpp.num.Float32;
+	private var Max: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraPreviewAxis_InterpParamFloat(NiagaraPreviewAxis_InterpParam
 @:forward
 @:nativeGen
 @:native("NiagaraPreviewAxis_InterpParamFloat*")
-abstract NiagaraPreviewAxis_InterpParamFloatPtr(cpp.Star<NiagaraPreviewAxis_InterpParamFloat>) from cpp.Star<NiagaraPreviewAxis_InterpParamFloat> to cpp.Star<NiagaraPreviewAxis_InterpParamFloat>{
+abstract NiagaraPreviewAxis_InterpParamFloatPtr(ucpp.Ptr<NiagaraPreviewAxis_InterpParamFloat>) from ucpp.Ptr<NiagaraPreviewAxis_InterpParamFloat> to ucpp.Ptr<NiagaraPreviewAxis_InterpParamFloat>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPreviewAxis_InterpParamFloat): NiagaraPreviewAxis_InterpParamFloatPtr {
 		return untyped __cpp__("&({0})", v);

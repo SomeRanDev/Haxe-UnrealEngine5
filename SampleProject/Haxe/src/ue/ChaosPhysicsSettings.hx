@@ -3,7 +3,7 @@ package ue;
 
 @:native("FChaosPhysicsSettings")
 @:include("PhysicsEngine/PhysicsSettings.h")
-@:structAccess
+@:valueType
 extern class ChaosPhysicsSettings {
 	public var DefaultThreadingModel: EChaosThreadingMode;
 	public var DedicatedThreadTickMode: EChaosSolverTickMode;

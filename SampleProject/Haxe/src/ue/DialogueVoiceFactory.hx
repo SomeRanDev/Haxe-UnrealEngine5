@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDialogueVoiceFactory")
 @:include("Factories/DialogueVoiceFactory.h")
-@:structAccess
+@:valueType
 extern class DialogueVoiceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDialogueVoiceFactory(DialogueVoiceFactory) from DialogueVoiceFacto
 @:forward
 @:nativeGen
 @:native("DialogueVoiceFactory*")
-abstract DialogueVoiceFactoryPtr(cpp.Star<DialogueVoiceFactory>) from cpp.Star<DialogueVoiceFactory> to cpp.Star<DialogueVoiceFactory>{
+abstract DialogueVoiceFactoryPtr(ucpp.Ptr<DialogueVoiceFactory>) from ucpp.Ptr<DialogueVoiceFactory> to ucpp.Ptr<DialogueVoiceFactory>{
 	@:from
 	public static extern inline function fromValue(v: DialogueVoiceFactory): DialogueVoiceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULandscapeNaniteComponent")
 @:include("LandscapeNaniteComponent.h")
-@:structAccess
+@:valueType
 extern class LandscapeNaniteComp extends StaticMeshComp {
 	private var ProxyContentId: Guid;
 	private var bEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstLandscapeNaniteComp(LandscapeNaniteComp) from LandscapeNaniteComp 
 @:forward
 @:nativeGen
 @:native("LandscapeNaniteComp*")
-abstract LandscapeNaniteCompPtr(cpp.Star<LandscapeNaniteComp>) from cpp.Star<LandscapeNaniteComp> to cpp.Star<LandscapeNaniteComp>{
+abstract LandscapeNaniteCompPtr(ucpp.Ptr<LandscapeNaniteComp>) from ucpp.Ptr<LandscapeNaniteComp> to ucpp.Ptr<LandscapeNaniteComp>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeNaniteComp): LandscapeNaniteCompPtr {
 		return untyped __cpp__("&({0})", v);

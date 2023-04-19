@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDatasmithCommonTessellationOptions")
 @:include("DatasmithImportOptions.h")
-@:structAccess
+@:valueType
 extern class DatasmithCommonTessellationOptions extends DatasmithOptionsBase {
 	public var Options: DatasmithTessellationOptions;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDatasmithCommonTessellationOptions(DatasmithCommonTessellationOpti
 @:forward
 @:nativeGen
 @:native("DatasmithCommonTessellationOptions*")
-abstract DatasmithCommonTessellationOptionsPtr(cpp.Star<DatasmithCommonTessellationOptions>) from cpp.Star<DatasmithCommonTessellationOptions> to cpp.Star<DatasmithCommonTessellationOptions>{
+abstract DatasmithCommonTessellationOptionsPtr(ucpp.Ptr<DatasmithCommonTessellationOptions>) from ucpp.Ptr<DatasmithCommonTessellationOptions> to ucpp.Ptr<DatasmithCommonTessellationOptions>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithCommonTessellationOptions): DatasmithCommonTessellationOptionsPtr {
 		return untyped __cpp__("&({0})", v);

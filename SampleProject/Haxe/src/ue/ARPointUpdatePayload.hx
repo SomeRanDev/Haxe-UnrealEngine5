@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARPointUpdatePayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARPointUpdatePayload {
 	@:native("FARPointUpdatePayload") public function new();
 }

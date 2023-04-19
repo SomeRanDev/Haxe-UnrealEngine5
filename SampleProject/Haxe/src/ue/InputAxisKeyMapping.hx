@@ -3,12 +3,12 @@ package ue;
 
 @:native("FInputAxisKeyMapping")
 @:include("GameFramework/PlayerInput.h")
-@:structAccess
+@:valueType
 extern class InputAxisKeyMapping {
 	public var AxisName: FName;
-	public var Scale: cpp.Float32;
+	public var Scale: ucpp.num.Float32;
 	public var Key: Key;
 
 	@:native("FInputAxisKeyMapping") public function new();
-	@:native("FInputAxisKeyMapping") public static function make(AxisName: FName, Scale: cpp.Float32, Key: Key): InputAxisKeyMapping ;
+	@:native("FInputAxisKeyMapping") public static function make(AxisName: FName, Scale: ucpp.num.Float32, Key: Key): InputAxisKeyMapping ;
 }

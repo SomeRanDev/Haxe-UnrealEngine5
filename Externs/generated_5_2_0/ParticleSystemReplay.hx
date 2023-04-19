@@ -3,24 +3,24 @@ package ue;
 
 @:native("UParticleSystemReplay")
 @:include("Particles/ParticleSystemReplay.h")
-@:structAccess
+@:valueType
 extern class ParticleSystemReplay extends Object {
-	public var ClipIDNumber: cpp.Int32;
+	public var ClipIDNumber: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleSystemReplay(ParticleSystemReplay) from ParticleSystemReplay {
-	public extern var ClipIDNumber(get, never): cpp.Int32;
-	public inline extern function get_ClipIDNumber(): cpp.Int32 return this.ClipIDNumber;
+	public extern var ClipIDNumber(get, never): ucpp.num.Int32;
+	public inline extern function get_ClipIDNumber(): ucpp.num.Int32 return this.ClipIDNumber;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleSystemReplay*")
-abstract ParticleSystemReplayPtr(cpp.Star<ParticleSystemReplay>) from cpp.Star<ParticleSystemReplay> to cpp.Star<ParticleSystemReplay>{
+abstract ParticleSystemReplayPtr(ucpp.Ptr<ParticleSystemReplay>) from ucpp.Ptr<ParticleSystemReplay> to ucpp.Ptr<ParticleSystemReplay>{
 	@:from
 	public static extern inline function fromValue(v: ParticleSystemReplay): ParticleSystemReplayPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnExpandableAreaExpansionChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnExpandableAreaExpansionChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnExpandableAreaExpansionChanged__PythonCallable(OnExpandableAreaE
 @:forward
 @:nativeGen
 @:native("OnExpandableAreaExpansionChanged__PythonCallable*")
-abstract OnExpandableAreaExpansionChanged__PythonCallablePtr(cpp.Star<OnExpandableAreaExpansionChanged__PythonCallable>) from cpp.Star<OnExpandableAreaExpansionChanged__PythonCallable> to cpp.Star<OnExpandableAreaExpansionChanged__PythonCallable>{
+abstract OnExpandableAreaExpansionChanged__PythonCallablePtr(ucpp.Ptr<OnExpandableAreaExpansionChanged__PythonCallable>) from ucpp.Ptr<OnExpandableAreaExpansionChanged__PythonCallable> to ucpp.Ptr<OnExpandableAreaExpansionChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnExpandableAreaExpansionChanged__PythonCallable): OnExpandableAreaExpansionChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

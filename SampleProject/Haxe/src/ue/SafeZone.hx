@@ -3,7 +3,7 @@ package ue;
 
 @:native("USafeZone")
 @:include("Components/SafeZone.h")
-@:structAccess
+@:valueType
 extern class SafeZone extends ContentWidget {
 	public var PadLeft: Bool;
 	public var PadRight: Bool;
@@ -12,7 +12,7 @@ extern class SafeZone extends ContentWidget {
 
 	public function SetSidesToPad(InPadLeft: Bool, InPadRight: Bool, InPadTop: Bool, InPadBottom: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstSafeZone(SafeZone) from SafeZone {
 @:forward
 @:nativeGen
 @:native("SafeZone*")
-abstract SafeZonePtr(cpp.Star<SafeZone>) from cpp.Star<SafeZone> to cpp.Star<SafeZone>{
+abstract SafeZonePtr(ucpp.Ptr<SafeZone>) from ucpp.Ptr<SafeZone> to ucpp.Ptr<SafeZone>{
 	@:from
 	public static extern inline function fromValue(v: SafeZone): SafeZonePtr {
 		return untyped __cpp__("&({0})", v);

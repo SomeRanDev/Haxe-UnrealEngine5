@@ -3,22 +3,22 @@ package ue;
 
 @:native("UBakeInputMeshProperties")
 @:include("BakeMeshAttributeToolCommon.h")
-@:structAccess
+@:valueType
 extern class BakeInputMeshProperties extends InteractiveToolPropertySet {
-	public var TargetStaticMesh: cpp.Star<StaticMesh>;
-	public var TargetSkeletalMesh: cpp.Star<SkeletalMesh>;
-	public var TargetDynamicMesh: cpp.Star<Actor>;
+	public var TargetStaticMesh: ucpp.Ptr<StaticMesh>;
+	public var TargetSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
+	public var TargetDynamicMesh: ucpp.Ptr<Actor>;
 	public var TargetUVLayer: FString;
 	public var bHasTargetUVLayer: Bool;
-	public var SourceStaticMesh: cpp.Star<StaticMesh>;
-	public var SourceSkeletalMesh: cpp.Star<SkeletalMesh>;
-	public var SourceDynamicMesh: cpp.Star<Actor>;
+	public var SourceStaticMesh: ucpp.Ptr<StaticMesh>;
+	public var SourceSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
+	public var SourceDynamicMesh: ucpp.Ptr<Actor>;
 	public var bHideSourceMesh: Bool;
-	public var SourceNormalMap: cpp.Star<Texture2D>;
+	public var SourceNormalMap: ucpp.Ptr<Texture2D>;
 	public var SourceNormalMapUVLayer: FString;
 	public var SourceNormalSpace: EBakeNormalSpace;
 	public var bHasSourceNormalMap: Bool;
-	public var ProjectionDistance: cpp.Float32;
+	public var ProjectionDistance: ucpp.num.Float32;
 	public var bProjectionInWorldSpace: Bool;
 	public var TargetUVLayerNamesList: TArray<FString>;
 	public var SourceUVLayerNamesList: TArray<FString>;
@@ -26,40 +26,40 @@ extern class BakeInputMeshProperties extends InteractiveToolPropertySet {
 	public function GetTargetUVLayerNamesFunc(): TArray<FString>;
 	public function GetSourceUVLayerNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTargetUVLayerNamesFunc, GetSourceUVLayerNamesFunc)
 @:nativeGen
 abstract ConstBakeInputMeshProperties(BakeInputMeshProperties) from BakeInputMeshProperties {
-	public extern var TargetStaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_TargetStaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.TargetStaticMesh;
-	public extern var TargetSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_TargetSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
-	public extern var TargetDynamicMesh(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_TargetDynamicMesh(): cpp.Star<Actor.ConstActor> return this.TargetDynamicMesh;
+	public extern var TargetStaticMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_TargetStaticMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.TargetStaticMesh;
+	public extern var TargetSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_TargetSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
+	public extern var TargetDynamicMesh(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_TargetDynamicMesh(): ucpp.Ptr<Actor.ConstActor> return this.TargetDynamicMesh;
 	public extern var TargetUVLayer(get, never): FString;
 	public inline extern function get_TargetUVLayer(): FString return this.TargetUVLayer;
 	public extern var bHasTargetUVLayer(get, never): Bool;
 	public inline extern function get_bHasTargetUVLayer(): Bool return this.bHasTargetUVLayer;
-	public extern var SourceStaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_SourceStaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.SourceStaticMesh;
-	public extern var SourceSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_SourceSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.SourceSkeletalMesh;
-	public extern var SourceDynamicMesh(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_SourceDynamicMesh(): cpp.Star<Actor.ConstActor> return this.SourceDynamicMesh;
+	public extern var SourceStaticMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_SourceStaticMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.SourceStaticMesh;
+	public extern var SourceSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_SourceSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.SourceSkeletalMesh;
+	public extern var SourceDynamicMesh(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_SourceDynamicMesh(): ucpp.Ptr<Actor.ConstActor> return this.SourceDynamicMesh;
 	public extern var bHideSourceMesh(get, never): Bool;
 	public inline extern function get_bHideSourceMesh(): Bool return this.bHideSourceMesh;
-	public extern var SourceNormalMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_SourceNormalMap(): cpp.Star<Texture2D.ConstTexture2D> return this.SourceNormalMap;
+	public extern var SourceNormalMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_SourceNormalMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.SourceNormalMap;
 	public extern var SourceNormalMapUVLayer(get, never): FString;
 	public inline extern function get_SourceNormalMapUVLayer(): FString return this.SourceNormalMapUVLayer;
 	public extern var SourceNormalSpace(get, never): EBakeNormalSpace;
 	public inline extern function get_SourceNormalSpace(): EBakeNormalSpace return this.SourceNormalSpace;
 	public extern var bHasSourceNormalMap(get, never): Bool;
 	public inline extern function get_bHasSourceNormalMap(): Bool return this.bHasSourceNormalMap;
-	public extern var ProjectionDistance(get, never): cpp.Float32;
-	public inline extern function get_ProjectionDistance(): cpp.Float32 return this.ProjectionDistance;
+	public extern var ProjectionDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_ProjectionDistance(): ucpp.num.Float32 return this.ProjectionDistance;
 	public extern var bProjectionInWorldSpace(get, never): Bool;
 	public inline extern function get_bProjectionInWorldSpace(): Bool return this.bProjectionInWorldSpace;
 	public extern var TargetUVLayerNamesList(get, never): TArray<FString>;
@@ -71,7 +71,7 @@ abstract ConstBakeInputMeshProperties(BakeInputMeshProperties) from BakeInputMes
 @:forward
 @:nativeGen
 @:native("BakeInputMeshProperties*")
-abstract BakeInputMeshPropertiesPtr(cpp.Star<BakeInputMeshProperties>) from cpp.Star<BakeInputMeshProperties> to cpp.Star<BakeInputMeshProperties>{
+abstract BakeInputMeshPropertiesPtr(ucpp.Ptr<BakeInputMeshProperties>) from ucpp.Ptr<BakeInputMeshProperties> to ucpp.Ptr<BakeInputMeshProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeInputMeshProperties): BakeInputMeshPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

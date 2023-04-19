@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTTask_RotateToFaceBBEntry")
 @:include("BehaviorTree/Tasks/BTTask_RotateToFaceBBEntry.h")
-@:structAccess
+@:valueType
 extern class BTTask_RotateToFaceBBEntry extends BTTask_BlackboardBase {
-	@:protected public var Precision: cpp.Float32;
+	@:protected public var Precision: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTTask_RotateToFaceBBEntry(BTTask_RotateToFaceBBEntry) from BTTask
 @:forward
 @:nativeGen
 @:native("BTTask_RotateToFaceBBEntry*")
-abstract BTTask_RotateToFaceBBEntryPtr(cpp.Star<BTTask_RotateToFaceBBEntry>) from cpp.Star<BTTask_RotateToFaceBBEntry> to cpp.Star<BTTask_RotateToFaceBBEntry>{
+abstract BTTask_RotateToFaceBBEntryPtr(ucpp.Ptr<BTTask_RotateToFaceBBEntry>) from ucpp.Ptr<BTTask_RotateToFaceBBEntry> to ucpp.Ptr<BTTask_RotateToFaceBBEntry>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_RotateToFaceBBEntry): BTTask_RotateToFaceBBEntryPtr {
 		return untyped __cpp__("&({0})", v);

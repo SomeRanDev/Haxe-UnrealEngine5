@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataflowComponent")
 @:include("Dataflow/DataflowComponent.h")
-@:structAccess
+@:valueType
 extern class DataflowComp extends PrimitiveComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataflowComp(DataflowComp) from DataflowComp {
 @:forward
 @:nativeGen
 @:native("DataflowComp*")
-abstract DataflowCompPtr(cpp.Star<DataflowComp>) from cpp.Star<DataflowComp> to cpp.Star<DataflowComp>{
+abstract DataflowCompPtr(ucpp.Ptr<DataflowComp>) from ucpp.Ptr<DataflowComp> to ucpp.Ptr<DataflowComp>{
 	@:from
 	public static extern inline function fromValue(v: DataflowComp): DataflowCompPtr {
 		return untyped __cpp__("&({0})", v);

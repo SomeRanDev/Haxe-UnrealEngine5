@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnChaosBreakingEvents__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnChaosBreakingEvents__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnChaosBreakingEvents__PythonCallable(OnChaosBreakingEvents__Pytho
 @:forward
 @:nativeGen
 @:native("OnChaosBreakingEvents__PythonCallable*")
-abstract OnChaosBreakingEvents__PythonCallablePtr(cpp.Star<OnChaosBreakingEvents__PythonCallable>) from cpp.Star<OnChaosBreakingEvents__PythonCallable> to cpp.Star<OnChaosBreakingEvents__PythonCallable>{
+abstract OnChaosBreakingEvents__PythonCallablePtr(ucpp.Ptr<OnChaosBreakingEvents__PythonCallable>) from ucpp.Ptr<OnChaosBreakingEvents__PythonCallable> to ucpp.Ptr<OnChaosBreakingEvents__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnChaosBreakingEvents__PythonCallable): OnChaosBreakingEvents__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneCameraShakeSourceTriggerChannel")
 @:include("Channels/MovieSceneCameraShakeSourceTriggerChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCameraShakeSourceTriggerChannel extends MovieSceneChannel {
 	private var KeyTimes: TArray<FrameNumber>;
 	private var KeyValues: TArray<MovieSceneCameraShakeSourceTrigger>;

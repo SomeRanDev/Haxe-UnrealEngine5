@@ -3,16 +3,16 @@ package ue;
 
 @:native("FPaperTerrainMaterialRule")
 @:include("PaperTerrainMaterial.h")
-@:structAccess
+@:valueType
 extern class PaperTerrainMaterialRule {
-	public var StartCap: cpp.Star<PaperSprite>;
-	public var Body: TArray<cpp.Star<PaperSprite>>;
-	public var EndCap: cpp.Star<PaperSprite>;
-	public var MinimumAngle: cpp.Float32;
-	public var MaximumAngle: cpp.Float32;
+	public var StartCap: ucpp.Ptr<PaperSprite>;
+	public var Body: TArray<ucpp.Ptr<PaperSprite>>;
+	public var EndCap: ucpp.Ptr<PaperSprite>;
+	public var MinimumAngle: ucpp.num.Float32;
+	public var MaximumAngle: ucpp.num.Float32;
 	public var bEnableCollision: Bool;
-	public var CollisionOffset: cpp.Float32;
-	public var DrawOrder: cpp.Int32;
+	public var CollisionOffset: ucpp.num.Float32;
+	public var DrawOrder: ucpp.num.Int32;
 
 	@:native("FPaperTerrainMaterialRule") public function new();
 }

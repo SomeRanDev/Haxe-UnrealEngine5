@@ -3,19 +3,19 @@ package ue;
 
 @:native("UDEditorTextureParameterValue")
 @:include("MaterialEditor/DEditorTextureParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorTextureParameterValue extends DEditorParameterValue {
-	public var ParameterValue: cpp.Star<Texture>;
+	public var ParameterValue: ucpp.Ptr<Texture>;
 	public var ChannelNames: ParameterChannelNames;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDEditorTextureParameterValue(DEditorTextureParameterValue) from DEditorTextureParameterValue {
-	public extern var ParameterValue(get, never): cpp.Star<Texture.ConstTexture>;
-	public inline extern function get_ParameterValue(): cpp.Star<Texture.ConstTexture> return this.ParameterValue;
+	public extern var ParameterValue(get, never): ucpp.Ptr<Texture.ConstTexture>;
+	public inline extern function get_ParameterValue(): ucpp.Ptr<Texture.ConstTexture> return this.ParameterValue;
 	public extern var ChannelNames(get, never): ParameterChannelNames;
 	public inline extern function get_ChannelNames(): ParameterChannelNames return this.ChannelNames;
 }
@@ -23,7 +23,7 @@ abstract ConstDEditorTextureParameterValue(DEditorTextureParameterValue) from DE
 @:forward
 @:nativeGen
 @:native("DEditorTextureParameterValue*")
-abstract DEditorTextureParameterValuePtr(cpp.Star<DEditorTextureParameterValue>) from cpp.Star<DEditorTextureParameterValue> to cpp.Star<DEditorTextureParameterValue>{
+abstract DEditorTextureParameterValuePtr(ucpp.Ptr<DEditorTextureParameterValue>) from ucpp.Ptr<DEditorTextureParameterValue> to ucpp.Ptr<DEditorTextureParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorTextureParameterValue): DEditorTextureParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

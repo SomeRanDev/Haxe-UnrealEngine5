@@ -3,16 +3,17 @@ package ue;
 
 @:native("UBoxComponent")
 @:include("Components/BoxComponent.h")
-@:structAccess
+@:valueType
 extern class BoxComp extends ShapeComp {
 	@:protected public var BoxExtent: Vector;
-	@:protected public var LineThickness: cpp.Float32;
+	@:protected public var LineThickness: ucpp.num.Float32;
 
+	public function SetLineThickness(Thickness: ucpp.num.Float32): Void;
 	public function SetBoxExtent(InBoxExtent: Vector, bUpdateOverlaps: Bool): Void;
 	public function GetUnscaledBoxExtent(): Vector;
 	public function GetScaledBoxExtent(): Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetUnscaledBoxExtent, GetScaledBoxExtent)
@@ -23,7 +24,7 @@ abstract ConstBoxComp(BoxComp) from BoxComp {
 @:forward
 @:nativeGen
 @:native("BoxComp*")
-abstract BoxCompPtr(cpp.Star<BoxComp>) from cpp.Star<BoxComp> to cpp.Star<BoxComp>{
+abstract BoxCompPtr(ucpp.Ptr<BoxComp>) from ucpp.Ptr<BoxComp> to ucpp.Ptr<BoxComp>{
 	@:from
 	public static extern inline function fromValue(v: BoxComp): BoxCompPtr {
 		return untyped __cpp__("&({0})", v);

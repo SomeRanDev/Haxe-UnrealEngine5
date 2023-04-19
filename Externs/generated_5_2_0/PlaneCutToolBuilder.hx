@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPlaneCutToolBuilder")
 @:include("PlaneCutTool.h")
-@:structAccess
+@:valueType
 extern class PlaneCutToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlaneCutToolBuilder(PlaneCutToolBuilder) from PlaneCutToolBuilder 
 @:forward
 @:nativeGen
 @:native("PlaneCutToolBuilder*")
-abstract PlaneCutToolBuilderPtr(cpp.Star<PlaneCutToolBuilder>) from cpp.Star<PlaneCutToolBuilder> to cpp.Star<PlaneCutToolBuilder>{
+abstract PlaneCutToolBuilderPtr(ucpp.Ptr<PlaneCutToolBuilder>) from ucpp.Ptr<PlaneCutToolBuilder> to ucpp.Ptr<PlaneCutToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: PlaneCutToolBuilder): PlaneCutToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

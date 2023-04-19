@@ -3,16 +3,19 @@ package ue;
 
 @:native("UNiagaraGraph")
 @:include("NiagaraGraph.h")
-@:structAccess
+@:valueType
 extern class NiagaraGraph extends EdGraph {
 	private var ChangeId: Guid;
 	private var ForceRebuildId: Guid;
 	private var LastBuiltTraversalDataChangeId: Guid;
+	private var LastBuiltScriptVersionId: Guid;
 	private var CachedUsageInfo: TArray<NiagaraGraphScriptUsageInfo>;
-	private var VariableToScriptVariable: TMap<NiagaraVariable, cpp.Star<NiagaraScriptVariable>>;
+	private var VariableToScriptVariable: TMap<NiagaraVariable, ucpp.Ptr<NiagaraScriptVariable>>;
 	private var ParameterToReferencesMap: TMap<NiagaraVariable, NiagaraGraphParameterReferenceCollection>;
+	private var CompilationScriptVariables: TArray<NiagaraScriptVariableData>;
+	private var bHasValidLastBuiltScriptVersionId: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +26,7 @@ abstract ConstNiagaraGraph(NiagaraGraph) from NiagaraGraph {
 @:forward
 @:nativeGen
 @:native("NiagaraGraph*")
-abstract NiagaraGraphPtr(cpp.Star<NiagaraGraph>) from cpp.Star<NiagaraGraph> to cpp.Star<NiagaraGraph>{
+abstract NiagaraGraphPtr(ucpp.Ptr<NiagaraGraph>) from ucpp.Ptr<NiagaraGraph> to ucpp.Ptr<NiagaraGraph>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraGraph): NiagaraGraphPtr {
 		return untyped __cpp__("&({0})", v);

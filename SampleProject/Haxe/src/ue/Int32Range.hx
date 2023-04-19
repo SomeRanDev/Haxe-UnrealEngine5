@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInt32Range")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Int32Range {
 	private var LowerBound: Int32RangeBound;
 	private var UpperBound: Int32RangeBound;

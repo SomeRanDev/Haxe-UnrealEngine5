@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlChannel")
 @:include("Engine/ControlChannel.h")
-@:structAccess
+@:valueType
 extern class ControlChannel extends Channel {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlChannel(ControlChannel) from ControlChannel {
 @:forward
 @:nativeGen
 @:native("ControlChannel*")
-abstract ControlChannelPtr(cpp.Star<ControlChannel>) from cpp.Star<ControlChannel> to cpp.Star<ControlChannel>{
+abstract ControlChannelPtr(ucpp.Ptr<ControlChannel>) from ucpp.Ptr<ControlChannel> to ucpp.Ptr<ControlChannel>{
 	@:from
 	public static extern inline function fromValue(v: ControlChannel): ControlChannelPtr {
 		return untyped __cpp__("&({0})", v);

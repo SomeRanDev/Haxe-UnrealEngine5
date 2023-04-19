@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneDataLayerSection")
 @:include("Sections/MovieSceneDataLayerSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDataLayerSection extends MovieSceneSection {
 	private var DataLayers: TArray<ActorDataLayer>;
-	private var DataLayerAssets: TArray<cpp.Star<DataLayerAsset>>;
+	private var DataLayerAssets: TArray<ucpp.Ptr<DataLayerAsset>>;
 	private var DesiredState: EDataLayerRuntimeState;
 	private var PrerollState: EDataLayerRuntimeState;
 	private var bFlushOnUnload: Bool;
@@ -14,15 +14,15 @@ extern class MovieSceneDataLayerSection extends MovieSceneSection {
 	public function SetPrerollState(InPrerollState: EDataLayerRuntimeState): Void;
 	public function SetFlushOnUnload(bFlushOnUnload: Bool): Void;
 	public function SetDesiredState(InDesiredState: EDataLayerRuntimeState): Void;
-	private function SetDataLayers(InDataLayers: cpp.Reference<TArray<ActorDataLayer>>): Void;
-	public function SetDataLayerAssets(InDataLayerAssets: cpp.Reference<TArray<cpp.Star<DataLayerAsset>>>): Void;
+	private function SetDataLayers(InDataLayers: ucpp.Ref<TArray<ActorDataLayer>>): Void;
+	public function SetDataLayerAssets(InDataLayerAssets: ucpp.Ref<TArray<ucpp.Ptr<DataLayerAsset>>>): Void;
 	public function GetPrerollState(): EDataLayerRuntimeState;
 	public function GetFlushOnUnload(): Bool;
 	public function GetDesiredState(): EDataLayerRuntimeState;
 	private function GetDataLayers(): TArray<ActorDataLayer>;
-	public function GetDataLayerAssets(): TArray<cpp.Star<DataLayerAsset>>;
+	public function GetDataLayerAssets(): TArray<ucpp.Ptr<DataLayerAsset>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPrerollState, GetFlushOnUnload, GetDesiredState, GetDataLayers, GetDataLayerAssets)
@@ -33,7 +33,7 @@ abstract ConstMovieSceneDataLayerSection(MovieSceneDataLayerSection) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneDataLayerSection*")
-abstract MovieSceneDataLayerSectionPtr(cpp.Star<MovieSceneDataLayerSection>) from cpp.Star<MovieSceneDataLayerSection> to cpp.Star<MovieSceneDataLayerSection>{
+abstract MovieSceneDataLayerSectionPtr(ucpp.Ptr<MovieSceneDataLayerSection>) from ucpp.Ptr<MovieSceneDataLayerSection> to ucpp.Ptr<MovieSceneDataLayerSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneDataLayerSection): MovieSceneDataLayerSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavLinkRenderingComponent")
 @:include("NavLinkRenderingComponent.h")
-@:structAccess
+@:valueType
 extern class NavLinkRenderingComp extends PrimitiveComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavLinkRenderingComp(NavLinkRenderingComp) from NavLinkRenderingCo
 @:forward
 @:nativeGen
 @:native("NavLinkRenderingComp*")
-abstract NavLinkRenderingCompPtr(cpp.Star<NavLinkRenderingComp>) from cpp.Star<NavLinkRenderingComp> to cpp.Star<NavLinkRenderingComp>{
+abstract NavLinkRenderingCompPtr(ucpp.Ptr<NavLinkRenderingComp>) from ucpp.Ptr<NavLinkRenderingComp> to ucpp.Ptr<NavLinkRenderingComp>{
 	@:from
 	public static extern inline function fromValue(v: NavLinkRenderingComp): NavLinkRenderingCompPtr {
 		return untyped __cpp__("&({0})", v);

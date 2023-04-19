@@ -3,10 +3,10 @@ package ue;
 
 @:native("USSCSEditorMenuContext")
 @:include("SSCSEditorMenuContext.h")
-@:structAccess
+@:valueType
 extern class SSCSEditorMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSSCSEditorMenuContext(SSCSEditorMenuContext) from SSCSEditorMenuCo
 @:forward
 @:nativeGen
 @:native("SSCSEditorMenuContext*")
-abstract SSCSEditorMenuContextPtr(cpp.Star<SSCSEditorMenuContext>) from cpp.Star<SSCSEditorMenuContext> to cpp.Star<SSCSEditorMenuContext>{
+abstract SSCSEditorMenuContextPtr(ucpp.Ptr<SSCSEditorMenuContext>) from ucpp.Ptr<SSCSEditorMenuContext> to ucpp.Ptr<SSCSEditorMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: SSCSEditorMenuContext): SSCSEditorMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

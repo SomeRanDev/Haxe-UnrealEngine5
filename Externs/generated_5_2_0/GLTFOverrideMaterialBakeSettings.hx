@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGLTFOverrideMaterialBakeSettings")
 @:include("UserData/GLTFMaterialUserData.h")
-@:structAccess
+@:valueType
 extern class GLTFOverrideMaterialBakeSettings {
 	public var bOverrideSize: Bool;
 	public var Size: EGLTFMaterialBakeSizePOT;

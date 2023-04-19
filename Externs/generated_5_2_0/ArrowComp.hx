@@ -3,25 +3,25 @@ package ue;
 
 @:native("UArrowComponent")
 @:include("Components/ArrowComponent.h")
-@:structAccess
+@:valueType
 extern class ArrowComp extends PrimitiveComp {
 	public var ArrowColor: Color;
-	public var ArrowSize: cpp.Float32;
-	public var ArrowLength: cpp.Float32;
-	public var ScreenSize: cpp.Float32;
+	public var ArrowSize: ucpp.num.Float32;
+	public var ArrowLength: ucpp.num.Float32;
+	public var ScreenSize: ucpp.num.Float32;
 	public var bIsScreenSizeScaled: Bool;
 	public var bTreatAsASprite: Bool;
 
 	public function SetUseInEditorScaling(bNewValue: Bool): Void;
 	public function SetTreatAsASprite(bNewValue: Bool): Void;
-	public function SetScreenSize(NewScreenSize: cpp.Float32): Void;
+	public function SetScreenSize(NewScreenSize: ucpp.num.Float32): Void;
 	public function SetIsScreenSizeScaled(bNewValue: Bool): Void;
-	public function SetArrowSize(NewSize: cpp.Float32): Void;
-	public function SetArrowLength(NewLength: cpp.Float32): Void;
+	public function SetArrowSize(NewSize: ucpp.num.Float32): Void;
+	public function SetArrowLength(NewLength: ucpp.num.Float32): Void;
 	public function SetArrowFColor(NewColor: Color): Void;
 	public function SetArrowColor(NewColor: LinearColor): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,12 +29,12 @@ extern class ArrowComp extends PrimitiveComp {
 abstract ConstArrowComp(ArrowComp) from ArrowComp {
 	public extern var ArrowColor(get, never): Color;
 	public inline extern function get_ArrowColor(): Color return this.ArrowColor;
-	public extern var ArrowSize(get, never): cpp.Float32;
-	public inline extern function get_ArrowSize(): cpp.Float32 return this.ArrowSize;
-	public extern var ArrowLength(get, never): cpp.Float32;
-	public inline extern function get_ArrowLength(): cpp.Float32 return this.ArrowLength;
-	public extern var ScreenSize(get, never): cpp.Float32;
-	public inline extern function get_ScreenSize(): cpp.Float32 return this.ScreenSize;
+	public extern var ArrowSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ArrowSize(): ucpp.num.Float32 return this.ArrowSize;
+	public extern var ArrowLength(get, never): ucpp.num.Float32;
+	public inline extern function get_ArrowLength(): ucpp.num.Float32 return this.ArrowLength;
+	public extern var ScreenSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ScreenSize(): ucpp.num.Float32 return this.ScreenSize;
 	public extern var bIsScreenSizeScaled(get, never): Bool;
 	public inline extern function get_bIsScreenSizeScaled(): Bool return this.bIsScreenSizeScaled;
 	public extern var bTreatAsASprite(get, never): Bool;
@@ -44,7 +44,7 @@ abstract ConstArrowComp(ArrowComp) from ArrowComp {
 @:forward
 @:nativeGen
 @:native("ArrowComp*")
-abstract ArrowCompPtr(cpp.Star<ArrowComp>) from cpp.Star<ArrowComp> to cpp.Star<ArrowComp>{
+abstract ArrowCompPtr(ucpp.Ptr<ArrowComp>) from ucpp.Ptr<ArrowComp> to ucpp.Ptr<ArrowComp>{
 	@:from
 	public static extern inline function fromValue(v: ArrowComp): ArrowCompPtr {
 		return untyped __cpp__("&({0})", v);

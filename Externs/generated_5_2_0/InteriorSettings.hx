@@ -3,17 +3,17 @@ package ue;
 
 @:native("FInteriorSettings")
 @:include("Sound/AudioVolume.h")
-@:structAccess
+@:valueType
 extern class InteriorSettings {
 	public var bIsWorldSettings: Bool;
-	public var ExteriorVolume: cpp.Float32;
-	public var ExteriorTime: cpp.Float32;
-	public var ExteriorLPF: cpp.Float32;
-	public var ExteriorLPFTime: cpp.Float32;
-	public var InteriorVolume: cpp.Float32;
-	public var InteriorTime: cpp.Float32;
-	public var InteriorLPF: cpp.Float32;
-	public var InteriorLPFTime: cpp.Float32;
+	public var ExteriorVolume: ucpp.num.Float32;
+	public var ExteriorTime: ucpp.num.Float32;
+	public var ExteriorLPF: ucpp.num.Float32;
+	public var ExteriorLPFTime: ucpp.num.Float32;
+	public var InteriorVolume: ucpp.num.Float32;
+	public var InteriorTime: ucpp.num.Float32;
+	public var InteriorLPF: ucpp.num.Float32;
+	public var InteriorLPFTime: ucpp.num.Float32;
 
 	@:native("FInteriorSettings") public function new();
 }

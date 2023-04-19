@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVoxelSolidifyMeshesTool")
 @:include("VoxelSolidifyMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelSolidifyMeshesTool extends BaseVoxelTool {
-	@:protected public var SolidifyProperties: cpp.Star<VoxelSolidifyMeshesToolProperties>;
+	@:protected public var SolidifyProperties: ucpp.Ptr<VoxelSolidifyMeshesToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVoxelSolidifyMeshesTool(VoxelSolidifyMeshesTool) from VoxelSolidif
 @:forward
 @:nativeGen
 @:native("VoxelSolidifyMeshesTool*")
-abstract VoxelSolidifyMeshesToolPtr(cpp.Star<VoxelSolidifyMeshesTool>) from cpp.Star<VoxelSolidifyMeshesTool> to cpp.Star<VoxelSolidifyMeshesTool>{
+abstract VoxelSolidifyMeshesToolPtr(ucpp.Ptr<VoxelSolidifyMeshesTool>) from ucpp.Ptr<VoxelSolidifyMeshesTool> to ucpp.Ptr<VoxelSolidifyMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: VoxelSolidifyMeshesTool): VoxelSolidifyMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,37 +3,37 @@ package ue;
 
 @:native("UClothConfigNv")
 @:include("ClothConfigNv.h")
-@:structAccess
+@:valueType
 extern class ClothConfigNv extends ClothConfigCommon {
 	public var ClothingWindMethod: EClothingWindMethodNv;
 	public var VerticalConstraint: ClothConstraintSetupNv;
 	public var HorizontalConstraint: ClothConstraintSetupNv;
 	public var BendConstraint: ClothConstraintSetupNv;
 	public var ShearConstraint: ClothConstraintSetupNv;
-	public var SelfCollisionRadius: cpp.Float32;
-	public var SelfCollisionStiffness: cpp.Float32;
-	public var SelfCollisionCullScale: cpp.Float32;
+	public var SelfCollisionRadius: ucpp.num.Float32;
+	public var SelfCollisionStiffness: ucpp.num.Float32;
+	public var SelfCollisionCullScale: ucpp.num.Float32;
 	public var Damping: Vector;
-	public var Friction: cpp.Float32;
-	public var WindDragCoefficient: cpp.Float32;
-	public var WindLiftCoefficient: cpp.Float32;
+	public var Friction: ucpp.num.Float32;
+	public var WindDragCoefficient: ucpp.num.Float32;
+	public var WindLiftCoefficient: ucpp.num.Float32;
 	public var LinearDrag: Vector;
 	public var AngularDrag: Vector;
 	public var LinearInertiaScale: Vector;
 	public var AngularInertiaScale: Vector;
 	public var CentrifugalInertiaScale: Vector;
-	public var SolverFrequency: cpp.Float32;
-	public var StiffnessFrequency: cpp.Float32;
-	public var GravityScale: cpp.Float32;
+	public var SolverFrequency: ucpp.num.Float32;
+	public var StiffnessFrequency: ucpp.num.Float32;
+	public var GravityScale: ucpp.num.Float32;
 	public var GravityOverride: Vector;
 	public var bUseGravityOverride: Bool;
-	public var TetherStiffness: cpp.Float32;
-	public var TetherLimit: cpp.Float32;
-	public var CollisionThickness: cpp.Float32;
-	public var AnimDriveSpringStiffness: cpp.Float32;
-	public var AnimDriveDamperStiffness: cpp.Float32;
+	public var TetherStiffness: ucpp.num.Float32;
+	public var TetherLimit: ucpp.num.Float32;
+	public var CollisionThickness: ucpp.num.Float32;
+	public var AnimDriveSpringStiffness: ucpp.num.Float32;
+	public var AnimDriveDamperStiffness: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -49,20 +49,20 @@ abstract ConstClothConfigNv(ClothConfigNv) from ClothConfigNv {
 	public inline extern function get_BendConstraint(): ClothConstraintSetupNv return this.BendConstraint;
 	public extern var ShearConstraint(get, never): ClothConstraintSetupNv;
 	public inline extern function get_ShearConstraint(): ClothConstraintSetupNv return this.ShearConstraint;
-	public extern var SelfCollisionRadius(get, never): cpp.Float32;
-	public inline extern function get_SelfCollisionRadius(): cpp.Float32 return this.SelfCollisionRadius;
-	public extern var SelfCollisionStiffness(get, never): cpp.Float32;
-	public inline extern function get_SelfCollisionStiffness(): cpp.Float32 return this.SelfCollisionStiffness;
-	public extern var SelfCollisionCullScale(get, never): cpp.Float32;
-	public inline extern function get_SelfCollisionCullScale(): cpp.Float32 return this.SelfCollisionCullScale;
+	public extern var SelfCollisionRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_SelfCollisionRadius(): ucpp.num.Float32 return this.SelfCollisionRadius;
+	public extern var SelfCollisionStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_SelfCollisionStiffness(): ucpp.num.Float32 return this.SelfCollisionStiffness;
+	public extern var SelfCollisionCullScale(get, never): ucpp.num.Float32;
+	public inline extern function get_SelfCollisionCullScale(): ucpp.num.Float32 return this.SelfCollisionCullScale;
 	public extern var Damping(get, never): Vector;
 	public inline extern function get_Damping(): Vector return this.Damping;
-	public extern var Friction(get, never): cpp.Float32;
-	public inline extern function get_Friction(): cpp.Float32 return this.Friction;
-	public extern var WindDragCoefficient(get, never): cpp.Float32;
-	public inline extern function get_WindDragCoefficient(): cpp.Float32 return this.WindDragCoefficient;
-	public extern var WindLiftCoefficient(get, never): cpp.Float32;
-	public inline extern function get_WindLiftCoefficient(): cpp.Float32 return this.WindLiftCoefficient;
+	public extern var Friction(get, never): ucpp.num.Float32;
+	public inline extern function get_Friction(): ucpp.num.Float32 return this.Friction;
+	public extern var WindDragCoefficient(get, never): ucpp.num.Float32;
+	public inline extern function get_WindDragCoefficient(): ucpp.num.Float32 return this.WindDragCoefficient;
+	public extern var WindLiftCoefficient(get, never): ucpp.num.Float32;
+	public inline extern function get_WindLiftCoefficient(): ucpp.num.Float32 return this.WindLiftCoefficient;
 	public extern var LinearDrag(get, never): Vector;
 	public inline extern function get_LinearDrag(): Vector return this.LinearDrag;
 	public extern var AngularDrag(get, never): Vector;
@@ -73,32 +73,32 @@ abstract ConstClothConfigNv(ClothConfigNv) from ClothConfigNv {
 	public inline extern function get_AngularInertiaScale(): Vector return this.AngularInertiaScale;
 	public extern var CentrifugalInertiaScale(get, never): Vector;
 	public inline extern function get_CentrifugalInertiaScale(): Vector return this.CentrifugalInertiaScale;
-	public extern var SolverFrequency(get, never): cpp.Float32;
-	public inline extern function get_SolverFrequency(): cpp.Float32 return this.SolverFrequency;
-	public extern var StiffnessFrequency(get, never): cpp.Float32;
-	public inline extern function get_StiffnessFrequency(): cpp.Float32 return this.StiffnessFrequency;
-	public extern var GravityScale(get, never): cpp.Float32;
-	public inline extern function get_GravityScale(): cpp.Float32 return this.GravityScale;
+	public extern var SolverFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_SolverFrequency(): ucpp.num.Float32 return this.SolverFrequency;
+	public extern var StiffnessFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_StiffnessFrequency(): ucpp.num.Float32 return this.StiffnessFrequency;
+	public extern var GravityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GravityScale(): ucpp.num.Float32 return this.GravityScale;
 	public extern var GravityOverride(get, never): Vector;
 	public inline extern function get_GravityOverride(): Vector return this.GravityOverride;
 	public extern var bUseGravityOverride(get, never): Bool;
 	public inline extern function get_bUseGravityOverride(): Bool return this.bUseGravityOverride;
-	public extern var TetherStiffness(get, never): cpp.Float32;
-	public inline extern function get_TetherStiffness(): cpp.Float32 return this.TetherStiffness;
-	public extern var TetherLimit(get, never): cpp.Float32;
-	public inline extern function get_TetherLimit(): cpp.Float32 return this.TetherLimit;
-	public extern var CollisionThickness(get, never): cpp.Float32;
-	public inline extern function get_CollisionThickness(): cpp.Float32 return this.CollisionThickness;
-	public extern var AnimDriveSpringStiffness(get, never): cpp.Float32;
-	public inline extern function get_AnimDriveSpringStiffness(): cpp.Float32 return this.AnimDriveSpringStiffness;
-	public extern var AnimDriveDamperStiffness(get, never): cpp.Float32;
-	public inline extern function get_AnimDriveDamperStiffness(): cpp.Float32 return this.AnimDriveDamperStiffness;
+	public extern var TetherStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_TetherStiffness(): ucpp.num.Float32 return this.TetherStiffness;
+	public extern var TetherLimit(get, never): ucpp.num.Float32;
+	public inline extern function get_TetherLimit(): ucpp.num.Float32 return this.TetherLimit;
+	public extern var CollisionThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_CollisionThickness(): ucpp.num.Float32 return this.CollisionThickness;
+	public extern var AnimDriveSpringStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_AnimDriveSpringStiffness(): ucpp.num.Float32 return this.AnimDriveSpringStiffness;
+	public extern var AnimDriveDamperStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_AnimDriveDamperStiffness(): ucpp.num.Float32 return this.AnimDriveDamperStiffness;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothConfigNv*")
-abstract ClothConfigNvPtr(cpp.Star<ClothConfigNv>) from cpp.Star<ClothConfigNv> to cpp.Star<ClothConfigNv>{
+abstract ClothConfigNvPtr(ucpp.Ptr<ClothConfigNv>) from ucpp.Ptr<ClothConfigNv> to ucpp.Ptr<ClothConfigNv>{
 	@:from
 	public static extern inline function fromValue(v: ClothConfigNv): ClothConfigNvPtr {
 		return untyped __cpp__("&({0})", v);

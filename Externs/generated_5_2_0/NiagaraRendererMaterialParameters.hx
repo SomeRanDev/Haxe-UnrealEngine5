@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraRendererMaterialParameters")
 @:include("NiagaraRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRendererMaterialParameters {
 	public var AttributeBindings: TArray<NiagaraMaterialAttributeBinding>;
 	public var ScalarParameters: TArray<NiagaraRendererMaterialScalarParameter>;

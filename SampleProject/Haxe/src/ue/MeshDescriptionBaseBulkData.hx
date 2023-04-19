@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshDescriptionBaseBulkData")
 @:include("MeshDescriptionBaseBulkData.h")
-@:structAccess
+@:valueType
 extern class MeshDescriptionBaseBulkData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshDescriptionBaseBulkData(MeshDescriptionBaseBulkData) from Mesh
 @:forward
 @:nativeGen
 @:native("MeshDescriptionBaseBulkData*")
-abstract MeshDescriptionBaseBulkDataPtr(cpp.Star<MeshDescriptionBaseBulkData>) from cpp.Star<MeshDescriptionBaseBulkData> to cpp.Star<MeshDescriptionBaseBulkData>{
+abstract MeshDescriptionBaseBulkDataPtr(ucpp.Ptr<MeshDescriptionBaseBulkData>) from ucpp.Ptr<MeshDescriptionBaseBulkData> to ucpp.Ptr<MeshDescriptionBaseBulkData>{
 	@:from
 	public static extern inline function fromValue(v: MeshDescriptionBaseBulkData): MeshDescriptionBaseBulkDataPtr {
 		return untyped __cpp__("&({0})", v);

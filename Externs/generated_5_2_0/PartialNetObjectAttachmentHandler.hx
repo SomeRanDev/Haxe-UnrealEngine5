@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPartialNetObjectAttachmentHandler")
 @:include("Iris/ReplicationSystem/NetBlob/PartialNetObjectAttachmentHandler.h")
-@:structAccess
+@:valueType
 extern class PartialNetObjectAttachmentHandler extends SequentialPartialNetBlobHandler {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPartialNetObjectAttachmentHandler(PartialNetObjectAttachmentHandle
 @:forward
 @:nativeGen
 @:native("PartialNetObjectAttachmentHandler*")
-abstract PartialNetObjectAttachmentHandlerPtr(cpp.Star<PartialNetObjectAttachmentHandler>) from cpp.Star<PartialNetObjectAttachmentHandler> to cpp.Star<PartialNetObjectAttachmentHandler>{
+abstract PartialNetObjectAttachmentHandlerPtr(ucpp.Ptr<PartialNetObjectAttachmentHandler>) from ucpp.Ptr<PartialNetObjectAttachmentHandler> to ucpp.Ptr<PartialNetObjectAttachmentHandler>{
 	@:from
 	public static extern inline function fromValue(v: PartialNetObjectAttachmentHandler): PartialNetObjectAttachmentHandlerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULandscapeLayerInfoObject")
 @:include("LandscapeLayerInfoObject.h")
-@:structAccess
+@:valueType
 extern class LandscapeLayerInfoObject extends Object {
 	public var LayerName: FName;
-	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
-	public var Hardness: cpp.Float32;
+	public var PhysMaterial: ucpp.Ptr<PhysicalMaterial>;
+	public var Hardness: ucpp.num.Float32;
 	public var LayerUsageDebugColor: LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,10 +18,10 @@ extern class LandscapeLayerInfoObject extends Object {
 abstract ConstLandscapeLayerInfoObject(LandscapeLayerInfoObject) from LandscapeLayerInfoObject {
 	public extern var LayerName(get, never): FName;
 	public inline extern function get_LayerName(): FName return this.LayerName;
-	public extern var PhysMaterial(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
-	public inline extern function get_PhysMaterial(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
-	public extern var Hardness(get, never): cpp.Float32;
-	public inline extern function get_Hardness(): cpp.Float32 return this.Hardness;
+	public extern var PhysMaterial(get, never): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>;
+	public inline extern function get_PhysMaterial(): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
+	public extern var Hardness(get, never): ucpp.num.Float32;
+	public inline extern function get_Hardness(): ucpp.num.Float32 return this.Hardness;
 	public extern var LayerUsageDebugColor(get, never): LinearColor;
 	public inline extern function get_LayerUsageDebugColor(): LinearColor return this.LayerUsageDebugColor;
 }
@@ -29,7 +29,7 @@ abstract ConstLandscapeLayerInfoObject(LandscapeLayerInfoObject) from LandscapeL
 @:forward
 @:nativeGen
 @:native("LandscapeLayerInfoObject*")
-abstract LandscapeLayerInfoObjectPtr(cpp.Star<LandscapeLayerInfoObject>) from cpp.Star<LandscapeLayerInfoObject> to cpp.Star<LandscapeLayerInfoObject>{
+abstract LandscapeLayerInfoObjectPtr(ucpp.Ptr<LandscapeLayerInfoObject>) from ucpp.Ptr<LandscapeLayerInfoObject> to ucpp.Ptr<LandscapeLayerInfoObject>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeLayerInfoObject): LandscapeLayerInfoObjectPtr {
 		return untyped __cpp__("&({0})", v);

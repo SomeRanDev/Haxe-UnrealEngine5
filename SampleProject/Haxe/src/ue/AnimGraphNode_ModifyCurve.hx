@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ModifyCurve")
 @:include("AnimGraphNode_ModifyCurve.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_ModifyCurve extends AnimGraphNode_Base {
 	private var Node: AnimNode_ModifyCurve;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimGraphNode_ModifyCurve(AnimGraphNode_ModifyCurve) from AnimGrap
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_ModifyCurve*")
-abstract AnimGraphNode_ModifyCurvePtr(cpp.Star<AnimGraphNode_ModifyCurve>) from cpp.Star<AnimGraphNode_ModifyCurve> to cpp.Star<AnimGraphNode_ModifyCurve>{
+abstract AnimGraphNode_ModifyCurvePtr(ucpp.Ptr<AnimGraphNode_ModifyCurve>) from ucpp.Ptr<AnimGraphNode_ModifyCurve> to ucpp.Ptr<AnimGraphNode_ModifyCurve>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_ModifyCurve): AnimGraphNode_ModifyCurvePtr {
 		return untyped __cpp__("&({0})", v);

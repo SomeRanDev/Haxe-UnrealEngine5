@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPlatformsMenuSettings")
 @:include("Settings/PlatformsMenuSettings.h")
-@:structAccess
+@:valueType
 extern class PlatformsMenuSettings extends Object {
 	public var StagingDirectory: DirectoryPath;
 	public var LaunchOnTarget: FString;
@@ -11,7 +11,7 @@ extern class PlatformsMenuSettings extends Object {
 	private var PerPlatformTargetFlavorName: TMap<FName, FName>;
 	private var PerPlatformBuildTarget: TMap<FName, FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstPlatformsMenuSettings(PlatformsMenuSettings) from PlatformsMenuSet
 @:forward
 @:nativeGen
 @:native("PlatformsMenuSettings*")
-abstract PlatformsMenuSettingsPtr(cpp.Star<PlatformsMenuSettings>) from cpp.Star<PlatformsMenuSettings> to cpp.Star<PlatformsMenuSettings>{
+abstract PlatformsMenuSettingsPtr(ucpp.Ptr<PlatformsMenuSettings>) from ucpp.Ptr<PlatformsMenuSettings> to ucpp.Ptr<PlatformsMenuSettings>{
 	@:from
 	public static extern inline function fromValue(v: PlatformsMenuSettings): PlatformsMenuSettingsPtr {
 		return untyped __cpp__("&({0})", v);

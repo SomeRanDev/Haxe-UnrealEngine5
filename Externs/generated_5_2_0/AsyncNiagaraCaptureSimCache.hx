@@ -3,26 +3,26 @@ package ue;
 
 @:native("UAsyncNiagaraCaptureSimCache")
 @:include("NiagaraSimCacheFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class AsyncNiagaraCaptureSimCache extends BlueprintAsyncActionBase {
-	public var CaptureSimCache: cpp.Star<NiagaraSimCache>;
-	public var CaptureComponent: cpp.Star<NiagaraComp>;
+	public var CaptureSimCache: ucpp.Ptr<NiagaraSimCache>;
+	public var CaptureComponent: ucpp.Ptr<NiagaraComp>;
 	public var CaptureComplete: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 
 	public function OnCaptureComplete__DelegateSignature(bSuccess: Bool): Void;
-	public function CaptureNiagaraSimCacheUntilComplete(SimCache: cpp.Star<NiagaraSimCache>, CreateParameters: NiagaraSimCacheCreateParameters, NiagaraComponent: cpp.Star<NiagaraComp>, OutSimCache: cpp.Reference<cpp.Star<NiagaraSimCache>>, CaptureRate: cpp.Int32, bAdvanceSimulation: Bool, AdvanceDeltaTime: cpp.Float32): cpp.Star<AsyncNiagaraCaptureSimCache>;
-	public function CaptureNiagaraSimCacheMultiFrame(SimCache: cpp.Star<NiagaraSimCache>, CreateParameters: NiagaraSimCacheCreateParameters, NiagaraComponent: cpp.Star<NiagaraComp>, OutSimCache: cpp.Reference<cpp.Star<NiagaraSimCache>>, NumFrames: cpp.Int32, CaptureRate: cpp.Int32, bAdvanceSimulation: Bool, AdvanceDeltaTime: cpp.Float32): cpp.Star<AsyncNiagaraCaptureSimCache>;
+	public function CaptureNiagaraSimCacheUntilComplete(SimCache: ucpp.Ptr<NiagaraSimCache>, CreateParameters: NiagaraSimCacheCreateParameters, NiagaraComponent: ucpp.Ptr<NiagaraComp>, OutSimCache: ucpp.Ref<ucpp.Ptr<NiagaraSimCache>>, CaptureRate: ucpp.num.Int32, bAdvanceSimulation: Bool, AdvanceDeltaTime: ucpp.num.Float32): ucpp.Ptr<AsyncNiagaraCaptureSimCache>;
+	public function CaptureNiagaraSimCacheMultiFrame(SimCache: ucpp.Ptr<NiagaraSimCache>, CreateParameters: NiagaraSimCacheCreateParameters, NiagaraComponent: ucpp.Ptr<NiagaraComp>, OutSimCache: ucpp.Ref<ucpp.Ptr<NiagaraSimCache>>, NumFrames: ucpp.num.Int32, CaptureRate: ucpp.num.Int32, bAdvanceSimulation: Bool, AdvanceDeltaTime: ucpp.num.Float32): ucpp.Ptr<AsyncNiagaraCaptureSimCache>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncNiagaraCaptureSimCache(AsyncNiagaraCaptureSimCache) from AsyncNiagaraCaptureSimCache {
-	public extern var CaptureSimCache(get, never): cpp.Star<NiagaraSimCache.ConstNiagaraSimCache>;
-	public inline extern function get_CaptureSimCache(): cpp.Star<NiagaraSimCache.ConstNiagaraSimCache> return this.CaptureSimCache;
-	public extern var CaptureComponent(get, never): cpp.Star<NiagaraComp.ConstNiagaraComp>;
-	public inline extern function get_CaptureComponent(): cpp.Star<NiagaraComp.ConstNiagaraComp> return this.CaptureComponent;
+	public extern var CaptureSimCache(get, never): ucpp.Ptr<NiagaraSimCache.ConstNiagaraSimCache>;
+	public inline extern function get_CaptureSimCache(): ucpp.Ptr<NiagaraSimCache.ConstNiagaraSimCache> return this.CaptureSimCache;
+	public extern var CaptureComponent(get, never): ucpp.Ptr<NiagaraComp.ConstNiagaraComp>;
+	public inline extern function get_CaptureComponent(): ucpp.Ptr<NiagaraComp.ConstNiagaraComp> return this.CaptureComponent;
 	public extern var CaptureComplete(get, never): HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public inline extern function get_CaptureComplete(): HaxeMulticastSparseDelegateProperty<(Bool) -> Void> return this.CaptureComplete;
 }
@@ -30,7 +30,7 @@ abstract ConstAsyncNiagaraCaptureSimCache(AsyncNiagaraCaptureSimCache) from Asyn
 @:forward
 @:nativeGen
 @:native("AsyncNiagaraCaptureSimCache*")
-abstract AsyncNiagaraCaptureSimCachePtr(cpp.Star<AsyncNiagaraCaptureSimCache>) from cpp.Star<AsyncNiagaraCaptureSimCache> to cpp.Star<AsyncNiagaraCaptureSimCache>{
+abstract AsyncNiagaraCaptureSimCachePtr(ucpp.Ptr<AsyncNiagaraCaptureSimCache>) from ucpp.Ptr<AsyncNiagaraCaptureSimCache> to ucpp.Ptr<AsyncNiagaraCaptureSimCache>{
 	@:from
 	public static extern inline function fromValue(v: AsyncNiagaraCaptureSimCache): AsyncNiagaraCaptureSimCachePtr {
 		return untyped __cpp__("&({0})", v);

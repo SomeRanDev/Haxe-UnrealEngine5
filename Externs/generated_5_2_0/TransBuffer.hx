@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTransBuffer")
 @:include("Editor/TransBuffer.h")
-@:structAccess
+@:valueType
 extern class TransBuffer extends Transactor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTransBuffer(TransBuffer) from TransBuffer {
 @:forward
 @:nativeGen
 @:native("TransBuffer*")
-abstract TransBufferPtr(cpp.Star<TransBuffer>) from cpp.Star<TransBuffer> to cpp.Star<TransBuffer>{
+abstract TransBufferPtr(ucpp.Ptr<TransBuffer>) from ucpp.Ptr<TransBuffer> to ucpp.Ptr<TransBuffer>{
 	@:from
 	public static extern inline function fromValue(v: TransBuffer): TransBufferPtr {
 		return untyped __cpp__("&({0})", v);

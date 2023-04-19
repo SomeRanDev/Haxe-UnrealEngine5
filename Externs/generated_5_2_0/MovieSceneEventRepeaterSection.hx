@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneEventRepeaterSection")
 @:include("Sections/MovieSceneEventRepeaterSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventRepeaterSection extends MovieSceneEventSectionBase {
 	public var Event: MovieSceneEvent;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneEventRepeaterSection(MovieSceneEventRepeaterSection) fro
 @:forward
 @:nativeGen
 @:native("MovieSceneEventRepeaterSection*")
-abstract MovieSceneEventRepeaterSectionPtr(cpp.Star<MovieSceneEventRepeaterSection>) from cpp.Star<MovieSceneEventRepeaterSection> to cpp.Star<MovieSceneEventRepeaterSection>{
+abstract MovieSceneEventRepeaterSectionPtr(ucpp.Ptr<MovieSceneEventRepeaterSection>) from ucpp.Ptr<MovieSceneEventRepeaterSection> to ucpp.Ptr<MovieSceneEventRepeaterSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEventRepeaterSection): MovieSceneEventRepeaterSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComboBoxString_OnSelectionChangedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComboBoxString_OnSelectionChangedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComboBoxString_OnSelectionChangedEvent__PythonCallable(ComboBoxStr
 @:forward
 @:nativeGen
 @:native("ComboBoxString_OnSelectionChangedEvent__PythonCallable*")
-abstract ComboBoxString_OnSelectionChangedEvent__PythonCallablePtr(cpp.Star<ComboBoxString_OnSelectionChangedEvent__PythonCallable>) from cpp.Star<ComboBoxString_OnSelectionChangedEvent__PythonCallable> to cpp.Star<ComboBoxString_OnSelectionChangedEvent__PythonCallable>{
+abstract ComboBoxString_OnSelectionChangedEvent__PythonCallablePtr(ucpp.Ptr<ComboBoxString_OnSelectionChangedEvent__PythonCallable>) from ucpp.Ptr<ComboBoxString_OnSelectionChangedEvent__PythonCallable> to ucpp.Ptr<ComboBoxString_OnSelectionChangedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComboBoxString_OnSelectionChangedEvent__PythonCallable): ComboBoxString_OnSelectionChangedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,19 @@ package ue;
 
 @:native("ADatasmithSceneActor")
 @:include("DatasmithSceneActor.h")
-@:structAccess
+@:valueType
 extern class DatasmithSceneActor extends Actor {
-	public var Scene: cpp.Star<DatasmithScene>;
+	public var Scene: ucpp.Ptr<DatasmithScene>;
 	public var RelatedActors: TMap<FName, TSoftObjectPtr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDatasmithSceneActor(DatasmithSceneActor) from DatasmithSceneActor {
-	public extern var Scene(get, never): cpp.Star<DatasmithScene.ConstDatasmithScene>;
-	public inline extern function get_Scene(): cpp.Star<DatasmithScene.ConstDatasmithScene> return this.Scene;
+	public extern var Scene(get, never): ucpp.Ptr<DatasmithScene.ConstDatasmithScene>;
+	public inline extern function get_Scene(): ucpp.Ptr<DatasmithScene.ConstDatasmithScene> return this.Scene;
 	public extern var RelatedActors(get, never): TMap<FName, TSoftObjectPtr<Actor.ConstActor>>;
 	public inline extern function get_RelatedActors(): TMap<FName, TSoftObjectPtr<Actor.ConstActor>> return this.RelatedActors;
 }
@@ -23,7 +23,7 @@ abstract ConstDatasmithSceneActor(DatasmithSceneActor) from DatasmithSceneActor 
 @:forward
 @:nativeGen
 @:native("DatasmithSceneActor*")
-abstract DatasmithSceneActorPtr(cpp.Star<DatasmithSceneActor>) from cpp.Star<DatasmithSceneActor> to cpp.Star<DatasmithSceneActor>{
+abstract DatasmithSceneActorPtr(ucpp.Ptr<DatasmithSceneActor>) from ucpp.Ptr<DatasmithSceneActor> to ucpp.Ptr<DatasmithSceneActor>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithSceneActor): DatasmithSceneActorPtr {
 		return untyped __cpp__("&({0})", v);

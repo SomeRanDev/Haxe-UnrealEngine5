@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTickableConstraint")
 @:include("ConstraintsManager.h")
-@:structAccess
+@:valueType
 extern class TickableConstraint extends Object {
 	public var ConstraintTick: ConstraintTickFunction;
 	public var Active: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstTickableConstraint(TickableConstraint) from TickableConstraint {
 @:forward
 @:nativeGen
 @:native("TickableConstraint*")
-abstract TickableConstraintPtr(cpp.Star<TickableConstraint>) from cpp.Star<TickableConstraint> to cpp.Star<TickableConstraint>{
+abstract TickableConstraintPtr(ucpp.Ptr<TickableConstraint>) from ucpp.Ptr<TickableConstraint> to ucpp.Ptr<TickableConstraint>{
 	@:from
 	public static extern inline function fromValue(v: TickableConstraint): TickableConstraintPtr {
 		return untyped __cpp__("&({0})", v);

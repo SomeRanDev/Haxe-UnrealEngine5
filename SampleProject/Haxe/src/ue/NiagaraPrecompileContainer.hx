@@ -3,27 +3,27 @@ package ue;
 
 @:native("UNiagaraPrecompileContainer")
 @:include("NiagaraPrecompileContainer.h")
-@:structAccess
+@:valueType
 extern class NiagaraPrecompileContainer extends Object {
-	public var Scripts: TArray<cpp.Star<NiagaraScript>>;
-	public var System: cpp.Star<NiagaraSystem>;
+	public var Scripts: TArray<ucpp.Ptr<NiagaraScript>>;
+	public var System: ucpp.Ptr<NiagaraSystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraPrecompileContainer(NiagaraPrecompileContainer) from NiagaraPrecompileContainer {
-	public extern var Scripts(get, never): TArray<cpp.Star<NiagaraScript.ConstNiagaraScript>>;
-	public inline extern function get_Scripts(): TArray<cpp.Star<NiagaraScript.ConstNiagaraScript>> return this.Scripts;
-	public extern var System(get, never): cpp.Star<NiagaraSystem.ConstNiagaraSystem>;
-	public inline extern function get_System(): cpp.Star<NiagaraSystem.ConstNiagaraSystem> return this.System;
+	public extern var Scripts(get, never): TArray<ucpp.Ptr<NiagaraScript.ConstNiagaraScript>>;
+	public inline extern function get_Scripts(): TArray<ucpp.Ptr<NiagaraScript.ConstNiagaraScript>> return this.Scripts;
+	public extern var System(get, never): ucpp.Ptr<NiagaraSystem.ConstNiagaraSystem>;
+	public inline extern function get_System(): ucpp.Ptr<NiagaraSystem.ConstNiagaraSystem> return this.System;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraPrecompileContainer*")
-abstract NiagaraPrecompileContainerPtr(cpp.Star<NiagaraPrecompileContainer>) from cpp.Star<NiagaraPrecompileContainer> to cpp.Star<NiagaraPrecompileContainer>{
+abstract NiagaraPrecompileContainerPtr(ucpp.Ptr<NiagaraPrecompileContainer>) from ucpp.Ptr<NiagaraPrecompileContainer> to ucpp.Ptr<NiagaraPrecompileContainer>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPrecompileContainer): NiagaraPrecompileContainerPtr {
 		return untyped __cpp__("&({0})", v);

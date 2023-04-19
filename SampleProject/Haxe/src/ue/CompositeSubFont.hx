@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCompositeSubFont")
 @:include("Fonts/CompositeFont.h")
-@:structAccess
+@:valueType
 extern class CompositeSubFont extends CompositeFallbackFont {
 	public var CharacterRanges: TArray<Int32Range>;
 	public var Cultures: FString;

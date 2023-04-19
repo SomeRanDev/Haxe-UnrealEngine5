@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPyTestMulticastDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PyTestMulticastDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPyTestMulticastDelegate__PythonCallable(PyTestMulticastDelegate__P
 @:forward
 @:nativeGen
 @:native("PyTestMulticastDelegate__PythonCallable*")
-abstract PyTestMulticastDelegate__PythonCallablePtr(cpp.Star<PyTestMulticastDelegate__PythonCallable>) from cpp.Star<PyTestMulticastDelegate__PythonCallable> to cpp.Star<PyTestMulticastDelegate__PythonCallable>{
+abstract PyTestMulticastDelegate__PythonCallablePtr(ucpp.Ptr<PyTestMulticastDelegate__PythonCallable>) from ucpp.Ptr<PyTestMulticastDelegate__PythonCallable> to ucpp.Ptr<PyTestMulticastDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PyTestMulticastDelegate__PythonCallable): PyTestMulticastDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UConvertToPolygonsToolBuilder")
 @:include("ConvertToPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class ConvertToPolygonsToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstConvertToPolygonsToolBuilder(ConvertToPolygonsToolBuilder) from Co
 @:forward
 @:nativeGen
 @:native("ConvertToPolygonsToolBuilder*")
-abstract ConvertToPolygonsToolBuilderPtr(cpp.Star<ConvertToPolygonsToolBuilder>) from cpp.Star<ConvertToPolygonsToolBuilder> to cpp.Star<ConvertToPolygonsToolBuilder>{
+abstract ConvertToPolygonsToolBuilderPtr(ucpp.Ptr<ConvertToPolygonsToolBuilder>) from ucpp.Ptr<ConvertToPolygonsToolBuilder> to ucpp.Ptr<ConvertToPolygonsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ConvertToPolygonsToolBuilder): ConvertToPolygonsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

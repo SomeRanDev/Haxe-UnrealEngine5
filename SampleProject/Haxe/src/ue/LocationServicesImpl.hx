@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULocationServicesImpl")
 @:include("LocationServicesImpl.h")
-@:structAccess
+@:valueType
 extern class LocationServicesImpl extends Object {
 	public var OnLocationChanged: HaxeMulticastSparseDelegateProperty<(LocationServicesData) -> Void>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLocationServicesImpl(LocationServicesImpl) from LocationServicesIm
 @:forward
 @:nativeGen
 @:native("LocationServicesImpl*")
-abstract LocationServicesImplPtr(cpp.Star<LocationServicesImpl>) from cpp.Star<LocationServicesImpl> to cpp.Star<LocationServicesImpl>{
+abstract LocationServicesImplPtr(ucpp.Ptr<LocationServicesImpl>) from ucpp.Ptr<LocationServicesImpl> to ucpp.Ptr<LocationServicesImpl>{
 	@:from
 	public static extern inline function fromValue(v: LocationServicesImpl): LocationServicesImplPtr {
 		return untyped __cpp__("&({0})", v);

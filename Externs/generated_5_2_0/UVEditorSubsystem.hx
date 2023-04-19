@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUVEditorSubsystem")
 @:include("UVEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class UVEditorSubsystem extends EditorSubsystem {
-	@:protected public var ToolTargetManager: cpp.Star<ToolTargetManager>;
+	@:protected public var ToolTargetManager: ucpp.Ptr<ToolTargetManager>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstUVEditorSubsystem(UVEditorSubsystem) from UVEditorSubsystem {
 @:forward
 @:nativeGen
 @:native("UVEditorSubsystem*")
-abstract UVEditorSubsystemPtr(cpp.Star<UVEditorSubsystem>) from cpp.Star<UVEditorSubsystem> to cpp.Star<UVEditorSubsystem>{
+abstract UVEditorSubsystemPtr(ucpp.Ptr<UVEditorSubsystem>) from ucpp.Ptr<UVEditorSubsystem> to ucpp.Ptr<UVEditorSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorSubsystem): UVEditorSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

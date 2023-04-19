@@ -3,16 +3,16 @@ package ue;
 
 @:native("FRootPrePullSettings")
 @:include("Core/PBIKSolver.h")
-@:structAccess
+@:valueType
 extern class RootPrePullSettings {
-	public var RotationAlpha: cpp.Float32;
-	public var RotationAlphaX: cpp.Float32;
-	public var RotationAlphaY: cpp.Float32;
-	public var RotationAlphaZ: cpp.Float32;
-	public var PositionAlpha: cpp.Float32;
-	public var PositionAlphaX: cpp.Float32;
-	public var PositionAlphaY: cpp.Float32;
-	public var PositionAlphaZ: cpp.Float32;
+	public var RotationAlpha: ucpp.num.Float32;
+	public var RotationAlphaX: ucpp.num.Float32;
+	public var RotationAlphaY: ucpp.num.Float32;
+	public var RotationAlphaZ: ucpp.num.Float32;
+	public var PositionAlpha: ucpp.num.Float32;
+	public var PositionAlphaX: ucpp.num.Float32;
+	public var PositionAlphaY: ucpp.num.Float32;
+	public var PositionAlphaZ: ucpp.num.Float32;
 
 	@:native("FRootPrePullSettings") public function new();
 }

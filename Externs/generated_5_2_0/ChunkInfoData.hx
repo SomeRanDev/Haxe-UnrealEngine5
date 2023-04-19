@@ -3,14 +3,14 @@ package ue;
 
 @:native("FChunkInfoData")
 @:include("Private/Data/ManifestUObject.h")
-@:structAccess
+@:valueType
 extern class ChunkInfoData {
 	public var Guid: Guid;
-	public var Hash: cpp.UInt64;
+	public var Hash: ucpp.num.UInt64;
 	public var ShaHash: SHAHashData;
-	public var FileSize: cpp.Int64;
-	public var GroupNumber: cpp.UInt8;
+	public var FileSize: ucpp.num.Int64;
+	public var GroupNumber: ucpp.num.UInt8;
 
 	@:native("FChunkInfoData") public function new();
-	@:native("FChunkInfoData") public static function make(Guid: Guid, Hash: cpp.UInt64, ShaHash: SHAHashData, FileSize: cpp.Int64, GroupNumber: cpp.UInt8): ChunkInfoData ;
+	@:native("FChunkInfoData") public static function make(Guid: Guid, Hash: ucpp.num.UInt64, ShaHash: SHAHashData, FileSize: ucpp.num.Int64, GroupNumber: ucpp.num.UInt8): ChunkInfoData ;
 }

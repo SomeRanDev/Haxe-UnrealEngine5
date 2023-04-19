@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVolumeCacheFactory")
 @:include("VolumeCacheFactory.h")
-@:structAccess
+@:valueType
 extern class VolumeCacheFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVolumeCacheFactory(VolumeCacheFactory) from VolumeCacheFactory {
 @:forward
 @:nativeGen
 @:native("VolumeCacheFactory*")
-abstract VolumeCacheFactoryPtr(cpp.Star<VolumeCacheFactory>) from cpp.Star<VolumeCacheFactory> to cpp.Star<VolumeCacheFactory>{
+abstract VolumeCacheFactoryPtr(ucpp.Ptr<VolumeCacheFactory>) from ucpp.Ptr<VolumeCacheFactory> to ucpp.Ptr<VolumeCacheFactory>{
 	@:from
 	public static extern inline function fromValue(v: VolumeCacheFactory): VolumeCacheFactoryPtr {
 		return untyped __cpp__("&({0})", v);

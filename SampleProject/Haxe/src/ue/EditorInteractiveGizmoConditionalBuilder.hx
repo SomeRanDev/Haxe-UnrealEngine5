@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEditorInteractiveGizmoConditionalBuilder")
-@:structAccess
+@:valueType
 extern class EditorInteractiveGizmoConditionalBuilder extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEditorInteractiveGizmoConditionalBuilder(EditorInteractiveGizmoCon
 @:forward
 @:nativeGen
 @:native("EditorInteractiveGizmoConditionalBuilder*")
-abstract EditorInteractiveGizmoConditionalBuilderPtr(cpp.Star<EditorInteractiveGizmoConditionalBuilder>) from cpp.Star<EditorInteractiveGizmoConditionalBuilder> to cpp.Star<EditorInteractiveGizmoConditionalBuilder>{
+abstract EditorInteractiveGizmoConditionalBuilderPtr(ucpp.Ptr<EditorInteractiveGizmoConditionalBuilder>) from ucpp.Ptr<EditorInteractiveGizmoConditionalBuilder> to ucpp.Ptr<EditorInteractiveGizmoConditionalBuilder>{
 	@:from
 	public static extern inline function fromValue(v: EditorInteractiveGizmoConditionalBuilder): EditorInteractiveGizmoConditionalBuilderPtr {
 		return untyped __cpp__("&({0})", v);

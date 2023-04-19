@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULogVisualizerSessionSettings")
 @:include("LogVisualizerSessionSettings.h")
-@:structAccess
+@:valueType
 extern class LogVisualizerSessionSettings extends Object {
 	public var bEnableGraphsVisualization: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLogVisualizerSessionSettings(LogVisualizerSessionSettings) from Lo
 @:forward
 @:nativeGen
 @:native("LogVisualizerSessionSettings*")
-abstract LogVisualizerSessionSettingsPtr(cpp.Star<LogVisualizerSessionSettings>) from cpp.Star<LogVisualizerSessionSettings> to cpp.Star<LogVisualizerSessionSettings>{
+abstract LogVisualizerSessionSettingsPtr(ucpp.Ptr<LogVisualizerSessionSettings>) from ucpp.Ptr<LogVisualizerSessionSettings> to ucpp.Ptr<LogVisualizerSessionSettings>{
 	@:from
 	public static extern inline function fromValue(v: LogVisualizerSessionSettings): LogVisualizerSessionSettingsPtr {
 		return untyped __cpp__("&({0})", v);

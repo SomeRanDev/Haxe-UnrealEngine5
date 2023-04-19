@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_CopyPoseFromMesh")
 @:include("AnimNodes/AnimNode_CopyPoseFromMesh.h")
-@:structAccess
+@:valueType
 extern class AnimNode_CopyPoseFromMesh extends AnimNode_Base {
 	public var SourceMeshComponent: TWeakObjectPtr<SkeletalMeshComp>;
 	public var bUseAttachedParent: Bool;

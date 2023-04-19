@@ -3,24 +3,22 @@ package ue;
 
 @:native("ALandscapeStreamingProxy")
 @:include("LandscapeStreamingProxy.h")
-@:structAccess
+@:valueType
 extern class LandscapeStreamingProxy extends LandscapeProxy {
-	public var LandscapeActor: TLazyObjectPtr<Landscape>;
+	private var LandscapeActorRef: TSoftObjectPtr<Landscape>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLandscapeStreamingProxy(LandscapeStreamingProxy) from LandscapeStreamingProxy {
-	public extern var LandscapeActor(get, never): TLazyObjectPtr<Landscape.ConstLandscape>;
-	public inline extern function get_LandscapeActor(): TLazyObjectPtr<Landscape.ConstLandscape> return this.LandscapeActor;
 }
 
 @:forward
 @:nativeGen
 @:native("LandscapeStreamingProxy*")
-abstract LandscapeStreamingProxyPtr(cpp.Star<LandscapeStreamingProxy>) from cpp.Star<LandscapeStreamingProxy> to cpp.Star<LandscapeStreamingProxy>{
+abstract LandscapeStreamingProxyPtr(ucpp.Ptr<LandscapeStreamingProxy>) from ucpp.Ptr<LandscapeStreamingProxy> to ucpp.Ptr<LandscapeStreamingProxy>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeStreamingProxy): LandscapeStreamingProxyPtr {
 		return untyped __cpp__("&({0})", v);

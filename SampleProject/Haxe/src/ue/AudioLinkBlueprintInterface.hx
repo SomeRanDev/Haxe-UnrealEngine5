@@ -2,14 +2,14 @@
 package ue;
 
 @:native("UAudioLinkBlueprintInterface")
-@:structAccess
+@:valueType
 extern class AudioLinkBlueprintInterface extends Interface {
 	public function StopLink(): Void;
-	public function SetLinkSound(NewSound: cpp.Star<SoundBase>): Void;
-	public function PlayLink(StartTime: cpp.Float32): Void;
+	public function SetLinkSound(NewSound: ucpp.Ptr<SoundBase>): Void;
+	public function PlayLink(StartTime: ucpp.num.Float32): Void;
 	public function IsLinkPlaying(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsLinkPlaying)
@@ -20,7 +20,7 @@ abstract ConstAudioLinkBlueprintInterface(AudioLinkBlueprintInterface) from Audi
 @:forward
 @:nativeGen
 @:native("AudioLinkBlueprintInterface*")
-abstract AudioLinkBlueprintInterfacePtr(cpp.Star<AudioLinkBlueprintInterface>) from cpp.Star<AudioLinkBlueprintInterface> to cpp.Star<AudioLinkBlueprintInterface>{
+abstract AudioLinkBlueprintInterfacePtr(ucpp.Ptr<AudioLinkBlueprintInterface>) from ucpp.Ptr<AudioLinkBlueprintInterface> to ucpp.Ptr<AudioLinkBlueprintInterface>{
 	@:from
 	public static extern inline function fromValue(v: AudioLinkBlueprintInterface): AudioLinkBlueprintInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UUVEditorGridProperties")
 @:include("UVEditorMode.h")
-@:structAccess
+@:valueType
 extern class UVEditorGridProperties extends InteractiveToolPropertySet {
 	public var bDrawGrid: Bool;
 	public var bDrawRulers: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstUVEditorGridProperties(UVEditorGridProperties) from UVEditorGridPr
 @:forward
 @:nativeGen
 @:native("UVEditorGridProperties*")
-abstract UVEditorGridPropertiesPtr(cpp.Star<UVEditorGridProperties>) from cpp.Star<UVEditorGridProperties> to cpp.Star<UVEditorGridProperties>{
+abstract UVEditorGridPropertiesPtr(ucpp.Ptr<UVEditorGridProperties>) from ucpp.Ptr<UVEditorGridProperties> to ucpp.Ptr<UVEditorGridProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorGridProperties): UVEditorGridPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

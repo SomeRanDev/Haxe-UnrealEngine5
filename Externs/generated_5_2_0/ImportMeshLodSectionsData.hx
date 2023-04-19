@@ -3,7 +3,7 @@ package ue;
 
 @:native("FImportMeshLodSectionsData")
 @:include("Factories/FbxMeshImportData.h")
-@:structAccess
+@:valueType
 extern class ImportMeshLodSectionsData {
 	public var SectionOriginalMaterialName: TArray<FName>;
 

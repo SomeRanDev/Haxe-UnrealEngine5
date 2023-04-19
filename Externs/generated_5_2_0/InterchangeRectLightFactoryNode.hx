@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeRectLightFactoryNode")
 @:include("InterchangeLightFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeRectLightFactoryNode extends InterchangeLightFactoryNode {
-	public function SetCustomSourceWidth(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomSourceHeight(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
-	public function GetCustomSourceWidth(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomSourceHeight(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function SetCustomSourceWidth(AttributeValue: ucpp.num.Float32, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomSourceHeight(AttributeValue: ucpp.num.Float32, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomSourceWidth(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomSourceHeight(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomSourceWidth, GetCustomSourceHeight)
@@ -21,7 +21,7 @@ abstract ConstInterchangeRectLightFactoryNode(InterchangeRectLightFactoryNode) f
 @:forward
 @:nativeGen
 @:native("InterchangeRectLightFactoryNode*")
-abstract InterchangeRectLightFactoryNodePtr(cpp.Star<InterchangeRectLightFactoryNode>) from cpp.Star<InterchangeRectLightFactoryNode> to cpp.Star<InterchangeRectLightFactoryNode>{
+abstract InterchangeRectLightFactoryNodePtr(ucpp.Ptr<InterchangeRectLightFactoryNode>) from ucpp.Ptr<InterchangeRectLightFactoryNode> to ucpp.Ptr<InterchangeRectLightFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeRectLightFactoryNode): InterchangeRectLightFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

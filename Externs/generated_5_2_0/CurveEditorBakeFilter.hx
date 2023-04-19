@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCurveEditorBakeFilter")
 @:include("Filters/CurveEditorBakeFilter.h")
-@:structAccess
+@:valueType
 extern class CurveEditorBakeFilter extends CurveEditorFilterBase {
 	public var bUseFrameBake: Bool;
 	public var BakeIntervalInFrames: FrameNumber;
-	public var BakeIntervalInSeconds: cpp.Float32;
+	public var BakeIntervalInSeconds: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstCurveEditorBakeFilter(CurveEditorBakeFilter) from CurveEditorBakeF
 	public inline extern function get_bUseFrameBake(): Bool return this.bUseFrameBake;
 	public extern var BakeIntervalInFrames(get, never): FrameNumber;
 	public inline extern function get_BakeIntervalInFrames(): FrameNumber return this.BakeIntervalInFrames;
-	public extern var BakeIntervalInSeconds(get, never): cpp.Float32;
-	public inline extern function get_BakeIntervalInSeconds(): cpp.Float32 return this.BakeIntervalInSeconds;
+	public extern var BakeIntervalInSeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_BakeIntervalInSeconds(): ucpp.num.Float32 return this.BakeIntervalInSeconds;
 }
 
 @:forward
 @:nativeGen
 @:native("CurveEditorBakeFilter*")
-abstract CurveEditorBakeFilterPtr(cpp.Star<CurveEditorBakeFilter>) from cpp.Star<CurveEditorBakeFilter> to cpp.Star<CurveEditorBakeFilter>{
+abstract CurveEditorBakeFilterPtr(ucpp.Ptr<CurveEditorBakeFilter>) from ucpp.Ptr<CurveEditorBakeFilter> to ucpp.Ptr<CurveEditorBakeFilter>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorBakeFilter): CurveEditorBakeFilterPtr {
 		return untyped __cpp__("&({0})", v);

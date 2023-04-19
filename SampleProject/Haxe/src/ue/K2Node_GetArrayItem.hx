@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_GetArrayItem")
 @:include("K2Node_GetArrayItem.h")
-@:structAccess
+@:valueType
 extern class K2Node_GetArrayItem extends K2Node {
 	private var bReturnByRefDesired: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_GetArrayItem(K2Node_GetArrayItem) from K2Node_GetArrayItem 
 @:forward
 @:nativeGen
 @:native("K2Node_GetArrayItem*")
-abstract K2Node_GetArrayItemPtr(cpp.Star<K2Node_GetArrayItem>) from cpp.Star<K2Node_GetArrayItem> to cpp.Star<K2Node_GetArrayItem>{
+abstract K2Node_GetArrayItemPtr(ucpp.Ptr<K2Node_GetArrayItem>) from ucpp.Ptr<K2Node_GetArrayItem> to ucpp.Ptr<K2Node_GetArrayItem>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_GetArrayItem): K2Node_GetArrayItemPtr {
 		return untyped __cpp__("&({0})", v);

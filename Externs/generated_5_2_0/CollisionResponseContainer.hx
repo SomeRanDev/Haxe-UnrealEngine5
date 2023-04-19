@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCollisionResponseContainer")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class CollisionResponseContainer {
 	public var WorldStatic: TEnumAsByte<ECollisionResponse>;
 	public var WorldDynamic: TEnumAsByte<ECollisionResponse>;

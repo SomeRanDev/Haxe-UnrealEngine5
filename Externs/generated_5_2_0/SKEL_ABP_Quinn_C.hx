@@ -2,13 +2,13 @@
 package ue;
 
 @:native("USKEL_ABP_Quinn_C")
-@:structAccess
+@:valueType
 extern class SKEL_ABP_Quinn_C extends SKEL_ABP_Manny_C {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
-	public function BlueprintUpdateAnimation(DeltaTimeX: cpp.Float32): Void;
+	public function BlueprintUpdateAnimation(DeltaTimeX: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstSKEL_ABP_Quinn_C(SKEL_ABP_Quinn_C) from SKEL_ABP_Quinn_C {
 @:forward
 @:nativeGen
 @:native("SKEL_ABP_Quinn_C*")
-abstract SKEL_ABP_Quinn_CPtr(cpp.Star<SKEL_ABP_Quinn_C>) from cpp.Star<SKEL_ABP_Quinn_C> to cpp.Star<SKEL_ABP_Quinn_C>{
+abstract SKEL_ABP_Quinn_CPtr(ucpp.Ptr<SKEL_ABP_Quinn_C>) from ucpp.Ptr<SKEL_ABP_Quinn_C> to ucpp.Ptr<SKEL_ABP_Quinn_C>{
 	@:from
 	public static extern inline function fromValue(v: SKEL_ABP_Quinn_C): SKEL_ABP_Quinn_CPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimBlueprintExtension_SharedLinkedAnimLayers")
 @:include("AnimBlueprintExtension_SharedLinkedAnimLayers.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintExtension_SharedLinkedAnimLayers extends AnimBlueprintExtension {
 	private var Subsystem: AnimSubsystem_SharedLinkedAnimLayers;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimBlueprintExtension_SharedLinkedAnimLayers(AnimBlueprintExtensi
 @:forward
 @:nativeGen
 @:native("AnimBlueprintExtension_SharedLinkedAnimLayers*")
-abstract AnimBlueprintExtension_SharedLinkedAnimLayersPtr(cpp.Star<AnimBlueprintExtension_SharedLinkedAnimLayers>) from cpp.Star<AnimBlueprintExtension_SharedLinkedAnimLayers> to cpp.Star<AnimBlueprintExtension_SharedLinkedAnimLayers>{
+abstract AnimBlueprintExtension_SharedLinkedAnimLayersPtr(ucpp.Ptr<AnimBlueprintExtension_SharedLinkedAnimLayers>) from ucpp.Ptr<AnimBlueprintExtension_SharedLinkedAnimLayers> to ucpp.Ptr<AnimBlueprintExtension_SharedLinkedAnimLayers>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintExtension_SharedLinkedAnimLayers): AnimBlueprintExtension_SharedLinkedAnimLayersPtr {
 		return untyped __cpp__("&({0})", v);

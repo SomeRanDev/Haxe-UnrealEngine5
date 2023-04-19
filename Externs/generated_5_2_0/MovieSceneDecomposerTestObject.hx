@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMovieSceneDecomposerTestObject")
 @:include("Tests/MovieSceneDecomposerTests.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDecomposerTestObject extends Object {
-	public var FloatProperty: cpp.Float32;
+	public var FloatProperty: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneDecomposerTestObject(MovieSceneDecomposerTestObject) from MovieSceneDecomposerTestObject {
-	public extern var FloatProperty(get, never): cpp.Float32;
-	public inline extern function get_FloatProperty(): cpp.Float32 return this.FloatProperty;
+	public extern var FloatProperty(get, never): ucpp.num.Float32;
+	public inline extern function get_FloatProperty(): ucpp.num.Float32 return this.FloatProperty;
 }
 
 @:forward
 @:nativeGen
 @:native("MovieSceneDecomposerTestObject*")
-abstract MovieSceneDecomposerTestObjectPtr(cpp.Star<MovieSceneDecomposerTestObject>) from cpp.Star<MovieSceneDecomposerTestObject> to cpp.Star<MovieSceneDecomposerTestObject>{
+abstract MovieSceneDecomposerTestObjectPtr(ucpp.Ptr<MovieSceneDecomposerTestObject>) from ucpp.Ptr<MovieSceneDecomposerTestObject> to ucpp.Ptr<MovieSceneDecomposerTestObject>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneDecomposerTestObject): MovieSceneDecomposerTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

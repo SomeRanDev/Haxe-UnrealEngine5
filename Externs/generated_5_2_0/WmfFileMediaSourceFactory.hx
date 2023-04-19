@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWmfFileMediaSourceFactory")
 @:include("WmfFileMediaSourceFactory.h")
-@:structAccess
+@:valueType
 extern class WmfFileMediaSourceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWmfFileMediaSourceFactory(WmfFileMediaSourceFactory) from WmfFileM
 @:forward
 @:nativeGen
 @:native("WmfFileMediaSourceFactory*")
-abstract WmfFileMediaSourceFactoryPtr(cpp.Star<WmfFileMediaSourceFactory>) from cpp.Star<WmfFileMediaSourceFactory> to cpp.Star<WmfFileMediaSourceFactory>{
+abstract WmfFileMediaSourceFactoryPtr(ucpp.Ptr<WmfFileMediaSourceFactory>) from ucpp.Ptr<WmfFileMediaSourceFactory> to ucpp.Ptr<WmfFileMediaSourceFactory>{
 	@:from
 	public static extern inline function fromValue(v: WmfFileMediaSourceFactory): WmfFileMediaSourceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

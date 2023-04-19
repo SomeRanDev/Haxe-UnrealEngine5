@@ -3,20 +3,20 @@ package ue;
 
 @:native("FAnimNode_SplineIK")
 @:include("BoneControllers/AnimNode_SplineIK.h")
-@:structAccess
+@:valueType
 extern class AnimNode_SplineIK extends AnimNode_SkeletalControlBase {
 	public var StartBone: BoneReference;
 	public var EndBone: BoneReference;
 	public var BoneAxis: ESplineBoneAxis;
 	public var bAutoCalculateSpline: Bool;
-	public var PointCount: cpp.Int32;
+	public var PointCount: ucpp.num.Int32;
 	public var ControlPoints: TArray<Transform>;
-	public var Roll: cpp.Float32;
-	public var TwistStart: cpp.Float32;
-	public var TwistEnd: cpp.Float32;
+	public var Roll: ucpp.num.Float32;
+	public var TwistStart: ucpp.num.Float32;
+	public var TwistEnd: ucpp.num.Float32;
 	public var TwistBlend: AlphaBlend;
-	public var Stretch: cpp.Float32;
-	public var Offset: cpp.Float32;
+	public var Stretch: ucpp.num.Float32;
+	public var Offset: ucpp.num.Float32;
 
 	@:native("FAnimNode_SplineIK") public function new();
 }

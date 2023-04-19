@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_HapticFeedbackEffectSoundWave")
 @:include("AssetDefinition_HapticFeedbackEffectSoundWave.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_HapticFeedbackEffectSoundWave extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_HapticFeedbackEffectSoundWave(AssetDefinition_Hapt
 @:forward
 @:nativeGen
 @:native("AssetDefinition_HapticFeedbackEffectSoundWave*")
-abstract AssetDefinition_HapticFeedbackEffectSoundWavePtr(cpp.Star<AssetDefinition_HapticFeedbackEffectSoundWave>) from cpp.Star<AssetDefinition_HapticFeedbackEffectSoundWave> to cpp.Star<AssetDefinition_HapticFeedbackEffectSoundWave>{
+abstract AssetDefinition_HapticFeedbackEffectSoundWavePtr(ucpp.Ptr<AssetDefinition_HapticFeedbackEffectSoundWave>) from ucpp.Ptr<AssetDefinition_HapticFeedbackEffectSoundWave> to ucpp.Ptr<AssetDefinition_HapticFeedbackEffectSoundWave>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_HapticFeedbackEffectSoundWave): AssetDefinition_HapticFeedbackEffectSoundWavePtr {
 		return untyped __cpp__("&({0})", v);

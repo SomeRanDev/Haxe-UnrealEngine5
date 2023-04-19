@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVSelectToolBuilder")
 @:include("UVSelectTool.h")
-@:structAccess
+@:valueType
 extern class UVSelectToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVSelectToolBuilder(UVSelectToolBuilder) from UVSelectToolBuilder 
 @:forward
 @:nativeGen
 @:native("UVSelectToolBuilder*")
-abstract UVSelectToolBuilderPtr(cpp.Star<UVSelectToolBuilder>) from cpp.Star<UVSelectToolBuilder> to cpp.Star<UVSelectToolBuilder>{
+abstract UVSelectToolBuilderPtr(ucpp.Ptr<UVSelectToolBuilder>) from ucpp.Ptr<UVSelectToolBuilder> to ucpp.Ptr<UVSelectToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVSelectToolBuilder): UVSelectToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

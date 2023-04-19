@@ -3,7 +3,7 @@ package ue;
 
 @:native("FIndexedCurve")
 @:include("Curves/IndexedCurve.h")
-@:structAccess
+@:valueType
 extern class IndexedCurve {
 	@:protected public var KeyHandlesToIndices: KeyHandleMap;
 

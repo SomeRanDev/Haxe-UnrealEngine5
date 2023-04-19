@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULevelInstanceEditorSettings")
 @:include("LevelInstanceEditorSettings.h")
-@:structAccess
+@:valueType
 extern class LevelInstanceEditorSettings extends Object {
 	public var TemplateMapInfos: TArray<TemplateMapInfo>;
 	public var LevelInstanceClassName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLevelInstanceEditorSettings(LevelInstanceEditorSettings) from Leve
 @:forward
 @:nativeGen
 @:native("LevelInstanceEditorSettings*")
-abstract LevelInstanceEditorSettingsPtr(cpp.Star<LevelInstanceEditorSettings>) from cpp.Star<LevelInstanceEditorSettings> to cpp.Star<LevelInstanceEditorSettings>{
+abstract LevelInstanceEditorSettingsPtr(ucpp.Ptr<LevelInstanceEditorSettings>) from ucpp.Ptr<LevelInstanceEditorSettings> to ucpp.Ptr<LevelInstanceEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstanceEditorSettings): LevelInstanceEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

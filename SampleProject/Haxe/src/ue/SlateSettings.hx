@@ -3,11 +3,11 @@ package ue;
 
 @:native("USlateSettings")
 @:include("SlateSettings.h")
-@:structAccess
+@:valueType
 extern class SlateSettings extends Object {
 	public var bExplicitCanvasChildZOrder: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSlateSettings(SlateSettings) from SlateSettings {
 @:forward
 @:nativeGen
 @:native("SlateSettings*")
-abstract SlateSettingsPtr(cpp.Star<SlateSettings>) from cpp.Star<SlateSettings> to cpp.Star<SlateSettings>{
+abstract SlateSettingsPtr(ucpp.Ptr<SlateSettings>) from ucpp.Ptr<SlateSettings> to ucpp.Ptr<SlateSettings>{
 	@:from
 	public static extern inline function fromValue(v: SlateSettings): SlateSettingsPtr {
 		return untyped __cpp__("&({0})", v);

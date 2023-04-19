@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPatternToolBuilder")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPatternToolBuilder(PatternToolBuilder) from PatternToolBuilder {
 @:forward
 @:nativeGen
 @:native("PatternToolBuilder*")
-abstract PatternToolBuilderPtr(cpp.Star<PatternToolBuilder>) from cpp.Star<PatternToolBuilder> to cpp.Star<PatternToolBuilder>{
+abstract PatternToolBuilderPtr(ucpp.Ptr<PatternToolBuilder>) from ucpp.Ptr<PatternToolBuilder> to ucpp.Ptr<PatternToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: PatternToolBuilder): PatternToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

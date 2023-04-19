@@ -3,10 +3,10 @@ package ue;
 
 @:native("ARigidBodyBase")
 @:include("PhysicsEngine/RigidBodyBase.h")
-@:structAccess
+@:valueType
 extern class RigidBodyBase extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRigidBodyBase(RigidBodyBase) from RigidBodyBase {
 @:forward
 @:nativeGen
 @:native("RigidBodyBase*")
-abstract RigidBodyBasePtr(cpp.Star<RigidBodyBase>) from cpp.Star<RigidBodyBase> to cpp.Star<RigidBodyBase>{
+abstract RigidBodyBasePtr(ucpp.Ptr<RigidBodyBase>) from ucpp.Ptr<RigidBodyBase> to ucpp.Ptr<RigidBodyBase>{
 	@:from
 	public static extern inline function fromValue(v: RigidBodyBase): RigidBodyBasePtr {
 		return untyped __cpp__("&({0})", v);

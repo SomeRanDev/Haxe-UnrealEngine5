@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTickableWorldSubsystem")
 @:include("Subsystems/WorldSubsystem.h")
-@:structAccess
+@:valueType
 extern class TickableWorldSubsystem extends WorldSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTickableWorldSubsystem(TickableWorldSubsystem) from TickableWorldS
 @:forward
 @:nativeGen
 @:native("TickableWorldSubsystem*")
-abstract TickableWorldSubsystemPtr(cpp.Star<TickableWorldSubsystem>) from cpp.Star<TickableWorldSubsystem> to cpp.Star<TickableWorldSubsystem>{
+abstract TickableWorldSubsystemPtr(ucpp.Ptr<TickableWorldSubsystem>) from ucpp.Ptr<TickableWorldSubsystem> to ucpp.Ptr<TickableWorldSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: TickableWorldSubsystem): TickableWorldSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

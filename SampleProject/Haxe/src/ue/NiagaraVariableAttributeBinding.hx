@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraVariableAttributeBinding")
 @:include("NiagaraCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariableAttributeBinding {
 	@:protected public var ParamMapVariable: NiagaraVariableBase;
 	@:protected public var DataSetVariable: NiagaraVariable;

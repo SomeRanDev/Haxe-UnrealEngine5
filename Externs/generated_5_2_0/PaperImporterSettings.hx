@@ -3,12 +3,12 @@ package ue;
 
 @:native("UPaperImporterSettings")
 @:include("PaperImporterSettings.h")
-@:structAccess
+@:valueType
 extern class PaperImporterSettings extends Object {
 	@:protected public var bPickBestMaterialWhenCreatingSprites: Bool;
 	@:protected public var bPickBestMaterialWhenCreatingTileMaps: Bool;
 	@:protected public var bAnalysisCanUseOpaque: Bool;
-	@:protected public var DefaultPixelsPerUnrealUnit: cpp.Float32;
+	@:protected public var DefaultPixelsPerUnrealUnit: ucpp.num.Float32;
 	@:protected public var NormalMapTextureSuffixes: TArray<FString>;
 	@:protected public var BaseMapTextureSuffixes: TArray<FString>;
 	@:protected public var DefaultSpriteTextureGroup: TEnumAsByte<TextureGroup>;
@@ -21,7 +21,7 @@ extern class PaperImporterSettings extends Object {
 	@:protected public var LitDefaultTranslucentMaterialName: SoftObjectPath;
 	@:protected public var LitDefaultOpaqueMaterialName: SoftObjectPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstPaperImporterSettings(PaperImporterSettings) from PaperImporterSet
 @:forward
 @:nativeGen
 @:native("PaperImporterSettings*")
-abstract PaperImporterSettingsPtr(cpp.Star<PaperImporterSettings>) from cpp.Star<PaperImporterSettings> to cpp.Star<PaperImporterSettings>{
+abstract PaperImporterSettingsPtr(ucpp.Ptr<PaperImporterSettings>) from ucpp.Ptr<PaperImporterSettings> to ucpp.Ptr<PaperImporterSettings>{
 	@:from
 	public static extern inline function fromValue(v: PaperImporterSettings): PaperImporterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

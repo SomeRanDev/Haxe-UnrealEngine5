@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMovieSceneMaterialParameterSystem")
 @:include("Systems/MovieSceneMaterialParameterSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMaterialParameterSystem extends MovieSceneEntitySystem {
-	public var DoubleBlenderSystem: cpp.Star<MovieScenePiecewiseDoubleBlenderSystem>;
+	public var DoubleBlenderSystem: ucpp.Ptr<MovieScenePiecewiseDoubleBlenderSystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneMaterialParameterSystem(MovieSceneMaterialParameterSystem) from MovieSceneMaterialParameterSystem {
-	public extern var DoubleBlenderSystem(get, never): cpp.Star<MovieScenePiecewiseDoubleBlenderSystem.ConstMovieScenePiecewiseDoubleBlenderSystem>;
-	public inline extern function get_DoubleBlenderSystem(): cpp.Star<MovieScenePiecewiseDoubleBlenderSystem.ConstMovieScenePiecewiseDoubleBlenderSystem> return this.DoubleBlenderSystem;
+	public extern var DoubleBlenderSystem(get, never): ucpp.Ptr<MovieScenePiecewiseDoubleBlenderSystem.ConstMovieScenePiecewiseDoubleBlenderSystem>;
+	public inline extern function get_DoubleBlenderSystem(): ucpp.Ptr<MovieScenePiecewiseDoubleBlenderSystem.ConstMovieScenePiecewiseDoubleBlenderSystem> return this.DoubleBlenderSystem;
 }
 
 @:forward
 @:nativeGen
 @:native("MovieSceneMaterialParameterSystem*")
-abstract MovieSceneMaterialParameterSystemPtr(cpp.Star<MovieSceneMaterialParameterSystem>) from cpp.Star<MovieSceneMaterialParameterSystem> to cpp.Star<MovieSceneMaterialParameterSystem>{
+abstract MovieSceneMaterialParameterSystemPtr(ucpp.Ptr<MovieSceneMaterialParameterSystem>) from ucpp.Ptr<MovieSceneMaterialParameterSystem> to ucpp.Ptr<MovieSceneMaterialParameterSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMaterialParameterSystem): MovieSceneMaterialParameterSystemPtr {
 		return untyped __cpp__("&({0})", v);

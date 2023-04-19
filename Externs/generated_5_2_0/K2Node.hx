@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node")
 @:include("K2Node.h")
-@:structAccess
+@:valueType
 extern class K2Node extends EdGraphNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node(K2Node) from K2Node {
 @:forward
 @:nativeGen
 @:native("K2Node*")
-abstract K2NodePtr(cpp.Star<K2Node>) from cpp.Star<K2Node> to cpp.Star<K2Node>{
+abstract K2NodePtr(ucpp.Ptr<K2Node>) from ucpp.Ptr<K2Node> to ucpp.Ptr<K2Node>{
 	@:from
 	public static extern inline function fromValue(v: K2Node): K2NodePtr {
 		return untyped __cpp__("&({0})", v);

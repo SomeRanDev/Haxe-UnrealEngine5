@@ -3,13 +3,13 @@ package ue;
 
 @:native("UFractureValidateSettings")
 @:include("FractureToolEditing.h")
-@:structAccess
+@:valueType
 extern class FractureValidateSettings extends FractureToolSettings {
 	public var bRemoveUnreferencedGeometry: Bool;
 	public var bRemoveClustersOfOne: Bool;
 	public var bRemoveDanglingClusters: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstFractureValidateSettings(FractureValidateSettings) from FractureVa
 @:forward
 @:nativeGen
 @:native("FractureValidateSettings*")
-abstract FractureValidateSettingsPtr(cpp.Star<FractureValidateSettings>) from cpp.Star<FractureValidateSettings> to cpp.Star<FractureValidateSettings>{
+abstract FractureValidateSettingsPtr(ucpp.Ptr<FractureValidateSettings>) from ucpp.Ptr<FractureValidateSettings> to ucpp.Ptr<FractureValidateSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureValidateSettings): FractureValidateSettingsPtr {
 		return untyped __cpp__("&({0})", v);

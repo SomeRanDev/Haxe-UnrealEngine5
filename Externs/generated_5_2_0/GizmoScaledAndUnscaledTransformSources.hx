@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGizmoScaledAndUnscaledTransformSources")
 @:include("BaseGizmos/TransformSources.h")
-@:structAccess
+@:valueType
 extern class GizmoScaledAndUnscaledTransformSources extends GizmoBaseTransformSource {
 	public var ScaledTransformSource: GizmoTransformSource;
 	public var UnscaledTransformSource: GizmoTransformSource;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstGizmoScaledAndUnscaledTransformSources(GizmoScaledAndUnscaledTrans
 @:forward
 @:nativeGen
 @:native("GizmoScaledAndUnscaledTransformSources*")
-abstract GizmoScaledAndUnscaledTransformSourcesPtr(cpp.Star<GizmoScaledAndUnscaledTransformSources>) from cpp.Star<GizmoScaledAndUnscaledTransformSources> to cpp.Star<GizmoScaledAndUnscaledTransformSources>{
+abstract GizmoScaledAndUnscaledTransformSourcesPtr(ucpp.Ptr<GizmoScaledAndUnscaledTransformSources>) from ucpp.Ptr<GizmoScaledAndUnscaledTransformSources> to ucpp.Ptr<GizmoScaledAndUnscaledTransformSources>{
 	@:from
 	public static extern inline function fromValue(v: GizmoScaledAndUnscaledTransformSources): GizmoScaledAndUnscaledTransformSourcesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAnimGraphNode_BlendListByEnum")
 @:include("AnimGraphNode_BlendListByEnum.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_BlendListByEnum extends AnimGraphNode_BlendListBase {
 	public var Node: AnimNode_BlendListByEnum;
-	@:protected public var BoundEnum: cpp.Star<Enum>;
+	@:protected public var BoundEnum: ucpp.Ptr<Enum>;
 	@:protected public var VisibleEnumEntries: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAnimGraphNode_BlendListByEnum(AnimGraphNode_BlendListByEnum) from 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_BlendListByEnum*")
-abstract AnimGraphNode_BlendListByEnumPtr(cpp.Star<AnimGraphNode_BlendListByEnum>) from cpp.Star<AnimGraphNode_BlendListByEnum> to cpp.Star<AnimGraphNode_BlendListByEnum>{
+abstract AnimGraphNode_BlendListByEnumPtr(ucpp.Ptr<AnimGraphNode_BlendListByEnum>) from ucpp.Ptr<AnimGraphNode_BlendListByEnum> to ucpp.Ptr<AnimGraphNode_BlendListByEnum>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_BlendListByEnum): AnimGraphNode_BlendListByEnumPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,19 @@ package ue;
 
 @:native("UEditorLevelUtils")
 @:include("EditorLevelUtils.h")
-@:structAccess
+@:valueType
 extern class EditorLevelUtils extends Object {
-	public function SetLevelVisibility(Level: cpp.Star<Level>, bShouldBeVisible: Bool, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
-	public function SetLevelsVisibility(Levels: cpp.Reference<TArray<cpp.Star<Level>>>, bShouldBeVisible: cpp.Reference<TArray<Bool>>, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
-	public function MoveSelectedActorsToLevel(DestLevel: cpp.Star<LevelStreaming>, bWarnAboutReferences: Bool): cpp.Int32;
-	public function MoveActorsToLevel(ActorsToMove: cpp.Reference<TArray<cpp.Star<Actor>>>, DestStreamingLevel: cpp.Star<LevelStreaming>, bWarnAboutReferences: Bool, bWarnAboutRenaming: Bool): cpp.Int32;
-	public function MakeLevelCurrent(InStreamingLevel: cpp.Star<LevelStreaming>): Void;
-	public function K2_AddLevelToWorldWithTransform(World: cpp.Star<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>, LevelTransform: cpp.Reference<Transform>): cpp.Star<LevelStreaming>;
-	public function K2_AddLevelToWorld(World: cpp.Star<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>): cpp.Star<LevelStreaming>;
-	public function GetLevels(World: cpp.Star<World>): TArray<cpp.Star<Level>>;
-	public function CreateNewStreamingLevel(LevelStreamingClass: TSubclassOf<LevelStreaming>, NewLevelPath: FString, bMoveSelectedActorsIntoNewLevel: Bool): cpp.Star<LevelStreaming>;
+	public function SetLevelVisibility(Level: ucpp.Ptr<Level>, bShouldBeVisible: Bool, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
+	public function SetLevelsVisibility(Levels: ucpp.Ref<TArray<ucpp.Ptr<Level>>>, bShouldBeVisible: ucpp.Ref<TArray<Bool>>, bForceLayersVisible: Bool, ModifyMode: ELevelVisibilityDirtyMode): Void;
+	public function MoveSelectedActorsToLevel(DestLevel: ucpp.Ptr<LevelStreaming>, bWarnAboutReferences: Bool): ucpp.num.Int32;
+	public function MoveActorsToLevel(ActorsToMove: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, DestStreamingLevel: ucpp.Ptr<LevelStreaming>, bWarnAboutReferences: Bool, bWarnAboutRenaming: Bool): ucpp.num.Int32;
+	public function MakeLevelCurrent(InStreamingLevel: ucpp.Ptr<LevelStreaming>): Void;
+	public function K2_AddLevelToWorldWithTransform(World: ucpp.Ptr<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>, LevelTransform: ucpp.Ref<Transform>): ucpp.Ptr<LevelStreaming>;
+	public function K2_AddLevelToWorld(World: ucpp.Ptr<World>, LevelPackageName: FString, LevelStreamingClass: TSubclassOf<LevelStreaming>): ucpp.Ptr<LevelStreaming>;
+	public function GetLevels(World: ucpp.Ptr<World>): TArray<ucpp.Ptr<Level>>;
+	public function CreateNewStreamingLevel(LevelStreamingClass: TSubclassOf<LevelStreaming>, NewLevelPath: FString, bMoveSelectedActorsIntoNewLevel: Bool): ucpp.Ptr<LevelStreaming>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstEditorLevelUtils(EditorLevelUtils) from EditorLevelUtils {
 @:forward
 @:nativeGen
 @:native("EditorLevelUtils*")
-abstract EditorLevelUtilsPtr(cpp.Star<EditorLevelUtils>) from cpp.Star<EditorLevelUtils> to cpp.Star<EditorLevelUtils>{
+abstract EditorLevelUtilsPtr(ucpp.Ptr<EditorLevelUtils>) from ucpp.Ptr<EditorLevelUtils> to ucpp.Ptr<EditorLevelUtils>{
 	@:from
 	public static extern inline function fromValue(v: EditorLevelUtils): EditorLevelUtilsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStrataHazinessToSecondaryRoughness")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataHazinessToSecondaryRoughness extends MaterialExpressionStrataUtilityBase {
 	public var BaseRoughness: ExpressionInput;
 	public var Haziness: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionStrataHazinessToSecondaryRoughness(MaterialExpre
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataHazinessToSecondaryRoughness*")
-abstract MaterialExpressionStrataHazinessToSecondaryRoughnessPtr(cpp.Star<MaterialExpressionStrataHazinessToSecondaryRoughness>) from cpp.Star<MaterialExpressionStrataHazinessToSecondaryRoughness> to cpp.Star<MaterialExpressionStrataHazinessToSecondaryRoughness>{
+abstract MaterialExpressionStrataHazinessToSecondaryRoughnessPtr(ucpp.Ptr<MaterialExpressionStrataHazinessToSecondaryRoughness>) from ucpp.Ptr<MaterialExpressionStrataHazinessToSecondaryRoughness> to ucpp.Ptr<MaterialExpressionStrataHazinessToSecondaryRoughness>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataHazinessToSecondaryRoughness): MaterialExpressionStrataHazinessToSecondaryRoughnessPtr {
 		return untyped __cpp__("&({0})", v);

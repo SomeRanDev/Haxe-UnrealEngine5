@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBundleDuplicateForPIEHelper")
 @:include("WorldPartition/ContentBundle/ContentBundleWorldSubsystem.h")
-@:structAccess
+@:valueType
 extern class ContentBundleDuplicateForPIEHelper extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBundleDuplicateForPIEHelper(ContentBundleDuplicateForPIEHel
 @:forward
 @:nativeGen
 @:native("ContentBundleDuplicateForPIEHelper*")
-abstract ContentBundleDuplicateForPIEHelperPtr(cpp.Star<ContentBundleDuplicateForPIEHelper>) from cpp.Star<ContentBundleDuplicateForPIEHelper> to cpp.Star<ContentBundleDuplicateForPIEHelper>{
+abstract ContentBundleDuplicateForPIEHelperPtr(ucpp.Ptr<ContentBundleDuplicateForPIEHelper>) from ucpp.Ptr<ContentBundleDuplicateForPIEHelper> to ucpp.Ptr<ContentBundleDuplicateForPIEHelper>{
 	@:from
 	public static extern inline function fromValue(v: ContentBundleDuplicateForPIEHelper): ContentBundleDuplicateForPIEHelperPtr {
 		return untyped __cpp__("&({0})", v);

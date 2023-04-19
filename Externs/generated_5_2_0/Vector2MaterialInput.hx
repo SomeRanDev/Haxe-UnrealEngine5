@@ -3,12 +3,12 @@ package ue;
 
 @:native("FVector2MaterialInput")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class Vector2MaterialInput extends MaterialInput {
 	public var UseConstant: Bool;
-	public var ConstantX: cpp.Float32;
-	public var ConstantY: cpp.Float32;
+	public var ConstantX: ucpp.num.Float32;
+	public var ConstantY: ucpp.num.Float32;
 
 	@:native("FVector2MaterialInput") public function new();
-	@:native("FVector2MaterialInput") public static function make(UseConstant: Bool, ConstantX: cpp.Float32, ConstantY: cpp.Float32): Vector2MaterialInput ;
+	@:native("FVector2MaterialInput") public static function make(UseConstant: Bool, ConstantX: ucpp.num.Float32, ConstantY: ucpp.num.Float32): Vector2MaterialInput ;
 }

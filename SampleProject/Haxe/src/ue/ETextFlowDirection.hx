@@ -7,5 +7,6 @@ extern class ETextFlowDirection {
 	static var Auto: ETextFlowDirection;
 	static var LeftToRight: ETextFlowDirection;
 	static var RightToLeft: ETextFlowDirection;
+	static var Culture: ETextFlowDirection;
 	static var ETextFlowDirection_MAX: ETextFlowDirection;
 }

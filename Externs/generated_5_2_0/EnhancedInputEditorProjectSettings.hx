@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEnhancedInputEditorProjectSettings")
 @:include("EnhancedInputEditorSettings.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputEditorProjectSettings extends DeveloperSettings {
 	public var DefaultEditorInputClass: TSoftClassPtr<Class>;
 	public var DefaultMappingContexts: TArray<DefaultContextSetting>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEnhancedInputEditorProjectSettings(EnhancedInputEditorProjectSetti
 @:forward
 @:nativeGen
 @:native("EnhancedInputEditorProjectSettings*")
-abstract EnhancedInputEditorProjectSettingsPtr(cpp.Star<EnhancedInputEditorProjectSettings>) from cpp.Star<EnhancedInputEditorProjectSettings> to cpp.Star<EnhancedInputEditorProjectSettings>{
+abstract EnhancedInputEditorProjectSettingsPtr(ucpp.Ptr<EnhancedInputEditorProjectSettings>) from ucpp.Ptr<EnhancedInputEditorProjectSettings> to ucpp.Ptr<EnhancedInputEditorProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputEditorProjectSettings): EnhancedInputEditorProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

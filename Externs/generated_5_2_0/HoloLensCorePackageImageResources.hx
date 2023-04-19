@@ -3,7 +3,7 @@ package ue;
 
 @:native("FHoloLensCorePackageImageResources")
 @:include("Private/HoloLensLocalizedResources.h")
-@:structAccess
+@:valueType
 extern class HoloLensCorePackageImageResources {
 	@:native("FHoloLensCorePackageImageResources") public function new();
 }

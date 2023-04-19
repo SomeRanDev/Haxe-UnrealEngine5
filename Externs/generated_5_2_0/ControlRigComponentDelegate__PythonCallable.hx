@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UControlRigComponentDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class ControlRigComponentDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstControlRigComponentDelegate__PythonCallable(ControlRigComponentDel
 @:forward
 @:nativeGen
 @:native("ControlRigComponentDelegate__PythonCallable*")
-abstract ControlRigComponentDelegate__PythonCallablePtr(cpp.Star<ControlRigComponentDelegate__PythonCallable>) from cpp.Star<ControlRigComponentDelegate__PythonCallable> to cpp.Star<ControlRigComponentDelegate__PythonCallable>{
+abstract ControlRigComponentDelegate__PythonCallablePtr(ucpp.Ptr<ControlRigComponentDelegate__PythonCallable>) from ucpp.Ptr<ControlRigComponentDelegate__PythonCallable> to ucpp.Ptr<ControlRigComponentDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigComponentDelegate__PythonCallable): ControlRigComponentDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

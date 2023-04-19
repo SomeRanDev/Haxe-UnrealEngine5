@@ -3,36 +3,36 @@ package ue;
 
 @:native("URigVMInjectionInfo")
 @:include("RigVMModel/RigVMPin.h")
-@:structAccess
+@:valueType
 extern class RigVMInjectionInfo extends Object {
-	public var Node: cpp.Star<RigVMNode>;
+	public var Node: ucpp.Ptr<RigVMNode>;
 	public var bInjectedAsInput: Bool;
-	public var InputPin: cpp.Star<RigVMPin>;
-	public var OutputPin: cpp.Star<RigVMPin>;
+	public var InputPin: ucpp.Ptr<RigVMPin>;
+	public var OutputPin: ucpp.Ptr<RigVMPin>;
 
-	public function GetPin(): cpp.Star<RigVMPin>;
-	public function GetGraph(): cpp.Star<RigVMGraph>;
+	public function GetPin(): ucpp.Ptr<RigVMPin>;
+	public function GetGraph(): ucpp.Ptr<RigVMGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPin, GetGraph)
 @:nativeGen
 abstract ConstRigVMInjectionInfo(RigVMInjectionInfo) from RigVMInjectionInfo {
-	public extern var Node(get, never): cpp.Star<RigVMNode.ConstRigVMNode>;
-	public inline extern function get_Node(): cpp.Star<RigVMNode.ConstRigVMNode> return this.Node;
+	public extern var Node(get, never): ucpp.Ptr<RigVMNode.ConstRigVMNode>;
+	public inline extern function get_Node(): ucpp.Ptr<RigVMNode.ConstRigVMNode> return this.Node;
 	public extern var bInjectedAsInput(get, never): Bool;
 	public inline extern function get_bInjectedAsInput(): Bool return this.bInjectedAsInput;
-	public extern var InputPin(get, never): cpp.Star<RigVMPin.ConstRigVMPin>;
-	public inline extern function get_InputPin(): cpp.Star<RigVMPin.ConstRigVMPin> return this.InputPin;
-	public extern var OutputPin(get, never): cpp.Star<RigVMPin.ConstRigVMPin>;
-	public inline extern function get_OutputPin(): cpp.Star<RigVMPin.ConstRigVMPin> return this.OutputPin;
+	public extern var InputPin(get, never): ucpp.Ptr<RigVMPin.ConstRigVMPin>;
+	public inline extern function get_InputPin(): ucpp.Ptr<RigVMPin.ConstRigVMPin> return this.InputPin;
+	public extern var OutputPin(get, never): ucpp.Ptr<RigVMPin.ConstRigVMPin>;
+	public inline extern function get_OutputPin(): ucpp.Ptr<RigVMPin.ConstRigVMPin> return this.OutputPin;
 }
 
 @:forward
 @:nativeGen
 @:native("RigVMInjectionInfo*")
-abstract RigVMInjectionInfoPtr(cpp.Star<RigVMInjectionInfo>) from cpp.Star<RigVMInjectionInfo> to cpp.Star<RigVMInjectionInfo>{
+abstract RigVMInjectionInfoPtr(ucpp.Ptr<RigVMInjectionInfo>) from ucpp.Ptr<RigVMInjectionInfo> to ucpp.Ptr<RigVMInjectionInfo>{
 	@:from
 	public static extern inline function fromValue(v: RigVMInjectionInfo): RigVMInjectionInfoPtr {
 		return untyped __cpp__("&({0})", v);

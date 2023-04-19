@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraRendererMaterialTextureParameter")
 @:include("NiagaraRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRendererMaterialTextureParameter {
 	public var MaterialParameterName: FName;
-	public var Texture: cpp.Star<Texture>;
+	public var Texture: ucpp.Ptr<Texture>;
 
 	@:native("FNiagaraRendererMaterialTextureParameter") public function new();
-	@:native("FNiagaraRendererMaterialTextureParameter") public static function make(MaterialParameterName: FName, Texture: cpp.Star<Texture>): NiagaraRendererMaterialTextureParameter ;
+	@:native("FNiagaraRendererMaterialTextureParameter") public static function make(MaterialParameterName: FName, Texture: ucpp.Ptr<Texture>): NiagaraRendererMaterialTextureParameter ;
 }

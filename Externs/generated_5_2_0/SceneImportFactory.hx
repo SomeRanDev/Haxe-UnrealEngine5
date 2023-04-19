@@ -3,10 +3,10 @@ package ue;
 
 @:native("USceneImportFactory")
 @:include("Factories/SceneImportFactory.h")
-@:structAccess
+@:valueType
 extern class SceneImportFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSceneImportFactory(SceneImportFactory) from SceneImportFactory {
 @:forward
 @:nativeGen
 @:native("SceneImportFactory*")
-abstract SceneImportFactoryPtr(cpp.Star<SceneImportFactory>) from cpp.Star<SceneImportFactory> to cpp.Star<SceneImportFactory>{
+abstract SceneImportFactoryPtr(ucpp.Ptr<SceneImportFactory>) from ucpp.Ptr<SceneImportFactory> to ucpp.Ptr<SceneImportFactory>{
 	@:from
 	public static extern inline function fromValue(v: SceneImportFactory): SceneImportFactoryPtr {
 		return untyped __cpp__("&({0})", v);

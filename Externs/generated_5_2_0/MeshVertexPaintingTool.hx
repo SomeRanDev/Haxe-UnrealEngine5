@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMeshVertexPaintingTool")
 @:include("MeshVertexPaintingTool.h")
-@:structAccess
+@:valueType
 extern class MeshVertexPaintingTool extends BaseBrushTool {
-	@:protected public var SelectionMechanic: cpp.Star<MeshPaintSelectionMechanic>;
-	private var VertexProperties: cpp.Star<MeshVertexPaintingToolProperties>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<MeshPaintSelectionMechanic>;
+	private var VertexProperties: ucpp.Ptr<MeshVertexPaintingToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMeshVertexPaintingTool(MeshVertexPaintingTool) from MeshVertexPain
 @:forward
 @:nativeGen
 @:native("MeshVertexPaintingTool*")
-abstract MeshVertexPaintingToolPtr(cpp.Star<MeshVertexPaintingTool>) from cpp.Star<MeshVertexPaintingTool> to cpp.Star<MeshVertexPaintingTool>{
+abstract MeshVertexPaintingToolPtr(ucpp.Ptr<MeshVertexPaintingTool>) from ucpp.Ptr<MeshVertexPaintingTool> to ucpp.Ptr<MeshVertexPaintingTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshVertexPaintingTool): MeshVertexPaintingToolPtr {
 		return untyped __cpp__("&({0})", v);

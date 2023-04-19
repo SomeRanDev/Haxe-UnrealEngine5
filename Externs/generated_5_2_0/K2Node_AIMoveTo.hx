@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_AIMoveTo")
 @:include("K2Node_AIMoveTo.h")
-@:structAccess
+@:valueType
 extern class K2Node_AIMoveTo extends K2Node_BaseAsyncTask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_AIMoveTo(K2Node_AIMoveTo) from K2Node_AIMoveTo {
 @:forward
 @:nativeGen
 @:native("K2Node_AIMoveTo*")
-abstract K2Node_AIMoveToPtr(cpp.Star<K2Node_AIMoveTo>) from cpp.Star<K2Node_AIMoveTo> to cpp.Star<K2Node_AIMoveTo>{
+abstract K2Node_AIMoveToPtr(ucpp.Ptr<K2Node_AIMoveTo>) from ucpp.Ptr<K2Node_AIMoveTo> to ucpp.Ptr<K2Node_AIMoveTo>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_AIMoveTo): K2Node_AIMoveToPtr {
 		return untyped __cpp__("&({0})", v);

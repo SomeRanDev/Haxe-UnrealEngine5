@@ -3,29 +3,29 @@ package ue;
 
 @:native("UProceduralFoliageComponent")
 @:include("ProceduralFoliageComponent.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageComp extends ActorComp {
-	public var FoliageSpawner: cpp.Star<ProceduralFoliageSpawner>;
-	public var TileOverlap: cpp.Float32;
-	private var SpawningVolume: cpp.Star<Volume>;
+	public var FoliageSpawner: ucpp.Ptr<ProceduralFoliageSpawner>;
+	public var TileOverlap: ucpp.num.Float32;
+	private var SpawningVolume: ucpp.Ptr<Volume>;
 	private var ProceduralGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralFoliageComp(ProceduralFoliageComp) from ProceduralFoliageComp {
-	public extern var FoliageSpawner(get, never): cpp.Star<ProceduralFoliageSpawner.ConstProceduralFoliageSpawner>;
-	public inline extern function get_FoliageSpawner(): cpp.Star<ProceduralFoliageSpawner.ConstProceduralFoliageSpawner> return this.FoliageSpawner;
-	public extern var TileOverlap(get, never): cpp.Float32;
-	public inline extern function get_TileOverlap(): cpp.Float32 return this.TileOverlap;
+	public extern var FoliageSpawner(get, never): ucpp.Ptr<ProceduralFoliageSpawner.ConstProceduralFoliageSpawner>;
+	public inline extern function get_FoliageSpawner(): ucpp.Ptr<ProceduralFoliageSpawner.ConstProceduralFoliageSpawner> return this.FoliageSpawner;
+	public extern var TileOverlap(get, never): ucpp.num.Float32;
+	public inline extern function get_TileOverlap(): ucpp.num.Float32 return this.TileOverlap;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralFoliageComp*")
-abstract ProceduralFoliageCompPtr(cpp.Star<ProceduralFoliageComp>) from cpp.Star<ProceduralFoliageComp> to cpp.Star<ProceduralFoliageComp>{
+abstract ProceduralFoliageCompPtr(ucpp.Ptr<ProceduralFoliageComp>) from ucpp.Ptr<ProceduralFoliageComp> to ucpp.Ptr<ProceduralFoliageComp>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralFoliageComp): ProceduralFoliageCompPtr {
 		return untyped __cpp__("&({0})", v);

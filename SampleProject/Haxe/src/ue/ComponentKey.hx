@@ -3,7 +3,7 @@ package ue;
 
 @:native("FComponentKey")
 @:include("Engine/InheritableComponentHandler.h")
-@:structAccess
+@:valueType
 extern class ComponentKey {
 	private var OwnerClass: TSubclassOf<Object>;
 	private var SCSVariableName: FName;

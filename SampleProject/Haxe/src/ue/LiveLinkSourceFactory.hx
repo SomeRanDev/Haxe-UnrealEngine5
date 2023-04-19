@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULiveLinkSourceFactory")
 @:include("LiveLinkSourceFactory.h")
-@:structAccess
+@:valueType
 extern class LiveLinkSourceFactory extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLiveLinkSourceFactory(LiveLinkSourceFactory) from LiveLinkSourceFa
 @:forward
 @:nativeGen
 @:native("LiveLinkSourceFactory*")
-abstract LiveLinkSourceFactoryPtr(cpp.Star<LiveLinkSourceFactory>) from cpp.Star<LiveLinkSourceFactory> to cpp.Star<LiveLinkSourceFactory>{
+abstract LiveLinkSourceFactoryPtr(ucpp.Ptr<LiveLinkSourceFactory>) from ucpp.Ptr<LiveLinkSourceFactory> to ucpp.Ptr<LiveLinkSourceFactory>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkSourceFactory): LiveLinkSourceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

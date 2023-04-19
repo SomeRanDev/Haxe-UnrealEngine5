@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EVectorQuantization")
-@:include("Engine/EngineTypes.h")
+@:include("Engine/ReplicatedState.h")
 extern class EVectorQuantization {
 	static var RoundWholeNumber: EVectorQuantization;
 	static var RoundOneDecimal: EVectorQuantization;

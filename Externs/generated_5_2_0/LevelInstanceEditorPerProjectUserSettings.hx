@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULevelInstanceEditorPerProjectUserSettings")
 @:include("LevelInstanceEditorSettings.h")
-@:structAccess
+@:valueType
 extern class LevelInstanceEditorPerProjectUserSettings extends DeveloperSettings {
 	public var bAlwaysShowDialog: Bool;
 	public var PivotType: ELevelInstancePivotType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLevelInstanceEditorPerProjectUserSettings(LevelInstanceEditorPerPr
 @:forward
 @:nativeGen
 @:native("LevelInstanceEditorPerProjectUserSettings*")
-abstract LevelInstanceEditorPerProjectUserSettingsPtr(cpp.Star<LevelInstanceEditorPerProjectUserSettings>) from cpp.Star<LevelInstanceEditorPerProjectUserSettings> to cpp.Star<LevelInstanceEditorPerProjectUserSettings>{
+abstract LevelInstanceEditorPerProjectUserSettingsPtr(ucpp.Ptr<LevelInstanceEditorPerProjectUserSettings>) from ucpp.Ptr<LevelInstanceEditorPerProjectUserSettings> to ucpp.Ptr<LevelInstanceEditorPerProjectUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstanceEditorPerProjectUserSettings): LevelInstanceEditorPerProjectUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

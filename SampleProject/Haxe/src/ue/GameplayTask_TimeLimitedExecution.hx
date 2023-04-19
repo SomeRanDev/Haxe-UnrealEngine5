@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGameplayTask_TimeLimitedExecution")
 @:include("Tasks/GameplayTask_TimeLimitedExecution.h")
-@:structAccess
+@:valueType
 extern class GameplayTask_TimeLimitedExecution extends GameplayTask {
 	public var OnFinished: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTimeExpired: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function TaskFinishDelegate__DelegateSignature(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstGameplayTask_TimeLimitedExecution(GameplayTask_TimeLimitedExecutio
 @:forward
 @:nativeGen
 @:native("GameplayTask_TimeLimitedExecution*")
-abstract GameplayTask_TimeLimitedExecutionPtr(cpp.Star<GameplayTask_TimeLimitedExecution>) from cpp.Star<GameplayTask_TimeLimitedExecution> to cpp.Star<GameplayTask_TimeLimitedExecution>{
+abstract GameplayTask_TimeLimitedExecutionPtr(ucpp.Ptr<GameplayTask_TimeLimitedExecution>) from ucpp.Ptr<GameplayTask_TimeLimitedExecution> to ucpp.Ptr<GameplayTask_TimeLimitedExecution>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTask_TimeLimitedExecution): GameplayTask_TimeLimitedExecutionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelStreamingProfilingSubsystem")
 @:include("ProfilingDebugging/LevelStreamingProfilingSubsystem.h")
-@:structAccess
+@:valueType
 extern class LevelStreamingProfilingSubsystem extends WorldSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelStreamingProfilingSubsystem(LevelStreamingProfilingSubsystem)
 @:forward
 @:nativeGen
 @:native("LevelStreamingProfilingSubsystem*")
-abstract LevelStreamingProfilingSubsystemPtr(cpp.Star<LevelStreamingProfilingSubsystem>) from cpp.Star<LevelStreamingProfilingSubsystem> to cpp.Star<LevelStreamingProfilingSubsystem>{
+abstract LevelStreamingProfilingSubsystemPtr(ucpp.Ptr<LevelStreamingProfilingSubsystem>) from ucpp.Ptr<LevelStreamingProfilingSubsystem> to ucpp.Ptr<LevelStreamingProfilingSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreamingProfilingSubsystem): LevelStreamingProfilingSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

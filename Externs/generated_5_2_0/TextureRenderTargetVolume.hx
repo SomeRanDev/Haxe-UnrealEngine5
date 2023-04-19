@@ -3,28 +3,28 @@ package ue;
 
 @:native("UTextureRenderTargetVolume")
 @:include("Engine/TextureRenderTargetVolume.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTargetVolume extends TextureRenderTarget {
-	public var SizeX: cpp.Int32;
-	public var SizeY: cpp.Int32;
-	public var SizeZ: cpp.Int32;
+	public var SizeX: ucpp.num.Int32;
+	public var SizeY: ucpp.num.Int32;
+	public var SizeZ: ucpp.num.Int32;
 	public var ClearColor: LinearColor;
 	public var OverrideFormat: TEnumAsByte<EPixelFormat>;
 	public var bHDR: Bool;
 	public var bForceLinearGamma: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTargetVolume(TextureRenderTargetVolume) from TextureRenderTargetVolume {
-	public extern var SizeX(get, never): cpp.Int32;
-	public inline extern function get_SizeX(): cpp.Int32 return this.SizeX;
-	public extern var SizeY(get, never): cpp.Int32;
-	public inline extern function get_SizeY(): cpp.Int32 return this.SizeY;
-	public extern var SizeZ(get, never): cpp.Int32;
-	public inline extern function get_SizeZ(): cpp.Int32 return this.SizeZ;
+	public extern var SizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeX(): ucpp.num.Int32 return this.SizeX;
+	public extern var SizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeY(): ucpp.num.Int32 return this.SizeY;
+	public extern var SizeZ(get, never): ucpp.num.Int32;
+	public inline extern function get_SizeZ(): ucpp.num.Int32 return this.SizeZ;
 	public extern var ClearColor(get, never): LinearColor;
 	public inline extern function get_ClearColor(): LinearColor return this.ClearColor;
 	public extern var OverrideFormat(get, never): TEnumAsByte<EPixelFormat>;
@@ -38,7 +38,7 @@ abstract ConstTextureRenderTargetVolume(TextureRenderTargetVolume) from TextureR
 @:forward
 @:nativeGen
 @:native("TextureRenderTargetVolume*")
-abstract TextureRenderTargetVolumePtr(cpp.Star<TextureRenderTargetVolume>) from cpp.Star<TextureRenderTargetVolume> to cpp.Star<TextureRenderTargetVolume>{
+abstract TextureRenderTargetVolumePtr(ucpp.Ptr<TextureRenderTargetVolume>) from ucpp.Ptr<TextureRenderTargetVolume> to ucpp.Ptr<TextureRenderTargetVolume>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTargetVolume): TextureRenderTargetVolumePtr {
 		return untyped __cpp__("&({0})", v);

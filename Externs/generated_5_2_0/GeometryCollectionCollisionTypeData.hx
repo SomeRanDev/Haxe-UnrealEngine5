@@ -3,14 +3,14 @@ package ue;
 
 @:native("FGeometryCollectionCollisionTypeData")
 @:include("GeometryCollection/GeometryCollectionObject.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionCollisionTypeData {
 	public var CollisionType: ECollisionTypeEnum;
 	public var ImplicitType: EImplicitTypeEnum;
 	public var LevelSet: GeometryCollectionLevelSetData;
 	public var CollisionParticles: GeometryCollectionCollisionParticleData;
-	public var CollisionObjectReductionPercentage: cpp.Float32;
-	public var CollisionMarginFraction: cpp.Float32;
+	public var CollisionObjectReductionPercentage: ucpp.num.Float32;
+	public var CollisionMarginFraction: ucpp.num.Float32;
 
 	@:native("FGeometryCollectionCollisionTypeData") public function new();
 }

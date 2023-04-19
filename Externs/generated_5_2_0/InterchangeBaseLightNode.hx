@@ -3,18 +3,18 @@ package ue;
 
 @:native("UInterchangeBaseLightNode")
 @:include("InterchangeLightNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeBaseLightNode extends InterchangeBaseNode {
 	public function SetCustomUseTemperature(AttributeValue: Bool): Bool;
-	public function SetCustomTemperature(AttributeValue: cpp.Float32): Bool;
-	public function SetCustomLightColor(AttributeValue: cpp.Reference<LinearColor>): Bool;
-	public function SetCustomIntensity(AttributeValue: cpp.Float32): Bool;
-	public function GetCustomUseTemperature(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomTemperature(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomLightColor(AttributeValue: cpp.Reference<LinearColor>): Bool;
-	public function GetCustomIntensity(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function SetCustomTemperature(AttributeValue: ucpp.num.Float32): Bool;
+	public function SetCustomLightColor(AttributeValue: ucpp.Ref<LinearColor>): Bool;
+	public function SetCustomIntensity(AttributeValue: ucpp.num.Float32): Bool;
+	public function GetCustomUseTemperature(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomTemperature(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomLightColor(AttributeValue: ucpp.Ref<LinearColor>): Bool;
+	public function GetCustomIntensity(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomUseTemperature, GetCustomTemperature, GetCustomLightColor, GetCustomIntensity)
@@ -25,7 +25,7 @@ abstract ConstInterchangeBaseLightNode(InterchangeBaseLightNode) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeBaseLightNode*")
-abstract InterchangeBaseLightNodePtr(cpp.Star<InterchangeBaseLightNode>) from cpp.Star<InterchangeBaseLightNode> to cpp.Star<InterchangeBaseLightNode>{
+abstract InterchangeBaseLightNodePtr(ucpp.Ptr<InterchangeBaseLightNode>) from ucpp.Ptr<InterchangeBaseLightNode> to ucpp.Ptr<InterchangeBaseLightNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeBaseLightNode): InterchangeBaseLightNodePtr {
 		return untyped __cpp__("&({0})", v);

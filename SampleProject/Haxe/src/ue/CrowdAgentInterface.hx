@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UCrowdAgentInterface")
-@:structAccess
+@:valueType
 extern class CrowdAgentInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstCrowdAgentInterface(CrowdAgentInterface) from CrowdAgentInterface 
 @:forward
 @:nativeGen
 @:native("CrowdAgentInterface*")
-abstract CrowdAgentInterfacePtr(cpp.Star<CrowdAgentInterface>) from cpp.Star<CrowdAgentInterface> to cpp.Star<CrowdAgentInterface>{
+abstract CrowdAgentInterfacePtr(ucpp.Ptr<CrowdAgentInterface>) from ucpp.Ptr<CrowdAgentInterface> to ucpp.Ptr<CrowdAgentInterface>{
 	@:from
 	public static extern inline function fromValue(v: CrowdAgentInterface): CrowdAgentInterfacePtr {
 		return untyped __cpp__("&({0})", v);

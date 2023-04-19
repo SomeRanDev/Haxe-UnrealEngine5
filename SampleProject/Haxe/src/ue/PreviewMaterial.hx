@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPreviewMaterial")
 @:include("MaterialEditor/PreviewMaterial.h")
-@:structAccess
+@:valueType
 extern class PreviewMaterial extends Material {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPreviewMaterial(PreviewMaterial) from PreviewMaterial {
 @:forward
 @:nativeGen
 @:native("PreviewMaterial*")
-abstract PreviewMaterialPtr(cpp.Star<PreviewMaterial>) from cpp.Star<PreviewMaterial> to cpp.Star<PreviewMaterial>{
+abstract PreviewMaterialPtr(ucpp.Ptr<PreviewMaterial>) from ucpp.Ptr<PreviewMaterial> to ucpp.Ptr<PreviewMaterial>{
 	@:from
 	public static extern inline function fromValue(v: PreviewMaterial): PreviewMaterialPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UParticleModuleSubUVMovie")
 @:include("Particles/SubUV/ParticleModuleSubUVMovie.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleSubUVMovie extends ParticleModuleSubUV {
 	public var bUseEmitterTime: Bool;
 	public var FrameRate: RawDistributionFloat;
-	public var StartingFrame: cpp.Int32;
+	public var StartingFrame: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstParticleModuleSubUVMovie(ParticleModuleSubUVMovie) from ParticleMo
 	public inline extern function get_bUseEmitterTime(): Bool return this.bUseEmitterTime;
 	public extern var FrameRate(get, never): RawDistributionFloat;
 	public inline extern function get_FrameRate(): RawDistributionFloat return this.FrameRate;
-	public extern var StartingFrame(get, never): cpp.Int32;
-	public inline extern function get_StartingFrame(): cpp.Int32 return this.StartingFrame;
+	public extern var StartingFrame(get, never): ucpp.num.Int32;
+	public inline extern function get_StartingFrame(): ucpp.num.Int32 return this.StartingFrame;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleSubUVMovie*")
-abstract ParticleModuleSubUVMoviePtr(cpp.Star<ParticleModuleSubUVMovie>) from cpp.Star<ParticleModuleSubUVMovie> to cpp.Star<ParticleModuleSubUVMovie>{
+abstract ParticleModuleSubUVMoviePtr(ucpp.Ptr<ParticleModuleSubUVMovie>) from ucpp.Ptr<ParticleModuleSubUVMovie> to ucpp.Ptr<ParticleModuleSubUVMovie>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleSubUVMovie): ParticleModuleSubUVMoviePtr {
 		return untyped __cpp__("&({0})", v);

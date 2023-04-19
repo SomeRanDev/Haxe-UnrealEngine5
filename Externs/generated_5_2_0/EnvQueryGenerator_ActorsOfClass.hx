@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEnvQueryGenerator_ActorsOfClass")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_ActorsOfClass.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_ActorsOfClass extends EnvQueryGenerator {
 	public var SearchedActorClass: TSubclassOf<Actor>;
 	public var GenerateOnlyActorsInRadius: AIDataProviderBoolValue;
 	public var SearchRadius: AIDataProviderFloatValue;
 	public var SearchCenter: TSubclassOf<EnvQueryContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstEnvQueryGenerator_ActorsOfClass(EnvQueryGenerator_ActorsOfClass) f
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_ActorsOfClass*")
-abstract EnvQueryGenerator_ActorsOfClassPtr(cpp.Star<EnvQueryGenerator_ActorsOfClass>) from cpp.Star<EnvQueryGenerator_ActorsOfClass> to cpp.Star<EnvQueryGenerator_ActorsOfClass>{
+abstract EnvQueryGenerator_ActorsOfClassPtr(ucpp.Ptr<EnvQueryGenerator_ActorsOfClass>) from ucpp.Ptr<EnvQueryGenerator_ActorsOfClass> to ucpp.Ptr<EnvQueryGenerator_ActorsOfClass>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_ActorsOfClass): EnvQueryGenerator_ActorsOfClassPtr {
 		return untyped __cpp__("&({0})", v);

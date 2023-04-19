@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNDIRenderTargetVolumeSimCacheData")
 @:include("NDIRenderTargetVolumeSimCacheData.h")
-@:structAccess
+@:valueType
 extern class NDIRenderTargetVolumeSimCacheData extends Object {
 	public var CompressionType: FName;
 	public var Frames: TArray<NDIRenderTargetVolumeSimCacheFrame>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNDIRenderTargetVolumeSimCacheData(NDIRenderTargetVolumeSimCacheDat
 @:forward
 @:nativeGen
 @:native("NDIRenderTargetVolumeSimCacheData*")
-abstract NDIRenderTargetVolumeSimCacheDataPtr(cpp.Star<NDIRenderTargetVolumeSimCacheData>) from cpp.Star<NDIRenderTargetVolumeSimCacheData> to cpp.Star<NDIRenderTargetVolumeSimCacheData>{
+abstract NDIRenderTargetVolumeSimCacheDataPtr(ucpp.Ptr<NDIRenderTargetVolumeSimCacheData>) from ucpp.Ptr<NDIRenderTargetVolumeSimCacheData> to ucpp.Ptr<NDIRenderTargetVolumeSimCacheData>{
 	@:from
 	public static extern inline function fromValue(v: NDIRenderTargetVolumeSimCacheData): NDIRenderTargetVolumeSimCacheDataPtr {
 		return untyped __cpp__("&({0})", v);

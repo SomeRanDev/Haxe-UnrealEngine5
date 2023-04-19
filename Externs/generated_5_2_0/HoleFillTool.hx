@@ -3,16 +3,16 @@ package ue;
 
 @:native("UHoleFillTool")
 @:include("HoleFillTool.h")
-@:structAccess
+@:valueType
 extern class HoleFillTool extends SingleSelectionMeshEditingTool {
-	@:protected public var SmoothHoleFillProperties: cpp.Star<SmoothHoleFillProperties>;
-	@:protected public var Properties: cpp.Star<HoleFillToolProperties>;
-	@:protected public var Actions: cpp.Star<HoleFillToolActions>;
-	@:protected public var Statistics: cpp.Star<HoleFillStatisticsProperties>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var SelectionMechanic: cpp.Star<BoundarySelectionMechanic>;
+	@:protected public var SmoothHoleFillProperties: ucpp.Ptr<SmoothHoleFillProperties>;
+	@:protected public var Properties: ucpp.Ptr<HoleFillToolProperties>;
+	@:protected public var Actions: ucpp.Ptr<HoleFillToolActions>;
+	@:protected public var Statistics: ucpp.Ptr<HoleFillStatisticsProperties>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<BoundarySelectionMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstHoleFillTool(HoleFillTool) from HoleFillTool {
 @:forward
 @:nativeGen
 @:native("HoleFillTool*")
-abstract HoleFillToolPtr(cpp.Star<HoleFillTool>) from cpp.Star<HoleFillTool> to cpp.Star<HoleFillTool>{
+abstract HoleFillToolPtr(ucpp.Ptr<HoleFillTool>) from ucpp.Ptr<HoleFillTool> to ucpp.Ptr<HoleFillTool>{
 	@:from
 	public static extern inline function fromValue(v: HoleFillTool): HoleFillToolPtr {
 		return untyped __cpp__("&({0})", v);

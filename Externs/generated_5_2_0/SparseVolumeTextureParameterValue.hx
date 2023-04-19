@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSparseVolumeTextureParameterValue")
 @:include("Materials/MaterialInstance.h")
-@:structAccess
+@:valueType
 extern class SparseVolumeTextureParameterValue {
 	public var ParameterInfo: MaterialParameterInfo;
-	public var ParameterValue: cpp.Star<SparseVolumeTexture>;
+	public var ParameterValue: ucpp.Ptr<SparseVolumeTexture>;
 	public var ExpressionGUID: Guid;
 
 	@:native("FSparseVolumeTextureParameterValue") public function new();
-	@:native("FSparseVolumeTextureParameterValue") public static function make(ParameterInfo: MaterialParameterInfo, ParameterValue: cpp.Star<SparseVolumeTexture>, ExpressionGUID: Guid): SparseVolumeTextureParameterValue ;
+	@:native("FSparseVolumeTextureParameterValue") public static function make(ParameterInfo: MaterialParameterInfo, ParameterValue: ucpp.Ptr<SparseVolumeTexture>, ExpressionGUID: Guid): SparseVolumeTextureParameterValue ;
 }

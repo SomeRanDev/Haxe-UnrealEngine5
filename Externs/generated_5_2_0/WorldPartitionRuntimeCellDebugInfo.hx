@@ -3,14 +3,14 @@ package ue;
 
 @:native("FWorldPartitionRuntimeCellDebugInfo")
 @:include("WorldPartition/WorldPartitionRuntimeCell.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeCellDebugInfo {
 	public var Name: FString;
 	public var GridName: FName;
-	public var CoordX: cpp.Int64;
-	public var CoordY: cpp.Int64;
-	public var CoordZ: cpp.Int64;
+	public var CoordX: ucpp.num.Int64;
+	public var CoordY: ucpp.num.Int64;
+	public var CoordZ: ucpp.num.Int64;
 
 	@:native("FWorldPartitionRuntimeCellDebugInfo") public function new();
-	@:native("FWorldPartitionRuntimeCellDebugInfo") public static function make(Name: FString, GridName: FName, CoordX: cpp.Int64, CoordY: cpp.Int64, CoordZ: cpp.Int64): WorldPartitionRuntimeCellDebugInfo ;
+	@:native("FWorldPartitionRuntimeCellDebugInfo") public static function make(Name: FString, GridName: FName, CoordX: ucpp.num.Int64, CoordY: ucpp.num.Int64, CoordZ: ucpp.num.Int64): WorldPartitionRuntimeCellDebugInfo ;
 }

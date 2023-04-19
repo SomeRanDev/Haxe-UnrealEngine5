@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSourceEffectFoldbackDistortionSettings")
 @:include("SourceEffects/SourceEffectFoldbackDistortion.h")
-@:structAccess
+@:valueType
 extern class SourceEffectFoldbackDistortionSettings {
-	public var InputGainDb: cpp.Float32;
-	public var ThresholdDb: cpp.Float32;
-	public var OutputGainDb: cpp.Float32;
+	public var InputGainDb: ucpp.num.Float32;
+	public var ThresholdDb: ucpp.num.Float32;
+	public var OutputGainDb: ucpp.num.Float32;
 
 	@:native("FSourceEffectFoldbackDistortionSettings") public function new();
-	@:native("FSourceEffectFoldbackDistortionSettings") public static function make(InputGainDb: cpp.Float32, ThresholdDb: cpp.Float32, OutputGainDb: cpp.Float32): SourceEffectFoldbackDistortionSettings ;
+	@:native("FSourceEffectFoldbackDistortionSettings") public static function make(InputGainDb: ucpp.num.Float32, ThresholdDb: ucpp.num.Float32, OutputGainDb: ucpp.num.Float32): SourceEffectFoldbackDistortionSettings ;
 }

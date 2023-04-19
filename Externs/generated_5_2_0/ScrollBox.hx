@@ -3,7 +3,7 @@ package ue;
 
 @:native("UScrollBox")
 @:include("Components/ScrollBox.h")
-@:structAccess
+@:valueType
 extern class ScrollBox extends PanelWidget {
 	public var WidgetStyle: ScrollBoxStyle;
 	public var WidgetBarStyle: ScrollBarStyle;
@@ -19,34 +19,34 @@ extern class ScrollBox extends PanelWidget {
 	public var FrontPadScrolling: Bool;
 	public var bAnimateWheelScrolling: Bool;
 	public var NavigationDestination: EDescendantScrollDestination;
-	public var NavigationScrollPadding: cpp.Float32;
+	public var NavigationScrollPadding: ucpp.num.Float32;
 	public var ScrollWhenFocusChanges: EScrollWhenFocusChanges;
 	public var bAllowRightClickDragScrolling: Bool;
-	public var WheelScrollMultiplier: cpp.Float32;
-	public var OnUserScrolled: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var WheelScrollMultiplier: ucpp.num.Float32;
+	public var OnUserScrolled: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
-	public function SetWheelScrollMultiplier(NewWheelScrollMultiplier: cpp.Float32): Void;
+	public function SetWheelScrollMultiplier(NewWheelScrollMultiplier: ucpp.num.Float32): Void;
 	public function SetScrollWhenFocusChanges(NewScrollWhenFocusChanges: EScrollWhenFocusChanges): Void;
-	public function SetScrollOffset(NewScrollOffset: cpp.Float32): Void;
+	public function SetScrollOffset(NewScrollOffset: ucpp.num.Float32): Void;
 	public function SetScrollBarVisibility(NewScrollBarVisibility: ESlateVisibility): Void;
-	public function SetScrollbarThickness(NewScrollbarThickness: cpp.Reference<Vector2D>): Void;
-	public function SetScrollbarPadding(NewScrollbarPadding: cpp.Reference<Margin>): Void;
+	public function SetScrollbarThickness(NewScrollbarThickness: ucpp.Ref<Vector2D>): Void;
+	public function SetScrollbarPadding(NewScrollbarPadding: ucpp.Ref<Margin>): Void;
 	public function SetOrientation(NewOrientation: TEnumAsByte<EOrientation>): Void;
 	public function SetNavigationDestination(NewNavigationDestination: EDescendantScrollDestination): Void;
 	public function SetConsumeMouseWheel(NewConsumeMouseWheel: EConsumeMouseWheel): Void;
 	public function SetAnimateWheelScrolling(bShouldAnimateWheelScrolling: Bool): Void;
 	public function SetAlwaysShowScrollbar(NewAlwaysShowScrollbar: Bool): Void;
 	public function SetAllowOverscroll(NewAllowOverscroll: Bool): Void;
-	public function ScrollWidgetIntoView(WidgetToFind: cpp.Star<Widget>, AnimateScroll: Bool, ScrollDestination: EDescendantScrollDestination, Padding: cpp.Float32): Void;
+	public function ScrollWidgetIntoView(WidgetToFind: ucpp.Ptr<Widget>, AnimateScroll: Bool, ScrollDestination: EDescendantScrollDestination, Padding: ucpp.num.Float32): Void;
 	public function ScrollToStart(): Void;
 	public function ScrollToEnd(): Void;
-	public function GetViewOffsetFraction(): cpp.Float32;
-	public function GetViewFraction(): cpp.Float32;
-	public function GetScrollOffsetOfEnd(): cpp.Float32;
-	public function GetScrollOffset(): cpp.Float32;
+	public function GetViewOffsetFraction(): ucpp.num.Float32;
+	public function GetViewFraction(): ucpp.num.Float32;
+	public function GetScrollOffsetOfEnd(): ucpp.num.Float32;
+	public function GetScrollOffset(): ucpp.num.Float32;
 	public function EndInertialScrolling(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetViewOffsetFraction, GetViewFraction, GetScrollOffsetOfEnd, GetScrollOffset)
@@ -80,22 +80,22 @@ abstract ConstScrollBox(ScrollBox) from ScrollBox {
 	public inline extern function get_bAnimateWheelScrolling(): Bool return this.bAnimateWheelScrolling;
 	public extern var NavigationDestination(get, never): EDescendantScrollDestination;
 	public inline extern function get_NavigationDestination(): EDescendantScrollDestination return this.NavigationDestination;
-	public extern var NavigationScrollPadding(get, never): cpp.Float32;
-	public inline extern function get_NavigationScrollPadding(): cpp.Float32 return this.NavigationScrollPadding;
+	public extern var NavigationScrollPadding(get, never): ucpp.num.Float32;
+	public inline extern function get_NavigationScrollPadding(): ucpp.num.Float32 return this.NavigationScrollPadding;
 	public extern var ScrollWhenFocusChanges(get, never): EScrollWhenFocusChanges;
 	public inline extern function get_ScrollWhenFocusChanges(): EScrollWhenFocusChanges return this.ScrollWhenFocusChanges;
 	public extern var bAllowRightClickDragScrolling(get, never): Bool;
 	public inline extern function get_bAllowRightClickDragScrolling(): Bool return this.bAllowRightClickDragScrolling;
-	public extern var WheelScrollMultiplier(get, never): cpp.Float32;
-	public inline extern function get_WheelScrollMultiplier(): cpp.Float32 return this.WheelScrollMultiplier;
-	public extern var OnUserScrolled(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnUserScrolled(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnUserScrolled;
+	public extern var WheelScrollMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_WheelScrollMultiplier(): ucpp.num.Float32 return this.WheelScrollMultiplier;
+	public extern var OnUserScrolled(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnUserScrolled(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnUserScrolled;
 }
 
 @:forward
 @:nativeGen
 @:native("ScrollBox*")
-abstract ScrollBoxPtr(cpp.Star<ScrollBox>) from cpp.Star<ScrollBox> to cpp.Star<ScrollBox>{
+abstract ScrollBoxPtr(ucpp.Ptr<ScrollBox>) from ucpp.Ptr<ScrollBox> to ucpp.Ptr<ScrollBox>{
 	@:from
 	public static extern inline function fromValue(v: ScrollBox): ScrollBoxPtr {
 		return untyped __cpp__("&({0})", v);

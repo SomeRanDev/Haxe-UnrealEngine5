@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTestPhaseComponent")
 @:include("TestPhaseComponent.h")
-@:structAccess
+@:valueType
 extern class TestPhaseComp extends SceneComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestPhaseComp(TestPhaseComp) from TestPhaseComp {
 @:forward
 @:nativeGen
 @:native("TestPhaseComp*")
-abstract TestPhaseCompPtr(cpp.Star<TestPhaseComp>) from cpp.Star<TestPhaseComp> to cpp.Star<TestPhaseComp>{
+abstract TestPhaseCompPtr(ucpp.Ptr<TestPhaseComp>) from ucpp.Ptr<TestPhaseComp> to ucpp.Ptr<TestPhaseComp>{
 	@:from
 	public static extern inline function fromValue(v: TestPhaseComp): TestPhaseCompPtr {
 		return untyped __cpp__("&({0})", v);

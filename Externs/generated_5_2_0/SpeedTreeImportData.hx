@@ -3,9 +3,9 @@ package ue;
 
 @:native("USpeedTreeImportData")
 @:include("SpeedTreeImportData.h")
-@:structAccess
+@:valueType
 extern class SpeedTreeImportData extends AssetImportData {
-	public var TreeScale: cpp.Float32;
+	public var TreeScale: ucpp.num.Float32;
 	public var ImportGeometryType: TEnumAsByte<EImportGeometryType>;
 	public var LODType: TEnumAsByte<EImportLODType>;
 	public var IncludeCollision: Bool;
@@ -21,14 +21,14 @@ extern class SpeedTreeImportData extends AssetImportData {
 	public var IncludeWindCheck: Bool;
 	public var IncludeSmoothLODCheck: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSpeedTreeImportData(SpeedTreeImportData) from SpeedTreeImportData {
-	public extern var TreeScale(get, never): cpp.Float32;
-	public inline extern function get_TreeScale(): cpp.Float32 return this.TreeScale;
+	public extern var TreeScale(get, never): ucpp.num.Float32;
+	public inline extern function get_TreeScale(): ucpp.num.Float32 return this.TreeScale;
 	public extern var ImportGeometryType(get, never): TEnumAsByte<EImportGeometryType>;
 	public inline extern function get_ImportGeometryType(): TEnumAsByte<EImportGeometryType> return this.ImportGeometryType;
 	public extern var LODType(get, never): TEnumAsByte<EImportLODType>;
@@ -62,7 +62,7 @@ abstract ConstSpeedTreeImportData(SpeedTreeImportData) from SpeedTreeImportData 
 @:forward
 @:nativeGen
 @:native("SpeedTreeImportData*")
-abstract SpeedTreeImportDataPtr(cpp.Star<SpeedTreeImportData>) from cpp.Star<SpeedTreeImportData> to cpp.Star<SpeedTreeImportData>{
+abstract SpeedTreeImportDataPtr(ucpp.Ptr<SpeedTreeImportData>) from ucpp.Ptr<SpeedTreeImportData> to ucpp.Ptr<SpeedTreeImportData>{
 	@:from
 	public static extern inline function fromValue(v: SpeedTreeImportData): SpeedTreeImportDataPtr {
 		return untyped __cpp__("&({0})", v);

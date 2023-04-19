@@ -3,7 +3,7 @@ package ue;
 
 @:native("FXRHMDData")
 @:include("HeadMountedDisplayTypes.h")
-@:structAccess
+@:valueType
 extern class XRHMDData {
 	public var bValid: Bool;
 	public var DeviceName: FName;

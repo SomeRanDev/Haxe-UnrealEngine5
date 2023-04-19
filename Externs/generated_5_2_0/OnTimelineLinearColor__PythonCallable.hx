@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnTimelineLinearColor__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnTimelineLinearColor__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnTimelineLinearColor__PythonCallable(OnTimelineLinearColor__Pytho
 @:forward
 @:nativeGen
 @:native("OnTimelineLinearColor__PythonCallable*")
-abstract OnTimelineLinearColor__PythonCallablePtr(cpp.Star<OnTimelineLinearColor__PythonCallable>) from cpp.Star<OnTimelineLinearColor__PythonCallable> to cpp.Star<OnTimelineLinearColor__PythonCallable>{
+abstract OnTimelineLinearColor__PythonCallablePtr(ucpp.Ptr<OnTimelineLinearColor__PythonCallable>) from ucpp.Ptr<OnTimelineLinearColor__PythonCallable> to ucpp.Ptr<OnTimelineLinearColor__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnTimelineLinearColor__PythonCallable): OnTimelineLinearColor__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSourceEffectFilterSettings")
 @:include("SourceEffects/SourceEffectFilter.h")
-@:structAccess
+@:valueType
 extern class SourceEffectFilterSettings {
 	public var FilterCircuit: ESourceEffectFilterCircuit;
 	public var FilterType: ESourceEffectFilterType;
-	public var CutoffFrequency: cpp.Float32;
-	public var FilterQ: cpp.Float32;
+	public var CutoffFrequency: ucpp.num.Float32;
+	public var FilterQ: ucpp.num.Float32;
 	public var AudioBusModulation: TArray<SourceEffectFilterAudioBusModulationSettings>;
 
 	@:native("FSourceEffectFilterSettings") public function new();
-	@:native("FSourceEffectFilterSettings") public static function make(FilterCircuit: ESourceEffectFilterCircuit, FilterType: ESourceEffectFilterType, CutoffFrequency: cpp.Float32, FilterQ: cpp.Float32, AudioBusModulation: TArray<SourceEffectFilterAudioBusModulationSettings>): SourceEffectFilterSettings ;
+	@:native("FSourceEffectFilterSettings") public static function make(FilterCircuit: ESourceEffectFilterCircuit, FilterType: ESourceEffectFilterType, CutoffFrequency: ucpp.num.Float32, FilterQ: ucpp.num.Float32, AudioBusModulation: TArray<SourceEffectFilterAudioBusModulationSettings>): SourceEffectFilterSettings ;
 }

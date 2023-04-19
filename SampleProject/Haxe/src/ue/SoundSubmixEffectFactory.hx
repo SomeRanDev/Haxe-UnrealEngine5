@@ -3,11 +3,11 @@ package ue;
 
 @:native("USoundSubmixEffectFactory")
 @:include("Factories/SoundSubmixEffectFactory.h")
-@:structAccess
+@:valueType
 extern class SoundSubmixEffectFactory extends Factory {
 	public var SoundEffectSubmixPresetClass: TSubclassOf<SoundEffectSubmixPreset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSoundSubmixEffectFactory(SoundSubmixEffectFactory) from SoundSubmi
 @:forward
 @:nativeGen
 @:native("SoundSubmixEffectFactory*")
-abstract SoundSubmixEffectFactoryPtr(cpp.Star<SoundSubmixEffectFactory>) from cpp.Star<SoundSubmixEffectFactory> to cpp.Star<SoundSubmixEffectFactory>{
+abstract SoundSubmixEffectFactoryPtr(ucpp.Ptr<SoundSubmixEffectFactory>) from ucpp.Ptr<SoundSubmixEffectFactory> to ucpp.Ptr<SoundSubmixEffectFactory>{
 	@:from
 	public static extern inline function fromValue(v: SoundSubmixEffectFactory): SoundSubmixEffectFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMainAudioOutputDeviceObtained__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMainAudioOutputDeviceObtained__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMainAudioOutputDeviceObtained__PythonCallable(OnMainAudioOutputD
 @:forward
 @:nativeGen
 @:native("OnMainAudioOutputDeviceObtained__PythonCallable*")
-abstract OnMainAudioOutputDeviceObtained__PythonCallablePtr(cpp.Star<OnMainAudioOutputDeviceObtained__PythonCallable>) from cpp.Star<OnMainAudioOutputDeviceObtained__PythonCallable> to cpp.Star<OnMainAudioOutputDeviceObtained__PythonCallable>{
+abstract OnMainAudioOutputDeviceObtained__PythonCallablePtr(ucpp.Ptr<OnMainAudioOutputDeviceObtained__PythonCallable>) from ucpp.Ptr<OnMainAudioOutputDeviceObtained__PythonCallable> to ucpp.Ptr<OnMainAudioOutputDeviceObtained__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMainAudioOutputDeviceObtained__PythonCallable): OnMainAudioOutputDeviceObtained__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ADirectionalLight")
 @:include("Engine/DirectionalLight.h")
-@:structAccess
+@:valueType
 extern class DirectionalLight extends Light {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDirectionalLight(DirectionalLight) from DirectionalLight {
 @:forward
 @:nativeGen
 @:native("DirectionalLight*")
-abstract DirectionalLightPtr(cpp.Star<DirectionalLight>) from cpp.Star<DirectionalLight> to cpp.Star<DirectionalLight>{
+abstract DirectionalLightPtr(ucpp.Ptr<DirectionalLight>) from ucpp.Ptr<DirectionalLight> to ucpp.Ptr<DirectionalLight>{
 	@:from
 	public static extern inline function fromValue(v: DirectionalLight): DirectionalLightPtr {
 		return untyped __cpp__("&({0})", v);

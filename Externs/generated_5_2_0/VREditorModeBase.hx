@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVREditorModeBase")
 @:include("VREditorModeBase.h")
-@:structAccess
+@:valueType
 extern class VREditorModeBase extends EditorWorldExtension {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVREditorModeBase(VREditorModeBase) from VREditorModeBase {
 @:forward
 @:nativeGen
 @:native("VREditorModeBase*")
-abstract VREditorModeBasePtr(cpp.Star<VREditorModeBase>) from cpp.Star<VREditorModeBase> to cpp.Star<VREditorModeBase>{
+abstract VREditorModeBasePtr(ucpp.Ptr<VREditorModeBase>) from ucpp.Ptr<VREditorModeBase> to ucpp.Ptr<VREditorModeBase>{
 	@:from
 	public static extern inline function fromValue(v: VREditorModeBase): VREditorModeBasePtr {
 		return untyped __cpp__("&({0})", v);

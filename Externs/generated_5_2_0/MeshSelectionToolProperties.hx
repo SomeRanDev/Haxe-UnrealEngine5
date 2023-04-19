@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMeshSelectionToolProperties")
 @:include("MeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class MeshSelectionToolProperties extends InteractiveToolPropertySet {
 	public var SelectionMode: EMeshSelectionToolPrimaryMode;
-	public var AngleTolerance: cpp.Float32;
+	public var AngleTolerance: ucpp.num.Float32;
 	public var bHitBackFaces: Bool;
 	public var bShowPoints: Bool;
 	public var FaceColorMode: EMeshFacesColorMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,8 +19,8 @@ extern class MeshSelectionToolProperties extends InteractiveToolPropertySet {
 abstract ConstMeshSelectionToolProperties(MeshSelectionToolProperties) from MeshSelectionToolProperties {
 	public extern var SelectionMode(get, never): EMeshSelectionToolPrimaryMode;
 	public inline extern function get_SelectionMode(): EMeshSelectionToolPrimaryMode return this.SelectionMode;
-	public extern var AngleTolerance(get, never): cpp.Float32;
-	public inline extern function get_AngleTolerance(): cpp.Float32 return this.AngleTolerance;
+	public extern var AngleTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_AngleTolerance(): ucpp.num.Float32 return this.AngleTolerance;
 	public extern var bHitBackFaces(get, never): Bool;
 	public inline extern function get_bHitBackFaces(): Bool return this.bHitBackFaces;
 	public extern var bShowPoints(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstMeshSelectionToolProperties(MeshSelectionToolProperties) from Mesh
 @:forward
 @:nativeGen
 @:native("MeshSelectionToolProperties*")
-abstract MeshSelectionToolPropertiesPtr(cpp.Star<MeshSelectionToolProperties>) from cpp.Star<MeshSelectionToolProperties> to cpp.Star<MeshSelectionToolProperties>{
+abstract MeshSelectionToolPropertiesPtr(ucpp.Ptr<MeshSelectionToolProperties>) from ucpp.Ptr<MeshSelectionToolProperties> to ucpp.Ptr<MeshSelectionToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshSelectionToolProperties): MeshSelectionToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

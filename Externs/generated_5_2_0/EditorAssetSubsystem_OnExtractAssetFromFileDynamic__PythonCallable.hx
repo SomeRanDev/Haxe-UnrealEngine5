@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable
 @:forward
 @:nativeGen
 @:native("EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable*")
-abstract EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallablePtr(cpp.Star<EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable>) from cpp.Star<EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable> to cpp.Star<EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable>{
+abstract EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallablePtr(ucpp.Ptr<EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable>) from ucpp.Ptr<EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable> to ucpp.Ptr<EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallable): EditorAssetSubsystem_OnExtractAssetFromFileDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,51 +3,51 @@ package ue;
 
 @:native("URevolveProperties")
 @:include("Properties/RevolveProperties.h")
-@:structAccess
+@:valueType
 extern class RevolveProperties extends InteractiveToolPropertySet {
-	public var RevolveDegreesClamped: cpp.Float64;
-	public var RevolveDegrees: cpp.Float64;
-	public var RevolveDegreesOffset: cpp.Float64;
-	public var StepsMaxDegrees: cpp.Float64;
+	public var RevolveDegreesClamped: ucpp.num.Float64;
+	public var RevolveDegrees: ucpp.num.Float64;
+	public var RevolveDegreesOffset: ucpp.num.Float64;
+	public var StepsMaxDegrees: ucpp.num.Float64;
 	public var bExplicitSteps: Bool;
-	public var NumExplicitSteps: cpp.Int32;
-	public var HeightOffsetPerDegree: cpp.Float64;
+	public var NumExplicitSteps: ucpp.num.Int32;
+	public var HeightOffsetPerDegree: ucpp.num.Float64;
 	public var bReverseRevolutionDirection: Bool;
 	public var bFlipMesh: Bool;
 	public var bSharpNormals: Bool;
-	public var SharpNormalsDegreeThreshold: cpp.Float64;
+	public var SharpNormalsDegreeThreshold: ucpp.num.Float64;
 	public var bPathAtMidpointOfStep: Bool;
 	public var PolygroupMode: ERevolvePropertiesPolygroupMode;
 	public var QuadSplitMode: ERevolvePropertiesQuadSplit;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRevolveProperties(RevolveProperties) from RevolveProperties {
-	public extern var RevolveDegreesClamped(get, never): cpp.Float64;
-	public inline extern function get_RevolveDegreesClamped(): cpp.Float64 return this.RevolveDegreesClamped;
-	public extern var RevolveDegrees(get, never): cpp.Float64;
-	public inline extern function get_RevolveDegrees(): cpp.Float64 return this.RevolveDegrees;
-	public extern var RevolveDegreesOffset(get, never): cpp.Float64;
-	public inline extern function get_RevolveDegreesOffset(): cpp.Float64 return this.RevolveDegreesOffset;
-	public extern var StepsMaxDegrees(get, never): cpp.Float64;
-	public inline extern function get_StepsMaxDegrees(): cpp.Float64 return this.StepsMaxDegrees;
+	public extern var RevolveDegreesClamped(get, never): ucpp.num.Float64;
+	public inline extern function get_RevolveDegreesClamped(): ucpp.num.Float64 return this.RevolveDegreesClamped;
+	public extern var RevolveDegrees(get, never): ucpp.num.Float64;
+	public inline extern function get_RevolveDegrees(): ucpp.num.Float64 return this.RevolveDegrees;
+	public extern var RevolveDegreesOffset(get, never): ucpp.num.Float64;
+	public inline extern function get_RevolveDegreesOffset(): ucpp.num.Float64 return this.RevolveDegreesOffset;
+	public extern var StepsMaxDegrees(get, never): ucpp.num.Float64;
+	public inline extern function get_StepsMaxDegrees(): ucpp.num.Float64 return this.StepsMaxDegrees;
 	public extern var bExplicitSteps(get, never): Bool;
 	public inline extern function get_bExplicitSteps(): Bool return this.bExplicitSteps;
-	public extern var NumExplicitSteps(get, never): cpp.Int32;
-	public inline extern function get_NumExplicitSteps(): cpp.Int32 return this.NumExplicitSteps;
-	public extern var HeightOffsetPerDegree(get, never): cpp.Float64;
-	public inline extern function get_HeightOffsetPerDegree(): cpp.Float64 return this.HeightOffsetPerDegree;
+	public extern var NumExplicitSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_NumExplicitSteps(): ucpp.num.Int32 return this.NumExplicitSteps;
+	public extern var HeightOffsetPerDegree(get, never): ucpp.num.Float64;
+	public inline extern function get_HeightOffsetPerDegree(): ucpp.num.Float64 return this.HeightOffsetPerDegree;
 	public extern var bReverseRevolutionDirection(get, never): Bool;
 	public inline extern function get_bReverseRevolutionDirection(): Bool return this.bReverseRevolutionDirection;
 	public extern var bFlipMesh(get, never): Bool;
 	public inline extern function get_bFlipMesh(): Bool return this.bFlipMesh;
 	public extern var bSharpNormals(get, never): Bool;
 	public inline extern function get_bSharpNormals(): Bool return this.bSharpNormals;
-	public extern var SharpNormalsDegreeThreshold(get, never): cpp.Float64;
-	public inline extern function get_SharpNormalsDegreeThreshold(): cpp.Float64 return this.SharpNormalsDegreeThreshold;
+	public extern var SharpNormalsDegreeThreshold(get, never): ucpp.num.Float64;
+	public inline extern function get_SharpNormalsDegreeThreshold(): ucpp.num.Float64 return this.SharpNormalsDegreeThreshold;
 	public extern var bPathAtMidpointOfStep(get, never): Bool;
 	public inline extern function get_bPathAtMidpointOfStep(): Bool return this.bPathAtMidpointOfStep;
 	public extern var PolygroupMode(get, never): ERevolvePropertiesPolygroupMode;
@@ -59,7 +59,7 @@ abstract ConstRevolveProperties(RevolveProperties) from RevolveProperties {
 @:forward
 @:nativeGen
 @:native("RevolveProperties*")
-abstract RevolvePropertiesPtr(cpp.Star<RevolveProperties>) from cpp.Star<RevolveProperties> to cpp.Star<RevolveProperties>{
+abstract RevolvePropertiesPtr(ucpp.Ptr<RevolveProperties>) from ucpp.Ptr<RevolveProperties> to ucpp.Ptr<RevolveProperties>{
 	@:from
 	public static extern inline function fromValue(v: RevolveProperties): RevolvePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

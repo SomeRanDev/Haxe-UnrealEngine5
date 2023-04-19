@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComponentWakeSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComponentWakeSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComponentWakeSignature__PythonCallable(ComponentWakeSignature__Pyt
 @:forward
 @:nativeGen
 @:native("ComponentWakeSignature__PythonCallable*")
-abstract ComponentWakeSignature__PythonCallablePtr(cpp.Star<ComponentWakeSignature__PythonCallable>) from cpp.Star<ComponentWakeSignature__PythonCallable> to cpp.Star<ComponentWakeSignature__PythonCallable>{
+abstract ComponentWakeSignature__PythonCallablePtr(ucpp.Ptr<ComponentWakeSignature__PythonCallable>) from ucpp.Ptr<ComponentWakeSignature__PythonCallable> to ucpp.Ptr<ComponentWakeSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComponentWakeSignature__PythonCallable): ComponentWakeSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

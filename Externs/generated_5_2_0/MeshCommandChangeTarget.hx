@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMeshCommandChangeTarget")
-@:structAccess
+@:valueType
 extern class MeshCommandChangeTarget extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMeshCommandChangeTarget(MeshCommandChangeTarget) from MeshCommandC
 @:forward
 @:nativeGen
 @:native("MeshCommandChangeTarget*")
-abstract MeshCommandChangeTargetPtr(cpp.Star<MeshCommandChangeTarget>) from cpp.Star<MeshCommandChangeTarget> to cpp.Star<MeshCommandChangeTarget>{
+abstract MeshCommandChangeTargetPtr(ucpp.Ptr<MeshCommandChangeTarget>) from ucpp.Ptr<MeshCommandChangeTarget> to ucpp.Ptr<MeshCommandChangeTarget>{
 	@:from
 	public static extern inline function fromValue(v: MeshCommandChangeTarget): MeshCommandChangeTargetPtr {
 		return untyped __cpp__("&({0})", v);

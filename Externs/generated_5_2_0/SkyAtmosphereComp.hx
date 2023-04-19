@@ -3,56 +3,56 @@ package ue;
 
 @:native("USkyAtmosphereComponent")
 @:include("Components/SkyAtmosphereComponent.h")
-@:structAccess
+@:valueType
 extern class SkyAtmosphereComp extends SceneComp {
 	public var TransformMode: ESkyAtmosphereTransformMode;
-	public var BottomRadius: cpp.Float32;
+	public var BottomRadius: ucpp.num.Float32;
 	public var GroundAlbedo: Color;
-	public var AtmosphereHeight: cpp.Float32;
-	public var MultiScatteringFactor: cpp.Float32;
-	public var TraceSampleCountScale: cpp.Float32;
-	public var RayleighScatteringScale: cpp.Float32;
+	public var AtmosphereHeight: ucpp.num.Float32;
+	public var MultiScatteringFactor: ucpp.num.Float32;
+	public var TraceSampleCountScale: ucpp.num.Float32;
+	public var RayleighScatteringScale: ucpp.num.Float32;
 	public var RayleighScattering: LinearColor;
-	public var RayleighExponentialDistribution: cpp.Float32;
-	public var MieScatteringScale: cpp.Float32;
+	public var RayleighExponentialDistribution: ucpp.num.Float32;
+	public var MieScatteringScale: ucpp.num.Float32;
 	public var MieScattering: LinearColor;
-	public var MieAbsorptionScale: cpp.Float32;
+	public var MieAbsorptionScale: ucpp.num.Float32;
 	public var MieAbsorption: LinearColor;
-	public var MieAnisotropy: cpp.Float32;
-	public var MieExponentialDistribution: cpp.Float32;
-	public var OtherAbsorptionScale: cpp.Float32;
+	public var MieAnisotropy: ucpp.num.Float32;
+	public var MieExponentialDistribution: ucpp.num.Float32;
+	public var OtherAbsorptionScale: ucpp.num.Float32;
 	public var OtherAbsorption: LinearColor;
 	public var OtherTentDistribution: TentDistribution;
 	public var SkyLuminanceFactor: LinearColor;
-	public var AerialPespectiveViewDistanceScale: cpp.Float32;
-	public var HeightFogContribution: cpp.Float32;
-	public var TransmittanceMinLightElevationAngle: cpp.Float32;
-	public var AerialPerspectiveStartDepth: cpp.Float32;
+	public var AerialPespectiveViewDistanceScale: ucpp.num.Float32;
+	public var HeightFogContribution: ucpp.num.Float32;
+	public var TransmittanceMinLightElevationAngle: ucpp.num.Float32;
+	public var AerialPerspectiveStartDepth: ucpp.num.Float32;
 	private var bStaticLightingBuiltGUID: Guid;
 
 	public function SetSkyLuminanceFactor(NewValue: LinearColor): Void;
-	public function SetRayleighScatteringScale(NewValue: cpp.Float32): Void;
+	public function SetRayleighScatteringScale(NewValue: ucpp.num.Float32): Void;
 	public function SetRayleighScattering(NewValue: LinearColor): Void;
-	public function SetRayleighExponentialDistribution(NewValue: cpp.Float32): Void;
-	public function SetOtherAbsorptionScale(NewValue: cpp.Float32): Void;
+	public function SetRayleighExponentialDistribution(NewValue: ucpp.num.Float32): Void;
+	public function SetOtherAbsorptionScale(NewValue: ucpp.num.Float32): Void;
 	public function SetOtherAbsorption(NewValue: LinearColor): Void;
-	public function SetMultiScatteringFactor(NewValue: cpp.Float32): Void;
-	public function SetMieScatteringScale(NewValue: cpp.Float32): Void;
+	public function SetMultiScatteringFactor(NewValue: ucpp.num.Float32): Void;
+	public function SetMieScatteringScale(NewValue: ucpp.num.Float32): Void;
 	public function SetMieScattering(NewValue: LinearColor): Void;
-	public function SetMieExponentialDistribution(NewValue: cpp.Float32): Void;
-	public function SetMieAnisotropy(NewValue: cpp.Float32): Void;
-	public function SetMieAbsorptionScale(NewValue: cpp.Float32): Void;
+	public function SetMieExponentialDistribution(NewValue: ucpp.num.Float32): Void;
+	public function SetMieAnisotropy(NewValue: ucpp.num.Float32): Void;
+	public function SetMieAbsorptionScale(NewValue: ucpp.num.Float32): Void;
 	public function SetMieAbsorption(NewValue: LinearColor): Void;
-	public function SetHeightFogContribution(NewValue: cpp.Float32): Void;
-	public function SetAtmosphereHeight(NewValue: cpp.Float32): Void;
-	public function SetAerialPespectiveViewDistanceScale(NewValue: cpp.Float32): Void;
-	public function ResetAtmosphereLightDirectionOverride(AtmosphereLightIndex: cpp.Int32): Void;
-	public function OverrideAtmosphereLightDirection(AtmosphereLightIndex: cpp.Int32, LightDirection: cpp.Reference<Vector>): Void;
-	public function IsAtmosphereLightDirectionOverriden(AtmosphereLightIndex: cpp.Int32): Bool;
-	public function GetOverridenAtmosphereLightDirection(AtmosphereLightIndex: cpp.Int32): Vector;
-	public function GetAtmosphereTransmitanceOnGroundAtPlanetTop(DirectionalLight: cpp.Star<DirectionalLightComp>): LinearColor;
+	public function SetHeightFogContribution(NewValue: ucpp.num.Float32): Void;
+	public function SetAtmosphereHeight(NewValue: ucpp.num.Float32): Void;
+	public function SetAerialPespectiveViewDistanceScale(NewValue: ucpp.num.Float32): Void;
+	public function ResetAtmosphereLightDirectionOverride(AtmosphereLightIndex: ucpp.num.Int32): Void;
+	public function OverrideAtmosphereLightDirection(AtmosphereLightIndex: ucpp.num.Int32, LightDirection: ucpp.Ref<Vector>): Void;
+	public function IsAtmosphereLightDirectionOverriden(AtmosphereLightIndex: ucpp.num.Int32): Bool;
+	public function GetOverridenAtmosphereLightDirection(AtmosphereLightIndex: ucpp.num.Int32): Vector;
+	public function GetAtmosphereTransmitanceOnGroundAtPlanetTop(DirectionalLight: ucpp.Ptr<DirectionalLightComp>): LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -60,56 +60,56 @@ extern class SkyAtmosphereComp extends SceneComp {
 abstract ConstSkyAtmosphereComp(SkyAtmosphereComp) from SkyAtmosphereComp {
 	public extern var TransformMode(get, never): ESkyAtmosphereTransformMode;
 	public inline extern function get_TransformMode(): ESkyAtmosphereTransformMode return this.TransformMode;
-	public extern var BottomRadius(get, never): cpp.Float32;
-	public inline extern function get_BottomRadius(): cpp.Float32 return this.BottomRadius;
+	public extern var BottomRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_BottomRadius(): ucpp.num.Float32 return this.BottomRadius;
 	public extern var GroundAlbedo(get, never): Color;
 	public inline extern function get_GroundAlbedo(): Color return this.GroundAlbedo;
-	public extern var AtmosphereHeight(get, never): cpp.Float32;
-	public inline extern function get_AtmosphereHeight(): cpp.Float32 return this.AtmosphereHeight;
-	public extern var MultiScatteringFactor(get, never): cpp.Float32;
-	public inline extern function get_MultiScatteringFactor(): cpp.Float32 return this.MultiScatteringFactor;
-	public extern var TraceSampleCountScale(get, never): cpp.Float32;
-	public inline extern function get_TraceSampleCountScale(): cpp.Float32 return this.TraceSampleCountScale;
-	public extern var RayleighScatteringScale(get, never): cpp.Float32;
-	public inline extern function get_RayleighScatteringScale(): cpp.Float32 return this.RayleighScatteringScale;
+	public extern var AtmosphereHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_AtmosphereHeight(): ucpp.num.Float32 return this.AtmosphereHeight;
+	public extern var MultiScatteringFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_MultiScatteringFactor(): ucpp.num.Float32 return this.MultiScatteringFactor;
+	public extern var TraceSampleCountScale(get, never): ucpp.num.Float32;
+	public inline extern function get_TraceSampleCountScale(): ucpp.num.Float32 return this.TraceSampleCountScale;
+	public extern var RayleighScatteringScale(get, never): ucpp.num.Float32;
+	public inline extern function get_RayleighScatteringScale(): ucpp.num.Float32 return this.RayleighScatteringScale;
 	public extern var RayleighScattering(get, never): LinearColor;
 	public inline extern function get_RayleighScattering(): LinearColor return this.RayleighScattering;
-	public extern var RayleighExponentialDistribution(get, never): cpp.Float32;
-	public inline extern function get_RayleighExponentialDistribution(): cpp.Float32 return this.RayleighExponentialDistribution;
-	public extern var MieScatteringScale(get, never): cpp.Float32;
-	public inline extern function get_MieScatteringScale(): cpp.Float32 return this.MieScatteringScale;
+	public extern var RayleighExponentialDistribution(get, never): ucpp.num.Float32;
+	public inline extern function get_RayleighExponentialDistribution(): ucpp.num.Float32 return this.RayleighExponentialDistribution;
+	public extern var MieScatteringScale(get, never): ucpp.num.Float32;
+	public inline extern function get_MieScatteringScale(): ucpp.num.Float32 return this.MieScatteringScale;
 	public extern var MieScattering(get, never): LinearColor;
 	public inline extern function get_MieScattering(): LinearColor return this.MieScattering;
-	public extern var MieAbsorptionScale(get, never): cpp.Float32;
-	public inline extern function get_MieAbsorptionScale(): cpp.Float32 return this.MieAbsorptionScale;
+	public extern var MieAbsorptionScale(get, never): ucpp.num.Float32;
+	public inline extern function get_MieAbsorptionScale(): ucpp.num.Float32 return this.MieAbsorptionScale;
 	public extern var MieAbsorption(get, never): LinearColor;
 	public inline extern function get_MieAbsorption(): LinearColor return this.MieAbsorption;
-	public extern var MieAnisotropy(get, never): cpp.Float32;
-	public inline extern function get_MieAnisotropy(): cpp.Float32 return this.MieAnisotropy;
-	public extern var MieExponentialDistribution(get, never): cpp.Float32;
-	public inline extern function get_MieExponentialDistribution(): cpp.Float32 return this.MieExponentialDistribution;
-	public extern var OtherAbsorptionScale(get, never): cpp.Float32;
-	public inline extern function get_OtherAbsorptionScale(): cpp.Float32 return this.OtherAbsorptionScale;
+	public extern var MieAnisotropy(get, never): ucpp.num.Float32;
+	public inline extern function get_MieAnisotropy(): ucpp.num.Float32 return this.MieAnisotropy;
+	public extern var MieExponentialDistribution(get, never): ucpp.num.Float32;
+	public inline extern function get_MieExponentialDistribution(): ucpp.num.Float32 return this.MieExponentialDistribution;
+	public extern var OtherAbsorptionScale(get, never): ucpp.num.Float32;
+	public inline extern function get_OtherAbsorptionScale(): ucpp.num.Float32 return this.OtherAbsorptionScale;
 	public extern var OtherAbsorption(get, never): LinearColor;
 	public inline extern function get_OtherAbsorption(): LinearColor return this.OtherAbsorption;
 	public extern var OtherTentDistribution(get, never): TentDistribution;
 	public inline extern function get_OtherTentDistribution(): TentDistribution return this.OtherTentDistribution;
 	public extern var SkyLuminanceFactor(get, never): LinearColor;
 	public inline extern function get_SkyLuminanceFactor(): LinearColor return this.SkyLuminanceFactor;
-	public extern var AerialPespectiveViewDistanceScale(get, never): cpp.Float32;
-	public inline extern function get_AerialPespectiveViewDistanceScale(): cpp.Float32 return this.AerialPespectiveViewDistanceScale;
-	public extern var HeightFogContribution(get, never): cpp.Float32;
-	public inline extern function get_HeightFogContribution(): cpp.Float32 return this.HeightFogContribution;
-	public extern var TransmittanceMinLightElevationAngle(get, never): cpp.Float32;
-	public inline extern function get_TransmittanceMinLightElevationAngle(): cpp.Float32 return this.TransmittanceMinLightElevationAngle;
-	public extern var AerialPerspectiveStartDepth(get, never): cpp.Float32;
-	public inline extern function get_AerialPerspectiveStartDepth(): cpp.Float32 return this.AerialPerspectiveStartDepth;
+	public extern var AerialPespectiveViewDistanceScale(get, never): ucpp.num.Float32;
+	public inline extern function get_AerialPespectiveViewDistanceScale(): ucpp.num.Float32 return this.AerialPespectiveViewDistanceScale;
+	public extern var HeightFogContribution(get, never): ucpp.num.Float32;
+	public inline extern function get_HeightFogContribution(): ucpp.num.Float32 return this.HeightFogContribution;
+	public extern var TransmittanceMinLightElevationAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_TransmittanceMinLightElevationAngle(): ucpp.num.Float32 return this.TransmittanceMinLightElevationAngle;
+	public extern var AerialPerspectiveStartDepth(get, never): ucpp.num.Float32;
+	public inline extern function get_AerialPerspectiveStartDepth(): ucpp.num.Float32 return this.AerialPerspectiveStartDepth;
 }
 
 @:forward
 @:nativeGen
 @:native("SkyAtmosphereComp*")
-abstract SkyAtmosphereCompPtr(cpp.Star<SkyAtmosphereComp>) from cpp.Star<SkyAtmosphereComp> to cpp.Star<SkyAtmosphereComp>{
+abstract SkyAtmosphereCompPtr(ucpp.Ptr<SkyAtmosphereComp>) from ucpp.Ptr<SkyAtmosphereComp> to ucpp.Ptr<SkyAtmosphereComp>{
 	@:from
 	public static extern inline function fromValue(v: SkyAtmosphereComp): SkyAtmosphereCompPtr {
 		return untyped __cpp__("&({0})", v);

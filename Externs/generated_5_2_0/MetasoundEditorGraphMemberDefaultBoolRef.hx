@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundEditorGraphMemberDefaultBoolRef")
 @:include("MetasoundEditorGraphMemberDefaults.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorGraphMemberDefaultBoolRef {
 	public var Value: Bool;
 

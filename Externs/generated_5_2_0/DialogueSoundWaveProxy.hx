@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDialogueSoundWaveProxy")
 @:include("Sound/DialogueSoundWaveProxy.h")
-@:structAccess
+@:valueType
 extern class DialogueSoundWaveProxy extends SoundBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDialogueSoundWaveProxy(DialogueSoundWaveProxy) from DialogueSoundW
 @:forward
 @:nativeGen
 @:native("DialogueSoundWaveProxy*")
-abstract DialogueSoundWaveProxyPtr(cpp.Star<DialogueSoundWaveProxy>) from cpp.Star<DialogueSoundWaveProxy> to cpp.Star<DialogueSoundWaveProxy>{
+abstract DialogueSoundWaveProxyPtr(ucpp.Ptr<DialogueSoundWaveProxy>) from ucpp.Ptr<DialogueSoundWaveProxy> to ucpp.Ptr<DialogueSoundWaveProxy>{
 	@:from
 	public static extern inline function fromValue(v: DialogueSoundWaveProxy): DialogueSoundWaveProxyPtr {
 		return untyped __cpp__("&({0})", v);

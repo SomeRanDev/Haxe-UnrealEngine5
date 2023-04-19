@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGameplayDebuggerLocalController")
 @:include("GameplayDebuggerLocalController.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerLocalController extends Object {
-	@:protected public var CachedReplicator: cpp.Star<GameplayDebuggerCategoryReplicator>;
-	@:protected public var CachedPlayerManager: cpp.Star<GameplayDebuggerPlayerManager>;
-	@:protected public var DebugActorCandidate: cpp.Star<Actor>;
-	@:protected public var HUDFont: cpp.Star<Font>;
+	@:protected public var CachedReplicator: ucpp.Ptr<GameplayDebuggerCategoryReplicator>;
+	@:protected public var CachedPlayerManager: ucpp.Ptr<GameplayDebuggerPlayerManager>;
+	@:protected public var DebugActorCandidate: ucpp.Ptr<Actor>;
+	@:protected public var HUDFont: ucpp.Ptr<Font>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstGameplayDebuggerLocalController(GameplayDebuggerLocalController) f
 @:forward
 @:nativeGen
 @:native("GameplayDebuggerLocalController*")
-abstract GameplayDebuggerLocalControllerPtr(cpp.Star<GameplayDebuggerLocalController>) from cpp.Star<GameplayDebuggerLocalController> to cpp.Star<GameplayDebuggerLocalController>{
+abstract GameplayDebuggerLocalControllerPtr(ucpp.Ptr<GameplayDebuggerLocalController>) from ucpp.Ptr<GameplayDebuggerLocalController> to ucpp.Ptr<GameplayDebuggerLocalController>{
 	@:from
 	public static extern inline function fromValue(v: GameplayDebuggerLocalController): GameplayDebuggerLocalControllerPtr {
 		return untyped __cpp__("&({0})", v);

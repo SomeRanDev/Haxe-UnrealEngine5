@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAbcStaticMeshSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcStaticMeshSettings {
 	public var bMergeMeshes: Bool;
 	public var bPropagateMatrixTransformations: Bool;

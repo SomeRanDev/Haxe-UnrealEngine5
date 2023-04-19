@@ -3,27 +3,27 @@ package ue;
 
 @:native("UVirtualTextureBuilder")
 @:include("VT/VirtualTextureBuilder.h")
-@:structAccess
+@:valueType
 extern class VirtualTextureBuilder extends Object {
-	public var Texture: cpp.Star<VirtualTexture2D>;
-	public var BuildHash: cpp.UInt64;
+	public var Texture: ucpp.Ptr<VirtualTexture2D>;
+	public var BuildHash: ucpp.num.UInt64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVirtualTextureBuilder(VirtualTextureBuilder) from VirtualTextureBuilder {
-	public extern var Texture(get, never): cpp.Star<VirtualTexture2D.ConstVirtualTexture2D>;
-	public inline extern function get_Texture(): cpp.Star<VirtualTexture2D.ConstVirtualTexture2D> return this.Texture;
-	public extern var BuildHash(get, never): cpp.UInt64;
-	public inline extern function get_BuildHash(): cpp.UInt64 return this.BuildHash;
+	public extern var Texture(get, never): ucpp.Ptr<VirtualTexture2D.ConstVirtualTexture2D>;
+	public inline extern function get_Texture(): ucpp.Ptr<VirtualTexture2D.ConstVirtualTexture2D> return this.Texture;
+	public extern var BuildHash(get, never): ucpp.num.UInt64;
+	public inline extern function get_BuildHash(): ucpp.num.UInt64 return this.BuildHash;
 }
 
 @:forward
 @:nativeGen
 @:native("VirtualTextureBuilder*")
-abstract VirtualTextureBuilderPtr(cpp.Star<VirtualTextureBuilder>) from cpp.Star<VirtualTextureBuilder> to cpp.Star<VirtualTextureBuilder>{
+abstract VirtualTextureBuilderPtr(ucpp.Ptr<VirtualTextureBuilder>) from ucpp.Ptr<VirtualTextureBuilder> to ucpp.Ptr<VirtualTextureBuilder>{
 	@:from
 	public static extern inline function fromValue(v: VirtualTextureBuilder): VirtualTextureBuilderPtr {
 		return untyped __cpp__("&({0})", v);

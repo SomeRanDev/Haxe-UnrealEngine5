@@ -3,14 +3,14 @@ package ue;
 
 @:native("UDatasmithFBXSceneImportData")
 @:include("DatasmithAssetImportData.h")
-@:structAccess
+@:valueType
 extern class DatasmithFBXSceneImportData extends DatasmithSceneImportData {
 	public var bGenerateLightmapUVs: Bool;
 	public var TexturesDir: FString;
-	public var IntermediateSerialization: cpp.UInt8;
+	public var IntermediateSerialization: ucpp.num.UInt8;
 	public var bColorizeMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,8 +20,8 @@ abstract ConstDatasmithFBXSceneImportData(DatasmithFBXSceneImportData) from Data
 	public inline extern function get_bGenerateLightmapUVs(): Bool return this.bGenerateLightmapUVs;
 	public extern var TexturesDir(get, never): FString;
 	public inline extern function get_TexturesDir(): FString return this.TexturesDir;
-	public extern var IntermediateSerialization(get, never): cpp.UInt8;
-	public inline extern function get_IntermediateSerialization(): cpp.UInt8 return this.IntermediateSerialization;
+	public extern var IntermediateSerialization(get, never): ucpp.num.UInt8;
+	public inline extern function get_IntermediateSerialization(): ucpp.num.UInt8 return this.IntermediateSerialization;
 	public extern var bColorizeMaterials(get, never): Bool;
 	public inline extern function get_bColorizeMaterials(): Bool return this.bColorizeMaterials;
 }
@@ -29,7 +29,7 @@ abstract ConstDatasmithFBXSceneImportData(DatasmithFBXSceneImportData) from Data
 @:forward
 @:nativeGen
 @:native("DatasmithFBXSceneImportData*")
-abstract DatasmithFBXSceneImportDataPtr(cpp.Star<DatasmithFBXSceneImportData>) from cpp.Star<DatasmithFBXSceneImportData> to cpp.Star<DatasmithFBXSceneImportData>{
+abstract DatasmithFBXSceneImportDataPtr(ucpp.Ptr<DatasmithFBXSceneImportData>) from ucpp.Ptr<DatasmithFBXSceneImportData> to ucpp.Ptr<DatasmithFBXSceneImportData>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithFBXSceneImportData): DatasmithFBXSceneImportDataPtr {
 		return untyped __cpp__("&({0})", v);

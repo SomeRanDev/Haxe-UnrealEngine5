@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBakeRenderCaptureVisualizationProperties")
 @:include("BakeRenderCaptureTool.h")
-@:structAccess
+@:valueType
 extern class BakeRenderCaptureVisualizationProperties extends InteractiveToolPropertySet {
 	public var bPreviewAsMaterial: Bool;
-	public var Brightness: cpp.Float32;
-	public var SSBrightness: cpp.Float32;
-	public var EmissiveScale: cpp.Float32;
+	public var Brightness: ucpp.num.Float32;
+	public var SSBrightness: ucpp.num.Float32;
+	public var EmissiveScale: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,18 +18,18 @@ extern class BakeRenderCaptureVisualizationProperties extends InteractiveToolPro
 abstract ConstBakeRenderCaptureVisualizationProperties(BakeRenderCaptureVisualizationProperties) from BakeRenderCaptureVisualizationProperties {
 	public extern var bPreviewAsMaterial(get, never): Bool;
 	public inline extern function get_bPreviewAsMaterial(): Bool return this.bPreviewAsMaterial;
-	public extern var Brightness(get, never): cpp.Float32;
-	public inline extern function get_Brightness(): cpp.Float32 return this.Brightness;
-	public extern var SSBrightness(get, never): cpp.Float32;
-	public inline extern function get_SSBrightness(): cpp.Float32 return this.SSBrightness;
-	public extern var EmissiveScale(get, never): cpp.Float32;
-	public inline extern function get_EmissiveScale(): cpp.Float32 return this.EmissiveScale;
+	public extern var Brightness(get, never): ucpp.num.Float32;
+	public inline extern function get_Brightness(): ucpp.num.Float32 return this.Brightness;
+	public extern var SSBrightness(get, never): ucpp.num.Float32;
+	public inline extern function get_SSBrightness(): ucpp.num.Float32 return this.SSBrightness;
+	public extern var EmissiveScale(get, never): ucpp.num.Float32;
+	public inline extern function get_EmissiveScale(): ucpp.num.Float32 return this.EmissiveScale;
 }
 
 @:forward
 @:nativeGen
 @:native("BakeRenderCaptureVisualizationProperties*")
-abstract BakeRenderCaptureVisualizationPropertiesPtr(cpp.Star<BakeRenderCaptureVisualizationProperties>) from cpp.Star<BakeRenderCaptureVisualizationProperties> to cpp.Star<BakeRenderCaptureVisualizationProperties>{
+abstract BakeRenderCaptureVisualizationPropertiesPtr(ucpp.Ptr<BakeRenderCaptureVisualizationProperties>) from ucpp.Ptr<BakeRenderCaptureVisualizationProperties> to ucpp.Ptr<BakeRenderCaptureVisualizationProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeRenderCaptureVisualizationProperties): BakeRenderCaptureVisualizationPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

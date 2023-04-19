@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMaterialOverrideNanite")
 @:include("Materials/MaterialOverrideNanite.h")
-@:structAccess
+@:valueType
 extern class MaterialOverrideNanite {
 	public var OverrideMaterialRef: TSoftObjectPtr<MaterialInterface>;
 	public var bEnableOverride: Bool;
-	@:protected public var OverrideMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var OverrideMaterial: ucpp.Ptr<MaterialInterface>;
 
 	@:native("FMaterialOverrideNanite") public function new();
-	@:native("FMaterialOverrideNanite") public static function make(OverrideMaterialRef: TSoftObjectPtr<MaterialInterface>, bEnableOverride: Bool, OverrideMaterial: cpp.Star<MaterialInterface>): MaterialOverrideNanite ;
+	@:native("FMaterialOverrideNanite") public static function make(OverrideMaterialRef: TSoftObjectPtr<MaterialInterface>, bEnableOverride: Bool, OverrideMaterial: ucpp.Ptr<MaterialInterface>): MaterialOverrideNanite ;
 }

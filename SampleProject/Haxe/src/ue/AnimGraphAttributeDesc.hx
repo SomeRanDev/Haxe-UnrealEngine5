@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimGraphAttributeDesc")
 @:include("AnimGraphAttributes.h")
-@:structAccess
+@:valueType
 extern class AnimGraphAttributeDesc {
 	public var Name: FName;
 	public var Icon: SlateBrush;
@@ -12,7 +12,7 @@ extern class AnimGraphAttributeDesc {
 	public var Color: SlateColor;
 	public var DisplayMode: EAnimGraphAttributesDisplayMode;
 	public var Blend: EAnimGraphAttributeBlend;
-	public var SortOrder: cpp.Int32;
+	public var SortOrder: ucpp.num.Int32;
 
 	@:native("FAnimGraphAttributeDesc") public function new();
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("USubmixEffectStereoDelayPreset")
 @:include("SubmixEffects/SubmixEffectStereoDelay.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectStereoDelayPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectStereoDelaySettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectStereoDelaySettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectStereoDelaySettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSubmixEffectStereoDelayPreset(SubmixEffectStereoDelayPreset) from 
 @:forward
 @:nativeGen
 @:native("SubmixEffectStereoDelayPreset*")
-abstract SubmixEffectStereoDelayPresetPtr(cpp.Star<SubmixEffectStereoDelayPreset>) from cpp.Star<SubmixEffectStereoDelayPreset> to cpp.Star<SubmixEffectStereoDelayPreset>{
+abstract SubmixEffectStereoDelayPresetPtr(ucpp.Ptr<SubmixEffectStereoDelayPreset>) from ucpp.Ptr<SubmixEffectStereoDelayPreset> to ucpp.Ptr<SubmixEffectStereoDelayPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectStereoDelayPreset): SubmixEffectStereoDelayPresetPtr {
 		return untyped __cpp__("&({0})", v);

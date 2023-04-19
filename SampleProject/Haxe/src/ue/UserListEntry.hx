@@ -2,13 +2,13 @@
 package ue;
 
 @:native("UUserListEntry")
-@:structAccess
+@:valueType
 extern class UserListEntry extends Interface {
 	@:protected public function BP_OnItemSelectionChanged(bIsSelected: Bool): Void;
 	@:protected public function BP_OnItemExpansionChanged(bIsExpanded: Bool): Void;
 	@:protected public function BP_OnEntryReleased(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstUserListEntry(UserListEntry) from UserListEntry {
 @:forward
 @:nativeGen
 @:native("UserListEntry*")
-abstract UserListEntryPtr(cpp.Star<UserListEntry>) from cpp.Star<UserListEntry> to cpp.Star<UserListEntry>{
+abstract UserListEntryPtr(ucpp.Ptr<UserListEntry>) from ucpp.Ptr<UserListEntry> to ucpp.Ptr<UserListEntry>{
 	@:from
 	public static extern inline function fromValue(v: UserListEntry): UserListEntryPtr {
 		return untyped __cpp__("&({0})", v);

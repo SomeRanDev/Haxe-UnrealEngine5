@@ -3,15 +3,15 @@ package ue;
 
 @:native("UUVEditorRecomputeUVsTool")
 @:include("UVEditorRecomputeUVsTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorRecomputeUVsTool extends InteractiveTool {
-	@:protected public var Targets: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var Settings: cpp.Star<RecomputeUVsToolProperties>;
-	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var Factories: TArray<cpp.Star<RecomputeUVsOpFactory>>;
-	@:protected public var UVToolSelectionAPI: cpp.Star<UVToolSelectionAPI>;
+	@:protected public var Targets: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var Settings: ucpp.Ptr<RecomputeUVsToolProperties>;
+	@:protected public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var Factories: TArray<ucpp.Ptr<RecomputeUVsOpFactory>>;
+	@:protected public var UVToolSelectionAPI: ucpp.Ptr<UVToolSelectionAPI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstUVEditorRecomputeUVsTool(UVEditorRecomputeUVsTool) from UVEditorRe
 @:forward
 @:nativeGen
 @:native("UVEditorRecomputeUVsTool*")
-abstract UVEditorRecomputeUVsToolPtr(cpp.Star<UVEditorRecomputeUVsTool>) from cpp.Star<UVEditorRecomputeUVsTool> to cpp.Star<UVEditorRecomputeUVsTool>{
+abstract UVEditorRecomputeUVsToolPtr(ucpp.Ptr<UVEditorRecomputeUVsTool>) from ucpp.Ptr<UVEditorRecomputeUVsTool> to ucpp.Ptr<UVEditorRecomputeUVsTool>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorRecomputeUVsTool): UVEditorRecomputeUVsToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,21 +3,21 @@ package ue;
 
 @:native("URenderDocPluginSettings")
 @:include("RenderDocPluginSettings.h")
-@:structAccess
+@:valueType
 extern class RenderDocPluginSettings extends DeveloperSettings {
 	public var bCaptureAllActivity: Bool;
 	public var bCaptureAllCallstacks: Bool;
 	public var bReferenceAllResources: Bool;
 	public var bSaveAllInitials: Bool;
 	public var bCaptureDelayInSeconds: Bool;
-	public var CaptureDelay: cpp.Int32;
-	public var CaptureFrameCount: cpp.Int32;
+	public var CaptureDelay: ucpp.num.Int32;
+	public var CaptureFrameCount: ucpp.num.Int32;
 	public var bAutoAttach: Bool;
 	public var bShowHelpOnStartup: Bool;
 	public var bEnableRenderDocCrashHandler: Bool;
 	public var RenderDocBinaryPath: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,10 +33,10 @@ abstract ConstRenderDocPluginSettings(RenderDocPluginSettings) from RenderDocPlu
 	public inline extern function get_bSaveAllInitials(): Bool return this.bSaveAllInitials;
 	public extern var bCaptureDelayInSeconds(get, never): Bool;
 	public inline extern function get_bCaptureDelayInSeconds(): Bool return this.bCaptureDelayInSeconds;
-	public extern var CaptureDelay(get, never): cpp.Int32;
-	public inline extern function get_CaptureDelay(): cpp.Int32 return this.CaptureDelay;
-	public extern var CaptureFrameCount(get, never): cpp.Int32;
-	public inline extern function get_CaptureFrameCount(): cpp.Int32 return this.CaptureFrameCount;
+	public extern var CaptureDelay(get, never): ucpp.num.Int32;
+	public inline extern function get_CaptureDelay(): ucpp.num.Int32 return this.CaptureDelay;
+	public extern var CaptureFrameCount(get, never): ucpp.num.Int32;
+	public inline extern function get_CaptureFrameCount(): ucpp.num.Int32 return this.CaptureFrameCount;
 	public extern var bAutoAttach(get, never): Bool;
 	public inline extern function get_bAutoAttach(): Bool return this.bAutoAttach;
 	public extern var bShowHelpOnStartup(get, never): Bool;
@@ -50,7 +50,7 @@ abstract ConstRenderDocPluginSettings(RenderDocPluginSettings) from RenderDocPlu
 @:forward
 @:nativeGen
 @:native("RenderDocPluginSettings*")
-abstract RenderDocPluginSettingsPtr(cpp.Star<RenderDocPluginSettings>) from cpp.Star<RenderDocPluginSettings> to cpp.Star<RenderDocPluginSettings>{
+abstract RenderDocPluginSettingsPtr(ucpp.Ptr<RenderDocPluginSettings>) from ucpp.Ptr<RenderDocPluginSettings> to ucpp.Ptr<RenderDocPluginSettings>{
 	@:from
 	public static extern inline function fromValue(v: RenderDocPluginSettings): RenderDocPluginSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraScript")
 @:include("NiagaraScript.h")
-@:structAccess
+@:valueType
 extern class NiagaraScript extends NiagaraScriptBase {
 	public var Usage: ENiagaraScriptUsage;
 	private var UsageId: Guid;
@@ -12,12 +12,12 @@ extern class NiagaraScript extends NiagaraScriptBase {
 	private var ScriptExecutionBoundParameters: TArray<NiagaraBoundParameter>;
 	private var CachedScriptVMId: NiagaraVMExecutableDataId;
 	private var CachedScriptVM: NiagaraVMExecutableData;
-	private var CachedParameterCollectionReferences: TArray<cpp.Star<NiagaraParameterCollection>>;
+	private var CachedParameterCollectionReferences: TArray<ucpp.Ptr<NiagaraParameterCollection>>;
 	private var CachedDefaultDataInterfaces: TArray<NiagaraScriptDataInterfaceInfo>;
 
 	public function RaiseOnGPUCompilationComplete(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstNiagaraScript(NiagaraScript) from NiagaraScript {
 @:forward
 @:nativeGen
 @:native("NiagaraScript*")
-abstract NiagaraScriptPtr(cpp.Star<NiagaraScript>) from cpp.Star<NiagaraScript> to cpp.Star<NiagaraScript>{
+abstract NiagaraScriptPtr(ucpp.Ptr<NiagaraScript>) from ucpp.Ptr<NiagaraScript> to ucpp.Ptr<NiagaraScript>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraScript): NiagaraScriptPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("USynthesisUtilitiesBlueprintFunctionLibrary")
 @:include("SynthesisBlueprintUtilities.h")
-@:structAccess
+@:valueType
 extern class SynthesisUtilitiesBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
-	private function GetLogFrequency(InLinearValue: cpp.Float32, InDomainMin: cpp.Float32, InDomainMax: cpp.Float32, InRangeMin: cpp.Float32, InRangeMax: cpp.Float32): cpp.Float32;
-	private function GetLinearFrequency(InLogFrequencyValue: cpp.Float32, InDomainMin: cpp.Float32, InDomainMax: cpp.Float32, InRangeMin: cpp.Float32, InRangeMax: cpp.Float32): cpp.Float32;
+	private function GetLogFrequency(InLinearValue: ucpp.num.Float32, InDomainMin: ucpp.num.Float32, InDomainMax: ucpp.num.Float32, InRangeMin: ucpp.num.Float32, InRangeMax: ucpp.num.Float32): ucpp.num.Float32;
+	private function GetLinearFrequency(InLogFrequencyValue: ucpp.num.Float32, InDomainMin: ucpp.num.Float32, InDomainMax: ucpp.num.Float32, InRangeMin: ucpp.num.Float32, InRangeMax: ucpp.num.Float32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstSynthesisUtilitiesBlueprintFunctionLibrary(SynthesisUtilitiesBluep
 @:forward
 @:nativeGen
 @:native("SynthesisUtilitiesBlueprintFunctionLibrary*")
-abstract SynthesisUtilitiesBlueprintFunctionLibraryPtr(cpp.Star<SynthesisUtilitiesBlueprintFunctionLibrary>) from cpp.Star<SynthesisUtilitiesBlueprintFunctionLibrary> to cpp.Star<SynthesisUtilitiesBlueprintFunctionLibrary>{
+abstract SynthesisUtilitiesBlueprintFunctionLibraryPtr(ucpp.Ptr<SynthesisUtilitiesBlueprintFunctionLibrary>) from ucpp.Ptr<SynthesisUtilitiesBlueprintFunctionLibrary> to ucpp.Ptr<SynthesisUtilitiesBlueprintFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SynthesisUtilitiesBlueprintFunctionLibrary): SynthesisUtilitiesBlueprintFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

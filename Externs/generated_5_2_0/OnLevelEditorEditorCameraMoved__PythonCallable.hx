@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnLevelEditorEditorCameraMoved__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnLevelEditorEditorCameraMoved__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnLevelEditorEditorCameraMoved__PythonCallable(OnLevelEditorEditor
 @:forward
 @:nativeGen
 @:native("OnLevelEditorEditorCameraMoved__PythonCallable*")
-abstract OnLevelEditorEditorCameraMoved__PythonCallablePtr(cpp.Star<OnLevelEditorEditorCameraMoved__PythonCallable>) from cpp.Star<OnLevelEditorEditorCameraMoved__PythonCallable> to cpp.Star<OnLevelEditorEditorCameraMoved__PythonCallable>{
+abstract OnLevelEditorEditorCameraMoved__PythonCallablePtr(ucpp.Ptr<OnLevelEditorEditorCameraMoved__PythonCallable>) from ucpp.Ptr<OnLevelEditorEditorCameraMoved__PythonCallable> to ucpp.Ptr<OnLevelEditorEditorCameraMoved__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnLevelEditorEditorCameraMoved__PythonCallable): OnLevelEditorEditorCameraMoved__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

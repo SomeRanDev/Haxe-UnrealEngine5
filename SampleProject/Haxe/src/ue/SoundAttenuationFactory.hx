@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundAttenuationFactory")
 @:include("Factories/SoundAttenuationFactory.h")
-@:structAccess
+@:valueType
 extern class SoundAttenuationFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundAttenuationFactory(SoundAttenuationFactory) from SoundAttenua
 @:forward
 @:nativeGen
 @:native("SoundAttenuationFactory*")
-abstract SoundAttenuationFactoryPtr(cpp.Star<SoundAttenuationFactory>) from cpp.Star<SoundAttenuationFactory> to cpp.Star<SoundAttenuationFactory>{
+abstract SoundAttenuationFactoryPtr(ucpp.Ptr<SoundAttenuationFactory>) from ucpp.Ptr<SoundAttenuationFactory> to ucpp.Ptr<SoundAttenuationFactory>{
 	@:from
 	public static extern inline function fromValue(v: SoundAttenuationFactory): SoundAttenuationFactoryPtr {
 		return untyped __cpp__("&({0})", v);

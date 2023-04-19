@@ -3,10 +3,10 @@ package ue;
 
 @:native("USequencerTrackFilterExtension")
 @:include("SequencerTrackFilterExtension.h")
-@:structAccess
+@:valueType
 extern class SequencerTrackFilterExtension extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSequencerTrackFilterExtension(SequencerTrackFilterExtension) from 
 @:forward
 @:nativeGen
 @:native("SequencerTrackFilterExtension*")
-abstract SequencerTrackFilterExtensionPtr(cpp.Star<SequencerTrackFilterExtension>) from cpp.Star<SequencerTrackFilterExtension> to cpp.Star<SequencerTrackFilterExtension>{
+abstract SequencerTrackFilterExtensionPtr(ucpp.Ptr<SequencerTrackFilterExtension>) from ucpp.Ptr<SequencerTrackFilterExtension> to ucpp.Ptr<SequencerTrackFilterExtension>{
 	@:from
 	public static extern inline function fromValue(v: SequencerTrackFilterExtension): SequencerTrackFilterExtensionPtr {
 		return untyped __cpp__("&({0})", v);

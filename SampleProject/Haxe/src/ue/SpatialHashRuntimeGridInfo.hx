@@ -3,11 +3,11 @@ package ue;
 
 @:native("ASpatialHashRuntimeGridInfo")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
-@:structAccess
+@:valueType
 extern class SpatialHashRuntimeGridInfo extends Info {
 	public var GridSettings: SpatialHashRuntimeGrid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSpatialHashRuntimeGridInfo(SpatialHashRuntimeGridInfo) from Spatia
 @:forward
 @:nativeGen
 @:native("SpatialHashRuntimeGridInfo*")
-abstract SpatialHashRuntimeGridInfoPtr(cpp.Star<SpatialHashRuntimeGridInfo>) from cpp.Star<SpatialHashRuntimeGridInfo> to cpp.Star<SpatialHashRuntimeGridInfo>{
+abstract SpatialHashRuntimeGridInfoPtr(ucpp.Ptr<SpatialHashRuntimeGridInfo>) from ucpp.Ptr<SpatialHashRuntimeGridInfo> to ucpp.Ptr<SpatialHashRuntimeGridInfo>{
 	@:from
 	public static extern inline function fromValue(v: SpatialHashRuntimeGridInfo): SpatialHashRuntimeGridInfoPtr {
 		return untyped __cpp__("&({0})", v);

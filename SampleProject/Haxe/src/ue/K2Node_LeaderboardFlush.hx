@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_LeaderboardFlush")
 @:include("K2Node_LeaderboardFlush.h")
-@:structAccess
+@:valueType
 extern class K2Node_LeaderboardFlush extends K2Node_BaseAsyncTask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_LeaderboardFlush(K2Node_LeaderboardFlush) from K2Node_Leade
 @:forward
 @:nativeGen
 @:native("K2Node_LeaderboardFlush*")
-abstract K2Node_LeaderboardFlushPtr(cpp.Star<K2Node_LeaderboardFlush>) from cpp.Star<K2Node_LeaderboardFlush> to cpp.Star<K2Node_LeaderboardFlush>{
+abstract K2Node_LeaderboardFlushPtr(ucpp.Ptr<K2Node_LeaderboardFlush>) from ucpp.Ptr<K2Node_LeaderboardFlush> to ucpp.Ptr<K2Node_LeaderboardFlush>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_LeaderboardFlush): K2Node_LeaderboardFlushPtr {
 		return untyped __cpp__("&({0})", v);

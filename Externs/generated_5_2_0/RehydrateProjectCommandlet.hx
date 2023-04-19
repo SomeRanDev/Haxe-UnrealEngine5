@@ -3,10 +3,10 @@ package ue;
 
 @:native("URehydrateProjectCommandlet")
 @:include("RehydrateProjectCommandlet.h")
-@:structAccess
+@:valueType
 extern class RehydrateProjectCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRehydrateProjectCommandlet(RehydrateProjectCommandlet) from Rehydr
 @:forward
 @:nativeGen
 @:native("RehydrateProjectCommandlet*")
-abstract RehydrateProjectCommandletPtr(cpp.Star<RehydrateProjectCommandlet>) from cpp.Star<RehydrateProjectCommandlet> to cpp.Star<RehydrateProjectCommandlet>{
+abstract RehydrateProjectCommandletPtr(ucpp.Ptr<RehydrateProjectCommandlet>) from ucpp.Ptr<RehydrateProjectCommandlet> to ucpp.Ptr<RehydrateProjectCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: RehydrateProjectCommandlet): RehydrateProjectCommandletPtr {
 		return untyped __cpp__("&({0})", v);

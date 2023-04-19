@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAITask_LockLogic")
 @:include("Tasks/AITask_LockLogic.h")
-@:structAccess
+@:valueType
 extern class AITask_LockLogic extends AITask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAITask_LockLogic(AITask_LockLogic) from AITask_LockLogic {
 @:forward
 @:nativeGen
 @:native("AITask_LockLogic*")
-abstract AITask_LockLogicPtr(cpp.Star<AITask_LockLogic>) from cpp.Star<AITask_LockLogic> to cpp.Star<AITask_LockLogic>{
+abstract AITask_LockLogicPtr(ucpp.Ptr<AITask_LockLogic>) from ucpp.Ptr<AITask_LockLogic> to ucpp.Ptr<AITask_LockLogic>{
 	@:from
 	public static extern inline function fromValue(v: AITask_LockLogic): AITask_LockLogicPtr {
 		return untyped __cpp__("&({0})", v);

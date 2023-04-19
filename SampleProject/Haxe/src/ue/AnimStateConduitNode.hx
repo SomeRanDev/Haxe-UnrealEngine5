@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAnimStateConduitNode")
 @:include("AnimStateConduitNode.h")
-@:structAccess
+@:valueType
 extern class AnimStateConduitNode extends AnimStateNodeBase {
-	public var BoundGraph: cpp.Star<EdGraph>;
+	public var BoundGraph: ucpp.Ptr<EdGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimStateConduitNode(AnimStateConduitNode) from AnimStateConduitNode {
-	public extern var BoundGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_BoundGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.BoundGraph;
+	public extern var BoundGraph(get, never): ucpp.Ptr<EdGraph.ConstEdGraph>;
+	public inline extern function get_BoundGraph(): ucpp.Ptr<EdGraph.ConstEdGraph> return this.BoundGraph;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimStateConduitNode*")
-abstract AnimStateConduitNodePtr(cpp.Star<AnimStateConduitNode>) from cpp.Star<AnimStateConduitNode> to cpp.Star<AnimStateConduitNode>{
+abstract AnimStateConduitNodePtr(ucpp.Ptr<AnimStateConduitNode>) from ucpp.Ptr<AnimStateConduitNode> to ucpp.Ptr<AnimStateConduitNode>{
 	@:from
 	public static extern inline function fromValue(v: AnimStateConduitNode): AnimStateConduitNodePtr {
 		return untyped __cpp__("&({0})", v);

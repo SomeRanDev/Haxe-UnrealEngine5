@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBlueprintBoundNodeSpawner")
 @:include("BlueprintBoundNodeSpawner.h")
-@:structAccess
+@:valueType
 extern class BlueprintBoundNodeSpawner extends BlueprintNodeSpawner {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlueprintBoundNodeSpawner(BlueprintBoundNodeSpawner) from Blueprin
 @:forward
 @:nativeGen
 @:native("BlueprintBoundNodeSpawner*")
-abstract BlueprintBoundNodeSpawnerPtr(cpp.Star<BlueprintBoundNodeSpawner>) from cpp.Star<BlueprintBoundNodeSpawner> to cpp.Star<BlueprintBoundNodeSpawner>{
+abstract BlueprintBoundNodeSpawnerPtr(ucpp.Ptr<BlueprintBoundNodeSpawner>) from ucpp.Ptr<BlueprintBoundNodeSpawner> to ucpp.Ptr<BlueprintBoundNodeSpawner>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintBoundNodeSpawner): BlueprintBoundNodeSpawnerPtr {
 		return untyped __cpp__("&({0})", v);

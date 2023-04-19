@@ -3,19 +3,19 @@ package ue;
 
 @:native("UTileMapEditorSettings")
 @:include("TileMapEditing/TileMapEditorSettings.h")
-@:structAccess
+@:valueType
 extern class TileMapEditorSettings extends Object {
 	public var DefaultBackgroundColor: Color;
 	public var bShowGridByDefault: Bool;
 	public var DefaultTileGridColor: Color;
 	public var DefaultMultiTileGridColor: Color;
-	public var DefaultMultiTileGridWidth: cpp.Int32;
-	public var DefaultMultiTileGridHeight: cpp.Int32;
-	public var DefaultMultiTileGridOffsetX: cpp.Int32;
-	public var DefaultMultiTileGridOffsetY: cpp.Int32;
+	public var DefaultMultiTileGridWidth: ucpp.num.Int32;
+	public var DefaultMultiTileGridHeight: ucpp.num.Int32;
+	public var DefaultMultiTileGridOffsetX: ucpp.num.Int32;
+	public var DefaultMultiTileGridOffsetY: ucpp.num.Int32;
 	public var DefaultLayerGridColor: Color;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,14 +29,14 @@ abstract ConstTileMapEditorSettings(TileMapEditorSettings) from TileMapEditorSet
 	public inline extern function get_DefaultTileGridColor(): Color return this.DefaultTileGridColor;
 	public extern var DefaultMultiTileGridColor(get, never): Color;
 	public inline extern function get_DefaultMultiTileGridColor(): Color return this.DefaultMultiTileGridColor;
-	public extern var DefaultMultiTileGridWidth(get, never): cpp.Int32;
-	public inline extern function get_DefaultMultiTileGridWidth(): cpp.Int32 return this.DefaultMultiTileGridWidth;
-	public extern var DefaultMultiTileGridHeight(get, never): cpp.Int32;
-	public inline extern function get_DefaultMultiTileGridHeight(): cpp.Int32 return this.DefaultMultiTileGridHeight;
-	public extern var DefaultMultiTileGridOffsetX(get, never): cpp.Int32;
-	public inline extern function get_DefaultMultiTileGridOffsetX(): cpp.Int32 return this.DefaultMultiTileGridOffsetX;
-	public extern var DefaultMultiTileGridOffsetY(get, never): cpp.Int32;
-	public inline extern function get_DefaultMultiTileGridOffsetY(): cpp.Int32 return this.DefaultMultiTileGridOffsetY;
+	public extern var DefaultMultiTileGridWidth(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultMultiTileGridWidth(): ucpp.num.Int32 return this.DefaultMultiTileGridWidth;
+	public extern var DefaultMultiTileGridHeight(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultMultiTileGridHeight(): ucpp.num.Int32 return this.DefaultMultiTileGridHeight;
+	public extern var DefaultMultiTileGridOffsetX(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultMultiTileGridOffsetX(): ucpp.num.Int32 return this.DefaultMultiTileGridOffsetX;
+	public extern var DefaultMultiTileGridOffsetY(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultMultiTileGridOffsetY(): ucpp.num.Int32 return this.DefaultMultiTileGridOffsetY;
 	public extern var DefaultLayerGridColor(get, never): Color;
 	public inline extern function get_DefaultLayerGridColor(): Color return this.DefaultLayerGridColor;
 }
@@ -44,7 +44,7 @@ abstract ConstTileMapEditorSettings(TileMapEditorSettings) from TileMapEditorSet
 @:forward
 @:nativeGen
 @:native("TileMapEditorSettings*")
-abstract TileMapEditorSettingsPtr(cpp.Star<TileMapEditorSettings>) from cpp.Star<TileMapEditorSettings> to cpp.Star<TileMapEditorSettings>{
+abstract TileMapEditorSettingsPtr(ucpp.Ptr<TileMapEditorSettings>) from ucpp.Ptr<TileMapEditorSettings> to ucpp.Ptr<TileMapEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: TileMapEditorSettings): TileMapEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

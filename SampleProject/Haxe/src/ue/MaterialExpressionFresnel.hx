@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionFresnel")
 @:include("Materials/MaterialExpressionFresnel.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionFresnel extends MaterialExpression {
 	public var ExponentIn: ExpressionInput;
-	public var Exponent: cpp.Float32;
+	public var Exponent: ucpp.num.Float32;
 	public var BaseReflectFractionIn: ExpressionInput;
-	public var BaseReflectFraction: cpp.Float32;
+	public var BaseReflectFraction: ucpp.num.Float32;
 	public var Normal: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,12 +19,12 @@ extern class MaterialExpressionFresnel extends MaterialExpression {
 abstract ConstMaterialExpressionFresnel(MaterialExpressionFresnel) from MaterialExpressionFresnel {
 	public extern var ExponentIn(get, never): ExpressionInput;
 	public inline extern function get_ExponentIn(): ExpressionInput return this.ExponentIn;
-	public extern var Exponent(get, never): cpp.Float32;
-	public inline extern function get_Exponent(): cpp.Float32 return this.Exponent;
+	public extern var Exponent(get, never): ucpp.num.Float32;
+	public inline extern function get_Exponent(): ucpp.num.Float32 return this.Exponent;
 	public extern var BaseReflectFractionIn(get, never): ExpressionInput;
 	public inline extern function get_BaseReflectFractionIn(): ExpressionInput return this.BaseReflectFractionIn;
-	public extern var BaseReflectFraction(get, never): cpp.Float32;
-	public inline extern function get_BaseReflectFraction(): cpp.Float32 return this.BaseReflectFraction;
+	public extern var BaseReflectFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_BaseReflectFraction(): ucpp.num.Float32 return this.BaseReflectFraction;
 	public extern var Normal(get, never): ExpressionInput;
 	public inline extern function get_Normal(): ExpressionInput return this.Normal;
 }
@@ -32,7 +32,7 @@ abstract ConstMaterialExpressionFresnel(MaterialExpressionFresnel) from Material
 @:forward
 @:nativeGen
 @:native("MaterialExpressionFresnel*")
-abstract MaterialExpressionFresnelPtr(cpp.Star<MaterialExpressionFresnel>) from cpp.Star<MaterialExpressionFresnel> to cpp.Star<MaterialExpressionFresnel>{
+abstract MaterialExpressionFresnelPtr(ucpp.Ptr<MaterialExpressionFresnel>) from ucpp.Ptr<MaterialExpressionFresnel> to ucpp.Ptr<MaterialExpressionFresnel>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionFresnel): MaterialExpressionFresnelPtr {
 		return untyped __cpp__("&({0})", v);

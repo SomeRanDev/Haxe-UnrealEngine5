@@ -3,10 +3,10 @@ package ue;
 
 @:native("ABoxReflectionCapture")
 @:include("Engine/BoxReflectionCapture.h")
-@:structAccess
+@:valueType
 extern class BoxReflectionCapture extends ReflectionCapture {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBoxReflectionCapture(BoxReflectionCapture) from BoxReflectionCaptu
 @:forward
 @:nativeGen
 @:native("BoxReflectionCapture*")
-abstract BoxReflectionCapturePtr(cpp.Star<BoxReflectionCapture>) from cpp.Star<BoxReflectionCapture> to cpp.Star<BoxReflectionCapture>{
+abstract BoxReflectionCapturePtr(ucpp.Ptr<BoxReflectionCapture>) from ucpp.Ptr<BoxReflectionCapture> to ucpp.Ptr<BoxReflectionCapture>{
 	@:from
 	public static extern inline function fromValue(v: BoxReflectionCapture): BoxReflectionCapturePtr {
 		return untyped __cpp__("&({0})", v);

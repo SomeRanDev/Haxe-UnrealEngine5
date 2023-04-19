@@ -3,19 +3,19 @@ package ue;
 
 @:native("UAnimationImportTestFunctions")
 @:include("ImportTestFunctions/AnimationImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class AnimationImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckImportedAnimSequenceCount(AnimSequences: cpp.Reference<TArray<cpp.Star<AnimSequence>>>, ExpectedNumberOfImportedAnimSequences: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckCurveKeyValue(AnimSequence: cpp.Star<AnimSequence>, CurveName: FString, KeyIndex: cpp.Int32, ExpectedCurveKeyValue: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckCurveKeyTime(AnimSequence: cpp.Star<AnimSequence>, CurveName: FString, KeyIndex: cpp.Int32, ExpectedCurveKeyTime: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckCurveKeyLeaveTangentWeight(AnimSequence: cpp.Star<AnimSequence>, CurveName: FString, KeyIndex: cpp.Int32, ExpectedCurveKeyLeaveTangentWeight: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckCurveKeyLeaveTangent(AnimSequence: cpp.Star<AnimSequence>, CurveName: FString, KeyIndex: cpp.Int32, ExpectedCurveKeyLeaveTangent: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckCurveKeyArriveTangentWeight(AnimSequence: cpp.Star<AnimSequence>, CurveName: FString, KeyIndex: cpp.Int32, ExpectedCurveKeyArriveTangentWeight: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckCurveKeyArriveTangent(AnimSequence: cpp.Star<AnimSequence>, CurveName: FString, KeyIndex: cpp.Int32, ExpectedCurveKeyArriveTangent: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckAnimationLength(AnimSequence: cpp.Star<AnimSequence>, ExpectedAnimationLength: cpp.Float32): InterchangeTestFunctionResult;
-	public function CheckAnimationFrameNumber(AnimSequence: cpp.Star<AnimSequence>, ExpectedFrameNumber: cpp.Int32): InterchangeTestFunctionResult;
+	public function CheckImportedAnimSequenceCount(AnimSequences: ucpp.Ref<TArray<ucpp.Ptr<AnimSequence>>>, ExpectedNumberOfImportedAnimSequences: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckCurveKeyValue(AnimSequence: ucpp.Ptr<AnimSequence>, CurveName: FString, KeyIndex: ucpp.num.Int32, ExpectedCurveKeyValue: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckCurveKeyTime(AnimSequence: ucpp.Ptr<AnimSequence>, CurveName: FString, KeyIndex: ucpp.num.Int32, ExpectedCurveKeyTime: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckCurveKeyLeaveTangentWeight(AnimSequence: ucpp.Ptr<AnimSequence>, CurveName: FString, KeyIndex: ucpp.num.Int32, ExpectedCurveKeyLeaveTangentWeight: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckCurveKeyLeaveTangent(AnimSequence: ucpp.Ptr<AnimSequence>, CurveName: FString, KeyIndex: ucpp.num.Int32, ExpectedCurveKeyLeaveTangent: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckCurveKeyArriveTangentWeight(AnimSequence: ucpp.Ptr<AnimSequence>, CurveName: FString, KeyIndex: ucpp.num.Int32, ExpectedCurveKeyArriveTangentWeight: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckCurveKeyArriveTangent(AnimSequence: ucpp.Ptr<AnimSequence>, CurveName: FString, KeyIndex: ucpp.num.Int32, ExpectedCurveKeyArriveTangent: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckAnimationLength(AnimSequence: ucpp.Ptr<AnimSequence>, ExpectedAnimationLength: ucpp.num.Float32): InterchangeTestFunctionResult;
+	public function CheckAnimationFrameNumber(AnimSequence: ucpp.Ptr<AnimSequence>, ExpectedFrameNumber: ucpp.num.Int32): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstAnimationImportTestFunctions(AnimationImportTestFunctions) from An
 @:forward
 @:nativeGen
 @:native("AnimationImportTestFunctions*")
-abstract AnimationImportTestFunctionsPtr(cpp.Star<AnimationImportTestFunctions>) from cpp.Star<AnimationImportTestFunctions> to cpp.Star<AnimationImportTestFunctions>{
+abstract AnimationImportTestFunctionsPtr(ucpp.Ptr<AnimationImportTestFunctions>) from ucpp.Ptr<AnimationImportTestFunctions> to ucpp.Ptr<AnimationImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: AnimationImportTestFunctions): AnimationImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

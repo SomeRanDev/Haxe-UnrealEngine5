@@ -3,12 +3,12 @@ package ue;
 
 @:native("USpriteEditorSettings")
 @:include("SpriteEditor/SpriteEditorSettings.h")
-@:structAccess
+@:valueType
 extern class SpriteEditorSettings extends Object {
 	public var BackgroundColor: Color;
 	public var bShowGridByDefault: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSpriteEditorSettings(SpriteEditorSettings) from SpriteEditorSettin
 @:forward
 @:nativeGen
 @:native("SpriteEditorSettings*")
-abstract SpriteEditorSettingsPtr(cpp.Star<SpriteEditorSettings>) from cpp.Star<SpriteEditorSettings> to cpp.Star<SpriteEditorSettings>{
+abstract SpriteEditorSettingsPtr(ucpp.Ptr<SpriteEditorSettings>) from ucpp.Ptr<SpriteEditorSettings> to ucpp.Ptr<SpriteEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: SpriteEditorSettings): SpriteEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

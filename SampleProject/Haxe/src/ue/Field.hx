@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UField")
-@:structAccess
+@:valueType
 extern class Field extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstField(Field) from Field {
 @:forward
 @:nativeGen
 @:native("Field*")
-abstract FieldPtr(cpp.Star<Field>) from cpp.Star<Field> to cpp.Star<Field>{
+abstract FieldPtr(ucpp.Ptr<Field>) from ucpp.Ptr<Field> to ucpp.Ptr<Field>{
 	@:from
 	public static extern inline function fromValue(v: Field): FieldPtr {
 		return untyped __cpp__("&({0})", v);

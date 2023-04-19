@@ -3,10 +3,10 @@ package ue;
 
 @:native("USwapSoundForDialogueInCuesCommandlet")
 @:include("Commandlets/SwapSoundForDialogueInCuesCommandlet.h")
-@:structAccess
+@:valueType
 extern class SwapSoundForDialogueInCuesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSwapSoundForDialogueInCuesCommandlet(SwapSoundForDialogueInCuesCom
 @:forward
 @:nativeGen
 @:native("SwapSoundForDialogueInCuesCommandlet*")
-abstract SwapSoundForDialogueInCuesCommandletPtr(cpp.Star<SwapSoundForDialogueInCuesCommandlet>) from cpp.Star<SwapSoundForDialogueInCuesCommandlet> to cpp.Star<SwapSoundForDialogueInCuesCommandlet>{
+abstract SwapSoundForDialogueInCuesCommandletPtr(ucpp.Ptr<SwapSoundForDialogueInCuesCommandlet>) from ucpp.Ptr<SwapSoundForDialogueInCuesCommandlet> to ucpp.Ptr<SwapSoundForDialogueInCuesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: SwapSoundForDialogueInCuesCommandlet): SwapSoundForDialogueInCuesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

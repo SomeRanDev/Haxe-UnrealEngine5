@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLocalizedTemplateString")
 @:include("TemplateProjectDefs.h")
-@:structAccess
+@:valueType
 extern class LocalizedTemplateString {
 	public var Language: FString;
 	public var Text: FString;

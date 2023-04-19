@@ -3,15 +3,15 @@ package ue;
 
 @:native("FAbcGeometryCacheSettings")
 @:include("AbcImportSettings.h")
-@:structAccess
+@:valueType
 extern class AbcGeometryCacheSettings {
 	public var bFlattenTracks: Bool;
 	public var bStoreImportedVertexNumbers: Bool;
 	public var bApplyConstantTopologyOptimizations: Bool;
 	public var MotionVectors: EAbcGeometryCacheMotionVectorsImport;
 	public var bOptimizeIndexBuffers: Bool;
-	public var CompressedPositionPrecision: cpp.Float32;
-	public var CompressedTextureCoordinatesNumberOfBits: cpp.Int32;
+	public var CompressedPositionPrecision: ucpp.num.Float32;
+	public var CompressedTextureCoordinatesNumberOfBits: ucpp.num.Int32;
 
 	@:native("FAbcGeometryCacheSettings") public function new();
 }

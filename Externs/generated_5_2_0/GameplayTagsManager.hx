@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGameplayTagsManager")
 @:include("GameplayTagsManager.h")
-@:structAccess
+@:valueType
 extern class GameplayTagsManager extends Object {
 	private var TagSources: TMap<FName, GameplayTagSource>;
-	private var GameplayTagTables: TArray<cpp.Star<DataTable>>;
+	private var GameplayTagTables: TArray<ucpp.Ptr<DataTable>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstGameplayTagsManager(GameplayTagsManager) from GameplayTagsManager 
 @:forward
 @:nativeGen
 @:native("GameplayTagsManager*")
-abstract GameplayTagsManagerPtr(cpp.Star<GameplayTagsManager>) from cpp.Star<GameplayTagsManager> to cpp.Star<GameplayTagsManager>{
+abstract GameplayTagsManagerPtr(ucpp.Ptr<GameplayTagsManager>) from ucpp.Ptr<GameplayTagsManager> to ucpp.Ptr<GameplayTagsManager>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagsManager): GameplayTagsManagerPtr {
 		return untyped __cpp__("&({0})", v);

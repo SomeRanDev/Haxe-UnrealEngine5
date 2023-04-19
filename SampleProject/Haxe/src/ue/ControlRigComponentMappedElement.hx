@@ -3,20 +3,20 @@ package ue;
 
 @:native("FControlRigComponentMappedElement")
 @:include("ControlRigComponent.h")
-@:structAccess
+@:valueType
 extern class ControlRigComponentMappedElement {
 	public var ComponentReference: ComponentReference;
-	public var TransformIndex: cpp.Int32;
+	public var TransformIndex: ucpp.num.Int32;
 	public var TransformName: FName;
 	public var ElementType: ERigElementType;
 	public var ElementName: FName;
 	public var Direction: EControlRigComponentMapDirection;
 	public var Offset: Transform;
-	public var Weight: cpp.Float32;
+	public var Weight: ucpp.num.Float32;
 	public var Space: EControlRigComponentSpace;
-	public var SceneComponent: cpp.Star<SceneComp>;
-	public var ElementIndex: cpp.Int32;
-	public var SubIndex: cpp.Int32;
+	public var SceneComponent: ucpp.Ptr<SceneComp>;
+	public var ElementIndex: ucpp.num.Int32;
+	public var SubIndex: ucpp.num.Int32;
 
 	@:native("FControlRigComponentMappedElement") public function new();
 }

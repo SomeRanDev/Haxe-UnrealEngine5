@@ -3,17 +3,17 @@ package ue;
 
 @:native("UARBasicLightEstimate")
 @:include("ARLightEstimate.h")
-@:structAccess
+@:valueType
 extern class ARBasicLightEstimate extends ARLightEstimate {
-	private var AmbientIntensityLumens: cpp.Float32;
-	private var AmbientColorTemperatureKelvin: cpp.Float32;
+	private var AmbientIntensityLumens: ucpp.num.Float32;
+	private var AmbientColorTemperatureKelvin: ucpp.num.Float32;
 	private var AmbientColor: LinearColor;
 
-	public function GetAmbientIntensityLumens(): cpp.Float32;
-	public function GetAmbientColorTemperatureKelvin(): cpp.Float32;
+	public function GetAmbientIntensityLumens(): ucpp.num.Float32;
+	public function GetAmbientColorTemperatureKelvin(): ucpp.num.Float32;
 	public function GetAmbientColor(): LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAmbientIntensityLumens, GetAmbientColorTemperatureKelvin, GetAmbientColor)
@@ -24,7 +24,7 @@ abstract ConstARBasicLightEstimate(ARBasicLightEstimate) from ARBasicLightEstima
 @:forward
 @:nativeGen
 @:native("ARBasicLightEstimate*")
-abstract ARBasicLightEstimatePtr(cpp.Star<ARBasicLightEstimate>) from cpp.Star<ARBasicLightEstimate> to cpp.Star<ARBasicLightEstimate>{
+abstract ARBasicLightEstimatePtr(ucpp.Ptr<ARBasicLightEstimate>) from ucpp.Ptr<ARBasicLightEstimate> to ucpp.Ptr<ARBasicLightEstimate>{
 	@:from
 	public static extern inline function fromValue(v: ARBasicLightEstimate): ARBasicLightEstimatePtr {
 		return untyped __cpp__("&({0})", v);

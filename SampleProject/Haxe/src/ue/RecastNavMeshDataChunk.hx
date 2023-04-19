@@ -3,10 +3,10 @@ package ue;
 
 @:native("URecastNavMeshDataChunk")
 @:include("NavMesh/RecastNavMeshDataChunk.h")
-@:structAccess
+@:valueType
 extern class RecastNavMeshDataChunk extends NavigationDataChunk {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRecastNavMeshDataChunk(RecastNavMeshDataChunk) from RecastNavMeshD
 @:forward
 @:nativeGen
 @:native("RecastNavMeshDataChunk*")
-abstract RecastNavMeshDataChunkPtr(cpp.Star<RecastNavMeshDataChunk>) from cpp.Star<RecastNavMeshDataChunk> to cpp.Star<RecastNavMeshDataChunk>{
+abstract RecastNavMeshDataChunkPtr(ucpp.Ptr<RecastNavMeshDataChunk>) from ucpp.Ptr<RecastNavMeshDataChunk> to ucpp.Ptr<RecastNavMeshDataChunk>{
 	@:from
 	public static extern inline function fromValue(v: RecastNavMeshDataChunk): RecastNavMeshDataChunkPtr {
 		return untyped __cpp__("&({0})", v);

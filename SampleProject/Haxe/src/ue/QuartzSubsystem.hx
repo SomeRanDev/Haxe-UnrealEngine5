@@ -3,29 +3,29 @@ package ue;
 
 @:native("UQuartzSubsystem")
 @:include("Quartz/QuartzSubsystem.h")
-@:structAccess
+@:valueType
 extern class QuartzSubsystem extends TickableWorldSubsystem {
 	public function IsQuartzEnabled(): Bool;
-	public function IsClockRunning(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName): Bool;
-	public function GetRoundTripMinLatency(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
-	public function GetRoundTripMaxLatency(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
-	public function GetRoundTripAverageLatency(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
-	public function GetHandleForClock(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName): cpp.Star<QuartzClockHandle>;
-	public function GetGameThreadToAudioRenderThreadMinLatency(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
-	public function GetGameThreadToAudioRenderThreadMaxLatency(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
-	public function GetGameThreadToAudioRenderThreadAverageLatency(WorldContextObject: cpp.Star<Object.ConstObject>): cpp.Float32;
-	public function GetEstimatedClockRunTime(WorldContextObject: cpp.Star<Object.ConstObject>, InClockName: cpp.Reference<FName>): cpp.Float32;
-	public function GetDurationOfQuantizationTypeInSeconds(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName, QuantizationType: cpp.Reference<EQuartzCommandQuantization>, Multiplier: cpp.Float32): cpp.Float32;
-	public function GetCurrentClockTimestamp(WorldContextObject: cpp.Star<Object.ConstObject>, InClockName: cpp.Reference<FName>): QuartzTransportTimeStamp;
-	public function GetAudioRenderThreadToGameThreadMinLatency(): cpp.Float32;
-	public function GetAudioRenderThreadToGameThreadMaxLatency(): cpp.Float32;
-	public function GetAudioRenderThreadToGameThreadAverageLatency(): cpp.Float32;
-	public function DoesClockExist(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName): Bool;
-	public function DeleteClockByName(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName): Void;
-	public function DeleteClockByHandle(WorldContextObject: cpp.Star<Object.ConstObject>, InClockHandle: cpp.Reference<cpp.Star<QuartzClockHandle>>): Void;
-	public function CreateNewClock(WorldContextObject: cpp.Star<Object.ConstObject>, ClockName: FName, InSettings: QuartzClockSettings, bOverrideSettingsIfClockExists: Bool, bUseAudioEngineClockManager: Bool): cpp.Star<QuartzClockHandle>;
+	public function IsClockRunning(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ClockName: FName): Bool;
+	public function GetRoundTripMinLatency(WorldContextObject: ucpp.Ptr<Object.ConstObject>): ucpp.num.Float32;
+	public function GetRoundTripMaxLatency(WorldContextObject: ucpp.Ptr<Object.ConstObject>): ucpp.num.Float32;
+	public function GetRoundTripAverageLatency(WorldContextObject: ucpp.Ptr<Object.ConstObject>): ucpp.num.Float32;
+	public function GetHandleForClock(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ClockName: FName): ucpp.Ptr<QuartzClockHandle>;
+	public function GetGameThreadToAudioRenderThreadMinLatency(WorldContextObject: ucpp.Ptr<Object.ConstObject>): ucpp.num.Float32;
+	public function GetGameThreadToAudioRenderThreadMaxLatency(WorldContextObject: ucpp.Ptr<Object.ConstObject>): ucpp.num.Float32;
+	public function GetGameThreadToAudioRenderThreadAverageLatency(WorldContextObject: ucpp.Ptr<Object.ConstObject>): ucpp.num.Float32;
+	public function GetEstimatedClockRunTime(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InClockName: ucpp.Ref<FName>): ucpp.num.Float32;
+	public function GetDurationOfQuantizationTypeInSeconds(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ClockName: FName, QuantizationType: ucpp.Ref<EQuartzCommandQuantization>, Multiplier: ucpp.num.Float32): ucpp.num.Float32;
+	public function GetCurrentClockTimestamp(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InClockName: ucpp.Ref<FName>): QuartzTransportTimeStamp;
+	public function GetAudioRenderThreadToGameThreadMinLatency(): ucpp.num.Float32;
+	public function GetAudioRenderThreadToGameThreadMaxLatency(): ucpp.num.Float32;
+	public function GetAudioRenderThreadToGameThreadAverageLatency(): ucpp.num.Float32;
+	public function DoesClockExist(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ClockName: FName): Bool;
+	public function DeleteClockByName(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ClockName: FName): Void;
+	public function DeleteClockByHandle(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InClockHandle: ucpp.Ref<ucpp.Ptr<QuartzClockHandle>>): Void;
+	public function CreateNewClock(WorldContextObject: ucpp.Ptr<Object.ConstObject>, ClockName: FName, InSettings: QuartzClockSettings, bOverrideSettingsIfClockExists: Bool, bUseAudioEngineClockManager: Bool): ucpp.Ptr<QuartzClockHandle>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,7 +36,7 @@ abstract ConstQuartzSubsystem(QuartzSubsystem) from QuartzSubsystem {
 @:forward
 @:nativeGen
 @:native("QuartzSubsystem*")
-abstract QuartzSubsystemPtr(cpp.Star<QuartzSubsystem>) from cpp.Star<QuartzSubsystem> to cpp.Star<QuartzSubsystem>{
+abstract QuartzSubsystemPtr(ucpp.Ptr<QuartzSubsystem>) from ucpp.Ptr<QuartzSubsystem> to ucpp.Ptr<QuartzSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: QuartzSubsystem): QuartzSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

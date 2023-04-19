@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraStackInputCategory")
 @:include("ViewModels/Stack/NiagaraStackInputCategory.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackInputCategory extends NiagaraStackItemContent {
-	private var CategorySpacer: cpp.Star<NiagaraStackSpacer>;
+	private var CategorySpacer: ucpp.Ptr<NiagaraStackSpacer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraStackInputCategory(NiagaraStackInputCategory) from NiagaraS
 @:forward
 @:nativeGen
 @:native("NiagaraStackInputCategory*")
-abstract NiagaraStackInputCategoryPtr(cpp.Star<NiagaraStackInputCategory>) from cpp.Star<NiagaraStackInputCategory> to cpp.Star<NiagaraStackInputCategory>{
+abstract NiagaraStackInputCategoryPtr(ucpp.Ptr<NiagaraStackInputCategory>) from ucpp.Ptr<NiagaraStackInputCategory> to ucpp.Ptr<NiagaraStackInputCategory>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackInputCategory): NiagaraStackInputCategoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("FAnimationTransitionBetweenStates")
 @:include("Animation/AnimStateMachineTypes.h")
-@:structAccess
+@:valueType
 extern class AnimationTransitionBetweenStates extends AnimationStateBase {
-	public var PreviousState: cpp.Int32;
-	public var NextState: cpp.Int32;
-	public var CrossfadeDuration: cpp.Float32;
-	public var StartNotify: cpp.Int32;
-	public var EndNotify: cpp.Int32;
-	public var InterruptNotify: cpp.Int32;
+	public var PreviousState: ucpp.num.Int32;
+	public var NextState: ucpp.num.Int32;
+	public var CrossfadeDuration: ucpp.num.Float32;
+	public var StartNotify: ucpp.num.Int32;
+	public var EndNotify: ucpp.num.Int32;
+	public var InterruptNotify: ucpp.num.Int32;
 	public var BlendMode: EAlphaBlendOption;
-	public var CustomCurve: cpp.Star<CurveFloat>;
-	public var BlendProfile: cpp.Star<BlendProfile>;
+	public var CustomCurve: ucpp.Ptr<CurveFloat>;
+	public var BlendProfile: ucpp.Ptr<BlendProfile>;
 	public var LogicType: TEnumAsByte<ETransitionLogicType>;
 
 	@:native("FAnimationTransitionBetweenStates") public function new();

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UActorRecorderPropertyMap")
 @:include("TakeRecorderSourceProperty.h")
-@:structAccess
+@:valueType
 extern class ActorRecorderPropertyMap extends Object {
 	public var RecordedObject: TSoftObjectPtr<Object>;
 	public var Properties: TArray<ActorRecordedProperty>;
-	public var Children: TArray<cpp.Star<ActorRecorderPropertyMap>>;
+	public var Children: TArray<ucpp.Ptr<ActorRecorderPropertyMap>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstActorRecorderPropertyMap(ActorRecorderPropertyMap) from ActorRecor
 	public inline extern function get_RecordedObject(): TSoftObjectPtr<Object.ConstObject> return this.RecordedObject;
 	public extern var Properties(get, never): TArray<ActorRecordedProperty>;
 	public inline extern function get_Properties(): TArray<ActorRecordedProperty> return this.Properties;
-	public extern var Children(get, never): TArray<cpp.Star<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap>>;
-	public inline extern function get_Children(): TArray<cpp.Star<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap>> return this.Children;
+	public extern var Children(get, never): TArray<ucpp.Ptr<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap>>;
+	public inline extern function get_Children(): TArray<ucpp.Ptr<ActorRecorderPropertyMap.ConstActorRecorderPropertyMap>> return this.Children;
 }
 
 @:forward
 @:nativeGen
 @:native("ActorRecorderPropertyMap*")
-abstract ActorRecorderPropertyMapPtr(cpp.Star<ActorRecorderPropertyMap>) from cpp.Star<ActorRecorderPropertyMap> to cpp.Star<ActorRecorderPropertyMap>{
+abstract ActorRecorderPropertyMapPtr(ucpp.Ptr<ActorRecorderPropertyMap>) from ucpp.Ptr<ActorRecorderPropertyMap> to ucpp.Ptr<ActorRecorderPropertyMap>{
 	@:from
 	public static extern inline function fromValue(v: ActorRecorderPropertyMap): ActorRecorderPropertyMapPtr {
 		return untyped __cpp__("&({0})", v);

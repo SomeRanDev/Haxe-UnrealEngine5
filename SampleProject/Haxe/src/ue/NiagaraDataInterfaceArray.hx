@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArray")
 @:include("NiagaraDataInterfaceArray.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceArray extends NiagaraDataInterfaceRWBase {
 	public var GpuSyncMode: ENiagaraGpuSyncMode;
-	public var MaxElements: cpp.Int32;
+	public var MaxElements: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class NiagaraDataInterfaceArray extends NiagaraDataInterfaceRWBase {
 abstract ConstNiagaraDataInterfaceArray(NiagaraDataInterfaceArray) from NiagaraDataInterfaceArray {
 	public extern var GpuSyncMode(get, never): ENiagaraGpuSyncMode;
 	public inline extern function get_GpuSyncMode(): ENiagaraGpuSyncMode return this.GpuSyncMode;
-	public extern var MaxElements(get, never): cpp.Int32;
-	public inline extern function get_MaxElements(): cpp.Int32 return this.MaxElements;
+	public extern var MaxElements(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxElements(): ucpp.num.Int32 return this.MaxElements;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceArray*")
-abstract NiagaraDataInterfaceArrayPtr(cpp.Star<NiagaraDataInterfaceArray>) from cpp.Star<NiagaraDataInterfaceArray> to cpp.Star<NiagaraDataInterfaceArray>{
+abstract NiagaraDataInterfaceArrayPtr(ucpp.Ptr<NiagaraDataInterfaceArray>) from ucpp.Ptr<NiagaraDataInterfaceArray> to ucpp.Ptr<NiagaraDataInterfaceArray>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceArray): NiagaraDataInterfaceArrayPtr {
 		return untyped __cpp__("&({0})", v);

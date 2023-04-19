@@ -3,21 +3,21 @@ package ue;
 
 @:native("UARPlaneGeometry")
 @:include("ARTrackable.h")
-@:structAccess
+@:valueType
 extern class ARPlaneGeometry extends ARTrackedGeometry {
 	private var Orientation: EARPlaneOrientation;
 	private var Center: Vector;
 	private var Extent: Vector;
 	private var BoundaryPolygon: TArray<Vector>;
-	private var SubsumedBy: cpp.Star<ARPlaneGeometry>;
+	private var SubsumedBy: ucpp.Ptr<ARPlaneGeometry>;
 
-	public function GetSubsumedBy(): cpp.Star<ARPlaneGeometry>;
+	public function GetSubsumedBy(): ucpp.Ptr<ARPlaneGeometry>;
 	public function GetOrientation(): EARPlaneOrientation;
 	public function GetExtent(): Vector;
 	public function GetCenter(): Vector;
 	public function GetBoundaryPolygonInLocalSpace(): TArray<Vector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSubsumedBy, GetOrientation, GetExtent, GetCenter, GetBoundaryPolygonInLocalSpace)
@@ -28,7 +28,7 @@ abstract ConstARPlaneGeometry(ARPlaneGeometry) from ARPlaneGeometry {
 @:forward
 @:nativeGen
 @:native("ARPlaneGeometry*")
-abstract ARPlaneGeometryPtr(cpp.Star<ARPlaneGeometry>) from cpp.Star<ARPlaneGeometry> to cpp.Star<ARPlaneGeometry>{
+abstract ARPlaneGeometryPtr(ucpp.Ptr<ARPlaneGeometry>) from ucpp.Ptr<ARPlaneGeometry> to ucpp.Ptr<ARPlaneGeometry>{
 	@:from
 	public static extern inline function fromValue(v: ARPlaneGeometry): ARPlaneGeometryPtr {
 		return untyped __cpp__("&({0})", v);

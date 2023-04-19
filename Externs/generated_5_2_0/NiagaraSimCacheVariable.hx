@@ -3,15 +3,15 @@ package ue;
 
 @:native("FNiagaraSimCacheVariable")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheVariable {
 	public var Variable: NiagaraVariableBase;
-	public var FloatOffset: cpp.UInt16;
-	public var FloatCount: cpp.UInt16;
-	public var HalfOffset: cpp.UInt16;
-	public var HalfCount: cpp.UInt16;
-	public var Int32Offset: cpp.UInt16;
-	public var Int32Count: cpp.UInt16;
+	public var FloatOffset: ucpp.num.UInt16;
+	public var FloatCount: ucpp.num.UInt16;
+	public var HalfOffset: ucpp.num.UInt16;
+	public var HalfCount: ucpp.num.UInt16;
+	public var Int32Offset: ucpp.num.UInt16;
+	public var Int32Count: ucpp.num.UInt16;
 
 	@:native("FNiagaraSimCacheVariable") public function new();
 }

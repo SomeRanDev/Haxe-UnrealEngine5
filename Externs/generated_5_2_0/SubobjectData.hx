@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSubobjectData")
 @:include("SubobjectData.h")
-@:structAccess
+@:valueType
 extern class SubobjectData {
 	@:protected public var WeakObjectPtr: TWeakObjectPtr<Object>;
 	@:protected public var Handle: SubobjectDataHandle;

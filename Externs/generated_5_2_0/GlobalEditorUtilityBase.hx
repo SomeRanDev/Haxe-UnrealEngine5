@@ -3,28 +3,28 @@ package ue;
 
 @:native("UDEPRECATED_GlobalEditorUtilityBase")
 @:include("GlobalEditorUtilityBase.h")
-@:structAccess
+@:valueType
 extern class GlobalEditorUtilityBase extends Object {
 	public var HelpText: FString;
 	public var bDirtiedSelectionSet: Bool;
 	public var bAutoRunDefaultAction: Bool;
-	public var OnEachSelectedActor: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>, cpp.Int32) -> Void>;
-	public var OnEachSelectedAsset: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, cpp.Int32) -> Void>;
+	public var OnEachSelectedActor: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor>, ucpp.num.Int32) -> Void>;
+	public var OnEachSelectedAsset: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>, ucpp.num.Int32) -> Void>;
 
-	public function SetActorSelectionState(Actor: cpp.Star<Actor>, bShouldBeSelected: Bool): Void;
+	public function SetActorSelectionState(Actor: ucpp.Ptr<Actor>, bShouldBeSelected: Bool): Void;
 	public function SelectNothing(): Void;
-	public function RenameAsset(Asset: cpp.Star<Object>, NewName: FString): Void;
+	public function RenameAsset(Asset: ucpp.Ptr<Object>, NewName: FString): Void;
 	public function OnDefaultActionClicked(): Void;
-	public function GetSelectionSet(): TArray<cpp.Star<Actor>>;
-	public function GetSelectionBounds(Origin: cpp.Reference<Vector>, BoxExtent: cpp.Reference<Vector>, SphereRadius: cpp.Reference<cpp.Float32>): Void;
-	public function GetSelectedAssets(): TArray<cpp.Star<Object>>;
-	public function GetEditorUserSettings(): cpp.Star<EditorPerProjectUserSettings>;
-	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
+	public function GetSelectionSet(): TArray<ucpp.Ptr<Actor>>;
+	public function GetSelectionBounds(Origin: ucpp.Ref<Vector>, BoxExtent: ucpp.Ref<Vector>, SphereRadius: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetSelectedAssets(): TArray<ucpp.Ptr<Object>>;
+	public function GetEditorUserSettings(): ucpp.Ptr<EditorPerProjectUserSettings>;
+	public function GetActorReference(PathToActor: FString): ucpp.Ptr<Actor>;
 	public function ForEachSelectedAsset(): Void;
 	public function ForEachSelectedActor(): Void;
 	public function ClearActorSelectionSet(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,16 +36,16 @@ abstract ConstGlobalEditorUtilityBase(GlobalEditorUtilityBase) from GlobalEditor
 	public inline extern function get_bDirtiedSelectionSet(): Bool return this.bDirtiedSelectionSet;
 	public extern var bAutoRunDefaultAction(get, never): Bool;
 	public inline extern function get_bAutoRunDefaultAction(): Bool return this.bAutoRunDefaultAction;
-	public extern var OnEachSelectedActor(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>, cpp.Int32) -> Void>;
-	public inline extern function get_OnEachSelectedActor(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>, cpp.Int32) -> Void> return this.OnEachSelectedActor;
-	public extern var OnEachSelectedAsset(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Int32) -> Void>;
-	public inline extern function get_OnEachSelectedAsset(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>, cpp.Int32) -> Void> return this.OnEachSelectedAsset;
+	public extern var OnEachSelectedActor(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor.ConstActor>, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnEachSelectedActor(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor.ConstActor>, ucpp.num.Int32) -> Void> return this.OnEachSelectedActor;
+	public extern var OnEachSelectedAsset(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object.ConstObject>, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnEachSelectedAsset(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object.ConstObject>, ucpp.num.Int32) -> Void> return this.OnEachSelectedAsset;
 }
 
 @:forward
 @:nativeGen
 @:native("GlobalEditorUtilityBase*")
-abstract GlobalEditorUtilityBasePtr(cpp.Star<GlobalEditorUtilityBase>) from cpp.Star<GlobalEditorUtilityBase> to cpp.Star<GlobalEditorUtilityBase>{
+abstract GlobalEditorUtilityBasePtr(ucpp.Ptr<GlobalEditorUtilityBase>) from ucpp.Ptr<GlobalEditorUtilityBase> to ucpp.Ptr<GlobalEditorUtilityBase>{
 	@:from
 	public static extern inline function fromValue(v: GlobalEditorUtilityBase): GlobalEditorUtilityBasePtr {
 		return untyped __cpp__("&({0})", v);

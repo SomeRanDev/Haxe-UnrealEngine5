@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNotifyFieldValueChanged")
-@:structAccess
+@:valueType
 extern class NotifyFieldValueChanged extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNotifyFieldValueChanged(NotifyFieldValueChanged) from NotifyFieldV
 @:forward
 @:nativeGen
 @:native("NotifyFieldValueChanged*")
-abstract NotifyFieldValueChangedPtr(cpp.Star<NotifyFieldValueChanged>) from cpp.Star<NotifyFieldValueChanged> to cpp.Star<NotifyFieldValueChanged>{
+abstract NotifyFieldValueChangedPtr(ucpp.Ptr<NotifyFieldValueChanged>) from ucpp.Ptr<NotifyFieldValueChanged> to ucpp.Ptr<NotifyFieldValueChanged>{
 	@:from
 	public static extern inline function fromValue(v: NotifyFieldValueChanged): NotifyFieldValueChangedPtr {
 		return untyped __cpp__("&({0})", v);

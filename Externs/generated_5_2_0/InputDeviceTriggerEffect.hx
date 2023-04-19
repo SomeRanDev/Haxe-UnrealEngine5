@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputDeviceTriggerEffect")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class InputDeviceTriggerEffect extends InputDeviceProperty {
 	public var BaseTriggerData: DeviceTriggerBaseData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputDeviceTriggerEffect(InputDeviceTriggerEffect) from InputDevic
 @:forward
 @:nativeGen
 @:native("InputDeviceTriggerEffect*")
-abstract InputDeviceTriggerEffectPtr(cpp.Star<InputDeviceTriggerEffect>) from cpp.Star<InputDeviceTriggerEffect> to cpp.Star<InputDeviceTriggerEffect>{
+abstract InputDeviceTriggerEffectPtr(ucpp.Ptr<InputDeviceTriggerEffect>) from ucpp.Ptr<InputDeviceTriggerEffect> to ucpp.Ptr<InputDeviceTriggerEffect>{
 	@:from
 	public static extern inline function fromValue(v: InputDeviceTriggerEffect): InputDeviceTriggerEffectPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPythonGeneratedEnum")
 @:include("PyWrapperEnum.h")
-@:structAccess
+@:valueType
 extern class PythonGeneratedEnum extends Enum {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPythonGeneratedEnum(PythonGeneratedEnum) from PythonGeneratedEnum 
 @:forward
 @:nativeGen
 @:native("PythonGeneratedEnum*")
-abstract PythonGeneratedEnumPtr(cpp.Star<PythonGeneratedEnum>) from cpp.Star<PythonGeneratedEnum> to cpp.Star<PythonGeneratedEnum>{
+abstract PythonGeneratedEnumPtr(ucpp.Ptr<PythonGeneratedEnum>) from ucpp.Ptr<PythonGeneratedEnum> to ucpp.Ptr<PythonGeneratedEnum>{
 	@:from
 	public static extern inline function fromValue(v: PythonGeneratedEnum): PythonGeneratedEnumPtr {
 		return untyped __cpp__("&({0})", v);

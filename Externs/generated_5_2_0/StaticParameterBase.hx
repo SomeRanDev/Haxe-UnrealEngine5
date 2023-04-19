@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStaticParameterBase")
 @:include("StaticParameterSet.h")
-@:structAccess
+@:valueType
 extern class StaticParameterBase {
 	public var ParameterInfo: MaterialParameterInfo;
 	public var bOverride: Bool;

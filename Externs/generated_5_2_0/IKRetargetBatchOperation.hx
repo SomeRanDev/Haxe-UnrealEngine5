@@ -3,11 +3,11 @@ package ue;
 
 @:native("UIKRetargetBatchOperation")
 @:include("RetargetEditor/IKRetargetBatchOperation.h")
-@:structAccess
+@:valueType
 extern class IKRetargetBatchOperation extends Object {
-	public function DuplicateAndRetarget(AssetsToRetarget: cpp.Reference<TArray<AssetData>>, SourceMesh: cpp.Star<SkeletalMesh>, TargetMesh: cpp.Star<SkeletalMesh>, IKRetargetAsset: cpp.Star<IKRetargeter>, Search: FString, Replace: FString, Prefix: FString, Suffix: FString, bRemapReferencedAssets: Bool): TArray<AssetData>;
+	public function DuplicateAndRetarget(AssetsToRetarget: ucpp.Ref<TArray<AssetData>>, SourceMesh: ucpp.Ptr<SkeletalMesh>, TargetMesh: ucpp.Ptr<SkeletalMesh>, IKRetargetAsset: ucpp.Ptr<IKRetargeter>, Search: FString, Replace: FString, Prefix: FString, Suffix: FString, bRemapReferencedAssets: Bool): TArray<AssetData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstIKRetargetBatchOperation(IKRetargetBatchOperation) from IKRetarget
 @:forward
 @:nativeGen
 @:native("IKRetargetBatchOperation*")
-abstract IKRetargetBatchOperationPtr(cpp.Star<IKRetargetBatchOperation>) from cpp.Star<IKRetargetBatchOperation> to cpp.Star<IKRetargetBatchOperation>{
+abstract IKRetargetBatchOperationPtr(ucpp.Ptr<IKRetargetBatchOperation>) from ucpp.Ptr<IKRetargetBatchOperation> to ucpp.Ptr<IKRetargetBatchOperation>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargetBatchOperation): IKRetargetBatchOperationPtr {
 		return untyped __cpp__("&({0})", v);

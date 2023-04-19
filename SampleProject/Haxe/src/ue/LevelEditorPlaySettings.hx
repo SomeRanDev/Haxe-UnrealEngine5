@@ -3,7 +3,7 @@ package ue;
 
 @:native("ULevelEditorPlaySettings")
 @:include("Settings/LevelEditorPlaySettings.h")
-@:structAccess
+@:valueType
 extern class LevelEditorPlaySettings extends Object {
 	public var PlayFromHerePlayerStartClassName: FString;
 	public var GameGetsMouseControl: Bool;
@@ -12,16 +12,19 @@ extern class LevelEditorPlaySettings extends Object {
 	public var MouseControlLabelPosition: TEnumAsByte<ELabelAnchorMode>;
 	public var ViewportGetsHMDControl: Bool;
 	public var ShouldMinimizeEditorOnVRPIE: Bool;
+	public var bShouldMinimizeEditorOnNonVRPIE: Bool;
+	public var bEmulateStereo: Bool;
 	public var AutoRecompileBlueprints: Bool;
 	public var EnableGameSound: Bool;
 	public var SoloAudioInFirstPIEClient: Bool;
 	public var EnablePIEEnterAndExitSounds: Bool;
-	public var PlayInEditorSoundQualityLevel: cpp.Int32;
+	public var PlayInEditorSoundQualityLevel: ucpp.num.Int32;
 	public var bUseNonRealtimeAudioDevice: Bool;
 	public var bOnlyLoadVisibleLevelsInPIE: Bool;
 	public var bPreferToStreamLevelsInPIE: Bool;
-	public var NewWindowWidth: cpp.Int32;
-	public var NewWindowHeight: cpp.Int32;
+	public var bPromoteOutputLogWarningsDuringPIE: Bool;
+	public var NewWindowWidth: ucpp.num.Int32;
+	public var NewWindowHeight: ucpp.num.Int32;
 	public var NewWindowPosition: IntPoint;
 	public var CenterNewWindow: Bool;
 	public var PIEAlwaysOnTop: Bool;
@@ -35,22 +38,23 @@ extern class LevelEditorPlaySettings extends Object {
 	private var PlayNetMode: TEnumAsByte<EPlayNetMode>;
 	private var RunUnderOneProcess: Bool;
 	private var PlayNetDedicated: Bool;
-	private var PlayNumberOfClients: cpp.Int32;
-	private var ServerPort: cpp.UInt16;
-	private var ClientWindowWidth: cpp.Int32;
+	private var PlayNumberOfClients: ucpp.num.Int32;
+	private var PrimaryPIEClientIndex: ucpp.num.Int32;
+	private var ServerPort: ucpp.num.UInt16;
+	private var ClientWindowWidth: ucpp.num.Int32;
 	private var AutoConnectToServer: Bool;
 	private var RouteGamepadToSecondWindow: Bool;
 	private var CreateAudioDeviceForEveryPlayer: Bool;
-	private var ClientWindowHeight: cpp.Int32;
+	private var ClientWindowHeight: ucpp.num.Int32;
 	private var ServerMapNameOverride: FString;
 	private var AdditionalServerGameOptions: FString;
 	private var AdditionalLaunchOptions: FString;
 	private var bShowServerDebugDrawingByDefault: Bool;
-	private var ServerDebugDrawingColorTintStrength: cpp.Float32;
+	private var ServerDebugDrawingColorTintStrength: ucpp.num.Float32;
 	private var ServerDebugDrawingColorTint: LinearColor;
 	public var AdditionalServerLaunchParameters: FString;
-	public var ServerFixedFPS: cpp.Int32;
-	public var ClientFixedFPS: TArray<cpp.Int32>;
+	public var ServerFixedFPS: ucpp.num.Int32;
+	public var ClientFixedFPS: TArray<ucpp.num.Int32>;
 	public var NetworkEmulationSettings: LevelEditorPlayNetworkEmulationSettings;
 	public var LastSize: IntPoint;
 	public var MultipleInstancePositions: TArray<IntPoint>;
@@ -70,7 +74,7 @@ extern class LevelEditorPlaySettings extends Object {
 	public var CustomUnsafeZoneStarts: TArray<Vector2D>;
 	public var CustomUnsafeZoneDimensions: TArray<Vector2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -90,6 +94,10 @@ abstract ConstLevelEditorPlaySettings(LevelEditorPlaySettings) from LevelEditorP
 	public inline extern function get_ViewportGetsHMDControl(): Bool return this.ViewportGetsHMDControl;
 	public extern var ShouldMinimizeEditorOnVRPIE(get, never): Bool;
 	public inline extern function get_ShouldMinimizeEditorOnVRPIE(): Bool return this.ShouldMinimizeEditorOnVRPIE;
+	public extern var bShouldMinimizeEditorOnNonVRPIE(get, never): Bool;
+	public inline extern function get_bShouldMinimizeEditorOnNonVRPIE(): Bool return this.bShouldMinimizeEditorOnNonVRPIE;
+	public extern var bEmulateStereo(get, never): Bool;
+	public inline extern function get_bEmulateStereo(): Bool return this.bEmulateStereo;
 	public extern var AutoRecompileBlueprints(get, never): Bool;
 	public inline extern function get_AutoRecompileBlueprints(): Bool return this.AutoRecompileBlueprints;
 	public extern var EnableGameSound(get, never): Bool;
@@ -98,18 +106,20 @@ abstract ConstLevelEditorPlaySettings(LevelEditorPlaySettings) from LevelEditorP
 	public inline extern function get_SoloAudioInFirstPIEClient(): Bool return this.SoloAudioInFirstPIEClient;
 	public extern var EnablePIEEnterAndExitSounds(get, never): Bool;
 	public inline extern function get_EnablePIEEnterAndExitSounds(): Bool return this.EnablePIEEnterAndExitSounds;
-	public extern var PlayInEditorSoundQualityLevel(get, never): cpp.Int32;
-	public inline extern function get_PlayInEditorSoundQualityLevel(): cpp.Int32 return this.PlayInEditorSoundQualityLevel;
+	public extern var PlayInEditorSoundQualityLevel(get, never): ucpp.num.Int32;
+	public inline extern function get_PlayInEditorSoundQualityLevel(): ucpp.num.Int32 return this.PlayInEditorSoundQualityLevel;
 	public extern var bUseNonRealtimeAudioDevice(get, never): Bool;
 	public inline extern function get_bUseNonRealtimeAudioDevice(): Bool return this.bUseNonRealtimeAudioDevice;
 	public extern var bOnlyLoadVisibleLevelsInPIE(get, never): Bool;
 	public inline extern function get_bOnlyLoadVisibleLevelsInPIE(): Bool return this.bOnlyLoadVisibleLevelsInPIE;
 	public extern var bPreferToStreamLevelsInPIE(get, never): Bool;
 	public inline extern function get_bPreferToStreamLevelsInPIE(): Bool return this.bPreferToStreamLevelsInPIE;
-	public extern var NewWindowWidth(get, never): cpp.Int32;
-	public inline extern function get_NewWindowWidth(): cpp.Int32 return this.NewWindowWidth;
-	public extern var NewWindowHeight(get, never): cpp.Int32;
-	public inline extern function get_NewWindowHeight(): cpp.Int32 return this.NewWindowHeight;
+	public extern var bPromoteOutputLogWarningsDuringPIE(get, never): Bool;
+	public inline extern function get_bPromoteOutputLogWarningsDuringPIE(): Bool return this.bPromoteOutputLogWarningsDuringPIE;
+	public extern var NewWindowWidth(get, never): ucpp.num.Int32;
+	public inline extern function get_NewWindowWidth(): ucpp.num.Int32 return this.NewWindowWidth;
+	public extern var NewWindowHeight(get, never): ucpp.num.Int32;
+	public inline extern function get_NewWindowHeight(): ucpp.num.Int32 return this.NewWindowHeight;
 	public extern var NewWindowPosition(get, never): IntPoint;
 	public inline extern function get_NewWindowPosition(): IntPoint return this.NewWindowPosition;
 	public extern var CenterNewWindow(get, never): Bool;
@@ -132,10 +142,10 @@ abstract ConstLevelEditorPlaySettings(LevelEditorPlaySettings) from LevelEditorP
 	public inline extern function get_bLaunchSeparateServer(): Bool return this.bLaunchSeparateServer;
 	public extern var AdditionalServerLaunchParameters(get, never): FString;
 	public inline extern function get_AdditionalServerLaunchParameters(): FString return this.AdditionalServerLaunchParameters;
-	public extern var ServerFixedFPS(get, never): cpp.Int32;
-	public inline extern function get_ServerFixedFPS(): cpp.Int32 return this.ServerFixedFPS;
-	public extern var ClientFixedFPS(get, never): TArray<cpp.Int32>;
-	public inline extern function get_ClientFixedFPS(): TArray<cpp.Int32> return this.ClientFixedFPS;
+	public extern var ServerFixedFPS(get, never): ucpp.num.Int32;
+	public inline extern function get_ServerFixedFPS(): ucpp.num.Int32 return this.ServerFixedFPS;
+	public extern var ClientFixedFPS(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_ClientFixedFPS(): TArray<ucpp.num.Int32> return this.ClientFixedFPS;
 	public extern var NetworkEmulationSettings(get, never): LevelEditorPlayNetworkEmulationSettings;
 	public inline extern function get_NetworkEmulationSettings(): LevelEditorPlayNetworkEmulationSettings return this.NetworkEmulationSettings;
 	public extern var LastSize(get, never): IntPoint;
@@ -177,7 +187,7 @@ abstract ConstLevelEditorPlaySettings(LevelEditorPlaySettings) from LevelEditorP
 @:forward
 @:nativeGen
 @:native("LevelEditorPlaySettings*")
-abstract LevelEditorPlaySettingsPtr(cpp.Star<LevelEditorPlaySettings>) from cpp.Star<LevelEditorPlaySettings> to cpp.Star<LevelEditorPlaySettings>{
+abstract LevelEditorPlaySettingsPtr(ucpp.Ptr<LevelEditorPlaySettings>) from ucpp.Ptr<LevelEditorPlaySettings> to ucpp.Ptr<LevelEditorPlaySettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelEditorPlaySettings): LevelEditorPlaySettingsPtr {
 		return untyped __cpp__("&({0})", v);

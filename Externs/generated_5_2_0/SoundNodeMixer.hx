@@ -3,24 +3,24 @@ package ue;
 
 @:native("USoundNodeMixer")
 @:include("Sound/SoundNodeMixer.h")
-@:structAccess
+@:valueType
 extern class SoundNodeMixer extends SoundNode {
-	public var InputVolume: TArray<cpp.Float32>;
+	public var InputVolume: TArray<ucpp.num.Float32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeMixer(SoundNodeMixer) from SoundNodeMixer {
-	public extern var InputVolume(get, never): TArray<cpp.Float32>;
-	public inline extern function get_InputVolume(): TArray<cpp.Float32> return this.InputVolume;
+	public extern var InputVolume(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_InputVolume(): TArray<ucpp.num.Float32> return this.InputVolume;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeMixer*")
-abstract SoundNodeMixerPtr(cpp.Star<SoundNodeMixer>) from cpp.Star<SoundNodeMixer> to cpp.Star<SoundNodeMixer>{
+abstract SoundNodeMixerPtr(ucpp.Ptr<SoundNodeMixer>) from ucpp.Ptr<SoundNodeMixer> to ucpp.Ptr<SoundNodeMixer>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeMixer): SoundNodeMixerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBTDecorator_TagCooldown")
 @:include("BehaviorTree/Decorators/BTDecorator_TagCooldown.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_TagCooldown extends BTDecorator {
 	public var CooldownTag: GameplayTag;
-	public var CooldownDuration: cpp.Float32;
+	public var CooldownDuration: ucpp.num.Float32;
 	public var bAddToExistingDuration: Bool;
 	public var bActivatesCooldown: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,8 +18,8 @@ extern class BTDecorator_TagCooldown extends BTDecorator {
 abstract ConstBTDecorator_TagCooldown(BTDecorator_TagCooldown) from BTDecorator_TagCooldown {
 	public extern var CooldownTag(get, never): GameplayTag;
 	public inline extern function get_CooldownTag(): GameplayTag return this.CooldownTag;
-	public extern var CooldownDuration(get, never): cpp.Float32;
-	public inline extern function get_CooldownDuration(): cpp.Float32 return this.CooldownDuration;
+	public extern var CooldownDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_CooldownDuration(): ucpp.num.Float32 return this.CooldownDuration;
 	public extern var bAddToExistingDuration(get, never): Bool;
 	public inline extern function get_bAddToExistingDuration(): Bool return this.bAddToExistingDuration;
 	public extern var bActivatesCooldown(get, never): Bool;
@@ -29,7 +29,7 @@ abstract ConstBTDecorator_TagCooldown(BTDecorator_TagCooldown) from BTDecorator_
 @:forward
 @:nativeGen
 @:native("BTDecorator_TagCooldown*")
-abstract BTDecorator_TagCooldownPtr(cpp.Star<BTDecorator_TagCooldown>) from cpp.Star<BTDecorator_TagCooldown> to cpp.Star<BTDecorator_TagCooldown>{
+abstract BTDecorator_TagCooldownPtr(ucpp.Ptr<BTDecorator_TagCooldown>) from ucpp.Ptr<BTDecorator_TagCooldown> to ucpp.Ptr<BTDecorator_TagCooldown>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_TagCooldown): BTDecorator_TagCooldownPtr {
 		return untyped __cpp__("&({0})", v);

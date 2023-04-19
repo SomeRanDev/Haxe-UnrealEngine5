@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMaterialExpressionInverseLinearInterpolate")
 @:include("Materials/MaterialExpressionInverseLinearInterpolate.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionInverseLinearInterpolate extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Value: ExpressionInput;
-	public var ConstA: cpp.Float32;
-	public var ConstB: cpp.Float32;
-	public var ConstValue: cpp.Float32;
+	public var ConstA: ucpp.num.Float32;
+	public var ConstB: ucpp.num.Float32;
+	public var ConstValue: ucpp.num.Float32;
 	public var bClampResult: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,12 +25,12 @@ abstract ConstMaterialExpressionInverseLinearInterpolate(MaterialExpressionInver
 	public inline extern function get_B(): ExpressionInput return this.B;
 	public extern var Value(get, never): ExpressionInput;
 	public inline extern function get_Value(): ExpressionInput return this.Value;
-	public extern var ConstA(get, never): cpp.Float32;
-	public inline extern function get_ConstA(): cpp.Float32 return this.ConstA;
-	public extern var ConstB(get, never): cpp.Float32;
-	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
-	public extern var ConstValue(get, never): cpp.Float32;
-	public inline extern function get_ConstValue(): cpp.Float32 return this.ConstValue;
+	public extern var ConstA(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstA(): ucpp.num.Float32 return this.ConstA;
+	public extern var ConstB(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstB(): ucpp.num.Float32 return this.ConstB;
+	public extern var ConstValue(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstValue(): ucpp.num.Float32 return this.ConstValue;
 	public extern var bClampResult(get, never): Bool;
 	public inline extern function get_bClampResult(): Bool return this.bClampResult;
 }
@@ -38,7 +38,7 @@ abstract ConstMaterialExpressionInverseLinearInterpolate(MaterialExpressionInver
 @:forward
 @:nativeGen
 @:native("MaterialExpressionInverseLinearInterpolate*")
-abstract MaterialExpressionInverseLinearInterpolatePtr(cpp.Star<MaterialExpressionInverseLinearInterpolate>) from cpp.Star<MaterialExpressionInverseLinearInterpolate> to cpp.Star<MaterialExpressionInverseLinearInterpolate>{
+abstract MaterialExpressionInverseLinearInterpolatePtr(ucpp.Ptr<MaterialExpressionInverseLinearInterpolate>) from ucpp.Ptr<MaterialExpressionInverseLinearInterpolate> to ucpp.Ptr<MaterialExpressionInverseLinearInterpolate>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionInverseLinearInterpolate): MaterialExpressionInverseLinearInterpolatePtr {
 		return untyped __cpp__("&({0})", v);

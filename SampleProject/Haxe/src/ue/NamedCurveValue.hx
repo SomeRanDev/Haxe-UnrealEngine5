@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNamedCurveValue")
 @:include("Animation/CurveSourceInterface.h")
-@:structAccess
+@:valueType
 extern class NamedCurveValue {
 	public var Name: FName;
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 
 	@:native("FNamedCurveValue") public function new();
-	@:native("FNamedCurveValue") public static function make(Name: FName, Value: cpp.Float32): NamedCurveValue ;
+	@:native("FNamedCurveValue") public static function make(Name: FName, Value: ucpp.num.Float32): NamedCurveValue ;
 }

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UWidgetSwitcher")
 @:include("Components/WidgetSwitcher.h")
-@:structAccess
+@:valueType
 extern class WidgetSwitcher extends PanelWidget {
-	public function GetActiveWidgetIndex(): cpp.Int32;
-	public function SetActiveWidgetIndex(input: cpp.Int32): Void;
+	public function GetActiveWidgetIndex(): ucpp.num.Int32;
+	public function SetActiveWidgetIndex(input: ucpp.num.Int32): Void;
 
-	public function SetActiveWidget(Widget: cpp.Star<Widget>): Void;
-	public function GetWidgetAtIndex(Index: cpp.Int32): cpp.Star<Widget>;
-	public function GetNumWidgets(): cpp.Int32;
-	public function GetActiveWidget(): cpp.Star<Widget>;
+	public function SetActiveWidget(Widget: ucpp.Ptr<Widget>): Void;
+	public function GetWidgetAtIndex(Index: ucpp.num.Int32): ucpp.Ptr<Widget>;
+	public function GetNumWidgets(): ucpp.num.Int32;
+	public function GetActiveWidget(): ucpp.Ptr<Widget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetWidgetAtIndex, GetNumWidgets, GetActiveWidget)
@@ -24,7 +24,7 @@ abstract ConstWidgetSwitcher(WidgetSwitcher) from WidgetSwitcher {
 @:forward
 @:nativeGen
 @:native("WidgetSwitcher*")
-abstract WidgetSwitcherPtr(cpp.Star<WidgetSwitcher>) from cpp.Star<WidgetSwitcher> to cpp.Star<WidgetSwitcher>{
+abstract WidgetSwitcherPtr(ucpp.Ptr<WidgetSwitcher>) from ucpp.Ptr<WidgetSwitcher> to ucpp.Ptr<WidgetSwitcher>{
 	@:from
 	public static extern inline function fromValue(v: WidgetSwitcher): WidgetSwitcherPtr {
 		return untyped __cpp__("&({0})", v);

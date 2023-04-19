@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBTCompositeNode")
 @:include("BehaviorTree/BTCompositeNode.h")
-@:structAccess
+@:valueType
 extern class BTCompositeNode extends BTNode {
 	public var Children: TArray<BTCompositeChild>;
-	public var Services: TArray<cpp.Star<BTService>>;
+	public var Services: TArray<ucpp.Ptr<BTService>>;
 	@:protected public var bApplyDecoratorScope: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,14 +17,14 @@ extern class BTCompositeNode extends BTNode {
 abstract ConstBTCompositeNode(BTCompositeNode) from BTCompositeNode {
 	public extern var Children(get, never): TArray<BTCompositeChild>;
 	public inline extern function get_Children(): TArray<BTCompositeChild> return this.Children;
-	public extern var Services(get, never): TArray<cpp.Star<BTService.ConstBTService>>;
-	public inline extern function get_Services(): TArray<cpp.Star<BTService.ConstBTService>> return this.Services;
+	public extern var Services(get, never): TArray<ucpp.Ptr<BTService.ConstBTService>>;
+	public inline extern function get_Services(): TArray<ucpp.Ptr<BTService.ConstBTService>> return this.Services;
 }
 
 @:forward
 @:nativeGen
 @:native("BTCompositeNode*")
-abstract BTCompositeNodePtr(cpp.Star<BTCompositeNode>) from cpp.Star<BTCompositeNode> to cpp.Star<BTCompositeNode>{
+abstract BTCompositeNodePtr(ucpp.Ptr<BTCompositeNode>) from ucpp.Ptr<BTCompositeNode> to ucpp.Ptr<BTCompositeNode>{
 	@:from
 	public static extern inline function fromValue(v: BTCompositeNode): BTCompositeNodePtr {
 		return untyped __cpp__("&({0})", v);

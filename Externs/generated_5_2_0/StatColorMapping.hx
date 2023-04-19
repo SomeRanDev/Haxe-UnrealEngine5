@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStatColorMapping")
 @:include("Engine/Engine.h")
-@:structAccess
+@:valueType
 extern class StatColorMapping {
 	public var StatName: FString;
 	public var ColorMap: TArray<StatColorMapEntry>;

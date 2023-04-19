@@ -3,16 +3,16 @@ package ue;
 
 @:native("UPaperSpriteSheet")
 @:include("PaperSpriteSheet.h")
-@:structAccess
+@:valueType
 extern class PaperSpriteSheet extends Object {
 	public var SpriteNames: TArray<FString>;
 	public var Sprites: TArray<TSoftObjectPtr<PaperSprite>>;
 	public var TextureName: FString;
-	public var Texture: cpp.Star<Texture2D>;
+	public var Texture: ucpp.Ptr<Texture2D>;
 	public var NormalMapTextureName: FString;
-	public var NormalMapTexture: cpp.Star<Texture2D>;
+	public var NormalMapTexture: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,18 +24,18 @@ abstract ConstPaperSpriteSheet(PaperSpriteSheet) from PaperSpriteSheet {
 	public inline extern function get_Sprites(): TArray<TSoftObjectPtr<PaperSprite.ConstPaperSprite>> return this.Sprites;
 	public extern var TextureName(get, never): FString;
 	public inline extern function get_TextureName(): FString return this.TextureName;
-	public extern var Texture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_Texture(): cpp.Star<Texture2D.ConstTexture2D> return this.Texture;
+	public extern var Texture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_Texture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.Texture;
 	public extern var NormalMapTextureName(get, never): FString;
 	public inline extern function get_NormalMapTextureName(): FString return this.NormalMapTextureName;
-	public extern var NormalMapTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_NormalMapTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.NormalMapTexture;
+	public extern var NormalMapTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_NormalMapTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.NormalMapTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("PaperSpriteSheet*")
-abstract PaperSpriteSheetPtr(cpp.Star<PaperSpriteSheet>) from cpp.Star<PaperSpriteSheet> to cpp.Star<PaperSpriteSheet>{
+abstract PaperSpriteSheetPtr(ucpp.Ptr<PaperSpriteSheet>) from ucpp.Ptr<PaperSpriteSheet> to ucpp.Ptr<PaperSpriteSheet>{
 	@:from
 	public static extern inline function fromValue(v: PaperSpriteSheet): PaperSpriteSheetPtr {
 		return untyped __cpp__("&({0})", v);

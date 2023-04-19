@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMouseCaptureEndEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMouseCaptureEndEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMouseCaptureEndEvent__PythonCallable(OnMouseCaptureEndEvent__Pyt
 @:forward
 @:nativeGen
 @:native("OnMouseCaptureEndEvent__PythonCallable*")
-abstract OnMouseCaptureEndEvent__PythonCallablePtr(cpp.Star<OnMouseCaptureEndEvent__PythonCallable>) from cpp.Star<OnMouseCaptureEndEvent__PythonCallable> to cpp.Star<OnMouseCaptureEndEvent__PythonCallable>{
+abstract OnMouseCaptureEndEvent__PythonCallablePtr(ucpp.Ptr<OnMouseCaptureEndEvent__PythonCallable>) from ucpp.Ptr<OnMouseCaptureEndEvent__PythonCallable> to ucpp.Ptr<OnMouseCaptureEndEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMouseCaptureEndEvent__PythonCallable): OnMouseCaptureEndEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

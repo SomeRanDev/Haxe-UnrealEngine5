@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPluginReferenceMetadata")
 @:include("Private/PluginMetadataObject.h")
-@:structAccess
+@:valueType
 extern class PluginReferenceMetadata {
 	public var Name: FString;
 	public var bOptional: Bool;

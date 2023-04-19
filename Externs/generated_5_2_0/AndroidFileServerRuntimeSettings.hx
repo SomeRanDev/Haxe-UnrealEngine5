@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAndroidFileServerRuntimeSettings")
 @:include("AndroidFileServerRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class AndroidFileServerRuntimeSettings extends Object {
 	public var bEnablePlugin: Bool;
 	public var bAllowNetworkConnection: Bool;
@@ -18,7 +18,7 @@ extern class AndroidFileServerRuntimeSettings extends Object {
 	public var bUseManualIPAddress: Bool;
 	public var ManualIPAddress: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -53,7 +53,7 @@ abstract ConstAndroidFileServerRuntimeSettings(AndroidFileServerRuntimeSettings)
 @:forward
 @:nativeGen
 @:native("AndroidFileServerRuntimeSettings*")
-abstract AndroidFileServerRuntimeSettingsPtr(cpp.Star<AndroidFileServerRuntimeSettings>) from cpp.Star<AndroidFileServerRuntimeSettings> to cpp.Star<AndroidFileServerRuntimeSettings>{
+abstract AndroidFileServerRuntimeSettingsPtr(ucpp.Ptr<AndroidFileServerRuntimeSettings>) from ucpp.Ptr<AndroidFileServerRuntimeSettings> to ucpp.Ptr<AndroidFileServerRuntimeSettings>{
 	@:from
 	public static extern inline function fromValue(v: AndroidFileServerRuntimeSettings): AndroidFileServerRuntimeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

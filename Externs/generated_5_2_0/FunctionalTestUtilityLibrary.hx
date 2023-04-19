@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFunctionalTestUtilityLibrary")
 @:include("FunctionalTestUtilityLibrary.h")
-@:structAccess
+@:valueType
 extern class FunctionalTestUtilityLibrary extends BlueprintFunctionLibrary {
-	public function TraceChannelTestUtil(WorldContextObject: cpp.Star<Object>, BatchOptions: cpp.Reference<TraceChannelTestBatchOptions>, Start: Vector, End: Vector, SphereCapsuleRadius: cpp.Float32, CapsuleHalfHeight: cpp.Float32, BoxHalfSize: Vector, Orientation: Rotator, TraceChannel: TEnumAsByte<ETraceTypeQuery>, ObjectTypes: TArray<TEnumAsByte<EObjectTypeQuery>>, ProfileName: FName, bTraceComplex: Bool, ActorsToIgnore: cpp.Reference<TArray<cpp.Star<Actor>>>, bIgnoreSelf: Bool, DrawDebugType: TEnumAsByte<EDrawDebugTrace>, TraceColor: LinearColor, TraceHitColor: LinearColor, DrawTime: cpp.Float32): cpp.Star<TraceQueryTestResults>;
+	public function TraceChannelTestUtil(WorldContextObject: ucpp.Ptr<Object>, BatchOptions: ucpp.Ref<TraceChannelTestBatchOptions>, Start: Vector, End: Vector, SphereCapsuleRadius: ucpp.num.Float32, CapsuleHalfHeight: ucpp.num.Float32, BoxHalfSize: Vector, Orientation: Rotator, TraceChannel: TEnumAsByte<ETraceTypeQuery>, ObjectTypes: TArray<TEnumAsByte<EObjectTypeQuery>>, ProfileName: FName, bTraceComplex: Bool, ActorsToIgnore: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, bIgnoreSelf: Bool, DrawDebugType: TEnumAsByte<EDrawDebugTrace>, TraceColor: LinearColor, TraceHitColor: LinearColor, DrawTime: ucpp.num.Float32): ucpp.Ptr<TraceQueryTestResults>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFunctionalTestUtilityLibrary(FunctionalTestUtilityLibrary) from Fu
 @:forward
 @:nativeGen
 @:native("FunctionalTestUtilityLibrary*")
-abstract FunctionalTestUtilityLibraryPtr(cpp.Star<FunctionalTestUtilityLibrary>) from cpp.Star<FunctionalTestUtilityLibrary> to cpp.Star<FunctionalTestUtilityLibrary>{
+abstract FunctionalTestUtilityLibraryPtr(ucpp.Ptr<FunctionalTestUtilityLibrary>) from ucpp.Ptr<FunctionalTestUtilityLibrary> to ucpp.Ptr<FunctionalTestUtilityLibrary>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalTestUtilityLibrary): FunctionalTestUtilityLibraryPtr {
 		return untyped __cpp__("&({0})", v);

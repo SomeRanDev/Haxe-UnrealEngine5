@@ -3,26 +3,26 @@ package ue;
 
 @:native("UMediaSoundComponent")
 @:include("MediaSoundComponent.h")
-@:structAccess
+@:valueType
 extern class MediaSoundComp extends SynthComp {
 	public var Channels: EMediaSoundChannels;
 	public var DynamicRateAdjustment: Bool;
-	public var RateAdjustmentFactor: cpp.Float32;
+	public var RateAdjustmentFactor: ucpp.num.Float32;
 	public var RateAdjustmentRange: FloatRange;
-	@:protected public var MediaPlayer: cpp.Star<MediaPlayer>;
+	@:protected public var MediaPlayer: ucpp.Ptr<MediaPlayer>;
 
-	public function SetSpectralAnalysisSettings(InFrequenciesToAnalyze: TArray<cpp.Float32>, InFFTSize: EMediaSoundComponentFFTSize): Void;
-	public function SetMediaPlayer(NewMediaPlayer: cpp.Star<MediaPlayer>): Void;
-	public function SetEnvelopeFollowingsettings(AttackTimeMsec: cpp.Int32, ReleaseTimeMsec: cpp.Int32): Void;
+	public function SetSpectralAnalysisSettings(InFrequenciesToAnalyze: TArray<ucpp.num.Float32>, InFFTSize: EMediaSoundComponentFFTSize): Void;
+	public function SetMediaPlayer(NewMediaPlayer: ucpp.Ptr<MediaPlayer>): Void;
+	public function SetEnvelopeFollowingsettings(AttackTimeMsec: ucpp.num.Int32, ReleaseTimeMsec: ucpp.num.Int32): Void;
 	public function SetEnableSpectralAnalysis(bInSpectralAnalysisEnabled: Bool): Void;
 	public function SetEnableEnvelopeFollowing(bInEnvelopeFollowing: Bool): Void;
 	public function GetSpectralData(): TArray<MediaSoundComponentSpectralData>;
 	public function GetNormalizedSpectralData(): TArray<MediaSoundComponentSpectralData>;
-	public function GetMediaPlayer(): cpp.Star<MediaPlayer>;
-	public function GetEnvelopeValue(): cpp.Float32;
-	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): Bool;
+	public function GetMediaPlayer(): ucpp.Ptr<MediaPlayer>;
+	public function GetEnvelopeValue(): ucpp.num.Float32;
+	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: ucpp.Ref<SoundAttenuationSettings>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetMediaPlayer, GetEnvelopeValue)
@@ -32,8 +32,8 @@ abstract ConstMediaSoundComp(MediaSoundComp) from MediaSoundComp {
 	public inline extern function get_Channels(): EMediaSoundChannels return this.Channels;
 	public extern var DynamicRateAdjustment(get, never): Bool;
 	public inline extern function get_DynamicRateAdjustment(): Bool return this.DynamicRateAdjustment;
-	public extern var RateAdjustmentFactor(get, never): cpp.Float32;
-	public inline extern function get_RateAdjustmentFactor(): cpp.Float32 return this.RateAdjustmentFactor;
+	public extern var RateAdjustmentFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_RateAdjustmentFactor(): ucpp.num.Float32 return this.RateAdjustmentFactor;
 	public extern var RateAdjustmentRange(get, never): FloatRange;
 	public inline extern function get_RateAdjustmentRange(): FloatRange return this.RateAdjustmentRange;
 }
@@ -41,7 +41,7 @@ abstract ConstMediaSoundComp(MediaSoundComp) from MediaSoundComp {
 @:forward
 @:nativeGen
 @:native("MediaSoundComp*")
-abstract MediaSoundCompPtr(cpp.Star<MediaSoundComp>) from cpp.Star<MediaSoundComp> to cpp.Star<MediaSoundComp>{
+abstract MediaSoundCompPtr(ucpp.Ptr<MediaSoundComp>) from ucpp.Ptr<MediaSoundComp> to ucpp.Ptr<MediaSoundComp>{
 	@:from
 	public static extern inline function fromValue(v: MediaSoundComp): MediaSoundCompPtr {
 		return untyped __cpp__("&({0})", v);

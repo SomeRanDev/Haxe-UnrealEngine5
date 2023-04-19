@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPropertyWrapper")
-@:structAccess
+@:valueType
 extern class PropertyWrapper extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPropertyWrapper(PropertyWrapper) from PropertyWrapper {
 @:forward
 @:nativeGen
 @:native("PropertyWrapper*")
-abstract PropertyWrapperPtr(cpp.Star<PropertyWrapper>) from cpp.Star<PropertyWrapper> to cpp.Star<PropertyWrapper>{
+abstract PropertyWrapperPtr(ucpp.Ptr<PropertyWrapper>) from ucpp.Ptr<PropertyWrapper> to ucpp.Ptr<PropertyWrapper>{
 	@:from
 	public static extern inline function fromValue(v: PropertyWrapper): PropertyWrapperPtr {
 		return untyped __cpp__("&({0})", v);

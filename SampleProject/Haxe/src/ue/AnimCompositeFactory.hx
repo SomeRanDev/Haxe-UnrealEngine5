@@ -3,30 +3,30 @@ package ue;
 
 @:native("UAnimCompositeFactory")
 @:include("Factories/AnimCompositeFactory.h")
-@:structAccess
+@:valueType
 extern class AnimCompositeFactory extends Factory {
-	public var TargetSkeleton: cpp.Star<Skeleton>;
-	public var SourceAnimation: cpp.Star<AnimSequence>;
-	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
+	public var SourceAnimation: ucpp.Ptr<AnimSequence>;
+	public var PreviewSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimCompositeFactory(AnimCompositeFactory) from AnimCompositeFactory {
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
-	public extern var SourceAnimation(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_SourceAnimation(): cpp.Star<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
-	public extern var PreviewSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var SourceAnimation(get, never): ucpp.Ptr<AnimSequence.ConstAnimSequence>;
+	public inline extern function get_SourceAnimation(): ucpp.Ptr<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
+	public extern var PreviewSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_PreviewSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimCompositeFactory*")
-abstract AnimCompositeFactoryPtr(cpp.Star<AnimCompositeFactory>) from cpp.Star<AnimCompositeFactory> to cpp.Star<AnimCompositeFactory>{
+abstract AnimCompositeFactoryPtr(ucpp.Ptr<AnimCompositeFactory>) from ucpp.Ptr<AnimCompositeFactory> to ucpp.Ptr<AnimCompositeFactory>{
 	@:from
 	public static extern inline function fromValue(v: AnimCompositeFactory): AnimCompositeFactoryPtr {
 		return untyped __cpp__("&({0})", v);

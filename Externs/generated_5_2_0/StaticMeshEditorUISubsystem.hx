@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStaticMeshEditorUISubsystem")
 @:include("StaticMeshEditorModeUILayer.h")
-@:structAccess
+@:valueType
 extern class StaticMeshEditorUISubsystem extends AssetEditorUISubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStaticMeshEditorUISubsystem(StaticMeshEditorUISubsystem) from Stat
 @:forward
 @:nativeGen
 @:native("StaticMeshEditorUISubsystem*")
-abstract StaticMeshEditorUISubsystemPtr(cpp.Star<StaticMeshEditorUISubsystem>) from cpp.Star<StaticMeshEditorUISubsystem> to cpp.Star<StaticMeshEditorUISubsystem>{
+abstract StaticMeshEditorUISubsystemPtr(ucpp.Ptr<StaticMeshEditorUISubsystem>) from ucpp.Ptr<StaticMeshEditorUISubsystem> to ucpp.Ptr<StaticMeshEditorUISubsystem>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshEditorUISubsystem): StaticMeshEditorUISubsystemPtr {
 		return untyped __cpp__("&({0})", v);

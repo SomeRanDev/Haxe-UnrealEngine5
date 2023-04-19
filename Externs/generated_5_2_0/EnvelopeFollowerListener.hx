@@ -3,24 +3,24 @@ package ue;
 
 @:native("UEnvelopeFollowerListener")
 @:include("SourceEffects/SourceEffectEnvelopeFollower.h")
-@:structAccess
+@:valueType
 extern class EnvelopeFollowerListener extends ActorComp {
-	public var OnEnvelopeFollowerUpdate: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnEnvelopeFollowerUpdate: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEnvelopeFollowerListener(EnvelopeFollowerListener) from EnvelopeFollowerListener {
-	public extern var OnEnvelopeFollowerUpdate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnEnvelopeFollowerUpdate(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnEnvelopeFollowerUpdate;
+	public extern var OnEnvelopeFollowerUpdate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnEnvelopeFollowerUpdate(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnEnvelopeFollowerUpdate;
 }
 
 @:forward
 @:nativeGen
 @:native("EnvelopeFollowerListener*")
-abstract EnvelopeFollowerListenerPtr(cpp.Star<EnvelopeFollowerListener>) from cpp.Star<EnvelopeFollowerListener> to cpp.Star<EnvelopeFollowerListener>{
+abstract EnvelopeFollowerListenerPtr(ucpp.Ptr<EnvelopeFollowerListener>) from ucpp.Ptr<EnvelopeFollowerListener> to ucpp.Ptr<EnvelopeFollowerListener>{
 	@:from
 	public static extern inline function fromValue(v: EnvelopeFollowerListener): EnvelopeFollowerListenerPtr {
 		return untyped __cpp__("&({0})", v);

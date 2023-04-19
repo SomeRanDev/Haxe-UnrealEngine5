@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULandscapeGrassTypeCommandlet")
 @:include("Commandlets/LandscapeGrassTypeCommandlet.h")
-@:structAccess
+@:valueType
 extern class LandscapeGrassTypeCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeGrassTypeCommandlet(LandscapeGrassTypeCommandlet) from La
 @:forward
 @:nativeGen
 @:native("LandscapeGrassTypeCommandlet*")
-abstract LandscapeGrassTypeCommandletPtr(cpp.Star<LandscapeGrassTypeCommandlet>) from cpp.Star<LandscapeGrassTypeCommandlet> to cpp.Star<LandscapeGrassTypeCommandlet>{
+abstract LandscapeGrassTypeCommandletPtr(ucpp.Ptr<LandscapeGrassTypeCommandlet>) from ucpp.Ptr<LandscapeGrassTypeCommandlet> to ucpp.Ptr<LandscapeGrassTypeCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeGrassTypeCommandlet): LandscapeGrassTypeCommandletPtr {
 		return untyped __cpp__("&({0})", v);

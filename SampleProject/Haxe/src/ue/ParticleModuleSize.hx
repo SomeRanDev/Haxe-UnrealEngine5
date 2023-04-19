@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleSize")
 @:include("Particles/Size/ParticleModuleSize.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleSize extends ParticleModuleSizeBase {
 	public var StartSize: RawDistributionVector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleSize(ParticleModuleSize) from ParticleModuleSize {
 @:forward
 @:nativeGen
 @:native("ParticleModuleSize*")
-abstract ParticleModuleSizePtr(cpp.Star<ParticleModuleSize>) from cpp.Star<ParticleModuleSize> to cpp.Star<ParticleModuleSize>{
+abstract ParticleModuleSizePtr(ucpp.Ptr<ParticleModuleSize>) from ucpp.Ptr<ParticleModuleSize> to ucpp.Ptr<ParticleModuleSize>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleSize): ParticleModuleSizePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSlateMeshVertex")
 @:include("Slate/SlateVectorArtData.h")
-@:structAccess
+@:valueType
 extern class SlateMeshVertex {
 	public var Position: Vector2f;
 	public var Color: Color;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDPMatchingIfCondition")
 @:include("DeviceProfiles/DeviceProfileMatching.h")
-@:structAccess
+@:valueType
 extern class DPMatchingIfCondition {
 	public var Operator: FName;
 	public var Arg1: FString;

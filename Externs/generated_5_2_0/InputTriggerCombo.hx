@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInputTriggerCombo")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerCombo extends InputTrigger {
-	@:protected public var CurrentComboStepIndex: cpp.Int32;
-	@:protected public var CurrentTimeBetweenComboSteps: cpp.Float32;
+	@:protected public var CurrentComboStepIndex: ucpp.num.Int32;
+	@:protected public var CurrentTimeBetweenComboSteps: ucpp.num.Float32;
 	public var ComboActions: TArray<InputComboStepData>;
 	public var InputCancelActions: TArray<InputCancelAction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstInputTriggerCombo(InputTriggerCombo) from InputTriggerCombo {
 @:forward
 @:nativeGen
 @:native("InputTriggerCombo*")
-abstract InputTriggerComboPtr(cpp.Star<InputTriggerCombo>) from cpp.Star<InputTriggerCombo> to cpp.Star<InputTriggerCombo>{
+abstract InputTriggerComboPtr(ucpp.Ptr<InputTriggerCombo>) from ucpp.Ptr<InputTriggerCombo> to ucpp.Ptr<InputTriggerCombo>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerCombo): InputTriggerComboPtr {
 		return untyped __cpp__("&({0})", v);

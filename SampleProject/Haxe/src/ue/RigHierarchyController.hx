@@ -3,27 +3,29 @@ package ue;
 
 @:native("URigHierarchyController")
 @:include("Rigs/RigHierarchyController.h")
-@:structAccess
+@:valueType
 extern class RigHierarchyController extends Object {
 	public var bReportWarningsAndErrors: Bool;
 	private var Hierarchy: TWeakObjectPtr<RigHierarchy>;
 
-	public function SetSelection(InKeys: cpp.Reference<TArray<RigElementKey>>, bPrintPythonCommand: Bool): Bool;
+	public function SetSelection(InKeys: ucpp.Ref<TArray<RigElementKey>>, bPrintPythonCommand: Bool): Bool;
 	public function SetParent(InChild: RigElementKey, InParent: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
-	public function SetHierarchy(InHierarchy: cpp.Star<RigHierarchy>): Void;
+	public function SetHierarchy(InHierarchy: ucpp.Ptr<RigHierarchy>): Void;
+	public function SetDisplayName(InControl: RigElementKey, InDisplayName: FName, bRenameElement: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): FName;
 	public function SetControlSettings(InKey: RigElementKey, InSettings: RigControlSettings, bSetupUndo: Bool): Bool;
 	public function SelectElement(InKey: RigElementKey, bSelect: Bool, bClearSelection: Bool): Bool;
+	public function ReorderElement(InElement: RigElementKey, InIndex: ucpp.num.Int32, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
 	public function RenameElement(InElement: RigElementKey, InName: FName, bSetupUndo: Bool, bPrintPythonCommand: Bool, bClearSelection: Bool): RigElementKey;
 	public function RemoveParent(InChild: RigElementKey, InParent: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
 	public function RemoveElement(InElement: RigElementKey, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
 	public function RemoveAllParents(InChild: RigElementKey, bMaintainGlobalTransform: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Bool;
-	public function MirrorElements(InKeys: TArray<RigElementKey>, InSettings: RigMirrorSettings, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): TArray<RigElementKey>;
+	public function MirrorElements(InKeys: TArray<RigElementKey>, InSettings: RigVMMirrorSettings, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): TArray<RigElementKey>;
 	public function ImportFromText(InContent: FString, bReplaceExistingElements: Bool, bSelectNewElements: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): TArray<RigElementKey>;
 	public function ImportCurvesFromAsset(InAssetPath: FString, InNameSpace: FName, bSelectCurves: Bool, bSetupUndo: Bool): TArray<RigElementKey>;
-	public function ImportCurves(InSkeleton: cpp.Star<Skeleton>, InNameSpace: FName, bSelectCurves: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): TArray<RigElementKey>;
+	public function ImportCurves(InSkeleton: ucpp.Ptr<Skeleton>, InNameSpace: FName, bSelectCurves: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): TArray<RigElementKey>;
 	public function ImportBonesFromAsset(InAssetPath: FString, InNameSpace: FName, bReplaceExistingBones: Bool, bRemoveObsoleteBones: Bool, bSelectBones: Bool, bSetupUndo: Bool): TArray<RigElementKey>;
-	public function ImportBones(InSkeleton: cpp.Star<Skeleton>, InNameSpace: FName, bReplaceExistingBones: Bool, bRemoveObsoleteBones: Bool, bSelectBones: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): TArray<RigElementKey>;
-	public function GetHierarchy(): cpp.Star<RigHierarchy>;
+	public function ImportBones(InSkeleton: ucpp.Ptr<Skeleton>, InNameSpace: FName, bReplaceExistingBones: Bool, bRemoveObsoleteBones: Bool, bSelectBones: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): TArray<RigElementKey>;
+	public function GetHierarchy(): ucpp.Ptr<RigHierarchy>;
 	public function GetControlSettings(InKey: RigElementKey): RigControlSettings;
 	public function GeneratePythonCommands(): TArray<FString>;
 	public function ExportToText(InKeys: TArray<RigElementKey>): FString;
@@ -32,13 +34,14 @@ extern class RigHierarchyController extends Object {
 	public function DeselectElement(InKey: RigElementKey): Bool;
 	public function ClearSelection(): Bool;
 	public function AddRigidBody(InName: FName, InParent: RigElementKey, InSettings: RigRigidBodySettings, InLocalTransform: Transform, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
-	public function AddParent(InChild: RigElementKey, InParent: RigElementKey, InWeight: cpp.Float32, bMaintainGlobalTransform: Bool, bSetupUndo: Bool): Bool;
+	public function AddParent(InChild: RigElementKey, InParent: RigElementKey, InWeight: ucpp.num.Float32, bMaintainGlobalTransform: Bool, bSetupUndo: Bool): Bool;
 	public function AddNull(InName: FName, InParent: RigElementKey, InTransform: Transform, bTransformInGlobal: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
-	public function AddCurve(InName: FName, InValue: cpp.Float32, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
-	public function AddControl_ForBlueprint(InName: FName, InParent: RigElementKey, InSettings: RigControlSettings, InValue: RigControlValue, bSetupUndo: Bool): RigElementKey;
+	public function AddCurve(InName: FName, InValue: ucpp.num.Float32, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
+	public function AddControl_ForBlueprint(InName: FName, InParent: RigElementKey, InSettings: RigControlSettings, InValue: RigControlValue, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
 	public function AddBone(InName: FName, InParent: RigElementKey, InTransform: Transform, bTransformInGlobal: Bool, InBoneType: ERigBoneType, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
+	public function AddAnimationChannel_ForBlueprint(InName: FName, InParentControl: RigElementKey, InSettings: RigControlSettings, bSetupUndo: Bool, bPrintPythonCommand: Bool): RigElementKey;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(SetControlSettings, GetHierarchy, GetControlSettings, ExportToText, ExportSelectionToText)
@@ -51,7 +54,7 @@ abstract ConstRigHierarchyController(RigHierarchyController) from RigHierarchyCo
 @:forward
 @:nativeGen
 @:native("RigHierarchyController*")
-abstract RigHierarchyControllerPtr(cpp.Star<RigHierarchyController>) from cpp.Star<RigHierarchyController> to cpp.Star<RigHierarchyController>{
+abstract RigHierarchyControllerPtr(ucpp.Ptr<RigHierarchyController>) from ucpp.Ptr<RigHierarchyController> to ucpp.Ptr<RigHierarchyController>{
 	@:from
 	public static extern inline function fromValue(v: RigHierarchyController): RigHierarchyControllerPtr {
 		return untyped __cpp__("&({0})", v);

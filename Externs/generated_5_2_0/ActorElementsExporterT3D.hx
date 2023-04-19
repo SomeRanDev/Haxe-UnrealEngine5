@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorElementsExporterT3D")
 @:include("Elements/Actor/ActorElementEditorCopyAndPaste.h")
-@:structAccess
+@:valueType
 extern class ActorElementsExporterT3D extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorElementsExporterT3D(ActorElementsExporterT3D) from ActorEleme
 @:forward
 @:nativeGen
 @:native("ActorElementsExporterT3D*")
-abstract ActorElementsExporterT3DPtr(cpp.Star<ActorElementsExporterT3D>) from cpp.Star<ActorElementsExporterT3D> to cpp.Star<ActorElementsExporterT3D>{
+abstract ActorElementsExporterT3DPtr(ucpp.Ptr<ActorElementsExporterT3D>) from ucpp.Ptr<ActorElementsExporterT3D> to ucpp.Ptr<ActorElementsExporterT3D>{
 	@:from
 	public static extern inline function fromValue(v: ActorElementsExporterT3D): ActorElementsExporterT3DPtr {
 		return untyped __cpp__("&({0})", v);

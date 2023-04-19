@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionPinBase")
 @:include("Materials/MaterialExpressionPinBase.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPinBase extends MaterialExpression {
 	public var ReroutePins: TArray<CompositeReroute>;
 	public var PinDirection: TEnumAsByte<EEdGraphPinDirection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionPinBase(MaterialExpressionPinBase) from Material
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPinBase*")
-abstract MaterialExpressionPinBasePtr(cpp.Star<MaterialExpressionPinBase>) from cpp.Star<MaterialExpressionPinBase> to cpp.Star<MaterialExpressionPinBase>{
+abstract MaterialExpressionPinBasePtr(ucpp.Ptr<MaterialExpressionPinBase>) from ucpp.Ptr<MaterialExpressionPinBase> to ucpp.Ptr<MaterialExpressionPinBase>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPinBase): MaterialExpressionPinBasePtr {
 		return untyped __cpp__("&({0})", v);

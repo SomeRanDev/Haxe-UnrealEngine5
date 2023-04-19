@@ -3,7 +3,7 @@ package ue;
 
 @:native("FHLODLayerActorMapping")
 @:include("Commandlets/WorldPartitionConvertCommandlet.h")
-@:structAccess
+@:valueType
 extern class HLODLayerActorMapping {
 	public var ActorClass: TSoftClassPtr<Class>;
 	public var HLODLayer: FString;

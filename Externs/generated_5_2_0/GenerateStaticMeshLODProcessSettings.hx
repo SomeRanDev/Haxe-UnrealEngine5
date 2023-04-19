@@ -3,14 +3,14 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcessSettings")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcessSettings {
 	public var MeshGenerator: EGenerateStaticMeshLODProcess_MeshGeneratorModes;
-	public var SolidifyVoxelResolution: cpp.Int32;
-	public var WindingThreshold: cpp.Float32;
-	public var ClosureDistance: cpp.Float32;
+	public var SolidifyVoxelResolution: ucpp.num.Int32;
+	public var WindingThreshold: ucpp.num.Float32;
+	public var ClosureDistance: ucpp.num.Float32;
 	public var bPrefilterVertices: Bool;
-	public var PrefilterGridResolution: cpp.Int32;
+	public var PrefilterGridResolution: ucpp.num.Int32;
 
 	@:native("FGenerateStaticMeshLODProcessSettings") public function new();
 }

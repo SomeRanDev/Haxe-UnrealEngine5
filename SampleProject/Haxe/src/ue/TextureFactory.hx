@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTextureFactory")
 @:include("Factories/TextureFactory.h")
-@:structAccess
+@:valueType
 extern class TextureFactory extends Factory {
 	public var NoCompression: Bool;
 	public var NoAlpha: Bool;
@@ -21,8 +21,8 @@ extern class TextureFactory extends Factory {
 	public var ShadingModel: TEnumAsByte<EMaterialShadingModel>;
 	public var MipGenSettings: TEnumAsByte<TextureMipGenSettings>;
 	public var LODGroup: TEnumAsByte<TextureGroup>;
-	public var bDitherMipMapAlpha: Bool;
 	public var bDoScaleMipsForAlphaCoverage: Bool;
+	public var bUseNewMipFilter: Bool;
 	public var AlphaCoverageThresholds: Vector4;
 	public var bPreserveBorder: Bool;
 	public var bFlipNormalMapGreenChannel: Bool;
@@ -30,8 +30,9 @@ extern class TextureFactory extends Factory {
 	public var bUseHashAsGuid: Bool;
 	public var UdimRegexPattern: FString;
 	public var ColorSpaceMode: ETextureSourceColorSpace;
+	public var HDRImportShouldBeLongLatCubeMap: TEnumAsByte<EAppReturnType>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -69,10 +70,10 @@ abstract ConstTextureFactory(TextureFactory) from TextureFactory {
 	public inline extern function get_MipGenSettings(): TEnumAsByte<TextureMipGenSettings> return this.MipGenSettings;
 	public extern var LODGroup(get, never): TEnumAsByte<TextureGroup>;
 	public inline extern function get_LODGroup(): TEnumAsByte<TextureGroup> return this.LODGroup;
-	public extern var bDitherMipMapAlpha(get, never): Bool;
-	public inline extern function get_bDitherMipMapAlpha(): Bool return this.bDitherMipMapAlpha;
 	public extern var bDoScaleMipsForAlphaCoverage(get, never): Bool;
 	public inline extern function get_bDoScaleMipsForAlphaCoverage(): Bool return this.bDoScaleMipsForAlphaCoverage;
+	public extern var bUseNewMipFilter(get, never): Bool;
+	public inline extern function get_bUseNewMipFilter(): Bool return this.bUseNewMipFilter;
 	public extern var AlphaCoverageThresholds(get, never): Vector4;
 	public inline extern function get_AlphaCoverageThresholds(): Vector4 return this.AlphaCoverageThresholds;
 	public extern var bPreserveBorder(get, never): Bool;
@@ -87,12 +88,14 @@ abstract ConstTextureFactory(TextureFactory) from TextureFactory {
 	public inline extern function get_UdimRegexPattern(): FString return this.UdimRegexPattern;
 	public extern var ColorSpaceMode(get, never): ETextureSourceColorSpace;
 	public inline extern function get_ColorSpaceMode(): ETextureSourceColorSpace return this.ColorSpaceMode;
+	public extern var HDRImportShouldBeLongLatCubeMap(get, never): TEnumAsByte<EAppReturnType>;
+	public inline extern function get_HDRImportShouldBeLongLatCubeMap(): TEnumAsByte<EAppReturnType> return this.HDRImportShouldBeLongLatCubeMap;
 }
 
 @:forward
 @:nativeGen
 @:native("TextureFactory*")
-abstract TextureFactoryPtr(cpp.Star<TextureFactory>) from cpp.Star<TextureFactory> to cpp.Star<TextureFactory>{
+abstract TextureFactoryPtr(ucpp.Ptr<TextureFactory>) from ucpp.Ptr<TextureFactory> to ucpp.Ptr<TextureFactory>{
 	@:from
 	public static extern inline function fromValue(v: TextureFactory): TextureFactoryPtr {
 		return untyped __cpp__("&({0})", v);

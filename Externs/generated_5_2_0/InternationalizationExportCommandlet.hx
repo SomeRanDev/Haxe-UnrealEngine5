@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInternationalizationExportCommandlet")
 @:include("Commandlets/InternationalizationExportCommandlet.h")
-@:structAccess
+@:valueType
 extern class InternationalizationExportCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInternationalizationExportCommandlet(InternationalizationExportCom
 @:forward
 @:nativeGen
 @:native("InternationalizationExportCommandlet*")
-abstract InternationalizationExportCommandletPtr(cpp.Star<InternationalizationExportCommandlet>) from cpp.Star<InternationalizationExportCommandlet> to cpp.Star<InternationalizationExportCommandlet>{
+abstract InternationalizationExportCommandletPtr(ucpp.Ptr<InternationalizationExportCommandlet>) from ucpp.Ptr<InternationalizationExportCommandlet> to ucpp.Ptr<InternationalizationExportCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: InternationalizationExportCommandlet): InternationalizationExportCommandletPtr {
 		return untyped __cpp__("&({0})", v);

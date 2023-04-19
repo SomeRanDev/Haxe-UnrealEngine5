@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSoundWaveSpectralDataPerSound")
 @:include("Sound/SoundWave.h")
-@:structAccess
+@:valueType
 extern class SoundWaveSpectralDataPerSound {
 	public var SpectralData: TArray<SoundWaveSpectralData>;
-	public var PlaybackTime: cpp.Float32;
-	public var SoundWave: cpp.Star<SoundWave>;
+	public var PlaybackTime: ucpp.num.Float32;
+	public var SoundWave: ucpp.Ptr<SoundWave>;
 
 	@:native("FSoundWaveSpectralDataPerSound") public function new();
-	@:native("FSoundWaveSpectralDataPerSound") public static function make(SpectralData: TArray<SoundWaveSpectralData>, PlaybackTime: cpp.Float32, SoundWave: cpp.Star<SoundWave>): SoundWaveSpectralDataPerSound ;
+	@:native("FSoundWaveSpectralDataPerSound") public static function make(SpectralData: TArray<SoundWaveSpectralData>, PlaybackTime: ucpp.num.Float32, SoundWave: ucpp.Ptr<SoundWave>): SoundWaveSpectralDataPerSound ;
 }

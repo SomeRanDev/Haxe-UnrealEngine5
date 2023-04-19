@@ -3,12 +3,12 @@ package ue;
 
 @:native("FLightmassDebugOptions")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class LightmassDebugOptions {
 	public var bDebugMode: Bool;
 	public var bStatsEnabled: Bool;
 	public var bGatherBSPSurfacesAcrossComponents: Bool;
-	public var CoplanarTolerance: cpp.Float32;
+	public var CoplanarTolerance: ucpp.num.Float32;
 	public var bUseImmediateImport: Bool;
 	public var bImmediateProcessMappings: Bool;
 	public var bSortMappings: Bool;
@@ -20,7 +20,7 @@ extern class LightmassDebugOptions {
 	public var bUseRandomColors: Bool;
 	public var bColorBordersGreen: Bool;
 	public var bColorByExecutionTime: Bool;
-	public var ExecutionTimeDivisor: cpp.Float32;
+	public var ExecutionTimeDivisor: ucpp.num.Float32;
 
 	@:native("FLightmassDebugOptions") public function new();
 }

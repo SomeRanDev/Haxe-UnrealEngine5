@@ -3,25 +3,25 @@ package ue;
 
 @:native("UDynamicMesh")
 @:include("UDynamicMesh.h")
-@:structAccess
+@:valueType
 extern class DynamicMesh extends Object {
-	public var MeshModifiedBPEvent: HaxeMulticastSparseDelegateProperty<(cpp.Star<DynamicMesh>) -> Void>;
-	@:protected public var MeshGenerator: cpp.Star<DynamicMeshGenerator>;
+	public var MeshModifiedBPEvent: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DynamicMesh>) -> Void>;
+	@:protected public var MeshGenerator: ucpp.Ptr<DynamicMeshGenerator>;
 	public var bEnableMeshGenerator: Bool;
 
-	public function ResetToCube(): cpp.Star<DynamicMesh>;
-	public function Reset(): cpp.Star<DynamicMesh>;
+	public function ResetToCube(): ucpp.Ptr<DynamicMesh>;
+	public function Reset(): ucpp.Ptr<DynamicMesh>;
 	public function IsEmpty(): Bool;
-	public function GetTriangleCount(): cpp.Int32;
+	public function GetTriangleCount(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsEmpty, GetTriangleCount)
 @:nativeGen
 abstract ConstDynamicMesh(DynamicMesh) from DynamicMesh {
-	public extern var MeshModifiedBPEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DynamicMesh.ConstDynamicMesh>) -> Void>;
-	public inline extern function get_MeshModifiedBPEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DynamicMesh.ConstDynamicMesh>) -> Void> return this.MeshModifiedBPEvent;
+	public extern var MeshModifiedBPEvent(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DynamicMesh.ConstDynamicMesh>) -> Void>;
+	public inline extern function get_MeshModifiedBPEvent(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DynamicMesh.ConstDynamicMesh>) -> Void> return this.MeshModifiedBPEvent;
 	public extern var bEnableMeshGenerator(get, never): Bool;
 	public inline extern function get_bEnableMeshGenerator(): Bool return this.bEnableMeshGenerator;
 }
@@ -29,7 +29,7 @@ abstract ConstDynamicMesh(DynamicMesh) from DynamicMesh {
 @:forward
 @:nativeGen
 @:native("DynamicMesh*")
-abstract DynamicMeshPtr(cpp.Star<DynamicMesh>) from cpp.Star<DynamicMesh> to cpp.Star<DynamicMesh>{
+abstract DynamicMeshPtr(ucpp.Ptr<DynamicMesh>) from ucpp.Ptr<DynamicMesh> to ucpp.Ptr<DynamicMesh>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMesh): DynamicMeshPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UClothingSimulationInteractorNv")
 @:include("ClothingSimulationInteractorNv.h")
-@:structAccess
+@:valueType
 extern class ClothingSimulationInteractorNv extends ClothingSimulationInteractor {
-	public function SetAnimDriveDamperStiffness(InStiffness: cpp.Float32): Void;
+	public function SetAnimDriveDamperStiffness(InStiffness: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstClothingSimulationInteractorNv(ClothingSimulationInteractorNv) fro
 @:forward
 @:nativeGen
 @:native("ClothingSimulationInteractorNv*")
-abstract ClothingSimulationInteractorNvPtr(cpp.Star<ClothingSimulationInteractorNv>) from cpp.Star<ClothingSimulationInteractorNv> to cpp.Star<ClothingSimulationInteractorNv>{
+abstract ClothingSimulationInteractorNvPtr(ucpp.Ptr<ClothingSimulationInteractorNv>) from ucpp.Ptr<ClothingSimulationInteractorNv> to ucpp.Ptr<ClothingSimulationInteractorNv>{
 	@:from
 	public static extern inline function fromValue(v: ClothingSimulationInteractorNv): ClothingSimulationInteractorNvPtr {
 		return untyped __cpp__("&({0})", v);

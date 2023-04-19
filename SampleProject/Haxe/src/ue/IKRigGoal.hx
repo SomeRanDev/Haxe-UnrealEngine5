@@ -3,15 +3,15 @@ package ue;
 
 @:native("FIKRigGoal")
 @:include("IKRigDataTypes.h")
-@:structAccess
+@:valueType
 extern class IKRigGoal {
 	public var Name: FName;
 	public var TransformSource: EIKRigGoalTransformSource;
 	public var SourceBone: BoneReference;
 	public var Position: Vector;
 	public var Rotation: Rotator;
-	public var PositionAlpha: cpp.Float32;
-	public var RotationAlpha: cpp.Float32;
+	public var PositionAlpha: ucpp.num.Float32;
+	public var RotationAlpha: ucpp.num.Float32;
 	public var PositionSpace: EIKRigGoalSpace;
 	public var RotationSpace: EIKRigGoalSpace;
 	public var FinalBlendedPosition: Vector;

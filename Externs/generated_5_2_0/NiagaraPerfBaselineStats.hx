@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNiagaraPerfBaselineStats")
 @:include("NiagaraPerfBaseline.h")
-@:structAccess
+@:valueType
 extern class NiagaraPerfBaselineStats {
-	public var PerInstanceAvg_GT: cpp.Float32;
-	public var PerInstanceAvg_RT: cpp.Float32;
-	public var PerInstanceMax_GT: cpp.Float32;
-	public var PerInstanceMax_RT: cpp.Float32;
+	public var PerInstanceAvg_GT: ucpp.num.Float32;
+	public var PerInstanceAvg_RT: ucpp.num.Float32;
+	public var PerInstanceMax_GT: ucpp.num.Float32;
+	public var PerInstanceMax_RT: ucpp.num.Float32;
 
 	@:native("FNiagaraPerfBaselineStats") public function new();
-	@:native("FNiagaraPerfBaselineStats") public static function make(PerInstanceAvg_GT: cpp.Float32, PerInstanceAvg_RT: cpp.Float32, PerInstanceMax_GT: cpp.Float32, PerInstanceMax_RT: cpp.Float32): NiagaraPerfBaselineStats ;
+	@:native("FNiagaraPerfBaselineStats") public static function make(PerInstanceAvg_GT: ucpp.num.Float32, PerInstanceAvg_RT: ucpp.num.Float32, PerInstanceMax_GT: ucpp.num.Float32, PerInstanceMax_RT: ucpp.num.Float32): NiagaraPerfBaselineStats ;
 }

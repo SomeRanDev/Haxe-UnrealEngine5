@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UComponentCollisionSettingsChangedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ComponentCollisionSettingsChangedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstComponentCollisionSettingsChangedSignature__PythonCallable(Compone
 @:forward
 @:nativeGen
 @:native("ComponentCollisionSettingsChangedSignature__PythonCallable*")
-abstract ComponentCollisionSettingsChangedSignature__PythonCallablePtr(cpp.Star<ComponentCollisionSettingsChangedSignature__PythonCallable>) from cpp.Star<ComponentCollisionSettingsChangedSignature__PythonCallable> to cpp.Star<ComponentCollisionSettingsChangedSignature__PythonCallable>{
+abstract ComponentCollisionSettingsChangedSignature__PythonCallablePtr(ucpp.Ptr<ComponentCollisionSettingsChangedSignature__PythonCallable>) from ucpp.Ptr<ComponentCollisionSettingsChangedSignature__PythonCallable> to ucpp.Ptr<ComponentCollisionSettingsChangedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ComponentCollisionSettingsChangedSignature__PythonCallable): ComponentCollisionSettingsChangedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

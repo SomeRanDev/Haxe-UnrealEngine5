@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USlateTextureAtlasInterface")
-@:structAccess
+@:valueType
 extern class SlateTextureAtlasInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSlateTextureAtlasInterface(SlateTextureAtlasInterface) from SlateT
 @:forward
 @:nativeGen
 @:native("SlateTextureAtlasInterface*")
-abstract SlateTextureAtlasInterfacePtr(cpp.Star<SlateTextureAtlasInterface>) from cpp.Star<SlateTextureAtlasInterface> to cpp.Star<SlateTextureAtlasInterface>{
+abstract SlateTextureAtlasInterfacePtr(ucpp.Ptr<SlateTextureAtlasInterface>) from ucpp.Ptr<SlateTextureAtlasInterface> to ucpp.Ptr<SlateTextureAtlasInterface>{
 	@:from
 	public static extern inline function fromValue(v: SlateTextureAtlasInterface): SlateTextureAtlasInterfacePtr {
 		return untyped __cpp__("&({0})", v);

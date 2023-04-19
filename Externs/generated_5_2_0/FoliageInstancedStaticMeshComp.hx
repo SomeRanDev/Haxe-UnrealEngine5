@@ -3,23 +3,23 @@ package ue;
 
 @:native("UFoliageInstancedStaticMeshComponent")
 @:include("FoliageInstancedStaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class FoliageInstancedStaticMeshComp extends HierarchicalInstancedStaticMeshComp {
-	public var OnInstanceTakePointDamage: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Float32, cpp.Star<Controller>, Vector, Vector, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor>) -> Void>;
-	public var OnInstanceTakeRadialDamage: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<cpp.Float32>>, cpp.Star<Controller>, Vector, cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor>) -> Void>;
+	public var OnInstanceTakePointDamage: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.num.Float32, ucpp.Ptr<Controller>, Vector, Vector, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor>) -> Void>;
+	public var OnInstanceTakeRadialDamage: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.Int32>>, ucpp.Ref<TArray<ucpp.num.Float32>>, ucpp.Ptr<Controller>, Vector, ucpp.num.Float32, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor>) -> Void>;
 	public var bEnableDiscardOnLoad: Bool;
 	private var GenerationGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFoliageInstancedStaticMeshComp(FoliageInstancedStaticMeshComp) from FoliageInstancedStaticMeshComp {
-	public extern var OnInstanceTakePointDamage(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Float32, cpp.Star<Controller.ConstController>, Vector, Vector, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor.ConstActor>) -> Void>;
-	public inline extern function get_OnInstanceTakePointDamage(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Float32, cpp.Star<Controller.ConstController>, Vector, Vector, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor.ConstActor>) -> Void> return this.OnInstanceTakePointDamage;
-	public extern var OnInstanceTakeRadialDamage(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<cpp.Float32>>, cpp.Star<Controller.ConstController>, Vector, cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor.ConstActor>) -> Void>;
-	public inline extern function get_OnInstanceTakeRadialDamage(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<cpp.Float32>>, cpp.Star<Controller.ConstController>, Vector, cpp.Float32, cpp.Star<DamageType.ConstDamageType>, cpp.Star<Actor.ConstActor>) -> Void> return this.OnInstanceTakeRadialDamage;
+	public extern var OnInstanceTakePointDamage(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.num.Float32, ucpp.Ptr<Controller.ConstController>, Vector, Vector, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor.ConstActor>) -> Void>;
+	public inline extern function get_OnInstanceTakePointDamage(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.num.Float32, ucpp.Ptr<Controller.ConstController>, Vector, Vector, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor.ConstActor>) -> Void> return this.OnInstanceTakePointDamage;
+	public extern var OnInstanceTakeRadialDamage(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.Int32>>, ucpp.Ref<TArray<ucpp.num.Float32>>, ucpp.Ptr<Controller.ConstController>, Vector, ucpp.num.Float32, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor.ConstActor>) -> Void>;
+	public inline extern function get_OnInstanceTakeRadialDamage(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.num.Int32>>, ucpp.Ref<TArray<ucpp.num.Float32>>, ucpp.Ptr<Controller.ConstController>, Vector, ucpp.num.Float32, ucpp.Ptr<DamageType.ConstDamageType>, ucpp.Ptr<Actor.ConstActor>) -> Void> return this.OnInstanceTakeRadialDamage;
 	public extern var bEnableDiscardOnLoad(get, never): Bool;
 	public inline extern function get_bEnableDiscardOnLoad(): Bool return this.bEnableDiscardOnLoad;
 }
@@ -27,7 +27,7 @@ abstract ConstFoliageInstancedStaticMeshComp(FoliageInstancedStaticMeshComp) fro
 @:forward
 @:nativeGen
 @:native("FoliageInstancedStaticMeshComp*")
-abstract FoliageInstancedStaticMeshCompPtr(cpp.Star<FoliageInstancedStaticMeshComp>) from cpp.Star<FoliageInstancedStaticMeshComp> to cpp.Star<FoliageInstancedStaticMeshComp>{
+abstract FoliageInstancedStaticMeshCompPtr(ucpp.Ptr<FoliageInstancedStaticMeshComp>) from ucpp.Ptr<FoliageInstancedStaticMeshComp> to ucpp.Ptr<FoliageInstancedStaticMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: FoliageInstancedStaticMeshComp): FoliageInstancedStaticMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,20 +3,20 @@ package ue;
 
 @:native("UBlackboardData")
 @:include("BehaviorTree/BlackboardData.h")
-@:structAccess
+@:valueType
 extern class BlackboardData extends DataAsset {
-	public var Parent: cpp.Star<BlackboardData>;
+	public var Parent: ucpp.Ptr<BlackboardData>;
 	public var Keys: TArray<BlackboardEntry>;
 	private var bHasSynchronizedKeys: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlackboardData(BlackboardData) from BlackboardData {
-	public extern var Parent(get, never): cpp.Star<BlackboardData.ConstBlackboardData>;
-	public inline extern function get_Parent(): cpp.Star<BlackboardData.ConstBlackboardData> return this.Parent;
+	public extern var Parent(get, never): ucpp.Ptr<BlackboardData.ConstBlackboardData>;
+	public inline extern function get_Parent(): ucpp.Ptr<BlackboardData.ConstBlackboardData> return this.Parent;
 	public extern var Keys(get, never): TArray<BlackboardEntry>;
 	public inline extern function get_Keys(): TArray<BlackboardEntry> return this.Keys;
 }
@@ -24,7 +24,7 @@ abstract ConstBlackboardData(BlackboardData) from BlackboardData {
 @:forward
 @:nativeGen
 @:native("BlackboardData*")
-abstract BlackboardDataPtr(cpp.Star<BlackboardData>) from cpp.Star<BlackboardData> to cpp.Star<BlackboardData>{
+abstract BlackboardDataPtr(ucpp.Ptr<BlackboardData>) from ucpp.Ptr<BlackboardData> to ucpp.Ptr<BlackboardData>{
 	@:from
 	public static extern inline function fromValue(v: BlackboardData): BlackboardDataPtr {
 		return untyped __cpp__("&({0})", v);

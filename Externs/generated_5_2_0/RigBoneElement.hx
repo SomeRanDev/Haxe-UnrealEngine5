@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigBoneElement")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigBoneElement extends RigSingleParentElement {
 	public var BoneType: ERigBoneType;
 

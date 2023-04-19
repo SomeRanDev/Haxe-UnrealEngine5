@@ -3,20 +3,20 @@ package ue;
 
 @:native("UTrueTypeFontFactory")
 @:include("Factories/TrueTypeFontFactory.h")
-@:structAccess
+@:valueType
 extern class TrueTypeFontFactory extends TextureFactory {
-	public var ImportOptions: cpp.Star<FontImportOptions>;
+	public var ImportOptions: ucpp.Ptr<FontImportOptions>;
 	public var bPropertiesConfigured: Bool;
 	public var bFontSelected: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTrueTypeFontFactory(TrueTypeFontFactory) from TrueTypeFontFactory {
-	public extern var ImportOptions(get, never): cpp.Star<FontImportOptions.ConstFontImportOptions>;
-	public inline extern function get_ImportOptions(): cpp.Star<FontImportOptions.ConstFontImportOptions> return this.ImportOptions;
+	public extern var ImportOptions(get, never): ucpp.Ptr<FontImportOptions.ConstFontImportOptions>;
+	public inline extern function get_ImportOptions(): ucpp.Ptr<FontImportOptions.ConstFontImportOptions> return this.ImportOptions;
 	public extern var bPropertiesConfigured(get, never): Bool;
 	public inline extern function get_bPropertiesConfigured(): Bool return this.bPropertiesConfigured;
 	public extern var bFontSelected(get, never): Bool;
@@ -26,7 +26,7 @@ abstract ConstTrueTypeFontFactory(TrueTypeFontFactory) from TrueTypeFontFactory 
 @:forward
 @:nativeGen
 @:native("TrueTypeFontFactory*")
-abstract TrueTypeFontFactoryPtr(cpp.Star<TrueTypeFontFactory>) from cpp.Star<TrueTypeFontFactory> to cpp.Star<TrueTypeFontFactory>{
+abstract TrueTypeFontFactoryPtr(ucpp.Ptr<TrueTypeFontFactory>) from ucpp.Ptr<TrueTypeFontFactory> to ucpp.Ptr<TrueTypeFontFactory>{
 	@:from
 	public static extern inline function fromValue(v: TrueTypeFontFactory): TrueTypeFontFactoryPtr {
 		return untyped __cpp__("&({0})", v);

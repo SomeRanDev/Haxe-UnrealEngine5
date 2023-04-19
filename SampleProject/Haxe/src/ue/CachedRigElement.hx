@@ -3,12 +3,12 @@ package ue;
 
 @:native("FCachedRigElement")
 @:include("Rigs/RigHierarchyCache.h")
-@:structAccess
+@:valueType
 extern class CachedRigElement {
 	private var Key: RigElementKey;
-	private var Index: cpp.UInt16;
-	private var ContainerVersion: cpp.Int32;
+	private var Index: ucpp.num.UInt16;
+	private var ContainerVersion: ucpp.num.Int32;
 
 	@:native("FCachedRigElement") public function new();
-	@:native("FCachedRigElement") public static function make(Key: RigElementKey, Index: cpp.UInt16, ContainerVersion: cpp.Int32): CachedRigElement ;
+	@:native("FCachedRigElement") public static function make(Key: RigElementKey, Index: ucpp.num.UInt16, ContainerVersion: ucpp.num.Int32): CachedRigElement ;
 }

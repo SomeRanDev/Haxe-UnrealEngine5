@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLocalizationTargetSettings")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class LocalizationTargetSettings {
 	public var Name: FString;
 	public var Guid: Guid;
@@ -17,7 +17,7 @@ extern class LocalizationTargetSettings {
 	public var ExportSettings: LocalizationExportingSettings;
 	public var CompileSettings: LocalizationCompilationSettings;
 	public var ImportDialogueSettings: LocalizationImportDialogueSettings;
-	public var NativeCultureIndex: cpp.Int32;
+	public var NativeCultureIndex: ucpp.num.Int32;
 	public var SupportedCulturesStatistics: TArray<CultureStatistics>;
 
 	@:native("FLocalizationTargetSettings") public function new();

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelInstanceComponent")
 @:include("LevelInstance/LevelInstanceComponent.h")
-@:structAccess
+@:valueType
 extern class LevelInstanceComp extends SceneComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelInstanceComp(LevelInstanceComp) from LevelInstanceComp {
 @:forward
 @:nativeGen
 @:native("LevelInstanceComp*")
-abstract LevelInstanceCompPtr(cpp.Star<LevelInstanceComp>) from cpp.Star<LevelInstanceComp> to cpp.Star<LevelInstanceComp>{
+abstract LevelInstanceCompPtr(ucpp.Ptr<LevelInstanceComp>) from ucpp.Ptr<LevelInstanceComp> to ucpp.Ptr<LevelInstanceComp>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstanceComp): LevelInstanceCompPtr {
 		return untyped __cpp__("&({0})", v);

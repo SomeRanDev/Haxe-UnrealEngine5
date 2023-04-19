@@ -3,11 +3,11 @@ package ue;
 
 @:native("UProxyLODMeshSimplificationSettings")
 @:include("Engine/ProxyLODMeshSimplificationSettings.h")
-@:structAccess
+@:valueType
 extern class ProxyLODMeshSimplificationSettings extends DeveloperSettings {
 	public var ProxyLODMeshReductionModuleName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstProxyLODMeshSimplificationSettings(ProxyLODMeshSimplificationSetti
 @:forward
 @:nativeGen
 @:native("ProxyLODMeshSimplificationSettings*")
-abstract ProxyLODMeshSimplificationSettingsPtr(cpp.Star<ProxyLODMeshSimplificationSettings>) from cpp.Star<ProxyLODMeshSimplificationSettings> to cpp.Star<ProxyLODMeshSimplificationSettings>{
+abstract ProxyLODMeshSimplificationSettingsPtr(ucpp.Ptr<ProxyLODMeshSimplificationSettings>) from ucpp.Ptr<ProxyLODMeshSimplificationSettings> to ucpp.Ptr<ProxyLODMeshSimplificationSettings>{
 	@:from
 	public static extern inline function fromValue(v: ProxyLODMeshSimplificationSettings): ProxyLODMeshSimplificationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UPlaneCutOperatorFactory")
 @:include("PlaneCutTool.h")
-@:structAccess
+@:valueType
 extern class PlaneCutOperatorFactory extends Object {
-	public var CutTool: cpp.Star<PlaneCutTool>;
+	public var CutTool: ucpp.Ptr<PlaneCutTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPlaneCutOperatorFactory(PlaneCutOperatorFactory) from PlaneCutOperatorFactory {
-	public extern var CutTool(get, never): cpp.Star<PlaneCutTool.ConstPlaneCutTool>;
-	public inline extern function get_CutTool(): cpp.Star<PlaneCutTool.ConstPlaneCutTool> return this.CutTool;
+	public extern var CutTool(get, never): ucpp.Ptr<PlaneCutTool.ConstPlaneCutTool>;
+	public inline extern function get_CutTool(): ucpp.Ptr<PlaneCutTool.ConstPlaneCutTool> return this.CutTool;
 }
 
 @:forward
 @:nativeGen
 @:native("PlaneCutOperatorFactory*")
-abstract PlaneCutOperatorFactoryPtr(cpp.Star<PlaneCutOperatorFactory>) from cpp.Star<PlaneCutOperatorFactory> to cpp.Star<PlaneCutOperatorFactory>{
+abstract PlaneCutOperatorFactoryPtr(ucpp.Ptr<PlaneCutOperatorFactory>) from ucpp.Ptr<PlaneCutOperatorFactory> to ucpp.Ptr<PlaneCutOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: PlaneCutOperatorFactory): PlaneCutOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

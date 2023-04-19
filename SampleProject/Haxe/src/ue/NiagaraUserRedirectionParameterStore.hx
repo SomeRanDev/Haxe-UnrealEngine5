@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraUserRedirectionParameterStore")
 @:include("NiagaraUserRedirectionParameterStore.h")
-@:structAccess
+@:valueType
 extern class NiagaraUserRedirectionParameterStore extends NiagaraParameterStore {
 	private var UserParameterRedirects: TMap<NiagaraVariable, NiagaraVariable>;
 

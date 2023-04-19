@@ -3,25 +3,25 @@ package ue;
 
 @:native("UInterchangeSourceNode")
 @:include("Nodes/InterchangeSourceNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSourceNode extends InterchangeBaseNode {
-	public function SetCustomSourceTimelineStart(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomSourceTimelineEnd(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomSourceFrameRateNumerator(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function SetCustomSourceFrameRateDenominator(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function SetCustomImportUnusedMaterial(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomAnimatedTimeStart(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomAnimatedTimeEnd(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
+	public function SetCustomSourceTimelineStart(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomSourceTimelineEnd(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomSourceFrameRateNumerator(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function SetCustomSourceFrameRateDenominator(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function SetCustomImportUnusedMaterial(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomAnimatedTimeStart(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomAnimatedTimeEnd(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
 	public function InitializeSourceNode(UniqueID: FString, DisplayLabel: FString): Void;
-	public function GetCustomSourceTimelineStart(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomSourceTimelineEnd(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomSourceFrameRateNumerator(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomSourceFrameRateDenominator(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomImportUnusedMaterial(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomAnimatedTimeStart(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomAnimatedTimeEnd(AttributeValue: cpp.Reference<cpp.Float64>): Bool;
+	public function GetCustomSourceTimelineStart(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomSourceTimelineEnd(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomSourceFrameRateNumerator(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomSourceFrameRateDenominator(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomImportUnusedMaterial(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomAnimatedTimeStart(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomAnimatedTimeEnd(AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomSourceTimelineStart, GetCustomSourceTimelineEnd, GetCustomSourceFrameRateNumerator, GetCustomSourceFrameRateDenominator, GetCustomImportUnusedMaterial, GetCustomAnimatedTimeStart, GetCustomAnimatedTimeEnd)
@@ -32,7 +32,7 @@ abstract ConstInterchangeSourceNode(InterchangeSourceNode) from InterchangeSourc
 @:forward
 @:nativeGen
 @:native("InterchangeSourceNode*")
-abstract InterchangeSourceNodePtr(cpp.Star<InterchangeSourceNode>) from cpp.Star<InterchangeSourceNode> to cpp.Star<InterchangeSourceNode>{
+abstract InterchangeSourceNodePtr(ucpp.Ptr<InterchangeSourceNode>) from ucpp.Ptr<InterchangeSourceNode> to ucpp.Ptr<InterchangeSourceNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSourceNode): InterchangeSourceNodePtr {
 		return untyped __cpp__("&({0})", v);

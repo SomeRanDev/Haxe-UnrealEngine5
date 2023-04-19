@@ -3,14 +3,14 @@ package ue;
 
 @:native("UCurveFloat")
 @:include("Curves/CurveFloat.h")
-@:structAccess
+@:valueType
 extern class CurveFloat extends CurveBase {
 	public var FloatCurve: RichCurve;
 	public var bIsEventCurve: Bool;
 
-	public function GetFloatValue(InTime: cpp.Float32): cpp.Float32;
+	public function GetFloatValue(InTime: ucpp.num.Float32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFloatValue)
@@ -25,7 +25,7 @@ abstract ConstCurveFloat(CurveFloat) from CurveFloat {
 @:forward
 @:nativeGen
 @:native("CurveFloat*")
-abstract CurveFloatPtr(cpp.Star<CurveFloat>) from cpp.Star<CurveFloat> to cpp.Star<CurveFloat>{
+abstract CurveFloatPtr(ucpp.Ptr<CurveFloat>) from ucpp.Ptr<CurveFloat> to ucpp.Ptr<CurveFloat>{
 	@:from
 	public static extern inline function fromValue(v: CurveFloat): CurveFloatPtr {
 		return untyped __cpp__("&({0})", v);

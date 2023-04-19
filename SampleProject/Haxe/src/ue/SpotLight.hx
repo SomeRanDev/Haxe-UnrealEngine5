@@ -3,27 +3,27 @@ package ue;
 
 @:native("ASpotLight")
 @:include("Engine/SpotLight.h")
-@:structAccess
+@:valueType
 extern class SpotLight extends Light {
-	public var SpotLightComponent: cpp.Star<SpotLightComp>;
+	public var SpotLightComponent: ucpp.Ptr<SpotLightComp>;
 
-	public function SetOuterConeAngle(NewOuterConeAngle: cpp.Float32): Void;
-	public function SetInnerConeAngle(NewInnerConeAngle: cpp.Float32): Void;
+	public function SetOuterConeAngle(NewOuterConeAngle: ucpp.num.Float32): Void;
+	public function SetInnerConeAngle(NewInnerConeAngle: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSpotLight(SpotLight) from SpotLight {
-	public extern var SpotLightComponent(get, never): cpp.Star<SpotLightComp.ConstSpotLightComp>;
-	public inline extern function get_SpotLightComponent(): cpp.Star<SpotLightComp.ConstSpotLightComp> return this.SpotLightComponent;
+	public extern var SpotLightComponent(get, never): ucpp.Ptr<SpotLightComp.ConstSpotLightComp>;
+	public inline extern function get_SpotLightComponent(): ucpp.Ptr<SpotLightComp.ConstSpotLightComp> return this.SpotLightComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("SpotLight*")
-abstract SpotLightPtr(cpp.Star<SpotLight>) from cpp.Star<SpotLight> to cpp.Star<SpotLight>{
+abstract SpotLightPtr(ucpp.Ptr<SpotLight>) from ucpp.Ptr<SpotLight> to ucpp.Ptr<SpotLight>{
 	@:from
 	public static extern inline function fromValue(v: SpotLight): SpotLightPtr {
 		return untyped __cpp__("&({0})", v);

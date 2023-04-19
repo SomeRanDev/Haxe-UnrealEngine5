@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UActorBeginCursorOverSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ActorBeginCursorOverSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstActorBeginCursorOverSignature__PythonCallable(ActorBeginCursorOver
 @:forward
 @:nativeGen
 @:native("ActorBeginCursorOverSignature__PythonCallable*")
-abstract ActorBeginCursorOverSignature__PythonCallablePtr(cpp.Star<ActorBeginCursorOverSignature__PythonCallable>) from cpp.Star<ActorBeginCursorOverSignature__PythonCallable> to cpp.Star<ActorBeginCursorOverSignature__PythonCallable>{
+abstract ActorBeginCursorOverSignature__PythonCallablePtr(ucpp.Ptr<ActorBeginCursorOverSignature__PythonCallable>) from ucpp.Ptr<ActorBeginCursorOverSignature__PythonCallable> to ucpp.Ptr<ActorBeginCursorOverSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ActorBeginCursorOverSignature__PythonCallable): ActorBeginCursorOverSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

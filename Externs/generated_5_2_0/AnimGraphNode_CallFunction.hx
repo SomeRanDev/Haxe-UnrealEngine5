@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAnimGraphNode_CallFunction")
 @:include("AnimGraphNode_CallFunction.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_CallFunction extends AnimGraphNode_Base {
-	private var InnerGraph: cpp.Star<EdGraph>;
-	private var CallFunctionPrototype: cpp.Star<K2Node_CallFunction>;
+	private var InnerGraph: ucpp.Ptr<EdGraph>;
+	private var CallFunctionPrototype: ucpp.Ptr<K2Node_CallFunction>;
 	private var Node: AnimNode_CallFunction;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_CallFunction(AnimGraphNode_CallFunction) from AnimGr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_CallFunction*")
-abstract AnimGraphNode_CallFunctionPtr(cpp.Star<AnimGraphNode_CallFunction>) from cpp.Star<AnimGraphNode_CallFunction> to cpp.Star<AnimGraphNode_CallFunction>{
+abstract AnimGraphNode_CallFunctionPtr(ucpp.Ptr<AnimGraphNode_CallFunction>) from ucpp.Ptr<AnimGraphNode_CallFunction> to ucpp.Ptr<AnimGraphNode_CallFunction>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_CallFunction): AnimGraphNode_CallFunctionPtr {
 		return untyped __cpp__("&({0})", v);

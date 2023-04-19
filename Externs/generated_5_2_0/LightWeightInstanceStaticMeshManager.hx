@@ -3,16 +3,16 @@ package ue;
 
 @:native("ALightWeightInstanceStaticMeshManager")
 @:include("GameFramework/LightWeightInstanceStaticMeshManager.h")
-@:structAccess
+@:valueType
 extern class LightWeightInstanceStaticMeshManager extends LightWeightInstanceManager {
 	@:protected public var StaticMesh: TSoftObjectPtr<StaticMesh>;
-	@:protected public var InstancedStaticMeshComponent: cpp.Star<HierarchicalInstancedStaticMeshComp>;
-	@:protected public var RenderingIndicesToDataIndices: TArray<cpp.Int32>;
-	@:protected public var DataIndicesToRenderingIndices: TArray<cpp.Int32>;
+	@:protected public var InstancedStaticMeshComponent: ucpp.Ptr<HierarchicalInstancedStaticMeshComp>;
+	@:protected public var RenderingIndicesToDataIndices: TArray<ucpp.num.Int32>;
+	@:protected public var DataIndicesToRenderingIndices: TArray<ucpp.num.Int32>;
 
 	@:protected public function OnRep_StaticMesh(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLightWeightInstanceStaticMeshManager(LightWeightInstanceStaticMesh
 @:forward
 @:nativeGen
 @:native("LightWeightInstanceStaticMeshManager*")
-abstract LightWeightInstanceStaticMeshManagerPtr(cpp.Star<LightWeightInstanceStaticMeshManager>) from cpp.Star<LightWeightInstanceStaticMeshManager> to cpp.Star<LightWeightInstanceStaticMeshManager>{
+abstract LightWeightInstanceStaticMeshManagerPtr(ucpp.Ptr<LightWeightInstanceStaticMeshManager>) from ucpp.Ptr<LightWeightInstanceStaticMeshManager> to ucpp.Ptr<LightWeightInstanceStaticMeshManager>{
 	@:from
 	public static extern inline function fromValue(v: LightWeightInstanceStaticMeshManager): LightWeightInstanceStaticMeshManagerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleLifetime_Seeded")
 @:include("Particles/Lifetime/ParticleModuleLifetime_Seeded.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLifetime_Seeded extends ParticleModuleLifetime {
 	public var RandomSeedInfo: ParticleRandomSeedInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleLifetime_Seeded(ParticleModuleLifetime_Seeded) from 
 @:forward
 @:nativeGen
 @:native("ParticleModuleLifetime_Seeded*")
-abstract ParticleModuleLifetime_SeededPtr(cpp.Star<ParticleModuleLifetime_Seeded>) from cpp.Star<ParticleModuleLifetime_Seeded> to cpp.Star<ParticleModuleLifetime_Seeded>{
+abstract ParticleModuleLifetime_SeededPtr(ucpp.Ptr<ParticleModuleLifetime_Seeded>) from ucpp.Ptr<ParticleModuleLifetime_Seeded> to ucpp.Ptr<ParticleModuleLifetime_Seeded>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLifetime_Seeded): ParticleModuleLifetime_SeededPtr {
 		return untyped __cpp__("&({0})", v);

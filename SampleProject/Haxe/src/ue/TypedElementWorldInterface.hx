@@ -2,29 +2,31 @@
 package ue;
 
 @:native("UTypedElementWorldInterface")
-@:structAccess
+@:valueType
 extern class TypedElementWorldInterface extends Interface {
-	public function SetWorldTransform(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InTransform: cpp.Reference<Transform>): Bool;
-	public function SetRelativeTransform(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InTransform: cpp.Reference<Transform>): Bool;
-	public function SetPivotOffset(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InPivotOffset: cpp.Reference<Vector>): Bool;
-	public function NotifyMovementStarted(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Void;
-	public function NotifyMovementOngoing(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Void;
-	public function NotifyMovementEnded(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Void;
-	public function IsTemplateElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
-	public function GetWorldTransform(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, OutTransform: cpp.Reference<Transform>): Bool;
-	public function GetRelativeTransform(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, OutTransform: cpp.Reference<Transform>): Bool;
-	public function GetPivotOffset(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, OutPivotOffset: cpp.Reference<Vector>): Bool;
-	public function GetOwnerWorld(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Star<World>;
-	public function GetOwnerLevel(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Star<Level>;
-	public function GetBounds(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, OutBounds: cpp.Reference<BoxSphereBounds>): Bool;
-	public function DuplicateElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InWorld: cpp.Star<World>, InLocationOffset: cpp.Reference<Vector>): ScriptTypedElementHandle;
-	public function DeleteElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InWorld: cpp.Star<World>, InSelectionSet: cpp.Star<TypedElementSelectionSet>, InDeletionOptions: cpp.Reference<TypedElementDeletionOptions>): Bool;
-	public function CanMoveElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InWorldType: ETypedElementWorldType): Bool;
-	public function CanEditElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
-	public function CanDuplicateElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
-	public function CanDeleteElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function SetWorldTransform(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InTransform: ucpp.Ref<Transform>): Bool;
+	public function SetRelativeTransform(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InTransform: ucpp.Ref<Transform>): Bool;
+	public function SetPivotOffset(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InPivotOffset: ucpp.Ref<Vector>): Bool;
+	public function PromoteElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, OverrideWorld: ucpp.Ptr<World>): ScriptTypedElementHandle;
+	public function NotifyMovementStarted(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Void;
+	public function NotifyMovementOngoing(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Void;
+	public function NotifyMovementEnded(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Void;
+	public function IsTemplateElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
+	public function GetWorldTransform(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, OutTransform: ucpp.Ref<Transform>): Bool;
+	public function GetRelativeTransform(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, OutTransform: ucpp.Ref<Transform>): Bool;
+	public function GetPivotOffset(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, OutPivotOffset: ucpp.Ref<Vector>): Bool;
+	public function GetOwnerWorld(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): ucpp.Ptr<World>;
+	public function GetOwnerLevel(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): ucpp.Ptr<Level>;
+	public function GetBounds(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, OutBounds: ucpp.Ref<BoxSphereBounds>): Bool;
+	public function DuplicateElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InWorld: ucpp.Ptr<World>, InLocationOffset: ucpp.Ref<Vector>): ScriptTypedElementHandle;
+	public function DeleteElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InWorld: ucpp.Ptr<World>, InSelectionSet: ucpp.Ptr<TypedElementSelectionSet>, InDeletionOptions: ucpp.Ref<TypedElementDeletionOptions>): Bool;
+	public function CanPromoteElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
+	public function CanMoveElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InWorldType: ETypedElementWorldType): Bool;
+	public function CanEditElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
+	public function CanDuplicateElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
+	public function CanDeleteElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +37,7 @@ abstract ConstTypedElementWorldInterface(TypedElementWorldInterface) from TypedE
 @:forward
 @:nativeGen
 @:native("TypedElementWorldInterface*")
-abstract TypedElementWorldInterfacePtr(cpp.Star<TypedElementWorldInterface>) from cpp.Star<TypedElementWorldInterface> to cpp.Star<TypedElementWorldInterface>{
+abstract TypedElementWorldInterfacePtr(ucpp.Ptr<TypedElementWorldInterface>) from ucpp.Ptr<TypedElementWorldInterface> to ucpp.Ptr<TypedElementWorldInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementWorldInterface): TypedElementWorldInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMode2DLayer")
 @:include("Settings/EditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class Mode2DLayer {
 	public var Name: FString;
-	public var Depth: cpp.Float32;
+	public var Depth: ucpp.num.Float32;
 
 	@:native("FMode2DLayer") public function new();
-	@:native("FMode2DLayer") public static function make(Name: FString, Depth: cpp.Float32): Mode2DLayer ;
+	@:native("FMode2DLayer") public static function make(Name: FString, Depth: ucpp.num.Float32): Mode2DLayer ;
 }

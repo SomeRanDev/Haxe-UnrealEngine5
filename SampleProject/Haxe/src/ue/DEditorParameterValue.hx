@@ -3,13 +3,15 @@ package ue;
 
 @:native("UDEditorParameterValue")
 @:include("MaterialEditor/DEditorParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorParameterValue extends Object {
 	public var bOverride: Bool;
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ExpressionId: Guid;
+	public var Description: FString;
+	public var AssetPath: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,12 +23,16 @@ abstract ConstDEditorParameterValue(DEditorParameterValue) from DEditorParameter
 	public inline extern function get_ParameterInfo(): MaterialParameterInfo return this.ParameterInfo;
 	public extern var ExpressionId(get, never): Guid;
 	public inline extern function get_ExpressionId(): Guid return this.ExpressionId;
+	public extern var Description(get, never): FString;
+	public inline extern function get_Description(): FString return this.Description;
+	public extern var AssetPath(get, never): FString;
+	public inline extern function get_AssetPath(): FString return this.AssetPath;
 }
 
 @:forward
 @:nativeGen
 @:native("DEditorParameterValue*")
-abstract DEditorParameterValuePtr(cpp.Star<DEditorParameterValue>) from cpp.Star<DEditorParameterValue> to cpp.Star<DEditorParameterValue>{
+abstract DEditorParameterValuePtr(ucpp.Ptr<DEditorParameterValue>) from ucpp.Ptr<DEditorParameterValue> to ucpp.Ptr<DEditorParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorParameterValue): DEditorParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

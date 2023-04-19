@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraSystem")
 @:include("NiagaraSystem.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystem extends FXSystemAsset {
 	public var bSupportLargeWorldCoordinates: Bool;
 	public var bOverrideCastShadow: Bool;
@@ -18,39 +18,39 @@ extern class NiagaraSystem extends FXSystemAsset {
 	public var bRenderCustomDepth: Bool;
 	public var bDisableExperimentalVM: Bool;
 	public var CustomDepthStencilWriteMask: ERendererStencilMask;
-	public var CustomDepthStencilValue: cpp.Int32;
-	public var TranslucencySortPriority: cpp.Int32;
-	public var TranslucencySortDistanceOffset: cpp.Float32;
+	public var CustomDepthStencilValue: ucpp.num.Int32;
+	public var TranslucencySortPriority: ucpp.num.Int32;
+	public var TranslucencySortDistanceOffset: ucpp.num.Float32;
 	public var bDumpDebugSystemInfo: Bool;
 	public var bDumpDebugEmitterInfo: Bool;
 	public var bRequireCurrentFrameData: Bool;
 	public var bFixedBounds: Bool;
-	@:protected public var EffectType: cpp.Star<NiagaraEffectType>;
+	@:protected public var EffectType: ucpp.Ptr<NiagaraEffectType>;
 	@:protected public var bOverrideScalabilitySettings: Bool;
 	@:protected public var bOverrideAllowCullingForLocalPlayers: Bool;
 	@:protected public var bAllowCullingForLocalPlayersOverride: Bool;
 	@:protected public var SystemScalabilityOverrides: NiagaraSystemScalabilityOverrides;
 	@:protected public var EmitterHandles: TArray<NiagaraEmitterHandle>;
-	@:protected public var ParameterCollectionOverrides: TArray<cpp.Star<NiagaraParameterCollectionInstance>>;
-	@:protected public var SystemSpawnScript: cpp.Star<NiagaraScript>;
-	@:protected public var SystemUpdateScript: cpp.Star<NiagaraScript>;
+	@:protected public var ParameterCollectionOverrides: TArray<ucpp.Ptr<NiagaraParameterCollectionInstance>>;
+	@:protected public var SystemSpawnScript: ucpp.Ptr<NiagaraScript>;
+	@:protected public var SystemUpdateScript: ucpp.Ptr<NiagaraScript>;
 	@:protected public var SystemCompiledData: NiagaraSystemCompiledData;
 	@:protected public var ExposedParameters: NiagaraUserRedirectionParameterStore;
 	@:protected public var FixedBounds: Box;
 	@:protected public var bAutoDeactivate: Bool;
 	@:protected public var bDeterminism: Bool;
-	@:protected public var RandomSeed: cpp.Int32;
-	@:protected public var WarmupTime: cpp.Float32;
-	@:protected public var WarmupTickCount: cpp.Int32;
-	@:protected public var WarmupTickDelta: cpp.Float32;
+	@:protected public var RandomSeed: ucpp.num.Int32;
+	@:protected public var WarmupTime: ucpp.num.Float32;
+	@:protected public var WarmupTickCount: ucpp.num.Int32;
+	@:protected public var WarmupTickDelta: ucpp.num.Float32;
 	@:protected public var bFixedTickDelta: Bool;
-	@:protected public var FixedTickDeltaTime: cpp.Float32;
+	@:protected public var FixedTickDeltaTime: ucpp.num.Float32;
 	@:protected public var bHasSystemScriptDIsWithPerInstanceData: Bool;
 	@:protected public var bNeedsGPUContextInitForDataInterfaces: Bool;
 	@:protected public var UserDINamesReadInSystemScripts: TArray<FName>;
-	@:protected public var ReferencedDataChannelDefinitions: TArray<cpp.Star<NiagaraDataChannelDefinitions>>;
+	@:protected public var ReferencedDataChannelDefinitions: TArray<ucpp.Ptr<NiagaraDataChannelDefinitions>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -82,12 +82,12 @@ abstract ConstNiagaraSystem(NiagaraSystem) from NiagaraSystem {
 	public inline extern function get_bDisableExperimentalVM(): Bool return this.bDisableExperimentalVM;
 	public extern var CustomDepthStencilWriteMask(get, never): ERendererStencilMask;
 	public inline extern function get_CustomDepthStencilWriteMask(): ERendererStencilMask return this.CustomDepthStencilWriteMask;
-	public extern var CustomDepthStencilValue(get, never): cpp.Int32;
-	public inline extern function get_CustomDepthStencilValue(): cpp.Int32 return this.CustomDepthStencilValue;
-	public extern var TranslucencySortPriority(get, never): cpp.Int32;
-	public inline extern function get_TranslucencySortPriority(): cpp.Int32 return this.TranslucencySortPriority;
-	public extern var TranslucencySortDistanceOffset(get, never): cpp.Float32;
-	public inline extern function get_TranslucencySortDistanceOffset(): cpp.Float32 return this.TranslucencySortDistanceOffset;
+	public extern var CustomDepthStencilValue(get, never): ucpp.num.Int32;
+	public inline extern function get_CustomDepthStencilValue(): ucpp.num.Int32 return this.CustomDepthStencilValue;
+	public extern var TranslucencySortPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_TranslucencySortPriority(): ucpp.num.Int32 return this.TranslucencySortPriority;
+	public extern var TranslucencySortDistanceOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_TranslucencySortDistanceOffset(): ucpp.num.Float32 return this.TranslucencySortDistanceOffset;
 	public extern var bDumpDebugSystemInfo(get, never): Bool;
 	public inline extern function get_bDumpDebugSystemInfo(): Bool return this.bDumpDebugSystemInfo;
 	public extern var bDumpDebugEmitterInfo(get, never): Bool;
@@ -101,7 +101,7 @@ abstract ConstNiagaraSystem(NiagaraSystem) from NiagaraSystem {
 @:forward
 @:nativeGen
 @:native("NiagaraSystem*")
-abstract NiagaraSystemPtr(cpp.Star<NiagaraSystem>) from cpp.Star<NiagaraSystem> to cpp.Star<NiagaraSystem>{
+abstract NiagaraSystemPtr(ucpp.Ptr<NiagaraSystem>) from ucpp.Ptr<NiagaraSystem> to ucpp.Ptr<NiagaraSystem>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSystem): NiagaraSystemPtr {
 		return untyped __cpp__("&({0})", v);

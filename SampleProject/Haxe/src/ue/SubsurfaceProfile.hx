@@ -3,11 +3,11 @@ package ue;
 
 @:native("USubsurfaceProfile")
 @:include("Engine/SubsurfaceProfile.h")
-@:structAccess
+@:valueType
 extern class SubsurfaceProfile extends Object {
 	public var Settings: SubsurfaceProfileStruct;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSubsurfaceProfile(SubsurfaceProfile) from SubsurfaceProfile {
 @:forward
 @:nativeGen
 @:native("SubsurfaceProfile*")
-abstract SubsurfaceProfilePtr(cpp.Star<SubsurfaceProfile>) from cpp.Star<SubsurfaceProfile> to cpp.Star<SubsurfaceProfile>{
+abstract SubsurfaceProfilePtr(ucpp.Ptr<SubsurfaceProfile>) from ucpp.Ptr<SubsurfaceProfile> to ucpp.Ptr<SubsurfaceProfile>{
 	@:from
 	public static extern inline function fromValue(v: SubsurfaceProfile): SubsurfaceProfilePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNavigationLink")
 @:include("AI/Navigation/NavLinkDefinition.h")
-@:structAccess
+@:valueType
 extern class NavigationLink extends NavigationLinkBase {
 	public var Left: Vector;
 	public var Right: Vector;

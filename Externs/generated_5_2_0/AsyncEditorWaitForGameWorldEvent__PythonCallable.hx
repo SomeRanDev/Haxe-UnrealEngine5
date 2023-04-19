@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAsyncEditorWaitForGameWorldEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class AsyncEditorWaitForGameWorldEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAsyncEditorWaitForGameWorldEvent__PythonCallable(AsyncEditorWaitFo
 @:forward
 @:nativeGen
 @:native("AsyncEditorWaitForGameWorldEvent__PythonCallable*")
-abstract AsyncEditorWaitForGameWorldEvent__PythonCallablePtr(cpp.Star<AsyncEditorWaitForGameWorldEvent__PythonCallable>) from cpp.Star<AsyncEditorWaitForGameWorldEvent__PythonCallable> to cpp.Star<AsyncEditorWaitForGameWorldEvent__PythonCallable>{
+abstract AsyncEditorWaitForGameWorldEvent__PythonCallablePtr(ucpp.Ptr<AsyncEditorWaitForGameWorldEvent__PythonCallable>) from ucpp.Ptr<AsyncEditorWaitForGameWorldEvent__PythonCallable> to ucpp.Ptr<AsyncEditorWaitForGameWorldEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AsyncEditorWaitForGameWorldEvent__PythonCallable): AsyncEditorWaitForGameWorldEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

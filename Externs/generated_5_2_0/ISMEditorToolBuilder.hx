@@ -3,10 +3,10 @@ package ue;
 
 @:native("UISMEditorToolBuilder")
 @:include("ISMEditorTool.h")
-@:structAccess
+@:valueType
 extern class ISMEditorToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstISMEditorToolBuilder(ISMEditorToolBuilder) from ISMEditorToolBuild
 @:forward
 @:nativeGen
 @:native("ISMEditorToolBuilder*")
-abstract ISMEditorToolBuilderPtr(cpp.Star<ISMEditorToolBuilder>) from cpp.Star<ISMEditorToolBuilder> to cpp.Star<ISMEditorToolBuilder>{
+abstract ISMEditorToolBuilderPtr(ucpp.Ptr<ISMEditorToolBuilder>) from ucpp.Ptr<ISMEditorToolBuilder> to ucpp.Ptr<ISMEditorToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ISMEditorToolBuilder): ISMEditorToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

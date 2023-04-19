@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLocalizationImportDialogueSettings")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class LocalizationImportDialogueSettings {
 	public var RawAudioPath: DirectoryPath;
 	public var ImportedDialogueFolder: FString;

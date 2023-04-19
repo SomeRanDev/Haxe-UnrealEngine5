@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimParentNodeAssetOverride")
 @:include("Animation/AnimBlueprint.h")
-@:structAccess
+@:valueType
 extern class AnimParentNodeAssetOverride {
-	public var NewAsset: cpp.Star<AnimationAsset>;
+	public var NewAsset: ucpp.Ptr<AnimationAsset>;
 	public var ParentNodeGuid: Guid;
 
 	@:native("FAnimParentNodeAssetOverride") public function new();
-	@:native("FAnimParentNodeAssetOverride") public static function make(NewAsset: cpp.Star<AnimationAsset>, ParentNodeGuid: Guid): AnimParentNodeAssetOverride ;
+	@:native("FAnimParentNodeAssetOverride") public static function make(NewAsset: ucpp.Ptr<AnimationAsset>, ParentNodeGuid: Guid): AnimParentNodeAssetOverride ;
 }

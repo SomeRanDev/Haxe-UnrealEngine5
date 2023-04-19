@@ -3,10 +3,10 @@ package ue;
 
 @:native("FMovieSceneTrackIdentifier")
 @:include("Evaluation/MovieSceneTrackIdentifier.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTrackIdentifier {
-	private var Value: cpp.UInt32;
+	private var Value: ucpp.num.UInt32;
 
 	@:native("FMovieSceneTrackIdentifier") public function new();
-	@:native("FMovieSceneTrackIdentifier") public static function make(Value: cpp.UInt32): MovieSceneTrackIdentifier ;
+	@:native("FMovieSceneTrackIdentifier") public static function make(Value: ucpp.num.UInt32): MovieSceneTrackIdentifier ;
 }

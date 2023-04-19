@@ -3,12 +3,12 @@ package ue;
 
 @:native("UContentBundleEditingSubmodule")
 @:include("WorldPartition/ContentBundle/ContentBundleEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class ContentBundleEditingSubmodule extends ContentBundleEditorSubsystemModule {
 	private var EditingContentBundlesStack: TArray<Guid>;
 	private var EditingContentBundleGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstContentBundleEditingSubmodule(ContentBundleEditingSubmodule) from 
 @:forward
 @:nativeGen
 @:native("ContentBundleEditingSubmodule*")
-abstract ContentBundleEditingSubmodulePtr(cpp.Star<ContentBundleEditingSubmodule>) from cpp.Star<ContentBundleEditingSubmodule> to cpp.Star<ContentBundleEditingSubmodule>{
+abstract ContentBundleEditingSubmodulePtr(ucpp.Ptr<ContentBundleEditingSubmodule>) from ucpp.Ptr<ContentBundleEditingSubmodule> to ucpp.Ptr<ContentBundleEditingSubmodule>{
 	@:from
 	public static extern inline function fromValue(v: ContentBundleEditingSubmodule): ContentBundleEditingSubmodulePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEnhancedInputPlatformData")
 @:include("EnhancedInputPlatformSettings.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputPlatformData extends Object {
-	@:protected public var MappingContextRedirects: TMap<cpp.Star<InputMappingContext>, cpp.Star<InputMappingContext>>;
+	@:protected public var MappingContextRedirects: TMap<ucpp.Ptr<InputMappingContext>, ucpp.Ptr<InputMappingContext>>;
 
-	public function GetContextRedirect(InContext: cpp.Star<InputMappingContext>): cpp.Star<InputMappingContext.ConstInputMappingContext>;
+	public function GetContextRedirect(InContext: ucpp.Ptr<InputMappingContext>): ucpp.Ptr<InputMappingContext.ConstInputMappingContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetContextRedirect)
@@ -20,7 +20,7 @@ abstract ConstEnhancedInputPlatformData(EnhancedInputPlatformData) from Enhanced
 @:forward
 @:nativeGen
 @:native("EnhancedInputPlatformData*")
-abstract EnhancedInputPlatformDataPtr(cpp.Star<EnhancedInputPlatformData>) from cpp.Star<EnhancedInputPlatformData> to cpp.Star<EnhancedInputPlatformData>{
+abstract EnhancedInputPlatformDataPtr(ucpp.Ptr<EnhancedInputPlatformData>) from ucpp.Ptr<EnhancedInputPlatformData> to ucpp.Ptr<EnhancedInputPlatformData>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputPlatformData): EnhancedInputPlatformDataPtr {
 		return untyped __cpp__("&({0})", v);

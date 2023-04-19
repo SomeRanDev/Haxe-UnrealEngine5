@@ -3,25 +3,25 @@ package ue;
 
 @:native("USkeletalMeshImportTestFunctions")
 @:include("ImportTestFunctions/SkeletalMeshImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckVertexIndexPosition(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, VertexIndex: cpp.Int32, ExpectedVertexPosition: cpp.Reference<Vector>): InterchangeTestFunctionResult;
-	public function CheckVertexIndexNormal(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, VertexIndex: cpp.Int32, ExpectedVertexNormal: cpp.Reference<Vector>): InterchangeTestFunctionResult;
-	public function CheckUVChannelCount(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, ExpectedNumberOfUVChannels: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckTriangleCountInSection(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, SectionIndex: cpp.Int32, ExpectedNumberOfTriangles: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckSkinnedVertexCountForBone(Mesh: cpp.Star<SkeletalMesh>, BoneName: FString, bTestFirstAlternateProfile: Bool, ExpectedSkinnedVertexCount: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckSectionMaterialName(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, SectionIndex: cpp.Int32, ExpectedMaterialName: FString): InterchangeTestFunctionResult;
-	public function CheckSectionImportedMaterialSlotName(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, SectionIndex: cpp.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
-	public function CheckSectionCount(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, ExpectedNumberOfSections: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckRenderVertexCount(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, ExpectedNumberOfRenderVertices: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckRenderTriangleCount(Mesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, ExpectedNumberOfRenderTriangles: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckMaterialSlotCount(Mesh: cpp.Star<SkeletalMesh>, ExpectedNumberOfMaterialSlots: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckLodCount(Mesh: cpp.Star<SkeletalMesh>, ExpectedNumberOfLods: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckImportedSkeletalMeshCount(Meshes: cpp.Reference<TArray<cpp.Star<SkeletalMesh>>>, ExpectedNumberOfImportedSkeletalMeshes: cpp.Int32): InterchangeTestFunctionResult;
-	public function CheckBonePosition(Mesh: cpp.Star<SkeletalMesh>, BoneIndex: cpp.Int32, ExpectedBonePosition: cpp.Reference<Vector>): InterchangeTestFunctionResult;
-	public function CheckBoneCount(Mesh: cpp.Star<SkeletalMesh>, ExpectedNumberOfBones: cpp.Int32): InterchangeTestFunctionResult;
+	public function CheckVertexIndexPosition(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, VertexIndex: ucpp.num.Int32, ExpectedVertexPosition: ucpp.Ref<Vector>): InterchangeTestFunctionResult;
+	public function CheckVertexIndexNormal(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, VertexIndex: ucpp.num.Int32, ExpectedVertexNormal: ucpp.Ref<Vector>): InterchangeTestFunctionResult;
+	public function CheckUVChannelCount(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfUVChannels: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckTriangleCountInSection(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, ExpectedNumberOfTriangles: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckSkinnedVertexCountForBone(Mesh: ucpp.Ptr<SkeletalMesh>, BoneName: FString, bTestFirstAlternateProfile: Bool, ExpectedSkinnedVertexCount: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckSectionMaterialName(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, ExpectedMaterialName: FString): InterchangeTestFunctionResult;
+	public function CheckSectionImportedMaterialSlotName(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, SectionIndex: ucpp.num.Int32, ExpectedImportedMaterialSlotName: FString): InterchangeTestFunctionResult;
+	public function CheckSectionCount(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfSections: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckRenderVertexCount(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfRenderVertices: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckRenderTriangleCount(Mesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, ExpectedNumberOfRenderTriangles: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckMaterialSlotCount(Mesh: ucpp.Ptr<SkeletalMesh>, ExpectedNumberOfMaterialSlots: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckLodCount(Mesh: ucpp.Ptr<SkeletalMesh>, ExpectedNumberOfLods: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckImportedSkeletalMeshCount(Meshes: ucpp.Ref<TArray<ucpp.Ptr<SkeletalMesh>>>, ExpectedNumberOfImportedSkeletalMeshes: ucpp.num.Int32): InterchangeTestFunctionResult;
+	public function CheckBonePosition(Mesh: ucpp.Ptr<SkeletalMesh>, BoneIndex: ucpp.num.Int32, ExpectedBonePosition: ucpp.Ref<Vector>): InterchangeTestFunctionResult;
+	public function CheckBoneCount(Mesh: ucpp.Ptr<SkeletalMesh>, ExpectedNumberOfBones: ucpp.num.Int32): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstSkeletalMeshImportTestFunctions(SkeletalMeshImportTestFunctions) f
 @:forward
 @:nativeGen
 @:native("SkeletalMeshImportTestFunctions*")
-abstract SkeletalMeshImportTestFunctionsPtr(cpp.Star<SkeletalMeshImportTestFunctions>) from cpp.Star<SkeletalMeshImportTestFunctions> to cpp.Star<SkeletalMeshImportTestFunctions>{
+abstract SkeletalMeshImportTestFunctionsPtr(ucpp.Ptr<SkeletalMeshImportTestFunctions>) from ucpp.Ptr<SkeletalMeshImportTestFunctions> to ucpp.Ptr<SkeletalMeshImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMeshImportTestFunctions): SkeletalMeshImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

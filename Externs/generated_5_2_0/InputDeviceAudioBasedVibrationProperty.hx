@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInputDeviceAudioBasedVibrationProperty")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class InputDeviceAudioBasedVibrationProperty extends InputDeviceProperty {
 	public var Data: AudioBasedVibrationData;
 	public var DeviceOverrideData: TMap<FName, AudioBasedVibrationData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstInputDeviceAudioBasedVibrationProperty(InputDeviceAudioBasedVibrat
 @:forward
 @:nativeGen
 @:native("InputDeviceAudioBasedVibrationProperty*")
-abstract InputDeviceAudioBasedVibrationPropertyPtr(cpp.Star<InputDeviceAudioBasedVibrationProperty>) from cpp.Star<InputDeviceAudioBasedVibrationProperty> to cpp.Star<InputDeviceAudioBasedVibrationProperty>{
+abstract InputDeviceAudioBasedVibrationPropertyPtr(ucpp.Ptr<InputDeviceAudioBasedVibrationProperty>) from ucpp.Ptr<InputDeviceAudioBasedVibrationProperty> to ucpp.Ptr<InputDeviceAudioBasedVibrationProperty>{
 	@:from
 	public static extern inline function fromValue(v: InputDeviceAudioBasedVibrationProperty): InputDeviceAudioBasedVibrationPropertyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,38 +3,38 @@ package ue;
 
 @:native("UParticleModuleVectorFieldLocal")
 @:include("Particles/VectorField/ParticleModuleVectorFieldLocal.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleVectorFieldLocal extends ParticleModuleVectorFieldBase {
-	public var VectorField: cpp.Star<VectorField>;
+	public var VectorField: ucpp.Ptr<VectorField>;
 	public var RelativeTranslation: Vector;
 	public var RelativeRotation: Rotator;
 	public var RelativeScale3D: Vector;
-	public var Intensity: cpp.Float32;
-	public var Tightness: cpp.Float32;
+	public var Intensity: ucpp.num.Float32;
+	public var Tightness: ucpp.num.Float32;
 	public var bIgnoreComponentTransform: Bool;
 	public var bTileX: Bool;
 	public var bTileY: Bool;
 	public var bTileZ: Bool;
 	public var bUseFixDT: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleVectorFieldLocal(ParticleModuleVectorFieldLocal) from ParticleModuleVectorFieldLocal {
-	public extern var VectorField(get, never): cpp.Star<VectorField.ConstVectorField>;
-	public inline extern function get_VectorField(): cpp.Star<VectorField.ConstVectorField> return this.VectorField;
+	public extern var VectorField(get, never): ucpp.Ptr<VectorField.ConstVectorField>;
+	public inline extern function get_VectorField(): ucpp.Ptr<VectorField.ConstVectorField> return this.VectorField;
 	public extern var RelativeTranslation(get, never): Vector;
 	public inline extern function get_RelativeTranslation(): Vector return this.RelativeTranslation;
 	public extern var RelativeRotation(get, never): Rotator;
 	public inline extern function get_RelativeRotation(): Rotator return this.RelativeRotation;
 	public extern var RelativeScale3D(get, never): Vector;
 	public inline extern function get_RelativeScale3D(): Vector return this.RelativeScale3D;
-	public extern var Intensity(get, never): cpp.Float32;
-	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
-	public extern var Tightness(get, never): cpp.Float32;
-	public inline extern function get_Tightness(): cpp.Float32 return this.Tightness;
+	public extern var Intensity(get, never): ucpp.num.Float32;
+	public inline extern function get_Intensity(): ucpp.num.Float32 return this.Intensity;
+	public extern var Tightness(get, never): ucpp.num.Float32;
+	public inline extern function get_Tightness(): ucpp.num.Float32 return this.Tightness;
 	public extern var bIgnoreComponentTransform(get, never): Bool;
 	public inline extern function get_bIgnoreComponentTransform(): Bool return this.bIgnoreComponentTransform;
 	public extern var bTileX(get, never): Bool;
@@ -50,7 +50,7 @@ abstract ConstParticleModuleVectorFieldLocal(ParticleModuleVectorFieldLocal) fro
 @:forward
 @:nativeGen
 @:native("ParticleModuleVectorFieldLocal*")
-abstract ParticleModuleVectorFieldLocalPtr(cpp.Star<ParticleModuleVectorFieldLocal>) from cpp.Star<ParticleModuleVectorFieldLocal> to cpp.Star<ParticleModuleVectorFieldLocal>{
+abstract ParticleModuleVectorFieldLocalPtr(ucpp.Ptr<ParticleModuleVectorFieldLocal>) from ucpp.Ptr<ParticleModuleVectorFieldLocal> to ucpp.Ptr<ParticleModuleVectorFieldLocal>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleVectorFieldLocal): ParticleModuleVectorFieldLocalPtr {
 		return untyped __cpp__("&({0})", v);

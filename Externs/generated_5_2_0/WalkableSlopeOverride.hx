@@ -3,11 +3,11 @@ package ue;
 
 @:native("FWalkableSlopeOverride")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class WalkableSlopeOverride {
 	public var WalkableSlopeBehavior: TEnumAsByte<EWalkableSlopeBehavior>;
-	public var WalkableSlopeAngle: cpp.Float32;
+	public var WalkableSlopeAngle: ucpp.num.Float32;
 
 	@:native("FWalkableSlopeOverride") public function new();
-	@:native("FWalkableSlopeOverride") public static function make(WalkableSlopeBehavior: TEnumAsByte<EWalkableSlopeBehavior>, WalkableSlopeAngle: cpp.Float32): WalkableSlopeOverride ;
+	@:native("FWalkableSlopeOverride") public static function make(WalkableSlopeBehavior: TEnumAsByte<EWalkableSlopeBehavior>, WalkableSlopeAngle: ucpp.num.Float32): WalkableSlopeOverride ;
 }

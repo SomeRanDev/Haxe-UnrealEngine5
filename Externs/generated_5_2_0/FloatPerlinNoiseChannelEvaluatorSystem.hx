@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFloatPerlinNoiseChannelEvaluatorSystem")
 @:include("Systems/FloatPerlinNoiseChannelEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class FloatPerlinNoiseChannelEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFloatPerlinNoiseChannelEvaluatorSystem(FloatPerlinNoiseChannelEval
 @:forward
 @:nativeGen
 @:native("FloatPerlinNoiseChannelEvaluatorSystem*")
-abstract FloatPerlinNoiseChannelEvaluatorSystemPtr(cpp.Star<FloatPerlinNoiseChannelEvaluatorSystem>) from cpp.Star<FloatPerlinNoiseChannelEvaluatorSystem> to cpp.Star<FloatPerlinNoiseChannelEvaluatorSystem>{
+abstract FloatPerlinNoiseChannelEvaluatorSystemPtr(ucpp.Ptr<FloatPerlinNoiseChannelEvaluatorSystem>) from ucpp.Ptr<FloatPerlinNoiseChannelEvaluatorSystem> to ucpp.Ptr<FloatPerlinNoiseChannelEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: FloatPerlinNoiseChannelEvaluatorSystem): FloatPerlinNoiseChannelEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

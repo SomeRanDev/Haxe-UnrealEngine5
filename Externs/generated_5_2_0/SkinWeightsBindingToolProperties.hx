@@ -3,15 +3,15 @@ package ue;
 
 @:native("USkinWeightsBindingToolProperties")
 @:include("SkinWeightsBindingTool.h")
-@:structAccess
+@:valueType
 extern class SkinWeightsBindingToolProperties extends InteractiveToolPropertySet {
 	public var CurrentBone: BoneReference;
 	public var BindingType: ESkinWeightsBindType;
-	public var Stiffness: cpp.Float32;
-	public var MaxInfluences: cpp.Int32;
-	public var VoxelResolution: cpp.Int32;
+	public var Stiffness: ucpp.num.Float32;
+	public var MaxInfluences: ucpp.num.Int32;
+	public var VoxelResolution: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,18 +21,18 @@ abstract ConstSkinWeightsBindingToolProperties(SkinWeightsBindingToolProperties)
 	public inline extern function get_CurrentBone(): BoneReference return this.CurrentBone;
 	public extern var BindingType(get, never): ESkinWeightsBindType;
 	public inline extern function get_BindingType(): ESkinWeightsBindType return this.BindingType;
-	public extern var Stiffness(get, never): cpp.Float32;
-	public inline extern function get_Stiffness(): cpp.Float32 return this.Stiffness;
-	public extern var MaxInfluences(get, never): cpp.Int32;
-	public inline extern function get_MaxInfluences(): cpp.Int32 return this.MaxInfluences;
-	public extern var VoxelResolution(get, never): cpp.Int32;
-	public inline extern function get_VoxelResolution(): cpp.Int32 return this.VoxelResolution;
+	public extern var Stiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_Stiffness(): ucpp.num.Float32 return this.Stiffness;
+	public extern var MaxInfluences(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxInfluences(): ucpp.num.Int32 return this.MaxInfluences;
+	public extern var VoxelResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_VoxelResolution(): ucpp.num.Int32 return this.VoxelResolution;
 }
 
 @:forward
 @:nativeGen
 @:native("SkinWeightsBindingToolProperties*")
-abstract SkinWeightsBindingToolPropertiesPtr(cpp.Star<SkinWeightsBindingToolProperties>) from cpp.Star<SkinWeightsBindingToolProperties> to cpp.Star<SkinWeightsBindingToolProperties>{
+abstract SkinWeightsBindingToolPropertiesPtr(ucpp.Ptr<SkinWeightsBindingToolProperties>) from ucpp.Ptr<SkinWeightsBindingToolProperties> to ucpp.Ptr<SkinWeightsBindingToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: SkinWeightsBindingToolProperties): SkinWeightsBindingToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

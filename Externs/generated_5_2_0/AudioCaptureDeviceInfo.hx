@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAudioCaptureDeviceInfo")
 @:include("AudioCapture.h")
-@:structAccess
+@:valueType
 extern class AudioCaptureDeviceInfo {
 	public var DeviceName: FName;
-	public var NumInputChannels: cpp.Int32;
-	public var SampleRate: cpp.Int32;
+	public var NumInputChannels: ucpp.num.Int32;
+	public var SampleRate: ucpp.num.Int32;
 
 	@:native("FAudioCaptureDeviceInfo") public function new();
-	@:native("FAudioCaptureDeviceInfo") public static function make(DeviceName: FName, NumInputChannels: cpp.Int32, SampleRate: cpp.Int32): AudioCaptureDeviceInfo ;
+	@:native("FAudioCaptureDeviceInfo") public static function make(DeviceName: FName, NumInputChannels: ucpp.num.Int32, SampleRate: ucpp.num.Int32): AudioCaptureDeviceInfo ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimSequencerInstance")
 @:include("AnimSequencerInstance.h")
-@:structAccess
+@:valueType
 extern class AnimSequencerInstance extends AnimInstance {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimSequencerInstance(AnimSequencerInstance) from AnimSequencerIns
 @:forward
 @:nativeGen
 @:native("AnimSequencerInstance*")
-abstract AnimSequencerInstancePtr(cpp.Star<AnimSequencerInstance>) from cpp.Star<AnimSequencerInstance> to cpp.Star<AnimSequencerInstance>{
+abstract AnimSequencerInstancePtr(ucpp.Ptr<AnimSequencerInstance>) from ucpp.Ptr<AnimSequencerInstance> to ucpp.Ptr<AnimSequencerInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimSequencerInstance): AnimSequencerInstancePtr {
 		return untyped __cpp__("&({0})", v);

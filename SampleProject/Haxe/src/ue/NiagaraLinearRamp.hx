@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNiagaraLinearRamp")
 @:include("NiagaraEffectType.h")
-@:structAccess
+@:valueType
 extern class NiagaraLinearRamp {
-	public var StartX: cpp.Float32;
-	public var StartY: cpp.Float32;
-	public var EndX: cpp.Float32;
-	public var EndY: cpp.Float32;
+	public var StartX: ucpp.num.Float32;
+	public var StartY: ucpp.num.Float32;
+	public var EndX: ucpp.num.Float32;
+	public var EndY: ucpp.num.Float32;
 
 	@:native("FNiagaraLinearRamp") public function new();
-	@:native("FNiagaraLinearRamp") public static function make(StartX: cpp.Float32, StartY: cpp.Float32, EndX: cpp.Float32, EndY: cpp.Float32): NiagaraLinearRamp ;
+	@:native("FNiagaraLinearRamp") public static function make(StartX: ucpp.num.Float32, StartY: ucpp.num.Float32, EndX: ucpp.num.Float32, EndY: ucpp.num.Float32): NiagaraLinearRamp ;
 }

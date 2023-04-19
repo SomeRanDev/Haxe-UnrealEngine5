@@ -3,11 +3,11 @@ package ue;
 
 @:native("FGizmoFloatParameterChange")
 @:include("BaseGizmos/ParameterSourcesFloat.h")
-@:structAccess
+@:valueType
 extern class GizmoFloatParameterChange {
-	public var InitialValue: cpp.Float32;
-	public var CurrentValue: cpp.Float32;
+	public var InitialValue: ucpp.num.Float32;
+	public var CurrentValue: ucpp.num.Float32;
 
 	@:native("FGizmoFloatParameterChange") public function new();
-	@:native("FGizmoFloatParameterChange") public static function make(InitialValue: cpp.Float32, CurrentValue: cpp.Float32): GizmoFloatParameterChange ;
+	@:native("FGizmoFloatParameterChange") public static function make(InitialValue: ucpp.num.Float32, CurrentValue: ucpp.num.Float32): GizmoFloatParameterChange ;
 }

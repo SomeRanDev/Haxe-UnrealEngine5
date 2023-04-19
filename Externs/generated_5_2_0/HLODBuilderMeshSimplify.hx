@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODBuilderMeshSimplify")
 @:include("HLODBuilderMeshSimplify.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderMeshSimplify extends HLODBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODBuilderMeshSimplify(HLODBuilderMeshSimplify) from HLODBuilderM
 @:forward
 @:nativeGen
 @:native("HLODBuilderMeshSimplify*")
-abstract HLODBuilderMeshSimplifyPtr(cpp.Star<HLODBuilderMeshSimplify>) from cpp.Star<HLODBuilderMeshSimplify> to cpp.Star<HLODBuilderMeshSimplify>{
+abstract HLODBuilderMeshSimplifyPtr(ucpp.Ptr<HLODBuilderMeshSimplify>) from ucpp.Ptr<HLODBuilderMeshSimplify> to ucpp.Ptr<HLODBuilderMeshSimplify>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderMeshSimplify): HLODBuilderMeshSimplifyPtr {
 		return untyped __cpp__("&({0})", v);

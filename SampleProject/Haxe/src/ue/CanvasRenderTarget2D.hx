@@ -3,31 +3,31 @@ package ue;
 
 @:native("UCanvasRenderTarget2D")
 @:include("Engine/CanvasRenderTarget2D.h")
-@:structAccess
+@:valueType
 extern class CanvasRenderTarget2D extends TextureRenderTarget2D {
-	public var OnCanvasRenderTargetUpdate: HaxeMulticastSparseDelegateProperty<(cpp.Star<Canvas>, cpp.Int32, cpp.Int32) -> Void>;
+	public var OnCanvasRenderTargetUpdate: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Canvas>, ucpp.num.Int32, ucpp.num.Int32) -> Void>;
 	@:protected public var World: TWeakObjectPtr<World>;
 	@:protected public var bShouldClearRenderTargetOnReceiveUpdate: Bool;
 
 	public function UpdateResource(): Void;
-	public function ReceiveUpdate(Canvas: cpp.Star<Canvas>, Width: cpp.Int32, Height: cpp.Int32): Void;
-	public function GetSize(Width: cpp.Reference<cpp.Int32>, Height: cpp.Reference<cpp.Int32>): Void;
-	public function CreateCanvasRenderTarget2D(WorldContextObject: cpp.Star<Object>, CanvasRenderTarget2DClass: TSubclassOf<CanvasRenderTarget2D>, Width: cpp.Int32, Height: cpp.Int32): cpp.Star<CanvasRenderTarget2D>;
+	public function ReceiveUpdate(Canvas: ucpp.Ptr<Canvas>, Width: ucpp.num.Int32, Height: ucpp.num.Int32): Void;
+	public function GetSize(Width: ucpp.Ref<ucpp.num.Int32>, Height: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function CreateCanvasRenderTarget2D(WorldContextObject: ucpp.Ptr<Object>, CanvasRenderTarget2DClass: TSubclassOf<CanvasRenderTarget2D>, Width: ucpp.num.Int32, Height: ucpp.num.Int32): ucpp.Ptr<CanvasRenderTarget2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCanvasRenderTarget2D(CanvasRenderTarget2D) from CanvasRenderTarget2D {
-	public extern var OnCanvasRenderTargetUpdate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Canvas.ConstCanvas>, cpp.Int32, cpp.Int32) -> Void>;
-	public inline extern function get_OnCanvasRenderTargetUpdate(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Canvas.ConstCanvas>, cpp.Int32, cpp.Int32) -> Void> return this.OnCanvasRenderTargetUpdate;
+	public extern var OnCanvasRenderTargetUpdate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Canvas.ConstCanvas>, ucpp.num.Int32, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnCanvasRenderTargetUpdate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Canvas.ConstCanvas>, ucpp.num.Int32, ucpp.num.Int32) -> Void> return this.OnCanvasRenderTargetUpdate;
 }
 
 @:forward
 @:nativeGen
 @:native("CanvasRenderTarget2D*")
-abstract CanvasRenderTarget2DPtr(cpp.Star<CanvasRenderTarget2D>) from cpp.Star<CanvasRenderTarget2D> to cpp.Star<CanvasRenderTarget2D>{
+abstract CanvasRenderTarget2DPtr(ucpp.Ptr<CanvasRenderTarget2D>) from ucpp.Ptr<CanvasRenderTarget2D> to ucpp.Ptr<CanvasRenderTarget2D>{
 	@:from
 	public static extern inline function fromValue(v: CanvasRenderTarget2D): CanvasRenderTarget2DPtr {
 		return untyped __cpp__("&({0})", v);

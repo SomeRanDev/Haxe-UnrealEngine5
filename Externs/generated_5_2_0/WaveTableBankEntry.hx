@@ -3,7 +3,7 @@ package ue;
 
 @:native("FWaveTableBankEntry")
 @:include("WaveTableBank.h")
-@:structAccess
+@:valueType
 extern class WaveTableBankEntry {
 	public var Transform: WaveTableTransform;
 

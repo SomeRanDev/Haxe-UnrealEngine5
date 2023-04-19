@@ -3,10 +3,10 @@ package ue;
 
 @:native("UParticleModuleLocationWorldOffset")
 @:include("Particles/Location/ParticleModuleLocationWorldOffset.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocationWorldOffset extends ParticleModuleLocation {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstParticleModuleLocationWorldOffset(ParticleModuleLocationWorldOffse
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocationWorldOffset*")
-abstract ParticleModuleLocationWorldOffsetPtr(cpp.Star<ParticleModuleLocationWorldOffset>) from cpp.Star<ParticleModuleLocationWorldOffset> to cpp.Star<ParticleModuleLocationWorldOffset>{
+abstract ParticleModuleLocationWorldOffsetPtr(ucpp.Ptr<ParticleModuleLocationWorldOffset>) from ucpp.Ptr<ParticleModuleLocationWorldOffset> to ucpp.Ptr<ParticleModuleLocationWorldOffset>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocationWorldOffset): ParticleModuleLocationWorldOffsetPtr {
 		return untyped __cpp__("&({0})", v);

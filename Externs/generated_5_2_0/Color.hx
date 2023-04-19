@@ -3,13 +3,13 @@ package ue;
 
 @:native("FColor")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Color {
-	public var B: cpp.UInt8;
-	public var G: cpp.UInt8;
-	public var R: cpp.UInt8;
-	public var A: cpp.UInt8;
+	public var B: ucpp.num.UInt8;
+	public var G: ucpp.num.UInt8;
+	public var R: ucpp.num.UInt8;
+	public var A: ucpp.num.UInt8;
 
 	@:native("FColor") public function new();
-	@:native("FColor") public static function make(B: cpp.UInt8, G: cpp.UInt8, R: cpp.UInt8, A: cpp.UInt8): Color ;
+	@:native("FColor") public static function make(B: ucpp.num.UInt8, G: ucpp.num.UInt8, R: ucpp.num.UInt8, A: ucpp.num.UInt8): Color ;
 }

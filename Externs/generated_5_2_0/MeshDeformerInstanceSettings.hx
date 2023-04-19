@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshDeformerInstanceSettings")
 @:include("Animation/MeshDeformerInstance.h")
-@:structAccess
+@:valueType
 extern class MeshDeformerInstanceSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshDeformerInstanceSettings(MeshDeformerInstanceSettings) from Me
 @:forward
 @:nativeGen
 @:native("MeshDeformerInstanceSettings*")
-abstract MeshDeformerInstanceSettingsPtr(cpp.Star<MeshDeformerInstanceSettings>) from cpp.Star<MeshDeformerInstanceSettings> to cpp.Star<MeshDeformerInstanceSettings>{
+abstract MeshDeformerInstanceSettingsPtr(ucpp.Ptr<MeshDeformerInstanceSettings>) from ucpp.Ptr<MeshDeformerInstanceSettings> to ucpp.Ptr<MeshDeformerInstanceSettings>{
 	@:from
 	public static extern inline function fromValue(v: MeshDeformerInstanceSettings): MeshDeformerInstanceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

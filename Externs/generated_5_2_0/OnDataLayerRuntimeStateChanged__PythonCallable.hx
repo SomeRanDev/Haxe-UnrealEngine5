@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnDataLayerRuntimeStateChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnDataLayerRuntimeStateChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnDataLayerRuntimeStateChanged__PythonCallable(OnDataLayerRuntimeS
 @:forward
 @:nativeGen
 @:native("OnDataLayerRuntimeStateChanged__PythonCallable*")
-abstract OnDataLayerRuntimeStateChanged__PythonCallablePtr(cpp.Star<OnDataLayerRuntimeStateChanged__PythonCallable>) from cpp.Star<OnDataLayerRuntimeStateChanged__PythonCallable> to cpp.Star<OnDataLayerRuntimeStateChanged__PythonCallable>{
+abstract OnDataLayerRuntimeStateChanged__PythonCallablePtr(ucpp.Ptr<OnDataLayerRuntimeStateChanged__PythonCallable>) from ucpp.Ptr<OnDataLayerRuntimeStateChanged__PythonCallable> to ucpp.Ptr<OnDataLayerRuntimeStateChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnDataLayerRuntimeStateChanged__PythonCallable): OnDataLayerRuntimeStateChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

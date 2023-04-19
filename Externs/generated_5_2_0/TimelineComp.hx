@@ -3,37 +3,37 @@ package ue;
 
 @:native("UTimelineComponent")
 @:include("Components/TimelineComponent.h")
-@:structAccess
+@:valueType
 extern class TimelineComp extends ActorComp {
 	private var TheTimeline: Timeline;
 	private var bIgnoreTimeDilation: Bool;
 
 	public function Stop(): Void;
-	public function SetVectorCurve(NewVectorCurve: cpp.Star<CurveVector>, VectorTrackName: FName): Void;
+	public function SetVectorCurve(NewVectorCurve: ucpp.Ptr<CurveVector>, VectorTrackName: FName): Void;
 	public function SetTimelineLengthMode(NewLengthMode: TEnumAsByte<ETimelineLengthMode>): Void;
-	public function SetTimelineLength(NewLength: cpp.Float32): Void;
-	public function SetPlayRate(NewRate: cpp.Float32): Void;
-	public function SetPlaybackPosition(NewPosition: cpp.Float32, bFireEvents: Bool, bFireUpdate: Bool): Void;
-	public function SetNewTime(NewTime: cpp.Float32): Void;
+	public function SetTimelineLength(NewLength: ucpp.num.Float32): Void;
+	public function SetPlayRate(NewRate: ucpp.num.Float32): Void;
+	public function SetPlaybackPosition(NewPosition: ucpp.num.Float32, bFireEvents: Bool, bFireUpdate: Bool): Void;
+	public function SetNewTime(NewTime: ucpp.num.Float32): Void;
 	public function SetLooping(bNewLooping: Bool): Void;
-	public function SetLinearColorCurve(NewLinearColorCurve: cpp.Star<CurveLinearColor>, LinearColorTrackName: FName): Void;
+	public function SetLinearColorCurve(NewLinearColorCurve: ucpp.Ptr<CurveLinearColor>, LinearColorTrackName: FName): Void;
 	public function SetIgnoreTimeDilation(bNewIgnoreTimeDilation: Bool): Void;
-	public function SetFloatCurve(NewFloatCurve: cpp.Star<CurveFloat>, FloatTrackName: FName): Void;
+	public function SetFloatCurve(NewFloatCurve: ucpp.Ptr<CurveFloat>, FloatTrackName: FName): Void;
 	public function ReverseFromEnd(): Void;
 	public function Reverse(): Void;
 	public function PlayFromStart(): Void;
 	public function Play(): Void;
-	public function OnRep_Timeline(OldTimeline: cpp.Reference<Timeline>): Void;
+	public function OnRep_Timeline(OldTimeline: ucpp.Ref<Timeline>): Void;
 	public function IsReversing(): Bool;
 	public function IsPlaying(): Bool;
 	public function IsLooping(): Bool;
-	public function GetTimelineLength(): cpp.Float32;
-	public function GetScaledTimelineLength(): cpp.Float32;
-	public function GetPlayRate(): cpp.Float32;
-	public function GetPlaybackPosition(): cpp.Float32;
+	public function GetTimelineLength(): ucpp.num.Float32;
+	public function GetScaledTimelineLength(): ucpp.num.Float32;
+	public function GetPlayRate(): ucpp.num.Float32;
+	public function GetPlaybackPosition(): ucpp.num.Float32;
 	public function GetIgnoreTimeDilation(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsReversing, IsPlaying, IsLooping, GetTimelineLength, GetScaledTimelineLength, GetPlayRate, GetPlaybackPosition, GetIgnoreTimeDilation)
@@ -44,7 +44,7 @@ abstract ConstTimelineComp(TimelineComp) from TimelineComp {
 @:forward
 @:nativeGen
 @:native("TimelineComp*")
-abstract TimelineCompPtr(cpp.Star<TimelineComp>) from cpp.Star<TimelineComp> to cpp.Star<TimelineComp>{
+abstract TimelineCompPtr(ucpp.Ptr<TimelineComp>) from ucpp.Ptr<TimelineComp> to ucpp.Ptr<TimelineComp>{
 	@:from
 	public static extern inline function fromValue(v: TimelineComp): TimelineCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBodyInstanceCore")
 @:include("BodyInstanceCore.h")
-@:structAccess
+@:valueType
 extern class BodyInstanceCore {
 	public var bSimulatePhysics: Bool;
 	public var bOverrideMass: Bool;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBeamModifierOptions")
 @:include("Particles/Beam/ParticleModuleBeamModifier.h")
-@:structAccess
+@:valueType
 extern class BeamModifierOptions {
 	public var bModify: Bool;
 	public var bScale: Bool;

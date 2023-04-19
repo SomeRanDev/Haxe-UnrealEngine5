@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTickableScaleConstraint")
 @:include("TransformConstraint.h")
-@:structAccess
+@:valueType
 extern class TickableScaleConstraint extends TickableTransformConstraint {
 	@:protected public var OffsetScale: Vector;
 	@:protected public var AxisFilter: FilterOptionPerAxis;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstTickableScaleConstraint(TickableScaleConstraint) from TickableScal
 @:forward
 @:nativeGen
 @:native("TickableScaleConstraint*")
-abstract TickableScaleConstraintPtr(cpp.Star<TickableScaleConstraint>) from cpp.Star<TickableScaleConstraint> to cpp.Star<TickableScaleConstraint>{
+abstract TickableScaleConstraintPtr(ucpp.Ptr<TickableScaleConstraint>) from ucpp.Ptr<TickableScaleConstraint> to ucpp.Ptr<TickableScaleConstraint>{
 	@:from
 	public static extern inline function fromValue(v: TickableScaleConstraint): TickableScaleConstraintPtr {
 		return untyped __cpp__("&({0})", v);

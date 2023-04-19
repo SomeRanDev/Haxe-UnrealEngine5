@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UGizmoStateTarget")
-@:structAccess
+@:valueType
 extern class GizmoStateTarget extends Interface {
 	public function EndUpdate(): Void;
 	public function BeginUpdate(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstGizmoStateTarget(GizmoStateTarget) from GizmoStateTarget {
 @:forward
 @:nativeGen
 @:native("GizmoStateTarget*")
-abstract GizmoStateTargetPtr(cpp.Star<GizmoStateTarget>) from cpp.Star<GizmoStateTarget> to cpp.Star<GizmoStateTarget>{
+abstract GizmoStateTargetPtr(ucpp.Ptr<GizmoStateTarget>) from ucpp.Ptr<GizmoStateTarget> to ucpp.Ptr<GizmoStateTarget>{
 	@:from
 	public static extern inline function fromValue(v: GizmoStateTarget): GizmoStateTargetPtr {
 		return untyped __cpp__("&({0})", v);

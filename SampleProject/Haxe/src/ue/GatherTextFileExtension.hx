@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGatherTextFileExtension")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class GatherTextFileExtension {
 	public var Pattern: FString;
 

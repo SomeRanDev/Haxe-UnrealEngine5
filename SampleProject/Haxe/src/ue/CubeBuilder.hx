@@ -3,30 +3,30 @@ package ue;
 
 @:native("UCubeBuilder")
 @:include("Builders/CubeBuilder.h")
-@:structAccess
+@:valueType
 extern class CubeBuilder extends EditorBrushBuilder {
-	public var X: cpp.Float32;
-	public var Y: cpp.Float32;
-	public var Z: cpp.Float32;
-	public var WallThickness: cpp.Float32;
+	public var X: ucpp.num.Float32;
+	public var Y: ucpp.num.Float32;
+	public var Z: ucpp.num.Float32;
+	public var WallThickness: ucpp.num.Float32;
 	public var GroupName: FName;
 	public var Hollow: Bool;
 	public var Tessellated: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCubeBuilder(CubeBuilder) from CubeBuilder {
-	public extern var X(get, never): cpp.Float32;
-	public inline extern function get_X(): cpp.Float32 return this.X;
-	public extern var Y(get, never): cpp.Float32;
-	public inline extern function get_Y(): cpp.Float32 return this.Y;
-	public extern var Z(get, never): cpp.Float32;
-	public inline extern function get_Z(): cpp.Float32 return this.Z;
-	public extern var WallThickness(get, never): cpp.Float32;
-	public inline extern function get_WallThickness(): cpp.Float32 return this.WallThickness;
+	public extern var X(get, never): ucpp.num.Float32;
+	public inline extern function get_X(): ucpp.num.Float32 return this.X;
+	public extern var Y(get, never): ucpp.num.Float32;
+	public inline extern function get_Y(): ucpp.num.Float32 return this.Y;
+	public extern var Z(get, never): ucpp.num.Float32;
+	public inline extern function get_Z(): ucpp.num.Float32 return this.Z;
+	public extern var WallThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_WallThickness(): ucpp.num.Float32 return this.WallThickness;
 	public extern var GroupName(get, never): FName;
 	public inline extern function get_GroupName(): FName return this.GroupName;
 	public extern var Hollow(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstCubeBuilder(CubeBuilder) from CubeBuilder {
 @:forward
 @:nativeGen
 @:native("CubeBuilder*")
-abstract CubeBuilderPtr(cpp.Star<CubeBuilder>) from cpp.Star<CubeBuilder> to cpp.Star<CubeBuilder>{
+abstract CubeBuilderPtr(ucpp.Ptr<CubeBuilder>) from ucpp.Ptr<CubeBuilder> to ucpp.Ptr<CubeBuilder>{
 	@:from
 	public static extern inline function fromValue(v: CubeBuilder): CubeBuilderPtr {
 		return untyped __cpp__("&({0})", v);

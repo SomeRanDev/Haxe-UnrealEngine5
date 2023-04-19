@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULinkedAnimGraphLibrary")
 @:include("LinkedAnimGraphLibrary.h")
-@:structAccess
+@:valueType
 extern class LinkedAnimGraphLibrary extends BlueprintFunctionLibrary {
-	public function HasLinkedAnimInstance(Node: cpp.Reference<LinkedAnimGraphReference>): Bool;
-	public function GetLinkedAnimInstance(Node: cpp.Reference<LinkedAnimGraphReference>): cpp.Star<AnimInstance>;
-	public function ConvertToLinkedAnimGraphPure(Node: cpp.Reference<AnimNodeReference>, LinkedAnimGraph: cpp.Reference<LinkedAnimGraphReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToLinkedAnimGraph(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): LinkedAnimGraphReference;
+	public function HasLinkedAnimInstance(Node: ucpp.Ref<LinkedAnimGraphReference>): Bool;
+	public function GetLinkedAnimInstance(Node: ucpp.Ref<LinkedAnimGraphReference>): ucpp.Ptr<AnimInstance>;
+	public function ConvertToLinkedAnimGraphPure(Node: ucpp.Ref<AnimNodeReference>, LinkedAnimGraph: ucpp.Ref<LinkedAnimGraphReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToLinkedAnimGraph(Node: ucpp.Ref<AnimNodeReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): LinkedAnimGraphReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLinkedAnimGraphLibrary(LinkedAnimGraphLibrary) from LinkedAnimGrap
 @:forward
 @:nativeGen
 @:native("LinkedAnimGraphLibrary*")
-abstract LinkedAnimGraphLibraryPtr(cpp.Star<LinkedAnimGraphLibrary>) from cpp.Star<LinkedAnimGraphLibrary> to cpp.Star<LinkedAnimGraphLibrary>{
+abstract LinkedAnimGraphLibraryPtr(ucpp.Ptr<LinkedAnimGraphLibrary>) from ucpp.Ptr<LinkedAnimGraphLibrary> to ucpp.Ptr<LinkedAnimGraphLibrary>{
 	@:from
 	public static extern inline function fromValue(v: LinkedAnimGraphLibrary): LinkedAnimGraphLibraryPtr {
 		return untyped __cpp__("&({0})", v);

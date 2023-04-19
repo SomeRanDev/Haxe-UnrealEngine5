@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAddRectanglePrimitiveTool")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class AddRectanglePrimitiveTool extends AddPrimitiveTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAddRectanglePrimitiveTool(AddRectanglePrimitiveTool) from AddRecta
 @:forward
 @:nativeGen
 @:native("AddRectanglePrimitiveTool*")
-abstract AddRectanglePrimitiveToolPtr(cpp.Star<AddRectanglePrimitiveTool>) from cpp.Star<AddRectanglePrimitiveTool> to cpp.Star<AddRectanglePrimitiveTool>{
+abstract AddRectanglePrimitiveToolPtr(ucpp.Ptr<AddRectanglePrimitiveTool>) from ucpp.Ptr<AddRectanglePrimitiveTool> to ucpp.Ptr<AddRectanglePrimitiveTool>{
 	@:from
 	public static extern inline function fromValue(v: AddRectanglePrimitiveTool): AddRectanglePrimitiveToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnchors")
 @:include("Widgets/Layout/Anchors.h")
-@:structAccess
+@:valueType
 extern class Anchors {
 	public var Minimum: Vector2D;
 	public var Maximum: Vector2D;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FInterchangeLodSceneNodeContainer")
 @:include("InterchangePipelineMeshesUtilities.h")
-@:structAccess
+@:valueType
 extern class InterchangeLodSceneNodeContainer {
-	public var SceneNodes: TArray<cpp.Star<InterchangeSceneNode>>;
+	public var SceneNodes: TArray<ucpp.Ptr<InterchangeSceneNode>>;
 
 	@:native("FInterchangeLodSceneNodeContainer") public function new();
-	@:native("FInterchangeLodSceneNodeContainer") public static function make(SceneNodes: TArray<cpp.Star<InterchangeSceneNode>>): InterchangeLodSceneNodeContainer ;
+	@:native("FInterchangeLodSceneNodeContainer") public static function make(SceneNodes: TArray<ucpp.Ptr<InterchangeSceneNode>>): InterchangeLodSceneNodeContainer ;
 }

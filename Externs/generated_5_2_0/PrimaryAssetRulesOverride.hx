@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPrimaryAssetRulesOverride")
 @:include("Engine/AssetManagerSettings.h")
-@:structAccess
+@:valueType
 extern class PrimaryAssetRulesOverride {
 	public var PrimaryAssetId: PrimaryAssetId;
 	public var Rules: PrimaryAssetRules;

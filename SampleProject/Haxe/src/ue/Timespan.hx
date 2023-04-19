@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTimespan")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Timespan {
 	@:native("FTimespan") public function new();
 }

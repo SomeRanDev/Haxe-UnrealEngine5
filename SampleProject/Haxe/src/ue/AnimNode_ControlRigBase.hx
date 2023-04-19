@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_ControlRigBase")
 @:include("AnimNode_ControlRigBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ControlRigBase extends AnimNode_CustomProperty {
 	@:protected public var Source: PoseLink;
 	@:protected public var bResetInputPoseToInitial: Bool;
@@ -15,6 +15,7 @@ extern class AnimNode_ControlRigBase extends AnimNode_CustomProperty {
 	@:protected public var InputSettings: ControlRigIOSettings;
 	@:protected public var OutputSettings: ControlRigIOSettings;
 	@:protected public var bExecute: Bool;
+	@:protected public var EventQueue: TArray<ControlRigAnimNodeEventName>;
 
 	@:native("FAnimNode_ControlRigBase") public function new();
 }

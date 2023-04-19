@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraValidationRule_LWC")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_LWC extends NiagaraValidationRule {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraValidationRule_LWC(NiagaraValidationRule_LWC) from NiagaraV
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_LWC*")
-abstract NiagaraValidationRule_LWCPtr(cpp.Star<NiagaraValidationRule_LWC>) from cpp.Star<NiagaraValidationRule_LWC> to cpp.Star<NiagaraValidationRule_LWC>{
+abstract NiagaraValidationRule_LWCPtr(ucpp.Ptr<NiagaraValidationRule_LWC>) from ucpp.Ptr<NiagaraValidationRule_LWC> to ucpp.Ptr<NiagaraValidationRule_LWC>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_LWC): NiagaraValidationRule_LWCPtr {
 		return untyped __cpp__("&({0})", v);

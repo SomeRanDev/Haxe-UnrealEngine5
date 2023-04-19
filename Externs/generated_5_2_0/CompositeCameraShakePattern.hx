@@ -3,24 +3,24 @@ package ue;
 
 @:native("UCompositeCameraShakePattern")
 @:include("CompositeCameraShakePattern.h")
-@:structAccess
+@:valueType
 extern class CompositeCameraShakePattern extends CameraShakePattern {
-	public var ChildPatterns: TArray<cpp.Star<CameraShakePattern>>;
+	public var ChildPatterns: TArray<ucpp.Ptr<CameraShakePattern>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCompositeCameraShakePattern(CompositeCameraShakePattern) from CompositeCameraShakePattern {
-	public extern var ChildPatterns(get, never): TArray<cpp.Star<CameraShakePattern.ConstCameraShakePattern>>;
-	public inline extern function get_ChildPatterns(): TArray<cpp.Star<CameraShakePattern.ConstCameraShakePattern>> return this.ChildPatterns;
+	public extern var ChildPatterns(get, never): TArray<ucpp.Ptr<CameraShakePattern.ConstCameraShakePattern>>;
+	public inline extern function get_ChildPatterns(): TArray<ucpp.Ptr<CameraShakePattern.ConstCameraShakePattern>> return this.ChildPatterns;
 }
 
 @:forward
 @:nativeGen
 @:native("CompositeCameraShakePattern*")
-abstract CompositeCameraShakePatternPtr(cpp.Star<CompositeCameraShakePattern>) from cpp.Star<CompositeCameraShakePattern> to cpp.Star<CompositeCameraShakePattern>{
+abstract CompositeCameraShakePatternPtr(ucpp.Ptr<CompositeCameraShakePattern>) from ucpp.Ptr<CompositeCameraShakePattern> to ucpp.Ptr<CompositeCameraShakePattern>{
 	@:from
 	public static extern inline function fromValue(v: CompositeCameraShakePattern): CompositeCameraShakePatternPtr {
 		return untyped __cpp__("&({0})", v);

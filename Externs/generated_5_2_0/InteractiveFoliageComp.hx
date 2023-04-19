@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInteractiveFoliageComponent")
 @:include("InteractiveFoliageComponent.h")
-@:structAccess
+@:valueType
 extern class InteractiveFoliageComp extends StaticMeshComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInteractiveFoliageComp(InteractiveFoliageComp) from InteractiveFol
 @:forward
 @:nativeGen
 @:native("InteractiveFoliageComp*")
-abstract InteractiveFoliageCompPtr(cpp.Star<InteractiveFoliageComp>) from cpp.Star<InteractiveFoliageComp> to cpp.Star<InteractiveFoliageComp>{
+abstract InteractiveFoliageCompPtr(ucpp.Ptr<InteractiveFoliageComp>) from ucpp.Ptr<InteractiveFoliageComp> to ucpp.Ptr<InteractiveFoliageComp>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveFoliageComp): InteractiveFoliageCompPtr {
 		return untyped __cpp__("&({0})", v);

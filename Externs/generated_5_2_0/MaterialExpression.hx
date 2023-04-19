@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMaterialExpression")
 @:include("Materials/MaterialExpression.h")
-@:structAccess
+@:valueType
 extern class MaterialExpression extends Object {
-	public var MaterialExpressionEditorX: cpp.Int32;
-	public var MaterialExpressionEditorY: cpp.Int32;
-	public var GraphNode: cpp.Star<EdGraphNode>;
-	public var SubgraphExpression: cpp.Star<MaterialExpression>;
+	public var MaterialExpressionEditorX: ucpp.num.Int32;
+	public var MaterialExpressionEditorY: ucpp.num.Int32;
+	public var GraphNode: ucpp.Ptr<EdGraphNode>;
+	public var SubgraphExpression: ucpp.Ptr<MaterialExpression>;
 	public var MaterialExpressionGuid: Guid;
-	public var Material: cpp.Star<Material>;
-	public var Function: cpp.Star<MaterialFunction>;
+	public var Material: ucpp.Ptr<Material>;
+	public var Function: ucpp.Ptr<MaterialFunction>;
 	public var Desc: FString;
 	public var bRealtimePreview: Bool;
 	public var bNeedToUpdatePreview: Bool;
@@ -27,26 +27,26 @@ extern class MaterialExpression extends Object {
 	public var MenuCategories: TArray<FText>;
 	public var Outputs: TArray<ExpressionOutput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpression(MaterialExpression) from MaterialExpression {
-	public extern var MaterialExpressionEditorX(get, never): cpp.Int32;
-	public inline extern function get_MaterialExpressionEditorX(): cpp.Int32 return this.MaterialExpressionEditorX;
-	public extern var MaterialExpressionEditorY(get, never): cpp.Int32;
-	public inline extern function get_MaterialExpressionEditorY(): cpp.Int32 return this.MaterialExpressionEditorY;
-	public extern var GraphNode(get, never): cpp.Star<EdGraphNode.ConstEdGraphNode>;
-	public inline extern function get_GraphNode(): cpp.Star<EdGraphNode.ConstEdGraphNode> return this.GraphNode;
-	public extern var SubgraphExpression(get, never): cpp.Star<MaterialExpression.ConstMaterialExpression>;
-	public inline extern function get_SubgraphExpression(): cpp.Star<MaterialExpression.ConstMaterialExpression> return this.SubgraphExpression;
+	public extern var MaterialExpressionEditorX(get, never): ucpp.num.Int32;
+	public inline extern function get_MaterialExpressionEditorX(): ucpp.num.Int32 return this.MaterialExpressionEditorX;
+	public extern var MaterialExpressionEditorY(get, never): ucpp.num.Int32;
+	public inline extern function get_MaterialExpressionEditorY(): ucpp.num.Int32 return this.MaterialExpressionEditorY;
+	public extern var GraphNode(get, never): ucpp.Ptr<EdGraphNode.ConstEdGraphNode>;
+	public inline extern function get_GraphNode(): ucpp.Ptr<EdGraphNode.ConstEdGraphNode> return this.GraphNode;
+	public extern var SubgraphExpression(get, never): ucpp.Ptr<MaterialExpression.ConstMaterialExpression>;
+	public inline extern function get_SubgraphExpression(): ucpp.Ptr<MaterialExpression.ConstMaterialExpression> return this.SubgraphExpression;
 	public extern var MaterialExpressionGuid(get, never): Guid;
 	public inline extern function get_MaterialExpressionGuid(): Guid return this.MaterialExpressionGuid;
-	public extern var Material(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_Material(): cpp.Star<Material.ConstMaterial> return this.Material;
-	public extern var Function(get, never): cpp.Star<MaterialFunction.ConstMaterialFunction>;
-	public inline extern function get_Function(): cpp.Star<MaterialFunction.ConstMaterialFunction> return this.Function;
+	public extern var Material(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_Material(): ucpp.Ptr<Material.ConstMaterial> return this.Material;
+	public extern var Function(get, never): ucpp.Ptr<MaterialFunction.ConstMaterialFunction>;
+	public inline extern function get_Function(): ucpp.Ptr<MaterialFunction.ConstMaterialFunction> return this.Function;
 	public extern var Desc(get, never): FString;
 	public inline extern function get_Desc(): FString return this.Desc;
 	public extern var bRealtimePreview(get, never): Bool;
@@ -80,7 +80,7 @@ abstract ConstMaterialExpression(MaterialExpression) from MaterialExpression {
 @:forward
 @:nativeGen
 @:native("MaterialExpression*")
-abstract MaterialExpressionPtr(cpp.Star<MaterialExpression>) from cpp.Star<MaterialExpression> to cpp.Star<MaterialExpression>{
+abstract MaterialExpressionPtr(ucpp.Ptr<MaterialExpression>) from ucpp.Ptr<MaterialExpression> to ucpp.Ptr<MaterialExpression>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpression): MaterialExpressionPtr {
 		return untyped __cpp__("&({0})", v);

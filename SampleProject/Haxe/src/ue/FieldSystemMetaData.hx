@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFieldSystemMetaData")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class FieldSystemMetaData extends ActorComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFieldSystemMetaData(FieldSystemMetaData) from FieldSystemMetaData 
 @:forward
 @:nativeGen
 @:native("FieldSystemMetaData*")
-abstract FieldSystemMetaDataPtr(cpp.Star<FieldSystemMetaData>) from cpp.Star<FieldSystemMetaData> to cpp.Star<FieldSystemMetaData>{
+abstract FieldSystemMetaDataPtr(ucpp.Ptr<FieldSystemMetaData>) from ucpp.Ptr<FieldSystemMetaData> to ucpp.Ptr<FieldSystemMetaData>{
 	@:from
 	public static extern inline function fromValue(v: FieldSystemMetaData): FieldSystemMetaDataPtr {
 		return untyped __cpp__("&({0})", v);

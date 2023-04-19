@@ -2,14 +2,14 @@
 package ue;
 
 @:native("UGizmoFloatParameterSource")
-@:structAccess
+@:valueType
 extern class GizmoFloatParameterSource extends Interface {
-	public function SetParameter(NewValue: cpp.Float32): Void;
-	public function GetParameter(): cpp.Float32;
+	public function SetParameter(NewValue: ucpp.num.Float32): Void;
+	public function GetParameter(): ucpp.num.Float32;
 	public function EndModify(): Void;
 	public function BeginModify(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetParameter)
@@ -20,7 +20,7 @@ abstract ConstGizmoFloatParameterSource(GizmoFloatParameterSource) from GizmoFlo
 @:forward
 @:nativeGen
 @:native("GizmoFloatParameterSource*")
-abstract GizmoFloatParameterSourcePtr(cpp.Star<GizmoFloatParameterSource>) from cpp.Star<GizmoFloatParameterSource> to cpp.Star<GizmoFloatParameterSource>{
+abstract GizmoFloatParameterSourcePtr(ucpp.Ptr<GizmoFloatParameterSource>) from ucpp.Ptr<GizmoFloatParameterSource> to ucpp.Ptr<GizmoFloatParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoFloatParameterSource): GizmoFloatParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

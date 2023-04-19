@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULandedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class LandedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLandedSignature__PythonCallable(LandedSignature__PythonCallable) f
 @:forward
 @:nativeGen
 @:native("LandedSignature__PythonCallable*")
-abstract LandedSignature__PythonCallablePtr(cpp.Star<LandedSignature__PythonCallable>) from cpp.Star<LandedSignature__PythonCallable> to cpp.Star<LandedSignature__PythonCallable>{
+abstract LandedSignature__PythonCallablePtr(ucpp.Ptr<LandedSignature__PythonCallable>) from ucpp.Ptr<LandedSignature__PythonCallable> to ucpp.Ptr<LandedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: LandedSignature__PythonCallable): LandedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

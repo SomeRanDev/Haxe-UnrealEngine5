@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMaterialGraphNode_Comment")
 @:include("MaterialGraph/MaterialGraphNode_Comment.h")
-@:structAccess
+@:valueType
 extern class MaterialGraphNode_Comment extends EdGraphNode_Comment {
-	public var MaterialExpressionComment: cpp.Star<MaterialExpressionComment>;
+	public var MaterialExpressionComment: ucpp.Ptr<MaterialExpressionComment>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialGraphNode_Comment(MaterialGraphNode_Comment) from MaterialGraphNode_Comment {
-	public extern var MaterialExpressionComment(get, never): cpp.Star<MaterialExpressionComment.ConstMaterialExpressionComment>;
-	public inline extern function get_MaterialExpressionComment(): cpp.Star<MaterialExpressionComment.ConstMaterialExpressionComment> return this.MaterialExpressionComment;
+	public extern var MaterialExpressionComment(get, never): ucpp.Ptr<MaterialExpressionComment.ConstMaterialExpressionComment>;
+	public inline extern function get_MaterialExpressionComment(): ucpp.Ptr<MaterialExpressionComment.ConstMaterialExpressionComment> return this.MaterialExpressionComment;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialGraphNode_Comment*")
-abstract MaterialGraphNode_CommentPtr(cpp.Star<MaterialGraphNode_Comment>) from cpp.Star<MaterialGraphNode_Comment> to cpp.Star<MaterialGraphNode_Comment>{
+abstract MaterialGraphNode_CommentPtr(ucpp.Ptr<MaterialGraphNode_Comment>) from ucpp.Ptr<MaterialGraphNode_Comment> to ucpp.Ptr<MaterialGraphNode_Comment>{
 	@:from
 	public static extern inline function fromValue(v: MaterialGraphNode_Comment): MaterialGraphNode_CommentPtr {
 		return untyped __cpp__("&({0})", v);

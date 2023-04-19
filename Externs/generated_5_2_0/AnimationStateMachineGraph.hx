@@ -3,27 +3,27 @@ package ue;
 
 @:native("UAnimationStateMachineGraph")
 @:include("AnimationStateMachineGraph.h")
-@:structAccess
+@:valueType
 extern class AnimationStateMachineGraph extends EdGraph {
-	public var EntryNode: cpp.Star<AnimStateEntryNode>;
-	public var OwnerAnimGraphNode: cpp.Star<AnimGraphNode_StateMachineBase>;
+	public var EntryNode: ucpp.Ptr<AnimStateEntryNode>;
+	public var OwnerAnimGraphNode: ucpp.Ptr<AnimGraphNode_StateMachineBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimationStateMachineGraph(AnimationStateMachineGraph) from AnimationStateMachineGraph {
-	public extern var EntryNode(get, never): cpp.Star<AnimStateEntryNode.ConstAnimStateEntryNode>;
-	public inline extern function get_EntryNode(): cpp.Star<AnimStateEntryNode.ConstAnimStateEntryNode> return this.EntryNode;
-	public extern var OwnerAnimGraphNode(get, never): cpp.Star<AnimGraphNode_StateMachineBase.ConstAnimGraphNode_StateMachineBase>;
-	public inline extern function get_OwnerAnimGraphNode(): cpp.Star<AnimGraphNode_StateMachineBase.ConstAnimGraphNode_StateMachineBase> return this.OwnerAnimGraphNode;
+	public extern var EntryNode(get, never): ucpp.Ptr<AnimStateEntryNode.ConstAnimStateEntryNode>;
+	public inline extern function get_EntryNode(): ucpp.Ptr<AnimStateEntryNode.ConstAnimStateEntryNode> return this.EntryNode;
+	public extern var OwnerAnimGraphNode(get, never): ucpp.Ptr<AnimGraphNode_StateMachineBase.ConstAnimGraphNode_StateMachineBase>;
+	public inline extern function get_OwnerAnimGraphNode(): ucpp.Ptr<AnimGraphNode_StateMachineBase.ConstAnimGraphNode_StateMachineBase> return this.OwnerAnimGraphNode;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimationStateMachineGraph*")
-abstract AnimationStateMachineGraphPtr(cpp.Star<AnimationStateMachineGraph>) from cpp.Star<AnimationStateMachineGraph> to cpp.Star<AnimationStateMachineGraph>{
+abstract AnimationStateMachineGraphPtr(ucpp.Ptr<AnimationStateMachineGraph>) from ucpp.Ptr<AnimationStateMachineGraph> to ucpp.Ptr<AnimationStateMachineGraph>{
 	@:from
 	public static extern inline function fromValue(v: AnimationStateMachineGraph): AnimationStateMachineGraphPtr {
 		return untyped __cpp__("&({0})", v);

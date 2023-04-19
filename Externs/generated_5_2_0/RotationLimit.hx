@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRotationLimit")
 @:include("BoneControllers/AnimNode_Trail.h")
-@:structAccess
+@:valueType
 extern class RotationLimit {
 	public var LimitMin: Vector;
 	public var LimitMax: Vector;

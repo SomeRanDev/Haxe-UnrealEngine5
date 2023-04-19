@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTemplateSequenceSystem")
 @:include("Systems/TemplateSequenceSystem.h")
-@:structAccess
+@:valueType
 extern class TemplateSequenceSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTemplateSequenceSystem(TemplateSequenceSystem) from TemplateSequen
 @:forward
 @:nativeGen
 @:native("TemplateSequenceSystem*")
-abstract TemplateSequenceSystemPtr(cpp.Star<TemplateSequenceSystem>) from cpp.Star<TemplateSequenceSystem> to cpp.Star<TemplateSequenceSystem>{
+abstract TemplateSequenceSystemPtr(ucpp.Ptr<TemplateSequenceSystem>) from ucpp.Ptr<TemplateSequenceSystem> to ucpp.Ptr<TemplateSequenceSystem>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequenceSystem): TemplateSequenceSystemPtr {
 		return untyped __cpp__("&({0})", v);

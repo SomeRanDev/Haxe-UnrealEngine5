@@ -3,12 +3,12 @@ package ue;
 
 @:native("UPolyEditCutProperties")
 @:include("ToolActivities/PolyEditCutFacesActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditCutProperties extends InteractiveToolPropertySet {
 	public var Orientation: EPolyEditCutPlaneOrientation;
 	public var bSnapToVertices: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstPolyEditCutProperties(PolyEditCutProperties) from PolyEditCutPrope
 @:forward
 @:nativeGen
 @:native("PolyEditCutProperties*")
-abstract PolyEditCutPropertiesPtr(cpp.Star<PolyEditCutProperties>) from cpp.Star<PolyEditCutProperties> to cpp.Star<PolyEditCutProperties>{
+abstract PolyEditCutPropertiesPtr(ucpp.Ptr<PolyEditCutProperties>) from ucpp.Ptr<PolyEditCutProperties> to ucpp.Ptr<PolyEditCutProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditCutProperties): PolyEditCutPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

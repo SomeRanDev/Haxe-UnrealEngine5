@@ -3,22 +3,23 @@ package ue;
 
 @:native("UAnimBlueprint")
 @:include("Animation/AnimBlueprint.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprint extends Blueprint {
-	public var TargetSkeleton: cpp.Star<Skeleton>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
 	public var Groups: TArray<AnimGroupInfo>;
 	public var bIsTemplate: Bool;
 	public var bUseMultiThreadedAnimationUpdate: Bool;
 	public var bWarnAboutBlueprintUsage: Bool;
+	public var bEnableLinkedAnimLayerInstanceSharing: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimBlueprint(AnimBlueprint) from AnimBlueprint {
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
 	public extern var Groups(get, never): TArray<AnimGroupInfo>;
 	public inline extern function get_Groups(): TArray<AnimGroupInfo> return this.Groups;
 	public extern var bIsTemplate(get, never): Bool;
@@ -27,12 +28,14 @@ abstract ConstAnimBlueprint(AnimBlueprint) from AnimBlueprint {
 	public inline extern function get_bUseMultiThreadedAnimationUpdate(): Bool return this.bUseMultiThreadedAnimationUpdate;
 	public extern var bWarnAboutBlueprintUsage(get, never): Bool;
 	public inline extern function get_bWarnAboutBlueprintUsage(): Bool return this.bWarnAboutBlueprintUsage;
+	public extern var bEnableLinkedAnimLayerInstanceSharing(get, never): Bool;
+	public inline extern function get_bEnableLinkedAnimLayerInstanceSharing(): Bool return this.bEnableLinkedAnimLayerInstanceSharing;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimBlueprint*")
-abstract AnimBlueprintPtr(cpp.Star<AnimBlueprint>) from cpp.Star<AnimBlueprint> to cpp.Star<AnimBlueprint>{
+abstract AnimBlueprintPtr(ucpp.Ptr<AnimBlueprint>) from ucpp.Ptr<AnimBlueprint> to ucpp.Ptr<AnimBlueprint>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprint): AnimBlueprintPtr {
 		return untyped __cpp__("&({0})", v);

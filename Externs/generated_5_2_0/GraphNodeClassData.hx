@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGraphNodeClassData")
 @:include("AIGraphTypes.h")
-@:structAccess
+@:valueType
 extern class GraphNodeClassData {
 	private var AssetName: FString;
 	private var GeneratedClassPackage: FString;

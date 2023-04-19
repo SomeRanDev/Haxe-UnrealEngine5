@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolSetRemoveOnBreak")
 @:include("FractureToolProperties.h")
-@:structAccess
+@:valueType
 extern class FractureToolSetRemoveOnBreak extends FractureModalTool {
-	public var RemoveOnBreakSettings: cpp.Star<FractureRemoveOnBreakSettings>;
+	public var RemoveOnBreakSettings: ucpp.Ptr<FractureRemoveOnBreakSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolSetRemoveOnBreak(FractureToolSetRemoveOnBreak) from FractureToolSetRemoveOnBreak {
-	public extern var RemoveOnBreakSettings(get, never): cpp.Star<FractureRemoveOnBreakSettings.ConstFractureRemoveOnBreakSettings>;
-	public inline extern function get_RemoveOnBreakSettings(): cpp.Star<FractureRemoveOnBreakSettings.ConstFractureRemoveOnBreakSettings> return this.RemoveOnBreakSettings;
+	public extern var RemoveOnBreakSettings(get, never): ucpp.Ptr<FractureRemoveOnBreakSettings.ConstFractureRemoveOnBreakSettings>;
+	public inline extern function get_RemoveOnBreakSettings(): ucpp.Ptr<FractureRemoveOnBreakSettings.ConstFractureRemoveOnBreakSettings> return this.RemoveOnBreakSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolSetRemoveOnBreak*")
-abstract FractureToolSetRemoveOnBreakPtr(cpp.Star<FractureToolSetRemoveOnBreak>) from cpp.Star<FractureToolSetRemoveOnBreak> to cpp.Star<FractureToolSetRemoveOnBreak>{
+abstract FractureToolSetRemoveOnBreakPtr(ucpp.Ptr<FractureToolSetRemoveOnBreak>) from ucpp.Ptr<FractureToolSetRemoveOnBreak> to ucpp.Ptr<FractureToolSetRemoveOnBreak>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolSetRemoveOnBreak): FractureToolSetRemoveOnBreakPtr {
 		return untyped __cpp__("&({0})", v);

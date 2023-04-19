@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnMontageBlendingOutStartedMCDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnMontageBlendingOutStartedMCDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnMontageBlendingOutStartedMCDelegate__PythonCallable(OnMontageBle
 @:forward
 @:nativeGen
 @:native("OnMontageBlendingOutStartedMCDelegate__PythonCallable*")
-abstract OnMontageBlendingOutStartedMCDelegate__PythonCallablePtr(cpp.Star<OnMontageBlendingOutStartedMCDelegate__PythonCallable>) from cpp.Star<OnMontageBlendingOutStartedMCDelegate__PythonCallable> to cpp.Star<OnMontageBlendingOutStartedMCDelegate__PythonCallable>{
+abstract OnMontageBlendingOutStartedMCDelegate__PythonCallablePtr(ucpp.Ptr<OnMontageBlendingOutStartedMCDelegate__PythonCallable>) from ucpp.Ptr<OnMontageBlendingOutStartedMCDelegate__PythonCallable> to ucpp.Ptr<OnMontageBlendingOutStartedMCDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnMontageBlendingOutStartedMCDelegate__PythonCallable): OnMontageBlendingOutStartedMCDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

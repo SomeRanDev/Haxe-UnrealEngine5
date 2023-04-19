@@ -3,14 +3,14 @@ package ue;
 
 @:native("UARTexture")
 @:include("ARTextures.h")
-@:structAccess
+@:valueType
 extern class ARTexture extends Texture {
 	public var TextureType: EARTextureType;
-	public var Timestamp: cpp.Float32;
+	public var Timestamp: ucpp.num.Float32;
 	public var ExternalTextureGuid: Guid;
 	public var Size: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,8 +18,8 @@ extern class ARTexture extends Texture {
 abstract ConstARTexture(ARTexture) from ARTexture {
 	public extern var TextureType(get, never): EARTextureType;
 	public inline extern function get_TextureType(): EARTextureType return this.TextureType;
-	public extern var Timestamp(get, never): cpp.Float32;
-	public inline extern function get_Timestamp(): cpp.Float32 return this.Timestamp;
+	public extern var Timestamp(get, never): ucpp.num.Float32;
+	public inline extern function get_Timestamp(): ucpp.num.Float32 return this.Timestamp;
 	public extern var ExternalTextureGuid(get, never): Guid;
 	public inline extern function get_ExternalTextureGuid(): Guid return this.ExternalTextureGuid;
 	public extern var Size(get, never): Vector2D;
@@ -29,7 +29,7 @@ abstract ConstARTexture(ARTexture) from ARTexture {
 @:forward
 @:nativeGen
 @:native("ARTexture*")
-abstract ARTexturePtr(cpp.Star<ARTexture>) from cpp.Star<ARTexture> to cpp.Star<ARTexture>{
+abstract ARTexturePtr(ucpp.Ptr<ARTexture>) from ucpp.Ptr<ARTexture> to ucpp.Ptr<ARTexture>{
 	@:from
 	public static extern inline function fromValue(v: ARTexture): ARTexturePtr {
 		return untyped __cpp__("&({0})", v);

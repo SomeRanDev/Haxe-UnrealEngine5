@@ -3,16 +3,17 @@ package ue;
 
 @:native("UMediaSource")
 @:include("MediaSource.h")
-@:structAccess
+@:valueType
 extern class MediaSource extends Object {
+
 	public function Validate(): Bool;
-	public function SetMediaOptionString(Key: cpp.Reference<FName>, Value: FString): Void;
-	public function SetMediaOptionInt64(Key: cpp.Reference<FName>, Value: cpp.Int64): Void;
-	public function SetMediaOptionFloat(Key: cpp.Reference<FName>, Value: cpp.Float32): Void;
-	public function SetMediaOptionBool(Key: cpp.Reference<FName>, Value: Bool): Void;
+	public function SetMediaOptionString(Key: ucpp.Ref<FName>, Value: FString): Void;
+	public function SetMediaOptionInt64(Key: ucpp.Ref<FName>, Value: ucpp.num.Int64): Void;
+	public function SetMediaOptionFloat(Key: ucpp.Ref<FName>, Value: ucpp.num.Float32): Void;
+	public function SetMediaOptionBool(Key: ucpp.Ref<FName>, Value: Bool): Void;
 	public function GetUrl(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(Validate, GetUrl)
@@ -23,7 +24,7 @@ abstract ConstMediaSource(MediaSource) from MediaSource {
 @:forward
 @:nativeGen
 @:native("MediaSource*")
-abstract MediaSourcePtr(cpp.Star<MediaSource>) from cpp.Star<MediaSource> to cpp.Star<MediaSource>{
+abstract MediaSourcePtr(ucpp.Ptr<MediaSource>) from ucpp.Ptr<MediaSource> to ucpp.Ptr<MediaSource>{
 	@:from
 	public static extern inline function fromValue(v: MediaSource): MediaSourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,20 +3,20 @@ package ue;
 
 @:native("URemoveOccludedTrianglesToolProperties")
 @:include("RemoveOccludedTrianglesTool.h")
-@:structAccess
+@:valueType
 extern class RemoveOccludedTrianglesToolProperties extends InteractiveToolPropertySet {
 	public var OcclusionTestMethod: EOcclusionCalculationUIMode;
 	public var TriangleSampling: EOcclusionTriangleSamplingUIMode;
-	public var WindingIsoValue: cpp.Float64;
-	public var AddRandomRays: cpp.Int32;
-	public var AddTriangleSamples: cpp.Int32;
+	public var WindingIsoValue: ucpp.num.Float64;
+	public var AddRandomRays: ucpp.num.Int32;
+	public var AddTriangleSamples: ucpp.num.Int32;
 	public var bOnlySelfOcclude: Bool;
-	public var ShrinkRemoval: cpp.Int32;
-	public var MinAreaIsland: cpp.Float64;
-	public var MinTriCountIsland: cpp.Int32;
+	public var ShrinkRemoval: ucpp.num.Int32;
+	public var MinAreaIsland: ucpp.num.Float64;
+	public var MinTriCountIsland: ucpp.num.Int32;
 	public var Action: EOccludedAction;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,20 +26,20 @@ abstract ConstRemoveOccludedTrianglesToolProperties(RemoveOccludedTrianglesToolP
 	public inline extern function get_OcclusionTestMethod(): EOcclusionCalculationUIMode return this.OcclusionTestMethod;
 	public extern var TriangleSampling(get, never): EOcclusionTriangleSamplingUIMode;
 	public inline extern function get_TriangleSampling(): EOcclusionTriangleSamplingUIMode return this.TriangleSampling;
-	public extern var WindingIsoValue(get, never): cpp.Float64;
-	public inline extern function get_WindingIsoValue(): cpp.Float64 return this.WindingIsoValue;
-	public extern var AddRandomRays(get, never): cpp.Int32;
-	public inline extern function get_AddRandomRays(): cpp.Int32 return this.AddRandomRays;
-	public extern var AddTriangleSamples(get, never): cpp.Int32;
-	public inline extern function get_AddTriangleSamples(): cpp.Int32 return this.AddTriangleSamples;
+	public extern var WindingIsoValue(get, never): ucpp.num.Float64;
+	public inline extern function get_WindingIsoValue(): ucpp.num.Float64 return this.WindingIsoValue;
+	public extern var AddRandomRays(get, never): ucpp.num.Int32;
+	public inline extern function get_AddRandomRays(): ucpp.num.Int32 return this.AddRandomRays;
+	public extern var AddTriangleSamples(get, never): ucpp.num.Int32;
+	public inline extern function get_AddTriangleSamples(): ucpp.num.Int32 return this.AddTriangleSamples;
 	public extern var bOnlySelfOcclude(get, never): Bool;
 	public inline extern function get_bOnlySelfOcclude(): Bool return this.bOnlySelfOcclude;
-	public extern var ShrinkRemoval(get, never): cpp.Int32;
-	public inline extern function get_ShrinkRemoval(): cpp.Int32 return this.ShrinkRemoval;
-	public extern var MinAreaIsland(get, never): cpp.Float64;
-	public inline extern function get_MinAreaIsland(): cpp.Float64 return this.MinAreaIsland;
-	public extern var MinTriCountIsland(get, never): cpp.Int32;
-	public inline extern function get_MinTriCountIsland(): cpp.Int32 return this.MinTriCountIsland;
+	public extern var ShrinkRemoval(get, never): ucpp.num.Int32;
+	public inline extern function get_ShrinkRemoval(): ucpp.num.Int32 return this.ShrinkRemoval;
+	public extern var MinAreaIsland(get, never): ucpp.num.Float64;
+	public inline extern function get_MinAreaIsland(): ucpp.num.Float64 return this.MinAreaIsland;
+	public extern var MinTriCountIsland(get, never): ucpp.num.Int32;
+	public inline extern function get_MinTriCountIsland(): ucpp.num.Int32 return this.MinTriCountIsland;
 	public extern var Action(get, never): EOccludedAction;
 	public inline extern function get_Action(): EOccludedAction return this.Action;
 }
@@ -47,7 +47,7 @@ abstract ConstRemoveOccludedTrianglesToolProperties(RemoveOccludedTrianglesToolP
 @:forward
 @:nativeGen
 @:native("RemoveOccludedTrianglesToolProperties*")
-abstract RemoveOccludedTrianglesToolPropertiesPtr(cpp.Star<RemoveOccludedTrianglesToolProperties>) from cpp.Star<RemoveOccludedTrianglesToolProperties> to cpp.Star<RemoveOccludedTrianglesToolProperties>{
+abstract RemoveOccludedTrianglesToolPropertiesPtr(ucpp.Ptr<RemoveOccludedTrianglesToolProperties>) from ucpp.Ptr<RemoveOccludedTrianglesToolProperties> to ucpp.Ptr<RemoveOccludedTrianglesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: RemoveOccludedTrianglesToolProperties): RemoveOccludedTrianglesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

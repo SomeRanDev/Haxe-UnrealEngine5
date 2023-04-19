@@ -3,11 +3,11 @@ package ue;
 
 @:native("FInterchangeStackInfo")
 @:include("InterchangePipelineConfigurationBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeStackInfo {
 	public var StackName: FName;
-	public var Pipelines: TArray<cpp.Star<InterchangePipelineBase>>;
+	public var Pipelines: TArray<ucpp.Ptr<InterchangePipelineBase>>;
 
 	@:native("FInterchangeStackInfo") public function new();
-	@:native("FInterchangeStackInfo") public static function make(StackName: FName, Pipelines: TArray<cpp.Star<InterchangePipelineBase>>): InterchangeStackInfo ;
+	@:native("FInterchangeStackInfo") public static function make(StackName: FName, Pipelines: TArray<ucpp.Ptr<InterchangePipelineBase>>): InterchangeStackInfo ;
 }

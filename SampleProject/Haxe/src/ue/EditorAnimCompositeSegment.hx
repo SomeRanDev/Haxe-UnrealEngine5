@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorAnimCompositeSegment")
 @:include("Animation/EditorAnimCompositeSegment.h")
-@:structAccess
+@:valueType
 extern class EditorAnimCompositeSegment extends EditorAnimBaseObj {
 	public var AnimSegment: AnimSegment;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEditorAnimCompositeSegment(EditorAnimCompositeSegment) from Editor
 @:forward
 @:nativeGen
 @:native("EditorAnimCompositeSegment*")
-abstract EditorAnimCompositeSegmentPtr(cpp.Star<EditorAnimCompositeSegment>) from cpp.Star<EditorAnimCompositeSegment> to cpp.Star<EditorAnimCompositeSegment>{
+abstract EditorAnimCompositeSegmentPtr(ucpp.Ptr<EditorAnimCompositeSegment>) from ucpp.Ptr<EditorAnimCompositeSegment> to ucpp.Ptr<EditorAnimCompositeSegment>{
 	@:from
 	public static extern inline function fromValue(v: EditorAnimCompositeSegment): EditorAnimCompositeSegmentPtr {
 		return untyped __cpp__("&({0})", v);

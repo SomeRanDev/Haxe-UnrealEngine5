@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraShaderScriptParametersMetadata")
 @:include("NiagaraShared.h")
-@:structAccess
+@:valueType
 extern class NiagaraShaderScriptParametersMetadata {
 	public var DataInterfaceParamInfo: TArray<NiagaraDataInterfaceGPUParamInfo>;
 	public var LooseMetadataNames: TArray<FString>;

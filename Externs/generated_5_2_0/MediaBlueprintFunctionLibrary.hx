@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMediaBlueprintFunctionLibrary")
 @:include("Misc/MediaBlueprintFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class MediaBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
-	public function EnumerateWebcamCaptureDevices(OutDevices: cpp.Reference<TArray<MediaCaptureDevice>>, Filter: cpp.Int32): Void;
-	public function EnumerateVideoCaptureDevices(OutDevices: cpp.Reference<TArray<MediaCaptureDevice>>, Filter: cpp.Int32): Void;
-	public function EnumerateAudioCaptureDevices(OutDevices: cpp.Reference<TArray<MediaCaptureDevice>>, Filter: cpp.Int32): Void;
+	public function EnumerateWebcamCaptureDevices(OutDevices: ucpp.Ref<TArray<MediaCaptureDevice>>, Filter: ucpp.num.Int32): Void;
+	public function EnumerateVideoCaptureDevices(OutDevices: ucpp.Ref<TArray<MediaCaptureDevice>>, Filter: ucpp.num.Int32): Void;
+	public function EnumerateAudioCaptureDevices(OutDevices: ucpp.Ref<TArray<MediaCaptureDevice>>, Filter: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMediaBlueprintFunctionLibrary(MediaBlueprintFunctionLibrary) from 
 @:forward
 @:nativeGen
 @:native("MediaBlueprintFunctionLibrary*")
-abstract MediaBlueprintFunctionLibraryPtr(cpp.Star<MediaBlueprintFunctionLibrary>) from cpp.Star<MediaBlueprintFunctionLibrary> to cpp.Star<MediaBlueprintFunctionLibrary>{
+abstract MediaBlueprintFunctionLibraryPtr(ucpp.Ptr<MediaBlueprintFunctionLibrary>) from ucpp.Ptr<MediaBlueprintFunctionLibrary> to ucpp.Ptr<MediaBlueprintFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: MediaBlueprintFunctionLibrary): MediaBlueprintFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_EditablePinBase")
 @:include("K2Node_EditablePinBase.h")
-@:structAccess
+@:valueType
 extern class K2Node_EditablePinBase extends K2Node {
 	public var bIsEditable: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstK2Node_EditablePinBase(K2Node_EditablePinBase) from K2Node_Editabl
 @:forward
 @:nativeGen
 @:native("K2Node_EditablePinBase*")
-abstract K2Node_EditablePinBasePtr(cpp.Star<K2Node_EditablePinBase>) from cpp.Star<K2Node_EditablePinBase> to cpp.Star<K2Node_EditablePinBase>{
+abstract K2Node_EditablePinBasePtr(ucpp.Ptr<K2Node_EditablePinBase>) from ucpp.Ptr<K2Node_EditablePinBase> to ucpp.Ptr<K2Node_EditablePinBase>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_EditablePinBase): K2Node_EditablePinBasePtr {
 		return untyped __cpp__("&({0})", v);

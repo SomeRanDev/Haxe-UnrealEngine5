@@ -3,13 +3,13 @@ package ue;
 
 @:native("UWorldPartitionEditorSettings")
 @:include("WorldPartition/WorldPartitionEditorSettings.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionEditorSettings extends DeveloperSettings {
 	public var CommandletClass: TSubclassOf<WorldPartitionConvertCommandlet>;
-	public var InstancedFoliageGridSize: cpp.Int32;
-	public var MinimapLowQualityWorldUnitsPerPixelThreshold: cpp.Int32;
+	public var InstancedFoliageGridSize: ucpp.num.Int32;
+	public var MinimapLowQualityWorldUnitsPerPixelThreshold: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class WorldPartitionEditorSettings extends DeveloperSettings {
 abstract ConstWorldPartitionEditorSettings(WorldPartitionEditorSettings) from WorldPartitionEditorSettings {
 	public extern var CommandletClass(get, never): TSubclassOf<WorldPartitionConvertCommandlet.ConstWorldPartitionConvertCommandlet>;
 	public inline extern function get_CommandletClass(): TSubclassOf<WorldPartitionConvertCommandlet.ConstWorldPartitionConvertCommandlet> return this.CommandletClass;
-	public extern var InstancedFoliageGridSize(get, never): cpp.Int32;
-	public inline extern function get_InstancedFoliageGridSize(): cpp.Int32 return this.InstancedFoliageGridSize;
-	public extern var MinimapLowQualityWorldUnitsPerPixelThreshold(get, never): cpp.Int32;
-	public inline extern function get_MinimapLowQualityWorldUnitsPerPixelThreshold(): cpp.Int32 return this.MinimapLowQualityWorldUnitsPerPixelThreshold;
+	public extern var InstancedFoliageGridSize(get, never): ucpp.num.Int32;
+	public inline extern function get_InstancedFoliageGridSize(): ucpp.num.Int32 return this.InstancedFoliageGridSize;
+	public extern var MinimapLowQualityWorldUnitsPerPixelThreshold(get, never): ucpp.num.Int32;
+	public inline extern function get_MinimapLowQualityWorldUnitsPerPixelThreshold(): ucpp.num.Int32 return this.MinimapLowQualityWorldUnitsPerPixelThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("WorldPartitionEditorSettings*")
-abstract WorldPartitionEditorSettingsPtr(cpp.Star<WorldPartitionEditorSettings>) from cpp.Star<WorldPartitionEditorSettings> to cpp.Star<WorldPartitionEditorSettings>{
+abstract WorldPartitionEditorSettingsPtr(ucpp.Ptr<WorldPartitionEditorSettings>) from ucpp.Ptr<WorldPartitionEditorSettings> to ucpp.Ptr<WorldPartitionEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionEditorSettings): WorldPartitionEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

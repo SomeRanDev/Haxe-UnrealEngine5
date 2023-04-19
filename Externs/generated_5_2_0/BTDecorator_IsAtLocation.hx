@@ -3,23 +3,23 @@ package ue;
 
 @:native("UBTDecorator_IsAtLocation")
 @:include("BehaviorTree/Decorators/BTDecorator_IsAtLocation.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_IsAtLocation extends BTDecorator_BlackboardBase {
-	public var AcceptableRadius: cpp.Float32;
+	public var AcceptableRadius: ucpp.num.Float32;
 	public var ParametrizedAcceptableRadius: AIDataProviderFloatValue;
 	public var GeometricDistanceType: FAIDistanceType;
 	public var bUseParametrizedRadius: Bool;
 	public var bUseNavAgentGoalLocation: Bool;
 	public var bPathFindingBasedTest: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_IsAtLocation(BTDecorator_IsAtLocation) from BTDecorator_IsAtLocation {
-	public extern var AcceptableRadius(get, never): cpp.Float32;
-	public inline extern function get_AcceptableRadius(): cpp.Float32 return this.AcceptableRadius;
+	public extern var AcceptableRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_AcceptableRadius(): ucpp.num.Float32 return this.AcceptableRadius;
 	public extern var ParametrizedAcceptableRadius(get, never): AIDataProviderFloatValue;
 	public inline extern function get_ParametrizedAcceptableRadius(): AIDataProviderFloatValue return this.ParametrizedAcceptableRadius;
 	public extern var GeometricDistanceType(get, never): FAIDistanceType;
@@ -35,7 +35,7 @@ abstract ConstBTDecorator_IsAtLocation(BTDecorator_IsAtLocation) from BTDecorato
 @:forward
 @:nativeGen
 @:native("BTDecorator_IsAtLocation*")
-abstract BTDecorator_IsAtLocationPtr(cpp.Star<BTDecorator_IsAtLocation>) from cpp.Star<BTDecorator_IsAtLocation> to cpp.Star<BTDecorator_IsAtLocation>{
+abstract BTDecorator_IsAtLocationPtr(ucpp.Ptr<BTDecorator_IsAtLocation>) from ucpp.Ptr<BTDecorator_IsAtLocation> to ucpp.Ptr<BTDecorator_IsAtLocation>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_IsAtLocation): BTDecorator_IsAtLocationPtr {
 		return untyped __cpp__("&({0})", v);

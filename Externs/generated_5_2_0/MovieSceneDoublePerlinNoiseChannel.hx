@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneDoublePerlinNoiseChannel")
 @:include("Channels/MovieSceneDoublePerlinNoiseChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDoublePerlinNoiseChannel extends MovieSceneChannel {
 	public var PerlinNoiseParams: PerlinNoiseParams;
 

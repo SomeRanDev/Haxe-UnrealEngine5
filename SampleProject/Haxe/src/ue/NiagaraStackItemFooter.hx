@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraStackItemFooter")
 @:include("ViewModels/Stack/NiagaraStackItemFooter.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackItemFooter extends NiagaraStackEntry {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraStackItemFooter(NiagaraStackItemFooter) from NiagaraStackIt
 @:forward
 @:nativeGen
 @:native("NiagaraStackItemFooter*")
-abstract NiagaraStackItemFooterPtr(cpp.Star<NiagaraStackItemFooter>) from cpp.Star<NiagaraStackItemFooter> to cpp.Star<NiagaraStackItemFooter>{
+abstract NiagaraStackItemFooterPtr(ucpp.Ptr<NiagaraStackItemFooter>) from ucpp.Ptr<NiagaraStackItemFooter> to ucpp.Ptr<NiagaraStackItemFooter>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackItemFooter): NiagaraStackItemFooterPtr {
 		return untyped __cpp__("&({0})", v);

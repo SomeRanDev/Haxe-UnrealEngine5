@@ -3,11 +3,11 @@ package ue;
 
 @:native("AGeometryCollectionISMPoolActor")
 @:include("GeometryCollection/GeometryCollectionISMPoolActor.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionISMPoolActor extends Actor {
-	private var ISMPoolComp: cpp.Star<GeometryCollectionISMPoolComp>;
+	private var ISMPoolComp: ucpp.Ptr<GeometryCollectionISMPoolComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstGeometryCollectionISMPoolActor(GeometryCollectionISMPoolActor) fro
 @:forward
 @:nativeGen
 @:native("GeometryCollectionISMPoolActor*")
-abstract GeometryCollectionISMPoolActorPtr(cpp.Star<GeometryCollectionISMPoolActor>) from cpp.Star<GeometryCollectionISMPoolActor> to cpp.Star<GeometryCollectionISMPoolActor>{
+abstract GeometryCollectionISMPoolActorPtr(ucpp.Ptr<GeometryCollectionISMPoolActor>) from ucpp.Ptr<GeometryCollectionISMPoolActor> to ucpp.Ptr<GeometryCollectionISMPoolActor>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionISMPoolActor): GeometryCollectionISMPoolActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCookOnTheFlyServer")
 @:include("CookOnTheSide/CookOnTheFlyServer.h")
-@:structAccess
+@:valueType
 extern class CookOnTheFlyServer extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCookOnTheFlyServer(CookOnTheFlyServer) from CookOnTheFlyServer {
 @:forward
 @:nativeGen
 @:native("CookOnTheFlyServer*")
-abstract CookOnTheFlyServerPtr(cpp.Star<CookOnTheFlyServer>) from cpp.Star<CookOnTheFlyServer> to cpp.Star<CookOnTheFlyServer>{
+abstract CookOnTheFlyServerPtr(ucpp.Ptr<CookOnTheFlyServer>) from ucpp.Ptr<CookOnTheFlyServer> to ucpp.Ptr<CookOnTheFlyServer>{
 	@:from
 	public static extern inline function fromValue(v: CookOnTheFlyServer): CookOnTheFlyServerPtr {
 		return untyped __cpp__("&({0})", v);

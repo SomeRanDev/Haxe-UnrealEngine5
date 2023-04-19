@@ -3,30 +3,30 @@ package ue;
 
 @:native("UBlendSpace")
 @:include("Animation/BlendSpace.h")
-@:structAccess
+@:valueType
 extern class BlendSpace extends AnimationAsset {
 	public var bContainsRotationOffsetMeshSpaceSamples: Bool;
 	public var InterpolationParam: InterpolationParameter;
-	public var TargetWeightInterpolationSpeedPerSec: cpp.Float32;
+	public var TargetWeightInterpolationSpeedPerSec: ucpp.num.Float32;
 	public var bTargetWeightInterpolationEaseInOut: Bool;
 	public var bAllowMeshSpaceBlending: Bool;
 	public var bLoop: Bool;
-	public var AnimLength: cpp.Float32;
+	public var AnimLength: ucpp.num.Float32;
 	public var NotifyTriggerMode: TEnumAsByte<ENotifyTriggerMode>;
 	public var bInterpolateUsingGrid: Bool;
 	public var PreferredTriangulationDirection: EPreferredTriangulationDirection;
 	@:protected public var PerBoneBlendMode: EBlendSpacePerBoneBlendMode;
 	@:protected public var ManualPerBoneOverrides: TArray<PerBoneInterpolation>;
 	@:protected public var PerBoneBlendProfile: BlendSpaceBlendProfile;
-	@:protected public var SampleIndexWithMarkers: cpp.Int32;
+	@:protected public var SampleIndexWithMarkers: ucpp.num.Int32;
 	@:protected public var SampleData: TArray<BlendSample>;
 	@:protected public var GridSamples: TArray<EditorElement>;
 	@:protected public var BlendSpaceData: BlendSpaceData;
 	@:protected public var BlendParameters: BlendParameter;
 	@:protected public var AxisToScaleAnimation: TEnumAsByte<EBlendSpaceAxis>;
-	@:protected public var DimensionIndices: TArray<cpp.Int32>;
+	@:protected public var DimensionIndices: TArray<ucpp.num.Int32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,16 +36,16 @@ abstract ConstBlendSpace(BlendSpace) from BlendSpace {
 	public inline extern function get_bContainsRotationOffsetMeshSpaceSamples(): Bool return this.bContainsRotationOffsetMeshSpaceSamples;
 	public extern var InterpolationParam(get, never): InterpolationParameter;
 	public inline extern function get_InterpolationParam(): InterpolationParameter return this.InterpolationParam;
-	public extern var TargetWeightInterpolationSpeedPerSec(get, never): cpp.Float32;
-	public inline extern function get_TargetWeightInterpolationSpeedPerSec(): cpp.Float32 return this.TargetWeightInterpolationSpeedPerSec;
+	public extern var TargetWeightInterpolationSpeedPerSec(get, never): ucpp.num.Float32;
+	public inline extern function get_TargetWeightInterpolationSpeedPerSec(): ucpp.num.Float32 return this.TargetWeightInterpolationSpeedPerSec;
 	public extern var bTargetWeightInterpolationEaseInOut(get, never): Bool;
 	public inline extern function get_bTargetWeightInterpolationEaseInOut(): Bool return this.bTargetWeightInterpolationEaseInOut;
 	public extern var bAllowMeshSpaceBlending(get, never): Bool;
 	public inline extern function get_bAllowMeshSpaceBlending(): Bool return this.bAllowMeshSpaceBlending;
 	public extern var bLoop(get, never): Bool;
 	public inline extern function get_bLoop(): Bool return this.bLoop;
-	public extern var AnimLength(get, never): cpp.Float32;
-	public inline extern function get_AnimLength(): cpp.Float32 return this.AnimLength;
+	public extern var AnimLength(get, never): ucpp.num.Float32;
+	public inline extern function get_AnimLength(): ucpp.num.Float32 return this.AnimLength;
 	public extern var NotifyTriggerMode(get, never): TEnumAsByte<ENotifyTriggerMode>;
 	public inline extern function get_NotifyTriggerMode(): TEnumAsByte<ENotifyTriggerMode> return this.NotifyTriggerMode;
 	public extern var bInterpolateUsingGrid(get, never): Bool;
@@ -57,7 +57,7 @@ abstract ConstBlendSpace(BlendSpace) from BlendSpace {
 @:forward
 @:nativeGen
 @:native("BlendSpace*")
-abstract BlendSpacePtr(cpp.Star<BlendSpace>) from cpp.Star<BlendSpace> to cpp.Star<BlendSpace>{
+abstract BlendSpacePtr(ucpp.Ptr<BlendSpace>) from ucpp.Ptr<BlendSpace> to ucpp.Ptr<BlendSpace>{
 	@:from
 	public static extern inline function fromValue(v: BlendSpace): BlendSpacePtr {
 		return untyped __cpp__("&({0})", v);

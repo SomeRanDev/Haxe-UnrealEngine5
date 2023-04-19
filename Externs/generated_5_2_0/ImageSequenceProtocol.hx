@@ -3,10 +3,10 @@ package ue;
 
 @:native("UImageSequenceProtocol")
 @:include("Protocols/ImageSequenceProtocol.h")
-@:structAccess
+@:valueType
 extern class ImageSequenceProtocol extends FrameGrabberProtocol {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstImageSequenceProtocol(ImageSequenceProtocol) from ImageSequencePro
 @:forward
 @:nativeGen
 @:native("ImageSequenceProtocol*")
-abstract ImageSequenceProtocolPtr(cpp.Star<ImageSequenceProtocol>) from cpp.Star<ImageSequenceProtocol> to cpp.Star<ImageSequenceProtocol>{
+abstract ImageSequenceProtocolPtr(ucpp.Ptr<ImageSequenceProtocol>) from ucpp.Ptr<ImageSequenceProtocol> to ucpp.Ptr<ImageSequenceProtocol>{
 	@:from
 	public static extern inline function fromValue(v: ImageSequenceProtocol): ImageSequenceProtocolPtr {
 		return untyped __cpp__("&({0})", v);

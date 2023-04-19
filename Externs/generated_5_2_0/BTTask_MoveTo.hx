@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTTask_MoveTo")
 @:include("BehaviorTree/Tasks/BTTask_MoveTo.h")
-@:structAccess
+@:valueType
 extern class BTTask_MoveTo extends BTTask_BlackboardBase {
-	public var AcceptableRadius: cpp.Float32;
+	public var AcceptableRadius: ucpp.num.Float32;
 	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
-	public var ObservedBlackboardValueTolerance: cpp.Float32;
+	public var ObservedBlackboardValueTolerance: ucpp.num.Float32;
 	public var bObserveBlackboardValue: Bool;
 	public var bAllowStrafe: Bool;
 	public var bAllowPartialPath: Bool;
@@ -18,18 +18,18 @@ extern class BTTask_MoveTo extends BTTask_BlackboardBase {
 	public var bStopOnOverlap: Bool;
 	public var bStopOnOverlapNeedsUpdate: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTTask_MoveTo(BTTask_MoveTo) from BTTask_MoveTo {
-	public extern var AcceptableRadius(get, never): cpp.Float32;
-	public inline extern function get_AcceptableRadius(): cpp.Float32 return this.AcceptableRadius;
+	public extern var AcceptableRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_AcceptableRadius(): ucpp.num.Float32 return this.AcceptableRadius;
 	public extern var FilterClass(get, never): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter>;
 	public inline extern function get_FilterClass(): TSubclassOf<NavigationQueryFilter.ConstNavigationQueryFilter> return this.FilterClass;
-	public extern var ObservedBlackboardValueTolerance(get, never): cpp.Float32;
-	public inline extern function get_ObservedBlackboardValueTolerance(): cpp.Float32 return this.ObservedBlackboardValueTolerance;
+	public extern var ObservedBlackboardValueTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_ObservedBlackboardValueTolerance(): ucpp.num.Float32 return this.ObservedBlackboardValueTolerance;
 	public extern var bObserveBlackboardValue(get, never): Bool;
 	public inline extern function get_bObserveBlackboardValue(): Bool return this.bObserveBlackboardValue;
 	public extern var bAllowStrafe(get, never): Bool;
@@ -53,7 +53,7 @@ abstract ConstBTTask_MoveTo(BTTask_MoveTo) from BTTask_MoveTo {
 @:forward
 @:nativeGen
 @:native("BTTask_MoveTo*")
-abstract BTTask_MoveToPtr(cpp.Star<BTTask_MoveTo>) from cpp.Star<BTTask_MoveTo> to cpp.Star<BTTask_MoveTo>{
+abstract BTTask_MoveToPtr(ucpp.Ptr<BTTask_MoveTo>) from ucpp.Ptr<BTTask_MoveTo> to ucpp.Ptr<BTTask_MoveTo>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_MoveTo): BTTask_MoveToPtr {
 		return untyped __cpp__("&({0})", v);

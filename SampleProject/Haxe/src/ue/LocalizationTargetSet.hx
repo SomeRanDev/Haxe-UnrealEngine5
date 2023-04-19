@@ -3,24 +3,24 @@ package ue;
 
 @:native("ULocalizationTargetSet")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class LocalizationTargetSet extends Object {
-	public var TargetObjects: TArray<cpp.Star<LocalizationTarget>>;
+	public var TargetObjects: TArray<ucpp.Ptr<LocalizationTarget>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLocalizationTargetSet(LocalizationTargetSet) from LocalizationTargetSet {
-	public extern var TargetObjects(get, never): TArray<cpp.Star<LocalizationTarget.ConstLocalizationTarget>>;
-	public inline extern function get_TargetObjects(): TArray<cpp.Star<LocalizationTarget.ConstLocalizationTarget>> return this.TargetObjects;
+	public extern var TargetObjects(get, never): TArray<ucpp.Ptr<LocalizationTarget.ConstLocalizationTarget>>;
+	public inline extern function get_TargetObjects(): TArray<ucpp.Ptr<LocalizationTarget.ConstLocalizationTarget>> return this.TargetObjects;
 }
 
 @:forward
 @:nativeGen
 @:native("LocalizationTargetSet*")
-abstract LocalizationTargetSetPtr(cpp.Star<LocalizationTargetSet>) from cpp.Star<LocalizationTargetSet> to cpp.Star<LocalizationTargetSet>{
+abstract LocalizationTargetSetPtr(ucpp.Ptr<LocalizationTargetSet>) from ucpp.Ptr<LocalizationTargetSet> to ucpp.Ptr<LocalizationTargetSet>{
 	@:from
 	public static extern inline function fromValue(v: LocalizationTargetSet): LocalizationTargetSetPtr {
 		return untyped __cpp__("&({0})", v);

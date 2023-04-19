@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULiveLinkVirtualSubject")
 @:include("LiveLinkVirtualSubject.h")
-@:structAccess
+@:valueType
 extern class LiveLinkVirtualSubject extends Object {
 	@:protected public var Role: TSubclassOf<LiveLinkRole>;
 	@:protected public var Subjects: TArray<LiveLinkSubjectName>;
-	@:protected public var FrameTranslators: TArray<cpp.Star<LiveLinkFrameTranslator>>;
+	@:protected public var FrameTranslators: TArray<ucpp.Ptr<LiveLinkFrameTranslator>>;
 	@:protected public var bRebroadcastSubject: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLiveLinkVirtualSubject(LiveLinkVirtualSubject) from LiveLinkVirtua
 @:forward
 @:nativeGen
 @:native("LiveLinkVirtualSubject*")
-abstract LiveLinkVirtualSubjectPtr(cpp.Star<LiveLinkVirtualSubject>) from cpp.Star<LiveLinkVirtualSubject> to cpp.Star<LiveLinkVirtualSubject>{
+abstract LiveLinkVirtualSubjectPtr(ucpp.Ptr<LiveLinkVirtualSubject>) from ucpp.Ptr<LiveLinkVirtualSubject> to ucpp.Ptr<LiveLinkVirtualSubject>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkVirtualSubject): LiveLinkVirtualSubjectPtr {
 		return untyped __cpp__("&({0})", v);

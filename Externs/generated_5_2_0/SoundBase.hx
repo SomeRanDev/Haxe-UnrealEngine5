@@ -3,9 +3,9 @@ package ue;
 
 @:native("USoundBase")
 @:include("Sound/SoundBase.h")
-@:structAccess
+@:valueType
 extern class SoundBase extends Object {
-	public var SoundClassObject: cpp.Star<SoundClass>;
+	public var SoundClassObject: ucpp.Ptr<SoundClass>;
 	public var bDebug: Bool;
 	public var bOverrideConcurrency: Bool;
 	public var bEnableBusSends: Bool;
@@ -15,28 +15,28 @@ extern class SoundBase extends Object {
 	public var bHasConcatenatorNode: Bool;
 	public var bBypassVolumeScaleForPriority: Bool;
 	public var VirtualizationMode: EVirtualizationMode;
-	public var ConcurrencySet: TSet<cpp.Star<SoundConcurrency>>;
+	public var ConcurrencySet: TSet<ucpp.Ptr<SoundConcurrency>>;
 	public var ConcurrencyOverrides: SoundConcurrencySettings;
-	public var Duration: cpp.Float32;
-	public var MaxDistance: cpp.Float32;
-	public var TotalSamples: cpp.Float32;
-	public var Priority: cpp.Float32;
-	public var AttenuationSettings: cpp.Star<SoundAttenuation>;
-	public var SoundSubmixObject: cpp.Star<SoundSubmixBase>;
+	public var Duration: ucpp.num.Float32;
+	public var MaxDistance: ucpp.num.Float32;
+	public var TotalSamples: ucpp.num.Float32;
+	public var Priority: ucpp.num.Float32;
+	public var AttenuationSettings: ucpp.Ptr<SoundAttenuation>;
+	public var SoundSubmixObject: ucpp.Ptr<SoundSubmixBase>;
 	public var SoundSubmixSends: TArray<SoundSubmixSendInfo>;
-	public var SourceEffectChain: cpp.Star<SoundEffectSourcePresetChain>;
+	public var SourceEffectChain: ucpp.Ptr<SoundEffectSourcePresetChain>;
 	public var BusSends: TArray<SoundSourceBusSendInfo>;
 	public var PreEffectBusSends: TArray<SoundSourceBusSendInfo>;
-	public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundBase(SoundBase) from SoundBase {
-	public extern var SoundClassObject(get, never): cpp.Star<SoundClass.ConstSoundClass>;
-	public inline extern function get_SoundClassObject(): cpp.Star<SoundClass.ConstSoundClass> return this.SoundClassObject;
+	public extern var SoundClassObject(get, never): ucpp.Ptr<SoundClass.ConstSoundClass>;
+	public inline extern function get_SoundClassObject(): ucpp.Ptr<SoundClass.ConstSoundClass> return this.SoundClassObject;
 	public extern var bDebug(get, never): Bool;
 	public inline extern function get_bDebug(): Bool return this.bDebug;
 	public extern var bOverrideConcurrency(get, never): Bool;
@@ -55,38 +55,38 @@ abstract ConstSoundBase(SoundBase) from SoundBase {
 	public inline extern function get_bBypassVolumeScaleForPriority(): Bool return this.bBypassVolumeScaleForPriority;
 	public extern var VirtualizationMode(get, never): EVirtualizationMode;
 	public inline extern function get_VirtualizationMode(): EVirtualizationMode return this.VirtualizationMode;
-	public extern var ConcurrencySet(get, never): TSet<cpp.Star<SoundConcurrency.ConstSoundConcurrency>>;
-	public inline extern function get_ConcurrencySet(): TSet<cpp.Star<SoundConcurrency.ConstSoundConcurrency>> return this.ConcurrencySet;
+	public extern var ConcurrencySet(get, never): TSet<ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency>>;
+	public inline extern function get_ConcurrencySet(): TSet<ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency>> return this.ConcurrencySet;
 	public extern var ConcurrencyOverrides(get, never): SoundConcurrencySettings;
 	public inline extern function get_ConcurrencyOverrides(): SoundConcurrencySettings return this.ConcurrencyOverrides;
-	public extern var Duration(get, never): cpp.Float32;
-	public inline extern function get_Duration(): cpp.Float32 return this.Duration;
-	public extern var MaxDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxDistance(): cpp.Float32 return this.MaxDistance;
-	public extern var TotalSamples(get, never): cpp.Float32;
-	public inline extern function get_TotalSamples(): cpp.Float32 return this.TotalSamples;
-	public extern var Priority(get, never): cpp.Float32;
-	public inline extern function get_Priority(): cpp.Float32 return this.Priority;
-	public extern var AttenuationSettings(get, never): cpp.Star<SoundAttenuation.ConstSoundAttenuation>;
-	public inline extern function get_AttenuationSettings(): cpp.Star<SoundAttenuation.ConstSoundAttenuation> return this.AttenuationSettings;
-	public extern var SoundSubmixObject(get, never): cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>;
-	public inline extern function get_SoundSubmixObject(): cpp.Star<SoundSubmixBase.ConstSoundSubmixBase> return this.SoundSubmixObject;
+	public extern var Duration(get, never): ucpp.num.Float32;
+	public inline extern function get_Duration(): ucpp.num.Float32 return this.Duration;
+	public extern var MaxDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDistance(): ucpp.num.Float32 return this.MaxDistance;
+	public extern var TotalSamples(get, never): ucpp.num.Float32;
+	public inline extern function get_TotalSamples(): ucpp.num.Float32 return this.TotalSamples;
+	public extern var Priority(get, never): ucpp.num.Float32;
+	public inline extern function get_Priority(): ucpp.num.Float32 return this.Priority;
+	public extern var AttenuationSettings(get, never): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation>;
+	public inline extern function get_AttenuationSettings(): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation> return this.AttenuationSettings;
+	public extern var SoundSubmixObject(get, never): ucpp.Ptr<SoundSubmixBase.ConstSoundSubmixBase>;
+	public inline extern function get_SoundSubmixObject(): ucpp.Ptr<SoundSubmixBase.ConstSoundSubmixBase> return this.SoundSubmixObject;
 	public extern var SoundSubmixSends(get, never): TArray<SoundSubmixSendInfo>;
 	public inline extern function get_SoundSubmixSends(): TArray<SoundSubmixSendInfo> return this.SoundSubmixSends;
-	public extern var SourceEffectChain(get, never): cpp.Star<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain>;
-	public inline extern function get_SourceEffectChain(): cpp.Star<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain> return this.SourceEffectChain;
+	public extern var SourceEffectChain(get, never): ucpp.Ptr<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain>;
+	public inline extern function get_SourceEffectChain(): ucpp.Ptr<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain> return this.SourceEffectChain;
 	public extern var BusSends(get, never): TArray<SoundSourceBusSendInfo>;
 	public inline extern function get_BusSends(): TArray<SoundSourceBusSendInfo> return this.BusSends;
 	public extern var PreEffectBusSends(get, never): TArray<SoundSourceBusSendInfo>;
 	public inline extern function get_PreEffectBusSends(): TArray<SoundSourceBusSendInfo> return this.PreEffectBusSends;
-	public extern var AssetUserData(get, never): TArray<cpp.Star<AssetUserData.ConstAssetUserData>>;
-	public inline extern function get_AssetUserData(): TArray<cpp.Star<AssetUserData.ConstAssetUserData>> return this.AssetUserData;
+	public extern var AssetUserData(get, never): TArray<ucpp.Ptr<AssetUserData.ConstAssetUserData>>;
+	public inline extern function get_AssetUserData(): TArray<ucpp.Ptr<AssetUserData.ConstAssetUserData>> return this.AssetUserData;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundBase*")
-abstract SoundBasePtr(cpp.Star<SoundBase>) from cpp.Star<SoundBase> to cpp.Star<SoundBase>{
+abstract SoundBasePtr(ucpp.Ptr<SoundBase>) from ucpp.Ptr<SoundBase> to ucpp.Ptr<SoundBase>{
 	@:from
 	public static extern inline function fromValue(v: SoundBase): SoundBasePtr {
 		return untyped __cpp__("&({0})", v);

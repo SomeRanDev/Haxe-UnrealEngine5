@@ -3,17 +3,17 @@ package ue;
 
 @:native("UBakeRenderCaptureToolProperties")
 @:include("BakeRenderCaptureTool.h")
-@:structAccess
+@:valueType
 extern class BakeRenderCaptureToolProperties extends InteractiveToolPropertySet {
 	public var MapPreview: FString;
 	public var MapPreviewNamesList: TArray<FString>;
 	public var SamplesPerPixel: EBakeTextureSamplesPerPixel;
 	public var TextureSize: EBakeTextureResolution;
-	public var ValidSampleDepthThreshold: cpp.Float32;
+	public var ValidSampleDepthThreshold: ucpp.num.Float32;
 
 	public function GetMapPreviewNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,14 +27,14 @@ abstract ConstBakeRenderCaptureToolProperties(BakeRenderCaptureToolProperties) f
 	public inline extern function get_SamplesPerPixel(): EBakeTextureSamplesPerPixel return this.SamplesPerPixel;
 	public extern var TextureSize(get, never): EBakeTextureResolution;
 	public inline extern function get_TextureSize(): EBakeTextureResolution return this.TextureSize;
-	public extern var ValidSampleDepthThreshold(get, never): cpp.Float32;
-	public inline extern function get_ValidSampleDepthThreshold(): cpp.Float32 return this.ValidSampleDepthThreshold;
+	public extern var ValidSampleDepthThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_ValidSampleDepthThreshold(): ucpp.num.Float32 return this.ValidSampleDepthThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("BakeRenderCaptureToolProperties*")
-abstract BakeRenderCaptureToolPropertiesPtr(cpp.Star<BakeRenderCaptureToolProperties>) from cpp.Star<BakeRenderCaptureToolProperties> to cpp.Star<BakeRenderCaptureToolProperties>{
+abstract BakeRenderCaptureToolPropertiesPtr(ucpp.Ptr<BakeRenderCaptureToolProperties>) from ucpp.Ptr<BakeRenderCaptureToolProperties> to ucpp.Ptr<BakeRenderCaptureToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeRenderCaptureToolProperties): BakeRenderCaptureToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

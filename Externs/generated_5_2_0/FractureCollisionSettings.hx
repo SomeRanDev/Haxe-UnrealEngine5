@@ -3,12 +3,12 @@ package ue;
 
 @:native("UFractureCollisionSettings")
 @:include("FractureToolCutter.h")
-@:structAccess
+@:valueType
 extern class FractureCollisionSettings extends FractureToolSettings {
 	public var bAddSamplesForCollision: Bool;
-	public var PointSpacing: cpp.Float32;
+	public var PointSpacing: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class FractureCollisionSettings extends FractureToolSettings {
 abstract ConstFractureCollisionSettings(FractureCollisionSettings) from FractureCollisionSettings {
 	public extern var bAddSamplesForCollision(get, never): Bool;
 	public inline extern function get_bAddSamplesForCollision(): Bool return this.bAddSamplesForCollision;
-	public extern var PointSpacing(get, never): cpp.Float32;
-	public inline extern function get_PointSpacing(): cpp.Float32 return this.PointSpacing;
+	public extern var PointSpacing(get, never): ucpp.num.Float32;
+	public inline extern function get_PointSpacing(): ucpp.num.Float32 return this.PointSpacing;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureCollisionSettings*")
-abstract FractureCollisionSettingsPtr(cpp.Star<FractureCollisionSettings>) from cpp.Star<FractureCollisionSettings> to cpp.Star<FractureCollisionSettings>{
+abstract FractureCollisionSettingsPtr(ucpp.Ptr<FractureCollisionSettings>) from ucpp.Ptr<FractureCollisionSettings> to ucpp.Ptr<FractureCollisionSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureCollisionSettings): FractureCollisionSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationFieldSharedEntityMetaData")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationFieldSharedEntityMetaData {
 	public var ObjectBindingID: Guid;
 

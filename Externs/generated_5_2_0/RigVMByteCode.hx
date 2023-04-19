@@ -3,13 +3,13 @@ package ue;
 
 @:native("FRigVMByteCode")
 @:include("RigVMCore/RigVMByteCode.h")
-@:structAccess
+@:valueType
 extern class RigVMByteCode {
-	private var ByteCode: TArray<cpp.UInt8>;
-	private var NumInstructions: cpp.Int32;
+	private var ByteCode: TArray<ucpp.num.UInt8>;
+	private var NumInstructions: ucpp.num.Int32;
 	private var Entries: TArray<RigVMByteCodeEntry>;
 	private var BranchInfos: TArray<RigVMBranchInfo>;
 
 	@:native("FRigVMByteCode") public function new();
-	@:native("FRigVMByteCode") public static function make(ByteCode: TArray<cpp.UInt8>, NumInstructions: cpp.Int32, Entries: TArray<RigVMByteCodeEntry>, BranchInfos: TArray<RigVMBranchInfo>): RigVMByteCode ;
+	@:native("FRigVMByteCode") public static function make(ByteCode: TArray<ucpp.num.UInt8>, NumInstructions: ucpp.num.Int32, Entries: TArray<RigVMByteCodeEntry>, BranchInfos: TArray<RigVMBranchInfo>): RigVMByteCode ;
 }

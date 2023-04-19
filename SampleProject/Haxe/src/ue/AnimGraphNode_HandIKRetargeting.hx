@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_HandIKRetargeting")
 @:include("AnimGraphNode_HandIKRetargeting.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_HandIKRetargeting extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_HandIKRetargeting;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_HandIKRetargeting(AnimGraphNode_HandIKRetargeting) f
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_HandIKRetargeting*")
-abstract AnimGraphNode_HandIKRetargetingPtr(cpp.Star<AnimGraphNode_HandIKRetargeting>) from cpp.Star<AnimGraphNode_HandIKRetargeting> to cpp.Star<AnimGraphNode_HandIKRetargeting>{
+abstract AnimGraphNode_HandIKRetargetingPtr(ucpp.Ptr<AnimGraphNode_HandIKRetargeting>) from ucpp.Ptr<AnimGraphNode_HandIKRetargeting> to ucpp.Ptr<AnimGraphNode_HandIKRetargeting>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_HandIKRetargeting): AnimGraphNode_HandIKRetargetingPtr {
 		return untyped __cpp__("&({0})", v);

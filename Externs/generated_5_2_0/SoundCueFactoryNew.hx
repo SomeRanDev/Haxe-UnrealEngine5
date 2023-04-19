@@ -3,25 +3,25 @@ package ue;
 
 @:native("USoundCueFactoryNew")
 @:include("Factories/SoundCueFactoryNew.h")
-@:structAccess
+@:valueType
 extern class SoundCueFactoryNew extends Factory {
-	public var InitialSoundWave: cpp.Star<SoundWave>;
+	public var InitialSoundWave: ucpp.Ptr<SoundWave>;
 	public var InitialSoundWaves: TArray<TWeakObjectPtr<SoundWave>>;
-	public var InitialDialogueWave: cpp.Star<DialogueWave>;
+	public var InitialDialogueWave: ucpp.Ptr<DialogueWave>;
 	public var InitialDialogueWaves: TArray<TWeakObjectPtr<DialogueWave>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundCueFactoryNew(SoundCueFactoryNew) from SoundCueFactoryNew {
-	public extern var InitialSoundWave(get, never): cpp.Star<SoundWave.ConstSoundWave>;
-	public inline extern function get_InitialSoundWave(): cpp.Star<SoundWave.ConstSoundWave> return this.InitialSoundWave;
+	public extern var InitialSoundWave(get, never): ucpp.Ptr<SoundWave.ConstSoundWave>;
+	public inline extern function get_InitialSoundWave(): ucpp.Ptr<SoundWave.ConstSoundWave> return this.InitialSoundWave;
 	public extern var InitialSoundWaves(get, never): TArray<TWeakObjectPtr<SoundWave.ConstSoundWave>>;
 	public inline extern function get_InitialSoundWaves(): TArray<TWeakObjectPtr<SoundWave.ConstSoundWave>> return this.InitialSoundWaves;
-	public extern var InitialDialogueWave(get, never): cpp.Star<DialogueWave.ConstDialogueWave>;
-	public inline extern function get_InitialDialogueWave(): cpp.Star<DialogueWave.ConstDialogueWave> return this.InitialDialogueWave;
+	public extern var InitialDialogueWave(get, never): ucpp.Ptr<DialogueWave.ConstDialogueWave>;
+	public inline extern function get_InitialDialogueWave(): ucpp.Ptr<DialogueWave.ConstDialogueWave> return this.InitialDialogueWave;
 	public extern var InitialDialogueWaves(get, never): TArray<TWeakObjectPtr<DialogueWave.ConstDialogueWave>>;
 	public inline extern function get_InitialDialogueWaves(): TArray<TWeakObjectPtr<DialogueWave.ConstDialogueWave>> return this.InitialDialogueWaves;
 }
@@ -29,7 +29,7 @@ abstract ConstSoundCueFactoryNew(SoundCueFactoryNew) from SoundCueFactoryNew {
 @:forward
 @:nativeGen
 @:native("SoundCueFactoryNew*")
-abstract SoundCueFactoryNewPtr(cpp.Star<SoundCueFactoryNew>) from cpp.Star<SoundCueFactoryNew> to cpp.Star<SoundCueFactoryNew>{
+abstract SoundCueFactoryNewPtr(ucpp.Ptr<SoundCueFactoryNew>) from ucpp.Ptr<SoundCueFactoryNew> to ucpp.Ptr<SoundCueFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: SoundCueFactoryNew): SoundCueFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

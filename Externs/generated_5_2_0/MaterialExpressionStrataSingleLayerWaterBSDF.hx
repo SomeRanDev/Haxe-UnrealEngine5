@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataSingleLayerWaterBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataSingleLayerWaterBSDF extends MaterialExpressionStrataBSDF {
 	public var BaseColor: ExpressionInput;
 	public var Metallic: ExpressionInput;
@@ -17,7 +17,7 @@ extern class MaterialExpressionStrataSingleLayerWaterBSDF extends MaterialExpres
 	public var WaterPhaseG: ExpressionInput;
 	public var ColorScaleBehindWater: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -50,7 +50,7 @@ abstract ConstMaterialExpressionStrataSingleLayerWaterBSDF(MaterialExpressionStr
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataSingleLayerWaterBSDF*")
-abstract MaterialExpressionStrataSingleLayerWaterBSDFPtr(cpp.Star<MaterialExpressionStrataSingleLayerWaterBSDF>) from cpp.Star<MaterialExpressionStrataSingleLayerWaterBSDF> to cpp.Star<MaterialExpressionStrataSingleLayerWaterBSDF>{
+abstract MaterialExpressionStrataSingleLayerWaterBSDFPtr(ucpp.Ptr<MaterialExpressionStrataSingleLayerWaterBSDF>) from ucpp.Ptr<MaterialExpressionStrataSingleLayerWaterBSDF> to ucpp.Ptr<MaterialExpressionStrataSingleLayerWaterBSDF>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataSingleLayerWaterBSDF): MaterialExpressionStrataSingleLayerWaterBSDFPtr {
 		return untyped __cpp__("&({0})", v);

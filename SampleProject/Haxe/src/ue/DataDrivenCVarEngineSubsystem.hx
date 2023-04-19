@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDataDrivenCVarEngineSubsystem")
 @:include("DataDrivenCVars/DataDrivenCVars.h")
-@:structAccess
+@:valueType
 extern class DataDrivenCVarEngineSubsystem extends EngineSubsystem {
 	public var OnDataDrivenCVarDelegate: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 
 	public function OnDataDrivenCVarChanged__DelegateSignature(CVarName: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstDataDrivenCVarEngineSubsystem(DataDrivenCVarEngineSubsystem) from 
 @:forward
 @:nativeGen
 @:native("DataDrivenCVarEngineSubsystem*")
-abstract DataDrivenCVarEngineSubsystemPtr(cpp.Star<DataDrivenCVarEngineSubsystem>) from cpp.Star<DataDrivenCVarEngineSubsystem> to cpp.Star<DataDrivenCVarEngineSubsystem>{
+abstract DataDrivenCVarEngineSubsystemPtr(ucpp.Ptr<DataDrivenCVarEngineSubsystem>) from ucpp.Ptr<DataDrivenCVarEngineSubsystem> to ucpp.Ptr<DataDrivenCVarEngineSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: DataDrivenCVarEngineSubsystem): DataDrivenCVarEngineSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

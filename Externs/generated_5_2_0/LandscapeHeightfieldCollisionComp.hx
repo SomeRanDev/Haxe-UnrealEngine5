@@ -3,54 +3,54 @@ package ue;
 
 @:native("ULandscapeHeightfieldCollisionComponent")
 @:include("LandscapeHeightfieldCollisionComponent.h")
-@:structAccess
+@:valueType
 extern class LandscapeHeightfieldCollisionComp extends PrimitiveComp {
-	public var ComponentLayerInfos: TArray<cpp.Star<LandscapeLayerInfoObject>>;
-	public var SectionBaseX: cpp.Int32;
-	public var SectionBaseY: cpp.Int32;
-	public var CollisionSizeQuads: cpp.Int32;
-	public var CollisionScale: cpp.Float32;
-	public var SimpleCollisionSizeQuads: cpp.Int32;
-	public var CollisionQuadFlags: TArray<cpp.UInt8>;
+	public var ComponentLayerInfos: TArray<ucpp.Ptr<LandscapeLayerInfoObject>>;
+	public var SectionBaseX: ucpp.num.Int32;
+	public var SectionBaseY: ucpp.num.Int32;
+	public var CollisionSizeQuads: ucpp.num.Int32;
+	public var CollisionScale: ucpp.num.Float32;
+	public var SimpleCollisionSizeQuads: ucpp.num.Int32;
+	public var CollisionQuadFlags: TArray<ucpp.num.UInt8>;
 	public var HeightfieldGuid: Guid;
 	public var CachedLocalBox: Box;
-	private var RenderComponentRef: cpp.Star<LandscapeComp>;
-	public var CookedPhysicalMaterials: TArray<cpp.Star<PhysicalMaterial>>;
+	private var RenderComponentRef: ucpp.Ptr<LandscapeComp>;
+	public var CookedPhysicalMaterials: TArray<ucpp.Ptr<PhysicalMaterial>>;
 
-	public function GetRenderComponent(): cpp.Star<LandscapeComp>;
+	public function GetRenderComponent(): ucpp.Ptr<LandscapeComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetRenderComponent)
 @:nativeGen
 abstract ConstLandscapeHeightfieldCollisionComp(LandscapeHeightfieldCollisionComp) from LandscapeHeightfieldCollisionComp {
-	public extern var ComponentLayerInfos(get, never): TArray<cpp.Star<LandscapeLayerInfoObject.ConstLandscapeLayerInfoObject>>;
-	public inline extern function get_ComponentLayerInfos(): TArray<cpp.Star<LandscapeLayerInfoObject.ConstLandscapeLayerInfoObject>> return this.ComponentLayerInfos;
-	public extern var SectionBaseX(get, never): cpp.Int32;
-	public inline extern function get_SectionBaseX(): cpp.Int32 return this.SectionBaseX;
-	public extern var SectionBaseY(get, never): cpp.Int32;
-	public inline extern function get_SectionBaseY(): cpp.Int32 return this.SectionBaseY;
-	public extern var CollisionSizeQuads(get, never): cpp.Int32;
-	public inline extern function get_CollisionSizeQuads(): cpp.Int32 return this.CollisionSizeQuads;
-	public extern var CollisionScale(get, never): cpp.Float32;
-	public inline extern function get_CollisionScale(): cpp.Float32 return this.CollisionScale;
-	public extern var SimpleCollisionSizeQuads(get, never): cpp.Int32;
-	public inline extern function get_SimpleCollisionSizeQuads(): cpp.Int32 return this.SimpleCollisionSizeQuads;
-	public extern var CollisionQuadFlags(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_CollisionQuadFlags(): TArray<cpp.UInt8> return this.CollisionQuadFlags;
+	public extern var ComponentLayerInfos(get, never): TArray<ucpp.Ptr<LandscapeLayerInfoObject.ConstLandscapeLayerInfoObject>>;
+	public inline extern function get_ComponentLayerInfos(): TArray<ucpp.Ptr<LandscapeLayerInfoObject.ConstLandscapeLayerInfoObject>> return this.ComponentLayerInfos;
+	public extern var SectionBaseX(get, never): ucpp.num.Int32;
+	public inline extern function get_SectionBaseX(): ucpp.num.Int32 return this.SectionBaseX;
+	public extern var SectionBaseY(get, never): ucpp.num.Int32;
+	public inline extern function get_SectionBaseY(): ucpp.num.Int32 return this.SectionBaseY;
+	public extern var CollisionSizeQuads(get, never): ucpp.num.Int32;
+	public inline extern function get_CollisionSizeQuads(): ucpp.num.Int32 return this.CollisionSizeQuads;
+	public extern var CollisionScale(get, never): ucpp.num.Float32;
+	public inline extern function get_CollisionScale(): ucpp.num.Float32 return this.CollisionScale;
+	public extern var SimpleCollisionSizeQuads(get, never): ucpp.num.Int32;
+	public inline extern function get_SimpleCollisionSizeQuads(): ucpp.num.Int32 return this.SimpleCollisionSizeQuads;
+	public extern var CollisionQuadFlags(get, never): TArray<ucpp.num.UInt8>;
+	public inline extern function get_CollisionQuadFlags(): TArray<ucpp.num.UInt8> return this.CollisionQuadFlags;
 	public extern var HeightfieldGuid(get, never): Guid;
 	public inline extern function get_HeightfieldGuid(): Guid return this.HeightfieldGuid;
 	public extern var CachedLocalBox(get, never): Box;
 	public inline extern function get_CachedLocalBox(): Box return this.CachedLocalBox;
-	public extern var CookedPhysicalMaterials(get, never): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>>;
-	public inline extern function get_CookedPhysicalMaterials(): TArray<cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>> return this.CookedPhysicalMaterials;
+	public extern var CookedPhysicalMaterials(get, never): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>>;
+	public inline extern function get_CookedPhysicalMaterials(): TArray<ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>> return this.CookedPhysicalMaterials;
 }
 
 @:forward
 @:nativeGen
 @:native("LandscapeHeightfieldCollisionComp*")
-abstract LandscapeHeightfieldCollisionCompPtr(cpp.Star<LandscapeHeightfieldCollisionComp>) from cpp.Star<LandscapeHeightfieldCollisionComp> to cpp.Star<LandscapeHeightfieldCollisionComp>{
+abstract LandscapeHeightfieldCollisionCompPtr(ucpp.Ptr<LandscapeHeightfieldCollisionComp>) from ucpp.Ptr<LandscapeHeightfieldCollisionComp> to ucpp.Ptr<LandscapeHeightfieldCollisionComp>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeHeightfieldCollisionComp): LandscapeHeightfieldCollisionCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,25 +3,25 @@ package ue;
 
 @:native("UAssetRegistryHelpers")
 @:include("AssetRegistry/AssetRegistryHelpers.h")
-@:structAccess
+@:valueType
 extern class AssetRegistryHelpers extends Object {
-	public function ToSoftObjectPath(InAssetData: cpp.Reference<AssetData>): SoftObjectPath;
-	public function SetFilterTagsAndValues(InFilter: cpp.Reference<ARFilter>, InTagsAndValues: cpp.Reference<TArray<TagAndValue>>): ARFilter;
-	public function IsValid(InAssetData: cpp.Reference<AssetData>): Bool;
-	public function IsUAsset(InAssetData: cpp.Reference<AssetData>): Bool;
-	public function IsRedirector(InAssetData: cpp.Reference<AssetData>): Bool;
-	public function IsAssetLoaded(InAssetData: cpp.Reference<AssetData>): Bool;
-	public function GetTagValue(InAssetData: cpp.Reference<AssetData>, InTagName: cpp.Reference<FName>, OutTagValue: cpp.Reference<FString>): Bool;
-	public function GetFullName(InAssetData: cpp.Reference<AssetData>): FString;
-	public function GetExportTextName(InAssetData: cpp.Reference<AssetData>): FString;
-	public function GetClass(InAssetData: cpp.Reference<AssetData>): cpp.Star<Class>;
-	public function GetBlueprintAssets(InFilter: cpp.Reference<ARFilter>, OutAssetData: cpp.Reference<TArray<AssetData>>): Void;
+	public function ToSoftObjectPath(InAssetData: ucpp.Ref<AssetData>): SoftObjectPath;
+	public function SetFilterTagsAndValues(InFilter: ucpp.Ref<ARFilter>, InTagsAndValues: ucpp.Ref<TArray<TagAndValue>>): ARFilter;
+	public function IsValid(InAssetData: ucpp.Ref<AssetData>): Bool;
+	public function IsUAsset(InAssetData: ucpp.Ref<AssetData>): Bool;
+	public function IsRedirector(InAssetData: ucpp.Ref<AssetData>): Bool;
+	public function IsAssetLoaded(InAssetData: ucpp.Ref<AssetData>): Bool;
+	public function GetTagValue(InAssetData: ucpp.Ref<AssetData>, InTagName: ucpp.Ref<FName>, OutTagValue: ucpp.Ref<FString>): Bool;
+	public function GetFullName(InAssetData: ucpp.Ref<AssetData>): FString;
+	public function GetExportTextName(InAssetData: ucpp.Ref<AssetData>): FString;
+	public function GetClass(InAssetData: ucpp.Ref<AssetData>): ucpp.Ptr<Class>;
+	public function GetBlueprintAssets(InFilter: ucpp.Ref<ARFilter>, OutAssetData: ucpp.Ref<TArray<AssetData>>): Void;
 	public function GetAssetRegistry(): AssetRegistry;
-	public function GetAsset(InAssetData: cpp.Reference<AssetData>): cpp.Star<Object>;
-	public function FindAssetNativeClass(AssetData: cpp.Reference<AssetData>): cpp.Star<Class>;
-	public function CreateAssetData(InAsset: cpp.Star<Object.ConstObject>, bAllowBlueprintClass: Bool): AssetData;
+	public function GetAsset(InAssetData: ucpp.Ref<AssetData>): ucpp.Ptr<Object>;
+	public function FindAssetNativeClass(AssetData: ucpp.Ref<AssetData>): ucpp.Ptr<Class>;
+	public function CreateAssetData(InAsset: ucpp.Ptr<Object.ConstObject>, bAllowBlueprintClass: Bool): AssetData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstAssetRegistryHelpers(AssetRegistryHelpers) from AssetRegistryHelpe
 @:forward
 @:nativeGen
 @:native("AssetRegistryHelpers*")
-abstract AssetRegistryHelpersPtr(cpp.Star<AssetRegistryHelpers>) from cpp.Star<AssetRegistryHelpers> to cpp.Star<AssetRegistryHelpers>{
+abstract AssetRegistryHelpersPtr(ucpp.Ptr<AssetRegistryHelpers>) from ucpp.Ptr<AssetRegistryHelpers> to ucpp.Ptr<AssetRegistryHelpers>{
 	@:from
 	public static extern inline function fromValue(v: AssetRegistryHelpers): AssetRegistryHelpersPtr {
 		return untyped __cpp__("&({0})", v);

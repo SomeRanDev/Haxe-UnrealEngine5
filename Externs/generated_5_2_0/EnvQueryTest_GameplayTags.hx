@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnvQueryTest_GameplayTags")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_GameplayTags.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_GameplayTags extends EnvQueryTest {
 	@:protected public var TagQueryToMatch: GameplayTagQuery;
 	@:protected public var bRejectIncompatibleItems: Bool;
@@ -11,7 +11,7 @@ extern class EnvQueryTest_GameplayTags extends EnvQueryTest {
 	@:protected public var TagsToMatch: EGameplayContainerMatchType;
 	@:protected public var GameplayTags: GameplayTagContainer;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstEnvQueryTest_GameplayTags(EnvQueryTest_GameplayTags) from EnvQuery
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_GameplayTags*")
-abstract EnvQueryTest_GameplayTagsPtr(cpp.Star<EnvQueryTest_GameplayTags>) from cpp.Star<EnvQueryTest_GameplayTags> to cpp.Star<EnvQueryTest_GameplayTags>{
+abstract EnvQueryTest_GameplayTagsPtr(ucpp.Ptr<EnvQueryTest_GameplayTags>) from ucpp.Ptr<EnvQueryTest_GameplayTags> to ucpp.Ptr<EnvQueryTest_GameplayTags>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_GameplayTags): EnvQueryTest_GameplayTagsPtr {
 		return untyped __cpp__("&({0})", v);

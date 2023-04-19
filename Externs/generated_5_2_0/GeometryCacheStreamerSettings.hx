@@ -3,27 +3,27 @@ package ue;
 
 @:native("UGeometryCacheStreamerSettings")
 @:include("GeometryCacheStreamerSettings.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheStreamerSettings extends DeveloperSettings {
-	public var LookAheadBuffer: cpp.Float32;
-	public var MaxMemoryAllowed: cpp.Float32;
+	public var LookAheadBuffer: ucpp.num.Float32;
+	public var MaxMemoryAllowed: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeometryCacheStreamerSettings(GeometryCacheStreamerSettings) from GeometryCacheStreamerSettings {
-	public extern var LookAheadBuffer(get, never): cpp.Float32;
-	public inline extern function get_LookAheadBuffer(): cpp.Float32 return this.LookAheadBuffer;
-	public extern var MaxMemoryAllowed(get, never): cpp.Float32;
-	public inline extern function get_MaxMemoryAllowed(): cpp.Float32 return this.MaxMemoryAllowed;
+	public extern var LookAheadBuffer(get, never): ucpp.num.Float32;
+	public inline extern function get_LookAheadBuffer(): ucpp.num.Float32 return this.LookAheadBuffer;
+	public extern var MaxMemoryAllowed(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxMemoryAllowed(): ucpp.num.Float32 return this.MaxMemoryAllowed;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCacheStreamerSettings*")
-abstract GeometryCacheStreamerSettingsPtr(cpp.Star<GeometryCacheStreamerSettings>) from cpp.Star<GeometryCacheStreamerSettings> to cpp.Star<GeometryCacheStreamerSettings>{
+abstract GeometryCacheStreamerSettingsPtr(ucpp.Ptr<GeometryCacheStreamerSettings>) from ucpp.Ptr<GeometryCacheStreamerSettings> to ucpp.Ptr<GeometryCacheStreamerSettings>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheStreamerSettings): GeometryCacheStreamerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

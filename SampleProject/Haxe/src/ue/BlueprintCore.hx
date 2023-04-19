@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBlueprintCore")
 @:include("Engine/BlueprintCore.h")
-@:structAccess
+@:valueType
 extern class BlueprintCore extends Object {
 	public var SkeletonGeneratedClass: TSubclassOf<Object>;
 	public var GeneratedClass: TSubclassOf<Object>;
 	public var bLegacyNeedToPurgeSkelRefs: Bool;
 	private var BlueprintGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstBlueprintCore(BlueprintCore) from BlueprintCore {
 @:forward
 @:nativeGen
 @:native("BlueprintCore*")
-abstract BlueprintCorePtr(cpp.Star<BlueprintCore>) from cpp.Star<BlueprintCore> to cpp.Star<BlueprintCore>{
+abstract BlueprintCorePtr(ucpp.Ptr<BlueprintCore>) from ucpp.Ptr<BlueprintCore> to ucpp.Ptr<BlueprintCore>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintCore): BlueprintCorePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,13 +2,13 @@
 package ue;
 
 @:native("Uadd_controls_for_selected_options")
-@:structAccess
+@:valueType
 extern class add_controls_for_selected_options extends Object {
 	public var output_format: TEnumAsByte<ControlOutputFormat>;
 	public var suffix: FString;
 	public var prefix: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract Constadd_controls_for_selected_options(add_controls_for_selected_option
 @:forward
 @:nativeGen
 @:native("add_controls_for_selected_options*")
-abstract add_controls_for_selected_optionsPtr(cpp.Star<add_controls_for_selected_options>) from cpp.Star<add_controls_for_selected_options> to cpp.Star<add_controls_for_selected_options>{
+abstract add_controls_for_selected_optionsPtr(ucpp.Ptr<add_controls_for_selected_options>) from ucpp.Ptr<add_controls_for_selected_options> to ucpp.Ptr<add_controls_for_selected_options>{
 	@:from
 	public static extern inline function fromValue(v: add_controls_for_selected_options): add_controls_for_selected_optionsPtr {
 		return untyped __cpp__("&({0})", v);

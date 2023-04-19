@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavLinkTrivial")
 @:include("NavLinkTrivial.h")
-@:structAccess
+@:valueType
 extern class NavLinkTrivial extends NavLinkDefinition {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavLinkTrivial(NavLinkTrivial) from NavLinkTrivial {
 @:forward
 @:nativeGen
 @:native("NavLinkTrivial*")
-abstract NavLinkTrivialPtr(cpp.Star<NavLinkTrivial>) from cpp.Star<NavLinkTrivial> to cpp.Star<NavLinkTrivial>{
+abstract NavLinkTrivialPtr(ucpp.Ptr<NavLinkTrivial>) from ucpp.Ptr<NavLinkTrivial> to ucpp.Ptr<NavLinkTrivial>{
 	@:from
 	public static extern inline function fromValue(v: NavLinkTrivial): NavLinkTrivialPtr {
 		return untyped __cpp__("&({0})", v);

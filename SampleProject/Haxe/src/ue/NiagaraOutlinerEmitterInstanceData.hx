@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraOutlinerEmitterInstanceData")
 @:include("NiagaraDebuggerCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraOutlinerEmitterInstanceData {
 	public var EmitterName: FString;
 	public var SimTarget: ENiagaraSimTarget;
 	public var ExecState: ENiagaraExecutionState;
-	public var NumParticles: cpp.Int32;
+	public var NumParticles: ucpp.num.Int32;
 	public var bRequiresPersistentIDs: Bool;
 
 	@:native("FNiagaraOutlinerEmitterInstanceData") public function new();
-	@:native("FNiagaraOutlinerEmitterInstanceData") public static function make(EmitterName: FString, SimTarget: ENiagaraSimTarget, ExecState: ENiagaraExecutionState, NumParticles: cpp.Int32, bRequiresPersistentIDs: Bool): NiagaraOutlinerEmitterInstanceData ;
+	@:native("FNiagaraOutlinerEmitterInstanceData") public static function make(EmitterName: FString, SimTarget: ENiagaraSimTarget, ExecState: ENiagaraExecutionState, NumParticles: ucpp.num.Int32, bRequiresPersistentIDs: Bool): NiagaraOutlinerEmitterInstanceData ;
 }

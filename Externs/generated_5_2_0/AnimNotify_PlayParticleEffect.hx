@@ -3,23 +3,23 @@ package ue;
 
 @:native("UAnimNotify_PlayParticleEffect")
 @:include("Animation/AnimNotifies/AnimNotify_PlayParticleEffect.h")
-@:structAccess
+@:valueType
 extern class AnimNotify_PlayParticleEffect extends AnimNotify {
-	public var PSTemplate: cpp.Star<ParticleSystem>;
+	public var PSTemplate: ucpp.Ptr<ParticleSystem>;
 	public var LocationOffset: Vector;
 	public var RotationOffset: Rotator;
 	public var Scale: Vector;
 	public var Attached: Bool;
 	public var SocketName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimNotify_PlayParticleEffect(AnimNotify_PlayParticleEffect) from AnimNotify_PlayParticleEffect {
-	public extern var PSTemplate(get, never): cpp.Star<ParticleSystem.ConstParticleSystem>;
-	public inline extern function get_PSTemplate(): cpp.Star<ParticleSystem.ConstParticleSystem> return this.PSTemplate;
+	public extern var PSTemplate(get, never): ucpp.Ptr<ParticleSystem.ConstParticleSystem>;
+	public inline extern function get_PSTemplate(): ucpp.Ptr<ParticleSystem.ConstParticleSystem> return this.PSTemplate;
 	public extern var LocationOffset(get, never): Vector;
 	public inline extern function get_LocationOffset(): Vector return this.LocationOffset;
 	public extern var RotationOffset(get, never): Rotator;
@@ -35,7 +35,7 @@ abstract ConstAnimNotify_PlayParticleEffect(AnimNotify_PlayParticleEffect) from 
 @:forward
 @:nativeGen
 @:native("AnimNotify_PlayParticleEffect*")
-abstract AnimNotify_PlayParticleEffectPtr(cpp.Star<AnimNotify_PlayParticleEffect>) from cpp.Star<AnimNotify_PlayParticleEffect> to cpp.Star<AnimNotify_PlayParticleEffect>{
+abstract AnimNotify_PlayParticleEffectPtr(ucpp.Ptr<AnimNotify_PlayParticleEffect>) from ucpp.Ptr<AnimNotify_PlayParticleEffect> to ucpp.Ptr<AnimNotify_PlayParticleEffect>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotify_PlayParticleEffect): AnimNotify_PlayParticleEffectPtr {
 		return untyped __cpp__("&({0})", v);

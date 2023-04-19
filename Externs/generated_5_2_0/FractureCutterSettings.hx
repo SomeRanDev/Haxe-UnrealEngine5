@@ -3,46 +3,46 @@ package ue;
 
 @:native("UFractureCutterSettings")
 @:include("FractureToolCutter.h")
-@:structAccess
+@:valueType
 extern class FractureCutterSettings extends FractureToolSettings {
-	public var RandomSeed: cpp.Int32;
-	public var ChanceToFracture: cpp.Float32;
+	public var RandomSeed: ucpp.num.Int32;
+	public var ChanceToFracture: ucpp.num.Float32;
 	public var bGroupFracture: Bool;
 	public var bGroupFractureToggleEnabled: Bool;
-	public var Grout: cpp.Float32;
+	public var Grout: ucpp.num.Float32;
 	public var bGroutSettingEnabled: Bool;
 	public var bDrawSites: Bool;
 	public var bDrawSitesToggleEnabled: Bool;
 	public var bDrawDiagram: Bool;
 	public var bDrawNoisePreview: Bool;
 	public var bNoisePreviewToggleEnabled: Bool;
-	public var FractionPreviewCells: cpp.Float32;
-	public var NoisePreviewScale: cpp.Float64;
+	public var FractionPreviewCells: ucpp.num.Float32;
+	public var NoisePreviewScale: ucpp.num.Float64;
 	public var bNoisePreviewHasScale: Bool;
-	public var Amplitude: cpp.Float32;
-	public var Frequency: cpp.Float32;
-	public var Persistence: cpp.Float32;
-	public var Lacunarity: cpp.Float32;
-	public var OctaveNumber: cpp.Int32;
-	public var PointSpacing: cpp.Float32;
+	public var Amplitude: ucpp.num.Float32;
+	public var Frequency: ucpp.num.Float32;
+	public var Persistence: ucpp.num.Float32;
+	public var Lacunarity: ucpp.num.Float32;
+	public var OctaveNumber: ucpp.num.Int32;
+	public var PointSpacing: ucpp.num.Float32;
 	public var bNoiseSettingsEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureCutterSettings(FractureCutterSettings) from FractureCutterSettings {
-	public extern var RandomSeed(get, never): cpp.Int32;
-	public inline extern function get_RandomSeed(): cpp.Int32 return this.RandomSeed;
-	public extern var ChanceToFracture(get, never): cpp.Float32;
-	public inline extern function get_ChanceToFracture(): cpp.Float32 return this.ChanceToFracture;
+	public extern var RandomSeed(get, never): ucpp.num.Int32;
+	public inline extern function get_RandomSeed(): ucpp.num.Int32 return this.RandomSeed;
+	public extern var ChanceToFracture(get, never): ucpp.num.Float32;
+	public inline extern function get_ChanceToFracture(): ucpp.num.Float32 return this.ChanceToFracture;
 	public extern var bGroupFracture(get, never): Bool;
 	public inline extern function get_bGroupFracture(): Bool return this.bGroupFracture;
 	public extern var bGroupFractureToggleEnabled(get, never): Bool;
 	public inline extern function get_bGroupFractureToggleEnabled(): Bool return this.bGroupFractureToggleEnabled;
-	public extern var Grout(get, never): cpp.Float32;
-	public inline extern function get_Grout(): cpp.Float32 return this.Grout;
+	public extern var Grout(get, never): ucpp.num.Float32;
+	public inline extern function get_Grout(): ucpp.num.Float32 return this.Grout;
 	public extern var bGroutSettingEnabled(get, never): Bool;
 	public inline extern function get_bGroutSettingEnabled(): Bool return this.bGroutSettingEnabled;
 	public extern var bDrawSites(get, never): Bool;
@@ -55,24 +55,24 @@ abstract ConstFractureCutterSettings(FractureCutterSettings) from FractureCutter
 	public inline extern function get_bDrawNoisePreview(): Bool return this.bDrawNoisePreview;
 	public extern var bNoisePreviewToggleEnabled(get, never): Bool;
 	public inline extern function get_bNoisePreviewToggleEnabled(): Bool return this.bNoisePreviewToggleEnabled;
-	public extern var FractionPreviewCells(get, never): cpp.Float32;
-	public inline extern function get_FractionPreviewCells(): cpp.Float32 return this.FractionPreviewCells;
-	public extern var NoisePreviewScale(get, never): cpp.Float64;
-	public inline extern function get_NoisePreviewScale(): cpp.Float64 return this.NoisePreviewScale;
+	public extern var FractionPreviewCells(get, never): ucpp.num.Float32;
+	public inline extern function get_FractionPreviewCells(): ucpp.num.Float32 return this.FractionPreviewCells;
+	public extern var NoisePreviewScale(get, never): ucpp.num.Float64;
+	public inline extern function get_NoisePreviewScale(): ucpp.num.Float64 return this.NoisePreviewScale;
 	public extern var bNoisePreviewHasScale(get, never): Bool;
 	public inline extern function get_bNoisePreviewHasScale(): Bool return this.bNoisePreviewHasScale;
-	public extern var Amplitude(get, never): cpp.Float32;
-	public inline extern function get_Amplitude(): cpp.Float32 return this.Amplitude;
-	public extern var Frequency(get, never): cpp.Float32;
-	public inline extern function get_Frequency(): cpp.Float32 return this.Frequency;
-	public extern var Persistence(get, never): cpp.Float32;
-	public inline extern function get_Persistence(): cpp.Float32 return this.Persistence;
-	public extern var Lacunarity(get, never): cpp.Float32;
-	public inline extern function get_Lacunarity(): cpp.Float32 return this.Lacunarity;
-	public extern var OctaveNumber(get, never): cpp.Int32;
-	public inline extern function get_OctaveNumber(): cpp.Int32 return this.OctaveNumber;
-	public extern var PointSpacing(get, never): cpp.Float32;
-	public inline extern function get_PointSpacing(): cpp.Float32 return this.PointSpacing;
+	public extern var Amplitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Amplitude(): ucpp.num.Float32 return this.Amplitude;
+	public extern var Frequency(get, never): ucpp.num.Float32;
+	public inline extern function get_Frequency(): ucpp.num.Float32 return this.Frequency;
+	public extern var Persistence(get, never): ucpp.num.Float32;
+	public inline extern function get_Persistence(): ucpp.num.Float32 return this.Persistence;
+	public extern var Lacunarity(get, never): ucpp.num.Float32;
+	public inline extern function get_Lacunarity(): ucpp.num.Float32 return this.Lacunarity;
+	public extern var OctaveNumber(get, never): ucpp.num.Int32;
+	public inline extern function get_OctaveNumber(): ucpp.num.Int32 return this.OctaveNumber;
+	public extern var PointSpacing(get, never): ucpp.num.Float32;
+	public inline extern function get_PointSpacing(): ucpp.num.Float32 return this.PointSpacing;
 	public extern var bNoiseSettingsEnabled(get, never): Bool;
 	public inline extern function get_bNoiseSettingsEnabled(): Bool return this.bNoiseSettingsEnabled;
 }
@@ -80,7 +80,7 @@ abstract ConstFractureCutterSettings(FractureCutterSettings) from FractureCutter
 @:forward
 @:nativeGen
 @:native("FractureCutterSettings*")
-abstract FractureCutterSettingsPtr(cpp.Star<FractureCutterSettings>) from cpp.Star<FractureCutterSettings> to cpp.Star<FractureCutterSettings>{
+abstract FractureCutterSettingsPtr(ucpp.Ptr<FractureCutterSettings>) from ucpp.Ptr<FractureCutterSettings> to ucpp.Ptr<FractureCutterSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureCutterSettings): FractureCutterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

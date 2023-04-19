@@ -3,13 +3,13 @@ package ue;
 
 @:native("UWidgetSlotPair")
 @:include("Utility/WidgetSlotPair.h")
-@:structAccess
+@:valueType
 extern class WidgetSlotPair extends Object {
 	private var WidgetName: FName;
 	private var SlotPropertyNames: TArray<FName>;
 	private var SlotPropertyValues: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstWidgetSlotPair(WidgetSlotPair) from WidgetSlotPair {
 @:forward
 @:nativeGen
 @:native("WidgetSlotPair*")
-abstract WidgetSlotPairPtr(cpp.Star<WidgetSlotPair>) from cpp.Star<WidgetSlotPair> to cpp.Star<WidgetSlotPair>{
+abstract WidgetSlotPairPtr(ucpp.Ptr<WidgetSlotPair>) from ucpp.Ptr<WidgetSlotPair> to ucpp.Ptr<WidgetSlotPair>{
 	@:from
 	public static extern inline function fromValue(v: WidgetSlotPair): WidgetSlotPairPtr {
 		return untyped __cpp__("&({0})", v);

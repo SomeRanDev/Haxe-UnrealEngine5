@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraStackEventScriptItemGroup")
 @:include("ViewModels/Stack/NiagaraStackEventScriptItemGroup.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackEventScriptItemGroup extends NiagaraStackScriptItemGroup {
-	private var EventHandlerProperties: cpp.Star<NiagaraStackEventHandlerPropertiesItem>;
+	private var EventHandlerProperties: ucpp.Ptr<NiagaraStackEventHandlerPropertiesItem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraStackEventScriptItemGroup(NiagaraStackEventScriptItemGroup)
 @:forward
 @:nativeGen
 @:native("NiagaraStackEventScriptItemGroup*")
-abstract NiagaraStackEventScriptItemGroupPtr(cpp.Star<NiagaraStackEventScriptItemGroup>) from cpp.Star<NiagaraStackEventScriptItemGroup> to cpp.Star<NiagaraStackEventScriptItemGroup>{
+abstract NiagaraStackEventScriptItemGroupPtr(ucpp.Ptr<NiagaraStackEventScriptItemGroup>) from ucpp.Ptr<NiagaraStackEventScriptItemGroup> to ucpp.Ptr<NiagaraStackEventScriptItemGroup>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackEventScriptItemGroup): NiagaraStackEventScriptItemGroupPtr {
 		return untyped __cpp__("&({0})", v);

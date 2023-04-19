@@ -3,12 +3,12 @@ package ue;
 
 @:native("UOutlinerSettings")
 @:include("SGeometryCollectionOutliner.h")
-@:structAccess
+@:valueType
 extern class OutlinerSettings extends Object {
 	public var ColorByLevel: Bool;
 	public var ColumnMode: EOutlinerColumnMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstOutlinerSettings(OutlinerSettings) from OutlinerSettings {
 @:forward
 @:nativeGen
 @:native("OutlinerSettings*")
-abstract OutlinerSettingsPtr(cpp.Star<OutlinerSettings>) from cpp.Star<OutlinerSettings> to cpp.Star<OutlinerSettings>{
+abstract OutlinerSettingsPtr(ucpp.Ptr<OutlinerSettings>) from ucpp.Ptr<OutlinerSettings> to ucpp.Ptr<OutlinerSettings>{
 	@:from
 	public static extern inline function fromValue(v: OutlinerSettings): OutlinerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

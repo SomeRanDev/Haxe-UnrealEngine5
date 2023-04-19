@@ -3,27 +3,27 @@ package ue;
 
 @:native("USharpPullKelvinletBrushOpProps")
 @:include("Sculpting/KelvinletBrushOp.h")
-@:structAccess
+@:valueType
 extern class SharpPullKelvinletBrushOpProps extends BaseKelvinletBrushOpProps {
-	public var Falloff: cpp.Float32;
-	public var Depth: cpp.Float32;
+	public var Falloff: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSharpPullKelvinletBrushOpProps(SharpPullKelvinletBrushOpProps) from SharpPullKelvinletBrushOpProps {
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
-	public extern var Depth(get, never): cpp.Float32;
-	public inline extern function get_Depth(): cpp.Float32 return this.Depth;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
+	public extern var Depth(get, never): ucpp.num.Float32;
+	public inline extern function get_Depth(): ucpp.num.Float32 return this.Depth;
 }
 
 @:forward
 @:nativeGen
 @:native("SharpPullKelvinletBrushOpProps*")
-abstract SharpPullKelvinletBrushOpPropsPtr(cpp.Star<SharpPullKelvinletBrushOpProps>) from cpp.Star<SharpPullKelvinletBrushOpProps> to cpp.Star<SharpPullKelvinletBrushOpProps>{
+abstract SharpPullKelvinletBrushOpPropsPtr(ucpp.Ptr<SharpPullKelvinletBrushOpProps>) from ucpp.Ptr<SharpPullKelvinletBrushOpProps> to ucpp.Ptr<SharpPullKelvinletBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: SharpPullKelvinletBrushOpProps): SharpPullKelvinletBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneDataLayerSystem")
 @:include("Systems/MovieSceneDataLayerSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDataLayerSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneDataLayerSystem(MovieSceneDataLayerSystem) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieSceneDataLayerSystem*")
-abstract MovieSceneDataLayerSystemPtr(cpp.Star<MovieSceneDataLayerSystem>) from cpp.Star<MovieSceneDataLayerSystem> to cpp.Star<MovieSceneDataLayerSystem>{
+abstract MovieSceneDataLayerSystemPtr(ucpp.Ptr<MovieSceneDataLayerSystem>) from ucpp.Ptr<MovieSceneDataLayerSystem> to ucpp.Ptr<MovieSceneDataLayerSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneDataLayerSystem): MovieSceneDataLayerSystemPtr {
 		return untyped __cpp__("&({0})", v);

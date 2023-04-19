@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDockableWindowDragOperation")
 @:include("UI/VREditorDockableWindow.h")
-@:structAccess
+@:valueType
 extern class DockableWindowDragOperation extends ViewportDragOperation {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDockableWindowDragOperation(DockableWindowDragOperation) from Dock
 @:forward
 @:nativeGen
 @:native("DockableWindowDragOperation*")
-abstract DockableWindowDragOperationPtr(cpp.Star<DockableWindowDragOperation>) from cpp.Star<DockableWindowDragOperation> to cpp.Star<DockableWindowDragOperation>{
+abstract DockableWindowDragOperationPtr(ucpp.Ptr<DockableWindowDragOperation>) from ucpp.Ptr<DockableWindowDragOperation> to ucpp.Ptr<DockableWindowDragOperation>{
 	@:from
 	public static extern inline function fromValue(v: DockableWindowDragOperation): DockableWindowDragOperationPtr {
 		return untyped __cpp__("&({0})", v);

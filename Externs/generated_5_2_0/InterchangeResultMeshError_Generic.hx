@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeResultMeshError_Generic")
 @:include("Fbx/InterchangeFbxMessages.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultMeshError_Generic extends InterchangeResultMeshError {
 	public var Text: FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInterchangeResultMeshError_Generic(InterchangeResultMeshError_Gene
 @:forward
 @:nativeGen
 @:native("InterchangeResultMeshError_Generic*")
-abstract InterchangeResultMeshError_GenericPtr(cpp.Star<InterchangeResultMeshError_Generic>) from cpp.Star<InterchangeResultMeshError_Generic> to cpp.Star<InterchangeResultMeshError_Generic>{
+abstract InterchangeResultMeshError_GenericPtr(ucpp.Ptr<InterchangeResultMeshError_Generic>) from ucpp.Ptr<InterchangeResultMeshError_Generic> to ucpp.Ptr<InterchangeResultMeshError_Generic>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultMeshError_Generic): InterchangeResultMeshError_GenericPtr {
 		return untyped __cpp__("&({0})", v);

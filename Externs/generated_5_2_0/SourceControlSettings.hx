@@ -3,14 +3,14 @@ package ue;
 
 @:native("USourceControlSettings")
 @:include("SourceControlSettings.h")
-@:structAccess
+@:valueType
 extern class SourceControlSettings extends Object {
 	public var bShowAssetTypeColumn: Bool;
 	public var bShowAssetLastModifiedTimeColumn: Bool;
 	public var bShowAssetCheckedOutByColumn: Bool;
 	public var bEnableSubmitContentMenuAction: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstSourceControlSettings(SourceControlSettings) from SourceControlSet
 @:forward
 @:nativeGen
 @:native("SourceControlSettings*")
-abstract SourceControlSettingsPtr(cpp.Star<SourceControlSettings>) from cpp.Star<SourceControlSettings> to cpp.Star<SourceControlSettings>{
+abstract SourceControlSettingsPtr(ucpp.Ptr<SourceControlSettings>) from ucpp.Ptr<SourceControlSettings> to ucpp.Ptr<SourceControlSettings>{
 	@:from
 	public static extern inline function fromValue(v: SourceControlSettings): SourceControlSettingsPtr {
 		return untyped __cpp__("&({0})", v);

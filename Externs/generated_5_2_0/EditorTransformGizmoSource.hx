@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorTransformGizmoSource")
 @:include("EditorGizmos/EditorTransformGizmoSource.h")
-@:structAccess
+@:valueType
 extern class EditorTransformGizmoSource extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorTransformGizmoSource(EditorTransformGizmoSource) from Editor
 @:forward
 @:nativeGen
 @:native("EditorTransformGizmoSource*")
-abstract EditorTransformGizmoSourcePtr(cpp.Star<EditorTransformGizmoSource>) from cpp.Star<EditorTransformGizmoSource> to cpp.Star<EditorTransformGizmoSource>{
+abstract EditorTransformGizmoSourcePtr(ucpp.Ptr<EditorTransformGizmoSource>) from ucpp.Ptr<EditorTransformGizmoSource> to ucpp.Ptr<EditorTransformGizmoSource>{
 	@:from
 	public static extern inline function fromValue(v: EditorTransformGizmoSource): EditorTransformGizmoSourcePtr {
 		return untyped __cpp__("&({0})", v);

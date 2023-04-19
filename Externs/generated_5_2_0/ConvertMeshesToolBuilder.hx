@@ -3,10 +3,10 @@ package ue;
 
 @:native("UConvertMeshesToolBuilder")
 @:include("ConvertMeshesTool.h")
-@:structAccess
+@:valueType
 extern class ConvertMeshesToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstConvertMeshesToolBuilder(ConvertMeshesToolBuilder) from ConvertMes
 @:forward
 @:nativeGen
 @:native("ConvertMeshesToolBuilder*")
-abstract ConvertMeshesToolBuilderPtr(cpp.Star<ConvertMeshesToolBuilder>) from cpp.Star<ConvertMeshesToolBuilder> to cpp.Star<ConvertMeshesToolBuilder>{
+abstract ConvertMeshesToolBuilderPtr(ucpp.Ptr<ConvertMeshesToolBuilder>) from ucpp.Ptr<ConvertMeshesToolBuilder> to ucpp.Ptr<ConvertMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ConvertMeshesToolBuilder): ConvertMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

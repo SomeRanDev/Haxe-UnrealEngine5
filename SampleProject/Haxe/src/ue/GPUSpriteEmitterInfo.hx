@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGPUSpriteEmitterInfo")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
-@:structAccess
+@:valueType
 extern class GPUSpriteEmitterInfo {
-	public var RequiredModule: cpp.Star<ParticleModuleRequired>;
-	public var SpawnModule: cpp.Star<ParticleModuleSpawn>;
-	public var SpawnPerUnitModule: cpp.Star<ParticleModuleSpawnPerUnit>;
-	public var SpawnModules: TArray<cpp.Star<ParticleModule>>;
+	public var RequiredModule: ucpp.Ptr<ParticleModuleRequired>;
+	public var SpawnModule: ucpp.Ptr<ParticleModuleSpawn>;
+	public var SpawnPerUnitModule: ucpp.Ptr<ParticleModuleSpawnPerUnit>;
+	public var SpawnModules: TArray<ucpp.Ptr<ParticleModule>>;
 	public var LocalVectorField: GPUSpriteLocalVectorFieldInfo;
 	public var VectorFieldScale: FloatDistribution;
 	public var DragCoefficient: FloatDistribution;
@@ -16,20 +16,20 @@ extern class GPUSpriteEmitterInfo {
 	public var Resilience: FloatDistribution;
 	public var ConstantAcceleration: Vector;
 	public var PointAttractorPosition: Vector;
-	public var PointAttractorRadiusSq: cpp.Float32;
+	public var PointAttractorRadiusSq: ucpp.num.Float32;
 	public var OrbitOffsetBase: Vector;
 	public var OrbitOffsetRange: Vector;
 	public var InvMaxSize: Vector2D;
-	public var InvRotationRateScale: cpp.Float32;
-	public var MaxLifetime: cpp.Float32;
-	public var MaxParticleCount: cpp.Int32;
+	public var InvRotationRateScale: ucpp.num.Float32;
+	public var MaxLifetime: ucpp.num.Float32;
+	public var MaxParticleCount: ucpp.num.Int32;
 	public var ScreenAlignment: TEnumAsByte<EParticleScreenAlignment>;
 	public var LockAxisFlag: TEnumAsByte<EParticleAxisLock>;
 	public var bEnableCollision: Bool;
 	public var CollisionMode: TEnumAsByte<EParticleCollisionMode>;
 	public var bRemoveHMDRoll: Bool;
-	public var MinFacingCameraBlendDistance: cpp.Float32;
-	public var MaxFacingCameraBlendDistance: cpp.Float32;
+	public var MinFacingCameraBlendDistance: ucpp.num.Float32;
+	public var MaxFacingCameraBlendDistance: ucpp.num.Float32;
 	public var DynamicColor: RawDistributionVector;
 	public var DynamicAlpha: RawDistributionFloat;
 	public var DynamicColorScale: RawDistributionVector;

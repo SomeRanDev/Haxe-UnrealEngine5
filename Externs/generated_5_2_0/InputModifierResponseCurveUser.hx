@@ -3,30 +3,30 @@ package ue;
 
 @:native("UInputModifierResponseCurveUser")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierResponseCurveUser extends InputModifier {
-	public var ResponseX: cpp.Star<CurveFloat>;
-	public var ResponseY: cpp.Star<CurveFloat>;
-	public var ResponseZ: cpp.Star<CurveFloat>;
+	public var ResponseX: ucpp.Ptr<CurveFloat>;
+	public var ResponseY: ucpp.Ptr<CurveFloat>;
+	public var ResponseZ: ucpp.Ptr<CurveFloat>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputModifierResponseCurveUser(InputModifierResponseCurveUser) from InputModifierResponseCurveUser {
-	public extern var ResponseX(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
-	public inline extern function get_ResponseX(): cpp.Star<CurveFloat.ConstCurveFloat> return this.ResponseX;
-	public extern var ResponseY(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
-	public inline extern function get_ResponseY(): cpp.Star<CurveFloat.ConstCurveFloat> return this.ResponseY;
-	public extern var ResponseZ(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
-	public inline extern function get_ResponseZ(): cpp.Star<CurveFloat.ConstCurveFloat> return this.ResponseZ;
+	public extern var ResponseX(get, never): ucpp.Ptr<CurveFloat.ConstCurveFloat>;
+	public inline extern function get_ResponseX(): ucpp.Ptr<CurveFloat.ConstCurveFloat> return this.ResponseX;
+	public extern var ResponseY(get, never): ucpp.Ptr<CurveFloat.ConstCurveFloat>;
+	public inline extern function get_ResponseY(): ucpp.Ptr<CurveFloat.ConstCurveFloat> return this.ResponseY;
+	public extern var ResponseZ(get, never): ucpp.Ptr<CurveFloat.ConstCurveFloat>;
+	public inline extern function get_ResponseZ(): ucpp.Ptr<CurveFloat.ConstCurveFloat> return this.ResponseZ;
 }
 
 @:forward
 @:nativeGen
 @:native("InputModifierResponseCurveUser*")
-abstract InputModifierResponseCurveUserPtr(cpp.Star<InputModifierResponseCurveUser>) from cpp.Star<InputModifierResponseCurveUser> to cpp.Star<InputModifierResponseCurveUser>{
+abstract InputModifierResponseCurveUserPtr(ucpp.Ptr<InputModifierResponseCurveUser>) from ucpp.Ptr<InputModifierResponseCurveUser> to ucpp.Ptr<InputModifierResponseCurveUser>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierResponseCurveUser): InputModifierResponseCurveUserPtr {
 		return untyped __cpp__("&({0})", v);

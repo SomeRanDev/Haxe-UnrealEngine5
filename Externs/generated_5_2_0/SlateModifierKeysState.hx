@@ -3,10 +3,10 @@ package ue;
 
 @:native("FSlateModifierKeysState")
 @:include("Kismet/KismetInputLibrary.h")
-@:structAccess
+@:valueType
 extern class SlateModifierKeysState {
-	public var ModifierKeysStateMask: cpp.UInt8;
+	public var ModifierKeysStateMask: ucpp.num.UInt8;
 
 	@:native("FSlateModifierKeysState") public function new();
-	@:native("FSlateModifierKeysState") public static function make(ModifierKeysStateMask: cpp.UInt8): SlateModifierKeysState ;
+	@:native("FSlateModifierKeysState") public static function make(ModifierKeysStateMask: ucpp.num.UInt8): SlateModifierKeysState ;
 }

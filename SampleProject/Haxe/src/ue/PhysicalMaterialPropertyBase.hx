@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_PhysicalMaterialPropertyBase")
 @:include("PhysicalMaterials/PhysicalMaterialPropertyBase.h")
-@:structAccess
+@:valueType
 extern class PhysicalMaterialPropertyBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPhysicalMaterialPropertyBase(PhysicalMaterialPropertyBase) from Ph
 @:forward
 @:nativeGen
 @:native("PhysicalMaterialPropertyBase*")
-abstract PhysicalMaterialPropertyBasePtr(cpp.Star<PhysicalMaterialPropertyBase>) from cpp.Star<PhysicalMaterialPropertyBase> to cpp.Star<PhysicalMaterialPropertyBase>{
+abstract PhysicalMaterialPropertyBasePtr(ucpp.Ptr<PhysicalMaterialPropertyBase>) from ucpp.Ptr<PhysicalMaterialPropertyBase> to ucpp.Ptr<PhysicalMaterialPropertyBase>{
 	@:from
 	public static extern inline function fromValue(v: PhysicalMaterialPropertyBase): PhysicalMaterialPropertyBasePtr {
 		return untyped __cpp__("&({0})", v);

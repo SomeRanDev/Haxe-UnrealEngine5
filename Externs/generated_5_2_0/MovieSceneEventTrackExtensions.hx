@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMovieSceneEventTrackExtensions")
 @:include("ExtensionLibraries/MovieSceneEventTrackExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventTrackExtensions extends BlueprintFunctionLibrary {
-	public function GetBoundObjectPropertyClass(EventKey: cpp.Reference<MovieSceneEvent>): cpp.Star<Class>;
-	public function AddEventTriggerSection(InTrack: cpp.Star<MovieSceneEventTrack>): cpp.Star<MovieSceneEventTriggerSection>;
-	public function AddEventRepeaterSection(InTrack: cpp.Star<MovieSceneEventTrack>): cpp.Star<MovieSceneEventRepeaterSection>;
+	public function GetBoundObjectPropertyClass(EventKey: ucpp.Ref<MovieSceneEvent>): ucpp.Ptr<Class>;
+	public function AddEventTriggerSection(InTrack: ucpp.Ptr<MovieSceneEventTrack>): ucpp.Ptr<MovieSceneEventTriggerSection>;
+	public function AddEventRepeaterSection(InTrack: ucpp.Ptr<MovieSceneEventTrack>): ucpp.Ptr<MovieSceneEventRepeaterSection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneEventTrackExtensions(MovieSceneEventTrackExtensions) fro
 @:forward
 @:nativeGen
 @:native("MovieSceneEventTrackExtensions*")
-abstract MovieSceneEventTrackExtensionsPtr(cpp.Star<MovieSceneEventTrackExtensions>) from cpp.Star<MovieSceneEventTrackExtensions> to cpp.Star<MovieSceneEventTrackExtensions>{
+abstract MovieSceneEventTrackExtensionsPtr(ucpp.Ptr<MovieSceneEventTrackExtensions>) from ucpp.Ptr<MovieSceneEventTrackExtensions> to ucpp.Ptr<MovieSceneEventTrackExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEventTrackExtensions): MovieSceneEventTrackExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

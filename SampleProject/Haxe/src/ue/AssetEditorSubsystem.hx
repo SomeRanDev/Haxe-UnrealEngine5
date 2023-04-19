@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAssetEditorSubsystem")
 @:include("Subsystems/AssetEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class AssetEditorSubsystem extends EditorSubsystem {
-	private var OwnedAssetEditors: TArray<cpp.Star<AssetEditor>>;
+	private var OwnedAssetEditors: TArray<ucpp.Ptr<AssetEditor>>;
 
-	public function OpenEditorForAssets(Assets: cpp.Reference<TArray<cpp.Star<Object>>>): Bool;
-	public function CloseAllEditorsForAsset(Asset: cpp.Star<Object>): cpp.Int32;
+	public function OpenEditorForAssets(Assets: ucpp.Ref<TArray<ucpp.Ptr<Object>>>, OpenedMethod: EAssetTypeActivationOpenedMethod): Bool;
+	public function CloseAllEditorsForAsset(Asset: ucpp.Ptr<Object>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAssetEditorSubsystem(AssetEditorSubsystem) from AssetEditorSubsyst
 @:forward
 @:nativeGen
 @:native("AssetEditorSubsystem*")
-abstract AssetEditorSubsystemPtr(cpp.Star<AssetEditorSubsystem>) from cpp.Star<AssetEditorSubsystem> to cpp.Star<AssetEditorSubsystem>{
+abstract AssetEditorSubsystemPtr(ucpp.Ptr<AssetEditorSubsystem>) from ucpp.Ptr<AssetEditorSubsystem> to ucpp.Ptr<AssetEditorSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: AssetEditorSubsystem): AssetEditorSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

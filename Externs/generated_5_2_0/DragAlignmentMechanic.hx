@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDragAlignmentMechanic")
 @:include("Mechanics/DragAlignmentMechanic.h")
-@:structAccess
+@:valueType
 extern class DragAlignmentMechanic extends InteractionMechanic {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDragAlignmentMechanic(DragAlignmentMechanic) from DragAlignmentMec
 @:forward
 @:nativeGen
 @:native("DragAlignmentMechanic*")
-abstract DragAlignmentMechanicPtr(cpp.Star<DragAlignmentMechanic>) from cpp.Star<DragAlignmentMechanic> to cpp.Star<DragAlignmentMechanic>{
+abstract DragAlignmentMechanicPtr(ucpp.Ptr<DragAlignmentMechanic>) from ucpp.Ptr<DragAlignmentMechanic> to ucpp.Ptr<DragAlignmentMechanic>{
 	@:from
 	public static extern inline function fromValue(v: DragAlignmentMechanic): DragAlignmentMechanicPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UControlRigValidator")
 @:include("ControlRigValidationPass.h")
-@:structAccess
+@:valueType
 extern class ControlRigValidator extends Object {
-	private var Passes: TArray<cpp.Star<ControlRigValidationPass>>;
+	private var Passes: TArray<ucpp.Ptr<ControlRigValidationPass>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstControlRigValidator(ControlRigValidator) from ControlRigValidator 
 @:forward
 @:nativeGen
 @:native("ControlRigValidator*")
-abstract ControlRigValidatorPtr(cpp.Star<ControlRigValidator>) from cpp.Star<ControlRigValidator> to cpp.Star<ControlRigValidator>{
+abstract ControlRigValidatorPtr(ucpp.Ptr<ControlRigValidator>) from ucpp.Ptr<ControlRigValidator> to ucpp.Ptr<ControlRigValidator>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigValidator): ControlRigValidatorPtr {
 		return untyped __cpp__("&({0})", v);

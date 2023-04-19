@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RotationMultiplier")
 @:include("AnimGraphNode_RotationMultiplier.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_RotationMultiplier extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_RotationMultiplier;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_RotationMultiplier(AnimGraphNode_RotationMultiplier)
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_RotationMultiplier*")
-abstract AnimGraphNode_RotationMultiplierPtr(cpp.Star<AnimGraphNode_RotationMultiplier>) from cpp.Star<AnimGraphNode_RotationMultiplier> to cpp.Star<AnimGraphNode_RotationMultiplier>{
+abstract AnimGraphNode_RotationMultiplierPtr(ucpp.Ptr<AnimGraphNode_RotationMultiplier>) from ucpp.Ptr<AnimGraphNode_RotationMultiplier> to ucpp.Ptr<AnimGraphNode_RotationMultiplier>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_RotationMultiplier): AnimGraphNode_RotationMultiplierPtr {
 		return untyped __cpp__("&({0})", v);

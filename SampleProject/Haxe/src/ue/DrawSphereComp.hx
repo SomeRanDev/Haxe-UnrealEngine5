@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDrawSphereComponent")
 @:include("Components/DrawSphereComponent.h")
-@:structAccess
+@:valueType
 extern class DrawSphereComp extends SphereComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDrawSphereComp(DrawSphereComp) from DrawSphereComp {
 @:forward
 @:nativeGen
 @:native("DrawSphereComp*")
-abstract DrawSphereCompPtr(cpp.Star<DrawSphereComp>) from cpp.Star<DrawSphereComp> to cpp.Star<DrawSphereComp>{
+abstract DrawSphereCompPtr(ucpp.Ptr<DrawSphereComp>) from ucpp.Ptr<DrawSphereComp> to ucpp.Ptr<DrawSphereComp>{
 	@:from
 	public static extern inline function fromValue(v: DrawSphereComp): DrawSphereCompPtr {
 		return untyped __cpp__("&({0})", v);

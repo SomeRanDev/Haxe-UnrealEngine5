@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGenerateStaticMeshLODAssetToolTextureProperties")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODAssetToolTextureProperties extends InteractiveToolPropertySet {
 	public var Materials: TArray<GenerateStaticMeshLOD_MaterialConfig>;
 	public var Textures: TArray<GenerateStaticMeshLOD_TextureConfig>;
-	public var PreviewTextures: TArray<cpp.Star<Texture2D>>;
+	public var PreviewTextures: TArray<ucpp.Ptr<Texture2D>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstGenerateStaticMeshLODAssetToolTextureProperties(GenerateStaticMesh
 	public inline extern function get_Materials(): TArray<GenerateStaticMeshLOD_MaterialConfig> return this.Materials;
 	public extern var Textures(get, never): TArray<GenerateStaticMeshLOD_TextureConfig>;
 	public inline extern function get_Textures(): TArray<GenerateStaticMeshLOD_TextureConfig> return this.Textures;
-	public extern var PreviewTextures(get, never): TArray<cpp.Star<Texture2D.ConstTexture2D>>;
-	public inline extern function get_PreviewTextures(): TArray<cpp.Star<Texture2D.ConstTexture2D>> return this.PreviewTextures;
+	public extern var PreviewTextures(get, never): TArray<ucpp.Ptr<Texture2D.ConstTexture2D>>;
+	public inline extern function get_PreviewTextures(): TArray<ucpp.Ptr<Texture2D.ConstTexture2D>> return this.PreviewTextures;
 }
 
 @:forward
 @:nativeGen
 @:native("GenerateStaticMeshLODAssetToolTextureProperties*")
-abstract GenerateStaticMeshLODAssetToolTexturePropertiesPtr(cpp.Star<GenerateStaticMeshLODAssetToolTextureProperties>) from cpp.Star<GenerateStaticMeshLODAssetToolTextureProperties> to cpp.Star<GenerateStaticMeshLODAssetToolTextureProperties>{
+abstract GenerateStaticMeshLODAssetToolTexturePropertiesPtr(ucpp.Ptr<GenerateStaticMeshLODAssetToolTextureProperties>) from ucpp.Ptr<GenerateStaticMeshLODAssetToolTextureProperties> to ucpp.Ptr<GenerateStaticMeshLODAssetToolTextureProperties>{
 	@:from
 	public static extern inline function fromValue(v: GenerateStaticMeshLODAssetToolTextureProperties): GenerateStaticMeshLODAssetToolTexturePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

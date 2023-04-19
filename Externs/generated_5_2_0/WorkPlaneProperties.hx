@@ -3,14 +3,14 @@ package ue;
 
 @:native("UWorkPlaneProperties")
 @:include("Sculpting/MeshSculptToolBase.h")
-@:structAccess
+@:valueType
 extern class WorkPlaneProperties extends InteractiveToolPropertySet {
 	public var bPropertySetEnabled: Bool;
 	public var bShowGizmo: Bool;
 	public var Position: Vector;
 	public var Rotation: Quat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstWorkPlaneProperties(WorkPlaneProperties) from WorkPlaneProperties 
 @:forward
 @:nativeGen
 @:native("WorkPlaneProperties*")
-abstract WorkPlanePropertiesPtr(cpp.Star<WorkPlaneProperties>) from cpp.Star<WorkPlaneProperties> to cpp.Star<WorkPlaneProperties>{
+abstract WorkPlanePropertiesPtr(ucpp.Ptr<WorkPlaneProperties>) from ucpp.Ptr<WorkPlaneProperties> to ucpp.Ptr<WorkPlaneProperties>{
 	@:from
 	public static extern inline function fromValue(v: WorkPlaneProperties): WorkPlanePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

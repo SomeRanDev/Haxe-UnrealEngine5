@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDrawPolyPathExtrudeProperties")
 @:include("DrawPolyPathTool.h")
-@:structAccess
+@:valueType
 extern class DrawPolyPathExtrudeProperties extends InteractiveToolPropertySet {
 	public var Direction: EDrawPolyPathExtrudeDirection;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDrawPolyPathExtrudeProperties(DrawPolyPathExtrudeProperties) from 
 @:forward
 @:nativeGen
 @:native("DrawPolyPathExtrudeProperties*")
-abstract DrawPolyPathExtrudePropertiesPtr(cpp.Star<DrawPolyPathExtrudeProperties>) from cpp.Star<DrawPolyPathExtrudeProperties> to cpp.Star<DrawPolyPathExtrudeProperties>{
+abstract DrawPolyPathExtrudePropertiesPtr(ucpp.Ptr<DrawPolyPathExtrudeProperties>) from ucpp.Ptr<DrawPolyPathExtrudeProperties> to ucpp.Ptr<DrawPolyPathExtrudeProperties>{
 	@:from
 	public static extern inline function fromValue(v: DrawPolyPathExtrudeProperties): DrawPolyPathExtrudePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("ACameraActor")
 @:include("Camera/CameraActor.h")
-@:structAccess
+@:valueType
 extern class CameraActor extends Actor {
 	private var AutoActivateForPlayer: TEnumAsByte<EAutoReceiveInput>;
-	private var CameraComponent: cpp.Star<CameraComp>;
-	private var SceneComponent: cpp.Star<SceneComp>;
+	private var CameraComponent: ucpp.Ptr<CameraComp>;
+	private var SceneComponent: ucpp.Ptr<SceneComp>;
 
-	public function GetAutoActivatePlayerIndex(): cpp.Int32;
+	public function GetAutoActivatePlayerIndex(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAutoActivatePlayerIndex)
@@ -22,7 +22,7 @@ abstract ConstCameraActor(CameraActor) from CameraActor {
 @:forward
 @:nativeGen
 @:native("CameraActor*")
-abstract CameraActorPtr(cpp.Star<CameraActor>) from cpp.Star<CameraActor> to cpp.Star<CameraActor>{
+abstract CameraActorPtr(ucpp.Ptr<CameraActor>) from ucpp.Ptr<CameraActor> to ucpp.Ptr<CameraActor>{
 	@:from
 	public static extern inline function fromValue(v: CameraActor): CameraActorPtr {
 		return untyped __cpp__("&({0})", v);

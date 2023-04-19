@@ -3,15 +3,15 @@ package ue;
 
 @:native("UTexAligner")
 @:include("TexAligner/TexAligner.h")
-@:structAccess
+@:valueType
 extern class TexAligner extends Object {
 	public var DefTexAlign: TEnumAsByte<ETexAlign>;
-	public var TAxis: cpp.UInt8;
-	public var UTile: cpp.Float32;
-	public var VTile: cpp.Float32;
+	public var TAxis: ucpp.num.UInt8;
+	public var UTile: ucpp.num.Float32;
+	public var VTile: ucpp.num.Float32;
 	public var Desc: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,12 +19,12 @@ extern class TexAligner extends Object {
 abstract ConstTexAligner(TexAligner) from TexAligner {
 	public extern var DefTexAlign(get, never): TEnumAsByte<ETexAlign>;
 	public inline extern function get_DefTexAlign(): TEnumAsByte<ETexAlign> return this.DefTexAlign;
-	public extern var TAxis(get, never): cpp.UInt8;
-	public inline extern function get_TAxis(): cpp.UInt8 return this.TAxis;
-	public extern var UTile(get, never): cpp.Float32;
-	public inline extern function get_UTile(): cpp.Float32 return this.UTile;
-	public extern var VTile(get, never): cpp.Float32;
-	public inline extern function get_VTile(): cpp.Float32 return this.VTile;
+	public extern var TAxis(get, never): ucpp.num.UInt8;
+	public inline extern function get_TAxis(): ucpp.num.UInt8 return this.TAxis;
+	public extern var UTile(get, never): ucpp.num.Float32;
+	public inline extern function get_UTile(): ucpp.num.Float32 return this.UTile;
+	public extern var VTile(get, never): ucpp.num.Float32;
+	public inline extern function get_VTile(): ucpp.num.Float32 return this.VTile;
 	public extern var Desc(get, never): FString;
 	public inline extern function get_Desc(): FString return this.Desc;
 }
@@ -32,7 +32,7 @@ abstract ConstTexAligner(TexAligner) from TexAligner {
 @:forward
 @:nativeGen
 @:native("TexAligner*")
-abstract TexAlignerPtr(cpp.Star<TexAligner>) from cpp.Star<TexAligner> to cpp.Star<TexAligner>{
+abstract TexAlignerPtr(ucpp.Ptr<TexAligner>) from ucpp.Ptr<TexAligner> to ucpp.Ptr<TexAligner>{
 	@:from
 	public static extern inline function fromValue(v: TexAligner): TexAlignerPtr {
 		return untyped __cpp__("&({0})", v);

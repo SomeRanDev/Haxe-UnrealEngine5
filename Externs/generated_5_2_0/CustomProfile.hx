@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomProfile")
 @:include("Engine/CollisionProfile.h")
-@:structAccess
+@:valueType
 extern class CustomProfile {
 	public var Name: FName;
 	public var CustomResponses: TArray<ResponseChannel>;

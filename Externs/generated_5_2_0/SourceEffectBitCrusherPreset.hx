@@ -3,20 +3,20 @@ package ue;
 
 @:native("USourceEffectBitCrusherPreset")
 @:include("SourceEffects/SourceEffectBitCrusher.h")
-@:structAccess
+@:valueType
 extern class SourceEffectBitCrusherPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectBitCrusherSettings;
 
-	public function SetSettings(Settings: cpp.Reference<SourceEffectBitCrusherBaseSettings>): Void;
-	public function SetSampleRateModulators(InModulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetSampleRateModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
-	public function SetSampleRate(SampleRate: cpp.Float32): Void;
-	public function SetModulationSettings(ModulationSettings: cpp.Reference<SourceEffectBitCrusherSettings>): Void;
-	public function SetBits(Bits: cpp.Float32): Void;
-	public function SetBitModulators(InModulators: cpp.Reference<TSet<cpp.Star<SoundModulatorBase>>>): Void;
-	public function SetBitModulator(Modulator: cpp.Star<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetSettings(Settings: ucpp.Ref<SourceEffectBitCrusherBaseSettings>): Void;
+	public function SetSampleRateModulators(InModulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetSampleRateModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
+	public function SetSampleRate(SampleRate: ucpp.num.Float32): Void;
+	public function SetModulationSettings(ModulationSettings: ucpp.Ref<SourceEffectBitCrusherSettings>): Void;
+	public function SetBits(Bits: ucpp.num.Float32): Void;
+	public function SetBitModulators(InModulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>): Void;
+	public function SetBitModulator(Modulator: ucpp.Ptr<SoundModulatorBase.ConstSoundModulatorBase>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstSourceEffectBitCrusherPreset(SourceEffectBitCrusherPreset) from So
 @:forward
 @:nativeGen
 @:native("SourceEffectBitCrusherPreset*")
-abstract SourceEffectBitCrusherPresetPtr(cpp.Star<SourceEffectBitCrusherPreset>) from cpp.Star<SourceEffectBitCrusherPreset> to cpp.Star<SourceEffectBitCrusherPreset>{
+abstract SourceEffectBitCrusherPresetPtr(ucpp.Ptr<SourceEffectBitCrusherPreset>) from ucpp.Ptr<SourceEffectBitCrusherPreset> to ucpp.Ptr<SourceEffectBitCrusherPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectBitCrusherPreset): SourceEffectBitCrusherPresetPtr {
 		return untyped __cpp__("&({0})", v);

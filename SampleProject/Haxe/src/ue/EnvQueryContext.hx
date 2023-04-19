@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnvQueryContext")
 @:include("EnvironmentQuery/EnvQueryContext.h")
-@:structAccess
+@:valueType
 extern class EnvQueryContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnvQueryContext(EnvQueryContext) from EnvQueryContext {
 @:forward
 @:nativeGen
 @:native("EnvQueryContext*")
-abstract EnvQueryContextPtr(cpp.Star<EnvQueryContext>) from cpp.Star<EnvQueryContext> to cpp.Star<EnvQueryContext>{
+abstract EnvQueryContextPtr(ucpp.Ptr<EnvQueryContext>) from ucpp.Ptr<EnvQueryContext> to ucpp.Ptr<EnvQueryContext>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryContext): EnvQueryContextPtr {
 		return untyped __cpp__("&({0})", v);

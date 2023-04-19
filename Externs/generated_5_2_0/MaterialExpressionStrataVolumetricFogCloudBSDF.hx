@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionStrataVolumetricFogCloudBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataVolumetricFogCloudBSDF extends MaterialExpressionStrataBSDF {
 	public var Albedo: ExpressionInput;
 	public var Extinction: ExpressionInput;
 	public var EmissiveColor: ExpressionInput;
 	public var AmbientOcclusion: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMaterialExpressionStrataVolumetricFogCloudBSDF(MaterialExpressionS
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataVolumetricFogCloudBSDF*")
-abstract MaterialExpressionStrataVolumetricFogCloudBSDFPtr(cpp.Star<MaterialExpressionStrataVolumetricFogCloudBSDF>) from cpp.Star<MaterialExpressionStrataVolumetricFogCloudBSDF> to cpp.Star<MaterialExpressionStrataVolumetricFogCloudBSDF>{
+abstract MaterialExpressionStrataVolumetricFogCloudBSDFPtr(ucpp.Ptr<MaterialExpressionStrataVolumetricFogCloudBSDF>) from ucpp.Ptr<MaterialExpressionStrataVolumetricFogCloudBSDF> to ucpp.Ptr<MaterialExpressionStrataVolumetricFogCloudBSDF>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataVolumetricFogCloudBSDF): MaterialExpressionStrataVolumetricFogCloudBSDFPtr {
 		return untyped __cpp__("&({0})", v);

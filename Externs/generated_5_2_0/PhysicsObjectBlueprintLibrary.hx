@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPhysicsObjectBlueprintLibrary")
 @:include("PhysicsEngine/PhysicsObjectBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class PhysicsObjectBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetPhysicsObjectWorldTransform(Component: cpp.Star<PrimitiveComp>, BoneName: FName): Transform;
-	public function GetClosestPhysicsObjectFromWorldLocation(Component: cpp.Star<PrimitiveComp>, WorldLocation: cpp.Reference<Vector>): ClosestPhysicsObjectResult;
-	public function ExtractClosestPhysicsObjectResults(Result: cpp.Reference<ClosestPhysicsObjectResult>, OutName: cpp.Reference<FName>): Bool;
+	public function GetPhysicsObjectWorldTransform(Component: ucpp.Ptr<PrimitiveComp>, BoneName: FName): Transform;
+	public function GetClosestPhysicsObjectFromWorldLocation(Component: ucpp.Ptr<PrimitiveComp>, WorldLocation: ucpp.Ref<Vector>): ClosestPhysicsObjectResult;
+	public function ExtractClosestPhysicsObjectResults(Result: ucpp.Ref<ClosestPhysicsObjectResult>, OutName: ucpp.Ref<FName>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPhysicsObjectBlueprintLibrary(PhysicsObjectBlueprintLibrary) from 
 @:forward
 @:nativeGen
 @:native("PhysicsObjectBlueprintLibrary*")
-abstract PhysicsObjectBlueprintLibraryPtr(cpp.Star<PhysicsObjectBlueprintLibrary>) from cpp.Star<PhysicsObjectBlueprintLibrary> to cpp.Star<PhysicsObjectBlueprintLibrary>{
+abstract PhysicsObjectBlueprintLibraryPtr(ucpp.Ptr<PhysicsObjectBlueprintLibrary>) from ucpp.Ptr<PhysicsObjectBlueprintLibrary> to ucpp.Ptr<PhysicsObjectBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsObjectBlueprintLibrary): PhysicsObjectBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

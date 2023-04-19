@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMovieSceneCameraShakeSourceTrigger")
 @:include("Channels/MovieSceneCameraShakeSourceTriggerChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCameraShakeSourceTrigger {
 	public var ShakeClass: TSubclassOf<CameraShakeBase>;
-	public var PlayScale: cpp.Float32;
+	public var PlayScale: ucpp.num.Float32;
 	public var PlaySpace: ECameraShakePlaySpace;
 	public var UserDefinedPlaySpace: Rotator;
 
 	@:native("FMovieSceneCameraShakeSourceTrigger") public function new();
-	@:native("FMovieSceneCameraShakeSourceTrigger") public static function make(ShakeClass: TSubclassOf<CameraShakeBase>, PlayScale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserDefinedPlaySpace: Rotator): MovieSceneCameraShakeSourceTrigger ;
+	@:native("FMovieSceneCameraShakeSourceTrigger") public static function make(ShakeClass: TSubclassOf<CameraShakeBase>, PlayScale: ucpp.num.Float32, PlaySpace: ECameraShakePlaySpace, UserDefinedPlaySpace: Rotator): MovieSceneCameraShakeSourceTrigger ;
 }

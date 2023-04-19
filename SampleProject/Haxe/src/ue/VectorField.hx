@@ -3,12 +3,12 @@ package ue;
 
 @:native("UVectorField")
 @:include("VectorField/VectorField.h")
-@:structAccess
+@:valueType
 extern class VectorField extends Object {
 	public var Bounds: Box;
-	public var Intensity: cpp.Float32;
+	public var Intensity: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class VectorField extends Object {
 abstract ConstVectorField(VectorField) from VectorField {
 	public extern var Bounds(get, never): Box;
 	public inline extern function get_Bounds(): Box return this.Bounds;
-	public extern var Intensity(get, never): cpp.Float32;
-	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
+	public extern var Intensity(get, never): ucpp.num.Float32;
+	public inline extern function get_Intensity(): ucpp.num.Float32 return this.Intensity;
 }
 
 @:forward
 @:nativeGen
 @:native("VectorField*")
-abstract VectorFieldPtr(cpp.Star<VectorField>) from cpp.Star<VectorField> to cpp.Star<VectorField>{
+abstract VectorFieldPtr(ucpp.Ptr<VectorField>) from ucpp.Ptr<VectorField> to ucpp.Ptr<VectorField>{
 	@:from
 	public static extern inline function fromValue(v: VectorField): VectorFieldPtr {
 		return untyped __cpp__("&({0})", v);

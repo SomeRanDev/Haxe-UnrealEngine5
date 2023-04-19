@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditNormalsToolBuilder")
 @:include("EditNormalsTool.h")
-@:structAccess
+@:valueType
 extern class EditNormalsToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditNormalsToolBuilder(EditNormalsToolBuilder) from EditNormalsToo
 @:forward
 @:nativeGen
 @:native("EditNormalsToolBuilder*")
-abstract EditNormalsToolBuilderPtr(cpp.Star<EditNormalsToolBuilder>) from cpp.Star<EditNormalsToolBuilder> to cpp.Star<EditNormalsToolBuilder>{
+abstract EditNormalsToolBuilderPtr(ucpp.Ptr<EditNormalsToolBuilder>) from ucpp.Ptr<EditNormalsToolBuilder> to ucpp.Ptr<EditNormalsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: EditNormalsToolBuilder): EditNormalsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

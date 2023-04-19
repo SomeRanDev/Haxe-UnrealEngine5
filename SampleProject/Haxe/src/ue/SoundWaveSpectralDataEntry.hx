@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSoundWaveSpectralDataEntry")
 @:include("Sound/SoundWave.h")
-@:structAccess
+@:valueType
 extern class SoundWaveSpectralDataEntry {
-	public var Magnitude: cpp.Float32;
-	public var NormalizedMagnitude: cpp.Float32;
+	public var Magnitude: ucpp.num.Float32;
+	public var NormalizedMagnitude: ucpp.num.Float32;
 
 	@:native("FSoundWaveSpectralDataEntry") public function new();
-	@:native("FSoundWaveSpectralDataEntry") public static function make(Magnitude: cpp.Float32, NormalizedMagnitude: cpp.Float32): SoundWaveSpectralDataEntry ;
+	@:native("FSoundWaveSpectralDataEntry") public static function make(Magnitude: ucpp.num.Float32, NormalizedMagnitude: ucpp.num.Float32): SoundWaveSpectralDataEntry ;
 }

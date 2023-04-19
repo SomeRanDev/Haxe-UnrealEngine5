@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPointSetComponent")
 @:include("Drawing/PointSetComponent.h")
-@:structAccess
+@:valueType
 extern class PointSetComp extends MeshComp {
-	private var PointMaterial: cpp.Star<MaterialInterface>;
+	private var PointMaterial: ucpp.Ptr<MaterialInterface>;
 	private var Bounds: BoxSphereBounds;
 	private var bBoundsDirty: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPointSetComp(PointSetComp) from PointSetComp {
 @:forward
 @:nativeGen
 @:native("PointSetComp*")
-abstract PointSetCompPtr(cpp.Star<PointSetComp>) from cpp.Star<PointSetComp> to cpp.Star<PointSetComp>{
+abstract PointSetCompPtr(ucpp.Ptr<PointSetComp>) from ucpp.Ptr<PointSetComp> to ucpp.Ptr<PointSetComp>{
 	@:from
 	public static extern inline function fromValue(v: PointSetComp): PointSetCompPtr {
 		return untyped __cpp__("&({0})", v);

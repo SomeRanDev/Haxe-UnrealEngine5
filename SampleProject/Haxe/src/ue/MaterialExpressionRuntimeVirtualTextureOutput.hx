@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionRuntimeVirtualTextureOutput")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionRuntimeVirtualTextureOutput extends MaterialExpressionCustomOutput {
 	public var BaseColor: ExpressionInput;
 	public var Specular: ExpressionInput;
@@ -13,7 +13,7 @@ extern class MaterialExpressionRuntimeVirtualTextureOutput extends MaterialExpre
 	public var Opacity: ExpressionInput;
 	public var Mask: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureOutput(MaterialExpressionRu
 @:forward
 @:nativeGen
 @:native("MaterialExpressionRuntimeVirtualTextureOutput*")
-abstract MaterialExpressionRuntimeVirtualTextureOutputPtr(cpp.Star<MaterialExpressionRuntimeVirtualTextureOutput>) from cpp.Star<MaterialExpressionRuntimeVirtualTextureOutput> to cpp.Star<MaterialExpressionRuntimeVirtualTextureOutput>{
+abstract MaterialExpressionRuntimeVirtualTextureOutputPtr(ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureOutput>) from ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureOutput> to ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionRuntimeVirtualTextureOutput): MaterialExpressionRuntimeVirtualTextureOutputPtr {
 		return untyped __cpp__("&({0})", v);

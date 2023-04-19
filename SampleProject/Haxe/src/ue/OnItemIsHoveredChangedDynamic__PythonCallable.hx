@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnItemIsHoveredChangedDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnItemIsHoveredChangedDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnItemIsHoveredChangedDynamic__PythonCallable(OnItemIsHoveredChang
 @:forward
 @:nativeGen
 @:native("OnItemIsHoveredChangedDynamic__PythonCallable*")
-abstract OnItemIsHoveredChangedDynamic__PythonCallablePtr(cpp.Star<OnItemIsHoveredChangedDynamic__PythonCallable>) from cpp.Star<OnItemIsHoveredChangedDynamic__PythonCallable> to cpp.Star<OnItemIsHoveredChangedDynamic__PythonCallable>{
+abstract OnItemIsHoveredChangedDynamic__PythonCallablePtr(ucpp.Ptr<OnItemIsHoveredChangedDynamic__PythonCallable>) from ucpp.Ptr<OnItemIsHoveredChangedDynamic__PythonCallable> to ucpp.Ptr<OnItemIsHoveredChangedDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnItemIsHoveredChangedDynamic__PythonCallable): OnItemIsHoveredChangedDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

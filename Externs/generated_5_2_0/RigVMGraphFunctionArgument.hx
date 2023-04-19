@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMGraphFunctionArgument")
 @:include("RigVMCore/RigVMGraphFunctionDefinition.h")
-@:structAccess
+@:valueType
 extern class RigVMGraphFunctionArgument {
 	public var Name: FName;
 	public var DisplayName: FName;

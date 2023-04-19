@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UConstraintsManager_OnConstraintRemoved__PythonCallable")
-@:structAccess
+@:valueType
 extern class ConstraintsManager_OnConstraintRemoved__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstConstraintsManager_OnConstraintRemoved__PythonCallable(Constraints
 @:forward
 @:nativeGen
 @:native("ConstraintsManager_OnConstraintRemoved__PythonCallable*")
-abstract ConstraintsManager_OnConstraintRemoved__PythonCallablePtr(cpp.Star<ConstraintsManager_OnConstraintRemoved__PythonCallable>) from cpp.Star<ConstraintsManager_OnConstraintRemoved__PythonCallable> to cpp.Star<ConstraintsManager_OnConstraintRemoved__PythonCallable>{
+abstract ConstraintsManager_OnConstraintRemoved__PythonCallablePtr(ucpp.Ptr<ConstraintsManager_OnConstraintRemoved__PythonCallable>) from ucpp.Ptr<ConstraintsManager_OnConstraintRemoved__PythonCallable> to ucpp.Ptr<ConstraintsManager_OnConstraintRemoved__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ConstraintsManager_OnConstraintRemoved__PythonCallable): ConstraintsManager_OnConstraintRemoved__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FBasedMovementInfo")
 @:include("GameFramework/Character.h")
-@:structAccess
+@:valueType
 extern class BasedMovementInfo {
-	public var BaseID: cpp.UInt16;
-	public var MovementBase: cpp.Star<PrimitiveComp>;
+	public var BaseID: ucpp.num.UInt16;
+	public var MovementBase: ucpp.Ptr<PrimitiveComp>;
 	public var BoneName: FName;
 	public var Location: Vector_NetQuantize100;
 	public var Rotation: Rotator;

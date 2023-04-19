@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EMaterialParameterAssociation")
-@:include("Materials/MaterialLayersFunctions.h")
+@:include("MaterialTypes.h")
 extern class EMaterialParameterAssociation {
 	static var LayerParameter: EMaterialParameterAssociation;
 	static var BlendParameter: EMaterialParameterAssociation;

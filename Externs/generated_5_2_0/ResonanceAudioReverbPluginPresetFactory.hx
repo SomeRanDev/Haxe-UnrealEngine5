@@ -3,10 +3,10 @@ package ue;
 
 @:native("UResonanceAudioReverbPluginPresetFactory")
 @:include("ResonanceAudioReverbPluginPresetFactory.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioReverbPluginPresetFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstResonanceAudioReverbPluginPresetFactory(ResonanceAudioReverbPlugin
 @:forward
 @:nativeGen
 @:native("ResonanceAudioReverbPluginPresetFactory*")
-abstract ResonanceAudioReverbPluginPresetFactoryPtr(cpp.Star<ResonanceAudioReverbPluginPresetFactory>) from cpp.Star<ResonanceAudioReverbPluginPresetFactory> to cpp.Star<ResonanceAudioReverbPluginPresetFactory>{
+abstract ResonanceAudioReverbPluginPresetFactoryPtr(ucpp.Ptr<ResonanceAudioReverbPluginPresetFactory>) from ucpp.Ptr<ResonanceAudioReverbPluginPresetFactory> to ucpp.Ptr<ResonanceAudioReverbPluginPresetFactory>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioReverbPluginPresetFactory): ResonanceAudioReverbPluginPresetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

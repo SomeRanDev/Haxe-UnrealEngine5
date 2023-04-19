@@ -3,7 +3,7 @@ package ue;
 
 @:native("FConstraintTickFunction")
 @:include("ConstraintsManager.h")
-@:structAccess
+@:valueType
 extern class ConstraintTickFunction extends TickFunction {
 	@:native("FConstraintTickFunction") public function new();
 }

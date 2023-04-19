@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshPaintingSubsystem")
 @:include("MeshPaintHelpers.h")
-@:structAccess
+@:valueType
 extern class MeshPaintingSubsystem extends EngineSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshPaintingSubsystem(MeshPaintingSubsystem) from MeshPaintingSubs
 @:forward
 @:nativeGen
 @:native("MeshPaintingSubsystem*")
-abstract MeshPaintingSubsystemPtr(cpp.Star<MeshPaintingSubsystem>) from cpp.Star<MeshPaintingSubsystem> to cpp.Star<MeshPaintingSubsystem>{
+abstract MeshPaintingSubsystemPtr(ucpp.Ptr<MeshPaintingSubsystem>) from ucpp.Ptr<MeshPaintingSubsystem> to ucpp.Ptr<MeshPaintingSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: MeshPaintingSubsystem): MeshPaintingSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

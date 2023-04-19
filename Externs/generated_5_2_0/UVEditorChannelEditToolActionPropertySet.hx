@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUVEditorChannelEditToolActionPropertySet")
 @:include("UVEditorLayerEditTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorChannelEditToolActionPropertySet extends InteractiveToolPropertySet {
 	public function Apply(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstUVEditorChannelEditToolActionPropertySet(UVEditorChannelEditToolAc
 @:forward
 @:nativeGen
 @:native("UVEditorChannelEditToolActionPropertySet*")
-abstract UVEditorChannelEditToolActionPropertySetPtr(cpp.Star<UVEditorChannelEditToolActionPropertySet>) from cpp.Star<UVEditorChannelEditToolActionPropertySet> to cpp.Star<UVEditorChannelEditToolActionPropertySet>{
+abstract UVEditorChannelEditToolActionPropertySetPtr(ucpp.Ptr<UVEditorChannelEditToolActionPropertySet>) from ucpp.Ptr<UVEditorChannelEditToolActionPropertySet> to ucpp.Ptr<UVEditorChannelEditToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorChannelEditToolActionPropertySet): UVEditorChannelEditToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

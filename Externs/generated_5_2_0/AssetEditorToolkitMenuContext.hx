@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAssetEditorToolkitMenuContext")
 @:include("Toolkits/AssetEditorToolkitMenuContext.h")
-@:structAccess
+@:valueType
 extern class AssetEditorToolkitMenuContext extends Object {
-	public function GetEditingObjects(): TArray<cpp.Star<Object>>;
+	public function GetEditingObjects(): TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetEditingObjects)
@@ -18,7 +18,7 @@ abstract ConstAssetEditorToolkitMenuContext(AssetEditorToolkitMenuContext) from 
 @:forward
 @:nativeGen
 @:native("AssetEditorToolkitMenuContext*")
-abstract AssetEditorToolkitMenuContextPtr(cpp.Star<AssetEditorToolkitMenuContext>) from cpp.Star<AssetEditorToolkitMenuContext> to cpp.Star<AssetEditorToolkitMenuContext>{
+abstract AssetEditorToolkitMenuContextPtr(ucpp.Ptr<AssetEditorToolkitMenuContext>) from ucpp.Ptr<AssetEditorToolkitMenuContext> to ucpp.Ptr<AssetEditorToolkitMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: AssetEditorToolkitMenuContext): AssetEditorToolkitMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

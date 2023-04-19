@@ -11,5 +11,8 @@ extern class EScreenOrientation {
 	static var LandscapeRight: EScreenOrientation;
 	static var FaceUp: EScreenOrientation;
 	static var FaceDown: EScreenOrientation;
+	static var PortraitSensor: EScreenOrientation;
+	static var LandscapeSensor: EScreenOrientation;
+	static var FullSensor: EScreenOrientation;
 	static var EScreenOrientation_MAX: EScreenOrientation;
 }

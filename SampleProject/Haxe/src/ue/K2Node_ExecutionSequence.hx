@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_ExecutionSequence")
 @:include("K2Node_ExecutionSequence.h")
-@:structAccess
+@:valueType
 extern class K2Node_ExecutionSequence extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_ExecutionSequence(K2Node_ExecutionSequence) from K2Node_Exe
 @:forward
 @:nativeGen
 @:native("K2Node_ExecutionSequence*")
-abstract K2Node_ExecutionSequencePtr(cpp.Star<K2Node_ExecutionSequence>) from cpp.Star<K2Node_ExecutionSequence> to cpp.Star<K2Node_ExecutionSequence>{
+abstract K2Node_ExecutionSequencePtr(ucpp.Ptr<K2Node_ExecutionSequence>) from ucpp.Ptr<K2Node_ExecutionSequence> to ucpp.Ptr<K2Node_ExecutionSequence>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_ExecutionSequence): K2Node_ExecutionSequencePtr {
 		return untyped __cpp__("&({0})", v);

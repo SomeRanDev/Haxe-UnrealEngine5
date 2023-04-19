@@ -3,36 +3,36 @@ package ue;
 
 @:native("UAnimSharingInstance")
 @:include("AnimationSharingManager.h")
-@:structAccess
+@:valueType
 extern class AnimSharingInstance extends Object {
-	public var RegisteredActors: TArray<cpp.Star<Actor>>;
-	public var StateProcessor: cpp.Star<AnimationSharingStateProcessor>;
-	public var UsedAnimationSequences: TArray<cpp.Star<AnimSequence>>;
-	public var StateEnum: cpp.Star<Enum>;
-	public var SharingActor: cpp.Star<Actor>;
+	public var RegisteredActors: TArray<ucpp.Ptr<Actor>>;
+	public var StateProcessor: ucpp.Ptr<AnimationSharingStateProcessor>;
+	public var UsedAnimationSequences: TArray<ucpp.Ptr<AnimSequence>>;
+	public var StateEnum: ucpp.Ptr<Enum>;
+	public var SharingActor: ucpp.Ptr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimSharingInstance(AnimSharingInstance) from AnimSharingInstance {
-	public extern var RegisteredActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_RegisteredActors(): TArray<cpp.Star<Actor.ConstActor>> return this.RegisteredActors;
-	public extern var StateProcessor(get, never): cpp.Star<AnimationSharingStateProcessor.ConstAnimationSharingStateProcessor>;
-	public inline extern function get_StateProcessor(): cpp.Star<AnimationSharingStateProcessor.ConstAnimationSharingStateProcessor> return this.StateProcessor;
-	public extern var UsedAnimationSequences(get, never): TArray<cpp.Star<AnimSequence.ConstAnimSequence>>;
-	public inline extern function get_UsedAnimationSequences(): TArray<cpp.Star<AnimSequence.ConstAnimSequence>> return this.UsedAnimationSequences;
-	public extern var StateEnum(get, never): cpp.Star<Enum.ConstEnum>;
-	public inline extern function get_StateEnum(): cpp.Star<Enum.ConstEnum> return this.StateEnum;
-	public extern var SharingActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_SharingActor(): cpp.Star<Actor.ConstActor> return this.SharingActor;
+	public extern var RegisteredActors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_RegisteredActors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.RegisteredActors;
+	public extern var StateProcessor(get, never): ucpp.Ptr<AnimationSharingStateProcessor.ConstAnimationSharingStateProcessor>;
+	public inline extern function get_StateProcessor(): ucpp.Ptr<AnimationSharingStateProcessor.ConstAnimationSharingStateProcessor> return this.StateProcessor;
+	public extern var UsedAnimationSequences(get, never): TArray<ucpp.Ptr<AnimSequence.ConstAnimSequence>>;
+	public inline extern function get_UsedAnimationSequences(): TArray<ucpp.Ptr<AnimSequence.ConstAnimSequence>> return this.UsedAnimationSequences;
+	public extern var StateEnum(get, never): ucpp.Ptr<Enum.ConstEnum>;
+	public inline extern function get_StateEnum(): ucpp.Ptr<Enum.ConstEnum> return this.StateEnum;
+	public extern var SharingActor(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_SharingActor(): ucpp.Ptr<Actor.ConstActor> return this.SharingActor;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimSharingInstance*")
-abstract AnimSharingInstancePtr(cpp.Star<AnimSharingInstance>) from cpp.Star<AnimSharingInstance> to cpp.Star<AnimSharingInstance>{
+abstract AnimSharingInstancePtr(ucpp.Ptr<AnimSharingInstance>) from ucpp.Ptr<AnimSharingInstance> to ucpp.Ptr<AnimSharingInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimSharingInstance): AnimSharingInstancePtr {
 		return untyped __cpp__("&({0})", v);

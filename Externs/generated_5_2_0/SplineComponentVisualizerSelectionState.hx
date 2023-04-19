@@ -3,18 +3,18 @@ package ue;
 
 @:native("USplineComponentVisualizerSelectionState")
 @:include("SplineComponentVisualizer.h")
-@:structAccess
+@:valueType
 extern class SplineComponentVisualizerSelectionState extends Object {
 	@:protected public var SplinePropertyPath: ComponentPropertyPath;
-	@:protected public var SelectedKeys: TSet<cpp.Int32>;
-	@:protected public var LastKeyIndexSelected: cpp.Int32;
-	@:protected public var SelectedSegmentIndex: cpp.Int32;
-	@:protected public var SelectedTangentHandle: cpp.Int32;
+	@:protected public var SelectedKeys: TSet<ucpp.num.Int32>;
+	@:protected public var LastKeyIndexSelected: ucpp.num.Int32;
+	@:protected public var SelectedSegmentIndex: ucpp.num.Int32;
+	@:protected public var SelectedTangentHandle: ucpp.num.Int32;
 	@:protected public var SelectedTangentHandleType: ESelectedTangentHandle;
 	@:protected public var SelectedSplinePosition: Vector;
 	@:protected public var CachedRotation: Quat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstSplineComponentVisualizerSelectionState(SplineComponentVisualizerS
 @:forward
 @:nativeGen
 @:native("SplineComponentVisualizerSelectionState*")
-abstract SplineComponentVisualizerSelectionStatePtr(cpp.Star<SplineComponentVisualizerSelectionState>) from cpp.Star<SplineComponentVisualizerSelectionState> to cpp.Star<SplineComponentVisualizerSelectionState>{
+abstract SplineComponentVisualizerSelectionStatePtr(ucpp.Ptr<SplineComponentVisualizerSelectionState>) from ucpp.Ptr<SplineComponentVisualizerSelectionState> to ucpp.Ptr<SplineComponentVisualizerSelectionState>{
 	@:from
 	public static extern inline function fromValue(v: SplineComponentVisualizerSelectionState): SplineComponentVisualizerSelectionStatePtr {
 		return untyped __cpp__("&({0})", v);

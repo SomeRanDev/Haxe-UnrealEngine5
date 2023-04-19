@@ -3,7 +3,7 @@ package ue;
 
 @:native("FARMeshUpdatePayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARMeshUpdatePayload {
 	public var SessionPayload: ARSessionPayload;
 	public var WorldTransform: Transform;

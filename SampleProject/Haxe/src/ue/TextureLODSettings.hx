@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTextureLODSettings")
 @:include("Engine/TextureLODSettings.h")
-@:structAccess
+@:valueType
 extern class TextureLODSettings extends Object {
 	public var TextureLODGroups: TArray<TextureLODGroup>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTextureLODSettings(TextureLODSettings) from TextureLODSettings {
 @:forward
 @:nativeGen
 @:native("TextureLODSettings*")
-abstract TextureLODSettingsPtr(cpp.Star<TextureLODSettings>) from cpp.Star<TextureLODSettings> to cpp.Star<TextureLODSettings>{
+abstract TextureLODSettingsPtr(ucpp.Ptr<TextureLODSettings>) from ucpp.Ptr<TextureLODSettings> to ucpp.Ptr<TextureLODSettings>{
 	@:from
 	public static extern inline function fromValue(v: TextureLODSettings): TextureLODSettingsPtr {
 		return untyped __cpp__("&({0})", v);

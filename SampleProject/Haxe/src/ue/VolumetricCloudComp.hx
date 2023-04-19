@@ -3,84 +3,99 @@ package ue;
 
 @:native("UVolumetricCloudComponent")
 @:include("Components/VolumetricCloudComponent.h")
-@:structAccess
+@:valueType
 extern class VolumetricCloudComp extends SceneComp {
-	public var LayerBottomAltitude: cpp.Float32;
-	public var LayerHeight: cpp.Float32;
-	public var TracingStartMaxDistance: cpp.Float32;
-	public var TracingMaxDistance: cpp.Float32;
-	public var PlanetRadius: cpp.Float32;
+	public var LayerBottomAltitude: ucpp.num.Float32;
+	public var LayerHeight: ucpp.num.Float32;
+	public var TracingStartMaxDistance: ucpp.num.Float32;
+	public var TracingMaxDistanceMode: EVolumetricCloudTracingMaxDistanceMode;
+	public var TracingMaxDistance: ucpp.num.Float32;
+	public var PlanetRadius: ucpp.num.Float32;
 	public var GroundAlbedo: Color;
-	public var Material: cpp.Star<MaterialInterface>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 	public var bUsePerSampleAtmosphericLightTransmittance: Bool;
-	public var SkyLightCloudBottomOcclusion: cpp.Float32;
-	public var ViewSampleCountScale: cpp.Float32;
-	public var ReflectionViewSampleCountScale: cpp.Float32;
-	public var ShadowViewSampleCountScale: cpp.Float32;
-	public var ShadowReflectionViewSampleCountScale: cpp.Float32;
-	public var ShadowTracingDistance: cpp.Float32;
-	public var StopTracingTransmittanceThreshold: cpp.Float32;
+	public var SkyLightCloudBottomOcclusion: ucpp.num.Float32;
+	public var ViewSampleCountScale: ucpp.num.Float32;
+	public var ReflectionViewSampleCountScaleValue: ucpp.num.Float32;
+	public var ShadowViewSampleCountScale: ucpp.num.Float32;
+	public var ShadowReflectionViewSampleCountScaleValue: ucpp.num.Float32;
+	public var ShadowTracingDistance: ucpp.num.Float32;
+	public var StopTracingTransmittanceThreshold: ucpp.num.Float32;
+	public var AerialPespectiveRayleighScatteringStartDistance: ucpp.num.Float32;
+	public var AerialPespectiveRayleighScatteringFadeDistance: ucpp.num.Float32;
+	public var AerialPespectiveMieScatteringStartDistance: ucpp.num.Float32;
+	public var AerialPespectiveMieScatteringFadeDistance: ucpp.num.Float32;
 
-	public function SetViewSampleCountScale(NewValue: cpp.Float32): Void;
-	public function SetTracingStartMaxDistance(NewValue: cpp.Float32): Void;
-	public function SetTracingMaxDistance(NewValue: cpp.Float32): Void;
-	public function SetStopTracingTransmittanceThreshold(NewValue: cpp.Float32): Void;
-	public function SetSkyLightCloudBottomOcclusion(NewValue: cpp.Float32): Void;
-	public function SetShadowViewSampleCountScale(NewValue: cpp.Float32): Void;
-	public function SetShadowTracingDistance(NewValue: cpp.Float32): Void;
-	public function SetShadowReflectionViewSampleCountScale(NewValue: cpp.Float32): Void;
-	public function SetShadowReflectionSampleCountScale(NewValue: cpp.Float32): Void;
-	public function SetReflectionViewSampleCountScale(NewValue: cpp.Float32): Void;
-	public function SetReflectionSampleCountScale(NewValue: cpp.Float32): Void;
-	public function SetPlanetRadius(NewValue: cpp.Float32): Void;
-	public function SetMaterial(NewValue: cpp.Star<MaterialInterface>): Void;
-	public function SetLayerHeight(NewValue: cpp.Float32): Void;
-	public function SetLayerBottomAltitude(NewValue: cpp.Float32): Void;
+	public function SetViewSampleCountScale(NewValue: ucpp.num.Float32): Void;
+	public function SetTracingStartMaxDistance(NewValue: ucpp.num.Float32): Void;
+	public function SetTracingMaxDistance(NewValue: ucpp.num.Float32): Void;
+	public function SetStopTracingTransmittanceThreshold(NewValue: ucpp.num.Float32): Void;
+	public function SetSkyLightCloudBottomOcclusion(NewValue: ucpp.num.Float32): Void;
+	public function SetShadowViewSampleCountScale(NewValue: ucpp.num.Float32): Void;
+	public function SetShadowTracingDistance(NewValue: ucpp.num.Float32): Void;
+	public function SetShadowReflectionViewSampleCountScale(NewValue: ucpp.num.Float32): Void;
+	public function SetShadowReflectionSampleCountScale(NewValue: ucpp.num.Float32): Void;
+	public function SetReflectionViewSampleCountScale(NewValue: ucpp.num.Float32): Void;
+	public function SetReflectionSampleCountScale(NewValue: ucpp.num.Float32): Void;
+	public function SetPlanetRadius(NewValue: ucpp.num.Float32): Void;
+	public function SetMaterial(NewValue: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetLayerHeight(NewValue: ucpp.num.Float32): Void;
+	public function SetLayerBottomAltitude(NewValue: ucpp.num.Float32): Void;
 	public function SetGroundAlbedo(NewValue: Color): Void;
 	public function SetbUsePerSampleAtmosphericLightTransmittance(NewValue: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVolumetricCloudComp(VolumetricCloudComp) from VolumetricCloudComp {
-	public extern var LayerBottomAltitude(get, never): cpp.Float32;
-	public inline extern function get_LayerBottomAltitude(): cpp.Float32 return this.LayerBottomAltitude;
-	public extern var LayerHeight(get, never): cpp.Float32;
-	public inline extern function get_LayerHeight(): cpp.Float32 return this.LayerHeight;
-	public extern var TracingStartMaxDistance(get, never): cpp.Float32;
-	public inline extern function get_TracingStartMaxDistance(): cpp.Float32 return this.TracingStartMaxDistance;
-	public extern var TracingMaxDistance(get, never): cpp.Float32;
-	public inline extern function get_TracingMaxDistance(): cpp.Float32 return this.TracingMaxDistance;
-	public extern var PlanetRadius(get, never): cpp.Float32;
-	public inline extern function get_PlanetRadius(): cpp.Float32 return this.PlanetRadius;
+	public extern var LayerBottomAltitude(get, never): ucpp.num.Float32;
+	public inline extern function get_LayerBottomAltitude(): ucpp.num.Float32 return this.LayerBottomAltitude;
+	public extern var LayerHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_LayerHeight(): ucpp.num.Float32 return this.LayerHeight;
+	public extern var TracingStartMaxDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_TracingStartMaxDistance(): ucpp.num.Float32 return this.TracingStartMaxDistance;
+	public extern var TracingMaxDistanceMode(get, never): EVolumetricCloudTracingMaxDistanceMode;
+	public inline extern function get_TracingMaxDistanceMode(): EVolumetricCloudTracingMaxDistanceMode return this.TracingMaxDistanceMode;
+	public extern var TracingMaxDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_TracingMaxDistance(): ucpp.num.Float32 return this.TracingMaxDistance;
+	public extern var PlanetRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_PlanetRadius(): ucpp.num.Float32 return this.PlanetRadius;
 	public extern var GroundAlbedo(get, never): Color;
 	public inline extern function get_GroundAlbedo(): Color return this.GroundAlbedo;
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
+	public extern var Material(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Material(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Material;
 	public extern var bUsePerSampleAtmosphericLightTransmittance(get, never): Bool;
 	public inline extern function get_bUsePerSampleAtmosphericLightTransmittance(): Bool return this.bUsePerSampleAtmosphericLightTransmittance;
-	public extern var SkyLightCloudBottomOcclusion(get, never): cpp.Float32;
-	public inline extern function get_SkyLightCloudBottomOcclusion(): cpp.Float32 return this.SkyLightCloudBottomOcclusion;
-	public extern var ViewSampleCountScale(get, never): cpp.Float32;
-	public inline extern function get_ViewSampleCountScale(): cpp.Float32 return this.ViewSampleCountScale;
-	public extern var ReflectionViewSampleCountScale(get, never): cpp.Float32;
-	public inline extern function get_ReflectionViewSampleCountScale(): cpp.Float32 return this.ReflectionViewSampleCountScale;
-	public extern var ShadowViewSampleCountScale(get, never): cpp.Float32;
-	public inline extern function get_ShadowViewSampleCountScale(): cpp.Float32 return this.ShadowViewSampleCountScale;
-	public extern var ShadowReflectionViewSampleCountScale(get, never): cpp.Float32;
-	public inline extern function get_ShadowReflectionViewSampleCountScale(): cpp.Float32 return this.ShadowReflectionViewSampleCountScale;
-	public extern var ShadowTracingDistance(get, never): cpp.Float32;
-	public inline extern function get_ShadowTracingDistance(): cpp.Float32 return this.ShadowTracingDistance;
-	public extern var StopTracingTransmittanceThreshold(get, never): cpp.Float32;
-	public inline extern function get_StopTracingTransmittanceThreshold(): cpp.Float32 return this.StopTracingTransmittanceThreshold;
+	public extern var SkyLightCloudBottomOcclusion(get, never): ucpp.num.Float32;
+	public inline extern function get_SkyLightCloudBottomOcclusion(): ucpp.num.Float32 return this.SkyLightCloudBottomOcclusion;
+	public extern var ViewSampleCountScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ViewSampleCountScale(): ucpp.num.Float32 return this.ViewSampleCountScale;
+	public extern var ReflectionViewSampleCountScaleValue(get, never): ucpp.num.Float32;
+	public inline extern function get_ReflectionViewSampleCountScaleValue(): ucpp.num.Float32 return this.ReflectionViewSampleCountScaleValue;
+	public extern var ShadowViewSampleCountScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ShadowViewSampleCountScale(): ucpp.num.Float32 return this.ShadowViewSampleCountScale;
+	public extern var ShadowReflectionViewSampleCountScaleValue(get, never): ucpp.num.Float32;
+	public inline extern function get_ShadowReflectionViewSampleCountScaleValue(): ucpp.num.Float32 return this.ShadowReflectionViewSampleCountScaleValue;
+	public extern var ShadowTracingDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_ShadowTracingDistance(): ucpp.num.Float32 return this.ShadowTracingDistance;
+	public extern var StopTracingTransmittanceThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_StopTracingTransmittanceThreshold(): ucpp.num.Float32 return this.StopTracingTransmittanceThreshold;
+	public extern var AerialPespectiveRayleighScatteringStartDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_AerialPespectiveRayleighScatteringStartDistance(): ucpp.num.Float32 return this.AerialPespectiveRayleighScatteringStartDistance;
+	public extern var AerialPespectiveRayleighScatteringFadeDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_AerialPespectiveRayleighScatteringFadeDistance(): ucpp.num.Float32 return this.AerialPespectiveRayleighScatteringFadeDistance;
+	public extern var AerialPespectiveMieScatteringStartDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_AerialPespectiveMieScatteringStartDistance(): ucpp.num.Float32 return this.AerialPespectiveMieScatteringStartDistance;
+	public extern var AerialPespectiveMieScatteringFadeDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_AerialPespectiveMieScatteringFadeDistance(): ucpp.num.Float32 return this.AerialPespectiveMieScatteringFadeDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("VolumetricCloudComp*")
-abstract VolumetricCloudCompPtr(cpp.Star<VolumetricCloudComp>) from cpp.Star<VolumetricCloudComp> to cpp.Star<VolumetricCloudComp>{
+abstract VolumetricCloudCompPtr(ucpp.Ptr<VolumetricCloudComp>) from ucpp.Ptr<VolumetricCloudComp> to ucpp.Ptr<VolumetricCloudComp>{
 	@:from
 	public static extern inline function fromValue(v: VolumetricCloudComp): VolumetricCloudCompPtr {
 		return untyped __cpp__("&({0})", v);

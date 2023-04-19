@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimTrack")
 @:include("Animation/AnimCompositeBase.h")
-@:structAccess
+@:valueType
 extern class AnimTrack {
 	public var AnimSegments: TArray<AnimSegment>;
 

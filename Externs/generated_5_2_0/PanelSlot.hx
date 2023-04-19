@@ -3,27 +3,27 @@ package ue;
 
 @:native("UPanelSlot")
 @:include("Components/PanelSlot.h")
-@:structAccess
+@:valueType
 extern class PanelSlot extends Visual {
-	public var Parent: cpp.Star<PanelWidget>;
-	public var Content: cpp.Star<Widget>;
+	public var Parent: ucpp.Ptr<PanelWidget>;
+	public var Content: ucpp.Ptr<Widget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPanelSlot(PanelSlot) from PanelSlot {
-	public extern var Parent(get, never): cpp.Star<PanelWidget.ConstPanelWidget>;
-	public inline extern function get_Parent(): cpp.Star<PanelWidget.ConstPanelWidget> return this.Parent;
-	public extern var Content(get, never): cpp.Star<Widget.ConstWidget>;
-	public inline extern function get_Content(): cpp.Star<Widget.ConstWidget> return this.Content;
+	public extern var Parent(get, never): ucpp.Ptr<PanelWidget.ConstPanelWidget>;
+	public inline extern function get_Parent(): ucpp.Ptr<PanelWidget.ConstPanelWidget> return this.Parent;
+	public extern var Content(get, never): ucpp.Ptr<Widget.ConstWidget>;
+	public inline extern function get_Content(): ucpp.Ptr<Widget.ConstWidget> return this.Content;
 }
 
 @:forward
 @:nativeGen
 @:native("PanelSlot*")
-abstract PanelSlotPtr(cpp.Star<PanelSlot>) from cpp.Star<PanelSlot> to cpp.Star<PanelSlot>{
+abstract PanelSlotPtr(ucpp.Ptr<PanelSlot>) from ucpp.Ptr<PanelSlot> to ucpp.Ptr<PanelSlot>{
 	@:from
 	public static extern inline function fromValue(v: PanelSlot): PanelSlotPtr {
 		return untyped __cpp__("&({0})", v);

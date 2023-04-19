@@ -3,19 +3,19 @@ package ue;
 
 @:native("UDefaultLevelSequenceInstanceData")
 @:include("DefaultLevelSequenceInstanceData.h")
-@:structAccess
+@:valueType
 extern class DefaultLevelSequenceInstanceData extends Object {
-	public var TransformOriginActor: cpp.Star<Actor>;
+	public var TransformOriginActor: ucpp.Ptr<Actor>;
 	public var TransformOrigin: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDefaultLevelSequenceInstanceData(DefaultLevelSequenceInstanceData) from DefaultLevelSequenceInstanceData {
-	public extern var TransformOriginActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_TransformOriginActor(): cpp.Star<Actor.ConstActor> return this.TransformOriginActor;
+	public extern var TransformOriginActor(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_TransformOriginActor(): ucpp.Ptr<Actor.ConstActor> return this.TransformOriginActor;
 	public extern var TransformOrigin(get, never): Transform;
 	public inline extern function get_TransformOrigin(): Transform return this.TransformOrigin;
 }
@@ -23,7 +23,7 @@ abstract ConstDefaultLevelSequenceInstanceData(DefaultLevelSequenceInstanceData)
 @:forward
 @:nativeGen
 @:native("DefaultLevelSequenceInstanceData*")
-abstract DefaultLevelSequenceInstanceDataPtr(cpp.Star<DefaultLevelSequenceInstanceData>) from cpp.Star<DefaultLevelSequenceInstanceData> to cpp.Star<DefaultLevelSequenceInstanceData>{
+abstract DefaultLevelSequenceInstanceDataPtr(ucpp.Ptr<DefaultLevelSequenceInstanceData>) from ucpp.Ptr<DefaultLevelSequenceInstanceData> to ucpp.Ptr<DefaultLevelSequenceInstanceData>{
 	@:from
 	public static extern inline function fromValue(v: DefaultLevelSequenceInstanceData): DefaultLevelSequenceInstanceDataPtr {
 		return untyped __cpp__("&({0})", v);

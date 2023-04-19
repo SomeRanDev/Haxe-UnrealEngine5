@@ -3,21 +3,21 @@ package ue;
 
 @:native("UDEPRECATED_EditorSkeletalMeshLibrary")
 @:include("EditorSkeletalMeshLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorSkeletalMeshLibrary extends BlueprintFunctionLibrary {
-	public function StripLODGeometry(SkeletalMesh: cpp.Star<SkeletalMesh>, LODIndex: cpp.Int32, TextureMask: cpp.Star<Texture2D>, Threshold: cpp.Float32): Bool;
-	public function SetLodBuildSettings(SkeletalMesh: cpp.Star<SkeletalMesh>, LodIndex: cpp.Int32, BuildOptions: cpp.Reference<SkeletalMeshBuildSettings>): Void;
-	public function RenameSocket(SkeletalMesh: cpp.Star<SkeletalMesh>, OldName: FName, NewName: FName): Bool;
-	public function RemoveLODs(SkeletalMesh: cpp.Star<SkeletalMesh>, ToRemoveLODs: TArray<cpp.Int32>): Bool;
-	public function ReimportAllCustomLODs(SkeletalMesh: cpp.Star<SkeletalMesh>): Bool;
-	public function RegenerateLOD(SkeletalMesh: cpp.Star<SkeletalMesh>, NewLODCount: cpp.Int32, bRegenerateEvenIfImported: Bool, bGenerateBaseLOD: Bool): Bool;
-	public function ImportLOD(BaseMesh: cpp.Star<SkeletalMesh>, LODIndex: cpp.Int32, SourceFilename: FString): cpp.Int32;
-	public function GetNumVerts(SkeletalMesh: cpp.Star<SkeletalMesh>, LODIndex: cpp.Int32): cpp.Int32;
-	public function GetLODCount(SkeletalMesh: cpp.Star<SkeletalMesh>): cpp.Int32;
-	public function GetLodBuildSettings(SkeletalMesh: cpp.Star<SkeletalMesh.ConstSkeletalMesh>, LodIndex: cpp.Int32, OutBuildOptions: cpp.Reference<SkeletalMeshBuildSettings>): Void;
-	public function CreatePhysicsAsset(SkeletalMesh: cpp.Star<SkeletalMesh>): cpp.Star<PhysicsAsset>;
+	public function StripLODGeometry(SkeletalMesh: ucpp.Ptr<SkeletalMesh>, LODIndex: ucpp.num.Int32, TextureMask: ucpp.Ptr<Texture2D>, Threshold: ucpp.num.Float32): Bool;
+	public function SetLodBuildSettings(SkeletalMesh: ucpp.Ptr<SkeletalMesh>, LodIndex: ucpp.num.Int32, BuildOptions: ucpp.Ref<SkeletalMeshBuildSettings>): Void;
+	public function RenameSocket(SkeletalMesh: ucpp.Ptr<SkeletalMesh>, OldName: FName, NewName: FName): Bool;
+	public function RemoveLODs(SkeletalMesh: ucpp.Ptr<SkeletalMesh>, ToRemoveLODs: TArray<ucpp.num.Int32>): Bool;
+	public function ReimportAllCustomLODs(SkeletalMesh: ucpp.Ptr<SkeletalMesh>): Bool;
+	public function RegenerateLOD(SkeletalMesh: ucpp.Ptr<SkeletalMesh>, NewLODCount: ucpp.num.Int32, bRegenerateEvenIfImported: Bool, bGenerateBaseLOD: Bool): Bool;
+	public function ImportLOD(BaseMesh: ucpp.Ptr<SkeletalMesh>, LODIndex: ucpp.num.Int32, SourceFilename: FString): ucpp.num.Int32;
+	public function GetNumVerts(SkeletalMesh: ucpp.Ptr<SkeletalMesh>, LODIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetLODCount(SkeletalMesh: ucpp.Ptr<SkeletalMesh>): ucpp.num.Int32;
+	public function GetLodBuildSettings(SkeletalMesh: ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>, LodIndex: ucpp.num.Int32, OutBuildOptions: ucpp.Ref<SkeletalMeshBuildSettings>): Void;
+	public function CreatePhysicsAsset(SkeletalMesh: ucpp.Ptr<SkeletalMesh>): ucpp.Ptr<PhysicsAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstEditorSkeletalMeshLibrary(EditorSkeletalMeshLibrary) from EditorSk
 @:forward
 @:nativeGen
 @:native("EditorSkeletalMeshLibrary*")
-abstract EditorSkeletalMeshLibraryPtr(cpp.Star<EditorSkeletalMeshLibrary>) from cpp.Star<EditorSkeletalMeshLibrary> to cpp.Star<EditorSkeletalMeshLibrary>{
+abstract EditorSkeletalMeshLibraryPtr(ucpp.Ptr<EditorSkeletalMeshLibrary>) from ucpp.Ptr<EditorSkeletalMeshLibrary> to ucpp.Ptr<EditorSkeletalMeshLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorSkeletalMeshLibrary): EditorSkeletalMeshLibraryPtr {
 		return untyped __cpp__("&({0})", v);

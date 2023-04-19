@@ -3,19 +3,19 @@ package ue;
 
 @:native("ATemplateSequenceActor")
 @:include("TemplateSequenceActor.h")
-@:structAccess
+@:valueType
 extern class TemplateSequenceActor extends Actor {
 	public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
-	public function GetSequencePlayer(): cpp.Star<TemplateSequencePlayer>;
+	public function GetSequencePlayer(): ucpp.Ptr<TemplateSequencePlayer>;
 	public var TemplateSequence: SoftObjectPath;
 	public var BindingOverride: TemplateSequenceBindingOverrideData;
 
-	public function SetSequence(InSequence: cpp.Star<TemplateSequence>): Void;
-	public function SetBinding(Actor: cpp.Star<Actor>, bOverridesDefault: Bool): Void;
-	public function LoadSequence(): cpp.Star<TemplateSequence>;
-	public function GetSequence(): cpp.Star<TemplateSequence>;
+	public function SetSequence(InSequence: ucpp.Ptr<TemplateSequence>): Void;
+	public function SetBinding(Actor: ucpp.Ptr<Actor>, bOverridesDefault: Bool): Void;
+	public function LoadSequence(): ucpp.Ptr<TemplateSequence>;
+	public function GetSequence(): ucpp.Ptr<TemplateSequence>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(LoadSequence, GetSequence)
@@ -32,7 +32,7 @@ abstract ConstTemplateSequenceActor(TemplateSequenceActor) from TemplateSequence
 @:forward
 @:nativeGen
 @:native("TemplateSequenceActor*")
-abstract TemplateSequenceActorPtr(cpp.Star<TemplateSequenceActor>) from cpp.Star<TemplateSequenceActor> to cpp.Star<TemplateSequenceActor>{
+abstract TemplateSequenceActorPtr(ucpp.Ptr<TemplateSequenceActor>) from ucpp.Ptr<TemplateSequenceActor> to ucpp.Ptr<TemplateSequenceActor>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequenceActor): TemplateSequenceActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_AssetPlayerRelevancyBase")
 @:include("Animation/AnimNode_RelevantAssetPlayerBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_AssetPlayerRelevancyBase extends AnimNode_Base {
 	@:native("FAnimNode_AssetPlayerRelevancyBase") public function new();
 }

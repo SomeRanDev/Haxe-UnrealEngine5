@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPoseDriverTarget")
 @:include("AnimNodes/AnimNode_PoseDriver.h")
-@:structAccess
+@:valueType
 extern class PoseDriverTarget {
 	public var BoneTransforms: TArray<PoseDriverTransform>;
 	public var TargetRotation: Rotator;
-	public var TargetScale: cpp.Float32;
+	public var TargetScale: ucpp.num.Float32;
 	public var DistanceMethod: ERBFDistanceMethod;
 	public var FunctionType: ERBFFunctionType;
 	public var bApplyCustomCurve: Bool;

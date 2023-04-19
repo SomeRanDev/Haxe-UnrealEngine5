@@ -3,13 +3,13 @@ package ue;
 
 @:native("UUVTool2DViewportAPI")
 @:include("ContextObjects/UVToolContextObjects.h")
-@:structAccess
+@:valueType
 extern class UVTool2DViewportAPI extends UVToolContextObject {
 	@:protected public var UDIMBlocks: TArray<UDIMBlock>;
 	@:protected public var bDrawGrid: Bool;
 	@:protected public var bDrawRulers: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUVTool2DViewportAPI(UVTool2DViewportAPI) from UVTool2DViewportAPI 
 @:forward
 @:nativeGen
 @:native("UVTool2DViewportAPI*")
-abstract UVTool2DViewportAPIPtr(cpp.Star<UVTool2DViewportAPI>) from cpp.Star<UVTool2DViewportAPI> to cpp.Star<UVTool2DViewportAPI>{
+abstract UVTool2DViewportAPIPtr(ucpp.Ptr<UVTool2DViewportAPI>) from ucpp.Ptr<UVTool2DViewportAPI> to ucpp.Ptr<UVTool2DViewportAPI>{
 	@:from
 	public static extern inline function fromValue(v: UVTool2DViewportAPI): UVTool2DViewportAPIPtr {
 		return untyped __cpp__("&({0})", v);

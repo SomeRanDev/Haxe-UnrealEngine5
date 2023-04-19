@@ -3,11 +3,11 @@ package ue;
 
 @:native("FEnvOverlapData")
 @:include("EnvironmentQuery/EnvQueryTypes.h")
-@:structAccess
+@:valueType
 extern class EnvOverlapData {
-	public var ExtentX: cpp.Float32;
-	public var ExtentY: cpp.Float32;
-	public var ExtentZ: cpp.Float32;
+	public var ExtentX: ucpp.num.Float32;
+	public var ExtentY: ucpp.num.Float32;
+	public var ExtentZ: ucpp.num.Float32;
 	public var ShapeOffset: Vector;
 	public var OverlapChannel: TEnumAsByte<ECollisionChannel>;
 	public var OverlapShape: TEnumAsByte<EEnvOverlapShape>;

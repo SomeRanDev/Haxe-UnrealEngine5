@@ -3,16 +3,16 @@ package ue;
 
 @:native("UGizmoBoxComponent")
 @:include("BaseGizmos/GizmoBoxComponent.h")
-@:structAccess
+@:valueType
 extern class GizmoBoxComp extends GizmoBaseComp {
 	public var Origin: Vector;
 	public var Rotation: Quat;
 	public var Dimensions: Vector;
-	public var LineThickness: cpp.Float32;
+	public var LineThickness: ucpp.num.Float32;
 	public var bRemoveHiddenLines: Bool;
 	public var bEnableAxisFlip: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,8 +24,8 @@ abstract ConstGizmoBoxComp(GizmoBoxComp) from GizmoBoxComp {
 	public inline extern function get_Rotation(): Quat return this.Rotation;
 	public extern var Dimensions(get, never): Vector;
 	public inline extern function get_Dimensions(): Vector return this.Dimensions;
-	public extern var LineThickness(get, never): cpp.Float32;
-	public inline extern function get_LineThickness(): cpp.Float32 return this.LineThickness;
+	public extern var LineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_LineThickness(): ucpp.num.Float32 return this.LineThickness;
 	public extern var bRemoveHiddenLines(get, never): Bool;
 	public inline extern function get_bRemoveHiddenLines(): Bool return this.bRemoveHiddenLines;
 	public extern var bEnableAxisFlip(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstGizmoBoxComp(GizmoBoxComp) from GizmoBoxComp {
 @:forward
 @:nativeGen
 @:native("GizmoBoxComp*")
-abstract GizmoBoxCompPtr(cpp.Star<GizmoBoxComp>) from cpp.Star<GizmoBoxComp> to cpp.Star<GizmoBoxComp>{
+abstract GizmoBoxCompPtr(ucpp.Ptr<GizmoBoxComp>) from ucpp.Ptr<GizmoBoxComp> to ucpp.Ptr<GizmoBoxComp>{
 	@:from
 	public static extern inline function fromValue(v: GizmoBoxComp): GizmoBoxCompPtr {
 		return untyped __cpp__("&({0})", v);

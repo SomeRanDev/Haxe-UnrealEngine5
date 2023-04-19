@@ -3,8 +3,9 @@ package ue;
 
 @:native("USkeletalMeshLODSettings")
 @:include("Engine/SkeletalMeshLODSettings.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshLODSettings extends DataAsset {
+	@:protected public var MinQualityLevelLod: PerQualityLevelInt;
 	@:protected public var MinLod: PerPlatformInt;
 	@:protected public var DisableBelowMinLodStripping: PerPlatformBool;
 	@:protected public var bOverrideLODStreamingSettings: Bool;
@@ -13,7 +14,7 @@ extern class SkeletalMeshLODSettings extends DataAsset {
 	@:protected public var MaxNumOptionalLODs: PerPlatformInt;
 	@:protected public var LODGroups: TArray<SkeletalMeshLODGroupSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +25,7 @@ abstract ConstSkeletalMeshLODSettings(SkeletalMeshLODSettings) from SkeletalMesh
 @:forward
 @:nativeGen
 @:native("SkeletalMeshLODSettings*")
-abstract SkeletalMeshLODSettingsPtr(cpp.Star<SkeletalMeshLODSettings>) from cpp.Star<SkeletalMeshLODSettings> to cpp.Star<SkeletalMeshLODSettings>{
+abstract SkeletalMeshLODSettingsPtr(ucpp.Ptr<SkeletalMeshLODSettings>) from ucpp.Ptr<SkeletalMeshLODSettings> to ucpp.Ptr<SkeletalMeshLODSettings>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMeshLODSettings): SkeletalMeshLODSettingsPtr {
 		return untyped __cpp__("&({0})", v);

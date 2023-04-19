@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorUtilityToolMenuEntry")
 @:include("EditorUtilityToolMenu.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityToolMenuEntry extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorUtilityToolMenuEntry(EditorUtilityToolMenuEntry) from Editor
 @:forward
 @:nativeGen
 @:native("EditorUtilityToolMenuEntry*")
-abstract EditorUtilityToolMenuEntryPtr(cpp.Star<EditorUtilityToolMenuEntry>) from cpp.Star<EditorUtilityToolMenuEntry> to cpp.Star<EditorUtilityToolMenuEntry>{
+abstract EditorUtilityToolMenuEntryPtr(ucpp.Ptr<EditorUtilityToolMenuEntry>) from ucpp.Ptr<EditorUtilityToolMenuEntry> to ucpp.Ptr<EditorUtilityToolMenuEntry>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityToolMenuEntry): EditorUtilityToolMenuEntryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraValidationRuleSet")
 @:include("NiagaraValidationRuleSet.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRuleSet extends Object {
-	public var ValidationRules: TArray<cpp.Star<NiagaraValidationRule>>;
+	public var ValidationRules: TArray<ucpp.Ptr<NiagaraValidationRule>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraValidationRuleSet(NiagaraValidationRuleSet) from NiagaraValidationRuleSet {
-	public extern var ValidationRules(get, never): TArray<cpp.Star<NiagaraValidationRule.ConstNiagaraValidationRule>>;
-	public inline extern function get_ValidationRules(): TArray<cpp.Star<NiagaraValidationRule.ConstNiagaraValidationRule>> return this.ValidationRules;
+	public extern var ValidationRules(get, never): TArray<ucpp.Ptr<NiagaraValidationRule.ConstNiagaraValidationRule>>;
+	public inline extern function get_ValidationRules(): TArray<ucpp.Ptr<NiagaraValidationRule.ConstNiagaraValidationRule>> return this.ValidationRules;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRuleSet*")
-abstract NiagaraValidationRuleSetPtr(cpp.Star<NiagaraValidationRuleSet>) from cpp.Star<NiagaraValidationRuleSet> to cpp.Star<NiagaraValidationRuleSet>{
+abstract NiagaraValidationRuleSetPtr(ucpp.Ptr<NiagaraValidationRuleSet>) from ucpp.Ptr<NiagaraValidationRuleSet> to ucpp.Ptr<NiagaraValidationRuleSet>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRuleSet): NiagaraValidationRuleSetPtr {
 		return untyped __cpp__("&({0})", v);

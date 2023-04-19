@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAsyncEditorOpenMapAndFocusActor")
 @:include("EditorUtilityLibrary.h")
-@:structAccess
+@:valueType
 extern class AsyncEditorOpenMapAndFocusActor extends EditorUtilityBlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function AsyncEditorOpenMapAndFocusActor(Map: SoftObjectPath, FocusActorName: FString): cpp.Star<AsyncEditorOpenMapAndFocusActor>;
+	public function AsyncEditorOpenMapAndFocusActor(Map: SoftObjectPath, FocusActorName: FString): ucpp.Ptr<AsyncEditorOpenMapAndFocusActor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAsyncEditorOpenMapAndFocusActor(AsyncEditorOpenMapAndFocusActor) f
 @:forward
 @:nativeGen
 @:native("AsyncEditorOpenMapAndFocusActor*")
-abstract AsyncEditorOpenMapAndFocusActorPtr(cpp.Star<AsyncEditorOpenMapAndFocusActor>) from cpp.Star<AsyncEditorOpenMapAndFocusActor> to cpp.Star<AsyncEditorOpenMapAndFocusActor>{
+abstract AsyncEditorOpenMapAndFocusActorPtr(ucpp.Ptr<AsyncEditorOpenMapAndFocusActor>) from ucpp.Ptr<AsyncEditorOpenMapAndFocusActor> to ucpp.Ptr<AsyncEditorOpenMapAndFocusActor>{
 	@:from
 	public static extern inline function fromValue(v: AsyncEditorOpenMapAndFocusActor): AsyncEditorOpenMapAndFocusActorPtr {
 		return untyped __cpp__("&({0})", v);

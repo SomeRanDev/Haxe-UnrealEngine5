@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODLayerFactory")
 @:include("WorldPartition/HLOD/HLODLayerFactory.h")
-@:structAccess
+@:valueType
 extern class HLODLayerFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODLayerFactory(HLODLayerFactory) from HLODLayerFactory {
 @:forward
 @:nativeGen
 @:native("HLODLayerFactory*")
-abstract HLODLayerFactoryPtr(cpp.Star<HLODLayerFactory>) from cpp.Star<HLODLayerFactory> to cpp.Star<HLODLayerFactory>{
+abstract HLODLayerFactoryPtr(ucpp.Ptr<HLODLayerFactory>) from ucpp.Ptr<HLODLayerFactory> to ucpp.Ptr<HLODLayerFactory>{
 	@:from
 	public static extern inline function fromValue(v: HLODLayerFactory): HLODLayerFactoryPtr {
 		return untyped __cpp__("&({0})", v);

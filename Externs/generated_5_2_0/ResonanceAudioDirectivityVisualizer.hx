@@ -3,12 +3,12 @@ package ue;
 
 @:native("AResonanceAudioDirectivityVisualizer")
 @:include("ResonanceAudioDirectivityVisualizer.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioDirectivityVisualizer extends Actor {
-	private var Material: cpp.Star<Material>;
-	private var Settings: cpp.Star<ResonanceAudioSpatializationSourceSettings>;
+	private var Material: ucpp.Ptr<Material>;
+	private var Settings: ucpp.Ptr<ResonanceAudioSpatializationSourceSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstResonanceAudioDirectivityVisualizer(ResonanceAudioDirectivityVisua
 @:forward
 @:nativeGen
 @:native("ResonanceAudioDirectivityVisualizer*")
-abstract ResonanceAudioDirectivityVisualizerPtr(cpp.Star<ResonanceAudioDirectivityVisualizer>) from cpp.Star<ResonanceAudioDirectivityVisualizer> to cpp.Star<ResonanceAudioDirectivityVisualizer>{
+abstract ResonanceAudioDirectivityVisualizerPtr(ucpp.Ptr<ResonanceAudioDirectivityVisualizer>) from ucpp.Ptr<ResonanceAudioDirectivityVisualizer> to ucpp.Ptr<ResonanceAudioDirectivityVisualizer>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioDirectivityVisualizer): ResonanceAudioDirectivityVisualizerPtr {
 		return untyped __cpp__("&({0})", v);

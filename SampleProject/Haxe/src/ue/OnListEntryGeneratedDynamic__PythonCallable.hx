@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnListEntryGeneratedDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnListEntryGeneratedDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnListEntryGeneratedDynamic__PythonCallable(OnListEntryGeneratedDy
 @:forward
 @:nativeGen
 @:native("OnListEntryGeneratedDynamic__PythonCallable*")
-abstract OnListEntryGeneratedDynamic__PythonCallablePtr(cpp.Star<OnListEntryGeneratedDynamic__PythonCallable>) from cpp.Star<OnListEntryGeneratedDynamic__PythonCallable> to cpp.Star<OnListEntryGeneratedDynamic__PythonCallable>{
+abstract OnListEntryGeneratedDynamic__PythonCallablePtr(ucpp.Ptr<OnListEntryGeneratedDynamic__PythonCallable>) from ucpp.Ptr<OnListEntryGeneratedDynamic__PythonCallable> to ucpp.Ptr<OnListEntryGeneratedDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnListEntryGeneratedDynamic__PythonCallable): OnListEntryGeneratedDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

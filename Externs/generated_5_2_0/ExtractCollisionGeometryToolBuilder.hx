@@ -3,10 +3,10 @@ package ue;
 
 @:native("UExtractCollisionGeometryToolBuilder")
 @:include("Physics/ExtractCollisionGeometryTool.h")
-@:structAccess
+@:valueType
 extern class ExtractCollisionGeometryToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstExtractCollisionGeometryToolBuilder(ExtractCollisionGeometryToolBu
 @:forward
 @:nativeGen
 @:native("ExtractCollisionGeometryToolBuilder*")
-abstract ExtractCollisionGeometryToolBuilderPtr(cpp.Star<ExtractCollisionGeometryToolBuilder>) from cpp.Star<ExtractCollisionGeometryToolBuilder> to cpp.Star<ExtractCollisionGeometryToolBuilder>{
+abstract ExtractCollisionGeometryToolBuilderPtr(ucpp.Ptr<ExtractCollisionGeometryToolBuilder>) from ucpp.Ptr<ExtractCollisionGeometryToolBuilder> to ucpp.Ptr<ExtractCollisionGeometryToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ExtractCollisionGeometryToolBuilder): ExtractCollisionGeometryToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

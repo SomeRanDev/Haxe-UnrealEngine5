@@ -3,17 +3,17 @@ package ue;
 
 @:native("UEditorFilterLibrary")
 @:include("EditorFilterLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorFilterLibrary extends BlueprintFunctionLibrary {
-	public function BySelection(TargetArray: cpp.Reference<TArray<cpp.Star<Actor>>>, FilterType: EEditorScriptingFilterType): TArray<cpp.Star<Actor>>;
-	public function ByLevelName(TargetArray: cpp.Reference<TArray<cpp.Star<Actor>>>, LevelName: FName, FilterType: EEditorScriptingFilterType): TArray<cpp.Star<Actor>>;
-	public function ByLayer(TargetArray: cpp.Reference<TArray<cpp.Star<Actor>>>, LayerName: FName, FilterType: EEditorScriptingFilterType): TArray<cpp.Star<Actor>>;
-	public function ByIDName(TargetArray: cpp.Reference<TArray<cpp.Star<Object>>>, NameSubString: FString, StringMatch: EEditorScriptingStringMatchType, FilterType: EEditorScriptingFilterType): TArray<cpp.Star<Object>>;
-	public function ByClass(TargetArray: cpp.Reference<TArray<cpp.Star<Object>>>, ObjectClass: TSubclassOf<Object>, FilterType: EEditorScriptingFilterType): TArray<cpp.Star<Object>>;
-	public function ByActorTag(TargetArray: cpp.Reference<TArray<cpp.Star<Actor>>>, Tag: FName, FilterType: EEditorScriptingFilterType): TArray<cpp.Star<Actor>>;
-	public function ByActorLabel(TargetArray: cpp.Reference<TArray<cpp.Star<Actor>>>, NameSubString: FString, StringMatch: EEditorScriptingStringMatchType, FilterType: EEditorScriptingFilterType, bIgnoreCase: Bool): TArray<cpp.Star<Actor>>;
+	public function BySelection(TargetArray: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, FilterType: EEditorScriptingFilterType): TArray<ucpp.Ptr<Actor>>;
+	public function ByLevelName(TargetArray: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, LevelName: FName, FilterType: EEditorScriptingFilterType): TArray<ucpp.Ptr<Actor>>;
+	public function ByLayer(TargetArray: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, LayerName: FName, FilterType: EEditorScriptingFilterType): TArray<ucpp.Ptr<Actor>>;
+	public function ByIDName(TargetArray: ucpp.Ref<TArray<ucpp.Ptr<Object>>>, NameSubString: FString, StringMatch: EEditorScriptingStringMatchType, FilterType: EEditorScriptingFilterType): TArray<ucpp.Ptr<Object>>;
+	public function ByClass(TargetArray: ucpp.Ref<TArray<ucpp.Ptr<Object>>>, ObjectClass: TSubclassOf<Object>, FilterType: EEditorScriptingFilterType): TArray<ucpp.Ptr<Object>>;
+	public function ByActorTag(TargetArray: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, Tag: FName, FilterType: EEditorScriptingFilterType): TArray<ucpp.Ptr<Actor>>;
+	public function ByActorLabel(TargetArray: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, NameSubString: FString, StringMatch: EEditorScriptingStringMatchType, FilterType: EEditorScriptingFilterType, bIgnoreCase: Bool): TArray<ucpp.Ptr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstEditorFilterLibrary(EditorFilterLibrary) from EditorFilterLibrary 
 @:forward
 @:nativeGen
 @:native("EditorFilterLibrary*")
-abstract EditorFilterLibraryPtr(cpp.Star<EditorFilterLibrary>) from cpp.Star<EditorFilterLibrary> to cpp.Star<EditorFilterLibrary>{
+abstract EditorFilterLibraryPtr(ucpp.Ptr<EditorFilterLibrary>) from ucpp.Ptr<EditorFilterLibrary> to ucpp.Ptr<EditorFilterLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorFilterLibrary): EditorFilterLibraryPtr {
 		return untyped __cpp__("&({0})", v);

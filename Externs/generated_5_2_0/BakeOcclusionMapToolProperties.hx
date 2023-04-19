@@ -3,33 +3,33 @@ package ue;
 
 @:native("UBakeOcclusionMapToolProperties")
 @:include("BakeMeshAttributeToolCommon.h")
-@:structAccess
+@:valueType
 extern class BakeOcclusionMapToolProperties extends InteractiveToolPropertySet {
-	public var OcclusionRays: cpp.Int32;
-	public var MaxDistance: cpp.Float32;
-	public var SpreadAngle: cpp.Float32;
-	public var BiasAngle: cpp.Float32;
+	public var OcclusionRays: ucpp.num.Int32;
+	public var MaxDistance: ucpp.num.Float32;
+	public var SpreadAngle: ucpp.num.Float32;
+	public var BiasAngle: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBakeOcclusionMapToolProperties(BakeOcclusionMapToolProperties) from BakeOcclusionMapToolProperties {
-	public extern var OcclusionRays(get, never): cpp.Int32;
-	public inline extern function get_OcclusionRays(): cpp.Int32 return this.OcclusionRays;
-	public extern var MaxDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxDistance(): cpp.Float32 return this.MaxDistance;
-	public extern var SpreadAngle(get, never): cpp.Float32;
-	public inline extern function get_SpreadAngle(): cpp.Float32 return this.SpreadAngle;
-	public extern var BiasAngle(get, never): cpp.Float32;
-	public inline extern function get_BiasAngle(): cpp.Float32 return this.BiasAngle;
+	public extern var OcclusionRays(get, never): ucpp.num.Int32;
+	public inline extern function get_OcclusionRays(): ucpp.num.Int32 return this.OcclusionRays;
+	public extern var MaxDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDistance(): ucpp.num.Float32 return this.MaxDistance;
+	public extern var SpreadAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_SpreadAngle(): ucpp.num.Float32 return this.SpreadAngle;
+	public extern var BiasAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_BiasAngle(): ucpp.num.Float32 return this.BiasAngle;
 }
 
 @:forward
 @:nativeGen
 @:native("BakeOcclusionMapToolProperties*")
-abstract BakeOcclusionMapToolPropertiesPtr(cpp.Star<BakeOcclusionMapToolProperties>) from cpp.Star<BakeOcclusionMapToolProperties> to cpp.Star<BakeOcclusionMapToolProperties>{
+abstract BakeOcclusionMapToolPropertiesPtr(ucpp.Ptr<BakeOcclusionMapToolProperties>) from ucpp.Ptr<BakeOcclusionMapToolProperties> to ucpp.Ptr<BakeOcclusionMapToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeOcclusionMapToolProperties): BakeOcclusionMapToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

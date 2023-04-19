@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMaterialSpriteElement")
 @:include("Components/MaterialBillboardComponent.h")
-@:structAccess
+@:valueType
 extern class MaterialSpriteElement {
-	public var Material: cpp.Star<MaterialInterface>;
-	public var DistanceToOpacityCurve: cpp.Star<CurveFloat>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
+	public var DistanceToOpacityCurve: ucpp.Ptr<CurveFloat>;
 	public var bSizeIsInScreenSpace: Bool;
-	public var BaseSizeX: cpp.Float32;
-	public var BaseSizeY: cpp.Float32;
-	public var DistanceToSizeCurve: cpp.Star<CurveFloat>;
+	public var BaseSizeX: ucpp.num.Float32;
+	public var BaseSizeY: ucpp.num.Float32;
+	public var DistanceToSizeCurve: ucpp.Ptr<CurveFloat>;
 
 	@:native("FMaterialSpriteElement") public function new();
 }

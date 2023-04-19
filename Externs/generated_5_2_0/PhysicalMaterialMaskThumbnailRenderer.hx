@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPhysicalMaterialMaskThumbnailRenderer")
 @:include("ThumbnailRendering/PhysicalMaterialMaskThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class PhysicalMaterialMaskThumbnailRenderer extends TextureThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPhysicalMaterialMaskThumbnailRenderer(PhysicalMaterialMaskThumbnai
 @:forward
 @:nativeGen
 @:native("PhysicalMaterialMaskThumbnailRenderer*")
-abstract PhysicalMaterialMaskThumbnailRendererPtr(cpp.Star<PhysicalMaterialMaskThumbnailRenderer>) from cpp.Star<PhysicalMaterialMaskThumbnailRenderer> to cpp.Star<PhysicalMaterialMaskThumbnailRenderer>{
+abstract PhysicalMaterialMaskThumbnailRendererPtr(ucpp.Ptr<PhysicalMaterialMaskThumbnailRenderer>) from ucpp.Ptr<PhysicalMaterialMaskThumbnailRenderer> to ucpp.Ptr<PhysicalMaterialMaskThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: PhysicalMaterialMaskThumbnailRenderer): PhysicalMaterialMaskThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

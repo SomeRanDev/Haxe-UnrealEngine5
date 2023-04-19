@@ -3,14 +3,14 @@ package ue;
 
 @:native("UFractureModeCustomizationSettings")
 @:include("FractureEditorMode.h")
-@:structAccess
+@:valueType
 extern class FractureModeCustomizationSettings extends DeveloperSettings {
 	public var ToolSectionOrder: TArray<FString>;
 	public var ToolFavorites: TArray<FString>;
 	public var SectionColors: TArray<FractureModeCustomSectionColor>;
 	public var ToolColors: TArray<FractureModeCustomToolColor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstFractureModeCustomizationSettings(FractureModeCustomizationSetting
 @:forward
 @:nativeGen
 @:native("FractureModeCustomizationSettings*")
-abstract FractureModeCustomizationSettingsPtr(cpp.Star<FractureModeCustomizationSettings>) from cpp.Star<FractureModeCustomizationSettings> to cpp.Star<FractureModeCustomizationSettings>{
+abstract FractureModeCustomizationSettingsPtr(ucpp.Ptr<FractureModeCustomizationSettings>) from ucpp.Ptr<FractureModeCustomizationSettings> to ucpp.Ptr<FractureModeCustomizationSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureModeCustomizationSettings): FractureModeCustomizationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

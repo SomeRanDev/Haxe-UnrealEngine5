@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTakeRecorderCameraCutSource")
 @:include("TakeRecorderCameraCutSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderCameraCutSource extends TakeRecorderSource {
-	private var World: cpp.Star<World>;
-	private var RootLevelSequence: cpp.Star<LevelSequence>;
+	private var World: ucpp.Ptr<World>;
+	private var RootLevelSequence: ucpp.Ptr<LevelSequence>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstTakeRecorderCameraCutSource(TakeRecorderCameraCutSource) from Take
 @:forward
 @:nativeGen
 @:native("TakeRecorderCameraCutSource*")
-abstract TakeRecorderCameraCutSourcePtr(cpp.Star<TakeRecorderCameraCutSource>) from cpp.Star<TakeRecorderCameraCutSource> to cpp.Star<TakeRecorderCameraCutSource>{
+abstract TakeRecorderCameraCutSourcePtr(ucpp.Ptr<TakeRecorderCameraCutSource>) from ucpp.Ptr<TakeRecorderCameraCutSource> to ucpp.Ptr<TakeRecorderCameraCutSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderCameraCutSource): TakeRecorderCameraCutSourcePtr {
 		return untyped __cpp__("&({0})", v);

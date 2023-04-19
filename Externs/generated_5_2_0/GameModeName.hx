@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameModeName")
 @:include("GameMapsSettings.h")
-@:structAccess
+@:valueType
 extern class GameModeName {
 	public var Name: FString;
 	public var GameMode: SoftClassPath;

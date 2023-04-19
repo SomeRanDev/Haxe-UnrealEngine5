@@ -3,22 +3,22 @@ package ue;
 
 @:native("UWorldTileDetails")
 @:include("Tiles/WorldTileDetails.h")
-@:structAccess
+@:valueType
 extern class WorldTileDetails extends Object {
 	public var bTileEditable: Bool;
 	public var PackageName: FName;
 	public var ParentPackageName: FName;
 	public var Position: IntVector;
 	public var AbsolutePosition: IntVector;
-	public var ZOrder: cpp.Int32;
+	public var ZOrder: ucpp.num.Int32;
 	public var bHideInTileView: Bool;
-	public var NumLOD: cpp.Int32;
+	public var NumLOD: ucpp.num.Int32;
 	public var LOD1: TileLODEntryDetails;
 	public var LOD2: TileLODEntryDetails;
 	public var LOD3: TileLODEntryDetails;
 	public var LOD4: TileLODEntryDetails;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,12 +34,12 @@ abstract ConstWorldTileDetails(WorldTileDetails) from WorldTileDetails {
 	public inline extern function get_Position(): IntVector return this.Position;
 	public extern var AbsolutePosition(get, never): IntVector;
 	public inline extern function get_AbsolutePosition(): IntVector return this.AbsolutePosition;
-	public extern var ZOrder(get, never): cpp.Int32;
-	public inline extern function get_ZOrder(): cpp.Int32 return this.ZOrder;
+	public extern var ZOrder(get, never): ucpp.num.Int32;
+	public inline extern function get_ZOrder(): ucpp.num.Int32 return this.ZOrder;
 	public extern var bHideInTileView(get, never): Bool;
 	public inline extern function get_bHideInTileView(): Bool return this.bHideInTileView;
-	public extern var NumLOD(get, never): cpp.Int32;
-	public inline extern function get_NumLOD(): cpp.Int32 return this.NumLOD;
+	public extern var NumLOD(get, never): ucpp.num.Int32;
+	public inline extern function get_NumLOD(): ucpp.num.Int32 return this.NumLOD;
 	public extern var LOD1(get, never): TileLODEntryDetails;
 	public inline extern function get_LOD1(): TileLODEntryDetails return this.LOD1;
 	public extern var LOD2(get, never): TileLODEntryDetails;
@@ -53,7 +53,7 @@ abstract ConstWorldTileDetails(WorldTileDetails) from WorldTileDetails {
 @:forward
 @:nativeGen
 @:native("WorldTileDetails*")
-abstract WorldTileDetailsPtr(cpp.Star<WorldTileDetails>) from cpp.Star<WorldTileDetails> to cpp.Star<WorldTileDetails>{
+abstract WorldTileDetailsPtr(ucpp.Ptr<WorldTileDetails>) from ucpp.Ptr<WorldTileDetails> to ucpp.Ptr<WorldTileDetails>{
 	@:from
 	public static extern inline function fromValue(v: WorldTileDetails): WorldTileDetailsPtr {
 		return untyped __cpp__("&({0})", v);

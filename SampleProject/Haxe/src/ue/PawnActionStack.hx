@@ -3,10 +3,9 @@ package ue;
 
 @:native("FPawnActionStack")
 @:include("Actions/PawnActionsComponent.h")
-@:structAccess
+@:valueType
 extern class PawnActionStack {
-	private var TopAction: cpp.Star<PawnAction>;
 
 	@:native("FPawnActionStack") public function new();
-	@:native("FPawnActionStack") public static function make(TopAction: cpp.Star<PawnAction>): PawnActionStack ;
+	@:native("FPawnActionStack") public static function make(TopAction_DEPRECATED: ucpp.Ptr<PawnAction>): PawnActionStack ;
 }

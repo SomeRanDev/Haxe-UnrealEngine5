@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULazyObjectProperty")
-@:structAccess
+@:valueType
 extern class LazyObjectProperty extends ObjectPropertyBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLazyObjectProperty(LazyObjectProperty) from LazyObjectProperty {
 @:forward
 @:nativeGen
 @:native("LazyObjectProperty*")
-abstract LazyObjectPropertyPtr(cpp.Star<LazyObjectProperty>) from cpp.Star<LazyObjectProperty> to cpp.Star<LazyObjectProperty>{
+abstract LazyObjectPropertyPtr(ucpp.Ptr<LazyObjectProperty>) from ucpp.Ptr<LazyObjectProperty> to ucpp.Ptr<LazyObjectProperty>{
 	@:from
 	public static extern inline function fromValue(v: LazyObjectProperty): LazyObjectPropertyPtr {
 		return untyped __cpp__("&({0})", v);

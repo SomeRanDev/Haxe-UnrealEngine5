@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendClassStyleDisplay")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendClassStyleDisplay {
 
 	@:native("FMetasoundFrontendClassStyleDisplay") public function new();

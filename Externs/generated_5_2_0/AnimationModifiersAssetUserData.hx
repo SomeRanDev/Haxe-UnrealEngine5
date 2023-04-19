@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimationModifiersAssetUserData")
 @:include("AnimationModifiersAssetUserData.h")
-@:structAccess
+@:valueType
 extern class AnimationModifiersAssetUserData extends AssetUserData {
-	@:protected public var AnimationModifierInstances: TArray<cpp.Star<AnimationModifier>>;
-	@:protected public var AppliedModifiers: TMap<SoftObjectPath, cpp.Star<AnimationModifier>>;
+	@:protected public var AnimationModifierInstances: TArray<ucpp.Ptr<AnimationModifier>>;
+	@:protected public var AppliedModifiers: TMap<SoftObjectPath, ucpp.Ptr<AnimationModifier>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAnimationModifiersAssetUserData(AnimationModifiersAssetUserData) f
 @:forward
 @:nativeGen
 @:native("AnimationModifiersAssetUserData*")
-abstract AnimationModifiersAssetUserDataPtr(cpp.Star<AnimationModifiersAssetUserData>) from cpp.Star<AnimationModifiersAssetUserData> to cpp.Star<AnimationModifiersAssetUserData>{
+abstract AnimationModifiersAssetUserDataPtr(ucpp.Ptr<AnimationModifiersAssetUserData>) from ucpp.Ptr<AnimationModifiersAssetUserData> to ucpp.Ptr<AnimationModifiersAssetUserData>{
 	@:from
 	public static extern inline function fromValue(v: AnimationModifiersAssetUserData): AnimationModifiersAssetUserDataPtr {
 		return untyped __cpp__("&({0})", v);

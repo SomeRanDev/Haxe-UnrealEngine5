@@ -3,13 +3,14 @@ package ue;
 
 @:native("FMovieSceneBoolChannel")
 @:include("Channels/MovieSceneBoolChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBoolChannel extends MovieSceneChannel {
-	private var Times: TArray<FrameNumber>;
-	private var DefaultValue: Bool;
-	private var bHasDefaultValue: Bool;
-	private var Values: TArray<Bool>;
+	@:protected public var Times: TArray<FrameNumber>;
+	@:protected public var DefaultValue: Bool;
+	@:protected public var bHasDefaultValue: Bool;
+	@:protected public var Values: TArray<Bool>;
+	@:protected public var KeyHandles: MovieSceneKeyHandleMap;
 
 	@:native("FMovieSceneBoolChannel") public function new();
-	@:native("FMovieSceneBoolChannel") public static function make(Times: TArray<FrameNumber>, DefaultValue: Bool, bHasDefaultValue: Bool, Values: TArray<Bool>): MovieSceneBoolChannel ;
+	@:native("FMovieSceneBoolChannel") public static function make(Times: TArray<FrameNumber>, DefaultValue: Bool, bHasDefaultValue: Bool, Values: TArray<Bool>, KeyHandles: MovieSceneKeyHandleMap): MovieSceneBoolChannel ;
 }

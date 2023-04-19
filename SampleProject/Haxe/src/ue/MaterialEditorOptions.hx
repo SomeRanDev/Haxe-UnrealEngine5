@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialEditorOptions")
 @:include("Preferences/MaterialEditorOptions.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorOptions extends Object {
 	public var bShowGrid: Bool;
 	public var bHideUnusedConnectorsSetting: Bool;
@@ -15,7 +15,7 @@ extern class MaterialEditorOptions extends Object {
 	public var bUseUnsortedMenus: Bool;
 	public var FavoriteExpressions: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstMaterialEditorOptions(MaterialEditorOptions) from MaterialEditorOp
 @:forward
 @:nativeGen
 @:native("MaterialEditorOptions*")
-abstract MaterialEditorOptionsPtr(cpp.Star<MaterialEditorOptions>) from cpp.Star<MaterialEditorOptions> to cpp.Star<MaterialEditorOptions>{
+abstract MaterialEditorOptionsPtr(ucpp.Ptr<MaterialEditorOptions>) from ucpp.Ptr<MaterialEditorOptions> to ucpp.Ptr<MaterialEditorOptions>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditorOptions): MaterialEditorOptionsPtr {
 		return untyped __cpp__("&({0})", v);

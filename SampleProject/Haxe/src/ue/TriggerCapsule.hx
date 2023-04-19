@@ -3,10 +3,10 @@ package ue;
 
 @:native("ATriggerCapsule")
 @:include("Engine/TriggerCapsule.h")
-@:structAccess
+@:valueType
 extern class TriggerCapsule extends TriggerBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTriggerCapsule(TriggerCapsule) from TriggerCapsule {
 @:forward
 @:nativeGen
 @:native("TriggerCapsule*")
-abstract TriggerCapsulePtr(cpp.Star<TriggerCapsule>) from cpp.Star<TriggerCapsule> to cpp.Star<TriggerCapsule>{
+abstract TriggerCapsulePtr(ucpp.Ptr<TriggerCapsule>) from ucpp.Ptr<TriggerCapsule> to ucpp.Ptr<TriggerCapsule>{
 	@:from
 	public static extern inline function fromValue(v: TriggerCapsule): TriggerCapsulePtr {
 		return untyped __cpp__("&({0})", v);

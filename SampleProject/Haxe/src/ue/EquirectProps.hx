@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEquirectProps")
 @:include("Components/StereoLayerComponent.h")
-@:structAccess
+@:valueType
 extern class EquirectProps {
 	public var LeftUVRect: Box2D;
 	public var RightUVRect: Box2D;

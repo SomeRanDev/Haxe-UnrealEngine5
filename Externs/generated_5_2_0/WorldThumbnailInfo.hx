@@ -3,12 +3,12 @@ package ue;
 
 @:native("UWorldThumbnailInfo")
 @:include("ThumbnailRendering/WorldThumbnailInfo.h")
-@:structAccess
+@:valueType
 extern class WorldThumbnailInfo extends SceneThumbnailInfo {
 	public var CameraMode: TEnumAsByte<ECameraProjectionMode>;
 	public var OrthoDirection: TEnumAsByte<EOrthoThumbnailDirection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstWorldThumbnailInfo(WorldThumbnailInfo) from WorldThumbnailInfo {
 @:forward
 @:nativeGen
 @:native("WorldThumbnailInfo*")
-abstract WorldThumbnailInfoPtr(cpp.Star<WorldThumbnailInfo>) from cpp.Star<WorldThumbnailInfo> to cpp.Star<WorldThumbnailInfo>{
+abstract WorldThumbnailInfoPtr(ucpp.Ptr<WorldThumbnailInfo>) from ucpp.Ptr<WorldThumbnailInfo> to ucpp.Ptr<WorldThumbnailInfo>{
 	@:from
 	public static extern inline function fromValue(v: WorldThumbnailInfo): WorldThumbnailInfoPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVectorMaterialInput")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class VectorMaterialInput extends MaterialInput {
 	public var UseConstant: Bool;
 	public var Constant: Vector3f;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEditorInteractiveGizmoSubsystem")
 @:include("EditorInteractiveGizmoSubsystem.h")
-@:structAccess
+@:valueType
 extern class EditorInteractiveGizmoSubsystem extends EditorSubsystem {
-	private var TransformGizmoBuilder: cpp.Star<InteractiveGizmoBuilder>;
-	private var Registry: cpp.Star<EditorInteractiveGizmoRegistry>;
+	private var TransformGizmoBuilder: ucpp.Ptr<InteractiveGizmoBuilder>;
+	private var Registry: ucpp.Ptr<EditorInteractiveGizmoRegistry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstEditorInteractiveGizmoSubsystem(EditorInteractiveGizmoSubsystem) f
 @:forward
 @:nativeGen
 @:native("EditorInteractiveGizmoSubsystem*")
-abstract EditorInteractiveGizmoSubsystemPtr(cpp.Star<EditorInteractiveGizmoSubsystem>) from cpp.Star<EditorInteractiveGizmoSubsystem> to cpp.Star<EditorInteractiveGizmoSubsystem>{
+abstract EditorInteractiveGizmoSubsystemPtr(ucpp.Ptr<EditorInteractiveGizmoSubsystem>) from ucpp.Ptr<EditorInteractiveGizmoSubsystem> to ucpp.Ptr<EditorInteractiveGizmoSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EditorInteractiveGizmoSubsystem): EditorInteractiveGizmoSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

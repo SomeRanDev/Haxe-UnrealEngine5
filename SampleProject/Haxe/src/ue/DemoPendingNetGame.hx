@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDemoPendingNetGame")
 @:include("Engine/DemoPendingNetGame.h")
-@:structAccess
+@:valueType
 extern class DemoPendingNetGame extends PendingNetGame {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDemoPendingNetGame(DemoPendingNetGame) from DemoPendingNetGame {
 @:forward
 @:nativeGen
 @:native("DemoPendingNetGame*")
-abstract DemoPendingNetGamePtr(cpp.Star<DemoPendingNetGame>) from cpp.Star<DemoPendingNetGame> to cpp.Star<DemoPendingNetGame>{
+abstract DemoPendingNetGamePtr(ucpp.Ptr<DemoPendingNetGame>) from ucpp.Ptr<DemoPendingNetGame> to ucpp.Ptr<DemoPendingNetGame>{
 	@:from
 	public static extern inline function fromValue(v: DemoPendingNetGame): DemoPendingNetGamePtr {
 		return untyped __cpp__("&({0})", v);

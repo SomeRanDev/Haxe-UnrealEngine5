@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialImportHelpers")
 @:include("Factories/MaterialImportHelpers.h")
-@:structAccess
+@:valueType
 extern class MaterialImportHelpers extends Object {
-	public function FindExistingMaterialFromSearchLocation(MaterialFullName: FString, BasePackagePath: FString, SearchLocation: EMaterialSearchLocation, OutError: cpp.Reference<FText>): cpp.Star<MaterialInterface>;
-	public function FindExistingMaterial(BasePath: FString, MaterialFullName: FString, bRecursivePaths: Bool, OutError: cpp.Reference<FText>): cpp.Star<MaterialInterface>;
+	public function FindExistingMaterialFromSearchLocation(MaterialFullName: FString, BasePackagePath: FString, SearchLocation: EMaterialSearchLocation, OutError: ucpp.Ref<FText>): ucpp.Ptr<MaterialInterface>;
+	public function FindExistingMaterial(BasePath: FString, MaterialFullName: FString, bRecursivePaths: Bool, OutError: ucpp.Ref<FText>): ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMaterialImportHelpers(MaterialImportHelpers) from MaterialImportHe
 @:forward
 @:nativeGen
 @:native("MaterialImportHelpers*")
-abstract MaterialImportHelpersPtr(cpp.Star<MaterialImportHelpers>) from cpp.Star<MaterialImportHelpers> to cpp.Star<MaterialImportHelpers>{
+abstract MaterialImportHelpersPtr(ucpp.Ptr<MaterialImportHelpers>) from ucpp.Ptr<MaterialImportHelpers> to ucpp.Ptr<MaterialImportHelpers>{
 	@:from
 	public static extern inline function fromValue(v: MaterialImportHelpers): MaterialImportHelpersPtr {
 		return untyped __cpp__("&({0})", v);

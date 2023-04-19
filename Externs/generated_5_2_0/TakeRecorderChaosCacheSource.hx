@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTakeRecorderChaosCacheSource")
 @:include("Sequencer/TakeRecorderChaosCacheSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderChaosCacheSource extends TakeRecorderSource {
 	public var ChaosCacheManager: TSoftObjectPtr<ChaosCacheManager>;
-	private var TrackRecorder: cpp.Star<MovieSceneChaosCacheTrackRecorder>;
+	private var TrackRecorder: ucpp.Ptr<MovieSceneChaosCacheTrackRecorder>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstTakeRecorderChaosCacheSource(TakeRecorderChaosCacheSource) from Ta
 @:forward
 @:nativeGen
 @:native("TakeRecorderChaosCacheSource*")
-abstract TakeRecorderChaosCacheSourcePtr(cpp.Star<TakeRecorderChaosCacheSource>) from cpp.Star<TakeRecorderChaosCacheSource> to cpp.Star<TakeRecorderChaosCacheSource>{
+abstract TakeRecorderChaosCacheSourcePtr(ucpp.Ptr<TakeRecorderChaosCacheSource>) from ucpp.Ptr<TakeRecorderChaosCacheSource> to ucpp.Ptr<TakeRecorderChaosCacheSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderChaosCacheSource): TakeRecorderChaosCacheSourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTemplateFolderRename")
 @:include("TemplateProjectDefs.h")
-@:structAccess
+@:valueType
 extern class TemplateFolderRename {
 	public var From: FString;
 	public var To: FString;

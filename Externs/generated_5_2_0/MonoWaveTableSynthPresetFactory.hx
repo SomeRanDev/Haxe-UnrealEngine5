@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMonoWaveTableSynthPresetFactory")
 @:include("MonoWaveTablePresetBank.h")
-@:structAccess
+@:valueType
 extern class MonoWaveTableSynthPresetFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMonoWaveTableSynthPresetFactory(MonoWaveTableSynthPresetFactory) f
 @:forward
 @:nativeGen
 @:native("MonoWaveTableSynthPresetFactory*")
-abstract MonoWaveTableSynthPresetFactoryPtr(cpp.Star<MonoWaveTableSynthPresetFactory>) from cpp.Star<MonoWaveTableSynthPresetFactory> to cpp.Star<MonoWaveTableSynthPresetFactory>{
+abstract MonoWaveTableSynthPresetFactoryPtr(ucpp.Ptr<MonoWaveTableSynthPresetFactory>) from ucpp.Ptr<MonoWaveTableSynthPresetFactory> to ucpp.Ptr<MonoWaveTableSynthPresetFactory>{
 	@:from
 	public static extern inline function fromValue(v: MonoWaveTableSynthPresetFactory): MonoWaveTableSynthPresetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

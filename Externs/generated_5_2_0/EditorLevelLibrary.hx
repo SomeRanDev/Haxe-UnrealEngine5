@@ -3,47 +3,47 @@ package ue;
 
 @:native("UEditorLevelLibrary")
 @:include("EditorLevelLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorLevelLibrary extends BlueprintFunctionLibrary {
-	public function SpawnActorFromObject(ObjectToUse: cpp.Star<Object>, Location: Vector, Rotation: Rotator, bTransient: Bool): cpp.Star<Actor>;
-	public function SpawnActorFromClass(ActorClass: TSubclassOf<Actor>, Location: Vector, Rotation: Rotator, bTransient: Bool): cpp.Star<Actor>;
-	public function SetSelectedLevelActors(ActorsToSelect: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	public function SpawnActorFromObject(ObjectToUse: ucpp.Ptr<Object>, Location: Vector, Rotation: Rotator, bTransient: Bool): ucpp.Ptr<Actor>;
+	public function SpawnActorFromClass(ActorClass: TSubclassOf<Actor>, Location: Vector, Rotation: Rotator, bTransient: Bool): ucpp.Ptr<Actor>;
+	public function SetSelectedLevelActors(ActorsToSelect: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
 	public function SetLevelViewportCameraInfo(CameraLocation: Vector, CameraRotation: Rotator): Void;
 	public function SetCurrentLevelByName(LevelName: FName): Bool;
-	public function SetActorSelectionState(Actor: cpp.Star<Actor>, bShouldBeSelected: Bool): Void;
+	public function SetActorSelectionState(Actor: ucpp.Ptr<Actor>, bShouldBeSelected: Bool): Void;
 	public function SelectNothing(): Void;
 	public function SaveCurrentLevel(): Bool;
 	public function SaveAllDirtyLevels(): Bool;
 	public function ReplaceSelectedActors(InAssetPath: FString): Void;
-	public function ReplaceMeshComponentsMeshesOnActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, MeshToBeReplaced: cpp.Star<StaticMesh>, NewMesh: cpp.Star<StaticMesh>): Void;
-	public function ReplaceMeshComponentsMeshes(MeshComponents: cpp.Reference<TArray<cpp.Star<StaticMeshComp>>>, MeshToBeReplaced: cpp.Star<StaticMesh>, NewMesh: cpp.Star<StaticMesh>): Void;
-	public function ReplaceMeshComponentsMaterialsOnActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, MaterialToBeReplaced: cpp.Star<MaterialInterface>, NewMaterial: cpp.Star<MaterialInterface>): Void;
-	public function ReplaceMeshComponentsMaterials(MeshComponents: cpp.Reference<TArray<cpp.Star<MeshComp>>>, MaterialToBeReplaced: cpp.Star<MaterialInterface>, NewMaterial: cpp.Star<MaterialInterface>): Void;
-	public function PilotLevelActor(ActorToPilot: cpp.Star<Actor>): Void;
+	public function ReplaceMeshComponentsMeshesOnActors(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, MeshToBeReplaced: ucpp.Ptr<StaticMesh>, NewMesh: ucpp.Ptr<StaticMesh>): Void;
+	public function ReplaceMeshComponentsMeshes(MeshComponents: ucpp.Ref<TArray<ucpp.Ptr<StaticMeshComp>>>, MeshToBeReplaced: ucpp.Ptr<StaticMesh>, NewMesh: ucpp.Ptr<StaticMesh>): Void;
+	public function ReplaceMeshComponentsMaterialsOnActors(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, MaterialToBeReplaced: ucpp.Ptr<MaterialInterface>, NewMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function ReplaceMeshComponentsMaterials(MeshComponents: ucpp.Ref<TArray<ucpp.Ptr<MeshComp>>>, MaterialToBeReplaced: ucpp.Ptr<MaterialInterface>, NewMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function PilotLevelActor(ActorToPilot: ucpp.Ptr<Actor>): Void;
 	public function NewLevelFromTemplate(AssetPath: FString, TemplateAssetPath: FString): Bool;
 	public function NewLevel(AssetPath: FString): Bool;
-	public function MergeStaticMeshActors(ActorsToMerge: cpp.Reference<TArray<cpp.Star<StaticMeshActor>>>, MergeOptions: cpp.Reference<MergeStaticMeshActorsOptions>, OutMergedActor: cpp.Reference<cpp.Star<StaticMeshActor>>): Bool;
+	public function MergeStaticMeshActors(ActorsToMerge: ucpp.Ref<TArray<ucpp.Ptr<StaticMeshActor>>>, MergeOptions: ucpp.Ref<MergeStaticMeshActorsOptions>, OutMergedActor: ucpp.Ref<ucpp.Ptr<StaticMeshActor>>): Bool;
 	public function LoadLevel(AssetPath: FString): Bool;
-	public function JoinStaticMeshActors(ActorsToJoin: cpp.Reference<TArray<cpp.Star<StaticMeshActor>>>, JoinOptions: cpp.Reference<JoinStaticMeshActorsOptions>): cpp.Star<Actor>;
-	public function GetSelectedLevelActors(): TArray<cpp.Star<Actor>>;
-	public function GetPIEWorlds(bIncludeDedicatedServer: Bool): TArray<cpp.Star<World>>;
-	public function GetLevelViewportCameraInfo(CameraLocation: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>): Bool;
-	public function GetGameWorld(): cpp.Star<World>;
-	public function GetEditorWorld(): cpp.Star<World>;
-	public function GetAllLevelActorsComponents(): TArray<cpp.Star<ActorComp>>;
-	public function GetAllLevelActors(): TArray<cpp.Star<Actor>>;
-	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
+	public function JoinStaticMeshActors(ActorsToJoin: ucpp.Ref<TArray<ucpp.Ptr<StaticMeshActor>>>, JoinOptions: ucpp.Ref<JoinStaticMeshActorsOptions>): ucpp.Ptr<Actor>;
+	public function GetSelectedLevelActors(): TArray<ucpp.Ptr<Actor>>;
+	public function GetPIEWorlds(bIncludeDedicatedServer: Bool): TArray<ucpp.Ptr<World>>;
+	public function GetLevelViewportCameraInfo(CameraLocation: ucpp.Ref<Vector>, CameraRotation: ucpp.Ref<Rotator>): Bool;
+	public function GetGameWorld(): ucpp.Ptr<World>;
+	public function GetEditorWorld(): ucpp.Ptr<World>;
+	public function GetAllLevelActorsComponents(): TArray<ucpp.Ptr<ActorComp>>;
+	public function GetAllLevelActors(): TArray<ucpp.Ptr<Actor>>;
+	public function GetActorReference(PathToActor: FString): ucpp.Ptr<Actor>;
 	public function EjectPilotLevelActor(): Void;
 	public function EditorSetGameView(bGameView: Bool): Void;
 	public function EditorPlaySimulate(): Void;
 	public function EditorInvalidateViewports(): Void;
 	public function EditorEndPlay(): Void;
-	public function DestroyActor(ActorToDestroy: cpp.Star<Actor>): Bool;
-	public function CreateProxyMeshActor(ActorsToMerge: cpp.Reference<TArray<cpp.Star<StaticMeshActor>>>, MergeOptions: cpp.Reference<CreateProxyMeshActorOptions>, OutMergedActor: cpp.Reference<cpp.Star<StaticMeshActor>>): Bool;
-	public function ConvertActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, ActorClass: TSubclassOf<Actor>, StaticMeshPackagePath: FString): TArray<cpp.Star<Actor>>;
+	public function DestroyActor(ActorToDestroy: ucpp.Ptr<Actor>): Bool;
+	public function CreateProxyMeshActor(ActorsToMerge: ucpp.Ref<TArray<ucpp.Ptr<StaticMeshActor>>>, MergeOptions: ucpp.Ref<CreateProxyMeshActorOptions>, OutMergedActor: ucpp.Ref<ucpp.Ptr<StaticMeshActor>>): Bool;
+	public function ConvertActors(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, ActorClass: TSubclassOf<Actor>, StaticMeshPackagePath: FString): TArray<ucpp.Ptr<Actor>>;
 	public function ClearActorSelectionSet(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -54,7 +54,7 @@ abstract ConstEditorLevelLibrary(EditorLevelLibrary) from EditorLevelLibrary {
 @:forward
 @:nativeGen
 @:native("EditorLevelLibrary*")
-abstract EditorLevelLibraryPtr(cpp.Star<EditorLevelLibrary>) from cpp.Star<EditorLevelLibrary> to cpp.Star<EditorLevelLibrary>{
+abstract EditorLevelLibraryPtr(ucpp.Ptr<EditorLevelLibrary>) from ucpp.Ptr<EditorLevelLibrary> to ucpp.Ptr<EditorLevelLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorLevelLibrary): EditorLevelLibraryPtr {
 		return untyped __cpp__("&({0})", v);

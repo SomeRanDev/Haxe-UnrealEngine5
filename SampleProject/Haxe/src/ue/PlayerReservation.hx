@@ -3,14 +3,14 @@ package ue;
 
 @:native("FPlayerReservation")
 @:include("OnlineBeaconReservation.h")
-@:structAccess
+@:valueType
 extern class PlayerReservation {
 	public var UniqueId: UniqueNetIdRepl;
 	public var ValidationStr: FString;
 	public var Platform: FString;
 	public var bAllowCrossplay: Bool;
-	public var ElapsedTime: cpp.Float32;
+	public var ElapsedTime: ucpp.num.Float32;
 
 	@:native("FPlayerReservation") public function new();
-	@:native("FPlayerReservation") public static function make(UniqueId: UniqueNetIdRepl, ValidationStr: FString, Platform: FString, bAllowCrossplay: Bool, ElapsedTime: cpp.Float32): PlayerReservation ;
+	@:native("FPlayerReservation") public static function make(UniqueId: UniqueNetIdRepl, ValidationStr: FString, Platform: FString, bAllowCrossplay: Bool, ElapsedTime: ucpp.num.Float32): PlayerReservation ;
 }

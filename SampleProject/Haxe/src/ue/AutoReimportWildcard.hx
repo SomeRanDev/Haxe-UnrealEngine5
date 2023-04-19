@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAutoReimportWildcard")
 @:include("Settings/EditorLoadingSavingSettings.h")
-@:structAccess
+@:valueType
 extern class AutoReimportWildcard {
 	public var Wildcard: FString;
 	public var bInclude: Bool;

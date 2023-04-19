@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLightmassParameterizedMaterialSettings")
 @:include("Editor/UnrealEdTypes.h")
-@:structAccess
+@:valueType
 extern class LightmassParameterizedMaterialSettings {
 	public var CastShadowAsMasked: LightmassBooleanParameterValue;
 	public var EmissiveBoost: LightmassScalarParameterValue;

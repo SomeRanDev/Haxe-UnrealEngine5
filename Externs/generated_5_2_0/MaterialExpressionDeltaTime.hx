@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionDeltaTime")
 @:include("Materials/MaterialExpressionDeltaTime.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDeltaTime extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionDeltaTime(MaterialExpressionDeltaTime) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDeltaTime*")
-abstract MaterialExpressionDeltaTimePtr(cpp.Star<MaterialExpressionDeltaTime>) from cpp.Star<MaterialExpressionDeltaTime> to cpp.Star<MaterialExpressionDeltaTime>{
+abstract MaterialExpressionDeltaTimePtr(ucpp.Ptr<MaterialExpressionDeltaTime>) from ucpp.Ptr<MaterialExpressionDeltaTime> to ucpp.Ptr<MaterialExpressionDeltaTime>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDeltaTime): MaterialExpressionDeltaTimePtr {
 		return untyped __cpp__("&({0})", v);

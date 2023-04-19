@@ -3,26 +3,26 @@ package ue;
 
 @:native("AGeometryCollectionActor")
 @:include("GeometryCollection/GeometryCollectionActor.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionActor extends Actor {
-	public var GeometryCollectionComponent: cpp.Star<GeometryCollectionComp>;
+	public var GeometryCollectionComponent: ucpp.Ptr<GeometryCollectionComp>;
 
-	public function RaycastSingle(Start: Vector, End: Vector, OutHit: cpp.Reference<HitResult>): Bool;
+	public function RaycastSingle(Start: Vector, End: Vector, OutHit: ucpp.Ref<HitResult>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(RaycastSingle)
 @:nativeGen
 abstract ConstGeometryCollectionActor(GeometryCollectionActor) from GeometryCollectionActor {
-	public extern var GeometryCollectionComponent(get, never): cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>;
-	public inline extern function get_GeometryCollectionComponent(): cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp> return this.GeometryCollectionComponent;
+	public extern var GeometryCollectionComponent(get, never): ucpp.Ptr<GeometryCollectionComp.ConstGeometryCollectionComp>;
+	public inline extern function get_GeometryCollectionComponent(): ucpp.Ptr<GeometryCollectionComp.ConstGeometryCollectionComp> return this.GeometryCollectionComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCollectionActor*")
-abstract GeometryCollectionActorPtr(cpp.Star<GeometryCollectionActor>) from cpp.Star<GeometryCollectionActor> to cpp.Star<GeometryCollectionActor>{
+abstract GeometryCollectionActorPtr(ucpp.Ptr<GeometryCollectionActor>) from ucpp.Ptr<GeometryCollectionActor> to ucpp.Ptr<GeometryCollectionActor>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionActor): GeometryCollectionActorPtr {
 		return untyped __cpp__("&({0})", v);

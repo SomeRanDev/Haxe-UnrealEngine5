@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBoneChain")
 @:include("IKRigDefinition.h")
-@:structAccess
+@:valueType
 extern class BoneChain {
 	public var ChainName: FName;
 	public var StartBone: BoneReference;

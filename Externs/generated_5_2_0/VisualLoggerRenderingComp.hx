@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVisualLoggerRenderingComponent")
 @:include("VisualLoggerRenderingComponent.h")
-@:structAccess
+@:valueType
 extern class VisualLoggerRenderingComp extends DebugDrawComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVisualLoggerRenderingComp(VisualLoggerRenderingComp) from VisualLo
 @:forward
 @:nativeGen
 @:native("VisualLoggerRenderingComp*")
-abstract VisualLoggerRenderingCompPtr(cpp.Star<VisualLoggerRenderingComp>) from cpp.Star<VisualLoggerRenderingComp> to cpp.Star<VisualLoggerRenderingComp>{
+abstract VisualLoggerRenderingCompPtr(ucpp.Ptr<VisualLoggerRenderingComp>) from ucpp.Ptr<VisualLoggerRenderingComp> to ucpp.Ptr<VisualLoggerRenderingComp>{
 	@:from
 	public static extern inline function fromValue(v: VisualLoggerRenderingComp): VisualLoggerRenderingCompPtr {
 		return untyped __cpp__("&({0})", v);

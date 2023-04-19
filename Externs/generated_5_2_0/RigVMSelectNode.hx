@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_RigVMSelectNode")
 @:include("RigVMModel/Nodes/RigVMSelectNode.h")
-@:structAccess
+@:valueType
 extern class RigVMSelectNode extends RigVMTemplateNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRigVMSelectNode(RigVMSelectNode) from RigVMSelectNode {
 @:forward
 @:nativeGen
 @:native("RigVMSelectNode*")
-abstract RigVMSelectNodePtr(cpp.Star<RigVMSelectNode>) from cpp.Star<RigVMSelectNode> to cpp.Star<RigVMSelectNode>{
+abstract RigVMSelectNodePtr(ucpp.Ptr<RigVMSelectNode>) from ucpp.Ptr<RigVMSelectNode> to ucpp.Ptr<RigVMSelectNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMSelectNode): RigVMSelectNodePtr {
 		return untyped __cpp__("&({0})", v);

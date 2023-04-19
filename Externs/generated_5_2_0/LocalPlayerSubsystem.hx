@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULocalPlayerSubsystem")
 @:include("Subsystems/LocalPlayerSubsystem.h")
-@:structAccess
+@:valueType
 extern class LocalPlayerSubsystem extends Subsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLocalPlayerSubsystem(LocalPlayerSubsystem) from LocalPlayerSubsyst
 @:forward
 @:nativeGen
 @:native("LocalPlayerSubsystem*")
-abstract LocalPlayerSubsystemPtr(cpp.Star<LocalPlayerSubsystem>) from cpp.Star<LocalPlayerSubsystem> to cpp.Star<LocalPlayerSubsystem>{
+abstract LocalPlayerSubsystemPtr(ucpp.Ptr<LocalPlayerSubsystem>) from ucpp.Ptr<LocalPlayerSubsystem> to ucpp.Ptr<LocalPlayerSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: LocalPlayerSubsystem): LocalPlayerSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

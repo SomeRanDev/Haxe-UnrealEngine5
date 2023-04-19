@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneScriptingChannel")
 @:include("KeysAndChannels/MovieSceneScriptingChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingChannel extends Object {
 	public var ChannelName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneScriptingChannel(MovieSceneScriptingChannel) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingChannel*")
-abstract MovieSceneScriptingChannelPtr(cpp.Star<MovieSceneScriptingChannel>) from cpp.Star<MovieSceneScriptingChannel> to cpp.Star<MovieSceneScriptingChannel>{
+abstract MovieSceneScriptingChannelPtr(ucpp.Ptr<MovieSceneScriptingChannel>) from ucpp.Ptr<MovieSceneScriptingChannel> to ucpp.Ptr<MovieSceneScriptingChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingChannel): MovieSceneScriptingChannelPtr {
 		return untyped __cpp__("&({0})", v);

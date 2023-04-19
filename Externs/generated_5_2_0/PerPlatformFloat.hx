@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPerPlatformFloat")
 @:include("PerPlatformProperties.h")
-@:structAccess
+@:valueType
 extern class PerPlatformFloat {
-	public var Default: cpp.Float32;
+	public var Default: ucpp.num.Float32;
 
 	@:native("FPerPlatformFloat") public function new();
-	@:native("FPerPlatformFloat") public static function make(Default: cpp.Float32, PerPlatform: TMap<FName, cpp.Float32>): PerPlatformFloat ;
+	@:native("FPerPlatformFloat") public static function make(Default: ucpp.num.Float32, PerPlatform: TMap<FName, ucpp.num.Float32>): PerPlatformFloat ;
 }

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UHoleFillOperatorFactory")
 @:include("HoleFillTool.h")
-@:structAccess
+@:valueType
 extern class HoleFillOperatorFactory extends Object {
-	public var FillTool: cpp.Star<HoleFillTool>;
+	public var FillTool: ucpp.Ptr<HoleFillTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstHoleFillOperatorFactory(HoleFillOperatorFactory) from HoleFillOperatorFactory {
-	public extern var FillTool(get, never): cpp.Star<HoleFillTool.ConstHoleFillTool>;
-	public inline extern function get_FillTool(): cpp.Star<HoleFillTool.ConstHoleFillTool> return this.FillTool;
+	public extern var FillTool(get, never): ucpp.Ptr<HoleFillTool.ConstHoleFillTool>;
+	public inline extern function get_FillTool(): ucpp.Ptr<HoleFillTool.ConstHoleFillTool> return this.FillTool;
 }
 
 @:forward
 @:nativeGen
 @:native("HoleFillOperatorFactory*")
-abstract HoleFillOperatorFactoryPtr(cpp.Star<HoleFillOperatorFactory>) from cpp.Star<HoleFillOperatorFactory> to cpp.Star<HoleFillOperatorFactory>{
+abstract HoleFillOperatorFactoryPtr(ucpp.Ptr<HoleFillOperatorFactory>) from ucpp.Ptr<HoleFillOperatorFactory> to ucpp.Ptr<HoleFillOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: HoleFillOperatorFactory): HoleFillOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

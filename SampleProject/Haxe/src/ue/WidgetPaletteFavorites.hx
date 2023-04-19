@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWidgetPaletteFavorites")
 @:include("WidgetPaletteFavorites.h")
-@:structAccess
+@:valueType
 extern class WidgetPaletteFavorites extends Object {
 	private var Favorites: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstWidgetPaletteFavorites(WidgetPaletteFavorites) from WidgetPaletteF
 @:forward
 @:nativeGen
 @:native("WidgetPaletteFavorites*")
-abstract WidgetPaletteFavoritesPtr(cpp.Star<WidgetPaletteFavorites>) from cpp.Star<WidgetPaletteFavorites> to cpp.Star<WidgetPaletteFavorites>{
+abstract WidgetPaletteFavoritesPtr(ucpp.Ptr<WidgetPaletteFavorites>) from ucpp.Ptr<WidgetPaletteFavorites> to ucpp.Ptr<WidgetPaletteFavorites>{
 	@:from
 	public static extern inline function fromValue(v: WidgetPaletteFavorites): WidgetPaletteFavoritesPtr {
 		return untyped __cpp__("&({0})", v);

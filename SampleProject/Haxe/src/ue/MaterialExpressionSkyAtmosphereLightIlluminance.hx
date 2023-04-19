@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMaterialExpressionSkyAtmosphereLightIlluminance")
 @:include("Materials/MaterialExpressionSkyAtmosphereLightIlluminance.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSkyAtmosphereLightIlluminance extends MaterialExpression {
-	public var LightIndex: cpp.Int32;
+	public var LightIndex: ucpp.num.Int32;
 	public var WorldPosition: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionSkyAtmosphereLightIlluminance(MaterialExpressionSkyAtmosphereLightIlluminance) from MaterialExpressionSkyAtmosphereLightIlluminance {
-	public extern var LightIndex(get, never): cpp.Int32;
-	public inline extern function get_LightIndex(): cpp.Int32 return this.LightIndex;
+	public extern var LightIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LightIndex(): ucpp.num.Int32 return this.LightIndex;
 	public extern var WorldPosition(get, never): ExpressionInput;
 	public inline extern function get_WorldPosition(): ExpressionInput return this.WorldPosition;
 }
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionSkyAtmosphereLightIlluminance(MaterialExpression
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSkyAtmosphereLightIlluminance*")
-abstract MaterialExpressionSkyAtmosphereLightIlluminancePtr(cpp.Star<MaterialExpressionSkyAtmosphereLightIlluminance>) from cpp.Star<MaterialExpressionSkyAtmosphereLightIlluminance> to cpp.Star<MaterialExpressionSkyAtmosphereLightIlluminance>{
+abstract MaterialExpressionSkyAtmosphereLightIlluminancePtr(ucpp.Ptr<MaterialExpressionSkyAtmosphereLightIlluminance>) from ucpp.Ptr<MaterialExpressionSkyAtmosphereLightIlluminance> to ucpp.Ptr<MaterialExpressionSkyAtmosphereLightIlluminance>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSkyAtmosphereLightIlluminance): MaterialExpressionSkyAtmosphereLightIlluminancePtr {
 		return untyped __cpp__("&({0})", v);

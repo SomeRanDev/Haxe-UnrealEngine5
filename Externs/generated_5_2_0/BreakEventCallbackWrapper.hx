@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBreakEventCallbackWrapper")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
-@:structAccess
+@:valueType
 extern class BreakEventCallbackWrapper {
 	@:native("FBreakEventCallbackWrapper") public function new();
 }

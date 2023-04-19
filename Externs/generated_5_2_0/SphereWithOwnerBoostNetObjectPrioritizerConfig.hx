@@ -3,24 +3,24 @@ package ue;
 
 @:native("USphereWithOwnerBoostNetObjectPrioritizerConfig")
 @:include("Iris/ReplicationSystem/Prioritization/SphereWithOwnerBoostNetObjectPrioritizer.h")
-@:structAccess
+@:valueType
 extern class SphereWithOwnerBoostNetObjectPrioritizerConfig extends SphereNetObjectPrioritizerConfig {
-	public var OwnerPriorityBoost: cpp.Float32;
+	public var OwnerPriorityBoost: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSphereWithOwnerBoostNetObjectPrioritizerConfig(SphereWithOwnerBoostNetObjectPrioritizerConfig) from SphereWithOwnerBoostNetObjectPrioritizerConfig {
-	public extern var OwnerPriorityBoost(get, never): cpp.Float32;
-	public inline extern function get_OwnerPriorityBoost(): cpp.Float32 return this.OwnerPriorityBoost;
+	public extern var OwnerPriorityBoost(get, never): ucpp.num.Float32;
+	public inline extern function get_OwnerPriorityBoost(): ucpp.num.Float32 return this.OwnerPriorityBoost;
 }
 
 @:forward
 @:nativeGen
 @:native("SphereWithOwnerBoostNetObjectPrioritizerConfig*")
-abstract SphereWithOwnerBoostNetObjectPrioritizerConfigPtr(cpp.Star<SphereWithOwnerBoostNetObjectPrioritizerConfig>) from cpp.Star<SphereWithOwnerBoostNetObjectPrioritizerConfig> to cpp.Star<SphereWithOwnerBoostNetObjectPrioritizerConfig>{
+abstract SphereWithOwnerBoostNetObjectPrioritizerConfigPtr(ucpp.Ptr<SphereWithOwnerBoostNetObjectPrioritizerConfig>) from ucpp.Ptr<SphereWithOwnerBoostNetObjectPrioritizerConfig> to ucpp.Ptr<SphereWithOwnerBoostNetObjectPrioritizerConfig>{
 	@:from
 	public static extern inline function fromValue(v: SphereWithOwnerBoostNetObjectPrioritizerConfig): SphereWithOwnerBoostNetObjectPrioritizerConfigPtr {
 		return untyped __cpp__("&({0})", v);

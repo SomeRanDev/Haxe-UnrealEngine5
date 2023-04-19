@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnvQueryDebugHelpers")
 @:include("EnvironmentQuery/EnvQueryDebugHelpers.h")
-@:structAccess
+@:valueType
 extern class EnvQueryDebugHelpers extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnvQueryDebugHelpers(EnvQueryDebugHelpers) from EnvQueryDebugHelpe
 @:forward
 @:nativeGen
 @:native("EnvQueryDebugHelpers*")
-abstract EnvQueryDebugHelpersPtr(cpp.Star<EnvQueryDebugHelpers>) from cpp.Star<EnvQueryDebugHelpers> to cpp.Star<EnvQueryDebugHelpers>{
+abstract EnvQueryDebugHelpersPtr(ucpp.Ptr<EnvQueryDebugHelpers>) from ucpp.Ptr<EnvQueryDebugHelpers> to ucpp.Ptr<EnvQueryDebugHelpers>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryDebugHelpers): EnvQueryDebugHelpersPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAIPerceptionListenerInterface")
-@:structAccess
+@:valueType
 extern class AIPerceptionListenerInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAIPerceptionListenerInterface(AIPerceptionListenerInterface) from 
 @:forward
 @:nativeGen
 @:native("AIPerceptionListenerInterface*")
-abstract AIPerceptionListenerInterfacePtr(cpp.Star<AIPerceptionListenerInterface>) from cpp.Star<AIPerceptionListenerInterface> to cpp.Star<AIPerceptionListenerInterface>{
+abstract AIPerceptionListenerInterfacePtr(ucpp.Ptr<AIPerceptionListenerInterface>) from ucpp.Ptr<AIPerceptionListenerInterface> to ucpp.Ptr<AIPerceptionListenerInterface>{
 	@:from
 	public static extern inline function fromValue(v: AIPerceptionListenerInterface): AIPerceptionListenerInterfacePtr {
 		return untyped __cpp__("&({0})", v);

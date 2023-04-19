@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Uadd_null_above_selected")
-@:structAccess
+@:valueType
 extern class add_null_above_selected extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constadd_null_above_selected(add_null_above_selected) from add_null_abo
 @:forward
 @:nativeGen
 @:native("add_null_above_selected*")
-abstract add_null_above_selectedPtr(cpp.Star<add_null_above_selected>) from cpp.Star<add_null_above_selected> to cpp.Star<add_null_above_selected>{
+abstract add_null_above_selectedPtr(ucpp.Ptr<add_null_above_selected>) from ucpp.Ptr<add_null_above_selected> to ucpp.Ptr<add_null_above_selected>{
 	@:from
 	public static extern inline function fromValue(v: add_null_above_selected): add_null_above_selectedPtr {
 		return untyped __cpp__("&({0})", v);

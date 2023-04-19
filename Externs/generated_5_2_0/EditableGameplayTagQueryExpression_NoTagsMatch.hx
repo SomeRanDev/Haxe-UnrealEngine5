@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditableGameplayTagQueryExpression_NoTagsMatch")
 @:include("GameplayTagContainer.h")
-@:structAccess
+@:valueType
 extern class EditableGameplayTagQueryExpression_NoTagsMatch extends EditableGameplayTagQueryExpression {
 	public var Tags: GameplayTagContainer;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEditableGameplayTagQueryExpression_NoTagsMatch(EditableGameplayTag
 @:forward
 @:nativeGen
 @:native("EditableGameplayTagQueryExpression_NoTagsMatch*")
-abstract EditableGameplayTagQueryExpression_NoTagsMatchPtr(cpp.Star<EditableGameplayTagQueryExpression_NoTagsMatch>) from cpp.Star<EditableGameplayTagQueryExpression_NoTagsMatch> to cpp.Star<EditableGameplayTagQueryExpression_NoTagsMatch>{
+abstract EditableGameplayTagQueryExpression_NoTagsMatchPtr(ucpp.Ptr<EditableGameplayTagQueryExpression_NoTagsMatch>) from ucpp.Ptr<EditableGameplayTagQueryExpression_NoTagsMatch> to ucpp.Ptr<EditableGameplayTagQueryExpression_NoTagsMatch>{
 	@:from
 	public static extern inline function fromValue(v: EditableGameplayTagQueryExpression_NoTagsMatch): EditableGameplayTagQueryExpression_NoTagsMatchPtr {
 		return untyped __cpp__("&({0})", v);

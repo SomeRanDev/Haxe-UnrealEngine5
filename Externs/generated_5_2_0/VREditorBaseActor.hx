@@ -3,11 +3,11 @@ package ue;
 
 @:native("AVREditorBaseActor")
 @:include("VREditorBaseActor.h")
-@:structAccess
+@:valueType
 extern class VREditorBaseActor extends Actor {
-	@:protected public var VRMode: cpp.Star<VREditorMode>;
+	@:protected public var VRMode: ucpp.Ptr<VREditorMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVREditorBaseActor(VREditorBaseActor) from VREditorBaseActor {
 @:forward
 @:nativeGen
 @:native("VREditorBaseActor*")
-abstract VREditorBaseActorPtr(cpp.Star<VREditorBaseActor>) from cpp.Star<VREditorBaseActor> to cpp.Star<VREditorBaseActor>{
+abstract VREditorBaseActorPtr(ucpp.Ptr<VREditorBaseActor>) from ucpp.Ptr<VREditorBaseActor> to ucpp.Ptr<VREditorBaseActor>{
 	@:from
 	public static extern inline function fromValue(v: VREditorBaseActor): VREditorBaseActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorConfigSubsystem")
 @:include("EditorConfigSubsystem.h")
-@:structAccess
+@:valueType
 extern class EditorConfigSubsystem extends EditorSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorConfigSubsystem(EditorConfigSubsystem) from EditorConfigSubs
 @:forward
 @:nativeGen
 @:native("EditorConfigSubsystem*")
-abstract EditorConfigSubsystemPtr(cpp.Star<EditorConfigSubsystem>) from cpp.Star<EditorConfigSubsystem> to cpp.Star<EditorConfigSubsystem>{
+abstract EditorConfigSubsystemPtr(ucpp.Ptr<EditorConfigSubsystem>) from ucpp.Ptr<EditorConfigSubsystem> to ucpp.Ptr<EditorConfigSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EditorConfigSubsystem): EditorConfigSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

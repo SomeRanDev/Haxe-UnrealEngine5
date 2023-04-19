@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMaterialXPipelineSettings")
 @:include("InterchangeGenericMaterialPipeline.h")
-@:structAccess
+@:valueType
 extern class MaterialXPipelineSettings {
 	public var SurfaceShader: TMap<EInterchangeMaterialXShaders, SoftObjectPath>;
 

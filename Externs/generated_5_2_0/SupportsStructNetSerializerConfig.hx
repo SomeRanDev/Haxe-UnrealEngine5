@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSupportsStructNetSerializerConfig")
 @:include("Iris/ReplicationState/ReplicationStateDescriptorConfig.h")
-@:structAccess
+@:valueType
 extern class SupportsStructNetSerializerConfig {
 	public var StructName: FName;
 	public var bCanUseStructNetSerializer: Bool;

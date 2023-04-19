@@ -3,13 +3,11 @@ package ue;
 
 @:native("UProjectPackagingSettings")
 @:include("Settings/ProjectPackagingSettings.h")
-@:structAccess
+@:valueType
 extern class ProjectPackagingSettings extends Object {
 	public var Build: EProjectPackagingBuild;
 	public var BuildConfiguration: EProjectPackagingBuildConfigurations;
 	public var BuildTarget: FString;
-	public var LaunchOnTarget: FString;
-	public var StagingDirectory: DirectoryPath;
 	public var FullRebuild: Bool;
 	public var ForDistribution: Bool;
 	public var IncludeDebugFiles: Bool;
@@ -25,21 +23,22 @@ extern class ProjectPackagingSettings extends Object {
 	public var bGenerateNoChunks: Bool;
 	public var bChunkHardReferencesOnly: Bool;
 	public var bForceOneChunkPerFile: Bool;
-	public var MaxChunkSize: cpp.Int64;
+	public var MaxChunkSize: ucpp.num.Int64;
 	public var bBuildHttpChunkInstallData: Bool;
 	public var HttpChunkInstallDataDirectory: DirectoryPath;
+	public var WriteBackMetadataToAssetRegistry: EAssetRegistryWritebackMethod;
 	public var bCompressed: Bool;
 	public var PackageCompressionFormat: FString;
 	public var bForceUseProjectCompressionFormatIgnoreHardwareOverride: Bool;
 	public var PackageAdditionalCompressionOptions: FString;
 	public var PackageCompressionMethod: FString;
-	public var PackageCompressionLevel_DebugDevelopment: cpp.Int32;
-	public var PackageCompressionLevel_TestShipping: cpp.Int32;
-	public var PackageCompressionLevel_Distribution: cpp.Int32;
-	public var PackageCompressionMinBytesSaved: cpp.Int32;
-	public var PackageCompressionMinPercentSaved: cpp.Int32;
+	public var PackageCompressionLevel_DebugDevelopment: ucpp.num.Int32;
+	public var PackageCompressionLevel_TestShipping: ucpp.num.Int32;
+	public var PackageCompressionLevel_Distribution: ucpp.num.Int32;
+	public var PackageCompressionMinBytesSaved: ucpp.num.Int32;
+	public var PackageCompressionMinPercentSaved: ucpp.num.Int32;
 	public var bPackageCompressionEnableDDC: Bool;
-	public var PackageCompressionMinSizeToConsiderDDC: cpp.Int32;
+	public var PackageCompressionMinSizeToConsiderDDC: ucpp.num.Int32;
 	public var HttpChunkInstallDataVersion: FString;
 	public var IncludePrerequisites: Bool;
 	public var IncludeAppLocalPrerequisites: Bool;
@@ -51,7 +50,7 @@ extern class ProjectPackagingSettings extends Object {
 	public var InternationalizationPreset: EProjectPackagingInternationalizationPresets;
 	public var CulturesToStage: TArray<FString>;
 	public var LocalizationTargetsToChunk: TArray<FString>;
-	public var LocalizationTargetCatchAllChunkId: cpp.Int32;
+	public var LocalizationTargetCatchAllChunkId: ucpp.num.Int32;
 	public var bCookAll: Bool;
 	public var bCookMapsOnly: Bool;
 	public var bSkipEditorContent: Bool;
@@ -60,7 +59,9 @@ extern class ProjectPackagingSettings extends Object {
 	public var NonUFSMovies: TArray<FString>;
 	public var CompressedChunkWildcard: TArray<FString>;
 	public var IniKeyBlacklist: TArray<FString>;
+	public var IniKeyDenylist: TArray<FString>;
 	public var IniSectionBlacklist: TArray<FString>;
+	public var IniSectionDenylist: TArray<FString>;
 	public var MapsToCook: TArray<FilePath>;
 	public var DirectoriesToAlwaysCook: TArray<DirectoryPath>;
 	public var DirectoriesToNeverCook: TArray<DirectoryPath>;
@@ -71,11 +72,8 @@ extern class ProjectPackagingSettings extends Object {
 	public var DirectoriesToAlwaysStageAsNonUFSServer: TArray<DirectoryPath>;
 	public var ProjectCustomBuilds: TArray<ProjectBuildSettings>;
 	public var EngineCustomBuilds: TArray<ProjectBuildSettings>;
-	private var PerPlatformBuildConfig: TMap<FName, EProjectPackagingBuildConfigurations>;
-	private var PerPlatformTargetFlavorName: TMap<FName, FName>;
-	private var PerPlatformBuildTarget: TMap<FName, FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -87,10 +85,6 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_BuildConfiguration(): EProjectPackagingBuildConfigurations return this.BuildConfiguration;
 	public extern var BuildTarget(get, never): FString;
 	public inline extern function get_BuildTarget(): FString return this.BuildTarget;
-	public extern var LaunchOnTarget(get, never): FString;
-	public inline extern function get_LaunchOnTarget(): FString return this.LaunchOnTarget;
-	public extern var StagingDirectory(get, never): DirectoryPath;
-	public inline extern function get_StagingDirectory(): DirectoryPath return this.StagingDirectory;
 	public extern var FullRebuild(get, never): Bool;
 	public inline extern function get_FullRebuild(): Bool return this.FullRebuild;
 	public extern var ForDistribution(get, never): Bool;
@@ -121,12 +115,14 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_bChunkHardReferencesOnly(): Bool return this.bChunkHardReferencesOnly;
 	public extern var bForceOneChunkPerFile(get, never): Bool;
 	public inline extern function get_bForceOneChunkPerFile(): Bool return this.bForceOneChunkPerFile;
-	public extern var MaxChunkSize(get, never): cpp.Int64;
-	public inline extern function get_MaxChunkSize(): cpp.Int64 return this.MaxChunkSize;
+	public extern var MaxChunkSize(get, never): ucpp.num.Int64;
+	public inline extern function get_MaxChunkSize(): ucpp.num.Int64 return this.MaxChunkSize;
 	public extern var bBuildHttpChunkInstallData(get, never): Bool;
 	public inline extern function get_bBuildHttpChunkInstallData(): Bool return this.bBuildHttpChunkInstallData;
 	public extern var HttpChunkInstallDataDirectory(get, never): DirectoryPath;
 	public inline extern function get_HttpChunkInstallDataDirectory(): DirectoryPath return this.HttpChunkInstallDataDirectory;
+	public extern var WriteBackMetadataToAssetRegistry(get, never): EAssetRegistryWritebackMethod;
+	public inline extern function get_WriteBackMetadataToAssetRegistry(): EAssetRegistryWritebackMethod return this.WriteBackMetadataToAssetRegistry;
 	public extern var bCompressed(get, never): Bool;
 	public inline extern function get_bCompressed(): Bool return this.bCompressed;
 	public extern var PackageCompressionFormat(get, never): FString;
@@ -137,20 +133,20 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_PackageAdditionalCompressionOptions(): FString return this.PackageAdditionalCompressionOptions;
 	public extern var PackageCompressionMethod(get, never): FString;
 	public inline extern function get_PackageCompressionMethod(): FString return this.PackageCompressionMethod;
-	public extern var PackageCompressionLevel_DebugDevelopment(get, never): cpp.Int32;
-	public inline extern function get_PackageCompressionLevel_DebugDevelopment(): cpp.Int32 return this.PackageCompressionLevel_DebugDevelopment;
-	public extern var PackageCompressionLevel_TestShipping(get, never): cpp.Int32;
-	public inline extern function get_PackageCompressionLevel_TestShipping(): cpp.Int32 return this.PackageCompressionLevel_TestShipping;
-	public extern var PackageCompressionLevel_Distribution(get, never): cpp.Int32;
-	public inline extern function get_PackageCompressionLevel_Distribution(): cpp.Int32 return this.PackageCompressionLevel_Distribution;
-	public extern var PackageCompressionMinBytesSaved(get, never): cpp.Int32;
-	public inline extern function get_PackageCompressionMinBytesSaved(): cpp.Int32 return this.PackageCompressionMinBytesSaved;
-	public extern var PackageCompressionMinPercentSaved(get, never): cpp.Int32;
-	public inline extern function get_PackageCompressionMinPercentSaved(): cpp.Int32 return this.PackageCompressionMinPercentSaved;
+	public extern var PackageCompressionLevel_DebugDevelopment(get, never): ucpp.num.Int32;
+	public inline extern function get_PackageCompressionLevel_DebugDevelopment(): ucpp.num.Int32 return this.PackageCompressionLevel_DebugDevelopment;
+	public extern var PackageCompressionLevel_TestShipping(get, never): ucpp.num.Int32;
+	public inline extern function get_PackageCompressionLevel_TestShipping(): ucpp.num.Int32 return this.PackageCompressionLevel_TestShipping;
+	public extern var PackageCompressionLevel_Distribution(get, never): ucpp.num.Int32;
+	public inline extern function get_PackageCompressionLevel_Distribution(): ucpp.num.Int32 return this.PackageCompressionLevel_Distribution;
+	public extern var PackageCompressionMinBytesSaved(get, never): ucpp.num.Int32;
+	public inline extern function get_PackageCompressionMinBytesSaved(): ucpp.num.Int32 return this.PackageCompressionMinBytesSaved;
+	public extern var PackageCompressionMinPercentSaved(get, never): ucpp.num.Int32;
+	public inline extern function get_PackageCompressionMinPercentSaved(): ucpp.num.Int32 return this.PackageCompressionMinPercentSaved;
 	public extern var bPackageCompressionEnableDDC(get, never): Bool;
 	public inline extern function get_bPackageCompressionEnableDDC(): Bool return this.bPackageCompressionEnableDDC;
-	public extern var PackageCompressionMinSizeToConsiderDDC(get, never): cpp.Int32;
-	public inline extern function get_PackageCompressionMinSizeToConsiderDDC(): cpp.Int32 return this.PackageCompressionMinSizeToConsiderDDC;
+	public extern var PackageCompressionMinSizeToConsiderDDC(get, never): ucpp.num.Int32;
+	public inline extern function get_PackageCompressionMinSizeToConsiderDDC(): ucpp.num.Int32 return this.PackageCompressionMinSizeToConsiderDDC;
 	public extern var HttpChunkInstallDataVersion(get, never): FString;
 	public inline extern function get_HttpChunkInstallDataVersion(): FString return this.HttpChunkInstallDataVersion;
 	public extern var IncludePrerequisites(get, never): Bool;
@@ -173,8 +169,8 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_CulturesToStage(): TArray<FString> return this.CulturesToStage;
 	public extern var LocalizationTargetsToChunk(get, never): TArray<FString>;
 	public inline extern function get_LocalizationTargetsToChunk(): TArray<FString> return this.LocalizationTargetsToChunk;
-	public extern var LocalizationTargetCatchAllChunkId(get, never): cpp.Int32;
-	public inline extern function get_LocalizationTargetCatchAllChunkId(): cpp.Int32 return this.LocalizationTargetCatchAllChunkId;
+	public extern var LocalizationTargetCatchAllChunkId(get, never): ucpp.num.Int32;
+	public inline extern function get_LocalizationTargetCatchAllChunkId(): ucpp.num.Int32 return this.LocalizationTargetCatchAllChunkId;
 	public extern var bCookAll(get, never): Bool;
 	public inline extern function get_bCookAll(): Bool return this.bCookAll;
 	public extern var bCookMapsOnly(get, never): Bool;
@@ -191,8 +187,12 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 	public inline extern function get_CompressedChunkWildcard(): TArray<FString> return this.CompressedChunkWildcard;
 	public extern var IniKeyBlacklist(get, never): TArray<FString>;
 	public inline extern function get_IniKeyBlacklist(): TArray<FString> return this.IniKeyBlacklist;
+	public extern var IniKeyDenylist(get, never): TArray<FString>;
+	public inline extern function get_IniKeyDenylist(): TArray<FString> return this.IniKeyDenylist;
 	public extern var IniSectionBlacklist(get, never): TArray<FString>;
 	public inline extern function get_IniSectionBlacklist(): TArray<FString> return this.IniSectionBlacklist;
+	public extern var IniSectionDenylist(get, never): TArray<FString>;
+	public inline extern function get_IniSectionDenylist(): TArray<FString> return this.IniSectionDenylist;
 	public extern var MapsToCook(get, never): TArray<FilePath>;
 	public inline extern function get_MapsToCook(): TArray<FilePath> return this.MapsToCook;
 	public extern var DirectoriesToAlwaysCook(get, never): TArray<DirectoryPath>;
@@ -218,7 +218,7 @@ abstract ConstProjectPackagingSettings(ProjectPackagingSettings) from ProjectPac
 @:forward
 @:nativeGen
 @:native("ProjectPackagingSettings*")
-abstract ProjectPackagingSettingsPtr(cpp.Star<ProjectPackagingSettings>) from cpp.Star<ProjectPackagingSettings> to cpp.Star<ProjectPackagingSettings>{
+abstract ProjectPackagingSettingsPtr(ucpp.Ptr<ProjectPackagingSettings>) from ucpp.Ptr<ProjectPackagingSettings> to ucpp.Ptr<ProjectPackagingSettings>{
 	@:from
 	public static extern inline function fromValue(v: ProjectPackagingSettings): ProjectPackagingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

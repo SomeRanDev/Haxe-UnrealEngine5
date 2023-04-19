@@ -3,7 +3,7 @@ package ue;
 
 @:native("UChaosDestructionListener")
 @:include("ChaosBlueprint.h")
-@:structAccess
+@:valueType
 extern class ChaosDestructionListener extends SceneComp {
 	public var bIsCollisionEventListeningEnabled: Bool;
 	public var bIsBreakingEventListeningEnabled: Bool;
@@ -13,32 +13,32 @@ extern class ChaosDestructionListener extends SceneComp {
 	public var BreakingEventRequestSettings: ChaosBreakingEventRequestSettings;
 	public var TrailingEventRequestSettings: ChaosTrailingEventRequestSettings;
 	public var RemovalEventRequestSettings: ChaosRemovalEventRequestSettings;
-	public var ChaosSolverActors: TSet<cpp.Star<ChaosSolverActor>>;
-	public var GeometryCollectionActors: TSet<cpp.Star<GeometryCollectionActor>>;
-	public var OnCollisionEvents: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosCollisionEventData>>) -> Void>;
-	public var OnBreakingEvents: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosBreakingEventData>>) -> Void>;
-	public var OnTrailingEvents: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosTrailingEventData>>) -> Void>;
-	public var OnRemovalEvents: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosRemovalEventData>>) -> Void>;
+	public var ChaosSolverActors: TSet<ucpp.Ptr<ChaosSolverActor>>;
+	public var GeometryCollectionActors: TSet<ucpp.Ptr<GeometryCollectionActor>>;
+	public var OnCollisionEvents: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosCollisionEventData>>) -> Void>;
+	public var OnBreakingEvents: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosBreakingEventData>>) -> Void>;
+	public var OnTrailingEvents: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosTrailingEventData>>) -> Void>;
+	public var OnRemovalEvents: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosRemovalEventData>>) -> Void>;
 
-	public function SortTrailingEvents(TrailingEvents: cpp.Reference<TArray<ChaosTrailingEventData>>, SortMethod: EChaosTrailingSortMethod): Void;
-	public function SortRemovalEvents(RemovalEvents: cpp.Reference<TArray<ChaosRemovalEventData>>, SortMethod: EChaosRemovalSortMethod): Void;
-	public function SortCollisionEvents(CollisionEvents: cpp.Reference<TArray<ChaosCollisionEventData>>, SortMethod: EChaosCollisionSortMethod): Void;
-	public function SortBreakingEvents(BreakingEvents: cpp.Reference<TArray<ChaosBreakingEventData>>, SortMethod: EChaosBreakingSortMethod): Void;
-	public function SetTrailingEventRequestSettings(InSettings: cpp.Reference<ChaosTrailingEventRequestSettings>): Void;
+	public function SortTrailingEvents(TrailingEvents: ucpp.Ref<TArray<ChaosTrailingEventData>>, SortMethod: EChaosTrailingSortMethod): Void;
+	public function SortRemovalEvents(RemovalEvents: ucpp.Ref<TArray<ChaosRemovalEventData>>, SortMethod: EChaosRemovalSortMethod): Void;
+	public function SortCollisionEvents(CollisionEvents: ucpp.Ref<TArray<ChaosCollisionEventData>>, SortMethod: EChaosCollisionSortMethod): Void;
+	public function SortBreakingEvents(BreakingEvents: ucpp.Ref<TArray<ChaosBreakingEventData>>, SortMethod: EChaosBreakingSortMethod): Void;
+	public function SetTrailingEventRequestSettings(InSettings: ucpp.Ref<ChaosTrailingEventRequestSettings>): Void;
 	public function SetTrailingEventEnabled(bIsEnabled: Bool): Void;
-	public function SetRemovalEventRequestSettings(InSettings: cpp.Reference<ChaosRemovalEventRequestSettings>): Void;
+	public function SetRemovalEventRequestSettings(InSettings: ucpp.Ref<ChaosRemovalEventRequestSettings>): Void;
 	public function SetRemovalEventEnabled(bIsEnabled: Bool): Void;
-	public function SetCollisionEventRequestSettings(InSettings: cpp.Reference<ChaosCollisionEventRequestSettings>): Void;
+	public function SetCollisionEventRequestSettings(InSettings: ucpp.Ref<ChaosCollisionEventRequestSettings>): Void;
 	public function SetCollisionEventEnabled(bIsEnabled: Bool): Void;
-	public function SetBreakingEventRequestSettings(InSettings: cpp.Reference<ChaosBreakingEventRequestSettings>): Void;
+	public function SetBreakingEventRequestSettings(InSettings: ucpp.Ref<ChaosBreakingEventRequestSettings>): Void;
 	public function SetBreakingEventEnabled(bIsEnabled: Bool): Void;
-	public function RemoveGeometryCollectionActor(GeometryCollectionActor: cpp.Star<GeometryCollectionActor>): Void;
-	public function RemoveChaosSolverActor(ChaosSolverActor: cpp.Star<ChaosSolverActor>): Void;
+	public function RemoveGeometryCollectionActor(GeometryCollectionActor: ucpp.Ptr<GeometryCollectionActor>): Void;
+	public function RemoveChaosSolverActor(ChaosSolverActor: ucpp.Ptr<ChaosSolverActor>): Void;
 	public function IsEventListening(): Bool;
-	public function AddGeometryCollectionActor(GeometryCollectionActor: cpp.Star<GeometryCollectionActor>): Void;
-	public function AddChaosSolverActor(ChaosSolverActor: cpp.Star<ChaosSolverActor>): Void;
+	public function AddGeometryCollectionActor(GeometryCollectionActor: ucpp.Ptr<GeometryCollectionActor>): Void;
+	public function AddChaosSolverActor(ChaosSolverActor: ucpp.Ptr<ChaosSolverActor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsEventListening)
@@ -60,24 +60,24 @@ abstract ConstChaosDestructionListener(ChaosDestructionListener) from ChaosDestr
 	public inline extern function get_TrailingEventRequestSettings(): ChaosTrailingEventRequestSettings return this.TrailingEventRequestSettings;
 	public extern var RemovalEventRequestSettings(get, never): ChaosRemovalEventRequestSettings;
 	public inline extern function get_RemovalEventRequestSettings(): ChaosRemovalEventRequestSettings return this.RemovalEventRequestSettings;
-	public extern var ChaosSolverActors(get, never): TSet<cpp.Star<ChaosSolverActor.ConstChaosSolverActor>>;
-	public inline extern function get_ChaosSolverActors(): TSet<cpp.Star<ChaosSolverActor.ConstChaosSolverActor>> return this.ChaosSolverActors;
-	public extern var GeometryCollectionActors(get, never): TSet<cpp.Star<GeometryCollectionActor.ConstGeometryCollectionActor>>;
-	public inline extern function get_GeometryCollectionActors(): TSet<cpp.Star<GeometryCollectionActor.ConstGeometryCollectionActor>> return this.GeometryCollectionActors;
-	public extern var OnCollisionEvents(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosCollisionEventData>>) -> Void>;
-	public inline extern function get_OnCollisionEvents(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosCollisionEventData>>) -> Void> return this.OnCollisionEvents;
-	public extern var OnBreakingEvents(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosBreakingEventData>>) -> Void>;
-	public inline extern function get_OnBreakingEvents(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosBreakingEventData>>) -> Void> return this.OnBreakingEvents;
-	public extern var OnTrailingEvents(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosTrailingEventData>>) -> Void>;
-	public inline extern function get_OnTrailingEvents(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosTrailingEventData>>) -> Void> return this.OnTrailingEvents;
-	public extern var OnRemovalEvents(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosRemovalEventData>>) -> Void>;
-	public inline extern function get_OnRemovalEvents(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<ChaosRemovalEventData>>) -> Void> return this.OnRemovalEvents;
+	public extern var ChaosSolverActors(get, never): TSet<ucpp.Ptr<ChaosSolverActor.ConstChaosSolverActor>>;
+	public inline extern function get_ChaosSolverActors(): TSet<ucpp.Ptr<ChaosSolverActor.ConstChaosSolverActor>> return this.ChaosSolverActors;
+	public extern var GeometryCollectionActors(get, never): TSet<ucpp.Ptr<GeometryCollectionActor.ConstGeometryCollectionActor>>;
+	public inline extern function get_GeometryCollectionActors(): TSet<ucpp.Ptr<GeometryCollectionActor.ConstGeometryCollectionActor>> return this.GeometryCollectionActors;
+	public extern var OnCollisionEvents(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosCollisionEventData>>) -> Void>;
+	public inline extern function get_OnCollisionEvents(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosCollisionEventData>>) -> Void> return this.OnCollisionEvents;
+	public extern var OnBreakingEvents(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosBreakingEventData>>) -> Void>;
+	public inline extern function get_OnBreakingEvents(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosBreakingEventData>>) -> Void> return this.OnBreakingEvents;
+	public extern var OnTrailingEvents(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosTrailingEventData>>) -> Void>;
+	public inline extern function get_OnTrailingEvents(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosTrailingEventData>>) -> Void> return this.OnTrailingEvents;
+	public extern var OnRemovalEvents(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosRemovalEventData>>) -> Void>;
+	public inline extern function get_OnRemovalEvents(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ChaosRemovalEventData>>) -> Void> return this.OnRemovalEvents;
 }
 
 @:forward
 @:nativeGen
 @:native("ChaosDestructionListener*")
-abstract ChaosDestructionListenerPtr(cpp.Star<ChaosDestructionListener>) from cpp.Star<ChaosDestructionListener> to cpp.Star<ChaosDestructionListener>{
+abstract ChaosDestructionListenerPtr(ucpp.Ptr<ChaosDestructionListener>) from ucpp.Ptr<ChaosDestructionListener> to ucpp.Ptr<ChaosDestructionListener>{
 	@:from
 	public static extern inline function fromValue(v: ChaosDestructionListener): ChaosDestructionListenerPtr {
 		return untyped __cpp__("&({0})", v);

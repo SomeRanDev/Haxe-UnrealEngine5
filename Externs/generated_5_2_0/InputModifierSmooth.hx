@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputModifierSmooth")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierSmooth extends InputModifier {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputModifierSmooth(InputModifierSmooth) from InputModifierSmooth 
 @:forward
 @:nativeGen
 @:native("InputModifierSmooth*")
-abstract InputModifierSmoothPtr(cpp.Star<InputModifierSmooth>) from cpp.Star<InputModifierSmooth> to cpp.Star<InputModifierSmooth>{
+abstract InputModifierSmoothPtr(ucpp.Ptr<InputModifierSmooth>) from ucpp.Ptr<InputModifierSmooth> to ucpp.Ptr<InputModifierSmooth>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierSmooth): InputModifierSmoothPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UDEPRECATED_PawnAction_Wait")
 @:include("Actions/PawnAction_Wait.h")
-@:structAccess
+@:valueType
 extern class PawnAction_Wait extends PawnAction {
-	public var TimeToWait: cpp.Float32;
+	public var TimeToWait: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPawnAction_Wait(PawnAction_Wait) from PawnAction_Wait {
-	public extern var TimeToWait(get, never): cpp.Float32;
-	public inline extern function get_TimeToWait(): cpp.Float32 return this.TimeToWait;
+	public extern var TimeToWait(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeToWait(): ucpp.num.Float32 return this.TimeToWait;
 }
 
 @:forward
 @:nativeGen
 @:native("PawnAction_Wait*")
-abstract PawnAction_WaitPtr(cpp.Star<PawnAction_Wait>) from cpp.Star<PawnAction_Wait> to cpp.Star<PawnAction_Wait>{
+abstract PawnAction_WaitPtr(ucpp.Ptr<PawnAction_Wait>) from ucpp.Ptr<PawnAction_Wait> to ucpp.Ptr<PawnAction_Wait>{
 	@:from
 	public static extern inline function fromValue(v: PawnAction_Wait): PawnAction_WaitPtr {
 		return untyped __cpp__("&({0})", v);

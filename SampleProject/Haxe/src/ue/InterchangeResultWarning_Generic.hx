@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeResultWarning_Generic")
 @:include("InterchangeResult.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultWarning_Generic extends InterchangeResultWarning {
 	public var Text: FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInterchangeResultWarning_Generic(InterchangeResultWarning_Generic)
 @:forward
 @:nativeGen
 @:native("InterchangeResultWarning_Generic*")
-abstract InterchangeResultWarning_GenericPtr(cpp.Star<InterchangeResultWarning_Generic>) from cpp.Star<InterchangeResultWarning_Generic> to cpp.Star<InterchangeResultWarning_Generic>{
+abstract InterchangeResultWarning_GenericPtr(ucpp.Ptr<InterchangeResultWarning_Generic>) from ucpp.Ptr<InterchangeResultWarning_Generic> to ucpp.Ptr<InterchangeResultWarning_Generic>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultWarning_Generic): InterchangeResultWarning_GenericPtr {
 		return untyped __cpp__("&({0})", v);

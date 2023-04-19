@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODBuilderMeshApproximate")
 @:include("HLODBuilderMeshApproximate.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderMeshApproximate extends HLODBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODBuilderMeshApproximate(HLODBuilderMeshApproximate) from HLODBu
 @:forward
 @:nativeGen
 @:native("HLODBuilderMeshApproximate*")
-abstract HLODBuilderMeshApproximatePtr(cpp.Star<HLODBuilderMeshApproximate>) from cpp.Star<HLODBuilderMeshApproximate> to cpp.Star<HLODBuilderMeshApproximate>{
+abstract HLODBuilderMeshApproximatePtr(ucpp.Ptr<HLODBuilderMeshApproximate>) from ucpp.Ptr<HLODBuilderMeshApproximate> to ucpp.Ptr<HLODBuilderMeshApproximate>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderMeshApproximate): HLODBuilderMeshApproximatePtr {
 		return untyped __cpp__("&({0})", v);

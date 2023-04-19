@@ -3,12 +3,12 @@ package ue;
 
 @:native("FTentDistribution")
 @:include("Components/SkyAtmosphereComponent.h")
-@:structAccess
+@:valueType
 extern class TentDistribution {
-	public var TipAltitude: cpp.Float32;
-	public var TipValue: cpp.Float32;
-	public var Width: cpp.Float32;
+	public var TipAltitude: ucpp.num.Float32;
+	public var TipValue: ucpp.num.Float32;
+	public var Width: ucpp.num.Float32;
 
 	@:native("FTentDistribution") public function new();
-	@:native("FTentDistribution") public static function make(TipAltitude: cpp.Float32, TipValue: cpp.Float32, Width: cpp.Float32): TentDistribution ;
+	@:native("FTentDistribution") public static function make(TipAltitude: ucpp.num.Float32, TipValue: ucpp.num.Float32, Width: ucpp.num.Float32): TentDistribution ;
 }

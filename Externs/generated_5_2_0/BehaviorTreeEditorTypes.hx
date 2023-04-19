@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBehaviorTreeEditorTypes")
 @:include("BehaviorTreeEditorTypes.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeEditorTypes extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBehaviorTreeEditorTypes(BehaviorTreeEditorTypes) from BehaviorTree
 @:forward
 @:nativeGen
 @:native("BehaviorTreeEditorTypes*")
-abstract BehaviorTreeEditorTypesPtr(cpp.Star<BehaviorTreeEditorTypes>) from cpp.Star<BehaviorTreeEditorTypes> to cpp.Star<BehaviorTreeEditorTypes>{
+abstract BehaviorTreeEditorTypesPtr(ucpp.Ptr<BehaviorTreeEditorTypes>) from ucpp.Ptr<BehaviorTreeEditorTypes> to ucpp.Ptr<BehaviorTreeEditorTypes>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeEditorTypes): BehaviorTreeEditorTypesPtr {
 		return untyped __cpp__("&({0})", v);

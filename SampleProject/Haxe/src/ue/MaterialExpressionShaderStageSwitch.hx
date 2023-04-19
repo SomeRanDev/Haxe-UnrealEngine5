@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionShaderStageSwitch")
 @:include("Materials/MaterialExpressionShaderStageSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionShaderStageSwitch extends MaterialExpression {
 	public var PixelShader: ExpressionInput;
 	public var VertexShader: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionShaderStageSwitch(MaterialExpressionShaderStageS
 @:forward
 @:nativeGen
 @:native("MaterialExpressionShaderStageSwitch*")
-abstract MaterialExpressionShaderStageSwitchPtr(cpp.Star<MaterialExpressionShaderStageSwitch>) from cpp.Star<MaterialExpressionShaderStageSwitch> to cpp.Star<MaterialExpressionShaderStageSwitch>{
+abstract MaterialExpressionShaderStageSwitchPtr(ucpp.Ptr<MaterialExpressionShaderStageSwitch>) from ucpp.Ptr<MaterialExpressionShaderStageSwitch> to ucpp.Ptr<MaterialExpressionShaderStageSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionShaderStageSwitch): MaterialExpressionShaderStageSwitchPtr {
 		return untyped __cpp__("&({0})", v);

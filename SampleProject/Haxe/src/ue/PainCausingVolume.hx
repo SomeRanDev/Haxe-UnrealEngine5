@@ -3,17 +3,17 @@ package ue;
 
 @:native("APainCausingVolume")
 @:include("GameFramework/PainCausingVolume.h")
-@:structAccess
+@:valueType
 extern class PainCausingVolume extends PhysicsVolume {
 	public var bPainCausing: Bool;
-	public var DamagePerSec: cpp.Float32;
+	public var DamagePerSec: ucpp.num.Float32;
 	public var DamageType: TSubclassOf<DamageType>;
-	public var PainInterval: cpp.Float32;
+	public var PainInterval: ucpp.num.Float32;
 	public var bEntryPain: Bool;
 	public var BACKUP_bPainCausing: Bool;
-	public var DamageInstigator: cpp.Star<Controller>;
+	public var DamageInstigator: ucpp.Ptr<Controller>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,24 +21,24 @@ extern class PainCausingVolume extends PhysicsVolume {
 abstract ConstPainCausingVolume(PainCausingVolume) from PainCausingVolume {
 	public extern var bPainCausing(get, never): Bool;
 	public inline extern function get_bPainCausing(): Bool return this.bPainCausing;
-	public extern var DamagePerSec(get, never): cpp.Float32;
-	public inline extern function get_DamagePerSec(): cpp.Float32 return this.DamagePerSec;
+	public extern var DamagePerSec(get, never): ucpp.num.Float32;
+	public inline extern function get_DamagePerSec(): ucpp.num.Float32 return this.DamagePerSec;
 	public extern var DamageType(get, never): TSubclassOf<DamageType.ConstDamageType>;
 	public inline extern function get_DamageType(): TSubclassOf<DamageType.ConstDamageType> return this.DamageType;
-	public extern var PainInterval(get, never): cpp.Float32;
-	public inline extern function get_PainInterval(): cpp.Float32 return this.PainInterval;
+	public extern var PainInterval(get, never): ucpp.num.Float32;
+	public inline extern function get_PainInterval(): ucpp.num.Float32 return this.PainInterval;
 	public extern var bEntryPain(get, never): Bool;
 	public inline extern function get_bEntryPain(): Bool return this.bEntryPain;
 	public extern var BACKUP_bPainCausing(get, never): Bool;
 	public inline extern function get_BACKUP_bPainCausing(): Bool return this.BACKUP_bPainCausing;
-	public extern var DamageInstigator(get, never): cpp.Star<Controller.ConstController>;
-	public inline extern function get_DamageInstigator(): cpp.Star<Controller.ConstController> return this.DamageInstigator;
+	public extern var DamageInstigator(get, never): ucpp.Ptr<Controller.ConstController>;
+	public inline extern function get_DamageInstigator(): ucpp.Ptr<Controller.ConstController> return this.DamageInstigator;
 }
 
 @:forward
 @:nativeGen
 @:native("PainCausingVolume*")
-abstract PainCausingVolumePtr(cpp.Star<PainCausingVolume>) from cpp.Star<PainCausingVolume> to cpp.Star<PainCausingVolume>{
+abstract PainCausingVolumePtr(ucpp.Ptr<PainCausingVolume>) from ucpp.Ptr<PainCausingVolume> to ucpp.Ptr<PainCausingVolume>{
 	@:from
 	public static extern inline function fromValue(v: PainCausingVolume): PainCausingVolumePtr {
 		return untyped __cpp__("&({0})", v);

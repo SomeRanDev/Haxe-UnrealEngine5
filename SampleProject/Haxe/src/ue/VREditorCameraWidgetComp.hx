@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVREditorCameraWidgetComponent")
 @:include("VREditorCameraWidgetComponent.h")
-@:structAccess
+@:valueType
 extern class VREditorCameraWidgetComp extends VREditorWidgetComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVREditorCameraWidgetComp(VREditorCameraWidgetComp) from VREditorCa
 @:forward
 @:nativeGen
 @:native("VREditorCameraWidgetComp*")
-abstract VREditorCameraWidgetCompPtr(cpp.Star<VREditorCameraWidgetComp>) from cpp.Star<VREditorCameraWidgetComp> to cpp.Star<VREditorCameraWidgetComp>{
+abstract VREditorCameraWidgetCompPtr(ucpp.Ptr<VREditorCameraWidgetComp>) from ucpp.Ptr<VREditorCameraWidgetComp> to ucpp.Ptr<VREditorCameraWidgetComp>{
 	@:from
 	public static extern inline function fromValue(v: VREditorCameraWidgetComp): VREditorCameraWidgetCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTexture2DDynamic")
 @:include("Engine/Texture2DDynamic.h")
-@:structAccess
+@:valueType
 extern class Texture2DDynamic extends Texture {
 	public var Format: TEnumAsByte<EPixelFormat>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTexture2DDynamic(Texture2DDynamic) from Texture2DDynamic {
 @:forward
 @:nativeGen
 @:native("Texture2DDynamic*")
-abstract Texture2DDynamicPtr(cpp.Star<Texture2DDynamic>) from cpp.Star<Texture2DDynamic> to cpp.Star<Texture2DDynamic>{
+abstract Texture2DDynamicPtr(ucpp.Ptr<Texture2DDynamic>) from ucpp.Ptr<Texture2DDynamic> to ucpp.Ptr<Texture2DDynamic>{
 	@:from
 	public static extern inline function fromValue(v: Texture2DDynamic): Texture2DDynamicPtr {
 		return untyped __cpp__("&({0})", v);

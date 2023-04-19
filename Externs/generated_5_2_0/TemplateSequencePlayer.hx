@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTemplateSequencePlayer")
 @:include("TemplateSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class TemplateSequencePlayer extends MovieSceneSequencePlayer {
-	public function CreateTemplateSequencePlayer(WorldContextObject: cpp.Star<Object>, TemplateSequence: cpp.Star<TemplateSequence>, Settings: MovieSceneSequencePlaybackSettings, OutActor: cpp.Reference<cpp.Star<TemplateSequenceActor>>): cpp.Star<TemplateSequencePlayer>;
+	public function CreateTemplateSequencePlayer(WorldContextObject: ucpp.Ptr<Object>, TemplateSequence: ucpp.Ptr<TemplateSequence>, Settings: MovieSceneSequencePlaybackSettings, OutActor: ucpp.Ref<ucpp.Ptr<TemplateSequenceActor>>): ucpp.Ptr<TemplateSequencePlayer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTemplateSequencePlayer(TemplateSequencePlayer) from TemplateSequen
 @:forward
 @:nativeGen
 @:native("TemplateSequencePlayer*")
-abstract TemplateSequencePlayerPtr(cpp.Star<TemplateSequencePlayer>) from cpp.Star<TemplateSequencePlayer> to cpp.Star<TemplateSequencePlayer>{
+abstract TemplateSequencePlayerPtr(ucpp.Ptr<TemplateSequencePlayer>) from ucpp.Ptr<TemplateSequencePlayer> to ucpp.Ptr<TemplateSequencePlayer>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequencePlayer): TemplateSequencePlayerPtr {
 		return untyped __cpp__("&({0})", v);

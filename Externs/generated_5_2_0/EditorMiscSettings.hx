@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorMiscSettings")
 @:include("Settings/EditorMiscSettings.h")
-@:structAccess
+@:valueType
 extern class EditorMiscSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorMiscSettings(EditorMiscSettings) from EditorMiscSettings {
 @:forward
 @:nativeGen
 @:native("EditorMiscSettings*")
-abstract EditorMiscSettingsPtr(cpp.Star<EditorMiscSettings>) from cpp.Star<EditorMiscSettings> to cpp.Star<EditorMiscSettings>{
+abstract EditorMiscSettingsPtr(ucpp.Ptr<EditorMiscSettings>) from ucpp.Ptr<EditorMiscSettings> to ucpp.Ptr<EditorMiscSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorMiscSettings): EditorMiscSettingsPtr {
 		return untyped __cpp__("&({0})", v);

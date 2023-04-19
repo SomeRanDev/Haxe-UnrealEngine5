@@ -3,13 +3,13 @@ package ue;
 
 @:native("UOffsetMeshToolProperties")
 @:include("OffsetMeshTool.h")
-@:structAccess
+@:valueType
 extern class OffsetMeshToolProperties extends InteractiveToolPropertySet {
 	public var OffsetType: EOffsetMeshToolOffsetType;
-	public var Distance: cpp.Float32;
+	public var Distance: ucpp.num.Float32;
 	public var bCreateShell: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class OffsetMeshToolProperties extends InteractiveToolPropertySet {
 abstract ConstOffsetMeshToolProperties(OffsetMeshToolProperties) from OffsetMeshToolProperties {
 	public extern var OffsetType(get, never): EOffsetMeshToolOffsetType;
 	public inline extern function get_OffsetType(): EOffsetMeshToolOffsetType return this.OffsetType;
-	public extern var Distance(get, never): cpp.Float32;
-	public inline extern function get_Distance(): cpp.Float32 return this.Distance;
+	public extern var Distance(get, never): ucpp.num.Float32;
+	public inline extern function get_Distance(): ucpp.num.Float32 return this.Distance;
 	public extern var bCreateShell(get, never): Bool;
 	public inline extern function get_bCreateShell(): Bool return this.bCreateShell;
 }
@@ -26,7 +26,7 @@ abstract ConstOffsetMeshToolProperties(OffsetMeshToolProperties) from OffsetMesh
 @:forward
 @:nativeGen
 @:native("OffsetMeshToolProperties*")
-abstract OffsetMeshToolPropertiesPtr(cpp.Star<OffsetMeshToolProperties>) from cpp.Star<OffsetMeshToolProperties> to cpp.Star<OffsetMeshToolProperties>{
+abstract OffsetMeshToolPropertiesPtr(ucpp.Ptr<OffsetMeshToolProperties>) from ucpp.Ptr<OffsetMeshToolProperties> to ucpp.Ptr<OffsetMeshToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: OffsetMeshToolProperties): OffsetMeshToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

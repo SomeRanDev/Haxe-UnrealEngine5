@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAudioEditorSettings")
 @:include("AudioEditorSettings.h")
-@:structAccess
+@:valueType
 extern class AudioEditorSettings extends DeveloperSettings {
 	public var bPinSoundCueInAssetMenu: Bool;
 	public var bPinSoundCueTemplateInAssetMenu: Bool;
 	public var bPinSoundAttenuationInAssetMenu: Bool;
 	public var bPinSoundConcurrencyInAssetMenu: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstAudioEditorSettings(AudioEditorSettings) from AudioEditorSettings 
 @:forward
 @:nativeGen
 @:native("AudioEditorSettings*")
-abstract AudioEditorSettingsPtr(cpp.Star<AudioEditorSettings>) from cpp.Star<AudioEditorSettings> to cpp.Star<AudioEditorSettings>{
+abstract AudioEditorSettingsPtr(ucpp.Ptr<AudioEditorSettings>) from ucpp.Ptr<AudioEditorSettings> to ucpp.Ptr<AudioEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: AudioEditorSettings): AudioEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

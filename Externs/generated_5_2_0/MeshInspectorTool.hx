@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMeshInspectorTool")
 @:include("MeshInspectorTool.h")
-@:structAccess
+@:valueType
 extern class MeshInspectorTool extends SingleSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<MeshInspectorProperties>;
-	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var MaterialSettings: cpp.Star<MeshInspectorMaterialProperties>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
-	@:protected public var DefaultMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var Settings: ucpp.Ptr<MeshInspectorProperties>;
+	@:protected public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var MaterialSettings: ucpp.Ptr<MeshInspectorMaterialProperties>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var DrawnLineSet: ucpp.Ptr<LineSetComp>;
+	@:protected public var DefaultMaterial: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMeshInspectorTool(MeshInspectorTool) from MeshInspectorTool {
 @:forward
 @:nativeGen
 @:native("MeshInspectorTool*")
-abstract MeshInspectorToolPtr(cpp.Star<MeshInspectorTool>) from cpp.Star<MeshInspectorTool> to cpp.Star<MeshInspectorTool>{
+abstract MeshInspectorToolPtr(ucpp.Ptr<MeshInspectorTool>) from ucpp.Ptr<MeshInspectorTool> to ucpp.Ptr<MeshInspectorTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshInspectorTool): MeshInspectorToolPtr {
 		return untyped __cpp__("&({0})", v);

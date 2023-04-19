@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAutoDestroySubsystem")
 @:include("Engine/AutoDestroySubsystem.h")
-@:structAccess
+@:valueType
 extern class AutoDestroySubsystem extends TickableWorldSubsystem {
-	private var ActorsToPoll: TArray<cpp.Star<Actor>>;
+	private var ActorsToPoll: TArray<ucpp.Ptr<Actor>>;
 
-	private function OnActorEndPlay(Actor: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	private function OnActorEndPlay(Actor: ucpp.Ptr<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAutoDestroySubsystem(AutoDestroySubsystem) from AutoDestroySubsyst
 @:forward
 @:nativeGen
 @:native("AutoDestroySubsystem*")
-abstract AutoDestroySubsystemPtr(cpp.Star<AutoDestroySubsystem>) from cpp.Star<AutoDestroySubsystem> to cpp.Star<AutoDestroySubsystem>{
+abstract AutoDestroySubsystemPtr(ucpp.Ptr<AutoDestroySubsystem>) from ucpp.Ptr<AutoDestroySubsystem> to ucpp.Ptr<AutoDestroySubsystem>{
 	@:from
 	public static extern inline function fromValue(v: AutoDestroySubsystem): AutoDestroySubsystemPtr {
 		return untyped __cpp__("&({0})", v);

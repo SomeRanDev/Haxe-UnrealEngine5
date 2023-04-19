@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGBuffer")
 @:include("DataInterface/NiagaraDataInterfaceGBuffer.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGBuffer extends NiagaraDataInterface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraDataInterfaceGBuffer(NiagaraDataInterfaceGBuffer) from Niag
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceGBuffer*")
-abstract NiagaraDataInterfaceGBufferPtr(cpp.Star<NiagaraDataInterfaceGBuffer>) from cpp.Star<NiagaraDataInterfaceGBuffer> to cpp.Star<NiagaraDataInterfaceGBuffer>{
+abstract NiagaraDataInterfaceGBufferPtr(ucpp.Ptr<NiagaraDataInterfaceGBuffer>) from ucpp.Ptr<NiagaraDataInterfaceGBuffer> to ucpp.Ptr<NiagaraDataInterfaceGBuffer>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceGBuffer): NiagaraDataInterfaceGBufferPtr {
 		return untyped __cpp__("&({0})", v);

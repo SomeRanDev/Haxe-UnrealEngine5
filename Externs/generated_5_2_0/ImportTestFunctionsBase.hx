@@ -3,10 +3,10 @@ package ue;
 
 @:native("UImportTestFunctionsBase")
 @:include("ImportTestFunctions/ImportTestFunctionsBase.h")
-@:structAccess
+@:valueType
 extern class ImportTestFunctionsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstImportTestFunctionsBase(ImportTestFunctionsBase) from ImportTestFu
 @:forward
 @:nativeGen
 @:native("ImportTestFunctionsBase*")
-abstract ImportTestFunctionsBasePtr(cpp.Star<ImportTestFunctionsBase>) from cpp.Star<ImportTestFunctionsBase> to cpp.Star<ImportTestFunctionsBase>{
+abstract ImportTestFunctionsBasePtr(ucpp.Ptr<ImportTestFunctionsBase>) from ucpp.Ptr<ImportTestFunctionsBase> to ucpp.Ptr<ImportTestFunctionsBase>{
 	@:from
 	public static extern inline function fromValue(v: ImportTestFunctionsBase): ImportTestFunctionsBasePtr {
 		return untyped __cpp__("&({0})", v);

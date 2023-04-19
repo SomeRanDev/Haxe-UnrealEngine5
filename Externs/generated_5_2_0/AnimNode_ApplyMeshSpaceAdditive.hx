@@ -3,18 +3,18 @@ package ue;
 
 @:native("FAnimNode_ApplyMeshSpaceAdditive")
 @:include("Animation/AnimNode_ApplyMeshSpaceAdditive.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ApplyMeshSpaceAdditive extends AnimNode_Base {
 	public var Base: PoseLink;
 	public var Additive: PoseLink;
 	public var AlphaInputType: EAnimAlphaInputType;
-	public var Alpha: cpp.Float32;
+	public var Alpha: ucpp.num.Float32;
 	public var bAlphaBoolEnabled: Bool;
 	public var AlphaBoolBlend: InputAlphaBoolBlend;
 	public var AlphaCurveName: FName;
 	public var AlphaScaleBias: InputScaleBias;
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;
-	public var LODThreshold: cpp.Int32;
+	public var LODThreshold: ucpp.num.Int32;
 
 	@:native("FAnimNode_ApplyMeshSpaceAdditive") public function new();
 }

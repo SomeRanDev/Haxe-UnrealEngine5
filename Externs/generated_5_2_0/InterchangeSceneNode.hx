@@ -3,33 +3,33 @@ package ue;
 
 @:native("UInterchangeSceneNode")
 @:include("InterchangeSceneNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSceneNode extends InterchangeBaseNode {
 	public function SetSlotMaterialDependencyUid(SlotName: FString, MaterialDependencyUid: FString): Bool;
-	public function SetCustomTimeZeroLocalTransform(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: cpp.Reference<Transform>, bResetCache: Bool): Bool;
-	public function SetCustomLocalTransform(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: cpp.Reference<Transform>, bResetCache: Bool): Bool;
-	public function SetCustomGeometricTransform(AttributeValue: cpp.Reference<Transform>): Bool;
-	public function SetCustomBindPoseLocalTransform(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: cpp.Reference<Transform>, bResetCache: Bool): Bool;
+	public function SetCustomTimeZeroLocalTransform(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: ucpp.Ref<Transform>, bResetCache: Bool): Bool;
+	public function SetCustomLocalTransform(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: ucpp.Ref<Transform>, bResetCache: Bool): Bool;
+	public function SetCustomGeometricTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function SetCustomBindPoseLocalTransform(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: ucpp.Ref<Transform>, bResetCache: Bool): Bool;
 	public function SetCustomAssetInstanceUid(AttributeValue: FString): Bool;
 	public function RemoveSpecializedType(SpecializedType: FString): Bool;
 	public function RemoveSlotMaterialDependencyUid(SlotName: FString): Bool;
 	public function IsSpecializedTypeContains(SpecializedType: FString): Bool;
-	public function GetSpecializedTypes(OutSpecializedTypes: cpp.Reference<TArray<FString>>): Void;
-	public function GetSpecializedTypeCount(): cpp.Int32;
-	public function GetSpecializedType(Index: cpp.Int32, OutSpecializedType: cpp.Reference<FString>): Void;
-	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: cpp.Reference<FString>): Bool;
-	public function GetSlotMaterialDependencies(OutMaterialDependencies: cpp.Reference<TMap<FString, FString>>): Void;
-	public function GetCustomTimeZeroLocalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
-	public function GetCustomTimeZeroGlobalTransform(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, GlobalOffsetTransform: cpp.Reference<Transform>, AttributeValue: cpp.Reference<Transform>, bForceRecache: Bool): Bool;
-	public function GetCustomLocalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
-	public function GetCustomGlobalTransform(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, GlobalOffsetTransform: cpp.Reference<Transform>, AttributeValue: cpp.Reference<Transform>, bForceRecache: Bool): Bool;
-	public function GetCustomGeometricTransform(AttributeValue: cpp.Reference<Transform>): Bool;
-	public function GetCustomBindPoseLocalTransform(AttributeValue: cpp.Reference<Transform>): Bool;
-	public function GetCustomBindPoseGlobalTransform(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, GlobalOffsetTransform: cpp.Reference<Transform>, AttributeValue: cpp.Reference<Transform>, bForceRecache: Bool): Bool;
-	public function GetCustomAssetInstanceUid(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetSpecializedTypes(OutSpecializedTypes: ucpp.Ref<TArray<FString>>): Void;
+	public function GetSpecializedTypeCount(): ucpp.num.Int32;
+	public function GetSpecializedType(Index: ucpp.num.Int32, OutSpecializedType: ucpp.Ref<FString>): Void;
+	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: ucpp.Ref<FString>): Bool;
+	public function GetSlotMaterialDependencies(OutMaterialDependencies: ucpp.Ref<TMap<FString, FString>>): Void;
+	public function GetCustomTimeZeroLocalTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function GetCustomTimeZeroGlobalTransform(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, GlobalOffsetTransform: ucpp.Ref<Transform>, AttributeValue: ucpp.Ref<Transform>, bForceRecache: Bool): Bool;
+	public function GetCustomLocalTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function GetCustomGlobalTransform(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, GlobalOffsetTransform: ucpp.Ref<Transform>, AttributeValue: ucpp.Ref<Transform>, bForceRecache: Bool): Bool;
+	public function GetCustomGeometricTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function GetCustomBindPoseLocalTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function GetCustomBindPoseGlobalTransform(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, GlobalOffsetTransform: ucpp.Ref<Transform>, AttributeValue: ucpp.Ref<Transform>, bForceRecache: Bool): Bool;
+	public function GetCustomAssetInstanceUid(AttributeValue: ucpp.Ref<FString>): Bool;
 	public function AddSpecializedType(SpecializedType: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -44,7 +44,7 @@ abstract ConstInterchangeSceneNode(InterchangeSceneNode) from InterchangeSceneNo
 @:forward
 @:nativeGen
 @:native("InterchangeSceneNode*")
-abstract InterchangeSceneNodePtr(cpp.Star<InterchangeSceneNode>) from cpp.Star<InterchangeSceneNode> to cpp.Star<InterchangeSceneNode>{
+abstract InterchangeSceneNodePtr(ucpp.Ptr<InterchangeSceneNode>) from ucpp.Ptr<InterchangeSceneNode> to ucpp.Ptr<InterchangeSceneNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSceneNode): InterchangeSceneNodePtr {
 		return untyped __cpp__("&({0})", v);

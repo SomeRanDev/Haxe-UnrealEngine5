@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSubmixSpectralAnalysisBP__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSubmixSpectralAnalysisBP__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSubmixSpectralAnalysisBP__PythonCallable(OnSubmixSpectralAnalysi
 @:forward
 @:nativeGen
 @:native("OnSubmixSpectralAnalysisBP__PythonCallable*")
-abstract OnSubmixSpectralAnalysisBP__PythonCallablePtr(cpp.Star<OnSubmixSpectralAnalysisBP__PythonCallable>) from cpp.Star<OnSubmixSpectralAnalysisBP__PythonCallable> to cpp.Star<OnSubmixSpectralAnalysisBP__PythonCallable>{
+abstract OnSubmixSpectralAnalysisBP__PythonCallablePtr(ucpp.Ptr<OnSubmixSpectralAnalysisBP__PythonCallable>) from ucpp.Ptr<OnSubmixSpectralAnalysisBP__PythonCallable> to ucpp.Ptr<OnSubmixSpectralAnalysisBP__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSubmixSpectralAnalysisBP__PythonCallable): OnSubmixSpectralAnalysisBP__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

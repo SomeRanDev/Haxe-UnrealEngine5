@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDataStreamDefinition")
 @:include("Private/Iris/DataStream/DataStreamDefinitions.h")
-@:structAccess
+@:valueType
 extern class DataStreamDefinition {
 	public var DataStreamName: FName;
 	public var ClassName: FName;

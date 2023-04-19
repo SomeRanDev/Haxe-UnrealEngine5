@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAchievementBlueprintLibrary")
 @:include("AchievementBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class AchievementBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function GetCachedAchievementProgress(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, AchievementID: FName, bFoundID: cpp.Reference<Bool>, Progress: cpp.Reference<cpp.Float32>): Void;
-	public function GetCachedAchievementDescription(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, AchievementID: FName, bFoundID: cpp.Reference<Bool>, Title: cpp.Reference<FText>, LockedDescription: cpp.Reference<FText>, UnlockedDescription: cpp.Reference<FText>, bHidden: cpp.Reference<Bool>): Void;
+	public function GetCachedAchievementProgress(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, AchievementID: FName, bFoundID: ucpp.Ref<Bool>, Progress: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetCachedAchievementDescription(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, AchievementID: FName, bFoundID: ucpp.Ref<Bool>, Title: ucpp.Ref<FText>, LockedDescription: ucpp.Ref<FText>, UnlockedDescription: ucpp.Ref<FText>, bHidden: ucpp.Ref<Bool>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAchievementBlueprintLibrary(AchievementBlueprintLibrary) from Achi
 @:forward
 @:nativeGen
 @:native("AchievementBlueprintLibrary*")
-abstract AchievementBlueprintLibraryPtr(cpp.Star<AchievementBlueprintLibrary>) from cpp.Star<AchievementBlueprintLibrary> to cpp.Star<AchievementBlueprintLibrary>{
+abstract AchievementBlueprintLibraryPtr(ucpp.Ptr<AchievementBlueprintLibrary>) from ucpp.Ptr<AchievementBlueprintLibrary> to ucpp.Ptr<AchievementBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AchievementBlueprintLibrary): AchievementBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

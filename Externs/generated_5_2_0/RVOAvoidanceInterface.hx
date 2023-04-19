@@ -2,10 +2,10 @@
 package ue;
 
 @:native("URVOAvoidanceInterface")
-@:structAccess
+@:valueType
 extern class RVOAvoidanceInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstRVOAvoidanceInterface(RVOAvoidanceInterface) from RVOAvoidanceInte
 @:forward
 @:nativeGen
 @:native("RVOAvoidanceInterface*")
-abstract RVOAvoidanceInterfacePtr(cpp.Star<RVOAvoidanceInterface>) from cpp.Star<RVOAvoidanceInterface> to cpp.Star<RVOAvoidanceInterface>{
+abstract RVOAvoidanceInterfacePtr(ucpp.Ptr<RVOAvoidanceInterface>) from ucpp.Ptr<RVOAvoidanceInterface> to ucpp.Ptr<RVOAvoidanceInterface>{
 	@:from
 	public static extern inline function fromValue(v: RVOAvoidanceInterface): RVOAvoidanceInterfacePtr {
 		return untyped __cpp__("&({0})", v);

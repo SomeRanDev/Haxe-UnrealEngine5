@@ -3,33 +3,33 @@ package ue;
 
 @:native("UFindSessionsCallbackProxy")
 @:include("FindSessionsCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class FindSessionsCallbackProxy extends OnlineBlueprintCallProxyBase {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<BlueprintSessionResult>>) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<BlueprintSessionResult>>) -> Void>;
 
-	public function GetServerName(Result: cpp.Reference<BlueprintSessionResult>): FString;
-	public function GetPingInMs(Result: cpp.Reference<BlueprintSessionResult>): cpp.Int32;
-	public function GetMaxPlayers(Result: cpp.Reference<BlueprintSessionResult>): cpp.Int32;
-	public function GetCurrentPlayers(Result: cpp.Reference<BlueprintSessionResult>): cpp.Int32;
-	public function FindSessions(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MaxResults: cpp.Int32, bUseLAN: Bool): cpp.Star<FindSessionsCallbackProxy>;
+	public function GetServerName(Result: ucpp.Ref<BlueprintSessionResult>): FString;
+	public function GetPingInMs(Result: ucpp.Ref<BlueprintSessionResult>): ucpp.num.Int32;
+	public function GetMaxPlayers(Result: ucpp.Ref<BlueprintSessionResult>): ucpp.num.Int32;
+	public function GetCurrentPlayers(Result: ucpp.Ref<BlueprintSessionResult>): ucpp.num.Int32;
+	public function FindSessions(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MaxResults: ucpp.num.Int32, bUseLAN: Bool): ucpp.Ptr<FindSessionsCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFindSessionsCallbackProxy(FindSessionsCallbackProxy) from FindSessionsCallbackProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<BlueprintSessionResult>>) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<BlueprintSessionResult>>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<BlueprintSessionResult>>) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<BlueprintSessionResult>>) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<BlueprintSessionResult>>) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("FindSessionsCallbackProxy*")
-abstract FindSessionsCallbackProxyPtr(cpp.Star<FindSessionsCallbackProxy>) from cpp.Star<FindSessionsCallbackProxy> to cpp.Star<FindSessionsCallbackProxy>{
+abstract FindSessionsCallbackProxyPtr(ucpp.Ptr<FindSessionsCallbackProxy>) from ucpp.Ptr<FindSessionsCallbackProxy> to ucpp.Ptr<FindSessionsCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: FindSessionsCallbackProxy): FindSessionsCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

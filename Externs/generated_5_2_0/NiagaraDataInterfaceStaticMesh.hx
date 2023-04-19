@@ -3,22 +3,22 @@ package ue;
 
 @:native("UNiagaraDataInterfaceStaticMesh")
 @:include("DataInterface/NiagaraDataInterfaceStaticMesh.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceStaticMesh extends NiagaraDataInterface {
 	public var SourceMode: ENDIStaticMesh_SourceMode;
-	public var DefaultMesh: cpp.Star<StaticMesh>;
+	public var DefaultMesh: ucpp.Ptr<StaticMesh>;
 	@:protected public var SoftSourceActor: TSoftObjectPtr<Actor>;
-	@:protected public var SourceComponent: cpp.Star<StaticMeshComp>;
+	@:protected public var SourceComponent: ucpp.Ptr<StaticMeshComp>;
 	public var SectionFilter: NDIStaticMeshSectionFilter;
 	public var bUsePhysicsBodyVelocity: Bool;
 	public var bAllowSamplingFromStreamingLODs: Bool;
-	public var LODIndex: cpp.Int32;
+	public var LODIndex: ucpp.num.Int32;
 	public var LODIndexUserParameter: NiagaraUserParameterBinding;
 	public var FilteredSockets: TArray<FName>;
 
-	@:protected public function OnSourceEndPlay(InSource: cpp.Star<Actor>, Reason: TEnumAsByte<EEndPlayReason>): Void;
+	@:protected public function OnSourceEndPlay(InSource: ucpp.Ptr<Actor>, Reason: TEnumAsByte<EEndPlayReason>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,16 +26,16 @@ extern class NiagaraDataInterfaceStaticMesh extends NiagaraDataInterface {
 abstract ConstNiagaraDataInterfaceStaticMesh(NiagaraDataInterfaceStaticMesh) from NiagaraDataInterfaceStaticMesh {
 	public extern var SourceMode(get, never): ENDIStaticMesh_SourceMode;
 	public inline extern function get_SourceMode(): ENDIStaticMesh_SourceMode return this.SourceMode;
-	public extern var DefaultMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_DefaultMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.DefaultMesh;
+	public extern var DefaultMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_DefaultMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.DefaultMesh;
 	public extern var SectionFilter(get, never): NDIStaticMeshSectionFilter;
 	public inline extern function get_SectionFilter(): NDIStaticMeshSectionFilter return this.SectionFilter;
 	public extern var bUsePhysicsBodyVelocity(get, never): Bool;
 	public inline extern function get_bUsePhysicsBodyVelocity(): Bool return this.bUsePhysicsBodyVelocity;
 	public extern var bAllowSamplingFromStreamingLODs(get, never): Bool;
 	public inline extern function get_bAllowSamplingFromStreamingLODs(): Bool return this.bAllowSamplingFromStreamingLODs;
-	public extern var LODIndex(get, never): cpp.Int32;
-	public inline extern function get_LODIndex(): cpp.Int32 return this.LODIndex;
+	public extern var LODIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LODIndex(): ucpp.num.Int32 return this.LODIndex;
 	public extern var LODIndexUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_LODIndexUserParameter(): NiagaraUserParameterBinding return this.LODIndexUserParameter;
 	public extern var FilteredSockets(get, never): TArray<FName>;
@@ -45,7 +45,7 @@ abstract ConstNiagaraDataInterfaceStaticMesh(NiagaraDataInterfaceStaticMesh) fro
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceStaticMesh*")
-abstract NiagaraDataInterfaceStaticMeshPtr(cpp.Star<NiagaraDataInterfaceStaticMesh>) from cpp.Star<NiagaraDataInterfaceStaticMesh> to cpp.Star<NiagaraDataInterfaceStaticMesh>{
+abstract NiagaraDataInterfaceStaticMeshPtr(ucpp.Ptr<NiagaraDataInterfaceStaticMesh>) from ucpp.Ptr<NiagaraDataInterfaceStaticMesh> to ucpp.Ptr<NiagaraDataInterfaceStaticMesh>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceStaticMesh): NiagaraDataInterfaceStaticMeshPtr {
 		return untyped __cpp__("&({0})", v);

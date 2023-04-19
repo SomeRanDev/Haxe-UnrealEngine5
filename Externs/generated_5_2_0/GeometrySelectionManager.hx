@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGeometrySelectionManager")
 @:include("Selection/GeometrySelectionManager.h")
-@:structAccess
+@:valueType
 extern class GeometrySelectionManager extends Object {
-	@:protected public var SelectionArguments: cpp.Star<GeometrySelectionEditCommandArguments>;
-	@:protected public var ToolsContext: cpp.Star<InteractiveToolsContext>;
+	@:protected public var SelectionArguments: ucpp.Ptr<GeometrySelectionEditCommandArguments>;
+	@:protected public var ToolsContext: ucpp.Ptr<InteractiveToolsContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstGeometrySelectionManager(GeometrySelectionManager) from GeometrySe
 @:forward
 @:nativeGen
 @:native("GeometrySelectionManager*")
-abstract GeometrySelectionManagerPtr(cpp.Star<GeometrySelectionManager>) from cpp.Star<GeometrySelectionManager> to cpp.Star<GeometrySelectionManager>{
+abstract GeometrySelectionManagerPtr(ucpp.Ptr<GeometrySelectionManager>) from ucpp.Ptr<GeometrySelectionManager> to ucpp.Ptr<GeometrySelectionManager>{
 	@:from
 	public static extern inline function fromValue(v: GeometrySelectionManager): GeometrySelectionManagerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAssetBackedTarget")
-@:structAccess
+@:valueType
 extern class AssetBackedTarget extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAssetBackedTarget(AssetBackedTarget) from AssetBackedTarget {
 @:forward
 @:nativeGen
 @:native("AssetBackedTarget*")
-abstract AssetBackedTargetPtr(cpp.Star<AssetBackedTarget>) from cpp.Star<AssetBackedTarget> to cpp.Star<AssetBackedTarget>{
+abstract AssetBackedTargetPtr(ucpp.Ptr<AssetBackedTarget>) from ucpp.Ptr<AssetBackedTarget> to ucpp.Ptr<AssetBackedTarget>{
 	@:from
 	public static extern inline function fromValue(v: AssetBackedTarget): AssetBackedTargetPtr {
 		return untyped __cpp__("&({0})", v);

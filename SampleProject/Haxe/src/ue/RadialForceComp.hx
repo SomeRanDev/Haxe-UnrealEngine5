@@ -3,47 +3,47 @@ package ue;
 
 @:native("URadialForceComponent")
 @:include("PhysicsEngine/RadialForceComponent.h")
-@:structAccess
+@:valueType
 extern class RadialForceComp extends SceneComp {
-	public var Radius: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var Falloff: TEnumAsByte<ERadialImpulseFalloff>;
-	public var ImpulseStrength: cpp.Float32;
+	public var ImpulseStrength: ucpp.num.Float32;
 	public var bImpulseVelChange: Bool;
 	public var bIgnoreOwningActor: Bool;
-	public var ForceStrength: cpp.Float32;
-	public var DestructibleDamage: cpp.Float32;
+	public var ForceStrength: ucpp.num.Float32;
+	public var DestructibleDamage: ucpp.num.Float32;
 	@:protected public var ObjectTypesToAffect: TArray<TEnumAsByte<EObjectTypeQuery>>;
 
 	public function RemoveObjectTypeToAffect(ObjectType: TEnumAsByte<EObjectTypeQuery>): Void;
 	public function FireImpulse(): Void;
 	public function AddObjectTypeToAffect(ObjectType: TEnumAsByte<EObjectTypeQuery>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRadialForceComp(RadialForceComp) from RadialForceComp {
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
 	public extern var Falloff(get, never): TEnumAsByte<ERadialImpulseFalloff>;
 	public inline extern function get_Falloff(): TEnumAsByte<ERadialImpulseFalloff> return this.Falloff;
-	public extern var ImpulseStrength(get, never): cpp.Float32;
-	public inline extern function get_ImpulseStrength(): cpp.Float32 return this.ImpulseStrength;
+	public extern var ImpulseStrength(get, never): ucpp.num.Float32;
+	public inline extern function get_ImpulseStrength(): ucpp.num.Float32 return this.ImpulseStrength;
 	public extern var bImpulseVelChange(get, never): Bool;
 	public inline extern function get_bImpulseVelChange(): Bool return this.bImpulseVelChange;
 	public extern var bIgnoreOwningActor(get, never): Bool;
 	public inline extern function get_bIgnoreOwningActor(): Bool return this.bIgnoreOwningActor;
-	public extern var ForceStrength(get, never): cpp.Float32;
-	public inline extern function get_ForceStrength(): cpp.Float32 return this.ForceStrength;
-	public extern var DestructibleDamage(get, never): cpp.Float32;
-	public inline extern function get_DestructibleDamage(): cpp.Float32 return this.DestructibleDamage;
+	public extern var ForceStrength(get, never): ucpp.num.Float32;
+	public inline extern function get_ForceStrength(): ucpp.num.Float32 return this.ForceStrength;
+	public extern var DestructibleDamage(get, never): ucpp.num.Float32;
+	public inline extern function get_DestructibleDamage(): ucpp.num.Float32 return this.DestructibleDamage;
 }
 
 @:forward
 @:nativeGen
 @:native("RadialForceComp*")
-abstract RadialForceCompPtr(cpp.Star<RadialForceComp>) from cpp.Star<RadialForceComp> to cpp.Star<RadialForceComp>{
+abstract RadialForceCompPtr(ucpp.Ptr<RadialForceComp>) from ucpp.Ptr<RadialForceComp> to ucpp.Ptr<RadialForceComp>{
 	@:from
 	public static extern inline function fromValue(v: RadialForceComp): RadialForceCompPtr {
 		return untyped __cpp__("&({0})", v);

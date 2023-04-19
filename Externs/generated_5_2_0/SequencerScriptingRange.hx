@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSequencerScriptingRange")
 @:include("SequencerScriptingRange.h")
-@:structAccess
+@:valueType
 extern class SequencerScriptingRange {
 	public var bHasStart: Bool;
 	public var bHasEnd: Bool;
-	public var InclusiveStart: cpp.Int32;
-	public var ExclusiveEnd: cpp.Int32;
+	public var InclusiveStart: ucpp.num.Int32;
+	public var ExclusiveEnd: ucpp.num.Int32;
 	public var InternalRate: FrameRate;
 
 	@:native("FSequencerScriptingRange") public function new();
-	@:native("FSequencerScriptingRange") public static function make(bHasStart: Bool, bHasEnd: Bool, InclusiveStart: cpp.Int32, ExclusiveEnd: cpp.Int32, InternalRate: FrameRate): SequencerScriptingRange ;
+	@:native("FSequencerScriptingRange") public static function make(bHasStart: Bool, bHasEnd: Bool, InclusiveStart: ucpp.num.Int32, ExclusiveEnd: ucpp.num.Int32, InternalRate: FrameRate): SequencerScriptingRange ;
 }

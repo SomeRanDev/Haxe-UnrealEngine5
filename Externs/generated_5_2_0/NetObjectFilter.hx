@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNetObjectFilter")
 @:include("Iris/ReplicationSystem/Filtering/NetObjectFilter.h")
-@:structAccess
+@:valueType
 extern class NetObjectFilter extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNetObjectFilter(NetObjectFilter) from NetObjectFilter {
 @:forward
 @:nativeGen
 @:native("NetObjectFilter*")
-abstract NetObjectFilterPtr(cpp.Star<NetObjectFilter>) from cpp.Star<NetObjectFilter> to cpp.Star<NetObjectFilter>{
+abstract NetObjectFilterPtr(ucpp.Ptr<NetObjectFilter>) from ucpp.Ptr<NetObjectFilter> to ucpp.Ptr<NetObjectFilter>{
 	@:from
 	public static extern inline function fromValue(v: NetObjectFilter): NetObjectFilterPtr {
 		return untyped __cpp__("&({0})", v);

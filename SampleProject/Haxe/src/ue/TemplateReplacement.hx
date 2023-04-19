@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTemplateReplacement")
 @:include("TemplateProjectDefs.h")
-@:structAccess
+@:valueType
 extern class TemplateReplacement {
 	public var Extensions: TArray<FString>;
 	public var From: FString;

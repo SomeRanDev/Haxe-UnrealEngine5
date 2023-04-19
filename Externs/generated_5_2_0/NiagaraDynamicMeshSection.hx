@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraDynamicMeshSection")
 @:include("Private/DataInterface/NiagaraDataInterfaceDynamicMesh.h")
-@:structAccess
+@:valueType
 extern class NiagaraDynamicMeshSection {
-	public var NumTriangles: cpp.Int32;
-	public var MaterialIndex: cpp.Int32;
+	public var NumTriangles: ucpp.num.Int32;
+	public var MaterialIndex: ucpp.num.Int32;
 
 	@:native("FNiagaraDynamicMeshSection") public function new();
-	@:native("FNiagaraDynamicMeshSection") public static function make(NumTriangles: cpp.Int32, MaterialIndex: cpp.Int32): NiagaraDynamicMeshSection ;
+	@:native("FNiagaraDynamicMeshSection") public static function make(NumTriangles: ucpp.num.Int32, MaterialIndex: ucpp.num.Int32): NiagaraDynamicMeshSection ;
 }

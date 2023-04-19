@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTickableTranslationConstraint")
 @:include("TransformConstraint.h")
-@:structAccess
+@:valueType
 extern class TickableTranslationConstraint extends TickableTransformConstraint {
 	@:protected public var OffsetTranslation: Vector;
 	@:protected public var AxisFilter: FilterOptionPerAxis;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstTickableTranslationConstraint(TickableTranslationConstraint) from 
 @:forward
 @:nativeGen
 @:native("TickableTranslationConstraint*")
-abstract TickableTranslationConstraintPtr(cpp.Star<TickableTranslationConstraint>) from cpp.Star<TickableTranslationConstraint> to cpp.Star<TickableTranslationConstraint>{
+abstract TickableTranslationConstraintPtr(ucpp.Ptr<TickableTranslationConstraint>) from ucpp.Ptr<TickableTranslationConstraint> to ucpp.Ptr<TickableTranslationConstraint>{
 	@:from
 	public static extern inline function fromValue(v: TickableTranslationConstraint): TickableTranslationConstraintPtr {
 		return untyped __cpp__("&({0})", v);

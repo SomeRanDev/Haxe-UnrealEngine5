@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneMaterialParameterCollectionSystem")
 @:include("Systems/MovieSceneMaterialParameterCollectionSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMaterialParameterCollectionSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneMaterialParameterCollectionSystem(MovieSceneMaterialPara
 @:forward
 @:nativeGen
 @:native("MovieSceneMaterialParameterCollectionSystem*")
-abstract MovieSceneMaterialParameterCollectionSystemPtr(cpp.Star<MovieSceneMaterialParameterCollectionSystem>) from cpp.Star<MovieSceneMaterialParameterCollectionSystem> to cpp.Star<MovieSceneMaterialParameterCollectionSystem>{
+abstract MovieSceneMaterialParameterCollectionSystemPtr(ucpp.Ptr<MovieSceneMaterialParameterCollectionSystem>) from ucpp.Ptr<MovieSceneMaterialParameterCollectionSystem> to ucpp.Ptr<MovieSceneMaterialParameterCollectionSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMaterialParameterCollectionSystem): MovieSceneMaterialParameterCollectionSystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USMInstanceElementIdMapTransactor")
 @:include("Elements/SMInstance/SMInstanceElementId.h")
-@:structAccess
+@:valueType
 extern class SMInstanceElementIdMapTransactor extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSMInstanceElementIdMapTransactor(SMInstanceElementIdMapTransactor)
 @:forward
 @:nativeGen
 @:native("SMInstanceElementIdMapTransactor*")
-abstract SMInstanceElementIdMapTransactorPtr(cpp.Star<SMInstanceElementIdMapTransactor>) from cpp.Star<SMInstanceElementIdMapTransactor> to cpp.Star<SMInstanceElementIdMapTransactor>{
+abstract SMInstanceElementIdMapTransactorPtr(ucpp.Ptr<SMInstanceElementIdMapTransactor>) from ucpp.Ptr<SMInstanceElementIdMapTransactor> to ucpp.Ptr<SMInstanceElementIdMapTransactor>{
 	@:from
 	public static extern inline function fromValue(v: SMInstanceElementIdMapTransactor): SMInstanceElementIdMapTransactorPtr {
 		return untyped __cpp__("&({0})", v);

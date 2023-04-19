@@ -3,16 +3,16 @@ package ue;
 
 @:native("UAsyncImageExport")
 @:include("AsyncImageExport.h")
-@:structAccess
+@:valueType
 extern class AsyncImageExport extends BlueprintAsyncActionBase {
 	public var Complete: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
-	private var TextureToExport: cpp.Star<Texture>;
-	private var Quality: cpp.Int32;
+	private var TextureToExport: ucpp.Ptr<Texture>;
+	private var Quality: ucpp.num.Int32;
 	private var TargetFile: FString;
 
-	public function ExportImageAsync(Texture: cpp.Star<Texture>, OutputFile: FString, Quality: cpp.Int32): cpp.Star<AsyncImageExport>;
+	public function ExportImageAsync(Texture: ucpp.Ptr<Texture>, OutputFile: FString, Quality: ucpp.num.Int32): ucpp.Ptr<AsyncImageExport>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstAsyncImageExport(AsyncImageExport) from AsyncImageExport {
 @:forward
 @:nativeGen
 @:native("AsyncImageExport*")
-abstract AsyncImageExportPtr(cpp.Star<AsyncImageExport>) from cpp.Star<AsyncImageExport> to cpp.Star<AsyncImageExport>{
+abstract AsyncImageExportPtr(ucpp.Ptr<AsyncImageExport>) from ucpp.Ptr<AsyncImageExport> to ucpp.Ptr<AsyncImageExport>{
 	@:from
 	public static extern inline function fromValue(v: AsyncImageExport): AsyncImageExportPtr {
 		return untyped __cpp__("&({0})", v);

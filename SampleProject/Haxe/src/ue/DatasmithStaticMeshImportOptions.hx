@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDatasmithStaticMeshImportOptions")
 @:include("DatasmithImportOptions.h")
-@:structAccess
+@:valueType
 extern class DatasmithStaticMeshImportOptions {
 	public var MinLightmapResolution: EDatasmithImportLightmapMin;
 	public var MaxLightmapResolution: EDatasmithImportLightmapMax;

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAppleImageInterface")
-@:structAccess
+@:valueType
 extern class AppleImageInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAppleImageInterface(AppleImageInterface) from AppleImageInterface 
 @:forward
 @:nativeGen
 @:native("AppleImageInterface*")
-abstract AppleImageInterfacePtr(cpp.Star<AppleImageInterface>) from cpp.Star<AppleImageInterface> to cpp.Star<AppleImageInterface>{
+abstract AppleImageInterfacePtr(ucpp.Ptr<AppleImageInterface>) from ucpp.Ptr<AppleImageInterface> to ucpp.Ptr<AppleImageInterface>{
 	@:from
 	public static extern inline function fromValue(v: AppleImageInterface): AppleImageInterfacePtr {
 		return untyped __cpp__("&({0})", v);

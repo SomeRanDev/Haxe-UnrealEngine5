@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxMeshImportData")
 @:include("Factories/FbxMeshImportData.h")
-@:structAccess
+@:valueType
 extern class FbxMeshImportData extends FbxAssetImportData {
 	public var bTransformVertexToAbsolute: Bool;
 	public var bBakePivotInVertex: Bool;
@@ -15,7 +15,7 @@ extern class FbxMeshImportData extends FbxAssetImportData {
 	public var ImportMaterialOriginalNameData: TArray<FName>;
 	public var ImportMeshLodData: TArray<ImportMeshLodSectionsData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstFbxMeshImportData(FbxMeshImportData) from FbxMeshImportData {
 @:forward
 @:nativeGen
 @:native("FbxMeshImportData*")
-abstract FbxMeshImportDataPtr(cpp.Star<FbxMeshImportData>) from cpp.Star<FbxMeshImportData> to cpp.Star<FbxMeshImportData>{
+abstract FbxMeshImportDataPtr(ucpp.Ptr<FbxMeshImportData>) from ucpp.Ptr<FbxMeshImportData> to ucpp.Ptr<FbxMeshImportData>{
 	@:from
 	public static extern inline function fromValue(v: FbxMeshImportData): FbxMeshImportDataPtr {
 		return untyped __cpp__("&({0})", v);

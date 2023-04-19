@@ -3,13 +3,15 @@ package ue;
 
 @:native("FAnimNode_RetargetPoseFromMesh")
 @:include("AnimNodes/AnimNode_RetargetPoseFromMesh.h")
-@:structAccess
+@:valueType
 extern class AnimNode_RetargetPoseFromMesh extends AnimNode_Base {
 	public var SourceMeshComponent: TWeakObjectPtr<SkeletalMeshComp>;
 	public var bUseAttachedParent: Bool;
-	public var IKRetargeterAsset: cpp.Star<IKRetargeter>;
-	private var Processor: cpp.Star<IKRetargetProcessor>;
+	public var IKRetargeterAsset: ucpp.Ptr<IKRetargeter>;
+	public var CustomRetargetProfile: RetargetProfile;
+	public var bSuppressWarnings: Bool;
+	public var bCopyCurves: Bool;
+	private var Processor: ucpp.Ptr<IKRetargetProcessor>;
 
 	@:native("FAnimNode_RetargetPoseFromMesh") public function new();
-	@:native("FAnimNode_RetargetPoseFromMesh") public static function make(SourceMeshComponent: TWeakObjectPtr<SkeletalMeshComp>, bUseAttachedParent: Bool, IKRetargeterAsset: cpp.Star<IKRetargeter>, Processor: cpp.Star<IKRetargetProcessor>): AnimNode_RetargetPoseFromMesh ;
 }

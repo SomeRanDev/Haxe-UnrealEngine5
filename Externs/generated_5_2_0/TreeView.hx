@@ -3,16 +3,16 @@ package ue;
 
 @:native("UTreeView")
 @:include("Components/TreeView.h")
-@:structAccess
+@:valueType
 extern class TreeView extends ListView {
-	private var BP_OnGetItemChildren: HaxeDelegateProperty<(cpp.Star<Object>, cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
-	private var BP_OnItemExpansionChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>, Bool) -> Void>;
+	private var BP_OnGetItemChildren: HaxeDelegateProperty<(ucpp.Ptr<Object>, ucpp.Ref<TArray<ucpp.Ptr<Object>>>) -> Void>;
+	private var BP_OnItemExpansionChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>, Bool) -> Void>;
 
-	public function SetItemExpansion(Item: cpp.Star<Object>, bExpandItem: Bool): Void;
+	public function SetItemExpansion(Item: ucpp.Ptr<Object>, bExpandItem: Bool): Void;
 	public function ExpandAll(): Void;
 	public function CollapseAll(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstTreeView(TreeView) from TreeView {
 @:forward
 @:nativeGen
 @:native("TreeView*")
-abstract TreeViewPtr(cpp.Star<TreeView>) from cpp.Star<TreeView> to cpp.Star<TreeView>{
+abstract TreeViewPtr(ucpp.Ptr<TreeView>) from ucpp.Ptr<TreeView> to ucpp.Ptr<TreeView>{
 	@:from
 	public static extern inline function fromValue(v: TreeView): TreeViewPtr {
 		return untyped __cpp__("&({0})", v);

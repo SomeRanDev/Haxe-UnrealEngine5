@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMovieSceneObjectBindingID")
 @:include("MovieSceneObjectBindingID.h")
-@:structAccess
+@:valueType
 extern class MovieSceneObjectBindingID {
 	private var Guid: Guid;
-	private var SequenceID: cpp.Int32;
-	private var ResolveParentIndex: cpp.Int32;
+	private var SequenceID: ucpp.num.Int32;
+	private var ResolveParentIndex: ucpp.num.Int32;
 
 	@:native("FMovieSceneObjectBindingID") public function new();
-	@:native("FMovieSceneObjectBindingID") public static function make(Guid: Guid, SequenceID: cpp.Int32, ResolveParentIndex: cpp.Int32, Space_DEPRECATED: EMovieSceneObjectBindingSpace): MovieSceneObjectBindingID ;
+	@:native("FMovieSceneObjectBindingID") public static function make(Guid: Guid, SequenceID: ucpp.num.Int32, ResolveParentIndex: ucpp.num.Int32, Space_DEPRECATED: EMovieSceneObjectBindingSpace): MovieSceneObjectBindingID ;
 }

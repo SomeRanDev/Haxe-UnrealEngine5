@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_LevelSequence")
 @:include("AssetTools/AssetDefinition_LevelSequence.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_LevelSequence extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_LevelSequence(AssetDefinition_LevelSequence) from 
 @:forward
 @:nativeGen
 @:native("AssetDefinition_LevelSequence*")
-abstract AssetDefinition_LevelSequencePtr(cpp.Star<AssetDefinition_LevelSequence>) from cpp.Star<AssetDefinition_LevelSequence> to cpp.Star<AssetDefinition_LevelSequence>{
+abstract AssetDefinition_LevelSequencePtr(ucpp.Ptr<AssetDefinition_LevelSequence>) from ucpp.Ptr<AssetDefinition_LevelSequence> to ucpp.Ptr<AssetDefinition_LevelSequence>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_LevelSequence): AssetDefinition_LevelSequencePtr {
 		return untyped __cpp__("&({0})", v);

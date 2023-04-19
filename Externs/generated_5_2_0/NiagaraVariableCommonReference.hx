@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraVariableCommonReference")
 @:include("NiagaraCore.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariableCommonReference {
 	public var Name: FName;
-	public var UnderlyingType: cpp.Star<Object>;
+	public var UnderlyingType: ucpp.Ptr<Object>;
 
 	@:native("FNiagaraVariableCommonReference") public function new();
-	@:native("FNiagaraVariableCommonReference") public static function make(Name: FName, UnderlyingType: cpp.Star<Object>): NiagaraVariableCommonReference ;
+	@:native("FNiagaraVariableCommonReference") public static function make(Name: FName, UnderlyingType: ucpp.Ptr<Object>): NiagaraVariableCommonReference ;
 }

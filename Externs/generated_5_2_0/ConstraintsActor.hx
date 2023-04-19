@@ -3,24 +3,24 @@ package ue;
 
 @:native("AConstraintsActor")
 @:include("ConstraintsActor.h")
-@:structAccess
+@:valueType
 extern class ConstraintsActor extends Actor {
-	public var ConstraintsManager: cpp.Star<ConstraintsManager>;
+	public var ConstraintsManager: ucpp.Ptr<ConstraintsManager>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConstraintsActor(ConstraintsActor) from ConstraintsActor {
-	public extern var ConstraintsManager(get, never): cpp.Star<ConstraintsManager.ConstConstraintsManager>;
-	public inline extern function get_ConstraintsManager(): cpp.Star<ConstraintsManager.ConstConstraintsManager> return this.ConstraintsManager;
+	public extern var ConstraintsManager(get, never): ucpp.Ptr<ConstraintsManager.ConstConstraintsManager>;
+	public inline extern function get_ConstraintsManager(): ucpp.Ptr<ConstraintsManager.ConstConstraintsManager> return this.ConstraintsManager;
 }
 
 @:forward
 @:nativeGen
 @:native("ConstraintsActor*")
-abstract ConstraintsActorPtr(cpp.Star<ConstraintsActor>) from cpp.Star<ConstraintsActor> to cpp.Star<ConstraintsActor>{
+abstract ConstraintsActorPtr(ucpp.Ptr<ConstraintsActor>) from ucpp.Ptr<ConstraintsActor> to ucpp.Ptr<ConstraintsActor>{
 	@:from
 	public static extern inline function fromValue(v: ConstraintsActor): ConstraintsActorPtr {
 		return untyped __cpp__("&({0})", v);

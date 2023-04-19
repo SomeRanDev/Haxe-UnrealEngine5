@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGooglePADRuntimeSettings")
 @:include("GooglePADRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class GooglePADRuntimeSettings extends Object {
 	public var bEnablePlugin: Bool;
 	public var bOnlyDistribution: Bool;
 	public var bOnlyShipping: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstGooglePADRuntimeSettings(GooglePADRuntimeSettings) from GooglePADR
 @:forward
 @:nativeGen
 @:native("GooglePADRuntimeSettings*")
-abstract GooglePADRuntimeSettingsPtr(cpp.Star<GooglePADRuntimeSettings>) from cpp.Star<GooglePADRuntimeSettings> to cpp.Star<GooglePADRuntimeSettings>{
+abstract GooglePADRuntimeSettingsPtr(ucpp.Ptr<GooglePADRuntimeSettings>) from ucpp.Ptr<GooglePADRuntimeSettings> to ucpp.Ptr<GooglePADRuntimeSettings>{
 	@:from
 	public static extern inline function fromValue(v: GooglePADRuntimeSettings): GooglePADRuntimeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

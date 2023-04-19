@@ -3,11 +3,11 @@ package ue;
 
 @:native("APaperTileMapActor")
 @:include("PaperTileMapActor.h")
-@:structAccess
+@:valueType
 extern class PaperTileMapActor extends Actor {
-	private var RenderComponent: cpp.Star<PaperTileMapComp>;
+	private var RenderComponent: ucpp.Ptr<PaperTileMapComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPaperTileMapActor(PaperTileMapActor) from PaperTileMapActor {
 @:forward
 @:nativeGen
 @:native("PaperTileMapActor*")
-abstract PaperTileMapActorPtr(cpp.Star<PaperTileMapActor>) from cpp.Star<PaperTileMapActor> to cpp.Star<PaperTileMapActor>{
+abstract PaperTileMapActorPtr(ucpp.Ptr<PaperTileMapActor>) from ucpp.Ptr<PaperTileMapActor> to ucpp.Ptr<PaperTileMapActor>{
 	@:from
 	public static extern inline function fromValue(v: PaperTileMapActor): PaperTileMapActorPtr {
 		return untyped __cpp__("&({0})", v);

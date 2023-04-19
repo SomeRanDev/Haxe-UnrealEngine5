@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPerQualityLevelFloat")
 @:include("PerQualityLevelProperties.h")
-@:structAccess
+@:valueType
 extern class PerQualityLevelFloat {
-	public var Default: cpp.Float32;
-	public var PerQuality: TMap<cpp.Int32, cpp.Float32>;
+	public var Default: ucpp.num.Float32;
+	public var PerQuality: TMap<ucpp.num.Int32, ucpp.num.Float32>;
 
 	@:native("FPerQualityLevelFloat") public function new();
-	@:native("FPerQualityLevelFloat") public static function make(Default: cpp.Float32, PerQuality: TMap<cpp.Int32, cpp.Float32>): PerQualityLevelFloat ;
+	@:native("FPerQualityLevelFloat") public static function make(Default: ucpp.num.Float32, PerQuality: TMap<ucpp.num.Int32, ucpp.num.Float32>): PerQualityLevelFloat ;
 }

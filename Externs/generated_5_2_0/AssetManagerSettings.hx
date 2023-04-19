@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAssetManagerSettings")
 @:include("Engine/AssetManagerSettings.h")
-@:structAccess
+@:valueType
 extern class AssetManagerSettings extends DeveloperSettings {
 	public var PrimaryAssetTypesToScan: TArray<PrimaryAssetTypeInfo>;
 	public var DirectoriesToExclude: TArray<DirectoryPath>;
@@ -19,7 +19,7 @@ extern class AssetManagerSettings extends DeveloperSettings {
 	public var AssetPathRedirects: TArray<AssetManagerRedirect>;
 	public var MetaDataTagsForAssetRegistry: TSet<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstAssetManagerSettings(AssetManagerSettings) from AssetManagerSettin
 @:forward
 @:nativeGen
 @:native("AssetManagerSettings*")
-abstract AssetManagerSettingsPtr(cpp.Star<AssetManagerSettings>) from cpp.Star<AssetManagerSettings> to cpp.Star<AssetManagerSettings>{
+abstract AssetManagerSettingsPtr(ucpp.Ptr<AssetManagerSettings>) from ucpp.Ptr<AssetManagerSettings> to ucpp.Ptr<AssetManagerSettings>{
 	@:from
 	public static extern inline function fromValue(v: AssetManagerSettings): AssetManagerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

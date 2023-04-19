@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnTimelineVector__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnTimelineVector__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnTimelineVector__PythonCallable(OnTimelineVector__PythonCallable)
 @:forward
 @:nativeGen
 @:native("OnTimelineVector__PythonCallable*")
-abstract OnTimelineVector__PythonCallablePtr(cpp.Star<OnTimelineVector__PythonCallable>) from cpp.Star<OnTimelineVector__PythonCallable> to cpp.Star<OnTimelineVector__PythonCallable>{
+abstract OnTimelineVector__PythonCallablePtr(ucpp.Ptr<OnTimelineVector__PythonCallable>) from ucpp.Ptr<OnTimelineVector__PythonCallable> to ucpp.Ptr<OnTimelineVector__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnTimelineVector__PythonCallable): OnTimelineVector__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

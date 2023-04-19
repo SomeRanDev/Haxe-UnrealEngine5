@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UModel")
-@:structAccess
+@:valueType
 extern class Model extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstModel(Model) from Model {
 @:forward
 @:nativeGen
 @:native("Model*")
-abstract ModelPtr(cpp.Star<Model>) from cpp.Star<Model> to cpp.Star<Model>{
+abstract ModelPtr(ucpp.Ptr<Model>) from ucpp.Ptr<Model> to ucpp.Ptr<Model>{
 	@:from
 	public static extern inline function fromValue(v: Model): ModelPtr {
 		return untyped __cpp__("&({0})", v);

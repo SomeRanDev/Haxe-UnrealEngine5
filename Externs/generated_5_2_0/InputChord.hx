@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInputChord")
 @:include("Framework/Commands/InputChord.h")
-@:structAccess
+@:valueType
 extern class InputChord {
 	public var Key: Key;
 	public var bShift: Bool;

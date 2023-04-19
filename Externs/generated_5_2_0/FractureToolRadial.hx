@@ -3,27 +3,27 @@ package ue;
 
 @:native("UFractureToolRadial")
 @:include("FractureToolRadial.h")
-@:structAccess
+@:valueType
 extern class FractureToolRadial extends FractureToolVoronoiCutterBase {
-	public var RadialSettings: cpp.Star<FractureRadialSettings>;
-	public var GizmoSettings: cpp.Star<FractureTransformGizmoSettings>;
+	public var RadialSettings: ucpp.Ptr<FractureRadialSettings>;
+	public var GizmoSettings: ucpp.Ptr<FractureTransformGizmoSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolRadial(FractureToolRadial) from FractureToolRadial {
-	public extern var RadialSettings(get, never): cpp.Star<FractureRadialSettings.ConstFractureRadialSettings>;
-	public inline extern function get_RadialSettings(): cpp.Star<FractureRadialSettings.ConstFractureRadialSettings> return this.RadialSettings;
-	public extern var GizmoSettings(get, never): cpp.Star<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings>;
-	public inline extern function get_GizmoSettings(): cpp.Star<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings> return this.GizmoSettings;
+	public extern var RadialSettings(get, never): ucpp.Ptr<FractureRadialSettings.ConstFractureRadialSettings>;
+	public inline extern function get_RadialSettings(): ucpp.Ptr<FractureRadialSettings.ConstFractureRadialSettings> return this.RadialSettings;
+	public extern var GizmoSettings(get, never): ucpp.Ptr<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings>;
+	public inline extern function get_GizmoSettings(): ucpp.Ptr<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings> return this.GizmoSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolRadial*")
-abstract FractureToolRadialPtr(cpp.Star<FractureToolRadial>) from cpp.Star<FractureToolRadial> to cpp.Star<FractureToolRadial>{
+abstract FractureToolRadialPtr(ucpp.Ptr<FractureToolRadial>) from ucpp.Ptr<FractureToolRadial> to ucpp.Ptr<FractureToolRadial>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolRadial): FractureToolRadialPtr {
 		return untyped __cpp__("&({0})", v);

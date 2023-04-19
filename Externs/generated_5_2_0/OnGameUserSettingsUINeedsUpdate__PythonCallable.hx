@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnGameUserSettingsUINeedsUpdate__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnGameUserSettingsUINeedsUpdate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnGameUserSettingsUINeedsUpdate__PythonCallable(OnGameUserSettings
 @:forward
 @:nativeGen
 @:native("OnGameUserSettingsUINeedsUpdate__PythonCallable*")
-abstract OnGameUserSettingsUINeedsUpdate__PythonCallablePtr(cpp.Star<OnGameUserSettingsUINeedsUpdate__PythonCallable>) from cpp.Star<OnGameUserSettingsUINeedsUpdate__PythonCallable> to cpp.Star<OnGameUserSettingsUINeedsUpdate__PythonCallable>{
+abstract OnGameUserSettingsUINeedsUpdate__PythonCallablePtr(ucpp.Ptr<OnGameUserSettingsUINeedsUpdate__PythonCallable>) from ucpp.Ptr<OnGameUserSettingsUINeedsUpdate__PythonCallable> to ucpp.Ptr<OnGameUserSettingsUINeedsUpdate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnGameUserSettingsUINeedsUpdate__PythonCallable): OnGameUserSettingsUINeedsUpdate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

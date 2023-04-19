@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAchievementQueryCallbackProxy")
 @:include("AchievementQueryCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class AchievementQueryCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function CacheAchievements(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Star<AchievementQueryCallbackProxy>;
-	public function CacheAchievementDescriptions(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Star<AchievementQueryCallbackProxy>;
+	public function CacheAchievements(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<AchievementQueryCallbackProxy>;
+	public function CacheAchievementDescriptions(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<AchievementQueryCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstAchievementQueryCallbackProxy(AchievementQueryCallbackProxy) from 
 @:forward
 @:nativeGen
 @:native("AchievementQueryCallbackProxy*")
-abstract AchievementQueryCallbackProxyPtr(cpp.Star<AchievementQueryCallbackProxy>) from cpp.Star<AchievementQueryCallbackProxy> to cpp.Star<AchievementQueryCallbackProxy>{
+abstract AchievementQueryCallbackProxyPtr(ucpp.Ptr<AchievementQueryCallbackProxy>) from ucpp.Ptr<AchievementQueryCallbackProxy> to ucpp.Ptr<AchievementQueryCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: AchievementQueryCallbackProxy): AchievementQueryCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

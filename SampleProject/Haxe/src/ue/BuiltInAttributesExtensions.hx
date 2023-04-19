@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBuiltInAttributesExtensions")
 @:include("Animation/BuiltInAttributeTypes.h")
-@:structAccess
+@:valueType
 extern class BuiltInAttributesExtensions extends BlueprintFunctionLibrary {
-	public function AddTransformAttribute(AnimSequenceBase: cpp.Star<AnimSequenceBase>, AttributeName: cpp.Reference<FName>, BoneName: cpp.Reference<FName>, Keys: cpp.Reference<TArray<cpp.Float32>>, Values: cpp.Reference<TArray<Transform>>): Bool;
+	public function AddTransformAttribute(AnimSequenceBase: ucpp.Ptr<AnimSequenceBase>, AttributeName: ucpp.Ref<FName>, BoneName: ucpp.Ref<FName>, Keys: ucpp.Ref<TArray<ucpp.num.Float32>>, Values: ucpp.Ref<TArray<Transform>>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBuiltInAttributesExtensions(BuiltInAttributesExtensions) from Buil
 @:forward
 @:nativeGen
 @:native("BuiltInAttributesExtensions*")
-abstract BuiltInAttributesExtensionsPtr(cpp.Star<BuiltInAttributesExtensions>) from cpp.Star<BuiltInAttributesExtensions> to cpp.Star<BuiltInAttributesExtensions>{
+abstract BuiltInAttributesExtensionsPtr(ucpp.Ptr<BuiltInAttributesExtensions>) from ucpp.Ptr<BuiltInAttributesExtensions> to ucpp.Ptr<BuiltInAttributesExtensions>{
 	@:from
 	public static extern inline function fromValue(v: BuiltInAttributesExtensions): BuiltInAttributesExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

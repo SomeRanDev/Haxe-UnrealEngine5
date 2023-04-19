@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNavRelevantComponent")
 @:include("NavRelevantComponent.h")
-@:structAccess
+@:valueType
 extern class NavRelevantComp extends ActorComp {
 	@:protected public var bAttachToOwnersRoot: Bool;
-	@:protected public var CachedNavParent: cpp.Star<Object>;
+	@:protected public var CachedNavParent: ucpp.Ptr<Object>;
 
 	public function SetNavigationRelevancy(bRelevant: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstNavRelevantComp(NavRelevantComp) from NavRelevantComp {
 @:forward
 @:nativeGen
 @:native("NavRelevantComp*")
-abstract NavRelevantCompPtr(cpp.Star<NavRelevantComp>) from cpp.Star<NavRelevantComp> to cpp.Star<NavRelevantComp>{
+abstract NavRelevantCompPtr(ucpp.Ptr<NavRelevantComp>) from ucpp.Ptr<NavRelevantComp> to ucpp.Ptr<NavRelevantComp>{
 	@:from
 	public static extern inline function fromValue(v: NavRelevantComp): NavRelevantCompPtr {
 		return untyped __cpp__("&({0})", v);

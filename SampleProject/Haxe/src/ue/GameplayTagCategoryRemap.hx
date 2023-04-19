@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayTagCategoryRemap")
 @:include("GameplayTagsSettings.h")
-@:structAccess
+@:valueType
 extern class GameplayTagCategoryRemap {
 	public var BaseCategory: FString;
 	public var RemapCategories: TArray<FString>;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UResonanceAudioSpatializationSourceSettingsFactory")
 @:include("ResonanceAudioSpatializationSourceSettingsFactory.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioSpatializationSourceSettingsFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstResonanceAudioSpatializationSourceSettingsFactory(ResonanceAudioSp
 @:forward
 @:nativeGen
 @:native("ResonanceAudioSpatializationSourceSettingsFactory*")
-abstract ResonanceAudioSpatializationSourceSettingsFactoryPtr(cpp.Star<ResonanceAudioSpatializationSourceSettingsFactory>) from cpp.Star<ResonanceAudioSpatializationSourceSettingsFactory> to cpp.Star<ResonanceAudioSpatializationSourceSettingsFactory>{
+abstract ResonanceAudioSpatializationSourceSettingsFactoryPtr(ucpp.Ptr<ResonanceAudioSpatializationSourceSettingsFactory>) from ucpp.Ptr<ResonanceAudioSpatializationSourceSettingsFactory> to ucpp.Ptr<ResonanceAudioSpatializationSourceSettingsFactory>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioSpatializationSourceSettingsFactory): ResonanceAudioSpatializationSourceSettingsFactoryPtr {
 		return untyped __cpp__("&({0})", v);

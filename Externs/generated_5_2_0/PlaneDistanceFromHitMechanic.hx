@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPlaneDistanceFromHitMechanic")
 @:include("Mechanics/PlaneDistanceFromHitMechanic.h")
-@:structAccess
+@:valueType
 extern class PlaneDistanceFromHitMechanic extends InteractionMechanic {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlaneDistanceFromHitMechanic(PlaneDistanceFromHitMechanic) from Pl
 @:forward
 @:nativeGen
 @:native("PlaneDistanceFromHitMechanic*")
-abstract PlaneDistanceFromHitMechanicPtr(cpp.Star<PlaneDistanceFromHitMechanic>) from cpp.Star<PlaneDistanceFromHitMechanic> to cpp.Star<PlaneDistanceFromHitMechanic>{
+abstract PlaneDistanceFromHitMechanicPtr(ucpp.Ptr<PlaneDistanceFromHitMechanic>) from ucpp.Ptr<PlaneDistanceFromHitMechanic> to ucpp.Ptr<PlaneDistanceFromHitMechanic>{
 	@:from
 	public static extern inline function fromValue(v: PlaneDistanceFromHitMechanic): PlaneDistanceFromHitMechanicPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSpriteInstanceData")
 @:include("PaperGroupedSpriteComponent.h")
-@:structAccess
+@:valueType
 extern class SpriteInstanceData {
 	public var Transform: Matrix;
-	public var SourceSprite: cpp.Star<PaperSprite>;
+	public var SourceSprite: ucpp.Ptr<PaperSprite>;
 	public var VertexColor: Color;
-	public var MaterialIndex: cpp.Int32;
+	public var MaterialIndex: ucpp.num.Int32;
 
 	@:native("FSpriteInstanceData") public function new();
-	@:native("FSpriteInstanceData") public static function make(Transform: Matrix, SourceSprite: cpp.Star<PaperSprite>, VertexColor: Color, MaterialIndex: cpp.Int32): SpriteInstanceData ;
+	@:native("FSpriteInstanceData") public static function make(Transform: Matrix, SourceSprite: ucpp.Ptr<PaperSprite>, VertexColor: Color, MaterialIndex: ucpp.num.Int32): SpriteInstanceData ;
 }

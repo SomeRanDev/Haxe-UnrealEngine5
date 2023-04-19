@@ -3,13 +3,14 @@ package ue;
 
 @:native("UFbxAnimSequenceImportData")
 @:include("Factories/FbxAnimSequenceImportData.h")
-@:structAccess
+@:valueType
 extern class FbxAnimSequenceImportData extends FbxAssetImportData {
 	public var bImportMeshesInBoneHierarchy: Bool;
 	public var AnimationLength: TEnumAsByte<EFBXAnimationLengthImportType>;
 	public var FrameImportRange: Int32Interval;
 	public var bUseDefaultSampleRate: Bool;
-	public var CustomSampleRate: cpp.Int32;
+	public var CustomSampleRate: ucpp.num.Int32;
+	public var bSnapToClosestFrameBoundary: Bool;
 	public var SourceAnimationName: FString;
 	public var bImportCustomAttribute: Bool;
 	public var bDeleteExistingCustomAttributeCurves: Bool;
@@ -22,7 +23,7 @@ extern class FbxAnimSequenceImportData extends FbxAssetImportData {
 	public var bDoNotImportCurveWithZero: Bool;
 	public var bPreserveLocalTransform: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,8 +37,10 @@ abstract ConstFbxAnimSequenceImportData(FbxAnimSequenceImportData) from FbxAnimS
 	public inline extern function get_FrameImportRange(): Int32Interval return this.FrameImportRange;
 	public extern var bUseDefaultSampleRate(get, never): Bool;
 	public inline extern function get_bUseDefaultSampleRate(): Bool return this.bUseDefaultSampleRate;
-	public extern var CustomSampleRate(get, never): cpp.Int32;
-	public inline extern function get_CustomSampleRate(): cpp.Int32 return this.CustomSampleRate;
+	public extern var CustomSampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_CustomSampleRate(): ucpp.num.Int32 return this.CustomSampleRate;
+	public extern var bSnapToClosestFrameBoundary(get, never): Bool;
+	public inline extern function get_bSnapToClosestFrameBoundary(): Bool return this.bSnapToClosestFrameBoundary;
 	public extern var SourceAnimationName(get, never): FString;
 	public inline extern function get_SourceAnimationName(): FString return this.SourceAnimationName;
 	public extern var bImportCustomAttribute(get, never): Bool;
@@ -65,7 +68,7 @@ abstract ConstFbxAnimSequenceImportData(FbxAnimSequenceImportData) from FbxAnimS
 @:forward
 @:nativeGen
 @:native("FbxAnimSequenceImportData*")
-abstract FbxAnimSequenceImportDataPtr(cpp.Star<FbxAnimSequenceImportData>) from cpp.Star<FbxAnimSequenceImportData> to cpp.Star<FbxAnimSequenceImportData>{
+abstract FbxAnimSequenceImportDataPtr(ucpp.Ptr<FbxAnimSequenceImportData>) from ucpp.Ptr<FbxAnimSequenceImportData> to ucpp.Ptr<FbxAnimSequenceImportData>{
 	@:from
 	public static extern inline function fromValue(v: FbxAnimSequenceImportData): FbxAnimSequenceImportDataPtr {
 		return untyped __cpp__("&({0})", v);

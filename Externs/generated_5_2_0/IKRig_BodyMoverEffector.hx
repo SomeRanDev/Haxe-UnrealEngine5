@@ -3,13 +3,13 @@ package ue;
 
 @:native("UIKRig_BodyMoverEffector")
 @:include("Solvers/IKRig_BodyMover.h")
-@:structAccess
+@:valueType
 extern class IKRig_BodyMoverEffector extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
-	public var InfluenceMultiplier: cpp.Float32;
+	public var InfluenceMultiplier: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstIKRig_BodyMoverEffector(IKRig_BodyMoverEffector) from IKRig_BodyMo
 	public inline extern function get_GoalName(): FName return this.GoalName;
 	public extern var BoneName(get, never): FName;
 	public inline extern function get_BoneName(): FName return this.BoneName;
-	public extern var InfluenceMultiplier(get, never): cpp.Float32;
-	public inline extern function get_InfluenceMultiplier(): cpp.Float32 return this.InfluenceMultiplier;
+	public extern var InfluenceMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_InfluenceMultiplier(): ucpp.num.Float32 return this.InfluenceMultiplier;
 }
 
 @:forward
 @:nativeGen
 @:native("IKRig_BodyMoverEffector*")
-abstract IKRig_BodyMoverEffectorPtr(cpp.Star<IKRig_BodyMoverEffector>) from cpp.Star<IKRig_BodyMoverEffector> to cpp.Star<IKRig_BodyMoverEffector>{
+abstract IKRig_BodyMoverEffectorPtr(ucpp.Ptr<IKRig_BodyMoverEffector>) from ucpp.Ptr<IKRig_BodyMoverEffector> to ucpp.Ptr<IKRig_BodyMoverEffector>{
 	@:from
 	public static extern inline function fromValue(v: IKRig_BodyMoverEffector): IKRig_BodyMoverEffectorPtr {
 		return untyped __cpp__("&({0})", v);

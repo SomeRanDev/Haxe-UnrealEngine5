@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDropNoteInfo")
 @:include("Engine/Engine.h")
-@:structAccess
+@:valueType
 extern class DropNoteInfo {
 	public var Location: Vector;
 	public var Rotation: Rotator;

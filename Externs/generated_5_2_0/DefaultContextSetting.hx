@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDefaultContextSetting")
 @:include("EnhancedInputDeveloperSettings.h")
-@:structAccess
+@:valueType
 extern class DefaultContextSetting {
 	public var InputMappingContext: TSoftObjectPtr<InputMappingContext>;
-	public var Priority: cpp.Int32;
+	public var Priority: ucpp.num.Int32;
 
 	@:native("FDefaultContextSetting") public function new();
-	@:native("FDefaultContextSetting") public static function make(InputMappingContext: TSoftObjectPtr<InputMappingContext>, Priority: cpp.Int32): DefaultContextSetting ;
+	@:native("FDefaultContextSetting") public static function make(InputMappingContext: TSoftObjectPtr<InputMappingContext>, Priority: ucpp.num.Int32): DefaultContextSetting ;
 }

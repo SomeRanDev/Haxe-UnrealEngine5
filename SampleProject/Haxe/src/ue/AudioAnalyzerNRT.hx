@@ -3,29 +3,29 @@ package ue;
 
 @:native("UAudioAnalyzerNRT")
 @:include("AudioAnalyzerNRT.h")
-@:structAccess
+@:valueType
 extern class AudioAnalyzerNRT extends AudioAnalyzerAssetBase {
-	public var Sound: cpp.Star<SoundWave>;
-	public var DurationInSeconds: cpp.Float32;
+	public var Sound: ucpp.Ptr<SoundWave>;
+	public var DurationInSeconds: ucpp.num.Float32;
 
 	public function AnalyzeAudio(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAudioAnalyzerNRT(AudioAnalyzerNRT) from AudioAnalyzerNRT {
-	public extern var Sound(get, never): cpp.Star<SoundWave.ConstSoundWave>;
-	public inline extern function get_Sound(): cpp.Star<SoundWave.ConstSoundWave> return this.Sound;
-	public extern var DurationInSeconds(get, never): cpp.Float32;
-	public inline extern function get_DurationInSeconds(): cpp.Float32 return this.DurationInSeconds;
+	public extern var Sound(get, never): ucpp.Ptr<SoundWave.ConstSoundWave>;
+	public inline extern function get_Sound(): ucpp.Ptr<SoundWave.ConstSoundWave> return this.Sound;
+	public extern var DurationInSeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_DurationInSeconds(): ucpp.num.Float32 return this.DurationInSeconds;
 }
 
 @:forward
 @:nativeGen
 @:native("AudioAnalyzerNRT*")
-abstract AudioAnalyzerNRTPtr(cpp.Star<AudioAnalyzerNRT>) from cpp.Star<AudioAnalyzerNRT> to cpp.Star<AudioAnalyzerNRT>{
+abstract AudioAnalyzerNRTPtr(ucpp.Ptr<AudioAnalyzerNRT>) from ucpp.Ptr<AudioAnalyzerNRT> to ucpp.Ptr<AudioAnalyzerNRT>{
 	@:from
 	public static extern inline function fromValue(v: AudioAnalyzerNRT): AudioAnalyzerNRTPtr {
 		return untyped __cpp__("&({0})", v);

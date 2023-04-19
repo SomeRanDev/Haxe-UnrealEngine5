@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVertexAdapterClickToolBuilder")
 @:include("MeshSelect.h")
-@:structAccess
+@:valueType
 extern class VertexAdapterClickToolBuilder extends SingleClickToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVertexAdapterClickToolBuilder(VertexAdapterClickToolBuilder) from 
 @:forward
 @:nativeGen
 @:native("VertexAdapterClickToolBuilder*")
-abstract VertexAdapterClickToolBuilderPtr(cpp.Star<VertexAdapterClickToolBuilder>) from cpp.Star<VertexAdapterClickToolBuilder> to cpp.Star<VertexAdapterClickToolBuilder>{
+abstract VertexAdapterClickToolBuilderPtr(ucpp.Ptr<VertexAdapterClickToolBuilder>) from ucpp.Ptr<VertexAdapterClickToolBuilder> to ucpp.Ptr<VertexAdapterClickToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: VertexAdapterClickToolBuilder): VertexAdapterClickToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

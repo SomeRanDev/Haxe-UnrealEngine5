@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModule")
 @:include("Particles/ParticleModule.h")
-@:structAccess
+@:valueType
 extern class ParticleModule extends Object {
 	public var bSpawnModule: Bool;
 	public var bUpdateModule: Bool;
@@ -17,9 +17,9 @@ extern class ParticleModule extends Object {
 	public var LODDuplicate: Bool;
 	public var bSupportsRandomSeed: Bool;
 	public var bRequiresLoopingNotification: Bool;
-	public var LODValidity: cpp.UInt8;
+	public var LODValidity: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -49,14 +49,14 @@ abstract ConstParticleModule(ParticleModule) from ParticleModule {
 	public inline extern function get_bSupportsRandomSeed(): Bool return this.bSupportsRandomSeed;
 	public extern var bRequiresLoopingNotification(get, never): Bool;
 	public inline extern function get_bRequiresLoopingNotification(): Bool return this.bRequiresLoopingNotification;
-	public extern var LODValidity(get, never): cpp.UInt8;
-	public inline extern function get_LODValidity(): cpp.UInt8 return this.LODValidity;
+	public extern var LODValidity(get, never): ucpp.num.UInt8;
+	public inline extern function get_LODValidity(): ucpp.num.UInt8 return this.LODValidity;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModule*")
-abstract ParticleModulePtr(cpp.Star<ParticleModule>) from cpp.Star<ParticleModule> to cpp.Star<ParticleModule>{
+abstract ParticleModulePtr(ucpp.Ptr<ParticleModule>) from ucpp.Ptr<ParticleModule> to ucpp.Ptr<ParticleModule>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModule): ParticleModulePtr {
 		return untyped __cpp__("&({0})", v);

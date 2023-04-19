@@ -3,13 +3,13 @@ package ue;
 
 @:native("AGeometryCacheActor")
 @:include("GeometryCacheActor.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheActor extends Actor {
-	private var GeometryCacheComponent: cpp.Star<GeometryCacheComp>;
+	private var GeometryCacheComponent: ucpp.Ptr<GeometryCacheComp>;
 
-	public function GetGeometryCacheComponent(): cpp.Star<GeometryCacheComp>;
+	public function GetGeometryCacheComponent(): ucpp.Ptr<GeometryCacheComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetGeometryCacheComponent)
@@ -20,7 +20,7 @@ abstract ConstGeometryCacheActor(GeometryCacheActor) from GeometryCacheActor {
 @:forward
 @:nativeGen
 @:native("GeometryCacheActor*")
-abstract GeometryCacheActorPtr(cpp.Star<GeometryCacheActor>) from cpp.Star<GeometryCacheActor> to cpp.Star<GeometryCacheActor>{
+abstract GeometryCacheActorPtr(ucpp.Ptr<GeometryCacheActor>) from ucpp.Ptr<GeometryCacheActor> to ucpp.Ptr<GeometryCacheActor>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheActor): GeometryCacheActorPtr {
 		return untyped __cpp__("&({0})", v);

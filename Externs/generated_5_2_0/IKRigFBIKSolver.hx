@@ -3,22 +3,22 @@ package ue;
 
 @:native("UIKRigFBIKSolver")
 @:include("Solvers/IKRig_FBIKSolver.h")
-@:structAccess
+@:valueType
 extern class IKRigFBIKSolver extends IKRigSolver {
 	public var RootBone: FName;
-	public var Iterations: cpp.Int32;
-	public var MassMultiplier: cpp.Float32;
+	public var Iterations: ucpp.num.Int32;
+	public var MassMultiplier: ucpp.num.Float32;
 	public var bAllowStretch: Bool;
 	public var RootBehavior: EPBIKRootBehavior;
 	public var PrePullRootSettings: RootPrePullSettings;
-	public var PullChainAlpha: cpp.Float32;
-	public var MaxAngle: cpp.Float32;
-	public var OverRelaxation: cpp.Float32;
+	public var PullChainAlpha: ucpp.num.Float32;
+	public var MaxAngle: ucpp.num.Float32;
+	public var OverRelaxation: ucpp.num.Float32;
 	public var bStartSolveFromInputPose: Bool;
-	public var Effectors: TArray<cpp.Star<IKRig_FBIKEffector>>;
-	public var BoneSettings: TArray<cpp.Star<IKRig_FBIKBoneSettings>>;
+	public var Effectors: TArray<ucpp.Ptr<IKRig_FBIKEffector>>;
+	public var BoneSettings: TArray<ucpp.Ptr<IKRig_FBIKBoneSettings>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,34 +26,34 @@ extern class IKRigFBIKSolver extends IKRigSolver {
 abstract ConstIKRigFBIKSolver(IKRigFBIKSolver) from IKRigFBIKSolver {
 	public extern var RootBone(get, never): FName;
 	public inline extern function get_RootBone(): FName return this.RootBone;
-	public extern var Iterations(get, never): cpp.Int32;
-	public inline extern function get_Iterations(): cpp.Int32 return this.Iterations;
-	public extern var MassMultiplier(get, never): cpp.Float32;
-	public inline extern function get_MassMultiplier(): cpp.Float32 return this.MassMultiplier;
+	public extern var Iterations(get, never): ucpp.num.Int32;
+	public inline extern function get_Iterations(): ucpp.num.Int32 return this.Iterations;
+	public extern var MassMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_MassMultiplier(): ucpp.num.Float32 return this.MassMultiplier;
 	public extern var bAllowStretch(get, never): Bool;
 	public inline extern function get_bAllowStretch(): Bool return this.bAllowStretch;
 	public extern var RootBehavior(get, never): EPBIKRootBehavior;
 	public inline extern function get_RootBehavior(): EPBIKRootBehavior return this.RootBehavior;
 	public extern var PrePullRootSettings(get, never): RootPrePullSettings;
 	public inline extern function get_PrePullRootSettings(): RootPrePullSettings return this.PrePullRootSettings;
-	public extern var PullChainAlpha(get, never): cpp.Float32;
-	public inline extern function get_PullChainAlpha(): cpp.Float32 return this.PullChainAlpha;
-	public extern var MaxAngle(get, never): cpp.Float32;
-	public inline extern function get_MaxAngle(): cpp.Float32 return this.MaxAngle;
-	public extern var OverRelaxation(get, never): cpp.Float32;
-	public inline extern function get_OverRelaxation(): cpp.Float32 return this.OverRelaxation;
+	public extern var PullChainAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_PullChainAlpha(): ucpp.num.Float32 return this.PullChainAlpha;
+	public extern var MaxAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxAngle(): ucpp.num.Float32 return this.MaxAngle;
+	public extern var OverRelaxation(get, never): ucpp.num.Float32;
+	public inline extern function get_OverRelaxation(): ucpp.num.Float32 return this.OverRelaxation;
 	public extern var bStartSolveFromInputPose(get, never): Bool;
 	public inline extern function get_bStartSolveFromInputPose(): Bool return this.bStartSolveFromInputPose;
-	public extern var Effectors(get, never): TArray<cpp.Star<IKRig_FBIKEffector.ConstIKRig_FBIKEffector>>;
-	public inline extern function get_Effectors(): TArray<cpp.Star<IKRig_FBIKEffector.ConstIKRig_FBIKEffector>> return this.Effectors;
-	public extern var BoneSettings(get, never): TArray<cpp.Star<IKRig_FBIKBoneSettings.ConstIKRig_FBIKBoneSettings>>;
-	public inline extern function get_BoneSettings(): TArray<cpp.Star<IKRig_FBIKBoneSettings.ConstIKRig_FBIKBoneSettings>> return this.BoneSettings;
+	public extern var Effectors(get, never): TArray<ucpp.Ptr<IKRig_FBIKEffector.ConstIKRig_FBIKEffector>>;
+	public inline extern function get_Effectors(): TArray<ucpp.Ptr<IKRig_FBIKEffector.ConstIKRig_FBIKEffector>> return this.Effectors;
+	public extern var BoneSettings(get, never): TArray<ucpp.Ptr<IKRig_FBIKBoneSettings.ConstIKRig_FBIKBoneSettings>>;
+	public inline extern function get_BoneSettings(): TArray<ucpp.Ptr<IKRig_FBIKBoneSettings.ConstIKRig_FBIKBoneSettings>> return this.BoneSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("IKRigFBIKSolver*")
-abstract IKRigFBIKSolverPtr(cpp.Star<IKRigFBIKSolver>) from cpp.Star<IKRigFBIKSolver> to cpp.Star<IKRigFBIKSolver>{
+abstract IKRigFBIKSolverPtr(ucpp.Ptr<IKRigFBIKSolver>) from ucpp.Ptr<IKRigFBIKSolver> to ucpp.Ptr<IKRigFBIKSolver>{
 	@:from
 	public static extern inline function fromValue(v: IKRigFBIKSolver): IKRigFBIKSolverPtr {
 		return untyped __cpp__("&({0})", v);

@@ -4,8 +4,9 @@ package ue;
 @:native("EInterchangePipelineTask")
 @:include("InterchangePipelineBase.h")
 extern class EInterchangePipelineTask {
-	static var PreFactoryImport: EInterchangePipelineTask;
-	static var PostFactoryImport: EInterchangePipelineTask;
+	static var PostTranslator: EInterchangePipelineTask;
+	static var PostFactory: EInterchangePipelineTask;
+	static var PostImport: EInterchangePipelineTask;
 	static var Export: EInterchangePipelineTask;
 	static var EInterchangePipelineTask_MAX: EInterchangePipelineTask;
 }

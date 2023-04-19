@@ -3,15 +3,15 @@ package ue;
 
 @:native("UDEPRECATED_RigVMArrayNode")
 @:include("RigVMModel/Nodes/RigVMArrayNode.h")
-@:structAccess
+@:valueType
 extern class RigVMArrayNode extends RigVMTemplateNode {
 	private var OpCode: ERigVMOpCode;
 
 	public function GetOpCode(): ERigVMOpCode;
-	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetCPPTypeObject(): ucpp.Ptr<Object>;
 	public function GetCPPType(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetOpCode, GetCPPTypeObject, GetCPPType)
@@ -22,7 +22,7 @@ abstract ConstRigVMArrayNode(RigVMArrayNode) from RigVMArrayNode {
 @:forward
 @:nativeGen
 @:native("RigVMArrayNode*")
-abstract RigVMArrayNodePtr(cpp.Star<RigVMArrayNode>) from cpp.Star<RigVMArrayNode> to cpp.Star<RigVMArrayNode>{
+abstract RigVMArrayNodePtr(ucpp.Ptr<RigVMArrayNode>) from ucpp.Ptr<RigVMArrayNode> to ucpp.Ptr<RigVMArrayNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMArrayNode): RigVMArrayNodePtr {
 		return untyped __cpp__("&({0})", v);

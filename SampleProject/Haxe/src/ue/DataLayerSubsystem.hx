@@ -3,44 +3,50 @@ package ue;
 
 @:native("UDataLayerSubsystem")
 @:include("WorldPartition/DataLayer/DataLayerSubsystem.h")
-@:structAccess
+@:valueType
 extern class DataLayerSubsystem extends WorldSubsystem {
-	public var OnDataLayerRuntimeStateChanged: HaxeMulticastSparseDelegateProperty<(cpp.Star<DataLayer.ConstDataLayer>, EDataLayerRuntimeState) -> Void>;
+	public var OnDataLayerRuntimeStateChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DataLayerInstance.ConstDataLayerInstance>, EDataLayerRuntimeState) -> Void>;
+	private var DataLayerLoadingPolicyClass: TSoftClassPtr<Class>;
+	private var DataLayerLoadingPolicy: ucpp.Ptr<DataLayerLoadingPolicy>;
 
-	public function SetDataLayerStateByLabel(InDataLayerLabel: cpp.Reference<FName>, InState: EDataLayerState): Void;
-	public function SetDataLayerState(InDataLayer: cpp.Reference<ActorDataLayer>, InState: EDataLayerState): Void;
-	public function SetDataLayerRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>, InState: EDataLayerRuntimeState, bInIsRecursive: Bool): Void;
-	public function SetDataLayerRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>, InState: EDataLayerRuntimeState, bInIsRecursive: Bool): Void;
+	public function SetDataLayerStateByLabel(InDataLayerLabel: ucpp.Ref<FName>, InState: EDataLayerState): Void;
+	public function SetDataLayerState(InDataLayer: ucpp.Ref<ActorDataLayer>, InState: EDataLayerState): Void;
+	public function SetDataLayerRuntimeStateByLabel(InDataLayerLabel: ucpp.Ref<FName>, InState: EDataLayerRuntimeState, bInIsRecursive: Bool): Void;
+	public function SetDataLayerRuntimeState(InDataLayer: ucpp.Ref<ActorDataLayer>, InState: EDataLayerRuntimeState, bInIsRecursive: Bool): Void;
+	public function SetDataLayerInstanceRuntimeState(InDataLayerAsset: ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>, InState: EDataLayerRuntimeState, bInIsRecursive: Bool): Void;
 	public function GetLoadedDataLayerNames(): TSet<FName>;
-	public function GetDataLayerStateByLabel(InDataLayerLabel: cpp.Reference<FName>): EDataLayerState;
-	public function GetDataLayerState(InDataLayer: cpp.Reference<ActorDataLayer>): EDataLayerState;
-	public function GetDataLayerRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>): EDataLayerRuntimeState;
-	public function GetDataLayerRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>): EDataLayerRuntimeState;
-	public function GetDataLayerFromName(InDataLayerName: FName): cpp.Star<DataLayer>;
-	public function GetDataLayerFromLabel(InDataLayerLabel: FName): cpp.Star<DataLayer>;
-	public function GetDataLayerEffectiveRuntimeStateByLabel(InDataLayerLabel: cpp.Reference<FName>): EDataLayerRuntimeState;
-	public function GetDataLayerEffectiveRuntimeState(InDataLayer: cpp.Reference<ActorDataLayer>): EDataLayerRuntimeState;
-	public function GetDataLayer(InDataLayer: cpp.Reference<ActorDataLayer>): cpp.Star<DataLayer>;
+	public function GetDataLayerStateByLabel(InDataLayerLabel: ucpp.Ref<FName>): EDataLayerState;
+	public function GetDataLayerState(InDataLayer: ucpp.Ref<ActorDataLayer>): EDataLayerState;
+	public function GetDataLayerRuntimeStateByLabel(InDataLayerLabel: ucpp.Ref<FName>): EDataLayerRuntimeState;
+	public function GetDataLayerRuntimeState(InDataLayer: ucpp.Ref<ActorDataLayer>): EDataLayerRuntimeState;
+	public function GetDataLayerInstanceRuntimeState(InDataLayerAsset: ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>): EDataLayerRuntimeState;
+	public function GetDataLayerInstanceFromAsset(InDataLayerAsset: ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>): ucpp.Ptr<DataLayerInstance>;
+	public function GetDataLayerInstanceEffectiveRuntimeState(InDataLayerAsset: ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>): EDataLayerRuntimeState;
+	public function GetDataLayerFromName(InDataLayerName: FName): ucpp.Ptr<DataLayerInstance>;
+	public function GetDataLayerFromLabel(InDataLayerLabel: FName): ucpp.Ptr<DataLayerInstance>;
+	public function GetDataLayerEffectiveRuntimeStateByLabel(InDataLayerLabel: ucpp.Ref<FName>): EDataLayerRuntimeState;
+	public function GetDataLayerEffectiveRuntimeState(InDataLayer: ucpp.Ref<ActorDataLayer>): EDataLayerRuntimeState;
+	public function GetDataLayer(InDataLayer: ucpp.Ref<ActorDataLayer>): ucpp.Ptr<DataLayerInstance>;
 	public function GetActiveDataLayerNames(): TSet<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
 	GetLoadedDataLayerNames, GetDataLayerStateByLabel, GetDataLayerState, GetDataLayerRuntimeStateByLabel, GetDataLayerRuntimeState,
-	GetDataLayerFromName, GetDataLayerFromLabel, GetDataLayerEffectiveRuntimeStateByLabel, GetDataLayerEffectiveRuntimeState, GetDataLayer,
-	GetActiveDataLayerNames
+	GetDataLayerInstanceRuntimeState, GetDataLayerInstanceFromAsset, GetDataLayerInstanceEffectiveRuntimeState, GetDataLayerFromName, GetDataLayerFromLabel,
+	GetDataLayerEffectiveRuntimeStateByLabel, GetDataLayerEffectiveRuntimeState, GetDataLayer, GetActiveDataLayerNames
 )
 @:nativeGen
 abstract ConstDataLayerSubsystem(DataLayerSubsystem) from DataLayerSubsystem {
-	public extern var OnDataLayerRuntimeStateChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<DataLayer.ConstDataLayer>, EDataLayerRuntimeState) -> Void>;
-	public inline extern function get_OnDataLayerRuntimeStateChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Star<DataLayer.ConstDataLayer>, EDataLayerRuntimeState) -> Void> return this.OnDataLayerRuntimeStateChanged;
+	public extern var OnDataLayerRuntimeStateChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DataLayerInstance.ConstDataLayerInstance>, EDataLayerRuntimeState) -> Void>;
+	public inline extern function get_OnDataLayerRuntimeStateChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<DataLayerInstance.ConstDataLayerInstance>, EDataLayerRuntimeState) -> Void> return this.OnDataLayerRuntimeStateChanged;
 }
 
 @:forward
 @:nativeGen
 @:native("DataLayerSubsystem*")
-abstract DataLayerSubsystemPtr(cpp.Star<DataLayerSubsystem>) from cpp.Star<DataLayerSubsystem> to cpp.Star<DataLayerSubsystem>{
+abstract DataLayerSubsystemPtr(ucpp.Ptr<DataLayerSubsystem>) from ucpp.Ptr<DataLayerSubsystem> to ucpp.Ptr<DataLayerSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerSubsystem): DataLayerSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

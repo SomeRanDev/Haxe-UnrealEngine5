@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneParticleSection")
 @:include("Sections/MovieSceneParticleSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneParticleSection extends MovieSceneSection {
 	public var ParticleKeys: MovieSceneParticleChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneParticleSection(MovieSceneParticleSection) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieSceneParticleSection*")
-abstract MovieSceneParticleSectionPtr(cpp.Star<MovieSceneParticleSection>) from cpp.Star<MovieSceneParticleSection> to cpp.Star<MovieSceneParticleSection>{
+abstract MovieSceneParticleSectionPtr(ucpp.Ptr<MovieSceneParticleSection>) from ucpp.Ptr<MovieSceneParticleSection> to ucpp.Ptr<MovieSceneParticleSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneParticleSection): MovieSceneParticleSectionPtr {
 		return untyped __cpp__("&({0})", v);

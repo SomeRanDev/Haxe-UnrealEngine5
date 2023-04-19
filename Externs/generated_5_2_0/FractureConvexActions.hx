@@ -3,12 +3,12 @@ package ue;
 
 @:native("UFractureConvexActions")
 @:include("FractureToolConvex.h")
-@:structAccess
+@:valueType
 extern class FractureConvexActions extends FractureToolSettings {
 	public function SetFromDefaults(): Void;
 	public function SaveAsDefaults(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstFractureConvexActions(FractureConvexActions) from FractureConvexAc
 @:forward
 @:nativeGen
 @:native("FractureConvexActions*")
-abstract FractureConvexActionsPtr(cpp.Star<FractureConvexActions>) from cpp.Star<FractureConvexActions> to cpp.Star<FractureConvexActions>{
+abstract FractureConvexActionsPtr(ucpp.Ptr<FractureConvexActions>) from ucpp.Ptr<FractureConvexActions> to ucpp.Ptr<FractureConvexActions>{
 	@:from
 	public static extern inline function fromValue(v: FractureConvexActions): FractureConvexActionsPtr {
 		return untyped __cpp__("&({0})", v);

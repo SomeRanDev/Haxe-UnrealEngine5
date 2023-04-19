@@ -3,34 +3,34 @@ package ue;
 
 @:native("UForceFeedbackComponent")
 @:include("Components/ForceFeedbackComponent.h")
-@:structAccess
+@:valueType
 extern class ForceFeedbackComp extends SceneComp {
-	public var ForceFeedbackEffect: cpp.Star<ForceFeedbackEffect>;
+	public var ForceFeedbackEffect: ucpp.Ptr<ForceFeedbackEffect>;
 	public var bAutoDestroy: Bool;
 	public var bStopWhenOwnerDestroyed: Bool;
 	public var bLooping: Bool;
 	public var bIgnoreTimeDilation: Bool;
 	public var bOverrideAttenuation: Bool;
-	public var IntensityMultiplier: cpp.Float32;
-	public var AttenuationSettings: cpp.Star<ForceFeedbackAttenuation>;
+	public var IntensityMultiplier: ucpp.num.Float32;
+	public var AttenuationSettings: ucpp.Ptr<ForceFeedbackAttenuation>;
 	public var AttenuationOverrides: ForceFeedbackAttenuationSettings;
-	public var OnForceFeedbackFinished: HaxeMulticastSparseDelegateProperty<(cpp.Star<ForceFeedbackComp>) -> Void>;
+	public var OnForceFeedbackFinished: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ForceFeedbackComp>) -> Void>;
 
 	public function Stop(): Void;
-	public function SetIntensityMultiplier(NewIntensityMultiplier: cpp.Float32): Void;
-	public function SetForceFeedbackEffect(NewForceFeedbackEffect: cpp.Star<ForceFeedbackEffect>): Void;
-	public function Play(StartTime: cpp.Float32): Void;
-	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<ForceFeedbackAttenuationSettings>): Bool;
-	public function AdjustAttenuation(InAttenuationSettings: cpp.Reference<ForceFeedbackAttenuationSettings>): Void;
+	public function SetIntensityMultiplier(NewIntensityMultiplier: ucpp.num.Float32): Void;
+	public function SetForceFeedbackEffect(NewForceFeedbackEffect: ucpp.Ptr<ForceFeedbackEffect>): Void;
+	public function Play(StartTime: ucpp.num.Float32): Void;
+	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: ucpp.Ref<ForceFeedbackAttenuationSettings>): Bool;
+	public function AdjustAttenuation(InAttenuationSettings: ucpp.Ref<ForceFeedbackAttenuationSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(BP_GetAttenuationSettingsToApply)
 @:nativeGen
 abstract ConstForceFeedbackComp(ForceFeedbackComp) from ForceFeedbackComp {
-	public extern var ForceFeedbackEffect(get, never): cpp.Star<ForceFeedbackEffect.ConstForceFeedbackEffect>;
-	public inline extern function get_ForceFeedbackEffect(): cpp.Star<ForceFeedbackEffect.ConstForceFeedbackEffect> return this.ForceFeedbackEffect;
+	public extern var ForceFeedbackEffect(get, never): ucpp.Ptr<ForceFeedbackEffect.ConstForceFeedbackEffect>;
+	public inline extern function get_ForceFeedbackEffect(): ucpp.Ptr<ForceFeedbackEffect.ConstForceFeedbackEffect> return this.ForceFeedbackEffect;
 	public extern var bAutoDestroy(get, never): Bool;
 	public inline extern function get_bAutoDestroy(): Bool return this.bAutoDestroy;
 	public extern var bStopWhenOwnerDestroyed(get, never): Bool;
@@ -41,20 +41,20 @@ abstract ConstForceFeedbackComp(ForceFeedbackComp) from ForceFeedbackComp {
 	public inline extern function get_bIgnoreTimeDilation(): Bool return this.bIgnoreTimeDilation;
 	public extern var bOverrideAttenuation(get, never): Bool;
 	public inline extern function get_bOverrideAttenuation(): Bool return this.bOverrideAttenuation;
-	public extern var IntensityMultiplier(get, never): cpp.Float32;
-	public inline extern function get_IntensityMultiplier(): cpp.Float32 return this.IntensityMultiplier;
-	public extern var AttenuationSettings(get, never): cpp.Star<ForceFeedbackAttenuation.ConstForceFeedbackAttenuation>;
-	public inline extern function get_AttenuationSettings(): cpp.Star<ForceFeedbackAttenuation.ConstForceFeedbackAttenuation> return this.AttenuationSettings;
+	public extern var IntensityMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_IntensityMultiplier(): ucpp.num.Float32 return this.IntensityMultiplier;
+	public extern var AttenuationSettings(get, never): ucpp.Ptr<ForceFeedbackAttenuation.ConstForceFeedbackAttenuation>;
+	public inline extern function get_AttenuationSettings(): ucpp.Ptr<ForceFeedbackAttenuation.ConstForceFeedbackAttenuation> return this.AttenuationSettings;
 	public extern var AttenuationOverrides(get, never): ForceFeedbackAttenuationSettings;
 	public inline extern function get_AttenuationOverrides(): ForceFeedbackAttenuationSettings return this.AttenuationOverrides;
-	public extern var OnForceFeedbackFinished(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<ForceFeedbackComp.ConstForceFeedbackComp>) -> Void>;
-	public inline extern function get_OnForceFeedbackFinished(): HaxeMulticastSparseDelegateProperty<(cpp.Star<ForceFeedbackComp.ConstForceFeedbackComp>) -> Void> return this.OnForceFeedbackFinished;
+	public extern var OnForceFeedbackFinished(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ForceFeedbackComp.ConstForceFeedbackComp>) -> Void>;
+	public inline extern function get_OnForceFeedbackFinished(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<ForceFeedbackComp.ConstForceFeedbackComp>) -> Void> return this.OnForceFeedbackFinished;
 }
 
 @:forward
 @:nativeGen
 @:native("ForceFeedbackComp*")
-abstract ForceFeedbackCompPtr(cpp.Star<ForceFeedbackComp>) from cpp.Star<ForceFeedbackComp> to cpp.Star<ForceFeedbackComp>{
+abstract ForceFeedbackCompPtr(ucpp.Ptr<ForceFeedbackComp>) from ucpp.Ptr<ForceFeedbackComp> to ucpp.Ptr<ForceFeedbackComp>{
 	@:from
 	public static extern inline function fromValue(v: ForceFeedbackComp): ForceFeedbackCompPtr {
 		return untyped __cpp__("&({0})", v);

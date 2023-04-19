@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDeviceProfileFragment")
 @:include("DeviceProfiles/DeviceProfileFragment.h")
-@:structAccess
+@:valueType
 extern class DeviceProfileFragment extends Object {
 	public var CVars: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDeviceProfileFragment(DeviceProfileFragment) from DeviceProfileFra
 @:forward
 @:nativeGen
 @:native("DeviceProfileFragment*")
-abstract DeviceProfileFragmentPtr(cpp.Star<DeviceProfileFragment>) from cpp.Star<DeviceProfileFragment> to cpp.Star<DeviceProfileFragment>{
+abstract DeviceProfileFragmentPtr(ucpp.Ptr<DeviceProfileFragment>) from ucpp.Ptr<DeviceProfileFragment> to ucpp.Ptr<DeviceProfileFragment>{
 	@:from
 	public static extern inline function fromValue(v: DeviceProfileFragment): DeviceProfileFragmentPtr {
 		return untyped __cpp__("&({0})", v);

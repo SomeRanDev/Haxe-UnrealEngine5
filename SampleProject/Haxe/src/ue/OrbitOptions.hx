@@ -3,7 +3,7 @@ package ue;
 
 @:native("FOrbitOptions")
 @:include("Particles/Orbit/ParticleModuleOrbit.h")
-@:structAccess
+@:valueType
 extern class OrbitOptions {
 	public var bProcessDuringSpawn: Bool;
 	public var bProcessDuringUpdate: Bool;

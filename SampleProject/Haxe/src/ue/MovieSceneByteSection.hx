@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneByteSection")
 @:include("Sections/MovieSceneByteSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneByteSection extends MovieSceneSection {
 	public var ByteCurve: MovieSceneByteChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneByteSection(MovieSceneByteSection) from MovieSceneByteSe
 @:forward
 @:nativeGen
 @:native("MovieSceneByteSection*")
-abstract MovieSceneByteSectionPtr(cpp.Star<MovieSceneByteSection>) from cpp.Star<MovieSceneByteSection> to cpp.Star<MovieSceneByteSection>{
+abstract MovieSceneByteSectionPtr(ucpp.Ptr<MovieSceneByteSection>) from ucpp.Ptr<MovieSceneByteSection> to ucpp.Ptr<MovieSceneByteSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneByteSection): MovieSceneByteSectionPtr {
 		return untyped __cpp__("&({0})", v);

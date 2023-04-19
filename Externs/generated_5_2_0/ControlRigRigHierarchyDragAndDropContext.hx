@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigRigHierarchyDragAndDropContext")
 @:include("Private/Editor/ControlRigContextMenuContext.h")
-@:structAccess
+@:valueType
 extern class ControlRigRigHierarchyDragAndDropContext {
 	public var DraggedElementKeys: TArray<RigElementKey>;
 	public var TargetElementKey: RigElementKey;

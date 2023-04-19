@@ -3,14 +3,14 @@ package ue;
 
 @:native("FPhysicsAssetSolverSettings")
 @:include("PhysicsEngine/PhysicsAsset.h")
-@:structAccess
+@:valueType
 extern class PhysicsAssetSolverSettings {
-	public var PositionIterations: cpp.Int32;
-	public var VelocityIterations: cpp.Int32;
-	public var ProjectionIterations: cpp.Int32;
-	public var CullDistance: cpp.Float32;
-	public var MaxDepenetrationVelocity: cpp.Float32;
-	public var FixedTimeStep: cpp.Float32;
+	public var PositionIterations: ucpp.num.Int32;
+	public var VelocityIterations: ucpp.num.Int32;
+	public var ProjectionIterations: ucpp.num.Int32;
+	public var CullDistance: ucpp.num.Float32;
+	public var MaxDepenetrationVelocity: ucpp.num.Float32;
+	public var FixedTimeStep: ucpp.num.Float32;
 	public var bUseLinearJointSolver: Bool;
 
 	@:native("FPhysicsAssetSolverSettings") public function new();

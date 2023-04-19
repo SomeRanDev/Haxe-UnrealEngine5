@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_OnPointerEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_OnPointerEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_OnPointerEvent__PythonCallable(Widget_OnPointerEvent__Pytho
 @:forward
 @:nativeGen
 @:native("Widget_OnPointerEvent__PythonCallable*")
-abstract Widget_OnPointerEvent__PythonCallablePtr(cpp.Star<Widget_OnPointerEvent__PythonCallable>) from cpp.Star<Widget_OnPointerEvent__PythonCallable> to cpp.Star<Widget_OnPointerEvent__PythonCallable>{
+abstract Widget_OnPointerEvent__PythonCallablePtr(ucpp.Ptr<Widget_OnPointerEvent__PythonCallable>) from ucpp.Ptr<Widget_OnPointerEvent__PythonCallable> to ucpp.Ptr<Widget_OnPointerEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_OnPointerEvent__PythonCallable): Widget_OnPointerEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

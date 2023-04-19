@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneBuiltInEasingFunction")
 @:include("Generators/MovieSceneEasingCurves.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBuiltInEasingFunction extends Object {
 	public var Type: EMovieSceneBuiltInEasing;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneBuiltInEasingFunction(MovieSceneBuiltInEasingFunction) f
 @:forward
 @:nativeGen
 @:native("MovieSceneBuiltInEasingFunction*")
-abstract MovieSceneBuiltInEasingFunctionPtr(cpp.Star<MovieSceneBuiltInEasingFunction>) from cpp.Star<MovieSceneBuiltInEasingFunction> to cpp.Star<MovieSceneBuiltInEasingFunction>{
+abstract MovieSceneBuiltInEasingFunctionPtr(ucpp.Ptr<MovieSceneBuiltInEasingFunction>) from ucpp.Ptr<MovieSceneBuiltInEasingFunction> to ucpp.Ptr<MovieSceneBuiltInEasingFunction>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneBuiltInEasingFunction): MovieSceneBuiltInEasingFunctionPtr {
 		return untyped __cpp__("&({0})", v);

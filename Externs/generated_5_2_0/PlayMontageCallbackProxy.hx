@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPlayMontageCallbackProxy")
 @:include("PlayMontageCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class PlayMontageCallbackProxy extends Object {
 	public var OnCompleted: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public var OnBlendOut: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
@@ -11,13 +11,13 @@ extern class PlayMontageCallbackProxy extends Object {
 	public var OnNotifyBegin: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 	public var OnNotifyEnd: HaxeMulticastSparseDelegateProperty<(FName) -> Void>;
 
-	@:protected public function OnNotifyEndReceived(NotifyName: FName, BranchingPointNotifyPayload: cpp.Reference<BranchingPointNotifyPayload>): Void;
-	@:protected public function OnNotifyBeginReceived(NotifyName: FName, BranchingPointNotifyPayload: cpp.Reference<BranchingPointNotifyPayload>): Void;
-	@:protected public function OnMontageEnded(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
-	@:protected public function OnMontageBlendingOut(Montage: cpp.Star<AnimMontage>, bInterrupted: Bool): Void;
-	public function CreateProxyObjectForPlayMontage(InSkeletalMeshComponent: cpp.Star<SkeletalMeshComp>, MontageToPlay: cpp.Star<AnimMontage>, PlayRate: cpp.Float32, StartingPosition: cpp.Float32, StartingSection: FName): cpp.Star<PlayMontageCallbackProxy>;
+	@:protected public function OnNotifyEndReceived(NotifyName: FName, BranchingPointNotifyPayload: ucpp.Ref<BranchingPointNotifyPayload>): Void;
+	@:protected public function OnNotifyBeginReceived(NotifyName: FName, BranchingPointNotifyPayload: ucpp.Ref<BranchingPointNotifyPayload>): Void;
+	@:protected public function OnMontageEnded(Montage: ucpp.Ptr<AnimMontage>, bInterrupted: Bool): Void;
+	@:protected public function OnMontageBlendingOut(Montage: ucpp.Ptr<AnimMontage>, bInterrupted: Bool): Void;
+	public function CreateProxyObjectForPlayMontage(InSkeletalMeshComponent: ucpp.Ptr<SkeletalMeshComp>, MontageToPlay: ucpp.Ptr<AnimMontage>, PlayRate: ucpp.num.Float32, StartingPosition: ucpp.num.Float32, StartingSection: FName): ucpp.Ptr<PlayMontageCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstPlayMontageCallbackProxy(PlayMontageCallbackProxy) from PlayMontag
 @:forward
 @:nativeGen
 @:native("PlayMontageCallbackProxy*")
-abstract PlayMontageCallbackProxyPtr(cpp.Star<PlayMontageCallbackProxy>) from cpp.Star<PlayMontageCallbackProxy> to cpp.Star<PlayMontageCallbackProxy>{
+abstract PlayMontageCallbackProxyPtr(ucpp.Ptr<PlayMontageCallbackProxy>) from ucpp.Ptr<PlayMontageCallbackProxy> to ucpp.Ptr<PlayMontageCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: PlayMontageCallbackProxy): PlayMontageCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

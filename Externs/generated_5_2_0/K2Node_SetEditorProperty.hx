@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_SetEditorProperty")
 @:include("K2Node_EditorPropertyAccess.h")
-@:structAccess
+@:valueType
 extern class K2Node_SetEditorProperty extends K2Node_EditorPropertyAccessBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_SetEditorProperty(K2Node_SetEditorProperty) from K2Node_Set
 @:forward
 @:nativeGen
 @:native("K2Node_SetEditorProperty*")
-abstract K2Node_SetEditorPropertyPtr(cpp.Star<K2Node_SetEditorProperty>) from cpp.Star<K2Node_SetEditorProperty> to cpp.Star<K2Node_SetEditorProperty>{
+abstract K2Node_SetEditorPropertyPtr(ucpp.Ptr<K2Node_SetEditorProperty>) from ucpp.Ptr<K2Node_SetEditorProperty> to ucpp.Ptr<K2Node_SetEditorProperty>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_SetEditorProperty): K2Node_SetEditorPropertyPtr {
 		return untyped __cpp__("&({0})", v);

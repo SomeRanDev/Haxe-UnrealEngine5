@@ -3,10 +3,10 @@ package ue;
 
 @:native("FNiagaraScalabilityState")
 @:include("NiagaraScalabilityState.h")
-@:structAccess
+@:valueType
 extern class NiagaraScalabilityState {
-	public var Significance: cpp.Float32;
-	public var LastVisibleTime: cpp.Float32;
+	public var Significance: ucpp.num.Float32;
+	public var LastVisibleTime: ucpp.num.Float32;
 	public var bCulled: Bool;
 	public var bPreviousCulled: Bool;
 	public var bCulledByDistance: Bool;

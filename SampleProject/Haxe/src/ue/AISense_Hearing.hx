@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAISense_Hearing")
 @:include("Perception/AISense_Hearing.h")
-@:structAccess
+@:valueType
 extern class AISense_Hearing extends AISense {
 	@:protected public var NoiseEvents: TArray<AINoiseEvent>;
-	@:protected public var SpeedOfSoundSq: cpp.Float32;
+	@:protected public var SpeedOfSoundSq: ucpp.num.Float32;
 
-	public function ReportNoiseEvent(WorldContextObject: cpp.Star<Object>, NoiseLocation: Vector, Loudness: cpp.Float32, Instigator: cpp.Star<Actor>, MaxRange: cpp.Float32, Tag: FName): Void;
+	public function ReportNoiseEvent(WorldContextObject: ucpp.Ptr<Object>, NoiseLocation: Vector, Loudness: ucpp.num.Float32, Instigator: ucpp.Ptr<Actor>, MaxRange: ucpp.num.Float32, Tag: FName): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAISense_Hearing(AISense_Hearing) from AISense_Hearing {
 @:forward
 @:nativeGen
 @:native("AISense_Hearing*")
-abstract AISense_HearingPtr(cpp.Star<AISense_Hearing>) from cpp.Star<AISense_Hearing> to cpp.Star<AISense_Hearing>{
+abstract AISense_HearingPtr(ucpp.Ptr<AISense_Hearing>) from ucpp.Ptr<AISense_Hearing> to ucpp.Ptr<AISense_Hearing>{
 	@:from
 	public static extern inline function fromValue(v: AISense_Hearing): AISense_HearingPtr {
 		return untyped __cpp__("&({0})", v);

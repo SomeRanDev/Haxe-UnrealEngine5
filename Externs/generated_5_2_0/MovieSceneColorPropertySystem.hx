@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneColorPropertySystem")
 @:include("Systems/MovieSceneColorPropertySystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneColorPropertySystem extends MovieScenePropertySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneColorPropertySystem(MovieSceneColorPropertySystem) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneColorPropertySystem*")
-abstract MovieSceneColorPropertySystemPtr(cpp.Star<MovieSceneColorPropertySystem>) from cpp.Star<MovieSceneColorPropertySystem> to cpp.Star<MovieSceneColorPropertySystem>{
+abstract MovieSceneColorPropertySystemPtr(ucpp.Ptr<MovieSceneColorPropertySystem>) from ucpp.Ptr<MovieSceneColorPropertySystem> to ucpp.Ptr<MovieSceneColorPropertySystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneColorPropertySystem): MovieSceneColorPropertySystemPtr {
 		return untyped __cpp__("&({0})", v);

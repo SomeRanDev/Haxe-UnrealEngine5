@@ -3,13 +3,13 @@ package ue;
 
 @:native("UWorldPartitionRuntimeCellDataSpatialHash")
 @:include("WorldPartition/WorldPartitionRuntimeCellDataSpatialHash.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeCellDataSpatialHash extends WorldPartitionRuntimeCellData {
 	public var Position: Vector;
-	public var Extent: cpp.Float32;
-	public var Level: cpp.Int32;
+	public var Extent: ucpp.num.Float32;
+	public var Level: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class WorldPartitionRuntimeCellDataSpatialHash extends WorldPartitionRunt
 abstract ConstWorldPartitionRuntimeCellDataSpatialHash(WorldPartitionRuntimeCellDataSpatialHash) from WorldPartitionRuntimeCellDataSpatialHash {
 	public extern var Position(get, never): Vector;
 	public inline extern function get_Position(): Vector return this.Position;
-	public extern var Extent(get, never): cpp.Float32;
-	public inline extern function get_Extent(): cpp.Float32 return this.Extent;
-	public extern var Level(get, never): cpp.Int32;
-	public inline extern function get_Level(): cpp.Int32 return this.Level;
+	public extern var Extent(get, never): ucpp.num.Float32;
+	public inline extern function get_Extent(): ucpp.num.Float32 return this.Extent;
+	public extern var Level(get, never): ucpp.num.Int32;
+	public inline extern function get_Level(): ucpp.num.Int32 return this.Level;
 }
 
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeCellDataSpatialHash*")
-abstract WorldPartitionRuntimeCellDataSpatialHashPtr(cpp.Star<WorldPartitionRuntimeCellDataSpatialHash>) from cpp.Star<WorldPartitionRuntimeCellDataSpatialHash> to cpp.Star<WorldPartitionRuntimeCellDataSpatialHash>{
+abstract WorldPartitionRuntimeCellDataSpatialHashPtr(ucpp.Ptr<WorldPartitionRuntimeCellDataSpatialHash>) from ucpp.Ptr<WorldPartitionRuntimeCellDataSpatialHash> to ucpp.Ptr<WorldPartitionRuntimeCellDataSpatialHash>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeCellDataSpatialHash): WorldPartitionRuntimeCellDataSpatialHashPtr {
 		return untyped __cpp__("&({0})", v);

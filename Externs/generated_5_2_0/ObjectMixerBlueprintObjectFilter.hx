@@ -3,23 +3,23 @@ package ue;
 
 @:native("UObjectMixerBlueprintObjectFilter")
 @:include("ObjectFilter/ObjectMixerEditorObjectFilter.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerBlueprintObjectFilter extends ObjectMixerObjectFilter {
 	public function ShouldIncludeUnsupportedProperties(): Bool;
-	public function OnSetRowEditorVisibility(InObject: cpp.Star<Object>, bNewIsVisible: Bool): Void;
-	public function GetRowTooltipText(InObject: cpp.Star<Object>, bIsHybridRow: Bool): FText;
-	public function GetRowEditorVisibility(InObject: cpp.Star<Object>): Bool;
-	public function GetRowDisplayName(InObject: cpp.Star<Object>, bIsHybridRow: Bool): FText;
+	public function OnSetRowEditorVisibility(InObject: ucpp.Ptr<Object>, bNewIsVisible: Bool): Void;
+	public function GetRowTooltipText(InObject: ucpp.Ptr<Object>, bIsHybridRow: Bool): FText;
+	public function GetRowEditorVisibility(InObject: ucpp.Ptr<Object>): Bool;
+	public function GetRowDisplayName(InObject: ucpp.Ptr<Object>, bIsHybridRow: Bool): FText;
 	public function GetPropertiesThatRequireListRefresh(): TSet<FName>;
 	public function GetObjectMixerPropertyInheritanceInclusionOptions(): EObjectMixerInheritanceInclusionOptions;
 	public function GetObjectMixerPlacementClassInclusionOptions(): EObjectMixerInheritanceInclusionOptions;
 	public function GetObjectClassesToPlace(): TSet<TSubclassOf<Actor>>;
-	public function GetObjectClassesToFilter(): TSet<cpp.Star<Class>>;
+	public function GetObjectClassesToFilter(): TSet<ucpp.Ptr<Class>>;
 	public function GetForceAddedColumns(): TSet<FName>;
 	public function GetColumnsToShowByDefault(): TSet<FName>;
 	public function GetColumnsToExclude(): TSet<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -34,7 +34,7 @@ abstract ConstObjectMixerBlueprintObjectFilter(ObjectMixerBlueprintObjectFilter)
 @:forward
 @:nativeGen
 @:native("ObjectMixerBlueprintObjectFilter*")
-abstract ObjectMixerBlueprintObjectFilterPtr(cpp.Star<ObjectMixerBlueprintObjectFilter>) from cpp.Star<ObjectMixerBlueprintObjectFilter> to cpp.Star<ObjectMixerBlueprintObjectFilter>{
+abstract ObjectMixerBlueprintObjectFilterPtr(ucpp.Ptr<ObjectMixerBlueprintObjectFilter>) from ucpp.Ptr<ObjectMixerBlueprintObjectFilter> to ucpp.Ptr<ObjectMixerBlueprintObjectFilter>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerBlueprintObjectFilter): ObjectMixerBlueprintObjectFilterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWorldPartitionConvertCommandlet")
 @:include("Commandlets/WorldPartitionConvertCommandlet.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionConvertCommandlet extends Commandlet {
 	@:protected public var EditorHashClass: TSubclassOf<WorldPartitionEditorHash>;
 	@:protected public var RuntimeHashClass: TSubclassOf<WorldPartitionRuntimeHash>;
@@ -16,12 +16,12 @@ extern class WorldPartitionConvertCommandlet extends Commandlet {
 	@:protected public var DefaultHLODLayerAsset: FString;
 	@:protected public var FoliageTypePath: FString;
 	@:protected public var HLODLayersForActorClasses: TArray<HLODLayerActorMapping>;
-	@:protected public var HLODLayers: TMap<FString, cpp.Star<HLODLayer>>;
-	@:protected public var LandscapeGridSize: cpp.UInt32;
+	@:protected public var HLODLayers: TMap<FString, ucpp.Ptr<HLODLayer>>;
+	@:protected public var LandscapeGridSize: ucpp.num.UInt32;
 	@:protected public var DataLayerAssetFolder: FString;
-	@:protected public var DataLayerFactory: cpp.Star<DataLayerFactory>;
+	@:protected public var DataLayerFactory: ucpp.Ptr<DataLayerFactory>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstWorldPartitionConvertCommandlet(WorldPartitionConvertCommandlet) f
 @:forward
 @:nativeGen
 @:native("WorldPartitionConvertCommandlet*")
-abstract WorldPartitionConvertCommandletPtr(cpp.Star<WorldPartitionConvertCommandlet>) from cpp.Star<WorldPartitionConvertCommandlet> to cpp.Star<WorldPartitionConvertCommandlet>{
+abstract WorldPartitionConvertCommandletPtr(ucpp.Ptr<WorldPartitionConvertCommandlet>) from ucpp.Ptr<WorldPartitionConvertCommandlet> to ucpp.Ptr<WorldPartitionConvertCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionConvertCommandlet): WorldPartitionConvertCommandletPtr {
 		return untyped __cpp__("&({0})", v);

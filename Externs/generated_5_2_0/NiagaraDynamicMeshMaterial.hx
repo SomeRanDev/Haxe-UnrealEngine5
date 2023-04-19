@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraDynamicMeshMaterial")
 @:include("Private/DataInterface/NiagaraDataInterfaceDynamicMesh.h")
-@:structAccess
+@:valueType
 extern class NiagaraDynamicMeshMaterial {
-	public var Material: cpp.Star<MaterialInterface>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 	public var MaterialUserParamBinding: NiagaraUserParameterBinding;
 
 	@:native("FNiagaraDynamicMeshMaterial") public function new();
-	@:native("FNiagaraDynamicMeshMaterial") public static function make(Material: cpp.Star<MaterialInterface>, MaterialUserParamBinding: NiagaraUserParameterBinding): NiagaraDynamicMeshMaterial ;
+	@:native("FNiagaraDynamicMeshMaterial") public static function make(Material: ucpp.Ptr<MaterialInterface>, MaterialUserParamBinding: NiagaraUserParameterBinding): NiagaraDynamicMeshMaterial ;
 }

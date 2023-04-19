@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraNodeConvert")
 @:include("NiagaraNodeConvert.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeConvert extends NiagaraNodeWithDynamicPins {
 	private var AutowireSwizzle: FString;
 	private var AutowireMakeType: NiagaraTypeDefinition;
@@ -12,7 +12,7 @@ extern class NiagaraNodeConvert extends NiagaraNodeWithDynamicPins {
 	private var bIsWiringShown: Bool;
 	private var ExpandedItems: TArray<NiagaraConvertPinRecord>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraNodeConvert(NiagaraNodeConvert) from NiagaraNodeConvert {
 @:forward
 @:nativeGen
 @:native("NiagaraNodeConvert*")
-abstract NiagaraNodeConvertPtr(cpp.Star<NiagaraNodeConvert>) from cpp.Star<NiagaraNodeConvert> to cpp.Star<NiagaraNodeConvert>{
+abstract NiagaraNodeConvertPtr(ucpp.Ptr<NiagaraNodeConvert>) from ucpp.Ptr<NiagaraNodeConvert> to ucpp.Ptr<NiagaraNodeConvert>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeConvert): NiagaraNodeConvertPtr {
 		return untyped __cpp__("&({0})", v);

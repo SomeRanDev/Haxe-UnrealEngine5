@@ -3,18 +3,18 @@ package ue;
 
 @:native("UArchVisCharMovementComponent")
 @:include("ArchVisCharMovementComponent.h")
-@:structAccess
+@:valueType
 extern class ArchVisCharMovementComp extends CharacterMovementComp {
 	public var RotationalAcceleration: Rotator;
 	public var RotationalDeceleration: Rotator;
 	public var MaxRotationalVelocity: Rotator;
-	public var MinPitch: cpp.Float32;
-	public var MaxPitch: cpp.Float32;
-	public var WalkingFriction: cpp.Float32;
-	public var WalkingSpeed: cpp.Float32;
-	public var WalkingAcceleration: cpp.Float32;
+	public var MinPitch: ucpp.num.Float32;
+	public var MaxPitch: ucpp.num.Float32;
+	public var WalkingFriction: ucpp.num.Float32;
+	public var WalkingSpeed: ucpp.num.Float32;
+	public var WalkingAcceleration: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,22 +26,22 @@ abstract ConstArchVisCharMovementComp(ArchVisCharMovementComp) from ArchVisCharM
 	public inline extern function get_RotationalDeceleration(): Rotator return this.RotationalDeceleration;
 	public extern var MaxRotationalVelocity(get, never): Rotator;
 	public inline extern function get_MaxRotationalVelocity(): Rotator return this.MaxRotationalVelocity;
-	public extern var MinPitch(get, never): cpp.Float32;
-	public inline extern function get_MinPitch(): cpp.Float32 return this.MinPitch;
-	public extern var MaxPitch(get, never): cpp.Float32;
-	public inline extern function get_MaxPitch(): cpp.Float32 return this.MaxPitch;
-	public extern var WalkingFriction(get, never): cpp.Float32;
-	public inline extern function get_WalkingFriction(): cpp.Float32 return this.WalkingFriction;
-	public extern var WalkingSpeed(get, never): cpp.Float32;
-	public inline extern function get_WalkingSpeed(): cpp.Float32 return this.WalkingSpeed;
-	public extern var WalkingAcceleration(get, never): cpp.Float32;
-	public inline extern function get_WalkingAcceleration(): cpp.Float32 return this.WalkingAcceleration;
+	public extern var MinPitch(get, never): ucpp.num.Float32;
+	public inline extern function get_MinPitch(): ucpp.num.Float32 return this.MinPitch;
+	public extern var MaxPitch(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxPitch(): ucpp.num.Float32 return this.MaxPitch;
+	public extern var WalkingFriction(get, never): ucpp.num.Float32;
+	public inline extern function get_WalkingFriction(): ucpp.num.Float32 return this.WalkingFriction;
+	public extern var WalkingSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_WalkingSpeed(): ucpp.num.Float32 return this.WalkingSpeed;
+	public extern var WalkingAcceleration(get, never): ucpp.num.Float32;
+	public inline extern function get_WalkingAcceleration(): ucpp.num.Float32 return this.WalkingAcceleration;
 }
 
 @:forward
 @:nativeGen
 @:native("ArchVisCharMovementComp*")
-abstract ArchVisCharMovementCompPtr(cpp.Star<ArchVisCharMovementComp>) from cpp.Star<ArchVisCharMovementComp> to cpp.Star<ArchVisCharMovementComp>{
+abstract ArchVisCharMovementCompPtr(ucpp.Ptr<ArchVisCharMovementComp>) from ucpp.Ptr<ArchVisCharMovementComp> to ucpp.Ptr<ArchVisCharMovementComp>{
 	@:from
 	public static extern inline function fromValue(v: ArchVisCharMovementComp): ArchVisCharMovementCompPtr {
 		return untyped __cpp__("&({0})", v);

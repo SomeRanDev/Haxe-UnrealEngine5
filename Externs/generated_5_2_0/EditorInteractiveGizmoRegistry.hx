@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorInteractiveGizmoRegistry")
 @:include("EditorInteractiveGizmoRegistry.h")
-@:structAccess
+@:valueType
 extern class EditorInteractiveGizmoRegistry extends Object {
-	private var GizmoCategoryMap: TMap<EEditorGizmoCategory, cpp.Star<EditorGizmoRegistryCategoryEntry>>;
+	private var GizmoCategoryMap: TMap<EEditorGizmoCategory, ucpp.Ptr<EditorGizmoRegistryCategoryEntry>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstEditorInteractiveGizmoRegistry(EditorInteractiveGizmoRegistry) fro
 @:forward
 @:nativeGen
 @:native("EditorInteractiveGizmoRegistry*")
-abstract EditorInteractiveGizmoRegistryPtr(cpp.Star<EditorInteractiveGizmoRegistry>) from cpp.Star<EditorInteractiveGizmoRegistry> to cpp.Star<EditorInteractiveGizmoRegistry>{
+abstract EditorInteractiveGizmoRegistryPtr(ucpp.Ptr<EditorInteractiveGizmoRegistry>) from ucpp.Ptr<EditorInteractiveGizmoRegistry> to ucpp.Ptr<EditorInteractiveGizmoRegistry>{
 	@:from
 	public static extern inline function fromValue(v: EditorInteractiveGizmoRegistry): EditorInteractiveGizmoRegistryPtr {
 		return untyped __cpp__("&({0})", v);

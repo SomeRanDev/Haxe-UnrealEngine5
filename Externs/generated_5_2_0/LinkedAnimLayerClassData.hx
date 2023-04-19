@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLinkedAnimLayerClassData")
 @:include("Animation/AnimSubsystem_SharedLinkedAnimLayers.h")
-@:structAccess
+@:valueType
 extern class LinkedAnimLayerClassData {
 	private var InstancesData: TArray<LinkedAnimLayerInstanceData>;
 

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovementModeChangedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class MovementModeChangedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovementModeChangedSignature__PythonCallable(MovementModeChangedSi
 @:forward
 @:nativeGen
 @:native("MovementModeChangedSignature__PythonCallable*")
-abstract MovementModeChangedSignature__PythonCallablePtr(cpp.Star<MovementModeChangedSignature__PythonCallable>) from cpp.Star<MovementModeChangedSignature__PythonCallable> to cpp.Star<MovementModeChangedSignature__PythonCallable>{
+abstract MovementModeChangedSignature__PythonCallablePtr(ucpp.Ptr<MovementModeChangedSignature__PythonCallable>) from ucpp.Ptr<MovementModeChangedSignature__PythonCallable> to ucpp.Ptr<MovementModeChangedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: MovementModeChangedSignature__PythonCallable): MovementModeChangedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

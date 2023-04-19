@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMaterialParameterInfo")
 @:include("MaterialTypes.h")
-@:structAccess
+@:valueType
 extern class MaterialParameterInfo {
 	public var Name: FName;
 	public var Association: TEnumAsByte<EMaterialParameterAssociation>;
-	public var Index: cpp.Int32;
+	public var Index: ucpp.num.Int32;
 
 	@:native("FMaterialParameterInfo") public function new();
-	@:native("FMaterialParameterInfo") public static function make(Name: FName, Association: TEnumAsByte<EMaterialParameterAssociation>, Index: cpp.Int32): MaterialParameterInfo ;
+	@:native("FMaterialParameterInfo") public static function make(Name: FName, Association: TEnumAsByte<EMaterialParameterAssociation>, Index: ucpp.num.Int32): MaterialParameterInfo ;
 }

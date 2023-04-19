@@ -3,11 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStaticBoolParameter")
 @:include("Materials/MaterialExpressionStaticBoolParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStaticBoolParameter extends MaterialExpressionParameter {
 	public var DefaultValue: Bool;
+	public var DynamicBranch: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -15,12 +16,14 @@ extern class MaterialExpressionStaticBoolParameter extends MaterialExpressionPar
 abstract ConstMaterialExpressionStaticBoolParameter(MaterialExpressionStaticBoolParameter) from MaterialExpressionStaticBoolParameter {
 	public extern var DefaultValue(get, never): Bool;
 	public inline extern function get_DefaultValue(): Bool return this.DefaultValue;
+	public extern var DynamicBranch(get, never): Bool;
+	public inline extern function get_DynamicBranch(): Bool return this.DynamicBranch;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStaticBoolParameter*")
-abstract MaterialExpressionStaticBoolParameterPtr(cpp.Star<MaterialExpressionStaticBoolParameter>) from cpp.Star<MaterialExpressionStaticBoolParameter> to cpp.Star<MaterialExpressionStaticBoolParameter>{
+abstract MaterialExpressionStaticBoolParameterPtr(ucpp.Ptr<MaterialExpressionStaticBoolParameter>) from ucpp.Ptr<MaterialExpressionStaticBoolParameter> to ucpp.Ptr<MaterialExpressionStaticBoolParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStaticBoolParameter): MaterialExpressionStaticBoolParameterPtr {
 		return untyped __cpp__("&({0})", v);

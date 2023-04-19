@@ -3,10 +3,10 @@ package ue;
 
 @:native("USmokeTestCommandlet")
 @:include("Commandlets/SmokeTestCommandlet.h")
-@:structAccess
+@:valueType
 extern class SmokeTestCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSmokeTestCommandlet(SmokeTestCommandlet) from SmokeTestCommandlet 
 @:forward
 @:nativeGen
 @:native("SmokeTestCommandlet*")
-abstract SmokeTestCommandletPtr(cpp.Star<SmokeTestCommandlet>) from cpp.Star<SmokeTestCommandlet> to cpp.Star<SmokeTestCommandlet>{
+abstract SmokeTestCommandletPtr(ucpp.Ptr<SmokeTestCommandlet>) from ucpp.Ptr<SmokeTestCommandlet> to ucpp.Ptr<SmokeTestCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: SmokeTestCommandlet): SmokeTestCommandletPtr {
 		return untyped __cpp__("&({0})", v);

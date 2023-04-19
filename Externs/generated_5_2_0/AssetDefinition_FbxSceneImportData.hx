@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_FbxSceneImportData")
 @:include("AssetDefinition_FbxSceneImportData.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_FbxSceneImportData extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_FbxSceneImportData(AssetDefinition_FbxSceneImportD
 @:forward
 @:nativeGen
 @:native("AssetDefinition_FbxSceneImportData*")
-abstract AssetDefinition_FbxSceneImportDataPtr(cpp.Star<AssetDefinition_FbxSceneImportData>) from cpp.Star<AssetDefinition_FbxSceneImportData> to cpp.Star<AssetDefinition_FbxSceneImportData>{
+abstract AssetDefinition_FbxSceneImportDataPtr(ucpp.Ptr<AssetDefinition_FbxSceneImportData>) from ucpp.Ptr<AssetDefinition_FbxSceneImportData> to ucpp.Ptr<AssetDefinition_FbxSceneImportData>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_FbxSceneImportData): AssetDefinition_FbxSceneImportDataPtr {
 		return untyped __cpp__("&({0})", v);

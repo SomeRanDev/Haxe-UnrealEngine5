@@ -3,11 +3,11 @@ package ue;
 
 @:native("UObjectMixerEditorSerializedData")
 @:include("ObjectMixerEditorSerializedData.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerEditorSerializedData extends Object {
 	public var SerializedDataPerFilter: TSet<ObjectMixerSerializationDataPerFilter>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstObjectMixerEditorSerializedData(ObjectMixerEditorSerializedData) f
 @:forward
 @:nativeGen
 @:native("ObjectMixerEditorSerializedData*")
-abstract ObjectMixerEditorSerializedDataPtr(cpp.Star<ObjectMixerEditorSerializedData>) from cpp.Star<ObjectMixerEditorSerializedData> to cpp.Star<ObjectMixerEditorSerializedData>{
+abstract ObjectMixerEditorSerializedDataPtr(ucpp.Ptr<ObjectMixerEditorSerializedData>) from ucpp.Ptr<ObjectMixerEditorSerializedData> to ucpp.Ptr<ObjectMixerEditorSerializedData>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerEditorSerializedData): ObjectMixerEditorSerializedDataPtr {
 		return untyped __cpp__("&({0})", v);

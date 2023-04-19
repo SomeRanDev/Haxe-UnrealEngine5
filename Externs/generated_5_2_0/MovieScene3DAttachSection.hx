@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieScene3DAttachSection")
 @:include("Sections/MovieScene3DAttachSection.h")
-@:structAccess
+@:valueType
 extern class MovieScene3DAttachSection extends MovieScene3DConstraintSection {
 	public var AttachSocketName: FName;
 	public var AttachComponentName: FName;
@@ -14,7 +14,7 @@ extern class MovieScene3DAttachSection extends MovieScene3DConstraintSection {
 	public var DetachmentRotationRule: EDetachmentRule;
 	public var DetachmentScaleRule: EDetachmentRule;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstMovieScene3DAttachSection(MovieScene3DAttachSection) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieScene3DAttachSection*")
-abstract MovieScene3DAttachSectionPtr(cpp.Star<MovieScene3DAttachSection>) from cpp.Star<MovieScene3DAttachSection> to cpp.Star<MovieScene3DAttachSection>{
+abstract MovieScene3DAttachSectionPtr(ucpp.Ptr<MovieScene3DAttachSection>) from ucpp.Ptr<MovieScene3DAttachSection> to ucpp.Ptr<MovieScene3DAttachSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene3DAttachSection): MovieScene3DAttachSectionPtr {
 		return untyped __cpp__("&({0})", v);

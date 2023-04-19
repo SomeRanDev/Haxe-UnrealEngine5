@@ -11,9 +11,11 @@ extern class EMovieSceneBuiltInEasing {
 	static var QuadIn: EMovieSceneBuiltInEasing;
 	static var QuadOut: EMovieSceneBuiltInEasing;
 	static var QuadInOut: EMovieSceneBuiltInEasing;
+	static var Cubic: EMovieSceneBuiltInEasing;
 	static var CubicIn: EMovieSceneBuiltInEasing;
 	static var CubicOut: EMovieSceneBuiltInEasing;
 	static var CubicInOut: EMovieSceneBuiltInEasing;
+	static var HermiteCubicInOut: EMovieSceneBuiltInEasing;
 	static var QuartIn: EMovieSceneBuiltInEasing;
 	static var QuartOut: EMovieSceneBuiltInEasing;
 	static var QuartInOut: EMovieSceneBuiltInEasing;
@@ -26,5 +28,6 @@ extern class EMovieSceneBuiltInEasing {
 	static var CircIn: EMovieSceneBuiltInEasing;
 	static var CircOut: EMovieSceneBuiltInEasing;
 	static var CircInOut: EMovieSceneBuiltInEasing;
+	static var Custom: EMovieSceneBuiltInEasing;
 	static var EMovieSceneBuiltInEasing_MAX: EMovieSceneBuiltInEasing;
 }

@@ -3,58 +3,58 @@ package ue;
 
 @:native("UVariantManagerBlueprintLibrary")
 @:include("VariantManagerBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class VariantManagerBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function SetValueVector4(Property: cpp.Star<PropertyValue>, InValue: Vector4): Void;
-	public function SetValueVector2D(Property: cpp.Star<PropertyValue>, InValue: Vector2D): Void;
-	public function SetValueVector(Property: cpp.Star<PropertyValue>, InValue: Vector): Void;
-	public function SetValueString(Property: cpp.Star<PropertyValue>, InValue: FString): Void;
-	public function SetValueRotator(Property: cpp.Star<PropertyValue>, InValue: Rotator): Void;
-	public function SetValueQuat(Property: cpp.Star<PropertyValue>, InValue: Quat): Void;
-	public function SetValueObject(Property: cpp.Star<PropertyValue>, InValue: cpp.Star<Object>): Void;
-	public function SetValueLinearColor(Property: cpp.Star<PropertyValue>, InValue: LinearColor): Void;
-	public function SetValueIntPoint(Property: cpp.Star<PropertyValue>, InValue: IntPoint): Void;
-	public function SetValueInt(Property: cpp.Star<PropertyValue>, InValue: cpp.Int32): Void;
-	public function SetValueFloat(Property: cpp.Star<PropertyValue>, InValue: cpp.Float32): Void;
-	public function SetValueColor(Property: cpp.Star<PropertyValue>, InValue: Color): Void;
-	public function SetValueBool(Property: cpp.Star<PropertyValue>, InValue: Bool): Void;
-	public function SetDependency(Variant: cpp.Star<Variant>, Index: cpp.Int32, Dependency: cpp.Reference<VariantDependency>): Void;
-	public function RemoveVariantSetByName(LevelVariantSets: cpp.Star<LevelVariantSets>, VariantSetName: FString): Void;
-	public function RemoveVariantSet(LevelVariantSets: cpp.Star<LevelVariantSets>, VariantSet: cpp.Star<VariantSet>): Void;
-	public function RemoveVariantByName(VariantSet: cpp.Star<VariantSet>, VariantName: FString): Void;
-	public function RemoveVariant(VariantSet: cpp.Star<VariantSet>, Variant: cpp.Star<Variant>): Void;
-	public function RemoveCapturedPropertyByName(Variant: cpp.Star<Variant>, Actor: cpp.Star<Actor>, PropertyPath: FString): Void;
-	public function RemoveCapturedProperty(Variant: cpp.Star<Variant>, Actor: cpp.Star<Actor>, Property: cpp.Star<PropertyValue>): Void;
-	public function RemoveActorBindingByName(Variant: cpp.Star<Variant>, ActorName: FString): Void;
-	public function RemoveActorBinding(Variant: cpp.Star<Variant>, Actor: cpp.Star<Actor>): Void;
-	public function Record(PropVal: cpp.Star<PropertyValue>): Void;
-	public function GetValueVector4(Property: cpp.Star<PropertyValue>): Vector4;
-	public function GetValueVector2D(Property: cpp.Star<PropertyValue>): Vector2D;
-	public function GetValueVector(Property: cpp.Star<PropertyValue>): Vector;
-	public function GetValueString(Property: cpp.Star<PropertyValue>): FString;
-	public function GetValueRotator(Property: cpp.Star<PropertyValue>): Rotator;
-	public function GetValueQuat(Property: cpp.Star<PropertyValue>): Quat;
-	public function GetValueObject(Property: cpp.Star<PropertyValue>): cpp.Star<Object>;
-	public function GetValueLinearColor(Property: cpp.Star<PropertyValue>): LinearColor;
-	public function GetValueIntPoint(Property: cpp.Star<PropertyValue>): IntPoint;
-	public function GetValueInt(Property: cpp.Star<PropertyValue>): cpp.Int32;
-	public function GetValueFloat(Property: cpp.Star<PropertyValue>): cpp.Float32;
-	public function GetValueColor(Property: cpp.Star<PropertyValue>): Color;
-	public function GetValueBool(Property: cpp.Star<PropertyValue>): Bool;
-	public function GetPropertyTypeString(PropVal: cpp.Star<PropertyValue>): FString;
-	public function GetCapturedProperties(Variant: cpp.Star<Variant>, Actor: cpp.Star<Actor>): TArray<cpp.Star<PropertyValue>>;
-	public function GetCapturableProperties(ActorOrClass: cpp.Star<Object>): TArray<FString>;
-	public function DeleteDependency(Variant: cpp.Star<Variant>, Index: cpp.Int32): Void;
-	public function CreateLevelVariantSetsAsset(AssetName: FString, AssetPath: FString): cpp.Star<LevelVariantSets>;
-	public function CreateLevelVariantSetsActor(LevelVariantSetsAsset: cpp.Star<LevelVariantSets>): cpp.Star<LevelVariantSetsActor>;
-	public function CaptureProperty(Variant: cpp.Star<Variant>, Actor: cpp.Star<Actor>, PropertyPath: FString): cpp.Star<PropertyValue>;
-	public function Apply(PropVal: cpp.Star<PropertyValue>): Void;
-	public function AddVariantSet(LevelVariantSets: cpp.Star<LevelVariantSets>, VariantSet: cpp.Star<VariantSet>): Void;
-	public function AddVariant(VariantSet: cpp.Star<VariantSet>, Variant: cpp.Star<Variant>): Void;
-	public function AddDependency(Variant: cpp.Star<Variant>, Dependency: cpp.Reference<VariantDependency>): cpp.Int32;
-	public function AddActorBinding(Variant: cpp.Star<Variant>, Actor: cpp.Star<Actor>): Void;
+	public function SetValueVector4(Property: ucpp.Ptr<PropertyValue>, InValue: Vector4): Void;
+	public function SetValueVector2D(Property: ucpp.Ptr<PropertyValue>, InValue: Vector2D): Void;
+	public function SetValueVector(Property: ucpp.Ptr<PropertyValue>, InValue: Vector): Void;
+	public function SetValueString(Property: ucpp.Ptr<PropertyValue>, InValue: FString): Void;
+	public function SetValueRotator(Property: ucpp.Ptr<PropertyValue>, InValue: Rotator): Void;
+	public function SetValueQuat(Property: ucpp.Ptr<PropertyValue>, InValue: Quat): Void;
+	public function SetValueObject(Property: ucpp.Ptr<PropertyValue>, InValue: ucpp.Ptr<Object>): Void;
+	public function SetValueLinearColor(Property: ucpp.Ptr<PropertyValue>, InValue: LinearColor): Void;
+	public function SetValueIntPoint(Property: ucpp.Ptr<PropertyValue>, InValue: IntPoint): Void;
+	public function SetValueInt(Property: ucpp.Ptr<PropertyValue>, InValue: ucpp.num.Int32): Void;
+	public function SetValueFloat(Property: ucpp.Ptr<PropertyValue>, InValue: ucpp.num.Float32): Void;
+	public function SetValueColor(Property: ucpp.Ptr<PropertyValue>, InValue: Color): Void;
+	public function SetValueBool(Property: ucpp.Ptr<PropertyValue>, InValue: Bool): Void;
+	public function SetDependency(Variant: ucpp.Ptr<Variant>, Index: ucpp.num.Int32, Dependency: ucpp.Ref<VariantDependency>): Void;
+	public function RemoveVariantSetByName(LevelVariantSets: ucpp.Ptr<LevelVariantSets>, VariantSetName: FString): Void;
+	public function RemoveVariantSet(LevelVariantSets: ucpp.Ptr<LevelVariantSets>, VariantSet: ucpp.Ptr<VariantSet>): Void;
+	public function RemoveVariantByName(VariantSet: ucpp.Ptr<VariantSet>, VariantName: FString): Void;
+	public function RemoveVariant(VariantSet: ucpp.Ptr<VariantSet>, Variant: ucpp.Ptr<Variant>): Void;
+	public function RemoveCapturedPropertyByName(Variant: ucpp.Ptr<Variant>, Actor: ucpp.Ptr<Actor>, PropertyPath: FString): Void;
+	public function RemoveCapturedProperty(Variant: ucpp.Ptr<Variant>, Actor: ucpp.Ptr<Actor>, Property: ucpp.Ptr<PropertyValue>): Void;
+	public function RemoveActorBindingByName(Variant: ucpp.Ptr<Variant>, ActorName: FString): Void;
+	public function RemoveActorBinding(Variant: ucpp.Ptr<Variant>, Actor: ucpp.Ptr<Actor>): Void;
+	public function Record(PropVal: ucpp.Ptr<PropertyValue>): Void;
+	public function GetValueVector4(Property: ucpp.Ptr<PropertyValue>): Vector4;
+	public function GetValueVector2D(Property: ucpp.Ptr<PropertyValue>): Vector2D;
+	public function GetValueVector(Property: ucpp.Ptr<PropertyValue>): Vector;
+	public function GetValueString(Property: ucpp.Ptr<PropertyValue>): FString;
+	public function GetValueRotator(Property: ucpp.Ptr<PropertyValue>): Rotator;
+	public function GetValueQuat(Property: ucpp.Ptr<PropertyValue>): Quat;
+	public function GetValueObject(Property: ucpp.Ptr<PropertyValue>): ucpp.Ptr<Object>;
+	public function GetValueLinearColor(Property: ucpp.Ptr<PropertyValue>): LinearColor;
+	public function GetValueIntPoint(Property: ucpp.Ptr<PropertyValue>): IntPoint;
+	public function GetValueInt(Property: ucpp.Ptr<PropertyValue>): ucpp.num.Int32;
+	public function GetValueFloat(Property: ucpp.Ptr<PropertyValue>): ucpp.num.Float32;
+	public function GetValueColor(Property: ucpp.Ptr<PropertyValue>): Color;
+	public function GetValueBool(Property: ucpp.Ptr<PropertyValue>): Bool;
+	public function GetPropertyTypeString(PropVal: ucpp.Ptr<PropertyValue>): FString;
+	public function GetCapturedProperties(Variant: ucpp.Ptr<Variant>, Actor: ucpp.Ptr<Actor>): TArray<ucpp.Ptr<PropertyValue>>;
+	public function GetCapturableProperties(ActorOrClass: ucpp.Ptr<Object>): TArray<FString>;
+	public function DeleteDependency(Variant: ucpp.Ptr<Variant>, Index: ucpp.num.Int32): Void;
+	public function CreateLevelVariantSetsAsset(AssetName: FString, AssetPath: FString): ucpp.Ptr<LevelVariantSets>;
+	public function CreateLevelVariantSetsActor(LevelVariantSetsAsset: ucpp.Ptr<LevelVariantSets>): ucpp.Ptr<LevelVariantSetsActor>;
+	public function CaptureProperty(Variant: ucpp.Ptr<Variant>, Actor: ucpp.Ptr<Actor>, PropertyPath: FString): ucpp.Ptr<PropertyValue>;
+	public function Apply(PropVal: ucpp.Ptr<PropertyValue>): Void;
+	public function AddVariantSet(LevelVariantSets: ucpp.Ptr<LevelVariantSets>, VariantSet: ucpp.Ptr<VariantSet>): Void;
+	public function AddVariant(VariantSet: ucpp.Ptr<VariantSet>, Variant: ucpp.Ptr<Variant>): Void;
+	public function AddDependency(Variant: ucpp.Ptr<Variant>, Dependency: ucpp.Ref<VariantDependency>): ucpp.num.Int32;
+	public function AddActorBinding(Variant: ucpp.Ptr<Variant>, Actor: ucpp.Ptr<Actor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -65,7 +65,7 @@ abstract ConstVariantManagerBlueprintLibrary(VariantManagerBlueprintLibrary) fro
 @:forward
 @:nativeGen
 @:native("VariantManagerBlueprintLibrary*")
-abstract VariantManagerBlueprintLibraryPtr(cpp.Star<VariantManagerBlueprintLibrary>) from cpp.Star<VariantManagerBlueprintLibrary> to cpp.Star<VariantManagerBlueprintLibrary>{
+abstract VariantManagerBlueprintLibraryPtr(ucpp.Ptr<VariantManagerBlueprintLibrary>) from ucpp.Ptr<VariantManagerBlueprintLibrary> to ucpp.Ptr<VariantManagerBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: VariantManagerBlueprintLibrary): VariantManagerBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

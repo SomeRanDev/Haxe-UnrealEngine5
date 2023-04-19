@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULODSyncInterface")
-@:structAccess
+@:valueType
 extern class LODSyncInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLODSyncInterface(LODSyncInterface) from LODSyncInterface {
 @:forward
 @:nativeGen
 @:native("LODSyncInterface*")
-abstract LODSyncInterfacePtr(cpp.Star<LODSyncInterface>) from cpp.Star<LODSyncInterface> to cpp.Star<LODSyncInterface>{
+abstract LODSyncInterfacePtr(ucpp.Ptr<LODSyncInterface>) from ucpp.Ptr<LODSyncInterface> to ucpp.Ptr<LODSyncInterface>{
 	@:from
 	public static extern inline function fromValue(v: LODSyncInterface): LODSyncInterfacePtr {
 		return untyped __cpp__("&({0})", v);

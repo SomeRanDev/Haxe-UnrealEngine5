@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMovieSceneObjectPathChannelKeyValue")
 @:include("Channels/MovieSceneObjectPathChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneObjectPathChannelKeyValue {
 	private var SoftPtr: TSoftObjectPtr<Object>;
-	private var HardPtr: cpp.Star<Object>;
+	private var HardPtr: ucpp.Ptr<Object>;
 
 	@:native("FMovieSceneObjectPathChannelKeyValue") public function new();
-	@:native("FMovieSceneObjectPathChannelKeyValue") public static function make(SoftPtr: TSoftObjectPtr<Object>, HardPtr: cpp.Star<Object>): MovieSceneObjectPathChannelKeyValue ;
+	@:native("FMovieSceneObjectPathChannelKeyValue") public static function make(SoftPtr: TSoftObjectPtr<Object>, HardPtr: ucpp.Ptr<Object>): MovieSceneObjectPathChannelKeyValue ;
 }

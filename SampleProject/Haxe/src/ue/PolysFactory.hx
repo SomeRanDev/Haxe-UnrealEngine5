@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPolysFactory")
 @:include("Factories/PolysFactory.h")
-@:structAccess
+@:valueType
 extern class PolysFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPolysFactory(PolysFactory) from PolysFactory {
 @:forward
 @:nativeGen
 @:native("PolysFactory*")
-abstract PolysFactoryPtr(cpp.Star<PolysFactory>) from cpp.Star<PolysFactory> to cpp.Star<PolysFactory>{
+abstract PolysFactoryPtr(ucpp.Ptr<PolysFactory>) from ucpp.Ptr<PolysFactory> to ucpp.Ptr<PolysFactory>{
 	@:from
 	public static extern inline function fromValue(v: PolysFactory): PolysFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UVisualLoggerDebugSnapshotInterface")
-@:structAccess
+@:valueType
 extern class VisualLoggerDebugSnapshotInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstVisualLoggerDebugSnapshotInterface(VisualLoggerDebugSnapshotInterf
 @:forward
 @:nativeGen
 @:native("VisualLoggerDebugSnapshotInterface*")
-abstract VisualLoggerDebugSnapshotInterfacePtr(cpp.Star<VisualLoggerDebugSnapshotInterface>) from cpp.Star<VisualLoggerDebugSnapshotInterface> to cpp.Star<VisualLoggerDebugSnapshotInterface>{
+abstract VisualLoggerDebugSnapshotInterfacePtr(ucpp.Ptr<VisualLoggerDebugSnapshotInterface>) from ucpp.Ptr<VisualLoggerDebugSnapshotInterface> to ucpp.Ptr<VisualLoggerDebugSnapshotInterface>{
 	@:from
 	public static extern inline function fromValue(v: VisualLoggerDebugSnapshotInterface): VisualLoggerDebugSnapshotInterfacePtr {
 		return untyped __cpp__("&({0})", v);

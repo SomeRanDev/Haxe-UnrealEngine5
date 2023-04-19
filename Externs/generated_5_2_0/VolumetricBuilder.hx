@@ -3,25 +3,25 @@ package ue;
 
 @:native("UVolumetricBuilder")
 @:include("Builders/VolumetricBuilder.h")
-@:structAccess
+@:valueType
 extern class VolumetricBuilder extends EditorBrushBuilder {
-	public var Z: cpp.Float32;
-	public var Radius: cpp.Float32;
-	public var NumSheets: cpp.Int32;
+	public var Z: ucpp.num.Float32;
+	public var Radius: ucpp.num.Float32;
+	public var NumSheets: ucpp.num.Int32;
 	public var GroupName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstVolumetricBuilder(VolumetricBuilder) from VolumetricBuilder {
-	public extern var Z(get, never): cpp.Float32;
-	public inline extern function get_Z(): cpp.Float32 return this.Z;
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var NumSheets(get, never): cpp.Int32;
-	public inline extern function get_NumSheets(): cpp.Int32 return this.NumSheets;
+	public extern var Z(get, never): ucpp.num.Float32;
+	public inline extern function get_Z(): ucpp.num.Float32 return this.Z;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
+	public extern var NumSheets(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSheets(): ucpp.num.Int32 return this.NumSheets;
 	public extern var GroupName(get, never): FName;
 	public inline extern function get_GroupName(): FName return this.GroupName;
 }
@@ -29,7 +29,7 @@ abstract ConstVolumetricBuilder(VolumetricBuilder) from VolumetricBuilder {
 @:forward
 @:nativeGen
 @:native("VolumetricBuilder*")
-abstract VolumetricBuilderPtr(cpp.Star<VolumetricBuilder>) from cpp.Star<VolumetricBuilder> to cpp.Star<VolumetricBuilder>{
+abstract VolumetricBuilderPtr(ucpp.Ptr<VolumetricBuilder>) from ucpp.Ptr<VolumetricBuilder> to ucpp.Ptr<VolumetricBuilder>{
 	@:from
 	public static extern inline function fromValue(v: VolumetricBuilder): VolumetricBuilderPtr {
 		return untyped __cpp__("&({0})", v);

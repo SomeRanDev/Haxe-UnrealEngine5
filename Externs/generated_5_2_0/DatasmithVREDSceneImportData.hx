@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDatasmithVREDSceneImportData")
 @:include("DatasmithAssetImportData.h")
-@:structAccess
+@:valueType
 extern class DatasmithVREDSceneImportData extends DatasmithFBXSceneImportData {
 	public var bMergeNodes: Bool;
 	public var bOptimizeDuplicatedNodes: Bool;
@@ -17,7 +17,7 @@ extern class DatasmithVREDSceneImportData extends DatasmithFBXSceneImportData {
 	public var bImportClipInfo: Bool;
 	public var ClipInfoPath: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -50,7 +50,7 @@ abstract ConstDatasmithVREDSceneImportData(DatasmithVREDSceneImportData) from Da
 @:forward
 @:nativeGen
 @:native("DatasmithVREDSceneImportData*")
-abstract DatasmithVREDSceneImportDataPtr(cpp.Star<DatasmithVREDSceneImportData>) from cpp.Star<DatasmithVREDSceneImportData> to cpp.Star<DatasmithVREDSceneImportData>{
+abstract DatasmithVREDSceneImportDataPtr(ucpp.Ptr<DatasmithVREDSceneImportData>) from ucpp.Ptr<DatasmithVREDSceneImportData> to ucpp.Ptr<DatasmithVREDSceneImportData>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithVREDSceneImportData): DatasmithVREDSceneImportDataPtr {
 		return untyped __cpp__("&({0})", v);

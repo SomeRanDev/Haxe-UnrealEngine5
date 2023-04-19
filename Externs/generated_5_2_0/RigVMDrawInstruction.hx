@@ -3,13 +3,13 @@ package ue;
 
 @:native("FRigVMDrawInstruction")
 @:include("RigVMCore/RigVMDrawInstruction.h")
-@:structAccess
+@:valueType
 extern class RigVMDrawInstruction {
 	public var Name: FName;
 	public var PrimitiveType: TEnumAsByte<ERigVMDrawSettings>;
 	public var Positions: TArray<Vector>;
 	public var Color: LinearColor;
-	public var Thickness: cpp.Float32;
+	public var Thickness: ucpp.num.Float32;
 	public var Transform: Transform;
 
 	@:native("FRigVMDrawInstruction") public function new();

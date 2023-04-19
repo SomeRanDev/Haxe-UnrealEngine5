@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULandscapeInfoMap")
 @:include("LandscapeInfoMap.h")
-@:structAccess
+@:valueType
 extern class LandscapeInfoMap extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeInfoMap(LandscapeInfoMap) from LandscapeInfoMap {
 @:forward
 @:nativeGen
 @:native("LandscapeInfoMap*")
-abstract LandscapeInfoMapPtr(cpp.Star<LandscapeInfoMap>) from cpp.Star<LandscapeInfoMap> to cpp.Star<LandscapeInfoMap>{
+abstract LandscapeInfoMapPtr(ucpp.Ptr<LandscapeInfoMap>) from ucpp.Ptr<LandscapeInfoMap> to ucpp.Ptr<LandscapeInfoMap>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeInfoMap): LandscapeInfoMapPtr {
 		return untyped __cpp__("&({0})", v);

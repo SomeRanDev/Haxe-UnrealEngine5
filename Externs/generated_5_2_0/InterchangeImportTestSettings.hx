@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeImportTestSettings")
 @:include("InterchangeImportTestSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangeImportTestSettings extends Object {
 	public var ImportTestsPath: FString;
 	public var ImportFiles: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstInterchangeImportTestSettings(InterchangeImportTestSettings) from 
 @:forward
 @:nativeGen
 @:native("InterchangeImportTestSettings*")
-abstract InterchangeImportTestSettingsPtr(cpp.Star<InterchangeImportTestSettings>) from cpp.Star<InterchangeImportTestSettings> to cpp.Star<InterchangeImportTestSettings>{
+abstract InterchangeImportTestSettingsPtr(ucpp.Ptr<InterchangeImportTestSettings>) from ucpp.Ptr<InterchangeImportTestSettings> to ucpp.Ptr<InterchangeImportTestSettings>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeImportTestSettings): InterchangeImportTestSettingsPtr {
 		return untyped __cpp__("&({0})", v);

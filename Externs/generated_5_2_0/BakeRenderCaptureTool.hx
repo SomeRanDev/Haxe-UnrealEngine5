@@ -3,33 +3,33 @@ package ue;
 
 @:native("UBakeRenderCaptureTool")
 @:include("BakeRenderCaptureTool.h")
-@:structAccess
+@:valueType
 extern class BakeRenderCaptureTool extends MultiSelectionMeshEditingTool {
-	@:protected public var Actors: TArray<cpp.Star<Actor>>;
-	@:protected public var Settings: cpp.Star<BakeRenderCaptureToolProperties>;
-	@:protected public var RenderCaptureProperties: cpp.Star<RenderCaptureProperties>;
-	@:protected public var InputMeshSettings: cpp.Star<BakeRenderCaptureInputToolProperties>;
-	@:protected public var VisualizationProps: cpp.Star<BakeRenderCaptureVisualizationProperties>;
-	@:protected public var ResultSettings: cpp.Star<BakeRenderCaptureResults>;
-	@:protected public var EmptyNormalMap: cpp.Star<Texture2D>;
-	@:protected public var EmptyColorMapBlack: cpp.Star<Texture2D>;
-	@:protected public var EmptyColorMapWhite: cpp.Star<Texture2D>;
-	@:protected public var EmptyEmissiveMap: cpp.Star<Texture2D>;
-	@:protected public var EmptyOpacityMap: cpp.Star<Texture2D>;
-	@:protected public var EmptySubsurfaceColorMap: cpp.Star<Texture2D>;
-	@:protected public var EmptyPackedMRSMap: cpp.Star<Texture2D>;
-	@:protected public var EmptyRoughnessMap: cpp.Star<Texture2D>;
-	@:protected public var EmptyMetallicMap: cpp.Star<Texture2D>;
-	@:protected public var EmptySpecularMap: cpp.Star<Texture2D>;
-	@:protected public var WorkingPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var ErrorPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var PreviewMaterialRC: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var PreviewMaterialPackedRC: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var PreviewMaterialRC_Subsurface: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var PreviewMaterialPackedRC_Subsurface: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var Actors: TArray<ucpp.Ptr<Actor>>;
+	@:protected public var Settings: ucpp.Ptr<BakeRenderCaptureToolProperties>;
+	@:protected public var RenderCaptureProperties: ucpp.Ptr<RenderCaptureProperties>;
+	@:protected public var InputMeshSettings: ucpp.Ptr<BakeRenderCaptureInputToolProperties>;
+	@:protected public var VisualizationProps: ucpp.Ptr<BakeRenderCaptureVisualizationProperties>;
+	@:protected public var ResultSettings: ucpp.Ptr<BakeRenderCaptureResults>;
+	@:protected public var EmptyNormalMap: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptyColorMapBlack: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptyColorMapWhite: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptyEmissiveMap: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptyOpacityMap: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptySubsurfaceColorMap: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptyPackedMRSMap: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptyRoughnessMap: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptyMetallicMap: ucpp.Ptr<Texture2D>;
+	@:protected public var EmptySpecularMap: ucpp.Ptr<Texture2D>;
+	@:protected public var WorkingPreviewMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var ErrorPreviewMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var PreviewMaterialRC: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var PreviewMaterialPackedRC: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var PreviewMaterialRC_Subsurface: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var PreviewMaterialPackedRC_Subsurface: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -40,7 +40,7 @@ abstract ConstBakeRenderCaptureTool(BakeRenderCaptureTool) from BakeRenderCaptur
 @:forward
 @:nativeGen
 @:native("BakeRenderCaptureTool*")
-abstract BakeRenderCaptureToolPtr(cpp.Star<BakeRenderCaptureTool>) from cpp.Star<BakeRenderCaptureTool> to cpp.Star<BakeRenderCaptureTool>{
+abstract BakeRenderCaptureToolPtr(ucpp.Ptr<BakeRenderCaptureTool>) from ucpp.Ptr<BakeRenderCaptureTool> to ucpp.Ptr<BakeRenderCaptureTool>{
 	@:from
 	public static extern inline function fromValue(v: BakeRenderCaptureTool): BakeRenderCaptureToolPtr {
 		return untyped __cpp__("&({0})", v);

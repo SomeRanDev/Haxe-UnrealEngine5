@@ -3,21 +3,24 @@ package ue;
 
 @:native("UNiagaraSystemAuditCommandlet")
 @:include("Commandlets/NiagaraSystemAuditCommandlet.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemAuditCommandlet extends Commandlet {
+	public var PackagesToSave: TArray<ucpp.Ptr<Package>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraSystemAuditCommandlet(NiagaraSystemAuditCommandlet) from NiagaraSystemAuditCommandlet {
+	public extern var PackagesToSave(get, never): TArray<ucpp.Ptr<Package.ConstPackage>>;
+	public inline extern function get_PackagesToSave(): TArray<ucpp.Ptr<Package.ConstPackage>> return this.PackagesToSave;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraSystemAuditCommandlet*")
-abstract NiagaraSystemAuditCommandletPtr(cpp.Star<NiagaraSystemAuditCommandlet>) from cpp.Star<NiagaraSystemAuditCommandlet> to cpp.Star<NiagaraSystemAuditCommandlet>{
+abstract NiagaraSystemAuditCommandletPtr(ucpp.Ptr<NiagaraSystemAuditCommandlet>) from ucpp.Ptr<NiagaraSystemAuditCommandlet> to ucpp.Ptr<NiagaraSystemAuditCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSystemAuditCommandlet): NiagaraSystemAuditCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_ActorFoliageSettings")
 @:include("AssetDefinition_ActorFoliageSettings.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_ActorFoliageSettings extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_ActorFoliageSettings(AssetDefinition_ActorFoliageS
 @:forward
 @:nativeGen
 @:native("AssetDefinition_ActorFoliageSettings*")
-abstract AssetDefinition_ActorFoliageSettingsPtr(cpp.Star<AssetDefinition_ActorFoliageSettings>) from cpp.Star<AssetDefinition_ActorFoliageSettings> to cpp.Star<AssetDefinition_ActorFoliageSettings>{
+abstract AssetDefinition_ActorFoliageSettingsPtr(ucpp.Ptr<AssetDefinition_ActorFoliageSettings>) from ucpp.Ptr<AssetDefinition_ActorFoliageSettings> to ucpp.Ptr<AssetDefinition_ActorFoliageSettings>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_ActorFoliageSettings): AssetDefinition_ActorFoliageSettingsPtr {
 		return untyped __cpp__("&({0})", v);

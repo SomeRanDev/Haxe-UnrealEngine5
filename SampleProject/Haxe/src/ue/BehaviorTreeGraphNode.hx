@@ -3,22 +3,22 @@ package ue;
 
 @:native("UBehaviorTreeGraphNode")
 @:include("BehaviorTreeGraphNode.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeGraphNode extends AIGraphNode {
-	public var Decorators: TArray<cpp.Star<BehaviorTreeGraphNode>>;
-	public var Services: TArray<cpp.Star<BehaviorTreeGraphNode>>;
+	public var Decorators: TArray<ucpp.Ptr<BehaviorTreeGraphNode>>;
+	public var Services: TArray<ucpp.Ptr<BehaviorTreeGraphNode>>;
 	public var bInjectedNode: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBehaviorTreeGraphNode(BehaviorTreeGraphNode) from BehaviorTreeGraphNode {
-	public extern var Decorators(get, never): TArray<cpp.Star<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>>;
-	public inline extern function get_Decorators(): TArray<cpp.Star<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>> return this.Decorators;
-	public extern var Services(get, never): TArray<cpp.Star<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>>;
-	public inline extern function get_Services(): TArray<cpp.Star<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>> return this.Services;
+	public extern var Decorators(get, never): TArray<ucpp.Ptr<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>>;
+	public inline extern function get_Decorators(): TArray<ucpp.Ptr<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>> return this.Decorators;
+	public extern var Services(get, never): TArray<ucpp.Ptr<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>>;
+	public inline extern function get_Services(): TArray<ucpp.Ptr<BehaviorTreeGraphNode.ConstBehaviorTreeGraphNode>> return this.Services;
 	public extern var bInjectedNode(get, never): Bool;
 	public inline extern function get_bInjectedNode(): Bool return this.bInjectedNode;
 }
@@ -26,7 +26,7 @@ abstract ConstBehaviorTreeGraphNode(BehaviorTreeGraphNode) from BehaviorTreeGrap
 @:forward
 @:nativeGen
 @:native("BehaviorTreeGraphNode*")
-abstract BehaviorTreeGraphNodePtr(cpp.Star<BehaviorTreeGraphNode>) from cpp.Star<BehaviorTreeGraphNode> to cpp.Star<BehaviorTreeGraphNode>{
+abstract BehaviorTreeGraphNodePtr(ucpp.Ptr<BehaviorTreeGraphNode>) from ucpp.Ptr<BehaviorTreeGraphNode> to ucpp.Ptr<BehaviorTreeGraphNode>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeGraphNode): BehaviorTreeGraphNodePtr {
 		return untyped __cpp__("&({0})", v);

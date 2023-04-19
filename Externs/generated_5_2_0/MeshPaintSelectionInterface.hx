@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMeshPaintSelectionInterface")
-@:structAccess
+@:valueType
 extern class MeshPaintSelectionInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMeshPaintSelectionInterface(MeshPaintSelectionInterface) from Mesh
 @:forward
 @:nativeGen
 @:native("MeshPaintSelectionInterface*")
-abstract MeshPaintSelectionInterfacePtr(cpp.Star<MeshPaintSelectionInterface>) from cpp.Star<MeshPaintSelectionInterface> to cpp.Star<MeshPaintSelectionInterface>{
+abstract MeshPaintSelectionInterfacePtr(ucpp.Ptr<MeshPaintSelectionInterface>) from ucpp.Ptr<MeshPaintSelectionInterface> to ucpp.Ptr<MeshPaintSelectionInterface>{
 	@:from
 	public static extern inline function fromValue(v: MeshPaintSelectionInterface): MeshPaintSelectionInterfacePtr {
 		return untyped __cpp__("&({0})", v);

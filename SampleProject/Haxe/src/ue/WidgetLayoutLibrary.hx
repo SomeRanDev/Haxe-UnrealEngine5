@@ -3,32 +3,32 @@ package ue;
 
 @:native("UWidgetLayoutLibrary")
 @:include("Blueprint/WidgetLayoutLibrary.h")
-@:structAccess
+@:valueType
 extern class WidgetLayoutLibrary extends BlueprintFunctionLibrary {
-	public function SlotAsWrapBoxSlot(Widget: cpp.Star<Widget>): cpp.Star<WrapBoxSlot>;
-	public function SlotAsWidgetSwitcherSlot(Widget: cpp.Star<Widget>): cpp.Star<WidgetSwitcherSlot>;
-	public function SlotAsVerticalBoxSlot(Widget: cpp.Star<Widget>): cpp.Star<VerticalBoxSlot>;
-	public function SlotAsUniformGridSlot(Widget: cpp.Star<Widget>): cpp.Star<UniformGridSlot>;
-	public function SlotAsSizeBoxSlot(Widget: cpp.Star<Widget>): cpp.Star<SizeBoxSlot>;
-	public function SlotAsScrollBoxSlot(Widget: cpp.Star<Widget>): cpp.Star<ScrollBoxSlot>;
-	public function SlotAsScaleBoxSlot(Widget: cpp.Star<Widget>): cpp.Star<ScaleBoxSlot>;
-	public function SlotAsSafeBoxSlot(Widget: cpp.Star<Widget>): cpp.Star<SafeZoneSlot>;
-	public function SlotAsOverlaySlot(Widget: cpp.Star<Widget>): cpp.Star<OverlaySlot>;
-	public function SlotAsHorizontalBoxSlot(Widget: cpp.Star<Widget>): cpp.Star<HorizontalBoxSlot>;
-	public function SlotAsGridSlot(Widget: cpp.Star<Widget>): cpp.Star<GridSlot>;
-	public function SlotAsCanvasSlot(Widget: cpp.Star<Widget>): cpp.Star<CanvasPanelSlot>;
-	public function SlotAsBorderSlot(Widget: cpp.Star<Widget>): cpp.Star<BorderSlot>;
-	public function RemoveAllWidgets(WorldContextObject: cpp.Star<Object>): Void;
-	public function ProjectWorldLocationToWidgetPosition(PlayerController: cpp.Star<PlayerController>, WorldLocation: Vector, ScreenPosition: cpp.Reference<Vector2D>, bPlayerViewportRelative: Bool): Bool;
-	public function GetViewportWidgetGeometry(WorldContextObject: cpp.Star<Object>): Geometry;
-	public function GetViewportSize(WorldContextObject: cpp.Star<Object>): Vector2D;
-	public function GetViewportScale(WorldContextObject: cpp.Star<Object>): cpp.Float32;
-	public function GetPlayerScreenWidgetGeometry(PlayerController: cpp.Star<PlayerController>): Geometry;
-	public function GetMousePositionScaledByDPI(Player: cpp.Star<PlayerController>, LocationX: cpp.Reference<cpp.Float32>, LocationY: cpp.Reference<cpp.Float32>): Bool;
-	public function GetMousePositionOnViewport(WorldContextObject: cpp.Star<Object>): Vector2D;
+	public function SlotAsWrapBoxSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<WrapBoxSlot>;
+	public function SlotAsWidgetSwitcherSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<WidgetSwitcherSlot>;
+	public function SlotAsVerticalBoxSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<VerticalBoxSlot>;
+	public function SlotAsUniformGridSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<UniformGridSlot>;
+	public function SlotAsSizeBoxSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<SizeBoxSlot>;
+	public function SlotAsScrollBoxSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<ScrollBoxSlot>;
+	public function SlotAsScaleBoxSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<ScaleBoxSlot>;
+	public function SlotAsSafeBoxSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<SafeZoneSlot>;
+	public function SlotAsOverlaySlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<OverlaySlot>;
+	public function SlotAsHorizontalBoxSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<HorizontalBoxSlot>;
+	public function SlotAsGridSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<GridSlot>;
+	public function SlotAsCanvasSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<CanvasPanelSlot>;
+	public function SlotAsBorderSlot(Widget: ucpp.Ptr<Widget>): ucpp.Ptr<BorderSlot>;
+	public function RemoveAllWidgets(WorldContextObject: ucpp.Ptr<Object>): Void;
+	public function ProjectWorldLocationToWidgetPosition(PlayerController: ucpp.Ptr<PlayerController>, WorldLocation: Vector, ScreenPosition: ucpp.Ref<Vector2D>, bPlayerViewportRelative: Bool): Bool;
+	public function GetViewportWidgetGeometry(WorldContextObject: ucpp.Ptr<Object>): Geometry;
+	public function GetViewportSize(WorldContextObject: ucpp.Ptr<Object>): Vector2D;
+	public function GetViewportScale(WorldContextObject: ucpp.Ptr<Object.ConstObject>): ucpp.num.Float32;
+	public function GetPlayerScreenWidgetGeometry(PlayerController: ucpp.Ptr<PlayerController>): Geometry;
+	public function GetMousePositionScaledByDPI(Player: ucpp.Ptr<PlayerController>, LocationX: ucpp.Ref<ucpp.num.Float32>, LocationY: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetMousePositionOnViewport(WorldContextObject: ucpp.Ptr<Object>): Vector2D;
 	public function GetMousePositionOnPlatform(): Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +39,7 @@ abstract ConstWidgetLayoutLibrary(WidgetLayoutLibrary) from WidgetLayoutLibrary 
 @:forward
 @:nativeGen
 @:native("WidgetLayoutLibrary*")
-abstract WidgetLayoutLibraryPtr(cpp.Star<WidgetLayoutLibrary>) from cpp.Star<WidgetLayoutLibrary> to cpp.Star<WidgetLayoutLibrary>{
+abstract WidgetLayoutLibraryPtr(ucpp.Ptr<WidgetLayoutLibrary>) from ucpp.Ptr<WidgetLayoutLibrary> to ucpp.Ptr<WidgetLayoutLibrary>{
 	@:from
 	public static extern inline function fromValue(v: WidgetLayoutLibrary): WidgetLayoutLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UTypedElementObjectInterface")
-@:structAccess
+@:valueType
 extern class TypedElementObjectInterface extends Interface {
-	public function GetObjectClass(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Star<Class>;
-	public function GetObject(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): cpp.Star<Object>;
+	public function GetObjectClass(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): ucpp.Ptr<Class>;
+	public function GetObject(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTypedElementObjectInterface(TypedElementObjectInterface) from Type
 @:forward
 @:nativeGen
 @:native("TypedElementObjectInterface*")
-abstract TypedElementObjectInterfacePtr(cpp.Star<TypedElementObjectInterface>) from cpp.Star<TypedElementObjectInterface> to cpp.Star<TypedElementObjectInterface>{
+abstract TypedElementObjectInterfacePtr(ucpp.Ptr<TypedElementObjectInterface>) from ucpp.Ptr<TypedElementObjectInterface> to ucpp.Ptr<TypedElementObjectInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementObjectInterface): TypedElementObjectInterfacePtr {
 		return untyped __cpp__("&({0})", v);

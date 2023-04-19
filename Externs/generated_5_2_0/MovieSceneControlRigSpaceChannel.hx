@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneControlRigSpaceChannel")
 @:include("Sequencer/MovieSceneControlRigSpaceChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneControlRigSpaceChannel extends MovieSceneChannel {
 	private var KeyTimes: TArray<FrameNumber>;
 	private var KeyValues: TArray<MovieSceneControlRigSpaceBaseKey>;

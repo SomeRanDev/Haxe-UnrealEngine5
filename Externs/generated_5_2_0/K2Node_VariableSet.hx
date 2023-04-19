@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_VariableSet")
 @:include("K2Node_VariableSet.h")
-@:structAccess
+@:valueType
 extern class K2Node_VariableSet extends K2Node_Variable {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_VariableSet(K2Node_VariableSet) from K2Node_VariableSet {
 @:forward
 @:nativeGen
 @:native("K2Node_VariableSet*")
-abstract K2Node_VariableSetPtr(cpp.Star<K2Node_VariableSet>) from cpp.Star<K2Node_VariableSet> to cpp.Star<K2Node_VariableSet>{
+abstract K2Node_VariableSetPtr(ucpp.Ptr<K2Node_VariableSet>) from ucpp.Ptr<K2Node_VariableSet> to ucpp.Ptr<K2Node_VariableSet>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_VariableSet): K2Node_VariableSetPtr {
 		return untyped __cpp__("&({0})", v);

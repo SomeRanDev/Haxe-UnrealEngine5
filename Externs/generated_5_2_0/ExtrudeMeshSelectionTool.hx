@@ -3,15 +3,15 @@ package ue;
 
 @:native("UExtrudeMeshSelectionTool")
 @:include("Polymodeling/ExtrudeMeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class ExtrudeMeshSelectionTool extends SingleTargetWithSelectionTool {
-	@:protected public var ExtrudeProperties: cpp.Star<ExtrudeMeshSelectionToolProperties>;
-	@:protected public var SourcePreview: cpp.Star<PreviewMesh>;
-	@:protected public var EditCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var ExtrudeProperties: ucpp.Ptr<ExtrudeMeshSelectionToolProperties>;
+	@:protected public var SourcePreview: ucpp.Ptr<PreviewMesh>;
+	@:protected public var EditCompute: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstExtrudeMeshSelectionTool(ExtrudeMeshSelectionTool) from ExtrudeMes
 @:forward
 @:nativeGen
 @:native("ExtrudeMeshSelectionTool*")
-abstract ExtrudeMeshSelectionToolPtr(cpp.Star<ExtrudeMeshSelectionTool>) from cpp.Star<ExtrudeMeshSelectionTool> to cpp.Star<ExtrudeMeshSelectionTool>{
+abstract ExtrudeMeshSelectionToolPtr(ucpp.Ptr<ExtrudeMeshSelectionTool>) from ucpp.Ptr<ExtrudeMeshSelectionTool> to ucpp.Ptr<ExtrudeMeshSelectionTool>{
 	@:from
 	public static extern inline function fromValue(v: ExtrudeMeshSelectionTool): ExtrudeMeshSelectionToolPtr {
 		return untyped __cpp__("&({0})", v);

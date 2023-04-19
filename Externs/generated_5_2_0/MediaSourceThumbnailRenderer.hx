@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMediaSourceThumbnailRenderer")
 @:include("Shared/MediaSourceThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class MediaSourceThumbnailRenderer extends TextureThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMediaSourceThumbnailRenderer(MediaSourceThumbnailRenderer) from Me
 @:forward
 @:nativeGen
 @:native("MediaSourceThumbnailRenderer*")
-abstract MediaSourceThumbnailRendererPtr(cpp.Star<MediaSourceThumbnailRenderer>) from cpp.Star<MediaSourceThumbnailRenderer> to cpp.Star<MediaSourceThumbnailRenderer>{
+abstract MediaSourceThumbnailRendererPtr(ucpp.Ptr<MediaSourceThumbnailRenderer>) from ucpp.Ptr<MediaSourceThumbnailRenderer> to ucpp.Ptr<MediaSourceThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: MediaSourceThumbnailRenderer): MediaSourceThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

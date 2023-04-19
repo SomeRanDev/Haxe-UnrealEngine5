@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraDataInterface")
 @:include("NiagaraDataInterface.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterface extends NiagaraDataInterfaceBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraDataInterface(NiagaraDataInterface) from NiagaraDataInterfa
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterface*")
-abstract NiagaraDataInterfacePtr(cpp.Star<NiagaraDataInterface>) from cpp.Star<NiagaraDataInterface> to cpp.Star<NiagaraDataInterface>{
+abstract NiagaraDataInterfacePtr(ucpp.Ptr<NiagaraDataInterface>) from ucpp.Ptr<NiagaraDataInterface> to ucpp.Ptr<NiagaraDataInterface>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterface): NiagaraDataInterfacePtr {
 		return untyped __cpp__("&({0})", v);

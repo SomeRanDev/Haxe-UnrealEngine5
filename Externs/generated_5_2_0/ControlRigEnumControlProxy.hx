@@ -3,11 +3,11 @@ package ue;
 
 @:native("UControlRigEnumControlProxy")
 @:include("EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlRigEnumControlProxy extends ControlRigControlsProxy {
 	public var Enum: ControlRigEnumControlProxyValue;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstControlRigEnumControlProxy(ControlRigEnumControlProxy) from Contro
 @:forward
 @:nativeGen
 @:native("ControlRigEnumControlProxy*")
-abstract ControlRigEnumControlProxyPtr(cpp.Star<ControlRigEnumControlProxy>) from cpp.Star<ControlRigEnumControlProxy> to cpp.Star<ControlRigEnumControlProxy>{
+abstract ControlRigEnumControlProxyPtr(ucpp.Ptr<ControlRigEnumControlProxy>) from ucpp.Ptr<ControlRigEnumControlProxy> to ucpp.Ptr<ControlRigEnumControlProxy>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigEnumControlProxy): ControlRigEnumControlProxyPtr {
 		return untyped __cpp__("&({0})", v);

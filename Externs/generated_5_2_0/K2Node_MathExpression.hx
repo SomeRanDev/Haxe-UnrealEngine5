@@ -3,12 +3,12 @@ package ue;
 
 @:native("UK2Node_MathExpression")
 @:include("K2Node_MathExpression.h")
-@:structAccess
+@:valueType
 extern class K2Node_MathExpression extends K2Node_Composite {
 	public var Expression: FString;
 	public var bMadeAfterRotChange: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstK2Node_MathExpression(K2Node_MathExpression) from K2Node_MathExpre
 @:forward
 @:nativeGen
 @:native("K2Node_MathExpression*")
-abstract K2Node_MathExpressionPtr(cpp.Star<K2Node_MathExpression>) from cpp.Star<K2Node_MathExpression> to cpp.Star<K2Node_MathExpression>{
+abstract K2Node_MathExpressionPtr(ucpp.Ptr<K2Node_MathExpression>) from ucpp.Ptr<K2Node_MathExpression> to ucpp.Ptr<K2Node_MathExpression>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_MathExpression): K2Node_MathExpressionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("ULiveCodingSettings")
 @:include("LiveCodingSettings.h")
-@:structAccess
+@:valueType
 extern class LiveCodingSettings extends Object {
 	public var bEnabled: Bool;
 	public var Startup: ELiveCodingStartupMode;
@@ -15,7 +15,7 @@ extern class LiveCodingSettings extends Object {
 	public var bPreloadProjectPluginModules: Bool;
 	public var PreloadNamedModules: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstLiveCodingSettings(LiveCodingSettings) from LiveCodingSettings {
 @:forward
 @:nativeGen
 @:native("LiveCodingSettings*")
-abstract LiveCodingSettingsPtr(cpp.Star<LiveCodingSettings>) from cpp.Star<LiveCodingSettings> to cpp.Star<LiveCodingSettings>{
+abstract LiveCodingSettingsPtr(ucpp.Ptr<LiveCodingSettings>) from ucpp.Ptr<LiveCodingSettings> to ucpp.Ptr<LiveCodingSettings>{
 	@:from
 	public static extern inline function fromValue(v: LiveCodingSettings): LiveCodingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

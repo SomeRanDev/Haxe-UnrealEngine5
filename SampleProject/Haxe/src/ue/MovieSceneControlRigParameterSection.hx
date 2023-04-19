@@ -3,9 +3,9 @@ package ue;
 
 @:native("UMovieSceneControlRigParameterSection")
 @:include("Sequencer/MovieSceneControlRigParameterSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneControlRigParameterSection extends MovieSceneParameterSection {
-	private var ControlRig: cpp.Star<ControlRig>;
+	private var ControlRig: ucpp.Ptr<ControlRig>;
 	public var ControlRigClass: TSubclassOf<ControlRig>;
 	public var ControlsMask: TArray<Bool>;
 	public var TransformMask: MovieSceneTransformMask;
@@ -14,8 +14,9 @@ extern class MovieSceneControlRigParameterSection extends MovieSceneParameterSec
 	@:protected public var EnumParameterNamesAndCurves: TArray<EnumParameterNameAndCurve>;
 	@:protected public var IntegerParameterNamesAndCurves: TArray<IntegerParameterNameAndCurve>;
 	@:protected public var SpaceChannels: TArray<SpaceControlNameAndChannel>;
+	@:protected public var ConstraintsChannels: TArray<ConstraintAndActiveChannel>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,7 +37,7 @@ abstract ConstMovieSceneControlRigParameterSection(MovieSceneControlRigParameter
 @:forward
 @:nativeGen
 @:native("MovieSceneControlRigParameterSection*")
-abstract MovieSceneControlRigParameterSectionPtr(cpp.Star<MovieSceneControlRigParameterSection>) from cpp.Star<MovieSceneControlRigParameterSection> to cpp.Star<MovieSceneControlRigParameterSection>{
+abstract MovieSceneControlRigParameterSectionPtr(ucpp.Ptr<MovieSceneControlRigParameterSection>) from ucpp.Ptr<MovieSceneControlRigParameterSection> to ucpp.Ptr<MovieSceneControlRigParameterSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneControlRigParameterSection): MovieSceneControlRigParameterSectionPtr {
 		return untyped __cpp__("&({0})", v);

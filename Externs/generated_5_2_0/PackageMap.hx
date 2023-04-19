@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPackageMap")
-@:structAccess
+@:valueType
 extern class PackageMap extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPackageMap(PackageMap) from PackageMap {
 @:forward
 @:nativeGen
 @:native("PackageMap*")
-abstract PackageMapPtr(cpp.Star<PackageMap>) from cpp.Star<PackageMap> to cpp.Star<PackageMap>{
+abstract PackageMapPtr(ucpp.Ptr<PackageMap>) from ucpp.Ptr<PackageMap> to ucpp.Ptr<PackageMap>{
 	@:from
 	public static extern inline function fromValue(v: PackageMap): PackageMapPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,25 +3,25 @@ package ue;
 
 @:native("UDeviceProfileManager")
 @:include("DeviceProfiles/DeviceProfileManager.h")
-@:structAccess
+@:valueType
 extern class DeviceProfileManager extends Object {
-	public var Profiles: TArray<cpp.Star<DeviceProfile>>;
-	private var BackupProfiles: TArray<cpp.Star<DeviceProfile>>;
+	public var Profiles: TArray<ucpp.Ptr<DeviceProfile>>;
+	private var BackupProfiles: TArray<ucpp.Ptr<DeviceProfile>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDeviceProfileManager(DeviceProfileManager) from DeviceProfileManager {
-	public extern var Profiles(get, never): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>>;
-	public inline extern function get_Profiles(): TArray<cpp.Star<DeviceProfile.ConstDeviceProfile>> return this.Profiles;
+	public extern var Profiles(get, never): TArray<ucpp.Ptr<DeviceProfile.ConstDeviceProfile>>;
+	public inline extern function get_Profiles(): TArray<ucpp.Ptr<DeviceProfile.ConstDeviceProfile>> return this.Profiles;
 }
 
 @:forward
 @:nativeGen
 @:native("DeviceProfileManager*")
-abstract DeviceProfileManagerPtr(cpp.Star<DeviceProfileManager>) from cpp.Star<DeviceProfileManager> to cpp.Star<DeviceProfileManager>{
+abstract DeviceProfileManagerPtr(ucpp.Ptr<DeviceProfileManager>) from ucpp.Ptr<DeviceProfileManager> to ucpp.Ptr<DeviceProfileManager>{
 	@:from
 	public static extern inline function fromValue(v: DeviceProfileManager): DeviceProfileManagerPtr {
 		return untyped __cpp__("&({0})", v);

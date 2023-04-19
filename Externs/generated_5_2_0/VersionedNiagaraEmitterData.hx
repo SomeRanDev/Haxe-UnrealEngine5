@@ -3,14 +3,14 @@ package ue;
 
 @:native("FVersionedNiagaraEmitterData")
 @:include("NiagaraEmitter.h")
-@:structAccess
+@:valueType
 extern class VersionedNiagaraEmitterData {
 	public var Version: NiagaraAssetVersion;
 	public var bDeprecated: Bool;
 	public var DeprecationMessage: FText;
 	public var bLocalSpace: Bool;
 	public var bDeterminism: Bool;
-	public var RandomSeed: cpp.Int32;
+	public var RandomSeed: ucpp.num.Int32;
 	public var bInterpolatedSpawning: Bool;
 	public var SimTarget: ENiagaraSimTarget;
 	public var CalculateBoundsMode: ENiagaraEmitterCalculateBoundMode;
@@ -21,16 +21,16 @@ extern class VersionedNiagaraEmitterData {
 	public var Platforms: NiagaraPlatformSet;
 	public var ScalabilityOverrides: NiagaraEmitterScalabilityOverrides;
 	public var bLimitDeltaTime: Bool;
-	public var MaxGPUParticlesSpawnPerFrame: cpp.Int32;
-	public var MaxDeltaTimePerTick: cpp.Float32;
+	public var MaxGPUParticlesSpawnPerFrame: ucpp.num.Int32;
+	public var MaxDeltaTimePerTick: ucpp.num.Float32;
 	public var AllocationMode: EParticleAllocationMode;
-	public var PreAllocationCount: cpp.Int32;
+	public var PreAllocationCount: ucpp.num.Int32;
 	public var UpdateScriptProps: NiagaraEmitterScriptProperties;
 	public var SpawnScriptProps: NiagaraEmitterScriptProperties;
 	public var RendererBindings: NiagaraParameterStore;
-	private var RendererProperties: TArray<cpp.Star<NiagaraRendererProperties>>;
-	private var SimulationStages: TArray<cpp.Star<NiagaraSimulationStageBase>>;
-	private var GPUComputeScript: cpp.Star<NiagaraScript>;
+	private var RendererProperties: TArray<ucpp.Ptr<NiagaraRendererProperties>>;
+	private var SimulationStages: TArray<ucpp.Ptr<NiagaraSimulationStageBase>>;
+	private var GPUComputeScript: ucpp.Ptr<NiagaraScript>;
 	private var SharedEventGeneratorIds: TArray<FName>;
 	private var CurrentScalabilitySettings: NiagaraEmitterScalabilitySettings;
 

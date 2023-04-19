@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangePipelinePropertyStates")
 @:include("InterchangePipelineBase.h")
-@:structAccess
+@:valueType
 extern class InterchangePipelinePropertyStates {
 	public var bLocked: Bool;
 	public var ImportStates: InterchangePipelinePropertyStatePerContext;

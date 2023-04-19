@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBrowserToolbarMenuContext")
 @:include("ContentBrowserMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserToolbarMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBrowserToolbarMenuContext(ContentBrowserToolbarMenuContext)
 @:forward
 @:nativeGen
 @:native("ContentBrowserToolbarMenuContext*")
-abstract ContentBrowserToolbarMenuContextPtr(cpp.Star<ContentBrowserToolbarMenuContext>) from cpp.Star<ContentBrowserToolbarMenuContext> to cpp.Star<ContentBrowserToolbarMenuContext>{
+abstract ContentBrowserToolbarMenuContextPtr(ucpp.Ptr<ContentBrowserToolbarMenuContext>) from ucpp.Ptr<ContentBrowserToolbarMenuContext> to ucpp.Ptr<ContentBrowserToolbarMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserToolbarMenuContext): ContentBrowserToolbarMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

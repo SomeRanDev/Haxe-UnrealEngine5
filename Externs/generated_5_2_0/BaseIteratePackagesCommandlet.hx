@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBaseIteratePackagesCommandlet")
 @:include("Commandlets/BaseIteratePackagesCommandlet.h")
-@:structAccess
+@:valueType
 extern class BaseIteratePackagesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBaseIteratePackagesCommandlet(BaseIteratePackagesCommandlet) from 
 @:forward
 @:nativeGen
 @:native("BaseIteratePackagesCommandlet*")
-abstract BaseIteratePackagesCommandletPtr(cpp.Star<BaseIteratePackagesCommandlet>) from cpp.Star<BaseIteratePackagesCommandlet> to cpp.Star<BaseIteratePackagesCommandlet>{
+abstract BaseIteratePackagesCommandletPtr(ucpp.Ptr<BaseIteratePackagesCommandlet>) from ucpp.Ptr<BaseIteratePackagesCommandlet> to ucpp.Ptr<BaseIteratePackagesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: BaseIteratePackagesCommandlet): BaseIteratePackagesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

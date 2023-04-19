@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTTask_RunBehavior")
 @:include("BehaviorTree/Tasks/BTTask_RunBehavior.h")
-@:structAccess
+@:valueType
 extern class BTTask_RunBehavior extends BTTaskNode {
-	@:protected public var BehaviorAsset: cpp.Star<BehaviorTree>;
+	@:protected public var BehaviorAsset: ucpp.Ptr<BehaviorTree>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTTask_RunBehavior(BTTask_RunBehavior) from BTTask_RunBehavior {
 @:forward
 @:nativeGen
 @:native("BTTask_RunBehavior*")
-abstract BTTask_RunBehaviorPtr(cpp.Star<BTTask_RunBehavior>) from cpp.Star<BTTask_RunBehavior> to cpp.Star<BTTask_RunBehavior>{
+abstract BTTask_RunBehaviorPtr(ucpp.Ptr<BTTask_RunBehavior>) from ucpp.Ptr<BTTask_RunBehavior> to ucpp.Ptr<BTTask_RunBehavior>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_RunBehavior): BTTask_RunBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

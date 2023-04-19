@@ -3,14 +3,14 @@ package ue;
 
 @:native("UUVEditorLayoutTool")
 @:include("UVEditorLayoutTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorLayoutTool extends InteractiveTool {
-	@:protected public var Targets: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var Settings: cpp.Star<UVLayoutProperties>;
-	@:protected public var Factories: TArray<cpp.Star<UVLayoutOperatorFactory>>;
-	@:protected public var UVToolSelectionAPI: cpp.Star<UVToolSelectionAPI>;
+	@:protected public var Targets: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var Settings: ucpp.Ptr<UVLayoutProperties>;
+	@:protected public var Factories: TArray<ucpp.Ptr<UVLayoutOperatorFactory>>;
+	@:protected public var UVToolSelectionAPI: ucpp.Ptr<UVToolSelectionAPI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstUVEditorLayoutTool(UVEditorLayoutTool) from UVEditorLayoutTool {
 @:forward
 @:nativeGen
 @:native("UVEditorLayoutTool*")
-abstract UVEditorLayoutToolPtr(cpp.Star<UVEditorLayoutTool>) from cpp.Star<UVEditorLayoutTool> to cpp.Star<UVEditorLayoutTool>{
+abstract UVEditorLayoutToolPtr(ucpp.Ptr<UVEditorLayoutTool>) from ucpp.Ptr<UVEditorLayoutTool> to ucpp.Ptr<UVEditorLayoutTool>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorLayoutTool): UVEditorLayoutToolPtr {
 		return untyped __cpp__("&({0})", v);

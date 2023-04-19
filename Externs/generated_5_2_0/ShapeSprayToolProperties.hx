@@ -3,16 +3,16 @@ package ue;
 
 @:native("UShapeSprayToolProperties")
 @:include("ShapeSprayTool.h")
-@:structAccess
+@:valueType
 extern class ShapeSprayToolProperties extends InteractiveToolPropertySet {
 	public var Color: LinearColor;
 	public var bRandomColor: Bool;
-	public var DropSpeed: cpp.Float32;
-	public var ObjectSize: cpp.Float32;
-	public var NumSplats: cpp.Int32;
-	public var Material: cpp.Star<MaterialInterface>;
+	public var DropSpeed: ucpp.num.Float32;
+	public var ObjectSize: ucpp.num.Float32;
+	public var NumSplats: ucpp.num.Int32;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,20 +22,20 @@ abstract ConstShapeSprayToolProperties(ShapeSprayToolProperties) from ShapeSpray
 	public inline extern function get_Color(): LinearColor return this.Color;
 	public extern var bRandomColor(get, never): Bool;
 	public inline extern function get_bRandomColor(): Bool return this.bRandomColor;
-	public extern var DropSpeed(get, never): cpp.Float32;
-	public inline extern function get_DropSpeed(): cpp.Float32 return this.DropSpeed;
-	public extern var ObjectSize(get, never): cpp.Float32;
-	public inline extern function get_ObjectSize(): cpp.Float32 return this.ObjectSize;
-	public extern var NumSplats(get, never): cpp.Int32;
-	public inline extern function get_NumSplats(): cpp.Int32 return this.NumSplats;
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
+	public extern var DropSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_DropSpeed(): ucpp.num.Float32 return this.DropSpeed;
+	public extern var ObjectSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ObjectSize(): ucpp.num.Float32 return this.ObjectSize;
+	public extern var NumSplats(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSplats(): ucpp.num.Int32 return this.NumSplats;
+	public extern var Material(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Material(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Material;
 }
 
 @:forward
 @:nativeGen
 @:native("ShapeSprayToolProperties*")
-abstract ShapeSprayToolPropertiesPtr(cpp.Star<ShapeSprayToolProperties>) from cpp.Star<ShapeSprayToolProperties> to cpp.Star<ShapeSprayToolProperties>{
+abstract ShapeSprayToolPropertiesPtr(ucpp.Ptr<ShapeSprayToolProperties>) from ucpp.Ptr<ShapeSprayToolProperties> to ucpp.Ptr<ShapeSprayToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ShapeSprayToolProperties): ShapeSprayToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

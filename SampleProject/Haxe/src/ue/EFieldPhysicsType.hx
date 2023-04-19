@@ -23,5 +23,6 @@ extern class EFieldPhysicsType {
 	static var Field_ActivateDisabled: EFieldPhysicsType;
 	static var Field_InitialLinearVelocity: EFieldPhysicsType;
 	static var Field_InitialAngularVelocity: EFieldPhysicsType;
+	static var Field_LinearImpulse: EFieldPhysicsType;
 	static var Field_PhysicsType_Max: EFieldPhysicsType;
 }

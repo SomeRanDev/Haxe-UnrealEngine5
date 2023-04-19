@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RandomPlayer")
 @:include("AnimGraphNode_RandomPlayer.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_RandomPlayer extends AnimGraphNode_Base {
 	public var Node: AnimNode_RandomPlayer;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_RandomPlayer(AnimGraphNode_RandomPlayer) from AnimGr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_RandomPlayer*")
-abstract AnimGraphNode_RandomPlayerPtr(cpp.Star<AnimGraphNode_RandomPlayer>) from cpp.Star<AnimGraphNode_RandomPlayer> to cpp.Star<AnimGraphNode_RandomPlayer>{
+abstract AnimGraphNode_RandomPlayerPtr(ucpp.Ptr<AnimGraphNode_RandomPlayer>) from ucpp.Ptr<AnimGraphNode_RandomPlayer> to ucpp.Ptr<AnimGraphNode_RandomPlayer>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_RandomPlayer): AnimGraphNode_RandomPlayerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcess_TextureSettings")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess_TextureSettings {
 	public var BakeResolution: EGenerateStaticMeshLODBakeResolution;
-	public var BakeThickness: cpp.Float32;
+	public var BakeThickness: ucpp.num.Float32;
 	public var bCombineTextures: Bool;
 
 	@:native("FGenerateStaticMeshLODProcess_TextureSettings") public function new();
-	@:native("FGenerateStaticMeshLODProcess_TextureSettings") public static function make(BakeResolution: EGenerateStaticMeshLODBakeResolution, BakeThickness: cpp.Float32, bCombineTextures: Bool): GenerateStaticMeshLODProcess_TextureSettings ;
+	@:native("FGenerateStaticMeshLODProcess_TextureSettings") public static function make(BakeResolution: EGenerateStaticMeshLODBakeResolution, BakeThickness: ucpp.num.Float32, bCombineTextures: Bool): GenerateStaticMeshLODProcess_TextureSettings ;
 }

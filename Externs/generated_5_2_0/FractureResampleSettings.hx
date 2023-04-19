@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureResampleSettings")
 @:include("FractureToolResample.h")
-@:structAccess
+@:valueType
 extern class FractureResampleSettings extends FractureToolSettings {
 	public var bOnlyShowAddedPoints: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFractureResampleSettings(FractureResampleSettings) from FractureRe
 @:forward
 @:nativeGen
 @:native("FractureResampleSettings*")
-abstract FractureResampleSettingsPtr(cpp.Star<FractureResampleSettings>) from cpp.Star<FractureResampleSettings> to cpp.Star<FractureResampleSettings>{
+abstract FractureResampleSettingsPtr(ucpp.Ptr<FractureResampleSettings>) from ucpp.Ptr<FractureResampleSettings> to ucpp.Ptr<FractureResampleSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureResampleSettings): FractureResampleSettingsPtr {
 		return untyped __cpp__("&({0})", v);

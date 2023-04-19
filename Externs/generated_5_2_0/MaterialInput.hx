@@ -3,16 +3,16 @@ package ue;
 
 @:native("FMaterialInput")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class MaterialInput {
-	public var Expression: cpp.Star<MaterialExpression>;
-	public var OutputIndex: cpp.Int32;
+	public var Expression: ucpp.Ptr<MaterialExpression>;
+	public var OutputIndex: ucpp.num.Int32;
 	public var InputName: FName;
-	public var Mask: cpp.Int32;
-	public var MaskR: cpp.Int32;
-	public var MaskG: cpp.Int32;
-	public var MaskB: cpp.Int32;
-	public var MaskA: cpp.Int32;
+	public var Mask: ucpp.num.Int32;
+	public var MaskR: ucpp.num.Int32;
+	public var MaskG: ucpp.num.Int32;
+	public var MaskB: ucpp.num.Int32;
+	public var MaskA: ucpp.num.Int32;
 
 	@:native("FMaterialInput") public function new();
 }

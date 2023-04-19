@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNavAreaMeta_SwitchByAgent")
 @:include("NavAreas/NavAreaMeta_SwitchByAgent.h")
-@:structAccess
+@:valueType
 extern class NavAreaMeta_SwitchByAgent extends NavAreaMeta {
 	public var Agent0Area: TSubclassOf<NavArea>;
 	public var Agent1Area: TSubclassOf<NavArea>;
@@ -22,7 +22,7 @@ extern class NavAreaMeta_SwitchByAgent extends NavAreaMeta {
 	public var Agent14Area: TSubclassOf<NavArea>;
 	public var Agent15Area: TSubclassOf<NavArea>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -65,7 +65,7 @@ abstract ConstNavAreaMeta_SwitchByAgent(NavAreaMeta_SwitchByAgent) from NavAreaM
 @:forward
 @:nativeGen
 @:native("NavAreaMeta_SwitchByAgent*")
-abstract NavAreaMeta_SwitchByAgentPtr(cpp.Star<NavAreaMeta_SwitchByAgent>) from cpp.Star<NavAreaMeta_SwitchByAgent> to cpp.Star<NavAreaMeta_SwitchByAgent>{
+abstract NavAreaMeta_SwitchByAgentPtr(ucpp.Ptr<NavAreaMeta_SwitchByAgent>) from ucpp.Ptr<NavAreaMeta_SwitchByAgent> to ucpp.Ptr<NavAreaMeta_SwitchByAgent>{
 	@:from
 	public static extern inline function fromValue(v: NavAreaMeta_SwitchByAgent): NavAreaMeta_SwitchByAgentPtr {
 		return untyped __cpp__("&({0})", v);

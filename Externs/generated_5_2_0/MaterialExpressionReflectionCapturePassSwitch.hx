@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionReflectionCapturePassSwitch")
 @:include("Materials/MaterialExpressionReflectionCapturePassSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionReflectionCapturePassSwitch extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var Reflection: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionReflectionCapturePassSwitch(MaterialExpressionRe
 @:forward
 @:nativeGen
 @:native("MaterialExpressionReflectionCapturePassSwitch*")
-abstract MaterialExpressionReflectionCapturePassSwitchPtr(cpp.Star<MaterialExpressionReflectionCapturePassSwitch>) from cpp.Star<MaterialExpressionReflectionCapturePassSwitch> to cpp.Star<MaterialExpressionReflectionCapturePassSwitch>{
+abstract MaterialExpressionReflectionCapturePassSwitchPtr(ucpp.Ptr<MaterialExpressionReflectionCapturePassSwitch>) from ucpp.Ptr<MaterialExpressionReflectionCapturePassSwitch> to ucpp.Ptr<MaterialExpressionReflectionCapturePassSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionReflectionCapturePassSwitch): MaterialExpressionReflectionCapturePassSwitchPtr {
 		return untyped __cpp__("&({0})", v);

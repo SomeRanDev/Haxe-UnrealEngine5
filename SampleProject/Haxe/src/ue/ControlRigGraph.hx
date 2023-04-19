@@ -3,12 +3,12 @@ package ue;
 
 @:native("UControlRigGraph")
 @:include("Graph/ControlRigGraph.h")
-@:structAccess
+@:valueType
 extern class ControlRigGraph extends EdGraph {
 	public var ModelNodePath: FString;
 	public var bIsFunctionDefinition: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstControlRigGraph(ControlRigGraph) from ControlRigGraph {
 @:forward
 @:nativeGen
 @:native("ControlRigGraph*")
-abstract ControlRigGraphPtr(cpp.Star<ControlRigGraph>) from cpp.Star<ControlRigGraph> to cpp.Star<ControlRigGraph>{
+abstract ControlRigGraphPtr(ucpp.Ptr<ControlRigGraph>) from ucpp.Ptr<ControlRigGraph> to ucpp.Ptr<ControlRigGraph>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigGraph): ControlRigGraphPtr {
 		return untyped __cpp__("&({0})", v);

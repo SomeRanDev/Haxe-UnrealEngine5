@@ -3,18 +3,18 @@ package ue;
 
 @:native("UPatternTool_RadialSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternTool_RadialSettings extends InteractiveToolPropertySet {
 	public var SpacingMode: EPatternToolAxisSpacingMode;
-	public var Count: cpp.Int32;
-	public var StepSize: cpp.Float64;
-	public var Radius: cpp.Float64;
-	public var StartAngle: cpp.Float64;
-	public var EndAngle: cpp.Float64;
-	public var AngleShift: cpp.Float64;
+	public var Count: ucpp.num.Int32;
+	public var StepSize: ucpp.num.Float64;
+	public var Radius: ucpp.num.Float64;
+	public var StartAngle: ucpp.num.Float64;
+	public var EndAngle: ucpp.num.Float64;
+	public var AngleShift: ucpp.num.Float64;
 	public var bOriented: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,18 +22,18 @@ extern class PatternTool_RadialSettings extends InteractiveToolPropertySet {
 abstract ConstPatternTool_RadialSettings(PatternTool_RadialSettings) from PatternTool_RadialSettings {
 	public extern var SpacingMode(get, never): EPatternToolAxisSpacingMode;
 	public inline extern function get_SpacingMode(): EPatternToolAxisSpacingMode return this.SpacingMode;
-	public extern var Count(get, never): cpp.Int32;
-	public inline extern function get_Count(): cpp.Int32 return this.Count;
-	public extern var StepSize(get, never): cpp.Float64;
-	public inline extern function get_StepSize(): cpp.Float64 return this.StepSize;
-	public extern var Radius(get, never): cpp.Float64;
-	public inline extern function get_Radius(): cpp.Float64 return this.Radius;
-	public extern var StartAngle(get, never): cpp.Float64;
-	public inline extern function get_StartAngle(): cpp.Float64 return this.StartAngle;
-	public extern var EndAngle(get, never): cpp.Float64;
-	public inline extern function get_EndAngle(): cpp.Float64 return this.EndAngle;
-	public extern var AngleShift(get, never): cpp.Float64;
-	public inline extern function get_AngleShift(): cpp.Float64 return this.AngleShift;
+	public extern var Count(get, never): ucpp.num.Int32;
+	public inline extern function get_Count(): ucpp.num.Int32 return this.Count;
+	public extern var StepSize(get, never): ucpp.num.Float64;
+	public inline extern function get_StepSize(): ucpp.num.Float64 return this.StepSize;
+	public extern var Radius(get, never): ucpp.num.Float64;
+	public inline extern function get_Radius(): ucpp.num.Float64 return this.Radius;
+	public extern var StartAngle(get, never): ucpp.num.Float64;
+	public inline extern function get_StartAngle(): ucpp.num.Float64 return this.StartAngle;
+	public extern var EndAngle(get, never): ucpp.num.Float64;
+	public inline extern function get_EndAngle(): ucpp.num.Float64 return this.EndAngle;
+	public extern var AngleShift(get, never): ucpp.num.Float64;
+	public inline extern function get_AngleShift(): ucpp.num.Float64 return this.AngleShift;
 	public extern var bOriented(get, never): Bool;
 	public inline extern function get_bOriented(): Bool return this.bOriented;
 }
@@ -41,7 +41,7 @@ abstract ConstPatternTool_RadialSettings(PatternTool_RadialSettings) from Patter
 @:forward
 @:nativeGen
 @:native("PatternTool_RadialSettings*")
-abstract PatternTool_RadialSettingsPtr(cpp.Star<PatternTool_RadialSettings>) from cpp.Star<PatternTool_RadialSettings> to cpp.Star<PatternTool_RadialSettings>{
+abstract PatternTool_RadialSettingsPtr(ucpp.Ptr<PatternTool_RadialSettings>) from ucpp.Ptr<PatternTool_RadialSettings> to ucpp.Ptr<PatternTool_RadialSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternTool_RadialSettings): PatternTool_RadialSettingsPtr {
 		return untyped __cpp__("&({0})", v);

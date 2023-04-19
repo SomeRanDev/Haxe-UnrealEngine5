@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSwarmDebugOptions")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class SwarmDebugOptions {
 	public var bDistributionEnabled: Bool;
 	public var bForceContentExport: Bool;

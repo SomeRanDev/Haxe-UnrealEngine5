@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULocationBasedNetObjectPrioritizer")
 @:include("Iris/ReplicationSystem/Prioritization/LocationBasedNetObjectPrioritizer.h")
-@:structAccess
+@:valueType
 extern class LocationBasedNetObjectPrioritizer extends NetObjectPrioritizer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLocationBasedNetObjectPrioritizer(LocationBasedNetObjectPrioritize
 @:forward
 @:nativeGen
 @:native("LocationBasedNetObjectPrioritizer*")
-abstract LocationBasedNetObjectPrioritizerPtr(cpp.Star<LocationBasedNetObjectPrioritizer>) from cpp.Star<LocationBasedNetObjectPrioritizer> to cpp.Star<LocationBasedNetObjectPrioritizer>{
+abstract LocationBasedNetObjectPrioritizerPtr(ucpp.Ptr<LocationBasedNetObjectPrioritizer>) from ucpp.Ptr<LocationBasedNetObjectPrioritizer> to ucpp.Ptr<LocationBasedNetObjectPrioritizer>{
 	@:from
 	public static extern inline function fromValue(v: LocationBasedNetObjectPrioritizer): LocationBasedNetObjectPrioritizerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FCacheSpawnableTemplate")
 @:include("Chaos/ChaosCache.h")
-@:structAccess
+@:valueType
 extern class CacheSpawnableTemplate {
-	public var DuplicatedTemplate: cpp.Star<Object>;
+	public var DuplicatedTemplate: ucpp.Ptr<Object>;
 	public var InitialTransform: Transform;
 	public var ComponentTransform: Transform;
 
 	@:native("FCacheSpawnableTemplate") public function new();
-	@:native("FCacheSpawnableTemplate") public static function make(DuplicatedTemplate: cpp.Star<Object>, InitialTransform: Transform, ComponentTransform: Transform): CacheSpawnableTemplate ;
+	@:native("FCacheSpawnableTemplate") public static function make(DuplicatedTemplate: ucpp.Ptr<Object>, InitialTransform: Transform, ComponentTransform: Transform): CacheSpawnableTemplate ;
 }

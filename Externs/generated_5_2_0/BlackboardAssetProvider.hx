@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UBlackboardAssetProvider")
-@:structAccess
+@:valueType
 extern class BlackboardAssetProvider extends Interface {
-	public function GetBlackboardAsset(): cpp.Star<BlackboardData>;
+	public function GetBlackboardAsset(): ucpp.Ptr<BlackboardData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetBlackboardAsset)
@@ -17,7 +17,7 @@ abstract ConstBlackboardAssetProvider(BlackboardAssetProvider) from BlackboardAs
 @:forward
 @:nativeGen
 @:native("BlackboardAssetProvider*")
-abstract BlackboardAssetProviderPtr(cpp.Star<BlackboardAssetProvider>) from cpp.Star<BlackboardAssetProvider> to cpp.Star<BlackboardAssetProvider>{
+abstract BlackboardAssetProviderPtr(ucpp.Ptr<BlackboardAssetProvider>) from ucpp.Ptr<BlackboardAssetProvider> to ucpp.Ptr<BlackboardAssetProvider>{
 	@:from
 	public static extern inline function fromValue(v: BlackboardAssetProvider): BlackboardAssetProviderPtr {
 		return untyped __cpp__("&({0})", v);

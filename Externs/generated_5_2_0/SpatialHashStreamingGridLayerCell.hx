@@ -3,10 +3,10 @@ package ue;
 
 @:native("FSpatialHashStreamingGridLayerCell")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
-@:structAccess
+@:valueType
 extern class SpatialHashStreamingGridLayerCell {
-	public var GridCells: TArray<cpp.Star<WorldPartitionRuntimeCell>>;
+	public var GridCells: TArray<ucpp.Ptr<WorldPartitionRuntimeCell>>;
 
 	@:native("FSpatialHashStreamingGridLayerCell") public function new();
-	@:native("FSpatialHashStreamingGridLayerCell") public static function make(GridCells: TArray<cpp.Star<WorldPartitionRuntimeCell>>): SpatialHashStreamingGridLayerCell ;
+	@:native("FSpatialHashStreamingGridLayerCell") public static function make(GridCells: TArray<ucpp.Ptr<WorldPartitionRuntimeCell>>): SpatialHashStreamingGridLayerCell ;
 }

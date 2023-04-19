@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFunction")
-@:structAccess
+@:valueType
 extern class Function extends Struct {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFunction(Function) from Function {
 @:forward
 @:nativeGen
 @:native("Function*")
-abstract FunctionPtr(cpp.Star<Function>) from cpp.Star<Function> to cpp.Star<Function>{
+abstract FunctionPtr(ucpp.Ptr<Function>) from ucpp.Ptr<Function> to ucpp.Ptr<Function>{
 	@:from
 	public static extern inline function fromValue(v: Function): FunctionPtr {
 		return untyped __cpp__("&({0})", v);

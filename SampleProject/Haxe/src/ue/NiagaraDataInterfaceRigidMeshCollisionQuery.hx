@@ -3,30 +3,48 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRigidMeshCollisionQuery")
 @:include("NiagaraDataInterfaceRigidMeshCollisionQuery.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceRigidMeshCollisionQuery extends NiagaraDataInterface {
-	public var Tag: FString;
+	public var ActorTags: TArray<FName>;
+	public var ComponentTags: TArray<FName>;
+	public var SourceActors: TArray<TSoftObjectPtr<Actor>>;
 	public var OnlyUseMoveable: Bool;
-	public var MaxNumPrimitives: cpp.Int32;
+	public var UseComplexCollisions: Bool;
+	public var GlobalSearchAllowed: Bool;
+	public var GlobalSearchForced: Bool;
+	public var GlobalSearchFallback_Unscripted: Bool;
+	public var MaxNumPrimitives: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceRigidMeshCollisionQuery(NiagaraDataInterfaceRigidMeshCollisionQuery) from NiagaraDataInterfaceRigidMeshCollisionQuery {
-	public extern var Tag(get, never): FString;
-	public inline extern function get_Tag(): FString return this.Tag;
+	public extern var ActorTags(get, never): TArray<FName>;
+	public inline extern function get_ActorTags(): TArray<FName> return this.ActorTags;
+	public extern var ComponentTags(get, never): TArray<FName>;
+	public inline extern function get_ComponentTags(): TArray<FName> return this.ComponentTags;
+	public extern var SourceActors(get, never): TArray<TSoftObjectPtr<Actor.ConstActor>>;
+	public inline extern function get_SourceActors(): TArray<TSoftObjectPtr<Actor.ConstActor>> return this.SourceActors;
 	public extern var OnlyUseMoveable(get, never): Bool;
 	public inline extern function get_OnlyUseMoveable(): Bool return this.OnlyUseMoveable;
-	public extern var MaxNumPrimitives(get, never): cpp.Int32;
-	public inline extern function get_MaxNumPrimitives(): cpp.Int32 return this.MaxNumPrimitives;
+	public extern var UseComplexCollisions(get, never): Bool;
+	public inline extern function get_UseComplexCollisions(): Bool return this.UseComplexCollisions;
+	public extern var GlobalSearchAllowed(get, never): Bool;
+	public inline extern function get_GlobalSearchAllowed(): Bool return this.GlobalSearchAllowed;
+	public extern var GlobalSearchForced(get, never): Bool;
+	public inline extern function get_GlobalSearchForced(): Bool return this.GlobalSearchForced;
+	public extern var GlobalSearchFallback_Unscripted(get, never): Bool;
+	public inline extern function get_GlobalSearchFallback_Unscripted(): Bool return this.GlobalSearchFallback_Unscripted;
+	public extern var MaxNumPrimitives(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxNumPrimitives(): ucpp.num.Int32 return this.MaxNumPrimitives;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceRigidMeshCollisionQuery*")
-abstract NiagaraDataInterfaceRigidMeshCollisionQueryPtr(cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery>) from cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery> to cpp.Star<NiagaraDataInterfaceRigidMeshCollisionQuery>{
+abstract NiagaraDataInterfaceRigidMeshCollisionQueryPtr(ucpp.Ptr<NiagaraDataInterfaceRigidMeshCollisionQuery>) from ucpp.Ptr<NiagaraDataInterfaceRigidMeshCollisionQuery> to ucpp.Ptr<NiagaraDataInterfaceRigidMeshCollisionQuery>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceRigidMeshCollisionQuery): NiagaraDataInterfaceRigidMeshCollisionQueryPtr {
 		return untyped __cpp__("&({0})", v);

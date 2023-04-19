@@ -3,7 +3,7 @@ package ue;
 
 @:native("UScrollBar")
 @:include("Components/ScrollBar.h")
-@:structAccess
+@:valueType
 extern class ScrollBar extends Widget {
 	public var WidgetStyle: ScrollBarStyle;
 	public var bAlwaysShowScrollbar: Bool;
@@ -12,9 +12,9 @@ extern class ScrollBar extends Widget {
 	public var Thickness: Vector2D;
 	public var Padding: Margin;
 
-	public function SetState(InOffsetFraction: cpp.Float32, InThumbSizeFraction: cpp.Float32): Void;
+	public function SetState(InOffsetFraction: ucpp.num.Float32, InThumbSizeFraction: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,7 +37,7 @@ abstract ConstScrollBar(ScrollBar) from ScrollBar {
 @:forward
 @:nativeGen
 @:native("ScrollBar*")
-abstract ScrollBarPtr(cpp.Star<ScrollBar>) from cpp.Star<ScrollBar> to cpp.Star<ScrollBar>{
+abstract ScrollBarPtr(ucpp.Ptr<ScrollBar>) from ucpp.Ptr<ScrollBar> to ucpp.Ptr<ScrollBar>{
 	@:from
 	public static extern inline function fromValue(v: ScrollBar): ScrollBarPtr {
 		return untyped __cpp__("&({0})", v);

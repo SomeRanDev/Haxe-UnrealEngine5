@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAnimationCustomTransitionGraph")
 @:include("AnimationCustomTransitionGraph.h")
-@:structAccess
+@:valueType
 extern class AnimationCustomTransitionGraph extends AnimationGraph {
-	public var MyResultNode: cpp.Star<AnimGraphNode_CustomTransitionResult>;
+	public var MyResultNode: ucpp.Ptr<AnimGraphNode_CustomTransitionResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimationCustomTransitionGraph(AnimationCustomTransitionGraph) from AnimationCustomTransitionGraph {
-	public extern var MyResultNode(get, never): cpp.Star<AnimGraphNode_CustomTransitionResult.ConstAnimGraphNode_CustomTransitionResult>;
-	public inline extern function get_MyResultNode(): cpp.Star<AnimGraphNode_CustomTransitionResult.ConstAnimGraphNode_CustomTransitionResult> return this.MyResultNode;
+	public extern var MyResultNode(get, never): ucpp.Ptr<AnimGraphNode_CustomTransitionResult.ConstAnimGraphNode_CustomTransitionResult>;
+	public inline extern function get_MyResultNode(): ucpp.Ptr<AnimGraphNode_CustomTransitionResult.ConstAnimGraphNode_CustomTransitionResult> return this.MyResultNode;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimationCustomTransitionGraph*")
-abstract AnimationCustomTransitionGraphPtr(cpp.Star<AnimationCustomTransitionGraph>) from cpp.Star<AnimationCustomTransitionGraph> to cpp.Star<AnimationCustomTransitionGraph>{
+abstract AnimationCustomTransitionGraphPtr(ucpp.Ptr<AnimationCustomTransitionGraph>) from ucpp.Ptr<AnimationCustomTransitionGraph> to ucpp.Ptr<AnimationCustomTransitionGraph>{
 	@:from
 	public static extern inline function fromValue(v: AnimationCustomTransitionGraph): AnimationCustomTransitionGraphPtr {
 		return untyped __cpp__("&({0})", v);

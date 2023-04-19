@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraRibbonUVSettings")
 @:include("NiagaraRibbonRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRibbonUVSettings {
 	public var DistributionMode: ENiagaraRibbonUVDistributionMode;
 	public var LeadingEdgeMode: ENiagaraRibbonUVEdgeMode;
 	public var TrailingEdgeMode: ENiagaraRibbonUVEdgeMode;
-	public var TilingLength: cpp.Float32;
+	public var TilingLength: ucpp.num.Float32;
 	public var Offset: Vector2D;
 	public var Scale: Vector2D;
 	public var bEnablePerParticleUOverride: Bool;

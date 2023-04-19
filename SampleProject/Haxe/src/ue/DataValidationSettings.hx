@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataValidationSettings")
 @:include("EditorValidatorSubsystem.h")
-@:structAccess
+@:valueType
 extern class DataValidationSettings extends Object {
 	public var bValidateOnSave: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDataValidationSettings(DataValidationSettings) from DataValidation
 @:forward
 @:nativeGen
 @:native("DataValidationSettings*")
-abstract DataValidationSettingsPtr(cpp.Star<DataValidationSettings>) from cpp.Star<DataValidationSettings> to cpp.Star<DataValidationSettings>{
+abstract DataValidationSettingsPtr(ucpp.Ptr<DataValidationSettings>) from ucpp.Ptr<DataValidationSettings> to ucpp.Ptr<DataValidationSettings>{
 	@:from
 	public static extern inline function fromValue(v: DataValidationSettings): DataValidationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

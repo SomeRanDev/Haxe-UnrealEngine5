@@ -3,20 +3,20 @@ package ue;
 
 @:native("UCurveEditorReduceFilter")
 @:include("Filters/CurveEditorReduceFilter.h")
-@:structAccess
+@:valueType
 extern class CurveEditorReduceFilter extends CurveEditorFilterBase {
-	public var Tolerance: cpp.Float32;
+	public var Tolerance: ucpp.num.Float32;
 	public var bTryRemoveUserSetTangentKeys: Bool;
 	public var SampleRate: FrameRate;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCurveEditorReduceFilter(CurveEditorReduceFilter) from CurveEditorReduceFilter {
-	public extern var Tolerance(get, never): cpp.Float32;
-	public inline extern function get_Tolerance(): cpp.Float32 return this.Tolerance;
+	public extern var Tolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_Tolerance(): ucpp.num.Float32 return this.Tolerance;
 	public extern var bTryRemoveUserSetTangentKeys(get, never): Bool;
 	public inline extern function get_bTryRemoveUserSetTangentKeys(): Bool return this.bTryRemoveUserSetTangentKeys;
 	public extern var SampleRate(get, never): FrameRate;
@@ -26,7 +26,7 @@ abstract ConstCurveEditorReduceFilter(CurveEditorReduceFilter) from CurveEditorR
 @:forward
 @:nativeGen
 @:native("CurveEditorReduceFilter*")
-abstract CurveEditorReduceFilterPtr(cpp.Star<CurveEditorReduceFilter>) from cpp.Star<CurveEditorReduceFilter> to cpp.Star<CurveEditorReduceFilter>{
+abstract CurveEditorReduceFilterPtr(ucpp.Ptr<CurveEditorReduceFilter>) from ucpp.Ptr<CurveEditorReduceFilter> to ucpp.Ptr<CurveEditorReduceFilter>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorReduceFilter): CurveEditorReduceFilterPtr {
 		return untyped __cpp__("&({0})", v);

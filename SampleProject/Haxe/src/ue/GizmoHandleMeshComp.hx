@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGizmoHandleMeshComponent")
 @:include("VIGizmoHandleMeshComponent.h")
-@:structAccess
+@:valueType
 extern class GizmoHandleMeshComp extends StaticMeshComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGizmoHandleMeshComp(GizmoHandleMeshComp) from GizmoHandleMeshComp 
 @:forward
 @:nativeGen
 @:native("GizmoHandleMeshComp*")
-abstract GizmoHandleMeshCompPtr(cpp.Star<GizmoHandleMeshComp>) from cpp.Star<GizmoHandleMeshComp> to cpp.Star<GizmoHandleMeshComp>{
+abstract GizmoHandleMeshCompPtr(ucpp.Ptr<GizmoHandleMeshComp>) from ucpp.Ptr<GizmoHandleMeshComp> to ucpp.Ptr<GizmoHandleMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: GizmoHandleMeshComp): GizmoHandleMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

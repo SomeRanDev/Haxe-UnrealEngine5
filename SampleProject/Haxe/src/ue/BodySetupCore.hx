@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBodySetupCore")
 @:include("BodySetupCore.h")
-@:structAccess
+@:valueType
 extern class BodySetupCore extends Object {
 	public var BoneName: FName;
 	public var PhysicsType: TEnumAsByte<EPhysicsType>;
 	public var CollisionTraceFlag: TEnumAsByte<ECollisionTraceFlag>;
 	public var CollisionReponse: TEnumAsByte<EBodyCollisionResponse>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstBodySetupCore(BodySetupCore) from BodySetupCore {
 @:forward
 @:nativeGen
 @:native("BodySetupCore*")
-abstract BodySetupCorePtr(cpp.Star<BodySetupCore>) from cpp.Star<BodySetupCore> to cpp.Star<BodySetupCore>{
+abstract BodySetupCorePtr(ucpp.Ptr<BodySetupCore>) from ucpp.Ptr<BodySetupCore> to ucpp.Ptr<BodySetupCore>{
 	@:from
 	public static extern inline function fromValue(v: BodySetupCore): BodySetupCorePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FThumbnailRenderingInfo")
 @:include("ThumbnailRendering/ThumbnailManager.h")
-@:structAccess
+@:valueType
 extern class ThumbnailRenderingInfo {
 	public var ClassNeedingThumbnailName: FString;
 	public var ClassNeedingThumbnail: TSubclassOf<Object>;
 	public var RendererClassName: FString;
-	public var Renderer: cpp.Star<ThumbnailRenderer>;
+	public var Renderer: ucpp.Ptr<ThumbnailRenderer>;
 
 	@:native("FThumbnailRenderingInfo") public function new();
-	@:native("FThumbnailRenderingInfo") public static function make(ClassNeedingThumbnailName: FString, ClassNeedingThumbnail: TSubclassOf<Object>, RendererClassName: FString, Renderer: cpp.Star<ThumbnailRenderer>): ThumbnailRenderingInfo ;
+	@:native("FThumbnailRenderingInfo") public static function make(ClassNeedingThumbnailName: FString, ClassNeedingThumbnail: TSubclassOf<Object>, RendererClassName: FString, Renderer: ucpp.Ptr<ThumbnailRenderer>): ThumbnailRenderingInfo ;
 }

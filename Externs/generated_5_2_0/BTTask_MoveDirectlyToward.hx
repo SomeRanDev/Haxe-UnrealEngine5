@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBTTask_MoveDirectlyToward")
 @:include("BehaviorTree/Tasks/BTTask_MoveDirectlyToward.h")
-@:structAccess
+@:valueType
 extern class BTTask_MoveDirectlyToward extends BTTask_MoveTo {
 	public var bDisablePathUpdateOnGoalLocationChange: Bool;
 	public var bProjectVectorGoalToNavigation: Bool;
 	private var bUpdatedDeprecatedProperties: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstBTTask_MoveDirectlyToward(BTTask_MoveDirectlyToward) from BTTask_M
 @:forward
 @:nativeGen
 @:native("BTTask_MoveDirectlyToward*")
-abstract BTTask_MoveDirectlyTowardPtr(cpp.Star<BTTask_MoveDirectlyToward>) from cpp.Star<BTTask_MoveDirectlyToward> to cpp.Star<BTTask_MoveDirectlyToward>{
+abstract BTTask_MoveDirectlyTowardPtr(ucpp.Ptr<BTTask_MoveDirectlyToward>) from ucpp.Ptr<BTTask_MoveDirectlyToward> to ucpp.Ptr<BTTask_MoveDirectlyToward>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_MoveDirectlyToward): BTTask_MoveDirectlyTowardPtr {
 		return untyped __cpp__("&({0})", v);

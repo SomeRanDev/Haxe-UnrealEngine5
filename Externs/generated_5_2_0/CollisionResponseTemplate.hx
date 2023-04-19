@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCollisionResponseTemplate")
 @:include("Engine/CollisionProfile.h")
-@:structAccess
+@:valueType
 extern class CollisionResponseTemplate {
 	public var Name: FName;
 	public var CollisionEnabled: TEnumAsByte<ECollisionEnabled>;

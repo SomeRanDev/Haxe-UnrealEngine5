@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEdGraphTerminalType")
 @:include("EdGraph/EdGraphNode.h")
-@:structAccess
+@:valueType
 extern class EdGraphTerminalType {
 	public var TerminalCategory: FName;
 	public var TerminalSubCategory: FName;

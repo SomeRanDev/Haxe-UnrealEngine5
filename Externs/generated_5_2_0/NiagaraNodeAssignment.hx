@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraNodeAssignment")
 @:include("NiagaraNodeAssignment.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeAssignment extends NiagaraNodeFunctionCall {
 	@:protected public var AssignmentTargets: TArray<NiagaraVariable>;
 	@:protected public var AssignmentDefaultValues: TArray<FString>;
 	@:protected public var OldFunctionCallName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraNodeAssignment(NiagaraNodeAssignment) from NiagaraNodeAssig
 @:forward
 @:nativeGen
 @:native("NiagaraNodeAssignment*")
-abstract NiagaraNodeAssignmentPtr(cpp.Star<NiagaraNodeAssignment>) from cpp.Star<NiagaraNodeAssignment> to cpp.Star<NiagaraNodeAssignment>{
+abstract NiagaraNodeAssignmentPtr(ucpp.Ptr<NiagaraNodeAssignment>) from ucpp.Ptr<NiagaraNodeAssignment> to ucpp.Ptr<NiagaraNodeAssignment>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeAssignment): NiagaraNodeAssignmentPtr {
 		return untyped __cpp__("&({0})", v);

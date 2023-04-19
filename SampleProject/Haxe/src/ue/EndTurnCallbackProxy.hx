@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEndTurnCallbackProxy")
 @:include("EndTurnCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class EndTurnCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function EndTurn(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, MatchID: FString, TurnBasedMatchInterface: TurnBasedMatchInterface): cpp.Star<EndTurnCallbackProxy>;
+	public function EndTurn(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, MatchID: FString, TurnBasedMatchInterface: TurnBasedMatchInterface): ucpp.Ptr<EndTurnCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstEndTurnCallbackProxy(EndTurnCallbackProxy) from EndTurnCallbackPro
 @:forward
 @:nativeGen
 @:native("EndTurnCallbackProxy*")
-abstract EndTurnCallbackProxyPtr(cpp.Star<EndTurnCallbackProxy>) from cpp.Star<EndTurnCallbackProxy> to cpp.Star<EndTurnCallbackProxy>{
+abstract EndTurnCallbackProxyPtr(ucpp.Ptr<EndTurnCallbackProxy>) from ucpp.Ptr<EndTurnCallbackProxy> to ucpp.Ptr<EndTurnCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: EndTurnCallbackProxy): EndTurnCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

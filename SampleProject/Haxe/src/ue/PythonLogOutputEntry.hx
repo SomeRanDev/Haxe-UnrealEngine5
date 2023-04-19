@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPythonLogOutputEntry")
 @:include("PythonScriptTypes.h")
-@:structAccess
+@:valueType
 extern class PythonLogOutputEntry {
 	public var Type: EPythonLogOutputType;
 	public var Output: FString;

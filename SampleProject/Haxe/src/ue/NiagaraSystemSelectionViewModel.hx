@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraSystemSelectionViewModel")
 @:include("ViewModels/NiagaraSystemSelectionViewModel.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemSelectionViewModel extends Object {
-	private var StackSelection: cpp.Star<NiagaraStackSelection>;
-	private var SelectionStackViewModel: cpp.Star<NiagaraStackViewModel>;
+	private var StackSelection: ucpp.Ptr<NiagaraStackSelection>;
+	private var SelectionStackViewModel: ucpp.Ptr<NiagaraStackViewModel>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraSystemSelectionViewModel(NiagaraSystemSelectionViewModel) f
 @:forward
 @:nativeGen
 @:native("NiagaraSystemSelectionViewModel*")
-abstract NiagaraSystemSelectionViewModelPtr(cpp.Star<NiagaraSystemSelectionViewModel>) from cpp.Star<NiagaraSystemSelectionViewModel> to cpp.Star<NiagaraSystemSelectionViewModel>{
+abstract NiagaraSystemSelectionViewModelPtr(ucpp.Ptr<NiagaraSystemSelectionViewModel>) from ucpp.Ptr<NiagaraSystemSelectionViewModel> to ucpp.Ptr<NiagaraSystemSelectionViewModel>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSystemSelectionViewModel): NiagaraSystemSelectionViewModelPtr {
 		return untyped __cpp__("&({0})", v);

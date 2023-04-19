@@ -3,33 +3,33 @@ package ue;
 
 @:native("USoundNodeModulator")
 @:include("Sound/SoundNodeModulator.h")
-@:structAccess
+@:valueType
 extern class SoundNodeModulator extends SoundNode {
-	public var PitchMin: cpp.Float32;
-	public var PitchMax: cpp.Float32;
-	public var VolumeMin: cpp.Float32;
-	public var VolumeMax: cpp.Float32;
+	public var PitchMin: ucpp.num.Float32;
+	public var PitchMax: ucpp.num.Float32;
+	public var VolumeMin: ucpp.num.Float32;
+	public var VolumeMax: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeModulator(SoundNodeModulator) from SoundNodeModulator {
-	public extern var PitchMin(get, never): cpp.Float32;
-	public inline extern function get_PitchMin(): cpp.Float32 return this.PitchMin;
-	public extern var PitchMax(get, never): cpp.Float32;
-	public inline extern function get_PitchMax(): cpp.Float32 return this.PitchMax;
-	public extern var VolumeMin(get, never): cpp.Float32;
-	public inline extern function get_VolumeMin(): cpp.Float32 return this.VolumeMin;
-	public extern var VolumeMax(get, never): cpp.Float32;
-	public inline extern function get_VolumeMax(): cpp.Float32 return this.VolumeMax;
+	public extern var PitchMin(get, never): ucpp.num.Float32;
+	public inline extern function get_PitchMin(): ucpp.num.Float32 return this.PitchMin;
+	public extern var PitchMax(get, never): ucpp.num.Float32;
+	public inline extern function get_PitchMax(): ucpp.num.Float32 return this.PitchMax;
+	public extern var VolumeMin(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeMin(): ucpp.num.Float32 return this.VolumeMin;
+	public extern var VolumeMax(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeMax(): ucpp.num.Float32 return this.VolumeMax;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeModulator*")
-abstract SoundNodeModulatorPtr(cpp.Star<SoundNodeModulator>) from cpp.Star<SoundNodeModulator> to cpp.Star<SoundNodeModulator>{
+abstract SoundNodeModulatorPtr(ucpp.Ptr<SoundNodeModulator>) from ucpp.Ptr<SoundNodeModulator> to ucpp.Ptr<SoundNodeModulator>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeModulator): SoundNodeModulatorPtr {
 		return untyped __cpp__("&({0})", v);

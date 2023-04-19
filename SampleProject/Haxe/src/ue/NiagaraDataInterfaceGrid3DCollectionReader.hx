@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceGrid3DCollectionReader")
 @:include("NiagaraDataInterfaceGrid3DCollectionReader.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGrid3DCollectionReader extends NiagaraDataInterfaceGrid3DCollection {
 	public var EmitterName: FString;
 	public var DIName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraDataInterfaceGrid3DCollectionReader(NiagaraDataInterfaceGri
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceGrid3DCollectionReader*")
-abstract NiagaraDataInterfaceGrid3DCollectionReaderPtr(cpp.Star<NiagaraDataInterfaceGrid3DCollectionReader>) from cpp.Star<NiagaraDataInterfaceGrid3DCollectionReader> to cpp.Star<NiagaraDataInterfaceGrid3DCollectionReader>{
+abstract NiagaraDataInterfaceGrid3DCollectionReaderPtr(ucpp.Ptr<NiagaraDataInterfaceGrid3DCollectionReader>) from ucpp.Ptr<NiagaraDataInterfaceGrid3DCollectionReader> to ucpp.Ptr<NiagaraDataInterfaceGrid3DCollectionReader>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceGrid3DCollectionReader): NiagaraDataInterfaceGrid3DCollectionReaderPtr {
 		return untyped __cpp__("&({0})", v);

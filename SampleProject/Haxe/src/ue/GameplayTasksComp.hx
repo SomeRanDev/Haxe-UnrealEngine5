@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGameplayTasksComponent")
 @:include("GameplayTasksComponent.h")
-@:structAccess
+@:valueType
 extern class GameplayTasksComp extends ActorComp {
 	public var bIsNetDirty: Bool;
-	@:protected public var SimulatedTasks: TArray<cpp.Star<GameplayTask>>;
-	@:protected public var TaskPriorityQueue: TArray<cpp.Star<GameplayTask>>;
-	@:protected public var TickingTasks: TArray<cpp.Star<GameplayTask>>;
-	@:protected public var KnownTasks: TArray<cpp.Star<GameplayTask>>;
+	@:protected public var TaskPriorityQueue: TArray<ucpp.Ptr<GameplayTask>>;
+	@:protected public var TickingTasks: TArray<ucpp.Ptr<GameplayTask>>;
+	@:protected public var KnownTasks: TArray<ucpp.Ptr<GameplayTask>>;
 	public var OnClaimedResourcesChange: HaxeMulticastSparseDelegateProperty<(GameplayResourceSet, GameplayResourceSet) -> Void>;
+	private var SimulatedTasks: TArray<ucpp.Ptr<GameplayTask>>;
 
-	public function OnRep_SimulatedTasks(): Void;
-	public function K2_RunGameplayTask(TaskOwner: GameplayTaskOwnerInterface, Task: cpp.Star<GameplayTask>, Priority: cpp.UInt8, AdditionalRequiredResources: TArray<TSubclassOf<GameplayTaskResource>>, AdditionalClaimedResources: TArray<TSubclassOf<GameplayTaskResource>>): EGameplayTaskRunResult;
+	public function OnRep_SimulatedTasks(PreviousSimulatedTasks: ucpp.Ref<TArray<ucpp.Ptr<GameplayTask>>>): Void;
+	public function K2_RunGameplayTask(TaskOwner: GameplayTaskOwnerInterface, Task: ucpp.Ptr<GameplayTask>, Priority: ucpp.num.UInt8, AdditionalRequiredResources: TArray<TSubclassOf<GameplayTaskResource>>, AdditionalClaimedResources: TArray<TSubclassOf<GameplayTaskResource>>): EGameplayTaskRunResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstGameplayTasksComp(GameplayTasksComp) from GameplayTasksComp {
 @:forward
 @:nativeGen
 @:native("GameplayTasksComp*")
-abstract GameplayTasksCompPtr(cpp.Star<GameplayTasksComp>) from cpp.Star<GameplayTasksComp> to cpp.Star<GameplayTasksComp>{
+abstract GameplayTasksCompPtr(ucpp.Ptr<GameplayTasksComp>) from ucpp.Ptr<GameplayTasksComp> to ucpp.Ptr<GameplayTasksComp>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTasksComp): GameplayTasksCompPtr {
 		return untyped __cpp__("&({0})", v);

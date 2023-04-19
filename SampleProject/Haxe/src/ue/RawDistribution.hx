@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRawDistribution")
 @:include("Distributions/Distribution.h")
-@:structAccess
+@:valueType
 extern class RawDistribution {
 	public var Table: DistributionLookupTable;
 

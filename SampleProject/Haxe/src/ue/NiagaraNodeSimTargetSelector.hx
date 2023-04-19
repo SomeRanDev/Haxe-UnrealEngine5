@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeSimTargetSelector")
 @:include("NiagaraNodeSimTargetSelector.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeSimTargetSelector extends NiagaraNodeUsageSelector {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraNodeSimTargetSelector(NiagaraNodeSimTargetSelector) from Ni
 @:forward
 @:nativeGen
 @:native("NiagaraNodeSimTargetSelector*")
-abstract NiagaraNodeSimTargetSelectorPtr(cpp.Star<NiagaraNodeSimTargetSelector>) from cpp.Star<NiagaraNodeSimTargetSelector> to cpp.Star<NiagaraNodeSimTargetSelector>{
+abstract NiagaraNodeSimTargetSelectorPtr(ucpp.Ptr<NiagaraNodeSimTargetSelector>) from ucpp.Ptr<NiagaraNodeSimTargetSelector> to ucpp.Ptr<NiagaraNodeSimTargetSelector>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeSimTargetSelector): NiagaraNodeSimTargetSelectorPtr {
 		return untyped __cpp__("&({0})", v);

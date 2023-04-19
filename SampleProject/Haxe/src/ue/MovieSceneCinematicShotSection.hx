@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneCinematicShotSection")
 @:include("Sections/MovieSceneCinematicShotSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCinematicShotSection extends MovieSceneSubSection {
 	private var ShotDisplayName: FString;
 
 	public function SetShotDisplayName(InShotDisplayName: FString): Void;
 	public function GetShotDisplayName(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetShotDisplayName)
@@ -21,7 +21,7 @@ abstract ConstMovieSceneCinematicShotSection(MovieSceneCinematicShotSection) fro
 @:forward
 @:nativeGen
 @:native("MovieSceneCinematicShotSection*")
-abstract MovieSceneCinematicShotSectionPtr(cpp.Star<MovieSceneCinematicShotSection>) from cpp.Star<MovieSceneCinematicShotSection> to cpp.Star<MovieSceneCinematicShotSection>{
+abstract MovieSceneCinematicShotSectionPtr(ucpp.Ptr<MovieSceneCinematicShotSection>) from ucpp.Ptr<MovieSceneCinematicShotSection> to ucpp.Ptr<MovieSceneCinematicShotSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCinematicShotSection): MovieSceneCinematicShotSectionPtr {
 		return untyped __cpp__("&({0})", v);

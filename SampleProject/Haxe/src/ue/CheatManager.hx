@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCheatManager")
 @:include("GameFramework/CheatManager.h")
-@:structAccess
+@:valueType
 extern class CheatManager extends Object {
-	public var DebugCameraControllerRef: cpp.Star<DebugCameraController>;
+	public var DebugCameraControllerRef: ucpp.Ptr<DebugCameraController>;
 	public var DebugCameraControllerClass: TSubclassOf<DebugCameraController>;
-	@:protected public var CheatManagerExtensions: TArray<cpp.Star<CheatManagerExtension>>;
+	@:protected public var CheatManagerExtensions: TArray<ucpp.Ptr<CheatManagerExtension>>;
 
 	public function Walk(): Void;
 	public function ViewSelf(): Void;
@@ -25,21 +25,21 @@ extern class CheatManager extends Object {
 	public function StreamLevelOut(PackageName: FName): Void;
 	public function StreamLevelIn(PackageName: FName): Void;
 	public function SpawnServerStatReplicator(): Void;
-	public function Slomo(NewTimeDilation: cpp.Float32): Void;
+	public function Slomo(NewTimeDilation: ucpp.num.Float32): Void;
 	public function SetWorldOrigin(): Void;
 	public function SetMouseSensitivityToDefault(): Void;
 	public function ServerToggleAILogging(): Void;
 	public function ReceiveInitCheatManager(): Void;
 	public function ReceiveEndPlay(): Void;
 	public function PlayersOnly(): Void;
-	public function OnPlayerEndPlayed(Player: cpp.Star<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
+	public function OnPlayerEndPlayed(Player: ucpp.Ptr<Actor>, EndPlayReason: TEnumAsByte<EEndPlayReason>): Void;
 	public function OnlyLoadLevel(PackageName: FName): Void;
 	public function LogLoc(): Void;
 	public function InvertMouse(): Void;
 	public function God(): Void;
 	public function Ghost(): Void;
-	public function GetPlayerController(): cpp.Star<PlayerController>;
-	public function FreezeFrame(Delay: cpp.Float32): Void;
+	public function GetPlayerController(): ucpp.Ptr<PlayerController>;
+	public function FreezeFrame(Delay: ucpp.num.Float32): Void;
 	public function Fly(): Void;
 	public function FlushLog(): Void;
 	@:protected public function EnableDebugCamera(): Void;
@@ -53,28 +53,28 @@ extern class CheatManager extends Object {
 	public function DestroyPawns(aClass: TSubclassOf<Pawn>): Void;
 	public function DestroyAllPawnsExceptTarget(): Void;
 	public function DestroyAll(aClass: TSubclassOf<Actor>): Void;
-	public function DebugCapsuleSweepSize(HalfHeight: cpp.Float32, Radius: cpp.Float32): Void;
+	public function DebugCapsuleSweepSize(HalfHeight: ucpp.num.Float32, Radius: ucpp.num.Float32): Void;
 	public function DebugCapsuleSweepPawn(): Void;
 	public function DebugCapsuleSweepComplex(bTraceComplex: Bool): Void;
 	public function DebugCapsuleSweepClear(): Void;
 	public function DebugCapsuleSweepChannel(Channel: TEnumAsByte<ECollisionChannel>): Void;
 	public function DebugCapsuleSweepCapture(): Void;
 	public function DebugCapsuleSweep(): Void;
-	public function DamageTarget(DamageAmount: cpp.Float32): Void;
+	public function DamageTarget(DamageAmount: ucpp.num.Float32): Void;
 	public function CheatScript(ScriptName: FString): Void;
-	public function ChangeSize(F: cpp.Float32): Void;
-	public function BugItStringCreator(ViewLocation: Vector, ViewRotation: Rotator, GoString: cpp.Reference<FString>, LocString: cpp.Reference<FString>): Void;
-	public function BugItGo(X: cpp.Float32, Y: cpp.Float32, Z: cpp.Float32, Pitch: cpp.Float32, Yaw: cpp.Float32, Roll: cpp.Float32): Void;
+	public function ChangeSize(F: ucpp.num.Float32): Void;
+	public function BugItStringCreator(ViewLocation: Vector, ViewRotation: Rotator, GoString: ucpp.Ref<FString>, LocString: ucpp.Ref<FString>): Void;
+	public function BugItGo(X: ucpp.num.Float32, Y: ucpp.num.Float32, Z: ucpp.num.Float32, Pitch: ucpp.num.Float32, Yaw: ucpp.num.Float32, Roll: ucpp.num.Float32): Void;
 	public function BugIt(ScreenShotDescription: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPlayerController)
 @:nativeGen
 abstract ConstCheatManager(CheatManager) from CheatManager {
-	public extern var DebugCameraControllerRef(get, never): cpp.Star<DebugCameraController.ConstDebugCameraController>;
-	public inline extern function get_DebugCameraControllerRef(): cpp.Star<DebugCameraController.ConstDebugCameraController> return this.DebugCameraControllerRef;
+	public extern var DebugCameraControllerRef(get, never): ucpp.Ptr<DebugCameraController.ConstDebugCameraController>;
+	public inline extern function get_DebugCameraControllerRef(): ucpp.Ptr<DebugCameraController.ConstDebugCameraController> return this.DebugCameraControllerRef;
 	public extern var DebugCameraControllerClass(get, never): TSubclassOf<DebugCameraController.ConstDebugCameraController>;
 	public inline extern function get_DebugCameraControllerClass(): TSubclassOf<DebugCameraController.ConstDebugCameraController> return this.DebugCameraControllerClass;
 }
@@ -82,7 +82,7 @@ abstract ConstCheatManager(CheatManager) from CheatManager {
 @:forward
 @:nativeGen
 @:native("CheatManager*")
-abstract CheatManagerPtr(cpp.Star<CheatManager>) from cpp.Star<CheatManager> to cpp.Star<CheatManager>{
+abstract CheatManagerPtr(ucpp.Ptr<CheatManager>) from ucpp.Ptr<CheatManager> to ucpp.Ptr<CheatManager>{
 	@:from
 	public static extern inline function fromValue(v: CheatManager): CheatManagerPtr {
 		return untyped __cpp__("&({0})", v);

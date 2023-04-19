@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorUVQuickTransformProperties")
 @:include("Operators/UVEditorUVTransformOp.h")
-@:structAccess
+@:valueType
 extern class UVEditorUVQuickTransformProperties extends UVEditorUVTransformProperties {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorUVQuickTransformProperties(UVEditorUVQuickTransformPropert
 @:forward
 @:nativeGen
 @:native("UVEditorUVQuickTransformProperties*")
-abstract UVEditorUVQuickTransformPropertiesPtr(cpp.Star<UVEditorUVQuickTransformProperties>) from cpp.Star<UVEditorUVQuickTransformProperties> to cpp.Star<UVEditorUVQuickTransformProperties>{
+abstract UVEditorUVQuickTransformPropertiesPtr(ucpp.Ptr<UVEditorUVQuickTransformProperties>) from ucpp.Ptr<UVEditorUVQuickTransformProperties> to ucpp.Ptr<UVEditorUVQuickTransformProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorUVQuickTransformProperties): UVEditorUVQuickTransformPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("UControlRigContextMenuContext")
 @:include("Editor/ControlRigContextMenuContext.h")
-@:structAccess
+@:valueType
 extern class ControlRigContextMenuContext extends Object {
 	public function IsAltDown(): Bool;
 	public function GetRigHierarchyToGraphDragAndDropContext(): ControlRigRigHierarchyToGraphDragAndDropContext;
 	public function GetRigHierarchyDragAndDropContext(): ControlRigRigHierarchyDragAndDropContext;
 	public function GetGraphNodeContextMenuContext(): ControlRigGraphNodeContextMenuContext;
-	public function GetControlRigBlueprint(): cpp.Star<ControlRigBlueprint>;
-	public function GetControlRig(): cpp.Star<ControlRig>;
+	public function GetControlRigBlueprint(): ucpp.Ptr<ControlRigBlueprint>;
+	public function GetControlRig(): ucpp.Ptr<ControlRig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsAltDown, GetControlRigBlueprint, GetControlRig)
@@ -23,7 +23,7 @@ abstract ConstControlRigContextMenuContext(ControlRigContextMenuContext) from Co
 @:forward
 @:nativeGen
 @:native("ControlRigContextMenuContext*")
-abstract ControlRigContextMenuContextPtr(cpp.Star<ControlRigContextMenuContext>) from cpp.Star<ControlRigContextMenuContext> to cpp.Star<ControlRigContextMenuContext>{
+abstract ControlRigContextMenuContextPtr(ucpp.Ptr<ControlRigContextMenuContext>) from ucpp.Ptr<ControlRigContextMenuContext> to ucpp.Ptr<ControlRigContextMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigContextMenuContext): ControlRigContextMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

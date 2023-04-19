@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTestBTDecorator_CantExecute")
 @:include("BehaviorTree/TestBTDecorator_CantExecute.h")
-@:structAccess
+@:valueType
 extern class TestBTDecorator_CantExecute extends BTDecorator {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestBTDecorator_CantExecute(TestBTDecorator_CantExecute) from Test
 @:forward
 @:nativeGen
 @:native("TestBTDecorator_CantExecute*")
-abstract TestBTDecorator_CantExecutePtr(cpp.Star<TestBTDecorator_CantExecute>) from cpp.Star<TestBTDecorator_CantExecute> to cpp.Star<TestBTDecorator_CantExecute>{
+abstract TestBTDecorator_CantExecutePtr(ucpp.Ptr<TestBTDecorator_CantExecute>) from ucpp.Ptr<TestBTDecorator_CantExecute> to ucpp.Ptr<TestBTDecorator_CantExecute>{
 	@:from
 	public static extern inline function fromValue(v: TestBTDecorator_CantExecute): TestBTDecorator_CantExecutePtr {
 		return untyped __cpp__("&({0})", v);

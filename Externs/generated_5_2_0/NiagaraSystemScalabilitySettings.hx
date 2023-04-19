@@ -3,17 +3,17 @@ package ue;
 
 @:native("FNiagaraSystemScalabilitySettings")
 @:include("NiagaraEffectType.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemScalabilitySettings {
 	public var Platforms: NiagaraPlatformSet;
 	public var bCullByDistance: Bool;
 	public var bCullMaxInstanceCount: Bool;
 	public var bCullPerSystemMaxInstanceCount: Bool;
-	public var MaxDistance: cpp.Float32;
-	public var MaxInstances: cpp.Int32;
-	public var MaxSystemInstances: cpp.Int32;
+	public var MaxDistance: ucpp.num.Float32;
+	public var MaxInstances: ucpp.num.Int32;
+	public var MaxSystemInstances: ucpp.num.Int32;
 	public var CullProxyMode: ENiagaraCullProxyMode;
-	public var MaxSystemProxies: cpp.Int32;
+	public var MaxSystemProxies: ucpp.num.Int32;
 	public var VisibilityCulling: NiagaraSystemVisibilityCullingSettings;
 	public var BudgetScaling: NiagaraGlobalBudgetScaling;
 

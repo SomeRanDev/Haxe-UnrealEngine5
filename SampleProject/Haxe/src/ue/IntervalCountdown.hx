@@ -3,10 +3,10 @@ package ue;
 
 @:native("FIntervalCountdown")
 @:include("AITypes.h")
-@:structAccess
+@:valueType
 extern class IntervalCountdown {
-	public var Interval: cpp.Float32;
+	public var Interval: ucpp.num.Float32;
 
 	@:native("FIntervalCountdown") public function new();
-	@:native("FIntervalCountdown") public static function make(Interval: cpp.Float32): IntervalCountdown ;
+	@:native("FIntervalCountdown") public static function make(Interval: ucpp.num.Float32): IntervalCountdown ;
 }

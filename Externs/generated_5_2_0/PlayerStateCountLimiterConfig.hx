@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPlayerStateCountLimiterConfig")
 @:include("GameFramework/PlayerStateCountLimiterConfig.h")
-@:structAccess
+@:valueType
 extern class PlayerStateCountLimiterConfig extends NetObjectCountLimiterConfig {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPlayerStateCountLimiterConfig(PlayerStateCountLimiterConfig) from 
 @:forward
 @:nativeGen
 @:native("PlayerStateCountLimiterConfig*")
-abstract PlayerStateCountLimiterConfigPtr(cpp.Star<PlayerStateCountLimiterConfig>) from cpp.Star<PlayerStateCountLimiterConfig> to cpp.Star<PlayerStateCountLimiterConfig>{
+abstract PlayerStateCountLimiterConfigPtr(ucpp.Ptr<PlayerStateCountLimiterConfig>) from ucpp.Ptr<PlayerStateCountLimiterConfig> to ucpp.Ptr<PlayerStateCountLimiterConfig>{
 	@:from
 	public static extern inline function fromValue(v: PlayerStateCountLimiterConfig): PlayerStateCountLimiterConfigPtr {
 		return untyped __cpp__("&({0})", v);

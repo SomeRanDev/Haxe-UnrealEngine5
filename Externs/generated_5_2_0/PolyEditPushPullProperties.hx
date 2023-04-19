@@ -3,17 +3,17 @@ package ue;
 
 @:native("UPolyEditPushPullProperties")
 @:include("ToolActivities/PolyEditExtrudeActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditPushPullProperties extends InteractiveToolPropertySet {
 	public var DistanceMode: EPolyEditExtrudeDistanceMode;
-	public var Distance: cpp.Float64;
+	public var Distance: ucpp.num.Float64;
 	public var DirectionMode: EPolyEditPushPullModeOptions;
-	public var MaxDistanceScaleFactor: cpp.Float64;
+	public var MaxDistanceScaleFactor: ucpp.num.Float64;
 	public var bShellsToSolids: Bool;
 	public var MeasureDirection: EPolyEditExtrudeDirection;
 	public var bUseColinearityForSettingBorderGroups: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,12 +21,12 @@ extern class PolyEditPushPullProperties extends InteractiveToolPropertySet {
 abstract ConstPolyEditPushPullProperties(PolyEditPushPullProperties) from PolyEditPushPullProperties {
 	public extern var DistanceMode(get, never): EPolyEditExtrudeDistanceMode;
 	public inline extern function get_DistanceMode(): EPolyEditExtrudeDistanceMode return this.DistanceMode;
-	public extern var Distance(get, never): cpp.Float64;
-	public inline extern function get_Distance(): cpp.Float64 return this.Distance;
+	public extern var Distance(get, never): ucpp.num.Float64;
+	public inline extern function get_Distance(): ucpp.num.Float64 return this.Distance;
 	public extern var DirectionMode(get, never): EPolyEditPushPullModeOptions;
 	public inline extern function get_DirectionMode(): EPolyEditPushPullModeOptions return this.DirectionMode;
-	public extern var MaxDistanceScaleFactor(get, never): cpp.Float64;
-	public inline extern function get_MaxDistanceScaleFactor(): cpp.Float64 return this.MaxDistanceScaleFactor;
+	public extern var MaxDistanceScaleFactor(get, never): ucpp.num.Float64;
+	public inline extern function get_MaxDistanceScaleFactor(): ucpp.num.Float64 return this.MaxDistanceScaleFactor;
 	public extern var bShellsToSolids(get, never): Bool;
 	public inline extern function get_bShellsToSolids(): Bool return this.bShellsToSolids;
 	public extern var MeasureDirection(get, never): EPolyEditExtrudeDirection;
@@ -38,7 +38,7 @@ abstract ConstPolyEditPushPullProperties(PolyEditPushPullProperties) from PolyEd
 @:forward
 @:nativeGen
 @:native("PolyEditPushPullProperties*")
-abstract PolyEditPushPullPropertiesPtr(cpp.Star<PolyEditPushPullProperties>) from cpp.Star<PolyEditPushPullProperties> to cpp.Star<PolyEditPushPullProperties>{
+abstract PolyEditPushPullPropertiesPtr(ucpp.Ptr<PolyEditPushPullProperties>) from ucpp.Ptr<PolyEditPushPullProperties> to ucpp.Ptr<PolyEditPushPullProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditPushPullProperties): PolyEditPushPullPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

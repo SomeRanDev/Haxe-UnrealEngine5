@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTileMapAssetImportData")
 @:include("TileMapAssetImportData.h")
-@:structAccess
+@:valueType
 extern class TileMapAssetImportData extends AssetImportData {
 	public var TileSetMap: TArray<TileSetImportMapping>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTileMapAssetImportData(TileMapAssetImportData) from TileMapAssetIm
 @:forward
 @:nativeGen
 @:native("TileMapAssetImportData*")
-abstract TileMapAssetImportDataPtr(cpp.Star<TileMapAssetImportData>) from cpp.Star<TileMapAssetImportData> to cpp.Star<TileMapAssetImportData>{
+abstract TileMapAssetImportDataPtr(ucpp.Ptr<TileMapAssetImportData>) from ucpp.Ptr<TileMapAssetImportData> to ucpp.Ptr<TileMapAssetImportData>{
 	@:from
 	public static extern inline function fromValue(v: TileMapAssetImportData): TileMapAssetImportDataPtr {
 		return untyped __cpp__("&({0})", v);

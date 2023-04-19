@@ -3,11 +3,11 @@ package ue;
 
 @:native("FBehaviorTreeTemplateInfo")
 @:include("BehaviorTree/BehaviorTreeManager.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeTemplateInfo {
-	public var Asset: cpp.Star<BehaviorTree>;
-	public var Template: cpp.Star<BTCompositeNode>;
+	public var Asset: ucpp.Ptr<BehaviorTree>;
+	public var Template: ucpp.Ptr<BTCompositeNode>;
 
 	@:native("FBehaviorTreeTemplateInfo") public function new();
-	@:native("FBehaviorTreeTemplateInfo") public static function make(Asset: cpp.Star<BehaviorTree>, Template: cpp.Star<BTCompositeNode>): BehaviorTreeTemplateInfo ;
+	@:native("FBehaviorTreeTemplateInfo") public static function make(Asset: ucpp.Ptr<BehaviorTree>, Template: ucpp.Ptr<BTCompositeNode>): BehaviorTreeTemplateInfo ;
 }

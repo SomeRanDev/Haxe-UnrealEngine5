@@ -3,30 +3,30 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRasterizationGrid3D")
 @:include("NiagaraDataInterfaceRasterizationGrid3D.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceRasterizationGrid3D extends NiagaraDataInterfaceGrid3D {
-	public var NumAttributes: cpp.Int32;
-	public var Precision: cpp.Float32;
-	public var ResetValue: cpp.Int32;
+	public var NumAttributes: ucpp.num.Int32;
+	public var Precision: ucpp.num.Float32;
+	public var ResetValue: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceRasterizationGrid3D(NiagaraDataInterfaceRasterizationGrid3D) from NiagaraDataInterfaceRasterizationGrid3D {
-	public extern var NumAttributes(get, never): cpp.Int32;
-	public inline extern function get_NumAttributes(): cpp.Int32 return this.NumAttributes;
-	public extern var Precision(get, never): cpp.Float32;
-	public inline extern function get_Precision(): cpp.Float32 return this.Precision;
-	public extern var ResetValue(get, never): cpp.Int32;
-	public inline extern function get_ResetValue(): cpp.Int32 return this.ResetValue;
+	public extern var NumAttributes(get, never): ucpp.num.Int32;
+	public inline extern function get_NumAttributes(): ucpp.num.Int32 return this.NumAttributes;
+	public extern var Precision(get, never): ucpp.num.Float32;
+	public inline extern function get_Precision(): ucpp.num.Float32 return this.Precision;
+	public extern var ResetValue(get, never): ucpp.num.Int32;
+	public inline extern function get_ResetValue(): ucpp.num.Int32 return this.ResetValue;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceRasterizationGrid3D*")
-abstract NiagaraDataInterfaceRasterizationGrid3DPtr(cpp.Star<NiagaraDataInterfaceRasterizationGrid3D>) from cpp.Star<NiagaraDataInterfaceRasterizationGrid3D> to cpp.Star<NiagaraDataInterfaceRasterizationGrid3D>{
+abstract NiagaraDataInterfaceRasterizationGrid3DPtr(ucpp.Ptr<NiagaraDataInterfaceRasterizationGrid3D>) from ucpp.Ptr<NiagaraDataInterfaceRasterizationGrid3D> to ucpp.Ptr<NiagaraDataInterfaceRasterizationGrid3D>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceRasterizationGrid3D): NiagaraDataInterfaceRasterizationGrid3DPtr {
 		return untyped __cpp__("&({0})", v);

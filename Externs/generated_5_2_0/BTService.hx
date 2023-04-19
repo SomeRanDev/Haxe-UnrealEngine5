@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBTService")
 @:include("BehaviorTree/BTService.h")
-@:structAccess
+@:valueType
 extern class BTService extends BTAuxiliaryNode {
-	@:protected public var Interval: cpp.Float32;
-	@:protected public var RandomDeviation: cpp.Float32;
+	@:protected public var Interval: ucpp.num.Float32;
+	@:protected public var RandomDeviation: ucpp.num.Float32;
 	@:protected public var bCallTickOnSearchStart: Bool;
 	@:protected public var bRestartTimerOnEachActivation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstBTService(BTService) from BTService {
 @:forward
 @:nativeGen
 @:native("BTService*")
-abstract BTServicePtr(cpp.Star<BTService>) from cpp.Star<BTService> to cpp.Star<BTService>{
+abstract BTServicePtr(ucpp.Ptr<BTService>) from ucpp.Ptr<BTService> to ucpp.Ptr<BTService>{
 	@:from
 	public static extern inline function fromValue(v: BTService): BTServicePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FStreamingTextureBuildInfo")
 @:include("Engine/TextureStreamingTypes.h")
-@:structAccess
+@:valueType
 extern class StreamingTextureBuildInfo {
-	public var PackedRelativeBox: cpp.UInt32;
-	public var TextureLevelIndex: cpp.Int32;
-	public var TexelFactor: cpp.Float32;
+	public var PackedRelativeBox: ucpp.num.UInt32;
+	public var TextureLevelIndex: ucpp.num.Int32;
+	public var TexelFactor: ucpp.num.Float32;
 
 	@:native("FStreamingTextureBuildInfo") public function new();
-	@:native("FStreamingTextureBuildInfo") public static function make(PackedRelativeBox: cpp.UInt32, TextureLevelIndex: cpp.Int32, TexelFactor: cpp.Float32): StreamingTextureBuildInfo ;
+	@:native("FStreamingTextureBuildInfo") public static function make(PackedRelativeBox: ucpp.num.UInt32, TextureLevelIndex: ucpp.num.Int32, TexelFactor: ucpp.num.Float32): StreamingTextureBuildInfo ;
 }

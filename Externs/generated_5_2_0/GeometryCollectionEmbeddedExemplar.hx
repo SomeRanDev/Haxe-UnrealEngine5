@@ -3,13 +3,13 @@ package ue;
 
 @:native("FGeometryCollectionEmbeddedExemplar")
 @:include("GeometryCollection/GeometryCollectionObject.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionEmbeddedExemplar {
 	public var StaticMeshExemplar: SoftObjectPath;
-	public var StartCullDistance: cpp.Float32;
-	public var EndCullDistance: cpp.Float32;
-	public var InstanceCount: cpp.Int32;
+	public var StartCullDistance: ucpp.num.Float32;
+	public var EndCullDistance: ucpp.num.Float32;
+	public var InstanceCount: ucpp.num.Int32;
 
 	@:native("FGeometryCollectionEmbeddedExemplar") public function new();
-	@:native("FGeometryCollectionEmbeddedExemplar") public static function make(StaticMeshExemplar: SoftObjectPath, StartCullDistance: cpp.Float32, EndCullDistance: cpp.Float32, InstanceCount: cpp.Int32): GeometryCollectionEmbeddedExemplar ;
+	@:native("FGeometryCollectionEmbeddedExemplar") public static function make(StaticMeshExemplar: SoftObjectPath, StartCullDistance: ucpp.num.Float32, EndCullDistance: ucpp.num.Float32, InstanceCount: ucpp.num.Int32): GeometryCollectionEmbeddedExemplar ;
 }

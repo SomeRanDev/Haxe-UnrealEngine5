@@ -3,15 +3,15 @@ package ue;
 
 @:native("AFunctionalUIScreenshotTest")
 @:include("FunctionalUIScreenshotTest.h")
-@:structAccess
+@:valueType
 extern class FunctionalUIScreenshotTest extends ScreenshotFunctionalTestBase {
 	@:protected public var WidgetClass: TSubclassOf<UserWidget>;
-	@:protected public var SpawnedWidget: cpp.Star<UserWidget>;
+	@:protected public var SpawnedWidget: ucpp.Ptr<UserWidget>;
 	@:protected public var WidgetLocation: EWidgetTestAppearLocation;
-	@:protected public var ScreenshotRT: cpp.Star<TextureRenderTarget2D>;
+	@:protected public var ScreenshotRT: ucpp.Ptr<TextureRenderTarget2D>;
 	@:protected public var bHideDebugCanvas: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstFunctionalUIScreenshotTest(FunctionalUIScreenshotTest) from Functi
 @:forward
 @:nativeGen
 @:native("FunctionalUIScreenshotTest*")
-abstract FunctionalUIScreenshotTestPtr(cpp.Star<FunctionalUIScreenshotTest>) from cpp.Star<FunctionalUIScreenshotTest> to cpp.Star<FunctionalUIScreenshotTest>{
+abstract FunctionalUIScreenshotTestPtr(ucpp.Ptr<FunctionalUIScreenshotTest>) from ucpp.Ptr<FunctionalUIScreenshotTest> to ucpp.Ptr<FunctionalUIScreenshotTest>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalUIScreenshotTest): FunctionalUIScreenshotTestPtr {
 		return untyped __cpp__("&({0})", v);

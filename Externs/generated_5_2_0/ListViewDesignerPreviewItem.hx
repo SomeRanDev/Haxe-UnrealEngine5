@@ -3,10 +3,10 @@ package ue;
 
 @:native("UListViewDesignerPreviewItem")
 @:include("Blueprint/ListViewDesignerPreviewItem.h")
-@:structAccess
+@:valueType
 extern class ListViewDesignerPreviewItem extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstListViewDesignerPreviewItem(ListViewDesignerPreviewItem) from List
 @:forward
 @:nativeGen
 @:native("ListViewDesignerPreviewItem*")
-abstract ListViewDesignerPreviewItemPtr(cpp.Star<ListViewDesignerPreviewItem>) from cpp.Star<ListViewDesignerPreviewItem> to cpp.Star<ListViewDesignerPreviewItem>{
+abstract ListViewDesignerPreviewItemPtr(ucpp.Ptr<ListViewDesignerPreviewItem>) from ucpp.Ptr<ListViewDesignerPreviewItem> to ucpp.Ptr<ListViewDesignerPreviewItem>{
 	@:from
 	public static extern inline function fromValue(v: ListViewDesignerPreviewItem): ListViewDesignerPreviewItemPtr {
 		return untyped __cpp__("&({0})", v);

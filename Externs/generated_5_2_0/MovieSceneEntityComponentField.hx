@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEntityComponentField")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEntityComponentField {
 	private var PersistentEntityTree: MovieSceneEvaluationFieldEntityTree;
 	private var OneShotEntityTree: MovieSceneEvaluationFieldEntityTree;

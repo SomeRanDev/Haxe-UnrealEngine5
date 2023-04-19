@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneMarginSection")
 @:include("Animation/MovieSceneMarginSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMarginSection extends MovieSceneSection {
 	public var TopCurve: MovieSceneFloatChannel;
 	public var LeftCurve: MovieSceneFloatChannel;
 	public var RightCurve: MovieSceneFloatChannel;
 	public var BottomCurve: MovieSceneFloatChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMovieSceneMarginSection(MovieSceneMarginSection) from MovieSceneMa
 @:forward
 @:nativeGen
 @:native("MovieSceneMarginSection*")
-abstract MovieSceneMarginSectionPtr(cpp.Star<MovieSceneMarginSection>) from cpp.Star<MovieSceneMarginSection> to cpp.Star<MovieSceneMarginSection>{
+abstract MovieSceneMarginSectionPtr(ucpp.Ptr<MovieSceneMarginSection>) from ucpp.Ptr<MovieSceneMarginSection> to ucpp.Ptr<MovieSceneMarginSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMarginSection): MovieSceneMarginSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("URetainerBox")
 @:include("Components/RetainerBox.h")
-@:structAccess
+@:valueType
 extern class RetainerBox extends ContentWidget {
 	@:protected public var bRetainRender: Bool;
 	public var RenderOnInvalidation: Bool;
 	public var RenderOnPhase: Bool;
-	public var Phase: cpp.Int32;
-	public var PhaseCount: cpp.Int32;
-	@:protected public var EffectMaterial: cpp.Star<MaterialInterface>;
+	public var Phase: ucpp.num.Int32;
+	public var PhaseCount: ucpp.num.Int32;
+	@:protected public var EffectMaterial: ucpp.Ptr<MaterialInterface>;
 	@:protected public var TextureParameter: FName;
 
 	public function SetTextureParameter(TextureParameter: FName): Void;
 	public function SetRetainRendering(bInRetainRendering: Bool): Void;
-	public function SetRenderingPhase(RenderPhase: cpp.Int32, TotalPhases: cpp.Int32): Void;
-	public function SetEffectMaterial(EffectMaterial: cpp.Star<MaterialInterface>): Void;
+	public function SetRenderingPhase(RenderPhase: ucpp.num.Int32, TotalPhases: ucpp.num.Int32): Void;
+	public function SetEffectMaterial(EffectMaterial: ucpp.Ptr<MaterialInterface>): Void;
 	public function RequestRender(): Void;
-	public function GetEffectMaterial(): cpp.Star<MaterialInstanceDynamic>;
+	public function GetEffectMaterial(): ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetEffectMaterial)
@@ -30,16 +30,16 @@ abstract ConstRetainerBox(RetainerBox) from RetainerBox {
 	public inline extern function get_RenderOnInvalidation(): Bool return this.RenderOnInvalidation;
 	public extern var RenderOnPhase(get, never): Bool;
 	public inline extern function get_RenderOnPhase(): Bool return this.RenderOnPhase;
-	public extern var Phase(get, never): cpp.Int32;
-	public inline extern function get_Phase(): cpp.Int32 return this.Phase;
-	public extern var PhaseCount(get, never): cpp.Int32;
-	public inline extern function get_PhaseCount(): cpp.Int32 return this.PhaseCount;
+	public extern var Phase(get, never): ucpp.num.Int32;
+	public inline extern function get_Phase(): ucpp.num.Int32 return this.Phase;
+	public extern var PhaseCount(get, never): ucpp.num.Int32;
+	public inline extern function get_PhaseCount(): ucpp.num.Int32 return this.PhaseCount;
 }
 
 @:forward
 @:nativeGen
 @:native("RetainerBox*")
-abstract RetainerBoxPtr(cpp.Star<RetainerBox>) from cpp.Star<RetainerBox> to cpp.Star<RetainerBox>{
+abstract RetainerBoxPtr(ucpp.Ptr<RetainerBox>) from ucpp.Ptr<RetainerBox> to ucpp.Ptr<RetainerBox>{
 	@:from
 	public static extern inline function fromValue(v: RetainerBox): RetainerBoxPtr {
 		return untyped __cpp__("&({0})", v);

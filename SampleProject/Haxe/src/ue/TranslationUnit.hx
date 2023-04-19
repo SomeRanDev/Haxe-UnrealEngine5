@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTranslationUnit")
 @:include("TranslationUnit.h")
-@:structAccess
+@:valueType
 extern class TranslationUnit extends Object {
 	public var Namespace: FString;
 	public var Key: FString;
@@ -14,7 +14,7 @@ extern class TranslationUnit extends Object {
 	public var TranslationBeforeImport: FString;
 	public var LocresPath: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstTranslationUnit(TranslationUnit) from TranslationUnit {
 @:forward
 @:nativeGen
 @:native("TranslationUnit*")
-abstract TranslationUnitPtr(cpp.Star<TranslationUnit>) from cpp.Star<TranslationUnit> to cpp.Star<TranslationUnit>{
+abstract TranslationUnitPtr(ucpp.Ptr<TranslationUnit>) from ucpp.Ptr<TranslationUnit> to ucpp.Ptr<TranslationUnit>{
 	@:from
 	public static extern inline function fromValue(v: TranslationUnit): TranslationUnitPtr {
 		return untyped __cpp__("&({0})", v);

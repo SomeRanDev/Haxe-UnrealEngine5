@@ -3,27 +3,27 @@ package ue;
 
 @:native("UStreamingSettings")
 @:include("Engine/CoreSettings.h")
-@:structAccess
+@:valueType
 extern class StreamingSettings extends DeveloperSettings {
 	@:protected public var AsyncLoadingThreadEnabled: Bool;
 	@:protected public var WarnIfTimeLimitExceeded: Bool;
-	@:protected public var TimeLimitExceededMultiplier: cpp.Float32;
-	@:protected public var TimeLimitExceededMinTime: cpp.Float32;
-	@:protected public var MinBulkDataSizeForAsyncLoading: cpp.Int32;
+	@:protected public var TimeLimitExceededMultiplier: ucpp.num.Float32;
+	@:protected public var TimeLimitExceededMinTime: ucpp.num.Float32;
+	@:protected public var MinBulkDataSizeForAsyncLoading: ucpp.num.Int32;
 	@:protected public var UseBackgroundLevelStreaming: Bool;
 	@:protected public var AsyncLoadingUseFullTimeLimit: Bool;
-	@:protected public var AsyncLoadingTimeLimit: cpp.Float32;
-	@:protected public var PriorityAsyncLoadingExtraTime: cpp.Float32;
-	@:protected public var LevelStreamingActorsUpdateTimeLimit: cpp.Float32;
-	@:protected public var PriorityLevelStreamingActorsUpdateExtraTime: cpp.Float32;
-	@:protected public var LevelStreamingComponentsRegistrationGranularity: cpp.Int32;
-	@:protected public var LevelStreamingAddPrimitiveGranularity: cpp.Int32;
-	@:protected public var LevelStreamingUnregisterComponentsTimeLimit: cpp.Float32;
-	@:protected public var LevelStreamingComponentsUnregistrationGranularity: cpp.Int32;
+	@:protected public var AsyncLoadingTimeLimit: ucpp.num.Float32;
+	@:protected public var PriorityAsyncLoadingExtraTime: ucpp.num.Float32;
+	@:protected public var LevelStreamingActorsUpdateTimeLimit: ucpp.num.Float32;
+	@:protected public var PriorityLevelStreamingActorsUpdateExtraTime: ucpp.num.Float32;
+	@:protected public var LevelStreamingComponentsRegistrationGranularity: ucpp.num.Int32;
+	@:protected public var LevelStreamingAddPrimitiveGranularity: ucpp.num.Int32;
+	@:protected public var LevelStreamingUnregisterComponentsTimeLimit: ucpp.num.Float32;
+	@:protected public var LevelStreamingComponentsUnregistrationGranularity: ucpp.num.Int32;
 	@:protected public var FlushStreamingOnExit: Bool;
 	@:protected public var EventDrivenLoaderEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,7 +34,7 @@ abstract ConstStreamingSettings(StreamingSettings) from StreamingSettings {
 @:forward
 @:nativeGen
 @:native("StreamingSettings*")
-abstract StreamingSettingsPtr(cpp.Star<StreamingSettings>) from cpp.Star<StreamingSettings> to cpp.Star<StreamingSettings>{
+abstract StreamingSettingsPtr(ucpp.Ptr<StreamingSettings>) from ucpp.Ptr<StreamingSettings> to ucpp.Ptr<StreamingSettings>{
 	@:from
 	public static extern inline function fromValue(v: StreamingSettings): StreamingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

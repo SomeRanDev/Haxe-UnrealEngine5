@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODEngineSubsystem")
 @:include("HLOD/HLODEngineSubsystem.h")
-@:structAccess
+@:valueType
 extern class HLODEngineSubsystem extends EngineSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODEngineSubsystem(HLODEngineSubsystem) from HLODEngineSubsystem 
 @:forward
 @:nativeGen
 @:native("HLODEngineSubsystem*")
-abstract HLODEngineSubsystemPtr(cpp.Star<HLODEngineSubsystem>) from cpp.Star<HLODEngineSubsystem> to cpp.Star<HLODEngineSubsystem>{
+abstract HLODEngineSubsystemPtr(ucpp.Ptr<HLODEngineSubsystem>) from ucpp.Ptr<HLODEngineSubsystem> to ucpp.Ptr<HLODEngineSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: HLODEngineSubsystem): HLODEngineSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

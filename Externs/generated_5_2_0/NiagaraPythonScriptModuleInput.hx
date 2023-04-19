@@ -3,9 +3,9 @@ package ue;
 
 @:native("UNiagaraPythonScriptModuleInput")
 @:include("UpgradeNiagaraScriptResults.h")
-@:structAccess
+@:valueType
 extern class NiagaraPythonScriptModuleInput extends Object {
-	public var Input: cpp.Star<NiagaraClipboardFunctionInput>;
+	public var Input: ucpp.Ptr<NiagaraClipboardFunctionInput>;
 
 	public function IsSet(): Bool;
 	public function IsLocalValue(): Bool;
@@ -15,13 +15,13 @@ extern class NiagaraPythonScriptModuleInput extends Object {
 	public function AsVec2(): Vector2D;
 	public function AsQuat(): Quat;
 	public function AsLinkedValue(): FString;
-	public function AsInt(): cpp.Int32;
-	public function AsFloat(): cpp.Float32;
+	public function AsInt(): ucpp.num.Int32;
+	public function AsFloat(): ucpp.num.Float32;
 	public function AsEnum(): FString;
 	public function AsColor(): LinearColor;
 	public function AsBool(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -31,14 +31,14 @@ extern class NiagaraPythonScriptModuleInput extends Object {
 )
 @:nativeGen
 abstract ConstNiagaraPythonScriptModuleInput(NiagaraPythonScriptModuleInput) from NiagaraPythonScriptModuleInput {
-	public extern var Input(get, never): cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>;
-	public inline extern function get_Input(): cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput> return this.Input;
+	public extern var Input(get, never): ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>;
+	public inline extern function get_Input(): ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput> return this.Input;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraPythonScriptModuleInput*")
-abstract NiagaraPythonScriptModuleInputPtr(cpp.Star<NiagaraPythonScriptModuleInput>) from cpp.Star<NiagaraPythonScriptModuleInput> to cpp.Star<NiagaraPythonScriptModuleInput>{
+abstract NiagaraPythonScriptModuleInputPtr(ucpp.Ptr<NiagaraPythonScriptModuleInput>) from ucpp.Ptr<NiagaraPythonScriptModuleInput> to ucpp.Ptr<NiagaraPythonScriptModuleInput>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPythonScriptModuleInput): NiagaraPythonScriptModuleInputPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("ALandscapeBlueprintBrush")
 @:include("LandscapeBlueprintBrush.h")
-@:structAccess
+@:valueType
 extern class LandscapeBlueprintBrush extends LandscapeBlueprintBrushBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeBlueprintBrush(LandscapeBlueprintBrush) from LandscapeBlu
 @:forward
 @:nativeGen
 @:native("LandscapeBlueprintBrush*")
-abstract LandscapeBlueprintBrushPtr(cpp.Star<LandscapeBlueprintBrush>) from cpp.Star<LandscapeBlueprintBrush> to cpp.Star<LandscapeBlueprintBrush>{
+abstract LandscapeBlueprintBrushPtr(ucpp.Ptr<LandscapeBlueprintBrush>) from ucpp.Ptr<LandscapeBlueprintBrush> to ucpp.Ptr<LandscapeBlueprintBrush>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeBlueprintBrush): LandscapeBlueprintBrushPtr {
 		return untyped __cpp__("&({0})", v);

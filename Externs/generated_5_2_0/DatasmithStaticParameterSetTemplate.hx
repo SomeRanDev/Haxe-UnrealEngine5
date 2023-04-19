@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDatasmithStaticParameterSetTemplate")
 @:include("ObjectTemplates/DatasmithMaterialInstanceTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithStaticParameterSetTemplate {
 	public var StaticSwitchParameters: TMap<FName, Bool>;
 

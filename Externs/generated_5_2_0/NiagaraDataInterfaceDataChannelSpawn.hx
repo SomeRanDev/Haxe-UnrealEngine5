@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceDataChannelSpawn")
 @:include("DataInterface/NiagaraDataInterfaceDataChannelSpawn.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceDataChannelSpawn extends NiagaraDataInterfaceDataChannelRead {
 	public var EmitterBinding: NiagaraDataInterfaceEmitterBinding;
 	public var bOverrideSpawnGroupToDataChannelIndex: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraDataInterfaceDataChannelSpawn(NiagaraDataInterfaceDataChann
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceDataChannelSpawn*")
-abstract NiagaraDataInterfaceDataChannelSpawnPtr(cpp.Star<NiagaraDataInterfaceDataChannelSpawn>) from cpp.Star<NiagaraDataInterfaceDataChannelSpawn> to cpp.Star<NiagaraDataInterfaceDataChannelSpawn>{
+abstract NiagaraDataInterfaceDataChannelSpawnPtr(ucpp.Ptr<NiagaraDataInterfaceDataChannelSpawn>) from ucpp.Ptr<NiagaraDataInterfaceDataChannelSpawn> to ucpp.Ptr<NiagaraDataInterfaceDataChannelSpawn>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceDataChannelSpawn): NiagaraDataInterfaceDataChannelSpawnPtr {
 		return untyped __cpp__("&({0})", v);

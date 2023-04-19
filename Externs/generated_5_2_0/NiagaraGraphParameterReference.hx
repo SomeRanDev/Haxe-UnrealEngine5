@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraGraphParameterReference")
 @:include("NiagaraGraph.h")
-@:structAccess
+@:valueType
 extern class NiagaraGraphParameterReference {
 	public var Key: Guid;
 	public var Value: TWeakObjectPtr<Object>;

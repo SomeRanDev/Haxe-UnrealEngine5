@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnlineShowLoginUIResult__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnlineShowLoginUIResult__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnlineShowLoginUIResult__PythonCallable(OnlineShowLoginUIResult__P
 @:forward
 @:nativeGen
 @:native("OnlineShowLoginUIResult__PythonCallable*")
-abstract OnlineShowLoginUIResult__PythonCallablePtr(cpp.Star<OnlineShowLoginUIResult__PythonCallable>) from cpp.Star<OnlineShowLoginUIResult__PythonCallable> to cpp.Star<OnlineShowLoginUIResult__PythonCallable>{
+abstract OnlineShowLoginUIResult__PythonCallablePtr(ucpp.Ptr<OnlineShowLoginUIResult__PythonCallable>) from ucpp.Ptr<OnlineShowLoginUIResult__PythonCallable> to ucpp.Ptr<OnlineShowLoginUIResult__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnlineShowLoginUIResult__PythonCallable): OnlineShowLoginUIResult__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

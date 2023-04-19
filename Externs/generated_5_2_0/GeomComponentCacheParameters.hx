@@ -3,28 +3,28 @@ package ue;
 
 @:native("FGeomComponentCacheParameters")
 @:include("GeometryCollection/GeometryCollectionComponent.h")
-@:structAccess
+@:valueType
 extern class GeomComponentCacheParameters {
 	public var CacheMode: EGeometryCollectionCacheType;
-	public var TargetCache: cpp.Star<GeometryCollectionCache>;
-	public var ReverseCacheBeginTime: cpp.Float32;
+	public var TargetCache: ucpp.Ptr<GeometryCollectionCache>;
+	public var ReverseCacheBeginTime: ucpp.num.Float32;
 	public var SaveCollisionData: Bool;
 	public var DoGenerateCollisionData: Bool;
-	public var CollisionDataSizeMax: cpp.Int32;
+	public var CollisionDataSizeMax: ucpp.num.Int32;
 	public var DoCollisionDataSpatialHash: Bool;
-	public var CollisionDataSpatialHashRadius: cpp.Float32;
-	public var MaxCollisionPerCell: cpp.Int32;
+	public var CollisionDataSpatialHashRadius: ucpp.num.Float32;
+	public var MaxCollisionPerCell: ucpp.num.Int32;
 	public var SaveBreakingData: Bool;
 	public var DoGenerateBreakingData: Bool;
-	public var BreakingDataSizeMax: cpp.Int32;
+	public var BreakingDataSizeMax: ucpp.num.Int32;
 	public var DoBreakingDataSpatialHash: Bool;
-	public var BreakingDataSpatialHashRadius: cpp.Float32;
-	public var MaxBreakingPerCell: cpp.Int32;
+	public var BreakingDataSpatialHashRadius: ucpp.num.Float32;
+	public var MaxBreakingPerCell: ucpp.num.Int32;
 	public var SaveTrailingData: Bool;
 	public var DoGenerateTrailingData: Bool;
-	public var TrailingDataSizeMax: cpp.Int32;
-	public var TrailingMinSpeedThreshold: cpp.Float32;
-	public var TrailingMinVolumeThreshold: cpp.Float32;
+	public var TrailingDataSizeMax: ucpp.num.Int32;
+	public var TrailingMinSpeedThreshold: ucpp.num.Float32;
+	public var TrailingMinVolumeThreshold: ucpp.num.Float32;
 
 	@:native("FGeomComponentCacheParameters") public function new();
 }

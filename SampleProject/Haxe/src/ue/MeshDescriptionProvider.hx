@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMeshDescriptionProvider")
-@:structAccess
+@:valueType
 extern class MeshDescriptionProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMeshDescriptionProvider(MeshDescriptionProvider) from MeshDescript
 @:forward
 @:nativeGen
 @:native("MeshDescriptionProvider*")
-abstract MeshDescriptionProviderPtr(cpp.Star<MeshDescriptionProvider>) from cpp.Star<MeshDescriptionProvider> to cpp.Star<MeshDescriptionProvider>{
+abstract MeshDescriptionProviderPtr(ucpp.Ptr<MeshDescriptionProvider>) from ucpp.Ptr<MeshDescriptionProvider> to ucpp.Ptr<MeshDescriptionProvider>{
 	@:from
 	public static extern inline function fromValue(v: MeshDescriptionProvider): MeshDescriptionProviderPtr {
 		return untyped __cpp__("&({0})", v);

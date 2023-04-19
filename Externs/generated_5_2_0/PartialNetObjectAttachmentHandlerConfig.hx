@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPartialNetObjectAttachmentHandlerConfig")
 @:include("Iris/ReplicationSystem/NetBlob/PartialNetObjectAttachmentHandler.h")
-@:structAccess
+@:valueType
 extern class PartialNetObjectAttachmentHandlerConfig extends SequentialPartialNetBlobHandlerConfig {
-	private var BitCountSplitThreshold: cpp.UInt32;
+	private var BitCountSplitThreshold: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPartialNetObjectAttachmentHandlerConfig(PartialNetObjectAttachment
 @:forward
 @:nativeGen
 @:native("PartialNetObjectAttachmentHandlerConfig*")
-abstract PartialNetObjectAttachmentHandlerConfigPtr(cpp.Star<PartialNetObjectAttachmentHandlerConfig>) from cpp.Star<PartialNetObjectAttachmentHandlerConfig> to cpp.Star<PartialNetObjectAttachmentHandlerConfig>{
+abstract PartialNetObjectAttachmentHandlerConfigPtr(ucpp.Ptr<PartialNetObjectAttachmentHandlerConfig>) from ucpp.Ptr<PartialNetObjectAttachmentHandlerConfig> to ucpp.Ptr<PartialNetObjectAttachmentHandlerConfig>{
 	@:from
 	public static extern inline function fromValue(v: PartialNetObjectAttachmentHandlerConfig): PartialNetObjectAttachmentHandlerConfigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTextBlockWidgetStyle")
 @:include("Framework/Styling/TextBlockWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class TextBlockWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var TextBlockStyle: TextBlockStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTextBlockWidgetStyle(TextBlockWidgetStyle) from TextBlockWidgetSty
 @:forward
 @:nativeGen
 @:native("TextBlockWidgetStyle*")
-abstract TextBlockWidgetStylePtr(cpp.Star<TextBlockWidgetStyle>) from cpp.Star<TextBlockWidgetStyle> to cpp.Star<TextBlockWidgetStyle>{
+abstract TextBlockWidgetStylePtr(ucpp.Ptr<TextBlockWidgetStyle>) from ucpp.Ptr<TextBlockWidgetStyle> to ucpp.Ptr<TextBlockWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: TextBlockWidgetStyle): TextBlockWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

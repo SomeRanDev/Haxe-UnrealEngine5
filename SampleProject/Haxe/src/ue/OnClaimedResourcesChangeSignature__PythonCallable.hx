@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnClaimedResourcesChangeSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnClaimedResourcesChangeSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnClaimedResourcesChangeSignature__PythonCallable(OnClaimedResourc
 @:forward
 @:nativeGen
 @:native("OnClaimedResourcesChangeSignature__PythonCallable*")
-abstract OnClaimedResourcesChangeSignature__PythonCallablePtr(cpp.Star<OnClaimedResourcesChangeSignature__PythonCallable>) from cpp.Star<OnClaimedResourcesChangeSignature__PythonCallable> to cpp.Star<OnClaimedResourcesChangeSignature__PythonCallable>{
+abstract OnClaimedResourcesChangeSignature__PythonCallablePtr(ucpp.Ptr<OnClaimedResourcesChangeSignature__PythonCallable>) from ucpp.Ptr<OnClaimedResourcesChangeSignature__PythonCallable> to ucpp.Ptr<OnClaimedResourcesChangeSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnClaimedResourcesChangeSignature__PythonCallable): OnClaimedResourcesChangeSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintComponentDelegateBinding")
 @:include("Engine/ComponentDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class BlueprintComponentDelegateBinding {
 	public var ComponentPropertyName: FName;
 	public var DelegatePropertyName: FName;

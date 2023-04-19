@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPolyEditCutFacesActivity")
 @:include("ToolActivities/PolyEditCutFacesActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditCutFacesActivity extends InteractiveToolActivity {
-	@:protected public var CutProperties: cpp.Star<PolyEditCutProperties>;
-	@:protected public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
-	@:protected public var SurfacePathMechanic: cpp.Star<CollectSurfacePathMechanic>;
-	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
+	@:protected public var CutProperties: ucpp.Ptr<PolyEditCutProperties>;
+	@:protected public var EditPreview: ucpp.Ptr<PolyEditPreviewMesh>;
+	@:protected public var SurfacePathMechanic: ucpp.Ptr<CollectSurfacePathMechanic>;
+	@:protected public var ActivityContext: ucpp.Ptr<PolyEditActivityContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstPolyEditCutFacesActivity(PolyEditCutFacesActivity) from PolyEditCu
 @:forward
 @:nativeGen
 @:native("PolyEditCutFacesActivity*")
-abstract PolyEditCutFacesActivityPtr(cpp.Star<PolyEditCutFacesActivity>) from cpp.Star<PolyEditCutFacesActivity> to cpp.Star<PolyEditCutFacesActivity>{
+abstract PolyEditCutFacesActivityPtr(ucpp.Ptr<PolyEditCutFacesActivity>) from ucpp.Ptr<PolyEditCutFacesActivity> to ucpp.Ptr<PolyEditCutFacesActivity>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditCutFacesActivity): PolyEditCutFacesActivityPtr {
 		return untyped __cpp__("&({0})", v);

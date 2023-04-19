@@ -3,22 +3,22 @@ package ue;
 
 @:native("UToolMenuEntryScript")
 @:include("ToolMenuEntryScript.h")
-@:structAccess
+@:valueType
 extern class ToolMenuEntryScript extends Object {
 	public var Data: ToolMenuEntryScriptData;
 
 	public function RegisterMenuEntry(): Void;
-	public function IsVisible(Context: cpp.Reference<ToolMenuContext>): Bool;
-	public function InitEntry(OwnerName: FName, Menu: FName, Section: FName, Name: FName, Label: cpp.Reference<FText>, ToolTip: cpp.Reference<FText>): Void;
-	public function GetToolTip(Context: cpp.Reference<ToolMenuContext>): FText;
-	public function GetLabel(Context: cpp.Reference<ToolMenuContext>): FText;
-	public function GetIcon(Context: cpp.Reference<ToolMenuContext>): ScriptSlateIcon;
-	public function GetCheckState(Context: cpp.Reference<ToolMenuContext>): ECheckBoxState;
-	public function Execute(Context: cpp.Reference<ToolMenuContext>): Void;
-	public function ConstructMenuEntry(Menu: cpp.Star<ToolMenu>, SectionName: FName, Context: cpp.Reference<ToolMenuContext>): Void;
-	public function CanExecute(Context: cpp.Reference<ToolMenuContext>): Bool;
+	public function IsVisible(Context: ucpp.Ref<ToolMenuContext>): Bool;
+	public function InitEntry(OwnerName: FName, Menu: FName, Section: FName, Name: FName, Label: ucpp.Ref<FText>, ToolTip: ucpp.Ref<FText>): Void;
+	public function GetToolTip(Context: ucpp.Ref<ToolMenuContext>): FText;
+	public function GetLabel(Context: ucpp.Ref<ToolMenuContext>): FText;
+	public function GetIcon(Context: ucpp.Ref<ToolMenuContext>): ScriptSlateIcon;
+	public function GetCheckState(Context: ucpp.Ref<ToolMenuContext>): ECheckBoxState;
+	public function Execute(Context: ucpp.Ref<ToolMenuContext>): Void;
+	public function ConstructMenuEntry(Menu: ucpp.Ptr<ToolMenu>, SectionName: FName, Context: ucpp.Ref<ToolMenuContext>): Void;
+	public function CanExecute(Context: ucpp.Ref<ToolMenuContext>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsVisible, GetToolTip, GetLabel, GetIcon, GetCheckState, CanExecute)
@@ -31,7 +31,7 @@ abstract ConstToolMenuEntryScript(ToolMenuEntryScript) from ToolMenuEntryScript 
 @:forward
 @:nativeGen
 @:native("ToolMenuEntryScript*")
-abstract ToolMenuEntryScriptPtr(cpp.Star<ToolMenuEntryScript>) from cpp.Star<ToolMenuEntryScript> to cpp.Star<ToolMenuEntryScript>{
+abstract ToolMenuEntryScriptPtr(ucpp.Ptr<ToolMenuEntryScript>) from ucpp.Ptr<ToolMenuEntryScript> to ucpp.Ptr<ToolMenuEntryScript>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenuEntryScript): ToolMenuEntryScriptPtr {
 		return untyped __cpp__("&({0})", v);

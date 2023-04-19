@@ -3,30 +3,30 @@ package ue;
 
 @:native("UGeometryCache")
 @:include("GeometryCache.h")
-@:structAccess
+@:valueType
 extern class GeometryCache extends Object {
-	public var Materials: TArray<cpp.Star<MaterialInterface>>;
-	public var Tracks: TArray<cpp.Star<GeometryCacheTrack>>;
-	@:protected public var StartFrame: cpp.Int32;
-	@:protected public var EndFrame: cpp.Int32;
-	@:protected public var Hash: cpp.UInt64;
+	public var Materials: TArray<ucpp.Ptr<MaterialInterface>>;
+	public var Tracks: TArray<ucpp.Ptr<GeometryCacheTrack>>;
+	@:protected public var StartFrame: ucpp.num.Int32;
+	@:protected public var EndFrame: ucpp.num.Int32;
+	@:protected public var Hash: ucpp.num.UInt64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeometryCache(GeometryCache) from GeometryCache {
-	public extern var Materials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_Materials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.Materials;
-	public extern var Tracks(get, never): TArray<cpp.Star<GeometryCacheTrack.ConstGeometryCacheTrack>>;
-	public inline extern function get_Tracks(): TArray<cpp.Star<GeometryCacheTrack.ConstGeometryCacheTrack>> return this.Tracks;
+	public extern var Materials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_Materials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.Materials;
+	public extern var Tracks(get, never): TArray<ucpp.Ptr<GeometryCacheTrack.ConstGeometryCacheTrack>>;
+	public inline extern function get_Tracks(): TArray<ucpp.Ptr<GeometryCacheTrack.ConstGeometryCacheTrack>> return this.Tracks;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCache*")
-abstract GeometryCachePtr(cpp.Star<GeometryCache>) from cpp.Star<GeometryCache> to cpp.Star<GeometryCache>{
+abstract GeometryCachePtr(ucpp.Ptr<GeometryCache>) from ucpp.Ptr<GeometryCache> to ucpp.Ptr<GeometryCache>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCache): GeometryCachePtr {
 		return untyped __cpp__("&({0})", v);

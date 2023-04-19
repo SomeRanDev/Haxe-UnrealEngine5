@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBlueprintPropertyContainerTestObject")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class BlueprintPropertyContainerTestObject extends Object {
-	public var Array: TArray<cpp.Star<BlueprintPropertyTestObject>>;
+	public var Array: TArray<ucpp.Ptr<BlueprintPropertyTestObject>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlueprintPropertyContainerTestObject(BlueprintPropertyContainerTestObject) from BlueprintPropertyContainerTestObject {
-	public extern var Array(get, never): TArray<cpp.Star<BlueprintPropertyTestObject.ConstBlueprintPropertyTestObject>>;
-	public inline extern function get_Array(): TArray<cpp.Star<BlueprintPropertyTestObject.ConstBlueprintPropertyTestObject>> return this.Array;
+	public extern var Array(get, never): TArray<ucpp.Ptr<BlueprintPropertyTestObject.ConstBlueprintPropertyTestObject>>;
+	public inline extern function get_Array(): TArray<ucpp.Ptr<BlueprintPropertyTestObject.ConstBlueprintPropertyTestObject>> return this.Array;
 }
 
 @:forward
 @:nativeGen
 @:native("BlueprintPropertyContainerTestObject*")
-abstract BlueprintPropertyContainerTestObjectPtr(cpp.Star<BlueprintPropertyContainerTestObject>) from cpp.Star<BlueprintPropertyContainerTestObject> to cpp.Star<BlueprintPropertyContainerTestObject>{
+abstract BlueprintPropertyContainerTestObjectPtr(ucpp.Ptr<BlueprintPropertyContainerTestObject>) from ucpp.Ptr<BlueprintPropertyContainerTestObject> to ucpp.Ptr<BlueprintPropertyContainerTestObject>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintPropertyContainerTestObject): BlueprintPropertyContainerTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

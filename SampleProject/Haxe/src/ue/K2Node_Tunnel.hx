@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_Tunnel")
 @:include("K2Node_Tunnel.h")
-@:structAccess
+@:valueType
 extern class K2Node_Tunnel extends K2Node_EditablePinBase {
-	public var OutputSourceNode: cpp.Star<K2Node_Tunnel>;
-	public var InputSinkNode: cpp.Star<K2Node_Tunnel>;
+	public var OutputSourceNode: ucpp.Ptr<K2Node_Tunnel>;
+	public var InputSinkNode: ucpp.Ptr<K2Node_Tunnel>;
 	public var bCanHaveInputs: Bool;
 	public var bCanHaveOutputs: Bool;
 	public var MetaData: KismetUserDeclaredFunctionMetadata;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_Tunnel(K2Node_Tunnel) from K2Node_Tunnel {
-	public extern var OutputSourceNode(get, never): cpp.Star<K2Node_Tunnel.ConstK2Node_Tunnel>;
-	public inline extern function get_OutputSourceNode(): cpp.Star<K2Node_Tunnel.ConstK2Node_Tunnel> return this.OutputSourceNode;
-	public extern var InputSinkNode(get, never): cpp.Star<K2Node_Tunnel.ConstK2Node_Tunnel>;
-	public inline extern function get_InputSinkNode(): cpp.Star<K2Node_Tunnel.ConstK2Node_Tunnel> return this.InputSinkNode;
+	public extern var OutputSourceNode(get, never): ucpp.Ptr<K2Node_Tunnel.ConstK2Node_Tunnel>;
+	public inline extern function get_OutputSourceNode(): ucpp.Ptr<K2Node_Tunnel.ConstK2Node_Tunnel> return this.OutputSourceNode;
+	public extern var InputSinkNode(get, never): ucpp.Ptr<K2Node_Tunnel.ConstK2Node_Tunnel>;
+	public inline extern function get_InputSinkNode(): ucpp.Ptr<K2Node_Tunnel.ConstK2Node_Tunnel> return this.InputSinkNode;
 	public extern var bCanHaveInputs(get, never): Bool;
 	public inline extern function get_bCanHaveInputs(): Bool return this.bCanHaveInputs;
 	public extern var bCanHaveOutputs(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstK2Node_Tunnel(K2Node_Tunnel) from K2Node_Tunnel {
 @:forward
 @:nativeGen
 @:native("K2Node_Tunnel*")
-abstract K2Node_TunnelPtr(cpp.Star<K2Node_Tunnel>) from cpp.Star<K2Node_Tunnel> to cpp.Star<K2Node_Tunnel>{
+abstract K2Node_TunnelPtr(ucpp.Ptr<K2Node_Tunnel>) from ucpp.Ptr<K2Node_Tunnel> to ucpp.Ptr<K2Node_Tunnel>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_Tunnel): K2Node_TunnelPtr {
 		return untyped __cpp__("&({0})", v);

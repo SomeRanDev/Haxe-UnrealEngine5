@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGizmoImportLayer")
 @:include("LandscapeEditorObject.h")
-@:structAccess
+@:valueType
 extern class GizmoImportLayer {
 	public var LayerFilename: FString;
 	public var LayerName: FString;

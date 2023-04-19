@@ -3,12 +3,12 @@ package ue;
 
 @:native("UK2Node_DynamicCast")
 @:include("K2Node_DynamicCast.h")
-@:structAccess
+@:valueType
 extern class K2Node_DynamicCast extends K2Node {
 	public var TargetType: TSubclassOf<Object>;
 	@:protected public var bIsPureCast: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstK2Node_DynamicCast(K2Node_DynamicCast) from K2Node_DynamicCast {
 @:forward
 @:nativeGen
 @:native("K2Node_DynamicCast*")
-abstract K2Node_DynamicCastPtr(cpp.Star<K2Node_DynamicCast>) from cpp.Star<K2Node_DynamicCast> to cpp.Star<K2Node_DynamicCast>{
+abstract K2Node_DynamicCastPtr(ucpp.Ptr<K2Node_DynamicCast>) from ucpp.Ptr<K2Node_DynamicCast> to ucpp.Ptr<K2Node_DynamicCast>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_DynamicCast): K2Node_DynamicCastPtr {
 		return untyped __cpp__("&({0})", v);

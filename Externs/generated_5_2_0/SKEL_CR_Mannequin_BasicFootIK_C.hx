@@ -2,17 +2,17 @@
 package ue;
 
 @:native("USKEL_CR_Mannequin_BasicFootIK_C")
-@:structAccess
+@:valueType
 extern class SKEL_CR_Mannequin_BasicFootIK_C extends ControlRig {
 	public var UberGraphFrame: PointerToUberGraphFrame;
-	public var ZOffset_L_Target: cpp.Float64;
-	public var ZOffset_R_Target: cpp.Float64;
-	public var ZOffset_L: cpp.Float64;
-	public var ZOffset_R: cpp.Float64;
-	public var ZOffset_Pelvis: cpp.Float64;
+	public var ZOffset_L_Target: ucpp.num.Float64;
+	public var ZOffset_R_Target: ucpp.num.Float64;
+	public var ZOffset_L: ucpp.num.Float64;
+	public var ZOffset_R: ucpp.num.Float64;
+	public var ZOffset_Pelvis: ucpp.num.Float64;
 	public var ShouldDoIKTrace: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,16 +20,16 @@ extern class SKEL_CR_Mannequin_BasicFootIK_C extends ControlRig {
 abstract ConstSKEL_CR_Mannequin_BasicFootIK_C(SKEL_CR_Mannequin_BasicFootIK_C) from SKEL_CR_Mannequin_BasicFootIK_C {
 	public extern var UberGraphFrame(get, never): PointerToUberGraphFrame;
 	public inline extern function get_UberGraphFrame(): PointerToUberGraphFrame return this.UberGraphFrame;
-	public extern var ZOffset_L_Target(get, never): cpp.Float64;
-	public inline extern function get_ZOffset_L_Target(): cpp.Float64 return this.ZOffset_L_Target;
-	public extern var ZOffset_R_Target(get, never): cpp.Float64;
-	public inline extern function get_ZOffset_R_Target(): cpp.Float64 return this.ZOffset_R_Target;
-	public extern var ZOffset_L(get, never): cpp.Float64;
-	public inline extern function get_ZOffset_L(): cpp.Float64 return this.ZOffset_L;
-	public extern var ZOffset_R(get, never): cpp.Float64;
-	public inline extern function get_ZOffset_R(): cpp.Float64 return this.ZOffset_R;
-	public extern var ZOffset_Pelvis(get, never): cpp.Float64;
-	public inline extern function get_ZOffset_Pelvis(): cpp.Float64 return this.ZOffset_Pelvis;
+	public extern var ZOffset_L_Target(get, never): ucpp.num.Float64;
+	public inline extern function get_ZOffset_L_Target(): ucpp.num.Float64 return this.ZOffset_L_Target;
+	public extern var ZOffset_R_Target(get, never): ucpp.num.Float64;
+	public inline extern function get_ZOffset_R_Target(): ucpp.num.Float64 return this.ZOffset_R_Target;
+	public extern var ZOffset_L(get, never): ucpp.num.Float64;
+	public inline extern function get_ZOffset_L(): ucpp.num.Float64 return this.ZOffset_L;
+	public extern var ZOffset_R(get, never): ucpp.num.Float64;
+	public inline extern function get_ZOffset_R(): ucpp.num.Float64 return this.ZOffset_R;
+	public extern var ZOffset_Pelvis(get, never): ucpp.num.Float64;
+	public inline extern function get_ZOffset_Pelvis(): ucpp.num.Float64 return this.ZOffset_Pelvis;
 	public extern var ShouldDoIKTrace(get, never): Bool;
 	public inline extern function get_ShouldDoIKTrace(): Bool return this.ShouldDoIKTrace;
 }
@@ -37,7 +37,7 @@ abstract ConstSKEL_CR_Mannequin_BasicFootIK_C(SKEL_CR_Mannequin_BasicFootIK_C) f
 @:forward
 @:nativeGen
 @:native("SKEL_CR_Mannequin_BasicFootIK_C*")
-abstract SKEL_CR_Mannequin_BasicFootIK_CPtr(cpp.Star<SKEL_CR_Mannequin_BasicFootIK_C>) from cpp.Star<SKEL_CR_Mannequin_BasicFootIK_C> to cpp.Star<SKEL_CR_Mannequin_BasicFootIK_C>{
+abstract SKEL_CR_Mannequin_BasicFootIK_CPtr(ucpp.Ptr<SKEL_CR_Mannequin_BasicFootIK_C>) from ucpp.Ptr<SKEL_CR_Mannequin_BasicFootIK_C> to ucpp.Ptr<SKEL_CR_Mannequin_BasicFootIK_C>{
 	@:from
 	public static extern inline function fromValue(v: SKEL_CR_Mannequin_BasicFootIK_C): SKEL_CR_Mannequin_BasicFootIK_CPtr {
 		return untyped __cpp__("&({0})", v);

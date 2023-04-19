@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallab
 @:forward
 @:nativeGen
 @:native("GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable*")
-abstract GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallablePtr(cpp.Star<GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable>) from cpp.Star<GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable> to cpp.Star<GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable>{
+abstract GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallablePtr(ucpp.Ptr<GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable>) from ucpp.Ptr<GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable> to ucpp.Ptr<GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallable): GameplayTask_TimeLimitedExecution_TaskFinishDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

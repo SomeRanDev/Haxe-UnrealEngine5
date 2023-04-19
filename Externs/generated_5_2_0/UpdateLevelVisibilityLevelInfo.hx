@@ -3,7 +3,7 @@ package ue;
 
 @:native("FUpdateLevelVisibilityLevelInfo")
 @:include("GameFramework/UpdateLevelVisibilityLevelInfo.h")
-@:structAccess
+@:valueType
 extern class UpdateLevelVisibilityLevelInfo {
 	public var PackageName: FName;
 	public var FileName: FName;

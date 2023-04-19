@@ -3,19 +3,19 @@ package ue;
 
 @:native("UBehaviorTreeGraph")
 @:include("BehaviorTreeGraph.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeGraph extends AIGraph {
-	public var ModCounter: cpp.Int32;
+	public var ModCounter: ucpp.num.Int32;
 	public var bIsUsingModCounter: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBehaviorTreeGraph(BehaviorTreeGraph) from BehaviorTreeGraph {
-	public extern var ModCounter(get, never): cpp.Int32;
-	public inline extern function get_ModCounter(): cpp.Int32 return this.ModCounter;
+	public extern var ModCounter(get, never): ucpp.num.Int32;
+	public inline extern function get_ModCounter(): ucpp.num.Int32 return this.ModCounter;
 	public extern var bIsUsingModCounter(get, never): Bool;
 	public inline extern function get_bIsUsingModCounter(): Bool return this.bIsUsingModCounter;
 }
@@ -23,7 +23,7 @@ abstract ConstBehaviorTreeGraph(BehaviorTreeGraph) from BehaviorTreeGraph {
 @:forward
 @:nativeGen
 @:native("BehaviorTreeGraph*")
-abstract BehaviorTreeGraphPtr(cpp.Star<BehaviorTreeGraph>) from cpp.Star<BehaviorTreeGraph> to cpp.Star<BehaviorTreeGraph>{
+abstract BehaviorTreeGraphPtr(ucpp.Ptr<BehaviorTreeGraph>) from ucpp.Ptr<BehaviorTreeGraph> to ucpp.Ptr<BehaviorTreeGraph>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeGraph): BehaviorTreeGraphPtr {
 		return untyped __cpp__("&({0})", v);

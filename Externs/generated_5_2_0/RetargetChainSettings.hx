@@ -3,13 +3,13 @@ package ue;
 
 @:native("URetargetChainSettings")
 @:include("Retargeter/IKRetargeter.h")
-@:structAccess
+@:valueType
 extern class RetargetChainSettings extends Object {
 	public var SourceChain: FName;
 	public var TargetChain: FName;
 	public var Settings: TargetChainSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstRetargetChainSettings(RetargetChainSettings) from RetargetChainSet
 @:forward
 @:nativeGen
 @:native("RetargetChainSettings*")
-abstract RetargetChainSettingsPtr(cpp.Star<RetargetChainSettings>) from cpp.Star<RetargetChainSettings> to cpp.Star<RetargetChainSettings>{
+abstract RetargetChainSettingsPtr(ucpp.Ptr<RetargetChainSettings>) from ucpp.Ptr<RetargetChainSettings> to ucpp.Ptr<RetargetChainSettings>{
 	@:from
 	public static extern inline function fromValue(v: RetargetChainSettings): RetargetChainSettingsPtr {
 		return untyped __cpp__("&({0})", v);

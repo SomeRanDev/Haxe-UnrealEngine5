@@ -3,16 +3,16 @@ package ue;
 
 @:native("USubmixEffectDynamicsProcessorPreset")
 @:include("SubmixEffects/AudioMixerSubmixEffectDynamicsProcessor.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectDynamicsProcessorPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectDynamicsProcessorSettings;
 
-	public function SetSettings(Settings: cpp.Reference<SubmixEffectDynamicsProcessorSettings>): Void;
-	public function SetExternalSubmix(Submix: cpp.Star<SoundSubmix>): Void;
-	public function SetAudioBus(AudioBus: cpp.Star<AudioBus>): Void;
+	public function SetSettings(Settings: ucpp.Ref<SubmixEffectDynamicsProcessorSettings>): Void;
+	public function SetExternalSubmix(Submix: ucpp.Ptr<SoundSubmix>): Void;
+	public function SetAudioBus(AudioBus: ucpp.Ptr<AudioBus>): Void;
 	public function ResetKey(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstSubmixEffectDynamicsProcessorPreset(SubmixEffectDynamicsProcessorP
 @:forward
 @:nativeGen
 @:native("SubmixEffectDynamicsProcessorPreset*")
-abstract SubmixEffectDynamicsProcessorPresetPtr(cpp.Star<SubmixEffectDynamicsProcessorPreset>) from cpp.Star<SubmixEffectDynamicsProcessorPreset> to cpp.Star<SubmixEffectDynamicsProcessorPreset>{
+abstract SubmixEffectDynamicsProcessorPresetPtr(ucpp.Ptr<SubmixEffectDynamicsProcessorPreset>) from ucpp.Ptr<SubmixEffectDynamicsProcessorPreset> to ucpp.Ptr<SubmixEffectDynamicsProcessorPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectDynamicsProcessorPreset): SubmixEffectDynamicsProcessorPresetPtr {
 		return untyped __cpp__("&({0})", v);

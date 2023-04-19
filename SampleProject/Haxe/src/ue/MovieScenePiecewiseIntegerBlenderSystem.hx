@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieScenePiecewiseIntegerBlenderSystem")
 @:include("Systems/MovieScenePiecewiseIntegerBlenderSystem.h")
-@:structAccess
+@:valueType
 extern class MovieScenePiecewiseIntegerBlenderSystem extends MovieSceneBlenderSystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieScenePiecewiseIntegerBlenderSystem(MovieScenePiecewiseInteger
 @:forward
 @:nativeGen
 @:native("MovieScenePiecewiseIntegerBlenderSystem*")
-abstract MovieScenePiecewiseIntegerBlenderSystemPtr(cpp.Star<MovieScenePiecewiseIntegerBlenderSystem>) from cpp.Star<MovieScenePiecewiseIntegerBlenderSystem> to cpp.Star<MovieScenePiecewiseIntegerBlenderSystem>{
+abstract MovieScenePiecewiseIntegerBlenderSystemPtr(ucpp.Ptr<MovieScenePiecewiseIntegerBlenderSystem>) from ucpp.Ptr<MovieScenePiecewiseIntegerBlenderSystem> to ucpp.Ptr<MovieScenePiecewiseIntegerBlenderSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieScenePiecewiseIntegerBlenderSystem): MovieScenePiecewiseIntegerBlenderSystemPtr {
 		return untyped __cpp__("&({0})", v);

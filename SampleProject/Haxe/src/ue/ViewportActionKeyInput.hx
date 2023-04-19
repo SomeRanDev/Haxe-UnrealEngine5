@@ -3,12 +3,13 @@ package ue;
 
 @:native("FViewportActionKeyInput")
 @:include("ViewportInteractionTypes.h")
-@:structAccess
+@:valueType
 extern class ViewportActionKeyInput {
 	public var ActionType: FName;
 	public var Event: TEnumAsByte<EInputEvent>;
 	public var bIsInputCaptured: Bool;
+	public var bIsAxis: Bool;
 
 	@:native("FViewportActionKeyInput") public function new();
-	@:native("FViewportActionKeyInput") public static function make(ActionType: FName, Event: TEnumAsByte<EInputEvent>, bIsInputCaptured: Bool): ViewportActionKeyInput ;
+	@:native("FViewportActionKeyInput") public static function make(ActionType: FName, Event: TEnumAsByte<EInputEvent>, bIsInputCaptured: Bool, bIsAxis: Bool): ViewportActionKeyInput ;
 }

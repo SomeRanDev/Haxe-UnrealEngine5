@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTranslationChange")
 @:include("Private/TranslationUnit.h")
-@:structAccess
+@:valueType
 extern class TranslationChange {
 	public var Version: FString;
 	public var DateAndTime: DateTime;

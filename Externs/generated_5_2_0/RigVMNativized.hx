@@ -3,10 +3,10 @@ package ue;
 
 @:native("URigVMNativized")
 @:include("RigVMCore/RigVMNativized.h")
-@:structAccess
+@:valueType
 extern class RigVMNativized extends RigVM {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRigVMNativized(RigVMNativized) from RigVMNativized {
 @:forward
 @:nativeGen
 @:native("RigVMNativized*")
-abstract RigVMNativizedPtr(cpp.Star<RigVMNativized>) from cpp.Star<RigVMNativized> to cpp.Star<RigVMNativized>{
+abstract RigVMNativizedPtr(ucpp.Ptr<RigVMNativized>) from ucpp.Ptr<RigVMNativized> to ucpp.Ptr<RigVMNativized>{
 	@:from
 	public static extern inline function fromValue(v: RigVMNativized): RigVMNativizedPtr {
 		return untyped __cpp__("&({0})", v);

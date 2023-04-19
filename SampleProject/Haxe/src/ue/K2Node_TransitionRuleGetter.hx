@@ -3,13 +3,13 @@ package ue;
 
 @:native("UK2Node_TransitionRuleGetter")
 @:include("K2Node_TransitionRuleGetter.h")
-@:structAccess
+@:valueType
 extern class K2Node_TransitionRuleGetter extends K2Node {
 	public var GetterType: TEnumAsByte<ETransitionGetter>;
-	public var AssociatedAnimAssetPlayerNode: cpp.Star<AnimGraphNode_Base>;
-	public var AssociatedStateNode: cpp.Star<AnimStateNode>;
+	public var AssociatedAnimAssetPlayerNode: ucpp.Ptr<AnimGraphNode_Base>;
+	public var AssociatedStateNode: ucpp.Ptr<AnimStateNode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class K2Node_TransitionRuleGetter extends K2Node {
 abstract ConstK2Node_TransitionRuleGetter(K2Node_TransitionRuleGetter) from K2Node_TransitionRuleGetter {
 	public extern var GetterType(get, never): TEnumAsByte<ETransitionGetter>;
 	public inline extern function get_GetterType(): TEnumAsByte<ETransitionGetter> return this.GetterType;
-	public extern var AssociatedAnimAssetPlayerNode(get, never): cpp.Star<AnimGraphNode_Base.ConstAnimGraphNode_Base>;
-	public inline extern function get_AssociatedAnimAssetPlayerNode(): cpp.Star<AnimGraphNode_Base.ConstAnimGraphNode_Base> return this.AssociatedAnimAssetPlayerNode;
-	public extern var AssociatedStateNode(get, never): cpp.Star<AnimStateNode.ConstAnimStateNode>;
-	public inline extern function get_AssociatedStateNode(): cpp.Star<AnimStateNode.ConstAnimStateNode> return this.AssociatedStateNode;
+	public extern var AssociatedAnimAssetPlayerNode(get, never): ucpp.Ptr<AnimGraphNode_Base.ConstAnimGraphNode_Base>;
+	public inline extern function get_AssociatedAnimAssetPlayerNode(): ucpp.Ptr<AnimGraphNode_Base.ConstAnimGraphNode_Base> return this.AssociatedAnimAssetPlayerNode;
+	public extern var AssociatedStateNode(get, never): ucpp.Ptr<AnimStateNode.ConstAnimStateNode>;
+	public inline extern function get_AssociatedStateNode(): ucpp.Ptr<AnimStateNode.ConstAnimStateNode> return this.AssociatedStateNode;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_TransitionRuleGetter*")
-abstract K2Node_TransitionRuleGetterPtr(cpp.Star<K2Node_TransitionRuleGetter>) from cpp.Star<K2Node_TransitionRuleGetter> to cpp.Star<K2Node_TransitionRuleGetter>{
+abstract K2Node_TransitionRuleGetterPtr(ucpp.Ptr<K2Node_TransitionRuleGetter>) from ucpp.Ptr<K2Node_TransitionRuleGetter> to ucpp.Ptr<K2Node_TransitionRuleGetter>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_TransitionRuleGetter): K2Node_TransitionRuleGetterPtr {
 		return untyped __cpp__("&({0})", v);

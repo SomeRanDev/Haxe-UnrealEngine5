@@ -3,63 +3,63 @@ package ue;
 
 @:native("UPhysicsHandleComponent")
 @:include("PhysicsEngine/PhysicsHandleComponent.h")
-@:structAccess
+@:valueType
 extern class PhysicsHandleComp extends ActorComp {
-	public var GrabbedComponent: cpp.Star<PrimitiveComp>;
+	public var GrabbedComponent: ucpp.Ptr<PrimitiveComp>;
 	public var bSoftAngularConstraint: Bool;
 	public var bSoftLinearConstraint: Bool;
 	public var bInterpolateTarget: Bool;
-	public var LinearDamping: cpp.Float32;
-	public var LinearStiffness: cpp.Float32;
-	public var AngularDamping: cpp.Float32;
-	public var AngularStiffness: cpp.Float32;
-	public var InterpolationSpeed: cpp.Float32;
+	public var LinearDamping: ucpp.num.Float32;
+	public var LinearStiffness: ucpp.num.Float32;
+	public var AngularDamping: ucpp.num.Float32;
+	public var AngularStiffness: ucpp.num.Float32;
+	public var InterpolationSpeed: ucpp.num.Float32;
 
 	public function SetTargetRotation(NewRotation: Rotator): Void;
 	public function SetTargetLocationAndRotation(NewLocation: Vector, NewRotation: Rotator): Void;
 	public function SetTargetLocation(NewLocation: Vector): Void;
-	public function SetLinearStiffness(NewLinearStiffness: cpp.Float32): Void;
-	public function SetLinearDamping(NewLinearDamping: cpp.Float32): Void;
-	public function SetInterpolationSpeed(NewInterpolationSpeed: cpp.Float32): Void;
-	public function SetAngularStiffness(NewAngularStiffness: cpp.Float32): Void;
-	public function SetAngularDamping(NewAngularDamping: cpp.Float32): Void;
+	public function SetLinearStiffness(NewLinearStiffness: ucpp.num.Float32): Void;
+	public function SetLinearDamping(NewLinearDamping: ucpp.num.Float32): Void;
+	public function SetInterpolationSpeed(NewInterpolationSpeed: ucpp.num.Float32): Void;
+	public function SetAngularStiffness(NewAngularStiffness: ucpp.num.Float32): Void;
+	public function SetAngularDamping(NewAngularDamping: ucpp.num.Float32): Void;
 	public function ReleaseComponent(): Void;
-	public function GrabComponentAtLocationWithRotation(Component: cpp.Star<PrimitiveComp>, InBoneName: FName, Location: Vector, Rotation: Rotator): Void;
-	public function GrabComponentAtLocation(Component: cpp.Star<PrimitiveComp>, InBoneName: FName, GrabLocation: Vector): Void;
-	public function GrabComponent(Component: cpp.Star<PrimitiveComp>, InBoneName: FName, GrabLocation: Vector, bConstrainRotation: Bool): Void;
-	public function GetTargetLocationAndRotation(TargetLocation: cpp.Reference<Vector>, TargetRotation: cpp.Reference<Rotator>): Void;
-	public function GetGrabbedComponent(): cpp.Star<PrimitiveComp>;
+	public function GrabComponentAtLocationWithRotation(Component: ucpp.Ptr<PrimitiveComp>, InBoneName: FName, Location: Vector, Rotation: Rotator): Void;
+	public function GrabComponentAtLocation(Component: ucpp.Ptr<PrimitiveComp>, InBoneName: FName, GrabLocation: Vector): Void;
+	public function GrabComponent(Component: ucpp.Ptr<PrimitiveComp>, InBoneName: FName, GrabLocation: Vector, bConstrainRotation: Bool): Void;
+	public function GetTargetLocationAndRotation(TargetLocation: ucpp.Ref<Vector>, TargetRotation: ucpp.Ref<Rotator>): Void;
+	public function GetGrabbedComponent(): ucpp.Ptr<PrimitiveComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTargetLocationAndRotation, GetGrabbedComponent)
 @:nativeGen
 abstract ConstPhysicsHandleComp(PhysicsHandleComp) from PhysicsHandleComp {
-	public extern var GrabbedComponent(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
-	public inline extern function get_GrabbedComponent(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.GrabbedComponent;
+	public extern var GrabbedComponent(get, never): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>;
+	public inline extern function get_GrabbedComponent(): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp> return this.GrabbedComponent;
 	public extern var bSoftAngularConstraint(get, never): Bool;
 	public inline extern function get_bSoftAngularConstraint(): Bool return this.bSoftAngularConstraint;
 	public extern var bSoftLinearConstraint(get, never): Bool;
 	public inline extern function get_bSoftLinearConstraint(): Bool return this.bSoftLinearConstraint;
 	public extern var bInterpolateTarget(get, never): Bool;
 	public inline extern function get_bInterpolateTarget(): Bool return this.bInterpolateTarget;
-	public extern var LinearDamping(get, never): cpp.Float32;
-	public inline extern function get_LinearDamping(): cpp.Float32 return this.LinearDamping;
-	public extern var LinearStiffness(get, never): cpp.Float32;
-	public inline extern function get_LinearStiffness(): cpp.Float32 return this.LinearStiffness;
-	public extern var AngularDamping(get, never): cpp.Float32;
-	public inline extern function get_AngularDamping(): cpp.Float32 return this.AngularDamping;
-	public extern var AngularStiffness(get, never): cpp.Float32;
-	public inline extern function get_AngularStiffness(): cpp.Float32 return this.AngularStiffness;
-	public extern var InterpolationSpeed(get, never): cpp.Float32;
-	public inline extern function get_InterpolationSpeed(): cpp.Float32 return this.InterpolationSpeed;
+	public extern var LinearDamping(get, never): ucpp.num.Float32;
+	public inline extern function get_LinearDamping(): ucpp.num.Float32 return this.LinearDamping;
+	public extern var LinearStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_LinearStiffness(): ucpp.num.Float32 return this.LinearStiffness;
+	public extern var AngularDamping(get, never): ucpp.num.Float32;
+	public inline extern function get_AngularDamping(): ucpp.num.Float32 return this.AngularDamping;
+	public extern var AngularStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_AngularStiffness(): ucpp.num.Float32 return this.AngularStiffness;
+	public extern var InterpolationSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_InterpolationSpeed(): ucpp.num.Float32 return this.InterpolationSpeed;
 }
 
 @:forward
 @:nativeGen
 @:native("PhysicsHandleComp*")
-abstract PhysicsHandleCompPtr(cpp.Star<PhysicsHandleComp>) from cpp.Star<PhysicsHandleComp> to cpp.Star<PhysicsHandleComp>{
+abstract PhysicsHandleCompPtr(ucpp.Ptr<PhysicsHandleComp>) from ucpp.Ptr<PhysicsHandleComp> to ucpp.Ptr<PhysicsHandleComp>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsHandleComp): PhysicsHandleCompPtr {
 		return untyped __cpp__("&({0})", v);

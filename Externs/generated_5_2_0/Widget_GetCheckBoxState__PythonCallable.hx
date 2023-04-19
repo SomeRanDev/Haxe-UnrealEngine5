@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GetCheckBoxState__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GetCheckBoxState__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GetCheckBoxState__PythonCallable(Widget_GetCheckBoxState__P
 @:forward
 @:nativeGen
 @:native("Widget_GetCheckBoxState__PythonCallable*")
-abstract Widget_GetCheckBoxState__PythonCallablePtr(cpp.Star<Widget_GetCheckBoxState__PythonCallable>) from cpp.Star<Widget_GetCheckBoxState__PythonCallable> to cpp.Star<Widget_GetCheckBoxState__PythonCallable>{
+abstract Widget_GetCheckBoxState__PythonCallablePtr(ucpp.Ptr<Widget_GetCheckBoxState__PythonCallable>) from ucpp.Ptr<Widget_GetCheckBoxState__PythonCallable> to ucpp.Ptr<Widget_GetCheckBoxState__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GetCheckBoxState__PythonCallable): Widget_GetCheckBoxState__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

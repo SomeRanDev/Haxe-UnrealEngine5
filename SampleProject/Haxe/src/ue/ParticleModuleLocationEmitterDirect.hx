@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleLocationEmitterDirect")
 @:include("Particles/Location/ParticleModuleLocationEmitterDirect.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocationEmitterDirect extends ParticleModuleLocationBase {
 	public var EmitterName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleLocationEmitterDirect(ParticleModuleLocationEmitterD
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocationEmitterDirect*")
-abstract ParticleModuleLocationEmitterDirectPtr(cpp.Star<ParticleModuleLocationEmitterDirect>) from cpp.Star<ParticleModuleLocationEmitterDirect> to cpp.Star<ParticleModuleLocationEmitterDirect>{
+abstract ParticleModuleLocationEmitterDirectPtr(ucpp.Ptr<ParticleModuleLocationEmitterDirect>) from ucpp.Ptr<ParticleModuleLocationEmitterDirect> to ucpp.Ptr<ParticleModuleLocationEmitterDirect>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocationEmitterDirect): ParticleModuleLocationEmitterDirectPtr {
 		return untyped __cpp__("&({0})", v);

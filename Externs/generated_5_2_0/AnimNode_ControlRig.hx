@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimNode_ControlRig")
 @:include("AnimNode_ControlRig.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ControlRig extends AnimNode_ControlRigBase {
 	private var ControlRigClass: TSubclassOf<ControlRig>;
-	private var ControlRig: cpp.Star<ControlRig>;
-	private var Alpha: cpp.Float32;
+	private var ControlRig: ucpp.Ptr<ControlRig>;
+	private var Alpha: ucpp.num.Float32;
 	private var AlphaInputType: EAnimAlphaInputType;
 	private var bAlphaBoolEnabled: Bool;
 	private var bSetRefPoseFromSkeleton: Bool;
@@ -17,7 +17,7 @@ extern class AnimNode_ControlRig extends AnimNode_ControlRigBase {
 	private var AlphaScaleBiasClamp: InputScaleBiasClamp;
 	private var InputMapping: TMap<FName, FName>;
 	private var OutputMapping: TMap<FName, FName>;
-	private var LODThreshold: cpp.Int32;
+	private var LODThreshold: ucpp.num.Int32;
 
 	@:native("FAnimNode_ControlRig") public function new();
 }

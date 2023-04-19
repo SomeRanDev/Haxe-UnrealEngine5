@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintWatchedPin")
 @:include("Kismet2/WatchedPin.h")
-@:structAccess
+@:valueType
 extern class BlueprintWatchedPin {
 	private var OwningNode: TSoftObjectPtr<EdGraphNode>;
 	private var PinId: Guid;

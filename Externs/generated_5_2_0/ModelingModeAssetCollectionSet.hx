@@ -3,7 +3,7 @@ package ue;
 
 @:native("FModelingModeAssetCollectionSet")
 @:include("ModelingToolsEditorModeSettings.h")
-@:structAccess
+@:valueType
 extern class ModelingModeAssetCollectionSet {
 	public var Name: FString;
 	public var Collections: TArray<CollectionReference>;

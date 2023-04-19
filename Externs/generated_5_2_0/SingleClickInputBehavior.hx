@@ -3,11 +3,11 @@ package ue;
 
 @:native("USingleClickInputBehavior")
 @:include("BaseBehaviors/SingleClickBehavior.h")
-@:structAccess
+@:valueType
 extern class SingleClickInputBehavior extends AnyButtonInputBehavior {
 	public var HitTestOnRelease: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSingleClickInputBehavior(SingleClickInputBehavior) from SingleClic
 @:forward
 @:nativeGen
 @:native("SingleClickInputBehavior*")
-abstract SingleClickInputBehaviorPtr(cpp.Star<SingleClickInputBehavior>) from cpp.Star<SingleClickInputBehavior> to cpp.Star<SingleClickInputBehavior>{
+abstract SingleClickInputBehaviorPtr(ucpp.Ptr<SingleClickInputBehavior>) from ucpp.Ptr<SingleClickInputBehavior> to ucpp.Ptr<SingleClickInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: SingleClickInputBehavior): SingleClickInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

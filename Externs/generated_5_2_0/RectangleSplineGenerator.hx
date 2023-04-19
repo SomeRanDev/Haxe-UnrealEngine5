@@ -3,22 +3,22 @@ package ue;
 
 @:native("URectangleSplineGenerator")
 @:include("SplineGeneratorPanel.h")
-@:structAccess
+@:valueType
 extern class RectangleSplineGenerator extends SplineGeneratorBase {
-	public var Length: cpp.Float32;
-	public var Width: cpp.Float32;
+	public var Length: ucpp.num.Float32;
+	public var Width: ucpp.num.Float32;
 	public var bBranchRight: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRectangleSplineGenerator(RectangleSplineGenerator) from RectangleSplineGenerator {
-	public extern var Length(get, never): cpp.Float32;
-	public inline extern function get_Length(): cpp.Float32 return this.Length;
-	public extern var Width(get, never): cpp.Float32;
-	public inline extern function get_Width(): cpp.Float32 return this.Width;
+	public extern var Length(get, never): ucpp.num.Float32;
+	public inline extern function get_Length(): ucpp.num.Float32 return this.Length;
+	public extern var Width(get, never): ucpp.num.Float32;
+	public inline extern function get_Width(): ucpp.num.Float32 return this.Width;
 	public extern var bBranchRight(get, never): Bool;
 	public inline extern function get_bBranchRight(): Bool return this.bBranchRight;
 }
@@ -26,7 +26,7 @@ abstract ConstRectangleSplineGenerator(RectangleSplineGenerator) from RectangleS
 @:forward
 @:nativeGen
 @:native("RectangleSplineGenerator*")
-abstract RectangleSplineGeneratorPtr(cpp.Star<RectangleSplineGenerator>) from cpp.Star<RectangleSplineGenerator> to cpp.Star<RectangleSplineGenerator>{
+abstract RectangleSplineGeneratorPtr(ucpp.Ptr<RectangleSplineGenerator>) from ucpp.Ptr<RectangleSplineGenerator> to ucpp.Ptr<RectangleSplineGenerator>{
 	@:from
 	public static extern inline function fromValue(v: RectangleSplineGenerator): RectangleSplineGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

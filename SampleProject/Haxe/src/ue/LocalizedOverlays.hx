@@ -3,27 +3,27 @@ package ue;
 
 @:native("ULocalizedOverlays")
 @:include("LocalizedOverlays.h")
-@:structAccess
+@:valueType
 extern class LocalizedOverlays extends Overlays {
-	public var DefaultOverlays: cpp.Star<BasicOverlays>;
-	public var LocaleToOverlaysMap: TMap<FString, cpp.Star<BasicOverlays>>;
+	public var DefaultOverlays: ucpp.Ptr<BasicOverlays>;
+	public var LocaleToOverlaysMap: TMap<FString, ucpp.Ptr<BasicOverlays>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLocalizedOverlays(LocalizedOverlays) from LocalizedOverlays {
-	public extern var DefaultOverlays(get, never): cpp.Star<BasicOverlays.ConstBasicOverlays>;
-	public inline extern function get_DefaultOverlays(): cpp.Star<BasicOverlays.ConstBasicOverlays> return this.DefaultOverlays;
-	public extern var LocaleToOverlaysMap(get, never): TMap<FString, cpp.Star<BasicOverlays.ConstBasicOverlays>>;
-	public inline extern function get_LocaleToOverlaysMap(): TMap<FString, cpp.Star<BasicOverlays.ConstBasicOverlays>> return this.LocaleToOverlaysMap;
+	public extern var DefaultOverlays(get, never): ucpp.Ptr<BasicOverlays.ConstBasicOverlays>;
+	public inline extern function get_DefaultOverlays(): ucpp.Ptr<BasicOverlays.ConstBasicOverlays> return this.DefaultOverlays;
+	public extern var LocaleToOverlaysMap(get, never): TMap<FString, ucpp.Ptr<BasicOverlays.ConstBasicOverlays>>;
+	public inline extern function get_LocaleToOverlaysMap(): TMap<FString, ucpp.Ptr<BasicOverlays.ConstBasicOverlays>> return this.LocaleToOverlaysMap;
 }
 
 @:forward
 @:nativeGen
 @:native("LocalizedOverlays*")
-abstract LocalizedOverlaysPtr(cpp.Star<LocalizedOverlays>) from cpp.Star<LocalizedOverlays> to cpp.Star<LocalizedOverlays>{
+abstract LocalizedOverlaysPtr(ucpp.Ptr<LocalizedOverlays>) from ucpp.Ptr<LocalizedOverlays> to ucpp.Ptr<LocalizedOverlays>{
 	@:from
 	public static extern inline function fromValue(v: LocalizedOverlays): LocalizedOverlaysPtr {
 		return untyped __cpp__("&({0})", v);

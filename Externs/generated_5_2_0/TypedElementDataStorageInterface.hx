@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTypedElementDataStorageInterface")
-@:structAccess
+@:valueType
 extern class TypedElementDataStorageInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTypedElementDataStorageInterface(TypedElementDataStorageInterface)
 @:forward
 @:nativeGen
 @:native("TypedElementDataStorageInterface*")
-abstract TypedElementDataStorageInterfacePtr(cpp.Star<TypedElementDataStorageInterface>) from cpp.Star<TypedElementDataStorageInterface> to cpp.Star<TypedElementDataStorageInterface>{
+abstract TypedElementDataStorageInterfacePtr(ucpp.Ptr<TypedElementDataStorageInterface>) from ucpp.Ptr<TypedElementDataStorageInterface> to ucpp.Ptr<TypedElementDataStorageInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementDataStorageInterface): TypedElementDataStorageInterfacePtr {
 		return untyped __cpp__("&({0})", v);

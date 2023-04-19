@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextureExporterHDR")
 @:include("Exporters/TextureExporterHDR.h")
-@:structAccess
+@:valueType
 extern class TextureExporterHDR extends TextureExporterGeneric {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextureExporterHDR(TextureExporterHDR) from TextureExporterHDR {
 @:forward
 @:nativeGen
 @:native("TextureExporterHDR*")
-abstract TextureExporterHDRPtr(cpp.Star<TextureExporterHDR>) from cpp.Star<TextureExporterHDR> to cpp.Star<TextureExporterHDR>{
+abstract TextureExporterHDRPtr(ucpp.Ptr<TextureExporterHDR>) from ucpp.Ptr<TextureExporterHDR> to ucpp.Ptr<TextureExporterHDR>{
 	@:from
 	public static extern inline function fromValue(v: TextureExporterHDR): TextureExporterHDRPtr {
 		return untyped __cpp__("&({0})", v);

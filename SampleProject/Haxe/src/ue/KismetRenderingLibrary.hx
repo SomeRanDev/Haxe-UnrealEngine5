@@ -3,36 +3,38 @@ package ue;
 
 @:native("UKismetRenderingLibrary")
 @:include("Kismet/KismetRenderingLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetRenderingLibrary extends BlueprintFunctionLibrary {
-	public function SetCastInsetShadowForAllAttachments(PrimitiveComponent: cpp.Star<PrimitiveComp>, bCastInsetShadow: Bool, bLightAttachmentsAsGroup: Bool): Void;
-	public function RenderTargetCreateStaticTexture2DEditorOnly(RenderTarget: cpp.Star<TextureRenderTarget2D>, Name: FString, CompressionSettings: TEnumAsByte<TextureCompressionSettings>, MipSettings: TEnumAsByte<TextureMipGenSettings>): cpp.Star<Texture2D>;
-	public function ReleaseRenderTarget2D(TextureRenderTarget: cpp.Star<TextureRenderTarget2D>): Void;
-	public function ReadRenderTargetUV(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, U: cpp.Float32, V: cpp.Float32): Color;
-	public function ReadRenderTargetRawUVArea(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, Area: Box2D, bNormalize: Bool): TArray<LinearColor>;
-	public function ReadRenderTargetRawUV(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, U: cpp.Float32, V: cpp.Float32, bNormalize: Bool): LinearColor;
-	public function ReadRenderTargetRawPixelArea(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, MinX: cpp.Int32, MinY: cpp.Int32, MaxX: cpp.Int32, MaxY: cpp.Int32, bNormalize: Bool): TArray<LinearColor>;
-	public function ReadRenderTargetRawPixel(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, X: cpp.Int32, Y: cpp.Int32, bNormalize: Bool): LinearColor;
-	public function ReadRenderTargetRaw(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, OutLinearSamples: cpp.Reference<TArray<LinearColor>>, bNormalize: Bool): Bool;
-	public function ReadRenderTargetPixel(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, X: cpp.Int32, Y: cpp.Int32): Color;
-	public function ReadRenderTarget(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, OutSamples: cpp.Reference<TArray<Color>>, bNormalize: Bool): Bool;
-	public function MakeSkinWeightInfo(Bone0: cpp.Int32, Weight0: cpp.UInt8, Bone1: cpp.Int32, Weight1: cpp.UInt8, Bone2: cpp.Int32, Weight2: cpp.UInt8, Bone3: cpp.Int32, Weight3: cpp.UInt8): SkelMeshSkinWeightInfo;
-	public function ImportFileAsTexture2D(WorldContextObject: cpp.Star<Object>, Filename: FString): cpp.Star<Texture2D>;
-	public function ImportBufferAsTexture2D(WorldContextObject: cpp.Star<Object>, Buffer: cpp.Reference<TArray<cpp.UInt8>>): cpp.Star<Texture2D>;
-	public function ExportTexture2D(WorldContextObject: cpp.Star<Object>, Texture: cpp.Star<Texture2D>, FilePath: FString, FileName: FString): Void;
-	public function ExportRenderTarget(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, FilePath: FString, FileName: FString): Void;
-	public function EndDrawCanvasToRenderTarget(WorldContextObject: cpp.Star<Object>, Context: cpp.Reference<DrawToRenderTargetContext>): Void;
-	public function DrawMaterialToRenderTarget(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, Material: cpp.Star<MaterialInterface>): Void;
-	public function CreateRenderTargetVolume(WorldContextObject: cpp.Star<Object>, Width: cpp.Int32, Height: cpp.Int32, Depth: cpp.Int32, Format: TEnumAsByte<ETextureRenderTargetFormat>, ClearColor: LinearColor, bAutoGenerateMipMaps: Bool): cpp.Star<TextureRenderTargetVolume>;
-	public function CreateRenderTarget2DArray(WorldContextObject: cpp.Star<Object>, Width: cpp.Int32, Height: cpp.Int32, Slices: cpp.Int32, Format: TEnumAsByte<ETextureRenderTargetFormat>, ClearColor: LinearColor, bAutoGenerateMipMaps: Bool): cpp.Star<TextureRenderTarget2DArray>;
-	public function CreateRenderTarget2D(WorldContextObject: cpp.Star<Object>, Width: cpp.Int32, Height: cpp.Int32, Format: TEnumAsByte<ETextureRenderTargetFormat>, ClearColor: LinearColor, bAutoGenerateMipMaps: Bool): cpp.Star<TextureRenderTarget2D>;
-	public function ConvertRenderTargetToTexture2DEditorOnly(WorldContextObject: cpp.Star<Object>, RenderTarget: cpp.Star<TextureRenderTarget2D>, Texture: cpp.Star<Texture2D>): Void;
-	public function ClearRenderTarget2D(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, ClearColor: LinearColor): Void;
-	public function CalculateProjectionMatrix(MinimalViewInfo: cpp.Reference<MinimalViewInfo>): Matrix;
-	public function BreakSkinWeightInfo(InWeight: SkelMeshSkinWeightInfo, Bone0: cpp.Reference<cpp.Int32>, Weight0: cpp.Reference<cpp.UInt8>, Bone1: cpp.Reference<cpp.Int32>, Weight1: cpp.Reference<cpp.UInt8>, Bone2: cpp.Reference<cpp.Int32>, Weight2: cpp.Reference<cpp.UInt8>, Bone3: cpp.Reference<cpp.Int32>, Weight3: cpp.Reference<cpp.UInt8>): Void;
-	public function BeginDrawCanvasToRenderTarget(WorldContextObject: cpp.Star<Object>, TextureRenderTarget: cpp.Star<TextureRenderTarget2D>, Canvas: cpp.Reference<cpp.Star<Canvas>>, Size: cpp.Reference<Vector2D>, Context: cpp.Reference<DrawToRenderTargetContext>): Void;
+	public function SetCastInsetShadowForAllAttachments(PrimitiveComponent: ucpp.Ptr<PrimitiveComp>, bCastInsetShadow: Bool, bLightAttachmentsAsGroup: Bool): Void;
+	public function ResizeRenderTarget2D(TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, Width: ucpp.num.Int32, Height: ucpp.num.Int32): Void;
+	public function RenderTargetCreateStaticTexture2DEditorOnly(RenderTarget: ucpp.Ptr<TextureRenderTarget2D>, Name: FString, CompressionSettings: TEnumAsByte<TextureCompressionSettings>, MipSettings: TEnumAsByte<TextureMipGenSettings>): ucpp.Ptr<Texture2D>;
+	public function ReleaseRenderTarget2D(TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>): Void;
+	public function ReadRenderTargetUV(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, U: ucpp.num.Float32, V: ucpp.num.Float32): Color;
+	public function ReadRenderTargetRawUVArea(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, Area: Box2D, bNormalize: Bool): TArray<LinearColor>;
+	public function ReadRenderTargetRawUV(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, U: ucpp.num.Float32, V: ucpp.num.Float32, bNormalize: Bool): LinearColor;
+	public function ReadRenderTargetRawPixelArea(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, MinX: ucpp.num.Int32, MinY: ucpp.num.Int32, MaxX: ucpp.num.Int32, MaxY: ucpp.num.Int32, bNormalize: Bool): TArray<LinearColor>;
+	public function ReadRenderTargetRawPixel(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, X: ucpp.num.Int32, Y: ucpp.num.Int32, bNormalize: Bool): LinearColor;
+	public function ReadRenderTargetRaw(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, OutLinearSamples: ucpp.Ref<TArray<LinearColor>>, bNormalize: Bool): Bool;
+	public function ReadRenderTargetPixel(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, X: ucpp.num.Int32, Y: ucpp.num.Int32): Color;
+	public function ReadRenderTarget(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, OutSamples: ucpp.Ref<TArray<Color>>, bNormalize: Bool): Bool;
+	public function MakeSkinWeightInfo(Bone0: ucpp.num.Int32, Weight0: ucpp.num.UInt8, Bone1: ucpp.num.Int32, Weight1: ucpp.num.UInt8, Bone2: ucpp.num.Int32, Weight2: ucpp.num.UInt8, Bone3: ucpp.num.Int32, Weight3: ucpp.num.UInt8): SkelMeshSkinWeightInfo;
+	public function ImportFileAsTexture2D(WorldContextObject: ucpp.Ptr<Object>, Filename: FString): ucpp.Ptr<Texture2D>;
+	public function ImportBufferAsTexture2D(WorldContextObject: ucpp.Ptr<Object>, Buffer: ucpp.Ref<TArray<ucpp.num.UInt8>>): ucpp.Ptr<Texture2D>;
+	public function ExportTexture2D(WorldContextObject: ucpp.Ptr<Object>, Texture: ucpp.Ptr<Texture2D>, FilePath: FString, FileName: FString): Void;
+	public function ExportRenderTarget(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, FilePath: FString, FileName: FString): Void;
+	public function EndDrawCanvasToRenderTarget(WorldContextObject: ucpp.Ptr<Object>, Context: ucpp.Ref<DrawToRenderTargetContext>): Void;
+	public function EnablePathTracing(bEnablePathTracer: Bool): Void;
+	public function DrawMaterialToRenderTarget(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, Material: ucpp.Ptr<MaterialInterface>): Void;
+	public function CreateRenderTargetVolume(WorldContextObject: ucpp.Ptr<Object>, Width: ucpp.num.Int32, Height: ucpp.num.Int32, Depth: ucpp.num.Int32, Format: TEnumAsByte<ETextureRenderTargetFormat>, ClearColor: LinearColor, bAutoGenerateMipMaps: Bool, bSupportUAVs: Bool): ucpp.Ptr<TextureRenderTargetVolume>;
+	public function CreateRenderTarget2DArray(WorldContextObject: ucpp.Ptr<Object>, Width: ucpp.num.Int32, Height: ucpp.num.Int32, Slices: ucpp.num.Int32, Format: TEnumAsByte<ETextureRenderTargetFormat>, ClearColor: LinearColor, bAutoGenerateMipMaps: Bool, bSupportUAVs: Bool): ucpp.Ptr<TextureRenderTarget2DArray>;
+	public function CreateRenderTarget2D(WorldContextObject: ucpp.Ptr<Object>, Width: ucpp.num.Int32, Height: ucpp.num.Int32, Format: TEnumAsByte<ETextureRenderTargetFormat>, ClearColor: LinearColor, bAutoGenerateMipMaps: Bool, bSupportUAVs: Bool): ucpp.Ptr<TextureRenderTarget2D>;
+	public function ConvertRenderTargetToTexture2DEditorOnly(WorldContextObject: ucpp.Ptr<Object>, RenderTarget: ucpp.Ptr<TextureRenderTarget2D>, Texture: ucpp.Ptr<Texture2D>): Void;
+	public function ClearRenderTarget2D(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, ClearColor: LinearColor): Void;
+	public function CalculateProjectionMatrix(MinimalViewInfo: ucpp.Ref<MinimalViewInfo>): Matrix;
+	public function BreakSkinWeightInfo(InWeight: SkelMeshSkinWeightInfo, Bone0: ucpp.Ref<ucpp.num.Int32>, Weight0: ucpp.Ref<ucpp.num.UInt8>, Bone1: ucpp.Ref<ucpp.num.Int32>, Weight1: ucpp.Ref<ucpp.num.UInt8>, Bone2: ucpp.Ref<ucpp.num.Int32>, Weight2: ucpp.Ref<ucpp.num.UInt8>, Bone3: ucpp.Ref<ucpp.num.Int32>, Weight3: ucpp.Ref<ucpp.num.UInt8>): Void;
+	public function BeginDrawCanvasToRenderTarget(WorldContextObject: ucpp.Ptr<Object>, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget2D>, Canvas: ucpp.Ref<ucpp.Ptr<Canvas>>, Size: ucpp.Ref<Vector2D>, Context: ucpp.Ref<DrawToRenderTargetContext>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,7 +45,7 @@ abstract ConstKismetRenderingLibrary(KismetRenderingLibrary) from KismetRenderin
 @:forward
 @:nativeGen
 @:native("KismetRenderingLibrary*")
-abstract KismetRenderingLibraryPtr(cpp.Star<KismetRenderingLibrary>) from cpp.Star<KismetRenderingLibrary> to cpp.Star<KismetRenderingLibrary>{
+abstract KismetRenderingLibraryPtr(ucpp.Ptr<KismetRenderingLibrary>) from ucpp.Ptr<KismetRenderingLibrary> to ucpp.Ptr<KismetRenderingLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetRenderingLibrary): KismetRenderingLibraryPtr {
 		return untyped __cpp__("&({0})", v);

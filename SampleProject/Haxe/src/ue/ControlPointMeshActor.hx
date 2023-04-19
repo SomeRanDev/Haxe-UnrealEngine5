@@ -3,11 +3,11 @@ package ue;
 
 @:native("AControlPointMeshActor")
 @:include("ControlPointMeshActor.h")
-@:structAccess
+@:valueType
 extern class ControlPointMeshActor extends Actor {
-	private var ControlPointMeshComponent: cpp.Star<ControlPointMeshComp>;
+	private var ControlPointMeshComponent: ucpp.Ptr<ControlPointMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstControlPointMeshActor(ControlPointMeshActor) from ControlPointMesh
 @:forward
 @:nativeGen
 @:native("ControlPointMeshActor*")
-abstract ControlPointMeshActorPtr(cpp.Star<ControlPointMeshActor>) from cpp.Star<ControlPointMeshActor> to cpp.Star<ControlPointMeshActor>{
+abstract ControlPointMeshActorPtr(ucpp.Ptr<ControlPointMeshActor>) from ucpp.Ptr<ControlPointMeshActor> to ucpp.Ptr<ControlPointMeshActor>{
 	@:from
 	public static extern inline function fromValue(v: ControlPointMeshActor): ControlPointMeshActorPtr {
 		return untyped __cpp__("&({0})", v);

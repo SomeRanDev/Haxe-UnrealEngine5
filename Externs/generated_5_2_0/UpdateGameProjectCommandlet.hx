@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUpdateGameProjectCommandlet")
 @:include("Commandlets/UpdateGameProjectCommandlet.h")
-@:structAccess
+@:valueType
 extern class UpdateGameProjectCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUpdateGameProjectCommandlet(UpdateGameProjectCommandlet) from Upda
 @:forward
 @:nativeGen
 @:native("UpdateGameProjectCommandlet*")
-abstract UpdateGameProjectCommandletPtr(cpp.Star<UpdateGameProjectCommandlet>) from cpp.Star<UpdateGameProjectCommandlet> to cpp.Star<UpdateGameProjectCommandlet>{
+abstract UpdateGameProjectCommandletPtr(ucpp.Ptr<UpdateGameProjectCommandlet>) from ucpp.Ptr<UpdateGameProjectCommandlet> to ucpp.Ptr<UpdateGameProjectCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: UpdateGameProjectCommandlet): UpdateGameProjectCommandletPtr {
 		return untyped __cpp__("&({0})", v);

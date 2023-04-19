@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAngularRangeLimit")
 @:include("BoneControllers/AnimNode_ApplyLimits.h")
-@:structAccess
+@:valueType
 extern class AngularRangeLimit {
 	public var LimitMin: Vector;
 	public var LimitMax: Vector;

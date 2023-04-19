@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBlueprintPaletteFavorites")
 @:include("BlueprintPaletteFavorites.h")
-@:structAccess
+@:valueType
 extern class BlueprintPaletteFavorites extends Object {
 	public var CustomFavorites: TArray<FString>;
 	public var CurrentFavorites: TArray<FavoritedBlueprintPaletteItem>;
 	public var CurrentProfile: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstBlueprintPaletteFavorites(BlueprintPaletteFavorites) from Blueprin
 @:forward
 @:nativeGen
 @:native("BlueprintPaletteFavorites*")
-abstract BlueprintPaletteFavoritesPtr(cpp.Star<BlueprintPaletteFavorites>) from cpp.Star<BlueprintPaletteFavorites> to cpp.Star<BlueprintPaletteFavorites>{
+abstract BlueprintPaletteFavoritesPtr(ucpp.Ptr<BlueprintPaletteFavorites>) from ucpp.Ptr<BlueprintPaletteFavorites> to ucpp.Ptr<BlueprintPaletteFavorites>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintPaletteFavorites): BlueprintPaletteFavoritesPtr {
 		return untyped __cpp__("&({0})", v);

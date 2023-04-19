@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMaterialExpressionSkyAtmosphereLightDirection")
 @:include("Materials/MaterialExpressionSkyAtmosphereLightDirection.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSkyAtmosphereLightDirection extends MaterialExpression {
-	public var LightIndex: cpp.Int32;
+	public var LightIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionSkyAtmosphereLightDirection(MaterialExpressionSkyAtmosphereLightDirection) from MaterialExpressionSkyAtmosphereLightDirection {
-	public extern var LightIndex(get, never): cpp.Int32;
-	public inline extern function get_LightIndex(): cpp.Int32 return this.LightIndex;
+	public extern var LightIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LightIndex(): ucpp.num.Int32 return this.LightIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSkyAtmosphereLightDirection*")
-abstract MaterialExpressionSkyAtmosphereLightDirectionPtr(cpp.Star<MaterialExpressionSkyAtmosphereLightDirection>) from cpp.Star<MaterialExpressionSkyAtmosphereLightDirection> to cpp.Star<MaterialExpressionSkyAtmosphereLightDirection>{
+abstract MaterialExpressionSkyAtmosphereLightDirectionPtr(ucpp.Ptr<MaterialExpressionSkyAtmosphereLightDirection>) from ucpp.Ptr<MaterialExpressionSkyAtmosphereLightDirection> to ucpp.Ptr<MaterialExpressionSkyAtmosphereLightDirection>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSkyAtmosphereLightDirection): MaterialExpressionSkyAtmosphereLightDirectionPtr {
 		return untyped __cpp__("&({0})", v);

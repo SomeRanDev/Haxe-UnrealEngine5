@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimPreviewAttacheInstance")
 @:include("AnimPreviewAttacheInstance.h")
-@:structAccess
+@:valueType
 extern class AnimPreviewAttacheInstance extends AnimInstance {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimPreviewAttacheInstance(AnimPreviewAttacheInstance) from AnimPr
 @:forward
 @:nativeGen
 @:native("AnimPreviewAttacheInstance*")
-abstract AnimPreviewAttacheInstancePtr(cpp.Star<AnimPreviewAttacheInstance>) from cpp.Star<AnimPreviewAttacheInstance> to cpp.Star<AnimPreviewAttacheInstance>{
+abstract AnimPreviewAttacheInstancePtr(ucpp.Ptr<AnimPreviewAttacheInstance>) from ucpp.Ptr<AnimPreviewAttacheInstance> to ucpp.Ptr<AnimPreviewAttacheInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimPreviewAttacheInstance): AnimPreviewAttacheInstancePtr {
 		return untyped __cpp__("&({0})", v);

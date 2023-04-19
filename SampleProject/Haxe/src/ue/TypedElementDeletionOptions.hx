@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTypedElementDeletionOptions")
 @:include("Elements/Interfaces/TypedElementWorldInterface.h")
-@:structAccess
+@:valueType
 extern class TypedElementDeletionOptions {
 	private var bVerifyDeletionCanHappen: Bool;
 	private var bWarnAboutReferences: Bool;

@@ -54,5 +54,7 @@ extern class TextureGroup {
 	static var TEXTUREGROUP_Project14: TextureGroup;
 	static var TEXTUREGROUP_Project15: TextureGroup;
 	static var TEXTUREGROUP_Project16: TextureGroup;
+	static var TEXTUREGROUP_Project17: TextureGroup;
+	static var TEXTUREGROUP_Project18: TextureGroup;
 	static var TEXTUREGROUP_MAX: TextureGroup;
 }

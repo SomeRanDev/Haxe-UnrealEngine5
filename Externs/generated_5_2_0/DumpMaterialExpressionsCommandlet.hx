@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDumpMaterialExpressionsCommandlet")
 @:include("Commandlets/DumpMaterialExpressionsCommandlet.h")
-@:structAccess
+@:valueType
 extern class DumpMaterialExpressionsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDumpMaterialExpressionsCommandlet(DumpMaterialExpressionsCommandle
 @:forward
 @:nativeGen
 @:native("DumpMaterialExpressionsCommandlet*")
-abstract DumpMaterialExpressionsCommandletPtr(cpp.Star<DumpMaterialExpressionsCommandlet>) from cpp.Star<DumpMaterialExpressionsCommandlet> to cpp.Star<DumpMaterialExpressionsCommandlet>{
+abstract DumpMaterialExpressionsCommandletPtr(ucpp.Ptr<DumpMaterialExpressionsCommandlet>) from ucpp.Ptr<DumpMaterialExpressionsCommandlet> to ucpp.Ptr<DumpMaterialExpressionsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DumpMaterialExpressionsCommandlet): DumpMaterialExpressionsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

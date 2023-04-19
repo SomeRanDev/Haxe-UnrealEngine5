@@ -3,10 +3,10 @@ package ue;
 
 @:native("UImportLocalizedDialogueCommandlet")
 @:include("Commandlets/ImportLocalizedDialogueCommandlet.h")
-@:structAccess
+@:valueType
 extern class ImportLocalizedDialogueCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstImportLocalizedDialogueCommandlet(ImportLocalizedDialogueCommandle
 @:forward
 @:nativeGen
 @:native("ImportLocalizedDialogueCommandlet*")
-abstract ImportLocalizedDialogueCommandletPtr(cpp.Star<ImportLocalizedDialogueCommandlet>) from cpp.Star<ImportLocalizedDialogueCommandlet> to cpp.Star<ImportLocalizedDialogueCommandlet>{
+abstract ImportLocalizedDialogueCommandletPtr(ucpp.Ptr<ImportLocalizedDialogueCommandlet>) from ucpp.Ptr<ImportLocalizedDialogueCommandlet> to ucpp.Ptr<ImportLocalizedDialogueCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ImportLocalizedDialogueCommandlet): ImportLocalizedDialogueCommandletPtr {
 		return untyped __cpp__("&({0})", v);

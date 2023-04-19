@@ -3,18 +3,18 @@ package ue;
 
 @:native("FSubmixEffectStereoDelaySettings")
 @:include("SubmixEffects/SubmixEffectStereoDelay.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectStereoDelaySettings {
 	public var DelayMode: EStereoDelaySourceEffect;
-	public var DelayTimeMsec: cpp.Float32;
-	public var Feedback: cpp.Float32;
-	public var DelayRatio: cpp.Float32;
-	public var WetLevel: cpp.Float32;
-	public var DryLevel: cpp.Float32;
+	public var DelayTimeMsec: ucpp.num.Float32;
+	public var Feedback: ucpp.num.Float32;
+	public var DelayRatio: ucpp.num.Float32;
+	public var WetLevel: ucpp.num.Float32;
+	public var DryLevel: ucpp.num.Float32;
 	public var bFilterEnabled: Bool;
 	public var FilterType: EStereoDelayFiltertype;
-	public var FilterFrequency: cpp.Float32;
-	public var FilterQ: cpp.Float32;
+	public var FilterFrequency: ucpp.num.Float32;
+	public var FilterQ: ucpp.num.Float32;
 
 	@:native("FSubmixEffectStereoDelaySettings") public function new();
 }

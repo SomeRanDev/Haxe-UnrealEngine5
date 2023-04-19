@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBookmarkBase")
 @:include("Engine/BookmarkBase.h")
-@:structAccess
+@:valueType
 extern class BookmarkBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBookmarkBase(BookmarkBase) from BookmarkBase {
 @:forward
 @:nativeGen
 @:native("BookmarkBase*")
-abstract BookmarkBasePtr(cpp.Star<BookmarkBase>) from cpp.Star<BookmarkBase> to cpp.Star<BookmarkBase>{
+abstract BookmarkBasePtr(ucpp.Ptr<BookmarkBase>) from ucpp.Ptr<BookmarkBase> to ucpp.Ptr<BookmarkBase>{
 	@:from
 	public static extern inline function fromValue(v: BookmarkBase): BookmarkBasePtr {
 		return untyped __cpp__("&({0})", v);

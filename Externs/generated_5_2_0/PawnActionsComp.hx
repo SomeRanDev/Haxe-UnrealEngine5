@@ -3,18 +3,18 @@ package ue;
 
 @:native("UDEPRECATED_PawnActionsComponent")
 @:include("Actions/PawnActionsComponent.h")
-@:structAccess
+@:valueType
 extern class PawnActionsComp extends ActorComp {
-	@:protected public var ControlledPawn: cpp.Star<Pawn>;
+	@:protected public var ControlledPawn: ucpp.Ptr<Pawn>;
 	@:protected public var ActionStacks: TArray<PawnActionStack>;
 	@:protected public var ActionEvents: TArray<PawnActionEvent>;
 
-	public function K2_PushAction(NewAction: cpp.Star<PawnAction>, Priority: TEnumAsByte<EAIRequestPriority>, Instigator: cpp.Star<Object>): Bool;
-	public function K2_PerformAction(Pawn: cpp.Star<Pawn>, Action: cpp.Star<PawnAction>, Priority: TEnumAsByte<EAIRequestPriority>): Bool;
-	public function K2_ForceAbortAction(ActionToAbort: cpp.Star<PawnAction>): TEnumAsByte<EPawnActionAbortState>;
-	public function K2_AbortAction(ActionToAbort: cpp.Star<PawnAction>): TEnumAsByte<EPawnActionAbortState>;
+	public function K2_PushAction(NewAction: ucpp.Ptr<PawnAction>, Priority: TEnumAsByte<EAIRequestPriority>, Instigator: ucpp.Ptr<Object>): Bool;
+	public function K2_PerformAction(Pawn: ucpp.Ptr<Pawn>, Action: ucpp.Ptr<PawnAction>, Priority: TEnumAsByte<EAIRequestPriority>): Bool;
+	public function K2_ForceAbortAction(ActionToAbort: ucpp.Ptr<PawnAction>): TEnumAsByte<EPawnActionAbortState>;
+	public function K2_AbortAction(ActionToAbort: ucpp.Ptr<PawnAction>): TEnumAsByte<EPawnActionAbortState>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstPawnActionsComp(PawnActionsComp) from PawnActionsComp {
 @:forward
 @:nativeGen
 @:native("PawnActionsComp*")
-abstract PawnActionsCompPtr(cpp.Star<PawnActionsComp>) from cpp.Star<PawnActionsComp> to cpp.Star<PawnActionsComp>{
+abstract PawnActionsCompPtr(ucpp.Ptr<PawnActionsComp>) from ucpp.Ptr<PawnActionsComp> to ucpp.Ptr<PawnActionsComp>{
 	@:from
 	public static extern inline function fromValue(v: PawnActionsComp): PawnActionsCompPtr {
 		return untyped __cpp__("&({0})", v);

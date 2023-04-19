@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimNotifyState_DisableRootMotion")
 @:include("Animation/AnimNotifies/AnimNotifyState_DisableRootMotion.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyState_DisableRootMotion extends AnimNotifyState {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimNotifyState_DisableRootMotion(AnimNotifyState_DisableRootMotio
 @:forward
 @:nativeGen
 @:native("AnimNotifyState_DisableRootMotion*")
-abstract AnimNotifyState_DisableRootMotionPtr(cpp.Star<AnimNotifyState_DisableRootMotion>) from cpp.Star<AnimNotifyState_DisableRootMotion> to cpp.Star<AnimNotifyState_DisableRootMotion>{
+abstract AnimNotifyState_DisableRootMotionPtr(ucpp.Ptr<AnimNotifyState_DisableRootMotion>) from ucpp.Ptr<AnimNotifyState_DisableRootMotion> to ucpp.Ptr<AnimNotifyState_DisableRootMotion>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyState_DisableRootMotion): AnimNotifyState_DisableRootMotionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,41 +3,41 @@ package ue;
 
 @:native("AARSharedWorldGameState")
 @:include("ARSharedWorldGameState.h")
-@:structAccess
+@:valueType
 extern class ARSharedWorldGameState extends GameState {
-	public var PreviewImageData: TArray<cpp.UInt8>;
-	public var ARWorldData: TArray<cpp.UInt8>;
-	public var PreviewImageBytesTotal: cpp.Int32;
-	public var ARWorldBytesTotal: cpp.Int32;
-	public var PreviewImageBytesDelivered: cpp.Int32;
-	public var ARWorldBytesDelivered: cpp.Int32;
+	public var PreviewImageData: TArray<ucpp.num.UInt8>;
+	public var ARWorldData: TArray<ucpp.num.UInt8>;
+	public var PreviewImageBytesTotal: ucpp.num.Int32;
+	public var ARWorldBytesTotal: ucpp.num.Int32;
+	public var PreviewImageBytesDelivered: ucpp.num.Int32;
+	public var ARWorldBytesDelivered: ucpp.num.Int32;
 
 	public function K2_OnARWorldMapIsReady(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstARSharedWorldGameState(ARSharedWorldGameState) from ARSharedWorldGameState {
-	public extern var PreviewImageData(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_PreviewImageData(): TArray<cpp.UInt8> return this.PreviewImageData;
-	public extern var ARWorldData(get, never): TArray<cpp.UInt8>;
-	public inline extern function get_ARWorldData(): TArray<cpp.UInt8> return this.ARWorldData;
-	public extern var PreviewImageBytesTotal(get, never): cpp.Int32;
-	public inline extern function get_PreviewImageBytesTotal(): cpp.Int32 return this.PreviewImageBytesTotal;
-	public extern var ARWorldBytesTotal(get, never): cpp.Int32;
-	public inline extern function get_ARWorldBytesTotal(): cpp.Int32 return this.ARWorldBytesTotal;
-	public extern var PreviewImageBytesDelivered(get, never): cpp.Int32;
-	public inline extern function get_PreviewImageBytesDelivered(): cpp.Int32 return this.PreviewImageBytesDelivered;
-	public extern var ARWorldBytesDelivered(get, never): cpp.Int32;
-	public inline extern function get_ARWorldBytesDelivered(): cpp.Int32 return this.ARWorldBytesDelivered;
+	public extern var PreviewImageData(get, never): TArray<ucpp.num.UInt8>;
+	public inline extern function get_PreviewImageData(): TArray<ucpp.num.UInt8> return this.PreviewImageData;
+	public extern var ARWorldData(get, never): TArray<ucpp.num.UInt8>;
+	public inline extern function get_ARWorldData(): TArray<ucpp.num.UInt8> return this.ARWorldData;
+	public extern var PreviewImageBytesTotal(get, never): ucpp.num.Int32;
+	public inline extern function get_PreviewImageBytesTotal(): ucpp.num.Int32 return this.PreviewImageBytesTotal;
+	public extern var ARWorldBytesTotal(get, never): ucpp.num.Int32;
+	public inline extern function get_ARWorldBytesTotal(): ucpp.num.Int32 return this.ARWorldBytesTotal;
+	public extern var PreviewImageBytesDelivered(get, never): ucpp.num.Int32;
+	public inline extern function get_PreviewImageBytesDelivered(): ucpp.num.Int32 return this.PreviewImageBytesDelivered;
+	public extern var ARWorldBytesDelivered(get, never): ucpp.num.Int32;
+	public inline extern function get_ARWorldBytesDelivered(): ucpp.num.Int32 return this.ARWorldBytesDelivered;
 }
 
 @:forward
 @:nativeGen
 @:native("ARSharedWorldGameState*")
-abstract ARSharedWorldGameStatePtr(cpp.Star<ARSharedWorldGameState>) from cpp.Star<ARSharedWorldGameState> to cpp.Star<ARSharedWorldGameState>{
+abstract ARSharedWorldGameStatePtr(ucpp.Ptr<ARSharedWorldGameState>) from ucpp.Ptr<ARSharedWorldGameState> to ucpp.Ptr<ARSharedWorldGameState>{
 	@:from
 	public static extern inline function fromValue(v: ARSharedWorldGameState): ARSharedWorldGameStatePtr {
 		return untyped __cpp__("&({0})", v);

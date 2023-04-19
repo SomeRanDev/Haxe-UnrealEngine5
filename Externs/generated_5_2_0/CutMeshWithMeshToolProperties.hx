@@ -3,15 +3,15 @@ package ue;
 
 @:native("UCutMeshWithMeshToolProperties")
 @:include("CutMeshWithMeshTool.h")
-@:structAccess
+@:valueType
 extern class CutMeshWithMeshToolProperties extends InteractiveToolPropertySet {
 	public var bTryFixHoles: Bool;
 	public var bTryCollapseEdges: Bool;
-	public var WindingThreshold: cpp.Float32;
+	public var WindingThreshold: ucpp.num.Float32;
 	public var bShowNewBoundaries: Bool;
 	public var bUseFirstMeshMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,8 +21,8 @@ abstract ConstCutMeshWithMeshToolProperties(CutMeshWithMeshToolProperties) from 
 	public inline extern function get_bTryFixHoles(): Bool return this.bTryFixHoles;
 	public extern var bTryCollapseEdges(get, never): Bool;
 	public inline extern function get_bTryCollapseEdges(): Bool return this.bTryCollapseEdges;
-	public extern var WindingThreshold(get, never): cpp.Float32;
-	public inline extern function get_WindingThreshold(): cpp.Float32 return this.WindingThreshold;
+	public extern var WindingThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_WindingThreshold(): ucpp.num.Float32 return this.WindingThreshold;
 	public extern var bShowNewBoundaries(get, never): Bool;
 	public inline extern function get_bShowNewBoundaries(): Bool return this.bShowNewBoundaries;
 	public extern var bUseFirstMeshMaterials(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstCutMeshWithMeshToolProperties(CutMeshWithMeshToolProperties) from 
 @:forward
 @:nativeGen
 @:native("CutMeshWithMeshToolProperties*")
-abstract CutMeshWithMeshToolPropertiesPtr(cpp.Star<CutMeshWithMeshToolProperties>) from cpp.Star<CutMeshWithMeshToolProperties> to cpp.Star<CutMeshWithMeshToolProperties>{
+abstract CutMeshWithMeshToolPropertiesPtr(ucpp.Ptr<CutMeshWithMeshToolProperties>) from ucpp.Ptr<CutMeshWithMeshToolProperties> to ucpp.Ptr<CutMeshWithMeshToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: CutMeshWithMeshToolProperties): CutMeshWithMeshToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

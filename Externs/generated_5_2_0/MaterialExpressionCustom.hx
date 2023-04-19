@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionCustom")
 @:include("Materials/MaterialExpressionCustom.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionCustom extends MaterialExpression {
 	public var Code: FString;
 	public var OutputType: TEnumAsByte<ECustomMaterialOutputType>;
@@ -13,7 +13,7 @@ extern class MaterialExpressionCustom extends MaterialExpression {
 	public var AdditionalDefines: TArray<CustomDefine>;
 	public var IncludeFilePaths: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstMaterialExpressionCustom(MaterialExpressionCustom) from MaterialEx
 @:forward
 @:nativeGen
 @:native("MaterialExpressionCustom*")
-abstract MaterialExpressionCustomPtr(cpp.Star<MaterialExpressionCustom>) from cpp.Star<MaterialExpressionCustom> to cpp.Star<MaterialExpressionCustom>{
+abstract MaterialExpressionCustomPtr(ucpp.Ptr<MaterialExpressionCustom>) from ucpp.Ptr<MaterialExpressionCustom> to ucpp.Ptr<MaterialExpressionCustom>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionCustom): MaterialExpressionCustomPtr {
 		return untyped __cpp__("&({0})", v);

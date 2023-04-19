@@ -3,12 +3,12 @@ package ue;
 
 @:native("UUMGSequenceTickManager")
 @:include("Animation/UMGSequenceTickManager.h")
-@:structAccess
+@:valueType
 extern class UMGSequenceTickManager extends Object {
 	private var WeakUserWidgetData: TMap<TWeakObjectPtr<UserWidget>, SequenceTickManagerWidgetData>;
-	private var Linker: cpp.Star<MovieSceneEntitySystemLinker>;
+	private var Linker: ucpp.Ptr<MovieSceneEntitySystemLinker>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstUMGSequenceTickManager(UMGSequenceTickManager) from UMGSequenceTic
 @:forward
 @:nativeGen
 @:native("UMGSequenceTickManager*")
-abstract UMGSequenceTickManagerPtr(cpp.Star<UMGSequenceTickManager>) from cpp.Star<UMGSequenceTickManager> to cpp.Star<UMGSequenceTickManager>{
+abstract UMGSequenceTickManagerPtr(ucpp.Ptr<UMGSequenceTickManager>) from ucpp.Ptr<UMGSequenceTickManager> to ucpp.Ptr<UMGSequenceTickManager>{
 	@:from
 	public static extern inline function fromValue(v: UMGSequenceTickManager): UMGSequenceTickManagerPtr {
 		return untyped __cpp__("&({0})", v);

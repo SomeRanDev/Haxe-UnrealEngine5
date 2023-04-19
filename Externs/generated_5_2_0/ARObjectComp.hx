@@ -3,15 +3,15 @@ package ue;
 
 @:native("UARObjectComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARObjectComp extends ARComp {
 	@:protected public var ReplicatedPayload: ARObjectUpdatePayload;
 
 	@:protected public function ServerUpdatePayload(NewPayload: ARObjectUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<ARObjectUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<ARObjectUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<ARObjectUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<ARObjectUpdatePayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstARObjectComp(ARObjectComp) from ARObjectComp {
 @:forward
 @:nativeGen
 @:native("ARObjectComp*")
-abstract ARObjectCompPtr(cpp.Star<ARObjectComp>) from cpp.Star<ARObjectComp> to cpp.Star<ARObjectComp>{
+abstract ARObjectCompPtr(ucpp.Ptr<ARObjectComp>) from ucpp.Ptr<ARObjectComp> to ucpp.Ptr<ARObjectComp>{
 	@:from
 	public static extern inline function fromValue(v: ARObjectComp): ARObjectCompPtr {
 		return untyped __cpp__("&({0})", v);

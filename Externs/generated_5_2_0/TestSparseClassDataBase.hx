@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTestSparseClassDataBase")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class TestSparseClassDataBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestSparseClassDataBase(TestSparseClassDataBase) from TestSparseCl
 @:forward
 @:nativeGen
 @:native("TestSparseClassDataBase*")
-abstract TestSparseClassDataBasePtr(cpp.Star<TestSparseClassDataBase>) from cpp.Star<TestSparseClassDataBase> to cpp.Star<TestSparseClassDataBase>{
+abstract TestSparseClassDataBasePtr(ucpp.Ptr<TestSparseClassDataBase>) from ucpp.Ptr<TestSparseClassDataBase> to ucpp.Ptr<TestSparseClassDataBase>{
 	@:from
 	public static extern inline function fromValue(v: TestSparseClassDataBase): TestSparseClassDataBasePtr {
 		return untyped __cpp__("&({0})", v);

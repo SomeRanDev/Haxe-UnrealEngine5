@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_StructOperation")
 @:include("K2Node_StructOperation.h")
-@:structAccess
+@:valueType
 extern class K2Node_StructOperation extends K2Node_Variable {
-	public var StructType: cpp.Star<ScriptStruct>;
+	public var StructType: ucpp.Ptr<ScriptStruct>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_StructOperation(K2Node_StructOperation) from K2Node_StructOperation {
-	public extern var StructType(get, never): cpp.Star<ScriptStruct.ConstScriptStruct>;
-	public inline extern function get_StructType(): cpp.Star<ScriptStruct.ConstScriptStruct> return this.StructType;
+	public extern var StructType(get, never): ucpp.Ptr<ScriptStruct.ConstScriptStruct>;
+	public inline extern function get_StructType(): ucpp.Ptr<ScriptStruct.ConstScriptStruct> return this.StructType;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_StructOperation*")
-abstract K2Node_StructOperationPtr(cpp.Star<K2Node_StructOperation>) from cpp.Star<K2Node_StructOperation> to cpp.Star<K2Node_StructOperation>{
+abstract K2Node_StructOperationPtr(ucpp.Ptr<K2Node_StructOperation>) from ucpp.Ptr<K2Node_StructOperation> to ucpp.Ptr<K2Node_StructOperation>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_StructOperation): K2Node_StructOperationPtr {
 		return untyped __cpp__("&({0})", v);

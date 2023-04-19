@@ -3,10 +3,10 @@ package ue;
 
 @:native("ALevelInstancePivot")
 @:include("LevelInstance/LevelInstanceEditorPivotActor.h")
-@:structAccess
+@:valueType
 extern class LevelInstancePivot extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelInstancePivot(LevelInstancePivot) from LevelInstancePivot {
 @:forward
 @:nativeGen
 @:native("LevelInstancePivot*")
-abstract LevelInstancePivotPtr(cpp.Star<LevelInstancePivot>) from cpp.Star<LevelInstancePivot> to cpp.Star<LevelInstancePivot>{
+abstract LevelInstancePivotPtr(ucpp.Ptr<LevelInstancePivot>) from ucpp.Ptr<LevelInstancePivot> to ucpp.Ptr<LevelInstancePivot>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstancePivot): LevelInstancePivotPtr {
 		return untyped __cpp__("&({0})", v);

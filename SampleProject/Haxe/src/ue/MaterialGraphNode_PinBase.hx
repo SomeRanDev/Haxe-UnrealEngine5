@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialGraphNode_PinBase")
 @:include("MaterialGraph/MaterialGraphNode_PinBase.h")
-@:structAccess
+@:valueType
 extern class MaterialGraphNode_PinBase extends MaterialGraphNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialGraphNode_PinBase(MaterialGraphNode_PinBase) from Material
 @:forward
 @:nativeGen
 @:native("MaterialGraphNode_PinBase*")
-abstract MaterialGraphNode_PinBasePtr(cpp.Star<MaterialGraphNode_PinBase>) from cpp.Star<MaterialGraphNode_PinBase> to cpp.Star<MaterialGraphNode_PinBase>{
+abstract MaterialGraphNode_PinBasePtr(ucpp.Ptr<MaterialGraphNode_PinBase>) from ucpp.Ptr<MaterialGraphNode_PinBase> to ucpp.Ptr<MaterialGraphNode_PinBase>{
 	@:from
 	public static extern inline function fromValue(v: MaterialGraphNode_PinBase): MaterialGraphNode_PinBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimGraphNode_LinkedInputPose")
 @:include("AnimGraphNode_LinkedInputPose.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_LinkedInputPose extends AnimGraphNode_Base {
 	public var Node: AnimNode_LinkedInputPose;
 	public var Inputs: TArray<AnimBlueprintFunctionPinInfo>;
 	public var FunctionReference: MemberReference;
-	public var InputPoseIndex: cpp.Int32;
+	public var InputPoseIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstAnimGraphNode_LinkedInputPose(AnimGraphNode_LinkedInputPose) from 
 	public inline extern function get_Inputs(): TArray<AnimBlueprintFunctionPinInfo> return this.Inputs;
 	public extern var FunctionReference(get, never): MemberReference;
 	public inline extern function get_FunctionReference(): MemberReference return this.FunctionReference;
-	public extern var InputPoseIndex(get, never): cpp.Int32;
-	public inline extern function get_InputPoseIndex(): cpp.Int32 return this.InputPoseIndex;
+	public extern var InputPoseIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_InputPoseIndex(): ucpp.num.Int32 return this.InputPoseIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_LinkedInputPose*")
-abstract AnimGraphNode_LinkedInputPosePtr(cpp.Star<AnimGraphNode_LinkedInputPose>) from cpp.Star<AnimGraphNode_LinkedInputPose> to cpp.Star<AnimGraphNode_LinkedInputPose>{
+abstract AnimGraphNode_LinkedInputPosePtr(ucpp.Ptr<AnimGraphNode_LinkedInputPose>) from ucpp.Ptr<AnimGraphNode_LinkedInputPose> to ucpp.Ptr<AnimGraphNode_LinkedInputPose>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_LinkedInputPose): AnimGraphNode_LinkedInputPosePtr {
 		return untyped __cpp__("&({0})", v);

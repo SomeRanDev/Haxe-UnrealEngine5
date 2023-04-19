@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBspConversionToolActionPropertySet")
 @:include("BspConversionTool.h")
-@:structAccess
+@:valueType
 extern class BspConversionToolActionPropertySet extends InteractiveToolPropertySet {
 	public function SelectAllValidBrushes(): Void;
 	public function DeselectVolumes(): Void;
 	public function DeselectNonValid(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBspConversionToolActionPropertySet(BspConversionToolActionProperty
 @:forward
 @:nativeGen
 @:native("BspConversionToolActionPropertySet*")
-abstract BspConversionToolActionPropertySetPtr(cpp.Star<BspConversionToolActionPropertySet>) from cpp.Star<BspConversionToolActionPropertySet> to cpp.Star<BspConversionToolActionPropertySet>{
+abstract BspConversionToolActionPropertySetPtr(ucpp.Ptr<BspConversionToolActionPropertySet>) from ucpp.Ptr<BspConversionToolActionPropertySet> to ucpp.Ptr<BspConversionToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: BspConversionToolActionPropertySet): BspConversionToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

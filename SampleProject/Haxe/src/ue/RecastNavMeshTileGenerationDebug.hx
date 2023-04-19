@@ -3,13 +3,17 @@ package ue;
 
 @:native("FRecastNavMeshTileGenerationDebug")
 @:include("NavMesh/RecastNavMesh.h")
-@:structAccess
+@:valueType
 extern class RecastNavMeshTileGenerationDebug {
 	public var bEnabled: Bool;
 	public var TileCoordinate: IntVector;
-	public var bHeightfieldSolidFromRasterization: Bool;
-	public var bHeightfieldSolidPostRadiusFiltering: Bool;
-	public var bHeightfieldSolidPostHeightFiltering: Bool;
+	public var bGenerateDebugTileOnly: Bool;
+	public var bCollisionGeometry: Bool;
+	public var HeightFieldRenderMode: EHeightFieldRenderMode;
+	public var bHeightfieldFromRasterization: Bool;
+	public var bHeightfieldPostInclusionBoundsFiltering: Bool;
+	public var bHeightfieldPostHeightFiltering: Bool;
+	public var bHeightfieldBounds: Bool;
 	public var bCompactHeightfield: Bool;
 	public var bCompactHeightfieldEroded: Bool;
 	public var bCompactHeightfieldRegions: Bool;

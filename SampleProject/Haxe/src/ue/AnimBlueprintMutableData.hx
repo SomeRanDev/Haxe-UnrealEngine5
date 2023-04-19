@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimBlueprintMutableData")
 @:include("Animation/AnimBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintMutableData {
 	@:native("FAnimBlueprintMutableData") public function new();
 }

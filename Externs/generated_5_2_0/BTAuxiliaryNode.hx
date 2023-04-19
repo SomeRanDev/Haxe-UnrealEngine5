@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBTAuxiliaryNode")
 @:include("BehaviorTree/BTAuxiliaryNode.h")
-@:structAccess
+@:valueType
 extern class BTAuxiliaryNode extends BTNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBTAuxiliaryNode(BTAuxiliaryNode) from BTAuxiliaryNode {
 @:forward
 @:nativeGen
 @:native("BTAuxiliaryNode*")
-abstract BTAuxiliaryNodePtr(cpp.Star<BTAuxiliaryNode>) from cpp.Star<BTAuxiliaryNode> to cpp.Star<BTAuxiliaryNode>{
+abstract BTAuxiliaryNodePtr(ucpp.Ptr<BTAuxiliaryNode>) from ucpp.Ptr<BTAuxiliaryNode> to ucpp.Ptr<BTAuxiliaryNode>{
 	@:from
 	public static extern inline function fromValue(v: BTAuxiliaryNode): BTAuxiliaryNodePtr {
 		return untyped __cpp__("&({0})", v);

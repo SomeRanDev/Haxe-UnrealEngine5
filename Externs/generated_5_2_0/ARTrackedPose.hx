@@ -3,13 +3,13 @@ package ue;
 
 @:native("UARTrackedPose")
 @:include("ARTrackable.h")
-@:structAccess
+@:valueType
 extern class ARTrackedPose extends ARTrackedGeometry {
 	private var TrackedPose: ARPose3D;
 
 	public function GetTrackedPoseData(): ARPose3D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTrackedPoseData)
@@ -20,7 +20,7 @@ abstract ConstARTrackedPose(ARTrackedPose) from ARTrackedPose {
 @:forward
 @:nativeGen
 @:native("ARTrackedPose*")
-abstract ARTrackedPosePtr(cpp.Star<ARTrackedPose>) from cpp.Star<ARTrackedPose> to cpp.Star<ARTrackedPose>{
+abstract ARTrackedPosePtr(ucpp.Ptr<ARTrackedPose>) from ucpp.Ptr<ARTrackedPose> to ucpp.Ptr<ARTrackedPose>{
 	@:from
 	public static extern inline function fromValue(v: ARTrackedPose): ARTrackedPosePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMovieSceneDoubleVectorSection")
 @:include("Sections/MovieSceneVectorSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDoubleVectorSection extends MovieSceneSection {
 	private var Curves: MovieSceneDoubleChannel;
-	private var ChannelsUsed: cpp.Int32;
+	private var ChannelsUsed: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMovieSceneDoubleVectorSection(MovieSceneDoubleVectorSection) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneDoubleVectorSection*")
-abstract MovieSceneDoubleVectorSectionPtr(cpp.Star<MovieSceneDoubleVectorSection>) from cpp.Star<MovieSceneDoubleVectorSection> to cpp.Star<MovieSceneDoubleVectorSection>{
+abstract MovieSceneDoubleVectorSectionPtr(ucpp.Ptr<MovieSceneDoubleVectorSection>) from ucpp.Ptr<MovieSceneDoubleVectorSection> to ucpp.Ptr<MovieSceneDoubleVectorSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneDoubleVectorSection): MovieSceneDoubleVectorSectionPtr {
 		return untyped __cpp__("&({0})", v);

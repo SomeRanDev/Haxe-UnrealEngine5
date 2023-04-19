@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMouseHoverBehavior")
 @:include("BaseBehaviors/MouseHoverBehavior.h")
-@:structAccess
+@:valueType
 extern class MouseHoverBehavior extends InputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMouseHoverBehavior(MouseHoverBehavior) from MouseHoverBehavior {
 @:forward
 @:nativeGen
 @:native("MouseHoverBehavior*")
-abstract MouseHoverBehaviorPtr(cpp.Star<MouseHoverBehavior>) from cpp.Star<MouseHoverBehavior> to cpp.Star<MouseHoverBehavior>{
+abstract MouseHoverBehaviorPtr(ucpp.Ptr<MouseHoverBehavior>) from ucpp.Ptr<MouseHoverBehavior> to ucpp.Ptr<MouseHoverBehavior>{
 	@:from
 	public static extern inline function fromValue(v: MouseHoverBehavior): MouseHoverBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

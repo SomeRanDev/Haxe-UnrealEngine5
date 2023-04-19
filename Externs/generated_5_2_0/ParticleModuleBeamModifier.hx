@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleBeamModifier")
 @:include("Particles/Beam/ParticleModuleBeamModifier.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleBeamModifier extends ParticleModuleBeamBase {
 	public var ModifierType: TEnumAsByte<BeamModifierType>;
 	public var PositionOptions: BeamModifierOptions;
@@ -14,7 +14,7 @@ extern class ParticleModuleBeamModifier extends ParticleModuleBeamBase {
 	public var StrengthOptions: BeamModifierOptions;
 	public var Strength: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstParticleModuleBeamModifier(ParticleModuleBeamModifier) from Partic
 @:forward
 @:nativeGen
 @:native("ParticleModuleBeamModifier*")
-abstract ParticleModuleBeamModifierPtr(cpp.Star<ParticleModuleBeamModifier>) from cpp.Star<ParticleModuleBeamModifier> to cpp.Star<ParticleModuleBeamModifier>{
+abstract ParticleModuleBeamModifierPtr(ucpp.Ptr<ParticleModuleBeamModifier>) from ucpp.Ptr<ParticleModuleBeamModifier> to ucpp.Ptr<ParticleModuleBeamModifier>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleBeamModifier): ParticleModuleBeamModifierPtr {
 		return untyped __cpp__("&({0})", v);

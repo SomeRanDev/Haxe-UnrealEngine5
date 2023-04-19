@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGenerateDistillFileSetsCommandlet")
 @:include("Commandlets/GenerateDistillFileSetsCommandlet.h")
-@:structAccess
+@:valueType
 extern class GenerateDistillFileSetsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGenerateDistillFileSetsCommandlet(GenerateDistillFileSetsCommandle
 @:forward
 @:nativeGen
 @:native("GenerateDistillFileSetsCommandlet*")
-abstract GenerateDistillFileSetsCommandletPtr(cpp.Star<GenerateDistillFileSetsCommandlet>) from cpp.Star<GenerateDistillFileSetsCommandlet> to cpp.Star<GenerateDistillFileSetsCommandlet>{
+abstract GenerateDistillFileSetsCommandletPtr(ucpp.Ptr<GenerateDistillFileSetsCommandlet>) from ucpp.Ptr<GenerateDistillFileSetsCommandlet> to ucpp.Ptr<GenerateDistillFileSetsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GenerateDistillFileSetsCommandlet): GenerateDistillFileSetsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

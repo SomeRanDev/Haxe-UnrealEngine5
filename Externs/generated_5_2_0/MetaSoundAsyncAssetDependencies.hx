@@ -3,10 +3,10 @@ package ue;
 
 @:native("FMetaSoundAsyncAssetDependencies")
 @:include("MetasoundAssetSubsystem.h")
-@:structAccess
+@:valueType
 extern class MetaSoundAsyncAssetDependencies {
-	public var MetaSound: cpp.Star<Object>;
+	public var MetaSound: ucpp.Ptr<Object>;
 
 	@:native("FMetaSoundAsyncAssetDependencies") public function new();
-	@:native("FMetaSoundAsyncAssetDependencies") public static function make(MetaSound: cpp.Star<Object>): MetaSoundAsyncAssetDependencies ;
+	@:native("FMetaSoundAsyncAssetDependencies") public static function make(MetaSound: ucpp.Ptr<Object>): MetaSoundAsyncAssetDependencies ;
 }

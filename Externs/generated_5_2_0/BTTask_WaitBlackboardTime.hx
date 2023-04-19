@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTTask_WaitBlackboardTime")
 @:include("BehaviorTree/Tasks/BTTask_WaitBlackboardTime.h")
-@:structAccess
+@:valueType
 extern class BTTask_WaitBlackboardTime extends BTTask_Wait {
 	@:protected public var BlackboardKey: BlackboardKeySelector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTTask_WaitBlackboardTime(BTTask_WaitBlackboardTime) from BTTask_W
 @:forward
 @:nativeGen
 @:native("BTTask_WaitBlackboardTime*")
-abstract BTTask_WaitBlackboardTimePtr(cpp.Star<BTTask_WaitBlackboardTime>) from cpp.Star<BTTask_WaitBlackboardTime> to cpp.Star<BTTask_WaitBlackboardTime>{
+abstract BTTask_WaitBlackboardTimePtr(ucpp.Ptr<BTTask_WaitBlackboardTime>) from ucpp.Ptr<BTTask_WaitBlackboardTime> to ucpp.Ptr<BTTask_WaitBlackboardTime>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_WaitBlackboardTime): BTTask_WaitBlackboardTimePtr {
 		return untyped __cpp__("&({0})", v);

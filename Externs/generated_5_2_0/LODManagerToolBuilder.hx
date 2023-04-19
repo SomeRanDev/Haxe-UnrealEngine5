@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULODManagerToolBuilder")
 @:include("Tools/LODManagerTool.h")
-@:structAccess
+@:valueType
 extern class LODManagerToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLODManagerToolBuilder(LODManagerToolBuilder) from LODManagerToolBu
 @:forward
 @:nativeGen
 @:native("LODManagerToolBuilder*")
-abstract LODManagerToolBuilderPtr(cpp.Star<LODManagerToolBuilder>) from cpp.Star<LODManagerToolBuilder> to cpp.Star<LODManagerToolBuilder>{
+abstract LODManagerToolBuilderPtr(ucpp.Ptr<LODManagerToolBuilder>) from ucpp.Ptr<LODManagerToolBuilder> to ucpp.Ptr<LODManagerToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: LODManagerToolBuilder): LODManagerToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

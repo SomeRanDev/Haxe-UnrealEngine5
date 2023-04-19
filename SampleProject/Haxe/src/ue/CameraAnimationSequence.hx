@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCameraAnimationSequence")
 @:include("CameraAnimationSequence.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationSequence extends TemplateSequence {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCameraAnimationSequence(CameraAnimationSequence) from CameraAnimat
 @:forward
 @:nativeGen
 @:native("CameraAnimationSequence*")
-abstract CameraAnimationSequencePtr(cpp.Star<CameraAnimationSequence>) from cpp.Star<CameraAnimationSequence> to cpp.Star<CameraAnimationSequence>{
+abstract CameraAnimationSequencePtr(ucpp.Ptr<CameraAnimationSequence>) from ucpp.Ptr<CameraAnimationSequence> to ucpp.Ptr<CameraAnimationSequence>{
 	@:from
 	public static extern inline function fromValue(v: CameraAnimationSequence): CameraAnimationSequencePtr {
 		return untyped __cpp__("&({0})", v);

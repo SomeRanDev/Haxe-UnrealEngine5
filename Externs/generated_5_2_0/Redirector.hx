@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRedirector")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class Redirector {
 	public var OldName: FName;
 	public var NewName: FName;

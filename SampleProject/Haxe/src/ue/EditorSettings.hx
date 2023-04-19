@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEditorSettings")
 @:include("Settings/EditorSettings.h")
-@:structAccess
+@:valueType
 extern class EditorSettings extends Object {
 	public var GlobalLocalDDCPath: DirectoryPath;
 	public var GlobalSharedDDCPath: DirectoryPath;
 	public var LocalDerivedDataCache: DirectoryPath;
 	public var SharedDerivedDataCache: DirectoryPath;
 	public var bEnableDDCNotifications: Bool;
-	public var bNotifyUseHordeStorage: Bool;
+	public var bNotifyUseUnrealCloudDDC: Bool;
 	public var bNotifySetupDDCPath: Bool;
 	public var bNotifyEnableS3DD: Bool;
 	public var bEnableS3DDC: Bool;
@@ -21,9 +21,9 @@ extern class EditorSettings extends Object {
 	public var bCopyStarterContentPreference: Bool;
 	public var CompletedSurveys: TArray<Guid>;
 	public var InProgressSurveys: TArray<Guid>;
-	public var AutoScalabilityWorkScaleAmount: cpp.Float32;
+	public var AutoScalabilityWorkScaleAmount: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,8 +39,8 @@ abstract ConstEditorSettings(EditorSettings) from EditorSettings {
 	public inline extern function get_SharedDerivedDataCache(): DirectoryPath return this.SharedDerivedDataCache;
 	public extern var bEnableDDCNotifications(get, never): Bool;
 	public inline extern function get_bEnableDDCNotifications(): Bool return this.bEnableDDCNotifications;
-	public extern var bNotifyUseHordeStorage(get, never): Bool;
-	public inline extern function get_bNotifyUseHordeStorage(): Bool return this.bNotifyUseHordeStorage;
+	public extern var bNotifyUseUnrealCloudDDC(get, never): Bool;
+	public inline extern function get_bNotifyUseUnrealCloudDDC(): Bool return this.bNotifyUseUnrealCloudDDC;
 	public extern var bNotifySetupDDCPath(get, never): Bool;
 	public inline extern function get_bNotifySetupDDCPath(): Bool return this.bNotifySetupDDCPath;
 	public extern var bNotifyEnableS3DD(get, never): Bool;
@@ -61,14 +61,14 @@ abstract ConstEditorSettings(EditorSettings) from EditorSettings {
 	public inline extern function get_CompletedSurveys(): TArray<Guid> return this.CompletedSurveys;
 	public extern var InProgressSurveys(get, never): TArray<Guid>;
 	public inline extern function get_InProgressSurveys(): TArray<Guid> return this.InProgressSurveys;
-	public extern var AutoScalabilityWorkScaleAmount(get, never): cpp.Float32;
-	public inline extern function get_AutoScalabilityWorkScaleAmount(): cpp.Float32 return this.AutoScalabilityWorkScaleAmount;
+	public extern var AutoScalabilityWorkScaleAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_AutoScalabilityWorkScaleAmount(): ucpp.num.Float32 return this.AutoScalabilityWorkScaleAmount;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorSettings*")
-abstract EditorSettingsPtr(cpp.Star<EditorSettings>) from cpp.Star<EditorSettings> to cpp.Star<EditorSettings>{
+abstract EditorSettingsPtr(ucpp.Ptr<EditorSettings>) from ucpp.Ptr<EditorSettings> to ucpp.Ptr<EditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorSettings): EditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

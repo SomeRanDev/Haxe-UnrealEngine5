@@ -3,10 +3,10 @@ package ue;
 
 @:native("ADefaultPhysicsVolume")
 @:include("GameFramework/DefaultPhysicsVolume.h")
-@:structAccess
+@:valueType
 extern class DefaultPhysicsVolume extends PhysicsVolume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDefaultPhysicsVolume(DefaultPhysicsVolume) from DefaultPhysicsVolu
 @:forward
 @:nativeGen
 @:native("DefaultPhysicsVolume*")
-abstract DefaultPhysicsVolumePtr(cpp.Star<DefaultPhysicsVolume>) from cpp.Star<DefaultPhysicsVolume> to cpp.Star<DefaultPhysicsVolume>{
+abstract DefaultPhysicsVolumePtr(ucpp.Ptr<DefaultPhysicsVolume>) from ucpp.Ptr<DefaultPhysicsVolume> to ucpp.Ptr<DefaultPhysicsVolume>{
 	@:from
 	public static extern inline function fromValue(v: DefaultPhysicsVolume): DefaultPhysicsVolumePtr {
 		return untyped __cpp__("&({0})", v);

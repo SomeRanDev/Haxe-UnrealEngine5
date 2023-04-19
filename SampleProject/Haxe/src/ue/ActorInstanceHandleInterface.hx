@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorInstanceHandleInterface")
 @:include("GameFramework/LightWeightInstanceManager.h")
-@:structAccess
+@:valueType
 extern class ActorInstanceHandleInterface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorInstanceHandleInterface(ActorInstanceHandleInterface) from Ac
 @:forward
 @:nativeGen
 @:native("ActorInstanceHandleInterface*")
-abstract ActorInstanceHandleInterfacePtr(cpp.Star<ActorInstanceHandleInterface>) from cpp.Star<ActorInstanceHandleInterface> to cpp.Star<ActorInstanceHandleInterface>{
+abstract ActorInstanceHandleInterfacePtr(ucpp.Ptr<ActorInstanceHandleInterface>) from ucpp.Ptr<ActorInstanceHandleInterface> to ucpp.Ptr<ActorInstanceHandleInterface>{
 	@:from
 	public static extern inline function fromValue(v: ActorInstanceHandleInterface): ActorInstanceHandleInterfacePtr {
 		return untyped __cpp__("&({0})", v);

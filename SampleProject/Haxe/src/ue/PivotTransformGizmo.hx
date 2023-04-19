@@ -3,17 +3,17 @@ package ue;
 
 @:native("APivotTransformGizmo")
 @:include("Gizmo/VIPivotTransformGizmo.h")
-@:structAccess
+@:valueType
 extern class PivotTransformGizmo extends BaseTransformGizmo {
-	private var UniformScaleGizmoHandleGroup: cpp.Star<UniformScaleGizmoHandleGroup>;
-	private var TranslationGizmoHandleGroup: cpp.Star<PivotTranslationGizmoHandleGroup>;
-	private var ScaleGizmoHandleGroup: cpp.Star<PivotScaleGizmoHandleGroup>;
-	private var PlaneTranslationGizmoHandleGroup: cpp.Star<PivotPlaneTranslationGizmoHandleGroup>;
-	private var RotationGizmoHandleGroup: cpp.Star<PivotRotationGizmoHandleGroup>;
-	private var StretchGizmoHandleGroup: cpp.Star<StretchGizmoHandleGroup>;
-	private var LastDraggingHandle: cpp.Star<ActorComp>;
+	private var UniformScaleGizmoHandleGroup: ucpp.Ptr<UniformScaleGizmoHandleGroup>;
+	private var TranslationGizmoHandleGroup: ucpp.Ptr<PivotTranslationGizmoHandleGroup>;
+	private var ScaleGizmoHandleGroup: ucpp.Ptr<PivotScaleGizmoHandleGroup>;
+	private var PlaneTranslationGizmoHandleGroup: ucpp.Ptr<PivotPlaneTranslationGizmoHandleGroup>;
+	private var RotationGizmoHandleGroup: ucpp.Ptr<PivotRotationGizmoHandleGroup>;
+	private var StretchGizmoHandleGroup: ucpp.Ptr<StretchGizmoHandleGroup>;
+	private var LastDraggingHandle: ucpp.Ptr<ActorComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstPivotTransformGizmo(PivotTransformGizmo) from PivotTransformGizmo 
 @:forward
 @:nativeGen
 @:native("PivotTransformGizmo*")
-abstract PivotTransformGizmoPtr(cpp.Star<PivotTransformGizmo>) from cpp.Star<PivotTransformGizmo> to cpp.Star<PivotTransformGizmo>{
+abstract PivotTransformGizmoPtr(ucpp.Ptr<PivotTransformGizmo>) from ucpp.Ptr<PivotTransformGizmo> to ucpp.Ptr<PivotTransformGizmo>{
 	@:from
 	public static extern inline function fromValue(v: PivotTransformGizmo): PivotTransformGizmoPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPlacementSubsystem")
 @:include("Subsystems/PlacementSubsystem.h")
-@:structAccess
+@:valueType
 extern class PlacementSubsystem extends EditorSubsystem {
 	private var AssetFactories: TArray<AssetFactoryInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPlacementSubsystem(PlacementSubsystem) from PlacementSubsystem {
 @:forward
 @:nativeGen
 @:native("PlacementSubsystem*")
-abstract PlacementSubsystemPtr(cpp.Star<PlacementSubsystem>) from cpp.Star<PlacementSubsystem> to cpp.Star<PlacementSubsystem>{
+abstract PlacementSubsystemPtr(ucpp.Ptr<PlacementSubsystem>) from ucpp.Ptr<PlacementSubsystem> to ucpp.Ptr<PlacementSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: PlacementSubsystem): PlacementSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

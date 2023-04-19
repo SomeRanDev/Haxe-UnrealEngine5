@@ -3,13 +3,13 @@ package ue;
 
 @:native("UVISettings")
 @:include("VISettings.h")
-@:structAccess
+@:valueType
 extern class VISettings extends Object {
 	public var bScaleWorldFromFloor: Bool;
 	public var bScaleWorldWithDynamicPivot: Bool;
 	public var bAllowSimultaneousWorldScalingAndRotation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstVISettings(VISettings) from VISettings {
 @:forward
 @:nativeGen
 @:native("VISettings*")
-abstract VISettingsPtr(cpp.Star<VISettings>) from cpp.Star<VISettings> to cpp.Star<VISettings>{
+abstract VISettingsPtr(ucpp.Ptr<VISettings>) from ucpp.Ptr<VISettings> to ucpp.Ptr<VISettings>{
 	@:from
 	public static extern inline function fromValue(v: VISettings): VISettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("APreviewMeshActor")
 @:include("PreviewMesh.h")
-@:structAccess
+@:valueType
 extern class PreviewMeshActor extends InternalToolFrameworkActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPreviewMeshActor(PreviewMeshActor) from PreviewMeshActor {
 @:forward
 @:nativeGen
 @:native("PreviewMeshActor*")
-abstract PreviewMeshActorPtr(cpp.Star<PreviewMeshActor>) from cpp.Star<PreviewMeshActor> to cpp.Star<PreviewMeshActor>{
+abstract PreviewMeshActorPtr(ucpp.Ptr<PreviewMeshActor>) from ucpp.Ptr<PreviewMeshActor> to ucpp.Ptr<PreviewMeshActor>{
 	@:from
 	public static extern inline function fromValue(v: PreviewMeshActor): PreviewMeshActorPtr {
 		return untyped __cpp__("&({0})", v);

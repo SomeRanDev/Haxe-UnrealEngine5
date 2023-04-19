@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLiveLinkSubjectName")
 @:include("LiveLinkTypes.h")
-@:structAccess
+@:valueType
 extern class LiveLinkSubjectName {
 	public var Name: FName;
 

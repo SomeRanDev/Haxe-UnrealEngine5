@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNode")
 @:include("Animation/Rig.h")
-@:structAccess
+@:valueType
 extern class Node {
 	public var Name: FName;
 	public var ParentName: FName;

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInstancePointDamageSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class InstancePointDamageSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInstancePointDamageSignature__PythonCallable(InstancePointDamageSi
 @:forward
 @:nativeGen
 @:native("InstancePointDamageSignature__PythonCallable*")
-abstract InstancePointDamageSignature__PythonCallablePtr(cpp.Star<InstancePointDamageSignature__PythonCallable>) from cpp.Star<InstancePointDamageSignature__PythonCallable> to cpp.Star<InstancePointDamageSignature__PythonCallable>{
+abstract InstancePointDamageSignature__PythonCallablePtr(ucpp.Ptr<InstancePointDamageSignature__PythonCallable>) from ucpp.Ptr<InstancePointDamageSignature__PythonCallable> to ucpp.Ptr<InstancePointDamageSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InstancePointDamageSignature__PythonCallable): InstancePointDamageSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

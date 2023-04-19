@@ -3,19 +3,19 @@ package ue;
 
 @:native("AProceduralFoliageBlockingVolume")
 @:include("ProceduralFoliageBlockingVolume.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageBlockingVolume extends Volume {
-	public var ProceduralFoliageVolume: cpp.Star<ProceduralFoliageVolume>;
+	public var ProceduralFoliageVolume: ucpp.Ptr<ProceduralFoliageVolume>;
 	public var DensityFalloff: FoliageDensityFalloff;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralFoliageBlockingVolume(ProceduralFoliageBlockingVolume) from ProceduralFoliageBlockingVolume {
-	public extern var ProceduralFoliageVolume(get, never): cpp.Star<ProceduralFoliageVolume.ConstProceduralFoliageVolume>;
-	public inline extern function get_ProceduralFoliageVolume(): cpp.Star<ProceduralFoliageVolume.ConstProceduralFoliageVolume> return this.ProceduralFoliageVolume;
+	public extern var ProceduralFoliageVolume(get, never): ucpp.Ptr<ProceduralFoliageVolume.ConstProceduralFoliageVolume>;
+	public inline extern function get_ProceduralFoliageVolume(): ucpp.Ptr<ProceduralFoliageVolume.ConstProceduralFoliageVolume> return this.ProceduralFoliageVolume;
 	public extern var DensityFalloff(get, never): FoliageDensityFalloff;
 	public inline extern function get_DensityFalloff(): FoliageDensityFalloff return this.DensityFalloff;
 }
@@ -23,7 +23,7 @@ abstract ConstProceduralFoliageBlockingVolume(ProceduralFoliageBlockingVolume) f
 @:forward
 @:nativeGen
 @:native("ProceduralFoliageBlockingVolume*")
-abstract ProceduralFoliageBlockingVolumePtr(cpp.Star<ProceduralFoliageBlockingVolume>) from cpp.Star<ProceduralFoliageBlockingVolume> to cpp.Star<ProceduralFoliageBlockingVolume>{
+abstract ProceduralFoliageBlockingVolumePtr(ucpp.Ptr<ProceduralFoliageBlockingVolume>) from ucpp.Ptr<ProceduralFoliageBlockingVolume> to ucpp.Ptr<ProceduralFoliageBlockingVolume>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralFoliageBlockingVolume): ProceduralFoliageBlockingVolumePtr {
 		return untyped __cpp__("&({0})", v);

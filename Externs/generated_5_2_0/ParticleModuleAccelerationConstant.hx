@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleAccelerationConstant")
 @:include("Particles/Acceleration/ParticleModuleAccelerationConstant.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleAccelerationConstant extends ParticleModuleAccelerationBase {
 	public var Acceleration: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleAccelerationConstant(ParticleModuleAccelerationConst
 @:forward
 @:nativeGen
 @:native("ParticleModuleAccelerationConstant*")
-abstract ParticleModuleAccelerationConstantPtr(cpp.Star<ParticleModuleAccelerationConstant>) from cpp.Star<ParticleModuleAccelerationConstant> to cpp.Star<ParticleModuleAccelerationConstant>{
+abstract ParticleModuleAccelerationConstantPtr(ucpp.Ptr<ParticleModuleAccelerationConstant>) from ucpp.Ptr<ParticleModuleAccelerationConstant> to ucpp.Ptr<ParticleModuleAccelerationConstant>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleAccelerationConstant): ParticleModuleAccelerationConstantPtr {
 		return untyped __cpp__("&({0})", v);

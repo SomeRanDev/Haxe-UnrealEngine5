@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULandscapeLODStreamingProxy_DEPRECATED")
 @:include("LandscapeComponent.h")
-@:structAccess
+@:valueType
 extern class LandscapeLODStreamingProxy_DEPRECATED extends StreamableRenderAsset {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeLODStreamingProxy_DEPRECATED(LandscapeLODStreamingProxy_D
 @:forward
 @:nativeGen
 @:native("LandscapeLODStreamingProxy_DEPRECATED*")
-abstract LandscapeLODStreamingProxy_DEPRECATEDPtr(cpp.Star<LandscapeLODStreamingProxy_DEPRECATED>) from cpp.Star<LandscapeLODStreamingProxy_DEPRECATED> to cpp.Star<LandscapeLODStreamingProxy_DEPRECATED>{
+abstract LandscapeLODStreamingProxy_DEPRECATEDPtr(ucpp.Ptr<LandscapeLODStreamingProxy_DEPRECATED>) from ucpp.Ptr<LandscapeLODStreamingProxy_DEPRECATED> to ucpp.Ptr<LandscapeLODStreamingProxy_DEPRECATED>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeLODStreamingProxy_DEPRECATED): LandscapeLODStreamingProxy_DEPRECATEDPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInterchangeGenericAnimationPipeline")
 @:include("InterchangeGenericAnimationPipeline.h")
-@:structAccess
+@:valueType
 extern class InterchangeGenericAnimationPipeline extends InterchangePipelineBase {
 	public var CommonSkeletalMeshesAndAnimationsProperties: TWeakObjectPtr<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>;
 	public var bImportAnimations: Bool;
@@ -11,7 +11,7 @@ extern class InterchangeGenericAnimationPipeline extends InterchangePipelineBase
 	public var AnimationRange: EInterchangeAnimationRange;
 	public var FrameImportRange: Int32Interval;
 	public var bUse30HzToBakeBoneAnimation: Bool;
-	public var CustomBoneAnimationSampleRate: cpp.Int32;
+	public var CustomBoneAnimationSampleRate: ucpp.num.Int32;
 	public var bSnapToClosestFrameBoundary: Bool;
 	public var bImportCustomAttribute: Bool;
 	public var bSetMaterialDriveParameterOnCustomAttribute: Bool;
@@ -23,7 +23,7 @@ extern class InterchangeGenericAnimationPipeline extends InterchangePipelineBase
 	public var bDeleteExistingMorphTargetCurves: Bool;
 	public var SourceAnimationName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,8 +41,8 @@ abstract ConstInterchangeGenericAnimationPipeline(InterchangeGenericAnimationPip
 	public inline extern function get_FrameImportRange(): Int32Interval return this.FrameImportRange;
 	public extern var bUse30HzToBakeBoneAnimation(get, never): Bool;
 	public inline extern function get_bUse30HzToBakeBoneAnimation(): Bool return this.bUse30HzToBakeBoneAnimation;
-	public extern var CustomBoneAnimationSampleRate(get, never): cpp.Int32;
-	public inline extern function get_CustomBoneAnimationSampleRate(): cpp.Int32 return this.CustomBoneAnimationSampleRate;
+	public extern var CustomBoneAnimationSampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_CustomBoneAnimationSampleRate(): ucpp.num.Int32 return this.CustomBoneAnimationSampleRate;
 	public extern var bSnapToClosestFrameBoundary(get, never): Bool;
 	public inline extern function get_bSnapToClosestFrameBoundary(): Bool return this.bSnapToClosestFrameBoundary;
 	public extern var bImportCustomAttribute(get, never): Bool;
@@ -68,7 +68,7 @@ abstract ConstInterchangeGenericAnimationPipeline(InterchangeGenericAnimationPip
 @:forward
 @:nativeGen
 @:native("InterchangeGenericAnimationPipeline*")
-abstract InterchangeGenericAnimationPipelinePtr(cpp.Star<InterchangeGenericAnimationPipeline>) from cpp.Star<InterchangeGenericAnimationPipeline> to cpp.Star<InterchangeGenericAnimationPipeline>{
+abstract InterchangeGenericAnimationPipelinePtr(ucpp.Ptr<InterchangeGenericAnimationPipeline>) from ucpp.Ptr<InterchangeGenericAnimationPipeline> to ucpp.Ptr<InterchangeGenericAnimationPipeline>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGenericAnimationPipeline): InterchangeGenericAnimationPipelinePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UBakeTransformToolProperties")
 @:include("BakeTransformTool.h")
-@:structAccess
+@:valueType
 extern class BakeTransformToolProperties extends InteractiveToolPropertySet {
 	public var bBakeRotation: Bool;
 	public var BakeScale: EBakeScaleMethod;
 	public var bRecenterPivot: Bool;
 	public var bAllowNoScale: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstBakeTransformToolProperties(BakeTransformToolProperties) from Bake
 @:forward
 @:nativeGen
 @:native("BakeTransformToolProperties*")
-abstract BakeTransformToolPropertiesPtr(cpp.Star<BakeTransformToolProperties>) from cpp.Star<BakeTransformToolProperties> to cpp.Star<BakeTransformToolProperties>{
+abstract BakeTransformToolPropertiesPtr(ucpp.Ptr<BakeTransformToolProperties>) from ucpp.Ptr<BakeTransformToolProperties> to ucpp.Ptr<BakeTransformToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeTransformToolProperties): BakeTransformToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

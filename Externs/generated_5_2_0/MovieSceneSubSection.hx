@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMovieSceneSubSection")
 @:include("Sections/MovieSceneSubSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSubSection extends MovieSceneSection {
 	public var Parameters: MovieSceneSectionParameters;
-	private var NetworkMask: cpp.UInt8;
-	@:protected public var SubSequence: cpp.Star<MovieSceneSequence>;
+	private var NetworkMask: ucpp.num.UInt8;
+	@:protected public var SubSequence: ucpp.Ptr<MovieSceneSequence>;
 
-	public function SetSequence(Sequence: cpp.Star<MovieSceneSequence>): Void;
-	public function GetSequence(): cpp.Star<MovieSceneSequence>;
+	public function SetSequence(Sequence: ucpp.Ptr<MovieSceneSequence>): Void;
+	public function GetSequence(): ucpp.Ptr<MovieSceneSequence>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSequence)
@@ -25,7 +25,7 @@ abstract ConstMovieSceneSubSection(MovieSceneSubSection) from MovieSceneSubSecti
 @:forward
 @:nativeGen
 @:native("MovieSceneSubSection*")
-abstract MovieSceneSubSectionPtr(cpp.Star<MovieSceneSubSection>) from cpp.Star<MovieSceneSubSection> to cpp.Star<MovieSceneSubSection>{
+abstract MovieSceneSubSectionPtr(ucpp.Ptr<MovieSceneSubSection>) from ucpp.Ptr<MovieSceneSubSection> to ucpp.Ptr<MovieSceneSubSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSubSection): MovieSceneSubSectionPtr {
 		return untyped __cpp__("&({0})", v);

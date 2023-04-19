@@ -3,7 +3,7 @@ package ue;
 
 @:native("UExtractCollisionToolProperties")
 @:include("Physics/ExtractCollisionGeometryTool.h")
-@:structAccess
+@:valueType
 extern class ExtractCollisionToolProperties extends InteractiveToolPropertySet {
 	public var CollisionType: EExtractCollisionOutputType;
 	public var bWeldEdges: Bool;
@@ -11,7 +11,7 @@ extern class ExtractCollisionToolProperties extends InteractiveToolPropertySet {
 	public var bShowPreview: Bool;
 	public var bShowInputMesh: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstExtractCollisionToolProperties(ExtractCollisionToolProperties) fro
 @:forward
 @:nativeGen
 @:native("ExtractCollisionToolProperties*")
-abstract ExtractCollisionToolPropertiesPtr(cpp.Star<ExtractCollisionToolProperties>) from cpp.Star<ExtractCollisionToolProperties> to cpp.Star<ExtractCollisionToolProperties>{
+abstract ExtractCollisionToolPropertiesPtr(ucpp.Ptr<ExtractCollisionToolProperties>) from ucpp.Ptr<ExtractCollisionToolProperties> to ucpp.Ptr<ExtractCollisionToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ExtractCollisionToolProperties): ExtractCollisionToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

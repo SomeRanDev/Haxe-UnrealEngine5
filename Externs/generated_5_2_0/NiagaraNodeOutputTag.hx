@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraNodeOutputTag")
 @:include("NiagaraNodeOutputTag.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeOutputTag extends NiagaraNodeWithDynamicPins {
 	public var bEmitMessageOnFailure: Bool;
 	public var FailureSeverity: FNiagaraCompileEventSeverity;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraNodeOutputTag(NiagaraNodeOutputTag) from NiagaraNodeOutputT
 @:forward
 @:nativeGen
 @:native("NiagaraNodeOutputTag*")
-abstract NiagaraNodeOutputTagPtr(cpp.Star<NiagaraNodeOutputTag>) from cpp.Star<NiagaraNodeOutputTag> to cpp.Star<NiagaraNodeOutputTag>{
+abstract NiagaraNodeOutputTagPtr(ucpp.Ptr<NiagaraNodeOutputTag>) from ucpp.Ptr<NiagaraNodeOutputTag> to ucpp.Ptr<NiagaraNodeOutputTag>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeOutputTag): NiagaraNodeOutputTagPtr {
 		return untyped __cpp__("&({0})", v);

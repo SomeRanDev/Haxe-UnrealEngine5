@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNetAnalyticsAggregatorConfig")
 @:include("Net/Core/Analytics/NetAnalyticsAggregatorConfig.h")
-@:structAccess
+@:valueType
 extern class NetAnalyticsAggregatorConfig extends Object {
 	public var NetAnalyticsData: TArray<NetAnalyticsDataConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNetAnalyticsAggregatorConfig(NetAnalyticsAggregatorConfig) from Ne
 @:forward
 @:nativeGen
 @:native("NetAnalyticsAggregatorConfig*")
-abstract NetAnalyticsAggregatorConfigPtr(cpp.Star<NetAnalyticsAggregatorConfig>) from cpp.Star<NetAnalyticsAggregatorConfig> to cpp.Star<NetAnalyticsAggregatorConfig>{
+abstract NetAnalyticsAggregatorConfigPtr(ucpp.Ptr<NetAnalyticsAggregatorConfig>) from ucpp.Ptr<NetAnalyticsAggregatorConfig> to ucpp.Ptr<NetAnalyticsAggregatorConfig>{
 	@:from
 	public static extern inline function fromValue(v: NetAnalyticsAggregatorConfig): NetAnalyticsAggregatorConfigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioWidgetSubsystem")
 @:include("Audio/AudioWidgetSubsystem.h")
-@:structAccess
+@:valueType
 extern class AudioWidgetSubsystem extends EngineSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioWidgetSubsystem(AudioWidgetSubsystem) from AudioWidgetSubsyst
 @:forward
 @:nativeGen
 @:native("AudioWidgetSubsystem*")
-abstract AudioWidgetSubsystemPtr(cpp.Star<AudioWidgetSubsystem>) from cpp.Star<AudioWidgetSubsystem> to cpp.Star<AudioWidgetSubsystem>{
+abstract AudioWidgetSubsystemPtr(ucpp.Ptr<AudioWidgetSubsystem>) from ucpp.Ptr<AudioWidgetSubsystem> to ucpp.Ptr<AudioWidgetSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: AudioWidgetSubsystem): AudioWidgetSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

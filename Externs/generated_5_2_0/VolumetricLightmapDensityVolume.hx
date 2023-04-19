@@ -3,11 +3,11 @@ package ue;
 
 @:native("AVolumetricLightmapDensityVolume")
 @:include("Lightmass/VolumetricLightmapDensityVolume.h")
-@:structAccess
+@:valueType
 extern class VolumetricLightmapDensityVolume extends Volume {
 	public var AllowedMipLevelRange: Int32Interval;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstVolumetricLightmapDensityVolume(VolumetricLightmapDensityVolume) f
 @:forward
 @:nativeGen
 @:native("VolumetricLightmapDensityVolume*")
-abstract VolumetricLightmapDensityVolumePtr(cpp.Star<VolumetricLightmapDensityVolume>) from cpp.Star<VolumetricLightmapDensityVolume> to cpp.Star<VolumetricLightmapDensityVolume>{
+abstract VolumetricLightmapDensityVolumePtr(ucpp.Ptr<VolumetricLightmapDensityVolume>) from ucpp.Ptr<VolumetricLightmapDensityVolume> to ucpp.Ptr<VolumetricLightmapDensityVolume>{
 	@:from
 	public static extern inline function fromValue(v: VolumetricLightmapDensityVolume): VolumetricLightmapDensityVolumePtr {
 		return untyped __cpp__("&({0})", v);

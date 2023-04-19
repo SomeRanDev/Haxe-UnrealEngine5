@@ -3,18 +3,18 @@ package ue;
 
 @:native("UDrawPolygonToolStandardProperties")
 @:include("DrawPolygonTool.h")
-@:structAccess
+@:valueType
 extern class DrawPolygonToolStandardProperties extends InteractiveToolPropertySet {
 	public var PolygonDrawMode: EDrawPolygonDrawMode;
 	public var bAllowSelfIntersections: Bool;
-	public var FeatureSizeRatio: cpp.Float32;
-	public var RadialSlices: cpp.Int32;
-	public var Distance: cpp.Float32;
+	public var FeatureSizeRatio: ucpp.num.Float32;
+	public var RadialSlices: ucpp.num.Int32;
+	public var Distance: ucpp.num.Float32;
 	public var bShowGridGizmo: Bool;
 	public var ExtrudeMode: EDrawPolygonExtrudeMode;
-	public var ExtrudeHeight: cpp.Float32;
+	public var ExtrudeHeight: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,24 +24,24 @@ abstract ConstDrawPolygonToolStandardProperties(DrawPolygonToolStandardPropertie
 	public inline extern function get_PolygonDrawMode(): EDrawPolygonDrawMode return this.PolygonDrawMode;
 	public extern var bAllowSelfIntersections(get, never): Bool;
 	public inline extern function get_bAllowSelfIntersections(): Bool return this.bAllowSelfIntersections;
-	public extern var FeatureSizeRatio(get, never): cpp.Float32;
-	public inline extern function get_FeatureSizeRatio(): cpp.Float32 return this.FeatureSizeRatio;
-	public extern var RadialSlices(get, never): cpp.Int32;
-	public inline extern function get_RadialSlices(): cpp.Int32 return this.RadialSlices;
-	public extern var Distance(get, never): cpp.Float32;
-	public inline extern function get_Distance(): cpp.Float32 return this.Distance;
+	public extern var FeatureSizeRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_FeatureSizeRatio(): ucpp.num.Float32 return this.FeatureSizeRatio;
+	public extern var RadialSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_RadialSlices(): ucpp.num.Int32 return this.RadialSlices;
+	public extern var Distance(get, never): ucpp.num.Float32;
+	public inline extern function get_Distance(): ucpp.num.Float32 return this.Distance;
 	public extern var bShowGridGizmo(get, never): Bool;
 	public inline extern function get_bShowGridGizmo(): Bool return this.bShowGridGizmo;
 	public extern var ExtrudeMode(get, never): EDrawPolygonExtrudeMode;
 	public inline extern function get_ExtrudeMode(): EDrawPolygonExtrudeMode return this.ExtrudeMode;
-	public extern var ExtrudeHeight(get, never): cpp.Float32;
-	public inline extern function get_ExtrudeHeight(): cpp.Float32 return this.ExtrudeHeight;
+	public extern var ExtrudeHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_ExtrudeHeight(): ucpp.num.Float32 return this.ExtrudeHeight;
 }
 
 @:forward
 @:nativeGen
 @:native("DrawPolygonToolStandardProperties*")
-abstract DrawPolygonToolStandardPropertiesPtr(cpp.Star<DrawPolygonToolStandardProperties>) from cpp.Star<DrawPolygonToolStandardProperties> to cpp.Star<DrawPolygonToolStandardProperties>{
+abstract DrawPolygonToolStandardPropertiesPtr(ucpp.Ptr<DrawPolygonToolStandardProperties>) from ucpp.Ptr<DrawPolygonToolStandardProperties> to ucpp.Ptr<DrawPolygonToolStandardProperties>{
 	@:from
 	public static extern inline function fromValue(v: DrawPolygonToolStandardProperties): DrawPolygonToolStandardPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

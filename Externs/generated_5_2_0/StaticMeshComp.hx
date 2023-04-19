@@ -3,18 +3,18 @@ package ue;
 
 @:native("UStaticMeshComponent")
 @:include("Components/StaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class StaticMeshComp extends MeshComp {
-	public var ForcedLodModel: cpp.Int32;
-	public var MinLOD: cpp.Int32;
-	public var SubDivisionStepSize: cpp.Int32;
-	private var StaticMesh: cpp.Star<StaticMesh>;
+	public var ForcedLodModel: ucpp.num.Int32;
+	public var MinLOD: ucpp.num.Int32;
+	public var SubDivisionStepSize: ucpp.num.Int32;
+	private var StaticMesh: ucpp.Ptr<StaticMesh>;
 	public var WireframeColorOverride: Color;
 	public var bDisallowNanite: Bool;
 	public var bForceDisableNanite: Bool;
 	public var bEvaluateWorldPositionOffset: Bool;
 	public var bEvaluateWorldPositionOffsetInRayTracing: Bool;
-	public var WorldPositionOffsetDisableDistance: cpp.Int32;
+	public var WorldPositionOffsetDisableDistance: ucpp.num.Int32;
 	public var bOverrideWireframeColor: Bool;
 	public var bOverrideMinLOD: Bool;
 	public var bOverrideNavigationExport: Bool;
@@ -28,37 +28,37 @@ extern class StaticMeshComp extends MeshComp {
 	public var bUseDefaultCollision: Bool;
 	public var bSortTriangles: Bool;
 	public var bReverseCulling: Bool;
-	public var OverriddenLightMapRes: cpp.Int32;
-	public var DistanceFieldIndirectShadowMinVisibility: cpp.Float32;
-	public var DistanceFieldSelfShadowBias: cpp.Float32;
-	public var StreamingDistanceMultiplier: cpp.Float32;
+	public var OverriddenLightMapRes: ucpp.num.Int32;
+	public var DistanceFieldIndirectShadowMinVisibility: ucpp.num.Float32;
+	public var DistanceFieldSelfShadowBias: ucpp.num.Float32;
+	public var StreamingDistanceMultiplier: ucpp.num.Float32;
 	public var LODData: TArray<StaticMeshComponentLODInfo>;
 	public var StreamingTextureData: TArray<StreamingTextureBuildInfo>;
 	public var LightmassSettings: LightmassPrimitiveSettings;
 
-	public function SetStaticMesh(NewMesh: cpp.Star<StaticMesh>): Bool;
+	public function SetStaticMesh(NewMesh: ucpp.Ptr<StaticMesh>): Bool;
 	public function SetReverseCulling(ReverseCulling: Bool): Void;
-	public function SetForcedLodModel(NewForcedLodModel: cpp.Int32): Void;
+	public function SetForcedLodModel(NewForcedLodModel: ucpp.num.Int32): Void;
 	public function SetForceDisableNanite(bInForceDisableNanite: Bool): Void;
 	public function SetEvaluateWorldPositionOffsetInRayTracing(NewValue: Bool): Void;
 	public function SetEvaluateWorldPositionOffset(NewValue: Bool): Void;
-	public function SetDistanceFieldSelfShadowBias(NewValue: cpp.Float32): Void;
-	public function OnRep_StaticMesh(OldStaticMesh: cpp.Star<StaticMesh>): Void;
-	public function GetLocalBounds(Min: cpp.Reference<Vector>, Max: cpp.Reference<Vector>): Void;
+	public function SetDistanceFieldSelfShadowBias(NewValue: ucpp.num.Float32): Void;
+	public function OnRep_StaticMesh(OldStaticMesh: ucpp.Ptr<StaticMesh>): Void;
+	public function GetLocalBounds(Min: ucpp.Ref<Vector>, Max: ucpp.Ref<Vector>): Void;
 	public function GetInitialEvaluateWorldPositionOffset(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetLocalBounds)
 @:nativeGen
 abstract ConstStaticMeshComp(StaticMeshComp) from StaticMeshComp {
-	public extern var ForcedLodModel(get, never): cpp.Int32;
-	public inline extern function get_ForcedLodModel(): cpp.Int32 return this.ForcedLodModel;
-	public extern var MinLOD(get, never): cpp.Int32;
-	public inline extern function get_MinLOD(): cpp.Int32 return this.MinLOD;
-	public extern var SubDivisionStepSize(get, never): cpp.Int32;
-	public inline extern function get_SubDivisionStepSize(): cpp.Int32 return this.SubDivisionStepSize;
+	public extern var ForcedLodModel(get, never): ucpp.num.Int32;
+	public inline extern function get_ForcedLodModel(): ucpp.num.Int32 return this.ForcedLodModel;
+	public extern var MinLOD(get, never): ucpp.num.Int32;
+	public inline extern function get_MinLOD(): ucpp.num.Int32 return this.MinLOD;
+	public extern var SubDivisionStepSize(get, never): ucpp.num.Int32;
+	public inline extern function get_SubDivisionStepSize(): ucpp.num.Int32 return this.SubDivisionStepSize;
 	public extern var WireframeColorOverride(get, never): Color;
 	public inline extern function get_WireframeColorOverride(): Color return this.WireframeColorOverride;
 	public extern var bDisallowNanite(get, never): Bool;
@@ -69,8 +69,8 @@ abstract ConstStaticMeshComp(StaticMeshComp) from StaticMeshComp {
 	public inline extern function get_bEvaluateWorldPositionOffset(): Bool return this.bEvaluateWorldPositionOffset;
 	public extern var bEvaluateWorldPositionOffsetInRayTracing(get, never): Bool;
 	public inline extern function get_bEvaluateWorldPositionOffsetInRayTracing(): Bool return this.bEvaluateWorldPositionOffsetInRayTracing;
-	public extern var WorldPositionOffsetDisableDistance(get, never): cpp.Int32;
-	public inline extern function get_WorldPositionOffsetDisableDistance(): cpp.Int32 return this.WorldPositionOffsetDisableDistance;
+	public extern var WorldPositionOffsetDisableDistance(get, never): ucpp.num.Int32;
+	public inline extern function get_WorldPositionOffsetDisableDistance(): ucpp.num.Int32 return this.WorldPositionOffsetDisableDistance;
 	public extern var bOverrideWireframeColor(get, never): Bool;
 	public inline extern function get_bOverrideWireframeColor(): Bool return this.bOverrideWireframeColor;
 	public extern var bOverrideMinLOD(get, never): Bool;
@@ -97,14 +97,14 @@ abstract ConstStaticMeshComp(StaticMeshComp) from StaticMeshComp {
 	public inline extern function get_bSortTriangles(): Bool return this.bSortTriangles;
 	public extern var bReverseCulling(get, never): Bool;
 	public inline extern function get_bReverseCulling(): Bool return this.bReverseCulling;
-	public extern var OverriddenLightMapRes(get, never): cpp.Int32;
-	public inline extern function get_OverriddenLightMapRes(): cpp.Int32 return this.OverriddenLightMapRes;
-	public extern var DistanceFieldIndirectShadowMinVisibility(get, never): cpp.Float32;
-	public inline extern function get_DistanceFieldIndirectShadowMinVisibility(): cpp.Float32 return this.DistanceFieldIndirectShadowMinVisibility;
-	public extern var DistanceFieldSelfShadowBias(get, never): cpp.Float32;
-	public inline extern function get_DistanceFieldSelfShadowBias(): cpp.Float32 return this.DistanceFieldSelfShadowBias;
-	public extern var StreamingDistanceMultiplier(get, never): cpp.Float32;
-	public inline extern function get_StreamingDistanceMultiplier(): cpp.Float32 return this.StreamingDistanceMultiplier;
+	public extern var OverriddenLightMapRes(get, never): ucpp.num.Int32;
+	public inline extern function get_OverriddenLightMapRes(): ucpp.num.Int32 return this.OverriddenLightMapRes;
+	public extern var DistanceFieldIndirectShadowMinVisibility(get, never): ucpp.num.Float32;
+	public inline extern function get_DistanceFieldIndirectShadowMinVisibility(): ucpp.num.Float32 return this.DistanceFieldIndirectShadowMinVisibility;
+	public extern var DistanceFieldSelfShadowBias(get, never): ucpp.num.Float32;
+	public inline extern function get_DistanceFieldSelfShadowBias(): ucpp.num.Float32 return this.DistanceFieldSelfShadowBias;
+	public extern var StreamingDistanceMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_StreamingDistanceMultiplier(): ucpp.num.Float32 return this.StreamingDistanceMultiplier;
 	public extern var LODData(get, never): TArray<StaticMeshComponentLODInfo>;
 	public inline extern function get_LODData(): TArray<StaticMeshComponentLODInfo> return this.LODData;
 	public extern var StreamingTextureData(get, never): TArray<StreamingTextureBuildInfo>;
@@ -116,7 +116,7 @@ abstract ConstStaticMeshComp(StaticMeshComp) from StaticMeshComp {
 @:forward
 @:nativeGen
 @:native("StaticMeshComp*")
-abstract StaticMeshCompPtr(cpp.Star<StaticMeshComp>) from cpp.Star<StaticMeshComp> to cpp.Star<StaticMeshComp>{
+abstract StaticMeshCompPtr(ucpp.Ptr<StaticMeshComp>) from ucpp.Ptr<StaticMeshComp> to ucpp.Ptr<StaticMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshComp): StaticMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FOptionalPinFromProperty")
 @:include("K2Node.h")
-@:structAccess
+@:valueType
 extern class OptionalPinFromProperty {
 	public var PropertyName: FName;
 	public var PropertyFriendlyName: FString;

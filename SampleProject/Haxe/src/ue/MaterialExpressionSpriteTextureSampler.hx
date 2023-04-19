@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionSpriteTextureSampler")
 @:include("MaterialExpressionSpriteTextureSampler.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSpriteTextureSampler extends MaterialExpressionTextureSampleParameter2D {
 	public var bSampleAdditionalTextures: Bool;
-	public var AdditionalSlotIndex: cpp.Int32;
+	public var AdditionalSlotIndex: ucpp.num.Int32;
 	public var SlotDisplayName: FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class MaterialExpressionSpriteTextureSampler extends MaterialExpressionTe
 abstract ConstMaterialExpressionSpriteTextureSampler(MaterialExpressionSpriteTextureSampler) from MaterialExpressionSpriteTextureSampler {
 	public extern var bSampleAdditionalTextures(get, never): Bool;
 	public inline extern function get_bSampleAdditionalTextures(): Bool return this.bSampleAdditionalTextures;
-	public extern var AdditionalSlotIndex(get, never): cpp.Int32;
-	public inline extern function get_AdditionalSlotIndex(): cpp.Int32 return this.AdditionalSlotIndex;
+	public extern var AdditionalSlotIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_AdditionalSlotIndex(): ucpp.num.Int32 return this.AdditionalSlotIndex;
 	public extern var SlotDisplayName(get, never): FText;
 	public inline extern function get_SlotDisplayName(): FText return this.SlotDisplayName;
 }
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionSpriteTextureSampler(MaterialExpressionSpriteTex
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSpriteTextureSampler*")
-abstract MaterialExpressionSpriteTextureSamplerPtr(cpp.Star<MaterialExpressionSpriteTextureSampler>) from cpp.Star<MaterialExpressionSpriteTextureSampler> to cpp.Star<MaterialExpressionSpriteTextureSampler>{
+abstract MaterialExpressionSpriteTextureSamplerPtr(ucpp.Ptr<MaterialExpressionSpriteTextureSampler>) from ucpp.Ptr<MaterialExpressionSpriteTextureSampler> to ucpp.Ptr<MaterialExpressionSpriteTextureSampler>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSpriteTextureSampler): MaterialExpressionSpriteTextureSamplerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGizmoBaseFloatParameterSource")
 @:include("BaseGizmos/ParameterSourcesFloat.h")
-@:structAccess
+@:valueType
 extern class GizmoBaseFloatParameterSource extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGizmoBaseFloatParameterSource(GizmoBaseFloatParameterSource) from 
 @:forward
 @:nativeGen
 @:native("GizmoBaseFloatParameterSource*")
-abstract GizmoBaseFloatParameterSourcePtr(cpp.Star<GizmoBaseFloatParameterSource>) from cpp.Star<GizmoBaseFloatParameterSource> to cpp.Star<GizmoBaseFloatParameterSource>{
+abstract GizmoBaseFloatParameterSourcePtr(ucpp.Ptr<GizmoBaseFloatParameterSource>) from ucpp.Ptr<GizmoBaseFloatParameterSource> to ucpp.Ptr<GizmoBaseFloatParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoBaseFloatParameterSource): GizmoBaseFloatParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

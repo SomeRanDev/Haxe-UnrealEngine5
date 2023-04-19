@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigUnit_ModifyTransforms_WorkData")
 @:include("Private/Units/Highlevel/Hierarchy/RigUnit_ModifyTransforms.h")
-@:structAccess
+@:valueType
 extern class RigUnit_ModifyTransforms_WorkData {
 	public var CachedItems: TArray<CachedRigElement>;
 

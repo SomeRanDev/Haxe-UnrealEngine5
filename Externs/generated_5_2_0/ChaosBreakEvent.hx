@@ -3,15 +3,15 @@ package ue;
 
 @:native("FChaosBreakEvent")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
-@:structAccess
+@:valueType
 extern class ChaosBreakEvent {
-	public var Component: cpp.Star<PrimitiveComp>;
+	public var Component: ucpp.Ptr<PrimitiveComp>;
 	public var Location: Vector;
 	public var Velocity: Vector;
 	public var AngularVelocity: Vector;
 	public var Extents: Vector;
-	public var Mass: cpp.Float32;
-	public var Index: cpp.Int32;
+	public var Mass: ucpp.num.Float32;
+	public var Index: ucpp.num.Int32;
 	public var bFromCrumble: Bool;
 
 	@:native("FChaosBreakEvent") public function new();

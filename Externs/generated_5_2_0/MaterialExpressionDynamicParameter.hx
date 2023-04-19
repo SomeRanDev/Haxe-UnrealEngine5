@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionDynamicParameter")
 @:include("Materials/MaterialExpressionDynamicParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDynamicParameter extends MaterialExpression {
 	public var ParamNames: TArray<FString>;
 	public var DefaultValue: LinearColor;
-	public var ParameterIndex: cpp.UInt32;
+	public var ParameterIndex: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstMaterialExpressionDynamicParameter(MaterialExpressionDynamicParame
 	public inline extern function get_ParamNames(): TArray<FString> return this.ParamNames;
 	public extern var DefaultValue(get, never): LinearColor;
 	public inline extern function get_DefaultValue(): LinearColor return this.DefaultValue;
-	public extern var ParameterIndex(get, never): cpp.UInt32;
-	public inline extern function get_ParameterIndex(): cpp.UInt32 return this.ParameterIndex;
+	public extern var ParameterIndex(get, never): ucpp.num.UInt32;
+	public inline extern function get_ParameterIndex(): ucpp.num.UInt32 return this.ParameterIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDynamicParameter*")
-abstract MaterialExpressionDynamicParameterPtr(cpp.Star<MaterialExpressionDynamicParameter>) from cpp.Star<MaterialExpressionDynamicParameter> to cpp.Star<MaterialExpressionDynamicParameter>{
+abstract MaterialExpressionDynamicParameterPtr(ucpp.Ptr<MaterialExpressionDynamicParameter>) from ucpp.Ptr<MaterialExpressionDynamicParameter> to ucpp.Ptr<MaterialExpressionDynamicParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDynamicParameter): MaterialExpressionDynamicParameterPtr {
 		return untyped __cpp__("&({0})", v);

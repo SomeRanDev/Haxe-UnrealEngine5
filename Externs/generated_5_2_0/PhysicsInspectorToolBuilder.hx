@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPhysicsInspectorToolBuilder")
 @:include("Physics/PhysicsInspectorTool.h")
-@:structAccess
+@:valueType
 extern class PhysicsInspectorToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPhysicsInspectorToolBuilder(PhysicsInspectorToolBuilder) from Phys
 @:forward
 @:nativeGen
 @:native("PhysicsInspectorToolBuilder*")
-abstract PhysicsInspectorToolBuilderPtr(cpp.Star<PhysicsInspectorToolBuilder>) from cpp.Star<PhysicsInspectorToolBuilder> to cpp.Star<PhysicsInspectorToolBuilder>{
+abstract PhysicsInspectorToolBuilderPtr(ucpp.Ptr<PhysicsInspectorToolBuilder>) from ucpp.Ptr<PhysicsInspectorToolBuilder> to ucpp.Ptr<PhysicsInspectorToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsInspectorToolBuilder): PhysicsInspectorToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

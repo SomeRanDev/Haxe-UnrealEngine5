@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimNode_RotationOffsetBlendSpace")
 @:include("AnimNodes/AnimNode_RotationOffsetBlendSpace.h")
-@:structAccess
+@:valueType
 extern class AnimNode_RotationOffsetBlendSpace extends AnimNode_BlendSpacePlayer {
 	public var BasePose: PoseLink;
-	public var LODThreshold: cpp.Int32;
-	public var Alpha: cpp.Float32;
+	public var LODThreshold: ucpp.num.Int32;
+	public var Alpha: ucpp.num.Float32;
 	public var AlphaScaleBias: InputScaleBias;
 	public var AlphaBoolBlend: InputAlphaBoolBlend;
 	public var AlphaCurveName: FName;

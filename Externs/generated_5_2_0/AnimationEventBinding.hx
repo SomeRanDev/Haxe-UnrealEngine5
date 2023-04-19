@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimationEventBinding")
 @:include("Blueprint/UserWidget.h")
-@:structAccess
+@:valueType
 extern class AnimationEventBinding {
-	public var Animation: cpp.Star<WidgetAnimation>;
+	public var Animation: ucpp.Ptr<WidgetAnimation>;
 	public var Delegate: HaxeDelegateProperty<() -> Void>;
 	public var AnimationEvent: EWidgetAnimationEvent;
 	public var UserTag: FName;
 
 	@:native("FAnimationEventBinding") public function new();
-	@:native("FAnimationEventBinding") public static function make(Animation: cpp.Star<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>, AnimationEvent: EWidgetAnimationEvent, UserTag: FName): AnimationEventBinding ;
+	@:native("FAnimationEventBinding") public static function make(Animation: ucpp.Ptr<WidgetAnimation>, Delegate: HaxeDelegateProperty<() -> Void>, AnimationEvent: EWidgetAnimationEvent, UserTag: FName): AnimationEventBinding ;
 }

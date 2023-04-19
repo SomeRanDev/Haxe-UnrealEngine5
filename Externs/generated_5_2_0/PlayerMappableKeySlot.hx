@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPlayerMappableKeySlot")
 @:include("PlayerMappableKeySlot.h")
-@:structAccess
+@:valueType
 extern class PlayerMappableKeySlot {
-	public var SlotNumber: cpp.Int32;
+	public var SlotNumber: ucpp.num.Int32;
 
 	@:native("FPlayerMappableKeySlot") public function new();
-	@:native("FPlayerMappableKeySlot") public static function make(SlotNumber: cpp.Int32): PlayerMappableKeySlot ;
+	@:native("FPlayerMappableKeySlot") public static function make(SlotNumber: ucpp.num.Int32): PlayerMappableKeySlot ;
 }

@@ -3,25 +3,25 @@ package ue;
 
 @:native("UTexture2D")
 @:include("Engine/Texture2D.h")
-@:structAccess
+@:valueType
 extern class Texture2D extends Texture {
-	public var FirstResourceMemMip: cpp.Int32;
+	public var FirstResourceMemMip: ucpp.num.Int32;
 	private var bTemporarilyDisableStreaming: Bool;
 	public var AddressX: TEnumAsByte<TextureAddress>;
 	public var AddressY: TEnumAsByte<TextureAddress>;
 	private var ImportedSize: IntPoint;
 
-	public function Blueprint_GetSizeY(): cpp.Int32;
-	public function Blueprint_GetSizeX(): cpp.Int32;
+	public function Blueprint_GetSizeY(): ucpp.num.Int32;
+	public function Blueprint_GetSizeX(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(Blueprint_GetSizeY, Blueprint_GetSizeX)
 @:nativeGen
 abstract ConstTexture2D(Texture2D) from Texture2D {
-	public extern var FirstResourceMemMip(get, never): cpp.Int32;
-	public inline extern function get_FirstResourceMemMip(): cpp.Int32 return this.FirstResourceMemMip;
+	public extern var FirstResourceMemMip(get, never): ucpp.num.Int32;
+	public inline extern function get_FirstResourceMemMip(): ucpp.num.Int32 return this.FirstResourceMemMip;
 	public extern var AddressX(get, never): TEnumAsByte<TextureAddress>;
 	public inline extern function get_AddressX(): TEnumAsByte<TextureAddress> return this.AddressX;
 	public extern var AddressY(get, never): TEnumAsByte<TextureAddress>;
@@ -31,7 +31,7 @@ abstract ConstTexture2D(Texture2D) from Texture2D {
 @:forward
 @:nativeGen
 @:native("Texture2D*")
-abstract Texture2DPtr(cpp.Star<Texture2D>) from cpp.Star<Texture2D> to cpp.Star<Texture2D>{
+abstract Texture2DPtr(ucpp.Ptr<Texture2D>) from ucpp.Ptr<Texture2D> to ucpp.Ptr<Texture2D>{
 	@:from
 	public static extern inline function fromValue(v: Texture2D): Texture2DPtr {
 		return untyped __cpp__("&({0})", v);

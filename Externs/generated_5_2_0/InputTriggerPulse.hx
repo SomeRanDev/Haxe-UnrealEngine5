@@ -3,13 +3,13 @@ package ue;
 
 @:native("UInputTriggerPulse")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerPulse extends InputTriggerTimedBase {
 	public var bTriggerOnStart: Bool;
-	public var Interval: cpp.Float32;
-	public var TriggerLimit: cpp.Int32;
+	public var Interval: ucpp.num.Float32;
+	public var TriggerLimit: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class InputTriggerPulse extends InputTriggerTimedBase {
 abstract ConstInputTriggerPulse(InputTriggerPulse) from InputTriggerPulse {
 	public extern var bTriggerOnStart(get, never): Bool;
 	public inline extern function get_bTriggerOnStart(): Bool return this.bTriggerOnStart;
-	public extern var Interval(get, never): cpp.Float32;
-	public inline extern function get_Interval(): cpp.Float32 return this.Interval;
-	public extern var TriggerLimit(get, never): cpp.Int32;
-	public inline extern function get_TriggerLimit(): cpp.Int32 return this.TriggerLimit;
+	public extern var Interval(get, never): ucpp.num.Float32;
+	public inline extern function get_Interval(): ucpp.num.Float32 return this.Interval;
+	public extern var TriggerLimit(get, never): ucpp.num.Int32;
+	public inline extern function get_TriggerLimit(): ucpp.num.Int32 return this.TriggerLimit;
 }
 
 @:forward
 @:nativeGen
 @:native("InputTriggerPulse*")
-abstract InputTriggerPulsePtr(cpp.Star<InputTriggerPulse>) from cpp.Star<InputTriggerPulse> to cpp.Star<InputTriggerPulse>{
+abstract InputTriggerPulsePtr(ucpp.Ptr<InputTriggerPulse>) from ucpp.Ptr<InputTriggerPulse> to ucpp.Ptr<InputTriggerPulse>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerPulse): InputTriggerPulsePtr {
 		return untyped __cpp__("&({0})", v);

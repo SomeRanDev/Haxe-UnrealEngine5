@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionSparseVolumeTextureSampleParameter")
 @:include("Materials/MaterialExpressionSparseVolumeTextureSample.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSparseVolumeTextureSampleParameter extends MaterialExpressionSparseVolumeTextureSample {
 	public var ParameterName: FName;
 	public var ExpressionGUID: Guid;
 	public var Group: FName;
-	public var SortPriority: cpp.Int32;
+	public var SortPriority: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstMaterialExpressionSparseVolumeTextureSampleParameter(MaterialExpre
 	public inline extern function get_ExpressionGUID(): Guid return this.ExpressionGUID;
 	public extern var Group(get, never): FName;
 	public inline extern function get_Group(): FName return this.Group;
-	public extern var SortPriority(get, never): cpp.Int32;
-	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
+	public extern var SortPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_SortPriority(): ucpp.num.Int32 return this.SortPriority;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSparseVolumeTextureSampleParameter*")
-abstract MaterialExpressionSparseVolumeTextureSampleParameterPtr(cpp.Star<MaterialExpressionSparseVolumeTextureSampleParameter>) from cpp.Star<MaterialExpressionSparseVolumeTextureSampleParameter> to cpp.Star<MaterialExpressionSparseVolumeTextureSampleParameter>{
+abstract MaterialExpressionSparseVolumeTextureSampleParameterPtr(ucpp.Ptr<MaterialExpressionSparseVolumeTextureSampleParameter>) from ucpp.Ptr<MaterialExpressionSparseVolumeTextureSampleParameter> to ucpp.Ptr<MaterialExpressionSparseVolumeTextureSampleParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSparseVolumeTextureSampleParameter): MaterialExpressionSparseVolumeTextureSampleParameterPtr {
 		return untyped __cpp__("&({0})", v);

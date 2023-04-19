@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputTriggerPressed")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerPressed extends InputTrigger {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputTriggerPressed(InputTriggerPressed) from InputTriggerPressed 
 @:forward
 @:nativeGen
 @:native("InputTriggerPressed*")
-abstract InputTriggerPressedPtr(cpp.Star<InputTriggerPressed>) from cpp.Star<InputTriggerPressed> to cpp.Star<InputTriggerPressed>{
+abstract InputTriggerPressedPtr(ucpp.Ptr<InputTriggerPressed>) from ucpp.Ptr<InputTriggerPressed> to ucpp.Ptr<InputTriggerPressed>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerPressed): InputTriggerPressedPtr {
 		return untyped __cpp__("&({0})", v);

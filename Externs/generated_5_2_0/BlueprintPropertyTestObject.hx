@@ -3,33 +3,33 @@ package ue;
 
 @:native("UBlueprintPropertyTestObject")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class BlueprintPropertyTestObject extends Object {
-	public var ShouldBeHidden: cpp.Int32;
-	public var ShouldBeVisible: cpp.Int32;
-	public var ObjectA: cpp.Star<SoundBase>;
-	public var ObjectB: cpp.Star<SoundBase>;
+	public var ShouldBeHidden: ucpp.num.Int32;
+	public var ShouldBeVisible: ucpp.num.Int32;
+	public var ObjectA: ucpp.Ptr<SoundBase>;
+	public var ObjectB: ucpp.Ptr<SoundBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlueprintPropertyTestObject(BlueprintPropertyTestObject) from BlueprintPropertyTestObject {
-	public extern var ShouldBeHidden(get, never): cpp.Int32;
-	public inline extern function get_ShouldBeHidden(): cpp.Int32 return this.ShouldBeHidden;
-	public extern var ShouldBeVisible(get, never): cpp.Int32;
-	public inline extern function get_ShouldBeVisible(): cpp.Int32 return this.ShouldBeVisible;
-	public extern var ObjectA(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_ObjectA(): cpp.Star<SoundBase.ConstSoundBase> return this.ObjectA;
-	public extern var ObjectB(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_ObjectB(): cpp.Star<SoundBase.ConstSoundBase> return this.ObjectB;
+	public extern var ShouldBeHidden(get, never): ucpp.num.Int32;
+	public inline extern function get_ShouldBeHidden(): ucpp.num.Int32 return this.ShouldBeHidden;
+	public extern var ShouldBeVisible(get, never): ucpp.num.Int32;
+	public inline extern function get_ShouldBeVisible(): ucpp.num.Int32 return this.ShouldBeVisible;
+	public extern var ObjectA(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_ObjectA(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.ObjectA;
+	public extern var ObjectB(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_ObjectB(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.ObjectB;
 }
 
 @:forward
 @:nativeGen
 @:native("BlueprintPropertyTestObject*")
-abstract BlueprintPropertyTestObjectPtr(cpp.Star<BlueprintPropertyTestObject>) from cpp.Star<BlueprintPropertyTestObject> to cpp.Star<BlueprintPropertyTestObject>{
+abstract BlueprintPropertyTestObjectPtr(ucpp.Ptr<BlueprintPropertyTestObject>) from ucpp.Ptr<BlueprintPropertyTestObject> to ucpp.Ptr<BlueprintPropertyTestObject>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintPropertyTestObject): BlueprintPropertyTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

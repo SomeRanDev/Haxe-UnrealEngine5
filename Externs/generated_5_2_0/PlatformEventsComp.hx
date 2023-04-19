@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPlatformEventsComponent")
 @:include("Components/PlatformEventsComponent.h")
-@:structAccess
+@:valueType
 extern class PlatformEventsComp extends ActorComp {
 	public var PlatformChangedToLaptopModeDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var PlatformChangedToTabletModeDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -13,7 +13,7 @@ extern class PlatformEventsComp extends ActorComp {
 	public function IsInTabletMode(): Bool;
 	public function IsInLaptopMode(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstPlatformEventsComp(PlatformEventsComp) from PlatformEventsComp {
 @:forward
 @:nativeGen
 @:native("PlatformEventsComp*")
-abstract PlatformEventsCompPtr(cpp.Star<PlatformEventsComp>) from cpp.Star<PlatformEventsComp> to cpp.Star<PlatformEventsComp>{
+abstract PlatformEventsCompPtr(ucpp.Ptr<PlatformEventsComp>) from ucpp.Ptr<PlatformEventsComp> to ucpp.Ptr<PlatformEventsComp>{
 	@:from
 	public static extern inline function fromValue(v: PlatformEventsComp): PlatformEventsCompPtr {
 		return untyped __cpp__("&({0})", v);

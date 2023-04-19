@@ -3,12 +3,12 @@ package ue;
 
 @:native("UWorldPartitionStreamingSourceComponent")
 @:include("Components/WorldPartitionStreamingSourceComponent.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionStreamingSourceComp extends ActorComp {
 	public var TargetBehavior: EStreamingSourceTargetBehavior;
 	public var TargetGrids: TArray<FName>;
 	public var DebugColor: Color;
-	public var TargetHLODLayers: TArray<cpp.Star<HLODLayer>>;
+	public var TargetHLODLayers: TArray<ucpp.Ptr<HLODLayer>>;
 	public var Shapes: TArray<StreamingSourceShape>;
 	public var Priority: EStreamingSourcePriority;
 	private var bStreamingSourceEnabled: Bool;
@@ -19,7 +19,7 @@ extern class WorldPartitionStreamingSourceComp extends ActorComp {
 	public function EnableStreamingSource(): Void;
 	public function DisableStreamingSource(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsStreamingSourceEnabled, IsStreamingCompleted)
@@ -31,8 +31,8 @@ abstract ConstWorldPartitionStreamingSourceComp(WorldPartitionStreamingSourceCom
 	public inline extern function get_TargetGrids(): TArray<FName> return this.TargetGrids;
 	public extern var DebugColor(get, never): Color;
 	public inline extern function get_DebugColor(): Color return this.DebugColor;
-	public extern var TargetHLODLayers(get, never): TArray<cpp.Star<HLODLayer.ConstHLODLayer>>;
-	public inline extern function get_TargetHLODLayers(): TArray<cpp.Star<HLODLayer.ConstHLODLayer>> return this.TargetHLODLayers;
+	public extern var TargetHLODLayers(get, never): TArray<ucpp.Ptr<HLODLayer.ConstHLODLayer>>;
+	public inline extern function get_TargetHLODLayers(): TArray<ucpp.Ptr<HLODLayer.ConstHLODLayer>> return this.TargetHLODLayers;
 	public extern var Shapes(get, never): TArray<StreamingSourceShape>;
 	public inline extern function get_Shapes(): TArray<StreamingSourceShape> return this.Shapes;
 	public extern var Priority(get, never): EStreamingSourcePriority;
@@ -42,7 +42,7 @@ abstract ConstWorldPartitionStreamingSourceComp(WorldPartitionStreamingSourceCom
 @:forward
 @:nativeGen
 @:native("WorldPartitionStreamingSourceComp*")
-abstract WorldPartitionStreamingSourceCompPtr(cpp.Star<WorldPartitionStreamingSourceComp>) from cpp.Star<WorldPartitionStreamingSourceComp> to cpp.Star<WorldPartitionStreamingSourceComp>{
+abstract WorldPartitionStreamingSourceCompPtr(ucpp.Ptr<WorldPartitionStreamingSourceComp>) from ucpp.Ptr<WorldPartitionStreamingSourceComp> to ucpp.Ptr<WorldPartitionStreamingSourceComp>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionStreamingSourceComp): WorldPartitionStreamingSourceCompPtr {
 		return untyped __cpp__("&({0})", v);

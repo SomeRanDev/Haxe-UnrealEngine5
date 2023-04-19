@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTemplateSequencePropertyScalingEvaluatorSystem")
 @:include("Systems/TemplateSequenceSystem.h")
-@:structAccess
+@:valueType
 extern class TemplateSequencePropertyScalingEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTemplateSequencePropertyScalingEvaluatorSystem(TemplateSequencePro
 @:forward
 @:nativeGen
 @:native("TemplateSequencePropertyScalingEvaluatorSystem*")
-abstract TemplateSequencePropertyScalingEvaluatorSystemPtr(cpp.Star<TemplateSequencePropertyScalingEvaluatorSystem>) from cpp.Star<TemplateSequencePropertyScalingEvaluatorSystem> to cpp.Star<TemplateSequencePropertyScalingEvaluatorSystem>{
+abstract TemplateSequencePropertyScalingEvaluatorSystemPtr(ucpp.Ptr<TemplateSequencePropertyScalingEvaluatorSystem>) from ucpp.Ptr<TemplateSequencePropertyScalingEvaluatorSystem> to ucpp.Ptr<TemplateSequencePropertyScalingEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequencePropertyScalingEvaluatorSystem): TemplateSequencePropertyScalingEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

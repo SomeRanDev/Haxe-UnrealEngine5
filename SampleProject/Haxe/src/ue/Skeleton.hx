@@ -3,37 +3,37 @@ package ue;
 
 @:native("USkeleton")
 @:include("Animation/Skeleton.h")
-@:structAccess
+@:valueType
 extern class Skeleton extends Object {
 	@:protected public var BoneTree: TArray<BoneNode>;
 	@:protected public var VirtualBoneGuid: Guid;
 	@:protected public var VirtualBones: TArray<VirtualBone>;
 	@:protected public var CompatibleSkeletons: TArray<TSoftObjectPtr<Skeleton>>;
-	public var Sockets: TArray<cpp.Star<SkeletalMeshSocket>>;
+	public var Sockets: TArray<ucpp.Ptr<SkeletalMeshSocket>>;
 	@:protected public var SmartNames: SmartNameContainer;
-	public var BlendProfiles: TArray<cpp.Star<BlendProfile>>;
+	public var BlendProfiles: TArray<ucpp.Ptr<BlendProfile>>;
 	private var SlotGroups: TArray<AnimSlotGroup>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 
-	public function GetBlendProfile(InProfileName: cpp.Reference<FName>): cpp.Star<BlendProfile>;
-	public function AddCompatibleSkeleton(SourceSkeleton: cpp.Star<Skeleton.ConstSkeleton>): Void;
+	public function GetBlendProfile(InProfileName: ucpp.Ref<FName>): ucpp.Ptr<BlendProfile>;
+	public function AddCompatibleSkeleton(SourceSkeleton: ucpp.Ptr<Skeleton.ConstSkeleton>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSkeleton(Skeleton) from Skeleton {
-	public extern var Sockets(get, never): TArray<cpp.Star<SkeletalMeshSocket.ConstSkeletalMeshSocket>>;
-	public inline extern function get_Sockets(): TArray<cpp.Star<SkeletalMeshSocket.ConstSkeletalMeshSocket>> return this.Sockets;
-	public extern var BlendProfiles(get, never): TArray<cpp.Star<BlendProfile.ConstBlendProfile>>;
-	public inline extern function get_BlendProfiles(): TArray<cpp.Star<BlendProfile.ConstBlendProfile>> return this.BlendProfiles;
+	public extern var Sockets(get, never): TArray<ucpp.Ptr<SkeletalMeshSocket.ConstSkeletalMeshSocket>>;
+	public inline extern function get_Sockets(): TArray<ucpp.Ptr<SkeletalMeshSocket.ConstSkeletalMeshSocket>> return this.Sockets;
+	public extern var BlendProfiles(get, never): TArray<ucpp.Ptr<BlendProfile.ConstBlendProfile>>;
+	public inline extern function get_BlendProfiles(): TArray<ucpp.Ptr<BlendProfile.ConstBlendProfile>> return this.BlendProfiles;
 }
 
 @:forward
 @:nativeGen
 @:native("Skeleton*")
-abstract SkeletonPtr(cpp.Star<Skeleton>) from cpp.Star<Skeleton> to cpp.Star<Skeleton>{
+abstract SkeletonPtr(ucpp.Ptr<Skeleton>) from ucpp.Ptr<Skeleton> to ucpp.Ptr<Skeleton>{
 	@:from
 	public static extern inline function fromValue(v: Skeleton): SkeletonPtr {
 		return untyped __cpp__("&({0})", v);

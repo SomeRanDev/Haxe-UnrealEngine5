@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionSceneTexelSize")
 @:include("Materials/MaterialExpressionSceneTexelSize.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSceneTexelSize extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionSceneTexelSize(MaterialExpressionSceneTexelSize)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSceneTexelSize*")
-abstract MaterialExpressionSceneTexelSizePtr(cpp.Star<MaterialExpressionSceneTexelSize>) from cpp.Star<MaterialExpressionSceneTexelSize> to cpp.Star<MaterialExpressionSceneTexelSize>{
+abstract MaterialExpressionSceneTexelSizePtr(ucpp.Ptr<MaterialExpressionSceneTexelSize>) from ucpp.Ptr<MaterialExpressionSceneTexelSize> to ucpp.Ptr<MaterialExpressionSceneTexelSize>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSceneTexelSize): MaterialExpressionSceneTexelSizePtr {
 		return untyped __cpp__("&({0})", v);

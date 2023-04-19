@@ -3,28 +3,28 @@ package ue;
 
 @:native("UTakeRecorderPanel")
 @:include("Recorder/TakeRecorderPanel.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderPanel extends Object {
 	public function StopRecording(): Void;
 	public function StartRecording(): Void;
-	public function SetupForViewing(LevelSequenceAsset: cpp.Star<LevelSequence>): Void;
-	public function SetupForRecordingInto_LevelSequence(LevelSequenceAsset: cpp.Star<LevelSequence>): Void;
-	public function SetupForRecording_TakePreset(TakePresetAsset: cpp.Star<TakePreset>): Void;
-	public function SetupForRecording_LevelSequence(LevelSequenceAsset: cpp.Star<LevelSequence>): Void;
-	public function SetupForEditing(TakePreset: cpp.Star<TakePreset>): Void;
+	public function SetupForViewing(LevelSequenceAsset: ucpp.Ptr<LevelSequence>): Void;
+	public function SetupForRecordingInto_LevelSequence(LevelSequenceAsset: ucpp.Ptr<LevelSequence>): Void;
+	public function SetupForRecording_TakePreset(TakePresetAsset: ucpp.Ptr<TakePreset>): Void;
+	public function SetupForRecording_LevelSequence(LevelSequenceAsset: ucpp.Ptr<LevelSequence>): Void;
+	public function SetupForEditing(TakePreset: ucpp.Ptr<TakePreset>): Void;
 	public function SetFrameRateFromTimecode(bInFromTimecode: Bool): Void;
 	public function SetFrameRate(InFrameRate: FrameRate): Void;
 	public function NewTake(): Void;
-	public function GetTakeMetaData(): cpp.Star<TakeMetaData>;
-	public function GetSources(): cpp.Star<TakeRecorderSources>;
+	public function GetTakeMetaData(): ucpp.Ptr<TakeMetaData>;
+	public function GetSources(): ucpp.Ptr<TakeRecorderSources>;
 	public function GetMode(): ETakeRecorderPanelMode;
-	public function GetLevelSequence(): cpp.Star<LevelSequence>;
-	public function GetLastRecordedLevelSequence(): cpp.Star<LevelSequence>;
+	public function GetLevelSequence(): ucpp.Ptr<LevelSequence>;
+	public function GetLastRecordedLevelSequence(): ucpp.Ptr<LevelSequence>;
 	public function GetFrameRate(): FrameRate;
 	public function ClearPendingTake(): Void;
-	public function CanStartRecording(OutErrorText: cpp.Reference<FText>): Bool;
+	public function CanStartRecording(OutErrorText: ucpp.Ref<FText>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(StopRecording, StartRecording, GetTakeMetaData, GetSources, GetMode, GetLevelSequence, GetLastRecordedLevelSequence, GetFrameRate, CanStartRecording)
@@ -35,7 +35,7 @@ abstract ConstTakeRecorderPanel(TakeRecorderPanel) from TakeRecorderPanel {
 @:forward
 @:nativeGen
 @:native("TakeRecorderPanel*")
-abstract TakeRecorderPanelPtr(cpp.Star<TakeRecorderPanel>) from cpp.Star<TakeRecorderPanel> to cpp.Star<TakeRecorderPanel>{
+abstract TakeRecorderPanelPtr(ucpp.Ptr<TakeRecorderPanel>) from ucpp.Ptr<TakeRecorderPanel> to ucpp.Ptr<TakeRecorderPanel>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderPanel): TakeRecorderPanelPtr {
 		return untyped __cpp__("&({0})", v);

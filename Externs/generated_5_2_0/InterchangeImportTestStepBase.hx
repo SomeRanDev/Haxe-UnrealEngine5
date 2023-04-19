@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeImportTestStepBase")
 @:include("InterchangeImportTestStepBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeImportTestStepBase extends Object {
 	public var Tests: TArray<InterchangeTestFunction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInterchangeImportTestStepBase(InterchangeImportTestStepBase) from 
 @:forward
 @:nativeGen
 @:native("InterchangeImportTestStepBase*")
-abstract InterchangeImportTestStepBasePtr(cpp.Star<InterchangeImportTestStepBase>) from cpp.Star<InterchangeImportTestStepBase> to cpp.Star<InterchangeImportTestStepBase>{
+abstract InterchangeImportTestStepBasePtr(ucpp.Ptr<InterchangeImportTestStepBase>) from ucpp.Ptr<InterchangeImportTestStepBase> to ucpp.Ptr<InterchangeImportTestStepBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeImportTestStepBase): InterchangeImportTestStepBasePtr {
 		return untyped __cpp__("&({0})", v);

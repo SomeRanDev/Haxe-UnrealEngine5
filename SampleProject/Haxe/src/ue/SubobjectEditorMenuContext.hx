@@ -3,11 +3,11 @@ package ue;
 
 @:native("USubobjectEditorMenuContext")
 @:include("SubobjectEditorMenuContext.h")
-@:structAccess
+@:valueType
 extern class SubobjectEditorMenuContext extends Object {
-	public function GetSelectedObjects(): TArray<cpp.Star<Object>>;
+	public function GetSelectedObjects(): TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSelectedObjects)
@@ -18,7 +18,7 @@ abstract ConstSubobjectEditorMenuContext(SubobjectEditorMenuContext) from Subobj
 @:forward
 @:nativeGen
 @:native("SubobjectEditorMenuContext*")
-abstract SubobjectEditorMenuContextPtr(cpp.Star<SubobjectEditorMenuContext>) from cpp.Star<SubobjectEditorMenuContext> to cpp.Star<SubobjectEditorMenuContext>{
+abstract SubobjectEditorMenuContextPtr(ucpp.Ptr<SubobjectEditorMenuContext>) from ucpp.Ptr<SubobjectEditorMenuContext> to ucpp.Ptr<SubobjectEditorMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: SubobjectEditorMenuContext): SubobjectEditorMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

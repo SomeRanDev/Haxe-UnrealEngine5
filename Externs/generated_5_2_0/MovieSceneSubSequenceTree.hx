@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSubSequenceTree")
 @:include("Evaluation/MovieSceneSequenceHierarchy.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSubSequenceTree {
 	@:native("FMovieSceneSubSequenceTree") public function new();
 }

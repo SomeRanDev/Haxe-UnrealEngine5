@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSoundClassAdjuster")
 @:include("Sound/SoundMix.h")
-@:structAccess
+@:valueType
 extern class SoundClassAdjuster {
-	public var SoundClassObject: cpp.Star<SoundClass>;
-	public var VolumeAdjuster: cpp.Float32;
-	public var PitchAdjuster: cpp.Float32;
-	public var LowPassFilterFrequency: cpp.Float32;
+	public var SoundClassObject: ucpp.Ptr<SoundClass>;
+	public var VolumeAdjuster: ucpp.num.Float32;
+	public var PitchAdjuster: ucpp.num.Float32;
+	public var LowPassFilterFrequency: ucpp.num.Float32;
 	public var bApplyToChildren: Bool;
-	public var VoiceCenterChannelVolumeAdjuster: cpp.Float32;
+	public var VoiceCenterChannelVolumeAdjuster: ucpp.num.Float32;
 
 	@:native("FSoundClassAdjuster") public function new();
 }

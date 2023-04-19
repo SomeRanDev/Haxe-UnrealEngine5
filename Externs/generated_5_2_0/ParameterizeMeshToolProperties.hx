@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParameterizeMeshToolProperties")
 @:include("Properties/ParameterizeMeshProperties.h")
-@:structAccess
+@:valueType
 extern class ParameterizeMeshToolProperties extends InteractiveToolPropertySet {
 	public var Method: EParameterizeMeshUVMethod;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParameterizeMeshToolProperties(ParameterizeMeshToolProperties) fro
 @:forward
 @:nativeGen
 @:native("ParameterizeMeshToolProperties*")
-abstract ParameterizeMeshToolPropertiesPtr(cpp.Star<ParameterizeMeshToolProperties>) from cpp.Star<ParameterizeMeshToolProperties> to cpp.Star<ParameterizeMeshToolProperties>{
+abstract ParameterizeMeshToolPropertiesPtr(ucpp.Ptr<ParameterizeMeshToolProperties>) from ucpp.Ptr<ParameterizeMeshToolProperties> to ucpp.Ptr<ParameterizeMeshToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ParameterizeMeshToolProperties): ParameterizeMeshToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

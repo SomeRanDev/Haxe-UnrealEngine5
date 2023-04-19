@@ -3,14 +3,14 @@ package ue;
 
 @:native("USkeletalControlLibrary")
 @:include("SkeletalControlLibrary.h")
-@:structAccess
+@:valueType
 extern class SkeletalControlLibrary extends BlueprintFunctionLibrary {
-	public function SetAlpha(SkeletalControl: cpp.Reference<SkeletalControlReference>, Alpha: cpp.Float32): SkeletalControlReference;
-	public function GetAlpha(SkeletalControl: cpp.Reference<SkeletalControlReference>): cpp.Float32;
-	public function ConvertToSkeletalControlPure(Node: cpp.Reference<AnimNodeReference>, SkeletalControl: cpp.Reference<SkeletalControlReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToSkeletalControl(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): SkeletalControlReference;
+	public function SetAlpha(SkeletalControl: ucpp.Ref<SkeletalControlReference>, Alpha: ucpp.num.Float32): SkeletalControlReference;
+	public function GetAlpha(SkeletalControl: ucpp.Ref<SkeletalControlReference>): ucpp.num.Float32;
+	public function ConvertToSkeletalControlPure(Node: ucpp.Ref<AnimNodeReference>, SkeletalControl: ucpp.Ref<SkeletalControlReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToSkeletalControl(Node: ucpp.Ref<AnimNodeReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): SkeletalControlReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstSkeletalControlLibrary(SkeletalControlLibrary) from SkeletalContro
 @:forward
 @:nativeGen
 @:native("SkeletalControlLibrary*")
-abstract SkeletalControlLibraryPtr(cpp.Star<SkeletalControlLibrary>) from cpp.Star<SkeletalControlLibrary> to cpp.Star<SkeletalControlLibrary>{
+abstract SkeletalControlLibraryPtr(ucpp.Ptr<SkeletalControlLibrary>) from ucpp.Ptr<SkeletalControlLibrary> to ucpp.Ptr<SkeletalControlLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalControlLibrary): SkeletalControlLibraryPtr {
 		return untyped __cpp__("&({0})", v);

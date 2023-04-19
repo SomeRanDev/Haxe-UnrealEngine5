@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshWeightPaintingTool")
 @:include("MeshVertexPaintingTool.h")
-@:structAccess
+@:valueType
 extern class MeshWeightPaintingTool extends MeshVertexPaintingTool {
-	private var WeightProperties: cpp.Star<MeshWeightPaintingToolProperties>;
+	private var WeightProperties: ucpp.Ptr<MeshWeightPaintingToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMeshWeightPaintingTool(MeshWeightPaintingTool) from MeshWeightPain
 @:forward
 @:nativeGen
 @:native("MeshWeightPaintingTool*")
-abstract MeshWeightPaintingToolPtr(cpp.Star<MeshWeightPaintingTool>) from cpp.Star<MeshWeightPaintingTool> to cpp.Star<MeshWeightPaintingTool>{
+abstract MeshWeightPaintingToolPtr(ucpp.Ptr<MeshWeightPaintingTool>) from ucpp.Ptr<MeshWeightPaintingTool> to ucpp.Ptr<MeshWeightPaintingTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshWeightPaintingTool): MeshWeightPaintingToolPtr {
 		return untyped __cpp__("&({0})", v);

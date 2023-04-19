@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPlateCropSettings")
 @:include("CineCameraSettings.h")
-@:structAccess
+@:valueType
 extern class PlateCropSettings {
-	public var AspectRatio: cpp.Float32;
+	public var AspectRatio: ucpp.num.Float32;
 
 	@:native("FPlateCropSettings") public function new();
-	@:native("FPlateCropSettings") public static function make(AspectRatio: cpp.Float32): PlateCropSettings ;
+	@:native("FPlateCropSettings") public static function make(AspectRatio: ucpp.num.Float32): PlateCropSettings ;
 }

@@ -3,11 +3,12 @@ package ue;
 
 @:native("FLevelSequenceBindingReferences")
 @:include("LevelSequenceBindingReference.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceBindingReferences {
 	private var BindingIdToReferences: TMap<Guid, LevelSequenceBindingReferenceArray>;
 	private var AnimSequenceInstances: TSet<Guid>;
+	private var PostProcessInstances: TSet<Guid>;
 
 	@:native("FLevelSequenceBindingReferences") public function new();
-	@:native("FLevelSequenceBindingReferences") public static function make(BindingIdToReferences: TMap<Guid, LevelSequenceBindingReferenceArray>, AnimSequenceInstances: TSet<Guid>): LevelSequenceBindingReferences ;
+	@:native("FLevelSequenceBindingReferences") public static function make(BindingIdToReferences: TMap<Guid, LevelSequenceBindingReferenceArray>, AnimSequenceInstances: TSet<Guid>, PostProcessInstances: TSet<Guid>): LevelSequenceBindingReferences ;
 }

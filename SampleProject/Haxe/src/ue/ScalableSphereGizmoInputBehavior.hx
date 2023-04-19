@@ -3,10 +3,10 @@ package ue;
 
 @:native("UScalableSphereGizmoInputBehavior")
 @:include("BaseGizmos/ScalableSphereGizmo.h")
-@:structAccess
+@:valueType
 extern class ScalableSphereGizmoInputBehavior extends AnyButtonInputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstScalableSphereGizmoInputBehavior(ScalableSphereGizmoInputBehavior)
 @:forward
 @:nativeGen
 @:native("ScalableSphereGizmoInputBehavior*")
-abstract ScalableSphereGizmoInputBehaviorPtr(cpp.Star<ScalableSphereGizmoInputBehavior>) from cpp.Star<ScalableSphereGizmoInputBehavior> to cpp.Star<ScalableSphereGizmoInputBehavior>{
+abstract ScalableSphereGizmoInputBehaviorPtr(ucpp.Ptr<ScalableSphereGizmoInputBehavior>) from ucpp.Ptr<ScalableSphereGizmoInputBehavior> to ucpp.Ptr<ScalableSphereGizmoInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: ScalableSphereGizmoInputBehavior): ScalableSphereGizmoInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBTDecorator_DoesPathExist")
 @:include("BehaviorTree/Decorators/BTDecorator_DoesPathExist.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_DoesPathExist extends BTDecorator {
 	@:protected public var BlackboardKeyA: BlackboardKeySelector;
 	@:protected public var BlackboardKeyB: BlackboardKeySelector;
@@ -11,7 +11,7 @@ extern class BTDecorator_DoesPathExist extends BTDecorator {
 	public var PathQueryType: TEnumAsByte<EPathExistanceQueryType>;
 	public var FilterClass: TSubclassOf<NavigationQueryFilter>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstBTDecorator_DoesPathExist(BTDecorator_DoesPathExist) from BTDecora
 @:forward
 @:nativeGen
 @:native("BTDecorator_DoesPathExist*")
-abstract BTDecorator_DoesPathExistPtr(cpp.Star<BTDecorator_DoesPathExist>) from cpp.Star<BTDecorator_DoesPathExist> to cpp.Star<BTDecorator_DoesPathExist>{
+abstract BTDecorator_DoesPathExistPtr(ucpp.Ptr<BTDecorator_DoesPathExist>) from ucpp.Ptr<BTDecorator_DoesPathExist> to ucpp.Ptr<BTDecorator_DoesPathExist>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_DoesPathExist): BTDecorator_DoesPathExistPtr {
 		return untyped __cpp__("&({0})", v);

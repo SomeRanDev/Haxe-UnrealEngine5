@@ -3,24 +3,24 @@ package ue;
 
 @:native("UEnvQueryNode")
 @:include("EnvironmentQuery/EnvQueryNode.h")
-@:structAccess
+@:valueType
 extern class EnvQueryNode extends Object {
-	public var VerNum: cpp.Int32;
+	public var VerNum: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryNode(EnvQueryNode) from EnvQueryNode {
-	public extern var VerNum(get, never): cpp.Int32;
-	public inline extern function get_VerNum(): cpp.Int32 return this.VerNum;
+	public extern var VerNum(get, never): ucpp.num.Int32;
+	public inline extern function get_VerNum(): ucpp.num.Int32 return this.VerNum;
 }
 
 @:forward
 @:nativeGen
 @:native("EnvQueryNode*")
-abstract EnvQueryNodePtr(cpp.Star<EnvQueryNode>) from cpp.Star<EnvQueryNode> to cpp.Star<EnvQueryNode>{
+abstract EnvQueryNodePtr(ucpp.Ptr<EnvQueryNode>) from ucpp.Ptr<EnvQueryNode> to ucpp.Ptr<EnvQueryNode>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryNode): EnvQueryNodePtr {
 		return untyped __cpp__("&({0})", v);

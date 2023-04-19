@@ -3,10 +3,10 @@ package ue;
 
 @:native("FVRButton")
 @:include("UI/VREditorUISystem.h")
-@:structAccess
+@:valueType
 extern class VRButton {
-	public var ButtonWidget: cpp.Star<VREditorWidgetComp>;
+	public var ButtonWidget: ucpp.Ptr<VREditorWidgetComp>;
 
 	@:native("FVRButton") public function new();
-	@:native("FVRButton") public static function make(ButtonWidget: cpp.Star<VREditorWidgetComp>): VRButton ;
+	@:native("FVRButton") public static function make(ButtonWidget: ucpp.Ptr<VREditorWidgetComp>): VRButton ;
 }

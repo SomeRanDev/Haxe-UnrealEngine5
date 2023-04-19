@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraParameterDataSetBinding")
 @:include("NiagaraSystem.h")
-@:structAccess
+@:valueType
 extern class NiagaraParameterDataSetBinding {
-	public var ParameterOffset: cpp.Int32;
-	public var DataSetComponentOffset: cpp.Int32;
+	public var ParameterOffset: ucpp.num.Int32;
+	public var DataSetComponentOffset: ucpp.num.Int32;
 
 	@:native("FNiagaraParameterDataSetBinding") public function new();
-	@:native("FNiagaraParameterDataSetBinding") public static function make(ParameterOffset: cpp.Int32, DataSetComponentOffset: cpp.Int32): NiagaraParameterDataSetBinding ;
+	@:native("FNiagaraParameterDataSetBinding") public static function make(ParameterOffset: ucpp.num.Int32, DataSetComponentOffset: ucpp.num.Int32): NiagaraParameterDataSetBinding ;
 }

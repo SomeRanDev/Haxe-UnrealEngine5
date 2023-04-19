@@ -3,14 +3,14 @@ package ue;
 
 @:native("URigVMUserWorkflowRegistry")
 @:include("RigVMUserWorkflowRegistry.h")
-@:structAccess
+@:valueType
 extern class RigVMUserWorkflowRegistry extends Object {
-	public function UnregisterProvider(InHandle: cpp.Int32): Void;
-	public function RegisterProvider(InStruct: cpp.Star<ScriptStruct.ConstScriptStruct>, InProvider: HaxeDelegateProperty<(cpp.Star<Object.ConstObject>) -> Void>): cpp.Int32;
-	public function GetWorkflows(InType: ERigVMUserWorkflowType, InStruct: cpp.Star<ScriptStruct.ConstScriptStruct>, InSubject: cpp.Star<Object.ConstObject>): TArray<RigVMUserWorkflow>;
-	public function Get(): cpp.Star<RigVMUserWorkflowRegistry>;
+	public function UnregisterProvider(InHandle: ucpp.num.Int32): Void;
+	public function RegisterProvider(InStruct: ucpp.Ptr<ScriptStruct.ConstScriptStruct>, InProvider: HaxeDelegateProperty<(ucpp.Ptr<Object.ConstObject>) -> Void>): ucpp.num.Int32;
+	public function GetWorkflows(InType: ERigVMUserWorkflowType, InStruct: ucpp.Ptr<ScriptStruct.ConstScriptStruct>, InSubject: ucpp.Ptr<Object.ConstObject>): TArray<RigVMUserWorkflow>;
+	public function Get(): ucpp.Ptr<RigVMUserWorkflowRegistry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetWorkflows)
@@ -21,7 +21,7 @@ abstract ConstRigVMUserWorkflowRegistry(RigVMUserWorkflowRegistry) from RigVMUse
 @:forward
 @:nativeGen
 @:native("RigVMUserWorkflowRegistry*")
-abstract RigVMUserWorkflowRegistryPtr(cpp.Star<RigVMUserWorkflowRegistry>) from cpp.Star<RigVMUserWorkflowRegistry> to cpp.Star<RigVMUserWorkflowRegistry>{
+abstract RigVMUserWorkflowRegistryPtr(ucpp.Ptr<RigVMUserWorkflowRegistry>) from ucpp.Ptr<RigVMUserWorkflowRegistry> to ucpp.Ptr<RigVMUserWorkflowRegistry>{
 	@:from
 	public static extern inline function fromValue(v: RigVMUserWorkflowRegistry): RigVMUserWorkflowRegistryPtr {
 		return untyped __cpp__("&({0})", v);

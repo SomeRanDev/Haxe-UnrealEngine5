@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMGraphFunctionIdentifier")
 @:include("RigVMCore/RigVMGraphFunctionDefinition.h")
-@:structAccess
+@:valueType
 extern class RigVMGraphFunctionIdentifier {
 	public var LibraryNode: SoftObjectPath;
 	public var HostObject: SoftObjectPath;

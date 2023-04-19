@@ -3,9 +3,9 @@ package ue;
 
 @:native("UCubeGridToolActions")
 @:include("CubeGridTool.h")
-@:structAccess
+@:valueType
 extern class CubeGridToolActions extends InteractiveToolPropertySet {
-	public var GridSourceActor: cpp.Star<Actor>;
+	public var GridSourceActor: ucpp.Ptr<Actor>;
 
 	public function SlideForward(): Void;
 	public function SlideBack(): Void;
@@ -15,20 +15,20 @@ extern class CubeGridToolActions extends InteractiveToolPropertySet {
 	public function Flip(): Void;
 	public function CornerMode(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCubeGridToolActions(CubeGridToolActions) from CubeGridToolActions {
-	public extern var GridSourceActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_GridSourceActor(): cpp.Star<Actor.ConstActor> return this.GridSourceActor;
+	public extern var GridSourceActor(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_GridSourceActor(): ucpp.Ptr<Actor.ConstActor> return this.GridSourceActor;
 }
 
 @:forward
 @:nativeGen
 @:native("CubeGridToolActions*")
-abstract CubeGridToolActionsPtr(cpp.Star<CubeGridToolActions>) from cpp.Star<CubeGridToolActions> to cpp.Star<CubeGridToolActions>{
+abstract CubeGridToolActionsPtr(ucpp.Ptr<CubeGridToolActions>) from ucpp.Ptr<CubeGridToolActions> to ucpp.Ptr<CubeGridToolActions>{
 	@:from
 	public static extern inline function fromValue(v: CubeGridToolActions): CubeGridToolActionsPtr {
 		return untyped __cpp__("&({0})", v);

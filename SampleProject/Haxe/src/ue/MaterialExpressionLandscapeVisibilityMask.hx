@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeVisibilityMask")
 @:include("Materials/MaterialExpressionLandscapeVisibilityMask.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLandscapeVisibilityMask extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionLandscapeVisibilityMask(MaterialExpressionLandsc
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLandscapeVisibilityMask*")
-abstract MaterialExpressionLandscapeVisibilityMaskPtr(cpp.Star<MaterialExpressionLandscapeVisibilityMask>) from cpp.Star<MaterialExpressionLandscapeVisibilityMask> to cpp.Star<MaterialExpressionLandscapeVisibilityMask>{
+abstract MaterialExpressionLandscapeVisibilityMaskPtr(ucpp.Ptr<MaterialExpressionLandscapeVisibilityMask>) from ucpp.Ptr<MaterialExpressionLandscapeVisibilityMask> to ucpp.Ptr<MaterialExpressionLandscapeVisibilityMask>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLandscapeVisibilityMask): MaterialExpressionLandscapeVisibilityMaskPtr {
 		return untyped __cpp__("&({0})", v);

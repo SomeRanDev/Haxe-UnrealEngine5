@@ -3,7 +3,7 @@ package ue;
 
 @:native("FUserActivity")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class UserActivity {
 	public var ActionName: FString;
 

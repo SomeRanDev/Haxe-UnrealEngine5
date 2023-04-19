@@ -3,22 +3,22 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAsyncGpuTrace")
 @:include("NiagaraDataInterfaceAsyncGpuTrace.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceAsyncGpuTrace extends NiagaraDataInterface {
-	public var MaxTracesPerParticle: cpp.Int32;
-	public var MaxRetraces: cpp.Int32;
+	public var MaxTracesPerParticle: ucpp.num.Int32;
+	public var MaxRetraces: ucpp.num.Int32;
 	public var TraceProvider: TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceAsyncGpuTrace(NiagaraDataInterfaceAsyncGpuTrace) from NiagaraDataInterfaceAsyncGpuTrace {
-	public extern var MaxTracesPerParticle(get, never): cpp.Int32;
-	public inline extern function get_MaxTracesPerParticle(): cpp.Int32 return this.MaxTracesPerParticle;
-	public extern var MaxRetraces(get, never): cpp.Int32;
-	public inline extern function get_MaxRetraces(): cpp.Int32 return this.MaxRetraces;
+	public extern var MaxTracesPerParticle(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTracesPerParticle(): ucpp.num.Int32 return this.MaxTracesPerParticle;
+	public extern var MaxRetraces(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxRetraces(): ucpp.num.Int32 return this.MaxRetraces;
 	public extern var TraceProvider(get, never): TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider>;
 	public inline extern function get_TraceProvider(): TEnumAsByte<ENDICollisionQuery_AsyncGpuTraceProvider> return this.TraceProvider;
 }
@@ -26,7 +26,7 @@ abstract ConstNiagaraDataInterfaceAsyncGpuTrace(NiagaraDataInterfaceAsyncGpuTrac
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceAsyncGpuTrace*")
-abstract NiagaraDataInterfaceAsyncGpuTracePtr(cpp.Star<NiagaraDataInterfaceAsyncGpuTrace>) from cpp.Star<NiagaraDataInterfaceAsyncGpuTrace> to cpp.Star<NiagaraDataInterfaceAsyncGpuTrace>{
+abstract NiagaraDataInterfaceAsyncGpuTracePtr(ucpp.Ptr<NiagaraDataInterfaceAsyncGpuTrace>) from ucpp.Ptr<NiagaraDataInterfaceAsyncGpuTrace> to ucpp.Ptr<NiagaraDataInterfaceAsyncGpuTrace>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceAsyncGpuTrace): NiagaraDataInterfaceAsyncGpuTracePtr {
 		return untyped __cpp__("&({0})", v);

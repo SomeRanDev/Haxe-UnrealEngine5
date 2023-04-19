@@ -3,21 +3,21 @@ package ue;
 
 @:native("UPaperGroupedSpriteComponent")
 @:include("PaperGroupedSpriteComponent.h")
-@:structAccess
+@:valueType
 extern class PaperGroupedSpriteComp extends MeshComp {
-	@:protected public var InstanceMaterials: TArray<cpp.Star<MaterialInterface>>;
+	@:protected public var InstanceMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 	@:protected public var PerInstanceSpriteData: TArray<SpriteInstanceData>;
 
-	public function UpdateInstanceTransform(InstanceIndex: cpp.Int32, NewInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
-	public function UpdateInstanceColor(InstanceIndex: cpp.Int32, NewInstanceColor: LinearColor, bMarkRenderStateDirty: Bool): Bool;
+	public function UpdateInstanceTransform(InstanceIndex: ucpp.num.Int32, NewInstanceTransform: ucpp.Ref<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function UpdateInstanceColor(InstanceIndex: ucpp.num.Int32, NewInstanceColor: LinearColor, bMarkRenderStateDirty: Bool): Bool;
 	public function SortInstancesAlongAxis(WorldSpaceSortAxis: Vector): Void;
-	public function RemoveInstance(InstanceIndex: cpp.Int32): Bool;
-	public function GetInstanceTransform(InstanceIndex: cpp.Int32, OutInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): Bool;
-	public function GetInstanceCount(): cpp.Int32;
+	public function RemoveInstance(InstanceIndex: ucpp.num.Int32): Bool;
+	public function GetInstanceTransform(InstanceIndex: ucpp.num.Int32, OutInstanceTransform: ucpp.Ref<Transform>, bWorldSpace: Bool): Bool;
+	public function GetInstanceCount(): ucpp.num.Int32;
 	public function ClearInstances(): Void;
-	public function AddInstance(Transform: cpp.Reference<Transform>, Sprite: cpp.Star<PaperSprite>, bWorldSpace: Bool, Color: LinearColor): cpp.Int32;
+	public function AddInstance(Transform: ucpp.Ref<Transform>, Sprite: ucpp.Ptr<PaperSprite>, bWorldSpace: Bool, Color: LinearColor): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetInstanceTransform, GetInstanceCount)
@@ -28,7 +28,7 @@ abstract ConstPaperGroupedSpriteComp(PaperGroupedSpriteComp) from PaperGroupedSp
 @:forward
 @:nativeGen
 @:native("PaperGroupedSpriteComp*")
-abstract PaperGroupedSpriteCompPtr(cpp.Star<PaperGroupedSpriteComp>) from cpp.Star<PaperGroupedSpriteComp> to cpp.Star<PaperGroupedSpriteComp>{
+abstract PaperGroupedSpriteCompPtr(ucpp.Ptr<PaperGroupedSpriteComp>) from ucpp.Ptr<PaperGroupedSpriteComp> to ucpp.Ptr<PaperGroupedSpriteComp>{
 	@:from
 	public static extern inline function fromValue(v: PaperGroupedSpriteComp): PaperGroupedSpriteCompPtr {
 		return untyped __cpp__("&({0})", v);

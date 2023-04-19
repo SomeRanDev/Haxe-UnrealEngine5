@@ -3,12 +3,12 @@ package ue;
 
 @:native("UParticleModuleSizeScaleBySpeed")
 @:include("Particles/Size/ParticleModuleSizeScaleBySpeed.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleSizeScaleBySpeed extends ParticleModuleSizeBase {
 	public var SpeedScale: Vector2D;
 	public var MaxScale: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstParticleModuleSizeScaleBySpeed(ParticleModuleSizeScaleBySpeed) fro
 @:forward
 @:nativeGen
 @:native("ParticleModuleSizeScaleBySpeed*")
-abstract ParticleModuleSizeScaleBySpeedPtr(cpp.Star<ParticleModuleSizeScaleBySpeed>) from cpp.Star<ParticleModuleSizeScaleBySpeed> to cpp.Star<ParticleModuleSizeScaleBySpeed>{
+abstract ParticleModuleSizeScaleBySpeedPtr(ucpp.Ptr<ParticleModuleSizeScaleBySpeed>) from ucpp.Ptr<ParticleModuleSizeScaleBySpeed> to ucpp.Ptr<ParticleModuleSizeScaleBySpeed>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleSizeScaleBySpeed): ParticleModuleSizeScaleBySpeedPtr {
 		return untyped __cpp__("&({0})", v);

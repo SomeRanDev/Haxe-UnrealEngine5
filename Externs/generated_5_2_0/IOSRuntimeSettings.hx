@@ -3,7 +3,7 @@ package ue;
 
 @:native("UIOSRuntimeSettings")
 @:include("IOSRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class IOSRuntimeSettings extends Object {
 	public var bEnableGameCenterSupport: Bool;
 	public var bEnableCloudKitSupport: Bool;
@@ -62,38 +62,38 @@ extern class IOSRuntimeSettings extends Object {
 	public var DevCenterUsername: FString;
 	public var DevCenterPassword: FString;
 	public var bDisableHTTPS: Bool;
-	public var MetalLanguageVersion: cpp.UInt8;
+	public var MetalLanguageVersion: ucpp.num.UInt8;
 	public var UseFastIntrinsics: Bool;
 	public var ForceFloats: Bool;
 	public var EnableMathOptimisations: Bool;
-	public var IndirectArgumentTier: cpp.Int32;
+	public var IndirectArgumentTier: ucpp.num.Int32;
 	public var bSupportAppleA8: Bool;
 	public var bUseIntegratedKeyboard: Bool;
-	public var AudioSampleRate: cpp.Int32;
-	public var AudioCallbackBufferFrameSize: cpp.Int32;
-	public var AudioNumBuffersToEnqueue: cpp.Int32;
-	public var AudioMaxChannels: cpp.Int32;
-	public var AudioNumSourceWorkers: cpp.Int32;
+	public var AudioSampleRate: ucpp.num.Int32;
+	public var AudioCallbackBufferFrameSize: ucpp.num.Int32;
+	public var AudioNumBuffersToEnqueue: ucpp.num.Int32;
+	public var AudioMaxChannels: ucpp.num.Int32;
+	public var AudioNumSourceWorkers: ucpp.num.Int32;
 	public var SpatializationPlugin: FString;
 	public var SourceDataOverridePlugin: FString;
 	public var ReverbPlugin: FString;
 	public var OcclusionPlugin: FString;
 	public var CompressionOverrides: PlatformRuntimeAudioCompressionOverrides;
 	public var bSupportsBackgroundAudio: Bool;
-	public var CacheSizeKB: cpp.Int32;
-	public var MaxChunkSizeOverrideKB: cpp.Int32;
+	public var CacheSizeKB: ucpp.num.Int32;
+	public var MaxChunkSizeOverrideKB: ucpp.num.Int32;
 	public var bResampleForDevice: Bool;
-	public var SoundCueCookQualityIndex: cpp.Int32;
-	public var MaxSampleRate: cpp.Float32;
-	public var HighSampleRate: cpp.Float32;
-	public var MedSampleRate: cpp.Float32;
-	public var LowSampleRate: cpp.Float32;
-	public var MinSampleRate: cpp.Float32;
-	public var CompressionQualityModifier: cpp.Float32;
-	public var AutoStreamingThreshold: cpp.Float32;
+	public var SoundCueCookQualityIndex: ucpp.num.Int32;
+	public var MaxSampleRate: ucpp.num.Float32;
+	public var HighSampleRate: ucpp.num.Float32;
+	public var MedSampleRate: ucpp.num.Float32;
+	public var LowSampleRate: ucpp.num.Float32;
+	public var MinSampleRate: ucpp.num.Float32;
+	public var CompressionQualityModifier: ucpp.num.Float32;
+	public var AutoStreamingThreshold: ucpp.num.Float32;
 	public var bStreamLandscapeMeshLODs: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -213,30 +213,30 @@ abstract ConstIOSRuntimeSettings(IOSRuntimeSettings) from IOSRuntimeSettings {
 	public inline extern function get_DevCenterPassword(): FString return this.DevCenterPassword;
 	public extern var bDisableHTTPS(get, never): Bool;
 	public inline extern function get_bDisableHTTPS(): Bool return this.bDisableHTTPS;
-	public extern var MetalLanguageVersion(get, never): cpp.UInt8;
-	public inline extern function get_MetalLanguageVersion(): cpp.UInt8 return this.MetalLanguageVersion;
+	public extern var MetalLanguageVersion(get, never): ucpp.num.UInt8;
+	public inline extern function get_MetalLanguageVersion(): ucpp.num.UInt8 return this.MetalLanguageVersion;
 	public extern var UseFastIntrinsics(get, never): Bool;
 	public inline extern function get_UseFastIntrinsics(): Bool return this.UseFastIntrinsics;
 	public extern var ForceFloats(get, never): Bool;
 	public inline extern function get_ForceFloats(): Bool return this.ForceFloats;
 	public extern var EnableMathOptimisations(get, never): Bool;
 	public inline extern function get_EnableMathOptimisations(): Bool return this.EnableMathOptimisations;
-	public extern var IndirectArgumentTier(get, never): cpp.Int32;
-	public inline extern function get_IndirectArgumentTier(): cpp.Int32 return this.IndirectArgumentTier;
+	public extern var IndirectArgumentTier(get, never): ucpp.num.Int32;
+	public inline extern function get_IndirectArgumentTier(): ucpp.num.Int32 return this.IndirectArgumentTier;
 	public extern var bSupportAppleA8(get, never): Bool;
 	public inline extern function get_bSupportAppleA8(): Bool return this.bSupportAppleA8;
 	public extern var bUseIntegratedKeyboard(get, never): Bool;
 	public inline extern function get_bUseIntegratedKeyboard(): Bool return this.bUseIntegratedKeyboard;
-	public extern var AudioSampleRate(get, never): cpp.Int32;
-	public inline extern function get_AudioSampleRate(): cpp.Int32 return this.AudioSampleRate;
-	public extern var AudioCallbackBufferFrameSize(get, never): cpp.Int32;
-	public inline extern function get_AudioCallbackBufferFrameSize(): cpp.Int32 return this.AudioCallbackBufferFrameSize;
-	public extern var AudioNumBuffersToEnqueue(get, never): cpp.Int32;
-	public inline extern function get_AudioNumBuffersToEnqueue(): cpp.Int32 return this.AudioNumBuffersToEnqueue;
-	public extern var AudioMaxChannels(get, never): cpp.Int32;
-	public inline extern function get_AudioMaxChannels(): cpp.Int32 return this.AudioMaxChannels;
-	public extern var AudioNumSourceWorkers(get, never): cpp.Int32;
-	public inline extern function get_AudioNumSourceWorkers(): cpp.Int32 return this.AudioNumSourceWorkers;
+	public extern var AudioSampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioSampleRate(): ucpp.num.Int32 return this.AudioSampleRate;
+	public extern var AudioCallbackBufferFrameSize(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioCallbackBufferFrameSize(): ucpp.num.Int32 return this.AudioCallbackBufferFrameSize;
+	public extern var AudioNumBuffersToEnqueue(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioNumBuffersToEnqueue(): ucpp.num.Int32 return this.AudioNumBuffersToEnqueue;
+	public extern var AudioMaxChannels(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioMaxChannels(): ucpp.num.Int32 return this.AudioMaxChannels;
+	public extern var AudioNumSourceWorkers(get, never): ucpp.num.Int32;
+	public inline extern function get_AudioNumSourceWorkers(): ucpp.num.Int32 return this.AudioNumSourceWorkers;
 	public extern var SpatializationPlugin(get, never): FString;
 	public inline extern function get_SpatializationPlugin(): FString return this.SpatializationPlugin;
 	public extern var SourceDataOverridePlugin(get, never): FString;
@@ -249,28 +249,28 @@ abstract ConstIOSRuntimeSettings(IOSRuntimeSettings) from IOSRuntimeSettings {
 	public inline extern function get_CompressionOverrides(): PlatformRuntimeAudioCompressionOverrides return this.CompressionOverrides;
 	public extern var bSupportsBackgroundAudio(get, never): Bool;
 	public inline extern function get_bSupportsBackgroundAudio(): Bool return this.bSupportsBackgroundAudio;
-	public extern var CacheSizeKB(get, never): cpp.Int32;
-	public inline extern function get_CacheSizeKB(): cpp.Int32 return this.CacheSizeKB;
-	public extern var MaxChunkSizeOverrideKB(get, never): cpp.Int32;
-	public inline extern function get_MaxChunkSizeOverrideKB(): cpp.Int32 return this.MaxChunkSizeOverrideKB;
+	public extern var CacheSizeKB(get, never): ucpp.num.Int32;
+	public inline extern function get_CacheSizeKB(): ucpp.num.Int32 return this.CacheSizeKB;
+	public extern var MaxChunkSizeOverrideKB(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxChunkSizeOverrideKB(): ucpp.num.Int32 return this.MaxChunkSizeOverrideKB;
 	public extern var bResampleForDevice(get, never): Bool;
 	public inline extern function get_bResampleForDevice(): Bool return this.bResampleForDevice;
-	public extern var SoundCueCookQualityIndex(get, never): cpp.Int32;
-	public inline extern function get_SoundCueCookQualityIndex(): cpp.Int32 return this.SoundCueCookQualityIndex;
-	public extern var MaxSampleRate(get, never): cpp.Float32;
-	public inline extern function get_MaxSampleRate(): cpp.Float32 return this.MaxSampleRate;
-	public extern var HighSampleRate(get, never): cpp.Float32;
-	public inline extern function get_HighSampleRate(): cpp.Float32 return this.HighSampleRate;
-	public extern var MedSampleRate(get, never): cpp.Float32;
-	public inline extern function get_MedSampleRate(): cpp.Float32 return this.MedSampleRate;
-	public extern var LowSampleRate(get, never): cpp.Float32;
-	public inline extern function get_LowSampleRate(): cpp.Float32 return this.LowSampleRate;
-	public extern var MinSampleRate(get, never): cpp.Float32;
-	public inline extern function get_MinSampleRate(): cpp.Float32 return this.MinSampleRate;
-	public extern var CompressionQualityModifier(get, never): cpp.Float32;
-	public inline extern function get_CompressionQualityModifier(): cpp.Float32 return this.CompressionQualityModifier;
-	public extern var AutoStreamingThreshold(get, never): cpp.Float32;
-	public inline extern function get_AutoStreamingThreshold(): cpp.Float32 return this.AutoStreamingThreshold;
+	public extern var SoundCueCookQualityIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_SoundCueCookQualityIndex(): ucpp.num.Int32 return this.SoundCueCookQualityIndex;
+	public extern var MaxSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxSampleRate(): ucpp.num.Float32 return this.MaxSampleRate;
+	public extern var HighSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_HighSampleRate(): ucpp.num.Float32 return this.HighSampleRate;
+	public extern var MedSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_MedSampleRate(): ucpp.num.Float32 return this.MedSampleRate;
+	public extern var LowSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_LowSampleRate(): ucpp.num.Float32 return this.LowSampleRate;
+	public extern var MinSampleRate(get, never): ucpp.num.Float32;
+	public inline extern function get_MinSampleRate(): ucpp.num.Float32 return this.MinSampleRate;
+	public extern var CompressionQualityModifier(get, never): ucpp.num.Float32;
+	public inline extern function get_CompressionQualityModifier(): ucpp.num.Float32 return this.CompressionQualityModifier;
+	public extern var AutoStreamingThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_AutoStreamingThreshold(): ucpp.num.Float32 return this.AutoStreamingThreshold;
 	public extern var bStreamLandscapeMeshLODs(get, never): Bool;
 	public inline extern function get_bStreamLandscapeMeshLODs(): Bool return this.bStreamLandscapeMeshLODs;
 }
@@ -278,7 +278,7 @@ abstract ConstIOSRuntimeSettings(IOSRuntimeSettings) from IOSRuntimeSettings {
 @:forward
 @:nativeGen
 @:native("IOSRuntimeSettings*")
-abstract IOSRuntimeSettingsPtr(cpp.Star<IOSRuntimeSettings>) from cpp.Star<IOSRuntimeSettings> to cpp.Star<IOSRuntimeSettings>{
+abstract IOSRuntimeSettingsPtr(ucpp.Ptr<IOSRuntimeSettings>) from ucpp.Ptr<IOSRuntimeSettings> to ucpp.Ptr<IOSRuntimeSettings>{
 	@:from
 	public static extern inline function fromValue(v: IOSRuntimeSettings): IOSRuntimeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

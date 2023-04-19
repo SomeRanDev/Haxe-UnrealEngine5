@@ -3,25 +3,25 @@ package ue;
 
 @:native("USeamSculptTool")
 @:include("SeamSculptTool.h")
-@:structAccess
+@:valueType
 extern class SeamSculptTool extends DynamicMeshBrushTool {
-	public var Settings: cpp.Star<SeamSculptToolProperties>;
-	@:protected public var PreviewGeom: cpp.Star<PreviewGeometry>;
+	public var Settings: ucpp.Ptr<SeamSculptToolProperties>;
+	@:protected public var PreviewGeom: ucpp.Ptr<PreviewGeometry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSeamSculptTool(SeamSculptTool) from SeamSculptTool {
-	public extern var Settings(get, never): cpp.Star<SeamSculptToolProperties.ConstSeamSculptToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<SeamSculptToolProperties.ConstSeamSculptToolProperties> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<SeamSculptToolProperties.ConstSeamSculptToolProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<SeamSculptToolProperties.ConstSeamSculptToolProperties> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("SeamSculptTool*")
-abstract SeamSculptToolPtr(cpp.Star<SeamSculptTool>) from cpp.Star<SeamSculptTool> to cpp.Star<SeamSculptTool>{
+abstract SeamSculptToolPtr(ucpp.Ptr<SeamSculptTool>) from ucpp.Ptr<SeamSculptTool> to ucpp.Ptr<SeamSculptTool>{
 	@:from
 	public static extern inline function fromValue(v: SeamSculptTool): SeamSculptToolPtr {
 		return untyped __cpp__("&({0})", v);

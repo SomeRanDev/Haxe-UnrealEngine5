@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTestTypedElementInterfaceA_ImplUntyped")
 @:include("TypedElementFrameworkTests.h")
-@:structAccess
+@:valueType
 extern class TestTypedElementInterfaceA_ImplUntyped extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestTypedElementInterfaceA_ImplUntyped(TestTypedElementInterfaceA_
 @:forward
 @:nativeGen
 @:native("TestTypedElementInterfaceA_ImplUntyped*")
-abstract TestTypedElementInterfaceA_ImplUntypedPtr(cpp.Star<TestTypedElementInterfaceA_ImplUntyped>) from cpp.Star<TestTypedElementInterfaceA_ImplUntyped> to cpp.Star<TestTypedElementInterfaceA_ImplUntyped>{
+abstract TestTypedElementInterfaceA_ImplUntypedPtr(ucpp.Ptr<TestTypedElementInterfaceA_ImplUntyped>) from ucpp.Ptr<TestTypedElementInterfaceA_ImplUntyped> to ucpp.Ptr<TestTypedElementInterfaceA_ImplUntyped>{
 	@:from
 	public static extern inline function fromValue(v: TestTypedElementInterfaceA_ImplUntyped): TestTypedElementInterfaceA_ImplUntypedPtr {
 		return untyped __cpp__("&({0})", v);

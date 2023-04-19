@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDirectoryWidgetCompilerOptions")
 @:include("UMGEditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class DirectoryWidgetCompilerOptions {
 	public var Directory: DirectoryPath;
 	public var Options: WidgetCompilerOptions;

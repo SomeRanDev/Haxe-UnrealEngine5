@@ -3,11 +3,12 @@ package ue;
 
 @:native("FMovieSceneEventChannel")
 @:include("Channels/MovieSceneEventChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventChannel extends MovieSceneChannel {
 	private var KeyTimes: TArray<FrameNumber>;
 	private var KeyValues: TArray<MovieSceneEvent>;
+	private var KeyHandles: MovieSceneKeyHandleMap;
 
 	@:native("FMovieSceneEventChannel") public function new();
-	@:native("FMovieSceneEventChannel") public static function make(KeyTimes: TArray<FrameNumber>, KeyValues: TArray<MovieSceneEvent>): MovieSceneEventChannel ;
+	@:native("FMovieSceneEventChannel") public static function make(KeyTimes: TArray<FrameNumber>, KeyValues: TArray<MovieSceneEvent>, KeyHandles: MovieSceneKeyHandleMap): MovieSceneEventChannel ;
 }

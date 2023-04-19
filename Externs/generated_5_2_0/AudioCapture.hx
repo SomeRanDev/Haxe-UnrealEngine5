@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAudioCapture")
 @:include("AudioCapture.h")
-@:structAccess
+@:valueType
 extern class AudioCapture extends AudioGenerator {
 	public function StopCapturingAudio(): Void;
 	public function StartCapturingAudio(): Void;
 	public function IsCapturingAudio(): Bool;
-	public function GetAudioCaptureDeviceInfo(OutInfo: cpp.Reference<AudioCaptureDeviceInfo>): Bool;
+	public function GetAudioCaptureDeviceInfo(OutInfo: ucpp.Ref<AudioCaptureDeviceInfo>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAudioCapture(AudioCapture) from AudioCapture {
 @:forward
 @:nativeGen
 @:native("AudioCapture*")
-abstract AudioCapturePtr(cpp.Star<AudioCapture>) from cpp.Star<AudioCapture> to cpp.Star<AudioCapture>{
+abstract AudioCapturePtr(ucpp.Ptr<AudioCapture>) from ucpp.Ptr<AudioCapture> to ucpp.Ptr<AudioCapture>{
 	@:from
 	public static extern inline function fromValue(v: AudioCapture): AudioCapturePtr {
 		return untyped __cpp__("&({0})", v);

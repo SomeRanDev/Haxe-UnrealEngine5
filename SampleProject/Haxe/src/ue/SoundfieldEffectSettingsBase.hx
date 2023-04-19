@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundfieldEffectSettingsBase")
 @:include("ISoundfieldFormat.h")
-@:structAccess
+@:valueType
 extern class SoundfieldEffectSettingsBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundfieldEffectSettingsBase(SoundfieldEffectSettingsBase) from So
 @:forward
 @:nativeGen
 @:native("SoundfieldEffectSettingsBase*")
-abstract SoundfieldEffectSettingsBasePtr(cpp.Star<SoundfieldEffectSettingsBase>) from cpp.Star<SoundfieldEffectSettingsBase> to cpp.Star<SoundfieldEffectSettingsBase>{
+abstract SoundfieldEffectSettingsBasePtr(ucpp.Ptr<SoundfieldEffectSettingsBase>) from ucpp.Ptr<SoundfieldEffectSettingsBase> to ucpp.Ptr<SoundfieldEffectSettingsBase>{
 	@:from
 	public static extern inline function fromValue(v: SoundfieldEffectSettingsBase): SoundfieldEffectSettingsBasePtr {
 		return untyped __cpp__("&({0})", v);

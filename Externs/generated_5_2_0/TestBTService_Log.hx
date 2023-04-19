@@ -3,34 +3,34 @@ package ue;
 
 @:native("UTestBTService_Log")
 @:include("BehaviorTree/TestBTService_Log.h")
-@:structAccess
+@:valueType
 extern class TestBTService_Log extends BTService {
-	public var LogActivation: cpp.Int32;
-	public var LogDeactivation: cpp.Int32;
+	public var LogActivation: ucpp.num.Int32;
+	public var LogDeactivation: ucpp.num.Int32;
 	public var KeyNameTick: FName;
 	public var KeyNameBecomeRelevant: FName;
 	public var KeyNameCeaseRelevant: FName;
-	public var LogTick: cpp.Int32;
+	public var LogTick: ucpp.num.Int32;
 	public var bToggleValue: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTestBTService_Log(TestBTService_Log) from TestBTService_Log {
-	public extern var LogActivation(get, never): cpp.Int32;
-	public inline extern function get_LogActivation(): cpp.Int32 return this.LogActivation;
-	public extern var LogDeactivation(get, never): cpp.Int32;
-	public inline extern function get_LogDeactivation(): cpp.Int32 return this.LogDeactivation;
+	public extern var LogActivation(get, never): ucpp.num.Int32;
+	public inline extern function get_LogActivation(): ucpp.num.Int32 return this.LogActivation;
+	public extern var LogDeactivation(get, never): ucpp.num.Int32;
+	public inline extern function get_LogDeactivation(): ucpp.num.Int32 return this.LogDeactivation;
 	public extern var KeyNameTick(get, never): FName;
 	public inline extern function get_KeyNameTick(): FName return this.KeyNameTick;
 	public extern var KeyNameBecomeRelevant(get, never): FName;
 	public inline extern function get_KeyNameBecomeRelevant(): FName return this.KeyNameBecomeRelevant;
 	public extern var KeyNameCeaseRelevant(get, never): FName;
 	public inline extern function get_KeyNameCeaseRelevant(): FName return this.KeyNameCeaseRelevant;
-	public extern var LogTick(get, never): cpp.Int32;
-	public inline extern function get_LogTick(): cpp.Int32 return this.LogTick;
+	public extern var LogTick(get, never): ucpp.num.Int32;
+	public inline extern function get_LogTick(): ucpp.num.Int32 return this.LogTick;
 	public extern var bToggleValue(get, never): Bool;
 	public inline extern function get_bToggleValue(): Bool return this.bToggleValue;
 }
@@ -38,7 +38,7 @@ abstract ConstTestBTService_Log(TestBTService_Log) from TestBTService_Log {
 @:forward
 @:nativeGen
 @:native("TestBTService_Log*")
-abstract TestBTService_LogPtr(cpp.Star<TestBTService_Log>) from cpp.Star<TestBTService_Log> to cpp.Star<TestBTService_Log>{
+abstract TestBTService_LogPtr(ucpp.Ptr<TestBTService_Log>) from ucpp.Ptr<TestBTService_Log> to ucpp.Ptr<TestBTService_Log>{
 	@:from
 	public static extern inline function fromValue(v: TestBTService_Log): TestBTService_LogPtr {
 		return untyped __cpp__("&({0})", v);

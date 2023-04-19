@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigForWorldTransforms")
 @:include("Tools/ControlRigSnapper.h")
-@:structAccess
+@:valueType
 extern class ControlRigForWorldTransforms {
 	public var ControlRig: TWeakObjectPtr<ControlRig>;
 	public var ControlNames: TArray<FName>;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTemplateCategoryDef")
 @:include("TemplateProjectDefs.h")
-@:structAccess
+@:valueType
 extern class TemplateCategoryDef {
 	public var Key: FName;
 	public var LocalizedDisplayNames: TArray<LocalizedTemplateString>;

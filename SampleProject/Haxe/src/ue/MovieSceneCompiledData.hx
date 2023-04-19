@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneCompiledData")
 @:include("Compilation/MovieSceneCompiledDataManager.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCompiledData extends Object {
 	private var EvaluationTemplate: MovieSceneEvaluationTemplate;
 	private var Hierarchy: MovieSceneSequenceHierarchy;
@@ -16,7 +16,7 @@ extern class MovieSceneCompiledData extends Object {
 	private var AllocatedMask: MovieSceneSequenceCompilerMaskStruct;
 	private var AccumulatedFlags: EMovieSceneSequenceFlags;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstMovieSceneCompiledData(MovieSceneCompiledData) from MovieSceneComp
 @:forward
 @:nativeGen
 @:native("MovieSceneCompiledData*")
-abstract MovieSceneCompiledDataPtr(cpp.Star<MovieSceneCompiledData>) from cpp.Star<MovieSceneCompiledData> to cpp.Star<MovieSceneCompiledData>{
+abstract MovieSceneCompiledDataPtr(ucpp.Ptr<MovieSceneCompiledData>) from ucpp.Ptr<MovieSceneCompiledData> to ucpp.Ptr<MovieSceneCompiledData>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCompiledData): MovieSceneCompiledDataPtr {
 		return untyped __cpp__("&({0})", v);

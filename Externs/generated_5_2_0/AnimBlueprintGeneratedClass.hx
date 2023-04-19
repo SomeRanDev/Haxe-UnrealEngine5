@@ -3,19 +3,19 @@ package ue;
 
 @:native("UAnimBlueprintGeneratedClass")
 @:include("Animation/AnimBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintGeneratedClass extends BlueprintGeneratedClass {
 	public var BakedStateMachines: TArray<BakedAnimationStateMachine>;
-	public var TargetSkeleton: cpp.Star<Skeleton>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
 	public var AnimNotifies: TArray<AnimNotifyEvent>;
 	public var OrderedSavedPoseIndicesMap: TMap<FName, CachedPoseIndices>;
 	public var SyncGroupNames: TArray<FName>;
 	public var GraphAssetPlayerInformation: TMap<FName, GraphAssetPlayerInformation>;
 	public var GraphBlendOptions: TMap<FName, AnimGraphBlendOptions>;
 	private var AnimNodeData: TArray<AnimNodeData>;
-	private var NodeTypeMap: TMap<cpp.Star<ScriptStruct>, AnimNodeStructData>;
+	private var NodeTypeMap: TMap<ucpp.Ptr<ScriptStruct>, AnimNodeStructData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,8 +23,8 @@ extern class AnimBlueprintGeneratedClass extends BlueprintGeneratedClass {
 abstract ConstAnimBlueprintGeneratedClass(AnimBlueprintGeneratedClass) from AnimBlueprintGeneratedClass {
 	public extern var BakedStateMachines(get, never): TArray<BakedAnimationStateMachine>;
 	public inline extern function get_BakedStateMachines(): TArray<BakedAnimationStateMachine> return this.BakedStateMachines;
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
 	public extern var AnimNotifies(get, never): TArray<AnimNotifyEvent>;
 	public inline extern function get_AnimNotifies(): TArray<AnimNotifyEvent> return this.AnimNotifies;
 	public extern var OrderedSavedPoseIndicesMap(get, never): TMap<FName, CachedPoseIndices>;
@@ -40,7 +40,7 @@ abstract ConstAnimBlueprintGeneratedClass(AnimBlueprintGeneratedClass) from Anim
 @:forward
 @:nativeGen
 @:native("AnimBlueprintGeneratedClass*")
-abstract AnimBlueprintGeneratedClassPtr(cpp.Star<AnimBlueprintGeneratedClass>) from cpp.Star<AnimBlueprintGeneratedClass> to cpp.Star<AnimBlueprintGeneratedClass>{
+abstract AnimBlueprintGeneratedClassPtr(ucpp.Ptr<AnimBlueprintGeneratedClass>) from ucpp.Ptr<AnimBlueprintGeneratedClass> to ucpp.Ptr<AnimBlueprintGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintGeneratedClass): AnimBlueprintGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStabilizeLocalizationKeysCommandlet")
 @:include("Commandlets/StabilizeLocalizationKeys.h")
-@:structAccess
+@:valueType
 extern class StabilizeLocalizationKeysCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStabilizeLocalizationKeysCommandlet(StabilizeLocalizationKeysComma
 @:forward
 @:nativeGen
 @:native("StabilizeLocalizationKeysCommandlet*")
-abstract StabilizeLocalizationKeysCommandletPtr(cpp.Star<StabilizeLocalizationKeysCommandlet>) from cpp.Star<StabilizeLocalizationKeysCommandlet> to cpp.Star<StabilizeLocalizationKeysCommandlet>{
+abstract StabilizeLocalizationKeysCommandletPtr(ucpp.Ptr<StabilizeLocalizationKeysCommandlet>) from ucpp.Ptr<StabilizeLocalizationKeysCommandlet> to ucpp.Ptr<StabilizeLocalizationKeysCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: StabilizeLocalizationKeysCommandlet): StabilizeLocalizationKeysCommandletPtr {
 		return untyped __cpp__("&({0})", v);

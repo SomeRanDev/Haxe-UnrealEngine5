@@ -3,10 +3,10 @@ package ue;
 
 @:native("USphereNetObjectPrioritizer")
 @:include("Iris/ReplicationSystem/Prioritization/SphereNetObjectPrioritizer.h")
-@:structAccess
+@:valueType
 extern class SphereNetObjectPrioritizer extends LocationBasedNetObjectPrioritizer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSphereNetObjectPrioritizer(SphereNetObjectPrioritizer) from Sphere
 @:forward
 @:nativeGen
 @:native("SphereNetObjectPrioritizer*")
-abstract SphereNetObjectPrioritizerPtr(cpp.Star<SphereNetObjectPrioritizer>) from cpp.Star<SphereNetObjectPrioritizer> to cpp.Star<SphereNetObjectPrioritizer>{
+abstract SphereNetObjectPrioritizerPtr(ucpp.Ptr<SphereNetObjectPrioritizer>) from ucpp.Ptr<SphereNetObjectPrioritizer> to ucpp.Ptr<SphereNetObjectPrioritizer>{
 	@:from
 	public static extern inline function fromValue(v: SphereNetObjectPrioritizer): SphereNetObjectPrioritizerPtr {
 		return untyped __cpp__("&({0})", v);

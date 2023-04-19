@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVProjectionToolBuilder")
 @:include("UVProjectionTool.h")
-@:structAccess
+@:valueType
 extern class UVProjectionToolBuilder extends SingleTargetWithSelectionToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVProjectionToolBuilder(UVProjectionToolBuilder) from UVProjection
 @:forward
 @:nativeGen
 @:native("UVProjectionToolBuilder*")
-abstract UVProjectionToolBuilderPtr(cpp.Star<UVProjectionToolBuilder>) from cpp.Star<UVProjectionToolBuilder> to cpp.Star<UVProjectionToolBuilder>{
+abstract UVProjectionToolBuilderPtr(ucpp.Ptr<UVProjectionToolBuilder>) from ucpp.Ptr<UVProjectionToolBuilder> to ucpp.Ptr<UVProjectionToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVProjectionToolBuilder): UVProjectionToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

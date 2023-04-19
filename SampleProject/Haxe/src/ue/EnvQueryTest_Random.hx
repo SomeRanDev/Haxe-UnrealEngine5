@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnvQueryTest_Random")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Random.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_Random extends EnvQueryTest {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnvQueryTest_Random(EnvQueryTest_Random) from EnvQueryTest_Random 
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_Random*")
-abstract EnvQueryTest_RandomPtr(cpp.Star<EnvQueryTest_Random>) from cpp.Star<EnvQueryTest_Random> to cpp.Star<EnvQueryTest_Random>{
+abstract EnvQueryTest_RandomPtr(ucpp.Ptr<EnvQueryTest_Random>) from ucpp.Ptr<EnvQueryTest_Random> to ucpp.Ptr<EnvQueryTest_Random>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_Random): EnvQueryTest_RandomPtr {
 		return untyped __cpp__("&({0})", v);

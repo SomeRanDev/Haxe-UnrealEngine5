@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNavigationPathGenerator")
-@:structAccess
+@:valueType
 extern class NavigationPathGenerator extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNavigationPathGenerator(NavigationPathGenerator) from NavigationPa
 @:forward
 @:nativeGen
 @:native("NavigationPathGenerator*")
-abstract NavigationPathGeneratorPtr(cpp.Star<NavigationPathGenerator>) from cpp.Star<NavigationPathGenerator> to cpp.Star<NavigationPathGenerator>{
+abstract NavigationPathGeneratorPtr(ucpp.Ptr<NavigationPathGenerator>) from ucpp.Ptr<NavigationPathGenerator> to ucpp.Ptr<NavigationPathGenerator>{
 	@:from
 	public static extern inline function fromValue(v: NavigationPathGenerator): NavigationPathGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

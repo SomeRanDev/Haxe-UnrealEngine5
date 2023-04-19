@@ -3,34 +3,34 @@ package ue;
 
 @:native("UStereoLayerComponent")
 @:include("Components/StereoLayerComponent.h")
-@:structAccess
+@:valueType
 extern class StereoLayerComp extends SceneComp {
 	public var bLiveTexture: Bool;
 	public var bSupportsDepth: Bool;
 	public var bNoAlphaChannel: Bool;
-	@:protected public var Texture: cpp.Star<Texture>;
-	@:protected public var LeftTexture: cpp.Star<Texture>;
+	@:protected public var Texture: ucpp.Ptr<Texture>;
+	@:protected public var LeftTexture: ucpp.Ptr<Texture>;
 	public var bQuadPreserveTextureRatio: Bool;
 	@:protected public var QuadSize: Vector2D;
 	@:protected public var UVRect: Box2D;
 	@:protected public var StereoLayerType: TEnumAsByte<EStereoLayerType>;
-	@:protected public var Shape: cpp.Star<StereoLayerShape>;
-	@:protected public var Priority: cpp.Int32;
+	@:protected public var Shape: ucpp.Ptr<StereoLayerShape>;
+	@:protected public var Priority: ucpp.num.Int32;
 
 	public function SetUVRect(InUVRect: Box2D): Void;
-	public function SetTexture(InTexture: cpp.Star<Texture>): Void;
+	public function SetTexture(InTexture: ucpp.Ptr<Texture>): Void;
 	public function SetQuadSize(InQuadSize: Vector2D): Void;
-	public function SetPriority(InPriority: cpp.Int32): Void;
-	public function SetLeftTexture(InTexture: cpp.Star<Texture>): Void;
+	public function SetPriority(InPriority: ucpp.num.Int32): Void;
+	public function SetLeftTexture(InTexture: ucpp.Ptr<Texture>): Void;
 	public function SetEquirectProps(InScaleBiases: EquirectProps): Void;
 	public function MarkTextureForUpdate(): Void;
 	public function GetUVRect(): Box2D;
-	public function GetTexture(): cpp.Star<Texture>;
+	public function GetTexture(): ucpp.Ptr<Texture>;
 	public function GetQuadSize(): Vector2D;
-	public function GetPriority(): cpp.Int32;
-	public function GetLeftTexture(): cpp.Star<Texture>;
+	public function GetPriority(): ucpp.num.Int32;
+	public function GetLeftTexture(): ucpp.Ptr<Texture>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetUVRect, GetTexture, GetQuadSize, GetPriority, GetLeftTexture)
@@ -49,7 +49,7 @@ abstract ConstStereoLayerComp(StereoLayerComp) from StereoLayerComp {
 @:forward
 @:nativeGen
 @:native("StereoLayerComp*")
-abstract StereoLayerCompPtr(cpp.Star<StereoLayerComp>) from cpp.Star<StereoLayerComp> to cpp.Star<StereoLayerComp>{
+abstract StereoLayerCompPtr(ucpp.Ptr<StereoLayerComp>) from ucpp.Ptr<StereoLayerComp> to ucpp.Ptr<StereoLayerComp>{
 	@:from
 	public static extern inline function fromValue(v: StereoLayerComp): StereoLayerCompPtr {
 		return untyped __cpp__("&({0})", v);

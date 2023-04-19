@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMeshEditingViewProperties")
 @:include("Properties/MeshMaterialProperties.h")
-@:structAccess
+@:valueType
 extern class MeshEditingViewProperties extends InteractiveToolPropertySet {
 	public var bShowWireframe: Bool;
 	public var MaterialMode: EMeshEditingMaterialModes;
 	public var bFlatShading: Bool;
 	public var Color: LinearColor;
-	public var Image: cpp.Star<Texture2D>;
-	public var Opacity: cpp.Float64;
+	public var Image: ucpp.Ptr<Texture2D>;
+	public var Opacity: ucpp.num.Float64;
 	public var TransparentMaterialColor: LinearColor;
 	public var bTwoSided: Bool;
 	public var CustomMaterial: TWeakObjectPtr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,10 +29,10 @@ abstract ConstMeshEditingViewProperties(MeshEditingViewProperties) from MeshEdit
 	public inline extern function get_bFlatShading(): Bool return this.bFlatShading;
 	public extern var Color(get, never): LinearColor;
 	public inline extern function get_Color(): LinearColor return this.Color;
-	public extern var Image(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_Image(): cpp.Star<Texture2D.ConstTexture2D> return this.Image;
-	public extern var Opacity(get, never): cpp.Float64;
-	public inline extern function get_Opacity(): cpp.Float64 return this.Opacity;
+	public extern var Image(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_Image(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.Image;
+	public extern var Opacity(get, never): ucpp.num.Float64;
+	public inline extern function get_Opacity(): ucpp.num.Float64 return this.Opacity;
 	public extern var TransparentMaterialColor(get, never): LinearColor;
 	public inline extern function get_TransparentMaterialColor(): LinearColor return this.TransparentMaterialColor;
 	public extern var bTwoSided(get, never): Bool;
@@ -44,7 +44,7 @@ abstract ConstMeshEditingViewProperties(MeshEditingViewProperties) from MeshEdit
 @:forward
 @:nativeGen
 @:native("MeshEditingViewProperties*")
-abstract MeshEditingViewPropertiesPtr(cpp.Star<MeshEditingViewProperties>) from cpp.Star<MeshEditingViewProperties> to cpp.Star<MeshEditingViewProperties>{
+abstract MeshEditingViewPropertiesPtr(ucpp.Ptr<MeshEditingViewProperties>) from ucpp.Ptr<MeshEditingViewProperties> to ucpp.Ptr<MeshEditingViewProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshEditingViewProperties): MeshEditingViewPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

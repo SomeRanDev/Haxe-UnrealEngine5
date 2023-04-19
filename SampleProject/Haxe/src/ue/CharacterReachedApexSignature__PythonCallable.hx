@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UCharacterReachedApexSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class CharacterReachedApexSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstCharacterReachedApexSignature__PythonCallable(CharacterReachedApex
 @:forward
 @:nativeGen
 @:native("CharacterReachedApexSignature__PythonCallable*")
-abstract CharacterReachedApexSignature__PythonCallablePtr(cpp.Star<CharacterReachedApexSignature__PythonCallable>) from cpp.Star<CharacterReachedApexSignature__PythonCallable> to cpp.Star<CharacterReachedApexSignature__PythonCallable>{
+abstract CharacterReachedApexSignature__PythonCallablePtr(ucpp.Ptr<CharacterReachedApexSignature__PythonCallable>) from ucpp.Ptr<CharacterReachedApexSignature__PythonCallable> to ucpp.Ptr<CharacterReachedApexSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: CharacterReachedApexSignature__PythonCallable): CharacterReachedApexSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

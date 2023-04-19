@@ -3,12 +3,12 @@ package ue;
 
 @:native("FWeightmapLayerAllocationInfo")
 @:include("LandscapeComponent.h")
-@:structAccess
+@:valueType
 extern class WeightmapLayerAllocationInfo {
-	public var LayerInfo: cpp.Star<LandscapeLayerInfoObject>;
-	public var WeightmapTextureIndex: cpp.UInt8;
-	public var WeightmapTextureChannel: cpp.UInt8;
+	public var LayerInfo: ucpp.Ptr<LandscapeLayerInfoObject>;
+	public var WeightmapTextureIndex: ucpp.num.UInt8;
+	public var WeightmapTextureChannel: ucpp.num.UInt8;
 
 	@:native("FWeightmapLayerAllocationInfo") public function new();
-	@:native("FWeightmapLayerAllocationInfo") public static function make(LayerInfo: cpp.Star<LandscapeLayerInfoObject>, WeightmapTextureIndex: cpp.UInt8, WeightmapTextureChannel: cpp.UInt8): WeightmapLayerAllocationInfo ;
+	@:native("FWeightmapLayerAllocationInfo") public static function make(LayerInfo: ucpp.Ptr<LandscapeLayerInfoObject>, WeightmapTextureIndex: ucpp.num.UInt8, WeightmapTextureChannel: ucpp.num.UInt8): WeightmapLayerAllocationInfo ;
 }

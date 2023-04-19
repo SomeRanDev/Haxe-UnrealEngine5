@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCreateControlPoseAssetRigSettings")
 @:include("Tools/CreateControlAssetRigSettings.h")
-@:structAccess
+@:valueType
 extern class CreateControlPoseAssetRigSettings extends Object {
 	public var AssetName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCreateControlPoseAssetRigSettings(CreateControlPoseAssetRigSetting
 @:forward
 @:nativeGen
 @:native("CreateControlPoseAssetRigSettings*")
-abstract CreateControlPoseAssetRigSettingsPtr(cpp.Star<CreateControlPoseAssetRigSettings>) from cpp.Star<CreateControlPoseAssetRigSettings> to cpp.Star<CreateControlPoseAssetRigSettings>{
+abstract CreateControlPoseAssetRigSettingsPtr(ucpp.Ptr<CreateControlPoseAssetRigSettings>) from ucpp.Ptr<CreateControlPoseAssetRigSettings> to ucpp.Ptr<CreateControlPoseAssetRigSettings>{
 	@:from
 	public static extern inline function fromValue(v: CreateControlPoseAssetRigSettings): CreateControlPoseAssetRigSettingsPtr {
 		return untyped __cpp__("&({0})", v);

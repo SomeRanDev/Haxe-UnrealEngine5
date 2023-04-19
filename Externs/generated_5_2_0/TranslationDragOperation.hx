@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTranslationDragOperation")
 @:include("ViewportInteractionDragOperations.h")
-@:structAccess
+@:valueType
 extern class TranslationDragOperation extends ViewportDragOperation {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTranslationDragOperation(TranslationDragOperation) from Translatio
 @:forward
 @:nativeGen
 @:native("TranslationDragOperation*")
-abstract TranslationDragOperationPtr(cpp.Star<TranslationDragOperation>) from cpp.Star<TranslationDragOperation> to cpp.Star<TranslationDragOperation>{
+abstract TranslationDragOperationPtr(ucpp.Ptr<TranslationDragOperation>) from ucpp.Ptr<TranslationDragOperation> to ucpp.Ptr<TranslationDragOperation>{
 	@:from
 	public static extern inline function fromValue(v: TranslationDragOperation): TranslationDragOperationPtr {
 		return untyped __cpp__("&({0})", v);

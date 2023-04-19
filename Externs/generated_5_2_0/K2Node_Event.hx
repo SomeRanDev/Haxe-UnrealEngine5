@@ -3,15 +3,15 @@ package ue;
 
 @:native("UK2Node_Event")
 @:include("K2Node_Event.h")
-@:structAccess
+@:valueType
 extern class K2Node_Event extends K2Node_EditablePinBase {
 	public var EventReference: MemberReference;
 	public var bOverrideFunction: Bool;
 	public var bInternalEvent: Bool;
 	public var CustomFunctionName: FName;
-	public var FunctionFlags: cpp.UInt32;
+	public var FunctionFlags: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,14 +25,14 @@ abstract ConstK2Node_Event(K2Node_Event) from K2Node_Event {
 	public inline extern function get_bInternalEvent(): Bool return this.bInternalEvent;
 	public extern var CustomFunctionName(get, never): FName;
 	public inline extern function get_CustomFunctionName(): FName return this.CustomFunctionName;
-	public extern var FunctionFlags(get, never): cpp.UInt32;
-	public inline extern function get_FunctionFlags(): cpp.UInt32 return this.FunctionFlags;
+	public extern var FunctionFlags(get, never): ucpp.num.UInt32;
+	public inline extern function get_FunctionFlags(): ucpp.num.UInt32 return this.FunctionFlags;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_Event*")
-abstract K2Node_EventPtr(cpp.Star<K2Node_Event>) from cpp.Star<K2Node_Event> to cpp.Star<K2Node_Event>{
+abstract K2Node_EventPtr(ucpp.Ptr<K2Node_Event>) from ucpp.Ptr<K2Node_Event> to ucpp.Ptr<K2Node_Event>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_Event): K2Node_EventPtr {
 		return untyped __cpp__("&({0})", v);

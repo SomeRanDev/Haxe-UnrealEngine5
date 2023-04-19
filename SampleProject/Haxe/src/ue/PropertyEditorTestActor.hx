@@ -3,13 +3,19 @@ package ue;
 
 @:native("APropertyEditorTestActor")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class PropertyEditorTestActor extends Actor {
+	private var InstancedUObjectArray: TArray<ucpp.Ptr<PropertyEditorTestInstancedObject>>;
 	private var GetOptionsValue: FName;
+	private var DefaultsOnly: ucpp.num.Float32;
+	private var DefaultsOnlySubcategory: ucpp.num.Float32;
+	private var InstanceOnly: ucpp.num.Float32;
+	private var InstanceOnlySubcategory: ucpp.num.Float32;
+	private var MultiLineMap: TMap<ucpp.num.Int32, FText>;
 
 	private function GetOptionsFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetOptionsFunc)
@@ -20,7 +26,7 @@ abstract ConstPropertyEditorTestActor(PropertyEditorTestActor) from PropertyEdit
 @:forward
 @:nativeGen
 @:native("PropertyEditorTestActor*")
-abstract PropertyEditorTestActorPtr(cpp.Star<PropertyEditorTestActor>) from cpp.Star<PropertyEditorTestActor> to cpp.Star<PropertyEditorTestActor>{
+abstract PropertyEditorTestActorPtr(ucpp.Ptr<PropertyEditorTestActor>) from ucpp.Ptr<PropertyEditorTestActor> to ucpp.Ptr<PropertyEditorTestActor>{
 	@:from
 	public static extern inline function fromValue(v: PropertyEditorTestActor): PropertyEditorTestActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCompileAllBlueprintsCommandlet")
 @:include("Commandlets/CompileAllBlueprintsCommandlet.h")
-@:structAccess
+@:valueType
 extern class CompileAllBlueprintsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCompileAllBlueprintsCommandlet(CompileAllBlueprintsCommandlet) fro
 @:forward
 @:nativeGen
 @:native("CompileAllBlueprintsCommandlet*")
-abstract CompileAllBlueprintsCommandletPtr(cpp.Star<CompileAllBlueprintsCommandlet>) from cpp.Star<CompileAllBlueprintsCommandlet> to cpp.Star<CompileAllBlueprintsCommandlet>{
+abstract CompileAllBlueprintsCommandletPtr(ucpp.Ptr<CompileAllBlueprintsCommandlet>) from ucpp.Ptr<CompileAllBlueprintsCommandlet> to ucpp.Ptr<CompileAllBlueprintsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: CompileAllBlueprintsCommandlet): CompileAllBlueprintsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

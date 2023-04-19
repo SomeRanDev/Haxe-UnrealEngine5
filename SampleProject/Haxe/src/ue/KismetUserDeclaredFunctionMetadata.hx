@@ -3,7 +3,7 @@ package ue;
 
 @:native("FKismetUserDeclaredFunctionMetadata")
 @:include("K2Node_EditablePinBase.h")
-@:structAccess
+@:valueType
 extern class KismetUserDeclaredFunctionMetadata {
 	public var ToolTip: FText;
 	public var Category: FText;
@@ -14,7 +14,9 @@ extern class KismetUserDeclaredFunctionMetadata {
 	public var bIsDeprecated: Bool;
 	public var bCallInEditor: Bool;
 	public var bThreadSafe: Bool;
-	public var HasLatentFunctions: cpp.Int8;
+	public var bIsUnsafeDuringActorConstruction: Bool;
+	public var HasLatentFunctions: ucpp.num.Int8;
+	private var MetaDataMap: TMap<FName, FString>;
 
 	@:native("FKismetUserDeclaredFunctionMetadata") public function new();
 }

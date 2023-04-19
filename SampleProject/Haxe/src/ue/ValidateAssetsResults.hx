@@ -3,14 +3,14 @@ package ue;
 
 @:native("FValidateAssetsResults")
 @:include("EditorValidatorSubsystem.h")
-@:structAccess
+@:valueType
 extern class ValidateAssetsResults {
-	public var NumChecked: cpp.Int32;
-	public var NumValid: cpp.Int32;
-	public var NumInvalid: cpp.Int32;
-	public var NumSkipped: cpp.Int32;
-	public var NumWarnings: cpp.Int32;
-	public var NumUnableToValidate: cpp.Int32;
+	public var NumChecked: ucpp.num.Int32;
+	public var NumValid: ucpp.num.Int32;
+	public var NumInvalid: ucpp.num.Int32;
+	public var NumSkipped: ucpp.num.Int32;
+	public var NumWarnings: ucpp.num.Int32;
+	public var NumUnableToValidate: ucpp.num.Int32;
 
 	@:native("FValidateAssetsResults") public function new();
 }

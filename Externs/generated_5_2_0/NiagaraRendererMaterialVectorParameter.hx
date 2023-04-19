@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraRendererMaterialVectorParameter")
 @:include("NiagaraRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRendererMaterialVectorParameter {
 	public var MaterialParameterName: FName;
 	public var Value: LinearColor;

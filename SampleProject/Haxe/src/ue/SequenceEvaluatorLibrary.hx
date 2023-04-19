@@ -3,18 +3,18 @@ package ue;
 
 @:native("USequenceEvaluatorLibrary")
 @:include("SequenceEvaluatorLibrary.h")
-@:structAccess
+@:valueType
 extern class SequenceEvaluatorLibrary extends BlueprintFunctionLibrary {
-	public function SetSequenceWithInertialBlending(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>, BlendTime: cpp.Float32): SequenceEvaluatorReference;
-	public function SetSequence(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Sequence: cpp.Star<AnimSequenceBase>): SequenceEvaluatorReference;
-	public function SetExplicitTime(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Time: cpp.Float32): SequenceEvaluatorReference;
-	public function GetSequence(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>): cpp.Star<AnimSequenceBase>;
-	public function GetAccumulatedTime(SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>): cpp.Float32;
-	public function ConvertToSequenceEvaluatorPure(Node: cpp.Reference<AnimNodeReference>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToSequenceEvaluator(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): SequenceEvaluatorReference;
-	public function AdvanceTime(UpdateContext: cpp.Reference<AnimUpdateContext>, SequenceEvaluator: cpp.Reference<SequenceEvaluatorReference>, PlayRate: cpp.Float32): SequenceEvaluatorReference;
+	public function SetSequenceWithInertialBlending(UpdateContext: ucpp.Ref<AnimUpdateContext>, SequenceEvaluator: ucpp.Ref<SequenceEvaluatorReference>, Sequence: ucpp.Ptr<AnimSequenceBase>, BlendTime: ucpp.num.Float32): SequenceEvaluatorReference;
+	public function SetSequence(SequenceEvaluator: ucpp.Ref<SequenceEvaluatorReference>, Sequence: ucpp.Ptr<AnimSequenceBase>): SequenceEvaluatorReference;
+	public function SetExplicitTime(SequenceEvaluator: ucpp.Ref<SequenceEvaluatorReference>, Time: ucpp.num.Float32): SequenceEvaluatorReference;
+	public function GetSequence(SequenceEvaluator: ucpp.Ref<SequenceEvaluatorReference>): ucpp.Ptr<AnimSequenceBase>;
+	public function GetAccumulatedTime(SequenceEvaluator: ucpp.Ref<SequenceEvaluatorReference>): ucpp.num.Float32;
+	public function ConvertToSequenceEvaluatorPure(Node: ucpp.Ref<AnimNodeReference>, SequenceEvaluator: ucpp.Ref<SequenceEvaluatorReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToSequenceEvaluator(Node: ucpp.Ref<AnimNodeReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): SequenceEvaluatorReference;
+	public function AdvanceTime(UpdateContext: ucpp.Ref<AnimUpdateContext>, SequenceEvaluator: ucpp.Ref<SequenceEvaluatorReference>, PlayRate: ucpp.num.Float32): SequenceEvaluatorReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstSequenceEvaluatorLibrary(SequenceEvaluatorLibrary) from SequenceEv
 @:forward
 @:nativeGen
 @:native("SequenceEvaluatorLibrary*")
-abstract SequenceEvaluatorLibraryPtr(cpp.Star<SequenceEvaluatorLibrary>) from cpp.Star<SequenceEvaluatorLibrary> to cpp.Star<SequenceEvaluatorLibrary>{
+abstract SequenceEvaluatorLibraryPtr(ucpp.Ptr<SequenceEvaluatorLibrary>) from ucpp.Ptr<SequenceEvaluatorLibrary> to ucpp.Ptr<SequenceEvaluatorLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SequenceEvaluatorLibrary): SequenceEvaluatorLibraryPtr {
 		return untyped __cpp__("&({0})", v);

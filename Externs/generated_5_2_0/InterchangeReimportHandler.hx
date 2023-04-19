@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeReimportHandler")
 @:include("Factories/InterchangeReimportHandler.h")
-@:structAccess
+@:valueType
 extern class InterchangeReimportHandler extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeReimportHandler(InterchangeReimportHandler) from Interc
 @:forward
 @:nativeGen
 @:native("InterchangeReimportHandler*")
-abstract InterchangeReimportHandlerPtr(cpp.Star<InterchangeReimportHandler>) from cpp.Star<InterchangeReimportHandler> to cpp.Star<InterchangeReimportHandler>{
+abstract InterchangeReimportHandlerPtr(ucpp.Ptr<InterchangeReimportHandler>) from ucpp.Ptr<InterchangeReimportHandler> to ucpp.Ptr<InterchangeReimportHandler>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeReimportHandler): InterchangeReimportHandlerPtr {
 		return untyped __cpp__("&({0})", v);

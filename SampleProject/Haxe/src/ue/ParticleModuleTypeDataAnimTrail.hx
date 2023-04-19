@@ -3,17 +3,17 @@ package ue;
 
 @:native("UParticleModuleTypeDataAnimTrail")
 @:include("Particles/TypeData/ParticleModuleTypeDataAnimTrail.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleTypeDataAnimTrail extends ParticleModuleTypeDataBase {
 	public var bDeadTrailsOnDeactivate: Bool;
 	public var bEnablePreviousTangentRecalculation: Bool;
 	public var bTangentRecalculationEveryFrame: Bool;
-	public var TilingDistance: cpp.Float32;
-	public var DistanceTessellationStepSize: cpp.Float32;
-	public var TangentTessellationStepSize: cpp.Float32;
-	public var WidthTessellationStepSize: cpp.Float32;
+	public var TilingDistance: ucpp.num.Float32;
+	public var DistanceTessellationStepSize: ucpp.num.Float32;
+	public var TangentTessellationStepSize: ucpp.num.Float32;
+	public var WidthTessellationStepSize: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,20 +25,20 @@ abstract ConstParticleModuleTypeDataAnimTrail(ParticleModuleTypeDataAnimTrail) f
 	public inline extern function get_bEnablePreviousTangentRecalculation(): Bool return this.bEnablePreviousTangentRecalculation;
 	public extern var bTangentRecalculationEveryFrame(get, never): Bool;
 	public inline extern function get_bTangentRecalculationEveryFrame(): Bool return this.bTangentRecalculationEveryFrame;
-	public extern var TilingDistance(get, never): cpp.Float32;
-	public inline extern function get_TilingDistance(): cpp.Float32 return this.TilingDistance;
-	public extern var DistanceTessellationStepSize(get, never): cpp.Float32;
-	public inline extern function get_DistanceTessellationStepSize(): cpp.Float32 return this.DistanceTessellationStepSize;
-	public extern var TangentTessellationStepSize(get, never): cpp.Float32;
-	public inline extern function get_TangentTessellationStepSize(): cpp.Float32 return this.TangentTessellationStepSize;
-	public extern var WidthTessellationStepSize(get, never): cpp.Float32;
-	public inline extern function get_WidthTessellationStepSize(): cpp.Float32 return this.WidthTessellationStepSize;
+	public extern var TilingDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_TilingDistance(): ucpp.num.Float32 return this.TilingDistance;
+	public extern var DistanceTessellationStepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_DistanceTessellationStepSize(): ucpp.num.Float32 return this.DistanceTessellationStepSize;
+	public extern var TangentTessellationStepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_TangentTessellationStepSize(): ucpp.num.Float32 return this.TangentTessellationStepSize;
+	public extern var WidthTessellationStepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_WidthTessellationStepSize(): ucpp.num.Float32 return this.WidthTessellationStepSize;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleTypeDataAnimTrail*")
-abstract ParticleModuleTypeDataAnimTrailPtr(cpp.Star<ParticleModuleTypeDataAnimTrail>) from cpp.Star<ParticleModuleTypeDataAnimTrail> to cpp.Star<ParticleModuleTypeDataAnimTrail>{
+abstract ParticleModuleTypeDataAnimTrailPtr(ucpp.Ptr<ParticleModuleTypeDataAnimTrail>) from ucpp.Ptr<ParticleModuleTypeDataAnimTrail> to ucpp.Ptr<ParticleModuleTypeDataAnimTrail>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleTypeDataAnimTrail): ParticleModuleTypeDataAnimTrailPtr {
 		return untyped __cpp__("&({0})", v);

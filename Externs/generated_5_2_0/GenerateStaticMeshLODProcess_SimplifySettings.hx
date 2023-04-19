@@ -3,13 +3,13 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcess_SimplifySettings")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess_SimplifySettings {
 	public var Method: EGenerateStaticMeshLODProcess_SimplifyMethod;
-	public var TargetCount: cpp.Int32;
-	public var TargetPercentage: cpp.Float32;
-	public var Tolerance: cpp.Float32;
+	public var TargetCount: ucpp.num.Int32;
+	public var TargetPercentage: ucpp.num.Float32;
+	public var Tolerance: ucpp.num.Float32;
 
 	@:native("FGenerateStaticMeshLODProcess_SimplifySettings") public function new();
-	@:native("FGenerateStaticMeshLODProcess_SimplifySettings") public static function make(Method: EGenerateStaticMeshLODProcess_SimplifyMethod, TargetCount: cpp.Int32, TargetPercentage: cpp.Float32, Tolerance: cpp.Float32): GenerateStaticMeshLODProcess_SimplifySettings ;
+	@:native("FGenerateStaticMeshLODProcess_SimplifySettings") public static function make(Method: EGenerateStaticMeshLODProcess_SimplifyMethod, TargetCount: ucpp.num.Int32, TargetPercentage: ucpp.num.Float32, Tolerance: ucpp.num.Float32): GenerateStaticMeshLODProcess_SimplifySettings ;
 }

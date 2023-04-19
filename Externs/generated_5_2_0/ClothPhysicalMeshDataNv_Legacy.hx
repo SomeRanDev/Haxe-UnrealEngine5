@@ -3,33 +3,33 @@ package ue;
 
 @:native("UClothPhysicalMeshDataNv_Legacy")
 @:include("ClothPhysicalMeshDataNv_Legacy.h")
-@:structAccess
+@:valueType
 extern class ClothPhysicalMeshDataNv_Legacy extends ClothPhysicalMeshDataBase_Legacy {
-	public var MaxDistances: TArray<cpp.Float32>;
-	public var BackstopDistances: TArray<cpp.Float32>;
-	public var BackstopRadiuses: TArray<cpp.Float32>;
-	public var AnimDriveMultipliers: TArray<cpp.Float32>;
+	public var MaxDistances: TArray<ucpp.num.Float32>;
+	public var BackstopDistances: TArray<ucpp.num.Float32>;
+	public var BackstopRadiuses: TArray<ucpp.num.Float32>;
+	public var AnimDriveMultipliers: TArray<ucpp.num.Float32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstClothPhysicalMeshDataNv_Legacy(ClothPhysicalMeshDataNv_Legacy) from ClothPhysicalMeshDataNv_Legacy {
-	public extern var MaxDistances(get, never): TArray<cpp.Float32>;
-	public inline extern function get_MaxDistances(): TArray<cpp.Float32> return this.MaxDistances;
-	public extern var BackstopDistances(get, never): TArray<cpp.Float32>;
-	public inline extern function get_BackstopDistances(): TArray<cpp.Float32> return this.BackstopDistances;
-	public extern var BackstopRadiuses(get, never): TArray<cpp.Float32>;
-	public inline extern function get_BackstopRadiuses(): TArray<cpp.Float32> return this.BackstopRadiuses;
-	public extern var AnimDriveMultipliers(get, never): TArray<cpp.Float32>;
-	public inline extern function get_AnimDriveMultipliers(): TArray<cpp.Float32> return this.AnimDriveMultipliers;
+	public extern var MaxDistances(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_MaxDistances(): TArray<ucpp.num.Float32> return this.MaxDistances;
+	public extern var BackstopDistances(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_BackstopDistances(): TArray<ucpp.num.Float32> return this.BackstopDistances;
+	public extern var BackstopRadiuses(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_BackstopRadiuses(): TArray<ucpp.num.Float32> return this.BackstopRadiuses;
+	public extern var AnimDriveMultipliers(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_AnimDriveMultipliers(): TArray<ucpp.num.Float32> return this.AnimDriveMultipliers;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothPhysicalMeshDataNv_Legacy*")
-abstract ClothPhysicalMeshDataNv_LegacyPtr(cpp.Star<ClothPhysicalMeshDataNv_Legacy>) from cpp.Star<ClothPhysicalMeshDataNv_Legacy> to cpp.Star<ClothPhysicalMeshDataNv_Legacy>{
+abstract ClothPhysicalMeshDataNv_LegacyPtr(ucpp.Ptr<ClothPhysicalMeshDataNv_Legacy>) from ucpp.Ptr<ClothPhysicalMeshDataNv_Legacy> to ucpp.Ptr<ClothPhysicalMeshDataNv_Legacy>{
 	@:from
 	public static extern inline function fromValue(v: ClothPhysicalMeshDataNv_Legacy): ClothPhysicalMeshDataNv_LegacyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAnimGraphNode_StateMachineBase")
 @:include("AnimGraphNode_StateMachineBase.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_StateMachineBase extends AnimGraphNode_Base {
-	public var EditorStateMachineGraph: cpp.Star<AnimationStateMachineGraph>;
+	public var EditorStateMachineGraph: ucpp.Ptr<AnimationStateMachineGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimGraphNode_StateMachineBase(AnimGraphNode_StateMachineBase) from AnimGraphNode_StateMachineBase {
-	public extern var EditorStateMachineGraph(get, never): cpp.Star<AnimationStateMachineGraph.ConstAnimationStateMachineGraph>;
-	public inline extern function get_EditorStateMachineGraph(): cpp.Star<AnimationStateMachineGraph.ConstAnimationStateMachineGraph> return this.EditorStateMachineGraph;
+	public extern var EditorStateMachineGraph(get, never): ucpp.Ptr<AnimationStateMachineGraph.ConstAnimationStateMachineGraph>;
+	public inline extern function get_EditorStateMachineGraph(): ucpp.Ptr<AnimationStateMachineGraph.ConstAnimationStateMachineGraph> return this.EditorStateMachineGraph;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_StateMachineBase*")
-abstract AnimGraphNode_StateMachineBasePtr(cpp.Star<AnimGraphNode_StateMachineBase>) from cpp.Star<AnimGraphNode_StateMachineBase> to cpp.Star<AnimGraphNode_StateMachineBase>{
+abstract AnimGraphNode_StateMachineBasePtr(ucpp.Ptr<AnimGraphNode_StateMachineBase>) from ucpp.Ptr<AnimGraphNode_StateMachineBase> to ucpp.Ptr<AnimGraphNode_StateMachineBase>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_StateMachineBase): AnimGraphNode_StateMachineBasePtr {
 		return untyped __cpp__("&({0})", v);

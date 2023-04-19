@@ -3,11 +3,11 @@ package ue;
 
 @:native("ASceneCapture")
 @:include("Engine/SceneCapture.h")
-@:structAccess
+@:valueType
 extern class SceneCapture extends Actor {
-	private var SceneComponent: cpp.Star<SceneComp>;
+	private var SceneComponent: ucpp.Ptr<SceneComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSceneCapture(SceneCapture) from SceneCapture {
 @:forward
 @:nativeGen
 @:native("SceneCapture*")
-abstract SceneCapturePtr(cpp.Star<SceneCapture>) from cpp.Star<SceneCapture> to cpp.Star<SceneCapture>{
+abstract SceneCapturePtr(ucpp.Ptr<SceneCapture>) from ucpp.Ptr<SceneCapture> to ucpp.Ptr<SceneCapture>{
 	@:from
 	public static extern inline function fromValue(v: SceneCapture): SceneCapturePtr {
 		return untyped __cpp__("&({0})", v);

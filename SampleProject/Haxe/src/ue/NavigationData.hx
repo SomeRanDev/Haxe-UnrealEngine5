@@ -3,9 +3,9 @@ package ue;
 
 @:native("ANavigationData")
 @:include("NavigationData.h")
-@:structAccess
+@:valueType
 extern class NavigationData extends Actor {
-	public var RenderingComp: cpp.Star<PrimitiveComp>;
+	public var RenderingComp: ucpp.Ptr<PrimitiveComp>;
 	@:protected public var NavDataConfig: NavDataConfig;
 	@:protected public var bEnableDrawing: Bool;
 	@:protected public var bForceRebuildOnLoad: Bool;
@@ -13,24 +13,24 @@ extern class NavigationData extends Actor {
 	@:protected public var bCanBeMainNavData: Bool;
 	@:protected public var bCanSpawnOnRebuild: Bool;
 	@:protected public var RuntimeGeneration: ERuntimeGenerationType;
-	@:protected public var ObservedPathsTickInterval: cpp.Float32;
-	@:protected public var DataVersion: cpp.UInt32;
+	@:protected public var ObservedPathsTickInterval: ucpp.num.Float32;
+	@:protected public var DataVersion: ucpp.num.UInt32;
 	@:protected public var SupportedAreas: TArray<SupportedAreaData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNavigationData(NavigationData) from NavigationData {
-	public extern var RenderingComp(get, never): cpp.Star<PrimitiveComp.ConstPrimitiveComp>;
-	public inline extern function get_RenderingComp(): cpp.Star<PrimitiveComp.ConstPrimitiveComp> return this.RenderingComp;
+	public extern var RenderingComp(get, never): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp>;
+	public inline extern function get_RenderingComp(): ucpp.Ptr<PrimitiveComp.ConstPrimitiveComp> return this.RenderingComp;
 }
 
 @:forward
 @:nativeGen
 @:native("NavigationData*")
-abstract NavigationDataPtr(cpp.Star<NavigationData>) from cpp.Star<NavigationData> to cpp.Star<NavigationData>{
+abstract NavigationDataPtr(ucpp.Ptr<NavigationData>) from ucpp.Ptr<NavigationData> to ucpp.Ptr<NavigationData>{
 	@:from
 	public static extern inline function fromValue(v: NavigationData): NavigationDataPtr {
 		return untyped __cpp__("&({0})", v);

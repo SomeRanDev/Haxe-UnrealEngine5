@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAssetImportData")
 @:include("EditorFramework/AssetImportData.h")
-@:structAccess
+@:valueType
 extern class AssetImportData extends Object {
 
-	public function ScriptedAddFilename(InPath: FString, Index: cpp.Int32, SourceFileLabel: FString): Void;
+	public function ScriptedAddFilename(InPath: FString, Index: ucpp.num.Int32, SourceFileLabel: FString): Void;
 	public function K2_GetFirstFilename(): FString;
 	public function K2_ExtractFilenames(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(K2_GetFirstFilename, K2_ExtractFilenames)
@@ -21,7 +21,7 @@ abstract ConstAssetImportData(AssetImportData) from AssetImportData {
 @:forward
 @:nativeGen
 @:native("AssetImportData*")
-abstract AssetImportDataPtr(cpp.Star<AssetImportData>) from cpp.Star<AssetImportData> to cpp.Star<AssetImportData>{
+abstract AssetImportDataPtr(ucpp.Ptr<AssetImportData>) from ucpp.Ptr<AssetImportData> to ucpp.Ptr<AssetImportData>{
 	@:from
 	public static extern inline function fromValue(v: AssetImportData): AssetImportDataPtr {
 		return untyped __cpp__("&({0})", v);

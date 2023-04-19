@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataLegacyConversion")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataLegacyConversion extends MaterialExpressionStrataBSDF {
 	public var BaseColor: ExpressionInput;
 	public var Metallic: ExpressionInput;
@@ -25,10 +25,10 @@ extern class MaterialExpressionStrataLegacyConversion extends MaterialExpression
 	public var ClearCoatNormal: ExpressionInput;
 	public var CustomTangent: ExpressionInput;
 	public var ShadingModel: ShadingModelMaterialInput;
-	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
+	public var SubsurfaceProfile: ucpp.Ptr<SubsurfaceProfile>;
 	public var ConvertedStrataMaterialInfo: StrataMaterialInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -74,8 +74,8 @@ abstract ConstMaterialExpressionStrataLegacyConversion(MaterialExpressionStrataL
 	public inline extern function get_CustomTangent(): ExpressionInput return this.CustomTangent;
 	public extern var ShadingModel(get, never): ShadingModelMaterialInput;
 	public inline extern function get_ShadingModel(): ShadingModelMaterialInput return this.ShadingModel;
-	public extern var SubsurfaceProfile(get, never): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile>;
-	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
+	public extern var SubsurfaceProfile(get, never): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile>;
+	public inline extern function get_SubsurfaceProfile(): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
 	public extern var ConvertedStrataMaterialInfo(get, never): StrataMaterialInfo;
 	public inline extern function get_ConvertedStrataMaterialInfo(): StrataMaterialInfo return this.ConvertedStrataMaterialInfo;
 }
@@ -83,7 +83,7 @@ abstract ConstMaterialExpressionStrataLegacyConversion(MaterialExpressionStrataL
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataLegacyConversion*")
-abstract MaterialExpressionStrataLegacyConversionPtr(cpp.Star<MaterialExpressionStrataLegacyConversion>) from cpp.Star<MaterialExpressionStrataLegacyConversion> to cpp.Star<MaterialExpressionStrataLegacyConversion>{
+abstract MaterialExpressionStrataLegacyConversionPtr(ucpp.Ptr<MaterialExpressionStrataLegacyConversion>) from ucpp.Ptr<MaterialExpressionStrataLegacyConversion> to ucpp.Ptr<MaterialExpressionStrataLegacyConversion>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataLegacyConversion): MaterialExpressionStrataLegacyConversionPtr {
 		return untyped __cpp__("&({0})", v);

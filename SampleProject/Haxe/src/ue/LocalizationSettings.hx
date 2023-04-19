@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULocalizationSettings")
 @:include("LocalizationSettings.h")
-@:structAccess
+@:valueType
 extern class LocalizationSettings extends Object {
-	private var EngineTargetSet: cpp.Star<LocalizationTargetSet>;
+	private var EngineTargetSet: ucpp.Ptr<LocalizationTargetSet>;
 	private var EngineTargetsSettings: TArray<LocalizationTargetSettings>;
-	private var GameTargetSet: cpp.Star<LocalizationTargetSet>;
+	private var GameTargetSet: ucpp.Ptr<LocalizationTargetSet>;
 	private var GameTargetsSettings: TArray<LocalizationTargetSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLocalizationSettings(LocalizationSettings) from LocalizationSettin
 @:forward
 @:nativeGen
 @:native("LocalizationSettings*")
-abstract LocalizationSettingsPtr(cpp.Star<LocalizationSettings>) from cpp.Star<LocalizationSettings> to cpp.Star<LocalizationSettings>{
+abstract LocalizationSettingsPtr(ucpp.Ptr<LocalizationSettings>) from ucpp.Ptr<LocalizationSettings> to ucpp.Ptr<LocalizationSettings>{
 	@:from
 	public static extern inline function fromValue(v: LocalizationSettings): LocalizationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

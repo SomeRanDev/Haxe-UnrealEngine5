@@ -3,48 +3,48 @@ package ue;
 
 @:native("UPreviewGeometry")
 @:include("Drawing/PreviewGeometryActor.h")
-@:structAccess
+@:valueType
 extern class PreviewGeometry extends Object {
-	public var ParentActor: cpp.Star<PreviewGeometryActor>;
-	public var LineSets: TMap<FString, cpp.Star<LineSetComp>>;
-	public var PointSets: TMap<FString, cpp.Star<PointSetComp>>;
+	public var ParentActor: ucpp.Ptr<PreviewGeometryActor>;
+	public var LineSets: TMap<FString, ucpp.Ptr<LineSetComp>>;
+	public var PointSets: TMap<FString, ucpp.Ptr<PointSetComp>>;
 
 	public function SetPointSetVisibility(PointSetIdentifier: FString, bVisible: Bool): Bool;
-	public function SetPointSetMaterial(PointSetIdentifier: FString, NewMaterial: cpp.Star<MaterialInterface>): Bool;
+	public function SetPointSetMaterial(PointSetIdentifier: FString, NewMaterial: ucpp.Ptr<MaterialInterface>): Bool;
 	public function SetLineSetVisibility(LineSetIdentifier: FString, bVisible: Bool): Bool;
-	public function SetLineSetMaterial(LineSetIdentifier: FString, NewMaterial: cpp.Star<MaterialInterface>): Bool;
-	public function SetAllPointSetsMaterial(Material: cpp.Star<MaterialInterface>): Void;
-	public function SetAllLineSetsMaterial(Material: cpp.Star<MaterialInterface>): Void;
+	public function SetLineSetMaterial(LineSetIdentifier: FString, NewMaterial: ucpp.Ptr<MaterialInterface>): Bool;
+	public function SetAllPointSetsMaterial(Material: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetAllLineSetsMaterial(Material: ucpp.Ptr<MaterialInterface>): Void;
 	public function RemovePointSet(PointSetIdentifier: FString, bDestroy: Bool): Bool;
 	public function RemoveLineSet(LineSetIdentifier: FString, bDestroy: Bool): Bool;
 	public function RemoveAllPointSets(bDestroy: Bool): Void;
 	public function RemoveAllLineSets(bDestroy: Bool): Void;
-	public function GetActor(): cpp.Star<PreviewGeometryActor>;
-	public function FindPointSet(PointSetIdentifier: FString): cpp.Star<PointSetComp>;
-	public function FindLineSet(LineSetIdentifier: FString): cpp.Star<LineSetComp>;
+	public function GetActor(): ucpp.Ptr<PreviewGeometryActor>;
+	public function FindPointSet(PointSetIdentifier: FString): ucpp.Ptr<PointSetComp>;
+	public function FindLineSet(LineSetIdentifier: FString): ucpp.Ptr<LineSetComp>;
 	public function Disconnect(): Void;
-	public function CreateInWorld(World: cpp.Star<World>, WithTransform: cpp.Reference<Transform>): Void;
-	public function AddPointSet(PointSetIdentifier: FString): cpp.Star<PointSetComp>;
-	public function AddLineSet(LineSetIdentifier: FString): cpp.Star<LineSetComp>;
+	public function CreateInWorld(World: ucpp.Ptr<World>, WithTransform: ucpp.Ref<Transform>): Void;
+	public function AddPointSet(PointSetIdentifier: FString): ucpp.Ptr<PointSetComp>;
+	public function AddLineSet(LineSetIdentifier: FString): ucpp.Ptr<LineSetComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetActor)
 @:nativeGen
 abstract ConstPreviewGeometry(PreviewGeometry) from PreviewGeometry {
-	public extern var ParentActor(get, never): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor>;
-	public inline extern function get_ParentActor(): cpp.Star<PreviewGeometryActor.ConstPreviewGeometryActor> return this.ParentActor;
-	public extern var LineSets(get, never): TMap<FString, cpp.Star<LineSetComp.ConstLineSetComp>>;
-	public inline extern function get_LineSets(): TMap<FString, cpp.Star<LineSetComp.ConstLineSetComp>> return this.LineSets;
-	public extern var PointSets(get, never): TMap<FString, cpp.Star<PointSetComp.ConstPointSetComp>>;
-	public inline extern function get_PointSets(): TMap<FString, cpp.Star<PointSetComp.ConstPointSetComp>> return this.PointSets;
+	public extern var ParentActor(get, never): ucpp.Ptr<PreviewGeometryActor.ConstPreviewGeometryActor>;
+	public inline extern function get_ParentActor(): ucpp.Ptr<PreviewGeometryActor.ConstPreviewGeometryActor> return this.ParentActor;
+	public extern var LineSets(get, never): TMap<FString, ucpp.Ptr<LineSetComp.ConstLineSetComp>>;
+	public inline extern function get_LineSets(): TMap<FString, ucpp.Ptr<LineSetComp.ConstLineSetComp>> return this.LineSets;
+	public extern var PointSets(get, never): TMap<FString, ucpp.Ptr<PointSetComp.ConstPointSetComp>>;
+	public inline extern function get_PointSets(): TMap<FString, ucpp.Ptr<PointSetComp.ConstPointSetComp>> return this.PointSets;
 }
 
 @:forward
 @:nativeGen
 @:native("PreviewGeometry*")
-abstract PreviewGeometryPtr(cpp.Star<PreviewGeometry>) from cpp.Star<PreviewGeometry> to cpp.Star<PreviewGeometry>{
+abstract PreviewGeometryPtr(ucpp.Ptr<PreviewGeometry>) from ucpp.Ptr<PreviewGeometry> to ucpp.Ptr<PreviewGeometry>{
 	@:from
 	public static extern inline function fromValue(v: PreviewGeometry): PreviewGeometryPtr {
 		return untyped __cpp__("&({0})", v);

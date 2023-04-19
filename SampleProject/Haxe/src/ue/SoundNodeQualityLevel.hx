@@ -3,24 +3,24 @@ package ue;
 
 @:native("USoundNodeQualityLevel")
 @:include("Sound/SoundNodeQualityLevel.h")
-@:structAccess
+@:valueType
 extern class SoundNodeQualityLevel extends SoundNode {
-	public var CookedQualityLevelIndex: cpp.Int32;
+	public var CookedQualityLevelIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeQualityLevel(SoundNodeQualityLevel) from SoundNodeQualityLevel {
-	public extern var CookedQualityLevelIndex(get, never): cpp.Int32;
-	public inline extern function get_CookedQualityLevelIndex(): cpp.Int32 return this.CookedQualityLevelIndex;
+	public extern var CookedQualityLevelIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_CookedQualityLevelIndex(): ucpp.num.Int32 return this.CookedQualityLevelIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeQualityLevel*")
-abstract SoundNodeQualityLevelPtr(cpp.Star<SoundNodeQualityLevel>) from cpp.Star<SoundNodeQualityLevel> to cpp.Star<SoundNodeQualityLevel>{
+abstract SoundNodeQualityLevelPtr(ucpp.Ptr<SoundNodeQualityLevel>) from ucpp.Ptr<SoundNodeQualityLevel> to ucpp.Ptr<SoundNodeQualityLevel>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeQualityLevel): SoundNodeQualityLevelPtr {
 		return untyped __cpp__("&({0})", v);

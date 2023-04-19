@@ -3,22 +3,22 @@ package ue;
 
 @:native("UAnimNotifyState_TimedParticleEffect")
 @:include("Animation/AnimNotifies/AnimNotifyState_TimedParticleEffect.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyState_TimedParticleEffect extends AnimNotifyState {
-	public var PSTemplate: cpp.Star<ParticleSystem>;
+	public var PSTemplate: ucpp.Ptr<ParticleSystem>;
 	public var SocketName: FName;
 	public var LocationOffset: Vector;
 	public var RotationOffset: Rotator;
 	public var bDestroyAtEnd: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimNotifyState_TimedParticleEffect(AnimNotifyState_TimedParticleEffect) from AnimNotifyState_TimedParticleEffect {
-	public extern var PSTemplate(get, never): cpp.Star<ParticleSystem.ConstParticleSystem>;
-	public inline extern function get_PSTemplate(): cpp.Star<ParticleSystem.ConstParticleSystem> return this.PSTemplate;
+	public extern var PSTemplate(get, never): ucpp.Ptr<ParticleSystem.ConstParticleSystem>;
+	public inline extern function get_PSTemplate(): ucpp.Ptr<ParticleSystem.ConstParticleSystem> return this.PSTemplate;
 	public extern var SocketName(get, never): FName;
 	public inline extern function get_SocketName(): FName return this.SocketName;
 	public extern var LocationOffset(get, never): Vector;
@@ -32,7 +32,7 @@ abstract ConstAnimNotifyState_TimedParticleEffect(AnimNotifyState_TimedParticleE
 @:forward
 @:nativeGen
 @:native("AnimNotifyState_TimedParticleEffect*")
-abstract AnimNotifyState_TimedParticleEffectPtr(cpp.Star<AnimNotifyState_TimedParticleEffect>) from cpp.Star<AnimNotifyState_TimedParticleEffect> to cpp.Star<AnimNotifyState_TimedParticleEffect>{
+abstract AnimNotifyState_TimedParticleEffectPtr(ucpp.Ptr<AnimNotifyState_TimedParticleEffect>) from ucpp.Ptr<AnimNotifyState_TimedParticleEffect> to ucpp.Ptr<AnimNotifyState_TimedParticleEffect>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyState_TimedParticleEffect): AnimNotifyState_TimedParticleEffectPtr {
 		return untyped __cpp__("&({0})", v);

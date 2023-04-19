@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleRotationRateMultiplyLife")
 @:include("Particles/RotationRate/ParticleModuleRotationRateMultiplyLife.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleRotationRateMultiplyLife extends ParticleModuleRotationRateBase {
 	public var LifeMultiplier: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleRotationRateMultiplyLife(ParticleModuleRotationRateM
 @:forward
 @:nativeGen
 @:native("ParticleModuleRotationRateMultiplyLife*")
-abstract ParticleModuleRotationRateMultiplyLifePtr(cpp.Star<ParticleModuleRotationRateMultiplyLife>) from cpp.Star<ParticleModuleRotationRateMultiplyLife> to cpp.Star<ParticleModuleRotationRateMultiplyLife>{
+abstract ParticleModuleRotationRateMultiplyLifePtr(ucpp.Ptr<ParticleModuleRotationRateMultiplyLife>) from ucpp.Ptr<ParticleModuleRotationRateMultiplyLife> to ucpp.Ptr<ParticleModuleRotationRateMultiplyLife>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleRotationRateMultiplyLife): ParticleModuleRotationRateMultiplyLifePtr {
 		return untyped __cpp__("&({0})", v);

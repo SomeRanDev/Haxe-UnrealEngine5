@@ -3,33 +3,33 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioSpectrum")
 @:include("NiagaraDataInterfaceAudioSpectrum.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceAudioSpectrum extends NiagaraDataInterfaceAudioSubmix {
-	public var Resolution: cpp.Int32;
-	public var MinimumFrequency: cpp.Float32;
-	public var MaximumFrequency: cpp.Float32;
-	public var NoiseFloorDb: cpp.Float32;
+	public var Resolution: ucpp.num.Int32;
+	public var MinimumFrequency: ucpp.num.Float32;
+	public var MaximumFrequency: ucpp.num.Float32;
+	public var NoiseFloorDb: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceAudioSpectrum(NiagaraDataInterfaceAudioSpectrum) from NiagaraDataInterfaceAudioSpectrum {
-	public extern var Resolution(get, never): cpp.Int32;
-	public inline extern function get_Resolution(): cpp.Int32 return this.Resolution;
-	public extern var MinimumFrequency(get, never): cpp.Float32;
-	public inline extern function get_MinimumFrequency(): cpp.Float32 return this.MinimumFrequency;
-	public extern var MaximumFrequency(get, never): cpp.Float32;
-	public inline extern function get_MaximumFrequency(): cpp.Float32 return this.MaximumFrequency;
-	public extern var NoiseFloorDb(get, never): cpp.Float32;
-	public inline extern function get_NoiseFloorDb(): cpp.Float32 return this.NoiseFloorDb;
+	public extern var Resolution(get, never): ucpp.num.Int32;
+	public inline extern function get_Resolution(): ucpp.num.Int32 return this.Resolution;
+	public extern var MinimumFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_MinimumFrequency(): ucpp.num.Float32 return this.MinimumFrequency;
+	public extern var MaximumFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_MaximumFrequency(): ucpp.num.Float32 return this.MaximumFrequency;
+	public extern var NoiseFloorDb(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseFloorDb(): ucpp.num.Float32 return this.NoiseFloorDb;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceAudioSpectrum*")
-abstract NiagaraDataInterfaceAudioSpectrumPtr(cpp.Star<NiagaraDataInterfaceAudioSpectrum>) from cpp.Star<NiagaraDataInterfaceAudioSpectrum> to cpp.Star<NiagaraDataInterfaceAudioSpectrum>{
+abstract NiagaraDataInterfaceAudioSpectrumPtr(ucpp.Ptr<NiagaraDataInterfaceAudioSpectrum>) from ucpp.Ptr<NiagaraDataInterfaceAudioSpectrum> to ucpp.Ptr<NiagaraDataInterfaceAudioSpectrum>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceAudioSpectrum): NiagaraDataInterfaceAudioSpectrumPtr {
 		return untyped __cpp__("&({0})", v);

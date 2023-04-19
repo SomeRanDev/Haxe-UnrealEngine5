@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNavigationFilterArea")
 @:include("NavFilters/NavigationQueryFilter.h")
-@:structAccess
+@:valueType
 extern class NavigationFilterArea {
 	public var AreaClass: TSubclassOf<NavArea>;
-	public var TravelCostOverride: cpp.Float32;
-	public var EnteringCostOverride: cpp.Float32;
+	public var TravelCostOverride: ucpp.num.Float32;
+	public var EnteringCostOverride: ucpp.num.Float32;
 	public var bIsExcluded: Bool;
 	public var bOverrideTravelCost: Bool;
 	public var bOverrideEnteringCost: Bool;

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionTransformPosition")
 @:include("Materials/MaterialExpressionTransformPosition.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTransformPosition extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var TransformSourceType: TEnumAsByte<EMaterialPositionTransformSource>;
 	public var TransformType: TEnumAsByte<EMaterialPositionTransformSource>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionTransformPosition(MaterialExpressionTransformPos
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTransformPosition*")
-abstract MaterialExpressionTransformPositionPtr(cpp.Star<MaterialExpressionTransformPosition>) from cpp.Star<MaterialExpressionTransformPosition> to cpp.Star<MaterialExpressionTransformPosition>{
+abstract MaterialExpressionTransformPositionPtr(ucpp.Ptr<MaterialExpressionTransformPosition>) from ucpp.Ptr<MaterialExpressionTransformPosition> to ucpp.Ptr<MaterialExpressionTransformPosition>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTransformPosition): MaterialExpressionTransformPositionPtr {
 		return untyped __cpp__("&({0})", v);

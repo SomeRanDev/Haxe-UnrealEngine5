@@ -3,24 +3,24 @@ package ue;
 
 @:native("USkeletonFactory")
 @:include("Factories/SkeletonFactory.h")
-@:structAccess
+@:valueType
 extern class SkeletonFactory extends Factory {
-	public var TargetSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var TargetSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSkeletonFactory(SkeletonFactory) from SkeletonFactory {
-	public extern var TargetSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_TargetSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
+	public extern var TargetSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_TargetSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("SkeletonFactory*")
-abstract SkeletonFactoryPtr(cpp.Star<SkeletonFactory>) from cpp.Star<SkeletonFactory> to cpp.Star<SkeletonFactory>{
+abstract SkeletonFactoryPtr(ucpp.Ptr<SkeletonFactory>) from ucpp.Ptr<SkeletonFactory> to ucpp.Ptr<SkeletonFactory>{
 	@:from
 	public static extern inline function fromValue(v: SkeletonFactory): SkeletonFactoryPtr {
 		return untyped __cpp__("&({0})", v);

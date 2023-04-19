@@ -3,23 +3,23 @@ package ue;
 
 @:native("AFunctionalAITestBase")
 @:include("FunctionalAITest.h")
-@:structAccess
+@:valueType
 extern class FunctionalAITestBase extends FunctionalTest {
-	@:protected public var SpawnLocationRandomizationRange: cpp.Float32;
-	@:protected public var SpawnedPawns: TArray<cpp.Star<Pawn>>;
+	@:protected public var SpawnLocationRandomizationRange: ucpp.num.Float32;
+	@:protected public var SpawnedPawns: TArray<ucpp.Ptr<Pawn>>;
 	@:protected public var PendingDelayedSpawns: TArray<PendingDelayedSpawn>;
-	@:protected public var CurrentSpawnSetIndex: cpp.Int32;
+	@:protected public var CurrentSpawnSetIndex: ucpp.num.Int32;
 	@:protected public var CurrentSpawnSetName: FString;
-	@:protected public var OnAISpawned: HaxeMulticastSparseDelegateProperty<(cpp.Star<AIController>, cpp.Star<Pawn>) -> Void>;
+	@:protected public var OnAISpawned: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<AIController>, ucpp.Ptr<Pawn>) -> Void>;
 	@:protected public var OnAllAISPawned: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	@:protected public var NavMeshDebugOrigin: Vector;
 	@:protected public var NavMeshDebugExtent: Vector;
 	@:protected public var bWaitForNavMesh: Bool;
 	@:protected public var bDebugNavMeshOnTimeout: Bool;
 
-	public function IsOneOfSpawnedPawns(Actor: cpp.Star<Actor>): Bool;
+	public function IsOneOfSpawnedPawns(Actor: ucpp.Ptr<Actor>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstFunctionalAITestBase(FunctionalAITestBase) from FunctionalAITestBa
 @:forward
 @:nativeGen
 @:native("FunctionalAITestBase*")
-abstract FunctionalAITestBasePtr(cpp.Star<FunctionalAITestBase>) from cpp.Star<FunctionalAITestBase> to cpp.Star<FunctionalAITestBase>{
+abstract FunctionalAITestBasePtr(ucpp.Ptr<FunctionalAITestBase>) from ucpp.Ptr<FunctionalAITestBase> to ucpp.Ptr<FunctionalAITestBase>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalAITestBase): FunctionalAITestBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraMessageDataBase")
 @:include("NiagaraMessageDataBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraMessageDataBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraMessageDataBase(NiagaraMessageDataBase) from NiagaraMessage
 @:forward
 @:nativeGen
 @:native("NiagaraMessageDataBase*")
-abstract NiagaraMessageDataBasePtr(cpp.Star<NiagaraMessageDataBase>) from cpp.Star<NiagaraMessageDataBase> to cpp.Star<NiagaraMessageDataBase>{
+abstract NiagaraMessageDataBasePtr(ucpp.Ptr<NiagaraMessageDataBase>) from ucpp.Ptr<NiagaraMessageDataBase> to ucpp.Ptr<NiagaraMessageDataBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraMessageDataBase): NiagaraMessageDataBasePtr {
 		return untyped __cpp__("&({0})", v);

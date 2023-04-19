@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraScriptDataUsageInfo")
 @:include("NiagaraCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraScriptDataUsageInfo {
 	public var bReadsAttributeData: Bool;
 

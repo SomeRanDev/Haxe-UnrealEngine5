@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionSmoothStep")
 @:include("Materials/MaterialExpressionSmoothStep.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSmoothStep extends MaterialExpression {
 	public var Min: ExpressionInput;
 	public var Max: ExpressionInput;
 	public var Value: ExpressionInput;
-	public var ConstMin: cpp.Float32;
-	public var ConstMax: cpp.Float32;
-	public var ConstValue: cpp.Float32;
+	public var ConstMin: ucpp.num.Float32;
+	public var ConstMax: ucpp.num.Float32;
+	public var ConstValue: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,18 +24,18 @@ abstract ConstMaterialExpressionSmoothStep(MaterialExpressionSmoothStep) from Ma
 	public inline extern function get_Max(): ExpressionInput return this.Max;
 	public extern var Value(get, never): ExpressionInput;
 	public inline extern function get_Value(): ExpressionInput return this.Value;
-	public extern var ConstMin(get, never): cpp.Float32;
-	public inline extern function get_ConstMin(): cpp.Float32 return this.ConstMin;
-	public extern var ConstMax(get, never): cpp.Float32;
-	public inline extern function get_ConstMax(): cpp.Float32 return this.ConstMax;
-	public extern var ConstValue(get, never): cpp.Float32;
-	public inline extern function get_ConstValue(): cpp.Float32 return this.ConstValue;
+	public extern var ConstMin(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstMin(): ucpp.num.Float32 return this.ConstMin;
+	public extern var ConstMax(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstMax(): ucpp.num.Float32 return this.ConstMax;
+	public extern var ConstValue(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstValue(): ucpp.num.Float32 return this.ConstValue;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSmoothStep*")
-abstract MaterialExpressionSmoothStepPtr(cpp.Star<MaterialExpressionSmoothStep>) from cpp.Star<MaterialExpressionSmoothStep> to cpp.Star<MaterialExpressionSmoothStep>{
+abstract MaterialExpressionSmoothStepPtr(ucpp.Ptr<MaterialExpressionSmoothStep>) from ucpp.Ptr<MaterialExpressionSmoothStep> to ucpp.Ptr<MaterialExpressionSmoothStep>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSmoothStep): MaterialExpressionSmoothStepPtr {
 		return untyped __cpp__("&({0})", v);

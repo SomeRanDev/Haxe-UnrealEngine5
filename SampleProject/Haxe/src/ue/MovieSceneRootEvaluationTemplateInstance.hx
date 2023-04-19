@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMovieSceneRootEvaluationTemplateInstance")
 @:include("Evaluation/MovieSceneEvaluationTemplateInstance.h")
-@:structAccess
+@:valueType
 extern class MovieSceneRootEvaluationTemplateInstance {
 	private var WeakRootSequence: TWeakObjectPtr<MovieSceneSequence>;
-	private var CompiledDataManager: cpp.Star<MovieSceneCompiledDataManager>;
-	private var EntitySystemLinker: cpp.Star<MovieSceneEntitySystemLinker>;
-	private var DirectorInstances: TMap<MovieSceneSequenceID, cpp.Star<Object>>;
+	private var CompiledDataManager: ucpp.Ptr<MovieSceneCompiledDataManager>;
+	private var EntitySystemLinker: ucpp.Ptr<MovieSceneEntitySystemLinker>;
+	private var DirectorInstances: TMap<MovieSceneSequenceID, ucpp.Ptr<Object>>;
 
 	@:native("FMovieSceneRootEvaluationTemplateInstance") public function new();
-	@:native("FMovieSceneRootEvaluationTemplateInstance") public static function make(WeakRootSequence: TWeakObjectPtr<MovieSceneSequence>, CompiledDataManager: cpp.Star<MovieSceneCompiledDataManager>, EntitySystemLinker: cpp.Star<MovieSceneEntitySystemLinker>, DirectorInstances: TMap<MovieSceneSequenceID, cpp.Star<Object>>): MovieSceneRootEvaluationTemplateInstance ;
+	@:native("FMovieSceneRootEvaluationTemplateInstance") public static function make(WeakRootSequence: TWeakObjectPtr<MovieSceneSequence>, CompiledDataManager: ucpp.Ptr<MovieSceneCompiledDataManager>, EntitySystemLinker: ucpp.Ptr<MovieSceneEntitySystemLinker>, DirectorInstances: TMap<MovieSceneSequenceID, ucpp.Ptr<Object>>): MovieSceneRootEvaluationTemplateInstance ;
 }

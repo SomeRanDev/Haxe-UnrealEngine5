@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAnimationGraph")
 @:include("AnimationGraph.h")
-@:structAccess
+@:valueType
 extern class AnimationGraph extends EdGraph {
 	public var BlendOptions: AnimGraphBlendOptions;
 
-	public function GetGraphNodesOfClass(NodeClass: TSubclassOf<AnimGraphNode_Base>, GraphNodes: cpp.Reference<TArray<cpp.Star<AnimGraphNode_Base>>>, bIncludeChildClasses: Bool): Void;
+	public function GetGraphNodesOfClass(NodeClass: TSubclassOf<AnimGraphNode_Base>, GraphNodes: ucpp.Ref<TArray<ucpp.Ptr<AnimGraphNode_Base>>>, bIncludeChildClasses: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAnimationGraph(AnimationGraph) from AnimationGraph {
 @:forward
 @:nativeGen
 @:native("AnimationGraph*")
-abstract AnimationGraphPtr(cpp.Star<AnimationGraph>) from cpp.Star<AnimationGraph> to cpp.Star<AnimationGraph>{
+abstract AnimationGraphPtr(ucpp.Ptr<AnimationGraph>) from ucpp.Ptr<AnimationGraph> to ucpp.Ptr<AnimationGraph>{
 	@:from
 	public static extern inline function fromValue(v: AnimationGraph): AnimationGraphPtr {
 		return untyped __cpp__("&({0})", v);

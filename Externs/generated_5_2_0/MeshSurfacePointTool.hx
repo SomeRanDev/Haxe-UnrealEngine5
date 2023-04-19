@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshSurfacePointTool")
 @:include("BaseTools/MeshSurfacePointTool.h")
-@:structAccess
+@:valueType
 extern class MeshSurfacePointTool extends SingleSelectionTool {
 	@:protected public var TargetWorld: TWeakObjectPtr<World>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMeshSurfacePointTool(MeshSurfacePointTool) from MeshSurfacePointTo
 @:forward
 @:nativeGen
 @:native("MeshSurfacePointTool*")
-abstract MeshSurfacePointToolPtr(cpp.Star<MeshSurfacePointTool>) from cpp.Star<MeshSurfacePointTool> to cpp.Star<MeshSurfacePointTool>{
+abstract MeshSurfacePointToolPtr(ucpp.Ptr<MeshSurfacePointTool>) from ucpp.Ptr<MeshSurfacePointTool> to ucpp.Ptr<MeshSurfacePointTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshSurfacePointTool): MeshSurfacePointToolPtr {
 		return untyped __cpp__("&({0})", v);

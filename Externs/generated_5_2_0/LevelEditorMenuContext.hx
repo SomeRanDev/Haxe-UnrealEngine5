@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelEditorMenuContext")
 @:include("LevelEditorMenuContext.h")
-@:structAccess
+@:valueType
 extern class LevelEditorMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelEditorMenuContext(LevelEditorMenuContext) from LevelEditorMen
 @:forward
 @:nativeGen
 @:native("LevelEditorMenuContext*")
-abstract LevelEditorMenuContextPtr(cpp.Star<LevelEditorMenuContext>) from cpp.Star<LevelEditorMenuContext> to cpp.Star<LevelEditorMenuContext>{
+abstract LevelEditorMenuContextPtr(ucpp.Ptr<LevelEditorMenuContext>) from ucpp.Ptr<LevelEditorMenuContext> to ucpp.Ptr<LevelEditorMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: LevelEditorMenuContext): LevelEditorMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

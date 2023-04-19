@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolSetInitialDynamicState")
 @:include("FractureToolProperties.h")
-@:structAccess
+@:valueType
 extern class FractureToolSetInitialDynamicState extends FractureModalTool {
-	public var StateSettings: cpp.Star<FractureInitialDynamicStateSettings>;
+	public var StateSettings: ucpp.Ptr<FractureInitialDynamicStateSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolSetInitialDynamicState(FractureToolSetInitialDynamicState) from FractureToolSetInitialDynamicState {
-	public extern var StateSettings(get, never): cpp.Star<FractureInitialDynamicStateSettings.ConstFractureInitialDynamicStateSettings>;
-	public inline extern function get_StateSettings(): cpp.Star<FractureInitialDynamicStateSettings.ConstFractureInitialDynamicStateSettings> return this.StateSettings;
+	public extern var StateSettings(get, never): ucpp.Ptr<FractureInitialDynamicStateSettings.ConstFractureInitialDynamicStateSettings>;
+	public inline extern function get_StateSettings(): ucpp.Ptr<FractureInitialDynamicStateSettings.ConstFractureInitialDynamicStateSettings> return this.StateSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolSetInitialDynamicState*")
-abstract FractureToolSetInitialDynamicStatePtr(cpp.Star<FractureToolSetInitialDynamicState>) from cpp.Star<FractureToolSetInitialDynamicState> to cpp.Star<FractureToolSetInitialDynamicState>{
+abstract FractureToolSetInitialDynamicStatePtr(ucpp.Ptr<FractureToolSetInitialDynamicState>) from ucpp.Ptr<FractureToolSetInitialDynamicState> to ucpp.Ptr<FractureToolSetInitialDynamicState>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolSetInitialDynamicState): FractureToolSetInitialDynamicStatePtr {
 		return untyped __cpp__("&({0})", v);

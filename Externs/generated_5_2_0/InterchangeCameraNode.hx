@@ -3,18 +3,18 @@ package ue;
 
 @:native("UInterchangeCameraNode")
 @:include("InterchangeCameraNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeCameraNode extends InterchangeBaseNode {
-	public function SetCustomSensorWidth(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function SetCustomSensorHeight(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function SetCustomFocalLength(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function SetCustomEnableDepthOfField(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomSensorWidth(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomSensorHeight(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomFocalLength(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomEnableDepthOfField(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomSensorWidth(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function SetCustomSensorHeight(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function SetCustomFocalLength(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function SetCustomEnableDepthOfField(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomSensorWidth(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomSensorHeight(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomFocalLength(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomEnableDepthOfField(AttributeValue: ucpp.Ref<Bool>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomSensorWidth, GetCustomSensorHeight, GetCustomFocalLength, GetCustomEnableDepthOfField)
@@ -25,7 +25,7 @@ abstract ConstInterchangeCameraNode(InterchangeCameraNode) from InterchangeCamer
 @:forward
 @:nativeGen
 @:native("InterchangeCameraNode*")
-abstract InterchangeCameraNodePtr(cpp.Star<InterchangeCameraNode>) from cpp.Star<InterchangeCameraNode> to cpp.Star<InterchangeCameraNode>{
+abstract InterchangeCameraNodePtr(ucpp.Ptr<InterchangeCameraNode>) from ucpp.Ptr<InterchangeCameraNode> to ucpp.Ptr<InterchangeCameraNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeCameraNode): InterchangeCameraNodePtr {
 		return untyped __cpp__("&({0})", v);

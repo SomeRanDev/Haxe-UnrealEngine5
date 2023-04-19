@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UByteProperty")
-@:structAccess
+@:valueType
 extern class ByteProperty extends NumericProperty {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstByteProperty(ByteProperty) from ByteProperty {
 @:forward
 @:nativeGen
 @:native("ByteProperty*")
-abstract BytePropertyPtr(cpp.Star<ByteProperty>) from cpp.Star<ByteProperty> to cpp.Star<ByteProperty>{
+abstract BytePropertyPtr(ucpp.Ptr<ByteProperty>) from ucpp.Ptr<ByteProperty> to ucpp.Ptr<ByteProperty>{
 	@:from
 	public static extern inline function fromValue(v: ByteProperty): BytePropertyPtr {
 		return untyped __cpp__("&({0})", v);

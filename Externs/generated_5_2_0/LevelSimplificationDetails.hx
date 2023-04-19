@@ -3,13 +3,13 @@ package ue;
 
 @:native("FLevelSimplificationDetails")
 @:include("Engine/Level.h")
-@:structAccess
+@:valueType
 extern class LevelSimplificationDetails {
 	public var bCreatePackagePerAsset: Bool;
-	public var DetailsPercentage: cpp.Float32;
+	public var DetailsPercentage: ucpp.num.Float32;
 	public var StaticMeshMaterialSettings: MaterialProxySettings;
 	public var bOverrideLandscapeExportLOD: Bool;
-	public var LandscapeExportLOD: cpp.Int32;
+	public var LandscapeExportLOD: ucpp.num.Int32;
 	public var LandscapeMaterialSettings: MaterialProxySettings;
 	public var bBakeFoliageToLandscape: Bool;
 	public var bBakeGrassToLandscape: Bool;

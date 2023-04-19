@@ -3,36 +3,36 @@ package ue;
 
 @:native("UCSVtoSVGArugments")
 @:include("CSVtoSVGArguments.h")
-@:structAccess
+@:valueType
 extern class CSVtoSVGArugments extends EditorConfigBase {
 	public var CSV: FilePath;
 	public var OutputDirectory: DirectoryPath;
 	public var OutputFilename: FString;
-	public var skipRows: cpp.Int32;
-	public var minX: cpp.Float32;
-	public var maxX: cpp.Float32;
-	public var minY: cpp.Float32;
-	public var maxY: cpp.Float32;
+	public var skipRows: ucpp.num.Int32;
+	public var minX: ucpp.num.Float32;
+	public var maxX: ucpp.num.Float32;
+	public var minY: ucpp.num.Float32;
+	public var maxY: ucpp.num.Float32;
 	public var smooth: Bool;
-	public var smoothKernelSize: cpp.Int32;
-	public var smoothKernelPercent: cpp.Float32;
-	public var width: cpp.Int32;
-	public var height: cpp.Int32;
+	public var smoothKernelSize: ucpp.num.Int32;
+	public var smoothKernelPercent: ucpp.num.Float32;
+	public var width: ucpp.num.Int32;
+	public var height: ucpp.num.Int32;
 	public var title: FString;
 	public var noMetadata: Bool;
 	public var graphOnly: Bool;
-	public var budget: cpp.Float32;
-	public var thickness: cpp.Float32;
+	public var budget: ucpp.num.Float32;
+	public var thickness: ucpp.num.Float32;
 	public var theme: ESVGTheme;
-	public var threshold: cpp.Float32;
+	public var threshold: ucpp.num.Float32;
 	public var stacked: Bool;
 	public var stacktotalstack: FString;
 	public var interactive: Bool;
 	public var showaverages: Bool;
-	public var colourOffset: cpp.Int32;
-	public var averageThreshold: cpp.Float32;
+	public var colourOffset: ucpp.num.Int32;
+	public var averageThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,40 +44,40 @@ abstract ConstCSVtoSVGArugments(CSVtoSVGArugments) from CSVtoSVGArugments {
 	public inline extern function get_OutputDirectory(): DirectoryPath return this.OutputDirectory;
 	public extern var OutputFilename(get, never): FString;
 	public inline extern function get_OutputFilename(): FString return this.OutputFilename;
-	public extern var skipRows(get, never): cpp.Int32;
-	public inline extern function get_skipRows(): cpp.Int32 return this.skipRows;
-	public extern var minX(get, never): cpp.Float32;
-	public inline extern function get_minX(): cpp.Float32 return this.minX;
-	public extern var maxX(get, never): cpp.Float32;
-	public inline extern function get_maxX(): cpp.Float32 return this.maxX;
-	public extern var minY(get, never): cpp.Float32;
-	public inline extern function get_minY(): cpp.Float32 return this.minY;
-	public extern var maxY(get, never): cpp.Float32;
-	public inline extern function get_maxY(): cpp.Float32 return this.maxY;
+	public extern var skipRows(get, never): ucpp.num.Int32;
+	public inline extern function get_skipRows(): ucpp.num.Int32 return this.skipRows;
+	public extern var minX(get, never): ucpp.num.Float32;
+	public inline extern function get_minX(): ucpp.num.Float32 return this.minX;
+	public extern var maxX(get, never): ucpp.num.Float32;
+	public inline extern function get_maxX(): ucpp.num.Float32 return this.maxX;
+	public extern var minY(get, never): ucpp.num.Float32;
+	public inline extern function get_minY(): ucpp.num.Float32 return this.minY;
+	public extern var maxY(get, never): ucpp.num.Float32;
+	public inline extern function get_maxY(): ucpp.num.Float32 return this.maxY;
 	public extern var smooth(get, never): Bool;
 	public inline extern function get_smooth(): Bool return this.smooth;
-	public extern var smoothKernelSize(get, never): cpp.Int32;
-	public inline extern function get_smoothKernelSize(): cpp.Int32 return this.smoothKernelSize;
-	public extern var smoothKernelPercent(get, never): cpp.Float32;
-	public inline extern function get_smoothKernelPercent(): cpp.Float32 return this.smoothKernelPercent;
-	public extern var width(get, never): cpp.Int32;
-	public inline extern function get_width(): cpp.Int32 return this.width;
-	public extern var height(get, never): cpp.Int32;
-	public inline extern function get_height(): cpp.Int32 return this.height;
+	public extern var smoothKernelSize(get, never): ucpp.num.Int32;
+	public inline extern function get_smoothKernelSize(): ucpp.num.Int32 return this.smoothKernelSize;
+	public extern var smoothKernelPercent(get, never): ucpp.num.Float32;
+	public inline extern function get_smoothKernelPercent(): ucpp.num.Float32 return this.smoothKernelPercent;
+	public extern var width(get, never): ucpp.num.Int32;
+	public inline extern function get_width(): ucpp.num.Int32 return this.width;
+	public extern var height(get, never): ucpp.num.Int32;
+	public inline extern function get_height(): ucpp.num.Int32 return this.height;
 	public extern var title(get, never): FString;
 	public inline extern function get_title(): FString return this.title;
 	public extern var noMetadata(get, never): Bool;
 	public inline extern function get_noMetadata(): Bool return this.noMetadata;
 	public extern var graphOnly(get, never): Bool;
 	public inline extern function get_graphOnly(): Bool return this.graphOnly;
-	public extern var budget(get, never): cpp.Float32;
-	public inline extern function get_budget(): cpp.Float32 return this.budget;
-	public extern var thickness(get, never): cpp.Float32;
-	public inline extern function get_thickness(): cpp.Float32 return this.thickness;
+	public extern var budget(get, never): ucpp.num.Float32;
+	public inline extern function get_budget(): ucpp.num.Float32 return this.budget;
+	public extern var thickness(get, never): ucpp.num.Float32;
+	public inline extern function get_thickness(): ucpp.num.Float32 return this.thickness;
 	public extern var theme(get, never): ESVGTheme;
 	public inline extern function get_theme(): ESVGTheme return this.theme;
-	public extern var threshold(get, never): cpp.Float32;
-	public inline extern function get_threshold(): cpp.Float32 return this.threshold;
+	public extern var threshold(get, never): ucpp.num.Float32;
+	public inline extern function get_threshold(): ucpp.num.Float32 return this.threshold;
 	public extern var stacked(get, never): Bool;
 	public inline extern function get_stacked(): Bool return this.stacked;
 	public extern var stacktotalstack(get, never): FString;
@@ -86,16 +86,16 @@ abstract ConstCSVtoSVGArugments(CSVtoSVGArugments) from CSVtoSVGArugments {
 	public inline extern function get_interactive(): Bool return this.interactive;
 	public extern var showaverages(get, never): Bool;
 	public inline extern function get_showaverages(): Bool return this.showaverages;
-	public extern var colourOffset(get, never): cpp.Int32;
-	public inline extern function get_colourOffset(): cpp.Int32 return this.colourOffset;
-	public extern var averageThreshold(get, never): cpp.Float32;
-	public inline extern function get_averageThreshold(): cpp.Float32 return this.averageThreshold;
+	public extern var colourOffset(get, never): ucpp.num.Int32;
+	public inline extern function get_colourOffset(): ucpp.num.Int32 return this.colourOffset;
+	public extern var averageThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_averageThreshold(): ucpp.num.Float32 return this.averageThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("CSVtoSVGArugments*")
-abstract CSVtoSVGArugmentsPtr(cpp.Star<CSVtoSVGArugments>) from cpp.Star<CSVtoSVGArugments> to cpp.Star<CSVtoSVGArugments>{
+abstract CSVtoSVGArugmentsPtr(ucpp.Ptr<CSVtoSVGArugments>) from ucpp.Ptr<CSVtoSVGArugments> to ucpp.Ptr<CSVtoSVGArugments>{
 	@:from
 	public static extern inline function fromValue(v: CSVtoSVGArugments): CSVtoSVGArugmentsPtr {
 		return untyped __cpp__("&({0})", v);

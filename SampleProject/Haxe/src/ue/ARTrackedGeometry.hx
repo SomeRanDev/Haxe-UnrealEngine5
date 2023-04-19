@@ -3,31 +3,31 @@ package ue;
 
 @:native("UARTrackedGeometry")
 @:include("ARTrackable.h")
-@:structAccess
+@:valueType
 extern class ARTrackedGeometry extends Object {
 	public var UniqueId: Guid;
 	@:protected public var LocalToTrackingTransform: Transform;
 	@:protected public var LocalToAlignedTrackingTransform: Transform;
 	@:protected public var TrackingState: EARTrackingState;
-	@:protected public var UnderlyingMesh: cpp.Star<MRMeshComp>;
+	@:protected public var UnderlyingMesh: ucpp.Ptr<MRMeshComp>;
 	@:protected public var ObjectClassification: EARObjectClassification;
 	@:protected public var SpatialMeshUsageFlags: EARSpatialMeshUsageFlags;
-	private var LastUpdateFrameNumber: cpp.Int32;
+	private var LastUpdateFrameNumber: ucpp.num.Int32;
 	private var DebugName: FName;
 
 	public function IsTracked(): Bool;
 	public function HasSpatialMeshUsageFlag(InFlag: EARSpatialMeshUsageFlags): Bool;
-	public function GetUnderlyingMesh(): cpp.Star<MRMeshComp>;
+	public function GetUnderlyingMesh(): ucpp.Ptr<MRMeshComp>;
 	public function GetTrackingState(): EARTrackingState;
 	public function GetObjectClassification(): EARObjectClassification;
 	public function GetName(): FString;
 	public function GetLocalToWorldTransform(): Transform;
 	public function GetLocalToTrackingTransform(): Transform;
-	public function GetLastUpdateTimestamp(): cpp.Float32;
-	public function GetLastUpdateFrameNumber(): cpp.Int32;
+	public function GetLastUpdateTimestamp(): ucpp.num.Float32;
+	public function GetLastUpdateFrameNumber(): ucpp.num.Int32;
 	public function GetDebugName(): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -43,7 +43,7 @@ abstract ConstARTrackedGeometry(ARTrackedGeometry) from ARTrackedGeometry {
 @:forward
 @:nativeGen
 @:native("ARTrackedGeometry*")
-abstract ARTrackedGeometryPtr(cpp.Star<ARTrackedGeometry>) from cpp.Star<ARTrackedGeometry> to cpp.Star<ARTrackedGeometry>{
+abstract ARTrackedGeometryPtr(ucpp.Ptr<ARTrackedGeometry>) from ucpp.Ptr<ARTrackedGeometry> to ucpp.Ptr<ARTrackedGeometry>{
 	@:from
 	public static extern inline function fromValue(v: ARTrackedGeometry): ARTrackedGeometryPtr {
 		return untyped __cpp__("&({0})", v);

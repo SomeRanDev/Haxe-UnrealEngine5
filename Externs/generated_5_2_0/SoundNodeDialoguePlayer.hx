@@ -3,12 +3,12 @@ package ue;
 
 @:native("USoundNodeDialoguePlayer")
 @:include("Sound/SoundNodeDialoguePlayer.h")
-@:structAccess
+@:valueType
 extern class SoundNodeDialoguePlayer extends SoundNode {
 	public var DialogueWaveParameter: DialogueWaveParameter;
 	public var bLooping: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSoundNodeDialoguePlayer(SoundNodeDialoguePlayer) from SoundNodeDia
 @:forward
 @:nativeGen
 @:native("SoundNodeDialoguePlayer*")
-abstract SoundNodeDialoguePlayerPtr(cpp.Star<SoundNodeDialoguePlayer>) from cpp.Star<SoundNodeDialoguePlayer> to cpp.Star<SoundNodeDialoguePlayer>{
+abstract SoundNodeDialoguePlayerPtr(ucpp.Ptr<SoundNodeDialoguePlayer>) from ucpp.Ptr<SoundNodeDialoguePlayer> to ucpp.Ptr<SoundNodeDialoguePlayer>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeDialoguePlayer): SoundNodeDialoguePlayerPtr {
 		return untyped __cpp__("&({0})", v);

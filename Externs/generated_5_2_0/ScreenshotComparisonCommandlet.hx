@@ -3,10 +3,10 @@ package ue;
 
 @:native("UScreenshotComparisonCommandlet")
 @:include("ScreenshotComparisonCommandlet.h")
-@:structAccess
+@:valueType
 extern class ScreenshotComparisonCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstScreenshotComparisonCommandlet(ScreenshotComparisonCommandlet) fro
 @:forward
 @:nativeGen
 @:native("ScreenshotComparisonCommandlet*")
-abstract ScreenshotComparisonCommandletPtr(cpp.Star<ScreenshotComparisonCommandlet>) from cpp.Star<ScreenshotComparisonCommandlet> to cpp.Star<ScreenshotComparisonCommandlet>{
+abstract ScreenshotComparisonCommandletPtr(ucpp.Ptr<ScreenshotComparisonCommandlet>) from ucpp.Ptr<ScreenshotComparisonCommandlet> to ucpp.Ptr<ScreenshotComparisonCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ScreenshotComparisonCommandlet): ScreenshotComparisonCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,38 +3,38 @@ package ue;
 
 @:native("UInstancedStaticMeshComponent")
 @:include("Components/InstancedStaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class InstancedStaticMeshComp extends StaticMeshComp {
 	public var PerInstanceSMData: TArray<InstancedStaticMeshInstanceData>;
 	public var PerInstancePrevTransform: TArray<Matrix>;
-	public var NumCustomDataFloats: cpp.Int32;
-	public var PerInstanceSMCustomData: TArray<cpp.Float32>;
-	public var InstancingRandomSeed: cpp.Int32;
+	public var NumCustomDataFloats: ucpp.num.Int32;
+	public var PerInstanceSMCustomData: TArray<ucpp.num.Float32>;
+	public var InstancingRandomSeed: ucpp.num.Int32;
 	public var AdditionalRandomSeeds: TArray<InstancedStaticMeshRandomSeed>;
-	public var InstanceStartCullDistance: cpp.Int32;
-	public var InstanceEndCullDistance: cpp.Int32;
-	public var InstanceReorderTable: TArray<cpp.Int32>;
-	@:protected public var NumPendingLightmaps: cpp.Int32;
+	public var InstanceStartCullDistance: ucpp.num.Int32;
+	public var InstanceEndCullDistance: ucpp.num.Int32;
+	public var InstanceReorderTable: TArray<ucpp.num.Int32>;
+	@:protected public var NumPendingLightmaps: ucpp.num.Int32;
 	@:protected public var CachedMappings: TArray<InstancedStaticMeshMappingInfo>;
 
-	public function UpdateInstanceTransform(InstanceIndex: cpp.Int32, NewInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
-	public function SetCustomDataValue(InstanceIndex: cpp.Int32, CustomDataIndex: cpp.Int32, CustomDataValue: cpp.Float32, bMarkRenderStateDirty: Bool): Bool;
-	public function SetCullDistances(StartCullDistance: cpp.Int32, EndCullDistance: cpp.Int32): Void;
-	public function RemoveInstances(InstancesToRemove: cpp.Reference<TArray<cpp.Int32>>): Bool;
-	public function RemoveInstance(InstanceIndex: cpp.Int32): Bool;
-	public function IsValidInstance(InstanceIndex: cpp.Int32): Bool;
-	public function GetInstanceTransform(InstanceIndex: cpp.Int32, OutInstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): Bool;
-	public function GetInstancesOverlappingSphere(Center: cpp.Reference<Vector>, Radius: cpp.Float32, bSphereInWorldSpace: Bool): TArray<cpp.Int32>;
-	public function GetInstancesOverlappingBox(Box: cpp.Reference<Box>, bBoxInWorldSpace: Bool): TArray<cpp.Int32>;
-	public function GetInstanceCount(): cpp.Int32;
+	public function UpdateInstanceTransform(InstanceIndex: ucpp.num.Int32, NewInstanceTransform: ucpp.Ref<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function SetCustomDataValue(InstanceIndex: ucpp.num.Int32, CustomDataIndex: ucpp.num.Int32, CustomDataValue: ucpp.num.Float32, bMarkRenderStateDirty: Bool): Bool;
+	public function SetCullDistances(StartCullDistance: ucpp.num.Int32, EndCullDistance: ucpp.num.Int32): Void;
+	public function RemoveInstances(InstancesToRemove: ucpp.Ref<TArray<ucpp.num.Int32>>): Bool;
+	public function RemoveInstance(InstanceIndex: ucpp.num.Int32): Bool;
+	public function IsValidInstance(InstanceIndex: ucpp.num.Int32): Bool;
+	public function GetInstanceTransform(InstanceIndex: ucpp.num.Int32, OutInstanceTransform: ucpp.Ref<Transform>, bWorldSpace: Bool): Bool;
+	public function GetInstancesOverlappingSphere(Center: ucpp.Ref<Vector>, Radius: ucpp.num.Float32, bSphereInWorldSpace: Bool): TArray<ucpp.num.Int32>;
+	public function GetInstancesOverlappingBox(Box: ucpp.Ref<Box>, bBoxInWorldSpace: Bool): TArray<ucpp.num.Int32>;
+	public function GetInstanceCount(): ucpp.num.Int32;
 	public function ClearInstances(): Void;
-	public function BatchUpdateInstancesTransforms(StartInstanceIndex: cpp.Int32, NewInstancesTransforms: cpp.Reference<TArray<Transform>>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
-	public function BatchUpdateInstancesTransform(StartInstanceIndex: cpp.Int32, NumInstances: cpp.Int32, NewInstancesTransform: cpp.Reference<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
-	public function AddInstanceWorldSpace(WorldTransform: cpp.Reference<Transform>): cpp.Int32;
-	public function AddInstances(InstanceTransforms: cpp.Reference<TArray<Transform>>, bShouldReturnIndices: Bool, bWorldSpace: Bool): TArray<cpp.Int32>;
-	public function AddInstance(InstanceTransform: cpp.Reference<Transform>, bWorldSpace: Bool): cpp.Int32;
+	public function BatchUpdateInstancesTransforms(StartInstanceIndex: ucpp.num.Int32, NewInstancesTransforms: ucpp.Ref<TArray<Transform>>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function BatchUpdateInstancesTransform(StartInstanceIndex: ucpp.num.Int32, NumInstances: ucpp.num.Int32, NewInstancesTransform: ucpp.Ref<Transform>, bWorldSpace: Bool, bMarkRenderStateDirty: Bool, bTeleport: Bool): Bool;
+	public function AddInstanceWorldSpace(WorldTransform: ucpp.Ref<Transform>): ucpp.num.Int32;
+	public function AddInstances(InstanceTransforms: ucpp.Ref<TArray<Transform>>, bShouldReturnIndices: Bool, bWorldSpace: Bool): TArray<ucpp.num.Int32>;
+	public function AddInstance(InstanceTransform: ucpp.Ref<Transform>, bWorldSpace: Bool): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsValidInstance, GetInstanceTransform, GetInstancesOverlappingSphere, GetInstancesOverlappingBox, GetInstanceCount)
@@ -44,26 +44,26 @@ abstract ConstInstancedStaticMeshComp(InstancedStaticMeshComp) from InstancedSta
 	public inline extern function get_PerInstanceSMData(): TArray<InstancedStaticMeshInstanceData> return this.PerInstanceSMData;
 	public extern var PerInstancePrevTransform(get, never): TArray<Matrix>;
 	public inline extern function get_PerInstancePrevTransform(): TArray<Matrix> return this.PerInstancePrevTransform;
-	public extern var NumCustomDataFloats(get, never): cpp.Int32;
-	public inline extern function get_NumCustomDataFloats(): cpp.Int32 return this.NumCustomDataFloats;
-	public extern var PerInstanceSMCustomData(get, never): TArray<cpp.Float32>;
-	public inline extern function get_PerInstanceSMCustomData(): TArray<cpp.Float32> return this.PerInstanceSMCustomData;
-	public extern var InstancingRandomSeed(get, never): cpp.Int32;
-	public inline extern function get_InstancingRandomSeed(): cpp.Int32 return this.InstancingRandomSeed;
+	public extern var NumCustomDataFloats(get, never): ucpp.num.Int32;
+	public inline extern function get_NumCustomDataFloats(): ucpp.num.Int32 return this.NumCustomDataFloats;
+	public extern var PerInstanceSMCustomData(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_PerInstanceSMCustomData(): TArray<ucpp.num.Float32> return this.PerInstanceSMCustomData;
+	public extern var InstancingRandomSeed(get, never): ucpp.num.Int32;
+	public inline extern function get_InstancingRandomSeed(): ucpp.num.Int32 return this.InstancingRandomSeed;
 	public extern var AdditionalRandomSeeds(get, never): TArray<InstancedStaticMeshRandomSeed>;
 	public inline extern function get_AdditionalRandomSeeds(): TArray<InstancedStaticMeshRandomSeed> return this.AdditionalRandomSeeds;
-	public extern var InstanceStartCullDistance(get, never): cpp.Int32;
-	public inline extern function get_InstanceStartCullDistance(): cpp.Int32 return this.InstanceStartCullDistance;
-	public extern var InstanceEndCullDistance(get, never): cpp.Int32;
-	public inline extern function get_InstanceEndCullDistance(): cpp.Int32 return this.InstanceEndCullDistance;
-	public extern var InstanceReorderTable(get, never): TArray<cpp.Int32>;
-	public inline extern function get_InstanceReorderTable(): TArray<cpp.Int32> return this.InstanceReorderTable;
+	public extern var InstanceStartCullDistance(get, never): ucpp.num.Int32;
+	public inline extern function get_InstanceStartCullDistance(): ucpp.num.Int32 return this.InstanceStartCullDistance;
+	public extern var InstanceEndCullDistance(get, never): ucpp.num.Int32;
+	public inline extern function get_InstanceEndCullDistance(): ucpp.num.Int32 return this.InstanceEndCullDistance;
+	public extern var InstanceReorderTable(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_InstanceReorderTable(): TArray<ucpp.num.Int32> return this.InstanceReorderTable;
 }
 
 @:forward
 @:nativeGen
 @:native("InstancedStaticMeshComp*")
-abstract InstancedStaticMeshCompPtr(cpp.Star<InstancedStaticMeshComp>) from cpp.Star<InstancedStaticMeshComp> to cpp.Star<InstancedStaticMeshComp>{
+abstract InstancedStaticMeshCompPtr(ucpp.Ptr<InstancedStaticMeshComp>) from ucpp.Ptr<InstancedStaticMeshComp> to ucpp.Ptr<InstancedStaticMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: InstancedStaticMeshComp): InstancedStaticMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

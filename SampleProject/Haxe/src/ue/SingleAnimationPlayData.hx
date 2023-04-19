@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSingleAnimationPlayData")
 @:include("SingleAnimationPlayData.h")
-@:structAccess
+@:valueType
 extern class SingleAnimationPlayData {
-	public var AnimToPlay: cpp.Star<AnimationAsset>;
+	public var AnimToPlay: ucpp.Ptr<AnimationAsset>;
 	public var bSavedLooping: Bool;
 	public var bSavedPlaying: Bool;
-	public var SavedPosition: cpp.Float32;
-	public var SavedPlayRate: cpp.Float32;
+	public var SavedPosition: ucpp.num.Float32;
+	public var SavedPlayRate: ucpp.num.Float32;
 
 	@:native("FSingleAnimationPlayData") public function new();
-	@:native("FSingleAnimationPlayData") public static function make(AnimToPlay: cpp.Star<AnimationAsset>, bSavedLooping: Bool, bSavedPlaying: Bool, SavedPosition: cpp.Float32, SavedPlayRate: cpp.Float32): SingleAnimationPlayData ;
+	@:native("FSingleAnimationPlayData") public static function make(AnimToPlay: ucpp.Ptr<AnimationAsset>, bSavedLooping: Bool, bSavedPlaying: Bool, SavedPosition: ucpp.num.Float32, SavedPlayRate: ucpp.num.Float32): SingleAnimationPlayData ;
 }

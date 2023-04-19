@@ -3,11 +3,11 @@ package ue;
 
 @:native("UModularSynthPresetBank")
 @:include("SynthComponents/EpicSynth1Component.h")
-@:structAccess
+@:valueType
 extern class ModularSynthPresetBank extends Object {
 	public var Presets: TArray<ModularSynthPresetBankEntry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstModularSynthPresetBank(ModularSynthPresetBank) from ModularSynthPr
 @:forward
 @:nativeGen
 @:native("ModularSynthPresetBank*")
-abstract ModularSynthPresetBankPtr(cpp.Star<ModularSynthPresetBank>) from cpp.Star<ModularSynthPresetBank> to cpp.Star<ModularSynthPresetBank>{
+abstract ModularSynthPresetBankPtr(ucpp.Ptr<ModularSynthPresetBank>) from ucpp.Ptr<ModularSynthPresetBank> to ucpp.Ptr<ModularSynthPresetBank>{
 	@:from
 	public static extern inline function fromValue(v: ModularSynthPresetBank): ModularSynthPresetBankPtr {
 		return untyped __cpp__("&({0})", v);

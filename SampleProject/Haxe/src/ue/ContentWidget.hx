@@ -3,13 +3,13 @@ package ue;
 
 @:native("UContentWidget")
 @:include("Components/ContentWidget.h")
-@:structAccess
+@:valueType
 extern class ContentWidget extends PanelWidget {
-	public function SetContent(Content: cpp.Star<Widget>): cpp.Star<PanelSlot>;
-	public function GetContentSlot(): cpp.Star<PanelSlot>;
-	public function GetContent(): cpp.Star<Widget>;
+	public function SetContent(Content: ucpp.Ptr<Widget>): ucpp.Ptr<PanelSlot>;
+	public function GetContentSlot(): ucpp.Ptr<PanelSlot>;
+	public function GetContent(): ucpp.Ptr<Widget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetContentSlot, GetContent)
@@ -20,7 +20,7 @@ abstract ConstContentWidget(ContentWidget) from ContentWidget {
 @:forward
 @:nativeGen
 @:native("ContentWidget*")
-abstract ContentWidgetPtr(cpp.Star<ContentWidget>) from cpp.Star<ContentWidget> to cpp.Star<ContentWidget>{
+abstract ContentWidgetPtr(ucpp.Ptr<ContentWidget>) from ucpp.Ptr<ContentWidget> to ucpp.Ptr<ContentWidget>{
 	@:from
 	public static extern inline function fromValue(v: ContentWidget): ContentWidgetPtr {
 		return untyped __cpp__("&({0})", v);

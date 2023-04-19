@@ -3,44 +3,44 @@ package ue;
 
 @:native("UCineCameraComponent")
 @:include("CineCameraComponent.h")
-@:structAccess
+@:valueType
 extern class CineCameraComp extends CameraComp {
 	public var Filmback: CameraFilmbackSettings;
 	public var LensSettings: CameraLensSettings;
 	public var FocusSettings: CameraFocusSettings;
 	public var CropSettings: PlateCropSettings;
-	public var CurrentFocalLength: cpp.Float32;
-	public var CurrentAperture: cpp.Float32;
-	public var CurrentFocusDistance: cpp.Float32;
+	public var CurrentFocalLength: ucpp.num.Float32;
+	public var CurrentAperture: ucpp.num.Float32;
+	public var CurrentFocusDistance: ucpp.num.Float32;
 	public var bOverride_CustomNearClippingPlane: Bool;
-	public var CustomNearClippingPlane: cpp.Float32;
+	public var CustomNearClippingPlane: ucpp.num.Float32;
 	@:protected public var FilmbackPresets: TArray<NamedFilmbackPreset>;
 	@:protected public var LensPresets: TArray<NamedLensPreset>;
 	@:protected public var DefaultFilmbackPreset: FString;
 	@:protected public var DefaultLensPresetName: FString;
-	@:protected public var DefaultLensFocalLength: cpp.Float32;
-	@:protected public var DefaultLensFStop: cpp.Float32;
+	@:protected public var DefaultLensFocalLength: ucpp.num.Float32;
+	@:protected public var DefaultLensFStop: ucpp.num.Float32;
 
-	public function SetLensSettings(NewLensSettings: cpp.Reference<CameraLensSettings>): Void;
+	public function SetLensSettings(NewLensSettings: ucpp.Ref<CameraLensSettings>): Void;
 	public function SetLensPresetByName(InPresetName: FString): Void;
-	public function SetFocusSettings(NewFocusSettings: cpp.Reference<CameraFocusSettings>): Void;
+	public function SetFocusSettings(NewFocusSettings: ucpp.Ref<CameraFocusSettings>): Void;
 	public function SetFilmbackPresetByName(InPresetName: FString): Void;
-	public function SetFilmback(NewFilmback: cpp.Reference<CameraFilmbackSettings>): Void;
-	public function SetCustomNearClippingPlane(NewCustomNearClippingPlane: cpp.Float32): Void;
-	public function SetCurrentFocalLength(InFocalLength: cpp.Float32): Void;
-	public function SetCurrentAperture(NewCurrentAperture: cpp.Float32): Void;
-	public function SetCropSettings(NewCropSettings: cpp.Reference<PlateCropSettings>): Void;
+	public function SetFilmback(NewFilmback: ucpp.Ref<CameraFilmbackSettings>): Void;
+	public function SetCustomNearClippingPlane(NewCustomNearClippingPlane: ucpp.num.Float32): Void;
+	public function SetCurrentFocalLength(InFocalLength: ucpp.num.Float32): Void;
+	public function SetCurrentAperture(NewCurrentAperture: ucpp.num.Float32): Void;
+	public function SetCropSettings(NewCropSettings: ucpp.Ref<PlateCropSettings>): Void;
 	public function SetCropPresetByName(InPresetName: FString): Void;
-	public function GetVerticalFieldOfView(): cpp.Float32;
+	public function GetVerticalFieldOfView(): ucpp.num.Float32;
 	public function GetLensPresetsCopy(): TArray<NamedLensPreset>;
 	public function GetLensPresetName(): FString;
-	public function GetHorizontalFieldOfView(): cpp.Float32;
+	public function GetHorizontalFieldOfView(): ucpp.num.Float32;
 	public function GetFilmbackPresetsCopy(): TArray<NamedFilmbackPreset>;
 	public function GetFilmbackPresetName(): FString;
 	public function GetDefaultFilmbackPresetName(): FString;
 	public function GetCropPresetName(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetVerticalFieldOfView, GetLensPresetName, GetHorizontalFieldOfView, GetFilmbackPresetName, GetDefaultFilmbackPresetName, GetCropPresetName)
@@ -54,22 +54,22 @@ abstract ConstCineCameraComp(CineCameraComp) from CineCameraComp {
 	public inline extern function get_FocusSettings(): CameraFocusSettings return this.FocusSettings;
 	public extern var CropSettings(get, never): PlateCropSettings;
 	public inline extern function get_CropSettings(): PlateCropSettings return this.CropSettings;
-	public extern var CurrentFocalLength(get, never): cpp.Float32;
-	public inline extern function get_CurrentFocalLength(): cpp.Float32 return this.CurrentFocalLength;
-	public extern var CurrentAperture(get, never): cpp.Float32;
-	public inline extern function get_CurrentAperture(): cpp.Float32 return this.CurrentAperture;
-	public extern var CurrentFocusDistance(get, never): cpp.Float32;
-	public inline extern function get_CurrentFocusDistance(): cpp.Float32 return this.CurrentFocusDistance;
+	public extern var CurrentFocalLength(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentFocalLength(): ucpp.num.Float32 return this.CurrentFocalLength;
+	public extern var CurrentAperture(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentAperture(): ucpp.num.Float32 return this.CurrentAperture;
+	public extern var CurrentFocusDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_CurrentFocusDistance(): ucpp.num.Float32 return this.CurrentFocusDistance;
 	public extern var bOverride_CustomNearClippingPlane(get, never): Bool;
 	public inline extern function get_bOverride_CustomNearClippingPlane(): Bool return this.bOverride_CustomNearClippingPlane;
-	public extern var CustomNearClippingPlane(get, never): cpp.Float32;
-	public inline extern function get_CustomNearClippingPlane(): cpp.Float32 return this.CustomNearClippingPlane;
+	public extern var CustomNearClippingPlane(get, never): ucpp.num.Float32;
+	public inline extern function get_CustomNearClippingPlane(): ucpp.num.Float32 return this.CustomNearClippingPlane;
 }
 
 @:forward
 @:nativeGen
 @:native("CineCameraComp*")
-abstract CineCameraCompPtr(cpp.Star<CineCameraComp>) from cpp.Star<CineCameraComp> to cpp.Star<CineCameraComp>{
+abstract CineCameraCompPtr(ucpp.Ptr<CineCameraComp>) from ucpp.Ptr<CineCameraComp> to ucpp.Ptr<CineCameraComp>{
 	@:from
 	public static extern inline function fromValue(v: CineCameraComp): CineCameraCompPtr {
 		return untyped __cpp__("&({0})", v);

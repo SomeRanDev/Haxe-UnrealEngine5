@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInputKeySelector")
 @:include("Components/InputKeySelector.h")
-@:structAccess
+@:valueType
 extern class InputKeySelector extends Widget {
 	public var WidgetStyle: ButtonStyle;
 	public var TextStyle: TextBlockStyle;
@@ -18,17 +18,17 @@ extern class InputKeySelector extends Widget {
 	public var OnIsSelectingKeyChanged: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function SetTextBlockVisibility(InVisibility: ESlateVisibility): Void;
-	public function SetSelectedKey(InSelectedKey: cpp.Reference<InputChord>): Void;
+	public function SetSelectedKey(InSelectedKey: ucpp.Ref<InputChord>): Void;
 	public function SetNoKeySpecifiedText(InNoKeySpecifiedText: FText): Void;
 	public function SetKeySelectionText(InKeySelectionText: FText): Void;
-	public function SetEscapeKeys(InKeys: cpp.Reference<TArray<Key>>): Void;
+	public function SetEscapeKeys(InKeys: ucpp.Ref<TArray<Key>>): Void;
 	public function SetAllowModifierKeys(bInAllowModifierKeys: Bool): Void;
 	public function SetAllowGamepadKeys(bInAllowGamepadKeys: Bool): Void;
 	public function OnKeySelected__DelegateSignature(SelectedKey: InputChord): Void;
 	public function OnIsSelectingKeyChanged__DelegateSignature(): Void;
 	public function GetIsSelectingKey(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetIsSelectingKey)
@@ -61,7 +61,7 @@ abstract ConstInputKeySelector(InputKeySelector) from InputKeySelector {
 @:forward
 @:nativeGen
 @:native("InputKeySelector*")
-abstract InputKeySelectorPtr(cpp.Star<InputKeySelector>) from cpp.Star<InputKeySelector> to cpp.Star<InputKeySelector>{
+abstract InputKeySelectorPtr(ucpp.Ptr<InputKeySelector>) from ucpp.Ptr<InputKeySelector> to ucpp.Ptr<InputKeySelector>{
 	@:from
 	public static extern inline function fromValue(v: InputKeySelector): InputKeySelectorPtr {
 		return untyped __cpp__("&({0})", v);

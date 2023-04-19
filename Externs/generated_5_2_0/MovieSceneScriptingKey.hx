@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneScriptingKey")
 @:include("KeysAndChannels/MovieSceneScriptingChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingKey extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneScriptingKey(MovieSceneScriptingKey) from MovieSceneScri
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingKey*")
-abstract MovieSceneScriptingKeyPtr(cpp.Star<MovieSceneScriptingKey>) from cpp.Star<MovieSceneScriptingKey> to cpp.Star<MovieSceneScriptingKey>{
+abstract MovieSceneScriptingKeyPtr(ucpp.Ptr<MovieSceneScriptingKey>) from ucpp.Ptr<MovieSceneScriptingKey> to ucpp.Ptr<MovieSceneScriptingKey>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingKey): MovieSceneScriptingKeyPtr {
 		return untyped __cpp__("&({0})", v);

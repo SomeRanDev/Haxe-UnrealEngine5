@@ -3,19 +3,19 @@ package ue;
 
 @:native("UFractureSelectionSettings")
 @:include("FractureToolSelection.h")
-@:structAccess
+@:valueType
 extern class FractureSelectionSettings extends FractureToolSettings {
 	public var MouseSelectionMethod: EMouseSelectionMethod;
 	public var VolumeSelectionMethod: EVolumeSelectionMethod;
 	public var SelectionOperation: ESelectionOperation;
-	public var MinVolume: cpp.Float64;
-	public var MaxVolume: cpp.Float64;
-	public var MinVolumeFrac: cpp.Float64;
-	public var MaxVolumeFrac: cpp.Float64;
-	public var KeepFraction: cpp.Float64;
-	public var RandomSeed: cpp.Int32;
+	public var MinVolume: ucpp.num.Float64;
+	public var MaxVolume: ucpp.num.Float64;
+	public var MinVolumeFrac: ucpp.num.Float64;
+	public var MaxVolumeFrac: ucpp.num.Float64;
+	public var KeepFraction: ucpp.num.Float64;
+	public var RandomSeed: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,24 +27,24 @@ abstract ConstFractureSelectionSettings(FractureSelectionSettings) from Fracture
 	public inline extern function get_VolumeSelectionMethod(): EVolumeSelectionMethod return this.VolumeSelectionMethod;
 	public extern var SelectionOperation(get, never): ESelectionOperation;
 	public inline extern function get_SelectionOperation(): ESelectionOperation return this.SelectionOperation;
-	public extern var MinVolume(get, never): cpp.Float64;
-	public inline extern function get_MinVolume(): cpp.Float64 return this.MinVolume;
-	public extern var MaxVolume(get, never): cpp.Float64;
-	public inline extern function get_MaxVolume(): cpp.Float64 return this.MaxVolume;
-	public extern var MinVolumeFrac(get, never): cpp.Float64;
-	public inline extern function get_MinVolumeFrac(): cpp.Float64 return this.MinVolumeFrac;
-	public extern var MaxVolumeFrac(get, never): cpp.Float64;
-	public inline extern function get_MaxVolumeFrac(): cpp.Float64 return this.MaxVolumeFrac;
-	public extern var KeepFraction(get, never): cpp.Float64;
-	public inline extern function get_KeepFraction(): cpp.Float64 return this.KeepFraction;
-	public extern var RandomSeed(get, never): cpp.Int32;
-	public inline extern function get_RandomSeed(): cpp.Int32 return this.RandomSeed;
+	public extern var MinVolume(get, never): ucpp.num.Float64;
+	public inline extern function get_MinVolume(): ucpp.num.Float64 return this.MinVolume;
+	public extern var MaxVolume(get, never): ucpp.num.Float64;
+	public inline extern function get_MaxVolume(): ucpp.num.Float64 return this.MaxVolume;
+	public extern var MinVolumeFrac(get, never): ucpp.num.Float64;
+	public inline extern function get_MinVolumeFrac(): ucpp.num.Float64 return this.MinVolumeFrac;
+	public extern var MaxVolumeFrac(get, never): ucpp.num.Float64;
+	public inline extern function get_MaxVolumeFrac(): ucpp.num.Float64 return this.MaxVolumeFrac;
+	public extern var KeepFraction(get, never): ucpp.num.Float64;
+	public inline extern function get_KeepFraction(): ucpp.num.Float64 return this.KeepFraction;
+	public extern var RandomSeed(get, never): ucpp.num.Int32;
+	public inline extern function get_RandomSeed(): ucpp.num.Int32 return this.RandomSeed;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureSelectionSettings*")
-abstract FractureSelectionSettingsPtr(cpp.Star<FractureSelectionSettings>) from cpp.Star<FractureSelectionSettings> to cpp.Star<FractureSelectionSettings>{
+abstract FractureSelectionSettingsPtr(ucpp.Ptr<FractureSelectionSettings>) from ucpp.Ptr<FractureSelectionSettings> to ucpp.Ptr<FractureSelectionSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureSelectionSettings): FractureSelectionSettingsPtr {
 		return untyped __cpp__("&({0})", v);

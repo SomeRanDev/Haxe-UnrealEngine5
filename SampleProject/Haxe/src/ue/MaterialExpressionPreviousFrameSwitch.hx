@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionPreviousFrameSwitch")
 @:include("Materials/MaterialExpressionPreviousFrameSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPreviousFrameSwitch extends MaterialExpression {
 	public var CurrentFrame: ExpressionInput;
 	public var PreviousFrame: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionPreviousFrameSwitch(MaterialExpressionPreviousFr
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPreviousFrameSwitch*")
-abstract MaterialExpressionPreviousFrameSwitchPtr(cpp.Star<MaterialExpressionPreviousFrameSwitch>) from cpp.Star<MaterialExpressionPreviousFrameSwitch> to cpp.Star<MaterialExpressionPreviousFrameSwitch>{
+abstract MaterialExpressionPreviousFrameSwitchPtr(ucpp.Ptr<MaterialExpressionPreviousFrameSwitch>) from ucpp.Ptr<MaterialExpressionPreviousFrameSwitch> to ucpp.Ptr<MaterialExpressionPreviousFrameSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPreviousFrameSwitch): MaterialExpressionPreviousFrameSwitchPtr {
 		return untyped __cpp__("&({0})", v);

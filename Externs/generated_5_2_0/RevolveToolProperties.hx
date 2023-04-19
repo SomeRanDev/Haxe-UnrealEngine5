@@ -3,7 +3,7 @@ package ue;
 
 @:native("URevolveToolProperties")
 @:include("DrawAndRevolveTool.h")
-@:structAccess
+@:valueType
 extern class RevolveToolProperties extends RevolveProperties {
 	public var CapFillMode: ERevolvePropertiesCapFillMode;
 	public var bClosePathToAxis: Bool;
@@ -12,7 +12,7 @@ extern class RevolveToolProperties extends RevolveProperties {
 	public var bEnableSnapping: Bool;
 	public var bAllowedToEditDrawPlane: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstRevolveToolProperties(RevolveToolProperties) from RevolveToolPrope
 @:forward
 @:nativeGen
 @:native("RevolveToolProperties*")
-abstract RevolveToolPropertiesPtr(cpp.Star<RevolveToolProperties>) from cpp.Star<RevolveToolProperties> to cpp.Star<RevolveToolProperties>{
+abstract RevolveToolPropertiesPtr(ucpp.Ptr<RevolveToolProperties>) from ucpp.Ptr<RevolveToolProperties> to ucpp.Ptr<RevolveToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: RevolveToolProperties): RevolveToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

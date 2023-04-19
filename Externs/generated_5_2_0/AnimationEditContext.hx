@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAnimationEditContext")
-@:structAccess
+@:valueType
 extern class AnimationEditContext extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAnimationEditContext(AnimationEditContext) from AnimationEditConte
 @:forward
 @:nativeGen
 @:native("AnimationEditContext*")
-abstract AnimationEditContextPtr(cpp.Star<AnimationEditContext>) from cpp.Star<AnimationEditContext> to cpp.Star<AnimationEditContext>{
+abstract AnimationEditContextPtr(ucpp.Ptr<AnimationEditContext>) from ucpp.Ptr<AnimationEditContext> to ucpp.Ptr<AnimationEditContext>{
 	@:from
 	public static extern inline function fromValue(v: AnimationEditContext): AnimationEditContextPtr {
 		return untyped __cpp__("&({0})", v);

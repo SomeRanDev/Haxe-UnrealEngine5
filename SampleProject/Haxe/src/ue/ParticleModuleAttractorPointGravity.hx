@@ -3,13 +3,13 @@ package ue;
 
 @:native("UParticleModuleAttractorPointGravity")
 @:include("Particles/Attractor/ParticleModuleAttractorPointGravity.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleAttractorPointGravity extends ParticleModuleAttractorBase {
 	public var Position: Vector;
-	public var Radius: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var StrengthRaw: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class ParticleModuleAttractorPointGravity extends ParticleModuleAttractor
 abstract ConstParticleModuleAttractorPointGravity(ParticleModuleAttractorPointGravity) from ParticleModuleAttractorPointGravity {
 	public extern var Position(get, never): Vector;
 	public inline extern function get_Position(): Vector return this.Position;
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
 	public extern var StrengthRaw(get, never): RawDistributionFloat;
 	public inline extern function get_StrengthRaw(): RawDistributionFloat return this.StrengthRaw;
 }
@@ -26,7 +26,7 @@ abstract ConstParticleModuleAttractorPointGravity(ParticleModuleAttractorPointGr
 @:forward
 @:nativeGen
 @:native("ParticleModuleAttractorPointGravity*")
-abstract ParticleModuleAttractorPointGravityPtr(cpp.Star<ParticleModuleAttractorPointGravity>) from cpp.Star<ParticleModuleAttractorPointGravity> to cpp.Star<ParticleModuleAttractorPointGravity>{
+abstract ParticleModuleAttractorPointGravityPtr(ucpp.Ptr<ParticleModuleAttractorPointGravity>) from ucpp.Ptr<ParticleModuleAttractorPointGravity> to ucpp.Ptr<ParticleModuleAttractorPointGravity>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleAttractorPointGravity): ParticleModuleAttractorPointGravityPtr {
 		return untyped __cpp__("&({0})", v);

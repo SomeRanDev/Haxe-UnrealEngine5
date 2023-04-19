@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UCharacterMovementUpdatedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class CharacterMovementUpdatedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstCharacterMovementUpdatedSignature__PythonCallable(CharacterMovemen
 @:forward
 @:nativeGen
 @:native("CharacterMovementUpdatedSignature__PythonCallable*")
-abstract CharacterMovementUpdatedSignature__PythonCallablePtr(cpp.Star<CharacterMovementUpdatedSignature__PythonCallable>) from cpp.Star<CharacterMovementUpdatedSignature__PythonCallable> to cpp.Star<CharacterMovementUpdatedSignature__PythonCallable>{
+abstract CharacterMovementUpdatedSignature__PythonCallablePtr(ucpp.Ptr<CharacterMovementUpdatedSignature__PythonCallable>) from ucpp.Ptr<CharacterMovementUpdatedSignature__PythonCallable> to ucpp.Ptr<CharacterMovementUpdatedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: CharacterMovementUpdatedSignature__PythonCallable): CharacterMovementUpdatedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

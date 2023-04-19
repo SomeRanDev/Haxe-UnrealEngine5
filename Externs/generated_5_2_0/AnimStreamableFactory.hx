@@ -3,27 +3,27 @@ package ue;
 
 @:native("UAnimStreamableFactory")
 @:include("Factories/AnimStreamableFactory.h")
-@:structAccess
+@:valueType
 extern class AnimStreamableFactory extends Factory {
-	public var TargetSkeleton: cpp.Star<Skeleton>;
-	public var SourceAnimation: cpp.Star<AnimSequence>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
+	public var SourceAnimation: ucpp.Ptr<AnimSequence>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimStreamableFactory(AnimStreamableFactory) from AnimStreamableFactory {
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
-	public extern var SourceAnimation(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_SourceAnimation(): cpp.Star<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var SourceAnimation(get, never): ucpp.Ptr<AnimSequence.ConstAnimSequence>;
+	public inline extern function get_SourceAnimation(): ucpp.Ptr<AnimSequence.ConstAnimSequence> return this.SourceAnimation;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimStreamableFactory*")
-abstract AnimStreamableFactoryPtr(cpp.Star<AnimStreamableFactory>) from cpp.Star<AnimStreamableFactory> to cpp.Star<AnimStreamableFactory>{
+abstract AnimStreamableFactoryPtr(ucpp.Ptr<AnimStreamableFactory>) from ucpp.Ptr<AnimStreamableFactory> to ucpp.Ptr<AnimStreamableFactory>{
 	@:from
 	public static extern inline function fromValue(v: AnimStreamableFactory): AnimStreamableFactoryPtr {
 		return untyped __cpp__("&({0})", v);

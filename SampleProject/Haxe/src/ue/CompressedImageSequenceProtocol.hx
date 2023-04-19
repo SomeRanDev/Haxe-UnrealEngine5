@@ -3,24 +3,24 @@ package ue;
 
 @:native("UCompressedImageSequenceProtocol")
 @:include("Protocols/ImageSequenceProtocol.h")
-@:structAccess
+@:valueType
 extern class CompressedImageSequenceProtocol extends ImageSequenceProtocol {
-	public var CompressionQuality: cpp.Int32;
+	public var CompressionQuality: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCompressedImageSequenceProtocol(CompressedImageSequenceProtocol) from CompressedImageSequenceProtocol {
-	public extern var CompressionQuality(get, never): cpp.Int32;
-	public inline extern function get_CompressionQuality(): cpp.Int32 return this.CompressionQuality;
+	public extern var CompressionQuality(get, never): ucpp.num.Int32;
+	public inline extern function get_CompressionQuality(): ucpp.num.Int32 return this.CompressionQuality;
 }
 
 @:forward
 @:nativeGen
 @:native("CompressedImageSequenceProtocol*")
-abstract CompressedImageSequenceProtocolPtr(cpp.Star<CompressedImageSequenceProtocol>) from cpp.Star<CompressedImageSequenceProtocol> to cpp.Star<CompressedImageSequenceProtocol>{
+abstract CompressedImageSequenceProtocolPtr(ucpp.Ptr<CompressedImageSequenceProtocol>) from ucpp.Ptr<CompressedImageSequenceProtocol> to ucpp.Ptr<CompressedImageSequenceProtocol>{
 	@:from
 	public static extern inline function fromValue(v: CompressedImageSequenceProtocol): CompressedImageSequenceProtocolPtr {
 		return untyped __cpp__("&({0})", v);

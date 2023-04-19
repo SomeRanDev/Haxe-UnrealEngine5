@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataLayerInstanceWithAsset")
 @:include("WorldPartition/DataLayer/DataLayerInstanceWithAsset.h")
-@:structAccess
+@:valueType
 extern class DataLayerInstanceWithAsset extends DataLayerInstance {
-	private var DataLayerAsset: cpp.Star<DataLayerAsset>;
+	private var DataLayerAsset: ucpp.Ptr<DataLayerAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstDataLayerInstanceWithAsset(DataLayerInstanceWithAsset) from DataLa
 @:forward
 @:nativeGen
 @:native("DataLayerInstanceWithAsset*")
-abstract DataLayerInstanceWithAssetPtr(cpp.Star<DataLayerInstanceWithAsset>) from cpp.Star<DataLayerInstanceWithAsset> to cpp.Star<DataLayerInstanceWithAsset>{
+abstract DataLayerInstanceWithAssetPtr(ucpp.Ptr<DataLayerInstanceWithAsset>) from ucpp.Ptr<DataLayerInstanceWithAsset> to ucpp.Ptr<DataLayerInstanceWithAsset>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerInstanceWithAsset): DataLayerInstanceWithAssetPtr {
 		return untyped __cpp__("&({0})", v);

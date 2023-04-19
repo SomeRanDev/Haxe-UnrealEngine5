@@ -3,10 +3,10 @@ package ue;
 
 @:native("FAnimNode_Trail")
 @:include("BoneControllers/AnimNode_Trail.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Trail extends AnimNode_SkeletalControlBase {
 	public var TrailBone: BoneReference;
-	public var ChainLength: cpp.Int32;
+	public var ChainLength: ucpp.num.Int32;
 	public var ChainBoneAxis: TEnumAsByte<EAxis>;
 	public var bInvertChainBoneAxis: Bool;
 	public var bLimitStretch: Bool;
@@ -14,17 +14,17 @@ extern class AnimNode_Trail extends AnimNode_SkeletalControlBase {
 	public var bUsePlanarLimit: Bool;
 	public var bActorSpaceFakeVel: Bool;
 	public var bReorientParentToChild: Bool;
-	public var MaxDeltaTime: cpp.Float32;
-	public var RelaxationSpeedScale: cpp.Float32;
+	public var MaxDeltaTime: ucpp.num.Float32;
+	public var RelaxationSpeedScale: ucpp.num.Float32;
 	public var TrailRelaxationSpeed: RuntimeFloatCurve;
 	public var RelaxationSpeedScaleInputProcessor: InputScaleBiasClamp;
 	public var RotationLimits: TArray<RotationLimit>;
 	public var RotationOffsets: TArray<Vector>;
 	public var PlanarLimits: TArray<AnimPhysPlanarLimit>;
-	public var StretchLimit: cpp.Float32;
+	public var StretchLimit: ucpp.num.Float32;
 	public var FakeVelocity: Vector;
 	public var BaseJoint: BoneReference;
-	public var LastBoneRotationAnimAlphaBlend: cpp.Float32;
+	public var LastBoneRotationAnimAlphaBlend: ucpp.num.Float32;
 
 	@:native("FAnimNode_Trail") public function new();
 }

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UResonanceAudioSpatializationSourceSettings")
 @:include("ResonanceAudioSpatializationSourceSettings.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioSpatializationSourceSettings extends SpatializationPluginSourceSettingsBase {
 	public var SpatializationMethod: ERaSpatializationMethod;
-	public var Pattern: cpp.Float32;
-	public var Sharpness: cpp.Float32;
+	public var Pattern: ucpp.num.Float32;
+	public var Sharpness: ucpp.num.Float32;
 	public var bToggleVisualization: Bool;
-	public var Scale: cpp.Float32;
-	public var Spread: cpp.Float32;
+	public var Scale: ucpp.num.Float32;
+	public var Spread: ucpp.num.Float32;
 	public var Rolloff: ERaDistanceRolloffModel;
-	public var MinDistance: cpp.Float32;
-	public var MaxDistance: cpp.Float32;
+	public var MinDistance: ucpp.num.Float32;
+	public var MaxDistance: ucpp.num.Float32;
 
-	public function SetSoundSourceSpread(InSpread: cpp.Float32): Void;
-	public function SetSoundSourceDirectivity(InPattern: cpp.Float32, InSharpness: cpp.Float32): Void;
+	public function SetSoundSourceSpread(InSpread: ucpp.num.Float32): Void;
+	public function SetSoundSourceDirectivity(InPattern: ucpp.num.Float32, InSharpness: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,28 +26,28 @@ extern class ResonanceAudioSpatializationSourceSettings extends SpatializationPl
 abstract ConstResonanceAudioSpatializationSourceSettings(ResonanceAudioSpatializationSourceSettings) from ResonanceAudioSpatializationSourceSettings {
 	public extern var SpatializationMethod(get, never): ERaSpatializationMethod;
 	public inline extern function get_SpatializationMethod(): ERaSpatializationMethod return this.SpatializationMethod;
-	public extern var Pattern(get, never): cpp.Float32;
-	public inline extern function get_Pattern(): cpp.Float32 return this.Pattern;
-	public extern var Sharpness(get, never): cpp.Float32;
-	public inline extern function get_Sharpness(): cpp.Float32 return this.Sharpness;
+	public extern var Pattern(get, never): ucpp.num.Float32;
+	public inline extern function get_Pattern(): ucpp.num.Float32 return this.Pattern;
+	public extern var Sharpness(get, never): ucpp.num.Float32;
+	public inline extern function get_Sharpness(): ucpp.num.Float32 return this.Sharpness;
 	public extern var bToggleVisualization(get, never): Bool;
 	public inline extern function get_bToggleVisualization(): Bool return this.bToggleVisualization;
-	public extern var Scale(get, never): cpp.Float32;
-	public inline extern function get_Scale(): cpp.Float32 return this.Scale;
-	public extern var Spread(get, never): cpp.Float32;
-	public inline extern function get_Spread(): cpp.Float32 return this.Spread;
+	public extern var Scale(get, never): ucpp.num.Float32;
+	public inline extern function get_Scale(): ucpp.num.Float32 return this.Scale;
+	public extern var Spread(get, never): ucpp.num.Float32;
+	public inline extern function get_Spread(): ucpp.num.Float32 return this.Spread;
 	public extern var Rolloff(get, never): ERaDistanceRolloffModel;
 	public inline extern function get_Rolloff(): ERaDistanceRolloffModel return this.Rolloff;
-	public extern var MinDistance(get, never): cpp.Float32;
-	public inline extern function get_MinDistance(): cpp.Float32 return this.MinDistance;
-	public extern var MaxDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxDistance(): cpp.Float32 return this.MaxDistance;
+	public extern var MinDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDistance(): ucpp.num.Float32 return this.MinDistance;
+	public extern var MaxDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxDistance(): ucpp.num.Float32 return this.MaxDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("ResonanceAudioSpatializationSourceSettings*")
-abstract ResonanceAudioSpatializationSourceSettingsPtr(cpp.Star<ResonanceAudioSpatializationSourceSettings>) from cpp.Star<ResonanceAudioSpatializationSourceSettings> to cpp.Star<ResonanceAudioSpatializationSourceSettings>{
+abstract ResonanceAudioSpatializationSourceSettingsPtr(ucpp.Ptr<ResonanceAudioSpatializationSourceSettings>) from ucpp.Ptr<ResonanceAudioSpatializationSourceSettings> to ucpp.Ptr<ResonanceAudioSpatializationSourceSettings>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioSpatializationSourceSettings): ResonanceAudioSpatializationSourceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FParticleRandomSeedInfo")
 @:include("Particles/ParticleModule.h")
-@:structAccess
+@:valueType
 extern class ParticleRandomSeedInfo {
 	public var ParameterName: FName;
 	public var bGetSeedFromInstance: Bool;
 	public var bInstanceSeedIsIndex: Bool;
 	public var bResetSeedOnEmitterLooping: Bool;
 	public var bRandomlySelectSeedArray: Bool;
-	public var RandomSeeds: TArray<cpp.Int32>;
+	public var RandomSeeds: TArray<ucpp.num.Int32>;
 
 	@:native("FParticleRandomSeedInfo") public function new();
 }

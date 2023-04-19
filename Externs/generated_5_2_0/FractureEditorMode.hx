@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFractureEditorMode")
 @:include("FractureEditorMode.h")
-@:structAccess
+@:valueType
 extern class FractureEditorMode extends BaseLegacyWidgetEdMode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFractureEditorMode(FractureEditorMode) from FractureEditorMode {
 @:forward
 @:nativeGen
 @:native("FractureEditorMode*")
-abstract FractureEditorModePtr(cpp.Star<FractureEditorMode>) from cpp.Star<FractureEditorMode> to cpp.Star<FractureEditorMode>{
+abstract FractureEditorModePtr(ucpp.Ptr<FractureEditorMode>) from ucpp.Ptr<FractureEditorMode> to ucpp.Ptr<FractureEditorMode>{
 	@:from
 	public static extern inline function fromValue(v: FractureEditorMode): FractureEditorModePtr {
 		return untyped __cpp__("&({0})", v);

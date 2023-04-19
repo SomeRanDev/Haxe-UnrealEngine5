@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelEditorViewportInstanceSettings")
 @:include("Settings/LevelEditorViewportSettings.h")
-@:structAccess
+@:valueType
 extern class LevelEditorViewportInstanceSettings {
 	public var ViewportType: TEnumAsByte<ELevelViewportType>;
 	public var PerspViewModeIndex: TEnumAsByte<EViewModeIndex>;
@@ -13,11 +13,14 @@ extern class LevelEditorViewportInstanceSettings {
 	public var BufferVisualizationMode: FName;
 	public var NaniteVisualizationMode: FName;
 	public var LumenVisualizationMode: FName;
+	public var StrataVisualizationMode: FName;
+	public var GroomVisualizationMode: FName;
 	public var VirtualShadowMapVisualizationMode: FName;
 	public var RayTracingDebugVisualizationMode: FName;
+	public var GPUSkinCacheVisualizationMode: FName;
 	public var ExposureSettings: ExposureSettings;
-	public var FOVAngle: cpp.Float32;
-	public var FarViewPlane: cpp.Float32;
+	public var FOVAngle: ucpp.num.Float32;
+	public var FarViewPlane: ucpp.num.Float32;
 	public var bIsRealtime: Bool;
 	public var bShowOnScreenStats: Bool;
 	public var EnabledStats: TArray<FString>;

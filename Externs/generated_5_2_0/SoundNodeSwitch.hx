@@ -3,11 +3,11 @@ package ue;
 
 @:native("USoundNodeSwitch")
 @:include("Sound/SoundNodeSwitch.h")
-@:structAccess
+@:valueType
 extern class SoundNodeSwitch extends SoundNode {
 	public var IntParameterName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSoundNodeSwitch(SoundNodeSwitch) from SoundNodeSwitch {
 @:forward
 @:nativeGen
 @:native("SoundNodeSwitch*")
-abstract SoundNodeSwitchPtr(cpp.Star<SoundNodeSwitch>) from cpp.Star<SoundNodeSwitch> to cpp.Star<SoundNodeSwitch>{
+abstract SoundNodeSwitchPtr(ucpp.Ptr<SoundNodeSwitch>) from ucpp.Ptr<SoundNodeSwitch> to ucpp.Ptr<SoundNodeSwitch>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeSwitch): SoundNodeSwitchPtr {
 		return untyped __cpp__("&({0})", v);

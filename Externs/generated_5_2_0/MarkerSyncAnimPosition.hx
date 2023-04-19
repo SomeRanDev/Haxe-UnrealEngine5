@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMarkerSyncAnimPosition")
 @:include("Animation/AnimationAsset.h")
-@:structAccess
+@:valueType
 extern class MarkerSyncAnimPosition {
 	public var PreviousMarkerName: FName;
 	public var NextMarkerName: FName;
-	public var PositionBetweenMarkers: cpp.Float32;
+	public var PositionBetweenMarkers: ucpp.num.Float32;
 
 	@:native("FMarkerSyncAnimPosition") public function new();
-	@:native("FMarkerSyncAnimPosition") public static function make(PreviousMarkerName: FName, NextMarkerName: FName, PositionBetweenMarkers: cpp.Float32): MarkerSyncAnimPosition ;
+	@:native("FMarkerSyncAnimPosition") public static function make(PreviousMarkerName: FName, NextMarkerName: FName, PositionBetweenMarkers: ucpp.num.Float32): MarkerSyncAnimPosition ;
 }

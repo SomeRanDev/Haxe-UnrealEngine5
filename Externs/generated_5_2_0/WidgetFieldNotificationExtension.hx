@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWidgetFieldNotificationExtension")
 @:include("Binding/WidgetFieldNotificationExtension.h")
-@:structAccess
+@:valueType
 extern class WidgetFieldNotificationExtension extends UserWidgetExtension {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWidgetFieldNotificationExtension(WidgetFieldNotificationExtension)
 @:forward
 @:nativeGen
 @:native("WidgetFieldNotificationExtension*")
-abstract WidgetFieldNotificationExtensionPtr(cpp.Star<WidgetFieldNotificationExtension>) from cpp.Star<WidgetFieldNotificationExtension> to cpp.Star<WidgetFieldNotificationExtension>{
+abstract WidgetFieldNotificationExtensionPtr(ucpp.Ptr<WidgetFieldNotificationExtension>) from ucpp.Ptr<WidgetFieldNotificationExtension> to ucpp.Ptr<WidgetFieldNotificationExtension>{
 	@:from
 	public static extern inline function fromValue(v: WidgetFieldNotificationExtension): WidgetFieldNotificationExtensionPtr {
 		return untyped __cpp__("&({0})", v);

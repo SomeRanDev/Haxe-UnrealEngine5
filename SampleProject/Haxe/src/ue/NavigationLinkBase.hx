@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNavigationLinkBase")
 @:include("AI/Navigation/NavLinkDefinition.h")
-@:structAccess
+@:valueType
 extern class NavigationLinkBase {
-	public var LeftProjectHeight: cpp.Float32;
-	public var MaxFallDownLength: cpp.Float32;
-	public var SnapRadius: cpp.Float32;
-	public var SnapHeight: cpp.Float32;
+	public var LeftProjectHeight: ucpp.num.Float32;
+	public var MaxFallDownLength: ucpp.num.Float32;
+	public var SnapRadius: ucpp.num.Float32;
+	public var SnapHeight: ucpp.num.Float32;
 	public var SupportedAgents: NavAgentSelector;
 	public var bSupportsAgent0: Bool;
 	public var bSupportsAgent1: Bool;

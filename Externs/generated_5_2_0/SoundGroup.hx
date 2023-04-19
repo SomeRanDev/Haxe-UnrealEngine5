@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSoundGroup")
 @:include("Sound/SoundGroups.h")
-@:structAccess
+@:valueType
 extern class SoundGroup {
 	public var SoundGroup: TEnumAsByte<ESoundGroup>;
 	public var DisplayName: FString;
 	public var bAlwaysDecompressOnLoad: Bool;
-	public var DecompressedDuration: cpp.Float32;
+	public var DecompressedDuration: ucpp.num.Float32;
 
 	@:native("FSoundGroup") public function new();
-	@:native("FSoundGroup") public static function make(SoundGroup: TEnumAsByte<ESoundGroup>, DisplayName: FString, bAlwaysDecompressOnLoad: Bool, DecompressedDuration: cpp.Float32): SoundGroup ;
+	@:native("FSoundGroup") public static function make(SoundGroup: TEnumAsByte<ESoundGroup>, DisplayName: FString, bAlwaysDecompressOnLoad: Bool, DecompressedDuration: ucpp.num.Float32): SoundGroup ;
 }

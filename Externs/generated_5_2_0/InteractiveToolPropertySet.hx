@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInteractiveToolPropertySet")
 @:include("InteractiveTool.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolPropertySet extends Object {
-	@:protected public var CachedPropertiesMap: TMap<FString, cpp.Star<InteractiveToolPropertySet>>;
+	@:protected public var CachedPropertiesMap: TMap<FString, ucpp.Ptr<InteractiveToolPropertySet>>;
 	@:protected public var bIsPropertySetEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstInteractiveToolPropertySet(InteractiveToolPropertySet) from Intera
 @:forward
 @:nativeGen
 @:native("InteractiveToolPropertySet*")
-abstract InteractiveToolPropertySetPtr(cpp.Star<InteractiveToolPropertySet>) from cpp.Star<InteractiveToolPropertySet> to cpp.Star<InteractiveToolPropertySet>{
+abstract InteractiveToolPropertySetPtr(ucpp.Ptr<InteractiveToolPropertySet>) from ucpp.Ptr<InteractiveToolPropertySet> to ucpp.Ptr<InteractiveToolPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolPropertySet): InteractiveToolPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

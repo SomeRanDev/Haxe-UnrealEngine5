@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEditorImportExportTestDefinition")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class EditorImportExportTestDefinition {
 	public var ImportFilePath: FilePath;
 	public var ExportFileExtension: FString;

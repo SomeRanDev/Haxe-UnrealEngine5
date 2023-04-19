@@ -3,13 +3,13 @@ package ue;
 
 @:native("FBakedAnimationStateMachine")
 @:include("Animation/AnimStateMachineTypes.h")
-@:structAccess
+@:valueType
 extern class BakedAnimationStateMachine {
 	public var MachineName: FName;
-	public var InitialState: cpp.Int32;
+	public var InitialState: ucpp.num.Int32;
 	public var States: TArray<BakedAnimationState>;
 	public var Transitions: TArray<AnimationTransitionBetweenStates>;
 
 	@:native("FBakedAnimationStateMachine") public function new();
-	@:native("FBakedAnimationStateMachine") public static function make(MachineName: FName, InitialState: cpp.Int32, States: TArray<BakedAnimationState>, Transitions: TArray<AnimationTransitionBetweenStates>): BakedAnimationStateMachine ;
+	@:native("FBakedAnimationStateMachine") public static function make(MachineName: FName, InitialState: ucpp.num.Int32, States: TArray<BakedAnimationState>, Transitions: TArray<AnimationTransitionBetweenStates>): BakedAnimationStateMachine ;
 }

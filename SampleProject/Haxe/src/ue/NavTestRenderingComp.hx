@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavTestRenderingComponent")
 @:include("NavMesh/NavTestRenderingComponent.h")
-@:structAccess
+@:valueType
 extern class NavTestRenderingComp extends DebugDrawComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavTestRenderingComp(NavTestRenderingComp) from NavTestRenderingCo
 @:forward
 @:nativeGen
 @:native("NavTestRenderingComp*")
-abstract NavTestRenderingCompPtr(cpp.Star<NavTestRenderingComp>) from cpp.Star<NavTestRenderingComp> to cpp.Star<NavTestRenderingComp>{
+abstract NavTestRenderingCompPtr(ucpp.Ptr<NavTestRenderingComp>) from ucpp.Ptr<NavTestRenderingComp> to ucpp.Ptr<NavTestRenderingComp>{
 	@:from
 	public static extern inline function fromValue(v: NavTestRenderingComp): NavTestRenderingCompPtr {
 		return untyped __cpp__("&({0})", v);

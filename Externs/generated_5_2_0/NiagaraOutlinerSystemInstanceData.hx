@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraOutlinerSystemInstanceData")
 @:include("NiagaraDebuggerCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraOutlinerSystemInstanceData {
 	public var ComponentName: FString;
 	public var LWCTile: Vector3f;

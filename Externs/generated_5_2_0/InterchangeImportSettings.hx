@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangeImportSettings")
 @:include("InterchangeProjectSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangeImportSettings {
 	public var PipelineStacks: TMap<FName, InterchangePipelineStack>;
 	public var DefaultPipelineStack: FName;

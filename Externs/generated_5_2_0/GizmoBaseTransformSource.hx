@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGizmoBaseTransformSource")
 @:include("BaseGizmos/TransformSources.h")
-@:structAccess
+@:valueType
 extern class GizmoBaseTransformSource extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGizmoBaseTransformSource(GizmoBaseTransformSource) from GizmoBaseT
 @:forward
 @:nativeGen
 @:native("GizmoBaseTransformSource*")
-abstract GizmoBaseTransformSourcePtr(cpp.Star<GizmoBaseTransformSource>) from cpp.Star<GizmoBaseTransformSource> to cpp.Star<GizmoBaseTransformSource>{
+abstract GizmoBaseTransformSourcePtr(ucpp.Ptr<GizmoBaseTransformSource>) from ucpp.Ptr<GizmoBaseTransformSource> to ucpp.Ptr<GizmoBaseTransformSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoBaseTransformSource): GizmoBaseTransformSourcePtr {
 		return untyped __cpp__("&({0})", v);

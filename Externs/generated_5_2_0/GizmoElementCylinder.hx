@@ -3,15 +3,15 @@ package ue;
 
 @:native("UGizmoElementCylinder")
 @:include("BaseGizmos/GizmoElementCylinder.h")
-@:structAccess
+@:valueType
 extern class GizmoElementCylinder extends GizmoElementBase {
 	@:protected public var Base: Vector;
 	@:protected public var Direction: Vector;
-	@:protected public var Height: cpp.Float32;
-	@:protected public var Radius: cpp.Float32;
-	@:protected public var NumSides: cpp.Int32;
+	@:protected public var Height: ucpp.num.Float32;
+	@:protected public var Radius: ucpp.num.Float32;
+	@:protected public var NumSides: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstGizmoElementCylinder(GizmoElementCylinder) from GizmoElementCylind
 @:forward
 @:nativeGen
 @:native("GizmoElementCylinder*")
-abstract GizmoElementCylinderPtr(cpp.Star<GizmoElementCylinder>) from cpp.Star<GizmoElementCylinder> to cpp.Star<GizmoElementCylinder>{
+abstract GizmoElementCylinderPtr(ucpp.Ptr<GizmoElementCylinder>) from ucpp.Ptr<GizmoElementCylinder> to ucpp.Ptr<GizmoElementCylinder>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementCylinder): GizmoElementCylinderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPolyEditCommonProperties")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class PolyEditCommonProperties extends InteractiveToolPropertySet {
 	public var bShowWireframe: Bool;
 	public var bShowSelectableCorners: Bool;
@@ -12,7 +12,7 @@ extern class PolyEditCommonProperties extends InteractiveToolPropertySet {
 	public var bLockRotation: Bool;
 	public var bLocalCoordSystem: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstPolyEditCommonProperties(PolyEditCommonProperties) from PolyEditCo
 @:forward
 @:nativeGen
 @:native("PolyEditCommonProperties*")
-abstract PolyEditCommonPropertiesPtr(cpp.Star<PolyEditCommonProperties>) from cpp.Star<PolyEditCommonProperties> to cpp.Star<PolyEditCommonProperties>{
+abstract PolyEditCommonPropertiesPtr(ucpp.Ptr<PolyEditCommonProperties>) from ucpp.Ptr<PolyEditCommonProperties> to ucpp.Ptr<PolyEditCommonProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditCommonProperties): PolyEditCommonPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

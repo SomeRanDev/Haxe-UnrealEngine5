@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPolygonOnMeshToolBuilder")
 @:include("PolygonOnMeshTool.h")
-@:structAccess
+@:valueType
 extern class PolygonOnMeshToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPolygonOnMeshToolBuilder(PolygonOnMeshToolBuilder) from PolygonOnM
 @:forward
 @:nativeGen
 @:native("PolygonOnMeshToolBuilder*")
-abstract PolygonOnMeshToolBuilderPtr(cpp.Star<PolygonOnMeshToolBuilder>) from cpp.Star<PolygonOnMeshToolBuilder> to cpp.Star<PolygonOnMeshToolBuilder>{
+abstract PolygonOnMeshToolBuilderPtr(ucpp.Ptr<PolygonOnMeshToolBuilder>) from ucpp.Ptr<PolygonOnMeshToolBuilder> to ucpp.Ptr<PolygonOnMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: PolygonOnMeshToolBuilder): PolygonOnMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

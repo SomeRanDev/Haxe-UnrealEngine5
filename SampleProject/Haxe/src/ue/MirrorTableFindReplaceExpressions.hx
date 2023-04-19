@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMirrorTableFindReplaceExpressions")
 @:include("Factories/MirrorDataTableFactory.h")
-@:structAccess
+@:valueType
 extern class MirrorTableFindReplaceExpressions extends Object {
 	public var FindReplaceExpressions: TArray<MirrorFindReplaceExpression>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMirrorTableFindReplaceExpressions(MirrorTableFindReplaceExpression
 @:forward
 @:nativeGen
 @:native("MirrorTableFindReplaceExpressions*")
-abstract MirrorTableFindReplaceExpressionsPtr(cpp.Star<MirrorTableFindReplaceExpressions>) from cpp.Star<MirrorTableFindReplaceExpressions> to cpp.Star<MirrorTableFindReplaceExpressions>{
+abstract MirrorTableFindReplaceExpressionsPtr(ucpp.Ptr<MirrorTableFindReplaceExpressions>) from ucpp.Ptr<MirrorTableFindReplaceExpressions> to ucpp.Ptr<MirrorTableFindReplaceExpressions>{
 	@:from
 	public static extern inline function fromValue(v: MirrorTableFindReplaceExpressions): MirrorTableFindReplaceExpressionsPtr {
 		return untyped __cpp__("&({0})", v);

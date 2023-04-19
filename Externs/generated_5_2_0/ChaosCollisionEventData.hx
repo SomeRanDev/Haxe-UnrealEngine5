@@ -3,14 +3,14 @@ package ue;
 
 @:native("FChaosCollisionEventData")
 @:include("ChaosCollisionEventFilter.h")
-@:structAccess
+@:valueType
 extern class ChaosCollisionEventData {
 	public var Location: Vector;
 	public var Normal: Vector;
 	public var Velocity1: Vector;
 	public var Velocity2: Vector;
-	public var Mass1: cpp.Float32;
-	public var Mass2: cpp.Float32;
+	public var Mass1: ucpp.num.Float32;
+	public var Mass2: ucpp.num.Float32;
 	public var Impulse: Vector;
 
 	@:native("FChaosCollisionEventData") public function new();

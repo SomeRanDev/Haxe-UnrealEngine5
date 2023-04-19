@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_LandscapeGrassType")
 @:include("AssetDefinition_LandscapeGrassType.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_LandscapeGrassType extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_LandscapeGrassType(AssetDefinition_LandscapeGrassT
 @:forward
 @:nativeGen
 @:native("AssetDefinition_LandscapeGrassType*")
-abstract AssetDefinition_LandscapeGrassTypePtr(cpp.Star<AssetDefinition_LandscapeGrassType>) from cpp.Star<AssetDefinition_LandscapeGrassType> to cpp.Star<AssetDefinition_LandscapeGrassType>{
+abstract AssetDefinition_LandscapeGrassTypePtr(ucpp.Ptr<AssetDefinition_LandscapeGrassType>) from ucpp.Ptr<AssetDefinition_LandscapeGrassType> to ucpp.Ptr<AssetDefinition_LandscapeGrassType>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_LandscapeGrassType): AssetDefinition_LandscapeGrassTypePtr {
 		return untyped __cpp__("&({0})", v);

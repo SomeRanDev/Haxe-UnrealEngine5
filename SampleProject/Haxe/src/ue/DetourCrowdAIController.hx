@@ -3,10 +3,10 @@ package ue;
 
 @:native("ADetourCrowdAIController")
 @:include("DetourCrowdAIController.h")
-@:structAccess
+@:valueType
 extern class DetourCrowdAIController extends AIController {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDetourCrowdAIController(DetourCrowdAIController) from DetourCrowdA
 @:forward
 @:nativeGen
 @:native("DetourCrowdAIController*")
-abstract DetourCrowdAIControllerPtr(cpp.Star<DetourCrowdAIController>) from cpp.Star<DetourCrowdAIController> to cpp.Star<DetourCrowdAIController>{
+abstract DetourCrowdAIControllerPtr(ucpp.Ptr<DetourCrowdAIController>) from ucpp.Ptr<DetourCrowdAIController> to ucpp.Ptr<DetourCrowdAIController>{
 	@:from
 	public static extern inline function fromValue(v: DetourCrowdAIController): DetourCrowdAIControllerPtr {
 		return untyped __cpp__("&({0})", v);

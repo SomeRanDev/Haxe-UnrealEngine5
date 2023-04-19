@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAISenseConfig_Damage")
 @:include("Perception/AISenseConfig_Damage.h")
-@:structAccess
+@:valueType
 extern class AISenseConfig_Damage extends AISenseConfig {
 	public var Implementation: TSubclassOf<AISense_Damage>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAISenseConfig_Damage(AISenseConfig_Damage) from AISenseConfig_Dama
 @:forward
 @:nativeGen
 @:native("AISenseConfig_Damage*")
-abstract AISenseConfig_DamagePtr(cpp.Star<AISenseConfig_Damage>) from cpp.Star<AISenseConfig_Damage> to cpp.Star<AISenseConfig_Damage>{
+abstract AISenseConfig_DamagePtr(ucpp.Ptr<AISenseConfig_Damage>) from ucpp.Ptr<AISenseConfig_Damage> to ucpp.Ptr<AISenseConfig_Damage>{
 	@:from
 	public static extern inline function fromValue(v: AISenseConfig_Damage): AISenseConfig_DamagePtr {
 		return untyped __cpp__("&({0})", v);

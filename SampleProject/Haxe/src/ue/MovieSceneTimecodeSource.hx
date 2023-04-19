@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneTimecodeSource")
 @:include("MovieSceneSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTimecodeSource {
 	public var Timecode: Timecode;
 

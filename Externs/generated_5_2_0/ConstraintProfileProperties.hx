@@ -3,18 +3,18 @@ package ue;
 
 @:native("FConstraintProfileProperties")
 @:include("PhysicsEngine/ConstraintInstance.h")
-@:structAccess
+@:valueType
 extern class ConstraintProfileProperties {
-	public var ProjectionLinearTolerance: cpp.Float32;
-	public var ProjectionAngularTolerance: cpp.Float32;
-	public var ProjectionLinearAlpha: cpp.Float32;
-	public var ProjectionAngularAlpha: cpp.Float32;
-	public var ShockPropagationAlpha: cpp.Float32;
-	public var LinearBreakThreshold: cpp.Float32;
-	public var LinearPlasticityThreshold: cpp.Float32;
-	public var AngularBreakThreshold: cpp.Float32;
-	public var AngularPlasticityThreshold: cpp.Float32;
-	public var ContactTransferScale: cpp.Float32;
+	public var ProjectionLinearTolerance: ucpp.num.Float32;
+	public var ProjectionAngularTolerance: ucpp.num.Float32;
+	public var ProjectionLinearAlpha: ucpp.num.Float32;
+	public var ProjectionAngularAlpha: ucpp.num.Float32;
+	public var ShockPropagationAlpha: ucpp.num.Float32;
+	public var LinearBreakThreshold: ucpp.num.Float32;
+	public var LinearPlasticityThreshold: ucpp.num.Float32;
+	public var AngularBreakThreshold: ucpp.num.Float32;
+	public var AngularPlasticityThreshold: ucpp.num.Float32;
+	public var ContactTransferScale: ucpp.num.Float32;
 	public var LinearLimit: LinearConstraint;
 	public var ConeLimit: ConeConstraint;
 	public var TwistLimit: TwistConstraint;

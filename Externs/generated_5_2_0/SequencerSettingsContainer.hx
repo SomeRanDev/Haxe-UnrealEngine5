@@ -3,10 +3,10 @@ package ue;
 
 @:native("USequencerSettingsContainer")
 @:include("SequencerSettings.h")
-@:structAccess
+@:valueType
 extern class SequencerSettingsContainer extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSequencerSettingsContainer(SequencerSettingsContainer) from Sequen
 @:forward
 @:nativeGen
 @:native("SequencerSettingsContainer*")
-abstract SequencerSettingsContainerPtr(cpp.Star<SequencerSettingsContainer>) from cpp.Star<SequencerSettingsContainer> to cpp.Star<SequencerSettingsContainer>{
+abstract SequencerSettingsContainerPtr(ucpp.Ptr<SequencerSettingsContainer>) from ucpp.Ptr<SequencerSettingsContainer> to ucpp.Ptr<SequencerSettingsContainer>{
 	@:from
 	public static extern inline function fromValue(v: SequencerSettingsContainer): SequencerSettingsContainerPtr {
 		return untyped __cpp__("&({0})", v);

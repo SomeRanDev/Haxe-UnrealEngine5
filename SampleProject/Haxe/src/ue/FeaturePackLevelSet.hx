@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFeaturePackLevelSet")
 @:include("FeaturePackContentSource.h")
-@:structAccess
+@:valueType
 extern class FeaturePackLevelSet {
 	public var DetailLevels: TArray<EFeaturePackDetailLevel>;
 	public var MountName: FString;

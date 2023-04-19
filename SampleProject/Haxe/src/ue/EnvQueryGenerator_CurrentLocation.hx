@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEnvQueryGenerator_CurrentLocation")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_CurrentLocation.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_CurrentLocation extends EnvQueryGenerator {
 	@:protected public var QueryContext: TSubclassOf<EnvQueryContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstEnvQueryGenerator_CurrentLocation(EnvQueryGenerator_CurrentLocatio
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_CurrentLocation*")
-abstract EnvQueryGenerator_CurrentLocationPtr(cpp.Star<EnvQueryGenerator_CurrentLocation>) from cpp.Star<EnvQueryGenerator_CurrentLocation> to cpp.Star<EnvQueryGenerator_CurrentLocation>{
+abstract EnvQueryGenerator_CurrentLocationPtr(ucpp.Ptr<EnvQueryGenerator_CurrentLocation>) from ucpp.Ptr<EnvQueryGenerator_CurrentLocation> to ucpp.Ptr<EnvQueryGenerator_CurrentLocation>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_CurrentLocation): EnvQueryGenerator_CurrentLocationPtr {
 		return untyped __cpp__("&({0})", v);

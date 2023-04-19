@@ -3,13 +3,13 @@ package ue;
 
 @:native("USubmixEffectSubmixEQPreset")
 @:include("SubmixEffects/AudioMixerSubmixEffectEQ.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectSubmixEQPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectSubmixEQSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectSubmixEQSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectSubmixEQSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSubmixEffectSubmixEQPreset(SubmixEffectSubmixEQPreset) from Submix
 @:forward
 @:nativeGen
 @:native("SubmixEffectSubmixEQPreset*")
-abstract SubmixEffectSubmixEQPresetPtr(cpp.Star<SubmixEffectSubmixEQPreset>) from cpp.Star<SubmixEffectSubmixEQPreset> to cpp.Star<SubmixEffectSubmixEQPreset>{
+abstract SubmixEffectSubmixEQPresetPtr(ucpp.Ptr<SubmixEffectSubmixEQPreset>) from ucpp.Ptr<SubmixEffectSubmixEQPreset> to ucpp.Ptr<SubmixEffectSubmixEQPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectSubmixEQPreset): SubmixEffectSubmixEQPresetPtr {
 		return untyped __cpp__("&({0})", v);

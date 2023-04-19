@@ -3,24 +3,24 @@ package ue;
 
 @:native("ULatticeDeformerOperatorFactory")
 @:include("LatticeDeformerTool.h")
-@:structAccess
+@:valueType
 extern class LatticeDeformerOperatorFactory extends Object {
-	public var LatticeDeformerTool: cpp.Star<LatticeDeformerTool>;
+	public var LatticeDeformerTool: ucpp.Ptr<LatticeDeformerTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLatticeDeformerOperatorFactory(LatticeDeformerOperatorFactory) from LatticeDeformerOperatorFactory {
-	public extern var LatticeDeformerTool(get, never): cpp.Star<LatticeDeformerTool.ConstLatticeDeformerTool>;
-	public inline extern function get_LatticeDeformerTool(): cpp.Star<LatticeDeformerTool.ConstLatticeDeformerTool> return this.LatticeDeformerTool;
+	public extern var LatticeDeformerTool(get, never): ucpp.Ptr<LatticeDeformerTool.ConstLatticeDeformerTool>;
+	public inline extern function get_LatticeDeformerTool(): ucpp.Ptr<LatticeDeformerTool.ConstLatticeDeformerTool> return this.LatticeDeformerTool;
 }
 
 @:forward
 @:nativeGen
 @:native("LatticeDeformerOperatorFactory*")
-abstract LatticeDeformerOperatorFactoryPtr(cpp.Star<LatticeDeformerOperatorFactory>) from cpp.Star<LatticeDeformerOperatorFactory> to cpp.Star<LatticeDeformerOperatorFactory>{
+abstract LatticeDeformerOperatorFactoryPtr(ucpp.Ptr<LatticeDeformerOperatorFactory>) from ucpp.Ptr<LatticeDeformerOperatorFactory> to ucpp.Ptr<LatticeDeformerOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: LatticeDeformerOperatorFactory): LatticeDeformerOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

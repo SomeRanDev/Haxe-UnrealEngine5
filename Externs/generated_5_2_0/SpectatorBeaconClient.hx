@@ -3,7 +3,7 @@ package ue;
 
 @:native("ASpectatorBeaconClient")
 @:include("SpectatorBeaconClient.h")
-@:structAccess
+@:valueType
 extern class SpectatorBeaconClient extends OnlineBeaconClient {
 	@:protected public var DestSessionId: FString;
 	@:protected public var PendingReservation: SpectatorReservation;
@@ -13,12 +13,12 @@ extern class SpectatorBeaconClient extends OnlineBeaconClient {
 
 	@:protected public function ServerReservationRequest(SessionId: FString, Reservation: SpectatorReservation): Void;
 	@:protected public function ServerCancelReservationRequest(Spectator: UniqueNetIdRepl): Void;
-	public function ClientSendReservationUpdates(NumRemainingReservations: cpp.Int32): Void;
+	public function ClientSendReservationUpdates(NumRemainingReservations: ucpp.num.Int32): Void;
 	public function ClientSendReservationFull(): Void;
 	public function ClientReservationResponse(ReservationResponse: TEnumAsByte<ESpectatorReservationResult>): Void;
 	public function ClientCancelReservationResponse(ReservationResponse: TEnumAsByte<ESpectatorReservationResult>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstSpectatorBeaconClient(SpectatorBeaconClient) from SpectatorBeaconC
 @:forward
 @:nativeGen
 @:native("SpectatorBeaconClient*")
-abstract SpectatorBeaconClientPtr(cpp.Star<SpectatorBeaconClient>) from cpp.Star<SpectatorBeaconClient> to cpp.Star<SpectatorBeaconClient>{
+abstract SpectatorBeaconClientPtr(ucpp.Ptr<SpectatorBeaconClient>) from ucpp.Ptr<SpectatorBeaconClient> to ucpp.Ptr<SpectatorBeaconClient>{
 	@:from
 	public static extern inline function fromValue(v: SpectatorBeaconClient): SpectatorBeaconClientPtr {
 		return untyped __cpp__("&({0})", v);

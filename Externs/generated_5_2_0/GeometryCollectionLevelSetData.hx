@@ -3,13 +3,13 @@ package ue;
 
 @:native("FGeometryCollectionLevelSetData")
 @:include("GeometryCollection/GeometryCollectionObject.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionLevelSetData {
-	public var MinLevelSetResolution: cpp.Int32;
-	public var MaxLevelSetResolution: cpp.Int32;
-	public var MinClusterLevelSetResolution: cpp.Int32;
-	public var MaxClusterLevelSetResolution: cpp.Int32;
+	public var MinLevelSetResolution: ucpp.num.Int32;
+	public var MaxLevelSetResolution: ucpp.num.Int32;
+	public var MinClusterLevelSetResolution: ucpp.num.Int32;
+	public var MaxClusterLevelSetResolution: ucpp.num.Int32;
 
 	@:native("FGeometryCollectionLevelSetData") public function new();
-	@:native("FGeometryCollectionLevelSetData") public static function make(MinLevelSetResolution: cpp.Int32, MaxLevelSetResolution: cpp.Int32, MinClusterLevelSetResolution: cpp.Int32, MaxClusterLevelSetResolution: cpp.Int32): GeometryCollectionLevelSetData ;
+	@:native("FGeometryCollectionLevelSetData") public static function make(MinLevelSetResolution: ucpp.num.Int32, MaxLevelSetResolution: ucpp.num.Int32, MinClusterLevelSetResolution: ucpp.num.Int32, MaxClusterLevelSetResolution: ucpp.num.Int32): GeometryCollectionLevelSetData ;
 }

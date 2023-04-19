@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshTexturePaintingToolProperties")
 @:include("MeshTexturePaintingTool.h")
-@:structAccess
+@:valueType
 extern class MeshTexturePaintingToolProperties extends BrushBaseProperties {
 	public var PaintColor: LinearColor;
 	public var EraseColor: LinearColor;
@@ -11,13 +11,13 @@ extern class MeshTexturePaintingToolProperties extends BrushBaseProperties {
 	public var bWriteGreen: Bool;
 	public var bWriteBlue: Bool;
 	public var bWriteAlpha: Bool;
-	public var UVChannel: cpp.Int32;
+	public var UVChannel: ucpp.num.Int32;
 	public var bEnableSeamPainting: Bool;
-	public var PaintTexture: cpp.Star<Texture2D>;
+	public var PaintTexture: ucpp.Ptr<Texture2D>;
 	public var bEnableFlow: Bool;
 	public var bOnlyFrontFacingTriangles: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,12 +35,12 @@ abstract ConstMeshTexturePaintingToolProperties(MeshTexturePaintingToolPropertie
 	public inline extern function get_bWriteBlue(): Bool return this.bWriteBlue;
 	public extern var bWriteAlpha(get, never): Bool;
 	public inline extern function get_bWriteAlpha(): Bool return this.bWriteAlpha;
-	public extern var UVChannel(get, never): cpp.Int32;
-	public inline extern function get_UVChannel(): cpp.Int32 return this.UVChannel;
+	public extern var UVChannel(get, never): ucpp.num.Int32;
+	public inline extern function get_UVChannel(): ucpp.num.Int32 return this.UVChannel;
 	public extern var bEnableSeamPainting(get, never): Bool;
 	public inline extern function get_bEnableSeamPainting(): Bool return this.bEnableSeamPainting;
-	public extern var PaintTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_PaintTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.PaintTexture;
+	public extern var PaintTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_PaintTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.PaintTexture;
 	public extern var bEnableFlow(get, never): Bool;
 	public inline extern function get_bEnableFlow(): Bool return this.bEnableFlow;
 	public extern var bOnlyFrontFacingTriangles(get, never): Bool;
@@ -50,7 +50,7 @@ abstract ConstMeshTexturePaintingToolProperties(MeshTexturePaintingToolPropertie
 @:forward
 @:nativeGen
 @:native("MeshTexturePaintingToolProperties*")
-abstract MeshTexturePaintingToolPropertiesPtr(cpp.Star<MeshTexturePaintingToolProperties>) from cpp.Star<MeshTexturePaintingToolProperties> to cpp.Star<MeshTexturePaintingToolProperties>{
+abstract MeshTexturePaintingToolPropertiesPtr(ucpp.Ptr<MeshTexturePaintingToolProperties>) from ucpp.Ptr<MeshTexturePaintingToolProperties> to ucpp.Ptr<MeshTexturePaintingToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshTexturePaintingToolProperties): MeshTexturePaintingToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

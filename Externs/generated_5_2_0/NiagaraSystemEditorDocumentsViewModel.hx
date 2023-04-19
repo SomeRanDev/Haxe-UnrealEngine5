@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraSystemEditorDocumentsViewModel")
 @:include("ViewModels/NiagaraSystemEditorDocumentsViewModel.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemEditorDocumentsViewModel extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraSystemEditorDocumentsViewModel(NiagaraSystemEditorDocuments
 @:forward
 @:nativeGen
 @:native("NiagaraSystemEditorDocumentsViewModel*")
-abstract NiagaraSystemEditorDocumentsViewModelPtr(cpp.Star<NiagaraSystemEditorDocumentsViewModel>) from cpp.Star<NiagaraSystemEditorDocumentsViewModel> to cpp.Star<NiagaraSystemEditorDocumentsViewModel>{
+abstract NiagaraSystemEditorDocumentsViewModelPtr(ucpp.Ptr<NiagaraSystemEditorDocumentsViewModel>) from ucpp.Ptr<NiagaraSystemEditorDocumentsViewModel> to ucpp.Ptr<NiagaraSystemEditorDocumentsViewModel>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSystemEditorDocumentsViewModel): NiagaraSystemEditorDocumentsViewModelPtr {
 		return untyped __cpp__("&({0})", v);

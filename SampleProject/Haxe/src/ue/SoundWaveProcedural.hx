@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundWaveProcedural")
 @:include("Sound/SoundWaveProcedural.h")
-@:structAccess
+@:valueType
 extern class SoundWaveProcedural extends SoundWave {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundWaveProcedural(SoundWaveProcedural) from SoundWaveProcedural 
 @:forward
 @:nativeGen
 @:native("SoundWaveProcedural*")
-abstract SoundWaveProceduralPtr(cpp.Star<SoundWaveProcedural>) from cpp.Star<SoundWaveProcedural> to cpp.Star<SoundWaveProcedural>{
+abstract SoundWaveProceduralPtr(ucpp.Ptr<SoundWaveProcedural>) from ucpp.Ptr<SoundWaveProcedural> to ucpp.Ptr<SoundWaveProcedural>{
 	@:from
 	public static extern inline function fromValue(v: SoundWaveProcedural): SoundWaveProceduralPtr {
 		return untyped __cpp__("&({0})", v);

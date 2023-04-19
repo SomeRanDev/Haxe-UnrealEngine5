@@ -3,15 +3,15 @@ package ue;
 
 @:native("UVolumeCache")
 @:include("VolumeCache.h")
-@:structAccess
+@:valueType
 extern class VolumeCache extends Object {
 	public var FilePath: FString;
 	public var CacheType: EVolumeCacheType;
 	public var Resolution: IntVector;
-	public var FrameRangeStart: cpp.Int32;
-	public var FrameRangeEnd: cpp.Int32;
+	public var FrameRangeStart: ucpp.num.Int32;
+	public var FrameRangeEnd: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,16 +23,16 @@ abstract ConstVolumeCache(VolumeCache) from VolumeCache {
 	public inline extern function get_CacheType(): EVolumeCacheType return this.CacheType;
 	public extern var Resolution(get, never): IntVector;
 	public inline extern function get_Resolution(): IntVector return this.Resolution;
-	public extern var FrameRangeStart(get, never): cpp.Int32;
-	public inline extern function get_FrameRangeStart(): cpp.Int32 return this.FrameRangeStart;
-	public extern var FrameRangeEnd(get, never): cpp.Int32;
-	public inline extern function get_FrameRangeEnd(): cpp.Int32 return this.FrameRangeEnd;
+	public extern var FrameRangeStart(get, never): ucpp.num.Int32;
+	public inline extern function get_FrameRangeStart(): ucpp.num.Int32 return this.FrameRangeStart;
+	public extern var FrameRangeEnd(get, never): ucpp.num.Int32;
+	public inline extern function get_FrameRangeEnd(): ucpp.num.Int32 return this.FrameRangeEnd;
 }
 
 @:forward
 @:nativeGen
 @:native("VolumeCache*")
-abstract VolumeCachePtr(cpp.Star<VolumeCache>) from cpp.Star<VolumeCache> to cpp.Star<VolumeCache>{
+abstract VolumeCachePtr(ucpp.Ptr<VolumeCache>) from ucpp.Ptr<VolumeCache> to ucpp.Ptr<VolumeCache>{
 	@:from
 	public static extern inline function fromValue(v: VolumeCache): VolumeCachePtr {
 		return untyped __cpp__("&({0})", v);

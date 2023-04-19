@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTexturePaintToolset")
 @:include("TexturePaintToolset.h")
-@:structAccess
+@:valueType
 extern class TexturePaintToolset extends BlueprintFunctionLibrary {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTexturePaintToolset(TexturePaintToolset) from TexturePaintToolset 
 @:forward
 @:nativeGen
 @:native("TexturePaintToolset*")
-abstract TexturePaintToolsetPtr(cpp.Star<TexturePaintToolset>) from cpp.Star<TexturePaintToolset> to cpp.Star<TexturePaintToolset>{
+abstract TexturePaintToolsetPtr(ucpp.Ptr<TexturePaintToolset>) from ucpp.Ptr<TexturePaintToolset> to ucpp.Ptr<TexturePaintToolset>{
 	@:from
 	public static extern inline function fromValue(v: TexturePaintToolset): TexturePaintToolsetPtr {
 		return untyped __cpp__("&({0})", v);

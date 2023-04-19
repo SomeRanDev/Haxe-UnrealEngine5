@@ -3,16 +3,16 @@ package ue;
 
 @:native("UARTraceResultLibrary")
 @:include("ARBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ARTraceResultLibrary extends BlueprintFunctionLibrary {
-	public function GetTrackedGeometry(TraceResult: cpp.Reference<ARTraceResult>): cpp.Star<ARTrackedGeometry>;
-	public function GetTraceChannel(TraceResult: cpp.Reference<ARTraceResult>): EARLineTraceChannels;
-	public function GetLocalTransform(TraceResult: cpp.Reference<ARTraceResult>): Transform;
-	public function GetLocalToWorldTransform(TraceResult: cpp.Reference<ARTraceResult>): Transform;
-	public function GetLocalToTrackingTransform(TraceResult: cpp.Reference<ARTraceResult>): Transform;
-	public function GetDistanceFromCamera(TraceResult: cpp.Reference<ARTraceResult>): cpp.Float32;
+	public function GetTrackedGeometry(TraceResult: ucpp.Ref<ARTraceResult>): ucpp.Ptr<ARTrackedGeometry>;
+	public function GetTraceChannel(TraceResult: ucpp.Ref<ARTraceResult>): EARLineTraceChannels;
+	public function GetLocalTransform(TraceResult: ucpp.Ref<ARTraceResult>): Transform;
+	public function GetLocalToWorldTransform(TraceResult: ucpp.Ref<ARTraceResult>): Transform;
+	public function GetLocalToTrackingTransform(TraceResult: ucpp.Ref<ARTraceResult>): Transform;
+	public function GetDistanceFromCamera(TraceResult: ucpp.Ref<ARTraceResult>): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstARTraceResultLibrary(ARTraceResultLibrary) from ARTraceResultLibra
 @:forward
 @:nativeGen
 @:native("ARTraceResultLibrary*")
-abstract ARTraceResultLibraryPtr(cpp.Star<ARTraceResultLibrary>) from cpp.Star<ARTraceResultLibrary> to cpp.Star<ARTraceResultLibrary>{
+abstract ARTraceResultLibraryPtr(ucpp.Ptr<ARTraceResultLibrary>) from ucpp.Ptr<ARTraceResultLibrary> to ucpp.Ptr<ARTraceResultLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ARTraceResultLibrary): ARTraceResultLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,21 +3,21 @@ package ue;
 
 @:native("UActorGroupingUtils")
 @:include("ActorGroupingUtils.h")
-@:structAccess
+@:valueType
 extern class ActorGroupingUtils extends Object {
 	public function UnlockSelectedGroups(): Void;
 	public function UngroupSelected(): Void;
-	public function UngroupActors(ActorsToUngroup: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	public function UngroupActors(ActorsToUngroup: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
 	public function SetGroupingActive(bInGroupingActive: Bool): Void;
 	public function RemoveSelectedFromGroup(): Void;
 	public function LockSelectedGroups(): Void;
 	public function IsGroupingActive(): Bool;
-	public function GroupSelected(): cpp.Star<GroupActor>;
-	public function GroupActors(ActorsToGroup: cpp.Reference<TArray<cpp.Star<Actor>>>): cpp.Star<GroupActor>;
-	public function Get(): cpp.Star<ActorGroupingUtils>;
+	public function GroupSelected(): ucpp.Ptr<GroupActor>;
+	public function GroupActors(ActorsToGroup: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): ucpp.Ptr<GroupActor>;
+	public function Get(): ucpp.Ptr<ActorGroupingUtils>;
 	public function AddSelectedToGroup(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstActorGroupingUtils(ActorGroupingUtils) from ActorGroupingUtils {
 @:forward
 @:nativeGen
 @:native("ActorGroupingUtils*")
-abstract ActorGroupingUtilsPtr(cpp.Star<ActorGroupingUtils>) from cpp.Star<ActorGroupingUtils> to cpp.Star<ActorGroupingUtils>{
+abstract ActorGroupingUtilsPtr(ucpp.Ptr<ActorGroupingUtils>) from ucpp.Ptr<ActorGroupingUtils> to ucpp.Ptr<ActorGroupingUtils>{
 	@:from
 	public static extern inline function fromValue(v: ActorGroupingUtils): ActorGroupingUtilsPtr {
 		return untyped __cpp__("&({0})", v);

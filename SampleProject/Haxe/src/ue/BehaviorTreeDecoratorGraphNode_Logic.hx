@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBehaviorTreeDecoratorGraphNode_Logic")
 @:include("BehaviorTreeDecoratorGraphNode_Logic.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeDecoratorGraphNode_Logic extends BehaviorTreeDecoratorGraphNode {
 	public var LogicMode: TEnumAsByte<EDecoratorLogicMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBehaviorTreeDecoratorGraphNode_Logic(BehaviorTreeDecoratorGraphNod
 @:forward
 @:nativeGen
 @:native("BehaviorTreeDecoratorGraphNode_Logic*")
-abstract BehaviorTreeDecoratorGraphNode_LogicPtr(cpp.Star<BehaviorTreeDecoratorGraphNode_Logic>) from cpp.Star<BehaviorTreeDecoratorGraphNode_Logic> to cpp.Star<BehaviorTreeDecoratorGraphNode_Logic>{
+abstract BehaviorTreeDecoratorGraphNode_LogicPtr(ucpp.Ptr<BehaviorTreeDecoratorGraphNode_Logic>) from ucpp.Ptr<BehaviorTreeDecoratorGraphNode_Logic> to ucpp.Ptr<BehaviorTreeDecoratorGraphNode_Logic>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeDecoratorGraphNode_Logic): BehaviorTreeDecoratorGraphNode_LogicPtr {
 		return untyped __cpp__("&({0})", v);

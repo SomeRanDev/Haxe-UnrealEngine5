@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInputBehaviorSource")
-@:structAccess
+@:valueType
 extern class InputBehaviorSource extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInputBehaviorSource(InputBehaviorSource) from InputBehaviorSource 
 @:forward
 @:nativeGen
 @:native("InputBehaviorSource*")
-abstract InputBehaviorSourcePtr(cpp.Star<InputBehaviorSource>) from cpp.Star<InputBehaviorSource> to cpp.Star<InputBehaviorSource>{
+abstract InputBehaviorSourcePtr(ucpp.Ptr<InputBehaviorSource>) from ucpp.Ptr<InputBehaviorSource> to ucpp.Ptr<InputBehaviorSource>{
 	@:from
 	public static extern inline function fromValue(v: InputBehaviorSource): InputBehaviorSourcePtr {
 		return untyped __cpp__("&({0})", v);

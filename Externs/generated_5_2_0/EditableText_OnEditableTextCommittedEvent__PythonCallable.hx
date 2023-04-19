@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEditableText_OnEditableTextCommittedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class EditableText_OnEditableTextCommittedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEditableText_OnEditableTextCommittedEvent__PythonCallable(Editable
 @:forward
 @:nativeGen
 @:native("EditableText_OnEditableTextCommittedEvent__PythonCallable*")
-abstract EditableText_OnEditableTextCommittedEvent__PythonCallablePtr(cpp.Star<EditableText_OnEditableTextCommittedEvent__PythonCallable>) from cpp.Star<EditableText_OnEditableTextCommittedEvent__PythonCallable> to cpp.Star<EditableText_OnEditableTextCommittedEvent__PythonCallable>{
+abstract EditableText_OnEditableTextCommittedEvent__PythonCallablePtr(ucpp.Ptr<EditableText_OnEditableTextCommittedEvent__PythonCallable>) from ucpp.Ptr<EditableText_OnEditableTextCommittedEvent__PythonCallable> to ucpp.Ptr<EditableText_OnEditableTextCommittedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: EditableText_OnEditableTextCommittedEvent__PythonCallable): EditableText_OnEditableTextCommittedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

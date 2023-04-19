@@ -3,19 +3,19 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCurveBase")
 @:include("NiagaraDataInterfaceCurveBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceCurveBase extends NiagaraDataInterface {
-	@:protected public var ShaderLUT: TArray<cpp.Float32>;
-	@:protected public var LUTMinTime: cpp.Float32;
-	@:protected public var LUTMaxTime: cpp.Float32;
-	@:protected public var LUTInvTimeRange: cpp.Float32;
-	@:protected public var LUTNumSamplesMinusOne: cpp.Float32;
+	@:protected public var ShaderLUT: TArray<ucpp.num.Float32>;
+	@:protected public var LUTMinTime: ucpp.num.Float32;
+	@:protected public var LUTMaxTime: ucpp.num.Float32;
+	@:protected public var LUTInvTimeRange: ucpp.num.Float32;
+	@:protected public var LUTNumSamplesMinusOne: ucpp.num.Float32;
 	public var bUseLUT: Bool;
 	public var bExposeCurve: Bool;
 	public var ExposedName: FName;
-	public var ExposedTexture: cpp.Star<Texture2D>;
+	public var ExposedTexture: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,14 +27,14 @@ abstract ConstNiagaraDataInterfaceCurveBase(NiagaraDataInterfaceCurveBase) from 
 	public inline extern function get_bExposeCurve(): Bool return this.bExposeCurve;
 	public extern var ExposedName(get, never): FName;
 	public inline extern function get_ExposedName(): FName return this.ExposedName;
-	public extern var ExposedTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_ExposedTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.ExposedTexture;
+	public extern var ExposedTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_ExposedTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.ExposedTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceCurveBase*")
-abstract NiagaraDataInterfaceCurveBasePtr(cpp.Star<NiagaraDataInterfaceCurveBase>) from cpp.Star<NiagaraDataInterfaceCurveBase> to cpp.Star<NiagaraDataInterfaceCurveBase>{
+abstract NiagaraDataInterfaceCurveBasePtr(ucpp.Ptr<NiagaraDataInterfaceCurveBase>) from ucpp.Ptr<NiagaraDataInterfaceCurveBase> to ucpp.Ptr<NiagaraDataInterfaceCurveBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceCurveBase): NiagaraDataInterfaceCurveBasePtr {
 		return untyped __cpp__("&({0})", v);

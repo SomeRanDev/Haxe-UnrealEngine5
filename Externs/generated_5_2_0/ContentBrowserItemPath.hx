@@ -3,7 +3,7 @@ package ue;
 
 @:native("FContentBrowserItemPath")
 @:include("ContentBrowserItemPath.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserItemPath {
 	@:native("FContentBrowserItemPath") public function new();
 }

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USequencerAnimationSupport")
-@:structAccess
+@:valueType
 extern class SequencerAnimationSupport extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSequencerAnimationSupport(SequencerAnimationSupport) from Sequence
 @:forward
 @:nativeGen
 @:native("SequencerAnimationSupport*")
-abstract SequencerAnimationSupportPtr(cpp.Star<SequencerAnimationSupport>) from cpp.Star<SequencerAnimationSupport> to cpp.Star<SequencerAnimationSupport>{
+abstract SequencerAnimationSupportPtr(ucpp.Ptr<SequencerAnimationSupport>) from ucpp.Ptr<SequencerAnimationSupport> to ucpp.Ptr<SequencerAnimationSupport>{
 	@:from
 	public static extern inline function fromValue(v: SequencerAnimationSupport): SequencerAnimationSupportPtr {
 		return untyped __cpp__("&({0})", v);

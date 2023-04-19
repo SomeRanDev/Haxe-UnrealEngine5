@@ -3,25 +3,25 @@ package ue;
 
 @:native("UMergeMeshesToolProperties")
 @:include("MergeMeshesTool.h")
-@:structAccess
+@:valueType
 extern class MergeMeshesToolProperties extends InteractiveToolPropertySet {
-	public var VoxelCount: cpp.Int32;
-	public var MeshAdaptivity: cpp.Float32;
-	public var OffsetDistance: cpp.Float32;
+	public var VoxelCount: ucpp.num.Int32;
+	public var MeshAdaptivity: ucpp.num.Float32;
+	public var OffsetDistance: ucpp.num.Float32;
 	public var bAutoSimplify: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMergeMeshesToolProperties(MergeMeshesToolProperties) from MergeMeshesToolProperties {
-	public extern var VoxelCount(get, never): cpp.Int32;
-	public inline extern function get_VoxelCount(): cpp.Int32 return this.VoxelCount;
-	public extern var MeshAdaptivity(get, never): cpp.Float32;
-	public inline extern function get_MeshAdaptivity(): cpp.Float32 return this.MeshAdaptivity;
-	public extern var OffsetDistance(get, never): cpp.Float32;
-	public inline extern function get_OffsetDistance(): cpp.Float32 return this.OffsetDistance;
+	public extern var VoxelCount(get, never): ucpp.num.Int32;
+	public inline extern function get_VoxelCount(): ucpp.num.Int32 return this.VoxelCount;
+	public extern var MeshAdaptivity(get, never): ucpp.num.Float32;
+	public inline extern function get_MeshAdaptivity(): ucpp.num.Float32 return this.MeshAdaptivity;
+	public extern var OffsetDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_OffsetDistance(): ucpp.num.Float32 return this.OffsetDistance;
 	public extern var bAutoSimplify(get, never): Bool;
 	public inline extern function get_bAutoSimplify(): Bool return this.bAutoSimplify;
 }
@@ -29,7 +29,7 @@ abstract ConstMergeMeshesToolProperties(MergeMeshesToolProperties) from MergeMes
 @:forward
 @:nativeGen
 @:native("MergeMeshesToolProperties*")
-abstract MergeMeshesToolPropertiesPtr(cpp.Star<MergeMeshesToolProperties>) from cpp.Star<MergeMeshesToolProperties> to cpp.Star<MergeMeshesToolProperties>{
+abstract MergeMeshesToolPropertiesPtr(ucpp.Ptr<MergeMeshesToolProperties>) from ucpp.Ptr<MergeMeshesToolProperties> to ucpp.Ptr<MergeMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MergeMeshesToolProperties): MergeMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

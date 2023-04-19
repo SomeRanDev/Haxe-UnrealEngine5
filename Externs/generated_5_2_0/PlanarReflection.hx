@@ -3,13 +3,13 @@ package ue;
 
 @:native("APlanarReflection")
 @:include("Engine/PlanarReflection.h")
-@:structAccess
+@:valueType
 extern class PlanarReflection extends SceneCapture {
-	private var PlanarReflectionComponent: cpp.Star<PlanarReflectionComp>;
+	private var PlanarReflectionComponent: ucpp.Ptr<PlanarReflectionComp>;
 
 	public function OnInterpToggle(bEnable: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPlanarReflection(PlanarReflection) from PlanarReflection {
 @:forward
 @:nativeGen
 @:native("PlanarReflection*")
-abstract PlanarReflectionPtr(cpp.Star<PlanarReflection>) from cpp.Star<PlanarReflection> to cpp.Star<PlanarReflection>{
+abstract PlanarReflectionPtr(ucpp.Ptr<PlanarReflection>) from ucpp.Ptr<PlanarReflection> to ucpp.Ptr<PlanarReflection>{
 	@:from
 	public static extern inline function fromValue(v: PlanarReflection): PlanarReflectionPtr {
 		return untyped __cpp__("&({0})", v);

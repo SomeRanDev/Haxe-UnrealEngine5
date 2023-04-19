@@ -3,10 +3,10 @@ package ue;
 
 @:native("FCollectionScalarParameter")
 @:include("Materials/MaterialParameterCollection.h")
-@:structAccess
+@:valueType
 extern class CollectionScalarParameter extends CollectionParameterBase {
-	public var DefaultValue: cpp.Float32;
+	public var DefaultValue: ucpp.num.Float32;
 
 	@:native("FCollectionScalarParameter") public function new();
-	@:native("FCollectionScalarParameter") public static function make(DefaultValue: cpp.Float32): CollectionScalarParameter ;
+	@:native("FCollectionScalarParameter") public static function make(DefaultValue: ucpp.num.Float32): CollectionScalarParameter ;
 }

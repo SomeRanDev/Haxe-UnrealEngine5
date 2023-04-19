@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnHoveredWidgetChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnHoveredWidgetChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnHoveredWidgetChanged__PythonCallable(OnHoveredWidgetChanged__Pyt
 @:forward
 @:nativeGen
 @:native("OnHoveredWidgetChanged__PythonCallable*")
-abstract OnHoveredWidgetChanged__PythonCallablePtr(cpp.Star<OnHoveredWidgetChanged__PythonCallable>) from cpp.Star<OnHoveredWidgetChanged__PythonCallable> to cpp.Star<OnHoveredWidgetChanged__PythonCallable>{
+abstract OnHoveredWidgetChanged__PythonCallablePtr(ucpp.Ptr<OnHoveredWidgetChanged__PythonCallable>) from ucpp.Ptr<OnHoveredWidgetChanged__PythonCallable> to ucpp.Ptr<OnHoveredWidgetChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnHoveredWidgetChanged__PythonCallable): OnHoveredWidgetChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInputDeviceTriggerFeedbackProperty")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class InputDeviceTriggerFeedbackProperty extends InputDeviceTriggerEffect {
 	public var TriggerData: DeviceTriggerFeedbackData;
 	public var DeviceOverrideData: TMap<FName, DeviceTriggerFeedbackData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstInputDeviceTriggerFeedbackProperty(InputDeviceTriggerFeedbackPrope
 @:forward
 @:nativeGen
 @:native("InputDeviceTriggerFeedbackProperty*")
-abstract InputDeviceTriggerFeedbackPropertyPtr(cpp.Star<InputDeviceTriggerFeedbackProperty>) from cpp.Star<InputDeviceTriggerFeedbackProperty> to cpp.Star<InputDeviceTriggerFeedbackProperty>{
+abstract InputDeviceTriggerFeedbackPropertyPtr(ucpp.Ptr<InputDeviceTriggerFeedbackProperty>) from ucpp.Ptr<InputDeviceTriggerFeedbackProperty> to ucpp.Ptr<InputDeviceTriggerFeedbackProperty>{
 	@:from
 	public static extern inline function fromValue(v: InputDeviceTriggerFeedbackProperty): InputDeviceTriggerFeedbackPropertyPtr {
 		return untyped __cpp__("&({0})", v);

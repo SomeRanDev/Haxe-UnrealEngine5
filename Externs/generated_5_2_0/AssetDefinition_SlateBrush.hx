@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_SlateBrush")
 @:include("AssetDefinition_SlateBrush.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_SlateBrush extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_SlateBrush(AssetDefinition_SlateBrush) from AssetD
 @:forward
 @:nativeGen
 @:native("AssetDefinition_SlateBrush*")
-abstract AssetDefinition_SlateBrushPtr(cpp.Star<AssetDefinition_SlateBrush>) from cpp.Star<AssetDefinition_SlateBrush> to cpp.Star<AssetDefinition_SlateBrush>{
+abstract AssetDefinition_SlateBrushPtr(ucpp.Ptr<AssetDefinition_SlateBrush>) from ucpp.Ptr<AssetDefinition_SlateBrush> to ucpp.Ptr<AssetDefinition_SlateBrush>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_SlateBrush): AssetDefinition_SlateBrushPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPersistentDynamicMeshSource")
-@:structAccess
+@:valueType
 extern class PersistentDynamicMeshSource extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPersistentDynamicMeshSource(PersistentDynamicMeshSource) from Pers
 @:forward
 @:nativeGen
 @:native("PersistentDynamicMeshSource*")
-abstract PersistentDynamicMeshSourcePtr(cpp.Star<PersistentDynamicMeshSource>) from cpp.Star<PersistentDynamicMeshSource> to cpp.Star<PersistentDynamicMeshSource>{
+abstract PersistentDynamicMeshSourcePtr(ucpp.Ptr<PersistentDynamicMeshSource>) from ucpp.Ptr<PersistentDynamicMeshSource> to ucpp.Ptr<PersistentDynamicMeshSource>{
 	@:from
 	public static extern inline function fromValue(v: PersistentDynamicMeshSource): PersistentDynamicMeshSourcePtr {
 		return untyped __cpp__("&({0})", v);

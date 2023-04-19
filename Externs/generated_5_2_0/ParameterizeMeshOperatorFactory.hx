@@ -3,33 +3,33 @@ package ue;
 
 @:native("UParameterizeMeshOperatorFactory")
 @:include("ParameterizationOps/ParameterizeMeshOp.h")
-@:structAccess
+@:valueType
 extern class ParameterizeMeshOperatorFactory extends Object {
-	public var Settings: cpp.Star<ParameterizeMeshToolProperties>;
-	public var UVAtlasProperties: cpp.Star<ParameterizeMeshToolUVAtlasProperties>;
-	public var XAtlasProperties: cpp.Star<ParameterizeMeshToolXAtlasProperties>;
-	public var PatchBuilderProperties: cpp.Star<ParameterizeMeshToolPatchBuilderProperties>;
+	public var Settings: ucpp.Ptr<ParameterizeMeshToolProperties>;
+	public var UVAtlasProperties: ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties>;
+	public var XAtlasProperties: ucpp.Ptr<ParameterizeMeshToolXAtlasProperties>;
+	public var PatchBuilderProperties: ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParameterizeMeshOperatorFactory(ParameterizeMeshOperatorFactory) from ParameterizeMeshOperatorFactory {
-	public extern var Settings(get, never): cpp.Star<ParameterizeMeshToolProperties.ConstParameterizeMeshToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<ParameterizeMeshToolProperties.ConstParameterizeMeshToolProperties> return this.Settings;
-	public extern var UVAtlasProperties(get, never): cpp.Star<ParameterizeMeshToolUVAtlasProperties.ConstParameterizeMeshToolUVAtlasProperties>;
-	public inline extern function get_UVAtlasProperties(): cpp.Star<ParameterizeMeshToolUVAtlasProperties.ConstParameterizeMeshToolUVAtlasProperties> return this.UVAtlasProperties;
-	public extern var XAtlasProperties(get, never): cpp.Star<ParameterizeMeshToolXAtlasProperties.ConstParameterizeMeshToolXAtlasProperties>;
-	public inline extern function get_XAtlasProperties(): cpp.Star<ParameterizeMeshToolXAtlasProperties.ConstParameterizeMeshToolXAtlasProperties> return this.XAtlasProperties;
-	public extern var PatchBuilderProperties(get, never): cpp.Star<ParameterizeMeshToolPatchBuilderProperties.ConstParameterizeMeshToolPatchBuilderProperties>;
-	public inline extern function get_PatchBuilderProperties(): cpp.Star<ParameterizeMeshToolPatchBuilderProperties.ConstParameterizeMeshToolPatchBuilderProperties> return this.PatchBuilderProperties;
+	public extern var Settings(get, never): ucpp.Ptr<ParameterizeMeshToolProperties.ConstParameterizeMeshToolProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<ParameterizeMeshToolProperties.ConstParameterizeMeshToolProperties> return this.Settings;
+	public extern var UVAtlasProperties(get, never): ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties.ConstParameterizeMeshToolUVAtlasProperties>;
+	public inline extern function get_UVAtlasProperties(): ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties.ConstParameterizeMeshToolUVAtlasProperties> return this.UVAtlasProperties;
+	public extern var XAtlasProperties(get, never): ucpp.Ptr<ParameterizeMeshToolXAtlasProperties.ConstParameterizeMeshToolXAtlasProperties>;
+	public inline extern function get_XAtlasProperties(): ucpp.Ptr<ParameterizeMeshToolXAtlasProperties.ConstParameterizeMeshToolXAtlasProperties> return this.XAtlasProperties;
+	public extern var PatchBuilderProperties(get, never): ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties.ConstParameterizeMeshToolPatchBuilderProperties>;
+	public inline extern function get_PatchBuilderProperties(): ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties.ConstParameterizeMeshToolPatchBuilderProperties> return this.PatchBuilderProperties;
 }
 
 @:forward
 @:nativeGen
 @:native("ParameterizeMeshOperatorFactory*")
-abstract ParameterizeMeshOperatorFactoryPtr(cpp.Star<ParameterizeMeshOperatorFactory>) from cpp.Star<ParameterizeMeshOperatorFactory> to cpp.Star<ParameterizeMeshOperatorFactory>{
+abstract ParameterizeMeshOperatorFactoryPtr(ucpp.Ptr<ParameterizeMeshOperatorFactory>) from ucpp.Ptr<ParameterizeMeshOperatorFactory> to ucpp.Ptr<ParameterizeMeshOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: ParameterizeMeshOperatorFactory): ParameterizeMeshOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEnvQueryItemType_ActorBase")
 @:include("EnvironmentQuery/Items/EnvQueryItemType_ActorBase.h")
-@:structAccess
+@:valueType
 extern class EnvQueryItemType_ActorBase extends EnvQueryItemType_VectorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEnvQueryItemType_ActorBase(EnvQueryItemType_ActorBase) from EnvQue
 @:forward
 @:nativeGen
 @:native("EnvQueryItemType_ActorBase*")
-abstract EnvQueryItemType_ActorBasePtr(cpp.Star<EnvQueryItemType_ActorBase>) from cpp.Star<EnvQueryItemType_ActorBase> to cpp.Star<EnvQueryItemType_ActorBase>{
+abstract EnvQueryItemType_ActorBasePtr(ucpp.Ptr<EnvQueryItemType_ActorBase>) from ucpp.Ptr<EnvQueryItemType_ActorBase> to ucpp.Ptr<EnvQueryItemType_ActorBase>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryItemType_ActorBase): EnvQueryItemType_ActorBasePtr {
 		return untyped __cpp__("&({0})", v);

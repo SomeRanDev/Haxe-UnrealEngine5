@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInterchangeMeshNode")
 @:include("InterchangeMeshNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeMeshNode extends InterchangeBaseNode {
 	public function SetSlotMaterialDependencyUid(SlotName: FString, MaterialDependencyUid: FString): Bool;
 	public function SetSkinnedMesh(bIsSkinnedMesh: Bool): Bool;
@@ -13,15 +13,15 @@ extern class InterchangeMeshNode extends InterchangeBaseNode {
 	public function SetMorphTargetName(MorphTargetName: FString): Bool;
 	public function SetMorphTargetDependencyUid(DependencyUid: FString): Bool;
 	public function SetMorphTarget(bIsMorphTarget: Bool): Bool;
-	public function SetCustomVertexCount(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function SetCustomUVCount(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function SetCustomPolygonCount(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function SetCustomHasVertexTangent(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomHasVertexNormal(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomHasVertexColor(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomHasVertexBinormal(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomHasSmoothGroup(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomBoundingBox(AttributeValue: cpp.Reference<Box>): Bool;
+	public function SetCustomVertexCount(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function SetCustomUVCount(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function SetCustomPolygonCount(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function SetCustomHasVertexTangent(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomHasVertexNormal(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomHasVertexColor(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomHasVertexBinormal(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomHasSmoothGroup(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomBoundingBox(AttributeValue: ucpp.Ref<Box>): Bool;
 	public function SetAnimationCurvePayLoadKey(PayloadKey: FString): Void;
 	public function RemoveSlotMaterialDependencyUid(SlotName: FString): Bool;
 	public function RemoveSkeletonDependencyUid(DependencyUid: FString): Bool;
@@ -29,29 +29,29 @@ extern class InterchangeMeshNode extends InterchangeBaseNode {
 	public function RemoveMorphTargetDependencyUid(DependencyUid: FString): Bool;
 	public function IsSkinnedMesh(): Bool;
 	public function IsMorphTarget(): Bool;
-	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: cpp.Reference<FString>): Bool;
-	public function GetSlotMaterialDependencies(OutMaterialDependencies: cpp.Reference<TMap<FString, FString>>): Void;
-	public function GetSkeletonDependency(Index: cpp.Int32, OutDependency: cpp.Reference<FString>): Void;
-	public function GetSkeletonDependencies(OutDependencies: cpp.Reference<TArray<FString>>): Void;
-	public function GetSkeletonDependeciesCount(): cpp.Int32;
-	public function GetSceneInstanceUidsCount(): cpp.Int32;
-	public function GetSceneInstanceUids(OutDependencies: cpp.Reference<TArray<FString>>): Void;
-	public function GetSceneInstanceUid(Index: cpp.Int32, OutDependency: cpp.Reference<FString>): Void;
-	public function GetMorphTargetName(OutMorphTargetName: cpp.Reference<FString>): Bool;
-	public function GetMorphTargetDependency(Index: cpp.Int32, OutDependency: cpp.Reference<FString>): Void;
-	public function GetMorphTargetDependencies(OutDependencies: cpp.Reference<TArray<FString>>): Void;
-	public function GetMorphTargetDependeciesCount(): cpp.Int32;
-	public function GetCustomVertexCount(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomUVCount(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomPolygonCount(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomHasVertexTangent(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomHasVertexNormal(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomHasVertexColor(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomHasVertexBinormal(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomHasSmoothGroup(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomBoundingBox(AttributeValue: cpp.Reference<Box>): Bool;
+	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: ucpp.Ref<FString>): Bool;
+	public function GetSlotMaterialDependencies(OutMaterialDependencies: ucpp.Ref<TMap<FString, FString>>): Void;
+	public function GetSkeletonDependency(Index: ucpp.num.Int32, OutDependency: ucpp.Ref<FString>): Void;
+	public function GetSkeletonDependencies(OutDependencies: ucpp.Ref<TArray<FString>>): Void;
+	public function GetSkeletonDependeciesCount(): ucpp.num.Int32;
+	public function GetSceneInstanceUidsCount(): ucpp.num.Int32;
+	public function GetSceneInstanceUids(OutDependencies: ucpp.Ref<TArray<FString>>): Void;
+	public function GetSceneInstanceUid(Index: ucpp.num.Int32, OutDependency: ucpp.Ref<FString>): Void;
+	public function GetMorphTargetName(OutMorphTargetName: ucpp.Ref<FString>): Bool;
+	public function GetMorphTargetDependency(Index: ucpp.num.Int32, OutDependency: ucpp.Ref<FString>): Void;
+	public function GetMorphTargetDependencies(OutDependencies: ucpp.Ref<TArray<FString>>): Void;
+	public function GetMorphTargetDependeciesCount(): ucpp.num.Int32;
+	public function GetCustomVertexCount(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomUVCount(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomPolygonCount(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomHasVertexTangent(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomHasVertexNormal(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomHasVertexColor(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomHasVertexBinormal(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomHasSmoothGroup(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomBoundingBox(AttributeValue: ucpp.Ref<Box>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -68,7 +68,7 @@ abstract ConstInterchangeMeshNode(InterchangeMeshNode) from InterchangeMeshNode 
 @:forward
 @:nativeGen
 @:native("InterchangeMeshNode*")
-abstract InterchangeMeshNodePtr(cpp.Star<InterchangeMeshNode>) from cpp.Star<InterchangeMeshNode> to cpp.Star<InterchangeMeshNode>{
+abstract InterchangeMeshNodePtr(ucpp.Ptr<InterchangeMeshNode>) from ucpp.Ptr<InterchangeMeshNode> to ucpp.Ptr<InterchangeMeshNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMeshNode): InterchangeMeshNodePtr {
 		return untyped __cpp__("&({0})", v);

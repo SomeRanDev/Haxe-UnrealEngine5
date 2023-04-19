@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWidgetBlueprintExtension")
 @:include("WidgetBlueprintExtension.h")
-@:structAccess
+@:valueType
 extern class WidgetBlueprintExtension extends BlueprintExtension {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWidgetBlueprintExtension(WidgetBlueprintExtension) from WidgetBlue
 @:forward
 @:nativeGen
 @:native("WidgetBlueprintExtension*")
-abstract WidgetBlueprintExtensionPtr(cpp.Star<WidgetBlueprintExtension>) from cpp.Star<WidgetBlueprintExtension> to cpp.Star<WidgetBlueprintExtension>{
+abstract WidgetBlueprintExtensionPtr(ucpp.Ptr<WidgetBlueprintExtension>) from ucpp.Ptr<WidgetBlueprintExtension> to ucpp.Ptr<WidgetBlueprintExtension>{
 	@:from
 	public static extern inline function fromValue(v: WidgetBlueprintExtension): WidgetBlueprintExtensionPtr {
 		return untyped __cpp__("&({0})", v);

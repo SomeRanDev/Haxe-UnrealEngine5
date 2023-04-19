@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAnimBlueprintFactory")
 @:include("Factories/AnimBlueprintFactory.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintFactory extends Factory {
 	public var BlueprintType: TEnumAsByte<EBlueprintType>;
 	public var ParentClass: TSubclassOf<AnimInstance>;
-	public var TargetSkeleton: cpp.Star<Skeleton>;
-	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
+	public var PreviewSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 	public var bTemplate: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,10 +21,10 @@ abstract ConstAnimBlueprintFactory(AnimBlueprintFactory) from AnimBlueprintFacto
 	public inline extern function get_BlueprintType(): TEnumAsByte<EBlueprintType> return this.BlueprintType;
 	public extern var ParentClass(get, never): TSubclassOf<AnimInstance.ConstAnimInstance>;
 	public inline extern function get_ParentClass(): TSubclassOf<AnimInstance.ConstAnimInstance> return this.ParentClass;
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
-	public extern var PreviewSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var PreviewSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_PreviewSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 	public extern var bTemplate(get, never): Bool;
 	public inline extern function get_bTemplate(): Bool return this.bTemplate;
 }
@@ -32,7 +32,7 @@ abstract ConstAnimBlueprintFactory(AnimBlueprintFactory) from AnimBlueprintFacto
 @:forward
 @:nativeGen
 @:native("AnimBlueprintFactory*")
-abstract AnimBlueprintFactoryPtr(cpp.Star<AnimBlueprintFactory>) from cpp.Star<AnimBlueprintFactory> to cpp.Star<AnimBlueprintFactory>{
+abstract AnimBlueprintFactoryPtr(ucpp.Ptr<AnimBlueprintFactory>) from ucpp.Ptr<AnimBlueprintFactory> to ucpp.Ptr<AnimBlueprintFactory>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintFactory): AnimBlueprintFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,13 @@ package ue;
 
 @:native("UNetworkSettings")
 @:include("Engine/NetworkSettings.h")
-@:structAccess
+@:valueType
 extern class NetworkSettings extends DeveloperSettings {
 	public var bVerifyPeer: Bool;
 	public var bEnableMultiplayerWorldOriginRebasing: Bool;
-	public var MaxRepArraySize: cpp.Int32;
-	public var MaxRepArrayMemory: cpp.Int32;
 	public var NetworkEmulationProfiles: TArray<NetworkEmulationProfileDescription>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,10 +19,6 @@ abstract ConstNetworkSettings(NetworkSettings) from NetworkSettings {
 	public inline extern function get_bVerifyPeer(): Bool return this.bVerifyPeer;
 	public extern var bEnableMultiplayerWorldOriginRebasing(get, never): Bool;
 	public inline extern function get_bEnableMultiplayerWorldOriginRebasing(): Bool return this.bEnableMultiplayerWorldOriginRebasing;
-	public extern var MaxRepArraySize(get, never): cpp.Int32;
-	public inline extern function get_MaxRepArraySize(): cpp.Int32 return this.MaxRepArraySize;
-	public extern var MaxRepArrayMemory(get, never): cpp.Int32;
-	public inline extern function get_MaxRepArrayMemory(): cpp.Int32 return this.MaxRepArrayMemory;
 	public extern var NetworkEmulationProfiles(get, never): TArray<NetworkEmulationProfileDescription>;
 	public inline extern function get_NetworkEmulationProfiles(): TArray<NetworkEmulationProfileDescription> return this.NetworkEmulationProfiles;
 }
@@ -32,7 +26,7 @@ abstract ConstNetworkSettings(NetworkSettings) from NetworkSettings {
 @:forward
 @:nativeGen
 @:native("NetworkSettings*")
-abstract NetworkSettingsPtr(cpp.Star<NetworkSettings>) from cpp.Star<NetworkSettings> to cpp.Star<NetworkSettings>{
+abstract NetworkSettingsPtr(ucpp.Ptr<NetworkSettings>) from ucpp.Ptr<NetworkSettings> to ucpp.Ptr<NetworkSettings>{
 	@:from
 	public static extern inline function fromValue(v: NetworkSettings): NetworkSettingsPtr {
 		return untyped __cpp__("&({0})", v);

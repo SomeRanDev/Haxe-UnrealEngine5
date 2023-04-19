@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_EditorPropertyAccessBase")
 @:include("K2Node_EditorPropertyAccess.h")
-@:structAccess
+@:valueType
 extern class K2Node_EditorPropertyAccessBase extends K2Node_CallFunction {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_EditorPropertyAccessBase(K2Node_EditorPropertyAccessBase) f
 @:forward
 @:nativeGen
 @:native("K2Node_EditorPropertyAccessBase*")
-abstract K2Node_EditorPropertyAccessBasePtr(cpp.Star<K2Node_EditorPropertyAccessBase>) from cpp.Star<K2Node_EditorPropertyAccessBase> to cpp.Star<K2Node_EditorPropertyAccessBase>{
+abstract K2Node_EditorPropertyAccessBasePtr(ucpp.Ptr<K2Node_EditorPropertyAccessBase>) from ucpp.Ptr<K2Node_EditorPropertyAccessBase> to ucpp.Ptr<K2Node_EditorPropertyAccessBase>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_EditorPropertyAccessBase): K2Node_EditorPropertyAccessBasePtr {
 		return untyped __cpp__("&({0})", v);

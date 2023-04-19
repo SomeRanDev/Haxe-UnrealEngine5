@@ -3,22 +3,22 @@ package ue;
 
 @:native("UEnvQueryManager")
 @:include("EnvironmentQuery/EnvQueryManager.h")
-@:structAccess
+@:valueType
 extern class EnvQueryManager extends AISubsystem {
 	@:protected public var InstanceCache: TArray<EnvQueryInstanceCache>;
-	@:protected public var LocalContexts: TArray<cpp.Star<EnvQueryContext>>;
-	@:protected public var GCShieldedWrappers: TArray<cpp.Star<EnvQueryInstanceBlueprintWrapper>>;
-	@:protected public var MaxAllowedTestingTime: cpp.Float32;
+	@:protected public var LocalContexts: TArray<ucpp.Ptr<EnvQueryContext>>;
+	@:protected public var GCShieldedWrappers: TArray<ucpp.Ptr<EnvQueryInstanceBlueprintWrapper>>;
+	@:protected public var MaxAllowedTestingTime: ucpp.num.Float32;
 	@:protected public var bTestQueriesUsingBreadth: Bool;
-	@:protected public var QueryCountWarningThreshold: cpp.Int32;
-	@:protected public var QueryCountWarningInterval: cpp.Float64;
-	@:protected public var ExecutionTimeWarningSeconds: cpp.Float64;
-	@:protected public var HandlingResultTimeWarningSeconds: cpp.Float64;
-	@:protected public var GenerationTimeWarningSeconds: cpp.Float64;
+	@:protected public var QueryCountWarningThreshold: ucpp.num.Int32;
+	@:protected public var QueryCountWarningInterval: ucpp.num.Float64;
+	@:protected public var ExecutionTimeWarningSeconds: ucpp.num.Float64;
+	@:protected public var HandlingResultTimeWarningSeconds: ucpp.num.Float64;
+	@:protected public var GenerationTimeWarningSeconds: ucpp.num.Float64;
 
-	public function RunEQSQuery(WorldContextObject: cpp.Star<Object>, QueryTemplate: cpp.Star<EnvQuery>, Querier: cpp.Star<Object>, RunMode: TEnumAsByte<EEnvQueryRunMode>, WrapperClass: TSubclassOf<EnvQueryInstanceBlueprintWrapper>): cpp.Star<EnvQueryInstanceBlueprintWrapper>;
+	public function RunEQSQuery(WorldContextObject: ucpp.Ptr<Object>, QueryTemplate: ucpp.Ptr<EnvQuery>, Querier: ucpp.Ptr<Object>, RunMode: TEnumAsByte<EEnvQueryRunMode>, WrapperClass: TSubclassOf<EnvQueryInstanceBlueprintWrapper>): ucpp.Ptr<EnvQueryInstanceBlueprintWrapper>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstEnvQueryManager(EnvQueryManager) from EnvQueryManager {
 @:forward
 @:nativeGen
 @:native("EnvQueryManager*")
-abstract EnvQueryManagerPtr(cpp.Star<EnvQueryManager>) from cpp.Star<EnvQueryManager> to cpp.Star<EnvQueryManager>{
+abstract EnvQueryManagerPtr(ucpp.Ptr<EnvQueryManager>) from ucpp.Ptr<EnvQueryManager> to ucpp.Ptr<EnvQueryManager>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryManager): EnvQueryManagerPtr {
 		return untyped __cpp__("&({0})", v);

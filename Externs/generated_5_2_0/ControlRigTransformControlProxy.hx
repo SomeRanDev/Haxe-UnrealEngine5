@@ -3,11 +3,11 @@ package ue;
 
 @:native("UControlRigTransformControlProxy")
 @:include("EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlRigTransformControlProxy extends ControlRigControlsProxy {
 	public var Transform: EulerTransform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstControlRigTransformControlProxy(ControlRigTransformControlProxy) f
 @:forward
 @:nativeGen
 @:native("ControlRigTransformControlProxy*")
-abstract ControlRigTransformControlProxyPtr(cpp.Star<ControlRigTransformControlProxy>) from cpp.Star<ControlRigTransformControlProxy> to cpp.Star<ControlRigTransformControlProxy>{
+abstract ControlRigTransformControlProxyPtr(ucpp.Ptr<ControlRigTransformControlProxy>) from ucpp.Ptr<ControlRigTransformControlProxy> to ucpp.Ptr<ControlRigTransformControlProxy>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigTransformControlProxy): ControlRigTransformControlProxyPtr {
 		return untyped __cpp__("&({0})", v);

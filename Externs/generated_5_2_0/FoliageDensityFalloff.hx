@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFoliageDensityFalloff")
 @:include("FoliageType.h")
-@:structAccess
+@:valueType
 extern class FoliageDensityFalloff {
 	public var bUseFalloffCurve: Bool;
 	public var FalloffCurve: RuntimeFloatCurve;

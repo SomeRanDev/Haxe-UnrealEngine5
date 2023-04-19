@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODProxyDesc")
 @:include("HLOD/HLODProxyDesc.h")
-@:structAccess
+@:valueType
 extern class HLODProxyDesc extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODProxyDesc(HLODProxyDesc) from HLODProxyDesc {
 @:forward
 @:nativeGen
 @:native("HLODProxyDesc*")
-abstract HLODProxyDescPtr(cpp.Star<HLODProxyDesc>) from cpp.Star<HLODProxyDesc> to cpp.Star<HLODProxyDesc>{
+abstract HLODProxyDescPtr(ucpp.Ptr<HLODProxyDesc>) from ucpp.Ptr<HLODProxyDesc> to ucpp.Ptr<HLODProxyDesc>{
 	@:from
 	public static extern inline function fromValue(v: HLODProxyDesc): HLODProxyDescPtr {
 		return untyped __cpp__("&({0})", v);

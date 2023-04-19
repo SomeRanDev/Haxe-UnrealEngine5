@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_PoseSnapshot")
 @:include("AnimNodes/AnimNode_PoseSnapshot.h")
-@:structAccess
+@:valueType
 extern class AnimNode_PoseSnapshot extends AnimNode_Base {
 	public var SnapshotName: FName;
 	public var Snapshot: PoseSnapshot;

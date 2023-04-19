@@ -3,37 +3,37 @@ package ue;
 
 @:native("URigVMHost")
 @:include("RigVMHost.h")
-@:structAccess
+@:valueType
 extern class RigVMHost extends Object {
 	public var VMRuntimeSettings: RigVMRuntimeSettings;
-	@:protected public var VM: cpp.Star<RigVM>;
+	@:protected public var VM: ucpp.Ptr<RigVM>;
 	public var DrawContainer: RigVMDrawContainer;
 	public var EventQueue: TArray<FName>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 
-	public function SupportsEvent(InEventName: cpp.Reference<FName>): Bool;
-	public function SetVariableFromString(InVariableName: cpp.Reference<FName>, InValue: FString): Bool;
-	public function SetFramesPerSecond(InFramesPerSecond: cpp.Float32): Void;
-	public function SetDeltaTime(InDeltaTime: cpp.Float32): Void;
-	public function SetAbsoluteTime(InAbsoluteTime: cpp.Float32, InSetDeltaTimeZero: Bool): Void;
-	public function SetAbsoluteAndDeltaTime(InAbsoluteTime: cpp.Float32, InDeltaTime: cpp.Float32): Void;
-	public function RequestRunOnceEvent(InEventName: cpp.Reference<FName>, InEventIndex: cpp.Int32): Void;
+	public function SupportsEvent(InEventName: ucpp.Ref<FName>): Bool;
+	public function SetVariableFromString(InVariableName: ucpp.Ref<FName>, InValue: FString): Bool;
+	public function SetFramesPerSecond(InFramesPerSecond: ucpp.num.Float32): Void;
+	public function SetDeltaTime(InDeltaTime: ucpp.num.Float32): Void;
+	public function SetAbsoluteTime(InAbsoluteTime: ucpp.num.Float32, InSetDeltaTimeZero: Bool): Void;
+	public function SetAbsoluteAndDeltaTime(InAbsoluteTime: ucpp.num.Float32, InDeltaTime: ucpp.num.Float32): Void;
+	public function RequestRunOnceEvent(InEventName: ucpp.Ref<FName>, InEventIndex: ucpp.num.Int32): Void;
 	public function RequestInit(): Void;
-	public function RemoveRunOnceEvent(InEventName: cpp.Reference<FName>): Bool;
-	public function GetVM(): cpp.Star<RigVM>;
-	public function GetVariableType(InVariableName: cpp.Reference<FName>): FName;
-	public function GetVariableAsString(InVariableName: cpp.Reference<FName>): FString;
+	public function RemoveRunOnceEvent(InEventName: ucpp.Ref<FName>): Bool;
+	public function GetVM(): ucpp.Ptr<RigVM>;
+	public function GetVariableType(InVariableName: ucpp.Ref<FName>): FName;
+	public function GetVariableAsString(InVariableName: ucpp.Ref<FName>): FString;
 	public function GetSupportedEvents(): TArray<FName>;
 	public function GetScriptAccessibleVariables(): TArray<FName>;
-	public function GetDeltaTime(): cpp.Float32;
-	public function GetCurrentFramesPerSecond(): cpp.Float32;
-	public function GetAbsoluteTime(): cpp.Float32;
-	public function FindRigVMHosts(Outer: cpp.Star<Object>, OptionalClass: TSubclassOf<RigVMHost>): TArray<cpp.Star<RigVMHost>>;
-	public function ExecuteEvent(InEventName: cpp.Reference<FName>): Bool;
-	public function Execute(InEventName: cpp.Reference<FName>): Bool;
+	public function GetDeltaTime(): ucpp.num.Float32;
+	public function GetCurrentFramesPerSecond(): ucpp.num.Float32;
+	public function GetAbsoluteTime(): ucpp.num.Float32;
+	public function FindRigVMHosts(Outer: ucpp.Ptr<Object>, OptionalClass: TSubclassOf<RigVMHost>): TArray<ucpp.Ptr<RigVMHost>>;
+	public function ExecuteEvent(InEventName: ucpp.Ref<FName>): Bool;
+	public function Execute(InEventName: ucpp.Ref<FName>): Bool;
 	public function CanExecute(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(SupportsEvent, GetVariableType, GetVariableAsString, GetSupportedEvents, GetScriptAccessibleVariables, GetDeltaTime, GetCurrentFramesPerSecond, GetAbsoluteTime, CanExecute)
@@ -50,7 +50,7 @@ abstract ConstRigVMHost(RigVMHost) from RigVMHost {
 @:forward
 @:nativeGen
 @:native("RigVMHost*")
-abstract RigVMHostPtr(cpp.Star<RigVMHost>) from cpp.Star<RigVMHost> to cpp.Star<RigVMHost>{
+abstract RigVMHostPtr(ucpp.Ptr<RigVMHost>) from ucpp.Ptr<RigVMHost> to ucpp.Ptr<RigVMHost>{
 	@:from
 	public static extern inline function fromValue(v: RigVMHost): RigVMHostPtr {
 		return untyped __cpp__("&({0})", v);

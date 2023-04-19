@@ -3,15 +3,19 @@ package ue;
 
 @:native("UWidgetBlueprintGeneratedClass")
 @:include("Blueprint/WidgetBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class WidgetBlueprintGeneratedClass extends BlueprintGeneratedClass {
-	private var WidgetTree: cpp.Star<WidgetTree>;
+	private var WidgetTree: ucpp.Ptr<WidgetTree>;
+	private var Extensions: TArray<ucpp.Ptr<WidgetBlueprintGeneratedClassExtension>>;
+	private var FieldNotifyNames: TArray<FieldNotificationId>;
 	private var bClassRequiresNativeTick: Bool;
 	public var Bindings: TArray<DelegateRuntimeBinding>;
-	public var Animations: TArray<cpp.Star<WidgetAnimation>>;
+	public var Animations: TArray<ucpp.Ptr<WidgetAnimation>>;
 	public var NamedSlots: TArray<FName>;
+	public var AvailableNamedSlots: TArray<FName>;
+	public var InstanceNamedSlots: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,16 +23,20 @@ extern class WidgetBlueprintGeneratedClass extends BlueprintGeneratedClass {
 abstract ConstWidgetBlueprintGeneratedClass(WidgetBlueprintGeneratedClass) from WidgetBlueprintGeneratedClass {
 	public extern var Bindings(get, never): TArray<DelegateRuntimeBinding>;
 	public inline extern function get_Bindings(): TArray<DelegateRuntimeBinding> return this.Bindings;
-	public extern var Animations(get, never): TArray<cpp.Star<WidgetAnimation.ConstWidgetAnimation>>;
-	public inline extern function get_Animations(): TArray<cpp.Star<WidgetAnimation.ConstWidgetAnimation>> return this.Animations;
+	public extern var Animations(get, never): TArray<ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>>;
+	public inline extern function get_Animations(): TArray<ucpp.Ptr<WidgetAnimation.ConstWidgetAnimation>> return this.Animations;
 	public extern var NamedSlots(get, never): TArray<FName>;
 	public inline extern function get_NamedSlots(): TArray<FName> return this.NamedSlots;
+	public extern var AvailableNamedSlots(get, never): TArray<FName>;
+	public inline extern function get_AvailableNamedSlots(): TArray<FName> return this.AvailableNamedSlots;
+	public extern var InstanceNamedSlots(get, never): TArray<FName>;
+	public inline extern function get_InstanceNamedSlots(): TArray<FName> return this.InstanceNamedSlots;
 }
 
 @:forward
 @:nativeGen
 @:native("WidgetBlueprintGeneratedClass*")
-abstract WidgetBlueprintGeneratedClassPtr(cpp.Star<WidgetBlueprintGeneratedClass>) from cpp.Star<WidgetBlueprintGeneratedClass> to cpp.Star<WidgetBlueprintGeneratedClass>{
+abstract WidgetBlueprintGeneratedClassPtr(ucpp.Ptr<WidgetBlueprintGeneratedClass>) from ucpp.Ptr<WidgetBlueprintGeneratedClass> to ucpp.Ptr<WidgetBlueprintGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: WidgetBlueprintGeneratedClass): WidgetBlueprintGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

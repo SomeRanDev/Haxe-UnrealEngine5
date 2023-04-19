@@ -3,13 +3,13 @@ package ue;
 
 @:native("UK2Node_InputDebugKeyEvent")
 @:include("K2Node_InputDebugKeyEvent.h")
-@:structAccess
+@:valueType
 extern class K2Node_InputDebugKeyEvent extends K2Node_Event {
 	public var InputChord: InputChord;
 	public var InputKeyEvent: TEnumAsByte<EInputEvent>;
 	public var bExecuteWhenPaused: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstK2Node_InputDebugKeyEvent(K2Node_InputDebugKeyEvent) from K2Node_I
 @:forward
 @:nativeGen
 @:native("K2Node_InputDebugKeyEvent*")
-abstract K2Node_InputDebugKeyEventPtr(cpp.Star<K2Node_InputDebugKeyEvent>) from cpp.Star<K2Node_InputDebugKeyEvent> to cpp.Star<K2Node_InputDebugKeyEvent>{
+abstract K2Node_InputDebugKeyEventPtr(ucpp.Ptr<K2Node_InputDebugKeyEvent>) from ucpp.Ptr<K2Node_InputDebugKeyEvent> to ucpp.Ptr<K2Node_InputDebugKeyEvent>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_InputDebugKeyEvent): K2Node_InputDebugKeyEventPtr {
 		return untyped __cpp__("&({0})", v);

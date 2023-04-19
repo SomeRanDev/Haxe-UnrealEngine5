@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNavAvoidanceMask")
 @:include("AI/Navigation/NavigationAvoidanceTypes.h")
-@:structAccess
+@:valueType
 extern class NavAvoidanceMask {
 	public var bGroup0: Bool;
 	public var bGroup1: Bool;

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnPossessedPawnChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnPossessedPawnChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnPossessedPawnChanged__PythonCallable(OnPossessedPawnChanged__Pyt
 @:forward
 @:nativeGen
 @:native("OnPossessedPawnChanged__PythonCallable*")
-abstract OnPossessedPawnChanged__PythonCallablePtr(cpp.Star<OnPossessedPawnChanged__PythonCallable>) from cpp.Star<OnPossessedPawnChanged__PythonCallable> to cpp.Star<OnPossessedPawnChanged__PythonCallable>{
+abstract OnPossessedPawnChanged__PythonCallablePtr(ucpp.Ptr<OnPossessedPawnChanged__PythonCallable>) from ucpp.Ptr<OnPossessedPawnChanged__PythonCallable> to ucpp.Ptr<OnPossessedPawnChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnPossessedPawnChanged__PythonCallable): OnPossessedPawnChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

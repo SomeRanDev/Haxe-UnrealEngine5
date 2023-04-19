@@ -3,12 +3,8 @@ package ue;
 
 @:native("UMaterialExpressionStrataSlabBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataSlabBSDF extends MaterialExpressionStrataBSDF {
-	public var BaseColor: ExpressionInput;
-	public var EdgeColor: ExpressionInput;
-	public var Metallic: ExpressionInput;
-	public var Specular: ExpressionInput;
 	public var DiffuseAlbedo: ExpressionInput;
 	public var F0: ExpressionInput;
 	public var F90: ExpressionInput;
@@ -16,31 +12,24 @@ extern class MaterialExpressionStrataSlabBSDF extends MaterialExpressionStrataBS
 	public var Anisotropy: ExpressionInput;
 	public var Normal: ExpressionInput;
 	public var Tangent: ExpressionInput;
-	public var SSSDMFP: ExpressionInput;
-	public var SSSDMFPScale: ExpressionInput;
+	public var SSSMFP: ExpressionInput;
+	public var SSSMFPScale: ExpressionInput;
+	public var SSSPhaseAnisotropy: ExpressionInput;
 	public var EmissiveColor: ExpressionInput;
-	public var Haziness: ExpressionInput;
-	public var ThinFilmThickness: ExpressionInput;
-	public var Thickness: ExpressionInput;
+	public var SecondRoughness: ExpressionInput;
+	public var SecondRoughnessWeight: ExpressionInput;
+	public var FuzzRoughness: ExpressionInput;
 	public var FuzzAmount: ExpressionInput;
 	public var FuzzColor: ExpressionInput;
-	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
-	public var bUseMetalness: Bool;
+	public var SubsurfaceProfile: ucpp.Ptr<SubsurfaceProfile>;
+	public var bUseSSSDiffusion: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionStrataSlabBSDF(MaterialExpressionStrataSlabBSDF) from MaterialExpressionStrataSlabBSDF {
-	public extern var BaseColor(get, never): ExpressionInput;
-	public inline extern function get_BaseColor(): ExpressionInput return this.BaseColor;
-	public extern var EdgeColor(get, never): ExpressionInput;
-	public inline extern function get_EdgeColor(): ExpressionInput return this.EdgeColor;
-	public extern var Metallic(get, never): ExpressionInput;
-	public inline extern function get_Metallic(): ExpressionInput return this.Metallic;
-	public extern var Specular(get, never): ExpressionInput;
-	public inline extern function get_Specular(): ExpressionInput return this.Specular;
 	public extern var DiffuseAlbedo(get, never): ExpressionInput;
 	public inline extern function get_DiffuseAlbedo(): ExpressionInput return this.DiffuseAlbedo;
 	public extern var F0(get, never): ExpressionInput;
@@ -55,32 +44,34 @@ abstract ConstMaterialExpressionStrataSlabBSDF(MaterialExpressionStrataSlabBSDF)
 	public inline extern function get_Normal(): ExpressionInput return this.Normal;
 	public extern var Tangent(get, never): ExpressionInput;
 	public inline extern function get_Tangent(): ExpressionInput return this.Tangent;
-	public extern var SSSDMFP(get, never): ExpressionInput;
-	public inline extern function get_SSSDMFP(): ExpressionInput return this.SSSDMFP;
-	public extern var SSSDMFPScale(get, never): ExpressionInput;
-	public inline extern function get_SSSDMFPScale(): ExpressionInput return this.SSSDMFPScale;
+	public extern var SSSMFP(get, never): ExpressionInput;
+	public inline extern function get_SSSMFP(): ExpressionInput return this.SSSMFP;
+	public extern var SSSMFPScale(get, never): ExpressionInput;
+	public inline extern function get_SSSMFPScale(): ExpressionInput return this.SSSMFPScale;
+	public extern var SSSPhaseAnisotropy(get, never): ExpressionInput;
+	public inline extern function get_SSSPhaseAnisotropy(): ExpressionInput return this.SSSPhaseAnisotropy;
 	public extern var EmissiveColor(get, never): ExpressionInput;
 	public inline extern function get_EmissiveColor(): ExpressionInput return this.EmissiveColor;
-	public extern var Haziness(get, never): ExpressionInput;
-	public inline extern function get_Haziness(): ExpressionInput return this.Haziness;
-	public extern var ThinFilmThickness(get, never): ExpressionInput;
-	public inline extern function get_ThinFilmThickness(): ExpressionInput return this.ThinFilmThickness;
-	public extern var Thickness(get, never): ExpressionInput;
-	public inline extern function get_Thickness(): ExpressionInput return this.Thickness;
+	public extern var SecondRoughness(get, never): ExpressionInput;
+	public inline extern function get_SecondRoughness(): ExpressionInput return this.SecondRoughness;
+	public extern var SecondRoughnessWeight(get, never): ExpressionInput;
+	public inline extern function get_SecondRoughnessWeight(): ExpressionInput return this.SecondRoughnessWeight;
+	public extern var FuzzRoughness(get, never): ExpressionInput;
+	public inline extern function get_FuzzRoughness(): ExpressionInput return this.FuzzRoughness;
 	public extern var FuzzAmount(get, never): ExpressionInput;
 	public inline extern function get_FuzzAmount(): ExpressionInput return this.FuzzAmount;
 	public extern var FuzzColor(get, never): ExpressionInput;
 	public inline extern function get_FuzzColor(): ExpressionInput return this.FuzzColor;
-	public extern var SubsurfaceProfile(get, never): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile>;
-	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
-	public extern var bUseMetalness(get, never): Bool;
-	public inline extern function get_bUseMetalness(): Bool return this.bUseMetalness;
+	public extern var SubsurfaceProfile(get, never): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile>;
+	public inline extern function get_SubsurfaceProfile(): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
+	public extern var bUseSSSDiffusion(get, never): Bool;
+	public inline extern function get_bUseSSSDiffusion(): Bool return this.bUseSSSDiffusion;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataSlabBSDF*")
-abstract MaterialExpressionStrataSlabBSDFPtr(cpp.Star<MaterialExpressionStrataSlabBSDF>) from cpp.Star<MaterialExpressionStrataSlabBSDF> to cpp.Star<MaterialExpressionStrataSlabBSDF>{
+abstract MaterialExpressionStrataSlabBSDFPtr(ucpp.Ptr<MaterialExpressionStrataSlabBSDF>) from ucpp.Ptr<MaterialExpressionStrataSlabBSDF> to ucpp.Ptr<MaterialExpressionStrataSlabBSDF>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataSlabBSDF): MaterialExpressionStrataSlabBSDFPtr {
 		return untyped __cpp__("&({0})", v);

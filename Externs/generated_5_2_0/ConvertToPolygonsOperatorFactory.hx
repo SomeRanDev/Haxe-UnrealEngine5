@@ -3,24 +3,24 @@ package ue;
 
 @:native("UConvertToPolygonsOperatorFactory")
 @:include("ConvertToPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class ConvertToPolygonsOperatorFactory extends Object {
-	public var ConvertToPolygonsTool: cpp.Star<ConvertToPolygonsTool>;
+	public var ConvertToPolygonsTool: ucpp.Ptr<ConvertToPolygonsTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConvertToPolygonsOperatorFactory(ConvertToPolygonsOperatorFactory) from ConvertToPolygonsOperatorFactory {
-	public extern var ConvertToPolygonsTool(get, never): cpp.Star<ConvertToPolygonsTool.ConstConvertToPolygonsTool>;
-	public inline extern function get_ConvertToPolygonsTool(): cpp.Star<ConvertToPolygonsTool.ConstConvertToPolygonsTool> return this.ConvertToPolygonsTool;
+	public extern var ConvertToPolygonsTool(get, never): ucpp.Ptr<ConvertToPolygonsTool.ConstConvertToPolygonsTool>;
+	public inline extern function get_ConvertToPolygonsTool(): ucpp.Ptr<ConvertToPolygonsTool.ConstConvertToPolygonsTool> return this.ConvertToPolygonsTool;
 }
 
 @:forward
 @:nativeGen
 @:native("ConvertToPolygonsOperatorFactory*")
-abstract ConvertToPolygonsOperatorFactoryPtr(cpp.Star<ConvertToPolygonsOperatorFactory>) from cpp.Star<ConvertToPolygonsOperatorFactory> to cpp.Star<ConvertToPolygonsOperatorFactory>{
+abstract ConvertToPolygonsOperatorFactoryPtr(ucpp.Ptr<ConvertToPolygonsOperatorFactory>) from ucpp.Ptr<ConvertToPolygonsOperatorFactory> to ucpp.Ptr<ConvertToPolygonsOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: ConvertToPolygonsOperatorFactory): ConvertToPolygonsOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,21 +3,21 @@ package ue;
 
 @:native("UActorRecording")
 @:include("ActorRecording.h")
-@:structAccess
+@:valueType
 extern class ActorRecording extends SequenceRecordingBase {
 	public var ActorSettings: ActorRecordingSettings;
 	public var bActive: Bool;
 	public var bCreateLevelSequence: Bool;
-	public var TargetLevelSequence: cpp.Star<LevelSequence>;
+	public var TargetLevelSequence: ucpp.Ptr<LevelSequence>;
 	public var TargetName: FText;
-	public var TakeNumber: cpp.UInt32;
+	public var TakeNumber: ucpp.num.UInt32;
 	public var bSpecifyTargetAnimation: Bool;
-	public var TargetAnimation: cpp.Star<AnimSequence>;
+	public var TargetAnimation: ucpp.Ptr<AnimSequence>;
 	public var AnimationSettings: AnimationRecordingSettings;
 	public var bRecordToPossessable: Bool;
 	private var ActorToRecord: TSoftObjectPtr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,16 +29,16 @@ abstract ConstActorRecording(ActorRecording) from ActorRecording {
 	public inline extern function get_bActive(): Bool return this.bActive;
 	public extern var bCreateLevelSequence(get, never): Bool;
 	public inline extern function get_bCreateLevelSequence(): Bool return this.bCreateLevelSequence;
-	public extern var TargetLevelSequence(get, never): cpp.Star<LevelSequence.ConstLevelSequence>;
-	public inline extern function get_TargetLevelSequence(): cpp.Star<LevelSequence.ConstLevelSequence> return this.TargetLevelSequence;
+	public extern var TargetLevelSequence(get, never): ucpp.Ptr<LevelSequence.ConstLevelSequence>;
+	public inline extern function get_TargetLevelSequence(): ucpp.Ptr<LevelSequence.ConstLevelSequence> return this.TargetLevelSequence;
 	public extern var TargetName(get, never): FText;
 	public inline extern function get_TargetName(): FText return this.TargetName;
-	public extern var TakeNumber(get, never): cpp.UInt32;
-	public inline extern function get_TakeNumber(): cpp.UInt32 return this.TakeNumber;
+	public extern var TakeNumber(get, never): ucpp.num.UInt32;
+	public inline extern function get_TakeNumber(): ucpp.num.UInt32 return this.TakeNumber;
 	public extern var bSpecifyTargetAnimation(get, never): Bool;
 	public inline extern function get_bSpecifyTargetAnimation(): Bool return this.bSpecifyTargetAnimation;
-	public extern var TargetAnimation(get, never): cpp.Star<AnimSequence.ConstAnimSequence>;
-	public inline extern function get_TargetAnimation(): cpp.Star<AnimSequence.ConstAnimSequence> return this.TargetAnimation;
+	public extern var TargetAnimation(get, never): ucpp.Ptr<AnimSequence.ConstAnimSequence>;
+	public inline extern function get_TargetAnimation(): ucpp.Ptr<AnimSequence.ConstAnimSequence> return this.TargetAnimation;
 	public extern var AnimationSettings(get, never): AnimationRecordingSettings;
 	public inline extern function get_AnimationSettings(): AnimationRecordingSettings return this.AnimationSettings;
 	public extern var bRecordToPossessable(get, never): Bool;
@@ -48,7 +48,7 @@ abstract ConstActorRecording(ActorRecording) from ActorRecording {
 @:forward
 @:nativeGen
 @:native("ActorRecording*")
-abstract ActorRecordingPtr(cpp.Star<ActorRecording>) from cpp.Star<ActorRecording> to cpp.Star<ActorRecording>{
+abstract ActorRecordingPtr(ucpp.Ptr<ActorRecording>) from ucpp.Ptr<ActorRecording> to ucpp.Ptr<ActorRecording>{
 	@:from
 	public static extern inline function fromValue(v: ActorRecording): ActorRecordingPtr {
 		return untyped __cpp__("&({0})", v);

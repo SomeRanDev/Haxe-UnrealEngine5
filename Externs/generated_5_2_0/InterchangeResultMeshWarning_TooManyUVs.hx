@@ -3,24 +3,24 @@ package ue;
 
 @:native("UInterchangeResultMeshWarning_TooManyUVs")
 @:include("Fbx/InterchangeFbxMessages.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultMeshWarning_TooManyUVs extends InterchangeResultMeshWarning {
-	public var ExcessUVs: cpp.Int32;
+	public var ExcessUVs: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInterchangeResultMeshWarning_TooManyUVs(InterchangeResultMeshWarning_TooManyUVs) from InterchangeResultMeshWarning_TooManyUVs {
-	public extern var ExcessUVs(get, never): cpp.Int32;
-	public inline extern function get_ExcessUVs(): cpp.Int32 return this.ExcessUVs;
+	public extern var ExcessUVs(get, never): ucpp.num.Int32;
+	public inline extern function get_ExcessUVs(): ucpp.num.Int32 return this.ExcessUVs;
 }
 
 @:forward
 @:nativeGen
 @:native("InterchangeResultMeshWarning_TooManyUVs*")
-abstract InterchangeResultMeshWarning_TooManyUVsPtr(cpp.Star<InterchangeResultMeshWarning_TooManyUVs>) from cpp.Star<InterchangeResultMeshWarning_TooManyUVs> to cpp.Star<InterchangeResultMeshWarning_TooManyUVs>{
+abstract InterchangeResultMeshWarning_TooManyUVsPtr(ucpp.Ptr<InterchangeResultMeshWarning_TooManyUVs>) from ucpp.Ptr<InterchangeResultMeshWarning_TooManyUVs> to ucpp.Ptr<InterchangeResultMeshWarning_TooManyUVs>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultMeshWarning_TooManyUVs): InterchangeResultMeshWarning_TooManyUVsPtr {
 		return untyped __cpp__("&({0})", v);

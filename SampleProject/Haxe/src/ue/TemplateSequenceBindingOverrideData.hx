@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTemplateSequenceBindingOverrideData")
 @:include("TemplateSequenceActor.h")
-@:structAccess
+@:valueType
 extern class TemplateSequenceBindingOverrideData {
 	public var Object: TWeakObjectPtr<Object>;
 	public var bOverridesDefault: Bool;

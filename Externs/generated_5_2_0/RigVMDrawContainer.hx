@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMDrawContainer")
 @:include("RigVMCore/RigVMDrawContainer.h")
-@:structAccess
+@:valueType
 extern class RigVMDrawContainer {
 	public var Instructions: TArray<RigVMDrawInstruction>;
 

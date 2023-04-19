@@ -3,12 +3,12 @@ package ue;
 
 @:native("UImageSequenceProtocol_EXR")
 @:include("Protocols/ImageSequenceProtocol.h")
-@:structAccess
+@:valueType
 extern class ImageSequenceProtocol_EXR extends ImageSequenceProtocol {
 	public var bCompressed: Bool;
 	public var CaptureGamut: TEnumAsByte<EHDRCaptureGamut>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstImageSequenceProtocol_EXR(ImageSequenceProtocol_EXR) from ImageSeq
 @:forward
 @:nativeGen
 @:native("ImageSequenceProtocol_EXR*")
-abstract ImageSequenceProtocol_EXRPtr(cpp.Star<ImageSequenceProtocol_EXR>) from cpp.Star<ImageSequenceProtocol_EXR> to cpp.Star<ImageSequenceProtocol_EXR>{
+abstract ImageSequenceProtocol_EXRPtr(ucpp.Ptr<ImageSequenceProtocol_EXR>) from ucpp.Ptr<ImageSequenceProtocol_EXR> to ucpp.Ptr<ImageSequenceProtocol_EXR>{
 	@:from
 	public static extern inline function fromValue(v: ImageSequenceProtocol_EXR): ImageSequenceProtocol_EXRPtr {
 		return untyped __cpp__("&({0})", v);

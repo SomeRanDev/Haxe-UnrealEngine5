@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULocalFilterPresetContainer")
 @:include("FilterPresets.h")
-@:structAccess
+@:valueType
 extern class LocalFilterPresetContainer extends Object {
 	@:protected public var UserPresets: TArray<FilterData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstLocalFilterPresetContainer(LocalFilterPresetContainer) from LocalF
 @:forward
 @:nativeGen
 @:native("LocalFilterPresetContainer*")
-abstract LocalFilterPresetContainerPtr(cpp.Star<LocalFilterPresetContainer>) from cpp.Star<LocalFilterPresetContainer> to cpp.Star<LocalFilterPresetContainer>{
+abstract LocalFilterPresetContainerPtr(ucpp.Ptr<LocalFilterPresetContainer>) from ucpp.Ptr<LocalFilterPresetContainer> to ucpp.Ptr<LocalFilterPresetContainer>{
 	@:from
 	public static extern inline function fromValue(v: LocalFilterPresetContainer): LocalFilterPresetContainerPtr {
 		return untyped __cpp__("&({0})", v);

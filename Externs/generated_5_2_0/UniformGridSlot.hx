@@ -3,19 +3,19 @@ package ue;
 
 @:native("UUniformGridSlot")
 @:include("Components/UniformGridSlot.h")
-@:structAccess
+@:valueType
 extern class UniformGridSlot extends PanelSlot {
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
-	public var Row: cpp.Int32;
-	public var Column: cpp.Int32;
+	public var Row: ucpp.num.Int32;
+	public var Column: ucpp.num.Int32;
 
 	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
-	public function SetRow(InRow: cpp.Int32): Void;
+	public function SetRow(InRow: ucpp.num.Int32): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
-	public function SetColumn(InColumn: cpp.Int32): Void;
+	public function SetColumn(InColumn: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,16 +25,16 @@ abstract ConstUniformGridSlot(UniformGridSlot) from UniformGridSlot {
 	public inline extern function get_HorizontalAlignment(): TEnumAsByte<EHorizontalAlignment> return this.HorizontalAlignment;
 	public extern var VerticalAlignment(get, never): TEnumAsByte<EVerticalAlignment>;
 	public inline extern function get_VerticalAlignment(): TEnumAsByte<EVerticalAlignment> return this.VerticalAlignment;
-	public extern var Row(get, never): cpp.Int32;
-	public inline extern function get_Row(): cpp.Int32 return this.Row;
-	public extern var Column(get, never): cpp.Int32;
-	public inline extern function get_Column(): cpp.Int32 return this.Column;
+	public extern var Row(get, never): ucpp.num.Int32;
+	public inline extern function get_Row(): ucpp.num.Int32 return this.Row;
+	public extern var Column(get, never): ucpp.num.Int32;
+	public inline extern function get_Column(): ucpp.num.Int32 return this.Column;
 }
 
 @:forward
 @:nativeGen
 @:native("UniformGridSlot*")
-abstract UniformGridSlotPtr(cpp.Star<UniformGridSlot>) from cpp.Star<UniformGridSlot> to cpp.Star<UniformGridSlot>{
+abstract UniformGridSlotPtr(ucpp.Ptr<UniformGridSlot>) from ucpp.Ptr<UniformGridSlot> to ucpp.Ptr<UniformGridSlot>{
 	@:from
 	public static extern inline function fromValue(v: UniformGridSlot): UniformGridSlotPtr {
 		return untyped __cpp__("&({0})", v);

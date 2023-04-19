@@ -3,12 +3,12 @@ package ue;
 
 @:native("UConfigHierarchyPropertyView")
 @:include("ConfigPropertyHelper.h")
-@:structAccess
+@:valueType
 extern class ConfigHierarchyPropertyView extends Object {
 	public var EditProperty: TFieldPath<FProperty>;
-	public var ConfigFilePropertyObjects: TArray<cpp.Star<PropertyConfigFileDisplayRow>>;
+	public var ConfigFilePropertyObjects: TArray<ucpp.Ptr<PropertyConfigFileDisplayRow>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class ConfigHierarchyPropertyView extends Object {
 abstract ConstConfigHierarchyPropertyView(ConfigHierarchyPropertyView) from ConfigHierarchyPropertyView {
 	public extern var EditProperty(get, never): TFieldPath<FProperty>;
 	public inline extern function get_EditProperty(): TFieldPath<FProperty> return this.EditProperty;
-	public extern var ConfigFilePropertyObjects(get, never): TArray<cpp.Star<PropertyConfigFileDisplayRow.ConstPropertyConfigFileDisplayRow>>;
-	public inline extern function get_ConfigFilePropertyObjects(): TArray<cpp.Star<PropertyConfigFileDisplayRow.ConstPropertyConfigFileDisplayRow>> return this.ConfigFilePropertyObjects;
+	public extern var ConfigFilePropertyObjects(get, never): TArray<ucpp.Ptr<PropertyConfigFileDisplayRow.ConstPropertyConfigFileDisplayRow>>;
+	public inline extern function get_ConfigFilePropertyObjects(): TArray<ucpp.Ptr<PropertyConfigFileDisplayRow.ConstPropertyConfigFileDisplayRow>> return this.ConfigFilePropertyObjects;
 }
 
 @:forward
 @:nativeGen
 @:native("ConfigHierarchyPropertyView*")
-abstract ConfigHierarchyPropertyViewPtr(cpp.Star<ConfigHierarchyPropertyView>) from cpp.Star<ConfigHierarchyPropertyView> to cpp.Star<ConfigHierarchyPropertyView>{
+abstract ConfigHierarchyPropertyViewPtr(ucpp.Ptr<ConfigHierarchyPropertyView>) from ucpp.Ptr<ConfigHierarchyPropertyView> to ucpp.Ptr<ConfigHierarchyPropertyView>{
 	@:from
 	public static extern inline function fromValue(v: ConfigHierarchyPropertyView): ConfigHierarchyPropertyViewPtr {
 		return untyped __cpp__("&({0})", v);

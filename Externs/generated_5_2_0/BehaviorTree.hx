@@ -3,25 +3,25 @@ package ue;
 
 @:native("UBehaviorTree")
 @:include("BehaviorTree/BehaviorTree.h")
-@:structAccess
+@:valueType
 extern class BehaviorTree extends Object {
-	public var RootNode: cpp.Star<BTCompositeNode>;
-	public var BlackboardAsset: cpp.Star<BlackboardData>;
-	public var RootDecorators: TArray<cpp.Star<BTDecorator>>;
+	public var RootNode: ucpp.Ptr<BTCompositeNode>;
+	public var BlackboardAsset: ucpp.Ptr<BlackboardData>;
+	public var RootDecorators: TArray<ucpp.Ptr<BTDecorator>>;
 	public var RootDecoratorOps: TArray<BTDecoratorLogic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBehaviorTree(BehaviorTree) from BehaviorTree {
-	public extern var RootNode(get, never): cpp.Star<BTCompositeNode.ConstBTCompositeNode>;
-	public inline extern function get_RootNode(): cpp.Star<BTCompositeNode.ConstBTCompositeNode> return this.RootNode;
-	public extern var BlackboardAsset(get, never): cpp.Star<BlackboardData.ConstBlackboardData>;
-	public inline extern function get_BlackboardAsset(): cpp.Star<BlackboardData.ConstBlackboardData> return this.BlackboardAsset;
-	public extern var RootDecorators(get, never): TArray<cpp.Star<BTDecorator.ConstBTDecorator>>;
-	public inline extern function get_RootDecorators(): TArray<cpp.Star<BTDecorator.ConstBTDecorator>> return this.RootDecorators;
+	public extern var RootNode(get, never): ucpp.Ptr<BTCompositeNode.ConstBTCompositeNode>;
+	public inline extern function get_RootNode(): ucpp.Ptr<BTCompositeNode.ConstBTCompositeNode> return this.RootNode;
+	public extern var BlackboardAsset(get, never): ucpp.Ptr<BlackboardData.ConstBlackboardData>;
+	public inline extern function get_BlackboardAsset(): ucpp.Ptr<BlackboardData.ConstBlackboardData> return this.BlackboardAsset;
+	public extern var RootDecorators(get, never): TArray<ucpp.Ptr<BTDecorator.ConstBTDecorator>>;
+	public inline extern function get_RootDecorators(): TArray<ucpp.Ptr<BTDecorator.ConstBTDecorator>> return this.RootDecorators;
 	public extern var RootDecoratorOps(get, never): TArray<BTDecoratorLogic>;
 	public inline extern function get_RootDecoratorOps(): TArray<BTDecoratorLogic> return this.RootDecoratorOps;
 }
@@ -29,7 +29,7 @@ abstract ConstBehaviorTree(BehaviorTree) from BehaviorTree {
 @:forward
 @:nativeGen
 @:native("BehaviorTree*")
-abstract BehaviorTreePtr(cpp.Star<BehaviorTree>) from cpp.Star<BehaviorTree> to cpp.Star<BehaviorTree>{
+abstract BehaviorTreePtr(ucpp.Ptr<BehaviorTree>) from ucpp.Ptr<BehaviorTree> to ucpp.Ptr<BehaviorTree>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTree): BehaviorTreePtr {
 		return untyped __cpp__("&({0})", v);

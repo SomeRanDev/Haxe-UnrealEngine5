@@ -3,12 +3,12 @@ package ue;
 
 @:native("UActorSequence")
 @:include("ActorSequence.h")
-@:structAccess
+@:valueType
 extern class ActorSequence extends MovieSceneSequence {
-	private var MovieScene: cpp.Star<MovieScene>;
+	private var MovieScene: ucpp.Ptr<MovieScene>;
 	private var ObjectReferences: ActorSequenceObjectReferenceMap;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstActorSequence(ActorSequence) from ActorSequence {
 @:forward
 @:nativeGen
 @:native("ActorSequence*")
-abstract ActorSequencePtr(cpp.Star<ActorSequence>) from cpp.Star<ActorSequence> to cpp.Star<ActorSequence>{
+abstract ActorSequencePtr(ucpp.Ptr<ActorSequence>) from ucpp.Ptr<ActorSequence> to ucpp.Ptr<ActorSequence>{
 	@:from
 	public static extern inline function fromValue(v: ActorSequence): ActorSequencePtr {
 		return untyped __cpp__("&({0})", v);

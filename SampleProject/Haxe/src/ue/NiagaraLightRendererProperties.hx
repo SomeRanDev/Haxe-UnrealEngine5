@@ -3,15 +3,18 @@ package ue;
 
 @:native("UNiagaraLightRendererProperties")
 @:include("NiagaraLightRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraLightRendererProperties extends NiagaraRendererProperties {
+	public var SourceMode: ENiagaraRendererSourceDataMode;
 	public var bUseInverseSquaredFalloff: Bool;
 	public var bAffectsTranslucency: Bool;
 	public var bAlphaScalesBrightness: Bool;
-	public var RadiusScale: cpp.Float32;
-	public var DefaultExponent: cpp.Float32;
-	public var ColorAdd: Vector;
-	public var RendererVisibility: cpp.Int32;
+	public var bOverrideInverseExposureBlend: Bool;
+	public var RadiusScale: ucpp.num.Float32;
+	public var DefaultExponent: ucpp.num.Float32;
+	public var ColorAdd: Vector3f;
+	public var InverseExposureBlend: ucpp.num.Float32;
+	public var RendererVisibility: ucpp.num.Int32;
 	public var LightRenderingEnabledBinding: NiagaraVariableAttributeBinding;
 	public var LightExponentBinding: NiagaraVariableAttributeBinding;
 	public var PositionBinding: NiagaraVariableAttributeBinding;
@@ -20,26 +23,32 @@ extern class NiagaraLightRendererProperties extends NiagaraRendererProperties {
 	public var VolumetricScatteringBinding: NiagaraVariableAttributeBinding;
 	public var RendererVisibilityTagBinding: NiagaraVariableAttributeBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraLightRendererProperties(NiagaraLightRendererProperties) from NiagaraLightRendererProperties {
+	public extern var SourceMode(get, never): ENiagaraRendererSourceDataMode;
+	public inline extern function get_SourceMode(): ENiagaraRendererSourceDataMode return this.SourceMode;
 	public extern var bUseInverseSquaredFalloff(get, never): Bool;
 	public inline extern function get_bUseInverseSquaredFalloff(): Bool return this.bUseInverseSquaredFalloff;
 	public extern var bAffectsTranslucency(get, never): Bool;
 	public inline extern function get_bAffectsTranslucency(): Bool return this.bAffectsTranslucency;
 	public extern var bAlphaScalesBrightness(get, never): Bool;
 	public inline extern function get_bAlphaScalesBrightness(): Bool return this.bAlphaScalesBrightness;
-	public extern var RadiusScale(get, never): cpp.Float32;
-	public inline extern function get_RadiusScale(): cpp.Float32 return this.RadiusScale;
-	public extern var DefaultExponent(get, never): cpp.Float32;
-	public inline extern function get_DefaultExponent(): cpp.Float32 return this.DefaultExponent;
-	public extern var ColorAdd(get, never): Vector;
-	public inline extern function get_ColorAdd(): Vector return this.ColorAdd;
-	public extern var RendererVisibility(get, never): cpp.Int32;
-	public inline extern function get_RendererVisibility(): cpp.Int32 return this.RendererVisibility;
+	public extern var bOverrideInverseExposureBlend(get, never): Bool;
+	public inline extern function get_bOverrideInverseExposureBlend(): Bool return this.bOverrideInverseExposureBlend;
+	public extern var RadiusScale(get, never): ucpp.num.Float32;
+	public inline extern function get_RadiusScale(): ucpp.num.Float32 return this.RadiusScale;
+	public extern var DefaultExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultExponent(): ucpp.num.Float32 return this.DefaultExponent;
+	public extern var ColorAdd(get, never): Vector3f;
+	public inline extern function get_ColorAdd(): Vector3f return this.ColorAdd;
+	public extern var InverseExposureBlend(get, never): ucpp.num.Float32;
+	public inline extern function get_InverseExposureBlend(): ucpp.num.Float32 return this.InverseExposureBlend;
+	public extern var RendererVisibility(get, never): ucpp.num.Int32;
+	public inline extern function get_RendererVisibility(): ucpp.num.Int32 return this.RendererVisibility;
 	public extern var LightRenderingEnabledBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_LightRenderingEnabledBinding(): NiagaraVariableAttributeBinding return this.LightRenderingEnabledBinding;
 	public extern var LightExponentBinding(get, never): NiagaraVariableAttributeBinding;
@@ -59,7 +68,7 @@ abstract ConstNiagaraLightRendererProperties(NiagaraLightRendererProperties) fro
 @:forward
 @:nativeGen
 @:native("NiagaraLightRendererProperties*")
-abstract NiagaraLightRendererPropertiesPtr(cpp.Star<NiagaraLightRendererProperties>) from cpp.Star<NiagaraLightRendererProperties> to cpp.Star<NiagaraLightRendererProperties>{
+abstract NiagaraLightRendererPropertiesPtr(ucpp.Ptr<NiagaraLightRendererProperties>) from ucpp.Ptr<NiagaraLightRendererProperties> to ucpp.Ptr<NiagaraLightRendererProperties>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraLightRendererProperties): NiagaraLightRendererPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

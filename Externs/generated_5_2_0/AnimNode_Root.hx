@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_Root")
 @:include("Animation/AnimNode_Root.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Root extends AnimNode_Base {
 	public var Result: PoseLink;
 

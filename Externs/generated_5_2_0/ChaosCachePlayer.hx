@@ -3,10 +3,10 @@ package ue;
 
 @:native("AChaosCachePlayer")
 @:include("Chaos/CacheManagerActor.h")
-@:structAccess
+@:valueType
 extern class ChaosCachePlayer extends ChaosCacheManager {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstChaosCachePlayer(ChaosCachePlayer) from ChaosCachePlayer {
 @:forward
 @:nativeGen
 @:native("ChaosCachePlayer*")
-abstract ChaosCachePlayerPtr(cpp.Star<ChaosCachePlayer>) from cpp.Star<ChaosCachePlayer> to cpp.Star<ChaosCachePlayer>{
+abstract ChaosCachePlayerPtr(ucpp.Ptr<ChaosCachePlayer>) from ucpp.Ptr<ChaosCachePlayer> to ucpp.Ptr<ChaosCachePlayer>{
 	@:from
 	public static extern inline function fromValue(v: ChaosCachePlayer): ChaosCachePlayerPtr {
 		return untyped __cpp__("&({0})", v);

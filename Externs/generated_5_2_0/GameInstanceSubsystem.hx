@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGameInstanceSubsystem")
 @:include("Subsystems/GameInstanceSubsystem.h")
-@:structAccess
+@:valueType
 extern class GameInstanceSubsystem extends Subsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGameInstanceSubsystem(GameInstanceSubsystem) from GameInstanceSubs
 @:forward
 @:nativeGen
 @:native("GameInstanceSubsystem*")
-abstract GameInstanceSubsystemPtr(cpp.Star<GameInstanceSubsystem>) from cpp.Star<GameInstanceSubsystem> to cpp.Star<GameInstanceSubsystem>{
+abstract GameInstanceSubsystemPtr(ucpp.Ptr<GameInstanceSubsystem>) from ucpp.Ptr<GameInstanceSubsystem> to ucpp.Ptr<GameInstanceSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: GameInstanceSubsystem): GameInstanceSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

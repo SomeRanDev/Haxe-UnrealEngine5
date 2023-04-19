@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_SoundBase")
 @:include("AssetTypeActions/AssetDefinition_SoundBase.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_SoundBase extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_SoundBase(AssetDefinition_SoundBase) from AssetDef
 @:forward
 @:nativeGen
 @:native("AssetDefinition_SoundBase*")
-abstract AssetDefinition_SoundBasePtr(cpp.Star<AssetDefinition_SoundBase>) from cpp.Star<AssetDefinition_SoundBase> to cpp.Star<AssetDefinition_SoundBase>{
+abstract AssetDefinition_SoundBasePtr(ucpp.Ptr<AssetDefinition_SoundBase>) from ucpp.Ptr<AssetDefinition_SoundBase> to ucpp.Ptr<AssetDefinition_SoundBase>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_SoundBase): AssetDefinition_SoundBasePtr {
 		return untyped __cpp__("&({0})", v);

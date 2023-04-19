@@ -3,27 +3,27 @@ package ue;
 
 @:native("UArcSplineGenerator")
 @:include("SplineGeneratorPanel.h")
-@:structAccess
+@:valueType
 extern class ArcSplineGenerator extends SplineGeneratorBase {
-	public var NumberOfPoints: cpp.Int32;
-	public var Radius: cpp.Float32;
-	public var Degrees: cpp.Float32;
+	public var NumberOfPoints: ucpp.num.Int32;
+	public var Radius: ucpp.num.Float32;
+	public var Degrees: ucpp.num.Float32;
 	public var bReverseDir: Bool;
 	public var bKeepFirstKeyTangent: Bool;
 	public var bBranchRight: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstArcSplineGenerator(ArcSplineGenerator) from ArcSplineGenerator {
-	public extern var NumberOfPoints(get, never): cpp.Int32;
-	public inline extern function get_NumberOfPoints(): cpp.Int32 return this.NumberOfPoints;
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
-	public extern var Degrees(get, never): cpp.Float32;
-	public inline extern function get_Degrees(): cpp.Float32 return this.Degrees;
+	public extern var NumberOfPoints(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberOfPoints(): ucpp.num.Int32 return this.NumberOfPoints;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
+	public extern var Degrees(get, never): ucpp.num.Float32;
+	public inline extern function get_Degrees(): ucpp.num.Float32 return this.Degrees;
 	public extern var bReverseDir(get, never): Bool;
 	public inline extern function get_bReverseDir(): Bool return this.bReverseDir;
 	public extern var bKeepFirstKeyTangent(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstArcSplineGenerator(ArcSplineGenerator) from ArcSplineGenerator {
 @:forward
 @:nativeGen
 @:native("ArcSplineGenerator*")
-abstract ArcSplineGeneratorPtr(cpp.Star<ArcSplineGenerator>) from cpp.Star<ArcSplineGenerator> to cpp.Star<ArcSplineGenerator>{
+abstract ArcSplineGeneratorPtr(ucpp.Ptr<ArcSplineGenerator>) from ucpp.Ptr<ArcSplineGenerator> to ucpp.Ptr<ArcSplineGenerator>{
 	@:from
 	public static extern inline function fromValue(v: ArcSplineGenerator): ArcSplineGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

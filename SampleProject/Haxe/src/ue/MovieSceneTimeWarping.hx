@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneTimeWarping")
 @:include("Evaluation/MovieSceneTimeWarping.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTimeWarping {
 	public var Start: FrameNumber;
 	public var End: FrameNumber;

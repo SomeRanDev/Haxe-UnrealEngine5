@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeReadDataSet")
 @:include("NiagaraNodeReadDataSet.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeReadDataSet extends NiagaraNodeDataSetBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraNodeReadDataSet(NiagaraNodeReadDataSet) from NiagaraNodeRea
 @:forward
 @:nativeGen
 @:native("NiagaraNodeReadDataSet*")
-abstract NiagaraNodeReadDataSetPtr(cpp.Star<NiagaraNodeReadDataSet>) from cpp.Star<NiagaraNodeReadDataSet> to cpp.Star<NiagaraNodeReadDataSet>{
+abstract NiagaraNodeReadDataSetPtr(ucpp.Ptr<NiagaraNodeReadDataSet>) from ucpp.Ptr<NiagaraNodeReadDataSet> to ucpp.Ptr<NiagaraNodeReadDataSet>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeReadDataSet): NiagaraNodeReadDataSetPtr {
 		return untyped __cpp__("&({0})", v);

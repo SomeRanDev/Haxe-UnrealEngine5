@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraValidationRule_BannedDataInterfaces")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_BannedDataInterfaces extends NiagaraValidationRule {
 	public var Severity: ENiagaraValidationSeverity;
 	public var bBanOnGpu: Bool;
@@ -11,7 +11,7 @@ extern class NiagaraValidationRule_BannedDataInterfaces extends NiagaraValidatio
 	public var Platforms: NiagaraPlatformSet;
 	public var BannedDataInterfaces: TArray<TSubclassOf<NiagaraDataInterface>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstNiagaraValidationRule_BannedDataInterfaces(NiagaraValidationRule_B
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_BannedDataInterfaces*")
-abstract NiagaraValidationRule_BannedDataInterfacesPtr(cpp.Star<NiagaraValidationRule_BannedDataInterfaces>) from cpp.Star<NiagaraValidationRule_BannedDataInterfaces> to cpp.Star<NiagaraValidationRule_BannedDataInterfaces>{
+abstract NiagaraValidationRule_BannedDataInterfacesPtr(ucpp.Ptr<NiagaraValidationRule_BannedDataInterfaces>) from ucpp.Ptr<NiagaraValidationRule_BannedDataInterfaces> to ucpp.Ptr<NiagaraValidationRule_BannedDataInterfaces>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_BannedDataInterfaces): NiagaraValidationRule_BannedDataInterfacesPtr {
 		return untyped __cpp__("&({0})", v);

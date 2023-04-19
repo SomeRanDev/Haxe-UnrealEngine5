@@ -3,22 +3,22 @@ package ue;
 
 @:native("UInputDeviceSubsystem")
 @:include("GameFramework/InputDeviceSubsystem.h")
-@:structAccess
+@:valueType
 extern class InputDeviceSubsystem extends EngineSubsystem {
 	public var OnInputHardwareDeviceChanged: HaxeMulticastSparseDelegateProperty<(PlatformUserId, InputDeviceId) -> Void>;
 	@:protected public var ActiveProperties: TSet<ActiveDeviceProperty>;
 	@:protected public var PropertiesPendingRemoval: TSet<InputDevicePropertyHandle>;
 
-	public function RemoveDevicePropertyHandles(HandlesToRemove: cpp.Reference<TSet<InputDevicePropertyHandle>>): Void;
+	public function RemoveDevicePropertyHandles(HandlesToRemove: ucpp.Ref<TSet<InputDevicePropertyHandle>>): Void;
 	public function RemoveDevicePropertyByHandle(HandleToRemove: InputDevicePropertyHandle): Void;
 	public function RemoveAllDeviceProperties(): Void;
 	public function IsPropertyActive(Handle: InputDevicePropertyHandle): Bool;
 	public function GetMostRecentlyUsedHardwareDevice(InUserId: PlatformUserId): HardwareDeviceIdentifier;
 	public function GetInputDeviceHardwareIdentifier(InputDevice: InputDeviceId): HardwareDeviceIdentifier;
-	public function GetActiveDeviceProperty(Handle: InputDevicePropertyHandle): cpp.Star<InputDeviceProperty>;
-	public function ActivateDevicePropertyOfClass(PropertyClass: TSubclassOf<InputDeviceProperty>, Params: cpp.Reference<ActivateDevicePropertyParams>): InputDevicePropertyHandle;
+	public function GetActiveDeviceProperty(Handle: InputDevicePropertyHandle): ucpp.Ptr<InputDeviceProperty>;
+	public function ActivateDevicePropertyOfClass(PropertyClass: TSubclassOf<InputDeviceProperty>, Params: ucpp.Ref<ActivateDevicePropertyParams>): InputDevicePropertyHandle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsPropertyActive, GetMostRecentlyUsedHardwareDevice, GetInputDeviceHardwareIdentifier, GetActiveDeviceProperty)
@@ -31,7 +31,7 @@ abstract ConstInputDeviceSubsystem(InputDeviceSubsystem) from InputDeviceSubsyst
 @:forward
 @:nativeGen
 @:native("InputDeviceSubsystem*")
-abstract InputDeviceSubsystemPtr(cpp.Star<InputDeviceSubsystem>) from cpp.Star<InputDeviceSubsystem> to cpp.Star<InputDeviceSubsystem>{
+abstract InputDeviceSubsystemPtr(ucpp.Ptr<InputDeviceSubsystem>) from ucpp.Ptr<InputDeviceSubsystem> to ucpp.Ptr<InputDeviceSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: InputDeviceSubsystem): InputDeviceSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

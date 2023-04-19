@@ -3,42 +3,42 @@ package ue;
 
 @:native("URectLightComponent")
 @:include("Components/RectLightComponent.h")
-@:structAccess
+@:valueType
 extern class RectLightComp extends LocalLightComp {
-	public var SourceWidth: cpp.Float32;
-	public var SourceHeight: cpp.Float32;
-	public var BarnDoorAngle: cpp.Float32;
-	public var BarnDoorLength: cpp.Float32;
-	public var SourceTexture: cpp.Star<Texture>;
+	public var SourceWidth: ucpp.num.Float32;
+	public var SourceHeight: ucpp.num.Float32;
+	public var BarnDoorAngle: ucpp.num.Float32;
+	public var BarnDoorLength: ucpp.num.Float32;
+	public var SourceTexture: ucpp.Ptr<Texture>;
 
-	public function SetSourceWidth(NewValue: cpp.Float32): Void;
-	public function SetSourceTexture(NewValue: cpp.Star<Texture>): Void;
-	public function SetSourceHeight(NewValue: cpp.Float32): Void;
-	public function SetBarnDoorLength(NewValue: cpp.Float32): Void;
-	public function SetBarnDoorAngle(NewValue: cpp.Float32): Void;
+	public function SetSourceWidth(NewValue: ucpp.num.Float32): Void;
+	public function SetSourceTexture(NewValue: ucpp.Ptr<Texture>): Void;
+	public function SetSourceHeight(NewValue: ucpp.num.Float32): Void;
+	public function SetBarnDoorLength(NewValue: ucpp.num.Float32): Void;
+	public function SetBarnDoorAngle(NewValue: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRectLightComp(RectLightComp) from RectLightComp {
-	public extern var SourceWidth(get, never): cpp.Float32;
-	public inline extern function get_SourceWidth(): cpp.Float32 return this.SourceWidth;
-	public extern var SourceHeight(get, never): cpp.Float32;
-	public inline extern function get_SourceHeight(): cpp.Float32 return this.SourceHeight;
-	public extern var BarnDoorAngle(get, never): cpp.Float32;
-	public inline extern function get_BarnDoorAngle(): cpp.Float32 return this.BarnDoorAngle;
-	public extern var BarnDoorLength(get, never): cpp.Float32;
-	public inline extern function get_BarnDoorLength(): cpp.Float32 return this.BarnDoorLength;
-	public extern var SourceTexture(get, never): cpp.Star<Texture.ConstTexture>;
-	public inline extern function get_SourceTexture(): cpp.Star<Texture.ConstTexture> return this.SourceTexture;
+	public extern var SourceWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceWidth(): ucpp.num.Float32 return this.SourceWidth;
+	public extern var SourceHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceHeight(): ucpp.num.Float32 return this.SourceHeight;
+	public extern var BarnDoorAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_BarnDoorAngle(): ucpp.num.Float32 return this.BarnDoorAngle;
+	public extern var BarnDoorLength(get, never): ucpp.num.Float32;
+	public inline extern function get_BarnDoorLength(): ucpp.num.Float32 return this.BarnDoorLength;
+	public extern var SourceTexture(get, never): ucpp.Ptr<Texture.ConstTexture>;
+	public inline extern function get_SourceTexture(): ucpp.Ptr<Texture.ConstTexture> return this.SourceTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("RectLightComp*")
-abstract RectLightCompPtr(cpp.Star<RectLightComp>) from cpp.Star<RectLightComp> to cpp.Star<RectLightComp>{
+abstract RectLightCompPtr(ucpp.Ptr<RectLightComp>) from ucpp.Ptr<RectLightComp> to ucpp.Ptr<RectLightComp>{
 	@:from
 	public static extern inline function fromValue(v: RectLightComp): RectLightCompPtr {
 		return untyped __cpp__("&({0})", v);

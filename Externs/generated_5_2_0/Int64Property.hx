@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInt64Property")
-@:structAccess
+@:valueType
 extern class Int64Property extends NumericProperty {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInt64Property(Int64Property) from Int64Property {
 @:forward
 @:nativeGen
 @:native("Int64Property*")
-abstract Int64PropertyPtr(cpp.Star<Int64Property>) from cpp.Star<Int64Property> to cpp.Star<Int64Property>{
+abstract Int64PropertyPtr(ucpp.Ptr<Int64Property>) from ucpp.Ptr<Int64Property> to ucpp.Ptr<Int64Property>{
 	@:from
 	public static extern inline function fromValue(v: Int64Property): Int64PropertyPtr {
 		return untyped __cpp__("&({0})", v);

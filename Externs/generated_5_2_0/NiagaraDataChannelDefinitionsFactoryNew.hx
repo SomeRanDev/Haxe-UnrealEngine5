@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraDataChannelDefinitionsFactoryNew")
 @:include("NiagaraDataChannelDefinitionsFactoryNew.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelDefinitionsFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraDataChannelDefinitionsFactoryNew(NiagaraDataChannelDefiniti
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannelDefinitionsFactoryNew*")
-abstract NiagaraDataChannelDefinitionsFactoryNewPtr(cpp.Star<NiagaraDataChannelDefinitionsFactoryNew>) from cpp.Star<NiagaraDataChannelDefinitionsFactoryNew> to cpp.Star<NiagaraDataChannelDefinitionsFactoryNew>{
+abstract NiagaraDataChannelDefinitionsFactoryNewPtr(ucpp.Ptr<NiagaraDataChannelDefinitionsFactoryNew>) from ucpp.Ptr<NiagaraDataChannelDefinitionsFactoryNew> to ucpp.Ptr<NiagaraDataChannelDefinitionsFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannelDefinitionsFactoryNew): NiagaraDataChannelDefinitionsFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

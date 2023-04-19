@@ -3,25 +3,25 @@ package ue;
 
 @:native("UGraphNodeContextMenuContext")
 @:include("EdGraph/EdGraphNode.h")
-@:structAccess
+@:valueType
 extern class GraphNodeContextMenuContext extends Object {
-	public var Blueprint: cpp.Star<Blueprint>;
-	public var Graph: cpp.Star<EdGraph>;
-	public var Node: cpp.Star<EdGraphNode>;
+	public var Blueprint: ucpp.Ptr<Blueprint>;
+	public var Graph: ucpp.Ptr<EdGraph>;
+	public var Node: ucpp.Ptr<EdGraphNode>;
 	public var bIsDebugging: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGraphNodeContextMenuContext(GraphNodeContextMenuContext) from GraphNodeContextMenuContext {
-	public extern var Blueprint(get, never): cpp.Star<Blueprint.ConstBlueprint>;
-	public inline extern function get_Blueprint(): cpp.Star<Blueprint.ConstBlueprint> return this.Blueprint;
-	public extern var Graph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_Graph(): cpp.Star<EdGraph.ConstEdGraph> return this.Graph;
-	public extern var Node(get, never): cpp.Star<EdGraphNode.ConstEdGraphNode>;
-	public inline extern function get_Node(): cpp.Star<EdGraphNode.ConstEdGraphNode> return this.Node;
+	public extern var Blueprint(get, never): ucpp.Ptr<Blueprint.ConstBlueprint>;
+	public inline extern function get_Blueprint(): ucpp.Ptr<Blueprint.ConstBlueprint> return this.Blueprint;
+	public extern var Graph(get, never): ucpp.Ptr<EdGraph.ConstEdGraph>;
+	public inline extern function get_Graph(): ucpp.Ptr<EdGraph.ConstEdGraph> return this.Graph;
+	public extern var Node(get, never): ucpp.Ptr<EdGraphNode.ConstEdGraphNode>;
+	public inline extern function get_Node(): ucpp.Ptr<EdGraphNode.ConstEdGraphNode> return this.Node;
 	public extern var bIsDebugging(get, never): Bool;
 	public inline extern function get_bIsDebugging(): Bool return this.bIsDebugging;
 }
@@ -29,7 +29,7 @@ abstract ConstGraphNodeContextMenuContext(GraphNodeContextMenuContext) from Grap
 @:forward
 @:nativeGen
 @:native("GraphNodeContextMenuContext*")
-abstract GraphNodeContextMenuContextPtr(cpp.Star<GraphNodeContextMenuContext>) from cpp.Star<GraphNodeContextMenuContext> to cpp.Star<GraphNodeContextMenuContext>{
+abstract GraphNodeContextMenuContextPtr(ucpp.Ptr<GraphNodeContextMenuContext>) from ucpp.Ptr<GraphNodeContextMenuContext> to ucpp.Ptr<GraphNodeContextMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: GraphNodeContextMenuContext): GraphNodeContextMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

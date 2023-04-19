@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDataLayerCreationParameters")
 @:include("DataLayer/DataLayerEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class DataLayerCreationParameters {
-	public var DataLayerAsset: cpp.Star<DataLayerAsset>;
-	public var WorldDataLayers: cpp.Star<WorldDataLayers>;
+	public var DataLayerAsset: ucpp.Ptr<DataLayerAsset>;
+	public var WorldDataLayers: ucpp.Ptr<WorldDataLayers>;
 
 	@:native("FDataLayerCreationParameters") public function new();
-	@:native("FDataLayerCreationParameters") public static function make(DataLayerAsset: cpp.Star<DataLayerAsset>, WorldDataLayers: cpp.Star<WorldDataLayers>): DataLayerCreationParameters ;
+	@:native("FDataLayerCreationParameters") public static function make(DataLayerAsset: ucpp.Ptr<DataLayerAsset>, WorldDataLayers: ucpp.Ptr<WorldDataLayers>): DataLayerCreationParameters ;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionDepthOfFieldFunction")
 @:include("Materials/MaterialExpressionDepthOfFieldFunction.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDepthOfFieldFunction extends MaterialExpression {
 	public var FunctionValue: TEnumAsByte<EDepthOfFieldFunctionValue>;
 	public var Depth: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionDepthOfFieldFunction(MaterialExpressionDepthOfFi
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDepthOfFieldFunction*")
-abstract MaterialExpressionDepthOfFieldFunctionPtr(cpp.Star<MaterialExpressionDepthOfFieldFunction>) from cpp.Star<MaterialExpressionDepthOfFieldFunction> to cpp.Star<MaterialExpressionDepthOfFieldFunction>{
+abstract MaterialExpressionDepthOfFieldFunctionPtr(ucpp.Ptr<MaterialExpressionDepthOfFieldFunction>) from ucpp.Ptr<MaterialExpressionDepthOfFieldFunction> to ucpp.Ptr<MaterialExpressionDepthOfFieldFunction>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDepthOfFieldFunction): MaterialExpressionDepthOfFieldFunctionPtr {
 		return untyped __cpp__("&({0})", v);

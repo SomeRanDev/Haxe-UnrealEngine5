@@ -3,33 +3,33 @@ package ue;
 
 @:native("UPhysicsCollisionHandler")
 @:include("PhysicsEngine/PhysicsCollisionHandler.h")
-@:structAccess
+@:valueType
 extern class PhysicsCollisionHandler extends Object {
-	public var ImpactThreshold: cpp.Float32;
-	public var ImpactReFireDelay: cpp.Float32;
-	public var DefaultImpactSound: cpp.Star<SoundBase>;
-	public var LastImpactSoundTime: cpp.Float32;
+	public var ImpactThreshold: ucpp.num.Float32;
+	public var ImpactReFireDelay: ucpp.num.Float32;
+	public var DefaultImpactSound: ucpp.Ptr<SoundBase>;
+	public var LastImpactSoundTime: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPhysicsCollisionHandler(PhysicsCollisionHandler) from PhysicsCollisionHandler {
-	public extern var ImpactThreshold(get, never): cpp.Float32;
-	public inline extern function get_ImpactThreshold(): cpp.Float32 return this.ImpactThreshold;
-	public extern var ImpactReFireDelay(get, never): cpp.Float32;
-	public inline extern function get_ImpactReFireDelay(): cpp.Float32 return this.ImpactReFireDelay;
-	public extern var DefaultImpactSound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_DefaultImpactSound(): cpp.Star<SoundBase.ConstSoundBase> return this.DefaultImpactSound;
-	public extern var LastImpactSoundTime(get, never): cpp.Float32;
-	public inline extern function get_LastImpactSoundTime(): cpp.Float32 return this.LastImpactSoundTime;
+	public extern var ImpactThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_ImpactThreshold(): ucpp.num.Float32 return this.ImpactThreshold;
+	public extern var ImpactReFireDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_ImpactReFireDelay(): ucpp.num.Float32 return this.ImpactReFireDelay;
+	public extern var DefaultImpactSound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_DefaultImpactSound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.DefaultImpactSound;
+	public extern var LastImpactSoundTime(get, never): ucpp.num.Float32;
+	public inline extern function get_LastImpactSoundTime(): ucpp.num.Float32 return this.LastImpactSoundTime;
 }
 
 @:forward
 @:nativeGen
 @:native("PhysicsCollisionHandler*")
-abstract PhysicsCollisionHandlerPtr(cpp.Star<PhysicsCollisionHandler>) from cpp.Star<PhysicsCollisionHandler> to cpp.Star<PhysicsCollisionHandler>{
+abstract PhysicsCollisionHandlerPtr(ucpp.Ptr<PhysicsCollisionHandler>) from ucpp.Ptr<PhysicsCollisionHandler> to ucpp.Ptr<PhysicsCollisionHandler>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsCollisionHandler): PhysicsCollisionHandlerPtr {
 		return untyped __cpp__("&({0})", v);

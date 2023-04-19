@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_Mirror")
 @:include("AnimNodes/AnimNode_Mirror.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Mirror extends AnimNode_MirrorBase {
 
 	@:native("FAnimNode_Mirror") public function new();

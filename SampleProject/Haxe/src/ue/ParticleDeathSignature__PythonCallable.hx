@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UParticleDeathSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ParticleDeathSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstParticleDeathSignature__PythonCallable(ParticleDeathSignature__Pyt
 @:forward
 @:nativeGen
 @:native("ParticleDeathSignature__PythonCallable*")
-abstract ParticleDeathSignature__PythonCallablePtr(cpp.Star<ParticleDeathSignature__PythonCallable>) from cpp.Star<ParticleDeathSignature__PythonCallable> to cpp.Star<ParticleDeathSignature__PythonCallable>{
+abstract ParticleDeathSignature__PythonCallablePtr(ucpp.Ptr<ParticleDeathSignature__PythonCallable>) from ucpp.Ptr<ParticleDeathSignature__PythonCallable> to ucpp.Ptr<ParticleDeathSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ParticleDeathSignature__PythonCallable): ParticleDeathSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

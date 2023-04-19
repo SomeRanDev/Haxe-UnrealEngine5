@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnBoneTransformsFinalized__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnBoneTransformsFinalized__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnBoneTransformsFinalized__PythonCallable(OnBoneTransformsFinalize
 @:forward
 @:nativeGen
 @:native("OnBoneTransformsFinalized__PythonCallable*")
-abstract OnBoneTransformsFinalized__PythonCallablePtr(cpp.Star<OnBoneTransformsFinalized__PythonCallable>) from cpp.Star<OnBoneTransformsFinalized__PythonCallable> to cpp.Star<OnBoneTransformsFinalized__PythonCallable>{
+abstract OnBoneTransformsFinalized__PythonCallablePtr(ucpp.Ptr<OnBoneTransformsFinalized__PythonCallable>) from ucpp.Ptr<OnBoneTransformsFinalized__PythonCallable> to ucpp.Ptr<OnBoneTransformsFinalized__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnBoneTransformsFinalized__PythonCallable): OnBoneTransformsFinalized__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

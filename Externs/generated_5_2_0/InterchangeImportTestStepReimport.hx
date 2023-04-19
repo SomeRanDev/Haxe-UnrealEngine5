@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeImportTestStepReimport")
 @:include("InterchangeImportTestStepReimport.h")
-@:structAccess
+@:valueType
 extern class InterchangeImportTestStepReimport extends InterchangeImportTestStepBase {
 	public var SourceFileToReimport: FilePath;
 	public var AssetTypeToReimport: TSubclassOf<Object>;
 	public var AssetNameToReimport: FString;
 	public var bSaveThenReloadImportedAssets: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstInterchangeImportTestStepReimport(InterchangeImportTestStepReimpor
 @:forward
 @:nativeGen
 @:native("InterchangeImportTestStepReimport*")
-abstract InterchangeImportTestStepReimportPtr(cpp.Star<InterchangeImportTestStepReimport>) from cpp.Star<InterchangeImportTestStepReimport> to cpp.Star<InterchangeImportTestStepReimport>{
+abstract InterchangeImportTestStepReimportPtr(ucpp.Ptr<InterchangeImportTestStepReimport>) from ucpp.Ptr<InterchangeImportTestStepReimport> to ucpp.Ptr<InterchangeImportTestStepReimport>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeImportTestStepReimport): InterchangeImportTestStepReimportPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UDatasmithStaticMeshComponentTemplate")
 @:include("ObjectTemplates/DatasmithStaticMeshComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithStaticMeshComponentTemplate extends DatasmithObjectTemplate {
-	public var StaticMesh: cpp.Star<StaticMesh>;
-	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
+	public var StaticMesh: ucpp.Ptr<StaticMesh>;
+	public var OverrideMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDatasmithStaticMeshComponentTemplate(DatasmithStaticMeshComponentTemplate) from DatasmithStaticMeshComponentTemplate {
-	public extern var StaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_StaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.StaticMesh;
-	public extern var OverrideMaterials(get, never): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>>;
-	public inline extern function get_OverrideMaterials(): TArray<cpp.Star<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
+	public extern var StaticMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_StaticMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.StaticMesh;
+	public extern var OverrideMaterials(get, never): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>>;
+	public inline extern function get_OverrideMaterials(): TArray<ucpp.Ptr<MaterialInterface.ConstMaterialInterface>> return this.OverrideMaterials;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithStaticMeshComponentTemplate*")
-abstract DatasmithStaticMeshComponentTemplatePtr(cpp.Star<DatasmithStaticMeshComponentTemplate>) from cpp.Star<DatasmithStaticMeshComponentTemplate> to cpp.Star<DatasmithStaticMeshComponentTemplate>{
+abstract DatasmithStaticMeshComponentTemplatePtr(ucpp.Ptr<DatasmithStaticMeshComponentTemplate>) from ucpp.Ptr<DatasmithStaticMeshComponentTemplate> to ucpp.Ptr<DatasmithStaticMeshComponentTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithStaticMeshComponentTemplate): DatasmithStaticMeshComponentTemplatePtr {
 		return untyped __cpp__("&({0})", v);

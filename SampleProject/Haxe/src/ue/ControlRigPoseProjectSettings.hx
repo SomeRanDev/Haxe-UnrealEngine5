@@ -3,11 +3,11 @@ package ue;
 
 @:native("UControlRigPoseProjectSettings")
 @:include("Tools/ControlRigPoseProjectSettings.h")
-@:structAccess
+@:valueType
 extern class ControlRigPoseProjectSettings extends Object {
 	public var RootSaveDirs: TArray<DirectoryPath>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstControlRigPoseProjectSettings(ControlRigPoseProjectSettings) from 
 @:forward
 @:nativeGen
 @:native("ControlRigPoseProjectSettings*")
-abstract ControlRigPoseProjectSettingsPtr(cpp.Star<ControlRigPoseProjectSettings>) from cpp.Star<ControlRigPoseProjectSettings> to cpp.Star<ControlRigPoseProjectSettings>{
+abstract ControlRigPoseProjectSettingsPtr(ucpp.Ptr<ControlRigPoseProjectSettings>) from ucpp.Ptr<ControlRigPoseProjectSettings> to ucpp.Ptr<ControlRigPoseProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigPoseProjectSettings): ControlRigPoseProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

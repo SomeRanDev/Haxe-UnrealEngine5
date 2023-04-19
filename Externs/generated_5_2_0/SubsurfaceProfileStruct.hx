@@ -3,26 +3,26 @@ package ue;
 
 @:native("FSubsurfaceProfileStruct")
 @:include("Engine/SubsurfaceProfile.h")
-@:structAccess
+@:valueType
 extern class SubsurfaceProfileStruct {
 	public var SurfaceAlbedo: LinearColor;
 	public var MeanFreePathColor: LinearColor;
-	public var MeanFreePathDistance: cpp.Float32;
-	public var WorldUnitScale: cpp.Float32;
+	public var MeanFreePathDistance: ucpp.num.Float32;
+	public var WorldUnitScale: ucpp.num.Float32;
 	public var bEnableBurley: Bool;
 	public var bEnableMeanFreePath: Bool;
 	public var Tint: LinearColor;
-	public var ScatterRadius: cpp.Float32;
+	public var ScatterRadius: ucpp.num.Float32;
 	public var SubsurfaceColor: LinearColor;
 	public var FalloffColor: LinearColor;
 	public var BoundaryColorBleed: LinearColor;
-	public var ExtinctionScale: cpp.Float32;
-	public var NormalScale: cpp.Float32;
-	public var ScatteringDistribution: cpp.Float32;
-	public var IOR: cpp.Float32;
-	public var Roughness0: cpp.Float32;
-	public var Roughness1: cpp.Float32;
-	public var LobeMix: cpp.Float32;
+	public var ExtinctionScale: ucpp.num.Float32;
+	public var NormalScale: ucpp.num.Float32;
+	public var ScatteringDistribution: ucpp.num.Float32;
+	public var IOR: ucpp.num.Float32;
+	public var Roughness0: ucpp.num.Float32;
+	public var Roughness1: ucpp.num.Float32;
+	public var LobeMix: ucpp.num.Float32;
 	public var TransmissionTintColor: LinearColor;
 
 	@:native("FSubsurfaceProfileStruct") public function new();

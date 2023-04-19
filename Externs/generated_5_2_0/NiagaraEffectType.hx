@@ -3,19 +3,19 @@ package ue;
 
 @:native("UNiagaraEffectType")
 @:include("NiagaraEffectType.h")
-@:structAccess
+@:valueType
 extern class NiagaraEffectType extends Object {
 	public var bAllowCullingForLocalPlayers: Bool;
 	public var UpdateFrequency: ENiagaraScalabilityUpdateFrequency;
 	public var CullReaction: ENiagaraCullReaction;
-	public var SignificanceHandler: cpp.Star<NiagaraSignificanceHandler>;
+	public var SignificanceHandler: ucpp.Ptr<NiagaraSignificanceHandler>;
 	public var SystemScalabilitySettings: NiagaraSystemScalabilitySettingsArray;
 	public var EmitterScalabilitySettings: NiagaraEmitterScalabilitySettingsArray;
-	private var PerformanceBaselineController: cpp.Star<NiagaraBaselineController>;
+	private var PerformanceBaselineController: ucpp.Ptr<NiagaraBaselineController>;
 	private var PerfBaselineStats: NiagaraPerfBaselineStats;
 	private var PerfBaselineVersion: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,8 +27,8 @@ abstract ConstNiagaraEffectType(NiagaraEffectType) from NiagaraEffectType {
 	public inline extern function get_UpdateFrequency(): ENiagaraScalabilityUpdateFrequency return this.UpdateFrequency;
 	public extern var CullReaction(get, never): ENiagaraCullReaction;
 	public inline extern function get_CullReaction(): ENiagaraCullReaction return this.CullReaction;
-	public extern var SignificanceHandler(get, never): cpp.Star<NiagaraSignificanceHandler.ConstNiagaraSignificanceHandler>;
-	public inline extern function get_SignificanceHandler(): cpp.Star<NiagaraSignificanceHandler.ConstNiagaraSignificanceHandler> return this.SignificanceHandler;
+	public extern var SignificanceHandler(get, never): ucpp.Ptr<NiagaraSignificanceHandler.ConstNiagaraSignificanceHandler>;
+	public inline extern function get_SignificanceHandler(): ucpp.Ptr<NiagaraSignificanceHandler.ConstNiagaraSignificanceHandler> return this.SignificanceHandler;
 	public extern var SystemScalabilitySettings(get, never): NiagaraSystemScalabilitySettingsArray;
 	public inline extern function get_SystemScalabilitySettings(): NiagaraSystemScalabilitySettingsArray return this.SystemScalabilitySettings;
 	public extern var EmitterScalabilitySettings(get, never): NiagaraEmitterScalabilitySettingsArray;
@@ -38,7 +38,7 @@ abstract ConstNiagaraEffectType(NiagaraEffectType) from NiagaraEffectType {
 @:forward
 @:nativeGen
 @:native("NiagaraEffectType*")
-abstract NiagaraEffectTypePtr(cpp.Star<NiagaraEffectType>) from cpp.Star<NiagaraEffectType> to cpp.Star<NiagaraEffectType>{
+abstract NiagaraEffectTypePtr(ucpp.Ptr<NiagaraEffectType>) from ucpp.Ptr<NiagaraEffectType> to ucpp.Ptr<NiagaraEffectType>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEffectType): NiagaraEffectTypePtr {
 		return untyped __cpp__("&({0})", v);

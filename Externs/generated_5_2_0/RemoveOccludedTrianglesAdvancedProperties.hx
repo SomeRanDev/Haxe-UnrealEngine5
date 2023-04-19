@@ -3,10 +3,10 @@ package ue;
 
 @:native("URemoveOccludedTrianglesAdvancedProperties")
 @:include("RemoveOccludedTrianglesTool.h")
-@:structAccess
+@:valueType
 extern class RemoveOccludedTrianglesAdvancedProperties extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRemoveOccludedTrianglesAdvancedProperties(RemoveOccludedTrianglesA
 @:forward
 @:nativeGen
 @:native("RemoveOccludedTrianglesAdvancedProperties*")
-abstract RemoveOccludedTrianglesAdvancedPropertiesPtr(cpp.Star<RemoveOccludedTrianglesAdvancedProperties>) from cpp.Star<RemoveOccludedTrianglesAdvancedProperties> to cpp.Star<RemoveOccludedTrianglesAdvancedProperties>{
+abstract RemoveOccludedTrianglesAdvancedPropertiesPtr(ucpp.Ptr<RemoveOccludedTrianglesAdvancedProperties>) from ucpp.Ptr<RemoveOccludedTrianglesAdvancedProperties> to ucpp.Ptr<RemoveOccludedTrianglesAdvancedProperties>{
 	@:from
 	public static extern inline function fromValue(v: RemoveOccludedTrianglesAdvancedProperties): RemoveOccludedTrianglesAdvancedPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

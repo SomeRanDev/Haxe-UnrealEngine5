@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterface")
-@:structAccess
+@:valueType
 extern class Interface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterface(Interface) from Interface {
 @:forward
 @:nativeGen
 @:native("Interface*")
-abstract InterfacePtr(cpp.Star<Interface>) from cpp.Star<Interface> to cpp.Star<Interface>{
+abstract InterfacePtr(ucpp.Ptr<Interface>) from ucpp.Ptr<Interface> to ucpp.Ptr<Interface>{
 	@:from
 	public static extern inline function fromValue(v: Interface): InterfacePtr {
 		return untyped __cpp__("&({0})", v);

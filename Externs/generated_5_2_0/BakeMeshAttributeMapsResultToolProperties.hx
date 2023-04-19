@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBakeMeshAttributeMapsResultToolProperties")
 @:include("BakeMeshAttributeMapsToolBase.h")
-@:structAccess
+@:valueType
 extern class BakeMeshAttributeMapsResultToolProperties extends InteractiveToolPropertySet {
-	public var Result: TMap<EBakeMapType, cpp.Star<Texture2D>>;
+	public var Result: TMap<EBakeMapType, ucpp.Ptr<Texture2D>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBakeMeshAttributeMapsResultToolProperties(BakeMeshAttributeMapsResultToolProperties) from BakeMeshAttributeMapsResultToolProperties {
-	public extern var Result(get, never): TMap<EBakeMapType, cpp.Star<Texture2D.ConstTexture2D>>;
-	public inline extern function get_Result(): TMap<EBakeMapType, cpp.Star<Texture2D.ConstTexture2D>> return this.Result;
+	public extern var Result(get, never): TMap<EBakeMapType, ucpp.Ptr<Texture2D.ConstTexture2D>>;
+	public inline extern function get_Result(): TMap<EBakeMapType, ucpp.Ptr<Texture2D.ConstTexture2D>> return this.Result;
 }
 
 @:forward
 @:nativeGen
 @:native("BakeMeshAttributeMapsResultToolProperties*")
-abstract BakeMeshAttributeMapsResultToolPropertiesPtr(cpp.Star<BakeMeshAttributeMapsResultToolProperties>) from cpp.Star<BakeMeshAttributeMapsResultToolProperties> to cpp.Star<BakeMeshAttributeMapsResultToolProperties>{
+abstract BakeMeshAttributeMapsResultToolPropertiesPtr(ucpp.Ptr<BakeMeshAttributeMapsResultToolProperties>) from ucpp.Ptr<BakeMeshAttributeMapsResultToolProperties> to ucpp.Ptr<BakeMeshAttributeMapsResultToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeMeshAttributeMapsResultToolProperties): BakeMeshAttributeMapsResultToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

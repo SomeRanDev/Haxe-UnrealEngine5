@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWidgetSwitcherSlot")
 @:include("Components/WidgetSwitcherSlot.h")
-@:structAccess
+@:valueType
 extern class WidgetSwitcherSlot extends PanelSlot {
 	public var Padding: Margin;
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
@@ -13,7 +13,7 @@ extern class WidgetSwitcherSlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstWidgetSwitcherSlot(WidgetSwitcherSlot) from WidgetSwitcherSlot {
 @:forward
 @:nativeGen
 @:native("WidgetSwitcherSlot*")
-abstract WidgetSwitcherSlotPtr(cpp.Star<WidgetSwitcherSlot>) from cpp.Star<WidgetSwitcherSlot> to cpp.Star<WidgetSwitcherSlot>{
+abstract WidgetSwitcherSlotPtr(ucpp.Ptr<WidgetSwitcherSlot>) from ucpp.Ptr<WidgetSwitcherSlot> to ucpp.Ptr<WidgetSwitcherSlot>{
 	@:from
 	public static extern inline function fromValue(v: WidgetSwitcherSlot): WidgetSwitcherSlotPtr {
 		return untyped __cpp__("&({0})", v);

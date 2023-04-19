@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EAnimCurveType")
-@:include("Components/SkeletalMeshComponent.h")
+@:include("Animation/AnimCurveTypes.h")
 extern class EAnimCurveType {
 	static var AttributeCurve: EAnimCurveType;
 	static var MaterialCurve: EAnimCurveType;

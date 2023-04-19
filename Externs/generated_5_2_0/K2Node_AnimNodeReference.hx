@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_AnimNodeReference")
 @:include("K2Node_AnimNodeReference.h")
-@:structAccess
+@:valueType
 extern class K2Node_AnimNodeReference extends K2Node {
 	private var Tag: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_AnimNodeReference(K2Node_AnimNodeReference) from K2Node_Ani
 @:forward
 @:nativeGen
 @:native("K2Node_AnimNodeReference*")
-abstract K2Node_AnimNodeReferencePtr(cpp.Star<K2Node_AnimNodeReference>) from cpp.Star<K2Node_AnimNodeReference> to cpp.Star<K2Node_AnimNodeReference>{
+abstract K2Node_AnimNodeReferencePtr(ucpp.Ptr<K2Node_AnimNodeReference>) from ucpp.Ptr<K2Node_AnimNodeReference> to ucpp.Ptr<K2Node_AnimNodeReference>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_AnimNodeReference): K2Node_AnimNodeReferencePtr {
 		return untyped __cpp__("&({0})", v);

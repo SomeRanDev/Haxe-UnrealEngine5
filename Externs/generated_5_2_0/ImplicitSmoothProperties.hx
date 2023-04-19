@@ -3,33 +3,33 @@ package ue;
 
 @:native("UImplicitSmoothProperties")
 @:include("SmoothMeshTool.h")
-@:structAccess
+@:valueType
 extern class ImplicitSmoothProperties extends InteractiveToolPropertySet {
-	public var SmoothSpeed: cpp.Float32;
-	public var Smoothness: cpp.Float32;
+	public var SmoothSpeed: ucpp.num.Float32;
+	public var Smoothness: ucpp.num.Float32;
 	public var bPreserveUVs: Bool;
-	public var VolumeCorrection: cpp.Float32;
+	public var VolumeCorrection: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstImplicitSmoothProperties(ImplicitSmoothProperties) from ImplicitSmoothProperties {
-	public extern var SmoothSpeed(get, never): cpp.Float32;
-	public inline extern function get_SmoothSpeed(): cpp.Float32 return this.SmoothSpeed;
-	public extern var Smoothness(get, never): cpp.Float32;
-	public inline extern function get_Smoothness(): cpp.Float32 return this.Smoothness;
+	public extern var SmoothSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothSpeed(): ucpp.num.Float32 return this.SmoothSpeed;
+	public extern var Smoothness(get, never): ucpp.num.Float32;
+	public inline extern function get_Smoothness(): ucpp.num.Float32 return this.Smoothness;
 	public extern var bPreserveUVs(get, never): Bool;
 	public inline extern function get_bPreserveUVs(): Bool return this.bPreserveUVs;
-	public extern var VolumeCorrection(get, never): cpp.Float32;
-	public inline extern function get_VolumeCorrection(): cpp.Float32 return this.VolumeCorrection;
+	public extern var VolumeCorrection(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeCorrection(): ucpp.num.Float32 return this.VolumeCorrection;
 }
 
 @:forward
 @:nativeGen
 @:native("ImplicitSmoothProperties*")
-abstract ImplicitSmoothPropertiesPtr(cpp.Star<ImplicitSmoothProperties>) from cpp.Star<ImplicitSmoothProperties> to cpp.Star<ImplicitSmoothProperties>{
+abstract ImplicitSmoothPropertiesPtr(ucpp.Ptr<ImplicitSmoothProperties>) from ucpp.Ptr<ImplicitSmoothProperties> to ucpp.Ptr<ImplicitSmoothProperties>{
 	@:from
 	public static extern inline function fromValue(v: ImplicitSmoothProperties): ImplicitSmoothPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

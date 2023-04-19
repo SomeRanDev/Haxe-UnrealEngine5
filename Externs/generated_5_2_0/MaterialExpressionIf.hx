@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMaterialExpressionIf")
 @:include("Materials/MaterialExpressionIf.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionIf extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var AGreaterThanB: ExpressionInput;
 	public var AEqualsB: ExpressionInput;
 	public var ALessThanB: ExpressionInput;
-	public var EqualsThreshold: cpp.Float32;
-	public var ConstB: cpp.Float32;
+	public var EqualsThreshold: ucpp.num.Float32;
+	public var ConstB: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,16 +29,16 @@ abstract ConstMaterialExpressionIf(MaterialExpressionIf) from MaterialExpression
 	public inline extern function get_AEqualsB(): ExpressionInput return this.AEqualsB;
 	public extern var ALessThanB(get, never): ExpressionInput;
 	public inline extern function get_ALessThanB(): ExpressionInput return this.ALessThanB;
-	public extern var EqualsThreshold(get, never): cpp.Float32;
-	public inline extern function get_EqualsThreshold(): cpp.Float32 return this.EqualsThreshold;
-	public extern var ConstB(get, never): cpp.Float32;
-	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
+	public extern var EqualsThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_EqualsThreshold(): ucpp.num.Float32 return this.EqualsThreshold;
+	public extern var ConstB(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstB(): ucpp.num.Float32 return this.ConstB;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionIf*")
-abstract MaterialExpressionIfPtr(cpp.Star<MaterialExpressionIf>) from cpp.Star<MaterialExpressionIf> to cpp.Star<MaterialExpressionIf>{
+abstract MaterialExpressionIfPtr(ucpp.Ptr<MaterialExpressionIf>) from ucpp.Ptr<MaterialExpressionIf> to ucpp.Ptr<MaterialExpressionIf>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionIf): MaterialExpressionIfPtr {
 		return untyped __cpp__("&({0})", v);

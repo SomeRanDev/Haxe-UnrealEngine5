@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimGraphNode_LinkedAnimLayer")
 @:include("AnimGraphNode_LinkedAnimLayer.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_LinkedAnimLayer extends AnimGraphNode_LinkedAnimGraphBase {
 	public var Node: AnimNode_LinkedAnimLayer;
 	public var InterfaceGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstAnimGraphNode_LinkedAnimLayer(AnimGraphNode_LinkedAnimLayer) from 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_LinkedAnimLayer*")
-abstract AnimGraphNode_LinkedAnimLayerPtr(cpp.Star<AnimGraphNode_LinkedAnimLayer>) from cpp.Star<AnimGraphNode_LinkedAnimLayer> to cpp.Star<AnimGraphNode_LinkedAnimLayer>{
+abstract AnimGraphNode_LinkedAnimLayerPtr(ucpp.Ptr<AnimGraphNode_LinkedAnimLayer>) from ucpp.Ptr<AnimGraphNode_LinkedAnimLayer> to ucpp.Ptr<AnimGraphNode_LinkedAnimLayer>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_LinkedAnimLayer): AnimGraphNode_LinkedAnimLayerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FTimelineVectorTrack")
 @:include("Components/TimelineComponent.h")
-@:structAccess
+@:valueType
 extern class TimelineVectorTrack {
-	public var VectorCurve: cpp.Star<CurveVector>;
+	public var VectorCurve: ucpp.Ptr<CurveVector>;
 	public var InterpFunc: HaxeDelegateProperty<(Vector) -> Void>;
 	public var TrackName: FName;
 	public var VectorPropertyName: FName;
 
 	@:native("FTimelineVectorTrack") public function new();
-	@:native("FTimelineVectorTrack") public static function make(VectorCurve: cpp.Star<CurveVector>, InterpFunc: HaxeDelegateProperty<(Vector) -> Void>, TrackName: FName, VectorPropertyName: FName): TimelineVectorTrack ;
+	@:native("FTimelineVectorTrack") public static function make(VectorCurve: ucpp.Ptr<CurveVector>, InterpFunc: HaxeDelegateProperty<(Vector) -> Void>, TrackName: FName, VectorPropertyName: FName): TimelineVectorTrack ;
 }

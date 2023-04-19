@@ -2,8 +2,8 @@
 package ue;
 
 @:native("FCameraTrackingFocusSettings")
-@:include("CineCameraComponent.h")
-@:structAccess
+@:include("CineCameraSettings.h")
+@:valueType
 extern class CameraTrackingFocusSettings {
 	public var ActorToTrack: TSoftObjectPtr<Actor>;
 	public var RelativeOffset: Vector;

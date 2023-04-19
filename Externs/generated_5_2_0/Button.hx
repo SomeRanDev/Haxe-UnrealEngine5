@@ -3,7 +3,7 @@ package ue;
 
 @:native("UButton")
 @:include("Components/Button.h")
-@:structAccess
+@:valueType
 extern class Button extends ContentWidget {
 	public var WidgetStyle: ButtonStyle;
 	public var ColorAndOpacity: LinearColor;
@@ -19,14 +19,14 @@ extern class Button extends ContentWidget {
 	public var OnUnhovered: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function SetTouchMethod(InTouchMethod: TEnumAsByte<EButtonTouchMethod>): Void;
-	public function SetStyle(InStyle: cpp.Reference<ButtonStyle>): Void;
+	public function SetStyle(InStyle: ucpp.Ref<ButtonStyle>): Void;
 	public function SetPressMethod(InPressMethod: TEnumAsByte<EButtonPressMethod>): Void;
 	public function SetColorAndOpacity(InColorAndOpacity: LinearColor): Void;
 	public function SetClickMethod(InClickMethod: TEnumAsByte<EButtonClickMethod>): Void;
 	public function SetBackgroundColor(InBackgroundColor: LinearColor): Void;
 	public function IsPressed(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsPressed)
@@ -61,7 +61,7 @@ abstract ConstButton(Button) from Button {
 @:forward
 @:nativeGen
 @:native("Button*")
-abstract ButtonPtr(cpp.Star<Button>) from cpp.Star<Button> to cpp.Star<Button>{
+abstract ButtonPtr(ucpp.Ptr<Button>) from ucpp.Ptr<Button> to ucpp.Ptr<Button>{
 	@:from
 	public static extern inline function fromValue(v: Button): ButtonPtr {
 		return untyped __cpp__("&({0})", v);

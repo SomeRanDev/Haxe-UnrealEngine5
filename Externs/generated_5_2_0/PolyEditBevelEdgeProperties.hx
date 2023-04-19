@@ -3,24 +3,24 @@ package ue;
 
 @:native("UPolyEditBevelEdgeProperties")
 @:include("ToolActivities/PolyEditBevelEdgeActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditBevelEdgeProperties extends InteractiveToolPropertySet {
-	public var BevelDistance: cpp.Float64;
+	public var BevelDistance: ucpp.num.Float64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPolyEditBevelEdgeProperties(PolyEditBevelEdgeProperties) from PolyEditBevelEdgeProperties {
-	public extern var BevelDistance(get, never): cpp.Float64;
-	public inline extern function get_BevelDistance(): cpp.Float64 return this.BevelDistance;
+	public extern var BevelDistance(get, never): ucpp.num.Float64;
+	public inline extern function get_BevelDistance(): ucpp.num.Float64 return this.BevelDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("PolyEditBevelEdgeProperties*")
-abstract PolyEditBevelEdgePropertiesPtr(cpp.Star<PolyEditBevelEdgeProperties>) from cpp.Star<PolyEditBevelEdgeProperties> to cpp.Star<PolyEditBevelEdgeProperties>{
+abstract PolyEditBevelEdgePropertiesPtr(ucpp.Ptr<PolyEditBevelEdgeProperties>) from ucpp.Ptr<PolyEditBevelEdgeProperties> to ucpp.Ptr<PolyEditBevelEdgeProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditBevelEdgeProperties): PolyEditBevelEdgePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

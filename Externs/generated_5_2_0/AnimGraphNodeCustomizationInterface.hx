@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UAnimGraphNodeCustomizationInterface")
-@:structAccess
+@:valueType
 extern class AnimGraphNodeCustomizationInterface extends Interface {
 	public function GetTitleColor(): LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTitleColor)
@@ -17,7 +17,7 @@ abstract ConstAnimGraphNodeCustomizationInterface(AnimGraphNodeCustomizationInte
 @:forward
 @:nativeGen
 @:native("AnimGraphNodeCustomizationInterface*")
-abstract AnimGraphNodeCustomizationInterfacePtr(cpp.Star<AnimGraphNodeCustomizationInterface>) from cpp.Star<AnimGraphNodeCustomizationInterface> to cpp.Star<AnimGraphNodeCustomizationInterface>{
+abstract AnimGraphNodeCustomizationInterfacePtr(ucpp.Ptr<AnimGraphNodeCustomizationInterface>) from ucpp.Ptr<AnimGraphNodeCustomizationInterface> to ucpp.Ptr<AnimGraphNodeCustomizationInterface>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNodeCustomizationInterface): AnimGraphNodeCustomizationInterfacePtr {
 		return untyped __cpp__("&({0})", v);

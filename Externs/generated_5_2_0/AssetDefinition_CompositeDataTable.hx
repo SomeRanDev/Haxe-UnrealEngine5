@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_CompositeDataTable")
 @:include("Table/AssetDefinition_CompositeDataTable.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_CompositeDataTable extends AssetDefinition_DataTable {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_CompositeDataTable(AssetDefinition_CompositeDataTa
 @:forward
 @:nativeGen
 @:native("AssetDefinition_CompositeDataTable*")
-abstract AssetDefinition_CompositeDataTablePtr(cpp.Star<AssetDefinition_CompositeDataTable>) from cpp.Star<AssetDefinition_CompositeDataTable> to cpp.Star<AssetDefinition_CompositeDataTable>{
+abstract AssetDefinition_CompositeDataTablePtr(ucpp.Ptr<AssetDefinition_CompositeDataTable>) from ucpp.Ptr<AssetDefinition_CompositeDataTable> to ucpp.Ptr<AssetDefinition_CompositeDataTable>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_CompositeDataTable): AssetDefinition_CompositeDataTablePtr {
 		return untyped __cpp__("&({0})", v);

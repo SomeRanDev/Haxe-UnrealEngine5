@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraGraphParameterReferenceCollection")
 @:include("NiagaraGraph.h")
-@:structAccess
+@:valueType
 extern class NiagaraGraphParameterReferenceCollection {
 	public var ParameterReferences: TArray<NiagaraGraphParameterReference>;
 	private var bCreatedByUser: Bool;

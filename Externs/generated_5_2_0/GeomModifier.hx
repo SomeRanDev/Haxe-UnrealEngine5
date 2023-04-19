@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGeomModifier")
 @:include("GeomModifier.h")
-@:structAccess
+@:valueType
 extern class GeomModifier extends Object {
 	public var Description: FText;
 	public var Tooltip: FText;
@@ -12,9 +12,9 @@ extern class GeomModifier extends Object {
 	public var bInitialized: Bool;
 	public var bPendingPivotOffsetUpdate: Bool;
 	public var bAppearsInToolbar: Bool;
-	private var CachedPolys: cpp.Star<Polys>;
+	private var CachedPolys: ucpp.Ptr<Polys>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +39,7 @@ abstract ConstGeomModifier(GeomModifier) from GeomModifier {
 @:forward
 @:nativeGen
 @:native("GeomModifier*")
-abstract GeomModifierPtr(cpp.Star<GeomModifier>) from cpp.Star<GeomModifier> to cpp.Star<GeomModifier>{
+abstract GeomModifierPtr(ucpp.Ptr<GeomModifier>) from ucpp.Ptr<GeomModifier> to ucpp.Ptr<GeomModifier>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier): GeomModifierPtr {
 		return untyped __cpp__("&({0})", v);

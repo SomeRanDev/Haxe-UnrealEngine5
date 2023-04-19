@@ -3,13 +3,13 @@ package ue;
 
 @:native("UFoliageStatistics")
 @:include("FoliageStatistics.h")
-@:structAccess
+@:valueType
 extern class FoliageStatistics extends BlueprintFunctionLibrary {
-	public function FoliageOverlappingSphereCount(WorldContextObject: cpp.Star<Object>, StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, CenterPosition: Vector, Radius: cpp.Float32): cpp.Int32;
-	public function FoliageOverlappingBoxTransforms(WorldContextObject: cpp.Star<Object>, StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, Box: Box, OutTransforms: cpp.Reference<TArray<Transform>>): Void;
-	public function FoliageOverlappingBoxCount(WorldContextObject: cpp.Star<Object>, StaticMesh: cpp.Star<StaticMesh.ConstStaticMesh>, Box: Box): cpp.Int32;
+	public function FoliageOverlappingSphereCount(WorldContextObject: ucpp.Ptr<Object>, StaticMesh: ucpp.Ptr<StaticMesh.ConstStaticMesh>, CenterPosition: Vector, Radius: ucpp.num.Float32): ucpp.num.Int32;
+	public function FoliageOverlappingBoxTransforms(WorldContextObject: ucpp.Ptr<Object>, StaticMesh: ucpp.Ptr<StaticMesh.ConstStaticMesh>, Box: Box, OutTransforms: ucpp.Ref<TArray<Transform>>): Void;
+	public function FoliageOverlappingBoxCount(WorldContextObject: ucpp.Ptr<Object>, StaticMesh: ucpp.Ptr<StaticMesh.ConstStaticMesh>, Box: Box): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFoliageStatistics(FoliageStatistics) from FoliageStatistics {
 @:forward
 @:nativeGen
 @:native("FoliageStatistics*")
-abstract FoliageStatisticsPtr(cpp.Star<FoliageStatistics>) from cpp.Star<FoliageStatistics> to cpp.Star<FoliageStatistics>{
+abstract FoliageStatisticsPtr(ucpp.Ptr<FoliageStatistics>) from ucpp.Ptr<FoliageStatistics> to ucpp.Ptr<FoliageStatistics>{
 	@:from
 	public static extern inline function fromValue(v: FoliageStatistics): FoliageStatisticsPtr {
 		return untyped __cpp__("&({0})", v);

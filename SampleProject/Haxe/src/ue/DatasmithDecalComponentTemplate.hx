@@ -3,30 +3,30 @@ package ue;
 
 @:native("UDatasmithDecalComponentTemplate")
 @:include("ObjectTemplates/DatasmithDecalComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithDecalComponentTemplate extends DatasmithObjectTemplate {
-	public var SortOrder: cpp.Int32;
+	public var SortOrder: ucpp.num.Int32;
 	public var DecalSize: Vector;
-	public var Material: cpp.Star<MaterialInterface>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDatasmithDecalComponentTemplate(DatasmithDecalComponentTemplate) from DatasmithDecalComponentTemplate {
-	public extern var SortOrder(get, never): cpp.Int32;
-	public inline extern function get_SortOrder(): cpp.Int32 return this.SortOrder;
+	public extern var SortOrder(get, never): ucpp.num.Int32;
+	public inline extern function get_SortOrder(): ucpp.num.Int32 return this.SortOrder;
 	public extern var DecalSize(get, never): Vector;
 	public inline extern function get_DecalSize(): Vector return this.DecalSize;
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
+	public extern var Material(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Material(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Material;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithDecalComponentTemplate*")
-abstract DatasmithDecalComponentTemplatePtr(cpp.Star<DatasmithDecalComponentTemplate>) from cpp.Star<DatasmithDecalComponentTemplate> to cpp.Star<DatasmithDecalComponentTemplate>{
+abstract DatasmithDecalComponentTemplatePtr(ucpp.Ptr<DatasmithDecalComponentTemplate>) from ucpp.Ptr<DatasmithDecalComponentTemplate> to ucpp.Ptr<DatasmithDecalComponentTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithDecalComponentTemplate): DatasmithDecalComponentTemplatePtr {
 		return untyped __cpp__("&({0})", v);

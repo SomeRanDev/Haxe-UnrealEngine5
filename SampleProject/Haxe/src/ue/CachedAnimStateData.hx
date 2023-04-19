@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCachedAnimStateData")
 @:include("Animation/CachedAnimData.h")
-@:structAccess
+@:valueType
 extern class CachedAnimStateData {
 	public var StateMachineName: FName;
 	public var StateName: FName;

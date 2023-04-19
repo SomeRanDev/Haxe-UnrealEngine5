@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAIAsyncTaskBlueprintProxy")
 @:include("Blueprint/AIAsyncTaskBlueprintProxy.h")
-@:structAccess
+@:valueType
 extern class AIAsyncTaskBlueprintProxy extends Object {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void>;
 	public var OnFail: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>) -> Void>;
 
 	public function OnMoveCompleted(RequestID: AIRequestID, MovementResult: TEnumAsByte<EPathFollowingResult>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstAIAsyncTaskBlueprintProxy(AIAsyncTaskBlueprintProxy) from AIAsyncT
 @:forward
 @:nativeGen
 @:native("AIAsyncTaskBlueprintProxy*")
-abstract AIAsyncTaskBlueprintProxyPtr(cpp.Star<AIAsyncTaskBlueprintProxy>) from cpp.Star<AIAsyncTaskBlueprintProxy> to cpp.Star<AIAsyncTaskBlueprintProxy>{
+abstract AIAsyncTaskBlueprintProxyPtr(ucpp.Ptr<AIAsyncTaskBlueprintProxy>) from ucpp.Ptr<AIAsyncTaskBlueprintProxy> to ucpp.Ptr<AIAsyncTaskBlueprintProxy>{
 	@:from
 	public static extern inline function fromValue(v: AIAsyncTaskBlueprintProxy): AIAsyncTaskBlueprintProxyPtr {
 		return untyped __cpp__("&({0})", v);

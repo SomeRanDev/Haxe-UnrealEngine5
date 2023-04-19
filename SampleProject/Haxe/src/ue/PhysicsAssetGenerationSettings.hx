@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPhysicsAssetGenerationSettings")
 @:include("PhysicsAssetGenerationSettings.h")
-@:structAccess
+@:valueType
 extern class PhysicsAssetGenerationSettings extends Object {
 	public var CreateParams: PhysAssetCreateParams;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPhysicsAssetGenerationSettings(PhysicsAssetGenerationSettings) fro
 @:forward
 @:nativeGen
 @:native("PhysicsAssetGenerationSettings*")
-abstract PhysicsAssetGenerationSettingsPtr(cpp.Star<PhysicsAssetGenerationSettings>) from cpp.Star<PhysicsAssetGenerationSettings> to cpp.Star<PhysicsAssetGenerationSettings>{
+abstract PhysicsAssetGenerationSettingsPtr(ucpp.Ptr<PhysicsAssetGenerationSettings>) from ucpp.Ptr<PhysicsAssetGenerationSettings> to ucpp.Ptr<PhysicsAssetGenerationSettings>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsAssetGenerationSettings): PhysicsAssetGenerationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

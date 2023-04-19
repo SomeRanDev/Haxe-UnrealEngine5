@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataThinFilm")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataThinFilm extends MaterialExpressionStrataUtilityBase {
 	public var Normal: ExpressionInput;
 	public var F0: ExpressionInput;
@@ -11,7 +11,7 @@ extern class MaterialExpressionStrataThinFilm extends MaterialExpressionStrataUt
 	public var Thickness: ExpressionInput;
 	public var IOR: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstMaterialExpressionStrataThinFilm(MaterialExpressionStrataThinFilm)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataThinFilm*")
-abstract MaterialExpressionStrataThinFilmPtr(cpp.Star<MaterialExpressionStrataThinFilm>) from cpp.Star<MaterialExpressionStrataThinFilm> to cpp.Star<MaterialExpressionStrataThinFilm>{
+abstract MaterialExpressionStrataThinFilmPtr(ucpp.Ptr<MaterialExpressionStrataThinFilm>) from ucpp.Ptr<MaterialExpressionStrataThinFilm> to ucpp.Ptr<MaterialExpressionStrataThinFilm>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataThinFilm): MaterialExpressionStrataThinFilmPtr {
 		return untyped __cpp__("&({0})", v);

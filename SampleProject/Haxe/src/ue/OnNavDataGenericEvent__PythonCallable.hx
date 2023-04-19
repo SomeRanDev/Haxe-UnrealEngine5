@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnNavDataGenericEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnNavDataGenericEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnNavDataGenericEvent__PythonCallable(OnNavDataGenericEvent__Pytho
 @:forward
 @:nativeGen
 @:native("OnNavDataGenericEvent__PythonCallable*")
-abstract OnNavDataGenericEvent__PythonCallablePtr(cpp.Star<OnNavDataGenericEvent__PythonCallable>) from cpp.Star<OnNavDataGenericEvent__PythonCallable> to cpp.Star<OnNavDataGenericEvent__PythonCallable>{
+abstract OnNavDataGenericEvent__PythonCallablePtr(ucpp.Ptr<OnNavDataGenericEvent__PythonCallable>) from ucpp.Ptr<OnNavDataGenericEvent__PythonCallable> to ucpp.Ptr<OnNavDataGenericEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnNavDataGenericEvent__PythonCallable): OnNavDataGenericEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

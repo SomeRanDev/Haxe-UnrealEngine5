@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectStereoDelayPreset")
 @:include("SourceEffects/SourceEffectStereoDelay.h")
-@:structAccess
+@:valueType
 extern class SourceEffectStereoDelayPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectStereoDelaySettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectStereoDelaySettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectStereoDelaySettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectStereoDelayPreset(SourceEffectStereoDelayPreset) from 
 @:forward
 @:nativeGen
 @:native("SourceEffectStereoDelayPreset*")
-abstract SourceEffectStereoDelayPresetPtr(cpp.Star<SourceEffectStereoDelayPreset>) from cpp.Star<SourceEffectStereoDelayPreset> to cpp.Star<SourceEffectStereoDelayPreset>{
+abstract SourceEffectStereoDelayPresetPtr(ucpp.Ptr<SourceEffectStereoDelayPreset>) from ucpp.Ptr<SourceEffectStereoDelayPreset> to ucpp.Ptr<SourceEffectStereoDelayPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectStereoDelayPreset): SourceEffectStereoDelayPresetPtr {
 		return untyped __cpp__("&({0})", v);

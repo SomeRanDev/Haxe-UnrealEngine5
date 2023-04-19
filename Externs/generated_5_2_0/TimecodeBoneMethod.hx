@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTimecodeBoneMethod")
 @:include("AnimationRecorder.h")
-@:structAccess
+@:valueType
 extern class TimecodeBoneMethod {
 	public var BoneMode: ETimecodeBoneMode;
 	public var BoneName: FName;

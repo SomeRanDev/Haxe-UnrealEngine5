@@ -3,12 +3,12 @@ package ue;
 
 @:native("FConstraintAndActiveChannel")
 @:include("ConstraintChannel.h")
-@:structAccess
+@:valueType
 extern class ConstraintAndActiveChannel {
 	public var Constraint: TSoftObjectPtr<TickableConstraint>;
 	public var ActiveChannel: MovieSceneConstraintChannel;
-	public var ConstraintCopyToSpawn: cpp.Star<TickableConstraint>;
+	public var ConstraintCopyToSpawn: ucpp.Ptr<TickableConstraint>;
 
 	@:native("FConstraintAndActiveChannel") public function new();
-	@:native("FConstraintAndActiveChannel") public static function make(Constraint: TSoftObjectPtr<TickableConstraint>, ActiveChannel: MovieSceneConstraintChannel, ConstraintCopyToSpawn: cpp.Star<TickableConstraint>): ConstraintAndActiveChannel ;
+	@:native("FConstraintAndActiveChannel") public static function make(Constraint: TSoftObjectPtr<TickableConstraint>, ActiveChannel: MovieSceneConstraintChannel, ConstraintCopyToSpawn: ucpp.Ptr<TickableConstraint>): ConstraintAndActiveChannel ;
 }

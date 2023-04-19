@@ -3,13 +3,15 @@ package ue;
 
 @:native("UMaterialFunction")
 @:include("Materials/MaterialFunction.h")
-@:structAccess
+@:valueType
 extern class MaterialFunction extends MaterialFunctionInterface {
 	public var Description: FString;
 	public var bExposeToLibrary: Bool;
 	public var bPrefixParameterNames: Bool;
+	public var bEnableExecWire: Bool;
+	public var bEnableNewHLSLGenerator: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,12 +23,16 @@ abstract ConstMaterialFunction(MaterialFunction) from MaterialFunction {
 	public inline extern function get_bExposeToLibrary(): Bool return this.bExposeToLibrary;
 	public extern var bPrefixParameterNames(get, never): Bool;
 	public inline extern function get_bPrefixParameterNames(): Bool return this.bPrefixParameterNames;
+	public extern var bEnableExecWire(get, never): Bool;
+	public inline extern function get_bEnableExecWire(): Bool return this.bEnableExecWire;
+	public extern var bEnableNewHLSLGenerator(get, never): Bool;
+	public inline extern function get_bEnableNewHLSLGenerator(): Bool return this.bEnableNewHLSLGenerator;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialFunction*")
-abstract MaterialFunctionPtr(cpp.Star<MaterialFunction>) from cpp.Star<MaterialFunction> to cpp.Star<MaterialFunction>{
+abstract MaterialFunctionPtr(ucpp.Ptr<MaterialFunction>) from ucpp.Ptr<MaterialFunction> to ucpp.Ptr<MaterialFunction>{
 	@:from
 	public static extern inline function fromValue(v: MaterialFunction): MaterialFunctionPtr {
 		return untyped __cpp__("&({0})", v);

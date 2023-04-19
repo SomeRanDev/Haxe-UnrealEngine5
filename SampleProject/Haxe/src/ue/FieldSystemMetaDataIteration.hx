@@ -3,26 +3,26 @@ package ue;
 
 @:native("UFieldSystemMetaDataIteration")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class FieldSystemMetaDataIteration extends FieldSystemMetaData {
-	public var Iterations: cpp.Int32;
+	public var Iterations: ucpp.num.Int32;
 
-	public function SetMetaDataIteration(Iterations: cpp.Int32): cpp.Star<FieldSystemMetaDataIteration>;
+	public function SetMetaDataIteration(Iterations: ucpp.num.Int32): ucpp.Ptr<FieldSystemMetaDataIteration>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFieldSystemMetaDataIteration(FieldSystemMetaDataIteration) from FieldSystemMetaDataIteration {
-	public extern var Iterations(get, never): cpp.Int32;
-	public inline extern function get_Iterations(): cpp.Int32 return this.Iterations;
+	public extern var Iterations(get, never): ucpp.num.Int32;
+	public inline extern function get_Iterations(): ucpp.num.Int32 return this.Iterations;
 }
 
 @:forward
 @:nativeGen
 @:native("FieldSystemMetaDataIteration*")
-abstract FieldSystemMetaDataIterationPtr(cpp.Star<FieldSystemMetaDataIteration>) from cpp.Star<FieldSystemMetaDataIteration> to cpp.Star<FieldSystemMetaDataIteration>{
+abstract FieldSystemMetaDataIterationPtr(ucpp.Ptr<FieldSystemMetaDataIteration>) from ucpp.Ptr<FieldSystemMetaDataIteration> to ucpp.Ptr<FieldSystemMetaDataIteration>{
 	@:from
 	public static extern inline function fromValue(v: FieldSystemMetaDataIteration): FieldSystemMetaDataIterationPtr {
 		return untyped __cpp__("&({0})", v);

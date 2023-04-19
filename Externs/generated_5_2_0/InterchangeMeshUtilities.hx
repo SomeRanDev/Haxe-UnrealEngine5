@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeMeshUtilities")
 @:include("InterchangeMeshUtilities.h")
-@:structAccess
+@:valueType
 extern class InterchangeMeshUtilities extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeMeshUtilities(InterchangeMeshUtilities) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeMeshUtilities*")
-abstract InterchangeMeshUtilitiesPtr(cpp.Star<InterchangeMeshUtilities>) from cpp.Star<InterchangeMeshUtilities> to cpp.Star<InterchangeMeshUtilities>{
+abstract InterchangeMeshUtilitiesPtr(ucpp.Ptr<InterchangeMeshUtilities>) from ucpp.Ptr<InterchangeMeshUtilities> to ucpp.Ptr<InterchangeMeshUtilities>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMeshUtilities): InterchangeMeshUtilitiesPtr {
 		return untyped __cpp__("&({0})", v);

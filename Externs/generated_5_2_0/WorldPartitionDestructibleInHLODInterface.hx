@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UWorldPartitionDestructibleInHLODInterface")
-@:structAccess
+@:valueType
 extern class WorldPartitionDestructibleInHLODInterface extends Interface {
-	public function SetHLODDestructionTag(InDestructionTag: cpp.Reference<WorldPartitionHLODDestructionTag>): Void;
+	public function SetHLODDestructionTag(InDestructionTag: ucpp.Ref<WorldPartitionHLODDestructionTag>): Void;
 	public function GetHLODDestructionTag(): WorldPartitionHLODDestructionTag;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetHLODDestructionTag)
@@ -18,7 +18,7 @@ abstract ConstWorldPartitionDestructibleInHLODInterface(WorldPartitionDestructib
 @:forward
 @:nativeGen
 @:native("WorldPartitionDestructibleInHLODInterface*")
-abstract WorldPartitionDestructibleInHLODInterfacePtr(cpp.Star<WorldPartitionDestructibleInHLODInterface>) from cpp.Star<WorldPartitionDestructibleInHLODInterface> to cpp.Star<WorldPartitionDestructibleInHLODInterface>{
+abstract WorldPartitionDestructibleInHLODInterfacePtr(ucpp.Ptr<WorldPartitionDestructibleInHLODInterface>) from ucpp.Ptr<WorldPartitionDestructibleInHLODInterface> to ucpp.Ptr<WorldPartitionDestructibleInHLODInterface>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionDestructibleInHLODInterface): WorldPartitionDestructibleInHLODInterfacePtr {
 		return untyped __cpp__("&({0})", v);

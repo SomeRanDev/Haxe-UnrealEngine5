@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEnhancedInputActionValueBinding")
 @:include("EnhancedInputActionDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputActionValueBinding extends InputDelegateBinding {
 	public var InputActionValueBindings: TArray<BlueprintEnhancedInputActionBinding>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEnhancedInputActionValueBinding(EnhancedInputActionValueBinding) f
 @:forward
 @:nativeGen
 @:native("EnhancedInputActionValueBinding*")
-abstract EnhancedInputActionValueBindingPtr(cpp.Star<EnhancedInputActionValueBinding>) from cpp.Star<EnhancedInputActionValueBinding> to cpp.Star<EnhancedInputActionValueBinding>{
+abstract EnhancedInputActionValueBindingPtr(ucpp.Ptr<EnhancedInputActionValueBinding>) from ucpp.Ptr<EnhancedInputActionValueBinding> to ucpp.Ptr<EnhancedInputActionValueBinding>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputActionValueBinding): EnhancedInputActionValueBindingPtr {
 		return untyped __cpp__("&({0})", v);

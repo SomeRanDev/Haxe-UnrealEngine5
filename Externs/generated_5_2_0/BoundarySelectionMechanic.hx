@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBoundarySelectionMechanic")
 @:include("Selection/BoundarySelectionMechanic.h")
-@:structAccess
+@:valueType
 extern class BoundarySelectionMechanic extends MeshTopologySelectionMechanic {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBoundarySelectionMechanic(BoundarySelectionMechanic) from Boundary
 @:forward
 @:nativeGen
 @:native("BoundarySelectionMechanic*")
-abstract BoundarySelectionMechanicPtr(cpp.Star<BoundarySelectionMechanic>) from cpp.Star<BoundarySelectionMechanic> to cpp.Star<BoundarySelectionMechanic>{
+abstract BoundarySelectionMechanicPtr(ucpp.Ptr<BoundarySelectionMechanic>) from ucpp.Ptr<BoundarySelectionMechanic> to ucpp.Ptr<BoundarySelectionMechanic>{
 	@:from
 	public static extern inline function fromValue(v: BoundarySelectionMechanic): BoundarySelectionMechanicPtr {
 		return untyped __cpp__("&({0})", v);

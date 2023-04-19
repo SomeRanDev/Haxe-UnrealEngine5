@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_BlendListBase")
 @:include("AnimNodes/AnimNode_BlendListBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendListBase extends AnimNode_Base {
 	@:protected public var BlendPose: TArray<PoseLink>;
 

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UConvertMeshesToolProperties")
 @:include("ConvertMeshesTool.h")
-@:structAccess
+@:valueType
 extern class ConvertMeshesToolProperties extends InteractiveToolPropertySet {
 	public var bTransferMaterials: Bool;
 	public var bShowTransferMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstConvertMeshesToolProperties(ConvertMeshesToolProperties) from Conv
 @:forward
 @:nativeGen
 @:native("ConvertMeshesToolProperties*")
-abstract ConvertMeshesToolPropertiesPtr(cpp.Star<ConvertMeshesToolProperties>) from cpp.Star<ConvertMeshesToolProperties> to cpp.Star<ConvertMeshesToolProperties>{
+abstract ConvertMeshesToolPropertiesPtr(ucpp.Ptr<ConvertMeshesToolProperties>) from ucpp.Ptr<ConvertMeshesToolProperties> to ucpp.Ptr<ConvertMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ConvertMeshesToolProperties): ConvertMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

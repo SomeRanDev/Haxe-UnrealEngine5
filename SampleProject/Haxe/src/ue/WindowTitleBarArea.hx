@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWindowTitleBarArea")
 @:include("Components/WindowTitleBarArea.h")
-@:structAccess
+@:valueType
 extern class WindowTitleBarArea extends ContentWidget {
 	public var bWindowButtonsEnabled: Bool;
 	public var bDoubleClickTogglesFullscreen: Bool;
@@ -12,7 +12,7 @@ extern class WindowTitleBarArea extends ContentWidget {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstWindowTitleBarArea(WindowTitleBarArea) from WindowTitleBarArea {
 @:forward
 @:nativeGen
 @:native("WindowTitleBarArea*")
-abstract WindowTitleBarAreaPtr(cpp.Star<WindowTitleBarArea>) from cpp.Star<WindowTitleBarArea> to cpp.Star<WindowTitleBarArea>{
+abstract WindowTitleBarAreaPtr(ucpp.Ptr<WindowTitleBarArea>) from ucpp.Ptr<WindowTitleBarArea> to ucpp.Ptr<WindowTitleBarArea>{
 	@:from
 	public static extern inline function fromValue(v: WindowTitleBarArea): WindowTitleBarAreaPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionRuntimeVirtualTextureReplace")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureReplace.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionRuntimeVirtualTextureReplace extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var VirtualTextureOutput: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureReplace(MaterialExpressionR
 @:forward
 @:nativeGen
 @:native("MaterialExpressionRuntimeVirtualTextureReplace*")
-abstract MaterialExpressionRuntimeVirtualTextureReplacePtr(cpp.Star<MaterialExpressionRuntimeVirtualTextureReplace>) from cpp.Star<MaterialExpressionRuntimeVirtualTextureReplace> to cpp.Star<MaterialExpressionRuntimeVirtualTextureReplace>{
+abstract MaterialExpressionRuntimeVirtualTextureReplacePtr(ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureReplace>) from ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureReplace> to ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureReplace>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionRuntimeVirtualTextureReplace): MaterialExpressionRuntimeVirtualTextureReplacePtr {
 		return untyped __cpp__("&({0})", v);

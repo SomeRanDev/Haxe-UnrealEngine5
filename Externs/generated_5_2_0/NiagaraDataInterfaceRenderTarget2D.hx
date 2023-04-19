@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraDataInterfaceRenderTarget2D")
 @:include("NiagaraDataInterfaceRenderTarget2D.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceRenderTarget2D extends NiagaraDataInterfaceRWBase {
 	public var Size: IntPoint;
 	public var MipMapGeneration: ENiagaraMipMapGeneration;
@@ -13,9 +13,9 @@ extern class NiagaraDataInterfaceRenderTarget2D extends NiagaraDataInterfaceRWBa
 	public var bInheritUserParameterSettings: Bool;
 	public var bOverrideFormat: Bool;
 	public var RenderTargetUserParameter: NiagaraUserParameterBinding;
-	@:protected public var ManagedRenderTargets: TMap<cpp.UInt64, cpp.Star<TextureRenderTarget2D>>;
+	@:protected public var ManagedRenderTargets: TMap<ucpp.num.UInt64, ucpp.Ptr<TextureRenderTarget2D>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -42,7 +42,7 @@ abstract ConstNiagaraDataInterfaceRenderTarget2D(NiagaraDataInterfaceRenderTarge
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceRenderTarget2D*")
-abstract NiagaraDataInterfaceRenderTarget2DPtr(cpp.Star<NiagaraDataInterfaceRenderTarget2D>) from cpp.Star<NiagaraDataInterfaceRenderTarget2D> to cpp.Star<NiagaraDataInterfaceRenderTarget2D>{
+abstract NiagaraDataInterfaceRenderTarget2DPtr(ucpp.Ptr<NiagaraDataInterfaceRenderTarget2D>) from ucpp.Ptr<NiagaraDataInterfaceRenderTarget2D> to ucpp.Ptr<NiagaraDataInterfaceRenderTarget2D>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceRenderTarget2D): NiagaraDataInterfaceRenderTarget2DPtr {
 		return untyped __cpp__("&({0})", v);

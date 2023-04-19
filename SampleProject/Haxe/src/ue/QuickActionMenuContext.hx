@@ -3,24 +3,24 @@ package ue;
 
 @:native("UQuickActionMenuContext")
 @:include("LevelEditorMenuContext.h")
-@:structAccess
+@:valueType
 extern class QuickActionMenuContext extends Object {
-	public var CurrentSelection: cpp.Star<TypedElementSelectionSet>;
+	public var CurrentSelection: ucpp.Ptr<TypedElementSelectionSet>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstQuickActionMenuContext(QuickActionMenuContext) from QuickActionMenuContext {
-	public extern var CurrentSelection(get, never): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>;
-	public inline extern function get_CurrentSelection(): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet> return this.CurrentSelection;
+	public extern var CurrentSelection(get, never): ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>;
+	public inline extern function get_CurrentSelection(): ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet> return this.CurrentSelection;
 }
 
 @:forward
 @:nativeGen
 @:native("QuickActionMenuContext*")
-abstract QuickActionMenuContextPtr(cpp.Star<QuickActionMenuContext>) from cpp.Star<QuickActionMenuContext> to cpp.Star<QuickActionMenuContext>{
+abstract QuickActionMenuContextPtr(ucpp.Ptr<QuickActionMenuContext>) from ucpp.Ptr<QuickActionMenuContext> to ucpp.Ptr<QuickActionMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: QuickActionMenuContext): QuickActionMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

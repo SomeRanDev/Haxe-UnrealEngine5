@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraVMExecutableData")
 @:include("NiagaraScript.h")
-@:structAccess
+@:valueType
 extern class NiagaraVMExecutableData {
 	public var ByteCode: NiagaraVMExecutableByteCode;
 	public var OptimizedByteCode: NiagaraVMExecutableByteCode;
-	public var NumTempRegisters: cpp.Int32;
-	public var NumUserPtrs: cpp.Int32;
+	public var NumTempRegisters: ucpp.num.Int32;
+	public var NumUserPtrs: ucpp.num.Int32;
 	public var CompileTags: TArray<NiagaraCompilerTag>;
-	public var ScriptLiterals: TArray<cpp.UInt8>;
+	public var ScriptLiterals: TArray<ucpp.num.UInt8>;
 	public var Attributes: TArray<NiagaraVariable>;
 	public var DataUsage: NiagaraScriptDataUsageInfo;
 	public var DataInterfaceInfo: TArray<NiagaraScriptDataInterfaceCompileInfo>;
@@ -18,9 +18,10 @@ extern class NiagaraVMExecutableData {
 	public var ReadDataSets: TArray<NiagaraDataSetID>;
 	public var WriteDataSets: TArray<NiagaraDataSetProperties>;
 	public var StatScopes: TArray<NiagaraStatScope>;
-	public var DIParamInfo: TArray<NiagaraDataInterfaceGPUParamInfo>;
+	public var ShaderScriptParametersMetadata: NiagaraShaderScriptParametersMetadata;
 	public var LastCompileStatus: ENiagaraScriptCompileStatus;
 	public var SimulationStageMetaData: TArray<SimulationStageMetaData>;
+	public var ExperimentalContextData: TArray<ucpp.num.UInt8>;
 	public var bReadsSignificanceIndex: Bool;
 	public var bNeedsGPUContextInit: Bool;
 

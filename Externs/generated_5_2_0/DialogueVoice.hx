@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDialogueVoice")
 @:include("Sound/DialogueVoice.h")
-@:structAccess
+@:valueType
 extern class DialogueVoice extends Object {
 	public var Gender: TEnumAsByte<EGrammaticalGender>;
 	public var Plurality: TEnumAsByte<EGrammaticalNumber>;
 	public var LocalizationGUID: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstDialogueVoice(DialogueVoice) from DialogueVoice {
 @:forward
 @:nativeGen
 @:native("DialogueVoice*")
-abstract DialogueVoicePtr(cpp.Star<DialogueVoice>) from cpp.Star<DialogueVoice> to cpp.Star<DialogueVoice>{
+abstract DialogueVoicePtr(ucpp.Ptr<DialogueVoice>) from ucpp.Ptr<DialogueVoice> to ucpp.Ptr<DialogueVoice>{
 	@:from
 	public static extern inline function fromValue(v: DialogueVoice): DialogueVoicePtr {
 		return untyped __cpp__("&({0})", v);

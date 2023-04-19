@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPinnedCommandListContext")
 @:include("Private/PinnedCommandListSettings.h")
-@:structAccess
+@:valueType
 extern class PinnedCommandListContext {
 	public var Name: FName;
 	public var Commands: TArray<PinnedCommandListCommand>;

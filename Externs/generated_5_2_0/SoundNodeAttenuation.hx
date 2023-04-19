@@ -3,20 +3,20 @@ package ue;
 
 @:native("USoundNodeAttenuation")
 @:include("Sound/SoundNodeAttenuation.h")
-@:structAccess
+@:valueType
 extern class SoundNodeAttenuation extends SoundNode {
-	public var AttenuationSettings: cpp.Star<SoundAttenuation>;
+	public var AttenuationSettings: ucpp.Ptr<SoundAttenuation>;
 	public var AttenuationOverrides: SoundAttenuationSettings;
 	public var bOverrideAttenuation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeAttenuation(SoundNodeAttenuation) from SoundNodeAttenuation {
-	public extern var AttenuationSettings(get, never): cpp.Star<SoundAttenuation.ConstSoundAttenuation>;
-	public inline extern function get_AttenuationSettings(): cpp.Star<SoundAttenuation.ConstSoundAttenuation> return this.AttenuationSettings;
+	public extern var AttenuationSettings(get, never): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation>;
+	public inline extern function get_AttenuationSettings(): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation> return this.AttenuationSettings;
 	public extern var AttenuationOverrides(get, never): SoundAttenuationSettings;
 	public inline extern function get_AttenuationOverrides(): SoundAttenuationSettings return this.AttenuationOverrides;
 	public extern var bOverrideAttenuation(get, never): Bool;
@@ -26,7 +26,7 @@ abstract ConstSoundNodeAttenuation(SoundNodeAttenuation) from SoundNodeAttenuati
 @:forward
 @:nativeGen
 @:native("SoundNodeAttenuation*")
-abstract SoundNodeAttenuationPtr(cpp.Star<SoundNodeAttenuation>) from cpp.Star<SoundNodeAttenuation> to cpp.Star<SoundNodeAttenuation>{
+abstract SoundNodeAttenuationPtr(ucpp.Ptr<SoundNodeAttenuation>) from ucpp.Ptr<SoundNodeAttenuation> to ucpp.Ptr<SoundNodeAttenuation>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeAttenuation): SoundNodeAttenuationPtr {
 		return untyped __cpp__("&({0})", v);

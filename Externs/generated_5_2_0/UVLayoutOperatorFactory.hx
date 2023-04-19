@@ -3,24 +3,24 @@ package ue;
 
 @:native("UUVLayoutOperatorFactory")
 @:include("ParameterizationOps/UVLayoutOp.h")
-@:structAccess
+@:valueType
 extern class UVLayoutOperatorFactory extends Object {
-	public var Settings: cpp.Star<UVLayoutProperties>;
+	public var Settings: ucpp.Ptr<UVLayoutProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUVLayoutOperatorFactory(UVLayoutOperatorFactory) from UVLayoutOperatorFactory {
-	public extern var Settings(get, never): cpp.Star<UVLayoutProperties.ConstUVLayoutProperties>;
-	public inline extern function get_Settings(): cpp.Star<UVLayoutProperties.ConstUVLayoutProperties> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<UVLayoutProperties.ConstUVLayoutProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<UVLayoutProperties.ConstUVLayoutProperties> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("UVLayoutOperatorFactory*")
-abstract UVLayoutOperatorFactoryPtr(cpp.Star<UVLayoutOperatorFactory>) from cpp.Star<UVLayoutOperatorFactory> to cpp.Star<UVLayoutOperatorFactory>{
+abstract UVLayoutOperatorFactoryPtr(ucpp.Ptr<UVLayoutOperatorFactory>) from ucpp.Ptr<UVLayoutOperatorFactory> to ucpp.Ptr<UVLayoutOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: UVLayoutOperatorFactory): UVLayoutOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

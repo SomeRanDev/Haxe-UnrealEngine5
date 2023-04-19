@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDeformMeshPolygonsToolBuilder")
 @:include("DeformMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class DeformMeshPolygonsToolBuilder extends MeshSurfacePointMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDeformMeshPolygonsToolBuilder(DeformMeshPolygonsToolBuilder) from 
 @:forward
 @:nativeGen
 @:native("DeformMeshPolygonsToolBuilder*")
-abstract DeformMeshPolygonsToolBuilderPtr(cpp.Star<DeformMeshPolygonsToolBuilder>) from cpp.Star<DeformMeshPolygonsToolBuilder> to cpp.Star<DeformMeshPolygonsToolBuilder>{
+abstract DeformMeshPolygonsToolBuilderPtr(ucpp.Ptr<DeformMeshPolygonsToolBuilder>) from ucpp.Ptr<DeformMeshPolygonsToolBuilder> to ucpp.Ptr<DeformMeshPolygonsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: DeformMeshPolygonsToolBuilder): DeformMeshPolygonsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

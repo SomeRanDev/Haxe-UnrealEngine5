@@ -3,10 +3,10 @@ package ue;
 
 @:native("USubsurfaceProfileRenderer")
 @:include("ThumbnailRendering/SubsurfaceProfileRenderer.h")
-@:structAccess
+@:valueType
 extern class SubsurfaceProfileRenderer extends TextureThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSubsurfaceProfileRenderer(SubsurfaceProfileRenderer) from Subsurfa
 @:forward
 @:nativeGen
 @:native("SubsurfaceProfileRenderer*")
-abstract SubsurfaceProfileRendererPtr(cpp.Star<SubsurfaceProfileRenderer>) from cpp.Star<SubsurfaceProfileRenderer> to cpp.Star<SubsurfaceProfileRenderer>{
+abstract SubsurfaceProfileRendererPtr(ucpp.Ptr<SubsurfaceProfileRenderer>) from ucpp.Ptr<SubsurfaceProfileRenderer> to ucpp.Ptr<SubsurfaceProfileRenderer>{
 	@:from
 	public static extern inline function fromValue(v: SubsurfaceProfileRenderer): SubsurfaceProfileRendererPtr {
 		return untyped __cpp__("&({0})", v);

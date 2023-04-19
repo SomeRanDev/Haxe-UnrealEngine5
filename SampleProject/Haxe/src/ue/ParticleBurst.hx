@@ -3,12 +3,12 @@ package ue;
 
 @:native("FParticleBurst")
 @:include("Particles/ParticleEmitter.h")
-@:structAccess
+@:valueType
 extern class ParticleBurst {
-	public var Count: cpp.Int32;
-	public var CountLow: cpp.Int32;
-	public var Time: cpp.Float32;
+	public var Count: ucpp.num.Int32;
+	public var CountLow: ucpp.num.Int32;
+	public var Time: ucpp.num.Float32;
 
 	@:native("FParticleBurst") public function new();
-	@:native("FParticleBurst") public static function make(Count: cpp.Int32, CountLow: cpp.Int32, Time: cpp.Float32): ParticleBurst ;
+	@:native("FParticleBurst") public static function make(Count: ucpp.num.Int32, CountLow: ucpp.num.Int32, Time: ucpp.num.Float32): ParticleBurst ;
 }

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UShowCategoriesTest")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class ShowCategoriesTest extends HideCategoriesBase {
-	public var InDerived: cpp.Int32;
+	public var InDerived: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstShowCategoriesTest(ShowCategoriesTest) from ShowCategoriesTest {
-	public extern var InDerived(get, never): cpp.Int32;
-	public inline extern function get_InDerived(): cpp.Int32 return this.InDerived;
+	public extern var InDerived(get, never): ucpp.num.Int32;
+	public inline extern function get_InDerived(): ucpp.num.Int32 return this.InDerived;
 }
 
 @:forward
 @:nativeGen
 @:native("ShowCategoriesTest*")
-abstract ShowCategoriesTestPtr(cpp.Star<ShowCategoriesTest>) from cpp.Star<ShowCategoriesTest> to cpp.Star<ShowCategoriesTest>{
+abstract ShowCategoriesTestPtr(ucpp.Ptr<ShowCategoriesTest>) from ucpp.Ptr<ShowCategoriesTest> to ucpp.Ptr<ShowCategoriesTest>{
 	@:from
 	public static extern inline function fromValue(v: ShowCategoriesTest): ShowCategoriesTestPtr {
 		return untyped __cpp__("&({0})", v);

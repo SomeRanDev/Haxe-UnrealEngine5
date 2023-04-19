@@ -3,15 +3,15 @@ package ue;
 
 @:native("UEdGraph")
 @:include("EdGraph/EdGraph.h")
-@:structAccess
+@:valueType
 extern class EdGraph extends Object {
 	public var Schema: TSubclassOf<EdGraphSchema>;
-	public var Nodes: TArray<cpp.Star<EdGraphNode>>;
+	public var Nodes: TArray<ucpp.Ptr<EdGraphNode>>;
 	public var bEditable: Bool;
 	public var bAllowDeletion: Bool;
 	public var bAllowRenaming: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,8 +19,8 @@ extern class EdGraph extends Object {
 abstract ConstEdGraph(EdGraph) from EdGraph {
 	public extern var Schema(get, never): TSubclassOf<EdGraphSchema.ConstEdGraphSchema>;
 	public inline extern function get_Schema(): TSubclassOf<EdGraphSchema.ConstEdGraphSchema> return this.Schema;
-	public extern var Nodes(get, never): TArray<cpp.Star<EdGraphNode.ConstEdGraphNode>>;
-	public inline extern function get_Nodes(): TArray<cpp.Star<EdGraphNode.ConstEdGraphNode>> return this.Nodes;
+	public extern var Nodes(get, never): TArray<ucpp.Ptr<EdGraphNode.ConstEdGraphNode>>;
+	public inline extern function get_Nodes(): TArray<ucpp.Ptr<EdGraphNode.ConstEdGraphNode>> return this.Nodes;
 	public extern var bEditable(get, never): Bool;
 	public inline extern function get_bEditable(): Bool return this.bEditable;
 	public extern var bAllowDeletion(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstEdGraph(EdGraph) from EdGraph {
 @:forward
 @:nativeGen
 @:native("EdGraph*")
-abstract EdGraphPtr(cpp.Star<EdGraph>) from cpp.Star<EdGraph> to cpp.Star<EdGraph>{
+abstract EdGraphPtr(ucpp.Ptr<EdGraph>) from ucpp.Ptr<EdGraph> to ucpp.Ptr<EdGraph>{
 	@:from
 	public static extern inline function fromValue(v: EdGraph): EdGraphPtr {
 		return untyped __cpp__("&({0})", v);

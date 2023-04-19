@@ -3,40 +3,43 @@ package ue;
 
 @:native("UAnimMontage")
 @:include("Animation/AnimMontage.h")
-@:structAccess
+@:valueType
 extern class AnimMontage extends AnimCompositeBase {
 	public var BlendModeIn: EMontageBlendMode;
 	public var BlendModeOut: EMontageBlendMode;
 	public var BlendIn: AlphaBlend;
 	public var BlendOut: AlphaBlend;
-	public var BlendOutTriggerTime: cpp.Float32;
+	public var BlendOutTriggerTime: ucpp.num.Float32;
 	public var SyncGroup: FName;
-	public var SyncSlotIndex: cpp.Int32;
+	public var SyncSlotIndex: ucpp.num.Int32;
 	public var MarkerData: MarkerSyncData;
 	public var CompositeSections: TArray<CompositeSection>;
 	public var SlotAnimTracks: TArray<SlotAnimationTrack>;
 	public var bEnableRootMotionTranslation: Bool;
 	public var bEnableRootMotionRotation: Bool;
 	public var bEnableAutoBlendOut: Bool;
-	public var BlendProfileIn: cpp.Star<BlendProfile>;
-	public var BlendProfileOut: cpp.Star<BlendProfile>;
+	public var BlendProfileIn: ucpp.Ptr<BlendProfile>;
+	public var BlendProfileOut: ucpp.Ptr<BlendProfile>;
 	public var RootMotionRootLock: TEnumAsByte<ERootMotionRootLock>;
 	private var BranchingPointMarkers: TArray<BranchingPointMarker>;
-	public var BranchingPointStateNotifyIndices: TArray<cpp.Int32>;
+	public var BranchingPointStateNotifyIndices: TArray<ucpp.num.Int32>;
 	public var TimeStretchCurve: TimeStretchCurve;
 	public var TimeStretchCurveName: FName;
 
 	public function IsValidSectionName(InSectionName: FName): Bool;
-	public function GetDefaultBlendOutTime(): cpp.Float32;
-	public function GetDefaultBlendInTime(): cpp.Float32;
+	public function GetSectionName(SectionIndex: ucpp.num.Int32): FName;
+	public function GetSectionIndex(InSectionName: FName): ucpp.num.Int32;
+	public function GetNumSections(): ucpp.num.Int32;
+	public function GetDefaultBlendOutTime(): ucpp.num.Float32;
+	public function GetDefaultBlendInTime(): ucpp.num.Float32;
 	public function GetBlendOutArgs(): AlphaBlendArgs;
 	public function GetBlendInArgs(): AlphaBlendArgs;
-	public function CreateSlotAnimationAsDynamicMontage_WithBlendSettings(Asset: cpp.Star<AnimSequenceBase>, SlotNodeName: FName, BlendInSettings: cpp.Reference<MontageBlendSettings>, BlendOutSettings: cpp.Reference<MontageBlendSettings>, InPlayRate: cpp.Float32, LoopCount: cpp.Int32, InBlendOutTriggerTime: cpp.Float32): cpp.Star<AnimMontage>;
+	public function CreateSlotAnimationAsDynamicMontage_WithBlendSettings(Asset: ucpp.Ptr<AnimSequenceBase>, SlotNodeName: FName, BlendInSettings: ucpp.Ref<MontageBlendSettings>, BlendOutSettings: ucpp.Ref<MontageBlendSettings>, InPlayRate: ucpp.num.Float32, LoopCount: ucpp.num.Int32, InBlendOutTriggerTime: ucpp.num.Float32): ucpp.Ptr<AnimMontage>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(IsValidSectionName, GetDefaultBlendOutTime, GetDefaultBlendInTime, GetBlendOutArgs, GetBlendInArgs)
+@:forward(IsValidSectionName, GetSectionName, GetSectionIndex, GetNumSections, GetDefaultBlendOutTime, GetDefaultBlendInTime, GetBlendOutArgs, GetBlendInArgs)
 @:nativeGen
 abstract ConstAnimMontage(AnimMontage) from AnimMontage {
 	public extern var BlendModeIn(get, never): EMontageBlendMode;
@@ -47,12 +50,12 @@ abstract ConstAnimMontage(AnimMontage) from AnimMontage {
 	public inline extern function get_BlendIn(): AlphaBlend return this.BlendIn;
 	public extern var BlendOut(get, never): AlphaBlend;
 	public inline extern function get_BlendOut(): AlphaBlend return this.BlendOut;
-	public extern var BlendOutTriggerTime(get, never): cpp.Float32;
-	public inline extern function get_BlendOutTriggerTime(): cpp.Float32 return this.BlendOutTriggerTime;
+	public extern var BlendOutTriggerTime(get, never): ucpp.num.Float32;
+	public inline extern function get_BlendOutTriggerTime(): ucpp.num.Float32 return this.BlendOutTriggerTime;
 	public extern var SyncGroup(get, never): FName;
 	public inline extern function get_SyncGroup(): FName return this.SyncGroup;
-	public extern var SyncSlotIndex(get, never): cpp.Int32;
-	public inline extern function get_SyncSlotIndex(): cpp.Int32 return this.SyncSlotIndex;
+	public extern var SyncSlotIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_SyncSlotIndex(): ucpp.num.Int32 return this.SyncSlotIndex;
 	public extern var MarkerData(get, never): MarkerSyncData;
 	public inline extern function get_MarkerData(): MarkerSyncData return this.MarkerData;
 	public extern var CompositeSections(get, never): TArray<CompositeSection>;
@@ -65,14 +68,14 @@ abstract ConstAnimMontage(AnimMontage) from AnimMontage {
 	public inline extern function get_bEnableRootMotionRotation(): Bool return this.bEnableRootMotionRotation;
 	public extern var bEnableAutoBlendOut(get, never): Bool;
 	public inline extern function get_bEnableAutoBlendOut(): Bool return this.bEnableAutoBlendOut;
-	public extern var BlendProfileIn(get, never): cpp.Star<BlendProfile.ConstBlendProfile>;
-	public inline extern function get_BlendProfileIn(): cpp.Star<BlendProfile.ConstBlendProfile> return this.BlendProfileIn;
-	public extern var BlendProfileOut(get, never): cpp.Star<BlendProfile.ConstBlendProfile>;
-	public inline extern function get_BlendProfileOut(): cpp.Star<BlendProfile.ConstBlendProfile> return this.BlendProfileOut;
+	public extern var BlendProfileIn(get, never): ucpp.Ptr<BlendProfile.ConstBlendProfile>;
+	public inline extern function get_BlendProfileIn(): ucpp.Ptr<BlendProfile.ConstBlendProfile> return this.BlendProfileIn;
+	public extern var BlendProfileOut(get, never): ucpp.Ptr<BlendProfile.ConstBlendProfile>;
+	public inline extern function get_BlendProfileOut(): ucpp.Ptr<BlendProfile.ConstBlendProfile> return this.BlendProfileOut;
 	public extern var RootMotionRootLock(get, never): TEnumAsByte<ERootMotionRootLock>;
 	public inline extern function get_RootMotionRootLock(): TEnumAsByte<ERootMotionRootLock> return this.RootMotionRootLock;
-	public extern var BranchingPointStateNotifyIndices(get, never): TArray<cpp.Int32>;
-	public inline extern function get_BranchingPointStateNotifyIndices(): TArray<cpp.Int32> return this.BranchingPointStateNotifyIndices;
+	public extern var BranchingPointStateNotifyIndices(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_BranchingPointStateNotifyIndices(): TArray<ucpp.num.Int32> return this.BranchingPointStateNotifyIndices;
 	public extern var TimeStretchCurve(get, never): TimeStretchCurve;
 	public inline extern function get_TimeStretchCurve(): TimeStretchCurve return this.TimeStretchCurve;
 	public extern var TimeStretchCurveName(get, never): FName;
@@ -82,7 +85,7 @@ abstract ConstAnimMontage(AnimMontage) from AnimMontage {
 @:forward
 @:nativeGen
 @:native("AnimMontage*")
-abstract AnimMontagePtr(cpp.Star<AnimMontage>) from cpp.Star<AnimMontage> to cpp.Star<AnimMontage>{
+abstract AnimMontagePtr(ucpp.Ptr<AnimMontage>) from ucpp.Ptr<AnimMontage> to ucpp.Ptr<AnimMontage>{
 	@:from
 	public static extern inline function fromValue(v: AnimMontage): AnimMontagePtr {
 		return untyped __cpp__("&({0})", v);

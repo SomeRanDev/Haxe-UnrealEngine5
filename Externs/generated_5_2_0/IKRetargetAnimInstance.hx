@@ -3,12 +3,12 @@ package ue;
 
 @:native("UIKRetargetAnimInstance")
 @:include("RetargetEditor/IKRetargetAnimInstance.h")
-@:structAccess
+@:valueType
 extern class IKRetargetAnimInstance extends AnimPreviewInstance {
 	@:protected public var PreviewPoseNode: AnimNode_PreviewRetargetPose;
 	@:protected public var RetargetNode: AnimNode_RetargetPoseFromMesh;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstIKRetargetAnimInstance(IKRetargetAnimInstance) from IKRetargetAnim
 @:forward
 @:nativeGen
 @:native("IKRetargetAnimInstance*")
-abstract IKRetargetAnimInstancePtr(cpp.Star<IKRetargetAnimInstance>) from cpp.Star<IKRetargetAnimInstance> to cpp.Star<IKRetargetAnimInstance>{
+abstract IKRetargetAnimInstancePtr(ucpp.Ptr<IKRetargetAnimInstance>) from ucpp.Ptr<IKRetargetAnimInstance> to ucpp.Ptr<IKRetargetAnimInstance>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargetAnimInstance): IKRetargetAnimInstancePtr {
 		return untyped __cpp__("&({0})", v);

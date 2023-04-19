@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldSubsystem")
 @:include("Subsystems/WorldSubsystem.h")
-@:structAccess
+@:valueType
 extern class WorldSubsystem extends Subsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldSubsystem(WorldSubsystem) from WorldSubsystem {
 @:forward
 @:nativeGen
 @:native("WorldSubsystem*")
-abstract WorldSubsystemPtr(cpp.Star<WorldSubsystem>) from cpp.Star<WorldSubsystem> to cpp.Star<WorldSubsystem>{
+abstract WorldSubsystemPtr(ucpp.Ptr<WorldSubsystem>) from ucpp.Ptr<WorldSubsystem> to ucpp.Ptr<WorldSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: WorldSubsystem): WorldSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

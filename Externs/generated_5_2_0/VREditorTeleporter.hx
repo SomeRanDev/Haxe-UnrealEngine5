@@ -3,32 +3,32 @@ package ue;
 
 @:native("AVREditorTeleporter")
 @:include("Teleporter/VREditorTeleporter.h")
-@:structAccess
+@:valueType
 extern class VREditorTeleporter extends Actor {
-	private var VRMode: cpp.Star<VREditorMode>;
-	private var TeleportDirectionMeshComponent: cpp.Star<StaticMeshComp>;
-	private var HMDMeshComponent: cpp.Star<StaticMeshComp>;
-	private var LeftMotionControllerMeshComponent: cpp.Star<StaticMeshComp>;
-	private var RightMotionControllerMeshComponent: cpp.Star<StaticMeshComp>;
-	private var TeleportMID: cpp.Star<MaterialInstanceDynamic>;
-	private var InteractorTryingTeleport: cpp.Star<ViewportInteractor>;
+	private var VRMode: ucpp.Ptr<VREditorMode>;
+	private var TeleportDirectionMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var HMDMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var LeftMotionControllerMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var RightMotionControllerMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var TeleportMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var InteractorTryingTeleport: ucpp.Ptr<ViewportInteractor>;
 
 	public function TeleportDone(): Void;
 	private function StopAiming(): Void;
 	public function StartTeleport(): Void;
-	private function StartAiming(Interactor: cpp.Star<ViewportInteractor>): Void;
+	private function StartAiming(Interactor: ucpp.Ptr<ViewportInteractor>): Void;
 	public function Shutdown(): Void;
 	public function SetVisibility(bVisible: Bool): Void;
-	public function SetColor(Color: cpp.Reference<LinearColor>): Void;
+	public function SetColor(Color: ucpp.Ref<LinearColor>): Void;
 	public function IsTeleporting(): Bool;
 	public function IsAiming(): Bool;
-	public function Init(InMode: cpp.Star<VREditorMode>): Void;
-	public function GetVRMode(): cpp.Star<VREditorMode>;
-	public function GetSlideDelta(Interactor: cpp.Star<VREditorInteractor>, Axis: Bool): cpp.Float32;
-	private function GetInteractorTryingTeleport(): cpp.Star<ViewportInteractor>;
+	public function Init(InMode: ucpp.Ptr<VREditorMode>): Void;
+	public function GetVRMode(): ucpp.Ptr<VREditorMode>;
+	public function GetSlideDelta(Interactor: ucpp.Ptr<VREditorInteractor>, Axis: Bool): ucpp.num.Float32;
+	private function GetInteractorTryingTeleport(): ucpp.Ptr<ViewportInteractor>;
 	private function DoTeleport(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsTeleporting, IsAiming, GetVRMode, GetInteractorTryingTeleport)
@@ -39,7 +39,7 @@ abstract ConstVREditorTeleporter(VREditorTeleporter) from VREditorTeleporter {
 @:forward
 @:nativeGen
 @:native("VREditorTeleporter*")
-abstract VREditorTeleporterPtr(cpp.Star<VREditorTeleporter>) from cpp.Star<VREditorTeleporter> to cpp.Star<VREditorTeleporter>{
+abstract VREditorTeleporterPtr(ucpp.Ptr<VREditorTeleporter>) from ucpp.Ptr<VREditorTeleporter> to ucpp.Ptr<VREditorTeleporter>{
 	@:from
 	public static extern inline function fromValue(v: VREditorTeleporter): VREditorTeleporterPtr {
 		return untyped __cpp__("&({0})", v);

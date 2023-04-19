@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAnimSyncMarker")
 @:include("Animation/AnimTypes.h")
-@:structAccess
+@:valueType
 extern class AnimSyncMarker {
 	public var MarkerName: FName;
-	public var Time: cpp.Float32;
+	public var Time: ucpp.num.Float32;
 
 	@:native("FAnimSyncMarker") public function new();
-	@:native("FAnimSyncMarker") public static function make(MarkerName: FName, Time: cpp.Float32, TrackIndex: cpp.Int32, Guid: Guid): AnimSyncMarker ;
+	@:native("FAnimSyncMarker") public static function make(MarkerName: FName, Time: ucpp.num.Float32, TrackIndex: ucpp.num.Int32, Guid: Guid): AnimSyncMarker ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPatchId")
 @:include("EpicSynth1Types.h")
-@:structAccess
+@:valueType
 extern class PatchId {
-	public var Id: cpp.Int32;
+	public var Id: ucpp.num.Int32;
 
 	@:native("FPatchId") public function new();
-	@:native("FPatchId") public static function make(Id: cpp.Int32): PatchId ;
+	@:native("FPatchId") public static function make(Id: ucpp.num.Int32): PatchId ;
 }

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FParameterGroupData")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class ParameterGroupData {
 	public var GroupName: FString;
-	public var GroupSortPriority: cpp.Int32;
+	public var GroupSortPriority: ucpp.num.Int32;
 
 	@:native("FParameterGroupData") public function new();
-	@:native("FParameterGroupData") public static function make(GroupName: FString, GroupSortPriority: cpp.Int32): ParameterGroupData ;
+	@:native("FParameterGroupData") public static function make(GroupName: FString, GroupSortPriority: ucpp.num.Int32): ParameterGroupData ;
 }

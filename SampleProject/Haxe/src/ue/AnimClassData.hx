@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimClassData")
 @:include("Animation/AnimClassData.h")
-@:structAccess
+@:valueType
 extern class AnimClassData extends Object {
 	public var BakedStateMachines: TArray<BakedAnimationStateMachine>;
-	public var TargetSkeleton: cpp.Star<Skeleton>;
+	public var TargetSkeleton: ucpp.Ptr<Skeleton>;
 	public var AnimNotifies: TArray<AnimNotifyEvent>;
 	public var OrderedSavedPoseIndicesMap: TMap<FName, CachedPoseIndices>;
 	public var AnimBlueprintFunctions: TArray<AnimBlueprintFunction>;
@@ -22,7 +22,7 @@ extern class AnimClassData extends Object {
 	public var SyncGroupNames: TArray<FName>;
 	public var GraphBlendOptions: TMap<FName, AnimGraphBlendOptions>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,8 +30,8 @@ extern class AnimClassData extends Object {
 abstract ConstAnimClassData(AnimClassData) from AnimClassData {
 	public extern var BakedStateMachines(get, never): TArray<BakedAnimationStateMachine>;
 	public inline extern function get_BakedStateMachines(): TArray<BakedAnimationStateMachine> return this.BakedStateMachines;
-	public extern var TargetSkeleton(get, never): cpp.Star<Skeleton.ConstSkeleton>;
-	public inline extern function get_TargetSkeleton(): cpp.Star<Skeleton.ConstSkeleton> return this.TargetSkeleton;
+	public extern var TargetSkeleton(get, never): ucpp.Ptr<Skeleton.ConstSkeleton>;
+	public inline extern function get_TargetSkeleton(): ucpp.Ptr<Skeleton.ConstSkeleton> return this.TargetSkeleton;
 	public extern var AnimNotifies(get, never): TArray<AnimNotifyEvent>;
 	public inline extern function get_AnimNotifies(): TArray<AnimNotifyEvent> return this.AnimNotifies;
 	public extern var OrderedSavedPoseIndicesMap(get, never): TMap<FName, CachedPoseIndices>;
@@ -65,7 +65,7 @@ abstract ConstAnimClassData(AnimClassData) from AnimClassData {
 @:forward
 @:nativeGen
 @:native("AnimClassData*")
-abstract AnimClassDataPtr(cpp.Star<AnimClassData>) from cpp.Star<AnimClassData> to cpp.Star<AnimClassData>{
+abstract AnimClassDataPtr(ucpp.Ptr<AnimClassData>) from ucpp.Ptr<AnimClassData> to ucpp.Ptr<AnimClassData>{
 	@:from
 	public static extern inline function fromValue(v: AnimClassData): AnimClassDataPtr {
 		return untyped __cpp__("&({0})", v);

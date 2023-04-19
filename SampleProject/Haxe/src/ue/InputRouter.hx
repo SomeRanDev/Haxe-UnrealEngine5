@@ -3,13 +3,13 @@ package ue;
 
 @:native("UInputRouter")
 @:include("InputRouter.h")
-@:structAccess
+@:valueType
 extern class InputRouter extends Object {
 	public var bAutoInvalidateOnHover: Bool;
 	public var bAutoInvalidateOnCapture: Bool;
-	@:protected public var ActiveInputBehaviors: cpp.Star<InputBehaviorSet>;
+	@:protected public var ActiveInputBehaviors: ucpp.Ptr<InputBehaviorSet>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstInputRouter(InputRouter) from InputRouter {
 @:forward
 @:nativeGen
 @:native("InputRouter*")
-abstract InputRouterPtr(cpp.Star<InputRouter>) from cpp.Star<InputRouter> to cpp.Star<InputRouter>{
+abstract InputRouterPtr(ucpp.Ptr<InputRouter>) from ucpp.Ptr<InputRouter> to ucpp.Ptr<InputRouter>{
 	@:from
 	public static extern inline function fromValue(v: InputRouter): InputRouterPtr {
 		return untyped __cpp__("&({0})", v);

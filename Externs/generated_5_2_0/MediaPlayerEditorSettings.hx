@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMediaPlayerEditorSettings")
 @:include("Shared/MediaPlayerEditorSettings.h")
-@:structAccess
+@:valueType
 extern class MediaPlayerEditorSettings extends Object {
 	public var DesiredPlayerName: FName;
 	public var ShowTextOverlays: Bool;
 	public var ViewportScale: EMediaPlayerEditorScale;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMediaPlayerEditorSettings(MediaPlayerEditorSettings) from MediaPla
 @:forward
 @:nativeGen
 @:native("MediaPlayerEditorSettings*")
-abstract MediaPlayerEditorSettingsPtr(cpp.Star<MediaPlayerEditorSettings>) from cpp.Star<MediaPlayerEditorSettings> to cpp.Star<MediaPlayerEditorSettings>{
+abstract MediaPlayerEditorSettingsPtr(ucpp.Ptr<MediaPlayerEditorSettings>) from ucpp.Ptr<MediaPlayerEditorSettings> to ucpp.Ptr<MediaPlayerEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlayerEditorSettings): MediaPlayerEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

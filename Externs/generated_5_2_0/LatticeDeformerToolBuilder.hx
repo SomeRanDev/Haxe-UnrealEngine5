@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULatticeDeformerToolBuilder")
 @:include("LatticeDeformerTool.h")
-@:structAccess
+@:valueType
 extern class LatticeDeformerToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLatticeDeformerToolBuilder(LatticeDeformerToolBuilder) from Lattic
 @:forward
 @:nativeGen
 @:native("LatticeDeformerToolBuilder*")
-abstract LatticeDeformerToolBuilderPtr(cpp.Star<LatticeDeformerToolBuilder>) from cpp.Star<LatticeDeformerToolBuilder> to cpp.Star<LatticeDeformerToolBuilder>{
+abstract LatticeDeformerToolBuilderPtr(ucpp.Ptr<LatticeDeformerToolBuilder>) from ucpp.Ptr<LatticeDeformerToolBuilder> to ucpp.Ptr<LatticeDeformerToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: LatticeDeformerToolBuilder): LatticeDeformerToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

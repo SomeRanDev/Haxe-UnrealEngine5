@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UActorEndTouchOverSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ActorEndTouchOverSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstActorEndTouchOverSignature__PythonCallable(ActorEndTouchOverSignat
 @:forward
 @:nativeGen
 @:native("ActorEndTouchOverSignature__PythonCallable*")
-abstract ActorEndTouchOverSignature__PythonCallablePtr(cpp.Star<ActorEndTouchOverSignature__PythonCallable>) from cpp.Star<ActorEndTouchOverSignature__PythonCallable> to cpp.Star<ActorEndTouchOverSignature__PythonCallable>{
+abstract ActorEndTouchOverSignature__PythonCallablePtr(ucpp.Ptr<ActorEndTouchOverSignature__PythonCallable>) from ucpp.Ptr<ActorEndTouchOverSignature__PythonCallable> to ucpp.Ptr<ActorEndTouchOverSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ActorEndTouchOverSignature__PythonCallable): ActorEndTouchOverSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

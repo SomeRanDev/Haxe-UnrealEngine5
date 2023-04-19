@@ -3,10 +3,10 @@ package ue;
 
 @:native("USceneOutlinerMenuContext")
 @:include("SceneOutlinerMenuContext.h")
-@:structAccess
+@:valueType
 extern class SceneOutlinerMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSceneOutlinerMenuContext(SceneOutlinerMenuContext) from SceneOutli
 @:forward
 @:nativeGen
 @:native("SceneOutlinerMenuContext*")
-abstract SceneOutlinerMenuContextPtr(cpp.Star<SceneOutlinerMenuContext>) from cpp.Star<SceneOutlinerMenuContext> to cpp.Star<SceneOutlinerMenuContext>{
+abstract SceneOutlinerMenuContextPtr(ucpp.Ptr<SceneOutlinerMenuContext>) from ucpp.Ptr<SceneOutlinerMenuContext> to ucpp.Ptr<SceneOutlinerMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: SceneOutlinerMenuContext): SceneOutlinerMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

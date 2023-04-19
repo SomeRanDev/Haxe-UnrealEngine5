@@ -3,22 +3,22 @@ package ue;
 
 @:native("UGizmoElementArrow")
 @:include("BaseGizmos/GizmoElementArrow.h")
-@:structAccess
+@:valueType
 extern class GizmoElementArrow extends GizmoElementBase {
-	@:protected public var CylinderElement: cpp.Star<GizmoElementCylinder>;
-	@:protected public var ConeElement: cpp.Star<GizmoElementCone>;
-	@:protected public var BoxElement: cpp.Star<GizmoElementBox>;
+	@:protected public var CylinderElement: ucpp.Ptr<GizmoElementCylinder>;
+	@:protected public var ConeElement: ucpp.Ptr<GizmoElementCone>;
+	@:protected public var BoxElement: ucpp.Ptr<GizmoElementBox>;
 	@:protected public var Base: Vector;
 	@:protected public var Direction: Vector;
 	@:protected public var SideDirection: Vector;
-	@:protected public var BodyLength: cpp.Float32;
-	@:protected public var BodyRadius: cpp.Float32;
-	@:protected public var HeadLength: cpp.Float32;
-	@:protected public var HeadRadius: cpp.Float32;
-	@:protected public var NumSides: cpp.Int32;
+	@:protected public var BodyLength: ucpp.num.Float32;
+	@:protected public var BodyRadius: ucpp.num.Float32;
+	@:protected public var HeadLength: ucpp.num.Float32;
+	@:protected public var HeadRadius: ucpp.num.Float32;
+	@:protected public var NumSides: ucpp.num.Int32;
 	@:protected public var HeadType: EGizmoElementArrowHeadType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstGizmoElementArrow(GizmoElementArrow) from GizmoElementArrow {
 @:forward
 @:nativeGen
 @:native("GizmoElementArrow*")
-abstract GizmoElementArrowPtr(cpp.Star<GizmoElementArrow>) from cpp.Star<GizmoElementArrow> to cpp.Star<GizmoElementArrow>{
+abstract GizmoElementArrowPtr(ucpp.Ptr<GizmoElementArrow>) from ucpp.Ptr<GizmoElementArrow> to ucpp.Ptr<GizmoElementArrow>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementArrow): GizmoElementArrowPtr {
 		return untyped __cpp__("&({0})", v);

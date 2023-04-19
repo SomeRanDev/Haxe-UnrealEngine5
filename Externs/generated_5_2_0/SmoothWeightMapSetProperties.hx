@@ -3,24 +3,24 @@ package ue;
 
 @:native("USmoothWeightMapSetProperties")
 @:include("SmoothMeshTool.h")
-@:structAccess
+@:valueType
 extern class SmoothWeightMapSetProperties extends WeightMapSetProperties {
-	public var MinSmoothMultiplier: cpp.Float32;
+	public var MinSmoothMultiplier: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSmoothWeightMapSetProperties(SmoothWeightMapSetProperties) from SmoothWeightMapSetProperties {
-	public extern var MinSmoothMultiplier(get, never): cpp.Float32;
-	public inline extern function get_MinSmoothMultiplier(): cpp.Float32 return this.MinSmoothMultiplier;
+	public extern var MinSmoothMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_MinSmoothMultiplier(): ucpp.num.Float32 return this.MinSmoothMultiplier;
 }
 
 @:forward
 @:nativeGen
 @:native("SmoothWeightMapSetProperties*")
-abstract SmoothWeightMapSetPropertiesPtr(cpp.Star<SmoothWeightMapSetProperties>) from cpp.Star<SmoothWeightMapSetProperties> to cpp.Star<SmoothWeightMapSetProperties>{
+abstract SmoothWeightMapSetPropertiesPtr(ucpp.Ptr<SmoothWeightMapSetProperties>) from ucpp.Ptr<SmoothWeightMapSetProperties> to ucpp.Ptr<SmoothWeightMapSetProperties>{
 	@:from
 	public static extern inline function fromValue(v: SmoothWeightMapSetProperties): SmoothWeightMapSetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

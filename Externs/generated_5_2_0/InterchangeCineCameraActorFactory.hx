@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeCineCameraActorFactory")
 @:include("Scene/InterchangeCineCameraActorFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangeCineCameraActorFactory extends InterchangeFactoryBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeCineCameraActorFactory(InterchangeCineCameraActorFactor
 @:forward
 @:nativeGen
 @:native("InterchangeCineCameraActorFactory*")
-abstract InterchangeCineCameraActorFactoryPtr(cpp.Star<InterchangeCineCameraActorFactory>) from cpp.Star<InterchangeCineCameraActorFactory> to cpp.Star<InterchangeCineCameraActorFactory>{
+abstract InterchangeCineCameraActorFactoryPtr(ucpp.Ptr<InterchangeCineCameraActorFactory>) from ucpp.Ptr<InterchangeCineCameraActorFactory> to ucpp.Ptr<InterchangeCineCameraActorFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeCineCameraActorFactory): InterchangeCineCameraActorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,21 +3,21 @@ package ue;
 
 @:native("UBlueprintMapLibrary")
 @:include("Kismet/BlueprintMapLibrary.h")
-@:structAccess
+@:valueType
 extern class BlueprintMapLibrary extends BlueprintFunctionLibrary {
-	public function SetMapPropertyByName(Object: cpp.Star<Object>, PropertyName: FName, Value: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Void;
-	public function Map_Values(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Values: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function Map_Remove(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>): Bool;
-	public function Map_Length(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): cpp.Int32;
-	public function Map_Keys(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Keys: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function Map_IsNotEmpty(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Bool;
-	public function Map_IsEmpty(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Bool;
-	public function Map_Find(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>, Value: cpp.Reference<cpp.Int32>): Bool;
-	public function Map_Contains(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>): Bool;
-	public function Map_Clear(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>): Void;
-	public function Map_Add(TargetMap: cpp.Reference<TMap<cpp.Int32, cpp.Int32>>, Key: cpp.Reference<cpp.Int32>, Value: cpp.Reference<cpp.Int32>): Void;
+	public function SetMapPropertyByName(Object: ucpp.Ptr<Object>, PropertyName: FName, Value: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>): Void;
+	public function Map_Values(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>, Values: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function Map_Remove(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>, Key: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function Map_Length(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>): ucpp.num.Int32;
+	public function Map_Keys(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>, Keys: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function Map_IsNotEmpty(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>): Bool;
+	public function Map_IsEmpty(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>): Bool;
+	public function Map_Find(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>, Key: ucpp.Ref<ucpp.num.Int32>, Value: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function Map_Contains(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>, Key: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function Map_Clear(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>): Void;
+	public function Map_Add(TargetMap: ucpp.Ref<TMap<ucpp.num.Int32, ucpp.num.Int32>>, Key: ucpp.Ref<ucpp.num.Int32>, Value: ucpp.Ref<ucpp.num.Int32>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstBlueprintMapLibrary(BlueprintMapLibrary) from BlueprintMapLibrary 
 @:forward
 @:nativeGen
 @:native("BlueprintMapLibrary*")
-abstract BlueprintMapLibraryPtr(cpp.Star<BlueprintMapLibrary>) from cpp.Star<BlueprintMapLibrary> to cpp.Star<BlueprintMapLibrary>{
+abstract BlueprintMapLibraryPtr(ucpp.Ptr<BlueprintMapLibrary>) from ucpp.Ptr<BlueprintMapLibrary> to ucpp.Ptr<BlueprintMapLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintMapLibrary): BlueprintMapLibraryPtr {
 		return untyped __cpp__("&({0})", v);

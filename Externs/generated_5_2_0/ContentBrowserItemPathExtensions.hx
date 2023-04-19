@@ -3,15 +3,15 @@ package ue;
 
 @:native("UContentBrowserItemPathExtensions")
 @:include("ContentBrowserItemPath.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserItemPathExtensions extends BlueprintFunctionLibrary {
-	public function SetPath(ItemPath: cpp.Reference<ContentBrowserItemPath>, InPath: FName, InPathType: EContentBrowserPathType): Void;
+	public function SetPath(ItemPath: ucpp.Ref<ContentBrowserItemPath>, InPath: FName, InPathType: EContentBrowserPathType): Void;
 	public function MakeContentBrowserItemPath(InPath: FName, InPathType: EContentBrowserPathType): ContentBrowserItemPath;
-	public function GetVirtualPath(ItemPath: cpp.Reference<ContentBrowserItemPath>): FName;
-	public function GetInternalPath(ItemPath: cpp.Reference<ContentBrowserItemPath>): FName;
-	public function BreakContentBrowserItemPath(ItemPath: cpp.Reference<ContentBrowserItemPath>, VirtualPath: cpp.Reference<FName>, InternalPath: cpp.Reference<FName>): Void;
+	public function GetVirtualPath(ItemPath: ucpp.Ref<ContentBrowserItemPath>): FName;
+	public function GetInternalPath(ItemPath: ucpp.Ref<ContentBrowserItemPath>): FName;
+	public function BreakContentBrowserItemPath(ItemPath: ucpp.Ref<ContentBrowserItemPath>, VirtualPath: ucpp.Ref<FName>, InternalPath: ucpp.Ref<FName>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstContentBrowserItemPathExtensions(ContentBrowserItemPathExtensions)
 @:forward
 @:nativeGen
 @:native("ContentBrowserItemPathExtensions*")
-abstract ContentBrowserItemPathExtensionsPtr(cpp.Star<ContentBrowserItemPathExtensions>) from cpp.Star<ContentBrowserItemPathExtensions> to cpp.Star<ContentBrowserItemPathExtensions>{
+abstract ContentBrowserItemPathExtensionsPtr(ucpp.Ptr<ContentBrowserItemPathExtensions>) from ucpp.Ptr<ContentBrowserItemPathExtensions> to ucpp.Ptr<ContentBrowserItemPathExtensions>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserItemPathExtensions): ContentBrowserItemPathExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

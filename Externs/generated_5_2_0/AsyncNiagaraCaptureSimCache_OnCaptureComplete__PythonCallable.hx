@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable")
-@:structAccess
+@:valueType
 extern class AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable(Asyn
 @:forward
 @:nativeGen
 @:native("AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable*")
-abstract AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallablePtr(cpp.Star<AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable>) from cpp.Star<AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable> to cpp.Star<AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable>{
+abstract AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallablePtr(ucpp.Ptr<AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable>) from ucpp.Ptr<AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable> to ucpp.Ptr<AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallable): AsyncNiagaraCaptureSimCache_OnCaptureComplete__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

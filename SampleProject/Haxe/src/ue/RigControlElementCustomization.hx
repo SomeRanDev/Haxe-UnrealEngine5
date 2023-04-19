@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigControlElementCustomization")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigControlElementCustomization {
 	public var AvailableSpaces: TArray<RigElementKey>;
 	public var RemovedSpaces: TArray<RigElementKey>;

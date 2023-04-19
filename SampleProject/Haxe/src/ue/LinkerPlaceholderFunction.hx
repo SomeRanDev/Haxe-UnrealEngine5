@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULinkerPlaceholderFunction")
-@:structAccess
+@:valueType
 extern class LinkerPlaceholderFunction extends Function {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLinkerPlaceholderFunction(LinkerPlaceholderFunction) from LinkerPl
 @:forward
 @:nativeGen
 @:native("LinkerPlaceholderFunction*")
-abstract LinkerPlaceholderFunctionPtr(cpp.Star<LinkerPlaceholderFunction>) from cpp.Star<LinkerPlaceholderFunction> to cpp.Star<LinkerPlaceholderFunction>{
+abstract LinkerPlaceholderFunctionPtr(ucpp.Ptr<LinkerPlaceholderFunction>) from ucpp.Ptr<LinkerPlaceholderFunction> to ucpp.Ptr<LinkerPlaceholderFunction>{
 	@:from
 	public static extern inline function fromValue(v: LinkerPlaceholderFunction): LinkerPlaceholderFunctionPtr {
 		return untyped __cpp__("&({0})", v);

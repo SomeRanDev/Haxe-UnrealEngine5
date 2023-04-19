@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEditorUtilityWidgetBlueprintFactory")
 @:include("EditorUtilityWidgetBlueprintFactory.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityWidgetBlueprintFactory extends Factory {
 	public var BlueprintType: TEnumAsByte<EBlueprintType>;
 	public var ParentClass: TSubclassOf<UserWidget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEditorUtilityWidgetBlueprintFactory(EditorUtilityWidgetBlueprintFa
 @:forward
 @:nativeGen
 @:native("EditorUtilityWidgetBlueprintFactory*")
-abstract EditorUtilityWidgetBlueprintFactoryPtr(cpp.Star<EditorUtilityWidgetBlueprintFactory>) from cpp.Star<EditorUtilityWidgetBlueprintFactory> to cpp.Star<EditorUtilityWidgetBlueprintFactory>{
+abstract EditorUtilityWidgetBlueprintFactoryPtr(ucpp.Ptr<EditorUtilityWidgetBlueprintFactory>) from ucpp.Ptr<EditorUtilityWidgetBlueprintFactory> to ucpp.Ptr<EditorUtilityWidgetBlueprintFactory>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityWidgetBlueprintFactory): EditorUtilityWidgetBlueprintFactoryPtr {
 		return untyped __cpp__("&({0})", v);

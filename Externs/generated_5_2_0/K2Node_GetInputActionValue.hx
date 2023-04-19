@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_GetInputActionValue")
 @:include("K2Node_GetInputActionValue.h")
-@:structAccess
+@:valueType
 extern class K2Node_GetInputActionValue extends K2Node {
-	public var InputAction: cpp.Star<InputAction>;
+	public var InputAction: ucpp.Ptr<InputAction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_GetInputActionValue(K2Node_GetInputActionValue) from K2Node_GetInputActionValue {
-	public extern var InputAction(get, never): cpp.Star<InputAction.ConstInputAction>;
-	public inline extern function get_InputAction(): cpp.Star<InputAction.ConstInputAction> return this.InputAction;
+	public extern var InputAction(get, never): ucpp.Ptr<InputAction.ConstInputAction>;
+	public inline extern function get_InputAction(): ucpp.Ptr<InputAction.ConstInputAction> return this.InputAction;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_GetInputActionValue*")
-abstract K2Node_GetInputActionValuePtr(cpp.Star<K2Node_GetInputActionValue>) from cpp.Star<K2Node_GetInputActionValue> to cpp.Star<K2Node_GetInputActionValue>{
+abstract K2Node_GetInputActionValuePtr(ucpp.Ptr<K2Node_GetInputActionValue>) from ucpp.Ptr<K2Node_GetInputActionValue> to ucpp.Ptr<K2Node_GetInputActionValue>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_GetInputActionValue): K2Node_GetInputActionValuePtr {
 		return untyped __cpp__("&({0})", v);

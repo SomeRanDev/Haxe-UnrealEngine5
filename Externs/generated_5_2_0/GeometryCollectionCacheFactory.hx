@@ -3,24 +3,24 @@ package ue;
 
 @:native("UGeometryCollectionCacheFactory")
 @:include("GeometryCollection/GeometryCollectionCacheFactory.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionCacheFactory extends Factory {
-	public var TargetCollection: cpp.Star<GeometryCollection>;
+	public var TargetCollection: ucpp.Ptr<GeometryCollection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeometryCollectionCacheFactory(GeometryCollectionCacheFactory) from GeometryCollectionCacheFactory {
-	public extern var TargetCollection(get, never): cpp.Star<GeometryCollection.ConstGeometryCollection>;
-	public inline extern function get_TargetCollection(): cpp.Star<GeometryCollection.ConstGeometryCollection> return this.TargetCollection;
+	public extern var TargetCollection(get, never): ucpp.Ptr<GeometryCollection.ConstGeometryCollection>;
+	public inline extern function get_TargetCollection(): ucpp.Ptr<GeometryCollection.ConstGeometryCollection> return this.TargetCollection;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCollectionCacheFactory*")
-abstract GeometryCollectionCacheFactoryPtr(cpp.Star<GeometryCollectionCacheFactory>) from cpp.Star<GeometryCollectionCacheFactory> to cpp.Star<GeometryCollectionCacheFactory>{
+abstract GeometryCollectionCacheFactoryPtr(ucpp.Ptr<GeometryCollectionCacheFactory>) from ucpp.Ptr<GeometryCollectionCacheFactory> to ucpp.Ptr<GeometryCollectionCacheFactory>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionCacheFactory): GeometryCollectionCacheFactoryPtr {
 		return untyped __cpp__("&({0})", v);

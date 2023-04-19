@@ -3,15 +3,15 @@ package ue;
 
 @:native("UFieldSystemMetaDataFilter")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class FieldSystemMetaDataFilter extends FieldSystemMetaData {
 	public var FilterType: TEnumAsByte<EFieldFilterType>;
 	public var ObjectType: TEnumAsByte<EFieldObjectType>;
 	public var PositionType: TEnumAsByte<EFieldPositionType>;
 
-	public function SetMetaDataFilterType(FilterType: TEnumAsByte<EFieldFilterType>, ObjectType: TEnumAsByte<EFieldObjectType>, PositionType: TEnumAsByte<EFieldPositionType>): cpp.Star<FieldSystemMetaDataFilter>;
+	public function SetMetaDataFilterType(FilterType: TEnumAsByte<EFieldFilterType>, ObjectType: TEnumAsByte<EFieldObjectType>, PositionType: TEnumAsByte<EFieldPositionType>): ucpp.Ptr<FieldSystemMetaDataFilter>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstFieldSystemMetaDataFilter(FieldSystemMetaDataFilter) from FieldSys
 @:forward
 @:nativeGen
 @:native("FieldSystemMetaDataFilter*")
-abstract FieldSystemMetaDataFilterPtr(cpp.Star<FieldSystemMetaDataFilter>) from cpp.Star<FieldSystemMetaDataFilter> to cpp.Star<FieldSystemMetaDataFilter>{
+abstract FieldSystemMetaDataFilterPtr(ucpp.Ptr<FieldSystemMetaDataFilter>) from ucpp.Ptr<FieldSystemMetaDataFilter> to ucpp.Ptr<FieldSystemMetaDataFilter>{
 	@:from
 	public static extern inline function fromValue(v: FieldSystemMetaDataFilter): FieldSystemMetaDataFilterPtr {
 		return untyped __cpp__("&({0})", v);

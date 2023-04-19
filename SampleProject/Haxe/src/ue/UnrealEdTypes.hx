@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUnrealEdTypes")
 @:include("Editor/UnrealEdTypes.h")
-@:structAccess
+@:valueType
 extern class UnrealEdTypes extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUnrealEdTypes(UnrealEdTypes) from UnrealEdTypes {
 @:forward
 @:nativeGen
 @:native("UnrealEdTypes*")
-abstract UnrealEdTypesPtr(cpp.Star<UnrealEdTypes>) from cpp.Star<UnrealEdTypes> to cpp.Star<UnrealEdTypes>{
+abstract UnrealEdTypesPtr(ucpp.Ptr<UnrealEdTypes>) from ucpp.Ptr<UnrealEdTypes> to ucpp.Ptr<UnrealEdTypes>{
 	@:from
 	public static extern inline function fromValue(v: UnrealEdTypes): UnrealEdTypesPtr {
 		return untyped __cpp__("&({0})", v);

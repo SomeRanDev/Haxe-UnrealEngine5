@@ -6,5 +6,6 @@ package ue;
 extern class ENiagaraOutlinerViewModes {
 	static var State: ENiagaraOutlinerViewModes;
 	static var Performance: ENiagaraOutlinerViewModes;
+	static var Debug: ENiagaraOutlinerViewModes;
 	static var ENiagaraOutlinerViewModes_MAX: ENiagaraOutlinerViewModes;
 }

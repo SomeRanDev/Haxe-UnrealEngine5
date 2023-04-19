@@ -3,19 +3,19 @@ package ue;
 
 @:native("UTextLayoutWidget")
 @:include("Components/TextWidgetTypes.h")
-@:structAccess
+@:valueType
 extern class TextLayoutWidget extends Widget {
 	@:protected public var ShapedTextOptions: ShapedTextOptions;
 	@:protected public var Justification: TEnumAsByte<ETextJustify>;
 	@:protected public var WrappingPolicy: ETextWrappingPolicy;
 	@:protected public var AutoWrapText: Bool;
-	@:protected public var WrapTextAt: cpp.Float32;
+	@:protected public var WrapTextAt: ucpp.num.Float32;
 	@:protected public var Margin: Margin;
-	@:protected public var LineHeightPercentage: cpp.Float32;
+	@:protected public var LineHeightPercentage: ucpp.num.Float32;
 
 	public function SetJustification(InJustification: TEnumAsByte<ETextJustify>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstTextLayoutWidget(TextLayoutWidget) from TextLayoutWidget {
 @:forward
 @:nativeGen
 @:native("TextLayoutWidget*")
-abstract TextLayoutWidgetPtr(cpp.Star<TextLayoutWidget>) from cpp.Star<TextLayoutWidget> to cpp.Star<TextLayoutWidget>{
+abstract TextLayoutWidgetPtr(ucpp.Ptr<TextLayoutWidget>) from ucpp.Ptr<TextLayoutWidget> to ucpp.Ptr<TextLayoutWidget>{
 	@:from
 	public static extern inline function fromValue(v: TextLayoutWidget): TextLayoutWidgetPtr {
 		return untyped __cpp__("&({0})", v);

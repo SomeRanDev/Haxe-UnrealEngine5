@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintCallableFunctionRedirect")
 @:include("EdGraphSchema_K2.h")
-@:structAccess
+@:valueType
 extern class BlueprintCallableFunctionRedirect {
 	public var ClassName: FString;
 	public var OldFunctionName: FString;

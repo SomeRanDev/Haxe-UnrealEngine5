@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInputActionSpeechMapping")
 @:include("GameFramework/PlayerInput.h")
-@:structAccess
+@:valueType
 extern class InputActionSpeechMapping {
 	private var ActionName: FName;
 	private var SpeechKeyword: FName;

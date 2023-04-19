@@ -3,15 +3,15 @@ package ue;
 
 @:native("FPropertyPathTestInnerStruct")
 @:include("Private/Tests/PropertyPathHelpersTest.h")
-@:structAccess
+@:valueType
 extern class PropertyPathTestInnerStruct {
-	public var Float: cpp.Float32;
+	public var Float: ucpp.num.Float32;
 	public var Bool: Bool;
 	public var EnumOne: TEnumAsByte<EPropertyPathTestEnum>;
 	public var EnumTwo: TEnumAsByte<EPropertyPathTestEnum>;
 	public var EnumThree: TEnumAsByte<EPropertyPathTestEnum>;
 	public var EnumFour: TEnumAsByte<EPropertyPathTestEnum>;
-	public var Integer: cpp.Int32;
+	public var Integer: ucpp.num.Int32;
 	public var String: FString;
 
 	@:native("FPropertyPathTestInnerStruct") public function new();

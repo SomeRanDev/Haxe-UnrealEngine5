@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneNiagaraVectorParameterTrack")
 @:include("MovieScene/Parameters/MovieSceneNiagaraVectorParameterTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneNiagaraVectorParameterTrack extends MovieSceneNiagaraParameterTrack {
-	private var ChannelsUsed: cpp.Int32;
+	private var ChannelsUsed: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneNiagaraVectorParameterTrack(MovieSceneNiagaraVectorParam
 @:forward
 @:nativeGen
 @:native("MovieSceneNiagaraVectorParameterTrack*")
-abstract MovieSceneNiagaraVectorParameterTrackPtr(cpp.Star<MovieSceneNiagaraVectorParameterTrack>) from cpp.Star<MovieSceneNiagaraVectorParameterTrack> to cpp.Star<MovieSceneNiagaraVectorParameterTrack>{
+abstract MovieSceneNiagaraVectorParameterTrackPtr(ucpp.Ptr<MovieSceneNiagaraVectorParameterTrack>) from ucpp.Ptr<MovieSceneNiagaraVectorParameterTrack> to ucpp.Ptr<MovieSceneNiagaraVectorParameterTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneNiagaraVectorParameterTrack): MovieSceneNiagaraVectorParameterTrackPtr {
 		return untyped __cpp__("&({0})", v);

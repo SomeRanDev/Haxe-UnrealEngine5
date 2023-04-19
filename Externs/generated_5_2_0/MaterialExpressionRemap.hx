@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMaterialExpressionRemap")
 @:include("MaterialX/MaterialExpressionRemap.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionRemap extends MaterialExpression {
 	public var Input: ExpressionInput;
 	public var InputLow: ExpressionInput;
 	public var InputHigh: ExpressionInput;
 	public var TargetLow: ExpressionInput;
 	public var TargetHigh: ExpressionInput;
-	public var InputLowDefault: cpp.Float32;
-	public var InputHighDefault: cpp.Float32;
-	public var TargetLowDefault: cpp.Float32;
-	public var TargetHighDefault: cpp.Float32;
+	public var InputLowDefault: ucpp.num.Float32;
+	public var InputHighDefault: ucpp.num.Float32;
+	public var TargetLowDefault: ucpp.num.Float32;
+	public var TargetHighDefault: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,20 +31,20 @@ abstract ConstMaterialExpressionRemap(MaterialExpressionRemap) from MaterialExpr
 	public inline extern function get_TargetLow(): ExpressionInput return this.TargetLow;
 	public extern var TargetHigh(get, never): ExpressionInput;
 	public inline extern function get_TargetHigh(): ExpressionInput return this.TargetHigh;
-	public extern var InputLowDefault(get, never): cpp.Float32;
-	public inline extern function get_InputLowDefault(): cpp.Float32 return this.InputLowDefault;
-	public extern var InputHighDefault(get, never): cpp.Float32;
-	public inline extern function get_InputHighDefault(): cpp.Float32 return this.InputHighDefault;
-	public extern var TargetLowDefault(get, never): cpp.Float32;
-	public inline extern function get_TargetLowDefault(): cpp.Float32 return this.TargetLowDefault;
-	public extern var TargetHighDefault(get, never): cpp.Float32;
-	public inline extern function get_TargetHighDefault(): cpp.Float32 return this.TargetHighDefault;
+	public extern var InputLowDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_InputLowDefault(): ucpp.num.Float32 return this.InputLowDefault;
+	public extern var InputHighDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_InputHighDefault(): ucpp.num.Float32 return this.InputHighDefault;
+	public extern var TargetLowDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_TargetLowDefault(): ucpp.num.Float32 return this.TargetLowDefault;
+	public extern var TargetHighDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_TargetHighDefault(): ucpp.num.Float32 return this.TargetHighDefault;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionRemap*")
-abstract MaterialExpressionRemapPtr(cpp.Star<MaterialExpressionRemap>) from cpp.Star<MaterialExpressionRemap> to cpp.Star<MaterialExpressionRemap>{
+abstract MaterialExpressionRemapPtr(ucpp.Ptr<MaterialExpressionRemap>) from ucpp.Ptr<MaterialExpressionRemap> to ucpp.Ptr<MaterialExpressionRemap>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionRemap): MaterialExpressionRemapPtr {
 		return untyped __cpp__("&({0})", v);

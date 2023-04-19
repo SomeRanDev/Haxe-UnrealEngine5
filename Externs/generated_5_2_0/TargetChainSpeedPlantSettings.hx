@@ -3,14 +3,14 @@ package ue;
 
 @:native("FTargetChainSpeedPlantSettings")
 @:include("Retargeter/IKRetargetSettings.h")
-@:structAccess
+@:valueType
 extern class TargetChainSpeedPlantSettings {
 	public var EnableSpeedPlanting: Bool;
 	public var SpeedCurveName: FName;
-	public var SpeedThreshold: cpp.Float32;
-	public var UnplantStiffness: cpp.Float32;
-	public var UnplantCriticalDamping: cpp.Float32;
+	public var SpeedThreshold: ucpp.num.Float32;
+	public var UnplantStiffness: ucpp.num.Float32;
+	public var UnplantCriticalDamping: ucpp.num.Float32;
 
 	@:native("FTargetChainSpeedPlantSettings") public function new();
-	@:native("FTargetChainSpeedPlantSettings") public static function make(EnableSpeedPlanting: Bool, SpeedCurveName: FName, SpeedThreshold: cpp.Float32, UnplantStiffness: cpp.Float32, UnplantCriticalDamping: cpp.Float32): TargetChainSpeedPlantSettings ;
+	@:native("FTargetChainSpeedPlantSettings") public static function make(EnableSpeedPlanting: Bool, SpeedCurveName: FName, SpeedThreshold: ucpp.num.Float32, UnplantStiffness: ucpp.num.Float32, UnplantCriticalDamping: ucpp.num.Float32): TargetChainSpeedPlantSettings ;
 }

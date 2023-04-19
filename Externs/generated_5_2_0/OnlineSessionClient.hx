@@ -3,12 +3,12 @@ package ue;
 
 @:native("UOnlineSessionClient")
 @:include("OnlineSessionClient.h")
-@:structAccess
+@:valueType
 extern class OnlineSessionClient extends OnlineSession {
 	@:protected public var bIsFromInvite: Bool;
 	@:protected public var bHandlingDisconnect: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstOnlineSessionClient(OnlineSessionClient) from OnlineSessionClient 
 @:forward
 @:nativeGen
 @:native("OnlineSessionClient*")
-abstract OnlineSessionClientPtr(cpp.Star<OnlineSessionClient>) from cpp.Star<OnlineSessionClient> to cpp.Star<OnlineSessionClient>{
+abstract OnlineSessionClientPtr(ucpp.Ptr<OnlineSessionClient>) from ucpp.Ptr<OnlineSessionClient> to ucpp.Ptr<OnlineSessionClient>{
 	@:from
 	public static extern inline function fromValue(v: OnlineSessionClient): OnlineSessionClientPtr {
 		return untyped __cpp__("&({0})", v);

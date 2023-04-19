@@ -3,24 +3,24 @@ package ue;
 
 @:native("ULightMapVirtualTexture2D")
 @:include("VT/LightmapVirtualTexture.h")
-@:structAccess
+@:valueType
 extern class LightMapVirtualTexture2D extends Texture2D {
-	public var TypeToLayer: TArray<cpp.Int8>;
+	public var TypeToLayer: TArray<ucpp.num.Int8>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLightMapVirtualTexture2D(LightMapVirtualTexture2D) from LightMapVirtualTexture2D {
-	public extern var TypeToLayer(get, never): TArray<cpp.Int8>;
-	public inline extern function get_TypeToLayer(): TArray<cpp.Int8> return this.TypeToLayer;
+	public extern var TypeToLayer(get, never): TArray<ucpp.num.Int8>;
+	public inline extern function get_TypeToLayer(): TArray<ucpp.num.Int8> return this.TypeToLayer;
 }
 
 @:forward
 @:nativeGen
 @:native("LightMapVirtualTexture2D*")
-abstract LightMapVirtualTexture2DPtr(cpp.Star<LightMapVirtualTexture2D>) from cpp.Star<LightMapVirtualTexture2D> to cpp.Star<LightMapVirtualTexture2D>{
+abstract LightMapVirtualTexture2DPtr(ucpp.Ptr<LightMapVirtualTexture2D>) from ucpp.Ptr<LightMapVirtualTexture2D> to ucpp.Ptr<LightMapVirtualTexture2D>{
 	@:from
 	public static extern inline function fromValue(v: LightMapVirtualTexture2D): LightMapVirtualTexture2DPtr {
 		return untyped __cpp__("&({0})", v);

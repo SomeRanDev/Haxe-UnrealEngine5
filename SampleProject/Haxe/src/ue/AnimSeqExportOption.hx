@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAnimSeqExportOption")
 @:include("Exporters/AnimSeqExportOption.h")
-@:structAccess
+@:valueType
 extern class AnimSeqExportOption extends Object {
 	public var bExportTransforms: Bool;
 	public var bExportMorphTargets: Bool;
@@ -11,10 +11,15 @@ extern class AnimSeqExportOption extends Object {
 	public var bExportMaterialCurves: Bool;
 	public var bRecordInWorldSpace: Bool;
 	public var bEvaluateAllSkeletalMeshComponents: Bool;
+	public var Interpolation: EAnimInterpolationType;
+	public var CurveInterpolation: TEnumAsByte<ERichCurveInterpMode>;
+	public var IncludeAnimationNames: TArray<FString>;
+	public var ExcludeAnimationNames: TArray<FString>;
 	public var WarmUpFrames: FrameNumber;
 	public var DelayBeforeStart: FrameNumber;
+	public var bTransactRecording: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,16 +37,26 @@ abstract ConstAnimSeqExportOption(AnimSeqExportOption) from AnimSeqExportOption 
 	public inline extern function get_bRecordInWorldSpace(): Bool return this.bRecordInWorldSpace;
 	public extern var bEvaluateAllSkeletalMeshComponents(get, never): Bool;
 	public inline extern function get_bEvaluateAllSkeletalMeshComponents(): Bool return this.bEvaluateAllSkeletalMeshComponents;
+	public extern var Interpolation(get, never): EAnimInterpolationType;
+	public inline extern function get_Interpolation(): EAnimInterpolationType return this.Interpolation;
+	public extern var CurveInterpolation(get, never): TEnumAsByte<ERichCurveInterpMode>;
+	public inline extern function get_CurveInterpolation(): TEnumAsByte<ERichCurveInterpMode> return this.CurveInterpolation;
+	public extern var IncludeAnimationNames(get, never): TArray<FString>;
+	public inline extern function get_IncludeAnimationNames(): TArray<FString> return this.IncludeAnimationNames;
+	public extern var ExcludeAnimationNames(get, never): TArray<FString>;
+	public inline extern function get_ExcludeAnimationNames(): TArray<FString> return this.ExcludeAnimationNames;
 	public extern var WarmUpFrames(get, never): FrameNumber;
 	public inline extern function get_WarmUpFrames(): FrameNumber return this.WarmUpFrames;
 	public extern var DelayBeforeStart(get, never): FrameNumber;
 	public inline extern function get_DelayBeforeStart(): FrameNumber return this.DelayBeforeStart;
+	public extern var bTransactRecording(get, never): Bool;
+	public inline extern function get_bTransactRecording(): Bool return this.bTransactRecording;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimSeqExportOption*")
-abstract AnimSeqExportOptionPtr(cpp.Star<AnimSeqExportOption>) from cpp.Star<AnimSeqExportOption> to cpp.Star<AnimSeqExportOption>{
+abstract AnimSeqExportOptionPtr(ucpp.Ptr<AnimSeqExportOption>) from ucpp.Ptr<AnimSeqExportOption> to ucpp.Ptr<AnimSeqExportOption>{
 	@:from
 	public static extern inline function fromValue(v: AnimSeqExportOption): AnimSeqExportOptionPtr {
 		return untyped __cpp__("&({0})", v);

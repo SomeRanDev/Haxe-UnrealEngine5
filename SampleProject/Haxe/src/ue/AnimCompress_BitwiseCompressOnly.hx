@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimCompress_BitwiseCompressOnly")
 @:include("Animation/AnimCompress_BitwiseCompressOnly.h")
-@:structAccess
+@:valueType
 extern class AnimCompress_BitwiseCompressOnly extends AnimCompress {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimCompress_BitwiseCompressOnly(AnimCompress_BitwiseCompressOnly)
 @:forward
 @:nativeGen
 @:native("AnimCompress_BitwiseCompressOnly*")
-abstract AnimCompress_BitwiseCompressOnlyPtr(cpp.Star<AnimCompress_BitwiseCompressOnly>) from cpp.Star<AnimCompress_BitwiseCompressOnly> to cpp.Star<AnimCompress_BitwiseCompressOnly>{
+abstract AnimCompress_BitwiseCompressOnlyPtr(ucpp.Ptr<AnimCompress_BitwiseCompressOnly>) from ucpp.Ptr<AnimCompress_BitwiseCompressOnly> to ucpp.Ptr<AnimCompress_BitwiseCompressOnly>{
 	@:from
 	public static extern inline function fromValue(v: AnimCompress_BitwiseCompressOnly): AnimCompress_BitwiseCompressOnlyPtr {
 		return untyped __cpp__("&({0})", v);

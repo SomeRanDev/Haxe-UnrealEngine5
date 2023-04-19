@@ -3,44 +3,44 @@ package ue;
 
 @:native("UMeshSelectionTool")
 @:include("MeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class MeshSelectionTool extends DynamicMeshBrushTool {
-	public var SelectionProps: cpp.Star<MeshSelectionToolProperties>;
-	public var SelectionActions: cpp.Star<MeshSelectionEditActions>;
-	public var EditActions: cpp.Star<MeshSelectionToolActionPropertySet>;
-	public var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
-	public var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
-	public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
-	public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var Selection: cpp.Star<MeshSelectionSet>;
-	@:protected public var SpawnedActors: TArray<cpp.Star<Actor>>;
+	public var SelectionProps: ucpp.Ptr<MeshSelectionToolProperties>;
+	public var SelectionActions: ucpp.Ptr<MeshSelectionEditActions>;
+	public var EditActions: ucpp.Ptr<MeshSelectionToolActionPropertySet>;
+	public var MeshStatisticsProperties: ucpp.Ptr<MeshStatisticsProperties>;
+	public var MeshElementsDisplay: ucpp.Ptr<MeshElementsVisualizer>;
+	public var UVChannelProperties: ucpp.Ptr<MeshUVChannelProperties>;
+	public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var Selection: ucpp.Ptr<MeshSelectionSet>;
+	@:protected public var SpawnedActors: TArray<ucpp.Ptr<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshSelectionTool(MeshSelectionTool) from MeshSelectionTool {
-	public extern var SelectionProps(get, never): cpp.Star<MeshSelectionToolProperties.ConstMeshSelectionToolProperties>;
-	public inline extern function get_SelectionProps(): cpp.Star<MeshSelectionToolProperties.ConstMeshSelectionToolProperties> return this.SelectionProps;
-	public extern var SelectionActions(get, never): cpp.Star<MeshSelectionEditActions.ConstMeshSelectionEditActions>;
-	public inline extern function get_SelectionActions(): cpp.Star<MeshSelectionEditActions.ConstMeshSelectionEditActions> return this.SelectionActions;
-	public extern var EditActions(get, never): cpp.Star<MeshSelectionToolActionPropertySet.ConstMeshSelectionToolActionPropertySet>;
-	public inline extern function get_EditActions(): cpp.Star<MeshSelectionToolActionPropertySet.ConstMeshSelectionToolActionPropertySet> return this.EditActions;
-	public extern var MeshStatisticsProperties(get, never): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties>;
-	public inline extern function get_MeshStatisticsProperties(): cpp.Star<MeshStatisticsProperties.ConstMeshStatisticsProperties> return this.MeshStatisticsProperties;
-	public extern var MeshElementsDisplay(get, never): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
-	public inline extern function get_MeshElementsDisplay(): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.MeshElementsDisplay;
-	public extern var UVChannelProperties(get, never): cpp.Star<MeshUVChannelProperties.ConstMeshUVChannelProperties>;
-	public inline extern function get_UVChannelProperties(): cpp.Star<MeshUVChannelProperties.ConstMeshUVChannelProperties> return this.UVChannelProperties;
-	public extern var PolygroupLayerProperties(get, never): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties>;
-	public inline extern function get_PolygroupLayerProperties(): cpp.Star<PolygroupLayersProperties.ConstPolygroupLayersProperties> return this.PolygroupLayerProperties;
+	public extern var SelectionProps(get, never): ucpp.Ptr<MeshSelectionToolProperties.ConstMeshSelectionToolProperties>;
+	public inline extern function get_SelectionProps(): ucpp.Ptr<MeshSelectionToolProperties.ConstMeshSelectionToolProperties> return this.SelectionProps;
+	public extern var SelectionActions(get, never): ucpp.Ptr<MeshSelectionEditActions.ConstMeshSelectionEditActions>;
+	public inline extern function get_SelectionActions(): ucpp.Ptr<MeshSelectionEditActions.ConstMeshSelectionEditActions> return this.SelectionActions;
+	public extern var EditActions(get, never): ucpp.Ptr<MeshSelectionToolActionPropertySet.ConstMeshSelectionToolActionPropertySet>;
+	public inline extern function get_EditActions(): ucpp.Ptr<MeshSelectionToolActionPropertySet.ConstMeshSelectionToolActionPropertySet> return this.EditActions;
+	public extern var MeshStatisticsProperties(get, never): ucpp.Ptr<MeshStatisticsProperties.ConstMeshStatisticsProperties>;
+	public inline extern function get_MeshStatisticsProperties(): ucpp.Ptr<MeshStatisticsProperties.ConstMeshStatisticsProperties> return this.MeshStatisticsProperties;
+	public extern var MeshElementsDisplay(get, never): ucpp.Ptr<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
+	public inline extern function get_MeshElementsDisplay(): ucpp.Ptr<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.MeshElementsDisplay;
+	public extern var UVChannelProperties(get, never): ucpp.Ptr<MeshUVChannelProperties.ConstMeshUVChannelProperties>;
+	public inline extern function get_UVChannelProperties(): ucpp.Ptr<MeshUVChannelProperties.ConstMeshUVChannelProperties> return this.UVChannelProperties;
+	public extern var PolygroupLayerProperties(get, never): ucpp.Ptr<PolygroupLayersProperties.ConstPolygroupLayersProperties>;
+	public inline extern function get_PolygroupLayerProperties(): ucpp.Ptr<PolygroupLayersProperties.ConstPolygroupLayersProperties> return this.PolygroupLayerProperties;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshSelectionTool*")
-abstract MeshSelectionToolPtr(cpp.Star<MeshSelectionTool>) from cpp.Star<MeshSelectionTool> to cpp.Star<MeshSelectionTool>{
+abstract MeshSelectionToolPtr(ucpp.Ptr<MeshSelectionTool>) from ucpp.Ptr<MeshSelectionTool> to ucpp.Ptr<MeshSelectionTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshSelectionTool): MeshSelectionToolPtr {
 		return untyped __cpp__("&({0})", v);

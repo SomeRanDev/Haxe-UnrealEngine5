@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneImageCaptureProtocolBase")
 @:include("MovieSceneCaptureProtocolBase.h")
-@:structAccess
+@:valueType
 extern class MovieSceneImageCaptureProtocolBase extends MovieSceneCaptureProtocolBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneImageCaptureProtocolBase(MovieSceneImageCaptureProtocolB
 @:forward
 @:nativeGen
 @:native("MovieSceneImageCaptureProtocolBase*")
-abstract MovieSceneImageCaptureProtocolBasePtr(cpp.Star<MovieSceneImageCaptureProtocolBase>) from cpp.Star<MovieSceneImageCaptureProtocolBase> to cpp.Star<MovieSceneImageCaptureProtocolBase>{
+abstract MovieSceneImageCaptureProtocolBasePtr(ucpp.Ptr<MovieSceneImageCaptureProtocolBase>) from ucpp.Ptr<MovieSceneImageCaptureProtocolBase> to ucpp.Ptr<MovieSceneImageCaptureProtocolBase>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneImageCaptureProtocolBase): MovieSceneImageCaptureProtocolBasePtr {
 		return untyped __cpp__("&({0})", v);

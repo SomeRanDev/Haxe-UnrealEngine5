@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataflowSchema")
 @:include("Dataflow/DataflowSchema.h")
-@:structAccess
+@:valueType
 extern class DataflowSchema extends EdGraphSchema {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataflowSchema(DataflowSchema) from DataflowSchema {
 @:forward
 @:nativeGen
 @:native("DataflowSchema*")
-abstract DataflowSchemaPtr(cpp.Star<DataflowSchema>) from cpp.Star<DataflowSchema> to cpp.Star<DataflowSchema>{
+abstract DataflowSchemaPtr(ucpp.Ptr<DataflowSchema>) from ucpp.Ptr<DataflowSchema> to ucpp.Ptr<DataflowSchema>{
 	@:from
 	public static extern inline function fromValue(v: DataflowSchema): DataflowSchemaPtr {
 		return untyped __cpp__("&({0})", v);

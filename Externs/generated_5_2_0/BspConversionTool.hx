@@ -3,28 +3,28 @@ package ue;
 
 @:native("UBspConversionTool")
 @:include("BspConversionTool.h")
-@:structAccess
+@:valueType
 extern class BspConversionTool extends InteractiveTool {
-	public var Settings: cpp.Star<BspConversionToolProperties>;
-	public var ToolActions: cpp.Star<BspConversionToolActionPropertySet>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	public var Settings: ucpp.Ptr<BspConversionToolProperties>;
+	public var ToolActions: ucpp.Ptr<BspConversionToolActionPropertySet>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBspConversionTool(BspConversionTool) from BspConversionTool {
-	public extern var Settings(get, never): cpp.Star<BspConversionToolProperties.ConstBspConversionToolProperties>;
-	public inline extern function get_Settings(): cpp.Star<BspConversionToolProperties.ConstBspConversionToolProperties> return this.Settings;
-	public extern var ToolActions(get, never): cpp.Star<BspConversionToolActionPropertySet.ConstBspConversionToolActionPropertySet>;
-	public inline extern function get_ToolActions(): cpp.Star<BspConversionToolActionPropertySet.ConstBspConversionToolActionPropertySet> return this.ToolActions;
+	public extern var Settings(get, never): ucpp.Ptr<BspConversionToolProperties.ConstBspConversionToolProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<BspConversionToolProperties.ConstBspConversionToolProperties> return this.Settings;
+	public extern var ToolActions(get, never): ucpp.Ptr<BspConversionToolActionPropertySet.ConstBspConversionToolActionPropertySet>;
+	public inline extern function get_ToolActions(): ucpp.Ptr<BspConversionToolActionPropertySet.ConstBspConversionToolActionPropertySet> return this.ToolActions;
 }
 
 @:forward
 @:nativeGen
 @:native("BspConversionTool*")
-abstract BspConversionToolPtr(cpp.Star<BspConversionTool>) from cpp.Star<BspConversionTool> to cpp.Star<BspConversionTool>{
+abstract BspConversionToolPtr(ucpp.Ptr<BspConversionTool>) from ucpp.Ptr<BspConversionTool> to ucpp.Ptr<BspConversionTool>{
 	@:from
 	public static extern inline function fromValue(v: BspConversionTool): BspConversionToolPtr {
 		return untyped __cpp__("&({0})", v);

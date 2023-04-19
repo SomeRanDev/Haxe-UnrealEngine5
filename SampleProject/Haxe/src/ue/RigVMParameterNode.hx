@@ -3,16 +3,16 @@ package ue;
 
 @:native("URigVMParameterNode")
 @:include("RigVMModel/Nodes/RigVMParameterNode.h")
-@:structAccess
+@:valueType
 extern class RigVMParameterNode extends RigVMNode {
 	public function IsInput(): Bool;
 	public function GetParameterName(): FName;
 	public function GetParameterDescription(): RigVMGraphParameterDescription;
 	public function GetDefaultValue(): FString;
-	public function GetCPPTypeObject(): cpp.Star<Object>;
+	public function GetCPPTypeObject(): ucpp.Ptr<Object>;
 	public function GetCPPType(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsInput, GetParameterName, GetParameterDescription, GetDefaultValue, GetCPPTypeObject, GetCPPType)
@@ -23,7 +23,7 @@ abstract ConstRigVMParameterNode(RigVMParameterNode) from RigVMParameterNode {
 @:forward
 @:nativeGen
 @:native("RigVMParameterNode*")
-abstract RigVMParameterNodePtr(cpp.Star<RigVMParameterNode>) from cpp.Star<RigVMParameterNode> to cpp.Star<RigVMParameterNode>{
+abstract RigVMParameterNodePtr(ucpp.Ptr<RigVMParameterNode>) from ucpp.Ptr<RigVMParameterNode> to ucpp.Ptr<RigVMParameterNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMParameterNode): RigVMParameterNodePtr {
 		return untyped __cpp__("&({0})", v);

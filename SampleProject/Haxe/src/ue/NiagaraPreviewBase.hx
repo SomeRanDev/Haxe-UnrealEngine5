@@ -3,12 +3,12 @@ package ue;
 
 @:native("ANiagaraPreviewBase")
 @:include("NiagaraPreviewGrid.h")
-@:structAccess
+@:valueType
 extern class NiagaraPreviewBase extends Actor {
-	public function SetSystem(InSystem: cpp.Star<NiagaraSystem>): Void;
-	public function SetLabelText(InXAxisText: cpp.Reference<FText>, InYAxisText: cpp.Reference<FText>): Void;
+	public function SetSystem(InSystem: ucpp.Ptr<NiagaraSystem>): Void;
+	public function SetLabelText(InXAxisText: ucpp.Ref<FText>, InYAxisText: ucpp.Ref<FText>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraPreviewBase(NiagaraPreviewBase) from NiagaraPreviewBase {
 @:forward
 @:nativeGen
 @:native("NiagaraPreviewBase*")
-abstract NiagaraPreviewBasePtr(cpp.Star<NiagaraPreviewBase>) from cpp.Star<NiagaraPreviewBase> to cpp.Star<NiagaraPreviewBase>{
+abstract NiagaraPreviewBasePtr(ucpp.Ptr<NiagaraPreviewBase>) from ucpp.Ptr<NiagaraPreviewBase> to ucpp.Ptr<NiagaraPreviewBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPreviewBase): NiagaraPreviewBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidgetBaseBehavior")
-@:structAccess
+@:valueType
 extern class WidgetBaseBehavior extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidgetBaseBehavior(WidgetBaseBehavior) from WidgetBaseBehavior {
 @:forward
 @:nativeGen
 @:native("WidgetBaseBehavior*")
-abstract WidgetBaseBehaviorPtr(cpp.Star<WidgetBaseBehavior>) from cpp.Star<WidgetBaseBehavior> to cpp.Star<WidgetBaseBehavior>{
+abstract WidgetBaseBehaviorPtr(ucpp.Ptr<WidgetBaseBehavior>) from ucpp.Ptr<WidgetBaseBehavior> to ucpp.Ptr<WidgetBaseBehavior>{
 	@:from
 	public static extern inline function fromValue(v: WidgetBaseBehavior): WidgetBaseBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

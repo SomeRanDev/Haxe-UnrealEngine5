@@ -3,12 +3,12 @@ package ue;
 
 @:native("UWorldPartitionDestructibleInHLODSupportLibrary")
 @:include("WorldPartition/HLOD/HLODDestruction.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionDestructibleInHLODSupportLibrary extends BlueprintFunctionLibrary {
-	public function DestroyInHLOD(DestructibleInHLOD: cpp.Reference<WorldPartitionDestructibleInHLODInterface.ConstWorldPartitionDestructibleInHLODInterface>): Void;
-	public function DamageInHLOD(DestructibleInHLOD: cpp.Reference<WorldPartitionDestructibleInHLODInterface.ConstWorldPartitionDestructibleInHLODInterface>, DamagePercent: cpp.Float32): Void;
+	public function DestroyInHLOD(DestructibleInHLOD: ucpp.Ref<WorldPartitionDestructibleInHLODInterface.ConstWorldPartitionDestructibleInHLODInterface>): Void;
+	public function DamageInHLOD(DestructibleInHLOD: ucpp.Ref<WorldPartitionDestructibleInHLODInterface.ConstWorldPartitionDestructibleInHLODInterface>, DamagePercent: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstWorldPartitionDestructibleInHLODSupportLibrary(WorldPartitionDestr
 @:forward
 @:nativeGen
 @:native("WorldPartitionDestructibleInHLODSupportLibrary*")
-abstract WorldPartitionDestructibleInHLODSupportLibraryPtr(cpp.Star<WorldPartitionDestructibleInHLODSupportLibrary>) from cpp.Star<WorldPartitionDestructibleInHLODSupportLibrary> to cpp.Star<WorldPartitionDestructibleInHLODSupportLibrary>{
+abstract WorldPartitionDestructibleInHLODSupportLibraryPtr(ucpp.Ptr<WorldPartitionDestructibleInHLODSupportLibrary>) from ucpp.Ptr<WorldPartitionDestructibleInHLODSupportLibrary> to ucpp.Ptr<WorldPartitionDestructibleInHLODSupportLibrary>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionDestructibleInHLODSupportLibrary): WorldPartitionDestructibleInHLODSupportLibraryPtr {
 		return untyped __cpp__("&({0})", v);

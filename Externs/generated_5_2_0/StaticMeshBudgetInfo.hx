@@ -3,11 +3,11 @@ package ue;
 
 @:native("FStaticMeshBudgetInfo")
 @:include("MeshBudgetProjectSettings.h")
-@:structAccess
+@:valueType
 extern class StaticMeshBudgetInfo {
 	public var LodGroupName: FName;
-	public var MinimumExtent: cpp.Float64;
+	public var MinimumExtent: ucpp.num.Float64;
 
 	@:native("FStaticMeshBudgetInfo") public function new();
-	@:native("FStaticMeshBudgetInfo") public static function make(LodGroupName: FName, MinimumExtent: cpp.Float64): StaticMeshBudgetInfo ;
+	@:native("FStaticMeshBudgetInfo") public static function make(LodGroupName: FName, MinimumExtent: ucpp.num.Float64): StaticMeshBudgetInfo ;
 }

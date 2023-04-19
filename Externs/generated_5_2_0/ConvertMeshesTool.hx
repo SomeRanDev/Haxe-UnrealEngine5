@@ -3,27 +3,27 @@ package ue;
 
 @:native("UConvertMeshesTool")
 @:include("ConvertMeshesTool.h")
-@:structAccess
+@:valueType
 extern class ConvertMeshesTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<ConvertMeshesToolProperties>;
-	public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
+	public var BasicProperties: ucpp.Ptr<ConvertMeshesToolProperties>;
+	public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConvertMeshesTool(ConvertMeshesTool) from ConvertMeshesTool {
-	public extern var BasicProperties(get, never): cpp.Star<ConvertMeshesToolProperties.ConstConvertMeshesToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<ConvertMeshesToolProperties.ConstConvertMeshesToolProperties> return this.BasicProperties;
-	public extern var OutputTypeProperties(get, never): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
-	public inline extern function get_OutputTypeProperties(): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
+	public extern var BasicProperties(get, never): ucpp.Ptr<ConvertMeshesToolProperties.ConstConvertMeshesToolProperties>;
+	public inline extern function get_BasicProperties(): ucpp.Ptr<ConvertMeshesToolProperties.ConstConvertMeshesToolProperties> return this.BasicProperties;
+	public extern var OutputTypeProperties(get, never): ucpp.Ptr<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
+	public inline extern function get_OutputTypeProperties(): ucpp.Ptr<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
 }
 
 @:forward
 @:nativeGen
 @:native("ConvertMeshesTool*")
-abstract ConvertMeshesToolPtr(cpp.Star<ConvertMeshesTool>) from cpp.Star<ConvertMeshesTool> to cpp.Star<ConvertMeshesTool>{
+abstract ConvertMeshesToolPtr(ucpp.Ptr<ConvertMeshesTool>) from ucpp.Ptr<ConvertMeshesTool> to ucpp.Ptr<ConvertMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: ConvertMeshesTool): ConvertMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBookMark")
 @:include("Engine/BookMark.h")
-@:structAccess
+@:valueType
 extern class BookMark extends BookmarkBase {
 	public var Location: Vector;
 	public var Rotation: Rotator;
 	public var HiddenLevels: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstBookMark(BookMark) from BookMark {
 @:forward
 @:nativeGen
 @:native("BookMark*")
-abstract BookMarkPtr(cpp.Star<BookMark>) from cpp.Star<BookMark> to cpp.Star<BookMark>{
+abstract BookMarkPtr(ucpp.Ptr<BookMark>) from ucpp.Ptr<BookMark> to ucpp.Ptr<BookMark>{
 	@:from
 	public static extern inline function fromValue(v: BookMark): BookMarkPtr {
 		return untyped __cpp__("&({0})", v);

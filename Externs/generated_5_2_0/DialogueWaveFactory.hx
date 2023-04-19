@@ -3,33 +3,33 @@ package ue;
 
 @:native("UDialogueWaveFactory")
 @:include("Factories/DialogueWaveFactory.h")
-@:structAccess
+@:valueType
 extern class DialogueWaveFactory extends Factory {
-	public var InitialSoundWave: cpp.Star<SoundWave>;
-	public var InitialSpeakerVoice: cpp.Star<DialogueVoice>;
+	public var InitialSoundWave: ucpp.Ptr<SoundWave>;
+	public var InitialSpeakerVoice: ucpp.Ptr<DialogueVoice>;
 	public var HasSetInitialTargetVoice: Bool;
-	public var InitialTargetVoices: TArray<cpp.Star<DialogueVoice>>;
+	public var InitialTargetVoices: TArray<ucpp.Ptr<DialogueVoice>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDialogueWaveFactory(DialogueWaveFactory) from DialogueWaveFactory {
-	public extern var InitialSoundWave(get, never): cpp.Star<SoundWave.ConstSoundWave>;
-	public inline extern function get_InitialSoundWave(): cpp.Star<SoundWave.ConstSoundWave> return this.InitialSoundWave;
-	public extern var InitialSpeakerVoice(get, never): cpp.Star<DialogueVoice.ConstDialogueVoice>;
-	public inline extern function get_InitialSpeakerVoice(): cpp.Star<DialogueVoice.ConstDialogueVoice> return this.InitialSpeakerVoice;
+	public extern var InitialSoundWave(get, never): ucpp.Ptr<SoundWave.ConstSoundWave>;
+	public inline extern function get_InitialSoundWave(): ucpp.Ptr<SoundWave.ConstSoundWave> return this.InitialSoundWave;
+	public extern var InitialSpeakerVoice(get, never): ucpp.Ptr<DialogueVoice.ConstDialogueVoice>;
+	public inline extern function get_InitialSpeakerVoice(): ucpp.Ptr<DialogueVoice.ConstDialogueVoice> return this.InitialSpeakerVoice;
 	public extern var HasSetInitialTargetVoice(get, never): Bool;
 	public inline extern function get_HasSetInitialTargetVoice(): Bool return this.HasSetInitialTargetVoice;
-	public extern var InitialTargetVoices(get, never): TArray<cpp.Star<DialogueVoice.ConstDialogueVoice>>;
-	public inline extern function get_InitialTargetVoices(): TArray<cpp.Star<DialogueVoice.ConstDialogueVoice>> return this.InitialTargetVoices;
+	public extern var InitialTargetVoices(get, never): TArray<ucpp.Ptr<DialogueVoice.ConstDialogueVoice>>;
+	public inline extern function get_InitialTargetVoices(): TArray<ucpp.Ptr<DialogueVoice.ConstDialogueVoice>> return this.InitialTargetVoices;
 }
 
 @:forward
 @:nativeGen
 @:native("DialogueWaveFactory*")
-abstract DialogueWaveFactoryPtr(cpp.Star<DialogueWaveFactory>) from cpp.Star<DialogueWaveFactory> to cpp.Star<DialogueWaveFactory>{
+abstract DialogueWaveFactoryPtr(ucpp.Ptr<DialogueWaveFactory>) from ucpp.Ptr<DialogueWaveFactory> to ucpp.Ptr<DialogueWaveFactory>{
 	@:from
 	public static extern inline function fromValue(v: DialogueWaveFactory): DialogueWaveFactoryPtr {
 		return untyped __cpp__("&({0})", v);

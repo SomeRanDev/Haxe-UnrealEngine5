@@ -3,30 +3,30 @@ package ue;
 
 @:native("AIntervalGizmoActor")
 @:include("BaseGizmos/IntervalGizmo.h")
-@:structAccess
+@:valueType
 extern class IntervalGizmoActor extends GizmoActor {
-	public var UpIntervalComponent: cpp.Star<GizmoLineHandleComp>;
-	public var DownIntervalComponent: cpp.Star<GizmoLineHandleComp>;
-	public var ForwardIntervalComponent: cpp.Star<GizmoLineHandleComp>;
+	public var UpIntervalComponent: ucpp.Ptr<GizmoLineHandleComp>;
+	public var DownIntervalComponent: ucpp.Ptr<GizmoLineHandleComp>;
+	public var ForwardIntervalComponent: ucpp.Ptr<GizmoLineHandleComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstIntervalGizmoActor(IntervalGizmoActor) from IntervalGizmoActor {
-	public extern var UpIntervalComponent(get, never): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp>;
-	public inline extern function get_UpIntervalComponent(): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp> return this.UpIntervalComponent;
-	public extern var DownIntervalComponent(get, never): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp>;
-	public inline extern function get_DownIntervalComponent(): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp> return this.DownIntervalComponent;
-	public extern var ForwardIntervalComponent(get, never): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp>;
-	public inline extern function get_ForwardIntervalComponent(): cpp.Star<GizmoLineHandleComp.ConstGizmoLineHandleComp> return this.ForwardIntervalComponent;
+	public extern var UpIntervalComponent(get, never): ucpp.Ptr<GizmoLineHandleComp.ConstGizmoLineHandleComp>;
+	public inline extern function get_UpIntervalComponent(): ucpp.Ptr<GizmoLineHandleComp.ConstGizmoLineHandleComp> return this.UpIntervalComponent;
+	public extern var DownIntervalComponent(get, never): ucpp.Ptr<GizmoLineHandleComp.ConstGizmoLineHandleComp>;
+	public inline extern function get_DownIntervalComponent(): ucpp.Ptr<GizmoLineHandleComp.ConstGizmoLineHandleComp> return this.DownIntervalComponent;
+	public extern var ForwardIntervalComponent(get, never): ucpp.Ptr<GizmoLineHandleComp.ConstGizmoLineHandleComp>;
+	public inline extern function get_ForwardIntervalComponent(): ucpp.Ptr<GizmoLineHandleComp.ConstGizmoLineHandleComp> return this.ForwardIntervalComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("IntervalGizmoActor*")
-abstract IntervalGizmoActorPtr(cpp.Star<IntervalGizmoActor>) from cpp.Star<IntervalGizmoActor> to cpp.Star<IntervalGizmoActor>{
+abstract IntervalGizmoActorPtr(ucpp.Ptr<IntervalGizmoActor>) from ucpp.Ptr<IntervalGizmoActor> to ucpp.Ptr<IntervalGizmoActor>{
 	@:from
 	public static extern inline function fromValue(v: IntervalGizmoActor): IntervalGizmoActorPtr {
 		return untyped __cpp__("&({0})", v);

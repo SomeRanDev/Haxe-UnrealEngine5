@@ -3,26 +3,26 @@ package ue;
 
 @:native("UMovieSceneFolderExtensions")
 @:include("ExtensionLibraries/MovieSceneFolderExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneFolderExtensions extends BlueprintFunctionLibrary {
-	public function SetFolderName(Folder: cpp.Star<MovieSceneFolder>, InFolderName: FName): Bool;
-	public function SetFolderColor(Folder: cpp.Star<MovieSceneFolder>, InFolderColor: Color): Bool;
-	public function RemoveChildTrack(Folder: cpp.Star<MovieSceneFolder>, InTrack: cpp.Star<MovieSceneTrack>): Bool;
-	public function RemoveChildObjectBinding(Folder: cpp.Star<MovieSceneFolder>, InObjectBinding: MovieSceneBindingProxy): Bool;
-	public function RemoveChildMasterTrack(Folder: cpp.Star<MovieSceneFolder>, InTrack: cpp.Star<MovieSceneTrack>): Bool;
-	public function RemoveChildFolder(TargetFolder: cpp.Star<MovieSceneFolder>, FolderToRemove: cpp.Star<MovieSceneFolder>): Bool;
-	public function GetFolderName(Folder: cpp.Star<MovieSceneFolder>): FName;
-	public function GetFolderColor(Folder: cpp.Star<MovieSceneFolder>): Color;
-	public function GetChildTracks(Folder: cpp.Star<MovieSceneFolder>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function GetChildObjectBindings(Folder: cpp.Star<MovieSceneFolder>): TArray<MovieSceneBindingProxy>;
-	public function GetChildMasterTracks(Folder: cpp.Star<MovieSceneFolder>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function GetChildFolders(Folder: cpp.Star<MovieSceneFolder>): TArray<cpp.Star<MovieSceneFolder>>;
-	public function AddChildTrack(Folder: cpp.Star<MovieSceneFolder>, InTrack: cpp.Star<MovieSceneTrack>): Bool;
-	public function AddChildObjectBinding(Folder: cpp.Star<MovieSceneFolder>, InObjectBinding: MovieSceneBindingProxy): Bool;
-	public function AddChildMasterTrack(Folder: cpp.Star<MovieSceneFolder>, InTrack: cpp.Star<MovieSceneTrack>): Bool;
-	public function AddChildFolder(TargetFolder: cpp.Star<MovieSceneFolder>, FolderToAdd: cpp.Star<MovieSceneFolder>): Bool;
+	public function SetFolderName(Folder: ucpp.Ptr<MovieSceneFolder>, InFolderName: FName): Bool;
+	public function SetFolderColor(Folder: ucpp.Ptr<MovieSceneFolder>, InFolderColor: Color): Bool;
+	public function RemoveChildTrack(Folder: ucpp.Ptr<MovieSceneFolder>, InTrack: ucpp.Ptr<MovieSceneTrack>): Bool;
+	public function RemoveChildObjectBinding(Folder: ucpp.Ptr<MovieSceneFolder>, InObjectBinding: MovieSceneBindingProxy): Bool;
+	public function RemoveChildMasterTrack(Folder: ucpp.Ptr<MovieSceneFolder>, InTrack: ucpp.Ptr<MovieSceneTrack>): Bool;
+	public function RemoveChildFolder(TargetFolder: ucpp.Ptr<MovieSceneFolder>, FolderToRemove: ucpp.Ptr<MovieSceneFolder>): Bool;
+	public function GetFolderName(Folder: ucpp.Ptr<MovieSceneFolder>): FName;
+	public function GetFolderColor(Folder: ucpp.Ptr<MovieSceneFolder>): Color;
+	public function GetChildTracks(Folder: ucpp.Ptr<MovieSceneFolder>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function GetChildObjectBindings(Folder: ucpp.Ptr<MovieSceneFolder>): TArray<MovieSceneBindingProxy>;
+	public function GetChildMasterTracks(Folder: ucpp.Ptr<MovieSceneFolder>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function GetChildFolders(Folder: ucpp.Ptr<MovieSceneFolder>): TArray<ucpp.Ptr<MovieSceneFolder>>;
+	public function AddChildTrack(Folder: ucpp.Ptr<MovieSceneFolder>, InTrack: ucpp.Ptr<MovieSceneTrack>): Bool;
+	public function AddChildObjectBinding(Folder: ucpp.Ptr<MovieSceneFolder>, InObjectBinding: MovieSceneBindingProxy): Bool;
+	public function AddChildMasterTrack(Folder: ucpp.Ptr<MovieSceneFolder>, InTrack: ucpp.Ptr<MovieSceneTrack>): Bool;
+	public function AddChildFolder(TargetFolder: ucpp.Ptr<MovieSceneFolder>, FolderToAdd: ucpp.Ptr<MovieSceneFolder>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,7 +33,7 @@ abstract ConstMovieSceneFolderExtensions(MovieSceneFolderExtensions) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneFolderExtensions*")
-abstract MovieSceneFolderExtensionsPtr(cpp.Star<MovieSceneFolderExtensions>) from cpp.Star<MovieSceneFolderExtensions> to cpp.Star<MovieSceneFolderExtensions>{
+abstract MovieSceneFolderExtensionsPtr(ucpp.Ptr<MovieSceneFolderExtensions>) from ucpp.Ptr<MovieSceneFolderExtensions> to ucpp.Ptr<MovieSceneFolderExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneFolderExtensions): MovieSceneFolderExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

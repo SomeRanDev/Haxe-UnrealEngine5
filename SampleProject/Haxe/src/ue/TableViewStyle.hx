@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTableViewStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class TableViewStyle extends SlateWidgetStyle {
 	public var BackgroundBrush: SlateBrush;
 

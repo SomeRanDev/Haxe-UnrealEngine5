@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneConsoleVariableTrackInterface")
-@:structAccess
+@:valueType
 extern class MovieSceneConsoleVariableTrackInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneConsoleVariableTrackInterface(MovieSceneConsoleVariableT
 @:forward
 @:nativeGen
 @:native("MovieSceneConsoleVariableTrackInterface*")
-abstract MovieSceneConsoleVariableTrackInterfacePtr(cpp.Star<MovieSceneConsoleVariableTrackInterface>) from cpp.Star<MovieSceneConsoleVariableTrackInterface> to cpp.Star<MovieSceneConsoleVariableTrackInterface>{
+abstract MovieSceneConsoleVariableTrackInterfacePtr(ucpp.Ptr<MovieSceneConsoleVariableTrackInterface>) from ucpp.Ptr<MovieSceneConsoleVariableTrackInterface> to ucpp.Ptr<MovieSceneConsoleVariableTrackInterface>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneConsoleVariableTrackInterface): MovieSceneConsoleVariableTrackInterfacePtr {
 		return untyped __cpp__("&({0})", v);

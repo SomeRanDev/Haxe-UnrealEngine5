@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAISenseEvent")
 @:include("Perception/AISenseEvent.h")
-@:structAccess
+@:valueType
 extern class AISenseEvent extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAISenseEvent(AISenseEvent) from AISenseEvent {
 @:forward
 @:nativeGen
 @:native("AISenseEvent*")
-abstract AISenseEventPtr(cpp.Star<AISenseEvent>) from cpp.Star<AISenseEvent> to cpp.Star<AISenseEvent>{
+abstract AISenseEventPtr(ucpp.Ptr<AISenseEvent>) from ucpp.Ptr<AISenseEvent> to ucpp.Ptr<AISenseEvent>{
 	@:from
 	public static extern inline function fromValue(v: AISenseEvent): AISenseEventPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTypedElementCounterInterface")
-@:structAccess
+@:valueType
 extern class TypedElementCounterInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTypedElementCounterInterface(TypedElementCounterInterface) from Ty
 @:forward
 @:nativeGen
 @:native("TypedElementCounterInterface*")
-abstract TypedElementCounterInterfacePtr(cpp.Star<TypedElementCounterInterface>) from cpp.Star<TypedElementCounterInterface> to cpp.Star<TypedElementCounterInterface>{
+abstract TypedElementCounterInterfacePtr(ucpp.Ptr<TypedElementCounterInterface>) from ucpp.Ptr<TypedElementCounterInterface> to ucpp.Ptr<TypedElementCounterInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementCounterInterface): TypedElementCounterInterfacePtr {
 		return untyped __cpp__("&({0})", v);

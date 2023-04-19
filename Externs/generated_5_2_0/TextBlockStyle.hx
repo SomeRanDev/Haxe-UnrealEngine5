@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTextBlockStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class TextBlockStyle extends SlateWidgetStyle {
 	public var Font: SlateFontInfo;
 	public var ColorAndOpacity: SlateColor;

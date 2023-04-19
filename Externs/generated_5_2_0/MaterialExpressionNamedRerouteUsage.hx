@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMaterialExpressionNamedRerouteUsage")
 @:include("Materials/MaterialExpressionNamedReroute.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionNamedRerouteUsage extends MaterialExpressionNamedRerouteBase {
-	public var Declaration: cpp.Star<MaterialExpressionNamedRerouteDeclaration>;
+	public var Declaration: ucpp.Ptr<MaterialExpressionNamedRerouteDeclaration>;
 	public var DeclarationGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionNamedRerouteUsage(MaterialExpressionNamedRerouteUsage) from MaterialExpressionNamedRerouteUsage {
-	public extern var Declaration(get, never): cpp.Star<MaterialExpressionNamedRerouteDeclaration.ConstMaterialExpressionNamedRerouteDeclaration>;
-	public inline extern function get_Declaration(): cpp.Star<MaterialExpressionNamedRerouteDeclaration.ConstMaterialExpressionNamedRerouteDeclaration> return this.Declaration;
+	public extern var Declaration(get, never): ucpp.Ptr<MaterialExpressionNamedRerouteDeclaration.ConstMaterialExpressionNamedRerouteDeclaration>;
+	public inline extern function get_Declaration(): ucpp.Ptr<MaterialExpressionNamedRerouteDeclaration.ConstMaterialExpressionNamedRerouteDeclaration> return this.Declaration;
 	public extern var DeclarationGuid(get, never): Guid;
 	public inline extern function get_DeclarationGuid(): Guid return this.DeclarationGuid;
 }
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionNamedRerouteUsage(MaterialExpressionNamedReroute
 @:forward
 @:nativeGen
 @:native("MaterialExpressionNamedRerouteUsage*")
-abstract MaterialExpressionNamedRerouteUsagePtr(cpp.Star<MaterialExpressionNamedRerouteUsage>) from cpp.Star<MaterialExpressionNamedRerouteUsage> to cpp.Star<MaterialExpressionNamedRerouteUsage>{
+abstract MaterialExpressionNamedRerouteUsagePtr(ucpp.Ptr<MaterialExpressionNamedRerouteUsage>) from ucpp.Ptr<MaterialExpressionNamedRerouteUsage> to ucpp.Ptr<MaterialExpressionNamedRerouteUsage>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionNamedRerouteUsage): MaterialExpressionNamedRerouteUsagePtr {
 		return untyped __cpp__("&({0})", v);

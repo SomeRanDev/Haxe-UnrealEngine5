@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPythonScriptCommandlet")
 @:include("PythonScriptCommandlet.h")
-@:structAccess
+@:valueType
 extern class PythonScriptCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPythonScriptCommandlet(PythonScriptCommandlet) from PythonScriptCo
 @:forward
 @:nativeGen
 @:native("PythonScriptCommandlet*")
-abstract PythonScriptCommandletPtr(cpp.Star<PythonScriptCommandlet>) from cpp.Star<PythonScriptCommandlet> to cpp.Star<PythonScriptCommandlet>{
+abstract PythonScriptCommandletPtr(ucpp.Ptr<PythonScriptCommandlet>) from ucpp.Ptr<PythonScriptCommandlet> to ucpp.Ptr<PythonScriptCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: PythonScriptCommandlet): PythonScriptCommandletPtr {
 		return untyped __cpp__("&({0})", v);

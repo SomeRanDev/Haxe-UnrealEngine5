@@ -3,9 +3,9 @@ package ue;
 
 @:native("FSkeletalMaterial")
 @:include("Engine/SkinnedAssetCommon.h")
-@:structAccess
+@:valueType
 extern class SkeletalMaterial {
-	public var MaterialInterface: cpp.Star<MaterialInterface>;
+	public var MaterialInterface: ucpp.Ptr<MaterialInterface>;
 	public var MaterialSlotName: FName;
 	public var UVChannelData: MeshUVChannelInfo;
 

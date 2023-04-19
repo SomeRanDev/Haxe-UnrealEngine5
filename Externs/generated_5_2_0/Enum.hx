@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEnum")
-@:structAccess
+@:valueType
 extern class Enum extends Field {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEnum(Enum) from Enum {
 @:forward
 @:nativeGen
 @:native("Enum*")
-abstract EnumPtr(cpp.Star<Enum>) from cpp.Star<Enum> to cpp.Star<Enum>{
+abstract EnumPtr(ucpp.Ptr<Enum>) from ucpp.Ptr<Enum> to ucpp.Ptr<Enum>{
 	@:from
 	public static extern inline function fromValue(v: Enum): EnumPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,15 @@ package ue;
 
 @:native("UNiagaraNodeCustomHlsl")
 @:include("NiagaraNodeCustomHlsl.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeCustomHlsl extends NiagaraNodeFunctionCall {
 	public var ScriptUsage: ENiagaraScriptUsage;
 	private var CustomHlsl: FString;
+	private var AbsoluteIncludeFilePaths: TArray<FilePath>;
+	private var VirtualIncludeFilePaths: TArray<FString>;
+	private var bIsShaderCodeShown: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +24,7 @@ abstract ConstNiagaraNodeCustomHlsl(NiagaraNodeCustomHlsl) from NiagaraNodeCusto
 @:forward
 @:nativeGen
 @:native("NiagaraNodeCustomHlsl*")
-abstract NiagaraNodeCustomHlslPtr(cpp.Star<NiagaraNodeCustomHlsl>) from cpp.Star<NiagaraNodeCustomHlsl> to cpp.Star<NiagaraNodeCustomHlsl>{
+abstract NiagaraNodeCustomHlslPtr(ucpp.Ptr<NiagaraNodeCustomHlsl>) from ucpp.Ptr<NiagaraNodeCustomHlsl> to ucpp.Ptr<NiagaraNodeCustomHlsl>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeCustomHlsl): NiagaraNodeCustomHlslPtr {
 		return untyped __cpp__("&({0})", v);

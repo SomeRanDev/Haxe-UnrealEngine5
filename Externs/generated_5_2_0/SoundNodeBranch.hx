@@ -3,11 +3,11 @@ package ue;
 
 @:native("USoundNodeBranch")
 @:include("Sound/SoundNodeBranch.h")
-@:structAccess
+@:valueType
 extern class SoundNodeBranch extends SoundNode {
 	public var BoolParameterName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSoundNodeBranch(SoundNodeBranch) from SoundNodeBranch {
 @:forward
 @:nativeGen
 @:native("SoundNodeBranch*")
-abstract SoundNodeBranchPtr(cpp.Star<SoundNodeBranch>) from cpp.Star<SoundNodeBranch> to cpp.Star<SoundNodeBranch>{
+abstract SoundNodeBranchPtr(ucpp.Ptr<SoundNodeBranch>) from ucpp.Ptr<SoundNodeBranch> to ucpp.Ptr<SoundNodeBranch>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeBranch): SoundNodeBranchPtr {
 		return untyped __cpp__("&({0})", v);

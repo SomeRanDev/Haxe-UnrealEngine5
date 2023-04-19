@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUserWidgetExtension")
 @:include("Extensions/UserWidgetExtension.h")
-@:structAccess
+@:valueType
 extern class UserWidgetExtension extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUserWidgetExtension(UserWidgetExtension) from UserWidgetExtension 
 @:forward
 @:nativeGen
 @:native("UserWidgetExtension*")
-abstract UserWidgetExtensionPtr(cpp.Star<UserWidgetExtension>) from cpp.Star<UserWidgetExtension> to cpp.Star<UserWidgetExtension>{
+abstract UserWidgetExtensionPtr(ucpp.Ptr<UserWidgetExtension>) from ucpp.Ptr<UserWidgetExtension> to ucpp.Ptr<UserWidgetExtension>{
 	@:from
 	public static extern inline function fromValue(v: UserWidgetExtension): UserWidgetExtensionPtr {
 		return untyped __cpp__("&({0})", v);

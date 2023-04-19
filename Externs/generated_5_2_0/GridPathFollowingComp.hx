@@ -3,11 +3,11 @@ package ue;
 
 @:native("UGridPathFollowingComponent")
 @:include("Navigation/GridPathFollowingComponent.h")
-@:structAccess
+@:valueType
 extern class GridPathFollowingComp extends PathFollowingComp {
-	@:protected public var GridManager: cpp.Star<NavLocalGridManager>;
+	@:protected public var GridManager: ucpp.Ptr<NavLocalGridManager>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstGridPathFollowingComp(GridPathFollowingComp) from GridPathFollowin
 @:forward
 @:nativeGen
 @:native("GridPathFollowingComp*")
-abstract GridPathFollowingCompPtr(cpp.Star<GridPathFollowingComp>) from cpp.Star<GridPathFollowingComp> to cpp.Star<GridPathFollowingComp>{
+abstract GridPathFollowingCompPtr(ucpp.Ptr<GridPathFollowingComp>) from ucpp.Ptr<GridPathFollowingComp> to ucpp.Ptr<GridPathFollowingComp>{
 	@:from
 	public static extern inline function fromValue(v: GridPathFollowingComp): GridPathFollowingCompPtr {
 		return untyped __cpp__("&({0})", v);

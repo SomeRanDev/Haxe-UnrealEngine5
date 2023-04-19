@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_PromotableOperator")
 @:include("K2Node_PromotableOperator.h")
-@:structAccess
+@:valueType
 extern class K2Node_PromotableOperator extends K2Node_CallFunction {
-	private var NumAdditionalInputs: cpp.Int32;
+	private var NumAdditionalInputs: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_PromotableOperator(K2Node_PromotableOperator) from K2Node_P
 @:forward
 @:nativeGen
 @:native("K2Node_PromotableOperator*")
-abstract K2Node_PromotableOperatorPtr(cpp.Star<K2Node_PromotableOperator>) from cpp.Star<K2Node_PromotableOperator> to cpp.Star<K2Node_PromotableOperator>{
+abstract K2Node_PromotableOperatorPtr(ucpp.Ptr<K2Node_PromotableOperator>) from ucpp.Ptr<K2Node_PromotableOperator> to ucpp.Ptr<K2Node_PromotableOperator>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_PromotableOperator): K2Node_PromotableOperatorPtr {
 		return untyped __cpp__("&({0})", v);

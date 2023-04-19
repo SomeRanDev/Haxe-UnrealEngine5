@@ -3,16 +3,16 @@ package ue;
 
 @:native("FMovieSceneCaptureSettings")
 @:include("MovieSceneCaptureSettings.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCaptureSettings {
 	public var OutputDirectory: DirectoryPath;
 	public var GameModeOverride: TSubclassOf<GameModeBase>;
 	public var OutputFormat: FString;
 	public var bOverwriteExisting: Bool;
 	public var bUseRelativeFrameNumbers: Bool;
-	public var HandleFrames: cpp.Int32;
+	public var HandleFrames: ucpp.num.Int32;
 	public var MovieExtension: FString;
-	public var ZeroPadFrameNumbers: cpp.UInt8;
+	public var ZeroPadFrameNumbers: ucpp.num.UInt8;
 	public var FrameRate: FrameRate;
 	public var bUseCustomFrameRate: Bool;
 	public var CustomFrameRate: FrameRate;
@@ -25,7 +25,7 @@ extern class MovieSceneCaptureSettings {
 	public var bShowPlayer: Bool;
 	public var bShowHUD: Bool;
 	public var bUsePathTracer: Bool;
-	public var PathTracerSamplePerPixel: cpp.Int32;
+	public var PathTracerSamplePerPixel: ucpp.num.Int32;
 
 	@:native("FMovieSceneCaptureSettings") public function new();
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FConstraint")
 @:include("BoneControllers/AnimNode_Constraint.h")
-@:structAccess
+@:valueType
 extern class Constraint {
 	public var TargetBone: BoneReference;
 	public var OffsetOption: EConstraintOffsetOption;

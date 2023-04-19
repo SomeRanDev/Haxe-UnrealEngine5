@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendNode")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendNode {
 	private var ID: Guid;
 	public var ClassID: Guid;

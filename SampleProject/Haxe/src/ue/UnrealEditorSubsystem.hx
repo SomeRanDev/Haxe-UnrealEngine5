@@ -3,14 +3,14 @@ package ue;
 
 @:native("UUnrealEditorSubsystem")
 @:include("Subsystems/UnrealEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class UnrealEditorSubsystem extends EditorSubsystem {
 	public function SetLevelViewportCameraInfo(CameraLocation: Vector, CameraRotation: Rotator): Void;
-	public function GetLevelViewportCameraInfo(CameraLocation: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>): Bool;
-	public function GetGameWorld(): cpp.Star<World>;
-	public function GetEditorWorld(): cpp.Star<World>;
+	public function GetLevelViewportCameraInfo(CameraLocation: ucpp.Ref<Vector>, CameraRotation: ucpp.Ref<Rotator>): Bool;
+	public function GetGameWorld(): ucpp.Ptr<World>;
+	public function GetEditorWorld(): ucpp.Ptr<World>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstUnrealEditorSubsystem(UnrealEditorSubsystem) from UnrealEditorSubs
 @:forward
 @:nativeGen
 @:native("UnrealEditorSubsystem*")
-abstract UnrealEditorSubsystemPtr(cpp.Star<UnrealEditorSubsystem>) from cpp.Star<UnrealEditorSubsystem> to cpp.Star<UnrealEditorSubsystem>{
+abstract UnrealEditorSubsystemPtr(ucpp.Ptr<UnrealEditorSubsystem>) from ucpp.Ptr<UnrealEditorSubsystem> to ucpp.Ptr<UnrealEditorSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: UnrealEditorSubsystem): UnrealEditorSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

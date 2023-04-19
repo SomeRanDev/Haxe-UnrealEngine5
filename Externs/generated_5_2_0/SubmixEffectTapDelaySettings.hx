@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSubmixEffectTapDelaySettings")
 @:include("SubmixEffects/SubmixEffectTapDelay.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectTapDelaySettings {
-	public var MaximumDelayLength: cpp.Float32;
-	public var InterpolationTime: cpp.Float32;
+	public var MaximumDelayLength: ucpp.num.Float32;
+	public var InterpolationTime: ucpp.num.Float32;
 	public var Taps: TArray<TapDelayInfo>;
 
 	@:native("FSubmixEffectTapDelaySettings") public function new();
-	@:native("FSubmixEffectTapDelaySettings") public static function make(MaximumDelayLength: cpp.Float32, InterpolationTime: cpp.Float32, Taps: TArray<TapDelayInfo>): SubmixEffectTapDelaySettings ;
+	@:native("FSubmixEffectTapDelaySettings") public static function make(MaximumDelayLength: ucpp.num.Float32, InterpolationTime: ucpp.num.Float32, Taps: TArray<TapDelayInfo>): SubmixEffectTapDelaySettings ;
 }

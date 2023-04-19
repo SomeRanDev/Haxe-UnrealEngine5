@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULODManagerHiResSourceModelActions")
 @:include("Tools/LODManagerTool.h")
-@:structAccess
+@:valueType
 extern class LODManagerHiResSourceModelActions extends LODManagerActionPropertySet {
 	public function MoveToLOD0(): Void;
 	public function Delete(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstLODManagerHiResSourceModelActions(LODManagerHiResSourceModelAction
 @:forward
 @:nativeGen
 @:native("LODManagerHiResSourceModelActions*")
-abstract LODManagerHiResSourceModelActionsPtr(cpp.Star<LODManagerHiResSourceModelActions>) from cpp.Star<LODManagerHiResSourceModelActions> to cpp.Star<LODManagerHiResSourceModelActions>{
+abstract LODManagerHiResSourceModelActionsPtr(ucpp.Ptr<LODManagerHiResSourceModelActions>) from ucpp.Ptr<LODManagerHiResSourceModelActions> to ucpp.Ptr<LODManagerHiResSourceModelActions>{
 	@:from
 	public static extern inline function fromValue(v: LODManagerHiResSourceModelActions): LODManagerHiResSourceModelActionsPtr {
 		return untyped __cpp__("&({0})", v);

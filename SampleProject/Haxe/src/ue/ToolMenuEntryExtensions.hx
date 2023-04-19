@@ -3,23 +3,23 @@ package ue;
 
 @:native("UToolMenuEntryExtensions")
 @:include("ToolMenusBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ToolMenuEntryExtensions extends Object {
-	public function SetToolTip(Target: cpp.Reference<ToolMenuEntry>, ToolTip: cpp.Reference<FText>): Void;
-	public function SetStringCommand(Target: cpp.Reference<ToolMenuEntry>, Type: EToolMenuStringCommandType, CustomType: FName, String: FString): Void;
-	public function SetLabel(Target: cpp.Reference<ToolMenuEntry>, Label: cpp.Reference<FText>): Void;
-	public function SetIcon(Target: cpp.Reference<ToolMenuEntry>, StyleSetName: FName, StyleName: FName, SmallStyleName: FName): Void;
+	public function SetToolTip(Target: ucpp.Ref<ToolMenuEntry>, ToolTip: ucpp.Ref<FText>): Void;
+	public function SetStringCommand(Target: ucpp.Ref<ToolMenuEntry>, Type: EToolMenuStringCommandType, CustomType: FName, String: FString): Void;
+	public function SetLabel(Target: ucpp.Ref<ToolMenuEntry>, Label: ucpp.Ref<FText>): Void;
+	public function SetIcon(Target: ucpp.Ref<ToolMenuEntry>, StyleSetName: FName, StyleName: FName, SmallStyleName: FName): Void;
 	public function MakeToolMenuOwner(Name: FName): ToolMenuOwner;
 	public function MakeStringCommand(Type: EToolMenuStringCommandType, CustomType: FName, String: FString): ToolMenuStringCommand;
 	public function MakeScriptSlateIcon(StyleSetName: FName, StyleName: FName, SmallStyleName: FName): ScriptSlateIcon;
-	public function InitMenuEntry(InOwner: FName, InName: FName, InLabel: cpp.Reference<FText>, InToolTip: cpp.Reference<FText>, CommandType: EToolMenuStringCommandType, CustomCommandType: FName, CommandString: FString): ToolMenuEntry;
-	public function GetToolTip(Target: cpp.Reference<ToolMenuEntry>): FText;
-	public function GetLabel(Target: cpp.Reference<ToolMenuEntry>): FText;
-	public function BreakToolMenuOwner(InValue: cpp.Reference<ToolMenuOwner>, Name: cpp.Reference<FName>): Void;
-	public function BreakStringCommand(InValue: cpp.Reference<ToolMenuStringCommand>, Type: cpp.Reference<EToolMenuStringCommandType>, CustomType: cpp.Reference<FName>, String: cpp.Reference<FString>): Void;
-	public function BreakScriptSlateIcon(InValue: cpp.Reference<ScriptSlateIcon>, StyleSetName: cpp.Reference<FName>, StyleName: cpp.Reference<FName>, SmallStyleName: cpp.Reference<FName>): Void;
+	public function InitMenuEntry(InOwner: FName, InName: FName, InLabel: ucpp.Ref<FText>, InToolTip: ucpp.Ref<FText>, CommandType: EToolMenuStringCommandType, CustomCommandType: FName, CommandString: FString): ToolMenuEntry;
+	public function GetToolTip(Target: ucpp.Ref<ToolMenuEntry>): FText;
+	public function GetLabel(Target: ucpp.Ref<ToolMenuEntry>): FText;
+	public function BreakToolMenuOwner(InValue: ucpp.Ref<ToolMenuOwner>, Name: ucpp.Ref<FName>): Void;
+	public function BreakStringCommand(InValue: ucpp.Ref<ToolMenuStringCommand>, Type: ucpp.Ref<EToolMenuStringCommandType>, CustomType: ucpp.Ref<FName>, String: ucpp.Ref<FString>): Void;
+	public function BreakScriptSlateIcon(InValue: ucpp.Ref<ScriptSlateIcon>, StyleSetName: ucpp.Ref<FName>, StyleName: ucpp.Ref<FName>, SmallStyleName: ucpp.Ref<FName>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstToolMenuEntryExtensions(ToolMenuEntryExtensions) from ToolMenuEntr
 @:forward
 @:nativeGen
 @:native("ToolMenuEntryExtensions*")
-abstract ToolMenuEntryExtensionsPtr(cpp.Star<ToolMenuEntryExtensions>) from cpp.Star<ToolMenuEntryExtensions> to cpp.Star<ToolMenuEntryExtensions>{
+abstract ToolMenuEntryExtensionsPtr(ucpp.Ptr<ToolMenuEntryExtensions>) from ucpp.Ptr<ToolMenuEntryExtensions> to ucpp.Ptr<ToolMenuEntryExtensions>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenuEntryExtensions): ToolMenuEntryExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

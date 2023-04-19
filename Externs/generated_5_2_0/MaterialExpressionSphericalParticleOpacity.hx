@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSphericalParticleOpacity")
 @:include("Materials/MaterialExpressionSphericalParticleOpacity.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSphericalParticleOpacity extends MaterialExpression {
 	public var Density: ExpressionInput;
-	public var ConstantDensity: cpp.Float32;
+	public var ConstantDensity: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class MaterialExpressionSphericalParticleOpacity extends MaterialExpressi
 abstract ConstMaterialExpressionSphericalParticleOpacity(MaterialExpressionSphericalParticleOpacity) from MaterialExpressionSphericalParticleOpacity {
 	public extern var Density(get, never): ExpressionInput;
 	public inline extern function get_Density(): ExpressionInput return this.Density;
-	public extern var ConstantDensity(get, never): cpp.Float32;
-	public inline extern function get_ConstantDensity(): cpp.Float32 return this.ConstantDensity;
+	public extern var ConstantDensity(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstantDensity(): ucpp.num.Float32 return this.ConstantDensity;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSphericalParticleOpacity*")
-abstract MaterialExpressionSphericalParticleOpacityPtr(cpp.Star<MaterialExpressionSphericalParticleOpacity>) from cpp.Star<MaterialExpressionSphericalParticleOpacity> to cpp.Star<MaterialExpressionSphericalParticleOpacity>{
+abstract MaterialExpressionSphericalParticleOpacityPtr(ucpp.Ptr<MaterialExpressionSphericalParticleOpacity>) from ucpp.Ptr<MaterialExpressionSphericalParticleOpacity> to ucpp.Ptr<MaterialExpressionSphericalParticleOpacity>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSphericalParticleOpacity): MaterialExpressionSphericalParticleOpacityPtr {
 		return untyped __cpp__("&({0})", v);

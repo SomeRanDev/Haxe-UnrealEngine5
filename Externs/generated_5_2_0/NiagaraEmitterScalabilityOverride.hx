@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraEmitterScalabilityOverride")
 @:include("NiagaraEffectType.h")
-@:structAccess
+@:valueType
 extern class NiagaraEmitterScalabilityOverride extends NiagaraEmitterScalabilitySettings {
 	public var bOverrideSpawnCountScale: Bool;
 

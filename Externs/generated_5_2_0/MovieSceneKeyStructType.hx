@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneKeyStructType")
 @:include("SequencerKeyStructGenerator.h")
-@:structAccess
+@:valueType
 extern class MovieSceneKeyStructType extends ScriptStruct {
 	public var SourceTimesProperty: TFieldPath<FArrayProperty>;
 	public var SourceValuesProperty: TFieldPath<FArrayProperty>;
 	public var DestTimeProperty: TFieldPath<FStructProperty>;
 	public var DestValueProperty: TFieldPath<FProperty>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMovieSceneKeyStructType(MovieSceneKeyStructType) from MovieSceneKe
 @:forward
 @:nativeGen
 @:native("MovieSceneKeyStructType*")
-abstract MovieSceneKeyStructTypePtr(cpp.Star<MovieSceneKeyStructType>) from cpp.Star<MovieSceneKeyStructType> to cpp.Star<MovieSceneKeyStructType>{
+abstract MovieSceneKeyStructTypePtr(ucpp.Ptr<MovieSceneKeyStructType>) from ucpp.Ptr<MovieSceneKeyStructType> to ucpp.Ptr<MovieSceneKeyStructType>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneKeyStructType): MovieSceneKeyStructTypePtr {
 		return untyped __cpp__("&({0})", v);

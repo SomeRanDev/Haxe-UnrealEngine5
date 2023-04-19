@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GetLinearColor__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GetLinearColor__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GetLinearColor__PythonCallable(Widget_GetLinearColor__Pytho
 @:forward
 @:nativeGen
 @:native("Widget_GetLinearColor__PythonCallable*")
-abstract Widget_GetLinearColor__PythonCallablePtr(cpp.Star<Widget_GetLinearColor__PythonCallable>) from cpp.Star<Widget_GetLinearColor__PythonCallable> to cpp.Star<Widget_GetLinearColor__PythonCallable>{
+abstract Widget_GetLinearColor__PythonCallablePtr(ucpp.Ptr<Widget_GetLinearColor__PythonCallable>) from ucpp.Ptr<Widget_GetLinearColor__PythonCallable> to ucpp.Ptr<Widget_GetLinearColor__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GetLinearColor__PythonCallable): Widget_GetLinearColor__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,19 @@ package ue;
 
 @:native("AVREditorDockableWindow")
 @:include("UI/VREditorDockableWindow.h")
-@:structAccess
+@:valueType
 extern class VREditorDockableWindow extends VREditorFloatingUI {
-	private var DockButtonMeshComponent: cpp.Star<StaticMeshComp>;
-	private var SelectionBarMeshComponent: cpp.Star<StaticMeshComp>;
-	private var CloseButtonMeshComponent: cpp.Star<StaticMeshComp>;
-	private var DockButtonMID: cpp.Star<MaterialInstanceDynamic>;
-	private var SelectionBarMID: cpp.Star<MaterialInstanceDynamic>;
-	private var SelectionBarTranslucentMID: cpp.Star<MaterialInstanceDynamic>;
-	private var CloseButtonMID: cpp.Star<MaterialInstanceDynamic>;
-	private var CloseButtonTranslucentMID: cpp.Star<MaterialInstanceDynamic>;
-	private var DragOperationComponent: cpp.Star<ViewportDragOperationComp>;
+	private var DockButtonMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var SelectionBarMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var CloseButtonMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var DockButtonMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var SelectionBarMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var SelectionBarTranslucentMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var CloseButtonMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var CloseButtonTranslucentMID: ucpp.Ptr<MaterialInstanceDynamic>;
+	private var DragOperationComponent: ucpp.Ptr<ViewportDragOperationComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstVREditorDockableWindow(VREditorDockableWindow) from VREditorDockab
 @:forward
 @:nativeGen
 @:native("VREditorDockableWindow*")
-abstract VREditorDockableWindowPtr(cpp.Star<VREditorDockableWindow>) from cpp.Star<VREditorDockableWindow> to cpp.Star<VREditorDockableWindow>{
+abstract VREditorDockableWindowPtr(ucpp.Ptr<VREditorDockableWindow>) from ucpp.Ptr<VREditorDockableWindow> to ucpp.Ptr<VREditorDockableWindow>{
 	@:from
 	public static extern inline function fromValue(v: VREditorDockableWindow): VREditorDockableWindowPtr {
 		return untyped __cpp__("&({0})", v);

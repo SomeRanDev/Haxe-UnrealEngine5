@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeCommonPipelineDataFactoryNode")
 @:include("InterchangeCommonPipelineDataFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeCommonPipelineDataFactoryNode extends InterchangeFactoryBaseNode {
-	public function SetCustomGlobalOffsetTransform(NodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: cpp.Reference<Transform>): Bool;
-	public function SetBakeMeshes(NodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomGlobalOffsetTransform(AttributeValue: cpp.Reference<Transform>): Bool;
-	public function GetBakeMeshes(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomGlobalOffsetTransform(NodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function SetBakeMeshes(NodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomGlobalOffsetTransform(AttributeValue: ucpp.Ref<Transform>): Bool;
+	public function GetBakeMeshes(AttributeValue: ucpp.Ref<Bool>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomGlobalOffsetTransform, GetBakeMeshes)
@@ -21,7 +21,7 @@ abstract ConstInterchangeCommonPipelineDataFactoryNode(InterchangeCommonPipeline
 @:forward
 @:nativeGen
 @:native("InterchangeCommonPipelineDataFactoryNode*")
-abstract InterchangeCommonPipelineDataFactoryNodePtr(cpp.Star<InterchangeCommonPipelineDataFactoryNode>) from cpp.Star<InterchangeCommonPipelineDataFactoryNode> to cpp.Star<InterchangeCommonPipelineDataFactoryNode>{
+abstract InterchangeCommonPipelineDataFactoryNodePtr(ucpp.Ptr<InterchangeCommonPipelineDataFactoryNode>) from ucpp.Ptr<InterchangeCommonPipelineDataFactoryNode> to ucpp.Ptr<InterchangeCommonPipelineDataFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeCommonPipelineDataFactoryNode): InterchangeCommonPipelineDataFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

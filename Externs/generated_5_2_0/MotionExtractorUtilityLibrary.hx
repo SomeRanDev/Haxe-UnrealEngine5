@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMotionExtractorUtilityLibrary")
 @:include("MotionExtractorUtilities.h")
-@:structAccess
+@:valueType
 extern class MotionExtractorUtilityLibrary extends BlueprintFunctionLibrary {
-	public function GetStoppedRangesFromRootMotion(AnimSequence: cpp.Star<AnimSequence.ConstAnimSequence>, StopSpeedThreshold: cpp.Float32, SampleRate: cpp.Float32): TArray<Vector2D>;
-	public function GetMovingRangesFromRootMotion(AnimSequence: cpp.Star<AnimSequence.ConstAnimSequence>, StopSpeedThreshold: cpp.Float32, SampleRate: cpp.Float32): TArray<Vector2D>;
-	public function GetDesiredValue(BoneTransform: cpp.Reference<Transform>, LastBoneTransform: cpp.Reference<Transform>, DeltaTime: cpp.Float32, MotionType: EMotionExtractor_MotionType, Axis: EMotionExtractor_Axis): cpp.Float32;
+	public function GetStoppedRangesFromRootMotion(AnimSequence: ucpp.Ptr<AnimSequence.ConstAnimSequence>, StopSpeedThreshold: ucpp.num.Float32, SampleRate: ucpp.num.Float32): TArray<Vector2D>;
+	public function GetMovingRangesFromRootMotion(AnimSequence: ucpp.Ptr<AnimSequence.ConstAnimSequence>, StopSpeedThreshold: ucpp.num.Float32, SampleRate: ucpp.num.Float32): TArray<Vector2D>;
+	public function GetDesiredValue(BoneTransform: ucpp.Ref<Transform>, LastBoneTransform: ucpp.Ref<Transform>, DeltaTime: ucpp.num.Float32, MotionType: EMotionExtractor_MotionType, Axis: EMotionExtractor_Axis): ucpp.num.Float32;
 	public function GenerateCurveName(BoneName: FName, MotionType: EMotionExtractor_MotionType, Axis: EMotionExtractor_Axis): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMotionExtractorUtilityLibrary(MotionExtractorUtilityLibrary) from 
 @:forward
 @:nativeGen
 @:native("MotionExtractorUtilityLibrary*")
-abstract MotionExtractorUtilityLibraryPtr(cpp.Star<MotionExtractorUtilityLibrary>) from cpp.Star<MotionExtractorUtilityLibrary> to cpp.Star<MotionExtractorUtilityLibrary>{
+abstract MotionExtractorUtilityLibraryPtr(ucpp.Ptr<MotionExtractorUtilityLibrary>) from ucpp.Ptr<MotionExtractorUtilityLibrary> to ucpp.Ptr<MotionExtractorUtilityLibrary>{
 	@:from
 	public static extern inline function fromValue(v: MotionExtractorUtilityLibrary): MotionExtractorUtilityLibraryPtr {
 		return untyped __cpp__("&({0})", v);

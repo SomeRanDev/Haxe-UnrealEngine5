@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPoseWatchPoseElement")
 @:include("Engine/PoseWatch.h")
-@:structAccess
+@:valueType
 extern class PoseWatchPoseElement extends PoseWatchElement {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPoseWatchPoseElement(PoseWatchPoseElement) from PoseWatchPoseEleme
 @:forward
 @:nativeGen
 @:native("PoseWatchPoseElement*")
-abstract PoseWatchPoseElementPtr(cpp.Star<PoseWatchPoseElement>) from cpp.Star<PoseWatchPoseElement> to cpp.Star<PoseWatchPoseElement>{
+abstract PoseWatchPoseElementPtr(ucpp.Ptr<PoseWatchPoseElement>) from ucpp.Ptr<PoseWatchPoseElement> to ucpp.Ptr<PoseWatchPoseElement>{
 	@:from
 	public static extern inline function fromValue(v: PoseWatchPoseElement): PoseWatchPoseElementPtr {
 		return untyped __cpp__("&({0})", v);

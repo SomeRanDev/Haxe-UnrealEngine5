@@ -3,11 +3,11 @@ package ue;
 
 @:native("URichTextBlockImageDecorator")
 @:include("Components/RichTextBlockImageDecorator.h")
-@:structAccess
+@:valueType
 extern class RichTextBlockImageDecorator extends RichTextBlockDecorator {
-	@:protected public var ImageSet: cpp.Star<DataTable>;
+	@:protected public var ImageSet: ucpp.Ptr<DataTable>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstRichTextBlockImageDecorator(RichTextBlockImageDecorator) from Rich
 @:forward
 @:nativeGen
 @:native("RichTextBlockImageDecorator*")
-abstract RichTextBlockImageDecoratorPtr(cpp.Star<RichTextBlockImageDecorator>) from cpp.Star<RichTextBlockImageDecorator> to cpp.Star<RichTextBlockImageDecorator>{
+abstract RichTextBlockImageDecoratorPtr(ucpp.Ptr<RichTextBlockImageDecorator>) from ucpp.Ptr<RichTextBlockImageDecorator> to ucpp.Ptr<RichTextBlockImageDecorator>{
 	@:from
 	public static extern inline function fromValue(v: RichTextBlockImageDecorator): RichTextBlockImageDecoratorPtr {
 		return untyped __cpp__("&({0})", v);

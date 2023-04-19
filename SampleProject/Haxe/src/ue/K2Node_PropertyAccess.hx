@@ -3,7 +3,7 @@ package ue;
 
 @:native("UK2Node_PropertyAccess")
 @:include("K2Node_PropertyAccess.h")
-@:structAccess
+@:valueType
 extern class K2Node_PropertyAccess extends K2Node {
 	private var Path: TArray<FString>;
 	private var TextPath: FText;
@@ -11,7 +11,7 @@ extern class K2Node_PropertyAccess extends K2Node {
 	private var GeneratedPropertyName: FName;
 	private var ContextId: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstK2Node_PropertyAccess(K2Node_PropertyAccess) from K2Node_PropertyA
 @:forward
 @:nativeGen
 @:native("K2Node_PropertyAccess*")
-abstract K2Node_PropertyAccessPtr(cpp.Star<K2Node_PropertyAccess>) from cpp.Star<K2Node_PropertyAccess> to cpp.Star<K2Node_PropertyAccess>{
+abstract K2Node_PropertyAccessPtr(ucpp.Ptr<K2Node_PropertyAccess>) from ucpp.Ptr<K2Node_PropertyAccess> to ucpp.Ptr<K2Node_PropertyAccess>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_PropertyAccess): K2Node_PropertyAccessPtr {
 		return untyped __cpp__("&({0})", v);

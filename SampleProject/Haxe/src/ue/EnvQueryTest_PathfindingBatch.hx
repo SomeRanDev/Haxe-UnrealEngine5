@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEnvQueryTest_PathfindingBatch")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_PathfindingBatch.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_PathfindingBatch extends EnvQueryTest_Pathfinding {
 	public var ScanRangeMultiplier: AIDataProviderFloatValue;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEnvQueryTest_PathfindingBatch(EnvQueryTest_PathfindingBatch) from 
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_PathfindingBatch*")
-abstract EnvQueryTest_PathfindingBatchPtr(cpp.Star<EnvQueryTest_PathfindingBatch>) from cpp.Star<EnvQueryTest_PathfindingBatch> to cpp.Star<EnvQueryTest_PathfindingBatch>{
+abstract EnvQueryTest_PathfindingBatchPtr(ucpp.Ptr<EnvQueryTest_PathfindingBatch>) from ucpp.Ptr<EnvQueryTest_PathfindingBatch> to ucpp.Ptr<EnvQueryTest_PathfindingBatch>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_PathfindingBatch): EnvQueryTest_PathfindingBatchPtr {
 		return untyped __cpp__("&({0})", v);

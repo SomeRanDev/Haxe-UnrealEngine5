@@ -3,15 +3,15 @@ package ue;
 
 @:native("AStaticMeshActor")
 @:include("Engine/StaticMeshActor.h")
-@:structAccess
+@:valueType
 extern class StaticMeshActor extends Actor {
-	private var StaticMeshComponent: cpp.Star<StaticMeshComp>;
+	private var StaticMeshComponent: ucpp.Ptr<StaticMeshComp>;
 	public var bStaticMeshReplicateMovement: Bool;
 	public var NavigationGeometryGatheringMode: ENavDataGatheringMode;
 
 	public function SetMobility(InMobility: TEnumAsByte<EComponentMobility>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstStaticMeshActor(StaticMeshActor) from StaticMeshActor {
 @:forward
 @:nativeGen
 @:native("StaticMeshActor*")
-abstract StaticMeshActorPtr(cpp.Star<StaticMeshActor>) from cpp.Star<StaticMeshActor> to cpp.Star<StaticMeshActor>{
+abstract StaticMeshActorPtr(ucpp.Ptr<StaticMeshActor>) from ucpp.Ptr<StaticMeshActor> to ucpp.Ptr<StaticMeshActor>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshActor): StaticMeshActorPtr {
 		return untyped __cpp__("&({0})", v);

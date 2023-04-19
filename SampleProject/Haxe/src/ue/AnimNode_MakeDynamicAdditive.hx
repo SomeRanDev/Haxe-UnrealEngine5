@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_MakeDynamicAdditive")
 @:include("AnimNodes/AnimNode_MakeDynamicAdditive.h")
-@:structAccess
+@:valueType
 extern class AnimNode_MakeDynamicAdditive extends AnimNode_Base {
 	public var Base: PoseLink;
 	public var Additive: PoseLink;

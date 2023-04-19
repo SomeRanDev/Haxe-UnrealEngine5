@@ -3,31 +3,31 @@ package ue;
 
 @:native("UMovieSceneBindingExtensions")
 @:include("ExtensionLibraries/MovieSceneBindingExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBindingExtensions extends BlueprintFunctionLibrary {
-	public function SetSpawnableBindingID(InBinding: cpp.Reference<MovieSceneBindingProxy>, SpawnableBindingID: cpp.Reference<MovieSceneObjectBindingID>): Void;
-	public function SetSortingOrder(InBinding: cpp.Reference<MovieSceneBindingProxy>, SortingOrder: cpp.Int32): Void;
-	public function SetParent(InBinding: cpp.Reference<MovieSceneBindingProxy>, InParentBinding: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function SetName(InBinding: cpp.Reference<MovieSceneBindingProxy>, InName: FString): Void;
-	public function SetDisplayName(InBinding: cpp.Reference<MovieSceneBindingProxy>, InDisplayName: cpp.Reference<FText>): Void;
-	public function RemoveTrack(InBinding: cpp.Reference<MovieSceneBindingProxy>, TrackToRemove: cpp.Star<MovieSceneTrack>): Void;
-	public function Remove(InBinding: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function MoveBindingContents(SourceBindingId: cpp.Reference<MovieSceneBindingProxy>, DestinationBindingId: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function IsValid(InBinding: cpp.Reference<MovieSceneBindingProxy>): Bool;
-	public function GetTracks(InBinding: cpp.Reference<MovieSceneBindingProxy>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function GetSortingOrder(InBinding: cpp.Reference<MovieSceneBindingProxy>): cpp.Int32;
-	public function GetPossessedObjectClass(InBinding: cpp.Reference<MovieSceneBindingProxy>): cpp.Star<Class>;
-	public function GetParent(InBinding: cpp.Reference<MovieSceneBindingProxy>): MovieSceneBindingProxy;
-	public function GetObjectTemplate(InBinding: cpp.Reference<MovieSceneBindingProxy>): cpp.Star<Object>;
-	public function GetName(InBinding: cpp.Reference<MovieSceneBindingProxy>): FString;
-	public function GetId(InBinding: cpp.Reference<MovieSceneBindingProxy>): Guid;
-	public function GetDisplayName(InBinding: cpp.Reference<MovieSceneBindingProxy>): FText;
-	public function GetChildPossessables(InBinding: cpp.Reference<MovieSceneBindingProxy>): TArray<MovieSceneBindingProxy>;
-	public function FindTracksByType(InBinding: cpp.Reference<MovieSceneBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function FindTracksByExactType(InBinding: cpp.Reference<MovieSceneBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<cpp.Star<MovieSceneTrack>>;
-	public function AddTrack(InBinding: cpp.Reference<MovieSceneBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): cpp.Star<MovieSceneTrack>;
+	public function SetSpawnableBindingID(InBinding: ucpp.Ref<MovieSceneBindingProxy>, SpawnableBindingID: ucpp.Ref<MovieSceneObjectBindingID>): Void;
+	public function SetSortingOrder(InBinding: ucpp.Ref<MovieSceneBindingProxy>, SortingOrder: ucpp.num.Int32): Void;
+	public function SetParent(InBinding: ucpp.Ref<MovieSceneBindingProxy>, InParentBinding: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function SetName(InBinding: ucpp.Ref<MovieSceneBindingProxy>, InName: FString): Void;
+	public function SetDisplayName(InBinding: ucpp.Ref<MovieSceneBindingProxy>, InDisplayName: ucpp.Ref<FText>): Void;
+	public function RemoveTrack(InBinding: ucpp.Ref<MovieSceneBindingProxy>, TrackToRemove: ucpp.Ptr<MovieSceneTrack>): Void;
+	public function Remove(InBinding: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function MoveBindingContents(SourceBindingId: ucpp.Ref<MovieSceneBindingProxy>, DestinationBindingId: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function IsValid(InBinding: ucpp.Ref<MovieSceneBindingProxy>): Bool;
+	public function GetTracks(InBinding: ucpp.Ref<MovieSceneBindingProxy>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function GetSortingOrder(InBinding: ucpp.Ref<MovieSceneBindingProxy>): ucpp.num.Int32;
+	public function GetPossessedObjectClass(InBinding: ucpp.Ref<MovieSceneBindingProxy>): ucpp.Ptr<Class>;
+	public function GetParent(InBinding: ucpp.Ref<MovieSceneBindingProxy>): MovieSceneBindingProxy;
+	public function GetObjectTemplate(InBinding: ucpp.Ref<MovieSceneBindingProxy>): ucpp.Ptr<Object>;
+	public function GetName(InBinding: ucpp.Ref<MovieSceneBindingProxy>): FString;
+	public function GetId(InBinding: ucpp.Ref<MovieSceneBindingProxy>): Guid;
+	public function GetDisplayName(InBinding: ucpp.Ref<MovieSceneBindingProxy>): FText;
+	public function GetChildPossessables(InBinding: ucpp.Ref<MovieSceneBindingProxy>): TArray<MovieSceneBindingProxy>;
+	public function FindTracksByType(InBinding: ucpp.Ref<MovieSceneBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function FindTracksByExactType(InBinding: ucpp.Ref<MovieSceneBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): TArray<ucpp.Ptr<MovieSceneTrack>>;
+	public function AddTrack(InBinding: ucpp.Ref<MovieSceneBindingProxy>, TrackType: TSubclassOf<MovieSceneTrack>): ucpp.Ptr<MovieSceneTrack>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstMovieSceneBindingExtensions(MovieSceneBindingExtensions) from Movi
 @:forward
 @:nativeGen
 @:native("MovieSceneBindingExtensions*")
-abstract MovieSceneBindingExtensionsPtr(cpp.Star<MovieSceneBindingExtensions>) from cpp.Star<MovieSceneBindingExtensions> to cpp.Star<MovieSceneBindingExtensions>{
+abstract MovieSceneBindingExtensionsPtr(ucpp.Ptr<MovieSceneBindingExtensions>) from ucpp.Ptr<MovieSceneBindingExtensions> to ucpp.Ptr<MovieSceneBindingExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneBindingExtensions): MovieSceneBindingExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

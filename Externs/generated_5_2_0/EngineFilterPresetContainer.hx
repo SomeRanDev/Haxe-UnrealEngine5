@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEngineFilterPresetContainer")
 @:include("FilterPresets.h")
-@:structAccess
+@:valueType
 extern class EngineFilterPresetContainer extends Object {
 	@:protected public var EnginePresets: TArray<FilterData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstEngineFilterPresetContainer(EngineFilterPresetContainer) from Engi
 @:forward
 @:nativeGen
 @:native("EngineFilterPresetContainer*")
-abstract EngineFilterPresetContainerPtr(cpp.Star<EngineFilterPresetContainer>) from cpp.Star<EngineFilterPresetContainer> to cpp.Star<EngineFilterPresetContainer>{
+abstract EngineFilterPresetContainerPtr(ucpp.Ptr<EngineFilterPresetContainer>) from ucpp.Ptr<EngineFilterPresetContainer> to ucpp.Ptr<EngineFilterPresetContainer>{
 	@:from
 	public static extern inline function fromValue(v: EngineFilterPresetContainer): EngineFilterPresetContainerPtr {
 		return untyped __cpp__("&({0})", v);

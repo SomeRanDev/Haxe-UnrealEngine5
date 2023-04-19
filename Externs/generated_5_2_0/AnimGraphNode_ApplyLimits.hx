@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ApplyLimits")
 @:include("AnimGraphNode_ApplyLimits.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_ApplyLimits extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_ApplyLimits;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_ApplyLimits(AnimGraphNode_ApplyLimits) from AnimGrap
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_ApplyLimits*")
-abstract AnimGraphNode_ApplyLimitsPtr(cpp.Star<AnimGraphNode_ApplyLimits>) from cpp.Star<AnimGraphNode_ApplyLimits> to cpp.Star<AnimGraphNode_ApplyLimits>{
+abstract AnimGraphNode_ApplyLimitsPtr(ucpp.Ptr<AnimGraphNode_ApplyLimits>) from ucpp.Ptr<AnimGraphNode_ApplyLimits> to ucpp.Ptr<AnimGraphNode_ApplyLimits>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_ApplyLimits): AnimGraphNode_ApplyLimitsPtr {
 		return untyped __cpp__("&({0})", v);

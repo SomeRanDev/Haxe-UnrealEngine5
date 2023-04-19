@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeResultError_ReimportFail")
 @:include("InterchangeResult.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultError_ReimportFail extends InterchangeResultError {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeResultError_ReimportFail(InterchangeResultError_Reimpor
 @:forward
 @:nativeGen
 @:native("InterchangeResultError_ReimportFail*")
-abstract InterchangeResultError_ReimportFailPtr(cpp.Star<InterchangeResultError_ReimportFail>) from cpp.Star<InterchangeResultError_ReimportFail> to cpp.Star<InterchangeResultError_ReimportFail>{
+abstract InterchangeResultError_ReimportFailPtr(ucpp.Ptr<InterchangeResultError_ReimportFail>) from ucpp.Ptr<InterchangeResultError_ReimportFail> to ucpp.Ptr<InterchangeResultError_ReimportFail>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultError_ReimportFail): InterchangeResultError_ReimportFailPtr {
 		return untyped __cpp__("&({0})", v);

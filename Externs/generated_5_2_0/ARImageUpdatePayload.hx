@@ -3,13 +3,13 @@ package ue;
 
 @:native("FARImageUpdatePayload")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARImageUpdatePayload {
 	public var SessionPayload: ARSessionPayload;
 	public var WorldTransform: Transform;
-	public var DetectedImage: cpp.Star<ARCandidateImage>;
+	public var DetectedImage: ucpp.Ptr<ARCandidateImage>;
 	public var EstimatedSize: Vector2D;
 
 	@:native("FARImageUpdatePayload") public function new();
-	@:native("FARImageUpdatePayload") public static function make(SessionPayload: ARSessionPayload, WorldTransform: Transform, DetectedImage: cpp.Star<ARCandidateImage>, EstimatedSize: Vector2D): ARImageUpdatePayload ;
+	@:native("FARImageUpdatePayload") public static function make(SessionPayload: ARSessionPayload, WorldTransform: Transform, DetectedImage: ucpp.Ptr<ARCandidateImage>, EstimatedSize: Vector2D): ARImageUpdatePayload ;
 }

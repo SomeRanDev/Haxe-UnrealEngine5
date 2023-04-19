@@ -3,9 +3,9 @@ package ue;
 
 @:native("UNavLinkCustomComponent")
 @:include("NavLinkCustomComponent.h")
-@:structAccess
+@:valueType
 extern class NavLinkCustomComp extends NavRelevantComp {
-	@:protected public var NavLinkUserId: cpp.UInt32;
+	@:protected public var NavLinkUserId: ucpp.num.UInt32;
 	@:protected public var EnabledAreaClass: TSubclassOf<NavArea>;
 	@:protected public var DisabledAreaClass: TSubclassOf<NavArea>;
 	@:protected public var SupportedAgents: NavAgentSelector;
@@ -19,11 +19,11 @@ extern class NavLinkCustomComp extends NavRelevantComp {
 	@:protected public var ObstacleOffset: Vector;
 	@:protected public var ObstacleExtent: Vector;
 	@:protected public var ObstacleAreaClass: TSubclassOf<NavArea>;
-	@:protected public var BroadcastRadius: cpp.Float32;
-	@:protected public var BroadcastInterval: cpp.Float32;
+	@:protected public var BroadcastRadius: ucpp.num.Float32;
+	@:protected public var BroadcastInterval: ucpp.num.Float32;
 	@:protected public var BroadcastChannel: TEnumAsByte<ECollisionChannel>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,7 +34,7 @@ abstract ConstNavLinkCustomComp(NavLinkCustomComp) from NavLinkCustomComp {
 @:forward
 @:nativeGen
 @:native("NavLinkCustomComp*")
-abstract NavLinkCustomCompPtr(cpp.Star<NavLinkCustomComp>) from cpp.Star<NavLinkCustomComp> to cpp.Star<NavLinkCustomComp>{
+abstract NavLinkCustomCompPtr(ucpp.Ptr<NavLinkCustomComp>) from ucpp.Ptr<NavLinkCustomComp> to ucpp.Ptr<NavLinkCustomComp>{
 	@:from
 	public static extern inline function fromValue(v: NavLinkCustomComp): NavLinkCustomCompPtr {
 		return untyped __cpp__("&({0})", v);

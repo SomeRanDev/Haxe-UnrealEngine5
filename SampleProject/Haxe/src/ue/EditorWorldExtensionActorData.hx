@@ -3,11 +3,11 @@ package ue;
 
 @:native("FEditorWorldExtensionActorData")
 @:include("EditorWorldExtension.h")
-@:structAccess
+@:valueType
 extern class EditorWorldExtensionActorData {
-	public var Actor: cpp.Star<Actor>;
+	public var Actor: ucpp.Ptr<Actor>;
 	public var bValidForPIE: Bool;
 
 	@:native("FEditorWorldExtensionActorData") public function new();
-	@:native("FEditorWorldExtensionActorData") public static function make(Actor: cpp.Star<Actor>, bValidForPIE: Bool): EditorWorldExtensionActorData ;
+	@:native("FEditorWorldExtensionActorData") public static function make(Actor: ucpp.Ptr<Actor>, bValidForPIE: Bool): EditorWorldExtensionActorData ;
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditorProjectAppearanceSettings")
 @:include("Settings/EditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class EditorProjectAppearanceSettings extends DeveloperSettings {
 	public var bDisplayUnits: Bool;
 	public var bDisplayUnitsOnComponentTransforms: Bool;
@@ -15,9 +15,9 @@ extern class EditorProjectAppearanceSettings extends DeveloperSettings {
 	public var TemperatureUnits: EUnit;
 	public var ForceUnits: EUnit;
 	public var ShowSearchableNames: EReferenceViewerSettingMode;
-	public var ReferenceViewerDefaultMaxSearchBreadth: cpp.Int32;
+	public var ReferenceViewerDefaultMaxSearchBreadth: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,14 +43,14 @@ abstract ConstEditorProjectAppearanceSettings(EditorProjectAppearanceSettings) f
 	public inline extern function get_ForceUnits(): EUnit return this.ForceUnits;
 	public extern var ShowSearchableNames(get, never): EReferenceViewerSettingMode;
 	public inline extern function get_ShowSearchableNames(): EReferenceViewerSettingMode return this.ShowSearchableNames;
-	public extern var ReferenceViewerDefaultMaxSearchBreadth(get, never): cpp.Int32;
-	public inline extern function get_ReferenceViewerDefaultMaxSearchBreadth(): cpp.Int32 return this.ReferenceViewerDefaultMaxSearchBreadth;
+	public extern var ReferenceViewerDefaultMaxSearchBreadth(get, never): ucpp.num.Int32;
+	public inline extern function get_ReferenceViewerDefaultMaxSearchBreadth(): ucpp.num.Int32 return this.ReferenceViewerDefaultMaxSearchBreadth;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorProjectAppearanceSettings*")
-abstract EditorProjectAppearanceSettingsPtr(cpp.Star<EditorProjectAppearanceSettings>) from cpp.Star<EditorProjectAppearanceSettings> to cpp.Star<EditorProjectAppearanceSettings>{
+abstract EditorProjectAppearanceSettingsPtr(ucpp.Ptr<EditorProjectAppearanceSettings>) from ucpp.Ptr<EditorProjectAppearanceSettings> to ucpp.Ptr<EditorProjectAppearanceSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorProjectAppearanceSettings): EditorProjectAppearanceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

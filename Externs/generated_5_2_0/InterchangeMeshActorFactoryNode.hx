@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeMeshActorFactoryNode")
 @:include("InterchangeMeshActorFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeMeshActorFactoryNode extends InterchangeActorFactoryNode {
 	public function SetSlotMaterialDependencyUid(SlotName: FString, MaterialDependencyUid: FString): Bool;
 	public function RemoveSlotMaterialDependencyUid(SlotName: FString): Bool;
-	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: cpp.Reference<FString>): Bool;
-	public function GetSlotMaterialDependencies(OutMaterialDependencies: cpp.Reference<TMap<FString, FString>>): Void;
+	public function GetSlotMaterialDependencyUid(SlotName: FString, OutMaterialDependency: ucpp.Ref<FString>): Bool;
+	public function GetSlotMaterialDependencies(OutMaterialDependencies: ucpp.Ref<TMap<FString, FString>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSlotMaterialDependencyUid, GetSlotMaterialDependencies)
@@ -21,7 +21,7 @@ abstract ConstInterchangeMeshActorFactoryNode(InterchangeMeshActorFactoryNode) f
 @:forward
 @:nativeGen
 @:native("InterchangeMeshActorFactoryNode*")
-abstract InterchangeMeshActorFactoryNodePtr(cpp.Star<InterchangeMeshActorFactoryNode>) from cpp.Star<InterchangeMeshActorFactoryNode> to cpp.Star<InterchangeMeshActorFactoryNode>{
+abstract InterchangeMeshActorFactoryNodePtr(ucpp.Ptr<InterchangeMeshActorFactoryNode>) from ucpp.Ptr<InterchangeMeshActorFactoryNode> to ucpp.Ptr<InterchangeMeshActorFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMeshActorFactoryNode): InterchangeMeshActorFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraDataChannel_Global")
 @:include("NiagaraDataChannel_Global.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannel_Global extends NiagaraDataChannel {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraDataChannel_Global(NiagaraDataChannel_Global) from NiagaraD
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannel_Global*")
-abstract NiagaraDataChannel_GlobalPtr(cpp.Star<NiagaraDataChannel_Global>) from cpp.Star<NiagaraDataChannel_Global> to cpp.Star<NiagaraDataChannel_Global>{
+abstract NiagaraDataChannel_GlobalPtr(ucpp.Ptr<NiagaraDataChannel_Global>) from ucpp.Ptr<NiagaraDataChannel_Global> to ucpp.Ptr<NiagaraDataChannel_Global>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannel_Global): NiagaraDataChannel_GlobalPtr {
 		return untyped __cpp__("&({0})", v);

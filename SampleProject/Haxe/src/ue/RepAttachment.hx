@@ -2,15 +2,15 @@
 package ue;
 
 @:native("FRepAttachment")
-@:include("Engine/EngineTypes.h")
-@:structAccess
+@:include("Engine/ReplicatedState.h")
+@:valueType
 extern class RepAttachment {
-	public var AttachParent: cpp.Star<Actor>;
+	public var AttachParent: ucpp.Ptr<Actor>;
 	public var LocationOffset: Vector_NetQuantize100;
 	public var RelativeScale3D: Vector_NetQuantize100;
 	public var RotationOffset: Rotator;
 	public var AttachSocket: FName;
-	public var AttachComponent: cpp.Star<SceneComp>;
+	public var AttachComponent: ucpp.Ptr<SceneComp>;
 
 	@:native("FRepAttachment") public function new();
 }

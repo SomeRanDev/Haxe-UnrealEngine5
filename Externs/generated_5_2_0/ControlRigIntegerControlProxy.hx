@@ -3,24 +3,24 @@ package ue;
 
 @:native("UControlRigIntegerControlProxy")
 @:include("EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlRigIntegerControlProxy extends ControlRigControlsProxy {
-	public var Integer: cpp.Int32;
+	public var Integer: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstControlRigIntegerControlProxy(ControlRigIntegerControlProxy) from ControlRigIntegerControlProxy {
-	public extern var Integer(get, never): cpp.Int32;
-	public inline extern function get_Integer(): cpp.Int32 return this.Integer;
+	public extern var Integer(get, never): ucpp.num.Int32;
+	public inline extern function get_Integer(): ucpp.num.Int32 return this.Integer;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlRigIntegerControlProxy*")
-abstract ControlRigIntegerControlProxyPtr(cpp.Star<ControlRigIntegerControlProxy>) from cpp.Star<ControlRigIntegerControlProxy> to cpp.Star<ControlRigIntegerControlProxy>{
+abstract ControlRigIntegerControlProxyPtr(ucpp.Ptr<ControlRigIntegerControlProxy>) from ucpp.Ptr<ControlRigIntegerControlProxy> to ucpp.Ptr<ControlRigIntegerControlProxy>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigIntegerControlProxy): ControlRigIntegerControlProxyPtr {
 		return untyped __cpp__("&({0})", v);

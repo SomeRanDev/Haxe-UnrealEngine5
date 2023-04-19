@@ -3,14 +3,14 @@ package ue;
 
 @:native("UToolMenuSectionExtensions")
 @:include("ToolMenusBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ToolMenuSectionExtensions extends Object {
-	public function SetLabel(Section: cpp.Reference<ToolMenuSection>, Label: cpp.Reference<FText>): Void;
-	public function GetLabel(Section: cpp.Reference<ToolMenuSection>): FText;
-	public function AddEntryObject(Section: cpp.Reference<ToolMenuSection>, InObject: cpp.Star<ToolMenuEntryScript>): Void;
-	public function AddEntry(Section: cpp.Reference<ToolMenuSection>, Args: cpp.Reference<ToolMenuEntry>): Void;
+	public function SetLabel(Section: ucpp.Ref<ToolMenuSection>, Label: ucpp.Ref<FText>): Void;
+	public function GetLabel(Section: ucpp.Ref<ToolMenuSection>): FText;
+	public function AddEntryObject(Section: ucpp.Ref<ToolMenuSection>, InObject: ucpp.Ptr<ToolMenuEntryScript>): Void;
+	public function AddEntry(Section: ucpp.Ref<ToolMenuSection>, Args: ucpp.Ref<ToolMenuEntry>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstToolMenuSectionExtensions(ToolMenuSectionExtensions) from ToolMenu
 @:forward
 @:nativeGen
 @:native("ToolMenuSectionExtensions*")
-abstract ToolMenuSectionExtensionsPtr(cpp.Star<ToolMenuSectionExtensions>) from cpp.Star<ToolMenuSectionExtensions> to cpp.Star<ToolMenuSectionExtensions>{
+abstract ToolMenuSectionExtensionsPtr(ucpp.Ptr<ToolMenuSectionExtensions>) from ucpp.Ptr<ToolMenuSectionExtensions> to ucpp.Ptr<ToolMenuSectionExtensions>{
 	@:from
 	public static extern inline function fromValue(v: ToolMenuSectionExtensions): ToolMenuSectionExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

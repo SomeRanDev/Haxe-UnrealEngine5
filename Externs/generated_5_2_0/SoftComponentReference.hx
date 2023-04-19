@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSoftComponentReference")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class SoftComponentReference extends BaseComponentReference {
 	public var OtherActor: TSoftObjectPtr<Actor>;
 

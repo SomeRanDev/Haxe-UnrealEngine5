@@ -3,10 +3,10 @@ package ue;
 
 @:native("UChaosClothingSimulationInteractor")
 @:include("ChaosCloth/ChaosClothingSimulationInteractor.h")
-@:structAccess
+@:valueType
 extern class ChaosClothingSimulationInteractor extends ClothingSimulationInteractor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstChaosClothingSimulationInteractor(ChaosClothingSimulationInteracto
 @:forward
 @:nativeGen
 @:native("ChaosClothingSimulationInteractor*")
-abstract ChaosClothingSimulationInteractorPtr(cpp.Star<ChaosClothingSimulationInteractor>) from cpp.Star<ChaosClothingSimulationInteractor> to cpp.Star<ChaosClothingSimulationInteractor>{
+abstract ChaosClothingSimulationInteractorPtr(ucpp.Ptr<ChaosClothingSimulationInteractor>) from ucpp.Ptr<ChaosClothingSimulationInteractor> to ucpp.Ptr<ChaosClothingSimulationInteractor>{
 	@:from
 	public static extern inline function fromValue(v: ChaosClothingSimulationInteractor): ChaosClothingSimulationInteractorPtr {
 		return untyped __cpp__("&({0})", v);

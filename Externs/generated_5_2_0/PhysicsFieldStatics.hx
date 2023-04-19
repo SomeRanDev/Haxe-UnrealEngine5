@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPhysicsFieldStatics")
 @:include("PhysicsField/PhysicsFieldComponent.h")
-@:structAccess
+@:valueType
 extern class PhysicsFieldStatics extends BlueprintFunctionLibrary {
-	public function EvalPhysicsVectorField(WorldContextObject: cpp.Star<Object.ConstObject>, WorldPosition: cpp.Reference<Vector>, VectorType: TEnumAsByte<EFieldVectorType>): Vector;
-	public function EvalPhysicsScalarField(WorldContextObject: cpp.Star<Object.ConstObject>, WorldPosition: cpp.Reference<Vector>, ScalarType: TEnumAsByte<EFieldScalarType>): cpp.Float32;
-	public function EvalPhysicsIntegerField(WorldContextObject: cpp.Star<Object.ConstObject>, WorldPosition: cpp.Reference<Vector>, IntegerType: TEnumAsByte<EFieldIntegerType>): cpp.Int32;
+	public function EvalPhysicsVectorField(WorldContextObject: ucpp.Ptr<Object.ConstObject>, WorldPosition: ucpp.Ref<Vector>, VectorType: TEnumAsByte<EFieldVectorType>): Vector;
+	public function EvalPhysicsScalarField(WorldContextObject: ucpp.Ptr<Object.ConstObject>, WorldPosition: ucpp.Ref<Vector>, ScalarType: TEnumAsByte<EFieldScalarType>): ucpp.num.Float32;
+	public function EvalPhysicsIntegerField(WorldContextObject: ucpp.Ptr<Object.ConstObject>, WorldPosition: ucpp.Ref<Vector>, IntegerType: TEnumAsByte<EFieldIntegerType>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPhysicsFieldStatics(PhysicsFieldStatics) from PhysicsFieldStatics 
 @:forward
 @:nativeGen
 @:native("PhysicsFieldStatics*")
-abstract PhysicsFieldStaticsPtr(cpp.Star<PhysicsFieldStatics>) from cpp.Star<PhysicsFieldStatics> to cpp.Star<PhysicsFieldStatics>{
+abstract PhysicsFieldStaticsPtr(ucpp.Ptr<PhysicsFieldStatics>) from ucpp.Ptr<PhysicsFieldStatics> to ucpp.Ptr<PhysicsFieldStatics>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsFieldStatics): PhysicsFieldStaticsPtr {
 		return untyped __cpp__("&({0})", v);

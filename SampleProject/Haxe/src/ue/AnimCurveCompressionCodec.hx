@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimCurveCompressionCodec")
 @:include("Animation/AnimCurveCompressionCodec.h")
-@:structAccess
+@:valueType
 extern class AnimCurveCompressionCodec extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimCurveCompressionCodec(AnimCurveCompressionCodec) from AnimCurv
 @:forward
 @:nativeGen
 @:native("AnimCurveCompressionCodec*")
-abstract AnimCurveCompressionCodecPtr(cpp.Star<AnimCurveCompressionCodec>) from cpp.Star<AnimCurveCompressionCodec> to cpp.Star<AnimCurveCompressionCodec>{
+abstract AnimCurveCompressionCodecPtr(ucpp.Ptr<AnimCurveCompressionCodec>) from ucpp.Ptr<AnimCurveCompressionCodec> to ucpp.Ptr<AnimCurveCompressionCodec>{
 	@:from
 	public static extern inline function fromValue(v: AnimCurveCompressionCodec): AnimCurveCompressionCodecPtr {
 		return untyped __cpp__("&({0})", v);

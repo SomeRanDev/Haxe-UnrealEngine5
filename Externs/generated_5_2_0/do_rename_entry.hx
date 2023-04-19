@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Udo_rename_entry")
-@:structAccess
+@:valueType
 extern class do_rename_entry extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constdo_rename_entry(do_rename_entry) from do_rename_entry {
 @:forward
 @:nativeGen
 @:native("do_rename_entry*")
-abstract do_rename_entryPtr(cpp.Star<do_rename_entry>) from cpp.Star<do_rename_entry> to cpp.Star<do_rename_entry>{
+abstract do_rename_entryPtr(ucpp.Ptr<do_rename_entry>) from ucpp.Ptr<do_rename_entry> to ucpp.Ptr<do_rename_entry>{
 	@:from
 	public static extern inline function fromValue(v: do_rename_entry): do_rename_entryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMovieSceneScriptingIntegerChannel")
 @:include("KeysAndChannels/MovieSceneScriptingInteger.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingIntegerChannel extends MovieSceneScriptingChannel {
-	public function SetDefault(InDefaultValue: cpp.Int32): Void;
-	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
+	public function SetDefault(InDefaultValue: ucpp.num.Int32): Void;
+	public function RemoveKey(Key: ucpp.Ptr<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
 	public function HasDefault(): Bool;
-	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
-	public function GetDefault(): cpp.Int32;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: cpp.Int32, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingIntegerKey>;
+	public function GetKeys(): TArray<ucpp.Ptr<MovieSceneScriptingKey>>;
+	public function GetDefault(): ucpp.num.Int32;
+	public function AddKey(InTime: ucpp.Ref<FrameNumber>, NewValue: ucpp.num.Int32, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): ucpp.Ptr<MovieSceneScriptingIntegerKey>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasDefault, GetKeys, GetDefault)
@@ -24,7 +24,7 @@ abstract ConstMovieSceneScriptingIntegerChannel(MovieSceneScriptingIntegerChanne
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingIntegerChannel*")
-abstract MovieSceneScriptingIntegerChannelPtr(cpp.Star<MovieSceneScriptingIntegerChannel>) from cpp.Star<MovieSceneScriptingIntegerChannel> to cpp.Star<MovieSceneScriptingIntegerChannel>{
+abstract MovieSceneScriptingIntegerChannelPtr(ucpp.Ptr<MovieSceneScriptingIntegerChannel>) from ucpp.Ptr<MovieSceneScriptingIntegerChannel> to ucpp.Ptr<MovieSceneScriptingIntegerChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingIntegerChannel): MovieSceneScriptingIntegerChannelPtr {
 		return untyped __cpp__("&({0})", v);

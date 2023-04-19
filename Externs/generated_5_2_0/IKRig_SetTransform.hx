@@ -3,13 +3,13 @@ package ue;
 
 @:native("UIKRig_SetTransform")
 @:include("Solvers/IKRig_SetTransform.h")
-@:structAccess
+@:valueType
 extern class IKRig_SetTransform extends IKRigSolver {
 	public var Goal: FName;
 	public var RootBone: FName;
-	public var Effector: cpp.Star<IKRig_SetTransformEffector>;
+	public var Effector: ucpp.Ptr<IKRig_SetTransformEffector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstIKRig_SetTransform(IKRig_SetTransform) from IKRig_SetTransform {
 	public inline extern function get_Goal(): FName return this.Goal;
 	public extern var RootBone(get, never): FName;
 	public inline extern function get_RootBone(): FName return this.RootBone;
-	public extern var Effector(get, never): cpp.Star<IKRig_SetTransformEffector.ConstIKRig_SetTransformEffector>;
-	public inline extern function get_Effector(): cpp.Star<IKRig_SetTransformEffector.ConstIKRig_SetTransformEffector> return this.Effector;
+	public extern var Effector(get, never): ucpp.Ptr<IKRig_SetTransformEffector.ConstIKRig_SetTransformEffector>;
+	public inline extern function get_Effector(): ucpp.Ptr<IKRig_SetTransformEffector.ConstIKRig_SetTransformEffector> return this.Effector;
 }
 
 @:forward
 @:nativeGen
 @:native("IKRig_SetTransform*")
-abstract IKRig_SetTransformPtr(cpp.Star<IKRig_SetTransform>) from cpp.Star<IKRig_SetTransform> to cpp.Star<IKRig_SetTransform>{
+abstract IKRig_SetTransformPtr(ucpp.Ptr<IKRig_SetTransform>) from ucpp.Ptr<IKRig_SetTransform> to ucpp.Ptr<IKRig_SetTransform>{
 	@:from
 	public static extern inline function fromValue(v: IKRig_SetTransform): IKRig_SetTransformPtr {
 		return untyped __cpp__("&({0})", v);

@@ -7,5 +7,6 @@ extern class EModulationRouting {
 	static var Disable: EModulationRouting;
 	static var Inherit: EModulationRouting;
 	static var Override: EModulationRouting;
+	static var Union: EModulationRouting;
 	static var EModulationRouting_MAX: EModulationRouting;
 }

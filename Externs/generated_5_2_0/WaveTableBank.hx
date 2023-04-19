@@ -3,13 +3,13 @@ package ue;
 
 @:native("UWaveTableBank")
 @:include("WaveTableBank.h")
-@:structAccess
+@:valueType
 extern class WaveTableBank extends Object {
 	public var Resolution: EWaveTableResolution;
 	public var bBipolar: Bool;
 	public var Entries: TArray<WaveTableBankEntry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstWaveTableBank(WaveTableBank) from WaveTableBank {
 @:forward
 @:nativeGen
 @:native("WaveTableBank*")
-abstract WaveTableBankPtr(cpp.Star<WaveTableBank>) from cpp.Star<WaveTableBank> to cpp.Star<WaveTableBank>{
+abstract WaveTableBankPtr(ucpp.Ptr<WaveTableBank>) from ucpp.Ptr<WaveTableBank> to ucpp.Ptr<WaveTableBank>{
 	@:from
 	public static extern inline function fromValue(v: WaveTableBank): WaveTableBankPtr {
 		return untyped __cpp__("&({0})", v);

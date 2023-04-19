@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGameplayTask_ClaimResource")
 @:include("Tasks/GameplayTask_ClaimResource.h")
-@:structAccess
+@:valueType
 extern class GameplayTask_ClaimResource extends GameplayTask {
-	public function ClaimResources(InTaskOwner: GameplayTaskOwnerInterface, ResourceClasses: TArray<TSubclassOf<GameplayTaskResource>>, Priority: cpp.UInt8, TaskInstanceName: FName): cpp.Star<GameplayTask_ClaimResource>;
-	public function ClaimResource(InTaskOwner: GameplayTaskOwnerInterface, ResourceClass: TSubclassOf<GameplayTaskResource>, Priority: cpp.UInt8, TaskInstanceName: FName): cpp.Star<GameplayTask_ClaimResource>;
+	public function ClaimResources(InTaskOwner: GameplayTaskOwnerInterface, ResourceClasses: TArray<TSubclassOf<GameplayTaskResource>>, Priority: ucpp.num.UInt8, TaskInstanceName: FName): ucpp.Ptr<GameplayTask_ClaimResource>;
+	public function ClaimResource(InTaskOwner: GameplayTaskOwnerInterface, ResourceClass: TSubclassOf<GameplayTaskResource>, Priority: ucpp.num.UInt8, TaskInstanceName: FName): ucpp.Ptr<GameplayTask_ClaimResource>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstGameplayTask_ClaimResource(GameplayTask_ClaimResource) from Gamepl
 @:forward
 @:nativeGen
 @:native("GameplayTask_ClaimResource*")
-abstract GameplayTask_ClaimResourcePtr(cpp.Star<GameplayTask_ClaimResource>) from cpp.Star<GameplayTask_ClaimResource> to cpp.Star<GameplayTask_ClaimResource>{
+abstract GameplayTask_ClaimResourcePtr(ucpp.Ptr<GameplayTask_ClaimResource>) from ucpp.Ptr<GameplayTask_ClaimResource> to ucpp.Ptr<GameplayTask_ClaimResource>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTask_ClaimResource): GameplayTask_ClaimResourcePtr {
 		return untyped __cpp__("&({0})", v);

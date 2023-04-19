@@ -3,7 +3,7 @@ package ue;
 
 @:native("FOptionalMovieSceneBlendType")
 @:include("Evaluation/Blending/MovieSceneBlendType.h")
-@:structAccess
+@:valueType
 extern class OptionalMovieSceneBlendType {
 	public var BlendType: EMovieSceneBlendType;
 	public var bIsValid: Bool;

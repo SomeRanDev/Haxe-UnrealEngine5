@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSpectatorReservation")
 @:include("SpectatorBeaconState.h")
-@:structAccess
+@:valueType
 extern class SpectatorReservation {
 	public var SpectatorId: UniqueNetIdRepl;
 	public var Spectator: PlayerReservation;

@@ -3,21 +3,21 @@ package ue;
 
 @:native("UEnvQueryGenerator_Composite")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_Composite.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_Composite extends EnvQueryGenerator {
-	public var Generators: TArray<cpp.Star<EnvQueryGenerator>>;
+	public var Generators: TArray<ucpp.Ptr<EnvQueryGenerator>>;
 	public var bAllowDifferentItemTypes: Bool;
 	public var bHasMatchingItemType: Bool;
 	public var ForcedItemType: TSubclassOf<EnvQueryItemType>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEnvQueryGenerator_Composite(EnvQueryGenerator_Composite) from EnvQueryGenerator_Composite {
-	public extern var Generators(get, never): TArray<cpp.Star<EnvQueryGenerator.ConstEnvQueryGenerator>>;
-	public inline extern function get_Generators(): TArray<cpp.Star<EnvQueryGenerator.ConstEnvQueryGenerator>> return this.Generators;
+	public extern var Generators(get, never): TArray<ucpp.Ptr<EnvQueryGenerator.ConstEnvQueryGenerator>>;
+	public inline extern function get_Generators(): TArray<ucpp.Ptr<EnvQueryGenerator.ConstEnvQueryGenerator>> return this.Generators;
 	public extern var bAllowDifferentItemTypes(get, never): Bool;
 	public inline extern function get_bAllowDifferentItemTypes(): Bool return this.bAllowDifferentItemTypes;
 	public extern var bHasMatchingItemType(get, never): Bool;
@@ -29,7 +29,7 @@ abstract ConstEnvQueryGenerator_Composite(EnvQueryGenerator_Composite) from EnvQ
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_Composite*")
-abstract EnvQueryGenerator_CompositePtr(cpp.Star<EnvQueryGenerator_Composite>) from cpp.Star<EnvQueryGenerator_Composite> to cpp.Star<EnvQueryGenerator_Composite>{
+abstract EnvQueryGenerator_CompositePtr(ucpp.Ptr<EnvQueryGenerator_Composite>) from ucpp.Ptr<EnvQueryGenerator_Composite> to ucpp.Ptr<EnvQueryGenerator_Composite>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_Composite): EnvQueryGenerator_CompositePtr {
 		return untyped __cpp__("&({0})", v);

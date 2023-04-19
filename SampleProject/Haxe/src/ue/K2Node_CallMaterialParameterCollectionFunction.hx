@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_CallMaterialParameterCollectionFunction")
 @:include("K2Node_CallMaterialParameterCollectionFunction.h")
-@:structAccess
+@:valueType
 extern class K2Node_CallMaterialParameterCollectionFunction extends K2Node_CallFunction {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_CallMaterialParameterCollectionFunction(K2Node_CallMaterial
 @:forward
 @:nativeGen
 @:native("K2Node_CallMaterialParameterCollectionFunction*")
-abstract K2Node_CallMaterialParameterCollectionFunctionPtr(cpp.Star<K2Node_CallMaterialParameterCollectionFunction>) from cpp.Star<K2Node_CallMaterialParameterCollectionFunction> to cpp.Star<K2Node_CallMaterialParameterCollectionFunction>{
+abstract K2Node_CallMaterialParameterCollectionFunctionPtr(ucpp.Ptr<K2Node_CallMaterialParameterCollectionFunction>) from ucpp.Ptr<K2Node_CallMaterialParameterCollectionFunction> to ucpp.Ptr<K2Node_CallMaterialParameterCollectionFunction>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_CallMaterialParameterCollectionFunction): K2Node_CallMaterialParameterCollectionFunctionPtr {
 		return untyped __cpp__("&({0})", v);

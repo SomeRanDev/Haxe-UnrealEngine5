@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMaterialProvider")
-@:structAccess
+@:valueType
 extern class MaterialProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMaterialProvider(MaterialProvider) from MaterialProvider {
 @:forward
 @:nativeGen
 @:native("MaterialProvider*")
-abstract MaterialProviderPtr(cpp.Star<MaterialProvider>) from cpp.Star<MaterialProvider> to cpp.Star<MaterialProvider>{
+abstract MaterialProviderPtr(ucpp.Ptr<MaterialProvider>) from ucpp.Ptr<MaterialProvider> to ucpp.Ptr<MaterialProvider>{
 	@:from
 	public static extern inline function fromValue(v: MaterialProvider): MaterialProviderPtr {
 		return untyped __cpp__("&({0})", v);

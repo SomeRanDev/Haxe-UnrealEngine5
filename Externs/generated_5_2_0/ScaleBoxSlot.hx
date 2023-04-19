@@ -3,7 +3,7 @@ package ue;
 
 @:native("UScaleBoxSlot")
 @:include("Components/ScaleBoxSlot.h")
-@:structAccess
+@:valueType
 extern class ScaleBoxSlot extends PanelSlot {
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
@@ -12,7 +12,7 @@ extern class ScaleBoxSlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstScaleBoxSlot(ScaleBoxSlot) from ScaleBoxSlot {
 @:forward
 @:nativeGen
 @:native("ScaleBoxSlot*")
-abstract ScaleBoxSlotPtr(cpp.Star<ScaleBoxSlot>) from cpp.Star<ScaleBoxSlot> to cpp.Star<ScaleBoxSlot>{
+abstract ScaleBoxSlotPtr(ucpp.Ptr<ScaleBoxSlot>) from ucpp.Ptr<ScaleBoxSlot> to ucpp.Ptr<ScaleBoxSlot>{
 	@:from
 	public static extern inline function fromValue(v: ScaleBoxSlot): ScaleBoxSlotPtr {
 		return untyped __cpp__("&({0})", v);

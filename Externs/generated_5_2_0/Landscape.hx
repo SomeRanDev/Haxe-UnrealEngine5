@@ -3,12 +3,12 @@ package ue;
 
 @:native("ALandscape")
 @:include("Landscape.h")
-@:structAccess
+@:valueType
 extern class Landscape extends LandscapeProxy {
 
-	public function RenderHeightmap(InWorldTransform: cpp.Reference<Transform>, InExtents: cpp.Reference<Box2D>, OutRenderTarget: cpp.Star<TextureRenderTarget2D>): Void;
+	public function RenderHeightmap(InWorldTransform: ucpp.Ref<Transform>, InExtents: ucpp.Ref<Box2D>, OutRenderTarget: ucpp.Ptr<TextureRenderTarget2D>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstLandscape(Landscape) from Landscape {
 @:forward
 @:nativeGen
 @:native("Landscape*")
-abstract LandscapePtr(cpp.Star<Landscape>) from cpp.Star<Landscape> to cpp.Star<Landscape>{
+abstract LandscapePtr(ucpp.Ptr<Landscape>) from ucpp.Ptr<Landscape> to ucpp.Ptr<Landscape>{
 	@:from
 	public static extern inline function fromValue(v: Landscape): LandscapePtr {
 		return untyped __cpp__("&({0})", v);

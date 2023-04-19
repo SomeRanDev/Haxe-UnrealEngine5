@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioVolumeRadialSlider")
 @:include("AudioRadialSlider.h")
-@:structAccess
+@:valueType
 extern class AudioVolumeRadialSlider extends AudioRadialSlider {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioVolumeRadialSlider(AudioVolumeRadialSlider) from AudioVolumeR
 @:forward
 @:nativeGen
 @:native("AudioVolumeRadialSlider*")
-abstract AudioVolumeRadialSliderPtr(cpp.Star<AudioVolumeRadialSlider>) from cpp.Star<AudioVolumeRadialSlider> to cpp.Star<AudioVolumeRadialSlider>{
+abstract AudioVolumeRadialSliderPtr(ucpp.Ptr<AudioVolumeRadialSlider>) from ucpp.Ptr<AudioVolumeRadialSlider> to ucpp.Ptr<AudioVolumeRadialSlider>{
 	@:from
 	public static extern inline function fromValue(v: AudioVolumeRadialSlider): AudioVolumeRadialSliderPtr {
 		return untyped __cpp__("&({0})", v);

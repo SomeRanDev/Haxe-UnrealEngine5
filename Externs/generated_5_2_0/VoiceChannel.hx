@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVoiceChannel")
 @:include("Engine/VoiceChannel.h")
-@:structAccess
+@:valueType
 extern class VoiceChannel extends Channel {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVoiceChannel(VoiceChannel) from VoiceChannel {
 @:forward
 @:nativeGen
 @:native("VoiceChannel*")
-abstract VoiceChannelPtr(cpp.Star<VoiceChannel>) from cpp.Star<VoiceChannel> to cpp.Star<VoiceChannel>{
+abstract VoiceChannelPtr(ucpp.Ptr<VoiceChannel>) from ucpp.Ptr<VoiceChannel> to ucpp.Ptr<VoiceChannel>{
 	@:from
 	public static extern inline function fromValue(v: VoiceChannel): VoiceChannelPtr {
 		return untyped __cpp__("&({0})", v);

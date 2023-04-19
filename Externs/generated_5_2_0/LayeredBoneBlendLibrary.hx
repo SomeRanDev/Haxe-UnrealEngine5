@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULayeredBoneBlendLibrary")
 @:include("LayeredBoneBlendLibrary.h")
-@:structAccess
+@:valueType
 extern class LayeredBoneBlendLibrary extends BlueprintFunctionLibrary {
-	public function SetBlendMask(UpdateContext: cpp.Reference<AnimUpdateContext>, LayeredBoneBlend: cpp.Reference<LayeredBoneBlendReference>, PoseIndex: cpp.Int32, BlendMaskName: FName): LayeredBoneBlendReference;
-	public function GetNumPoses(LayeredBoneBlend: cpp.Reference<LayeredBoneBlendReference>): cpp.Int32;
-	public function ConvertToLayeredBoneBlend(Node: cpp.Reference<AnimNodeReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): LayeredBoneBlendReference;
-	public function ConvertToLayeredBlendPerBonePure(Node: cpp.Reference<AnimNodeReference>, LayeredBoneBlend: cpp.Reference<LayeredBoneBlendReference>, Result: cpp.Reference<Bool>): Void;
+	public function SetBlendMask(UpdateContext: ucpp.Ref<AnimUpdateContext>, LayeredBoneBlend: ucpp.Ref<LayeredBoneBlendReference>, PoseIndex: ucpp.num.Int32, BlendMaskName: FName): LayeredBoneBlendReference;
+	public function GetNumPoses(LayeredBoneBlend: ucpp.Ref<LayeredBoneBlendReference>): ucpp.num.Int32;
+	public function ConvertToLayeredBoneBlend(Node: ucpp.Ref<AnimNodeReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): LayeredBoneBlendReference;
+	public function ConvertToLayeredBlendPerBonePure(Node: ucpp.Ref<AnimNodeReference>, LayeredBoneBlend: ucpp.Ref<LayeredBoneBlendReference>, Result: ucpp.Ref<Bool>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstLayeredBoneBlendLibrary(LayeredBoneBlendLibrary) from LayeredBoneB
 @:forward
 @:nativeGen
 @:native("LayeredBoneBlendLibrary*")
-abstract LayeredBoneBlendLibraryPtr(cpp.Star<LayeredBoneBlendLibrary>) from cpp.Star<LayeredBoneBlendLibrary> to cpp.Star<LayeredBoneBlendLibrary>{
+abstract LayeredBoneBlendLibraryPtr(ucpp.Ptr<LayeredBoneBlendLibrary>) from ucpp.Ptr<LayeredBoneBlendLibrary> to ucpp.Ptr<LayeredBoneBlendLibrary>{
 	@:from
 	public static extern inline function fromValue(v: LayeredBoneBlendLibrary): LayeredBoneBlendLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_LinkedAnimLayer")
 @:include("Animation/AnimNode_LinkedAnimLayer.h")
-@:structAccess
+@:valueType
 extern class AnimNode_LinkedAnimLayer extends AnimNode_LinkedAnimGraph {
 	public var Interface: TSubclassOf<AnimLayerInterface>;
 	public var Layer: FName;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("USelectiveTessellationProperties")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class SelectiveTessellationProperties extends InteractiveToolPropertySet {
 	public var SelectionType: EDisplaceMeshToolTriangleSelectionType;
 	public var ActiveMaterial: FName;
@@ -11,7 +11,7 @@ extern class SelectiveTessellationProperties extends InteractiveToolPropertySet 
 
 	public function GetMaterialIDsFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstSelectiveTessellationProperties(SelectiveTessellationProperties) f
 @:forward
 @:nativeGen
 @:native("SelectiveTessellationProperties*")
-abstract SelectiveTessellationPropertiesPtr(cpp.Star<SelectiveTessellationProperties>) from cpp.Star<SelectiveTessellationProperties> to cpp.Star<SelectiveTessellationProperties>{
+abstract SelectiveTessellationPropertiesPtr(ucpp.Ptr<SelectiveTessellationProperties>) from ucpp.Ptr<SelectiveTessellationProperties> to ucpp.Ptr<SelectiveTessellationProperties>{
 	@:from
 	public static extern inline function fromValue(v: SelectiveTessellationProperties): SelectiveTessellationPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectReplicationBridgeFilterConfig")
 @:include("Iris/ReplicationSystem/ObjectReplicationBridgeConfig.h")
-@:structAccess
+@:valueType
 extern class ObjectReplicationBridgeFilterConfig {
 	public var ClassName: FName;
 	public var DynamicFilterName: FName;

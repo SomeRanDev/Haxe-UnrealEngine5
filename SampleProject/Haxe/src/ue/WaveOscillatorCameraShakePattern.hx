@@ -3,40 +3,40 @@ package ue;
 
 @:native("UWaveOscillatorCameraShakePattern")
 @:include("WaveOscillatorCameraShakePattern.h")
-@:structAccess
+@:valueType
 extern class WaveOscillatorCameraShakePattern extends SimpleCameraShakePattern {
-	public var LocationAmplitudeMultiplier: cpp.Float32;
-	public var LocationFrequencyMultiplier: cpp.Float32;
+	public var LocationAmplitudeMultiplier: ucpp.num.Float32;
+	public var LocationFrequencyMultiplier: ucpp.num.Float32;
 	public var X: WaveOscillator;
 	public var Y: WaveOscillator;
 	public var Z: WaveOscillator;
-	public var RotationAmplitudeMultiplier: cpp.Float32;
-	public var RotationFrequencyMultiplier: cpp.Float32;
+	public var RotationAmplitudeMultiplier: ucpp.num.Float32;
+	public var RotationFrequencyMultiplier: ucpp.num.Float32;
 	public var Pitch: WaveOscillator;
 	public var Yaw: WaveOscillator;
 	public var Roll: WaveOscillator;
 	public var FOV: WaveOscillator;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWaveOscillatorCameraShakePattern(WaveOscillatorCameraShakePattern) from WaveOscillatorCameraShakePattern {
-	public extern var LocationAmplitudeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_LocationAmplitudeMultiplier(): cpp.Float32 return this.LocationAmplitudeMultiplier;
-	public extern var LocationFrequencyMultiplier(get, never): cpp.Float32;
-	public inline extern function get_LocationFrequencyMultiplier(): cpp.Float32 return this.LocationFrequencyMultiplier;
+	public extern var LocationAmplitudeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_LocationAmplitudeMultiplier(): ucpp.num.Float32 return this.LocationAmplitudeMultiplier;
+	public extern var LocationFrequencyMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_LocationFrequencyMultiplier(): ucpp.num.Float32 return this.LocationFrequencyMultiplier;
 	public extern var X(get, never): WaveOscillator;
 	public inline extern function get_X(): WaveOscillator return this.X;
 	public extern var Y(get, never): WaveOscillator;
 	public inline extern function get_Y(): WaveOscillator return this.Y;
 	public extern var Z(get, never): WaveOscillator;
 	public inline extern function get_Z(): WaveOscillator return this.Z;
-	public extern var RotationAmplitudeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_RotationAmplitudeMultiplier(): cpp.Float32 return this.RotationAmplitudeMultiplier;
-	public extern var RotationFrequencyMultiplier(get, never): cpp.Float32;
-	public inline extern function get_RotationFrequencyMultiplier(): cpp.Float32 return this.RotationFrequencyMultiplier;
+	public extern var RotationAmplitudeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_RotationAmplitudeMultiplier(): ucpp.num.Float32 return this.RotationAmplitudeMultiplier;
+	public extern var RotationFrequencyMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_RotationFrequencyMultiplier(): ucpp.num.Float32 return this.RotationFrequencyMultiplier;
 	public extern var Pitch(get, never): WaveOscillator;
 	public inline extern function get_Pitch(): WaveOscillator return this.Pitch;
 	public extern var Yaw(get, never): WaveOscillator;
@@ -50,7 +50,7 @@ abstract ConstWaveOscillatorCameraShakePattern(WaveOscillatorCameraShakePattern)
 @:forward
 @:nativeGen
 @:native("WaveOscillatorCameraShakePattern*")
-abstract WaveOscillatorCameraShakePatternPtr(cpp.Star<WaveOscillatorCameraShakePattern>) from cpp.Star<WaveOscillatorCameraShakePattern> to cpp.Star<WaveOscillatorCameraShakePattern>{
+abstract WaveOscillatorCameraShakePatternPtr(ucpp.Ptr<WaveOscillatorCameraShakePattern>) from ucpp.Ptr<WaveOscillatorCameraShakePattern> to ucpp.Ptr<WaveOscillatorCameraShakePattern>{
 	@:from
 	public static extern inline function fromValue(v: WaveOscillatorCameraShakePattern): WaveOscillatorCameraShakePatternPtr {
 		return untyped __cpp__("&({0})", v);

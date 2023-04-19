@@ -3,14 +3,14 @@ package ue;
 
 @:native("UParticleModuleTypeDataGpu")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleTypeDataGpu extends ParticleModuleTypeDataBase {
 	public var EmitterInfo: GPUSpriteEmitterInfo;
 	public var ResourceData: GPUSpriteResourceData;
-	public var CameraMotionBlurAmount: cpp.Float32;
+	public var CameraMotionBlurAmount: ucpp.num.Float32;
 	public var bClearExistingParticlesOnInit: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,8 +20,8 @@ abstract ConstParticleModuleTypeDataGpu(ParticleModuleTypeDataGpu) from Particle
 	public inline extern function get_EmitterInfo(): GPUSpriteEmitterInfo return this.EmitterInfo;
 	public extern var ResourceData(get, never): GPUSpriteResourceData;
 	public inline extern function get_ResourceData(): GPUSpriteResourceData return this.ResourceData;
-	public extern var CameraMotionBlurAmount(get, never): cpp.Float32;
-	public inline extern function get_CameraMotionBlurAmount(): cpp.Float32 return this.CameraMotionBlurAmount;
+	public extern var CameraMotionBlurAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_CameraMotionBlurAmount(): ucpp.num.Float32 return this.CameraMotionBlurAmount;
 	public extern var bClearExistingParticlesOnInit(get, never): Bool;
 	public inline extern function get_bClearExistingParticlesOnInit(): Bool return this.bClearExistingParticlesOnInit;
 }
@@ -29,7 +29,7 @@ abstract ConstParticleModuleTypeDataGpu(ParticleModuleTypeDataGpu) from Particle
 @:forward
 @:nativeGen
 @:native("ParticleModuleTypeDataGpu*")
-abstract ParticleModuleTypeDataGpuPtr(cpp.Star<ParticleModuleTypeDataGpu>) from cpp.Star<ParticleModuleTypeDataGpu> to cpp.Star<ParticleModuleTypeDataGpu>{
+abstract ParticleModuleTypeDataGpuPtr(ucpp.Ptr<ParticleModuleTypeDataGpu>) from ucpp.Ptr<ParticleModuleTypeDataGpu> to ucpp.Ptr<ParticleModuleTypeDataGpu>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleTypeDataGpu): ParticleModuleTypeDataGpuPtr {
 		return untyped __cpp__("&({0})", v);

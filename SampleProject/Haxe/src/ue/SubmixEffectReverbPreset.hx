@@ -3,14 +3,14 @@ package ue;
 
 @:native("USubmixEffectReverbPreset")
 @:include("SubmixEffects/AudioMixerSubmixEffectReverb.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectReverbPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectReverbSettings;
 
-	public function SetSettingsWithReverbEffect(InReverbEffect: cpp.Star<ReverbEffect.ConstReverbEffect>, WetLevel: cpp.Float32, DryLevel: cpp.Float32): Void;
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectReverbSettings>): Void;
+	public function SetSettingsWithReverbEffect(InReverbEffect: ucpp.Ptr<ReverbEffect.ConstReverbEffect>, WetLevel: ucpp.num.Float32, DryLevel: ucpp.num.Float32): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectReverbSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSubmixEffectReverbPreset(SubmixEffectReverbPreset) from SubmixEffe
 @:forward
 @:nativeGen
 @:native("SubmixEffectReverbPreset*")
-abstract SubmixEffectReverbPresetPtr(cpp.Star<SubmixEffectReverbPreset>) from cpp.Star<SubmixEffectReverbPreset> to cpp.Star<SubmixEffectReverbPreset>{
+abstract SubmixEffectReverbPresetPtr(ucpp.Ptr<SubmixEffectReverbPreset>) from ucpp.Ptr<SubmixEffectReverbPreset> to ucpp.Ptr<SubmixEffectReverbPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectReverbPreset): SubmixEffectReverbPresetPtr {
 		return untyped __cpp__("&({0})", v);

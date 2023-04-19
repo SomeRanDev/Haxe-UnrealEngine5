@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVirtualKeyboardOptions")
 @:include("Widgets/Input/IVirtualKeyboardEntry.h")
-@:structAccess
+@:valueType
 extern class VirtualKeyboardOptions {
 	public var bEnableAutocorrect: Bool;
 

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UUVToolSelectionHighlightMechanic")
 @:include("Selection/UVToolSelectionHighlightMechanic.h")
-@:structAccess
+@:valueType
 extern class UVToolSelectionHighlightMechanic extends InteractionMechanic {
-	@:protected public var UnwrapGeometryActor: cpp.Star<PreviewGeometryActor>;
-	@:protected public var TriangleSetMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var UnwrapStationaryGeometryActor: cpp.Star<PreviewGeometryActor>;
-	@:protected public var LivePreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
+	@:protected public var UnwrapGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
+	@:protected public var TriangleSetMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var UnwrapStationaryGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
+	@:protected public var LivePreviewGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstUVToolSelectionHighlightMechanic(UVToolSelectionHighlightMechanic)
 @:forward
 @:nativeGen
 @:native("UVToolSelectionHighlightMechanic*")
-abstract UVToolSelectionHighlightMechanicPtr(cpp.Star<UVToolSelectionHighlightMechanic>) from cpp.Star<UVToolSelectionHighlightMechanic> to cpp.Star<UVToolSelectionHighlightMechanic>{
+abstract UVToolSelectionHighlightMechanicPtr(ucpp.Ptr<UVToolSelectionHighlightMechanic>) from ucpp.Ptr<UVToolSelectionHighlightMechanic> to ucpp.Ptr<UVToolSelectionHighlightMechanic>{
 	@:from
 	public static extern inline function fromValue(v: UVToolSelectionHighlightMechanic): UVToolSelectionHighlightMechanicPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("USoundSubmixGraphNode")
 @:include("SoundSubmixGraph/SoundSubmixGraphNode.h")
-@:structAccess
+@:valueType
 extern class SoundSubmixGraphNode extends EdGraphNode {
-	public var SoundSubmix: cpp.Star<SoundSubmixBase>;
-	public var SubmixNodeUserWidget: cpp.Star<UserWidget>;
+	public var SoundSubmix: ucpp.Ptr<SoundSubmixBase>;
+	public var SubmixNodeUserWidget: ucpp.Ptr<UserWidget>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundSubmixGraphNode(SoundSubmixGraphNode) from SoundSubmixGraphNode {
-	public extern var SoundSubmix(get, never): cpp.Star<SoundSubmixBase.ConstSoundSubmixBase>;
-	public inline extern function get_SoundSubmix(): cpp.Star<SoundSubmixBase.ConstSoundSubmixBase> return this.SoundSubmix;
-	public extern var SubmixNodeUserWidget(get, never): cpp.Star<UserWidget.ConstUserWidget>;
-	public inline extern function get_SubmixNodeUserWidget(): cpp.Star<UserWidget.ConstUserWidget> return this.SubmixNodeUserWidget;
+	public extern var SoundSubmix(get, never): ucpp.Ptr<SoundSubmixBase.ConstSoundSubmixBase>;
+	public inline extern function get_SoundSubmix(): ucpp.Ptr<SoundSubmixBase.ConstSoundSubmixBase> return this.SoundSubmix;
+	public extern var SubmixNodeUserWidget(get, never): ucpp.Ptr<UserWidget.ConstUserWidget>;
+	public inline extern function get_SubmixNodeUserWidget(): ucpp.Ptr<UserWidget.ConstUserWidget> return this.SubmixNodeUserWidget;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundSubmixGraphNode*")
-abstract SoundSubmixGraphNodePtr(cpp.Star<SoundSubmixGraphNode>) from cpp.Star<SoundSubmixGraphNode> to cpp.Star<SoundSubmixGraphNode>{
+abstract SoundSubmixGraphNodePtr(ucpp.Ptr<SoundSubmixGraphNode>) from ucpp.Ptr<SoundSubmixGraphNode> to ucpp.Ptr<SoundSubmixGraphNode>{
 	@:from
 	public static extern inline function fromValue(v: SoundSubmixGraphNode): SoundSubmixGraphNodePtr {
 		return untyped __cpp__("&({0})", v);

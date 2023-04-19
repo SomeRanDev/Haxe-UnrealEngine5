@@ -3,13 +3,13 @@ package ue;
 
 @:native("USpacer")
 @:include("Components/Spacer.h")
-@:structAccess
+@:valueType
 extern class Spacer extends Widget {
 	public var Size: Vector2D;
 
 	public function SetSize(InSize: Vector2D): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSpacer(Spacer) from Spacer {
 @:forward
 @:nativeGen
 @:native("Spacer*")
-abstract SpacerPtr(cpp.Star<Spacer>) from cpp.Star<Spacer> to cpp.Star<Spacer>{
+abstract SpacerPtr(ucpp.Ptr<Spacer>) from ucpp.Ptr<Spacer> to ucpp.Ptr<Spacer>{
 	@:from
 	public static extern inline function fromValue(v: Spacer): SpacerPtr {
 		return untyped __cpp__("&({0})", v);

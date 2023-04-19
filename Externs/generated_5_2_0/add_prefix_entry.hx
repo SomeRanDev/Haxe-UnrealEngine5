@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Uadd_prefix_entry")
-@:structAccess
+@:valueType
 extern class add_prefix_entry extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constadd_prefix_entry(add_prefix_entry) from add_prefix_entry {
 @:forward
 @:nativeGen
 @:native("add_prefix_entry*")
-abstract add_prefix_entryPtr(cpp.Star<add_prefix_entry>) from cpp.Star<add_prefix_entry> to cpp.Star<add_prefix_entry>{
+abstract add_prefix_entryPtr(ucpp.Ptr<add_prefix_entry>) from ucpp.Ptr<add_prefix_entry> to ucpp.Ptr<add_prefix_entry>{
 	@:from
 	public static extern inline function fromValue(v: add_prefix_entry): add_prefix_entryPtr {
 		return untyped __cpp__("&({0})", v);

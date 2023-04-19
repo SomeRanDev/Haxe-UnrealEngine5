@@ -3,15 +3,15 @@ package ue;
 
 @:native("UNiagaraNodeInput")
 @:include("NiagaraNodeInput.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeInput extends NiagaraNode {
 	public var Input: NiagaraVariable;
 	public var Usage: ENiagaraInputNodeUsage;
-	public var CallSortPriority: cpp.Int32;
+	public var CallSortPriority: ucpp.num.Int32;
 	public var ExposureOptions: NiagaraInputExposureOptions;
-	private var DataInterface: cpp.Star<NiagaraDataInterface>;
+	private var DataInterface: ucpp.Ptr<NiagaraDataInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,8 +21,8 @@ abstract ConstNiagaraNodeInput(NiagaraNodeInput) from NiagaraNodeInput {
 	public inline extern function get_Input(): NiagaraVariable return this.Input;
 	public extern var Usage(get, never): ENiagaraInputNodeUsage;
 	public inline extern function get_Usage(): ENiagaraInputNodeUsage return this.Usage;
-	public extern var CallSortPriority(get, never): cpp.Int32;
-	public inline extern function get_CallSortPriority(): cpp.Int32 return this.CallSortPriority;
+	public extern var CallSortPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_CallSortPriority(): ucpp.num.Int32 return this.CallSortPriority;
 	public extern var ExposureOptions(get, never): NiagaraInputExposureOptions;
 	public inline extern function get_ExposureOptions(): NiagaraInputExposureOptions return this.ExposureOptions;
 }
@@ -30,7 +30,7 @@ abstract ConstNiagaraNodeInput(NiagaraNodeInput) from NiagaraNodeInput {
 @:forward
 @:nativeGen
 @:native("NiagaraNodeInput*")
-abstract NiagaraNodeInputPtr(cpp.Star<NiagaraNodeInput>) from cpp.Star<NiagaraNodeInput> to cpp.Star<NiagaraNodeInput>{
+abstract NiagaraNodeInputPtr(ucpp.Ptr<NiagaraNodeInput>) from ucpp.Ptr<NiagaraNodeInput> to ucpp.Ptr<NiagaraNodeInput>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeInput): NiagaraNodeInputPtr {
 		return untyped __cpp__("&({0})", v);

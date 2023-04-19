@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInteractiveGizmoManager")
 @:include("InteractiveGizmoManager.h")
-@:structAccess
+@:valueType
 extern class InteractiveGizmoManager extends Object {
 	@:protected public var ActiveGizmos: TArray<ActiveGizmo>;
-	@:protected public var GizmoBuilders: TMap<FString, cpp.Star<InteractiveGizmoBuilder>>;
+	@:protected public var GizmoBuilders: TMap<FString, ucpp.Ptr<InteractiveGizmoBuilder>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstInteractiveGizmoManager(InteractiveGizmoManager) from InteractiveG
 @:forward
 @:nativeGen
 @:native("InteractiveGizmoManager*")
-abstract InteractiveGizmoManagerPtr(cpp.Star<InteractiveGizmoManager>) from cpp.Star<InteractiveGizmoManager> to cpp.Star<InteractiveGizmoManager>{
+abstract InteractiveGizmoManagerPtr(ucpp.Ptr<InteractiveGizmoManager>) from ucpp.Ptr<InteractiveGizmoManager> to ucpp.Ptr<InteractiveGizmoManager>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveGizmoManager): InteractiveGizmoManagerPtr {
 		return untyped __cpp__("&({0})", v);

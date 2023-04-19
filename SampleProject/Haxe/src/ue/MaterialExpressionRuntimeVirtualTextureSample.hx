@@ -3,19 +3,20 @@ package ue;
 
 @:native("UMaterialExpressionRuntimeVirtualTextureSample")
 @:include("Materials/MaterialExpressionRuntimeVirtualTextureSample.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionRuntimeVirtualTextureSample extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 	public var WorldPosition: ExpressionInput;
 	public var MipValue: ExpressionInput;
-	public var VirtualTexture: cpp.Star<RuntimeVirtualTexture>;
+	public var VirtualTexture: ucpp.Ptr<RuntimeVirtualTexture>;
 	public var MaterialType: ERuntimeVirtualTextureMaterialType;
 	public var bSinglePhysicalSpace: Bool;
 	public var bAdaptive: Bool;
+	public var bEnableFeedback: Bool;
 	public var MipValueMode: TEnumAsByte<ERuntimeVirtualTextureMipValueMode>;
 	public var TextureAddressMode: TEnumAsByte<ERuntimeVirtualTextureTextureAddressMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,14 +28,16 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureSample(MaterialExpressionRu
 	public inline extern function get_WorldPosition(): ExpressionInput return this.WorldPosition;
 	public extern var MipValue(get, never): ExpressionInput;
 	public inline extern function get_MipValue(): ExpressionInput return this.MipValue;
-	public extern var VirtualTexture(get, never): cpp.Star<RuntimeVirtualTexture.ConstRuntimeVirtualTexture>;
-	public inline extern function get_VirtualTexture(): cpp.Star<RuntimeVirtualTexture.ConstRuntimeVirtualTexture> return this.VirtualTexture;
+	public extern var VirtualTexture(get, never): ucpp.Ptr<RuntimeVirtualTexture.ConstRuntimeVirtualTexture>;
+	public inline extern function get_VirtualTexture(): ucpp.Ptr<RuntimeVirtualTexture.ConstRuntimeVirtualTexture> return this.VirtualTexture;
 	public extern var MaterialType(get, never): ERuntimeVirtualTextureMaterialType;
 	public inline extern function get_MaterialType(): ERuntimeVirtualTextureMaterialType return this.MaterialType;
 	public extern var bSinglePhysicalSpace(get, never): Bool;
 	public inline extern function get_bSinglePhysicalSpace(): Bool return this.bSinglePhysicalSpace;
 	public extern var bAdaptive(get, never): Bool;
 	public inline extern function get_bAdaptive(): Bool return this.bAdaptive;
+	public extern var bEnableFeedback(get, never): Bool;
+	public inline extern function get_bEnableFeedback(): Bool return this.bEnableFeedback;
 	public extern var MipValueMode(get, never): TEnumAsByte<ERuntimeVirtualTextureMipValueMode>;
 	public inline extern function get_MipValueMode(): TEnumAsByte<ERuntimeVirtualTextureMipValueMode> return this.MipValueMode;
 	public extern var TextureAddressMode(get, never): TEnumAsByte<ERuntimeVirtualTextureTextureAddressMode>;
@@ -44,7 +47,7 @@ abstract ConstMaterialExpressionRuntimeVirtualTextureSample(MaterialExpressionRu
 @:forward
 @:nativeGen
 @:native("MaterialExpressionRuntimeVirtualTextureSample*")
-abstract MaterialExpressionRuntimeVirtualTextureSamplePtr(cpp.Star<MaterialExpressionRuntimeVirtualTextureSample>) from cpp.Star<MaterialExpressionRuntimeVirtualTextureSample> to cpp.Star<MaterialExpressionRuntimeVirtualTextureSample>{
+abstract MaterialExpressionRuntimeVirtualTextureSamplePtr(ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureSample>) from ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureSample> to ucpp.Ptr<MaterialExpressionRuntimeVirtualTextureSample>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionRuntimeVirtualTextureSample): MaterialExpressionRuntimeVirtualTextureSamplePtr {
 		return untyped __cpp__("&({0})", v);

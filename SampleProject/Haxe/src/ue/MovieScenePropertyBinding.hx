@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieScenePropertyBinding")
 @:include("EntitySystem/MovieScenePropertyBinding.h")
-@:structAccess
+@:valueType
 extern class MovieScenePropertyBinding {
 	public var PropertyName: FName;
 	public var PropertyPath: FName;

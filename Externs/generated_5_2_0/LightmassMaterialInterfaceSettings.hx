@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLightmassMaterialInterfaceSettings")
 @:include("Materials/MaterialInterface.h")
-@:structAccess
+@:valueType
 extern class LightmassMaterialInterfaceSettings {
-	public var EmissiveBoost: cpp.Float32;
-	public var DiffuseBoost: cpp.Float32;
-	public var ExportResolutionScale: cpp.Float32;
+	public var EmissiveBoost: ucpp.num.Float32;
+	public var DiffuseBoost: ucpp.num.Float32;
+	public var ExportResolutionScale: ucpp.num.Float32;
 	public var bCastShadowAsMasked: Bool;
 	public var bOverrideCastShadowAsMasked: Bool;
 	public var bOverrideEmissiveBoost: Bool;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataAssetFactory")
 @:include("Factories/DataAssetFactory.h")
-@:structAccess
+@:valueType
 extern class DataAssetFactory extends Factory {
 	public var DataAssetClass: TSubclassOf<DataAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDataAssetFactory(DataAssetFactory) from DataAssetFactory {
 @:forward
 @:nativeGen
 @:native("DataAssetFactory*")
-abstract DataAssetFactoryPtr(cpp.Star<DataAssetFactory>) from cpp.Star<DataAssetFactory> to cpp.Star<DataAssetFactory>{
+abstract DataAssetFactoryPtr(ucpp.Ptr<DataAssetFactory>) from ucpp.Ptr<DataAssetFactory> to ucpp.Ptr<DataAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: DataAssetFactory): DataAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

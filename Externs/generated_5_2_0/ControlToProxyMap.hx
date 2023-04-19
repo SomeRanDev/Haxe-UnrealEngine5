@@ -3,10 +3,10 @@ package ue;
 
 @:native("FControlToProxyMap")
 @:include("Private/EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlToProxyMap {
-	public var ControlToProxy: TMap<FName, cpp.Star<ControlRigControlsProxy>>;
+	public var ControlToProxy: TMap<FName, ucpp.Ptr<ControlRigControlsProxy>>;
 
 	@:native("FControlToProxyMap") public function new();
-	@:native("FControlToProxyMap") public static function make(ControlToProxy: TMap<FName, cpp.Star<ControlRigControlsProxy>>): ControlToProxyMap ;
+	@:native("FControlToProxyMap") public static function make(ControlToProxy: TMap<FName, ucpp.Ptr<ControlRigControlsProxy>>): ControlToProxyMap ;
 }

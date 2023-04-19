@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionDecalMipmapLevel")
 @:include("Materials/MaterialExpressionDecalMipmapLevel.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDecalMipmapLevel extends MaterialExpression {
 	public var TextureSize: ExpressionInput;
-	public var ConstWidth: cpp.Float32;
-	public var ConstHeight: cpp.Float32;
+	public var ConstWidth: ucpp.num.Float32;
+	public var ConstHeight: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class MaterialExpressionDecalMipmapLevel extends MaterialExpression {
 abstract ConstMaterialExpressionDecalMipmapLevel(MaterialExpressionDecalMipmapLevel) from MaterialExpressionDecalMipmapLevel {
 	public extern var TextureSize(get, never): ExpressionInput;
 	public inline extern function get_TextureSize(): ExpressionInput return this.TextureSize;
-	public extern var ConstWidth(get, never): cpp.Float32;
-	public inline extern function get_ConstWidth(): cpp.Float32 return this.ConstWidth;
-	public extern var ConstHeight(get, never): cpp.Float32;
-	public inline extern function get_ConstHeight(): cpp.Float32 return this.ConstHeight;
+	public extern var ConstWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstWidth(): ucpp.num.Float32 return this.ConstWidth;
+	public extern var ConstHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstHeight(): ucpp.num.Float32 return this.ConstHeight;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDecalMipmapLevel*")
-abstract MaterialExpressionDecalMipmapLevelPtr(cpp.Star<MaterialExpressionDecalMipmapLevel>) from cpp.Star<MaterialExpressionDecalMipmapLevel> to cpp.Star<MaterialExpressionDecalMipmapLevel>{
+abstract MaterialExpressionDecalMipmapLevelPtr(ucpp.Ptr<MaterialExpressionDecalMipmapLevel>) from ucpp.Ptr<MaterialExpressionDecalMipmapLevel> to ucpp.Ptr<MaterialExpressionDecalMipmapLevel>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDecalMipmapLevel): MaterialExpressionDecalMipmapLevelPtr {
 		return untyped __cpp__("&({0})", v);

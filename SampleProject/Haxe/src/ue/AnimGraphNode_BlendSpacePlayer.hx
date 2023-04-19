@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_BlendSpacePlayer")
 @:include("AnimGraphNode_BlendSpacePlayer.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_BlendSpacePlayer extends AnimGraphNode_BlendSpaceBase {
 	public var Node: AnimNode_BlendSpacePlayer;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_BlendSpacePlayer(AnimGraphNode_BlendSpacePlayer) fro
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_BlendSpacePlayer*")
-abstract AnimGraphNode_BlendSpacePlayerPtr(cpp.Star<AnimGraphNode_BlendSpacePlayer>) from cpp.Star<AnimGraphNode_BlendSpacePlayer> to cpp.Star<AnimGraphNode_BlendSpacePlayer>{
+abstract AnimGraphNode_BlendSpacePlayerPtr(ucpp.Ptr<AnimGraphNode_BlendSpacePlayer>) from ucpp.Ptr<AnimGraphNode_BlendSpacePlayer> to ucpp.Ptr<AnimGraphNode_BlendSpacePlayer>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_BlendSpacePlayer): AnimGraphNode_BlendSpacePlayerPtr {
 		return untyped __cpp__("&({0})", v);

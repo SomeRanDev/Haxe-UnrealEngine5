@@ -3,41 +3,41 @@ package ue;
 
 @:native("UNetDriver")
 @:include("Engine/NetDriver.h")
-@:structAccess
+@:valueType
 extern class NetDriver extends Object {
 	public var NetConnectionClassName: FString;
 	public var ReplicationDriverClassName: FString;
 	public var ReplicationBridgeClassName: FString;
-	public var MaxDownloadSize: cpp.Int32;
+	public var MaxDownloadSize: ucpp.num.Int32;
 	public var bClampListenServerTickRate: Bool;
-	public var NetServerMaxTickRate: cpp.Int32;
-	public var MaxNetTickRate: cpp.Int32;
-	public var MaxInternetClientRate: cpp.Int32;
-	public var MaxClientRate: cpp.Int32;
-	public var ServerTravelPause: cpp.Float32;
-	public var SpawnPrioritySeconds: cpp.Float32;
-	public var RelevantTimeout: cpp.Float32;
-	public var KeepAliveTime: cpp.Float32;
-	public var InitialConnectTimeout: cpp.Float32;
-	public var ConnectionTimeout: cpp.Float32;
-	public var TimeoutMultiplierForUnoptimizedBuilds: cpp.Float32;
-	public var ServerConnection: cpp.Star<NetConnection>;
-	public var ClientConnections: TArray<cpp.Star<NetConnection>>;
-	public var RecentlyDisconnectedTrackingTime: cpp.Int32;
-	public var World: cpp.Star<World>;
-	public var WorldPackage: cpp.Star<Package>;
+	public var NetServerMaxTickRate: ucpp.num.Int32;
+	public var MaxNetTickRate: ucpp.num.Int32;
+	public var MaxInternetClientRate: ucpp.num.Int32;
+	public var MaxClientRate: ucpp.num.Int32;
+	public var ServerTravelPause: ucpp.num.Float32;
+	public var SpawnPrioritySeconds: ucpp.num.Float32;
+	public var RelevantTimeout: ucpp.num.Float32;
+	public var KeepAliveTime: ucpp.num.Float32;
+	public var InitialConnectTimeout: ucpp.num.Float32;
+	public var ConnectionTimeout: ucpp.num.Float32;
+	public var TimeoutMultiplierForUnoptimizedBuilds: ucpp.num.Float32;
+	public var ServerConnection: ucpp.Ptr<NetConnection>;
+	public var ClientConnections: TArray<ucpp.Ptr<NetConnection>>;
+	public var RecentlyDisconnectedTrackingTime: ucpp.num.Int32;
+	public var World: ucpp.Ptr<World>;
+	public var WorldPackage: ucpp.Ptr<Package>;
 	public var NetConnectionClass: TSubclassOf<Object>;
 	public var ReplicationDriverClass: TSubclassOf<Object>;
 	public var ReplicationBridgeClass: TSubclassOf<Object>;
 	public var NetDriverName: FName;
 	public var ChannelDefinitions: TArray<ChannelDefinition>;
 	public var ChannelDefinitionMap: TMap<FName, ChannelDefinition>;
-	private var ActorChannelPool: TArray<cpp.Star<Channel>>;
+	private var ActorChannelPool: TArray<ucpp.Ptr<Channel>>;
 	public var bNoTimeouts: Bool;
 	public var bNeverApplyNetworkEmulationSettings: Bool;
-	private var ReplicationDriver: cpp.Star<ReplicationDriver>;
+	private var ReplicationDriver: ucpp.Ptr<ReplicationDriver>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -49,42 +49,42 @@ abstract ConstNetDriver(NetDriver) from NetDriver {
 	public inline extern function get_ReplicationDriverClassName(): FString return this.ReplicationDriverClassName;
 	public extern var ReplicationBridgeClassName(get, never): FString;
 	public inline extern function get_ReplicationBridgeClassName(): FString return this.ReplicationBridgeClassName;
-	public extern var MaxDownloadSize(get, never): cpp.Int32;
-	public inline extern function get_MaxDownloadSize(): cpp.Int32 return this.MaxDownloadSize;
+	public extern var MaxDownloadSize(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxDownloadSize(): ucpp.num.Int32 return this.MaxDownloadSize;
 	public extern var bClampListenServerTickRate(get, never): Bool;
 	public inline extern function get_bClampListenServerTickRate(): Bool return this.bClampListenServerTickRate;
-	public extern var NetServerMaxTickRate(get, never): cpp.Int32;
-	public inline extern function get_NetServerMaxTickRate(): cpp.Int32 return this.NetServerMaxTickRate;
-	public extern var MaxNetTickRate(get, never): cpp.Int32;
-	public inline extern function get_MaxNetTickRate(): cpp.Int32 return this.MaxNetTickRate;
-	public extern var MaxInternetClientRate(get, never): cpp.Int32;
-	public inline extern function get_MaxInternetClientRate(): cpp.Int32 return this.MaxInternetClientRate;
-	public extern var MaxClientRate(get, never): cpp.Int32;
-	public inline extern function get_MaxClientRate(): cpp.Int32 return this.MaxClientRate;
-	public extern var ServerTravelPause(get, never): cpp.Float32;
-	public inline extern function get_ServerTravelPause(): cpp.Float32 return this.ServerTravelPause;
-	public extern var SpawnPrioritySeconds(get, never): cpp.Float32;
-	public inline extern function get_SpawnPrioritySeconds(): cpp.Float32 return this.SpawnPrioritySeconds;
-	public extern var RelevantTimeout(get, never): cpp.Float32;
-	public inline extern function get_RelevantTimeout(): cpp.Float32 return this.RelevantTimeout;
-	public extern var KeepAliveTime(get, never): cpp.Float32;
-	public inline extern function get_KeepAliveTime(): cpp.Float32 return this.KeepAliveTime;
-	public extern var InitialConnectTimeout(get, never): cpp.Float32;
-	public inline extern function get_InitialConnectTimeout(): cpp.Float32 return this.InitialConnectTimeout;
-	public extern var ConnectionTimeout(get, never): cpp.Float32;
-	public inline extern function get_ConnectionTimeout(): cpp.Float32 return this.ConnectionTimeout;
-	public extern var TimeoutMultiplierForUnoptimizedBuilds(get, never): cpp.Float32;
-	public inline extern function get_TimeoutMultiplierForUnoptimizedBuilds(): cpp.Float32 return this.TimeoutMultiplierForUnoptimizedBuilds;
-	public extern var ServerConnection(get, never): cpp.Star<NetConnection.ConstNetConnection>;
-	public inline extern function get_ServerConnection(): cpp.Star<NetConnection.ConstNetConnection> return this.ServerConnection;
-	public extern var ClientConnections(get, never): TArray<cpp.Star<NetConnection.ConstNetConnection>>;
-	public inline extern function get_ClientConnections(): TArray<cpp.Star<NetConnection.ConstNetConnection>> return this.ClientConnections;
-	public extern var RecentlyDisconnectedTrackingTime(get, never): cpp.Int32;
-	public inline extern function get_RecentlyDisconnectedTrackingTime(): cpp.Int32 return this.RecentlyDisconnectedTrackingTime;
-	public extern var World(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_World(): cpp.Star<World.ConstWorld> return this.World;
-	public extern var WorldPackage(get, never): cpp.Star<Package.ConstPackage>;
-	public inline extern function get_WorldPackage(): cpp.Star<Package.ConstPackage> return this.WorldPackage;
+	public extern var NetServerMaxTickRate(get, never): ucpp.num.Int32;
+	public inline extern function get_NetServerMaxTickRate(): ucpp.num.Int32 return this.NetServerMaxTickRate;
+	public extern var MaxNetTickRate(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxNetTickRate(): ucpp.num.Int32 return this.MaxNetTickRate;
+	public extern var MaxInternetClientRate(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxInternetClientRate(): ucpp.num.Int32 return this.MaxInternetClientRate;
+	public extern var MaxClientRate(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxClientRate(): ucpp.num.Int32 return this.MaxClientRate;
+	public extern var ServerTravelPause(get, never): ucpp.num.Float32;
+	public inline extern function get_ServerTravelPause(): ucpp.num.Float32 return this.ServerTravelPause;
+	public extern var SpawnPrioritySeconds(get, never): ucpp.num.Float32;
+	public inline extern function get_SpawnPrioritySeconds(): ucpp.num.Float32 return this.SpawnPrioritySeconds;
+	public extern var RelevantTimeout(get, never): ucpp.num.Float32;
+	public inline extern function get_RelevantTimeout(): ucpp.num.Float32 return this.RelevantTimeout;
+	public extern var KeepAliveTime(get, never): ucpp.num.Float32;
+	public inline extern function get_KeepAliveTime(): ucpp.num.Float32 return this.KeepAliveTime;
+	public extern var InitialConnectTimeout(get, never): ucpp.num.Float32;
+	public inline extern function get_InitialConnectTimeout(): ucpp.num.Float32 return this.InitialConnectTimeout;
+	public extern var ConnectionTimeout(get, never): ucpp.num.Float32;
+	public inline extern function get_ConnectionTimeout(): ucpp.num.Float32 return this.ConnectionTimeout;
+	public extern var TimeoutMultiplierForUnoptimizedBuilds(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeoutMultiplierForUnoptimizedBuilds(): ucpp.num.Float32 return this.TimeoutMultiplierForUnoptimizedBuilds;
+	public extern var ServerConnection(get, never): ucpp.Ptr<NetConnection.ConstNetConnection>;
+	public inline extern function get_ServerConnection(): ucpp.Ptr<NetConnection.ConstNetConnection> return this.ServerConnection;
+	public extern var ClientConnections(get, never): TArray<ucpp.Ptr<NetConnection.ConstNetConnection>>;
+	public inline extern function get_ClientConnections(): TArray<ucpp.Ptr<NetConnection.ConstNetConnection>> return this.ClientConnections;
+	public extern var RecentlyDisconnectedTrackingTime(get, never): ucpp.num.Int32;
+	public inline extern function get_RecentlyDisconnectedTrackingTime(): ucpp.num.Int32 return this.RecentlyDisconnectedTrackingTime;
+	public extern var World(get, never): ucpp.Ptr<World.ConstWorld>;
+	public inline extern function get_World(): ucpp.Ptr<World.ConstWorld> return this.World;
+	public extern var WorldPackage(get, never): ucpp.Ptr<Package.ConstPackage>;
+	public inline extern function get_WorldPackage(): ucpp.Ptr<Package.ConstPackage> return this.WorldPackage;
 	public extern var NetConnectionClass(get, never): TSubclassOf<Object.ConstObject>;
 	public inline extern function get_NetConnectionClass(): TSubclassOf<Object.ConstObject> return this.NetConnectionClass;
 	public extern var ReplicationDriverClass(get, never): TSubclassOf<Object.ConstObject>;
@@ -106,7 +106,7 @@ abstract ConstNetDriver(NetDriver) from NetDriver {
 @:forward
 @:nativeGen
 @:native("NetDriver*")
-abstract NetDriverPtr(cpp.Star<NetDriver>) from cpp.Star<NetDriver> to cpp.Star<NetDriver>{
+abstract NetDriverPtr(ucpp.Ptr<NetDriver>) from ucpp.Ptr<NetDriver> to ucpp.Ptr<NetDriver>{
 	@:from
 	public static extern inline function fromValue(v: NetDriver): NetDriverPtr {
 		return untyped __cpp__("&({0})", v);

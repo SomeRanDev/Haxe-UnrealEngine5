@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReimportVectorFieldStaticFactory")
 @:include("Factories/ReimportVectorFieldStaticFactory.h")
-@:structAccess
+@:valueType
 extern class ReimportVectorFieldStaticFactory extends VectorFieldStaticFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReimportVectorFieldStaticFactory(ReimportVectorFieldStaticFactory)
 @:forward
 @:nativeGen
 @:native("ReimportVectorFieldStaticFactory*")
-abstract ReimportVectorFieldStaticFactoryPtr(cpp.Star<ReimportVectorFieldStaticFactory>) from cpp.Star<ReimportVectorFieldStaticFactory> to cpp.Star<ReimportVectorFieldStaticFactory>{
+abstract ReimportVectorFieldStaticFactoryPtr(ucpp.Ptr<ReimportVectorFieldStaticFactory>) from ucpp.Ptr<ReimportVectorFieldStaticFactory> to ucpp.Ptr<ReimportVectorFieldStaticFactory>{
 	@:from
 	public static extern inline function fromValue(v: ReimportVectorFieldStaticFactory): ReimportVectorFieldStaticFactoryPtr {
 		return untyped __cpp__("&({0})", v);

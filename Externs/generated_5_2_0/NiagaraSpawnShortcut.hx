@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraSpawnShortcut")
 @:include("NiagaraSpawnShortcut.h")
-@:structAccess
+@:valueType
 extern class NiagaraSpawnShortcut {
 	public var Name: FString;
 	public var Input: InputChord;

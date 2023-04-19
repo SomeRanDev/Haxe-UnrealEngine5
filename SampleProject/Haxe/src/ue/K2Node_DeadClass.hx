@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_DeadClass")
 @:include("K2Node_DeadClass.h")
-@:structAccess
+@:valueType
 extern class K2Node_DeadClass extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_DeadClass(K2Node_DeadClass) from K2Node_DeadClass {
 @:forward
 @:nativeGen
 @:native("K2Node_DeadClass*")
-abstract K2Node_DeadClassPtr(cpp.Star<K2Node_DeadClass>) from cpp.Star<K2Node_DeadClass> to cpp.Star<K2Node_DeadClass>{
+abstract K2Node_DeadClassPtr(ucpp.Ptr<K2Node_DeadClass>) from ucpp.Ptr<K2Node_DeadClass> to ucpp.Ptr<K2Node_DeadClass>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_DeadClass): K2Node_DeadClassPtr {
 		return untyped __cpp__("&({0})", v);

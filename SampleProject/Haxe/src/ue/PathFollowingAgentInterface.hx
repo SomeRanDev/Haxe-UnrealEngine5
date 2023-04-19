@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPathFollowingAgentInterface")
-@:structAccess
+@:valueType
 extern class PathFollowingAgentInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPathFollowingAgentInterface(PathFollowingAgentInterface) from Path
 @:forward
 @:nativeGen
 @:native("PathFollowingAgentInterface*")
-abstract PathFollowingAgentInterfacePtr(cpp.Star<PathFollowingAgentInterface>) from cpp.Star<PathFollowingAgentInterface> to cpp.Star<PathFollowingAgentInterface>{
+abstract PathFollowingAgentInterfacePtr(ucpp.Ptr<PathFollowingAgentInterface>) from ucpp.Ptr<PathFollowingAgentInterface> to ucpp.Ptr<PathFollowingAgentInterface>{
 	@:from
 	public static extern inline function fromValue(v: PathFollowingAgentInterface): PathFollowingAgentInterfacePtr {
 		return untyped __cpp__("&({0})", v);

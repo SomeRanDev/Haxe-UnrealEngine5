@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceCurve")
 @:include("NiagaraDataInterfaceCurve.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceCurve extends NiagaraDataInterfaceCurveBase {
 	public var Curve: RichCurve;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraDataInterfaceCurve(NiagaraDataInterfaceCurve) from NiagaraD
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceCurve*")
-abstract NiagaraDataInterfaceCurvePtr(cpp.Star<NiagaraDataInterfaceCurve>) from cpp.Star<NiagaraDataInterfaceCurve> to cpp.Star<NiagaraDataInterfaceCurve>{
+abstract NiagaraDataInterfaceCurvePtr(ucpp.Ptr<NiagaraDataInterfaceCurve>) from ucpp.Ptr<NiagaraDataInterfaceCurve> to ucpp.Ptr<NiagaraDataInterfaceCurve>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceCurve): NiagaraDataInterfaceCurvePtr {
 		return untyped __cpp__("&({0})", v);

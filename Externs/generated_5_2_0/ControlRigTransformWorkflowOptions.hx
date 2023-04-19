@@ -3,13 +3,13 @@ package ue;
 
 @:native("UControlRigTransformWorkflowOptions")
 @:include("Units/ControlRigNodeWorkflow.h")
-@:structAccess
+@:valueType
 extern class ControlRigTransformWorkflowOptions extends ControlRigWorkflowOptions {
 	public var TransformType: TEnumAsByte<ERigTransformType>;
 
-	public function ProvideWorkflows(InSubject: cpp.Star<Object.ConstObject>): TArray<RigVMUserWorkflow>;
+	public function ProvideWorkflows(InSubject: ucpp.Ptr<Object.ConstObject>): TArray<RigVMUserWorkflow>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstControlRigTransformWorkflowOptions(ControlRigTransformWorkflowOpti
 @:forward
 @:nativeGen
 @:native("ControlRigTransformWorkflowOptions*")
-abstract ControlRigTransformWorkflowOptionsPtr(cpp.Star<ControlRigTransformWorkflowOptions>) from cpp.Star<ControlRigTransformWorkflowOptions> to cpp.Star<ControlRigTransformWorkflowOptions>{
+abstract ControlRigTransformWorkflowOptionsPtr(ucpp.Ptr<ControlRigTransformWorkflowOptions>) from ucpp.Ptr<ControlRigTransformWorkflowOptions> to ucpp.Ptr<ControlRigTransformWorkflowOptions>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigTransformWorkflowOptions): ControlRigTransformWorkflowOptionsPtr {
 		return untyped __cpp__("&({0})", v);

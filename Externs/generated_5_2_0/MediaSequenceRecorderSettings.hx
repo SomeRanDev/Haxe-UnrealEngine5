@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMediaSequenceRecorderSettings")
 @:include("Sequencer/MediaSequenceRecorderExtender.h")
-@:structAccess
+@:valueType
 extern class MediaSequenceRecorderSettings extends Object {
 	public var bRecordMediaPlayerEnabled: Bool;
 	public var MediaPlayerSubDirectory: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMediaSequenceRecorderSettings(MediaSequenceRecorderSettings) from 
 @:forward
 @:nativeGen
 @:native("MediaSequenceRecorderSettings*")
-abstract MediaSequenceRecorderSettingsPtr(cpp.Star<MediaSequenceRecorderSettings>) from cpp.Star<MediaSequenceRecorderSettings> to cpp.Star<MediaSequenceRecorderSettings>{
+abstract MediaSequenceRecorderSettingsPtr(ucpp.Ptr<MediaSequenceRecorderSettings>) from ucpp.Ptr<MediaSequenceRecorderSettings> to ucpp.Ptr<MediaSequenceRecorderSettings>{
 	@:from
 	public static extern inline function fromValue(v: MediaSequenceRecorderSettings): MediaSequenceRecorderSettingsPtr {
 		return untyped __cpp__("&({0})", v);

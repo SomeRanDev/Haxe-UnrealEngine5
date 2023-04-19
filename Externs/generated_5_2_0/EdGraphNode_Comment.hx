@@ -3,16 +3,16 @@ package ue;
 
 @:native("UEdGraphNode_Comment")
 @:include("EdGraphNode_Comment.h")
-@:structAccess
+@:valueType
 extern class EdGraphNode_Comment extends EdGraphNode {
 	public var CommentColor: LinearColor;
-	public var FontSize: cpp.Int32;
+	public var FontSize: ucpp.num.Int32;
 	public var bCommentBubbleVisible_InDetailsPanel: Bool;
 	public var bColorCommentBubble: Bool;
 	public var MoveMode: TEnumAsByte<ECommentBoxMode>;
-	public var CommentDepth: cpp.Int32;
+	public var CommentDepth: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,22 +20,22 @@ extern class EdGraphNode_Comment extends EdGraphNode {
 abstract ConstEdGraphNode_Comment(EdGraphNode_Comment) from EdGraphNode_Comment {
 	public extern var CommentColor(get, never): LinearColor;
 	public inline extern function get_CommentColor(): LinearColor return this.CommentColor;
-	public extern var FontSize(get, never): cpp.Int32;
-	public inline extern function get_FontSize(): cpp.Int32 return this.FontSize;
+	public extern var FontSize(get, never): ucpp.num.Int32;
+	public inline extern function get_FontSize(): ucpp.num.Int32 return this.FontSize;
 	public extern var bCommentBubbleVisible_InDetailsPanel(get, never): Bool;
 	public inline extern function get_bCommentBubbleVisible_InDetailsPanel(): Bool return this.bCommentBubbleVisible_InDetailsPanel;
 	public extern var bColorCommentBubble(get, never): Bool;
 	public inline extern function get_bColorCommentBubble(): Bool return this.bColorCommentBubble;
 	public extern var MoveMode(get, never): TEnumAsByte<ECommentBoxMode>;
 	public inline extern function get_MoveMode(): TEnumAsByte<ECommentBoxMode> return this.MoveMode;
-	public extern var CommentDepth(get, never): cpp.Int32;
-	public inline extern function get_CommentDepth(): cpp.Int32 return this.CommentDepth;
+	public extern var CommentDepth(get, never): ucpp.num.Int32;
+	public inline extern function get_CommentDepth(): ucpp.num.Int32 return this.CommentDepth;
 }
 
 @:forward
 @:nativeGen
 @:native("EdGraphNode_Comment*")
-abstract EdGraphNode_CommentPtr(cpp.Star<EdGraphNode_Comment>) from cpp.Star<EdGraphNode_Comment> to cpp.Star<EdGraphNode_Comment>{
+abstract EdGraphNode_CommentPtr(ucpp.Ptr<EdGraphNode_Comment>) from ucpp.Ptr<EdGraphNode_Comment> to ucpp.Ptr<EdGraphNode_Comment>{
 	@:from
 	public static extern inline function fromValue(v: EdGraphNode_Comment): EdGraphNode_CommentPtr {
 		return untyped __cpp__("&({0})", v);

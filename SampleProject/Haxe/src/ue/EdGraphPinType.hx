@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEdGraphPinType")
 @:include("EdGraph/EdGraphPin.h")
-@:structAccess
+@:valueType
 extern class EdGraphPinType {
 	public var PinCategory: FName;
 	public var PinSubCategory: FName;

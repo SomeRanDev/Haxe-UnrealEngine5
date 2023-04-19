@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraScratchPadViewModel")
 @:include("ViewModels/NiagaraScratchPadViewModel.h")
-@:structAccess
+@:valueType
 extern class NiagaraScratchPadViewModel extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraScratchPadViewModel(NiagaraScratchPadViewModel) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraScratchPadViewModel*")
-abstract NiagaraScratchPadViewModelPtr(cpp.Star<NiagaraScratchPadViewModel>) from cpp.Star<NiagaraScratchPadViewModel> to cpp.Star<NiagaraScratchPadViewModel>{
+abstract NiagaraScratchPadViewModelPtr(ucpp.Ptr<NiagaraScratchPadViewModel>) from ucpp.Ptr<NiagaraScratchPadViewModel> to ucpp.Ptr<NiagaraScratchPadViewModel>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraScratchPadViewModel): NiagaraScratchPadViewModelPtr {
 		return untyped __cpp__("&({0})", v);

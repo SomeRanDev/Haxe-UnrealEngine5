@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMeshBudgetProjectSettings")
 @:include("MeshBudgetProjectSettings.h")
-@:structAccess
+@:valueType
 extern class MeshBudgetProjectSettings extends DeveloperSettings {
 	public var bEnableStaticMeshBudget: Bool;
 	public var StaticMeshBudgetInfos: TArray<StaticMeshBudgetInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMeshBudgetProjectSettings(MeshBudgetProjectSettings) from MeshBudg
 @:forward
 @:nativeGen
 @:native("MeshBudgetProjectSettings*")
-abstract MeshBudgetProjectSettingsPtr(cpp.Star<MeshBudgetProjectSettings>) from cpp.Star<MeshBudgetProjectSettings> to cpp.Star<MeshBudgetProjectSettings>{
+abstract MeshBudgetProjectSettingsPtr(ucpp.Ptr<MeshBudgetProjectSettings>) from ucpp.Ptr<MeshBudgetProjectSettings> to ucpp.Ptr<MeshBudgetProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: MeshBudgetProjectSettings): MeshBudgetProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

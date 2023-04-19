@@ -3,7 +3,7 @@ package ue;
 
 @:native("UApplicationLifecycleComponent")
 @:include("Components/ApplicationLifecycleComponent.h")
-@:structAccess
+@:valueType
 extern class ApplicationLifecycleComp extends ActorComp {
 	public var ApplicationWillDeactivateDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var ApplicationHasReactivatedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -11,16 +11,16 @@ extern class ApplicationLifecycleComp extends ActorComp {
 	public var ApplicationHasEnteredForegroundDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var ApplicationWillTerminateDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var ApplicationShouldUnloadResourcesDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var ApplicationReceivedStartupArgumentsDelegate: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<FString>>) -> Void>;
+	public var ApplicationReceivedStartupArgumentsDelegate: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<FString>>) -> Void>;
 	public var OnTemperatureChangeDelegate: HaxeMulticastSparseDelegateProperty<(ETemperatureSeverityType) -> Void>;
 	public var OnLowPowerModeDelegate: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 
 	public function OnTemperatureChangeDelegate__DelegateSignature(Severity: ETemperatureSeverityType): Void;
 	public function OnLowPowerModeDelegate__DelegateSignature(bInLowPowerMode: Bool): Void;
-	public function ApplicationStartupArgumentsDelegate__DelegateSignature(StartupArguments: cpp.Reference<TArray<FString>>): Void;
+	public function ApplicationStartupArgumentsDelegate__DelegateSignature(StartupArguments: ucpp.Ref<TArray<FString>>): Void;
 	public function ApplicationLifetimeDelegate__DelegateSignature(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,8 +38,8 @@ abstract ConstApplicationLifecycleComp(ApplicationLifecycleComp) from Applicatio
 	public inline extern function get_ApplicationWillTerminateDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.ApplicationWillTerminateDelegate;
 	public extern var ApplicationShouldUnloadResourcesDelegate(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_ApplicationShouldUnloadResourcesDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.ApplicationShouldUnloadResourcesDelegate;
-	public extern var ApplicationReceivedStartupArgumentsDelegate(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<FString>>) -> Void>;
-	public inline extern function get_ApplicationReceivedStartupArgumentsDelegate(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<FString>>) -> Void> return this.ApplicationReceivedStartupArgumentsDelegate;
+	public extern var ApplicationReceivedStartupArgumentsDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<FString>>) -> Void>;
+	public inline extern function get_ApplicationReceivedStartupArgumentsDelegate(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<FString>>) -> Void> return this.ApplicationReceivedStartupArgumentsDelegate;
 	public extern var OnTemperatureChangeDelegate(get, never): HaxeMulticastSparseDelegateProperty<(ETemperatureSeverityType) -> Void>;
 	public inline extern function get_OnTemperatureChangeDelegate(): HaxeMulticastSparseDelegateProperty<(ETemperatureSeverityType) -> Void> return this.OnTemperatureChangeDelegate;
 	public extern var OnLowPowerModeDelegate(get, never): HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
@@ -49,7 +49,7 @@ abstract ConstApplicationLifecycleComp(ApplicationLifecycleComp) from Applicatio
 @:forward
 @:nativeGen
 @:native("ApplicationLifecycleComp*")
-abstract ApplicationLifecycleCompPtr(cpp.Star<ApplicationLifecycleComp>) from cpp.Star<ApplicationLifecycleComp> to cpp.Star<ApplicationLifecycleComp>{
+abstract ApplicationLifecycleCompPtr(ucpp.Ptr<ApplicationLifecycleComp>) from ucpp.Ptr<ApplicationLifecycleComp> to ucpp.Ptr<ApplicationLifecycleComp>{
 	@:from
 	public static extern inline function fromValue(v: ApplicationLifecycleComp): ApplicationLifecycleCompPtr {
 		return untyped __cpp__("&({0})", v);

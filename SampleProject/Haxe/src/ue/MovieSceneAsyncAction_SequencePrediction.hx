@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMovieSceneAsyncAction_SequencePrediction")
 @:include("Systems/MovieScenePredictionSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneAsyncAction_SequencePrediction extends BlueprintAsyncActionBase {
 	public var Result: HaxeMulticastSparseDelegateProperty<(Transform) -> Void>;
 	public var Failure: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	private var SequencePlayer: cpp.Star<MovieSceneSequencePlayer>;
-	private var SceneComponent: cpp.Star<SceneComp>;
+	private var SequencePlayer: ucpp.Ptr<MovieSceneSequencePlayer>;
+	private var SceneComponent: ucpp.Ptr<SceneComp>;
 
-	public function PredictWorldTransformAtTime(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, TimeInSeconds: cpp.Float32): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
-	public function PredictWorldTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
-	public function PredictLocalTransformAtTime(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, TimeInSeconds: cpp.Float32): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
-	public function PredictLocalTransformAtFrame(Player: cpp.Star<MovieSceneSequencePlayer>, TargetComponent: cpp.Star<SceneComp>, FrameTime: FrameTime): cpp.Star<MovieSceneAsyncAction_SequencePrediction>;
+	public function PredictWorldTransformAtTime(Player: ucpp.Ptr<MovieSceneSequencePlayer>, TargetComponent: ucpp.Ptr<SceneComp>, TimeInSeconds: ucpp.num.Float32): ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>;
+	public function PredictWorldTransformAtFrame(Player: ucpp.Ptr<MovieSceneSequencePlayer>, TargetComponent: ucpp.Ptr<SceneComp>, FrameTime: FrameTime): ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>;
+	public function PredictLocalTransformAtTime(Player: ucpp.Ptr<MovieSceneSequencePlayer>, TargetComponent: ucpp.Ptr<SceneComp>, TimeInSeconds: ucpp.num.Float32): ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>;
+	public function PredictLocalTransformAtFrame(Player: ucpp.Ptr<MovieSceneSequencePlayer>, TargetComponent: ucpp.Ptr<SceneComp>, FrameTime: FrameTime): ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstMovieSceneAsyncAction_SequencePrediction(MovieSceneAsyncAction_Seq
 @:forward
 @:nativeGen
 @:native("MovieSceneAsyncAction_SequencePrediction*")
-abstract MovieSceneAsyncAction_SequencePredictionPtr(cpp.Star<MovieSceneAsyncAction_SequencePrediction>) from cpp.Star<MovieSceneAsyncAction_SequencePrediction> to cpp.Star<MovieSceneAsyncAction_SequencePrediction>{
+abstract MovieSceneAsyncAction_SequencePredictionPtr(ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>) from ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction> to ucpp.Ptr<MovieSceneAsyncAction_SequencePrediction>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneAsyncAction_SequencePrediction): MovieSceneAsyncAction_SequencePredictionPtr {
 		return untyped __cpp__("&({0})", v);

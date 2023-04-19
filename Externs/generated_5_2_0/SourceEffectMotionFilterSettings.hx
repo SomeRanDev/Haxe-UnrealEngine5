@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSourceEffectMotionFilterSettings")
 @:include("SourceEffects/SourceEffectMotionFilter.h")
-@:structAccess
+@:valueType
 extern class SourceEffectMotionFilterSettings {
 	public var MotionFilterTopology: ESourceEffectMotionFilterTopology;
-	public var MotionFilterMix: cpp.Float32;
+	public var MotionFilterMix: ucpp.num.Float32;
 	public var FilterASettings: SourceEffectIndividualFilterSettings;
 	public var FilterBSettings: SourceEffectIndividualFilterSettings;
 	public var ModulationMappings: TMap<ESourceEffectMotionFilterModDestination, SourceEffectMotionFilterModulationSettings>;
-	public var DryVolumeDb: cpp.Float32;
+	public var DryVolumeDb: ucpp.num.Float32;
 
 	@:native("FSourceEffectMotionFilterSettings") public function new();
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMockTask_Log")
 @:include("MockGameplayTasks.h")
-@:structAccess
+@:valueType
 extern class MockTask_Log extends GameplayTask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMockTask_Log(MockTask_Log) from MockTask_Log {
 @:forward
 @:nativeGen
 @:native("MockTask_Log*")
-abstract MockTask_LogPtr(cpp.Star<MockTask_Log>) from cpp.Star<MockTask_Log> to cpp.Star<MockTask_Log>{
+abstract MockTask_LogPtr(ucpp.Ptr<MockTask_Log>) from ucpp.Ptr<MockTask_Log> to ucpp.Ptr<MockTask_Log>{
 	@:from
 	public static extern inline function fromValue(v: MockTask_Log): MockTask_LogPtr {
 		return untyped __cpp__("&({0})", v);

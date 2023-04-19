@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeTexture2DArrayFactoryNode")
 @:include("InterchangeTexture2DArrayFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeTexture2DArrayFactoryNode extends InterchangeTextureFactoryNode {
-	public function SetCustomAddressZ(AttributeValue: cpp.UInt8, bAddApplyDelegate: Bool): Bool;
-	public function GetCustomAddressZ(AttributeValue: cpp.Reference<cpp.UInt8>): Bool;
-	public function GetCustomAddressY(AttributeValue: cpp.Reference<cpp.UInt8>): Bool;
-	public function GetCustomAddressX(AttributeValue: cpp.Reference<cpp.UInt8>): Bool;
+	public function SetCustomAddressZ(AttributeValue: ucpp.num.UInt8, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomAddressZ(AttributeValue: ucpp.Ref<ucpp.num.UInt8>): Bool;
+	public function GetCustomAddressY(AttributeValue: ucpp.Ref<ucpp.num.UInt8>): Bool;
+	public function GetCustomAddressX(AttributeValue: ucpp.Ref<ucpp.num.UInt8>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomAddressZ, GetCustomAddressY, GetCustomAddressX)
@@ -21,7 +21,7 @@ abstract ConstInterchangeTexture2DArrayFactoryNode(InterchangeTexture2DArrayFact
 @:forward
 @:nativeGen
 @:native("InterchangeTexture2DArrayFactoryNode*")
-abstract InterchangeTexture2DArrayFactoryNodePtr(cpp.Star<InterchangeTexture2DArrayFactoryNode>) from cpp.Star<InterchangeTexture2DArrayFactoryNode> to cpp.Star<InterchangeTexture2DArrayFactoryNode>{
+abstract InterchangeTexture2DArrayFactoryNodePtr(ucpp.Ptr<InterchangeTexture2DArrayFactoryNode>) from ucpp.Ptr<InterchangeTexture2DArrayFactoryNode> to ucpp.Ptr<InterchangeTexture2DArrayFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTexture2DArrayFactoryNode): InterchangeTexture2DArrayFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

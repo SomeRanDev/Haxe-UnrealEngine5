@@ -3,19 +3,19 @@ package ue;
 
 @:native("USubmixEffectFilterPreset")
 @:include("SubmixEffects/SubmixEffectFilter.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectFilterPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectFilterSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectFilterSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectFilterSettings>): Void;
 	public function SetFilterType(InType: ESubmixFilterType): Void;
-	public function SetFilterQMod(InQ: cpp.Float32): Void;
-	public function SetFilterQ(InQ: cpp.Float32): Void;
-	public function SetFilterCutoffFrequencyMod(InFrequency: cpp.Float32): Void;
-	public function SetFilterCutoffFrequency(InFrequency: cpp.Float32): Void;
+	public function SetFilterQMod(InQ: ucpp.num.Float32): Void;
+	public function SetFilterQ(InQ: ucpp.num.Float32): Void;
+	public function SetFilterCutoffFrequencyMod(InFrequency: ucpp.num.Float32): Void;
+	public function SetFilterCutoffFrequency(InFrequency: ucpp.num.Float32): Void;
 	public function SetFilterAlgorithm(InAlgorithm: ESubmixFilterAlgorithm): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstSubmixEffectFilterPreset(SubmixEffectFilterPreset) from SubmixEffe
 @:forward
 @:nativeGen
 @:native("SubmixEffectFilterPreset*")
-abstract SubmixEffectFilterPresetPtr(cpp.Star<SubmixEffectFilterPreset>) from cpp.Star<SubmixEffectFilterPreset> to cpp.Star<SubmixEffectFilterPreset>{
+abstract SubmixEffectFilterPresetPtr(ucpp.Ptr<SubmixEffectFilterPreset>) from ucpp.Ptr<SubmixEffectFilterPreset> to ucpp.Ptr<SubmixEffectFilterPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectFilterPreset): SubmixEffectFilterPresetPtr {
 		return untyped __cpp__("&({0})", v);

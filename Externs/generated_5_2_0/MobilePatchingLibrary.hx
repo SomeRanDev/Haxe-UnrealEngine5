@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMobilePatchingLibrary")
 @:include("MobilePatchingLibrary.h")
-@:structAccess
+@:valueType
 extern class MobilePatchingLibrary extends BlueprintFunctionLibrary {
-	public function RequestContent(RemoteManifestURL: FString, CloudURL: FString, InstallDirectory: FString, OnSucceeded: HaxeDelegateProperty<(cpp.Star<MobilePendingContent>) -> Void>, OnFailed: HaxeDelegateProperty<(FText, cpp.Int32) -> Void>): Void;
+	public function RequestContent(RemoteManifestURL: FString, CloudURL: FString, InstallDirectory: FString, OnSucceeded: HaxeDelegateProperty<(ucpp.Ptr<MobilePendingContent>) -> Void>, OnFailed: HaxeDelegateProperty<(FText, ucpp.num.Int32) -> Void>): Void;
 	public function HasActiveWiFiConnection(): Bool;
 	public function GetSupportedPlatformNames(): TArray<FString>;
-	public function GetInstalledContent(InstallDirectory: FString): cpp.Star<MobileInstalledContent>;
+	public function GetInstalledContent(InstallDirectory: FString): ucpp.Ptr<MobileInstalledContent>;
 	public function GetActiveDeviceProfileName(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstMobilePatchingLibrary(MobilePatchingLibrary) from MobilePatchingLi
 @:forward
 @:nativeGen
 @:native("MobilePatchingLibrary*")
-abstract MobilePatchingLibraryPtr(cpp.Star<MobilePatchingLibrary>) from cpp.Star<MobilePatchingLibrary> to cpp.Star<MobilePatchingLibrary>{
+abstract MobilePatchingLibraryPtr(ucpp.Ptr<MobilePatchingLibrary>) from ucpp.Ptr<MobilePatchingLibrary> to ucpp.Ptr<MobilePatchingLibrary>{
 	@:from
 	public static extern inline function fromValue(v: MobilePatchingLibrary): MobilePatchingLibraryPtr {
 		return untyped __cpp__("&({0})", v);

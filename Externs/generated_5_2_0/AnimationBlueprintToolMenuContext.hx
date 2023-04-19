@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimationBlueprintToolMenuContext")
 @:include("AnimationBlueprintToolMenuContext.h")
-@:structAccess
+@:valueType
 extern class AnimationBlueprintToolMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimationBlueprintToolMenuContext(AnimationBlueprintToolMenuContex
 @:forward
 @:nativeGen
 @:native("AnimationBlueprintToolMenuContext*")
-abstract AnimationBlueprintToolMenuContextPtr(cpp.Star<AnimationBlueprintToolMenuContext>) from cpp.Star<AnimationBlueprintToolMenuContext> to cpp.Star<AnimationBlueprintToolMenuContext>{
+abstract AnimationBlueprintToolMenuContextPtr(ucpp.Ptr<AnimationBlueprintToolMenuContext>) from ucpp.Ptr<AnimationBlueprintToolMenuContext> to ucpp.Ptr<AnimationBlueprintToolMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: AnimationBlueprintToolMenuContext): AnimationBlueprintToolMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

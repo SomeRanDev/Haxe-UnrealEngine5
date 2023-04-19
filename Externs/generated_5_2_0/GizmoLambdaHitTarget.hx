@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGizmoLambdaHitTarget")
 @:include("BaseGizmos/HitTargets.h")
-@:structAccess
+@:valueType
 extern class GizmoLambdaHitTarget extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGizmoLambdaHitTarget(GizmoLambdaHitTarget) from GizmoLambdaHitTarg
 @:forward
 @:nativeGen
 @:native("GizmoLambdaHitTarget*")
-abstract GizmoLambdaHitTargetPtr(cpp.Star<GizmoLambdaHitTarget>) from cpp.Star<GizmoLambdaHitTarget> to cpp.Star<GizmoLambdaHitTarget>{
+abstract GizmoLambdaHitTargetPtr(ucpp.Ptr<GizmoLambdaHitTarget>) from ucpp.Ptr<GizmoLambdaHitTarget> to ucpp.Ptr<GizmoLambdaHitTarget>{
 	@:from
 	public static extern inline function fromValue(v: GizmoLambdaHitTarget): GizmoLambdaHitTargetPtr {
 		return untyped __cpp__("&({0})", v);

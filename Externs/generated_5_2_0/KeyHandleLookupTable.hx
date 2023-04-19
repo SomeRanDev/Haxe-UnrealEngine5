@@ -3,7 +3,7 @@ package ue;
 
 @:native("FKeyHandleLookupTable")
 @:include("Curves/KeyHandle.h")
-@:structAccess
+@:valueType
 extern class KeyHandleLookupTable {
 	@:native("FKeyHandleLookupTable") public function new();
 }

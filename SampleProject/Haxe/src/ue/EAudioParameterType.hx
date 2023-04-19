@@ -16,6 +16,7 @@ extern class EAudioParameterType {
 	static var FloatArray: EAudioParameterType;
 	static var StringArray: EAudioParameterType;
 	static var ObjectArray: EAudioParameterType;
+	static var Trigger: EAudioParameterType;
 	static var COUNT: EAudioParameterType;
 	static var EAudioParameterType_MAX: EAudioParameterType;
 }

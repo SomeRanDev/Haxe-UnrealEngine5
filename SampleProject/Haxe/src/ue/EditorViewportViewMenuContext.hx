@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorViewportViewMenuContext")
 @:include("SEditorViewportViewMenuContext.h")
-@:structAccess
+@:valueType
 extern class EditorViewportViewMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorViewportViewMenuContext(EditorViewportViewMenuContext) from 
 @:forward
 @:nativeGen
 @:native("EditorViewportViewMenuContext*")
-abstract EditorViewportViewMenuContextPtr(cpp.Star<EditorViewportViewMenuContext>) from cpp.Star<EditorViewportViewMenuContext> to cpp.Star<EditorViewportViewMenuContext>{
+abstract EditorViewportViewMenuContextPtr(ucpp.Ptr<EditorViewportViewMenuContext>) from ucpp.Ptr<EditorViewportViewMenuContext> to ucpp.Ptr<EditorViewportViewMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: EditorViewportViewMenuContext): EditorViewportViewMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

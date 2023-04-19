@@ -3,36 +3,36 @@ package ue;
 
 @:native("UCableComponent")
 @:include("CableComponent.h")
-@:structAccess
+@:valueType
 extern class CableComp extends MeshComp {
 	public var bAttachStart: Bool;
 	public var bAttachEnd: Bool;
 	public var AttachEndTo: ComponentReference;
 	public var AttachEndToSocketName: FName;
 	public var EndLocation: Vector;
-	public var CableLength: cpp.Float32;
-	public var NumSegments: cpp.Int32;
-	public var SubstepTime: cpp.Float32;
-	public var SolverIterations: cpp.Int32;
+	public var CableLength: ucpp.num.Float32;
+	public var NumSegments: ucpp.num.Int32;
+	public var SubstepTime: ucpp.num.Float32;
+	public var SolverIterations: ucpp.num.Int32;
 	public var bEnableStiffness: Bool;
 	public var bUseSubstepping: Bool;
 	public var bSkipCableUpdateWhenNotVisible: Bool;
 	public var bSkipCableUpdateWhenNotOwnerRecentlyRendered: Bool;
 	public var bEnableCollision: Bool;
-	public var CollisionFriction: cpp.Float32;
+	public var CollisionFriction: ucpp.num.Float32;
 	public var CableForce: Vector;
-	public var CableGravityScale: cpp.Float32;
-	public var CableWidth: cpp.Float32;
-	public var NumSides: cpp.Int32;
-	public var TileMaterial: cpp.Float32;
+	public var CableGravityScale: ucpp.num.Float32;
+	public var CableWidth: ucpp.num.Float32;
+	public var NumSides: ucpp.num.Int32;
+	public var TileMaterial: ucpp.num.Float32;
 
-	public function SetAttachEndToComponent(Component: cpp.Star<SceneComp>, SocketName: FName): Void;
-	public function SetAttachEndTo(Actor: cpp.Star<Actor>, ComponentProperty: FName, SocketName: FName): Void;
-	public function GetCableParticleLocations(Locations: cpp.Reference<TArray<Vector>>): Void;
-	public function GetAttachedComponent(): cpp.Star<SceneComp>;
-	public function GetAttachedActor(): cpp.Star<Actor>;
+	public function SetAttachEndToComponent(Component: ucpp.Ptr<SceneComp>, SocketName: FName): Void;
+	public function SetAttachEndTo(Actor: ucpp.Ptr<Actor>, ComponentProperty: FName, SocketName: FName): Void;
+	public function GetCableParticleLocations(Locations: ucpp.Ref<TArray<Vector>>): Void;
+	public function GetAttachedComponent(): ucpp.Ptr<SceneComp>;
+	public function GetAttachedActor(): ucpp.Ptr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCableParticleLocations, GetAttachedComponent, GetAttachedActor)
@@ -48,14 +48,14 @@ abstract ConstCableComp(CableComp) from CableComp {
 	public inline extern function get_AttachEndToSocketName(): FName return this.AttachEndToSocketName;
 	public extern var EndLocation(get, never): Vector;
 	public inline extern function get_EndLocation(): Vector return this.EndLocation;
-	public extern var CableLength(get, never): cpp.Float32;
-	public inline extern function get_CableLength(): cpp.Float32 return this.CableLength;
-	public extern var NumSegments(get, never): cpp.Int32;
-	public inline extern function get_NumSegments(): cpp.Int32 return this.NumSegments;
-	public extern var SubstepTime(get, never): cpp.Float32;
-	public inline extern function get_SubstepTime(): cpp.Float32 return this.SubstepTime;
-	public extern var SolverIterations(get, never): cpp.Int32;
-	public inline extern function get_SolverIterations(): cpp.Int32 return this.SolverIterations;
+	public extern var CableLength(get, never): ucpp.num.Float32;
+	public inline extern function get_CableLength(): ucpp.num.Float32 return this.CableLength;
+	public extern var NumSegments(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSegments(): ucpp.num.Int32 return this.NumSegments;
+	public extern var SubstepTime(get, never): ucpp.num.Float32;
+	public inline extern function get_SubstepTime(): ucpp.num.Float32 return this.SubstepTime;
+	public extern var SolverIterations(get, never): ucpp.num.Int32;
+	public inline extern function get_SolverIterations(): ucpp.num.Int32 return this.SolverIterations;
 	public extern var bEnableStiffness(get, never): Bool;
 	public inline extern function get_bEnableStiffness(): Bool return this.bEnableStiffness;
 	public extern var bUseSubstepping(get, never): Bool;
@@ -66,24 +66,24 @@ abstract ConstCableComp(CableComp) from CableComp {
 	public inline extern function get_bSkipCableUpdateWhenNotOwnerRecentlyRendered(): Bool return this.bSkipCableUpdateWhenNotOwnerRecentlyRendered;
 	public extern var bEnableCollision(get, never): Bool;
 	public inline extern function get_bEnableCollision(): Bool return this.bEnableCollision;
-	public extern var CollisionFriction(get, never): cpp.Float32;
-	public inline extern function get_CollisionFriction(): cpp.Float32 return this.CollisionFriction;
+	public extern var CollisionFriction(get, never): ucpp.num.Float32;
+	public inline extern function get_CollisionFriction(): ucpp.num.Float32 return this.CollisionFriction;
 	public extern var CableForce(get, never): Vector;
 	public inline extern function get_CableForce(): Vector return this.CableForce;
-	public extern var CableGravityScale(get, never): cpp.Float32;
-	public inline extern function get_CableGravityScale(): cpp.Float32 return this.CableGravityScale;
-	public extern var CableWidth(get, never): cpp.Float32;
-	public inline extern function get_CableWidth(): cpp.Float32 return this.CableWidth;
-	public extern var NumSides(get, never): cpp.Int32;
-	public inline extern function get_NumSides(): cpp.Int32 return this.NumSides;
-	public extern var TileMaterial(get, never): cpp.Float32;
-	public inline extern function get_TileMaterial(): cpp.Float32 return this.TileMaterial;
+	public extern var CableGravityScale(get, never): ucpp.num.Float32;
+	public inline extern function get_CableGravityScale(): ucpp.num.Float32 return this.CableGravityScale;
+	public extern var CableWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_CableWidth(): ucpp.num.Float32 return this.CableWidth;
+	public extern var NumSides(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSides(): ucpp.num.Int32 return this.NumSides;
+	public extern var TileMaterial(get, never): ucpp.num.Float32;
+	public inline extern function get_TileMaterial(): ucpp.num.Float32 return this.TileMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("CableComp*")
-abstract CableCompPtr(cpp.Star<CableComp>) from cpp.Star<CableComp> to cpp.Star<CableComp>{
+abstract CableCompPtr(ucpp.Ptr<CableComp>) from ucpp.Ptr<CableComp> to ucpp.Ptr<CableComp>{
 	@:from
 	public static extern inline function fromValue(v: CableComp): CableCompPtr {
 		return untyped __cpp__("&({0})", v);

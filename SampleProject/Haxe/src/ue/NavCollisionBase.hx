@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNavCollisionBase")
 @:include("AI/Navigation/NavCollisionBase.h")
-@:structAccess
+@:valueType
 extern class NavCollisionBase extends Object {
 	@:protected public var bIsDynamicObstacle: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNavCollisionBase(NavCollisionBase) from NavCollisionBase {
 @:forward
 @:nativeGen
 @:native("NavCollisionBase*")
-abstract NavCollisionBasePtr(cpp.Star<NavCollisionBase>) from cpp.Star<NavCollisionBase> to cpp.Star<NavCollisionBase>{
+abstract NavCollisionBasePtr(ucpp.Ptr<NavCollisionBase>) from ucpp.Ptr<NavCollisionBase> to ucpp.Ptr<NavCollisionBase>{
 	@:from
 	public static extern inline function fromValue(v: NavCollisionBase): NavCollisionBasePtr {
 		return untyped __cpp__("&({0})", v);

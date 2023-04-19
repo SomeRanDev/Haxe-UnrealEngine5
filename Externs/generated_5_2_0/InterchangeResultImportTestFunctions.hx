@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeResultImportTestFunctions")
 @:include("ImportTestFunctions/InterchangeResultImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckIfErrorOrWarningWasGenerated(ResultsContainer: cpp.Star<InterchangeResultsContainer>, ErrorOrWarningClass: TSubclassOf<InterchangeResult>): InterchangeTestFunctionResult;
+	public function CheckIfErrorOrWarningWasGenerated(ResultsContainer: ucpp.Ptr<InterchangeResultsContainer>, ErrorOrWarningClass: TSubclassOf<InterchangeResult>): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstInterchangeResultImportTestFunctions(InterchangeResultImportTestFu
 @:forward
 @:nativeGen
 @:native("InterchangeResultImportTestFunctions*")
-abstract InterchangeResultImportTestFunctionsPtr(cpp.Star<InterchangeResultImportTestFunctions>) from cpp.Star<InterchangeResultImportTestFunctions> to cpp.Star<InterchangeResultImportTestFunctions>{
+abstract InterchangeResultImportTestFunctionsPtr(ucpp.Ptr<InterchangeResultImportTestFunctions>) from ucpp.Ptr<InterchangeResultImportTestFunctions> to ucpp.Ptr<InterchangeResultImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultImportTestFunctions): InterchangeResultImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

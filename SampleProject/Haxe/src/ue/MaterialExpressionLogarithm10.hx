@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionLogarithm10")
 @:include("Materials/MaterialExpressionLogarithm10.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLogarithm10 extends MaterialExpression {
 	public var X: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionLogarithm10(MaterialExpressionLogarithm10) from 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLogarithm10*")
-abstract MaterialExpressionLogarithm10Ptr(cpp.Star<MaterialExpressionLogarithm10>) from cpp.Star<MaterialExpressionLogarithm10> to cpp.Star<MaterialExpressionLogarithm10>{
+abstract MaterialExpressionLogarithm10Ptr(ucpp.Ptr<MaterialExpressionLogarithm10>) from ucpp.Ptr<MaterialExpressionLogarithm10> to ucpp.Ptr<MaterialExpressionLogarithm10>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLogarithm10): MaterialExpressionLogarithm10Ptr {
 		return untyped __cpp__("&({0})", v);

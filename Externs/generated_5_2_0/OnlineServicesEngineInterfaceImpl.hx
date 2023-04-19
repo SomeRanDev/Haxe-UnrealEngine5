@@ -3,10 +3,10 @@ package ue;
 
 @:native("UOnlineServicesEngineInterfaceImpl")
 @:include("OnlineServicesEngineInterfaceImpl.h")
-@:structAccess
+@:valueType
 extern class OnlineServicesEngineInterfaceImpl extends OnlineEngineInterface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstOnlineServicesEngineInterfaceImpl(OnlineServicesEngineInterfaceImp
 @:forward
 @:nativeGen
 @:native("OnlineServicesEngineInterfaceImpl*")
-abstract OnlineServicesEngineInterfaceImplPtr(cpp.Star<OnlineServicesEngineInterfaceImpl>) from cpp.Star<OnlineServicesEngineInterfaceImpl> to cpp.Star<OnlineServicesEngineInterfaceImpl>{
+abstract OnlineServicesEngineInterfaceImplPtr(ucpp.Ptr<OnlineServicesEngineInterfaceImpl>) from ucpp.Ptr<OnlineServicesEngineInterfaceImpl> to ucpp.Ptr<OnlineServicesEngineInterfaceImpl>{
 	@:from
 	public static extern inline function fromValue(v: OnlineServicesEngineInterfaceImpl): OnlineServicesEngineInterfaceImplPtr {
 		return untyped __cpp__("&({0})", v);

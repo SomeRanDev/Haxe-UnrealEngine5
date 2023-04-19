@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInputActionValue")
 @:include("InputActionValue.h")
-@:structAccess
+@:valueType
 extern class InputActionValue {
 	@:native("FInputActionValue") public function new();
 }

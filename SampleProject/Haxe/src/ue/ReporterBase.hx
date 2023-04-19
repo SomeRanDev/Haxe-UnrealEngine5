@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReporterBase")
 @:include("Debug/ReporterBase.h")
-@:structAccess
+@:valueType
 extern class ReporterBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReporterBase(ReporterBase) from ReporterBase {
 @:forward
 @:nativeGen
 @:native("ReporterBase*")
-abstract ReporterBasePtr(cpp.Star<ReporterBase>) from cpp.Star<ReporterBase> to cpp.Star<ReporterBase>{
+abstract ReporterBasePtr(ucpp.Ptr<ReporterBase>) from ucpp.Ptr<ReporterBase> to ucpp.Ptr<ReporterBase>{
 	@:from
 	public static extern inline function fromValue(v: ReporterBase): ReporterBasePtr {
 		return untyped __cpp__("&({0})", v);

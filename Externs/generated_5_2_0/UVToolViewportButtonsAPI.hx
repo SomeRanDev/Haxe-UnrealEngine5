@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVToolViewportButtonsAPI")
 @:include("ContextObjects/UVToolViewportButtonsAPI.h")
-@:structAccess
+@:valueType
 extern class UVToolViewportButtonsAPI extends UVToolContextObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVToolViewportButtonsAPI(UVToolViewportButtonsAPI) from UVToolView
 @:forward
 @:nativeGen
 @:native("UVToolViewportButtonsAPI*")
-abstract UVToolViewportButtonsAPIPtr(cpp.Star<UVToolViewportButtonsAPI>) from cpp.Star<UVToolViewportButtonsAPI> to cpp.Star<UVToolViewportButtonsAPI>{
+abstract UVToolViewportButtonsAPIPtr(ucpp.Ptr<UVToolViewportButtonsAPI>) from ucpp.Ptr<UVToolViewportButtonsAPI> to ucpp.Ptr<UVToolViewportButtonsAPI>{
 	@:from
 	public static extern inline function fromValue(v: UVToolViewportButtonsAPI): UVToolViewportButtonsAPIPtr {
 		return untyped __cpp__("&({0})", v);

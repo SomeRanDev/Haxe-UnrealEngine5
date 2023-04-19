@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAssetRegistryDependencyOptions")
 @:include("AssetRegistry/IAssetRegistry.h")
-@:structAccess
+@:valueType
 extern class AssetRegistryDependencyOptions {
 	public var bIncludeSoftPackageReferences: Bool;
 	public var bIncludeHardPackageReferences: Bool;

@@ -3,26 +3,26 @@ package ue;
 
 @:native("UFunctionalTestingManager")
 @:include("FunctionalTestingManager.h")
-@:structAccess
+@:valueType
 extern class FunctionalTestingManager extends BlueprintFunctionLibrary {
-	public var TestsLeft: TArray<cpp.Star<FunctionalTest>>;
-	public var AllTests: TArray<cpp.Star<FunctionalTest>>;
+	public var TestsLeft: TArray<ucpp.Ptr<FunctionalTest>>;
+	public var AllTests: TArray<ucpp.Ptr<FunctionalTest>>;
 	public var OnSetupTests: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTestsComplete: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTestsBegin: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function RunAllFunctionalTests(WorldContextObject: cpp.Star<Object>, bNewLog: Bool, bRunLooped: Bool, FailedTestsReproString: FString): Bool;
+	public function RunAllFunctionalTests(WorldContextObject: ucpp.Ptr<Object>, bNewLog: Bool, bRunLooped: Bool, FailedTestsReproString: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFunctionalTestingManager(FunctionalTestingManager) from FunctionalTestingManager {
-	public extern var TestsLeft(get, never): TArray<cpp.Star<FunctionalTest.ConstFunctionalTest>>;
-	public inline extern function get_TestsLeft(): TArray<cpp.Star<FunctionalTest.ConstFunctionalTest>> return this.TestsLeft;
-	public extern var AllTests(get, never): TArray<cpp.Star<FunctionalTest.ConstFunctionalTest>>;
-	public inline extern function get_AllTests(): TArray<cpp.Star<FunctionalTest.ConstFunctionalTest>> return this.AllTests;
+	public extern var TestsLeft(get, never): TArray<ucpp.Ptr<FunctionalTest.ConstFunctionalTest>>;
+	public inline extern function get_TestsLeft(): TArray<ucpp.Ptr<FunctionalTest.ConstFunctionalTest>> return this.TestsLeft;
+	public extern var AllTests(get, never): TArray<ucpp.Ptr<FunctionalTest.ConstFunctionalTest>>;
+	public inline extern function get_AllTests(): TArray<ucpp.Ptr<FunctionalTest.ConstFunctionalTest>> return this.AllTests;
 	public extern var OnSetupTests(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnSetupTests(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnSetupTests;
 	public extern var OnTestsComplete(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -34,7 +34,7 @@ abstract ConstFunctionalTestingManager(FunctionalTestingManager) from Functional
 @:forward
 @:nativeGen
 @:native("FunctionalTestingManager*")
-abstract FunctionalTestingManagerPtr(cpp.Star<FunctionalTestingManager>) from cpp.Star<FunctionalTestingManager> to cpp.Star<FunctionalTestingManager>{
+abstract FunctionalTestingManagerPtr(ucpp.Ptr<FunctionalTestingManager>) from ucpp.Ptr<FunctionalTestingManager> to ucpp.Ptr<FunctionalTestingManager>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalTestingManager): FunctionalTestingManagerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraRendererMaterialScalarParameter")
 @:include("NiagaraRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRendererMaterialScalarParameter {
 	public var MaterialParameterName: FName;
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 
 	@:native("FNiagaraRendererMaterialScalarParameter") public function new();
-	@:native("FNiagaraRendererMaterialScalarParameter") public static function make(MaterialParameterName: FName, Value: cpp.Float32): NiagaraRendererMaterialScalarParameter ;
+	@:native("FNiagaraRendererMaterialScalarParameter") public static function make(MaterialParameterName: FName, Value: ucpp.num.Float32): NiagaraRendererMaterialScalarParameter ;
 }

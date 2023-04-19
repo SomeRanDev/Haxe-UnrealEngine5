@@ -3,13 +3,14 @@ package ue;
 
 @:native("UChaosGameplayEventDispatcher")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
-@:structAccess
+@:valueType
 extern class ChaosGameplayEventDispatcher extends ChaosEventListenerComp {
-	private var CollisionEventRegistrations: TMap<cpp.Star<PrimitiveComp>, ChaosHandlerSet>;
-	private var BreakEventRegistrations: TMap<cpp.Star<PrimitiveComp>, BreakEventCallbackWrapper>;
-	private var RemovalEventRegistrations: TMap<cpp.Star<PrimitiveComp>, RemovalEventCallbackWrapper>;
+	private var CollisionEventRegistrations: TMap<ucpp.Ptr<PrimitiveComp>, ChaosHandlerSet>;
+	private var BreakEventRegistrations: TMap<ucpp.Ptr<PrimitiveComp>, BreakEventCallbackWrapper>;
+	private var RemovalEventRegistrations: TMap<ucpp.Ptr<PrimitiveComp>, RemovalEventCallbackWrapper>;
+	private var CrumblingEventRegistrations: TMap<ucpp.Ptr<PrimitiveComp>, CrumblingEventCallbackWrapper>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +21,7 @@ abstract ConstChaosGameplayEventDispatcher(ChaosGameplayEventDispatcher) from Ch
 @:forward
 @:nativeGen
 @:native("ChaosGameplayEventDispatcher*")
-abstract ChaosGameplayEventDispatcherPtr(cpp.Star<ChaosGameplayEventDispatcher>) from cpp.Star<ChaosGameplayEventDispatcher> to cpp.Star<ChaosGameplayEventDispatcher>{
+abstract ChaosGameplayEventDispatcherPtr(ucpp.Ptr<ChaosGameplayEventDispatcher>) from ucpp.Ptr<ChaosGameplayEventDispatcher> to ucpp.Ptr<ChaosGameplayEventDispatcher>{
 	@:from
 	public static extern inline function fromValue(v: ChaosGameplayEventDispatcher): ChaosGameplayEventDispatcherPtr {
 		return untyped __cpp__("&({0})", v);

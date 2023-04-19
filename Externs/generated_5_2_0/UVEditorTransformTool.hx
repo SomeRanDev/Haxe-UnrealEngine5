@@ -3,15 +3,15 @@ package ue;
 
 @:native("UUVEditorTransformTool")
 @:include("UVEditorTransformTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorTransformTool extends InteractiveTool {
-	@:protected public var Targets: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var Settings: cpp.Star<UVEditorUVTransformPropertiesBase>;
-	@:protected public var DisplaySettings: cpp.Star<UVEditorTransformToolDisplayProperties>;
-	@:protected public var Factories: TArray<cpp.Star<UVEditorUVTransformOperatorFactory>>;
-	@:protected public var UVToolSelectionAPI: cpp.Star<UVToolSelectionAPI>;
+	@:protected public var Targets: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var Settings: ucpp.Ptr<UVEditorUVTransformPropertiesBase>;
+	@:protected public var DisplaySettings: ucpp.Ptr<UVEditorTransformToolDisplayProperties>;
+	@:protected public var Factories: TArray<ucpp.Ptr<UVEditorUVTransformOperatorFactory>>;
+	@:protected public var UVToolSelectionAPI: ucpp.Ptr<UVToolSelectionAPI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstUVEditorTransformTool(UVEditorTransformTool) from UVEditorTransfor
 @:forward
 @:nativeGen
 @:native("UVEditorTransformTool*")
-abstract UVEditorTransformToolPtr(cpp.Star<UVEditorTransformTool>) from cpp.Star<UVEditorTransformTool> to cpp.Star<UVEditorTransformTool>{
+abstract UVEditorTransformToolPtr(ucpp.Ptr<UVEditorTransformTool>) from ucpp.Ptr<UVEditorTransformTool> to ucpp.Ptr<UVEditorTransformTool>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorTransformTool): UVEditorTransformToolPtr {
 		return untyped __cpp__("&({0})", v);

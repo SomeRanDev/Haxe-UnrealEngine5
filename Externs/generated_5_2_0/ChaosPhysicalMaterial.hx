@@ -3,42 +3,42 @@ package ue;
 
 @:native("UChaosPhysicalMaterial")
 @:include("Chaos/ChaosPhysicalMaterial.h")
-@:structAccess
+@:valueType
 extern class ChaosPhysicalMaterial extends Object {
-	public var Friction: cpp.Float32;
-	public var StaticFriction: cpp.Float32;
-	public var Restitution: cpp.Float32;
-	public var LinearEtherDrag: cpp.Float32;
-	public var AngularEtherDrag: cpp.Float32;
-	public var SleepingLinearVelocityThreshold: cpp.Float32;
-	public var SleepingAngularVelocityThreshold: cpp.Float32;
+	public var Friction: ucpp.num.Float32;
+	public var StaticFriction: ucpp.num.Float32;
+	public var Restitution: ucpp.num.Float32;
+	public var LinearEtherDrag: ucpp.num.Float32;
+	public var AngularEtherDrag: ucpp.num.Float32;
+	public var SleepingLinearVelocityThreshold: ucpp.num.Float32;
+	public var SleepingAngularVelocityThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstChaosPhysicalMaterial(ChaosPhysicalMaterial) from ChaosPhysicalMaterial {
-	public extern var Friction(get, never): cpp.Float32;
-	public inline extern function get_Friction(): cpp.Float32 return this.Friction;
-	public extern var StaticFriction(get, never): cpp.Float32;
-	public inline extern function get_StaticFriction(): cpp.Float32 return this.StaticFriction;
-	public extern var Restitution(get, never): cpp.Float32;
-	public inline extern function get_Restitution(): cpp.Float32 return this.Restitution;
-	public extern var LinearEtherDrag(get, never): cpp.Float32;
-	public inline extern function get_LinearEtherDrag(): cpp.Float32 return this.LinearEtherDrag;
-	public extern var AngularEtherDrag(get, never): cpp.Float32;
-	public inline extern function get_AngularEtherDrag(): cpp.Float32 return this.AngularEtherDrag;
-	public extern var SleepingLinearVelocityThreshold(get, never): cpp.Float32;
-	public inline extern function get_SleepingLinearVelocityThreshold(): cpp.Float32 return this.SleepingLinearVelocityThreshold;
-	public extern var SleepingAngularVelocityThreshold(get, never): cpp.Float32;
-	public inline extern function get_SleepingAngularVelocityThreshold(): cpp.Float32 return this.SleepingAngularVelocityThreshold;
+	public extern var Friction(get, never): ucpp.num.Float32;
+	public inline extern function get_Friction(): ucpp.num.Float32 return this.Friction;
+	public extern var StaticFriction(get, never): ucpp.num.Float32;
+	public inline extern function get_StaticFriction(): ucpp.num.Float32 return this.StaticFriction;
+	public extern var Restitution(get, never): ucpp.num.Float32;
+	public inline extern function get_Restitution(): ucpp.num.Float32 return this.Restitution;
+	public extern var LinearEtherDrag(get, never): ucpp.num.Float32;
+	public inline extern function get_LinearEtherDrag(): ucpp.num.Float32 return this.LinearEtherDrag;
+	public extern var AngularEtherDrag(get, never): ucpp.num.Float32;
+	public inline extern function get_AngularEtherDrag(): ucpp.num.Float32 return this.AngularEtherDrag;
+	public extern var SleepingLinearVelocityThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_SleepingLinearVelocityThreshold(): ucpp.num.Float32 return this.SleepingLinearVelocityThreshold;
+	public extern var SleepingAngularVelocityThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_SleepingAngularVelocityThreshold(): ucpp.num.Float32 return this.SleepingAngularVelocityThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("ChaosPhysicalMaterial*")
-abstract ChaosPhysicalMaterialPtr(cpp.Star<ChaosPhysicalMaterial>) from cpp.Star<ChaosPhysicalMaterial> to cpp.Star<ChaosPhysicalMaterial>{
+abstract ChaosPhysicalMaterialPtr(ucpp.Ptr<ChaosPhysicalMaterial>) from ucpp.Ptr<ChaosPhysicalMaterial> to ucpp.Ptr<ChaosPhysicalMaterial>{
 	@:from
 	public static extern inline function fromValue(v: ChaosPhysicalMaterial): ChaosPhysicalMaterialPtr {
 		return untyped __cpp__("&({0})", v);

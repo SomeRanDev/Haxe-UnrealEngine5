@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialXTestFunctions")
 @:include("ImportTestFunctions/MaterialXTestFunctions.h")
-@:structAccess
+@:valueType
 extern class MaterialXTestFunctions extends ImportTestFunctionsBase {
-	public function CheckInputConnected(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, InputName: FString, bIsConnected: Bool): InterchangeTestFunctionResult;
-	public function CheckConnectedInputCount(MaterialInterface: cpp.Star<MaterialInterface.ConstMaterialInterface>, ExpectedNumber: cpp.Int32): InterchangeTestFunctionResult;
+	public function CheckInputConnected(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, InputName: FString, bIsConnected: Bool): InterchangeTestFunctionResult;
+	public function CheckConnectedInputCount(MaterialInterface: ucpp.Ptr<MaterialInterface.ConstMaterialInterface>, ExpectedNumber: ucpp.num.Int32): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMaterialXTestFunctions(MaterialXTestFunctions) from MaterialXTestF
 @:forward
 @:nativeGen
 @:native("MaterialXTestFunctions*")
-abstract MaterialXTestFunctionsPtr(cpp.Star<MaterialXTestFunctions>) from cpp.Star<MaterialXTestFunctions> to cpp.Star<MaterialXTestFunctions>{
+abstract MaterialXTestFunctionsPtr(ucpp.Ptr<MaterialXTestFunctions>) from ucpp.Ptr<MaterialXTestFunctions> to ucpp.Ptr<MaterialXTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: MaterialXTestFunctions): MaterialXTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

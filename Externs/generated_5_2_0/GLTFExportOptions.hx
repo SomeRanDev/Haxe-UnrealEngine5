@@ -3,9 +3,9 @@ package ue;
 
 @:native("UGLTFExportOptions")
 @:include("Options/GLTFExportOptions.h")
-@:structAccess
+@:valueType
 extern class GLTFExportOptions extends Object {
-	public var ExportUniformScale: cpp.Float32;
+	public var ExportUniformScale: ucpp.num.Float32;
 	public var bExportPreviewMesh: Bool;
 	public var bSkipNearDefaultValues: Bool;
 	public var bExportProxyMaterials: Bool;
@@ -16,14 +16,14 @@ extern class GLTFExportOptions extends Object {
 	public var DefaultMaterialBakeFilter: TEnumAsByte<TextureFilter>;
 	public var DefaultMaterialBakeTiling: TEnumAsByte<TextureAddress>;
 	public var DefaultInputBakeSettings: TMap<EGLTFMaterialPropertyGroup, GLTFOverrideMaterialBakeSettings>;
-	public var DefaultLevelOfDetail: cpp.Int32;
+	public var DefaultLevelOfDetail: ucpp.num.Int32;
 	public var bExportVertexColors: Bool;
 	public var bExportVertexSkinWeights: Bool;
 	public var bUseMeshQuantization: Bool;
 	public var bExportLevelSequences: Bool;
 	public var bExportAnimationSequences: Bool;
 	public var TextureImageFormat: EGLTFTextureImageFormat;
-	public var TextureImageQuality: cpp.Int32;
+	public var TextureImageQuality: ucpp.num.Int32;
 	public var bExportTextureTransforms: Bool;
 	public var bAdjustNormalmaps: Bool;
 	public var bExportHiddenInGame: Bool;
@@ -33,14 +33,14 @@ extern class GLTFExportOptions extends Object {
 
 	public function ResetToDefault(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGLTFExportOptions(GLTFExportOptions) from GLTFExportOptions {
-	public extern var ExportUniformScale(get, never): cpp.Float32;
-	public inline extern function get_ExportUniformScale(): cpp.Float32 return this.ExportUniformScale;
+	public extern var ExportUniformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ExportUniformScale(): ucpp.num.Float32 return this.ExportUniformScale;
 	public extern var bExportPreviewMesh(get, never): Bool;
 	public inline extern function get_bExportPreviewMesh(): Bool return this.bExportPreviewMesh;
 	public extern var bSkipNearDefaultValues(get, never): Bool;
@@ -61,8 +61,8 @@ abstract ConstGLTFExportOptions(GLTFExportOptions) from GLTFExportOptions {
 	public inline extern function get_DefaultMaterialBakeTiling(): TEnumAsByte<TextureAddress> return this.DefaultMaterialBakeTiling;
 	public extern var DefaultInputBakeSettings(get, never): TMap<EGLTFMaterialPropertyGroup, GLTFOverrideMaterialBakeSettings>;
 	public inline extern function get_DefaultInputBakeSettings(): TMap<EGLTFMaterialPropertyGroup, GLTFOverrideMaterialBakeSettings> return this.DefaultInputBakeSettings;
-	public extern var DefaultLevelOfDetail(get, never): cpp.Int32;
-	public inline extern function get_DefaultLevelOfDetail(): cpp.Int32 return this.DefaultLevelOfDetail;
+	public extern var DefaultLevelOfDetail(get, never): ucpp.num.Int32;
+	public inline extern function get_DefaultLevelOfDetail(): ucpp.num.Int32 return this.DefaultLevelOfDetail;
 	public extern var bExportVertexColors(get, never): Bool;
 	public inline extern function get_bExportVertexColors(): Bool return this.bExportVertexColors;
 	public extern var bExportVertexSkinWeights(get, never): Bool;
@@ -75,8 +75,8 @@ abstract ConstGLTFExportOptions(GLTFExportOptions) from GLTFExportOptions {
 	public inline extern function get_bExportAnimationSequences(): Bool return this.bExportAnimationSequences;
 	public extern var TextureImageFormat(get, never): EGLTFTextureImageFormat;
 	public inline extern function get_TextureImageFormat(): EGLTFTextureImageFormat return this.TextureImageFormat;
-	public extern var TextureImageQuality(get, never): cpp.Int32;
-	public inline extern function get_TextureImageQuality(): cpp.Int32 return this.TextureImageQuality;
+	public extern var TextureImageQuality(get, never): ucpp.num.Int32;
+	public inline extern function get_TextureImageQuality(): ucpp.num.Int32 return this.TextureImageQuality;
 	public extern var bExportTextureTransforms(get, never): Bool;
 	public inline extern function get_bExportTextureTransforms(): Bool return this.bExportTextureTransforms;
 	public extern var bAdjustNormalmaps(get, never): Bool;
@@ -94,7 +94,7 @@ abstract ConstGLTFExportOptions(GLTFExportOptions) from GLTFExportOptions {
 @:forward
 @:nativeGen
 @:native("GLTFExportOptions*")
-abstract GLTFExportOptionsPtr(cpp.Star<GLTFExportOptions>) from cpp.Star<GLTFExportOptions> to cpp.Star<GLTFExportOptions>{
+abstract GLTFExportOptionsPtr(ucpp.Ptr<GLTFExportOptions>) from ucpp.Ptr<GLTFExportOptions> to ucpp.Ptr<GLTFExportOptions>{
 	@:from
 	public static extern inline function fromValue(v: GLTFExportOptions): GLTFExportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

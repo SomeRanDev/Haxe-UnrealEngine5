@@ -3,13 +3,13 @@ package ue;
 
 @:native("UControlRigSequence")
 @:include("Sequencer/ControlRigSequence.h")
-@:structAccess
+@:valueType
 extern class ControlRigSequence extends LevelSequence {
 	public var LastExportedToAnimationSequence: TSoftObjectPtr<AnimSequence>;
 	public var LastExportedUsingSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
-	public var LastExportedFrameRate: cpp.Float32;
+	public var LastExportedFrameRate: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstControlRigSequence(ControlRigSequence) from ControlRigSequence {
 	public inline extern function get_LastExportedToAnimationSequence(): TSoftObjectPtr<AnimSequence.ConstAnimSequence> return this.LastExportedToAnimationSequence;
 	public extern var LastExportedUsingSkeletalMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_LastExportedUsingSkeletalMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.LastExportedUsingSkeletalMesh;
-	public extern var LastExportedFrameRate(get, never): cpp.Float32;
-	public inline extern function get_LastExportedFrameRate(): cpp.Float32 return this.LastExportedFrameRate;
+	public extern var LastExportedFrameRate(get, never): ucpp.num.Float32;
+	public inline extern function get_LastExportedFrameRate(): ucpp.num.Float32 return this.LastExportedFrameRate;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlRigSequence*")
-abstract ControlRigSequencePtr(cpp.Star<ControlRigSequence>) from cpp.Star<ControlRigSequence> to cpp.Star<ControlRigSequence>{
+abstract ControlRigSequencePtr(ucpp.Ptr<ControlRigSequence>) from ucpp.Ptr<ControlRigSequence> to ucpp.Ptr<ControlRigSequence>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigSequence): ControlRigSequencePtr {
 		return untyped __cpp__("&({0})", v);

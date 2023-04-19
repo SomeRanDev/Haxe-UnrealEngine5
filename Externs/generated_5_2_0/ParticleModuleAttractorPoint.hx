@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleAttractorPoint")
 @:include("Particles/Attractor/ParticleModuleAttractorPoint.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleAttractorPoint extends ParticleModuleAttractorBase {
 	public var Position: RawDistributionVector;
 	public var Range: RawDistributionFloat;
@@ -19,7 +19,7 @@ extern class ParticleModuleAttractorPoint extends ParticleModuleAttractorBase {
 	public var Negative_Y: Bool;
 	public var Negative_Z: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstParticleModuleAttractorPoint(ParticleModuleAttractorPoint) from Pa
 @:forward
 @:nativeGen
 @:native("ParticleModuleAttractorPoint*")
-abstract ParticleModuleAttractorPointPtr(cpp.Star<ParticleModuleAttractorPoint>) from cpp.Star<ParticleModuleAttractorPoint> to cpp.Star<ParticleModuleAttractorPoint>{
+abstract ParticleModuleAttractorPointPtr(ucpp.Ptr<ParticleModuleAttractorPoint>) from ucpp.Ptr<ParticleModuleAttractorPoint> to ucpp.Ptr<ParticleModuleAttractorPoint>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleAttractorPoint): ParticleModuleAttractorPointPtr {
 		return untyped __cpp__("&({0})", v);

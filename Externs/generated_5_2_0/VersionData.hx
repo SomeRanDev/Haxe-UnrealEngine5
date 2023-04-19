@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVersionData")
 @:include("Private/Utilities/VersionInfoHandler.h")
-@:structAccess
+@:valueType
 extern class VersionData {
 	public var assets: TArray<AssetInfo>;
 

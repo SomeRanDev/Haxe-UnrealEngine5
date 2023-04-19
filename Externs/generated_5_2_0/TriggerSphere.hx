@@ -3,10 +3,10 @@ package ue;
 
 @:native("ATriggerSphere")
 @:include("Engine/TriggerSphere.h")
-@:structAccess
+@:valueType
 extern class TriggerSphere extends TriggerBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTriggerSphere(TriggerSphere) from TriggerSphere {
 @:forward
 @:nativeGen
 @:native("TriggerSphere*")
-abstract TriggerSpherePtr(cpp.Star<TriggerSphere>) from cpp.Star<TriggerSphere> to cpp.Star<TriggerSphere>{
+abstract TriggerSpherePtr(ucpp.Ptr<TriggerSphere>) from ucpp.Ptr<TriggerSphere> to ucpp.Ptr<TriggerSphere>{
 	@:from
 	public static extern inline function fromValue(v: TriggerSphere): TriggerSpherePtr {
 		return untyped __cpp__("&({0})", v);

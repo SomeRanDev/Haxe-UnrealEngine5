@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPhysicsConstraintProfileHandle")
 @:include("PhysicsEngine/PhysicsConstraintTemplate.h")
-@:structAccess
+@:valueType
 extern class PhysicsConstraintProfileHandle {
 	public var ProfileProperties: ConstraintProfileProperties;
 	public var ProfileName: FName;

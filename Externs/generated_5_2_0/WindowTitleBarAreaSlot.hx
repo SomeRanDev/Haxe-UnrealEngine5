@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWindowTitleBarAreaSlot")
 @:include("Components/WindowTitleBarAreaSlot.h")
-@:structAccess
+@:valueType
 extern class WindowTitleBarAreaSlot extends PanelSlot {
 	@:protected public var Padding: Margin;
 	@:protected public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
@@ -13,7 +13,7 @@ extern class WindowTitleBarAreaSlot extends PanelSlot {
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstWindowTitleBarAreaSlot(WindowTitleBarAreaSlot) from WindowTitleBar
 @:forward
 @:nativeGen
 @:native("WindowTitleBarAreaSlot*")
-abstract WindowTitleBarAreaSlotPtr(cpp.Star<WindowTitleBarAreaSlot>) from cpp.Star<WindowTitleBarAreaSlot> to cpp.Star<WindowTitleBarAreaSlot>{
+abstract WindowTitleBarAreaSlotPtr(ucpp.Ptr<WindowTitleBarAreaSlot>) from ucpp.Ptr<WindowTitleBarAreaSlot> to ucpp.Ptr<WindowTitleBarAreaSlot>{
 	@:from
 	public static extern inline function fromValue(v: WindowTitleBarAreaSlot): WindowTitleBarAreaSlotPtr {
 		return untyped __cpp__("&({0})", v);

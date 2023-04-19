@@ -3,12 +3,12 @@ package ue;
 
 @:native("APhasedAutomationActorBase")
 @:include("FunctionalTestingManager.h")
-@:structAccess
+@:valueType
 extern class PhasedAutomationActorBase extends Actor {
 	public function OnFunctionalTestingComplete(): Void;
 	public function OnFunctionalTestingBegin(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstPhasedAutomationActorBase(PhasedAutomationActorBase) from PhasedAu
 @:forward
 @:nativeGen
 @:native("PhasedAutomationActorBase*")
-abstract PhasedAutomationActorBasePtr(cpp.Star<PhasedAutomationActorBase>) from cpp.Star<PhasedAutomationActorBase> to cpp.Star<PhasedAutomationActorBase>{
+abstract PhasedAutomationActorBasePtr(ucpp.Ptr<PhasedAutomationActorBase>) from ucpp.Ptr<PhasedAutomationActorBase> to ucpp.Ptr<PhasedAutomationActorBase>{
 	@:from
 	public static extern inline function fromValue(v: PhasedAutomationActorBase): PhasedAutomationActorBasePtr {
 		return untyped __cpp__("&({0})", v);

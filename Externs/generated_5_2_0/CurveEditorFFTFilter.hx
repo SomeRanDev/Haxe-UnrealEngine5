@@ -3,33 +3,33 @@ package ue;
 
 @:native("UCurveEditorFFTFilter")
 @:include("Filters/CurveEditorFFTFilter.h")
-@:structAccess
+@:valueType
 extern class CurveEditorFFTFilter extends CurveEditorFilterBase {
-	public var CutoffFrequency: cpp.Float32;
+	public var CutoffFrequency: ucpp.num.Float32;
 	public var Type: ECurveEditorFFTFilterType;
 	public var Response: ECurveEditorFFTFilterClass;
-	public var Order: cpp.Int32;
+	public var Order: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCurveEditorFFTFilter(CurveEditorFFTFilter) from CurveEditorFFTFilter {
-	public extern var CutoffFrequency(get, never): cpp.Float32;
-	public inline extern function get_CutoffFrequency(): cpp.Float32 return this.CutoffFrequency;
+	public extern var CutoffFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_CutoffFrequency(): ucpp.num.Float32 return this.CutoffFrequency;
 	public extern var Type(get, never): ECurveEditorFFTFilterType;
 	public inline extern function get_Type(): ECurveEditorFFTFilterType return this.Type;
 	public extern var Response(get, never): ECurveEditorFFTFilterClass;
 	public inline extern function get_Response(): ECurveEditorFFTFilterClass return this.Response;
-	public extern var Order(get, never): cpp.Int32;
-	public inline extern function get_Order(): cpp.Int32 return this.Order;
+	public extern var Order(get, never): ucpp.num.Int32;
+	public inline extern function get_Order(): ucpp.num.Int32 return this.Order;
 }
 
 @:forward
 @:nativeGen
 @:native("CurveEditorFFTFilter*")
-abstract CurveEditorFFTFilterPtr(cpp.Star<CurveEditorFFTFilter>) from cpp.Star<CurveEditorFFTFilter> to cpp.Star<CurveEditorFFTFilter>{
+abstract CurveEditorFFTFilterPtr(ucpp.Ptr<CurveEditorFFTFilter>) from ucpp.Ptr<CurveEditorFFTFilter> to ucpp.Ptr<CurveEditorFFTFilter>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorFFTFilter): CurveEditorFFTFilterPtr {
 		return untyped __cpp__("&({0})", v);

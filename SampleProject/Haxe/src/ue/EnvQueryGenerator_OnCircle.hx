@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_OnCircle")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_OnCircle.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_OnCircle extends EnvQueryGenerator_ProjectedPoints {
 	public var CircleRadius: AIDataProviderFloatValue;
 	public var SpaceBetween: AIDataProviderFloatValue;
@@ -11,14 +11,14 @@ extern class EnvQueryGenerator_OnCircle extends EnvQueryGenerator_ProjectedPoint
 	public var PointOnCircleSpacingMethod: EPointOnCircleSpacingMethod;
 	public var ArcDirection: EnvDirection;
 	public var ArcAngle: AIDataProviderFloatValue;
-	public var AngleRadians: cpp.Float32;
+	public var AngleRadians: ucpp.num.Float32;
 	public var CircleCenter: TSubclassOf<EnvQueryContext>;
 	public var bIgnoreAnyContextActorsWhenGeneratingCircle: Bool;
 	public var CircleCenterZOffset: AIDataProviderFloatValue;
 	public var TraceData: EnvTraceData;
 	public var bDefineArc: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,8 +36,8 @@ abstract ConstEnvQueryGenerator_OnCircle(EnvQueryGenerator_OnCircle) from EnvQue
 	public inline extern function get_ArcDirection(): EnvDirection return this.ArcDirection;
 	public extern var ArcAngle(get, never): AIDataProviderFloatValue;
 	public inline extern function get_ArcAngle(): AIDataProviderFloatValue return this.ArcAngle;
-	public extern var AngleRadians(get, never): cpp.Float32;
-	public inline extern function get_AngleRadians(): cpp.Float32 return this.AngleRadians;
+	public extern var AngleRadians(get, never): ucpp.num.Float32;
+	public inline extern function get_AngleRadians(): ucpp.num.Float32 return this.AngleRadians;
 	public extern var CircleCenter(get, never): TSubclassOf<EnvQueryContext.ConstEnvQueryContext>;
 	public inline extern function get_CircleCenter(): TSubclassOf<EnvQueryContext.ConstEnvQueryContext> return this.CircleCenter;
 	public extern var bIgnoreAnyContextActorsWhenGeneratingCircle(get, never): Bool;
@@ -53,7 +53,7 @@ abstract ConstEnvQueryGenerator_OnCircle(EnvQueryGenerator_OnCircle) from EnvQue
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_OnCircle*")
-abstract EnvQueryGenerator_OnCirclePtr(cpp.Star<EnvQueryGenerator_OnCircle>) from cpp.Star<EnvQueryGenerator_OnCircle> to cpp.Star<EnvQueryGenerator_OnCircle>{
+abstract EnvQueryGenerator_OnCirclePtr(ucpp.Ptr<EnvQueryGenerator_OnCircle>) from ucpp.Ptr<EnvQueryGenerator_OnCircle> to ucpp.Ptr<EnvQueryGenerator_OnCircle>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_OnCircle): EnvQueryGenerator_OnCirclePtr {
 		return untyped __cpp__("&({0})", v);

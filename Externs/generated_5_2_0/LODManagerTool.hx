@@ -3,20 +3,20 @@ package ue;
 
 @:native("ULODManagerTool")
 @:include("Tools/LODManagerTool.h")
-@:structAccess
+@:valueType
 extern class LODManagerTool extends MultiSelectionMeshEditingTool {
-	@:protected public var LODInfoProperties: cpp.Star<LODManagerLODProperties>;
-	@:protected public var LODPreviewProperties: cpp.Star<LODManagerPreviewLODProperties>;
-	@:protected public var HiResSourceModelActions: cpp.Star<LODManagerHiResSourceModelActions>;
-	@:protected public var MaterialActions: cpp.Star<LODManagerMaterialActions>;
-	@:protected public var LODPreview: cpp.Star<PreviewMesh>;
-	@:protected public var LODPreviewLines: cpp.Star<PreviewGeometry>;
+	@:protected public var LODInfoProperties: ucpp.Ptr<LODManagerLODProperties>;
+	@:protected public var LODPreviewProperties: ucpp.Ptr<LODManagerPreviewLODProperties>;
+	@:protected public var HiResSourceModelActions: ucpp.Ptr<LODManagerHiResSourceModelActions>;
+	@:protected public var MaterialActions: ucpp.Ptr<LODManagerMaterialActions>;
+	@:protected public var LODPreview: ucpp.Ptr<PreviewMesh>;
+	@:protected public var LODPreviewLines: ucpp.Ptr<PreviewGeometry>;
 
 	public function RemoveUnreferencedMaterials(): Void;
 	public function MoveHiResToLOD0(): Void;
 	public function DeleteHiResSourceModel(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstLODManagerTool(LODManagerTool) from LODManagerTool {
 @:forward
 @:nativeGen
 @:native("LODManagerTool*")
-abstract LODManagerToolPtr(cpp.Star<LODManagerTool>) from cpp.Star<LODManagerTool> to cpp.Star<LODManagerTool>{
+abstract LODManagerToolPtr(ucpp.Ptr<LODManagerTool>) from ucpp.Ptr<LODManagerTool> to ucpp.Ptr<LODManagerTool>{
 	@:from
 	public static extern inline function fromValue(v: LODManagerTool): LODManagerToolPtr {
 		return untyped __cpp__("&({0})", v);

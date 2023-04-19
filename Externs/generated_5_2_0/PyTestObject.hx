@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPyTestObject")
 @:include("PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestObject extends Object {
 	public var Bool: Bool;
-	public var Int: cpp.Int32;
-	public var Float: cpp.Float32;
+	public var Int: ucpp.num.Int32;
+	public var Float: ucpp.num.Float32;
 	public var Enum: EPyTestEnum;
 	public var String: FString;
 	public var Name: FName;
@@ -16,8 +16,8 @@ extern class PyTestObject extends Object {
 	public var StructFieldPath: TFieldPath<FStructProperty>;
 	public var StringArray: TArray<FString>;
 	public var StringSet: TSet<FString>;
-	public var StringIntMap: TMap<FString, cpp.Int32>;
-	public var Delegate: HaxeDelegateProperty<(cpp.Int32) -> Void>;
+	public var StringIntMap: TMap<FString, ucpp.num.Int32>;
+	public var Delegate: HaxeDelegateProperty<(ucpp.num.Int32) -> Void>;
 	public var MulticastDelegate: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public var Struct: PyTestStruct;
 	public var StructArray: TArray<PyTestStruct>;
@@ -25,29 +25,29 @@ extern class PyTestObject extends Object {
 	public var BoolInstanceOnly: Bool;
 	public var BoolDefaultsOnly: Bool;
 
-	public function ReturnSet(): TSet<cpp.Int32>;
-	public function ReturnMap(): TMap<cpp.Int32, Bool>;
+	public function ReturnSet(): TSet<ucpp.num.Int32>;
+	public function ReturnMap(): TMap<ucpp.num.Int32, Bool>;
 	public function ReturnFieldPath(): TFieldPath<FProperty>;
-	public function ReturnArray(): TArray<cpp.Int32>;
+	public function ReturnArray(): TArray<ucpp.num.Int32>;
 	public function MulticastDelegatePropertyCallback(InStr: FString): Void;
-	public function LegacyFuncTakingPyTestStruct(InStruct: cpp.Reference<PyTestStruct>): Void;
-	public function GetConstantValue(): cpp.Int32;
-	public function FuncTakingPyTestStructDefault(InStruct: cpp.Reference<PyTestStruct>): Void;
-	public function FuncTakingPyTestStruct(InStruct: cpp.Reference<PyTestStruct>): Void;
-	public function FuncTakingPyTestDelegate(InDelegate: cpp.Reference<HaxeDelegateProperty<(cpp.Int32) -> Void>>, InValue: cpp.Int32): cpp.Int32;
-	public function FuncTakingPyTestChildStruct(InStruct: cpp.Reference<PyTestChildStruct>): Void;
-	public function FuncTakingFieldPath(InFieldPath: cpp.Reference<TFieldPath<FProperty>>): Void;
-	public function FuncBlueprintNativeRef(InOutStruct: cpp.Reference<PyTestStruct>): Void;
-	public function FuncBlueprintNative(InValue: cpp.Int32): cpp.Int32;
-	public function FuncBlueprintImplementable(InValue: cpp.Int32): cpp.Int32;
+	public function LegacyFuncTakingPyTestStruct(InStruct: ucpp.Ref<PyTestStruct>): Void;
+	public function GetConstantValue(): ucpp.num.Int32;
+	public function FuncTakingPyTestStructDefault(InStruct: ucpp.Ref<PyTestStruct>): Void;
+	public function FuncTakingPyTestStruct(InStruct: ucpp.Ref<PyTestStruct>): Void;
+	public function FuncTakingPyTestDelegate(InDelegate: ucpp.Ref<HaxeDelegateProperty<(ucpp.num.Int32) -> Void>>, InValue: ucpp.num.Int32): ucpp.num.Int32;
+	public function FuncTakingPyTestChildStruct(InStruct: ucpp.Ref<PyTestChildStruct>): Void;
+	public function FuncTakingFieldPath(InFieldPath: ucpp.Ref<TFieldPath<FProperty>>): Void;
+	public function FuncBlueprintNativeRef(InOutStruct: ucpp.Ref<PyTestStruct>): Void;
+	public function FuncBlueprintNative(InValue: ucpp.num.Int32): ucpp.num.Int32;
+	public function FuncBlueprintImplementable(InValue: ucpp.num.Int32): ucpp.num.Int32;
 	public function EmitScriptWarning(): Void;
 	public function EmitScriptError(): Void;
-	public function DelegatePropertyCallback(InValue: cpp.Int32): cpp.Int32;
-	public function CallFuncBlueprintNativeRef(InOutStruct: cpp.Reference<PyTestStruct>): Void;
-	public function CallFuncBlueprintNative(InValue: cpp.Int32): cpp.Int32;
-	public function CallFuncBlueprintImplementable(InValue: cpp.Int32): cpp.Int32;
+	public function DelegatePropertyCallback(InValue: ucpp.num.Int32): ucpp.num.Int32;
+	public function CallFuncBlueprintNativeRef(InOutStruct: ucpp.Ref<PyTestStruct>): Void;
+	public function CallFuncBlueprintNative(InValue: ucpp.num.Int32): ucpp.num.Int32;
+	public function CallFuncBlueprintImplementable(InValue: ucpp.num.Int32): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -59,10 +59,10 @@ extern class PyTestObject extends Object {
 abstract ConstPyTestObject(PyTestObject) from PyTestObject {
 	public extern var Bool(get, never): Bool;
 	public inline extern function get_Bool(): Bool return this.Bool;
-	public extern var Int(get, never): cpp.Int32;
-	public inline extern function get_Int(): cpp.Int32 return this.Int;
-	public extern var Float(get, never): cpp.Float32;
-	public inline extern function get_Float(): cpp.Float32 return this.Float;
+	public extern var Int(get, never): ucpp.num.Int32;
+	public inline extern function get_Int(): ucpp.num.Int32 return this.Int;
+	public extern var Float(get, never): ucpp.num.Float32;
+	public inline extern function get_Float(): ucpp.num.Float32 return this.Float;
 	public extern var Enum(get, never): EPyTestEnum;
 	public inline extern function get_Enum(): EPyTestEnum return this.Enum;
 	public extern var String(get, never): FString;
@@ -79,10 +79,10 @@ abstract ConstPyTestObject(PyTestObject) from PyTestObject {
 	public inline extern function get_StringArray(): TArray<FString> return this.StringArray;
 	public extern var StringSet(get, never): TSet<FString>;
 	public inline extern function get_StringSet(): TSet<FString> return this.StringSet;
-	public extern var StringIntMap(get, never): TMap<FString, cpp.Int32>;
-	public inline extern function get_StringIntMap(): TMap<FString, cpp.Int32> return this.StringIntMap;
-	public extern var Delegate(get, never): HaxeDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_Delegate(): HaxeDelegateProperty<(cpp.Int32) -> Void> return this.Delegate;
+	public extern var StringIntMap(get, never): TMap<FString, ucpp.num.Int32>;
+	public inline extern function get_StringIntMap(): TMap<FString, ucpp.num.Int32> return this.StringIntMap;
+	public extern var Delegate(get, never): HaxeDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_Delegate(): HaxeDelegateProperty<(ucpp.num.Int32) -> Void> return this.Delegate;
 	public extern var MulticastDelegate(get, never): HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 	public inline extern function get_MulticastDelegate(): HaxeMulticastSparseDelegateProperty<(FString) -> Void> return this.MulticastDelegate;
 	public extern var Struct(get, never): PyTestStruct;
@@ -100,7 +100,7 @@ abstract ConstPyTestObject(PyTestObject) from PyTestObject {
 @:forward
 @:nativeGen
 @:native("PyTestObject*")
-abstract PyTestObjectPtr(cpp.Star<PyTestObject>) from cpp.Star<PyTestObject> to cpp.Star<PyTestObject>{
+abstract PyTestObjectPtr(ucpp.Ptr<PyTestObject>) from ucpp.Ptr<PyTestObject> to ucpp.Ptr<PyTestObject>{
 	@:from
 	public static extern inline function fromValue(v: PyTestObject): PyTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

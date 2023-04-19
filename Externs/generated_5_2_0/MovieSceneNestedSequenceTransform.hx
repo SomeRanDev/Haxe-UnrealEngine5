@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneNestedSequenceTransform")
 @:include("Evaluation/MovieSceneSequenceTransform.h")
-@:structAccess
+@:valueType
 extern class MovieSceneNestedSequenceTransform {
 	public var LinearTransform: MovieSceneTimeTransform;
 	public var Warping: MovieSceneTimeWarping;

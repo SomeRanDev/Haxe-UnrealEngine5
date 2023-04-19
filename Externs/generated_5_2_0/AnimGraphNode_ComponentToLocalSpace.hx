@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ComponentToLocalSpace")
 @:include("AnimGraphNode_ComponentToLocalSpace.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_ComponentToLocalSpace extends AnimGraphNode_Base {
 	public var Node: AnimNode_ConvertComponentToLocalSpace;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_ComponentToLocalSpace(AnimGraphNode_ComponentToLocal
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_ComponentToLocalSpace*")
-abstract AnimGraphNode_ComponentToLocalSpacePtr(cpp.Star<AnimGraphNode_ComponentToLocalSpace>) from cpp.Star<AnimGraphNode_ComponentToLocalSpace> to cpp.Star<AnimGraphNode_ComponentToLocalSpace>{
+abstract AnimGraphNode_ComponentToLocalSpacePtr(ucpp.Ptr<AnimGraphNode_ComponentToLocalSpace>) from ucpp.Ptr<AnimGraphNode_ComponentToLocalSpace> to ucpp.Ptr<AnimGraphNode_ComponentToLocalSpace>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_ComponentToLocalSpace): AnimGraphNode_ComponentToLocalSpacePtr {
 		return untyped __cpp__("&({0})", v);

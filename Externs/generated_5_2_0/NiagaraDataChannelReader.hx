@@ -3,35 +3,35 @@ package ue;
 
 @:native("UNiagaraDataChannelReader")
 @:include("NiagaraDataChannelAccessor.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelReader extends Object {
-	public var Owner: cpp.Star<NiagaraDataChannelHandler>;
+	public var Owner: ucpp.Ptr<NiagaraDataChannelHandler>;
 
-	public function ReadVector4(VarName: FName, Index: cpp.Int32): Vector4;
-	public function ReadVector2D(VarName: FName, Index: cpp.Int32): Vector2D;
-	public function ReadVector(VarName: FName, Index: cpp.Int32): Vector;
-	public function ReadQuat(VarName: FName, Index: cpp.Int32): Quat;
-	public function ReadLinearColor(VarName: FName, Index: cpp.Int32): LinearColor;
-	public function ReadInt(VarName: FName, Index: cpp.Int32): cpp.Int32;
-	public function ReadFloat(VarName: FName, Index: cpp.Int32): cpp.Float64;
-	public function ReadBool(VarName: FName, Index: cpp.Int32): Bool;
-	public function Num(): cpp.Int32;
-	public function InitAccess(OwningComponent: cpp.Star<ActorComp>): Bool;
+	public function ReadVector4(VarName: FName, Index: ucpp.num.Int32): Vector4;
+	public function ReadVector2D(VarName: FName, Index: ucpp.num.Int32): Vector2D;
+	public function ReadVector(VarName: FName, Index: ucpp.num.Int32): Vector;
+	public function ReadQuat(VarName: FName, Index: ucpp.num.Int32): Quat;
+	public function ReadLinearColor(VarName: FName, Index: ucpp.num.Int32): LinearColor;
+	public function ReadInt(VarName: FName, Index: ucpp.num.Int32): ucpp.num.Int32;
+	public function ReadFloat(VarName: FName, Index: ucpp.num.Int32): ucpp.num.Float64;
+	public function ReadBool(VarName: FName, Index: ucpp.num.Int32): Bool;
+	public function Num(): ucpp.num.Int32;
+	public function InitAccess(OwningComponent: ucpp.Ptr<ActorComp>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(ReadVector4, ReadVector2D, ReadVector, ReadQuat, ReadLinearColor, ReadInt, ReadFloat, ReadBool, Num)
 @:nativeGen
 abstract ConstNiagaraDataChannelReader(NiagaraDataChannelReader) from NiagaraDataChannelReader {
-	public extern var Owner(get, never): cpp.Star<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler>;
-	public inline extern function get_Owner(): cpp.Star<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler> return this.Owner;
+	public extern var Owner(get, never): ucpp.Ptr<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler>;
+	public inline extern function get_Owner(): ucpp.Ptr<NiagaraDataChannelHandler.ConstNiagaraDataChannelHandler> return this.Owner;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannelReader*")
-abstract NiagaraDataChannelReaderPtr(cpp.Star<NiagaraDataChannelReader>) from cpp.Star<NiagaraDataChannelReader> to cpp.Star<NiagaraDataChannelReader>{
+abstract NiagaraDataChannelReaderPtr(ucpp.Ptr<NiagaraDataChannelReader>) from ucpp.Ptr<NiagaraDataChannelReader> to ucpp.Ptr<NiagaraDataChannelReader>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannelReader): NiagaraDataChannelReaderPtr {
 		return untyped __cpp__("&({0})", v);

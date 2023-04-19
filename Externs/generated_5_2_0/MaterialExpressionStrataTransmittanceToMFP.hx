@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStrataTransmittanceToMFP")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataTransmittanceToMFP extends MaterialExpressionStrataUtilityBase {
 	public var TransmittanceColor: ExpressionInput;
 	public var Thickness: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionStrataTransmittanceToMFP(MaterialExpressionStrat
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataTransmittanceToMFP*")
-abstract MaterialExpressionStrataTransmittanceToMFPPtr(cpp.Star<MaterialExpressionStrataTransmittanceToMFP>) from cpp.Star<MaterialExpressionStrataTransmittanceToMFP> to cpp.Star<MaterialExpressionStrataTransmittanceToMFP>{
+abstract MaterialExpressionStrataTransmittanceToMFPPtr(ucpp.Ptr<MaterialExpressionStrataTransmittanceToMFP>) from ucpp.Ptr<MaterialExpressionStrataTransmittanceToMFP> to ucpp.Ptr<MaterialExpressionStrataTransmittanceToMFP>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataTransmittanceToMFP): MaterialExpressionStrataTransmittanceToMFPPtr {
 		return untyped __cpp__("&({0})", v);

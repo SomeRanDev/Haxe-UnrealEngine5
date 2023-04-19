@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFloatCurveCopyObject")
 @:include("AnimTimeline/AnimTimelineClipboard.h")
-@:structAccess
+@:valueType
 extern class FloatCurveCopyObject extends AnimCurveBaseCopyObject {
 	public var Curve: FloatCurve;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFloatCurveCopyObject(FloatCurveCopyObject) from FloatCurveCopyObje
 @:forward
 @:nativeGen
 @:native("FloatCurveCopyObject*")
-abstract FloatCurveCopyObjectPtr(cpp.Star<FloatCurveCopyObject>) from cpp.Star<FloatCurveCopyObject> to cpp.Star<FloatCurveCopyObject>{
+abstract FloatCurveCopyObjectPtr(ucpp.Ptr<FloatCurveCopyObject>) from ucpp.Ptr<FloatCurveCopyObject> to ucpp.Ptr<FloatCurveCopyObject>{
 	@:from
 	public static extern inline function fromValue(v: FloatCurveCopyObject): FloatCurveCopyObjectPtr {
 		return untyped __cpp__("&({0})", v);

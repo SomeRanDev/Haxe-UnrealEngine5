@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigComponentMappedCurve")
 @:include("ControlRigComponent.h")
-@:structAccess
+@:valueType
 extern class ControlRigComponentMappedCurve {
 	public var Source: FName;
 	public var Target: FName;

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("URigVMPeformUserWorkflowDynamicDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class RigVMPeformUserWorkflowDynamicDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstRigVMPeformUserWorkflowDynamicDelegate__PythonCallable(RigVMPeform
 @:forward
 @:nativeGen
 @:native("RigVMPeformUserWorkflowDynamicDelegate__PythonCallable*")
-abstract RigVMPeformUserWorkflowDynamicDelegate__PythonCallablePtr(cpp.Star<RigVMPeformUserWorkflowDynamicDelegate__PythonCallable>) from cpp.Star<RigVMPeformUserWorkflowDynamicDelegate__PythonCallable> to cpp.Star<RigVMPeformUserWorkflowDynamicDelegate__PythonCallable>{
+abstract RigVMPeformUserWorkflowDynamicDelegate__PythonCallablePtr(ucpp.Ptr<RigVMPeformUserWorkflowDynamicDelegate__PythonCallable>) from ucpp.Ptr<RigVMPeformUserWorkflowDynamicDelegate__PythonCallable> to ucpp.Ptr<RigVMPeformUserWorkflowDynamicDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: RigVMPeformUserWorkflowDynamicDelegate__PythonCallable): RigVMPeformUserWorkflowDynamicDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

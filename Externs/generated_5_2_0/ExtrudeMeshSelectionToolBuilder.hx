@@ -3,10 +3,10 @@ package ue;
 
 @:native("UExtrudeMeshSelectionToolBuilder")
 @:include("Polymodeling/ExtrudeMeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class ExtrudeMeshSelectionToolBuilder extends SingleTargetWithSelectionToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstExtrudeMeshSelectionToolBuilder(ExtrudeMeshSelectionToolBuilder) f
 @:forward
 @:nativeGen
 @:native("ExtrudeMeshSelectionToolBuilder*")
-abstract ExtrudeMeshSelectionToolBuilderPtr(cpp.Star<ExtrudeMeshSelectionToolBuilder>) from cpp.Star<ExtrudeMeshSelectionToolBuilder> to cpp.Star<ExtrudeMeshSelectionToolBuilder>{
+abstract ExtrudeMeshSelectionToolBuilderPtr(ucpp.Ptr<ExtrudeMeshSelectionToolBuilder>) from ucpp.Ptr<ExtrudeMeshSelectionToolBuilder> to ucpp.Ptr<ExtrudeMeshSelectionToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ExtrudeMeshSelectionToolBuilder): ExtrudeMeshSelectionToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

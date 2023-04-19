@@ -3,16 +3,16 @@ package ue;
 
 @:native("UARGeoAnchorComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARGeoAnchorComp extends ARComp {
 	@:protected public var ReplicatedPayload: ARGeoAnchorUpdatePayload;
 
 	public function SetGeoAnchorComponentDebugMode(NewDebugMode: EGeoAnchorComponentDebugMode): Void;
 	@:protected public function ServerUpdatePayload(NewPayload: ARGeoAnchorUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<ARGeoAnchorUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<ARGeoAnchorUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<ARGeoAnchorUpdatePayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstARGeoAnchorComp(ARGeoAnchorComp) from ARGeoAnchorComp {
 @:forward
 @:nativeGen
 @:native("ARGeoAnchorComp*")
-abstract ARGeoAnchorCompPtr(cpp.Star<ARGeoAnchorComp>) from cpp.Star<ARGeoAnchorComp> to cpp.Star<ARGeoAnchorComp>{
+abstract ARGeoAnchorCompPtr(ucpp.Ptr<ARGeoAnchorComp>) from ucpp.Ptr<ARGeoAnchorComp> to ucpp.Ptr<ARGeoAnchorComp>{
 	@:from
 	public static extern inline function fromValue(v: ARGeoAnchorComp): ARGeoAnchorCompPtr {
 		return untyped __cpp__("&({0})", v);

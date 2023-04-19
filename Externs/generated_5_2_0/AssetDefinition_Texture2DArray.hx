@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_Texture2DArray")
 @:include("AssetDefinition_Texture2DArray.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_Texture2DArray extends AssetDefinition_Texture {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_Texture2DArray(AssetDefinition_Texture2DArray) fro
 @:forward
 @:nativeGen
 @:native("AssetDefinition_Texture2DArray*")
-abstract AssetDefinition_Texture2DArrayPtr(cpp.Star<AssetDefinition_Texture2DArray>) from cpp.Star<AssetDefinition_Texture2DArray> to cpp.Star<AssetDefinition_Texture2DArray>{
+abstract AssetDefinition_Texture2DArrayPtr(ucpp.Ptr<AssetDefinition_Texture2DArray>) from ucpp.Ptr<AssetDefinition_Texture2DArray> to ucpp.Ptr<AssetDefinition_Texture2DArray>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_Texture2DArray): AssetDefinition_Texture2DArrayPtr {
 		return untyped __cpp__("&({0})", v);

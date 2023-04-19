@@ -3,7 +3,7 @@ package ue;
 
 @:native("FChaosDebugSubstepControl")
 @:include("Chaos/ChaosSolverActor.h")
-@:structAccess
+@:valueType
 extern class ChaosDebugSubstepControl {
 	public var bPause: Bool;
 	public var bSubstep: Bool;

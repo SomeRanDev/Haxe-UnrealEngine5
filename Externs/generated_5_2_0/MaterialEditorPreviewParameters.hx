@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialEditorPreviewParameters")
 @:include("MaterialEditor/MaterialEditorPreviewParameters.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorPreviewParameters extends Object {
 	public var ParameterGroups: TArray<EditorParameterGroup>;
-	public var PreviewMaterial: cpp.Star<Material>;
-	public var OriginalFunction: cpp.Star<MaterialFunction>;
-	public var OriginalMaterial: cpp.Star<Material>;
+	public var PreviewMaterial: ucpp.Ptr<Material>;
+	public var OriginalFunction: ucpp.Ptr<MaterialFunction>;
+	public var OriginalMaterial: ucpp.Ptr<Material>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,18 +18,18 @@ extern class MaterialEditorPreviewParameters extends Object {
 abstract ConstMaterialEditorPreviewParameters(MaterialEditorPreviewParameters) from MaterialEditorPreviewParameters {
 	public extern var ParameterGroups(get, never): TArray<EditorParameterGroup>;
 	public inline extern function get_ParameterGroups(): TArray<EditorParameterGroup> return this.ParameterGroups;
-	public extern var PreviewMaterial(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_PreviewMaterial(): cpp.Star<Material.ConstMaterial> return this.PreviewMaterial;
-	public extern var OriginalFunction(get, never): cpp.Star<MaterialFunction.ConstMaterialFunction>;
-	public inline extern function get_OriginalFunction(): cpp.Star<MaterialFunction.ConstMaterialFunction> return this.OriginalFunction;
-	public extern var OriginalMaterial(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_OriginalMaterial(): cpp.Star<Material.ConstMaterial> return this.OriginalMaterial;
+	public extern var PreviewMaterial(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_PreviewMaterial(): ucpp.Ptr<Material.ConstMaterial> return this.PreviewMaterial;
+	public extern var OriginalFunction(get, never): ucpp.Ptr<MaterialFunction.ConstMaterialFunction>;
+	public inline extern function get_OriginalFunction(): ucpp.Ptr<MaterialFunction.ConstMaterialFunction> return this.OriginalFunction;
+	public extern var OriginalMaterial(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_OriginalMaterial(): ucpp.Ptr<Material.ConstMaterial> return this.OriginalMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialEditorPreviewParameters*")
-abstract MaterialEditorPreviewParametersPtr(cpp.Star<MaterialEditorPreviewParameters>) from cpp.Star<MaterialEditorPreviewParameters> to cpp.Star<MaterialEditorPreviewParameters>{
+abstract MaterialEditorPreviewParametersPtr(ucpp.Ptr<MaterialEditorPreviewParameters>) from ucpp.Ptr<MaterialEditorPreviewParameters> to ucpp.Ptr<MaterialEditorPreviewParameters>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditorPreviewParameters): MaterialEditorPreviewParametersPtr {
 		return untyped __cpp__("&({0})", v);

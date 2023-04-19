@@ -3,12 +3,12 @@ package ue;
 
 @:native("UPreviewMesh")
 @:include("PreviewMesh.h")
-@:structAccess
+@:valueType
 extern class PreviewMesh extends Object {
 	public var bBuildSpatialDataStructure: Bool;
-	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
+	@:protected public var DynamicMeshComponent: ucpp.Ptr<DynamicMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstPreviewMesh(PreviewMesh) from PreviewMesh {
 @:forward
 @:nativeGen
 @:native("PreviewMesh*")
-abstract PreviewMeshPtr(cpp.Star<PreviewMesh>) from cpp.Star<PreviewMesh> to cpp.Star<PreviewMesh>{
+abstract PreviewMeshPtr(ucpp.Ptr<PreviewMesh>) from ucpp.Ptr<PreviewMesh> to ucpp.Ptr<PreviewMesh>{
 	@:from
 	public static extern inline function fromValue(v: PreviewMesh): PreviewMeshPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UGenerateStaticMeshLODAssetTool")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODAssetTool extends MultiSelectionMeshEditingTool {
-	@:protected public var OutputProperties: cpp.Star<GenerateStaticMeshLODAssetToolOutputProperties>;
-	@:protected public var BasicProperties: cpp.Star<GenerateStaticMeshLODAssetToolProperties>;
-	@:protected public var PresetProperties: cpp.Star<GenerateStaticMeshLODAssetToolPresetProperties>;
-	@:protected public var TextureProperties: cpp.Star<GenerateStaticMeshLODAssetToolTextureProperties>;
-	@:protected public var CollisionVizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
-	@:protected public var PreviewWithBackgroundCompute: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var PreviewTextures: TArray<cpp.Star<Texture2D>>;
-	@:protected public var PreviewMaterials: TArray<cpp.Star<MaterialInterface>>;
-	@:protected public var ObjectData: cpp.Star<PhysicsObjectToolPropertySet>;
-	@:protected public var LineMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var CollisionPreview: cpp.Star<PreviewGeometry>;
-	@:protected public var GenerateProcess: cpp.Star<GenerateStaticMeshLODProcess>;
+	@:protected public var OutputProperties: ucpp.Ptr<GenerateStaticMeshLODAssetToolOutputProperties>;
+	@:protected public var BasicProperties: ucpp.Ptr<GenerateStaticMeshLODAssetToolProperties>;
+	@:protected public var PresetProperties: ucpp.Ptr<GenerateStaticMeshLODAssetToolPresetProperties>;
+	@:protected public var TextureProperties: ucpp.Ptr<GenerateStaticMeshLODAssetToolTextureProperties>;
+	@:protected public var CollisionVizSettings: ucpp.Ptr<CollisionGeometryVisualizationProperties>;
+	@:protected public var PreviewWithBackgroundCompute: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var PreviewTextures: TArray<ucpp.Ptr<Texture2D>>;
+	@:protected public var PreviewMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
+	@:protected public var ObjectData: ucpp.Ptr<PhysicsObjectToolPropertySet>;
+	@:protected public var LineMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var CollisionPreview: ucpp.Ptr<PreviewGeometry>;
+	@:protected public var GenerateProcess: ucpp.Ptr<GenerateStaticMeshLODProcess>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstGenerateStaticMeshLODAssetTool(GenerateStaticMeshLODAssetTool) fro
 @:forward
 @:nativeGen
 @:native("GenerateStaticMeshLODAssetTool*")
-abstract GenerateStaticMeshLODAssetToolPtr(cpp.Star<GenerateStaticMeshLODAssetTool>) from cpp.Star<GenerateStaticMeshLODAssetTool> to cpp.Star<GenerateStaticMeshLODAssetTool>{
+abstract GenerateStaticMeshLODAssetToolPtr(ucpp.Ptr<GenerateStaticMeshLODAssetTool>) from ucpp.Ptr<GenerateStaticMeshLODAssetTool> to ucpp.Ptr<GenerateStaticMeshLODAssetTool>{
 	@:from
 	public static extern inline function fromValue(v: GenerateStaticMeshLODAssetTool): GenerateStaticMeshLODAssetToolPtr {
 		return untyped __cpp__("&({0})", v);

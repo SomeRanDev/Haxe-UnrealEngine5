@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAvfMediaSettings")
 @:include("AvfMediaSettings.h")
-@:structAccess
+@:valueType
 extern class AvfMediaSettings extends Object {
 	public var NativeAudioOut: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAvfMediaSettings(AvfMediaSettings) from AvfMediaSettings {
 @:forward
 @:nativeGen
 @:native("AvfMediaSettings*")
-abstract AvfMediaSettingsPtr(cpp.Star<AvfMediaSettings>) from cpp.Star<AvfMediaSettings> to cpp.Star<AvfMediaSettings>{
+abstract AvfMediaSettingsPtr(ucpp.Ptr<AvfMediaSettings>) from ucpp.Ptr<AvfMediaSettings> to ucpp.Ptr<AvfMediaSettings>{
 	@:from
 	public static extern inline function fromValue(v: AvfMediaSettings): AvfMediaSettingsPtr {
 		return untyped __cpp__("&({0})", v);

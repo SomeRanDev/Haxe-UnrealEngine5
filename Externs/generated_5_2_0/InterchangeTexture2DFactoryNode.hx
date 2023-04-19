@@ -3,20 +3,20 @@ package ue;
 
 @:native("UInterchangeTexture2DFactoryNode")
 @:include("InterchangeTexture2DFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeTexture2DFactoryNode extends InterchangeTextureFactoryNode {
-	public function SetSourceBlocks(InSourceBlocks: cpp.Reference<TMap<cpp.Int32, FString>>): Void;
-	public function SetSourceBlockByCoordinates(X: cpp.Int32, Y: cpp.Int32, InSourceFile: FString): Void;
-	public function SetSourceBlock(BlockIndex: cpp.Int32, InSourceFile: FString): Void;
+	public function SetSourceBlocks(InSourceBlocks: ucpp.Ref<TMap<ucpp.num.Int32, FString>>): Void;
+	public function SetSourceBlockByCoordinates(X: ucpp.num.Int32, Y: ucpp.num.Int32, InSourceFile: FString): Void;
+	public function SetSourceBlock(BlockIndex: ucpp.num.Int32, InSourceFile: FString): Void;
 	public function SetCustomAddressY(AttributeValue: TEnumAsByte<TextureAddress>, bAddApplyDelegate: Bool): Bool;
 	public function SetCustomAddressX(AttributeValue: TEnumAsByte<TextureAddress>, bAddApplyDelegate: Bool): Bool;
-	public function GetSourceBlocks(): TMap<cpp.Int32, FString>;
-	public function GetSourceBlockByCoordinates(X: cpp.Int32, Y: cpp.Int32, OutSourceFile: cpp.Reference<FString>): Bool;
-	public function GetSourceBlock(BlockIndex: cpp.Int32, OutSourceFile: cpp.Reference<FString>): Bool;
-	public function GetCustomAddressY(AttributeValue: cpp.Reference<TEnumAsByte<TextureAddress>>): Bool;
-	public function GetCustomAddressX(AttributeValue: cpp.Reference<TEnumAsByte<TextureAddress>>): Bool;
+	public function GetSourceBlocks(): TMap<ucpp.num.Int32, FString>;
+	public function GetSourceBlockByCoordinates(X: ucpp.num.Int32, Y: ucpp.num.Int32, OutSourceFile: ucpp.Ref<FString>): Bool;
+	public function GetSourceBlock(BlockIndex: ucpp.num.Int32, OutSourceFile: ucpp.Ref<FString>): Bool;
+	public function GetCustomAddressY(AttributeValue: ucpp.Ref<TEnumAsByte<TextureAddress>>): Bool;
+	public function GetCustomAddressX(AttributeValue: ucpp.Ref<TEnumAsByte<TextureAddress>>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSourceBlocks, GetSourceBlockByCoordinates, GetSourceBlock, GetCustomAddressY, GetCustomAddressX)
@@ -27,7 +27,7 @@ abstract ConstInterchangeTexture2DFactoryNode(InterchangeTexture2DFactoryNode) f
 @:forward
 @:nativeGen
 @:native("InterchangeTexture2DFactoryNode*")
-abstract InterchangeTexture2DFactoryNodePtr(cpp.Star<InterchangeTexture2DFactoryNode>) from cpp.Star<InterchangeTexture2DFactoryNode> to cpp.Star<InterchangeTexture2DFactoryNode>{
+abstract InterchangeTexture2DFactoryNodePtr(ucpp.Ptr<InterchangeTexture2DFactoryNode>) from ucpp.Ptr<InterchangeTexture2DFactoryNode> to ucpp.Ptr<InterchangeTexture2DFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTexture2DFactoryNode): InterchangeTexture2DFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

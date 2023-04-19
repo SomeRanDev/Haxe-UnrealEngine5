@@ -3,13 +3,13 @@ package ue;
 
 @:native("UTakeRecorderMicrophoneAudioSourceSettings")
 @:include("TakeRecorderMicrophoneAudioSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderMicrophoneAudioSourceSettings extends TakeRecorderSource {
 	public var AudioTrackName: FText;
 	public var AudioAssetName: FString;
 	public var AudioSubDirectory: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstTakeRecorderMicrophoneAudioSourceSettings(TakeRecorderMicrophoneAu
 @:forward
 @:nativeGen
 @:native("TakeRecorderMicrophoneAudioSourceSettings*")
-abstract TakeRecorderMicrophoneAudioSourceSettingsPtr(cpp.Star<TakeRecorderMicrophoneAudioSourceSettings>) from cpp.Star<TakeRecorderMicrophoneAudioSourceSettings> to cpp.Star<TakeRecorderMicrophoneAudioSourceSettings>{
+abstract TakeRecorderMicrophoneAudioSourceSettingsPtr(ucpp.Ptr<TakeRecorderMicrophoneAudioSourceSettings>) from ucpp.Ptr<TakeRecorderMicrophoneAudioSourceSettings> to ucpp.Ptr<TakeRecorderMicrophoneAudioSourceSettings>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderMicrophoneAudioSourceSettings): TakeRecorderMicrophoneAudioSourceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

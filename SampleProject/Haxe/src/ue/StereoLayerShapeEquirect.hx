@@ -3,7 +3,7 @@ package ue;
 
 @:native("UStereoLayerShapeEquirect")
 @:include("Components/StereoLayerComponent.h")
-@:structAccess
+@:valueType
 extern class StereoLayerShapeEquirect extends StereoLayerShape {
 	public var LeftUVRect: Box2D;
 	public var RightUVRect: Box2D;
@@ -14,7 +14,7 @@ extern class StereoLayerShapeEquirect extends StereoLayerShape {
 
 	public function SetEquirectProps(InScaleBiases: EquirectProps): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,7 +37,7 @@ abstract ConstStereoLayerShapeEquirect(StereoLayerShapeEquirect) from StereoLaye
 @:forward
 @:nativeGen
 @:native("StereoLayerShapeEquirect*")
-abstract StereoLayerShapeEquirectPtr(cpp.Star<StereoLayerShapeEquirect>) from cpp.Star<StereoLayerShapeEquirect> to cpp.Star<StereoLayerShapeEquirect>{
+abstract StereoLayerShapeEquirectPtr(ucpp.Ptr<StereoLayerShapeEquirect>) from ucpp.Ptr<StereoLayerShapeEquirect> to ucpp.Ptr<StereoLayerShapeEquirect>{
 	@:from
 	public static extern inline function fromValue(v: StereoLayerShapeEquirect): StereoLayerShapeEquirectPtr {
 		return untyped __cpp__("&({0})", v);

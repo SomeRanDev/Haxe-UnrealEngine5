@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceMeshRendererInfo")
 @:include("NiagaraDataInterfaceMeshRendererInfo.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceMeshRendererInfo extends NiagaraDataInterface {
-	@:protected public var MeshRenderer: cpp.Star<NiagaraMeshRendererProperties>;
+	@:protected public var MeshRenderer: ucpp.Ptr<NiagaraMeshRendererProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraDataInterfaceMeshRendererInfo(NiagaraDataInterfaceMeshRende
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceMeshRendererInfo*")
-abstract NiagaraDataInterfaceMeshRendererInfoPtr(cpp.Star<NiagaraDataInterfaceMeshRendererInfo>) from cpp.Star<NiagaraDataInterfaceMeshRendererInfo> to cpp.Star<NiagaraDataInterfaceMeshRendererInfo>{
+abstract NiagaraDataInterfaceMeshRendererInfoPtr(ucpp.Ptr<NiagaraDataInterfaceMeshRendererInfo>) from ucpp.Ptr<NiagaraDataInterfaceMeshRendererInfo> to ucpp.Ptr<NiagaraDataInterfaceMeshRendererInfo>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceMeshRendererInfo): NiagaraDataInterfaceMeshRendererInfoPtr {
 		return untyped __cpp__("&({0})", v);

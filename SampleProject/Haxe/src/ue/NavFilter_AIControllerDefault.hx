@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavFilter_AIControllerDefault")
 @:include("Navigation/NavFilter_AIControllerDefault.h")
-@:structAccess
+@:valueType
 extern class NavFilter_AIControllerDefault extends NavigationQueryFilter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavFilter_AIControllerDefault(NavFilter_AIControllerDefault) from 
 @:forward
 @:nativeGen
 @:native("NavFilter_AIControllerDefault*")
-abstract NavFilter_AIControllerDefaultPtr(cpp.Star<NavFilter_AIControllerDefault>) from cpp.Star<NavFilter_AIControllerDefault> to cpp.Star<NavFilter_AIControllerDefault>{
+abstract NavFilter_AIControllerDefaultPtr(ucpp.Ptr<NavFilter_AIControllerDefault>) from ucpp.Ptr<NavFilter_AIControllerDefault> to ucpp.Ptr<NavFilter_AIControllerDefault>{
 	@:from
 	public static extern inline function fromValue(v: NavFilter_AIControllerDefault): NavFilter_AIControllerDefaultPtr {
 		return untyped __cpp__("&({0})", v);

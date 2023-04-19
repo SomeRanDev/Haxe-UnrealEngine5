@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_PureAssignmentStatement")
 @:include("K2Node_PureAssignmentStatement.h")
-@:structAccess
+@:valueType
 extern class K2Node_PureAssignmentStatement extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_PureAssignmentStatement(K2Node_PureAssignmentStatement) fro
 @:forward
 @:nativeGen
 @:native("K2Node_PureAssignmentStatement*")
-abstract K2Node_PureAssignmentStatementPtr(cpp.Star<K2Node_PureAssignmentStatement>) from cpp.Star<K2Node_PureAssignmentStatement> to cpp.Star<K2Node_PureAssignmentStatement>{
+abstract K2Node_PureAssignmentStatementPtr(ucpp.Ptr<K2Node_PureAssignmentStatement>) from ucpp.Ptr<K2Node_PureAssignmentStatement> to ucpp.Ptr<K2Node_PureAssignmentStatement>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_PureAssignmentStatement): K2Node_PureAssignmentStatementPtr {
 		return untyped __cpp__("&({0})", v);

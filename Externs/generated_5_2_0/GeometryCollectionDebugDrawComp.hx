@@ -3,24 +3,24 @@ package ue;
 
 @:native("UGeometryCollectionDebugDrawComponent")
 @:include("GeometryCollection/GeometryCollectionDebugDrawComponent.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionDebugDrawComp extends ActorComp {
-	public var GeometryCollectionRenderLevelSetActor: cpp.Star<GeometryCollectionRenderLevelSetActor>;
+	public var GeometryCollectionRenderLevelSetActor: ucpp.Ptr<GeometryCollectionRenderLevelSetActor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeometryCollectionDebugDrawComp(GeometryCollectionDebugDrawComp) from GeometryCollectionDebugDrawComp {
-	public extern var GeometryCollectionRenderLevelSetActor(get, never): cpp.Star<GeometryCollectionRenderLevelSetActor.ConstGeometryCollectionRenderLevelSetActor>;
-	public inline extern function get_GeometryCollectionRenderLevelSetActor(): cpp.Star<GeometryCollectionRenderLevelSetActor.ConstGeometryCollectionRenderLevelSetActor> return this.GeometryCollectionRenderLevelSetActor;
+	public extern var GeometryCollectionRenderLevelSetActor(get, never): ucpp.Ptr<GeometryCollectionRenderLevelSetActor.ConstGeometryCollectionRenderLevelSetActor>;
+	public inline extern function get_GeometryCollectionRenderLevelSetActor(): ucpp.Ptr<GeometryCollectionRenderLevelSetActor.ConstGeometryCollectionRenderLevelSetActor> return this.GeometryCollectionRenderLevelSetActor;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCollectionDebugDrawComp*")
-abstract GeometryCollectionDebugDrawCompPtr(cpp.Star<GeometryCollectionDebugDrawComp>) from cpp.Star<GeometryCollectionDebugDrawComp> to cpp.Star<GeometryCollectionDebugDrawComp>{
+abstract GeometryCollectionDebugDrawCompPtr(ucpp.Ptr<GeometryCollectionDebugDrawComp>) from ucpp.Ptr<GeometryCollectionDebugDrawComp> to ucpp.Ptr<GeometryCollectionDebugDrawComp>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionDebugDrawComp): GeometryCollectionDebugDrawCompPtr {
 		return untyped __cpp__("&({0})", v);

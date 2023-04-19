@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWeightMapSetProperties")
 @:include("PropertySets/WeightMapSetProperties.h")
-@:structAccess
+@:valueType
 extern class WeightMapSetProperties extends InteractiveToolPropertySet {
 	public var WeightMap: FName;
 	public var WeightMapsList: TArray<FString>;
@@ -11,7 +11,7 @@ extern class WeightMapSetProperties extends InteractiveToolPropertySet {
 
 	public function GetWeightMapsFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstWeightMapSetProperties(WeightMapSetProperties) from WeightMapSetPr
 @:forward
 @:nativeGen
 @:native("WeightMapSetProperties*")
-abstract WeightMapSetPropertiesPtr(cpp.Star<WeightMapSetProperties>) from cpp.Star<WeightMapSetProperties> to cpp.Star<WeightMapSetProperties>{
+abstract WeightMapSetPropertiesPtr(ucpp.Ptr<WeightMapSetProperties>) from ucpp.Ptr<WeightMapSetProperties> to ucpp.Ptr<WeightMapSetProperties>{
 	@:from
 	public static extern inline function fromValue(v: WeightMapSetProperties): WeightMapSetPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

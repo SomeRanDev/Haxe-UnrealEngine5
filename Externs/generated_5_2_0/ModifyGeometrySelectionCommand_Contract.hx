@@ -3,10 +3,10 @@ package ue;
 
 @:native("UModifyGeometrySelectionCommand_Contract")
 @:include("Commands/ModifyGeometrySelectionCommand.h")
-@:structAccess
+@:valueType
 extern class ModifyGeometrySelectionCommand_Contract extends ModifyGeometrySelectionCommand {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstModifyGeometrySelectionCommand_Contract(ModifyGeometrySelectionCom
 @:forward
 @:nativeGen
 @:native("ModifyGeometrySelectionCommand_Contract*")
-abstract ModifyGeometrySelectionCommand_ContractPtr(cpp.Star<ModifyGeometrySelectionCommand_Contract>) from cpp.Star<ModifyGeometrySelectionCommand_Contract> to cpp.Star<ModifyGeometrySelectionCommand_Contract>{
+abstract ModifyGeometrySelectionCommand_ContractPtr(ucpp.Ptr<ModifyGeometrySelectionCommand_Contract>) from ucpp.Ptr<ModifyGeometrySelectionCommand_Contract> to ucpp.Ptr<ModifyGeometrySelectionCommand_Contract>{
 	@:from
 	public static extern inline function fromValue(v: ModifyGeometrySelectionCommand_Contract): ModifyGeometrySelectionCommand_ContractPtr {
 		return untyped __cpp__("&({0})", v);

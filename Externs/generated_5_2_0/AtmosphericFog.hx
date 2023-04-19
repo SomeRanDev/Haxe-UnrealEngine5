@@ -3,11 +3,11 @@ package ue;
 
 @:native("AAtmosphericFog")
 @:include("Atmosphere/AtmosphericFog.h")
-@:structAccess
+@:valueType
 extern class AtmosphericFog extends Info {
-	private var AtmosphericFogComponent: cpp.Star<AtmosphericFogComp>;
+	private var AtmosphericFogComponent: ucpp.Ptr<AtmosphericFogComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAtmosphericFog(AtmosphericFog) from AtmosphericFog {
 @:forward
 @:nativeGen
 @:native("AtmosphericFog*")
-abstract AtmosphericFogPtr(cpp.Star<AtmosphericFog>) from cpp.Star<AtmosphericFog> to cpp.Star<AtmosphericFog>{
+abstract AtmosphericFogPtr(ucpp.Ptr<AtmosphericFog>) from ucpp.Ptr<AtmosphericFog> to ucpp.Ptr<AtmosphericFog>{
 	@:from
 	public static extern inline function fromValue(v: AtmosphericFog): AtmosphericFogPtr {
 		return untyped __cpp__("&({0})", v);

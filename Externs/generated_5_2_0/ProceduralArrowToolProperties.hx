@@ -3,39 +3,39 @@ package ue;
 
 @:native("UProceduralArrowToolProperties")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class ProceduralArrowToolProperties extends ProceduralShapeToolProperties {
-	public var ShaftRadius: cpp.Float32;
-	public var ShaftHeight: cpp.Float32;
-	public var HeadRadius: cpp.Float32;
-	public var HeadHeight: cpp.Float32;
-	public var RadialSlices: cpp.Int32;
-	public var HeightSubdivisions: cpp.Int32;
+	public var ShaftRadius: ucpp.num.Float32;
+	public var ShaftHeight: ucpp.num.Float32;
+	public var HeadRadius: ucpp.num.Float32;
+	public var HeadHeight: ucpp.num.Float32;
+	public var RadialSlices: ucpp.num.Int32;
+	public var HeightSubdivisions: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralArrowToolProperties(ProceduralArrowToolProperties) from ProceduralArrowToolProperties {
-	public extern var ShaftRadius(get, never): cpp.Float32;
-	public inline extern function get_ShaftRadius(): cpp.Float32 return this.ShaftRadius;
-	public extern var ShaftHeight(get, never): cpp.Float32;
-	public inline extern function get_ShaftHeight(): cpp.Float32 return this.ShaftHeight;
-	public extern var HeadRadius(get, never): cpp.Float32;
-	public inline extern function get_HeadRadius(): cpp.Float32 return this.HeadRadius;
-	public extern var HeadHeight(get, never): cpp.Float32;
-	public inline extern function get_HeadHeight(): cpp.Float32 return this.HeadHeight;
-	public extern var RadialSlices(get, never): cpp.Int32;
-	public inline extern function get_RadialSlices(): cpp.Int32 return this.RadialSlices;
-	public extern var HeightSubdivisions(get, never): cpp.Int32;
-	public inline extern function get_HeightSubdivisions(): cpp.Int32 return this.HeightSubdivisions;
+	public extern var ShaftRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_ShaftRadius(): ucpp.num.Float32 return this.ShaftRadius;
+	public extern var ShaftHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_ShaftHeight(): ucpp.num.Float32 return this.ShaftHeight;
+	public extern var HeadRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_HeadRadius(): ucpp.num.Float32 return this.HeadRadius;
+	public extern var HeadHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_HeadHeight(): ucpp.num.Float32 return this.HeadHeight;
+	public extern var RadialSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_RadialSlices(): ucpp.num.Int32 return this.RadialSlices;
+	public extern var HeightSubdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_HeightSubdivisions(): ucpp.num.Int32 return this.HeightSubdivisions;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralArrowToolProperties*")
-abstract ProceduralArrowToolPropertiesPtr(cpp.Star<ProceduralArrowToolProperties>) from cpp.Star<ProceduralArrowToolProperties> to cpp.Star<ProceduralArrowToolProperties>{
+abstract ProceduralArrowToolPropertiesPtr(ucpp.Ptr<ProceduralArrowToolProperties>) from ucpp.Ptr<ProceduralArrowToolProperties> to ucpp.Ptr<ProceduralArrowToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralArrowToolProperties): ProceduralArrowToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

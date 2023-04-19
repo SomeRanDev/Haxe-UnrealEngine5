@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraValidationRule_TickDependencyCheck")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_TickDependencyCheck extends NiagaraValidationRule {
 	public var Severity: ENiagaraValidationSeverity;
 	public var bCheckActorComponentInterface: Bool;
 	public var bCheckCameraDataInterface: Bool;
 	public var bCheckSkeletalMeshInterface: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstNiagaraValidationRule_TickDependencyCheck(NiagaraValidationRule_Ti
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_TickDependencyCheck*")
-abstract NiagaraValidationRule_TickDependencyCheckPtr(cpp.Star<NiagaraValidationRule_TickDependencyCheck>) from cpp.Star<NiagaraValidationRule_TickDependencyCheck> to cpp.Star<NiagaraValidationRule_TickDependencyCheck>{
+abstract NiagaraValidationRule_TickDependencyCheckPtr(ucpp.Ptr<NiagaraValidationRule_TickDependencyCheck>) from ucpp.Ptr<NiagaraValidationRule_TickDependencyCheck> to ucpp.Ptr<NiagaraValidationRule_TickDependencyCheck>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_TickDependencyCheck): NiagaraValidationRule_TickDependencyCheckPtr {
 		return untyped __cpp__("&({0})", v);

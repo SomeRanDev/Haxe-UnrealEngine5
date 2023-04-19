@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolSlice")
 @:include("FractureToolSlice.h")
-@:structAccess
+@:valueType
 extern class FractureToolSlice extends FractureToolCutterBase {
-	public var SliceSettings: cpp.Star<FractureSliceSettings>;
+	public var SliceSettings: ucpp.Ptr<FractureSliceSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolSlice(FractureToolSlice) from FractureToolSlice {
-	public extern var SliceSettings(get, never): cpp.Star<FractureSliceSettings.ConstFractureSliceSettings>;
-	public inline extern function get_SliceSettings(): cpp.Star<FractureSliceSettings.ConstFractureSliceSettings> return this.SliceSettings;
+	public extern var SliceSettings(get, never): ucpp.Ptr<FractureSliceSettings.ConstFractureSliceSettings>;
+	public inline extern function get_SliceSettings(): ucpp.Ptr<FractureSliceSettings.ConstFractureSliceSettings> return this.SliceSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolSlice*")
-abstract FractureToolSlicePtr(cpp.Star<FractureToolSlice>) from cpp.Star<FractureToolSlice> to cpp.Star<FractureToolSlice>{
+abstract FractureToolSlicePtr(ucpp.Ptr<FractureToolSlice>) from ucpp.Ptr<FractureToolSlice> to ucpp.Ptr<FractureToolSlice>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolSlice): FractureToolSlicePtr {
 		return untyped __cpp__("&({0})", v);

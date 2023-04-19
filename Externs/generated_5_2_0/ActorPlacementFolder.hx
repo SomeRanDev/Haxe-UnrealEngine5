@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorPlacementFolder")
 @:include("WorldFolders.h")
-@:structAccess
+@:valueType
 extern class ActorPlacementFolder {
 	public var Path: FName;
 	public var RootObjectPtr: TWeakObjectPtr<Object>;

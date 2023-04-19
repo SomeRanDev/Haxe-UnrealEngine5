@@ -3,19 +3,19 @@ package ue;
 
 @:native("AGameMode")
 @:include("GameFramework/GameMode.h")
-@:structAccess
+@:valueType
 extern class GameMode extends GameModeBase {
 	@:protected public var MatchState: FName;
 	public var bDelayedStart: Bool;
-	public var NumSpectators: cpp.Int32;
-	public var NumPlayers: cpp.Int32;
-	public var NumBots: cpp.Int32;
-	public var MinRespawnDelay: cpp.Float32;
-	public var NumTravellingPlayers: cpp.Int32;
+	public var NumSpectators: ucpp.num.Int32;
+	public var NumPlayers: ucpp.num.Int32;
+	public var NumBots: ucpp.num.Int32;
+	public var MinRespawnDelay: ucpp.num.Float32;
+	public var NumTravellingPlayers: ucpp.num.Int32;
 	public var EngineMessageClass: TSubclassOf<LocalMessage>;
-	public var InactivePlayerArray: TArray<cpp.Star<PlayerState>>;
-	@:protected public var InactivePlayerStateLifeSpan: cpp.Float32;
-	@:protected public var MaxInactivePlayers: cpp.Int32;
+	public var InactivePlayerArray: TArray<ucpp.Ptr<PlayerState>>;
+	@:protected public var InactivePlayerStateLifeSpan: ucpp.num.Float32;
+	@:protected public var MaxInactivePlayers: ucpp.num.Int32;
 	@:protected public var bHandleDedicatedServerReplays: Bool;
 
 	public function StartMatch(): Void;
@@ -29,7 +29,7 @@ extern class GameMode extends GameModeBase {
 	public function EndMatch(): Void;
 	public function AbortMatch(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsMatchInProgress, GetMatchState)
@@ -37,26 +37,26 @@ extern class GameMode extends GameModeBase {
 abstract ConstGameMode(GameMode) from GameMode {
 	public extern var bDelayedStart(get, never): Bool;
 	public inline extern function get_bDelayedStart(): Bool return this.bDelayedStart;
-	public extern var NumSpectators(get, never): cpp.Int32;
-	public inline extern function get_NumSpectators(): cpp.Int32 return this.NumSpectators;
-	public extern var NumPlayers(get, never): cpp.Int32;
-	public inline extern function get_NumPlayers(): cpp.Int32 return this.NumPlayers;
-	public extern var NumBots(get, never): cpp.Int32;
-	public inline extern function get_NumBots(): cpp.Int32 return this.NumBots;
-	public extern var MinRespawnDelay(get, never): cpp.Float32;
-	public inline extern function get_MinRespawnDelay(): cpp.Float32 return this.MinRespawnDelay;
-	public extern var NumTravellingPlayers(get, never): cpp.Int32;
-	public inline extern function get_NumTravellingPlayers(): cpp.Int32 return this.NumTravellingPlayers;
+	public extern var NumSpectators(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSpectators(): ucpp.num.Int32 return this.NumSpectators;
+	public extern var NumPlayers(get, never): ucpp.num.Int32;
+	public inline extern function get_NumPlayers(): ucpp.num.Int32 return this.NumPlayers;
+	public extern var NumBots(get, never): ucpp.num.Int32;
+	public inline extern function get_NumBots(): ucpp.num.Int32 return this.NumBots;
+	public extern var MinRespawnDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_MinRespawnDelay(): ucpp.num.Float32 return this.MinRespawnDelay;
+	public extern var NumTravellingPlayers(get, never): ucpp.num.Int32;
+	public inline extern function get_NumTravellingPlayers(): ucpp.num.Int32 return this.NumTravellingPlayers;
 	public extern var EngineMessageClass(get, never): TSubclassOf<LocalMessage.ConstLocalMessage>;
 	public inline extern function get_EngineMessageClass(): TSubclassOf<LocalMessage.ConstLocalMessage> return this.EngineMessageClass;
-	public extern var InactivePlayerArray(get, never): TArray<cpp.Star<PlayerState.ConstPlayerState>>;
-	public inline extern function get_InactivePlayerArray(): TArray<cpp.Star<PlayerState.ConstPlayerState>> return this.InactivePlayerArray;
+	public extern var InactivePlayerArray(get, never): TArray<ucpp.Ptr<PlayerState.ConstPlayerState>>;
+	public inline extern function get_InactivePlayerArray(): TArray<ucpp.Ptr<PlayerState.ConstPlayerState>> return this.InactivePlayerArray;
 }
 
 @:forward
 @:nativeGen
 @:native("GameMode*")
-abstract GameModePtr(cpp.Star<GameMode>) from cpp.Star<GameMode> to cpp.Star<GameMode>{
+abstract GameModePtr(ucpp.Ptr<GameMode>) from ucpp.Ptr<GameMode> to ucpp.Ptr<GameMode>{
 	@:from
 	public static extern inline function fromValue(v: GameMode): GameModePtr {
 		return untyped __cpp__("&({0})", v);

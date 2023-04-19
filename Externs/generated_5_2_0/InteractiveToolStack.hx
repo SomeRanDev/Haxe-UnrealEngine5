@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInteractiveToolStack")
 @:include("InteractiveToolStack.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolStack {
 	@:native("FInteractiveToolStack") public function new();
 }

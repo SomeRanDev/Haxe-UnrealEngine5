@@ -3,12 +3,12 @@ package ue;
 
 @:native("FReparentSubobjectParams")
 @:include("SubobjectDataSubsystem.h")
-@:structAccess
+@:valueType
 extern class ReparentSubobjectParams {
 	public var NewParentHandle: SubobjectDataHandle;
-	public var BlueprintContext: cpp.Star<Blueprint>;
-	public var ActorPreviewContext: cpp.Star<Actor>;
+	public var BlueprintContext: ucpp.Ptr<Blueprint>;
+	public var ActorPreviewContext: ucpp.Ptr<Actor>;
 
 	@:native("FReparentSubobjectParams") public function new();
-	@:native("FReparentSubobjectParams") public static function make(NewParentHandle: SubobjectDataHandle, BlueprintContext: cpp.Star<Blueprint>, ActorPreviewContext: cpp.Star<Actor>): ReparentSubobjectParams ;
+	@:native("FReparentSubobjectParams") public static function make(NewParentHandle: SubobjectDataHandle, BlueprintContext: ucpp.Ptr<Blueprint>, ActorPreviewContext: ucpp.Ptr<Actor>): ReparentSubobjectParams ;
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTargetChainSettings")
 @:include("Retargeter/IKRetargetSettings.h")
-@:structAccess
+@:valueType
 extern class TargetChainSettings {
 	public var FK: TargetChainFKSettings;
 	public var IK: TargetChainIKSettings;

@@ -3,13 +3,13 @@ package ue;
 
 @:native("USubmixEffectStereoToQuadPreset")
 @:include("SubmixEffects/SubmixEffectStereoToQuad.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectStereoToQuadPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectStereoToQuadSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectStereoToQuadSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectStereoToQuadSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSubmixEffectStereoToQuadPreset(SubmixEffectStereoToQuadPreset) fro
 @:forward
 @:nativeGen
 @:native("SubmixEffectStereoToQuadPreset*")
-abstract SubmixEffectStereoToQuadPresetPtr(cpp.Star<SubmixEffectStereoToQuadPreset>) from cpp.Star<SubmixEffectStereoToQuadPreset> to cpp.Star<SubmixEffectStereoToQuadPreset>{
+abstract SubmixEffectStereoToQuadPresetPtr(ucpp.Ptr<SubmixEffectStereoToQuadPreset>) from ucpp.Ptr<SubmixEffectStereoToQuadPreset> to ucpp.Ptr<SubmixEffectStereoToQuadPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectStereoToQuadPreset): SubmixEffectStereoToQuadPresetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,13 @@ package ue;
 
 @:native("FAnimGraphBlendOptions")
 @:include("Animation/AnimClassInterface.h")
-@:structAccess
+@:valueType
 extern class AnimGraphBlendOptions {
-	public var BlendInTime: cpp.Float32;
-	public var BlendOutTime: cpp.Float32;
+	public var BlendInTime: ucpp.num.Float32;
+	public var BlendInProfile: ucpp.Ptr<BlendProfile>;
+	public var BlendOutTime: ucpp.num.Float32;
+	public var BlendOutProfile: ucpp.Ptr<BlendProfile>;
 
 	@:native("FAnimGraphBlendOptions") public function new();
-	@:native("FAnimGraphBlendOptions") public static function make(BlendInTime: cpp.Float32, BlendOutTime: cpp.Float32): AnimGraphBlendOptions ;
+	@:native("FAnimGraphBlendOptions") public static function make(BlendInTime: ucpp.num.Float32, BlendInProfile: ucpp.Ptr<BlendProfile>, BlendOutTime: ucpp.num.Float32, BlendOutProfile: ucpp.Ptr<BlendProfile>): AnimGraphBlendOptions ;
 }

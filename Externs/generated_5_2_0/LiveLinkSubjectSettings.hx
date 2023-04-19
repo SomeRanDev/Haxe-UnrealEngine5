@@ -3,27 +3,27 @@ package ue;
 
 @:native("ULiveLinkSubjectSettings")
 @:include("LiveLinkSubjectSettings.h")
-@:structAccess
+@:valueType
 extern class LiveLinkSubjectSettings extends Object {
-	public var PreProcessors: TArray<cpp.Star<LiveLinkFramePreProcessor>>;
-	public var InterpolationProcessor: cpp.Star<LiveLinkFrameInterpolationProcessor>;
-	public var Translators: TArray<cpp.Star<LiveLinkFrameTranslator>>;
+	public var PreProcessors: TArray<ucpp.Ptr<LiveLinkFramePreProcessor>>;
+	public var InterpolationProcessor: ucpp.Ptr<LiveLinkFrameInterpolationProcessor>;
+	public var Translators: TArray<ucpp.Ptr<LiveLinkFrameTranslator>>;
 	public var Role: TSubclassOf<LiveLinkRole>;
 	public var FrameRate: FrameRate;
 	public var bRebroadcastSubject: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLiveLinkSubjectSettings(LiveLinkSubjectSettings) from LiveLinkSubjectSettings {
-	public extern var PreProcessors(get, never): TArray<cpp.Star<LiveLinkFramePreProcessor.ConstLiveLinkFramePreProcessor>>;
-	public inline extern function get_PreProcessors(): TArray<cpp.Star<LiveLinkFramePreProcessor.ConstLiveLinkFramePreProcessor>> return this.PreProcessors;
-	public extern var InterpolationProcessor(get, never): cpp.Star<LiveLinkFrameInterpolationProcessor.ConstLiveLinkFrameInterpolationProcessor>;
-	public inline extern function get_InterpolationProcessor(): cpp.Star<LiveLinkFrameInterpolationProcessor.ConstLiveLinkFrameInterpolationProcessor> return this.InterpolationProcessor;
-	public extern var Translators(get, never): TArray<cpp.Star<LiveLinkFrameTranslator.ConstLiveLinkFrameTranslator>>;
-	public inline extern function get_Translators(): TArray<cpp.Star<LiveLinkFrameTranslator.ConstLiveLinkFrameTranslator>> return this.Translators;
+	public extern var PreProcessors(get, never): TArray<ucpp.Ptr<LiveLinkFramePreProcessor.ConstLiveLinkFramePreProcessor>>;
+	public inline extern function get_PreProcessors(): TArray<ucpp.Ptr<LiveLinkFramePreProcessor.ConstLiveLinkFramePreProcessor>> return this.PreProcessors;
+	public extern var InterpolationProcessor(get, never): ucpp.Ptr<LiveLinkFrameInterpolationProcessor.ConstLiveLinkFrameInterpolationProcessor>;
+	public inline extern function get_InterpolationProcessor(): ucpp.Ptr<LiveLinkFrameInterpolationProcessor.ConstLiveLinkFrameInterpolationProcessor> return this.InterpolationProcessor;
+	public extern var Translators(get, never): TArray<ucpp.Ptr<LiveLinkFrameTranslator.ConstLiveLinkFrameTranslator>>;
+	public inline extern function get_Translators(): TArray<ucpp.Ptr<LiveLinkFrameTranslator.ConstLiveLinkFrameTranslator>> return this.Translators;
 	public extern var Role(get, never): TSubclassOf<LiveLinkRole.ConstLiveLinkRole>;
 	public inline extern function get_Role(): TSubclassOf<LiveLinkRole.ConstLiveLinkRole> return this.Role;
 	public extern var FrameRate(get, never): FrameRate;
@@ -35,7 +35,7 @@ abstract ConstLiveLinkSubjectSettings(LiveLinkSubjectSettings) from LiveLinkSubj
 @:forward
 @:nativeGen
 @:native("LiveLinkSubjectSettings*")
-abstract LiveLinkSubjectSettingsPtr(cpp.Star<LiveLinkSubjectSettings>) from cpp.Star<LiveLinkSubjectSettings> to cpp.Star<LiveLinkSubjectSettings>{
+abstract LiveLinkSubjectSettingsPtr(ucpp.Ptr<LiveLinkSubjectSettings>) from ucpp.Ptr<LiveLinkSubjectSettings> to ucpp.Ptr<LiveLinkSubjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkSubjectSettings): LiveLinkSubjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

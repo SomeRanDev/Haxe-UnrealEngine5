@@ -3,13 +3,13 @@ package ue;
 
 @:native("UARTextureCameraDepth")
 @:include("ARTextures.h")
-@:structAccess
+@:valueType
 extern class ARTextureCameraDepth extends ARTexture {
 	public var DepthQuality: EARDepthQuality;
 	public var DepthAccuracy: EARDepthAccuracy;
 	public var bIsTemporallySmoothed: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstARTextureCameraDepth(ARTextureCameraDepth) from ARTextureCameraDep
 @:forward
 @:nativeGen
 @:native("ARTextureCameraDepth*")
-abstract ARTextureCameraDepthPtr(cpp.Star<ARTextureCameraDepth>) from cpp.Star<ARTextureCameraDepth> to cpp.Star<ARTextureCameraDepth>{
+abstract ARTextureCameraDepthPtr(ucpp.Ptr<ARTextureCameraDepth>) from ucpp.Ptr<ARTextureCameraDepth> to ucpp.Ptr<ARTextureCameraDepth>{
 	@:from
 	public static extern inline function fromValue(v: ARTextureCameraDepth): ARTextureCameraDepthPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UComponentElementsCopy")
 @:include("Elements/Component/ComponentElementEditorCopyAndPaste.h")
-@:structAccess
+@:valueType
 extern class ComponentElementsCopy extends Object {
-	public var ComponentsToCopy: TArray<cpp.Star<ActorComp>>;
+	public var ComponentsToCopy: TArray<ucpp.Ptr<ActorComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstComponentElementsCopy(ComponentElementsCopy) from ComponentElementsCopy {
-	public extern var ComponentsToCopy(get, never): TArray<cpp.Star<ActorComp.ConstActorComp>>;
-	public inline extern function get_ComponentsToCopy(): TArray<cpp.Star<ActorComp.ConstActorComp>> return this.ComponentsToCopy;
+	public extern var ComponentsToCopy(get, never): TArray<ucpp.Ptr<ActorComp.ConstActorComp>>;
+	public inline extern function get_ComponentsToCopy(): TArray<ucpp.Ptr<ActorComp.ConstActorComp>> return this.ComponentsToCopy;
 }
 
 @:forward
 @:nativeGen
 @:native("ComponentElementsCopy*")
-abstract ComponentElementsCopyPtr(cpp.Star<ComponentElementsCopy>) from cpp.Star<ComponentElementsCopy> to cpp.Star<ComponentElementsCopy>{
+abstract ComponentElementsCopyPtr(ucpp.Ptr<ComponentElementsCopy>) from ucpp.Ptr<ComponentElementsCopy> to ucpp.Ptr<ComponentElementsCopy>{
 	@:from
 	public static extern inline function fromValue(v: ComponentElementsCopy): ComponentElementsCopyPtr {
 		return untyped __cpp__("&({0})", v);

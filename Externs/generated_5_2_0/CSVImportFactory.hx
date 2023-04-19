@@ -3,12 +3,12 @@ package ue;
 
 @:native("UCSVImportFactory")
 @:include("Factories/CSVImportFactory.h")
-@:structAccess
+@:valueType
 extern class CSVImportFactory extends Factory {
 	public var AutomatedImportSettings: CSVImportSettings;
-	public var DataTableImportOptions: cpp.Star<DataTable>;
+	public var DataTableImportOptions: ucpp.Ptr<DataTable>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class CSVImportFactory extends Factory {
 abstract ConstCSVImportFactory(CSVImportFactory) from CSVImportFactory {
 	public extern var AutomatedImportSettings(get, never): CSVImportSettings;
 	public inline extern function get_AutomatedImportSettings(): CSVImportSettings return this.AutomatedImportSettings;
-	public extern var DataTableImportOptions(get, never): cpp.Star<DataTable.ConstDataTable>;
-	public inline extern function get_DataTableImportOptions(): cpp.Star<DataTable.ConstDataTable> return this.DataTableImportOptions;
+	public extern var DataTableImportOptions(get, never): ucpp.Ptr<DataTable.ConstDataTable>;
+	public inline extern function get_DataTableImportOptions(): ucpp.Ptr<DataTable.ConstDataTable> return this.DataTableImportOptions;
 }
 
 @:forward
 @:nativeGen
 @:native("CSVImportFactory*")
-abstract CSVImportFactoryPtr(cpp.Star<CSVImportFactory>) from cpp.Star<CSVImportFactory> to cpp.Star<CSVImportFactory>{
+abstract CSVImportFactoryPtr(ucpp.Ptr<CSVImportFactory>) from ucpp.Ptr<CSVImportFactory> to ucpp.Ptr<CSVImportFactory>{
 	@:from
 	public static extern inline function fromValue(v: CSVImportFactory): CSVImportFactoryPtr {
 		return untyped __cpp__("&({0})", v);

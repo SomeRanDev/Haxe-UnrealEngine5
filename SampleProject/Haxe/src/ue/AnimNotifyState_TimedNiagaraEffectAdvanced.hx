@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAnimNotifyState_TimedNiagaraEffectAdvanced")
 @:include("AnimNotifyState_TimedNiagaraEffect.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyState_TimedNiagaraEffectAdvanced extends AnimNotifyState_TimedNiagaraEffect {
 	public var bEnableNormalizedNotifyProgress: Bool;
 	public var NotifyProgressUserParameter: FName;
 	public var AnimCurves: TArray<CurveParameterPair>;
 
-	public function GetNotifyProgress(MeshComp: cpp.Star<MeshComp>): cpp.Float32;
+	public function GetNotifyProgress(MeshComp: ucpp.Ptr<MeshComp>): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNotifyProgress)
@@ -28,7 +28,7 @@ abstract ConstAnimNotifyState_TimedNiagaraEffectAdvanced(AnimNotifyState_TimedNi
 @:forward
 @:nativeGen
 @:native("AnimNotifyState_TimedNiagaraEffectAdvanced*")
-abstract AnimNotifyState_TimedNiagaraEffectAdvancedPtr(cpp.Star<AnimNotifyState_TimedNiagaraEffectAdvanced>) from cpp.Star<AnimNotifyState_TimedNiagaraEffectAdvanced> to cpp.Star<AnimNotifyState_TimedNiagaraEffectAdvanced>{
+abstract AnimNotifyState_TimedNiagaraEffectAdvancedPtr(ucpp.Ptr<AnimNotifyState_TimedNiagaraEffectAdvanced>) from ucpp.Ptr<AnimNotifyState_TimedNiagaraEffectAdvanced> to ucpp.Ptr<AnimNotifyState_TimedNiagaraEffectAdvanced>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyState_TimedNiagaraEffectAdvanced): AnimNotifyState_TimedNiagaraEffectAdvancedPtr {
 		return untyped __cpp__("&({0})", v);

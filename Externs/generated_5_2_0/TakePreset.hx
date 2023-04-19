@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTakePreset")
 @:include("TakePreset.h")
-@:structAccess
+@:valueType
 extern class TakePreset extends Object {
-	private var LevelSequence: cpp.Star<LevelSequence>;
+	private var LevelSequence: ucpp.Ptr<LevelSequence>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTakePreset(TakePreset) from TakePreset {
 @:forward
 @:nativeGen
 @:native("TakePreset*")
-abstract TakePresetPtr(cpp.Star<TakePreset>) from cpp.Star<TakePreset> to cpp.Star<TakePreset>{
+abstract TakePresetPtr(ucpp.Ptr<TakePreset>) from ucpp.Ptr<TakePreset> to ucpp.Ptr<TakePreset>{
 	@:from
 	public static extern inline function fromValue(v: TakePreset): TakePresetPtr {
 		return untyped __cpp__("&({0})", v);

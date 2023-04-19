@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMaterialExpressionPanner")
 @:include("Materials/MaterialExpressionPanner.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPanner extends MaterialExpression {
 	public var Coordinate: ExpressionInput;
 	public var Time: ExpressionInput;
 	public var Speed: ExpressionInput;
-	public var SpeedX: cpp.Float32;
-	public var SpeedY: cpp.Float32;
-	public var ConstCoordinate: cpp.UInt32;
+	public var SpeedX: ucpp.num.Float32;
+	public var SpeedY: ucpp.num.Float32;
+	public var ConstCoordinate: ucpp.num.UInt32;
 	public var bFractionalPart: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,12 +25,12 @@ abstract ConstMaterialExpressionPanner(MaterialExpressionPanner) from MaterialEx
 	public inline extern function get_Time(): ExpressionInput return this.Time;
 	public extern var Speed(get, never): ExpressionInput;
 	public inline extern function get_Speed(): ExpressionInput return this.Speed;
-	public extern var SpeedX(get, never): cpp.Float32;
-	public inline extern function get_SpeedX(): cpp.Float32 return this.SpeedX;
-	public extern var SpeedY(get, never): cpp.Float32;
-	public inline extern function get_SpeedY(): cpp.Float32 return this.SpeedY;
-	public extern var ConstCoordinate(get, never): cpp.UInt32;
-	public inline extern function get_ConstCoordinate(): cpp.UInt32 return this.ConstCoordinate;
+	public extern var SpeedX(get, never): ucpp.num.Float32;
+	public inline extern function get_SpeedX(): ucpp.num.Float32 return this.SpeedX;
+	public extern var SpeedY(get, never): ucpp.num.Float32;
+	public inline extern function get_SpeedY(): ucpp.num.Float32 return this.SpeedY;
+	public extern var ConstCoordinate(get, never): ucpp.num.UInt32;
+	public inline extern function get_ConstCoordinate(): ucpp.num.UInt32 return this.ConstCoordinate;
 	public extern var bFractionalPart(get, never): Bool;
 	public inline extern function get_bFractionalPart(): Bool return this.bFractionalPart;
 }
@@ -38,7 +38,7 @@ abstract ConstMaterialExpressionPanner(MaterialExpressionPanner) from MaterialEx
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPanner*")
-abstract MaterialExpressionPannerPtr(cpp.Star<MaterialExpressionPanner>) from cpp.Star<MaterialExpressionPanner> to cpp.Star<MaterialExpressionPanner>{
+abstract MaterialExpressionPannerPtr(ucpp.Ptr<MaterialExpressionPanner>) from ucpp.Ptr<MaterialExpressionPanner> to ucpp.Ptr<MaterialExpressionPanner>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPanner): MaterialExpressionPannerPtr {
 		return untyped __cpp__("&({0})", v);

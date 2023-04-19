@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataValidationCommandlet")
 @:include("DataValidationCommandlet.h")
-@:structAccess
+@:valueType
 extern class DataValidationCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataValidationCommandlet(DataValidationCommandlet) from DataValida
 @:forward
 @:nativeGen
 @:native("DataValidationCommandlet*")
-abstract DataValidationCommandletPtr(cpp.Star<DataValidationCommandlet>) from cpp.Star<DataValidationCommandlet> to cpp.Star<DataValidationCommandlet>{
+abstract DataValidationCommandletPtr(ucpp.Ptr<DataValidationCommandlet>) from ucpp.Ptr<DataValidationCommandlet> to ucpp.Ptr<DataValidationCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DataValidationCommandlet): DataValidationCommandletPtr {
 		return untyped __cpp__("&({0})", v);

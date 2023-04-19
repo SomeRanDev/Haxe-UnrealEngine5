@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAssetViewerSettings")
 @:include("AssetViewerSettings.h")
-@:structAccess
+@:valueType
 extern class AssetViewerSettings extends Object {
 	public var Profiles: TArray<PreviewSceneProfile>;
 	@:protected public var bFakeConfigValue_HACK: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAssetViewerSettings(AssetViewerSettings) from AssetViewerSettings 
 @:forward
 @:nativeGen
 @:native("AssetViewerSettings*")
-abstract AssetViewerSettingsPtr(cpp.Star<AssetViewerSettings>) from cpp.Star<AssetViewerSettings> to cpp.Star<AssetViewerSettings>{
+abstract AssetViewerSettingsPtr(ucpp.Ptr<AssetViewerSettings>) from ucpp.Ptr<AssetViewerSettings> to ucpp.Ptr<AssetViewerSettings>{
 	@:from
 	public static extern inline function fromValue(v: AssetViewerSettings): AssetViewerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

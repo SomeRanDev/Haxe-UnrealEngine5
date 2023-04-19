@@ -3,12 +3,12 @@ package ue;
 
 @:native("UParticleModuleTypeDataRibbon")
 @:include("Particles/TypeData/ParticleModuleTypeDataRibbon.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleTypeDataRibbon extends ParticleModuleTypeDataBase {
-	public var MaxTessellationBetweenParticles: cpp.Int32;
-	public var SheetsPerTrail: cpp.Int32;
-	public var MaxTrailCount: cpp.Int32;
-	public var MaxParticleInTrailCount: cpp.Int32;
+	public var MaxTessellationBetweenParticles: ucpp.num.Int32;
+	public var SheetsPerTrail: ucpp.num.Int32;
+	public var MaxTrailCount: ucpp.num.Int32;
+	public var MaxParticleInTrailCount: ucpp.num.Int32;
 	public var bDeadTrailsOnDeactivate: Bool;
 	public var bDeadTrailsOnSourceLoss: Bool;
 	public var bClipSourceSegement: Bool;
@@ -16,30 +16,30 @@ extern class ParticleModuleTypeDataRibbon extends ParticleModuleTypeDataBase {
 	public var bTangentRecalculationEveryFrame: Bool;
 	public var bSpawnInitialParticle: Bool;
 	public var RenderAxis: TEnumAsByte<ETrailsRenderAxisOption>;
-	public var TangentSpawningScalar: cpp.Float32;
+	public var TangentSpawningScalar: ucpp.num.Float32;
 	public var bRenderGeometry: Bool;
 	public var bRenderSpawnPoints: Bool;
 	public var bRenderTangents: Bool;
 	public var bRenderTessellation: Bool;
-	public var TilingDistance: cpp.Float32;
-	public var DistanceTessellationStepSize: cpp.Float32;
+	public var TilingDistance: ucpp.num.Float32;
+	public var DistanceTessellationStepSize: ucpp.num.Float32;
 	public var bEnableTangentDiffInterpScale: Bool;
-	public var TangentTessellationScalar: cpp.Float32;
+	public var TangentTessellationScalar: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleModuleTypeDataRibbon(ParticleModuleTypeDataRibbon) from ParticleModuleTypeDataRibbon {
-	public extern var MaxTessellationBetweenParticles(get, never): cpp.Int32;
-	public inline extern function get_MaxTessellationBetweenParticles(): cpp.Int32 return this.MaxTessellationBetweenParticles;
-	public extern var SheetsPerTrail(get, never): cpp.Int32;
-	public inline extern function get_SheetsPerTrail(): cpp.Int32 return this.SheetsPerTrail;
-	public extern var MaxTrailCount(get, never): cpp.Int32;
-	public inline extern function get_MaxTrailCount(): cpp.Int32 return this.MaxTrailCount;
-	public extern var MaxParticleInTrailCount(get, never): cpp.Int32;
-	public inline extern function get_MaxParticleInTrailCount(): cpp.Int32 return this.MaxParticleInTrailCount;
+	public extern var MaxTessellationBetweenParticles(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTessellationBetweenParticles(): ucpp.num.Int32 return this.MaxTessellationBetweenParticles;
+	public extern var SheetsPerTrail(get, never): ucpp.num.Int32;
+	public inline extern function get_SheetsPerTrail(): ucpp.num.Int32 return this.SheetsPerTrail;
+	public extern var MaxTrailCount(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTrailCount(): ucpp.num.Int32 return this.MaxTrailCount;
+	public extern var MaxParticleInTrailCount(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxParticleInTrailCount(): ucpp.num.Int32 return this.MaxParticleInTrailCount;
 	public extern var bDeadTrailsOnDeactivate(get, never): Bool;
 	public inline extern function get_bDeadTrailsOnDeactivate(): Bool return this.bDeadTrailsOnDeactivate;
 	public extern var bDeadTrailsOnSourceLoss(get, never): Bool;
@@ -54,8 +54,8 @@ abstract ConstParticleModuleTypeDataRibbon(ParticleModuleTypeDataRibbon) from Pa
 	public inline extern function get_bSpawnInitialParticle(): Bool return this.bSpawnInitialParticle;
 	public extern var RenderAxis(get, never): TEnumAsByte<ETrailsRenderAxisOption>;
 	public inline extern function get_RenderAxis(): TEnumAsByte<ETrailsRenderAxisOption> return this.RenderAxis;
-	public extern var TangentSpawningScalar(get, never): cpp.Float32;
-	public inline extern function get_TangentSpawningScalar(): cpp.Float32 return this.TangentSpawningScalar;
+	public extern var TangentSpawningScalar(get, never): ucpp.num.Float32;
+	public inline extern function get_TangentSpawningScalar(): ucpp.num.Float32 return this.TangentSpawningScalar;
 	public extern var bRenderGeometry(get, never): Bool;
 	public inline extern function get_bRenderGeometry(): Bool return this.bRenderGeometry;
 	public extern var bRenderSpawnPoints(get, never): Bool;
@@ -64,20 +64,20 @@ abstract ConstParticleModuleTypeDataRibbon(ParticleModuleTypeDataRibbon) from Pa
 	public inline extern function get_bRenderTangents(): Bool return this.bRenderTangents;
 	public extern var bRenderTessellation(get, never): Bool;
 	public inline extern function get_bRenderTessellation(): Bool return this.bRenderTessellation;
-	public extern var TilingDistance(get, never): cpp.Float32;
-	public inline extern function get_TilingDistance(): cpp.Float32 return this.TilingDistance;
-	public extern var DistanceTessellationStepSize(get, never): cpp.Float32;
-	public inline extern function get_DistanceTessellationStepSize(): cpp.Float32 return this.DistanceTessellationStepSize;
+	public extern var TilingDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_TilingDistance(): ucpp.num.Float32 return this.TilingDistance;
+	public extern var DistanceTessellationStepSize(get, never): ucpp.num.Float32;
+	public inline extern function get_DistanceTessellationStepSize(): ucpp.num.Float32 return this.DistanceTessellationStepSize;
 	public extern var bEnableTangentDiffInterpScale(get, never): Bool;
 	public inline extern function get_bEnableTangentDiffInterpScale(): Bool return this.bEnableTangentDiffInterpScale;
-	public extern var TangentTessellationScalar(get, never): cpp.Float32;
-	public inline extern function get_TangentTessellationScalar(): cpp.Float32 return this.TangentTessellationScalar;
+	public extern var TangentTessellationScalar(get, never): ucpp.num.Float32;
+	public inline extern function get_TangentTessellationScalar(): ucpp.num.Float32 return this.TangentTessellationScalar;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleTypeDataRibbon*")
-abstract ParticleModuleTypeDataRibbonPtr(cpp.Star<ParticleModuleTypeDataRibbon>) from cpp.Star<ParticleModuleTypeDataRibbon> to cpp.Star<ParticleModuleTypeDataRibbon>{
+abstract ParticleModuleTypeDataRibbonPtr(ucpp.Ptr<ParticleModuleTypeDataRibbon>) from ucpp.Ptr<ParticleModuleTypeDataRibbon> to ucpp.Ptr<ParticleModuleTypeDataRibbon>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleTypeDataRibbon): ParticleModuleTypeDataRibbonPtr {
 		return untyped __cpp__("&({0})", v);

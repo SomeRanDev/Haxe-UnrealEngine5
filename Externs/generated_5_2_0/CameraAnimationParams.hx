@@ -3,17 +3,17 @@ package ue;
 
 @:native("FCameraAnimationParams")
 @:include("CameraAnimationCameraModifier.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationParams {
-	public var PlayRate: cpp.Float32;
-	public var Scale: cpp.Float32;
+	public var PlayRate: ucpp.num.Float32;
+	public var Scale: ucpp.num.Float32;
 	public var EaseInType: ECameraAnimationEasingType;
-	public var EaseInDuration: cpp.Float32;
+	public var EaseInDuration: ucpp.num.Float32;
 	public var EaseOutType: ECameraAnimationEasingType;
-	public var EaseOutDuration: cpp.Float32;
+	public var EaseOutDuration: ucpp.num.Float32;
 	public var bLoop: Bool;
 	public var bRandomStartTime: Bool;
-	public var DurationOverride: cpp.Float32;
+	public var DurationOverride: ucpp.num.Float32;
 	public var PlaySpace: ECameraAnimationPlaySpace;
 	public var UserPlaySpaceRot: Rotator;
 

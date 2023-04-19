@@ -3,10 +3,10 @@ package ue;
 
 @:native("FTouchInputControl")
 @:include("GameFramework/TouchInterface.h")
-@:structAccess
+@:valueType
 extern class TouchInputControl {
-	public var Image1: cpp.Star<Texture2D>;
-	public var Image2: cpp.Star<Texture2D>;
+	public var Image1: ucpp.Ptr<Texture2D>;
+	public var Image2: ucpp.Ptr<Texture2D>;
 	public var Center: Vector2D;
 	public var VisualSize: Vector2D;
 	public var ThumbSize: Vector2D;

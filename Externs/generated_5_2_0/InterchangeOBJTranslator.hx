@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeOBJTranslator")
 @:include("Mesh/InterchangeOBJTranslator.h")
-@:structAccess
+@:valueType
 extern class InterchangeOBJTranslator extends InterchangeTranslatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeOBJTranslator(InterchangeOBJTranslator) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeOBJTranslator*")
-abstract InterchangeOBJTranslatorPtr(cpp.Star<InterchangeOBJTranslator>) from cpp.Star<InterchangeOBJTranslator> to cpp.Star<InterchangeOBJTranslator>{
+abstract InterchangeOBJTranslatorPtr(ucpp.Ptr<InterchangeOBJTranslator>) from ucpp.Ptr<InterchangeOBJTranslator> to ucpp.Ptr<InterchangeOBJTranslator>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeOBJTranslator): InterchangeOBJTranslatorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FXRDeviceId")
 @:include("IIdentifiableXRDevice.h")
-@:structAccess
+@:valueType
 extern class XRDeviceId {
 	public var SystemName: FName;
-	public var DeviceId: cpp.Int32;
+	public var DeviceId: ucpp.num.Int32;
 
 	@:native("FXRDeviceId") public function new();
-	@:native("FXRDeviceId") public static function make(SystemName: FName, DeviceId: cpp.Int32): XRDeviceId ;
+	@:native("FXRDeviceId") public static function make(SystemName: FName, DeviceId: ucpp.num.Int32): XRDeviceId ;
 }

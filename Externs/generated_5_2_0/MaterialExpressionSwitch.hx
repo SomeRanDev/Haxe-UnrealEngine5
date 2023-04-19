@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionSwitch")
 @:include("Materials/MaterialExpressionSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSwitch extends MaterialExpression {
 	public var Description: FString;
 	public var SwitchValue: ExpressionInput;
-	public var ConstSwitchValue: cpp.Float32;
+	public var ConstSwitchValue: ucpp.num.Float32;
 	public var Default: ExpressionInput;
-	public var ConstDefault: cpp.Float32;
+	public var ConstDefault: ucpp.num.Float32;
 	public var Inputs: TArray<SwitchCustomInput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,12 +22,12 @@ abstract ConstMaterialExpressionSwitch(MaterialExpressionSwitch) from MaterialEx
 	public inline extern function get_Description(): FString return this.Description;
 	public extern var SwitchValue(get, never): ExpressionInput;
 	public inline extern function get_SwitchValue(): ExpressionInput return this.SwitchValue;
-	public extern var ConstSwitchValue(get, never): cpp.Float32;
-	public inline extern function get_ConstSwitchValue(): cpp.Float32 return this.ConstSwitchValue;
+	public extern var ConstSwitchValue(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstSwitchValue(): ucpp.num.Float32 return this.ConstSwitchValue;
 	public extern var Default(get, never): ExpressionInput;
 	public inline extern function get_Default(): ExpressionInput return this.Default;
-	public extern var ConstDefault(get, never): cpp.Float32;
-	public inline extern function get_ConstDefault(): cpp.Float32 return this.ConstDefault;
+	public extern var ConstDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstDefault(): ucpp.num.Float32 return this.ConstDefault;
 	public extern var Inputs(get, never): TArray<SwitchCustomInput>;
 	public inline extern function get_Inputs(): TArray<SwitchCustomInput> return this.Inputs;
 }
@@ -35,7 +35,7 @@ abstract ConstMaterialExpressionSwitch(MaterialExpressionSwitch) from MaterialEx
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSwitch*")
-abstract MaterialExpressionSwitchPtr(cpp.Star<MaterialExpressionSwitch>) from cpp.Star<MaterialExpressionSwitch> to cpp.Star<MaterialExpressionSwitch>{
+abstract MaterialExpressionSwitchPtr(ucpp.Ptr<MaterialExpressionSwitch>) from ucpp.Ptr<MaterialExpressionSwitch> to ucpp.Ptr<MaterialExpressionSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSwitch): MaterialExpressionSwitchPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FMeterResults")
 @:include("Meter.h")
-@:structAccess
+@:valueType
 extern class MeterResults {
-	public var TimeSeconds: cpp.Float32;
-	public var MeterValue: cpp.Float32;
-	public var PeakValue: cpp.Float32;
-	public var NumSamplesClipping: cpp.Int32;
-	public var ClippingValue: cpp.Float32;
+	public var TimeSeconds: ucpp.num.Float32;
+	public var MeterValue: ucpp.num.Float32;
+	public var PeakValue: ucpp.num.Float32;
+	public var NumSamplesClipping: ucpp.num.Int32;
+	public var ClippingValue: ucpp.num.Float32;
 
 	@:native("FMeterResults") public function new();
-	@:native("FMeterResults") public static function make(TimeSeconds: cpp.Float32, MeterValue: cpp.Float32, PeakValue: cpp.Float32, NumSamplesClipping: cpp.Int32, ClippingValue: cpp.Float32): MeterResults ;
+	@:native("FMeterResults") public static function make(TimeSeconds: ucpp.num.Float32, MeterValue: ucpp.num.Float32, PeakValue: ucpp.num.Float32, NumSamplesClipping: ucpp.num.Int32, ClippingValue: ucpp.num.Float32): MeterResults ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionLandscapeSplineMeshesBuilder")
 @:include("WorldPartition/WorldPartitionLandscapeSplineMeshesBuilder.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionLandscapeSplineMeshesBuilder extends WorldPartitionBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionLandscapeSplineMeshesBuilder(WorldPartitionLandscape
 @:forward
 @:nativeGen
 @:native("WorldPartitionLandscapeSplineMeshesBuilder*")
-abstract WorldPartitionLandscapeSplineMeshesBuilderPtr(cpp.Star<WorldPartitionLandscapeSplineMeshesBuilder>) from cpp.Star<WorldPartitionLandscapeSplineMeshesBuilder> to cpp.Star<WorldPartitionLandscapeSplineMeshesBuilder>{
+abstract WorldPartitionLandscapeSplineMeshesBuilderPtr(ucpp.Ptr<WorldPartitionLandscapeSplineMeshesBuilder>) from ucpp.Ptr<WorldPartitionLandscapeSplineMeshesBuilder> to ucpp.Ptr<WorldPartitionLandscapeSplineMeshesBuilder>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionLandscapeSplineMeshesBuilder): WorldPartitionLandscapeSplineMeshesBuilderPtr {
 		return untyped __cpp__("&({0})", v);

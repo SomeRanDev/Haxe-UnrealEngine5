@@ -2,11 +2,11 @@
 package ue;
 
 @:native("USKEL_DmgTypeBP_Environmental_C")
-@:structAccess
+@:valueType
 extern class SKEL_DmgTypeBP_Environmental_C extends DamageType {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstSKEL_DmgTypeBP_Environmental_C(SKEL_DmgTypeBP_Environmental_C) fro
 @:forward
 @:nativeGen
 @:native("SKEL_DmgTypeBP_Environmental_C*")
-abstract SKEL_DmgTypeBP_Environmental_CPtr(cpp.Star<SKEL_DmgTypeBP_Environmental_C>) from cpp.Star<SKEL_DmgTypeBP_Environmental_C> to cpp.Star<SKEL_DmgTypeBP_Environmental_C>{
+abstract SKEL_DmgTypeBP_Environmental_CPtr(ucpp.Ptr<SKEL_DmgTypeBP_Environmental_C>) from ucpp.Ptr<SKEL_DmgTypeBP_Environmental_C> to ucpp.Ptr<SKEL_DmgTypeBP_Environmental_C>{
 	@:from
 	public static extern inline function fromValue(v: SKEL_DmgTypeBP_Environmental_C): SKEL_DmgTypeBP_Environmental_CPtr {
 		return untyped __cpp__("&({0})", v);

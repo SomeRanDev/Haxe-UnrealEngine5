@@ -3,17 +3,17 @@ package ue;
 
 @:native("FPlayScreenResolution")
 @:include("Settings/LevelEditorPlaySettings.h")
-@:structAccess
+@:valueType
 extern class PlayScreenResolution {
 	public var Description: FString;
-	public var Width: cpp.Int32;
-	public var Height: cpp.Int32;
+	public var Width: ucpp.num.Int32;
+	public var Height: ucpp.num.Int32;
 	public var AspectRatio: FString;
 	public var bCanSwapAspectRatio: Bool;
 	public var ProfileName: FString;
-	public var ScaleFactor: cpp.Float32;
-	public var LogicalHeight: cpp.Int32;
-	public var LogicalWidth: cpp.Int32;
+	public var ScaleFactor: ucpp.num.Float32;
+	public var LogicalHeight: ucpp.num.Int32;
+	public var LogicalWidth: ucpp.num.Int32;
 
 	@:native("FPlayScreenResolution") public function new();
 }

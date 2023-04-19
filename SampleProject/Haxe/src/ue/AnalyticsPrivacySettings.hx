@@ -3,11 +3,12 @@ package ue;
 
 @:native("UAnalyticsPrivacySettings")
 @:include("Analytics/AnalyticsPrivacySettings.h")
-@:structAccess
+@:valueType
 extern class AnalyticsPrivacySettings extends Object {
 	public var bSendUsageData: Bool;
+	public var bSuppressIndustryPopup: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -15,12 +16,14 @@ extern class AnalyticsPrivacySettings extends Object {
 abstract ConstAnalyticsPrivacySettings(AnalyticsPrivacySettings) from AnalyticsPrivacySettings {
 	public extern var bSendUsageData(get, never): Bool;
 	public inline extern function get_bSendUsageData(): Bool return this.bSendUsageData;
+	public extern var bSuppressIndustryPopup(get, never): Bool;
+	public inline extern function get_bSuppressIndustryPopup(): Bool return this.bSuppressIndustryPopup;
 }
 
 @:forward
 @:nativeGen
 @:native("AnalyticsPrivacySettings*")
-abstract AnalyticsPrivacySettingsPtr(cpp.Star<AnalyticsPrivacySettings>) from cpp.Star<AnalyticsPrivacySettings> to cpp.Star<AnalyticsPrivacySettings>{
+abstract AnalyticsPrivacySettingsPtr(ucpp.Ptr<AnalyticsPrivacySettings>) from ucpp.Ptr<AnalyticsPrivacySettings> to ucpp.Ptr<AnalyticsPrivacySettings>{
 	@:from
 	public static extern inline function fromValue(v: AnalyticsPrivacySettings): AnalyticsPrivacySettingsPtr {
 		return untyped __cpp__("&({0})", v);

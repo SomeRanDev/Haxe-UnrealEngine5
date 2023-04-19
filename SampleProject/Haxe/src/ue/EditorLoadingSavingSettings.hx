@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEditorLoadingSavingSettings")
 @:include("Settings/EditorLoadingSavingSettings.h")
-@:structAccess
+@:valueType
 extern class EditorLoadingSavingSettings extends Object {
 	public var LoadLevelAtStartup: TEnumAsByte<ELoadLevelAtStartup>;
 	public var bForceCompilationAtStartup: Bool;
 	public var bRestoreOpenAssetTabsOnRestart: Bool;
 	public var bMonitorContentDirectories: Bool;
 	public var AutoReimportDirectorySettings: TArray<AutoReimportDirectoryConfig>;
-	public var AutoReimportThreshold: cpp.Float32;
+	public var AutoReimportThreshold: ucpp.num.Float32;
 	public var bAutoCreateAssets: Bool;
 	public var bAutoDeleteAssets: Bool;
 	public var bDetectChangesOnStartup: Bool;
@@ -20,16 +20,18 @@ extern class EditorLoadingSavingSettings extends Object {
 	public var bAutoSaveEnable: Bool;
 	public var bAutoSaveMaps: Bool;
 	public var bAutoSaveContent: Bool;
-	public var AutoSaveTimeMinutes: cpp.Int32;
-	public var AutoSaveInteractionDelayInSeconds: cpp.Int32;
-	public var AutoSaveWarningInSeconds: cpp.Int32;
+	public var AutoSaveMethod: EAutoSaveMethod;
+	public var AutoSaveTimeMinutes: ucpp.num.Int32;
+	public var AutoSaveInteractionDelayInSeconds: ucpp.num.Int32;
+	public var AutoSaveWarningInSeconds: ucpp.num.Int32;
+	public var AutoSaveMaxBackups: ucpp.num.Int32;
 	public var bAutomaticallyCheckoutOnAssetModification: Bool;
 	public var bPromptForCheckoutOnAssetModification: Bool;
 	public var bSCCAutoAddNewFiles: Bool;
 	public var bSCCUseGlobalSettings: Bool;
 	public var TextDiffToolPath: FilePath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -45,8 +47,8 @@ abstract ConstEditorLoadingSavingSettings(EditorLoadingSavingSettings) from Edit
 	public inline extern function get_bMonitorContentDirectories(): Bool return this.bMonitorContentDirectories;
 	public extern var AutoReimportDirectorySettings(get, never): TArray<AutoReimportDirectoryConfig>;
 	public inline extern function get_AutoReimportDirectorySettings(): TArray<AutoReimportDirectoryConfig> return this.AutoReimportDirectorySettings;
-	public extern var AutoReimportThreshold(get, never): cpp.Float32;
-	public inline extern function get_AutoReimportThreshold(): cpp.Float32 return this.AutoReimportThreshold;
+	public extern var AutoReimportThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_AutoReimportThreshold(): ucpp.num.Float32 return this.AutoReimportThreshold;
 	public extern var bAutoCreateAssets(get, never): Bool;
 	public inline extern function get_bAutoCreateAssets(): Bool return this.bAutoCreateAssets;
 	public extern var bAutoDeleteAssets(get, never): Bool;
@@ -65,12 +67,16 @@ abstract ConstEditorLoadingSavingSettings(EditorLoadingSavingSettings) from Edit
 	public inline extern function get_bAutoSaveMaps(): Bool return this.bAutoSaveMaps;
 	public extern var bAutoSaveContent(get, never): Bool;
 	public inline extern function get_bAutoSaveContent(): Bool return this.bAutoSaveContent;
-	public extern var AutoSaveTimeMinutes(get, never): cpp.Int32;
-	public inline extern function get_AutoSaveTimeMinutes(): cpp.Int32 return this.AutoSaveTimeMinutes;
-	public extern var AutoSaveInteractionDelayInSeconds(get, never): cpp.Int32;
-	public inline extern function get_AutoSaveInteractionDelayInSeconds(): cpp.Int32 return this.AutoSaveInteractionDelayInSeconds;
-	public extern var AutoSaveWarningInSeconds(get, never): cpp.Int32;
-	public inline extern function get_AutoSaveWarningInSeconds(): cpp.Int32 return this.AutoSaveWarningInSeconds;
+	public extern var AutoSaveMethod(get, never): EAutoSaveMethod;
+	public inline extern function get_AutoSaveMethod(): EAutoSaveMethod return this.AutoSaveMethod;
+	public extern var AutoSaveTimeMinutes(get, never): ucpp.num.Int32;
+	public inline extern function get_AutoSaveTimeMinutes(): ucpp.num.Int32 return this.AutoSaveTimeMinutes;
+	public extern var AutoSaveInteractionDelayInSeconds(get, never): ucpp.num.Int32;
+	public inline extern function get_AutoSaveInteractionDelayInSeconds(): ucpp.num.Int32 return this.AutoSaveInteractionDelayInSeconds;
+	public extern var AutoSaveWarningInSeconds(get, never): ucpp.num.Int32;
+	public inline extern function get_AutoSaveWarningInSeconds(): ucpp.num.Int32 return this.AutoSaveWarningInSeconds;
+	public extern var AutoSaveMaxBackups(get, never): ucpp.num.Int32;
+	public inline extern function get_AutoSaveMaxBackups(): ucpp.num.Int32 return this.AutoSaveMaxBackups;
 	public extern var bAutomaticallyCheckoutOnAssetModification(get, never): Bool;
 	public inline extern function get_bAutomaticallyCheckoutOnAssetModification(): Bool return this.bAutomaticallyCheckoutOnAssetModification;
 	public extern var bPromptForCheckoutOnAssetModification(get, never): Bool;
@@ -86,7 +92,7 @@ abstract ConstEditorLoadingSavingSettings(EditorLoadingSavingSettings) from Edit
 @:forward
 @:nativeGen
 @:native("EditorLoadingSavingSettings*")
-abstract EditorLoadingSavingSettingsPtr(cpp.Star<EditorLoadingSavingSettings>) from cpp.Star<EditorLoadingSavingSettings> to cpp.Star<EditorLoadingSavingSettings>{
+abstract EditorLoadingSavingSettingsPtr(ucpp.Ptr<EditorLoadingSavingSettings>) from ucpp.Ptr<EditorLoadingSavingSettings> to ucpp.Ptr<EditorLoadingSavingSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorLoadingSavingSettings): EditorLoadingSavingSettingsPtr {
 		return untyped __cpp__("&({0})", v);

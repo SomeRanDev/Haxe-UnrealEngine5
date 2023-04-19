@@ -3,20 +3,20 @@ package ue;
 
 @:native("FRBFParams")
 @:include("RBF/RBFSolver.h")
-@:structAccess
+@:valueType
 extern class RBFParams {
-	public var TargetDimensions: cpp.Int32;
+	public var TargetDimensions: ucpp.num.Int32;
 	public var SolverType: ERBFSolverType;
-	public var Radius: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var bAutomaticRadius: Bool;
 	public var Function: ERBFFunctionType;
 	public var DistanceMethod: ERBFDistanceMethod;
 	public var TwistAxis: TEnumAsByte<EBoneAxis>;
-	public var WeightThreshold: cpp.Float32;
+	public var WeightThreshold: ucpp.num.Float32;
 	public var NormalizeMethod: ERBFNormalizeMethod;
 	public var MedianReference: Vector;
-	public var MedianMin: cpp.Float32;
-	public var MedianMax: cpp.Float32;
+	public var MedianMin: ucpp.num.Float32;
+	public var MedianMax: ucpp.num.Float32;
 
 	@:native("FRBFParams") public function new();
 }

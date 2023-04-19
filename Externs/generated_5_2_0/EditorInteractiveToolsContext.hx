@@ -3,24 +3,24 @@ package ue;
 
 @:native("UEditorInteractiveToolsContext")
 @:include("EdModeInteractiveToolsContext.h")
-@:structAccess
+@:valueType
 extern class EditorInteractiveToolsContext extends InteractiveToolsContext {
-	public var StandardVertexColorMaterial: cpp.Star<MaterialInterface>;
+	public var StandardVertexColorMaterial: ucpp.Ptr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditorInteractiveToolsContext(EditorInteractiveToolsContext) from EditorInteractiveToolsContext {
-	public extern var StandardVertexColorMaterial(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_StandardVertexColorMaterial(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.StandardVertexColorMaterial;
+	public extern var StandardVertexColorMaterial(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_StandardVertexColorMaterial(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.StandardVertexColorMaterial;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorInteractiveToolsContext*")
-abstract EditorInteractiveToolsContextPtr(cpp.Star<EditorInteractiveToolsContext>) from cpp.Star<EditorInteractiveToolsContext> to cpp.Star<EditorInteractiveToolsContext>{
+abstract EditorInteractiveToolsContextPtr(ucpp.Ptr<EditorInteractiveToolsContext>) from ucpp.Ptr<EditorInteractiveToolsContext> to ucpp.Ptr<EditorInteractiveToolsContext>{
 	@:from
 	public static extern inline function fromValue(v: EditorInteractiveToolsContext): EditorInteractiveToolsContextPtr {
 		return untyped __cpp__("&({0})", v);

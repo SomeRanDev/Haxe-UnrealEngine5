@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDEPRECATED_PawnAction_Repeat")
 @:include("Actions/PawnAction_Repeat.h")
-@:structAccess
+@:valueType
 extern class PawnAction_Repeat extends PawnAction {
 	public var ChildFailureHandlingMode: TEnumAsByte<EPawnActionFailHandling>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPawnAction_Repeat(PawnAction_Repeat) from PawnAction_Repeat {
 @:forward
 @:nativeGen
 @:native("PawnAction_Repeat*")
-abstract PawnAction_RepeatPtr(cpp.Star<PawnAction_Repeat>) from cpp.Star<PawnAction_Repeat> to cpp.Star<PawnAction_Repeat>{
+abstract PawnAction_RepeatPtr(ucpp.Ptr<PawnAction_Repeat>) from ucpp.Ptr<PawnAction_Repeat> to ucpp.Ptr<PawnAction_Repeat>{
 	@:from
 	public static extern inline function fromValue(v: PawnAction_Repeat): PawnAction_RepeatPtr {
 		return untyped __cpp__("&({0})", v);

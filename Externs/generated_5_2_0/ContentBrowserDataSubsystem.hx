@@ -3,11 +3,11 @@ package ue;
 
 @:native("UContentBrowserDataSubsystem")
 @:include("ContentBrowserDataSubsystem.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserDataSubsystem extends EditorSubsystem {
 	private var EnabledDataSources: TArray<FName>;
 
-	public function GetItemsUnderPath(InPath: FName, InFilter: cpp.Reference<ContentBrowserDataFilter>): TArray<ContentBrowserItem>;
+	public function GetItemsUnderPath(InPath: FName, InFilter: ucpp.Ref<ContentBrowserDataFilter>): TArray<ContentBrowserItem>;
 	public function GetItemsAtPath(InPath: FName, InItemTypeFilter: EContentBrowserItemTypeFilter): TArray<ContentBrowserItem>;
 	public function GetItemAtPath(InPath: FName, InItemTypeFilter: EContentBrowserItemTypeFilter): ContentBrowserItem;
 	public function GetAvailableDataSources(): TArray<FName>;
@@ -17,7 +17,7 @@ extern class ContentBrowserDataSubsystem extends EditorSubsystem {
 	public function ActivateDataSource(Name: FName): Bool;
 	public function ActivateAllDataSources(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetItemsUnderPath, GetItemsAtPath, GetItemAtPath, GetAvailableDataSources, GetActiveDataSources)
@@ -28,7 +28,7 @@ abstract ConstContentBrowserDataSubsystem(ContentBrowserDataSubsystem) from Cont
 @:forward
 @:nativeGen
 @:native("ContentBrowserDataSubsystem*")
-abstract ContentBrowserDataSubsystemPtr(cpp.Star<ContentBrowserDataSubsystem>) from cpp.Star<ContentBrowserDataSubsystem> to cpp.Star<ContentBrowserDataSubsystem>{
+abstract ContentBrowserDataSubsystemPtr(ucpp.Ptr<ContentBrowserDataSubsystem>) from ucpp.Ptr<ContentBrowserDataSubsystem> to ucpp.Ptr<ContentBrowserDataSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserDataSubsystem): ContentBrowserDataSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

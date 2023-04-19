@@ -3,10 +3,10 @@ package ue;
 
 @:native("USingleTargetWithSelectionToolBuilder")
 @:include("BaseTools/SingleTargetWithSelectionTool.h")
-@:structAccess
+@:valueType
 extern class SingleTargetWithSelectionToolBuilder extends InteractiveToolWithToolTargetsBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSingleTargetWithSelectionToolBuilder(SingleTargetWithSelectionTool
 @:forward
 @:nativeGen
 @:native("SingleTargetWithSelectionToolBuilder*")
-abstract SingleTargetWithSelectionToolBuilderPtr(cpp.Star<SingleTargetWithSelectionToolBuilder>) from cpp.Star<SingleTargetWithSelectionToolBuilder> to cpp.Star<SingleTargetWithSelectionToolBuilder>{
+abstract SingleTargetWithSelectionToolBuilderPtr(ucpp.Ptr<SingleTargetWithSelectionToolBuilder>) from ucpp.Ptr<SingleTargetWithSelectionToolBuilder> to ucpp.Ptr<SingleTargetWithSelectionToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SingleTargetWithSelectionToolBuilder): SingleTargetWithSelectionToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

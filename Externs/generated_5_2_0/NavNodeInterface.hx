@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNavNodeInterface")
-@:structAccess
+@:valueType
 extern class NavNodeInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNavNodeInterface(NavNodeInterface) from NavNodeInterface {
 @:forward
 @:nativeGen
 @:native("NavNodeInterface*")
-abstract NavNodeInterfacePtr(cpp.Star<NavNodeInterface>) from cpp.Star<NavNodeInterface> to cpp.Star<NavNodeInterface>{
+abstract NavNodeInterfacePtr(ucpp.Ptr<NavNodeInterface>) from ucpp.Ptr<NavNodeInterface> to ucpp.Ptr<NavNodeInterface>{
 	@:from
 	public static extern inline function fromValue(v: NavNodeInterface): NavNodeInterfacePtr {
 		return untyped __cpp__("&({0})", v);

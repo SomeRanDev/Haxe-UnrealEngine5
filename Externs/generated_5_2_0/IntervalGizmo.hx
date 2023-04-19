@@ -3,29 +3,29 @@ package ue;
 
 @:native("UIntervalGizmo")
 @:include("BaseGizmos/IntervalGizmo.h")
-@:structAccess
+@:valueType
 extern class IntervalGizmo extends InteractiveGizmo {
-	public var StateTarget: cpp.Star<GizmoTransformChangeStateTarget>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var ActiveComponents: TArray<cpp.Star<PrimitiveComp>>;
-	@:protected public var ActiveGizmos: TArray<cpp.Star<InteractiveGizmo>>;
-	@:protected public var AxisYSource: cpp.Star<GizmoComponentAxisSource>;
-	@:protected public var AxisZSource: cpp.Star<GizmoComponentAxisSource>;
+	public var StateTarget: ucpp.Ptr<GizmoTransformChangeStateTarget>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var ActiveComponents: TArray<ucpp.Ptr<PrimitiveComp>>;
+	@:protected public var ActiveGizmos: TArray<ucpp.Ptr<InteractiveGizmo>>;
+	@:protected public var AxisYSource: ucpp.Ptr<GizmoComponentAxisSource>;
+	@:protected public var AxisZSource: ucpp.Ptr<GizmoComponentAxisSource>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstIntervalGizmo(IntervalGizmo) from IntervalGizmo {
-	public extern var StateTarget(get, never): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget>;
-	public inline extern function get_StateTarget(): cpp.Star<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget> return this.StateTarget;
+	public extern var StateTarget(get, never): ucpp.Ptr<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget>;
+	public inline extern function get_StateTarget(): ucpp.Ptr<GizmoTransformChangeStateTarget.ConstGizmoTransformChangeStateTarget> return this.StateTarget;
 }
 
 @:forward
 @:nativeGen
 @:native("IntervalGizmo*")
-abstract IntervalGizmoPtr(cpp.Star<IntervalGizmo>) from cpp.Star<IntervalGizmo> to cpp.Star<IntervalGizmo>{
+abstract IntervalGizmoPtr(ucpp.Ptr<IntervalGizmo>) from ucpp.Ptr<IntervalGizmo> to ucpp.Ptr<IntervalGizmo>{
 	@:from
 	public static extern inline function fromValue(v: IntervalGizmo): IntervalGizmoPtr {
 		return untyped __cpp__("&({0})", v);

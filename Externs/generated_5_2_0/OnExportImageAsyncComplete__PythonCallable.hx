@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnExportImageAsyncComplete__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnExportImageAsyncComplete__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnExportImageAsyncComplete__PythonCallable(OnExportImageAsyncCompl
 @:forward
 @:nativeGen
 @:native("OnExportImageAsyncComplete__PythonCallable*")
-abstract OnExportImageAsyncComplete__PythonCallablePtr(cpp.Star<OnExportImageAsyncComplete__PythonCallable>) from cpp.Star<OnExportImageAsyncComplete__PythonCallable> to cpp.Star<OnExportImageAsyncComplete__PythonCallable>{
+abstract OnExportImageAsyncComplete__PythonCallablePtr(ucpp.Ptr<OnExportImageAsyncComplete__PythonCallable>) from ucpp.Ptr<OnExportImageAsyncComplete__PythonCallable> to ucpp.Ptr<OnExportImageAsyncComplete__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnExportImageAsyncComplete__PythonCallable): OnExportImageAsyncComplete__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

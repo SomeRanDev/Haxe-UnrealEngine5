@@ -3,10 +3,10 @@ package ue;
 
 @:native("URenderTargetExporterPNG")
 @:include("Exporters/RenderTargetExporterHDR.h")
-@:structAccess
+@:valueType
 extern class RenderTargetExporterPNG extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRenderTargetExporterPNG(RenderTargetExporterPNG) from RenderTarget
 @:forward
 @:nativeGen
 @:native("RenderTargetExporterPNG*")
-abstract RenderTargetExporterPNGPtr(cpp.Star<RenderTargetExporterPNG>) from cpp.Star<RenderTargetExporterPNG> to cpp.Star<RenderTargetExporterPNG>{
+abstract RenderTargetExporterPNGPtr(ucpp.Ptr<RenderTargetExporterPNG>) from ucpp.Ptr<RenderTargetExporterPNG> to ucpp.Ptr<RenderTargetExporterPNG>{
 	@:from
 	public static extern inline function fromValue(v: RenderTargetExporterPNG): RenderTargetExporterPNGPtr {
 		return untyped __cpp__("&({0})", v);

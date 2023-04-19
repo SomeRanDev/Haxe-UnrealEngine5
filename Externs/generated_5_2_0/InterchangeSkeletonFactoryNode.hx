@@ -3,18 +3,18 @@ package ue;
 
 @:native("UInterchangeSkeletonFactoryNode")
 @:include("InterchangeSkeletonFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSkeletonFactoryNode extends InterchangeFactoryBaseNode {
-	public function SetCustomUseTimeZeroForBindPose(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomUseTimeZeroForBindPose(AttributeValue: ucpp.Ref<Bool>): Bool;
 	public function SetCustomSkeletalMeshFactoryNodeUid(AttributeValue: FString): Bool;
 	public function SetCustomRootJointUid(AttributeValue: FString): Bool;
 	public function InitializeSkeletonNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetObjectClass(): cpp.Star<Class>;
-	public function GetCustomUseTimeZeroForBindPose(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomSkeletalMeshFactoryNodeUid(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomRootJointUid(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetObjectClass(): ucpp.Ptr<Class>;
+	public function GetCustomUseTimeZeroForBindPose(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomSkeletalMeshFactoryNodeUid(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomRootJointUid(AttributeValue: ucpp.Ref<FString>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetObjectClass, GetCustomUseTimeZeroForBindPose, GetCustomSkeletalMeshFactoryNodeUid, GetCustomRootJointUid)
@@ -25,7 +25,7 @@ abstract ConstInterchangeSkeletonFactoryNode(InterchangeSkeletonFactoryNode) fro
 @:forward
 @:nativeGen
 @:native("InterchangeSkeletonFactoryNode*")
-abstract InterchangeSkeletonFactoryNodePtr(cpp.Star<InterchangeSkeletonFactoryNode>) from cpp.Star<InterchangeSkeletonFactoryNode> to cpp.Star<InterchangeSkeletonFactoryNode>{
+abstract InterchangeSkeletonFactoryNodePtr(ucpp.Ptr<InterchangeSkeletonFactoryNode>) from ucpp.Ptr<InterchangeSkeletonFactoryNode> to ucpp.Ptr<InterchangeSkeletonFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSkeletonFactoryNode): InterchangeSkeletonFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

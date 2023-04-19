@@ -3,25 +3,26 @@ package ue;
 
 @:native("UUpgradeNiagaraScriptResults")
 @:include("UpgradeNiagaraScriptResults.h")
-@:structAccess
+@:valueType
 extern class UpgradeNiagaraScriptResults extends Object {
 	public var bCancelledByPythonError: Bool;
-	public var OldInputs: TArray<cpp.Star<NiagaraPythonScriptModuleInput>>;
-	public var NewInputs: TArray<cpp.Star<NiagaraPythonScriptModuleInput>>;
-	private var DummyInput: cpp.Star<NiagaraPythonScriptModuleInput>;
+	public var OldInputs: TArray<ucpp.Ptr<NiagaraPythonScriptModuleInput>>;
+	public var NewInputs: TArray<ucpp.Ptr<NiagaraPythonScriptModuleInput>>;
+	private var DummyInput: ucpp.Ptr<NiagaraPythonScriptModuleInput>;
 
 	public function SetVec4Input(InputName: FString, Value: Vector4): Void;
 	public function SetVec3Input(InputName: FString, Value: Vector): Void;
 	public function SetVec2Input(InputName: FString, Value: Vector2D): Void;
 	public function SetQuatInput(InputName: FString, Value: Quat): Void;
-	public function SetIntInput(InputName: FString, Value: cpp.Int32): Void;
-	public function SetFloatInput(InputName: FString, Value: cpp.Float32): Void;
+	public function SetLinkedInput(InputName: FString, Value: FString): Void;
+	public function SetIntInput(InputName: FString, Value: ucpp.num.Int32): Void;
+	public function SetFloatInput(InputName: FString, Value: ucpp.num.Float32): Void;
 	public function SetEnumInput(InputName: FString, Value: FString): Void;
 	public function SetColorInput(InputName: FString, Value: LinearColor): Void;
 	public function SetBoolInput(InputName: FString, Value: Bool): Void;
-	public function GetOldInput(InputName: FString): cpp.Star<NiagaraPythonScriptModuleInput>;
+	public function GetOldInput(InputName: FString): ucpp.Ptr<NiagaraPythonScriptModuleInput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,16 +30,16 @@ extern class UpgradeNiagaraScriptResults extends Object {
 abstract ConstUpgradeNiagaraScriptResults(UpgradeNiagaraScriptResults) from UpgradeNiagaraScriptResults {
 	public extern var bCancelledByPythonError(get, never): Bool;
 	public inline extern function get_bCancelledByPythonError(): Bool return this.bCancelledByPythonError;
-	public extern var OldInputs(get, never): TArray<cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>>;
-	public inline extern function get_OldInputs(): TArray<cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>> return this.OldInputs;
-	public extern var NewInputs(get, never): TArray<cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>>;
-	public inline extern function get_NewInputs(): TArray<cpp.Star<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>> return this.NewInputs;
+	public extern var OldInputs(get, never): TArray<ucpp.Ptr<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>>;
+	public inline extern function get_OldInputs(): TArray<ucpp.Ptr<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>> return this.OldInputs;
+	public extern var NewInputs(get, never): TArray<ucpp.Ptr<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>>;
+	public inline extern function get_NewInputs(): TArray<ucpp.Ptr<NiagaraPythonScriptModuleInput.ConstNiagaraPythonScriptModuleInput>> return this.NewInputs;
 }
 
 @:forward
 @:nativeGen
 @:native("UpgradeNiagaraScriptResults*")
-abstract UpgradeNiagaraScriptResultsPtr(cpp.Star<UpgradeNiagaraScriptResults>) from cpp.Star<UpgradeNiagaraScriptResults> to cpp.Star<UpgradeNiagaraScriptResults>{
+abstract UpgradeNiagaraScriptResultsPtr(ucpp.Ptr<UpgradeNiagaraScriptResults>) from ucpp.Ptr<UpgradeNiagaraScriptResults> to ucpp.Ptr<UpgradeNiagaraScriptResults>{
 	@:from
 	public static extern inline function fromValue(v: UpgradeNiagaraScriptResults): UpgradeNiagaraScriptResultsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FEditorElement")
 @:include("Animation/BlendSpace.h")
-@:structAccess
+@:valueType
 extern class EditorElement {
-	public var Indices: cpp.Int32;
-	public var Weights: cpp.Float32;
+	public var Indices: ucpp.num.Int32;
+	public var Weights: ucpp.num.Float32;
 
 	@:native("FEditorElement") public function new();
-	@:native("FEditorElement") public static function make(Indices: cpp.Int32, Weights: cpp.Float32): EditorElement ;
+	@:native("FEditorElement") public static function make(Indices: ucpp.num.Int32, Weights: ucpp.num.Float32): EditorElement ;
 }

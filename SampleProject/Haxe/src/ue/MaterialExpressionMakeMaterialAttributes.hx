@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionMakeMaterialAttributes")
 @:include("Materials/MaterialExpressionMakeMaterialAttributes.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionMakeMaterialAttributes extends MaterialExpression {
 	public var BaseColor: ExpressionInput;
 	public var Metallic: ExpressionInput;
@@ -25,7 +25,7 @@ extern class MaterialExpressionMakeMaterialAttributes extends MaterialExpression
 	public var PixelDepthOffset: ExpressionInput;
 	public var ShadingModel: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -74,7 +74,7 @@ abstract ConstMaterialExpressionMakeMaterialAttributes(MaterialExpressionMakeMat
 @:forward
 @:nativeGen
 @:native("MaterialExpressionMakeMaterialAttributes*")
-abstract MaterialExpressionMakeMaterialAttributesPtr(cpp.Star<MaterialExpressionMakeMaterialAttributes>) from cpp.Star<MaterialExpressionMakeMaterialAttributes> to cpp.Star<MaterialExpressionMakeMaterialAttributes>{
+abstract MaterialExpressionMakeMaterialAttributesPtr(ucpp.Ptr<MaterialExpressionMakeMaterialAttributes>) from ucpp.Ptr<MaterialExpressionMakeMaterialAttributes> to ucpp.Ptr<MaterialExpressionMakeMaterialAttributes>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionMakeMaterialAttributes): MaterialExpressionMakeMaterialAttributesPtr {
 		return untyped __cpp__("&({0})", v);

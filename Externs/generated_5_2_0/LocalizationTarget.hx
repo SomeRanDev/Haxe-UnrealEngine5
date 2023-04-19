@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULocalizationTarget")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class LocalizationTarget extends Object {
 	public var Settings: LocalizationTargetSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLocalizationTarget(LocalizationTarget) from LocalizationTarget {
 @:forward
 @:nativeGen
 @:native("LocalizationTarget*")
-abstract LocalizationTargetPtr(cpp.Star<LocalizationTarget>) from cpp.Star<LocalizationTarget> to cpp.Star<LocalizationTarget>{
+abstract LocalizationTargetPtr(ucpp.Ptr<LocalizationTarget>) from ucpp.Ptr<LocalizationTarget> to ucpp.Ptr<LocalizationTarget>{
 	@:from
 	public static extern inline function fromValue(v: LocalizationTarget): LocalizationTargetPtr {
 		return untyped __cpp__("&({0})", v);

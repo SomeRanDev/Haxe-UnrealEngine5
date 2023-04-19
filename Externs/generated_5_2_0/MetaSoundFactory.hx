@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMetaSoundFactory")
 @:include("MetasoundFactory.h")
-@:structAccess
+@:valueType
 extern class MetaSoundFactory extends MetaSoundBaseFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMetaSoundFactory(MetaSoundFactory) from MetaSoundFactory {
 @:forward
 @:nativeGen
 @:native("MetaSoundFactory*")
-abstract MetaSoundFactoryPtr(cpp.Star<MetaSoundFactory>) from cpp.Star<MetaSoundFactory> to cpp.Star<MetaSoundFactory>{
+abstract MetaSoundFactoryPtr(ucpp.Ptr<MetaSoundFactory>) from ucpp.Ptr<MetaSoundFactory> to ucpp.Ptr<MetaSoundFactory>{
 	@:from
 	public static extern inline function fromValue(v: MetaSoundFactory): MetaSoundFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDataflowSettings")
 @:include("Dataflow/DataflowSettings.h")
-@:structAccess
+@:valueType
 extern class DataflowSettings extends DeveloperSettings {
 	public var ArrayPinTypeColor: LinearColor;
 	public var ManagedArrayCollectionPinTypeColor: LinearColor;
@@ -11,7 +11,7 @@ extern class DataflowSettings extends DeveloperSettings {
 	public var SpherePinTypeColor: LinearColor;
 	public var NodeColorsMap: TMap<FName, NodeColors>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstDataflowSettings(DataflowSettings) from DataflowSettings {
 @:forward
 @:nativeGen
 @:native("DataflowSettings*")
-abstract DataflowSettingsPtr(cpp.Star<DataflowSettings>) from cpp.Star<DataflowSettings> to cpp.Star<DataflowSettings>{
+abstract DataflowSettingsPtr(ucpp.Ptr<DataflowSettings>) from ucpp.Ptr<DataflowSettings> to ucpp.Ptr<DataflowSettings>{
 	@:from
 	public static extern inline function fromValue(v: DataflowSettings): DataflowSettingsPtr {
 		return untyped __cpp__("&({0})", v);

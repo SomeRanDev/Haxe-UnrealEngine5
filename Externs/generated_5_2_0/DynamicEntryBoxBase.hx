@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDynamicEntryBoxBase")
 @:include("Components/DynamicEntryBoxBase.h")
-@:structAccess
+@:valueType
 extern class DynamicEntryBoxBase extends Widget {
 	@:protected public var EntrySpacing: Vector2D;
 	@:protected public var SpacingPattern: TArray<Vector2D>;
@@ -11,16 +11,16 @@ extern class DynamicEntryBoxBase extends Widget {
 	@:protected public var EntrySizeRule: SlateChildSize;
 	@:protected public var EntryHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	@:protected public var EntryVerticalAlignment: TEnumAsByte<EVerticalAlignment>;
-	@:protected public var MaxElementSize: cpp.Int32;
+	@:protected public var MaxElementSize: ucpp.num.Int32;
 	@:protected public var RadialBoxSettings: RadialBoxSettings;
 	private var EntryWidgetPool: UserWidgetPool;
 
-	public function SetRadialSettings(InSettings: cpp.Reference<RadialBoxSettings>): Void;
-	public function SetEntrySpacing(InEntrySpacing: cpp.Reference<Vector2D>): Void;
-	public function GetNumEntries(): cpp.Int32;
-	public function GetAllEntries(): TArray<cpp.Star<UserWidget>>;
+	public function SetRadialSettings(InSettings: ucpp.Ref<RadialBoxSettings>): Void;
+	public function SetEntrySpacing(InEntrySpacing: ucpp.Ref<Vector2D>): Void;
+	public function GetNumEntries(): ucpp.num.Int32;
+	public function GetAllEntries(): TArray<ucpp.Ptr<UserWidget>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNumEntries, GetAllEntries)
@@ -31,7 +31,7 @@ abstract ConstDynamicEntryBoxBase(DynamicEntryBoxBase) from DynamicEntryBoxBase 
 @:forward
 @:nativeGen
 @:native("DynamicEntryBoxBase*")
-abstract DynamicEntryBoxBasePtr(cpp.Star<DynamicEntryBoxBase>) from cpp.Star<DynamicEntryBoxBase> to cpp.Star<DynamicEntryBoxBase>{
+abstract DynamicEntryBoxBasePtr(ucpp.Ptr<DynamicEntryBoxBase>) from ucpp.Ptr<DynamicEntryBoxBase> to ucpp.Ptr<DynamicEntryBoxBase>{
 	@:from
 	public static extern inline function fromValue(v: DynamicEntryBoxBase): DynamicEntryBoxBasePtr {
 		return untyped __cpp__("&({0})", v);

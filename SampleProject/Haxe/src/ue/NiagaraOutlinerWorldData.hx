@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraOutlinerWorldData")
 @:include("NiagaraDebuggerCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraOutlinerWorldData {
 	public var Systems: TMap<FString, NiagaraOutlinerSystemData>;
 	public var bHasBegunPlay: Bool;
-	public var WorldType: cpp.UInt8;
-	public var NetMode: cpp.UInt8;
+	public var WorldType: ucpp.num.UInt8;
+	public var NetMode: ucpp.num.UInt8;
 	public var AveragePerFrameTime: NiagaraOutlinerTimingData;
 	public var MaxPerFrameTime: NiagaraOutlinerTimingData;
 

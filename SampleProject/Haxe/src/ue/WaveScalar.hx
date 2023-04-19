@@ -3,31 +3,31 @@ package ue;
 
 @:native("UWaveScalar")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class WaveScalar extends FieldNodeFloat {
-	public var Magnitude: cpp.Float32;
+	public var Magnitude: ucpp.num.Float32;
 	public var Position: Vector;
-	public var Wavelength: cpp.Float32;
-	public var Period: cpp.Float32;
+	public var Wavelength: ucpp.num.Float32;
+	public var Period: ucpp.num.Float32;
 	public var Function: TEnumAsByte<EWaveFunctionType>;
 	public var Falloff: TEnumAsByte<EFieldFalloffType>;
 
-	public function SetWaveScalar(Magnitude: cpp.Float32, Position: Vector, Wavelength: cpp.Float32, Period: cpp.Float32, Time: cpp.Float32, Function: TEnumAsByte<EWaveFunctionType>, Falloff: TEnumAsByte<EFieldFalloffType>): cpp.Star<WaveScalar>;
+	public function SetWaveScalar(Magnitude: ucpp.num.Float32, Position: Vector, Wavelength: ucpp.num.Float32, Period: ucpp.num.Float32, Time: ucpp.num.Float32, Function: TEnumAsByte<EWaveFunctionType>, Falloff: TEnumAsByte<EFieldFalloffType>): ucpp.Ptr<WaveScalar>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWaveScalar(WaveScalar) from WaveScalar {
-	public extern var Magnitude(get, never): cpp.Float32;
-	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
+	public extern var Magnitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Magnitude(): ucpp.num.Float32 return this.Magnitude;
 	public extern var Position(get, never): Vector;
 	public inline extern function get_Position(): Vector return this.Position;
-	public extern var Wavelength(get, never): cpp.Float32;
-	public inline extern function get_Wavelength(): cpp.Float32 return this.Wavelength;
-	public extern var Period(get, never): cpp.Float32;
-	public inline extern function get_Period(): cpp.Float32 return this.Period;
+	public extern var Wavelength(get, never): ucpp.num.Float32;
+	public inline extern function get_Wavelength(): ucpp.num.Float32 return this.Wavelength;
+	public extern var Period(get, never): ucpp.num.Float32;
+	public inline extern function get_Period(): ucpp.num.Float32 return this.Period;
 	public extern var Function(get, never): TEnumAsByte<EWaveFunctionType>;
 	public inline extern function get_Function(): TEnumAsByte<EWaveFunctionType> return this.Function;
 	public extern var Falloff(get, never): TEnumAsByte<EFieldFalloffType>;
@@ -37,7 +37,7 @@ abstract ConstWaveScalar(WaveScalar) from WaveScalar {
 @:forward
 @:nativeGen
 @:native("WaveScalar*")
-abstract WaveScalarPtr(cpp.Star<WaveScalar>) from cpp.Star<WaveScalar> to cpp.Star<WaveScalar>{
+abstract WaveScalarPtr(ucpp.Ptr<WaveScalar>) from ucpp.Ptr<WaveScalar> to ucpp.Ptr<WaveScalar>{
 	@:from
 	public static extern inline function fromValue(v: WaveScalar): WaveScalarPtr {
 		return untyped __cpp__("&({0})", v);

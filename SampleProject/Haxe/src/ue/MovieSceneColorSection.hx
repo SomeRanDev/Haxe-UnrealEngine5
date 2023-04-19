@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneColorSection")
 @:include("Sections/MovieSceneColorSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneColorSection extends MovieSceneSection {
 	private var RedCurve: MovieSceneFloatChannel;
 	private var GreenCurve: MovieSceneFloatChannel;
 	private var BlueCurve: MovieSceneFloatChannel;
 	private var AlphaCurve: MovieSceneFloatChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMovieSceneColorSection(MovieSceneColorSection) from MovieSceneColo
 @:forward
 @:nativeGen
 @:native("MovieSceneColorSection*")
-abstract MovieSceneColorSectionPtr(cpp.Star<MovieSceneColorSection>) from cpp.Star<MovieSceneColorSection> to cpp.Star<MovieSceneColorSection>{
+abstract MovieSceneColorSectionPtr(ucpp.Ptr<MovieSceneColorSection>) from ucpp.Ptr<MovieSceneColorSection> to ucpp.Ptr<MovieSceneColorSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneColorSection): MovieSceneColorSectionPtr {
 		return untyped __cpp__("&({0})", v);

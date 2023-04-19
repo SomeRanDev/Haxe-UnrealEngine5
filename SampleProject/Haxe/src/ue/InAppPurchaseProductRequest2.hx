@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInAppPurchaseProductRequest2")
 @:include("InAppPurchaseCallbackProxy2.h")
-@:structAccess
+@:valueType
 extern class InAppPurchaseProductRequest2 {
 	public var ProductIdentifier: FString;
 	public var bIsConsumable: Bool;

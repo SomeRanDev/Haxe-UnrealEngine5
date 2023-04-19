@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInputDelegateBinding")
 @:include("Engine/InputDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class InputDelegateBinding extends DynamicBlueprintBinding {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInputDelegateBinding(InputDelegateBinding) from InputDelegateBindi
 @:forward
 @:nativeGen
 @:native("InputDelegateBinding*")
-abstract InputDelegateBindingPtr(cpp.Star<InputDelegateBinding>) from cpp.Star<InputDelegateBinding> to cpp.Star<InputDelegateBinding>{
+abstract InputDelegateBindingPtr(ucpp.Ptr<InputDelegateBinding>) from ucpp.Ptr<InputDelegateBinding> to ucpp.Ptr<InputDelegateBinding>{
 	@:from
 	public static extern inline function fromValue(v: InputDelegateBinding): InputDelegateBindingPtr {
 		return untyped __cpp__("&({0})", v);

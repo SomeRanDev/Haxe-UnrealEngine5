@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEnhancedInputEditorSettings")
 @:include("EnhancedInputEditorSettings.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputEditorSettings extends DeveloperSettingsBackedByCVars {
 	public var bLogAllInput: Bool;
 	public var bAutomaticallyStartConsumingInput: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEnhancedInputEditorSettings(EnhancedInputEditorSettings) from Enha
 @:forward
 @:nativeGen
 @:native("EnhancedInputEditorSettings*")
-abstract EnhancedInputEditorSettingsPtr(cpp.Star<EnhancedInputEditorSettings>) from cpp.Star<EnhancedInputEditorSettings> to cpp.Star<EnhancedInputEditorSettings>{
+abstract EnhancedInputEditorSettingsPtr(ucpp.Ptr<EnhancedInputEditorSettings>) from ucpp.Ptr<EnhancedInputEditorSettings> to ucpp.Ptr<EnhancedInputEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputEditorSettings): EnhancedInputEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

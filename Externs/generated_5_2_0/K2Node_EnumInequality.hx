@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_EnumInequality")
 @:include("K2Node_EnumInequality.h")
-@:structAccess
+@:valueType
 extern class K2Node_EnumInequality extends K2Node_EnumEquality {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_EnumInequality(K2Node_EnumInequality) from K2Node_EnumInequ
 @:forward
 @:nativeGen
 @:native("K2Node_EnumInequality*")
-abstract K2Node_EnumInequalityPtr(cpp.Star<K2Node_EnumInequality>) from cpp.Star<K2Node_EnumInequality> to cpp.Star<K2Node_EnumInequality>{
+abstract K2Node_EnumInequalityPtr(ucpp.Ptr<K2Node_EnumInequality>) from ucpp.Ptr<K2Node_EnumInequality> to ucpp.Ptr<K2Node_EnumInequality>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_EnumInequality): K2Node_EnumInequalityPtr {
 		return untyped __cpp__("&({0})", v);

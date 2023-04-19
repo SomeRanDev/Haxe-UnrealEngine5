@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSolverCollisionFilterSettings")
 @:include("SolverEventFilters.h")
-@:structAccess
+@:valueType
 extern class SolverCollisionFilterSettings {
 	public var FilterEnabled: Bool;
-	public var MinMass: cpp.Float32;
-	public var MinSpeed: cpp.Float32;
-	public var MinImpulse: cpp.Float32;
+	public var MinMass: ucpp.num.Float32;
+	public var MinSpeed: ucpp.num.Float32;
+	public var MinImpulse: ucpp.num.Float32;
 
 	@:native("FSolverCollisionFilterSettings") public function new();
-	@:native("FSolverCollisionFilterSettings") public static function make(FilterEnabled: Bool, MinMass: cpp.Float32, MinSpeed: cpp.Float32, MinImpulse: cpp.Float32): SolverCollisionFilterSettings ;
+	@:native("FSolverCollisionFilterSettings") public static function make(FilterEnabled: Bool, MinMass: ucpp.num.Float32, MinSpeed: ucpp.num.Float32, MinImpulse: ucpp.num.Float32): SolverCollisionFilterSettings ;
 }

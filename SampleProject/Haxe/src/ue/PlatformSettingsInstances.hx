@@ -3,11 +3,11 @@ package ue;
 
 @:native("FPlatformSettingsInstances")
 @:include("Engine/PlatformSettingsManager.h")
-@:structAccess
+@:valueType
 extern class PlatformSettingsInstances {
-	public var PlatformInstance: cpp.Star<PlatformSettings>;
-	public var OtherPlatforms: TMap<FName, cpp.Star<PlatformSettings>>;
+	public var PlatformInstance: ucpp.Ptr<PlatformSettings>;
+	public var OtherPlatforms: TMap<FName, ucpp.Ptr<PlatformSettings>>;
 
 	@:native("FPlatformSettingsInstances") public function new();
-	@:native("FPlatformSettingsInstances") public static function make(PlatformInstance: cpp.Star<PlatformSettings>, OtherPlatforms: TMap<FName, cpp.Star<PlatformSettings>>): PlatformSettingsInstances ;
+	@:native("FPlatformSettingsInstances") public static function make(PlatformInstance: ucpp.Ptr<PlatformSettings>, OtherPlatforms: TMap<FName, ucpp.Ptr<PlatformSettings>>): PlatformSettingsInstances ;
 }

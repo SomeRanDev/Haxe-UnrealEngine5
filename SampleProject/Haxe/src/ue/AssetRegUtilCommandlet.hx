@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetRegUtilCommandlet")
 @:include("Commandlets/AssetRegUtilCommandlet.h")
-@:structAccess
+@:valueType
 extern class AssetRegUtilCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetRegUtilCommandlet(AssetRegUtilCommandlet) from AssetRegUtilCo
 @:forward
 @:nativeGen
 @:native("AssetRegUtilCommandlet*")
-abstract AssetRegUtilCommandletPtr(cpp.Star<AssetRegUtilCommandlet>) from cpp.Star<AssetRegUtilCommandlet> to cpp.Star<AssetRegUtilCommandlet>{
+abstract AssetRegUtilCommandletPtr(ucpp.Ptr<AssetRegUtilCommandlet>) from ucpp.Ptr<AssetRegUtilCommandlet> to ucpp.Ptr<AssetRegUtilCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: AssetRegUtilCommandlet): AssetRegUtilCommandletPtr {
 		return untyped __cpp__("&({0})", v);

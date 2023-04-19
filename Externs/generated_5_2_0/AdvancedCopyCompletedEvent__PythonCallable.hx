@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAdvancedCopyCompletedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class AdvancedCopyCompletedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAdvancedCopyCompletedEvent__PythonCallable(AdvancedCopyCompletedEv
 @:forward
 @:nativeGen
 @:native("AdvancedCopyCompletedEvent__PythonCallable*")
-abstract AdvancedCopyCompletedEvent__PythonCallablePtr(cpp.Star<AdvancedCopyCompletedEvent__PythonCallable>) from cpp.Star<AdvancedCopyCompletedEvent__PythonCallable> to cpp.Star<AdvancedCopyCompletedEvent__PythonCallable>{
+abstract AdvancedCopyCompletedEvent__PythonCallablePtr(ucpp.Ptr<AdvancedCopyCompletedEvent__PythonCallable>) from ucpp.Ptr<AdvancedCopyCompletedEvent__PythonCallable> to ucpp.Ptr<AdvancedCopyCompletedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AdvancedCopyCompletedEvent__PythonCallable): AdvancedCopyCompletedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

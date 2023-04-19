@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDEditorDoubleVectorParameterValue")
 @:include("MaterialEditor/DEditorDoubleVectorParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorDoubleVectorParameterValue extends DEditorParameterValue {
 	public var ParameterValue: Vector4d;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDEditorDoubleVectorParameterValue(DEditorDoubleVectorParameterValu
 @:forward
 @:nativeGen
 @:native("DEditorDoubleVectorParameterValue*")
-abstract DEditorDoubleVectorParameterValuePtr(cpp.Star<DEditorDoubleVectorParameterValue>) from cpp.Star<DEditorDoubleVectorParameterValue> to cpp.Star<DEditorDoubleVectorParameterValue>{
+abstract DEditorDoubleVectorParameterValuePtr(ucpp.Ptr<DEditorDoubleVectorParameterValue>) from ucpp.Ptr<DEditorDoubleVectorParameterValue> to ucpp.Ptr<DEditorDoubleVectorParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorDoubleVectorParameterValue): DEditorDoubleVectorParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

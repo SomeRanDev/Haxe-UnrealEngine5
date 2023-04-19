@@ -3,7 +3,7 @@ package ue;
 
 @:native("UCurveEditorCopyableCurveKeys")
 @:include("CurveEditorCopyBuffer.h")
-@:structAccess
+@:valueType
 extern class CurveEditorCopyableCurveKeys extends Object {
 	public var KeyPositions: TArray<KeyPosition>;
 	public var KeyAttributes: TArray<KeyAttributes>;
@@ -12,7 +12,7 @@ extern class CurveEditorCopyableCurveKeys extends Object {
 	public var IntentionName: FString;
 	public var LongIntentionName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstCurveEditorCopyableCurveKeys(CurveEditorCopyableCurveKeys) from Cu
 @:forward
 @:nativeGen
 @:native("CurveEditorCopyableCurveKeys*")
-abstract CurveEditorCopyableCurveKeysPtr(cpp.Star<CurveEditorCopyableCurveKeys>) from cpp.Star<CurveEditorCopyableCurveKeys> to cpp.Star<CurveEditorCopyableCurveKeys>{
+abstract CurveEditorCopyableCurveKeysPtr(ucpp.Ptr<CurveEditorCopyableCurveKeys>) from ucpp.Ptr<CurveEditorCopyableCurveKeys> to ucpp.Ptr<CurveEditorCopyableCurveKeys>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorCopyableCurveKeys): CurveEditorCopyableCurveKeysPtr {
 		return untyped __cpp__("&({0})", v);

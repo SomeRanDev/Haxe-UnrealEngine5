@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSourceEffectMidSideSpreaderSettings")
 @:include("SourceEffects/SourceEffectMidSideSpreader.h")
-@:structAccess
+@:valueType
 extern class SourceEffectMidSideSpreaderSettings {
-	public var SpreadAmount: cpp.Float32;
+	public var SpreadAmount: ucpp.num.Float32;
 	public var InputMode: EStereoChannelMode;
 	public var OutputMode: EStereoChannelMode;
 	public var bEqualPower: Bool;
 
 	@:native("FSourceEffectMidSideSpreaderSettings") public function new();
-	@:native("FSourceEffectMidSideSpreaderSettings") public static function make(SpreadAmount: cpp.Float32, InputMode: EStereoChannelMode, OutputMode: EStereoChannelMode, bEqualPower: Bool): SourceEffectMidSideSpreaderSettings ;
+	@:native("FSourceEffectMidSideSpreaderSettings") public static function make(SpreadAmount: ucpp.num.Float32, InputMode: EStereoChannelMode, OutputMode: EStereoChannelMode, bEqualPower: Bool): SourceEffectMidSideSpreaderSettings ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UChaosSolverFactory")
 @:include("Chaos/ChaosSolverFactory.h")
-@:structAccess
+@:valueType
 extern class ChaosSolverFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstChaosSolverFactory(ChaosSolverFactory) from ChaosSolverFactory {
 @:forward
 @:nativeGen
 @:native("ChaosSolverFactory*")
-abstract ChaosSolverFactoryPtr(cpp.Star<ChaosSolverFactory>) from cpp.Star<ChaosSolverFactory> to cpp.Star<ChaosSolverFactory>{
+abstract ChaosSolverFactoryPtr(ucpp.Ptr<ChaosSolverFactory>) from ucpp.Ptr<ChaosSolverFactory> to ucpp.Ptr<ChaosSolverFactory>{
 	@:from
 	public static extern inline function fromValue(v: ChaosSolverFactory): ChaosSolverFactoryPtr {
 		return untyped __cpp__("&({0})", v);

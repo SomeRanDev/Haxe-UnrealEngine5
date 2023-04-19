@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDataflow")
 @:include("Dataflow/DataflowObject.h")
-@:structAccess
+@:valueType
 extern class Dataflow extends EdGraph {
 	public var bActive: Bool;
-	public var Targets: TArray<cpp.Star<Object>>;
-	public var Material: cpp.Star<Material>;
+	public var Targets: TArray<ucpp.Ptr<Object>>;
+	public var Material: ucpp.Ptr<Material>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class Dataflow extends EdGraph {
 abstract ConstDataflow(Dataflow) from Dataflow {
 	public extern var bActive(get, never): Bool;
 	public inline extern function get_bActive(): Bool return this.bActive;
-	public extern var Targets(get, never): TArray<cpp.Star<Object.ConstObject>>;
-	public inline extern function get_Targets(): TArray<cpp.Star<Object.ConstObject>> return this.Targets;
-	public extern var Material(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_Material(): cpp.Star<Material.ConstMaterial> return this.Material;
+	public extern var Targets(get, never): TArray<ucpp.Ptr<Object.ConstObject>>;
+	public inline extern function get_Targets(): TArray<ucpp.Ptr<Object.ConstObject>> return this.Targets;
+	public extern var Material(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_Material(): ucpp.Ptr<Material.ConstMaterial> return this.Material;
 }
 
 @:forward
 @:nativeGen
 @:native("Dataflow*")
-abstract DataflowPtr(cpp.Star<Dataflow>) from cpp.Star<Dataflow> to cpp.Star<Dataflow>{
+abstract DataflowPtr(ucpp.Ptr<Dataflow>) from ucpp.Ptr<Dataflow> to ucpp.Ptr<Dataflow>{
 	@:from
 	public static extern inline function fromValue(v: Dataflow): DataflowPtr {
 		return untyped __cpp__("&({0})", v);

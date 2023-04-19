@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UParticleBurstSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class ParticleBurstSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstParticleBurstSignature__PythonCallable(ParticleBurstSignature__Pyt
 @:forward
 @:nativeGen
 @:native("ParticleBurstSignature__PythonCallable*")
-abstract ParticleBurstSignature__PythonCallablePtr(cpp.Star<ParticleBurstSignature__PythonCallable>) from cpp.Star<ParticleBurstSignature__PythonCallable> to cpp.Star<ParticleBurstSignature__PythonCallable>{
+abstract ParticleBurstSignature__PythonCallablePtr(ucpp.Ptr<ParticleBurstSignature__PythonCallable>) from ucpp.Ptr<ParticleBurstSignature__PythonCallable> to ucpp.Ptr<ParticleBurstSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ParticleBurstSignature__PythonCallable): ParticleBurstSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("UFractureCustomVoronoiSettings")
 @:include("FractureToolCustomVoronoi.h")
-@:structAccess
+@:valueType
 extern class FractureCustomVoronoiSettings extends FractureToolSettings {
 	public var VoronoiPattern: EVoronoiPattern;
-	public var NormalOffset: cpp.Float32;
-	public var Variability: cpp.Float32;
-	public var SitesToAdd: cpp.Int32;
-	public var GridX: cpp.Int32;
-	public var GridY: cpp.Int32;
-	public var GridZ: cpp.Int32;
-	public var SkipFraction: cpp.Float32;
+	public var NormalOffset: ucpp.num.Float32;
+	public var Variability: ucpp.num.Float32;
+	public var SitesToAdd: ucpp.num.Int32;
+	public var GridX: ucpp.num.Int32;
+	public var GridY: ucpp.num.Int32;
+	public var GridZ: ucpp.num.Int32;
+	public var SkipFraction: ucpp.num.Float32;
 	public var SkipMode: EDownsamplingMode;
 	public var ReferenceMesh: TLazyObjectPtr<StaticMeshActor>;
 	public var bStartAtActor: Bool;
@@ -22,7 +22,7 @@ extern class FractureCustomVoronoiSettings extends FractureToolSettings {
 	public function FreezeLiveSites(): Void;
 	public function ClearFrozenSites(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,20 +30,20 @@ extern class FractureCustomVoronoiSettings extends FractureToolSettings {
 abstract ConstFractureCustomVoronoiSettings(FractureCustomVoronoiSettings) from FractureCustomVoronoiSettings {
 	public extern var VoronoiPattern(get, never): EVoronoiPattern;
 	public inline extern function get_VoronoiPattern(): EVoronoiPattern return this.VoronoiPattern;
-	public extern var NormalOffset(get, never): cpp.Float32;
-	public inline extern function get_NormalOffset(): cpp.Float32 return this.NormalOffset;
-	public extern var Variability(get, never): cpp.Float32;
-	public inline extern function get_Variability(): cpp.Float32 return this.Variability;
-	public extern var SitesToAdd(get, never): cpp.Int32;
-	public inline extern function get_SitesToAdd(): cpp.Int32 return this.SitesToAdd;
-	public extern var GridX(get, never): cpp.Int32;
-	public inline extern function get_GridX(): cpp.Int32 return this.GridX;
-	public extern var GridY(get, never): cpp.Int32;
-	public inline extern function get_GridY(): cpp.Int32 return this.GridY;
-	public extern var GridZ(get, never): cpp.Int32;
-	public inline extern function get_GridZ(): cpp.Int32 return this.GridZ;
-	public extern var SkipFraction(get, never): cpp.Float32;
-	public inline extern function get_SkipFraction(): cpp.Float32 return this.SkipFraction;
+	public extern var NormalOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalOffset(): ucpp.num.Float32 return this.NormalOffset;
+	public extern var Variability(get, never): ucpp.num.Float32;
+	public inline extern function get_Variability(): ucpp.num.Float32 return this.Variability;
+	public extern var SitesToAdd(get, never): ucpp.num.Int32;
+	public inline extern function get_SitesToAdd(): ucpp.num.Int32 return this.SitesToAdd;
+	public extern var GridX(get, never): ucpp.num.Int32;
+	public inline extern function get_GridX(): ucpp.num.Int32 return this.GridX;
+	public extern var GridY(get, never): ucpp.num.Int32;
+	public inline extern function get_GridY(): ucpp.num.Int32 return this.GridY;
+	public extern var GridZ(get, never): ucpp.num.Int32;
+	public inline extern function get_GridZ(): ucpp.num.Int32 return this.GridZ;
+	public extern var SkipFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_SkipFraction(): ucpp.num.Float32 return this.SkipFraction;
 	public extern var SkipMode(get, never): EDownsamplingMode;
 	public inline extern function get_SkipMode(): EDownsamplingMode return this.SkipMode;
 	public extern var ReferenceMesh(get, never): TLazyObjectPtr<StaticMeshActor.ConstStaticMeshActor>;
@@ -55,7 +55,7 @@ abstract ConstFractureCustomVoronoiSettings(FractureCustomVoronoiSettings) from 
 @:forward
 @:nativeGen
 @:native("FractureCustomVoronoiSettings*")
-abstract FractureCustomVoronoiSettingsPtr(cpp.Star<FractureCustomVoronoiSettings>) from cpp.Star<FractureCustomVoronoiSettings> to cpp.Star<FractureCustomVoronoiSettings>{
+abstract FractureCustomVoronoiSettingsPtr(ucpp.Ptr<FractureCustomVoronoiSettings>) from ucpp.Ptr<FractureCustomVoronoiSettings> to ucpp.Ptr<FractureCustomVoronoiSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureCustomVoronoiSettings): FractureCustomVoronoiSettingsPtr {
 		return untyped __cpp__("&({0})", v);

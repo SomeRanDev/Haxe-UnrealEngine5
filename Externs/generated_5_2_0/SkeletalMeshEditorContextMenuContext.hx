@@ -3,10 +3,10 @@ package ue;
 
 @:native("USkeletalMeshEditorContextMenuContext")
 @:include("SkeletalMeshEditorContextMenuContext.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshEditorContextMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSkeletalMeshEditorContextMenuContext(SkeletalMeshEditorContextMenu
 @:forward
 @:nativeGen
 @:native("SkeletalMeshEditorContextMenuContext*")
-abstract SkeletalMeshEditorContextMenuContextPtr(cpp.Star<SkeletalMeshEditorContextMenuContext>) from cpp.Star<SkeletalMeshEditorContextMenuContext> to cpp.Star<SkeletalMeshEditorContextMenuContext>{
+abstract SkeletalMeshEditorContextMenuContextPtr(ucpp.Ptr<SkeletalMeshEditorContextMenuContext>) from ucpp.Ptr<SkeletalMeshEditorContextMenuContext> to ucpp.Ptr<SkeletalMeshEditorContextMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMeshEditorContextMenuContext): SkeletalMeshEditorContextMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

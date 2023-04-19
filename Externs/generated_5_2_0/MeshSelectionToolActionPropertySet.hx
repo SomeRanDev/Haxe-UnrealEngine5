@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMeshSelectionToolActionPropertySet")
 @:include("MeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class MeshSelectionToolActionPropertySet extends InteractiveToolPropertySet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshSelectionToolActionPropertySet(MeshSelectionToolActionProperty
 @:forward
 @:nativeGen
 @:native("MeshSelectionToolActionPropertySet*")
-abstract MeshSelectionToolActionPropertySetPtr(cpp.Star<MeshSelectionToolActionPropertySet>) from cpp.Star<MeshSelectionToolActionPropertySet> to cpp.Star<MeshSelectionToolActionPropertySet>{
+abstract MeshSelectionToolActionPropertySetPtr(ucpp.Ptr<MeshSelectionToolActionPropertySet>) from ucpp.Ptr<MeshSelectionToolActionPropertySet> to ucpp.Ptr<MeshSelectionToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: MeshSelectionToolActionPropertySet): MeshSelectionToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

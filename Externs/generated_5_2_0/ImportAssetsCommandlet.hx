@@ -3,12 +3,12 @@ package ue;
 
 @:native("UImportAssetsCommandlet")
 @:include("Commandlets/ImportAssetsCommandlet.h")
-@:structAccess
+@:valueType
 extern class ImportAssetsCommandlet extends Commandlet {
-	private var GlobalImportData: cpp.Star<AutomatedAssetImportData>;
-	private var ImportDataList: TArray<cpp.Star<AutomatedAssetImportData>>;
+	private var GlobalImportData: ucpp.Ptr<AutomatedAssetImportData>;
+	private var ImportDataList: TArray<ucpp.Ptr<AutomatedAssetImportData>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstImportAssetsCommandlet(ImportAssetsCommandlet) from ImportAssetsCo
 @:forward
 @:nativeGen
 @:native("ImportAssetsCommandlet*")
-abstract ImportAssetsCommandletPtr(cpp.Star<ImportAssetsCommandlet>) from cpp.Star<ImportAssetsCommandlet> to cpp.Star<ImportAssetsCommandlet>{
+abstract ImportAssetsCommandletPtr(ucpp.Ptr<ImportAssetsCommandlet>) from ucpp.Ptr<ImportAssetsCommandlet> to ucpp.Ptr<ImportAssetsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ImportAssetsCommandlet): ImportAssetsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

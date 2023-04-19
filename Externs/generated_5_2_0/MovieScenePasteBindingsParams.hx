@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMovieScenePasteBindingsParams")
 @:include("SequencerUtilities.h")
-@:structAccess
+@:valueType
 extern class MovieScenePasteBindingsParams {
 	public var Bindings: TArray<MovieSceneBindingProxy>;
-	public var ParentFolder: cpp.Star<MovieSceneFolder>;
-	public var Folders: TArray<cpp.Star<MovieSceneFolder>>;
+	public var ParentFolder: ucpp.Ptr<MovieSceneFolder>;
+	public var Folders: TArray<ucpp.Ptr<MovieSceneFolder>>;
 	public var bDuplicateExistingActors: Bool;
 
 	@:native("FMovieScenePasteBindingsParams") public function new();
-	@:native("FMovieScenePasteBindingsParams") public static function make(Bindings: TArray<MovieSceneBindingProxy>, ParentFolder: cpp.Star<MovieSceneFolder>, Folders: TArray<cpp.Star<MovieSceneFolder>>, bDuplicateExistingActors: Bool): MovieScenePasteBindingsParams ;
+	@:native("FMovieScenePasteBindingsParams") public static function make(Bindings: TArray<MovieSceneBindingProxy>, ParentFolder: ucpp.Ptr<MovieSceneFolder>, Folders: TArray<ucpp.Ptr<MovieSceneFolder>>, bDuplicateExistingActors: Bool): MovieScenePasteBindingsParams ;
 }

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangePhysicsAssetFactoryNode")
 @:include("InterchangePhysicsAssetFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangePhysicsAssetFactoryNode extends InterchangeFactoryBaseNode {
 	public function SetCustomSkeletalMeshUid(AttributeValue: FString): Bool;
 	public function InitializePhysicsAssetNode(UniqueID: FString, DisplayLabel: FString, InAssetClass: FString): Void;
-	public function GetObjectClass(): cpp.Star<Class>;
-	public function GetCustomSkeletalMeshUid(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetObjectClass(): ucpp.Ptr<Class>;
+	public function GetCustomSkeletalMeshUid(AttributeValue: ucpp.Ref<FString>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetObjectClass, GetCustomSkeletalMeshUid)
@@ -21,7 +21,7 @@ abstract ConstInterchangePhysicsAssetFactoryNode(InterchangePhysicsAssetFactoryN
 @:forward
 @:nativeGen
 @:native("InterchangePhysicsAssetFactoryNode*")
-abstract InterchangePhysicsAssetFactoryNodePtr(cpp.Star<InterchangePhysicsAssetFactoryNode>) from cpp.Star<InterchangePhysicsAssetFactoryNode> to cpp.Star<InterchangePhysicsAssetFactoryNode>{
+abstract InterchangePhysicsAssetFactoryNodePtr(ucpp.Ptr<InterchangePhysicsAssetFactoryNode>) from ucpp.Ptr<InterchangePhysicsAssetFactoryNode> to ucpp.Ptr<InterchangePhysicsAssetFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePhysicsAssetFactoryNode): InterchangePhysicsAssetFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

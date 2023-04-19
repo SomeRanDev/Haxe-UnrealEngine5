@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDistribution")
 @:include("Distributions/Distribution.h")
-@:structAccess
+@:valueType
 extern class Distribution extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDistribution(Distribution) from Distribution {
 @:forward
 @:nativeGen
 @:native("Distribution*")
-abstract DistributionPtr(cpp.Star<Distribution>) from cpp.Star<Distribution> to cpp.Star<Distribution>{
+abstract DistributionPtr(ucpp.Ptr<Distribution>) from ucpp.Ptr<Distribution> to ucpp.Ptr<Distribution>{
 	@:from
 	public static extern inline function fromValue(v: Distribution): DistributionPtr {
 		return untyped __cpp__("&({0})", v);

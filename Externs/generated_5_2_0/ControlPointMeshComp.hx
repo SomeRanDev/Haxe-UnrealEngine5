@@ -3,24 +3,24 @@ package ue;
 
 @:native("UControlPointMeshComponent")
 @:include("ControlPointMeshComponent.h")
-@:structAccess
+@:valueType
 extern class ControlPointMeshComp extends StaticMeshComp {
-	public var VirtualTextureMainPassMaxDrawDistance: cpp.Float32;
+	public var VirtualTextureMainPassMaxDrawDistance: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstControlPointMeshComp(ControlPointMeshComp) from ControlPointMeshComp {
-	public extern var VirtualTextureMainPassMaxDrawDistance(get, never): cpp.Float32;
-	public inline extern function get_VirtualTextureMainPassMaxDrawDistance(): cpp.Float32 return this.VirtualTextureMainPassMaxDrawDistance;
+	public extern var VirtualTextureMainPassMaxDrawDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_VirtualTextureMainPassMaxDrawDistance(): ucpp.num.Float32 return this.VirtualTextureMainPassMaxDrawDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("ControlPointMeshComp*")
-abstract ControlPointMeshCompPtr(cpp.Star<ControlPointMeshComp>) from cpp.Star<ControlPointMeshComp> to cpp.Star<ControlPointMeshComp>{
+abstract ControlPointMeshCompPtr(ucpp.Ptr<ControlPointMeshComp>) from ucpp.Ptr<ControlPointMeshComp> to ucpp.Ptr<ControlPointMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: ControlPointMeshComp): ControlPointMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

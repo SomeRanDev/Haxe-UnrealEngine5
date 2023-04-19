@@ -3,12 +3,12 @@ package ue;
 
 @:native("FRevisionInfo")
 @:include("AssetDefinition.h")
-@:structAccess
+@:valueType
 extern class RevisionInfo {
 	public var Revision: FString;
-	public var Changelist: cpp.Int32;
+	public var Changelist: ucpp.num.Int32;
 	public var Date: DateTime;
 
 	@:native("FRevisionInfo") public function new();
-	@:native("FRevisionInfo") public static function make(Revision: FString, Changelist: cpp.Int32, Date: DateTime): RevisionInfo ;
+	@:native("FRevisionInfo") public static function make(Revision: FString, Changelist: ucpp.num.Int32, Date: DateTime): RevisionInfo ;
 }

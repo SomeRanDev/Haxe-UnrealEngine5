@@ -3,10 +3,10 @@ package ue;
 
 @:native("UExportPakDependenciesCommandlet")
 @:include("Commandlets/ExportPakDependencies.h")
-@:structAccess
+@:valueType
 extern class ExportPakDependenciesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstExportPakDependenciesCommandlet(ExportPakDependenciesCommandlet) f
 @:forward
 @:nativeGen
 @:native("ExportPakDependenciesCommandlet*")
-abstract ExportPakDependenciesCommandletPtr(cpp.Star<ExportPakDependenciesCommandlet>) from cpp.Star<ExportPakDependenciesCommandlet> to cpp.Star<ExportPakDependenciesCommandlet>{
+abstract ExportPakDependenciesCommandletPtr(ucpp.Ptr<ExportPakDependenciesCommandlet>) from ucpp.Ptr<ExportPakDependenciesCommandlet> to ucpp.Ptr<ExportPakDependenciesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ExportPakDependenciesCommandlet): ExportPakDependenciesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

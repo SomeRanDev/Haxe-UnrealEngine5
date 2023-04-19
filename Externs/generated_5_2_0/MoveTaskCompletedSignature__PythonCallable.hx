@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMoveTaskCompletedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class MoveTaskCompletedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMoveTaskCompletedSignature__PythonCallable(MoveTaskCompletedSignat
 @:forward
 @:nativeGen
 @:native("MoveTaskCompletedSignature__PythonCallable*")
-abstract MoveTaskCompletedSignature__PythonCallablePtr(cpp.Star<MoveTaskCompletedSignature__PythonCallable>) from cpp.Star<MoveTaskCompletedSignature__PythonCallable> to cpp.Star<MoveTaskCompletedSignature__PythonCallable>{
+abstract MoveTaskCompletedSignature__PythonCallablePtr(ucpp.Ptr<MoveTaskCompletedSignature__PythonCallable>) from ucpp.Ptr<MoveTaskCompletedSignature__PythonCallable> to ucpp.Ptr<MoveTaskCompletedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: MoveTaskCompletedSignature__PythonCallable): MoveTaskCompletedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

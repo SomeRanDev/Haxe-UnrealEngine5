@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBTComposite_Selector")
 @:include("BehaviorTree/Composites/BTComposite_Selector.h")
-@:structAccess
+@:valueType
 extern class BTComposite_Selector extends BTCompositeNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBTComposite_Selector(BTComposite_Selector) from BTComposite_Select
 @:forward
 @:nativeGen
 @:native("BTComposite_Selector*")
-abstract BTComposite_SelectorPtr(cpp.Star<BTComposite_Selector>) from cpp.Star<BTComposite_Selector> to cpp.Star<BTComposite_Selector>{
+abstract BTComposite_SelectorPtr(ucpp.Ptr<BTComposite_Selector>) from ucpp.Ptr<BTComposite_Selector> to ucpp.Ptr<BTComposite_Selector>{
 	@:from
 	public static extern inline function fromValue(v: BTComposite_Selector): BTComposite_SelectorPtr {
 		return untyped __cpp__("&({0})", v);

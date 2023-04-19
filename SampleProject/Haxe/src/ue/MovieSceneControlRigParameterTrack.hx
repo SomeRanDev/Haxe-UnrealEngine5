@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneControlRigParameterTrack")
 @:include("Sequencer/MovieSceneControlRigParameterTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneControlRigParameterTrack extends MovieSceneNameableTrack {
-	private var ControlRig: cpp.Star<ControlRig>;
-	private var SectionToKey: cpp.Star<MovieSceneSection>;
-	private var Sections: TArray<cpp.Star<MovieSceneSection>>;
+	private var ControlRig: ucpp.Ptr<ControlRig>;
+	private var SectionToKey: ucpp.Ptr<MovieSceneSection>;
+	private var Sections: TArray<ucpp.Ptr<MovieSceneSection>>;
 	private var TrackName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMovieSceneControlRigParameterTrack(MovieSceneControlRigParameterTr
 @:forward
 @:nativeGen
 @:native("MovieSceneControlRigParameterTrack*")
-abstract MovieSceneControlRigParameterTrackPtr(cpp.Star<MovieSceneControlRigParameterTrack>) from cpp.Star<MovieSceneControlRigParameterTrack> to cpp.Star<MovieSceneControlRigParameterTrack>{
+abstract MovieSceneControlRigParameterTrackPtr(ucpp.Ptr<MovieSceneControlRigParameterTrack>) from ucpp.Ptr<MovieSceneControlRigParameterTrack> to ucpp.Ptr<MovieSceneControlRigParameterTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneControlRigParameterTrack): MovieSceneControlRigParameterTrackPtr {
 		return untyped __cpp__("&({0})", v);

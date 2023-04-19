@@ -3,7 +3,7 @@ package ue;
 
 @:native("UIKRigBoneDetails")
 @:include("RigEditor/IKRigEditorController.h")
-@:structAccess
+@:valueType
 extern class IKRigBoneDetails extends Object {
 	public var SelectedBone: FName;
 	public var CurrentTransform: Transform;
@@ -11,7 +11,7 @@ extern class IKRigBoneDetails extends Object {
 	public var AnimInstancePtr: TWeakObjectPtr<AnimInstance>;
 	public var AssetPtr: TWeakObjectPtr<IKRigDefinition>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstIKRigBoneDetails(IKRigBoneDetails) from IKRigBoneDetails {
 @:forward
 @:nativeGen
 @:native("IKRigBoneDetails*")
-abstract IKRigBoneDetailsPtr(cpp.Star<IKRigBoneDetails>) from cpp.Star<IKRigBoneDetails> to cpp.Star<IKRigBoneDetails>{
+abstract IKRigBoneDetailsPtr(ucpp.Ptr<IKRigBoneDetails>) from ucpp.Ptr<IKRigBoneDetails> to ucpp.Ptr<IKRigBoneDetails>{
 	@:from
 	public static extern inline function fromValue(v: IKRigBoneDetails): IKRigBoneDetailsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimStateMachineTypes")
 @:include("Animation/AnimStateMachineTypes.h")
-@:structAccess
+@:valueType
 extern class AnimStateMachineTypes extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimStateMachineTypes(AnimStateMachineTypes) from AnimStateMachine
 @:forward
 @:nativeGen
 @:native("AnimStateMachineTypes*")
-abstract AnimStateMachineTypesPtr(cpp.Star<AnimStateMachineTypes>) from cpp.Star<AnimStateMachineTypes> to cpp.Star<AnimStateMachineTypes>{
+abstract AnimStateMachineTypesPtr(ucpp.Ptr<AnimStateMachineTypes>) from ucpp.Ptr<AnimStateMachineTypes> to ucpp.Ptr<AnimStateMachineTypes>{
 	@:from
 	public static extern inline function fromValue(v: AnimStateMachineTypes): AnimStateMachineTypesPtr {
 		return untyped __cpp__("&({0})", v);

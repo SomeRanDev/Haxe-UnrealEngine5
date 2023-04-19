@@ -3,25 +3,22 @@ package ue;
 
 @:native("UTemplateSequence")
 @:include("TemplateSequence.h")
-@:structAccess
+@:valueType
 extern class TemplateSequence extends MovieSceneSequence {
-	public var MovieScene: cpp.Star<MovieScene>;
+	public var MovieScene: ucpp.Ptr<MovieScene>;
 	public var BoundActorClass: TSoftClassPtr<Class>;
-	public var BoundPreviewActor: TSoftObjectPtr<Actor>;
 	public var BoundActorComponents: TMap<Guid, FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTemplateSequence(TemplateSequence) from TemplateSequence {
-	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
-	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
+	public extern var MovieScene(get, never): ucpp.Ptr<MovieScene.ConstMovieScene>;
+	public inline extern function get_MovieScene(): ucpp.Ptr<MovieScene.ConstMovieScene> return this.MovieScene;
 	public extern var BoundActorClass(get, never): TSoftClassPtr<Class.ConstClass>;
 	public inline extern function get_BoundActorClass(): TSoftClassPtr<Class.ConstClass> return this.BoundActorClass;
-	public extern var BoundPreviewActor(get, never): TSoftObjectPtr<Actor.ConstActor>;
-	public inline extern function get_BoundPreviewActor(): TSoftObjectPtr<Actor.ConstActor> return this.BoundPreviewActor;
 	public extern var BoundActorComponents(get, never): TMap<Guid, FName>;
 	public inline extern function get_BoundActorComponents(): TMap<Guid, FName> return this.BoundActorComponents;
 }
@@ -29,7 +26,7 @@ abstract ConstTemplateSequence(TemplateSequence) from TemplateSequence {
 @:forward
 @:nativeGen
 @:native("TemplateSequence*")
-abstract TemplateSequencePtr(cpp.Star<TemplateSequence>) from cpp.Star<TemplateSequence> to cpp.Star<TemplateSequence>{
+abstract TemplateSequencePtr(ucpp.Ptr<TemplateSequence>) from ucpp.Ptr<TemplateSequence> to ucpp.Ptr<TemplateSequence>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequence): TemplateSequencePtr {
 		return untyped __cpp__("&({0})", v);

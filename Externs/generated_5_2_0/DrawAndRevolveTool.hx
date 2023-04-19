@@ -3,16 +3,16 @@ package ue;
 
 @:native("UDrawAndRevolveTool")
 @:include("DrawAndRevolveTool.h")
-@:structAccess
+@:valueType
 extern class DrawAndRevolveTool extends InteractiveTool {
-	@:protected public var ControlPointsMechanic: cpp.Star<CurveControlPointsMechanic>;
-	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var Settings: cpp.Star<RevolveToolProperties>;
-	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var ControlPointsMechanic: ucpp.Ptr<CurveControlPointsMechanic>;
+	@:protected public var PlaneMechanic: ucpp.Ptr<ConstructionPlaneMechanic>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var Settings: ucpp.Ptr<RevolveToolProperties>;
+	@:protected public var MaterialProperties: ucpp.Ptr<NewMeshMaterialProperties>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstDrawAndRevolveTool(DrawAndRevolveTool) from DrawAndRevolveTool {
 @:forward
 @:nativeGen
 @:native("DrawAndRevolveTool*")
-abstract DrawAndRevolveToolPtr(cpp.Star<DrawAndRevolveTool>) from cpp.Star<DrawAndRevolveTool> to cpp.Star<DrawAndRevolveTool>{
+abstract DrawAndRevolveToolPtr(ucpp.Ptr<DrawAndRevolveTool>) from ucpp.Ptr<DrawAndRevolveTool> to ucpp.Ptr<DrawAndRevolveTool>{
 	@:from
 	public static extern inline function fromValue(v: DrawAndRevolveTool): DrawAndRevolveToolPtr {
 		return untyped __cpp__("&({0})", v);

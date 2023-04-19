@@ -3,24 +3,24 @@ package ue;
 
 @:native("UEditNormalsOperatorFactory")
 @:include("EditNormalsTool.h")
-@:structAccess
+@:valueType
 extern class EditNormalsOperatorFactory extends Object {
-	public var Tool: cpp.Star<EditNormalsTool>;
+	public var Tool: ucpp.Ptr<EditNormalsTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditNormalsOperatorFactory(EditNormalsOperatorFactory) from EditNormalsOperatorFactory {
-	public extern var Tool(get, never): cpp.Star<EditNormalsTool.ConstEditNormalsTool>;
-	public inline extern function get_Tool(): cpp.Star<EditNormalsTool.ConstEditNormalsTool> return this.Tool;
+	public extern var Tool(get, never): ucpp.Ptr<EditNormalsTool.ConstEditNormalsTool>;
+	public inline extern function get_Tool(): ucpp.Ptr<EditNormalsTool.ConstEditNormalsTool> return this.Tool;
 }
 
 @:forward
 @:nativeGen
 @:native("EditNormalsOperatorFactory*")
-abstract EditNormalsOperatorFactoryPtr(cpp.Star<EditNormalsOperatorFactory>) from cpp.Star<EditNormalsOperatorFactory> to cpp.Star<EditNormalsOperatorFactory>{
+abstract EditNormalsOperatorFactoryPtr(ucpp.Ptr<EditNormalsOperatorFactory>) from ucpp.Ptr<EditNormalsOperatorFactory> to ucpp.Ptr<EditNormalsOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: EditNormalsOperatorFactory): EditNormalsOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

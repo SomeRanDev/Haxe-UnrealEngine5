@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAlignObjectsToolBuilder")
 @:include("AlignObjectsTool.h")
-@:structAccess
+@:valueType
 extern class AlignObjectsToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAlignObjectsToolBuilder(AlignObjectsToolBuilder) from AlignObjects
 @:forward
 @:nativeGen
 @:native("AlignObjectsToolBuilder*")
-abstract AlignObjectsToolBuilderPtr(cpp.Star<AlignObjectsToolBuilder>) from cpp.Star<AlignObjectsToolBuilder> to cpp.Star<AlignObjectsToolBuilder>{
+abstract AlignObjectsToolBuilderPtr(ucpp.Ptr<AlignObjectsToolBuilder>) from ucpp.Ptr<AlignObjectsToolBuilder> to ucpp.Ptr<AlignObjectsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: AlignObjectsToolBuilder): AlignObjectsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

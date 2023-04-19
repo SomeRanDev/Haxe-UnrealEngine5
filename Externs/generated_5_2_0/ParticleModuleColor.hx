@@ -3,13 +3,13 @@ package ue;
 
 @:native("UParticleModuleColor")
 @:include("Particles/Color/ParticleModuleColor.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleColor extends ParticleModuleColorBase {
 	public var StartColor: RawDistributionVector;
 	public var StartAlpha: RawDistributionFloat;
 	public var bClampAlpha: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstParticleModuleColor(ParticleModuleColor) from ParticleModuleColor 
 @:forward
 @:nativeGen
 @:native("ParticleModuleColor*")
-abstract ParticleModuleColorPtr(cpp.Star<ParticleModuleColor>) from cpp.Star<ParticleModuleColor> to cpp.Star<ParticleModuleColor>{
+abstract ParticleModuleColorPtr(ucpp.Ptr<ParticleModuleColor>) from ucpp.Ptr<ParticleModuleColor> to ucpp.Ptr<ParticleModuleColor>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleColor): ParticleModuleColorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UOnsetNRT")
 @:include("OnsetNRT.h")
-@:structAccess
+@:valueType
 extern class OnsetNRT extends AudioSynesthesiaNRT {
-	public var Settings: cpp.Star<OnsetNRTSettings>;
+	public var Settings: ucpp.Ptr<OnsetNRTSettings>;
 
-	public function GetNormalizedChannelOnsetsBetweenTimes(InStartSeconds: cpp.Float32, InEndSeconds: cpp.Float32, InChannel: cpp.Int32, OutOnsetTimestamps: cpp.Reference<TArray<cpp.Float32>>, OutOnsetStrengths: cpp.Reference<TArray<cpp.Float32>>): Void;
-	public function GetChannelOnsetsBetweenTimes(InStartSeconds: cpp.Float32, InEndSeconds: cpp.Float32, InChannel: cpp.Int32, OutOnsetTimestamps: cpp.Reference<TArray<cpp.Float32>>, OutOnsetStrengths: cpp.Reference<TArray<cpp.Float32>>): Void;
+	public function GetNormalizedChannelOnsetsBetweenTimes(InStartSeconds: ucpp.num.Float32, InEndSeconds: ucpp.num.Float32, InChannel: ucpp.num.Int32, OutOnsetTimestamps: ucpp.Ref<TArray<ucpp.num.Float32>>, OutOnsetStrengths: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
+	public function GetChannelOnsetsBetweenTimes(InStartSeconds: ucpp.num.Float32, InEndSeconds: ucpp.num.Float32, InChannel: ucpp.num.Int32, OutOnsetTimestamps: ucpp.Ref<TArray<ucpp.num.Float32>>, OutOnsetStrengths: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNormalizedChannelOnsetsBetweenTimes, GetChannelOnsetsBetweenTimes)
 @:nativeGen
 abstract ConstOnsetNRT(OnsetNRT) from OnsetNRT {
-	public extern var Settings(get, never): cpp.Star<OnsetNRTSettings.ConstOnsetNRTSettings>;
-	public inline extern function get_Settings(): cpp.Star<OnsetNRTSettings.ConstOnsetNRTSettings> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<OnsetNRTSettings.ConstOnsetNRTSettings>;
+	public inline extern function get_Settings(): ucpp.Ptr<OnsetNRTSettings.ConstOnsetNRTSettings> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("OnsetNRT*")
-abstract OnsetNRTPtr(cpp.Star<OnsetNRT>) from cpp.Star<OnsetNRT> to cpp.Star<OnsetNRT>{
+abstract OnsetNRTPtr(ucpp.Ptr<OnsetNRT>) from ucpp.Ptr<OnsetNRT> to ucpp.Ptr<OnsetNRT>{
 	@:from
 	public static extern inline function fromValue(v: OnsetNRT): OnsetNRTPtr {
 		return untyped __cpp__("&({0})", v);

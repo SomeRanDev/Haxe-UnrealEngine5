@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMetasoundFrontendVersionNumber")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendVersionNumber {
-	public var Major: cpp.Int32;
-	public var Minor: cpp.Int32;
+	public var Major: ucpp.num.Int32;
+	public var Minor: ucpp.num.Int32;
 
 	@:native("FMetasoundFrontendVersionNumber") public function new();
-	@:native("FMetasoundFrontendVersionNumber") public static function make(Major: cpp.Int32, Minor: cpp.Int32): MetasoundFrontendVersionNumber ;
+	@:native("FMetasoundFrontendVersionNumber") public static function make(Major: ucpp.num.Int32, Minor: ucpp.num.Int32): MetasoundFrontendVersionNumber ;
 }

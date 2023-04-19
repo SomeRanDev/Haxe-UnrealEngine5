@@ -3,29 +3,29 @@ package ue;
 
 @:native("UConnectionCallbackProxy")
 @:include("ConnectionCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class ConnectionCallbackProxy extends OnlineBlueprintCallProxyBase {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
 
-	public function ConnectToService(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Star<ConnectionCallbackProxy>;
+	public function ConnectToService(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<ConnectionCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConnectionCallbackProxy(ConnectionCallbackProxy) from ConnectionCallbackProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("ConnectionCallbackProxy*")
-abstract ConnectionCallbackProxyPtr(cpp.Star<ConnectionCallbackProxy>) from cpp.Star<ConnectionCallbackProxy> to cpp.Star<ConnectionCallbackProxy>{
+abstract ConnectionCallbackProxyPtr(ucpp.Ptr<ConnectionCallbackProxy>) from ucpp.Ptr<ConnectionCallbackProxy> to ucpp.Ptr<ConnectionCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: ConnectionCallbackProxy): ConnectionCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

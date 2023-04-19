@@ -3,20 +3,20 @@ package ue;
 
 @:native("UMovieSceneScriptingBoolChannel")
 @:include("KeysAndChannels/MovieSceneScriptingBool.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingBoolChannel extends MovieSceneScriptingChannel {
 	public function SetDefault(InDefaultValue: Bool): Void;
-	public function RemoveKey(Key: cpp.Star<MovieSceneScriptingKey>): Void;
+	public function RemoveKey(Key: ucpp.Ptr<MovieSceneScriptingKey>): Void;
 	public function RemoveDefault(): Void;
 	public function HasDefault(): Bool;
-	public function GetNumKeys(): cpp.Int32;
-	public function GetKeys(): TArray<cpp.Star<MovieSceneScriptingKey>>;
+	public function GetNumKeys(): ucpp.num.Int32;
+	public function GetKeys(): TArray<ucpp.Ptr<MovieSceneScriptingKey>>;
 	public function GetDefault(): Bool;
 	public function EvaluateKeys(Range: SequencerScriptingRange, FrameRate: FrameRate): TArray<Bool>;
 	public function ComputeEffectiveRange(): SequencerScriptingRange;
-	public function AddKey(InTime: cpp.Reference<FrameNumber>, NewValue: Bool, SubFrame: cpp.Float32, TimeUnit: ESequenceTimeUnit): cpp.Star<MovieSceneScriptingBoolKey>;
+	public function AddKey(InTime: ucpp.Ref<FrameNumber>, NewValue: Bool, SubFrame: ucpp.num.Float32, TimeUnit: ESequenceTimeUnit): ucpp.Ptr<MovieSceneScriptingBoolKey>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasDefault, GetNumKeys, GetKeys, GetDefault, EvaluateKeys, ComputeEffectiveRange)
@@ -27,7 +27,7 @@ abstract ConstMovieSceneScriptingBoolChannel(MovieSceneScriptingBoolChannel) fro
 @:forward
 @:nativeGen
 @:native("MovieSceneScriptingBoolChannel*")
-abstract MovieSceneScriptingBoolChannelPtr(cpp.Star<MovieSceneScriptingBoolChannel>) from cpp.Star<MovieSceneScriptingBoolChannel> to cpp.Star<MovieSceneScriptingBoolChannel>{
+abstract MovieSceneScriptingBoolChannelPtr(ucpp.Ptr<MovieSceneScriptingBoolChannel>) from ucpp.Ptr<MovieSceneScriptingBoolChannel> to ucpp.Ptr<MovieSceneScriptingBoolChannel>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneScriptingBoolChannel): MovieSceneScriptingBoolChannelPtr {
 		return untyped __cpp__("&({0})", v);

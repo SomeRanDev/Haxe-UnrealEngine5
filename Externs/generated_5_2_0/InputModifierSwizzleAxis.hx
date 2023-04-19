@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputModifierSwizzleAxis")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierSwizzleAxis extends InputModifier {
 	public var Order: EInputAxisSwizzle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputModifierSwizzleAxis(InputModifierSwizzleAxis) from InputModif
 @:forward
 @:nativeGen
 @:native("InputModifierSwizzleAxis*")
-abstract InputModifierSwizzleAxisPtr(cpp.Star<InputModifierSwizzleAxis>) from cpp.Star<InputModifierSwizzleAxis> to cpp.Star<InputModifierSwizzleAxis>{
+abstract InputModifierSwizzleAxisPtr(ucpp.Ptr<InputModifierSwizzleAxis>) from ucpp.Ptr<InputModifierSwizzleAxis> to ucpp.Ptr<InputModifierSwizzleAxis>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierSwizzleAxis): InputModifierSwizzleAxisPtr {
 		return untyped __cpp__("&({0})", v);

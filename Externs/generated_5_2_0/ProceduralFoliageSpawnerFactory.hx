@@ -3,10 +3,10 @@ package ue;
 
 @:native("UProceduralFoliageSpawnerFactory")
 @:include("ProceduralFoliageSpawnerFactory.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageSpawnerFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstProceduralFoliageSpawnerFactory(ProceduralFoliageSpawnerFactory) f
 @:forward
 @:nativeGen
 @:native("ProceduralFoliageSpawnerFactory*")
-abstract ProceduralFoliageSpawnerFactoryPtr(cpp.Star<ProceduralFoliageSpawnerFactory>) from cpp.Star<ProceduralFoliageSpawnerFactory> to cpp.Star<ProceduralFoliageSpawnerFactory>{
+abstract ProceduralFoliageSpawnerFactoryPtr(ucpp.Ptr<ProceduralFoliageSpawnerFactory>) from ucpp.Ptr<ProceduralFoliageSpawnerFactory> to ucpp.Ptr<ProceduralFoliageSpawnerFactory>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralFoliageSpawnerFactory): ProceduralFoliageSpawnerFactoryPtr {
 		return untyped __cpp__("&({0})", v);

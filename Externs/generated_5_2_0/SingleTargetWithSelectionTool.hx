@@ -3,11 +3,11 @@ package ue;
 
 @:native("USingleTargetWithSelectionTool")
 @:include("BaseTools/SingleTargetWithSelectionTool.h")
-@:structAccess
+@:valueType
 extern class SingleTargetWithSelectionTool extends SingleSelectionTool {
 	@:protected public var TargetWorld: TWeakObjectPtr<World>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSingleTargetWithSelectionTool(SingleTargetWithSelectionTool) from 
 @:forward
 @:nativeGen
 @:native("SingleTargetWithSelectionTool*")
-abstract SingleTargetWithSelectionToolPtr(cpp.Star<SingleTargetWithSelectionTool>) from cpp.Star<SingleTargetWithSelectionTool> to cpp.Star<SingleTargetWithSelectionTool>{
+abstract SingleTargetWithSelectionToolPtr(ucpp.Ptr<SingleTargetWithSelectionTool>) from ucpp.Ptr<SingleTargetWithSelectionTool> to ucpp.Ptr<SingleTargetWithSelectionTool>{
 	@:from
 	public static extern inline function fromValue(v: SingleTargetWithSelectionTool): SingleTargetWithSelectionToolPtr {
 		return untyped __cpp__("&({0})", v);

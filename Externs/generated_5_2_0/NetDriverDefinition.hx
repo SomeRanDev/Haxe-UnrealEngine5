@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNetDriverDefinition")
 @:include("Engine/Engine.h")
-@:structAccess
+@:valueType
 extern class NetDriverDefinition {
 	public var DefName: FName;
 	public var DriverClassName: FName;
 	public var DriverClassNameFallback: FName;
-	public var MaxChannelsOverride: cpp.Int32;
+	public var MaxChannelsOverride: ucpp.num.Int32;
 
 	@:native("FNetDriverDefinition") public function new();
-	@:native("FNetDriverDefinition") public static function make(DefName: FName, DriverClassName: FName, DriverClassNameFallback: FName, MaxChannelsOverride: cpp.Int32): NetDriverDefinition ;
+	@:native("FNetDriverDefinition") public static function make(DefName: FName, DriverClassName: FName, DriverClassNameFallback: FName, MaxChannelsOverride: ucpp.num.Int32): NetDriverDefinition ;
 }

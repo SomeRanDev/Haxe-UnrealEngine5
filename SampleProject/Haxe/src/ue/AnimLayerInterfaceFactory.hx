@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimLayerInterfaceFactory")
 @:include("Factories/AnimBlueprintFactory.h")
-@:structAccess
+@:valueType
 extern class AnimLayerInterfaceFactory extends AnimBlueprintFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimLayerInterfaceFactory(AnimLayerInterfaceFactory) from AnimLaye
 @:forward
 @:nativeGen
 @:native("AnimLayerInterfaceFactory*")
-abstract AnimLayerInterfaceFactoryPtr(cpp.Star<AnimLayerInterfaceFactory>) from cpp.Star<AnimLayerInterfaceFactory> to cpp.Star<AnimLayerInterfaceFactory>{
+abstract AnimLayerInterfaceFactoryPtr(ucpp.Ptr<AnimLayerInterfaceFactory>) from ucpp.Ptr<AnimLayerInterfaceFactory> to ucpp.Ptr<AnimLayerInterfaceFactory>{
 	@:from
 	public static extern inline function fromValue(v: AnimLayerInterfaceFactory): AnimLayerInterfaceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

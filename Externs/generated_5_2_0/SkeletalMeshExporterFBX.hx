@@ -3,10 +3,10 @@ package ue;
 
 @:native("USkeletalMeshExporterFBX")
 @:include("Exporters/SkeletalMeshExporterFBX.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshExporterFBX extends ExporterFBX {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSkeletalMeshExporterFBX(SkeletalMeshExporterFBX) from SkeletalMesh
 @:forward
 @:nativeGen
 @:native("SkeletalMeshExporterFBX*")
-abstract SkeletalMeshExporterFBXPtr(cpp.Star<SkeletalMeshExporterFBX>) from cpp.Star<SkeletalMeshExporterFBX> to cpp.Star<SkeletalMeshExporterFBX>{
+abstract SkeletalMeshExporterFBXPtr(ucpp.Ptr<SkeletalMeshExporterFBX>) from ucpp.Ptr<SkeletalMeshExporterFBX> to ucpp.Ptr<SkeletalMeshExporterFBX>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMeshExporterFBX): SkeletalMeshExporterFBXPtr {
 		return untyped __cpp__("&({0})", v);

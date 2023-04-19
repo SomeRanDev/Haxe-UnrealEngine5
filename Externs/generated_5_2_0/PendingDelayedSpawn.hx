@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPendingDelayedSpawn")
 @:include("FunctionalAITest.h")
-@:structAccess
+@:valueType
 extern class PendingDelayedSpawn {
 	@:native("FPendingDelayedSpawn") public function new();
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInputDeviceTriggerVibrationProperty")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class InputDeviceTriggerVibrationProperty extends InputDeviceTriggerEffect {
 	public var TriggerData: DeviceTriggerTriggerVibrationData;
 	public var DeviceOverrideData: TMap<FName, DeviceTriggerTriggerVibrationData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstInputDeviceTriggerVibrationProperty(InputDeviceTriggerVibrationPro
 @:forward
 @:nativeGen
 @:native("InputDeviceTriggerVibrationProperty*")
-abstract InputDeviceTriggerVibrationPropertyPtr(cpp.Star<InputDeviceTriggerVibrationProperty>) from cpp.Star<InputDeviceTriggerVibrationProperty> to cpp.Star<InputDeviceTriggerVibrationProperty>{
+abstract InputDeviceTriggerVibrationPropertyPtr(ucpp.Ptr<InputDeviceTriggerVibrationProperty>) from ucpp.Ptr<InputDeviceTriggerVibrationProperty> to ucpp.Ptr<InputDeviceTriggerVibrationProperty>{
 	@:from
 	public static extern inline function fromValue(v: InputDeviceTriggerVibrationProperty): InputDeviceTriggerVibrationPropertyPtr {
 		return untyped __cpp__("&({0})", v);

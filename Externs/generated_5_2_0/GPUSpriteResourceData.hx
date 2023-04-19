@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGPUSpriteResourceData")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
-@:structAccess
+@:valueType
 extern class GPUSpriteResourceData {
 	public var QuantizedColorSamples: TArray<Color>;
 	public var QuantizedMiscSamples: TArray<Color>;
@@ -23,28 +23,28 @@ extern class GPUSpriteResourceData {
 	public var OrbitFrequencyRange: Vector;
 	public var OrbitPhaseBase: Vector;
 	public var OrbitPhaseRange: Vector;
-	public var GlobalVectorFieldScale: cpp.Float32;
-	public var GlobalVectorFieldTightness: cpp.Float32;
-	public var PerParticleVectorFieldScale: cpp.Float32;
-	public var PerParticleVectorFieldBias: cpp.Float32;
-	public var DragCoefficientScale: cpp.Float32;
-	public var DragCoefficientBias: cpp.Float32;
-	public var ResilienceScale: cpp.Float32;
-	public var ResilienceBias: cpp.Float32;
-	public var CollisionRadiusScale: cpp.Float32;
-	public var CollisionRadiusBias: cpp.Float32;
-	public var CollisionTimeBias: cpp.Float32;
-	public var CollisionRandomSpread: cpp.Float32;
-	public var CollisionRandomDistribution: cpp.Float32;
-	public var OneMinusFriction: cpp.Float32;
-	public var RotationRateScale: cpp.Float32;
-	public var CameraMotionBlurAmount: cpp.Float32;
+	public var GlobalVectorFieldScale: ucpp.num.Float32;
+	public var GlobalVectorFieldTightness: ucpp.num.Float32;
+	public var PerParticleVectorFieldScale: ucpp.num.Float32;
+	public var PerParticleVectorFieldBias: ucpp.num.Float32;
+	public var DragCoefficientScale: ucpp.num.Float32;
+	public var DragCoefficientBias: ucpp.num.Float32;
+	public var ResilienceScale: ucpp.num.Float32;
+	public var ResilienceBias: ucpp.num.Float32;
+	public var CollisionRadiusScale: ucpp.num.Float32;
+	public var CollisionRadiusBias: ucpp.num.Float32;
+	public var CollisionTimeBias: ucpp.num.Float32;
+	public var CollisionRandomSpread: ucpp.num.Float32;
+	public var CollisionRandomDistribution: ucpp.num.Float32;
+	public var OneMinusFriction: ucpp.num.Float32;
+	public var RotationRateScale: ucpp.num.Float32;
+	public var CameraMotionBlurAmount: ucpp.num.Float32;
 	public var ScreenAlignment: TEnumAsByte<EParticleScreenAlignment>;
 	public var LockAxisFlag: TEnumAsByte<EParticleAxisLock>;
 	public var PivotOffset: Vector2D;
 	public var bRemoveHMDRoll: Bool;
-	public var MinFacingCameraBlendDistance: cpp.Float32;
-	public var MaxFacingCameraBlendDistance: cpp.Float32;
+	public var MinFacingCameraBlendDistance: ucpp.num.Float32;
+	public var MaxFacingCameraBlendDistance: ucpp.num.Float32;
 
 	@:native("FGPUSpriteResourceData") public function new();
 }

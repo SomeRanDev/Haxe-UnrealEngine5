@@ -3,18 +3,18 @@ package ue;
 
 @:native("UViewport")
 @:include("Components/Viewport.h")
-@:structAccess
+@:valueType
 extern class Viewport extends ContentWidget {
 	public var BackgroundColor: LinearColor;
 
-	public function Spawn(ActorClass: TSubclassOf<Actor>): cpp.Star<Actor>;
+	public function Spawn(ActorClass: TSubclassOf<Actor>): ucpp.Ptr<Actor>;
 	public function SetViewRotation(Rotation: Rotator): Void;
 	public function SetViewLocation(Location: Vector): Void;
 	public function GetViewRotation(): Rotator;
-	public function GetViewportWorld(): cpp.Star<World>;
+	public function GetViewportWorld(): ucpp.Ptr<World>;
 	public function GetViewLocation(): Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetViewRotation, GetViewportWorld, GetViewLocation)
@@ -27,7 +27,7 @@ abstract ConstViewport(Viewport) from Viewport {
 @:forward
 @:nativeGen
 @:native("Viewport*")
-abstract ViewportPtr(cpp.Star<Viewport>) from cpp.Star<Viewport> to cpp.Star<Viewport>{
+abstract ViewportPtr(ucpp.Ptr<Viewport>) from ucpp.Ptr<Viewport> to ucpp.Ptr<Viewport>{
 	@:from
 	public static extern inline function fromValue(v: Viewport): ViewportPtr {
 		return untyped __cpp__("&({0})", v);

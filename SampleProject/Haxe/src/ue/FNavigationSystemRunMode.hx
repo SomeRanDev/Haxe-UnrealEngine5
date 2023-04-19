@@ -10,5 +10,6 @@ extern class FNavigationSystemRunMode {
 	static var SimulationMode: FNavigationSystemRunMode;
 	static var PIEMode: FNavigationSystemRunMode;
 	static var InferFromWorldMode: FNavigationSystemRunMode;
+	static var EditorWorldPartitionBuildMode: FNavigationSystemRunMode;
 	static var FNavigationSystemRunMode_MAX: FNavigationSystemRunMode;
 }

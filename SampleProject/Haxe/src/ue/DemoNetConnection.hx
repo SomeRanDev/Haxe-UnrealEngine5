@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDemoNetConnection")
 @:include("Engine/DemoNetConnection.h")
-@:structAccess
+@:valueType
 extern class DemoNetConnection extends NetConnection {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDemoNetConnection(DemoNetConnection) from DemoNetConnection {
 @:forward
 @:nativeGen
 @:native("DemoNetConnection*")
-abstract DemoNetConnectionPtr(cpp.Star<DemoNetConnection>) from cpp.Star<DemoNetConnection> to cpp.Star<DemoNetConnection>{
+abstract DemoNetConnectionPtr(ucpp.Ptr<DemoNetConnection>) from ucpp.Ptr<DemoNetConnection> to ucpp.Ptr<DemoNetConnection>{
 	@:from
 	public static extern inline function fromValue(v: DemoNetConnection): DemoNetConnectionPtr {
 		return untyped __cpp__("&({0})", v);

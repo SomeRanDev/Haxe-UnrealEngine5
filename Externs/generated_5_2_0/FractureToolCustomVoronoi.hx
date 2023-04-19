@@ -3,27 +3,27 @@ package ue;
 
 @:native("UFractureToolCustomVoronoi")
 @:include("FractureToolCustomVoronoi.h")
-@:structAccess
+@:valueType
 extern class FractureToolCustomVoronoi extends FractureToolVoronoiCutterBase {
-	public var CustomVoronoiSettings: cpp.Star<FractureCustomVoronoiSettings>;
-	public var GizmoSettings: cpp.Star<FractureTransformGizmoSettings>;
+	public var CustomVoronoiSettings: ucpp.Ptr<FractureCustomVoronoiSettings>;
+	public var GizmoSettings: ucpp.Ptr<FractureTransformGizmoSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolCustomVoronoi(FractureToolCustomVoronoi) from FractureToolCustomVoronoi {
-	public extern var CustomVoronoiSettings(get, never): cpp.Star<FractureCustomVoronoiSettings.ConstFractureCustomVoronoiSettings>;
-	public inline extern function get_CustomVoronoiSettings(): cpp.Star<FractureCustomVoronoiSettings.ConstFractureCustomVoronoiSettings> return this.CustomVoronoiSettings;
-	public extern var GizmoSettings(get, never): cpp.Star<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings>;
-	public inline extern function get_GizmoSettings(): cpp.Star<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings> return this.GizmoSettings;
+	public extern var CustomVoronoiSettings(get, never): ucpp.Ptr<FractureCustomVoronoiSettings.ConstFractureCustomVoronoiSettings>;
+	public inline extern function get_CustomVoronoiSettings(): ucpp.Ptr<FractureCustomVoronoiSettings.ConstFractureCustomVoronoiSettings> return this.CustomVoronoiSettings;
+	public extern var GizmoSettings(get, never): ucpp.Ptr<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings>;
+	public inline extern function get_GizmoSettings(): ucpp.Ptr<FractureTransformGizmoSettings.ConstFractureTransformGizmoSettings> return this.GizmoSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolCustomVoronoi*")
-abstract FractureToolCustomVoronoiPtr(cpp.Star<FractureToolCustomVoronoi>) from cpp.Star<FractureToolCustomVoronoi> to cpp.Star<FractureToolCustomVoronoi>{
+abstract FractureToolCustomVoronoiPtr(ucpp.Ptr<FractureToolCustomVoronoi>) from ucpp.Ptr<FractureToolCustomVoronoi> to ucpp.Ptr<FractureToolCustomVoronoi>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolCustomVoronoi): FractureToolCustomVoronoiPtr {
 		return untyped __cpp__("&({0})", v);

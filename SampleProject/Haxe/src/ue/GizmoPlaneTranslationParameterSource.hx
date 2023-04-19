@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGizmoPlaneTranslationParameterSource")
 @:include("BaseGizmos/ParameterToTransformAdapters.h")
-@:structAccess
+@:valueType
 extern class GizmoPlaneTranslationParameterSource extends GizmoBaseVec2ParameterSource {
 	public var AxisSource: GizmoAxisSource;
 	public var TransformSource: GizmoTransformSource;
@@ -15,7 +15,7 @@ extern class GizmoPlaneTranslationParameterSource extends GizmoBaseVec2Parameter
 	public var CurTranslationAxisY: Vector;
 	public var InitialTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstGizmoPlaneTranslationParameterSource(GizmoPlaneTranslationParamete
 @:forward
 @:nativeGen
 @:native("GizmoPlaneTranslationParameterSource*")
-abstract GizmoPlaneTranslationParameterSourcePtr(cpp.Star<GizmoPlaneTranslationParameterSource>) from cpp.Star<GizmoPlaneTranslationParameterSource> to cpp.Star<GizmoPlaneTranslationParameterSource>{
+abstract GizmoPlaneTranslationParameterSourcePtr(ucpp.Ptr<GizmoPlaneTranslationParameterSource>) from ucpp.Ptr<GizmoPlaneTranslationParameterSource> to ucpp.Ptr<GizmoPlaneTranslationParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoPlaneTranslationParameterSource): GizmoPlaneTranslationParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

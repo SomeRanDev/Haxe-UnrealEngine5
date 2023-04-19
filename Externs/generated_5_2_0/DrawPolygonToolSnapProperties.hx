@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDrawPolygonToolSnapProperties")
 @:include("DrawPolygonTool.h")
-@:structAccess
+@:valueType
 extern class DrawPolygonToolSnapProperties extends InteractiveToolPropertySet {
 	public var bEnableSnapping: Bool;
 	public var bSnapToWorldGrid: Bool;
@@ -12,9 +12,9 @@ extern class DrawPolygonToolSnapProperties extends InteractiveToolPropertySet {
 	public var bSnapToAxes: Bool;
 	public var bSnapToLengths: Bool;
 	public var bSnapToSurfaces: Bool;
-	public var SnapToSurfacesOffset: cpp.Float32;
+	public var SnapToSurfacesOffset: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,14 +34,14 @@ abstract ConstDrawPolygonToolSnapProperties(DrawPolygonToolSnapProperties) from 
 	public inline extern function get_bSnapToLengths(): Bool return this.bSnapToLengths;
 	public extern var bSnapToSurfaces(get, never): Bool;
 	public inline extern function get_bSnapToSurfaces(): Bool return this.bSnapToSurfaces;
-	public extern var SnapToSurfacesOffset(get, never): cpp.Float32;
-	public inline extern function get_SnapToSurfacesOffset(): cpp.Float32 return this.SnapToSurfacesOffset;
+	public extern var SnapToSurfacesOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_SnapToSurfacesOffset(): ucpp.num.Float32 return this.SnapToSurfacesOffset;
 }
 
 @:forward
 @:nativeGen
 @:native("DrawPolygonToolSnapProperties*")
-abstract DrawPolygonToolSnapPropertiesPtr(cpp.Star<DrawPolygonToolSnapProperties>) from cpp.Star<DrawPolygonToolSnapProperties> to cpp.Star<DrawPolygonToolSnapProperties>{
+abstract DrawPolygonToolSnapPropertiesPtr(ucpp.Ptr<DrawPolygonToolSnapProperties>) from ucpp.Ptr<DrawPolygonToolSnapProperties> to ucpp.Ptr<DrawPolygonToolSnapProperties>{
 	@:from
 	public static extern inline function fromValue(v: DrawPolygonToolSnapProperties): DrawPolygonToolSnapPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

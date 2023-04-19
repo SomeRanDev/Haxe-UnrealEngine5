@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPixelDepth")
 @:include("Materials/MaterialExpressionPixelDepth.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPixelDepth extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionPixelDepth(MaterialExpressionPixelDepth) from Ma
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPixelDepth*")
-abstract MaterialExpressionPixelDepthPtr(cpp.Star<MaterialExpressionPixelDepth>) from cpp.Star<MaterialExpressionPixelDepth> to cpp.Star<MaterialExpressionPixelDepth>{
+abstract MaterialExpressionPixelDepthPtr(ucpp.Ptr<MaterialExpressionPixelDepth>) from ucpp.Ptr<MaterialExpressionPixelDepth> to ucpp.Ptr<MaterialExpressionPixelDepth>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPixelDepth): MaterialExpressionPixelDepthPtr {
 		return untyped __cpp__("&({0})", v);

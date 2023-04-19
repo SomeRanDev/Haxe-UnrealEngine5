@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStaticParameterSetEditorOnlyData")
 @:include("StaticParameterSet.h")
-@:structAccess
+@:valueType
 extern class StaticParameterSetEditorOnlyData {
 	public var StaticComponentMaskParameters: TArray<StaticComponentMaskParameter>;
 	public var TerrainLayerWeightParameters: TArray<StaticTerrainLayerWeightParameter>;

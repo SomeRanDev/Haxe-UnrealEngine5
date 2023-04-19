@@ -3,11 +3,13 @@ package ue;
 
 @:native("FAnimNode_LinkedAnimGraph")
 @:include("Animation/AnimNode_LinkedAnimGraph.h")
-@:structAccess
+@:valueType
 extern class AnimNode_LinkedAnimGraph extends AnimNode_CustomProperty {
 	public var InputPoses: TArray<PoseLink>;
 	public var InputPoseNames: TArray<FName>;
 	public var InstanceClass: TSubclassOf<AnimInstance>;
+	@:protected public var PendingBlendOutProfile: ucpp.Ptr<BlendProfile>;
+	@:protected public var PendingBlendInProfile: ucpp.Ptr<BlendProfile>;
 	public var bReceiveNotifiesFromLinkedInstances: Bool;
 	public var bPropagateNotifiesToLinkedInstances: Bool;
 

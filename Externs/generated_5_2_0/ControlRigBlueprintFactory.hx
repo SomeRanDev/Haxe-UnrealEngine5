@@ -3,14 +3,14 @@ package ue;
 
 @:native("UControlRigBlueprintFactory")
 @:include("ControlRigBlueprintFactory.h")
-@:structAccess
+@:valueType
 extern class ControlRigBlueprintFactory extends Factory {
 	public var ParentClass: TSubclassOf<ControlRig>;
 
-	public function CreateNewControlRigAsset(InDesiredPackagePath: FString): cpp.Star<ControlRigBlueprint>;
-	public function CreateControlRigFromSkeletalMeshOrSkeleton(InSelectedObject: cpp.Star<Object>): cpp.Star<ControlRigBlueprint>;
+	public function CreateNewControlRigAsset(InDesiredPackagePath: FString): ucpp.Ptr<ControlRigBlueprint>;
+	public function CreateControlRigFromSkeletalMeshOrSkeleton(InSelectedObject: ucpp.Ptr<Object>): ucpp.Ptr<ControlRigBlueprint>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstControlRigBlueprintFactory(ControlRigBlueprintFactory) from Contro
 @:forward
 @:nativeGen
 @:native("ControlRigBlueprintFactory*")
-abstract ControlRigBlueprintFactoryPtr(cpp.Star<ControlRigBlueprintFactory>) from cpp.Star<ControlRigBlueprintFactory> to cpp.Star<ControlRigBlueprintFactory>{
+abstract ControlRigBlueprintFactoryPtr(ucpp.Ptr<ControlRigBlueprintFactory>) from ucpp.Ptr<ControlRigBlueprintFactory> to ucpp.Ptr<ControlRigBlueprintFactory>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigBlueprintFactory): ControlRigBlueprintFactoryPtr {
 		return untyped __cpp__("&({0})", v);

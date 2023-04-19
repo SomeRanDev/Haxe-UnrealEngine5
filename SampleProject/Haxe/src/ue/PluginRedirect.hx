@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPluginRedirect")
 @:include("Engine/Engine.h")
-@:structAccess
+@:valueType
 extern class PluginRedirect {
 	public var OldPluginName: FString;
 	public var NewPluginName: FString;

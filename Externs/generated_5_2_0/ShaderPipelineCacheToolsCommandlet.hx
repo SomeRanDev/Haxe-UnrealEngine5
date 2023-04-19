@@ -3,10 +3,10 @@ package ue;
 
 @:native("UShaderPipelineCacheToolsCommandlet")
 @:include("Commandlets/ShaderPipelineCacheToolsCommandlet.h")
-@:structAccess
+@:valueType
 extern class ShaderPipelineCacheToolsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstShaderPipelineCacheToolsCommandlet(ShaderPipelineCacheToolsCommand
 @:forward
 @:nativeGen
 @:native("ShaderPipelineCacheToolsCommandlet*")
-abstract ShaderPipelineCacheToolsCommandletPtr(cpp.Star<ShaderPipelineCacheToolsCommandlet>) from cpp.Star<ShaderPipelineCacheToolsCommandlet> to cpp.Star<ShaderPipelineCacheToolsCommandlet>{
+abstract ShaderPipelineCacheToolsCommandletPtr(ucpp.Ptr<ShaderPipelineCacheToolsCommandlet>) from ucpp.Ptr<ShaderPipelineCacheToolsCommandlet> to ucpp.Ptr<ShaderPipelineCacheToolsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ShaderPipelineCacheToolsCommandlet): ShaderPipelineCacheToolsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

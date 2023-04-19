@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMeshToVolumeToolProperties")
 @:include("MeshToVolumeTool.h")
-@:structAccess
+@:valueType
 extern class MeshToVolumeToolProperties extends InteractiveToolPropertySet {
 	public var ConversionMode: EMeshToVolumeMode;
 	public var NewVolumeType: TSubclassOf<Volume>;
 	public var TargetVolume: TLazyObjectPtr<Volume>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMeshToVolumeToolProperties(MeshToVolumeToolProperties) from MeshTo
 @:forward
 @:nativeGen
 @:native("MeshToVolumeToolProperties*")
-abstract MeshToVolumeToolPropertiesPtr(cpp.Star<MeshToVolumeToolProperties>) from cpp.Star<MeshToVolumeToolProperties> to cpp.Star<MeshToVolumeToolProperties>{
+abstract MeshToVolumeToolPropertiesPtr(ucpp.Ptr<MeshToVolumeToolProperties>) from ucpp.Ptr<MeshToVolumeToolProperties> to ucpp.Ptr<MeshToVolumeToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshToVolumeToolProperties): MeshToVolumeToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

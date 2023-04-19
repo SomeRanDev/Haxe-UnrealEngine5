@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraScriptBase")
 @:include("NiagaraScriptBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraScriptBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraScriptBase(NiagaraScriptBase) from NiagaraScriptBase {
 @:forward
 @:nativeGen
 @:native("NiagaraScriptBase*")
-abstract NiagaraScriptBasePtr(cpp.Star<NiagaraScriptBase>) from cpp.Star<NiagaraScriptBase> to cpp.Star<NiagaraScriptBase>{
+abstract NiagaraScriptBasePtr(ucpp.Ptr<NiagaraScriptBase>) from ucpp.Ptr<NiagaraScriptBase> to ucpp.Ptr<NiagaraScriptBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraScriptBase): NiagaraScriptBasePtr {
 		return untyped __cpp__("&({0})", v);

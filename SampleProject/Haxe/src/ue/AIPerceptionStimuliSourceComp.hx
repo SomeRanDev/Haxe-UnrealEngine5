@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAIPerceptionStimuliSourceComponent")
 @:include("Perception/AIPerceptionStimuliSourceComponent.h")
-@:structAccess
+@:valueType
 extern class AIPerceptionStimuliSourceComp extends ActorComp {
 	@:protected public var bAutoRegisterAsSource: Bool;
 	@:protected public var RegisterAsSourceForSenses: TArray<TSubclassOf<AISense>>;
@@ -13,7 +13,7 @@ extern class AIPerceptionStimuliSourceComp extends ActorComp {
 	public function RegisterWithPerceptionSystem(): Void;
 	public function RegisterForSense(SenseClass: TSubclassOf<AISense>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAIPerceptionStimuliSourceComp(AIPerceptionStimuliSourceComp) from 
 @:forward
 @:nativeGen
 @:native("AIPerceptionStimuliSourceComp*")
-abstract AIPerceptionStimuliSourceCompPtr(cpp.Star<AIPerceptionStimuliSourceComp>) from cpp.Star<AIPerceptionStimuliSourceComp> to cpp.Star<AIPerceptionStimuliSourceComp>{
+abstract AIPerceptionStimuliSourceCompPtr(ucpp.Ptr<AIPerceptionStimuliSourceComp>) from ucpp.Ptr<AIPerceptionStimuliSourceComp> to ucpp.Ptr<AIPerceptionStimuliSourceComp>{
 	@:from
 	public static extern inline function fromValue(v: AIPerceptionStimuliSourceComp): AIPerceptionStimuliSourceCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("FGPUSpriteLocalVectorFieldInfo")
 @:include("Particles/TypeData/ParticleModuleTypeDataGpu.h")
-@:structAccess
+@:valueType
 extern class GPUSpriteLocalVectorFieldInfo {
-	public var Field: cpp.Star<VectorField>;
+	public var Field: ucpp.Ptr<VectorField>;
 	public var Transform: Transform;
 	public var MinInitialRotation: Rotator;
 	public var MaxInitialRotation: Rotator;
 	public var RotationRate: Rotator;
-	public var Intensity: cpp.Float32;
-	public var Tightness: cpp.Float32;
+	public var Intensity: ucpp.num.Float32;
+	public var Tightness: ucpp.num.Float32;
 	public var bIgnoreComponentTransform: Bool;
 	public var bTileX: Bool;
 	public var bTileY: Bool;

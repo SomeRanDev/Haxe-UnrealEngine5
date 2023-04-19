@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UObjectPropertyBase")
-@:structAccess
+@:valueType
 extern class ObjectPropertyBase extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstObjectPropertyBase(ObjectPropertyBase) from ObjectPropertyBase {
 @:forward
 @:nativeGen
 @:native("ObjectPropertyBase*")
-abstract ObjectPropertyBasePtr(cpp.Star<ObjectPropertyBase>) from cpp.Star<ObjectPropertyBase> to cpp.Star<ObjectPropertyBase>{
+abstract ObjectPropertyBasePtr(ucpp.Ptr<ObjectPropertyBase>) from ucpp.Ptr<ObjectPropertyBase> to ucpp.Ptr<ObjectPropertyBase>{
 	@:from
 	public static extern inline function fromValue(v: ObjectPropertyBase): ObjectPropertyBasePtr {
 		return untyped __cpp__("&({0})", v);

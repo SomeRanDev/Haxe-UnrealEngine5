@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_MeshSpaceRefPose")
 @:include("AnimNodes/AnimNode_RefPose.h")
-@:structAccess
+@:valueType
 extern class AnimNode_MeshSpaceRefPose extends AnimNode_Base {
 	@:native("FAnimNode_MeshSpaceRefPose") public function new();
 }

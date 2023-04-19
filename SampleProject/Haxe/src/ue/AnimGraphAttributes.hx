@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphAttributes")
 @:include("AnimGraphAttributes.h")
-@:structAccess
+@:valueType
 extern class AnimGraphAttributes extends Object {
 	private var Attributes: TArray<AnimGraphAttributeDesc>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimGraphAttributes(AnimGraphAttributes) from AnimGraphAttributes 
 @:forward
 @:nativeGen
 @:native("AnimGraphAttributes*")
-abstract AnimGraphAttributesPtr(cpp.Star<AnimGraphAttributes>) from cpp.Star<AnimGraphAttributes> to cpp.Star<AnimGraphAttributes>{
+abstract AnimGraphAttributesPtr(ucpp.Ptr<AnimGraphAttributes>) from ucpp.Ptr<AnimGraphAttributes> to ucpp.Ptr<AnimGraphAttributes>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphAttributes): AnimGraphAttributesPtr {
 		return untyped __cpp__("&({0})", v);

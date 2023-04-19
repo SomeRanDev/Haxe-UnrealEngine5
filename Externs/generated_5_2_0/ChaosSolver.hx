@@ -3,10 +3,10 @@ package ue;
 
 @:native("UChaosSolver")
 @:include("Chaos/ChaosSolver.h")
-@:structAccess
+@:valueType
 extern class ChaosSolver extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstChaosSolver(ChaosSolver) from ChaosSolver {
 @:forward
 @:nativeGen
 @:native("ChaosSolver*")
-abstract ChaosSolverPtr(cpp.Star<ChaosSolver>) from cpp.Star<ChaosSolver> to cpp.Star<ChaosSolver>{
+abstract ChaosSolverPtr(ucpp.Ptr<ChaosSolver>) from ucpp.Ptr<ChaosSolver> to ucpp.Ptr<ChaosSolver>{
 	@:from
 	public static extern inline function fromValue(v: ChaosSolver): ChaosSolverPtr {
 		return untyped __cpp__("&({0})", v);

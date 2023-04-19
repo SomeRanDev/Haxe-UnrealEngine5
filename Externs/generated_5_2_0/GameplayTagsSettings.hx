@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGameplayTagsSettings")
 @:include("GameplayTagsSettings.h")
-@:structAccess
+@:valueType
 extern class GameplayTagsSettings extends GameplayTagsList {
 	public var ImportTagsFromConfig: Bool;
 	public var WarnOnInvalidTags: Bool;
@@ -16,11 +16,11 @@ extern class GameplayTagsSettings extends GameplayTagsList {
 	public var GameplayTagTableList: TArray<SoftObjectPath>;
 	public var GameplayTagRedirects: TArray<GameplayTagRedirect>;
 	public var CommonlyReplicatedTags: TArray<FName>;
-	public var NumBitsForContainerSize: cpp.Int32;
-	public var NetIndexFirstBitSegment: cpp.Int32;
+	public var NumBitsForContainerSize: ucpp.num.Int32;
+	public var NetIndexFirstBitSegment: ucpp.num.Int32;
 	public var RestrictedConfigFiles: TArray<RestrictedConfigInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -48,10 +48,10 @@ abstract ConstGameplayTagsSettings(GameplayTagsSettings) from GameplayTagsSettin
 	public inline extern function get_GameplayTagRedirects(): TArray<GameplayTagRedirect> return this.GameplayTagRedirects;
 	public extern var CommonlyReplicatedTags(get, never): TArray<FName>;
 	public inline extern function get_CommonlyReplicatedTags(): TArray<FName> return this.CommonlyReplicatedTags;
-	public extern var NumBitsForContainerSize(get, never): cpp.Int32;
-	public inline extern function get_NumBitsForContainerSize(): cpp.Int32 return this.NumBitsForContainerSize;
-	public extern var NetIndexFirstBitSegment(get, never): cpp.Int32;
-	public inline extern function get_NetIndexFirstBitSegment(): cpp.Int32 return this.NetIndexFirstBitSegment;
+	public extern var NumBitsForContainerSize(get, never): ucpp.num.Int32;
+	public inline extern function get_NumBitsForContainerSize(): ucpp.num.Int32 return this.NumBitsForContainerSize;
+	public extern var NetIndexFirstBitSegment(get, never): ucpp.num.Int32;
+	public inline extern function get_NetIndexFirstBitSegment(): ucpp.num.Int32 return this.NetIndexFirstBitSegment;
 	public extern var RestrictedConfigFiles(get, never): TArray<RestrictedConfigInfo>;
 	public inline extern function get_RestrictedConfigFiles(): TArray<RestrictedConfigInfo> return this.RestrictedConfigFiles;
 }
@@ -59,7 +59,7 @@ abstract ConstGameplayTagsSettings(GameplayTagsSettings) from GameplayTagsSettin
 @:forward
 @:nativeGen
 @:native("GameplayTagsSettings*")
-abstract GameplayTagsSettingsPtr(cpp.Star<GameplayTagsSettings>) from cpp.Star<GameplayTagsSettings> to cpp.Star<GameplayTagsSettings>{
+abstract GameplayTagsSettingsPtr(ucpp.Ptr<GameplayTagsSettings>) from ucpp.Ptr<GameplayTagsSettings> to ucpp.Ptr<GameplayTagsSettings>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagsSettings): GameplayTagsSettingsPtr {
 		return untyped __cpp__("&({0})", v);

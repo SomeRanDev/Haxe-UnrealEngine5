@@ -3,9 +3,9 @@ package ue;
 
 @:native("AWorldDataLayers")
 @:include("WorldPartition/DataLayer/WorldDataLayers.h")
-@:structAccess
+@:valueType
 extern class WorldDataLayers extends Info {
-	private var DataLayerInstances: TSet<cpp.Star<DataLayerInstance>>;
+	private var DataLayerInstances: TSet<ucpp.Ptr<DataLayerInstance>>;
 	private var DeprecatedDataLayerNameToDataLayerInstance: TMap<FName, TWeakObjectPtr<DataLayerInstance>>;
 	private var RepActiveDataLayerNames: TArray<FName>;
 	private var RepLoadedDataLayerNames: TArray<FName>;
@@ -16,9 +16,9 @@ extern class WorldDataLayers extends Info {
 	@:protected public function OnRep_EffectiveLoadedDataLayerNames(): Void;
 	@:protected public function OnRep_EffectiveActiveDataLayerNames(): Void;
 	@:protected public function OnRep_ActiveDataLayerNames(): Void;
-	public function OnDataLayerRuntimeStateChanged(InDataLayer: cpp.Star<DataLayerInstance.ConstDataLayerInstance>, InState: EDataLayerRuntimeState): Void;
+	public function OnDataLayerRuntimeStateChanged(InDataLayer: ucpp.Ptr<DataLayerInstance.ConstDataLayerInstance>, InState: EDataLayerRuntimeState): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstWorldDataLayers(WorldDataLayers) from WorldDataLayers {
 @:forward
 @:nativeGen
 @:native("WorldDataLayers*")
-abstract WorldDataLayersPtr(cpp.Star<WorldDataLayers>) from cpp.Star<WorldDataLayers> to cpp.Star<WorldDataLayers>{
+abstract WorldDataLayersPtr(ucpp.Ptr<WorldDataLayers>) from ucpp.Ptr<WorldDataLayers> to ucpp.Ptr<WorldDataLayers>{
 	@:from
 	public static extern inline function fromValue(v: WorldDataLayers): WorldDataLayersPtr {
 		return untyped __cpp__("&({0})", v);

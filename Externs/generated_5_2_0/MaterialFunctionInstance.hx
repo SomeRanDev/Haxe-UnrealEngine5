@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialFunctionInstance")
 @:include("Materials/MaterialFunctionInstance.h")
-@:structAccess
+@:valueType
 extern class MaterialFunctionInstance extends MaterialFunctionInterface {
-	public var Parent: cpp.Star<MaterialFunctionInterface>;
-	public var Base: cpp.Star<MaterialFunctionInterface>;
+	public var Parent: ucpp.Ptr<MaterialFunctionInterface>;
+	public var Base: ucpp.Ptr<MaterialFunctionInterface>;
 	public var ScalarParameterValues: TArray<ScalarParameterValue>;
 	public var VectorParameterValues: TArray<VectorParameterValue>;
 	public var DoubleVectorParameterValues: TArray<DoubleVectorParameterValue>;
@@ -17,16 +17,16 @@ extern class MaterialFunctionInstance extends MaterialFunctionInterface {
 	public var RuntimeVirtualTextureParameterValues: TArray<RuntimeVirtualTextureParameterValue>;
 	public var SparseVolumeTextureParameterValues: TArray<SparseVolumeTextureParameterValue>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialFunctionInstance(MaterialFunctionInstance) from MaterialFunctionInstance {
-	public extern var Parent(get, never): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface>;
-	public inline extern function get_Parent(): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface> return this.Parent;
-	public extern var Base(get, never): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface>;
-	public inline extern function get_Base(): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface> return this.Base;
+	public extern var Parent(get, never): ucpp.Ptr<MaterialFunctionInterface.ConstMaterialFunctionInterface>;
+	public inline extern function get_Parent(): ucpp.Ptr<MaterialFunctionInterface.ConstMaterialFunctionInterface> return this.Parent;
+	public extern var Base(get, never): ucpp.Ptr<MaterialFunctionInterface.ConstMaterialFunctionInterface>;
+	public inline extern function get_Base(): ucpp.Ptr<MaterialFunctionInterface.ConstMaterialFunctionInterface> return this.Base;
 	public extern var ScalarParameterValues(get, never): TArray<ScalarParameterValue>;
 	public inline extern function get_ScalarParameterValues(): TArray<ScalarParameterValue> return this.ScalarParameterValues;
 	public extern var VectorParameterValues(get, never): TArray<VectorParameterValue>;
@@ -50,7 +50,7 @@ abstract ConstMaterialFunctionInstance(MaterialFunctionInstance) from MaterialFu
 @:forward
 @:nativeGen
 @:native("MaterialFunctionInstance*")
-abstract MaterialFunctionInstancePtr(cpp.Star<MaterialFunctionInstance>) from cpp.Star<MaterialFunctionInstance> to cpp.Star<MaterialFunctionInstance>{
+abstract MaterialFunctionInstancePtr(ucpp.Ptr<MaterialFunctionInstance>) from ucpp.Ptr<MaterialFunctionInstance> to ucpp.Ptr<MaterialFunctionInstance>{
 	@:from
 	public static extern inline function fromValue(v: MaterialFunctionInstance): MaterialFunctionInstancePtr {
 		return untyped __cpp__("&({0})", v);

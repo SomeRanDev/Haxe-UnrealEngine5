@@ -3,12 +3,12 @@ package ue;
 
 @:native("FCompositeSection")
 @:include("Animation/AnimMontage.h")
-@:structAccess
+@:valueType
 extern class CompositeSection extends AnimLinkableElement {
 	public var SectionName: FName;
 	public var NextSectionName: FName;
-	public var MetaData: TArray<cpp.Star<AnimMetaData>>;
+	public var MetaData: TArray<ucpp.Ptr<AnimMetaData>>;
 
 	@:native("FCompositeSection") public function new();
-	@:native("FCompositeSection") public static function make(SectionName: FName, StartTime_DEPRECATED: cpp.Float32, NextSectionName: FName, MetaData: TArray<cpp.Star<AnimMetaData>>): CompositeSection ;
+	@:native("FCompositeSection") public static function make(SectionName: FName, StartTime_DEPRECATED: ucpp.num.Float32, NextSectionName: FName, MetaData: TArray<ucpp.Ptr<AnimMetaData>>): CompositeSection ;
 }

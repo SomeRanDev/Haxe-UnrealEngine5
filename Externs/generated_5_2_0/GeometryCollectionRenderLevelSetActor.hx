@@ -3,29 +3,29 @@ package ue;
 
 @:native("AGeometryCollectionRenderLevelSetActor")
 @:include("GeometryCollection/GeometryCollectionRenderLevelSetActor.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionRenderLevelSetActor extends Actor {
-	public var TargetVolumeTexture: cpp.Star<VolumeTexture>;
-	public var RayMarchMaterial: cpp.Star<Material>;
-	public var SurfaceTolerance: cpp.Float32;
-	public var Isovalue: cpp.Float32;
+	public var TargetVolumeTexture: ucpp.Ptr<VolumeTexture>;
+	public var RayMarchMaterial: ucpp.Ptr<Material>;
+	public var SurfaceTolerance: ucpp.num.Float32;
+	public var Isovalue: ucpp.num.Float32;
 	public var Enabled: Bool;
 	public var RenderVolumeBoundingBox: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeometryCollectionRenderLevelSetActor(GeometryCollectionRenderLevelSetActor) from GeometryCollectionRenderLevelSetActor {
-	public extern var TargetVolumeTexture(get, never): cpp.Star<VolumeTexture.ConstVolumeTexture>;
-	public inline extern function get_TargetVolumeTexture(): cpp.Star<VolumeTexture.ConstVolumeTexture> return this.TargetVolumeTexture;
-	public extern var RayMarchMaterial(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_RayMarchMaterial(): cpp.Star<Material.ConstMaterial> return this.RayMarchMaterial;
-	public extern var SurfaceTolerance(get, never): cpp.Float32;
-	public inline extern function get_SurfaceTolerance(): cpp.Float32 return this.SurfaceTolerance;
-	public extern var Isovalue(get, never): cpp.Float32;
-	public inline extern function get_Isovalue(): cpp.Float32 return this.Isovalue;
+	public extern var TargetVolumeTexture(get, never): ucpp.Ptr<VolumeTexture.ConstVolumeTexture>;
+	public inline extern function get_TargetVolumeTexture(): ucpp.Ptr<VolumeTexture.ConstVolumeTexture> return this.TargetVolumeTexture;
+	public extern var RayMarchMaterial(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_RayMarchMaterial(): ucpp.Ptr<Material.ConstMaterial> return this.RayMarchMaterial;
+	public extern var SurfaceTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_SurfaceTolerance(): ucpp.num.Float32 return this.SurfaceTolerance;
+	public extern var Isovalue(get, never): ucpp.num.Float32;
+	public inline extern function get_Isovalue(): ucpp.num.Float32 return this.Isovalue;
 	public extern var Enabled(get, never): Bool;
 	public inline extern function get_Enabled(): Bool return this.Enabled;
 	public extern var RenderVolumeBoundingBox(get, never): Bool;
@@ -35,7 +35,7 @@ abstract ConstGeometryCollectionRenderLevelSetActor(GeometryCollectionRenderLeve
 @:forward
 @:nativeGen
 @:native("GeometryCollectionRenderLevelSetActor*")
-abstract GeometryCollectionRenderLevelSetActorPtr(cpp.Star<GeometryCollectionRenderLevelSetActor>) from cpp.Star<GeometryCollectionRenderLevelSetActor> to cpp.Star<GeometryCollectionRenderLevelSetActor>{
+abstract GeometryCollectionRenderLevelSetActorPtr(ucpp.Ptr<GeometryCollectionRenderLevelSetActor>) from ucpp.Ptr<GeometryCollectionRenderLevelSetActor> to ucpp.Ptr<GeometryCollectionRenderLevelSetActor>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionRenderLevelSetActor): GeometryCollectionRenderLevelSetActorPtr {
 		return untyped __cpp__("&({0})", v);

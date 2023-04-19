@@ -3,21 +3,21 @@ package ue;
 
 @:native("UCollisionGeometryVisualizationProperties")
 @:include("Physics/CollisionPropertySets.h")
-@:structAccess
+@:valueType
 extern class CollisionGeometryVisualizationProperties extends InteractiveToolPropertySet {
-	public var LineThickness: cpp.Float32;
+	public var LineThickness: ucpp.num.Float32;
 	public var bShowHidden: Bool;
 	public var bRandomColors: Bool;
 	public var Color: Color;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCollisionGeometryVisualizationProperties(CollisionGeometryVisualizationProperties) from CollisionGeometryVisualizationProperties {
-	public extern var LineThickness(get, never): cpp.Float32;
-	public inline extern function get_LineThickness(): cpp.Float32 return this.LineThickness;
+	public extern var LineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_LineThickness(): ucpp.num.Float32 return this.LineThickness;
 	public extern var bShowHidden(get, never): Bool;
 	public inline extern function get_bShowHidden(): Bool return this.bShowHidden;
 	public extern var bRandomColors(get, never): Bool;
@@ -29,7 +29,7 @@ abstract ConstCollisionGeometryVisualizationProperties(CollisionGeometryVisualiz
 @:forward
 @:nativeGen
 @:native("CollisionGeometryVisualizationProperties*")
-abstract CollisionGeometryVisualizationPropertiesPtr(cpp.Star<CollisionGeometryVisualizationProperties>) from cpp.Star<CollisionGeometryVisualizationProperties> to cpp.Star<CollisionGeometryVisualizationProperties>{
+abstract CollisionGeometryVisualizationPropertiesPtr(ucpp.Ptr<CollisionGeometryVisualizationProperties>) from ucpp.Ptr<CollisionGeometryVisualizationProperties> to ucpp.Ptr<CollisionGeometryVisualizationProperties>{
 	@:from
 	public static extern inline function fromValue(v: CollisionGeometryVisualizationProperties): CollisionGeometryVisualizationPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

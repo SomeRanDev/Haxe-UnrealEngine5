@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_Font")
 @:include("AssetDefinition_Font.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_Font extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_Font(AssetDefinition_Font) from AssetDefinition_Fo
 @:forward
 @:nativeGen
 @:native("AssetDefinition_Font*")
-abstract AssetDefinition_FontPtr(cpp.Star<AssetDefinition_Font>) from cpp.Star<AssetDefinition_Font> to cpp.Star<AssetDefinition_Font>{
+abstract AssetDefinition_FontPtr(ucpp.Ptr<AssetDefinition_Font>) from ucpp.Ptr<AssetDefinition_Font> to ucpp.Ptr<AssetDefinition_Font>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_Font): AssetDefinition_FontPtr {
 		return untyped __cpp__("&({0})", v);

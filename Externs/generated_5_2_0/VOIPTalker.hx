@@ -3,17 +3,17 @@ package ue;
 
 @:native("UVOIPTalker")
 @:include("Net/VoiceConfig.h")
-@:structAccess
+@:valueType
 extern class VOIPTalker extends ActorComp {
 	public var Settings: VoiceSettings;
 
-	public function RegisterWithPlayerState(OwningState: cpp.Star<PlayerState>): Void;
-	public function GetVoiceLevel(): cpp.Float32;
-	public function CreateTalkerForPlayer(OwningState: cpp.Star<PlayerState>): cpp.Star<VOIPTalker>;
+	public function RegisterWithPlayerState(OwningState: ucpp.Ptr<PlayerState>): Void;
+	public function GetVoiceLevel(): ucpp.num.Float32;
+	public function CreateTalkerForPlayer(OwningState: ucpp.Ptr<PlayerState>): ucpp.Ptr<VOIPTalker>;
 	@:protected public function BPOnTalkingEnd(): Void;
-	@:protected public function BPOnTalkingBegin(AudioComponent: cpp.Star<AudioComp>): Void;
+	@:protected public function BPOnTalkingBegin(AudioComponent: ucpp.Ptr<AudioComp>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstVOIPTalker(VOIPTalker) from VOIPTalker {
 @:forward
 @:nativeGen
 @:native("VOIPTalker*")
-abstract VOIPTalkerPtr(cpp.Star<VOIPTalker>) from cpp.Star<VOIPTalker> to cpp.Star<VOIPTalker>{
+abstract VOIPTalkerPtr(ucpp.Ptr<VOIPTalker>) from ucpp.Ptr<VOIPTalker> to ucpp.Ptr<VOIPTalker>{
 	@:from
 	public static extern inline function fromValue(v: VOIPTalker): VOIPTalkerPtr {
 		return untyped __cpp__("&({0})", v);

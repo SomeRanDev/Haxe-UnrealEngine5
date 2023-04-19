@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraPlatformSetRedirect")
 @:include("NiagaraPlatformSet.h")
-@:structAccess
+@:valueType
 extern class NiagaraPlatformSetRedirect {
 	public var ProfileNames: TArray<FName>;
 	public var Mode: ENiagaraDeviceProfileRedirectMode;

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeResultsContainer")
 @:include("InterchangeResultsContainer.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultsContainer extends Object {
-	private var Results: TArray<cpp.Star<InterchangeResult>>;
+	private var Results: TArray<ucpp.Ptr<InterchangeResult>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstInterchangeResultsContainer(InterchangeResultsContainer) from Inte
 @:forward
 @:nativeGen
 @:native("InterchangeResultsContainer*")
-abstract InterchangeResultsContainerPtr(cpp.Star<InterchangeResultsContainer>) from cpp.Star<InterchangeResultsContainer> to cpp.Star<InterchangeResultsContainer>{
+abstract InterchangeResultsContainerPtr(ucpp.Ptr<InterchangeResultsContainer>) from ucpp.Ptr<InterchangeResultsContainer> to ucpp.Ptr<InterchangeResultsContainer>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultsContainer): InterchangeResultsContainerPtr {
 		return untyped __cpp__("&({0})", v);

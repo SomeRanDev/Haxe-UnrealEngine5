@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceArrayQuat")
 @:include("NiagaraDataInterfaceArrayFloat.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceArrayQuat extends NiagaraDataInterfaceArray {
 	public var InternalQuatData: TArray<Quat4f>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraDataInterfaceArrayQuat(NiagaraDataInterfaceArrayQuat) from 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceArrayQuat*")
-abstract NiagaraDataInterfaceArrayQuatPtr(cpp.Star<NiagaraDataInterfaceArrayQuat>) from cpp.Star<NiagaraDataInterfaceArrayQuat> to cpp.Star<NiagaraDataInterfaceArrayQuat>{
+abstract NiagaraDataInterfaceArrayQuatPtr(ucpp.Ptr<NiagaraDataInterfaceArrayQuat>) from ucpp.Ptr<NiagaraDataInterfaceArrayQuat> to ucpp.Ptr<NiagaraDataInterfaceArrayQuat>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceArrayQuat): NiagaraDataInterfaceArrayQuatPtr {
 		return untyped __cpp__("&({0})", v);

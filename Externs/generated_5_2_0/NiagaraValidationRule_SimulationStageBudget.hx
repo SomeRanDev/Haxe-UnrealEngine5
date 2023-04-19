@@ -3,17 +3,17 @@ package ue;
 
 @:native("UNiagaraValidationRule_SimulationStageBudget")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_SimulationStageBudget extends NiagaraValidationRule {
 	public var bMaxSimulationStagesEnabled: Bool;
 	public var bMaxIterationsPerStageEnabled: Bool;
 	public var bMaxTotalIterationsEnabled: Bool;
 	public var Severity: ENiagaraValidationSeverity;
-	public var MaxSimulationStages: cpp.Int32;
-	public var MaxIterationsPerStage: cpp.Int32;
-	public var MaxTotalIterations: cpp.Int32;
+	public var MaxSimulationStages: ucpp.num.Int32;
+	public var MaxIterationsPerStage: ucpp.num.Int32;
+	public var MaxTotalIterations: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,18 +27,18 @@ abstract ConstNiagaraValidationRule_SimulationStageBudget(NiagaraValidationRule_
 	public inline extern function get_bMaxTotalIterationsEnabled(): Bool return this.bMaxTotalIterationsEnabled;
 	public extern var Severity(get, never): ENiagaraValidationSeverity;
 	public inline extern function get_Severity(): ENiagaraValidationSeverity return this.Severity;
-	public extern var MaxSimulationStages(get, never): cpp.Int32;
-	public inline extern function get_MaxSimulationStages(): cpp.Int32 return this.MaxSimulationStages;
-	public extern var MaxIterationsPerStage(get, never): cpp.Int32;
-	public inline extern function get_MaxIterationsPerStage(): cpp.Int32 return this.MaxIterationsPerStage;
-	public extern var MaxTotalIterations(get, never): cpp.Int32;
-	public inline extern function get_MaxTotalIterations(): cpp.Int32 return this.MaxTotalIterations;
+	public extern var MaxSimulationStages(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxSimulationStages(): ucpp.num.Int32 return this.MaxSimulationStages;
+	public extern var MaxIterationsPerStage(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxIterationsPerStage(): ucpp.num.Int32 return this.MaxIterationsPerStage;
+	public extern var MaxTotalIterations(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxTotalIterations(): ucpp.num.Int32 return this.MaxTotalIterations;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_SimulationStageBudget*")
-abstract NiagaraValidationRule_SimulationStageBudgetPtr(cpp.Star<NiagaraValidationRule_SimulationStageBudget>) from cpp.Star<NiagaraValidationRule_SimulationStageBudget> to cpp.Star<NiagaraValidationRule_SimulationStageBudget>{
+abstract NiagaraValidationRule_SimulationStageBudgetPtr(ucpp.Ptr<NiagaraValidationRule_SimulationStageBudget>) from ucpp.Ptr<NiagaraValidationRule_SimulationStageBudget> to ucpp.Ptr<NiagaraValidationRule_SimulationStageBudget>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_SimulationStageBudget): NiagaraValidationRule_SimulationStageBudgetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionDoubleVectorParameter")
 @:include("Materials/MaterialExpressionDoubleVectorParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDoubleVectorParameter extends MaterialExpressionParameter {
 	public var DefaultValue: Vector4d;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionDoubleVectorParameter(MaterialExpressionDoubleVe
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDoubleVectorParameter*")
-abstract MaterialExpressionDoubleVectorParameterPtr(cpp.Star<MaterialExpressionDoubleVectorParameter>) from cpp.Star<MaterialExpressionDoubleVectorParameter> to cpp.Star<MaterialExpressionDoubleVectorParameter>{
+abstract MaterialExpressionDoubleVectorParameterPtr(ucpp.Ptr<MaterialExpressionDoubleVectorParameter>) from ucpp.Ptr<MaterialExpressionDoubleVectorParameter> to ucpp.Ptr<MaterialExpressionDoubleVectorParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDoubleVectorParameter): MaterialExpressionDoubleVectorParameterPtr {
 		return untyped __cpp__("&({0})", v);

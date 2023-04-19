@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCharacterMovementComponentPostPhysicsTickFunction")
 @:include("GameFramework/CharacterMovementComponent.h")
-@:structAccess
+@:valueType
 extern class CharacterMovementComponentPostPhysicsTickFunction extends TickFunction {
 	@:native("FCharacterMovementComponentPostPhysicsTickFunction") public function new();
 }

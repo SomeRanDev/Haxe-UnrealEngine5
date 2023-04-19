@@ -3,19 +3,19 @@ package ue;
 
 @:native("UInputModifierFOVScaling")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierFOVScaling extends InputModifier {
-	public var FOVScale: cpp.Float32;
+	public var FOVScale: ucpp.num.Float32;
 	public var FOVScalingType: EFOVScalingType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputModifierFOVScaling(InputModifierFOVScaling) from InputModifierFOVScaling {
-	public extern var FOVScale(get, never): cpp.Float32;
-	public inline extern function get_FOVScale(): cpp.Float32 return this.FOVScale;
+	public extern var FOVScale(get, never): ucpp.num.Float32;
+	public inline extern function get_FOVScale(): ucpp.num.Float32 return this.FOVScale;
 	public extern var FOVScalingType(get, never): EFOVScalingType;
 	public inline extern function get_FOVScalingType(): EFOVScalingType return this.FOVScalingType;
 }
@@ -23,7 +23,7 @@ abstract ConstInputModifierFOVScaling(InputModifierFOVScaling) from InputModifie
 @:forward
 @:nativeGen
 @:native("InputModifierFOVScaling*")
-abstract InputModifierFOVScalingPtr(cpp.Star<InputModifierFOVScaling>) from cpp.Star<InputModifierFOVScaling> to cpp.Star<InputModifierFOVScaling>{
+abstract InputModifierFOVScalingPtr(ucpp.Ptr<InputModifierFOVScaling>) from ucpp.Ptr<InputModifierFOVScaling> to ucpp.Ptr<InputModifierFOVScaling>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierFOVScaling): InputModifierFOVScalingPtr {
 		return untyped __cpp__("&({0})", v);

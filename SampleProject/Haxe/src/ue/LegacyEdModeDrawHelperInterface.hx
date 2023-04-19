@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULegacyEdModeDrawHelperInterface")
-@:structAccess
+@:valueType
 extern class LegacyEdModeDrawHelperInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLegacyEdModeDrawHelperInterface(LegacyEdModeDrawHelperInterface) f
 @:forward
 @:nativeGen
 @:native("LegacyEdModeDrawHelperInterface*")
-abstract LegacyEdModeDrawHelperInterfacePtr(cpp.Star<LegacyEdModeDrawHelperInterface>) from cpp.Star<LegacyEdModeDrawHelperInterface> to cpp.Star<LegacyEdModeDrawHelperInterface>{
+abstract LegacyEdModeDrawHelperInterfacePtr(ucpp.Ptr<LegacyEdModeDrawHelperInterface>) from ucpp.Ptr<LegacyEdModeDrawHelperInterface> to ucpp.Ptr<LegacyEdModeDrawHelperInterface>{
 	@:from
 	public static extern inline function fromValue(v: LegacyEdModeDrawHelperInterface): LegacyEdModeDrawHelperInterfacePtr {
 		return untyped __cpp__("&({0})", v);

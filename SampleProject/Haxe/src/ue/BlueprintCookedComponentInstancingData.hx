@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintCookedComponentInstancingData")
 @:include("Engine/BlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class BlueprintCookedComponentInstancingData {
 	public var ChangedPropertyList: TArray<BlueprintComponentChangedPropertyInfo>;
 	public var bHasValidCookedData: Bool;

@@ -3,58 +3,62 @@ package ue;
 
 @:native("UDecalComponent")
 @:include("Components/DecalComponent.h")
-@:structAccess
+@:valueType
 extern class DecalComp extends SceneComp {
-	@:protected public var DecalMaterial: cpp.Star<MaterialInterface>;
-	public var SortOrder: cpp.Int32;
-	public var FadeScreenSize: cpp.Float32;
-	public var FadeStartDelay: cpp.Float32;
-	public var FadeDuration: cpp.Float32;
-	public var FadeInDuration: cpp.Float32;
-	public var FadeInStartDelay: cpp.Float32;
+	@:protected public var DecalMaterial: ucpp.Ptr<MaterialInterface>;
+	public var SortOrder: ucpp.num.Int32;
+	public var FadeScreenSize: ucpp.num.Float32;
+	public var FadeStartDelay: ucpp.num.Float32;
+	public var FadeDuration: ucpp.num.Float32;
+	public var FadeInDuration: ucpp.num.Float32;
+	public var FadeInStartDelay: ucpp.num.Float32;
 	public var bDestroyOwnerAfterFade: Bool;
 	public var DecalSize: Vector;
+	public var DecalColor: LinearColor;
 
-	public function SetSortOrder(Value: cpp.Int32): Void;
-	public function SetFadeScreenSize(NewFadeScreenSize: cpp.Float32): Void;
-	public function SetFadeOut(StartDelay: cpp.Float32, Duration: cpp.Float32, DestroyOwnerAfterFade: Bool): Void;
-	public function SetFadeIn(StartDelay: cpp.Float32, Duaration: cpp.Float32): Void;
-	public function SetDecalMaterial(NewDecalMaterial: cpp.Star<MaterialInterface>): Void;
-	public function GetFadeStartDelay(): cpp.Float32;
-	public function GetFadeInStartDelay(): cpp.Float32;
-	public function GetFadeInDuration(): cpp.Float32;
-	public function GetFadeDuration(): cpp.Float32;
-	public function GetDecalMaterial(): cpp.Star<MaterialInterface>;
-	public function CreateDynamicMaterialInstance(): cpp.Star<MaterialInstanceDynamic>;
+	public function SetSortOrder(Value: ucpp.num.Int32): Void;
+	public function SetFadeScreenSize(NewFadeScreenSize: ucpp.num.Float32): Void;
+	public function SetFadeOut(StartDelay: ucpp.num.Float32, Duration: ucpp.num.Float32, DestroyOwnerAfterFade: Bool): Void;
+	public function SetFadeIn(StartDelay: ucpp.num.Float32, Duration: ucpp.num.Float32): Void;
+	public function SetDecalMaterial(NewDecalMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetDecalColor(Color: ucpp.Ref<LinearColor>): Void;
+	public function GetFadeStartDelay(): ucpp.num.Float32;
+	public function GetFadeInStartDelay(): ucpp.num.Float32;
+	public function GetFadeInDuration(): ucpp.num.Float32;
+	public function GetFadeDuration(): ucpp.num.Float32;
+	public function GetDecalMaterial(): ucpp.Ptr<MaterialInterface>;
+	public function CreateDynamicMaterialInstance(): ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFadeStartDelay, GetFadeInStartDelay, GetFadeInDuration, GetFadeDuration, GetDecalMaterial)
 @:nativeGen
 abstract ConstDecalComp(DecalComp) from DecalComp {
-	public extern var SortOrder(get, never): cpp.Int32;
-	public inline extern function get_SortOrder(): cpp.Int32 return this.SortOrder;
-	public extern var FadeScreenSize(get, never): cpp.Float32;
-	public inline extern function get_FadeScreenSize(): cpp.Float32 return this.FadeScreenSize;
-	public extern var FadeStartDelay(get, never): cpp.Float32;
-	public inline extern function get_FadeStartDelay(): cpp.Float32 return this.FadeStartDelay;
-	public extern var FadeDuration(get, never): cpp.Float32;
-	public inline extern function get_FadeDuration(): cpp.Float32 return this.FadeDuration;
-	public extern var FadeInDuration(get, never): cpp.Float32;
-	public inline extern function get_FadeInDuration(): cpp.Float32 return this.FadeInDuration;
-	public extern var FadeInStartDelay(get, never): cpp.Float32;
-	public inline extern function get_FadeInStartDelay(): cpp.Float32 return this.FadeInStartDelay;
+	public extern var SortOrder(get, never): ucpp.num.Int32;
+	public inline extern function get_SortOrder(): ucpp.num.Int32 return this.SortOrder;
+	public extern var FadeScreenSize(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeScreenSize(): ucpp.num.Float32 return this.FadeScreenSize;
+	public extern var FadeStartDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeStartDelay(): ucpp.num.Float32 return this.FadeStartDelay;
+	public extern var FadeDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeDuration(): ucpp.num.Float32 return this.FadeDuration;
+	public extern var FadeInDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeInDuration(): ucpp.num.Float32 return this.FadeInDuration;
+	public extern var FadeInStartDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeInStartDelay(): ucpp.num.Float32 return this.FadeInStartDelay;
 	public extern var bDestroyOwnerAfterFade(get, never): Bool;
 	public inline extern function get_bDestroyOwnerAfterFade(): Bool return this.bDestroyOwnerAfterFade;
 	public extern var DecalSize(get, never): Vector;
 	public inline extern function get_DecalSize(): Vector return this.DecalSize;
+	public extern var DecalColor(get, never): LinearColor;
+	public inline extern function get_DecalColor(): LinearColor return this.DecalColor;
 }
 
 @:forward
 @:nativeGen
 @:native("DecalComp*")
-abstract DecalCompPtr(cpp.Star<DecalComp>) from cpp.Star<DecalComp> to cpp.Star<DecalComp>{
+abstract DecalCompPtr(ucpp.Ptr<DecalComp>) from ucpp.Ptr<DecalComp> to ucpp.Ptr<DecalComp>{
 	@:from
 	public static extern inline function fromValue(v: DecalComp): DecalCompPtr {
 		return untyped __cpp__("&({0})", v);

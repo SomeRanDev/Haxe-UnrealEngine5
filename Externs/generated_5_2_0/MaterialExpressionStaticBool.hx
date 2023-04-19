@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionStaticBool")
 @:include("Materials/MaterialExpressionStaticBool.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStaticBool extends MaterialExpression {
 	public var Value: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionStaticBool(MaterialExpressionStaticBool) from Ma
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStaticBool*")
-abstract MaterialExpressionStaticBoolPtr(cpp.Star<MaterialExpressionStaticBool>) from cpp.Star<MaterialExpressionStaticBool> to cpp.Star<MaterialExpressionStaticBool>{
+abstract MaterialExpressionStaticBoolPtr(ucpp.Ptr<MaterialExpressionStaticBool>) from ucpp.Ptr<MaterialExpressionStaticBool> to ucpp.Ptr<MaterialExpressionStaticBool>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStaticBool): MaterialExpressionStaticBoolPtr {
 		return untyped __cpp__("&({0})", v);

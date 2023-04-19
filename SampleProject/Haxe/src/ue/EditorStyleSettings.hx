@@ -2,13 +2,13 @@
 package ue;
 
 @:native("UEditorStyleSettings")
-@:include("Classes/EditorStyleSettings.h")
-@:structAccess
+@:include("Settings/EditorStyleSettings.h")
+@:valueType
 extern class EditorStyleSettings extends Object {
 	public var bEnableHighDPIAwareness: Bool;
 	public var bEnableUserEditorLayoutManagement: Bool;
 	public var ColorVisionDeficiencyPreviewType: EColorVisionDeficiency;
-	public var ColorVisionDeficiencySeverity: cpp.Int32;
+	public var ColorVisionDeficiencySeverity: ucpp.num.Int32;
 	public var bColorVisionDeficiencyCorrection: Bool;
 	public var bColorVisionDeficiencyCorrectionPreviewWithDeficiency: Bool;
 	public var SelectionColor: LinearColor;
@@ -19,7 +19,7 @@ extern class EditorStyleSettings extends Object {
 	public var RegularColor: LinearColor;
 	public var RuleColor: LinearColor;
 	public var CenterColor: LinearColor;
-	public var GridSnapSize: cpp.UInt32;
+	public var GridSnapSize: ucpp.num.UInt32;
 	public var GraphBackgroundBrush: SlateBrush;
 	public var bShowFriendlyNames: Bool;
 	public var bShowNativeComponentNames: Bool;
@@ -28,15 +28,11 @@ extern class EditorStyleSettings extends Object {
 	public var bShowLaunchMenus: Bool;
 	public var bShowAllAdvancedDetails: Bool;
 	public var bShowHiddenPropertiesWhilePlaying: Bool;
-	public var LogFontSize: cpp.Int32;
-	public var LogTimestampMode: TEnumAsByte<ELogTimes>;
-	public var bPromoteOutputLogWarningsDuringPIE: Bool;
-	public var CategoryColorizationMode: ELogCategoryColorizationMode;
-	public var bCycleToOutputLogDrawer: Bool;
 	public var AssetEditorOpenLocation: EAssetEditorOpenLocation;
 	public var bEnableColorizedEditorTabs: Bool;
+	public var CurrentAppliedTheme: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -48,8 +44,8 @@ abstract ConstEditorStyleSettings(EditorStyleSettings) from EditorStyleSettings 
 	public inline extern function get_bEnableUserEditorLayoutManagement(): Bool return this.bEnableUserEditorLayoutManagement;
 	public extern var ColorVisionDeficiencyPreviewType(get, never): EColorVisionDeficiency;
 	public inline extern function get_ColorVisionDeficiencyPreviewType(): EColorVisionDeficiency return this.ColorVisionDeficiencyPreviewType;
-	public extern var ColorVisionDeficiencySeverity(get, never): cpp.Int32;
-	public inline extern function get_ColorVisionDeficiencySeverity(): cpp.Int32 return this.ColorVisionDeficiencySeverity;
+	public extern var ColorVisionDeficiencySeverity(get, never): ucpp.num.Int32;
+	public inline extern function get_ColorVisionDeficiencySeverity(): ucpp.num.Int32 return this.ColorVisionDeficiencySeverity;
 	public extern var bColorVisionDeficiencyCorrection(get, never): Bool;
 	public inline extern function get_bColorVisionDeficiencyCorrection(): Bool return this.bColorVisionDeficiencyCorrection;
 	public extern var bColorVisionDeficiencyCorrectionPreviewWithDeficiency(get, never): Bool;
@@ -70,8 +66,8 @@ abstract ConstEditorStyleSettings(EditorStyleSettings) from EditorStyleSettings 
 	public inline extern function get_RuleColor(): LinearColor return this.RuleColor;
 	public extern var CenterColor(get, never): LinearColor;
 	public inline extern function get_CenterColor(): LinearColor return this.CenterColor;
-	public extern var GridSnapSize(get, never): cpp.UInt32;
-	public inline extern function get_GridSnapSize(): cpp.UInt32 return this.GridSnapSize;
+	public extern var GridSnapSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_GridSnapSize(): ucpp.num.UInt32 return this.GridSnapSize;
 	public extern var GraphBackgroundBrush(get, never): SlateBrush;
 	public inline extern function get_GraphBackgroundBrush(): SlateBrush return this.GraphBackgroundBrush;
 	public extern var bShowFriendlyNames(get, never): Bool;
@@ -88,26 +84,18 @@ abstract ConstEditorStyleSettings(EditorStyleSettings) from EditorStyleSettings 
 	public inline extern function get_bShowAllAdvancedDetails(): Bool return this.bShowAllAdvancedDetails;
 	public extern var bShowHiddenPropertiesWhilePlaying(get, never): Bool;
 	public inline extern function get_bShowHiddenPropertiesWhilePlaying(): Bool return this.bShowHiddenPropertiesWhilePlaying;
-	public extern var LogFontSize(get, never): cpp.Int32;
-	public inline extern function get_LogFontSize(): cpp.Int32 return this.LogFontSize;
-	public extern var LogTimestampMode(get, never): TEnumAsByte<ELogTimes>;
-	public inline extern function get_LogTimestampMode(): TEnumAsByte<ELogTimes> return this.LogTimestampMode;
-	public extern var bPromoteOutputLogWarningsDuringPIE(get, never): Bool;
-	public inline extern function get_bPromoteOutputLogWarningsDuringPIE(): Bool return this.bPromoteOutputLogWarningsDuringPIE;
-	public extern var CategoryColorizationMode(get, never): ELogCategoryColorizationMode;
-	public inline extern function get_CategoryColorizationMode(): ELogCategoryColorizationMode return this.CategoryColorizationMode;
-	public extern var bCycleToOutputLogDrawer(get, never): Bool;
-	public inline extern function get_bCycleToOutputLogDrawer(): Bool return this.bCycleToOutputLogDrawer;
 	public extern var AssetEditorOpenLocation(get, never): EAssetEditorOpenLocation;
 	public inline extern function get_AssetEditorOpenLocation(): EAssetEditorOpenLocation return this.AssetEditorOpenLocation;
 	public extern var bEnableColorizedEditorTabs(get, never): Bool;
 	public inline extern function get_bEnableColorizedEditorTabs(): Bool return this.bEnableColorizedEditorTabs;
+	public extern var CurrentAppliedTheme(get, never): Guid;
+	public inline extern function get_CurrentAppliedTheme(): Guid return this.CurrentAppliedTheme;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorStyleSettings*")
-abstract EditorStyleSettingsPtr(cpp.Star<EditorStyleSettings>) from cpp.Star<EditorStyleSettings> to cpp.Star<EditorStyleSettings>{
+abstract EditorStyleSettingsPtr(ucpp.Ptr<EditorStyleSettings>) from ucpp.Ptr<EditorStyleSettings> to ucpp.Ptr<EditorStyleSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorStyleSettings): EditorStyleSettingsPtr {
 		return untyped __cpp__("&({0})", v);

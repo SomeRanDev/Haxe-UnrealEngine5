@@ -3,7 +3,7 @@ package ue;
 
 @:native("FParameterChannelNames")
 @:include("MaterialTypes.h")
-@:structAccess
+@:valueType
 extern class ParameterChannelNames {
 	public var R: FText;
 	public var G: FText;

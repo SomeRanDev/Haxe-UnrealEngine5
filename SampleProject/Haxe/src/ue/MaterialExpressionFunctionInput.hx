@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMaterialExpressionFunctionInput")
 @:include("Materials/MaterialExpressionFunctionInput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionFunctionInput extends MaterialExpression {
 	public var Preview: ExpressionInput;
 	public var InputName: FName;
 	public var Description: FString;
 	public var Id: Guid;
 	public var InputType: TEnumAsByte<EFunctionInputType>;
-	public var PreviewValue: Vector4;
+	public var PreviewValue: Vector4f;
 	public var bUsePreviewValueAsDefault: Bool;
-	public var SortPriority: cpp.Int32;
+	public var SortPriority: ucpp.num.Int32;
 	public var bCompilingFunctionPreview: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,12 +31,12 @@ abstract ConstMaterialExpressionFunctionInput(MaterialExpressionFunctionInput) f
 	public inline extern function get_Id(): Guid return this.Id;
 	public extern var InputType(get, never): TEnumAsByte<EFunctionInputType>;
 	public inline extern function get_InputType(): TEnumAsByte<EFunctionInputType> return this.InputType;
-	public extern var PreviewValue(get, never): Vector4;
-	public inline extern function get_PreviewValue(): Vector4 return this.PreviewValue;
+	public extern var PreviewValue(get, never): Vector4f;
+	public inline extern function get_PreviewValue(): Vector4f return this.PreviewValue;
 	public extern var bUsePreviewValueAsDefault(get, never): Bool;
 	public inline extern function get_bUsePreviewValueAsDefault(): Bool return this.bUsePreviewValueAsDefault;
-	public extern var SortPriority(get, never): cpp.Int32;
-	public inline extern function get_SortPriority(): cpp.Int32 return this.SortPriority;
+	public extern var SortPriority(get, never): ucpp.num.Int32;
+	public inline extern function get_SortPriority(): ucpp.num.Int32 return this.SortPriority;
 	public extern var bCompilingFunctionPreview(get, never): Bool;
 	public inline extern function get_bCompilingFunctionPreview(): Bool return this.bCompilingFunctionPreview;
 }
@@ -44,7 +44,7 @@ abstract ConstMaterialExpressionFunctionInput(MaterialExpressionFunctionInput) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionFunctionInput*")
-abstract MaterialExpressionFunctionInputPtr(cpp.Star<MaterialExpressionFunctionInput>) from cpp.Star<MaterialExpressionFunctionInput> to cpp.Star<MaterialExpressionFunctionInput>{
+abstract MaterialExpressionFunctionInputPtr(ucpp.Ptr<MaterialExpressionFunctionInput>) from ucpp.Ptr<MaterialExpressionFunctionInput> to ucpp.Ptr<MaterialExpressionFunctionInput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionFunctionInput): MaterialExpressionFunctionInputPtr {
 		return untyped __cpp__("&({0})", v);

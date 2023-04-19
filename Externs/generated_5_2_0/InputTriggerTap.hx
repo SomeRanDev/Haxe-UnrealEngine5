@@ -3,24 +3,24 @@ package ue;
 
 @:native("UInputTriggerTap")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerTap extends InputTriggerTimedBase {
-	public var TapReleaseTimeThreshold: cpp.Float32;
+	public var TapReleaseTimeThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputTriggerTap(InputTriggerTap) from InputTriggerTap {
-	public extern var TapReleaseTimeThreshold(get, never): cpp.Float32;
-	public inline extern function get_TapReleaseTimeThreshold(): cpp.Float32 return this.TapReleaseTimeThreshold;
+	public extern var TapReleaseTimeThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_TapReleaseTimeThreshold(): ucpp.num.Float32 return this.TapReleaseTimeThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("InputTriggerTap*")
-abstract InputTriggerTapPtr(cpp.Star<InputTriggerTap>) from cpp.Star<InputTriggerTap> to cpp.Star<InputTriggerTap>{
+abstract InputTriggerTapPtr(ucpp.Ptr<InputTriggerTap>) from ucpp.Ptr<InputTriggerTap> to ucpp.Ptr<InputTriggerTap>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerTap): InputTriggerTapPtr {
 		return untyped __cpp__("&({0})", v);

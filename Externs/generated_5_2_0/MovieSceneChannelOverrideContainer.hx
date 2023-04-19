@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneChannelOverrideContainer")
 @:include("Channels/MovieSceneChannelOverrideContainer.h")
-@:structAccess
+@:valueType
 extern class MovieSceneChannelOverrideContainer extends MovieSceneSignedObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneChannelOverrideContainer(MovieSceneChannelOverrideContai
 @:forward
 @:nativeGen
 @:native("MovieSceneChannelOverrideContainer*")
-abstract MovieSceneChannelOverrideContainerPtr(cpp.Star<MovieSceneChannelOverrideContainer>) from cpp.Star<MovieSceneChannelOverrideContainer> to cpp.Star<MovieSceneChannelOverrideContainer>{
+abstract MovieSceneChannelOverrideContainerPtr(ucpp.Ptr<MovieSceneChannelOverrideContainer>) from ucpp.Ptr<MovieSceneChannelOverrideContainer> to ucpp.Ptr<MovieSceneChannelOverrideContainer>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneChannelOverrideContainer): MovieSceneChannelOverrideContainerPtr {
 		return untyped __cpp__("&({0})", v);

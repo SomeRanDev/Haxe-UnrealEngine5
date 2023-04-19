@@ -3,19 +3,19 @@ package ue;
 
 @:native("UInterchangeVariantSetNode")
 @:include("InterchangeVariantSetNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeVariantSetNode extends InterchangeBaseNode {
 	public function SetCustomVariantsPayloadKey(PayloadKey: FString): Bool;
 	public function SetCustomDisplayText(AttributeValue: FString): Bool;
 	public function RemoveCustomDependencyUid(DependencyUid: FString): Bool;
-	public function GetCustomVariantsPayloadKey(PayloadKey: cpp.Reference<FString>): Bool;
-	public function GetCustomDisplayText(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomDependencyUids(OutDependencyUids: cpp.Reference<TArray<FString>>): Void;
-	public function GetCustomDependencyUidCount(): cpp.Int32;
-	public function GetCustomDependencyUid(Index: cpp.Int32, OutDependencyUid: cpp.Reference<FString>): Void;
+	public function GetCustomVariantsPayloadKey(PayloadKey: ucpp.Ref<FString>): Bool;
+	public function GetCustomDisplayText(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomDependencyUids(OutDependencyUids: ucpp.Ref<TArray<FString>>): Void;
+	public function GetCustomDependencyUidCount(): ucpp.num.Int32;
+	public function GetCustomDependencyUid(Index: ucpp.num.Int32, OutDependencyUid: ucpp.Ref<FString>): Void;
 	public function AddCustomDependencyUid(DependencyUid: FString): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomVariantsPayloadKey, GetCustomDisplayText, GetCustomDependencyUids, GetCustomDependencyUidCount, GetCustomDependencyUid)
@@ -26,7 +26,7 @@ abstract ConstInterchangeVariantSetNode(InterchangeVariantSetNode) from Intercha
 @:forward
 @:nativeGen
 @:native("InterchangeVariantSetNode*")
-abstract InterchangeVariantSetNodePtr(cpp.Star<InterchangeVariantSetNode>) from cpp.Star<InterchangeVariantSetNode> to cpp.Star<InterchangeVariantSetNode>{
+abstract InterchangeVariantSetNodePtr(ucpp.Ptr<InterchangeVariantSetNode>) from ucpp.Ptr<InterchangeVariantSetNode> to ucpp.Ptr<InterchangeVariantSetNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeVariantSetNode): InterchangeVariantSetNodePtr {
 		return untyped __cpp__("&({0})", v);

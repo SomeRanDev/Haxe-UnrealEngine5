@@ -3,10 +3,10 @@ package ue;
 
 @:native("USkeletalMesh")
 @:include("Engine/SkeletalMesh.h")
-@:structAccess
-extern class SkeletalMesh extends StreamableRenderAsset {
-	public function GetSkeleton(): cpp.Star<Skeleton>;
-	public function SetSkeleton(input: cpp.Star<Skeleton>): Void;
+@:valueType
+extern class SkeletalMesh extends SkinnedAsset {
+	public function GetSkeleton(): ucpp.Ptr<Skeleton>;
+	public function SetSkeleton(input: ucpp.Ptr<Skeleton>): Void;
 	private var ImportedBounds: BoxSphereBounds;
 	private var ExtendedBounds: BoxSphereBounds;
 	@:protected public var PositiveBoundsExtension: Vector;
@@ -15,6 +15,7 @@ extern class SkeletalMesh extends StreamableRenderAsset {
 	public function SetMaterials(input: TArray<SkeletalMaterial>): Void;
 	public var SkelMirrorTable: TArray<BoneMirrorInfo>;
 	private var LODInfo: TArray<SkeletalMeshLODInfo>;
+	public var MinQualityLevelLOD: PerQualityLevelInt;
 	public var MinLod: PerPlatformInt;
 	public var DisableBelowMinLodStripping: PerPlatformBool;
 	public var SkelMirrorAxis: TEnumAsByte<EAxis>;
@@ -22,50 +23,54 @@ extern class SkeletalMesh extends StreamableRenderAsset {
 	public var bHasBeenSimplified: Bool;
 	public var bHasVertexColors: Bool;
 	public var bEnablePerPolyCollision: Bool;
-	public var BodySetup: cpp.Star<BodySetup>;
-	public function GetPhysicsAsset(): cpp.Star<PhysicsAsset>;
-	public function GetShadowPhysicsAsset(): cpp.Star<PhysicsAsset>;
-	public function GetNodeMappingData(): TArray<cpp.Star<NodeMappingContainer>>;
+	public var BodySetup: ucpp.Ptr<BodySetup>;
+	public function GetPhysicsAsset(): ucpp.Ptr<PhysicsAsset>;
+	public function GetShadowPhysicsAsset(): ucpp.Ptr<PhysicsAsset>;
+	public function GetNodeMappingData(): TArray<ucpp.Ptr<NodeMappingContainer>>;
 	public var bSupportRayTracing: Bool;
-	public var RayTracingMinLOD: cpp.Int32;
+	public var RayTracingMinLOD: ucpp.num.Int32;
 	public var ClothLODBiasMode: EClothLODBiasMode;
-	public function GetMorphTargets(): TArray<cpp.Star<MorphTarget>>;
-	public function SetMorphTargets(input: TArray<cpp.Star<MorphTarget>>): Void;
+	public function GetMorphTargetsPtrConv(): TArray<ucpp.Ptr<MorphTarget>>;
+	public function SetMorphTargets(input: TArray<ucpp.Ptr<MorphTarget>>): Void;
 	public var PostProcessAnimBlueprint: TSubclassOf<AnimInstance>;
-	public function GetMeshClothingAssets(): TArray<cpp.Star<ClothingAssetBase>>;
-	public function SetMeshClothingAssets(input: TArray<cpp.Star<ClothingAssetBase>>): Void;
+	public function GetMeshClothingAssets(): TArray<ucpp.Ptr<ClothingAssetBase>>;
+	public function SetMeshClothingAssets(input: TArray<ucpp.Ptr<ClothingAssetBase>>): Void;
 	@:protected public var SamplingInfo: SkeletalMeshSamplingInfo;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
-	private var Sockets: TArray<cpp.Star<SkeletalMeshSocket>>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
+	private var Sockets: TArray<ucpp.Ptr<SkeletalMeshSocket>>;
 	@:protected public var SkinWeightProfiles: TArray<SkinWeightProfileInfo>;
+	@:protected public var DefaultMeshDeformer: ucpp.Ptr<MeshDeformer>;
 
-	public function SetLODSettings(InLODSettings: cpp.Star<SkeletalMeshLODSettings>): Void;
+	public function SetMinLODForQualityLevels(QualityLevelMinimumLODs: ucpp.Ref<TMap<EPerQualityLevels, ucpp.num.Int32>>, Default: ucpp.num.Int32): Void;
+	public function SetLODSettings(InLODSettings: ucpp.Ptr<SkeletalMeshLODSettings>): Void;
 	public function SetDefaultAnimatingRig(InAnimatingRig: TSoftObjectPtr<Object>): Void;
-	public function NumSockets(): cpp.Int32;
+	public function NumSockets(): ucpp.num.Int32;
 	public function K2_GetAllMorphTargetNames(): TArray<FString>;
-	public function IsSectionUsingCloth(InSectionIndex: cpp.Int32, bCheckCorrespondingSections: Bool): Bool;
-	public function GetSocketByIndex(Index: cpp.Int32): cpp.Star<SkeletalMeshSocket>;
-	public function GetNodeMappingContainer(SourceAsset: cpp.Star<Blueprint>): cpp.Star<NodeMappingContainer>;
-	public function GetLODSettings(): cpp.Star<SkeletalMeshLODSettings.ConstSkeletalMeshLODSettings>;
+	public function IsSectionUsingCloth(InSectionIndex: ucpp.num.Int32, bCheckCorrespondingSections: Bool): Bool;
+	public function GetSocketByIndex(Index: ucpp.num.Int32): ucpp.Ptr<SkeletalMeshSocket>;
+	public function GetNodeMappingContainer(SourceAsset: ucpp.Ptr<Blueprint>): ucpp.Ptr<NodeMappingContainer>;
+	public function GetMinLODForQualityLevels(QualityLevelMinimumLODs: ucpp.Ref<TMap<EPerQualityLevels, ucpp.num.Int32>>, Default: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetLODSettings(): ucpp.Ptr<SkeletalMeshLODSettings.ConstSkeletalMeshLODSettings>;
 	public function GetImportedBounds(): BoxSphereBounds;
 	public function GetDefaultAnimatingRig(): TSoftObjectPtr<Object>;
 	public function GetBounds(): BoxSphereBounds;
-	public function FindSocketInfo(InSocketName: FName, OutTransform: cpp.Reference<Transform>, OutBoneIndex: cpp.Reference<cpp.Int32>, OutIndex: cpp.Reference<cpp.Int32>): cpp.Star<SkeletalMeshSocket>;
-	public function FindSocketAndIndex(InSocketName: FName, OutIndex: cpp.Reference<cpp.Int32>): cpp.Star<SkeletalMeshSocket>;
-	public function FindSocket(InSocketName: FName): cpp.Star<SkeletalMeshSocket>;
+	public function FindSocketAndIndex(InSocketName: FName, OutIndex: ucpp.Ref<ucpp.num.Int32>): ucpp.Ptr<SkeletalMeshSocket>;
+	public function AddSocket(InSocket: ucpp.Ptr<SkeletalMeshSocket>, bAddToSkeleton: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
 	NumSockets, K2_GetAllMorphTargetNames, IsSectionUsingCloth, GetSocketByIndex, GetNodeMappingContainer,
-	GetLODSettings, GetImportedBounds, GetDefaultAnimatingRig, GetBounds, FindSocketInfo,
-	FindSocketAndIndex, FindSocket
+	GetMinLODForQualityLevels, GetLODSettings, GetImportedBounds, GetDefaultAnimatingRig, GetBounds,
+	FindSocketAndIndex
 )
 @:nativeGen
 abstract ConstSkeletalMesh(SkeletalMesh) from SkeletalMesh {
 	public extern var SkelMirrorTable(get, never): TArray<BoneMirrorInfo>;
 	public inline extern function get_SkelMirrorTable(): TArray<BoneMirrorInfo> return this.SkelMirrorTable;
+	public extern var MinQualityLevelLOD(get, never): PerQualityLevelInt;
+	public inline extern function get_MinQualityLevelLOD(): PerQualityLevelInt return this.MinQualityLevelLOD;
 	public extern var MinLod(get, never): PerPlatformInt;
 	public inline extern function get_MinLod(): PerPlatformInt return this.MinLod;
 	public extern var DisableBelowMinLodStripping(get, never): PerPlatformBool;
@@ -80,12 +85,12 @@ abstract ConstSkeletalMesh(SkeletalMesh) from SkeletalMesh {
 	public inline extern function get_bHasVertexColors(): Bool return this.bHasVertexColors;
 	public extern var bEnablePerPolyCollision(get, never): Bool;
 	public inline extern function get_bEnablePerPolyCollision(): Bool return this.bEnablePerPolyCollision;
-	public extern var BodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_BodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.BodySetup;
+	public extern var BodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_BodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.BodySetup;
 	public extern var bSupportRayTracing(get, never): Bool;
 	public inline extern function get_bSupportRayTracing(): Bool return this.bSupportRayTracing;
-	public extern var RayTracingMinLOD(get, never): cpp.Int32;
-	public inline extern function get_RayTracingMinLOD(): cpp.Int32 return this.RayTracingMinLOD;
+	public extern var RayTracingMinLOD(get, never): ucpp.num.Int32;
+	public inline extern function get_RayTracingMinLOD(): ucpp.num.Int32 return this.RayTracingMinLOD;
 	public extern var ClothLODBiasMode(get, never): EClothLODBiasMode;
 	public inline extern function get_ClothLODBiasMode(): EClothLODBiasMode return this.ClothLODBiasMode;
 	public extern var PostProcessAnimBlueprint(get, never): TSubclassOf<AnimInstance.ConstAnimInstance>;
@@ -95,7 +100,7 @@ abstract ConstSkeletalMesh(SkeletalMesh) from SkeletalMesh {
 @:forward
 @:nativeGen
 @:native("SkeletalMesh*")
-abstract SkeletalMeshPtr(cpp.Star<SkeletalMesh>) from cpp.Star<SkeletalMesh> to cpp.Star<SkeletalMesh>{
+abstract SkeletalMeshPtr(ucpp.Ptr<SkeletalMesh>) from ucpp.Ptr<SkeletalMesh> to ucpp.Ptr<SkeletalMesh>{
 	@:from
 	public static extern inline function fromValue(v: SkeletalMesh): SkeletalMeshPtr {
 		return untyped __cpp__("&({0})", v);

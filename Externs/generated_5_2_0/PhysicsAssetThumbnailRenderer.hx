@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPhysicsAssetThumbnailRenderer")
 @:include("ThumbnailRendering/PhysicsAssetThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class PhysicsAssetThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPhysicsAssetThumbnailRenderer(PhysicsAssetThumbnailRenderer) from 
 @:forward
 @:nativeGen
 @:native("PhysicsAssetThumbnailRenderer*")
-abstract PhysicsAssetThumbnailRendererPtr(cpp.Star<PhysicsAssetThumbnailRenderer>) from cpp.Star<PhysicsAssetThumbnailRenderer> to cpp.Star<PhysicsAssetThumbnailRenderer>{
+abstract PhysicsAssetThumbnailRendererPtr(ucpp.Ptr<PhysicsAssetThumbnailRenderer>) from ucpp.Ptr<PhysicsAssetThumbnailRenderer> to ucpp.Ptr<PhysicsAssetThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsAssetThumbnailRenderer): PhysicsAssetThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

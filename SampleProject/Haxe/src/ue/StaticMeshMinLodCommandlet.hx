@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStaticMeshMinLodCommandlet")
 @:include("Commandlets/StaticMeshMinLodCommandlet.h")
-@:structAccess
+@:valueType
 extern class StaticMeshMinLodCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStaticMeshMinLodCommandlet(StaticMeshMinLodCommandlet) from Static
 @:forward
 @:nativeGen
 @:native("StaticMeshMinLodCommandlet*")
-abstract StaticMeshMinLodCommandletPtr(cpp.Star<StaticMeshMinLodCommandlet>) from cpp.Star<StaticMeshMinLodCommandlet> to cpp.Star<StaticMeshMinLodCommandlet>{
+abstract StaticMeshMinLodCommandletPtr(ucpp.Ptr<StaticMeshMinLodCommandlet>) from ucpp.Ptr<StaticMeshMinLodCommandlet> to ucpp.Ptr<StaticMeshMinLodCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshMinLodCommandlet): StaticMeshMinLodCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_LayeredBoneBlend")
 @:include("AnimGraphNode_LayeredBoneBlend.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_LayeredBoneBlend extends AnimGraphNode_BlendListBase {
 	public var Node: AnimNode_LayeredBoneBlend;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_LayeredBoneBlend(AnimGraphNode_LayeredBoneBlend) fro
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_LayeredBoneBlend*")
-abstract AnimGraphNode_LayeredBoneBlendPtr(cpp.Star<AnimGraphNode_LayeredBoneBlend>) from cpp.Star<AnimGraphNode_LayeredBoneBlend> to cpp.Star<AnimGraphNode_LayeredBoneBlend>{
+abstract AnimGraphNode_LayeredBoneBlendPtr(ucpp.Ptr<AnimGraphNode_LayeredBoneBlend>) from ucpp.Ptr<AnimGraphNode_LayeredBoneBlend> to ucpp.Ptr<AnimGraphNode_LayeredBoneBlend>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_LayeredBoneBlend): AnimGraphNode_LayeredBoneBlendPtr {
 		return untyped __cpp__("&({0})", v);

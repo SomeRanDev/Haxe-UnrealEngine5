@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraEventGeneratorProperties")
 @:include("NiagaraEmitter.h")
-@:structAccess
+@:valueType
 extern class NiagaraEventGeneratorProperties {
-	public var MaxEventsPerFrame: cpp.Int32;
+	public var MaxEventsPerFrame: ucpp.num.Int32;
 	public var ID: FName;
 	public var DataSetCompiledData: NiagaraDataSetCompiledData;
 
 	@:native("FNiagaraEventGeneratorProperties") public function new();
-	@:native("FNiagaraEventGeneratorProperties") public static function make(MaxEventsPerFrame: cpp.Int32, ID: FName, DataSetCompiledData: NiagaraDataSetCompiledData): NiagaraEventGeneratorProperties ;
+	@:native("FNiagaraEventGeneratorProperties") public static function make(MaxEventsPerFrame: ucpp.num.Int32, ID: FName, DataSetCompiledData: NiagaraDataSetCompiledData): NiagaraEventGeneratorProperties ;
 }

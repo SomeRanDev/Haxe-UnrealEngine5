@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGameplayDebuggerConfig")
 @:include("GameplayDebuggerConfig.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerConfig extends Object {
 	public var ActivationKey: Key;
 	public var CategoryRowNextKey: Key;
@@ -18,15 +18,15 @@ extern class GameplayDebuggerConfig extends Object {
 	public var CategorySlot7: Key;
 	public var CategorySlot8: Key;
 	public var CategorySlot9: Key;
-	public var DebugCanvasPaddingLeft: cpp.Float32;
-	public var DebugCanvasPaddingRight: cpp.Float32;
-	public var DebugCanvasPaddingTop: cpp.Float32;
-	public var DebugCanvasPaddingBottom: cpp.Float32;
+	public var DebugCanvasPaddingLeft: ucpp.num.Float32;
+	public var DebugCanvasPaddingRight: ucpp.num.Float32;
+	public var DebugCanvasPaddingTop: ucpp.num.Float32;
+	public var DebugCanvasPaddingBottom: ucpp.num.Float32;
 	public var bDebugCanvasEnableTextShadow: Bool;
 	public var Categories: TArray<GameplayDebuggerCategoryConfig>;
 	public var Extensions: TArray<GameplayDebuggerExtensionConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -58,14 +58,14 @@ abstract ConstGameplayDebuggerConfig(GameplayDebuggerConfig) from GameplayDebugg
 	public inline extern function get_CategorySlot8(): Key return this.CategorySlot8;
 	public extern var CategorySlot9(get, never): Key;
 	public inline extern function get_CategorySlot9(): Key return this.CategorySlot9;
-	public extern var DebugCanvasPaddingLeft(get, never): cpp.Float32;
-	public inline extern function get_DebugCanvasPaddingLeft(): cpp.Float32 return this.DebugCanvasPaddingLeft;
-	public extern var DebugCanvasPaddingRight(get, never): cpp.Float32;
-	public inline extern function get_DebugCanvasPaddingRight(): cpp.Float32 return this.DebugCanvasPaddingRight;
-	public extern var DebugCanvasPaddingTop(get, never): cpp.Float32;
-	public inline extern function get_DebugCanvasPaddingTop(): cpp.Float32 return this.DebugCanvasPaddingTop;
-	public extern var DebugCanvasPaddingBottom(get, never): cpp.Float32;
-	public inline extern function get_DebugCanvasPaddingBottom(): cpp.Float32 return this.DebugCanvasPaddingBottom;
+	public extern var DebugCanvasPaddingLeft(get, never): ucpp.num.Float32;
+	public inline extern function get_DebugCanvasPaddingLeft(): ucpp.num.Float32 return this.DebugCanvasPaddingLeft;
+	public extern var DebugCanvasPaddingRight(get, never): ucpp.num.Float32;
+	public inline extern function get_DebugCanvasPaddingRight(): ucpp.num.Float32 return this.DebugCanvasPaddingRight;
+	public extern var DebugCanvasPaddingTop(get, never): ucpp.num.Float32;
+	public inline extern function get_DebugCanvasPaddingTop(): ucpp.num.Float32 return this.DebugCanvasPaddingTop;
+	public extern var DebugCanvasPaddingBottom(get, never): ucpp.num.Float32;
+	public inline extern function get_DebugCanvasPaddingBottom(): ucpp.num.Float32 return this.DebugCanvasPaddingBottom;
 	public extern var bDebugCanvasEnableTextShadow(get, never): Bool;
 	public inline extern function get_bDebugCanvasEnableTextShadow(): Bool return this.bDebugCanvasEnableTextShadow;
 	public extern var Categories(get, never): TArray<GameplayDebuggerCategoryConfig>;
@@ -77,7 +77,7 @@ abstract ConstGameplayDebuggerConfig(GameplayDebuggerConfig) from GameplayDebugg
 @:forward
 @:nativeGen
 @:native("GameplayDebuggerConfig*")
-abstract GameplayDebuggerConfigPtr(cpp.Star<GameplayDebuggerConfig>) from cpp.Star<GameplayDebuggerConfig> to cpp.Star<GameplayDebuggerConfig>{
+abstract GameplayDebuggerConfigPtr(ucpp.Ptr<GameplayDebuggerConfig>) from ucpp.Ptr<GameplayDebuggerConfig> to ucpp.Ptr<GameplayDebuggerConfig>{
 	@:from
 	public static extern inline function fromValue(v: GameplayDebuggerConfig): GameplayDebuggerConfigPtr {
 		return untyped __cpp__("&({0})", v);

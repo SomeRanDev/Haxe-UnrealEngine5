@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_BreakStruct")
 @:include("K2Node_BreakStruct.h")
-@:structAccess
+@:valueType
 extern class K2Node_BreakStruct extends K2Node_StructMemberGet {
 	public var bMadeAfterOverridePinRemoval: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstK2Node_BreakStruct(K2Node_BreakStruct) from K2Node_BreakStruct {
 @:forward
 @:nativeGen
 @:native("K2Node_BreakStruct*")
-abstract K2Node_BreakStructPtr(cpp.Star<K2Node_BreakStruct>) from cpp.Star<K2Node_BreakStruct> to cpp.Star<K2Node_BreakStruct>{
+abstract K2Node_BreakStructPtr(ucpp.Ptr<K2Node_BreakStruct>) from ucpp.Ptr<K2Node_BreakStruct> to ucpp.Ptr<K2Node_BreakStruct>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_BreakStruct): K2Node_BreakStructPtr {
 		return untyped __cpp__("&({0})", v);

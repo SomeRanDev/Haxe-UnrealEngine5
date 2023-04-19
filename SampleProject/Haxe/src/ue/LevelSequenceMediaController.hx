@@ -3,17 +3,17 @@ package ue;
 
 @:native("ALevelSequenceMediaController")
 @:include("SequenceMediaController.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceMediaController extends Actor {
-	public function GetSequence(): cpp.Star<LevelSequenceActor>;
-	public function GetMediaComponent(): cpp.Star<MediaComp>;
-	private var ServerStartTimeSeconds: cpp.Float32;
+	public function GetSequence(): ucpp.Ptr<LevelSequenceActor>;
+	public function GetMediaComponent(): ucpp.Ptr<MediaComp>;
+	private var ServerStartTimeSeconds: ucpp.num.Float32;
 
-	public function SynchronizeToServer(DesyncThresholdSeconds: cpp.Float32): Void;
+	public function SynchronizeToServer(DesyncThresholdSeconds: ucpp.num.Float32): Void;
 	public function Play(): Void;
 	private function OnRep_ServerStartTimeSeconds(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstLevelSequenceMediaController(LevelSequenceMediaController) from Le
 @:forward
 @:nativeGen
 @:native("LevelSequenceMediaController*")
-abstract LevelSequenceMediaControllerPtr(cpp.Star<LevelSequenceMediaController>) from cpp.Star<LevelSequenceMediaController> to cpp.Star<LevelSequenceMediaController>{
+abstract LevelSequenceMediaControllerPtr(ucpp.Ptr<LevelSequenceMediaController>) from ucpp.Ptr<LevelSequenceMediaController> to ucpp.Ptr<LevelSequenceMediaController>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceMediaController): LevelSequenceMediaControllerPtr {
 		return untyped __cpp__("&({0})", v);

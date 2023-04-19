@@ -3,11 +3,11 @@ package ue;
 
 @:native("UShadowMapTexture2D")
 @:include("Engine/ShadowMapTexture2D.h")
-@:structAccess
+@:valueType
 extern class ShadowMapTexture2D extends Texture2D {
 	public var ShadowmapFlags: TEnumAsByte<EShadowMapFlags>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstShadowMapTexture2D(ShadowMapTexture2D) from ShadowMapTexture2D {
 @:forward
 @:nativeGen
 @:native("ShadowMapTexture2D*")
-abstract ShadowMapTexture2DPtr(cpp.Star<ShadowMapTexture2D>) from cpp.Star<ShadowMapTexture2D> to cpp.Star<ShadowMapTexture2D>{
+abstract ShadowMapTexture2DPtr(ucpp.Ptr<ShadowMapTexture2D>) from ucpp.Ptr<ShadowMapTexture2D> to ucpp.Ptr<ShadowMapTexture2D>{
 	@:from
 	public static extern inline function fromValue(v: ShadowMapTexture2D): ShadowMapTexture2DPtr {
 		return untyped __cpp__("&({0})", v);

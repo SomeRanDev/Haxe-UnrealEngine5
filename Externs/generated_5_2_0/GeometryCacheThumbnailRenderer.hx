@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeometryCacheThumbnailRenderer")
 @:include("GeometryCacheThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeometryCacheThumbnailRenderer(GeometryCacheThumbnailRenderer) fro
 @:forward
 @:nativeGen
 @:native("GeometryCacheThumbnailRenderer*")
-abstract GeometryCacheThumbnailRendererPtr(cpp.Star<GeometryCacheThumbnailRenderer>) from cpp.Star<GeometryCacheThumbnailRenderer> to cpp.Star<GeometryCacheThumbnailRenderer>{
+abstract GeometryCacheThumbnailRendererPtr(ucpp.Ptr<GeometryCacheThumbnailRenderer>) from ucpp.Ptr<GeometryCacheThumbnailRenderer> to ucpp.Ptr<GeometryCacheThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheThumbnailRenderer): GeometryCacheThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

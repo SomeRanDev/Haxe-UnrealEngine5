@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMovieSceneDoubleChannel")
 @:include("Channels/MovieSceneDoubleChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDoubleChannel extends MovieSceneChannel {
 	public var PreInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
 	public var PostInfinityExtrap: TEnumAsByte<ERichCurveExtrapolation>;
 	private var Times: TArray<FrameNumber>;
 	private var Values: TArray<MovieSceneDoubleValue>;
-	private var DefaultValue: cpp.Float64;
+	private var DefaultValue: ucpp.num.Float64;
 	private var bHasDefaultValue: Bool;
 	private var KeyHandles: MovieSceneKeyHandleMap;
 	private var TickResolution: FrameRate;

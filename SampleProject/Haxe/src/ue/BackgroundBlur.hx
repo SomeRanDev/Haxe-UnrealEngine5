@@ -3,28 +3,28 @@ package ue;
 
 @:native("UBackgroundBlur")
 @:include("Components/BackgroundBlur.h")
-@:structAccess
+@:valueType
 extern class BackgroundBlur extends ContentWidget {
 	public var Padding: Margin;
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
 	public var bApplyAlphaToBlur: Bool;
-	public var BlurStrength: cpp.Float32;
+	public var BlurStrength: ucpp.num.Float32;
 	public var bOverrideAutoRadiusCalculation: Bool;
-	public var BlurRadius: cpp.Int32;
+	public var BlurRadius: ucpp.num.Int32;
 	public var CornerRadius: Vector4;
 	public var LowQualityFallbackBrush: SlateBrush;
 
 	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
 	public function SetPadding(InPadding: Margin): Void;
-	public function SetLowQualityFallbackBrush(InBrush: cpp.Reference<SlateBrush>): Void;
+	public function SetLowQualityFallbackBrush(InBrush: ucpp.Ref<SlateBrush>): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
 	public function SetCornerRadius(InCornerRadius: Vector4): Void;
-	public function SetBlurStrength(InStrength: cpp.Float32): Void;
-	public function SetBlurRadius(InBlurRadius: cpp.Int32): Void;
+	public function SetBlurStrength(InStrength: ucpp.num.Float32): Void;
+	public function SetBlurRadius(InBlurRadius: ucpp.num.Int32): Void;
 	public function SetApplyAlphaToBlur(bInApplyAlphaToBlur: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,12 +38,12 @@ abstract ConstBackgroundBlur(BackgroundBlur) from BackgroundBlur {
 	public inline extern function get_VerticalAlignment(): TEnumAsByte<EVerticalAlignment> return this.VerticalAlignment;
 	public extern var bApplyAlphaToBlur(get, never): Bool;
 	public inline extern function get_bApplyAlphaToBlur(): Bool return this.bApplyAlphaToBlur;
-	public extern var BlurStrength(get, never): cpp.Float32;
-	public inline extern function get_BlurStrength(): cpp.Float32 return this.BlurStrength;
+	public extern var BlurStrength(get, never): ucpp.num.Float32;
+	public inline extern function get_BlurStrength(): ucpp.num.Float32 return this.BlurStrength;
 	public extern var bOverrideAutoRadiusCalculation(get, never): Bool;
 	public inline extern function get_bOverrideAutoRadiusCalculation(): Bool return this.bOverrideAutoRadiusCalculation;
-	public extern var BlurRadius(get, never): cpp.Int32;
-	public inline extern function get_BlurRadius(): cpp.Int32 return this.BlurRadius;
+	public extern var BlurRadius(get, never): ucpp.num.Int32;
+	public inline extern function get_BlurRadius(): ucpp.num.Int32 return this.BlurRadius;
 	public extern var CornerRadius(get, never): Vector4;
 	public inline extern function get_CornerRadius(): Vector4 return this.CornerRadius;
 	public extern var LowQualityFallbackBrush(get, never): SlateBrush;
@@ -53,7 +53,7 @@ abstract ConstBackgroundBlur(BackgroundBlur) from BackgroundBlur {
 @:forward
 @:nativeGen
 @:native("BackgroundBlur*")
-abstract BackgroundBlurPtr(cpp.Star<BackgroundBlur>) from cpp.Star<BackgroundBlur> to cpp.Star<BackgroundBlur>{
+abstract BackgroundBlurPtr(ucpp.Ptr<BackgroundBlur>) from ucpp.Ptr<BackgroundBlur> to ucpp.Ptr<BackgroundBlur>{
 	@:from
 	public static extern inline function fromValue(v: BackgroundBlur): BackgroundBlurPtr {
 		return untyped __cpp__("&({0})", v);

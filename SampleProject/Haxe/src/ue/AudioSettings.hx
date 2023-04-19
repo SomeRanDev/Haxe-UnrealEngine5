@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAudioSettings")
 @:include("Sound/AudioSettings.h")
-@:structAccess
+@:valueType
 extern class AudioSettings extends DeveloperSettings {
 	public var DefaultSoundClassName: SoftObjectPath;
 	public var DefaultMediaSoundClassName: SoftObjectPath;
@@ -15,24 +15,25 @@ extern class AudioSettings extends DeveloperSettings {
 	public var ReverbSubmix: SoftObjectPath;
 	public var EQSubmix: SoftObjectPath;
 	public var VoiPSampleRate: EVoiceSampleRate;
-	public var MaximumConcurrentStreams: cpp.Int32;
-	public var GlobalMinPitchScale: cpp.Float32;
-	public var GlobalMaxPitchScale: cpp.Float32;
+	public var DefaultAudioCompressionType: EDefaultAudioCompressionType;
+	public var MaximumConcurrentStreams: ucpp.num.Int32;
+	public var GlobalMinPitchScale: ucpp.num.Float32;
+	public var GlobalMaxPitchScale: ucpp.num.Float32;
 	public var QualityLevels: TArray<AudioQualitySettings>;
 	public var bAllowPlayWhenSilent: Bool;
 	public var bDisableMasterEQ: Bool;
 	public var bAllowCenterChannel3DPanning: Bool;
-	public var NumStoppingSources: cpp.UInt32;
+	public var NumStoppingSources: ucpp.num.UInt32;
 	public var PanningMethod: EPanningMethod;
 	public var MonoChannelUpmixMethod: EMonoChannelUpmixMethod;
 	public var DialogueFilenameFormat: FString;
 	public var DebugSounds: TArray<SoundDebugEntry>;
 	public var DefaultAudioBuses: TArray<DefaultAudioBusSettings>;
-	private var DefaultSoundClass: cpp.Star<SoundClass>;
-	private var DefaultMediaSoundClass: cpp.Star<SoundClass>;
-	private var DefaultSoundConcurrency: cpp.Star<SoundConcurrency>;
+	private var DefaultSoundClass: ucpp.Ptr<SoundClass>;
+	private var DefaultMediaSoundClass: ucpp.Ptr<SoundClass>;
+	private var DefaultSoundConcurrency: ucpp.Ptr<SoundConcurrency>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -58,12 +59,14 @@ abstract ConstAudioSettings(AudioSettings) from AudioSettings {
 	public inline extern function get_EQSubmix(): SoftObjectPath return this.EQSubmix;
 	public extern var VoiPSampleRate(get, never): EVoiceSampleRate;
 	public inline extern function get_VoiPSampleRate(): EVoiceSampleRate return this.VoiPSampleRate;
-	public extern var MaximumConcurrentStreams(get, never): cpp.Int32;
-	public inline extern function get_MaximumConcurrentStreams(): cpp.Int32 return this.MaximumConcurrentStreams;
-	public extern var GlobalMinPitchScale(get, never): cpp.Float32;
-	public inline extern function get_GlobalMinPitchScale(): cpp.Float32 return this.GlobalMinPitchScale;
-	public extern var GlobalMaxPitchScale(get, never): cpp.Float32;
-	public inline extern function get_GlobalMaxPitchScale(): cpp.Float32 return this.GlobalMaxPitchScale;
+	public extern var DefaultAudioCompressionType(get, never): EDefaultAudioCompressionType;
+	public inline extern function get_DefaultAudioCompressionType(): EDefaultAudioCompressionType return this.DefaultAudioCompressionType;
+	public extern var MaximumConcurrentStreams(get, never): ucpp.num.Int32;
+	public inline extern function get_MaximumConcurrentStreams(): ucpp.num.Int32 return this.MaximumConcurrentStreams;
+	public extern var GlobalMinPitchScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GlobalMinPitchScale(): ucpp.num.Float32 return this.GlobalMinPitchScale;
+	public extern var GlobalMaxPitchScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GlobalMaxPitchScale(): ucpp.num.Float32 return this.GlobalMaxPitchScale;
 	public extern var QualityLevels(get, never): TArray<AudioQualitySettings>;
 	public inline extern function get_QualityLevels(): TArray<AudioQualitySettings> return this.QualityLevels;
 	public extern var bAllowPlayWhenSilent(get, never): Bool;
@@ -72,8 +75,8 @@ abstract ConstAudioSettings(AudioSettings) from AudioSettings {
 	public inline extern function get_bDisableMasterEQ(): Bool return this.bDisableMasterEQ;
 	public extern var bAllowCenterChannel3DPanning(get, never): Bool;
 	public inline extern function get_bAllowCenterChannel3DPanning(): Bool return this.bAllowCenterChannel3DPanning;
-	public extern var NumStoppingSources(get, never): cpp.UInt32;
-	public inline extern function get_NumStoppingSources(): cpp.UInt32 return this.NumStoppingSources;
+	public extern var NumStoppingSources(get, never): ucpp.num.UInt32;
+	public inline extern function get_NumStoppingSources(): ucpp.num.UInt32 return this.NumStoppingSources;
 	public extern var PanningMethod(get, never): EPanningMethod;
 	public inline extern function get_PanningMethod(): EPanningMethod return this.PanningMethod;
 	public extern var MonoChannelUpmixMethod(get, never): EMonoChannelUpmixMethod;
@@ -89,7 +92,7 @@ abstract ConstAudioSettings(AudioSettings) from AudioSettings {
 @:forward
 @:nativeGen
 @:native("AudioSettings*")
-abstract AudioSettingsPtr(cpp.Star<AudioSettings>) from cpp.Star<AudioSettings> to cpp.Star<AudioSettings>{
+abstract AudioSettingsPtr(ucpp.Ptr<AudioSettings>) from ucpp.Ptr<AudioSettings> to ucpp.Ptr<AudioSettings>{
 	@:from
 	public static extern inline function fromValue(v: AudioSettings): AudioSettingsPtr {
 		return untyped __cpp__("&({0})", v);

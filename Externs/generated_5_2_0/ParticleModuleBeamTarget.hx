@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleBeamTarget")
 @:include("Particles/Beam/ParticleModuleBeamTarget.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleBeamTarget extends ParticleModuleBeamBase {
 	public var TargetMethod: TEnumAsByte<Beam2SourceTargetMethod>;
 	public var TargetName: FName;
@@ -15,9 +15,9 @@ extern class ParticleModuleBeamTarget extends ParticleModuleBeamBase {
 	public var bLockTargetTangent: Bool;
 	public var TargetStrength: RawDistributionFloat;
 	public var bLockTargetStength: Bool;
-	public var LockRadius: cpp.Float32;
+	public var LockRadius: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,14 +43,14 @@ abstract ConstParticleModuleBeamTarget(ParticleModuleBeamTarget) from ParticleMo
 	public inline extern function get_TargetStrength(): RawDistributionFloat return this.TargetStrength;
 	public extern var bLockTargetStength(get, never): Bool;
 	public inline extern function get_bLockTargetStength(): Bool return this.bLockTargetStength;
-	public extern var LockRadius(get, never): cpp.Float32;
-	public inline extern function get_LockRadius(): cpp.Float32 return this.LockRadius;
+	public extern var LockRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_LockRadius(): ucpp.num.Float32 return this.LockRadius;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleBeamTarget*")
-abstract ParticleModuleBeamTargetPtr(cpp.Star<ParticleModuleBeamTarget>) from cpp.Star<ParticleModuleBeamTarget> to cpp.Star<ParticleModuleBeamTarget>{
+abstract ParticleModuleBeamTargetPtr(ucpp.Ptr<ParticleModuleBeamTarget>) from ucpp.Ptr<ParticleModuleBeamTarget> to ucpp.Ptr<ParticleModuleBeamTarget>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleBeamTarget): ParticleModuleBeamTargetPtr {
 		return untyped __cpp__("&({0})", v);

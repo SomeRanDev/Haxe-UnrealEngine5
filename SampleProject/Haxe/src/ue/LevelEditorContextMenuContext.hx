@@ -3,17 +3,17 @@ package ue;
 
 @:native("ULevelEditorContextMenuContext")
 @:include("LevelEditorMenuContext.h")
-@:structAccess
+@:valueType
 extern class LevelEditorContextMenuContext extends Object {
 	public var ContextType: ELevelEditorMenuContext;
-	public var CurrentSelection: cpp.Star<TypedElementSelectionSet>;
+	public var CurrentSelection: ucpp.Ptr<TypedElementSelectionSet>;
 	public var CursorWorldLocation: Vector;
-	public var SelectedComponents: TArray<cpp.Star<ActorComp>>;
-	public var HitProxyActor: cpp.Star<Actor>;
+	public var SelectedComponents: TArray<ucpp.Ptr<ActorComp>>;
+	public var HitProxyActor: TWeakObjectPtr<Actor>;
 
 	public function GetScriptHitProxyElement(): ScriptTypedElementHandle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,20 +21,20 @@ extern class LevelEditorContextMenuContext extends Object {
 abstract ConstLevelEditorContextMenuContext(LevelEditorContextMenuContext) from LevelEditorContextMenuContext {
 	public extern var ContextType(get, never): ELevelEditorMenuContext;
 	public inline extern function get_ContextType(): ELevelEditorMenuContext return this.ContextType;
-	public extern var CurrentSelection(get, never): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>;
-	public inline extern function get_CurrentSelection(): cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet> return this.CurrentSelection;
+	public extern var CurrentSelection(get, never): ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>;
+	public inline extern function get_CurrentSelection(): ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet> return this.CurrentSelection;
 	public extern var CursorWorldLocation(get, never): Vector;
 	public inline extern function get_CursorWorldLocation(): Vector return this.CursorWorldLocation;
-	public extern var SelectedComponents(get, never): TArray<cpp.Star<ActorComp.ConstActorComp>>;
-	public inline extern function get_SelectedComponents(): TArray<cpp.Star<ActorComp.ConstActorComp>> return this.SelectedComponents;
-	public extern var HitProxyActor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_HitProxyActor(): cpp.Star<Actor.ConstActor> return this.HitProxyActor;
+	public extern var SelectedComponents(get, never): TArray<ucpp.Ptr<ActorComp.ConstActorComp>>;
+	public inline extern function get_SelectedComponents(): TArray<ucpp.Ptr<ActorComp.ConstActorComp>> return this.SelectedComponents;
+	public extern var HitProxyActor(get, never): TWeakObjectPtr<Actor.ConstActor>;
+	public inline extern function get_HitProxyActor(): TWeakObjectPtr<Actor.ConstActor> return this.HitProxyActor;
 }
 
 @:forward
 @:nativeGen
 @:native("LevelEditorContextMenuContext*")
-abstract LevelEditorContextMenuContextPtr(cpp.Star<LevelEditorContextMenuContext>) from cpp.Star<LevelEditorContextMenuContext> to cpp.Star<LevelEditorContextMenuContext>{
+abstract LevelEditorContextMenuContextPtr(ucpp.Ptr<LevelEditorContextMenuContext>) from ucpp.Ptr<LevelEditorContextMenuContext> to ucpp.Ptr<LevelEditorContextMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: LevelEditorContextMenuContext): LevelEditorContextMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

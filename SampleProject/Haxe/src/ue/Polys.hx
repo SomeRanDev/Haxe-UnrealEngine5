@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPolys")
 @:include("Engine/Polys.h")
-@:structAccess
+@:valueType
 extern class Polys extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPolys(Polys) from Polys {
 @:forward
 @:nativeGen
 @:native("Polys*")
-abstract PolysPtr(cpp.Star<Polys>) from cpp.Star<Polys> to cpp.Star<Polys>{
+abstract PolysPtr(ucpp.Ptr<Polys>) from ucpp.Ptr<Polys> to ucpp.Ptr<Polys>{
 	@:from
 	public static extern inline function fromValue(v: Polys): PolysPtr {
 		return untyped __cpp__("&({0})", v);

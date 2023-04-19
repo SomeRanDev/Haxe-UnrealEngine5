@@ -3,16 +3,16 @@ package ue;
 
 @:native("USphereComponent")
 @:include("Components/SphereComponent.h")
-@:structAccess
+@:valueType
 extern class SphereComp extends ShapeComp {
-	@:protected public var SphereRadius: cpp.Float32;
+	@:protected public var SphereRadius: ucpp.num.Float32;
 
-	public function SetSphereRadius(InSphereRadius: cpp.Float32, bUpdateOverlaps: Bool): Void;
-	public function GetUnscaledSphereRadius(): cpp.Float32;
-	public function GetShapeScale(): cpp.Float32;
-	public function GetScaledSphereRadius(): cpp.Float32;
+	public function SetSphereRadius(InSphereRadius: ucpp.num.Float32, bUpdateOverlaps: Bool): Void;
+	public function GetUnscaledSphereRadius(): ucpp.num.Float32;
+	public function GetShapeScale(): ucpp.num.Float32;
+	public function GetScaledSphereRadius(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetUnscaledSphereRadius, GetShapeScale, GetScaledSphereRadius)
@@ -23,7 +23,7 @@ abstract ConstSphereComp(SphereComp) from SphereComp {
 @:forward
 @:nativeGen
 @:native("SphereComp*")
-abstract SphereCompPtr(cpp.Star<SphereComp>) from cpp.Star<SphereComp> to cpp.Star<SphereComp>{
+abstract SphereCompPtr(ucpp.Ptr<SphereComp>) from ucpp.Ptr<SphereComp> to ucpp.Ptr<SphereComp>{
 	@:from
 	public static extern inline function fromValue(v: SphereComp): SphereCompPtr {
 		return untyped __cpp__("&({0})", v);

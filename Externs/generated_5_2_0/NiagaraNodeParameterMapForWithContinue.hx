@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraNodeParameterMapForWithContinue")
 @:include("NiagaraNodeParameterMapFor.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeParameterMapForWithContinue extends NiagaraNodeParameterMapFor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraNodeParameterMapForWithContinue(NiagaraNodeParameterMapForW
 @:forward
 @:nativeGen
 @:native("NiagaraNodeParameterMapForWithContinue*")
-abstract NiagaraNodeParameterMapForWithContinuePtr(cpp.Star<NiagaraNodeParameterMapForWithContinue>) from cpp.Star<NiagaraNodeParameterMapForWithContinue> to cpp.Star<NiagaraNodeParameterMapForWithContinue>{
+abstract NiagaraNodeParameterMapForWithContinuePtr(ucpp.Ptr<NiagaraNodeParameterMapForWithContinue>) from ucpp.Ptr<NiagaraNodeParameterMapForWithContinue> to ucpp.Ptr<NiagaraNodeParameterMapForWithContinue>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeParameterMapForWithContinue): NiagaraNodeParameterMapForWithContinuePtr {
 		return untyped __cpp__("&({0})", v);

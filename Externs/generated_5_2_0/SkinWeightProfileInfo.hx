@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSkinWeightProfileInfo")
 @:include("Animation/SkinWeightProfile.h")
-@:structAccess
+@:valueType
 extern class SkinWeightProfileInfo {
 	public var Name: FName;
 	public var DefaultProfile: PerPlatformBool;
 	public var DefaultProfileFromLODIndex: PerPlatformInt;
 
 	@:native("FSkinWeightProfileInfo") public function new();
-	@:native("FSkinWeightProfileInfo") public static function make(Name: FName, DefaultProfile: PerPlatformBool, DefaultProfileFromLODIndex: PerPlatformInt, PerLODSourceFiles: TMap<cpp.Int32, FString>): SkinWeightProfileInfo ;
+	@:native("FSkinWeightProfileInfo") public static function make(Name: FName, DefaultProfile: PerPlatformBool, DefaultProfileFromLODIndex: PerPlatformInt, PerLODSourceFiles: TMap<ucpp.num.Int32, FString>): SkinWeightProfileInfo ;
 }

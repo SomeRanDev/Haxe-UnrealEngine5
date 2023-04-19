@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraEmitterScriptProperties")
 @:include("NiagaraEmitter.h")
-@:structAccess
+@:valueType
 extern class NiagaraEmitterScriptProperties {
-	public var Script: cpp.Star<NiagaraScript>;
+	public var Script: ucpp.Ptr<NiagaraScript>;
 	public var EventReceivers: TArray<NiagaraEventReceiverProperties>;
 	public var EventGenerators: TArray<NiagaraEventGeneratorProperties>;
 
 	@:native("FNiagaraEmitterScriptProperties") public function new();
-	@:native("FNiagaraEmitterScriptProperties") public static function make(Script: cpp.Star<NiagaraScript>, EventReceivers: TArray<NiagaraEventReceiverProperties>, EventGenerators: TArray<NiagaraEventGeneratorProperties>): NiagaraEmitterScriptProperties ;
+	@:native("FNiagaraEmitterScriptProperties") public static function make(Script: ucpp.Ptr<NiagaraScript>, EventReceivers: TArray<NiagaraEventReceiverProperties>, EventGenerators: TArray<NiagaraEventGeneratorProperties>): NiagaraEmitterScriptProperties ;
 }

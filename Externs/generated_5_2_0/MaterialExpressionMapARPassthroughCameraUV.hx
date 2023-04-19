@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionMapARPassthroughCameraUV")
 @:include("Materials/MaterialExpressionMapARPassthroughCameraUV.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionMapARPassthroughCameraUV extends MaterialExpression {
 	public var Coordinates: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionMapARPassthroughCameraUV(MaterialExpressionMapAR
 @:forward
 @:nativeGen
 @:native("MaterialExpressionMapARPassthroughCameraUV*")
-abstract MaterialExpressionMapARPassthroughCameraUVPtr(cpp.Star<MaterialExpressionMapARPassthroughCameraUV>) from cpp.Star<MaterialExpressionMapARPassthroughCameraUV> to cpp.Star<MaterialExpressionMapARPassthroughCameraUV>{
+abstract MaterialExpressionMapARPassthroughCameraUVPtr(ucpp.Ptr<MaterialExpressionMapARPassthroughCameraUV>) from ucpp.Ptr<MaterialExpressionMapARPassthroughCameraUV> to ucpp.Ptr<MaterialExpressionMapARPassthroughCameraUV>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionMapARPassthroughCameraUV): MaterialExpressionMapARPassthroughCameraUVPtr {
 		return untyped __cpp__("&({0})", v);

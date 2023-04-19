@@ -3,21 +3,21 @@ package ue;
 
 @:native("UUVProjectionTool")
 @:include("UVProjectionTool.h")
-@:structAccess
+@:valueType
 extern class UVProjectionTool extends SingleTargetWithSelectionTool {
-	@:protected public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
-	@:protected public var BasicProperties: cpp.Star<UVProjectionToolProperties>;
-	@:protected public var EditActions: cpp.Star<UVProjectionToolEditActions>;
-	@:protected public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var CheckerMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var OperatorFactory: cpp.Star<UVProjectionOperatorFactory>;
-	@:protected public var EdgeRenderer: cpp.Star<PreviewGeometry>;
-	@:protected public var ClickToSetPlaneBehavior: cpp.Star<SingleClickInputBehavior>;
+	@:protected public var UVChannelProperties: ucpp.Ptr<MeshUVChannelProperties>;
+	@:protected public var BasicProperties: ucpp.Ptr<UVProjectionToolProperties>;
+	@:protected public var EditActions: ucpp.Ptr<UVProjectionToolEditActions>;
+	@:protected public var MaterialSettings: ucpp.Ptr<ExistingMeshMaterialProperties>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var CheckerMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var OperatorFactory: ucpp.Ptr<UVProjectionOperatorFactory>;
+	@:protected public var EdgeRenderer: ucpp.Ptr<PreviewGeometry>;
+	@:protected public var ClickToSetPlaneBehavior: ucpp.Ptr<SingleClickInputBehavior>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstUVProjectionTool(UVProjectionTool) from UVProjectionTool {
 @:forward
 @:nativeGen
 @:native("UVProjectionTool*")
-abstract UVProjectionToolPtr(cpp.Star<UVProjectionTool>) from cpp.Star<UVProjectionTool> to cpp.Star<UVProjectionTool>{
+abstract UVProjectionToolPtr(ucpp.Ptr<UVProjectionTool>) from ucpp.Ptr<UVProjectionTool> to ucpp.Ptr<UVProjectionTool>{
 	@:from
 	public static extern inline function fromValue(v: UVProjectionTool): UVProjectionToolPtr {
 		return untyped __cpp__("&({0})", v);

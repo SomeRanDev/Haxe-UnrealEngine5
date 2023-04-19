@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraSignificanceHandler")
 @:include("NiagaraEffectType.h")
-@:structAccess
+@:valueType
 extern class NiagaraSignificanceHandler extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraSignificanceHandler(NiagaraSignificanceHandler) from Niagar
 @:forward
 @:nativeGen
 @:native("NiagaraSignificanceHandler*")
-abstract NiagaraSignificanceHandlerPtr(cpp.Star<NiagaraSignificanceHandler>) from cpp.Star<NiagaraSignificanceHandler> to cpp.Star<NiagaraSignificanceHandler>{
+abstract NiagaraSignificanceHandlerPtr(ucpp.Ptr<NiagaraSignificanceHandler>) from ucpp.Ptr<NiagaraSignificanceHandler> to ucpp.Ptr<NiagaraSignificanceHandler>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSignificanceHandler): NiagaraSignificanceHandlerPtr {
 		return untyped __cpp__("&({0})", v);

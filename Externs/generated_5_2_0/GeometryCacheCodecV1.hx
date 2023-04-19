@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeometryCacheCodecV1")
 @:include("GeometryCacheCodecV1.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheCodecV1 extends GeometryCacheCodecBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeometryCacheCodecV1(GeometryCacheCodecV1) from GeometryCacheCodec
 @:forward
 @:nativeGen
 @:native("GeometryCacheCodecV1*")
-abstract GeometryCacheCodecV1Ptr(cpp.Star<GeometryCacheCodecV1>) from cpp.Star<GeometryCacheCodecV1> to cpp.Star<GeometryCacheCodecV1>{
+abstract GeometryCacheCodecV1Ptr(ucpp.Ptr<GeometryCacheCodecV1>) from ucpp.Ptr<GeometryCacheCodecV1> to ucpp.Ptr<GeometryCacheCodecV1>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheCodecV1): GeometryCacheCodecV1Ptr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPersonaManagerContext")
-@:structAccess
+@:valueType
 extern class PersonaManagerContext extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPersonaManagerContext(PersonaManagerContext) from PersonaManagerCo
 @:forward
 @:nativeGen
 @:native("PersonaManagerContext*")
-abstract PersonaManagerContextPtr(cpp.Star<PersonaManagerContext>) from cpp.Star<PersonaManagerContext> to cpp.Star<PersonaManagerContext>{
+abstract PersonaManagerContextPtr(ucpp.Ptr<PersonaManagerContext>) from ucpp.Ptr<PersonaManagerContext> to ucpp.Ptr<PersonaManagerContext>{
 	@:from
 	public static extern inline function fromValue(v: PersonaManagerContext): PersonaManagerContextPtr {
 		return untyped __cpp__("&({0})", v);

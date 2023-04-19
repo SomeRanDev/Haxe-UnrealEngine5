@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshGroupPaintToolFreezeActions")
 @:include("MeshGroupPaintTool.h")
-@:structAccess
+@:valueType
 extern class MeshGroupPaintToolFreezeActions extends MeshGroupPaintToolActionPropertySet {
 	public function UnfreezeAll(): Void;
 	public function ShrinkCurrent(): Void;
@@ -14,7 +14,7 @@ extern class MeshGroupPaintToolFreezeActions extends MeshGroupPaintToolActionPro
 	public function ClearCurrent(): Void;
 	public function ClearAll(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstMeshGroupPaintToolFreezeActions(MeshGroupPaintToolFreezeActions) f
 @:forward
 @:nativeGen
 @:native("MeshGroupPaintToolFreezeActions*")
-abstract MeshGroupPaintToolFreezeActionsPtr(cpp.Star<MeshGroupPaintToolFreezeActions>) from cpp.Star<MeshGroupPaintToolFreezeActions> to cpp.Star<MeshGroupPaintToolFreezeActions>{
+abstract MeshGroupPaintToolFreezeActionsPtr(ucpp.Ptr<MeshGroupPaintToolFreezeActions>) from ucpp.Ptr<MeshGroupPaintToolFreezeActions> to ucpp.Ptr<MeshGroupPaintToolFreezeActions>{
 	@:from
 	public static extern inline function fromValue(v: MeshGroupPaintToolFreezeActions): MeshGroupPaintToolFreezeActionsPtr {
 		return untyped __cpp__("&({0})", v);

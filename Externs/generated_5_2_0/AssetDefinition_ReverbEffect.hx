@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_ReverbEffect")
 @:include("AssetTypeActions/AssetDefinition_ReverbEffect.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_ReverbEffect extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_ReverbEffect(AssetDefinition_ReverbEffect) from As
 @:forward
 @:nativeGen
 @:native("AssetDefinition_ReverbEffect*")
-abstract AssetDefinition_ReverbEffectPtr(cpp.Star<AssetDefinition_ReverbEffect>) from cpp.Star<AssetDefinition_ReverbEffect> to cpp.Star<AssetDefinition_ReverbEffect>{
+abstract AssetDefinition_ReverbEffectPtr(ucpp.Ptr<AssetDefinition_ReverbEffect>) from ucpp.Ptr<AssetDefinition_ReverbEffect> to ucpp.Ptr<AssetDefinition_ReverbEffect>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_ReverbEffect): AssetDefinition_ReverbEffectPtr {
 		return untyped __cpp__("&({0})", v);

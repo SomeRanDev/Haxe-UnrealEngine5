@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMovieSceneBinding")
 @:include("MovieSceneBinding.h")
-@:structAccess
+@:valueType
 extern class MovieSceneBinding {
 	private var ObjectGuid: Guid;
 	private var BindingName: FString;
-	private var Tracks: TArray<cpp.Star<MovieSceneTrack>>;
+	private var Tracks: TArray<ucpp.Ptr<MovieSceneTrack>>;
 
 	@:native("FMovieSceneBinding") public function new();
-	@:native("FMovieSceneBinding") public static function make(ObjectGuid: Guid, BindingName: FString, Tracks: TArray<cpp.Star<MovieSceneTrack>>, SortingOrder: cpp.Int32): MovieSceneBinding ;
+	@:native("FMovieSceneBinding") public static function make(ObjectGuid: Guid, BindingName: FString, Tracks: TArray<ucpp.Ptr<MovieSceneTrack>>, SortingOrder: ucpp.num.Int32): MovieSceneBinding ;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraPreviewAxis_InterpParamVector2D")
 @:include("NiagaraPreviewGrid.h")
-@:structAccess
+@:valueType
 extern class NiagaraPreviewAxis_InterpParamVector2D extends NiagaraPreviewAxis_InterpParamBase {
 	private var Min: Vector2D;
 	private var Max: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNiagaraPreviewAxis_InterpParamVector2D(NiagaraPreviewAxis_InterpPa
 @:forward
 @:nativeGen
 @:native("NiagaraPreviewAxis_InterpParamVector2D*")
-abstract NiagaraPreviewAxis_InterpParamVector2DPtr(cpp.Star<NiagaraPreviewAxis_InterpParamVector2D>) from cpp.Star<NiagaraPreviewAxis_InterpParamVector2D> to cpp.Star<NiagaraPreviewAxis_InterpParamVector2D>{
+abstract NiagaraPreviewAxis_InterpParamVector2DPtr(ucpp.Ptr<NiagaraPreviewAxis_InterpParamVector2D>) from ucpp.Ptr<NiagaraPreviewAxis_InterpParamVector2D> to ucpp.Ptr<NiagaraPreviewAxis_InterpParamVector2D>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPreviewAxis_InterpParamVector2D): NiagaraPreviewAxis_InterpParamVector2DPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxSceneImportOptions")
 @:include("Factories/FbxSceneImportOptions.h")
-@:structAccess
+@:valueType
 extern class FbxSceneImportOptions extends Object {
 	public var bCreateContentFolderHierarchy: Bool;
 	public var bImportAsDynamic: Bool;
@@ -11,14 +11,14 @@ extern class FbxSceneImportOptions extends Object {
 	public var bForceFrontXAxis: Bool;
 	public var ImportTranslation: Vector;
 	public var ImportRotation: Rotator;
-	public var ImportUniformScale: cpp.Float32;
+	public var ImportUniformScale: ucpp.num.Float32;
 	public var bTransformVertexToAbsolute: Bool;
 	public var bBakePivotInVertex: Bool;
 	public var bImportStaticMeshLODs: Bool;
 	public var bImportSkeletalMeshLODs: Bool;
 	public var bInvertNormalMaps: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,8 +36,8 @@ abstract ConstFbxSceneImportOptions(FbxSceneImportOptions) from FbxSceneImportOp
 	public inline extern function get_ImportTranslation(): Vector return this.ImportTranslation;
 	public extern var ImportRotation(get, never): Rotator;
 	public inline extern function get_ImportRotation(): Rotator return this.ImportRotation;
-	public extern var ImportUniformScale(get, never): cpp.Float32;
-	public inline extern function get_ImportUniformScale(): cpp.Float32 return this.ImportUniformScale;
+	public extern var ImportUniformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ImportUniformScale(): ucpp.num.Float32 return this.ImportUniformScale;
 	public extern var bTransformVertexToAbsolute(get, never): Bool;
 	public inline extern function get_bTransformVertexToAbsolute(): Bool return this.bTransformVertexToAbsolute;
 	public extern var bBakePivotInVertex(get, never): Bool;
@@ -53,7 +53,7 @@ abstract ConstFbxSceneImportOptions(FbxSceneImportOptions) from FbxSceneImportOp
 @:forward
 @:nativeGen
 @:native("FbxSceneImportOptions*")
-abstract FbxSceneImportOptionsPtr(cpp.Star<FbxSceneImportOptions>) from cpp.Star<FbxSceneImportOptions> to cpp.Star<FbxSceneImportOptions>{
+abstract FbxSceneImportOptionsPtr(ucpp.Ptr<FbxSceneImportOptions>) from ucpp.Ptr<FbxSceneImportOptions> to ucpp.Ptr<FbxSceneImportOptions>{
 	@:from
 	public static extern inline function fromValue(v: FbxSceneImportOptions): FbxSceneImportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

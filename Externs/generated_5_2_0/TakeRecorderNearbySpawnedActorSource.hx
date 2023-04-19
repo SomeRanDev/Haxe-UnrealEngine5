@@ -3,20 +3,20 @@ package ue;
 
 @:native("UTakeRecorderNearbySpawnedActorSource")
 @:include("TakeRecorderNearbySpawnedActorSource.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderNearbySpawnedActorSource extends TakeRecorderSource {
-	public var Proximity: cpp.Float32;
+	public var Proximity: ucpp.num.Float32;
 	public var bFilterSpawnedActors: Bool;
 	public var FilterTypes: TArray<TSubclassOf<Actor>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTakeRecorderNearbySpawnedActorSource(TakeRecorderNearbySpawnedActorSource) from TakeRecorderNearbySpawnedActorSource {
-	public extern var Proximity(get, never): cpp.Float32;
-	public inline extern function get_Proximity(): cpp.Float32 return this.Proximity;
+	public extern var Proximity(get, never): ucpp.num.Float32;
+	public inline extern function get_Proximity(): ucpp.num.Float32 return this.Proximity;
 	public extern var bFilterSpawnedActors(get, never): Bool;
 	public inline extern function get_bFilterSpawnedActors(): Bool return this.bFilterSpawnedActors;
 	public extern var FilterTypes(get, never): TArray<TSubclassOf<Actor.ConstActor>>;
@@ -26,7 +26,7 @@ abstract ConstTakeRecorderNearbySpawnedActorSource(TakeRecorderNearbySpawnedActo
 @:forward
 @:nativeGen
 @:native("TakeRecorderNearbySpawnedActorSource*")
-abstract TakeRecorderNearbySpawnedActorSourcePtr(cpp.Star<TakeRecorderNearbySpawnedActorSource>) from cpp.Star<TakeRecorderNearbySpawnedActorSource> to cpp.Star<TakeRecorderNearbySpawnedActorSource>{
+abstract TakeRecorderNearbySpawnedActorSourcePtr(ucpp.Ptr<TakeRecorderNearbySpawnedActorSource>) from ucpp.Ptr<TakeRecorderNearbySpawnedActorSource> to ucpp.Ptr<TakeRecorderNearbySpawnedActorSource>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderNearbySpawnedActorSource): TakeRecorderNearbySpawnedActorSourcePtr {
 		return untyped __cpp__("&({0})", v);

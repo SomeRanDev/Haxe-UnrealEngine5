@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraEmitter")
 @:include("NiagaraEmitter.h")
-@:structAccess
+@:valueType
 extern class NiagaraEmitter extends Object {
 	private var ExposedVersion: Guid;
 	private var bVersioningEnabled: Bool;
 	private var VersionData: TArray<VersionedNiagaraEmitterData>;
 	private var UniqueEmitterName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstNiagaraEmitter(NiagaraEmitter) from NiagaraEmitter {
 @:forward
 @:nativeGen
 @:native("NiagaraEmitter*")
-abstract NiagaraEmitterPtr(cpp.Star<NiagaraEmitter>) from cpp.Star<NiagaraEmitter> to cpp.Star<NiagaraEmitter>{
+abstract NiagaraEmitterPtr(ucpp.Ptr<NiagaraEmitter>) from ucpp.Ptr<NiagaraEmitter> to ucpp.Ptr<NiagaraEmitter>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEmitter): NiagaraEmitterPtr {
 		return untyped __cpp__("&({0})", v);

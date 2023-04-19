@@ -3,10 +3,10 @@ package ue;
 
 @:native("USceneSnappingManager")
 @:include("SceneQueries/SceneSnappingManager.h")
-@:structAccess
+@:valueType
 extern class SceneSnappingManager extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSceneSnappingManager(SceneSnappingManager) from SceneSnappingManag
 @:forward
 @:nativeGen
 @:native("SceneSnappingManager*")
-abstract SceneSnappingManagerPtr(cpp.Star<SceneSnappingManager>) from cpp.Star<SceneSnappingManager> to cpp.Star<SceneSnappingManager>{
+abstract SceneSnappingManagerPtr(ucpp.Ptr<SceneSnappingManager>) from ucpp.Ptr<SceneSnappingManager> to ucpp.Ptr<SceneSnappingManager>{
 	@:from
 	public static extern inline function fromValue(v: SceneSnappingManager): SceneSnappingManagerPtr {
 		return untyped __cpp__("&({0})", v);

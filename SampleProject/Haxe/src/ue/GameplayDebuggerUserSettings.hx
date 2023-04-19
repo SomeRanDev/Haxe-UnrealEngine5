@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGameplayDebuggerUserSettings")
 @:include("GameplayDebuggerConfig.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerUserSettings extends DeveloperSettings {
 	public var bEnableGameplayDebuggerInEditor: Bool;
-	public var MaxViewDistance: cpp.Float32;
-	public var MaxViewAngle: cpp.Float32;
-	@:protected public var FontSize: cpp.Int32;
+	public var MaxViewDistance: ucpp.num.Float32;
+	public var MaxViewAngle: ucpp.num.Float32;
+	@:protected public var FontSize: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,16 +18,16 @@ extern class GameplayDebuggerUserSettings extends DeveloperSettings {
 abstract ConstGameplayDebuggerUserSettings(GameplayDebuggerUserSettings) from GameplayDebuggerUserSettings {
 	public extern var bEnableGameplayDebuggerInEditor(get, never): Bool;
 	public inline extern function get_bEnableGameplayDebuggerInEditor(): Bool return this.bEnableGameplayDebuggerInEditor;
-	public extern var MaxViewDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxViewDistance(): cpp.Float32 return this.MaxViewDistance;
-	public extern var MaxViewAngle(get, never): cpp.Float32;
-	public inline extern function get_MaxViewAngle(): cpp.Float32 return this.MaxViewAngle;
+	public extern var MaxViewDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxViewDistance(): ucpp.num.Float32 return this.MaxViewDistance;
+	public extern var MaxViewAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxViewAngle(): ucpp.num.Float32 return this.MaxViewAngle;
 }
 
 @:forward
 @:nativeGen
 @:native("GameplayDebuggerUserSettings*")
-abstract GameplayDebuggerUserSettingsPtr(cpp.Star<GameplayDebuggerUserSettings>) from cpp.Star<GameplayDebuggerUserSettings> to cpp.Star<GameplayDebuggerUserSettings>{
+abstract GameplayDebuggerUserSettingsPtr(ucpp.Ptr<GameplayDebuggerUserSettings>) from ucpp.Ptr<GameplayDebuggerUserSettings> to ucpp.Ptr<GameplayDebuggerUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: GameplayDebuggerUserSettings): GameplayDebuggerUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

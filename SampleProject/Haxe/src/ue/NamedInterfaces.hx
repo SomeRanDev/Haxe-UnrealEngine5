@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNamedInterfaces")
 @:include("NamedInterfaces.h")
-@:structAccess
+@:valueType
 extern class NamedInterfaces extends Object {
 	private var NamedInterfaces: TArray<NamedInterface>;
 	private var NamedInterfaceDefs: TArray<NamedInterfaceDef>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNamedInterfaces(NamedInterfaces) from NamedInterfaces {
 @:forward
 @:nativeGen
 @:native("NamedInterfaces*")
-abstract NamedInterfacesPtr(cpp.Star<NamedInterfaces>) from cpp.Star<NamedInterfaces> to cpp.Star<NamedInterfaces>{
+abstract NamedInterfacesPtr(ucpp.Ptr<NamedInterfaces>) from ucpp.Ptr<NamedInterfaces> to ucpp.Ptr<NamedInterfaces>{
 	@:from
 	public static extern inline function fromValue(v: NamedInterfaces): NamedInterfacesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialGraphSchema")
 @:include("MaterialGraph/MaterialGraphSchema.h")
-@:structAccess
+@:valueType
 extern class MaterialGraphSchema extends EdGraphSchema {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialGraphSchema(MaterialGraphSchema) from MaterialGraphSchema 
 @:forward
 @:nativeGen
 @:native("MaterialGraphSchema*")
-abstract MaterialGraphSchemaPtr(cpp.Star<MaterialGraphSchema>) from cpp.Star<MaterialGraphSchema> to cpp.Star<MaterialGraphSchema>{
+abstract MaterialGraphSchemaPtr(ucpp.Ptr<MaterialGraphSchema>) from ucpp.Ptr<MaterialGraphSchema> to ucpp.Ptr<MaterialGraphSchema>{
 	@:from
 	public static extern inline function fromValue(v: MaterialGraphSchema): MaterialGraphSchemaPtr {
 		return untyped __cpp__("&({0})", v);

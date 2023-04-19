@@ -3,15 +3,15 @@ package ue;
 
 @:native("UTraceUtilLibrary")
 @:include("TraceUtilLibrary.h")
-@:structAccess
+@:valueType
 extern class TraceUtilLibrary extends BlueprintFunctionLibrary {
 	public function TraceMarkRegionStart(Name: FString): Void;
 	public function TraceMarkRegionEnd(Name: FString): Void;
 	public function TraceBookmark(Name: FString): Void;
 	public function ToggleChannel(ChannelName: FString, enabled: Bool): Bool;
 	public function StopTracing(): Bool;
-	public function StartTraceToFile(FileName: FString, Channels: cpp.Reference<TArray<FString>>): Bool;
-	public function StartTraceSendTo(Target: FString, Channels: cpp.Reference<TArray<FString>>): Bool;
+	public function StartTraceToFile(FileName: FString, Channels: ucpp.Ref<TArray<FString>>): Bool;
+	public function StartTraceSendTo(Target: FString, Channels: ucpp.Ref<TArray<FString>>): Bool;
 	public function ResumeTracing(): Bool;
 	public function PauseTracing(): Bool;
 	public function IsTracing(): Bool;
@@ -19,7 +19,7 @@ extern class TraceUtilLibrary extends BlueprintFunctionLibrary {
 	public function GetEnabledChannels(): TArray<FString>;
 	public function GetAllChannels(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstTraceUtilLibrary(TraceUtilLibrary) from TraceUtilLibrary {
 @:forward
 @:nativeGen
 @:native("TraceUtilLibrary*")
-abstract TraceUtilLibraryPtr(cpp.Star<TraceUtilLibrary>) from cpp.Star<TraceUtilLibrary> to cpp.Star<TraceUtilLibrary>{
+abstract TraceUtilLibraryPtr(ucpp.Ptr<TraceUtilLibrary>) from ucpp.Ptr<TraceUtilLibrary> to ucpp.Ptr<TraceUtilLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TraceUtilLibrary): TraceUtilLibraryPtr {
 		return untyped __cpp__("&({0})", v);

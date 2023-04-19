@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionPower")
 @:include("Materials/MaterialExpressionPower.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPower extends MaterialExpression {
 	public var Base: ExpressionInput;
 	public var Exponent: ExpressionInput;
-	public var ConstExponent: cpp.Float32;
+	public var ConstExponent: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstMaterialExpressionPower(MaterialExpressionPower) from MaterialExpr
 	public inline extern function get_Base(): ExpressionInput return this.Base;
 	public extern var Exponent(get, never): ExpressionInput;
 	public inline extern function get_Exponent(): ExpressionInput return this.Exponent;
-	public extern var ConstExponent(get, never): cpp.Float32;
-	public inline extern function get_ConstExponent(): cpp.Float32 return this.ConstExponent;
+	public extern var ConstExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstExponent(): ucpp.num.Float32 return this.ConstExponent;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPower*")
-abstract MaterialExpressionPowerPtr(cpp.Star<MaterialExpressionPower>) from cpp.Star<MaterialExpressionPower> to cpp.Star<MaterialExpressionPower>{
+abstract MaterialExpressionPowerPtr(ucpp.Ptr<MaterialExpressionPower>) from ucpp.Ptr<MaterialExpressionPower> to ucpp.Ptr<MaterialExpressionPower>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPower): MaterialExpressionPowerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,15 +3,15 @@ package ue;
 
 @:native("FTimeline")
 @:include("Components/TimelineComponent.h")
-@:structAccess
+@:valueType
 extern class Timeline {
 	private var LengthMode: TEnumAsByte<ETimelineLengthMode>;
 	private var bLooping: Bool;
 	private var bReversePlayback: Bool;
 	private var bPlaying: Bool;
-	private var Length: cpp.Float32;
-	private var PlayRate: cpp.Float32;
-	private var Position: cpp.Float32;
+	private var Length: ucpp.num.Float32;
+	private var PlayRate: ucpp.num.Float32;
+	private var Position: ucpp.num.Float32;
 	private var Events: TArray<TimelineEventEntry>;
 	private var InterpVectors: TArray<TimelineVectorTrack>;
 	private var InterpFloats: TArray<TimelineFloatTrack>;

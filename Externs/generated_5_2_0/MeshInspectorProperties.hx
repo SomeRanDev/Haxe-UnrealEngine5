@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshInspectorProperties")
 @:include("MeshInspectorTool.h")
-@:structAccess
+@:valueType
 extern class MeshInspectorProperties extends InteractiveToolPropertySet {
 	public var bWireframe: Bool;
 	public var bBoundaryEdges: Bool;
@@ -16,11 +16,11 @@ extern class MeshInspectorProperties extends InteractiveToolPropertySet {
 	public var bTangentSeams: Bool;
 	public var bNormalVectors: Bool;
 	public var bTangentVectors: Bool;
-	public var NormalLength: cpp.Float32;
-	public var TangentLength: cpp.Float32;
+	public var NormalLength: ucpp.num.Float32;
+	public var TangentLength: ucpp.num.Float32;
 	public var ShowIndices: EMeshInspectorToolDrawIndexMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -48,10 +48,10 @@ abstract ConstMeshInspectorProperties(MeshInspectorProperties) from MeshInspecto
 	public inline extern function get_bNormalVectors(): Bool return this.bNormalVectors;
 	public extern var bTangentVectors(get, never): Bool;
 	public inline extern function get_bTangentVectors(): Bool return this.bTangentVectors;
-	public extern var NormalLength(get, never): cpp.Float32;
-	public inline extern function get_NormalLength(): cpp.Float32 return this.NormalLength;
-	public extern var TangentLength(get, never): cpp.Float32;
-	public inline extern function get_TangentLength(): cpp.Float32 return this.TangentLength;
+	public extern var NormalLength(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalLength(): ucpp.num.Float32 return this.NormalLength;
+	public extern var TangentLength(get, never): ucpp.num.Float32;
+	public inline extern function get_TangentLength(): ucpp.num.Float32 return this.TangentLength;
 	public extern var ShowIndices(get, never): EMeshInspectorToolDrawIndexMode;
 	public inline extern function get_ShowIndices(): EMeshInspectorToolDrawIndexMode return this.ShowIndices;
 }
@@ -59,7 +59,7 @@ abstract ConstMeshInspectorProperties(MeshInspectorProperties) from MeshInspecto
 @:forward
 @:nativeGen
 @:native("MeshInspectorProperties*")
-abstract MeshInspectorPropertiesPtr(cpp.Star<MeshInspectorProperties>) from cpp.Star<MeshInspectorProperties> to cpp.Star<MeshInspectorProperties>{
+abstract MeshInspectorPropertiesPtr(ucpp.Ptr<MeshInspectorProperties>) from ucpp.Ptr<MeshInspectorProperties> to ucpp.Ptr<MeshInspectorProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshInspectorProperties): MeshInspectorPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("AVREditorRadialFloatingUI")
 @:include("UI/VREditorRadialFloatingUI.h")
-@:structAccess
+@:valueType
 extern class VREditorRadialFloatingUI extends VREditorBaseActor {
-	@:protected public var WidgetComponents: TArray<cpp.Star<VREditorWidgetComp>>;
-	@:protected public var WindowMeshComponent: cpp.Star<StaticMeshComp>;
-	@:protected public var ArrowMeshComponent: cpp.Star<StaticMeshComp>;
-	@:protected public var CentralWidgetComponent: cpp.Star<VREditorWidgetComp>;
+	@:protected public var WidgetComponents: TArray<ucpp.Ptr<VREditorWidgetComp>>;
+	@:protected public var WindowMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	@:protected public var ArrowMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	@:protected public var CentralWidgetComponent: ucpp.Ptr<VREditorWidgetComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstVREditorRadialFloatingUI(VREditorRadialFloatingUI) from VREditorRa
 @:forward
 @:nativeGen
 @:native("VREditorRadialFloatingUI*")
-abstract VREditorRadialFloatingUIPtr(cpp.Star<VREditorRadialFloatingUI>) from cpp.Star<VREditorRadialFloatingUI> to cpp.Star<VREditorRadialFloatingUI>{
+abstract VREditorRadialFloatingUIPtr(ucpp.Ptr<VREditorRadialFloatingUI>) from ucpp.Ptr<VREditorRadialFloatingUI> to ucpp.Ptr<VREditorRadialFloatingUI>{
 	@:from
 	public static extern inline function fromValue(v: VREditorRadialFloatingUI): VREditorRadialFloatingUIPtr {
 		return untyped __cpp__("&({0})", v);

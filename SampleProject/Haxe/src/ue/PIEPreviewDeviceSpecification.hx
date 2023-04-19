@@ -3,7 +3,7 @@ package ue;
 
 @:native("UPIEPreviewDeviceSpecification")
 @:include("PIEPreviewDeviceSpecification.h")
-@:structAccess
+@:valueType
 extern class PIEPreviewDeviceSpecification extends Object {
 	public var PreviewDeviceType: EPIEPreviewDeviceType;
 	public var GPUFamily: FString;
@@ -17,7 +17,7 @@ extern class PIEPreviewDeviceSpecification extends Object {
 	public var Hardware: FString;
 	public var Chipset: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -50,7 +50,7 @@ abstract ConstPIEPreviewDeviceSpecification(PIEPreviewDeviceSpecification) from 
 @:forward
 @:nativeGen
 @:native("PIEPreviewDeviceSpecification*")
-abstract PIEPreviewDeviceSpecificationPtr(cpp.Star<PIEPreviewDeviceSpecification>) from cpp.Star<PIEPreviewDeviceSpecification> to cpp.Star<PIEPreviewDeviceSpecification>{
+abstract PIEPreviewDeviceSpecificationPtr(ucpp.Ptr<PIEPreviewDeviceSpecification>) from ucpp.Ptr<PIEPreviewDeviceSpecification> to ucpp.Ptr<PIEPreviewDeviceSpecification>{
 	@:from
 	public static extern inline function fromValue(v: PIEPreviewDeviceSpecification): PIEPreviewDeviceSpecificationPtr {
 		return untyped __cpp__("&({0})", v);

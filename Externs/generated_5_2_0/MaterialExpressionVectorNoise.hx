@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionVectorNoise")
 @:include("Materials/MaterialExpressionVectorNoise.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionVectorNoise extends MaterialExpression {
 	public var Position: ExpressionInput;
 	public var NoiseFunction: TEnumAsByte<EVectorNoiseFunction>;
-	public var Quality: cpp.Int32;
+	public var Quality: ucpp.num.Int32;
 	public var bTiling: Bool;
-	public var TileSize: cpp.UInt32;
+	public var TileSize: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,18 +21,18 @@ abstract ConstMaterialExpressionVectorNoise(MaterialExpressionVectorNoise) from 
 	public inline extern function get_Position(): ExpressionInput return this.Position;
 	public extern var NoiseFunction(get, never): TEnumAsByte<EVectorNoiseFunction>;
 	public inline extern function get_NoiseFunction(): TEnumAsByte<EVectorNoiseFunction> return this.NoiseFunction;
-	public extern var Quality(get, never): cpp.Int32;
-	public inline extern function get_Quality(): cpp.Int32 return this.Quality;
+	public extern var Quality(get, never): ucpp.num.Int32;
+	public inline extern function get_Quality(): ucpp.num.Int32 return this.Quality;
 	public extern var bTiling(get, never): Bool;
 	public inline extern function get_bTiling(): Bool return this.bTiling;
-	public extern var TileSize(get, never): cpp.UInt32;
-	public inline extern function get_TileSize(): cpp.UInt32 return this.TileSize;
+	public extern var TileSize(get, never): ucpp.num.UInt32;
+	public inline extern function get_TileSize(): ucpp.num.UInt32 return this.TileSize;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionVectorNoise*")
-abstract MaterialExpressionVectorNoisePtr(cpp.Star<MaterialExpressionVectorNoise>) from cpp.Star<MaterialExpressionVectorNoise> to cpp.Star<MaterialExpressionVectorNoise>{
+abstract MaterialExpressionVectorNoisePtr(ucpp.Ptr<MaterialExpressionVectorNoise>) from ucpp.Ptr<MaterialExpressionVectorNoise> to ucpp.Ptr<MaterialExpressionVectorNoise>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionVectorNoise): MaterialExpressionVectorNoisePtr {
 		return untyped __cpp__("&({0})", v);

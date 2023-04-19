@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleVelocityInheritParent")
 @:include("Particles/Velocity/ParticleModuleVelocityInheritParent.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleVelocityInheritParent extends ParticleModuleVelocityBase {
 	public var Scale: RawDistributionVector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleVelocityInheritParent(ParticleModuleVelocityInheritP
 @:forward
 @:nativeGen
 @:native("ParticleModuleVelocityInheritParent*")
-abstract ParticleModuleVelocityInheritParentPtr(cpp.Star<ParticleModuleVelocityInheritParent>) from cpp.Star<ParticleModuleVelocityInheritParent> to cpp.Star<ParticleModuleVelocityInheritParent>{
+abstract ParticleModuleVelocityInheritParentPtr(ucpp.Ptr<ParticleModuleVelocityInheritParent>) from ucpp.Ptr<ParticleModuleVelocityInheritParent> to ucpp.Ptr<ParticleModuleVelocityInheritParent>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleVelocityInheritParent): ParticleModuleVelocityInheritParentPtr {
 		return untyped __cpp__("&({0})", v);

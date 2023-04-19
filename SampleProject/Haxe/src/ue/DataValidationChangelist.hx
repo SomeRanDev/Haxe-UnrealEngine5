@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataValidationChangelist")
 @:include("DataValidationChangelist.h")
-@:structAccess
+@:valueType
 extern class DataValidationChangelist extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataValidationChangelist(DataValidationChangelist) from DataValida
 @:forward
 @:nativeGen
 @:native("DataValidationChangelist*")
-abstract DataValidationChangelistPtr(cpp.Star<DataValidationChangelist>) from cpp.Star<DataValidationChangelist> to cpp.Star<DataValidationChangelist>{
+abstract DataValidationChangelistPtr(ucpp.Ptr<DataValidationChangelist>) from ucpp.Ptr<DataValidationChangelist> to ucpp.Ptr<DataValidationChangelist>{
 	@:from
 	public static extern inline function fromValue(v: DataValidationChangelist): DataValidationChangelistPtr {
 		return untyped __cpp__("&({0})", v);

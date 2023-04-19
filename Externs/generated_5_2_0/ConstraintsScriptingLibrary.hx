@@ -3,18 +3,18 @@ package ue;
 
 @:native("UConstraintsScriptingLibrary")
 @:include("ConstraintsScripting.h")
-@:structAccess
+@:valueType
 extern class ConstraintsScriptingLibrary extends BlueprintFunctionLibrary {
-	public function RemoveThisConstraint(InWorld: cpp.Star<World>, InTickableConstraint: cpp.Star<TickableConstraint>): Bool;
-	public function RemoveConstraint(InWorld: cpp.Star<World>, InIndex: cpp.Int32): Bool;
-	public function GetManager(InWorld: cpp.Star<World>): cpp.Star<ConstraintsManager>;
-	public function GetConstraintsArray(InWorld: cpp.Star<World>): TArray<cpp.Star<TickableConstraint>>;
-	public function CreateTransformableHandle(InWorld: cpp.Star<World>, InObject: cpp.Star<Object>, InAttachmentName: cpp.Reference<FName>): cpp.Star<TransformableHandle>;
-	public function CreateTransformableComponentHandle(InWorld: cpp.Star<World>, InSceneComponent: cpp.Star<SceneComp>, InSocketName: cpp.Reference<FName>): cpp.Star<TransformableComponentHandle>;
-	public function CreateFromType(InWorld: cpp.Star<World>, InType: ETransformConstraintType): cpp.Star<TickableTransformConstraint>;
-	public function AddConstraint(InWorld: cpp.Star<World>, InParentHandle: cpp.Star<TransformableHandle>, InChildHandle: cpp.Star<TransformableHandle>, InConstraint: cpp.Star<TickableTransformConstraint>, bMaintainOffset: Bool): Bool;
+	public function RemoveThisConstraint(InWorld: ucpp.Ptr<World>, InTickableConstraint: ucpp.Ptr<TickableConstraint>): Bool;
+	public function RemoveConstraint(InWorld: ucpp.Ptr<World>, InIndex: ucpp.num.Int32): Bool;
+	public function GetManager(InWorld: ucpp.Ptr<World>): ucpp.Ptr<ConstraintsManager>;
+	public function GetConstraintsArray(InWorld: ucpp.Ptr<World>): TArray<ucpp.Ptr<TickableConstraint>>;
+	public function CreateTransformableHandle(InWorld: ucpp.Ptr<World>, InObject: ucpp.Ptr<Object>, InAttachmentName: ucpp.Ref<FName>): ucpp.Ptr<TransformableHandle>;
+	public function CreateTransformableComponentHandle(InWorld: ucpp.Ptr<World>, InSceneComponent: ucpp.Ptr<SceneComp>, InSocketName: ucpp.Ref<FName>): ucpp.Ptr<TransformableComponentHandle>;
+	public function CreateFromType(InWorld: ucpp.Ptr<World>, InType: ETransformConstraintType): ucpp.Ptr<TickableTransformConstraint>;
+	public function AddConstraint(InWorld: ucpp.Ptr<World>, InParentHandle: ucpp.Ptr<TransformableHandle>, InChildHandle: ucpp.Ptr<TransformableHandle>, InConstraint: ucpp.Ptr<TickableTransformConstraint>, bMaintainOffset: Bool): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstConstraintsScriptingLibrary(ConstraintsScriptingLibrary) from Cons
 @:forward
 @:nativeGen
 @:native("ConstraintsScriptingLibrary*")
-abstract ConstraintsScriptingLibraryPtr(cpp.Star<ConstraintsScriptingLibrary>) from cpp.Star<ConstraintsScriptingLibrary> to cpp.Star<ConstraintsScriptingLibrary>{
+abstract ConstraintsScriptingLibraryPtr(ucpp.Ptr<ConstraintsScriptingLibrary>) from ucpp.Ptr<ConstraintsScriptingLibrary> to ucpp.Ptr<ConstraintsScriptingLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ConstraintsScriptingLibrary): ConstraintsScriptingLibraryPtr {
 		return untyped __cpp__("&({0})", v);

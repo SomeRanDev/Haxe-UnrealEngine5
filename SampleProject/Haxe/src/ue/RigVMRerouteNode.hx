@@ -3,13 +3,13 @@ package ue;
 
 @:native("URigVMRerouteNode")
 @:include("RigVMModel/Nodes/RigVMRerouteNode.h")
-@:structAccess
-extern class RigVMRerouteNode extends RigVMNode {
+@:valueType
+extern class RigVMRerouteNode extends RigVMTemplateNode {
 	private var bShowAsFullNode: Bool;
 
 	public function GetShowsAsFullNode(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetShowsAsFullNode)
@@ -20,7 +20,7 @@ abstract ConstRigVMRerouteNode(RigVMRerouteNode) from RigVMRerouteNode {
 @:forward
 @:nativeGen
 @:native("RigVMRerouteNode*")
-abstract RigVMRerouteNodePtr(cpp.Star<RigVMRerouteNode>) from cpp.Star<RigVMRerouteNode> to cpp.Star<RigVMRerouteNode>{
+abstract RigVMRerouteNodePtr(ucpp.Ptr<RigVMRerouteNode>) from ucpp.Ptr<RigVMRerouteNode> to ucpp.Ptr<RigVMRerouteNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMRerouteNode): RigVMRerouteNodePtr {
 		return untyped __cpp__("&({0})", v);

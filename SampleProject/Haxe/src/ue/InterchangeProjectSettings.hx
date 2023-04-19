@@ -3,33 +3,36 @@ package ue;
 
 @:native("UInterchangeProjectSettings")
 @:include("InterchangeProjectSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangeProjectSettings extends DeveloperSettings {
-	public var PipelineStacks: TMap<FName, InterchangePipelineStack>;
-	public var DefaultPipelineStack: FName;
-	public var bUseInterchangeWhenImportingIntoLevel: Bool;
-	public var DefaultScenePipelineStack: FName;
+	public var ContentImportSettings: InterchangeContentImportSettings;
+	public var SceneImportSettings: InterchangeImportSettings;
+	public var FilePickerClass: TSoftClassPtr<Class>;
+	public var bStaticMeshUseSmoothEdgesIfSmoothingInformationIsMissing: Bool;
+	public var GenericPipelineClass: TSoftClassPtr<Class>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInterchangeProjectSettings(InterchangeProjectSettings) from InterchangeProjectSettings {
-	public extern var PipelineStacks(get, never): TMap<FName, InterchangePipelineStack>;
-	public inline extern function get_PipelineStacks(): TMap<FName, InterchangePipelineStack> return this.PipelineStacks;
-	public extern var DefaultPipelineStack(get, never): FName;
-	public inline extern function get_DefaultPipelineStack(): FName return this.DefaultPipelineStack;
-	public extern var bUseInterchangeWhenImportingIntoLevel(get, never): Bool;
-	public inline extern function get_bUseInterchangeWhenImportingIntoLevel(): Bool return this.bUseInterchangeWhenImportingIntoLevel;
-	public extern var DefaultScenePipelineStack(get, never): FName;
-	public inline extern function get_DefaultScenePipelineStack(): FName return this.DefaultScenePipelineStack;
+	public extern var ContentImportSettings(get, never): InterchangeContentImportSettings;
+	public inline extern function get_ContentImportSettings(): InterchangeContentImportSettings return this.ContentImportSettings;
+	public extern var SceneImportSettings(get, never): InterchangeImportSettings;
+	public inline extern function get_SceneImportSettings(): InterchangeImportSettings return this.SceneImportSettings;
+	public extern var FilePickerClass(get, never): TSoftClassPtr<Class.ConstClass>;
+	public inline extern function get_FilePickerClass(): TSoftClassPtr<Class.ConstClass> return this.FilePickerClass;
+	public extern var bStaticMeshUseSmoothEdgesIfSmoothingInformationIsMissing(get, never): Bool;
+	public inline extern function get_bStaticMeshUseSmoothEdgesIfSmoothingInformationIsMissing(): Bool return this.bStaticMeshUseSmoothEdgesIfSmoothingInformationIsMissing;
+	public extern var GenericPipelineClass(get, never): TSoftClassPtr<Class.ConstClass>;
+	public inline extern function get_GenericPipelineClass(): TSoftClassPtr<Class.ConstClass> return this.GenericPipelineClass;
 }
 
 @:forward
 @:nativeGen
 @:native("InterchangeProjectSettings*")
-abstract InterchangeProjectSettingsPtr(cpp.Star<InterchangeProjectSettings>) from cpp.Star<InterchangeProjectSettings> to cpp.Star<InterchangeProjectSettings>{
+abstract InterchangeProjectSettingsPtr(ucpp.Ptr<InterchangeProjectSettings>) from ucpp.Ptr<InterchangeProjectSettings> to ucpp.Ptr<InterchangeProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeProjectSettings): InterchangeProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

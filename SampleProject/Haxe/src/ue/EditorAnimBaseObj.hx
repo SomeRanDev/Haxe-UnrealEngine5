@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorAnimBaseObj")
 @:include("Animation/EditorAnimBaseObj.h")
-@:structAccess
+@:valueType
 extern class EditorAnimBaseObj extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorAnimBaseObj(EditorAnimBaseObj) from EditorAnimBaseObj {
 @:forward
 @:nativeGen
 @:native("EditorAnimBaseObj*")
-abstract EditorAnimBaseObjPtr(cpp.Star<EditorAnimBaseObj>) from cpp.Star<EditorAnimBaseObj> to cpp.Star<EditorAnimBaseObj>{
+abstract EditorAnimBaseObjPtr(ucpp.Ptr<EditorAnimBaseObj>) from ucpp.Ptr<EditorAnimBaseObj> to ucpp.Ptr<EditorAnimBaseObj>{
 	@:from
 	public static extern inline function fromValue(v: EditorAnimBaseObj): EditorAnimBaseObjPtr {
 		return untyped __cpp__("&({0})", v);

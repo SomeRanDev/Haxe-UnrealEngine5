@@ -3,22 +3,22 @@ package ue;
 
 @:native("USecondarySmoothBrushOpProps")
 @:include("Sculpting/MeshSmoothingBrushOps.h")
-@:structAccess
+@:valueType
 extern class SecondarySmoothBrushOpProps extends BaseSmoothBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
 	public var bPreserveUVFlow: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSecondarySmoothBrushOpProps(SecondarySmoothBrushOpProps) from SecondarySmoothBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
 	public extern var bPreserveUVFlow(get, never): Bool;
 	public inline extern function get_bPreserveUVFlow(): Bool return this.bPreserveUVFlow;
 }
@@ -26,7 +26,7 @@ abstract ConstSecondarySmoothBrushOpProps(SecondarySmoothBrushOpProps) from Seco
 @:forward
 @:nativeGen
 @:native("SecondarySmoothBrushOpProps*")
-abstract SecondarySmoothBrushOpPropsPtr(cpp.Star<SecondarySmoothBrushOpProps>) from cpp.Star<SecondarySmoothBrushOpProps> to cpp.Star<SecondarySmoothBrushOpProps>{
+abstract SecondarySmoothBrushOpPropsPtr(ucpp.Ptr<SecondarySmoothBrushOpProps>) from ucpp.Ptr<SecondarySmoothBrushOpProps> to ucpp.Ptr<SecondarySmoothBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: SecondarySmoothBrushOpProps): SecondarySmoothBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

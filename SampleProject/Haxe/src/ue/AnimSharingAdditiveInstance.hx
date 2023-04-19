@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimSharingAdditiveInstance")
 @:include("AnimationSharingInstances.h")
-@:structAccess
+@:valueType
 extern class AnimSharingAdditiveInstance extends AnimInstance {
 	@:protected public var BaseComponent: TWeakObjectPtr<SkeletalMeshComp>;
 	@:protected public var AdditiveAnimation: TWeakObjectPtr<AnimSequence>;
-	@:protected public var Alpha: cpp.Float32;
+	@:protected public var Alpha: ucpp.num.Float32;
 	@:protected public var bStateBool: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAnimSharingAdditiveInstance(AnimSharingAdditiveInstance) from Anim
 @:forward
 @:nativeGen
 @:native("AnimSharingAdditiveInstance*")
-abstract AnimSharingAdditiveInstancePtr(cpp.Star<AnimSharingAdditiveInstance>) from cpp.Star<AnimSharingAdditiveInstance> to cpp.Star<AnimSharingAdditiveInstance>{
+abstract AnimSharingAdditiveInstancePtr(ucpp.Ptr<AnimSharingAdditiveInstance>) from ucpp.Ptr<AnimSharingAdditiveInstance> to ucpp.Ptr<AnimSharingAdditiveInstance>{
 	@:from
 	public static extern inline function fromValue(v: AnimSharingAdditiveInstance): AnimSharingAdditiveInstancePtr {
 		return untyped __cpp__("&({0})", v);

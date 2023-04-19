@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeMaterialXTranslator")
 @:include("MaterialX/InterchangeMaterialXTranslator.h")
-@:structAccess
+@:valueType
 extern class InterchangeMaterialXTranslator extends InterchangeTranslatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeMaterialXTranslator(InterchangeMaterialXTranslator) fro
 @:forward
 @:nativeGen
 @:native("InterchangeMaterialXTranslator*")
-abstract InterchangeMaterialXTranslatorPtr(cpp.Star<InterchangeMaterialXTranslator>) from cpp.Star<InterchangeMaterialXTranslator> to cpp.Star<InterchangeMaterialXTranslator>{
+abstract InterchangeMaterialXTranslatorPtr(ucpp.Ptr<InterchangeMaterialXTranslator>) from ucpp.Ptr<InterchangeMaterialXTranslator> to ucpp.Ptr<InterchangeMaterialXTranslator>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeMaterialXTranslator): InterchangeMaterialXTranslatorPtr {
 		return untyped __cpp__("&({0})", v);

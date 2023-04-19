@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraEventReceiverProperties")
 @:include("NiagaraEmitter.h")
-@:structAccess
+@:valueType
 extern class NiagaraEventReceiverProperties {
 	public var Name: FName;
 	public var SourceEventGenerator: FName;

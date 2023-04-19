@@ -3,7 +3,7 @@ package ue;
 
 @:native("FEngineShowFlagsSetting")
 @:include("Components/SceneCaptureComponent.h")
-@:structAccess
+@:valueType
 extern class EngineShowFlagsSetting {
 	public var ShowFlagName: FString;
 	public var Enabled: Bool;

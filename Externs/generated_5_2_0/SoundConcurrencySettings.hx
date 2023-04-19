@@ -3,18 +3,18 @@ package ue;
 
 @:native("FSoundConcurrencySettings")
 @:include("Sound/SoundConcurrency.h")
-@:structAccess
+@:valueType
 extern class SoundConcurrencySettings {
-	public var MaxCount: cpp.Int32;
+	public var MaxCount: ucpp.num.Int32;
 	public var bLimitToOwner: Bool;
 	public var bVolumeScaleCanRelease: Bool;
 	public var ResolutionRule: TEnumAsByte<EMaxConcurrentResolutionRule>;
-	public var RetriggerTime: cpp.Float32;
-	private var VolumeScale: cpp.Float32;
+	public var RetriggerTime: ucpp.num.Float32;
+	private var VolumeScale: ucpp.num.Float32;
 	public var VolumeScaleMode: EConcurrencyVolumeScaleMode;
-	public var VolumeScaleAttackTime: cpp.Float32;
-	public var VolumeScaleReleaseTime: cpp.Float32;
-	public var VoiceStealReleaseTime: cpp.Float32;
+	public var VolumeScaleAttackTime: ucpp.num.Float32;
+	public var VolumeScaleReleaseTime: ucpp.num.Float32;
+	public var VoiceStealReleaseTime: ucpp.num.Float32;
 
 	@:native("FSoundConcurrencySettings") public function new();
 }

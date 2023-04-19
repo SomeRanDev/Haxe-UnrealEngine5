@@ -3,21 +3,29 @@ package ue;
 
 @:native("FSimulationStageMetaData")
 @:include("NiagaraScriptBase.h")
-@:structAccess
+@:valueType
 extern class SimulationStageMetaData {
 	public var SimulationStageName: FName;
 	public var EnabledBinding: FName;
-	public var IterationSource: FName;
+	public var ElementCountXBinding: FName;
+	public var ElementCountYBinding: FName;
+	public var ElementCountZBinding: FName;
+	public var IterationSourceType: ENiagaraIterationSource;
+	public var IterationDataInterface: FName;
+	public var IterationDirectBinding: FName;
 	public var ExecuteBehavior: ENiagaraSimStageExecuteBehavior;
 	public var bWritesParticles: Bool;
 	public var bPartialParticleUpdate: Bool;
 	public var bParticleIterationStateEnabled: Bool;
+	public var bGpuIndirectDispatch: Bool;
 	public var ParticleIterationStateBinding: FName;
 	public var ParticleIterationStateRange: IntPoint;
 	public var OutputDestinations: TArray<FName>;
-	public var NumIterations: cpp.Int32;
+	public var InputDataInterfaces: TArray<FName>;
+	public var NumIterations: ucpp.num.Int32;
 	public var NumIterationsBinding: FName;
 	public var GpuDispatchType: ENiagaraGpuDispatchType;
+	public var GpuDirectDispatchElementType: ENiagaraDirectDispatchElementType;
 	public var GpuDispatchNumThreads: IntVector;
 
 	@:native("FSimulationStageMetaData") public function new();

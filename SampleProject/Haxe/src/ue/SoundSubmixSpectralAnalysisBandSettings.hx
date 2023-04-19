@@ -3,13 +3,13 @@ package ue;
 
 @:native("FSoundSubmixSpectralAnalysisBandSettings")
 @:include("Sound/SoundSubmixSend.h")
-@:structAccess
+@:valueType
 extern class SoundSubmixSpectralAnalysisBandSettings {
-	public var BandFrequency: cpp.Float32;
-	public var AttackTimeMsec: cpp.Int32;
-	public var ReleaseTimeMsec: cpp.Int32;
-	public var QFactor: cpp.Float32;
+	public var BandFrequency: ucpp.num.Float32;
+	public var AttackTimeMsec: ucpp.num.Int32;
+	public var ReleaseTimeMsec: ucpp.num.Int32;
+	public var QFactor: ucpp.num.Float32;
 
 	@:native("FSoundSubmixSpectralAnalysisBandSettings") public function new();
-	@:native("FSoundSubmixSpectralAnalysisBandSettings") public static function make(BandFrequency: cpp.Float32, AttackTimeMsec: cpp.Int32, ReleaseTimeMsec: cpp.Int32, QFactor: cpp.Float32): SoundSubmixSpectralAnalysisBandSettings ;
+	@:native("FSoundSubmixSpectralAnalysisBandSettings") public static function make(BandFrequency: ucpp.num.Float32, AttackTimeMsec: ucpp.num.Int32, ReleaseTimeMsec: ucpp.num.Int32, QFactor: ucpp.num.Float32): SoundSubmixSpectralAnalysisBandSettings ;
 }

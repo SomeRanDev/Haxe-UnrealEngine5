@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULandscapeMaterialInstanceConstant")
 @:include("LandscapeMaterialInstanceConstant.h")
-@:structAccess
+@:valueType
 extern class LandscapeMaterialInstanceConstant extends MaterialInstanceConstant {
 	public var TextureStreamingInfo: TArray<LandscapeMaterialTextureStreamingInfo>;
 	public var bIsLayerThumbnail: Bool;
 	public var bMobile: Bool;
 	public var bEditorToolUsage: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstLandscapeMaterialInstanceConstant(LandscapeMaterialInstanceConstan
 @:forward
 @:nativeGen
 @:native("LandscapeMaterialInstanceConstant*")
-abstract LandscapeMaterialInstanceConstantPtr(cpp.Star<LandscapeMaterialInstanceConstant>) from cpp.Star<LandscapeMaterialInstanceConstant> to cpp.Star<LandscapeMaterialInstanceConstant>{
+abstract LandscapeMaterialInstanceConstantPtr(ucpp.Ptr<LandscapeMaterialInstanceConstant>) from ucpp.Ptr<LandscapeMaterialInstanceConstant> to ucpp.Ptr<LandscapeMaterialInstanceConstant>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeMaterialInstanceConstant): LandscapeMaterialInstanceConstantPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGatherTextFromAssetsCommandlet")
 @:include("Commandlets/GatherTextFromAssetsCommandlet.h")
-@:structAccess
+@:valueType
 extern class GatherTextFromAssetsCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGatherTextFromAssetsCommandlet(GatherTextFromAssetsCommandlet) fro
 @:forward
 @:nativeGen
 @:native("GatherTextFromAssetsCommandlet*")
-abstract GatherTextFromAssetsCommandletPtr(cpp.Star<GatherTextFromAssetsCommandlet>) from cpp.Star<GatherTextFromAssetsCommandlet> to cpp.Star<GatherTextFromAssetsCommandlet>{
+abstract GatherTextFromAssetsCommandletPtr(ucpp.Ptr<GatherTextFromAssetsCommandlet>) from ucpp.Ptr<GatherTextFromAssetsCommandlet> to ucpp.Ptr<GatherTextFromAssetsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GatherTextFromAssetsCommandlet): GatherTextFromAssetsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

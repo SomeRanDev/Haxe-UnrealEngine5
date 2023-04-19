@@ -2,7 +2,7 @@
 package ue;
 
 @:native("ESkinCacheDefaultBehavior")
-@:include("Engine/SkeletalMesh.h")
+@:include("Engine/SkinnedAssetCommon.h")
 extern class ESkinCacheDefaultBehavior {
 	static var Exclusive: ESkinCacheDefaultBehavior;
 	static var Inclusive: ESkinCacheDefaultBehavior;

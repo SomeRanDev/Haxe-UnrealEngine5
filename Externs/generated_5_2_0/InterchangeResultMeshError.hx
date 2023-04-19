@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeResultMeshError")
 @:include("Fbx/InterchangeFbxMessages.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultMeshError extends InterchangeResultError {
 	public var MeshName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInterchangeResultMeshError(InterchangeResultMeshError) from Interc
 @:forward
 @:nativeGen
 @:native("InterchangeResultMeshError*")
-abstract InterchangeResultMeshErrorPtr(cpp.Star<InterchangeResultMeshError>) from cpp.Star<InterchangeResultMeshError> to cpp.Star<InterchangeResultMeshError>{
+abstract InterchangeResultMeshErrorPtr(ucpp.Ptr<InterchangeResultMeshError>) from ucpp.Ptr<InterchangeResultMeshError> to ucpp.Ptr<InterchangeResultMeshError>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultMeshError): InterchangeResultMeshErrorPtr {
 		return untyped __cpp__("&({0})", v);

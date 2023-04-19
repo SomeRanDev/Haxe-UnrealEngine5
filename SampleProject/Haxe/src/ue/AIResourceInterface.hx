@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAIResourceInterface")
-@:structAccess
+@:valueType
 extern class AIResourceInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAIResourceInterface(AIResourceInterface) from AIResourceInterface 
 @:forward
 @:nativeGen
 @:native("AIResourceInterface*")
-abstract AIResourceInterfacePtr(cpp.Star<AIResourceInterface>) from cpp.Star<AIResourceInterface> to cpp.Star<AIResourceInterface>{
+abstract AIResourceInterfacePtr(ucpp.Ptr<AIResourceInterface>) from ucpp.Ptr<AIResourceInterface> to ucpp.Ptr<AIResourceInterface>{
 	@:from
 	public static extern inline function fromValue(v: AIResourceInterface): AIResourceInterfacePtr {
 		return untyped __cpp__("&({0})", v);

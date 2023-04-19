@@ -3,29 +3,29 @@ package ue;
 
 @:native("UConstructionPlaneMechanic")
 @:include("Mechanics/ConstructionPlaneMechanic.h")
-@:structAccess
+@:valueType
 extern class ConstructionPlaneMechanic extends InteractionMechanic {
-	public var PlaneTransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var PlaneTransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var ClickToSetPlaneBehavior: cpp.Star<SingleClickInputBehavior>;
-	@:protected public var MiddleClickToSetGizmoBehavior: cpp.Star<LocalSingleClickInputBehavior>;
+	public var PlaneTransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	public var PlaneTransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var ClickToSetPlaneBehavior: ucpp.Ptr<SingleClickInputBehavior>;
+	@:protected public var MiddleClickToSetGizmoBehavior: ucpp.Ptr<LocalSingleClickInputBehavior>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConstructionPlaneMechanic(ConstructionPlaneMechanic) from ConstructionPlaneMechanic {
-	public extern var PlaneTransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_PlaneTransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PlaneTransformGizmo;
-	public extern var PlaneTransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_PlaneTransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.PlaneTransformProxy;
+	public extern var PlaneTransformGizmo(get, never): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
+	public inline extern function get_PlaneTransformGizmo(): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.PlaneTransformGizmo;
+	public extern var PlaneTransformProxy(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_PlaneTransformProxy(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.PlaneTransformProxy;
 }
 
 @:forward
 @:nativeGen
 @:native("ConstructionPlaneMechanic*")
-abstract ConstructionPlaneMechanicPtr(cpp.Star<ConstructionPlaneMechanic>) from cpp.Star<ConstructionPlaneMechanic> to cpp.Star<ConstructionPlaneMechanic>{
+abstract ConstructionPlaneMechanicPtr(ucpp.Ptr<ConstructionPlaneMechanic>) from ucpp.Ptr<ConstructionPlaneMechanic> to ucpp.Ptr<ConstructionPlaneMechanic>{
 	@:from
 	public static extern inline function fromValue(v: ConstructionPlaneMechanic): ConstructionPlaneMechanicPtr {
 		return untyped __cpp__("&({0})", v);

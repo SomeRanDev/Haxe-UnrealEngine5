@@ -3,31 +3,31 @@ package ue;
 
 @:native("UEditorUtilitySubsystem")
 @:include("EditorUtilitySubsystem.h")
-@:structAccess
+@:valueType
 extern class EditorUtilitySubsystem extends EditorSubsystem {
 	public var LoadedUIs: TArray<SoftObjectPath>;
 	public var StartupObjects: TArray<SoftObjectPath>;
 	public var OnBeginPIE: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public var OnEndPIE: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
-	private var ObjectInstances: TMap<cpp.Star<Object>, cpp.Star<Object>>;
-	private var ActiveTaskStack: TArray<cpp.Star<EditorUtilityTask>>;
-	private var ReferencedObjects: TSet<cpp.Star<Object>>;
+	private var ObjectInstances: TMap<ucpp.Ptr<Object>, ucpp.Ptr<Object>>;
+	private var ActiveTaskStack: TArray<ucpp.Ptr<EditorUtilityTask>>;
+	private var ReferencedObjects: TSet<ucpp.Ptr<Object>>;
 
 	public function UnregisterTabByID(TabID: FName): Bool;
-	public function TryRun(Asset: cpp.Star<Object>): Bool;
+	public function TryRun(Asset: ucpp.Ptr<Object>): Bool;
 	public function SpawnRegisteredTabByID(NewTabID: FName): Bool;
-	public function SpawnAndRegisterTabWithId(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>, InTabID: FName): cpp.Star<EditorUtilityWidget>;
-	public function SpawnAndRegisterTabAndGetID(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>, NewTabID: cpp.Reference<FName>): cpp.Star<EditorUtilityWidget>;
-	public function SpawnAndRegisterTab(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>): cpp.Star<EditorUtilityWidget>;
-	public function ReleaseInstanceOfAsset(Asset: cpp.Star<Object>): Void;
-	public function RegisterTabAndGetID(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>, NewTabID: cpp.Reference<FName>): Void;
-	public function RegisterAndExecuteTask(NewTask: cpp.Star<EditorUtilityTask>, OptionalParentTask: cpp.Star<EditorUtilityTask>): Void;
-	public function FindUtilityWidgetFromBlueprint(InBlueprint: cpp.Star<EditorUtilityWidgetBlueprint>): cpp.Star<EditorUtilityWidget>;
+	public function SpawnAndRegisterTabWithId(InBlueprint: ucpp.Ptr<EditorUtilityWidgetBlueprint>, InTabID: FName): ucpp.Ptr<EditorUtilityWidget>;
+	public function SpawnAndRegisterTabAndGetID(InBlueprint: ucpp.Ptr<EditorUtilityWidgetBlueprint>, NewTabID: ucpp.Ref<FName>): ucpp.Ptr<EditorUtilityWidget>;
+	public function SpawnAndRegisterTab(InBlueprint: ucpp.Ptr<EditorUtilityWidgetBlueprint>): ucpp.Ptr<EditorUtilityWidget>;
+	public function ReleaseInstanceOfAsset(Asset: ucpp.Ptr<Object>): Void;
+	public function RegisterTabAndGetID(InBlueprint: ucpp.Ptr<EditorUtilityWidgetBlueprint>, NewTabID: ucpp.Ref<FName>): Void;
+	public function RegisterAndExecuteTask(NewTask: ucpp.Ptr<EditorUtilityTask>, OptionalParentTask: ucpp.Ptr<EditorUtilityTask>): Void;
+	public function FindUtilityWidgetFromBlueprint(InBlueprint: ucpp.Ptr<EditorUtilityWidgetBlueprint>): ucpp.Ptr<EditorUtilityWidget>;
 	public function DoesTabExist(NewTabID: FName): Bool;
 	public function CloseTabByID(NewTabID: FName): Bool;
-	public function CanRun(Asset: cpp.Star<Object>): Bool;
+	public function CanRun(Asset: ucpp.Ptr<Object>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(CanRun)
@@ -46,7 +46,7 @@ abstract ConstEditorUtilitySubsystem(EditorUtilitySubsystem) from EditorUtilityS
 @:forward
 @:nativeGen
 @:native("EditorUtilitySubsystem*")
-abstract EditorUtilitySubsystemPtr(cpp.Star<EditorUtilitySubsystem>) from cpp.Star<EditorUtilitySubsystem> to cpp.Star<EditorUtilitySubsystem>{
+abstract EditorUtilitySubsystemPtr(ucpp.Ptr<EditorUtilitySubsystem>) from ucpp.Ptr<EditorUtilitySubsystem> to ucpp.Ptr<EditorUtilitySubsystem>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilitySubsystem): EditorUtilitySubsystemPtr {
 		return untyped __cpp__("&({0})", v);

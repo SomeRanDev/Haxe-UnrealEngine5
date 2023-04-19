@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULevelSequenceMetaData")
-@:structAccess
+@:valueType
 extern class LevelSequenceMetaData extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLevelSequenceMetaData(LevelSequenceMetaData) from LevelSequenceMet
 @:forward
 @:nativeGen
 @:native("LevelSequenceMetaData*")
-abstract LevelSequenceMetaDataPtr(cpp.Star<LevelSequenceMetaData>) from cpp.Star<LevelSequenceMetaData> to cpp.Star<LevelSequenceMetaData>{
+abstract LevelSequenceMetaDataPtr(ucpp.Ptr<LevelSequenceMetaData>) from ucpp.Ptr<LevelSequenceMetaData> to ucpp.Ptr<LevelSequenceMetaData>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceMetaData): LevelSequenceMetaDataPtr {
 		return untyped __cpp__("&({0})", v);

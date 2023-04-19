@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_ConvertToHEIF")
 @:include("AppleImageUtilsBlueprintSupport.h")
-@:structAccess
+@:valueType
 extern class K2Node_ConvertToHEIF extends K2Node_BaseAsyncTask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_ConvertToHEIF(K2Node_ConvertToHEIF) from K2Node_ConvertToHE
 @:forward
 @:nativeGen
 @:native("K2Node_ConvertToHEIF*")
-abstract K2Node_ConvertToHEIFPtr(cpp.Star<K2Node_ConvertToHEIF>) from cpp.Star<K2Node_ConvertToHEIF> to cpp.Star<K2Node_ConvertToHEIF>{
+abstract K2Node_ConvertToHEIFPtr(ucpp.Ptr<K2Node_ConvertToHEIF>) from ucpp.Ptr<K2Node_ConvertToHEIF> to ucpp.Ptr<K2Node_ConvertToHEIF>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_ConvertToHEIF): K2Node_ConvertToHEIFPtr {
 		return untyped __cpp__("&({0})", v);

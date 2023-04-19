@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPerPlatformSettings")
 @:include("Engine/PlatformSettings.h")
-@:structAccess
+@:valueType
 extern class PerPlatformSettings {
-	private var Settings: TArray<cpp.Star<PlatformSettings>>;
+	private var Settings: TArray<ucpp.Ptr<PlatformSettings>>;
 
 	@:native("FPerPlatformSettings") public function new();
-	@:native("FPerPlatformSettings") public static function make(Settings: TArray<cpp.Star<PlatformSettings>>): PerPlatformSettings ;
+	@:native("FPerPlatformSettings") public static function make(Settings: TArray<ucpp.Ptr<PlatformSettings>>): PerPlatformSettings ;
 }

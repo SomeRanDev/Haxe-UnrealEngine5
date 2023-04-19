@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_SplineIK")
 @:include("AnimGraphNode_SplineIK.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_SplineIK extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_SplineIK;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_SplineIK(AnimGraphNode_SplineIK) from AnimGraphNode_
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_SplineIK*")
-abstract AnimGraphNode_SplineIKPtr(cpp.Star<AnimGraphNode_SplineIK>) from cpp.Star<AnimGraphNode_SplineIK> to cpp.Star<AnimGraphNode_SplineIK>{
+abstract AnimGraphNode_SplineIKPtr(ucpp.Ptr<AnimGraphNode_SplineIK>) from ucpp.Ptr<AnimGraphNode_SplineIK> to ucpp.Ptr<AnimGraphNode_SplineIK>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_SplineIK): AnimGraphNode_SplineIKPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintExtension_LinkedAnimGraph")
 @:include("AnimBlueprintExtension_LinkedAnimGraph.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintExtension_LinkedAnimGraph extends AnimBlueprintExtension {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimBlueprintExtension_LinkedAnimGraph(AnimBlueprintExtension_Link
 @:forward
 @:nativeGen
 @:native("AnimBlueprintExtension_LinkedAnimGraph*")
-abstract AnimBlueprintExtension_LinkedAnimGraphPtr(cpp.Star<AnimBlueprintExtension_LinkedAnimGraph>) from cpp.Star<AnimBlueprintExtension_LinkedAnimGraph> to cpp.Star<AnimBlueprintExtension_LinkedAnimGraph>{
+abstract AnimBlueprintExtension_LinkedAnimGraphPtr(ucpp.Ptr<AnimBlueprintExtension_LinkedAnimGraph>) from ucpp.Ptr<AnimBlueprintExtension_LinkedAnimGraph> to ucpp.Ptr<AnimBlueprintExtension_LinkedAnimGraph>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintExtension_LinkedAnimGraph): AnimBlueprintExtension_LinkedAnimGraphPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEditPivotToolProperties")
 @:include("EditPivotTool.h")
-@:structAccess
+@:valueType
 extern class EditPivotToolProperties extends InteractiveToolPropertySet {
 	public var bEnableSnapDragging: Bool;
 	public var RotationMode: EEditPivotSnapDragRotationMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEditPivotToolProperties(EditPivotToolProperties) from EditPivotToo
 @:forward
 @:nativeGen
 @:native("EditPivotToolProperties*")
-abstract EditPivotToolPropertiesPtr(cpp.Star<EditPivotToolProperties>) from cpp.Star<EditPivotToolProperties> to cpp.Star<EditPivotToolProperties>{
+abstract EditPivotToolPropertiesPtr(ucpp.Ptr<EditPivotToolProperties>) from ucpp.Ptr<EditPivotToolProperties> to ucpp.Ptr<EditPivotToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: EditPivotToolProperties): EditPivotToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

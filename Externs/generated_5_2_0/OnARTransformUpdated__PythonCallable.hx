@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnARTransformUpdated__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnARTransformUpdated__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnARTransformUpdated__PythonCallable(OnARTransformUpdated__PythonC
 @:forward
 @:nativeGen
 @:native("OnARTransformUpdated__PythonCallable*")
-abstract OnARTransformUpdated__PythonCallablePtr(cpp.Star<OnARTransformUpdated__PythonCallable>) from cpp.Star<OnARTransformUpdated__PythonCallable> to cpp.Star<OnARTransformUpdated__PythonCallable>{
+abstract OnARTransformUpdated__PythonCallablePtr(ucpp.Ptr<OnARTransformUpdated__PythonCallable>) from ucpp.Ptr<OnARTransformUpdated__PythonCallable> to ucpp.Ptr<OnARTransformUpdated__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnARTransformUpdated__PythonCallable): OnARTransformUpdated__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

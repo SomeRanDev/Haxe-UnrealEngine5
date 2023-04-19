@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraPosition")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraPosition extends Vector3f {
 	@:native("FNiagaraPosition") public function new();
 }

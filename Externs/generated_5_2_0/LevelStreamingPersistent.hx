@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelStreamingPersistent")
 @:include("Engine/LevelStreamingPersistent.h")
-@:structAccess
+@:valueType
 extern class LevelStreamingPersistent extends LevelStreaming {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelStreamingPersistent(LevelStreamingPersistent) from LevelStrea
 @:forward
 @:nativeGen
 @:native("LevelStreamingPersistent*")
-abstract LevelStreamingPersistentPtr(cpp.Star<LevelStreamingPersistent>) from cpp.Star<LevelStreamingPersistent> to cpp.Star<LevelStreamingPersistent>{
+abstract LevelStreamingPersistentPtr(ucpp.Ptr<LevelStreamingPersistent>) from ucpp.Ptr<LevelStreamingPersistent> to ucpp.Ptr<LevelStreamingPersistent>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreamingPersistent): LevelStreamingPersistentPtr {
 		return untyped __cpp__("&({0})", v);

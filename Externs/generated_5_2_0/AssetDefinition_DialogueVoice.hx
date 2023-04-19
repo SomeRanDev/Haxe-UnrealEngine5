@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_DialogueVoice")
 @:include("AssetTypeActions/AssetDefinition_DialogueVoice.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_DialogueVoice extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_DialogueVoice(AssetDefinition_DialogueVoice) from 
 @:forward
 @:nativeGen
 @:native("AssetDefinition_DialogueVoice*")
-abstract AssetDefinition_DialogueVoicePtr(cpp.Star<AssetDefinition_DialogueVoice>) from cpp.Star<AssetDefinition_DialogueVoice> to cpp.Star<AssetDefinition_DialogueVoice>{
+abstract AssetDefinition_DialogueVoicePtr(ucpp.Ptr<AssetDefinition_DialogueVoice>) from ucpp.Ptr<AssetDefinition_DialogueVoice> to ucpp.Ptr<AssetDefinition_DialogueVoice>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_DialogueVoice): AssetDefinition_DialogueVoicePtr {
 		return untyped __cpp__("&({0})", v);

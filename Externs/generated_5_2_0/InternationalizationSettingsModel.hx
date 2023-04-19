@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInternationalizationSettingsModel")
 @:include("InternationalizationSettingsModel.h")
-@:structAccess
+@:valueType
 extern class InternationalizationSettingsModel extends Object {
 	public var DisplayTimezone: ETimezoneSetting;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInternationalizationSettingsModel(InternationalizationSettingsMode
 @:forward
 @:nativeGen
 @:native("InternationalizationSettingsModel*")
-abstract InternationalizationSettingsModelPtr(cpp.Star<InternationalizationSettingsModel>) from cpp.Star<InternationalizationSettingsModel> to cpp.Star<InternationalizationSettingsModel>{
+abstract InternationalizationSettingsModelPtr(ucpp.Ptr<InternationalizationSettingsModel>) from ucpp.Ptr<InternationalizationSettingsModel> to ucpp.Ptr<InternationalizationSettingsModel>{
 	@:from
 	public static extern inline function fromValue(v: InternationalizationSettingsModel): InternationalizationSettingsModelPtr {
 		return untyped __cpp__("&({0})", v);

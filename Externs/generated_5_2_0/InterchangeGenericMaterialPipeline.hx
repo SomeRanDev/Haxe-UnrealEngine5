@@ -3,16 +3,16 @@ package ue;
 
 @:native("UInterchangeGenericMaterialPipeline")
 @:include("InterchangeGenericMaterialPipeline.h")
-@:structAccess
+@:valueType
 extern class InterchangeGenericMaterialPipeline extends InterchangePipelineBase {
 	public var bImportMaterials: Bool;
 	public var MaterialImport: EInterchangeMaterialImportOption;
 	public var ParentMaterial: SoftObjectPath;
-	public var TexturePipeline: cpp.Star<InterchangeGenericTexturePipeline>;
+	public var TexturePipeline: ucpp.Ptr<InterchangeGenericTexturePipeline>;
 	public var MaterialXSettings: MaterialXPipelineSettings;
-	@:protected public var BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>;
+	@:protected public var BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,8 +24,8 @@ abstract ConstInterchangeGenericMaterialPipeline(InterchangeGenericMaterialPipel
 	public inline extern function get_MaterialImport(): EInterchangeMaterialImportOption return this.MaterialImport;
 	public extern var ParentMaterial(get, never): SoftObjectPath;
 	public inline extern function get_ParentMaterial(): SoftObjectPath return this.ParentMaterial;
-	public extern var TexturePipeline(get, never): cpp.Star<InterchangeGenericTexturePipeline.ConstInterchangeGenericTexturePipeline>;
-	public inline extern function get_TexturePipeline(): cpp.Star<InterchangeGenericTexturePipeline.ConstInterchangeGenericTexturePipeline> return this.TexturePipeline;
+	public extern var TexturePipeline(get, never): ucpp.Ptr<InterchangeGenericTexturePipeline.ConstInterchangeGenericTexturePipeline>;
+	public inline extern function get_TexturePipeline(): ucpp.Ptr<InterchangeGenericTexturePipeline.ConstInterchangeGenericTexturePipeline> return this.TexturePipeline;
 	public extern var MaterialXSettings(get, never): MaterialXPipelineSettings;
 	public inline extern function get_MaterialXSettings(): MaterialXPipelineSettings return this.MaterialXSettings;
 }
@@ -33,7 +33,7 @@ abstract ConstInterchangeGenericMaterialPipeline(InterchangeGenericMaterialPipel
 @:forward
 @:nativeGen
 @:native("InterchangeGenericMaterialPipeline*")
-abstract InterchangeGenericMaterialPipelinePtr(cpp.Star<InterchangeGenericMaterialPipeline>) from cpp.Star<InterchangeGenericMaterialPipeline> to cpp.Star<InterchangeGenericMaterialPipeline>{
+abstract InterchangeGenericMaterialPipelinePtr(ucpp.Ptr<InterchangeGenericMaterialPipeline>) from ucpp.Ptr<InterchangeGenericMaterialPipeline> to ucpp.Ptr<InterchangeGenericMaterialPipeline>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGenericMaterialPipeline): InterchangeGenericMaterialPipelinePtr {
 		return untyped __cpp__("&({0})", v);

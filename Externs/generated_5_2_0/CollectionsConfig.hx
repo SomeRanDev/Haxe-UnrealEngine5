@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCollectionsConfig")
 @:include("Private/ContentBrowserConfig.h")
-@:structAccess
+@:valueType
 extern class CollectionsConfig {
 	public var bExpanded: Bool;
 	public var bSearchExpanded: Bool;

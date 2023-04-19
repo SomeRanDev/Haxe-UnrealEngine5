@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVisualLoggerAutomationTests")
 @:include("VisualLogger/VisualLoggerAutomationTests.h")
-@:structAccess
+@:valueType
 extern class VisualLoggerAutomationTests extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVisualLoggerAutomationTests(VisualLoggerAutomationTests) from Visu
 @:forward
 @:nativeGen
 @:native("VisualLoggerAutomationTests*")
-abstract VisualLoggerAutomationTestsPtr(cpp.Star<VisualLoggerAutomationTests>) from cpp.Star<VisualLoggerAutomationTests> to cpp.Star<VisualLoggerAutomationTests>{
+abstract VisualLoggerAutomationTestsPtr(ucpp.Ptr<VisualLoggerAutomationTests>) from ucpp.Ptr<VisualLoggerAutomationTests> to ucpp.Ptr<VisualLoggerAutomationTests>{
 	@:from
 	public static extern inline function fromValue(v: VisualLoggerAutomationTests): VisualLoggerAutomationTestsPtr {
 		return untyped __cpp__("&({0})", v);

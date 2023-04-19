@@ -3,11 +3,11 @@ package ue;
 
 @:native("FRandomStream")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class RandomStream {
-	public var InitialSeed: cpp.Int32;
-	public var Seed: cpp.Int32;
+	public var InitialSeed: ucpp.num.Int32;
+	public var Seed: ucpp.num.Int32;
 
 	@:native("FRandomStream") public function new();
-	@:native("FRandomStream") public static function make(InitialSeed: cpp.Int32, Seed: cpp.Int32): RandomStream ;
+	@:native("FRandomStream") public static function make(InitialSeed: ucpp.num.Int32, Seed: ucpp.num.Int32): RandomStream ;
 }

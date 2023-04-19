@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCheckBoxStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class CheckBoxStyle extends SlateWidgetStyle {
 	public var CheckBoxType: TEnumAsByte<ESlateCheckBoxType>;
 	public var UncheckedImage: SlateBrush;

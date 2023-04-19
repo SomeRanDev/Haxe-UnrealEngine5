@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMapBuildDataRegistry")
 @:include("Engine/MapBuildDataRegistry.h")
-@:structAccess
+@:valueType
 extern class MapBuildDataRegistry extends Object {
 	public var LevelLightingQuality: TEnumAsByte<ELightingBuildQuality>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMapBuildDataRegistry(MapBuildDataRegistry) from MapBuildDataRegist
 @:forward
 @:nativeGen
 @:native("MapBuildDataRegistry*")
-abstract MapBuildDataRegistryPtr(cpp.Star<MapBuildDataRegistry>) from cpp.Star<MapBuildDataRegistry> to cpp.Star<MapBuildDataRegistry>{
+abstract MapBuildDataRegistryPtr(ucpp.Ptr<MapBuildDataRegistry>) from ucpp.Ptr<MapBuildDataRegistry> to ucpp.Ptr<MapBuildDataRegistry>{
 	@:from
 	public static extern inline function fromValue(v: MapBuildDataRegistry): MapBuildDataRegistryPtr {
 		return untyped __cpp__("&({0})", v);

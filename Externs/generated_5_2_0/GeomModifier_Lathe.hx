@@ -3,23 +3,23 @@ package ue;
 
 @:native("UGeomModifier_Lathe")
 @:include("GeomModifier_Lathe.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Lathe extends GeomModifier_Edit {
-	public var TotalSegments: cpp.Int32;
-	public var Segments: cpp.Int32;
+	public var TotalSegments: ucpp.num.Int32;
+	public var Segments: ucpp.num.Int32;
 	public var AlignToSide: Bool;
 	public var Axis: TEnumAsByte<EAxis>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeomModifier_Lathe(GeomModifier_Lathe) from GeomModifier_Lathe {
-	public extern var TotalSegments(get, never): cpp.Int32;
-	public inline extern function get_TotalSegments(): cpp.Int32 return this.TotalSegments;
-	public extern var Segments(get, never): cpp.Int32;
-	public inline extern function get_Segments(): cpp.Int32 return this.Segments;
+	public extern var TotalSegments(get, never): ucpp.num.Int32;
+	public inline extern function get_TotalSegments(): ucpp.num.Int32 return this.TotalSegments;
+	public extern var Segments(get, never): ucpp.num.Int32;
+	public inline extern function get_Segments(): ucpp.num.Int32 return this.Segments;
 	public extern var AlignToSide(get, never): Bool;
 	public inline extern function get_AlignToSide(): Bool return this.AlignToSide;
 	public extern var Axis(get, never): TEnumAsByte<EAxis>;
@@ -29,7 +29,7 @@ abstract ConstGeomModifier_Lathe(GeomModifier_Lathe) from GeomModifier_Lathe {
 @:forward
 @:nativeGen
 @:native("GeomModifier_Lathe*")
-abstract GeomModifier_LathePtr(cpp.Star<GeomModifier_Lathe>) from cpp.Star<GeomModifier_Lathe> to cpp.Star<GeomModifier_Lathe>{
+abstract GeomModifier_LathePtr(ucpp.Ptr<GeomModifier_Lathe>) from ucpp.Ptr<GeomModifier_Lathe> to ucpp.Ptr<GeomModifier_Lathe>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Lathe): GeomModifier_LathePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPrecachePayloadsCommandlet")
 @:include("PrecachePayloadsCommandlet.h")
-@:structAccess
+@:valueType
 extern class PrecachePayloadsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPrecachePayloadsCommandlet(PrecachePayloadsCommandlet) from Precac
 @:forward
 @:nativeGen
 @:native("PrecachePayloadsCommandlet*")
-abstract PrecachePayloadsCommandletPtr(cpp.Star<PrecachePayloadsCommandlet>) from cpp.Star<PrecachePayloadsCommandlet> to cpp.Star<PrecachePayloadsCommandlet>{
+abstract PrecachePayloadsCommandletPtr(ucpp.Ptr<PrecachePayloadsCommandlet>) from ucpp.Ptr<PrecachePayloadsCommandlet> to ucpp.Ptr<PrecachePayloadsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: PrecachePayloadsCommandlet): PrecachePayloadsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

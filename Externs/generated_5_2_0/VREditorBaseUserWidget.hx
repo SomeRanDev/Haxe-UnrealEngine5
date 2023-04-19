@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVREditorBaseUserWidget")
 @:include("UI/VREditorBaseUserWidget.h")
-@:structAccess
+@:valueType
 extern class VREditorBaseUserWidget extends UserWidget {
 	@:protected public var Owner: TWeakObjectPtr<VREditorFloatingUI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVREditorBaseUserWidget(VREditorBaseUserWidget) from VREditorBaseUs
 @:forward
 @:nativeGen
 @:native("VREditorBaseUserWidget*")
-abstract VREditorBaseUserWidgetPtr(cpp.Star<VREditorBaseUserWidget>) from cpp.Star<VREditorBaseUserWidget> to cpp.Star<VREditorBaseUserWidget>{
+abstract VREditorBaseUserWidgetPtr(ucpp.Ptr<VREditorBaseUserWidget>) from ucpp.Ptr<VREditorBaseUserWidget> to ucpp.Ptr<VREditorBaseUserWidget>{
 	@:from
 	public static extern inline function fromValue(v: VREditorBaseUserWidget): VREditorBaseUserWidgetPtr {
 		return untyped __cpp__("&({0})", v);

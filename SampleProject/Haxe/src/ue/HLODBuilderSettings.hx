@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHLODBuilderSettings")
 @:include("WorldPartition/HLOD/HLODBuilder.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHLODBuilderSettings(HLODBuilderSettings) from HLODBuilderSettings 
 @:forward
 @:nativeGen
 @:native("HLODBuilderSettings*")
-abstract HLODBuilderSettingsPtr(cpp.Star<HLODBuilderSettings>) from cpp.Star<HLODBuilderSettings> to cpp.Star<HLODBuilderSettings>{
+abstract HLODBuilderSettingsPtr(ucpp.Ptr<HLODBuilderSettings>) from ucpp.Ptr<HLODBuilderSettings> to ucpp.Ptr<HLODBuilderSettings>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderSettings): HLODBuilderSettingsPtr {
 		return untyped __cpp__("&({0})", v);

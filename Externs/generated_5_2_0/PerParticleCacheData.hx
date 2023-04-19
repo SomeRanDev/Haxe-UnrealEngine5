@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPerParticleCacheData")
 @:include("Chaos/ChaosCache.h")
-@:structAccess
+@:valueType
 extern class PerParticleCacheData {
 	public var TransformData: ParticleTransformTrack;
 	public var CurveData: TMap<FName, RichCurve>;

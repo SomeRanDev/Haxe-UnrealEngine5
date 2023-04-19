@@ -3,12 +3,12 @@ package ue;
 
 @:native("FCacheEventTrack")
 @:include("Chaos/CacheEvents.h")
-@:structAccess
+@:valueType
 extern class CacheEventTrack {
 	public var Name: FName;
-	public var Struct: cpp.Star<ScriptStruct>;
-	public var TimeStamps: TArray<cpp.Float32>;
+	public var Struct: ucpp.Ptr<ScriptStruct>;
+	public var TimeStamps: TArray<ucpp.num.Float32>;
 
 	@:native("FCacheEventTrack") public function new();
-	@:native("FCacheEventTrack") public static function make(Name: FName, Struct: cpp.Star<ScriptStruct>, TimeStamps: TArray<cpp.Float32>): CacheEventTrack ;
+	@:native("FCacheEventTrack") public static function make(Name: FName, Struct: ucpp.Ptr<ScriptStruct>, TimeStamps: TArray<ucpp.num.Float32>): CacheEventTrack ;
 }

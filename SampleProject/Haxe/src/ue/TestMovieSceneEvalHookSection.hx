@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTestMovieSceneEvalHookSection")
 @:include("Tests/MovieSceneTestObjects.h")
-@:structAccess
+@:valueType
 extern class TestMovieSceneEvalHookSection extends MovieSceneHookSection {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTestMovieSceneEvalHookSection(TestMovieSceneEvalHookSection) from 
 @:forward
 @:nativeGen
 @:native("TestMovieSceneEvalHookSection*")
-abstract TestMovieSceneEvalHookSectionPtr(cpp.Star<TestMovieSceneEvalHookSection>) from cpp.Star<TestMovieSceneEvalHookSection> to cpp.Star<TestMovieSceneEvalHookSection>{
+abstract TestMovieSceneEvalHookSectionPtr(ucpp.Ptr<TestMovieSceneEvalHookSection>) from ucpp.Ptr<TestMovieSceneEvalHookSection> to ucpp.Ptr<TestMovieSceneEvalHookSection>{
 	@:from
 	public static extern inline function fromValue(v: TestMovieSceneEvalHookSection): TestMovieSceneEvalHookSectionPtr {
 		return untyped __cpp__("&({0})", v);

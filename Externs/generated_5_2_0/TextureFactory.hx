@@ -3,7 +3,7 @@ package ue;
 
 @:native("UTextureFactory")
 @:include("Factories/TextureFactory.h")
-@:structAccess
+@:valueType
 extern class TextureFactory extends Factory {
 	public var NoCompression: Bool;
 	public var NoAlpha: Bool;
@@ -32,7 +32,7 @@ extern class TextureFactory extends Factory {
 	public var ColorSpaceMode: ETextureSourceColorSpace;
 	public var HDRImportShouldBeLongLatCubeMap: TEnumAsByte<EAppReturnType>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -95,7 +95,7 @@ abstract ConstTextureFactory(TextureFactory) from TextureFactory {
 @:forward
 @:nativeGen
 @:native("TextureFactory*")
-abstract TextureFactoryPtr(cpp.Star<TextureFactory>) from cpp.Star<TextureFactory> to cpp.Star<TextureFactory>{
+abstract TextureFactoryPtr(ucpp.Ptr<TextureFactory>) from ucpp.Ptr<TextureFactory> to ucpp.Ptr<TextureFactory>{
 	@:from
 	public static extern inline function fromValue(v: TextureFactory): TextureFactoryPtr {
 		return untyped __cpp__("&({0})", v);

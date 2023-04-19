@@ -3,27 +3,27 @@ package ue;
 
 @:native("ANiagaraPerfBaselineActor")
 @:include("NiagaraPerfBaseline.h")
-@:structAccess
+@:valueType
 extern class NiagaraPerfBaselineActor extends Actor {
-	public var Controller: cpp.Star<NiagaraBaselineController>;
-	public var Label: cpp.Star<TextRenderComp>;
+	public var Controller: ucpp.Ptr<NiagaraBaselineController>;
+	public var Label: ucpp.Ptr<TextRenderComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraPerfBaselineActor(NiagaraPerfBaselineActor) from NiagaraPerfBaselineActor {
-	public extern var Controller(get, never): cpp.Star<NiagaraBaselineController.ConstNiagaraBaselineController>;
-	public inline extern function get_Controller(): cpp.Star<NiagaraBaselineController.ConstNiagaraBaselineController> return this.Controller;
-	public extern var Label(get, never): cpp.Star<TextRenderComp.ConstTextRenderComp>;
-	public inline extern function get_Label(): cpp.Star<TextRenderComp.ConstTextRenderComp> return this.Label;
+	public extern var Controller(get, never): ucpp.Ptr<NiagaraBaselineController.ConstNiagaraBaselineController>;
+	public inline extern function get_Controller(): ucpp.Ptr<NiagaraBaselineController.ConstNiagaraBaselineController> return this.Controller;
+	public extern var Label(get, never): ucpp.Ptr<TextRenderComp.ConstTextRenderComp>;
+	public inline extern function get_Label(): ucpp.Ptr<TextRenderComp.ConstTextRenderComp> return this.Label;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraPerfBaselineActor*")
-abstract NiagaraPerfBaselineActorPtr(cpp.Star<NiagaraPerfBaselineActor>) from cpp.Star<NiagaraPerfBaselineActor> to cpp.Star<NiagaraPerfBaselineActor>{
+abstract NiagaraPerfBaselineActorPtr(ucpp.Ptr<NiagaraPerfBaselineActor>) from ucpp.Ptr<NiagaraPerfBaselineActor> to ucpp.Ptr<NiagaraPerfBaselineActor>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraPerfBaselineActor): NiagaraPerfBaselineActorPtr {
 		return untyped __cpp__("&({0})", v);

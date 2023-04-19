@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionSpeedTree")
 @:include("Materials/MaterialExpressionSpeedTree.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSpeedTree extends MaterialExpression {
 	public var GeometryInput: ExpressionInput;
 	public var WindInput: ExpressionInput;
@@ -12,10 +12,10 @@ extern class MaterialExpressionSpeedTree extends MaterialExpression {
 	public var GeometryType: TEnumAsByte<ESpeedTreeGeometryType>;
 	public var WindType: TEnumAsByte<ESpeedTreeWindType>;
 	public var LODType: TEnumAsByte<ESpeedTreeLODType>;
-	public var BillboardThreshold: cpp.Float32;
+	public var BillboardThreshold: ucpp.num.Float32;
 	public var bAccurateWindVelocities: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,8 +35,8 @@ abstract ConstMaterialExpressionSpeedTree(MaterialExpressionSpeedTree) from Mate
 	public inline extern function get_WindType(): TEnumAsByte<ESpeedTreeWindType> return this.WindType;
 	public extern var LODType(get, never): TEnumAsByte<ESpeedTreeLODType>;
 	public inline extern function get_LODType(): TEnumAsByte<ESpeedTreeLODType> return this.LODType;
-	public extern var BillboardThreshold(get, never): cpp.Float32;
-	public inline extern function get_BillboardThreshold(): cpp.Float32 return this.BillboardThreshold;
+	public extern var BillboardThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_BillboardThreshold(): ucpp.num.Float32 return this.BillboardThreshold;
 	public extern var bAccurateWindVelocities(get, never): Bool;
 	public inline extern function get_bAccurateWindVelocities(): Bool return this.bAccurateWindVelocities;
 }
@@ -44,7 +44,7 @@ abstract ConstMaterialExpressionSpeedTree(MaterialExpressionSpeedTree) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSpeedTree*")
-abstract MaterialExpressionSpeedTreePtr(cpp.Star<MaterialExpressionSpeedTree>) from cpp.Star<MaterialExpressionSpeedTree> to cpp.Star<MaterialExpressionSpeedTree>{
+abstract MaterialExpressionSpeedTreePtr(ucpp.Ptr<MaterialExpressionSpeedTree>) from ucpp.Ptr<MaterialExpressionSpeedTree> to ucpp.Ptr<MaterialExpressionSpeedTree>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSpeedTree): MaterialExpressionSpeedTreePtr {
 		return untyped __cpp__("&({0})", v);

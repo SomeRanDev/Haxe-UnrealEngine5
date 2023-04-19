@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLocationBoneSocketInfo")
 @:include("Particles/Location/ParticleModuleLocationBoneSocket.h")
-@:structAccess
+@:valueType
 extern class LocationBoneSocketInfo {
 	public var BoneSocketName: FName;
 	public var Offset: Vector;

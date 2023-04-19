@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintInputDebugKeyDelegateBinding")
 @:include("InputDebugKeyDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class BlueprintInputDebugKeyDelegateBinding {
 	public var InputChord: InputChord;
 	public var InputKeyEvent: TEnumAsByte<EInputEvent>;

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionDepthFade")
 @:include("Materials/MaterialExpressionDepthFade.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDepthFade extends MaterialExpression {
 	public var InOpacity: ExpressionInput;
 	public var FadeDistance: ExpressionInput;
-	public var OpacityDefault: cpp.Float32;
-	public var FadeDistanceDefault: cpp.Float32;
+	public var OpacityDefault: ucpp.num.Float32;
+	public var FadeDistanceDefault: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,16 +20,16 @@ abstract ConstMaterialExpressionDepthFade(MaterialExpressionDepthFade) from Mate
 	public inline extern function get_InOpacity(): ExpressionInput return this.InOpacity;
 	public extern var FadeDistance(get, never): ExpressionInput;
 	public inline extern function get_FadeDistance(): ExpressionInput return this.FadeDistance;
-	public extern var OpacityDefault(get, never): cpp.Float32;
-	public inline extern function get_OpacityDefault(): cpp.Float32 return this.OpacityDefault;
-	public extern var FadeDistanceDefault(get, never): cpp.Float32;
-	public inline extern function get_FadeDistanceDefault(): cpp.Float32 return this.FadeDistanceDefault;
+	public extern var OpacityDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_OpacityDefault(): ucpp.num.Float32 return this.OpacityDefault;
+	public extern var FadeDistanceDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_FadeDistanceDefault(): ucpp.num.Float32 return this.FadeDistanceDefault;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDepthFade*")
-abstract MaterialExpressionDepthFadePtr(cpp.Star<MaterialExpressionDepthFade>) from cpp.Star<MaterialExpressionDepthFade> to cpp.Star<MaterialExpressionDepthFade>{
+abstract MaterialExpressionDepthFadePtr(ucpp.Ptr<MaterialExpressionDepthFade>) from ucpp.Ptr<MaterialExpressionDepthFade> to ucpp.Ptr<MaterialExpressionDepthFade>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDepthFade): MaterialExpressionDepthFadePtr {
 		return untyped __cpp__("&({0})", v);

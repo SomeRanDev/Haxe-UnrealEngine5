@@ -3,24 +3,24 @@ package ue;
 
 @:native("ADataflowActor")
 @:include("Dataflow/DataflowActor.h")
-@:structAccess
+@:valueType
 extern class DataflowActor extends Actor {
-	public var DataflowComponent: cpp.Star<DataflowComp>;
+	public var DataflowComponent: ucpp.Ptr<DataflowComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDataflowActor(DataflowActor) from DataflowActor {
-	public extern var DataflowComponent(get, never): cpp.Star<DataflowComp.ConstDataflowComp>;
-	public inline extern function get_DataflowComponent(): cpp.Star<DataflowComp.ConstDataflowComp> return this.DataflowComponent;
+	public extern var DataflowComponent(get, never): ucpp.Ptr<DataflowComp.ConstDataflowComp>;
+	public inline extern function get_DataflowComponent(): ucpp.Ptr<DataflowComp.ConstDataflowComp> return this.DataflowComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("DataflowActor*")
-abstract DataflowActorPtr(cpp.Star<DataflowActor>) from cpp.Star<DataflowActor> to cpp.Star<DataflowActor>{
+abstract DataflowActorPtr(ucpp.Ptr<DataflowActor>) from ucpp.Ptr<DataflowActor> to ucpp.Ptr<DataflowActor>{
 	@:from
 	public static extern inline function fromValue(v: DataflowActor): DataflowActorPtr {
 		return untyped __cpp__("&({0})", v);

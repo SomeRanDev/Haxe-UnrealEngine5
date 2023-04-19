@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInterchangeGenericCommonMeshesProperties")
 @:include("InterchangeGenericAssetsPipelineSharedSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangeGenericCommonMeshesProperties extends InterchangePipelineBase {
 	public var ForceAllMeshAsType: EInterchangeForceMeshType;
 	public var bImportLods: Bool;
@@ -19,7 +19,7 @@ extern class InterchangeGenericCommonMeshesProperties extends InterchangePipelin
 	public var bUseBackwardsCompatibleF16TruncUVs: Bool;
 	public var bRemoveDegenerates: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -56,7 +56,7 @@ abstract ConstInterchangeGenericCommonMeshesProperties(InterchangeGenericCommonM
 @:forward
 @:nativeGen
 @:native("InterchangeGenericCommonMeshesProperties*")
-abstract InterchangeGenericCommonMeshesPropertiesPtr(cpp.Star<InterchangeGenericCommonMeshesProperties>) from cpp.Star<InterchangeGenericCommonMeshesProperties> to cpp.Star<InterchangeGenericCommonMeshesProperties>{
+abstract InterchangeGenericCommonMeshesPropertiesPtr(ucpp.Ptr<InterchangeGenericCommonMeshesProperties>) from ucpp.Ptr<InterchangeGenericCommonMeshesProperties> to ucpp.Ptr<InterchangeGenericCommonMeshesProperties>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGenericCommonMeshesProperties): InterchangeGenericCommonMeshesPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

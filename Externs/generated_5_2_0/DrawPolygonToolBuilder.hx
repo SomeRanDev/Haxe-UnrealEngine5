@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDrawPolygonToolBuilder")
 @:include("DrawPolygonTool.h")
-@:structAccess
+@:valueType
 extern class DrawPolygonToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDrawPolygonToolBuilder(DrawPolygonToolBuilder) from DrawPolygonToo
 @:forward
 @:nativeGen
 @:native("DrawPolygonToolBuilder*")
-abstract DrawPolygonToolBuilderPtr(cpp.Star<DrawPolygonToolBuilder>) from cpp.Star<DrawPolygonToolBuilder> to cpp.Star<DrawPolygonToolBuilder>{
+abstract DrawPolygonToolBuilderPtr(ucpp.Ptr<DrawPolygonToolBuilder>) from ucpp.Ptr<DrawPolygonToolBuilder> to ucpp.Ptr<DrawPolygonToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: DrawPolygonToolBuilder): DrawPolygonToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

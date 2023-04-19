@@ -3,12 +3,12 @@ package ue;
 
 @:native("UCompositeDataTable")
 @:include("Engine/CompositeDataTable.h")
-@:structAccess
+@:valueType
 extern class CompositeDataTable extends DataTable {
-	@:protected public var ParentTables: TArray<cpp.Star<DataTable>>;
-	@:protected public var OldParentTables: TArray<cpp.Star<DataTable>>;
+	@:protected public var ParentTables: TArray<ucpp.Ptr<DataTable>>;
+	@:protected public var OldParentTables: TArray<ucpp.Ptr<DataTable>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstCompositeDataTable(CompositeDataTable) from CompositeDataTable {
 @:forward
 @:nativeGen
 @:native("CompositeDataTable*")
-abstract CompositeDataTablePtr(cpp.Star<CompositeDataTable>) from cpp.Star<CompositeDataTable> to cpp.Star<CompositeDataTable>{
+abstract CompositeDataTablePtr(ucpp.Ptr<CompositeDataTable>) from ucpp.Ptr<CompositeDataTable> to ucpp.Ptr<CompositeDataTable>{
 	@:from
 	public static extern inline function fromValue(v: CompositeDataTable): CompositeDataTablePtr {
 		return untyped __cpp__("&({0})", v);

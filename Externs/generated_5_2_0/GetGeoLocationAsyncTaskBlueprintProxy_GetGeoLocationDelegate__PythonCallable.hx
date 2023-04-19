@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__Pyth
 @:forward
 @:nativeGen
 @:native("GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable*")
-abstract GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallablePtr(cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable>) from cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable> to cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable>{
+abstract GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallablePtr(ucpp.Ptr<GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable>) from ucpp.Ptr<GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable> to ucpp.Ptr<GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallable): GetGeoLocationAsyncTaskBlueprintProxy_GetGeoLocationDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

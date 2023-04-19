@@ -3,12 +3,12 @@ package ue;
 
 @:native("USeamSculptToolProperties")
 @:include("SeamSculptTool.h")
-@:structAccess
+@:valueType
 extern class SeamSculptToolProperties extends InteractiveToolPropertySet {
 	public var bShowWireframe: Bool;
 	public var bHitBackFaces: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSeamSculptToolProperties(SeamSculptToolProperties) from SeamSculpt
 @:forward
 @:nativeGen
 @:native("SeamSculptToolProperties*")
-abstract SeamSculptToolPropertiesPtr(cpp.Star<SeamSculptToolProperties>) from cpp.Star<SeamSculptToolProperties> to cpp.Star<SeamSculptToolProperties>{
+abstract SeamSculptToolPropertiesPtr(ucpp.Ptr<SeamSculptToolProperties>) from ucpp.Ptr<SeamSculptToolProperties> to ucpp.Ptr<SeamSculptToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: SeamSculptToolProperties): SeamSculptToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

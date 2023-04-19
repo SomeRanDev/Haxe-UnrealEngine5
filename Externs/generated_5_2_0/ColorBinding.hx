@@ -3,12 +3,12 @@ package ue;
 
 @:native("UColorBinding")
 @:include("Binding/ColorBinding.h")
-@:structAccess
+@:valueType
 extern class ColorBinding extends PropertyBinding {
 	public function GetSlateValue(): SlateColor;
 	public function GetLinearValue(): LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSlateValue, GetLinearValue)
@@ -19,7 +19,7 @@ abstract ConstColorBinding(ColorBinding) from ColorBinding {
 @:forward
 @:nativeGen
 @:native("ColorBinding*")
-abstract ColorBindingPtr(cpp.Star<ColorBinding>) from cpp.Star<ColorBinding> to cpp.Star<ColorBinding>{
+abstract ColorBindingPtr(ucpp.Ptr<ColorBinding>) from ucpp.Ptr<ColorBinding> to ucpp.Ptr<ColorBinding>{
 	@:from
 	public static extern inline function fromValue(v: ColorBinding): ColorBindingPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorForWorldTransforms")
 @:include("ActorForWorldTransforms.h")
-@:structAccess
+@:valueType
 extern class ActorForWorldTransforms {
 	public var Actor: TWeakObjectPtr<Actor>;
 	public var Component: TWeakObjectPtr<SceneComp>;

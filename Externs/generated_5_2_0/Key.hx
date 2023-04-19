@@ -3,7 +3,7 @@ package ue;
 
 @:native("FKey")
 @:include("InputCoreTypes.h")
-@:structAccess
+@:valueType
 extern class Key {
 	private var KeyName: FName;
 

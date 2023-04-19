@@ -3,13 +3,11 @@ package ue;
 
 @:native("FVirtualTextureBuildSettings")
 @:include("VT/VirtualTextureBuildSettings.h")
-@:structAccess
+@:valueType
 extern class VirtualTextureBuildSettings {
-	public var TileSize: cpp.Int32;
-	public var TileBorderSize: cpp.Int32;
-	public var bEnableCompressCrunch: Bool;
-	public var bEnableCompressZlib: Bool;
+	public var TileSize: ucpp.num.Int32;
+	public var TileBorderSize: ucpp.num.Int32;
 
 	@:native("FVirtualTextureBuildSettings") public function new();
-	@:native("FVirtualTextureBuildSettings") public static function make(TileSize: cpp.Int32, TileBorderSize: cpp.Int32, bEnableCompressCrunch: Bool, bEnableCompressZlib: Bool): VirtualTextureBuildSettings ;
+	@:native("FVirtualTextureBuildSettings") public static function make(TileSize: ucpp.num.Int32, TileBorderSize: ucpp.num.Int32): VirtualTextureBuildSettings ;
 }

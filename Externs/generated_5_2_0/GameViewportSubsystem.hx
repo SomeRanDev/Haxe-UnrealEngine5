@@ -3,18 +3,18 @@ package ue;
 
 @:native("UGameViewportSubsystem")
 @:include("Blueprint/GameViewportSubsystem.h")
-@:structAccess
+@:valueType
 extern class GameViewportSubsystem extends EngineSubsystem {
-	public function SetWidgetSlotPosition(Slot: GameViewportWidgetSlot, Widget: cpp.Star<Widget.ConstWidget>, Position: Vector2D, bRemoveDPIScale: Bool): GameViewportWidgetSlot;
+	public function SetWidgetSlotPosition(Slot: GameViewportWidgetSlot, Widget: ucpp.Ptr<Widget.ConstWidget>, Position: Vector2D, bRemoveDPIScale: Bool): GameViewportWidgetSlot;
 	public function SetWidgetSlotDesiredSize(Slot: GameViewportWidgetSlot, Size: Vector2D): GameViewportWidgetSlot;
-	public function SetWidgetSlot(Widget: cpp.Star<Widget>, Slot: GameViewportWidgetSlot): Void;
-	public function RemoveWidget(Widget: cpp.Star<Widget>): Void;
-	public function IsWidgetAdded(Widget: cpp.Star<Widget.ConstWidget>): Bool;
-	public function GetWidgetSlot(Widget: cpp.Star<Widget.ConstWidget>): GameViewportWidgetSlot;
-	public function AddWidgetForPlayer(Widget: cpp.Star<Widget>, Player: cpp.Star<LocalPlayer>, Slot: GameViewportWidgetSlot): Void;
-	public function AddWidget(Widget: cpp.Star<Widget>, Slot: GameViewportWidgetSlot): Void;
+	public function SetWidgetSlot(Widget: ucpp.Ptr<Widget>, Slot: GameViewportWidgetSlot): Void;
+	public function RemoveWidget(Widget: ucpp.Ptr<Widget>): Void;
+	public function IsWidgetAdded(Widget: ucpp.Ptr<Widget.ConstWidget>): Bool;
+	public function GetWidgetSlot(Widget: ucpp.Ptr<Widget.ConstWidget>): GameViewportWidgetSlot;
+	public function AddWidgetForPlayer(Widget: ucpp.Ptr<Widget>, Player: ucpp.Ptr<LocalPlayer>, Slot: GameViewportWidgetSlot): Void;
+	public function AddWidget(Widget: ucpp.Ptr<Widget>, Slot: GameViewportWidgetSlot): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsWidgetAdded, GetWidgetSlot)
@@ -25,7 +25,7 @@ abstract ConstGameViewportSubsystem(GameViewportSubsystem) from GameViewportSubs
 @:forward
 @:nativeGen
 @:native("GameViewportSubsystem*")
-abstract GameViewportSubsystemPtr(cpp.Star<GameViewportSubsystem>) from cpp.Star<GameViewportSubsystem> to cpp.Star<GameViewportSubsystem>{
+abstract GameViewportSubsystemPtr(ucpp.Ptr<GameViewportSubsystem>) from ucpp.Ptr<GameViewportSubsystem> to ucpp.Ptr<GameViewportSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: GameViewportSubsystem): GameViewportSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

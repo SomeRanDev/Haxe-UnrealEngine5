@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAddBoxPrimitiveTool")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class AddBoxPrimitiveTool extends AddPrimitiveTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAddBoxPrimitiveTool(AddBoxPrimitiveTool) from AddBoxPrimitiveTool 
 @:forward
 @:nativeGen
 @:native("AddBoxPrimitiveTool*")
-abstract AddBoxPrimitiveToolPtr(cpp.Star<AddBoxPrimitiveTool>) from cpp.Star<AddBoxPrimitiveTool> to cpp.Star<AddBoxPrimitiveTool>{
+abstract AddBoxPrimitiveToolPtr(ucpp.Ptr<AddBoxPrimitiveTool>) from ucpp.Ptr<AddBoxPrimitiveTool> to ucpp.Ptr<AddBoxPrimitiveTool>{
 	@:from
 	public static extern inline function fromValue(v: AddBoxPrimitiveTool): AddBoxPrimitiveToolPtr {
 		return untyped __cpp__("&({0})", v);

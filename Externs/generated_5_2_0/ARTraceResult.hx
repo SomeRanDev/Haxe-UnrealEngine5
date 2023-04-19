@@ -3,13 +3,13 @@ package ue;
 
 @:native("FARTraceResult")
 @:include("ARTraceResult.h")
-@:structAccess
+@:valueType
 extern class ARTraceResult {
-	private var DistanceFromCamera: cpp.Float32;
+	private var DistanceFromCamera: ucpp.num.Float32;
 	private var TraceChannel: EARLineTraceChannels;
 	private var LocalTransform: Transform;
-	private var TrackedGeometry: cpp.Star<ARTrackedGeometry>;
+	private var TrackedGeometry: ucpp.Ptr<ARTrackedGeometry>;
 
 	@:native("FARTraceResult") public function new();
-	@:native("FARTraceResult") public static function make(DistanceFromCamera: cpp.Float32, TraceChannel: EARLineTraceChannels, LocalTransform: Transform, TrackedGeometry: cpp.Star<ARTrackedGeometry>): ARTraceResult ;
+	@:native("FARTraceResult") public static function make(DistanceFromCamera: ucpp.num.Float32, TraceChannel: EARLineTraceChannels, LocalTransform: Transform, TrackedGeometry: ucpp.Ptr<ARTrackedGeometry>): ARTraceResult ;
 }

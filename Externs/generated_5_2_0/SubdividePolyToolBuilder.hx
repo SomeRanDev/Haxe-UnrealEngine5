@@ -3,10 +3,10 @@ package ue;
 
 @:native("USubdividePolyToolBuilder")
 @:include("SubdividePolyTool.h")
-@:structAccess
+@:valueType
 extern class SubdividePolyToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSubdividePolyToolBuilder(SubdividePolyToolBuilder) from SubdivideP
 @:forward
 @:nativeGen
 @:native("SubdividePolyToolBuilder*")
-abstract SubdividePolyToolBuilderPtr(cpp.Star<SubdividePolyToolBuilder>) from cpp.Star<SubdividePolyToolBuilder> to cpp.Star<SubdividePolyToolBuilder>{
+abstract SubdividePolyToolBuilderPtr(ucpp.Ptr<SubdividePolyToolBuilder>) from ucpp.Ptr<SubdividePolyToolBuilder> to ucpp.Ptr<SubdividePolyToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SubdividePolyToolBuilder): SubdividePolyToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

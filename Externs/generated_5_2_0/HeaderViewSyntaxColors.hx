@@ -3,7 +3,7 @@ package ue;
 
 @:native("FHeaderViewSyntaxColors")
 @:include("BlueprintHeaderViewSettings.h")
-@:structAccess
+@:valueType
 extern class HeaderViewSyntaxColors {
 	public var Comment: LinearColor;
 	public var Error: LinearColor;

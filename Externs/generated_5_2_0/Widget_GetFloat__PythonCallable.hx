@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GetFloat__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GetFloat__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GetFloat__PythonCallable(Widget_GetFloat__PythonCallable) f
 @:forward
 @:nativeGen
 @:native("Widget_GetFloat__PythonCallable*")
-abstract Widget_GetFloat__PythonCallablePtr(cpp.Star<Widget_GetFloat__PythonCallable>) from cpp.Star<Widget_GetFloat__PythonCallable> to cpp.Star<Widget_GetFloat__PythonCallable>{
+abstract Widget_GetFloat__PythonCallablePtr(ucpp.Ptr<Widget_GetFloat__PythonCallable>) from ucpp.Ptr<Widget_GetFloat__PythonCallable> to ucpp.Ptr<Widget_GetFloat__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GetFloat__PythonCallable): Widget_GetFloat__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

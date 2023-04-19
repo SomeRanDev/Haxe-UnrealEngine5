@@ -3,12 +3,12 @@ package ue;
 
 @:native("UDEPRECATED_PersistentMeshSelectionManager")
 @:include("Selection/PersistentMeshSelectionManager.h")
-@:structAccess
+@:valueType
 extern class PersistentMeshSelectionManager extends Object {
-	@:protected public var ParentContext: cpp.Star<InteractiveToolsContext>;
-	@:protected public var SelectionDisplay: cpp.Star<PreviewGeometry>;
+	@:protected public var ParentContext: ucpp.Ptr<InteractiveToolsContext>;
+	@:protected public var SelectionDisplay: ucpp.Ptr<PreviewGeometry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstPersistentMeshSelectionManager(PersistentMeshSelectionManager) fro
 @:forward
 @:nativeGen
 @:native("PersistentMeshSelectionManager*")
-abstract PersistentMeshSelectionManagerPtr(cpp.Star<PersistentMeshSelectionManager>) from cpp.Star<PersistentMeshSelectionManager> to cpp.Star<PersistentMeshSelectionManager>{
+abstract PersistentMeshSelectionManagerPtr(ucpp.Ptr<PersistentMeshSelectionManager>) from ucpp.Ptr<PersistentMeshSelectionManager> to ucpp.Ptr<PersistentMeshSelectionManager>{
 	@:from
 	public static extern inline function fromValue(v: PersistentMeshSelectionManager): PersistentMeshSelectionManagerPtr {
 		return untyped __cpp__("&({0})", v);

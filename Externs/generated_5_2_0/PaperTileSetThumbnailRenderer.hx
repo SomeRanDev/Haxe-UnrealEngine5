@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPaperTileSetThumbnailRenderer")
 @:include("PaperTileSetThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class PaperTileSetThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPaperTileSetThumbnailRenderer(PaperTileSetThumbnailRenderer) from 
 @:forward
 @:nativeGen
 @:native("PaperTileSetThumbnailRenderer*")
-abstract PaperTileSetThumbnailRendererPtr(cpp.Star<PaperTileSetThumbnailRenderer>) from cpp.Star<PaperTileSetThumbnailRenderer> to cpp.Star<PaperTileSetThumbnailRenderer>{
+abstract PaperTileSetThumbnailRendererPtr(ucpp.Ptr<PaperTileSetThumbnailRenderer>) from ucpp.Ptr<PaperTileSetThumbnailRenderer> to ucpp.Ptr<PaperTileSetThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: PaperTileSetThumbnailRenderer): PaperTileSetThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

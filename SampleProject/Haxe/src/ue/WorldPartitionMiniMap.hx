@@ -3,15 +3,18 @@ package ue;
 
 @:native("AWorldPartitionMiniMap")
 @:include("WorldPartition/WorldPartitionMiniMap.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionMiniMap extends Info {
 	public var MiniMapWorldBounds: Box;
 	public var UVOffset: Box2D;
-	public var MiniMapTexture: cpp.Star<Texture2D>;
+	public var MiniMapTexture: ucpp.Ptr<Texture2D>;
 	public var ExcludedDataLayers: TSet<ActorDataLayer>;
-	public var MiniMapTileSize: cpp.Int32;
+	public var WorldUnitsPerPixel: ucpp.num.Int32;
+	public var BuilderCellSize: ucpp.num.Int32;
+	public var CaptureSource: TEnumAsByte<ESceneCaptureSource>;
+	public var CaptureWarmupFrames: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,18 +24,24 @@ abstract ConstWorldPartitionMiniMap(WorldPartitionMiniMap) from WorldPartitionMi
 	public inline extern function get_MiniMapWorldBounds(): Box return this.MiniMapWorldBounds;
 	public extern var UVOffset(get, never): Box2D;
 	public inline extern function get_UVOffset(): Box2D return this.UVOffset;
-	public extern var MiniMapTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_MiniMapTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.MiniMapTexture;
+	public extern var MiniMapTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_MiniMapTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.MiniMapTexture;
 	public extern var ExcludedDataLayers(get, never): TSet<ActorDataLayer>;
 	public inline extern function get_ExcludedDataLayers(): TSet<ActorDataLayer> return this.ExcludedDataLayers;
-	public extern var MiniMapTileSize(get, never): cpp.Int32;
-	public inline extern function get_MiniMapTileSize(): cpp.Int32 return this.MiniMapTileSize;
+	public extern var WorldUnitsPerPixel(get, never): ucpp.num.Int32;
+	public inline extern function get_WorldUnitsPerPixel(): ucpp.num.Int32 return this.WorldUnitsPerPixel;
+	public extern var BuilderCellSize(get, never): ucpp.num.Int32;
+	public inline extern function get_BuilderCellSize(): ucpp.num.Int32 return this.BuilderCellSize;
+	public extern var CaptureSource(get, never): TEnumAsByte<ESceneCaptureSource>;
+	public inline extern function get_CaptureSource(): TEnumAsByte<ESceneCaptureSource> return this.CaptureSource;
+	public extern var CaptureWarmupFrames(get, never): ucpp.num.UInt32;
+	public inline extern function get_CaptureWarmupFrames(): ucpp.num.UInt32 return this.CaptureWarmupFrames;
 }
 
 @:forward
 @:nativeGen
 @:native("WorldPartitionMiniMap*")
-abstract WorldPartitionMiniMapPtr(cpp.Star<WorldPartitionMiniMap>) from cpp.Star<WorldPartitionMiniMap> to cpp.Star<WorldPartitionMiniMap>{
+abstract WorldPartitionMiniMapPtr(ucpp.Ptr<WorldPartitionMiniMap>) from ucpp.Ptr<WorldPartitionMiniMap> to ucpp.Ptr<WorldPartitionMiniMap>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionMiniMap): WorldPartitionMiniMapPtr {
 		return untyped __cpp__("&({0})", v);

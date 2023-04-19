@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAudioCodecEncoderSettings")
 @:include("IAudioCodec.h")
-@:structAccess
+@:valueType
 extern class AudioCodecEncoderSettings extends Object {
-	public var Version: cpp.Int32;
+	public var Version: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAudioCodecEncoderSettings(AudioCodecEncoderSettings) from AudioCodecEncoderSettings {
-	public extern var Version(get, never): cpp.Int32;
-	public inline extern function get_Version(): cpp.Int32 return this.Version;
+	public extern var Version(get, never): ucpp.num.Int32;
+	public inline extern function get_Version(): ucpp.num.Int32 return this.Version;
 }
 
 @:forward
 @:nativeGen
 @:native("AudioCodecEncoderSettings*")
-abstract AudioCodecEncoderSettingsPtr(cpp.Star<AudioCodecEncoderSettings>) from cpp.Star<AudioCodecEncoderSettings> to cpp.Star<AudioCodecEncoderSettings>{
+abstract AudioCodecEncoderSettingsPtr(ucpp.Ptr<AudioCodecEncoderSettings>) from ucpp.Ptr<AudioCodecEncoderSettings> to ucpp.Ptr<AudioCodecEncoderSettings>{
 	@:from
 	public static extern inline function fromValue(v: AudioCodecEncoderSettings): AudioCodecEncoderSettingsPtr {
 		return untyped __cpp__("&({0})", v);

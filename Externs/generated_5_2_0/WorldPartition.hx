@@ -3,26 +3,26 @@ package ue;
 
 @:native("UWorldPartition")
 @:include("WorldPartition/WorldPartition.h")
-@:structAccess
+@:valueType
 extern class WorldPartition extends Object {
-	public var ActorDescContainer: cpp.Star<ActorDescContainer>;
-	public var RuntimeHash: cpp.Star<WorldPartitionRuntimeHash>;
-	public var World: cpp.Star<World>;
+	public var ActorDescContainer: ucpp.Ptr<ActorDescContainer>;
+	public var RuntimeHash: ucpp.Ptr<WorldPartitionRuntimeHash>;
+	public var World: ucpp.Ptr<World>;
 	public var bEnableStreaming: Bool;
-	private var StreamingPolicy: cpp.Star<WorldPartitionStreamingPolicy>;
+	private var StreamingPolicy: ucpp.Ptr<WorldPartitionStreamingPolicy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWorldPartition(WorldPartition) from WorldPartition {
-	public extern var ActorDescContainer(get, never): cpp.Star<ActorDescContainer.ConstActorDescContainer>;
-	public inline extern function get_ActorDescContainer(): cpp.Star<ActorDescContainer.ConstActorDescContainer> return this.ActorDescContainer;
-	public extern var RuntimeHash(get, never): cpp.Star<WorldPartitionRuntimeHash.ConstWorldPartitionRuntimeHash>;
-	public inline extern function get_RuntimeHash(): cpp.Star<WorldPartitionRuntimeHash.ConstWorldPartitionRuntimeHash> return this.RuntimeHash;
-	public extern var World(get, never): cpp.Star<World.ConstWorld>;
-	public inline extern function get_World(): cpp.Star<World.ConstWorld> return this.World;
+	public extern var ActorDescContainer(get, never): ucpp.Ptr<ActorDescContainer.ConstActorDescContainer>;
+	public inline extern function get_ActorDescContainer(): ucpp.Ptr<ActorDescContainer.ConstActorDescContainer> return this.ActorDescContainer;
+	public extern var RuntimeHash(get, never): ucpp.Ptr<WorldPartitionRuntimeHash.ConstWorldPartitionRuntimeHash>;
+	public inline extern function get_RuntimeHash(): ucpp.Ptr<WorldPartitionRuntimeHash.ConstWorldPartitionRuntimeHash> return this.RuntimeHash;
+	public extern var World(get, never): ucpp.Ptr<World.ConstWorld>;
+	public inline extern function get_World(): ucpp.Ptr<World.ConstWorld> return this.World;
 	public extern var bEnableStreaming(get, never): Bool;
 	public inline extern function get_bEnableStreaming(): Bool return this.bEnableStreaming;
 }
@@ -30,7 +30,7 @@ abstract ConstWorldPartition(WorldPartition) from WorldPartition {
 @:forward
 @:nativeGen
 @:native("WorldPartition*")
-abstract WorldPartitionPtr(cpp.Star<WorldPartition>) from cpp.Star<WorldPartition> to cpp.Star<WorldPartition>{
+abstract WorldPartitionPtr(ucpp.Ptr<WorldPartition>) from ucpp.Ptr<WorldPartition> to ucpp.Ptr<WorldPartition>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartition): WorldPartitionPtr {
 		return untyped __cpp__("&({0})", v);

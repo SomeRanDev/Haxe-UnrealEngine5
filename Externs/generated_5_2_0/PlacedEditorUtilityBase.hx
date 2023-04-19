@@ -3,19 +3,19 @@ package ue;
 
 @:native("ADEPRECATED_PlacedEditorUtilityBase")
 @:include("PlacedEditorUtilityBase.h")
-@:structAccess
+@:valueType
 extern class PlacedEditorUtilityBase extends Actor {
 	public var HelpText: FString;
 
 	public function SetLevelViewportCameraInfo(CameraLocation: Vector, CameraRotation: Rotator): Void;
-	public function SetActorSelectionState(Actor: cpp.Star<Actor>, bShouldBeSelected: Bool): Void;
+	public function SetActorSelectionState(Actor: ucpp.Ptr<Actor>, bShouldBeSelected: Bool): Void;
 	public function SelectNothing(): Void;
-	public function GetSelectionSet(): TArray<cpp.Star<Actor>>;
-	public function GetLevelViewportCameraInfo(CameraLocation: cpp.Reference<Vector>, CameraRotation: cpp.Reference<Rotator>): Bool;
-	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
+	public function GetSelectionSet(): TArray<ucpp.Ptr<Actor>>;
+	public function GetLevelViewportCameraInfo(CameraLocation: ucpp.Ref<Vector>, CameraRotation: ucpp.Ref<Rotator>): Bool;
+	public function GetActorReference(PathToActor: FString): ucpp.Ptr<Actor>;
 	public function ClearActorSelectionSet(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,7 +28,7 @@ abstract ConstPlacedEditorUtilityBase(PlacedEditorUtilityBase) from PlacedEditor
 @:forward
 @:nativeGen
 @:native("PlacedEditorUtilityBase*")
-abstract PlacedEditorUtilityBasePtr(cpp.Star<PlacedEditorUtilityBase>) from cpp.Star<PlacedEditorUtilityBase> to cpp.Star<PlacedEditorUtilityBase>{
+abstract PlacedEditorUtilityBasePtr(ucpp.Ptr<PlacedEditorUtilityBase>) from ucpp.Ptr<PlacedEditorUtilityBase> to ucpp.Ptr<PlacedEditorUtilityBase>{
 	@:from
 	public static extern inline function fromValue(v: PlacedEditorUtilityBase): PlacedEditorUtilityBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnPlayerStatePawnSet__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnPlayerStatePawnSet__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnPlayerStatePawnSet__PythonCallable(OnPlayerStatePawnSet__PythonC
 @:forward
 @:nativeGen
 @:native("OnPlayerStatePawnSet__PythonCallable*")
-abstract OnPlayerStatePawnSet__PythonCallablePtr(cpp.Star<OnPlayerStatePawnSet__PythonCallable>) from cpp.Star<OnPlayerStatePawnSet__PythonCallable> to cpp.Star<OnPlayerStatePawnSet__PythonCallable>{
+abstract OnPlayerStatePawnSet__PythonCallablePtr(ucpp.Ptr<OnPlayerStatePawnSet__PythonCallable>) from ucpp.Ptr<OnPlayerStatePawnSet__PythonCallable> to ucpp.Ptr<OnPlayerStatePawnSet__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnPlayerStatePawnSet__PythonCallable): OnPlayerStatePawnSet__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

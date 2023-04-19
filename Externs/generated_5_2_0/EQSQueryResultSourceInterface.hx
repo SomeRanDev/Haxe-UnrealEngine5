@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEQSQueryResultSourceInterface")
-@:structAccess
+@:valueType
 extern class EQSQueryResultSourceInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEQSQueryResultSourceInterface(EQSQueryResultSourceInterface) from 
 @:forward
 @:nativeGen
 @:native("EQSQueryResultSourceInterface*")
-abstract EQSQueryResultSourceInterfacePtr(cpp.Star<EQSQueryResultSourceInterface>) from cpp.Star<EQSQueryResultSourceInterface> to cpp.Star<EQSQueryResultSourceInterface>{
+abstract EQSQueryResultSourceInterfacePtr(ucpp.Ptr<EQSQueryResultSourceInterface>) from ucpp.Ptr<EQSQueryResultSourceInterface> to ucpp.Ptr<EQSQueryResultSourceInterface>{
 	@:from
 	public static extern inline function fromValue(v: EQSQueryResultSourceInterface): EQSQueryResultSourceInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInstanceRadialDamageSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class InstanceRadialDamageSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInstanceRadialDamageSignature__PythonCallable(InstanceRadialDamage
 @:forward
 @:nativeGen
 @:native("InstanceRadialDamageSignature__PythonCallable*")
-abstract InstanceRadialDamageSignature__PythonCallablePtr(cpp.Star<InstanceRadialDamageSignature__PythonCallable>) from cpp.Star<InstanceRadialDamageSignature__PythonCallable> to cpp.Star<InstanceRadialDamageSignature__PythonCallable>{
+abstract InstanceRadialDamageSignature__PythonCallablePtr(ucpp.Ptr<InstanceRadialDamageSignature__PythonCallable>) from ucpp.Ptr<InstanceRadialDamageSignature__PythonCallable> to ucpp.Ptr<InstanceRadialDamageSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InstanceRadialDamageSignature__PythonCallable): InstanceRadialDamageSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,14 +2,14 @@
 package ue;
 
 @:native("UMovieSceneCustomClockSource")
-@:structAccess
+@:valueType
 extern class MovieSceneCustomClockSource extends Interface {
-	public function OnTick(DeltaSeconds: cpp.Float32, InPlayRate: cpp.Float32): Void;
-	public function OnStopPlaying(InStopTime: cpp.Reference<QualifiedFrameTime>): Void;
-	public function OnStartPlaying(InStartTime: cpp.Reference<QualifiedFrameTime>): Void;
-	public function OnRequestCurrentTime(InCurrentTime: cpp.Reference<QualifiedFrameTime>, InPlayRate: cpp.Float32): FrameTime;
+	public function OnTick(DeltaSeconds: ucpp.num.Float32, InPlayRate: ucpp.num.Float32): Void;
+	public function OnStopPlaying(InStopTime: ucpp.Ref<QualifiedFrameTime>): Void;
+	public function OnStartPlaying(InStartTime: ucpp.Ref<QualifiedFrameTime>): Void;
+	public function OnRequestCurrentTime(InCurrentTime: ucpp.Ref<QualifiedFrameTime>, InPlayRate: ucpp.num.Float32): FrameTime;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieSceneCustomClockSource(MovieSceneCustomClockSource) from Movi
 @:forward
 @:nativeGen
 @:native("MovieSceneCustomClockSource*")
-abstract MovieSceneCustomClockSourcePtr(cpp.Star<MovieSceneCustomClockSource>) from cpp.Star<MovieSceneCustomClockSource> to cpp.Star<MovieSceneCustomClockSource>{
+abstract MovieSceneCustomClockSourcePtr(ucpp.Ptr<MovieSceneCustomClockSource>) from ucpp.Ptr<MovieSceneCustomClockSource> to ucpp.Ptr<MovieSceneCustomClockSource>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCustomClockSource): MovieSceneCustomClockSourcePtr {
 		return untyped __cpp__("&({0})", v);

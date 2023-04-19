@@ -3,12 +3,12 @@ package ue;
 
 @:native("UControlRigDetailPanelControlProxies")
 @:include("EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlRigDetailPanelControlProxies extends Object {
-	@:protected public var AllProxies: TMap<cpp.Star<ControlRig>, ControlToProxyMap>;
-	@:protected public var SelectedProxies: TArray<cpp.Star<ControlRigControlsProxy>>;
+	@:protected public var AllProxies: TMap<ucpp.Ptr<ControlRig>, ControlToProxyMap>;
+	@:protected public var SelectedProxies: TArray<ucpp.Ptr<ControlRigControlsProxy>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstControlRigDetailPanelControlProxies(ControlRigDetailPanelControlPr
 @:forward
 @:nativeGen
 @:native("ControlRigDetailPanelControlProxies*")
-abstract ControlRigDetailPanelControlProxiesPtr(cpp.Star<ControlRigDetailPanelControlProxies>) from cpp.Star<ControlRigDetailPanelControlProxies> to cpp.Star<ControlRigDetailPanelControlProxies>{
+abstract ControlRigDetailPanelControlProxiesPtr(ucpp.Ptr<ControlRigDetailPanelControlProxies>) from ucpp.Ptr<ControlRigDetailPanelControlProxies> to ucpp.Ptr<ControlRigDetailPanelControlProxies>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigDetailPanelControlProxies): ControlRigDetailPanelControlProxiesPtr {
 		return untyped __cpp__("&({0})", v);

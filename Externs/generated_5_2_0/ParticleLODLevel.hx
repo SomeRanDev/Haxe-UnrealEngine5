@@ -3,63 +3,63 @@ package ue;
 
 @:native("UParticleLODLevel")
 @:include("Particles/ParticleLODLevel.h")
-@:structAccess
+@:valueType
 extern class ParticleLODLevel extends Object {
-	public var Level: cpp.Int32;
+	public var Level: ucpp.num.Int32;
 	public var bEnabled: Bool;
-	public var RequiredModule: cpp.Star<ParticleModuleRequired>;
-	public var Modules: TArray<cpp.Star<ParticleModule>>;
-	public var TypeDataModule: cpp.Star<ParticleModuleTypeDataBase>;
-	public var SpawnModule: cpp.Star<ParticleModuleSpawn>;
-	public var EventGenerator: cpp.Star<ParticleModuleEventGenerator>;
-	public var SpawningModules: TArray<cpp.Star<ParticleModuleSpawnBase>>;
-	public var SpawnModules: TArray<cpp.Star<ParticleModule>>;
-	public var UpdateModules: TArray<cpp.Star<ParticleModule>>;
-	public var OrbitModules: TArray<cpp.Star<ParticleModuleOrbit>>;
-	public var EventReceiverModules: TArray<cpp.Star<ParticleModuleEventReceiverBase>>;
+	public var RequiredModule: ucpp.Ptr<ParticleModuleRequired>;
+	public var Modules: TArray<ucpp.Ptr<ParticleModule>>;
+	public var TypeDataModule: ucpp.Ptr<ParticleModuleTypeDataBase>;
+	public var SpawnModule: ucpp.Ptr<ParticleModuleSpawn>;
+	public var EventGenerator: ucpp.Ptr<ParticleModuleEventGenerator>;
+	public var SpawningModules: TArray<ucpp.Ptr<ParticleModuleSpawnBase>>;
+	public var SpawnModules: TArray<ucpp.Ptr<ParticleModule>>;
+	public var UpdateModules: TArray<ucpp.Ptr<ParticleModule>>;
+	public var OrbitModules: TArray<ucpp.Ptr<ParticleModuleOrbit>>;
+	public var EventReceiverModules: TArray<ucpp.Ptr<ParticleModuleEventReceiverBase>>;
 	public var ConvertedModules: Bool;
-	public var PeakActiveParticles: cpp.Int32;
+	public var PeakActiveParticles: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParticleLODLevel(ParticleLODLevel) from ParticleLODLevel {
-	public extern var Level(get, never): cpp.Int32;
-	public inline extern function get_Level(): cpp.Int32 return this.Level;
+	public extern var Level(get, never): ucpp.num.Int32;
+	public inline extern function get_Level(): ucpp.num.Int32 return this.Level;
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
-	public extern var RequiredModule(get, never): cpp.Star<ParticleModuleRequired.ConstParticleModuleRequired>;
-	public inline extern function get_RequiredModule(): cpp.Star<ParticleModuleRequired.ConstParticleModuleRequired> return this.RequiredModule;
-	public extern var Modules(get, never): TArray<cpp.Star<ParticleModule.ConstParticleModule>>;
-	public inline extern function get_Modules(): TArray<cpp.Star<ParticleModule.ConstParticleModule>> return this.Modules;
-	public extern var TypeDataModule(get, never): cpp.Star<ParticleModuleTypeDataBase.ConstParticleModuleTypeDataBase>;
-	public inline extern function get_TypeDataModule(): cpp.Star<ParticleModuleTypeDataBase.ConstParticleModuleTypeDataBase> return this.TypeDataModule;
-	public extern var SpawnModule(get, never): cpp.Star<ParticleModuleSpawn.ConstParticleModuleSpawn>;
-	public inline extern function get_SpawnModule(): cpp.Star<ParticleModuleSpawn.ConstParticleModuleSpawn> return this.SpawnModule;
-	public extern var EventGenerator(get, never): cpp.Star<ParticleModuleEventGenerator.ConstParticleModuleEventGenerator>;
-	public inline extern function get_EventGenerator(): cpp.Star<ParticleModuleEventGenerator.ConstParticleModuleEventGenerator> return this.EventGenerator;
-	public extern var SpawningModules(get, never): TArray<cpp.Star<ParticleModuleSpawnBase.ConstParticleModuleSpawnBase>>;
-	public inline extern function get_SpawningModules(): TArray<cpp.Star<ParticleModuleSpawnBase.ConstParticleModuleSpawnBase>> return this.SpawningModules;
-	public extern var SpawnModules(get, never): TArray<cpp.Star<ParticleModule.ConstParticleModule>>;
-	public inline extern function get_SpawnModules(): TArray<cpp.Star<ParticleModule.ConstParticleModule>> return this.SpawnModules;
-	public extern var UpdateModules(get, never): TArray<cpp.Star<ParticleModule.ConstParticleModule>>;
-	public inline extern function get_UpdateModules(): TArray<cpp.Star<ParticleModule.ConstParticleModule>> return this.UpdateModules;
-	public extern var OrbitModules(get, never): TArray<cpp.Star<ParticleModuleOrbit.ConstParticleModuleOrbit>>;
-	public inline extern function get_OrbitModules(): TArray<cpp.Star<ParticleModuleOrbit.ConstParticleModuleOrbit>> return this.OrbitModules;
-	public extern var EventReceiverModules(get, never): TArray<cpp.Star<ParticleModuleEventReceiverBase.ConstParticleModuleEventReceiverBase>>;
-	public inline extern function get_EventReceiverModules(): TArray<cpp.Star<ParticleModuleEventReceiverBase.ConstParticleModuleEventReceiverBase>> return this.EventReceiverModules;
+	public extern var RequiredModule(get, never): ucpp.Ptr<ParticleModuleRequired.ConstParticleModuleRequired>;
+	public inline extern function get_RequiredModule(): ucpp.Ptr<ParticleModuleRequired.ConstParticleModuleRequired> return this.RequiredModule;
+	public extern var Modules(get, never): TArray<ucpp.Ptr<ParticleModule.ConstParticleModule>>;
+	public inline extern function get_Modules(): TArray<ucpp.Ptr<ParticleModule.ConstParticleModule>> return this.Modules;
+	public extern var TypeDataModule(get, never): ucpp.Ptr<ParticleModuleTypeDataBase.ConstParticleModuleTypeDataBase>;
+	public inline extern function get_TypeDataModule(): ucpp.Ptr<ParticleModuleTypeDataBase.ConstParticleModuleTypeDataBase> return this.TypeDataModule;
+	public extern var SpawnModule(get, never): ucpp.Ptr<ParticleModuleSpawn.ConstParticleModuleSpawn>;
+	public inline extern function get_SpawnModule(): ucpp.Ptr<ParticleModuleSpawn.ConstParticleModuleSpawn> return this.SpawnModule;
+	public extern var EventGenerator(get, never): ucpp.Ptr<ParticleModuleEventGenerator.ConstParticleModuleEventGenerator>;
+	public inline extern function get_EventGenerator(): ucpp.Ptr<ParticleModuleEventGenerator.ConstParticleModuleEventGenerator> return this.EventGenerator;
+	public extern var SpawningModules(get, never): TArray<ucpp.Ptr<ParticleModuleSpawnBase.ConstParticleModuleSpawnBase>>;
+	public inline extern function get_SpawningModules(): TArray<ucpp.Ptr<ParticleModuleSpawnBase.ConstParticleModuleSpawnBase>> return this.SpawningModules;
+	public extern var SpawnModules(get, never): TArray<ucpp.Ptr<ParticleModule.ConstParticleModule>>;
+	public inline extern function get_SpawnModules(): TArray<ucpp.Ptr<ParticleModule.ConstParticleModule>> return this.SpawnModules;
+	public extern var UpdateModules(get, never): TArray<ucpp.Ptr<ParticleModule.ConstParticleModule>>;
+	public inline extern function get_UpdateModules(): TArray<ucpp.Ptr<ParticleModule.ConstParticleModule>> return this.UpdateModules;
+	public extern var OrbitModules(get, never): TArray<ucpp.Ptr<ParticleModuleOrbit.ConstParticleModuleOrbit>>;
+	public inline extern function get_OrbitModules(): TArray<ucpp.Ptr<ParticleModuleOrbit.ConstParticleModuleOrbit>> return this.OrbitModules;
+	public extern var EventReceiverModules(get, never): TArray<ucpp.Ptr<ParticleModuleEventReceiverBase.ConstParticleModuleEventReceiverBase>>;
+	public inline extern function get_EventReceiverModules(): TArray<ucpp.Ptr<ParticleModuleEventReceiverBase.ConstParticleModuleEventReceiverBase>> return this.EventReceiverModules;
 	public extern var ConvertedModules(get, never): Bool;
 	public inline extern function get_ConvertedModules(): Bool return this.ConvertedModules;
-	public extern var PeakActiveParticles(get, never): cpp.Int32;
-	public inline extern function get_PeakActiveParticles(): cpp.Int32 return this.PeakActiveParticles;
+	public extern var PeakActiveParticles(get, never): ucpp.num.Int32;
+	public inline extern function get_PeakActiveParticles(): ucpp.num.Int32 return this.PeakActiveParticles;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleLODLevel*")
-abstract ParticleLODLevelPtr(cpp.Star<ParticleLODLevel>) from cpp.Star<ParticleLODLevel> to cpp.Star<ParticleLODLevel>{
+abstract ParticleLODLevelPtr(ucpp.Ptr<ParticleLODLevel>) from ucpp.Ptr<ParticleLODLevel> to ucpp.Ptr<ParticleLODLevel>{
 	@:from
 	public static extern inline function fromValue(v: ParticleLODLevel): ParticleLODLevelPtr {
 		return untyped __cpp__("&({0})", v);

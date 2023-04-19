@@ -3,10 +3,10 @@ package ue;
 
 @:native("FLightmassDirectionalLightSettings")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class LightmassDirectionalLightSettings extends LightmassLightSettings {
-	public var LightSourceAngle: cpp.Float32;
+	public var LightSourceAngle: ucpp.num.Float32;
 
 	@:native("FLightmassDirectionalLightSettings") public function new();
-	@:native("FLightmassDirectionalLightSettings") public static function make(LightSourceAngle: cpp.Float32): LightmassDirectionalLightSettings ;
+	@:native("FLightmassDirectionalLightSettings") public static function make(LightSourceAngle: ucpp.num.Float32): LightmassDirectionalLightSettings ;
 }

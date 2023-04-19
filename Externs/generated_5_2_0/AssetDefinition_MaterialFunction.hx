@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_MaterialFunction")
 @:include("Material/AssetDefinition_MaterialFunction.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_MaterialFunction extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_MaterialFunction(AssetDefinition_MaterialFunction)
 @:forward
 @:nativeGen
 @:native("AssetDefinition_MaterialFunction*")
-abstract AssetDefinition_MaterialFunctionPtr(cpp.Star<AssetDefinition_MaterialFunction>) from cpp.Star<AssetDefinition_MaterialFunction> to cpp.Star<AssetDefinition_MaterialFunction>{
+abstract AssetDefinition_MaterialFunctionPtr(ucpp.Ptr<AssetDefinition_MaterialFunction>) from ucpp.Ptr<AssetDefinition_MaterialFunction> to ucpp.Ptr<AssetDefinition_MaterialFunction>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_MaterialFunction): AssetDefinition_MaterialFunctionPtr {
 		return untyped __cpp__("&({0})", v);

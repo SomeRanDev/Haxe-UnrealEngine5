@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable")
-@:structAccess
+@:valueType
 extern class MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonC
 @:forward
 @:nativeGen
 @:native("MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable*")
-abstract MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallablePtr(cpp.Star<MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable>) from cpp.Star<MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable> to cpp.Star<MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable>{
+abstract MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallablePtr(ucpp.Ptr<MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable>) from ucpp.Ptr<MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable> to ucpp.Ptr<MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallable): MockDataMeshTrackerComponent_OnMockDataMeshTrackerUpdated__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

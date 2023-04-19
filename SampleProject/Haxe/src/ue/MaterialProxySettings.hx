@@ -3,21 +3,21 @@ package ue;
 
 @:native("FMaterialProxySettings")
 @:include("Engine/MaterialMerging.h")
-@:structAccess
+@:valueType
 extern class MaterialProxySettings {
 	public var TextureSizingType: TEnumAsByte<ETextureSizingType>;
 	public var TextureSize: IntPoint;
-	public var TargetTexelDensityPerMeter: cpp.Float32;
-	public var MeshMaxScreenSizePercent: cpp.Float32;
-	public var MeshMinDrawDistance: cpp.Float32;
-	public var GutterSpace: cpp.Float32;
-	public var MetallicConstant: cpp.Float32;
-	public var RoughnessConstant: cpp.Float32;
-	public var AnisotropyConstant: cpp.Float32;
-	public var SpecularConstant: cpp.Float32;
-	public var OpacityConstant: cpp.Float32;
-	public var OpacityMaskConstant: cpp.Float32;
-	public var AmbientOcclusionConstant: cpp.Float32;
+	public var TargetTexelDensityPerMeter: ucpp.num.Float32;
+	public var MeshMaxScreenSizePercent: ucpp.num.Float32;
+	public var MeshMinDrawDistance: ucpp.num.Float64;
+	public var GutterSpace: ucpp.num.Float32;
+	public var MetallicConstant: ucpp.num.Float32;
+	public var RoughnessConstant: ucpp.num.Float32;
+	public var AnisotropyConstant: ucpp.num.Float32;
+	public var SpecularConstant: ucpp.num.Float32;
+	public var OpacityConstant: ucpp.num.Float32;
+	public var OpacityMaskConstant: ucpp.num.Float32;
+	public var AmbientOcclusionConstant: ucpp.num.Float32;
 	public var MaterialMergeType: TEnumAsByte<EMaterialMergeType>;
 	public var BlendMode: TEnumAsByte<EBlendMode>;
 	public var bAllowTwoSidedMaterial: Bool;

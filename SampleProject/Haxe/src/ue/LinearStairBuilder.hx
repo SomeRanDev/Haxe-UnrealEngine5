@@ -3,31 +3,31 @@ package ue;
 
 @:native("ULinearStairBuilder")
 @:include("Builders/LinearStairBuilder.h")
-@:structAccess
+@:valueType
 extern class LinearStairBuilder extends EditorBrushBuilder {
-	public var StepLength: cpp.Int32;
-	public var StepHeight: cpp.Int32;
-	public var StepWidth: cpp.Int32;
-	public var NumSteps: cpp.Int32;
-	public var AddToFirstStep: cpp.Int32;
+	public var StepLength: ucpp.num.Int32;
+	public var StepHeight: ucpp.num.Int32;
+	public var StepWidth: ucpp.num.Int32;
+	public var NumSteps: ucpp.num.Int32;
+	public var AddToFirstStep: ucpp.num.Int32;
 	public var GroupName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLinearStairBuilder(LinearStairBuilder) from LinearStairBuilder {
-	public extern var StepLength(get, never): cpp.Int32;
-	public inline extern function get_StepLength(): cpp.Int32 return this.StepLength;
-	public extern var StepHeight(get, never): cpp.Int32;
-	public inline extern function get_StepHeight(): cpp.Int32 return this.StepHeight;
-	public extern var StepWidth(get, never): cpp.Int32;
-	public inline extern function get_StepWidth(): cpp.Int32 return this.StepWidth;
-	public extern var NumSteps(get, never): cpp.Int32;
-	public inline extern function get_NumSteps(): cpp.Int32 return this.NumSteps;
-	public extern var AddToFirstStep(get, never): cpp.Int32;
-	public inline extern function get_AddToFirstStep(): cpp.Int32 return this.AddToFirstStep;
+	public extern var StepLength(get, never): ucpp.num.Int32;
+	public inline extern function get_StepLength(): ucpp.num.Int32 return this.StepLength;
+	public extern var StepHeight(get, never): ucpp.num.Int32;
+	public inline extern function get_StepHeight(): ucpp.num.Int32 return this.StepHeight;
+	public extern var StepWidth(get, never): ucpp.num.Int32;
+	public inline extern function get_StepWidth(): ucpp.num.Int32 return this.StepWidth;
+	public extern var NumSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_NumSteps(): ucpp.num.Int32 return this.NumSteps;
+	public extern var AddToFirstStep(get, never): ucpp.num.Int32;
+	public inline extern function get_AddToFirstStep(): ucpp.num.Int32 return this.AddToFirstStep;
 	public extern var GroupName(get, never): FName;
 	public inline extern function get_GroupName(): FName return this.GroupName;
 }
@@ -35,7 +35,7 @@ abstract ConstLinearStairBuilder(LinearStairBuilder) from LinearStairBuilder {
 @:forward
 @:nativeGen
 @:native("LinearStairBuilder*")
-abstract LinearStairBuilderPtr(cpp.Star<LinearStairBuilder>) from cpp.Star<LinearStairBuilder> to cpp.Star<LinearStairBuilder>{
+abstract LinearStairBuilderPtr(ucpp.Ptr<LinearStairBuilder>) from ucpp.Ptr<LinearStairBuilder> to ucpp.Ptr<LinearStairBuilder>{
 	@:from
 	public static extern inline function fromValue(v: LinearStairBuilder): LinearStairBuilderPtr {
 		return untyped __cpp__("&({0})", v);

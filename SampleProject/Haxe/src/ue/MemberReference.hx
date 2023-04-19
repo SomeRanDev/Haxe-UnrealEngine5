@@ -3,9 +3,9 @@ package ue;
 
 @:native("FMemberReference")
 @:include("Engine/MemberReference.h")
-@:structAccess
+@:valueType
 extern class MemberReference {
-	@:protected public var MemberParent: cpp.Star<Object>;
+	@:protected public var MemberParent: ucpp.Ptr<Object>;
 	@:protected public var MemberScope: FString;
 	@:protected public var MemberName: FName;
 	@:protected public var MemberGuid: Guid;

@@ -3,32 +3,32 @@ package ue;
 
 @:native("UEditMeshPolygonsTool")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshPolygonsTool extends SingleTargetWithSelectionTool {
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	@:protected public var CommonProps: cpp.Star<PolyEditCommonProperties>;
-	@:protected public var EditActions: cpp.Star<EditMeshPolygonsToolActions>;
-	@:protected public var EditActions_Triangles: cpp.Star<EditMeshPolygonsToolActions_Triangles>;
-	@:protected public var EditEdgeActions: cpp.Star<EditMeshPolygonsToolEdgeActions>;
-	@:protected public var EditEdgeActions_Triangles: cpp.Star<EditMeshPolygonsToolEdgeActions_Triangles>;
-	@:protected public var EditUVActions: cpp.Star<EditMeshPolygonsToolUVActions>;
-	@:protected public var CancelAction: cpp.Star<EditMeshPolygonsToolCancelAction>;
-	@:protected public var AcceptCancelAction: cpp.Star<EditMeshPolygonsToolAcceptCancelAction>;
-	@:protected public var TopologyProperties: cpp.Star<PolyEditTopologyProperties>;
-	@:protected public var ExtrudeActivity: cpp.Star<PolyEditExtrudeActivity>;
-	@:protected public var InsetOutsetActivity: cpp.Star<PolyEditInsetOutsetActivity>;
-	@:protected public var CutFacesActivity: cpp.Star<PolyEditCutFacesActivity>;
-	@:protected public var PlanarProjectionUVActivity: cpp.Star<PolyEditPlanarProjectionUVActivity>;
-	@:protected public var InsertEdgeActivity: cpp.Star<PolyEditInsertEdgeActivity>;
-	@:protected public var InsertEdgeLoopActivity: cpp.Star<PolyEditInsertEdgeLoopActivity>;
-	@:protected public var BevelEdgeActivity: cpp.Star<PolyEditBevelEdgeActivity>;
-	@:protected public var ActivityContext: cpp.Star<PolyEditActivityContext>;
-	@:protected public var SelectionMechanic: cpp.Star<PolygonSelectionMechanic>;
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var CommonProps: ucpp.Ptr<PolyEditCommonProperties>;
+	@:protected public var EditActions: ucpp.Ptr<EditMeshPolygonsToolActions>;
+	@:protected public var EditActions_Triangles: ucpp.Ptr<EditMeshPolygonsToolActions_Triangles>;
+	@:protected public var EditEdgeActions: ucpp.Ptr<EditMeshPolygonsToolEdgeActions>;
+	@:protected public var EditEdgeActions_Triangles: ucpp.Ptr<EditMeshPolygonsToolEdgeActions_Triangles>;
+	@:protected public var EditUVActions: ucpp.Ptr<EditMeshPolygonsToolUVActions>;
+	@:protected public var CancelAction: ucpp.Ptr<EditMeshPolygonsToolCancelAction>;
+	@:protected public var AcceptCancelAction: ucpp.Ptr<EditMeshPolygonsToolAcceptCancelAction>;
+	@:protected public var TopologyProperties: ucpp.Ptr<PolyEditTopologyProperties>;
+	@:protected public var ExtrudeActivity: ucpp.Ptr<PolyEditExtrudeActivity>;
+	@:protected public var InsetOutsetActivity: ucpp.Ptr<PolyEditInsetOutsetActivity>;
+	@:protected public var CutFacesActivity: ucpp.Ptr<PolyEditCutFacesActivity>;
+	@:protected public var PlanarProjectionUVActivity: ucpp.Ptr<PolyEditPlanarProjectionUVActivity>;
+	@:protected public var InsertEdgeActivity: ucpp.Ptr<PolyEditInsertEdgeActivity>;
+	@:protected public var InsertEdgeLoopActivity: ucpp.Ptr<PolyEditInsertEdgeLoopActivity>;
+	@:protected public var BevelEdgeActivity: ucpp.Ptr<PolyEditBevelEdgeActivity>;
+	@:protected public var ActivityContext: ucpp.Ptr<PolyEditActivityContext>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<PolygonSelectionMechanic>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +39,7 @@ abstract ConstEditMeshPolygonsTool(EditMeshPolygonsTool) from EditMeshPolygonsTo
 @:forward
 @:nativeGen
 @:native("EditMeshPolygonsTool*")
-abstract EditMeshPolygonsToolPtr(cpp.Star<EditMeshPolygonsTool>) from cpp.Star<EditMeshPolygonsTool> to cpp.Star<EditMeshPolygonsTool>{
+abstract EditMeshPolygonsToolPtr(ucpp.Ptr<EditMeshPolygonsTool>) from ucpp.Ptr<EditMeshPolygonsTool> to ucpp.Ptr<EditMeshPolygonsTool>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshPolygonsTool): EditMeshPolygonsToolPtr {
 		return untyped __cpp__("&({0})", v);

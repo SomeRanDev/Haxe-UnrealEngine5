@@ -3,17 +3,17 @@ package ue;
 
 @:native("UObjectBase")
 @:include("UObject/UObjectBaseUtility.h")
-@:structAccess
+@:valueType
 extern class ObjectBase {
-	public function GetClass(): cpp.Star<Class>;
-	public function GetExternalPackage(): cpp.Star<Package>;
-	public function GetExternalPackageInternal(): cpp.Star<Class>;
+	public function GetClass(): ucpp.Ptr<Class>;
+	public function GetExternalPackage(): ucpp.Ptr<Package>;
+	public function GetExternalPackageInternal(): ucpp.Ptr<Class>;
 	public function GetFlags(): EObjectFlags;
 	public function GetFName(): FName;
-	public function GetOuter(): cpp.Star<Object>;
-	public function GetUniqueID(): cpp.UInt32;
+	public function GetOuter(): ucpp.Ptr<Object>;
+	public function GetUniqueID(): ucpp.num.UInt32;
 	public function IsValidLowLevel(): Bool;
 	public function IsValidLowLevelFast(bRecursive: Bool): Bool;
-	@:protected public function LowLevelRename(NewName: FName, NewOuter: cpp.Star<Object>): Void;
-	@:protected public function Register(PackageName: cpp.ConstTCHARStar, Name: cpp.ConstTCHARStar): Void;
+	@:protected public function LowLevelRename(NewName: FName, NewOuter: ucpp.Ptr<Object>): Void;
+	@:protected public function Register(PackageName: ue_helpers.ConstTCHARStar, Name: ue_helpers.ConstTCHARStar): Void;
 }

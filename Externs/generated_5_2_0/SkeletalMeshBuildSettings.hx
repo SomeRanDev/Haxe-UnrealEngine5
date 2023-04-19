@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSkeletalMeshBuildSettings")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class SkeletalMeshBuildSettings {
 	public var bRecomputeNormals: Bool;
 	public var bRecomputeTangents: Bool;
@@ -14,11 +14,11 @@ extern class SkeletalMeshBuildSettings {
 	public var bUseHighPrecisionSkinWeights: Bool;
 	public var bUseFullPrecisionUVs: Bool;
 	public var bUseBackwardsCompatibleF16TruncUVs: Bool;
-	public var ThresholdPosition: cpp.Float32;
-	public var ThresholdTangentNormal: cpp.Float32;
-	public var ThresholdUV: cpp.Float32;
-	public var MorphThresholdPosition: cpp.Float32;
-	public var BoneInfluenceLimit: cpp.Int32;
+	public var ThresholdPosition: ucpp.num.Float32;
+	public var ThresholdTangentNormal: ucpp.num.Float32;
+	public var ThresholdUV: ucpp.num.Float32;
+	public var MorphThresholdPosition: ucpp.num.Float32;
+	public var BoneInfluenceLimit: ucpp.num.Int32;
 
 	@:native("FSkeletalMeshBuildSettings") public function new();
 }

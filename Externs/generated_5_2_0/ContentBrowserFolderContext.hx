@@ -3,15 +3,15 @@ package ue;
 
 @:native("UContentBrowserFolderContext")
 @:include("ContentBrowserMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserFolderContext extends ContentBrowserMenuContext {
 	public var bCanBeModified: Bool;
 	public var bNoFolderOnDisk: Bool;
-	public var NumAssetPaths: cpp.Int32;
-	public var NumClassPaths: cpp.Int32;
+	public var NumAssetPaths: ucpp.num.Int32;
+	public var NumClassPaths: ucpp.num.Int32;
 	public var SelectedPackagePaths: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,10 +21,10 @@ abstract ConstContentBrowserFolderContext(ContentBrowserFolderContext) from Cont
 	public inline extern function get_bCanBeModified(): Bool return this.bCanBeModified;
 	public extern var bNoFolderOnDisk(get, never): Bool;
 	public inline extern function get_bNoFolderOnDisk(): Bool return this.bNoFolderOnDisk;
-	public extern var NumAssetPaths(get, never): cpp.Int32;
-	public inline extern function get_NumAssetPaths(): cpp.Int32 return this.NumAssetPaths;
-	public extern var NumClassPaths(get, never): cpp.Int32;
-	public inline extern function get_NumClassPaths(): cpp.Int32 return this.NumClassPaths;
+	public extern var NumAssetPaths(get, never): ucpp.num.Int32;
+	public inline extern function get_NumAssetPaths(): ucpp.num.Int32 return this.NumAssetPaths;
+	public extern var NumClassPaths(get, never): ucpp.num.Int32;
+	public inline extern function get_NumClassPaths(): ucpp.num.Int32 return this.NumClassPaths;
 	public extern var SelectedPackagePaths(get, never): TArray<FString>;
 	public inline extern function get_SelectedPackagePaths(): TArray<FString> return this.SelectedPackagePaths;
 }
@@ -32,7 +32,7 @@ abstract ConstContentBrowserFolderContext(ContentBrowserFolderContext) from Cont
 @:forward
 @:nativeGen
 @:native("ContentBrowserFolderContext*")
-abstract ContentBrowserFolderContextPtr(cpp.Star<ContentBrowserFolderContext>) from cpp.Star<ContentBrowserFolderContext> to cpp.Star<ContentBrowserFolderContext>{
+abstract ContentBrowserFolderContextPtr(ucpp.Ptr<ContentBrowserFolderContext>) from ucpp.Ptr<ContentBrowserFolderContext> to ucpp.Ptr<ContentBrowserFolderContext>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserFolderContext): ContentBrowserFolderContextPtr {
 		return untyped __cpp__("&({0})", v);

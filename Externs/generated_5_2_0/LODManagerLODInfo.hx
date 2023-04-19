@@ -3,11 +3,11 @@ package ue;
 
 @:native("FLODManagerLODInfo")
 @:include("Tools/LODManagerTool.h")
-@:structAccess
+@:valueType
 extern class LODManagerLODInfo {
-	public var VertexCount: cpp.Int32;
-	public var TriangleCount: cpp.Int32;
+	public var VertexCount: ucpp.num.Int32;
+	public var TriangleCount: ucpp.num.Int32;
 
 	@:native("FLODManagerLODInfo") public function new();
-	@:native("FLODManagerLODInfo") public static function make(VertexCount: cpp.Int32, TriangleCount: cpp.Int32): LODManagerLODInfo ;
+	@:native("FLODManagerLODInfo") public static function make(VertexCount: ucpp.num.Int32, TriangleCount: ucpp.num.Int32): LODManagerLODInfo ;
 }

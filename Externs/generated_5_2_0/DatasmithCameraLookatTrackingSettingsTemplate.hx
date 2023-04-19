@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDatasmithCameraLookatTrackingSettingsTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraActorTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithCameraLookatTrackingSettingsTemplate {
 	public var bEnableLookAtTracking: Bool;
 	public var bAllowRoll: Bool;

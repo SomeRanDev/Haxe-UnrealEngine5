@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBTDecorator_ConditionalLoop")
 @:include("BehaviorTree/Decorators/BTDecorator_ConditionalLoop.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_ConditionalLoop extends BTDecorator_Blackboard {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBTDecorator_ConditionalLoop(BTDecorator_ConditionalLoop) from BTDe
 @:forward
 @:nativeGen
 @:native("BTDecorator_ConditionalLoop*")
-abstract BTDecorator_ConditionalLoopPtr(cpp.Star<BTDecorator_ConditionalLoop>) from cpp.Star<BTDecorator_ConditionalLoop> to cpp.Star<BTDecorator_ConditionalLoop>{
+abstract BTDecorator_ConditionalLoopPtr(ucpp.Ptr<BTDecorator_ConditionalLoop>) from ucpp.Ptr<BTDecorator_ConditionalLoop> to ucpp.Ptr<BTDecorator_ConditionalLoop>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_ConditionalLoop): BTDecorator_ConditionalLoopPtr {
 		return untyped __cpp__("&({0})", v);

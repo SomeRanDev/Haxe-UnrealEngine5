@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_CopyBone")
 @:include("AnimGraphNode_CopyBone.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_CopyBone extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_CopyBone;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_CopyBone(AnimGraphNode_CopyBone) from AnimGraphNode_
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_CopyBone*")
-abstract AnimGraphNode_CopyBonePtr(cpp.Star<AnimGraphNode_CopyBone>) from cpp.Star<AnimGraphNode_CopyBone> to cpp.Star<AnimGraphNode_CopyBone>{
+abstract AnimGraphNode_CopyBonePtr(ucpp.Ptr<AnimGraphNode_CopyBone>) from ucpp.Ptr<AnimGraphNode_CopyBone> to ucpp.Ptr<AnimGraphNode_CopyBone>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_CopyBone): AnimGraphNode_CopyBonePtr {
 		return untyped __cpp__("&({0})", v);

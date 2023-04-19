@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditorParentPlayerListObj")
 @:include("Animation/EditorParentPlayerListObj.h")
-@:structAccess
+@:valueType
 extern class EditorParentPlayerListObj extends Object {
 	public var Overrides: TArray<AnimParentNodeAssetOverride>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEditorParentPlayerListObj(EditorParentPlayerListObj) from EditorPa
 @:forward
 @:nativeGen
 @:native("EditorParentPlayerListObj*")
-abstract EditorParentPlayerListObjPtr(cpp.Star<EditorParentPlayerListObj>) from cpp.Star<EditorParentPlayerListObj> to cpp.Star<EditorParentPlayerListObj>{
+abstract EditorParentPlayerListObjPtr(ucpp.Ptr<EditorParentPlayerListObj>) from ucpp.Ptr<EditorParentPlayerListObj> to ucpp.Ptr<EditorParentPlayerListObj>{
 	@:from
 	public static extern inline function fromValue(v: EditorParentPlayerListObj): EditorParentPlayerListObjPtr {
 		return untyped __cpp__("&({0})", v);

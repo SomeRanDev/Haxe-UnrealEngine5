@@ -6,6 +6,7 @@ package ue;
 extern class EControlRigFKRigExecuteMode {
 	static var Replace: EControlRigFKRigExecuteMode;
 	static var Additive: EControlRigFKRigExecuteMode;
+	static var Direct: EControlRigFKRigExecuteMode;
 	static var Max: EControlRigFKRigExecuteMode;
 	static var EControlRigFKRigExecuteMode_MAX: EControlRigFKRigExecuteMode;
 }

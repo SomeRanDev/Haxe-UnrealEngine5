@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVoxelBlendMeshesTool")
 @:include("VoxelBlendMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelBlendMeshesTool extends BaseVoxelTool {
-	@:protected public var BlendProperties: cpp.Star<VoxelBlendMeshesToolProperties>;
+	@:protected public var BlendProperties: ucpp.Ptr<VoxelBlendMeshesToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVoxelBlendMeshesTool(VoxelBlendMeshesTool) from VoxelBlendMeshesTo
 @:forward
 @:nativeGen
 @:native("VoxelBlendMeshesTool*")
-abstract VoxelBlendMeshesToolPtr(cpp.Star<VoxelBlendMeshesTool>) from cpp.Star<VoxelBlendMeshesTool> to cpp.Star<VoxelBlendMeshesTool>{
+abstract VoxelBlendMeshesToolPtr(ucpp.Ptr<VoxelBlendMeshesTool>) from ucpp.Ptr<VoxelBlendMeshesTool> to ucpp.Ptr<VoxelBlendMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: VoxelBlendMeshesTool): VoxelBlendMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

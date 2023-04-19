@@ -3,24 +3,24 @@ package ue;
 
 @:native("URemoveOccludedTrianglesOperatorFactory")
 @:include("RemoveOccludedTrianglesTool.h")
-@:structAccess
+@:valueType
 extern class RemoveOccludedTrianglesOperatorFactory extends Object {
-	public var Tool: cpp.Star<RemoveOccludedTrianglesTool>;
+	public var Tool: ucpp.Ptr<RemoveOccludedTrianglesTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstRemoveOccludedTrianglesOperatorFactory(RemoveOccludedTrianglesOperatorFactory) from RemoveOccludedTrianglesOperatorFactory {
-	public extern var Tool(get, never): cpp.Star<RemoveOccludedTrianglesTool.ConstRemoveOccludedTrianglesTool>;
-	public inline extern function get_Tool(): cpp.Star<RemoveOccludedTrianglesTool.ConstRemoveOccludedTrianglesTool> return this.Tool;
+	public extern var Tool(get, never): ucpp.Ptr<RemoveOccludedTrianglesTool.ConstRemoveOccludedTrianglesTool>;
+	public inline extern function get_Tool(): ucpp.Ptr<RemoveOccludedTrianglesTool.ConstRemoveOccludedTrianglesTool> return this.Tool;
 }
 
 @:forward
 @:nativeGen
 @:native("RemoveOccludedTrianglesOperatorFactory*")
-abstract RemoveOccludedTrianglesOperatorFactoryPtr(cpp.Star<RemoveOccludedTrianglesOperatorFactory>) from cpp.Star<RemoveOccludedTrianglesOperatorFactory> to cpp.Star<RemoveOccludedTrianglesOperatorFactory>{
+abstract RemoveOccludedTrianglesOperatorFactoryPtr(ucpp.Ptr<RemoveOccludedTrianglesOperatorFactory>) from ucpp.Ptr<RemoveOccludedTrianglesOperatorFactory> to ucpp.Ptr<RemoveOccludedTrianglesOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: RemoveOccludedTrianglesOperatorFactory): RemoveOccludedTrianglesOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

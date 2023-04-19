@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxStaticMeshImportData")
 @:include("Factories/FbxStaticMeshImportData.h")
-@:structAccess
+@:valueType
 extern class FbxStaticMeshImportData extends FbxMeshImportData {
 	public var StaticMeshLODGroup: FName;
 	public var VertexColorImportOption: TEnumAsByte<EVertexColorImportOption>;
@@ -15,9 +15,9 @@ extern class FbxStaticMeshImportData extends FbxMeshImportData {
 	public var bOneConvexHullPerUCX: Bool;
 	public var bAutoGenerateCollision: Bool;
 	public var bCombineMeshes: Bool;
-	public var DistanceFieldResolutionScale: cpp.Float32;
+	public var DistanceFieldResolutionScale: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,14 +43,14 @@ abstract ConstFbxStaticMeshImportData(FbxStaticMeshImportData) from FbxStaticMes
 	public inline extern function get_bAutoGenerateCollision(): Bool return this.bAutoGenerateCollision;
 	public extern var bCombineMeshes(get, never): Bool;
 	public inline extern function get_bCombineMeshes(): Bool return this.bCombineMeshes;
-	public extern var DistanceFieldResolutionScale(get, never): cpp.Float32;
-	public inline extern function get_DistanceFieldResolutionScale(): cpp.Float32 return this.DistanceFieldResolutionScale;
+	public extern var DistanceFieldResolutionScale(get, never): ucpp.num.Float32;
+	public inline extern function get_DistanceFieldResolutionScale(): ucpp.num.Float32 return this.DistanceFieldResolutionScale;
 }
 
 @:forward
 @:nativeGen
 @:native("FbxStaticMeshImportData*")
-abstract FbxStaticMeshImportDataPtr(cpp.Star<FbxStaticMeshImportData>) from cpp.Star<FbxStaticMeshImportData> to cpp.Star<FbxStaticMeshImportData>{
+abstract FbxStaticMeshImportDataPtr(ucpp.Ptr<FbxStaticMeshImportData>) from ucpp.Ptr<FbxStaticMeshImportData> to ucpp.Ptr<FbxStaticMeshImportData>{
 	@:from
 	public static extern inline function fromValue(v: FbxStaticMeshImportData): FbxStaticMeshImportDataPtr {
 		return untyped __cpp__("&({0})", v);

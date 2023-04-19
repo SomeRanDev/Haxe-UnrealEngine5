@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDatasmithSkyLightComponentTemplate")
 @:include("ObjectTemplates/DatasmithSkyLightComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithSkyLightComponentTemplate extends DatasmithObjectTemplate {
 	public var SourceType: TEnumAsByte<ESkyLightSourceType>;
-	public var CubemapResolution: cpp.Int32;
-	public var Cubemap: cpp.Star<TextureCube>;
+	public var CubemapResolution: ucpp.num.Int32;
+	public var Cubemap: ucpp.Ptr<TextureCube>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class DatasmithSkyLightComponentTemplate extends DatasmithObjectTemplate 
 abstract ConstDatasmithSkyLightComponentTemplate(DatasmithSkyLightComponentTemplate) from DatasmithSkyLightComponentTemplate {
 	public extern var SourceType(get, never): TEnumAsByte<ESkyLightSourceType>;
 	public inline extern function get_SourceType(): TEnumAsByte<ESkyLightSourceType> return this.SourceType;
-	public extern var CubemapResolution(get, never): cpp.Int32;
-	public inline extern function get_CubemapResolution(): cpp.Int32 return this.CubemapResolution;
-	public extern var Cubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
-	public inline extern function get_Cubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.Cubemap;
+	public extern var CubemapResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_CubemapResolution(): ucpp.num.Int32 return this.CubemapResolution;
+	public extern var Cubemap(get, never): ucpp.Ptr<TextureCube.ConstTextureCube>;
+	public inline extern function get_Cubemap(): ucpp.Ptr<TextureCube.ConstTextureCube> return this.Cubemap;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithSkyLightComponentTemplate*")
-abstract DatasmithSkyLightComponentTemplatePtr(cpp.Star<DatasmithSkyLightComponentTemplate>) from cpp.Star<DatasmithSkyLightComponentTemplate> to cpp.Star<DatasmithSkyLightComponentTemplate>{
+abstract DatasmithSkyLightComponentTemplatePtr(ucpp.Ptr<DatasmithSkyLightComponentTemplate>) from ucpp.Ptr<DatasmithSkyLightComponentTemplate> to ucpp.Ptr<DatasmithSkyLightComponentTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithSkyLightComponentTemplate): DatasmithSkyLightComponentTemplatePtr {
 		return untyped __cpp__("&({0})", v);

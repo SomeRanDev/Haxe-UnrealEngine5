@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraHierarchyIdentity")
 @:include("ViewModels/HierarchyEditor/NiagaraHierarchyViewModelBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraHierarchyIdentity {
 	public var Guids: TArray<Guid>;
 	public var Names: TArray<FName>;

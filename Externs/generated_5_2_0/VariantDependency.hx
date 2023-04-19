@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVariantDependency")
 @:include("Variant.h")
-@:structAccess
+@:valueType
 extern class VariantDependency {
 	public var VariantSet: TSoftObjectPtr<VariantSet>;
 	public var Variant: TSoftObjectPtr<Variant>;

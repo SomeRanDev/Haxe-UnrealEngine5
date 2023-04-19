@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBlueprintComponentNodeSpawner")
 @:include("BlueprintComponentNodeSpawner.h")
-@:structAccess
+@:valueType
 extern class BlueprintComponentNodeSpawner extends BlueprintNodeSpawner {
 	private var ComponentClass: TSubclassOf<ActorComp>;
 	private var ComponentName: FString;
 	private var ComponentAssetName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBlueprintComponentNodeSpawner(BlueprintComponentNodeSpawner) from 
 @:forward
 @:nativeGen
 @:native("BlueprintComponentNodeSpawner*")
-abstract BlueprintComponentNodeSpawnerPtr(cpp.Star<BlueprintComponentNodeSpawner>) from cpp.Star<BlueprintComponentNodeSpawner> to cpp.Star<BlueprintComponentNodeSpawner>{
+abstract BlueprintComponentNodeSpawnerPtr(ucpp.Ptr<BlueprintComponentNodeSpawner>) from ucpp.Ptr<BlueprintComponentNodeSpawner> to ucpp.Ptr<BlueprintComponentNodeSpawner>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintComponentNodeSpawner): BlueprintComponentNodeSpawnerPtr {
 		return untyped __cpp__("&({0})", v);

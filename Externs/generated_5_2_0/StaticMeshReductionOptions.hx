@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStaticMeshReductionOptions")
 @:include("StaticMeshEditorSubsystemHelpers.h")
-@:structAccess
+@:valueType
 extern class StaticMeshReductionOptions {
 	public var bAutoComputeLODScreenSize: Bool;
 	public var ReductionSettings: TArray<StaticMeshReductionSettings>;

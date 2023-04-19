@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBlendSpaceGraph")
 @:include("BlendSpaceGraph.h")
-@:structAccess
+@:valueType
 extern class BlendSpaceGraph extends EdGraph {
-	public var BlendSpace: cpp.Star<BlendSpace>;
+	public var BlendSpace: ucpp.Ptr<BlendSpace>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlendSpaceGraph(BlendSpaceGraph) from BlendSpaceGraph {
-	public extern var BlendSpace(get, never): cpp.Star<BlendSpace.ConstBlendSpace>;
-	public inline extern function get_BlendSpace(): cpp.Star<BlendSpace.ConstBlendSpace> return this.BlendSpace;
+	public extern var BlendSpace(get, never): ucpp.Ptr<BlendSpace.ConstBlendSpace>;
+	public inline extern function get_BlendSpace(): ucpp.Ptr<BlendSpace.ConstBlendSpace> return this.BlendSpace;
 }
 
 @:forward
 @:nativeGen
 @:native("BlendSpaceGraph*")
-abstract BlendSpaceGraphPtr(cpp.Star<BlendSpaceGraph>) from cpp.Star<BlendSpaceGraph> to cpp.Star<BlendSpaceGraph>{
+abstract BlendSpaceGraphPtr(ucpp.Ptr<BlendSpaceGraph>) from ucpp.Ptr<BlendSpaceGraph> to ucpp.Ptr<BlendSpaceGraph>{
 	@:from
 	public static extern inline function fromValue(v: BlendSpaceGraph): BlendSpaceGraphPtr {
 		return untyped __cpp__("&({0})", v);

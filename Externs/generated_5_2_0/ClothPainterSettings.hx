@@ -3,19 +3,19 @@ package ue;
 
 @:native("UClothPainterSettings")
 @:include("ClothPaintSettings.h")
-@:structAccess
+@:valueType
 extern class ClothPainterSettings extends MeshPaintSettings {
-	@:protected public var ViewMin: cpp.Float32;
-	@:protected public var ViewMax: cpp.Float32;
+	@:protected public var ViewMin: ucpp.num.Float32;
+	@:protected public var ViewMax: ucpp.num.Float32;
 	public var bAutoViewRange: Bool;
-	public var AutoCalculatedViewMin: cpp.Float32;
-	public var AutoCalculatedViewMax: cpp.Float32;
-	public var ClothingAssets: TArray<cpp.Star<ClothingAssetCommon>>;
+	public var AutoCalculatedViewMin: ucpp.num.Float32;
+	public var AutoCalculatedViewMax: ucpp.num.Float32;
+	public var ClothingAssets: TArray<ucpp.Ptr<ClothingAssetCommon>>;
 	public var bFlipNormal: Bool;
 	public var bCullBackface: Bool;
-	public var Opacity: cpp.Float32;
+	public var Opacity: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,24 +23,24 @@ extern class ClothPainterSettings extends MeshPaintSettings {
 abstract ConstClothPainterSettings(ClothPainterSettings) from ClothPainterSettings {
 	public extern var bAutoViewRange(get, never): Bool;
 	public inline extern function get_bAutoViewRange(): Bool return this.bAutoViewRange;
-	public extern var AutoCalculatedViewMin(get, never): cpp.Float32;
-	public inline extern function get_AutoCalculatedViewMin(): cpp.Float32 return this.AutoCalculatedViewMin;
-	public extern var AutoCalculatedViewMax(get, never): cpp.Float32;
-	public inline extern function get_AutoCalculatedViewMax(): cpp.Float32 return this.AutoCalculatedViewMax;
-	public extern var ClothingAssets(get, never): TArray<cpp.Star<ClothingAssetCommon.ConstClothingAssetCommon>>;
-	public inline extern function get_ClothingAssets(): TArray<cpp.Star<ClothingAssetCommon.ConstClothingAssetCommon>> return this.ClothingAssets;
+	public extern var AutoCalculatedViewMin(get, never): ucpp.num.Float32;
+	public inline extern function get_AutoCalculatedViewMin(): ucpp.num.Float32 return this.AutoCalculatedViewMin;
+	public extern var AutoCalculatedViewMax(get, never): ucpp.num.Float32;
+	public inline extern function get_AutoCalculatedViewMax(): ucpp.num.Float32 return this.AutoCalculatedViewMax;
+	public extern var ClothingAssets(get, never): TArray<ucpp.Ptr<ClothingAssetCommon.ConstClothingAssetCommon>>;
+	public inline extern function get_ClothingAssets(): TArray<ucpp.Ptr<ClothingAssetCommon.ConstClothingAssetCommon>> return this.ClothingAssets;
 	public extern var bFlipNormal(get, never): Bool;
 	public inline extern function get_bFlipNormal(): Bool return this.bFlipNormal;
 	public extern var bCullBackface(get, never): Bool;
 	public inline extern function get_bCullBackface(): Bool return this.bCullBackface;
-	public extern var Opacity(get, never): cpp.Float32;
-	public inline extern function get_Opacity(): cpp.Float32 return this.Opacity;
+	public extern var Opacity(get, never): ucpp.num.Float32;
+	public inline extern function get_Opacity(): ucpp.num.Float32 return this.Opacity;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothPainterSettings*")
-abstract ClothPainterSettingsPtr(cpp.Star<ClothPainterSettings>) from cpp.Star<ClothPainterSettings> to cpp.Star<ClothPainterSettings>{
+abstract ClothPainterSettingsPtr(ucpp.Ptr<ClothPainterSettings>) from ucpp.Ptr<ClothPainterSettings> to ucpp.Ptr<ClothPainterSettings>{
 	@:from
 	public static extern inline function fromValue(v: ClothPainterSettings): ClothPainterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

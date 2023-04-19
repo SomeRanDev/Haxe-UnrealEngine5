@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTileSetImportMapping")
 @:include("TileMapAssetImportData.h")
-@:structAccess
+@:valueType
 extern class TileSetImportMapping {
 	public var SourceName: FString;
 	public var ImportedTileSet: TWeakObjectPtr<PaperTileSet>;

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FCacheRecorderUserParameters")
 @:include("Recorder/CacheTrackRecorder.h")
-@:structAccess
+@:valueType
 extern class CacheRecorderUserParameters {
 	public var bMaximizeViewport: Bool;
-	public var CountdownSeconds: cpp.Float32;
-	public var EngineTimeDilation: cpp.Float32;
+	public var CountdownSeconds: ucpp.num.Float32;
+	public var EngineTimeDilation: ucpp.num.Float32;
 	public var bResetPlayhead: Bool;
 	public var bStopAtPlaybackEnd: Bool;
 
 	@:native("FCacheRecorderUserParameters") public function new();
-	@:native("FCacheRecorderUserParameters") public static function make(bMaximizeViewport: Bool, CountdownSeconds: cpp.Float32, EngineTimeDilation: cpp.Float32, bResetPlayhead: Bool, bStopAtPlaybackEnd: Bool): CacheRecorderUserParameters ;
+	@:native("FCacheRecorderUserParameters") public static function make(bMaximizeViewport: Bool, CountdownSeconds: ucpp.num.Float32, EngineTimeDilation: ucpp.num.Float32, bResetPlayhead: Bool, bStopAtPlaybackEnd: Bool): CacheRecorderUserParameters ;
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimNode_SpringBone")
 @:include("BoneControllers/AnimNode_SpringBone.h")
-@:structAccess
+@:valueType
 extern class AnimNode_SpringBone extends AnimNode_SkeletalControlBase {
 	public var SpringBone: BoneReference;
-	public var MaxDisplacement: cpp.Float64;
-	public var SpringStiffness: cpp.Float64;
-	public var SpringDamping: cpp.Float64;
-	public var ErrorResetThresh: cpp.Float64;
+	public var MaxDisplacement: ucpp.num.Float64;
+	public var SpringStiffness: ucpp.num.Float64;
+	public var SpringDamping: ucpp.num.Float64;
+	public var ErrorResetThresh: ucpp.num.Float64;
 	public var bLimitDisplacement: Bool;
 	public var bTranslateX: Bool;
 	public var bTranslateY: Bool;

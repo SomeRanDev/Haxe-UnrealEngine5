@@ -3,12 +3,12 @@ package ue;
 
 @:native("FInputComboStepData")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputComboStepData {
-	public var ComboStepAction: cpp.Star<InputAction>;
-	public var ComboStepCompletionStates: cpp.UInt8;
-	public var TimeToPressKey: cpp.Float32;
+	public var ComboStepAction: ucpp.Ptr<InputAction>;
+	public var ComboStepCompletionStates: ucpp.num.UInt8;
+	public var TimeToPressKey: ucpp.num.Float32;
 
 	@:native("FInputComboStepData") public function new();
-	@:native("FInputComboStepData") public static function make(ComboStepAction: cpp.Star<InputAction>, ComboStepCompletionStates: cpp.UInt8, TimeToPressKey: cpp.Float32): InputComboStepData ;
+	@:native("FInputComboStepData") public static function make(ComboStepAction: ucpp.Ptr<InputAction>, ComboStepCompletionStates: ucpp.num.UInt8, TimeToPressKey: ucpp.num.Float32): InputComboStepData ;
 }

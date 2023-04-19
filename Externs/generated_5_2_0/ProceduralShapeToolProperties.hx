@@ -3,17 +3,17 @@ package ue;
 
 @:native("UProceduralShapeToolProperties")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class ProceduralShapeToolProperties extends InteractiveToolPropertySet {
 	public var PolygroupMode: EMakeMeshPolygroupMode;
 	public var TargetSurface: EMakeMeshPlacementType;
 	public var PivotLocation: EMakeMeshPivotLocation;
-	public var Rotation: cpp.Float32;
+	public var Rotation: ucpp.num.Float32;
 	public var bAlignToNormal: Bool;
 	public var bShowGizmo: Bool;
 	public var bShowGizmoOptions: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,8 +25,8 @@ abstract ConstProceduralShapeToolProperties(ProceduralShapeToolProperties) from 
 	public inline extern function get_TargetSurface(): EMakeMeshPlacementType return this.TargetSurface;
 	public extern var PivotLocation(get, never): EMakeMeshPivotLocation;
 	public inline extern function get_PivotLocation(): EMakeMeshPivotLocation return this.PivotLocation;
-	public extern var Rotation(get, never): cpp.Float32;
-	public inline extern function get_Rotation(): cpp.Float32 return this.Rotation;
+	public extern var Rotation(get, never): ucpp.num.Float32;
+	public inline extern function get_Rotation(): ucpp.num.Float32 return this.Rotation;
 	public extern var bAlignToNormal(get, never): Bool;
 	public inline extern function get_bAlignToNormal(): Bool return this.bAlignToNormal;
 	public extern var bShowGizmo(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstProceduralShapeToolProperties(ProceduralShapeToolProperties) from 
 @:forward
 @:nativeGen
 @:native("ProceduralShapeToolProperties*")
-abstract ProceduralShapeToolPropertiesPtr(cpp.Star<ProceduralShapeToolProperties>) from cpp.Star<ProceduralShapeToolProperties> to cpp.Star<ProceduralShapeToolProperties>{
+abstract ProceduralShapeToolPropertiesPtr(ucpp.Ptr<ProceduralShapeToolProperties>) from ucpp.Ptr<ProceduralShapeToolProperties> to ucpp.Ptr<ProceduralShapeToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralShapeToolProperties): ProceduralShapeToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

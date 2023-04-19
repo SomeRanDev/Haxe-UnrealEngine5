@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigTestDataVariable")
 @:include("ControlRigTestData.h")
-@:structAccess
+@:valueType
 extern class ControlRigTestDataVariable {
 	public var Name: FName;
 	public var CPPType: FName;

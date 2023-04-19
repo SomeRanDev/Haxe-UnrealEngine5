@@ -3,27 +3,27 @@ package ue;
 
 @:native("UBTTask_Wait")
 @:include("BehaviorTree/Tasks/BTTask_Wait.h")
-@:structAccess
+@:valueType
 extern class BTTask_Wait extends BTTaskNode {
-	public var WaitTime: cpp.Float32;
-	public var RandomDeviation: cpp.Float32;
+	public var WaitTime: ucpp.num.Float32;
+	public var RandomDeviation: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTTask_Wait(BTTask_Wait) from BTTask_Wait {
-	public extern var WaitTime(get, never): cpp.Float32;
-	public inline extern function get_WaitTime(): cpp.Float32 return this.WaitTime;
-	public extern var RandomDeviation(get, never): cpp.Float32;
-	public inline extern function get_RandomDeviation(): cpp.Float32 return this.RandomDeviation;
+	public extern var WaitTime(get, never): ucpp.num.Float32;
+	public inline extern function get_WaitTime(): ucpp.num.Float32 return this.WaitTime;
+	public extern var RandomDeviation(get, never): ucpp.num.Float32;
+	public inline extern function get_RandomDeviation(): ucpp.num.Float32 return this.RandomDeviation;
 }
 
 @:forward
 @:nativeGen
 @:native("BTTask_Wait*")
-abstract BTTask_WaitPtr(cpp.Star<BTTask_Wait>) from cpp.Star<BTTask_Wait> to cpp.Star<BTTask_Wait>{
+abstract BTTask_WaitPtr(ucpp.Ptr<BTTask_Wait>) from ucpp.Ptr<BTTask_Wait> to ucpp.Ptr<BTTask_Wait>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_Wait): BTTask_WaitPtr {
 		return untyped __cpp__("&({0})", v);

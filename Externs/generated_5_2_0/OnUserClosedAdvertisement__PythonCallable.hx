@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnUserClosedAdvertisement__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnUserClosedAdvertisement__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnUserClosedAdvertisement__PythonCallable(OnUserClosedAdvertisemen
 @:forward
 @:nativeGen
 @:native("OnUserClosedAdvertisement__PythonCallable*")
-abstract OnUserClosedAdvertisement__PythonCallablePtr(cpp.Star<OnUserClosedAdvertisement__PythonCallable>) from cpp.Star<OnUserClosedAdvertisement__PythonCallable> to cpp.Star<OnUserClosedAdvertisement__PythonCallable>{
+abstract OnUserClosedAdvertisement__PythonCallablePtr(ucpp.Ptr<OnUserClosedAdvertisement__PythonCallable>) from ucpp.Ptr<OnUserClosedAdvertisement__PythonCallable> to ucpp.Ptr<OnUserClosedAdvertisement__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnUserClosedAdvertisement__PythonCallable): OnUserClosedAdvertisement__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UConstantQNRT")
 @:include("ConstantQNRT.h")
-@:structAccess
+@:valueType
 extern class ConstantQNRT extends AudioSynesthesiaNRT {
-	public var Settings: cpp.Star<ConstantQNRTSettings>;
+	public var Settings: ucpp.Ptr<ConstantQNRTSettings>;
 
-	public function GetNormalizedChannelConstantQAtTime(InSeconds: cpp.Float32, InChannel: cpp.Int32, OutConstantQ: cpp.Reference<TArray<cpp.Float32>>): Void;
-	public function GetChannelConstantQAtTime(InSeconds: cpp.Float32, InChannel: cpp.Int32, OutConstantQ: cpp.Reference<TArray<cpp.Float32>>): Void;
+	public function GetNormalizedChannelConstantQAtTime(InSeconds: ucpp.num.Float32, InChannel: ucpp.num.Int32, OutConstantQ: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
+	public function GetChannelConstantQAtTime(InSeconds: ucpp.num.Float32, InChannel: ucpp.num.Int32, OutConstantQ: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNormalizedChannelConstantQAtTime, GetChannelConstantQAtTime)
 @:nativeGen
 abstract ConstConstantQNRT(ConstantQNRT) from ConstantQNRT {
-	public extern var Settings(get, never): cpp.Star<ConstantQNRTSettings.ConstConstantQNRTSettings>;
-	public inline extern function get_Settings(): cpp.Star<ConstantQNRTSettings.ConstConstantQNRTSettings> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<ConstantQNRTSettings.ConstConstantQNRTSettings>;
+	public inline extern function get_Settings(): ucpp.Ptr<ConstantQNRTSettings.ConstConstantQNRTSettings> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("ConstantQNRT*")
-abstract ConstantQNRTPtr(cpp.Star<ConstantQNRT>) from cpp.Star<ConstantQNRT> to cpp.Star<ConstantQNRT>{
+abstract ConstantQNRTPtr(ucpp.Ptr<ConstantQNRT>) from ucpp.Ptr<ConstantQNRT> to ucpp.Ptr<ConstantQNRT>{
 	@:from
 	public static extern inline function fromValue(v: ConstantQNRT): ConstantQNRTPtr {
 		return untyped __cpp__("&({0})", v);

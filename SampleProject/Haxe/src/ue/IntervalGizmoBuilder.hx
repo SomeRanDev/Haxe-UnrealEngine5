@@ -3,10 +3,10 @@ package ue;
 
 @:native("UIntervalGizmoBuilder")
 @:include("BaseGizmos/IntervalGizmo.h")
-@:structAccess
+@:valueType
 extern class IntervalGizmoBuilder extends InteractiveGizmoBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstIntervalGizmoBuilder(IntervalGizmoBuilder) from IntervalGizmoBuild
 @:forward
 @:nativeGen
 @:native("IntervalGizmoBuilder*")
-abstract IntervalGizmoBuilderPtr(cpp.Star<IntervalGizmoBuilder>) from cpp.Star<IntervalGizmoBuilder> to cpp.Star<IntervalGizmoBuilder>{
+abstract IntervalGizmoBuilderPtr(ucpp.Ptr<IntervalGizmoBuilder>) from ucpp.Ptr<IntervalGizmoBuilder> to ucpp.Ptr<IntervalGizmoBuilder>{
 	@:from
 	public static extern inline function fromValue(v: IntervalGizmoBuilder): IntervalGizmoBuilderPtr {
 		return untyped __cpp__("&({0})", v);

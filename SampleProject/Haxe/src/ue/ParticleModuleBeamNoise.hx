@@ -3,30 +3,30 @@ package ue;
 
 @:native("UParticleModuleBeamNoise")
 @:include("Particles/Beam/ParticleModuleBeamNoise.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleBeamNoise extends ParticleModuleBeamBase {
 	public var bLowFreq_Enabled: Bool;
-	public var Frequency: cpp.Int32;
-	public var Frequency_LowRange: cpp.Int32;
+	public var Frequency: ucpp.num.Int32;
+	public var Frequency_LowRange: ucpp.num.Int32;
 	public var NoiseRange: RawDistributionVector;
 	public var NoiseRangeScale: RawDistributionFloat;
 	public var bNRScaleEmitterTime: Bool;
 	public var NoiseSpeed: RawDistributionVector;
 	public var bSmooth: Bool;
-	public var NoiseLockRadius: cpp.Float32;
+	public var NoiseLockRadius: ucpp.num.Float32;
 	public var bNoiseLock: Bool;
 	public var bOscillate: Bool;
-	public var NoiseLockTime: cpp.Float32;
-	public var NoiseTension: cpp.Float32;
+	public var NoiseLockTime: ucpp.num.Float32;
+	public var NoiseTension: ucpp.num.Float32;
 	public var bUseNoiseTangents: Bool;
 	public var NoiseTangentStrength: RawDistributionFloat;
-	public var NoiseTessellation: cpp.Int32;
+	public var NoiseTessellation: ucpp.num.Int32;
 	public var bTargetNoise: Bool;
-	public var FrequencyDistance: cpp.Float32;
+	public var FrequencyDistance: ucpp.num.Float32;
 	public var bApplyNoiseScale: Bool;
 	public var NoiseScale: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,10 +34,10 @@ extern class ParticleModuleBeamNoise extends ParticleModuleBeamBase {
 abstract ConstParticleModuleBeamNoise(ParticleModuleBeamNoise) from ParticleModuleBeamNoise {
 	public extern var bLowFreq_Enabled(get, never): Bool;
 	public inline extern function get_bLowFreq_Enabled(): Bool return this.bLowFreq_Enabled;
-	public extern var Frequency(get, never): cpp.Int32;
-	public inline extern function get_Frequency(): cpp.Int32 return this.Frequency;
-	public extern var Frequency_LowRange(get, never): cpp.Int32;
-	public inline extern function get_Frequency_LowRange(): cpp.Int32 return this.Frequency_LowRange;
+	public extern var Frequency(get, never): ucpp.num.Int32;
+	public inline extern function get_Frequency(): ucpp.num.Int32 return this.Frequency;
+	public extern var Frequency_LowRange(get, never): ucpp.num.Int32;
+	public inline extern function get_Frequency_LowRange(): ucpp.num.Int32 return this.Frequency_LowRange;
 	public extern var NoiseRange(get, never): RawDistributionVector;
 	public inline extern function get_NoiseRange(): RawDistributionVector return this.NoiseRange;
 	public extern var NoiseRangeScale(get, never): RawDistributionFloat;
@@ -48,26 +48,26 @@ abstract ConstParticleModuleBeamNoise(ParticleModuleBeamNoise) from ParticleModu
 	public inline extern function get_NoiseSpeed(): RawDistributionVector return this.NoiseSpeed;
 	public extern var bSmooth(get, never): Bool;
 	public inline extern function get_bSmooth(): Bool return this.bSmooth;
-	public extern var NoiseLockRadius(get, never): cpp.Float32;
-	public inline extern function get_NoiseLockRadius(): cpp.Float32 return this.NoiseLockRadius;
+	public extern var NoiseLockRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseLockRadius(): ucpp.num.Float32 return this.NoiseLockRadius;
 	public extern var bNoiseLock(get, never): Bool;
 	public inline extern function get_bNoiseLock(): Bool return this.bNoiseLock;
 	public extern var bOscillate(get, never): Bool;
 	public inline extern function get_bOscillate(): Bool return this.bOscillate;
-	public extern var NoiseLockTime(get, never): cpp.Float32;
-	public inline extern function get_NoiseLockTime(): cpp.Float32 return this.NoiseLockTime;
-	public extern var NoiseTension(get, never): cpp.Float32;
-	public inline extern function get_NoiseTension(): cpp.Float32 return this.NoiseTension;
+	public extern var NoiseLockTime(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseLockTime(): ucpp.num.Float32 return this.NoiseLockTime;
+	public extern var NoiseTension(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseTension(): ucpp.num.Float32 return this.NoiseTension;
 	public extern var bUseNoiseTangents(get, never): Bool;
 	public inline extern function get_bUseNoiseTangents(): Bool return this.bUseNoiseTangents;
 	public extern var NoiseTangentStrength(get, never): RawDistributionFloat;
 	public inline extern function get_NoiseTangentStrength(): RawDistributionFloat return this.NoiseTangentStrength;
-	public extern var NoiseTessellation(get, never): cpp.Int32;
-	public inline extern function get_NoiseTessellation(): cpp.Int32 return this.NoiseTessellation;
+	public extern var NoiseTessellation(get, never): ucpp.num.Int32;
+	public inline extern function get_NoiseTessellation(): ucpp.num.Int32 return this.NoiseTessellation;
 	public extern var bTargetNoise(get, never): Bool;
 	public inline extern function get_bTargetNoise(): Bool return this.bTargetNoise;
-	public extern var FrequencyDistance(get, never): cpp.Float32;
-	public inline extern function get_FrequencyDistance(): cpp.Float32 return this.FrequencyDistance;
+	public extern var FrequencyDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_FrequencyDistance(): ucpp.num.Float32 return this.FrequencyDistance;
 	public extern var bApplyNoiseScale(get, never): Bool;
 	public inline extern function get_bApplyNoiseScale(): Bool return this.bApplyNoiseScale;
 	public extern var NoiseScale(get, never): RawDistributionFloat;
@@ -77,7 +77,7 @@ abstract ConstParticleModuleBeamNoise(ParticleModuleBeamNoise) from ParticleModu
 @:forward
 @:nativeGen
 @:native("ParticleModuleBeamNoise*")
-abstract ParticleModuleBeamNoisePtr(cpp.Star<ParticleModuleBeamNoise>) from cpp.Star<ParticleModuleBeamNoise> to cpp.Star<ParticleModuleBeamNoise>{
+abstract ParticleModuleBeamNoisePtr(ucpp.Ptr<ParticleModuleBeamNoise>) from ucpp.Ptr<ParticleModuleBeamNoise> to ucpp.Ptr<ParticleModuleBeamNoise>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleBeamNoise): ParticleModuleBeamNoisePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGCObjectReferencer")
-@:structAccess
+@:valueType
 extern class GCObjectReferencer extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGCObjectReferencer(GCObjectReferencer) from GCObjectReferencer {
 @:forward
 @:nativeGen
 @:native("GCObjectReferencer*")
-abstract GCObjectReferencerPtr(cpp.Star<GCObjectReferencer>) from cpp.Star<GCObjectReferencer> to cpp.Star<GCObjectReferencer>{
+abstract GCObjectReferencerPtr(ucpp.Ptr<GCObjectReferencer>) from ucpp.Ptr<GCObjectReferencer> to ucpp.Ptr<GCObjectReferencer>{
 	@:from
 	public static extern inline function fromValue(v: GCObjectReferencer): GCObjectReferencerPtr {
 		return untyped __cpp__("&({0})", v);

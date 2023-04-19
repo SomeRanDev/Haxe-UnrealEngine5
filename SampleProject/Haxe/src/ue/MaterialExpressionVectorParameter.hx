@@ -3,13 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionVectorParameter")
 @:include("Materials/MaterialExpressionVectorParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionVectorParameter extends MaterialExpressionParameter {
 	public var DefaultValue: LinearColor;
 	public var bUseCustomPrimitiveData: Bool;
-	public var PrimitiveDataIndex: cpp.UInt8;
+	public var PrimitiveDataIndex: ucpp.num.UInt8;
+	public var ChannelNames: ParameterChannelNames;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +20,16 @@ abstract ConstMaterialExpressionVectorParameter(MaterialExpressionVectorParamete
 	public inline extern function get_DefaultValue(): LinearColor return this.DefaultValue;
 	public extern var bUseCustomPrimitiveData(get, never): Bool;
 	public inline extern function get_bUseCustomPrimitiveData(): Bool return this.bUseCustomPrimitiveData;
-	public extern var PrimitiveDataIndex(get, never): cpp.UInt8;
-	public inline extern function get_PrimitiveDataIndex(): cpp.UInt8 return this.PrimitiveDataIndex;
+	public extern var PrimitiveDataIndex(get, never): ucpp.num.UInt8;
+	public inline extern function get_PrimitiveDataIndex(): ucpp.num.UInt8 return this.PrimitiveDataIndex;
+	public extern var ChannelNames(get, never): ParameterChannelNames;
+	public inline extern function get_ChannelNames(): ParameterChannelNames return this.ChannelNames;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionVectorParameter*")
-abstract MaterialExpressionVectorParameterPtr(cpp.Star<MaterialExpressionVectorParameter>) from cpp.Star<MaterialExpressionVectorParameter> to cpp.Star<MaterialExpressionVectorParameter>{
+abstract MaterialExpressionVectorParameterPtr(ucpp.Ptr<MaterialExpressionVectorParameter>) from ucpp.Ptr<MaterialExpressionVectorParameter> to ucpp.Ptr<MaterialExpressionVectorParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionVectorParameter): MaterialExpressionVectorParameterPtr {
 		return untyped __cpp__("&({0})", v);

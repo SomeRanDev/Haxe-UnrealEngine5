@@ -3,10 +3,10 @@ package ue;
 
 @:native("URevolveBoundaryToolBuilder")
 @:include("RevolveBoundaryTool.h")
-@:structAccess
+@:valueType
 extern class RevolveBoundaryToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRevolveBoundaryToolBuilder(RevolveBoundaryToolBuilder) from Revolv
 @:forward
 @:nativeGen
 @:native("RevolveBoundaryToolBuilder*")
-abstract RevolveBoundaryToolBuilderPtr(cpp.Star<RevolveBoundaryToolBuilder>) from cpp.Star<RevolveBoundaryToolBuilder> to cpp.Star<RevolveBoundaryToolBuilder>{
+abstract RevolveBoundaryToolBuilderPtr(ucpp.Ptr<RevolveBoundaryToolBuilder>) from ucpp.Ptr<RevolveBoundaryToolBuilder> to ucpp.Ptr<RevolveBoundaryToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: RevolveBoundaryToolBuilder): RevolveBoundaryToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

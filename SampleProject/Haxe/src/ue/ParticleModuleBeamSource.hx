@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleBeamSource")
 @:include("Particles/Beam/ParticleModuleBeamSource.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleBeamSource extends ParticleModuleBeamBase {
 	public var SourceMethod: TEnumAsByte<Beam2SourceTargetMethod>;
 	public var SourceName: FName;
@@ -16,7 +16,7 @@ extern class ParticleModuleBeamSource extends ParticleModuleBeamBase {
 	public var SourceStrength: RawDistributionFloat;
 	public var bLockSourceStength: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -47,7 +47,7 @@ abstract ConstParticleModuleBeamSource(ParticleModuleBeamSource) from ParticleMo
 @:forward
 @:nativeGen
 @:native("ParticleModuleBeamSource*")
-abstract ParticleModuleBeamSourcePtr(cpp.Star<ParticleModuleBeamSource>) from cpp.Star<ParticleModuleBeamSource> to cpp.Star<ParticleModuleBeamSource>{
+abstract ParticleModuleBeamSourcePtr(ucpp.Ptr<ParticleModuleBeamSource>) from ucpp.Ptr<ParticleModuleBeamSource> to ucpp.Ptr<ParticleModuleBeamSource>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleBeamSource): ParticleModuleBeamSourcePtr {
 		return untyped __cpp__("&({0})", v);

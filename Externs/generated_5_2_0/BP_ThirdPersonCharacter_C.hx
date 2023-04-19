@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ABP_ThirdPersonCharacter_C")
-@:structAccess
+@:valueType
 extern class BP_ThirdPersonCharacter_C extends HaxeForUnrealCharacter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstBP_ThirdPersonCharacter_C(BP_ThirdPersonCharacter_C) from BP_Third
 @:forward
 @:nativeGen
 @:native("BP_ThirdPersonCharacter_C*")
-abstract BP_ThirdPersonCharacter_CPtr(cpp.Star<BP_ThirdPersonCharacter_C>) from cpp.Star<BP_ThirdPersonCharacter_C> to cpp.Star<BP_ThirdPersonCharacter_C>{
+abstract BP_ThirdPersonCharacter_CPtr(ucpp.Ptr<BP_ThirdPersonCharacter_C>) from ucpp.Ptr<BP_ThirdPersonCharacter_C> to ucpp.Ptr<BP_ThirdPersonCharacter_C>{
 	@:from
 	public static extern inline function fromValue(v: BP_ThirdPersonCharacter_C): BP_ThirdPersonCharacter_CPtr {
 		return untyped __cpp__("&({0})", v);

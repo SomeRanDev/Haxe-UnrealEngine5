@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimBlueprintExtension_NodeRelevancy")
 @:include("AnimBlueprintExtension_NodeRelevancy.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintExtension_NodeRelevancy extends AnimBlueprintExtension {
 	private var Subsystem: AnimSubsystemInstance_NodeRelevancy;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimBlueprintExtension_NodeRelevancy(AnimBlueprintExtension_NodeRe
 @:forward
 @:nativeGen
 @:native("AnimBlueprintExtension_NodeRelevancy*")
-abstract AnimBlueprintExtension_NodeRelevancyPtr(cpp.Star<AnimBlueprintExtension_NodeRelevancy>) from cpp.Star<AnimBlueprintExtension_NodeRelevancy> to cpp.Star<AnimBlueprintExtension_NodeRelevancy>{
+abstract AnimBlueprintExtension_NodeRelevancyPtr(ucpp.Ptr<AnimBlueprintExtension_NodeRelevancy>) from ucpp.Ptr<AnimBlueprintExtension_NodeRelevancy> to ucpp.Ptr<AnimBlueprintExtension_NodeRelevancy>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintExtension_NodeRelevancy): AnimBlueprintExtension_NodeRelevancyPtr {
 		return untyped __cpp__("&({0})", v);

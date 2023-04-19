@@ -3,26 +3,26 @@ package ue;
 
 @:native("UMetasoundParameterPack")
 @:include("MetasoundParameterPack.h")
-@:structAccess
+@:valueType
 extern class MetasoundParameterPack extends Object {
 	public function SetTrigger(ParameterName: FName, OnlyIfExists: Bool): ESetParamResult;
 	public function SetString(ParameterName: FName, InValue: FString, OnlyIfExists: Bool): ESetParamResult;
-	public function SetInt(ParameterName: FName, InValue: cpp.Int32, OnlyIfExists: Bool): ESetParamResult;
-	public function SetFloat(ParameterName: FName, InValue: cpp.Float32, OnlyIfExists: Bool): ESetParamResult;
+	public function SetInt(ParameterName: FName, InValue: ucpp.num.Int32, OnlyIfExists: Bool): ESetParamResult;
+	public function SetFloat(ParameterName: FName, InValue: ucpp.num.Float32, OnlyIfExists: Bool): ESetParamResult;
 	public function SetBool(ParameterName: FName, InValue: Bool, OnlyIfExists: Bool): ESetParamResult;
-	public function MakeMetasoundParameterPack(): cpp.Star<MetasoundParameterPack>;
+	public function MakeMetasoundParameterPack(): ucpp.Ptr<MetasoundParameterPack>;
 	public function HasTrigger(ParameterName: FName): Bool;
 	public function HasString(ParameterName: FName): Bool;
 	public function HasInt(ParameterName: FName): Bool;
 	public function HasFloat(ParameterName: FName): Bool;
 	public function HasBool(ParameterName: FName): Bool;
-	public function GetTrigger(ParameterName: FName, Result: cpp.Reference<ESetParamResult>): Bool;
-	public function GetString(ParameterName: FName, Result: cpp.Reference<ESetParamResult>): FString;
-	public function GetInt(ParameterName: FName, Result: cpp.Reference<ESetParamResult>): cpp.Int32;
-	public function GetFloat(ParameterName: FName, Result: cpp.Reference<ESetParamResult>): cpp.Float32;
-	public function GetBool(ParameterName: FName, Result: cpp.Reference<ESetParamResult>): Bool;
+	public function GetTrigger(ParameterName: FName, Result: ucpp.Ref<ESetParamResult>): Bool;
+	public function GetString(ParameterName: FName, Result: ucpp.Ref<ESetParamResult>): FString;
+	public function GetInt(ParameterName: FName, Result: ucpp.Ref<ESetParamResult>): ucpp.num.Int32;
+	public function GetFloat(ParameterName: FName, Result: ucpp.Ref<ESetParamResult>): ucpp.num.Float32;
+	public function GetBool(ParameterName: FName, Result: ucpp.Ref<ESetParamResult>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,7 +33,7 @@ abstract ConstMetasoundParameterPack(MetasoundParameterPack) from MetasoundParam
 @:forward
 @:nativeGen
 @:native("MetasoundParameterPack*")
-abstract MetasoundParameterPackPtr(cpp.Star<MetasoundParameterPack>) from cpp.Star<MetasoundParameterPack> to cpp.Star<MetasoundParameterPack>{
+abstract MetasoundParameterPackPtr(ucpp.Ptr<MetasoundParameterPack>) from ucpp.Ptr<MetasoundParameterPack> to ucpp.Ptr<MetasoundParameterPack>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundParameterPack): MetasoundParameterPackPtr {
 		return untyped __cpp__("&({0})", v);

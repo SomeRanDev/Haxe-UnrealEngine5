@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNamedSlot")
 @:include("Components/NamedSlot.h")
-@:structAccess
+@:valueType
 extern class NamedSlot extends ContentWidget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNamedSlot(NamedSlot) from NamedSlot {
 @:forward
 @:nativeGen
 @:native("NamedSlot*")
-abstract NamedSlotPtr(cpp.Star<NamedSlot>) from cpp.Star<NamedSlot> to cpp.Star<NamedSlot>{
+abstract NamedSlotPtr(ucpp.Ptr<NamedSlot>) from ucpp.Ptr<NamedSlot> to ucpp.Ptr<NamedSlot>{
 	@:from
 	public static extern inline function fromValue(v: NamedSlot): NamedSlotPtr {
 		return untyped __cpp__("&({0})", v);

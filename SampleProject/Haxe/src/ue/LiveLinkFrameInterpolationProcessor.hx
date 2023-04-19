@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULiveLinkFrameInterpolationProcessor")
 @:include("LiveLinkFrameInterpolationProcessor.h")
-@:structAccess
+@:valueType
 extern class LiveLinkFrameInterpolationProcessor extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLiveLinkFrameInterpolationProcessor(LiveLinkFrameInterpolationProc
 @:forward
 @:nativeGen
 @:native("LiveLinkFrameInterpolationProcessor*")
-abstract LiveLinkFrameInterpolationProcessorPtr(cpp.Star<LiveLinkFrameInterpolationProcessor>) from cpp.Star<LiveLinkFrameInterpolationProcessor> to cpp.Star<LiveLinkFrameInterpolationProcessor>{
+abstract LiveLinkFrameInterpolationProcessorPtr(ucpp.Ptr<LiveLinkFrameInterpolationProcessor>) from ucpp.Ptr<LiveLinkFrameInterpolationProcessor> to ucpp.Ptr<LiveLinkFrameInterpolationProcessor>{
 	@:from
 	public static extern inline function fromValue(v: LiveLinkFrameInterpolationProcessor): LiveLinkFrameInterpolationProcessorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UParticleSpriteEmitter")
 @:include("Particles/ParticleSpriteEmitter.h")
-@:structAccess
+@:valueType
 extern class ParticleSpriteEmitter extends ParticleEmitter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstParticleSpriteEmitter(ParticleSpriteEmitter) from ParticleSpriteEm
 @:forward
 @:nativeGen
 @:native("ParticleSpriteEmitter*")
-abstract ParticleSpriteEmitterPtr(cpp.Star<ParticleSpriteEmitter>) from cpp.Star<ParticleSpriteEmitter> to cpp.Star<ParticleSpriteEmitter>{
+abstract ParticleSpriteEmitterPtr(ucpp.Ptr<ParticleSpriteEmitter>) from ucpp.Ptr<ParticleSpriteEmitter> to ucpp.Ptr<ParticleSpriteEmitter>{
 	@:from
 	public static extern inline function fromValue(v: ParticleSpriteEmitter): ParticleSpriteEmitterPtr {
 		return untyped __cpp__("&({0})", v);

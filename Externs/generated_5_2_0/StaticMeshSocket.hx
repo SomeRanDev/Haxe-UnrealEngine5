@@ -3,7 +3,7 @@ package ue;
 
 @:native("UStaticMeshSocket")
 @:include("Engine/StaticMeshSocket.h")
-@:structAccess
+@:valueType
 extern class StaticMeshSocket extends Object {
 	public var SocketName: FName;
 	public var RelativeLocation: Vector;
@@ -11,7 +11,7 @@ extern class StaticMeshSocket extends Object {
 	public var RelativeScale: Vector;
 	public var Tag: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstStaticMeshSocket(StaticMeshSocket) from StaticMeshSocket {
 @:forward
 @:nativeGen
 @:native("StaticMeshSocket*")
-abstract StaticMeshSocketPtr(cpp.Star<StaticMeshSocket>) from cpp.Star<StaticMeshSocket> to cpp.Star<StaticMeshSocket>{
+abstract StaticMeshSocketPtr(ucpp.Ptr<StaticMeshSocket>) from ucpp.Ptr<StaticMeshSocket> to ucpp.Ptr<StaticMeshSocket>{
 	@:from
 	public static extern inline function fromValue(v: StaticMeshSocket): StaticMeshSocketPtr {
 		return untyped __cpp__("&({0})", v);

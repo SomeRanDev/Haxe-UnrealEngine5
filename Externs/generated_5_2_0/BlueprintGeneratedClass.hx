@@ -3,44 +3,44 @@ package ue;
 
 @:native("UBlueprintGeneratedClass")
 @:include("Engine/BlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class BlueprintGeneratedClass extends Class {
-	public var NumReplicatedProperties: cpp.Int32;
+	public var NumReplicatedProperties: ucpp.num.Int32;
 	public var bHasCookedComponentInstancingData: Bool;
-	public var DynamicBindingObjects: TArray<cpp.Star<DynamicBlueprintBinding>>;
-	public var ComponentTemplates: TArray<cpp.Star<ActorComp>>;
-	public var Timelines: TArray<cpp.Star<TimelineTemplate>>;
+	public var DynamicBindingObjects: TArray<ucpp.Ptr<DynamicBlueprintBinding>>;
+	public var ComponentTemplates: TArray<ucpp.Ptr<ActorComp>>;
+	public var Timelines: TArray<ucpp.Ptr<TimelineTemplate>>;
 	public var ComponentClassOverrides: TArray<BPComponentClassOverride>;
-	public var SimpleConstructionScript: cpp.Star<SimpleConstructionScript>;
-	public var InheritableComponentHandler: cpp.Star<InheritableComponentHandler>;
-	public var UberGraphFunction: cpp.Star<Function>;
+	public var SimpleConstructionScript: ucpp.Ptr<SimpleConstructionScript>;
+	public var InheritableComponentHandler: ucpp.Ptr<InheritableComponentHandler>;
+	public var UberGraphFunction: ucpp.Ptr<Function>;
 	public var CookedPropertyGuids: TMap<FName, Guid>;
 	public var CookedComponentInstancingData: TMap<FName, BlueprintCookedComponentInstancingData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBlueprintGeneratedClass(BlueprintGeneratedClass) from BlueprintGeneratedClass {
-	public extern var NumReplicatedProperties(get, never): cpp.Int32;
-	public inline extern function get_NumReplicatedProperties(): cpp.Int32 return this.NumReplicatedProperties;
+	public extern var NumReplicatedProperties(get, never): ucpp.num.Int32;
+	public inline extern function get_NumReplicatedProperties(): ucpp.num.Int32 return this.NumReplicatedProperties;
 	public extern var bHasCookedComponentInstancingData(get, never): Bool;
 	public inline extern function get_bHasCookedComponentInstancingData(): Bool return this.bHasCookedComponentInstancingData;
-	public extern var DynamicBindingObjects(get, never): TArray<cpp.Star<DynamicBlueprintBinding.ConstDynamicBlueprintBinding>>;
-	public inline extern function get_DynamicBindingObjects(): TArray<cpp.Star<DynamicBlueprintBinding.ConstDynamicBlueprintBinding>> return this.DynamicBindingObjects;
-	public extern var ComponentTemplates(get, never): TArray<cpp.Star<ActorComp.ConstActorComp>>;
-	public inline extern function get_ComponentTemplates(): TArray<cpp.Star<ActorComp.ConstActorComp>> return this.ComponentTemplates;
-	public extern var Timelines(get, never): TArray<cpp.Star<TimelineTemplate.ConstTimelineTemplate>>;
-	public inline extern function get_Timelines(): TArray<cpp.Star<TimelineTemplate.ConstTimelineTemplate>> return this.Timelines;
+	public extern var DynamicBindingObjects(get, never): TArray<ucpp.Ptr<DynamicBlueprintBinding.ConstDynamicBlueprintBinding>>;
+	public inline extern function get_DynamicBindingObjects(): TArray<ucpp.Ptr<DynamicBlueprintBinding.ConstDynamicBlueprintBinding>> return this.DynamicBindingObjects;
+	public extern var ComponentTemplates(get, never): TArray<ucpp.Ptr<ActorComp.ConstActorComp>>;
+	public inline extern function get_ComponentTemplates(): TArray<ucpp.Ptr<ActorComp.ConstActorComp>> return this.ComponentTemplates;
+	public extern var Timelines(get, never): TArray<ucpp.Ptr<TimelineTemplate.ConstTimelineTemplate>>;
+	public inline extern function get_Timelines(): TArray<ucpp.Ptr<TimelineTemplate.ConstTimelineTemplate>> return this.Timelines;
 	public extern var ComponentClassOverrides(get, never): TArray<BPComponentClassOverride>;
 	public inline extern function get_ComponentClassOverrides(): TArray<BPComponentClassOverride> return this.ComponentClassOverrides;
-	public extern var SimpleConstructionScript(get, never): cpp.Star<SimpleConstructionScript.ConstSimpleConstructionScript>;
-	public inline extern function get_SimpleConstructionScript(): cpp.Star<SimpleConstructionScript.ConstSimpleConstructionScript> return this.SimpleConstructionScript;
-	public extern var InheritableComponentHandler(get, never): cpp.Star<InheritableComponentHandler.ConstInheritableComponentHandler>;
-	public inline extern function get_InheritableComponentHandler(): cpp.Star<InheritableComponentHandler.ConstInheritableComponentHandler> return this.InheritableComponentHandler;
-	public extern var UberGraphFunction(get, never): cpp.Star<Function.ConstFunction>;
-	public inline extern function get_UberGraphFunction(): cpp.Star<Function.ConstFunction> return this.UberGraphFunction;
+	public extern var SimpleConstructionScript(get, never): ucpp.Ptr<SimpleConstructionScript.ConstSimpleConstructionScript>;
+	public inline extern function get_SimpleConstructionScript(): ucpp.Ptr<SimpleConstructionScript.ConstSimpleConstructionScript> return this.SimpleConstructionScript;
+	public extern var InheritableComponentHandler(get, never): ucpp.Ptr<InheritableComponentHandler.ConstInheritableComponentHandler>;
+	public inline extern function get_InheritableComponentHandler(): ucpp.Ptr<InheritableComponentHandler.ConstInheritableComponentHandler> return this.InheritableComponentHandler;
+	public extern var UberGraphFunction(get, never): ucpp.Ptr<Function.ConstFunction>;
+	public inline extern function get_UberGraphFunction(): ucpp.Ptr<Function.ConstFunction> return this.UberGraphFunction;
 	public extern var CookedPropertyGuids(get, never): TMap<FName, Guid>;
 	public inline extern function get_CookedPropertyGuids(): TMap<FName, Guid> return this.CookedPropertyGuids;
 	public extern var CookedComponentInstancingData(get, never): TMap<FName, BlueprintCookedComponentInstancingData>;
@@ -50,7 +50,7 @@ abstract ConstBlueprintGeneratedClass(BlueprintGeneratedClass) from BlueprintGen
 @:forward
 @:nativeGen
 @:native("BlueprintGeneratedClass*")
-abstract BlueprintGeneratedClassPtr(cpp.Star<BlueprintGeneratedClass>) from cpp.Star<BlueprintGeneratedClass> to cpp.Star<BlueprintGeneratedClass>{
+abstract BlueprintGeneratedClassPtr(ucpp.Ptr<BlueprintGeneratedClass>) from ucpp.Ptr<BlueprintGeneratedClass> to ucpp.Ptr<BlueprintGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintGeneratedClass): BlueprintGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

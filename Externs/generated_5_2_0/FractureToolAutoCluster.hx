@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolAutoCluster")
 @:include("FractureToolAutoCluster.h")
-@:structAccess
+@:valueType
 extern class FractureToolAutoCluster extends FractureModalTool {
-	public var AutoClusterSettings: cpp.Star<FractureAutoClusterSettings>;
+	public var AutoClusterSettings: ucpp.Ptr<FractureAutoClusterSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolAutoCluster(FractureToolAutoCluster) from FractureToolAutoCluster {
-	public extern var AutoClusterSettings(get, never): cpp.Star<FractureAutoClusterSettings.ConstFractureAutoClusterSettings>;
-	public inline extern function get_AutoClusterSettings(): cpp.Star<FractureAutoClusterSettings.ConstFractureAutoClusterSettings> return this.AutoClusterSettings;
+	public extern var AutoClusterSettings(get, never): ucpp.Ptr<FractureAutoClusterSettings.ConstFractureAutoClusterSettings>;
+	public inline extern function get_AutoClusterSettings(): ucpp.Ptr<FractureAutoClusterSettings.ConstFractureAutoClusterSettings> return this.AutoClusterSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolAutoCluster*")
-abstract FractureToolAutoClusterPtr(cpp.Star<FractureToolAutoCluster>) from cpp.Star<FractureToolAutoCluster> to cpp.Star<FractureToolAutoCluster>{
+abstract FractureToolAutoClusterPtr(ucpp.Ptr<FractureToolAutoCluster>) from ucpp.Ptr<FractureToolAutoCluster> to ucpp.Ptr<FractureToolAutoCluster>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolAutoCluster): FractureToolAutoClusterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UImgMediaSourceFactory")
 @:include("Factories/ImgMediaSourceFactory.h")
-@:structAccess
+@:valueType
 extern class ImgMediaSourceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstImgMediaSourceFactory(ImgMediaSourceFactory) from ImgMediaSourceFa
 @:forward
 @:nativeGen
 @:native("ImgMediaSourceFactory*")
-abstract ImgMediaSourceFactoryPtr(cpp.Star<ImgMediaSourceFactory>) from cpp.Star<ImgMediaSourceFactory> to cpp.Star<ImgMediaSourceFactory>{
+abstract ImgMediaSourceFactoryPtr(ucpp.Ptr<ImgMediaSourceFactory>) from ucpp.Ptr<ImgMediaSourceFactory> to ucpp.Ptr<ImgMediaSourceFactory>{
 	@:from
 	public static extern inline function fromValue(v: ImgMediaSourceFactory): ImgMediaSourceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

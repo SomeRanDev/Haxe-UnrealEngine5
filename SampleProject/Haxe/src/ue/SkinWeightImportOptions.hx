@@ -3,13 +3,13 @@ package ue;
 
 @:native("USkinWeightImportOptions")
 @:include("SSkinWeightProfileImportOptions.h")
-@:structAccess
+@:valueType
 extern class SkinWeightImportOptions extends Object {
 	public var ProfileName: FString;
 	public var FilePath: FString;
-	public var LODIndex: cpp.Int32;
+	public var LODIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstSkinWeightImportOptions(SkinWeightImportOptions) from SkinWeightIm
 	public inline extern function get_ProfileName(): FString return this.ProfileName;
 	public extern var FilePath(get, never): FString;
 	public inline extern function get_FilePath(): FString return this.FilePath;
-	public extern var LODIndex(get, never): cpp.Int32;
-	public inline extern function get_LODIndex(): cpp.Int32 return this.LODIndex;
+	public extern var LODIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LODIndex(): ucpp.num.Int32 return this.LODIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("SkinWeightImportOptions*")
-abstract SkinWeightImportOptionsPtr(cpp.Star<SkinWeightImportOptions>) from cpp.Star<SkinWeightImportOptions> to cpp.Star<SkinWeightImportOptions>{
+abstract SkinWeightImportOptionsPtr(ucpp.Ptr<SkinWeightImportOptions>) from ucpp.Ptr<SkinWeightImportOptions> to ucpp.Ptr<SkinWeightImportOptions>{
 	@:from
 	public static extern inline function fromValue(v: SkinWeightImportOptions): SkinWeightImportOptionsPtr {
 		return untyped __cpp__("&({0})", v);

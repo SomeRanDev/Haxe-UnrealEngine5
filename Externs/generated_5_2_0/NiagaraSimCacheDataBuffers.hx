@@ -3,15 +3,15 @@ package ue;
 
 @:native("FNiagaraSimCacheDataBuffers")
 @:include("NiagaraSimCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheDataBuffers {
-	public var NumInstances: cpp.UInt32;
-	public var FloatData: TArray<cpp.UInt8>;
-	public var HalfData: TArray<cpp.UInt8>;
-	public var Int32Data: TArray<cpp.UInt8>;
-	public var IDToIndexTable: TArray<cpp.Int32>;
-	public var IDAcquireTag: cpp.UInt32;
-	public var InterpMapping: TArray<cpp.UInt32>;
+	public var NumInstances: ucpp.num.UInt32;
+	public var FloatData: TArray<ucpp.num.UInt8>;
+	public var HalfData: TArray<ucpp.num.UInt8>;
+	public var Int32Data: TArray<ucpp.num.UInt8>;
+	public var IDToIndexTable: TArray<ucpp.num.Int32>;
+	public var IDAcquireTag: ucpp.num.UInt32;
+	public var InterpMapping: TArray<ucpp.num.UInt32>;
 
 	@:native("FNiagaraSimCacheDataBuffers") public function new();
 }

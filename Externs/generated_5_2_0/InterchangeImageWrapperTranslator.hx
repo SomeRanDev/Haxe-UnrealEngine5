@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeImageWrapperTranslator")
 @:include("Texture/InterchangeImageWrapperTranslator.h")
-@:structAccess
+@:valueType
 extern class InterchangeImageWrapperTranslator extends InterchangeTranslatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeImageWrapperTranslator(InterchangeImageWrapperTranslato
 @:forward
 @:nativeGen
 @:native("InterchangeImageWrapperTranslator*")
-abstract InterchangeImageWrapperTranslatorPtr(cpp.Star<InterchangeImageWrapperTranslator>) from cpp.Star<InterchangeImageWrapperTranslator> to cpp.Star<InterchangeImageWrapperTranslator>{
+abstract InterchangeImageWrapperTranslatorPtr(ucpp.Ptr<InterchangeImageWrapperTranslator>) from ucpp.Ptr<InterchangeImageWrapperTranslator> to ucpp.Ptr<InterchangeImageWrapperTranslator>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeImageWrapperTranslator): InterchangeImageWrapperTranslatorPtr {
 		return untyped __cpp__("&({0})", v);

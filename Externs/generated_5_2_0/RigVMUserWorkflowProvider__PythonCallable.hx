@@ -2,10 +2,10 @@
 package ue;
 
 @:native("URigVMUserWorkflowProvider__PythonCallable")
-@:structAccess
+@:valueType
 extern class RigVMUserWorkflowProvider__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstRigVMUserWorkflowProvider__PythonCallable(RigVMUserWorkflowProvide
 @:forward
 @:nativeGen
 @:native("RigVMUserWorkflowProvider__PythonCallable*")
-abstract RigVMUserWorkflowProvider__PythonCallablePtr(cpp.Star<RigVMUserWorkflowProvider__PythonCallable>) from cpp.Star<RigVMUserWorkflowProvider__PythonCallable> to cpp.Star<RigVMUserWorkflowProvider__PythonCallable>{
+abstract RigVMUserWorkflowProvider__PythonCallablePtr(ucpp.Ptr<RigVMUserWorkflowProvider__PythonCallable>) from ucpp.Ptr<RigVMUserWorkflowProvider__PythonCallable> to ucpp.Ptr<RigVMUserWorkflowProvider__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: RigVMUserWorkflowProvider__PythonCallable): RigVMUserWorkflowProvider__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

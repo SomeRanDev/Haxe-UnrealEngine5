@@ -3,34 +3,34 @@ package ue;
 
 @:native("UCineCameraSettings")
 @:include("CineCameraSettings.h")
-@:structAccess
+@:valueType
 extern class CineCameraSettings extends DeveloperSettings {
 	public var DefaultLensPresetName: FString;
-	public var DefaultLensFocalLength: cpp.Float32;
-	public var DefaultLensFStop: cpp.Float32;
+	public var DefaultLensFocalLength: ucpp.num.Float32;
+	public var DefaultLensFStop: ucpp.num.Float32;
 	public var LensPresets: TArray<NamedLensPreset>;
 	public var DefaultFilmbackPreset: FString;
 	public var FilmbackPresets: TArray<NamedFilmbackPreset>;
 	public var DefaultCropPresetName: FString;
 	public var CropPresets: TArray<NamedPlateCropPreset>;
 
-	private function SetLensPresets(InLensPresets: cpp.Reference<TArray<NamedLensPreset>>): Void;
-	private function SetFilmbackPresets(InFilmbackPresets: cpp.Reference<TArray<NamedFilmbackPreset>>): Void;
+	private function SetLensPresets(InLensPresets: ucpp.Ref<TArray<NamedLensPreset>>): Void;
+	private function SetFilmbackPresets(InFilmbackPresets: ucpp.Ref<TArray<NamedFilmbackPreset>>): Void;
 	private function SetDefaultLensPresetName(InDefaultLensPresetName: FString): Void;
-	private function SetDefaultLensFStop(InDefaultLensFStop: cpp.Float32): Void;
-	private function SetDefaultLensFocalLength(InDefaultLensFocalLength: cpp.Float32): Void;
+	private function SetDefaultLensFStop(InDefaultLensFStop: ucpp.num.Float32): Void;
+	private function SetDefaultLensFocalLength(InDefaultLensFocalLength: ucpp.num.Float32): Void;
 	private function SetDefaultFilmbackPreset(InDefaultFilmbackPreset: FString): Void;
 	private function SetDefaultCropPresetName(InDefaultCropPresetName: FString): Void;
-	private function SetCropPresets(InCropPresets: cpp.Reference<TArray<NamedPlateCropPreset>>): Void;
+	private function SetCropPresets(InCropPresets: ucpp.Ref<TArray<NamedPlateCropPreset>>): Void;
 	private function GetLensPresetNames(): TArray<FString>;
-	public function GetLensPresetByName(PresetName: FString, LensSettings: cpp.Reference<CameraLensSettings>): Bool;
+	public function GetLensPresetByName(PresetName: FString, LensSettings: ucpp.Ref<CameraLensSettings>): Bool;
 	private function GetFilmbackPresetNames(): TArray<FString>;
-	public function GetFilmbackPresetByName(PresetName: FString, FilmbackSettings: cpp.Reference<CameraFilmbackSettings>): Bool;
+	public function GetFilmbackPresetByName(PresetName: FString, FilmbackSettings: ucpp.Ref<CameraFilmbackSettings>): Bool;
 	private function GetCropPresetNames(): TArray<FString>;
-	public function GetCropPresetByName(PresetName: FString, CropSettings: cpp.Reference<PlateCropSettings>): Bool;
-	private function GetCineCameraSettings(): cpp.Star<CineCameraSettings>;
+	public function GetCropPresetByName(PresetName: FString, CropSettings: ucpp.Ref<PlateCropSettings>): Bool;
+	private function GetCineCameraSettings(): ucpp.Ptr<CineCameraSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetLensPresetNames, GetFilmbackPresetNames, GetCropPresetNames)
@@ -38,10 +38,10 @@ extern class CineCameraSettings extends DeveloperSettings {
 abstract ConstCineCameraSettings(CineCameraSettings) from CineCameraSettings {
 	public extern var DefaultLensPresetName(get, never): FString;
 	public inline extern function get_DefaultLensPresetName(): FString return this.DefaultLensPresetName;
-	public extern var DefaultLensFocalLength(get, never): cpp.Float32;
-	public inline extern function get_DefaultLensFocalLength(): cpp.Float32 return this.DefaultLensFocalLength;
-	public extern var DefaultLensFStop(get, never): cpp.Float32;
-	public inline extern function get_DefaultLensFStop(): cpp.Float32 return this.DefaultLensFStop;
+	public extern var DefaultLensFocalLength(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultLensFocalLength(): ucpp.num.Float32 return this.DefaultLensFocalLength;
+	public extern var DefaultLensFStop(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultLensFStop(): ucpp.num.Float32 return this.DefaultLensFStop;
 	public extern var LensPresets(get, never): TArray<NamedLensPreset>;
 	public inline extern function get_LensPresets(): TArray<NamedLensPreset> return this.LensPresets;
 	public extern var DefaultFilmbackPreset(get, never): FString;
@@ -57,7 +57,7 @@ abstract ConstCineCameraSettings(CineCameraSettings) from CineCameraSettings {
 @:forward
 @:nativeGen
 @:native("CineCameraSettings*")
-abstract CineCameraSettingsPtr(cpp.Star<CineCameraSettings>) from cpp.Star<CineCameraSettings> to cpp.Star<CineCameraSettings>{
+abstract CineCameraSettingsPtr(ucpp.Ptr<CineCameraSettings>) from ucpp.Ptr<CineCameraSettings> to ucpp.Ptr<CineCameraSettings>{
 	@:from
 	public static extern inline function fromValue(v: CineCameraSettings): CineCameraSettingsPtr {
 		return untyped __cpp__("&({0})", v);

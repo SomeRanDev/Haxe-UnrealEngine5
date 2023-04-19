@@ -3,12 +3,12 @@ package ue;
 
 @:native("UClothLODDataCommon_Legacy")
 @:include("ClothLODData_Legacy.h")
-@:structAccess
+@:valueType
 extern class ClothLODDataCommon_Legacy extends Object {
 	public var ClothPhysicalMeshData: ClothPhysicalMeshData;
 	public var CollisionData: ClothCollisionData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstClothLODDataCommon_Legacy(ClothLODDataCommon_Legacy) from ClothLOD
 @:forward
 @:nativeGen
 @:native("ClothLODDataCommon_Legacy*")
-abstract ClothLODDataCommon_LegacyPtr(cpp.Star<ClothLODDataCommon_Legacy>) from cpp.Star<ClothLODDataCommon_Legacy> to cpp.Star<ClothLODDataCommon_Legacy>{
+abstract ClothLODDataCommon_LegacyPtr(ucpp.Ptr<ClothLODDataCommon_Legacy>) from ucpp.Ptr<ClothLODDataCommon_Legacy> to ucpp.Ptr<ClothLODDataCommon_Legacy>{
 	@:from
 	public static extern inline function fromValue(v: ClothLODDataCommon_Legacy): ClothLODDataCommon_LegacyPtr {
 		return untyped __cpp__("&({0})", v);

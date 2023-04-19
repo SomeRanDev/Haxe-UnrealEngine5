@@ -3,7 +3,7 @@ package ue;
 
 @:native("FWidgetAnimationBinding")
 @:include("Animation/WidgetAnimationBinding.h")
-@:structAccess
+@:valueType
 extern class WidgetAnimationBinding {
 	public var WidgetName: FName;
 	public var SlotWidgetName: FName;

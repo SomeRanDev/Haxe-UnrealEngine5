@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCacheRecorderParameters")
 @:include("Recorder/CacheTrackRecorder.h")
-@:structAccess
+@:valueType
 extern class CacheRecorderParameters {
 	public var User: CacheRecorderUserParameters;
 	public var Project: CacheRecorderProjectParameters;

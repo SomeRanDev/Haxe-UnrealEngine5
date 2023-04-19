@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDeviceTriggerBaseData")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class DeviceTriggerBaseData {
 	public var AffectedTriggers: EInputDeviceTriggerMask;
 	public var bResetUponCompletion: Bool;

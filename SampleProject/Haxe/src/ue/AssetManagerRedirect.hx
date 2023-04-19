@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAssetManagerRedirect")
 @:include("Engine/AssetManagerSettings.h")
-@:structAccess
+@:valueType
 extern class AssetManagerRedirect {
 	public var Old: FString;
 	public var New: FString;

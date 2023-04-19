@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPerPlatformBool")
 @:include("PerPlatformProperties.h")
-@:structAccess
+@:valueType
 extern class PerPlatformBool {
 	public var Default: Bool;
 

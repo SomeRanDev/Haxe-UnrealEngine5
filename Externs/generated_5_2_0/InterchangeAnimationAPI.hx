@@ -3,20 +3,20 @@ package ue;
 
 @:native("UInterchangeAnimationAPI")
 @:include("Nodes/InterchangeAnimationAPI.h")
-@:structAccess
+@:valueType
 extern class InterchangeAnimationAPI extends Object {
-	public function SetCustomNodeTransformPayloadKey(InterchangeBaseNode: cpp.Star<InterchangeBaseNode>, AttributeValue: FString): Bool;
-	public function SetCustomNodeTransformAnimationStartTime(InterchangeBaseNode: cpp.Star<InterchangeBaseNode>, AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomNodeTransformAnimationKeyCount(InterchangeBaseNode: cpp.Star<InterchangeBaseNode>, AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function SetCustomNodeTransformAnimationEndTime(InterchangeBaseNode: cpp.Star<InterchangeBaseNode>, AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function SetCustomIsNodeTransformAnimated(InterchangeBaseNode: cpp.Star<InterchangeBaseNode>, AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomNodeTransformPayloadKey(InterchangeBaseNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomNodeTransformAnimationStartTime(InterchangeBaseNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomNodeTransformAnimationKeyCount(InterchangeBaseNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomNodeTransformAnimationEndTime(InterchangeBaseNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: cpp.Reference<cpp.Float64>): Bool;
-	public function GetCustomIsNodeTransformAnimated(InterchangeBaseNode: cpp.Star<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomNodeTransformPayloadKey(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode>, AttributeValue: FString): Bool;
+	public function SetCustomNodeTransformAnimationStartTime(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode>, AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomNodeTransformAnimationKeyCount(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode>, AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function SetCustomNodeTransformAnimationEndTime(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode>, AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function SetCustomIsNodeTransformAnimated(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode>, AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomNodeTransformPayloadKey(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomNodeTransformAnimationStartTime(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomNodeTransformAnimationKeyCount(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomNodeTransformAnimationEndTime(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: ucpp.Ref<ucpp.num.Float64>): Bool;
+	public function GetCustomIsNodeTransformAnimated(InterchangeBaseNode: ucpp.Ptr<InterchangeBaseNode.ConstInterchangeBaseNode>, AttributeValue: ucpp.Ref<Bool>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstInterchangeAnimationAPI(InterchangeAnimationAPI) from InterchangeA
 @:forward
 @:nativeGen
 @:native("InterchangeAnimationAPI*")
-abstract InterchangeAnimationAPIPtr(cpp.Star<InterchangeAnimationAPI>) from cpp.Star<InterchangeAnimationAPI> to cpp.Star<InterchangeAnimationAPI>{
+abstract InterchangeAnimationAPIPtr(ucpp.Ptr<InterchangeAnimationAPI>) from ucpp.Ptr<InterchangeAnimationAPI> to ucpp.Ptr<InterchangeAnimationAPI>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeAnimationAPI): InterchangeAnimationAPIPtr {
 		return untyped __cpp__("&({0})", v);

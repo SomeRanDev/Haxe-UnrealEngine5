@@ -3,25 +3,25 @@ package ue;
 
 @:native("FPreviewSceneProfile")
 @:include("AssetViewerSettings.h")
-@:structAccess
+@:valueType
 extern class PreviewSceneProfile {
 	public var ProfileName: FString;
 	public var bSharedProfile: Bool;
 	public var bUseSkyLighting: Bool;
-	public var DirectionalLightIntensity: cpp.Float32;
+	public var DirectionalLightIntensity: ucpp.num.Float32;
 	public var DirectionalLightColor: LinearColor;
-	public var SkyLightIntensity: cpp.Float32;
+	public var SkyLightIntensity: ucpp.num.Float32;
 	public var bRotateLightingRig: Bool;
 	public var bShowEnvironment: Bool;
 	public var bShowFloor: Bool;
 	public var EnvironmentColor: LinearColor;
-	public var EnvironmentIntensity: cpp.Float32;
+	public var EnvironmentIntensity: ucpp.num.Float32;
 	public var EnvironmentCubeMap: TSoftObjectPtr<TextureCube>;
 	public var EnvironmentCubeMapPath: FString;
 	public var bPostProcessingEnabled: Bool;
 	public var PostProcessingSettings: PostProcessSettings;
-	public var LightingRigRotation: cpp.Float32;
-	public var RotationSpeed: cpp.Float32;
+	public var LightingRigRotation: ucpp.num.Float32;
+	public var RotationSpeed: ucpp.num.Float32;
 	public var DirectionalLightRotation: Rotator;
 
 	@:native("FPreviewSceneProfile") public function new();

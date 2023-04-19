@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeSourceData")
 @:include("InterchangeSourceData.h")
-@:structAccess
+@:valueType
 extern class InterchangeSourceData extends Object {
 	private var Filename: FString;
 
 	public function SetFilename(InFilename: FString): Bool;
 	public function GetFilename(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFilename)
@@ -21,7 +21,7 @@ abstract ConstInterchangeSourceData(InterchangeSourceData) from InterchangeSourc
 @:forward
 @:nativeGen
 @:native("InterchangeSourceData*")
-abstract InterchangeSourceDataPtr(cpp.Star<InterchangeSourceData>) from cpp.Star<InterchangeSourceData> to cpp.Star<InterchangeSourceData>{
+abstract InterchangeSourceDataPtr(ucpp.Ptr<InterchangeSourceData>) from ucpp.Ptr<InterchangeSourceData> to ucpp.Ptr<InterchangeSourceData>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSourceData): InterchangeSourceDataPtr {
 		return untyped __cpp__("&({0})", v);

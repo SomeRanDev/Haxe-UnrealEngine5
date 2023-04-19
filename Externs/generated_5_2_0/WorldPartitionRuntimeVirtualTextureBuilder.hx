@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionRuntimeVirtualTextureBuilder")
 @:include("WorldPartition/WorldPartitionRuntimeVirtualTextureBuilder.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeVirtualTextureBuilder extends WorldPartitionBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionRuntimeVirtualTextureBuilder(WorldPartitionRuntimeVi
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeVirtualTextureBuilder*")
-abstract WorldPartitionRuntimeVirtualTextureBuilderPtr(cpp.Star<WorldPartitionRuntimeVirtualTextureBuilder>) from cpp.Star<WorldPartitionRuntimeVirtualTextureBuilder> to cpp.Star<WorldPartitionRuntimeVirtualTextureBuilder>{
+abstract WorldPartitionRuntimeVirtualTextureBuilderPtr(ucpp.Ptr<WorldPartitionRuntimeVirtualTextureBuilder>) from ucpp.Ptr<WorldPartitionRuntimeVirtualTextureBuilder> to ucpp.Ptr<WorldPartitionRuntimeVirtualTextureBuilder>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeVirtualTextureBuilder): WorldPartitionRuntimeVirtualTextureBuilderPtr {
 		return untyped __cpp__("&({0})", v);

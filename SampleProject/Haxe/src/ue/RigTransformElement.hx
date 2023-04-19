@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigTransformElement")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigTransformElement extends RigBaseElement {
 	public var Pose: RigCurrentAndInitialTransform;
 

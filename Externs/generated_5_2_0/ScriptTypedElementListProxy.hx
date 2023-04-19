@@ -3,7 +3,7 @@ package ue;
 
 @:native("FScriptTypedElementListProxy")
 @:include("Elements/Framework/TypedElementListProxy.h")
-@:structAccess
+@:valueType
 extern class ScriptTypedElementListProxy {
 	@:native("FScriptTypedElementListProxy") public function new();
 }

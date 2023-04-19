@@ -3,13 +3,13 @@ package ue;
 
 @:native("FMaterialExpressionCollection")
 @:include("Materials/MaterialExpression.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionCollection {
-	public var Expressions: TArray<cpp.Star<MaterialExpression>>;
-	public var EditorComments: TArray<cpp.Star<MaterialExpressionComment>>;
-	public var ExpressionExecBegin: cpp.Star<MaterialExpressionExecBegin>;
-	public var ExpressionExecEnd: cpp.Star<MaterialExpressionExecEnd>;
+	public var Expressions: TArray<ucpp.Ptr<MaterialExpression>>;
+	public var EditorComments: TArray<ucpp.Ptr<MaterialExpressionComment>>;
+	public var ExpressionExecBegin: ucpp.Ptr<MaterialExpressionExecBegin>;
+	public var ExpressionExecEnd: ucpp.Ptr<MaterialExpressionExecEnd>;
 
 	@:native("FMaterialExpressionCollection") public function new();
-	@:native("FMaterialExpressionCollection") public static function make(Expressions: TArray<cpp.Star<MaterialExpression>>, EditorComments: TArray<cpp.Star<MaterialExpressionComment>>, ExpressionExecBegin: cpp.Star<MaterialExpressionExecBegin>, ExpressionExecEnd: cpp.Star<MaterialExpressionExecEnd>): MaterialExpressionCollection ;
+	@:native("FMaterialExpressionCollection") public static function make(Expressions: TArray<ucpp.Ptr<MaterialExpression>>, EditorComments: TArray<ucpp.Ptr<MaterialExpressionComment>>, ExpressionExecBegin: ucpp.Ptr<MaterialExpressionExecBegin>, ExpressionExecEnd: ucpp.Ptr<MaterialExpressionExecEnd>): MaterialExpressionCollection ;
 }

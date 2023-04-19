@@ -3,10 +3,10 @@ package ue;
 
 @:native("UClothSharedConfigCommon")
 @:include("ClothConfig.h")
-@:structAccess
+@:valueType
 extern class ClothSharedConfigCommon extends ClothConfigCommon {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstClothSharedConfigCommon(ClothSharedConfigCommon) from ClothSharedC
 @:forward
 @:nativeGen
 @:native("ClothSharedConfigCommon*")
-abstract ClothSharedConfigCommonPtr(cpp.Star<ClothSharedConfigCommon>) from cpp.Star<ClothSharedConfigCommon> to cpp.Star<ClothSharedConfigCommon>{
+abstract ClothSharedConfigCommonPtr(ucpp.Ptr<ClothSharedConfigCommon>) from ucpp.Ptr<ClothSharedConfigCommon> to ucpp.Ptr<ClothSharedConfigCommon>{
 	@:from
 	public static extern inline function fromValue(v: ClothSharedConfigCommon): ClothSharedConfigCommonPtr {
 		return untyped __cpp__("&({0})", v);

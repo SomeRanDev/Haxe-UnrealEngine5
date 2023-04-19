@@ -3,15 +3,15 @@ package ue;
 
 @:native("UTypedElementSelectionSetLibrary")
 @:include("Elements/Framework/TypedElementSelectionSetLibrary.h")
-@:structAccess
+@:valueType
 extern class TypedElementSelectionSetLibrary extends Object {
-	public function SetSelectionFromList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): Bool;
-	public function SelectElementsFromList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): Bool;
-	public function GetNormalizedSelection(SelectionSet: cpp.Star<TypedElementSelectionSet>, NormalizationOptions: TypedElementSelectionNormalizationOptions): ScriptTypedElementListProxy;
-	public function GetNormalizedElementList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, NormalizationOptions: TypedElementSelectionNormalizationOptions): ScriptTypedElementListProxy;
-	public function DeselectElementsFromList(SelectionSet: cpp.Star<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): Bool;
+	public function SetSelectionFromList(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): Bool;
+	public function SelectElementsFromList(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): Bool;
+	public function GetNormalizedSelection(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, NormalizationOptions: TypedElementSelectionNormalizationOptions): ScriptTypedElementListProxy;
+	public function GetNormalizedElementList(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, NormalizationOptions: TypedElementSelectionNormalizationOptions): ScriptTypedElementListProxy;
+	public function DeselectElementsFromList(SelectionSet: ucpp.Ptr<TypedElementSelectionSet>, ElementList: ScriptTypedElementListProxy, SelectionOptions: TypedElementSelectionOptions): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstTypedElementSelectionSetLibrary(TypedElementSelectionSetLibrary) f
 @:forward
 @:nativeGen
 @:native("TypedElementSelectionSetLibrary*")
-abstract TypedElementSelectionSetLibraryPtr(cpp.Star<TypedElementSelectionSetLibrary>) from cpp.Star<TypedElementSelectionSetLibrary> to cpp.Star<TypedElementSelectionSetLibrary>{
+abstract TypedElementSelectionSetLibraryPtr(ucpp.Ptr<TypedElementSelectionSetLibrary>) from ucpp.Ptr<TypedElementSelectionSetLibrary> to ucpp.Ptr<TypedElementSelectionSetLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementSelectionSetLibrary): TypedElementSelectionSetLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDatasmithAssetImportOptions")
 @:include("DatasmithImportOptions.h")
-@:structAccess
+@:valueType
 extern class DatasmithAssetImportOptions {
 	public var PackagePath: FName;
 

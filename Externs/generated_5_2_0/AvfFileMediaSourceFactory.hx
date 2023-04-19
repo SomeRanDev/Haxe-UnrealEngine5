@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAvfFileMediaSourceFactory")
 @:include("AvfFileMediaSourceFactory.h")
-@:structAccess
+@:valueType
 extern class AvfFileMediaSourceFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAvfFileMediaSourceFactory(AvfFileMediaSourceFactory) from AvfFileM
 @:forward
 @:nativeGen
 @:native("AvfFileMediaSourceFactory*")
-abstract AvfFileMediaSourceFactoryPtr(cpp.Star<AvfFileMediaSourceFactory>) from cpp.Star<AvfFileMediaSourceFactory> to cpp.Star<AvfFileMediaSourceFactory>{
+abstract AvfFileMediaSourceFactoryPtr(ucpp.Ptr<AvfFileMediaSourceFactory>) from ucpp.Ptr<AvfFileMediaSourceFactory> to ucpp.Ptr<AvfFileMediaSourceFactory>{
 	@:from
 	public static extern inline function fromValue(v: AvfFileMediaSourceFactory): AvfFileMediaSourceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

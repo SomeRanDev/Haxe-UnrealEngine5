@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNetObjectCountLimiter")
 @:include("Iris/ReplicationSystem/Prioritization/NetObjectCountLimiter.h")
-@:structAccess
+@:valueType
 extern class NetObjectCountLimiter extends NetObjectPrioritizer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNetObjectCountLimiter(NetObjectCountLimiter) from NetObjectCountLi
 @:forward
 @:nativeGen
 @:native("NetObjectCountLimiter*")
-abstract NetObjectCountLimiterPtr(cpp.Star<NetObjectCountLimiter>) from cpp.Star<NetObjectCountLimiter> to cpp.Star<NetObjectCountLimiter>{
+abstract NetObjectCountLimiterPtr(ucpp.Ptr<NetObjectCountLimiter>) from ucpp.Ptr<NetObjectCountLimiter> to ucpp.Ptr<NetObjectCountLimiter>{
 	@:from
 	public static extern inline function fromValue(v: NetObjectCountLimiter): NetObjectCountLimiterPtr {
 		return untyped __cpp__("&({0})", v);

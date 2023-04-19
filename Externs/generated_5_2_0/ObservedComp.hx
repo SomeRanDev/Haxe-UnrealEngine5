@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObservedComponent")
 @:include("Chaos/CacheManagerActor.h")
-@:structAccess
+@:valueType
 extern class ObservedComp {
 	public var CacheName: FName;
 	public var ComponentRef: ComponentReference;

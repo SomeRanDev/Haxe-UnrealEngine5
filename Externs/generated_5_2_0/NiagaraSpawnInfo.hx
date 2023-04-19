@@ -3,13 +3,13 @@ package ue;
 
 @:native("FNiagaraSpawnInfo")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraSpawnInfo {
-	public var Count: cpp.Int32;
-	public var InterpStartDt: cpp.Float32;
-	public var IntervalDt: cpp.Float32;
-	public var SpawnGroup: cpp.Int32;
+	public var Count: ucpp.num.Int32;
+	public var InterpStartDt: ucpp.num.Float32;
+	public var IntervalDt: ucpp.num.Float32;
+	public var SpawnGroup: ucpp.num.Int32;
 
 	@:native("FNiagaraSpawnInfo") public function new();
-	@:native("FNiagaraSpawnInfo") public static function make(Count: cpp.Int32, InterpStartDt: cpp.Float32, IntervalDt: cpp.Float32, SpawnGroup: cpp.Int32): NiagaraSpawnInfo ;
+	@:native("FNiagaraSpawnInfo") public static function make(Count: ucpp.num.Int32, InterpStartDt: ucpp.num.Float32, IntervalDt: ucpp.num.Float32, SpawnGroup: ucpp.num.Int32): NiagaraSpawnInfo ;
 }

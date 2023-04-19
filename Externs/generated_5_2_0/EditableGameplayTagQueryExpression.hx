@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditableGameplayTagQueryExpression")
 @:include("GameplayTagContainer.h")
-@:structAccess
+@:valueType
 extern class EditableGameplayTagQueryExpression extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditableGameplayTagQueryExpression(EditableGameplayTagQueryExpress
 @:forward
 @:nativeGen
 @:native("EditableGameplayTagQueryExpression*")
-abstract EditableGameplayTagQueryExpressionPtr(cpp.Star<EditableGameplayTagQueryExpression>) from cpp.Star<EditableGameplayTagQueryExpression> to cpp.Star<EditableGameplayTagQueryExpression>{
+abstract EditableGameplayTagQueryExpressionPtr(ucpp.Ptr<EditableGameplayTagQueryExpression>) from ucpp.Ptr<EditableGameplayTagQueryExpression> to ucpp.Ptr<EditableGameplayTagQueryExpression>{
 	@:from
 	public static extern inline function fromValue(v: EditableGameplayTagQueryExpression): EditableGameplayTagQueryExpressionPtr {
 		return untyped __cpp__("&({0})", v);

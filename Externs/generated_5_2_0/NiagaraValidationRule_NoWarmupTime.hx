@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraValidationRule_NoWarmupTime")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_NoWarmupTime extends NiagaraValidationRule {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraValidationRule_NoWarmupTime(NiagaraValidationRule_NoWarmupT
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_NoWarmupTime*")
-abstract NiagaraValidationRule_NoWarmupTimePtr(cpp.Star<NiagaraValidationRule_NoWarmupTime>) from cpp.Star<NiagaraValidationRule_NoWarmupTime> to cpp.Star<NiagaraValidationRule_NoWarmupTime>{
+abstract NiagaraValidationRule_NoWarmupTimePtr(ucpp.Ptr<NiagaraValidationRule_NoWarmupTime>) from ucpp.Ptr<NiagaraValidationRule_NoWarmupTime> to ucpp.Ptr<NiagaraValidationRule_NoWarmupTime>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_NoWarmupTime): NiagaraValidationRule_NoWarmupTimePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,22 +3,22 @@ package ue;
 
 @:native("UInterchangePipelineBase")
 @:include("InterchangePipelineBase.h")
-@:structAccess
+@:valueType
 extern class InterchangePipelineBase extends Object {
-	@:protected public var Results: cpp.Star<InterchangeResultsContainer>;
+	@:protected public var Results: ucpp.Ptr<InterchangeResultsContainer>;
 	@:protected public var PropertiesStates: TMap<FName, InterchangePipelinePropertyStates>;
 
-	public function ScriptedSetReimportSourceIndex(ReimportObjectClass: cpp.Star<Class>, SourceFileIndex: cpp.Int32): Void;
-	public function ScriptedExecutePreImportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>, SourceDatas: cpp.Reference<TArray<cpp.Star<InterchangeSourceData>>>): Void;
-	public function ScriptedExecutePostImportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, FactoryNodeKey: FString, CreatedAsset: cpp.Star<Object>, bIsAReimport: Bool): Void;
-	public function ScriptedExecutePostFactoryPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, FactoryNodeKey: FString, CreatedAsset: cpp.Star<Object>, bIsAReimport: Bool): Void;
-	public function ScriptedExecutePipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>, SourceDatas: cpp.Reference<TArray<cpp.Star<InterchangeSourceData>>>): Void;
-	public function ScriptedExecuteExportPipeline(BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>): Void;
+	public function ScriptedSetReimportSourceIndex(ReimportObjectClass: ucpp.Ptr<Class>, SourceFileIndex: ucpp.num.Int32): Void;
+	public function ScriptedExecutePreImportPipeline(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer>, SourceDatas: ucpp.Ref<TArray<ucpp.Ptr<InterchangeSourceData>>>): Void;
+	public function ScriptedExecutePostImportPipeline(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, FactoryNodeKey: FString, CreatedAsset: ucpp.Ptr<Object>, bIsAReimport: Bool): Void;
+	public function ScriptedExecutePostFactoryPipeline(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer.ConstInterchangeBaseNodeContainer>, FactoryNodeKey: FString, CreatedAsset: ucpp.Ptr<Object>, bIsAReimport: Bool): Void;
+	public function ScriptedExecutePipeline(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer>, SourceDatas: ucpp.Ref<TArray<ucpp.Ptr<InterchangeSourceData>>>): Void;
+	public function ScriptedExecuteExportPipeline(BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer>): Void;
 	public function ScriptedCanExecuteOnAnyThread(PipelineTask: EInterchangePipelineTask): Bool;
 	public function FindOrAddPropertyStates(PropertyPath: FName): InterchangePipelinePropertyStates;
 	public function DoesPropertyStatesExist(PropertyPath: FName): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(DoesPropertyStatesExist)
@@ -29,7 +29,7 @@ abstract ConstInterchangePipelineBase(InterchangePipelineBase) from InterchangeP
 @:forward
 @:nativeGen
 @:native("InterchangePipelineBase*")
-abstract InterchangePipelineBasePtr(cpp.Star<InterchangePipelineBase>) from cpp.Star<InterchangePipelineBase> to cpp.Star<InterchangePipelineBase>{
+abstract InterchangePipelineBasePtr(ucpp.Ptr<InterchangePipelineBase>) from ucpp.Ptr<InterchangePipelineBase> to ucpp.Ptr<InterchangePipelineBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangePipelineBase): InterchangePipelineBasePtr {
 		return untyped __cpp__("&({0})", v);

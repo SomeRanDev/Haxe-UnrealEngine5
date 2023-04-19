@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGameplayTag")
 @:include("GameplayTagContainer.h")
-@:structAccess
+@:valueType
 extern class GameplayTag {
 	@:protected public var TagName: FName;
 

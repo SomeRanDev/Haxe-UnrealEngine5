@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFilterBarSettings")
 @:include("Filters/FilterBarConfig.h")
-@:structAccess
+@:valueType
 extern class FilterBarSettings {
 	public var CustomFilters: TMap<FString, Bool>;
 	public var TypeFilters: TMap<FString, Bool>;

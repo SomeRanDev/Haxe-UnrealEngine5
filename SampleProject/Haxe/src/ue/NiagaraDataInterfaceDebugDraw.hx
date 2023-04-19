@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataInterfaceDebugDraw")
 @:include("DataInterface/NiagaraDataInterfaceDebugDraw.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceDebugDraw extends NiagaraDataInterface {
-	public var OverrideMaxLineInstances: cpp.UInt32;
+	public var OverrideMaxLineInstances: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceDebugDraw(NiagaraDataInterfaceDebugDraw) from NiagaraDataInterfaceDebugDraw {
-	public extern var OverrideMaxLineInstances(get, never): cpp.UInt32;
-	public inline extern function get_OverrideMaxLineInstances(): cpp.UInt32 return this.OverrideMaxLineInstances;
+	public extern var OverrideMaxLineInstances(get, never): ucpp.num.UInt32;
+	public inline extern function get_OverrideMaxLineInstances(): ucpp.num.UInt32 return this.OverrideMaxLineInstances;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceDebugDraw*")
-abstract NiagaraDataInterfaceDebugDrawPtr(cpp.Star<NiagaraDataInterfaceDebugDraw>) from cpp.Star<NiagaraDataInterfaceDebugDraw> to cpp.Star<NiagaraDataInterfaceDebugDraw>{
+abstract NiagaraDataInterfaceDebugDrawPtr(ucpp.Ptr<NiagaraDataInterfaceDebugDraw>) from ucpp.Ptr<NiagaraDataInterfaceDebugDraw> to ucpp.Ptr<NiagaraDataInterfaceDebugDraw>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceDebugDraw): NiagaraDataInterfaceDebugDrawPtr {
 		return untyped __cpp__("&({0})", v);

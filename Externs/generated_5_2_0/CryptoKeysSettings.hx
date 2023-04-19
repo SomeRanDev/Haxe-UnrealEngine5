@@ -3,7 +3,7 @@ package ue;
 
 @:native("UCryptoKeysSettings")
 @:include("CryptoKeysSettings.h")
-@:structAccess
+@:valueType
 extern class CryptoKeysSettings extends Object {
 	public var EncryptionKey: FString;
 	public var SecondaryEncryptionKeys: TArray<CryptoEncryptionKey>;
@@ -16,7 +16,7 @@ extern class CryptoKeysSettings extends Object {
 	public var SigningPrivateExponent: FString;
 	public var bEnablePakSigning: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -47,7 +47,7 @@ abstract ConstCryptoKeysSettings(CryptoKeysSettings) from CryptoKeysSettings {
 @:forward
 @:nativeGen
 @:native("CryptoKeysSettings*")
-abstract CryptoKeysSettingsPtr(cpp.Star<CryptoKeysSettings>) from cpp.Star<CryptoKeysSettings> to cpp.Star<CryptoKeysSettings>{
+abstract CryptoKeysSettingsPtr(ucpp.Ptr<CryptoKeysSettings>) from ucpp.Ptr<CryptoKeysSettings> to ucpp.Ptr<CryptoKeysSettings>{
 	@:from
 	public static extern inline function fromValue(v: CryptoKeysSettings): CryptoKeysSettingsPtr {
 		return untyped __cpp__("&({0})", v);

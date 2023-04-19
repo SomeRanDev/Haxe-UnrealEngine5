@@ -3,11 +3,11 @@ package ue;
 
 @:native("UIKRetargetGlobalSettings")
 @:include("Retargeter/IKRetargeter.h")
-@:structAccess
+@:valueType
 extern class IKRetargetGlobalSettings extends Object {
 	public var Settings: RetargetGlobalSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstIKRetargetGlobalSettings(IKRetargetGlobalSettings) from IKRetarget
 @:forward
 @:nativeGen
 @:native("IKRetargetGlobalSettings*")
-abstract IKRetargetGlobalSettingsPtr(cpp.Star<IKRetargetGlobalSettings>) from cpp.Star<IKRetargetGlobalSettings> to cpp.Star<IKRetargetGlobalSettings>{
+abstract IKRetargetGlobalSettingsPtr(ucpp.Ptr<IKRetargetGlobalSettings>) from ucpp.Ptr<IKRetargetGlobalSettings> to ucpp.Ptr<IKRetargetGlobalSettings>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargetGlobalSettings): IKRetargetGlobalSettingsPtr {
 		return untyped __cpp__("&({0})", v);

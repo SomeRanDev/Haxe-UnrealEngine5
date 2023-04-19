@@ -3,13 +3,13 @@ package ue;
 
 @:native("USystemTimeTimecodeProvider")
 @:include("Engine/SystemTimeTimecodeProvider.h")
-@:structAccess
+@:valueType
 extern class SystemTimeTimecodeProvider extends TimecodeProvider {
 	public var FrameRate: FrameRate;
 	public var bGenerateFullFrame: Bool;
 	public var bUseHighPerformanceClock: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstSystemTimeTimecodeProvider(SystemTimeTimecodeProvider) from System
 @:forward
 @:nativeGen
 @:native("SystemTimeTimecodeProvider*")
-abstract SystemTimeTimecodeProviderPtr(cpp.Star<SystemTimeTimecodeProvider>) from cpp.Star<SystemTimeTimecodeProvider> to cpp.Star<SystemTimeTimecodeProvider>{
+abstract SystemTimeTimecodeProviderPtr(ucpp.Ptr<SystemTimeTimecodeProvider>) from ucpp.Ptr<SystemTimeTimecodeProvider> to ucpp.Ptr<SystemTimeTimecodeProvider>{
 	@:from
 	public static extern inline function fromValue(v: SystemTimeTimecodeProvider): SystemTimeTimecodeProviderPtr {
 		return untyped __cpp__("&({0})", v);

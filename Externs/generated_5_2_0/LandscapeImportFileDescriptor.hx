@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLandscapeImportFileDescriptor")
 @:include("LandscapeImportHelper.h")
-@:structAccess
+@:valueType
 extern class LandscapeImportFileDescriptor {
 	public var Coord: IntPoint;
 	public var FilePath: FString;

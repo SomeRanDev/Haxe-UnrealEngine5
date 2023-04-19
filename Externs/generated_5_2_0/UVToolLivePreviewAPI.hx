@@ -3,12 +3,12 @@ package ue;
 
 @:native("UUVToolLivePreviewAPI")
 @:include("ContextObjects/UVToolContextObjects.h")
-@:structAccess
+@:valueType
 extern class UVToolLivePreviewAPI extends UVToolContextObject {
 	@:protected public var World: TWeakObjectPtr<World>;
 	@:protected public var InputRouter: TWeakObjectPtr<InputRouter>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstUVToolLivePreviewAPI(UVToolLivePreviewAPI) from UVToolLivePreviewA
 @:forward
 @:nativeGen
 @:native("UVToolLivePreviewAPI*")
-abstract UVToolLivePreviewAPIPtr(cpp.Star<UVToolLivePreviewAPI>) from cpp.Star<UVToolLivePreviewAPI> to cpp.Star<UVToolLivePreviewAPI>{
+abstract UVToolLivePreviewAPIPtr(ucpp.Ptr<UVToolLivePreviewAPI>) from ucpp.Ptr<UVToolLivePreviewAPI> to ucpp.Ptr<UVToolLivePreviewAPI>{
 	@:from
 	public static extern inline function fromValue(v: UVToolLivePreviewAPI): UVToolLivePreviewAPIPtr {
 		return untyped __cpp__("&({0})", v);

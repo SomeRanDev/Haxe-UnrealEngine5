@@ -3,9 +3,9 @@ package ue;
 
 @:native("UNiagaraNodeFunctionCall")
 @:include("NiagaraNodeFunctionCall.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeFunctionCall extends NiagaraNodeWithDynamicPins {
-	public var FunctionScript: cpp.Star<NiagaraScript>;
+	public var FunctionScript: ucpp.Ptr<NiagaraScript>;
 	public var SelectedScriptVersion: Guid;
 	public var FunctionScriptAssetObjectPath: FName;
 	public var Signature: NiagaraFunctionSignature;
@@ -20,14 +20,14 @@ extern class NiagaraNodeFunctionCall extends NiagaraNodeWithDynamicPins {
 	@:protected public var FunctionDisplayName: FString;
 	@:protected public var BoundPinNames: TMap<Guid, FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraNodeFunctionCall(NiagaraNodeFunctionCall) from NiagaraNodeFunctionCall {
-	public extern var FunctionScript(get, never): cpp.Star<NiagaraScript.ConstNiagaraScript>;
-	public inline extern function get_FunctionScript(): cpp.Star<NiagaraScript.ConstNiagaraScript> return this.FunctionScript;
+	public extern var FunctionScript(get, never): ucpp.Ptr<NiagaraScript.ConstNiagaraScript>;
+	public inline extern function get_FunctionScript(): ucpp.Ptr<NiagaraScript.ConstNiagaraScript> return this.FunctionScript;
 	public extern var SelectedScriptVersion(get, never): Guid;
 	public inline extern function get_SelectedScriptVersion(): Guid return this.SelectedScriptVersion;
 	public extern var FunctionScriptAssetObjectPath(get, never): FName;
@@ -51,7 +51,7 @@ abstract ConstNiagaraNodeFunctionCall(NiagaraNodeFunctionCall) from NiagaraNodeF
 @:forward
 @:nativeGen
 @:native("NiagaraNodeFunctionCall*")
-abstract NiagaraNodeFunctionCallPtr(cpp.Star<NiagaraNodeFunctionCall>) from cpp.Star<NiagaraNodeFunctionCall> to cpp.Star<NiagaraNodeFunctionCall>{
+abstract NiagaraNodeFunctionCallPtr(ucpp.Ptr<NiagaraNodeFunctionCall>) from ucpp.Ptr<NiagaraNodeFunctionCall> to ucpp.Ptr<NiagaraNodeFunctionCall>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeFunctionCall): NiagaraNodeFunctionCallPtr {
 		return untyped __cpp__("&({0})", v);

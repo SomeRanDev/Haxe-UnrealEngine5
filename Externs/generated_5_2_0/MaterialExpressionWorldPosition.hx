@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionWorldPosition")
 @:include("Materials/MaterialExpressionWorldPosition.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionWorldPosition extends MaterialExpression {
 	public var WorldPositionShaderOffset: TEnumAsByte<EWorldPositionIncludedOffsets>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionWorldPosition(MaterialExpressionWorldPosition) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionWorldPosition*")
-abstract MaterialExpressionWorldPositionPtr(cpp.Star<MaterialExpressionWorldPosition>) from cpp.Star<MaterialExpressionWorldPosition> to cpp.Star<MaterialExpressionWorldPosition>{
+abstract MaterialExpressionWorldPositionPtr(ucpp.Ptr<MaterialExpressionWorldPosition>) from ucpp.Ptr<MaterialExpressionWorldPosition> to ucpp.Ptr<MaterialExpressionWorldPosition>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionWorldPosition): MaterialExpressionWorldPositionPtr {
 		return untyped __cpp__("&({0})", v);

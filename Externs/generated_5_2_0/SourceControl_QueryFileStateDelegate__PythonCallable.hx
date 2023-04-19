@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USourceControl_QueryFileStateDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class SourceControl_QueryFileStateDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSourceControl_QueryFileStateDelegate__PythonCallable(SourceControl
 @:forward
 @:nativeGen
 @:native("SourceControl_QueryFileStateDelegate__PythonCallable*")
-abstract SourceControl_QueryFileStateDelegate__PythonCallablePtr(cpp.Star<SourceControl_QueryFileStateDelegate__PythonCallable>) from cpp.Star<SourceControl_QueryFileStateDelegate__PythonCallable> to cpp.Star<SourceControl_QueryFileStateDelegate__PythonCallable>{
+abstract SourceControl_QueryFileStateDelegate__PythonCallablePtr(ucpp.Ptr<SourceControl_QueryFileStateDelegate__PythonCallable>) from ucpp.Ptr<SourceControl_QueryFileStateDelegate__PythonCallable> to ucpp.Ptr<SourceControl_QueryFileStateDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: SourceControl_QueryFileStateDelegate__PythonCallable): SourceControl_QueryFileStateDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

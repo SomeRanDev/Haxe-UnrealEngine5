@@ -10,5 +10,6 @@ extern class EPhysAssetFitGeomType {
 	static var EFG_TaperedCapsule: EPhysAssetFitGeomType;
 	static var EFG_SingleConvexHull: EPhysAssetFitGeomType;
 	static var EFG_MultiConvexHull: EPhysAssetFitGeomType;
+	static var EFG_LevelSet: EPhysAssetFitGeomType;
 	static var EFG_MAX: EPhysAssetFitGeomType;
 }

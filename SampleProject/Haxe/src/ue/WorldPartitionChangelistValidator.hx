@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionChangelistValidator")
 @:include("WorldPartitionChangelistValidator.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionChangelistValidator extends EditorValidatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionChangelistValidator(WorldPartitionChangelistValidato
 @:forward
 @:nativeGen
 @:native("WorldPartitionChangelistValidator*")
-abstract WorldPartitionChangelistValidatorPtr(cpp.Star<WorldPartitionChangelistValidator>) from cpp.Star<WorldPartitionChangelistValidator> to cpp.Star<WorldPartitionChangelistValidator>{
+abstract WorldPartitionChangelistValidatorPtr(ucpp.Ptr<WorldPartitionChangelistValidator>) from ucpp.Ptr<WorldPartitionChangelistValidator> to ucpp.Ptr<WorldPartitionChangelistValidator>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionChangelistValidator): WorldPartitionChangelistValidatorPtr {
 		return untyped __cpp__("&({0})", v);

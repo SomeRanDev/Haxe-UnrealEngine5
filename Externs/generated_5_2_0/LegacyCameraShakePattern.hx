@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULegacyCameraShakePattern")
 @:include("LegacyCameraShake.h")
-@:structAccess
+@:valueType
 extern class LegacyCameraShakePattern extends CameraShakePattern {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLegacyCameraShakePattern(LegacyCameraShakePattern) from LegacyCame
 @:forward
 @:nativeGen
 @:native("LegacyCameraShakePattern*")
-abstract LegacyCameraShakePatternPtr(cpp.Star<LegacyCameraShakePattern>) from cpp.Star<LegacyCameraShakePattern> to cpp.Star<LegacyCameraShakePattern>{
+abstract LegacyCameraShakePatternPtr(ucpp.Ptr<LegacyCameraShakePattern>) from ucpp.Ptr<LegacyCameraShakePattern> to ucpp.Ptr<LegacyCameraShakePattern>{
 	@:from
 	public static extern inline function fromValue(v: LegacyCameraShakePattern): LegacyCameraShakePatternPtr {
 		return untyped __cpp__("&({0})", v);

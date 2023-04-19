@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDynamicSculptToolActions")
 @:include("DynamicMeshSculptTool.h")
-@:structAccess
+@:valueType
 extern class DynamicSculptToolActions extends InteractiveToolPropertySet {
 	public function DiscardAttributes(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstDynamicSculptToolActions(DynamicSculptToolActions) from DynamicScu
 @:forward
 @:nativeGen
 @:native("DynamicSculptToolActions*")
-abstract DynamicSculptToolActionsPtr(cpp.Star<DynamicSculptToolActions>) from cpp.Star<DynamicSculptToolActions> to cpp.Star<DynamicSculptToolActions>{
+abstract DynamicSculptToolActionsPtr(ucpp.Ptr<DynamicSculptToolActions>) from ucpp.Ptr<DynamicSculptToolActions> to ucpp.Ptr<DynamicSculptToolActions>{
 	@:from
 	public static extern inline function fromValue(v: DynamicSculptToolActions): DynamicSculptToolActionsPtr {
 		return untyped __cpp__("&({0})", v);

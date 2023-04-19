@@ -3,10 +3,10 @@ package ue;
 
 @:native("UProjectToTargetTool")
 @:include("ProjectToTargetTool.h")
-@:structAccess
+@:valueType
 extern class ProjectToTargetTool extends RemeshMeshTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstProjectToTargetTool(ProjectToTargetTool) from ProjectToTargetTool 
 @:forward
 @:nativeGen
 @:native("ProjectToTargetTool*")
-abstract ProjectToTargetToolPtr(cpp.Star<ProjectToTargetTool>) from cpp.Star<ProjectToTargetTool> to cpp.Star<ProjectToTargetTool>{
+abstract ProjectToTargetToolPtr(ucpp.Ptr<ProjectToTargetTool>) from ucpp.Ptr<ProjectToTargetTool> to ucpp.Ptr<ProjectToTargetTool>{
 	@:from
 	public static extern inline function fromValue(v: ProjectToTargetTool): ProjectToTargetToolPtr {
 		return untyped __cpp__("&({0})", v);

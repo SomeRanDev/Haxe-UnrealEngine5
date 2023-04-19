@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPrimitiveComponentToolTarget")
 @:include("ToolTargets/PrimitiveComponentToolTarget.h")
-@:structAccess
+@:valueType
 extern class PrimitiveComponentToolTarget extends ToolTarget {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPrimitiveComponentToolTarget(PrimitiveComponentToolTarget) from Pr
 @:forward
 @:nativeGen
 @:native("PrimitiveComponentToolTarget*")
-abstract PrimitiveComponentToolTargetPtr(cpp.Star<PrimitiveComponentToolTarget>) from cpp.Star<PrimitiveComponentToolTarget> to cpp.Star<PrimitiveComponentToolTarget>{
+abstract PrimitiveComponentToolTargetPtr(ucpp.Ptr<PrimitiveComponentToolTarget>) from ucpp.Ptr<PrimitiveComponentToolTarget> to ucpp.Ptr<PrimitiveComponentToolTarget>{
 	@:from
 	public static extern inline function fromValue(v: PrimitiveComponentToolTarget): PrimitiveComponentToolTargetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,13 @@ package ue;
 
 @:native("FNiagaraDataInterfaceGPUParamInfo")
 @:include("NiagaraShared.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceGPUParamInfo {
 	public var DataInterfaceHLSLSymbol: FString;
 	public var DIClassName: FString;
+	public var ShaderParametersOffset: ucpp.num.UInt32;
 	public var GeneratedFunctions: TArray<NiagaraDataInterfaceGeneratedFunction>;
 
 	@:native("FNiagaraDataInterfaceGPUParamInfo") public function new();
-	@:native("FNiagaraDataInterfaceGPUParamInfo") public static function make(DataInterfaceHLSLSymbol: FString, DIClassName: FString, GeneratedFunctions: TArray<NiagaraDataInterfaceGeneratedFunction>): NiagaraDataInterfaceGPUParamInfo ;
+	@:native("FNiagaraDataInterfaceGPUParamInfo") public static function make(DataInterfaceHLSLSymbol: FString, DIClassName: FString, ShaderParametersOffset: ucpp.num.UInt32, GeneratedFunctions: TArray<NiagaraDataInterfaceGeneratedFunction>): NiagaraDataInterfaceGPUParamInfo ;
 }

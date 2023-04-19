@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomOutput")
 @:include("Materials/MaterialExpressionCustom.h")
-@:structAccess
+@:valueType
 extern class CustomOutput {
 	public var OutputName: FName;
 	public var OutputType: TEnumAsByte<ECustomMaterialOutputType>;

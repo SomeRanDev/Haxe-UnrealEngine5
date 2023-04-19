@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UScriptStruct")
-@:structAccess
+@:valueType
 extern class ScriptStruct extends Struct {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstScriptStruct(ScriptStruct) from ScriptStruct {
 @:forward
 @:nativeGen
 @:native("ScriptStruct*")
-abstract ScriptStructPtr(cpp.Star<ScriptStruct>) from cpp.Star<ScriptStruct> to cpp.Star<ScriptStruct>{
+abstract ScriptStructPtr(ucpp.Ptr<ScriptStruct>) from ucpp.Ptr<ScriptStruct> to ucpp.Ptr<ScriptStruct>{
 	@:from
 	public static extern inline function fromValue(v: ScriptStruct): ScriptStructPtr {
 		return untyped __cpp__("&({0})", v);

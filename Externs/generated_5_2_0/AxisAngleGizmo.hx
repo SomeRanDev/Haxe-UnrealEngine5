@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAxisAngleGizmo")
 @:include("BaseGizmos/AxisAngleGizmo.h")
-@:structAccess
+@:valueType
 extern class AxisAngleGizmo extends InteractiveGizmo {
 	public var AxisSource: GizmoAxisSource;
 	public var AngleSource: GizmoFloatParameterSource;
 	public var HitTarget: GizmoClickTarget;
 	public var StateTarget: GizmoStateTarget;
-	public var MouseBehavior: cpp.Star<ClickDragInputBehavior>;
+	public var MouseBehavior: ucpp.Ptr<ClickDragInputBehavior>;
 	public var bInInteraction: Bool;
 	public var RotationOrigin: Vector;
 	public var RotationAxis: Vector;
@@ -17,10 +17,10 @@ extern class AxisAngleGizmo extends InteractiveGizmo {
 	public var RotationPlaneY: Vector;
 	public var InteractionStartPoint: Vector;
 	public var InteractionCurPoint: Vector;
-	public var InteractionStartAngle: cpp.Float32;
-	public var InteractionCurAngle: cpp.Float32;
+	public var InteractionStartAngle: ucpp.num.Float32;
+	public var InteractionCurAngle: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,8 +34,8 @@ abstract ConstAxisAngleGizmo(AxisAngleGizmo) from AxisAngleGizmo {
 	public inline extern function get_HitTarget(): GizmoClickTarget.ConstGizmoClickTarget return this.HitTarget;
 	public extern var StateTarget(get, never): GizmoStateTarget.ConstGizmoStateTarget;
 	public inline extern function get_StateTarget(): GizmoStateTarget.ConstGizmoStateTarget return this.StateTarget;
-	public extern var MouseBehavior(get, never): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior>;
-	public inline extern function get_MouseBehavior(): cpp.Star<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
+	public extern var MouseBehavior(get, never): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior>;
+	public inline extern function get_MouseBehavior(): ucpp.Ptr<ClickDragInputBehavior.ConstClickDragInputBehavior> return this.MouseBehavior;
 	public extern var bInInteraction(get, never): Bool;
 	public inline extern function get_bInInteraction(): Bool return this.bInInteraction;
 	public extern var RotationOrigin(get, never): Vector;
@@ -50,16 +50,16 @@ abstract ConstAxisAngleGizmo(AxisAngleGizmo) from AxisAngleGizmo {
 	public inline extern function get_InteractionStartPoint(): Vector return this.InteractionStartPoint;
 	public extern var InteractionCurPoint(get, never): Vector;
 	public inline extern function get_InteractionCurPoint(): Vector return this.InteractionCurPoint;
-	public extern var InteractionStartAngle(get, never): cpp.Float32;
-	public inline extern function get_InteractionStartAngle(): cpp.Float32 return this.InteractionStartAngle;
-	public extern var InteractionCurAngle(get, never): cpp.Float32;
-	public inline extern function get_InteractionCurAngle(): cpp.Float32 return this.InteractionCurAngle;
+	public extern var InteractionStartAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_InteractionStartAngle(): ucpp.num.Float32 return this.InteractionStartAngle;
+	public extern var InteractionCurAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_InteractionCurAngle(): ucpp.num.Float32 return this.InteractionCurAngle;
 }
 
 @:forward
 @:nativeGen
 @:native("AxisAngleGizmo*")
-abstract AxisAngleGizmoPtr(cpp.Star<AxisAngleGizmo>) from cpp.Star<AxisAngleGizmo> to cpp.Star<AxisAngleGizmo>{
+abstract AxisAngleGizmoPtr(ucpp.Ptr<AxisAngleGizmo>) from ucpp.Ptr<AxisAngleGizmo> to ucpp.Ptr<AxisAngleGizmo>{
 	@:from
 	public static extern inline function fromValue(v: AxisAngleGizmo): AxisAngleGizmoPtr {
 		return untyped __cpp__("&({0})", v);

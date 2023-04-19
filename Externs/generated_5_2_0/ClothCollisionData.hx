@@ -3,7 +3,7 @@ package ue;
 
 @:native("FClothCollisionData")
 @:include("ClothCollisionData.h")
-@:structAccess
+@:valueType
 extern class ClothCollisionData {
 	public var Spheres: TArray<ClothCollisionPrim_Sphere>;
 	public var SphereConnections: TArray<ClothCollisionPrim_SphereConnection>;

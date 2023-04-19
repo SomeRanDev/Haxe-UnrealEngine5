@@ -3,30 +3,30 @@ package ue;
 
 @:native("UGeomModifier_Extrude")
 @:include("GeomModifier_Extrude.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Extrude extends GeomModifier_Edit {
-	public var Length: cpp.Int32;
-	public var Segments: cpp.Int32;
-	public var SaveCoordSystem: cpp.Int32;
+	public var Length: ucpp.num.Int32;
+	public var Segments: ucpp.num.Int32;
+	public var SaveCoordSystem: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeomModifier_Extrude(GeomModifier_Extrude) from GeomModifier_Extrude {
-	public extern var Length(get, never): cpp.Int32;
-	public inline extern function get_Length(): cpp.Int32 return this.Length;
-	public extern var Segments(get, never): cpp.Int32;
-	public inline extern function get_Segments(): cpp.Int32 return this.Segments;
-	public extern var SaveCoordSystem(get, never): cpp.Int32;
-	public inline extern function get_SaveCoordSystem(): cpp.Int32 return this.SaveCoordSystem;
+	public extern var Length(get, never): ucpp.num.Int32;
+	public inline extern function get_Length(): ucpp.num.Int32 return this.Length;
+	public extern var Segments(get, never): ucpp.num.Int32;
+	public inline extern function get_Segments(): ucpp.num.Int32 return this.Segments;
+	public extern var SaveCoordSystem(get, never): ucpp.num.Int32;
+	public inline extern function get_SaveCoordSystem(): ucpp.num.Int32 return this.SaveCoordSystem;
 }
 
 @:forward
 @:nativeGen
 @:native("GeomModifier_Extrude*")
-abstract GeomModifier_ExtrudePtr(cpp.Star<GeomModifier_Extrude>) from cpp.Star<GeomModifier_Extrude> to cpp.Star<GeomModifier_Extrude>{
+abstract GeomModifier_ExtrudePtr(ucpp.Ptr<GeomModifier_Extrude>) from ucpp.Ptr<GeomModifier_Extrude> to ucpp.Ptr<GeomModifier_Extrude>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Extrude): GeomModifier_ExtrudePtr {
 		return untyped __cpp__("&({0})", v);

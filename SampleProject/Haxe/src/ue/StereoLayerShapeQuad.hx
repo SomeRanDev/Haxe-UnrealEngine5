@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStereoLayerShapeQuad")
 @:include("Components/StereoLayerComponent.h")
-@:structAccess
+@:valueType
 extern class StereoLayerShapeQuad extends StereoLayerShape {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStereoLayerShapeQuad(StereoLayerShapeQuad) from StereoLayerShapeQu
 @:forward
 @:nativeGen
 @:native("StereoLayerShapeQuad*")
-abstract StereoLayerShapeQuadPtr(cpp.Star<StereoLayerShapeQuad>) from cpp.Star<StereoLayerShapeQuad> to cpp.Star<StereoLayerShapeQuad>{
+abstract StereoLayerShapeQuadPtr(ucpp.Ptr<StereoLayerShapeQuad>) from ucpp.Ptr<StereoLayerShapeQuad> to ucpp.Ptr<StereoLayerShapeQuad>{
 	@:from
 	public static extern inline function fromValue(v: StereoLayerShapeQuad): StereoLayerShapeQuadPtr {
 		return untyped __cpp__("&({0})", v);

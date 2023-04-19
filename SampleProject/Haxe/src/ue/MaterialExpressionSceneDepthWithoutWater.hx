@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionSceneDepthWithoutWater")
 @:include("Materials/MaterialExpressionSceneDepthWithoutWater.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSceneDepthWithoutWater extends MaterialExpression {
 	public var InputMode: TEnumAsByte<EMaterialSceneAttributeInputMode>;
 	public var Input: ExpressionInput;
 	public var ConstInput: Vector2D;
-	public var FallbackDepth: cpp.Float32;
+	public var FallbackDepth: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstMaterialExpressionSceneDepthWithoutWater(MaterialExpressionSceneDe
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 	public extern var ConstInput(get, never): Vector2D;
 	public inline extern function get_ConstInput(): Vector2D return this.ConstInput;
-	public extern var FallbackDepth(get, never): cpp.Float32;
-	public inline extern function get_FallbackDepth(): cpp.Float32 return this.FallbackDepth;
+	public extern var FallbackDepth(get, never): ucpp.num.Float32;
+	public inline extern function get_FallbackDepth(): ucpp.num.Float32 return this.FallbackDepth;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSceneDepthWithoutWater*")
-abstract MaterialExpressionSceneDepthWithoutWaterPtr(cpp.Star<MaterialExpressionSceneDepthWithoutWater>) from cpp.Star<MaterialExpressionSceneDepthWithoutWater> to cpp.Star<MaterialExpressionSceneDepthWithoutWater>{
+abstract MaterialExpressionSceneDepthWithoutWaterPtr(ucpp.Ptr<MaterialExpressionSceneDepthWithoutWater>) from ucpp.Ptr<MaterialExpressionSceneDepthWithoutWater> to ucpp.Ptr<MaterialExpressionSceneDepthWithoutWater>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSceneDepthWithoutWater): MaterialExpressionSceneDepthWithoutWaterPtr {
 		return untyped __cpp__("&({0})", v);

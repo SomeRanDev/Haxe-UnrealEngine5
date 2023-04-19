@@ -3,10 +3,10 @@ package ue;
 
 @:native("UParticleModuleEventSendToGame")
 @:include("Particles/Event/ParticleModuleEventSendToGame.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleEventSendToGame extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstParticleModuleEventSendToGame(ParticleModuleEventSendToGame) from 
 @:forward
 @:nativeGen
 @:native("ParticleModuleEventSendToGame*")
-abstract ParticleModuleEventSendToGamePtr(cpp.Star<ParticleModuleEventSendToGame>) from cpp.Star<ParticleModuleEventSendToGame> to cpp.Star<ParticleModuleEventSendToGame>{
+abstract ParticleModuleEventSendToGamePtr(ucpp.Ptr<ParticleModuleEventSendToGame>) from ucpp.Ptr<ParticleModuleEventSendToGame> to ucpp.Ptr<ParticleModuleEventSendToGame>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleEventSendToGame): ParticleModuleEventSendToGamePtr {
 		return untyped __cpp__("&({0})", v);

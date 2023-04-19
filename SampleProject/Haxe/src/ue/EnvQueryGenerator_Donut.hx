@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnvQueryGenerator_Donut")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_Donut.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_Donut extends EnvQueryGenerator_ProjectedPoints {
 	public var InnerRadius: AIDataProviderFloatValue;
 	public var OuterRadius: AIDataProviderFloatValue;
@@ -15,7 +15,7 @@ extern class EnvQueryGenerator_Donut extends EnvQueryGenerator_ProjectedPoints {
 	public var Center: TSubclassOf<EnvQueryContext>;
 	public var bDefineArc: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstEnvQueryGenerator_Donut(EnvQueryGenerator_Donut) from EnvQueryGene
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_Donut*")
-abstract EnvQueryGenerator_DonutPtr(cpp.Star<EnvQueryGenerator_Donut>) from cpp.Star<EnvQueryGenerator_Donut> to cpp.Star<EnvQueryGenerator_Donut>{
+abstract EnvQueryGenerator_DonutPtr(ucpp.Ptr<EnvQueryGenerator_Donut>) from ucpp.Ptr<EnvQueryGenerator_Donut> to ucpp.Ptr<EnvQueryGenerator_Donut>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_Donut): EnvQueryGenerator_DonutPtr {
 		return untyped __cpp__("&({0})", v);

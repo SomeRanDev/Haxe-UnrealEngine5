@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectMidSideSpreaderPreset")
 @:include("SourceEffects/SourceEffectMidSideSpreader.h")
-@:structAccess
+@:valueType
 extern class SourceEffectMidSideSpreaderPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectMidSideSpreaderSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectMidSideSpreaderSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectMidSideSpreaderSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectMidSideSpreaderPreset(SourceEffectMidSideSpreaderPrese
 @:forward
 @:nativeGen
 @:native("SourceEffectMidSideSpreaderPreset*")
-abstract SourceEffectMidSideSpreaderPresetPtr(cpp.Star<SourceEffectMidSideSpreaderPreset>) from cpp.Star<SourceEffectMidSideSpreaderPreset> to cpp.Star<SourceEffectMidSideSpreaderPreset>{
+abstract SourceEffectMidSideSpreaderPresetPtr(ucpp.Ptr<SourceEffectMidSideSpreaderPreset>) from ucpp.Ptr<SourceEffectMidSideSpreaderPreset> to ucpp.Ptr<SourceEffectMidSideSpreaderPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectMidSideSpreaderPreset): SourceEffectMidSideSpreaderPresetPtr {
 		return untyped __cpp__("&({0})", v);

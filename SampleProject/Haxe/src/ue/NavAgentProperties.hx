@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNavAgentProperties")
 @:include("AI/Navigation/NavigationTypes.h")
-@:structAccess
+@:valueType
 extern class NavAgentProperties extends MovementProperties {
-	public var AgentRadius: cpp.Float32;
-	public var AgentHeight: cpp.Float32;
-	public var AgentStepHeight: cpp.Float32;
-	public var NavWalkingSearchHeightScale: cpp.Float32;
+	public var AgentRadius: ucpp.num.Float32;
+	public var AgentHeight: ucpp.num.Float32;
+	public var AgentStepHeight: ucpp.num.Float32;
+	public var NavWalkingSearchHeightScale: ucpp.num.Float32;
 	public var PreferredNavData: SoftClassPath;
 
 	@:native("FNavAgentProperties") public function new();
-	@:native("FNavAgentProperties") public static function make(AgentRadius: cpp.Float32, AgentHeight: cpp.Float32, AgentStepHeight: cpp.Float32, NavWalkingSearchHeightScale: cpp.Float32, PreferredNavData: SoftClassPath): NavAgentProperties ;
+	@:native("FNavAgentProperties") public static function make(AgentRadius: ucpp.num.Float32, AgentHeight: ucpp.num.Float32, AgentStepHeight: ucpp.num.Float32, NavWalkingSearchHeightScale: ucpp.num.Float32, PreferredNavData: SoftClassPath): NavAgentProperties ;
 }

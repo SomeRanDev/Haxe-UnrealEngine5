@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCutMeshWithMeshToolBuilder")
 @:include("CutMeshWithMeshTool.h")
-@:structAccess
+@:valueType
 extern class CutMeshWithMeshToolBuilder extends BaseCreateFromSelectedToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCutMeshWithMeshToolBuilder(CutMeshWithMeshToolBuilder) from CutMes
 @:forward
 @:nativeGen
 @:native("CutMeshWithMeshToolBuilder*")
-abstract CutMeshWithMeshToolBuilderPtr(cpp.Star<CutMeshWithMeshToolBuilder>) from cpp.Star<CutMeshWithMeshToolBuilder> to cpp.Star<CutMeshWithMeshToolBuilder>{
+abstract CutMeshWithMeshToolBuilderPtr(ucpp.Ptr<CutMeshWithMeshToolBuilder>) from ucpp.Ptr<CutMeshWithMeshToolBuilder> to ucpp.Ptr<CutMeshWithMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: CutMeshWithMeshToolBuilder): CutMeshWithMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

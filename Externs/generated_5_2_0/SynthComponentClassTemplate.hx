@@ -3,10 +3,10 @@ package ue;
 
 @:native("USynthComponentClassTemplate")
 @:include("SoundClassTemplates.h")
-@:structAccess
+@:valueType
 extern class SynthComponentClassTemplate extends ClassTemplate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSynthComponentClassTemplate(SynthComponentClassTemplate) from Synt
 @:forward
 @:nativeGen
 @:native("SynthComponentClassTemplate*")
-abstract SynthComponentClassTemplatePtr(cpp.Star<SynthComponentClassTemplate>) from cpp.Star<SynthComponentClassTemplate> to cpp.Star<SynthComponentClassTemplate>{
+abstract SynthComponentClassTemplatePtr(ucpp.Ptr<SynthComponentClassTemplate>) from ucpp.Ptr<SynthComponentClassTemplate> to ucpp.Ptr<SynthComponentClassTemplate>{
 	@:from
 	public static extern inline function fromValue(v: SynthComponentClassTemplate): SynthComponentClassTemplatePtr {
 		return untyped __cpp__("&({0})", v);

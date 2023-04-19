@@ -3,10 +3,10 @@ package ue;
 
 @:native("UImageSequenceProtocol_JPG")
 @:include("Protocols/ImageSequenceProtocol.h")
-@:structAccess
+@:valueType
 extern class ImageSequenceProtocol_JPG extends CompressedImageSequenceProtocol {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstImageSequenceProtocol_JPG(ImageSequenceProtocol_JPG) from ImageSeq
 @:forward
 @:nativeGen
 @:native("ImageSequenceProtocol_JPG*")
-abstract ImageSequenceProtocol_JPGPtr(cpp.Star<ImageSequenceProtocol_JPG>) from cpp.Star<ImageSequenceProtocol_JPG> to cpp.Star<ImageSequenceProtocol_JPG>{
+abstract ImageSequenceProtocol_JPGPtr(ucpp.Ptr<ImageSequenceProtocol_JPG>) from ucpp.Ptr<ImageSequenceProtocol_JPG> to ucpp.Ptr<ImageSequenceProtocol_JPG>{
 	@:from
 	public static extern inline function fromValue(v: ImageSequenceProtocol_JPG): ImageSequenceProtocol_JPGPtr {
 		return untyped __cpp__("&({0})", v);

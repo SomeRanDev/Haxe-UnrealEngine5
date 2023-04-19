@@ -2,14 +2,14 @@
 package ue;
 
 @:native("UGameplayTagAssetInterface")
-@:structAccess
+@:valueType
 extern class GameplayTagAssetInterface extends Interface {
 	public function HasMatchingGameplayTag(TagToCheck: GameplayTag): Bool;
-	public function HasAnyMatchingGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): Bool;
-	public function HasAllMatchingGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): Bool;
-	public function GetOwnedGameplayTags(TagContainer: cpp.Reference<GameplayTagContainer>): Void;
+	public function HasAnyMatchingGameplayTags(TagContainer: ucpp.Ref<GameplayTagContainer>): Bool;
+	public function HasAllMatchingGameplayTags(TagContainer: ucpp.Ref<GameplayTagContainer>): Bool;
+	public function GetOwnedGameplayTags(TagContainer: ucpp.Ref<GameplayTagContainer>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasMatchingGameplayTag, HasAnyMatchingGameplayTags, HasAllMatchingGameplayTags, GetOwnedGameplayTags)
@@ -20,7 +20,7 @@ abstract ConstGameplayTagAssetInterface(GameplayTagAssetInterface) from Gameplay
 @:forward
 @:nativeGen
 @:native("GameplayTagAssetInterface*")
-abstract GameplayTagAssetInterfacePtr(cpp.Star<GameplayTagAssetInterface>) from cpp.Star<GameplayTagAssetInterface> to cpp.Star<GameplayTagAssetInterface>{
+abstract GameplayTagAssetInterfacePtr(ucpp.Ptr<GameplayTagAssetInterface>) from ucpp.Ptr<GameplayTagAssetInterface> to ucpp.Ptr<GameplayTagAssetInterface>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagAssetInterface): GameplayTagAssetInterfacePtr {
 		return untyped __cpp__("&({0})", v);

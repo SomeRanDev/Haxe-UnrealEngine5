@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavigationSystemBase")
 @:include("AI/NavigationSystemBase.h")
-@:structAccess
+@:valueType
 extern class NavigationSystemBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavigationSystemBase(NavigationSystemBase) from NavigationSystemBa
 @:forward
 @:nativeGen
 @:native("NavigationSystemBase*")
-abstract NavigationSystemBasePtr(cpp.Star<NavigationSystemBase>) from cpp.Star<NavigationSystemBase> to cpp.Star<NavigationSystemBase>{
+abstract NavigationSystemBasePtr(ucpp.Ptr<NavigationSystemBase>) from ucpp.Ptr<NavigationSystemBase> to ucpp.Ptr<NavigationSystemBase>{
 	@:from
 	public static extern inline function fromValue(v: NavigationSystemBase): NavigationSystemBasePtr {
 		return untyped __cpp__("&({0})", v);

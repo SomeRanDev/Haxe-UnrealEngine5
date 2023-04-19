@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAISenseBlueprintListener")
 @:include("Perception/AISenseBlueprintListener.h")
-@:structAccess
+@:valueType
 extern class AISenseBlueprintListener extends UserDefinedStruct {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAISenseBlueprintListener(AISenseBlueprintListener) from AISenseBlu
 @:forward
 @:nativeGen
 @:native("AISenseBlueprintListener*")
-abstract AISenseBlueprintListenerPtr(cpp.Star<AISenseBlueprintListener>) from cpp.Star<AISenseBlueprintListener> to cpp.Star<AISenseBlueprintListener>{
+abstract AISenseBlueprintListenerPtr(ucpp.Ptr<AISenseBlueprintListener>) from ucpp.Ptr<AISenseBlueprintListener> to ucpp.Ptr<AISenseBlueprintListener>{
 	@:from
 	public static extern inline function fromValue(v: AISenseBlueprintListener): AISenseBlueprintListenerPtr {
 		return untyped __cpp__("&({0})", v);

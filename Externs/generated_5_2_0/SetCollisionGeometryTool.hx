@@ -3,16 +3,16 @@ package ue;
 
 @:native("USetCollisionGeometryTool")
 @:include("Physics/SetCollisionGeometryTool.h")
-@:structAccess
+@:valueType
 extern class SetCollisionGeometryTool extends MultiSelectionMeshEditingTool {
-	@:protected public var Settings: cpp.Star<SetCollisionGeometryToolProperties>;
-	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var VizSettings: cpp.Star<CollisionGeometryVisualizationProperties>;
-	@:protected public var CollisionProps: cpp.Star<PhysicsObjectToolPropertySet>;
-	@:protected public var LineMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var PreviewGeom: cpp.Star<PreviewGeometry>;
+	@:protected public var Settings: ucpp.Ptr<SetCollisionGeometryToolProperties>;
+	@:protected public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var VizSettings: ucpp.Ptr<CollisionGeometryVisualizationProperties>;
+	@:protected public var CollisionProps: ucpp.Ptr<PhysicsObjectToolPropertySet>;
+	@:protected public var LineMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var PreviewGeom: ucpp.Ptr<PreviewGeometry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSetCollisionGeometryTool(SetCollisionGeometryTool) from SetCollisi
 @:forward
 @:nativeGen
 @:native("SetCollisionGeometryTool*")
-abstract SetCollisionGeometryToolPtr(cpp.Star<SetCollisionGeometryTool>) from cpp.Star<SetCollisionGeometryTool> to cpp.Star<SetCollisionGeometryTool>{
+abstract SetCollisionGeometryToolPtr(ucpp.Ptr<SetCollisionGeometryTool>) from ucpp.Ptr<SetCollisionGeometryTool> to ucpp.Ptr<SetCollisionGeometryTool>{
 	@:from
 	public static extern inline function fromValue(v: SetCollisionGeometryTool): SetCollisionGeometryToolPtr {
 		return untyped __cpp__("&({0})", v);

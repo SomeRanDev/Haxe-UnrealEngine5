@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionBuilderCommandlet")
 @:include("Commandlets/WorldPartitionBuilderCommandlet.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionBuilderCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionBuilderCommandlet(WorldPartitionBuilderCommandlet) f
 @:forward
 @:nativeGen
 @:native("WorldPartitionBuilderCommandlet*")
-abstract WorldPartitionBuilderCommandletPtr(cpp.Star<WorldPartitionBuilderCommandlet>) from cpp.Star<WorldPartitionBuilderCommandlet> to cpp.Star<WorldPartitionBuilderCommandlet>{
+abstract WorldPartitionBuilderCommandletPtr(ucpp.Ptr<WorldPartitionBuilderCommandlet>) from ucpp.Ptr<WorldPartitionBuilderCommandlet> to ucpp.Ptr<WorldPartitionBuilderCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionBuilderCommandlet): WorldPartitionBuilderCommandletPtr {
 		return untyped __cpp__("&({0})", v);

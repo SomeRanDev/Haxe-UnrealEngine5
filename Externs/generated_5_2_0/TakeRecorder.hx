@@ -3,18 +3,18 @@ package ue;
 
 @:native("UTakeRecorder")
 @:include("Recorder/TakeRecorder.h")
-@:structAccess
+@:valueType
 extern class TakeRecorder extends Object {
-	private var SequenceAsset: cpp.Star<LevelSequence>;
-	private var OverlayWidget: cpp.Star<TakeRecorderOverlayWidget>;
+	private var SequenceAsset: ucpp.Ptr<LevelSequence>;
+	private var OverlayWidget: ucpp.Ptr<TakeRecorderOverlayWidget>;
 	private var WeakWorld: TWeakObjectPtr<World>;
 	private var Parameters: TakeRecorderParameters;
 
 	public function GetState(): ETakeRecorderState;
-	public function GetSequence(): cpp.Star<LevelSequence>;
-	public function GetCountdownSeconds(): cpp.Float32;
+	public function GetSequence(): ucpp.Ptr<LevelSequence>;
+	public function GetCountdownSeconds(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetState, GetSequence, GetCountdownSeconds)
@@ -25,7 +25,7 @@ abstract ConstTakeRecorder(TakeRecorder) from TakeRecorder {
 @:forward
 @:nativeGen
 @:native("TakeRecorder*")
-abstract TakeRecorderPtr(cpp.Star<TakeRecorder>) from cpp.Star<TakeRecorder> to cpp.Star<TakeRecorder>{
+abstract TakeRecorderPtr(ucpp.Ptr<TakeRecorder>) from ucpp.Ptr<TakeRecorder> to ucpp.Ptr<TakeRecorder>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorder): TakeRecorderPtr {
 		return untyped __cpp__("&({0})", v);

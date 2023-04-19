@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDeviceColorData")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class DeviceColorData {
 	public var bEnable: Bool;
 	public var bResetAfterCompletion: Bool;

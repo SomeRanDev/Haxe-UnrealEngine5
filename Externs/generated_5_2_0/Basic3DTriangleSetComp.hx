@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBasic3DTriangleSetComponent")
 @:include("Drawing/BasicTriangleSetComponent.h")
-@:structAccess
+@:valueType
 extern class Basic3DTriangleSetComp extends BasicTriangleSetComponentBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBasic3DTriangleSetComp(Basic3DTriangleSetComp) from Basic3DTriangl
 @:forward
 @:nativeGen
 @:native("Basic3DTriangleSetComp*")
-abstract Basic3DTriangleSetCompPtr(cpp.Star<Basic3DTriangleSetComp>) from cpp.Star<Basic3DTriangleSetComp> to cpp.Star<Basic3DTriangleSetComp>{
+abstract Basic3DTriangleSetCompPtr(ucpp.Ptr<Basic3DTriangleSetComp>) from ucpp.Ptr<Basic3DTriangleSetComp> to ucpp.Ptr<Basic3DTriangleSetComp>{
 	@:from
 	public static extern inline function fromValue(v: Basic3DTriangleSetComp): Basic3DTriangleSetCompPtr {
 		return untyped __cpp__("&({0})", v);

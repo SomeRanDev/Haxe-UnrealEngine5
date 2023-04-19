@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDefaultCameraShakeBase")
 @:include("DefaultCameraShakeBase.h")
-@:structAccess
+@:valueType
 extern class DefaultCameraShakeBase extends CameraShakeBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDefaultCameraShakeBase(DefaultCameraShakeBase) from DefaultCameraS
 @:forward
 @:nativeGen
 @:native("DefaultCameraShakeBase*")
-abstract DefaultCameraShakeBasePtr(cpp.Star<DefaultCameraShakeBase>) from cpp.Star<DefaultCameraShakeBase> to cpp.Star<DefaultCameraShakeBase>{
+abstract DefaultCameraShakeBasePtr(ucpp.Ptr<DefaultCameraShakeBase>) from ucpp.Ptr<DefaultCameraShakeBase> to ucpp.Ptr<DefaultCameraShakeBase>{
 	@:from
 	public static extern inline function fromValue(v: DefaultCameraShakeBase): DefaultCameraShakeBasePtr {
 		return untyped __cpp__("&({0})", v);

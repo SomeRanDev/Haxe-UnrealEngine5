@@ -3,13 +3,13 @@ package ue;
 
 @:native("UParticleModuleColorScaleOverLife")
 @:include("Particles/Color/ParticleModuleColorScaleOverLife.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleColorScaleOverLife extends ParticleModuleColorBase {
 	public var ColorScaleOverLife: RawDistributionVector;
 	public var AlphaScaleOverLife: RawDistributionFloat;
 	public var bEmitterTime: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstParticleModuleColorScaleOverLife(ParticleModuleColorScaleOverLife)
 @:forward
 @:nativeGen
 @:native("ParticleModuleColorScaleOverLife*")
-abstract ParticleModuleColorScaleOverLifePtr(cpp.Star<ParticleModuleColorScaleOverLife>) from cpp.Star<ParticleModuleColorScaleOverLife> to cpp.Star<ParticleModuleColorScaleOverLife>{
+abstract ParticleModuleColorScaleOverLifePtr(ucpp.Ptr<ParticleModuleColorScaleOverLife>) from ucpp.Ptr<ParticleModuleColorScaleOverLife> to ucpp.Ptr<ParticleModuleColorScaleOverLife>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleColorScaleOverLife): ParticleModuleColorScaleOverLifePtr {
 		return untyped __cpp__("&({0})", v);

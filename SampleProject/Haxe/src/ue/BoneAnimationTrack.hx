@@ -2,13 +2,13 @@
 package ue;
 
 @:native("FBoneAnimationTrack")
-@:include("Animation/AnimData/AnimDataModel.h")
-@:structAccess
+@:include("Animation/AnimData/IAnimationDataModel.h")
+@:valueType
 extern class BoneAnimationTrack {
 	public var InternalTrackData: RawAnimSequenceTrack;
-	public var BoneTreeIndex: cpp.Int32;
+	public var BoneTreeIndex: ucpp.num.Int32;
 	public var Name: FName;
 
 	@:native("FBoneAnimationTrack") public function new();
-	@:native("FBoneAnimationTrack") public static function make(InternalTrackData: RawAnimSequenceTrack, BoneTreeIndex: cpp.Int32, Name: FName): BoneAnimationTrack ;
+	@:native("FBoneAnimationTrack") public static function make(InternalTrackData: RawAnimSequenceTrack, BoneTreeIndex: ucpp.num.Int32, Name: FName): BoneAnimationTrack ;
 }

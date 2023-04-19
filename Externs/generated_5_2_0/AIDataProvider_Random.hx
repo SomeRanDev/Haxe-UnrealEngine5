@@ -3,13 +3,13 @@ package ue;
 
 @:native("UAIDataProvider_Random")
 @:include("DataProviders/AIDataProvider_Random.h")
-@:structAccess
+@:valueType
 extern class AIDataProvider_Random extends AIDataProvider_QueryParams {
-	@:protected public var Min: cpp.Float32;
-	@:protected public var Max: cpp.Float32;
+	@:protected public var Min: ucpp.num.Float32;
+	@:protected public var Max: ucpp.num.Float32;
 	@:protected public var bInteger: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAIDataProvider_Random(AIDataProvider_Random) from AIDataProvider_R
 @:forward
 @:nativeGen
 @:native("AIDataProvider_Random*")
-abstract AIDataProvider_RandomPtr(cpp.Star<AIDataProvider_Random>) from cpp.Star<AIDataProvider_Random> to cpp.Star<AIDataProvider_Random>{
+abstract AIDataProvider_RandomPtr(ucpp.Ptr<AIDataProvider_Random>) from ucpp.Ptr<AIDataProvider_Random> to ucpp.Ptr<AIDataProvider_Random>{
 	@:from
 	public static extern inline function fromValue(v: AIDataProvider_Random): AIDataProvider_RandomPtr {
 		return untyped __cpp__("&({0})", v);

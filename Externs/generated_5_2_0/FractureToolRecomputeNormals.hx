@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolRecomputeNormals")
 @:include("FractureToolRecomputeNormals.h")
-@:structAccess
+@:valueType
 extern class FractureToolRecomputeNormals extends FractureToolCutterBase {
-	@:protected public var NormalsSettings: cpp.Star<FractureRecomputeNormalsSettings>;
+	@:protected public var NormalsSettings: ucpp.Ptr<FractureRecomputeNormalsSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolRecomputeNormals(FractureToolRecomputeNormals) from Fr
 @:forward
 @:nativeGen
 @:native("FractureToolRecomputeNormals*")
-abstract FractureToolRecomputeNormalsPtr(cpp.Star<FractureToolRecomputeNormals>) from cpp.Star<FractureToolRecomputeNormals> to cpp.Star<FractureToolRecomputeNormals>{
+abstract FractureToolRecomputeNormalsPtr(ucpp.Ptr<FractureToolRecomputeNormals>) from ucpp.Ptr<FractureToolRecomputeNormals> to ucpp.Ptr<FractureToolRecomputeNormals>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolRecomputeNormals): FractureToolRecomputeNormalsPtr {
 		return untyped __cpp__("&({0})", v);

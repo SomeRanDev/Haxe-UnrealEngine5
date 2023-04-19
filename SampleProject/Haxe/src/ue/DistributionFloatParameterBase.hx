@@ -3,16 +3,16 @@ package ue;
 
 @:native("UDistributionFloatParameterBase")
 @:include("Distributions/DistributionFloatParameterBase.h")
-@:structAccess
+@:valueType
 extern class DistributionFloatParameterBase extends DistributionFloatConstant {
 	public var ParameterName: FName;
-	public var MinInput: cpp.Float32;
-	public var MaxInput: cpp.Float32;
-	public var MinOutput: cpp.Float32;
-	public var MaxOutput: cpp.Float32;
+	public var MinInput: ucpp.num.Float32;
+	public var MaxInput: ucpp.num.Float32;
+	public var MinOutput: ucpp.num.Float32;
+	public var MaxOutput: ucpp.num.Float32;
 	public var ParamMode: TEnumAsByte<DistributionParamMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,14 +20,14 @@ extern class DistributionFloatParameterBase extends DistributionFloatConstant {
 abstract ConstDistributionFloatParameterBase(DistributionFloatParameterBase) from DistributionFloatParameterBase {
 	public extern var ParameterName(get, never): FName;
 	public inline extern function get_ParameterName(): FName return this.ParameterName;
-	public extern var MinInput(get, never): cpp.Float32;
-	public inline extern function get_MinInput(): cpp.Float32 return this.MinInput;
-	public extern var MaxInput(get, never): cpp.Float32;
-	public inline extern function get_MaxInput(): cpp.Float32 return this.MaxInput;
-	public extern var MinOutput(get, never): cpp.Float32;
-	public inline extern function get_MinOutput(): cpp.Float32 return this.MinOutput;
-	public extern var MaxOutput(get, never): cpp.Float32;
-	public inline extern function get_MaxOutput(): cpp.Float32 return this.MaxOutput;
+	public extern var MinInput(get, never): ucpp.num.Float32;
+	public inline extern function get_MinInput(): ucpp.num.Float32 return this.MinInput;
+	public extern var MaxInput(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxInput(): ucpp.num.Float32 return this.MaxInput;
+	public extern var MinOutput(get, never): ucpp.num.Float32;
+	public inline extern function get_MinOutput(): ucpp.num.Float32 return this.MinOutput;
+	public extern var MaxOutput(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxOutput(): ucpp.num.Float32 return this.MaxOutput;
 	public extern var ParamMode(get, never): TEnumAsByte<DistributionParamMode>;
 	public inline extern function get_ParamMode(): TEnumAsByte<DistributionParamMode> return this.ParamMode;
 }
@@ -35,7 +35,7 @@ abstract ConstDistributionFloatParameterBase(DistributionFloatParameterBase) fro
 @:forward
 @:nativeGen
 @:native("DistributionFloatParameterBase*")
-abstract DistributionFloatParameterBasePtr(cpp.Star<DistributionFloatParameterBase>) from cpp.Star<DistributionFloatParameterBase> to cpp.Star<DistributionFloatParameterBase>{
+abstract DistributionFloatParameterBasePtr(ucpp.Ptr<DistributionFloatParameterBase>) from ucpp.Ptr<DistributionFloatParameterBase> to ucpp.Ptr<DistributionFloatParameterBase>{
 	@:from
 	public static extern inline function fromValue(v: DistributionFloatParameterBase): DistributionFloatParameterBasePtr {
 		return untyped __cpp__("&({0})", v);

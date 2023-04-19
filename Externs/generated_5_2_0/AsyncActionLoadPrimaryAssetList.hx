@@ -3,26 +3,26 @@ package ue;
 
 @:native("UAsyncActionLoadPrimaryAssetList")
 @:include("AsyncActionLoadPrimaryAsset.h")
-@:structAccess
+@:valueType
 extern class AsyncActionLoadPrimaryAssetList extends AsyncActionLoadPrimaryAssetBase {
-	public var Completed: HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Star<Object>>>) -> Void>;
+	public var Completed: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.Ptr<Object>>>) -> Void>;
 
-	public function AsyncLoadPrimaryAssetList(WorldContextObject: cpp.Star<Object>, PrimaryAssetList: cpp.Reference<TArray<PrimaryAssetId>>, LoadBundles: cpp.Reference<TArray<FName>>): cpp.Star<AsyncActionLoadPrimaryAssetList>;
+	public function AsyncLoadPrimaryAssetList(WorldContextObject: ucpp.Ptr<Object>, PrimaryAssetList: ucpp.Ref<TArray<PrimaryAssetId>>, LoadBundles: ucpp.Ref<TArray<FName>>): ucpp.Ptr<AsyncActionLoadPrimaryAssetList>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncActionLoadPrimaryAssetList(AsyncActionLoadPrimaryAssetList) from AsyncActionLoadPrimaryAssetList {
-	public extern var Completed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Star<Object.ConstObject>>>) -> Void>;
-	public inline extern function get_Completed(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<TArray<cpp.Star<Object.ConstObject>>>) -> Void> return this.Completed;
+	public extern var Completed(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.Ptr<Object.ConstObject>>>) -> Void>;
+	public inline extern function get_Completed(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<TArray<ucpp.Ptr<Object.ConstObject>>>) -> Void> return this.Completed;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncActionLoadPrimaryAssetList*")
-abstract AsyncActionLoadPrimaryAssetListPtr(cpp.Star<AsyncActionLoadPrimaryAssetList>) from cpp.Star<AsyncActionLoadPrimaryAssetList> to cpp.Star<AsyncActionLoadPrimaryAssetList>{
+abstract AsyncActionLoadPrimaryAssetListPtr(ucpp.Ptr<AsyncActionLoadPrimaryAssetList>) from ucpp.Ptr<AsyncActionLoadPrimaryAssetList> to ucpp.Ptr<AsyncActionLoadPrimaryAssetList>{
 	@:from
 	public static extern inline function fromValue(v: AsyncActionLoadPrimaryAssetList): AsyncActionLoadPrimaryAssetListPtr {
 		return untyped __cpp__("&({0})", v);

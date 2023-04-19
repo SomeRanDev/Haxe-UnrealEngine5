@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioAnalyzerNRTSettings")
 @:include("AudioAnalyzerNRT.h")
-@:structAccess
+@:valueType
 extern class AudioAnalyzerNRTSettings extends AudioAnalyzerAssetBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioAnalyzerNRTSettings(AudioAnalyzerNRTSettings) from AudioAnaly
 @:forward
 @:nativeGen
 @:native("AudioAnalyzerNRTSettings*")
-abstract AudioAnalyzerNRTSettingsPtr(cpp.Star<AudioAnalyzerNRTSettings>) from cpp.Star<AudioAnalyzerNRTSettings> to cpp.Star<AudioAnalyzerNRTSettings>{
+abstract AudioAnalyzerNRTSettingsPtr(ucpp.Ptr<AudioAnalyzerNRTSettings>) from ucpp.Ptr<AudioAnalyzerNRTSettings> to ucpp.Ptr<AudioAnalyzerNRTSettings>{
 	@:from
 	public static extern inline function fromValue(v: AudioAnalyzerNRTSettings): AudioAnalyzerNRTSettingsPtr {
 		return untyped __cpp__("&({0})", v);

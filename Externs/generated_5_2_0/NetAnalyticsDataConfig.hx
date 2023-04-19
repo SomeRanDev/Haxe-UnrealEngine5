@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNetAnalyticsDataConfig")
 @:include("Net/Core/Analytics/NetAnalyticsAggregatorConfig.h")
-@:structAccess
+@:valueType
 extern class NetAnalyticsDataConfig {
 	public var DataName: FName;
 	public var bEnabled: Bool;

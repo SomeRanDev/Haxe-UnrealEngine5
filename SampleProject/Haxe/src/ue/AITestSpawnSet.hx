@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAITestSpawnSet")
 @:include("FunctionalAITest.h")
-@:structAccess
+@:valueType
 extern class AITestSpawnSet extends AITestSpawnSetBase {
 	@:protected public var SpawnInfoContainer: TArray<AITestSpawnInfo>;
 

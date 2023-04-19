@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCutMeshWithMeshTool")
 @:include("CutMeshWithMeshTool.h")
-@:structAccess
+@:valueType
 extern class CutMeshWithMeshTool extends BaseCreateFromSelectedTool {
-	@:protected public var CutProperties: cpp.Star<CutMeshWithMeshToolProperties>;
-	@:protected public var IntersectPreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
+	@:protected public var CutProperties: ucpp.Ptr<CutMeshWithMeshToolProperties>;
+	@:protected public var IntersectPreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var DrawnLineSet: ucpp.Ptr<LineSetComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCutMeshWithMeshTool(CutMeshWithMeshTool) from CutMeshWithMeshTool 
 @:forward
 @:nativeGen
 @:native("CutMeshWithMeshTool*")
-abstract CutMeshWithMeshToolPtr(cpp.Star<CutMeshWithMeshTool>) from cpp.Star<CutMeshWithMeshTool> to cpp.Star<CutMeshWithMeshTool>{
+abstract CutMeshWithMeshToolPtr(ucpp.Ptr<CutMeshWithMeshTool>) from ucpp.Ptr<CutMeshWithMeshTool> to ucpp.Ptr<CutMeshWithMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: CutMeshWithMeshTool): CutMeshWithMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationHookComponent")
 @:include("EntitySystem/BuiltInComponentTypes.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationHookComp {
 	public var Interface: MovieSceneEvaluationHook;
 

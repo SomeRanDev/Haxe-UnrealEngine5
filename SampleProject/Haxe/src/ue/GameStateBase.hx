@@ -3,29 +3,31 @@ package ue;
 
 @:native("AGameStateBase")
 @:include("GameFramework/GameStateBase.h")
-@:structAccess
+@:valueType
 extern class GameStateBase extends Info {
 	public var GameModeClass: TSubclassOf<GameModeBase>;
-	public var AuthorityGameMode: cpp.Star<GameModeBase>;
+	public var AuthorityGameMode: ucpp.Ptr<GameModeBase>;
 	public var SpectatorClass: TSubclassOf<SpectatorPawn>;
-	public var PlayerArray: TArray<cpp.Star<PlayerState>>;
+	public var PlayerArray: TArray<ucpp.Ptr<PlayerState>>;
 	@:protected public var bReplicatedHasBegunPlay: Bool;
-	@:protected public var ReplicatedWorldTimeSeconds: cpp.Float32;
-	@:protected public var ServerWorldTimeSecondsDelta: cpp.Float32;
-	@:protected public var ServerWorldTimeSecondsUpdateFrequency: cpp.Float32;
+	@:protected public var ReplicatedWorldTimeSeconds: ucpp.num.Float32;
+	@:protected public var ReplicatedWorldTimeSecondsDouble: ucpp.num.Float64;
+	@:protected public var ServerWorldTimeSecondsDelta: ucpp.num.Float32;
+	@:protected public var ServerWorldTimeSecondsUpdateFrequency: ucpp.num.Float32;
 
 	@:protected public function OnRep_SpectatorClass(): Void;
+	@:protected public function OnRep_ReplicatedWorldTimeSecondsDouble(): Void;
 	@:protected public function OnRep_ReplicatedWorldTimeSeconds(): Void;
 	@:protected public function OnRep_ReplicatedHasBegunPlay(): Void;
 	@:protected public function OnRep_GameModeClass(): Void;
 	public function HasMatchStarted(): Bool;
 	public function HasMatchEnded(): Bool;
 	public function HasBegunPlay(): Bool;
-	public function GetServerWorldTimeSeconds(): cpp.Float32;
-	public function GetPlayerStartTime(Controller: cpp.Star<Controller>): cpp.Float32;
-	public function GetPlayerRespawnDelay(Controller: cpp.Star<Controller>): cpp.Float32;
+	public function GetServerWorldTimeSeconds(): ucpp.num.Float64;
+	public function GetPlayerStartTime(Controller: ucpp.Ptr<Controller>): ucpp.num.Float32;
+	public function GetPlayerRespawnDelay(Controller: ucpp.Ptr<Controller>): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasMatchStarted, HasMatchEnded, HasBegunPlay, GetServerWorldTimeSeconds, GetPlayerStartTime, GetPlayerRespawnDelay)
@@ -33,18 +35,18 @@ extern class GameStateBase extends Info {
 abstract ConstGameStateBase(GameStateBase) from GameStateBase {
 	public extern var GameModeClass(get, never): TSubclassOf<GameModeBase.ConstGameModeBase>;
 	public inline extern function get_GameModeClass(): TSubclassOf<GameModeBase.ConstGameModeBase> return this.GameModeClass;
-	public extern var AuthorityGameMode(get, never): cpp.Star<GameModeBase.ConstGameModeBase>;
-	public inline extern function get_AuthorityGameMode(): cpp.Star<GameModeBase.ConstGameModeBase> return this.AuthorityGameMode;
+	public extern var AuthorityGameMode(get, never): ucpp.Ptr<GameModeBase.ConstGameModeBase>;
+	public inline extern function get_AuthorityGameMode(): ucpp.Ptr<GameModeBase.ConstGameModeBase> return this.AuthorityGameMode;
 	public extern var SpectatorClass(get, never): TSubclassOf<SpectatorPawn.ConstSpectatorPawn>;
 	public inline extern function get_SpectatorClass(): TSubclassOf<SpectatorPawn.ConstSpectatorPawn> return this.SpectatorClass;
-	public extern var PlayerArray(get, never): TArray<cpp.Star<PlayerState.ConstPlayerState>>;
-	public inline extern function get_PlayerArray(): TArray<cpp.Star<PlayerState.ConstPlayerState>> return this.PlayerArray;
+	public extern var PlayerArray(get, never): TArray<ucpp.Ptr<PlayerState.ConstPlayerState>>;
+	public inline extern function get_PlayerArray(): TArray<ucpp.Ptr<PlayerState.ConstPlayerState>> return this.PlayerArray;
 }
 
 @:forward
 @:nativeGen
 @:native("GameStateBase*")
-abstract GameStateBasePtr(cpp.Star<GameStateBase>) from cpp.Star<GameStateBase> to cpp.Star<GameStateBase>{
+abstract GameStateBasePtr(ucpp.Ptr<GameStateBase>) from ucpp.Ptr<GameStateBase> to ucpp.Ptr<GameStateBase>{
 	@:from
 	public static extern inline function fromValue(v: GameStateBase): GameStateBasePtr {
 		return untyped __cpp__("&({0})", v);

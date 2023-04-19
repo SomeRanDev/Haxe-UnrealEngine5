@@ -3,23 +3,23 @@ package ue;
 
 @:native("UNiagaraComponent")
 @:include("NiagaraComponent.h")
-@:structAccess
+@:valueType
 extern class NiagaraComp extends FXSystemComp {
-	private var Asset: cpp.Star<NiagaraSystem>;
+	private var Asset: ucpp.Ptr<NiagaraSystem>;
 	private var TickBehavior: ENiagaraTickBehavior;
-	private var RandomSeedOffset: cpp.Int32;
+	private var RandomSeedOffset: ucpp.num.Int32;
 	private var OverrideParameters: NiagaraUserRedirectionParameterStore;
 	private var bForceSolo: Bool;
 	private var bEnableGpuComputeDebug: Bool;
 	private var bOverrideWarmupSettings: Bool;
-	private var WarmupTickCount: cpp.Int32;
-	private var WarmupTickDelta: cpp.Float32;
+	private var WarmupTickCount: ucpp.num.Int32;
+	private var WarmupTickDelta: ucpp.num.Float32;
 	private var bAutoDestroy: Bool;
 	private var bRenderingEnabled: Bool;
 	public var bAutoManageAttachment: Bool;
 	public var bAutoAttachWeldSimulatedBodies: Bool;
-	public var MaxTimeBeforeForceUpdateTransform: cpp.Float32;
-	public var OnSystemFinished: HaxeMulticastSparseDelegateProperty<(cpp.Star<NiagaraComp>) -> Void>;
+	public var MaxTimeBeforeForceUpdateTransform: ucpp.num.Float32;
+	public var OnSystemFinished: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NiagaraComp>) -> Void>;
 	public var AutoAttachParent: TWeakObjectPtr<SceneComp>;
 	public var AutoAttachSocketName: FName;
 	public var AutoAttachLocationRule: EAttachmentRule;
@@ -27,89 +27,89 @@ extern class NiagaraComp extends FXSystemComp {
 	public var AutoAttachScaleRule: EAttachmentRule;
 	public function GetAllowScalability(): Bool;
 	public function SetAllowScalability(input: Bool): Void;
-	private var SimCache: cpp.Star<NiagaraSimCache>;
-	private var CullProxy: cpp.Star<NiagaraCullProxyComp>;
+	private var SimCache: ucpp.Ptr<NiagaraSimCache>;
+	private var CullProxy: ucpp.Ptr<NiagaraCullProxyComp>;
 
-	public function SetVariableVec4(InVariableName: FName, InValue: cpp.Reference<Vector4>): Void;
+	public function SetVariableVec4(InVariableName: FName, InValue: ucpp.Ref<Vector4>): Void;
 	public function SetVariableVec3(InVariableName: FName, InValue: Vector): Void;
 	public function SetVariableVec2(InVariableName: FName, InValue: Vector2D): Void;
-	public function SetVariableTextureRenderTarget(InVariableName: FName, TextureRenderTarget: cpp.Star<TextureRenderTarget>): Void;
-	public function SetVariableTexture(InVariableName: FName, Texture: cpp.Star<Texture>): Void;
-	public function SetVariableStaticMesh(InVariableName: FName, InValue: cpp.Star<StaticMesh>): Void;
-	public function SetVariableQuat(InVariableName: FName, InValue: cpp.Reference<Quat>): Void;
+	public function SetVariableTextureRenderTarget(InVariableName: FName, TextureRenderTarget: ucpp.Ptr<TextureRenderTarget>): Void;
+	public function SetVariableTexture(InVariableName: FName, Texture: ucpp.Ptr<Texture>): Void;
+	public function SetVariableStaticMesh(InVariableName: FName, InValue: ucpp.Ptr<StaticMesh>): Void;
+	public function SetVariableQuat(InVariableName: FName, InValue: ucpp.Ref<Quat>): Void;
 	public function SetVariablePosition(InVariableName: FName, InValue: Vector): Void;
-	public function SetVariableObject(InVariableName: FName, Object: cpp.Star<Object>): Void;
-	public function SetVariableMatrix(InVariableName: FName, InValue: cpp.Reference<Matrix>): Void;
-	public function SetVariableMaterial(InVariableName: FName, Object: cpp.Star<MaterialInterface>): Void;
-	public function SetVariableLinearColor(InVariableName: FName, InValue: cpp.Reference<LinearColor>): Void;
-	public function SetVariableInt(InVariableName: FName, InValue: cpp.Int32): Void;
-	public function SetVariableFloat(InVariableName: FName, InValue: cpp.Float32): Void;
+	public function SetVariableObject(InVariableName: FName, Object: ucpp.Ptr<Object>): Void;
+	public function SetVariableMatrix(InVariableName: FName, InValue: ucpp.Ref<Matrix>): Void;
+	public function SetVariableMaterial(InVariableName: FName, Object: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetVariableLinearColor(InVariableName: FName, InValue: ucpp.Ref<LinearColor>): Void;
+	public function SetVariableInt(InVariableName: FName, InValue: ucpp.num.Int32): Void;
+	public function SetVariableFloat(InVariableName: FName, InValue: ucpp.num.Float32): Void;
 	public function SetVariableBool(InVariableName: FName, InValue: Bool): Void;
-	public function SetVariableActor(InVariableName: FName, Actor: cpp.Star<Actor>): Void;
+	public function SetVariableActor(InVariableName: FName, Actor: ucpp.Ptr<Actor>): Void;
 	public function SetTickBehavior(NewTickBehavior: ENiagaraTickBehavior): Void;
 	public function SetSystemFixedBounds(LocalBounds: Box): Void;
-	public function SetSimCache(SimCache: cpp.Star<NiagaraSimCache>, bResetSystem: Bool): Void;
-	public function SetSeekDelta(InSeekDelta: cpp.Float32): Void;
+	public function SetSimCache(SimCache: ucpp.Ptr<NiagaraSimCache>, bResetSystem: Bool): Void;
+	public function SetSeekDelta(InSeekDelta: ucpp.num.Float32): Void;
 	public function SetRenderingEnabled(bInRenderingEnabled: Bool): Void;
-	public function SetRandomSeedOffset(NewRandomSeedOffset: cpp.Int32): Void;
-	public function SetPreviewLODDistance(bEnablePreviewLODDistance: Bool, PreviewLODDistance: cpp.Float32, PreviewMaxDistance: cpp.Float32): Void;
+	public function SetRandomSeedOffset(NewRandomSeedOffset: ucpp.num.Int32): Void;
+	public function SetPreviewLODDistance(bEnablePreviewLODDistance: Bool, PreviewLODDistance: ucpp.num.Float32, PreviewMaxDistance: ucpp.num.Float32): Void;
 	public function SetPaused(bInPaused: Bool): Void;
-	public function SetNiagaraVariableVec4(InVariableName: FString, InValue: cpp.Reference<Vector4>): Void;
+	public function SetNiagaraVariableVec4(InVariableName: FString, InValue: ucpp.Ref<Vector4>): Void;
 	public function SetNiagaraVariableVec3(InVariableName: FString, InValue: Vector): Void;
 	public function SetNiagaraVariableVec2(InVariableName: FString, InValue: Vector2D): Void;
-	public function SetNiagaraVariableQuat(InVariableName: FString, InValue: cpp.Reference<Quat>): Void;
+	public function SetNiagaraVariableQuat(InVariableName: FString, InValue: ucpp.Ref<Quat>): Void;
 	public function SetNiagaraVariablePosition(InVariableName: FString, InValue: Vector): Void;
-	public function SetNiagaraVariableObject(InVariableName: FString, Object: cpp.Star<Object>): Void;
-	public function SetNiagaraVariableMatrix(InVariableName: FString, InValue: cpp.Reference<Matrix>): Void;
-	public function SetNiagaraVariableLinearColor(InVariableName: FString, InValue: cpp.Reference<LinearColor>): Void;
-	public function SetNiagaraVariableInt(InVariableName: FString, InValue: cpp.Int32): Void;
-	public function SetNiagaraVariableFloat(InVariableName: FString, InValue: cpp.Float32): Void;
+	public function SetNiagaraVariableObject(InVariableName: FString, Object: ucpp.Ptr<Object>): Void;
+	public function SetNiagaraVariableMatrix(InVariableName: FString, InValue: ucpp.Ref<Matrix>): Void;
+	public function SetNiagaraVariableLinearColor(InVariableName: FString, InValue: ucpp.Ref<LinearColor>): Void;
+	public function SetNiagaraVariableInt(InVariableName: FString, InValue: ucpp.num.Int32): Void;
+	public function SetNiagaraVariableFloat(InVariableName: FString, InValue: ucpp.num.Float32): Void;
 	public function SetNiagaraVariableBool(InVariableName: FString, InValue: Bool): Void;
-	public function SetNiagaraVariableActor(InVariableName: FString, Actor: cpp.Star<Actor>): Void;
-	public function SetMaxSimTime(InMaxTime: cpp.Float32): Void;
+	public function SetNiagaraVariableActor(InVariableName: FString, Actor: ucpp.Ptr<Actor>): Void;
+	public function SetMaxSimTime(InMaxTime: ucpp.num.Float32): Void;
 	public function SetLockDesiredAgeDeltaTimeToSeekDelta(bLock: Bool): Void;
 	public function SetGpuComputeDebug(bEnableDebug: Bool): Void;
 	public function SetForceSolo(bInForceSolo: Bool): Void;
 	public function SetForceLocalPlayerEffect(bIsPlayerEffect: Bool): Void;
 	public function SetEmitterFixedBounds(EmitterName: FName, LocalBounds: Box): Void;
-	public function SetDesiredAge(InDesiredAge: cpp.Float32): Void;
-	public function SetCustomTimeDilation(Dilation: cpp.Float32): Void;
+	public function SetDesiredAge(InDesiredAge: ucpp.num.Float32): Void;
+	public function SetCustomTimeDilation(Dilation: ucpp.num.Float32): Void;
 	public function SetCanRenderWhileSeeking(bInCanRenderWhileSeeking: Bool): Void;
 	public function SetAutoDestroy(bInAutoDestroy: Bool): Void;
-	public function SetAsset(InAsset: cpp.Star<NiagaraSystem>, bResetExistingOverrideParameters: Bool): Void;
+	public function SetAsset(InAsset: ucpp.Ptr<NiagaraSystem>, bResetExistingOverrideParameters: Bool): Void;
 	public function SetAgeUpdateMode(InAgeUpdateMode: ENiagaraAgeUpdateMode): Void;
-	public function SeekToDesiredAge(InDesiredAge: cpp.Float32): Void;
+	public function SeekToDesiredAge(InDesiredAge: ucpp.num.Float32): Void;
 	public function ResetSystem(): Void;
 	public function ReinitializeSystem(): Void;
 	public function IsPaused(): Bool;
 	public function InitForPerformanceBaseline(): Void;
 	public function GetTickBehavior(): ENiagaraTickBehavior;
 	public function GetSystemFixedBounds(): Box;
-	public function GetSimCache(): cpp.Star<NiagaraSimCache>;
-	public function GetSeekDelta(): cpp.Float32;
-	public function GetRandomSeedOffset(): cpp.Int32;
+	public function GetSimCache(): ucpp.Ptr<NiagaraSimCache>;
+	public function GetSeekDelta(): ucpp.num.Float32;
+	public function GetRandomSeedOffset(): ucpp.num.Int32;
 	public function GetPreviewLODDistanceEnabled(): Bool;
-	public function GetPreviewLODDistance(): cpp.Float32;
+	public function GetPreviewLODDistance(): ucpp.num.Float32;
 	public function GetNiagaraParticleValueVec3_DebugOnly(InEmitterName: FString, InValueName: FString): TArray<Vector>;
-	public function GetNiagaraParticleValues_DebugOnly(InEmitterName: FString, InValueName: FString): TArray<cpp.Float32>;
+	public function GetNiagaraParticleValues_DebugOnly(InEmitterName: FString, InValueName: FString): TArray<ucpp.num.Float32>;
 	public function GetNiagaraParticlePositions_DebugOnly(InEmitterName: FString): TArray<Vector>;
-	public function GetMaxSimTime(): cpp.Float32;
+	public function GetMaxSimTime(): ucpp.num.Float32;
 	public function GetLockDesiredAgeDeltaTimeToSeekDelta(): Bool;
 	public function GetForceSolo(): Bool;
 	public function GetForceLocalPlayerEffect(): Bool;
 	public function GetEmitterFixedBounds(EmitterName: FName): Box;
-	public function GetDesiredAge(): cpp.Float32;
-	public function GetDataInterface(Name: FString): cpp.Star<NiagaraDataInterface>;
-	public function GetCustomTimeDilation(): cpp.Float32;
-	public function GetAsset(): cpp.Star<NiagaraSystem>;
+	public function GetDesiredAge(): ucpp.num.Float32;
+	public function GetDataInterface(Name: FString): ucpp.Ptr<NiagaraDataInterface>;
+	public function GetCustomTimeDilation(): ucpp.num.Float32;
+	public function GetAsset(): ucpp.Ptr<NiagaraSystem>;
 	public function GetAgeUpdateMode(): ENiagaraAgeUpdateMode;
 	public function ClearSystemFixedBounds(): Void;
 	public function ClearSimCache(bResetSystem: Bool): Void;
 	public function ClearEmitterFixedBounds(EmitterName: FName): Void;
-	public function AdvanceSimulationByTime(SimulateTime: cpp.Float32, TickDeltaSeconds: cpp.Float32): Void;
-	public function AdvanceSimulation(TickCount: cpp.Int32, TickDeltaSeconds: cpp.Float32): Void;
+	public function AdvanceSimulationByTime(SimulateTime: ucpp.num.Float32, TickDeltaSeconds: ucpp.num.Float32): Void;
+	public function AdvanceSimulation(TickCount: ucpp.num.Int32, TickDeltaSeconds: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -124,10 +124,10 @@ abstract ConstNiagaraComp(NiagaraComp) from NiagaraComp {
 	public inline extern function get_bAutoManageAttachment(): Bool return this.bAutoManageAttachment;
 	public extern var bAutoAttachWeldSimulatedBodies(get, never): Bool;
 	public inline extern function get_bAutoAttachWeldSimulatedBodies(): Bool return this.bAutoAttachWeldSimulatedBodies;
-	public extern var MaxTimeBeforeForceUpdateTransform(get, never): cpp.Float32;
-	public inline extern function get_MaxTimeBeforeForceUpdateTransform(): cpp.Float32 return this.MaxTimeBeforeForceUpdateTransform;
-	public extern var OnSystemFinished(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<NiagaraComp.ConstNiagaraComp>) -> Void>;
-	public inline extern function get_OnSystemFinished(): HaxeMulticastSparseDelegateProperty<(cpp.Star<NiagaraComp.ConstNiagaraComp>) -> Void> return this.OnSystemFinished;
+	public extern var MaxTimeBeforeForceUpdateTransform(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxTimeBeforeForceUpdateTransform(): ucpp.num.Float32 return this.MaxTimeBeforeForceUpdateTransform;
+	public extern var OnSystemFinished(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NiagaraComp.ConstNiagaraComp>) -> Void>;
+	public inline extern function get_OnSystemFinished(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<NiagaraComp.ConstNiagaraComp>) -> Void> return this.OnSystemFinished;
 	public extern var AutoAttachParent(get, never): TWeakObjectPtr<SceneComp.ConstSceneComp>;
 	public inline extern function get_AutoAttachParent(): TWeakObjectPtr<SceneComp.ConstSceneComp> return this.AutoAttachParent;
 	public extern var AutoAttachSocketName(get, never): FName;
@@ -143,7 +143,7 @@ abstract ConstNiagaraComp(NiagaraComp) from NiagaraComp {
 @:forward
 @:nativeGen
 @:native("NiagaraComp*")
-abstract NiagaraCompPtr(cpp.Star<NiagaraComp>) from cpp.Star<NiagaraComp> to cpp.Star<NiagaraComp>{
+abstract NiagaraCompPtr(ucpp.Ptr<NiagaraComp>) from ucpp.Ptr<NiagaraComp> to ucpp.Ptr<NiagaraComp>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraComp): NiagaraCompPtr {
 		return untyped __cpp__("&({0})", v);

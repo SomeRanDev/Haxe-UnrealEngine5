@@ -3,11 +3,11 @@ package ue;
 
 @:native("UObjectMixerOutlinerModeEditorConfig")
 @:include("Views/List/Modes/ObjectMixerOutlinerMode.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerOutlinerModeEditorConfig extends EditorConfigBase {
 	public var Browsers: TMap<FName, ObjectMixerOutlinerModeConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstObjectMixerOutlinerModeEditorConfig(ObjectMixerOutlinerModeEditorC
 @:forward
 @:nativeGen
 @:native("ObjectMixerOutlinerModeEditorConfig*")
-abstract ObjectMixerOutlinerModeEditorConfigPtr(cpp.Star<ObjectMixerOutlinerModeEditorConfig>) from cpp.Star<ObjectMixerOutlinerModeEditorConfig> to cpp.Star<ObjectMixerOutlinerModeEditorConfig>{
+abstract ObjectMixerOutlinerModeEditorConfigPtr(ucpp.Ptr<ObjectMixerOutlinerModeEditorConfig>) from ucpp.Ptr<ObjectMixerOutlinerModeEditorConfig> to ucpp.Ptr<ObjectMixerOutlinerModeEditorConfig>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerOutlinerModeEditorConfig): ObjectMixerOutlinerModeEditorConfigPtr {
 		return untyped __cpp__("&({0})", v);

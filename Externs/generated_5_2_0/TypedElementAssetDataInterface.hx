@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UTypedElementAssetDataInterface")
-@:structAccess
+@:valueType
 extern class TypedElementAssetDataInterface extends Interface {
-	public function GetAssetData(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): AssetData;
-	public function GetAllReferencedAssetDatas(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): TArray<AssetData>;
+	public function GetAssetData(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): AssetData;
+	public function GetAllReferencedAssetDatas(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): TArray<AssetData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTypedElementAssetDataInterface(TypedElementAssetDataInterface) fro
 @:forward
 @:nativeGen
 @:native("TypedElementAssetDataInterface*")
-abstract TypedElementAssetDataInterfacePtr(cpp.Star<TypedElementAssetDataInterface>) from cpp.Star<TypedElementAssetDataInterface> to cpp.Star<TypedElementAssetDataInterface>{
+abstract TypedElementAssetDataInterfacePtr(ucpp.Ptr<TypedElementAssetDataInterface>) from ucpp.Ptr<TypedElementAssetDataInterface> to ucpp.Ptr<TypedElementAssetDataInterface>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementAssetDataInterface): TypedElementAssetDataInterfacePtr {
 		return untyped __cpp__("&({0})", v);

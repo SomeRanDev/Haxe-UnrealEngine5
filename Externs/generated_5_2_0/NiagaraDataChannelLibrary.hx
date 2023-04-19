@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataChannelLibrary")
 @:include("NiagaraDataChannel.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataChannelLibrary extends BlueprintFunctionLibrary {
-	public function GetNiagaraDataChannel(WorldContextObject: cpp.Star<Object.ConstObject>, Channel: FName): cpp.Star<NiagaraDataChannelHandler>;
+	public function GetNiagaraDataChannel(WorldContextObject: ucpp.Ptr<Object.ConstObject>, Channel: FName): ucpp.Ptr<NiagaraDataChannelHandler>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstNiagaraDataChannelLibrary(NiagaraDataChannelLibrary) from NiagaraD
 @:forward
 @:nativeGen
 @:native("NiagaraDataChannelLibrary*")
-abstract NiagaraDataChannelLibraryPtr(cpp.Star<NiagaraDataChannelLibrary>) from cpp.Star<NiagaraDataChannelLibrary> to cpp.Star<NiagaraDataChannelLibrary>{
+abstract NiagaraDataChannelLibraryPtr(ucpp.Ptr<NiagaraDataChannelLibrary>) from ucpp.Ptr<NiagaraDataChannelLibrary> to ucpp.Ptr<NiagaraDataChannelLibrary>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataChannelLibrary): NiagaraDataChannelLibraryPtr {
 		return untyped __cpp__("&({0})", v);

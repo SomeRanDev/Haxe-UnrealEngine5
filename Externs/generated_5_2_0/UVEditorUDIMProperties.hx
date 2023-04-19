@@ -3,18 +3,18 @@ package ue;
 
 @:native("UUVEditorUDIMProperties")
 @:include("UVEditorMode.h")
-@:structAccess
+@:valueType
 extern class UVEditorUDIMProperties extends InteractiveToolPropertySet {
 	public var UDIMSourceAsset: FString;
-	public var UDIMSourceTexture: cpp.Star<Texture2D>;
+	public var UDIMSourceTexture: ucpp.Ptr<Texture2D>;
 	public var ActiveUDIMs: TArray<UDIMSpecifier>;
 
 	public function SetUDIMsFromTexture(): Void;
 	public function SetUDIMsFromAsset(): Void;
 	public function GetAssetNames(): TArray<FString>;
-	public function AssetByIndex(): cpp.Int32;
+	public function AssetByIndex(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(AssetByIndex)
@@ -22,8 +22,8 @@ extern class UVEditorUDIMProperties extends InteractiveToolPropertySet {
 abstract ConstUVEditorUDIMProperties(UVEditorUDIMProperties) from UVEditorUDIMProperties {
 	public extern var UDIMSourceAsset(get, never): FString;
 	public inline extern function get_UDIMSourceAsset(): FString return this.UDIMSourceAsset;
-	public extern var UDIMSourceTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_UDIMSourceTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.UDIMSourceTexture;
+	public extern var UDIMSourceTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_UDIMSourceTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.UDIMSourceTexture;
 	public extern var ActiveUDIMs(get, never): TArray<UDIMSpecifier>;
 	public inline extern function get_ActiveUDIMs(): TArray<UDIMSpecifier> return this.ActiveUDIMs;
 }
@@ -31,7 +31,7 @@ abstract ConstUVEditorUDIMProperties(UVEditorUDIMProperties) from UVEditorUDIMPr
 @:forward
 @:nativeGen
 @:native("UVEditorUDIMProperties*")
-abstract UVEditorUDIMPropertiesPtr(cpp.Star<UVEditorUDIMProperties>) from cpp.Star<UVEditorUDIMProperties> to cpp.Star<UVEditorUDIMProperties>{
+abstract UVEditorUDIMPropertiesPtr(ucpp.Ptr<UVEditorUDIMProperties>) from ucpp.Ptr<UVEditorUDIMProperties> to ucpp.Ptr<UVEditorUDIMProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorUDIMProperties): UVEditorUDIMPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

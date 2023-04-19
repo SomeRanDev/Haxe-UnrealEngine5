@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRecordedTransformTrack")
 @:include("GeometryCollection/RecordedTransformTrack.h")
-@:structAccess
+@:valueType
 extern class RecordedTransformTrack {
 	public var Records: TArray<RecordedFrame>;
 

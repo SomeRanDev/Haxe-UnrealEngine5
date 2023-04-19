@@ -3,11 +3,11 @@ package ue;
 
 @:native("UContextObjectStore")
 @:include("ContextObjectStore.h")
-@:structAccess
+@:valueType
 extern class ContextObjectStore extends Object {
-	@:protected public var ContextObjects: TArray<cpp.Star<Object>>;
+	@:protected public var ContextObjects: TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstContextObjectStore(ContextObjectStore) from ContextObjectStore {
 @:forward
 @:nativeGen
 @:native("ContextObjectStore*")
-abstract ContextObjectStorePtr(cpp.Star<ContextObjectStore>) from cpp.Star<ContextObjectStore> to cpp.Star<ContextObjectStore>{
+abstract ContextObjectStorePtr(ucpp.Ptr<ContextObjectStore>) from ucpp.Ptr<ContextObjectStore> to ucpp.Ptr<ContextObjectStore>{
 	@:from
 	public static extern inline function fromValue(v: ContextObjectStore): ContextObjectStorePtr {
 		return untyped __cpp__("&({0})", v);

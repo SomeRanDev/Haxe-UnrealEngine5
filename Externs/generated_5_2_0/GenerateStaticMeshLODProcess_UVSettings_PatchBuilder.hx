@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcess_UVSettings_PatchBuilder")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess_UVSettings_PatchBuilder {
-	public var CurvatureAlignment: cpp.Float32;
-	public var SmoothingSteps: cpp.Int32;
-	public var SmoothingAlpha: cpp.Float32;
+	public var CurvatureAlignment: ucpp.num.Float32;
+	public var SmoothingSteps: ucpp.num.Int32;
+	public var SmoothingAlpha: ucpp.num.Float32;
 
 	@:native("FGenerateStaticMeshLODProcess_UVSettings_PatchBuilder") public function new();
-	@:native("FGenerateStaticMeshLODProcess_UVSettings_PatchBuilder") public static function make(CurvatureAlignment: cpp.Float32, SmoothingSteps: cpp.Int32, SmoothingAlpha: cpp.Float32): GenerateStaticMeshLODProcess_UVSettings_PatchBuilder ;
+	@:native("FGenerateStaticMeshLODProcess_UVSettings_PatchBuilder") public static function make(CurvatureAlignment: ucpp.num.Float32, SmoothingSteps: ucpp.num.Int32, SmoothingAlpha: ucpp.num.Float32): GenerateStaticMeshLODProcess_UVSettings_PatchBuilder ;
 }

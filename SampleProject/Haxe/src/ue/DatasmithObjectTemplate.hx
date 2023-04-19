@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDatasmithObjectTemplate")
 @:include("ObjectTemplates/DatasmithObjectTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithObjectTemplate extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDatasmithObjectTemplate(DatasmithObjectTemplate) from DatasmithObj
 @:forward
 @:nativeGen
 @:native("DatasmithObjectTemplate*")
-abstract DatasmithObjectTemplatePtr(cpp.Star<DatasmithObjectTemplate>) from cpp.Star<DatasmithObjectTemplate> to cpp.Star<DatasmithObjectTemplate>{
+abstract DatasmithObjectTemplatePtr(ucpp.Ptr<DatasmithObjectTemplate>) from ucpp.Ptr<DatasmithObjectTemplate> to ucpp.Ptr<DatasmithObjectTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithObjectTemplate): DatasmithObjectTemplatePtr {
 		return untyped __cpp__("&({0})", v);

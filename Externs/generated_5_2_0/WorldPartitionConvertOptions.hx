@@ -3,7 +3,7 @@ package ue;
 
 @:native("UWorldPartitionConvertOptions")
 @:include("WorldPartition/WorldPartitionConvertOptions.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionConvertOptions extends Object {
 	public var CommandletClass: TSubclassOf<WorldPartitionConvertCommandlet>;
 	public var bInPlace: Bool;
@@ -15,7 +15,7 @@ extern class WorldPartitionConvertOptions extends Object {
 	public var bOnlyMergeSubLevels: Bool;
 	public var bSaveFoliageTypeToContentFolder: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstWorldPartitionConvertOptions(WorldPartitionConvertOptions) from Wo
 @:forward
 @:nativeGen
 @:native("WorldPartitionConvertOptions*")
-abstract WorldPartitionConvertOptionsPtr(cpp.Star<WorldPartitionConvertOptions>) from cpp.Star<WorldPartitionConvertOptions> to cpp.Star<WorldPartitionConvertOptions>{
+abstract WorldPartitionConvertOptionsPtr(ucpp.Ptr<WorldPartitionConvertOptions>) from ucpp.Ptr<WorldPartitionConvertOptions> to ucpp.Ptr<WorldPartitionConvertOptions>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionConvertOptions): WorldPartitionConvertOptionsPtr {
 		return untyped __cpp__("&({0})", v);

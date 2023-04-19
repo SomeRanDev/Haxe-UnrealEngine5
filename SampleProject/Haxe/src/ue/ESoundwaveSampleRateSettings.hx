@@ -9,6 +9,6 @@ extern class ESoundwaveSampleRateSettings {
 	static var Medium: ESoundwaveSampleRateSettings;
 	static var Low: ESoundwaveSampleRateSettings;
 	static var Min: ESoundwaveSampleRateSettings;
-	static var MatchDevice: ESoundwaveSampleRateSettings;
+	static var MatchDevice_DEPRECATED: ESoundwaveSampleRateSettings;
 	static var ESoundwaveSampleRateSettings_MAX: ESoundwaveSampleRateSettings;
 }

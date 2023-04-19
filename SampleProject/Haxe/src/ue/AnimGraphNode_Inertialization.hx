@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Inertialization")
 @:include("AnimGraphNode_Inertialization.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_Inertialization extends AnimGraphNode_Base {
 	private var Node: AnimNode_Inertialization;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimGraphNode_Inertialization(AnimGraphNode_Inertialization) from 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_Inertialization*")
-abstract AnimGraphNode_InertializationPtr(cpp.Star<AnimGraphNode_Inertialization>) from cpp.Star<AnimGraphNode_Inertialization> to cpp.Star<AnimGraphNode_Inertialization>{
+abstract AnimGraphNode_InertializationPtr(ucpp.Ptr<AnimGraphNode_Inertialization>) from ucpp.Ptr<AnimGraphNode_Inertialization> to ucpp.Ptr<AnimGraphNode_Inertialization>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_Inertialization): AnimGraphNode_InertializationPtr {
 		return untyped __cpp__("&({0})", v);

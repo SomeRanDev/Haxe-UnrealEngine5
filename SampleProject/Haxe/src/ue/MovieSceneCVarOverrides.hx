@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneCVarOverrides")
 @:include("Sections/MovieSceneCVarSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCVarOverrides {
 	public var ValuesByCVar: TMap<FString, FString>;
 

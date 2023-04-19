@@ -3,7 +3,7 @@ package ue;
 
 @:native("FScalarParameterNameAndCurve")
 @:include("Sections/MovieSceneParameterSection.h")
-@:structAccess
+@:valueType
 extern class ScalarParameterNameAndCurve {
 	public var ParameterName: FName;
 	public var ParameterCurve: MovieSceneFloatChannel;

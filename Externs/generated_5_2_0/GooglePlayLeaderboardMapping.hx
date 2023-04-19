@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGooglePlayLeaderboardMapping")
 @:include("AndroidRuntimeSettings.h")
-@:structAccess
+@:valueType
 extern class GooglePlayLeaderboardMapping {
 	public var Name: FString;
 	public var LeaderboardID: FString;

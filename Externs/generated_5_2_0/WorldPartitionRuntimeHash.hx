@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionRuntimeHash")
 @:include("WorldPartition/WorldPartitionRuntimeHash.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeHash extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionRuntimeHash(WorldPartitionRuntimeHash) from WorldPar
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeHash*")
-abstract WorldPartitionRuntimeHashPtr(cpp.Star<WorldPartitionRuntimeHash>) from cpp.Star<WorldPartitionRuntimeHash> to cpp.Star<WorldPartitionRuntimeHash>{
+abstract WorldPartitionRuntimeHashPtr(ucpp.Ptr<WorldPartitionRuntimeHash>) from ucpp.Ptr<WorldPartitionRuntimeHash> to ucpp.Ptr<WorldPartitionRuntimeHash>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeHash): WorldPartitionRuntimeHashPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPolygroupLayersProperties")
 @:include("PropertySets/PolygroupLayersProperties.h")
-@:structAccess
+@:valueType
 extern class PolygroupLayersProperties extends InteractiveToolPropertySet {
 	public var ActiveGroupLayer: FName;
 	public var GroupLayersList: TArray<FString>;
 
 	public function GetGroupLayersFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstPolygroupLayersProperties(PolygroupLayersProperties) from Polygrou
 @:forward
 @:nativeGen
 @:native("PolygroupLayersProperties*")
-abstract PolygroupLayersPropertiesPtr(cpp.Star<PolygroupLayersProperties>) from cpp.Star<PolygroupLayersProperties> to cpp.Star<PolygroupLayersProperties>{
+abstract PolygroupLayersPropertiesPtr(ucpp.Ptr<PolygroupLayersProperties>) from ucpp.Ptr<PolygroupLayersProperties> to ucpp.Ptr<PolygroupLayersProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolygroupLayersProperties): PolygroupLayersPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

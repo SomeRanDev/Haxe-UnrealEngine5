@@ -3,27 +3,27 @@ package ue;
 
 @:native("ADatasmithAreaLightActor")
 @:include("DatasmithAreaLightActor.h")
-@:structAccess
+@:valueType
 extern class DatasmithAreaLightActor extends Actor {
 	public var Mobility: TEnumAsByte<EComponentMobility>;
 	public var LightType: EDatasmithAreaLightActorType;
 	public var LightShape: EDatasmithAreaLightActorShape;
 	public var Dimensions: Vector2D;
-	public var Intensity: cpp.Float32;
+	public var Intensity: ucpp.num.Float32;
 	public var IntensityUnits: ELightUnits;
 	public var Color: LinearColor;
-	public var Temperature: cpp.Float32;
-	public var IESTexture: cpp.Star<TextureLightProfile>;
+	public var Temperature: ucpp.num.Float32;
+	public var IESTexture: ucpp.Ptr<TextureLightProfile>;
 	public var bUseIESBrightness: Bool;
-	public var IESBrightnessScale: cpp.Float32;
+	public var IESBrightnessScale: ucpp.num.Float32;
 	public var Rotation: Rotator;
-	public var SourceRadius: cpp.Float32;
-	public var SourceLength: cpp.Float32;
-	public var AttenuationRadius: cpp.Float32;
-	public var SpotlightInnerAngle: cpp.Float32;
-	public var SpotlightOuterAngle: cpp.Float32;
+	public var SourceRadius: ucpp.num.Float32;
+	public var SourceLength: ucpp.num.Float32;
+	public var AttenuationRadius: ucpp.num.Float32;
+	public var SpotlightInnerAngle: ucpp.num.Float32;
+	public var SpotlightOuterAngle: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,38 +37,38 @@ abstract ConstDatasmithAreaLightActor(DatasmithAreaLightActor) from DatasmithAre
 	public inline extern function get_LightShape(): EDatasmithAreaLightActorShape return this.LightShape;
 	public extern var Dimensions(get, never): Vector2D;
 	public inline extern function get_Dimensions(): Vector2D return this.Dimensions;
-	public extern var Intensity(get, never): cpp.Float32;
-	public inline extern function get_Intensity(): cpp.Float32 return this.Intensity;
+	public extern var Intensity(get, never): ucpp.num.Float32;
+	public inline extern function get_Intensity(): ucpp.num.Float32 return this.Intensity;
 	public extern var IntensityUnits(get, never): ELightUnits;
 	public inline extern function get_IntensityUnits(): ELightUnits return this.IntensityUnits;
 	public extern var Color(get, never): LinearColor;
 	public inline extern function get_Color(): LinearColor return this.Color;
-	public extern var Temperature(get, never): cpp.Float32;
-	public inline extern function get_Temperature(): cpp.Float32 return this.Temperature;
-	public extern var IESTexture(get, never): cpp.Star<TextureLightProfile.ConstTextureLightProfile>;
-	public inline extern function get_IESTexture(): cpp.Star<TextureLightProfile.ConstTextureLightProfile> return this.IESTexture;
+	public extern var Temperature(get, never): ucpp.num.Float32;
+	public inline extern function get_Temperature(): ucpp.num.Float32 return this.Temperature;
+	public extern var IESTexture(get, never): ucpp.Ptr<TextureLightProfile.ConstTextureLightProfile>;
+	public inline extern function get_IESTexture(): ucpp.Ptr<TextureLightProfile.ConstTextureLightProfile> return this.IESTexture;
 	public extern var bUseIESBrightness(get, never): Bool;
 	public inline extern function get_bUseIESBrightness(): Bool return this.bUseIESBrightness;
-	public extern var IESBrightnessScale(get, never): cpp.Float32;
-	public inline extern function get_IESBrightnessScale(): cpp.Float32 return this.IESBrightnessScale;
+	public extern var IESBrightnessScale(get, never): ucpp.num.Float32;
+	public inline extern function get_IESBrightnessScale(): ucpp.num.Float32 return this.IESBrightnessScale;
 	public extern var Rotation(get, never): Rotator;
 	public inline extern function get_Rotation(): Rotator return this.Rotation;
-	public extern var SourceRadius(get, never): cpp.Float32;
-	public inline extern function get_SourceRadius(): cpp.Float32 return this.SourceRadius;
-	public extern var SourceLength(get, never): cpp.Float32;
-	public inline extern function get_SourceLength(): cpp.Float32 return this.SourceLength;
-	public extern var AttenuationRadius(get, never): cpp.Float32;
-	public inline extern function get_AttenuationRadius(): cpp.Float32 return this.AttenuationRadius;
-	public extern var SpotlightInnerAngle(get, never): cpp.Float32;
-	public inline extern function get_SpotlightInnerAngle(): cpp.Float32 return this.SpotlightInnerAngle;
-	public extern var SpotlightOuterAngle(get, never): cpp.Float32;
-	public inline extern function get_SpotlightOuterAngle(): cpp.Float32 return this.SpotlightOuterAngle;
+	public extern var SourceRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceRadius(): ucpp.num.Float32 return this.SourceRadius;
+	public extern var SourceLength(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceLength(): ucpp.num.Float32 return this.SourceLength;
+	public extern var AttenuationRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_AttenuationRadius(): ucpp.num.Float32 return this.AttenuationRadius;
+	public extern var SpotlightInnerAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_SpotlightInnerAngle(): ucpp.num.Float32 return this.SpotlightInnerAngle;
+	public extern var SpotlightOuterAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_SpotlightOuterAngle(): ucpp.num.Float32 return this.SpotlightOuterAngle;
 }
 
 @:forward
 @:nativeGen
 @:native("DatasmithAreaLightActor*")
-abstract DatasmithAreaLightActorPtr(cpp.Star<DatasmithAreaLightActor>) from cpp.Star<DatasmithAreaLightActor> to cpp.Star<DatasmithAreaLightActor>{
+abstract DatasmithAreaLightActorPtr(ucpp.Ptr<DatasmithAreaLightActor>) from ucpp.Ptr<DatasmithAreaLightActor> to ucpp.Ptr<DatasmithAreaLightActor>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithAreaLightActor): DatasmithAreaLightActorPtr {
 		return untyped __cpp__("&({0})", v);

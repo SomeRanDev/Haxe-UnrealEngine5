@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSlateChildSize")
 @:include("Components/SlateWrapperTypes.h")
-@:structAccess
+@:valueType
 extern class SlateChildSize {
-	public var Value: cpp.Float32;
+	public var Value: ucpp.num.Float32;
 	public var SizeRule: TEnumAsByte<ESlateSizeRule>;
 
 	@:native("FSlateChildSize") public function new();
-	@:native("FSlateChildSize") public static function make(Value: cpp.Float32, SizeRule: TEnumAsByte<ESlateSizeRule>): SlateChildSize ;
+	@:native("FSlateChildSize") public static function make(Value: ucpp.num.Float32, SizeRule: TEnumAsByte<ESlateSizeRule>): SlateChildSize ;
 }

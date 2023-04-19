@@ -3,11 +3,11 @@ package ue;
 
 @:native("UProgressWidgetStyle")
 @:include("Framework/Styling/ProgressWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class ProgressWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var ProgressBarStyle: ProgressBarStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstProgressWidgetStyle(ProgressWidgetStyle) from ProgressWidgetStyle 
 @:forward
 @:nativeGen
 @:native("ProgressWidgetStyle*")
-abstract ProgressWidgetStylePtr(cpp.Star<ProgressWidgetStyle>) from cpp.Star<ProgressWidgetStyle> to cpp.Star<ProgressWidgetStyle>{
+abstract ProgressWidgetStylePtr(ucpp.Ptr<ProgressWidgetStyle>) from ucpp.Ptr<ProgressWidgetStyle> to ucpp.Ptr<ProgressWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: ProgressWidgetStyle): ProgressWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

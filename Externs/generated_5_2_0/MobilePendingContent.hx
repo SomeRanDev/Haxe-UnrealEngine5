@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMobilePendingContent")
 @:include("MobilePatchingLibrary.h")
-@:structAccess
+@:valueType
 extern class MobilePendingContent extends MobileInstalledContent {
-	public function StartInstall(OnSucceeded: HaxeDelegateProperty<() -> Void>, OnFailed: HaxeDelegateProperty<(FText, cpp.Int32) -> Void>): Void;
-	public function GetTotalDownloadedSize(): cpp.Float32;
-	public function GetRequiredDiskSpace(): cpp.Float32;
-	public function GetInstallProgress(): cpp.Float32;
+	public function StartInstall(OnSucceeded: HaxeDelegateProperty<() -> Void>, OnFailed: HaxeDelegateProperty<(FText, ucpp.num.Int32) -> Void>): Void;
+	public function GetTotalDownloadedSize(): ucpp.num.Float32;
+	public function GetRequiredDiskSpace(): ucpp.num.Float32;
+	public function GetInstallProgress(): ucpp.num.Float32;
 	public function GetDownloadStatusText(): FText;
-	public function GetDownloadSpeed(): cpp.Float32;
-	public function GetDownloadSize(): cpp.Float32;
+	public function GetDownloadSpeed(): ucpp.num.Float32;
+	public function GetDownloadSize(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstMobilePendingContent(MobilePendingContent) from MobilePendingConte
 @:forward
 @:nativeGen
 @:native("MobilePendingContent*")
-abstract MobilePendingContentPtr(cpp.Star<MobilePendingContent>) from cpp.Star<MobilePendingContent> to cpp.Star<MobilePendingContent>{
+abstract MobilePendingContentPtr(ucpp.Ptr<MobilePendingContent>) from ucpp.Ptr<MobilePendingContent> to ucpp.Ptr<MobilePendingContent>{
 	@:from
 	public static extern inline function fromValue(v: MobilePendingContent): MobilePendingContentPtr {
 		return untyped __cpp__("&({0})", v);

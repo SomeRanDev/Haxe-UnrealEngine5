@@ -3,14 +3,14 @@ package ue;
 
 @:native("UIKRigComponent")
 @:include("ActorComponents/IKRigComponent.h")
-@:structAccess
+@:valueType
 extern class IKRigComp extends ActorComp {
-	public function SetIKRigGoalTransform(GoalName: FName, Transform: Transform, PositionAlpha: cpp.Float32, RotationAlpha: cpp.Float32): Void;
-	public function SetIKRigGoalPositionAndRotation(GoalName: FName, Position: Vector, Rotation: Quat, PositionAlpha: cpp.Float32, RotationAlpha: cpp.Float32): Void;
-	public function SetIKRigGoal(Goal: cpp.Reference<IKRigGoal>): Void;
+	public function SetIKRigGoalTransform(GoalName: FName, Transform: Transform, PositionAlpha: ucpp.num.Float32, RotationAlpha: ucpp.num.Float32): Void;
+	public function SetIKRigGoalPositionAndRotation(GoalName: FName, Position: Vector, Rotation: Quat, PositionAlpha: ucpp.num.Float32, RotationAlpha: ucpp.num.Float32): Void;
+	public function SetIKRigGoal(Goal: ucpp.Ref<IKRigGoal>): Void;
 	public function ClearAllGoals(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstIKRigComp(IKRigComp) from IKRigComp {
 @:forward
 @:nativeGen
 @:native("IKRigComp*")
-abstract IKRigCompPtr(cpp.Star<IKRigComp>) from cpp.Star<IKRigComp> to cpp.Star<IKRigComp>{
+abstract IKRigCompPtr(ucpp.Ptr<IKRigComp>) from ucpp.Ptr<IKRigComp> to ucpp.Ptr<IKRigComp>{
 	@:from
 	public static extern inline function fromValue(v: IKRigComp): IKRigCompPtr {
 		return untyped __cpp__("&({0})", v);

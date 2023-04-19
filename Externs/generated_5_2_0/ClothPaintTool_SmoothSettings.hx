@@ -3,24 +3,24 @@ package ue;
 
 @:native("UClothPaintTool_SmoothSettings")
 @:include("ClothPaintTools.h")
-@:structAccess
+@:valueType
 extern class ClothPaintTool_SmoothSettings extends Object {
-	public var Strength: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstClothPaintTool_SmoothSettings(ClothPaintTool_SmoothSettings) from ClothPaintTool_SmoothSettings {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothPaintTool_SmoothSettings*")
-abstract ClothPaintTool_SmoothSettingsPtr(cpp.Star<ClothPaintTool_SmoothSettings>) from cpp.Star<ClothPaintTool_SmoothSettings> to cpp.Star<ClothPaintTool_SmoothSettings>{
+abstract ClothPaintTool_SmoothSettingsPtr(ucpp.Ptr<ClothPaintTool_SmoothSettings>) from ucpp.Ptr<ClothPaintTool_SmoothSettings> to ucpp.Ptr<ClothPaintTool_SmoothSettings>{
 	@:from
 	public static extern inline function fromValue(v: ClothPaintTool_SmoothSettings): ClothPaintTool_SmoothSettingsPtr {
 		return untyped __cpp__("&({0})", v);

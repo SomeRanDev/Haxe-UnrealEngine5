@@ -3,14 +3,14 @@ package ue;
 
 @:native("UUVEditorUVAlignProperties")
 @:include("Operators/UVEditorUVTransformOp.h")
-@:structAccess
+@:valueType
 extern class UVEditorUVAlignProperties extends UVEditorUVTransformPropertiesBase {
 	public var AlignAnchor: EUVEditorAlignAnchor;
 	public var ManualAnchor: Vector2D;
 	public var AlignDirection: EUVEditorAlignDirection;
 	public var Grouping: EUVEditorAlignDistributeGroupingMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstUVEditorUVAlignProperties(UVEditorUVAlignProperties) from UVEditor
 @:forward
 @:nativeGen
 @:native("UVEditorUVAlignProperties*")
-abstract UVEditorUVAlignPropertiesPtr(cpp.Star<UVEditorUVAlignProperties>) from cpp.Star<UVEditorUVAlignProperties> to cpp.Star<UVEditorUVAlignProperties>{
+abstract UVEditorUVAlignPropertiesPtr(ucpp.Ptr<UVEditorUVAlignProperties>) from ucpp.Ptr<UVEditorUVAlignProperties> to ucpp.Ptr<UVEditorUVAlignProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorUVAlignProperties): UVEditorUVAlignPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

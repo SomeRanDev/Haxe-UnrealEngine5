@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTrackableFaceDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class TrackableFaceDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTrackableFaceDelegate__PythonCallable(TrackableFaceDelegate__Pytho
 @:forward
 @:nativeGen
 @:native("TrackableFaceDelegate__PythonCallable*")
-abstract TrackableFaceDelegate__PythonCallablePtr(cpp.Star<TrackableFaceDelegate__PythonCallable>) from cpp.Star<TrackableFaceDelegate__PythonCallable> to cpp.Star<TrackableFaceDelegate__PythonCallable>{
+abstract TrackableFaceDelegate__PythonCallablePtr(ucpp.Ptr<TrackableFaceDelegate__PythonCallable>) from ucpp.Ptr<TrackableFaceDelegate__PythonCallable> to ucpp.Ptr<TrackableFaceDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: TrackableFaceDelegate__PythonCallable): TrackableFaceDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

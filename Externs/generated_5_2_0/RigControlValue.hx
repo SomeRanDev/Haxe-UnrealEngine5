@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigControlValue")
 @:include("Rigs/RigHierarchyDefines.h")
-@:structAccess
+@:valueType
 extern class RigControlValue {
 	private var FloatStorage: RigControlValueStorage;
 

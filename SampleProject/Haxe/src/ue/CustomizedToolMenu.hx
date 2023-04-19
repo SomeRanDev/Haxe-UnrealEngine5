@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomizedToolMenu")
 @:include("Framework/MultiBox/ToolMenuBase.h")
-@:structAccess
+@:valueType
 extern class CustomizedToolMenu {
 	public var Name: FName;
 	public var Entries: TMap<FName, CustomizedToolMenuEntry>;

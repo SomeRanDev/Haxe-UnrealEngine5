@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeomModifier_Delete")
 @:include("GeomModifier_Delete.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Delete extends GeomModifier_Edit {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeomModifier_Delete(GeomModifier_Delete) from GeomModifier_Delete 
 @:forward
 @:nativeGen
 @:native("GeomModifier_Delete*")
-abstract GeomModifier_DeletePtr(cpp.Star<GeomModifier_Delete>) from cpp.Star<GeomModifier_Delete> to cpp.Star<GeomModifier_Delete>{
+abstract GeomModifier_DeletePtr(ucpp.Ptr<GeomModifier_Delete>) from ucpp.Ptr<GeomModifier_Delete> to ucpp.Ptr<GeomModifier_Delete>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Delete): GeomModifier_DeletePtr {
 		return untyped __cpp__("&({0})", v);

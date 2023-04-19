@@ -3,14 +3,14 @@ package ue;
 
 @:native("FProceduralFoliageInstance")
 @:include("ProceduralFoliageInstance.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageInstance {
 	public var Rotation: Quat;
 	public var Location: Vector;
-	public var Age: cpp.Float32;
+	public var Age: ucpp.num.Float32;
 	public var Normal: Vector;
-	public var Scale: cpp.Float32;
-	public var Type: cpp.Star<FoliageType>;
+	public var Scale: ucpp.num.Float32;
+	public var Type: ucpp.Ptr<FoliageType>;
 
 	@:native("FProceduralFoliageInstance") public function new();
 }

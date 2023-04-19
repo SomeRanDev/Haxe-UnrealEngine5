@@ -3,7 +3,7 @@ package ue;
 
 @:native("UVRNotificationsComponent")
 @:include("VRNotificationsComponent.h")
-@:structAccess
+@:valueType
 extern class VRNotificationsComp extends ActorComp {
 	public var HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var HMDTrackingInitializedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -14,10 +14,13 @@ extern class VRNotificationsComp extends ActorComp {
 	public var HMDPutOnHeadDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var HMDRemovedFromHeadDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var VRControllerRecenteredDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public var XRTrackingOriginChangedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public var XRPlayAreaChangedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public var XRInteractionProfileChangedDelegate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function VRNotificationsDelegate__DelegateSignature(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,12 +44,18 @@ abstract ConstVRNotificationsComp(VRNotificationsComp) from VRNotificationsComp 
 	public inline extern function get_HMDRemovedFromHeadDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.HMDRemovedFromHeadDelegate;
 	public extern var VRControllerRecenteredDelegate(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_VRControllerRecenteredDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.VRControllerRecenteredDelegate;
+	public extern var XRTrackingOriginChangedDelegate(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public inline extern function get_XRTrackingOriginChangedDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.XRTrackingOriginChangedDelegate;
+	public extern var XRPlayAreaChangedDelegate(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public inline extern function get_XRPlayAreaChangedDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.XRPlayAreaChangedDelegate;
+	public extern var XRInteractionProfileChangedDelegate(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public inline extern function get_XRInteractionProfileChangedDelegate(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.XRInteractionProfileChangedDelegate;
 }
 
 @:forward
 @:nativeGen
 @:native("VRNotificationsComp*")
-abstract VRNotificationsCompPtr(cpp.Star<VRNotificationsComp>) from cpp.Star<VRNotificationsComp> to cpp.Star<VRNotificationsComp>{
+abstract VRNotificationsCompPtr(ucpp.Ptr<VRNotificationsComp>) from ucpp.Ptr<VRNotificationsComp> to ucpp.Ptr<VRNotificationsComp>{
 	@:from
 	public static extern inline function fromValue(v: VRNotificationsComp): VRNotificationsCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDatasmithVREDAssetImportData")
 @:include("DatasmithAssetImportData.h")
-@:structAccess
+@:valueType
 extern class DatasmithVREDAssetImportData extends DatasmithAssetImportData {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDatasmithVREDAssetImportData(DatasmithVREDAssetImportData) from Da
 @:forward
 @:nativeGen
 @:native("DatasmithVREDAssetImportData*")
-abstract DatasmithVREDAssetImportDataPtr(cpp.Star<DatasmithVREDAssetImportData>) from cpp.Star<DatasmithVREDAssetImportData> to cpp.Star<DatasmithVREDAssetImportData>{
+abstract DatasmithVREDAssetImportDataPtr(ucpp.Ptr<DatasmithVREDAssetImportData>) from ucpp.Ptr<DatasmithVREDAssetImportData> to ucpp.Ptr<DatasmithVREDAssetImportData>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithVREDAssetImportData): DatasmithVREDAssetImportDataPtr {
 		return untyped __cpp__("&({0})", v);

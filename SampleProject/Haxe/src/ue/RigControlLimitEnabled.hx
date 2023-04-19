@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigControlLimitEnabled")
 @:include("Rigs/RigHierarchyDefines.h")
-@:structAccess
+@:valueType
 extern class RigControlLimitEnabled {
 	public var bMinimum: Bool;
 	public var bMaximum: Bool;

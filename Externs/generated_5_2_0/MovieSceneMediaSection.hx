@@ -3,47 +3,47 @@ package ue;
 
 @:native("UMovieSceneMediaSection")
 @:include("MovieSceneMediaSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMediaSection extends MovieSceneSection {
-	public var MediaSource: cpp.Star<MediaSource>;
-	public var MediaSourceProxyIndex: cpp.Int32;
+	public var MediaSource: ucpp.Ptr<MediaSource>;
+	public var MediaSourceProxyIndex: ucpp.num.Int32;
 	public var bLooping: Bool;
 	public var StartFrameOffset: FrameNumber;
-	public var MediaTexture: cpp.Star<MediaTexture>;
-	public var MediaSoundComponent: cpp.Star<MediaSoundComp>;
+	public var MediaTexture: ucpp.Ptr<MediaTexture>;
+	public var MediaSoundComponent: ucpp.Ptr<MediaSoundComp>;
 	public var bUseExternalMediaPlayer: Bool;
-	public var ExternalMediaPlayer: cpp.Star<MediaPlayer>;
+	public var ExternalMediaPlayer: ucpp.Ptr<MediaPlayer>;
 	public var CacheSettings: MediaSourceCacheSettings;
-	public var TextureIndex: cpp.Int32;
+	public var TextureIndex: ucpp.num.Int32;
 	public var bHasMediaPlayerProxy: Bool;
 	private var MediaSourceProxyBindingID: MovieSceneObjectBindingID;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneMediaSection(MovieSceneMediaSection) from MovieSceneMediaSection {
-	public extern var MediaSource(get, never): cpp.Star<MediaSource.ConstMediaSource>;
-	public inline extern function get_MediaSource(): cpp.Star<MediaSource.ConstMediaSource> return this.MediaSource;
-	public extern var MediaSourceProxyIndex(get, never): cpp.Int32;
-	public inline extern function get_MediaSourceProxyIndex(): cpp.Int32 return this.MediaSourceProxyIndex;
+	public extern var MediaSource(get, never): ucpp.Ptr<MediaSource.ConstMediaSource>;
+	public inline extern function get_MediaSource(): ucpp.Ptr<MediaSource.ConstMediaSource> return this.MediaSource;
+	public extern var MediaSourceProxyIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_MediaSourceProxyIndex(): ucpp.num.Int32 return this.MediaSourceProxyIndex;
 	public extern var bLooping(get, never): Bool;
 	public inline extern function get_bLooping(): Bool return this.bLooping;
 	public extern var StartFrameOffset(get, never): FrameNumber;
 	public inline extern function get_StartFrameOffset(): FrameNumber return this.StartFrameOffset;
-	public extern var MediaTexture(get, never): cpp.Star<MediaTexture.ConstMediaTexture>;
-	public inline extern function get_MediaTexture(): cpp.Star<MediaTexture.ConstMediaTexture> return this.MediaTexture;
-	public extern var MediaSoundComponent(get, never): cpp.Star<MediaSoundComp.ConstMediaSoundComp>;
-	public inline extern function get_MediaSoundComponent(): cpp.Star<MediaSoundComp.ConstMediaSoundComp> return this.MediaSoundComponent;
+	public extern var MediaTexture(get, never): ucpp.Ptr<MediaTexture.ConstMediaTexture>;
+	public inline extern function get_MediaTexture(): ucpp.Ptr<MediaTexture.ConstMediaTexture> return this.MediaTexture;
+	public extern var MediaSoundComponent(get, never): ucpp.Ptr<MediaSoundComp.ConstMediaSoundComp>;
+	public inline extern function get_MediaSoundComponent(): ucpp.Ptr<MediaSoundComp.ConstMediaSoundComp> return this.MediaSoundComponent;
 	public extern var bUseExternalMediaPlayer(get, never): Bool;
 	public inline extern function get_bUseExternalMediaPlayer(): Bool return this.bUseExternalMediaPlayer;
-	public extern var ExternalMediaPlayer(get, never): cpp.Star<MediaPlayer.ConstMediaPlayer>;
-	public inline extern function get_ExternalMediaPlayer(): cpp.Star<MediaPlayer.ConstMediaPlayer> return this.ExternalMediaPlayer;
+	public extern var ExternalMediaPlayer(get, never): ucpp.Ptr<MediaPlayer.ConstMediaPlayer>;
+	public inline extern function get_ExternalMediaPlayer(): ucpp.Ptr<MediaPlayer.ConstMediaPlayer> return this.ExternalMediaPlayer;
 	public extern var CacheSettings(get, never): MediaSourceCacheSettings;
 	public inline extern function get_CacheSettings(): MediaSourceCacheSettings return this.CacheSettings;
-	public extern var TextureIndex(get, never): cpp.Int32;
-	public inline extern function get_TextureIndex(): cpp.Int32 return this.TextureIndex;
+	public extern var TextureIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_TextureIndex(): ucpp.num.Int32 return this.TextureIndex;
 	public extern var bHasMediaPlayerProxy(get, never): Bool;
 	public inline extern function get_bHasMediaPlayerProxy(): Bool return this.bHasMediaPlayerProxy;
 }
@@ -51,7 +51,7 @@ abstract ConstMovieSceneMediaSection(MovieSceneMediaSection) from MovieSceneMedi
 @:forward
 @:nativeGen
 @:native("MovieSceneMediaSection*")
-abstract MovieSceneMediaSectionPtr(cpp.Star<MovieSceneMediaSection>) from cpp.Star<MovieSceneMediaSection> to cpp.Star<MovieSceneMediaSection>{
+abstract MovieSceneMediaSectionPtr(ucpp.Ptr<MovieSceneMediaSection>) from ucpp.Ptr<MovieSceneMediaSection> to ucpp.Ptr<MovieSceneMediaSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMediaSection): MovieSceneMediaSectionPtr {
 		return untyped __cpp__("&({0})", v);

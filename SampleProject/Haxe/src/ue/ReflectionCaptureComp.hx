@@ -3,54 +3,42 @@ package ue;
 
 @:native("UReflectionCaptureComponent")
 @:include("Components/ReflectionCaptureComponent.h")
-@:structAccess
+@:valueType
 extern class ReflectionCaptureComp extends SceneComp {
-	public var CaptureOffsetComponent: cpp.Star<BillboardComp>;
+	public var CaptureOffsetComponent: ucpp.Ptr<BillboardComp>;
 	public var ReflectionSourceType: EReflectionSourceType;
-	public var MobileReflectionCompression: EMobileReflectionCompression;
-	public var Cubemap: cpp.Star<TextureCube>;
-	public var SourceCubemapAngle: cpp.Float32;
-	public var Brightness: cpp.Float32;
-	public var bModifyMaxValueRGBM: Bool;
-	public var MaxValueRGBM: cpp.Float32;
+	public var Cubemap: ucpp.Ptr<TextureCube>;
+	public var SourceCubemapAngle: ucpp.num.Float32;
+	public var Brightness: ucpp.num.Float32;
 	public var CaptureOffset: Vector;
 	public var MapBuildDataId: Guid;
-	public var CachedEncodedHDRCubemap: cpp.Star<TextureCube>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstReflectionCaptureComp(ReflectionCaptureComp) from ReflectionCaptureComp {
-	public extern var CaptureOffsetComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_CaptureOffsetComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.CaptureOffsetComponent;
+	public extern var CaptureOffsetComponent(get, never): ucpp.Ptr<BillboardComp.ConstBillboardComp>;
+	public inline extern function get_CaptureOffsetComponent(): ucpp.Ptr<BillboardComp.ConstBillboardComp> return this.CaptureOffsetComponent;
 	public extern var ReflectionSourceType(get, never): EReflectionSourceType;
 	public inline extern function get_ReflectionSourceType(): EReflectionSourceType return this.ReflectionSourceType;
-	public extern var MobileReflectionCompression(get, never): EMobileReflectionCompression;
-	public inline extern function get_MobileReflectionCompression(): EMobileReflectionCompression return this.MobileReflectionCompression;
-	public extern var Cubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
-	public inline extern function get_Cubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.Cubemap;
-	public extern var SourceCubemapAngle(get, never): cpp.Float32;
-	public inline extern function get_SourceCubemapAngle(): cpp.Float32 return this.SourceCubemapAngle;
-	public extern var Brightness(get, never): cpp.Float32;
-	public inline extern function get_Brightness(): cpp.Float32 return this.Brightness;
-	public extern var bModifyMaxValueRGBM(get, never): Bool;
-	public inline extern function get_bModifyMaxValueRGBM(): Bool return this.bModifyMaxValueRGBM;
-	public extern var MaxValueRGBM(get, never): cpp.Float32;
-	public inline extern function get_MaxValueRGBM(): cpp.Float32 return this.MaxValueRGBM;
+	public extern var Cubemap(get, never): ucpp.Ptr<TextureCube.ConstTextureCube>;
+	public inline extern function get_Cubemap(): ucpp.Ptr<TextureCube.ConstTextureCube> return this.Cubemap;
+	public extern var SourceCubemapAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_SourceCubemapAngle(): ucpp.num.Float32 return this.SourceCubemapAngle;
+	public extern var Brightness(get, never): ucpp.num.Float32;
+	public inline extern function get_Brightness(): ucpp.num.Float32 return this.Brightness;
 	public extern var CaptureOffset(get, never): Vector;
 	public inline extern function get_CaptureOffset(): Vector return this.CaptureOffset;
 	public extern var MapBuildDataId(get, never): Guid;
 	public inline extern function get_MapBuildDataId(): Guid return this.MapBuildDataId;
-	public extern var CachedEncodedHDRCubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
-	public inline extern function get_CachedEncodedHDRCubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.CachedEncodedHDRCubemap;
 }
 
 @:forward
 @:nativeGen
 @:native("ReflectionCaptureComp*")
-abstract ReflectionCaptureCompPtr(cpp.Star<ReflectionCaptureComp>) from cpp.Star<ReflectionCaptureComp> to cpp.Star<ReflectionCaptureComp>{
+abstract ReflectionCaptureCompPtr(ucpp.Ptr<ReflectionCaptureComp>) from ucpp.Ptr<ReflectionCaptureComp> to ucpp.Ptr<ReflectionCaptureComp>{
 	@:from
 	public static extern inline function fromValue(v: ReflectionCaptureComp): ReflectionCaptureCompPtr {
 		return untyped __cpp__("&({0})", v);

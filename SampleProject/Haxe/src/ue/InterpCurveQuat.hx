@@ -3,12 +3,12 @@ package ue;
 
 @:native("FInterpCurveQuat")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class InterpCurveQuat {
 	public var Points: TArray<InterpCurvePointQuat>;
 	public var bIsLooped: Bool;
-	public var LoopKeyOffset: cpp.Float32;
+	public var LoopKeyOffset: ucpp.num.Float32;
 
 	@:native("FInterpCurveQuat") public function new();
-	@:native("FInterpCurveQuat") public static function make(Points: TArray<InterpCurvePointQuat>, bIsLooped: Bool, LoopKeyOffset: cpp.Float32): InterpCurveQuat ;
+	@:native("FInterpCurveQuat") public static function make(Points: TArray<InterpCurvePointQuat>, bIsLooped: Bool, LoopKeyOffset: ucpp.num.Float32): InterpCurveQuat ;
 }

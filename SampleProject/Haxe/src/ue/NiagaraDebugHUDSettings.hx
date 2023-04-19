@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDebugHUDSettings")
 @:include("NiagaraDebuggerCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraDebugHUDSettings extends Object {
 	public var Data: NiagaraDebugHUDSettingsData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraDebugHUDSettings(NiagaraDebugHUDSettings) from NiagaraDebug
 @:forward
 @:nativeGen
 @:native("NiagaraDebugHUDSettings*")
-abstract NiagaraDebugHUDSettingsPtr(cpp.Star<NiagaraDebugHUDSettings>) from cpp.Star<NiagaraDebugHUDSettings> to cpp.Star<NiagaraDebugHUDSettings>{
+abstract NiagaraDebugHUDSettingsPtr(ucpp.Ptr<NiagaraDebugHUDSettings>) from ucpp.Ptr<NiagaraDebugHUDSettings> to ucpp.Ptr<NiagaraDebugHUDSettings>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDebugHUDSettings): NiagaraDebugHUDSettingsPtr {
 		return untyped __cpp__("&({0})", v);

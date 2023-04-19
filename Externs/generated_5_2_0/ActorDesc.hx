@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorDesc")
 @:include("WorldPartition/WorldPartitionBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ActorDesc {
 	public var Guid: Guid;
 	public var Class: SoftObjectPath;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneActorReferenceKey")
 @:include("Sections/MovieSceneActorReferenceSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneActorReferenceKey {
 	public var Object: MovieSceneObjectBindingID;
 	public var ComponentName: FName;

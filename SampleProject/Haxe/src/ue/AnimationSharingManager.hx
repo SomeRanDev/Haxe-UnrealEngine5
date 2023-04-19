@@ -3,17 +3,17 @@ package ue;
 
 @:native("UAnimationSharingManager")
 @:include("AnimationSharingManager.h")
-@:structAccess
+@:valueType
 extern class AnimationSharingManager extends Object {
-	@:protected public var Skeletons: TArray<cpp.Star<Skeleton>>;
-	@:protected public var PerSkeletonData: TArray<cpp.Star<AnimSharingInstance>>;
+	@:protected public var Skeletons: TArray<ucpp.Ptr<Skeleton>>;
+	@:protected public var PerSkeletonData: TArray<ucpp.Ptr<AnimSharingInstance>>;
 
-	public function RegisterActorWithSkeletonBP(InActor: cpp.Star<Actor>, SharingSkeleton: cpp.Star<Skeleton.ConstSkeleton>): Void;
-	public function GetAnimationSharingManager(WorldContextObject: cpp.Star<Object>): cpp.Star<AnimationSharingManager>;
-	public function CreateAnimationSharingManager(WorldContextObject: cpp.Star<Object>, Setup: cpp.Star<AnimationSharingSetup.ConstAnimationSharingSetup>): Bool;
+	public function RegisterActorWithSkeletonBP(InActor: ucpp.Ptr<Actor>, SharingSkeleton: ucpp.Ptr<Skeleton.ConstSkeleton>): Void;
+	public function GetAnimationSharingManager(WorldContextObject: ucpp.Ptr<Object>): ucpp.Ptr<AnimationSharingManager>;
+	public function CreateAnimationSharingManager(WorldContextObject: ucpp.Ptr<Object>, Setup: ucpp.Ptr<AnimationSharingSetup.ConstAnimationSharingSetup>): Bool;
 	public function AnimationSharingEnabled(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAnimationSharingManager(AnimationSharingManager) from AnimationSha
 @:forward
 @:nativeGen
 @:native("AnimationSharingManager*")
-abstract AnimationSharingManagerPtr(cpp.Star<AnimationSharingManager>) from cpp.Star<AnimationSharingManager> to cpp.Star<AnimationSharingManager>{
+abstract AnimationSharingManagerPtr(ucpp.Ptr<AnimationSharingManager>) from ucpp.Ptr<AnimationSharingManager> to ucpp.Ptr<AnimationSharingManager>{
 	@:from
 	public static extern inline function fromValue(v: AnimationSharingManager): AnimationSharingManagerPtr {
 		return untyped __cpp__("&({0})", v);

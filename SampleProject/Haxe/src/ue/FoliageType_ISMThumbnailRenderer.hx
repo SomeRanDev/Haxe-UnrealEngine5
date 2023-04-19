@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFoliageType_ISMThumbnailRenderer")
 @:include("FoliageType_ISMThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class FoliageType_ISMThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFoliageType_ISMThumbnailRenderer(FoliageType_ISMThumbnailRenderer)
 @:forward
 @:nativeGen
 @:native("FoliageType_ISMThumbnailRenderer*")
-abstract FoliageType_ISMThumbnailRendererPtr(cpp.Star<FoliageType_ISMThumbnailRenderer>) from cpp.Star<FoliageType_ISMThumbnailRenderer> to cpp.Star<FoliageType_ISMThumbnailRenderer>{
+abstract FoliageType_ISMThumbnailRendererPtr(ucpp.Ptr<FoliageType_ISMThumbnailRenderer>) from ucpp.Ptr<FoliageType_ISMThumbnailRenderer> to ucpp.Ptr<FoliageType_ISMThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: FoliageType_ISMThumbnailRenderer): FoliageType_ISMThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

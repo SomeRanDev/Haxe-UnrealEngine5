@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBTDecorator_CompareBBEntries")
 @:include("BehaviorTree/Decorators/BTDecorator_CompareBBEntries.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_CompareBBEntries extends BTDecorator {
 	@:protected public var Operator: TEnumAsByte<EBlackBoardEntryComparison>;
 	@:protected public var BlackboardKeyA: BlackboardKeySelector;
 	@:protected public var BlackboardKeyB: BlackboardKeySelector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBTDecorator_CompareBBEntries(BTDecorator_CompareBBEntries) from BT
 @:forward
 @:nativeGen
 @:native("BTDecorator_CompareBBEntries*")
-abstract BTDecorator_CompareBBEntriesPtr(cpp.Star<BTDecorator_CompareBBEntries>) from cpp.Star<BTDecorator_CompareBBEntries> to cpp.Star<BTDecorator_CompareBBEntries>{
+abstract BTDecorator_CompareBBEntriesPtr(ucpp.Ptr<BTDecorator_CompareBBEntries>) from ucpp.Ptr<BTDecorator_CompareBBEntries> to ucpp.Ptr<BTDecorator_CompareBBEntries>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_CompareBBEntries): BTDecorator_CompareBBEntriesPtr {
 		return untyped __cpp__("&({0})", v);

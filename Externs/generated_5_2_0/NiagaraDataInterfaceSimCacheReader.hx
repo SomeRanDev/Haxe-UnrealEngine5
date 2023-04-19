@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraDataInterfaceSimCacheReader")
 @:include("DataInterface/NiagaraDataInterfaceSimCacheReader.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceSimCacheReader extends NiagaraDataInterface {
 	public var SimCacheBinding: NiagaraUserParameterBinding;
-	public var SimCache: cpp.Star<NiagaraSimCache>;
+	public var SimCache: ucpp.Ptr<NiagaraSimCache>;
 	public var EmitterBinding: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class NiagaraDataInterfaceSimCacheReader extends NiagaraDataInterface {
 abstract ConstNiagaraDataInterfaceSimCacheReader(NiagaraDataInterfaceSimCacheReader) from NiagaraDataInterfaceSimCacheReader {
 	public extern var SimCacheBinding(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_SimCacheBinding(): NiagaraUserParameterBinding return this.SimCacheBinding;
-	public extern var SimCache(get, never): cpp.Star<NiagaraSimCache.ConstNiagaraSimCache>;
-	public inline extern function get_SimCache(): cpp.Star<NiagaraSimCache.ConstNiagaraSimCache> return this.SimCache;
+	public extern var SimCache(get, never): ucpp.Ptr<NiagaraSimCache.ConstNiagaraSimCache>;
+	public inline extern function get_SimCache(): ucpp.Ptr<NiagaraSimCache.ConstNiagaraSimCache> return this.SimCache;
 	public extern var EmitterBinding(get, never): FName;
 	public inline extern function get_EmitterBinding(): FName return this.EmitterBinding;
 }
@@ -26,7 +26,7 @@ abstract ConstNiagaraDataInterfaceSimCacheReader(NiagaraDataInterfaceSimCacheRea
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceSimCacheReader*")
-abstract NiagaraDataInterfaceSimCacheReaderPtr(cpp.Star<NiagaraDataInterfaceSimCacheReader>) from cpp.Star<NiagaraDataInterfaceSimCacheReader> to cpp.Star<NiagaraDataInterfaceSimCacheReader>{
+abstract NiagaraDataInterfaceSimCacheReaderPtr(ucpp.Ptr<NiagaraDataInterfaceSimCacheReader>) from ucpp.Ptr<NiagaraDataInterfaceSimCacheReader> to ucpp.Ptr<NiagaraDataInterfaceSimCacheReader>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceSimCacheReader): NiagaraDataInterfaceSimCacheReaderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMouseWheelInputBehavior")
 @:include("BaseBehaviors/MouseWheelBehavior.h")
-@:structAccess
+@:valueType
 extern class MouseWheelInputBehavior extends AnyButtonInputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMouseWheelInputBehavior(MouseWheelInputBehavior) from MouseWheelIn
 @:forward
 @:nativeGen
 @:native("MouseWheelInputBehavior*")
-abstract MouseWheelInputBehaviorPtr(cpp.Star<MouseWheelInputBehavior>) from cpp.Star<MouseWheelInputBehavior> to cpp.Star<MouseWheelInputBehavior>{
+abstract MouseWheelInputBehaviorPtr(ucpp.Ptr<MouseWheelInputBehavior>) from ucpp.Ptr<MouseWheelInputBehavior> to ucpp.Ptr<MouseWheelInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: MouseWheelInputBehavior): MouseWheelInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

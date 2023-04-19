@@ -3,13 +3,13 @@ package ue;
 
 @:native("UK2Node_AddComponent")
 @:include("K2Node_AddComponent.h")
-@:structAccess
+@:valueType
 extern class K2Node_AddComp extends K2Node_CallFunction {
 	public var bHasExposedVariable: Bool;
 	public var TemplateBlueprint: FString;
 	public var TemplateType: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstK2Node_AddComp(K2Node_AddComp) from K2Node_AddComp {
 @:forward
 @:nativeGen
 @:native("K2Node_AddComp*")
-abstract K2Node_AddCompPtr(cpp.Star<K2Node_AddComp>) from cpp.Star<K2Node_AddComp> to cpp.Star<K2Node_AddComp>{
+abstract K2Node_AddCompPtr(ucpp.Ptr<K2Node_AddComp>) from ucpp.Ptr<K2Node_AddComp> to ucpp.Ptr<K2Node_AddComp>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_AddComp): K2Node_AddCompPtr {
 		return untyped __cpp__("&({0})", v);

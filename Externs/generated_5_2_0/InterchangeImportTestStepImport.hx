@@ -3,15 +3,15 @@ package ue;
 
 @:native("UInterchangeImportTestStepImport")
 @:include("InterchangeImportTestStepImport.h")
-@:structAccess
+@:valueType
 extern class InterchangeImportTestStepImport extends InterchangeImportTestStepBase {
 	public var SourceFile: FilePath;
-	public var PipelineStack: TArray<cpp.Star<InterchangePipelineBase>>;
+	public var PipelineStack: TArray<ucpp.Ptr<InterchangePipelineBase>>;
 	public var bEmptyDestinationFolderPriorToImport: Bool;
 	public var bSaveThenReloadImportedAssets: Bool;
 	public var bImportIntoLevel: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,8 +19,8 @@ extern class InterchangeImportTestStepImport extends InterchangeImportTestStepBa
 abstract ConstInterchangeImportTestStepImport(InterchangeImportTestStepImport) from InterchangeImportTestStepImport {
 	public extern var SourceFile(get, never): FilePath;
 	public inline extern function get_SourceFile(): FilePath return this.SourceFile;
-	public extern var PipelineStack(get, never): TArray<cpp.Star<InterchangePipelineBase.ConstInterchangePipelineBase>>;
-	public inline extern function get_PipelineStack(): TArray<cpp.Star<InterchangePipelineBase.ConstInterchangePipelineBase>> return this.PipelineStack;
+	public extern var PipelineStack(get, never): TArray<ucpp.Ptr<InterchangePipelineBase.ConstInterchangePipelineBase>>;
+	public inline extern function get_PipelineStack(): TArray<ucpp.Ptr<InterchangePipelineBase.ConstInterchangePipelineBase>> return this.PipelineStack;
 	public extern var bEmptyDestinationFolderPriorToImport(get, never): Bool;
 	public inline extern function get_bEmptyDestinationFolderPriorToImport(): Bool return this.bEmptyDestinationFolderPriorToImport;
 	public extern var bSaveThenReloadImportedAssets(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstInterchangeImportTestStepImport(InterchangeImportTestStepImport) f
 @:forward
 @:nativeGen
 @:native("InterchangeImportTestStepImport*")
-abstract InterchangeImportTestStepImportPtr(cpp.Star<InterchangeImportTestStepImport>) from cpp.Star<InterchangeImportTestStepImport> to cpp.Star<InterchangeImportTestStepImport>{
+abstract InterchangeImportTestStepImportPtr(ucpp.Ptr<InterchangeImportTestStepImport>) from ucpp.Ptr<InterchangeImportTestStepImport> to ucpp.Ptr<InterchangeImportTestStepImport>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeImportTestStepImport): InterchangeImportTestStepImportPtr {
 		return untyped __cpp__("&({0})", v);

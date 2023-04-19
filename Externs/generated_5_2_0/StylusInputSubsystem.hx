@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStylusInputSubsystem")
 @:include("IStylusInputModule.h")
-@:structAccess
+@:valueType
 extern class StylusInputSubsystem extends EditorSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStylusInputSubsystem(StylusInputSubsystem) from StylusInputSubsyst
 @:forward
 @:nativeGen
 @:native("StylusInputSubsystem*")
-abstract StylusInputSubsystemPtr(cpp.Star<StylusInputSubsystem>) from cpp.Star<StylusInputSubsystem> to cpp.Star<StylusInputSubsystem>{
+abstract StylusInputSubsystemPtr(ucpp.Ptr<StylusInputSubsystem>) from ucpp.Ptr<StylusInputSubsystem> to ucpp.Ptr<StylusInputSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: StylusInputSubsystem): StylusInputSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

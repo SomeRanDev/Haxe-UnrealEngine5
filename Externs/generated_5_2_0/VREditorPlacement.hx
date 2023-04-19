@@ -3,14 +3,14 @@ package ue;
 
 @:native("UVREditorPlacement")
 @:include("VREditorPlacement.h")
-@:structAccess
+@:valueType
 extern class VREditorPlacement extends Object {
-	@:protected public var VRMode: cpp.Star<VREditorMode>;
-	@:protected public var ViewportWorldInteraction: cpp.Star<ViewportWorldInteraction>;
-	@:protected public var FloatingUIAssetDraggedFrom: cpp.Star<WidgetComp>;
-	@:protected public var PlacingMaterialOrTextureAsset: cpp.Star<Object>;
+	@:protected public var VRMode: ucpp.Ptr<VREditorMode>;
+	@:protected public var ViewportWorldInteraction: ucpp.Ptr<ViewportWorldInteraction>;
+	@:protected public var FloatingUIAssetDraggedFrom: ucpp.Ptr<WidgetComp>;
+	@:protected public var PlacingMaterialOrTextureAsset: ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstVREditorPlacement(VREditorPlacement) from VREditorPlacement {
 @:forward
 @:nativeGen
 @:native("VREditorPlacement*")
-abstract VREditorPlacementPtr(cpp.Star<VREditorPlacement>) from cpp.Star<VREditorPlacement> to cpp.Star<VREditorPlacement>{
+abstract VREditorPlacementPtr(ucpp.Ptr<VREditorPlacement>) from ucpp.Ptr<VREditorPlacement> to ucpp.Ptr<VREditorPlacement>{
 	@:from
 	public static extern inline function fromValue(v: VREditorPlacement): VREditorPlacementPtr {
 		return untyped __cpp__("&({0})", v);

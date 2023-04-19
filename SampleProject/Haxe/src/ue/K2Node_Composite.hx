@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_Composite")
 @:include("K2Node_Composite.h")
-@:structAccess
+@:valueType
 extern class K2Node_Composite extends K2Node_Tunnel {
-	public var BoundGraph: cpp.Star<EdGraph>;
+	public var BoundGraph: ucpp.Ptr<EdGraph>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_Composite(K2Node_Composite) from K2Node_Composite {
-	public extern var BoundGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_BoundGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.BoundGraph;
+	public extern var BoundGraph(get, never): ucpp.Ptr<EdGraph.ConstEdGraph>;
+	public inline extern function get_BoundGraph(): ucpp.Ptr<EdGraph.ConstEdGraph> return this.BoundGraph;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_Composite*")
-abstract K2Node_CompositePtr(cpp.Star<K2Node_Composite>) from cpp.Star<K2Node_Composite> to cpp.Star<K2Node_Composite>{
+abstract K2Node_CompositePtr(ucpp.Ptr<K2Node_Composite>) from ucpp.Ptr<K2Node_Composite> to ucpp.Ptr<K2Node_Composite>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_Composite): K2Node_CompositePtr {
 		return untyped __cpp__("&({0})", v);

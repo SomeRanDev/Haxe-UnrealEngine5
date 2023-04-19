@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBlueprintSetLibrary")
 @:include("Kismet/BlueprintSetLibrary.h")
-@:structAccess
+@:valueType
 extern class BlueprintSetLibrary extends BlueprintFunctionLibrary {
-	public function SetSetPropertyByName(Object: cpp.Star<Object>, PropertyName: FName, Value: cpp.Reference<TSet<cpp.Int32>>): Void;
-	public function Set_Union(A: cpp.Reference<TSet<cpp.Int32>>, B: cpp.Reference<TSet<cpp.Int32>>, Result: cpp.Reference<TSet<cpp.Int32>>): Void;
-	public function Set_ToArray(A: cpp.Reference<TSet<cpp.Int32>>, Result: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function Set_RemoveItems(TargetSet: cpp.Reference<TSet<cpp.Int32>>, Items: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function Set_Remove(TargetSet: cpp.Reference<TSet<cpp.Int32>>, Item: cpp.Reference<cpp.Int32>): Bool;
-	public function Set_Length(TargetSet: cpp.Reference<TSet<cpp.Int32>>): cpp.Int32;
-	public function Set_IsNotEmpty(TargetSet: cpp.Reference<TSet<cpp.Int32>>): Bool;
-	public function Set_IsEmpty(TargetSet: cpp.Reference<TSet<cpp.Int32>>): Bool;
-	public function Set_Intersection(A: cpp.Reference<TSet<cpp.Int32>>, B: cpp.Reference<TSet<cpp.Int32>>, Result: cpp.Reference<TSet<cpp.Int32>>): Void;
-	public function Set_Difference(A: cpp.Reference<TSet<cpp.Int32>>, B: cpp.Reference<TSet<cpp.Int32>>, Result: cpp.Reference<TSet<cpp.Int32>>): Void;
-	public function Set_Contains(TargetSet: cpp.Reference<TSet<cpp.Int32>>, ItemToFind: cpp.Reference<cpp.Int32>): Bool;
-	public function Set_Clear(TargetSet: cpp.Reference<TSet<cpp.Int32>>): Void;
-	public function Set_AddItems(TargetSet: cpp.Reference<TSet<cpp.Int32>>, NewItems: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function Set_Add(TargetSet: cpp.Reference<TSet<cpp.Int32>>, NewItem: cpp.Reference<cpp.Int32>): Void;
+	public function SetSetPropertyByName(Object: ucpp.Ptr<Object>, PropertyName: FName, Value: ucpp.Ref<TSet<ucpp.num.Int32>>): Void;
+	public function Set_Union(A: ucpp.Ref<TSet<ucpp.num.Int32>>, B: ucpp.Ref<TSet<ucpp.num.Int32>>, Result: ucpp.Ref<TSet<ucpp.num.Int32>>): Void;
+	public function Set_ToArray(A: ucpp.Ref<TSet<ucpp.num.Int32>>, Result: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function Set_RemoveItems(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>, Items: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function Set_Remove(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>, Item: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function Set_Length(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>): ucpp.num.Int32;
+	public function Set_IsNotEmpty(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>): Bool;
+	public function Set_IsEmpty(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>): Bool;
+	public function Set_Intersection(A: ucpp.Ref<TSet<ucpp.num.Int32>>, B: ucpp.Ref<TSet<ucpp.num.Int32>>, Result: ucpp.Ref<TSet<ucpp.num.Int32>>): Void;
+	public function Set_Difference(A: ucpp.Ref<TSet<ucpp.num.Int32>>, B: ucpp.Ref<TSet<ucpp.num.Int32>>, Result: ucpp.Ref<TSet<ucpp.num.Int32>>): Void;
+	public function Set_Contains(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>, ItemToFind: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function Set_Clear(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>): Void;
+	public function Set_AddItems(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>, NewItems: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function Set_Add(TargetSet: ucpp.Ref<TSet<ucpp.num.Int32>>, NewItem: ucpp.Ref<ucpp.num.Int32>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstBlueprintSetLibrary(BlueprintSetLibrary) from BlueprintSetLibrary 
 @:forward
 @:nativeGen
 @:native("BlueprintSetLibrary*")
-abstract BlueprintSetLibraryPtr(cpp.Star<BlueprintSetLibrary>) from cpp.Star<BlueprintSetLibrary> to cpp.Star<BlueprintSetLibrary>{
+abstract BlueprintSetLibraryPtr(ucpp.Ptr<BlueprintSetLibrary>) from ucpp.Ptr<BlueprintSetLibrary> to ucpp.Ptr<BlueprintSetLibrary>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintSetLibrary): BlueprintSetLibraryPtr {
 		return untyped __cpp__("&({0})", v);

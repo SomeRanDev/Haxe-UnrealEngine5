@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInternationalizationExportSettings")
 @:include("InternationalizationExportSettings.h")
-@:structAccess
+@:valueType
 extern class InternationalizationExportSettings extends Object {
 	public var CulturesToGenerate: TArray<FString>;
 	public var CommandletClass: FString;
@@ -16,7 +16,7 @@ extern class InternationalizationExportSettings extends Object {
 	public var bImportLoc: Bool;
 	public var bUseCultureDirectory: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -47,7 +47,7 @@ abstract ConstInternationalizationExportSettings(InternationalizationExportSetti
 @:forward
 @:nativeGen
 @:native("InternationalizationExportSettings*")
-abstract InternationalizationExportSettingsPtr(cpp.Star<InternationalizationExportSettings>) from cpp.Star<InternationalizationExportSettings> to cpp.Star<InternationalizationExportSettings>{
+abstract InternationalizationExportSettingsPtr(ucpp.Ptr<InternationalizationExportSettings>) from ucpp.Ptr<InternationalizationExportSettings> to ucpp.Ptr<InternationalizationExportSettings>{
 	@:from
 	public static extern inline function fromValue(v: InternationalizationExportSettings): InternationalizationExportSettingsPtr {
 		return untyped __cpp__("&({0})", v);

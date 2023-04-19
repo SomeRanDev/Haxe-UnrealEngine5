@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorInstancedPlacementSettings")
 @:include("Instances/EditorPlacementSettings.h")
-@:structAccess
+@:valueType
 extern class EditorInstancedPlacementSettings extends InstancedPlacemenClientSettings {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorInstancedPlacementSettings(EditorInstancedPlacementSettings)
 @:forward
 @:nativeGen
 @:native("EditorInstancedPlacementSettings*")
-abstract EditorInstancedPlacementSettingsPtr(cpp.Star<EditorInstancedPlacementSettings>) from cpp.Star<EditorInstancedPlacementSettings> to cpp.Star<EditorInstancedPlacementSettings>{
+abstract EditorInstancedPlacementSettingsPtr(ucpp.Ptr<EditorInstancedPlacementSettings>) from ucpp.Ptr<EditorInstancedPlacementSettings> to ucpp.Ptr<EditorInstancedPlacementSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorInstancedPlacementSettings): EditorInstancedPlacementSettingsPtr {
 		return untyped __cpp__("&({0})", v);

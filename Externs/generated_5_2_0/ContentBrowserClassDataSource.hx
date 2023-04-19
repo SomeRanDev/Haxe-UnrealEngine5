@@ -3,10 +3,10 @@ package ue;
 
 @:native("UContentBrowserClassDataSource")
 @:include("ContentBrowserClassDataSource.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserClassDataSource extends ContentBrowserDataSource {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstContentBrowserClassDataSource(ContentBrowserClassDataSource) from 
 @:forward
 @:nativeGen
 @:native("ContentBrowserClassDataSource*")
-abstract ContentBrowserClassDataSourcePtr(cpp.Star<ContentBrowserClassDataSource>) from cpp.Star<ContentBrowserClassDataSource> to cpp.Star<ContentBrowserClassDataSource>{
+abstract ContentBrowserClassDataSourcePtr(ucpp.Ptr<ContentBrowserClassDataSource>) from ucpp.Ptr<ContentBrowserClassDataSource> to ucpp.Ptr<ContentBrowserClassDataSource>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserClassDataSource): ContentBrowserClassDataSourcePtr {
 		return untyped __cpp__("&({0})", v);

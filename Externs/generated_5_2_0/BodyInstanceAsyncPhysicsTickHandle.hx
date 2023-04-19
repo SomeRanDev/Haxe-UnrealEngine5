@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBodyInstanceAsyncPhysicsTickHandle")
 @:include("PhysicsEngine/BodyInstance.h")
-@:structAccess
+@:valueType
 extern class BodyInstanceAsyncPhysicsTickHandle {
 	@:native("FBodyInstanceAsyncPhysicsTickHandle") public function new();
 }

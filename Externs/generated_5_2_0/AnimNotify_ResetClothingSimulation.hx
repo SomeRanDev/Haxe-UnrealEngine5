@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimNotify_ResetClothingSimulation")
 @:include("Animation/AnimNotifies/AnimNotify_ResetClothingSimulation.h")
-@:structAccess
+@:valueType
 extern class AnimNotify_ResetClothingSimulation extends AnimNotify {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimNotify_ResetClothingSimulation(AnimNotify_ResetClothingSimulat
 @:forward
 @:nativeGen
 @:native("AnimNotify_ResetClothingSimulation*")
-abstract AnimNotify_ResetClothingSimulationPtr(cpp.Star<AnimNotify_ResetClothingSimulation>) from cpp.Star<AnimNotify_ResetClothingSimulation> to cpp.Star<AnimNotify_ResetClothingSimulation>{
+abstract AnimNotify_ResetClothingSimulationPtr(ucpp.Ptr<AnimNotify_ResetClothingSimulation>) from ucpp.Ptr<AnimNotify_ResetClothingSimulation> to ucpp.Ptr<AnimNotify_ResetClothingSimulation>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotify_ResetClothingSimulation): AnimNotify_ResetClothingSimulationPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataLayerLoadingPolicy")
 @:include("WorldPartition/DataLayer/DataLayerLoadingPolicy.h")
-@:structAccess
+@:valueType
 extern class DataLayerLoadingPolicy extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataLayerLoadingPolicy(DataLayerLoadingPolicy) from DataLayerLoadi
 @:forward
 @:nativeGen
 @:native("DataLayerLoadingPolicy*")
-abstract DataLayerLoadingPolicyPtr(cpp.Star<DataLayerLoadingPolicy>) from cpp.Star<DataLayerLoadingPolicy> to cpp.Star<DataLayerLoadingPolicy>{
+abstract DataLayerLoadingPolicyPtr(ucpp.Ptr<DataLayerLoadingPolicy>) from ucpp.Ptr<DataLayerLoadingPolicy> to ucpp.Ptr<DataLayerLoadingPolicy>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerLoadingPolicy): DataLayerLoadingPolicyPtr {
 		return untyped __cpp__("&({0})", v);

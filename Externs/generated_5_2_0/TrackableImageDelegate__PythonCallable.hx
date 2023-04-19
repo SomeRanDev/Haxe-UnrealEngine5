@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTrackableImageDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class TrackableImageDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTrackableImageDelegate__PythonCallable(TrackableImageDelegate__Pyt
 @:forward
 @:nativeGen
 @:native("TrackableImageDelegate__PythonCallable*")
-abstract TrackableImageDelegate__PythonCallablePtr(cpp.Star<TrackableImageDelegate__PythonCallable>) from cpp.Star<TrackableImageDelegate__PythonCallable> to cpp.Star<TrackableImageDelegate__PythonCallable>{
+abstract TrackableImageDelegate__PythonCallablePtr(ucpp.Ptr<TrackableImageDelegate__PythonCallable>) from ucpp.Ptr<TrackableImageDelegate__PythonCallable> to ucpp.Ptr<TrackableImageDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: TrackableImageDelegate__PythonCallable): TrackableImageDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

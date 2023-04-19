@@ -3,12 +3,12 @@ package ue;
 
 @:native("FTViewTarget")
 @:include("Camera/PlayerCameraManager.h")
-@:structAccess
+@:valueType
 extern class TViewTarget {
-	public var Target: cpp.Star<Actor>;
+	public var Target: ucpp.Ptr<Actor>;
 	public var POV: MinimalViewInfo;
-	@:protected public var PlayerState: cpp.Star<PlayerState>;
+	@:protected public var PlayerState: ucpp.Ptr<PlayerState>;
 
 	@:native("FTViewTarget") public function new();
-	@:native("FTViewTarget") public static function make(Target: cpp.Star<Actor>, POV: MinimalViewInfo, PlayerState: cpp.Star<PlayerState>): TViewTarget ;
+	@:native("FTViewTarget") public static function make(Target: ucpp.Ptr<Actor>, POV: MinimalViewInfo, PlayerState: ucpp.Ptr<PlayerState>): TViewTarget ;
 }

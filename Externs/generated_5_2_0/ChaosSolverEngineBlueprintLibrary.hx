@@ -3,11 +3,11 @@ package ue;
 
 @:native("UChaosSolverEngineBlueprintLibrary")
 @:include("Chaos/ChaosNotifyHandlerInterface.h")
-@:structAccess
+@:valueType
 extern class ChaosSolverEngineBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function ConvertPhysicsCollisionToHitResult(PhysicsCollision: cpp.Reference<ChaosPhysicsCollisionInfo>): HitResult;
+	public function ConvertPhysicsCollisionToHitResult(PhysicsCollision: ucpp.Ref<ChaosPhysicsCollisionInfo>): HitResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstChaosSolverEngineBlueprintLibrary(ChaosSolverEngineBlueprintLibrar
 @:forward
 @:nativeGen
 @:native("ChaosSolverEngineBlueprintLibrary*")
-abstract ChaosSolverEngineBlueprintLibraryPtr(cpp.Star<ChaosSolverEngineBlueprintLibrary>) from cpp.Star<ChaosSolverEngineBlueprintLibrary> to cpp.Star<ChaosSolverEngineBlueprintLibrary>{
+abstract ChaosSolverEngineBlueprintLibraryPtr(ucpp.Ptr<ChaosSolverEngineBlueprintLibrary>) from ucpp.Ptr<ChaosSolverEngineBlueprintLibrary> to ucpp.Ptr<ChaosSolverEngineBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ChaosSolverEngineBlueprintLibrary): ChaosSolverEngineBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

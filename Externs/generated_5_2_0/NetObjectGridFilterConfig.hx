@@ -3,32 +3,32 @@ package ue;
 
 @:native("UNetObjectGridFilterConfig")
 @:include("Iris/ReplicationSystem/Filtering/NetObjectGridFilter.h")
-@:structAccess
+@:valueType
 extern class NetObjectGridFilterConfig extends NetObjectFilterConfig {
-	public var ViewPosRelevancyFrameCount: cpp.UInt32;
-	public var CellSizeX: cpp.Float32;
-	public var CellSizeY: cpp.Float32;
-	public var MaxCullDistance: cpp.Float32;
-	public var DefaultCullDistance: cpp.Float32;
+	public var ViewPosRelevancyFrameCount: ucpp.num.UInt32;
+	public var CellSizeX: ucpp.num.Float32;
+	public var CellSizeY: ucpp.num.Float32;
+	public var MaxCullDistance: ucpp.num.Float32;
+	public var DefaultCullDistance: ucpp.num.Float32;
 	public var MinPos: Vector;
 	public var MaxPos: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNetObjectGridFilterConfig(NetObjectGridFilterConfig) from NetObjectGridFilterConfig {
-	public extern var ViewPosRelevancyFrameCount(get, never): cpp.UInt32;
-	public inline extern function get_ViewPosRelevancyFrameCount(): cpp.UInt32 return this.ViewPosRelevancyFrameCount;
-	public extern var CellSizeX(get, never): cpp.Float32;
-	public inline extern function get_CellSizeX(): cpp.Float32 return this.CellSizeX;
-	public extern var CellSizeY(get, never): cpp.Float32;
-	public inline extern function get_CellSizeY(): cpp.Float32 return this.CellSizeY;
-	public extern var MaxCullDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxCullDistance(): cpp.Float32 return this.MaxCullDistance;
-	public extern var DefaultCullDistance(get, never): cpp.Float32;
-	public inline extern function get_DefaultCullDistance(): cpp.Float32 return this.DefaultCullDistance;
+	public extern var ViewPosRelevancyFrameCount(get, never): ucpp.num.UInt32;
+	public inline extern function get_ViewPosRelevancyFrameCount(): ucpp.num.UInt32 return this.ViewPosRelevancyFrameCount;
+	public extern var CellSizeX(get, never): ucpp.num.Float32;
+	public inline extern function get_CellSizeX(): ucpp.num.Float32 return this.CellSizeX;
+	public extern var CellSizeY(get, never): ucpp.num.Float32;
+	public inline extern function get_CellSizeY(): ucpp.num.Float32 return this.CellSizeY;
+	public extern var MaxCullDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxCullDistance(): ucpp.num.Float32 return this.MaxCullDistance;
+	public extern var DefaultCullDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultCullDistance(): ucpp.num.Float32 return this.DefaultCullDistance;
 	public extern var MinPos(get, never): Vector;
 	public inline extern function get_MinPos(): Vector return this.MinPos;
 	public extern var MaxPos(get, never): Vector;
@@ -38,7 +38,7 @@ abstract ConstNetObjectGridFilterConfig(NetObjectGridFilterConfig) from NetObjec
 @:forward
 @:nativeGen
 @:native("NetObjectGridFilterConfig*")
-abstract NetObjectGridFilterConfigPtr(cpp.Star<NetObjectGridFilterConfig>) from cpp.Star<NetObjectGridFilterConfig> to cpp.Star<NetObjectGridFilterConfig>{
+abstract NetObjectGridFilterConfigPtr(ucpp.Ptr<NetObjectGridFilterConfig>) from ucpp.Ptr<NetObjectGridFilterConfig> to ucpp.Ptr<NetObjectGridFilterConfig>{
 	@:from
 	public static extern inline function fromValue(v: NetObjectGridFilterConfig): NetObjectGridFilterConfigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEnhancedInputDeveloperSettings")
 @:include("EnhancedInputDeveloperSettings.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputDeveloperSettings extends DeveloperSettingsBackedByCVars {
 	public var DefaultMappingContexts: TArray<DefaultContextSetting>;
 	public var DefaultWorldSubsystemMappingContexts: TArray<DefaultContextSetting>;
@@ -14,7 +14,7 @@ extern class EnhancedInputDeveloperSettings extends DeveloperSettingsBackedByCVa
 	public var bEnableWorldSubsystem: Bool;
 	public var bShouldLogAllWorldSubsystemInputs: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstEnhancedInputDeveloperSettings(EnhancedInputDeveloperSettings) fro
 @:forward
 @:nativeGen
 @:native("EnhancedInputDeveloperSettings*")
-abstract EnhancedInputDeveloperSettingsPtr(cpp.Star<EnhancedInputDeveloperSettings>) from cpp.Star<EnhancedInputDeveloperSettings> to cpp.Star<EnhancedInputDeveloperSettings>{
+abstract EnhancedInputDeveloperSettingsPtr(ucpp.Ptr<EnhancedInputDeveloperSettings>) from ucpp.Ptr<EnhancedInputDeveloperSettings> to ucpp.Ptr<EnhancedInputDeveloperSettings>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputDeveloperSettings): EnhancedInputDeveloperSettingsPtr {
 		return untyped __cpp__("&({0})", v);

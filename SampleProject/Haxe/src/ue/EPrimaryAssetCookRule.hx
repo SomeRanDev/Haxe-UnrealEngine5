@@ -6,8 +6,11 @@ package ue;
 extern class EPrimaryAssetCookRule {
 	static var Unknown: EPrimaryAssetCookRule;
 	static var NeverCook: EPrimaryAssetCookRule;
+	static var ProductionNeverCook: EPrimaryAssetCookRule;
 	static var DevelopmentCook: EPrimaryAssetCookRule;
+	static var DevelopmentAlwaysProductionNeverCook: EPrimaryAssetCookRule;
 	static var DevelopmentAlwaysCook: EPrimaryAssetCookRule;
+	static var DevelopmentAlwaysProductionUnknownCook: EPrimaryAssetCookRule;
 	static var AlwaysCook: EPrimaryAssetCookRule;
 	static var EPrimaryAssetCookRule_MAX: EPrimaryAssetCookRule;
 }

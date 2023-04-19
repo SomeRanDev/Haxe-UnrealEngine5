@@ -3,12 +3,12 @@ package ue;
 
 @:native("USequentialPartialNetBlobHandlerConfig")
 @:include("Iris/ReplicationSystem/NetBlob/SequentialPartialNetBlobHandler.h")
-@:structAccess
+@:valueType
 extern class SequentialPartialNetBlobHandlerConfig extends Object {
-	@:protected public var MaxPartBitCount: cpp.UInt32;
-	@:protected public var MaxPartCount: cpp.UInt32;
+	@:protected public var MaxPartBitCount: ucpp.num.UInt32;
+	@:protected public var MaxPartCount: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstSequentialPartialNetBlobHandlerConfig(SequentialPartialNetBlobHand
 @:forward
 @:nativeGen
 @:native("SequentialPartialNetBlobHandlerConfig*")
-abstract SequentialPartialNetBlobHandlerConfigPtr(cpp.Star<SequentialPartialNetBlobHandlerConfig>) from cpp.Star<SequentialPartialNetBlobHandlerConfig> to cpp.Star<SequentialPartialNetBlobHandlerConfig>{
+abstract SequentialPartialNetBlobHandlerConfigPtr(ucpp.Ptr<SequentialPartialNetBlobHandlerConfig>) from ucpp.Ptr<SequentialPartialNetBlobHandlerConfig> to ucpp.Ptr<SequentialPartialNetBlobHandlerConfig>{
 	@:from
 	public static extern inline function fromValue(v: SequentialPartialNetBlobHandlerConfig): SequentialPartialNetBlobHandlerConfigPtr {
 		return untyped __cpp__("&({0})", v);

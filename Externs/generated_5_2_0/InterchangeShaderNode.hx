@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeShaderNode")
 @:include("InterchangeShaderGraphNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeShaderNode extends InterchangeBaseNode {
 	public function SetCustomShaderType(AttributeValue: FString): Bool;
-	public function GetCustomShaderType(AttributeValue: cpp.Reference<FString>): Bool;
+	public function GetCustomShaderType(AttributeValue: ucpp.Ref<FString>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomShaderType)
@@ -19,7 +19,7 @@ abstract ConstInterchangeShaderNode(InterchangeShaderNode) from InterchangeShade
 @:forward
 @:nativeGen
 @:native("InterchangeShaderNode*")
-abstract InterchangeShaderNodePtr(cpp.Star<InterchangeShaderNode>) from cpp.Star<InterchangeShaderNode> to cpp.Star<InterchangeShaderNode>{
+abstract InterchangeShaderNodePtr(ucpp.Ptr<InterchangeShaderNode>) from ucpp.Ptr<InterchangeShaderNode> to ucpp.Ptr<InterchangeShaderNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeShaderNode): InterchangeShaderNodePtr {
 		return untyped __cpp__("&({0})", v);

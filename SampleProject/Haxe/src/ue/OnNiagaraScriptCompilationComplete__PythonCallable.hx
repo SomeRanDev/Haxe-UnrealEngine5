@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnNiagaraScriptCompilationComplete__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnNiagaraScriptCompilationComplete__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnNiagaraScriptCompilationComplete__PythonCallable(OnNiagaraScript
 @:forward
 @:nativeGen
 @:native("OnNiagaraScriptCompilationComplete__PythonCallable*")
-abstract OnNiagaraScriptCompilationComplete__PythonCallablePtr(cpp.Star<OnNiagaraScriptCompilationComplete__PythonCallable>) from cpp.Star<OnNiagaraScriptCompilationComplete__PythonCallable> to cpp.Star<OnNiagaraScriptCompilationComplete__PythonCallable>{
+abstract OnNiagaraScriptCompilationComplete__PythonCallablePtr(ucpp.Ptr<OnNiagaraScriptCompilationComplete__PythonCallable>) from ucpp.Ptr<OnNiagaraScriptCompilationComplete__PythonCallable> to ucpp.Ptr<OnNiagaraScriptCompilationComplete__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnNiagaraScriptCompilationComplete__PythonCallable): OnNiagaraScriptCompilationComplete__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USMInstanceElementAssetDataInterface")
 @:include("Elements/SMInstance/SMInstanceElementAssetDataInterface.h")
-@:structAccess
+@:valueType
 extern class SMInstanceElementAssetDataInterface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSMInstanceElementAssetDataInterface(SMInstanceElementAssetDataInte
 @:forward
 @:nativeGen
 @:native("SMInstanceElementAssetDataInterface*")
-abstract SMInstanceElementAssetDataInterfacePtr(cpp.Star<SMInstanceElementAssetDataInterface>) from cpp.Star<SMInstanceElementAssetDataInterface> to cpp.Star<SMInstanceElementAssetDataInterface>{
+abstract SMInstanceElementAssetDataInterfacePtr(ucpp.Ptr<SMInstanceElementAssetDataInterface>) from ucpp.Ptr<SMInstanceElementAssetDataInterface> to ucpp.Ptr<SMInstanceElementAssetDataInterface>{
 	@:from
 	public static extern inline function fromValue(v: SMInstanceElementAssetDataInterface): SMInstanceElementAssetDataInterfacePtr {
 		return untyped __cpp__("&({0})", v);

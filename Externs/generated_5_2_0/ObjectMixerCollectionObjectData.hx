@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectMixerCollectionObjectData")
 @:include("ObjectMixerEditorSerializedData.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerCollectionObjectData {
 	public var ObjectPath: SoftObjectPath;
 

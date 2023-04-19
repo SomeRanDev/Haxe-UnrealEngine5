@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFilmOverlayToolkit")
 @:include("FilmOverlayToolkit.h")
-@:structAccess
+@:valueType
 extern class FilmOverlayToolkit extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFilmOverlayToolkit(FilmOverlayToolkit) from FilmOverlayToolkit {
 @:forward
 @:nativeGen
 @:native("FilmOverlayToolkit*")
-abstract FilmOverlayToolkitPtr(cpp.Star<FilmOverlayToolkit>) from cpp.Star<FilmOverlayToolkit> to cpp.Star<FilmOverlayToolkit>{
+abstract FilmOverlayToolkitPtr(ucpp.Ptr<FilmOverlayToolkit>) from ucpp.Ptr<FilmOverlayToolkit> to ucpp.Ptr<FilmOverlayToolkit>{
 	@:from
 	public static extern inline function fromValue(v: FilmOverlayToolkit): FilmOverlayToolkitPtr {
 		return untyped __cpp__("&({0})", v);

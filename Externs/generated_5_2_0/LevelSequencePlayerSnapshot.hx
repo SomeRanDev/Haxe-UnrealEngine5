@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequencePlayerSnapshot")
 @:include("LevelSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class LevelSequencePlayerSnapshot {
 	public var RootName: FString;
 	public var RootTime: QualifiedFrameTime;
@@ -13,7 +13,7 @@ extern class LevelSequencePlayerSnapshot {
 	public var CurrentShotSourceTime: QualifiedFrameTime;
 	public var SourceTimecode: FString;
 	public var CameraComponent: TSoftObjectPtr<CameraComp>;
-	public var ActiveShot: cpp.Star<LevelSequence>;
+	public var ActiveShot: ucpp.Ptr<LevelSequence>;
 	public var ShotID: MovieSceneSequenceID;
 
 	@:native("FLevelSequencePlayerSnapshot") public function new();

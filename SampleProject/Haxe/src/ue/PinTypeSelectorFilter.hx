@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPinTypeSelectorFilter")
 @:include("PinTypeSelectorFilter.h")
-@:structAccess
+@:valueType
 extern class PinTypeSelectorFilter extends Object {
 	public var FilterClass: TSoftClassPtr<Class>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPinTypeSelectorFilter(PinTypeSelectorFilter) from PinTypeSelectorF
 @:forward
 @:nativeGen
 @:native("PinTypeSelectorFilter*")
-abstract PinTypeSelectorFilterPtr(cpp.Star<PinTypeSelectorFilter>) from cpp.Star<PinTypeSelectorFilter> to cpp.Star<PinTypeSelectorFilter>{
+abstract PinTypeSelectorFilterPtr(ucpp.Ptr<PinTypeSelectorFilter>) from ucpp.Ptr<PinTypeSelectorFilter> to ucpp.Ptr<PinTypeSelectorFilter>{
 	@:from
 	public static extern inline function fromValue(v: PinTypeSelectorFilter): PinTypeSelectorFilterPtr {
 		return untyped __cpp__("&({0})", v);

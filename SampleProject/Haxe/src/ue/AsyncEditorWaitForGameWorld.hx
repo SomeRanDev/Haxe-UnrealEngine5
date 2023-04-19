@@ -3,26 +3,26 @@ package ue;
 
 @:native("UAsyncEditorWaitForGameWorld")
 @:include("EditorUtilityLibrary.h")
-@:structAccess
+@:valueType
 extern class AsyncEditorWaitForGameWorld extends EditorUtilityBlueprintAsyncActionBase {
-	public var Complete: HaxeMulticastSparseDelegateProperty<(cpp.Star<World>) -> Void>;
+	public var Complete: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<World>) -> Void>;
 
-	public function AsyncWaitForGameWorld(Index: cpp.Int32, Server: Bool): cpp.Star<AsyncEditorWaitForGameWorld>;
+	public function AsyncWaitForGameWorld(Index: ucpp.num.Int32, Server: Bool): ucpp.Ptr<AsyncEditorWaitForGameWorld>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncEditorWaitForGameWorld(AsyncEditorWaitForGameWorld) from AsyncEditorWaitForGameWorld {
-	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<World.ConstWorld>) -> Void>;
-	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<(cpp.Star<World.ConstWorld>) -> Void> return this.Complete;
+	public extern var Complete(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<World.ConstWorld>) -> Void>;
+	public inline extern function get_Complete(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<World.ConstWorld>) -> Void> return this.Complete;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncEditorWaitForGameWorld*")
-abstract AsyncEditorWaitForGameWorldPtr(cpp.Star<AsyncEditorWaitForGameWorld>) from cpp.Star<AsyncEditorWaitForGameWorld> to cpp.Star<AsyncEditorWaitForGameWorld>{
+abstract AsyncEditorWaitForGameWorldPtr(ucpp.Ptr<AsyncEditorWaitForGameWorld>) from ucpp.Ptr<AsyncEditorWaitForGameWorld> to ucpp.Ptr<AsyncEditorWaitForGameWorld>{
 	@:from
 	public static extern inline function fromValue(v: AsyncEditorWaitForGameWorld): AsyncEditorWaitForGameWorldPtr {
 		return untyped __cpp__("&({0})", v);

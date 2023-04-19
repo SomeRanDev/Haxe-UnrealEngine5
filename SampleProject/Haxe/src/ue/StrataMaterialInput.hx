@@ -3,7 +3,7 @@ package ue;
 
 @:native("FStrataMaterialInput")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class StrataMaterialInput extends MaterialInput {
 	@:native("FStrataMaterialInput") public function new();
 }

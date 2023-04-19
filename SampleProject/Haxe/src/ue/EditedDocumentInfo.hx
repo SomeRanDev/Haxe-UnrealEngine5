@@ -3,12 +3,12 @@ package ue;
 
 @:native("FEditedDocumentInfo")
 @:include("Engine/Blueprint.h")
-@:structAccess
+@:valueType
 extern class EditedDocumentInfo {
 	public var EditedObjectPath: SoftObjectPath;
 	public var SavedViewOffset: Vector2D;
-	public var SavedZoomAmount: cpp.Float32;
+	public var SavedZoomAmount: ucpp.num.Float32;
 
 	@:native("FEditedDocumentInfo") public function new();
-	@:native("FEditedDocumentInfo") public static function make(EditedObjectPath: SoftObjectPath, SavedViewOffset: Vector2D, SavedZoomAmount: cpp.Float32, EditedObject_DEPRECATED: cpp.Star<Object>): EditedDocumentInfo ;
+	@:native("FEditedDocumentInfo") public static function make(EditedObjectPath: SoftObjectPath, SavedViewOffset: Vector2D, SavedZoomAmount: ucpp.num.Float32, EditedObject_DEPRECATED: ucpp.Ptr<Object>): EditedDocumentInfo ;
 }

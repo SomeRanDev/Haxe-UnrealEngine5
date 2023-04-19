@@ -3,14 +3,14 @@ package ue;
 
 @:native("UOffsetMeshTool")
 @:include("OffsetMeshTool.h")
-@:structAccess
+@:valueType
 extern class OffsetMeshTool extends BaseMeshProcessingTool {
-	@:protected public var OffsetProperties: cpp.Star<OffsetMeshToolProperties>;
-	@:protected public var IterativeProperties: cpp.Star<IterativeOffsetProperties>;
-	@:protected public var ImplicitProperties: cpp.Star<ImplicitOffsetProperties>;
-	@:protected public var WeightMapProperties: cpp.Star<OffsetWeightMapSetProperties>;
+	@:protected public var OffsetProperties: ucpp.Ptr<OffsetMeshToolProperties>;
+	@:protected public var IterativeProperties: ucpp.Ptr<IterativeOffsetProperties>;
+	@:protected public var ImplicitProperties: ucpp.Ptr<ImplicitOffsetProperties>;
+	@:protected public var WeightMapProperties: ucpp.Ptr<OffsetWeightMapSetProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstOffsetMeshTool(OffsetMeshTool) from OffsetMeshTool {
 @:forward
 @:nativeGen
 @:native("OffsetMeshTool*")
-abstract OffsetMeshToolPtr(cpp.Star<OffsetMeshTool>) from cpp.Star<OffsetMeshTool> to cpp.Star<OffsetMeshTool>{
+abstract OffsetMeshToolPtr(ucpp.Ptr<OffsetMeshTool>) from ucpp.Ptr<OffsetMeshTool> to ucpp.Ptr<OffsetMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: OffsetMeshTool): OffsetMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

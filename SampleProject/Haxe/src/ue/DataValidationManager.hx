@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDEPRECATED_DataValidationManager")
 @:include("DataValidationManager.h")
-@:structAccess
+@:valueType
 extern class DataValidationManager extends Object {
 	@:protected public var ExcludedDirectories: TArray<DirectoryPath>;
 	@:protected public var bValidateOnSave: Bool;
 	private var DataValidationManagerClassName: SoftClassPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDataValidationManager(DataValidationManager) from DataValidationMa
 @:forward
 @:nativeGen
 @:native("DataValidationManager*")
-abstract DataValidationManagerPtr(cpp.Star<DataValidationManager>) from cpp.Star<DataValidationManager> to cpp.Star<DataValidationManager>{
+abstract DataValidationManagerPtr(ucpp.Ptr<DataValidationManager>) from ucpp.Ptr<DataValidationManager> to ucpp.Ptr<DataValidationManager>{
 	@:from
 	public static extern inline function fromValue(v: DataValidationManager): DataValidationManagerPtr {
 		return untyped __cpp__("&({0})", v);

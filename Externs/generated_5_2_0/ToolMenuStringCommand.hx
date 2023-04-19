@@ -3,7 +3,7 @@ package ue;
 
 @:native("FToolMenuStringCommand")
 @:include("ToolMenuMisc.h")
-@:structAccess
+@:valueType
 extern class ToolMenuStringCommand {
 	public var Type: EToolMenuStringCommandType;
 	public var CustomType: FName;

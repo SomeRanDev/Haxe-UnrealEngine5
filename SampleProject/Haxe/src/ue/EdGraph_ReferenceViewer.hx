@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEdGraph_ReferenceViewer")
 @:include("ReferenceViewer/EdGraph_ReferenceViewer.h")
-@:structAccess
+@:valueType
 extern class EdGraph_ReferenceViewer extends EdGraph {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEdGraph_ReferenceViewer(EdGraph_ReferenceViewer) from EdGraph_Refe
 @:forward
 @:nativeGen
 @:native("EdGraph_ReferenceViewer*")
-abstract EdGraph_ReferenceViewerPtr(cpp.Star<EdGraph_ReferenceViewer>) from cpp.Star<EdGraph_ReferenceViewer> to cpp.Star<EdGraph_ReferenceViewer>{
+abstract EdGraph_ReferenceViewerPtr(ucpp.Ptr<EdGraph_ReferenceViewer>) from ucpp.Ptr<EdGraph_ReferenceViewer> to ucpp.Ptr<EdGraph_ReferenceViewer>{
 	@:from
 	public static extern inline function fromValue(v: EdGraph_ReferenceViewer): EdGraph_ReferenceViewerPtr {
 		return untyped __cpp__("&({0})", v);

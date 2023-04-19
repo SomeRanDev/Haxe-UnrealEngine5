@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPreSkinnedLocalBounds")
 @:include("Materials/MaterialExpressionPreSkinnedLocalBounds.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPreSkinnedLocalBounds extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionPreSkinnedLocalBounds(MaterialExpressionPreSkinn
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPreSkinnedLocalBounds*")
-abstract MaterialExpressionPreSkinnedLocalBoundsPtr(cpp.Star<MaterialExpressionPreSkinnedLocalBounds>) from cpp.Star<MaterialExpressionPreSkinnedLocalBounds> to cpp.Star<MaterialExpressionPreSkinnedLocalBounds>{
+abstract MaterialExpressionPreSkinnedLocalBoundsPtr(ucpp.Ptr<MaterialExpressionPreSkinnedLocalBounds>) from ucpp.Ptr<MaterialExpressionPreSkinnedLocalBounds> to ucpp.Ptr<MaterialExpressionPreSkinnedLocalBounds>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPreSkinnedLocalBounds): MaterialExpressionPreSkinnedLocalBoundsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTakeRecorderProjectParameters")
 @:include("Recorder/TakeRecorderParameters.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderProjectParameters {
 	public var RootTakeSaveDir: DirectoryPath;
 	public var TakeSaveDir: FString;

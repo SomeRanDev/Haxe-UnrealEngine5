@@ -3,18 +3,18 @@ package ue;
 
 @:native("UPlaneCutTool")
 @:include("PlaneCutTool.h")
-@:structAccess
+@:valueType
 extern class PlaneCutTool extends MultiSelectionMeshEditingTool {
-	@:protected public var BasicProperties: cpp.Star<PlaneCutToolProperties>;
-	@:protected public var AcceptProperties: cpp.Star<AcceptOutputProperties>;
-	@:protected public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
-	@:protected public var MeshesToCut: TArray<cpp.Star<DynamicMeshReplacementChangeTarget>>;
-	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
+	@:protected public var BasicProperties: ucpp.Ptr<PlaneCutToolProperties>;
+	@:protected public var AcceptProperties: ucpp.Ptr<AcceptOutputProperties>;
+	@:protected public var Previews: TArray<ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>>;
+	@:protected public var MeshesToCut: TArray<ucpp.Ptr<DynamicMeshReplacementChangeTarget>>;
+	@:protected public var PlaneMechanic: ucpp.Ptr<ConstructionPlaneMechanic>;
 
 	@:protected public function FlipPlane(): Void;
 	@:protected public function Cut(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstPlaneCutTool(PlaneCutTool) from PlaneCutTool {
 @:forward
 @:nativeGen
 @:native("PlaneCutTool*")
-abstract PlaneCutToolPtr(cpp.Star<PlaneCutTool>) from cpp.Star<PlaneCutTool> to cpp.Star<PlaneCutTool>{
+abstract PlaneCutToolPtr(ucpp.Ptr<PlaneCutTool>) from ucpp.Ptr<PlaneCutTool> to ucpp.Ptr<PlaneCutTool>{
 	@:from
 	public static extern inline function fromValue(v: PlaneCutTool): PlaneCutToolPtr {
 		return untyped __cpp__("&({0})", v);

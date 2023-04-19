@@ -3,24 +3,24 @@ package ue;
 
 @:native("UConvertToPolygonsToolProperties")
 @:include("ConvertToPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class ConvertToPolygonsToolProperties extends InteractiveToolPropertySet {
 	public var ConversionMode: EConvertToPolygonsMode;
-	public var AngleTolerance: cpp.Float32;
-	public var NumPoints: cpp.Int32;
+	public var AngleTolerance: ucpp.num.Float32;
+	public var NumPoints: ucpp.num.Int32;
 	public var bSplitExisting: Bool;
 	public var bNormalWeighted: Bool;
-	public var NormalWeighting: cpp.Float32;
-	public var QuadAdjacencyWeight: cpp.Float32;
-	public var QuadMetricClamp: cpp.Float32;
-	public var QuadSearchRounds: cpp.Int32;
+	public var NormalWeighting: ucpp.num.Float32;
+	public var QuadAdjacencyWeight: ucpp.num.Float32;
+	public var QuadMetricClamp: ucpp.num.Float32;
+	public var QuadSearchRounds: ucpp.num.Int32;
 	public var bRespectUVSeams: Bool;
 	public var bRespectHardNormals: Bool;
-	public var MinGroupSize: cpp.Int32;
+	public var MinGroupSize: ucpp.num.Int32;
 	public var bCalculateNormals: Bool;
 	public var bShowGroupColors: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,28 +28,28 @@ extern class ConvertToPolygonsToolProperties extends InteractiveToolPropertySet 
 abstract ConstConvertToPolygonsToolProperties(ConvertToPolygonsToolProperties) from ConvertToPolygonsToolProperties {
 	public extern var ConversionMode(get, never): EConvertToPolygonsMode;
 	public inline extern function get_ConversionMode(): EConvertToPolygonsMode return this.ConversionMode;
-	public extern var AngleTolerance(get, never): cpp.Float32;
-	public inline extern function get_AngleTolerance(): cpp.Float32 return this.AngleTolerance;
-	public extern var NumPoints(get, never): cpp.Int32;
-	public inline extern function get_NumPoints(): cpp.Int32 return this.NumPoints;
+	public extern var AngleTolerance(get, never): ucpp.num.Float32;
+	public inline extern function get_AngleTolerance(): ucpp.num.Float32 return this.AngleTolerance;
+	public extern var NumPoints(get, never): ucpp.num.Int32;
+	public inline extern function get_NumPoints(): ucpp.num.Int32 return this.NumPoints;
 	public extern var bSplitExisting(get, never): Bool;
 	public inline extern function get_bSplitExisting(): Bool return this.bSplitExisting;
 	public extern var bNormalWeighted(get, never): Bool;
 	public inline extern function get_bNormalWeighted(): Bool return this.bNormalWeighted;
-	public extern var NormalWeighting(get, never): cpp.Float32;
-	public inline extern function get_NormalWeighting(): cpp.Float32 return this.NormalWeighting;
-	public extern var QuadAdjacencyWeight(get, never): cpp.Float32;
-	public inline extern function get_QuadAdjacencyWeight(): cpp.Float32 return this.QuadAdjacencyWeight;
-	public extern var QuadMetricClamp(get, never): cpp.Float32;
-	public inline extern function get_QuadMetricClamp(): cpp.Float32 return this.QuadMetricClamp;
-	public extern var QuadSearchRounds(get, never): cpp.Int32;
-	public inline extern function get_QuadSearchRounds(): cpp.Int32 return this.QuadSearchRounds;
+	public extern var NormalWeighting(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalWeighting(): ucpp.num.Float32 return this.NormalWeighting;
+	public extern var QuadAdjacencyWeight(get, never): ucpp.num.Float32;
+	public inline extern function get_QuadAdjacencyWeight(): ucpp.num.Float32 return this.QuadAdjacencyWeight;
+	public extern var QuadMetricClamp(get, never): ucpp.num.Float32;
+	public inline extern function get_QuadMetricClamp(): ucpp.num.Float32 return this.QuadMetricClamp;
+	public extern var QuadSearchRounds(get, never): ucpp.num.Int32;
+	public inline extern function get_QuadSearchRounds(): ucpp.num.Int32 return this.QuadSearchRounds;
 	public extern var bRespectUVSeams(get, never): Bool;
 	public inline extern function get_bRespectUVSeams(): Bool return this.bRespectUVSeams;
 	public extern var bRespectHardNormals(get, never): Bool;
 	public inline extern function get_bRespectHardNormals(): Bool return this.bRespectHardNormals;
-	public extern var MinGroupSize(get, never): cpp.Int32;
-	public inline extern function get_MinGroupSize(): cpp.Int32 return this.MinGroupSize;
+	public extern var MinGroupSize(get, never): ucpp.num.Int32;
+	public inline extern function get_MinGroupSize(): ucpp.num.Int32 return this.MinGroupSize;
 	public extern var bCalculateNormals(get, never): Bool;
 	public inline extern function get_bCalculateNormals(): Bool return this.bCalculateNormals;
 	public extern var bShowGroupColors(get, never): Bool;
@@ -59,7 +59,7 @@ abstract ConstConvertToPolygonsToolProperties(ConvertToPolygonsToolProperties) f
 @:forward
 @:nativeGen
 @:native("ConvertToPolygonsToolProperties*")
-abstract ConvertToPolygonsToolPropertiesPtr(cpp.Star<ConvertToPolygonsToolProperties>) from cpp.Star<ConvertToPolygonsToolProperties> to cpp.Star<ConvertToPolygonsToolProperties>{
+abstract ConvertToPolygonsToolPropertiesPtr(ucpp.Ptr<ConvertToPolygonsToolProperties>) from ucpp.Ptr<ConvertToPolygonsToolProperties> to ucpp.Ptr<ConvertToPolygonsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ConvertToPolygonsToolProperties): ConvertToPolygonsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSocketReference")
 @:include("Animation/BoneSocketReference.h")
-@:structAccess
+@:valueType
 extern class SocketReference {
 	public var SocketName: FName;
 

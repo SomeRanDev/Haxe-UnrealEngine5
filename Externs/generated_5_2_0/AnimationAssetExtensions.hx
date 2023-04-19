@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimationAssetExtensions")
 @:include("Animation/AnimationAssetExtensions.h")
-@:structAccess
+@:valueType
 extern class AnimationAssetExtensions extends BlueprintFunctionLibrary {
-	public function GetSkeleton(InAsset: cpp.Star<AnimationAsset>): cpp.Star<Skeleton>;
+	public function GetSkeleton(InAsset: ucpp.Ptr<AnimationAsset>): ucpp.Ptr<Skeleton>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAnimationAssetExtensions(AnimationAssetExtensions) from AnimationA
 @:forward
 @:nativeGen
 @:native("AnimationAssetExtensions*")
-abstract AnimationAssetExtensionsPtr(cpp.Star<AnimationAssetExtensions>) from cpp.Star<AnimationAssetExtensions> to cpp.Star<AnimationAssetExtensions>{
+abstract AnimationAssetExtensionsPtr(ucpp.Ptr<AnimationAssetExtensions>) from ucpp.Ptr<AnimationAssetExtensions> to ucpp.Ptr<AnimationAssetExtensions>{
 	@:from
 	public static extern inline function fromValue(v: AnimationAssetExtensions): AnimationAssetExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

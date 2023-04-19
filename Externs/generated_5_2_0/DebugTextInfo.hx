@@ -3,21 +3,21 @@ package ue;
 
 @:native("FDebugTextInfo")
 @:include("GameFramework/DebugTextInfo.h")
-@:structAccess
+@:valueType
 extern class DebugTextInfo {
-	public var SrcActor: cpp.Star<Actor>;
+	public var SrcActor: ucpp.Ptr<Actor>;
 	public var SrcActorOffset: Vector;
 	public var SrcActorDesiredOffset: Vector;
 	public var DebugText: FString;
-	public var TimeRemaining: cpp.Float32;
-	public var Duration: cpp.Float32;
+	public var TimeRemaining: ucpp.num.Float32;
+	public var Duration: ucpp.num.Float32;
 	public var TextColor: Color;
 	public var bAbsoluteLocation: Bool;
 	public var bKeepAttachedToActor: Bool;
 	public var bDrawShadow: Bool;
 	public var OrigActorLocation: Vector;
-	public var Font: cpp.Star<Font>;
-	public var FontScale: cpp.Float32;
+	public var Font: ucpp.Ptr<Font>;
+	public var FontScale: ucpp.num.Float32;
 
 	@:native("FDebugTextInfo") public function new();
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionWhileLoop")
 @:include("Materials/MaterialExpressionWhileLoop.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionWhileLoop extends MaterialExpression {
 	public var LoopBody: ExpressionExecOutput;
 	public var Completed: ExpressionExecOutput;
 	public var Condition: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialExpressionWhileLoop(MaterialExpressionWhileLoop) from Mate
 @:forward
 @:nativeGen
 @:native("MaterialExpressionWhileLoop*")
-abstract MaterialExpressionWhileLoopPtr(cpp.Star<MaterialExpressionWhileLoop>) from cpp.Star<MaterialExpressionWhileLoop> to cpp.Star<MaterialExpressionWhileLoop>{
+abstract MaterialExpressionWhileLoopPtr(ucpp.Ptr<MaterialExpressionWhileLoop>) from ucpp.Ptr<MaterialExpressionWhileLoop> to ucpp.Ptr<MaterialExpressionWhileLoop>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionWhileLoop): MaterialExpressionWhileLoopPtr {
 		return untyped __cpp__("&({0})", v);

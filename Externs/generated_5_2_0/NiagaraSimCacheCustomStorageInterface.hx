@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNiagaraSimCacheCustomStorageInterface")
-@:structAccess
+@:valueType
 extern class NiagaraSimCacheCustomStorageInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNiagaraSimCacheCustomStorageInterface(NiagaraSimCacheCustomStorage
 @:forward
 @:nativeGen
 @:native("NiagaraSimCacheCustomStorageInterface*")
-abstract NiagaraSimCacheCustomStorageInterfacePtr(cpp.Star<NiagaraSimCacheCustomStorageInterface>) from cpp.Star<NiagaraSimCacheCustomStorageInterface> to cpp.Star<NiagaraSimCacheCustomStorageInterface>{
+abstract NiagaraSimCacheCustomStorageInterfacePtr(ucpp.Ptr<NiagaraSimCacheCustomStorageInterface>) from ucpp.Ptr<NiagaraSimCacheCustomStorageInterface> to ucpp.Ptr<NiagaraSimCacheCustomStorageInterface>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraSimCacheCustomStorageInterface): NiagaraSimCacheCustomStorageInterfacePtr {
 		return untyped __cpp__("&({0})", v);

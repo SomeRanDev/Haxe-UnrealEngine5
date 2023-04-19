@@ -3,24 +3,24 @@ package ue;
 
 @:native("UEditableGameplayTagQueryExpression_AnyExprMatch")
 @:include("GameplayTagContainer.h")
-@:structAccess
+@:valueType
 extern class EditableGameplayTagQueryExpression_AnyExprMatch extends EditableGameplayTagQueryExpression {
-	public var Expressions: TArray<cpp.Star<EditableGameplayTagQueryExpression>>;
+	public var Expressions: TArray<ucpp.Ptr<EditableGameplayTagQueryExpression>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditableGameplayTagQueryExpression_AnyExprMatch(EditableGameplayTagQueryExpression_AnyExprMatch) from EditableGameplayTagQueryExpression_AnyExprMatch {
-	public extern var Expressions(get, never): TArray<cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>>;
-	public inline extern function get_Expressions(): TArray<cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>> return this.Expressions;
+	public extern var Expressions(get, never): TArray<ucpp.Ptr<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>>;
+	public inline extern function get_Expressions(): TArray<ucpp.Ptr<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>> return this.Expressions;
 }
 
 @:forward
 @:nativeGen
 @:native("EditableGameplayTagQueryExpression_AnyExprMatch*")
-abstract EditableGameplayTagQueryExpression_AnyExprMatchPtr(cpp.Star<EditableGameplayTagQueryExpression_AnyExprMatch>) from cpp.Star<EditableGameplayTagQueryExpression_AnyExprMatch> to cpp.Star<EditableGameplayTagQueryExpression_AnyExprMatch>{
+abstract EditableGameplayTagQueryExpression_AnyExprMatchPtr(ucpp.Ptr<EditableGameplayTagQueryExpression_AnyExprMatch>) from ucpp.Ptr<EditableGameplayTagQueryExpression_AnyExprMatch> to ucpp.Ptr<EditableGameplayTagQueryExpression_AnyExprMatch>{
 	@:from
 	public static extern inline function fromValue(v: EditableGameplayTagQueryExpression_AnyExprMatch): EditableGameplayTagQueryExpression_AnyExprMatchPtr {
 		return untyped __cpp__("&({0})", v);

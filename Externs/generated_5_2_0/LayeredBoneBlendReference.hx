@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLayeredBoneBlendReference")
 @:include("LayeredBoneBlendLibrary.h")
-@:structAccess
+@:valueType
 extern class LayeredBoneBlendReference extends AnimNodeReference {
 	@:native("FLayeredBoneBlendReference") public function new();
 }

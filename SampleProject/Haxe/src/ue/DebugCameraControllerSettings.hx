@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDebugCameraControllerSettings")
 @:include("Engine/DebugCameraControllerSettings.h")
-@:structAccess
+@:valueType
 extern class DebugCameraControllerSettings extends DeveloperSettings {
 	public var CycleViewModes: TArray<DebugCameraControllerSettingsViewModeIndex>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDebugCameraControllerSettings(DebugCameraControllerSettings) from 
 @:forward
 @:nativeGen
 @:native("DebugCameraControllerSettings*")
-abstract DebugCameraControllerSettingsPtr(cpp.Star<DebugCameraControllerSettings>) from cpp.Star<DebugCameraControllerSettings> to cpp.Star<DebugCameraControllerSettings>{
+abstract DebugCameraControllerSettingsPtr(ucpp.Ptr<DebugCameraControllerSettings>) from ucpp.Ptr<DebugCameraControllerSettings> to ucpp.Ptr<DebugCameraControllerSettings>{
 	@:from
 	public static extern inline function fromValue(v: DebugCameraControllerSettings): DebugCameraControllerSettingsPtr {
 		return untyped __cpp__("&({0})", v);

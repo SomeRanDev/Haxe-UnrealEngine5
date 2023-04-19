@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditorValidator_Localization")
 @:include("EditorValidator_Localization.h")
-@:structAccess
+@:valueType
 extern class EditorValidator_Localization extends EditorValidatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditorValidator_Localization(EditorValidator_Localization) from Ed
 @:forward
 @:nativeGen
 @:native("EditorValidator_Localization*")
-abstract EditorValidator_LocalizationPtr(cpp.Star<EditorValidator_Localization>) from cpp.Star<EditorValidator_Localization> to cpp.Star<EditorValidator_Localization>{
+abstract EditorValidator_LocalizationPtr(ucpp.Ptr<EditorValidator_Localization>) from ucpp.Ptr<EditorValidator_Localization> to ucpp.Ptr<EditorValidator_Localization>{
 	@:from
 	public static extern inline function fromValue(v: EditorValidator_Localization): EditorValidator_LocalizationPtr {
 		return untyped __cpp__("&({0})", v);

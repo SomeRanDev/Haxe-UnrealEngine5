@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomColorForSpaceSwitch")
 @:include("CurveEditorSettings.h")
-@:structAccess
+@:valueType
 extern class CustomColorForSpaceSwitch {
 	public var ControlName: FString;
 	public var Color: LinearColor;

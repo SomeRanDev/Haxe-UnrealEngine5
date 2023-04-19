@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAcceptOutputProperties")
 @:include("PlaneCutTool.h")
-@:structAccess
+@:valueType
 extern class AcceptOutputProperties extends InteractiveToolPropertySet {
 	public var bExportSeparatedPiecesAsNewMeshAssets: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAcceptOutputProperties(AcceptOutputProperties) from AcceptOutputPr
 @:forward
 @:nativeGen
 @:native("AcceptOutputProperties*")
-abstract AcceptOutputPropertiesPtr(cpp.Star<AcceptOutputProperties>) from cpp.Star<AcceptOutputProperties> to cpp.Star<AcceptOutputProperties>{
+abstract AcceptOutputPropertiesPtr(ucpp.Ptr<AcceptOutputProperties>) from ucpp.Ptr<AcceptOutputProperties> to ucpp.Ptr<AcceptOutputProperties>{
 	@:from
 	public static extern inline function fromValue(v: AcceptOutputProperties): AcceptOutputPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

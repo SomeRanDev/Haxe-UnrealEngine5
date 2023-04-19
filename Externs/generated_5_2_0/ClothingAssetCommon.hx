@@ -3,45 +3,45 @@ package ue;
 
 @:native("UClothingAssetCommon")
 @:include("ClothingAsset.h")
-@:structAccess
+@:valueType
 extern class ClothingAssetCommon extends ClothingAssetBase {
-	public var PhysicsAsset: cpp.Star<PhysicsAsset>;
-	public var ClothConfigs: TMap<FName, cpp.Star<ClothConfigBase>>;
+	public var PhysicsAsset: ucpp.Ptr<PhysicsAsset>;
+	public var ClothConfigs: TMap<FName, ucpp.Ptr<ClothConfigBase>>;
 	public var LodData: TArray<ClothLODDataCommon>;
-	public var LodMap: TArray<cpp.Int32>;
+	public var LodMap: TArray<ucpp.num.Int32>;
 	public var UsedBoneNames: TArray<FName>;
-	public var UsedBoneIndices: TArray<cpp.Int32>;
-	public var ReferenceBoneIndex: cpp.Int32;
-	public var CustomData: cpp.Star<ClothingAssetCustomData>;
+	public var UsedBoneIndices: TArray<ucpp.num.Int32>;
+	public var ReferenceBoneIndex: ucpp.num.Int32;
+	public var CustomData: ucpp.Ptr<ClothingAssetCustomData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstClothingAssetCommon(ClothingAssetCommon) from ClothingAssetCommon {
-	public extern var PhysicsAsset(get, never): cpp.Star<PhysicsAsset.ConstPhysicsAsset>;
-	public inline extern function get_PhysicsAsset(): cpp.Star<PhysicsAsset.ConstPhysicsAsset> return this.PhysicsAsset;
-	public extern var ClothConfigs(get, never): TMap<FName, cpp.Star<ClothConfigBase.ConstClothConfigBase>>;
-	public inline extern function get_ClothConfigs(): TMap<FName, cpp.Star<ClothConfigBase.ConstClothConfigBase>> return this.ClothConfigs;
+	public extern var PhysicsAsset(get, never): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset>;
+	public inline extern function get_PhysicsAsset(): ucpp.Ptr<PhysicsAsset.ConstPhysicsAsset> return this.PhysicsAsset;
+	public extern var ClothConfigs(get, never): TMap<FName, ucpp.Ptr<ClothConfigBase.ConstClothConfigBase>>;
+	public inline extern function get_ClothConfigs(): TMap<FName, ucpp.Ptr<ClothConfigBase.ConstClothConfigBase>> return this.ClothConfigs;
 	public extern var LodData(get, never): TArray<ClothLODDataCommon>;
 	public inline extern function get_LodData(): TArray<ClothLODDataCommon> return this.LodData;
-	public extern var LodMap(get, never): TArray<cpp.Int32>;
-	public inline extern function get_LodMap(): TArray<cpp.Int32> return this.LodMap;
+	public extern var LodMap(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_LodMap(): TArray<ucpp.num.Int32> return this.LodMap;
 	public extern var UsedBoneNames(get, never): TArray<FName>;
 	public inline extern function get_UsedBoneNames(): TArray<FName> return this.UsedBoneNames;
-	public extern var UsedBoneIndices(get, never): TArray<cpp.Int32>;
-	public inline extern function get_UsedBoneIndices(): TArray<cpp.Int32> return this.UsedBoneIndices;
-	public extern var ReferenceBoneIndex(get, never): cpp.Int32;
-	public inline extern function get_ReferenceBoneIndex(): cpp.Int32 return this.ReferenceBoneIndex;
-	public extern var CustomData(get, never): cpp.Star<ClothingAssetCustomData.ConstClothingAssetCustomData>;
-	public inline extern function get_CustomData(): cpp.Star<ClothingAssetCustomData.ConstClothingAssetCustomData> return this.CustomData;
+	public extern var UsedBoneIndices(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_UsedBoneIndices(): TArray<ucpp.num.Int32> return this.UsedBoneIndices;
+	public extern var ReferenceBoneIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_ReferenceBoneIndex(): ucpp.num.Int32 return this.ReferenceBoneIndex;
+	public extern var CustomData(get, never): ucpp.Ptr<ClothingAssetCustomData.ConstClothingAssetCustomData>;
+	public inline extern function get_CustomData(): ucpp.Ptr<ClothingAssetCustomData.ConstClothingAssetCustomData> return this.CustomData;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothingAssetCommon*")
-abstract ClothingAssetCommonPtr(cpp.Star<ClothingAssetCommon>) from cpp.Star<ClothingAssetCommon> to cpp.Star<ClothingAssetCommon>{
+abstract ClothingAssetCommonPtr(ucpp.Ptr<ClothingAssetCommon>) from ucpp.Ptr<ClothingAssetCommon> to ucpp.Ptr<ClothingAssetCommon>{
 	@:from
 	public static extern inline function fromValue(v: ClothingAssetCommon): ClothingAssetCommonPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraOutlinerViewSettings")
 @:include("Private/NiagaraOutliner.h")
-@:structAccess
+@:valueType
 extern class NiagaraOutlinerViewSettings {
 	public var ViewMode: ENiagaraOutlinerViewModes;
 	public var FilterSettings: NiagaraOutlinerFilterSettings;

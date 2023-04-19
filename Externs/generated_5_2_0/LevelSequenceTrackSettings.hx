@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLevelSequenceTrackSettings")
 @:include("Private/Misc/LevelSequenceEditorSettings.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceTrackSettings {
 	public var MatchingActorClass: SoftClassPath;
 	public var DefaultTracks: TArray<SoftClassPath>;

@@ -3,30 +3,30 @@ package ue;
 
 @:native("USimpleCameraShakePattern")
 @:include("SimpleCameraShakePattern.h")
-@:structAccess
+@:valueType
 extern class SimpleCameraShakePattern extends CameraShakePattern {
-	public var Duration: cpp.Float32;
-	public var BlendInTime: cpp.Float32;
-	public var BlendOutTime: cpp.Float32;
+	public var Duration: ucpp.num.Float32;
+	public var BlendInTime: ucpp.num.Float32;
+	public var BlendOutTime: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSimpleCameraShakePattern(SimpleCameraShakePattern) from SimpleCameraShakePattern {
-	public extern var Duration(get, never): cpp.Float32;
-	public inline extern function get_Duration(): cpp.Float32 return this.Duration;
-	public extern var BlendInTime(get, never): cpp.Float32;
-	public inline extern function get_BlendInTime(): cpp.Float32 return this.BlendInTime;
-	public extern var BlendOutTime(get, never): cpp.Float32;
-	public inline extern function get_BlendOutTime(): cpp.Float32 return this.BlendOutTime;
+	public extern var Duration(get, never): ucpp.num.Float32;
+	public inline extern function get_Duration(): ucpp.num.Float32 return this.Duration;
+	public extern var BlendInTime(get, never): ucpp.num.Float32;
+	public inline extern function get_BlendInTime(): ucpp.num.Float32 return this.BlendInTime;
+	public extern var BlendOutTime(get, never): ucpp.num.Float32;
+	public inline extern function get_BlendOutTime(): ucpp.num.Float32 return this.BlendOutTime;
 }
 
 @:forward
 @:nativeGen
 @:native("SimpleCameraShakePattern*")
-abstract SimpleCameraShakePatternPtr(cpp.Star<SimpleCameraShakePattern>) from cpp.Star<SimpleCameraShakePattern> to cpp.Star<SimpleCameraShakePattern>{
+abstract SimpleCameraShakePatternPtr(ucpp.Ptr<SimpleCameraShakePattern>) from ucpp.Ptr<SimpleCameraShakePattern> to ucpp.Ptr<SimpleCameraShakePattern>{
 	@:from
 	public static extern inline function fromValue(v: SimpleCameraShakePattern): SimpleCameraShakePatternPtr {
 		return untyped __cpp__("&({0})", v);

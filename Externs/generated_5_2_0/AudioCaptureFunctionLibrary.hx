@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAudioCaptureFunctionLibrary")
 @:include("AudioCapture.h")
-@:structAccess
+@:valueType
 extern class AudioCaptureFunctionLibrary extends BlueprintFunctionLibrary {
-	public function CreateAudioCapture(): cpp.Star<AudioCapture>;
+	public function CreateAudioCapture(): ucpp.Ptr<AudioCapture>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAudioCaptureFunctionLibrary(AudioCaptureFunctionLibrary) from Audi
 @:forward
 @:nativeGen
 @:native("AudioCaptureFunctionLibrary*")
-abstract AudioCaptureFunctionLibraryPtr(cpp.Star<AudioCaptureFunctionLibrary>) from cpp.Star<AudioCaptureFunctionLibrary> to cpp.Star<AudioCaptureFunctionLibrary>{
+abstract AudioCaptureFunctionLibraryPtr(ucpp.Ptr<AudioCaptureFunctionLibrary>) from ucpp.Ptr<AudioCaptureFunctionLibrary> to ucpp.Ptr<AudioCaptureFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AudioCaptureFunctionLibrary): AudioCaptureFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

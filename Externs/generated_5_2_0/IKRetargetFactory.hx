@@ -3,11 +3,11 @@ package ue;
 
 @:native("UIKRetargetFactory")
 @:include("RetargetEditor/IKRetargetFactory.h")
-@:structAccess
+@:valueType
 extern class IKRetargetFactory extends Factory {
 	private var SourceIKRig: TWeakObjectPtr<IKRigDefinition>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstIKRetargetFactory(IKRetargetFactory) from IKRetargetFactory {
 @:forward
 @:nativeGen
 @:native("IKRetargetFactory*")
-abstract IKRetargetFactoryPtr(cpp.Star<IKRetargetFactory>) from cpp.Star<IKRetargetFactory> to cpp.Star<IKRetargetFactory>{
+abstract IKRetargetFactoryPtr(ucpp.Ptr<IKRetargetFactory>) from ucpp.Ptr<IKRetargetFactory> to ucpp.Ptr<IKRetargetFactory>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargetFactory): IKRetargetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

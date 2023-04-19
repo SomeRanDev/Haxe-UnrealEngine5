@@ -3,10 +3,10 @@ package ue;
 
 @:native("USequencerToolMenuContext")
 @:include("SequencerToolMenuContext.h")
-@:structAccess
+@:valueType
 extern class SequencerToolMenuContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSequencerToolMenuContext(SequencerToolMenuContext) from SequencerT
 @:forward
 @:nativeGen
 @:native("SequencerToolMenuContext*")
-abstract SequencerToolMenuContextPtr(cpp.Star<SequencerToolMenuContext>) from cpp.Star<SequencerToolMenuContext> to cpp.Star<SequencerToolMenuContext>{
+abstract SequencerToolMenuContextPtr(ucpp.Ptr<SequencerToolMenuContext>) from ucpp.Ptr<SequencerToolMenuContext> to ucpp.Ptr<SequencerToolMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: SequencerToolMenuContext): SequencerToolMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

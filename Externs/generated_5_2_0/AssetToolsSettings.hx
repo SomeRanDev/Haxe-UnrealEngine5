@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAssetToolsSettings")
 @:include("AssetToolsSettings.h")
-@:structAccess
+@:valueType
 extern class AssetToolsSettings extends DeveloperSettings {
 	public var AdvancedCopyCustomizations: TArray<AdvancedCopyMap>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAssetToolsSettings(AssetToolsSettings) from AssetToolsSettings {
 @:forward
 @:nativeGen
 @:native("AssetToolsSettings*")
-abstract AssetToolsSettingsPtr(cpp.Star<AssetToolsSettings>) from cpp.Star<AssetToolsSettings> to cpp.Star<AssetToolsSettings>{
+abstract AssetToolsSettingsPtr(ucpp.Ptr<AssetToolsSettings>) from ucpp.Ptr<AssetToolsSettings> to ucpp.Ptr<AssetToolsSettings>{
 	@:from
 	public static extern inline function fromValue(v: AssetToolsSettings): AssetToolsSettingsPtr {
 		return untyped __cpp__("&({0})", v);

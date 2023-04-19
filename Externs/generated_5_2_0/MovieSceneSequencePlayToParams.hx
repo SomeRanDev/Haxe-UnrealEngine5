@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSequencePlayToParams")
 @:include("MovieSceneSequencePlayer.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequencePlayToParams {
 	public var bExclusive: Bool;
 

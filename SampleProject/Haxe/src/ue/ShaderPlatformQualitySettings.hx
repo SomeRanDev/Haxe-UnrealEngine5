@@ -3,11 +3,11 @@ package ue;
 
 @:native("UShaderPlatformQualitySettings")
 @:include("ShaderPlatformQualitySettings.h")
-@:structAccess
+@:valueType
 extern class ShaderPlatformQualitySettings extends Object {
 	public var QualityOverrides: MaterialQualityOverrides;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstShaderPlatformQualitySettings(ShaderPlatformQualitySettings) from 
 @:forward
 @:nativeGen
 @:native("ShaderPlatformQualitySettings*")
-abstract ShaderPlatformQualitySettingsPtr(cpp.Star<ShaderPlatformQualitySettings>) from cpp.Star<ShaderPlatformQualitySettings> to cpp.Star<ShaderPlatformQualitySettings>{
+abstract ShaderPlatformQualitySettingsPtr(ucpp.Ptr<ShaderPlatformQualitySettings>) from ucpp.Ptr<ShaderPlatformQualitySettings> to ucpp.Ptr<ShaderPlatformQualitySettings>{
 	@:from
 	public static extern inline function fromValue(v: ShaderPlatformQualitySettings): ShaderPlatformQualitySettingsPtr {
 		return untyped __cpp__("&({0})", v);

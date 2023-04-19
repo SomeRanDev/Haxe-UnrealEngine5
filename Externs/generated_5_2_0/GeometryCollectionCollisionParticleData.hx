@@ -3,11 +3,11 @@ package ue;
 
 @:native("FGeometryCollectionCollisionParticleData")
 @:include("GeometryCollection/GeometryCollectionObject.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionCollisionParticleData {
-	public var CollisionParticlesFraction: cpp.Float32;
-	public var MaximumCollisionParticles: cpp.Int32;
+	public var CollisionParticlesFraction: ucpp.num.Float32;
+	public var MaximumCollisionParticles: ucpp.num.Int32;
 
 	@:native("FGeometryCollectionCollisionParticleData") public function new();
-	@:native("FGeometryCollectionCollisionParticleData") public static function make(CollisionParticlesFraction: cpp.Float32, MaximumCollisionParticles: cpp.Int32): GeometryCollectionCollisionParticleData ;
+	@:native("FGeometryCollectionCollisionParticleData") public static function make(CollisionParticlesFraction: ucpp.num.Float32, MaximumCollisionParticles: ucpp.num.Int32): GeometryCollectionCollisionParticleData ;
 }

@@ -3,32 +3,32 @@ package ue;
 
 @:native("UVariant")
 @:include("Variant.h")
-@:structAccess
+@:valueType
 extern class Variant extends Object {
 	private var Dependencies: TArray<VariantDependency>;
-	private var ObjectBindings: TArray<cpp.Star<VariantObjectBinding>>;
-	private var Thumbnail: cpp.Star<Texture2D>;
+	private var ObjectBindings: TArray<ucpp.Ptr<VariantObjectBinding>>;
+	private var Thumbnail: ucpp.Ptr<Texture2D>;
 
 	public function SwitchOn(): Void;
-	public function SetThumbnailFromTexture(NewThumbnail: cpp.Star<Texture2D>): Void;
+	public function SetThumbnailFromTexture(NewThumbnail: ucpp.Ptr<Texture2D>): Void;
 	public function SetThumbnailFromFile(FilePath: FString): Void;
 	public function SetThumbnailFromEditorViewport(): Void;
-	public function SetThumbnailFromCamera(WorldContextObject: cpp.Star<Object>, CameraTransform: cpp.Reference<Transform>, FOVDegrees: cpp.Float32, MinZ: cpp.Float32, Gamma: cpp.Float32): Void;
-	public function SetDisplayText(NewDisplayText: cpp.Reference<FText>): Void;
-	public function SetDependency(Index: cpp.Int32, Dependency: cpp.Reference<VariantDependency>): Void;
+	public function SetThumbnailFromCamera(WorldContextObject: ucpp.Ptr<Object>, CameraTransform: ucpp.Ref<Transform>, FOVDegrees: ucpp.num.Float32, MinZ: ucpp.num.Float32, Gamma: ucpp.num.Float32): Void;
+	public function SetDisplayText(NewDisplayText: ucpp.Ref<FText>): Void;
+	public function SetDependency(Index: ucpp.num.Int32, Dependency: ucpp.Ref<VariantDependency>): Void;
 	public function IsActive(): Bool;
-	public function GetThumbnail(): cpp.Star<Texture2D>;
-	public function GetParent(): cpp.Star<VariantSet>;
-	public function GetNumDependencies(): cpp.Int32;
-	public function GetNumActors(): cpp.Int32;
+	public function GetThumbnail(): ucpp.Ptr<Texture2D>;
+	public function GetParent(): ucpp.Ptr<VariantSet>;
+	public function GetNumDependencies(): ucpp.num.Int32;
+	public function GetNumActors(): ucpp.num.Int32;
 	public function GetDisplayText(): FText;
-	public function GetDependents(LevelVariantSets: cpp.Star<LevelVariantSets>, bOnlyEnabledDependencies: Bool): TArray<cpp.Star<Variant>>;
-	public function GetDependency(Index: cpp.Int32): VariantDependency;
-	public function GetActor(ActorIndex: cpp.Int32): cpp.Star<Actor>;
-	public function DeleteDependency(Index: cpp.Int32): Void;
-	public function AddDependency(Dependency: cpp.Reference<VariantDependency>): cpp.Int32;
+	public function GetDependents(LevelVariantSets: ucpp.Ptr<LevelVariantSets>, bOnlyEnabledDependencies: Bool): TArray<ucpp.Ptr<Variant>>;
+	public function GetDependency(Index: ucpp.num.Int32): VariantDependency;
+	public function GetActor(ActorIndex: ucpp.num.Int32): ucpp.Ptr<Actor>;
+	public function DeleteDependency(Index: ucpp.num.Int32): Void;
+	public function AddDependency(Dependency: ucpp.Ref<VariantDependency>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetDisplayText)
@@ -39,7 +39,7 @@ abstract ConstVariant(Variant) from Variant {
 @:forward
 @:nativeGen
 @:native("Variant*")
-abstract VariantPtr(cpp.Star<Variant>) from cpp.Star<Variant> to cpp.Star<Variant>{
+abstract VariantPtr(ucpp.Ptr<Variant>) from ucpp.Ptr<Variant> to ucpp.Ptr<Variant>{
 	@:from
 	public static extern inline function fromValue(v: Variant): VariantPtr {
 		return untyped __cpp__("&({0})", v);

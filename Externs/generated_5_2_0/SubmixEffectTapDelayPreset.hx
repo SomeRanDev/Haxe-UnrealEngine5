@@ -3,20 +3,20 @@ package ue;
 
 @:native("USubmixEffectTapDelayPreset")
 @:include("SubmixEffects/SubmixEffectTapDelay.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectTapDelayPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectTapDelaySettings;
 
-	public function SetTap(TapId: cpp.Int32, TapInfo: cpp.Reference<TapDelayInfo>): Void;
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectTapDelaySettings>): Void;
-	public function SetInterpolationTime(Time: cpp.Float32): Void;
-	public function RemoveTap(TapId: cpp.Int32): Void;
-	public function GetTapIds(TapIds: cpp.Reference<TArray<cpp.Int32>>): Void;
-	public function GetTap(TapId: cpp.Int32, TapInfo: cpp.Reference<TapDelayInfo>): Void;
-	public function GetMaxDelayInMilliseconds(): cpp.Float32;
-	public function AddTap(TapId: cpp.Reference<cpp.Int32>): Void;
+	public function SetTap(TapId: ucpp.num.Int32, TapInfo: ucpp.Ref<TapDelayInfo>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectTapDelaySettings>): Void;
+	public function SetInterpolationTime(Time: ucpp.num.Float32): Void;
+	public function RemoveTap(TapId: ucpp.num.Int32): Void;
+	public function GetTapIds(TapIds: ucpp.Ref<TArray<ucpp.num.Int32>>): Void;
+	public function GetTap(TapId: ucpp.num.Int32, TapInfo: ucpp.Ref<TapDelayInfo>): Void;
+	public function GetMaxDelayInMilliseconds(): ucpp.num.Float32;
+	public function AddTap(TapId: ucpp.Ref<ucpp.num.Int32>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstSubmixEffectTapDelayPreset(SubmixEffectTapDelayPreset) from Submix
 @:forward
 @:nativeGen
 @:native("SubmixEffectTapDelayPreset*")
-abstract SubmixEffectTapDelayPresetPtr(cpp.Star<SubmixEffectTapDelayPreset>) from cpp.Star<SubmixEffectTapDelayPreset> to cpp.Star<SubmixEffectTapDelayPreset>{
+abstract SubmixEffectTapDelayPresetPtr(ucpp.Ptr<SubmixEffectTapDelayPreset>) from ucpp.Ptr<SubmixEffectTapDelayPreset> to ucpp.Ptr<SubmixEffectTapDelayPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectTapDelayPreset): SubmixEffectTapDelayPresetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USingleClickTool")
 @:include("BaseTools/SingleClickTool.h")
-@:structAccess
+@:valueType
 extern class SingleClickTool extends InteractiveTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSingleClickTool(SingleClickTool) from SingleClickTool {
 @:forward
 @:nativeGen
 @:native("SingleClickTool*")
-abstract SingleClickToolPtr(cpp.Star<SingleClickTool>) from cpp.Star<SingleClickTool> to cpp.Star<SingleClickTool>{
+abstract SingleClickToolPtr(ucpp.Ptr<SingleClickTool>) from ucpp.Ptr<SingleClickTool> to ucpp.Ptr<SingleClickTool>{
 	@:from
 	public static extern inline function fromValue(v: SingleClickTool): SingleClickToolPtr {
 		return untyped __cpp__("&({0})", v);

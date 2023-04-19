@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnSamplePlaybackProgress__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnSamplePlaybackProgress__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnSamplePlaybackProgress__PythonCallable(OnSamplePlaybackProgress_
 @:forward
 @:nativeGen
 @:native("OnSamplePlaybackProgress__PythonCallable*")
-abstract OnSamplePlaybackProgress__PythonCallablePtr(cpp.Star<OnSamplePlaybackProgress__PythonCallable>) from cpp.Star<OnSamplePlaybackProgress__PythonCallable> to cpp.Star<OnSamplePlaybackProgress__PythonCallable>{
+abstract OnSamplePlaybackProgress__PythonCallablePtr(ucpp.Ptr<OnSamplePlaybackProgress__PythonCallable>) from ucpp.Ptr<OnSamplePlaybackProgress__PythonCallable> to ucpp.Ptr<OnSamplePlaybackProgress__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnSamplePlaybackProgress__PythonCallable): OnSamplePlaybackProgress__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

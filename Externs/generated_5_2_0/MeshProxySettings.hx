@@ -3,16 +3,16 @@ package ue;
 
 @:native("FMeshProxySettings")
 @:include("Engine/MeshMerging.h")
-@:structAccess
+@:valueType
 extern class MeshProxySettings {
-	public var ScreenSize: cpp.Int32;
-	public var VoxelSize: cpp.Float32;
+	public var ScreenSize: ucpp.num.Int32;
+	public var VoxelSize: ucpp.num.Float32;
 	public var MaterialSettings: MaterialProxySettings;
-	public var MergeDistance: cpp.Float32;
+	public var MergeDistance: ucpp.num.Float32;
 	public var UnresolvedGeometryColor: Color;
-	public var MaxRayCastDist: cpp.Float32;
-	public var HardAngleThreshold: cpp.Float32;
-	public var LightMapResolution: cpp.Int32;
+	public var MaxRayCastDist: ucpp.num.Float32;
+	public var HardAngleThreshold: ucpp.num.Float32;
+	public var LightMapResolution: ucpp.num.Int32;
 	public var NormalCalculationMethod: TEnumAsByte<EProxyNormalComputationMethod>;
 	public var LandscapeCullingPrecision: TEnumAsByte<ELandscapeCullingPrecision>;
 	public var bCalculateCorrectLODModel: Bool;

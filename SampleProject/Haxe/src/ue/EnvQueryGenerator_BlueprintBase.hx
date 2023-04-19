@@ -3,21 +3,22 @@ package ue;
 
 @:native("UEnvQueryGenerator_BlueprintBase")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_BlueprintBase.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_BlueprintBase extends EnvQueryGenerator {
 	public var GeneratorsActionDescription: FText;
 	public var Context: TSubclassOf<EnvQueryContext>;
 	public var GeneratedItemType: TSubclassOf<EnvQueryItemType>;
 
-	public function GetQuerier(): cpp.Star<Object>;
-	public function DoItemGeneration(ContextLocations: cpp.Reference<TArray<Vector>>): Void;
+	public function GetQuerier(): ucpp.Ptr<Object>;
+	public function DoItemGenerationFromActors(ContextActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
+	public function DoItemGeneration(ContextLocations: ucpp.Ref<TArray<Vector>>): Void;
 	public function AddGeneratedVector(GeneratedVector: Vector): Void;
-	public function AddGeneratedActor(GeneratedActor: cpp.Star<Actor>): Void;
+	public function AddGeneratedActor(GeneratedActor: ucpp.Ptr<Actor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetQuerier, DoItemGeneration, AddGeneratedVector, AddGeneratedActor)
+@:forward(GetQuerier, DoItemGenerationFromActors, DoItemGeneration, AddGeneratedVector, AddGeneratedActor)
 @:nativeGen
 abstract ConstEnvQueryGenerator_BlueprintBase(EnvQueryGenerator_BlueprintBase) from EnvQueryGenerator_BlueprintBase {
 	public extern var GeneratorsActionDescription(get, never): FText;
@@ -31,7 +32,7 @@ abstract ConstEnvQueryGenerator_BlueprintBase(EnvQueryGenerator_BlueprintBase) f
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_BlueprintBase*")
-abstract EnvQueryGenerator_BlueprintBasePtr(cpp.Star<EnvQueryGenerator_BlueprintBase>) from cpp.Star<EnvQueryGenerator_BlueprintBase> to cpp.Star<EnvQueryGenerator_BlueprintBase>{
+abstract EnvQueryGenerator_BlueprintBasePtr(ucpp.Ptr<EnvQueryGenerator_BlueprintBase>) from ucpp.Ptr<EnvQueryGenerator_BlueprintBase> to ucpp.Ptr<EnvQueryGenerator_BlueprintBase>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_BlueprintBase): EnvQueryGenerator_BlueprintBasePtr {
 		return untyped __cpp__("&({0})", v);

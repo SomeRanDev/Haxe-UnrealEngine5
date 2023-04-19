@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEnvQueryContext_BlueprintBase")
 @:include("EnvironmentQuery/Contexts/EnvQueryContext_BlueprintBase.h")
-@:structAccess
+@:valueType
 extern class EnvQueryContext_BlueprintBase extends EnvQueryContext {
-	public function ProvideSingleLocation(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingLocation: cpp.Reference<Vector>): Void;
-	public function ProvideSingleActor(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingActor: cpp.Reference<cpp.Star<Actor>>): Void;
-	public function ProvideLocationsSet(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingLocationSet: cpp.Reference<TArray<Vector>>): Void;
-	public function ProvideActorsSet(QuerierObject: cpp.Star<Object>, QuerierActor: cpp.Star<Actor>, ResultingActorsSet: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	public function ProvideSingleLocation(QuerierObject: ucpp.Ptr<Object>, QuerierActor: ucpp.Ptr<Actor>, ResultingLocation: ucpp.Ref<Vector>): Void;
+	public function ProvideSingleActor(QuerierObject: ucpp.Ptr<Object>, QuerierActor: ucpp.Ptr<Actor>, ResultingActor: ucpp.Ref<ucpp.Ptr<Actor>>): Void;
+	public function ProvideLocationsSet(QuerierObject: ucpp.Ptr<Object>, QuerierActor: ucpp.Ptr<Actor>, ResultingLocationSet: ucpp.Ref<TArray<Vector>>): Void;
+	public function ProvideActorsSet(QuerierObject: ucpp.Ptr<Object>, QuerierActor: ucpp.Ptr<Actor>, ResultingActorsSet: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(ProvideSingleLocation, ProvideSingleActor, ProvideLocationsSet, ProvideActorsSet)
@@ -21,7 +21,7 @@ abstract ConstEnvQueryContext_BlueprintBase(EnvQueryContext_BlueprintBase) from 
 @:forward
 @:nativeGen
 @:native("EnvQueryContext_BlueprintBase*")
-abstract EnvQueryContext_BlueprintBasePtr(cpp.Star<EnvQueryContext_BlueprintBase>) from cpp.Star<EnvQueryContext_BlueprintBase> to cpp.Star<EnvQueryContext_BlueprintBase>{
+abstract EnvQueryContext_BlueprintBasePtr(ucpp.Ptr<EnvQueryContext_BlueprintBase>) from ucpp.Ptr<EnvQueryContext_BlueprintBase> to ucpp.Ptr<EnvQueryContext_BlueprintBase>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryContext_BlueprintBase): EnvQueryContext_BlueprintBasePtr {
 		return untyped __cpp__("&({0})", v);

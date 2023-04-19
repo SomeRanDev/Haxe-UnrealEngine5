@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimSequenceExporterFBX")
 @:include("Exporters/AnimSequenceExporterFBX.h")
-@:structAccess
+@:valueType
 extern class AnimSequenceExporterFBX extends ExporterFBX {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimSequenceExporterFBX(AnimSequenceExporterFBX) from AnimSequence
 @:forward
 @:nativeGen
 @:native("AnimSequenceExporterFBX*")
-abstract AnimSequenceExporterFBXPtr(cpp.Star<AnimSequenceExporterFBX>) from cpp.Star<AnimSequenceExporterFBX> to cpp.Star<AnimSequenceExporterFBX>{
+abstract AnimSequenceExporterFBXPtr(ucpp.Ptr<AnimSequenceExporterFBX>) from ucpp.Ptr<AnimSequenceExporterFBX> to ucpp.Ptr<AnimSequenceExporterFBX>{
 	@:from
 	public static extern inline function fromValue(v: AnimSequenceExporterFBX): AnimSequenceExporterFBXPtr {
 		return untyped __cpp__("&({0})", v);

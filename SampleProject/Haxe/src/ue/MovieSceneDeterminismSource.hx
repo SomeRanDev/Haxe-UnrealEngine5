@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneDeterminismSource")
-@:structAccess
+@:valueType
 extern class MovieSceneDeterminismSource extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneDeterminismSource(MovieSceneDeterminismSource) from Movi
 @:forward
 @:nativeGen
 @:native("MovieSceneDeterminismSource*")
-abstract MovieSceneDeterminismSourcePtr(cpp.Star<MovieSceneDeterminismSource>) from cpp.Star<MovieSceneDeterminismSource> to cpp.Star<MovieSceneDeterminismSource>{
+abstract MovieSceneDeterminismSourcePtr(ucpp.Ptr<MovieSceneDeterminismSource>) from ucpp.Ptr<MovieSceneDeterminismSource> to ucpp.Ptr<MovieSceneDeterminismSource>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneDeterminismSource): MovieSceneDeterminismSourcePtr {
 		return untyped __cpp__("&({0})", v);

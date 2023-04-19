@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintWidgetAnimationDelegateBinding")
 @:include("Animation/WidgetAnimationDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class BlueprintWidgetAnimationDelegateBinding {
 	public var Action: EWidgetAnimationEvent;
 	public var AnimationToBind: FName;

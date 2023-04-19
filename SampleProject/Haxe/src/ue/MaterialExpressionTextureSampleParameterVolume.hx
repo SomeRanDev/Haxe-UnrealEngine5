@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionTextureSampleParameterVolume")
 @:include("Materials/MaterialExpressionTextureSampleParameterVolume.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTextureSampleParameterVolume extends MaterialExpressionTextureSampleParameter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionTextureSampleParameterVolume(MaterialExpressionT
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTextureSampleParameterVolume*")
-abstract MaterialExpressionTextureSampleParameterVolumePtr(cpp.Star<MaterialExpressionTextureSampleParameterVolume>) from cpp.Star<MaterialExpressionTextureSampleParameterVolume> to cpp.Star<MaterialExpressionTextureSampleParameterVolume>{
+abstract MaterialExpressionTextureSampleParameterVolumePtr(ucpp.Ptr<MaterialExpressionTextureSampleParameterVolume>) from ucpp.Ptr<MaterialExpressionTextureSampleParameterVolume> to ucpp.Ptr<MaterialExpressionTextureSampleParameterVolume>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTextureSampleParameterVolume): MaterialExpressionTextureSampleParameterVolumePtr {
 		return untyped __cpp__("&({0})", v);

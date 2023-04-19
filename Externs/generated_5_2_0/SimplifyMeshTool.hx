@@ -3,14 +3,14 @@ package ue;
 
 @:native("USimplifyMeshTool")
 @:include("SimplifyMeshTool.h")
-@:structAccess
+@:valueType
 extern class SimplifyMeshTool extends SingleSelectionMeshEditingTool {
-	private var SimplifyProperties: cpp.Star<SimplifyMeshToolProperties>;
-	private var MeshStatisticsProperties: cpp.Star<MeshStatisticsProperties>;
-	private var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	private var MeshElementsDisplay: cpp.Star<MeshElementsVisualizer>;
+	private var SimplifyProperties: ucpp.Ptr<SimplifyMeshToolProperties>;
+	private var MeshStatisticsProperties: ucpp.Ptr<MeshStatisticsProperties>;
+	private var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	private var MeshElementsDisplay: ucpp.Ptr<MeshElementsVisualizer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstSimplifyMeshTool(SimplifyMeshTool) from SimplifyMeshTool {
 @:forward
 @:nativeGen
 @:native("SimplifyMeshTool*")
-abstract SimplifyMeshToolPtr(cpp.Star<SimplifyMeshTool>) from cpp.Star<SimplifyMeshTool> to cpp.Star<SimplifyMeshTool>{
+abstract SimplifyMeshToolPtr(ucpp.Ptr<SimplifyMeshTool>) from ucpp.Ptr<SimplifyMeshTool> to ucpp.Ptr<SimplifyMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: SimplifyMeshTool): SimplifyMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

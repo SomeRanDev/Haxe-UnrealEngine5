@@ -3,13 +3,13 @@ package ue;
 
 @:native("UViewportStatsSubsystem")
 @:include("Engine/ViewportStatsSubsystem.h")
-@:structAccess
+@:valueType
 extern class ViewportStatsSubsystem extends WorldSubsystem {
-	public function RemoveDisplayDelegate(IndexToRemove: cpp.Int32): Void;
-	public function AddTimedDisplay(Text: FText, Color: LinearColor, Duration: cpp.Float32, DisplayOffset: cpp.Reference<Vector2D>): Void;
-	public function AddDisplayDelegate(Delegate: cpp.Reference<HaxeDelegateProperty<(cpp.Reference<FText>, cpp.Reference<LinearColor>) -> Void>>): cpp.Int32;
+	public function RemoveDisplayDelegate(IndexToRemove: ucpp.num.Int32): Void;
+	public function AddTimedDisplay(Text: FText, Color: LinearColor, Duration: ucpp.num.Float32, DisplayOffset: ucpp.Ref<Vector2D>): Void;
+	public function AddDisplayDelegate(Delegate: ucpp.Ref<HaxeDelegateProperty<(ucpp.Ref<FText>, ucpp.Ref<LinearColor>) -> Void>>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstViewportStatsSubsystem(ViewportStatsSubsystem) from ViewportStatsS
 @:forward
 @:nativeGen
 @:native("ViewportStatsSubsystem*")
-abstract ViewportStatsSubsystemPtr(cpp.Star<ViewportStatsSubsystem>) from cpp.Star<ViewportStatsSubsystem> to cpp.Star<ViewportStatsSubsystem>{
+abstract ViewportStatsSubsystemPtr(ucpp.Ptr<ViewportStatsSubsystem>) from ucpp.Ptr<ViewportStatsSubsystem> to ucpp.Ptr<ViewportStatsSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: ViewportStatsSubsystem): ViewportStatsSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,19 +3,19 @@ package ue;
 
 @:native("URigVMActionStack")
 @:include("RigVMModel/RigVMControllerActions.h")
-@:structAccess
+@:valueType
 extern class RigVMActionStack extends Object {
-	private var ActionIndex: cpp.Int32;
+	private var ActionIndex: ucpp.num.Int32;
 	private var UndoActions: TArray<RigVMActionKey>;
 	private var RedoActions: TArray<RigVMActionKey>;
 
-	public function Undo(InController: cpp.Star<RigVMController>): Bool;
-	public function Redo(InController: cpp.Star<RigVMController>): Bool;
+	public function Undo(InController: ucpp.Ptr<RigVMController>): Bool;
+	public function Redo(InController: ucpp.Ptr<RigVMController>): Bool;
 	public function OpenUndoBracket(InTitle: FString): Bool;
-	public function CloseUndoBracket(): Bool;
-	public function CancelUndoBracket(): Bool;
+	public function CloseUndoBracket(InController: ucpp.Ptr<RigVMController>): Bool;
+	public function CancelUndoBracket(InController: ucpp.Ptr<RigVMController>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstRigVMActionStack(RigVMActionStack) from RigVMActionStack {
 @:forward
 @:nativeGen
 @:native("RigVMActionStack*")
-abstract RigVMActionStackPtr(cpp.Star<RigVMActionStack>) from cpp.Star<RigVMActionStack> to cpp.Star<RigVMActionStack>{
+abstract RigVMActionStackPtr(ucpp.Ptr<RigVMActionStack>) from ucpp.Ptr<RigVMActionStack> to ucpp.Ptr<RigVMActionStack>{
 	@:from
 	public static extern inline function fromValue(v: RigVMActionStack): RigVMActionStackPtr {
 		return untyped __cpp__("&({0})", v);

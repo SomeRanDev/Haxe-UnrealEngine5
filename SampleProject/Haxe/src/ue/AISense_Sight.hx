@@ -3,16 +3,19 @@ package ue;
 
 @:native("UAISense_Sight")
 @:include("Perception/AISense_Sight.h")
-@:structAccess
+@:valueType
 extern class AISense_Sight extends AISense {
-	@:protected public var MaxTracesPerTick: cpp.Int32;
-	@:protected public var MinQueriesPerTimeSliceCheck: cpp.Int32;
-	@:protected public var MaxTimeSlicePerTick: cpp.Float64;
-	@:protected public var HighImportanceQueryDistanceThreshold: cpp.Float32;
-	@:protected public var MaxQueryImportance: cpp.Float32;
-	@:protected public var SightLimitQueryImportance: cpp.Float32;
+	@:protected public var MaxTracesPerTick: ucpp.num.Int32;
+	@:protected public var MaxAsyncTracesPerTick: ucpp.num.Int32;
+	@:protected public var MinQueriesPerTimeSliceCheck: ucpp.num.Int32;
+	@:protected public var MaxTimeSlicePerTick: ucpp.num.Float64;
+	@:protected public var HighImportanceQueryDistanceThreshold: ucpp.num.Float32;
+	@:protected public var MaxQueryImportance: ucpp.num.Float32;
+	@:protected public var SightLimitQueryImportance: ucpp.num.Float32;
+	@:protected public var PendingQueriesBudgetReductionRatio: ucpp.num.Float32;
+	@:protected public var bUseAsynchronousTraceForDefaultSightQueries: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +26,7 @@ abstract ConstAISense_Sight(AISense_Sight) from AISense_Sight {
 @:forward
 @:nativeGen
 @:native("AISense_Sight*")
-abstract AISense_SightPtr(cpp.Star<AISense_Sight>) from cpp.Star<AISense_Sight> to cpp.Star<AISense_Sight>{
+abstract AISense_SightPtr(ucpp.Ptr<AISense_Sight>) from ucpp.Ptr<AISense_Sight> to ucpp.Ptr<AISense_Sight>{
 	@:from
 	public static extern inline function fromValue(v: AISense_Sight): AISense_SightPtr {
 		return untyped __cpp__("&({0})", v);

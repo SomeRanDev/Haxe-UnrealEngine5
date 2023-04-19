@@ -3,11 +3,11 @@ package ue;
 
 @:native("UImageWriteBlueprintLibrary")
 @:include("ImageWriteBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ImageWriteBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function ExportToDisk(Texture: cpp.Star<Texture>, Filename: FString, Options: cpp.Reference<ImageWriteOptions>): Void;
+	public function ExportToDisk(Texture: ucpp.Ptr<Texture>, Filename: FString, Options: ucpp.Ref<ImageWriteOptions>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstImageWriteBlueprintLibrary(ImageWriteBlueprintLibrary) from ImageW
 @:forward
 @:nativeGen
 @:native("ImageWriteBlueprintLibrary*")
-abstract ImageWriteBlueprintLibraryPtr(cpp.Star<ImageWriteBlueprintLibrary>) from cpp.Star<ImageWriteBlueprintLibrary> to cpp.Star<ImageWriteBlueprintLibrary>{
+abstract ImageWriteBlueprintLibraryPtr(ucpp.Ptr<ImageWriteBlueprintLibrary>) from ucpp.Ptr<ImageWriteBlueprintLibrary> to ucpp.Ptr<ImageWriteBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ImageWriteBlueprintLibrary): ImageWriteBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

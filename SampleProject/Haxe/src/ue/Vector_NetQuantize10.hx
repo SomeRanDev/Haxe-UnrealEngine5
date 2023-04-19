@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVector_NetQuantize10")
 @:include("Engine/NetSerialization.h")
-@:structAccess
+@:valueType
 extern class Vector_NetQuantize10 extends Vector {
 	@:native("FVector_NetQuantize10") public function new();
 }

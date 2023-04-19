@@ -3,11 +3,11 @@ package ue;
 
 @:native("FNiagaraMeshMICOverride")
 @:include("NiagaraMeshRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraMeshMICOverride {
-	public var OriginalMaterial: cpp.Star<MaterialInterface>;
-	public var ReplacementMaterial: cpp.Star<MaterialInstanceConstant>;
+	public var OriginalMaterial: ucpp.Ptr<MaterialInterface>;
+	public var ReplacementMaterial: ucpp.Ptr<MaterialInstanceConstant>;
 
 	@:native("FNiagaraMeshMICOverride") public function new();
-	@:native("FNiagaraMeshMICOverride") public static function make(OriginalMaterial: cpp.Star<MaterialInterface>, ReplacementMaterial: cpp.Star<MaterialInstanceConstant>): NiagaraMeshMICOverride ;
+	@:native("FNiagaraMeshMICOverride") public static function make(OriginalMaterial: ucpp.Ptr<MaterialInterface>, ReplacementMaterial: ucpp.Ptr<MaterialInstanceConstant>): NiagaraMeshMICOverride ;
 }

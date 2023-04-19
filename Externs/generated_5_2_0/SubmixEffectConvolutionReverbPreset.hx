@@ -3,24 +3,24 @@ package ue;
 
 @:native("USubmixEffectConvolutionReverbPreset")
 @:include("SubmixEffects/SubmixEffectConvolutionReverb.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectConvolutionReverbPreset extends SoundEffectSubmixPreset {
-	public var ImpulseResponse: cpp.Star<AudioImpulseResponse>;
+	public var ImpulseResponse: ucpp.Ptr<AudioImpulseResponse>;
 	public var Settings: SubmixEffectConvolutionReverbSettings;
 	public var BlockSize: ESubmixEffectConvolutionReverbBlockSize;
 	public var bEnableHardwareAcceleration: Bool;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectConvolutionReverbSettings>): Void;
-	public function SetImpulseResponse(InImpulseResponse: cpp.Star<AudioImpulseResponse>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectConvolutionReverbSettings>): Void;
+	public function SetImpulseResponse(InImpulseResponse: ucpp.Ptr<AudioImpulseResponse>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSubmixEffectConvolutionReverbPreset(SubmixEffectConvolutionReverbPreset) from SubmixEffectConvolutionReverbPreset {
-	public extern var ImpulseResponse(get, never): cpp.Star<AudioImpulseResponse.ConstAudioImpulseResponse>;
-	public inline extern function get_ImpulseResponse(): cpp.Star<AudioImpulseResponse.ConstAudioImpulseResponse> return this.ImpulseResponse;
+	public extern var ImpulseResponse(get, never): ucpp.Ptr<AudioImpulseResponse.ConstAudioImpulseResponse>;
+	public inline extern function get_ImpulseResponse(): ucpp.Ptr<AudioImpulseResponse.ConstAudioImpulseResponse> return this.ImpulseResponse;
 	public extern var Settings(get, never): SubmixEffectConvolutionReverbSettings;
 	public inline extern function get_Settings(): SubmixEffectConvolutionReverbSettings return this.Settings;
 	public extern var BlockSize(get, never): ESubmixEffectConvolutionReverbBlockSize;
@@ -32,7 +32,7 @@ abstract ConstSubmixEffectConvolutionReverbPreset(SubmixEffectConvolutionReverbP
 @:forward
 @:nativeGen
 @:native("SubmixEffectConvolutionReverbPreset*")
-abstract SubmixEffectConvolutionReverbPresetPtr(cpp.Star<SubmixEffectConvolutionReverbPreset>) from cpp.Star<SubmixEffectConvolutionReverbPreset> to cpp.Star<SubmixEffectConvolutionReverbPreset>{
+abstract SubmixEffectConvolutionReverbPresetPtr(ucpp.Ptr<SubmixEffectConvolutionReverbPreset>) from ucpp.Ptr<SubmixEffectConvolutionReverbPreset> to ucpp.Ptr<SubmixEffectConvolutionReverbPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectConvolutionReverbPreset): SubmixEffectConvolutionReverbPresetPtr {
 		return untyped __cpp__("&({0})", v);

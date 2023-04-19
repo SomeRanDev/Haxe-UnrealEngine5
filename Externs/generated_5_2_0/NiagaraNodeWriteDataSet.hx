@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraNodeWriteDataSet")
 @:include("NiagaraNodeWriteDataSet.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeWriteDataSet extends NiagaraNodeDataSetBase {
 	public var EventName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraNodeWriteDataSet(NiagaraNodeWriteDataSet) from NiagaraNodeW
 @:forward
 @:nativeGen
 @:native("NiagaraNodeWriteDataSet*")
-abstract NiagaraNodeWriteDataSetPtr(cpp.Star<NiagaraNodeWriteDataSet>) from cpp.Star<NiagaraNodeWriteDataSet> to cpp.Star<NiagaraNodeWriteDataSet>{
+abstract NiagaraNodeWriteDataSetPtr(ucpp.Ptr<NiagaraNodeWriteDataSet>) from ucpp.Ptr<NiagaraNodeWriteDataSet> to ucpp.Ptr<NiagaraNodeWriteDataSet>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeWriteDataSet): NiagaraNodeWriteDataSetPtr {
 		return untyped __cpp__("&({0})", v);

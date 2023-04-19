@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTRASHCLASS_ABP_Quinn_2")
-@:structAccess
+@:valueType
 extern class TRASHCLASS_ABP_Quinn_2 {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTRASHCLASS_ABP_Quinn_2(TRASHCLASS_ABP_Quinn_2) from TRASHCLASS_ABP
 @:forward
 @:nativeGen
 @:native("TRASHCLASS_ABP_Quinn_2*")
-abstract TRASHCLASS_ABP_Quinn_2Ptr(cpp.Star<TRASHCLASS_ABP_Quinn_2>) from cpp.Star<TRASHCLASS_ABP_Quinn_2> to cpp.Star<TRASHCLASS_ABP_Quinn_2>{
+abstract TRASHCLASS_ABP_Quinn_2Ptr(ucpp.Ptr<TRASHCLASS_ABP_Quinn_2>) from ucpp.Ptr<TRASHCLASS_ABP_Quinn_2> to ucpp.Ptr<TRASHCLASS_ABP_Quinn_2>{
 	@:from
 	public static extern inline function fromValue(v: TRASHCLASS_ABP_Quinn_2): TRASHCLASS_ABP_Quinn_2Ptr {
 		return untyped __cpp__("&({0})", v);

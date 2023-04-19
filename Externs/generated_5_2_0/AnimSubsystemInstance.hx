@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimSubsystemInstance")
 @:include("Animation/AnimSubsystemInstance.h")
-@:structAccess
+@:valueType
 extern class AnimSubsystemInstance {
 	@:native("FAnimSubsystemInstance") public function new();
 }

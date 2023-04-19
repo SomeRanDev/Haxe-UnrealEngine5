@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_SlateWidgetStyle")
 @:include("AssetDefinition_SlateWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_SlateWidgetStyle extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_SlateWidgetStyle(AssetDefinition_SlateWidgetStyle)
 @:forward
 @:nativeGen
 @:native("AssetDefinition_SlateWidgetStyle*")
-abstract AssetDefinition_SlateWidgetStylePtr(cpp.Star<AssetDefinition_SlateWidgetStyle>) from cpp.Star<AssetDefinition_SlateWidgetStyle> to cpp.Star<AssetDefinition_SlateWidgetStyle>{
+abstract AssetDefinition_SlateWidgetStylePtr(ucpp.Ptr<AssetDefinition_SlateWidgetStyle>) from ucpp.Ptr<AssetDefinition_SlateWidgetStyle> to ucpp.Ptr<AssetDefinition_SlateWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_SlateWidgetStyle): AssetDefinition_SlateWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

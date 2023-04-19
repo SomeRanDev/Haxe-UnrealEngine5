@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSynesthesiaSpectrumResults")
 @:include("SynesthesiaSpectrumAnalysis.h")
-@:structAccess
+@:valueType
 extern class SynesthesiaSpectrumResults {
-	public var TimeSeconds: cpp.Float32;
-	public var SpectrumValues: TArray<cpp.Float32>;
+	public var TimeSeconds: ucpp.num.Float32;
+	public var SpectrumValues: TArray<ucpp.num.Float32>;
 
 	@:native("FSynesthesiaSpectrumResults") public function new();
-	@:native("FSynesthesiaSpectrumResults") public static function make(TimeSeconds: cpp.Float32, SpectrumValues: TArray<cpp.Float32>): SynesthesiaSpectrumResults ;
+	@:native("FSynesthesiaSpectrumResults") public static function make(TimeSeconds: ucpp.num.Float32, SpectrumValues: TArray<ucpp.num.Float32>): SynesthesiaSpectrumResults ;
 }

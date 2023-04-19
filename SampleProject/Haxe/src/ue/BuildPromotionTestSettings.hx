@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBuildPromotionTestSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class BuildPromotionTestSettings {
 	public var DefaultStaticMeshAsset: FilePath;
 	public var ImportWorkflow: BuildPromotionImportWorkflowSettings;

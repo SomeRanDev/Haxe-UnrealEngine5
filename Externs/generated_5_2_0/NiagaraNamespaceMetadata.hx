@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraNamespaceMetadata")
 @:include("NiagaraEditorSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraNamespaceMetadata {
 	public var Namespaces: TArray<FName>;
 	public var RequiredNamespaceModifier: FName;
@@ -12,7 +12,7 @@ extern class NiagaraNamespaceMetadata {
 	public var Description: FText;
 	public var BackgroundColor: LinearColor;
 	public var ForegroundStyle: FName;
-	public var SortId: cpp.Int32;
+	public var SortId: ucpp.num.Int32;
 	public var OptionalNamespaceModifiers: TArray<FName>;
 	public var Options: TArray<ENiagaraNamespaceMetadataOptions>;
 	private var Guid: Guid;

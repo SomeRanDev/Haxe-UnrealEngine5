@@ -3,16 +3,16 @@ package ue;
 
 @:native("UChildActorComponent")
 @:include("Components/ChildActorComponent.h")
-@:structAccess
+@:valueType
 extern class ChildActorComp extends SceneComp {
 	private var ChildActorClass: TSubclassOf<Actor>;
-	private var ChildActor: cpp.Star<Actor>;
-	private var ChildActorTemplate: cpp.Star<Actor>;
+	private var ChildActor: ucpp.Ptr<Actor>;
+	private var ChildActorTemplate: ucpp.Ptr<Actor>;
 
 	public function SetChildActorClass(InClass: TSubclassOf<Actor>): Void;
-	private function OnChildActorDestroyed(DestroyedActor: cpp.Star<Actor>): Void;
+	private function OnChildActorDestroyed(DestroyedActor: ucpp.Ptr<Actor>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstChildActorComp(ChildActorComp) from ChildActorComp {
 @:forward
 @:nativeGen
 @:native("ChildActorComp*")
-abstract ChildActorCompPtr(cpp.Star<ChildActorComp>) from cpp.Star<ChildActorComp> to cpp.Star<ChildActorComp>{
+abstract ChildActorCompPtr(ucpp.Ptr<ChildActorComp>) from ucpp.Ptr<ChildActorComp> to ucpp.Ptr<ChildActorComp>{
 	@:from
 	public static extern inline function fromValue(v: ChildActorComp): ChildActorCompPtr {
 		return untyped __cpp__("&({0})", v);

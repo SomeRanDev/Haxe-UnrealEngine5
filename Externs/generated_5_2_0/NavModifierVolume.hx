@@ -3,7 +3,7 @@ package ue;
 
 @:native("ANavModifierVolume")
 @:include("NavModifierVolume.h")
-@:structAccess
+@:valueType
 extern class NavModifierVolume extends Volume {
 	@:protected public var AreaClass: TSubclassOf<NavArea>;
 	@:protected public var bMaskFillCollisionUnderneathForNavmesh: Bool;
@@ -11,7 +11,7 @@ extern class NavModifierVolume extends Volume {
 
 	public function SetAreaClass(NewAreaClass: TSubclassOf<NavArea>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstNavModifierVolume(NavModifierVolume) from NavModifierVolume {
 @:forward
 @:nativeGen
 @:native("NavModifierVolume*")
-abstract NavModifierVolumePtr(cpp.Star<NavModifierVolume>) from cpp.Star<NavModifierVolume> to cpp.Star<NavModifierVolume>{
+abstract NavModifierVolumePtr(ucpp.Ptr<NavModifierVolume>) from ucpp.Ptr<NavModifierVolume> to ucpp.Ptr<NavModifierVolume>{
 	@:from
 	public static extern inline function fromValue(v: NavModifierVolume): NavModifierVolumePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UTakeRecorderBlueprintLibrary")
 @:include("Recorder/TakeRecorderBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function StopRecording(): Void;
-	public function StartRecording(LevelSequence: cpp.Star<LevelSequence>, Sources: cpp.Star<TakeRecorderSources>, MetaData: cpp.Star<TakeMetaData>, Parameters: cpp.Reference<TakeRecorderParameters>): cpp.Star<TakeRecorder>;
+	public function StartRecording(LevelSequence: ucpp.Ptr<LevelSequence>, Sources: ucpp.Ptr<TakeRecorderSources>, MetaData: ucpp.Ptr<TakeMetaData>, Parameters: ucpp.Ref<TakeRecorderParameters>): ucpp.Ptr<TakeRecorder>;
 	public function SetOnTakeRecorderStopped(OnTakeRecorderStopped: HaxeDelegateProperty<() -> Void>): Void;
 	public function SetOnTakeRecorderStarted(OnTakeRecorderStarted: HaxeDelegateProperty<() -> Void>): Void;
 	public function SetOnTakeRecorderPreInitialize(OnTakeRecorderPreInitialize: HaxeDelegateProperty<() -> Void>): Void;
 	public function SetOnTakeRecorderPanelChanged(OnTakeRecorderPanelChanged: HaxeDelegateProperty<() -> Void>): Void;
-	public function SetOnTakeRecorderMarkedFrameAdded(OnTakeRecorderMarkedFrameAdded: HaxeDelegateProperty<(cpp.Reference<MovieSceneMarkedFrame>) -> Void>): Void;
-	public function SetOnTakeRecorderFinished(OnTakeRecorderFinished: HaxeDelegateProperty<(cpp.Star<LevelSequence>) -> Void>): Void;
+	public function SetOnTakeRecorderMarkedFrameAdded(OnTakeRecorderMarkedFrameAdded: HaxeDelegateProperty<(ucpp.Ref<MovieSceneMarkedFrame>) -> Void>): Void;
+	public function SetOnTakeRecorderFinished(OnTakeRecorderFinished: HaxeDelegateProperty<(ucpp.Ptr<LevelSequence>) -> Void>): Void;
 	public function SetOnTakeRecorderCancelled(OnTakeRecorderCancelled: HaxeDelegateProperty<() -> Void>): Void;
-	public function SetDefaultParameters(DefaultParameters: cpp.Reference<TakeRecorderParameters>): Void;
-	public function OpenTakeRecorderPanel(): cpp.Star<TakeRecorderPanel>;
+	public function SetDefaultParameters(DefaultParameters: ucpp.Ref<TakeRecorderParameters>): Void;
+	public function OpenTakeRecorderPanel(): ucpp.Ptr<TakeRecorderPanel>;
 	public function IsTakeRecorderEnabled(): Bool;
 	public function IsRecording(): Bool;
-	public function GetTakeRecorderPanel(): cpp.Star<TakeRecorderPanel>;
+	public function GetTakeRecorderPanel(): ucpp.Ptr<TakeRecorderPanel>;
 	public function GetDefaultParameters(): TakeRecorderParameters;
-	public function GetActiveRecorder(): cpp.Star<TakeRecorder>;
+	public function GetActiveRecorder(): ucpp.Ptr<TakeRecorder>;
 	public function CancelRecording(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,7 +34,7 @@ abstract ConstTakeRecorderBlueprintLibrary(TakeRecorderBlueprintLibrary) from Ta
 @:forward
 @:nativeGen
 @:native("TakeRecorderBlueprintLibrary*")
-abstract TakeRecorderBlueprintLibraryPtr(cpp.Star<TakeRecorderBlueprintLibrary>) from cpp.Star<TakeRecorderBlueprintLibrary> to cpp.Star<TakeRecorderBlueprintLibrary>{
+abstract TakeRecorderBlueprintLibraryPtr(ucpp.Ptr<TakeRecorderBlueprintLibrary>) from ucpp.Ptr<TakeRecorderBlueprintLibrary> to ucpp.Ptr<TakeRecorderBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TakeRecorderBlueprintLibrary): TakeRecorderBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

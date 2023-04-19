@@ -3,30 +3,30 @@ package ue;
 
 @:native("UGetGeoLocationAsyncTaskBlueprintProxy")
 @:include("ARGeoTrackingSupport.h")
-@:structAccess
+@:valueType
 extern class GetGeoLocationAsyncTaskBlueprintProxy extends ARBaseAsyncTaskBlueprintProxy {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
-	public var OnFailed: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Float32, FString) -> Void>;
+	public var OnFailed: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Float32, FString) -> Void>;
 
-	public function GetGeoLocationDelegate__DelegateSignature(Longitude: cpp.Float32, Latitude: cpp.Float32, Altitude: cpp.Float32, Error: FString): Void;
-	public function GetGeoLocationAtWorldPosition(WorldContextObject: cpp.Star<Object>, WorldPosition: cpp.Reference<Vector>): cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>;
+	public function GetGeoLocationDelegate__DelegateSignature(Longitude: ucpp.num.Float32, Latitude: ucpp.num.Float32, Altitude: ucpp.num.Float32, Error: FString): Void;
+	public function GetGeoLocationAtWorldPosition(WorldContextObject: ucpp.Ptr<Object>, WorldPosition: ucpp.Ref<Vector>): ucpp.Ptr<GetGeoLocationAsyncTaskBlueprintProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGetGeoLocationAsyncTaskBlueprintProxy(GetGeoLocationAsyncTaskBlueprintProxy) from GetGeoLocationAsyncTaskBlueprintProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void> return this.OnSuccess;
-	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void>;
-	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Float32, FString) -> Void> return this.OnFailed;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Float32, FString) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Float32, FString) -> Void> return this.OnSuccess;
+	public extern var OnFailed(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Float32, FString) -> Void>;
+	public inline extern function get_OnFailed(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Float32, FString) -> Void> return this.OnFailed;
 }
 
 @:forward
 @:nativeGen
 @:native("GetGeoLocationAsyncTaskBlueprintProxy*")
-abstract GetGeoLocationAsyncTaskBlueprintProxyPtr(cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>) from cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy> to cpp.Star<GetGeoLocationAsyncTaskBlueprintProxy>{
+abstract GetGeoLocationAsyncTaskBlueprintProxyPtr(ucpp.Ptr<GetGeoLocationAsyncTaskBlueprintProxy>) from ucpp.Ptr<GetGeoLocationAsyncTaskBlueprintProxy> to ucpp.Ptr<GetGeoLocationAsyncTaskBlueprintProxy>{
 	@:from
 	public static extern inline function fromValue(v: GetGeoLocationAsyncTaskBlueprintProxy): GetGeoLocationAsyncTaskBlueprintProxyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraDataInterfaceColorCurve")
 @:include("NiagaraDataInterfaceColorCurve.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceColorCurve extends NiagaraDataInterfaceCurveBase {
 	public var RedCurve: RichCurve;
 	public var GreenCurve: RichCurve;
 	public var BlueCurve: RichCurve;
 	public var AlphaCurve: RichCurve;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstNiagaraDataInterfaceColorCurve(NiagaraDataInterfaceColorCurve) fro
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceColorCurve*")
-abstract NiagaraDataInterfaceColorCurvePtr(cpp.Star<NiagaraDataInterfaceColorCurve>) from cpp.Star<NiagaraDataInterfaceColorCurve> to cpp.Star<NiagaraDataInterfaceColorCurve>{
+abstract NiagaraDataInterfaceColorCurvePtr(ucpp.Ptr<NiagaraDataInterfaceColorCurve>) from ucpp.Ptr<NiagaraDataInterfaceColorCurve> to ucpp.Ptr<NiagaraDataInterfaceColorCurve>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceColorCurve): NiagaraDataInterfaceColorCurvePtr {
 		return untyped __cpp__("&({0})", v);

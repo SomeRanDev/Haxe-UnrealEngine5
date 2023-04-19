@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEnvQueryGenerator_ProjectedPoints")
 @:include("EnvironmentQuery/Generators/EnvQueryGenerator_ProjectedPoints.h")
-@:structAccess
+@:valueType
 extern class EnvQueryGenerator_ProjectedPoints extends EnvQueryGenerator {
 	public var ProjectionData: EnvTraceData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEnvQueryGenerator_ProjectedPoints(EnvQueryGenerator_ProjectedPoint
 @:forward
 @:nativeGen
 @:native("EnvQueryGenerator_ProjectedPoints*")
-abstract EnvQueryGenerator_ProjectedPointsPtr(cpp.Star<EnvQueryGenerator_ProjectedPoints>) from cpp.Star<EnvQueryGenerator_ProjectedPoints> to cpp.Star<EnvQueryGenerator_ProjectedPoints>{
+abstract EnvQueryGenerator_ProjectedPointsPtr(ucpp.Ptr<EnvQueryGenerator_ProjectedPoints>) from ucpp.Ptr<EnvQueryGenerator_ProjectedPoints> to ucpp.Ptr<EnvQueryGenerator_ProjectedPoints>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryGenerator_ProjectedPoints): EnvQueryGenerator_ProjectedPointsPtr {
 		return untyped __cpp__("&({0})", v);

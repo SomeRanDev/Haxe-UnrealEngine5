@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFractureToolCluster")
 @:include("FractureToolClustering.h")
-@:structAccess
+@:valueType
 extern class FractureToolCluster extends FractureActionTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFractureToolCluster(FractureToolCluster) from FractureToolCluster 
 @:forward
 @:nativeGen
 @:native("FractureToolCluster*")
-abstract FractureToolClusterPtr(cpp.Star<FractureToolCluster>) from cpp.Star<FractureToolCluster> to cpp.Star<FractureToolCluster>{
+abstract FractureToolClusterPtr(ucpp.Ptr<FractureToolCluster>) from ucpp.Ptr<FractureToolCluster> to ucpp.Ptr<FractureToolCluster>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolCluster): FractureToolClusterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FKAggregateGeom")
 @:include("PhysicsEngine/AggregateGeom.h")
-@:structAccess
+@:valueType
 extern class KAggregateGeom {
 	public var SphereElems: TArray<KSphereElem>;
 	public var BoxElems: TArray<KBoxElem>;

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable(GameplayT
 @:forward
 @:nativeGen
 @:native("GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable*")
-abstract GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallablePtr(cpp.Star<GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable>) from cpp.Star<GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable> to cpp.Star<GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable>{
+abstract GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallablePtr(ucpp.Ptr<GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable>) from ucpp.Ptr<GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable> to ucpp.Ptr<GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallable): GameplayTask_WaitDelay_TaskDelayDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

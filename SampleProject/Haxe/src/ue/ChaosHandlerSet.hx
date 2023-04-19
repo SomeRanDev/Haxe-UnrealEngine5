@@ -3,10 +3,10 @@ package ue;
 
 @:native("FChaosHandlerSet")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
-@:structAccess
+@:valueType
 extern class ChaosHandlerSet {
-	public var ChaosHandlers: TSet<cpp.Star<Object>>;
+	public var ChaosHandlers: TSet<ucpp.Ptr<Object>>;
 
 	@:native("FChaosHandlerSet") public function new();
-	@:native("FChaosHandlerSet") public static function make(ChaosHandlers: TSet<cpp.Star<Object>>): ChaosHandlerSet ;
+	@:native("FChaosHandlerSet") public static function make(ChaosHandlers: TSet<ucpp.Ptr<Object>>): ChaosHandlerSet ;
 }

@@ -7,5 +7,6 @@ extern class EAnimationViewportCameraFollowMode {
 	static var None: EAnimationViewportCameraFollowMode;
 	static var Bounds: EAnimationViewportCameraFollowMode;
 	static var Bone: EAnimationViewportCameraFollowMode;
+	static var Root: EAnimationViewportCameraFollowMode;
 	static var EAnimationViewportCameraFollowMode_MAX: EAnimationViewportCameraFollowMode;
 }

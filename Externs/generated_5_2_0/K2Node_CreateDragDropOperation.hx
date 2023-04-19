@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_CreateDragDropOperation")
 @:include("Nodes/K2Node_CreateDragDropOperation.h")
-@:structAccess
+@:valueType
 extern class K2Node_CreateDragDropOperation extends K2Node_ConstructObjectFromClass {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_CreateDragDropOperation(K2Node_CreateDragDropOperation) fro
 @:forward
 @:nativeGen
 @:native("K2Node_CreateDragDropOperation*")
-abstract K2Node_CreateDragDropOperationPtr(cpp.Star<K2Node_CreateDragDropOperation>) from cpp.Star<K2Node_CreateDragDropOperation> to cpp.Star<K2Node_CreateDragDropOperation>{
+abstract K2Node_CreateDragDropOperationPtr(ucpp.Ptr<K2Node_CreateDragDropOperation>) from ucpp.Ptr<K2Node_CreateDragDropOperation> to ucpp.Ptr<K2Node_CreateDragDropOperation>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_CreateDragDropOperation): K2Node_CreateDragDropOperationPtr {
 		return untyped __cpp__("&({0})", v);

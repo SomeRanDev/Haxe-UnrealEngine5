@@ -3,15 +3,15 @@ package ue;
 
 @:native("UBakeCurvatureMapToolProperties")
 @:include("BakeMeshAttributeToolCommon.h")
-@:structAccess
+@:valueType
 extern class BakeCurvatureMapToolProperties extends InteractiveToolPropertySet {
 	public var CurvatureType: EBakeCurvatureTypeMode;
 	public var ColorMapping: EBakeCurvatureColorMode;
-	public var ColorRangeMultiplier: cpp.Float32;
-	public var MinRangeMultiplier: cpp.Float32;
+	public var ColorRangeMultiplier: ucpp.num.Float32;
+	public var MinRangeMultiplier: ucpp.num.Float32;
 	public var Clamping: EBakeCurvatureClampMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,10 +21,10 @@ abstract ConstBakeCurvatureMapToolProperties(BakeCurvatureMapToolProperties) fro
 	public inline extern function get_CurvatureType(): EBakeCurvatureTypeMode return this.CurvatureType;
 	public extern var ColorMapping(get, never): EBakeCurvatureColorMode;
 	public inline extern function get_ColorMapping(): EBakeCurvatureColorMode return this.ColorMapping;
-	public extern var ColorRangeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_ColorRangeMultiplier(): cpp.Float32 return this.ColorRangeMultiplier;
-	public extern var MinRangeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_MinRangeMultiplier(): cpp.Float32 return this.MinRangeMultiplier;
+	public extern var ColorRangeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_ColorRangeMultiplier(): ucpp.num.Float32 return this.ColorRangeMultiplier;
+	public extern var MinRangeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_MinRangeMultiplier(): ucpp.num.Float32 return this.MinRangeMultiplier;
 	public extern var Clamping(get, never): EBakeCurvatureClampMode;
 	public inline extern function get_Clamping(): EBakeCurvatureClampMode return this.Clamping;
 }
@@ -32,7 +32,7 @@ abstract ConstBakeCurvatureMapToolProperties(BakeCurvatureMapToolProperties) fro
 @:forward
 @:nativeGen
 @:native("BakeCurvatureMapToolProperties*")
-abstract BakeCurvatureMapToolPropertiesPtr(cpp.Star<BakeCurvatureMapToolProperties>) from cpp.Star<BakeCurvatureMapToolProperties> to cpp.Star<BakeCurvatureMapToolProperties>{
+abstract BakeCurvatureMapToolPropertiesPtr(ucpp.Ptr<BakeCurvatureMapToolProperties>) from ucpp.Ptr<BakeCurvatureMapToolProperties> to ucpp.Ptr<BakeCurvatureMapToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeCurvatureMapToolProperties): BakeCurvatureMapToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

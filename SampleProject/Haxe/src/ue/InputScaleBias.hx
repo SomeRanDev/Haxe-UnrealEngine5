@@ -3,11 +3,11 @@ package ue;
 
 @:native("FInputScaleBias")
 @:include("Animation/InputScaleBias.h")
-@:structAccess
+@:valueType
 extern class InputScaleBias {
-	public var Scale: cpp.Float32;
-	public var Bias: cpp.Float32;
+	public var Scale: ucpp.num.Float32;
+	public var Bias: ucpp.num.Float32;
 
 	@:native("FInputScaleBias") public function new();
-	@:native("FInputScaleBias") public static function make(Scale: cpp.Float32, Bias: cpp.Float32): InputScaleBias ;
+	@:native("FInputScaleBias") public static function make(Scale: ucpp.num.Float32, Bias: ucpp.num.Float32): InputScaleBias ;
 }

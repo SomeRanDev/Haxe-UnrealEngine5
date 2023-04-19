@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnCompletedDeviceSwap__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnCompletedDeviceSwap__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnCompletedDeviceSwap__PythonCallable(OnCompletedDeviceSwap__Pytho
 @:forward
 @:nativeGen
 @:native("OnCompletedDeviceSwap__PythonCallable*")
-abstract OnCompletedDeviceSwap__PythonCallablePtr(cpp.Star<OnCompletedDeviceSwap__PythonCallable>) from cpp.Star<OnCompletedDeviceSwap__PythonCallable> to cpp.Star<OnCompletedDeviceSwap__PythonCallable>{
+abstract OnCompletedDeviceSwap__PythonCallablePtr(ucpp.Ptr<OnCompletedDeviceSwap__PythonCallable>) from ucpp.Ptr<OnCompletedDeviceSwap__PythonCallable> to ucpp.Ptr<OnCompletedDeviceSwap__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnCompletedDeviceSwap__PythonCallable): OnCompletedDeviceSwap__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

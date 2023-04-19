@@ -3,12 +3,12 @@ package ue;
 
 @:native("USequencerTimeChangeUndoRedoProxy")
 @:include("SequencerTimeChangeUndoRedoProxy.h")
-@:structAccess
+@:valueType
 extern class SequencerTimeChangeUndoRedoProxy extends Object {
 	public var Time: QualifiedFrameTime;
 	public var bTimeWasSet: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSequencerTimeChangeUndoRedoProxy(SequencerTimeChangeUndoRedoProxy)
 @:forward
 @:nativeGen
 @:native("SequencerTimeChangeUndoRedoProxy*")
-abstract SequencerTimeChangeUndoRedoProxyPtr(cpp.Star<SequencerTimeChangeUndoRedoProxy>) from cpp.Star<SequencerTimeChangeUndoRedoProxy> to cpp.Star<SequencerTimeChangeUndoRedoProxy>{
+abstract SequencerTimeChangeUndoRedoProxyPtr(ucpp.Ptr<SequencerTimeChangeUndoRedoProxy>) from ucpp.Ptr<SequencerTimeChangeUndoRedoProxy> to ucpp.Ptr<SequencerTimeChangeUndoRedoProxy>{
 	@:from
 	public static extern inline function fromValue(v: SequencerTimeChangeUndoRedoProxy): SequencerTimeChangeUndoRedoProxyPtr {
 		return untyped __cpp__("&({0})", v);

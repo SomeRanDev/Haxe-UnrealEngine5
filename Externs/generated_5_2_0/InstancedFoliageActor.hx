@@ -3,12 +3,12 @@ package ue;
 
 @:native("AInstancedFoliageActor")
 @:include("InstancedFoliageActor.h")
-@:structAccess
+@:valueType
 extern class InstancedFoliageActor extends ISMPartitionActor {
-	public function RemoveAllInstances(WorldContextObject: cpp.Star<Object>, InFoliageType: cpp.Star<FoliageType>): Void;
-	public function AddInstances(WorldContextObject: cpp.Star<Object>, InFoliageType: cpp.Star<FoliageType>, InTransforms: cpp.Reference<TArray<Transform>>): Void;
+	public function RemoveAllInstances(WorldContextObject: ucpp.Ptr<Object>, InFoliageType: ucpp.Ptr<FoliageType>): Void;
+	public function AddInstances(WorldContextObject: ucpp.Ptr<Object>, InFoliageType: ucpp.Ptr<FoliageType>, InTransforms: ucpp.Ref<TArray<Transform>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstInstancedFoliageActor(InstancedFoliageActor) from InstancedFoliage
 @:forward
 @:nativeGen
 @:native("InstancedFoliageActor*")
-abstract InstancedFoliageActorPtr(cpp.Star<InstancedFoliageActor>) from cpp.Star<InstancedFoliageActor> to cpp.Star<InstancedFoliageActor>{
+abstract InstancedFoliageActorPtr(ucpp.Ptr<InstancedFoliageActor>) from ucpp.Ptr<InstancedFoliageActor> to ucpp.Ptr<InstancedFoliageActor>{
 	@:from
 	public static extern inline function fromValue(v: InstancedFoliageActor): InstancedFoliageActorPtr {
 		return untyped __cpp__("&({0})", v);

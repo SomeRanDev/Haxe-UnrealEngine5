@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundNodeAssetReferencer")
 @:include("Sound/SoundNodeAssetReferencer.h")
-@:structAccess
+@:valueType
 extern class SoundNodeAssetReferencer extends SoundNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundNodeAssetReferencer(SoundNodeAssetReferencer) from SoundNodeA
 @:forward
 @:nativeGen
 @:native("SoundNodeAssetReferencer*")
-abstract SoundNodeAssetReferencerPtr(cpp.Star<SoundNodeAssetReferencer>) from cpp.Star<SoundNodeAssetReferencer> to cpp.Star<SoundNodeAssetReferencer>{
+abstract SoundNodeAssetReferencerPtr(ucpp.Ptr<SoundNodeAssetReferencer>) from ucpp.Ptr<SoundNodeAssetReferencer> to ucpp.Ptr<SoundNodeAssetReferencer>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeAssetReferencer): SoundNodeAssetReferencerPtr {
 		return untyped __cpp__("&({0})", v);

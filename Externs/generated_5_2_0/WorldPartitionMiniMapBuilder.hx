@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionMiniMapBuilder")
 @:include("WorldPartition/WorldPartitionMiniMapBuilder.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionMiniMapBuilder extends WorldPartitionBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionMiniMapBuilder(WorldPartitionMiniMapBuilder) from Wo
 @:forward
 @:nativeGen
 @:native("WorldPartitionMiniMapBuilder*")
-abstract WorldPartitionMiniMapBuilderPtr(cpp.Star<WorldPartitionMiniMapBuilder>) from cpp.Star<WorldPartitionMiniMapBuilder> to cpp.Star<WorldPartitionMiniMapBuilder>{
+abstract WorldPartitionMiniMapBuilderPtr(ucpp.Ptr<WorldPartitionMiniMapBuilder>) from ucpp.Ptr<WorldPartitionMiniMapBuilder> to ucpp.Ptr<WorldPartitionMiniMapBuilder>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionMiniMapBuilder): WorldPartitionMiniMapBuilderPtr {
 		return untyped __cpp__("&({0})", v);

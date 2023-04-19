@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_UserDefinedEnum")
 @:include("AssetDefinition_UserDefinedEnum.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_UserDefinedEnum extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_UserDefinedEnum(AssetDefinition_UserDefinedEnum) f
 @:forward
 @:nativeGen
 @:native("AssetDefinition_UserDefinedEnum*")
-abstract AssetDefinition_UserDefinedEnumPtr(cpp.Star<AssetDefinition_UserDefinedEnum>) from cpp.Star<AssetDefinition_UserDefinedEnum> to cpp.Star<AssetDefinition_UserDefinedEnum>{
+abstract AssetDefinition_UserDefinedEnumPtr(ucpp.Ptr<AssetDefinition_UserDefinedEnum>) from ucpp.Ptr<AssetDefinition_UserDefinedEnum> to ucpp.Ptr<AssetDefinition_UserDefinedEnum>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_UserDefinedEnum): AssetDefinition_UserDefinedEnumPtr {
 		return untyped __cpp__("&({0})", v);

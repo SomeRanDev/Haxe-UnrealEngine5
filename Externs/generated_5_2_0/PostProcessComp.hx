@@ -3,18 +3,18 @@ package ue;
 
 @:native("UPostProcessComponent")
 @:include("Components/PostProcessComponent.h")
-@:structAccess
+@:valueType
 extern class PostProcessComp extends SceneComp {
 	public var Settings: PostProcessSettings;
-	public var Priority: cpp.Float32;
-	public var BlendRadius: cpp.Float32;
-	public var BlendWeight: cpp.Float32;
+	public var Priority: ucpp.num.Float32;
+	public var BlendRadius: ucpp.num.Float32;
+	public var BlendWeight: ucpp.num.Float32;
 	public var bEnabled: Bool;
 	public var bUnbound: Bool;
 
-	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: cpp.Float32): Void;
+	public function AddOrUpdateBlendable(InBlendableObject: BlendableInterface, InWeight: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,12 +22,12 @@ extern class PostProcessComp extends SceneComp {
 abstract ConstPostProcessComp(PostProcessComp) from PostProcessComp {
 	public extern var Settings(get, never): PostProcessSettings;
 	public inline extern function get_Settings(): PostProcessSettings return this.Settings;
-	public extern var Priority(get, never): cpp.Float32;
-	public inline extern function get_Priority(): cpp.Float32 return this.Priority;
-	public extern var BlendRadius(get, never): cpp.Float32;
-	public inline extern function get_BlendRadius(): cpp.Float32 return this.BlendRadius;
-	public extern var BlendWeight(get, never): cpp.Float32;
-	public inline extern function get_BlendWeight(): cpp.Float32 return this.BlendWeight;
+	public extern var Priority(get, never): ucpp.num.Float32;
+	public inline extern function get_Priority(): ucpp.num.Float32 return this.Priority;
+	public extern var BlendRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_BlendRadius(): ucpp.num.Float32 return this.BlendRadius;
+	public extern var BlendWeight(get, never): ucpp.num.Float32;
+	public inline extern function get_BlendWeight(): ucpp.num.Float32 return this.BlendWeight;
 	public extern var bEnabled(get, never): Bool;
 	public inline extern function get_bEnabled(): Bool return this.bEnabled;
 	public extern var bUnbound(get, never): Bool;
@@ -37,7 +37,7 @@ abstract ConstPostProcessComp(PostProcessComp) from PostProcessComp {
 @:forward
 @:nativeGen
 @:native("PostProcessComp*")
-abstract PostProcessCompPtr(cpp.Star<PostProcessComp>) from cpp.Star<PostProcessComp> to cpp.Star<PostProcessComp>{
+abstract PostProcessCompPtr(ucpp.Ptr<PostProcessComp>) from ucpp.Ptr<PostProcessComp> to ucpp.Ptr<PostProcessComp>{
 	@:from
 	public static extern inline function fromValue(v: PostProcessComp): PostProcessCompPtr {
 		return untyped __cpp__("&({0})", v);

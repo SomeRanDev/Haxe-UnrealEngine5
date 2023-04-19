@@ -3,13 +3,13 @@ package ue;
 
 @:native("UParticleModuleLocation")
 @:include("Particles/Location/ParticleModuleLocation.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleLocation extends ParticleModuleLocationBase {
 	public var StartLocation: RawDistributionVector;
-	public var DistributeOverNPoints: cpp.Float32;
-	public var DistributeThreshold: cpp.Float32;
+	public var DistributeOverNPoints: ucpp.num.Float32;
+	public var DistributeThreshold: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class ParticleModuleLocation extends ParticleModuleLocationBase {
 abstract ConstParticleModuleLocation(ParticleModuleLocation) from ParticleModuleLocation {
 	public extern var StartLocation(get, never): RawDistributionVector;
 	public inline extern function get_StartLocation(): RawDistributionVector return this.StartLocation;
-	public extern var DistributeOverNPoints(get, never): cpp.Float32;
-	public inline extern function get_DistributeOverNPoints(): cpp.Float32 return this.DistributeOverNPoints;
-	public extern var DistributeThreshold(get, never): cpp.Float32;
-	public inline extern function get_DistributeThreshold(): cpp.Float32 return this.DistributeThreshold;
+	public extern var DistributeOverNPoints(get, never): ucpp.num.Float32;
+	public inline extern function get_DistributeOverNPoints(): ucpp.num.Float32 return this.DistributeOverNPoints;
+	public extern var DistributeThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_DistributeThreshold(): ucpp.num.Float32 return this.DistributeThreshold;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleLocation*")
-abstract ParticleModuleLocationPtr(cpp.Star<ParticleModuleLocation>) from cpp.Star<ParticleModuleLocation> to cpp.Star<ParticleModuleLocation>{
+abstract ParticleModuleLocationPtr(ucpp.Ptr<ParticleModuleLocation>) from ucpp.Ptr<ParticleModuleLocation> to ucpp.Ptr<ParticleModuleLocation>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleLocation): ParticleModuleLocationPtr {
 		return untyped __cpp__("&({0})", v);

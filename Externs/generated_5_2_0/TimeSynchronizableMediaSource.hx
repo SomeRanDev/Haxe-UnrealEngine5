@@ -3,14 +3,14 @@ package ue;
 
 @:native("UTimeSynchronizableMediaSource")
 @:include("TimeSynchronizableMediaSource.h")
-@:structAccess
+@:valueType
 extern class TimeSynchronizableMediaSource extends BaseMediaSource {
 	public var bUseTimeSynchronization: Bool;
-	public var FrameDelay: cpp.Int32;
-	public var TimeDelay: cpp.Float64;
+	public var FrameDelay: ucpp.num.Int32;
+	public var TimeDelay: ucpp.num.Float64;
 	public var bAutoDetectInput: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,10 +18,10 @@ extern class TimeSynchronizableMediaSource extends BaseMediaSource {
 abstract ConstTimeSynchronizableMediaSource(TimeSynchronizableMediaSource) from TimeSynchronizableMediaSource {
 	public extern var bUseTimeSynchronization(get, never): Bool;
 	public inline extern function get_bUseTimeSynchronization(): Bool return this.bUseTimeSynchronization;
-	public extern var FrameDelay(get, never): cpp.Int32;
-	public inline extern function get_FrameDelay(): cpp.Int32 return this.FrameDelay;
-	public extern var TimeDelay(get, never): cpp.Float64;
-	public inline extern function get_TimeDelay(): cpp.Float64 return this.TimeDelay;
+	public extern var FrameDelay(get, never): ucpp.num.Int32;
+	public inline extern function get_FrameDelay(): ucpp.num.Int32 return this.FrameDelay;
+	public extern var TimeDelay(get, never): ucpp.num.Float64;
+	public inline extern function get_TimeDelay(): ucpp.num.Float64 return this.TimeDelay;
 	public extern var bAutoDetectInput(get, never): Bool;
 	public inline extern function get_bAutoDetectInput(): Bool return this.bAutoDetectInput;
 }
@@ -29,7 +29,7 @@ abstract ConstTimeSynchronizableMediaSource(TimeSynchronizableMediaSource) from 
 @:forward
 @:nativeGen
 @:native("TimeSynchronizableMediaSource*")
-abstract TimeSynchronizableMediaSourcePtr(cpp.Star<TimeSynchronizableMediaSource>) from cpp.Star<TimeSynchronizableMediaSource> to cpp.Star<TimeSynchronizableMediaSource>{
+abstract TimeSynchronizableMediaSourcePtr(ucpp.Ptr<TimeSynchronizableMediaSource>) from ucpp.Ptr<TimeSynchronizableMediaSource> to ucpp.Ptr<TimeSynchronizableMediaSource>{
 	@:from
 	public static extern inline function fromValue(v: TimeSynchronizableMediaSource): TimeSynchronizableMediaSourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionSingleLayerWaterMaterialOutput")
 @:include("Materials/MaterialExpressionSingleLayerWaterMaterialOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSingleLayerWaterMaterialOutput extends MaterialExpressionCustomOutput {
 	public var ScatteringCoefficients: ExpressionInput;
 	public var AbsorptionCoefficients: ExpressionInput;
 	public var PhaseG: ExpressionInput;
 	public var ColorScaleBehindWater: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstMaterialExpressionSingleLayerWaterMaterialOutput(MaterialExpressio
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSingleLayerWaterMaterialOutput*")
-abstract MaterialExpressionSingleLayerWaterMaterialOutputPtr(cpp.Star<MaterialExpressionSingleLayerWaterMaterialOutput>) from cpp.Star<MaterialExpressionSingleLayerWaterMaterialOutput> to cpp.Star<MaterialExpressionSingleLayerWaterMaterialOutput>{
+abstract MaterialExpressionSingleLayerWaterMaterialOutputPtr(ucpp.Ptr<MaterialExpressionSingleLayerWaterMaterialOutput>) from ucpp.Ptr<MaterialExpressionSingleLayerWaterMaterialOutput> to ucpp.Ptr<MaterialExpressionSingleLayerWaterMaterialOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSingleLayerWaterMaterialOutput): MaterialExpressionSingleLayerWaterMaterialOutputPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("ULevelEditor2DSettings")
 @:include("Settings/EditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class LevelEditor2DSettings extends DeveloperSettings {
 	public var bEnable2DWidget: Bool;
 	public var bEnableSnapLayers: Bool;
 	public var SnapAxis: ELevelEditor2DAxis;
 	public var SnapLayers: TArray<Mode2DLayer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstLevelEditor2DSettings(LevelEditor2DSettings) from LevelEditor2DSet
 @:forward
 @:nativeGen
 @:native("LevelEditor2DSettings*")
-abstract LevelEditor2DSettingsPtr(cpp.Star<LevelEditor2DSettings>) from cpp.Star<LevelEditor2DSettings> to cpp.Star<LevelEditor2DSettings>{
+abstract LevelEditor2DSettingsPtr(ucpp.Ptr<LevelEditor2DSettings>) from ucpp.Ptr<LevelEditor2DSettings> to ucpp.Ptr<LevelEditor2DSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelEditor2DSettings): LevelEditor2DSettingsPtr {
 		return untyped __cpp__("&({0})", v);

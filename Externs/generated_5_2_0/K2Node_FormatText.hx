@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_FormatText")
 @:include("K2Node_FormatText.h")
-@:structAccess
+@:valueType
 extern class K2Node_FormatText extends K2Node {
 	private var PinNames: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstK2Node_FormatText(K2Node_FormatText) from K2Node_FormatText {
 @:forward
 @:nativeGen
 @:native("K2Node_FormatText*")
-abstract K2Node_FormatTextPtr(cpp.Star<K2Node_FormatText>) from cpp.Star<K2Node_FormatText> to cpp.Star<K2Node_FormatText>{
+abstract K2Node_FormatTextPtr(ucpp.Ptr<K2Node_FormatText>) from ucpp.Ptr<K2Node_FormatText> to ucpp.Ptr<K2Node_FormatText>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_FormatText): K2Node_FormatTextPtr {
 		return untyped __cpp__("&({0})", v);

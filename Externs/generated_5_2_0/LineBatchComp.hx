@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULineBatchComponent")
 @:include("Components/LineBatchComponent.h")
-@:structAccess
+@:valueType
 extern class LineBatchComp extends PrimitiveComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLineBatchComp(LineBatchComp) from LineBatchComp {
 @:forward
 @:nativeGen
 @:native("LineBatchComp*")
-abstract LineBatchCompPtr(cpp.Star<LineBatchComp>) from cpp.Star<LineBatchComp> to cpp.Star<LineBatchComp>{
+abstract LineBatchCompPtr(ucpp.Ptr<LineBatchComp>) from ucpp.Ptr<LineBatchComp> to ucpp.Ptr<LineBatchComp>{
 	@:from
 	public static extern inline function fromValue(v: LineBatchComp): LineBatchCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UModelComponent")
 @:include("Components/ModelComponent.h")
-@:structAccess
+@:valueType
 extern class ModelComp extends PrimitiveComp {
-	public var ModelBodySetup: cpp.Star<BodySetup>;
+	public var ModelBodySetup: ucpp.Ptr<BodySetup>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstModelComp(ModelComp) from ModelComp {
-	public extern var ModelBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_ModelBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.ModelBodySetup;
+	public extern var ModelBodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_ModelBodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.ModelBodySetup;
 }
 
 @:forward
 @:nativeGen
 @:native("ModelComp*")
-abstract ModelCompPtr(cpp.Star<ModelComp>) from cpp.Star<ModelComp> to cpp.Star<ModelComp>{
+abstract ModelCompPtr(ucpp.Ptr<ModelComp>) from ucpp.Ptr<ModelComp> to ucpp.Ptr<ModelComp>{
 	@:from
 	public static extern inline function fromValue(v: ModelComp): ModelCompPtr {
 		return untyped __cpp__("&({0})", v);

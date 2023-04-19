@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_MakeArray")
 @:include("K2Node_MakeArray.h")
-@:structAccess
+@:valueType
 extern class K2Node_MakeArray extends K2Node_MakeContainer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_MakeArray(K2Node_MakeArray) from K2Node_MakeArray {
 @:forward
 @:nativeGen
 @:native("K2Node_MakeArray*")
-abstract K2Node_MakeArrayPtr(cpp.Star<K2Node_MakeArray>) from cpp.Star<K2Node_MakeArray> to cpp.Star<K2Node_MakeArray>{
+abstract K2Node_MakeArrayPtr(ucpp.Ptr<K2Node_MakeArray>) from ucpp.Ptr<K2Node_MakeArray> to ucpp.Ptr<K2Node_MakeArray>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_MakeArray): K2Node_MakeArrayPtr {
 		return untyped __cpp__("&({0})", v);

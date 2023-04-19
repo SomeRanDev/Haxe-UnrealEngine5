@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMaterialExpressionMaterialAttributeLayers")
 @:include("Materials/MaterialExpressionMaterialAttributeLayers.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionMaterialAttributeLayers extends MaterialExpression {
 	public var Input: MaterialAttributesInput;
 	public var DefaultLayers: MaterialLayersFunctions;
-	public var LayerCallers: TArray<cpp.Star<MaterialExpressionMaterialFunctionCall>>;
-	public var NumActiveLayerCallers: cpp.Int32;
-	public var BlendCallers: TArray<cpp.Star<MaterialExpressionMaterialFunctionCall>>;
-	public var NumActiveBlendCallers: cpp.Int32;
+	public var LayerCallers: TArray<ucpp.Ptr<MaterialExpressionMaterialFunctionCall>>;
+	public var NumActiveLayerCallers: ucpp.num.Int32;
+	public var BlendCallers: TArray<ucpp.Ptr<MaterialExpressionMaterialFunctionCall>>;
+	public var NumActiveBlendCallers: ucpp.num.Int32;
 	public var bIsLayerGraphBuilt: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,14 +23,14 @@ abstract ConstMaterialExpressionMaterialAttributeLayers(MaterialExpressionMateri
 	public inline extern function get_Input(): MaterialAttributesInput return this.Input;
 	public extern var DefaultLayers(get, never): MaterialLayersFunctions;
 	public inline extern function get_DefaultLayers(): MaterialLayersFunctions return this.DefaultLayers;
-	public extern var LayerCallers(get, never): TArray<cpp.Star<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>>;
-	public inline extern function get_LayerCallers(): TArray<cpp.Star<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>> return this.LayerCallers;
-	public extern var NumActiveLayerCallers(get, never): cpp.Int32;
-	public inline extern function get_NumActiveLayerCallers(): cpp.Int32 return this.NumActiveLayerCallers;
-	public extern var BlendCallers(get, never): TArray<cpp.Star<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>>;
-	public inline extern function get_BlendCallers(): TArray<cpp.Star<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>> return this.BlendCallers;
-	public extern var NumActiveBlendCallers(get, never): cpp.Int32;
-	public inline extern function get_NumActiveBlendCallers(): cpp.Int32 return this.NumActiveBlendCallers;
+	public extern var LayerCallers(get, never): TArray<ucpp.Ptr<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>>;
+	public inline extern function get_LayerCallers(): TArray<ucpp.Ptr<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>> return this.LayerCallers;
+	public extern var NumActiveLayerCallers(get, never): ucpp.num.Int32;
+	public inline extern function get_NumActiveLayerCallers(): ucpp.num.Int32 return this.NumActiveLayerCallers;
+	public extern var BlendCallers(get, never): TArray<ucpp.Ptr<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>>;
+	public inline extern function get_BlendCallers(): TArray<ucpp.Ptr<MaterialExpressionMaterialFunctionCall.ConstMaterialExpressionMaterialFunctionCall>> return this.BlendCallers;
+	public extern var NumActiveBlendCallers(get, never): ucpp.num.Int32;
+	public inline extern function get_NumActiveBlendCallers(): ucpp.num.Int32 return this.NumActiveBlendCallers;
 	public extern var bIsLayerGraphBuilt(get, never): Bool;
 	public inline extern function get_bIsLayerGraphBuilt(): Bool return this.bIsLayerGraphBuilt;
 }
@@ -38,7 +38,7 @@ abstract ConstMaterialExpressionMaterialAttributeLayers(MaterialExpressionMateri
 @:forward
 @:nativeGen
 @:native("MaterialExpressionMaterialAttributeLayers*")
-abstract MaterialExpressionMaterialAttributeLayersPtr(cpp.Star<MaterialExpressionMaterialAttributeLayers>) from cpp.Star<MaterialExpressionMaterialAttributeLayers> to cpp.Star<MaterialExpressionMaterialAttributeLayers>{
+abstract MaterialExpressionMaterialAttributeLayersPtr(ucpp.Ptr<MaterialExpressionMaterialAttributeLayers>) from ucpp.Ptr<MaterialExpressionMaterialAttributeLayers> to ucpp.Ptr<MaterialExpressionMaterialAttributeLayers>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionMaterialAttributeLayers): MaterialExpressionMaterialAttributeLayersPtr {
 		return untyped __cpp__("&({0})", v);

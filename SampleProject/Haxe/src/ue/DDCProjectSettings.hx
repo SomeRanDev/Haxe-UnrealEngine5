@@ -3,16 +3,16 @@ package ue;
 
 @:native("UDDCProjectSettings")
 @:include("Settings/EditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class DDCProjectSettings extends DeveloperSettings {
 	public var EnableWarnings: Bool;
 	public var RecommendEveryoneSetupAGlobalLocalDDCPath: Bool;
 	public var RecommendEveryoneSetupAGlobalSharedDDCPath: Bool;
 	public var RecommendEveryoneSetupAGlobalS3DDCPath: Bool;
 	public var RecommendEveryoneEnableS3DDC: Bool;
-	public var RecommendEveryoneUseHordeStorage: Bool;
+	public var RecommendEveryoneUseUnrealCloudDDC: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,14 +28,14 @@ abstract ConstDDCProjectSettings(DDCProjectSettings) from DDCProjectSettings {
 	public inline extern function get_RecommendEveryoneSetupAGlobalS3DDCPath(): Bool return this.RecommendEveryoneSetupAGlobalS3DDCPath;
 	public extern var RecommendEveryoneEnableS3DDC(get, never): Bool;
 	public inline extern function get_RecommendEveryoneEnableS3DDC(): Bool return this.RecommendEveryoneEnableS3DDC;
-	public extern var RecommendEveryoneUseHordeStorage(get, never): Bool;
-	public inline extern function get_RecommendEveryoneUseHordeStorage(): Bool return this.RecommendEveryoneUseHordeStorage;
+	public extern var RecommendEveryoneUseUnrealCloudDDC(get, never): Bool;
+	public inline extern function get_RecommendEveryoneUseUnrealCloudDDC(): Bool return this.RecommendEveryoneUseUnrealCloudDDC;
 }
 
 @:forward
 @:nativeGen
 @:native("DDCProjectSettings*")
-abstract DDCProjectSettingsPtr(cpp.Star<DDCProjectSettings>) from cpp.Star<DDCProjectSettings> to cpp.Star<DDCProjectSettings>{
+abstract DDCProjectSettingsPtr(ucpp.Ptr<DDCProjectSettings>) from ucpp.Ptr<DDCProjectSettings> to ucpp.Ptr<DDCProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: DDCProjectSettings): DDCProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

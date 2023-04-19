@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieScene3DTransformSectionRecorderSettings")
 @:include("Sections/MovieScene3DTransformSectionRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class MovieScene3DTransformSectionRecorderSettings extends Object {
 	public var bRecordTransforms: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMovieScene3DTransformSectionRecorderSettings(MovieScene3DTransform
 @:forward
 @:nativeGen
 @:native("MovieScene3DTransformSectionRecorderSettings*")
-abstract MovieScene3DTransformSectionRecorderSettingsPtr(cpp.Star<MovieScene3DTransformSectionRecorderSettings>) from cpp.Star<MovieScene3DTransformSectionRecorderSettings> to cpp.Star<MovieScene3DTransformSectionRecorderSettings>{
+abstract MovieScene3DTransformSectionRecorderSettingsPtr(ucpp.Ptr<MovieScene3DTransformSectionRecorderSettings>) from ucpp.Ptr<MovieScene3DTransformSectionRecorderSettings> to ucpp.Ptr<MovieScene3DTransformSectionRecorderSettings>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene3DTransformSectionRecorderSettings): MovieScene3DTransformSectionRecorderSettingsPtr {
 		return untyped __cpp__("&({0})", v);

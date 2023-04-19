@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPaperSpriteBlueprintLibrary")
 @:include("PaperSpriteBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class PaperSpriteBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function MakeBrushFromSprite(Sprite: cpp.Star<PaperSprite>, Width: cpp.Int32, Height: cpp.Int32): SlateBrush;
+	public function MakeBrushFromSprite(Sprite: ucpp.Ptr<PaperSprite>, Width: ucpp.num.Int32, Height: ucpp.num.Int32): SlateBrush;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPaperSpriteBlueprintLibrary(PaperSpriteBlueprintLibrary) from Pape
 @:forward
 @:nativeGen
 @:native("PaperSpriteBlueprintLibrary*")
-abstract PaperSpriteBlueprintLibraryPtr(cpp.Star<PaperSpriteBlueprintLibrary>) from cpp.Star<PaperSpriteBlueprintLibrary> to cpp.Star<PaperSpriteBlueprintLibrary>{
+abstract PaperSpriteBlueprintLibraryPtr(ucpp.Ptr<PaperSpriteBlueprintLibrary>) from ucpp.Ptr<PaperSpriteBlueprintLibrary> to ucpp.Ptr<PaperSpriteBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: PaperSpriteBlueprintLibrary): PaperSpriteBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

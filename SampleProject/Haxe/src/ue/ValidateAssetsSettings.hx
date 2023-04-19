@@ -3,7 +3,7 @@ package ue;
 
 @:native("FValidateAssetsSettings")
 @:include("EditorValidatorSubsystem.h")
-@:structAccess
+@:valueType
 extern class ValidateAssetsSettings {
 	public var bSkipExcludedDirectories: Bool;
 	public var bShowIfNoFailures: Bool;

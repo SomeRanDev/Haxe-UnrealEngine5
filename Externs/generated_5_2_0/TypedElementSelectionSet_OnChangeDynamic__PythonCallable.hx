@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTypedElementSelectionSet_OnChangeDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class TypedElementSelectionSet_OnChangeDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTypedElementSelectionSet_OnChangeDynamic__PythonCallable(TypedElem
 @:forward
 @:nativeGen
 @:native("TypedElementSelectionSet_OnChangeDynamic__PythonCallable*")
-abstract TypedElementSelectionSet_OnChangeDynamic__PythonCallablePtr(cpp.Star<TypedElementSelectionSet_OnChangeDynamic__PythonCallable>) from cpp.Star<TypedElementSelectionSet_OnChangeDynamic__PythonCallable> to cpp.Star<TypedElementSelectionSet_OnChangeDynamic__PythonCallable>{
+abstract TypedElementSelectionSet_OnChangeDynamic__PythonCallablePtr(ucpp.Ptr<TypedElementSelectionSet_OnChangeDynamic__PythonCallable>) from ucpp.Ptr<TypedElementSelectionSet_OnChangeDynamic__PythonCallable> to ucpp.Ptr<TypedElementSelectionSet_OnChangeDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementSelectionSet_OnChangeDynamic__PythonCallable): TypedElementSelectionSet_OnChangeDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

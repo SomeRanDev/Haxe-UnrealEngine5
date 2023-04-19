@@ -3,11 +3,11 @@ package ue;
 
 @:native("ABandwidthTestActor")
 @:include("Net/BandwidthTestActor.h")
-@:structAccess
+@:valueType
 extern class BandwidthTestActor extends Actor {
 	public var BandwidthGenerator: BandwidthTestGenerator;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBandwidthTestActor(BandwidthTestActor) from BandwidthTestActor {
 @:forward
 @:nativeGen
 @:native("BandwidthTestActor*")
-abstract BandwidthTestActorPtr(cpp.Star<BandwidthTestActor>) from cpp.Star<BandwidthTestActor> to cpp.Star<BandwidthTestActor>{
+abstract BandwidthTestActorPtr(ucpp.Ptr<BandwidthTestActor>) from ucpp.Ptr<BandwidthTestActor> to ucpp.Ptr<BandwidthTestActor>{
 	@:from
 	public static extern inline function fromValue(v: BandwidthTestActor): BandwidthTestActorPtr {
 		return untyped __cpp__("&({0})", v);

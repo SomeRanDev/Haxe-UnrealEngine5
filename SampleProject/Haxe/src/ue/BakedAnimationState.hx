@@ -3,18 +3,18 @@ package ue;
 
 @:native("FBakedAnimationState")
 @:include("Animation/AnimStateMachineTypes.h")
-@:structAccess
+@:valueType
 extern class BakedAnimationState {
 	public var StateName: FName;
 	public var Transitions: TArray<BakedStateExitTransition>;
-	public var StateRootNodeIndex: cpp.Int32;
-	public var StartNotify: cpp.Int32;
-	public var EndNotify: cpp.Int32;
-	public var FullyBlendedNotify: cpp.Int32;
+	public var StateRootNodeIndex: ucpp.num.Int32;
+	public var StartNotify: ucpp.num.Int32;
+	public var EndNotify: ucpp.num.Int32;
+	public var FullyBlendedNotify: ucpp.num.Int32;
 	public var bIsAConduit: Bool;
-	public var EntryRuleNodeIndex: cpp.Int32;
-	public var PlayerNodeIndices: TArray<cpp.Int32>;
-	public var LayerNodeIndices: TArray<cpp.Int32>;
+	public var EntryRuleNodeIndex: ucpp.num.Int32;
+	public var PlayerNodeIndices: TArray<ucpp.num.Int32>;
+	public var LayerNodeIndices: TArray<ucpp.num.Int32>;
 	public var bAlwaysResetOnEntry: Bool;
 
 	@:native("FBakedAnimationState") public function new();

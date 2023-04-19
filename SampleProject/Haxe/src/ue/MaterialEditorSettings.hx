@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialEditorSettings")
 @:include("MaterialEditorSettings.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorSettings extends Object {
 	public var MaliOfflineCompilerPath: FilePath;
-	@:protected public var DefaultPreviewWidth: cpp.Int32;
-	@:protected public var DefaultPreviewHeight: cpp.Int32;
+	@:protected public var DefaultPreviewWidth: ucpp.num.Int32;
+	@:protected public var DefaultPreviewHeight: ucpp.num.Int32;
 	public var PreviewBackground: PreviewBackgroundSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstMaterialEditorSettings(MaterialEditorSettings) from MaterialEditor
 @:forward
 @:nativeGen
 @:native("MaterialEditorSettings*")
-abstract MaterialEditorSettingsPtr(cpp.Star<MaterialEditorSettings>) from cpp.Star<MaterialEditorSettings> to cpp.Star<MaterialEditorSettings>{
+abstract MaterialEditorSettingsPtr(ucpp.Ptr<MaterialEditorSettings>) from ucpp.Ptr<MaterialEditorSettings> to ucpp.Ptr<MaterialEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditorSettings): MaterialEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

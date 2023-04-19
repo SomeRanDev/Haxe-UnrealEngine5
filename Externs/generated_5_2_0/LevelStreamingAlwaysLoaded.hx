@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelStreamingAlwaysLoaded")
 @:include("Engine/LevelStreamingAlwaysLoaded.h")
-@:structAccess
+@:valueType
 extern class LevelStreamingAlwaysLoaded extends LevelStreaming {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelStreamingAlwaysLoaded(LevelStreamingAlwaysLoaded) from LevelS
 @:forward
 @:nativeGen
 @:native("LevelStreamingAlwaysLoaded*")
-abstract LevelStreamingAlwaysLoadedPtr(cpp.Star<LevelStreamingAlwaysLoaded>) from cpp.Star<LevelStreamingAlwaysLoaded> to cpp.Star<LevelStreamingAlwaysLoaded>{
+abstract LevelStreamingAlwaysLoadedPtr(ucpp.Ptr<LevelStreamingAlwaysLoaded>) from ucpp.Ptr<LevelStreamingAlwaysLoaded> to ucpp.Ptr<LevelStreamingAlwaysLoaded>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreamingAlwaysLoaded): LevelStreamingAlwaysLoadedPtr {
 		return untyped __cpp__("&({0})", v);

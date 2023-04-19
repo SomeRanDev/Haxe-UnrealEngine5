@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEngineTypes")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class EngineTypes extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEngineTypes(EngineTypes) from EngineTypes {
 @:forward
 @:nativeGen
 @:native("EngineTypes*")
-abstract EngineTypesPtr(cpp.Star<EngineTypes>) from cpp.Star<EngineTypes> to cpp.Star<EngineTypes>{
+abstract EngineTypesPtr(ucpp.Ptr<EngineTypes>) from ucpp.Ptr<EngineTypes> to ucpp.Ptr<EngineTypes>{
 	@:from
 	public static extern inline function fromValue(v: EngineTypes): EngineTypesPtr {
 		return untyped __cpp__("&({0})", v);

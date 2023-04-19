@@ -3,7 +3,7 @@ package ue;
 
 @:native("FilterState")
 @:include("ReferenceViewer/ReferenceViewerSettings.h")
-@:structAccess
+@:valueType
 extern class ilterState {
 	public var FilterPath: TopLevelAssetPath;
 	public var bIsEnabled: Bool;

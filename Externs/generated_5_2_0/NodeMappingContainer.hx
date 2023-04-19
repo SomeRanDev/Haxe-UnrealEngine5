@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNodeMappingContainer")
 @:include("Animation/NodeMappingContainer.h")
-@:structAccess
+@:valueType
 extern class NodeMappingContainer extends Object {
 	private var SourceItems: TMap<FName, NodeItem>;
 	private var TargetItems: TMap<FName, NodeItem>;
@@ -11,7 +11,7 @@ extern class NodeMappingContainer extends Object {
 	private var SourceAsset: TSoftObjectPtr<Object>;
 	private var TargetAsset: TSoftObjectPtr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstNodeMappingContainer(NodeMappingContainer) from NodeMappingContain
 @:forward
 @:nativeGen
 @:native("NodeMappingContainer*")
-abstract NodeMappingContainerPtr(cpp.Star<NodeMappingContainer>) from cpp.Star<NodeMappingContainer> to cpp.Star<NodeMappingContainer>{
+abstract NodeMappingContainerPtr(ucpp.Ptr<NodeMappingContainer>) from ucpp.Ptr<NodeMappingContainer> to ucpp.Ptr<NodeMappingContainer>{
 	@:from
 	public static extern inline function fromValue(v: NodeMappingContainer): NodeMappingContainerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneEvaluationHook")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationHook extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneEvaluationHook(MovieSceneEvaluationHook) from MovieScene
 @:forward
 @:nativeGen
 @:native("MovieSceneEvaluationHook*")
-abstract MovieSceneEvaluationHookPtr(cpp.Star<MovieSceneEvaluationHook>) from cpp.Star<MovieSceneEvaluationHook> to cpp.Star<MovieSceneEvaluationHook>{
+abstract MovieSceneEvaluationHookPtr(ucpp.Ptr<MovieSceneEvaluationHook>) from ucpp.Ptr<MovieSceneEvaluationHook> to ucpp.Ptr<MovieSceneEvaluationHook>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEvaluationHook): MovieSceneEvaluationHookPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFuncTestRenderingComponent")
 @:include("FuncTestRenderingComponent.h")
-@:structAccess
+@:valueType
 extern class FuncTestRenderingComp extends PrimitiveComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFuncTestRenderingComp(FuncTestRenderingComp) from FuncTestRenderin
 @:forward
 @:nativeGen
 @:native("FuncTestRenderingComp*")
-abstract FuncTestRenderingCompPtr(cpp.Star<FuncTestRenderingComp>) from cpp.Star<FuncTestRenderingComp> to cpp.Star<FuncTestRenderingComp>{
+abstract FuncTestRenderingCompPtr(ucpp.Ptr<FuncTestRenderingComp>) from ucpp.Ptr<FuncTestRenderingComp> to ucpp.Ptr<FuncTestRenderingComp>{
 	@:from
 	public static extern inline function fromValue(v: FuncTestRenderingComp): FuncTestRenderingCompPtr {
 		return untyped __cpp__("&({0})", v);

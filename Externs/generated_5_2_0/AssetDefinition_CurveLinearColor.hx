@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_CurveLinearColor")
 @:include("AssetDefinition_CurveLinearColor.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_CurveLinearColor extends AssetDefinition_Curve {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_CurveLinearColor(AssetDefinition_CurveLinearColor)
 @:forward
 @:nativeGen
 @:native("AssetDefinition_CurveLinearColor*")
-abstract AssetDefinition_CurveLinearColorPtr(cpp.Star<AssetDefinition_CurveLinearColor>) from cpp.Star<AssetDefinition_CurveLinearColor> to cpp.Star<AssetDefinition_CurveLinearColor>{
+abstract AssetDefinition_CurveLinearColorPtr(ucpp.Ptr<AssetDefinition_CurveLinearColor>) from ucpp.Ptr<AssetDefinition_CurveLinearColor> to ucpp.Ptr<AssetDefinition_CurveLinearColor>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_CurveLinearColor): AssetDefinition_CurveLinearColorPtr {
 		return untyped __cpp__("&({0})", v);

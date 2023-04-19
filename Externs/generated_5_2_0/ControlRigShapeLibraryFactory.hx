@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigShapeLibraryFactory")
 @:include("ControlRigGizmoLibraryFactory.h")
-@:structAccess
+@:valueType
 extern class ControlRigShapeLibraryFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigShapeLibraryFactory(ControlRigShapeLibraryFactory) from 
 @:forward
 @:nativeGen
 @:native("ControlRigShapeLibraryFactory*")
-abstract ControlRigShapeLibraryFactoryPtr(cpp.Star<ControlRigShapeLibraryFactory>) from cpp.Star<ControlRigShapeLibraryFactory> to cpp.Star<ControlRigShapeLibraryFactory>{
+abstract ControlRigShapeLibraryFactoryPtr(ucpp.Ptr<ControlRigShapeLibraryFactory>) from ucpp.Ptr<ControlRigShapeLibraryFactory> to ucpp.Ptr<ControlRigShapeLibraryFactory>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigShapeLibraryFactory): ControlRigShapeLibraryFactoryPtr {
 		return untyped __cpp__("&({0})", v);

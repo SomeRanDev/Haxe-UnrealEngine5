@@ -3,11 +3,11 @@ package ue;
 
 @:native("UChaosSolverSettings")
 @:include("Chaos/ChaosSolverSettings.h")
-@:structAccess
+@:valueType
 extern class ChaosSolverSettings extends DeveloperSettings {
 	public var DefaultChaosSolverActorClass: SoftClassPath;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstChaosSolverSettings(ChaosSolverSettings) from ChaosSolverSettings 
 @:forward
 @:nativeGen
 @:native("ChaosSolverSettings*")
-abstract ChaosSolverSettingsPtr(cpp.Star<ChaosSolverSettings>) from cpp.Star<ChaosSolverSettings> to cpp.Star<ChaosSolverSettings>{
+abstract ChaosSolverSettingsPtr(ucpp.Ptr<ChaosSolverSettings>) from ucpp.Ptr<ChaosSolverSettings> to ucpp.Ptr<ChaosSolverSettings>{
 	@:from
 	public static extern inline function fromValue(v: ChaosSolverSettings): ChaosSolverSettingsPtr {
 		return untyped __cpp__("&({0})", v);

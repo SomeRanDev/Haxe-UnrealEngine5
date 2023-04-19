@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFlipbookFinishedPlaySignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class FlipbookFinishedPlaySignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFlipbookFinishedPlaySignature__PythonCallable(FlipbookFinishedPlay
 @:forward
 @:nativeGen
 @:native("FlipbookFinishedPlaySignature__PythonCallable*")
-abstract FlipbookFinishedPlaySignature__PythonCallablePtr(cpp.Star<FlipbookFinishedPlaySignature__PythonCallable>) from cpp.Star<FlipbookFinishedPlaySignature__PythonCallable> to cpp.Star<FlipbookFinishedPlaySignature__PythonCallable>{
+abstract FlipbookFinishedPlaySignature__PythonCallablePtr(ucpp.Ptr<FlipbookFinishedPlaySignature__PythonCallable>) from ucpp.Ptr<FlipbookFinishedPlaySignature__PythonCallable> to ucpp.Ptr<FlipbookFinishedPlaySignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: FlipbookFinishedPlaySignature__PythonCallable): FlipbookFinishedPlaySignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

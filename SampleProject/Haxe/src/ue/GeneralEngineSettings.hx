@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeneralEngineSettings")
 @:include("GeneralEngineSettings.h")
-@:structAccess
+@:valueType
 extern class GeneralEngineSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeneralEngineSettings(GeneralEngineSettings) from GeneralEngineSet
 @:forward
 @:nativeGen
 @:native("GeneralEngineSettings*")
-abstract GeneralEngineSettingsPtr(cpp.Star<GeneralEngineSettings>) from cpp.Star<GeneralEngineSettings> to cpp.Star<GeneralEngineSettings>{
+abstract GeneralEngineSettingsPtr(ucpp.Ptr<GeneralEngineSettings>) from ucpp.Ptr<GeneralEngineSettings> to ucpp.Ptr<GeneralEngineSettings>{
 	@:from
 	public static extern inline function fromValue(v: GeneralEngineSettings): GeneralEngineSettingsPtr {
 		return untyped __cpp__("&({0})", v);

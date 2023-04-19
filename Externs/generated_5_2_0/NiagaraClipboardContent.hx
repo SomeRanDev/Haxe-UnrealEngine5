@@ -3,30 +3,30 @@ package ue;
 
 @:native("UNiagaraClipboardContent")
 @:include("NiagaraClipboard.h")
-@:structAccess
+@:valueType
 extern class NiagaraClipboardContent extends Object {
-	public var Functions: TArray<cpp.Star<NiagaraClipboardFunction>>;
-	public var FunctionInputs: TArray<cpp.Star<NiagaraClipboardFunctionInput>>;
-	public var Renderers: TArray<cpp.Star<NiagaraRendererProperties>>;
-	public var Scripts: TArray<cpp.Star<NiagaraScript>>;
+	public var Functions: TArray<ucpp.Ptr<NiagaraClipboardFunction>>;
+	public var FunctionInputs: TArray<ucpp.Ptr<NiagaraClipboardFunctionInput>>;
+	public var Renderers: TArray<ucpp.Ptr<NiagaraRendererProperties>>;
+	public var Scripts: TArray<ucpp.Ptr<NiagaraScript>>;
 	public var ScriptVariables: TArray<NiagaraClipboardScriptVariable>;
 	public var ExportedNodes: FString;
 	public var bFixupPasteIndexForScriptDependenciesInStack: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraClipboardContent(NiagaraClipboardContent) from NiagaraClipboardContent {
-	public extern var Functions(get, never): TArray<cpp.Star<NiagaraClipboardFunction.ConstNiagaraClipboardFunction>>;
-	public inline extern function get_Functions(): TArray<cpp.Star<NiagaraClipboardFunction.ConstNiagaraClipboardFunction>> return this.Functions;
-	public extern var FunctionInputs(get, never): TArray<cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>>;
-	public inline extern function get_FunctionInputs(): TArray<cpp.Star<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>> return this.FunctionInputs;
-	public extern var Renderers(get, never): TArray<cpp.Star<NiagaraRendererProperties.ConstNiagaraRendererProperties>>;
-	public inline extern function get_Renderers(): TArray<cpp.Star<NiagaraRendererProperties.ConstNiagaraRendererProperties>> return this.Renderers;
-	public extern var Scripts(get, never): TArray<cpp.Star<NiagaraScript.ConstNiagaraScript>>;
-	public inline extern function get_Scripts(): TArray<cpp.Star<NiagaraScript.ConstNiagaraScript>> return this.Scripts;
+	public extern var Functions(get, never): TArray<ucpp.Ptr<NiagaraClipboardFunction.ConstNiagaraClipboardFunction>>;
+	public inline extern function get_Functions(): TArray<ucpp.Ptr<NiagaraClipboardFunction.ConstNiagaraClipboardFunction>> return this.Functions;
+	public extern var FunctionInputs(get, never): TArray<ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>>;
+	public inline extern function get_FunctionInputs(): TArray<ucpp.Ptr<NiagaraClipboardFunctionInput.ConstNiagaraClipboardFunctionInput>> return this.FunctionInputs;
+	public extern var Renderers(get, never): TArray<ucpp.Ptr<NiagaraRendererProperties.ConstNiagaraRendererProperties>>;
+	public inline extern function get_Renderers(): TArray<ucpp.Ptr<NiagaraRendererProperties.ConstNiagaraRendererProperties>> return this.Renderers;
+	public extern var Scripts(get, never): TArray<ucpp.Ptr<NiagaraScript.ConstNiagaraScript>>;
+	public inline extern function get_Scripts(): TArray<ucpp.Ptr<NiagaraScript.ConstNiagaraScript>> return this.Scripts;
 	public extern var ScriptVariables(get, never): TArray<NiagaraClipboardScriptVariable>;
 	public inline extern function get_ScriptVariables(): TArray<NiagaraClipboardScriptVariable> return this.ScriptVariables;
 	public extern var ExportedNodes(get, never): FString;
@@ -38,7 +38,7 @@ abstract ConstNiagaraClipboardContent(NiagaraClipboardContent) from NiagaraClipb
 @:forward
 @:nativeGen
 @:native("NiagaraClipboardContent*")
-abstract NiagaraClipboardContentPtr(cpp.Star<NiagaraClipboardContent>) from cpp.Star<NiagaraClipboardContent> to cpp.Star<NiagaraClipboardContent>{
+abstract NiagaraClipboardContentPtr(ucpp.Ptr<NiagaraClipboardContent>) from ucpp.Ptr<NiagaraClipboardContent> to ucpp.Ptr<NiagaraClipboardContent>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraClipboardContent): NiagaraClipboardContentPtr {
 		return untyped __cpp__("&({0})", v);

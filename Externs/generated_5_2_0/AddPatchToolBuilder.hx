@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAddPatchToolBuilder")
 @:include("AddPatchTool.h")
-@:structAccess
+@:valueType
 extern class AddPatchToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAddPatchToolBuilder(AddPatchToolBuilder) from AddPatchToolBuilder 
 @:forward
 @:nativeGen
 @:native("AddPatchToolBuilder*")
-abstract AddPatchToolBuilderPtr(cpp.Star<AddPatchToolBuilder>) from cpp.Star<AddPatchToolBuilder> to cpp.Star<AddPatchToolBuilder>{
+abstract AddPatchToolBuilderPtr(ucpp.Ptr<AddPatchToolBuilder>) from ucpp.Ptr<AddPatchToolBuilder> to ucpp.Ptr<AddPatchToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: AddPatchToolBuilder): AddPatchToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

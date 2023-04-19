@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraVariableBase")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariableBase {
 	@:protected public var Name: FName;
 	@:protected public var TypeDefHandle: NiagaraTypeDefinitionHandle;

@@ -3,19 +3,19 @@ package ue;
 
 @:native("UCSGMeshesToolProperties")
 @:include("CSGMeshesTool.h")
-@:structAccess
+@:valueType
 extern class CSGMeshesToolProperties extends InteractiveToolPropertySet {
 	public var Operation: ECSGOperation;
 	public var bTryFixHoles: Bool;
 	public var bTryCollapseEdges: Bool;
-	public var WindingThreshold: cpp.Float32;
+	public var WindingThreshold: ucpp.num.Float32;
 	public var bShowNewBoundaries: Bool;
 	public var bShowSubtractedMesh: Bool;
-	public var SubtractedMeshOpacity: cpp.Float32;
+	public var SubtractedMeshOpacity: ucpp.num.Float32;
 	public var SubtractedMeshColor: LinearColor;
 	public var bUseFirstMeshMaterials: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,14 +27,14 @@ abstract ConstCSGMeshesToolProperties(CSGMeshesToolProperties) from CSGMeshesToo
 	public inline extern function get_bTryFixHoles(): Bool return this.bTryFixHoles;
 	public extern var bTryCollapseEdges(get, never): Bool;
 	public inline extern function get_bTryCollapseEdges(): Bool return this.bTryCollapseEdges;
-	public extern var WindingThreshold(get, never): cpp.Float32;
-	public inline extern function get_WindingThreshold(): cpp.Float32 return this.WindingThreshold;
+	public extern var WindingThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_WindingThreshold(): ucpp.num.Float32 return this.WindingThreshold;
 	public extern var bShowNewBoundaries(get, never): Bool;
 	public inline extern function get_bShowNewBoundaries(): Bool return this.bShowNewBoundaries;
 	public extern var bShowSubtractedMesh(get, never): Bool;
 	public inline extern function get_bShowSubtractedMesh(): Bool return this.bShowSubtractedMesh;
-	public extern var SubtractedMeshOpacity(get, never): cpp.Float32;
-	public inline extern function get_SubtractedMeshOpacity(): cpp.Float32 return this.SubtractedMeshOpacity;
+	public extern var SubtractedMeshOpacity(get, never): ucpp.num.Float32;
+	public inline extern function get_SubtractedMeshOpacity(): ucpp.num.Float32 return this.SubtractedMeshOpacity;
 	public extern var SubtractedMeshColor(get, never): LinearColor;
 	public inline extern function get_SubtractedMeshColor(): LinearColor return this.SubtractedMeshColor;
 	public extern var bUseFirstMeshMaterials(get, never): Bool;
@@ -44,7 +44,7 @@ abstract ConstCSGMeshesToolProperties(CSGMeshesToolProperties) from CSGMeshesToo
 @:forward
 @:nativeGen
 @:native("CSGMeshesToolProperties*")
-abstract CSGMeshesToolPropertiesPtr(cpp.Star<CSGMeshesToolProperties>) from cpp.Star<CSGMeshesToolProperties> to cpp.Star<CSGMeshesToolProperties>{
+abstract CSGMeshesToolPropertiesPtr(ucpp.Ptr<CSGMeshesToolProperties>) from ucpp.Ptr<CSGMeshesToolProperties> to ucpp.Ptr<CSGMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: CSGMeshesToolProperties): CSGMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

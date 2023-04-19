@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSlateColor")
 @:include("Styling/SlateColor.h")
-@:structAccess
+@:valueType
 extern class SlateColor {
 	@:protected public var SpecifiedColor: LinearColor;
 	@:protected public var ColorUseRule: ESlateColorStylingMode;

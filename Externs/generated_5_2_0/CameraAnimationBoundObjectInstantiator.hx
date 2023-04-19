@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCameraAnimationBoundObjectInstantiator")
 @:include("CameraAnimationSequenceSubsystem.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationBoundObjectInstantiator extends MovieSceneEntityInstantiatorSystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCameraAnimationBoundObjectInstantiator(CameraAnimationBoundObjectI
 @:forward
 @:nativeGen
 @:native("CameraAnimationBoundObjectInstantiator*")
-abstract CameraAnimationBoundObjectInstantiatorPtr(cpp.Star<CameraAnimationBoundObjectInstantiator>) from cpp.Star<CameraAnimationBoundObjectInstantiator> to cpp.Star<CameraAnimationBoundObjectInstantiator>{
+abstract CameraAnimationBoundObjectInstantiatorPtr(ucpp.Ptr<CameraAnimationBoundObjectInstantiator>) from ucpp.Ptr<CameraAnimationBoundObjectInstantiator> to ucpp.Ptr<CameraAnimationBoundObjectInstantiator>{
 	@:from
 	public static extern inline function fromValue(v: CameraAnimationBoundObjectInstantiator): CameraAnimationBoundObjectInstantiatorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UPaperTileMapPromotionFactory")
 @:include("PaperTileMapPromotionFactory.h")
-@:structAccess
+@:valueType
 extern class PaperTileMapPromotionFactory extends Factory {
-	public var AssetToRename: cpp.Star<PaperTileMap>;
+	public var AssetToRename: ucpp.Ptr<PaperTileMap>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPaperTileMapPromotionFactory(PaperTileMapPromotionFactory) from PaperTileMapPromotionFactory {
-	public extern var AssetToRename(get, never): cpp.Star<PaperTileMap.ConstPaperTileMap>;
-	public inline extern function get_AssetToRename(): cpp.Star<PaperTileMap.ConstPaperTileMap> return this.AssetToRename;
+	public extern var AssetToRename(get, never): ucpp.Ptr<PaperTileMap.ConstPaperTileMap>;
+	public inline extern function get_AssetToRename(): ucpp.Ptr<PaperTileMap.ConstPaperTileMap> return this.AssetToRename;
 }
 
 @:forward
 @:nativeGen
 @:native("PaperTileMapPromotionFactory*")
-abstract PaperTileMapPromotionFactoryPtr(cpp.Star<PaperTileMapPromotionFactory>) from cpp.Star<PaperTileMapPromotionFactory> to cpp.Star<PaperTileMapPromotionFactory>{
+abstract PaperTileMapPromotionFactoryPtr(ucpp.Ptr<PaperTileMapPromotionFactory>) from ucpp.Ptr<PaperTileMapPromotionFactory> to ucpp.Ptr<PaperTileMapPromotionFactory>{
 	@:from
 	public static extern inline function fromValue(v: PaperTileMapPromotionFactory): PaperTileMapPromotionFactoryPtr {
 		return untyped __cpp__("&({0})", v);

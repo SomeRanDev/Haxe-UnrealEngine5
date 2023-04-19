@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNetworkSettings")
 @:include("Engine/NetworkSettings.h")
-@:structAccess
+@:valueType
 extern class NetworkSettings extends DeveloperSettings {
 	public var bVerifyPeer: Bool;
 	public var bEnableMultiplayerWorldOriginRebasing: Bool;
 	public var NetworkEmulationProfiles: TArray<NetworkEmulationProfileDescription>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstNetworkSettings(NetworkSettings) from NetworkSettings {
 @:forward
 @:nativeGen
 @:native("NetworkSettings*")
-abstract NetworkSettingsPtr(cpp.Star<NetworkSettings>) from cpp.Star<NetworkSettings> to cpp.Star<NetworkSettings>{
+abstract NetworkSettingsPtr(ucpp.Ptr<NetworkSettings>) from ucpp.Ptr<NetworkSettings> to ucpp.Ptr<NetworkSettings>{
 	@:from
 	public static extern inline function fromValue(v: NetworkSettings): NetworkSettingsPtr {
 		return untyped __cpp__("&({0})", v);

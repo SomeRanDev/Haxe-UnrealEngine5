@@ -3,59 +3,59 @@ package ue;
 
 @:native("UIKRigController")
 @:include("RigEditor/IKRigController.h")
-@:structAccess
+@:valueType
 extern class IKRigController extends Object {
-	private var Asset: cpp.Star<IKRigDefinition>;
+	private var Asset: ucpp.Ptr<IKRigDefinition>;
 
-	public function SetSolverEnabled(SolverIndex: cpp.Int32, bIsEnabled: Bool): Bool;
-	public function SetSkeletalMesh(SkeletalMesh: cpp.Star<SkeletalMesh>, bTransact: Bool): Bool;
-	public function SetRootBone(RootBoneName: FName, SolverIndex: cpp.Int32): Bool;
+	public function SetSolverEnabled(SolverIndex: ucpp.num.Int32, bIsEnabled: Bool): Bool;
+	public function SetSkeletalMesh(SkeletalMesh: ucpp.Ptr<SkeletalMesh>, bTransact: Bool): Bool;
+	public function SetRootBone(RootBoneName: FName, SolverIndex: ucpp.num.Int32): Bool;
 	public function SetRetargetRoot(RootBoneName: FName): Bool;
 	public function SetRetargetChainStartBone(ChainName: FName, StartBoneName: FName): Bool;
 	public function SetRetargetChainGoal(ChainName: FName, GoalName: FName): Bool;
 	public function SetRetargetChainEndBone(ChainName: FName, EndBoneName: FName): Bool;
 	public function SetGoalBone(GoalName: FName, NewBoneName: FName): Bool;
-	public function SetEndBone(EndBoneName: FName, SolverIndex: cpp.Int32): Bool;
+	public function SetEndBone(EndBoneName: FName, SolverIndex: ucpp.num.Int32): Bool;
 	public function SetBoneExcluded(BoneName: FName, bExclude: Bool): Bool;
 	public function RenameRetargetChain(ChainName: FName, NewChainName: FName): FName;
 	public function RenameGoal(OldName: FName, PotentialNewName: FName): FName;
-	public function RemoveSolver(SolverIndex: cpp.Int32): Bool;
+	public function RemoveSolver(SolverIndex: ucpp.num.Int32): Bool;
 	public function RemoveRetargetChain(ChainName: FName): Bool;
 	public function RemoveGoal(GoalName: FName): Bool;
-	public function RemoveBoneSetting(BoneName: FName, SolverIndex: cpp.Int32): Bool;
-	public function MoveSolverInStack(SolverToMoveIndex: cpp.Int32, TargetSolverIndex: cpp.Int32): Bool;
-	public function IsSkeletalMeshCompatible(SkeletalMeshToCheck: cpp.Star<SkeletalMesh>): Bool;
-	public function IsGoalConnectedToSolver(GoalName: FName, SolverIndex: cpp.Int32): Bool;
+	public function RemoveBoneSetting(BoneName: FName, SolverIndex: ucpp.num.Int32): Bool;
+	public function MoveSolverInStack(SolverToMoveIndex: ucpp.num.Int32, TargetSolverIndex: ucpp.num.Int32): Bool;
+	public function IsSkeletalMeshCompatible(SkeletalMeshToCheck: ucpp.Ptr<SkeletalMesh>): Bool;
+	public function IsGoalConnectedToSolver(GoalName: FName, SolverIndex: ucpp.num.Int32): Bool;
 	public function IsGoalConnectedToAnySolver(GoalName: FName): Bool;
-	public function GetSolverEnabled(SolverIndex: cpp.Int32): Bool;
-	public function GetSolverAtIndex(Index: cpp.Int32): cpp.Star<IKRigSolver>;
-	public function GetSkeletalMesh(): cpp.Star<SkeletalMesh>;
-	public function GetRootBone(SolverIndex: cpp.Int32): FName;
+	public function GetSolverEnabled(SolverIndex: ucpp.num.Int32): Bool;
+	public function GetSolverAtIndex(Index: ucpp.num.Int32): ucpp.Ptr<IKRigSolver>;
+	public function GetSkeletalMesh(): ucpp.Ptr<SkeletalMesh>;
+	public function GetRootBone(SolverIndex: ucpp.num.Int32): FName;
 	public function GetRetargetRoot(): FName;
 	public function GetRetargetChainStartBone(ChainName: FName): FName;
 	public function GetRetargetChains(): TArray<BoneChain>;
 	public function GetRetargetChainGoal(ChainName: FName): FName;
 	public function GetRetargetChainEndBone(ChainName: FName): FName;
 	public function GetRefPoseTransformOfBone(BoneName: FName): Transform;
-	public function GetNumSolvers(): cpp.Int32;
-	public function GetIndexOfSolver(Solver: cpp.Star<IKRigSolver>): cpp.Int32;
-	public function GetGoalSettingsForSolver(GoalName: FName, SolverIndex: cpp.Int32): cpp.Star<Object>;
+	public function GetNumSolvers(): ucpp.num.Int32;
+	public function GetIndexOfSolver(Solver: ucpp.Ptr<IKRigSolver>): ucpp.num.Int32;
+	public function GetGoalSettingsForSolver(GoalName: FName, SolverIndex: ucpp.num.Int32): ucpp.Ptr<Object>;
 	public function GetGoalNameForBone(BoneName: FName): FName;
-	public function GetGoal(GoalName: FName): cpp.Star<IKRigEffectorGoal>;
-	public function GetEndBone(SolverIndex: cpp.Int32): FName;
-	public function GetController(InIKRigDefinition: cpp.Star<IKRigDefinition.ConstIKRigDefinition>): cpp.Star<IKRigController>;
-	public function GetBoneSettings(BoneName: FName, SolverIndex: cpp.Int32): cpp.Star<Object>;
+	public function GetGoal(GoalName: FName): ucpp.Ptr<IKRigEffectorGoal>;
+	public function GetEndBone(SolverIndex: ucpp.num.Int32): FName;
+	public function GetController(InIKRigDefinition: ucpp.Ptr<IKRigDefinition.ConstIKRigDefinition>): ucpp.Ptr<IKRigController>;
+	public function GetBoneSettings(BoneName: FName, SolverIndex: ucpp.num.Int32): ucpp.Ptr<Object>;
 	public function GetBoneForGoal(GoalName: FName): FName;
 	public function GetBoneExcluded(BoneName: FName): Bool;
-	public function GetAllGoals(): TArray<cpp.Star<IKRigEffectorGoal>>;
-	public function DisconnectGoalFromSolver(GoalToRemove: FName, SolverIndex: cpp.Int32): Bool;
-	public function ConnectGoalToSolver(GoalName: FName, SolverIndex: cpp.Int32): Bool;
-	public function AddSolver(InSolverClass: TSubclassOf<IKRigSolver>): cpp.Int32;
+	public function GetAllGoals(): TArray<ucpp.Ptr<IKRigEffectorGoal>>;
+	public function DisconnectGoalFromSolver(GoalToRemove: FName, SolverIndex: ucpp.num.Int32): Bool;
+	public function ConnectGoalToSolver(GoalName: FName, SolverIndex: ucpp.num.Int32): Bool;
+	public function AddSolver(InSolverClass: TSubclassOf<IKRigSolver>): ucpp.num.Int32;
 	public function AddRetargetChain(ChainName: FName, StartBoneName: FName, EndBoneName: FName, GoalName: FName): FName;
 	public function AddNewGoal(GoalName: FName, BoneName: FName): FName;
-	public function AddBoneSetting(BoneName: FName, SolverIndex: cpp.Int32): Bool;
+	public function AddBoneSetting(BoneName: FName, SolverIndex: ucpp.num.Int32): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -77,7 +77,7 @@ abstract ConstIKRigController(IKRigController) from IKRigController {
 @:forward
 @:nativeGen
 @:native("IKRigController*")
-abstract IKRigControllerPtr(cpp.Star<IKRigController>) from cpp.Star<IKRigController> to cpp.Star<IKRigController>{
+abstract IKRigControllerPtr(ucpp.Ptr<IKRigController>) from ucpp.Ptr<IKRigController> to ucpp.Ptr<IKRigController>{
 	@:from
 	public static extern inline function fromValue(v: IKRigController): IKRigControllerPtr {
 		return untyped __cpp__("&({0})", v);

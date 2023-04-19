@@ -3,12 +3,12 @@ package ue;
 
 @:native("ULandscapeGrassType")
 @:include("LandscapeGrassType.h")
-@:structAccess
+@:valueType
 extern class LandscapeGrassType extends Object {
 	public var GrassVarieties: TArray<GrassVariety>;
 	public var bEnableDensityScaling: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLandscapeGrassType(LandscapeGrassType) from LandscapeGrassType {
 @:forward
 @:nativeGen
 @:native("LandscapeGrassType*")
-abstract LandscapeGrassTypePtr(cpp.Star<LandscapeGrassType>) from cpp.Star<LandscapeGrassType> to cpp.Star<LandscapeGrassType>{
+abstract LandscapeGrassTypePtr(ucpp.Ptr<LandscapeGrassType>) from ucpp.Ptr<LandscapeGrassType> to ucpp.Ptr<LandscapeGrassType>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeGrassType): LandscapeGrassTypePtr {
 		return untyped __cpp__("&({0})", v);

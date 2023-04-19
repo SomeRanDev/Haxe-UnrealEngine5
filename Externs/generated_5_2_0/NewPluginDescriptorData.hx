@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNewPluginDescriptorData")
 @:include("NewPluginDescriptorData.h")
-@:structAccess
+@:valueType
 extern class NewPluginDescriptorData extends Object {
 	public var CreatedBy: FString;
 	public var CreatedByURL: FString;
 	public var Description: FString;
 	public var bIsBetaVersion: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstNewPluginDescriptorData(NewPluginDescriptorData) from NewPluginDes
 @:forward
 @:nativeGen
 @:native("NewPluginDescriptorData*")
-abstract NewPluginDescriptorDataPtr(cpp.Star<NewPluginDescriptorData>) from cpp.Star<NewPluginDescriptorData> to cpp.Star<NewPluginDescriptorData>{
+abstract NewPluginDescriptorDataPtr(ucpp.Ptr<NewPluginDescriptorData>) from ucpp.Ptr<NewPluginDescriptorData> to ucpp.Ptr<NewPluginDescriptorData>{
 	@:from
 	public static extern inline function fromValue(v: NewPluginDescriptorData): NewPluginDescriptorDataPtr {
 		return untyped __cpp__("&({0})", v);

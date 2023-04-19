@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshTopologySelectionMechanicProperties")
 @:include("Selection/MeshTopologySelectionMechanic.h")
-@:structAccess
+@:valueType
 extern class MeshTopologySelectionMechanicProperties extends InteractiveToolPropertySet {
 	public var bSelectVertices: Bool;
 	public var bSelectEdges: Bool;
@@ -20,7 +20,7 @@ extern class MeshTopologySelectionMechanicProperties extends InteractiveToolProp
 	public function SelectAll(): Void;
 	public function InvertSelection(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -53,7 +53,7 @@ abstract ConstMeshTopologySelectionMechanicProperties(MeshTopologySelectionMecha
 @:forward
 @:nativeGen
 @:native("MeshTopologySelectionMechanicProperties*")
-abstract MeshTopologySelectionMechanicPropertiesPtr(cpp.Star<MeshTopologySelectionMechanicProperties>) from cpp.Star<MeshTopologySelectionMechanicProperties> to cpp.Star<MeshTopologySelectionMechanicProperties>{
+abstract MeshTopologySelectionMechanicPropertiesPtr(ucpp.Ptr<MeshTopologySelectionMechanicProperties>) from ucpp.Ptr<MeshTopologySelectionMechanicProperties> to ucpp.Ptr<MeshTopologySelectionMechanicProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshTopologySelectionMechanicProperties): MeshTopologySelectionMechanicPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("UUVLayoutTool")
 @:include("UVLayoutTool.h")
-@:structAccess
+@:valueType
 extern class UVLayoutTool extends MultiSelectionMeshEditingTool {
-	@:protected public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
-	@:protected public var BasicProperties: cpp.Star<UVLayoutProperties>;
-	@:protected public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
-	@:protected public var Previews: TArray<cpp.Star<MeshOpPreviewWithBackgroundCompute>>;
-	@:protected public var Factories: TArray<cpp.Star<UVLayoutOperatorFactory>>;
-	@:protected public var UVLayoutView: cpp.Star<UVLayoutPreview>;
+	@:protected public var UVChannelProperties: ucpp.Ptr<MeshUVChannelProperties>;
+	@:protected public var BasicProperties: ucpp.Ptr<UVLayoutProperties>;
+	@:protected public var MaterialSettings: ucpp.Ptr<ExistingMeshMaterialProperties>;
+	@:protected public var Previews: TArray<ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>>;
+	@:protected public var Factories: TArray<ucpp.Ptr<UVLayoutOperatorFactory>>;
+	@:protected public var UVLayoutView: ucpp.Ptr<UVLayoutPreview>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstUVLayoutTool(UVLayoutTool) from UVLayoutTool {
 @:forward
 @:nativeGen
 @:native("UVLayoutTool*")
-abstract UVLayoutToolPtr(cpp.Star<UVLayoutTool>) from cpp.Star<UVLayoutTool> to cpp.Star<UVLayoutTool>{
+abstract UVLayoutToolPtr(ucpp.Ptr<UVLayoutTool>) from ucpp.Ptr<UVLayoutTool> to ucpp.Ptr<UVLayoutTool>{
 	@:from
 	public static extern inline function fromValue(v: UVLayoutTool): UVLayoutToolPtr {
 		return untyped __cpp__("&({0})", v);

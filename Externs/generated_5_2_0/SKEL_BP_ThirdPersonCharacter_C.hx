@@ -2,16 +2,16 @@
 package ue;
 
 @:native("ASKEL_BP_ThirdPersonCharacter_C")
-@:structAccess
+@:valueType
 extern class SKEL_BP_ThirdPersonCharacter_C extends HaxeForUnrealCharacter {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
 	@:protected public function ReceiveBeginPlay(): Void;
-	public function ReceiveActorBeginOverlap(OtherActor: cpp.Star<Actor>): Void;
-	public function ReceiveTick(DeltaSeconds: cpp.Float32): Void;
+	public function ReceiveActorBeginOverlap(OtherActor: ucpp.Ptr<Actor>): Void;
+	public function ReceiveTick(DeltaSeconds: ucpp.num.Float32): Void;
 	public function UserConstructionScript(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstSKEL_BP_ThirdPersonCharacter_C(SKEL_BP_ThirdPersonCharacter_C) fro
 @:forward
 @:nativeGen
 @:native("SKEL_BP_ThirdPersonCharacter_C*")
-abstract SKEL_BP_ThirdPersonCharacter_CPtr(cpp.Star<SKEL_BP_ThirdPersonCharacter_C>) from cpp.Star<SKEL_BP_ThirdPersonCharacter_C> to cpp.Star<SKEL_BP_ThirdPersonCharacter_C>{
+abstract SKEL_BP_ThirdPersonCharacter_CPtr(ucpp.Ptr<SKEL_BP_ThirdPersonCharacter_C>) from ucpp.Ptr<SKEL_BP_ThirdPersonCharacter_C> to ucpp.Ptr<SKEL_BP_ThirdPersonCharacter_C>{
 	@:from
 	public static extern inline function fromValue(v: SKEL_BP_ThirdPersonCharacter_C): SKEL_BP_ThirdPersonCharacter_CPtr {
 		return untyped __cpp__("&({0})", v);

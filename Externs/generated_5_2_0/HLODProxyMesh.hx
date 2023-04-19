@@ -3,12 +3,12 @@ package ue;
 
 @:native("FHLODProxyMesh")
 @:include("HLOD/HLODProxyMesh.h")
-@:structAccess
+@:valueType
 extern class HLODProxyMesh {
 	private var LODActor: TLazyObjectPtr<LODActor>;
-	private var StaticMesh: cpp.Star<StaticMesh>;
+	private var StaticMesh: ucpp.Ptr<StaticMesh>;
 	private var Key: FName;
 
 	@:native("FHLODProxyMesh") public function new();
-	@:native("FHLODProxyMesh") public static function make(LODActor: TLazyObjectPtr<LODActor>, StaticMesh: cpp.Star<StaticMesh>, Key: FName): HLODProxyMesh ;
+	@:native("FHLODProxyMesh") public static function make(LODActor: TLazyObjectPtr<LODActor>, StaticMesh: ucpp.Ptr<StaticMesh>, Key: FName): HLODProxyMesh ;
 }

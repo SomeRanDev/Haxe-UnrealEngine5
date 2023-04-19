@@ -3,13 +3,13 @@ package ue;
 
 @:native("USubdividePolyTool")
 @:include("SubdividePolyTool.h")
-@:structAccess
+@:valueType
 extern class SubdividePolyTool extends SingleSelectionMeshEditingTool {
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var Properties: cpp.Star<SubdividePolyToolProperties>;
-	@:protected public var PreviewGeometry: cpp.Star<PreviewGeometry>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var Properties: ucpp.Ptr<SubdividePolyToolProperties>;
+	@:protected public var PreviewGeometry: ucpp.Ptr<PreviewGeometry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSubdividePolyTool(SubdividePolyTool) from SubdividePolyTool {
 @:forward
 @:nativeGen
 @:native("SubdividePolyTool*")
-abstract SubdividePolyToolPtr(cpp.Star<SubdividePolyTool>) from cpp.Star<SubdividePolyTool> to cpp.Star<SubdividePolyTool>{
+abstract SubdividePolyToolPtr(ucpp.Ptr<SubdividePolyTool>) from ucpp.Ptr<SubdividePolyTool> to ucpp.Ptr<SubdividePolyTool>{
 	@:from
 	public static extern inline function fromValue(v: SubdividePolyTool): SubdividePolyToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("ULandscapeMeshCollisionComponent")
 @:include("LandscapeMeshCollisionComponent.h")
-@:structAccess
+@:valueType
 extern class LandscapeMeshCollisionComp extends LandscapeHeightfieldCollisionComp {
 	public var MeshGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstLandscapeMeshCollisionComp(LandscapeMeshCollisionComp) from Landsc
 @:forward
 @:nativeGen
 @:native("LandscapeMeshCollisionComp*")
-abstract LandscapeMeshCollisionCompPtr(cpp.Star<LandscapeMeshCollisionComp>) from cpp.Star<LandscapeMeshCollisionComp> to cpp.Star<LandscapeMeshCollisionComp>{
+abstract LandscapeMeshCollisionCompPtr(ucpp.Ptr<LandscapeMeshCollisionComp>) from ucpp.Ptr<LandscapeMeshCollisionComp> to ucpp.Ptr<LandscapeMeshCollisionComp>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeMeshCollisionComp): LandscapeMeshCollisionCompPtr {
 		return untyped __cpp__("&({0})", v);

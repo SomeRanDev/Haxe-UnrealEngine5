@@ -3,10 +3,10 @@ package ue;
 
 @:native("AVREditorDockableCameraWindow")
 @:include("UI/VREditorDockableCameraWindow.h")
-@:structAccess
+@:valueType
 extern class VREditorDockableCameraWindow extends VREditorDockableWindow {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVREditorDockableCameraWindow(VREditorDockableCameraWindow) from VR
 @:forward
 @:nativeGen
 @:native("VREditorDockableCameraWindow*")
-abstract VREditorDockableCameraWindowPtr(cpp.Star<VREditorDockableCameraWindow>) from cpp.Star<VREditorDockableCameraWindow> to cpp.Star<VREditorDockableCameraWindow>{
+abstract VREditorDockableCameraWindowPtr(ucpp.Ptr<VREditorDockableCameraWindow>) from ucpp.Ptr<VREditorDockableCameraWindow> to ucpp.Ptr<VREditorDockableCameraWindow>{
 	@:from
 	public static extern inline function fromValue(v: VREditorDockableCameraWindow): VREditorDockableCameraWindowPtr {
 		return untyped __cpp__("&({0})", v);

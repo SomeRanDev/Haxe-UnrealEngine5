@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNavigationSystemConfig")
 @:include("AI/NavigationSystemConfig.h")
-@:structAccess
+@:valueType
 extern class NavigationSystemConfig extends Object {
 	public var NavigationSystemClass: SoftClassPath;
 	public var SupportedAgentsMask: NavAgentSelector;
 	public var DefaultAgentName: FName;
 	@:protected public var bIsOverriden: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstNavigationSystemConfig(NavigationSystemConfig) from NavigationSyst
 @:forward
 @:nativeGen
 @:native("NavigationSystemConfig*")
-abstract NavigationSystemConfigPtr(cpp.Star<NavigationSystemConfig>) from cpp.Star<NavigationSystemConfig> to cpp.Star<NavigationSystemConfig>{
+abstract NavigationSystemConfigPtr(ucpp.Ptr<NavigationSystemConfig>) from ucpp.Ptr<NavigationSystemConfig> to ucpp.Ptr<NavigationSystemConfig>{
 	@:from
 	public static extern inline function fromValue(v: NavigationSystemConfig): NavigationSystemConfigPtr {
 		return untyped __cpp__("&({0})", v);

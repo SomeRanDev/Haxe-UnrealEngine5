@@ -3,21 +3,21 @@ package ue;
 
 @:native("UInterchangeGenericAssetsPipeline")
 @:include("InterchangeGenericAssetsPipeline.h")
-@:structAccess
+@:valueType
 extern class InterchangeGenericAssetsPipeline extends InterchangePipelineBase {
 	public var ReimportStrategy: EReimportStrategyFlags;
 	public var bUseSourceNameForAsset: Bool;
 	public var AssetName: FString;
 	public var ImportOffsetTranslation: Vector;
 	public var ImportOffsetRotation: Rotator;
-	public var ImportOffsetUniformScale: cpp.Float32;
-	public var CommonMeshesProperties: cpp.Star<InterchangeGenericCommonMeshesProperties>;
-	public var CommonSkeletalMeshesAndAnimationsProperties: cpp.Star<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>;
-	public var MeshPipeline: cpp.Star<InterchangeGenericMeshPipeline>;
-	public var AnimationPipeline: cpp.Star<InterchangeGenericAnimationPipeline>;
-	public var MaterialPipeline: cpp.Star<InterchangeGenericMaterialPipeline>;
+	public var ImportOffsetUniformScale: ucpp.num.Float32;
+	public var CommonMeshesProperties: ucpp.Ptr<InterchangeGenericCommonMeshesProperties>;
+	public var CommonSkeletalMeshesAndAnimationsProperties: ucpp.Ptr<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>;
+	public var MeshPipeline: ucpp.Ptr<InterchangeGenericMeshPipeline>;
+	public var AnimationPipeline: ucpp.Ptr<InterchangeGenericAnimationPipeline>;
+	public var MaterialPipeline: ucpp.Ptr<InterchangeGenericMaterialPipeline>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,24 +33,24 @@ abstract ConstInterchangeGenericAssetsPipeline(InterchangeGenericAssetsPipeline)
 	public inline extern function get_ImportOffsetTranslation(): Vector return this.ImportOffsetTranslation;
 	public extern var ImportOffsetRotation(get, never): Rotator;
 	public inline extern function get_ImportOffsetRotation(): Rotator return this.ImportOffsetRotation;
-	public extern var ImportOffsetUniformScale(get, never): cpp.Float32;
-	public inline extern function get_ImportOffsetUniformScale(): cpp.Float32 return this.ImportOffsetUniformScale;
-	public extern var CommonMeshesProperties(get, never): cpp.Star<InterchangeGenericCommonMeshesProperties.ConstInterchangeGenericCommonMeshesProperties>;
-	public inline extern function get_CommonMeshesProperties(): cpp.Star<InterchangeGenericCommonMeshesProperties.ConstInterchangeGenericCommonMeshesProperties> return this.CommonMeshesProperties;
-	public extern var CommonSkeletalMeshesAndAnimationsProperties(get, never): cpp.Star<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties.ConstInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>;
-	public inline extern function get_CommonSkeletalMeshesAndAnimationsProperties(): cpp.Star<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties.ConstInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties> return this.CommonSkeletalMeshesAndAnimationsProperties;
-	public extern var MeshPipeline(get, never): cpp.Star<InterchangeGenericMeshPipeline.ConstInterchangeGenericMeshPipeline>;
-	public inline extern function get_MeshPipeline(): cpp.Star<InterchangeGenericMeshPipeline.ConstInterchangeGenericMeshPipeline> return this.MeshPipeline;
-	public extern var AnimationPipeline(get, never): cpp.Star<InterchangeGenericAnimationPipeline.ConstInterchangeGenericAnimationPipeline>;
-	public inline extern function get_AnimationPipeline(): cpp.Star<InterchangeGenericAnimationPipeline.ConstInterchangeGenericAnimationPipeline> return this.AnimationPipeline;
-	public extern var MaterialPipeline(get, never): cpp.Star<InterchangeGenericMaterialPipeline.ConstInterchangeGenericMaterialPipeline>;
-	public inline extern function get_MaterialPipeline(): cpp.Star<InterchangeGenericMaterialPipeline.ConstInterchangeGenericMaterialPipeline> return this.MaterialPipeline;
+	public extern var ImportOffsetUniformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ImportOffsetUniformScale(): ucpp.num.Float32 return this.ImportOffsetUniformScale;
+	public extern var CommonMeshesProperties(get, never): ucpp.Ptr<InterchangeGenericCommonMeshesProperties.ConstInterchangeGenericCommonMeshesProperties>;
+	public inline extern function get_CommonMeshesProperties(): ucpp.Ptr<InterchangeGenericCommonMeshesProperties.ConstInterchangeGenericCommonMeshesProperties> return this.CommonMeshesProperties;
+	public extern var CommonSkeletalMeshesAndAnimationsProperties(get, never): ucpp.Ptr<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties.ConstInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties>;
+	public inline extern function get_CommonSkeletalMeshesAndAnimationsProperties(): ucpp.Ptr<InterchangeGenericCommonSkeletalMeshesAndAnimationsProperties.ConstInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties> return this.CommonSkeletalMeshesAndAnimationsProperties;
+	public extern var MeshPipeline(get, never): ucpp.Ptr<InterchangeGenericMeshPipeline.ConstInterchangeGenericMeshPipeline>;
+	public inline extern function get_MeshPipeline(): ucpp.Ptr<InterchangeGenericMeshPipeline.ConstInterchangeGenericMeshPipeline> return this.MeshPipeline;
+	public extern var AnimationPipeline(get, never): ucpp.Ptr<InterchangeGenericAnimationPipeline.ConstInterchangeGenericAnimationPipeline>;
+	public inline extern function get_AnimationPipeline(): ucpp.Ptr<InterchangeGenericAnimationPipeline.ConstInterchangeGenericAnimationPipeline> return this.AnimationPipeline;
+	public extern var MaterialPipeline(get, never): ucpp.Ptr<InterchangeGenericMaterialPipeline.ConstInterchangeGenericMaterialPipeline>;
+	public inline extern function get_MaterialPipeline(): ucpp.Ptr<InterchangeGenericMaterialPipeline.ConstInterchangeGenericMaterialPipeline> return this.MaterialPipeline;
 }
 
 @:forward
 @:nativeGen
 @:native("InterchangeGenericAssetsPipeline*")
-abstract InterchangeGenericAssetsPipelinePtr(cpp.Star<InterchangeGenericAssetsPipeline>) from cpp.Star<InterchangeGenericAssetsPipeline> to cpp.Star<InterchangeGenericAssetsPipeline>{
+abstract InterchangeGenericAssetsPipelinePtr(ucpp.Ptr<InterchangeGenericAssetsPipeline>) from ucpp.Ptr<InterchangeGenericAssetsPipeline> to ucpp.Ptr<InterchangeGenericAssetsPipeline>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGenericAssetsPipeline): InterchangeGenericAssetsPipelinePtr {
 		return untyped __cpp__("&({0})", v);

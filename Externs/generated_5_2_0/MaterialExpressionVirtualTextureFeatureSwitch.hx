@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionVirtualTextureFeatureSwitch")
 @:include("Materials/MaterialExpressionVirtualTextureFeatureSwitch.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionVirtualTextureFeatureSwitch extends MaterialExpression {
 	public var No: ExpressionInput;
 	public var Yes: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionVirtualTextureFeatureSwitch(MaterialExpressionVi
 @:forward
 @:nativeGen
 @:native("MaterialExpressionVirtualTextureFeatureSwitch*")
-abstract MaterialExpressionVirtualTextureFeatureSwitchPtr(cpp.Star<MaterialExpressionVirtualTextureFeatureSwitch>) from cpp.Star<MaterialExpressionVirtualTextureFeatureSwitch> to cpp.Star<MaterialExpressionVirtualTextureFeatureSwitch>{
+abstract MaterialExpressionVirtualTextureFeatureSwitchPtr(ucpp.Ptr<MaterialExpressionVirtualTextureFeatureSwitch>) from ucpp.Ptr<MaterialExpressionVirtualTextureFeatureSwitch> to ucpp.Ptr<MaterialExpressionVirtualTextureFeatureSwitch>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionVirtualTextureFeatureSwitch): MaterialExpressionVirtualTextureFeatureSwitchPtr {
 		return untyped __cpp__("&({0})", v);

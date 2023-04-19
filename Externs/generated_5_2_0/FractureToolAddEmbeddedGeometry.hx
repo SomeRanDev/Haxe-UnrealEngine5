@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFractureToolAddEmbeddedGeometry")
 @:include("FractureToolEmbed.h")
-@:structAccess
+@:valueType
 extern class FractureToolAddEmbeddedGeometry extends FractureActionTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFractureToolAddEmbeddedGeometry(FractureToolAddEmbeddedGeometry) f
 @:forward
 @:nativeGen
 @:native("FractureToolAddEmbeddedGeometry*")
-abstract FractureToolAddEmbeddedGeometryPtr(cpp.Star<FractureToolAddEmbeddedGeometry>) from cpp.Star<FractureToolAddEmbeddedGeometry> to cpp.Star<FractureToolAddEmbeddedGeometry>{
+abstract FractureToolAddEmbeddedGeometryPtr(ucpp.Ptr<FractureToolAddEmbeddedGeometry>) from ucpp.Ptr<FractureToolAddEmbeddedGeometry> to ucpp.Ptr<FractureToolAddEmbeddedGeometry>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolAddEmbeddedGeometry): FractureToolAddEmbeddedGeometryPtr {
 		return untyped __cpp__("&({0})", v);

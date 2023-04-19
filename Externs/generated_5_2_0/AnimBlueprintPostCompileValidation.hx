@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimBlueprintPostCompileValidation")
 @:include("AnimBlueprintPostCompileValidation.h")
-@:structAccess
+@:valueType
 extern class AnimBlueprintPostCompileValidation extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimBlueprintPostCompileValidation(AnimBlueprintPostCompileValidat
 @:forward
 @:nativeGen
 @:native("AnimBlueprintPostCompileValidation*")
-abstract AnimBlueprintPostCompileValidationPtr(cpp.Star<AnimBlueprintPostCompileValidation>) from cpp.Star<AnimBlueprintPostCompileValidation> to cpp.Star<AnimBlueprintPostCompileValidation>{
+abstract AnimBlueprintPostCompileValidationPtr(ucpp.Ptr<AnimBlueprintPostCompileValidation>) from ucpp.Ptr<AnimBlueprintPostCompileValidation> to ucpp.Ptr<AnimBlueprintPostCompileValidation>{
 	@:from
 	public static extern inline function fromValue(v: AnimBlueprintPostCompileValidation): AnimBlueprintPostCompileValidationPtr {
 		return untyped __cpp__("&({0})", v);

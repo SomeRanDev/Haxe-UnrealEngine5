@@ -3,18 +3,18 @@ package ue;
 
 @:native("UDrawPolygonTool")
 @:include("DrawPolygonTool.h")
-@:structAccess
+@:valueType
 extern class DrawPolygonTool extends InteractiveTool {
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var PolygonProperties: cpp.Star<DrawPolygonToolStandardProperties>;
-	@:protected public var SnapProperties: cpp.Star<DrawPolygonToolSnapProperties>;
-	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
-	@:protected public var HeightMechanic: cpp.Star<PlaneDistanceFromHitMechanic>;
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
-	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var PolygonProperties: ucpp.Ptr<DrawPolygonToolStandardProperties>;
+	@:protected public var SnapProperties: ucpp.Ptr<DrawPolygonToolSnapProperties>;
+	@:protected public var MaterialProperties: ucpp.Ptr<NewMeshMaterialProperties>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
+	@:protected public var HeightMechanic: ucpp.Ptr<PlaneDistanceFromHitMechanic>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
+	@:protected public var PlaneMechanic: ucpp.Ptr<ConstructionPlaneMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstDrawPolygonTool(DrawPolygonTool) from DrawPolygonTool {
 @:forward
 @:nativeGen
 @:native("DrawPolygonTool*")
-abstract DrawPolygonToolPtr(cpp.Star<DrawPolygonTool>) from cpp.Star<DrawPolygonTool> to cpp.Star<DrawPolygonTool>{
+abstract DrawPolygonToolPtr(ucpp.Ptr<DrawPolygonTool>) from ucpp.Ptr<DrawPolygonTool> to ucpp.Ptr<DrawPolygonTool>{
 	@:from
 	public static extern inline function fromValue(v: DrawPolygonTool): DrawPolygonToolPtr {
 		return untyped __cpp__("&({0})", v);

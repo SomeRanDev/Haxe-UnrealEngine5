@@ -3,11 +3,11 @@ package ue;
 
 @:native("AVolumetricCloud")
 @:include("Components/VolumetricCloudComponent.h")
-@:structAccess
+@:valueType
 extern class VolumetricCloud extends Info {
-	private var VolumetricCloudComponent: cpp.Star<VolumetricCloudComp>;
+	private var VolumetricCloudComponent: ucpp.Ptr<VolumetricCloudComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVolumetricCloud(VolumetricCloud) from VolumetricCloud {
 @:forward
 @:nativeGen
 @:native("VolumetricCloud*")
-abstract VolumetricCloudPtr(cpp.Star<VolumetricCloud>) from cpp.Star<VolumetricCloud> to cpp.Star<VolumetricCloud>{
+abstract VolumetricCloudPtr(ucpp.Ptr<VolumetricCloud>) from ucpp.Ptr<VolumetricCloud> to ucpp.Ptr<VolumetricCloud>{
 	@:from
 	public static extern inline function fromValue(v: VolumetricCloud): VolumetricCloudPtr {
 		return untyped __cpp__("&({0})", v);

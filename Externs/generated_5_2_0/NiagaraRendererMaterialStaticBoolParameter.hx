@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraRendererMaterialStaticBoolParameter")
 @:include("NiagaraRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraRendererMaterialStaticBoolParameter {
 	public var MaterialParameterName: FName;
 	public var StaticVariableName: FName;

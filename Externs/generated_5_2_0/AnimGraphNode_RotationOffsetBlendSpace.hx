@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_RotationOffsetBlendSpace")
 @:include("AnimGraphNode_RotationOffsetBlendSpace.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_RotationOffsetBlendSpace extends AnimGraphNode_BlendSpaceBase {
 	public var Node: AnimNode_RotationOffsetBlendSpace;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_RotationOffsetBlendSpace(AnimGraphNode_RotationOffse
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_RotationOffsetBlendSpace*")
-abstract AnimGraphNode_RotationOffsetBlendSpacePtr(cpp.Star<AnimGraphNode_RotationOffsetBlendSpace>) from cpp.Star<AnimGraphNode_RotationOffsetBlendSpace> to cpp.Star<AnimGraphNode_RotationOffsetBlendSpace>{
+abstract AnimGraphNode_RotationOffsetBlendSpacePtr(ucpp.Ptr<AnimGraphNode_RotationOffsetBlendSpace>) from ucpp.Ptr<AnimGraphNode_RotationOffsetBlendSpace> to ucpp.Ptr<AnimGraphNode_RotationOffsetBlendSpace>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_RotationOffsetBlendSpace): AnimGraphNode_RotationOffsetBlendSpacePtr {
 		return untyped __cpp__("&({0})", v);

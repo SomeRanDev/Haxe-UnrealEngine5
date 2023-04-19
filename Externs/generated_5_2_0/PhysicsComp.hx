@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPhysicsComponent")
-@:structAccess
+@:valueType
 extern class PhysicsComp extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPhysicsComp(PhysicsComp) from PhysicsComp {
 @:forward
 @:nativeGen
 @:native("PhysicsComp*")
-abstract PhysicsCompPtr(cpp.Star<PhysicsComp>) from cpp.Star<PhysicsComp> to cpp.Star<PhysicsComp>{
+abstract PhysicsCompPtr(ucpp.Ptr<PhysicsComp>) from ucpp.Ptr<PhysicsComp> to ucpp.Ptr<PhysicsComp>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsComp): PhysicsCompPtr {
 		return untyped __cpp__("&({0})", v);

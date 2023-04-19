@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEditableGameplayTagQuery")
 @:include("GameplayTagContainer.h")
-@:structAccess
+@:valueType
 extern class EditableGameplayTagQuery extends Object {
 	public var UserDescription: FString;
-	public var RootExpression: cpp.Star<EditableGameplayTagQueryExpression>;
+	public var RootExpression: ucpp.Ptr<EditableGameplayTagQueryExpression>;
 	private var TagQueryExportText_Helper: GameplayTagQuery;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,14 +17,14 @@ extern class EditableGameplayTagQuery extends Object {
 abstract ConstEditableGameplayTagQuery(EditableGameplayTagQuery) from EditableGameplayTagQuery {
 	public extern var UserDescription(get, never): FString;
 	public inline extern function get_UserDescription(): FString return this.UserDescription;
-	public extern var RootExpression(get, never): cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>;
-	public inline extern function get_RootExpression(): cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression> return this.RootExpression;
+	public extern var RootExpression(get, never): ucpp.Ptr<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>;
+	public inline extern function get_RootExpression(): ucpp.Ptr<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression> return this.RootExpression;
 }
 
 @:forward
 @:nativeGen
 @:native("EditableGameplayTagQuery*")
-abstract EditableGameplayTagQueryPtr(cpp.Star<EditableGameplayTagQuery>) from cpp.Star<EditableGameplayTagQuery> to cpp.Star<EditableGameplayTagQuery>{
+abstract EditableGameplayTagQueryPtr(ucpp.Ptr<EditableGameplayTagQuery>) from ucpp.Ptr<EditableGameplayTagQuery> to ucpp.Ptr<EditableGameplayTagQuery>{
 	@:from
 	public static extern inline function fromValue(v: EditableGameplayTagQuery): EditableGameplayTagQueryPtr {
 		return untyped __cpp__("&({0})", v);

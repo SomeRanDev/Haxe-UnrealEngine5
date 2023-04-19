@@ -3,24 +3,13 @@ package ue;
 
 @:native("URetargetChainSettings")
 @:include("Retargeter/IKRetargeter.h")
-@:structAccess
+@:valueType
 extern class RetargetChainSettings extends Object {
 	public var SourceChain: FName;
 	public var TargetChain: FName;
-	public var CopyPoseUsingFK: Bool;
-	public var RotationMode: ERetargetRotationMode;
-	public var RotationAlpha: cpp.Float32;
-	public var TranslationMode: ERetargetTranslationMode;
-	public var TranslationAlpha: cpp.Float32;
-	public var DriveIKGoal: Bool;
-	public var BlendToSource: cpp.Float32;
-	public var BlendToSourceWeights: Vector;
-	public var StaticOffset: Vector;
-	public var Extension: cpp.Float32;
-	public var MatchSourceVelocity: cpp.Float32;
-	public var VelocityThreshold: cpp.Float32;
+	public var Settings: TargetChainSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,36 +19,14 @@ abstract ConstRetargetChainSettings(RetargetChainSettings) from RetargetChainSet
 	public inline extern function get_SourceChain(): FName return this.SourceChain;
 	public extern var TargetChain(get, never): FName;
 	public inline extern function get_TargetChain(): FName return this.TargetChain;
-	public extern var CopyPoseUsingFK(get, never): Bool;
-	public inline extern function get_CopyPoseUsingFK(): Bool return this.CopyPoseUsingFK;
-	public extern var RotationMode(get, never): ERetargetRotationMode;
-	public inline extern function get_RotationMode(): ERetargetRotationMode return this.RotationMode;
-	public extern var RotationAlpha(get, never): cpp.Float32;
-	public inline extern function get_RotationAlpha(): cpp.Float32 return this.RotationAlpha;
-	public extern var TranslationMode(get, never): ERetargetTranslationMode;
-	public inline extern function get_TranslationMode(): ERetargetTranslationMode return this.TranslationMode;
-	public extern var TranslationAlpha(get, never): cpp.Float32;
-	public inline extern function get_TranslationAlpha(): cpp.Float32 return this.TranslationAlpha;
-	public extern var DriveIKGoal(get, never): Bool;
-	public inline extern function get_DriveIKGoal(): Bool return this.DriveIKGoal;
-	public extern var BlendToSource(get, never): cpp.Float32;
-	public inline extern function get_BlendToSource(): cpp.Float32 return this.BlendToSource;
-	public extern var BlendToSourceWeights(get, never): Vector;
-	public inline extern function get_BlendToSourceWeights(): Vector return this.BlendToSourceWeights;
-	public extern var StaticOffset(get, never): Vector;
-	public inline extern function get_StaticOffset(): Vector return this.StaticOffset;
-	public extern var Extension(get, never): cpp.Float32;
-	public inline extern function get_Extension(): cpp.Float32 return this.Extension;
-	public extern var MatchSourceVelocity(get, never): cpp.Float32;
-	public inline extern function get_MatchSourceVelocity(): cpp.Float32 return this.MatchSourceVelocity;
-	public extern var VelocityThreshold(get, never): cpp.Float32;
-	public inline extern function get_VelocityThreshold(): cpp.Float32 return this.VelocityThreshold;
+	public extern var Settings(get, never): TargetChainSettings;
+	public inline extern function get_Settings(): TargetChainSettings return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("RetargetChainSettings*")
-abstract RetargetChainSettingsPtr(cpp.Star<RetargetChainSettings>) from cpp.Star<RetargetChainSettings> to cpp.Star<RetargetChainSettings>{
+abstract RetargetChainSettingsPtr(ucpp.Ptr<RetargetChainSettings>) from ucpp.Ptr<RetargetChainSettings> to ucpp.Ptr<RetargetChainSettings>{
 	@:from
 	public static extern inline function fromValue(v: RetargetChainSettings): RetargetChainSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPreSkinnedPosition")
 @:include("Materials/MaterialExpressionPreSkinnedPosition.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPreSkinnedPosition extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionPreSkinnedPosition(MaterialExpressionPreSkinnedP
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPreSkinnedPosition*")
-abstract MaterialExpressionPreSkinnedPositionPtr(cpp.Star<MaterialExpressionPreSkinnedPosition>) from cpp.Star<MaterialExpressionPreSkinnedPosition> to cpp.Star<MaterialExpressionPreSkinnedPosition>{
+abstract MaterialExpressionPreSkinnedPositionPtr(ucpp.Ptr<MaterialExpressionPreSkinnedPosition>) from ucpp.Ptr<MaterialExpressionPreSkinnedPosition> to ucpp.Ptr<MaterialExpressionPreSkinnedPosition>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPreSkinnedPosition): MaterialExpressionPreSkinnedPositionPtr {
 		return untyped __cpp__("&({0})", v);

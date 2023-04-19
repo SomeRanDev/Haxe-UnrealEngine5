@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_MakeContainer")
 @:include("K2Node_MakeContainer.h")
-@:structAccess
+@:valueType
 extern class K2Node_MakeContainer extends K2Node {
-	public var NumInputs: cpp.Int32;
+	public var NumInputs: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_MakeContainer(K2Node_MakeContainer) from K2Node_MakeContainer {
-	public extern var NumInputs(get, never): cpp.Int32;
-	public inline extern function get_NumInputs(): cpp.Int32 return this.NumInputs;
+	public extern var NumInputs(get, never): ucpp.num.Int32;
+	public inline extern function get_NumInputs(): ucpp.num.Int32 return this.NumInputs;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_MakeContainer*")
-abstract K2Node_MakeContainerPtr(cpp.Star<K2Node_MakeContainer>) from cpp.Star<K2Node_MakeContainer> to cpp.Star<K2Node_MakeContainer>{
+abstract K2Node_MakeContainerPtr(ucpp.Ptr<K2Node_MakeContainer>) from ucpp.Ptr<K2Node_MakeContainer> to ucpp.Ptr<K2Node_MakeContainer>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_MakeContainer): K2Node_MakeContainerPtr {
 		return untyped __cpp__("&({0})", v);

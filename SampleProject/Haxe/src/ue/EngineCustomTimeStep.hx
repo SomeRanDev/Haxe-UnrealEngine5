@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEngineCustomTimeStep")
 @:include("Engine/EngineCustomTimeStep.h")
-@:structAccess
+@:valueType
 extern class EngineCustomTimeStep extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEngineCustomTimeStep(EngineCustomTimeStep) from EngineCustomTimeSt
 @:forward
 @:nativeGen
 @:native("EngineCustomTimeStep*")
-abstract EngineCustomTimeStepPtr(cpp.Star<EngineCustomTimeStep>) from cpp.Star<EngineCustomTimeStep> to cpp.Star<EngineCustomTimeStep>{
+abstract EngineCustomTimeStepPtr(ucpp.Ptr<EngineCustomTimeStep>) from ucpp.Ptr<EngineCustomTimeStep> to ucpp.Ptr<EngineCustomTimeStep>{
 	@:from
 	public static extern inline function fromValue(v: EngineCustomTimeStep): EngineCustomTimeStepPtr {
 		return untyped __cpp__("&({0})", v);

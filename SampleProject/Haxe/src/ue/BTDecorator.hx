@@ -3,12 +3,12 @@ package ue;
 
 @:native("UBTDecorator")
 @:include("BehaviorTree/BTDecorator.h")
-@:structAccess
+@:valueType
 extern class BTDecorator extends BTAuxiliaryNode {
 	private var bInverseCondition: Bool;
 	@:protected public var FlowAbortMode: TEnumAsByte<EBTFlowAbortMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstBTDecorator(BTDecorator) from BTDecorator {
 @:forward
 @:nativeGen
 @:native("BTDecorator*")
-abstract BTDecoratorPtr(cpp.Star<BTDecorator>) from cpp.Star<BTDecorator> to cpp.Star<BTDecorator>{
+abstract BTDecoratorPtr(ucpp.Ptr<BTDecorator>) from ucpp.Ptr<BTDecorator> to ucpp.Ptr<BTDecorator>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator): BTDecoratorPtr {
 		return untyped __cpp__("&({0})", v);

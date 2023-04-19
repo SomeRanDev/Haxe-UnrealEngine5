@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSoundModulationDefaultSettings")
 @:include("Sound/SoundModulationDestination.h")
-@:structAccess
+@:valueType
 extern class SoundModulationDefaultSettings {
 	public var VolumeModulationDestination: SoundModulationDestinationSettings;
 	public var PitchModulationDestination: SoundModulationDestinationSettings;

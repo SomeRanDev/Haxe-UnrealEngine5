@@ -3,29 +3,29 @@ package ue;
 
 @:native("UAsyncTaskDownloadImage")
 @:include("Blueprint/AsyncTaskDownloadImage.h")
-@:structAccess
+@:valueType
 extern class AsyncTaskDownloadImage extends BlueprintAsyncActionBase {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic>) -> Void>;
-	public var OnFail: HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Texture2DDynamic>) -> Void>;
+	public var OnFail: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Texture2DDynamic>) -> Void>;
 
-	public function DownloadImage(URL: FString): cpp.Star<AsyncTaskDownloadImage>;
+	public function DownloadImage(URL: FString): ucpp.Ptr<AsyncTaskDownloadImage>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncTaskDownloadImage(AsyncTaskDownloadImage) from AsyncTaskDownloadImage {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic.ConstTexture2DDynamic>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic.ConstTexture2DDynamic>) -> Void> return this.OnSuccess;
-	public extern var OnFail(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic.ConstTexture2DDynamic>) -> Void>;
-	public inline extern function get_OnFail(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Texture2DDynamic.ConstTexture2DDynamic>) -> Void> return this.OnFail;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Texture2DDynamic.ConstTexture2DDynamic>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Texture2DDynamic.ConstTexture2DDynamic>) -> Void> return this.OnSuccess;
+	public extern var OnFail(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Texture2DDynamic.ConstTexture2DDynamic>) -> Void>;
+	public inline extern function get_OnFail(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Texture2DDynamic.ConstTexture2DDynamic>) -> Void> return this.OnFail;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncTaskDownloadImage*")
-abstract AsyncTaskDownloadImagePtr(cpp.Star<AsyncTaskDownloadImage>) from cpp.Star<AsyncTaskDownloadImage> to cpp.Star<AsyncTaskDownloadImage>{
+abstract AsyncTaskDownloadImagePtr(ucpp.Ptr<AsyncTaskDownloadImage>) from ucpp.Ptr<AsyncTaskDownloadImage> to ucpp.Ptr<AsyncTaskDownloadImage>{
 	@:from
 	public static extern inline function fromValue(v: AsyncTaskDownloadImage): AsyncTaskDownloadImagePtr {
 		return untyped __cpp__("&({0})", v);

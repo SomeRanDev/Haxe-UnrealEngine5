@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterface_PostProcessVolume")
-@:structAccess
+@:valueType
 extern class Interface_PostProcessVolume extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterface_PostProcessVolume(Interface_PostProcessVolume) from Inte
 @:forward
 @:nativeGen
 @:native("Interface_PostProcessVolume*")
-abstract Interface_PostProcessVolumePtr(cpp.Star<Interface_PostProcessVolume>) from cpp.Star<Interface_PostProcessVolume> to cpp.Star<Interface_PostProcessVolume>{
+abstract Interface_PostProcessVolumePtr(ucpp.Ptr<Interface_PostProcessVolume>) from ucpp.Ptr<Interface_PostProcessVolume> to ucpp.Ptr<Interface_PostProcessVolume>{
 	@:from
 	public static extern inline function fromValue(v: Interface_PostProcessVolume): Interface_PostProcessVolumePtr {
 		return untyped __cpp__("&({0})", v);

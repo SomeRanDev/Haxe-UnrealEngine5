@@ -3,7 +3,7 @@ package ue;
 
 @:native("FROscillator")
 @:include("LegacyCameraShake.h")
-@:structAccess
+@:valueType
 extern class ROscillator {
 	public var Pitch: FOscillator;
 	public var Yaw: FOscillator;

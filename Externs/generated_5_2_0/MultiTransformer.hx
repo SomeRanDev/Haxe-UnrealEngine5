@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMultiTransformer")
 @:include("Transforms/MultiTransformer.h")
-@:structAccess
+@:valueType
 extern class MultiTransformer extends Object {
-	@:protected public var GizmoManager: cpp.Star<InteractiveGizmoManager>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var DragAlignmentMechanic: cpp.Star<DragAlignmentMechanic>;
+	@:protected public var GizmoManager: ucpp.Ptr<InteractiveGizmoManager>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var DragAlignmentMechanic: ucpp.Ptr<DragAlignmentMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMultiTransformer(MultiTransformer) from MultiTransformer {
 @:forward
 @:nativeGen
 @:native("MultiTransformer*")
-abstract MultiTransformerPtr(cpp.Star<MultiTransformer>) from cpp.Star<MultiTransformer> to cpp.Star<MultiTransformer>{
+abstract MultiTransformerPtr(ucpp.Ptr<MultiTransformer>) from ucpp.Ptr<MultiTransformer> to ucpp.Ptr<MultiTransformer>{
 	@:from
 	public static extern inline function fromValue(v: MultiTransformer): MultiTransformerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UTexture2DArrayFactory")
 @:include("Factories/Texture2DArrayFactory.h")
-@:structAccess
+@:valueType
 extern class Texture2DArrayFactory extends Factory {
-	public var InitialTextures: TArray<cpp.Star<Texture2D>>;
+	public var InitialTextures: TArray<ucpp.Ptr<Texture2D>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTexture2DArrayFactory(Texture2DArrayFactory) from Texture2DArrayFactory {
-	public extern var InitialTextures(get, never): TArray<cpp.Star<Texture2D.ConstTexture2D>>;
-	public inline extern function get_InitialTextures(): TArray<cpp.Star<Texture2D.ConstTexture2D>> return this.InitialTextures;
+	public extern var InitialTextures(get, never): TArray<ucpp.Ptr<Texture2D.ConstTexture2D>>;
+	public inline extern function get_InitialTextures(): TArray<ucpp.Ptr<Texture2D.ConstTexture2D>> return this.InitialTextures;
 }
 
 @:forward
 @:nativeGen
 @:native("Texture2DArrayFactory*")
-abstract Texture2DArrayFactoryPtr(cpp.Star<Texture2DArrayFactory>) from cpp.Star<Texture2DArrayFactory> to cpp.Star<Texture2DArrayFactory>{
+abstract Texture2DArrayFactoryPtr(ucpp.Ptr<Texture2DArrayFactory>) from ucpp.Ptr<Texture2DArrayFactory> to ucpp.Ptr<Texture2DArrayFactory>{
 	@:from
 	public static extern inline function fromValue(v: Texture2DArrayFactory): Texture2DArrayFactoryPtr {
 		return untyped __cpp__("&({0})", v);

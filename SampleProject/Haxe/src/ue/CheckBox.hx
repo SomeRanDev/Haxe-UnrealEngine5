@@ -3,9 +3,10 @@ package ue;
 
 @:native("UCheckBox")
 @:include("Components/CheckBox.h")
-@:structAccess
+@:valueType
 extern class CheckBox extends ContentWidget {
-	public var CheckedState: ECheckBoxState;
+	public function GetCheckedState(): ECheckBoxState;
+	public function SetCheckedState(input: ECheckBoxState): Void;
 	public var CheckedStateDelegate: HaxeDelegateProperty<() -> Void>;
 	public var WidgetStyle: CheckBoxStyle;
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
@@ -19,19 +20,15 @@ extern class CheckBox extends ContentWidget {
 	public function SetPressMethod(InPressMethod: TEnumAsByte<EButtonPressMethod>): Void;
 	public function SetIsChecked(InIsChecked: Bool): Void;
 	public function SetClickMethod(InClickMethod: TEnumAsByte<EButtonClickMethod>): Void;
-	public function SetCheckedState(InCheckedState: ECheckBoxState): Void;
 	public function IsPressed(): Bool;
 	public function IsChecked(): Bool;
-	public function GetCheckedState(): ECheckBoxState;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(IsPressed, IsChecked, GetCheckedState)
+@:forward(IsPressed, IsChecked)
 @:nativeGen
 abstract ConstCheckBox(CheckBox) from CheckBox {
-	public extern var CheckedState(get, never): ECheckBoxState;
-	public inline extern function get_CheckedState(): ECheckBoxState return this.CheckedState;
 	public extern var CheckedStateDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_CheckedStateDelegate(): HaxeDelegateProperty<() -> Void> return this.CheckedStateDelegate;
 	public extern var WidgetStyle(get, never): CheckBoxStyle;
@@ -53,7 +50,7 @@ abstract ConstCheckBox(CheckBox) from CheckBox {
 @:forward
 @:nativeGen
 @:native("CheckBox*")
-abstract CheckBoxPtr(cpp.Star<CheckBox>) from cpp.Star<CheckBox> to cpp.Star<CheckBox>{
+abstract CheckBoxPtr(ucpp.Ptr<CheckBox>) from ucpp.Ptr<CheckBox> to ucpp.Ptr<CheckBox>{
 	@:from
 	public static extern inline function fromValue(v: CheckBox): CheckBoxPtr {
 		return untyped __cpp__("&({0})", v);

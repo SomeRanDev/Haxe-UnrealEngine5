@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSourceEffectChainEntry")
 @:include("Sound/SoundEffectSource.h")
-@:structAccess
+@:valueType
 extern class SourceEffectChainEntry {
-	public var Preset: cpp.Star<SoundEffectSourcePreset>;
+	public var Preset: ucpp.Ptr<SoundEffectSourcePreset>;
 	public var bBypass: Bool;
 
 	@:native("FSourceEffectChainEntry") public function new();
-	@:native("FSourceEffectChainEntry") public static function make(Preset: cpp.Star<SoundEffectSourcePreset>, bBypass: Bool): SourceEffectChainEntry ;
+	@:native("FSourceEffectChainEntry") public static function make(Preset: ucpp.Ptr<SoundEffectSourcePreset>, bBypass: Bool): SourceEffectChainEntry ;
 }

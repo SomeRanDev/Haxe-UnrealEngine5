@@ -3,14 +3,14 @@ package ue;
 
 @:native("FUpdateLevelStreamingLevelStatus")
 @:include("GameFramework/PlayerController.h")
-@:structAccess
+@:valueType
 extern class UpdateLevelStreamingLevelStatus {
 	public var PackageName: FName;
-	public var LODIndex: cpp.Int32;
+	public var LODIndex: ucpp.num.Int32;
 	public var bNewShouldBeLoaded: Bool;
 	public var bNewShouldBeVisible: Bool;
 	public var bNewShouldBlockOnLoad: Bool;
+	public var bNewShouldBlockOnUnload: Bool;
 
 	@:native("FUpdateLevelStreamingLevelStatus") public function new();
-	@:native("FUpdateLevelStreamingLevelStatus") public static function make(PackageName: FName, LODIndex: cpp.Int32, bNewShouldBeLoaded: Bool, bNewShouldBeVisible: Bool, bNewShouldBlockOnLoad: Bool): UpdateLevelStreamingLevelStatus ;
 }

@@ -3,66 +3,66 @@ package ue;
 
 @:native("UConstraintInstanceBlueprintLibrary")
 @:include("PhysicsEngine/ConstraintInstanceBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ConstraintInstanceBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function SetProjectionParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableProjection: Bool, ProjectionLinearAlpha: cpp.Float32, ProjectionAngularAlpha: cpp.Float32): Void;
-	public function SetParentDominates(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bParentDominates: Bool): Void;
-	public function SetOrientationDriveTwistAndSwing(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableTwistDrive: Bool, bEnableSwingDrive: Bool): Void;
-	public function SetOrientationDriveSLERP(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableSLERP: Bool): Void;
-	public function SetMassConditioningEnabled(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableMassConditioning: Bool): Void;
-	public function SetLinearVelocityTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, InVelTarget: cpp.Reference<Vector>): Void;
-	public function SetLinearVelocityDrive(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableDriveX: Bool, bEnableDriveY: Bool, bEnableDriveZ: Bool): Void;
-	public function SetLinearSoftLimitParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bSoftLinearLimit: Bool, LinearLimitStiffness: cpp.Float32, LinearLimitDamping: cpp.Float32, LinearLimitRestitution: cpp.Float32, LinearLimitContactDistance: cpp.Float32): Void;
-	public function SetLinearPositionTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, InPosTarget: cpp.Reference<Vector>): Void;
-	public function SetLinearPositionDrive(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableDriveX: Bool, bEnableDriveY: Bool, bEnableDriveZ: Bool): Void;
-	public function SetLinearPlasticity(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bLinearPlasticity: Bool, LinearPlasticityThreshold: cpp.Float32, PlasticityType: TEnumAsByte<EConstraintPlasticityType>): Void;
-	public function SetLinearLimits(Accessor: cpp.Reference<ConstraintInstanceAccessor>, XMotion: TEnumAsByte<ELinearConstraintMotion>, YMotion: TEnumAsByte<ELinearConstraintMotion>, ZMotion: TEnumAsByte<ELinearConstraintMotion>, Limit: cpp.Float32): Void;
-	public function SetLinearDriveParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, PositionStrength: cpp.Float32, VelocityStrength: cpp.Float32, InForceLimit: cpp.Float32): Void;
-	public function SetLinearBreakable(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bLinearBreakable: Bool, LinearBreakThreshold: cpp.Float32): Void;
-	public function SetDisableCollision(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bDisableCollision: Bool): Void;
-	public function SetContactTransferScale(Accessor: cpp.Reference<ConstraintInstanceAccessor>, ContactTransferScale: cpp.Float32): Void;
-	public function SetAngularVelocityTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, InVelTarget: cpp.Reference<Vector>): Void;
-	public function SetAngularVelocityDriveTwistAndSwing(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableTwistDrive: Bool, bEnableSwingDrive: Bool): Void;
-	public function SetAngularVelocityDriveSLERP(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableSLERP: Bool): Void;
-	public function SetAngularSoftTwistLimitParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bSoftTwistLimit: Bool, TwistLimitStiffness: cpp.Float32, TwistLimitDamping: cpp.Float32, TwistLimitRestitution: cpp.Float32, TwistLimitContactDistance: cpp.Float32): Void;
-	public function SetAngularSoftSwingLimitParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bSoftSwingLimit: Bool, SwingLimitStiffness: cpp.Float32, SwingLimitDamping: cpp.Float32, SwingLimitRestitution: cpp.Float32, SwingLimitContactDistance: cpp.Float32): Void;
-	public function SetAngularPlasticity(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bAngularPlasticity: Bool, AngularPlasticityThreshold: cpp.Float32): Void;
-	public function SetAngularOrientationTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, InPosTarget: cpp.Reference<Rotator>): Void;
-	public function SetAngularLimits(Accessor: cpp.Reference<ConstraintInstanceAccessor>, Swing1MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing1LimitAngle: cpp.Float32, Swing2MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing2LimitAngle: cpp.Float32, TwistMotionType: TEnumAsByte<EAngularConstraintMotion>, TwistLimitAngle: cpp.Float32): Void;
-	public function SetAngularDriveParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, PositionStrength: cpp.Float32, VelocityStrength: cpp.Float32, InForceLimit: cpp.Float32): Void;
-	public function SetAngularDriveMode(Accessor: cpp.Reference<ConstraintInstanceAccessor>, DriveMode: TEnumAsByte<EAngularDriveMode>): Void;
-	public function SetAngularBreakable(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bAngularBreakable: Bool, AngularBreakThreshold: cpp.Float32): Void;
-	public function GetProjectionParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bEnableProjection: cpp.Reference<Bool>, ProjectionLinearAlpha: cpp.Reference<cpp.Float32>, ProjectionAngularAlpha: cpp.Reference<cpp.Float32>): Void;
-	public function GetParentDominates(Accessor: cpp.Reference<ConstraintInstanceAccessor>): Bool;
-	public function GetOrientationDriveTwistAndSwing(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bOutEnableTwistDrive: cpp.Reference<Bool>, bOutEnableSwingDrive: cpp.Reference<Bool>): Void;
-	public function GetOrientationDriveSLERP(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bOutEnableSLERP: cpp.Reference<Bool>): Void;
-	public function GetMassConditioningEnabled(Accessor: cpp.Reference<ConstraintInstanceAccessor>): Bool;
-	public function GetLinearVelocityTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutVelTarget: cpp.Reference<Vector>): Void;
-	public function GetLinearVelocityDrive(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bOutEnableDriveX: cpp.Reference<Bool>, bOutEnableDriveY: cpp.Reference<Bool>, bOutEnableDriveZ: cpp.Reference<Bool>): Void;
-	public function GetLinearSoftLimitParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bSoftLinearLimit: cpp.Reference<Bool>, LinearLimitStiffness: cpp.Reference<cpp.Float32>, LinearLimitDamping: cpp.Reference<cpp.Float32>, LinearLimitRestitution: cpp.Reference<cpp.Float32>, LinearLimitContactDistance: cpp.Reference<cpp.Float32>): Void;
-	public function GetLinearPositionTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutPosTarget: cpp.Reference<Vector>): Void;
-	public function GetLinearPositionDrive(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bOutEnableDriveX: cpp.Reference<Bool>, bOutEnableDriveY: cpp.Reference<Bool>, bOutEnableDriveZ: cpp.Reference<Bool>): Void;
-	public function GetLinearPlasticity(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bLinearPlasticity: cpp.Reference<Bool>, LinearPlasticityThreshold: cpp.Reference<cpp.Float32>, PlasticityType: cpp.Reference<TEnumAsByte<EConstraintPlasticityType>>): Void;
-	public function GetLinearLimits(Accessor: cpp.Reference<ConstraintInstanceAccessor>, XMotion: cpp.Reference<TEnumAsByte<ELinearConstraintMotion>>, YMotion: cpp.Reference<TEnumAsByte<ELinearConstraintMotion>>, ZMotion: cpp.Reference<TEnumAsByte<ELinearConstraintMotion>>, Limit: cpp.Reference<cpp.Float32>): Void;
-	public function GetLinearDriveParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutPositionStrength: cpp.Reference<cpp.Float32>, OutVelocityStrength: cpp.Reference<cpp.Float32>, OutForceLimit: cpp.Reference<cpp.Float32>): Void;
-	public function GetLinearBreakable(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bLinearBreakable: cpp.Reference<Bool>, LinearBreakThreshold: cpp.Reference<cpp.Float32>): Void;
-	public function GetDisableCollsion(Accessor: cpp.Reference<ConstraintInstanceAccessor>): Bool;
-	public function GetContactTransferScale(Accessor: cpp.Reference<ConstraintInstanceAccessor>, ContactTransferScale: cpp.Reference<cpp.Float32>): Void;
-	public function GetAttachedBodyNames(Accessor: cpp.Reference<ConstraintInstanceAccessor>, ParentBody: cpp.Reference<FName>, ChildBody: cpp.Reference<FName>): Void;
-	public function GetAngularVelocityTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutVelTarget: cpp.Reference<Vector>): Void;
-	public function GetAngularVelocityDriveTwistAndSwing(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bOutEnableTwistDrive: cpp.Reference<Bool>, bOutEnableSwingDrive: cpp.Reference<Bool>): Void;
-	public function GetAngularVelocityDriveSLERP(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bOutEnableSLERP: cpp.Reference<Bool>): Void;
-	public function GetAngularSoftTwistLimitParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bSoftTwistLimit: cpp.Reference<Bool>, TwistLimitStiffness: cpp.Reference<cpp.Float32>, TwistLimitDamping: cpp.Reference<cpp.Float32>, TwistLimitRestitution: cpp.Reference<cpp.Float32>, TwistLimitContactDistance: cpp.Reference<cpp.Float32>): Void;
-	public function GetAngularSoftSwingLimitParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bSoftSwingLimit: cpp.Reference<Bool>, SwingLimitStiffness: cpp.Reference<cpp.Float32>, SwingLimitDamping: cpp.Reference<cpp.Float32>, SwingLimitRestitution: cpp.Reference<cpp.Float32>, SwingLimitContactDistance: cpp.Reference<cpp.Float32>): Void;
-	public function GetAngularPlasticity(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bAngularPlasticity: cpp.Reference<Bool>, AngularPlasticityThreshold: cpp.Reference<cpp.Float32>): Void;
-	public function GetAngularOrientationTarget(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutPosTarget: cpp.Reference<Rotator>): Void;
-	public function GetAngularLimits(Accessor: cpp.Reference<ConstraintInstanceAccessor>, Swing1MotionType: cpp.Reference<TEnumAsByte<EAngularConstraintMotion>>, Swing1LimitAngle: cpp.Reference<cpp.Float32>, Swing2MotionType: cpp.Reference<TEnumAsByte<EAngularConstraintMotion>>, Swing2LimitAngle: cpp.Reference<cpp.Float32>, TwistMotionType: cpp.Reference<TEnumAsByte<EAngularConstraintMotion>>, TwistLimitAngle: cpp.Reference<cpp.Float32>): Void;
-	public function GetAngularDriveParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutPositionStrength: cpp.Reference<cpp.Float32>, OutVelocityStrength: cpp.Reference<cpp.Float32>, OutForceLimit: cpp.Reference<cpp.Float32>): Void;
-	public function GetAngularDriveMode(Accessor: cpp.Reference<ConstraintInstanceAccessor>, OutDriveMode: cpp.Reference<TEnumAsByte<EAngularDriveMode>>): Void;
-	public function GetAngularBreakable(Accessor: cpp.Reference<ConstraintInstanceAccessor>, bAngularBreakable: cpp.Reference<Bool>, AngularBreakThreshold: cpp.Reference<cpp.Float32>): Void;
-	public function CopyParams(Accessor: cpp.Reference<ConstraintInstanceAccessor>, SourceAccessor: cpp.Reference<ConstraintInstanceAccessor>, bKeepPosition: Bool, bKeepRotation: Bool): Void;
+	public function SetProjectionParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableProjection: Bool, ProjectionLinearAlpha: ucpp.num.Float32, ProjectionAngularAlpha: ucpp.num.Float32): Void;
+	public function SetParentDominates(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bParentDominates: Bool): Void;
+	public function SetOrientationDriveTwistAndSwing(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableTwistDrive: Bool, bEnableSwingDrive: Bool): Void;
+	public function SetOrientationDriveSLERP(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableSLERP: Bool): Void;
+	public function SetMassConditioningEnabled(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableMassConditioning: Bool): Void;
+	public function SetLinearVelocityTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, InVelTarget: ucpp.Ref<Vector>): Void;
+	public function SetLinearVelocityDrive(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableDriveX: Bool, bEnableDriveY: Bool, bEnableDriveZ: Bool): Void;
+	public function SetLinearSoftLimitParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bSoftLinearLimit: Bool, LinearLimitStiffness: ucpp.num.Float32, LinearLimitDamping: ucpp.num.Float32, LinearLimitRestitution: ucpp.num.Float32, LinearLimitContactDistance: ucpp.num.Float32): Void;
+	public function SetLinearPositionTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, InPosTarget: ucpp.Ref<Vector>): Void;
+	public function SetLinearPositionDrive(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableDriveX: Bool, bEnableDriveY: Bool, bEnableDriveZ: Bool): Void;
+	public function SetLinearPlasticity(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bLinearPlasticity: Bool, LinearPlasticityThreshold: ucpp.num.Float32, PlasticityType: TEnumAsByte<EConstraintPlasticityType>): Void;
+	public function SetLinearLimits(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, XMotion: TEnumAsByte<ELinearConstraintMotion>, YMotion: TEnumAsByte<ELinearConstraintMotion>, ZMotion: TEnumAsByte<ELinearConstraintMotion>, Limit: ucpp.num.Float32): Void;
+	public function SetLinearDriveParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, PositionStrength: ucpp.num.Float32, VelocityStrength: ucpp.num.Float32, InForceLimit: ucpp.num.Float32): Void;
+	public function SetLinearBreakable(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bLinearBreakable: Bool, LinearBreakThreshold: ucpp.num.Float32): Void;
+	public function SetDisableCollision(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bDisableCollision: Bool): Void;
+	public function SetContactTransferScale(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, ContactTransferScale: ucpp.num.Float32): Void;
+	public function SetAngularVelocityTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, InVelTarget: ucpp.Ref<Vector>): Void;
+	public function SetAngularVelocityDriveTwistAndSwing(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableTwistDrive: Bool, bEnableSwingDrive: Bool): Void;
+	public function SetAngularVelocityDriveSLERP(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableSLERP: Bool): Void;
+	public function SetAngularSoftTwistLimitParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bSoftTwistLimit: Bool, TwistLimitStiffness: ucpp.num.Float32, TwistLimitDamping: ucpp.num.Float32, TwistLimitRestitution: ucpp.num.Float32, TwistLimitContactDistance: ucpp.num.Float32): Void;
+	public function SetAngularSoftSwingLimitParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bSoftSwingLimit: Bool, SwingLimitStiffness: ucpp.num.Float32, SwingLimitDamping: ucpp.num.Float32, SwingLimitRestitution: ucpp.num.Float32, SwingLimitContactDistance: ucpp.num.Float32): Void;
+	public function SetAngularPlasticity(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bAngularPlasticity: Bool, AngularPlasticityThreshold: ucpp.num.Float32): Void;
+	public function SetAngularOrientationTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, InPosTarget: ucpp.Ref<Rotator>): Void;
+	public function SetAngularLimits(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, Swing1MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing1LimitAngle: ucpp.num.Float32, Swing2MotionType: TEnumAsByte<EAngularConstraintMotion>, Swing2LimitAngle: ucpp.num.Float32, TwistMotionType: TEnumAsByte<EAngularConstraintMotion>, TwistLimitAngle: ucpp.num.Float32): Void;
+	public function SetAngularDriveParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, PositionStrength: ucpp.num.Float32, VelocityStrength: ucpp.num.Float32, InForceLimit: ucpp.num.Float32): Void;
+	public function SetAngularDriveMode(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, DriveMode: TEnumAsByte<EAngularDriveMode>): Void;
+	public function SetAngularBreakable(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bAngularBreakable: Bool, AngularBreakThreshold: ucpp.num.Float32): Void;
+	public function GetProjectionParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bEnableProjection: ucpp.Ref<Bool>, ProjectionLinearAlpha: ucpp.Ref<ucpp.num.Float32>, ProjectionAngularAlpha: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetParentDominates(Accessor: ucpp.Ref<ConstraintInstanceAccessor>): Bool;
+	public function GetOrientationDriveTwistAndSwing(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bOutEnableTwistDrive: ucpp.Ref<Bool>, bOutEnableSwingDrive: ucpp.Ref<Bool>): Void;
+	public function GetOrientationDriveSLERP(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bOutEnableSLERP: ucpp.Ref<Bool>): Void;
+	public function GetMassConditioningEnabled(Accessor: ucpp.Ref<ConstraintInstanceAccessor>): Bool;
+	public function GetLinearVelocityTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, OutVelTarget: ucpp.Ref<Vector>): Void;
+	public function GetLinearVelocityDrive(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bOutEnableDriveX: ucpp.Ref<Bool>, bOutEnableDriveY: ucpp.Ref<Bool>, bOutEnableDriveZ: ucpp.Ref<Bool>): Void;
+	public function GetLinearSoftLimitParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bSoftLinearLimit: ucpp.Ref<Bool>, LinearLimitStiffness: ucpp.Ref<ucpp.num.Float32>, LinearLimitDamping: ucpp.Ref<ucpp.num.Float32>, LinearLimitRestitution: ucpp.Ref<ucpp.num.Float32>, LinearLimitContactDistance: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetLinearPositionTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, OutPosTarget: ucpp.Ref<Vector>): Void;
+	public function GetLinearPositionDrive(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bOutEnableDriveX: ucpp.Ref<Bool>, bOutEnableDriveY: ucpp.Ref<Bool>, bOutEnableDriveZ: ucpp.Ref<Bool>): Void;
+	public function GetLinearPlasticity(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bLinearPlasticity: ucpp.Ref<Bool>, LinearPlasticityThreshold: ucpp.Ref<ucpp.num.Float32>, PlasticityType: ucpp.Ref<TEnumAsByte<EConstraintPlasticityType>>): Void;
+	public function GetLinearLimits(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, XMotion: ucpp.Ref<TEnumAsByte<ELinearConstraintMotion>>, YMotion: ucpp.Ref<TEnumAsByte<ELinearConstraintMotion>>, ZMotion: ucpp.Ref<TEnumAsByte<ELinearConstraintMotion>>, Limit: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetLinearDriveParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, OutPositionStrength: ucpp.Ref<ucpp.num.Float32>, OutVelocityStrength: ucpp.Ref<ucpp.num.Float32>, OutForceLimit: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetLinearBreakable(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bLinearBreakable: ucpp.Ref<Bool>, LinearBreakThreshold: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetDisableCollsion(Accessor: ucpp.Ref<ConstraintInstanceAccessor>): Bool;
+	public function GetContactTransferScale(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, ContactTransferScale: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetAttachedBodyNames(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, ParentBody: ucpp.Ref<FName>, ChildBody: ucpp.Ref<FName>): Void;
+	public function GetAngularVelocityTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, OutVelTarget: ucpp.Ref<Vector>): Void;
+	public function GetAngularVelocityDriveTwistAndSwing(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bOutEnableTwistDrive: ucpp.Ref<Bool>, bOutEnableSwingDrive: ucpp.Ref<Bool>): Void;
+	public function GetAngularVelocityDriveSLERP(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bOutEnableSLERP: ucpp.Ref<Bool>): Void;
+	public function GetAngularSoftTwistLimitParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bSoftTwistLimit: ucpp.Ref<Bool>, TwistLimitStiffness: ucpp.Ref<ucpp.num.Float32>, TwistLimitDamping: ucpp.Ref<ucpp.num.Float32>, TwistLimitRestitution: ucpp.Ref<ucpp.num.Float32>, TwistLimitContactDistance: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetAngularSoftSwingLimitParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bSoftSwingLimit: ucpp.Ref<Bool>, SwingLimitStiffness: ucpp.Ref<ucpp.num.Float32>, SwingLimitDamping: ucpp.Ref<ucpp.num.Float32>, SwingLimitRestitution: ucpp.Ref<ucpp.num.Float32>, SwingLimitContactDistance: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetAngularPlasticity(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bAngularPlasticity: ucpp.Ref<Bool>, AngularPlasticityThreshold: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetAngularOrientationTarget(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, OutPosTarget: ucpp.Ref<Rotator>): Void;
+	public function GetAngularLimits(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, Swing1MotionType: ucpp.Ref<TEnumAsByte<EAngularConstraintMotion>>, Swing1LimitAngle: ucpp.Ref<ucpp.num.Float32>, Swing2MotionType: ucpp.Ref<TEnumAsByte<EAngularConstraintMotion>>, Swing2LimitAngle: ucpp.Ref<ucpp.num.Float32>, TwistMotionType: ucpp.Ref<TEnumAsByte<EAngularConstraintMotion>>, TwistLimitAngle: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetAngularDriveParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, OutPositionStrength: ucpp.Ref<ucpp.num.Float32>, OutVelocityStrength: ucpp.Ref<ucpp.num.Float32>, OutForceLimit: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetAngularDriveMode(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, OutDriveMode: ucpp.Ref<TEnumAsByte<EAngularDriveMode>>): Void;
+	public function GetAngularBreakable(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, bAngularBreakable: ucpp.Ref<Bool>, AngularBreakThreshold: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function CopyParams(Accessor: ucpp.Ref<ConstraintInstanceAccessor>, SourceAccessor: ucpp.Ref<ConstraintInstanceAccessor>, bKeepPosition: Bool, bKeepRotation: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -73,7 +73,7 @@ abstract ConstConstraintInstanceBlueprintLibrary(ConstraintInstanceBlueprintLibr
 @:forward
 @:nativeGen
 @:native("ConstraintInstanceBlueprintLibrary*")
-abstract ConstraintInstanceBlueprintLibraryPtr(cpp.Star<ConstraintInstanceBlueprintLibrary>) from cpp.Star<ConstraintInstanceBlueprintLibrary> to cpp.Star<ConstraintInstanceBlueprintLibrary>{
+abstract ConstraintInstanceBlueprintLibraryPtr(ucpp.Ptr<ConstraintInstanceBlueprintLibrary>) from ucpp.Ptr<ConstraintInstanceBlueprintLibrary> to ucpp.Ptr<ConstraintInstanceBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ConstraintInstanceBlueprintLibrary): ConstraintInstanceBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraDataInterfaceEmitterProperties")
 @:include("DataInterface/NiagaraDataInterfaceEmitterProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceEmitterProperties extends NiagaraDataInterface {
 	public var EmitterBinding: NiagaraDataInterfaceEmitterBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraDataInterfaceEmitterProperties(NiagaraDataInterfaceEmitterP
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceEmitterProperties*")
-abstract NiagaraDataInterfaceEmitterPropertiesPtr(cpp.Star<NiagaraDataInterfaceEmitterProperties>) from cpp.Star<NiagaraDataInterfaceEmitterProperties> to cpp.Star<NiagaraDataInterfaceEmitterProperties>{
+abstract NiagaraDataInterfaceEmitterPropertiesPtr(ucpp.Ptr<NiagaraDataInterfaceEmitterProperties>) from ucpp.Ptr<NiagaraDataInterfaceEmitterProperties> to ucpp.Ptr<NiagaraDataInterfaceEmitterProperties>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceEmitterProperties): NiagaraDataInterfaceEmitterPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

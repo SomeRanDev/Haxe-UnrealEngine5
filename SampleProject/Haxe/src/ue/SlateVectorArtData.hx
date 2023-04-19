@@ -3,15 +3,15 @@ package ue;
 
 @:native("USlateVectorArtData")
 @:include("Slate/SlateVectorArtData.h")
-@:structAccess
+@:valueType
 extern class SlateVectorArtData extends Object {
 	private var VertexData: TArray<SlateMeshVertex>;
-	private var IndexData: TArray<cpp.UInt32>;
-	private var Material: cpp.Star<MaterialInterface>;
+	private var IndexData: TArray<ucpp.num.UInt32>;
+	private var Material: ucpp.Ptr<MaterialInterface>;
 	private var ExtentMin: Vector2D;
 	private var ExtentMax: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSlateVectorArtData(SlateVectorArtData) from SlateVectorArtData {
 @:forward
 @:nativeGen
 @:native("SlateVectorArtData*")
-abstract SlateVectorArtDataPtr(cpp.Star<SlateVectorArtData>) from cpp.Star<SlateVectorArtData> to cpp.Star<SlateVectorArtData>{
+abstract SlateVectorArtDataPtr(ucpp.Ptr<SlateVectorArtData>) from ucpp.Ptr<SlateVectorArtData> to ucpp.Ptr<SlateVectorArtData>{
 	@:from
 	public static extern inline function fromValue(v: SlateVectorArtData): SlateVectorArtDataPtr {
 		return untyped __cpp__("&({0})", v);

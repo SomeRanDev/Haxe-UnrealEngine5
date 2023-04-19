@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPredictProjectilePathResult")
 @:include("Kismet/GameplayStaticsTypes.h")
-@:structAccess
+@:valueType
 extern class PredictProjectilePathResult {
 	public var PathData: TArray<PredictProjectilePathPointData>;
 	public var LastTraceDestination: PredictProjectilePathPointData;

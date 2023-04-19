@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionVolumetricAdvancedMaterialOutput")
 @:include("Materials/MaterialExpressionVolumetricAdvancedMaterialOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionVolumetricAdvancedMaterialOutput extends MaterialExpressionCustomOutput {
 	public var PhaseG: ExpressionInput;
 	public var PhaseG2: ExpressionInput;
@@ -12,20 +12,20 @@ extern class MaterialExpressionVolumetricAdvancedMaterialOutput extends Material
 	public var MultiScatteringOcclusion: ExpressionInput;
 	public var MultiScatteringEccentricity: ExpressionInput;
 	public var ConservativeDensity: ExpressionInput;
-	public var ConstPhaseG: cpp.Float32;
-	public var ConstPhaseG2: cpp.Float32;
-	public var ConstPhaseBlend: cpp.Float32;
+	public var ConstPhaseG: ucpp.num.Float32;
+	public var ConstPhaseG2: ucpp.num.Float32;
+	public var ConstPhaseBlend: ucpp.num.Float32;
 	public var PerSamplePhaseEvaluation: Bool;
-	public var MultiScatteringApproximationOctaveCount: cpp.UInt32;
-	public var ConstMultiScatteringContribution: cpp.Float32;
-	public var ConstMultiScatteringOcclusion: cpp.Float32;
-	public var ConstMultiScatteringEccentricity: cpp.Float32;
+	public var MultiScatteringApproximationOctaveCount: ucpp.num.UInt32;
+	public var ConstMultiScatteringContribution: ucpp.num.Float32;
+	public var ConstMultiScatteringOcclusion: ucpp.num.Float32;
+	public var ConstMultiScatteringEccentricity: ucpp.num.Float32;
 	public var bGroundContribution: Bool;
 	public var bGrayScaleMaterial: Bool;
 	public var bRayMarchVolumeShadow: Bool;
 	public var bClampMultiScatteringContribution: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -45,22 +45,22 @@ abstract ConstMaterialExpressionVolumetricAdvancedMaterialOutput(MaterialExpress
 	public inline extern function get_MultiScatteringEccentricity(): ExpressionInput return this.MultiScatteringEccentricity;
 	public extern var ConservativeDensity(get, never): ExpressionInput;
 	public inline extern function get_ConservativeDensity(): ExpressionInput return this.ConservativeDensity;
-	public extern var ConstPhaseG(get, never): cpp.Float32;
-	public inline extern function get_ConstPhaseG(): cpp.Float32 return this.ConstPhaseG;
-	public extern var ConstPhaseG2(get, never): cpp.Float32;
-	public inline extern function get_ConstPhaseG2(): cpp.Float32 return this.ConstPhaseG2;
-	public extern var ConstPhaseBlend(get, never): cpp.Float32;
-	public inline extern function get_ConstPhaseBlend(): cpp.Float32 return this.ConstPhaseBlend;
+	public extern var ConstPhaseG(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstPhaseG(): ucpp.num.Float32 return this.ConstPhaseG;
+	public extern var ConstPhaseG2(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstPhaseG2(): ucpp.num.Float32 return this.ConstPhaseG2;
+	public extern var ConstPhaseBlend(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstPhaseBlend(): ucpp.num.Float32 return this.ConstPhaseBlend;
 	public extern var PerSamplePhaseEvaluation(get, never): Bool;
 	public inline extern function get_PerSamplePhaseEvaluation(): Bool return this.PerSamplePhaseEvaluation;
-	public extern var MultiScatteringApproximationOctaveCount(get, never): cpp.UInt32;
-	public inline extern function get_MultiScatteringApproximationOctaveCount(): cpp.UInt32 return this.MultiScatteringApproximationOctaveCount;
-	public extern var ConstMultiScatteringContribution(get, never): cpp.Float32;
-	public inline extern function get_ConstMultiScatteringContribution(): cpp.Float32 return this.ConstMultiScatteringContribution;
-	public extern var ConstMultiScatteringOcclusion(get, never): cpp.Float32;
-	public inline extern function get_ConstMultiScatteringOcclusion(): cpp.Float32 return this.ConstMultiScatteringOcclusion;
-	public extern var ConstMultiScatteringEccentricity(get, never): cpp.Float32;
-	public inline extern function get_ConstMultiScatteringEccentricity(): cpp.Float32 return this.ConstMultiScatteringEccentricity;
+	public extern var MultiScatteringApproximationOctaveCount(get, never): ucpp.num.UInt32;
+	public inline extern function get_MultiScatteringApproximationOctaveCount(): ucpp.num.UInt32 return this.MultiScatteringApproximationOctaveCount;
+	public extern var ConstMultiScatteringContribution(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstMultiScatteringContribution(): ucpp.num.Float32 return this.ConstMultiScatteringContribution;
+	public extern var ConstMultiScatteringOcclusion(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstMultiScatteringOcclusion(): ucpp.num.Float32 return this.ConstMultiScatteringOcclusion;
+	public extern var ConstMultiScatteringEccentricity(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstMultiScatteringEccentricity(): ucpp.num.Float32 return this.ConstMultiScatteringEccentricity;
 	public extern var bGroundContribution(get, never): Bool;
 	public inline extern function get_bGroundContribution(): Bool return this.bGroundContribution;
 	public extern var bGrayScaleMaterial(get, never): Bool;
@@ -74,7 +74,7 @@ abstract ConstMaterialExpressionVolumetricAdvancedMaterialOutput(MaterialExpress
 @:forward
 @:nativeGen
 @:native("MaterialExpressionVolumetricAdvancedMaterialOutput*")
-abstract MaterialExpressionVolumetricAdvancedMaterialOutputPtr(cpp.Star<MaterialExpressionVolumetricAdvancedMaterialOutput>) from cpp.Star<MaterialExpressionVolumetricAdvancedMaterialOutput> to cpp.Star<MaterialExpressionVolumetricAdvancedMaterialOutput>{
+abstract MaterialExpressionVolumetricAdvancedMaterialOutputPtr(ucpp.Ptr<MaterialExpressionVolumetricAdvancedMaterialOutput>) from ucpp.Ptr<MaterialExpressionVolumetricAdvancedMaterialOutput> to ucpp.Ptr<MaterialExpressionVolumetricAdvancedMaterialOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionVolumetricAdvancedMaterialOutput): MaterialExpressionVolumetricAdvancedMaterialOutputPtr {
 		return untyped __cpp__("&({0})", v);

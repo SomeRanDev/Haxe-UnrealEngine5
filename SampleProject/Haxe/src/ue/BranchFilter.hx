@@ -3,11 +3,11 @@ package ue;
 
 @:native("FBranchFilter")
 @:include("Animation/AnimData/BoneMaskFilter.h")
-@:structAccess
+@:valueType
 extern class BranchFilter {
 	public var BoneName: FName;
-	public var BlendDepth: cpp.Int32;
+	public var BlendDepth: ucpp.num.Int32;
 
 	@:native("FBranchFilter") public function new();
-	@:native("FBranchFilter") public static function make(BoneName: FName, BlendDepth: cpp.Int32): BranchFilter ;
+	@:native("FBranchFilter") public static function make(BoneName: FName, BlendDepth: ucpp.num.Int32): BranchFilter ;
 }

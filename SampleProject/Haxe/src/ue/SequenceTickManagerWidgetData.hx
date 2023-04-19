@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSequenceTickManagerWidgetData")
 @:include("Animation/UMGSequenceTickManager.h")
-@:structAccess
+@:valueType
 extern class SequenceTickManagerWidgetData {
 	@:native("FSequenceTickManagerWidgetData") public function new();
 }

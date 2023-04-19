@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDataDrivenConsoleVariableSettings")
 @:include("DataDrivenCVars/DataDrivenCVars.h")
-@:structAccess
+@:valueType
 extern class DataDrivenConsoleVariableSettings extends DeveloperSettings {
 	public var CVarsArray: TArray<DataDrivenConsoleVariable>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDataDrivenConsoleVariableSettings(DataDrivenConsoleVariableSetting
 @:forward
 @:nativeGen
 @:native("DataDrivenConsoleVariableSettings*")
-abstract DataDrivenConsoleVariableSettingsPtr(cpp.Star<DataDrivenConsoleVariableSettings>) from cpp.Star<DataDrivenConsoleVariableSettings> to cpp.Star<DataDrivenConsoleVariableSettings>{
+abstract DataDrivenConsoleVariableSettingsPtr(ucpp.Ptr<DataDrivenConsoleVariableSettings>) from ucpp.Ptr<DataDrivenConsoleVariableSettings> to ucpp.Ptr<DataDrivenConsoleVariableSettings>{
 	@:from
 	public static extern inline function fromValue(v: DataDrivenConsoleVariableSettings): DataDrivenConsoleVariableSettingsPtr {
 		return untyped __cpp__("&({0})", v);

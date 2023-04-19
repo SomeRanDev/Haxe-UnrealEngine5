@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundClassGraphSchema")
 @:include("SoundClassGraph/SoundClassGraphSchema.h")
-@:structAccess
+@:valueType
 extern class SoundClassGraphSchema extends EdGraphSchema {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundClassGraphSchema(SoundClassGraphSchema) from SoundClassGraphS
 @:forward
 @:nativeGen
 @:native("SoundClassGraphSchema*")
-abstract SoundClassGraphSchemaPtr(cpp.Star<SoundClassGraphSchema>) from cpp.Star<SoundClassGraphSchema> to cpp.Star<SoundClassGraphSchema>{
+abstract SoundClassGraphSchemaPtr(ucpp.Ptr<SoundClassGraphSchema>) from ucpp.Ptr<SoundClassGraphSchema> to ucpp.Ptr<SoundClassGraphSchema>{
 	@:from
 	public static extern inline function fromValue(v: SoundClassGraphSchema): SoundClassGraphSchemaPtr {
 		return untyped __cpp__("&({0})", v);

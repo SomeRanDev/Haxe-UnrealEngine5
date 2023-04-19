@@ -3,7 +3,7 @@ package ue;
 
 @:native("UNiagaraMeshRendererProperties")
 @:include("NiagaraMeshRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraMeshRendererProperties extends NiagaraRendererProperties {
 	public var Meshes: TArray<NiagaraMeshRendererMeshProperties>;
 	public var SourceMode: ENiagaraRendererSourceDataMode;
@@ -25,9 +25,9 @@ extern class NiagaraMeshRendererProperties extends NiagaraRendererProperties {
 	public var LockedAxis: Vector;
 	public var LockedAxisSpace: ENiagaraMeshLockedAxisSpace;
 	public var MeshBoundsScale: Vector;
-	public var MinCameraDistance: cpp.Float32;
-	public var MaxCameraDistance: cpp.Float32;
-	public var RendererVisibility: cpp.UInt32;
+	public var MinCameraDistance: ucpp.num.Float32;
+	public var MaxCameraDistance: ucpp.num.Float32;
+	public var RendererVisibility: ucpp.num.UInt32;
 	public var PositionBinding: NiagaraVariableAttributeBinding;
 	public var ColorBinding: NiagaraVariableAttributeBinding;
 	public var VelocityBinding: NiagaraVariableAttributeBinding;
@@ -51,7 +51,7 @@ extern class NiagaraMeshRendererProperties extends NiagaraRendererProperties {
 	public var PrevCameraOffsetBinding: NiagaraVariableAttributeBinding;
 	public var PrevVelocityBinding: NiagaraVariableAttributeBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -97,12 +97,12 @@ abstract ConstNiagaraMeshRendererProperties(NiagaraMeshRendererProperties) from 
 	public inline extern function get_LockedAxisSpace(): ENiagaraMeshLockedAxisSpace return this.LockedAxisSpace;
 	public extern var MeshBoundsScale(get, never): Vector;
 	public inline extern function get_MeshBoundsScale(): Vector return this.MeshBoundsScale;
-	public extern var MinCameraDistance(get, never): cpp.Float32;
-	public inline extern function get_MinCameraDistance(): cpp.Float32 return this.MinCameraDistance;
-	public extern var MaxCameraDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxCameraDistance(): cpp.Float32 return this.MaxCameraDistance;
-	public extern var RendererVisibility(get, never): cpp.UInt32;
-	public inline extern function get_RendererVisibility(): cpp.UInt32 return this.RendererVisibility;
+	public extern var MinCameraDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MinCameraDistance(): ucpp.num.Float32 return this.MinCameraDistance;
+	public extern var MaxCameraDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxCameraDistance(): ucpp.num.Float32 return this.MaxCameraDistance;
+	public extern var RendererVisibility(get, never): ucpp.num.UInt32;
+	public inline extern function get_RendererVisibility(): ucpp.num.UInt32 return this.RendererVisibility;
 	public extern var PositionBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PositionBinding(): NiagaraVariableAttributeBinding return this.PositionBinding;
 	public extern var ColorBinding(get, never): NiagaraVariableAttributeBinding;
@@ -152,7 +152,7 @@ abstract ConstNiagaraMeshRendererProperties(NiagaraMeshRendererProperties) from 
 @:forward
 @:nativeGen
 @:native("NiagaraMeshRendererProperties*")
-abstract NiagaraMeshRendererPropertiesPtr(cpp.Star<NiagaraMeshRendererProperties>) from cpp.Star<NiagaraMeshRendererProperties> to cpp.Star<NiagaraMeshRendererProperties>{
+abstract NiagaraMeshRendererPropertiesPtr(ucpp.Ptr<NiagaraMeshRendererProperties>) from ucpp.Ptr<NiagaraMeshRendererProperties> to ucpp.Ptr<NiagaraMeshRendererProperties>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraMeshRendererProperties): NiagaraMeshRendererPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

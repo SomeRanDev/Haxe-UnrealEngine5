@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTemplateMapInfo")
 @:include("Editor/TemplateMapInfo.h")
-@:structAccess
+@:valueType
 extern class TemplateMapInfo {
 	public var ThumbnailTexture: TSoftObjectPtr<Texture2D>;
 	public var Thumbnail: SoftObjectPath;

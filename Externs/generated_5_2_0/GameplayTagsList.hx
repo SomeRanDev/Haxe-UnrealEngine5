@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGameplayTagsList")
 @:include("GameplayTagsSettings.h")
-@:structAccess
+@:valueType
 extern class GameplayTagsList extends Object {
 	public var ConfigFileName: FString;
 	public var GameplayTagList: TArray<GameplayTagTableRow>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstGameplayTagsList(GameplayTagsList) from GameplayTagsList {
 @:forward
 @:nativeGen
 @:native("GameplayTagsList*")
-abstract GameplayTagsListPtr(cpp.Star<GameplayTagsList>) from cpp.Star<GameplayTagsList> to cpp.Star<GameplayTagsList>{
+abstract GameplayTagsListPtr(ucpp.Ptr<GameplayTagsList>) from ucpp.Ptr<GameplayTagsList> to ucpp.Ptr<GameplayTagsList>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagsList): GameplayTagsListPtr {
 		return untyped __cpp__("&({0})", v);

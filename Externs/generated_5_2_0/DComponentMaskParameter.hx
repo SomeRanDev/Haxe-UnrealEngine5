@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDComponentMaskParameter")
 @:include("MaterialEditor/DEditorStaticComponentMaskParameterValue.h")
-@:structAccess
+@:valueType
 extern class DComponentMaskParameter {
 	public var R: Bool;
 	public var G: Bool;

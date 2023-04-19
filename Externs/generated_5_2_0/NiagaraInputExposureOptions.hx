@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraInputExposureOptions")
 @:include("NiagaraNodeInput.h")
-@:structAccess
+@:valueType
 extern class NiagaraInputExposureOptions {
 	public var bExposed: Bool;
 	public var bRequired: Bool;

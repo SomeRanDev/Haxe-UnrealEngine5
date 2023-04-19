@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMovieSceneHookSection")
 @:include("Sections/MovieSceneHookSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneHookSection extends MovieSceneSection {
 	@:protected public var bRequiresRangedHook: Bool;
 	@:protected public var bRequiresTriggerHooks: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstMovieSceneHookSection(MovieSceneHookSection) from MovieSceneHookSe
 @:forward
 @:nativeGen
 @:native("MovieSceneHookSection*")
-abstract MovieSceneHookSectionPtr(cpp.Star<MovieSceneHookSection>) from cpp.Star<MovieSceneHookSection> to cpp.Star<MovieSceneHookSection>{
+abstract MovieSceneHookSectionPtr(ucpp.Ptr<MovieSceneHookSection>) from ucpp.Ptr<MovieSceneHookSection> to ucpp.Ptr<MovieSceneHookSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneHookSection): MovieSceneHookSectionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInterchangeResultMeshWarning")
 @:include("Fbx/InterchangeFbxMessages.h")
-@:structAccess
+@:valueType
 extern class InterchangeResultMeshWarning extends InterchangeResultWarning {
 	public var MeshName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInterchangeResultMeshWarning(InterchangeResultMeshWarning) from In
 @:forward
 @:nativeGen
 @:native("InterchangeResultMeshWarning*")
-abstract InterchangeResultMeshWarningPtr(cpp.Star<InterchangeResultMeshWarning>) from cpp.Star<InterchangeResultMeshWarning> to cpp.Star<InterchangeResultMeshWarning>{
+abstract InterchangeResultMeshWarningPtr(ucpp.Ptr<InterchangeResultMeshWarning>) from ucpp.Ptr<InterchangeResultMeshWarning> to ucpp.Ptr<InterchangeResultMeshWarning>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeResultMeshWarning): InterchangeResultMeshWarningPtr {
 		return untyped __cpp__("&({0})", v);

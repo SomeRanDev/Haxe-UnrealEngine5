@@ -3,20 +3,20 @@ package ue;
 
 @:native("UUVEditorUVTransformProperties")
 @:include("Operators/UVEditorUVTransformOp.h")
-@:structAccess
+@:valueType
 extern class UVEditorUVTransformProperties extends UVEditorUVTransformPropertiesBase {
 	public var Scale: Vector2D;
-	public var Rotation: cpp.Float32;
+	public var Rotation: ucpp.num.Float32;
 	public var Translation: Vector2D;
 	public var TranslationMode: EUVEditorTranslationMode;
 	public var PivotMode: EUVEditorPivotType;
 	public var ManualPivot: Vector2D;
-	public var QuickTranslateOffset: cpp.Float32;
-	public var QuickRotationOffset: cpp.Float32;
+	public var QuickTranslateOffset: ucpp.num.Float32;
+	public var QuickRotationOffset: ucpp.num.Float32;
 	public var QuickTranslation: Vector2D;
-	public var QuickRotation: cpp.Float32;
+	public var QuickRotation: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,8 +24,8 @@ extern class UVEditorUVTransformProperties extends UVEditorUVTransformProperties
 abstract ConstUVEditorUVTransformProperties(UVEditorUVTransformProperties) from UVEditorUVTransformProperties {
 	public extern var Scale(get, never): Vector2D;
 	public inline extern function get_Scale(): Vector2D return this.Scale;
-	public extern var Rotation(get, never): cpp.Float32;
-	public inline extern function get_Rotation(): cpp.Float32 return this.Rotation;
+	public extern var Rotation(get, never): ucpp.num.Float32;
+	public inline extern function get_Rotation(): ucpp.num.Float32 return this.Rotation;
 	public extern var Translation(get, never): Vector2D;
 	public inline extern function get_Translation(): Vector2D return this.Translation;
 	public extern var TranslationMode(get, never): EUVEditorTranslationMode;
@@ -34,20 +34,20 @@ abstract ConstUVEditorUVTransformProperties(UVEditorUVTransformProperties) from 
 	public inline extern function get_PivotMode(): EUVEditorPivotType return this.PivotMode;
 	public extern var ManualPivot(get, never): Vector2D;
 	public inline extern function get_ManualPivot(): Vector2D return this.ManualPivot;
-	public extern var QuickTranslateOffset(get, never): cpp.Float32;
-	public inline extern function get_QuickTranslateOffset(): cpp.Float32 return this.QuickTranslateOffset;
-	public extern var QuickRotationOffset(get, never): cpp.Float32;
-	public inline extern function get_QuickRotationOffset(): cpp.Float32 return this.QuickRotationOffset;
+	public extern var QuickTranslateOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_QuickTranslateOffset(): ucpp.num.Float32 return this.QuickTranslateOffset;
+	public extern var QuickRotationOffset(get, never): ucpp.num.Float32;
+	public inline extern function get_QuickRotationOffset(): ucpp.num.Float32 return this.QuickRotationOffset;
 	public extern var QuickTranslation(get, never): Vector2D;
 	public inline extern function get_QuickTranslation(): Vector2D return this.QuickTranslation;
-	public extern var QuickRotation(get, never): cpp.Float32;
-	public inline extern function get_QuickRotation(): cpp.Float32 return this.QuickRotation;
+	public extern var QuickRotation(get, never): ucpp.num.Float32;
+	public inline extern function get_QuickRotation(): ucpp.num.Float32 return this.QuickRotation;
 }
 
 @:forward
 @:nativeGen
 @:native("UVEditorUVTransformProperties*")
-abstract UVEditorUVTransformPropertiesPtr(cpp.Star<UVEditorUVTransformProperties>) from cpp.Star<UVEditorUVTransformProperties> to cpp.Star<UVEditorUVTransformProperties>{
+abstract UVEditorUVTransformPropertiesPtr(ucpp.Ptr<UVEditorUVTransformProperties>) from ucpp.Ptr<UVEditorUVTransformProperties> to ucpp.Ptr<UVEditorUVTransformProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorUVTransformProperties): UVEditorUVTransformPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

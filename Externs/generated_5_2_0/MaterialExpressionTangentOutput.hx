@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionTangentOutput")
 @:include("Materials/MaterialExpressionTangentOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTangentOutput extends MaterialExpressionCustomOutput {
 	public var Input: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionTangentOutput(MaterialExpressionTangentOutput) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTangentOutput*")
-abstract MaterialExpressionTangentOutputPtr(cpp.Star<MaterialExpressionTangentOutput>) from cpp.Star<MaterialExpressionTangentOutput> to cpp.Star<MaterialExpressionTangentOutput>{
+abstract MaterialExpressionTangentOutputPtr(ucpp.Ptr<MaterialExpressionTangentOutput>) from ucpp.Ptr<MaterialExpressionTangentOutput> to ucpp.Ptr<MaterialExpressionTangentOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTangentOutput): MaterialExpressionTangentOutputPtr {
 		return untyped __cpp__("&({0})", v);

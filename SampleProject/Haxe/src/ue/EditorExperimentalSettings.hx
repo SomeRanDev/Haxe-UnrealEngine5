@@ -3,15 +3,15 @@ package ue;
 
 @:native("UEditorExperimentalSettings")
 @:include("Settings/EditorExperimentalSettings.h")
-@:structAccess
+@:valueType
 extern class EditorExperimentalSettings extends Object {
 	public var bEnableAsyncTextureCompilation: Bool;
 	public var bEnableAsyncStaticMeshCompilation: Bool;
 	public var bEnableAsyncSkeletalMeshCompilation: Bool;
-	public var bEnableInterchangeFramework: Bool;
-	public var bEnableInterchangeFrameworkForTextureOnly: Bool;
+	public var bEnableAsyncSkinnedAssetCompilation: Bool;
+	public var bEnableAsyncSoundWaveCompilation: Bool;
 	public var bHDREditor: Bool;
-	public var HDREditorNITLevel: cpp.Float32;
+	public var HDREditorNITLevel: ucpp.num.Float32;
 	public var bProceduralFoliage: Bool;
 	public var bEnableTranslationPicker: Bool;
 	public var ConsoleForGamepadLabels: TEnumAsByte<EConsoleForGamepadLabels>;
@@ -21,7 +21,6 @@ extern class EditorExperimentalSettings extends Object {
 	public var bContextMenuChunkAssignments: Bool;
 	public var bDisableCookInEditor: Bool;
 	public var bSharedCookedBuilds: Bool;
-	public var MultiProcessCooking: cpp.Int32;
 	public var bAllowLateJoinInPIE: Bool;
 	public var bAllowVulkanPreview: Bool;
 	public var bEnableMultithreadedLightmapEncoding: Bool;
@@ -29,16 +28,15 @@ extern class EditorExperimentalSettings extends Object {
 	public var bUseOpenCLForConvexHullDecomp: Bool;
 	public var bAllowPotentiallyUnsafePropertyEditing: Bool;
 	public var bFacialAnimationImporter: Bool;
-	public var bEnableOneFilePerActorSupport: Bool;
-	public var bEnableActorFolderObjectSupport: Bool;
 	public var bMobilePIEPreviewDeviceLaunch: Bool;
 	public var bTextAssetFormatSupport: Bool;
+	public var bVirtualizedAssetRehydration: Bool;
 	public var bExampleLayersAndBlends: Bool;
 	public var bEnableLongPathsSupport: Bool;
 	public var bPackedLevelActor: Bool;
 	public var bLevelInstance: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -50,14 +48,14 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 	public inline extern function get_bEnableAsyncStaticMeshCompilation(): Bool return this.bEnableAsyncStaticMeshCompilation;
 	public extern var bEnableAsyncSkeletalMeshCompilation(get, never): Bool;
 	public inline extern function get_bEnableAsyncSkeletalMeshCompilation(): Bool return this.bEnableAsyncSkeletalMeshCompilation;
-	public extern var bEnableInterchangeFramework(get, never): Bool;
-	public inline extern function get_bEnableInterchangeFramework(): Bool return this.bEnableInterchangeFramework;
-	public extern var bEnableInterchangeFrameworkForTextureOnly(get, never): Bool;
-	public inline extern function get_bEnableInterchangeFrameworkForTextureOnly(): Bool return this.bEnableInterchangeFrameworkForTextureOnly;
+	public extern var bEnableAsyncSkinnedAssetCompilation(get, never): Bool;
+	public inline extern function get_bEnableAsyncSkinnedAssetCompilation(): Bool return this.bEnableAsyncSkinnedAssetCompilation;
+	public extern var bEnableAsyncSoundWaveCompilation(get, never): Bool;
+	public inline extern function get_bEnableAsyncSoundWaveCompilation(): Bool return this.bEnableAsyncSoundWaveCompilation;
 	public extern var bHDREditor(get, never): Bool;
 	public inline extern function get_bHDREditor(): Bool return this.bHDREditor;
-	public extern var HDREditorNITLevel(get, never): cpp.Float32;
-	public inline extern function get_HDREditorNITLevel(): cpp.Float32 return this.HDREditorNITLevel;
+	public extern var HDREditorNITLevel(get, never): ucpp.num.Float32;
+	public inline extern function get_HDREditorNITLevel(): ucpp.num.Float32 return this.HDREditorNITLevel;
 	public extern var bProceduralFoliage(get, never): Bool;
 	public inline extern function get_bProceduralFoliage(): Bool return this.bProceduralFoliage;
 	public extern var bEnableTranslationPicker(get, never): Bool;
@@ -76,8 +74,6 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 	public inline extern function get_bDisableCookInEditor(): Bool return this.bDisableCookInEditor;
 	public extern var bSharedCookedBuilds(get, never): Bool;
 	public inline extern function get_bSharedCookedBuilds(): Bool return this.bSharedCookedBuilds;
-	public extern var MultiProcessCooking(get, never): cpp.Int32;
-	public inline extern function get_MultiProcessCooking(): cpp.Int32 return this.MultiProcessCooking;
 	public extern var bAllowLateJoinInPIE(get, never): Bool;
 	public inline extern function get_bAllowLateJoinInPIE(): Bool return this.bAllowLateJoinInPIE;
 	public extern var bAllowVulkanPreview(get, never): Bool;
@@ -92,14 +88,12 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 	public inline extern function get_bAllowPotentiallyUnsafePropertyEditing(): Bool return this.bAllowPotentiallyUnsafePropertyEditing;
 	public extern var bFacialAnimationImporter(get, never): Bool;
 	public inline extern function get_bFacialAnimationImporter(): Bool return this.bFacialAnimationImporter;
-	public extern var bEnableOneFilePerActorSupport(get, never): Bool;
-	public inline extern function get_bEnableOneFilePerActorSupport(): Bool return this.bEnableOneFilePerActorSupport;
-	public extern var bEnableActorFolderObjectSupport(get, never): Bool;
-	public inline extern function get_bEnableActorFolderObjectSupport(): Bool return this.bEnableActorFolderObjectSupport;
 	public extern var bMobilePIEPreviewDeviceLaunch(get, never): Bool;
 	public inline extern function get_bMobilePIEPreviewDeviceLaunch(): Bool return this.bMobilePIEPreviewDeviceLaunch;
 	public extern var bTextAssetFormatSupport(get, never): Bool;
 	public inline extern function get_bTextAssetFormatSupport(): Bool return this.bTextAssetFormatSupport;
+	public extern var bVirtualizedAssetRehydration(get, never): Bool;
+	public inline extern function get_bVirtualizedAssetRehydration(): Bool return this.bVirtualizedAssetRehydration;
 	public extern var bExampleLayersAndBlends(get, never): Bool;
 	public inline extern function get_bExampleLayersAndBlends(): Bool return this.bExampleLayersAndBlends;
 	public extern var bEnableLongPathsSupport(get, never): Bool;
@@ -113,7 +107,7 @@ abstract ConstEditorExperimentalSettings(EditorExperimentalSettings) from Editor
 @:forward
 @:nativeGen
 @:native("EditorExperimentalSettings*")
-abstract EditorExperimentalSettingsPtr(cpp.Star<EditorExperimentalSettings>) from cpp.Star<EditorExperimentalSettings> to cpp.Star<EditorExperimentalSettings>{
+abstract EditorExperimentalSettingsPtr(ucpp.Ptr<EditorExperimentalSettings>) from ucpp.Ptr<EditorExperimentalSettings> to ucpp.Ptr<EditorExperimentalSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorExperimentalSettings): EditorExperimentalSettingsPtr {
 		return untyped __cpp__("&({0})", v);

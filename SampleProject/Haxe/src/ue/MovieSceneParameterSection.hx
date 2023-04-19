@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieSceneParameterSection")
 @:include("Sections/MovieSceneParameterSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneParameterSection extends MovieSceneSection {
 	@:protected public var BoolParameterNamesAndCurves: TArray<BoolParameterNameAndCurve>;
 	@:protected public var ScalarParameterNamesAndCurves: TArray<ScalarParameterNameAndCurve>;
@@ -18,15 +18,15 @@ extern class MovieSceneParameterSection extends MovieSceneSection {
 	public function RemoveScalarParameter(InParameterName: FName): Bool;
 	public function RemoveColorParameter(InParameterName: FName): Bool;
 	public function RemoveBoolParameter(InParameterName: FName): Bool;
-	public function GetParameterNames(ParameterNames: cpp.Reference<TSet<FName>>): Void;
+	public function GetParameterNames(ParameterNames: ucpp.Ref<TSet<FName>>): Void;
 	public function AddVectorParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: Vector): Void;
 	public function AddVector2DParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: Vector2D): Void;
-	public function AddTransformParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: cpp.Reference<Transform>): Void;
-	public function AddScalarParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: cpp.Float32): Void;
+	public function AddTransformParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: ucpp.Ref<Transform>): Void;
+	public function AddScalarParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: ucpp.num.Float32): Void;
 	public function AddColorParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: LinearColor): Void;
 	public function AddBoolParameterKey(InParameterName: FName, InTime: FrameNumber, InValue: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetParameterNames)
@@ -37,7 +37,7 @@ abstract ConstMovieSceneParameterSection(MovieSceneParameterSection) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneParameterSection*")
-abstract MovieSceneParameterSectionPtr(cpp.Star<MovieSceneParameterSection>) from cpp.Star<MovieSceneParameterSection> to cpp.Star<MovieSceneParameterSection>{
+abstract MovieSceneParameterSectionPtr(ucpp.Ptr<MovieSceneParameterSection>) from ucpp.Ptr<MovieSceneParameterSection> to ucpp.Ptr<MovieSceneParameterSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneParameterSection): MovieSceneParameterSectionPtr {
 		return untyped __cpp__("&({0})", v);

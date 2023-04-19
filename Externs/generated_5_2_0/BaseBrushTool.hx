@@ -3,27 +3,27 @@ package ue;
 
 @:native("UBaseBrushTool")
 @:include("BaseTools/BaseBrushTool.h")
-@:structAccess
+@:valueType
 extern class BaseBrushTool extends MeshSurfacePointTool {
-	public var BrushProperties: cpp.Star<BrushBaseProperties>;
+	public var BrushProperties: ucpp.Ptr<BrushBaseProperties>;
 	public var bInBrushStroke: Bool;
-	public var WorldToLocalScale: cpp.Float32;
+	public var WorldToLocalScale: ucpp.num.Float32;
 	public var LastBrushStamp: BrushStampData;
 	@:protected public var PropertyClass: TSoftClassPtr<Class>;
-	@:protected public var BrushStampIndicator: cpp.Star<BrushStampIndicator>;
+	@:protected public var BrushStampIndicator: ucpp.Ptr<BrushStampIndicator>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBaseBrushTool(BaseBrushTool) from BaseBrushTool {
-	public extern var BrushProperties(get, never): cpp.Star<BrushBaseProperties.ConstBrushBaseProperties>;
-	public inline extern function get_BrushProperties(): cpp.Star<BrushBaseProperties.ConstBrushBaseProperties> return this.BrushProperties;
+	public extern var BrushProperties(get, never): ucpp.Ptr<BrushBaseProperties.ConstBrushBaseProperties>;
+	public inline extern function get_BrushProperties(): ucpp.Ptr<BrushBaseProperties.ConstBrushBaseProperties> return this.BrushProperties;
 	public extern var bInBrushStroke(get, never): Bool;
 	public inline extern function get_bInBrushStroke(): Bool return this.bInBrushStroke;
-	public extern var WorldToLocalScale(get, never): cpp.Float32;
-	public inline extern function get_WorldToLocalScale(): cpp.Float32 return this.WorldToLocalScale;
+	public extern var WorldToLocalScale(get, never): ucpp.num.Float32;
+	public inline extern function get_WorldToLocalScale(): ucpp.num.Float32 return this.WorldToLocalScale;
 	public extern var LastBrushStamp(get, never): BrushStampData;
 	public inline extern function get_LastBrushStamp(): BrushStampData return this.LastBrushStamp;
 }
@@ -31,7 +31,7 @@ abstract ConstBaseBrushTool(BaseBrushTool) from BaseBrushTool {
 @:forward
 @:nativeGen
 @:native("BaseBrushTool*")
-abstract BaseBrushToolPtr(cpp.Star<BaseBrushTool>) from cpp.Star<BaseBrushTool> to cpp.Star<BaseBrushTool>{
+abstract BaseBrushToolPtr(ucpp.Ptr<BaseBrushTool>) from ucpp.Ptr<BaseBrushTool> to ucpp.Ptr<BaseBrushTool>{
 	@:from
 	public static extern inline function fromValue(v: BaseBrushTool): BaseBrushToolPtr {
 		return untyped __cpp__("&({0})", v);

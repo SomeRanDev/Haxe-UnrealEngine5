@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTerrainSplineActorFactory")
 @:include("TerrainSplineActorFactory.h")
-@:structAccess
+@:valueType
 extern class TerrainSplineActorFactory extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTerrainSplineActorFactory(TerrainSplineActorFactory) from TerrainS
 @:forward
 @:nativeGen
 @:native("TerrainSplineActorFactory*")
-abstract TerrainSplineActorFactoryPtr(cpp.Star<TerrainSplineActorFactory>) from cpp.Star<TerrainSplineActorFactory> to cpp.Star<TerrainSplineActorFactory>{
+abstract TerrainSplineActorFactoryPtr(ucpp.Ptr<TerrainSplineActorFactory>) from ucpp.Ptr<TerrainSplineActorFactory> to ucpp.Ptr<TerrainSplineActorFactory>{
 	@:from
 	public static extern inline function fromValue(v: TerrainSplineActorFactory): TerrainSplineActorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

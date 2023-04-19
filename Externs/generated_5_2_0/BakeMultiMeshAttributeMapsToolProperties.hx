@@ -3,26 +3,26 @@ package ue;
 
 @:native("UBakeMultiMeshAttributeMapsToolProperties")
 @:include("BakeMultiMeshAttributeMapsTool.h")
-@:structAccess
+@:valueType
 extern class BakeMultiMeshAttributeMapsToolProperties extends InteractiveToolPropertySet {
-	public var MapTypes: cpp.Int32;
+	public var MapTypes: ucpp.num.Int32;
 	public var MapPreview: FString;
 	public var Resolution: EBakeTextureResolution;
 	public var BitDepth: EBakeTextureBitDepth;
 	public var SamplesPerPixel: EBakeTextureSamplesPerPixel;
-	public var SampleFilterMask: cpp.Star<Texture2D>;
+	public var SampleFilterMask: ucpp.Ptr<Texture2D>;
 	public var MapPreviewNamesList: TArray<FString>;
 
 	public function GetMapPreviewNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBakeMultiMeshAttributeMapsToolProperties(BakeMultiMeshAttributeMapsToolProperties) from BakeMultiMeshAttributeMapsToolProperties {
-	public extern var MapTypes(get, never): cpp.Int32;
-	public inline extern function get_MapTypes(): cpp.Int32 return this.MapTypes;
+	public extern var MapTypes(get, never): ucpp.num.Int32;
+	public inline extern function get_MapTypes(): ucpp.num.Int32 return this.MapTypes;
 	public extern var MapPreview(get, never): FString;
 	public inline extern function get_MapPreview(): FString return this.MapPreview;
 	public extern var Resolution(get, never): EBakeTextureResolution;
@@ -31,8 +31,8 @@ abstract ConstBakeMultiMeshAttributeMapsToolProperties(BakeMultiMeshAttributeMap
 	public inline extern function get_BitDepth(): EBakeTextureBitDepth return this.BitDepth;
 	public extern var SamplesPerPixel(get, never): EBakeTextureSamplesPerPixel;
 	public inline extern function get_SamplesPerPixel(): EBakeTextureSamplesPerPixel return this.SamplesPerPixel;
-	public extern var SampleFilterMask(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_SampleFilterMask(): cpp.Star<Texture2D.ConstTexture2D> return this.SampleFilterMask;
+	public extern var SampleFilterMask(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_SampleFilterMask(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.SampleFilterMask;
 	public extern var MapPreviewNamesList(get, never): TArray<FString>;
 	public inline extern function get_MapPreviewNamesList(): TArray<FString> return this.MapPreviewNamesList;
 }
@@ -40,7 +40,7 @@ abstract ConstBakeMultiMeshAttributeMapsToolProperties(BakeMultiMeshAttributeMap
 @:forward
 @:nativeGen
 @:native("BakeMultiMeshAttributeMapsToolProperties*")
-abstract BakeMultiMeshAttributeMapsToolPropertiesPtr(cpp.Star<BakeMultiMeshAttributeMapsToolProperties>) from cpp.Star<BakeMultiMeshAttributeMapsToolProperties> to cpp.Star<BakeMultiMeshAttributeMapsToolProperties>{
+abstract BakeMultiMeshAttributeMapsToolPropertiesPtr(ucpp.Ptr<BakeMultiMeshAttributeMapsToolProperties>) from ucpp.Ptr<BakeMultiMeshAttributeMapsToolProperties> to ucpp.Ptr<BakeMultiMeshAttributeMapsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeMultiMeshAttributeMapsToolProperties): BakeMultiMeshAttributeMapsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

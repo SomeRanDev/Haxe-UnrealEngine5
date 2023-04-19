@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendDocument")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendDocument {
 	public var Metadata: MetasoundFrontendDocumentMetadata;
 	public var Interfaces: TSet<MetasoundFrontendVersion>;

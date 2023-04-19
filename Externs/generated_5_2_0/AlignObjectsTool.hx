@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAlignObjectsTool")
 @:include("AlignObjectsTool.h")
-@:structAccess
+@:valueType
 extern class AlignObjectsTool extends MultiSelectionMeshEditingTool {
-	public var AlignProps: cpp.Star<AlignObjectsToolProperties>;
+	public var AlignProps: ucpp.Ptr<AlignObjectsToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAlignObjectsTool(AlignObjectsTool) from AlignObjectsTool {
-	public extern var AlignProps(get, never): cpp.Star<AlignObjectsToolProperties.ConstAlignObjectsToolProperties>;
-	public inline extern function get_AlignProps(): cpp.Star<AlignObjectsToolProperties.ConstAlignObjectsToolProperties> return this.AlignProps;
+	public extern var AlignProps(get, never): ucpp.Ptr<AlignObjectsToolProperties.ConstAlignObjectsToolProperties>;
+	public inline extern function get_AlignProps(): ucpp.Ptr<AlignObjectsToolProperties.ConstAlignObjectsToolProperties> return this.AlignProps;
 }
 
 @:forward
 @:nativeGen
 @:native("AlignObjectsTool*")
-abstract AlignObjectsToolPtr(cpp.Star<AlignObjectsTool>) from cpp.Star<AlignObjectsTool> to cpp.Star<AlignObjectsTool>{
+abstract AlignObjectsToolPtr(ucpp.Ptr<AlignObjectsTool>) from ucpp.Ptr<AlignObjectsTool> to ucpp.Ptr<AlignObjectsTool>{
 	@:from
 	public static extern inline function fromValue(v: AlignObjectsTool): AlignObjectsToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraGeometryCacheRendererProperties")
 @:include("NiagaraGeometryCacheRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraGeometryCacheRendererProperties extends NiagaraRendererProperties {
 	public var GeometryCaches: TArray<NiagaraGeometryCacheReference>;
 	public var bIsLooping: Bool;
-	public var ComponentCountLimit: cpp.UInt32;
+	public var ComponentCountLimit: ucpp.num.UInt32;
 	public var PositionBinding: NiagaraVariableAttributeBinding;
 	public var RotationBinding: NiagaraVariableAttributeBinding;
 	public var ScaleBinding: NiagaraVariableAttributeBinding;
@@ -15,10 +15,10 @@ extern class NiagaraGeometryCacheRendererProperties extends NiagaraRendererPrope
 	public var EnabledBinding: NiagaraVariableAttributeBinding;
 	public var ArrayIndexBinding: NiagaraVariableAttributeBinding;
 	public var RendererVisibilityTagBinding: NiagaraVariableAttributeBinding;
-	public var RendererVisibility: cpp.Int32;
+	public var RendererVisibility: ucpp.num.Int32;
 	public var bAssignComponentsOnParticleID: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,8 +28,8 @@ abstract ConstNiagaraGeometryCacheRendererProperties(NiagaraGeometryCacheRendere
 	public inline extern function get_GeometryCaches(): TArray<NiagaraGeometryCacheReference> return this.GeometryCaches;
 	public extern var bIsLooping(get, never): Bool;
 	public inline extern function get_bIsLooping(): Bool return this.bIsLooping;
-	public extern var ComponentCountLimit(get, never): cpp.UInt32;
-	public inline extern function get_ComponentCountLimit(): cpp.UInt32 return this.ComponentCountLimit;
+	public extern var ComponentCountLimit(get, never): ucpp.num.UInt32;
+	public inline extern function get_ComponentCountLimit(): ucpp.num.UInt32 return this.ComponentCountLimit;
 	public extern var PositionBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PositionBinding(): NiagaraVariableAttributeBinding return this.PositionBinding;
 	public extern var RotationBinding(get, never): NiagaraVariableAttributeBinding;
@@ -44,8 +44,8 @@ abstract ConstNiagaraGeometryCacheRendererProperties(NiagaraGeometryCacheRendere
 	public inline extern function get_ArrayIndexBinding(): NiagaraVariableAttributeBinding return this.ArrayIndexBinding;
 	public extern var RendererVisibilityTagBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_RendererVisibilityTagBinding(): NiagaraVariableAttributeBinding return this.RendererVisibilityTagBinding;
-	public extern var RendererVisibility(get, never): cpp.Int32;
-	public inline extern function get_RendererVisibility(): cpp.Int32 return this.RendererVisibility;
+	public extern var RendererVisibility(get, never): ucpp.num.Int32;
+	public inline extern function get_RendererVisibility(): ucpp.num.Int32 return this.RendererVisibility;
 	public extern var bAssignComponentsOnParticleID(get, never): Bool;
 	public inline extern function get_bAssignComponentsOnParticleID(): Bool return this.bAssignComponentsOnParticleID;
 }
@@ -53,7 +53,7 @@ abstract ConstNiagaraGeometryCacheRendererProperties(NiagaraGeometryCacheRendere
 @:forward
 @:nativeGen
 @:native("NiagaraGeometryCacheRendererProperties*")
-abstract NiagaraGeometryCacheRendererPropertiesPtr(cpp.Star<NiagaraGeometryCacheRendererProperties>) from cpp.Star<NiagaraGeometryCacheRendererProperties> to cpp.Star<NiagaraGeometryCacheRendererProperties>{
+abstract NiagaraGeometryCacheRendererPropertiesPtr(ucpp.Ptr<NiagaraGeometryCacheRendererProperties>) from ucpp.Ptr<NiagaraGeometryCacheRendererProperties> to ucpp.Ptr<NiagaraGeometryCacheRendererProperties>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraGeometryCacheRendererProperties): NiagaraGeometryCacheRendererPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

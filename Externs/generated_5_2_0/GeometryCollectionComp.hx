@@ -3,37 +3,37 @@ package ue;
 
 @:native("UGeometryCollectionComponent")
 @:include("GeometryCollection/GeometryCollectionComponent.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionComp extends MeshComp {
-	public var ChaosSolverActor: cpp.Star<ChaosSolverActor>;
-	public var RestCollection: cpp.Star<GeometryCollection>;
-	public var InitializationFields: TArray<cpp.Star<FieldSystemActor>>;
+	public var ChaosSolverActor: ucpp.Ptr<ChaosSolverActor>;
+	public var RestCollection: ucpp.Ptr<GeometryCollection>;
+	public var InitializationFields: TArray<ucpp.Ptr<FieldSystemActor>>;
 	public var ObjectType: EObjectStateTypeEnum;
 	public var bForceMotionBlur: Bool;
 	public var EnableClustering: Bool;
-	public var ClusterGroupIndex: cpp.Int32;
-	public var MaxClusterLevel: cpp.Int32;
-	public var DamageThreshold: TArray<cpp.Float32>;
+	public var ClusterGroupIndex: ucpp.num.Int32;
+	public var MaxClusterLevel: ucpp.num.Int32;
+	public var DamageThreshold: TArray<ucpp.num.Float32>;
 	public var bUseSizeSpecificDamageThreshold: Bool;
 	public var DamagePropagationData: GeometryCollectionDamagePropagationData;
 	public var bEnableDamageFromCollision: Bool;
 	public var bAllowRemovalOnSleep: Bool;
 	public var bAllowRemovalOnBreak: Bool;
-	public var CollisionGroup: cpp.Int32;
-	public var CollisionSampleFraction: cpp.Float32;
+	public var CollisionGroup: ucpp.num.Int32;
+	public var CollisionSampleFraction: ucpp.num.Float32;
 	public var InitialVelocityType: EInitialVelocityTypeEnum;
 	public var InitialLinearVelocity: Vector;
 	public var InitialAngularVelocity: Vector;
 	public var CacheParameters: GeomComponentCacheParameters;
 	public var RestTransforms: TArray<Transform>;
-	public var NotifyGeometryCollectionPhysicsStateChange: HaxeMulticastSparseDelegateProperty<(cpp.Star<GeometryCollectionComp>) -> Void>;
-	public var NotifyGeometryCollectionPhysicsLoadingStateChange: HaxeMulticastSparseDelegateProperty<(cpp.Star<GeometryCollectionComp>) -> Void>;
-	public var OnChaosBreakEvent: HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosBreakEvent>) -> Void>;
-	public var OnChaosRemovalEvent: HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosRemovalEvent>) -> Void>;
-	public var OnChaosCrumblingEvent: HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosCrumblingEvent>) -> Void>;
-	public var DesiredCacheTime: cpp.Float32;
+	public var NotifyGeometryCollectionPhysicsStateChange: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<GeometryCollectionComp>) -> Void>;
+	public var NotifyGeometryCollectionPhysicsLoadingStateChange: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<GeometryCollectionComp>) -> Void>;
+	public var OnChaosBreakEvent: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosBreakEvent>) -> Void>;
+	public var OnChaosRemovalEvent: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosRemovalEvent>) -> Void>;
+	public var OnChaosCrumblingEvent: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosCrumblingEvent>) -> Void>;
+	public var DesiredCacheTime: ucpp.num.Float32;
 	public var CachePlayback: Bool;
-	public var OnChaosPhysicsCollision: HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosPhysicsCollisionInfo>) -> Void>;
+	public var OnChaosPhysicsCollision: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosPhysicsCollisionInfo>) -> Void>;
 	public var bNotifyBreaks: Bool;
 	public var bNotifyCollisions: Bool;
 	public var bNotifyTrailing: Bool;
@@ -44,66 +44,66 @@ extern class GeometryCollectionComp extends MeshComp {
 	@:protected public var bShowBoneColors: Bool;
 	@:protected public var bUseRootProxyForNavigation: Bool;
 	@:protected public var bUpdateNavigationInTick: Bool;
-	@:protected public var ISMPool: cpp.Star<GeometryCollectionISMPoolActor>;
+	@:protected public var ISMPool: ucpp.Ptr<GeometryCollectionISMPoolActor>;
 	@:protected public var bEnableReplication: Bool;
 	@:protected public var bEnableAbandonAfterLevel: Bool;
-	@:protected public var ReplicationAbandonAfterLevel: cpp.Int32;
+	@:protected public var ReplicationAbandonAfterLevel: ucpp.num.Int32;
 	@:protected public var RepData: GeometryCollectionRepData;
-	private var DummyBodySetup: cpp.Star<BodySetup>;
-	private var EmbeddedGeometryComponents: TArray<cpp.Star<InstancedStaticMeshComp>>;
+	private var DummyBodySetup: ucpp.Ptr<BodySetup>;
+	private var EmbeddedGeometryComponents: TArray<ucpp.Ptr<InstancedStaticMeshComp>>;
 
-	public function SetRestCollection(RestCollectionIn: cpp.Star<GeometryCollection.ConstGeometryCollection>): Void;
+	public function SetRestCollection(RestCollectionIn: ucpp.Ptr<GeometryCollection.ConstGeometryCollection>): Void;
 	public function SetNotifyRemovals(bNewNotifyRemovals: Bool): Void;
 	public function SetNotifyCrumblings(bNewNotifyCrumblings: Bool, bNewCrumblingEventIncludesChildren: Bool): Void;
 	public function SetNotifyBreaks(bNewNotifyBreaks: Bool): Void;
 	public function SetEnableDamageFromCollision(bValue: Bool): Void;
-	public function SetAnchoredByTransformedBox(Box: Box, Transform: Transform, bAnchored: Bool, MaxLevel: cpp.Int32): Void;
-	public function SetAnchoredByIndex(Index: cpp.Int32, bAnchored: Bool): Void;
-	public function SetAnchoredByBox(WorldSpaceBox: Box, bAnchored: Bool, MaxLevel: cpp.Int32): Void;
+	public function SetAnchoredByTransformedBox(Box: Box, Transform: Transform, bAnchored: Bool, MaxLevel: ucpp.num.Int32): Void;
+	public function SetAnchoredByIndex(Index: ucpp.num.Int32, bAnchored: Bool): Void;
+	public function SetAnchoredByBox(WorldSpaceBox: Box, bAnchored: Bool, MaxLevel: ucpp.num.Int32): Void;
 	public function RemoveAllAnchors(): Void;
-	public function ReceivePhysicsCollision(CollisionInfo: cpp.Reference<ChaosPhysicsCollisionInfo>): Void;
-	public function NotifyGeometryCollectionPhysicsStateChange__DelegateSignature(FracturedComponent: cpp.Star<GeometryCollectionComp>): Void;
-	public function NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature(FracturedComponent: cpp.Star<GeometryCollectionComp>): Void;
-	public function GetRootIndex(): cpp.Int32;
-	public function GetMassAndExtents(ItemIndex: cpp.Int32, OutMass: cpp.Reference<cpp.Float32>, OutExtents: cpp.Reference<Box>): Void;
+	public function ReceivePhysicsCollision(CollisionInfo: ucpp.Ref<ChaosPhysicsCollisionInfo>): Void;
+	public function NotifyGeometryCollectionPhysicsStateChange__DelegateSignature(FracturedComponent: ucpp.Ptr<GeometryCollectionComp>): Void;
+	public function NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature(FracturedComponent: ucpp.Ptr<GeometryCollectionComp>): Void;
+	public function GetRootIndex(): ucpp.num.Int32;
+	public function GetMassAndExtents(ItemIndex: ucpp.num.Int32, OutMass: ucpp.Ref<ucpp.num.Float32>, OutExtents: ucpp.Ref<Box>): Void;
 	public function GetLocalBounds(): Box;
-	public function GetInitialLevel(ItemIndex: cpp.Int32): cpp.Int32;
+	public function GetInitialLevel(ItemIndex: ucpp.num.Int32): ucpp.num.Int32;
 	public function GetDebugInfo(): FString;
-	public function CrumbleCluster(ItemIndex: cpp.Int32): Void;
+	public function CrumbleCluster(ItemIndex: ucpp.num.Int32): Void;
 	public function CrumbleActiveClusters(): Void;
-	public function ApplyPhysicsField(Enabled: Bool, Target: EGeometryCollectionPhysicsTypeEnum, MetaData: cpp.Star<FieldSystemMetaData>, Field: cpp.Star<FieldNodeBase>): Void;
-	public function ApplyLinearVelocity(ItemIndex: cpp.Int32, LinearVelocity: cpp.Reference<Vector>): Void;
-	public function ApplyKinematicField(Radius: cpp.Float32, Position: Vector): Void;
-	public function ApplyInternalStrain(ItemIndex: cpp.Int32, Location: cpp.Reference<Vector>, Radius: cpp.Float32, PropagationDepth: cpp.Int32, PropagationFactor: cpp.Float32, Strain: cpp.Float32): Void;
-	public function ApplyExternalStrain(ItemIndex: cpp.Int32, Location: cpp.Reference<Vector>, Radius: cpp.Float32, PropagationDepth: cpp.Int32, PropagationFactor: cpp.Float32, Strain: cpp.Float32): Void;
-	public function ApplyBreakingLinearVelocity(ItemIndex: cpp.Int32, LinearVelocity: cpp.Reference<Vector>): Void;
-	public function ApplyBreakingAngularVelocity(ItemIndex: cpp.Int32, AngularVelocity: cpp.Reference<Vector>): Void;
-	public function ApplyAngularVelocity(ItemIndex: cpp.Int32, AngularVelocity: cpp.Reference<Vector>): Void;
+	public function ApplyPhysicsField(Enabled: Bool, Target: EGeometryCollectionPhysicsTypeEnum, MetaData: ucpp.Ptr<FieldSystemMetaData>, Field: ucpp.Ptr<FieldNodeBase>): Void;
+	public function ApplyLinearVelocity(ItemIndex: ucpp.num.Int32, LinearVelocity: ucpp.Ref<Vector>): Void;
+	public function ApplyKinematicField(Radius: ucpp.num.Float32, Position: Vector): Void;
+	public function ApplyInternalStrain(ItemIndex: ucpp.num.Int32, Location: ucpp.Ref<Vector>, Radius: ucpp.num.Float32, PropagationDepth: ucpp.num.Int32, PropagationFactor: ucpp.num.Float32, Strain: ucpp.num.Float32): Void;
+	public function ApplyExternalStrain(ItemIndex: ucpp.num.Int32, Location: ucpp.Ref<Vector>, Radius: ucpp.num.Float32, PropagationDepth: ucpp.num.Int32, PropagationFactor: ucpp.num.Float32, Strain: ucpp.num.Float32): Void;
+	public function ApplyBreakingLinearVelocity(ItemIndex: ucpp.num.Int32, LinearVelocity: ucpp.Ref<Vector>): Void;
+	public function ApplyBreakingAngularVelocity(ItemIndex: ucpp.num.Int32, AngularVelocity: ucpp.Ref<Vector>): Void;
+	public function ApplyAngularVelocity(ItemIndex: ucpp.num.Int32, AngularVelocity: ucpp.Ref<Vector>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetRootIndex, GetLocalBounds)
 @:nativeGen
 abstract ConstGeometryCollectionComp(GeometryCollectionComp) from GeometryCollectionComp {
-	public extern var ChaosSolverActor(get, never): cpp.Star<ChaosSolverActor.ConstChaosSolverActor>;
-	public inline extern function get_ChaosSolverActor(): cpp.Star<ChaosSolverActor.ConstChaosSolverActor> return this.ChaosSolverActor;
-	public extern var RestCollection(get, never): cpp.Star<GeometryCollection.ConstGeometryCollection>;
-	public inline extern function get_RestCollection(): cpp.Star<GeometryCollection.ConstGeometryCollection> return this.RestCollection;
-	public extern var InitializationFields(get, never): TArray<cpp.Star<FieldSystemActor.ConstFieldSystemActor>>;
-	public inline extern function get_InitializationFields(): TArray<cpp.Star<FieldSystemActor.ConstFieldSystemActor>> return this.InitializationFields;
+	public extern var ChaosSolverActor(get, never): ucpp.Ptr<ChaosSolverActor.ConstChaosSolverActor>;
+	public inline extern function get_ChaosSolverActor(): ucpp.Ptr<ChaosSolverActor.ConstChaosSolverActor> return this.ChaosSolverActor;
+	public extern var RestCollection(get, never): ucpp.Ptr<GeometryCollection.ConstGeometryCollection>;
+	public inline extern function get_RestCollection(): ucpp.Ptr<GeometryCollection.ConstGeometryCollection> return this.RestCollection;
+	public extern var InitializationFields(get, never): TArray<ucpp.Ptr<FieldSystemActor.ConstFieldSystemActor>>;
+	public inline extern function get_InitializationFields(): TArray<ucpp.Ptr<FieldSystemActor.ConstFieldSystemActor>> return this.InitializationFields;
 	public extern var ObjectType(get, never): EObjectStateTypeEnum;
 	public inline extern function get_ObjectType(): EObjectStateTypeEnum return this.ObjectType;
 	public extern var bForceMotionBlur(get, never): Bool;
 	public inline extern function get_bForceMotionBlur(): Bool return this.bForceMotionBlur;
 	public extern var EnableClustering(get, never): Bool;
 	public inline extern function get_EnableClustering(): Bool return this.EnableClustering;
-	public extern var ClusterGroupIndex(get, never): cpp.Int32;
-	public inline extern function get_ClusterGroupIndex(): cpp.Int32 return this.ClusterGroupIndex;
-	public extern var MaxClusterLevel(get, never): cpp.Int32;
-	public inline extern function get_MaxClusterLevel(): cpp.Int32 return this.MaxClusterLevel;
-	public extern var DamageThreshold(get, never): TArray<cpp.Float32>;
-	public inline extern function get_DamageThreshold(): TArray<cpp.Float32> return this.DamageThreshold;
+	public extern var ClusterGroupIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_ClusterGroupIndex(): ucpp.num.Int32 return this.ClusterGroupIndex;
+	public extern var MaxClusterLevel(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxClusterLevel(): ucpp.num.Int32 return this.MaxClusterLevel;
+	public extern var DamageThreshold(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_DamageThreshold(): TArray<ucpp.num.Float32> return this.DamageThreshold;
 	public extern var bUseSizeSpecificDamageThreshold(get, never): Bool;
 	public inline extern function get_bUseSizeSpecificDamageThreshold(): Bool return this.bUseSizeSpecificDamageThreshold;
 	public extern var DamagePropagationData(get, never): GeometryCollectionDamagePropagationData;
@@ -114,10 +114,10 @@ abstract ConstGeometryCollectionComp(GeometryCollectionComp) from GeometryCollec
 	public inline extern function get_bAllowRemovalOnSleep(): Bool return this.bAllowRemovalOnSleep;
 	public extern var bAllowRemovalOnBreak(get, never): Bool;
 	public inline extern function get_bAllowRemovalOnBreak(): Bool return this.bAllowRemovalOnBreak;
-	public extern var CollisionGroup(get, never): cpp.Int32;
-	public inline extern function get_CollisionGroup(): cpp.Int32 return this.CollisionGroup;
-	public extern var CollisionSampleFraction(get, never): cpp.Float32;
-	public inline extern function get_CollisionSampleFraction(): cpp.Float32 return this.CollisionSampleFraction;
+	public extern var CollisionGroup(get, never): ucpp.num.Int32;
+	public inline extern function get_CollisionGroup(): ucpp.num.Int32 return this.CollisionGroup;
+	public extern var CollisionSampleFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_CollisionSampleFraction(): ucpp.num.Float32 return this.CollisionSampleFraction;
 	public extern var InitialVelocityType(get, never): EInitialVelocityTypeEnum;
 	public inline extern function get_InitialVelocityType(): EInitialVelocityTypeEnum return this.InitialVelocityType;
 	public extern var InitialLinearVelocity(get, never): Vector;
@@ -128,22 +128,22 @@ abstract ConstGeometryCollectionComp(GeometryCollectionComp) from GeometryCollec
 	public inline extern function get_CacheParameters(): GeomComponentCacheParameters return this.CacheParameters;
 	public extern var RestTransforms(get, never): TArray<Transform>;
 	public inline extern function get_RestTransforms(): TArray<Transform> return this.RestTransforms;
-	public extern var NotifyGeometryCollectionPhysicsStateChange(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void>;
-	public inline extern function get_NotifyGeometryCollectionPhysicsStateChange(): HaxeMulticastSparseDelegateProperty<(cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void> return this.NotifyGeometryCollectionPhysicsStateChange;
-	public extern var NotifyGeometryCollectionPhysicsLoadingStateChange(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void>;
-	public inline extern function get_NotifyGeometryCollectionPhysicsLoadingStateChange(): HaxeMulticastSparseDelegateProperty<(cpp.Star<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void> return this.NotifyGeometryCollectionPhysicsLoadingStateChange;
-	public extern var OnChaosBreakEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosBreakEvent>) -> Void>;
-	public inline extern function get_OnChaosBreakEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosBreakEvent>) -> Void> return this.OnChaosBreakEvent;
-	public extern var OnChaosRemovalEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosRemovalEvent>) -> Void>;
-	public inline extern function get_OnChaosRemovalEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosRemovalEvent>) -> Void> return this.OnChaosRemovalEvent;
-	public extern var OnChaosCrumblingEvent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosCrumblingEvent>) -> Void>;
-	public inline extern function get_OnChaosCrumblingEvent(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosCrumblingEvent>) -> Void> return this.OnChaosCrumblingEvent;
-	public extern var DesiredCacheTime(get, never): cpp.Float32;
-	public inline extern function get_DesiredCacheTime(): cpp.Float32 return this.DesiredCacheTime;
+	public extern var NotifyGeometryCollectionPhysicsStateChange(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void>;
+	public inline extern function get_NotifyGeometryCollectionPhysicsStateChange(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void> return this.NotifyGeometryCollectionPhysicsStateChange;
+	public extern var NotifyGeometryCollectionPhysicsLoadingStateChange(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void>;
+	public inline extern function get_NotifyGeometryCollectionPhysicsLoadingStateChange(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<GeometryCollectionComp.ConstGeometryCollectionComp>) -> Void> return this.NotifyGeometryCollectionPhysicsLoadingStateChange;
+	public extern var OnChaosBreakEvent(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosBreakEvent>) -> Void>;
+	public inline extern function get_OnChaosBreakEvent(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosBreakEvent>) -> Void> return this.OnChaosBreakEvent;
+	public extern var OnChaosRemovalEvent(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosRemovalEvent>) -> Void>;
+	public inline extern function get_OnChaosRemovalEvent(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosRemovalEvent>) -> Void> return this.OnChaosRemovalEvent;
+	public extern var OnChaosCrumblingEvent(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosCrumblingEvent>) -> Void>;
+	public inline extern function get_OnChaosCrumblingEvent(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosCrumblingEvent>) -> Void> return this.OnChaosCrumblingEvent;
+	public extern var DesiredCacheTime(get, never): ucpp.num.Float32;
+	public inline extern function get_DesiredCacheTime(): ucpp.num.Float32 return this.DesiredCacheTime;
 	public extern var CachePlayback(get, never): Bool;
 	public inline extern function get_CachePlayback(): Bool return this.CachePlayback;
-	public extern var OnChaosPhysicsCollision(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosPhysicsCollisionInfo>) -> Void>;
-	public inline extern function get_OnChaosPhysicsCollision(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<ChaosPhysicsCollisionInfo>) -> Void> return this.OnChaosPhysicsCollision;
+	public extern var OnChaosPhysicsCollision(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosPhysicsCollisionInfo>) -> Void>;
+	public inline extern function get_OnChaosPhysicsCollision(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<ChaosPhysicsCollisionInfo>) -> Void> return this.OnChaosPhysicsCollision;
 	public extern var bNotifyBreaks(get, never): Bool;
 	public inline extern function get_bNotifyBreaks(): Bool return this.bNotifyBreaks;
 	public extern var bNotifyCollisions(get, never): Bool;
@@ -163,7 +163,7 @@ abstract ConstGeometryCollectionComp(GeometryCollectionComp) from GeometryCollec
 @:forward
 @:nativeGen
 @:native("GeometryCollectionComp*")
-abstract GeometryCollectionCompPtr(cpp.Star<GeometryCollectionComp>) from cpp.Star<GeometryCollectionComp> to cpp.Star<GeometryCollectionComp>{
+abstract GeometryCollectionCompPtr(ucpp.Ptr<GeometryCollectionComp>) from ucpp.Ptr<GeometryCollectionComp> to ucpp.Ptr<GeometryCollectionComp>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionComp): GeometryCollectionCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -8,6 +8,7 @@ extern class EClusterConnectionTypeEnum {
 	static var Chaos_DelaunayTriangulation: EClusterConnectionTypeEnum;
 	static var Chaos_MinimalSpanningSubsetDelaunayTriangulation: EClusterConnectionTypeEnum;
 	static var Chaos_PointImplicitAugmentedWithMinimalDelaunay: EClusterConnectionTypeEnum;
+	static var Chaos_BoundsOverlapFilteredDelaunayTriangulation: EClusterConnectionTypeEnum;
 	static var Chaos_None: EClusterConnectionTypeEnum;
 	static var Chaos_EClsuterCreationParameters_Max: EClusterConnectionTypeEnum;
 	static var Chaos_MAX: EClusterConnectionTypeEnum;

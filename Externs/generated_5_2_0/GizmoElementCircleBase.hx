@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGizmoElementCircleBase")
 @:include("BaseGizmos/GizmoElementCircleBase.h")
-@:structAccess
+@:valueType
 extern class GizmoElementCircleBase extends GizmoElementLineBase {
 	@:protected public var Center: Vector;
 	@:protected public var Axis0: Vector;
 	@:protected public var Axis1: Vector;
-	@:protected public var Radius: cpp.Float64;
-	@:protected public var NumSegments: cpp.Int32;
+	@:protected public var Radius: ucpp.num.Float64;
+	@:protected public var NumSegments: ucpp.num.Int32;
 	@:protected public var PartialType: EGizmoElementPartialType;
-	@:protected public var PartialStartAngle: cpp.Float64;
-	@:protected public var PartialEndAngle: cpp.Float64;
-	@:protected public var PartialViewDependentMaxCosTol: cpp.Float64;
+	@:protected public var PartialStartAngle: ucpp.num.Float64;
+	@:protected public var PartialEndAngle: ucpp.num.Float64;
+	@:protected public var PartialViewDependentMaxCosTol: ucpp.num.Float64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstGizmoElementCircleBase(GizmoElementCircleBase) from GizmoElementCi
 @:forward
 @:nativeGen
 @:native("GizmoElementCircleBase*")
-abstract GizmoElementCircleBasePtr(cpp.Star<GizmoElementCircleBase>) from cpp.Star<GizmoElementCircleBase> to cpp.Star<GizmoElementCircleBase>{
+abstract GizmoElementCircleBasePtr(ucpp.Ptr<GizmoElementCircleBase>) from ucpp.Ptr<GizmoElementCircleBase> to ucpp.Ptr<GizmoElementCircleBase>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementCircleBase): GizmoElementCircleBasePtr {
 		return untyped __cpp__("&({0})", v);

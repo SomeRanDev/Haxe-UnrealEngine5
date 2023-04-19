@@ -3,19 +3,22 @@ package ue;
 
 @:native("UMaterialExpressionStaticComponentMaskParameter")
 @:include("Materials/MaterialExpressionStaticComponentMaskParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStaticComponentMaskParameter extends MaterialExpressionParameter {
+	public var Input: ExpressionInput;
 	public var DefaultR: Bool;
 	public var DefaultG: Bool;
 	public var DefaultB: Bool;
 	public var DefaultA: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionStaticComponentMaskParameter(MaterialExpressionStaticComponentMaskParameter) from MaterialExpressionStaticComponentMaskParameter {
+	public extern var Input(get, never): ExpressionInput;
+	public inline extern function get_Input(): ExpressionInput return this.Input;
 	public extern var DefaultR(get, never): Bool;
 	public inline extern function get_DefaultR(): Bool return this.DefaultR;
 	public extern var DefaultG(get, never): Bool;
@@ -29,7 +32,7 @@ abstract ConstMaterialExpressionStaticComponentMaskParameter(MaterialExpressionS
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStaticComponentMaskParameter*")
-abstract MaterialExpressionStaticComponentMaskParameterPtr(cpp.Star<MaterialExpressionStaticComponentMaskParameter>) from cpp.Star<MaterialExpressionStaticComponentMaskParameter> to cpp.Star<MaterialExpressionStaticComponentMaskParameter>{
+abstract MaterialExpressionStaticComponentMaskParameterPtr(ucpp.Ptr<MaterialExpressionStaticComponentMaskParameter>) from ucpp.Ptr<MaterialExpressionStaticComponentMaskParameter> to ucpp.Ptr<MaterialExpressionStaticComponentMaskParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStaticComponentMaskParameter): MaterialExpressionStaticComponentMaskParameterPtr {
 		return untyped __cpp__("&({0})", v);

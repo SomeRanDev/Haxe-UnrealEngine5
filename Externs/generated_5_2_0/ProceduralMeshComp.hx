@@ -3,29 +3,29 @@ package ue;
 
 @:native("UProceduralMeshComponent")
 @:include("ProceduralMeshComponent.h")
-@:structAccess
+@:valueType
 extern class ProceduralMeshComp extends MeshComp {
 	public var bUseComplexAsSimpleCollision: Bool;
 	public var bUseAsyncCooking: Bool;
-	public var ProcMeshBodySetup: cpp.Star<BodySetup>;
+	public var ProcMeshBodySetup: ucpp.Ptr<BodySetup>;
 	private var ProcMeshSections: TArray<ProcMeshSection>;
 	private var CollisionConvexElems: TArray<KConvexElem>;
 	private var LocalBounds: BoxSphereBounds;
-	private var AsyncBodySetupQueue: TArray<cpp.Star<BodySetup>>;
+	private var AsyncBodySetupQueue: TArray<ucpp.Ptr<BodySetup>>;
 
-	public function UpdateMeshSection_LinearColor(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, UV1: cpp.Reference<TArray<Vector2D>>, UV2: cpp.Reference<TArray<Vector2D>>, UV3: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<LinearColor>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>, bSRGBConversion: Bool): Void;
-	public function UpdateMeshSection(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<Color>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>): Void;
-	public function SetMeshSectionVisible(SectionIndex: cpp.Int32, bNewVisibility: Bool): Void;
-	public function IsMeshSectionVisible(SectionIndex: cpp.Int32): Bool;
-	public function GetNumSections(): cpp.Int32;
-	public function CreateMeshSection_LinearColor(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, UV1: cpp.Reference<TArray<Vector2D>>, UV2: cpp.Reference<TArray<Vector2D>>, UV3: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<LinearColor>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>, bCreateCollision: Bool, bSRGBConversion: Bool): Void;
-	public function CreateMeshSection(SectionIndex: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, UV0: cpp.Reference<TArray<Vector2D>>, VertexColors: cpp.Reference<TArray<Color>>, Tangents: cpp.Reference<TArray<ProcMeshTangent>>, bCreateCollision: Bool): Void;
-	public function ClearMeshSection(SectionIndex: cpp.Int32): Void;
+	public function UpdateMeshSection_LinearColor(SectionIndex: ucpp.num.Int32, Vertices: ucpp.Ref<TArray<Vector>>, Normals: ucpp.Ref<TArray<Vector>>, UV0: ucpp.Ref<TArray<Vector2D>>, UV1: ucpp.Ref<TArray<Vector2D>>, UV2: ucpp.Ref<TArray<Vector2D>>, UV3: ucpp.Ref<TArray<Vector2D>>, VertexColors: ucpp.Ref<TArray<LinearColor>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>, bSRGBConversion: Bool): Void;
+	public function UpdateMeshSection(SectionIndex: ucpp.num.Int32, Vertices: ucpp.Ref<TArray<Vector>>, Normals: ucpp.Ref<TArray<Vector>>, UV0: ucpp.Ref<TArray<Vector2D>>, VertexColors: ucpp.Ref<TArray<Color>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>): Void;
+	public function SetMeshSectionVisible(SectionIndex: ucpp.num.Int32, bNewVisibility: Bool): Void;
+	public function IsMeshSectionVisible(SectionIndex: ucpp.num.Int32): Bool;
+	public function GetNumSections(): ucpp.num.Int32;
+	public function CreateMeshSection_LinearColor(SectionIndex: ucpp.num.Int32, Vertices: ucpp.Ref<TArray<Vector>>, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Normals: ucpp.Ref<TArray<Vector>>, UV0: ucpp.Ref<TArray<Vector2D>>, UV1: ucpp.Ref<TArray<Vector2D>>, UV2: ucpp.Ref<TArray<Vector2D>>, UV3: ucpp.Ref<TArray<Vector2D>>, VertexColors: ucpp.Ref<TArray<LinearColor>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>, bCreateCollision: Bool, bSRGBConversion: Bool): Void;
+	public function CreateMeshSection(SectionIndex: ucpp.num.Int32, Vertices: ucpp.Ref<TArray<Vector>>, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Normals: ucpp.Ref<TArray<Vector>>, UV0: ucpp.Ref<TArray<Vector2D>>, VertexColors: ucpp.Ref<TArray<Color>>, Tangents: ucpp.Ref<TArray<ProcMeshTangent>>, bCreateCollision: Bool): Void;
+	public function ClearMeshSection(SectionIndex: ucpp.num.Int32): Void;
 	public function ClearCollisionConvexMeshes(): Void;
 	public function ClearAllMeshSections(): Void;
 	public function AddCollisionConvexMesh(ConvexVerts: TArray<Vector>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsMeshSectionVisible, GetNumSections)
@@ -35,14 +35,14 @@ abstract ConstProceduralMeshComp(ProceduralMeshComp) from ProceduralMeshComp {
 	public inline extern function get_bUseComplexAsSimpleCollision(): Bool return this.bUseComplexAsSimpleCollision;
 	public extern var bUseAsyncCooking(get, never): Bool;
 	public inline extern function get_bUseAsyncCooking(): Bool return this.bUseAsyncCooking;
-	public extern var ProcMeshBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_ProcMeshBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.ProcMeshBodySetup;
+	public extern var ProcMeshBodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_ProcMeshBodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.ProcMeshBodySetup;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralMeshComp*")
-abstract ProceduralMeshCompPtr(cpp.Star<ProceduralMeshComp>) from cpp.Star<ProceduralMeshComp> to cpp.Star<ProceduralMeshComp>{
+abstract ProceduralMeshCompPtr(ucpp.Ptr<ProceduralMeshComp>) from ucpp.Ptr<ProceduralMeshComp> to ucpp.Ptr<ProceduralMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralMeshComp): ProceduralMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

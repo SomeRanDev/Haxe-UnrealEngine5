@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDeformMeshPolygonsTransformProperties")
 @:include("DeformMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class DeformMeshPolygonsTransformProperties extends InteractiveToolPropertySet {
 	public var DeformationStrategy: EGroupTopologyDeformationStrategy;
 	public var TransformMode: EQuickTransformerMode;
@@ -12,10 +12,10 @@ extern class DeformMeshPolygonsTransformProperties extends InteractiveToolProper
 	public var bSelectVertices: Bool;
 	public var bShowWireframe: Bool;
 	public var SelectedWeightScheme: EWeightScheme;
-	public var HandleWeight: cpp.Float64;
+	public var HandleWeight: ucpp.num.Float64;
 	public var bPostFixHandles: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,8 +35,8 @@ abstract ConstDeformMeshPolygonsTransformProperties(DeformMeshPolygonsTransformP
 	public inline extern function get_bShowWireframe(): Bool return this.bShowWireframe;
 	public extern var SelectedWeightScheme(get, never): EWeightScheme;
 	public inline extern function get_SelectedWeightScheme(): EWeightScheme return this.SelectedWeightScheme;
-	public extern var HandleWeight(get, never): cpp.Float64;
-	public inline extern function get_HandleWeight(): cpp.Float64 return this.HandleWeight;
+	public extern var HandleWeight(get, never): ucpp.num.Float64;
+	public inline extern function get_HandleWeight(): ucpp.num.Float64 return this.HandleWeight;
 	public extern var bPostFixHandles(get, never): Bool;
 	public inline extern function get_bPostFixHandles(): Bool return this.bPostFixHandles;
 }
@@ -44,7 +44,7 @@ abstract ConstDeformMeshPolygonsTransformProperties(DeformMeshPolygonsTransformP
 @:forward
 @:nativeGen
 @:native("DeformMeshPolygonsTransformProperties*")
-abstract DeformMeshPolygonsTransformPropertiesPtr(cpp.Star<DeformMeshPolygonsTransformProperties>) from cpp.Star<DeformMeshPolygonsTransformProperties> to cpp.Star<DeformMeshPolygonsTransformProperties>{
+abstract DeformMeshPolygonsTransformPropertiesPtr(ucpp.Ptr<DeformMeshPolygonsTransformProperties>) from ucpp.Ptr<DeformMeshPolygonsTransformProperties> to ucpp.Ptr<DeformMeshPolygonsTransformProperties>{
 	@:from
 	public static extern inline function fromValue(v: DeformMeshPolygonsTransformProperties): DeformMeshPolygonsTransformPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

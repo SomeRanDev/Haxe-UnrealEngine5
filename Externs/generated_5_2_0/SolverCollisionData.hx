@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSolverCollisionData")
 @:include("GeometryCollection/RecordedTransformTrack.h")
-@:structAccess
+@:valueType
 extern class SolverCollisionData {
 	public var Location: Vector;
 	public var AccumulatedImpulse: Vector;
@@ -12,12 +12,12 @@ extern class SolverCollisionData {
 	public var Velocity2: Vector;
 	public var AngularVelocity1: Vector;
 	public var AngularVelocity2: Vector;
-	public var Mass1: cpp.Float32;
-	public var Mass2: cpp.Float32;
-	public var ParticleIndex: cpp.Int32;
-	public var LevelsetIndex: cpp.Int32;
-	public var ParticleIndexMesh: cpp.Int32;
-	public var LevelsetIndexMesh: cpp.Int32;
+	public var Mass1: ucpp.num.Float32;
+	public var Mass2: ucpp.num.Float32;
+	public var ParticleIndex: ucpp.num.Int32;
+	public var LevelsetIndex: ucpp.num.Int32;
+	public var ParticleIndexMesh: ucpp.num.Int32;
+	public var LevelsetIndexMesh: ucpp.num.Int32;
 
 	@:native("FSolverCollisionData") public function new();
 }

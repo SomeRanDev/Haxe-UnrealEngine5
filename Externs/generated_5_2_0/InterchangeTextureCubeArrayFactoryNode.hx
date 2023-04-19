@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeTextureCubeArrayFactoryNode")
 @:include("InterchangeTextureCubeArrayFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeTextureCubeArrayFactoryNode extends InterchangeTextureFactoryNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeTextureCubeArrayFactoryNode(InterchangeTextureCubeArray
 @:forward
 @:nativeGen
 @:native("InterchangeTextureCubeArrayFactoryNode*")
-abstract InterchangeTextureCubeArrayFactoryNodePtr(cpp.Star<InterchangeTextureCubeArrayFactoryNode>) from cpp.Star<InterchangeTextureCubeArrayFactoryNode> to cpp.Star<InterchangeTextureCubeArrayFactoryNode>{
+abstract InterchangeTextureCubeArrayFactoryNodePtr(ucpp.Ptr<InterchangeTextureCubeArrayFactoryNode>) from ucpp.Ptr<InterchangeTextureCubeArrayFactoryNode> to ucpp.Ptr<InterchangeTextureCubeArrayFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTextureCubeArrayFactoryNode): InterchangeTextureCubeArrayFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

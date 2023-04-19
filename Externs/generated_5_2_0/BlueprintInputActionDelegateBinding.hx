@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlueprintInputActionDelegateBinding")
 @:include("Engine/InputActionDelegateBinding.h")
-@:structAccess
+@:valueType
 extern class BlueprintInputActionDelegateBinding extends BlueprintInputDelegateBinding {
 	public var InputActionName: FName;
 	public var InputKeyEvent: TEnumAsByte<EInputEvent>;

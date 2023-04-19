@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMediaSourceRenderer")
 @:include("Shared/MediaSourceRenderer.h")
-@:structAccess
+@:valueType
 extern class MediaSourceRenderer extends Object {
-	private var MediaPlayer: cpp.Star<MediaPlayer>;
-	private var MediaSource: cpp.Star<MediaSource>;
-	private var MediaTexture: cpp.Star<MediaTexture>;
+	private var MediaPlayer: ucpp.Ptr<MediaPlayer>;
+	private var MediaSource: ucpp.Ptr<MediaSource>;
+	private var MediaTexture: ucpp.Ptr<MediaTexture>;
 
 	private function OnSeekCompleted(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstMediaSourceRenderer(MediaSourceRenderer) from MediaSourceRenderer 
 @:forward
 @:nativeGen
 @:native("MediaSourceRenderer*")
-abstract MediaSourceRendererPtr(cpp.Star<MediaSourceRenderer>) from cpp.Star<MediaSourceRenderer> to cpp.Star<MediaSourceRenderer>{
+abstract MediaSourceRendererPtr(ucpp.Ptr<MediaSourceRenderer>) from ucpp.Ptr<MediaSourceRenderer> to ucpp.Ptr<MediaSourceRenderer>{
 	@:from
 	public static extern inline function fromValue(v: MediaSourceRenderer): MediaSourceRendererPtr {
 		return untyped __cpp__("&({0})", v);

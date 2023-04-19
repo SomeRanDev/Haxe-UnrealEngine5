@@ -3,30 +3,30 @@ package ue;
 
 @:native("UUVEditorToolMeshInput")
 @:include("ToolTargets/UVEditorToolMeshInput.h")
-@:structAccess
+@:valueType
 extern class UVEditorToolMeshInput extends ToolTarget {
-	public var UnwrapPreview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var AppliedPreview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
-	public var WireframeDisplay: cpp.Star<MeshElementsVisualizer>;
+	public var UnwrapPreview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	public var AppliedPreview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
+	public var WireframeDisplay: ucpp.Ptr<MeshElementsVisualizer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUVEditorToolMeshInput(UVEditorToolMeshInput) from UVEditorToolMeshInput {
-	public extern var UnwrapPreview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_UnwrapPreview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.UnwrapPreview;
-	public extern var AppliedPreview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_AppliedPreview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.AppliedPreview;
-	public extern var WireframeDisplay(get, never): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
-	public inline extern function get_WireframeDisplay(): cpp.Star<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.WireframeDisplay;
+	public extern var UnwrapPreview(get, never): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
+	public inline extern function get_UnwrapPreview(): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.UnwrapPreview;
+	public extern var AppliedPreview(get, never): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
+	public inline extern function get_AppliedPreview(): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.AppliedPreview;
+	public extern var WireframeDisplay(get, never): ucpp.Ptr<MeshElementsVisualizer.ConstMeshElementsVisualizer>;
+	public inline extern function get_WireframeDisplay(): ucpp.Ptr<MeshElementsVisualizer.ConstMeshElementsVisualizer> return this.WireframeDisplay;
 }
 
 @:forward
 @:nativeGen
 @:native("UVEditorToolMeshInput*")
-abstract UVEditorToolMeshInputPtr(cpp.Star<UVEditorToolMeshInput>) from cpp.Star<UVEditorToolMeshInput> to cpp.Star<UVEditorToolMeshInput>{
+abstract UVEditorToolMeshInputPtr(ucpp.Ptr<UVEditorToolMeshInput>) from ucpp.Ptr<UVEditorToolMeshInput> to ucpp.Ptr<UVEditorToolMeshInput>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorToolMeshInput): UVEditorToolMeshInputPtr {
 		return untyped __cpp__("&({0})", v);

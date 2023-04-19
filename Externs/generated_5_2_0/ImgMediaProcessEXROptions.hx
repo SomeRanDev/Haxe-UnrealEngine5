@@ -3,22 +3,22 @@ package ue;
 
 @:native("UImgMediaProcessEXROptions")
 @:include("Widgets/ImgMediaProcessEXROptions.h")
-@:structAccess
+@:valueType
 extern class ImgMediaProcessEXROptions extends Object {
 	public var InputPath: FilePath;
 	public var OutputPath: DirectoryPath;
 	public var bEnableMipMapping: Bool;
 	public var bEnableTiling: Bool;
-	public var TileSizeX: cpp.Int32;
-	public var TileSizeY: cpp.Int32;
-	public var NumThreads: cpp.Int32;
+	public var TileSizeX: ucpp.num.Int32;
+	public var TileSizeY: ucpp.num.Int32;
+	public var NumThreads: ucpp.num.Int32;
 	public var bUsePlayer: Bool;
-	public var NumTilesX: cpp.Int32;
-	public var NumTilesY: cpp.Int32;
+	public var NumTilesX: ucpp.num.Int32;
+	public var NumTilesY: ucpp.num.Int32;
 	public var bEnableMipLevelTint: Bool;
 	public var MipLevelTints: TArray<LinearColor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,18 +32,18 @@ abstract ConstImgMediaProcessEXROptions(ImgMediaProcessEXROptions) from ImgMedia
 	public inline extern function get_bEnableMipMapping(): Bool return this.bEnableMipMapping;
 	public extern var bEnableTiling(get, never): Bool;
 	public inline extern function get_bEnableTiling(): Bool return this.bEnableTiling;
-	public extern var TileSizeX(get, never): cpp.Int32;
-	public inline extern function get_TileSizeX(): cpp.Int32 return this.TileSizeX;
-	public extern var TileSizeY(get, never): cpp.Int32;
-	public inline extern function get_TileSizeY(): cpp.Int32 return this.TileSizeY;
-	public extern var NumThreads(get, never): cpp.Int32;
-	public inline extern function get_NumThreads(): cpp.Int32 return this.NumThreads;
+	public extern var TileSizeX(get, never): ucpp.num.Int32;
+	public inline extern function get_TileSizeX(): ucpp.num.Int32 return this.TileSizeX;
+	public extern var TileSizeY(get, never): ucpp.num.Int32;
+	public inline extern function get_TileSizeY(): ucpp.num.Int32 return this.TileSizeY;
+	public extern var NumThreads(get, never): ucpp.num.Int32;
+	public inline extern function get_NumThreads(): ucpp.num.Int32 return this.NumThreads;
 	public extern var bUsePlayer(get, never): Bool;
 	public inline extern function get_bUsePlayer(): Bool return this.bUsePlayer;
-	public extern var NumTilesX(get, never): cpp.Int32;
-	public inline extern function get_NumTilesX(): cpp.Int32 return this.NumTilesX;
-	public extern var NumTilesY(get, never): cpp.Int32;
-	public inline extern function get_NumTilesY(): cpp.Int32 return this.NumTilesY;
+	public extern var NumTilesX(get, never): ucpp.num.Int32;
+	public inline extern function get_NumTilesX(): ucpp.num.Int32 return this.NumTilesX;
+	public extern var NumTilesY(get, never): ucpp.num.Int32;
+	public inline extern function get_NumTilesY(): ucpp.num.Int32 return this.NumTilesY;
 	public extern var bEnableMipLevelTint(get, never): Bool;
 	public inline extern function get_bEnableMipLevelTint(): Bool return this.bEnableMipLevelTint;
 	public extern var MipLevelTints(get, never): TArray<LinearColor>;
@@ -53,7 +53,7 @@ abstract ConstImgMediaProcessEXROptions(ImgMediaProcessEXROptions) from ImgMedia
 @:forward
 @:nativeGen
 @:native("ImgMediaProcessEXROptions*")
-abstract ImgMediaProcessEXROptionsPtr(cpp.Star<ImgMediaProcessEXROptions>) from cpp.Star<ImgMediaProcessEXROptions> to cpp.Star<ImgMediaProcessEXROptions>{
+abstract ImgMediaProcessEXROptionsPtr(ucpp.Ptr<ImgMediaProcessEXROptions>) from ucpp.Ptr<ImgMediaProcessEXROptions> to ucpp.Ptr<ImgMediaProcessEXROptions>{
 	@:from
 	public static extern inline function fromValue(v: ImgMediaProcessEXROptions): ImgMediaProcessEXROptionsPtr {
 		return untyped __cpp__("&({0})", v);

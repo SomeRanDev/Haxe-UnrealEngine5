@@ -2,10 +2,10 @@
 package ue;
 
 @:native("URigVMEditorSideObject")
-@:structAccess
+@:valueType
 extern class RigVMEditorSideObject extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstRigVMEditorSideObject(RigVMEditorSideObject) from RigVMEditorSideO
 @:forward
 @:nativeGen
 @:native("RigVMEditorSideObject*")
-abstract RigVMEditorSideObjectPtr(cpp.Star<RigVMEditorSideObject>) from cpp.Star<RigVMEditorSideObject> to cpp.Star<RigVMEditorSideObject>{
+abstract RigVMEditorSideObjectPtr(ucpp.Ptr<RigVMEditorSideObject>) from ucpp.Ptr<RigVMEditorSideObject> to ucpp.Ptr<RigVMEditorSideObject>{
 	@:from
 	public static extern inline function fromValue(v: RigVMEditorSideObject): RigVMEditorSideObjectPtr {
 		return untyped __cpp__("&({0})", v);

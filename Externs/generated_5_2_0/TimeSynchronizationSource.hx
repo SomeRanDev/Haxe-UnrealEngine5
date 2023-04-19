@@ -3,12 +3,12 @@ package ue;
 
 @:native("UTimeSynchronizationSource")
 @:include("TimeSynchronizationSource.h")
-@:structAccess
+@:valueType
 extern class TimeSynchronizationSource extends Object {
 	public var bUseForSynchronization: Bool;
-	public var FrameOffset: cpp.Int32;
+	public var FrameOffset: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class TimeSynchronizationSource extends Object {
 abstract ConstTimeSynchronizationSource(TimeSynchronizationSource) from TimeSynchronizationSource {
 	public extern var bUseForSynchronization(get, never): Bool;
 	public inline extern function get_bUseForSynchronization(): Bool return this.bUseForSynchronization;
-	public extern var FrameOffset(get, never): cpp.Int32;
-	public inline extern function get_FrameOffset(): cpp.Int32 return this.FrameOffset;
+	public extern var FrameOffset(get, never): ucpp.num.Int32;
+	public inline extern function get_FrameOffset(): ucpp.num.Int32 return this.FrameOffset;
 }
 
 @:forward
 @:nativeGen
 @:native("TimeSynchronizationSource*")
-abstract TimeSynchronizationSourcePtr(cpp.Star<TimeSynchronizationSource>) from cpp.Star<TimeSynchronizationSource> to cpp.Star<TimeSynchronizationSource>{
+abstract TimeSynchronizationSourcePtr(ucpp.Ptr<TimeSynchronizationSource>) from ucpp.Ptr<TimeSynchronizationSource> to ucpp.Ptr<TimeSynchronizationSource>{
 	@:from
 	public static extern inline function fromValue(v: TimeSynchronizationSource): TimeSynchronizationSourcePtr {
 		return untyped __cpp__("&({0})", v);

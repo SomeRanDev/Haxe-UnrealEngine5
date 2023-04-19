@@ -3,16 +3,16 @@ package ue;
 
 @:native("FTargetChainIKSettings")
 @:include("Retargeter/IKRetargetSettings.h")
-@:structAccess
+@:valueType
 extern class TargetChainIKSettings {
 	public var EnableIK: Bool;
-	public var BlendToSource: cpp.Float32;
+	public var BlendToSource: ucpp.num.Float32;
 	public var BlendToSourceWeights: Vector;
 	public var StaticOffset: Vector;
 	public var StaticLocalOffset: Vector;
 	public var StaticRotationOffset: Rotator;
-	public var ScaleVertical: cpp.Float32;
-	public var Extension: cpp.Float32;
+	public var ScaleVertical: ucpp.num.Float32;
+	public var Extension: ucpp.num.Float32;
 	public var bAffectedByIKWarping: Bool;
 
 	@:native("FTargetChainIKSettings") public function new();

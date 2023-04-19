@@ -3,13 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionStrataVerticalLayering")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataVerticalLayering extends MaterialExpressionStrataBSDF {
 	public var Top: ExpressionInput;
 	public var Base: ExpressionInput;
+	public var Thickness: ExpressionInput;
 	public var bUseParameterBlending: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,6 +20,8 @@ abstract ConstMaterialExpressionStrataVerticalLayering(MaterialExpressionStrataV
 	public inline extern function get_Top(): ExpressionInput return this.Top;
 	public extern var Base(get, never): ExpressionInput;
 	public inline extern function get_Base(): ExpressionInput return this.Base;
+	public extern var Thickness(get, never): ExpressionInput;
+	public inline extern function get_Thickness(): ExpressionInput return this.Thickness;
 	public extern var bUseParameterBlending(get, never): Bool;
 	public inline extern function get_bUseParameterBlending(): Bool return this.bUseParameterBlending;
 }
@@ -26,7 +29,7 @@ abstract ConstMaterialExpressionStrataVerticalLayering(MaterialExpressionStrataV
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataVerticalLayering*")
-abstract MaterialExpressionStrataVerticalLayeringPtr(cpp.Star<MaterialExpressionStrataVerticalLayering>) from cpp.Star<MaterialExpressionStrataVerticalLayering> to cpp.Star<MaterialExpressionStrataVerticalLayering>{
+abstract MaterialExpressionStrataVerticalLayeringPtr(ucpp.Ptr<MaterialExpressionStrataVerticalLayering>) from ucpp.Ptr<MaterialExpressionStrataVerticalLayering> to ucpp.Ptr<MaterialExpressionStrataVerticalLayering>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataVerticalLayering): MaterialExpressionStrataVerticalLayeringPtr {
 		return untyped __cpp__("&({0})", v);

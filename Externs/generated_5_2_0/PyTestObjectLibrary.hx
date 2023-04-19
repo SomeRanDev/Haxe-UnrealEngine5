@@ -3,12 +3,12 @@ package ue;
 
 @:native("UPyTestObjectLibrary")
 @:include("PyTest.h")
-@:structAccess
+@:valueType
 extern class PyTestObjectLibrary extends BlueprintFunctionLibrary {
-	private function IsBoolSet(InObj: cpp.Star<PyTestObject.ConstPyTestObject>): Bool;
-	private function GetOtherConstantValue(): cpp.Int32;
+	private function IsBoolSet(InObj: ucpp.Ptr<PyTestObject.ConstPyTestObject>): Bool;
+	private function GetOtherConstantValue(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstPyTestObjectLibrary(PyTestObjectLibrary) from PyTestObjectLibrary 
 @:forward
 @:nativeGen
 @:native("PyTestObjectLibrary*")
-abstract PyTestObjectLibraryPtr(cpp.Star<PyTestObjectLibrary>) from cpp.Star<PyTestObjectLibrary> to cpp.Star<PyTestObjectLibrary>{
+abstract PyTestObjectLibraryPtr(ucpp.Ptr<PyTestObjectLibrary>) from ucpp.Ptr<PyTestObjectLibrary> to ucpp.Ptr<PyTestObjectLibrary>{
 	@:from
 	public static extern inline function fromValue(v: PyTestObjectLibrary): PyTestObjectLibraryPtr {
 		return untyped __cpp__("&({0})", v);

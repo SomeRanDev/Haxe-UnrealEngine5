@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDEPRECATED_DataLayer")
 @:include("WorldPartition/DataLayer/DataLayer.h")
-@:structAccess
+@:valueType
 extern class DataLayer extends Object {
 	private var DataLayerLabel: FName;
 	private var bIsRuntime: Bool;
@@ -20,9 +20,9 @@ extern class DataLayer extends Object {
 	public function GetInitialRuntimeState(): EDataLayerRuntimeState;
 	public function GetDebugColor(): Color;
 	public function GetDataLayerLabel(): FName;
-	public function Equals(ActorDataLayer: cpp.Reference<ActorDataLayer>): Bool;
+	public function Equals(ActorDataLayer: ucpp.Ref<ActorDataLayer>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -37,7 +37,7 @@ abstract ConstDataLayer(DataLayer) from DataLayer {
 @:forward
 @:nativeGen
 @:native("DataLayer*")
-abstract DataLayerPtr(cpp.Star<DataLayer>) from cpp.Star<DataLayer> to cpp.Star<DataLayer>{
+abstract DataLayerPtr(ucpp.Ptr<DataLayer>) from ucpp.Ptr<DataLayer> to ucpp.Ptr<DataLayer>{
 	@:from
 	public static extern inline function fromValue(v: DataLayer): DataLayerPtr {
 		return untyped __cpp__("&({0})", v);

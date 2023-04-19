@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMediaPlayer")
 @:include("MediaPlayer.h")
-@:structAccess
+@:valueType
 extern class MediaPlayer extends Object {
 	public var OnEndReached: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnMediaClosed: HaxeMulticastSparseDelegateProperty<() -> Void>;
@@ -13,6 +13,7 @@ extern class MediaPlayer extends Object {
 	public var OnPlaybackSuspended: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnSeekCompleted: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTracksChanged: HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public var OnMetadataChanged: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var CacheAhead: Timespan;
 	public var CacheBehind: Timespan;
 	public var CacheBehindGame: Timespan;
@@ -20,30 +21,30 @@ extern class MediaPlayer extends Object {
 	public var PlayOnOpen: Bool;
 	public var Shuffle: Bool;
 	@:protected public var Loop: Bool;
-	public function GetPlayList(): cpp.Star<MediaPlaylist>;
-	@:protected public var PlaylistIndex: cpp.Int32;
+	public function GetPlayList(): ucpp.Ptr<MediaPlaylist>;
+	@:protected public var PlaylistIndex: ucpp.num.Int32;
 	@:protected public var TimeDelay: Timespan;
-	@:protected public var HorizontalFieldOfView: cpp.Float32;
-	@:protected public var VerticalFieldOfView: cpp.Float32;
+	@:protected public var HorizontalFieldOfView: ucpp.num.Float32;
+	@:protected public var VerticalFieldOfView: ucpp.num.Float32;
 	@:protected public var ViewRotation: Rotator;
 	private var PlayerGuid: Guid;
 
 	public function SupportsSeeking(): Bool;
 	public function SupportsScrubbing(): Bool;
-	public function SupportsRate(Rate: cpp.Float32, Unthinned: Bool): Bool;
-	public function SetViewRotation(Rotation: cpp.Reference<Rotator>, Absolute: Bool): Bool;
-	public function SetViewField(Horizontal: cpp.Float32, Vertical: cpp.Float32, Absolute: Bool): Bool;
-	public function SetVideoTrackFrameRate(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32, FrameRate: cpp.Float32): Bool;
-	public function SetTrackFormat(TrackType: EMediaPlayerTrack, TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): Bool;
+	public function SupportsRate(Rate: ucpp.num.Float32, Unthinned: Bool): Bool;
+	public function SetViewRotation(Rotation: ucpp.Ref<Rotator>, Absolute: Bool): Bool;
+	public function SetViewField(Horizontal: ucpp.num.Float32, Vertical: ucpp.num.Float32, Absolute: Bool): Bool;
+	public function SetVideoTrackFrameRate(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32, FrameRate: ucpp.num.Float32): Bool;
+	public function SetTrackFormat(TrackType: EMediaPlayerTrack, TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): Bool;
 	public function SetTimeDelay(TimeDelay: Timespan): Void;
-	public function SetRate(Rate: cpp.Float32): Bool;
-	public function SetNativeVolume(Volume: cpp.Float32): Bool;
-	public function SetMediaOptions(Options: cpp.Star<MediaSource.ConstMediaSource>): Void;
+	public function SetRate(Rate: ucpp.num.Float32): Bool;
+	public function SetNativeVolume(Volume: ucpp.num.Float32): Bool;
+	public function SetMediaOptions(Options: ucpp.Ptr<MediaSource.ConstMediaSource>): Void;
 	public function SetLooping(Looping: Bool): Bool;
 	public function SetDesiredPlayerName(PlayerName: FName): Void;
-	public function SetBlockOnTime(Time: cpp.Reference<Timespan>): Void;
-	public function SelectTrack(TrackType: EMediaPlayerTrack, TrackIndex: cpp.Int32): Bool;
-	public function Seek(Time: cpp.Reference<Timespan>): Bool;
+	public function SetBlockOnTime(Time: ucpp.Ref<Timespan>): Void;
+	public function SelectTrack(TrackType: EMediaPlayerTrack, TrackIndex: ucpp.num.Int32): Bool;
+	public function Seek(Time: ucpp.Ref<Timespan>): Bool;
 	public function Rewind(): Bool;
 	public function Reopen(): Bool;
 	public function Previous(): Bool;
@@ -51,11 +52,11 @@ extern class MediaPlayer extends Object {
 	public function Play(): Bool;
 	public function Pause(): Bool;
 	public function OpenUrl(Url: FString): Bool;
-	public function OpenSourceWithOptions(MediaSource: cpp.Star<MediaSource>, Options: cpp.Reference<MediaPlayerOptions>): Bool;
-	public function OpenSourceLatent(WorldContextObject: cpp.Star<Object.ConstObject>, LatentInfo: LatentActionInfo, MediaSource: cpp.Star<MediaSource>, Options: cpp.Reference<MediaPlayerOptions>, bSuccess: cpp.Reference<Bool>): Void;
-	public function OpenSource(MediaSource: cpp.Star<MediaSource>): Bool;
-	public function OpenPlaylistIndex(InPlaylist: cpp.Star<MediaPlaylist>, Index: cpp.Int32): Bool;
-	public function OpenPlaylist(InPlaylist: cpp.Star<MediaPlaylist>): Bool;
+	public function OpenSourceWithOptions(MediaSource: ucpp.Ptr<MediaSource>, Options: ucpp.Ref<MediaPlayerOptions>): Bool;
+	public function OpenSourceLatent(WorldContextObject: ucpp.Ptr<Object.ConstObject>, LatentInfo: LatentActionInfo, MediaSource: ucpp.Ptr<MediaSource>, Options: ucpp.Ref<MediaPlayerOptions>, bSuccess: ucpp.Ref<Bool>): Void;
+	public function OpenSource(MediaSource: ucpp.Ptr<MediaSource>): Bool;
+	public function OpenPlaylistIndex(InPlaylist: ucpp.Ptr<MediaPlaylist>, Index: ucpp.num.Int32): Bool;
+	public function OpenPlaylist(InPlaylist: ucpp.Ptr<MediaPlaylist>): Bool;
 	public function OpenFile(FilePath: FString): Bool;
 	public function Next(): Bool;
 	public function IsReady(): Bool;
@@ -68,39 +69,39 @@ extern class MediaPlayer extends Object {
 	public function IsBuffering(): Bool;
 	public function HasError(): Bool;
 	public function GetViewRotation(): Rotator;
-	public function GetVideoTrackType(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): FString;
-	public function GetVideoTrackFrameRates(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): FloatRange;
-	public function GetVideoTrackFrameRate(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): cpp.Float32;
-	public function GetVideoTrackDimensions(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): IntPoint;
-	public function GetVideoTrackAspectRatio(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): cpp.Float32;
-	public function GetVerticalFieldOfView(): cpp.Float32;
+	public function GetVideoTrackType(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): FString;
+	public function GetVideoTrackFrameRates(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): FloatRange;
+	public function GetVideoTrackFrameRate(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetVideoTrackDimensions(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): IntPoint;
+	public function GetVideoTrackAspectRatio(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetVerticalFieldOfView(): ucpp.num.Float32;
 	public function GetUrl(): FString;
-	public function GetTrackLanguage(TrackType: EMediaPlayerTrack, TrackIndex: cpp.Int32): FString;
-	public function GetTrackFormat(TrackType: EMediaPlayerTrack, TrackIndex: cpp.Int32): cpp.Int32;
-	public function GetTrackDisplayName(TrackType: EMediaPlayerTrack, TrackIndex: cpp.Int32): FText;
-	public function GetTimeStamp(): cpp.Star<MediaTimeStampInfo>;
+	public function GetTrackLanguage(TrackType: EMediaPlayerTrack, TrackIndex: ucpp.num.Int32): FString;
+	public function GetTrackFormat(TrackType: EMediaPlayerTrack, TrackIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetTrackDisplayName(TrackType: EMediaPlayerTrack, TrackIndex: ucpp.num.Int32): FText;
+	public function GetTimeStamp(): ucpp.Ptr<MediaTimeStampInfo>;
 	public function GetTimeDelay(): Timespan;
 	public function GetTime(): Timespan;
-	public function GetSupportedRates(OutRates: cpp.Reference<TArray<FloatRange>>, Unthinned: Bool): Void;
-	public function GetSelectedTrack(TrackType: EMediaPlayerTrack): cpp.Int32;
-	public function GetRate(): cpp.Float32;
-	public function GetPlaylistIndex(): cpp.Int32;
+	public function GetSupportedRates(OutRates: ucpp.Ref<TArray<FloatRange>>, Unthinned: Bool): Void;
+	public function GetSelectedTrack(TrackType: EMediaPlayerTrack): ucpp.num.Int32;
+	public function GetRate(): ucpp.num.Float32;
+	public function GetPlaylistIndex(): ucpp.num.Int32;
 	public function GetPlayerName(): FName;
-	public function GetNumTracks(TrackType: EMediaPlayerTrack): cpp.Int32;
-	public function GetNumTrackFormats(TrackType: EMediaPlayerTrack, TrackIndex: cpp.Int32): cpp.Int32;
+	public function GetNumTracks(TrackType: EMediaPlayerTrack): ucpp.num.Int32;
+	public function GetNumTrackFormats(TrackType: EMediaPlayerTrack, TrackIndex: ucpp.num.Int32): ucpp.num.Int32;
 	public function GetMediaName(): FText;
-	public function GetHorizontalFieldOfView(): cpp.Float32;
+	public function GetHorizontalFieldOfView(): ucpp.num.Float32;
 	public function GetDuration(): Timespan;
 	public function GetDesiredPlayerName(): FName;
-	public function GetAudioTrackType(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): FString;
-	public function GetAudioTrackSampleRate(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): cpp.Int32;
-	public function GetAudioTrackChannels(TrackIndex: cpp.Int32, FormatIndex: cpp.Int32): cpp.Int32;
+	public function GetAudioTrackType(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): FString;
+	public function GetAudioTrackSampleRate(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetAudioTrackChannels(TrackIndex: ucpp.num.Int32, FormatIndex: ucpp.num.Int32): ucpp.num.Int32;
 	public function Close(): Void;
 	public function CanPlayUrl(Url: FString): Bool;
-	public function CanPlaySource(MediaSource: cpp.Star<MediaSource>): Bool;
+	public function CanPlaySource(MediaSource: ucpp.Ptr<MediaSource>): Bool;
 	public function CanPause(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -132,6 +133,8 @@ abstract ConstMediaPlayer(MediaPlayer) from MediaPlayer {
 	public inline extern function get_OnSeekCompleted(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnSeekCompleted;
 	public extern var OnTracksChanged(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnTracksChanged(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnTracksChanged;
+	public extern var OnMetadataChanged(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
+	public inline extern function get_OnMetadataChanged(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnMetadataChanged;
 	public extern var CacheAhead(get, never): Timespan;
 	public inline extern function get_CacheAhead(): Timespan return this.CacheAhead;
 	public extern var CacheBehind(get, never): Timespan;
@@ -149,7 +152,7 @@ abstract ConstMediaPlayer(MediaPlayer) from MediaPlayer {
 @:forward
 @:nativeGen
 @:native("MediaPlayer*")
-abstract MediaPlayerPtr(cpp.Star<MediaPlayer>) from cpp.Star<MediaPlayer> to cpp.Star<MediaPlayer>{
+abstract MediaPlayerPtr(ucpp.Ptr<MediaPlayer>) from ucpp.Ptr<MediaPlayer> to ucpp.Ptr<MediaPlayer>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlayer): MediaPlayerPtr {
 		return untyped __cpp__("&({0})", v);

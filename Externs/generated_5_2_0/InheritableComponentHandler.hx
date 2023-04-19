@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInheritableComponentHandler")
 @:include("Engine/InheritableComponentHandler.h")
-@:structAccess
+@:valueType
 extern class InheritableComponentHandler extends Object {
 	private var Records: TArray<ComponentOverrideRecord>;
-	private var UnnecessaryComponents: TArray<cpp.Star<ActorComp>>;
+	private var UnnecessaryComponents: TArray<ucpp.Ptr<ActorComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstInheritableComponentHandler(InheritableComponentHandler) from Inhe
 @:forward
 @:nativeGen
 @:native("InheritableComponentHandler*")
-abstract InheritableComponentHandlerPtr(cpp.Star<InheritableComponentHandler>) from cpp.Star<InheritableComponentHandler> to cpp.Star<InheritableComponentHandler>{
+abstract InheritableComponentHandlerPtr(ucpp.Ptr<InheritableComponentHandler>) from ucpp.Ptr<InheritableComponentHandler> to ucpp.Ptr<InheritableComponentHandler>{
 	@:from
 	public static extern inline function fromValue(v: InheritableComponentHandler): InheritableComponentHandlerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,30 +3,36 @@ package ue;
 
 @:native("UMaterialExpressionScalarParameter")
 @:include("Materials/MaterialExpressionScalarParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionScalarParameter extends MaterialExpressionParameter {
-	public var DefaultValue: cpp.Float32;
+	public var DefaultValue: ucpp.num.Float32;
 	public var bUseCustomPrimitiveData: Bool;
-	public var PrimitiveDataIndex: cpp.UInt8;
+	public var PrimitiveDataIndex: ucpp.num.UInt8;
+	public var SliderMin: ucpp.num.Float32;
+	public var SliderMax: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionScalarParameter(MaterialExpressionScalarParameter) from MaterialExpressionScalarParameter {
-	public extern var DefaultValue(get, never): cpp.Float32;
-	public inline extern function get_DefaultValue(): cpp.Float32 return this.DefaultValue;
+	public extern var DefaultValue(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultValue(): ucpp.num.Float32 return this.DefaultValue;
 	public extern var bUseCustomPrimitiveData(get, never): Bool;
 	public inline extern function get_bUseCustomPrimitiveData(): Bool return this.bUseCustomPrimitiveData;
-	public extern var PrimitiveDataIndex(get, never): cpp.UInt8;
-	public inline extern function get_PrimitiveDataIndex(): cpp.UInt8 return this.PrimitiveDataIndex;
+	public extern var PrimitiveDataIndex(get, never): ucpp.num.UInt8;
+	public inline extern function get_PrimitiveDataIndex(): ucpp.num.UInt8 return this.PrimitiveDataIndex;
+	public extern var SliderMin(get, never): ucpp.num.Float32;
+	public inline extern function get_SliderMin(): ucpp.num.Float32 return this.SliderMin;
+	public extern var SliderMax(get, never): ucpp.num.Float32;
+	public inline extern function get_SliderMax(): ucpp.num.Float32 return this.SliderMax;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionScalarParameter*")
-abstract MaterialExpressionScalarParameterPtr(cpp.Star<MaterialExpressionScalarParameter>) from cpp.Star<MaterialExpressionScalarParameter> to cpp.Star<MaterialExpressionScalarParameter>{
+abstract MaterialExpressionScalarParameterPtr(ucpp.Ptr<MaterialExpressionScalarParameter>) from ucpp.Ptr<MaterialExpressionScalarParameter> to ucpp.Ptr<MaterialExpressionScalarParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionScalarParameter): MaterialExpressionScalarParameterPtr {
 		return untyped __cpp__("&({0})", v);

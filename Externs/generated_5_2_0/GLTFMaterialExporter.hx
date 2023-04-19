@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGLTFMaterialExporter")
 @:include("Exporters/GLTFMaterialExporter.h")
-@:structAccess
+@:valueType
 extern class GLTFMaterialExporter extends GLTFExporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGLTFMaterialExporter(GLTFMaterialExporter) from GLTFMaterialExport
 @:forward
 @:nativeGen
 @:native("GLTFMaterialExporter*")
-abstract GLTFMaterialExporterPtr(cpp.Star<GLTFMaterialExporter>) from cpp.Star<GLTFMaterialExporter> to cpp.Star<GLTFMaterialExporter>{
+abstract GLTFMaterialExporterPtr(ucpp.Ptr<GLTFMaterialExporter>) from ucpp.Ptr<GLTFMaterialExporter> to ucpp.Ptr<GLTFMaterialExporter>{
 	@:from
 	public static extern inline function fromValue(v: GLTFMaterialExporter): GLTFMaterialExporterPtr {
 		return untyped __cpp__("&({0})", v);

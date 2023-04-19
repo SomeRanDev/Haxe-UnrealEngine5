@@ -3,25 +3,25 @@ package ue;
 
 @:native("UConsole")
 @:include("Engine/Console.h")
-@:structAccess
+@:valueType
 extern class Console extends Object {
-	public var ConsoleTargetPlayer: cpp.Star<LocalPlayer>;
-	public var DefaultTexture_Black: cpp.Star<Texture2D>;
-	public var DefaultTexture_White: cpp.Star<Texture2D>;
+	public var ConsoleTargetPlayer: ucpp.Ptr<LocalPlayer>;
+	public var DefaultTexture_Black: ucpp.Ptr<Texture2D>;
+	public var DefaultTexture_White: ucpp.Ptr<Texture2D>;
 	public var HistoryBuffer: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstConsole(Console) from Console {
-	public extern var ConsoleTargetPlayer(get, never): cpp.Star<LocalPlayer.ConstLocalPlayer>;
-	public inline extern function get_ConsoleTargetPlayer(): cpp.Star<LocalPlayer.ConstLocalPlayer> return this.ConsoleTargetPlayer;
-	public extern var DefaultTexture_Black(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_DefaultTexture_Black(): cpp.Star<Texture2D.ConstTexture2D> return this.DefaultTexture_Black;
-	public extern var DefaultTexture_White(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_DefaultTexture_White(): cpp.Star<Texture2D.ConstTexture2D> return this.DefaultTexture_White;
+	public extern var ConsoleTargetPlayer(get, never): ucpp.Ptr<LocalPlayer.ConstLocalPlayer>;
+	public inline extern function get_ConsoleTargetPlayer(): ucpp.Ptr<LocalPlayer.ConstLocalPlayer> return this.ConsoleTargetPlayer;
+	public extern var DefaultTexture_Black(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_DefaultTexture_Black(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.DefaultTexture_Black;
+	public extern var DefaultTexture_White(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_DefaultTexture_White(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.DefaultTexture_White;
 	public extern var HistoryBuffer(get, never): TArray<FString>;
 	public inline extern function get_HistoryBuffer(): TArray<FString> return this.HistoryBuffer;
 }
@@ -29,7 +29,7 @@ abstract ConstConsole(Console) from Console {
 @:forward
 @:nativeGen
 @:native("Console*")
-abstract ConsolePtr(cpp.Star<Console>) from cpp.Star<Console> to cpp.Star<Console>{
+abstract ConsolePtr(ucpp.Ptr<Console>) from ucpp.Ptr<Console> to ucpp.Ptr<Console>{
 	@:from
 	public static extern inline function fromValue(v: Console): ConsolePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_CCDIK")
 @:include("AnimGraphNode_CCDIK.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_CCDIK extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_CCDIK;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_CCDIK(AnimGraphNode_CCDIK) from AnimGraphNode_CCDIK 
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_CCDIK*")
-abstract AnimGraphNode_CCDIKPtr(cpp.Star<AnimGraphNode_CCDIK>) from cpp.Star<AnimGraphNode_CCDIK> to cpp.Star<AnimGraphNode_CCDIK>{
+abstract AnimGraphNode_CCDIKPtr(ucpp.Ptr<AnimGraphNode_CCDIK>) from ucpp.Ptr<AnimGraphNode_CCDIK> to ucpp.Ptr<AnimGraphNode_CCDIK>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_CCDIK): AnimGraphNode_CCDIKPtr {
 		return untyped __cpp__("&({0})", v);

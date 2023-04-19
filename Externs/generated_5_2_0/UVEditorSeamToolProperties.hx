@@ -3,11 +3,11 @@ package ue;
 
 @:native("UUVEditorSeamToolProperties")
 @:include("UVEditorSeamTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorSeamToolProperties extends InteractiveToolPropertySet {
 	public var Mode: EUVEditorSeamMode;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstUVEditorSeamToolProperties(UVEditorSeamToolProperties) from UVEdit
 @:forward
 @:nativeGen
 @:native("UVEditorSeamToolProperties*")
-abstract UVEditorSeamToolPropertiesPtr(cpp.Star<UVEditorSeamToolProperties>) from cpp.Star<UVEditorSeamToolProperties> to cpp.Star<UVEditorSeamToolProperties>{
+abstract UVEditorSeamToolPropertiesPtr(ucpp.Ptr<UVEditorSeamToolProperties>) from ucpp.Ptr<UVEditorSeamToolProperties> to ucpp.Ptr<UVEditorSeamToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorSeamToolProperties): UVEditorSeamToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

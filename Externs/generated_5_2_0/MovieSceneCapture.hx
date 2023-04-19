@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMovieSceneCapture")
 @:include("MovieSceneCapture.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCapture extends Object {
 	public var ImageCaptureProtocolType: SoftClassPath;
 	public var AudioCaptureProtocolType: SoftClassPath;
-	public var ImageCaptureProtocol: cpp.Star<MovieSceneImageCaptureProtocolBase>;
-	public var AudioCaptureProtocol: cpp.Star<MovieSceneAudioCaptureProtocolBase>;
+	public var ImageCaptureProtocol: ucpp.Ptr<MovieSceneImageCaptureProtocolBase>;
+	public var AudioCaptureProtocol: ucpp.Ptr<MovieSceneAudioCaptureProtocolBase>;
 	public var Settings: MovieSceneCaptureSettings;
 	public var bUseSeparateProcess: Bool;
 	public var bCloseEditorWhenCaptureStarts: Bool;
@@ -17,10 +17,10 @@ extern class MovieSceneCapture extends Object {
 
 	public function SetImageCaptureProtocolType(ProtocolType: TSubclassOf<MovieSceneCaptureProtocolBase>): Void;
 	public function SetAudioCaptureProtocolType(ProtocolType: TSubclassOf<MovieSceneCaptureProtocolBase>): Void;
-	public function GetImageCaptureProtocol(): cpp.Star<MovieSceneCaptureProtocolBase>;
-	public function GetAudioCaptureProtocol(): cpp.Star<MovieSceneCaptureProtocolBase>;
+	public function GetImageCaptureProtocol(): ucpp.Ptr<MovieSceneCaptureProtocolBase>;
+	public function GetAudioCaptureProtocol(): ucpp.Ptr<MovieSceneCaptureProtocolBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,10 +30,10 @@ abstract ConstMovieSceneCapture(MovieSceneCapture) from MovieSceneCapture {
 	public inline extern function get_ImageCaptureProtocolType(): SoftClassPath return this.ImageCaptureProtocolType;
 	public extern var AudioCaptureProtocolType(get, never): SoftClassPath;
 	public inline extern function get_AudioCaptureProtocolType(): SoftClassPath return this.AudioCaptureProtocolType;
-	public extern var ImageCaptureProtocol(get, never): cpp.Star<MovieSceneImageCaptureProtocolBase.ConstMovieSceneImageCaptureProtocolBase>;
-	public inline extern function get_ImageCaptureProtocol(): cpp.Star<MovieSceneImageCaptureProtocolBase.ConstMovieSceneImageCaptureProtocolBase> return this.ImageCaptureProtocol;
-	public extern var AudioCaptureProtocol(get, never): cpp.Star<MovieSceneAudioCaptureProtocolBase.ConstMovieSceneAudioCaptureProtocolBase>;
-	public inline extern function get_AudioCaptureProtocol(): cpp.Star<MovieSceneAudioCaptureProtocolBase.ConstMovieSceneAudioCaptureProtocolBase> return this.AudioCaptureProtocol;
+	public extern var ImageCaptureProtocol(get, never): ucpp.Ptr<MovieSceneImageCaptureProtocolBase.ConstMovieSceneImageCaptureProtocolBase>;
+	public inline extern function get_ImageCaptureProtocol(): ucpp.Ptr<MovieSceneImageCaptureProtocolBase.ConstMovieSceneImageCaptureProtocolBase> return this.ImageCaptureProtocol;
+	public extern var AudioCaptureProtocol(get, never): ucpp.Ptr<MovieSceneAudioCaptureProtocolBase.ConstMovieSceneAudioCaptureProtocolBase>;
+	public inline extern function get_AudioCaptureProtocol(): ucpp.Ptr<MovieSceneAudioCaptureProtocolBase.ConstMovieSceneAudioCaptureProtocolBase> return this.AudioCaptureProtocol;
 	public extern var Settings(get, never): MovieSceneCaptureSettings;
 	public inline extern function get_Settings(): MovieSceneCaptureSettings return this.Settings;
 	public extern var bUseSeparateProcess(get, never): Bool;
@@ -49,7 +49,7 @@ abstract ConstMovieSceneCapture(MovieSceneCapture) from MovieSceneCapture {
 @:forward
 @:nativeGen
 @:native("MovieSceneCapture*")
-abstract MovieSceneCapturePtr(cpp.Star<MovieSceneCapture>) from cpp.Star<MovieSceneCapture> to cpp.Star<MovieSceneCapture>{
+abstract MovieSceneCapturePtr(ucpp.Ptr<MovieSceneCapture>) from ucpp.Ptr<MovieSceneCapture> to ucpp.Ptr<MovieSceneCapture>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCapture): MovieSceneCapturePtr {
 		return untyped __cpp__("&({0})", v);

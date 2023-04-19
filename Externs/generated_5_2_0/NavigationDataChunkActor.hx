@@ -3,12 +3,12 @@ package ue;
 
 @:native("ANavigationDataChunkActor")
 @:include("WorldPartition/NavigationData/NavigationDataChunkActor.h")
-@:structAccess
+@:valueType
 extern class NavigationDataChunkActor extends PartitionActor {
-	@:protected public var NavDataChunks: TArray<cpp.Star<NavigationDataChunk>>;
+	@:protected public var NavDataChunks: TArray<ucpp.Ptr<NavigationDataChunk>>;
 	@:protected public var DataChunkActorBounds: Box;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstNavigationDataChunkActor(NavigationDataChunkActor) from Navigation
 @:forward
 @:nativeGen
 @:native("NavigationDataChunkActor*")
-abstract NavigationDataChunkActorPtr(cpp.Star<NavigationDataChunkActor>) from cpp.Star<NavigationDataChunkActor> to cpp.Star<NavigationDataChunkActor>{
+abstract NavigationDataChunkActorPtr(ucpp.Ptr<NavigationDataChunkActor>) from ucpp.Ptr<NavigationDataChunkActor> to ucpp.Ptr<NavigationDataChunkActor>{
 	@:from
 	public static extern inline function fromValue(v: NavigationDataChunkActor): NavigationDataChunkActorPtr {
 		return untyped __cpp__("&({0})", v);

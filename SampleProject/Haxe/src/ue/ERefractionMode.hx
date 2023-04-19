@@ -6,5 +6,7 @@ package ue;
 extern class ERefractionMode {
 	static var RM_IndexOfRefraction: ERefractionMode;
 	static var RM_PixelNormalOffset: ERefractionMode;
+	static var RM_2DOffset: ERefractionMode;
+	static var RM_None: ERefractionMode;
 	static var RM_MAX: ERefractionMode;
 }

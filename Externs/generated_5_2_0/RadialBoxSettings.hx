@@ -3,13 +3,13 @@ package ue;
 
 @:native("FRadialBoxSettings")
 @:include("Components/RadialBoxSettings.h")
-@:structAccess
+@:valueType
 extern class RadialBoxSettings {
-	public var StartingAngle: cpp.Float32;
+	public var StartingAngle: ucpp.num.Float32;
 	public var bDistributeItemsEvenly: Bool;
-	public var AngleBetweenItems: cpp.Float32;
-	public var SectorCentralAngle: cpp.Float32;
+	public var AngleBetweenItems: ucpp.num.Float32;
+	public var SectorCentralAngle: ucpp.num.Float32;
 
 	@:native("FRadialBoxSettings") public function new();
-	@:native("FRadialBoxSettings") public static function make(StartingAngle: cpp.Float32, bDistributeItemsEvenly: Bool, AngleBetweenItems: cpp.Float32, SectorCentralAngle: cpp.Float32): RadialBoxSettings ;
+	@:native("FRadialBoxSettings") public static function make(StartingAngle: ucpp.num.Float32, bDistributeItemsEvenly: Bool, AngleBetweenItems: ucpp.num.Float32, SectorCentralAngle: ucpp.num.Float32): RadialBoxSettings ;
 }

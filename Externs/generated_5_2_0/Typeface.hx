@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTypeface")
 @:include("Fonts/CompositeFont.h")
-@:structAccess
+@:valueType
 extern class Typeface {
 	public var Fonts: TArray<TypefaceEntry>;
 

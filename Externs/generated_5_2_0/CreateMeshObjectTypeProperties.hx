@@ -3,7 +3,7 @@ package ue;
 
 @:native("UCreateMeshObjectTypeProperties")
 @:include("PropertySets/CreateMeshObjectTypeProperties.h")
-@:structAccess
+@:valueType
 extern class CreateMeshObjectTypeProperties extends InteractiveToolPropertySet {
 	public var OutputType: FString;
 	public var VolumeType: TSubclassOf<Volume>;
@@ -14,7 +14,7 @@ extern class CreateMeshObjectTypeProperties extends InteractiveToolPropertySet {
 	public function GetOutputTypeNamesFunc(): TArray<FString>;
 	public function GetCurrentCreateMeshType(): ECreateObjectTypeHint;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(ShouldShowPropertySet, GetCurrentCreateMeshType)
@@ -33,7 +33,7 @@ abstract ConstCreateMeshObjectTypeProperties(CreateMeshObjectTypeProperties) fro
 @:forward
 @:nativeGen
 @:native("CreateMeshObjectTypeProperties*")
-abstract CreateMeshObjectTypePropertiesPtr(cpp.Star<CreateMeshObjectTypeProperties>) from cpp.Star<CreateMeshObjectTypeProperties> to cpp.Star<CreateMeshObjectTypeProperties>{
+abstract CreateMeshObjectTypePropertiesPtr(ucpp.Ptr<CreateMeshObjectTypeProperties>) from ucpp.Ptr<CreateMeshObjectTypeProperties> to ucpp.Ptr<CreateMeshObjectTypeProperties>{
 	@:from
 	public static extern inline function fromValue(v: CreateMeshObjectTypeProperties): CreateMeshObjectTypePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

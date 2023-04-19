@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDirtyFilesChangelistValidator")
 @:include("DirtyFilesChangelistValidator.h")
-@:structAccess
+@:valueType
 extern class DirtyFilesChangelistValidator extends EditorValidatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDirtyFilesChangelistValidator(DirtyFilesChangelistValidator) from 
 @:forward
 @:nativeGen
 @:native("DirtyFilesChangelistValidator*")
-abstract DirtyFilesChangelistValidatorPtr(cpp.Star<DirtyFilesChangelistValidator>) from cpp.Star<DirtyFilesChangelistValidator> to cpp.Star<DirtyFilesChangelistValidator>{
+abstract DirtyFilesChangelistValidatorPtr(ucpp.Ptr<DirtyFilesChangelistValidator>) from ucpp.Ptr<DirtyFilesChangelistValidator> to ucpp.Ptr<DirtyFilesChangelistValidator>{
 	@:from
 	public static extern inline function fromValue(v: DirtyFilesChangelistValidator): DirtyFilesChangelistValidatorPtr {
 		return untyped __cpp__("&({0})", v);

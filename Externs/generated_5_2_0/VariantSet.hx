@@ -3,25 +3,25 @@ package ue;
 
 @:native("UVariantSet")
 @:include("VariantSet.h")
-@:structAccess
+@:valueType
 extern class VariantSet extends Object {
 	private var bExpanded: Bool;
-	private var Variants: TArray<cpp.Star<Variant>>;
-	private var Thumbnail: cpp.Star<Texture2D>;
+	private var Variants: TArray<ucpp.Ptr<Variant>>;
+	private var Thumbnail: ucpp.Ptr<Texture2D>;
 
-	public function SetThumbnailFromTexture(NewThumbnail: cpp.Star<Texture2D>): Void;
+	public function SetThumbnailFromTexture(NewThumbnail: ucpp.Ptr<Texture2D>): Void;
 	public function SetThumbnailFromFile(FilePath: FString): Void;
 	public function SetThumbnailFromEditorViewport(): Void;
-	public function SetThumbnailFromCamera(WorldContextObject: cpp.Star<Object>, CameraTransform: cpp.Reference<Transform>, FOVDegrees: cpp.Float32, MinZ: cpp.Float32, Gamma: cpp.Float32): Void;
-	public function SetDisplayText(NewDisplayText: cpp.Reference<FText>): Void;
-	public function GetVariantByName(VariantName: FString): cpp.Star<Variant>;
-	public function GetVariant(VariantIndex: cpp.Int32): cpp.Star<Variant>;
-	public function GetThumbnail(): cpp.Star<Texture2D>;
-	public function GetParent(): cpp.Star<LevelVariantSets>;
-	public function GetNumVariants(): cpp.Int32;
+	public function SetThumbnailFromCamera(WorldContextObject: ucpp.Ptr<Object>, CameraTransform: ucpp.Ref<Transform>, FOVDegrees: ucpp.num.Float32, MinZ: ucpp.num.Float32, Gamma: ucpp.num.Float32): Void;
+	public function SetDisplayText(NewDisplayText: ucpp.Ref<FText>): Void;
+	public function GetVariantByName(VariantName: FString): ucpp.Ptr<Variant>;
+	public function GetVariant(VariantIndex: ucpp.num.Int32): ucpp.Ptr<Variant>;
+	public function GetThumbnail(): ucpp.Ptr<Texture2D>;
+	public function GetParent(): ucpp.Ptr<LevelVariantSets>;
+	public function GetNumVariants(): ucpp.num.Int32;
 	public function GetDisplayText(): FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetNumVariants, GetDisplayText)
@@ -32,7 +32,7 @@ abstract ConstVariantSet(VariantSet) from VariantSet {
 @:forward
 @:nativeGen
 @:native("VariantSet*")
-abstract VariantSetPtr(cpp.Star<VariantSet>) from cpp.Star<VariantSet> to cpp.Star<VariantSet>{
+abstract VariantSetPtr(ucpp.Ptr<VariantSet>) from ucpp.Ptr<VariantSet> to ucpp.Ptr<VariantSet>{
 	@:from
 	public static extern inline function fromValue(v: VariantSet): VariantSetPtr {
 		return untyped __cpp__("&({0})", v);

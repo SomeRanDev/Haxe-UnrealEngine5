@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPlatformInterfaceBase")
 @:include("Engine/PlatformInterfaceBase.h")
-@:structAccess
+@:valueType
 extern class PlatformInterfaceBase extends Object {
 	public var AllDelegates: TArray<DelegateArray>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPlatformInterfaceBase(PlatformInterfaceBase) from PlatformInterfac
 @:forward
 @:nativeGen
 @:native("PlatformInterfaceBase*")
-abstract PlatformInterfaceBasePtr(cpp.Star<PlatformInterfaceBase>) from cpp.Star<PlatformInterfaceBase> to cpp.Star<PlatformInterfaceBase>{
+abstract PlatformInterfaceBasePtr(ucpp.Ptr<PlatformInterfaceBase>) from ucpp.Ptr<PlatformInterfaceBase> to ucpp.Ptr<PlatformInterfaceBase>{
 	@:from
 	public static extern inline function fromValue(v: PlatformInterfaceBase): PlatformInterfaceBasePtr {
 		return untyped __cpp__("&({0})", v);

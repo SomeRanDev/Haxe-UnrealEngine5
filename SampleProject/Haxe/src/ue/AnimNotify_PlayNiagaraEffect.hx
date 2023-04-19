@@ -3,9 +3,9 @@ package ue;
 
 @:native("UAnimNotify_PlayNiagaraEffect")
 @:include("AnimNotify_PlayNiagaraEffect.h")
-@:structAccess
+@:valueType
 extern class AnimNotify_PlayNiagaraEffect extends AnimNotify {
-	public var Template: cpp.Star<NiagaraSystem>;
+	public var Template: ucpp.Ptr<NiagaraSystem>;
 	public var LocationOffset: Vector;
 	public var RotationOffset: Rotator;
 	public var Scale: Vector;
@@ -13,16 +13,16 @@ extern class AnimNotify_PlayNiagaraEffect extends AnimNotify {
 	public var Attached: Bool;
 	public var SocketName: FName;
 
-	public function GetSpawnedEffect(): cpp.Star<FXSystemComp>;
+	public function GetSpawnedEffect(): ucpp.Ptr<FXSystemComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSpawnedEffect)
 @:nativeGen
 abstract ConstAnimNotify_PlayNiagaraEffect(AnimNotify_PlayNiagaraEffect) from AnimNotify_PlayNiagaraEffect {
-	public extern var Template(get, never): cpp.Star<NiagaraSystem.ConstNiagaraSystem>;
-	public inline extern function get_Template(): cpp.Star<NiagaraSystem.ConstNiagaraSystem> return this.Template;
+	public extern var Template(get, never): ucpp.Ptr<NiagaraSystem.ConstNiagaraSystem>;
+	public inline extern function get_Template(): ucpp.Ptr<NiagaraSystem.ConstNiagaraSystem> return this.Template;
 	public extern var LocationOffset(get, never): Vector;
 	public inline extern function get_LocationOffset(): Vector return this.LocationOffset;
 	public extern var RotationOffset(get, never): Rotator;
@@ -40,7 +40,7 @@ abstract ConstAnimNotify_PlayNiagaraEffect(AnimNotify_PlayNiagaraEffect) from An
 @:forward
 @:nativeGen
 @:native("AnimNotify_PlayNiagaraEffect*")
-abstract AnimNotify_PlayNiagaraEffectPtr(cpp.Star<AnimNotify_PlayNiagaraEffect>) from cpp.Star<AnimNotify_PlayNiagaraEffect> to cpp.Star<AnimNotify_PlayNiagaraEffect>{
+abstract AnimNotify_PlayNiagaraEffectPtr(ucpp.Ptr<AnimNotify_PlayNiagaraEffect>) from ucpp.Ptr<AnimNotify_PlayNiagaraEffect> to ucpp.Ptr<AnimNotify_PlayNiagaraEffect>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotify_PlayNiagaraEffect): AnimNotify_PlayNiagaraEffectPtr {
 		return untyped __cpp__("&({0})", v);

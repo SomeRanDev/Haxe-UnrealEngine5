@@ -3,11 +3,11 @@ package ue;
 
 @:native("USoundConcurrency")
 @:include("Sound/SoundConcurrency.h")
-@:structAccess
+@:valueType
 extern class SoundConcurrency extends Object {
 	public var Concurrency: SoundConcurrencySettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSoundConcurrency(SoundConcurrency) from SoundConcurrency {
 @:forward
 @:nativeGen
 @:native("SoundConcurrency*")
-abstract SoundConcurrencyPtr(cpp.Star<SoundConcurrency>) from cpp.Star<SoundConcurrency> to cpp.Star<SoundConcurrency>{
+abstract SoundConcurrencyPtr(ucpp.Ptr<SoundConcurrency>) from ucpp.Ptr<SoundConcurrency> to ucpp.Ptr<SoundConcurrency>{
 	@:from
 	public static extern inline function fromValue(v: SoundConcurrency): SoundConcurrencyPtr {
 		return untyped __cpp__("&({0})", v);

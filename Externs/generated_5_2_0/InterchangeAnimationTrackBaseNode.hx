@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeAnimationTrackBaseNode")
 @:include("InterchangeAnimationTrackSetNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeAnimationTrackBaseNode extends InterchangeBaseNode {
-	public function SetCustomCompletionMode(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomCompletionMode(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
+	public function SetCustomCompletionMode(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomCompletionMode(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomCompletionMode)
@@ -19,7 +19,7 @@ abstract ConstInterchangeAnimationTrackBaseNode(InterchangeAnimationTrackBaseNod
 @:forward
 @:nativeGen
 @:native("InterchangeAnimationTrackBaseNode*")
-abstract InterchangeAnimationTrackBaseNodePtr(cpp.Star<InterchangeAnimationTrackBaseNode>) from cpp.Star<InterchangeAnimationTrackBaseNode> to cpp.Star<InterchangeAnimationTrackBaseNode>{
+abstract InterchangeAnimationTrackBaseNodePtr(ucpp.Ptr<InterchangeAnimationTrackBaseNode>) from ucpp.Ptr<InterchangeAnimationTrackBaseNode> to ucpp.Ptr<InterchangeAnimationTrackBaseNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeAnimationTrackBaseNode): InterchangeAnimationTrackBaseNodePtr {
 		return untyped __cpp__("&({0})", v);

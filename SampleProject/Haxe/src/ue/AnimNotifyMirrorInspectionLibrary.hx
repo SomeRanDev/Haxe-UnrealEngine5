@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimNotifyMirrorInspectionLibrary")
 @:include("Animation/AnimNotifyMirrorInspectionLibrary.h")
-@:structAccess
+@:valueType
 extern class AnimNotifyMirrorInspectionLibrary extends BlueprintFunctionLibrary {
-	public function IsTriggeredByMirroredAnimation(EventReference: cpp.Reference<AnimNotifyEventReference>): Bool;
-	public function GetMirrorDataTable(EventReference: cpp.Reference<AnimNotifyEventReference>): cpp.Star<MirrorDataTable.ConstMirrorDataTable>;
+	public function IsTriggeredByMirroredAnimation(EventReference: ucpp.Ref<AnimNotifyEventReference>): Bool;
+	public function GetMirrorDataTable(EventReference: ucpp.Ref<AnimNotifyEventReference>): ucpp.Ptr<MirrorDataTable.ConstMirrorDataTable>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAnimNotifyMirrorInspectionLibrary(AnimNotifyMirrorInspectionLibrar
 @:forward
 @:nativeGen
 @:native("AnimNotifyMirrorInspectionLibrary*")
-abstract AnimNotifyMirrorInspectionLibraryPtr(cpp.Star<AnimNotifyMirrorInspectionLibrary>) from cpp.Star<AnimNotifyMirrorInspectionLibrary> to cpp.Star<AnimNotifyMirrorInspectionLibrary>{
+abstract AnimNotifyMirrorInspectionLibraryPtr(ucpp.Ptr<AnimNotifyMirrorInspectionLibrary>) from ucpp.Ptr<AnimNotifyMirrorInspectionLibrary> to ucpp.Ptr<AnimNotifyMirrorInspectionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AnimNotifyMirrorInspectionLibrary): AnimNotifyMirrorInspectionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_PawnAction")
 @:include("Actions/PawnAction.h")
-@:structAccess
+@:valueType
 extern class PawnAction extends Object {
-	private var Instigator: cpp.Star<Object>;
-	@:protected public var BrainComp: cpp.Star<BrainComp>;
+	private var Instigator: ucpp.Ptr<Object>;
+	@:protected public var BrainComp: ucpp.Ptr<BrainComp>;
 	@:protected public var bAllowNewSameClassInstance: Bool;
 	@:protected public var bReplaceActiveSameClassInstance: Bool;
 	@:protected public var bShouldPauseMovement: Bool;
@@ -14,9 +14,9 @@ extern class PawnAction extends Object {
 
 	public function GetActionPriority(): TEnumAsByte<EAIRequestPriority>;
 	@:protected public function Finish(WithResult: TEnumAsByte<EPawnActionResult>): Void;
-	public function CreateActionInstance(WorldContextObject: cpp.Star<Object>, ActionClass: TSubclassOf<PawnAction>): cpp.Star<PawnAction>;
+	public function CreateActionInstance(WorldContextObject: ucpp.Ptr<Object>, ActionClass: TSubclassOf<PawnAction>): ucpp.Ptr<PawnAction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstPawnAction(PawnAction) from PawnAction {
 @:forward
 @:nativeGen
 @:native("PawnAction*")
-abstract PawnActionPtr(cpp.Star<PawnAction>) from cpp.Star<PawnAction> to cpp.Star<PawnAction>{
+abstract PawnActionPtr(ucpp.Ptr<PawnAction>) from ucpp.Ptr<PawnAction> to ucpp.Ptr<PawnAction>{
 	@:from
 	public static extern inline function fromValue(v: PawnAction): PawnActionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnGetItemChildrenDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnGetItemChildrenDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnGetItemChildrenDynamic__PythonCallable(OnGetItemChildrenDynamic_
 @:forward
 @:nativeGen
 @:native("OnGetItemChildrenDynamic__PythonCallable*")
-abstract OnGetItemChildrenDynamic__PythonCallablePtr(cpp.Star<OnGetItemChildrenDynamic__PythonCallable>) from cpp.Star<OnGetItemChildrenDynamic__PythonCallable> to cpp.Star<OnGetItemChildrenDynamic__PythonCallable>{
+abstract OnGetItemChildrenDynamic__PythonCallablePtr(ucpp.Ptr<OnGetItemChildrenDynamic__PythonCallable>) from ucpp.Ptr<OnGetItemChildrenDynamic__PythonCallable> to ucpp.Ptr<OnGetItemChildrenDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnGetItemChildrenDynamic__PythonCallable): OnGetItemChildrenDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

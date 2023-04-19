@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAnimStateTransitionNode")
 @:include("AnimStateTransitionNode.h")
-@:structAccess
+@:valueType
 extern class AnimStateTransitionNode extends AnimStateNodeBase {
-	public var BoundGraph: cpp.Star<EdGraph>;
-	public var CustomTransitionGraph: cpp.Star<EdGraph>;
-	public var PriorityOrder: cpp.Int32;
-	public var CrossfadeDuration: cpp.Float32;
+	public var BoundGraph: ucpp.Ptr<EdGraph>;
+	public var CustomTransitionGraph: ucpp.Ptr<EdGraph>;
+	public var PriorityOrder: ucpp.num.Int32;
+	public var CrossfadeDuration: ucpp.num.Float32;
 	public var BlendMode: EAlphaBlendOption;
-	public var CustomBlendCurve: cpp.Star<CurveFloat>;
-	public var BlendProfile: cpp.Star<BlendProfile>;
+	public var CustomBlendCurve: ucpp.Ptr<CurveFloat>;
+	public var BlendProfile: ucpp.Ptr<BlendProfile>;
 	public var bAutomaticRuleBasedOnSequencePlayerInState: Bool;
 	public var SyncGroupNameToRequireValidMarkersRule: FName;
 	public var LogicType: TEnumAsByte<ETransitionLogicType>;
@@ -26,28 +26,28 @@ extern class AnimStateTransitionNode extends AnimStateNodeBase {
 	public var SharedColor: LinearColor;
 	public var SharedCrossfadeName: FString;
 	public var SharedCrossfadeGuid: Guid;
-	public var SharedCrossfadeIdx: cpp.Int32;
+	public var SharedCrossfadeIdx: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimStateTransitionNode(AnimStateTransitionNode) from AnimStateTransitionNode {
-	public extern var BoundGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_BoundGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.BoundGraph;
-	public extern var CustomTransitionGraph(get, never): cpp.Star<EdGraph.ConstEdGraph>;
-	public inline extern function get_CustomTransitionGraph(): cpp.Star<EdGraph.ConstEdGraph> return this.CustomTransitionGraph;
-	public extern var PriorityOrder(get, never): cpp.Int32;
-	public inline extern function get_PriorityOrder(): cpp.Int32 return this.PriorityOrder;
-	public extern var CrossfadeDuration(get, never): cpp.Float32;
-	public inline extern function get_CrossfadeDuration(): cpp.Float32 return this.CrossfadeDuration;
+	public extern var BoundGraph(get, never): ucpp.Ptr<EdGraph.ConstEdGraph>;
+	public inline extern function get_BoundGraph(): ucpp.Ptr<EdGraph.ConstEdGraph> return this.BoundGraph;
+	public extern var CustomTransitionGraph(get, never): ucpp.Ptr<EdGraph.ConstEdGraph>;
+	public inline extern function get_CustomTransitionGraph(): ucpp.Ptr<EdGraph.ConstEdGraph> return this.CustomTransitionGraph;
+	public extern var PriorityOrder(get, never): ucpp.num.Int32;
+	public inline extern function get_PriorityOrder(): ucpp.num.Int32 return this.PriorityOrder;
+	public extern var CrossfadeDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_CrossfadeDuration(): ucpp.num.Float32 return this.CrossfadeDuration;
 	public extern var BlendMode(get, never): EAlphaBlendOption;
 	public inline extern function get_BlendMode(): EAlphaBlendOption return this.BlendMode;
-	public extern var CustomBlendCurve(get, never): cpp.Star<CurveFloat.ConstCurveFloat>;
-	public inline extern function get_CustomBlendCurve(): cpp.Star<CurveFloat.ConstCurveFloat> return this.CustomBlendCurve;
-	public extern var BlendProfile(get, never): cpp.Star<BlendProfile.ConstBlendProfile>;
-	public inline extern function get_BlendProfile(): cpp.Star<BlendProfile.ConstBlendProfile> return this.BlendProfile;
+	public extern var CustomBlendCurve(get, never): ucpp.Ptr<CurveFloat.ConstCurveFloat>;
+	public inline extern function get_CustomBlendCurve(): ucpp.Ptr<CurveFloat.ConstCurveFloat> return this.CustomBlendCurve;
+	public extern var BlendProfile(get, never): ucpp.Ptr<BlendProfile.ConstBlendProfile>;
+	public inline extern function get_BlendProfile(): ucpp.Ptr<BlendProfile.ConstBlendProfile> return this.BlendProfile;
 	public extern var bAutomaticRuleBasedOnSequencePlayerInState(get, never): Bool;
 	public inline extern function get_bAutomaticRuleBasedOnSequencePlayerInState(): Bool return this.bAutomaticRuleBasedOnSequencePlayerInState;
 	public extern var SyncGroupNameToRequireValidMarkersRule(get, never): FName;
@@ -76,14 +76,14 @@ abstract ConstAnimStateTransitionNode(AnimStateTransitionNode) from AnimStateTra
 	public inline extern function get_SharedCrossfadeName(): FString return this.SharedCrossfadeName;
 	public extern var SharedCrossfadeGuid(get, never): Guid;
 	public inline extern function get_SharedCrossfadeGuid(): Guid return this.SharedCrossfadeGuid;
-	public extern var SharedCrossfadeIdx(get, never): cpp.Int32;
-	public inline extern function get_SharedCrossfadeIdx(): cpp.Int32 return this.SharedCrossfadeIdx;
+	public extern var SharedCrossfadeIdx(get, never): ucpp.num.Int32;
+	public inline extern function get_SharedCrossfadeIdx(): ucpp.num.Int32 return this.SharedCrossfadeIdx;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimStateTransitionNode*")
-abstract AnimStateTransitionNodePtr(cpp.Star<AnimStateTransitionNode>) from cpp.Star<AnimStateTransitionNode> to cpp.Star<AnimStateTransitionNode>{
+abstract AnimStateTransitionNodePtr(ucpp.Ptr<AnimStateTransitionNode>) from ucpp.Ptr<AnimStateTransitionNode> to ucpp.Ptr<AnimStateTransitionNode>{
 	@:from
 	public static extern inline function fromValue(v: AnimStateTransitionNode): AnimStateTransitionNodePtr {
 		return untyped __cpp__("&({0})", v);

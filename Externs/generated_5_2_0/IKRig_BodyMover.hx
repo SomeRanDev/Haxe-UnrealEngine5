@@ -3,23 +3,23 @@ package ue;
 
 @:native("UIKRig_BodyMover")
 @:include("Solvers/IKRig_BodyMover.h")
-@:structAccess
+@:valueType
 extern class IKRig_BodyMover extends IKRigSolver {
 	public var RootBone: FName;
-	public var PositionAlpha: cpp.Float32;
-	public var PositionPositiveX: cpp.Float32;
-	public var PositionNegativeX: cpp.Float32;
-	public var PositionPositiveY: cpp.Float32;
-	public var PositionNegativeY: cpp.Float32;
-	public var PositionPositiveZ: cpp.Float32;
-	public var PositionNegativeZ: cpp.Float32;
-	public var RotationAlpha: cpp.Float32;
-	public var RotateXAlpha: cpp.Float32;
-	public var RotateYAlpha: cpp.Float32;
-	public var RotateZAlpha: cpp.Float32;
-	public var Effectors: TArray<cpp.Star<IKRig_BodyMoverEffector>>;
+	public var PositionAlpha: ucpp.num.Float32;
+	public var PositionPositiveX: ucpp.num.Float32;
+	public var PositionNegativeX: ucpp.num.Float32;
+	public var PositionPositiveY: ucpp.num.Float32;
+	public var PositionNegativeY: ucpp.num.Float32;
+	public var PositionPositiveZ: ucpp.num.Float32;
+	public var PositionNegativeZ: ucpp.num.Float32;
+	public var RotationAlpha: ucpp.num.Float32;
+	public var RotateXAlpha: ucpp.num.Float32;
+	public var RotateYAlpha: ucpp.num.Float32;
+	public var RotateZAlpha: ucpp.num.Float32;
+	public var Effectors: TArray<ucpp.Ptr<IKRig_BodyMoverEffector>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,36 +27,36 @@ extern class IKRig_BodyMover extends IKRigSolver {
 abstract ConstIKRig_BodyMover(IKRig_BodyMover) from IKRig_BodyMover {
 	public extern var RootBone(get, never): FName;
 	public inline extern function get_RootBone(): FName return this.RootBone;
-	public extern var PositionAlpha(get, never): cpp.Float32;
-	public inline extern function get_PositionAlpha(): cpp.Float32 return this.PositionAlpha;
-	public extern var PositionPositiveX(get, never): cpp.Float32;
-	public inline extern function get_PositionPositiveX(): cpp.Float32 return this.PositionPositiveX;
-	public extern var PositionNegativeX(get, never): cpp.Float32;
-	public inline extern function get_PositionNegativeX(): cpp.Float32 return this.PositionNegativeX;
-	public extern var PositionPositiveY(get, never): cpp.Float32;
-	public inline extern function get_PositionPositiveY(): cpp.Float32 return this.PositionPositiveY;
-	public extern var PositionNegativeY(get, never): cpp.Float32;
-	public inline extern function get_PositionNegativeY(): cpp.Float32 return this.PositionNegativeY;
-	public extern var PositionPositiveZ(get, never): cpp.Float32;
-	public inline extern function get_PositionPositiveZ(): cpp.Float32 return this.PositionPositiveZ;
-	public extern var PositionNegativeZ(get, never): cpp.Float32;
-	public inline extern function get_PositionNegativeZ(): cpp.Float32 return this.PositionNegativeZ;
-	public extern var RotationAlpha(get, never): cpp.Float32;
-	public inline extern function get_RotationAlpha(): cpp.Float32 return this.RotationAlpha;
-	public extern var RotateXAlpha(get, never): cpp.Float32;
-	public inline extern function get_RotateXAlpha(): cpp.Float32 return this.RotateXAlpha;
-	public extern var RotateYAlpha(get, never): cpp.Float32;
-	public inline extern function get_RotateYAlpha(): cpp.Float32 return this.RotateYAlpha;
-	public extern var RotateZAlpha(get, never): cpp.Float32;
-	public inline extern function get_RotateZAlpha(): cpp.Float32 return this.RotateZAlpha;
-	public extern var Effectors(get, never): TArray<cpp.Star<IKRig_BodyMoverEffector.ConstIKRig_BodyMoverEffector>>;
-	public inline extern function get_Effectors(): TArray<cpp.Star<IKRig_BodyMoverEffector.ConstIKRig_BodyMoverEffector>> return this.Effectors;
+	public extern var PositionAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionAlpha(): ucpp.num.Float32 return this.PositionAlpha;
+	public extern var PositionPositiveX(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionPositiveX(): ucpp.num.Float32 return this.PositionPositiveX;
+	public extern var PositionNegativeX(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionNegativeX(): ucpp.num.Float32 return this.PositionNegativeX;
+	public extern var PositionPositiveY(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionPositiveY(): ucpp.num.Float32 return this.PositionPositiveY;
+	public extern var PositionNegativeY(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionNegativeY(): ucpp.num.Float32 return this.PositionNegativeY;
+	public extern var PositionPositiveZ(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionPositiveZ(): ucpp.num.Float32 return this.PositionPositiveZ;
+	public extern var PositionNegativeZ(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionNegativeZ(): ucpp.num.Float32 return this.PositionNegativeZ;
+	public extern var RotationAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_RotationAlpha(): ucpp.num.Float32 return this.RotationAlpha;
+	public extern var RotateXAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_RotateXAlpha(): ucpp.num.Float32 return this.RotateXAlpha;
+	public extern var RotateYAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_RotateYAlpha(): ucpp.num.Float32 return this.RotateYAlpha;
+	public extern var RotateZAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_RotateZAlpha(): ucpp.num.Float32 return this.RotateZAlpha;
+	public extern var Effectors(get, never): TArray<ucpp.Ptr<IKRig_BodyMoverEffector.ConstIKRig_BodyMoverEffector>>;
+	public inline extern function get_Effectors(): TArray<ucpp.Ptr<IKRig_BodyMoverEffector.ConstIKRig_BodyMoverEffector>> return this.Effectors;
 }
 
 @:forward
 @:nativeGen
 @:native("IKRig_BodyMover*")
-abstract IKRig_BodyMoverPtr(cpp.Star<IKRig_BodyMover>) from cpp.Star<IKRig_BodyMover> to cpp.Star<IKRig_BodyMover>{
+abstract IKRig_BodyMoverPtr(ucpp.Ptr<IKRig_BodyMover>) from ucpp.Ptr<IKRig_BodyMover> to ucpp.Ptr<IKRig_BodyMover>{
 	@:from
 	public static extern inline function fromValue(v: IKRig_BodyMover): IKRig_BodyMoverPtr {
 		return untyped __cpp__("&({0})", v);

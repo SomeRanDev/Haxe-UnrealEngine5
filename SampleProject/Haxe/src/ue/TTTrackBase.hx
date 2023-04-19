@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTTTrackBase")
 @:include("Engine/TimelineTemplate.h")
-@:structAccess
+@:valueType
 extern class TTTrackBase {
 	private var TrackName: FName;
 	public var bIsExternalCurve: Bool;

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInputAxisHandlerDynamicSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class InputAxisHandlerDynamicSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInputAxisHandlerDynamicSignature__PythonCallable(InputAxisHandlerD
 @:forward
 @:nativeGen
 @:native("InputAxisHandlerDynamicSignature__PythonCallable*")
-abstract InputAxisHandlerDynamicSignature__PythonCallablePtr(cpp.Star<InputAxisHandlerDynamicSignature__PythonCallable>) from cpp.Star<InputAxisHandlerDynamicSignature__PythonCallable> to cpp.Star<InputAxisHandlerDynamicSignature__PythonCallable>{
+abstract InputAxisHandlerDynamicSignature__PythonCallablePtr(ucpp.Ptr<InputAxisHandlerDynamicSignature__PythonCallable>) from ucpp.Ptr<InputAxisHandlerDynamicSignature__PythonCallable> to ucpp.Ptr<InputAxisHandlerDynamicSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InputAxisHandlerDynamicSignature__PythonCallable): InputAxisHandlerDynamicSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

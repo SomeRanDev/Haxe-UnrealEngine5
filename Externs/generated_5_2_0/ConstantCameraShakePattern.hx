@@ -3,12 +3,12 @@ package ue;
 
 @:native("UConstantCameraShakePattern")
 @:include("Tests/CameraShakeTestObjects.h")
-@:structAccess
+@:valueType
 extern class ConstantCameraShakePattern extends SimpleCameraShakePattern {
 	public var LocationOffset: Vector;
 	public var RotationOffset: Rotator;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstConstantCameraShakePattern(ConstantCameraShakePattern) from Consta
 @:forward
 @:nativeGen
 @:native("ConstantCameraShakePattern*")
-abstract ConstantCameraShakePatternPtr(cpp.Star<ConstantCameraShakePattern>) from cpp.Star<ConstantCameraShakePattern> to cpp.Star<ConstantCameraShakePattern>{
+abstract ConstantCameraShakePatternPtr(ucpp.Ptr<ConstantCameraShakePattern>) from ucpp.Ptr<ConstantCameraShakePattern> to ucpp.Ptr<ConstantCameraShakePattern>{
 	@:from
 	public static extern inline function fromValue(v: ConstantCameraShakePattern): ConstantCameraShakePatternPtr {
 		return untyped __cpp__("&({0})", v);

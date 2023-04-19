@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags")
 @:include("GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags.h")
-@:structAccess
+@:valueType
 extern class GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags extends GameplayTagsK2Node_MultiCompareBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags
 @:forward
 @:nativeGen
 @:native("GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags*")
-abstract GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTagsPtr(cpp.Star<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags>) from cpp.Star<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags> to cpp.Star<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags>{
+abstract GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTagsPtr(ucpp.Ptr<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags>) from ucpp.Ptr<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags> to ucpp.Ptr<GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags): GameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTagsPtr {
 		return untyped __cpp__("&({0})", v);

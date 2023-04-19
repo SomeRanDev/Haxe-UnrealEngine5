@@ -3,14 +3,14 @@ package ue;
 
 @:native("UDemoNetDriver")
 @:include("Engine/DemoNetDriver.h")
-@:structAccess
+@:valueType
 extern class DemoNetDriver extends NetDriver {
 	private var RollbackNetStartupActors: TMap<FString, RollbackNetStartupActorInfo>;
-	private var CheckpointSaveMaxMSPerFrame: cpp.Float32;
+	private var CheckpointSaveMaxMSPerFrame: ucpp.num.Float32;
 	private var MulticastRecordOptions: TArray<MulticastRecordOptions>;
-	private var SpectatorControllers: TArray<cpp.Star<PlayerController>>;
+	private var SpectatorControllers: TArray<ucpp.Ptr<PlayerController>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstDemoNetDriver(DemoNetDriver) from DemoNetDriver {
 @:forward
 @:nativeGen
 @:native("DemoNetDriver*")
-abstract DemoNetDriverPtr(cpp.Star<DemoNetDriver>) from cpp.Star<DemoNetDriver> to cpp.Star<DemoNetDriver>{
+abstract DemoNetDriverPtr(ucpp.Ptr<DemoNetDriver>) from ucpp.Ptr<DemoNetDriver> to ucpp.Ptr<DemoNetDriver>{
 	@:from
 	public static extern inline function fromValue(v: DemoNetDriver): DemoNetDriverPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimationSharingSetup")
 @:include("AnimationSharingSetup.h")
-@:structAccess
+@:valueType
 extern class AnimationSharingSetup extends Object {
 	public var SkeletonSetups: TArray<PerSkeletonAnimationSharingSetup>;
 	public var ScalabilitySettings: AnimationSharingScalability;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstAnimationSharingSetup(AnimationSharingSetup) from AnimationSharing
 @:forward
 @:nativeGen
 @:native("AnimationSharingSetup*")
-abstract AnimationSharingSetupPtr(cpp.Star<AnimationSharingSetup>) from cpp.Star<AnimationSharingSetup> to cpp.Star<AnimationSharingSetup>{
+abstract AnimationSharingSetupPtr(ucpp.Ptr<AnimationSharingSetup>) from ucpp.Ptr<AnimationSharingSetup> to ucpp.Ptr<AnimationSharingSetup>{
 	@:from
 	public static extern inline function fromValue(v: AnimationSharingSetup): AnimationSharingSetupPtr {
 		return untyped __cpp__("&({0})", v);

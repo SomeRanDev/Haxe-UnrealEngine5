@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDatasmithCameraFocusSettingsTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraComponentTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithCameraFocusSettingsTemplate {
 	public var FocusMethod: ECameraFocusMethod;
-	public var ManualFocusDistance: cpp.Float32;
+	public var ManualFocusDistance: ucpp.num.Float32;
 
 	@:native("FDatasmithCameraFocusSettingsTemplate") public function new();
-	@:native("FDatasmithCameraFocusSettingsTemplate") public static function make(FocusMethod: ECameraFocusMethod, ManualFocusDistance: cpp.Float32): DatasmithCameraFocusSettingsTemplate ;
+	@:native("FDatasmithCameraFocusSettingsTemplate") public static function make(FocusMethod: ECameraFocusMethod, ManualFocusDistance: ucpp.num.Float32): DatasmithCameraFocusSettingsTemplate ;
 }

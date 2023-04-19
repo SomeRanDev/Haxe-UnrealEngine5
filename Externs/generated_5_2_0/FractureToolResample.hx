@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolResample")
 @:include("FractureToolResample.h")
-@:structAccess
+@:valueType
 extern class FractureToolResample extends FractureToolCutterBase {
-	private var ResampleSettings: cpp.Star<FractureResampleSettings>;
+	private var ResampleSettings: ucpp.Ptr<FractureResampleSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolResample(FractureToolResample) from FractureToolResamp
 @:forward
 @:nativeGen
 @:native("FractureToolResample*")
-abstract FractureToolResamplePtr(cpp.Star<FractureToolResample>) from cpp.Star<FractureToolResample> to cpp.Star<FractureToolResample>{
+abstract FractureToolResamplePtr(ucpp.Ptr<FractureToolResample>) from ucpp.Ptr<FractureToolResample> to ucpp.Ptr<FractureToolResample>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolResample): FractureToolResamplePtr {
 		return untyped __cpp__("&({0})", v);

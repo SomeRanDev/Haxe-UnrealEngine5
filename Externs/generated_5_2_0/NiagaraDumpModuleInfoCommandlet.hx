@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraDumpModuleInfoCommandlet")
 @:include("Commandlets/NiagaraDumpModuleInfoCommandlet.h")
-@:structAccess
+@:valueType
 extern class NiagaraDumpModuleInfoCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraDumpModuleInfoCommandlet(NiagaraDumpModuleInfoCommandlet) f
 @:forward
 @:nativeGen
 @:native("NiagaraDumpModuleInfoCommandlet*")
-abstract NiagaraDumpModuleInfoCommandletPtr(cpp.Star<NiagaraDumpModuleInfoCommandlet>) from cpp.Star<NiagaraDumpModuleInfoCommandlet> to cpp.Star<NiagaraDumpModuleInfoCommandlet>{
+abstract NiagaraDumpModuleInfoCommandletPtr(ucpp.Ptr<NiagaraDumpModuleInfoCommandlet>) from ucpp.Ptr<NiagaraDumpModuleInfoCommandlet> to ucpp.Ptr<NiagaraDumpModuleInfoCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDumpModuleInfoCommandlet): NiagaraDumpModuleInfoCommandletPtr {
 		return untyped __cpp__("&({0})", v);

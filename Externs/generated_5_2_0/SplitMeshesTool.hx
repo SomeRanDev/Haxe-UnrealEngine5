@@ -3,27 +3,27 @@ package ue;
 
 @:native("USplitMeshesTool")
 @:include("SplitMeshesTool.h")
-@:structAccess
+@:valueType
 extern class SplitMeshesTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<SplitMeshesToolProperties>;
-	public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
+	public var BasicProperties: ucpp.Ptr<SplitMeshesToolProperties>;
+	public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSplitMeshesTool(SplitMeshesTool) from SplitMeshesTool {
-	public extern var BasicProperties(get, never): cpp.Star<SplitMeshesToolProperties.ConstSplitMeshesToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<SplitMeshesToolProperties.ConstSplitMeshesToolProperties> return this.BasicProperties;
-	public extern var OutputTypeProperties(get, never): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
-	public inline extern function get_OutputTypeProperties(): cpp.Star<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
+	public extern var BasicProperties(get, never): ucpp.Ptr<SplitMeshesToolProperties.ConstSplitMeshesToolProperties>;
+	public inline extern function get_BasicProperties(): ucpp.Ptr<SplitMeshesToolProperties.ConstSplitMeshesToolProperties> return this.BasicProperties;
+	public extern var OutputTypeProperties(get, never): ucpp.Ptr<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties>;
+	public inline extern function get_OutputTypeProperties(): ucpp.Ptr<CreateMeshObjectTypeProperties.ConstCreateMeshObjectTypeProperties> return this.OutputTypeProperties;
 }
 
 @:forward
 @:nativeGen
 @:native("SplitMeshesTool*")
-abstract SplitMeshesToolPtr(cpp.Star<SplitMeshesTool>) from cpp.Star<SplitMeshesTool> to cpp.Star<SplitMeshesTool>{
+abstract SplitMeshesToolPtr(ucpp.Ptr<SplitMeshesTool>) from ucpp.Ptr<SplitMeshesTool> to ucpp.Ptr<SplitMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: SplitMeshesTool): SplitMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

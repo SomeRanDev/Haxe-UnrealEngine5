@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneConstraintChannel")
 @:include("ConstraintChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneConstraintChannel extends MovieSceneBoolChannel {
 	@:native("FMovieSceneConstraintChannel") public function new();
 }

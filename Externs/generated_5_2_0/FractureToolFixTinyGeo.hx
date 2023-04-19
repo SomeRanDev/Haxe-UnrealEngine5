@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolFixTinyGeo")
 @:include("FractureToolFixTinyGeo.h")
-@:structAccess
+@:valueType
 extern class FractureToolFixTinyGeo extends FractureToolCutterBase {
-	private var TinyGeoSettings: cpp.Star<FractureTinyGeoSettings>;
+	private var TinyGeoSettings: ucpp.Ptr<FractureTinyGeoSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolFixTinyGeo(FractureToolFixTinyGeo) from FractureToolFi
 @:forward
 @:nativeGen
 @:native("FractureToolFixTinyGeo*")
-abstract FractureToolFixTinyGeoPtr(cpp.Star<FractureToolFixTinyGeo>) from cpp.Star<FractureToolFixTinyGeo> to cpp.Star<FractureToolFixTinyGeo>{
+abstract FractureToolFixTinyGeoPtr(ucpp.Ptr<FractureToolFixTinyGeo>) from ucpp.Ptr<FractureToolFixTinyGeo> to ucpp.Ptr<FractureToolFixTinyGeo>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolFixTinyGeo): FractureToolFixTinyGeoPtr {
 		return untyped __cpp__("&({0})", v);

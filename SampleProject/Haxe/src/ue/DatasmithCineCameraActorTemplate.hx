@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDatasmithCineCameraActorTemplate")
 @:include("ObjectTemplates/DatasmithCineCameraActorTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithCineCameraActorTemplate extends DatasmithObjectTemplate {
 	public var LookatTrackingSettings: DatasmithCameraLookatTrackingSettingsTemplate;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDatasmithCineCameraActorTemplate(DatasmithCineCameraActorTemplate)
 @:forward
 @:nativeGen
 @:native("DatasmithCineCameraActorTemplate*")
-abstract DatasmithCineCameraActorTemplatePtr(cpp.Star<DatasmithCineCameraActorTemplate>) from cpp.Star<DatasmithCineCameraActorTemplate> to cpp.Star<DatasmithCineCameraActorTemplate>{
+abstract DatasmithCineCameraActorTemplatePtr(ucpp.Ptr<DatasmithCineCameraActorTemplate>) from ucpp.Ptr<DatasmithCineCameraActorTemplate> to ucpp.Ptr<DatasmithCineCameraActorTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithCineCameraActorTemplate): DatasmithCineCameraActorTemplatePtr {
 		return untyped __cpp__("&({0})", v);

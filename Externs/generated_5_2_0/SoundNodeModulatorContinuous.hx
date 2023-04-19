@@ -3,12 +3,12 @@ package ue;
 
 @:native("USoundNodeModulatorContinuous")
 @:include("Sound/SoundNodeModulatorContinuous.h")
-@:structAccess
+@:valueType
 extern class SoundNodeModulatorContinuous extends SoundNode {
 	public var PitchModulationParams: ModulatorContinuousParams;
 	public var VolumeModulationParams: ModulatorContinuousParams;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSoundNodeModulatorContinuous(SoundNodeModulatorContinuous) from So
 @:forward
 @:nativeGen
 @:native("SoundNodeModulatorContinuous*")
-abstract SoundNodeModulatorContinuousPtr(cpp.Star<SoundNodeModulatorContinuous>) from cpp.Star<SoundNodeModulatorContinuous> to cpp.Star<SoundNodeModulatorContinuous>{
+abstract SoundNodeModulatorContinuousPtr(ucpp.Ptr<SoundNodeModulatorContinuous>) from ucpp.Ptr<SoundNodeModulatorContinuous> to ucpp.Ptr<SoundNodeModulatorContinuous>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeModulatorContinuous): SoundNodeModulatorContinuousPtr {
 		return untyped __cpp__("&({0})", v);

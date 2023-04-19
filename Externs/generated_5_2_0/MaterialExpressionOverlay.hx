@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionOverlay")
 @:include("MaterialX/MaterialExpressionOverlay.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionOverlay extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Alpha: ExpressionInput;
-	public var ConstAlpha: cpp.Float32;
+	public var ConstAlpha: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstMaterialExpressionOverlay(MaterialExpressionOverlay) from Material
 	public inline extern function get_B(): ExpressionInput return this.B;
 	public extern var Alpha(get, never): ExpressionInput;
 	public inline extern function get_Alpha(): ExpressionInput return this.Alpha;
-	public extern var ConstAlpha(get, never): cpp.Float32;
-	public inline extern function get_ConstAlpha(): cpp.Float32 return this.ConstAlpha;
+	public extern var ConstAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstAlpha(): ucpp.num.Float32 return this.ConstAlpha;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionOverlay*")
-abstract MaterialExpressionOverlayPtr(cpp.Star<MaterialExpressionOverlay>) from cpp.Star<MaterialExpressionOverlay> to cpp.Star<MaterialExpressionOverlay>{
+abstract MaterialExpressionOverlayPtr(ucpp.Ptr<MaterialExpressionOverlay>) from ucpp.Ptr<MaterialExpressionOverlay> to ucpp.Ptr<MaterialExpressionOverlay>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionOverlay): MaterialExpressionOverlayPtr {
 		return untyped __cpp__("&({0})", v);

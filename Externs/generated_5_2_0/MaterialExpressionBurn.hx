@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionBurn")
 @:include("MaterialX/MaterialExpressionBurn.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionBurn extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Alpha: ExpressionInput;
-	public var ConstAlpha: cpp.Float32;
+	public var ConstAlpha: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstMaterialExpressionBurn(MaterialExpressionBurn) from MaterialExpres
 	public inline extern function get_B(): ExpressionInput return this.B;
 	public extern var Alpha(get, never): ExpressionInput;
 	public inline extern function get_Alpha(): ExpressionInput return this.Alpha;
-	public extern var ConstAlpha(get, never): cpp.Float32;
-	public inline extern function get_ConstAlpha(): cpp.Float32 return this.ConstAlpha;
+	public extern var ConstAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstAlpha(): ucpp.num.Float32 return this.ConstAlpha;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionBurn*")
-abstract MaterialExpressionBurnPtr(cpp.Star<MaterialExpressionBurn>) from cpp.Star<MaterialExpressionBurn> to cpp.Star<MaterialExpressionBurn>{
+abstract MaterialExpressionBurnPtr(ucpp.Ptr<MaterialExpressionBurn>) from ucpp.Ptr<MaterialExpressionBurn> to ucpp.Ptr<MaterialExpressionBurn>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionBurn): MaterialExpressionBurnPtr {
 		return untyped __cpp__("&({0})", v);

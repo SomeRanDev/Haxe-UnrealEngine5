@@ -3,23 +3,23 @@ package ue;
 
 @:native("ULandscapeSettings")
 @:include("LandscapeSettings.h")
-@:structAccess
+@:valueType
 extern class LandscapeSettings extends DeveloperSettings {
-	public var MaxNumberOfLayers: cpp.Int32;
+	public var MaxNumberOfLayers: ucpp.num.Int32;
 	public var LandscapeDirtyingMode: ELandscapeDirtyingMode;
-	@:protected public var SideResolutionLimit: cpp.Int32;
+	@:protected public var SideResolutionLimit: ucpp.num.Int32;
 	@:protected public var DefaultLandscapeMaterial: TSoftObjectPtr<MaterialInterface>;
 	@:protected public var DefaultLayerInfoObject: TSoftObjectPtr<LandscapeLayerInfoObject>;
 	@:protected public var bRestrictiveMode: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLandscapeSettings(LandscapeSettings) from LandscapeSettings {
-	public extern var MaxNumberOfLayers(get, never): cpp.Int32;
-	public inline extern function get_MaxNumberOfLayers(): cpp.Int32 return this.MaxNumberOfLayers;
+	public extern var MaxNumberOfLayers(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxNumberOfLayers(): ucpp.num.Int32 return this.MaxNumberOfLayers;
 	public extern var LandscapeDirtyingMode(get, never): ELandscapeDirtyingMode;
 	public inline extern function get_LandscapeDirtyingMode(): ELandscapeDirtyingMode return this.LandscapeDirtyingMode;
 }
@@ -27,7 +27,7 @@ abstract ConstLandscapeSettings(LandscapeSettings) from LandscapeSettings {
 @:forward
 @:nativeGen
 @:native("LandscapeSettings*")
-abstract LandscapeSettingsPtr(cpp.Star<LandscapeSettings>) from cpp.Star<LandscapeSettings> to cpp.Star<LandscapeSettings>{
+abstract LandscapeSettingsPtr(ucpp.Ptr<LandscapeSettings>) from ucpp.Ptr<LandscapeSettings> to ucpp.Ptr<LandscapeSettings>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSettings): LandscapeSettingsPtr {
 		return untyped __cpp__("&({0})", v);

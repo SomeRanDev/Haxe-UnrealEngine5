@@ -3,7 +3,7 @@ package ue;
 
 @:native("UControlRigShapeLibrary")
 @:include("ControlRigGizmoLibrary.h")
-@:structAccess
+@:valueType
 extern class ControlRigShapeLibrary extends Object {
 	public var DefaultShape: ControlRigShapeDefinition;
 	public var DefaultMaterial: TSoftObjectPtr<Material>;
@@ -11,7 +11,7 @@ extern class ControlRigShapeLibrary extends Object {
 	public var MaterialColorParameter: FName;
 	public var Shapes: TArray<ControlRigShapeDefinition>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstControlRigShapeLibrary(ControlRigShapeLibrary) from ControlRigShap
 @:forward
 @:nativeGen
 @:native("ControlRigShapeLibrary*")
-abstract ControlRigShapeLibraryPtr(cpp.Star<ControlRigShapeLibrary>) from cpp.Star<ControlRigShapeLibrary> to cpp.Star<ControlRigShapeLibrary>{
+abstract ControlRigShapeLibraryPtr(ucpp.Ptr<ControlRigShapeLibrary>) from ucpp.Ptr<ControlRigShapeLibrary> to ucpp.Ptr<ControlRigShapeLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigShapeLibrary): ControlRigShapeLibraryPtr {
 		return untyped __cpp__("&({0})", v);

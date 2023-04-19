@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAssetData")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class AssetData {
 	public var PackageName: FName;
 	public var PackagePath: FName;

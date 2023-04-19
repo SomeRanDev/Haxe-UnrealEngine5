@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolBrick")
 @:include("FractureToolBrick.h")
-@:structAccess
+@:valueType
 extern class FractureToolBrick extends FractureToolCutterBase {
-	private var BrickSettings: cpp.Star<FractureBrickSettings>;
+	private var BrickSettings: ucpp.Ptr<FractureBrickSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolBrick(FractureToolBrick) from FractureToolBrick {
 @:forward
 @:nativeGen
 @:native("FractureToolBrick*")
-abstract FractureToolBrickPtr(cpp.Star<FractureToolBrick>) from cpp.Star<FractureToolBrick> to cpp.Star<FractureToolBrick>{
+abstract FractureToolBrickPtr(ucpp.Ptr<FractureToolBrick>) from ucpp.Ptr<FractureToolBrick> to ucpp.Ptr<FractureToolBrick>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolBrick): FractureToolBrickPtr {
 		return untyped __cpp__("&({0})", v);

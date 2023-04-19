@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAnimGraphNode_IdentityPose")
 @:include("AnimGraphNode_IdentityPose.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_IdentityPose extends AnimGraphNode_RefPoseBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimGraphNode_IdentityPose(AnimGraphNode_IdentityPose) from AnimGr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_IdentityPose*")
-abstract AnimGraphNode_IdentityPosePtr(cpp.Star<AnimGraphNode_IdentityPose>) from cpp.Star<AnimGraphNode_IdentityPose> to cpp.Star<AnimGraphNode_IdentityPose>{
+abstract AnimGraphNode_IdentityPosePtr(ucpp.Ptr<AnimGraphNode_IdentityPose>) from ucpp.Ptr<AnimGraphNode_IdentityPose> to ucpp.Ptr<AnimGraphNode_IdentityPose>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_IdentityPose): AnimGraphNode_IdentityPosePtr {
 		return untyped __cpp__("&({0})", v);

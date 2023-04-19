@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraTypeLayoutInfo")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraTypeLayoutInfo {
-	public var FloatComponentByteOffsets: TArray<cpp.UInt32>;
-	public var FloatComponentRegisterOffsets: TArray<cpp.UInt32>;
-	public var Int32ComponentByteOffsets: TArray<cpp.UInt32>;
-	public var Int32ComponentRegisterOffsets: TArray<cpp.UInt32>;
-	public var HalfComponentByteOffsets: TArray<cpp.UInt32>;
-	public var HalfComponentRegisterOffsets: TArray<cpp.UInt32>;
+	public var FloatComponentByteOffsets: TArray<ucpp.num.UInt32>;
+	public var FloatComponentRegisterOffsets: TArray<ucpp.num.UInt32>;
+	public var Int32ComponentByteOffsets: TArray<ucpp.num.UInt32>;
+	public var Int32ComponentRegisterOffsets: TArray<ucpp.num.UInt32>;
+	public var HalfComponentByteOffsets: TArray<ucpp.num.UInt32>;
+	public var HalfComponentRegisterOffsets: TArray<ucpp.num.UInt32>;
 
 	@:native("FNiagaraTypeLayoutInfo") public function new();
 }

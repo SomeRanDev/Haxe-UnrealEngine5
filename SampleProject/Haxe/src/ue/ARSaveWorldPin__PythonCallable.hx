@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UARSaveWorldPin__PythonCallable")
-@:structAccess
+@:valueType
 extern class ARSaveWorldPin__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstARSaveWorldPin__PythonCallable(ARSaveWorldPin__PythonCallable) fro
 @:forward
 @:nativeGen
 @:native("ARSaveWorldPin__PythonCallable*")
-abstract ARSaveWorldPin__PythonCallablePtr(cpp.Star<ARSaveWorldPin__PythonCallable>) from cpp.Star<ARSaveWorldPin__PythonCallable> to cpp.Star<ARSaveWorldPin__PythonCallable>{
+abstract ARSaveWorldPin__PythonCallablePtr(ucpp.Ptr<ARSaveWorldPin__PythonCallable>) from ucpp.Ptr<ARSaveWorldPin__PythonCallable> to ucpp.Ptr<ARSaveWorldPin__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ARSaveWorldPin__PythonCallable): ARSaveWorldPin__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

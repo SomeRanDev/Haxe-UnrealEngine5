@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPerBlueprintSettings")
 @:include("BlueprintEditorSettings.h")
-@:structAccess
+@:valueType
 extern class PerBlueprintSettings {
 	public var Breakpoints: TArray<BlueprintBreakpoint>;
 	public var WatchedPins: TArray<BlueprintWatchedPin>;

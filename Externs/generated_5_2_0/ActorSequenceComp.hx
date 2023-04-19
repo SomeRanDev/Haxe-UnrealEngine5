@@ -3,17 +3,17 @@ package ue;
 
 @:native("UActorSequenceComponent")
 @:include("ActorSequenceComponent.h")
-@:structAccess
+@:valueType
 extern class ActorSequenceComp extends ActorComp {
 	@:protected public var PlaybackSettings: MovieSceneSequencePlaybackSettings;
-	@:protected public var Sequence: cpp.Star<ActorSequence>;
-	@:protected public var SequencePlayer: cpp.Star<ActorSequencePlayer>;
+	@:protected public var Sequence: ucpp.Ptr<ActorSequence>;
+	@:protected public var SequencePlayer: ucpp.Ptr<ActorSequencePlayer>;
 
 	public function StopSequence(): Void;
 	public function PlaySequence(): Void;
 	public function PauseSequence(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstActorSequenceComp(ActorSequenceComp) from ActorSequenceComp {
 @:forward
 @:nativeGen
 @:native("ActorSequenceComp*")
-abstract ActorSequenceCompPtr(cpp.Star<ActorSequenceComp>) from cpp.Star<ActorSequenceComp> to cpp.Star<ActorSequenceComp>{
+abstract ActorSequenceCompPtr(ucpp.Ptr<ActorSequenceComp>) from ucpp.Ptr<ActorSequenceComp> to ucpp.Ptr<ActorSequenceComp>{
 	@:from
 	public static extern inline function fromValue(v: ActorSequenceComp): ActorSequenceCompPtr {
 		return untyped __cpp__("&({0})", v);

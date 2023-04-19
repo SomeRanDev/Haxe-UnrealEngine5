@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditableText")
 @:include("Components/EditableText.h")
-@:structAccess
+@:valueType
 extern class EditableText extends Widget {
 	public function GetText(): FText;
 	public function SetText(input: FText): Void;
@@ -14,7 +14,7 @@ extern class EditableText extends Widget {
 	public var WidgetStyle: EditableTextStyle;
 	public var IsReadOnly: Bool;
 	public var IsPassword: Bool;
-	public var MinimumDesiredWidth: cpp.Float32;
+	public var MinimumDesiredWidth: ucpp.num.Float32;
 	public var IsCaretMovedWhenGainFocus: Bool;
 	public var SelectAllTextWhenFocused: Bool;
 	public var RevertTextOnEscape: Bool;
@@ -29,21 +29,21 @@ extern class EditableText extends Widget {
 	public function SetJustification(input: TEnumAsByte<ETextJustify>): Void;
 	public var OverflowPolicy: ETextOverflowPolicy;
 	public var ShapedTextOptions: ShapedTextOptions;
-	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void>;
+	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void>;
 
 	public function SetTextOverflowPolicy(InOverflowPolicy: ETextOverflowPolicy): Void;
-	public function SetMinimumDesiredWidth(InMinDesiredWidth: cpp.Float32): Void;
+	public function SetMinimumDesiredWidth(InMinDesiredWidth: ucpp.num.Float32): Void;
 	public function SetIsReadOnly(InbIsReadyOnly: Bool): Void;
 	public function SetIsPassword(InbIsPassword: Bool): Void;
-	public function SetFontOutlineMaterial(InMaterial: cpp.Star<MaterialInterface>): Void;
-	public function SetFontMaterial(InMaterial: cpp.Star<MaterialInterface>): Void;
+	public function SetFontOutlineMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetFontMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
 	public function SetFont(InFontInfo: SlateFontInfo): Void;
-	public function OnEditableTextCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
-	public function OnEditableTextChangedEvent__DelegateSignature(Text: cpp.Reference<FText>): Void;
+	public function OnEditableTextCommittedEvent__DelegateSignature(Text: ucpp.Ref<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
+	public function OnEditableTextChangedEvent__DelegateSignature(Text: ucpp.Ref<FText>): Void;
 	public function GetFont(): SlateFontInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetFont)
@@ -59,8 +59,8 @@ abstract ConstEditableText(EditableText) from EditableText {
 	public inline extern function get_IsReadOnly(): Bool return this.IsReadOnly;
 	public extern var IsPassword(get, never): Bool;
 	public inline extern function get_IsPassword(): Bool return this.IsPassword;
-	public extern var MinimumDesiredWidth(get, never): cpp.Float32;
-	public inline extern function get_MinimumDesiredWidth(): cpp.Float32 return this.MinimumDesiredWidth;
+	public extern var MinimumDesiredWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_MinimumDesiredWidth(): ucpp.num.Float32 return this.MinimumDesiredWidth;
 	public extern var IsCaretMovedWhenGainFocus(get, never): Bool;
 	public inline extern function get_IsCaretMovedWhenGainFocus(): Bool return this.IsCaretMovedWhenGainFocus;
 	public extern var SelectAllTextWhenFocused(get, never): Bool;
@@ -85,16 +85,16 @@ abstract ConstEditableText(EditableText) from EditableText {
 	public inline extern function get_OverflowPolicy(): ETextOverflowPolicy return this.OverflowPolicy;
 	public extern var ShapedTextOptions(get, never): ShapedTextOptions;
 	public inline extern function get_ShapedTextOptions(): ShapedTextOptions return this.ShapedTextOptions;
-	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void> return this.OnTextChanged;
-	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
-	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
+	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void>;
+	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void> return this.OnTextChanged;
+	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
 }
 
 @:forward
 @:nativeGen
 @:native("EditableText*")
-abstract EditableTextPtr(cpp.Star<EditableText>) from cpp.Star<EditableText> to cpp.Star<EditableText>{
+abstract EditableTextPtr(ucpp.Ptr<EditableText>) from ucpp.Ptr<EditableText> to ucpp.Ptr<EditableText>{
 	@:from
 	public static extern inline function fromValue(v: EditableText): EditableTextPtr {
 		return untyped __cpp__("&({0})", v);

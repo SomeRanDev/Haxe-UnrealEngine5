@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAppleImageConversionDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class AppleImageConversionDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAppleImageConversionDelegate__PythonCallable(AppleImageConversionD
 @:forward
 @:nativeGen
 @:native("AppleImageConversionDelegate__PythonCallable*")
-abstract AppleImageConversionDelegate__PythonCallablePtr(cpp.Star<AppleImageConversionDelegate__PythonCallable>) from cpp.Star<AppleImageConversionDelegate__PythonCallable> to cpp.Star<AppleImageConversionDelegate__PythonCallable>{
+abstract AppleImageConversionDelegate__PythonCallablePtr(ucpp.Ptr<AppleImageConversionDelegate__PythonCallable>) from ucpp.Ptr<AppleImageConversionDelegate__PythonCallable> to ucpp.Ptr<AppleImageConversionDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AppleImageConversionDelegate__PythonCallable): AppleImageConversionDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

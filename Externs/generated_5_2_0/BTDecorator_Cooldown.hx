@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBTDecorator_Cooldown")
 @:include("BehaviorTree/Decorators/BTDecorator_Cooldown.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_Cooldown extends BTDecorator {
-	public var CoolDownTime: cpp.Float32;
+	public var CoolDownTime: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTDecorator_Cooldown(BTDecorator_Cooldown) from BTDecorator_Cooldown {
-	public extern var CoolDownTime(get, never): cpp.Float32;
-	public inline extern function get_CoolDownTime(): cpp.Float32 return this.CoolDownTime;
+	public extern var CoolDownTime(get, never): ucpp.num.Float32;
+	public inline extern function get_CoolDownTime(): ucpp.num.Float32 return this.CoolDownTime;
 }
 
 @:forward
 @:nativeGen
 @:native("BTDecorator_Cooldown*")
-abstract BTDecorator_CooldownPtr(cpp.Star<BTDecorator_Cooldown>) from cpp.Star<BTDecorator_Cooldown> to cpp.Star<BTDecorator_Cooldown>{
+abstract BTDecorator_CooldownPtr(ucpp.Ptr<BTDecorator_Cooldown>) from ucpp.Ptr<BTDecorator_Cooldown> to ucpp.Ptr<BTDecorator_Cooldown>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_Cooldown): BTDecorator_CooldownPtr {
 		return untyped __cpp__("&({0})", v);

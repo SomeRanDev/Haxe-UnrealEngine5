@@ -3,59 +3,59 @@ package ue;
 
 @:native("UDataLayerEditorSubsystem")
 @:include("DataLayer/DataLayerEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class DataLayerEditorSubsystem extends EditorSubsystem {
-	public function UpdateAllViewVisibility(DataLayerThatChanged: cpp.Star<DataLayer>): Void;
+	public function UpdateAllViewVisibility(DataLayerThatChanged: ucpp.Ptr<DataLayer>): Void;
 	public function UpdateAllActorsVisibility(bNotifySelectionChange: Bool, bRedrawViewports: Bool): Bool;
-	public function UpdateActorVisibility(Actor: cpp.Star<Actor>, bOutSelectionChanged: cpp.Reference<Bool>, bOutActorModified: cpp.Reference<Bool>, bNotifySelectionChange: Bool, bRedrawViewports: Bool): Bool;
-	public function UpdateActorAllViewsVisibility(Actor: cpp.Star<Actor>): Void;
-	public function ToggleDataLayerVisibility(DataLayer: cpp.Star<DataLayerInstance>): Void;
-	public function ToggleDataLayersVisibility(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Void;
-	public function ToggleDataLayersIsLoadedInEditor(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>, bIsFromUserChange: Bool): Bool;
-	public function ToggleDataLayersIsDynamicallyLoadedInEditor(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayer>>>, bIsFromUserChange: Bool): Bool;
-	public function ToggleDataLayerIsLoadedInEditor(DataLayer: cpp.Star<DataLayerInstance>, bIsFromUserChange: Bool): Bool;
-	public function ToggleDataLayerIsDynamicallyLoadedInEditor(DataLayer: cpp.Star<DataLayer>, bIsFromUserChange: Bool): Bool;
-	public function SetParentDataLayer(DataLayer: cpp.Star<DataLayerInstance>, ParentDataLayer: cpp.Star<DataLayerInstance>): Bool;
-	public function SetDataLayerVisibility(DataLayer: cpp.Star<DataLayerInstance>, bIsVisible: Bool): Void;
-	public function SetDataLayersVisibility(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>, bIsVisible: Bool): Void;
-	public function SetDataLayersIsLoadedInEditor(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
-	public function SetDataLayersIsDynamicallyLoadedInEditor(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayer>>>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
-	public function SetDataLayerIsLoadedInEditor(DataLayer: cpp.Star<DataLayerInstance>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
-	public function SetDataLayerIsDynamicallyLoadedInEditor(DataLayer: cpp.Star<DataLayer>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
-	public function SelectActorsInDataLayers(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
-	public function SelectActorsInDataLayer(DataLayer: cpp.Star<DataLayerInstance>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
-	public function RenameDataLayer(DataLayer: cpp.Star<DataLayerInstance>, NewDataLayerLabel: cpp.Reference<FName>): Bool;
-	public function RemoveSelectedActorsFromDataLayers(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Bool;
-	public function RemoveSelectedActorsFromDataLayer(DataLayer: cpp.Star<DataLayerInstance>): Bool;
-	public function RemoveActorsFromDataLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Bool;
-	public function RemoveActorsFromDataLayer(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, DataLayer: cpp.Star<DataLayerInstance>): Bool;
-	public function RemoveActorsFromAllDataLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>): Bool;
-	public function RemoveActorFromDataLayers(Actor: cpp.Star<Actor>, DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Bool;
-	public function RemoveActorFromDataLayer(Actor: cpp.Star<Actor>, DataLayerToRemove: cpp.Star<DataLayerInstance>): Bool;
-	public function RemoveActorFromAllDataLayers(Actor: cpp.Star<Actor>): Bool;
+	public function UpdateActorVisibility(Actor: ucpp.Ptr<Actor>, bOutSelectionChanged: ucpp.Ref<Bool>, bOutActorModified: ucpp.Ref<Bool>, bNotifySelectionChange: Bool, bRedrawViewports: Bool): Bool;
+	public function UpdateActorAllViewsVisibility(Actor: ucpp.Ptr<Actor>): Void;
+	public function ToggleDataLayerVisibility(DataLayer: ucpp.Ptr<DataLayerInstance>): Void;
+	public function ToggleDataLayersVisibility(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Void;
+	public function ToggleDataLayersIsLoadedInEditor(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>, bIsFromUserChange: Bool): Bool;
+	public function ToggleDataLayersIsDynamicallyLoadedInEditor(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayer>>>, bIsFromUserChange: Bool): Bool;
+	public function ToggleDataLayerIsLoadedInEditor(DataLayer: ucpp.Ptr<DataLayerInstance>, bIsFromUserChange: Bool): Bool;
+	public function ToggleDataLayerIsDynamicallyLoadedInEditor(DataLayer: ucpp.Ptr<DataLayer>, bIsFromUserChange: Bool): Bool;
+	public function SetParentDataLayer(DataLayer: ucpp.Ptr<DataLayerInstance>, ParentDataLayer: ucpp.Ptr<DataLayerInstance>): Bool;
+	public function SetDataLayerVisibility(DataLayer: ucpp.Ptr<DataLayerInstance>, bIsVisible: Bool): Void;
+	public function SetDataLayersVisibility(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>, bIsVisible: Bool): Void;
+	public function SetDataLayersIsLoadedInEditor(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
+	public function SetDataLayersIsDynamicallyLoadedInEditor(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayer>>>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
+	public function SetDataLayerIsLoadedInEditor(DataLayer: ucpp.Ptr<DataLayerInstance>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
+	public function SetDataLayerIsDynamicallyLoadedInEditor(DataLayer: ucpp.Ptr<DataLayer>, bIsLoadedInEditor: Bool, bIsFromUserChange: Bool): Bool;
+	public function SelectActorsInDataLayers(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
+	public function SelectActorsInDataLayer(DataLayer: ucpp.Ptr<DataLayerInstance>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
+	public function RenameDataLayer(DataLayer: ucpp.Ptr<DataLayerInstance>, NewDataLayerLabel: ucpp.Ref<FName>): Bool;
+	public function RemoveSelectedActorsFromDataLayers(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Bool;
+	public function RemoveSelectedActorsFromDataLayer(DataLayer: ucpp.Ptr<DataLayerInstance>): Bool;
+	public function RemoveActorsFromDataLayers(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Bool;
+	public function RemoveActorsFromDataLayer(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, DataLayer: ucpp.Ptr<DataLayerInstance>): Bool;
+	public function RemoveActorsFromAllDataLayers(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Bool;
+	public function RemoveActorFromDataLayers(Actor: ucpp.Ptr<Actor>, DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Bool;
+	public function RemoveActorFromDataLayer(Actor: ucpp.Ptr<Actor>, DataLayerToRemove: ucpp.Ptr<DataLayerInstance>): Bool;
+	public function RemoveActorFromAllDataLayers(Actor: ucpp.Ptr<Actor>): Bool;
 	public function MakeAllDataLayersVisible(): Void;
-	public function IsActorValidForDataLayer(Actor: cpp.Star<Actor>): Bool;
-	public function GetDataLayerInstances(DataLayerAssets: TArray<cpp.Star<DataLayerAsset>>): TArray<cpp.Star<DataLayerInstance>>;
-	public function GetDataLayerInstance(DataLayerAsset: cpp.Star<DataLayerAsset.ConstDataLayerAsset>): cpp.Star<DataLayerInstance>;
-	public function GetDataLayerFromLabel(DataLayerLabel: cpp.Reference<FName>): cpp.Star<DataLayerInstance>;
-	public function GetDataLayer(ActorDataLayer: cpp.Reference<ActorDataLayer>): cpp.Star<DataLayerInstance>;
-	public function GetAllDataLayers(): TArray<cpp.Star<DataLayerInstance>>;
-	public function GetActorsFromDataLayers(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): TArray<cpp.Star<Actor>>;
-	public function GetActorsFromDataLayer(DataLayer: cpp.Star<DataLayerInstance>): TArray<cpp.Star<Actor>>;
-	public function DeleteDataLayers(DataLayersToDelete: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Void;
-	public function DeleteDataLayer(DataLayerToDelete: cpp.Star<DataLayerInstance>): Void;
-	public function CreateDataLayerInstance(Parameters: cpp.Reference<DataLayerCreationParameters>): cpp.Star<DataLayerInstance>;
-	public function CreateDataLayer(ParentDataLayer: cpp.Star<DataLayerInstance>): cpp.Star<DataLayerInstance>;
-	public function AppendActorsFromDataLayers(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>, InOutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
-	public function AppendActorsFromDataLayer(DataLayer: cpp.Star<DataLayerInstance>, InOutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
-	public function AddSelectedActorsToDataLayers(DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Bool;
-	public function AddSelectedActorsToDataLayer(DataLayer: cpp.Star<DataLayerInstance>): Bool;
-	public function AddActorToDataLayers(Actor: cpp.Star<Actor>, DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Bool;
-	public function AddActorToDataLayer(Actor: cpp.Star<Actor>, DataLayer: cpp.Star<DataLayerInstance>): Bool;
-	public function AddActorsToDataLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, DataLayers: cpp.Reference<TArray<cpp.Star<DataLayerInstance>>>): Bool;
-	public function AddActorsToDataLayer(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, DataLayer: cpp.Star<DataLayerInstance>): Bool;
+	public function IsActorValidForDataLayer(Actor: ucpp.Ptr<Actor>): Bool;
+	public function GetDataLayerInstances(DataLayerAssets: TArray<ucpp.Ptr<DataLayerAsset>>): TArray<ucpp.Ptr<DataLayerInstance>>;
+	public function GetDataLayerInstance(DataLayerAsset: ucpp.Ptr<DataLayerAsset.ConstDataLayerAsset>): ucpp.Ptr<DataLayerInstance>;
+	public function GetDataLayerFromLabel(DataLayerLabel: ucpp.Ref<FName>): ucpp.Ptr<DataLayerInstance>;
+	public function GetDataLayer(ActorDataLayer: ucpp.Ref<ActorDataLayer>): ucpp.Ptr<DataLayerInstance>;
+	public function GetAllDataLayers(): TArray<ucpp.Ptr<DataLayerInstance>>;
+	public function GetActorsFromDataLayers(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): TArray<ucpp.Ptr<Actor>>;
+	public function GetActorsFromDataLayer(DataLayer: ucpp.Ptr<DataLayerInstance>): TArray<ucpp.Ptr<Actor>>;
+	public function DeleteDataLayers(DataLayersToDelete: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Void;
+	public function DeleteDataLayer(DataLayerToDelete: ucpp.Ptr<DataLayerInstance>): Void;
+	public function CreateDataLayerInstance(Parameters: ucpp.Ref<DataLayerCreationParameters>): ucpp.Ptr<DataLayerInstance>;
+	public function CreateDataLayer(ParentDataLayer: ucpp.Ptr<DataLayerInstance>): ucpp.Ptr<DataLayerInstance>;
+	public function AppendActorsFromDataLayers(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>, InOutActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
+	public function AppendActorsFromDataLayer(DataLayer: ucpp.Ptr<DataLayerInstance>, InOutActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
+	public function AddSelectedActorsToDataLayers(DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Bool;
+	public function AddSelectedActorsToDataLayer(DataLayer: ucpp.Ptr<DataLayerInstance>): Bool;
+	public function AddActorToDataLayers(Actor: ucpp.Ptr<Actor>, DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Bool;
+	public function AddActorToDataLayer(Actor: ucpp.Ptr<Actor>, DataLayer: ucpp.Ptr<DataLayerInstance>): Bool;
+	public function AddActorsToDataLayers(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, DataLayers: ucpp.Ref<TArray<ucpp.Ptr<DataLayerInstance>>>): Bool;
+	public function AddActorsToDataLayer(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, DataLayer: ucpp.Ptr<DataLayerInstance>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetDataLayerInstances, GetDataLayerInstance, GetDataLayerFromLabel, GetDataLayer, GetActorsFromDataLayers, GetActorsFromDataLayer, AppendActorsFromDataLayers, AppendActorsFromDataLayer)
@@ -66,7 +66,7 @@ abstract ConstDataLayerEditorSubsystem(DataLayerEditorSubsystem) from DataLayerE
 @:forward
 @:nativeGen
 @:native("DataLayerEditorSubsystem*")
-abstract DataLayerEditorSubsystemPtr(cpp.Star<DataLayerEditorSubsystem>) from cpp.Star<DataLayerEditorSubsystem> to cpp.Star<DataLayerEditorSubsystem>{
+abstract DataLayerEditorSubsystemPtr(ucpp.Ptr<DataLayerEditorSubsystem>) from ucpp.Ptr<DataLayerEditorSubsystem> to ucpp.Ptr<DataLayerEditorSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerEditorSubsystem): DataLayerEditorSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

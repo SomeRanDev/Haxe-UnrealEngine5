@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleCollision")
 @:include("Particles/Collision/ParticleModuleCollision.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleCollision extends ParticleModuleCollisionBase {
 	public var DampingFactor: RawDistributionVector;
 	public var DampingFactorRotation: RawDistributionVector;
@@ -13,17 +13,17 @@ extern class ParticleModuleCollision extends ParticleModuleCollisionBase {
 	public var bApplyPhysics: Bool;
 	public var bIgnoreTriggerVolumes: Bool;
 	public var ParticleMass: RawDistributionFloat;
-	public var DirScalar: cpp.Float32;
+	public var DirScalar: ucpp.num.Float32;
 	public var bPawnsDoNotDecrementCount: Bool;
 	public var bOnlyVerticalNormalsDecrementCount: Bool;
-	public var VerticalFudgeFactor: cpp.Float32;
+	public var VerticalFudgeFactor: ucpp.num.Float32;
 	public var DelayAmount: RawDistributionFloat;
 	public var bDropDetail: Bool;
 	public var bCollideOnlyIfVisible: Bool;
 	public var bIgnoreSourceActor: Bool;
-	public var MaxCollisionDistance: cpp.Float32;
+	public var MaxCollisionDistance: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -45,14 +45,14 @@ abstract ConstParticleModuleCollision(ParticleModuleCollision) from ParticleModu
 	public inline extern function get_bIgnoreTriggerVolumes(): Bool return this.bIgnoreTriggerVolumes;
 	public extern var ParticleMass(get, never): RawDistributionFloat;
 	public inline extern function get_ParticleMass(): RawDistributionFloat return this.ParticleMass;
-	public extern var DirScalar(get, never): cpp.Float32;
-	public inline extern function get_DirScalar(): cpp.Float32 return this.DirScalar;
+	public extern var DirScalar(get, never): ucpp.num.Float32;
+	public inline extern function get_DirScalar(): ucpp.num.Float32 return this.DirScalar;
 	public extern var bPawnsDoNotDecrementCount(get, never): Bool;
 	public inline extern function get_bPawnsDoNotDecrementCount(): Bool return this.bPawnsDoNotDecrementCount;
 	public extern var bOnlyVerticalNormalsDecrementCount(get, never): Bool;
 	public inline extern function get_bOnlyVerticalNormalsDecrementCount(): Bool return this.bOnlyVerticalNormalsDecrementCount;
-	public extern var VerticalFudgeFactor(get, never): cpp.Float32;
-	public inline extern function get_VerticalFudgeFactor(): cpp.Float32 return this.VerticalFudgeFactor;
+	public extern var VerticalFudgeFactor(get, never): ucpp.num.Float32;
+	public inline extern function get_VerticalFudgeFactor(): ucpp.num.Float32 return this.VerticalFudgeFactor;
 	public extern var DelayAmount(get, never): RawDistributionFloat;
 	public inline extern function get_DelayAmount(): RawDistributionFloat return this.DelayAmount;
 	public extern var bDropDetail(get, never): Bool;
@@ -61,14 +61,14 @@ abstract ConstParticleModuleCollision(ParticleModuleCollision) from ParticleModu
 	public inline extern function get_bCollideOnlyIfVisible(): Bool return this.bCollideOnlyIfVisible;
 	public extern var bIgnoreSourceActor(get, never): Bool;
 	public inline extern function get_bIgnoreSourceActor(): Bool return this.bIgnoreSourceActor;
-	public extern var MaxCollisionDistance(get, never): cpp.Float32;
-	public inline extern function get_MaxCollisionDistance(): cpp.Float32 return this.MaxCollisionDistance;
+	public extern var MaxCollisionDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxCollisionDistance(): ucpp.num.Float32 return this.MaxCollisionDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleCollision*")
-abstract ParticleModuleCollisionPtr(cpp.Star<ParticleModuleCollision>) from cpp.Star<ParticleModuleCollision> to cpp.Star<ParticleModuleCollision>{
+abstract ParticleModuleCollisionPtr(ucpp.Ptr<ParticleModuleCollision>) from ucpp.Ptr<ParticleModuleCollision> to ucpp.Ptr<ParticleModuleCollision>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleCollision): ParticleModuleCollisionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolFlushEmbeddedGeometrySettings")
 @:include("FractureToolEmbed.h")
-@:structAccess
+@:valueType
 extern class FractureToolFlushEmbeddedGeometrySettings extends FractureToolSettings {
 	public var bExtractAsStaticMeshActors: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFractureToolFlushEmbeddedGeometrySettings(FractureToolFlushEmbedde
 @:forward
 @:nativeGen
 @:native("FractureToolFlushEmbeddedGeometrySettings*")
-abstract FractureToolFlushEmbeddedGeometrySettingsPtr(cpp.Star<FractureToolFlushEmbeddedGeometrySettings>) from cpp.Star<FractureToolFlushEmbeddedGeometrySettings> to cpp.Star<FractureToolFlushEmbeddedGeometrySettings>{
+abstract FractureToolFlushEmbeddedGeometrySettingsPtr(ucpp.Ptr<FractureToolFlushEmbeddedGeometrySettings>) from ucpp.Ptr<FractureToolFlushEmbeddedGeometrySettings> to ucpp.Ptr<FractureToolFlushEmbeddedGeometrySettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolFlushEmbeddedGeometrySettings): FractureToolFlushEmbeddedGeometrySettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEulerAnalysisProperties")
 @:include("BlendSpaceAnalysis.h")
-@:structAccess
+@:valueType
 extern class EulerAnalysisProperties extends AnalysisProperties {
 	public var FunctionAxis: EAnalysisEulerAxis;
 	public var BoneSocket: BoneSocketTarget;
@@ -13,10 +13,10 @@ extern class EulerAnalysisProperties extends AnalysisProperties {
 	public var SpaceBoneSocket: BoneSocketTarget;
 	public var CharacterFacingAxis: EAnalysisLinearAxis;
 	public var CharacterUpAxis: EAnalysisLinearAxis;
-	public var StartTimeFraction: cpp.Float32;
-	public var EndTimeFraction: cpp.Float32;
+	public var StartTimeFraction: ucpp.num.Float32;
+	public var EndTimeFraction: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,16 +38,16 @@ abstract ConstEulerAnalysisProperties(EulerAnalysisProperties) from EulerAnalysi
 	public inline extern function get_CharacterFacingAxis(): EAnalysisLinearAxis return this.CharacterFacingAxis;
 	public extern var CharacterUpAxis(get, never): EAnalysisLinearAxis;
 	public inline extern function get_CharacterUpAxis(): EAnalysisLinearAxis return this.CharacterUpAxis;
-	public extern var StartTimeFraction(get, never): cpp.Float32;
-	public inline extern function get_StartTimeFraction(): cpp.Float32 return this.StartTimeFraction;
-	public extern var EndTimeFraction(get, never): cpp.Float32;
-	public inline extern function get_EndTimeFraction(): cpp.Float32 return this.EndTimeFraction;
+	public extern var StartTimeFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_StartTimeFraction(): ucpp.num.Float32 return this.StartTimeFraction;
+	public extern var EndTimeFraction(get, never): ucpp.num.Float32;
+	public inline extern function get_EndTimeFraction(): ucpp.num.Float32 return this.EndTimeFraction;
 }
 
 @:forward
 @:nativeGen
 @:native("EulerAnalysisProperties*")
-abstract EulerAnalysisPropertiesPtr(cpp.Star<EulerAnalysisProperties>) from cpp.Star<EulerAnalysisProperties> to cpp.Star<EulerAnalysisProperties>{
+abstract EulerAnalysisPropertiesPtr(ucpp.Ptr<EulerAnalysisProperties>) from ucpp.Ptr<EulerAnalysisProperties> to ucpp.Ptr<EulerAnalysisProperties>{
 	@:from
 	public static extern inline function fromValue(v: EulerAnalysisProperties): EulerAnalysisPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

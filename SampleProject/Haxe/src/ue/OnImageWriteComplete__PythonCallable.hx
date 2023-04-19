@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnImageWriteComplete__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnImageWriteComplete__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnImageWriteComplete__PythonCallable(OnImageWriteComplete__PythonC
 @:forward
 @:nativeGen
 @:native("OnImageWriteComplete__PythonCallable*")
-abstract OnImageWriteComplete__PythonCallablePtr(cpp.Star<OnImageWriteComplete__PythonCallable>) from cpp.Star<OnImageWriteComplete__PythonCallable> to cpp.Star<OnImageWriteComplete__PythonCallable>{
+abstract OnImageWriteComplete__PythonCallablePtr(ucpp.Ptr<OnImageWriteComplete__PythonCallable>) from ucpp.Ptr<OnImageWriteComplete__PythonCallable> to ucpp.Ptr<OnImageWriteComplete__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnImageWriteComplete__PythonCallable): OnImageWriteComplete__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

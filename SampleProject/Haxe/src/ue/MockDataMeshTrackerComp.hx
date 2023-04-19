@@ -3,9 +3,9 @@ package ue;
 
 @:native("UMockDataMeshTrackerComponent")
 @:include("MockDataMeshTrackerComponent.h")
-@:structAccess
+@:valueType
 extern class MockDataMeshTrackerComp extends SceneComp {
-	public var OnMeshTrackerUpdated: HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Float32>>) -> Void>;
+	public var OnMeshTrackerUpdated: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<Vector>>, ucpp.Ref<TArray<ucpp.num.Int32>>, ucpp.Ref<TArray<Vector>>, ucpp.Ref<TArray<ucpp.num.Float32>>) -> Void>;
 	public var ScanWorld: Bool;
 	public var RequestNormals: Bool;
 	public var RequestVertexConfidence: Bool;
@@ -13,21 +13,21 @@ extern class MockDataMeshTrackerComp extends SceneComp {
 	public var BlockVertexColors: TArray<Color>;
 	public var VertexColorFromConfidenceZero: LinearColor;
 	public var VertexColorFromConfidenceOne: LinearColor;
-	public var UpdateInterval: cpp.Float32;
-	public var MRMesh: cpp.Star<MRMeshComp>;
+	public var UpdateInterval: ucpp.num.Float32;
+	public var MRMesh: ucpp.Ptr<MRMeshComp>;
 
-	public function OnMockDataMeshTrackerUpdated__DelegateSignature(Index: cpp.Int32, Vertices: cpp.Reference<TArray<Vector>>, Triangles: cpp.Reference<TArray<cpp.Int32>>, Normals: cpp.Reference<TArray<Vector>>, Confidence: cpp.Reference<TArray<cpp.Float32>>): Void;
-	public function DisconnectMRMesh(InMRMeshPtr: cpp.Star<MRMeshComp>): Void;
-	public function ConnectMRMesh(InMRMeshPtr: cpp.Star<MRMeshComp>): Void;
+	public function OnMockDataMeshTrackerUpdated__DelegateSignature(Index: ucpp.num.Int32, Vertices: ucpp.Ref<TArray<Vector>>, Triangles: ucpp.Ref<TArray<ucpp.num.Int32>>, Normals: ucpp.Ref<TArray<Vector>>, Confidence: ucpp.Ref<TArray<ucpp.num.Float32>>): Void;
+	public function DisconnectMRMesh(InMRMeshPtr: ucpp.Ptr<MRMeshComp>): Void;
+	public function ConnectMRMesh(InMRMeshPtr: ucpp.Ptr<MRMeshComp>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMockDataMeshTrackerComp(MockDataMeshTrackerComp) from MockDataMeshTrackerComp {
-	public extern var OnMeshTrackerUpdated(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Float32>>) -> Void>;
-	public inline extern function get_OnMeshTrackerUpdated(): HaxeMulticastSparseDelegateProperty<(cpp.Int32, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Int32>>, cpp.Reference<TArray<Vector>>, cpp.Reference<TArray<cpp.Float32>>) -> Void> return this.OnMeshTrackerUpdated;
+	public extern var OnMeshTrackerUpdated(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<Vector>>, ucpp.Ref<TArray<ucpp.num.Int32>>, ucpp.Ref<TArray<Vector>>, ucpp.Ref<TArray<ucpp.num.Float32>>) -> Void>;
+	public inline extern function get_OnMeshTrackerUpdated(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32, ucpp.Ref<TArray<Vector>>, ucpp.Ref<TArray<ucpp.num.Int32>>, ucpp.Ref<TArray<Vector>>, ucpp.Ref<TArray<ucpp.num.Float32>>) -> Void> return this.OnMeshTrackerUpdated;
 	public extern var ScanWorld(get, never): Bool;
 	public inline extern function get_ScanWorld(): Bool return this.ScanWorld;
 	public extern var RequestNormals(get, never): Bool;
@@ -42,16 +42,16 @@ abstract ConstMockDataMeshTrackerComp(MockDataMeshTrackerComp) from MockDataMesh
 	public inline extern function get_VertexColorFromConfidenceZero(): LinearColor return this.VertexColorFromConfidenceZero;
 	public extern var VertexColorFromConfidenceOne(get, never): LinearColor;
 	public inline extern function get_VertexColorFromConfidenceOne(): LinearColor return this.VertexColorFromConfidenceOne;
-	public extern var UpdateInterval(get, never): cpp.Float32;
-	public inline extern function get_UpdateInterval(): cpp.Float32 return this.UpdateInterval;
-	public extern var MRMesh(get, never): cpp.Star<MRMeshComp.ConstMRMeshComp>;
-	public inline extern function get_MRMesh(): cpp.Star<MRMeshComp.ConstMRMeshComp> return this.MRMesh;
+	public extern var UpdateInterval(get, never): ucpp.num.Float32;
+	public inline extern function get_UpdateInterval(): ucpp.num.Float32 return this.UpdateInterval;
+	public extern var MRMesh(get, never): ucpp.Ptr<MRMeshComp.ConstMRMeshComp>;
+	public inline extern function get_MRMesh(): ucpp.Ptr<MRMeshComp.ConstMRMeshComp> return this.MRMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("MockDataMeshTrackerComp*")
-abstract MockDataMeshTrackerCompPtr(cpp.Star<MockDataMeshTrackerComp>) from cpp.Star<MockDataMeshTrackerComp> to cpp.Star<MockDataMeshTrackerComp>{
+abstract MockDataMeshTrackerCompPtr(ucpp.Ptr<MockDataMeshTrackerComp>) from ucpp.Ptr<MockDataMeshTrackerComp> to ucpp.Ptr<MockDataMeshTrackerComp>{
 	@:from
 	public static extern inline function fromValue(v: MockDataMeshTrackerComp): MockDataMeshTrackerCompPtr {
 		return untyped __cpp__("&({0})", v);

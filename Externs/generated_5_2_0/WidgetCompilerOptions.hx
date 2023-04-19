@@ -3,7 +3,7 @@ package ue;
 
 @:native("FWidgetCompilerOptions")
 @:include("UMGEditorProjectSettings.h")
-@:structAccess
+@:valueType
 extern class WidgetCompilerOptions {
 	public var bAllowBlueprintTick: Bool;
 	public var bAllowBlueprintPaint: Bool;

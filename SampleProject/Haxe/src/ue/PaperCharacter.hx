@@ -3,11 +3,11 @@ package ue;
 
 @:native("APaperCharacter")
 @:include("PaperCharacter.h")
-@:structAccess
+@:valueType
 extern class PaperCharacter extends Character {
-	private var Sprite: cpp.Star<PaperFlipbookComp>;
+	private var Sprite: ucpp.Ptr<PaperFlipbookComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPaperCharacter(PaperCharacter) from PaperCharacter {
 @:forward
 @:nativeGen
 @:native("PaperCharacter*")
-abstract PaperCharacterPtr(cpp.Star<PaperCharacter>) from cpp.Star<PaperCharacter> to cpp.Star<PaperCharacter>{
+abstract PaperCharacterPtr(ucpp.Ptr<PaperCharacter>) from ucpp.Ptr<PaperCharacter> to ucpp.Ptr<PaperCharacter>{
 	@:from
 	public static extern inline function fromValue(v: PaperCharacter): PaperCharacterPtr {
 		return untyped __cpp__("&({0})", v);

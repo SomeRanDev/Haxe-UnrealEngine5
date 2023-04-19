@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeDDSTranslator")
 @:include("Texture/InterchangeDDSTranslator.h")
-@:structAccess
+@:valueType
 extern class InterchangeDDSTranslator extends InterchangeTranslatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeDDSTranslator(InterchangeDDSTranslator) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeDDSTranslator*")
-abstract InterchangeDDSTranslatorPtr(cpp.Star<InterchangeDDSTranslator>) from cpp.Star<InterchangeDDSTranslator> to cpp.Star<InterchangeDDSTranslator>{
+abstract InterchangeDDSTranslatorPtr(ucpp.Ptr<InterchangeDDSTranslator>) from ucpp.Ptr<InterchangeDDSTranslator> to ucpp.Ptr<InterchangeDDSTranslator>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeDDSTranslator): InterchangeDDSTranslatorPtr {
 		return untyped __cpp__("&({0})", v);

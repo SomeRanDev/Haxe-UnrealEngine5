@@ -3,13 +3,13 @@ package ue;
 
 @:native("UK2Node_GetClassDefaults")
 @:include("K2Node_GetClassDefaults.h")
-@:structAccess
+@:valueType
 extern class K2Node_GetClassDefaults extends K2Node {
-	private var BlueprintSubscribedTo: cpp.Star<Blueprint>;
+	private var BlueprintSubscribedTo: ucpp.Ptr<Blueprint>;
 	private var ShowPinForProperties: TArray<OptionalPinFromProperty>;
 	private var bExcludeObjectContainers: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstK2Node_GetClassDefaults(K2Node_GetClassDefaults) from K2Node_GetCl
 @:forward
 @:nativeGen
 @:native("K2Node_GetClassDefaults*")
-abstract K2Node_GetClassDefaultsPtr(cpp.Star<K2Node_GetClassDefaults>) from cpp.Star<K2Node_GetClassDefaults> to cpp.Star<K2Node_GetClassDefaults>{
+abstract K2Node_GetClassDefaultsPtr(ucpp.Ptr<K2Node_GetClassDefaults>) from ucpp.Ptr<K2Node_GetClassDefaults> to ucpp.Ptr<K2Node_GetClassDefaults>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_GetClassDefaults): K2Node_GetClassDefaultsPtr {
 		return untyped __cpp__("&({0})", v);

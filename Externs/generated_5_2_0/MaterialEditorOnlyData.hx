@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialEditorOnlyData")
 @:include("Materials/Material.h")
-@:structAccess
+@:valueType
 extern class MaterialEditorOnlyData extends MaterialInterfaceEditorOnlyData {
 	public var BaseColor: ColorMaterialInput;
 	public var Metallic: ScalarMaterialInput;
@@ -30,7 +30,7 @@ extern class MaterialEditorOnlyData extends MaterialInterfaceEditorOnlyData {
 	public var ExpressionCollection: MaterialExpressionCollection;
 	public var ParameterGroupData: TArray<ParameterGroupData>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -89,7 +89,7 @@ abstract ConstMaterialEditorOnlyData(MaterialEditorOnlyData) from MaterialEditor
 @:forward
 @:nativeGen
 @:native("MaterialEditorOnlyData*")
-abstract MaterialEditorOnlyDataPtr(cpp.Star<MaterialEditorOnlyData>) from cpp.Star<MaterialEditorOnlyData> to cpp.Star<MaterialEditorOnlyData>{
+abstract MaterialEditorOnlyDataPtr(ucpp.Ptr<MaterialEditorOnlyData>) from ucpp.Ptr<MaterialEditorOnlyData> to ucpp.Ptr<MaterialEditorOnlyData>{
 	@:from
 	public static extern inline function fromValue(v: MaterialEditorOnlyData): MaterialEditorOnlyDataPtr {
 		return untyped __cpp__("&({0})", v);

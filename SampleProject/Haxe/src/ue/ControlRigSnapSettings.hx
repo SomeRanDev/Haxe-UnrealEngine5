@@ -3,14 +3,14 @@ package ue;
 
 @:native("UControlRigSnapSettings")
 @:include("Tools/ControlRigSnapSettings.h")
-@:structAccess
+@:valueType
 extern class ControlRigSnapSettings extends Object {
 	public var bKeepOffset: Bool;
 	public var bSnapPosition: Bool;
 	public var bSnapRotation: Bool;
 	public var bSnapScale: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstControlRigSnapSettings(ControlRigSnapSettings) from ControlRigSnap
 @:forward
 @:nativeGen
 @:native("ControlRigSnapSettings*")
-abstract ControlRigSnapSettingsPtr(cpp.Star<ControlRigSnapSettings>) from cpp.Star<ControlRigSnapSettings> to cpp.Star<ControlRigSnapSettings>{
+abstract ControlRigSnapSettingsPtr(ucpp.Ptr<ControlRigSnapSettings>) from ucpp.Ptr<ControlRigSnapSettings> to ucpp.Ptr<ControlRigSnapSettings>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigSnapSettings): ControlRigSnapSettingsPtr {
 		return untyped __cpp__("&({0})", v);

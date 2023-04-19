@@ -3,14 +3,14 @@ package ue;
 
 @:native("UDestroySessionCallbackProxy")
 @:include("DestroySessionCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class DestroySessionCallbackProxy extends OnlineBlueprintCallProxyBase {
 	public var OnSuccess: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnFailure: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
-	public function DestroySession(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Star<DestroySessionCallbackProxy>;
+	public function DestroySession(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<DestroySessionCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstDestroySessionCallbackProxy(DestroySessionCallbackProxy) from Dest
 @:forward
 @:nativeGen
 @:native("DestroySessionCallbackProxy*")
-abstract DestroySessionCallbackProxyPtr(cpp.Star<DestroySessionCallbackProxy>) from cpp.Star<DestroySessionCallbackProxy> to cpp.Star<DestroySessionCallbackProxy>{
+abstract DestroySessionCallbackProxyPtr(ucpp.Ptr<DestroySessionCallbackProxy>) from ucpp.Ptr<DestroySessionCallbackProxy> to ucpp.Ptr<DestroySessionCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: DestroySessionCallbackProxy): DestroySessionCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

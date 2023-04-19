@@ -3,11 +3,12 @@ package ue;
 
 @:native("FMovieSceneCameraShakeSourceTriggerChannel")
 @:include("Channels/MovieSceneCameraShakeSourceTriggerChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCameraShakeSourceTriggerChannel extends MovieSceneChannel {
 	private var KeyTimes: TArray<FrameNumber>;
 	private var KeyValues: TArray<MovieSceneCameraShakeSourceTrigger>;
+	private var KeyHandles: MovieSceneKeyHandleMap;
 
 	@:native("FMovieSceneCameraShakeSourceTriggerChannel") public function new();
-	@:native("FMovieSceneCameraShakeSourceTriggerChannel") public static function make(KeyTimes: TArray<FrameNumber>, KeyValues: TArray<MovieSceneCameraShakeSourceTrigger>): MovieSceneCameraShakeSourceTriggerChannel ;
+	@:native("FMovieSceneCameraShakeSourceTriggerChannel") public static function make(KeyTimes: TArray<FrameNumber>, KeyValues: TArray<MovieSceneCameraShakeSourceTrigger>, KeyHandles: MovieSceneKeyHandleMap): MovieSceneCameraShakeSourceTriggerChannel ;
 }

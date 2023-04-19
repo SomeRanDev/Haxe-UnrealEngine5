@@ -3,19 +3,19 @@ package ue;
 
 @:native("ULandscapeWeightmapUsage")
 @:include("LandscapeWeightmapUsage.h")
-@:structAccess
+@:valueType
 extern class LandscapeWeightmapUsage extends Object {
-	public var ChannelUsage: cpp.Star<LandscapeComp>;
+	public var ChannelUsage: ucpp.Ptr<LandscapeComp>;
 	public var LayerGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLandscapeWeightmapUsage(LandscapeWeightmapUsage) from LandscapeWeightmapUsage {
-	public extern var ChannelUsage(get, never): cpp.Star<LandscapeComp.ConstLandscapeComp>;
-	public inline extern function get_ChannelUsage(): cpp.Star<LandscapeComp.ConstLandscapeComp> return this.ChannelUsage;
+	public extern var ChannelUsage(get, never): ucpp.Ptr<LandscapeComp.ConstLandscapeComp>;
+	public inline extern function get_ChannelUsage(): ucpp.Ptr<LandscapeComp.ConstLandscapeComp> return this.ChannelUsage;
 	public extern var LayerGuid(get, never): Guid;
 	public inline extern function get_LayerGuid(): Guid return this.LayerGuid;
 }
@@ -23,7 +23,7 @@ abstract ConstLandscapeWeightmapUsage(LandscapeWeightmapUsage) from LandscapeWei
 @:forward
 @:nativeGen
 @:native("LandscapeWeightmapUsage*")
-abstract LandscapeWeightmapUsagePtr(cpp.Star<LandscapeWeightmapUsage>) from cpp.Star<LandscapeWeightmapUsage> to cpp.Star<LandscapeWeightmapUsage>{
+abstract LandscapeWeightmapUsagePtr(ucpp.Ptr<LandscapeWeightmapUsage>) from ucpp.Ptr<LandscapeWeightmapUsage> to ucpp.Ptr<LandscapeWeightmapUsage>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeWeightmapUsage): LandscapeWeightmapUsagePtr {
 		return untyped __cpp__("&({0})", v);

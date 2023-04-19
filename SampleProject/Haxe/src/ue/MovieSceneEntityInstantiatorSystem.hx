@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneEntityInstantiatorSystem")
 @:include("EntitySystem/MovieSceneEntityInstantiatorSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEntityInstantiatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneEntityInstantiatorSystem(MovieSceneEntityInstantiatorSys
 @:forward
 @:nativeGen
 @:native("MovieSceneEntityInstantiatorSystem*")
-abstract MovieSceneEntityInstantiatorSystemPtr(cpp.Star<MovieSceneEntityInstantiatorSystem>) from cpp.Star<MovieSceneEntityInstantiatorSystem> to cpp.Star<MovieSceneEntityInstantiatorSystem>{
+abstract MovieSceneEntityInstantiatorSystemPtr(ucpp.Ptr<MovieSceneEntityInstantiatorSystem>) from ucpp.Ptr<MovieSceneEntityInstantiatorSystem> to ucpp.Ptr<MovieSceneEntityInstantiatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEntityInstantiatorSystem): MovieSceneEntityInstantiatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

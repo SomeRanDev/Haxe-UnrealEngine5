@@ -3,19 +3,19 @@ package ue;
 
 @:native("UBakeMeshAttributeVertexToolProperties")
 @:include("BakeMeshAttributeVertexTool.h")
-@:structAccess
+@:valueType
 extern class BakeMeshAttributeVertexToolProperties extends InteractiveToolPropertySet {
 	public var OutputMode: EBakeVertexOutput;
-	public var OutputType: cpp.Int32;
-	public var OutputTypeR: cpp.Int32;
-	public var OutputTypeG: cpp.Int32;
-	public var OutputTypeB: cpp.Int32;
-	public var OutputTypeA: cpp.Int32;
+	public var OutputType: ucpp.num.Int32;
+	public var OutputTypeR: ucpp.num.Int32;
+	public var OutputTypeG: ucpp.num.Int32;
+	public var OutputTypeB: ucpp.num.Int32;
+	public var OutputTypeA: ucpp.num.Int32;
 	public var PreviewMode: EBakeVertexChannel;
 	public var bSplitAtNormalSeams: Bool;
 	public var bSplitAtUVSeams: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,16 +23,16 @@ extern class BakeMeshAttributeVertexToolProperties extends InteractiveToolProper
 abstract ConstBakeMeshAttributeVertexToolProperties(BakeMeshAttributeVertexToolProperties) from BakeMeshAttributeVertexToolProperties {
 	public extern var OutputMode(get, never): EBakeVertexOutput;
 	public inline extern function get_OutputMode(): EBakeVertexOutput return this.OutputMode;
-	public extern var OutputType(get, never): cpp.Int32;
-	public inline extern function get_OutputType(): cpp.Int32 return this.OutputType;
-	public extern var OutputTypeR(get, never): cpp.Int32;
-	public inline extern function get_OutputTypeR(): cpp.Int32 return this.OutputTypeR;
-	public extern var OutputTypeG(get, never): cpp.Int32;
-	public inline extern function get_OutputTypeG(): cpp.Int32 return this.OutputTypeG;
-	public extern var OutputTypeB(get, never): cpp.Int32;
-	public inline extern function get_OutputTypeB(): cpp.Int32 return this.OutputTypeB;
-	public extern var OutputTypeA(get, never): cpp.Int32;
-	public inline extern function get_OutputTypeA(): cpp.Int32 return this.OutputTypeA;
+	public extern var OutputType(get, never): ucpp.num.Int32;
+	public inline extern function get_OutputType(): ucpp.num.Int32 return this.OutputType;
+	public extern var OutputTypeR(get, never): ucpp.num.Int32;
+	public inline extern function get_OutputTypeR(): ucpp.num.Int32 return this.OutputTypeR;
+	public extern var OutputTypeG(get, never): ucpp.num.Int32;
+	public inline extern function get_OutputTypeG(): ucpp.num.Int32 return this.OutputTypeG;
+	public extern var OutputTypeB(get, never): ucpp.num.Int32;
+	public inline extern function get_OutputTypeB(): ucpp.num.Int32 return this.OutputTypeB;
+	public extern var OutputTypeA(get, never): ucpp.num.Int32;
+	public inline extern function get_OutputTypeA(): ucpp.num.Int32 return this.OutputTypeA;
 	public extern var PreviewMode(get, never): EBakeVertexChannel;
 	public inline extern function get_PreviewMode(): EBakeVertexChannel return this.PreviewMode;
 	public extern var bSplitAtNormalSeams(get, never): Bool;
@@ -44,7 +44,7 @@ abstract ConstBakeMeshAttributeVertexToolProperties(BakeMeshAttributeVertexToolP
 @:forward
 @:nativeGen
 @:native("BakeMeshAttributeVertexToolProperties*")
-abstract BakeMeshAttributeVertexToolPropertiesPtr(cpp.Star<BakeMeshAttributeVertexToolProperties>) from cpp.Star<BakeMeshAttributeVertexToolProperties> to cpp.Star<BakeMeshAttributeVertexToolProperties>{
+abstract BakeMeshAttributeVertexToolPropertiesPtr(ucpp.Ptr<BakeMeshAttributeVertexToolProperties>) from ucpp.Ptr<BakeMeshAttributeVertexToolProperties> to ucpp.Ptr<BakeMeshAttributeVertexToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeMeshAttributeVertexToolProperties): BakeMeshAttributeVertexToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

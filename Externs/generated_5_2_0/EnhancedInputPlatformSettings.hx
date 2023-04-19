@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEnhancedInputPlatformSettings")
 @:include("EnhancedInputPlatformSettings.h")
-@:structAccess
+@:valueType
 extern class EnhancedInputPlatformSettings extends PlatformSettings {
 	@:protected public var InputData: TArray<TSoftClassPtr<Class>>;
 	@:protected public var InputDataClasses: TArray<TSubclassOf<EnhancedInputPlatformData>>;
 	@:protected public var bShouldLogMappingContextRedirects: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEnhancedInputPlatformSettings(EnhancedInputPlatformSettings) from 
 @:forward
 @:nativeGen
 @:native("EnhancedInputPlatformSettings*")
-abstract EnhancedInputPlatformSettingsPtr(cpp.Star<EnhancedInputPlatformSettings>) from cpp.Star<EnhancedInputPlatformSettings> to cpp.Star<EnhancedInputPlatformSettings>{
+abstract EnhancedInputPlatformSettingsPtr(ucpp.Ptr<EnhancedInputPlatformSettings>) from ucpp.Ptr<EnhancedInputPlatformSettings> to ucpp.Ptr<EnhancedInputPlatformSettings>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputPlatformSettings): EnhancedInputPlatformSettingsPtr {
 		return untyped __cpp__("&({0})", v);

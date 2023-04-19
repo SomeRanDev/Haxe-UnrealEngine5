@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneParticleTrackRecorder")
 @:include("TrackRecorders/MovieSceneParticleTrackRecorder.h")
-@:structAccess
+@:valueType
 extern class MovieSceneParticleTrackRecorder extends MovieSceneTrackRecorder {
-	private function OnTriggered(Component: cpp.Star<ParticleSystemComp>, bActivating: Bool): Void;
+	private function OnTriggered(Component: ucpp.Ptr<ParticleSystemComp>, bActivating: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneParticleTrackRecorder(MovieSceneParticleTrackRecorder) f
 @:forward
 @:nativeGen
 @:native("MovieSceneParticleTrackRecorder*")
-abstract MovieSceneParticleTrackRecorderPtr(cpp.Star<MovieSceneParticleTrackRecorder>) from cpp.Star<MovieSceneParticleTrackRecorder> to cpp.Star<MovieSceneParticleTrackRecorder>{
+abstract MovieSceneParticleTrackRecorderPtr(ucpp.Ptr<MovieSceneParticleTrackRecorder>) from ucpp.Ptr<MovieSceneParticleTrackRecorder> to ucpp.Ptr<MovieSceneParticleTrackRecorder>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneParticleTrackRecorder): MovieSceneParticleTrackRecorderPtr {
 		return untyped __cpp__("&({0})", v);

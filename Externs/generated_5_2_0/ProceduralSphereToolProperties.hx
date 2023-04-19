@@ -3,36 +3,36 @@ package ue;
 
 @:native("UProceduralSphereToolProperties")
 @:include("AddPrimitiveTool.h")
-@:structAccess
+@:valueType
 extern class ProceduralSphereToolProperties extends ProceduralShapeToolProperties {
-	public var Radius: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var SubdivisionType: EProceduralSphereType;
-	public var Subdivisions: cpp.Int32;
-	public var HorizontalSlices: cpp.Int32;
-	public var VerticalSlices: cpp.Int32;
+	public var Subdivisions: ucpp.num.Int32;
+	public var HorizontalSlices: ucpp.num.Int32;
+	public var VerticalSlices: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstProceduralSphereToolProperties(ProceduralSphereToolProperties) from ProceduralSphereToolProperties {
-	public extern var Radius(get, never): cpp.Float32;
-	public inline extern function get_Radius(): cpp.Float32 return this.Radius;
+	public extern var Radius(get, never): ucpp.num.Float32;
+	public inline extern function get_Radius(): ucpp.num.Float32 return this.Radius;
 	public extern var SubdivisionType(get, never): EProceduralSphereType;
 	public inline extern function get_SubdivisionType(): EProceduralSphereType return this.SubdivisionType;
-	public extern var Subdivisions(get, never): cpp.Int32;
-	public inline extern function get_Subdivisions(): cpp.Int32 return this.Subdivisions;
-	public extern var HorizontalSlices(get, never): cpp.Int32;
-	public inline extern function get_HorizontalSlices(): cpp.Int32 return this.HorizontalSlices;
-	public extern var VerticalSlices(get, never): cpp.Int32;
-	public inline extern function get_VerticalSlices(): cpp.Int32 return this.VerticalSlices;
+	public extern var Subdivisions(get, never): ucpp.num.Int32;
+	public inline extern function get_Subdivisions(): ucpp.num.Int32 return this.Subdivisions;
+	public extern var HorizontalSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_HorizontalSlices(): ucpp.num.Int32 return this.HorizontalSlices;
+	public extern var VerticalSlices(get, never): ucpp.num.Int32;
+	public inline extern function get_VerticalSlices(): ucpp.num.Int32 return this.VerticalSlices;
 }
 
 @:forward
 @:nativeGen
 @:native("ProceduralSphereToolProperties*")
-abstract ProceduralSphereToolPropertiesPtr(cpp.Star<ProceduralSphereToolProperties>) from cpp.Star<ProceduralSphereToolProperties> to cpp.Star<ProceduralSphereToolProperties>{
+abstract ProceduralSphereToolPropertiesPtr(ucpp.Ptr<ProceduralSphereToolProperties>) from ucpp.Ptr<ProceduralSphereToolProperties> to ucpp.Ptr<ProceduralSphereToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralSphereToolProperties): ProceduralSphereToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

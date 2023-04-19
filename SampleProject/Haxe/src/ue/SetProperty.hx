@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USetProperty")
-@:structAccess
+@:valueType
 extern class SetProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSetProperty(SetProperty) from SetProperty {
 @:forward
 @:nativeGen
 @:native("SetProperty*")
-abstract SetPropertyPtr(cpp.Star<SetProperty>) from cpp.Star<SetProperty> to cpp.Star<SetProperty>{
+abstract SetPropertyPtr(ucpp.Ptr<SetProperty>) from ucpp.Ptr<SetProperty> to ucpp.Ptr<SetProperty>{
 	@:from
 	public static extern inline function fromValue(v: SetProperty): SetPropertyPtr {
 		return untyped __cpp__("&({0})", v);

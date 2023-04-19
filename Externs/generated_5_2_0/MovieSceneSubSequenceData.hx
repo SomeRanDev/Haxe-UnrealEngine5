@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSubSequenceData")
 @:include("Evaluation/MovieSceneSequenceHierarchy.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSubSequenceData {
 	public var Sequence: SoftObjectPath;
 	public var OuterToInnerTransform: MovieSceneSequenceTransform;
@@ -20,7 +20,7 @@ extern class MovieSceneSubSequenceData {
 	public var UnwarpedPlayRange: MovieSceneFrameRange;
 	public var PreRollRange: MovieSceneFrameRange;
 	public var PostRollRange: MovieSceneFrameRange;
-	public var HierarchicalBias: cpp.Int16;
+	public var HierarchicalBias: ucpp.num.Int16;
 	public var InstanceData: MovieSceneSequenceInstanceDataPtr;
 	private var SubSectionSignature: Guid;
 

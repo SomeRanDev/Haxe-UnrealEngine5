@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_InteractiveToolsPresetCollectionAsset")
 @:include("AssetDefinition_PresetAsset.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_InteractiveToolsPresetCollectionAsset extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_InteractiveToolsPresetCollectionAsset(AssetDefinit
 @:forward
 @:nativeGen
 @:native("AssetDefinition_InteractiveToolsPresetCollectionAsset*")
-abstract AssetDefinition_InteractiveToolsPresetCollectionAssetPtr(cpp.Star<AssetDefinition_InteractiveToolsPresetCollectionAsset>) from cpp.Star<AssetDefinition_InteractiveToolsPresetCollectionAsset> to cpp.Star<AssetDefinition_InteractiveToolsPresetCollectionAsset>{
+abstract AssetDefinition_InteractiveToolsPresetCollectionAssetPtr(ucpp.Ptr<AssetDefinition_InteractiveToolsPresetCollectionAsset>) from ucpp.Ptr<AssetDefinition_InteractiveToolsPresetCollectionAsset> to ucpp.Ptr<AssetDefinition_InteractiveToolsPresetCollectionAsset>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_InteractiveToolsPresetCollectionAsset): AssetDefinition_InteractiveToolsPresetCollectionAssetPtr {
 		return untyped __cpp__("&({0})", v);

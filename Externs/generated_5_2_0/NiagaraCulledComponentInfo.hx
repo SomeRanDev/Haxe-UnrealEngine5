@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraCulledComponentInfo")
 @:include("NiagaraCullProxyComponent.h")
-@:structAccess
+@:valueType
 extern class NiagaraCulledComponentInfo {
 	@:native("FNiagaraCulledComponentInfo") public function new();
 }

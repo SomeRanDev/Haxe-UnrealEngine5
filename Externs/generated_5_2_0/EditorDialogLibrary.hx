@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEditorDialogLibrary")
 @:include("EditorDialogLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorDialogLibrary extends BlueprintFunctionLibrary {
-	public function ShowSuppressableWarningDialog(Title: cpp.Reference<FText>, Message: cpp.Reference<FText>, InIniSettingName: FString, InIniSettingFileNameOverride: FString, bDefaultValue: Bool): Bool;
-	public function ShowObjectsDetailsView(Title: cpp.Reference<FText>, InOutObjects: cpp.Reference<TArray<cpp.Star<Object>>>, Options: cpp.Reference<EditorDialogLibraryObjectDetailsViewOptions>): Bool;
-	public function ShowObjectDetailsView(Title: cpp.Reference<FText>, InOutObject: cpp.Star<Object>, Options: cpp.Reference<EditorDialogLibraryObjectDetailsViewOptions>): Bool;
-	public function ShowMessage(Title: cpp.Reference<FText>, Message: cpp.Reference<FText>, MessageType: TEnumAsByte<EAppMsgType>, DefaultValue: TEnumAsByte<EAppReturnType>): TEnumAsByte<EAppReturnType>;
+	public function ShowSuppressableWarningDialog(Title: ucpp.Ref<FText>, Message: ucpp.Ref<FText>, InIniSettingName: FString, InIniSettingFileNameOverride: FString, bDefaultValue: Bool): Bool;
+	public function ShowObjectsDetailsView(Title: ucpp.Ref<FText>, InOutObjects: ucpp.Ref<TArray<ucpp.Ptr<Object>>>, Options: ucpp.Ref<EditorDialogLibraryObjectDetailsViewOptions>): Bool;
+	public function ShowObjectDetailsView(Title: ucpp.Ref<FText>, InOutObject: ucpp.Ptr<Object>, Options: ucpp.Ref<EditorDialogLibraryObjectDetailsViewOptions>): Bool;
+	public function ShowMessage(Title: ucpp.Ref<FText>, Message: ucpp.Ref<FText>, MessageType: TEnumAsByte<EAppMsgType>, DefaultValue: TEnumAsByte<EAppReturnType>): TEnumAsByte<EAppReturnType>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstEditorDialogLibrary(EditorDialogLibrary) from EditorDialogLibrary 
 @:forward
 @:nativeGen
 @:native("EditorDialogLibrary*")
-abstract EditorDialogLibraryPtr(cpp.Star<EditorDialogLibrary>) from cpp.Star<EditorDialogLibrary> to cpp.Star<EditorDialogLibrary>{
+abstract EditorDialogLibraryPtr(ucpp.Ptr<EditorDialogLibrary>) from ucpp.Ptr<EditorDialogLibrary> to ucpp.Ptr<EditorDialogLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorDialogLibrary): EditorDialogLibraryPtr {
 		return untyped __cpp__("&({0})", v);

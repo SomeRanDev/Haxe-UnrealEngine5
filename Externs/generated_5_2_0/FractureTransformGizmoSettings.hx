@@ -3,17 +3,17 @@ package ue;
 
 @:native("UFractureTransformGizmoSettings")
 @:include("FractureToolCutter.h")
-@:structAccess
+@:valueType
 extern class FractureTransformGizmoSettings extends FractureToolSettings {
 	public var bUseGizmo: Bool;
 	public var bCenterOnSelection: Bool;
 	public var bShowUseGizmoOption: Bool;
-	public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var AttachedCutter: cpp.Star<FractureToolCutterBase>;
-	@:protected public var UsedToolsContext: cpp.Star<InteractiveToolsContext>;
+	public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var AttachedCutter: ucpp.Ptr<FractureToolCutterBase>;
+	@:protected public var UsedToolsContext: ucpp.Ptr<InteractiveToolsContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,16 +25,16 @@ abstract ConstFractureTransformGizmoSettings(FractureTransformGizmoSettings) fro
 	public inline extern function get_bCenterOnSelection(): Bool return this.bCenterOnSelection;
 	public extern var bShowUseGizmoOption(get, never): Bool;
 	public inline extern function get_bShowUseGizmoOption(): Bool return this.bShowUseGizmoOption;
-	public extern var TransformGizmo(get, never): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
-	public inline extern function get_TransformGizmo(): cpp.Star<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
-	public extern var TransformProxy(get, never): cpp.Star<TransformProxy.ConstTransformProxy>;
-	public inline extern function get_TransformProxy(): cpp.Star<TransformProxy.ConstTransformProxy> return this.TransformProxy;
+	public extern var TransformGizmo(get, never): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo>;
+	public inline extern function get_TransformGizmo(): ucpp.Ptr<CombinedTransformGizmo.ConstCombinedTransformGizmo> return this.TransformGizmo;
+	public extern var TransformProxy(get, never): ucpp.Ptr<TransformProxy.ConstTransformProxy>;
+	public inline extern function get_TransformProxy(): ucpp.Ptr<TransformProxy.ConstTransformProxy> return this.TransformProxy;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureTransformGizmoSettings*")
-abstract FractureTransformGizmoSettingsPtr(cpp.Star<FractureTransformGizmoSettings>) from cpp.Star<FractureTransformGizmoSettings> to cpp.Star<FractureTransformGizmoSettings>{
+abstract FractureTransformGizmoSettingsPtr(ucpp.Ptr<FractureTransformGizmoSettings>) from ucpp.Ptr<FractureTransformGizmoSettings> to ucpp.Ptr<FractureTransformGizmoSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureTransformGizmoSettings): FractureTransformGizmoSettingsPtr {
 		return untyped __cpp__("&({0})", v);

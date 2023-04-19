@@ -3,32 +3,32 @@ package ue;
 
 @:native("UBrushBaseProperties")
 @:include("BaseTools/BaseBrushTool.h")
-@:structAccess
+@:valueType
 extern class BrushBaseProperties extends InteractiveToolPropertySet {
-	public var BrushSize: cpp.Float32;
+	public var BrushSize: ucpp.num.Float32;
 	public var bSpecifyRadius: Bool;
-	public var BrushRadius: cpp.Float32;
-	public var BrushStrength: cpp.Float32;
-	public var BrushFalloffAmount: cpp.Float32;
+	public var BrushRadius: ucpp.num.Float32;
+	public var BrushStrength: ucpp.num.Float32;
+	public var BrushFalloffAmount: ucpp.num.Float32;
 	public var bShowStrength: Bool;
 	public var bShowFalloff: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBrushBaseProperties(BrushBaseProperties) from BrushBaseProperties {
-	public extern var BrushSize(get, never): cpp.Float32;
-	public inline extern function get_BrushSize(): cpp.Float32 return this.BrushSize;
+	public extern var BrushSize(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushSize(): ucpp.num.Float32 return this.BrushSize;
 	public extern var bSpecifyRadius(get, never): Bool;
 	public inline extern function get_bSpecifyRadius(): Bool return this.bSpecifyRadius;
-	public extern var BrushRadius(get, never): cpp.Float32;
-	public inline extern function get_BrushRadius(): cpp.Float32 return this.BrushRadius;
-	public extern var BrushStrength(get, never): cpp.Float32;
-	public inline extern function get_BrushStrength(): cpp.Float32 return this.BrushStrength;
-	public extern var BrushFalloffAmount(get, never): cpp.Float32;
-	public inline extern function get_BrushFalloffAmount(): cpp.Float32 return this.BrushFalloffAmount;
+	public extern var BrushRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushRadius(): ucpp.num.Float32 return this.BrushRadius;
+	public extern var BrushStrength(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushStrength(): ucpp.num.Float32 return this.BrushStrength;
+	public extern var BrushFalloffAmount(get, never): ucpp.num.Float32;
+	public inline extern function get_BrushFalloffAmount(): ucpp.num.Float32 return this.BrushFalloffAmount;
 	public extern var bShowStrength(get, never): Bool;
 	public inline extern function get_bShowStrength(): Bool return this.bShowStrength;
 	public extern var bShowFalloff(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstBrushBaseProperties(BrushBaseProperties) from BrushBaseProperties 
 @:forward
 @:nativeGen
 @:native("BrushBaseProperties*")
-abstract BrushBasePropertiesPtr(cpp.Star<BrushBaseProperties>) from cpp.Star<BrushBaseProperties> to cpp.Star<BrushBaseProperties>{
+abstract BrushBasePropertiesPtr(ucpp.Ptr<BrushBaseProperties>) from ucpp.Ptr<BrushBaseProperties> to ucpp.Ptr<BrushBaseProperties>{
 	@:from
 	public static extern inline function fromValue(v: BrushBaseProperties): BrushBasePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

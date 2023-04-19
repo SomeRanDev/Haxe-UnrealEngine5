@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAutomatedLevelSequenceCapture")
 @:include("AutomatedLevelSequenceCapture.h")
-@:structAccess
+@:valueType
 extern class AutomatedLevelSequenceCapture extends MovieSceneCapture {
 	public var LevelSequenceAsset: SoftObjectPath;
 	public var ShotName: FString;
@@ -11,16 +11,16 @@ extern class AutomatedLevelSequenceCapture extends MovieSceneCapture {
 	public var CustomStartFrame: FrameNumber;
 	public var bUseCustomEndFrame: Bool;
 	public var CustomEndFrame: FrameNumber;
-	public var WarmUpFrameCount: cpp.Int32;
-	public var DelayBeforeWarmUp: cpp.Float32;
-	public var DelayBeforeShotWarmUp: cpp.Float32;
-	public var DelayEveryFrame: cpp.Float32;
-	public var BurnInOptions: cpp.Star<LevelSequenceBurnInOptions>;
+	public var WarmUpFrameCount: ucpp.num.Int32;
+	public var DelayBeforeWarmUp: ucpp.num.Float32;
+	public var DelayBeforeShotWarmUp: ucpp.num.Float32;
+	public var DelayEveryFrame: ucpp.num.Float32;
+	public var BurnInOptions: ucpp.Ptr<LevelSequenceBurnInOptions>;
 	public var bWriteEditDecisionList: Bool;
 	public var bWriteFinalCutProXML: Bool;
 	private var LevelSequenceActor: TWeakObjectPtr<LevelSequenceActor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,16 +38,16 @@ abstract ConstAutomatedLevelSequenceCapture(AutomatedLevelSequenceCapture) from 
 	public inline extern function get_bUseCustomEndFrame(): Bool return this.bUseCustomEndFrame;
 	public extern var CustomEndFrame(get, never): FrameNumber;
 	public inline extern function get_CustomEndFrame(): FrameNumber return this.CustomEndFrame;
-	public extern var WarmUpFrameCount(get, never): cpp.Int32;
-	public inline extern function get_WarmUpFrameCount(): cpp.Int32 return this.WarmUpFrameCount;
-	public extern var DelayBeforeWarmUp(get, never): cpp.Float32;
-	public inline extern function get_DelayBeforeWarmUp(): cpp.Float32 return this.DelayBeforeWarmUp;
-	public extern var DelayBeforeShotWarmUp(get, never): cpp.Float32;
-	public inline extern function get_DelayBeforeShotWarmUp(): cpp.Float32 return this.DelayBeforeShotWarmUp;
-	public extern var DelayEveryFrame(get, never): cpp.Float32;
-	public inline extern function get_DelayEveryFrame(): cpp.Float32 return this.DelayEveryFrame;
-	public extern var BurnInOptions(get, never): cpp.Star<LevelSequenceBurnInOptions.ConstLevelSequenceBurnInOptions>;
-	public inline extern function get_BurnInOptions(): cpp.Star<LevelSequenceBurnInOptions.ConstLevelSequenceBurnInOptions> return this.BurnInOptions;
+	public extern var WarmUpFrameCount(get, never): ucpp.num.Int32;
+	public inline extern function get_WarmUpFrameCount(): ucpp.num.Int32 return this.WarmUpFrameCount;
+	public extern var DelayBeforeWarmUp(get, never): ucpp.num.Float32;
+	public inline extern function get_DelayBeforeWarmUp(): ucpp.num.Float32 return this.DelayBeforeWarmUp;
+	public extern var DelayBeforeShotWarmUp(get, never): ucpp.num.Float32;
+	public inline extern function get_DelayBeforeShotWarmUp(): ucpp.num.Float32 return this.DelayBeforeShotWarmUp;
+	public extern var DelayEveryFrame(get, never): ucpp.num.Float32;
+	public inline extern function get_DelayEveryFrame(): ucpp.num.Float32 return this.DelayEveryFrame;
+	public extern var BurnInOptions(get, never): ucpp.Ptr<LevelSequenceBurnInOptions.ConstLevelSequenceBurnInOptions>;
+	public inline extern function get_BurnInOptions(): ucpp.Ptr<LevelSequenceBurnInOptions.ConstLevelSequenceBurnInOptions> return this.BurnInOptions;
 	public extern var bWriteEditDecisionList(get, never): Bool;
 	public inline extern function get_bWriteEditDecisionList(): Bool return this.bWriteEditDecisionList;
 	public extern var bWriteFinalCutProXML(get, never): Bool;
@@ -57,7 +57,7 @@ abstract ConstAutomatedLevelSequenceCapture(AutomatedLevelSequenceCapture) from 
 @:forward
 @:nativeGen
 @:native("AutomatedLevelSequenceCapture*")
-abstract AutomatedLevelSequenceCapturePtr(cpp.Star<AutomatedLevelSequenceCapture>) from cpp.Star<AutomatedLevelSequenceCapture> to cpp.Star<AutomatedLevelSequenceCapture>{
+abstract AutomatedLevelSequenceCapturePtr(ucpp.Ptr<AutomatedLevelSequenceCapture>) from ucpp.Ptr<AutomatedLevelSequenceCapture> to ucpp.Ptr<AutomatedLevelSequenceCapture>{
 	@:from
 	public static extern inline function fromValue(v: AutomatedLevelSequenceCapture): AutomatedLevelSequenceCapturePtr {
 		return untyped __cpp__("&({0})", v);

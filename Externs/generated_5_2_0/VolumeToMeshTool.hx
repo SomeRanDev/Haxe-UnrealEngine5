@@ -3,15 +3,15 @@ package ue;
 
 @:native("UVolumeToMeshTool")
 @:include("VolumeToMeshTool.h")
-@:structAccess
+@:valueType
 extern class VolumeToMeshTool extends InteractiveTool {
-	@:protected public var Settings: cpp.Star<VolumeToMeshToolProperties>;
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var PreviewMesh: cpp.Star<PreviewMesh>;
+	@:protected public var Settings: ucpp.Ptr<VolumeToMeshToolProperties>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var PreviewMesh: ucpp.Ptr<PreviewMesh>;
 	@:protected public var TargetVolume: TLazyObjectPtr<Volume>;
-	@:protected public var VolumeEdgesSet: cpp.Star<LineSetComp>;
+	@:protected public var VolumeEdgesSet: ucpp.Ptr<LineSetComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstVolumeToMeshTool(VolumeToMeshTool) from VolumeToMeshTool {
 @:forward
 @:nativeGen
 @:native("VolumeToMeshTool*")
-abstract VolumeToMeshToolPtr(cpp.Star<VolumeToMeshTool>) from cpp.Star<VolumeToMeshTool> to cpp.Star<VolumeToMeshTool>{
+abstract VolumeToMeshToolPtr(ucpp.Ptr<VolumeToMeshTool>) from ucpp.Ptr<VolumeToMeshTool> to ucpp.Ptr<VolumeToMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: VolumeToMeshTool): VolumeToMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

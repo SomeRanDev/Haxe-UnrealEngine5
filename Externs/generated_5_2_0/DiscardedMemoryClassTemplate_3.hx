@@ -2,27 +2,27 @@
 package ue;
 
 @:native("UDiscardedMemoryClassTemplate_3")
-@:structAccess
+@:valueType
 extern class DiscardedMemoryClassTemplate_3 extends RigVMMemoryStorage {
 	public var LocalVariableDefault__FootTrace_AnimatedFloorLocation__Const: Vector;
 	public var FunctionLibrary___FootTrace_MathVectorAdd_A__Const: Vector;
 	public var FunctionLibrary___FootTrace_GetTransform_Space__Const: TEnumAsByte<ERigVMTransformSpace>;
 	public var FunctionLibrary___FootTrace_GetTransform_bInitial__Const: Bool;
-	public var FunctionLibrary___FootTrace_MathFloatAdd_B__Const: cpp.Float32;
+	public var FunctionLibrary___FootTrace_MathFloatAdd_B__Const: ucpp.num.Float32;
 	public var FunctionLibrary___FootTrace_GetTransform_1_Item__Const: RigElementKey;
 	public var FunctionLibrary___FootTrace_MathVectorAdd_B__Const: Vector;
 	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_bEnabled__Const: Bool;
 	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const: LinearColor;
-	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const: cpp.Float32;
-	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const: cpp.Float32;
+	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const: ucpp.num.Float32;
+	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const: ucpp.num.Float32;
 	public var FunctionLibrary___FootTrace_MathVectorSub_B__Const: Vector;
 	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const: TEnumAsByte<ETraceTypeQuery>;
-	public var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const: cpp.Float32;
+	public var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const: ucpp.num.Float32;
 	public var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,8 +36,8 @@ abstract ConstDiscardedMemoryClassTemplate_3(DiscardedMemoryClassTemplate_3) fro
 	public inline extern function get_FunctionLibrary___FootTrace_GetTransform_Space__Const(): TEnumAsByte<ERigVMTransformSpace> return this.FunctionLibrary___FootTrace_GetTransform_Space__Const;
 	public extern var FunctionLibrary___FootTrace_GetTransform_bInitial__Const(get, never): Bool;
 	public inline extern function get_FunctionLibrary___FootTrace_GetTransform_bInitial__Const(): Bool return this.FunctionLibrary___FootTrace_GetTransform_bInitial__Const;
-	public extern var FunctionLibrary___FootTrace_MathFloatAdd_B__Const(get, never): cpp.Float32;
-	public inline extern function get_FunctionLibrary___FootTrace_MathFloatAdd_B__Const(): cpp.Float32 return this.FunctionLibrary___FootTrace_MathFloatAdd_B__Const;
+	public extern var FunctionLibrary___FootTrace_MathFloatAdd_B__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FunctionLibrary___FootTrace_MathFloatAdd_B__Const(): ucpp.num.Float32 return this.FunctionLibrary___FootTrace_MathFloatAdd_B__Const;
 	public extern var FunctionLibrary___FootTrace_GetTransform_1_Item__Const(get, never): RigElementKey;
 	public inline extern function get_FunctionLibrary___FootTrace_GetTransform_1_Item__Const(): RigElementKey return this.FunctionLibrary___FootTrace_GetTransform_1_Item__Const;
 	public extern var FunctionLibrary___FootTrace_MathVectorAdd_B__Const(get, never): Vector;
@@ -48,18 +48,18 @@ abstract ConstDiscardedMemoryClassTemplate_3(DiscardedMemoryClassTemplate_3) fro
 	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const;
 	public extern var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const(get, never): LinearColor;
 	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const(): LinearColor return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const;
-	public extern var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(get, never): cpp.Float32;
-	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(): cpp.Float32 return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const;
-	public extern var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(get, never): cpp.Float32;
-	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(): cpp.Float32 return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const;
+	public extern var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(): ucpp.num.Float32 return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const;
+	public extern var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(): ucpp.num.Float32 return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const;
 	public extern var FunctionLibrary___FootTrace_MathVectorSub_B__Const(get, never): Vector;
 	public inline extern function get_FunctionLibrary___FootTrace_MathVectorSub_B__Const(): Vector return this.FunctionLibrary___FootTrace_MathVectorSub_B__Const;
 	public extern var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const(get, never): TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const;
 	public extern var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const(get, never): TEnumAsByte<ETraceTypeQuery>;
 	public inline extern function get_FunctionLibrary___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const(): TEnumAsByte<ETraceTypeQuery> return this.FunctionLibrary___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const;
-	public extern var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const(get, never): cpp.Float32;
-	public inline extern function get_FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const(): cpp.Float32 return this.FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const;
+	public extern var FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const(): ucpp.num.Float32 return this.FunctionLibrary___FootTrace_SphereTraceByTraceChannel_Radius__Const;
 	public extern var FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const(get, never): TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public inline extern function get_FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FunctionLibrary___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const;
 }
@@ -67,7 +67,7 @@ abstract ConstDiscardedMemoryClassTemplate_3(DiscardedMemoryClassTemplate_3) fro
 @:forward
 @:nativeGen
 @:native("DiscardedMemoryClassTemplate_3*")
-abstract DiscardedMemoryClassTemplate_3Ptr(cpp.Star<DiscardedMemoryClassTemplate_3>) from cpp.Star<DiscardedMemoryClassTemplate_3> to cpp.Star<DiscardedMemoryClassTemplate_3>{
+abstract DiscardedMemoryClassTemplate_3Ptr(ucpp.Ptr<DiscardedMemoryClassTemplate_3>) from ucpp.Ptr<DiscardedMemoryClassTemplate_3> to ucpp.Ptr<DiscardedMemoryClassTemplate_3>{
 	@:from
 	public static extern inline function fromValue(v: DiscardedMemoryClassTemplate_3): DiscardedMemoryClassTemplate_3Ptr {
 		return untyped __cpp__("&({0})", v);

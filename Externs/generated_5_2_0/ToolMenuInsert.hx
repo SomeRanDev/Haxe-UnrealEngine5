@@ -3,7 +3,7 @@ package ue;
 
 @:native("FToolMenuInsert")
 @:include("ToolMenuMisc.h")
-@:structAccess
+@:valueType
 extern class ToolMenuInsert {
 	public var Name: FName;
 	public var Position: EToolMenuInsertType;

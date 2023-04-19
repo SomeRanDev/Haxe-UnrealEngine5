@@ -3,15 +3,15 @@ package ue;
 
 @:native("USmoothMeshTool")
 @:include("SmoothMeshTool.h")
-@:structAccess
+@:valueType
 extern class SmoothMeshTool extends BaseMeshProcessingTool {
-	@:protected public var SmoothProperties: cpp.Star<SmoothMeshToolProperties>;
-	@:protected public var IterativeProperties: cpp.Star<IterativeSmoothProperties>;
-	@:protected public var DiffusionProperties: cpp.Star<DiffusionSmoothProperties>;
-	@:protected public var ImplicitProperties: cpp.Star<ImplicitSmoothProperties>;
-	@:protected public var WeightMapProperties: cpp.Star<SmoothWeightMapSetProperties>;
+	@:protected public var SmoothProperties: ucpp.Ptr<SmoothMeshToolProperties>;
+	@:protected public var IterativeProperties: ucpp.Ptr<IterativeSmoothProperties>;
+	@:protected public var DiffusionProperties: ucpp.Ptr<DiffusionSmoothProperties>;
+	@:protected public var ImplicitProperties: ucpp.Ptr<ImplicitSmoothProperties>;
+	@:protected public var WeightMapProperties: ucpp.Ptr<SmoothWeightMapSetProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSmoothMeshTool(SmoothMeshTool) from SmoothMeshTool {
 @:forward
 @:nativeGen
 @:native("SmoothMeshTool*")
-abstract SmoothMeshToolPtr(cpp.Star<SmoothMeshTool>) from cpp.Star<SmoothMeshTool> to cpp.Star<SmoothMeshTool>{
+abstract SmoothMeshToolPtr(ucpp.Ptr<SmoothMeshTool>) from ucpp.Ptr<SmoothMeshTool> to ucpp.Ptr<SmoothMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: SmoothMeshTool): SmoothMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

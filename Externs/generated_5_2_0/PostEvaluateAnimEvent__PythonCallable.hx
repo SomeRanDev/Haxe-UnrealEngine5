@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPostEvaluateAnimEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class PostEvaluateAnimEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPostEvaluateAnimEvent__PythonCallable(PostEvaluateAnimEvent__Pytho
 @:forward
 @:nativeGen
 @:native("PostEvaluateAnimEvent__PythonCallable*")
-abstract PostEvaluateAnimEvent__PythonCallablePtr(cpp.Star<PostEvaluateAnimEvent__PythonCallable>) from cpp.Star<PostEvaluateAnimEvent__PythonCallable> to cpp.Star<PostEvaluateAnimEvent__PythonCallable>{
+abstract PostEvaluateAnimEvent__PythonCallablePtr(ucpp.Ptr<PostEvaluateAnimEvent__PythonCallable>) from ucpp.Ptr<PostEvaluateAnimEvent__PythonCallable> to ucpp.Ptr<PostEvaluateAnimEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PostEvaluateAnimEvent__PythonCallable): PostEvaluateAnimEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

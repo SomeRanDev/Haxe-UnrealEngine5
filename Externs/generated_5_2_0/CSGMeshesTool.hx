@@ -3,15 +3,15 @@ package ue;
 
 @:native("UCSGMeshesTool")
 @:include("CSGMeshesTool.h")
-@:structAccess
+@:valueType
 extern class CSGMeshesTool extends BaseCreateFromSelectedTool {
-	@:protected public var CSGProperties: cpp.Star<CSGMeshesToolProperties>;
-	@:protected public var TrimProperties: cpp.Star<TrimMeshesToolProperties>;
-	@:protected public var OriginalMeshPreviews: TArray<cpp.Star<PreviewMesh>>;
-	@:protected public var PreviewsGhostMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var DrawnLineSet: cpp.Star<LineSetComp>;
+	@:protected public var CSGProperties: ucpp.Ptr<CSGMeshesToolProperties>;
+	@:protected public var TrimProperties: ucpp.Ptr<TrimMeshesToolProperties>;
+	@:protected public var OriginalMeshPreviews: TArray<ucpp.Ptr<PreviewMesh>>;
+	@:protected public var PreviewsGhostMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var DrawnLineSet: ucpp.Ptr<LineSetComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstCSGMeshesTool(CSGMeshesTool) from CSGMeshesTool {
 @:forward
 @:nativeGen
 @:native("CSGMeshesTool*")
-abstract CSGMeshesToolPtr(cpp.Star<CSGMeshesTool>) from cpp.Star<CSGMeshesTool> to cpp.Star<CSGMeshesTool>{
+abstract CSGMeshesToolPtr(ucpp.Ptr<CSGMeshesTool>) from ucpp.Ptr<CSGMeshesTool> to ucpp.Ptr<CSGMeshesTool>{
 	@:from
 	public static extern inline function fromValue(v: CSGMeshesTool): CSGMeshesToolPtr {
 		return untyped __cpp__("&({0})", v);

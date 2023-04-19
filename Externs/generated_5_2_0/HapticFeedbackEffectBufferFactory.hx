@@ -3,10 +3,10 @@ package ue;
 
 @:native("UHapticFeedbackEffectBufferFactory")
 @:include("Factories/HapticFeedbackEffectBufferFactory.h")
-@:structAccess
+@:valueType
 extern class HapticFeedbackEffectBufferFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstHapticFeedbackEffectBufferFactory(HapticFeedbackEffectBufferFactor
 @:forward
 @:nativeGen
 @:native("HapticFeedbackEffectBufferFactory*")
-abstract HapticFeedbackEffectBufferFactoryPtr(cpp.Star<HapticFeedbackEffectBufferFactory>) from cpp.Star<HapticFeedbackEffectBufferFactory> to cpp.Star<HapticFeedbackEffectBufferFactory>{
+abstract HapticFeedbackEffectBufferFactoryPtr(ucpp.Ptr<HapticFeedbackEffectBufferFactory>) from ucpp.Ptr<HapticFeedbackEffectBufferFactory> to ucpp.Ptr<HapticFeedbackEffectBufferFactory>{
 	@:from
 	public static extern inline function fromValue(v: HapticFeedbackEffectBufferFactory): HapticFeedbackEffectBufferFactoryPtr {
 		return untyped __cpp__("&({0})", v);

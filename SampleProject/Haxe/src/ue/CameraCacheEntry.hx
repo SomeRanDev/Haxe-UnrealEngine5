@@ -3,11 +3,11 @@ package ue;
 
 @:native("FCameraCacheEntry")
 @:include("Camera/PlayerCameraManager.h")
-@:structAccess
+@:valueType
 extern class CameraCacheEntry {
-	public var TimeStamp: cpp.Float32;
+	public var TimeStamp: ucpp.num.Float32;
 	public var POV: MinimalViewInfo;
 
 	@:native("FCameraCacheEntry") public function new();
-	@:native("FCameraCacheEntry") public static function make(TimeStamp: cpp.Float32, POV: MinimalViewInfo): CameraCacheEntry ;
+	@:native("FCameraCacheEntry") public static function make(TimeStamp: ucpp.num.Float32, POV: MinimalViewInfo): CameraCacheEntry ;
 }

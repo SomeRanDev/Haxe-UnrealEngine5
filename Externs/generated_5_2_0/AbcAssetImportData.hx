@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAbcAssetImportData")
 @:include("AbcAssetImportData.h")
-@:structAccess
+@:valueType
 extern class AbcAssetImportData extends AssetImportData {
 	public var TrackNames: TArray<FString>;
 	public var SamplingSettings: AbcSamplingSettings;
@@ -14,7 +14,7 @@ extern class AbcAssetImportData extends AssetImportData {
 	public var GeometryCacheSettings: AbcGeometryCacheSettings;
 	public var ConversionSettings: AbcConversionSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,7 +41,7 @@ abstract ConstAbcAssetImportData(AbcAssetImportData) from AbcAssetImportData {
 @:forward
 @:nativeGen
 @:native("AbcAssetImportData*")
-abstract AbcAssetImportDataPtr(cpp.Star<AbcAssetImportData>) from cpp.Star<AbcAssetImportData> to cpp.Star<AbcAssetImportData>{
+abstract AbcAssetImportDataPtr(ucpp.Ptr<AbcAssetImportData>) from ucpp.Ptr<AbcAssetImportData> to ucpp.Ptr<AbcAssetImportData>{
 	@:from
 	public static extern inline function fromValue(v: AbcAssetImportData): AbcAssetImportDataPtr {
 		return untyped __cpp__("&({0})", v);

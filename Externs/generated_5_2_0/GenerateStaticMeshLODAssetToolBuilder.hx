@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGenerateStaticMeshLODAssetToolBuilder")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODAssetToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGenerateStaticMeshLODAssetToolBuilder(GenerateStaticMeshLODAssetTo
 @:forward
 @:nativeGen
 @:native("GenerateStaticMeshLODAssetToolBuilder*")
-abstract GenerateStaticMeshLODAssetToolBuilderPtr(cpp.Star<GenerateStaticMeshLODAssetToolBuilder>) from cpp.Star<GenerateStaticMeshLODAssetToolBuilder> to cpp.Star<GenerateStaticMeshLODAssetToolBuilder>{
+abstract GenerateStaticMeshLODAssetToolBuilderPtr(ucpp.Ptr<GenerateStaticMeshLODAssetToolBuilder>) from ucpp.Ptr<GenerateStaticMeshLODAssetToolBuilder> to ucpp.Ptr<GenerateStaticMeshLODAssetToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: GenerateStaticMeshLODAssetToolBuilder): GenerateStaticMeshLODAssetToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCrowdManagerBase")
 @:include("CrowdManagerBase.h")
-@:structAccess
+@:valueType
 extern class CrowdManagerBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCrowdManagerBase(CrowdManagerBase) from CrowdManagerBase {
 @:forward
 @:nativeGen
 @:native("CrowdManagerBase*")
-abstract CrowdManagerBasePtr(cpp.Star<CrowdManagerBase>) from cpp.Star<CrowdManagerBase> to cpp.Star<CrowdManagerBase>{
+abstract CrowdManagerBasePtr(ucpp.Ptr<CrowdManagerBase>) from ucpp.Ptr<CrowdManagerBase> to ucpp.Ptr<CrowdManagerBase>{
 	@:from
 	public static extern inline function fromValue(v: CrowdManagerBase): CrowdManagerBasePtr {
 		return untyped __cpp__("&({0})", v);

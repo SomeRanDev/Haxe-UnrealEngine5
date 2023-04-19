@@ -3,7 +3,7 @@ package ue;
 
 @:native("UGenerateStaticMeshLODAssetToolOutputProperties")
 @:include("Tools/GenerateStaticMeshLODAssetTool.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODAssetToolOutputProperties extends InteractiveToolPropertySet {
 	public var OutputMode: EGenerateLODAssetOutputMode;
 	public var NewAssetName: FString;
@@ -11,7 +11,7 @@ extern class GenerateStaticMeshLODAssetToolOutputProperties extends InteractiveT
 	public var GeneratedSuffix: FString;
 	public var bShowOutputMode: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstGenerateStaticMeshLODAssetToolOutputProperties(GenerateStaticMeshL
 @:forward
 @:nativeGen
 @:native("GenerateStaticMeshLODAssetToolOutputProperties*")
-abstract GenerateStaticMeshLODAssetToolOutputPropertiesPtr(cpp.Star<GenerateStaticMeshLODAssetToolOutputProperties>) from cpp.Star<GenerateStaticMeshLODAssetToolOutputProperties> to cpp.Star<GenerateStaticMeshLODAssetToolOutputProperties>{
+abstract GenerateStaticMeshLODAssetToolOutputPropertiesPtr(ucpp.Ptr<GenerateStaticMeshLODAssetToolOutputProperties>) from ucpp.Ptr<GenerateStaticMeshLODAssetToolOutputProperties> to ucpp.Ptr<GenerateStaticMeshLODAssetToolOutputProperties>{
 	@:from
 	public static extern inline function fromValue(v: GenerateStaticMeshLODAssetToolOutputProperties): GenerateStaticMeshLODAssetToolOutputPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

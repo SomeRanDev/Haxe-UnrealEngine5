@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDEditorParameterValue")
 @:include("MaterialEditor/DEditorParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorParameterValue extends Object {
 	public var bOverride: Bool;
 	public var ParameterInfo: MaterialParameterInfo;
@@ -11,7 +11,7 @@ extern class DEditorParameterValue extends Object {
 	public var Description: FString;
 	public var AssetPath: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstDEditorParameterValue(DEditorParameterValue) from DEditorParameter
 @:forward
 @:nativeGen
 @:native("DEditorParameterValue*")
-abstract DEditorParameterValuePtr(cpp.Star<DEditorParameterValue>) from cpp.Star<DEditorParameterValue> to cpp.Star<DEditorParameterValue>{
+abstract DEditorParameterValuePtr(ucpp.Ptr<DEditorParameterValue>) from ucpp.Ptr<DEditorParameterValue> to ucpp.Ptr<DEditorParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorParameterValue): DEditorParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

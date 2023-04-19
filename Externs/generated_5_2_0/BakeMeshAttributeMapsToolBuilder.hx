@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBakeMeshAttributeMapsToolBuilder")
 @:include("BakeMeshAttributeMapsTool.h")
-@:structAccess
+@:valueType
 extern class BakeMeshAttributeMapsToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBakeMeshAttributeMapsToolBuilder(BakeMeshAttributeMapsToolBuilder)
 @:forward
 @:nativeGen
 @:native("BakeMeshAttributeMapsToolBuilder*")
-abstract BakeMeshAttributeMapsToolBuilderPtr(cpp.Star<BakeMeshAttributeMapsToolBuilder>) from cpp.Star<BakeMeshAttributeMapsToolBuilder> to cpp.Star<BakeMeshAttributeMapsToolBuilder>{
+abstract BakeMeshAttributeMapsToolBuilderPtr(ucpp.Ptr<BakeMeshAttributeMapsToolBuilder>) from ucpp.Ptr<BakeMeshAttributeMapsToolBuilder> to ucpp.Ptr<BakeMeshAttributeMapsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: BakeMeshAttributeMapsToolBuilder): BakeMeshAttributeMapsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

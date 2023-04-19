@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTransform")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Transform {
 	public var Rotation: Quat;
 	public var Translation: Vector;

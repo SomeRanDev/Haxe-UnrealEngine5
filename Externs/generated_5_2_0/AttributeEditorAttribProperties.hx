@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAttributeEditorAttribProperties")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorAttribProperties extends InteractiveToolPropertySet {
 	public var VertexAttributes: TArray<FString>;
 	public var InstanceAttributes: TArray<FString>;
@@ -12,7 +12,7 @@ extern class AttributeEditorAttribProperties extends InteractiveToolPropertySet 
 	public var EdgeAttributes: TArray<FString>;
 	public var GroupAttributes: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstAttributeEditorAttribProperties(AttributeEditorAttribProperties) f
 @:forward
 @:nativeGen
 @:native("AttributeEditorAttribProperties*")
-abstract AttributeEditorAttribPropertiesPtr(cpp.Star<AttributeEditorAttribProperties>) from cpp.Star<AttributeEditorAttribProperties> to cpp.Star<AttributeEditorAttribProperties>{
+abstract AttributeEditorAttribPropertiesPtr(ucpp.Ptr<AttributeEditorAttribProperties>) from ucpp.Ptr<AttributeEditorAttribProperties> to ucpp.Ptr<AttributeEditorAttribProperties>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorAttribProperties): AttributeEditorAttribPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

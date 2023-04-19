@@ -3,10 +3,10 @@ package ue;
 
 @:native("UClothingSimulationFactory")
 @:include("ClothingSimulationFactory.h")
-@:structAccess
+@:valueType
 extern class ClothingSimulationFactory extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstClothingSimulationFactory(ClothingSimulationFactory) from Clothing
 @:forward
 @:nativeGen
 @:native("ClothingSimulationFactory*")
-abstract ClothingSimulationFactoryPtr(cpp.Star<ClothingSimulationFactory>) from cpp.Star<ClothingSimulationFactory> to cpp.Star<ClothingSimulationFactory>{
+abstract ClothingSimulationFactoryPtr(ucpp.Ptr<ClothingSimulationFactory>) from ucpp.Ptr<ClothingSimulationFactory> to ucpp.Ptr<ClothingSimulationFactory>{
 	@:from
 	public static extern inline function fromValue(v: ClothingSimulationFactory): ClothingSimulationFactoryPtr {
 		return untyped __cpp__("&({0})", v);

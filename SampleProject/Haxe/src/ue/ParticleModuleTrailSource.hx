@@ -3,18 +3,18 @@ package ue;
 
 @:native("UParticleModuleTrailSource")
 @:include("Particles/Trail/ParticleModuleTrailSource.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleTrailSource extends ParticleModuleTrailBase {
 	public var SourceMethod: TEnumAsByte<ETrail2SourceMethod>;
 	public var SourceName: FName;
 	public var SourceStrength: RawDistributionFloat;
 	public var bLockSourceStength: Bool;
-	public var SourceOffsetCount: cpp.Int32;
+	public var SourceOffsetCount: ucpp.num.Int32;
 	public var SourceOffsetDefaults: TArray<Vector>;
 	public var SelectionMethod: TEnumAsByte<EParticleSourceSelectionMethod>;
 	public var bInheritRotation: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,8 +28,8 @@ abstract ConstParticleModuleTrailSource(ParticleModuleTrailSource) from Particle
 	public inline extern function get_SourceStrength(): RawDistributionFloat return this.SourceStrength;
 	public extern var bLockSourceStength(get, never): Bool;
 	public inline extern function get_bLockSourceStength(): Bool return this.bLockSourceStength;
-	public extern var SourceOffsetCount(get, never): cpp.Int32;
-	public inline extern function get_SourceOffsetCount(): cpp.Int32 return this.SourceOffsetCount;
+	public extern var SourceOffsetCount(get, never): ucpp.num.Int32;
+	public inline extern function get_SourceOffsetCount(): ucpp.num.Int32 return this.SourceOffsetCount;
 	public extern var SourceOffsetDefaults(get, never): TArray<Vector>;
 	public inline extern function get_SourceOffsetDefaults(): TArray<Vector> return this.SourceOffsetDefaults;
 	public extern var SelectionMethod(get, never): TEnumAsByte<EParticleSourceSelectionMethod>;
@@ -41,7 +41,7 @@ abstract ConstParticleModuleTrailSource(ParticleModuleTrailSource) from Particle
 @:forward
 @:nativeGen
 @:native("ParticleModuleTrailSource*")
-abstract ParticleModuleTrailSourcePtr(cpp.Star<ParticleModuleTrailSource>) from cpp.Star<ParticleModuleTrailSource> to cpp.Star<ParticleModuleTrailSource>{
+abstract ParticleModuleTrailSourcePtr(ucpp.Ptr<ParticleModuleTrailSource>) from ucpp.Ptr<ParticleModuleTrailSource> to ucpp.Ptr<ParticleModuleTrailSource>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleTrailSource): ParticleModuleTrailSourcePtr {
 		return untyped __cpp__("&({0})", v);

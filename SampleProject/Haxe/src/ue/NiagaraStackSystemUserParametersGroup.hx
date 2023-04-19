@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraStackSystemUserParametersGroup")
 @:include("ViewModels/Stack/NiagaraStackSystemSettingsGroup.h")
-@:structAccess
+@:valueType
 extern class NiagaraStackSystemUserParametersGroup extends NiagaraStackItemGroup {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraStackSystemUserParametersGroup(NiagaraStackSystemUserParame
 @:forward
 @:nativeGen
 @:native("NiagaraStackSystemUserParametersGroup*")
-abstract NiagaraStackSystemUserParametersGroupPtr(cpp.Star<NiagaraStackSystemUserParametersGroup>) from cpp.Star<NiagaraStackSystemUserParametersGroup> to cpp.Star<NiagaraStackSystemUserParametersGroup>{
+abstract NiagaraStackSystemUserParametersGroupPtr(ucpp.Ptr<NiagaraStackSystemUserParametersGroup>) from ucpp.Ptr<NiagaraStackSystemUserParametersGroup> to ucpp.Ptr<NiagaraStackSystemUserParametersGroup>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraStackSystemUserParametersGroup): NiagaraStackSystemUserParametersGroupPtr {
 		return untyped __cpp__("&({0})", v);

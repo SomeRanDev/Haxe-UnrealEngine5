@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAsyncDelayComplete__PythonCallable")
-@:structAccess
+@:valueType
 extern class AsyncDelayComplete__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAsyncDelayComplete__PythonCallable(AsyncDelayComplete__PythonCalla
 @:forward
 @:nativeGen
 @:native("AsyncDelayComplete__PythonCallable*")
-abstract AsyncDelayComplete__PythonCallablePtr(cpp.Star<AsyncDelayComplete__PythonCallable>) from cpp.Star<AsyncDelayComplete__PythonCallable> to cpp.Star<AsyncDelayComplete__PythonCallable>{
+abstract AsyncDelayComplete__PythonCallablePtr(ucpp.Ptr<AsyncDelayComplete__PythonCallable>) from ucpp.Ptr<AsyncDelayComplete__PythonCallable> to ucpp.Ptr<AsyncDelayComplete__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AsyncDelayComplete__PythonCallable): AsyncDelayComplete__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

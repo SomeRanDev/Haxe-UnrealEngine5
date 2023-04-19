@@ -3,14 +3,20 @@ package ue;
 
 @:native("UAnimationStateMachineLibrary")
 @:include("AnimationStateMachineLibrary.h")
-@:structAccess
+@:valueType
 extern class AnimationStateMachineLibrary extends BlueprintFunctionLibrary {
-	public function IsStateBlendingOut(UpdateContext: cpp.Reference<AnimUpdateContext>, Node: cpp.Reference<AnimationStateResultReference>): Bool;
-	public function IsStateBlendingIn(UpdateContext: cpp.Reference<AnimUpdateContext>, Node: cpp.Reference<AnimationStateResultReference>): Bool;
-	public function ConvertToAnimationStateResultPure(Node: cpp.Reference<AnimNodeReference>, AnimationState: cpp.Reference<AnimationStateResultReference>, Result: cpp.Reference<Bool>): Void;
-	public function ConvertToAnimationStateResult(Node: cpp.Reference<AnimNodeReference>, AnimationState: cpp.Reference<AnimationStateResultReference>, Result: cpp.Reference<EAnimNodeReferenceConversionResult>): Void;
+	public function SetState(UpdateContext: ucpp.Ref<AnimUpdateContext>, Node: ucpp.Ref<AnimationStateMachineReference>, TargetState: FName, Duration: ucpp.num.Float32, BlendType: TEnumAsByte<ETransitionLogicType>, BlendProfile: ucpp.Ptr<BlendProfile>, AlphaBlendOption: EAlphaBlendOption, CustomBlendCurve: ucpp.Ptr<CurveFloat>): Void;
+	public function IsStateBlendingOut(UpdateContext: ucpp.Ref<AnimUpdateContext>, Node: ucpp.Ref<AnimationStateResultReference>): Bool;
+	public function IsStateBlendingIn(UpdateContext: ucpp.Ref<AnimUpdateContext>, Node: ucpp.Ref<AnimationStateResultReference>): Bool;
+	public function GetState(UpdateContext: ucpp.Ref<AnimUpdateContext>, Node: ucpp.Ref<AnimationStateMachineReference>): FName;
+	public function GetRelevantAnimTimeRemainingFraction(UpdateContext: ucpp.Ref<AnimUpdateContext>, Node: ucpp.Ref<AnimationStateResultReference>): ucpp.num.Float32;
+	public function GetRelevantAnimTimeRemaining(UpdateContext: ucpp.Ref<AnimUpdateContext>, Node: ucpp.Ref<AnimationStateResultReference>): ucpp.num.Float32;
+	public function ConvertToAnimationStateResultPure(Node: ucpp.Ref<AnimNodeReference>, AnimationState: ucpp.Ref<AnimationStateResultReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToAnimationStateResult(Node: ucpp.Ref<AnimNodeReference>, AnimationState: ucpp.Ref<AnimationStateResultReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): Void;
+	public function ConvertToAnimationStateMachinePure(Node: ucpp.Ref<AnimNodeReference>, AnimationState: ucpp.Ref<AnimationStateMachineReference>, Result: ucpp.Ref<Bool>): Void;
+	public function ConvertToAnimationStateMachine(Node: ucpp.Ref<AnimNodeReference>, AnimationState: ucpp.Ref<AnimationStateMachineReference>, Result: ucpp.Ref<EAnimNodeReferenceConversionResult>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +27,7 @@ abstract ConstAnimationStateMachineLibrary(AnimationStateMachineLibrary) from An
 @:forward
 @:nativeGen
 @:native("AnimationStateMachineLibrary*")
-abstract AnimationStateMachineLibraryPtr(cpp.Star<AnimationStateMachineLibrary>) from cpp.Star<AnimationStateMachineLibrary> to cpp.Star<AnimationStateMachineLibrary>{
+abstract AnimationStateMachineLibraryPtr(ucpp.Ptr<AnimationStateMachineLibrary>) from ucpp.Ptr<AnimationStateMachineLibrary> to ucpp.Ptr<AnimationStateMachineLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AnimationStateMachineLibrary): AnimationStateMachineLibraryPtr {
 		return untyped __cpp__("&({0})", v);

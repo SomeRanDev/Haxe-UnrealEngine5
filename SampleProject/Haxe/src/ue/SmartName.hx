@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSmartName")
 @:include("Animation/SmartName.h")
-@:structAccess
+@:valueType
 extern class SmartName {
 	public var DisplayName: FName;
 

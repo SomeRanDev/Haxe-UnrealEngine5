@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_Mirror")
 @:include("AnimGraphNode_Mirror.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_Mirror extends AnimGraphNode_Base {
 	public var Node: AnimNode_Mirror;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_Mirror(AnimGraphNode_Mirror) from AnimGraphNode_Mirr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_Mirror*")
-abstract AnimGraphNode_MirrorPtr(cpp.Star<AnimGraphNode_Mirror>) from cpp.Star<AnimGraphNode_Mirror> to cpp.Star<AnimGraphNode_Mirror>{
+abstract AnimGraphNode_MirrorPtr(ucpp.Ptr<AnimGraphNode_Mirror>) from ucpp.Ptr<AnimGraphNode_Mirror> to ucpp.Ptr<AnimGraphNode_Mirror>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_Mirror): AnimGraphNode_MirrorPtr {
 		return untyped __cpp__("&({0})", v);

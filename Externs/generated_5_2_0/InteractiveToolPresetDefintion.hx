@@ -3,12 +3,12 @@ package ue;
 
 @:native("FInteractiveToolPresetDefintion")
 @:include("PresetAsset.h")
-@:structAccess
+@:valueType
 extern class InteractiveToolPresetDefintion {
-	public var Properties: TArray<cpp.Star<Object>>;
+	public var Properties: TArray<ucpp.Ptr<Object>>;
 	public var Label: FString;
 	public var Tooltip: FString;
 
 	@:native("FInteractiveToolPresetDefintion") public function new();
-	@:native("FInteractiveToolPresetDefintion") public static function make(Properties: TArray<cpp.Star<Object>>, Label: FString, Tooltip: FString): InteractiveToolPresetDefintion ;
+	@:native("FInteractiveToolPresetDefintion") public static function make(Properties: TArray<ucpp.Ptr<Object>>, Label: FString, Tooltip: FString): InteractiveToolPresetDefintion ;
 }

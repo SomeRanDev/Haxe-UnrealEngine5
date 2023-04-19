@@ -3,26 +3,26 @@ package ue;
 
 @:native("UARBlueprintLibrary")
 @:include("ARBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class ARBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function UnpinComponent(ComponentToUnpin: cpp.Star<SceneComp>): Void;
+	public function UnpinComponent(ComponentToUnpin: ucpp.Ptr<SceneComp>): Void;
 	public function ToggleARCapture(bOnOff: Bool, CaptureType: EARCaptureType): Bool;
 	public function StopARSession(): Void;
-	public function StartARSession(SessionConfig: cpp.Star<ARSessionConfig>): Void;
+	public function StartARSession(SessionConfig: ucpp.Ptr<ARSessionConfig>): Void;
 	public function SetEnabledXRCamera(bOnOff: Bool): Void;
-	public function SetARWorldScale(InWorldScale: cpp.Float32): Void;
+	public function SetARWorldScale(InWorldScale: ucpp.num.Float32): Void;
 	public function SetARWorldOriginLocationAndRotation(OriginLocation: Vector, OriginRotation: Rotator, bIsTransformInWorldSpace: Bool, bMaintainUpDirection: Bool): Void;
-	public function SetAlignmentTransform(InAlignmentTransform: cpp.Reference<Transform>): Void;
-	public function SaveARPinToLocalStore(InSaveName: FName, InPin: cpp.Star<ARPin>): Bool;
-	public function ResizeXRCamera(InSize: cpp.Reference<IntPoint>): IntPoint;
-	public function RemovePin(PinToRemove: cpp.Star<ARPin>): Void;
+	public function SetAlignmentTransform(InAlignmentTransform: ucpp.Ref<Transform>): Void;
+	public function SaveARPinToLocalStore(InSaveName: FName, InPin: ucpp.Ptr<ARPin>): Bool;
+	public function ResizeXRCamera(InSize: ucpp.Ref<IntPoint>): IntPoint;
+	public function RemovePin(PinToRemove: ucpp.Ptr<ARPin>): Void;
 	public function RemoveARPinFromLocalStore(InSaveName: FName): Void;
 	public function RemoveAllARPinsFromLocalStore(): Void;
-	public function PinComponentToTraceResult(ComponentToPin: cpp.Star<SceneComp>, TraceResult: cpp.Reference<ARTraceResult>, DebugName: FName): cpp.Star<ARPin>;
-	public function PinComponentToARPin(ComponentToPin: cpp.Star<SceneComp>, Pin: cpp.Star<ARPin>): Bool;
-	public function PinComponent(ComponentToPin: cpp.Star<SceneComp>, PinToWorldTransform: cpp.Reference<Transform>, TrackedGeometry: cpp.Star<ARTrackedGeometry>, DebugName: FName): cpp.Star<ARPin>;
+	public function PinComponentToTraceResult(ComponentToPin: ucpp.Ptr<SceneComp>, TraceResult: ucpp.Ref<ARTraceResult>, DebugName: FName): ucpp.Ptr<ARPin>;
+	public function PinComponentToARPin(ComponentToPin: ucpp.Ptr<SceneComp>, Pin: ucpp.Ptr<ARPin>): Bool;
+	public function PinComponent(ComponentToPin: ucpp.Ptr<SceneComp>, PinToWorldTransform: ucpp.Ref<Transform>, TrackedGeometry: ucpp.Ptr<ARTrackedGeometry>, DebugName: FName): ucpp.Ptr<ARPin>;
 	public function PauseARSession(): Void;
-	public function LoadARPinsFromLocalStore(): TMap<FName, cpp.Star<ARPin>>;
+	public function LoadARPinsFromLocalStore(): TMap<FName, ucpp.Ptr<ARPin>>;
 	public function LineTraceTrackedObjects3D(Start: Vector, End: Vector, bTestFeaturePoints: Bool, bTestGroundPlane: Bool, bTestPlaneExtents: Bool, bTestPlaneBoundaryPolygon: Bool): TArray<ARTraceResult>;
 	public function LineTraceTrackedObjects(ScreenCoord: Vector2D, bTestFeaturePoints: Bool, bTestGroundPlane: Bool, bTestPlaneExtents: Bool, bTestPlaneBoundaryPolygon: Bool): TArray<ARTraceResult>;
 	public function IsSessionTypeSupported(SessionType: EARSessionType): Bool;
@@ -35,39 +35,39 @@ extern class ARBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function GetTrackingQualityReason(): EARTrackingQualityReason;
 	public function GetTrackingQuality(): EARTrackingQuality;
 	public function GetSupportedVideoFormats(SessionType: EARSessionType): TArray<ARVideoFormat>;
-	public function GetSessionConfig(): cpp.Star<ARSessionConfig>;
+	public function GetSessionConfig(): ucpp.Ptr<ARSessionConfig>;
 	public function GetPointCloud(): TArray<Vector>;
-	public function GetPersonSegmentationImage(): cpp.Star<ARTexture>;
-	public function GetPersonSegmentationDepthImage(): cpp.Star<ARTexture>;
-	public function GetObjectClassificationAtLocation(InWorldLocation: cpp.Reference<Vector>, OutClassification: cpp.Reference<EARObjectClassification>, OutClassificationLocation: cpp.Reference<Vector>, MaxLocationDiff: cpp.Float32): Bool;
-	public function GetNumberOfTrackedFacesSupported(): cpp.Int32;
-	public function GetCurrentLightEstimate(): cpp.Star<ARLightEstimate>;
-	public function GetCameraIntrinsics(OutCameraIntrinsics: cpp.Reference<ARCameraIntrinsics>): Bool;
-	public function GetCameraImage(): cpp.Star<ARTextureCameraImage>;
-	public function GetCameraDepth(): cpp.Star<ARTextureCameraDepth>;
-	public function GetARWorldScale(): cpp.Float32;
-	public function GetARTexture(TextureType: EARTextureType): cpp.Star<ARTexture>;
+	public function GetPersonSegmentationImage(): ucpp.Ptr<ARTexture>;
+	public function GetPersonSegmentationDepthImage(): ucpp.Ptr<ARTexture>;
+	public function GetObjectClassificationAtLocation(InWorldLocation: ucpp.Ref<Vector>, OutClassification: ucpp.Ref<EARObjectClassification>, OutClassificationLocation: ucpp.Ref<Vector>, MaxLocationDiff: ucpp.num.Float32): Bool;
+	public function GetNumberOfTrackedFacesSupported(): ucpp.num.Int32;
+	public function GetCurrentLightEstimate(): ucpp.Ptr<ARLightEstimate>;
+	public function GetCameraIntrinsics(OutCameraIntrinsics: ucpp.Ref<ARCameraIntrinsics>): Bool;
+	public function GetCameraImage(): ucpp.Ptr<ARTextureCameraImage>;
+	public function GetCameraDepth(): ucpp.Ptr<ARTextureCameraDepth>;
+	public function GetARWorldScale(): ucpp.num.Float32;
+	public function GetARTexture(TextureType: EARTextureType): ucpp.Ptr<ARTexture>;
 	public function GetARSessionStatus(): ARSessionStatus;
-	public function GetAllTrackedPoses(): TArray<cpp.Star<ARTrackedPose>>;
-	public function GetAllTrackedPoints(): TArray<cpp.Star<ARTrackedPoint>>;
-	public function GetAllTrackedPlanes(): TArray<cpp.Star<ARPlaneGeometry>>;
-	public function GetAllTrackedImages(): TArray<cpp.Star<ARTrackedImage>>;
-	public function GetAllTrackedEnvironmentCaptureProbes(): TArray<cpp.Star<AREnvironmentCaptureProbe>>;
+	public function GetAllTrackedPoses(): TArray<ucpp.Ptr<ARTrackedPose>>;
+	public function GetAllTrackedPoints(): TArray<ucpp.Ptr<ARTrackedPoint>>;
+	public function GetAllTrackedPlanes(): TArray<ucpp.Ptr<ARPlaneGeometry>>;
+	public function GetAllTrackedImages(): TArray<ucpp.Ptr<ARTrackedImage>>;
+	public function GetAllTrackedEnvironmentCaptureProbes(): TArray<ucpp.Ptr<AREnvironmentCaptureProbe>>;
 	public function GetAllTracked2DPoses(): TArray<ARPose2D>;
-	public function GetAllPins(): TArray<cpp.Star<ARPin>>;
-	public function GetAllGeometriesByClass(GeometryClass: TSubclassOf<ARTrackedGeometry>): TArray<cpp.Star<ARTrackedGeometry>>;
-	public function GetAllGeometries(): TArray<cpp.Star<ARTrackedGeometry>>;
+	public function GetAllPins(): TArray<ucpp.Ptr<ARPin>>;
+	public function GetAllGeometriesByClass(GeometryClass: TSubclassOf<ARTrackedGeometry>): TArray<ucpp.Ptr<ARTrackedGeometry>>;
+	public function GetAllGeometries(): TArray<ucpp.Ptr<ARTrackedGeometry>>;
 	public function GetAlignmentTransform(): Transform;
-	public function FindTrackedPointsByName(PointName: FString): TArray<cpp.Star<ARTrackedPoint>>;
-	public function DebugDrawTrackedGeometry(TrackedGeometry: cpp.Star<ARTrackedGeometry>, WorldContextObject: cpp.Star<Object>, Color: LinearColor, OutlineThickness: cpp.Float32, PersistForSeconds: cpp.Float32): Void;
-	public function DebugDrawPin(ARPin: cpp.Star<ARPin>, WorldContextObject: cpp.Star<Object>, Color: LinearColor, Scale: cpp.Float32, PersistForSeconds: cpp.Float32): Void;
-	public function CalculateClosestIntersection(StartPoints: cpp.Reference<TArray<Vector>>, EndPoints: cpp.Reference<TArray<Vector>>, ClosestIntersection: cpp.Reference<Vector>): Void;
-	public function CalculateAlignmentTransform(TransformInFirstCoordinateSystem: cpp.Reference<Transform>, TransformInSecondCoordinateSystem: cpp.Reference<Transform>, AlignmentTransform: cpp.Reference<Transform>): Void;
-	public function AddTrackedPointWithName(WorldTransform: cpp.Reference<Transform>, PointName: FString, bDeletePointsWithSameName: Bool): Bool;
-	public function AddRuntimeCandidateImage(SessionConfig: cpp.Star<ARSessionConfig>, CandidateTexture: cpp.Star<Texture2D>, FriendlyName: FString, PhysicalWidth: cpp.Float32): cpp.Star<ARCandidateImage>;
+	public function FindTrackedPointsByName(PointName: FString): TArray<ucpp.Ptr<ARTrackedPoint>>;
+	public function DebugDrawTrackedGeometry(TrackedGeometry: ucpp.Ptr<ARTrackedGeometry>, WorldContextObject: ucpp.Ptr<Object>, Color: LinearColor, OutlineThickness: ucpp.num.Float32, PersistForSeconds: ucpp.num.Float32): Void;
+	public function DebugDrawPin(ARPin: ucpp.Ptr<ARPin>, WorldContextObject: ucpp.Ptr<Object>, Color: LinearColor, Scale: ucpp.num.Float32, PersistForSeconds: ucpp.num.Float32): Void;
+	public function CalculateClosestIntersection(StartPoints: ucpp.Ref<TArray<Vector>>, EndPoints: ucpp.Ref<TArray<Vector>>, ClosestIntersection: ucpp.Ref<Vector>): Void;
+	public function CalculateAlignmentTransform(TransformInFirstCoordinateSystem: ucpp.Ref<Transform>, TransformInSecondCoordinateSystem: ucpp.Ref<Transform>, AlignmentTransform: ucpp.Ref<Transform>): Void;
+	public function AddTrackedPointWithName(WorldTransform: ucpp.Ref<Transform>, PointName: FString, bDeletePointsWithSameName: Bool): Bool;
+	public function AddRuntimeCandidateImage(SessionConfig: ucpp.Ptr<ARSessionConfig>, CandidateTexture: ucpp.Ptr<Texture2D>, FriendlyName: FString, PhysicalWidth: ucpp.num.Float32): ucpp.Ptr<ARCandidateImage>;
 	public function AddManualEnvironmentCaptureProbe(Location: Vector, Extent: Vector): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -78,7 +78,7 @@ abstract ConstARBlueprintLibrary(ARBlueprintLibrary) from ARBlueprintLibrary {
 @:forward
 @:nativeGen
 @:native("ARBlueprintLibrary*")
-abstract ARBlueprintLibraryPtr(cpp.Star<ARBlueprintLibrary>) from cpp.Star<ARBlueprintLibrary> to cpp.Star<ARBlueprintLibrary>{
+abstract ARBlueprintLibraryPtr(ucpp.Ptr<ARBlueprintLibrary>) from ucpp.Ptr<ARBlueprintLibrary> to ucpp.Ptr<ARBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ARBlueprintLibrary): ARBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

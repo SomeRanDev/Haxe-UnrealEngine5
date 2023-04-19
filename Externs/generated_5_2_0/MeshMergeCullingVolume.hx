@@ -3,10 +3,10 @@ package ue;
 
 @:native("AMeshMergeCullingVolume")
 @:include("Engine/MeshMergeCullingVolume.h")
-@:structAccess
+@:valueType
 extern class MeshMergeCullingVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMeshMergeCullingVolume(MeshMergeCullingVolume) from MeshMergeCulli
 @:forward
 @:nativeGen
 @:native("MeshMergeCullingVolume*")
-abstract MeshMergeCullingVolumePtr(cpp.Star<MeshMergeCullingVolume>) from cpp.Star<MeshMergeCullingVolume> to cpp.Star<MeshMergeCullingVolume>{
+abstract MeshMergeCullingVolumePtr(ucpp.Ptr<MeshMergeCullingVolume>) from ucpp.Ptr<MeshMergeCullingVolume> to ucpp.Ptr<MeshMergeCullingVolume>{
 	@:from
 	public static extern inline function fromValue(v: MeshMergeCullingVolume): MeshMergeCullingVolumePtr {
 		return untyped __cpp__("&({0})", v);

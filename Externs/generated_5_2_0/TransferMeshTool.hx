@@ -3,24 +3,24 @@ package ue;
 
 @:native("UTransferMeshTool")
 @:include("TransferMeshTool.h")
-@:structAccess
+@:valueType
 extern class TransferMeshTool extends MultiSelectionMeshEditingTool {
-	public var BasicProperties: cpp.Star<TransferMeshToolProperties>;
+	public var BasicProperties: ucpp.Ptr<TransferMeshToolProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTransferMeshTool(TransferMeshTool) from TransferMeshTool {
-	public extern var BasicProperties(get, never): cpp.Star<TransferMeshToolProperties.ConstTransferMeshToolProperties>;
-	public inline extern function get_BasicProperties(): cpp.Star<TransferMeshToolProperties.ConstTransferMeshToolProperties> return this.BasicProperties;
+	public extern var BasicProperties(get, never): ucpp.Ptr<TransferMeshToolProperties.ConstTransferMeshToolProperties>;
+	public inline extern function get_BasicProperties(): ucpp.Ptr<TransferMeshToolProperties.ConstTransferMeshToolProperties> return this.BasicProperties;
 }
 
 @:forward
 @:nativeGen
 @:native("TransferMeshTool*")
-abstract TransferMeshToolPtr(cpp.Star<TransferMeshTool>) from cpp.Star<TransferMeshTool> to cpp.Star<TransferMeshTool>{
+abstract TransferMeshToolPtr(ucpp.Ptr<TransferMeshTool>) from ucpp.Ptr<TransferMeshTool> to ucpp.Ptr<TransferMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: TransferMeshTool): TransferMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

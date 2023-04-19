@@ -3,24 +3,24 @@ package ue;
 
 @:native("UDataTableFactory")
 @:include("Factories/DataTableFactory.h")
-@:structAccess
+@:valueType
 extern class DataTableFactory extends Factory {
-	public var Struct: cpp.Star<ScriptStruct>;
+	public var Struct: ucpp.Ptr<ScriptStruct>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstDataTableFactory(DataTableFactory) from DataTableFactory {
-	public extern var Struct(get, never): cpp.Star<ScriptStruct.ConstScriptStruct>;
-	public inline extern function get_Struct(): cpp.Star<ScriptStruct.ConstScriptStruct> return this.Struct;
+	public extern var Struct(get, never): ucpp.Ptr<ScriptStruct.ConstScriptStruct>;
+	public inline extern function get_Struct(): ucpp.Ptr<ScriptStruct.ConstScriptStruct> return this.Struct;
 }
 
 @:forward
 @:nativeGen
 @:native("DataTableFactory*")
-abstract DataTableFactoryPtr(cpp.Star<DataTableFactory>) from cpp.Star<DataTableFactory> to cpp.Star<DataTableFactory>{
+abstract DataTableFactoryPtr(ucpp.Ptr<DataTableFactory>) from ucpp.Ptr<DataTableFactory> to ucpp.Ptr<DataTableFactory>{
 	@:from
 	public static extern inline function fromValue(v: DataTableFactory): DataTableFactoryPtr {
 		return untyped __cpp__("&({0})", v);

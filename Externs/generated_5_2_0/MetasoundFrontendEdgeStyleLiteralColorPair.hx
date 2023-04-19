@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendEdgeStyleLiteralColorPair")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendEdgeStyleLiteralColorPair {
 	public var Value: MetasoundFrontendLiteral;
 	public var Color: LinearColor;

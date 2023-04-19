@@ -2,12 +2,12 @@
 package ue;
 
 @:native("UCameraLensEffectInterface")
-@:structAccess
+@:valueType
 extern class CameraLensEffectInterface extends Interface {
-	public function GetPrimaryParticleComponent(): cpp.Star<FXSystemComp>;
-	public function GetParticleComponents(): TArray<cpp.Star<FXSystemComp>>;
+	public function GetPrimaryParticleComponent(): ucpp.Ptr<FXSystemComp>;
+	public function GetParticleComponents(): TArray<ucpp.Ptr<FXSystemComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPrimaryParticleComponent, GetParticleComponents)
@@ -18,7 +18,7 @@ abstract ConstCameraLensEffectInterface(CameraLensEffectInterface) from CameraLe
 @:forward
 @:nativeGen
 @:native("CameraLensEffectInterface*")
-abstract CameraLensEffectInterfacePtr(cpp.Star<CameraLensEffectInterface>) from cpp.Star<CameraLensEffectInterface> to cpp.Star<CameraLensEffectInterface>{
+abstract CameraLensEffectInterfacePtr(ucpp.Ptr<CameraLensEffectInterface>) from ucpp.Ptr<CameraLensEffectInterface> to ucpp.Ptr<CameraLensEffectInterface>{
 	@:from
 	public static extern inline function fromValue(v: CameraLensEffectInterface): CameraLensEffectInterfacePtr {
 		return untyped __cpp__("&({0})", v);

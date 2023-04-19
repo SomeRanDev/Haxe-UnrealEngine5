@@ -3,19 +3,19 @@ package ue;
 
 @:native("UMediaPlayerEditorMediaContext")
 @:include("Shared/MediaPlayerEditorMediaContext.h")
-@:structAccess
+@:valueType
 extern class MediaPlayerEditorMediaContext extends ToolMenuContextBase {
-	public var SelectedAsset: cpp.Star<Object>;
+	public var SelectedAsset: ucpp.Ptr<Object>;
 	public var StyleSetName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMediaPlayerEditorMediaContext(MediaPlayerEditorMediaContext) from MediaPlayerEditorMediaContext {
-	public extern var SelectedAsset(get, never): cpp.Star<Object.ConstObject>;
-	public inline extern function get_SelectedAsset(): cpp.Star<Object.ConstObject> return this.SelectedAsset;
+	public extern var SelectedAsset(get, never): ucpp.Ptr<Object.ConstObject>;
+	public inline extern function get_SelectedAsset(): ucpp.Ptr<Object.ConstObject> return this.SelectedAsset;
 	public extern var StyleSetName(get, never): FName;
 	public inline extern function get_StyleSetName(): FName return this.StyleSetName;
 }
@@ -23,7 +23,7 @@ abstract ConstMediaPlayerEditorMediaContext(MediaPlayerEditorMediaContext) from 
 @:forward
 @:nativeGen
 @:native("MediaPlayerEditorMediaContext*")
-abstract MediaPlayerEditorMediaContextPtr(cpp.Star<MediaPlayerEditorMediaContext>) from cpp.Star<MediaPlayerEditorMediaContext> to cpp.Star<MediaPlayerEditorMediaContext>{
+abstract MediaPlayerEditorMediaContextPtr(ucpp.Ptr<MediaPlayerEditorMediaContext>) from ucpp.Ptr<MediaPlayerEditorMediaContext> to ucpp.Ptr<MediaPlayerEditorMediaContext>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlayerEditorMediaContext): MediaPlayerEditorMediaContextPtr {
 		return untyped __cpp__("&({0})", v);

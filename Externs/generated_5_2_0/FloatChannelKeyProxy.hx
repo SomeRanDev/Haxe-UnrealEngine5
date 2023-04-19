@@ -3,12 +3,12 @@ package ue;
 
 @:native("UFloatChannelKeyProxy")
 @:include("Channels/FloatChannelKeyProxy.h")
-@:structAccess
+@:valueType
 extern class FloatChannelKeyProxy extends Object {
 	private var Time: FrameNumber;
 	private var Value: MovieSceneFloatValue;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstFloatChannelKeyProxy(FloatChannelKeyProxy) from FloatChannelKeyPro
 @:forward
 @:nativeGen
 @:native("FloatChannelKeyProxy*")
-abstract FloatChannelKeyProxyPtr(cpp.Star<FloatChannelKeyProxy>) from cpp.Star<FloatChannelKeyProxy> to cpp.Star<FloatChannelKeyProxy>{
+abstract FloatChannelKeyProxyPtr(ucpp.Ptr<FloatChannelKeyProxy>) from ucpp.Ptr<FloatChannelKeyProxy> to ucpp.Ptr<FloatChannelKeyProxy>{
 	@:from
 	public static extern inline function fromValue(v: FloatChannelKeyProxy): FloatChannelKeyProxyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,51 +2,51 @@
 package ue;
 
 @:native("UDiscardedMemoryClassTemplate_1")
-@:structAccess
+@:valueType
 extern class DiscardedMemoryClassTemplate_1 extends RigVMMemoryStorage {
 	public var RigVMModel___FootTrace_Ik_Foot_Bone__Const: RigElementKey;
 	public var LocalVariableDefault__FootTrace_AnimatedFloorLocation__Const: Vector;
 	public var FootTrace___FootTrace_MathVectorAdd_A__Const: Vector;
 	public var FootTrace___FootTrace_GetTransform_Space__Const: TEnumAsByte<ERigVMTransformSpace>;
 	public var FootTrace___FootTrace_GetTransform_bInitial__Const: Bool;
-	public var FootTrace___FootTrace_MathFloatAdd_B__Const: cpp.Float32;
+	public var FootTrace___FootTrace_MathFloatAdd_B__Const: ucpp.num.Float32;
 	public var FootTrace___FootTrace_GetTransform_1_Item__Const: RigElementKey;
 	public var FootTrace___FootTrace_MathVectorAdd_B__Const: Vector;
 	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_bEnabled__Const: Bool;
 	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const: LinearColor;
-	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const: cpp.Float32;
-	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const: cpp.Float32;
+	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const: ucpp.num.Float32;
+	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const: ucpp.num.Float32;
 	public var FootTrace___FootTrace_MathVectorSub_B__Const: Vector;
 	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public var FootTrace___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const: TEnumAsByte<ETraceTypeQuery>;
-	public var FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const: cpp.Float32;
+	public var FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const: ucpp.num.Float32;
 	public var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public var RigVMModel___FootTrace_1_Ik_Foot_Bone__Const: RigElementKey;
 	public var LocalVariableDefault__FootTrace_AnimatedFloorLocation__Const: Vector;
 	public var FootTrace_1___FootTrace_MathVectorAdd_A__Const: Vector;
 	public var FootTrace_1___FootTrace_GetTransform_Space__Const: TEnumAsByte<ERigVMTransformSpace>;
 	public var FootTrace_1___FootTrace_GetTransform_bInitial__Const: Bool;
-	public var FootTrace_1___FootTrace_MathFloatAdd_B__Const: cpp.Float32;
+	public var FootTrace_1___FootTrace_MathFloatAdd_B__Const: ucpp.num.Float32;
 	public var FootTrace_1___FootTrace_GetTransform_1_Item__Const: RigElementKey;
 	public var FootTrace_1___FootTrace_MathVectorAdd_B__Const: Vector;
 	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_bEnabled__Const: Bool;
 	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const: LinearColor;
-	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const: cpp.Float32;
-	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const: cpp.Float32;
+	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const: ucpp.num.Float32;
+	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const: ucpp.num.Float32;
 	public var FootTrace_1___FootTrace_MathVectorSub_B__Const: Vector;
 	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public var FootTrace_1___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const: TEnumAsByte<ETraceTypeQuery>;
-	public var FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const: cpp.Float32;
+	public var FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const: ucpp.num.Float32;
 	public var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const: TEnumAsByte<ERigUnitVisualDebugPointMode>;
-	public var RigVMModel___VariableNode_9_Value__Const: cpp.Float64;
-	public var RigVMModel___AlphaInterp_Scale__Const: cpp.Float32;
-	public var RigVMModel___AlphaInterp_Bias__Const: cpp.Float32;
+	public var RigVMModel___VariableNode_9_Value__Const: ucpp.num.Float64;
+	public var RigVMModel___AlphaInterp_Scale__Const: ucpp.num.Float32;
+	public var RigVMModel___AlphaInterp_Bias__Const: ucpp.num.Float32;
 	public var RigVMModel___AlphaInterp_bMapRange__Const: Bool;
 	public var RigVMModel___AlphaInterp_InRange__Const: InputRange;
 	public var RigVMModel___AlphaInterp_bInterpResult__Const: Bool;
-	public var RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const: cpp.Float32;
+	public var RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const: ucpp.num.Float32;
 	public var RigVMModel___ModifyTransforms_ItemToModify__Const: TArray<RigUnit_ModifyTransforms_PerItem>;
 	public var RigVMModel___ModifyTransforms_Mode__Const: TEnumAsByte<EControlRigModifyBoneMode>;
 	public var RigVMModel___ModifyTransforms_1_ItemToModify__Const: TArray<RigUnit_ModifyTransforms_PerItem>;
@@ -59,7 +59,7 @@ extern class DiscardedMemoryClassTemplate_1 extends RigVMMemoryStorage {
 	public var RigVMModel___PBIK_Settings__Const: PBIKSolverSettings;
 	public var RigVMModel___PBIK_Debug__Const: PBIKDebug;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -75,8 +75,8 @@ abstract ConstDiscardedMemoryClassTemplate_1(DiscardedMemoryClassTemplate_1) fro
 	public inline extern function get_FootTrace___FootTrace_GetTransform_Space__Const(): TEnumAsByte<ERigVMTransformSpace> return this.FootTrace___FootTrace_GetTransform_Space__Const;
 	public extern var FootTrace___FootTrace_GetTransform_bInitial__Const(get, never): Bool;
 	public inline extern function get_FootTrace___FootTrace_GetTransform_bInitial__Const(): Bool return this.FootTrace___FootTrace_GetTransform_bInitial__Const;
-	public extern var FootTrace___FootTrace_MathFloatAdd_B__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace___FootTrace_MathFloatAdd_B__Const(): cpp.Float32 return this.FootTrace___FootTrace_MathFloatAdd_B__Const;
+	public extern var FootTrace___FootTrace_MathFloatAdd_B__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace___FootTrace_MathFloatAdd_B__Const(): ucpp.num.Float32 return this.FootTrace___FootTrace_MathFloatAdd_B__Const;
 	public extern var FootTrace___FootTrace_GetTransform_1_Item__Const(get, never): RigElementKey;
 	public inline extern function get_FootTrace___FootTrace_GetTransform_1_Item__Const(): RigElementKey return this.FootTrace___FootTrace_GetTransform_1_Item__Const;
 	public extern var FootTrace___FootTrace_MathVectorAdd_B__Const(get, never): Vector;
@@ -87,18 +87,18 @@ abstract ConstDiscardedMemoryClassTemplate_1(DiscardedMemoryClassTemplate_1) fro
 	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const;
 	public extern var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const(get, never): LinearColor;
 	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const(): LinearColor return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const;
-	public extern var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(): cpp.Float32 return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const;
-	public extern var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(): cpp.Float32 return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const;
+	public extern var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(): ucpp.num.Float32 return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const;
+	public extern var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(): ucpp.num.Float32 return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const;
 	public extern var FootTrace___FootTrace_MathVectorSub_B__Const(get, never): Vector;
 	public inline extern function get_FootTrace___FootTrace_MathVectorSub_B__Const(): Vector return this.FootTrace___FootTrace_MathVectorSub_B__Const;
 	public extern var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const(get, never): TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const;
 	public extern var FootTrace___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const(get, never): TEnumAsByte<ETraceTypeQuery>;
 	public inline extern function get_FootTrace___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const(): TEnumAsByte<ETraceTypeQuery> return this.FootTrace___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const;
-	public extern var FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const(): cpp.Float32 return this.FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const;
+	public extern var FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const(): ucpp.num.Float32 return this.FootTrace___FootTrace_SphereTraceByTraceChannel_Radius__Const;
 	public extern var FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const(get, never): TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public inline extern function get_FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FootTrace___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const;
 	public extern var RigVMModel___FootTrace_1_Ik_Foot_Bone__Const(get, never): RigElementKey;
@@ -111,8 +111,8 @@ abstract ConstDiscardedMemoryClassTemplate_1(DiscardedMemoryClassTemplate_1) fro
 	public inline extern function get_FootTrace_1___FootTrace_GetTransform_Space__Const(): TEnumAsByte<ERigVMTransformSpace> return this.FootTrace_1___FootTrace_GetTransform_Space__Const;
 	public extern var FootTrace_1___FootTrace_GetTransform_bInitial__Const(get, never): Bool;
 	public inline extern function get_FootTrace_1___FootTrace_GetTransform_bInitial__Const(): Bool return this.FootTrace_1___FootTrace_GetTransform_bInitial__Const;
-	public extern var FootTrace_1___FootTrace_MathFloatAdd_B__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace_1___FootTrace_MathFloatAdd_B__Const(): cpp.Float32 return this.FootTrace_1___FootTrace_MathFloatAdd_B__Const;
+	public extern var FootTrace_1___FootTrace_MathFloatAdd_B__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace_1___FootTrace_MathFloatAdd_B__Const(): ucpp.num.Float32 return this.FootTrace_1___FootTrace_MathFloatAdd_B__Const;
 	public extern var FootTrace_1___FootTrace_GetTransform_1_Item__Const(get, never): RigElementKey;
 	public inline extern function get_FootTrace_1___FootTrace_GetTransform_1_Item__Const(): RigElementKey return this.FootTrace_1___FootTrace_GetTransform_1_Item__Const;
 	public extern var FootTrace_1___FootTrace_MathVectorAdd_B__Const(get, never): Vector;
@@ -123,34 +123,34 @@ abstract ConstDiscardedMemoryClassTemplate_1(DiscardedMemoryClassTemplate_1) fro
 	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Mode__Const;
 	public extern var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const(get, never): LinearColor;
 	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const(): LinearColor return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Color__Const;
-	public extern var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(): cpp.Float32 return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const;
-	public extern var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(): cpp.Float32 return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const;
+	public extern var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const(): ucpp.num.Float32 return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Thickness__Const;
+	public extern var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const(): ucpp.num.Float32 return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_1_Scale__Const;
 	public extern var FootTrace_1___FootTrace_MathVectorSub_B__Const(get, never): Vector;
 	public inline extern function get_FootTrace_1___FootTrace_MathVectorSub_B__Const(): Vector return this.FootTrace_1___FootTrace_MathVectorSub_B__Const;
 	public extern var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const(get, never): TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_2_Mode__Const;
 	public extern var FootTrace_1___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const(get, never): TEnumAsByte<ETraceTypeQuery>;
 	public inline extern function get_FootTrace_1___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const(): TEnumAsByte<ETraceTypeQuery> return this.FootTrace_1___FootTrace_SphereTraceByTraceChannel_TraceChannel__Const;
-	public extern var FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const(get, never): cpp.Float32;
-	public inline extern function get_FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const(): cpp.Float32 return this.FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const;
+	public extern var FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const(): ucpp.num.Float32 return this.FootTrace_1___FootTrace_SphereTraceByTraceChannel_Radius__Const;
 	public extern var FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const(get, never): TEnumAsByte<ERigUnitVisualDebugPointMode>;
 	public inline extern function get_FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const(): TEnumAsByte<ERigUnitVisualDebugPointMode> return this.FootTrace_1___FootTrace_RigUnit_VisualDebugVectorItemSpace_Mode__Const;
-	public extern var RigVMModel___VariableNode_9_Value__Const(get, never): cpp.Float64;
-	public inline extern function get_RigVMModel___VariableNode_9_Value__Const(): cpp.Float64 return this.RigVMModel___VariableNode_9_Value__Const;
-	public extern var RigVMModel___AlphaInterp_Scale__Const(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___AlphaInterp_Scale__Const(): cpp.Float32 return this.RigVMModel___AlphaInterp_Scale__Const;
-	public extern var RigVMModel___AlphaInterp_Bias__Const(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___AlphaInterp_Bias__Const(): cpp.Float32 return this.RigVMModel___AlphaInterp_Bias__Const;
+	public extern var RigVMModel___VariableNode_9_Value__Const(get, never): ucpp.num.Float64;
+	public inline extern function get_RigVMModel___VariableNode_9_Value__Const(): ucpp.num.Float64 return this.RigVMModel___VariableNode_9_Value__Const;
+	public extern var RigVMModel___AlphaInterp_Scale__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___AlphaInterp_Scale__Const(): ucpp.num.Float32 return this.RigVMModel___AlphaInterp_Scale__Const;
+	public extern var RigVMModel___AlphaInterp_Bias__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___AlphaInterp_Bias__Const(): ucpp.num.Float32 return this.RigVMModel___AlphaInterp_Bias__Const;
 	public extern var RigVMModel___AlphaInterp_bMapRange__Const(get, never): Bool;
 	public inline extern function get_RigVMModel___AlphaInterp_bMapRange__Const(): Bool return this.RigVMModel___AlphaInterp_bMapRange__Const;
 	public extern var RigVMModel___AlphaInterp_InRange__Const(get, never): InputRange;
 	public inline extern function get_RigVMModel___AlphaInterp_InRange__Const(): InputRange return this.RigVMModel___AlphaInterp_InRange__Const;
 	public extern var RigVMModel___AlphaInterp_bInterpResult__Const(get, never): Bool;
 	public inline extern function get_RigVMModel___AlphaInterp_bInterpResult__Const(): Bool return this.RigVMModel___AlphaInterp_bInterpResult__Const;
-	public extern var RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const(): cpp.Float32 return this.RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const;
+	public extern var RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const(): ucpp.num.Float32 return this.RigVMModel___AlphaInterp_InterpSpeedIncreasing__Const;
 	public extern var RigVMModel___ModifyTransforms_ItemToModify__Const(get, never): TArray<RigUnit_ModifyTransforms_PerItem>;
 	public inline extern function get_RigVMModel___ModifyTransforms_ItemToModify__Const(): TArray<RigUnit_ModifyTransforms_PerItem> return this.RigVMModel___ModifyTransforms_ItemToModify__Const;
 	public extern var RigVMModel___ModifyTransforms_Mode__Const(get, never): TEnumAsByte<EControlRigModifyBoneMode>;
@@ -178,7 +178,7 @@ abstract ConstDiscardedMemoryClassTemplate_1(DiscardedMemoryClassTemplate_1) fro
 @:forward
 @:nativeGen
 @:native("DiscardedMemoryClassTemplate_1*")
-abstract DiscardedMemoryClassTemplate_1Ptr(cpp.Star<DiscardedMemoryClassTemplate_1>) from cpp.Star<DiscardedMemoryClassTemplate_1> to cpp.Star<DiscardedMemoryClassTemplate_1>{
+abstract DiscardedMemoryClassTemplate_1Ptr(ucpp.Ptr<DiscardedMemoryClassTemplate_1>) from ucpp.Ptr<DiscardedMemoryClassTemplate_1> to ucpp.Ptr<DiscardedMemoryClassTemplate_1>{
 	@:from
 	public static extern inline function fromValue(v: DiscardedMemoryClassTemplate_1): DiscardedMemoryClassTemplate_1Ptr {
 		return untyped __cpp__("&({0})", v);

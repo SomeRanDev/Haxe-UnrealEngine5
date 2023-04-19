@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraActionColors")
 @:include("NiagaraEditorSettings.h")
-@:structAccess
+@:valueType
 extern class NiagaraActionColors {
 	public var NiagaraColor: LinearColor;
 	public var GameColor: LinearColor;

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimGraphNode_BlendSpaceGraphBase")
 @:include("AnimGraphNode_BlendSpaceGraphBase.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_BlendSpaceGraphBase extends AnimGraphNode_Base {
-	@:protected public var BlendSpace: cpp.Star<BlendSpace>;
+	@:protected public var BlendSpace: ucpp.Ptr<BlendSpace>;
 	@:protected public var BlendSpaceClass: TSubclassOf<BlendSpace>;
-	@:protected public var BlendSpaceGraph: cpp.Star<BlendSpaceGraph>;
-	@:protected public var Graphs: TArray<cpp.Star<EdGraph>>;
+	@:protected public var BlendSpaceGraph: ucpp.Ptr<BlendSpaceGraph>;
+	@:protected public var Graphs: TArray<ucpp.Ptr<EdGraph>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstAnimGraphNode_BlendSpaceGraphBase(AnimGraphNode_BlendSpaceGraphBas
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_BlendSpaceGraphBase*")
-abstract AnimGraphNode_BlendSpaceGraphBasePtr(cpp.Star<AnimGraphNode_BlendSpaceGraphBase>) from cpp.Star<AnimGraphNode_BlendSpaceGraphBase> to cpp.Star<AnimGraphNode_BlendSpaceGraphBase>{
+abstract AnimGraphNode_BlendSpaceGraphBasePtr(ucpp.Ptr<AnimGraphNode_BlendSpaceGraphBase>) from ucpp.Ptr<AnimGraphNode_BlendSpaceGraphBase> to ucpp.Ptr<AnimGraphNode_BlendSpaceGraphBase>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_BlendSpaceGraphBase): AnimGraphNode_BlendSpaceGraphBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSourceEffectEQSettings")
 @:include("SourceEffects/SourceEffectEQ.h")
-@:structAccess
+@:valueType
 extern class SourceEffectEQSettings {
 	public var EQBands: TArray<SourceEffectEQBand>;
 

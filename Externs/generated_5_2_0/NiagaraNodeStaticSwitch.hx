@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraNodeStaticSwitch")
 @:include("NiagaraNodeStaticSwitch.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeStaticSwitch extends NiagaraNodeUsageSelector {
 	public var InputParameterName: FName;
 	public var SwitchTypeData: StaticSwitchTypeData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraNodeStaticSwitch(NiagaraNodeStaticSwitch) from NiagaraNodeS
 @:forward
 @:nativeGen
 @:native("NiagaraNodeStaticSwitch*")
-abstract NiagaraNodeStaticSwitchPtr(cpp.Star<NiagaraNodeStaticSwitch>) from cpp.Star<NiagaraNodeStaticSwitch> to cpp.Star<NiagaraNodeStaticSwitch>{
+abstract NiagaraNodeStaticSwitchPtr(ucpp.Ptr<NiagaraNodeStaticSwitch>) from ucpp.Ptr<NiagaraNodeStaticSwitch> to ucpp.Ptr<NiagaraNodeStaticSwitch>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeStaticSwitch): NiagaraNodeStaticSwitchPtr {
 		return untyped __cpp__("&({0})", v);

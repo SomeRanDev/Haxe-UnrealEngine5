@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPluginCommandlet")
 @:include("Commandlets/PluginCommandlet.h")
-@:structAccess
+@:valueType
 extern class PluginCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPluginCommandlet(PluginCommandlet) from PluginCommandlet {
 @:forward
 @:nativeGen
 @:native("PluginCommandlet*")
-abstract PluginCommandletPtr(cpp.Star<PluginCommandlet>) from cpp.Star<PluginCommandlet> to cpp.Star<PluginCommandlet>{
+abstract PluginCommandletPtr(ucpp.Ptr<PluginCommandlet>) from ucpp.Ptr<PluginCommandlet> to ucpp.Ptr<PluginCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: PluginCommandlet): PluginCommandletPtr {
 		return untyped __cpp__("&({0})", v);

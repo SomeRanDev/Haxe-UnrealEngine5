@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidgetAnimationResult__PythonCallable")
-@:structAccess
+@:valueType
 extern class WidgetAnimationResult__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidgetAnimationResult__PythonCallable(WidgetAnimationResult__Pytho
 @:forward
 @:nativeGen
 @:native("WidgetAnimationResult__PythonCallable*")
-abstract WidgetAnimationResult__PythonCallablePtr(cpp.Star<WidgetAnimationResult__PythonCallable>) from cpp.Star<WidgetAnimationResult__PythonCallable> to cpp.Star<WidgetAnimationResult__PythonCallable>{
+abstract WidgetAnimationResult__PythonCallablePtr(ucpp.Ptr<WidgetAnimationResult__PythonCallable>) from ucpp.Ptr<WidgetAnimationResult__PythonCallable> to ucpp.Ptr<WidgetAnimationResult__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: WidgetAnimationResult__PythonCallable): WidgetAnimationResult__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

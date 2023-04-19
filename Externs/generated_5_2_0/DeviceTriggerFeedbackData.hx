@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDeviceTriggerFeedbackData")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class DeviceTriggerFeedbackData {
-	public var FeedbackPositionCurve: cpp.Star<CurveFloat>;
-	public var FeedbackStrenghCurve: cpp.Star<CurveFloat>;
+	public var FeedbackPositionCurve: ucpp.Ptr<CurveFloat>;
+	public var FeedbackStrenghCurve: ucpp.Ptr<CurveFloat>;
 
 	@:native("FDeviceTriggerFeedbackData") public function new();
-	@:native("FDeviceTriggerFeedbackData") public static function make(FeedbackPositionCurve: cpp.Star<CurveFloat>, FeedbackStrenghCurve: cpp.Star<CurveFloat>): DeviceTriggerFeedbackData ;
+	@:native("FDeviceTriggerFeedbackData") public static function make(FeedbackPositionCurve: ucpp.Ptr<CurveFloat>, FeedbackStrenghCurve: ucpp.Ptr<CurveFloat>): DeviceTriggerFeedbackData ;
 }

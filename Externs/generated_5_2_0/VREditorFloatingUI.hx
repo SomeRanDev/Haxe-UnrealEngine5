@@ -3,15 +3,15 @@ package ue;
 
 @:native("AVREditorFloatingUI")
 @:include("UI/VREditorFloatingUI.h")
-@:structAccess
+@:valueType
 extern class VREditorFloatingUI extends VREditorBaseActor {
 	public var CreationContext: VREditorFloatingUICreationContext;
-	@:protected public var UserWidget: cpp.Star<UserWidget>;
-	@:protected public var WidgetComponent: cpp.Star<VREditorWidgetComp>;
-	@:protected public var WindowMeshComponent: cpp.Star<StaticMeshComp>;
+	@:protected public var UserWidget: ucpp.Ptr<UserWidget>;
+	@:protected public var WidgetComponent: ucpp.Ptr<VREditorWidgetComp>;
+	@:protected public var WindowMeshComponent: ucpp.Ptr<StaticMeshComp>;
 	private var UserWidgetClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstVREditorFloatingUI(VREditorFloatingUI) from VREditorFloatingUI {
 @:forward
 @:nativeGen
 @:native("VREditorFloatingUI*")
-abstract VREditorFloatingUIPtr(cpp.Star<VREditorFloatingUI>) from cpp.Star<VREditorFloatingUI> to cpp.Star<VREditorFloatingUI>{
+abstract VREditorFloatingUIPtr(ucpp.Ptr<VREditorFloatingUI>) from ucpp.Ptr<VREditorFloatingUI> to ucpp.Ptr<VREditorFloatingUI>{
 	@:from
 	public static extern inline function fromValue(v: VREditorFloatingUI): VREditorFloatingUIPtr {
 		return untyped __cpp__("&({0})", v);

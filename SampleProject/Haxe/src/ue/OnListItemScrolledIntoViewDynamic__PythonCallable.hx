@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnListItemScrolledIntoViewDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnListItemScrolledIntoViewDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnListItemScrolledIntoViewDynamic__PythonCallable(OnListItemScroll
 @:forward
 @:nativeGen
 @:native("OnListItemScrolledIntoViewDynamic__PythonCallable*")
-abstract OnListItemScrolledIntoViewDynamic__PythonCallablePtr(cpp.Star<OnListItemScrolledIntoViewDynamic__PythonCallable>) from cpp.Star<OnListItemScrolledIntoViewDynamic__PythonCallable> to cpp.Star<OnListItemScrolledIntoViewDynamic__PythonCallable>{
+abstract OnListItemScrolledIntoViewDynamic__PythonCallablePtr(ucpp.Ptr<OnListItemScrolledIntoViewDynamic__PythonCallable>) from ucpp.Ptr<OnListItemScrolledIntoViewDynamic__PythonCallable> to ucpp.Ptr<OnListItemScrolledIntoViewDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnListItemScrolledIntoViewDynamic__PythonCallable): OnListItemScrolledIntoViewDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

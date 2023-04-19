@@ -3,37 +3,37 @@ package ue;
 
 @:native("UNiagaraBaselineController")
 @:include("NiagaraPerfBaseline.h")
-@:structAccess
+@:valueType
 extern class NiagaraBaselineController extends Object {
-	public var TestDuration: cpp.Float32;
-	public var EffectType: cpp.Star<NiagaraEffectType>;
-	public var Owner: cpp.Star<NiagaraPerfBaselineActor>;
+	public var TestDuration: ucpp.num.Float32;
+	public var EffectType: ucpp.Ptr<NiagaraEffectType>;
+	public var Owner: ucpp.Ptr<NiagaraPerfBaselineActor>;
 	private var System: TSoftObjectPtr<NiagaraSystem>;
 
 	public function OnTickTest(): Bool;
-	public function OnOwnerTick(DeltaTime: cpp.Float32): Void;
+	public function OnOwnerTick(DeltaTime: ucpp.num.Float32): Void;
 	public function OnEndTest(Stats: NiagaraPerfBaselineStats): Void;
 	public function OnBeginTest(): Void;
-	public function GetSystem(): cpp.Star<NiagaraSystem>;
+	public function GetSystem(): ucpp.Ptr<NiagaraSystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraBaselineController(NiagaraBaselineController) from NiagaraBaselineController {
-	public extern var TestDuration(get, never): cpp.Float32;
-	public inline extern function get_TestDuration(): cpp.Float32 return this.TestDuration;
-	public extern var EffectType(get, never): cpp.Star<NiagaraEffectType.ConstNiagaraEffectType>;
-	public inline extern function get_EffectType(): cpp.Star<NiagaraEffectType.ConstNiagaraEffectType> return this.EffectType;
-	public extern var Owner(get, never): cpp.Star<NiagaraPerfBaselineActor.ConstNiagaraPerfBaselineActor>;
-	public inline extern function get_Owner(): cpp.Star<NiagaraPerfBaselineActor.ConstNiagaraPerfBaselineActor> return this.Owner;
+	public extern var TestDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_TestDuration(): ucpp.num.Float32 return this.TestDuration;
+	public extern var EffectType(get, never): ucpp.Ptr<NiagaraEffectType.ConstNiagaraEffectType>;
+	public inline extern function get_EffectType(): ucpp.Ptr<NiagaraEffectType.ConstNiagaraEffectType> return this.EffectType;
+	public extern var Owner(get, never): ucpp.Ptr<NiagaraPerfBaselineActor.ConstNiagaraPerfBaselineActor>;
+	public inline extern function get_Owner(): ucpp.Ptr<NiagaraPerfBaselineActor.ConstNiagaraPerfBaselineActor> return this.Owner;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraBaselineController*")
-abstract NiagaraBaselineControllerPtr(cpp.Star<NiagaraBaselineController>) from cpp.Star<NiagaraBaselineController> to cpp.Star<NiagaraBaselineController>{
+abstract NiagaraBaselineControllerPtr(ucpp.Ptr<NiagaraBaselineController>) from ucpp.Ptr<NiagaraBaselineController> to ucpp.Ptr<NiagaraBaselineController>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraBaselineController): NiagaraBaselineControllerPtr {
 		return untyped __cpp__("&({0})", v);

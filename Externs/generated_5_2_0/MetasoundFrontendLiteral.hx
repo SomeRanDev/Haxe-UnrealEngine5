@@ -3,15 +3,15 @@ package ue;
 
 @:native("FMetasoundFrontendLiteral")
 @:include("MetasoundFrontendLiteral.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendLiteral {
 	private var Type: EMetasoundFrontendLiteralType;
-	private var AsNumDefault: cpp.Int32;
+	private var AsNumDefault: ucpp.num.Int32;
 	private var AsBoolean: TArray<Bool>;
-	private var AsInteger: TArray<cpp.Int32>;
-	private var AsFloat: TArray<cpp.Float32>;
+	private var AsInteger: TArray<ucpp.num.Int32>;
+	private var AsFloat: TArray<ucpp.num.Float32>;
 	private var AsString: TArray<FString>;
-	private var AsUObject: TArray<cpp.Star<Object>>;
+	private var AsUObject: TArray<ucpp.Ptr<Object>>;
 
 	@:native("FMetasoundFrontendLiteral") public function new();
 }

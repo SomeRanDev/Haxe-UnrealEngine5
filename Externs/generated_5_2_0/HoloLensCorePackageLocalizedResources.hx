@@ -3,7 +3,7 @@ package ue;
 
 @:native("FHoloLensCorePackageLocalizedResources")
 @:include("Private/HoloLensLocalizedResources.h")
-@:structAccess
+@:valueType
 extern class HoloLensCorePackageLocalizedResources {
 	public var CultureId: FString;
 	public var Strings: HoloLensCorePackageStringResources;

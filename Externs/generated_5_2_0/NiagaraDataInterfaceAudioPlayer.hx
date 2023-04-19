@@ -3,38 +3,38 @@ package ue;
 
 @:native("UNiagaraDataInterfaceAudioPlayer")
 @:include("NiagaraDataInterfaceAudioPlayer.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceAudioPlayer extends NiagaraDataInterface {
-	public var SoundToPlay: cpp.Star<SoundBase>;
-	public var Attenuation: cpp.Star<SoundAttenuation>;
-	public var Concurrency: cpp.Star<SoundConcurrency>;
+	public var SoundToPlay: ucpp.Ptr<SoundBase>;
+	public var Attenuation: ucpp.Ptr<SoundAttenuation>;
+	public var Concurrency: ucpp.Ptr<SoundConcurrency>;
 	public var ParameterNames: TArray<FName>;
 	public var ConfigurationUserParameter: NiagaraUserParameterBinding;
 	public var bLimitPlaysPerTick: Bool;
-	public var MaxPlaysPerTick: cpp.Int32;
+	public var MaxPlaysPerTick: ucpp.num.Int32;
 	public var bStopWhenComponentIsDestroyed: Bool;
 	public var bAllowLoopingOneShotSounds: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceAudioPlayer(NiagaraDataInterfaceAudioPlayer) from NiagaraDataInterfaceAudioPlayer {
-	public extern var SoundToPlay(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_SoundToPlay(): cpp.Star<SoundBase.ConstSoundBase> return this.SoundToPlay;
-	public extern var Attenuation(get, never): cpp.Star<SoundAttenuation.ConstSoundAttenuation>;
-	public inline extern function get_Attenuation(): cpp.Star<SoundAttenuation.ConstSoundAttenuation> return this.Attenuation;
-	public extern var Concurrency(get, never): cpp.Star<SoundConcurrency.ConstSoundConcurrency>;
-	public inline extern function get_Concurrency(): cpp.Star<SoundConcurrency.ConstSoundConcurrency> return this.Concurrency;
+	public extern var SoundToPlay(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_SoundToPlay(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.SoundToPlay;
+	public extern var Attenuation(get, never): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation>;
+	public inline extern function get_Attenuation(): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation> return this.Attenuation;
+	public extern var Concurrency(get, never): ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency>;
+	public inline extern function get_Concurrency(): ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency> return this.Concurrency;
 	public extern var ParameterNames(get, never): TArray<FName>;
 	public inline extern function get_ParameterNames(): TArray<FName> return this.ParameterNames;
 	public extern var ConfigurationUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_ConfigurationUserParameter(): NiagaraUserParameterBinding return this.ConfigurationUserParameter;
 	public extern var bLimitPlaysPerTick(get, never): Bool;
 	public inline extern function get_bLimitPlaysPerTick(): Bool return this.bLimitPlaysPerTick;
-	public extern var MaxPlaysPerTick(get, never): cpp.Int32;
-	public inline extern function get_MaxPlaysPerTick(): cpp.Int32 return this.MaxPlaysPerTick;
+	public extern var MaxPlaysPerTick(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxPlaysPerTick(): ucpp.num.Int32 return this.MaxPlaysPerTick;
 	public extern var bStopWhenComponentIsDestroyed(get, never): Bool;
 	public inline extern function get_bStopWhenComponentIsDestroyed(): Bool return this.bStopWhenComponentIsDestroyed;
 	public extern var bAllowLoopingOneShotSounds(get, never): Bool;
@@ -44,7 +44,7 @@ abstract ConstNiagaraDataInterfaceAudioPlayer(NiagaraDataInterfaceAudioPlayer) f
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceAudioPlayer*")
-abstract NiagaraDataInterfaceAudioPlayerPtr(cpp.Star<NiagaraDataInterfaceAudioPlayer>) from cpp.Star<NiagaraDataInterfaceAudioPlayer> to cpp.Star<NiagaraDataInterfaceAudioPlayer>{
+abstract NiagaraDataInterfaceAudioPlayerPtr(ucpp.Ptr<NiagaraDataInterfaceAudioPlayer>) from ucpp.Ptr<NiagaraDataInterfaceAudioPlayer> to ucpp.Ptr<NiagaraDataInterfaceAudioPlayer>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceAudioPlayer): NiagaraDataInterfaceAudioPlayerPtr {
 		return untyped __cpp__("&({0})", v);

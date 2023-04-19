@@ -3,11 +3,11 @@ package ue;
 
 @:native("UModularSynthLibrary")
 @:include("SynthComponents/EpicSynth1Component.h")
-@:structAccess
+@:valueType
 extern class ModularSynthLibrary extends BlueprintFunctionLibrary {
-	private function AddModularSynthPresetToBankAsset(InBank: cpp.Star<ModularSynthPresetBank>, Preset: cpp.Reference<ModularSynthPreset>, PresetName: FString): Void;
+	private function AddModularSynthPresetToBankAsset(InBank: ucpp.Ptr<ModularSynthPresetBank>, Preset: ucpp.Ref<ModularSynthPreset>, PresetName: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstModularSynthLibrary(ModularSynthLibrary) from ModularSynthLibrary 
 @:forward
 @:nativeGen
 @:native("ModularSynthLibrary*")
-abstract ModularSynthLibraryPtr(cpp.Star<ModularSynthLibrary>) from cpp.Star<ModularSynthLibrary> to cpp.Star<ModularSynthLibrary>{
+abstract ModularSynthLibraryPtr(ucpp.Ptr<ModularSynthLibrary>) from ucpp.Ptr<ModularSynthLibrary> to ucpp.Ptr<ModularSynthLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ModularSynthLibrary): ModularSynthLibraryPtr {
 		return untyped __cpp__("&({0})", v);

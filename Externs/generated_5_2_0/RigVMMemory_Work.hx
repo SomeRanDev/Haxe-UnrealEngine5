@@ -2,7 +2,7 @@
 package ue;
 
 @:native("URigVMMemory_Work")
-@:structAccess
+@:valueType
 extern class RigVMMemory_Work extends RigVMMemoryStorage {
 	public var RigVMModel___FootTrace_Offset: Vector;
 	public var FootTrace___FootTrace_Entry_Ik_Foot_Bone: RigElementKey;
@@ -10,8 +10,8 @@ extern class RigVMMemory_Work extends RigVMMemoryStorage {
 	public var FootTrace___FootTrace_MathVectorAdd_Result: Vector;
 	public var FootTrace___FootTrace_GetTransform_Transform: Transform;
 	public var FootTrace___FootTrace_GetTransform_CachedIndex: TArray<CachedRigElement>;
-	public var FootTrace___FootTrace_MathFloatAdd_Result: cpp.Float32;
-	public var FootTrace___FootTrace_MathFloatAdd_A: cpp.Float32;
+	public var FootTrace___FootTrace_MathFloatAdd_Result: ucpp.num.Float32;
+	public var FootTrace___FootTrace_MathFloatAdd_A: ucpp.num.Float32;
 	public var FootTrace___FootTrace_GetTransform_1_Transform: Transform;
 	public var FootTrace___FootTrace_GetTransform_1_CachedIndex: TArray<CachedRigElement>;
 	public var FootTrace___FootTrace_MathVectorAdd_A__IO: Vector;
@@ -25,8 +25,8 @@ extern class RigVMMemory_Work extends RigVMMemoryStorage {
 	public var FootTrace_1___FootTrace_MathVectorAdd_Result: Vector;
 	public var FootTrace_1___FootTrace_GetTransform_Transform: Transform;
 	public var FootTrace_1___FootTrace_GetTransform_CachedIndex: TArray<CachedRigElement>;
-	public var FootTrace_1___FootTrace_MathFloatAdd_Result: cpp.Float32;
-	public var FootTrace_1___FootTrace_MathFloatAdd_A: cpp.Float32;
+	public var FootTrace_1___FootTrace_MathFloatAdd_Result: ucpp.num.Float32;
+	public var FootTrace_1___FootTrace_MathFloatAdd_A: ucpp.num.Float32;
 	public var FootTrace_1___FootTrace_GetTransform_1_Transform: Transform;
 	public var FootTrace_1___FootTrace_GetTransform_1_CachedIndex: TArray<CachedRigElement>;
 	public var FootTrace_1___FootTrace_MathVectorAdd_A__IO: Vector;
@@ -35,16 +35,16 @@ extern class RigVMMemory_Work extends RigVMMemoryStorage {
 	public var FootTrace_1___FootTrace_SphereTraceByTraceChannel_bHit: Bool;
 	public var FootTrace_1___FootTrace_SphereTraceByTraceChannel_HitNormal: Vector;
 	public var RigVMModel___Branch_BlockToRun: FName;
-	public var RigVMModel___AlphaInterp_Result: cpp.Float32;
-	public var RigVMModel___AlphaInterp_Value: cpp.Float32;
+	public var RigVMModel___AlphaInterp_Result: ucpp.num.Float32;
+	public var RigVMModel___AlphaInterp_Value: ucpp.num.Float32;
 	public var RigVMModel___AlphaInterp_ScaleBiasClamp: TArray<InputScaleBiasClamp>;
-	public var RigVMModel___AlphaInterp_1_Result: cpp.Float32;
-	public var RigVMModel___AlphaInterp_1_Value: cpp.Float32;
+	public var RigVMModel___AlphaInterp_1_Result: ucpp.num.Float32;
+	public var RigVMModel___AlphaInterp_1_Value: ucpp.num.Float32;
 	public var RigVMModel___AlphaInterp_1_ScaleBiasClamp: TArray<InputScaleBiasClamp>;
-	public var RigVMModel___If_Result: cpp.Float64;
+	public var RigVMModel___If_Result: ucpp.num.Float64;
 	public var RigVMModel___MathFloatLess_Result: Bool;
-	public var RigVMModel___MathFloatLess_A: cpp.Float32;
-	public var RigVMModel___MathFloatLess_B: cpp.Float32;
+	public var RigVMModel___MathFloatLess_A: ucpp.num.Float32;
+	public var RigVMModel___MathFloatLess_B: ucpp.num.Float32;
 	public var RigVMModel___ModifyTransforms_ItemToModify__IO: TArray<RigUnit_ModifyTransforms_PerItem>;
 	public var RigVMModel___ModifyTransforms_WorkData: TArray<RigUnit_ModifyTransforms_WorkData>;
 	public var RigVMModel___ModifyTransforms_1_ItemToModify__IO: TArray<RigUnit_ModifyTransforms_PerItem>;
@@ -56,13 +56,13 @@ extern class RigVMMemory_Work extends RigVMMemoryStorage {
 	public var RigVMModel___GetTransform_1_Transform: Transform;
 	public var RigVMModel___GetTransform_1_CachedIndex: TArray<CachedRigElement>;
 	public var RigVMModel___PBIK_Effectors__IO: TArray<PBIKEffector>;
-	public var RigVMModel___PBIK_EffectorSolverIndices: TArray<TArray<cpp.Int32>>;
-	public var RigVMModel___PBIK_BoneSettingToSolverBoneIndex: TArray<TArray<cpp.Int32>>;
-	public var RigVMModel___PBIK_SolverBoneToElementIndex: TArray<TArray<cpp.Int32>>;
+	public var RigVMModel___PBIK_EffectorSolverIndices: TArray<TArray<ucpp.num.Int32>>;
+	public var RigVMModel___PBIK_BoneSettingToSolverBoneIndex: TArray<TArray<ucpp.num.Int32>>;
+	public var RigVMModel___PBIK_SolverBoneToElementIndex: TArray<TArray<ucpp.num.Int32>>;
 	public var RigVMModel___PBIK_Solver: TArray<PBIKSolver>;
 	public var RigVMModel___PBIK_bNeedsInit: TArray<Bool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -80,10 +80,10 @@ abstract ConstRigVMMemory_Work(RigVMMemory_Work) from RigVMMemory_Work {
 	public inline extern function get_FootTrace___FootTrace_GetTransform_Transform(): Transform return this.FootTrace___FootTrace_GetTransform_Transform;
 	public extern var FootTrace___FootTrace_GetTransform_CachedIndex(get, never): TArray<CachedRigElement>;
 	public inline extern function get_FootTrace___FootTrace_GetTransform_CachedIndex(): TArray<CachedRigElement> return this.FootTrace___FootTrace_GetTransform_CachedIndex;
-	public extern var FootTrace___FootTrace_MathFloatAdd_Result(get, never): cpp.Float32;
-	public inline extern function get_FootTrace___FootTrace_MathFloatAdd_Result(): cpp.Float32 return this.FootTrace___FootTrace_MathFloatAdd_Result;
-	public extern var FootTrace___FootTrace_MathFloatAdd_A(get, never): cpp.Float32;
-	public inline extern function get_FootTrace___FootTrace_MathFloatAdd_A(): cpp.Float32 return this.FootTrace___FootTrace_MathFloatAdd_A;
+	public extern var FootTrace___FootTrace_MathFloatAdd_Result(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace___FootTrace_MathFloatAdd_Result(): ucpp.num.Float32 return this.FootTrace___FootTrace_MathFloatAdd_Result;
+	public extern var FootTrace___FootTrace_MathFloatAdd_A(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace___FootTrace_MathFloatAdd_A(): ucpp.num.Float32 return this.FootTrace___FootTrace_MathFloatAdd_A;
 	public extern var FootTrace___FootTrace_GetTransform_1_Transform(get, never): Transform;
 	public inline extern function get_FootTrace___FootTrace_GetTransform_1_Transform(): Transform return this.FootTrace___FootTrace_GetTransform_1_Transform;
 	public extern var FootTrace___FootTrace_GetTransform_1_CachedIndex(get, never): TArray<CachedRigElement>;
@@ -110,10 +110,10 @@ abstract ConstRigVMMemory_Work(RigVMMemory_Work) from RigVMMemory_Work {
 	public inline extern function get_FootTrace_1___FootTrace_GetTransform_Transform(): Transform return this.FootTrace_1___FootTrace_GetTransform_Transform;
 	public extern var FootTrace_1___FootTrace_GetTransform_CachedIndex(get, never): TArray<CachedRigElement>;
 	public inline extern function get_FootTrace_1___FootTrace_GetTransform_CachedIndex(): TArray<CachedRigElement> return this.FootTrace_1___FootTrace_GetTransform_CachedIndex;
-	public extern var FootTrace_1___FootTrace_MathFloatAdd_Result(get, never): cpp.Float32;
-	public inline extern function get_FootTrace_1___FootTrace_MathFloatAdd_Result(): cpp.Float32 return this.FootTrace_1___FootTrace_MathFloatAdd_Result;
-	public extern var FootTrace_1___FootTrace_MathFloatAdd_A(get, never): cpp.Float32;
-	public inline extern function get_FootTrace_1___FootTrace_MathFloatAdd_A(): cpp.Float32 return this.FootTrace_1___FootTrace_MathFloatAdd_A;
+	public extern var FootTrace_1___FootTrace_MathFloatAdd_Result(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace_1___FootTrace_MathFloatAdd_Result(): ucpp.num.Float32 return this.FootTrace_1___FootTrace_MathFloatAdd_Result;
+	public extern var FootTrace_1___FootTrace_MathFloatAdd_A(get, never): ucpp.num.Float32;
+	public inline extern function get_FootTrace_1___FootTrace_MathFloatAdd_A(): ucpp.num.Float32 return this.FootTrace_1___FootTrace_MathFloatAdd_A;
 	public extern var FootTrace_1___FootTrace_GetTransform_1_Transform(get, never): Transform;
 	public inline extern function get_FootTrace_1___FootTrace_GetTransform_1_Transform(): Transform return this.FootTrace_1___FootTrace_GetTransform_1_Transform;
 	public extern var FootTrace_1___FootTrace_GetTransform_1_CachedIndex(get, never): TArray<CachedRigElement>;
@@ -130,26 +130,26 @@ abstract ConstRigVMMemory_Work(RigVMMemory_Work) from RigVMMemory_Work {
 	public inline extern function get_FootTrace_1___FootTrace_SphereTraceByTraceChannel_HitNormal(): Vector return this.FootTrace_1___FootTrace_SphereTraceByTraceChannel_HitNormal;
 	public extern var RigVMModel___Branch_BlockToRun(get, never): FName;
 	public inline extern function get_RigVMModel___Branch_BlockToRun(): FName return this.RigVMModel___Branch_BlockToRun;
-	public extern var RigVMModel___AlphaInterp_Result(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___AlphaInterp_Result(): cpp.Float32 return this.RigVMModel___AlphaInterp_Result;
-	public extern var RigVMModel___AlphaInterp_Value(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___AlphaInterp_Value(): cpp.Float32 return this.RigVMModel___AlphaInterp_Value;
+	public extern var RigVMModel___AlphaInterp_Result(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___AlphaInterp_Result(): ucpp.num.Float32 return this.RigVMModel___AlphaInterp_Result;
+	public extern var RigVMModel___AlphaInterp_Value(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___AlphaInterp_Value(): ucpp.num.Float32 return this.RigVMModel___AlphaInterp_Value;
 	public extern var RigVMModel___AlphaInterp_ScaleBiasClamp(get, never): TArray<InputScaleBiasClamp>;
 	public inline extern function get_RigVMModel___AlphaInterp_ScaleBiasClamp(): TArray<InputScaleBiasClamp> return this.RigVMModel___AlphaInterp_ScaleBiasClamp;
-	public extern var RigVMModel___AlphaInterp_1_Result(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___AlphaInterp_1_Result(): cpp.Float32 return this.RigVMModel___AlphaInterp_1_Result;
-	public extern var RigVMModel___AlphaInterp_1_Value(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___AlphaInterp_1_Value(): cpp.Float32 return this.RigVMModel___AlphaInterp_1_Value;
+	public extern var RigVMModel___AlphaInterp_1_Result(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___AlphaInterp_1_Result(): ucpp.num.Float32 return this.RigVMModel___AlphaInterp_1_Result;
+	public extern var RigVMModel___AlphaInterp_1_Value(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___AlphaInterp_1_Value(): ucpp.num.Float32 return this.RigVMModel___AlphaInterp_1_Value;
 	public extern var RigVMModel___AlphaInterp_1_ScaleBiasClamp(get, never): TArray<InputScaleBiasClamp>;
 	public inline extern function get_RigVMModel___AlphaInterp_1_ScaleBiasClamp(): TArray<InputScaleBiasClamp> return this.RigVMModel___AlphaInterp_1_ScaleBiasClamp;
-	public extern var RigVMModel___If_Result(get, never): cpp.Float64;
-	public inline extern function get_RigVMModel___If_Result(): cpp.Float64 return this.RigVMModel___If_Result;
+	public extern var RigVMModel___If_Result(get, never): ucpp.num.Float64;
+	public inline extern function get_RigVMModel___If_Result(): ucpp.num.Float64 return this.RigVMModel___If_Result;
 	public extern var RigVMModel___MathFloatLess_Result(get, never): Bool;
 	public inline extern function get_RigVMModel___MathFloatLess_Result(): Bool return this.RigVMModel___MathFloatLess_Result;
-	public extern var RigVMModel___MathFloatLess_A(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___MathFloatLess_A(): cpp.Float32 return this.RigVMModel___MathFloatLess_A;
-	public extern var RigVMModel___MathFloatLess_B(get, never): cpp.Float32;
-	public inline extern function get_RigVMModel___MathFloatLess_B(): cpp.Float32 return this.RigVMModel___MathFloatLess_B;
+	public extern var RigVMModel___MathFloatLess_A(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___MathFloatLess_A(): ucpp.num.Float32 return this.RigVMModel___MathFloatLess_A;
+	public extern var RigVMModel___MathFloatLess_B(get, never): ucpp.num.Float32;
+	public inline extern function get_RigVMModel___MathFloatLess_B(): ucpp.num.Float32 return this.RigVMModel___MathFloatLess_B;
 	public extern var RigVMModel___ModifyTransforms_ItemToModify__IO(get, never): TArray<RigUnit_ModifyTransforms_PerItem>;
 	public inline extern function get_RigVMModel___ModifyTransforms_ItemToModify__IO(): TArray<RigUnit_ModifyTransforms_PerItem> return this.RigVMModel___ModifyTransforms_ItemToModify__IO;
 	public extern var RigVMModel___ModifyTransforms_WorkData(get, never): TArray<RigUnit_ModifyTransforms_WorkData>;
@@ -172,12 +172,12 @@ abstract ConstRigVMMemory_Work(RigVMMemory_Work) from RigVMMemory_Work {
 	public inline extern function get_RigVMModel___GetTransform_1_CachedIndex(): TArray<CachedRigElement> return this.RigVMModel___GetTransform_1_CachedIndex;
 	public extern var RigVMModel___PBIK_Effectors__IO(get, never): TArray<PBIKEffector>;
 	public inline extern function get_RigVMModel___PBIK_Effectors__IO(): TArray<PBIKEffector> return this.RigVMModel___PBIK_Effectors__IO;
-	public extern var RigVMModel___PBIK_EffectorSolverIndices(get, never): TArray<TArray<cpp.Int32>>;
-	public inline extern function get_RigVMModel___PBIK_EffectorSolverIndices(): TArray<TArray<cpp.Int32>> return this.RigVMModel___PBIK_EffectorSolverIndices;
-	public extern var RigVMModel___PBIK_BoneSettingToSolverBoneIndex(get, never): TArray<TArray<cpp.Int32>>;
-	public inline extern function get_RigVMModel___PBIK_BoneSettingToSolverBoneIndex(): TArray<TArray<cpp.Int32>> return this.RigVMModel___PBIK_BoneSettingToSolverBoneIndex;
-	public extern var RigVMModel___PBIK_SolverBoneToElementIndex(get, never): TArray<TArray<cpp.Int32>>;
-	public inline extern function get_RigVMModel___PBIK_SolverBoneToElementIndex(): TArray<TArray<cpp.Int32>> return this.RigVMModel___PBIK_SolverBoneToElementIndex;
+	public extern var RigVMModel___PBIK_EffectorSolverIndices(get, never): TArray<TArray<ucpp.num.Int32>>;
+	public inline extern function get_RigVMModel___PBIK_EffectorSolverIndices(): TArray<TArray<ucpp.num.Int32>> return this.RigVMModel___PBIK_EffectorSolverIndices;
+	public extern var RigVMModel___PBIK_BoneSettingToSolverBoneIndex(get, never): TArray<TArray<ucpp.num.Int32>>;
+	public inline extern function get_RigVMModel___PBIK_BoneSettingToSolverBoneIndex(): TArray<TArray<ucpp.num.Int32>> return this.RigVMModel___PBIK_BoneSettingToSolverBoneIndex;
+	public extern var RigVMModel___PBIK_SolverBoneToElementIndex(get, never): TArray<TArray<ucpp.num.Int32>>;
+	public inline extern function get_RigVMModel___PBIK_SolverBoneToElementIndex(): TArray<TArray<ucpp.num.Int32>> return this.RigVMModel___PBIK_SolverBoneToElementIndex;
 	public extern var RigVMModel___PBIK_Solver(get, never): TArray<PBIKSolver>;
 	public inline extern function get_RigVMModel___PBIK_Solver(): TArray<PBIKSolver> return this.RigVMModel___PBIK_Solver;
 	public extern var RigVMModel___PBIK_bNeedsInit(get, never): TArray<Bool>;
@@ -187,7 +187,7 @@ abstract ConstRigVMMemory_Work(RigVMMemory_Work) from RigVMMemory_Work {
 @:forward
 @:nativeGen
 @:native("RigVMMemory_Work*")
-abstract RigVMMemory_WorkPtr(cpp.Star<RigVMMemory_Work>) from cpp.Star<RigVMMemory_Work> to cpp.Star<RigVMMemory_Work>{
+abstract RigVMMemory_WorkPtr(ucpp.Ptr<RigVMMemory_Work>) from ucpp.Ptr<RigVMMemory_Work> to ucpp.Ptr<RigVMMemory_Work>{
 	@:from
 	public static extern inline function fromValue(v: RigVMMemory_Work): RigVMMemory_WorkPtr {
 		return untyped __cpp__("&({0})", v);

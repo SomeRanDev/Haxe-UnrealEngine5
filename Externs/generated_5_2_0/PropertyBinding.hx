@@ -3,13 +3,13 @@ package ue;
 
 @:native("UPropertyBinding")
 @:include("Binding/PropertyBinding.h")
-@:structAccess
+@:valueType
 extern class PropertyBinding extends Object {
 	public var SourceObject: TWeakObjectPtr<Object>;
 	public var SourcePath: DynamicPropertyPath;
 	public var DestinationProperty: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstPropertyBinding(PropertyBinding) from PropertyBinding {
 @:forward
 @:nativeGen
 @:native("PropertyBinding*")
-abstract PropertyBindingPtr(cpp.Star<PropertyBinding>) from cpp.Star<PropertyBinding> to cpp.Star<PropertyBinding>{
+abstract PropertyBindingPtr(ucpp.Ptr<PropertyBinding>) from ucpp.Ptr<PropertyBinding> to ucpp.Ptr<PropertyBinding>{
 	@:from
 	public static extern inline function fromValue(v: PropertyBinding): PropertyBindingPtr {
 		return untyped __cpp__("&({0})", v);

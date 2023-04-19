@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraMergeable")
 @:include("NiagaraMergeable.h")
-@:structAccess
+@:valueType
 extern class NiagaraMergeable extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraMergeable(NiagaraMergeable) from NiagaraMergeable {
 @:forward
 @:nativeGen
 @:native("NiagaraMergeable*")
-abstract NiagaraMergeablePtr(cpp.Star<NiagaraMergeable>) from cpp.Star<NiagaraMergeable> to cpp.Star<NiagaraMergeable>{
+abstract NiagaraMergeablePtr(ucpp.Ptr<NiagaraMergeable>) from ucpp.Ptr<NiagaraMergeable> to ucpp.Ptr<NiagaraMergeable>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraMergeable): NiagaraMergeablePtr {
 		return untyped __cpp__("&({0})", v);

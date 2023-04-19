@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneSequenceHierarchy")
 @:include("Evaluation/MovieSceneSequenceHierarchy.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceHierarchy {
 	private var RootNode: MovieSceneSequenceHierarchyNode;
 	private var Tree: MovieSceneSubSequenceTree;

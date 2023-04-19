@@ -3,17 +3,17 @@ package ue;
 
 @:native("UMovieSceneCameraCutSection")
 @:include("Sections/MovieSceneCameraCutSection.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCameraCutSection extends MovieSceneSection {
 	public var bLockPreviousCamera: Bool;
 	private var CameraBindingID: MovieSceneObjectBindingID;
 	private var InitialCameraCutTransform: Transform;
 	private var bHasInitialCameraCutTransform: Bool;
 
-	public function SetCameraBindingID(InCameraBindingID: cpp.Reference<MovieSceneObjectBindingID>): Void;
+	public function SetCameraBindingID(InCameraBindingID: ucpp.Ref<MovieSceneObjectBindingID>): Void;
 	public function GetCameraBindingID(): MovieSceneObjectBindingID;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCameraBindingID)
@@ -26,7 +26,7 @@ abstract ConstMovieSceneCameraCutSection(MovieSceneCameraCutSection) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneCameraCutSection*")
-abstract MovieSceneCameraCutSectionPtr(cpp.Star<MovieSceneCameraCutSection>) from cpp.Star<MovieSceneCameraCutSection> to cpp.Star<MovieSceneCameraCutSection>{
+abstract MovieSceneCameraCutSectionPtr(ucpp.Ptr<MovieSceneCameraCutSection>) from ucpp.Ptr<MovieSceneCameraCutSection> to ucpp.Ptr<MovieSceneCameraCutSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCameraCutSection): MovieSceneCameraCutSectionPtr {
 		return untyped __cpp__("&({0})", v);

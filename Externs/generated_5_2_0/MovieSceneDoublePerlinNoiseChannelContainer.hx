@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneDoublePerlinNoiseChannelContainer")
 @:include("Channels/MovieSceneDoublePerlinNoiseChannelContainer.h")
-@:structAccess
+@:valueType
 extern class MovieSceneDoublePerlinNoiseChannelContainer extends MovieSceneChannelOverrideContainer {
 	private var PerlinNoiseChannel: MovieSceneDoublePerlinNoiseChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneDoublePerlinNoiseChannelContainer(MovieSceneDoublePerlin
 @:forward
 @:nativeGen
 @:native("MovieSceneDoublePerlinNoiseChannelContainer*")
-abstract MovieSceneDoublePerlinNoiseChannelContainerPtr(cpp.Star<MovieSceneDoublePerlinNoiseChannelContainer>) from cpp.Star<MovieSceneDoublePerlinNoiseChannelContainer> to cpp.Star<MovieSceneDoublePerlinNoiseChannelContainer>{
+abstract MovieSceneDoublePerlinNoiseChannelContainerPtr(ucpp.Ptr<MovieSceneDoublePerlinNoiseChannelContainer>) from ucpp.Ptr<MovieSceneDoublePerlinNoiseChannelContainer> to ucpp.Ptr<MovieSceneDoublePerlinNoiseChannelContainer>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneDoublePerlinNoiseChannelContainer): MovieSceneDoublePerlinNoiseChannelContainerPtr {
 		return untyped __cpp__("&({0})", v);

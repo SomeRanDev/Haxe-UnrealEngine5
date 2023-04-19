@@ -3,12 +3,12 @@ package ue;
 
 @:native("UDoubleChannelKeyProxy")
 @:include("Channels/DoubleChannelKeyProxy.h")
-@:structAccess
+@:valueType
 extern class DoubleChannelKeyProxy extends Object {
 	private var Time: FrameNumber;
 	private var Value: MovieSceneDoubleValue;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstDoubleChannelKeyProxy(DoubleChannelKeyProxy) from DoubleChannelKey
 @:forward
 @:nativeGen
 @:native("DoubleChannelKeyProxy*")
-abstract DoubleChannelKeyProxyPtr(cpp.Star<DoubleChannelKeyProxy>) from cpp.Star<DoubleChannelKeyProxy> to cpp.Star<DoubleChannelKeyProxy>{
+abstract DoubleChannelKeyProxyPtr(ucpp.Ptr<DoubleChannelKeyProxy>) from ucpp.Ptr<DoubleChannelKeyProxy> to ucpp.Ptr<DoubleChannelKeyProxy>{
 	@:from
 	public static extern inline function fromValue(v: DoubleChannelKeyProxy): DoubleChannelKeyProxyPtr {
 		return untyped __cpp__("&({0})", v);

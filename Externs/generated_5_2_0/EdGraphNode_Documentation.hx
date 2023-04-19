@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEdGraphNode_Documentation")
 @:include("EdGraph/EdGraphNode_Documentation.h")
-@:structAccess
+@:valueType
 extern class EdGraphNode_Documentation extends EdGraphNode {
 	public var Link: FString;
 	public var Excerpt: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEdGraphNode_Documentation(EdGraphNode_Documentation) from EdGraphN
 @:forward
 @:nativeGen
 @:native("EdGraphNode_Documentation*")
-abstract EdGraphNode_DocumentationPtr(cpp.Star<EdGraphNode_Documentation>) from cpp.Star<EdGraphNode_Documentation> to cpp.Star<EdGraphNode_Documentation>{
+abstract EdGraphNode_DocumentationPtr(ucpp.Ptr<EdGraphNode_Documentation>) from ucpp.Ptr<EdGraphNode_Documentation> to ucpp.Ptr<EdGraphNode_Documentation>{
 	@:from
 	public static extern inline function fromValue(v: EdGraphNode_Documentation): EdGraphNode_DocumentationPtr {
 		return untyped __cpp__("&({0})", v);

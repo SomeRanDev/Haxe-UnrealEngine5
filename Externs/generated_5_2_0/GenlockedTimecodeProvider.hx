@@ -3,11 +3,11 @@ package ue;
 
 @:native("UGenlockedTimecodeProvider")
 @:include("GenlockedTimecodeProvider.h")
-@:structAccess
+@:valueType
 extern class GenlockedTimecodeProvider extends TimecodeProvider {
 	public var bUseGenlockToCount: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstGenlockedTimecodeProvider(GenlockedTimecodeProvider) from Genlocke
 @:forward
 @:nativeGen
 @:native("GenlockedTimecodeProvider*")
-abstract GenlockedTimecodeProviderPtr(cpp.Star<GenlockedTimecodeProvider>) from cpp.Star<GenlockedTimecodeProvider> to cpp.Star<GenlockedTimecodeProvider>{
+abstract GenlockedTimecodeProviderPtr(ucpp.Ptr<GenlockedTimecodeProvider>) from ucpp.Ptr<GenlockedTimecodeProvider> to ucpp.Ptr<GenlockedTimecodeProvider>{
 	@:from
 	public static extern inline function fromValue(v: GenlockedTimecodeProvider): GenlockedTimecodeProviderPtr {
 		return untyped __cpp__("&({0})", v);

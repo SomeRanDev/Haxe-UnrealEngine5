@@ -3,12 +3,12 @@ package ue;
 
 @:native("FBakeMultiMeshDetailProperties")
 @:include("BakeMultiMeshAttributeMapsTool.h")
-@:structAccess
+@:valueType
 extern class BakeMultiMeshDetailProperties {
-	public var SourceMesh: cpp.Star<StaticMesh>;
-	public var SourceTexture: cpp.Star<Texture2D>;
-	public var SourceTextureUVLayer: cpp.Int32;
+	public var SourceMesh: ucpp.Ptr<StaticMesh>;
+	public var SourceTexture: ucpp.Ptr<Texture2D>;
+	public var SourceTextureUVLayer: ucpp.num.Int32;
 
 	@:native("FBakeMultiMeshDetailProperties") public function new();
-	@:native("FBakeMultiMeshDetailProperties") public static function make(SourceMesh: cpp.Star<StaticMesh>, SourceTexture: cpp.Star<Texture2D>, SourceTextureUVLayer: cpp.Int32): BakeMultiMeshDetailProperties ;
+	@:native("FBakeMultiMeshDetailProperties") public static function make(SourceMesh: ucpp.Ptr<StaticMesh>, SourceTexture: ucpp.Ptr<Texture2D>, SourceTextureUVLayer: ucpp.num.Int32): BakeMultiMeshDetailProperties ;
 }

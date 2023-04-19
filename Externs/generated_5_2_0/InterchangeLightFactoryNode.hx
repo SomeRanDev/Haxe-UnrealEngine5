@@ -3,16 +3,16 @@ package ue;
 
 @:native("UInterchangeLightFactoryNode")
 @:include("InterchangeLightFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeLightFactoryNode extends InterchangeBaseLightFactoryNode {
 	public function SetCustomIntensityUnits(AttributeValue: ELightUnits, bAddApplyDelegate: Bool): Bool;
 	public function SetCustomIESTexture(AttributeValue: FString): Bool;
-	public function SetCustomAttenuationRadius(AttributeValue: cpp.Float32, bAddApplyDelegate: Bool): Bool;
-	public function GetCustomIntensityUnits(AttributeValue: cpp.Reference<ELightUnits>): Bool;
-	public function GetCustomIESTexture(AttributeValue: cpp.Reference<FString>): Bool;
-	public function GetCustomAttenuationRadius(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function SetCustomAttenuationRadius(AttributeValue: ucpp.num.Float32, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomIntensityUnits(AttributeValue: ucpp.Ref<ELightUnits>): Bool;
+	public function GetCustomIESTexture(AttributeValue: ucpp.Ref<FString>): Bool;
+	public function GetCustomAttenuationRadius(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomIntensityUnits, GetCustomIESTexture, GetCustomAttenuationRadius)
@@ -23,7 +23,7 @@ abstract ConstInterchangeLightFactoryNode(InterchangeLightFactoryNode) from Inte
 @:forward
 @:nativeGen
 @:native("InterchangeLightFactoryNode*")
-abstract InterchangeLightFactoryNodePtr(cpp.Star<InterchangeLightFactoryNode>) from cpp.Star<InterchangeLightFactoryNode> to cpp.Star<InterchangeLightFactoryNode>{
+abstract InterchangeLightFactoryNodePtr(ucpp.Ptr<InterchangeLightFactoryNode>) from ucpp.Ptr<InterchangeLightFactoryNode> to ucpp.Ptr<InterchangeLightFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeLightFactoryNode): InterchangeLightFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UFractureToolClusterMagnet")
 @:include("FractureToolClusterMagnet.h")
-@:structAccess
+@:valueType
 extern class FractureToolClusterMagnet extends FractureModalTool {
-	public var ClusterMagnetSettings: cpp.Star<FractureClusterMagnetSettings>;
+	public var ClusterMagnetSettings: ucpp.Ptr<FractureClusterMagnetSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureToolClusterMagnet(FractureToolClusterMagnet) from FractureToolClusterMagnet {
-	public extern var ClusterMagnetSettings(get, never): cpp.Star<FractureClusterMagnetSettings.ConstFractureClusterMagnetSettings>;
-	public inline extern function get_ClusterMagnetSettings(): cpp.Star<FractureClusterMagnetSettings.ConstFractureClusterMagnetSettings> return this.ClusterMagnetSettings;
+	public extern var ClusterMagnetSettings(get, never): ucpp.Ptr<FractureClusterMagnetSettings.ConstFractureClusterMagnetSettings>;
+	public inline extern function get_ClusterMagnetSettings(): ucpp.Ptr<FractureClusterMagnetSettings.ConstFractureClusterMagnetSettings> return this.ClusterMagnetSettings;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureToolClusterMagnet*")
-abstract FractureToolClusterMagnetPtr(cpp.Star<FractureToolClusterMagnet>) from cpp.Star<FractureToolClusterMagnet> to cpp.Star<FractureToolClusterMagnet>{
+abstract FractureToolClusterMagnetPtr(ucpp.Ptr<FractureToolClusterMagnet>) from ucpp.Ptr<FractureToolClusterMagnet> to ucpp.Ptr<FractureToolClusterMagnet>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolClusterMagnet): FractureToolClusterMagnetPtr {
 		return untyped __cpp__("&({0})", v);

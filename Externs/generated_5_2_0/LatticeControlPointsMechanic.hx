@@ -3,16 +3,16 @@ package ue;
 
 @:native("ULatticeControlPointsMechanic")
 @:include("Mechanics/LatticeControlPointsMechanic.h")
-@:structAccess
+@:valueType
 extern class LatticeControlPointsMechanic extends InteractionMechanic {
-	@:protected public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
-	@:protected public var DrawnControlPoints: cpp.Star<PointSetComp>;
-	@:protected public var DrawnLatticeEdges: cpp.Star<LineSetComp>;
-	@:protected public var PointTransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var PointTransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var MarqueeMechanic: cpp.Star<RectangleMarqueeMechanic>;
+	@:protected public var PreviewGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
+	@:protected public var DrawnControlPoints: ucpp.Ptr<PointSetComp>;
+	@:protected public var DrawnLatticeEdges: ucpp.Ptr<LineSetComp>;
+	@:protected public var PointTransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var PointTransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var MarqueeMechanic: ucpp.Ptr<RectangleMarqueeMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstLatticeControlPointsMechanic(LatticeControlPointsMechanic) from La
 @:forward
 @:nativeGen
 @:native("LatticeControlPointsMechanic*")
-abstract LatticeControlPointsMechanicPtr(cpp.Star<LatticeControlPointsMechanic>) from cpp.Star<LatticeControlPointsMechanic> to cpp.Star<LatticeControlPointsMechanic>{
+abstract LatticeControlPointsMechanicPtr(ucpp.Ptr<LatticeControlPointsMechanic>) from ucpp.Ptr<LatticeControlPointsMechanic> to ucpp.Ptr<LatticeControlPointsMechanic>{
 	@:from
 	public static extern inline function fromValue(v: LatticeControlPointsMechanic): LatticeControlPointsMechanicPtr {
 		return untyped __cpp__("&({0})", v);

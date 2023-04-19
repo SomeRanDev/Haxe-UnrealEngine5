@@ -3,11 +3,11 @@ package ue;
 
 @:native("FRigVMReferenceNodeData")
 @:include("RigVMModel/RigVMBuildData.h")
-@:structAccess
+@:valueType
 extern class RigVMReferenceNodeData {
 	public var ReferenceNodePath: FString;
-	public var ReferencedFunctionPath: FString;
+	public var ReferencedHeader: RigVMGraphFunctionHeader;
 
 	@:native("FRigVMReferenceNodeData") public function new();
-	@:native("FRigVMReferenceNodeData") public static function make(ReferenceNodePath: FString, ReferencedFunctionPath: FString): RigVMReferenceNodeData ;
+	@:native("FRigVMReferenceNodeData") public static function make(ReferenceNodePath: FString, ReferencedFunctionPath_DEPRECATED: FString, ReferencedHeader: RigVMGraphFunctionHeader): RigVMReferenceNodeData ;
 }

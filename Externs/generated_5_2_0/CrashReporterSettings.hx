@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCrashReporterSettings")
 @:include("CrashReporterSettings.h")
-@:structAccess
+@:valueType
 extern class CrashReporterSettings extends Object {
 	public var UploadSymbolsPath: FString;
 	public var DownstreamStorage: FString;
 	public var RemoteStorage: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstCrashReporterSettings(CrashReporterSettings) from CrashReporterSet
 @:forward
 @:nativeGen
 @:native("CrashReporterSettings*")
-abstract CrashReporterSettingsPtr(cpp.Star<CrashReporterSettings>) from cpp.Star<CrashReporterSettings> to cpp.Star<CrashReporterSettings>{
+abstract CrashReporterSettingsPtr(ucpp.Ptr<CrashReporterSettings>) from ucpp.Ptr<CrashReporterSettings> to ucpp.Ptr<CrashReporterSettings>{
 	@:from
 	public static extern inline function fromValue(v: CrashReporterSettings): CrashReporterSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UCubeGridDuringActivityActions")
 @:include("CubeGridTool.h")
-@:structAccess
+@:valueType
 extern class CubeGridDuringActivityActions extends InteractiveToolPropertySet {
 	public function Done(): Void;
 	public function Cancel(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstCubeGridDuringActivityActions(CubeGridDuringActivityActions) from 
 @:forward
 @:nativeGen
 @:native("CubeGridDuringActivityActions*")
-abstract CubeGridDuringActivityActionsPtr(cpp.Star<CubeGridDuringActivityActions>) from cpp.Star<CubeGridDuringActivityActions> to cpp.Star<CubeGridDuringActivityActions>{
+abstract CubeGridDuringActivityActionsPtr(ucpp.Ptr<CubeGridDuringActivityActions>) from ucpp.Ptr<CubeGridDuringActivityActions> to ucpp.Ptr<CubeGridDuringActivityActions>{
 	@:from
 	public static extern inline function fromValue(v: CubeGridDuringActivityActions): CubeGridDuringActivityActionsPtr {
 		return untyped __cpp__("&({0})", v);

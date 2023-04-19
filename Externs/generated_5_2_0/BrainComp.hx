@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBrainComponent")
 @:include("BrainComponent.h")
-@:structAccess
+@:valueType
 extern class BrainComp extends ActorComp {
-	@:protected public var BlackboardComp: cpp.Star<BlackboardComp>;
-	@:protected public var AIOwner: cpp.Star<AIController>;
+	@:protected public var BlackboardComp: ucpp.Ptr<BlackboardComp>;
+	@:protected public var AIOwner: ucpp.Ptr<AIController>;
 
 	public function StopLogic(Reason: FString): Void;
 	public function StartLogic(): Void;
@@ -14,7 +14,7 @@ extern class BrainComp extends ActorComp {
 	public function IsRunning(): Bool;
 	public function IsPaused(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsRunning, IsPaused)
@@ -25,7 +25,7 @@ abstract ConstBrainComp(BrainComp) from BrainComp {
 @:forward
 @:nativeGen
 @:native("BrainComp*")
-abstract BrainCompPtr(cpp.Star<BrainComp>) from cpp.Star<BrainComp> to cpp.Star<BrainComp>{
+abstract BrainCompPtr(ucpp.Ptr<BrainComp>) from ucpp.Ptr<BrainComp> to ucpp.Ptr<BrainComp>{
 	@:from
 	public static extern inline function fromValue(v: BrainComp): BrainCompPtr {
 		return untyped __cpp__("&({0})", v);

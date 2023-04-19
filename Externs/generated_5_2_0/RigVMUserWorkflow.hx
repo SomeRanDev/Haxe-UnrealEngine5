@@ -3,14 +3,14 @@ package ue;
 
 @:native("FRigVMUserWorkflow")
 @:include("RigVMCore/RigVMUserWorkflow.h")
-@:structAccess
+@:valueType
 extern class RigVMUserWorkflow {
 	@:protected public var Title: FString;
 	@:protected public var Tooltip: FString;
 	@:protected public var Type: ERigVMUserWorkflowType;
-	@:protected public var PerformDynamicDelegate: HaxeDelegateProperty<(cpp.Star<RigVMUserWorkflowOptions.ConstRigVMUserWorkflowOptions>, cpp.Star<Object>) -> Void>;
+	@:protected public var PerformDynamicDelegate: HaxeDelegateProperty<(ucpp.Ptr<RigVMUserWorkflowOptions.ConstRigVMUserWorkflowOptions>, ucpp.Ptr<Object>) -> Void>;
 	@:protected public var OptionsClass: TSubclassOf<Object>;
 
 	@:native("FRigVMUserWorkflow") public function new();
-	@:native("FRigVMUserWorkflow") public static function make(Title: FString, Tooltip: FString, Type: ERigVMUserWorkflowType, PerformDynamicDelegate: HaxeDelegateProperty<(cpp.Star<RigVMUserWorkflowOptions.ConstRigVMUserWorkflowOptions>, cpp.Star<Object>) -> Void>, OptionsClass: TSubclassOf<Object>): RigVMUserWorkflow ;
+	@:native("FRigVMUserWorkflow") public static function make(Title: FString, Tooltip: FString, Type: ERigVMUserWorkflowType, PerformDynamicDelegate: HaxeDelegateProperty<(ucpp.Ptr<RigVMUserWorkflowOptions.ConstRigVMUserWorkflowOptions>, ucpp.Ptr<Object>) -> Void>, OptionsClass: TSubclassOf<Object>): RigVMUserWorkflow ;
 }

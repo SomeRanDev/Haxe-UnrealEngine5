@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULeaderboardQueryResult__PythonCallable")
-@:structAccess
+@:valueType
 extern class LeaderboardQueryResult__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLeaderboardQueryResult__PythonCallable(LeaderboardQueryResult__Pyt
 @:forward
 @:nativeGen
 @:native("LeaderboardQueryResult__PythonCallable*")
-abstract LeaderboardQueryResult__PythonCallablePtr(cpp.Star<LeaderboardQueryResult__PythonCallable>) from cpp.Star<LeaderboardQueryResult__PythonCallable> to cpp.Star<LeaderboardQueryResult__PythonCallable>{
+abstract LeaderboardQueryResult__PythonCallablePtr(ucpp.Ptr<LeaderboardQueryResult__PythonCallable>) from ucpp.Ptr<LeaderboardQueryResult__PythonCallable> to ucpp.Ptr<LeaderboardQueryResult__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: LeaderboardQueryResult__PythonCallable): LeaderboardQueryResult__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

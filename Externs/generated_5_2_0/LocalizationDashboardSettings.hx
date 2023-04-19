@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULocalizationDashboardSettings")
 @:include("LocalizationDashboardSettings.h")
-@:structAccess
+@:valueType
 extern class LocalizationDashboardSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLocalizationDashboardSettings(LocalizationDashboardSettings) from 
 @:forward
 @:nativeGen
 @:native("LocalizationDashboardSettings*")
-abstract LocalizationDashboardSettingsPtr(cpp.Star<LocalizationDashboardSettings>) from cpp.Star<LocalizationDashboardSettings> to cpp.Star<LocalizationDashboardSettings>{
+abstract LocalizationDashboardSettingsPtr(ucpp.Ptr<LocalizationDashboardSettings>) from ucpp.Ptr<LocalizationDashboardSettings> to ucpp.Ptr<LocalizationDashboardSettings>{
 	@:from
 	public static extern inline function fromValue(v: LocalizationDashboardSettings): LocalizationDashboardSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UUVEditorParameterizeMeshTool")
 @:include("UVEditorParameterizeMeshTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorParameterizeMeshTool extends InteractiveTool {
-	@:protected public var Targets: TArray<cpp.Star<UVEditorToolMeshInput>>;
-	@:protected public var Settings: cpp.Star<ParameterizeMeshToolProperties>;
-	@:protected public var UVAtlasProperties: cpp.Star<ParameterizeMeshToolUVAtlasProperties>;
-	@:protected public var XAtlasProperties: cpp.Star<ParameterizeMeshToolXAtlasProperties>;
-	@:protected public var PatchBuilderProperties: cpp.Star<ParameterizeMeshToolPatchBuilderProperties>;
-	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var Factories: TArray<cpp.Star<ParameterizeMeshOperatorFactory>>;
+	@:protected public var Targets: TArray<ucpp.Ptr<UVEditorToolMeshInput>>;
+	@:protected public var Settings: ucpp.Ptr<ParameterizeMeshToolProperties>;
+	@:protected public var UVAtlasProperties: ucpp.Ptr<ParameterizeMeshToolUVAtlasProperties>;
+	@:protected public var XAtlasProperties: ucpp.Ptr<ParameterizeMeshToolXAtlasProperties>;
+	@:protected public var PatchBuilderProperties: ucpp.Ptr<ParameterizeMeshToolPatchBuilderProperties>;
+	@:protected public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var Factories: TArray<ucpp.Ptr<ParameterizeMeshOperatorFactory>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstUVEditorParameterizeMeshTool(UVEditorParameterizeMeshTool) from UV
 @:forward
 @:nativeGen
 @:native("UVEditorParameterizeMeshTool*")
-abstract UVEditorParameterizeMeshToolPtr(cpp.Star<UVEditorParameterizeMeshTool>) from cpp.Star<UVEditorParameterizeMeshTool> to cpp.Star<UVEditorParameterizeMeshTool>{
+abstract UVEditorParameterizeMeshToolPtr(ucpp.Ptr<UVEditorParameterizeMeshTool>) from ucpp.Ptr<UVEditorParameterizeMeshTool> to ucpp.Ptr<UVEditorParameterizeMeshTool>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorParameterizeMeshTool): UVEditorParameterizeMeshToolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNavigationInvokerComponent")
 @:include("NavigationInvokerComponent.h")
-@:structAccess
+@:valueType
 extern class NavigationInvokerComp extends ActorComp {
-	@:protected public var TileGenerationRadius: cpp.Float32;
-	@:protected public var TileRemovalRadius: cpp.Float32;
+	@:protected public var TileGenerationRadius: ucpp.num.Float32;
+	@:protected public var TileRemovalRadius: ucpp.num.Float32;
 	@:protected public var SupportedAgents: NavAgentSelector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNavigationInvokerComp(NavigationInvokerComp) from NavigationInvoke
 @:forward
 @:nativeGen
 @:native("NavigationInvokerComp*")
-abstract NavigationInvokerCompPtr(cpp.Star<NavigationInvokerComp>) from cpp.Star<NavigationInvokerComp> to cpp.Star<NavigationInvokerComp>{
+abstract NavigationInvokerCompPtr(ucpp.Ptr<NavigationInvokerComp>) from ucpp.Ptr<NavigationInvokerComp> to ucpp.Ptr<NavigationInvokerComp>{
 	@:from
 	public static extern inline function fromValue(v: NavigationInvokerComp): NavigationInvokerCompPtr {
 		return untyped __cpp__("&({0})", v);

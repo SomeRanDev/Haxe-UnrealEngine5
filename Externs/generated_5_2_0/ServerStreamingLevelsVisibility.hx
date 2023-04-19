@@ -3,10 +3,10 @@ package ue;
 
 @:native("AServerStreamingLevelsVisibility")
 @:include("Streaming/ServerStreamingLevelsVisibility.h")
-@:structAccess
+@:valueType
 extern class ServerStreamingLevelsVisibility extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstServerStreamingLevelsVisibility(ServerStreamingLevelsVisibility) f
 @:forward
 @:nativeGen
 @:native("ServerStreamingLevelsVisibility*")
-abstract ServerStreamingLevelsVisibilityPtr(cpp.Star<ServerStreamingLevelsVisibility>) from cpp.Star<ServerStreamingLevelsVisibility> to cpp.Star<ServerStreamingLevelsVisibility>{
+abstract ServerStreamingLevelsVisibilityPtr(ucpp.Ptr<ServerStreamingLevelsVisibility>) from ucpp.Ptr<ServerStreamingLevelsVisibility> to ucpp.Ptr<ServerStreamingLevelsVisibility>{
 	@:from
 	public static extern inline function fromValue(v: ServerStreamingLevelsVisibility): ServerStreamingLevelsVisibilityPtr {
 		return untyped __cpp__("&({0})", v);

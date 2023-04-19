@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_CallDataTableFunction")
 @:include("K2Node_CallDataTableFunction.h")
-@:structAccess
+@:valueType
 extern class K2Node_CallDataTableFunction extends K2Node_CallFunction {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_CallDataTableFunction(K2Node_CallDataTableFunction) from K2
 @:forward
 @:nativeGen
 @:native("K2Node_CallDataTableFunction*")
-abstract K2Node_CallDataTableFunctionPtr(cpp.Star<K2Node_CallDataTableFunction>) from cpp.Star<K2Node_CallDataTableFunction> to cpp.Star<K2Node_CallDataTableFunction>{
+abstract K2Node_CallDataTableFunctionPtr(ucpp.Ptr<K2Node_CallDataTableFunction>) from ucpp.Ptr<K2Node_CallDataTableFunction> to ucpp.Ptr<K2Node_CallDataTableFunction>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_CallDataTableFunction): K2Node_CallDataTableFunctionPtr {
 		return untyped __cpp__("&({0})", v);

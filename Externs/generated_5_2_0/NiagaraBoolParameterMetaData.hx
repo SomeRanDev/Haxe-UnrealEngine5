@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraBoolParameterMetaData")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraBoolParameterMetaData {
 	public var DisplayMode: ENiagaraBoolDisplayMode;
 	public var OverrideNameTrue: FName;
 	public var OverrideNameFalse: FName;
-	public var IconOverrideTrue: cpp.Star<Texture2D>;
-	public var IconOverrideFalse: cpp.Star<Texture2D>;
+	public var IconOverrideTrue: ucpp.Ptr<Texture2D>;
+	public var IconOverrideFalse: ucpp.Ptr<Texture2D>;
 
 	@:native("FNiagaraBoolParameterMetaData") public function new();
-	@:native("FNiagaraBoolParameterMetaData") public static function make(DisplayMode: ENiagaraBoolDisplayMode, OverrideNameTrue: FName, OverrideNameFalse: FName, IconOverrideTrue: cpp.Star<Texture2D>, IconOverrideFalse: cpp.Star<Texture2D>): NiagaraBoolParameterMetaData ;
+	@:native("FNiagaraBoolParameterMetaData") public static function make(DisplayMode: ENiagaraBoolDisplayMode, OverrideNameTrue: FName, OverrideNameFalse: FName, IconOverrideTrue: ucpp.Ptr<Texture2D>, IconOverrideFalse: ucpp.Ptr<Texture2D>): NiagaraBoolParameterMetaData ;
 }

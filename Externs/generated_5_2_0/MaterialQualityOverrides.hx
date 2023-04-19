@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMaterialQualityOverrides")
 @:include("ShaderPlatformQualitySettings.h")
-@:structAccess
+@:valueType
 extern class MaterialQualityOverrides {
 	public var bDiscardQualityDuringCook: Bool;
 	public var bEnableOverride: Bool;

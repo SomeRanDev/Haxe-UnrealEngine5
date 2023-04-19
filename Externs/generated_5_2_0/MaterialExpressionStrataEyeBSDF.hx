@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionStrataEyeBSDF")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataEyeBSDF extends MaterialExpressionStrataBSDF {
 	public var DiffuseColor: ExpressionInput;
 	public var Roughness: ExpressionInput;
@@ -13,9 +13,9 @@ extern class MaterialExpressionStrataEyeBSDF extends MaterialExpressionStrataBSD
 	public var IrisMask: ExpressionInput;
 	public var IrisDistance: ExpressionInput;
 	public var EmissiveColor: ExpressionInput;
-	public var SubsurfaceProfile: cpp.Star<SubsurfaceProfile>;
+	public var SubsurfaceProfile: ucpp.Ptr<SubsurfaceProfile>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,14 +37,14 @@ abstract ConstMaterialExpressionStrataEyeBSDF(MaterialExpressionStrataEyeBSDF) f
 	public inline extern function get_IrisDistance(): ExpressionInput return this.IrisDistance;
 	public extern var EmissiveColor(get, never): ExpressionInput;
 	public inline extern function get_EmissiveColor(): ExpressionInput return this.EmissiveColor;
-	public extern var SubsurfaceProfile(get, never): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile>;
-	public inline extern function get_SubsurfaceProfile(): cpp.Star<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
+	public extern var SubsurfaceProfile(get, never): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile>;
+	public inline extern function get_SubsurfaceProfile(): ucpp.Ptr<SubsurfaceProfile.ConstSubsurfaceProfile> return this.SubsurfaceProfile;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataEyeBSDF*")
-abstract MaterialExpressionStrataEyeBSDFPtr(cpp.Star<MaterialExpressionStrataEyeBSDF>) from cpp.Star<MaterialExpressionStrataEyeBSDF> to cpp.Star<MaterialExpressionStrataEyeBSDF>{
+abstract MaterialExpressionStrataEyeBSDFPtr(ucpp.Ptr<MaterialExpressionStrataEyeBSDF>) from ucpp.Ptr<MaterialExpressionStrataEyeBSDF> to ucpp.Ptr<MaterialExpressionStrataEyeBSDF>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataEyeBSDF): MaterialExpressionStrataEyeBSDFPtr {
 		return untyped __cpp__("&({0})", v);

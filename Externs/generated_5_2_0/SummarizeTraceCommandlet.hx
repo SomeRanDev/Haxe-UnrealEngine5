@@ -3,10 +3,10 @@ package ue;
 
 @:native("USummarizeTraceCommandlet")
 @:include("Commandlets/SummarizeTraceCommandlet.h")
-@:structAccess
+@:valueType
 extern class SummarizeTraceCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSummarizeTraceCommandlet(SummarizeTraceCommandlet) from SummarizeT
 @:forward
 @:nativeGen
 @:native("SummarizeTraceCommandlet*")
-abstract SummarizeTraceCommandletPtr(cpp.Star<SummarizeTraceCommandlet>) from cpp.Star<SummarizeTraceCommandlet> to cpp.Star<SummarizeTraceCommandlet>{
+abstract SummarizeTraceCommandletPtr(ucpp.Ptr<SummarizeTraceCommandlet>) from ucpp.Ptr<SummarizeTraceCommandlet> to ucpp.Ptr<SummarizeTraceCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: SummarizeTraceCommandlet): SummarizeTraceCommandletPtr {
 		return untyped __cpp__("&({0})", v);

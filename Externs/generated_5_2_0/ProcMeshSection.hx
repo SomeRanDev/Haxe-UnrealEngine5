@@ -3,14 +3,14 @@ package ue;
 
 @:native("FProcMeshSection")
 @:include("ProceduralMeshComponent.h")
-@:structAccess
+@:valueType
 extern class ProcMeshSection {
 	public var ProcVertexBuffer: TArray<ProcMeshVertex>;
-	public var ProcIndexBuffer: TArray<cpp.UInt32>;
+	public var ProcIndexBuffer: TArray<ucpp.num.UInt32>;
 	public var SectionLocalBox: Box;
 	public var bEnableCollision: Bool;
 	public var bSectionVisible: Bool;
 
 	@:native("FProcMeshSection") public function new();
-	@:native("FProcMeshSection") public static function make(ProcVertexBuffer: TArray<ProcMeshVertex>, ProcIndexBuffer: TArray<cpp.UInt32>, SectionLocalBox: Box, bEnableCollision: Bool, bSectionVisible: Bool): ProcMeshSection ;
+	@:native("FProcMeshSection") public static function make(ProcVertexBuffer: TArray<ProcMeshVertex>, ProcIndexBuffer: TArray<ucpp.num.UInt32>, SectionLocalBox: Box, bEnableCollision: Bool, bSectionVisible: Bool): ProcMeshSection ;
 }

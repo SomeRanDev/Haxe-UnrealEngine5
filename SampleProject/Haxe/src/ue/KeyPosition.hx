@@ -3,11 +3,11 @@ package ue;
 
 @:native("FKeyPosition")
 @:include("CurveDataAbstraction.h")
-@:structAccess
+@:valueType
 extern class KeyPosition {
-	public var InputValue: cpp.Float64;
-	public var OutputValue: cpp.Float64;
+	public var InputValue: ucpp.num.Float64;
+	public var OutputValue: ucpp.num.Float64;
 
 	@:native("FKeyPosition") public function new();
-	@:native("FKeyPosition") public static function make(InputValue: cpp.Float64, OutputValue: cpp.Float64): KeyPosition ;
+	@:native("FKeyPosition") public static function make(InputValue: ucpp.num.Float64, OutputValue: ucpp.num.Float64): KeyPosition ;
 }

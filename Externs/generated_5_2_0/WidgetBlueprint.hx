@@ -3,36 +3,36 @@ package ue;
 
 @:native("UWidgetBlueprint")
 @:include("WidgetBlueprint.h")
-@:structAccess
+@:valueType
 extern class WidgetBlueprint extends BaseWidgetBlueprint {
 	private var TickFrequency: EWidgetTickFrequency;
 	private var TickPrediction: EWidgetCompileTimeTickPrediction;
 	private var TickPredictionReason: FString;
-	public var PropertyBindings: cpp.Int32;
+	public var PropertyBindings: ucpp.num.Int32;
 	public var ThumbnailSizeMode: EThumbnailPreviewSizeMode;
 	public var ThumbnailCustomSize: Vector2D;
-	public var ThumbnailImage: cpp.Star<Texture2D>;
+	public var ThumbnailImage: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWidgetBlueprint(WidgetBlueprint) from WidgetBlueprint {
-	public extern var PropertyBindings(get, never): cpp.Int32;
-	public inline extern function get_PropertyBindings(): cpp.Int32 return this.PropertyBindings;
+	public extern var PropertyBindings(get, never): ucpp.num.Int32;
+	public inline extern function get_PropertyBindings(): ucpp.num.Int32 return this.PropertyBindings;
 	public extern var ThumbnailSizeMode(get, never): EThumbnailPreviewSizeMode;
 	public inline extern function get_ThumbnailSizeMode(): EThumbnailPreviewSizeMode return this.ThumbnailSizeMode;
 	public extern var ThumbnailCustomSize(get, never): Vector2D;
 	public inline extern function get_ThumbnailCustomSize(): Vector2D return this.ThumbnailCustomSize;
-	public extern var ThumbnailImage(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_ThumbnailImage(): cpp.Star<Texture2D.ConstTexture2D> return this.ThumbnailImage;
+	public extern var ThumbnailImage(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_ThumbnailImage(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.ThumbnailImage;
 }
 
 @:forward
 @:nativeGen
 @:native("WidgetBlueprint*")
-abstract WidgetBlueprintPtr(cpp.Star<WidgetBlueprint>) from cpp.Star<WidgetBlueprint> to cpp.Star<WidgetBlueprint>{
+abstract WidgetBlueprintPtr(ucpp.Ptr<WidgetBlueprint>) from ucpp.Ptr<WidgetBlueprint> to ucpp.Ptr<WidgetBlueprint>{
 	@:from
 	public static extern inline function fromValue(v: WidgetBlueprint): WidgetBlueprintPtr {
 		return untyped __cpp__("&({0})", v);

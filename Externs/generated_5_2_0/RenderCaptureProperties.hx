@@ -3,7 +3,7 @@ package ue;
 
 @:native("URenderCaptureProperties")
 @:include("BakeRenderCaptureTool.h")
-@:structAccess
+@:valueType
 extern class RenderCaptureProperties extends InteractiveToolPropertySet {
 	public var Resolution: EBakeTextureResolution;
 	public var bBaseColorMap: Bool;
@@ -16,11 +16,11 @@ extern class RenderCaptureProperties extends InteractiveToolPropertySet {
 	public var bOpacityMap: Bool;
 	public var bSubsurfaceColorMap: Bool;
 	public var bAntiAliasing: Bool;
-	public var CaptureFieldOfView: cpp.Float32;
-	public var NearPlaneDist: cpp.Float32;
+	public var CaptureFieldOfView: ucpp.num.Float32;
+	public var NearPlaneDist: ucpp.num.Float32;
 	public var bDeviceDepthMap: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -48,10 +48,10 @@ abstract ConstRenderCaptureProperties(RenderCaptureProperties) from RenderCaptur
 	public inline extern function get_bSubsurfaceColorMap(): Bool return this.bSubsurfaceColorMap;
 	public extern var bAntiAliasing(get, never): Bool;
 	public inline extern function get_bAntiAliasing(): Bool return this.bAntiAliasing;
-	public extern var CaptureFieldOfView(get, never): cpp.Float32;
-	public inline extern function get_CaptureFieldOfView(): cpp.Float32 return this.CaptureFieldOfView;
-	public extern var NearPlaneDist(get, never): cpp.Float32;
-	public inline extern function get_NearPlaneDist(): cpp.Float32 return this.NearPlaneDist;
+	public extern var CaptureFieldOfView(get, never): ucpp.num.Float32;
+	public inline extern function get_CaptureFieldOfView(): ucpp.num.Float32 return this.CaptureFieldOfView;
+	public extern var NearPlaneDist(get, never): ucpp.num.Float32;
+	public inline extern function get_NearPlaneDist(): ucpp.num.Float32 return this.NearPlaneDist;
 	public extern var bDeviceDepthMap(get, never): Bool;
 	public inline extern function get_bDeviceDepthMap(): Bool return this.bDeviceDepthMap;
 }
@@ -59,7 +59,7 @@ abstract ConstRenderCaptureProperties(RenderCaptureProperties) from RenderCaptur
 @:forward
 @:nativeGen
 @:native("RenderCaptureProperties*")
-abstract RenderCapturePropertiesPtr(cpp.Star<RenderCaptureProperties>) from cpp.Star<RenderCaptureProperties> to cpp.Star<RenderCaptureProperties>{
+abstract RenderCapturePropertiesPtr(ucpp.Ptr<RenderCaptureProperties>) from ucpp.Ptr<RenderCaptureProperties> to ucpp.Ptr<RenderCaptureProperties>{
 	@:from
 	public static extern inline function fromValue(v: RenderCaptureProperties): RenderCapturePropertiesPtr {
 		return untyped __cpp__("&({0})", v);

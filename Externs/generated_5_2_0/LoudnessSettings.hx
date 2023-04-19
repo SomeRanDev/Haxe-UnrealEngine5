@@ -3,39 +3,39 @@ package ue;
 
 @:native("ULoudnessSettings")
 @:include("Loudness.h")
-@:structAccess
+@:valueType
 extern class LoudnessSettings extends AudioSynesthesiaSettings {
-	public var AnalysisPeriod: cpp.Float32;
-	public var MinimumFrequency: cpp.Float32;
-	public var MaximumFrequency: cpp.Float32;
+	public var AnalysisPeriod: ucpp.num.Float32;
+	public var MinimumFrequency: ucpp.num.Float32;
+	public var MaximumFrequency: ucpp.num.Float32;
 	public var CurveType: ELoudnessCurveTypeEnum;
-	public var NoiseFloorDb: cpp.Float32;
-	public var ExpectedMaxLoudness: cpp.Float32;
+	public var NoiseFloorDb: ucpp.num.Float32;
+	public var ExpectedMaxLoudness: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLoudnessSettings(LoudnessSettings) from LoudnessSettings {
-	public extern var AnalysisPeriod(get, never): cpp.Float32;
-	public inline extern function get_AnalysisPeriod(): cpp.Float32 return this.AnalysisPeriod;
-	public extern var MinimumFrequency(get, never): cpp.Float32;
-	public inline extern function get_MinimumFrequency(): cpp.Float32 return this.MinimumFrequency;
-	public extern var MaximumFrequency(get, never): cpp.Float32;
-	public inline extern function get_MaximumFrequency(): cpp.Float32 return this.MaximumFrequency;
+	public extern var AnalysisPeriod(get, never): ucpp.num.Float32;
+	public inline extern function get_AnalysisPeriod(): ucpp.num.Float32 return this.AnalysisPeriod;
+	public extern var MinimumFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_MinimumFrequency(): ucpp.num.Float32 return this.MinimumFrequency;
+	public extern var MaximumFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_MaximumFrequency(): ucpp.num.Float32 return this.MaximumFrequency;
 	public extern var CurveType(get, never): ELoudnessCurveTypeEnum;
 	public inline extern function get_CurveType(): ELoudnessCurveTypeEnum return this.CurveType;
-	public extern var NoiseFloorDb(get, never): cpp.Float32;
-	public inline extern function get_NoiseFloorDb(): cpp.Float32 return this.NoiseFloorDb;
-	public extern var ExpectedMaxLoudness(get, never): cpp.Float32;
-	public inline extern function get_ExpectedMaxLoudness(): cpp.Float32 return this.ExpectedMaxLoudness;
+	public extern var NoiseFloorDb(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseFloorDb(): ucpp.num.Float32 return this.NoiseFloorDb;
+	public extern var ExpectedMaxLoudness(get, never): ucpp.num.Float32;
+	public inline extern function get_ExpectedMaxLoudness(): ucpp.num.Float32 return this.ExpectedMaxLoudness;
 }
 
 @:forward
 @:nativeGen
 @:native("LoudnessSettings*")
-abstract LoudnessSettingsPtr(cpp.Star<LoudnessSettings>) from cpp.Star<LoudnessSettings> to cpp.Star<LoudnessSettings>{
+abstract LoudnessSettingsPtr(ucpp.Ptr<LoudnessSettings>) from ucpp.Ptr<LoudnessSettings> to ucpp.Ptr<LoudnessSettings>{
 	@:from
 	public static extern inline function fromValue(v: LoudnessSettings): LoudnessSettingsPtr {
 		return untyped __cpp__("&({0})", v);

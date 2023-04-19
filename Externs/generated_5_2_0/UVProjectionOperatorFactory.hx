@@ -3,24 +3,24 @@ package ue;
 
 @:native("UUVProjectionOperatorFactory")
 @:include("UVProjectionTool.h")
-@:structAccess
+@:valueType
 extern class UVProjectionOperatorFactory extends Object {
-	public var Tool: cpp.Star<UVProjectionTool>;
+	public var Tool: ucpp.Ptr<UVProjectionTool>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUVProjectionOperatorFactory(UVProjectionOperatorFactory) from UVProjectionOperatorFactory {
-	public extern var Tool(get, never): cpp.Star<UVProjectionTool.ConstUVProjectionTool>;
-	public inline extern function get_Tool(): cpp.Star<UVProjectionTool.ConstUVProjectionTool> return this.Tool;
+	public extern var Tool(get, never): ucpp.Ptr<UVProjectionTool.ConstUVProjectionTool>;
+	public inline extern function get_Tool(): ucpp.Ptr<UVProjectionTool.ConstUVProjectionTool> return this.Tool;
 }
 
 @:forward
 @:nativeGen
 @:native("UVProjectionOperatorFactory*")
-abstract UVProjectionOperatorFactoryPtr(cpp.Star<UVProjectionOperatorFactory>) from cpp.Star<UVProjectionOperatorFactory> to cpp.Star<UVProjectionOperatorFactory>{
+abstract UVProjectionOperatorFactoryPtr(ucpp.Ptr<UVProjectionOperatorFactory>) from ucpp.Ptr<UVProjectionOperatorFactory> to ucpp.Ptr<UVProjectionOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: UVProjectionOperatorFactory): UVProjectionOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPolygonOnMeshToolActionPropertySet")
 @:include("PolygonOnMeshTool.h")
-@:structAccess
+@:valueType
 extern class PolygonOnMeshToolActionPropertySet extends InteractiveToolPropertySet {
 	public function DrawPolygon(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPolygonOnMeshToolActionPropertySet(PolygonOnMeshToolActionProperty
 @:forward
 @:nativeGen
 @:native("PolygonOnMeshToolActionPropertySet*")
-abstract PolygonOnMeshToolActionPropertySetPtr(cpp.Star<PolygonOnMeshToolActionPropertySet>) from cpp.Star<PolygonOnMeshToolActionPropertySet> to cpp.Star<PolygonOnMeshToolActionPropertySet>{
+abstract PolygonOnMeshToolActionPropertySetPtr(ucpp.Ptr<PolygonOnMeshToolActionPropertySet>) from ucpp.Ptr<PolygonOnMeshToolActionPropertySet> to ucpp.Ptr<PolygonOnMeshToolActionPropertySet>{
 	@:from
 	public static extern inline function fromValue(v: PolygonOnMeshToolActionPropertySet): PolygonOnMeshToolActionPropertySetPtr {
 		return untyped __cpp__("&({0})", v);

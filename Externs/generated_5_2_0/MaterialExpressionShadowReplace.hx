@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionShadowReplace")
 @:include("Materials/MaterialExpressionShadowReplace.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionShadowReplace extends MaterialExpression {
 	public var Default: ExpressionInput;
 	public var Shadow: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionShadowReplace(MaterialExpressionShadowReplace) f
 @:forward
 @:nativeGen
 @:native("MaterialExpressionShadowReplace*")
-abstract MaterialExpressionShadowReplacePtr(cpp.Star<MaterialExpressionShadowReplace>) from cpp.Star<MaterialExpressionShadowReplace> to cpp.Star<MaterialExpressionShadowReplace>{
+abstract MaterialExpressionShadowReplacePtr(ucpp.Ptr<MaterialExpressionShadowReplace>) from ucpp.Ptr<MaterialExpressionShadowReplace> to ucpp.Ptr<MaterialExpressionShadowReplace>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionShadowReplace): MaterialExpressionShadowReplacePtr {
 		return untyped __cpp__("&({0})", v);

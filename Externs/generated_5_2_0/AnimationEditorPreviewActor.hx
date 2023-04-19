@@ -3,10 +3,10 @@ package ue;
 
 @:native("AAnimationEditorPreviewActor")
 @:include("AnimationEditorPreviewActor.h")
-@:structAccess
+@:valueType
 extern class AnimationEditorPreviewActor extends Actor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAnimationEditorPreviewActor(AnimationEditorPreviewActor) from Anim
 @:forward
 @:nativeGen
 @:native("AnimationEditorPreviewActor*")
-abstract AnimationEditorPreviewActorPtr(cpp.Star<AnimationEditorPreviewActor>) from cpp.Star<AnimationEditorPreviewActor> to cpp.Star<AnimationEditorPreviewActor>{
+abstract AnimationEditorPreviewActorPtr(ucpp.Ptr<AnimationEditorPreviewActor>) from ucpp.Ptr<AnimationEditorPreviewActor> to ucpp.Ptr<AnimationEditorPreviewActor>{
 	@:from
 	public static extern inline function fromValue(v: AnimationEditorPreviewActor): AnimationEditorPreviewActorPtr {
 		return untyped __cpp__("&({0})", v);

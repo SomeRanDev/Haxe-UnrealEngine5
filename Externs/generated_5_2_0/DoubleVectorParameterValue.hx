@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDoubleVectorParameterValue")
 @:include("Materials/MaterialInstance.h")
-@:structAccess
+@:valueType
 extern class DoubleVectorParameterValue {
 	public var ParameterInfo: MaterialParameterInfo;
 	public var ParameterValue: Vector4d;

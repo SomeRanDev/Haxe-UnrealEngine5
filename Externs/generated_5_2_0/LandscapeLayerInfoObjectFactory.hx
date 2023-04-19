@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULandscapeLayerInfoObjectFactory")
 @:include("LandscapeLayerInfoObjectFactory.h")
-@:structAccess
+@:valueType
 extern class LandscapeLayerInfoObjectFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLandscapeLayerInfoObjectFactory(LandscapeLayerInfoObjectFactory) f
 @:forward
 @:nativeGen
 @:native("LandscapeLayerInfoObjectFactory*")
-abstract LandscapeLayerInfoObjectFactoryPtr(cpp.Star<LandscapeLayerInfoObjectFactory>) from cpp.Star<LandscapeLayerInfoObjectFactory> to cpp.Star<LandscapeLayerInfoObjectFactory>{
+abstract LandscapeLayerInfoObjectFactoryPtr(ucpp.Ptr<LandscapeLayerInfoObjectFactory>) from ucpp.Ptr<LandscapeLayerInfoObjectFactory> to ucpp.Ptr<LandscapeLayerInfoObjectFactory>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeLayerInfoObjectFactory): LandscapeLayerInfoObjectFactoryPtr {
 		return untyped __cpp__("&({0})", v);

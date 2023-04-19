@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigSnapperSelection")
 @:include("Tools/ControlRigSnapper.h")
-@:structAccess
+@:valueType
 extern class ControlRigSnapperSelection {
 	public var Actors: TArray<ActorForWorldTransforms>;
 	public var ControlRigs: TArray<ControlRigForWorldTransforms>;

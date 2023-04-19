@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionDistanceCullFade")
 @:include("Materials/MaterialExpressionDistanceCullFade.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDistanceCullFade extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionDistanceCullFade(MaterialExpressionDistanceCullF
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDistanceCullFade*")
-abstract MaterialExpressionDistanceCullFadePtr(cpp.Star<MaterialExpressionDistanceCullFade>) from cpp.Star<MaterialExpressionDistanceCullFade> to cpp.Star<MaterialExpressionDistanceCullFade>{
+abstract MaterialExpressionDistanceCullFadePtr(ucpp.Ptr<MaterialExpressionDistanceCullFade>) from ucpp.Ptr<MaterialExpressionDistanceCullFade> to ucpp.Ptr<MaterialExpressionDistanceCullFade>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDistanceCullFade): MaterialExpressionDistanceCullFadePtr {
 		return untyped __cpp__("&({0})", v);

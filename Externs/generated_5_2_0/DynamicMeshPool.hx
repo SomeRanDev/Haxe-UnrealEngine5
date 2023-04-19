@@ -3,17 +3,17 @@ package ue;
 
 @:native("UDynamicMeshPool")
 @:include("UDynamicMesh.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshPool extends Object {
-	@:protected public var CachedMeshes: TArray<cpp.Star<DynamicMesh>>;
-	@:protected public var AllCreatedMeshes: TArray<cpp.Star<DynamicMesh>>;
+	@:protected public var CachedMeshes: TArray<ucpp.Ptr<DynamicMesh>>;
+	@:protected public var AllCreatedMeshes: TArray<ucpp.Ptr<DynamicMesh>>;
 
-	public function ReturnMesh(Mesh: cpp.Star<DynamicMesh>): Void;
+	public function ReturnMesh(Mesh: ucpp.Ptr<DynamicMesh>): Void;
 	public function ReturnAllMeshes(): Void;
-	public function RequestMesh(): cpp.Star<DynamicMesh>;
+	public function RequestMesh(): ucpp.Ptr<DynamicMesh>;
 	public function FreeAllMeshes(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstDynamicMeshPool(DynamicMeshPool) from DynamicMeshPool {
 @:forward
 @:nativeGen
 @:native("DynamicMeshPool*")
-abstract DynamicMeshPoolPtr(cpp.Star<DynamicMeshPool>) from cpp.Star<DynamicMeshPool> to cpp.Star<DynamicMeshPool>{
+abstract DynamicMeshPoolPtr(ucpp.Ptr<DynamicMeshPool>) from ucpp.Ptr<DynamicMeshPool> to ucpp.Ptr<DynamicMeshPool>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshPool): DynamicMeshPoolPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,12 @@ package ue;
 
 @:native("UWorldPartitionSubsystem")
 @:include("WorldPartition/WorldPartitionSubsystem.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionSubsystem extends TickableWorldSubsystem {
-	public function IsStreamingCompleted(QueryState: EWorldPartitionRuntimeCellState, QuerySources: cpp.Reference<TArray<WorldPartitionStreamingQuerySource>>, bExactState: Bool): Bool;
+	public function IsStreamingCompleted(QueryState: EWorldPartitionRuntimeCellState, QuerySources: ucpp.Ref<TArray<WorldPartitionStreamingQuerySource>>, bExactState: Bool): Bool;
+	public function IsAllStreamingCompleted(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsStreamingCompleted)
@@ -18,7 +19,7 @@ abstract ConstWorldPartitionSubsystem(WorldPartitionSubsystem) from WorldPartiti
 @:forward
 @:nativeGen
 @:native("WorldPartitionSubsystem*")
-abstract WorldPartitionSubsystemPtr(cpp.Star<WorldPartitionSubsystem>) from cpp.Star<WorldPartitionSubsystem> to cpp.Star<WorldPartitionSubsystem>{
+abstract WorldPartitionSubsystemPtr(ucpp.Ptr<WorldPartitionSubsystem>) from ucpp.Ptr<WorldPartitionSubsystem> to ucpp.Ptr<WorldPartitionSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionSubsystem): WorldPartitionSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

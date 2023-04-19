@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_SequenceEvaluator")
 @:include("AnimNodes/AnimNode_SequenceEvaluator.h")
-@:structAccess
+@:valueType
 extern class AnimNode_SequenceEvaluator extends AnimNode_SequenceEvaluatorBase {
 
 	@:native("FAnimNode_SequenceEvaluator") public function new();

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UFieldSystemMetaDataProcessingResolution")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class FieldSystemMetaDataProcessingResolution extends FieldSystemMetaData {
 	public var ResolutionType: TEnumAsByte<EFieldResolutionType>;
 
-	public function SetMetaDataaProcessingResolutionType(ResolutionType: TEnumAsByte<EFieldResolutionType>): cpp.Star<FieldSystemMetaDataProcessingResolution>;
+	public function SetMetaDataaProcessingResolutionType(ResolutionType: TEnumAsByte<EFieldResolutionType>): ucpp.Ptr<FieldSystemMetaDataProcessingResolution>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstFieldSystemMetaDataProcessingResolution(FieldSystemMetaDataProcess
 @:forward
 @:nativeGen
 @:native("FieldSystemMetaDataProcessingResolution*")
-abstract FieldSystemMetaDataProcessingResolutionPtr(cpp.Star<FieldSystemMetaDataProcessingResolution>) from cpp.Star<FieldSystemMetaDataProcessingResolution> to cpp.Star<FieldSystemMetaDataProcessingResolution>{
+abstract FieldSystemMetaDataProcessingResolutionPtr(ucpp.Ptr<FieldSystemMetaDataProcessingResolution>) from ucpp.Ptr<FieldSystemMetaDataProcessingResolution> to ucpp.Ptr<FieldSystemMetaDataProcessingResolution>{
 	@:from
 	public static extern inline function fromValue(v: FieldSystemMetaDataProcessingResolution): FieldSystemMetaDataProcessingResolutionPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,18 +3,21 @@ package ue;
 
 @:native("UEditorUtilityLibrary")
 @:include("EditorUtilityLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityLibrary extends BlueprintFunctionLibrary {
-	public function RenameAsset(Asset: cpp.Star<Object>, NewName: FString): Void;
-	public function GetSelectionSet(): TArray<cpp.Star<Actor>>;
-	public function GetSelectionBounds(Origin: cpp.Reference<Vector>, BoxExtent: cpp.Reference<Vector>, SphereRadius: cpp.Reference<cpp.Float32>): Void;
-	public function GetSelectedBlueprintClasses(): TArray<cpp.Star<Class>>;
-	public function GetSelectedAssets(): TArray<cpp.Star<Object>>;
+	public function SyncBrowserToFolders(FolderList: ucpp.Ref<TArray<FString>>): Void;
+	public function RenameAsset(Asset: ucpp.Ptr<Object>, NewName: FString): Void;
+	public function GetSelectionSet(): TArray<ucpp.Ptr<Actor>>;
+	public function GetSelectionBounds(Origin: ucpp.Ref<Vector>, BoxExtent: ucpp.Ref<Vector>, SphereRadius: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetSelectedFolderPaths(): TArray<FString>;
+	public function GetSelectedBlueprintClasses(): TArray<ucpp.Ptr<Class>>;
+	public function GetSelectedAssetsOfClass(AssetClass: ucpp.Ptr<Class>): TArray<ucpp.Ptr<Object>>;
+	public function GetSelectedAssets(): TArray<ucpp.Ptr<Object>>;
 	public function GetSelectedAssetData(): TArray<AssetData>;
-	public function GetCurrentContentBrowserPath(OutPath: cpp.Reference<FString>): Bool;
-	public function GetActorReference(PathToActor: FString): cpp.Star<Actor>;
+	public function GetCurrentContentBrowserPath(OutPath: ucpp.Ref<FString>): Bool;
+	public function GetActorReference(PathToActor: FString): ucpp.Ptr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +28,7 @@ abstract ConstEditorUtilityLibrary(EditorUtilityLibrary) from EditorUtilityLibra
 @:forward
 @:nativeGen
 @:native("EditorUtilityLibrary*")
-abstract EditorUtilityLibraryPtr(cpp.Star<EditorUtilityLibrary>) from cpp.Star<EditorUtilityLibrary> to cpp.Star<EditorUtilityLibrary>{
+abstract EditorUtilityLibraryPtr(ucpp.Ptr<EditorUtilityLibrary>) from ucpp.Ptr<EditorUtilityLibrary> to ucpp.Ptr<EditorUtilityLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityLibrary): EditorUtilityLibraryPtr {
 		return untyped __cpp__("&({0})", v);

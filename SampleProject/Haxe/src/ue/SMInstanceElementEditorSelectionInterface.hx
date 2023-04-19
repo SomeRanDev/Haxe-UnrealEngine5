@@ -3,10 +3,10 @@ package ue;
 
 @:native("USMInstanceElementEditorSelectionInterface")
 @:include("Elements/SMInstance/SMInstanceElementEditorSelectionInterface.h")
-@:structAccess
+@:valueType
 extern class SMInstanceElementEditorSelectionInterface extends SMInstanceElementSelectionInterface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSMInstanceElementEditorSelectionInterface(SMInstanceElementEditorS
 @:forward
 @:nativeGen
 @:native("SMInstanceElementEditorSelectionInterface*")
-abstract SMInstanceElementEditorSelectionInterfacePtr(cpp.Star<SMInstanceElementEditorSelectionInterface>) from cpp.Star<SMInstanceElementEditorSelectionInterface> to cpp.Star<SMInstanceElementEditorSelectionInterface>{
+abstract SMInstanceElementEditorSelectionInterfacePtr(ucpp.Ptr<SMInstanceElementEditorSelectionInterface>) from ucpp.Ptr<SMInstanceElementEditorSelectionInterface> to ucpp.Ptr<SMInstanceElementEditorSelectionInterface>{
 	@:from
 	public static extern inline function fromValue(v: SMInstanceElementEditorSelectionInterface): SMInstanceElementEditorSelectionInterfacePtr {
 		return untyped __cpp__("&({0})", v);

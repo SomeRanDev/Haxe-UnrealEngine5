@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionParticleRandom")
 @:include("Materials/MaterialExpressionParticleRandom.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionParticleRandom extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionParticleRandom(MaterialExpressionParticleRandom)
 @:forward
 @:nativeGen
 @:native("MaterialExpressionParticleRandom*")
-abstract MaterialExpressionParticleRandomPtr(cpp.Star<MaterialExpressionParticleRandom>) from cpp.Star<MaterialExpressionParticleRandom> to cpp.Star<MaterialExpressionParticleRandom>{
+abstract MaterialExpressionParticleRandomPtr(ucpp.Ptr<MaterialExpressionParticleRandom>) from ucpp.Ptr<MaterialExpressionParticleRandom> to ucpp.Ptr<MaterialExpressionParticleRandom>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionParticleRandom): MaterialExpressionParticleRandomPtr {
 		return untyped __cpp__("&({0})", v);

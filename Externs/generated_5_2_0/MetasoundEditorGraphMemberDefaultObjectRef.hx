@@ -3,10 +3,10 @@ package ue;
 
 @:native("FMetasoundEditorGraphMemberDefaultObjectRef")
 @:include("MetasoundEditorGraphMemberDefaults.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorGraphMemberDefaultObjectRef {
-	public var Object: cpp.Star<Object>;
+	public var Object: ucpp.Ptr<Object>;
 
 	@:native("FMetasoundEditorGraphMemberDefaultObjectRef") public function new();
-	@:native("FMetasoundEditorGraphMemberDefaultObjectRef") public static function make(Object: cpp.Star<Object>): MetasoundEditorGraphMemberDefaultObjectRef ;
+	@:native("FMetasoundEditorGraphMemberDefaultObjectRef") public static function make(Object: ucpp.Ptr<Object>): MetasoundEditorGraphMemberDefaultObjectRef ;
 }

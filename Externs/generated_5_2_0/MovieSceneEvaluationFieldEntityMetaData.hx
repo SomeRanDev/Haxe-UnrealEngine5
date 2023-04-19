@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationFieldEntityMetaData")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationFieldEntityMetaData {
 	public var OverrideBoundPropertyPath: FString;
 	public var ForcedTime: FrameNumber;

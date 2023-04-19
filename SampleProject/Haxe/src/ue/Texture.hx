@@ -3,14 +3,15 @@ package ue;
 
 @:native("UTexture")
 @:include("Engine/Texture.h")
-@:structAccess
+@:valueType
 extern class Texture extends StreamableRenderAsset {
 	private var LightingGuid: Guid;
-	public var LevelIndex: cpp.Int32;
-	public var LODBias: cpp.Int32;
+	public var LevelIndex: ucpp.num.Int32;
+	public var LODBias: ucpp.num.Int32;
 	public var CompressionSettings: TEnumAsByte<TextureCompressionSettings>;
 	public var Filter: TEnumAsByte<TextureFilter>;
 	public var MipLoadOptions: ETextureMipLoadOptions;
+	public var CookPlatformTilingSettings: TEnumAsByte<TextureCookPlatformTilingSettings>;
 	public var LODGroup: TEnumAsByte<TextureGroup>;
 	public var Downscale: PerPlatformFloat;
 	public var DownscaleOptions: ETextureDownscaleOptions;
@@ -20,24 +21,30 @@ extern class Texture extends StreamableRenderAsset {
 	public var CompressionYCoCg: Bool;
 	public var bNotOfflineProcessed: Bool;
 	private var bAsyncResourceReleaseHasBeenStarted: Bool;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public function ComputeTextureSourceChannelMinMax(OutColorMin: ucpp.Ref<LinearColor>, OutColorMax: ucpp.Ref<LinearColor>): Bool;
+	public function Blueprint_GetTextureSourceDiskAndMemorySize(OutDiskSize: ucpp.Ref<ucpp.num.Int64>, OutMemorySize: ucpp.Ref<ucpp.num.Int64>): Void;
+	public function Blueprint_GetMemorySize(): ucpp.num.Int64;
+
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward()
+@:forward(ComputeTextureSourceChannelMinMax, Blueprint_GetTextureSourceDiskAndMemorySize, Blueprint_GetMemorySize)
 @:nativeGen
 abstract ConstTexture(Texture) from Texture {
-	public extern var LevelIndex(get, never): cpp.Int32;
-	public inline extern function get_LevelIndex(): cpp.Int32 return this.LevelIndex;
-	public extern var LODBias(get, never): cpp.Int32;
-	public inline extern function get_LODBias(): cpp.Int32 return this.LODBias;
+	public extern var LevelIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LevelIndex(): ucpp.num.Int32 return this.LevelIndex;
+	public extern var LODBias(get, never): ucpp.num.Int32;
+	public inline extern function get_LODBias(): ucpp.num.Int32 return this.LODBias;
 	public extern var CompressionSettings(get, never): TEnumAsByte<TextureCompressionSettings>;
 	public inline extern function get_CompressionSettings(): TEnumAsByte<TextureCompressionSettings> return this.CompressionSettings;
 	public extern var Filter(get, never): TEnumAsByte<TextureFilter>;
 	public inline extern function get_Filter(): TEnumAsByte<TextureFilter> return this.Filter;
 	public extern var MipLoadOptions(get, never): ETextureMipLoadOptions;
 	public inline extern function get_MipLoadOptions(): ETextureMipLoadOptions return this.MipLoadOptions;
+	public extern var CookPlatformTilingSettings(get, never): TEnumAsByte<TextureCookPlatformTilingSettings>;
+	public inline extern function get_CookPlatformTilingSettings(): TEnumAsByte<TextureCookPlatformTilingSettings> return this.CookPlatformTilingSettings;
 	public extern var LODGroup(get, never): TEnumAsByte<TextureGroup>;
 	public inline extern function get_LODGroup(): TEnumAsByte<TextureGroup> return this.LODGroup;
 	public extern var Downscale(get, never): PerPlatformFloat;
@@ -59,7 +66,7 @@ abstract ConstTexture(Texture) from Texture {
 @:forward
 @:nativeGen
 @:native("Texture*")
-abstract TexturePtr(cpp.Star<Texture>) from cpp.Star<Texture> to cpp.Star<Texture>{
+abstract TexturePtr(ucpp.Ptr<Texture>) from ucpp.Ptr<Texture> to ucpp.Ptr<Texture>{
 	@:from
 	public static extern inline function fromValue(v: Texture): TexturePtr {
 		return untyped __cpp__("&({0})", v);

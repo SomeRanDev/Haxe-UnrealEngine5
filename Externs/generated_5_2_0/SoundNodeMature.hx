@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundNodeMature")
 @:include("Sound/SoundNodeMature.h")
-@:structAccess
+@:valueType
 extern class SoundNodeMature extends SoundNode {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundNodeMature(SoundNodeMature) from SoundNodeMature {
 @:forward
 @:nativeGen
 @:native("SoundNodeMature*")
-abstract SoundNodeMaturePtr(cpp.Star<SoundNodeMature>) from cpp.Star<SoundNodeMature> to cpp.Star<SoundNodeMature>{
+abstract SoundNodeMaturePtr(ucpp.Ptr<SoundNodeMature>) from ucpp.Ptr<SoundNodeMature> to ucpp.Ptr<SoundNodeMature>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeMature): SoundNodeMaturePtr {
 		return untyped __cpp__("&({0})", v);

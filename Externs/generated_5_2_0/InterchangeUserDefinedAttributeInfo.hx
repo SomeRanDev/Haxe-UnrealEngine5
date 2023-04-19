@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInterchangeUserDefinedAttributeInfo")
 @:include("Nodes/InterchangeUserDefinedAttribute.h")
-@:structAccess
+@:valueType
 extern class InterchangeUserDefinedAttributeInfo {
 	public var Name: FString;
 

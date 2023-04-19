@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPackage")
-@:structAccess
+@:valueType
 extern class Package extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPackage(Package) from Package {
 @:forward
 @:nativeGen
 @:native("Package*")
-abstract PackagePtr(cpp.Star<Package>) from cpp.Star<Package> to cpp.Star<Package>{
+abstract PackagePtr(ucpp.Ptr<Package>) from ucpp.Ptr<Package> to ucpp.Ptr<Package>{
 	@:from
 	public static extern inline function fromValue(v: Package): PackagePtr {
 		return untyped __cpp__("&({0})", v);

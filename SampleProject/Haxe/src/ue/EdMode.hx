@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEdMode")
 @:include("Tools/UEdMode.h")
-@:structAccess
+@:valueType
 extern class EdMode extends Object {
-	private var ModeToolsContext: cpp.Star<EdModeInteractiveToolsContext>;
+	private var ModeToolsContext: ucpp.Ptr<EdModeInteractiveToolsContext>;
 	@:protected public var SettingsClass: TSoftClassPtr<Class>;
-	@:protected public var SettingsObject: cpp.Star<Object>;
+	@:protected public var SettingsObject: ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEdMode(EdMode) from EdMode {
 @:forward
 @:nativeGen
 @:native("EdMode*")
-abstract EdModePtr(cpp.Star<EdMode>) from cpp.Star<EdMode> to cpp.Star<EdMode>{
+abstract EdModePtr(ucpp.Ptr<EdMode>) from ucpp.Ptr<EdMode> to ucpp.Ptr<EdMode>{
 	@:from
 	public static extern inline function fromValue(v: EdMode): EdModePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,30 +3,30 @@ package ue;
 
 @:native("UBoxReflectionCaptureComponent")
 @:include("Components/BoxReflectionCaptureComponent.h")
-@:structAccess
+@:valueType
 extern class BoxReflectionCaptureComp extends ReflectionCaptureComp {
-	public var BoxTransitionDistance: cpp.Float32;
-	public var PreviewInfluenceBox: cpp.Star<BoxComp>;
-	public var PreviewCaptureBox: cpp.Star<BoxComp>;
+	public var BoxTransitionDistance: ucpp.num.Float32;
+	public var PreviewInfluenceBox: ucpp.Ptr<BoxComp>;
+	public var PreviewCaptureBox: ucpp.Ptr<BoxComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBoxReflectionCaptureComp(BoxReflectionCaptureComp) from BoxReflectionCaptureComp {
-	public extern var BoxTransitionDistance(get, never): cpp.Float32;
-	public inline extern function get_BoxTransitionDistance(): cpp.Float32 return this.BoxTransitionDistance;
-	public extern var PreviewInfluenceBox(get, never): cpp.Star<BoxComp.ConstBoxComp>;
-	public inline extern function get_PreviewInfluenceBox(): cpp.Star<BoxComp.ConstBoxComp> return this.PreviewInfluenceBox;
-	public extern var PreviewCaptureBox(get, never): cpp.Star<BoxComp.ConstBoxComp>;
-	public inline extern function get_PreviewCaptureBox(): cpp.Star<BoxComp.ConstBoxComp> return this.PreviewCaptureBox;
+	public extern var BoxTransitionDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_BoxTransitionDistance(): ucpp.num.Float32 return this.BoxTransitionDistance;
+	public extern var PreviewInfluenceBox(get, never): ucpp.Ptr<BoxComp.ConstBoxComp>;
+	public inline extern function get_PreviewInfluenceBox(): ucpp.Ptr<BoxComp.ConstBoxComp> return this.PreviewInfluenceBox;
+	public extern var PreviewCaptureBox(get, never): ucpp.Ptr<BoxComp.ConstBoxComp>;
+	public inline extern function get_PreviewCaptureBox(): ucpp.Ptr<BoxComp.ConstBoxComp> return this.PreviewCaptureBox;
 }
 
 @:forward
 @:nativeGen
 @:native("BoxReflectionCaptureComp*")
-abstract BoxReflectionCaptureCompPtr(cpp.Star<BoxReflectionCaptureComp>) from cpp.Star<BoxReflectionCaptureComp> to cpp.Star<BoxReflectionCaptureComp>{
+abstract BoxReflectionCaptureCompPtr(ucpp.Ptr<BoxReflectionCaptureComp>) from ucpp.Ptr<BoxReflectionCaptureComp> to ucpp.Ptr<BoxReflectionCaptureComp>{
 	@:from
 	public static extern inline function fromValue(v: BoxReflectionCaptureComp): BoxReflectionCaptureCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FLODSoloTrack")
 @:include("Particles/ParticleSystem.h")
-@:structAccess
+@:valueType
 extern class LODSoloTrack {
-	public var SoloEnableSetting: TArray<cpp.UInt8>;
+	public var SoloEnableSetting: TArray<ucpp.num.UInt8>;
 
 	@:native("FLODSoloTrack") public function new();
-	@:native("FLODSoloTrack") public static function make(SoloEnableSetting: TArray<cpp.UInt8>): LODSoloTrack ;
+	@:native("FLODSoloTrack") public static function make(SoloEnableSetting: TArray<ucpp.num.UInt8>): LODSoloTrack ;
 }

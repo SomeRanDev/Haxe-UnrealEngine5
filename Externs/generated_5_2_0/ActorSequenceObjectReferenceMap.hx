@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorSequenceObjectReferenceMap")
 @:include("ActorSequenceObjectReference.h")
-@:structAccess
+@:valueType
 extern class ActorSequenceObjectReferenceMap {
 	private var BindingIds: TArray<Guid>;
 	private var References: TArray<ActorSequenceObjectReferences>;

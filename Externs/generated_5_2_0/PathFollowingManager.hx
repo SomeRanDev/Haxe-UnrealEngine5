@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPathFollowingManager")
 @:include("Navigation/PathFollowingManager.h")
-@:structAccess
+@:valueType
 extern class PathFollowingManager extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPathFollowingManager(PathFollowingManager) from PathFollowingManag
 @:forward
 @:nativeGen
 @:native("PathFollowingManager*")
-abstract PathFollowingManagerPtr(cpp.Star<PathFollowingManager>) from cpp.Star<PathFollowingManager> to cpp.Star<PathFollowingManager>{
+abstract PathFollowingManagerPtr(ucpp.Ptr<PathFollowingManager>) from ucpp.Ptr<PathFollowingManager> to ucpp.Ptr<PathFollowingManager>{
 	@:from
 	public static extern inline function fromValue(v: PathFollowingManager): PathFollowingManagerPtr {
 		return untyped __cpp__("&({0})", v);

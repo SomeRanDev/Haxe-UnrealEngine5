@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPolygonID")
 @:include("MeshTypes.h")
-@:structAccess
+@:valueType
 extern class PolygonID extends ElementID {
 	@:native("FPolygonID") public function new();
 }

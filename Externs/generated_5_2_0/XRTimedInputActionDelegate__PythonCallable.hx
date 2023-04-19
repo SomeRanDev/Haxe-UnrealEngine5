@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UXRTimedInputActionDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class XRTimedInputActionDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstXRTimedInputActionDelegate__PythonCallable(XRTimedInputActionDeleg
 @:forward
 @:nativeGen
 @:native("XRTimedInputActionDelegate__PythonCallable*")
-abstract XRTimedInputActionDelegate__PythonCallablePtr(cpp.Star<XRTimedInputActionDelegate__PythonCallable>) from cpp.Star<XRTimedInputActionDelegate__PythonCallable> to cpp.Star<XRTimedInputActionDelegate__PythonCallable>{
+abstract XRTimedInputActionDelegate__PythonCallablePtr(ucpp.Ptr<XRTimedInputActionDelegate__PythonCallable>) from ucpp.Ptr<XRTimedInputActionDelegate__PythonCallable> to ucpp.Ptr<XRTimedInputActionDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: XRTimedInputActionDelegate__PythonCallable): XRTimedInputActionDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

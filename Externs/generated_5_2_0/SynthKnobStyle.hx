@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSynthKnobStyle")
 @:include("UI/SynthKnobStyle.h")
-@:structAccess
+@:valueType
 extern class SynthKnobStyle extends SlateWidgetStyle {
 	public var LargeKnob: SlateBrush;
 	public var LargeKnobOverlay: SlateBrush;
 	public var MediumKnob: SlateBrush;
 	public var MediumKnobOverlay: SlateBrush;
-	public var MinValueAngle: cpp.Float32;
-	public var MaxValueAngle: cpp.Float32;
+	public var MinValueAngle: ucpp.num.Float32;
+	public var MaxValueAngle: ucpp.num.Float32;
 	public var KnobSize: ESynthKnobSize;
 
 	@:native("FSynthKnobStyle") public function new();

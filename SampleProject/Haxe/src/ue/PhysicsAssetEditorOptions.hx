@@ -3,97 +3,100 @@ package ue;
 
 @:native("UPhysicsAssetEditorOptions")
 @:include("Preferences/PhysicsAssetEditorOptions.h")
-@:structAccess
+@:valueType
 extern class PhysicsAssetEditorOptions extends Object {
-	public var PhysicsBlend: cpp.Float32;
+	public var PhysicsBlend: ucpp.num.Float32;
 	public var bUpdateJointsFromAnimation: Bool;
 	public var PhysicsUpdateMode: TEnumAsByte<EPhysicsTransformUpdateMode>;
-	public var PokePauseTime: cpp.Float32;
-	public var PokeBlendTime: cpp.Float32;
-	public var GravScale: cpp.Float32;
-	public var GravityOverrideZ: cpp.Float32;
+	public var PokePauseTime: ucpp.num.Float32;
+	public var PokeBlendTime: ucpp.num.Float32;
+	public var GravScale: ucpp.num.Float32;
+	public var GravityOverrideZ: ucpp.num.Float32;
 	public var bUseGravityOverride: Bool;
-	public var MaxFPS: cpp.Int32;
-	public var HandleLinearDamping: cpp.Float32;
-	public var HandleLinearStiffness: cpp.Float32;
-	public var HandleAngularDamping: cpp.Float32;
-	public var HandleAngularStiffness: cpp.Float32;
-	public var InterpolationSpeed: cpp.Float32;
-	public var PokeStrength: cpp.Float32;
-	public var InteractionDistance: cpp.Float32;
+	public var MaxFPS: ucpp.num.Int32;
+	public var HandleLinearDamping: ucpp.num.Float32;
+	public var HandleLinearStiffness: ucpp.num.Float32;
+	public var HandleAngularDamping: ucpp.num.Float32;
+	public var HandleAngularStiffness: ucpp.num.Float32;
+	public var InterpolationSpeed: ucpp.num.Float32;
+	public var PokeStrength: ucpp.num.Float32;
+	public var InteractionDistance: ucpp.num.Float32;
 	public var bShowConstraintsAsPoints: Bool;
 	public var bRenderOnlySelectedConstraints: Bool;
-	public var ConstraintDrawSize: cpp.Float32;
-	public var MeshViewMode: EPhysicsAssetEditorRenderMode;
-	public var CollisionViewMode: EPhysicsAssetEditorRenderMode;
+	public var bSimulationFloorCollisionEnabled: Bool;
+	public var ConstraintDrawSize: ucpp.num.Float32;
+	public var MeshViewMode: EPhysicsAssetEditorMeshViewMode;
+	public var CollisionViewMode: EPhysicsAssetEditorCollisionViewMode;
 	public var ConstraintViewMode: EPhysicsAssetEditorConstraintViewMode;
-	public var SimulationMeshViewMode: EPhysicsAssetEditorRenderMode;
-	public var SimulationCollisionViewMode: EPhysicsAssetEditorRenderMode;
+	public var SimulationMeshViewMode: EPhysicsAssetEditorMeshViewMode;
+	public var SimulationCollisionViewMode: EPhysicsAssetEditorCollisionViewMode;
 	public var SimulationConstraintViewMode: EPhysicsAssetEditorConstraintViewMode;
-	public var CollisionOpacity: cpp.Float32;
+	public var CollisionOpacity: ucpp.num.Float32;
 	public var bSolidRenderingForSelectedOnly: Bool;
 	public var bHideSimulatedBodies: Bool;
 	public var bHideKinematicBodies: Bool;
 	public var bResetClothWhenSimulating: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPhysicsAssetEditorOptions(PhysicsAssetEditorOptions) from PhysicsAssetEditorOptions {
-	public extern var PhysicsBlend(get, never): cpp.Float32;
-	public inline extern function get_PhysicsBlend(): cpp.Float32 return this.PhysicsBlend;
+	public extern var PhysicsBlend(get, never): ucpp.num.Float32;
+	public inline extern function get_PhysicsBlend(): ucpp.num.Float32 return this.PhysicsBlend;
 	public extern var bUpdateJointsFromAnimation(get, never): Bool;
 	public inline extern function get_bUpdateJointsFromAnimation(): Bool return this.bUpdateJointsFromAnimation;
 	public extern var PhysicsUpdateMode(get, never): TEnumAsByte<EPhysicsTransformUpdateMode>;
 	public inline extern function get_PhysicsUpdateMode(): TEnumAsByte<EPhysicsTransformUpdateMode> return this.PhysicsUpdateMode;
-	public extern var PokePauseTime(get, never): cpp.Float32;
-	public inline extern function get_PokePauseTime(): cpp.Float32 return this.PokePauseTime;
-	public extern var PokeBlendTime(get, never): cpp.Float32;
-	public inline extern function get_PokeBlendTime(): cpp.Float32 return this.PokeBlendTime;
-	public extern var GravScale(get, never): cpp.Float32;
-	public inline extern function get_GravScale(): cpp.Float32 return this.GravScale;
-	public extern var GravityOverrideZ(get, never): cpp.Float32;
-	public inline extern function get_GravityOverrideZ(): cpp.Float32 return this.GravityOverrideZ;
+	public extern var PokePauseTime(get, never): ucpp.num.Float32;
+	public inline extern function get_PokePauseTime(): ucpp.num.Float32 return this.PokePauseTime;
+	public extern var PokeBlendTime(get, never): ucpp.num.Float32;
+	public inline extern function get_PokeBlendTime(): ucpp.num.Float32 return this.PokeBlendTime;
+	public extern var GravScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GravScale(): ucpp.num.Float32 return this.GravScale;
+	public extern var GravityOverrideZ(get, never): ucpp.num.Float32;
+	public inline extern function get_GravityOverrideZ(): ucpp.num.Float32 return this.GravityOverrideZ;
 	public extern var bUseGravityOverride(get, never): Bool;
 	public inline extern function get_bUseGravityOverride(): Bool return this.bUseGravityOverride;
-	public extern var MaxFPS(get, never): cpp.Int32;
-	public inline extern function get_MaxFPS(): cpp.Int32 return this.MaxFPS;
-	public extern var HandleLinearDamping(get, never): cpp.Float32;
-	public inline extern function get_HandleLinearDamping(): cpp.Float32 return this.HandleLinearDamping;
-	public extern var HandleLinearStiffness(get, never): cpp.Float32;
-	public inline extern function get_HandleLinearStiffness(): cpp.Float32 return this.HandleLinearStiffness;
-	public extern var HandleAngularDamping(get, never): cpp.Float32;
-	public inline extern function get_HandleAngularDamping(): cpp.Float32 return this.HandleAngularDamping;
-	public extern var HandleAngularStiffness(get, never): cpp.Float32;
-	public inline extern function get_HandleAngularStiffness(): cpp.Float32 return this.HandleAngularStiffness;
-	public extern var InterpolationSpeed(get, never): cpp.Float32;
-	public inline extern function get_InterpolationSpeed(): cpp.Float32 return this.InterpolationSpeed;
-	public extern var PokeStrength(get, never): cpp.Float32;
-	public inline extern function get_PokeStrength(): cpp.Float32 return this.PokeStrength;
-	public extern var InteractionDistance(get, never): cpp.Float32;
-	public inline extern function get_InteractionDistance(): cpp.Float32 return this.InteractionDistance;
+	public extern var MaxFPS(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxFPS(): ucpp.num.Int32 return this.MaxFPS;
+	public extern var HandleLinearDamping(get, never): ucpp.num.Float32;
+	public inline extern function get_HandleLinearDamping(): ucpp.num.Float32 return this.HandleLinearDamping;
+	public extern var HandleLinearStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_HandleLinearStiffness(): ucpp.num.Float32 return this.HandleLinearStiffness;
+	public extern var HandleAngularDamping(get, never): ucpp.num.Float32;
+	public inline extern function get_HandleAngularDamping(): ucpp.num.Float32 return this.HandleAngularDamping;
+	public extern var HandleAngularStiffness(get, never): ucpp.num.Float32;
+	public inline extern function get_HandleAngularStiffness(): ucpp.num.Float32 return this.HandleAngularStiffness;
+	public extern var InterpolationSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_InterpolationSpeed(): ucpp.num.Float32 return this.InterpolationSpeed;
+	public extern var PokeStrength(get, never): ucpp.num.Float32;
+	public inline extern function get_PokeStrength(): ucpp.num.Float32 return this.PokeStrength;
+	public extern var InteractionDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_InteractionDistance(): ucpp.num.Float32 return this.InteractionDistance;
 	public extern var bShowConstraintsAsPoints(get, never): Bool;
 	public inline extern function get_bShowConstraintsAsPoints(): Bool return this.bShowConstraintsAsPoints;
 	public extern var bRenderOnlySelectedConstraints(get, never): Bool;
 	public inline extern function get_bRenderOnlySelectedConstraints(): Bool return this.bRenderOnlySelectedConstraints;
-	public extern var ConstraintDrawSize(get, never): cpp.Float32;
-	public inline extern function get_ConstraintDrawSize(): cpp.Float32 return this.ConstraintDrawSize;
-	public extern var MeshViewMode(get, never): EPhysicsAssetEditorRenderMode;
-	public inline extern function get_MeshViewMode(): EPhysicsAssetEditorRenderMode return this.MeshViewMode;
-	public extern var CollisionViewMode(get, never): EPhysicsAssetEditorRenderMode;
-	public inline extern function get_CollisionViewMode(): EPhysicsAssetEditorRenderMode return this.CollisionViewMode;
+	public extern var bSimulationFloorCollisionEnabled(get, never): Bool;
+	public inline extern function get_bSimulationFloorCollisionEnabled(): Bool return this.bSimulationFloorCollisionEnabled;
+	public extern var ConstraintDrawSize(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstraintDrawSize(): ucpp.num.Float32 return this.ConstraintDrawSize;
+	public extern var MeshViewMode(get, never): EPhysicsAssetEditorMeshViewMode;
+	public inline extern function get_MeshViewMode(): EPhysicsAssetEditorMeshViewMode return this.MeshViewMode;
+	public extern var CollisionViewMode(get, never): EPhysicsAssetEditorCollisionViewMode;
+	public inline extern function get_CollisionViewMode(): EPhysicsAssetEditorCollisionViewMode return this.CollisionViewMode;
 	public extern var ConstraintViewMode(get, never): EPhysicsAssetEditorConstraintViewMode;
 	public inline extern function get_ConstraintViewMode(): EPhysicsAssetEditorConstraintViewMode return this.ConstraintViewMode;
-	public extern var SimulationMeshViewMode(get, never): EPhysicsAssetEditorRenderMode;
-	public inline extern function get_SimulationMeshViewMode(): EPhysicsAssetEditorRenderMode return this.SimulationMeshViewMode;
-	public extern var SimulationCollisionViewMode(get, never): EPhysicsAssetEditorRenderMode;
-	public inline extern function get_SimulationCollisionViewMode(): EPhysicsAssetEditorRenderMode return this.SimulationCollisionViewMode;
+	public extern var SimulationMeshViewMode(get, never): EPhysicsAssetEditorMeshViewMode;
+	public inline extern function get_SimulationMeshViewMode(): EPhysicsAssetEditorMeshViewMode return this.SimulationMeshViewMode;
+	public extern var SimulationCollisionViewMode(get, never): EPhysicsAssetEditorCollisionViewMode;
+	public inline extern function get_SimulationCollisionViewMode(): EPhysicsAssetEditorCollisionViewMode return this.SimulationCollisionViewMode;
 	public extern var SimulationConstraintViewMode(get, never): EPhysicsAssetEditorConstraintViewMode;
 	public inline extern function get_SimulationConstraintViewMode(): EPhysicsAssetEditorConstraintViewMode return this.SimulationConstraintViewMode;
-	public extern var CollisionOpacity(get, never): cpp.Float32;
-	public inline extern function get_CollisionOpacity(): cpp.Float32 return this.CollisionOpacity;
+	public extern var CollisionOpacity(get, never): ucpp.num.Float32;
+	public inline extern function get_CollisionOpacity(): ucpp.num.Float32 return this.CollisionOpacity;
 	public extern var bSolidRenderingForSelectedOnly(get, never): Bool;
 	public inline extern function get_bSolidRenderingForSelectedOnly(): Bool return this.bSolidRenderingForSelectedOnly;
 	public extern var bHideSimulatedBodies(get, never): Bool;
@@ -107,7 +110,7 @@ abstract ConstPhysicsAssetEditorOptions(PhysicsAssetEditorOptions) from PhysicsA
 @:forward
 @:nativeGen
 @:native("PhysicsAssetEditorOptions*")
-abstract PhysicsAssetEditorOptionsPtr(cpp.Star<PhysicsAssetEditorOptions>) from cpp.Star<PhysicsAssetEditorOptions> to cpp.Star<PhysicsAssetEditorOptions>{
+abstract PhysicsAssetEditorOptionsPtr(ucpp.Ptr<PhysicsAssetEditorOptions>) from ucpp.Ptr<PhysicsAssetEditorOptions> to ucpp.Ptr<PhysicsAssetEditorOptions>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsAssetEditorOptions): PhysicsAssetEditorOptionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UNiagaraDecalRendererProperties")
 @:include("NiagaraDecalRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraDecalRendererProperties extends NiagaraRendererProperties {
-	public var Material: cpp.Star<MaterialInterface>;
+	public var Material: ucpp.Ptr<MaterialInterface>;
 	public var MaterialParameterBinding: NiagaraParameterBinding;
 	public var SourceMode: ENiagaraRendererSourceDataMode;
-	public var RendererVisibility: cpp.Int32;
-	public var DecalScreenSizeFade: cpp.Float32;
+	public var RendererVisibility: ucpp.num.Int32;
+	public var DecalScreenSizeFade: ucpp.num.Float32;
 	public var PositionBinding: NiagaraVariableAttributeBinding;
 	public var DecalOrientationBinding: NiagaraVariableAttributeBinding;
 	public var DecalSizeBinding: NiagaraVariableAttributeBinding;
@@ -20,22 +20,22 @@ extern class NiagaraDecalRendererProperties extends NiagaraRendererProperties {
 	public var RendererVisibilityTagBinding: NiagaraVariableAttributeBinding;
 	public var MaterialParameters: NiagaraRendererMaterialParameters;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDecalRendererProperties(NiagaraDecalRendererProperties) from NiagaraDecalRendererProperties {
-	public extern var Material(get, never): cpp.Star<MaterialInterface.ConstMaterialInterface>;
-	public inline extern function get_Material(): cpp.Star<MaterialInterface.ConstMaterialInterface> return this.Material;
+	public extern var Material(get, never): ucpp.Ptr<MaterialInterface.ConstMaterialInterface>;
+	public inline extern function get_Material(): ucpp.Ptr<MaterialInterface.ConstMaterialInterface> return this.Material;
 	public extern var MaterialParameterBinding(get, never): NiagaraParameterBinding;
 	public inline extern function get_MaterialParameterBinding(): NiagaraParameterBinding return this.MaterialParameterBinding;
 	public extern var SourceMode(get, never): ENiagaraRendererSourceDataMode;
 	public inline extern function get_SourceMode(): ENiagaraRendererSourceDataMode return this.SourceMode;
-	public extern var RendererVisibility(get, never): cpp.Int32;
-	public inline extern function get_RendererVisibility(): cpp.Int32 return this.RendererVisibility;
-	public extern var DecalScreenSizeFade(get, never): cpp.Float32;
-	public inline extern function get_DecalScreenSizeFade(): cpp.Float32 return this.DecalScreenSizeFade;
+	public extern var RendererVisibility(get, never): ucpp.num.Int32;
+	public inline extern function get_RendererVisibility(): ucpp.num.Int32 return this.RendererVisibility;
+	public extern var DecalScreenSizeFade(get, never): ucpp.num.Float32;
+	public inline extern function get_DecalScreenSizeFade(): ucpp.num.Float32 return this.DecalScreenSizeFade;
 	public extern var PositionBinding(get, never): NiagaraVariableAttributeBinding;
 	public inline extern function get_PositionBinding(): NiagaraVariableAttributeBinding return this.PositionBinding;
 	public extern var DecalOrientationBinding(get, never): NiagaraVariableAttributeBinding;
@@ -59,7 +59,7 @@ abstract ConstNiagaraDecalRendererProperties(NiagaraDecalRendererProperties) fro
 @:forward
 @:nativeGen
 @:native("NiagaraDecalRendererProperties*")
-abstract NiagaraDecalRendererPropertiesPtr(cpp.Star<NiagaraDecalRendererProperties>) from cpp.Star<NiagaraDecalRendererProperties> to cpp.Star<NiagaraDecalRendererProperties>{
+abstract NiagaraDecalRendererPropertiesPtr(ucpp.Ptr<NiagaraDecalRendererProperties>) from ucpp.Ptr<NiagaraDecalRendererProperties> to ucpp.Ptr<NiagaraDecalRendererProperties>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDecalRendererProperties): NiagaraDecalRendererPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

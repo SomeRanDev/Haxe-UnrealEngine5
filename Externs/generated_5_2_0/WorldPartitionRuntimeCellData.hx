@@ -3,11 +3,11 @@ package ue;
 
 @:native("UWorldPartitionRuntimeCellData")
 @:include("WorldPartition/WorldPartitionRuntimeCellData.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionRuntimeCellData extends Object {
 	public var ContentBounds: Box;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstWorldPartitionRuntimeCellData(WorldPartitionRuntimeCellData) from 
 @:forward
 @:nativeGen
 @:native("WorldPartitionRuntimeCellData*")
-abstract WorldPartitionRuntimeCellDataPtr(cpp.Star<WorldPartitionRuntimeCellData>) from cpp.Star<WorldPartitionRuntimeCellData> to cpp.Star<WorldPartitionRuntimeCellData>{
+abstract WorldPartitionRuntimeCellDataPtr(ucpp.Ptr<WorldPartitionRuntimeCellData>) from ucpp.Ptr<WorldPartitionRuntimeCellData> to ucpp.Ptr<WorldPartitionRuntimeCellData>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionRuntimeCellData): WorldPartitionRuntimeCellDataPtr {
 		return untyped __cpp__("&({0})", v);

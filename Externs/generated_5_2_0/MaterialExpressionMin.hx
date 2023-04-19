@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionMin")
 @:include("Materials/MaterialExpressionMin.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionMin extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
-	public var ConstA: cpp.Float32;
-	public var ConstB: cpp.Float32;
+	public var ConstA: ucpp.num.Float32;
+	public var ConstB: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,16 +20,16 @@ abstract ConstMaterialExpressionMin(MaterialExpressionMin) from MaterialExpressi
 	public inline extern function get_A(): ExpressionInput return this.A;
 	public extern var B(get, never): ExpressionInput;
 	public inline extern function get_B(): ExpressionInput return this.B;
-	public extern var ConstA(get, never): cpp.Float32;
-	public inline extern function get_ConstA(): cpp.Float32 return this.ConstA;
-	public extern var ConstB(get, never): cpp.Float32;
-	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
+	public extern var ConstA(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstA(): ucpp.num.Float32 return this.ConstA;
+	public extern var ConstB(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstB(): ucpp.num.Float32 return this.ConstB;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionMin*")
-abstract MaterialExpressionMinPtr(cpp.Star<MaterialExpressionMin>) from cpp.Star<MaterialExpressionMin> to cpp.Star<MaterialExpressionMin>{
+abstract MaterialExpressionMinPtr(ucpp.Ptr<MaterialExpressionMin>) from ucpp.Ptr<MaterialExpressionMin> to ucpp.Ptr<MaterialExpressionMin>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionMin): MaterialExpressionMinPtr {
 		return untyped __cpp__("&({0})", v);

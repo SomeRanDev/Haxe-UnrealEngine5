@@ -3,24 +3,24 @@ package ue;
 
 @:native("UInputTrigger")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTrigger extends Object {
-	public var ActuationThreshold: cpp.Float32;
+	public var ActuationThreshold: ucpp.num.Float32;
 	public var bShouldAlwaysTick: Bool;
 	public var LastValue: InputActionValue;
 
-	public function UpdateState(PlayerInput: cpp.Star<EnhancedPlayerInput.ConstEnhancedPlayerInput>, ModifiedValue: InputActionValue, DeltaTime: cpp.Float32): ETriggerState;
-	public function IsActuated(ForValue: cpp.Reference<InputActionValue>): Bool;
+	public function UpdateState(PlayerInput: ucpp.Ptr<EnhancedPlayerInput.ConstEnhancedPlayerInput>, ModifiedValue: InputActionValue, DeltaTime: ucpp.num.Float32): ETriggerState;
+	public function IsActuated(ForValue: ucpp.Ref<InputActionValue>): Bool;
 	public function GetTriggerType(): ETriggerType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsActuated, GetTriggerType)
 @:nativeGen
 abstract ConstInputTrigger(InputTrigger) from InputTrigger {
-	public extern var ActuationThreshold(get, never): cpp.Float32;
-	public inline extern function get_ActuationThreshold(): cpp.Float32 return this.ActuationThreshold;
+	public extern var ActuationThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_ActuationThreshold(): ucpp.num.Float32 return this.ActuationThreshold;
 	public extern var bShouldAlwaysTick(get, never): Bool;
 	public inline extern function get_bShouldAlwaysTick(): Bool return this.bShouldAlwaysTick;
 	public extern var LastValue(get, never): InputActionValue;
@@ -30,7 +30,7 @@ abstract ConstInputTrigger(InputTrigger) from InputTrigger {
 @:forward
 @:nativeGen
 @:native("InputTrigger*")
-abstract InputTriggerPtr(cpp.Star<InputTrigger>) from cpp.Star<InputTrigger> to cpp.Star<InputTrigger>{
+abstract InputTriggerPtr(ucpp.Ptr<InputTrigger>) from ucpp.Ptr<InputTrigger> to ucpp.Ptr<InputTrigger>{
 	@:from
 	public static extern inline function fromValue(v: InputTrigger): InputTriggerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UFontFace")
 @:include("Engine/FontFace.h")
-@:structAccess
+@:valueType
 extern class FontFace extends Object {
 	public var SourceFilename: FString;
 	public var Hinting: EFontHinting;
 	public var LoadingPolicy: EFontLoadingPolicy;
 	public var LayoutMethod: EFontLayoutMethod;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstFontFace(FontFace) from FontFace {
 @:forward
 @:nativeGen
 @:native("FontFace*")
-abstract FontFacePtr(cpp.Star<FontFace>) from cpp.Star<FontFace> to cpp.Star<FontFace>{
+abstract FontFacePtr(ucpp.Ptr<FontFace>) from ucpp.Ptr<FontFace> to ucpp.Ptr<FontFace>{
 	@:from
 	public static extern inline function fromValue(v: FontFace): FontFacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectMixerSerializationDataPerFilter")
 @:include("ObjectMixerEditorSerializedData.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerSerializationDataPerFilter {
 	public var FilterClassName: FName;
 	public var SerializedCollections: TArray<ObjectMixerCollectionObjectSet>;

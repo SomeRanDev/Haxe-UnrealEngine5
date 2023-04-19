@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFieldNodeBase")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class FieldNodeBase extends ActorComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFieldNodeBase(FieldNodeBase) from FieldNodeBase {
 @:forward
 @:nativeGen
 @:native("FieldNodeBase*")
-abstract FieldNodeBasePtr(cpp.Star<FieldNodeBase>) from cpp.Star<FieldNodeBase> to cpp.Star<FieldNodeBase>{
+abstract FieldNodeBasePtr(ucpp.Ptr<FieldNodeBase>) from ucpp.Ptr<FieldNodeBase> to ucpp.Ptr<FieldNodeBase>{
 	@:from
 	public static extern inline function fromValue(v: FieldNodeBase): FieldNodeBasePtr {
 		return untyped __cpp__("&({0})", v);

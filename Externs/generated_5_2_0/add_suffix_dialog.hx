@@ -2,11 +2,11 @@
 package ue;
 
 @:native("Uadd_suffix_dialog")
-@:structAccess
+@:valueType
 extern class add_suffix_dialog extends Object {
 	public var suffix: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract Constadd_suffix_dialog(add_suffix_dialog) from add_suffix_dialog {
 @:forward
 @:nativeGen
 @:native("add_suffix_dialog*")
-abstract add_suffix_dialogPtr(cpp.Star<add_suffix_dialog>) from cpp.Star<add_suffix_dialog> to cpp.Star<add_suffix_dialog>{
+abstract add_suffix_dialogPtr(ucpp.Ptr<add_suffix_dialog>) from ucpp.Ptr<add_suffix_dialog> to ucpp.Ptr<add_suffix_dialog>{
 	@:from
 	public static extern inline function fromValue(v: add_suffix_dialog): add_suffix_dialogPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UDistributionFloat")
 @:include("Distributions/DistributionFloat.h")
-@:structAccess
+@:valueType
 extern class DistributionFloat extends Distribution {
 	public var bCanBeBaked: Bool;
 	@:protected public var bBakedDataSuccesfully: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstDistributionFloat(DistributionFloat) from DistributionFloat {
 @:forward
 @:nativeGen
 @:native("DistributionFloat*")
-abstract DistributionFloatPtr(cpp.Star<DistributionFloat>) from cpp.Star<DistributionFloat> to cpp.Star<DistributionFloat>{
+abstract DistributionFloatPtr(ucpp.Ptr<DistributionFloat>) from ucpp.Ptr<DistributionFloat> to ucpp.Ptr<DistributionFloat>{
 	@:from
 	public static extern inline function fromValue(v: DistributionFloat): DistributionFloatPtr {
 		return untyped __cpp__("&({0})", v);

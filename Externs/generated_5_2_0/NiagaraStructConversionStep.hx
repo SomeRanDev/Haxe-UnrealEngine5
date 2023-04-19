@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraStructConversionStep")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraStructConversionStep {
-	public var LWCBytes: cpp.Int32;
-	public var LWCOffset: cpp.Int32;
-	public var SimulationBytes: cpp.Int32;
-	public var SimulationOffset: cpp.Int32;
+	public var LWCBytes: ucpp.num.Int32;
+	public var LWCOffset: ucpp.num.Int32;
+	public var SimulationBytes: ucpp.num.Int32;
+	public var SimulationOffset: ucpp.num.Int32;
 	public var ConversionType: ENiagaraStructConversionType;
 
 	@:native("FNiagaraStructConversionStep") public function new();
-	@:native("FNiagaraStructConversionStep") public static function make(LWCBytes: cpp.Int32, LWCOffset: cpp.Int32, SimulationBytes: cpp.Int32, SimulationOffset: cpp.Int32, ConversionType: ENiagaraStructConversionType): NiagaraStructConversionStep ;
+	@:native("FNiagaraStructConversionStep") public static function make(LWCBytes: ucpp.num.Int32, LWCOffset: ucpp.num.Int32, SimulationBytes: ucpp.num.Int32, SimulationOffset: ucpp.num.Int32, ConversionType: ENiagaraStructConversionType): NiagaraStructConversionStep ;
 }

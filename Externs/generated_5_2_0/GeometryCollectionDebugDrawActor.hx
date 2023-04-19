@@ -3,7 +3,7 @@ package ue;
 
 @:native("AGeometryCollectionDebugDrawActor")
 @:include("GeometryCollection/GeometryCollectionDebugDrawActor.h")
-@:structAccess
+@:valueType
 extern class GeometryCollectionDebugDrawActor extends Actor {
 	public var bDebugDrawWholeCollection: Bool;
 	public var bDebugDrawHierarchy: Bool;
@@ -29,32 +29,32 @@ extern class GeometryCollectionDebugDrawActor extends Actor {
 	public var bShowFaceIndices: Bool;
 	public var bShowFaceNormals: Bool;
 	public var bShowSingleFace: Bool;
-	public var SingleFaceIndex: cpp.Int32;
+	public var SingleFaceIndex: ucpp.num.Int32;
 	public var bShowVertices: Bool;
 	public var bShowVertexIndices: Bool;
 	public var bShowVertexNormals: Bool;
 	public var bUseActiveVisualization: Bool;
-	public var PointThickness: cpp.Float32;
-	public var LineThickness: cpp.Float32;
+	public var PointThickness: ucpp.num.Float32;
+	public var LineThickness: ucpp.num.Float32;
 	public var bTextShadow: Bool;
-	public var TextScale: cpp.Float32;
-	public var NormalScale: cpp.Float32;
-	public var AxisScale: cpp.Float32;
-	public var ArrowScale: cpp.Float32;
+	public var TextScale: ucpp.num.Float32;
+	public var NormalScale: ucpp.num.Float32;
+	public var AxisScale: ucpp.num.Float32;
+	public var ArrowScale: ucpp.num.Float32;
 	public var RigidBodyIdColor: Color;
-	public var RigidBodyTransformScale: cpp.Float32;
+	public var RigidBodyTransformScale: ucpp.num.Float32;
 	public var RigidBodyCollisionColor: Color;
 	public var RigidBodyInertiaColor: Color;
 	public var RigidBodyVelocityColor: Color;
 	public var RigidBodyForceColor: Color;
 	public var RigidBodyInfoColor: Color;
 	public var TransformIndexColor: Color;
-	public var TransformScale: cpp.Float32;
+	public var TransformScale: ucpp.num.Float32;
 	public var LevelColor: Color;
 	public var ParentColor: Color;
-	public var ConnectivityEdgeThickness: cpp.Float32;
+	public var ConnectivityEdgeThickness: ucpp.num.Float32;
 	public var GeometryIndexColor: Color;
-	public var GeometryTransformScale: cpp.Float32;
+	public var GeometryTransformScale: ucpp.num.Float32;
 	public var BoundingBoxColor: Color;
 	public var FaceColor: Color;
 	public var FaceIndexColor: Color;
@@ -63,9 +63,9 @@ extern class GeometryCollectionDebugDrawActor extends Actor {
 	public var VertexColor: Color;
 	public var VertexIndexColor: Color;
 	public var VertexNormalColor: Color;
-	public var SpriteComponent: cpp.Star<BillboardComp>;
+	public var SpriteComponent: ucpp.Ptr<BillboardComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -119,8 +119,8 @@ abstract ConstGeometryCollectionDebugDrawActor(GeometryCollectionDebugDrawActor)
 	public inline extern function get_bShowFaceNormals(): Bool return this.bShowFaceNormals;
 	public extern var bShowSingleFace(get, never): Bool;
 	public inline extern function get_bShowSingleFace(): Bool return this.bShowSingleFace;
-	public extern var SingleFaceIndex(get, never): cpp.Int32;
-	public inline extern function get_SingleFaceIndex(): cpp.Int32 return this.SingleFaceIndex;
+	public extern var SingleFaceIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_SingleFaceIndex(): ucpp.num.Int32 return this.SingleFaceIndex;
 	public extern var bShowVertices(get, never): Bool;
 	public inline extern function get_bShowVertices(): Bool return this.bShowVertices;
 	public extern var bShowVertexIndices(get, never): Bool;
@@ -129,24 +129,24 @@ abstract ConstGeometryCollectionDebugDrawActor(GeometryCollectionDebugDrawActor)
 	public inline extern function get_bShowVertexNormals(): Bool return this.bShowVertexNormals;
 	public extern var bUseActiveVisualization(get, never): Bool;
 	public inline extern function get_bUseActiveVisualization(): Bool return this.bUseActiveVisualization;
-	public extern var PointThickness(get, never): cpp.Float32;
-	public inline extern function get_PointThickness(): cpp.Float32 return this.PointThickness;
-	public extern var LineThickness(get, never): cpp.Float32;
-	public inline extern function get_LineThickness(): cpp.Float32 return this.LineThickness;
+	public extern var PointThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_PointThickness(): ucpp.num.Float32 return this.PointThickness;
+	public extern var LineThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_LineThickness(): ucpp.num.Float32 return this.LineThickness;
 	public extern var bTextShadow(get, never): Bool;
 	public inline extern function get_bTextShadow(): Bool return this.bTextShadow;
-	public extern var TextScale(get, never): cpp.Float32;
-	public inline extern function get_TextScale(): cpp.Float32 return this.TextScale;
-	public extern var NormalScale(get, never): cpp.Float32;
-	public inline extern function get_NormalScale(): cpp.Float32 return this.NormalScale;
-	public extern var AxisScale(get, never): cpp.Float32;
-	public inline extern function get_AxisScale(): cpp.Float32 return this.AxisScale;
-	public extern var ArrowScale(get, never): cpp.Float32;
-	public inline extern function get_ArrowScale(): cpp.Float32 return this.ArrowScale;
+	public extern var TextScale(get, never): ucpp.num.Float32;
+	public inline extern function get_TextScale(): ucpp.num.Float32 return this.TextScale;
+	public extern var NormalScale(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalScale(): ucpp.num.Float32 return this.NormalScale;
+	public extern var AxisScale(get, never): ucpp.num.Float32;
+	public inline extern function get_AxisScale(): ucpp.num.Float32 return this.AxisScale;
+	public extern var ArrowScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ArrowScale(): ucpp.num.Float32 return this.ArrowScale;
 	public extern var RigidBodyIdColor(get, never): Color;
 	public inline extern function get_RigidBodyIdColor(): Color return this.RigidBodyIdColor;
-	public extern var RigidBodyTransformScale(get, never): cpp.Float32;
-	public inline extern function get_RigidBodyTransformScale(): cpp.Float32 return this.RigidBodyTransformScale;
+	public extern var RigidBodyTransformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_RigidBodyTransformScale(): ucpp.num.Float32 return this.RigidBodyTransformScale;
 	public extern var RigidBodyCollisionColor(get, never): Color;
 	public inline extern function get_RigidBodyCollisionColor(): Color return this.RigidBodyCollisionColor;
 	public extern var RigidBodyInertiaColor(get, never): Color;
@@ -159,18 +159,18 @@ abstract ConstGeometryCollectionDebugDrawActor(GeometryCollectionDebugDrawActor)
 	public inline extern function get_RigidBodyInfoColor(): Color return this.RigidBodyInfoColor;
 	public extern var TransformIndexColor(get, never): Color;
 	public inline extern function get_TransformIndexColor(): Color return this.TransformIndexColor;
-	public extern var TransformScale(get, never): cpp.Float32;
-	public inline extern function get_TransformScale(): cpp.Float32 return this.TransformScale;
+	public extern var TransformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_TransformScale(): ucpp.num.Float32 return this.TransformScale;
 	public extern var LevelColor(get, never): Color;
 	public inline extern function get_LevelColor(): Color return this.LevelColor;
 	public extern var ParentColor(get, never): Color;
 	public inline extern function get_ParentColor(): Color return this.ParentColor;
-	public extern var ConnectivityEdgeThickness(get, never): cpp.Float32;
-	public inline extern function get_ConnectivityEdgeThickness(): cpp.Float32 return this.ConnectivityEdgeThickness;
+	public extern var ConnectivityEdgeThickness(get, never): ucpp.num.Float32;
+	public inline extern function get_ConnectivityEdgeThickness(): ucpp.num.Float32 return this.ConnectivityEdgeThickness;
 	public extern var GeometryIndexColor(get, never): Color;
 	public inline extern function get_GeometryIndexColor(): Color return this.GeometryIndexColor;
-	public extern var GeometryTransformScale(get, never): cpp.Float32;
-	public inline extern function get_GeometryTransformScale(): cpp.Float32 return this.GeometryTransformScale;
+	public extern var GeometryTransformScale(get, never): ucpp.num.Float32;
+	public inline extern function get_GeometryTransformScale(): ucpp.num.Float32 return this.GeometryTransformScale;
 	public extern var BoundingBoxColor(get, never): Color;
 	public inline extern function get_BoundingBoxColor(): Color return this.BoundingBoxColor;
 	public extern var FaceColor(get, never): Color;
@@ -187,14 +187,14 @@ abstract ConstGeometryCollectionDebugDrawActor(GeometryCollectionDebugDrawActor)
 	public inline extern function get_VertexIndexColor(): Color return this.VertexIndexColor;
 	public extern var VertexNormalColor(get, never): Color;
 	public inline extern function get_VertexNormalColor(): Color return this.VertexNormalColor;
-	public extern var SpriteComponent(get, never): cpp.Star<BillboardComp.ConstBillboardComp>;
-	public inline extern function get_SpriteComponent(): cpp.Star<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
+	public extern var SpriteComponent(get, never): ucpp.Ptr<BillboardComp.ConstBillboardComp>;
+	public inline extern function get_SpriteComponent(): ucpp.Ptr<BillboardComp.ConstBillboardComp> return this.SpriteComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCollectionDebugDrawActor*")
-abstract GeometryCollectionDebugDrawActorPtr(cpp.Star<GeometryCollectionDebugDrawActor>) from cpp.Star<GeometryCollectionDebugDrawActor> to cpp.Star<GeometryCollectionDebugDrawActor>{
+abstract GeometryCollectionDebugDrawActorPtr(ucpp.Ptr<GeometryCollectionDebugDrawActor>) from ucpp.Ptr<GeometryCollectionDebugDrawActor> to ucpp.Ptr<GeometryCollectionDebugDrawActor>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionDebugDrawActor): GeometryCollectionDebugDrawActorPtr {
 		return untyped __cpp__("&({0})", v);

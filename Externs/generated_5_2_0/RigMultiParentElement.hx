@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigMultiParentElement")
 @:include("Rigs/RigHierarchyElements.h")
-@:structAccess
+@:valueType
 extern class RigMultiParentElement extends RigTransformElement {
 	@:native("FRigMultiParentElement") public function new();
 }

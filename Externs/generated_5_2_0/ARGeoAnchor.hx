@@ -3,14 +3,14 @@ package ue;
 
 @:native("UARGeoAnchor")
 @:include("ARTrackable.h")
-@:structAccess
+@:valueType
 extern class ARGeoAnchor extends ARTrackedGeometry {
-	public function GetLongitude(): cpp.Float32;
-	public function GetLatitude(): cpp.Float32;
+	public function GetLongitude(): ucpp.num.Float32;
+	public function GetLatitude(): ucpp.num.Float32;
 	public function GetAltitudeSource(): EARAltitudeSource;
-	public function GetAltitudeMeters(): cpp.Float32;
+	public function GetAltitudeMeters(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetLongitude, GetLatitude, GetAltitudeSource, GetAltitudeMeters)
@@ -21,7 +21,7 @@ abstract ConstARGeoAnchor(ARGeoAnchor) from ARGeoAnchor {
 @:forward
 @:nativeGen
 @:native("ARGeoAnchor*")
-abstract ARGeoAnchorPtr(cpp.Star<ARGeoAnchor>) from cpp.Star<ARGeoAnchor> to cpp.Star<ARGeoAnchor>{
+abstract ARGeoAnchorPtr(ucpp.Ptr<ARGeoAnchor>) from ucpp.Ptr<ARGeoAnchor> to ucpp.Ptr<ARGeoAnchor>{
 	@:from
 	public static extern inline function fromValue(v: ARGeoAnchor): ARGeoAnchorPtr {
 		return untyped __cpp__("&({0})", v);

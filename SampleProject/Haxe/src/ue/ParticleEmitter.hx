@@ -3,10 +3,10 @@ package ue;
 
 @:native("UParticleEmitter")
 @:include("Particles/ParticleEmitter.h")
-@:structAccess
+@:valueType
 extern class ParticleEmitter extends Object {
 	public var EmitterName: FName;
-	public var SubUVDataOffset: cpp.Int32;
+	public var SubUVDataOffset: ucpp.num.Int32;
 	public var EmitterRenderMode: TEnumAsByte<EEmitterRenderMode>;
 	public var SignificanceLevel: EParticleSignificanceLevel;
 	public var bUseLegacySpawningBehavior: Bool;
@@ -15,13 +15,13 @@ extern class ParticleEmitter extends Object {
 	public var bCookedOut: Bool;
 	public var bDisabledLODsKeepEmitterAlive: Bool;
 	public var bDisableWhenInsignficant: Bool;
-	public var LODLevels: TArray<cpp.Star<ParticleLODLevel>>;
-	public var PeakActiveParticles: cpp.Int32;
-	public var InitialAllocationCount: cpp.Int32;
-	public var QualityLevelSpawnRateScale: cpp.Float32;
-	public var DetailModeBitmask: cpp.UInt32;
+	public var LODLevels: TArray<ucpp.Ptr<ParticleLODLevel>>;
+	public var PeakActiveParticles: ucpp.num.Int32;
+	public var InitialAllocationCount: ucpp.num.Int32;
+	public var QualityLevelSpawnRateScale: ucpp.num.Float32;
+	public var DetailModeBitmask: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,8 +29,8 @@ extern class ParticleEmitter extends Object {
 abstract ConstParticleEmitter(ParticleEmitter) from ParticleEmitter {
 	public extern var EmitterName(get, never): FName;
 	public inline extern function get_EmitterName(): FName return this.EmitterName;
-	public extern var SubUVDataOffset(get, never): cpp.Int32;
-	public inline extern function get_SubUVDataOffset(): cpp.Int32 return this.SubUVDataOffset;
+	public extern var SubUVDataOffset(get, never): ucpp.num.Int32;
+	public inline extern function get_SubUVDataOffset(): ucpp.num.Int32 return this.SubUVDataOffset;
 	public extern var EmitterRenderMode(get, never): TEnumAsByte<EEmitterRenderMode>;
 	public inline extern function get_EmitterRenderMode(): TEnumAsByte<EEmitterRenderMode> return this.EmitterRenderMode;
 	public extern var SignificanceLevel(get, never): EParticleSignificanceLevel;
@@ -47,22 +47,22 @@ abstract ConstParticleEmitter(ParticleEmitter) from ParticleEmitter {
 	public inline extern function get_bDisabledLODsKeepEmitterAlive(): Bool return this.bDisabledLODsKeepEmitterAlive;
 	public extern var bDisableWhenInsignficant(get, never): Bool;
 	public inline extern function get_bDisableWhenInsignficant(): Bool return this.bDisableWhenInsignficant;
-	public extern var LODLevels(get, never): TArray<cpp.Star<ParticleLODLevel.ConstParticleLODLevel>>;
-	public inline extern function get_LODLevels(): TArray<cpp.Star<ParticleLODLevel.ConstParticleLODLevel>> return this.LODLevels;
-	public extern var PeakActiveParticles(get, never): cpp.Int32;
-	public inline extern function get_PeakActiveParticles(): cpp.Int32 return this.PeakActiveParticles;
-	public extern var InitialAllocationCount(get, never): cpp.Int32;
-	public inline extern function get_InitialAllocationCount(): cpp.Int32 return this.InitialAllocationCount;
-	public extern var QualityLevelSpawnRateScale(get, never): cpp.Float32;
-	public inline extern function get_QualityLevelSpawnRateScale(): cpp.Float32 return this.QualityLevelSpawnRateScale;
-	public extern var DetailModeBitmask(get, never): cpp.UInt32;
-	public inline extern function get_DetailModeBitmask(): cpp.UInt32 return this.DetailModeBitmask;
+	public extern var LODLevels(get, never): TArray<ucpp.Ptr<ParticleLODLevel.ConstParticleLODLevel>>;
+	public inline extern function get_LODLevels(): TArray<ucpp.Ptr<ParticleLODLevel.ConstParticleLODLevel>> return this.LODLevels;
+	public extern var PeakActiveParticles(get, never): ucpp.num.Int32;
+	public inline extern function get_PeakActiveParticles(): ucpp.num.Int32 return this.PeakActiveParticles;
+	public extern var InitialAllocationCount(get, never): ucpp.num.Int32;
+	public inline extern function get_InitialAllocationCount(): ucpp.num.Int32 return this.InitialAllocationCount;
+	public extern var QualityLevelSpawnRateScale(get, never): ucpp.num.Float32;
+	public inline extern function get_QualityLevelSpawnRateScale(): ucpp.num.Float32 return this.QualityLevelSpawnRateScale;
+	public extern var DetailModeBitmask(get, never): ucpp.num.UInt32;
+	public inline extern function get_DetailModeBitmask(): ucpp.num.UInt32 return this.DetailModeBitmask;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleEmitter*")
-abstract ParticleEmitterPtr(cpp.Star<ParticleEmitter>) from cpp.Star<ParticleEmitter> to cpp.Star<ParticleEmitter>{
+abstract ParticleEmitterPtr(ucpp.Ptr<ParticleEmitter>) from ucpp.Ptr<ParticleEmitter> to ucpp.Ptr<ParticleEmitter>{
 	@:from
 	public static extern inline function fromValue(v: ParticleEmitter): ParticleEmitterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTransformFilter")
 @:include("Constraint.h")
-@:structAccess
+@:valueType
 extern class TransformFilter {
 	public var TranslationFilter: FilterOptionPerAxis;
 	public var RotationFilter: FilterOptionPerAxis;

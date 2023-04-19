@@ -3,28 +3,28 @@ package ue;
 
 @:native("UUserDefinedCaptureProtocol")
 @:include("Protocols/UserDefinedCaptureProtocol.h")
-@:structAccess
+@:valueType
 extern class UserDefinedCaptureProtocol extends MovieSceneImageCaptureProtocolBase {
-	@:protected public var World: cpp.Star<World>;
+	@:protected public var World: ucpp.Ptr<World>;
 
 	public function StopCapturingFinalPixels(): Void;
-	public function StartCapturingFinalPixels(StreamID: cpp.Reference<CapturedPixelsID>): Void;
-	public function ResolveBuffer(Buffer: cpp.Star<Texture>, BufferID: cpp.Reference<CapturedPixelsID>): Void;
+	public function StartCapturingFinalPixels(StreamID: ucpp.Ref<CapturedPixelsID>): Void;
+	public function ResolveBuffer(Buffer: ucpp.Ptr<Texture>, BufferID: ucpp.Ref<CapturedPixelsID>): Void;
 	@:protected public function OnWarmUp(): Void;
 	@:protected public function OnTick(): Void;
 	@:protected public function OnStartCapture(): Void;
 	@:protected public function OnSetup(): Bool;
 	@:protected public function OnPreTick(): Void;
-	@:protected public function OnPixelsReceived(Pixels: cpp.Reference<CapturedPixels>, ID: cpp.Reference<CapturedPixelsID>, FrameMetrics: FrameMetrics): Void;
+	@:protected public function OnPixelsReceived(Pixels: ucpp.Ref<CapturedPixels>, ID: ucpp.Ref<CapturedPixelsID>, FrameMetrics: FrameMetrics): Void;
 	@:protected public function OnPauseCapture(): Void;
 	@:protected public function OnFinalize(): Void;
 	@:protected public function OnCaptureFrame(): Void;
 	@:protected public function OnCanFinalize(): Bool;
 	@:protected public function OnBeginFinalize(): Void;
 	public function GetCurrentFrameMetrics(): FrameMetrics;
-	public function GenerateFilename(InFrameMetrics: cpp.Reference<FrameMetrics>): FString;
+	public function GenerateFilename(InFrameMetrics: ucpp.Ref<FrameMetrics>): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(OnCanFinalize, GetCurrentFrameMetrics, GenerateFilename)
@@ -35,7 +35,7 @@ abstract ConstUserDefinedCaptureProtocol(UserDefinedCaptureProtocol) from UserDe
 @:forward
 @:nativeGen
 @:native("UserDefinedCaptureProtocol*")
-abstract UserDefinedCaptureProtocolPtr(cpp.Star<UserDefinedCaptureProtocol>) from cpp.Star<UserDefinedCaptureProtocol> to cpp.Star<UserDefinedCaptureProtocol>{
+abstract UserDefinedCaptureProtocolPtr(ucpp.Ptr<UserDefinedCaptureProtocol>) from ucpp.Ptr<UserDefinedCaptureProtocol> to ucpp.Ptr<UserDefinedCaptureProtocol>{
 	@:from
 	public static extern inline function fromValue(v: UserDefinedCaptureProtocol): UserDefinedCaptureProtocolPtr {
 		return untyped __cpp__("&({0})", v);

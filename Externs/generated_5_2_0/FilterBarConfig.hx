@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFilterBarConfig")
 @:include("Filters/FilterBarConfig.h")
-@:structAccess
+@:valueType
 extern class FilterBarConfig extends EditorConfigBase {
 	public var FilterBars: TMap<FName, FilterBarSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFilterBarConfig(FilterBarConfig) from FilterBarConfig {
 @:forward
 @:nativeGen
 @:native("FilterBarConfig*")
-abstract FilterBarConfigPtr(cpp.Star<FilterBarConfig>) from cpp.Star<FilterBarConfig> to cpp.Star<FilterBarConfig>{
+abstract FilterBarConfigPtr(ucpp.Ptr<FilterBarConfig>) from ucpp.Ptr<FilterBarConfig> to ucpp.Ptr<FilterBarConfig>{
 	@:from
 	public static extern inline function fromValue(v: FilterBarConfig): FilterBarConfigPtr {
 		return untyped __cpp__("&({0})", v);

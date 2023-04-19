@@ -3,21 +3,21 @@ package ue;
 
 @:native("UResonanceAudioReverbPluginPreset")
 @:include("ResonanceAudioReverb.h")
-@:structAccess
+@:valueType
 extern class ResonanceAudioReverbPluginPreset extends SoundEffectSubmixPreset {
 	public var Settings: ResonanceAudioReverbPluginSettings;
 
-	public function SetRoomRotation(InRotation: cpp.Reference<Quat>): Void;
-	public function SetRoomPosition(InPosition: cpp.Reference<Vector>): Void;
-	public function SetRoomMaterials(InMaterials: cpp.Reference<TArray<ERaMaterialName>>): Void;
-	public function SetRoomDimensions(InDimensions: cpp.Reference<Vector>): Void;
-	public function SetReverbTimeModifier(InReverbTimeModifier: cpp.Float32): Void;
-	public function SetReverbGain(InReverbGain: cpp.Float32): Void;
-	public function SetReverbBrightness(InReverbBrightness: cpp.Float32): Void;
-	public function SetReflectionScalar(InReflectionScalar: cpp.Float32): Void;
+	public function SetRoomRotation(InRotation: ucpp.Ref<Quat>): Void;
+	public function SetRoomPosition(InPosition: ucpp.Ref<Vector>): Void;
+	public function SetRoomMaterials(InMaterials: ucpp.Ref<TArray<ERaMaterialName>>): Void;
+	public function SetRoomDimensions(InDimensions: ucpp.Ref<Vector>): Void;
+	public function SetReverbTimeModifier(InReverbTimeModifier: ucpp.num.Float32): Void;
+	public function SetReverbGain(InReverbGain: ucpp.num.Float32): Void;
+	public function SetReverbBrightness(InReverbBrightness: ucpp.num.Float32): Void;
+	public function SetReflectionScalar(InReflectionScalar: ucpp.num.Float32): Void;
 	public function SetEnableRoomEffects(bInEnableRoomEffects: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstResonanceAudioReverbPluginPreset(ResonanceAudioReverbPluginPreset)
 @:forward
 @:nativeGen
 @:native("ResonanceAudioReverbPluginPreset*")
-abstract ResonanceAudioReverbPluginPresetPtr(cpp.Star<ResonanceAudioReverbPluginPreset>) from cpp.Star<ResonanceAudioReverbPluginPreset> to cpp.Star<ResonanceAudioReverbPluginPreset>{
+abstract ResonanceAudioReverbPluginPresetPtr(ucpp.Ptr<ResonanceAudioReverbPluginPreset>) from ucpp.Ptr<ResonanceAudioReverbPluginPreset> to ucpp.Ptr<ResonanceAudioReverbPluginPreset>{
 	@:from
 	public static extern inline function fromValue(v: ResonanceAudioReverbPluginPreset): ResonanceAudioReverbPluginPresetPtr {
 		return untyped __cpp__("&({0})", v);

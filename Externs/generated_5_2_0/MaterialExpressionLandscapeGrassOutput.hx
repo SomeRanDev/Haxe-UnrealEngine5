@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionLandscapeGrassOutput")
 @:include("Materials/MaterialExpressionLandscapeGrassOutput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionLandscapeGrassOutput extends MaterialExpressionCustomOutput {
 	public var GrassTypes: TArray<GrassInput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionLandscapeGrassOutput(MaterialExpressionLandscape
 @:forward
 @:nativeGen
 @:native("MaterialExpressionLandscapeGrassOutput*")
-abstract MaterialExpressionLandscapeGrassOutputPtr(cpp.Star<MaterialExpressionLandscapeGrassOutput>) from cpp.Star<MaterialExpressionLandscapeGrassOutput> to cpp.Star<MaterialExpressionLandscapeGrassOutput>{
+abstract MaterialExpressionLandscapeGrassOutputPtr(ucpp.Ptr<MaterialExpressionLandscapeGrassOutput>) from ucpp.Ptr<MaterialExpressionLandscapeGrassOutput> to ucpp.Ptr<MaterialExpressionLandscapeGrassOutput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionLandscapeGrassOutput): MaterialExpressionLandscapeGrassOutputPtr {
 		return untyped __cpp__("&({0})", v);

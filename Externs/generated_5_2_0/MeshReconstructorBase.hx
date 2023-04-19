@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMeshReconstructorBase")
 @:include("MeshReconstructorBase.h")
-@:structAccess
+@:valueType
 extern class MeshReconstructorBase extends Object {
 	public function StopReconstruction(): Void;
 	public function StartReconstruction(): Void;
@@ -11,9 +11,9 @@ extern class MeshReconstructorBase extends Object {
 	public function IsReconstructionStarted(): Bool;
 	public function IsReconstructionPaused(): Bool;
 	public function DisconnectMRMesh(): Void;
-	public function ConnectMRMesh(Mesh: cpp.Star<MRMeshComp>): Void;
+	public function ConnectMRMesh(Mesh: ucpp.Ptr<MRMeshComp>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsReconstructionStarted, IsReconstructionPaused)
@@ -24,7 +24,7 @@ abstract ConstMeshReconstructorBase(MeshReconstructorBase) from MeshReconstructo
 @:forward
 @:nativeGen
 @:native("MeshReconstructorBase*")
-abstract MeshReconstructorBasePtr(cpp.Star<MeshReconstructorBase>) from cpp.Star<MeshReconstructorBase> to cpp.Star<MeshReconstructorBase>{
+abstract MeshReconstructorBasePtr(ucpp.Ptr<MeshReconstructorBase>) from ucpp.Ptr<MeshReconstructorBase> to ucpp.Ptr<MeshReconstructorBase>{
 	@:from
 	public static extern inline function fromValue(v: MeshReconstructorBase): MeshReconstructorBasePtr {
 		return untyped __cpp__("&({0})", v);

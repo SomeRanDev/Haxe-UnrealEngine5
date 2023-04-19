@@ -3,14 +3,14 @@ package ue;
 
 @:native("UGeomModifier_Clip")
 @:include("GeomModifier_Clip.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Clip extends GeomModifier_Edit {
 	public var bFlipNormal: Bool;
 	public var bSplit: Bool;
 	public var ClipMarkers: TArray<Vector>;
 	public var SnappedMouseWorldSpacePos: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstGeomModifier_Clip(GeomModifier_Clip) from GeomModifier_Clip {
 @:forward
 @:nativeGen
 @:native("GeomModifier_Clip*")
-abstract GeomModifier_ClipPtr(cpp.Star<GeomModifier_Clip>) from cpp.Star<GeomModifier_Clip> to cpp.Star<GeomModifier_Clip>{
+abstract GeomModifier_ClipPtr(ucpp.Ptr<GeomModifier_Clip>) from ucpp.Ptr<GeomModifier_Clip> to ucpp.Ptr<GeomModifier_Clip>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Clip): GeomModifier_ClipPtr {
 		return untyped __cpp__("&({0})", v);

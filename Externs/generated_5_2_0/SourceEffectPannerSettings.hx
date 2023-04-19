@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSourceEffectPannerSettings")
 @:include("SourceEffects/SourceEffectPanner.h")
-@:structAccess
+@:valueType
 extern class SourceEffectPannerSettings {
-	public var Spread: cpp.Float32;
-	public var Pan: cpp.Float32;
+	public var Spread: ucpp.num.Float32;
+	public var Pan: ucpp.num.Float32;
 
 	@:native("FSourceEffectPannerSettings") public function new();
-	@:native("FSourceEffectPannerSettings") public static function make(Spread: cpp.Float32, Pan: cpp.Float32): SourceEffectPannerSettings ;
+	@:native("FSourceEffectPannerSettings") public static function make(Spread: ucpp.num.Float32, Pan: ucpp.num.Float32): SourceEffectPannerSettings ;
 }

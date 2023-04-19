@@ -3,29 +3,29 @@ package ue;
 
 @:native("ULeaderboardQueryCallbackProxy")
 @:include("LeaderboardQueryCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class LeaderboardQueryCallbackProxy extends Object {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
 
-	public function CreateProxyObjectForIntQuery(PlayerController: cpp.Star<PlayerController>, StatName: FName): cpp.Star<LeaderboardQueryCallbackProxy>;
+	public function CreateProxyObjectForIntQuery(PlayerController: ucpp.Ptr<PlayerController>, StatName: FName): ucpp.Ptr<LeaderboardQueryCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLeaderboardQueryCallbackProxy(LeaderboardQueryCallbackProxy) from LeaderboardQueryCallbackProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Int32) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Int32) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("LeaderboardQueryCallbackProxy*")
-abstract LeaderboardQueryCallbackProxyPtr(cpp.Star<LeaderboardQueryCallbackProxy>) from cpp.Star<LeaderboardQueryCallbackProxy> to cpp.Star<LeaderboardQueryCallbackProxy>{
+abstract LeaderboardQueryCallbackProxyPtr(ucpp.Ptr<LeaderboardQueryCallbackProxy>) from ucpp.Ptr<LeaderboardQueryCallbackProxy> to ucpp.Ptr<LeaderboardQueryCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: LeaderboardQueryCallbackProxy): LeaderboardQueryCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

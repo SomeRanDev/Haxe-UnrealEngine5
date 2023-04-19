@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UDynamicClass")
-@:structAccess
+@:valueType
 extern class DynamicClass extends Class {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstDynamicClass(DynamicClass) from DynamicClass {
 @:forward
 @:nativeGen
 @:native("DynamicClass*")
-abstract DynamicClassPtr(cpp.Star<DynamicClass>) from cpp.Star<DynamicClass> to cpp.Star<DynamicClass>{
+abstract DynamicClassPtr(ucpp.Ptr<DynamicClass>) from ucpp.Ptr<DynamicClass> to ucpp.Ptr<DynamicClass>{
 	@:from
 	public static extern inline function fromValue(v: DynamicClass): DynamicClassPtr {
 		return untyped __cpp__("&({0})", v);

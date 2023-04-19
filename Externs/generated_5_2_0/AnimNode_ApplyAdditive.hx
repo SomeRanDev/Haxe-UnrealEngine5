@@ -3,13 +3,13 @@ package ue;
 
 @:native("FAnimNode_ApplyAdditive")
 @:include("AnimNodes/AnimNode_ApplyAdditive.h")
-@:structAccess
+@:valueType
 extern class AnimNode_ApplyAdditive extends AnimNode_Base {
 	public var Base: PoseLink;
 	public var Additive: PoseLink;
-	public var Alpha: cpp.Float32;
+	public var Alpha: ucpp.num.Float32;
 	public var AlphaScaleBias: InputScaleBias;
-	public var LODThreshold: cpp.Int32;
+	public var LODThreshold: ucpp.num.Int32;
 	public var AlphaBoolBlend: InputAlphaBoolBlend;
 	public var AlphaCurveName: FName;
 	public var AlphaScaleBiasClamp: InputScaleBiasClamp;

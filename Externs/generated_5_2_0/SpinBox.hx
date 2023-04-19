@@ -3,56 +3,56 @@ package ue;
 
 @:native("USpinBox")
 @:include("Components/SpinBox.h")
-@:structAccess
+@:valueType
 extern class SpinBox extends Widget {
-	public function GetValue(): cpp.Float32;
-	public function SetValue(input: cpp.Float32): Void;
+	public function GetValue(): ucpp.num.Float32;
+	public function SetValue(input: ucpp.num.Float32): Void;
 	public var ValueDelegate: HaxeDelegateProperty<() -> Void>;
 	public var WidgetStyle: SpinBoxStyle;
-	public function GetMinFractionalDigits(): cpp.Int32;
-	public function SetMinFractionalDigits(input: cpp.Int32): Void;
-	public function GetMaxFractionalDigits(): cpp.Int32;
-	public function SetMaxFractionalDigits(input: cpp.Int32): Void;
+	public function GetMinFractionalDigits(): ucpp.num.Int32;
+	public function SetMinFractionalDigits(input: ucpp.num.Int32): Void;
+	public function GetMaxFractionalDigits(): ucpp.num.Int32;
+	public function SetMaxFractionalDigits(input: ucpp.num.Int32): Void;
 	public function GetAlwaysUsesDeltaSnap(): Bool;
 	public function SetAlwaysUsesDeltaSnap(input: Bool): Void;
 	public var bEnableSlider: Bool;
-	public function GetDelta(): cpp.Float32;
-	public function SetDelta(input: cpp.Float32): Void;
-	public var SliderExponent: cpp.Float32;
+	public function GetDelta(): ucpp.num.Float32;
+	public function SetDelta(input: ucpp.num.Float32): Void;
+	public var SliderExponent: ucpp.num.Float32;
 	public var Font: SlateFontInfo;
 	public var Justification: TEnumAsByte<ETextJustify>;
-	public var MinDesiredWidth: cpp.Float32;
+	public var MinDesiredWidth: ucpp.num.Float32;
 	public var KeyboardType: TEnumAsByte<EVirtualKeyboardType>;
 	public var ClearKeyboardFocusOnCommit: Bool;
 	public var SelectAllTextOnCommit: Bool;
 	public var ForegroundColor: SlateColor;
-	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public var OnValueCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Float32, TEnumAsByte<ETextCommit>) -> Void>;
+	public var OnValueChanged: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public var OnValueCommitted: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, TEnumAsByte<ETextCommit>) -> Void>;
 	public var OnBeginSliderMovement: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnEndSliderMovement: HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
+	public var OnEndSliderMovement: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
 	@:protected public var bOverride_MinValue: Bool;
 	@:protected public var bOverride_MaxValue: Bool;
 	@:protected public var bOverride_MinSliderValue: Bool;
 	@:protected public var bOverride_MaxSliderValue: Bool;
-	public function GetMinValue(): cpp.Float32;
-	public function SetMinValue(input: cpp.Float32): Void;
-	public function GetMaxValue(): cpp.Float32;
-	public function SetMaxValue(input: cpp.Float32): Void;
-	public function GetMinSliderValue(): cpp.Float32;
-	public function SetMinSliderValue(input: cpp.Float32): Void;
-	public function GetMaxSliderValue(): cpp.Float32;
-	public function SetMaxSliderValue(input: cpp.Float32): Void;
+	public function GetMinValue(): ucpp.num.Float32;
+	public function SetMinValue(input: ucpp.num.Float32): Void;
+	public function GetMaxValue(): ucpp.num.Float32;
+	public function SetMaxValue(input: ucpp.num.Float32): Void;
+	public function GetMinSliderValue(): ucpp.num.Float32;
+	public function SetMinSliderValue(input: ucpp.num.Float32): Void;
+	public function GetMaxSliderValue(): ucpp.num.Float32;
+	public function SetMaxSliderValue(input: ucpp.num.Float32): Void;
 
 	public function SetForegroundColor(InForegroundColor: SlateColor): Void;
-	public function OnSpinBoxValueCommittedEvent__DelegateSignature(InValue: cpp.Float32, CommitMethod: TEnumAsByte<ETextCommit>): Void;
-	public function OnSpinBoxValueChangedEvent__DelegateSignature(InValue: cpp.Float32): Void;
+	public function OnSpinBoxValueCommittedEvent__DelegateSignature(InValue: ucpp.num.Float32, CommitMethod: TEnumAsByte<ETextCommit>): Void;
+	public function OnSpinBoxValueChangedEvent__DelegateSignature(InValue: ucpp.num.Float32): Void;
 	public function OnSpinBoxBeginSliderMovement__DelegateSignature(): Void;
 	public function ClearMinValue(): Void;
 	public function ClearMinSliderValue(): Void;
 	public function ClearMaxValue(): Void;
 	public function ClearMaxSliderValue(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -64,14 +64,14 @@ abstract ConstSpinBox(SpinBox) from SpinBox {
 	public inline extern function get_WidgetStyle(): SpinBoxStyle return this.WidgetStyle;
 	public extern var bEnableSlider(get, never): Bool;
 	public inline extern function get_bEnableSlider(): Bool return this.bEnableSlider;
-	public extern var SliderExponent(get, never): cpp.Float32;
-	public inline extern function get_SliderExponent(): cpp.Float32 return this.SliderExponent;
+	public extern var SliderExponent(get, never): ucpp.num.Float32;
+	public inline extern function get_SliderExponent(): ucpp.num.Float32 return this.SliderExponent;
 	public extern var Font(get, never): SlateFontInfo;
 	public inline extern function get_Font(): SlateFontInfo return this.Font;
 	public extern var Justification(get, never): TEnumAsByte<ETextJustify>;
 	public inline extern function get_Justification(): TEnumAsByte<ETextJustify> return this.Justification;
-	public extern var MinDesiredWidth(get, never): cpp.Float32;
-	public inline extern function get_MinDesiredWidth(): cpp.Float32 return this.MinDesiredWidth;
+	public extern var MinDesiredWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_MinDesiredWidth(): ucpp.num.Float32 return this.MinDesiredWidth;
 	public extern var KeyboardType(get, never): TEnumAsByte<EVirtualKeyboardType>;
 	public inline extern function get_KeyboardType(): TEnumAsByte<EVirtualKeyboardType> return this.KeyboardType;
 	public extern var ClearKeyboardFocusOnCommit(get, never): Bool;
@@ -80,20 +80,20 @@ abstract ConstSpinBox(SpinBox) from SpinBox {
 	public inline extern function get_SelectAllTextOnCommit(): Bool return this.SelectAllTextOnCommit;
 	public extern var ForegroundColor(get, never): SlateColor;
 	public inline extern function get_ForegroundColor(): SlateColor return this.ForegroundColor;
-	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnValueChanged;
-	public extern var OnValueCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, TEnumAsByte<ETextCommit>) -> Void>;
-	public inline extern function get_OnValueCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, TEnumAsByte<ETextCommit>) -> Void> return this.OnValueCommitted;
+	public extern var OnValueChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnValueChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnValueChanged;
+	public extern var OnValueCommitted(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, TEnumAsByte<ETextCommit>) -> Void>;
+	public inline extern function get_OnValueCommitted(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, TEnumAsByte<ETextCommit>) -> Void> return this.OnValueCommitted;
 	public extern var OnBeginSliderMovement(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnBeginSliderMovement(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnBeginSliderMovement;
-	public extern var OnEndSliderMovement(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void>;
-	public inline extern function get_OnEndSliderMovement(): HaxeMulticastSparseDelegateProperty<(cpp.Float32) -> Void> return this.OnEndSliderMovement;
+	public extern var OnEndSliderMovement(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnEndSliderMovement(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32) -> Void> return this.OnEndSliderMovement;
 }
 
 @:forward
 @:nativeGen
 @:native("SpinBox*")
-abstract SpinBoxPtr(cpp.Star<SpinBox>) from cpp.Star<SpinBox> to cpp.Star<SpinBox>{
+abstract SpinBoxPtr(ucpp.Ptr<SpinBox>) from ucpp.Ptr<SpinBox> to ucpp.Ptr<SpinBox>{
 	@:from
 	public static extern inline function fromValue(v: SpinBox): SpinBoxPtr {
 		return untyped __cpp__("&({0})", v);

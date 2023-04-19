@@ -3,16 +3,16 @@ package ue;
 
 @:native("FSpriteGeometryCollection")
 @:include("SpriteEditorOnlyTypes.h")
-@:structAccess
+@:valueType
 extern class SpriteGeometryCollection {
 	public var Shapes: TArray<SpriteGeometryShape>;
 	public var GeometryType: TEnumAsByte<ESpritePolygonMode>;
-	public var PixelsPerSubdivisionX: cpp.Int32;
-	public var PixelsPerSubdivisionY: cpp.Int32;
+	public var PixelsPerSubdivisionX: ucpp.num.Int32;
+	public var PixelsPerSubdivisionY: ucpp.num.Int32;
 	public var bAvoidVertexMerging: Bool;
-	public var AlphaThreshold: cpp.Float32;
-	public var DetailAmount: cpp.Float32;
-	public var SimplifyEpsilon: cpp.Float32;
+	public var AlphaThreshold: ucpp.num.Float32;
+	public var DetailAmount: ucpp.num.Float32;
+	public var SimplifyEpsilon: ucpp.num.Float32;
 
 	@:native("FSpriteGeometryCollection") public function new();
 }

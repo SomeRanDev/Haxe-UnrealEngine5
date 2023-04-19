@@ -3,12 +3,12 @@ package ue;
 
 @:native("UK2Node_TunnelBoundary")
 @:include("K2Node_TunnelBoundary.h")
-@:structAccess
+@:valueType
 extern class K2Node_TunnelBoundary extends K2Node {
 	public var BaseName: FName;
 	public var TunnelBoundaryType: ETunnelBoundaryType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstK2Node_TunnelBoundary(K2Node_TunnelBoundary) from K2Node_TunnelBou
 @:forward
 @:nativeGen
 @:native("K2Node_TunnelBoundary*")
-abstract K2Node_TunnelBoundaryPtr(cpp.Star<K2Node_TunnelBoundary>) from cpp.Star<K2Node_TunnelBoundary> to cpp.Star<K2Node_TunnelBoundary>{
+abstract K2Node_TunnelBoundaryPtr(ucpp.Ptr<K2Node_TunnelBoundary>) from ucpp.Ptr<K2Node_TunnelBoundary> to ucpp.Ptr<K2Node_TunnelBoundary>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_TunnelBoundary): K2Node_TunnelBoundaryPtr {
 		return untyped __cpp__("&({0})", v);

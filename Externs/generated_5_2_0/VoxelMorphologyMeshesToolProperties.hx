@@ -3,15 +3,15 @@ package ue;
 
 @:native("UVoxelMorphologyMeshesToolProperties")
 @:include("VoxelMorphologyMeshesTool.h")
-@:structAccess
+@:valueType
 extern class VoxelMorphologyMeshesToolProperties extends InteractiveToolPropertySet {
 	public var Operation: EMorphologyOperation;
-	public var Distance: cpp.Float64;
+	public var Distance: ucpp.num.Float64;
 	public var bVoxWrap: Bool;
 	public var bRemoveInternalsAfterVoxWrap: Bool;
-	public var ThickenShells: cpp.Float64;
+	public var ThickenShells: ucpp.num.Float64;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,20 +19,20 @@ extern class VoxelMorphologyMeshesToolProperties extends InteractiveToolProperty
 abstract ConstVoxelMorphologyMeshesToolProperties(VoxelMorphologyMeshesToolProperties) from VoxelMorphologyMeshesToolProperties {
 	public extern var Operation(get, never): EMorphologyOperation;
 	public inline extern function get_Operation(): EMorphologyOperation return this.Operation;
-	public extern var Distance(get, never): cpp.Float64;
-	public inline extern function get_Distance(): cpp.Float64 return this.Distance;
+	public extern var Distance(get, never): ucpp.num.Float64;
+	public inline extern function get_Distance(): ucpp.num.Float64 return this.Distance;
 	public extern var bVoxWrap(get, never): Bool;
 	public inline extern function get_bVoxWrap(): Bool return this.bVoxWrap;
 	public extern var bRemoveInternalsAfterVoxWrap(get, never): Bool;
 	public inline extern function get_bRemoveInternalsAfterVoxWrap(): Bool return this.bRemoveInternalsAfterVoxWrap;
-	public extern var ThickenShells(get, never): cpp.Float64;
-	public inline extern function get_ThickenShells(): cpp.Float64 return this.ThickenShells;
+	public extern var ThickenShells(get, never): ucpp.num.Float64;
+	public inline extern function get_ThickenShells(): ucpp.num.Float64 return this.ThickenShells;
 }
 
 @:forward
 @:nativeGen
 @:native("VoxelMorphologyMeshesToolProperties*")
-abstract VoxelMorphologyMeshesToolPropertiesPtr(cpp.Star<VoxelMorphologyMeshesToolProperties>) from cpp.Star<VoxelMorphologyMeshesToolProperties> to cpp.Star<VoxelMorphologyMeshesToolProperties>{
+abstract VoxelMorphologyMeshesToolPropertiesPtr(ucpp.Ptr<VoxelMorphologyMeshesToolProperties>) from ucpp.Ptr<VoxelMorphologyMeshesToolProperties> to ucpp.Ptr<VoxelMorphologyMeshesToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: VoxelMorphologyMeshesToolProperties): VoxelMorphologyMeshesToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

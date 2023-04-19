@@ -3,14 +3,14 @@ package ue;
 
 @:native("UEnvQueryTest_Dot")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Dot.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_Dot extends EnvQueryTest {
 	@:protected public var LineA: EnvDirection;
 	@:protected public var LineB: EnvDirection;
 	@:protected public var TestMode: EEnvTestDot;
 	@:protected public var bAbsoluteValue: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstEnvQueryTest_Dot(EnvQueryTest_Dot) from EnvQueryTest_Dot {
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_Dot*")
-abstract EnvQueryTest_DotPtr(cpp.Star<EnvQueryTest_Dot>) from cpp.Star<EnvQueryTest_Dot> to cpp.Star<EnvQueryTest_Dot>{
+abstract EnvQueryTest_DotPtr(ucpp.Ptr<EnvQueryTest_Dot>) from ucpp.Ptr<EnvQueryTest_Dot> to ucpp.Ptr<EnvQueryTest_Dot>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_Dot): EnvQueryTest_DotPtr {
 		return untyped __cpp__("&({0})", v);

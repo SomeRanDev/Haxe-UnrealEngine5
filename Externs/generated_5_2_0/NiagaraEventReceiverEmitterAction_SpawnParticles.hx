@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraEventReceiverEmitterAction_SpawnParticles")
 @:include("NiagaraEvents.h")
-@:structAccess
+@:valueType
 extern class NiagaraEventReceiverEmitterAction_SpawnParticles extends NiagaraEventReceiverEmitterAction {
-	public var NumParticles: cpp.UInt32;
+	public var NumParticles: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraEventReceiverEmitterAction_SpawnParticles(NiagaraEventReceiverEmitterAction_SpawnParticles) from NiagaraEventReceiverEmitterAction_SpawnParticles {
-	public extern var NumParticles(get, never): cpp.UInt32;
-	public inline extern function get_NumParticles(): cpp.UInt32 return this.NumParticles;
+	public extern var NumParticles(get, never): ucpp.num.UInt32;
+	public inline extern function get_NumParticles(): ucpp.num.UInt32 return this.NumParticles;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraEventReceiverEmitterAction_SpawnParticles*")
-abstract NiagaraEventReceiverEmitterAction_SpawnParticlesPtr(cpp.Star<NiagaraEventReceiverEmitterAction_SpawnParticles>) from cpp.Star<NiagaraEventReceiverEmitterAction_SpawnParticles> to cpp.Star<NiagaraEventReceiverEmitterAction_SpawnParticles>{
+abstract NiagaraEventReceiverEmitterAction_SpawnParticlesPtr(ucpp.Ptr<NiagaraEventReceiverEmitterAction_SpawnParticles>) from ucpp.Ptr<NiagaraEventReceiverEmitterAction_SpawnParticles> to ucpp.Ptr<NiagaraEventReceiverEmitterAction_SpawnParticles>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEventReceiverEmitterAction_SpawnParticles): NiagaraEventReceiverEmitterAction_SpawnParticlesPtr {
 		return untyped __cpp__("&({0})", v);

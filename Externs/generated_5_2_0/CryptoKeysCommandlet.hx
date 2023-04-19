@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCryptoKeysCommandlet")
 @:include("CryptoKeysCommandlet.h")
-@:structAccess
+@:valueType
 extern class CryptoKeysCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCryptoKeysCommandlet(CryptoKeysCommandlet) from CryptoKeysCommandl
 @:forward
 @:nativeGen
 @:native("CryptoKeysCommandlet*")
-abstract CryptoKeysCommandletPtr(cpp.Star<CryptoKeysCommandlet>) from cpp.Star<CryptoKeysCommandlet> to cpp.Star<CryptoKeysCommandlet>{
+abstract CryptoKeysCommandletPtr(ucpp.Ptr<CryptoKeysCommandlet>) from ucpp.Ptr<CryptoKeysCommandlet> to ucpp.Ptr<CryptoKeysCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: CryptoKeysCommandlet): CryptoKeysCommandletPtr {
 		return untyped __cpp__("&({0})", v);

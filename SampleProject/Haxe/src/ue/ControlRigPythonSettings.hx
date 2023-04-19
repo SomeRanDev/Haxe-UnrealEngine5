@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigPythonSettings")
 @:include("ControlRigBlueprint.h")
-@:structAccess
+@:valueType
 extern class ControlRigPythonSettings {
 	@:native("FControlRigPythonSettings") public function new();
 }

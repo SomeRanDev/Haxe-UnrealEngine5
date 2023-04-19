@@ -3,12 +3,12 @@ package ue;
 
 @:native("UIntegerChannelKeyProxy")
 @:include("Channels/IntegerChannelKeyProxy.h")
-@:structAccess
+@:valueType
 extern class IntegerChannelKeyProxy extends Object {
 	private var Time: FrameNumber;
-	private var Value: cpp.Int32;
+	private var Value: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstIntegerChannelKeyProxy(IntegerChannelKeyProxy) from IntegerChannel
 @:forward
 @:nativeGen
 @:native("IntegerChannelKeyProxy*")
-abstract IntegerChannelKeyProxyPtr(cpp.Star<IntegerChannelKeyProxy>) from cpp.Star<IntegerChannelKeyProxy> to cpp.Star<IntegerChannelKeyProxy>{
+abstract IntegerChannelKeyProxyPtr(ucpp.Ptr<IntegerChannelKeyProxy>) from ucpp.Ptr<IntegerChannelKeyProxy> to ucpp.Ptr<IntegerChannelKeyProxy>{
 	@:from
 	public static extern inline function fromValue(v: IntegerChannelKeyProxy): IntegerChannelKeyProxyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FPlatformInterfaceData")
 @:include("Engine/PlatformInterfaceBase.h")
-@:structAccess
+@:valueType
 extern class PlatformInterfaceData {
 	public var DataName: FName;
 	public var Type: TEnumAsByte<EPlatformInterfaceDataType>;
-	public var IntValue: cpp.Int32;
-	public var FloatValue: cpp.Float32;
+	public var IntValue: ucpp.num.Int32;
+	public var FloatValue: ucpp.num.Float32;
 	public var StringValue: FString;
-	public var ObjectValue: cpp.Star<Object>;
+	public var ObjectValue: ucpp.Ptr<Object>;
 
 	@:native("FPlatformInterfaceData") public function new();
 }

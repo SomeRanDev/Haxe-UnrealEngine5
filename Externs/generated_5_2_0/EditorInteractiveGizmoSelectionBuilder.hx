@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEditorInteractiveGizmoSelectionBuilder")
-@:structAccess
+@:valueType
 extern class EditorInteractiveGizmoSelectionBuilder extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEditorInteractiveGizmoSelectionBuilder(EditorInteractiveGizmoSelec
 @:forward
 @:nativeGen
 @:native("EditorInteractiveGizmoSelectionBuilder*")
-abstract EditorInteractiveGizmoSelectionBuilderPtr(cpp.Star<EditorInteractiveGizmoSelectionBuilder>) from cpp.Star<EditorInteractiveGizmoSelectionBuilder> to cpp.Star<EditorInteractiveGizmoSelectionBuilder>{
+abstract EditorInteractiveGizmoSelectionBuilderPtr(ucpp.Ptr<EditorInteractiveGizmoSelectionBuilder>) from ucpp.Ptr<EditorInteractiveGizmoSelectionBuilder> to ucpp.Ptr<EditorInteractiveGizmoSelectionBuilder>{
 	@:from
 	public static extern inline function fromValue(v: EditorInteractiveGizmoSelectionBuilder): EditorInteractiveGizmoSelectionBuilderPtr {
 		return untyped __cpp__("&({0})", v);

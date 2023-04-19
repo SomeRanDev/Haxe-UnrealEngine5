@@ -3,29 +3,29 @@ package ue;
 
 @:native("UDynamicMeshComponent")
 @:include("Components/DynamicMeshComponent.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshComp extends BaseDynamicMeshComp {
-	@:protected public var MeshObject: cpp.Star<DynamicMesh>;
+	@:protected public var MeshObject: ucpp.Ptr<DynamicMesh>;
 	@:protected public var TangentsType: EDynamicMeshComponentTangentsMode;
 	public var CollisionType: TEnumAsByte<ECollisionTraceFlag>;
 	public var bUseAsyncCooking: Bool;
 	public var bEnableComplexCollision: Bool;
 	public var bDeferCollisionUpdates: Bool;
-	@:protected public var MeshBodySetup: cpp.Star<BodySetup>;
+	@:protected public var MeshBodySetup: ucpp.Ptr<BodySetup>;
 	@:protected public var AggGeom: KAggregateGeom;
-	@:protected public var AsyncBodySetupQueue: TArray<cpp.Star<BodySetup>>;
+	@:protected public var AsyncBodySetupQueue: TArray<ucpp.Ptr<BodySetup>>;
 
 	public function ValidateMaterialSlots(bCreateIfMissing: Bool, bDeleteExtraSlots: Bool): Bool;
 	public function UpdateCollision(bOnlyIfPending: Bool): Void;
 	public function SetTangentsType(NewTangentsType: EDynamicMeshComponentTangentsMode): Void;
-	public function SetDynamicMesh(NewMesh: cpp.Star<DynamicMesh>): Void;
+	public function SetDynamicMesh(NewMesh: ucpp.Ptr<DynamicMesh>): Void;
 	public function SetDeferredCollisionUpdatesEnabled(bEnabled: Bool, bImmediateUpdate: Bool): Void;
 	public function SetComplexAsSimpleCollisionEnabled(bEnabled: Bool, bImmediateUpdate: Bool): Void;
 	public function GetTangentsType(): EDynamicMeshComponentTangentsMode;
 	public function EnableComplexAsSimpleCollision(): Void;
-	public function ConfigureMaterialSet(NewMaterialSet: cpp.Reference<TArray<cpp.Star<MaterialInterface>>>): Void;
+	public function ConfigureMaterialSet(NewMaterialSet: ucpp.Ref<TArray<ucpp.Ptr<MaterialInterface>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTangentsType)
@@ -44,7 +44,7 @@ abstract ConstDynamicMeshComp(DynamicMeshComp) from DynamicMeshComp {
 @:forward
 @:nativeGen
 @:native("DynamicMeshComp*")
-abstract DynamicMeshCompPtr(cpp.Star<DynamicMeshComp>) from cpp.Star<DynamicMeshComp> to cpp.Star<DynamicMeshComp>{
+abstract DynamicMeshCompPtr(ucpp.Ptr<DynamicMeshComp>) from ucpp.Ptr<DynamicMeshComp> to ucpp.Ptr<DynamicMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshComp): DynamicMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

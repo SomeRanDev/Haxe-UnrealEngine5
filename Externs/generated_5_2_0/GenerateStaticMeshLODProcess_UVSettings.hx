@@ -3,13 +3,13 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcess_UVSettings")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess_UVSettings {
 	public var UVMethod: EGenerateStaticMeshLODProcess_AutoUVMethod;
-	public var NumUVAtlasCharts: cpp.Int32;
-	public var NumInitialPatches: cpp.Int32;
-	public var MergingThreshold: cpp.Float32;
-	public var MaxAngleDeviation: cpp.Float32;
+	public var NumUVAtlasCharts: ucpp.num.Int32;
+	public var NumInitialPatches: ucpp.num.Int32;
+	public var MergingThreshold: ucpp.num.Float32;
+	public var MaxAngleDeviation: ucpp.num.Float32;
 	public var PatchBuilder: GenerateStaticMeshLODProcess_UVSettings_PatchBuilder;
 
 	@:native("FGenerateStaticMeshLODProcess_UVSettings") public function new();

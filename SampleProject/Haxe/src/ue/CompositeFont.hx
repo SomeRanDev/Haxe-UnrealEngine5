@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCompositeFont")
 @:include("Fonts/CompositeFont.h")
-@:structAccess
+@:valueType
 extern class CompositeFont {
 	public var DefaultTypeface: Typeface;
 	public var FallbackTypeface: CompositeFallbackFont;

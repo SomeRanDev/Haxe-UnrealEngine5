@@ -3,20 +3,20 @@ package ue;
 
 @:native("UModelingToolsModeCustomizationSettings")
 @:include("ModelingToolsEditorModeSettings.h")
-@:structAccess
+@:valueType
 extern class ModelingToolsModeCustomizationSettings extends DeveloperSettings {
 	public var ToolSectionOrder: TArray<FString>;
 	public var ToolFavorites: TArray<FString>;
 	public var SectionColors: TArray<ModelingModeCustomSectionColor>;
 	public var ToolColors: TArray<ModelingModeCustomToolColor>;
 	public var BrushAlphaSets: TArray<ModelingModeAssetCollectionSet>;
-	public var LastMeshSelectionDragMode: cpp.Int32;
-	public var LastMeshSelectionElementType: cpp.Int32;
-	public var LastMeshSelectionTopologyMode: cpp.Int32;
+	public var LastMeshSelectionDragMode: ucpp.num.Int32;
+	public var LastMeshSelectionElementType: ucpp.num.Int32;
+	public var LastMeshSelectionTopologyMode: ucpp.num.Int32;
 	public var bLastMeshSelectionVolumeToggle: Bool;
 	public var bLastMeshSelectionStaticMeshToggle: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,12 +32,12 @@ abstract ConstModelingToolsModeCustomizationSettings(ModelingToolsModeCustomizat
 	public inline extern function get_ToolColors(): TArray<ModelingModeCustomToolColor> return this.ToolColors;
 	public extern var BrushAlphaSets(get, never): TArray<ModelingModeAssetCollectionSet>;
 	public inline extern function get_BrushAlphaSets(): TArray<ModelingModeAssetCollectionSet> return this.BrushAlphaSets;
-	public extern var LastMeshSelectionDragMode(get, never): cpp.Int32;
-	public inline extern function get_LastMeshSelectionDragMode(): cpp.Int32 return this.LastMeshSelectionDragMode;
-	public extern var LastMeshSelectionElementType(get, never): cpp.Int32;
-	public inline extern function get_LastMeshSelectionElementType(): cpp.Int32 return this.LastMeshSelectionElementType;
-	public extern var LastMeshSelectionTopologyMode(get, never): cpp.Int32;
-	public inline extern function get_LastMeshSelectionTopologyMode(): cpp.Int32 return this.LastMeshSelectionTopologyMode;
+	public extern var LastMeshSelectionDragMode(get, never): ucpp.num.Int32;
+	public inline extern function get_LastMeshSelectionDragMode(): ucpp.num.Int32 return this.LastMeshSelectionDragMode;
+	public extern var LastMeshSelectionElementType(get, never): ucpp.num.Int32;
+	public inline extern function get_LastMeshSelectionElementType(): ucpp.num.Int32 return this.LastMeshSelectionElementType;
+	public extern var LastMeshSelectionTopologyMode(get, never): ucpp.num.Int32;
+	public inline extern function get_LastMeshSelectionTopologyMode(): ucpp.num.Int32 return this.LastMeshSelectionTopologyMode;
 	public extern var bLastMeshSelectionVolumeToggle(get, never): Bool;
 	public inline extern function get_bLastMeshSelectionVolumeToggle(): Bool return this.bLastMeshSelectionVolumeToggle;
 	public extern var bLastMeshSelectionStaticMeshToggle(get, never): Bool;
@@ -47,7 +47,7 @@ abstract ConstModelingToolsModeCustomizationSettings(ModelingToolsModeCustomizat
 @:forward
 @:nativeGen
 @:native("ModelingToolsModeCustomizationSettings*")
-abstract ModelingToolsModeCustomizationSettingsPtr(cpp.Star<ModelingToolsModeCustomizationSettings>) from cpp.Star<ModelingToolsModeCustomizationSettings> to cpp.Star<ModelingToolsModeCustomizationSettings>{
+abstract ModelingToolsModeCustomizationSettingsPtr(ucpp.Ptr<ModelingToolsModeCustomizationSettings>) from ucpp.Ptr<ModelingToolsModeCustomizationSettings> to ucpp.Ptr<ModelingToolsModeCustomizationSettings>{
 	@:from
 	public static extern inline function fromValue(v: ModelingToolsModeCustomizationSettings): ModelingToolsModeCustomizationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

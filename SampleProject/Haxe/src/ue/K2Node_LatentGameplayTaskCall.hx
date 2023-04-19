@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_LatentGameplayTaskCall")
 @:include("K2Node_LatentGameplayTaskCall.h")
-@:structAccess
+@:valueType
 extern class K2Node_LatentGameplayTaskCall extends K2Node_BaseAsyncTask {
 	public var SpawnParamPins: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstK2Node_LatentGameplayTaskCall(K2Node_LatentGameplayTaskCall) from 
 @:forward
 @:nativeGen
 @:native("K2Node_LatentGameplayTaskCall*")
-abstract K2Node_LatentGameplayTaskCallPtr(cpp.Star<K2Node_LatentGameplayTaskCall>) from cpp.Star<K2Node_LatentGameplayTaskCall> to cpp.Star<K2Node_LatentGameplayTaskCall>{
+abstract K2Node_LatentGameplayTaskCallPtr(ucpp.Ptr<K2Node_LatentGameplayTaskCall>) from ucpp.Ptr<K2Node_LatentGameplayTaskCall> to ucpp.Ptr<K2Node_LatentGameplayTaskCall>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_LatentGameplayTaskCall): K2Node_LatentGameplayTaskCallPtr {
 		return untyped __cpp__("&({0})", v);

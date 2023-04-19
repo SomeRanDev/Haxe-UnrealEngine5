@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULevelInstanceInterface")
-@:structAccess
+@:valueType
 extern class LevelInstanceInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLevelInstanceInterface(LevelInstanceInterface) from LevelInstanceI
 @:forward
 @:nativeGen
 @:native("LevelInstanceInterface*")
-abstract LevelInstanceInterfacePtr(cpp.Star<LevelInstanceInterface>) from cpp.Star<LevelInstanceInterface> to cpp.Star<LevelInstanceInterface>{
+abstract LevelInstanceInterfacePtr(ucpp.Ptr<LevelInstanceInterface>) from ucpp.Ptr<LevelInstanceInterface> to ucpp.Ptr<LevelInstanceInterface>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstanceInterface): LevelInstanceInterfacePtr {
 		return untyped __cpp__("&({0})", v);

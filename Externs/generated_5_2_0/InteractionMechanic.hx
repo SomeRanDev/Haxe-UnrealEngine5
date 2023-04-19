@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInteractionMechanic")
 @:include("InteractionMechanic.h")
-@:structAccess
+@:valueType
 extern class InteractionMechanic extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInteractionMechanic(InteractionMechanic) from InteractionMechanic 
 @:forward
 @:nativeGen
 @:native("InteractionMechanic*")
-abstract InteractionMechanicPtr(cpp.Star<InteractionMechanic>) from cpp.Star<InteractionMechanic> to cpp.Star<InteractionMechanic>{
+abstract InteractionMechanicPtr(ucpp.Ptr<InteractionMechanic>) from ucpp.Ptr<InteractionMechanic> to ucpp.Ptr<InteractionMechanic>{
 	@:from
 	public static extern inline function fromValue(v: InteractionMechanic): InteractionMechanicPtr {
 		return untyped __cpp__("&({0})", v);

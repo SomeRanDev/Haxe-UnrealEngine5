@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULegacyEdModeSelectInterface")
-@:structAccess
+@:valueType
 extern class LegacyEdModeSelectInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLegacyEdModeSelectInterface(LegacyEdModeSelectInterface) from Lega
 @:forward
 @:nativeGen
 @:native("LegacyEdModeSelectInterface*")
-abstract LegacyEdModeSelectInterfacePtr(cpp.Star<LegacyEdModeSelectInterface>) from cpp.Star<LegacyEdModeSelectInterface> to cpp.Star<LegacyEdModeSelectInterface>{
+abstract LegacyEdModeSelectInterfacePtr(ucpp.Ptr<LegacyEdModeSelectInterface>) from ucpp.Ptr<LegacyEdModeSelectInterface> to ucpp.Ptr<LegacyEdModeSelectInterface>{
 	@:from
 	public static extern inline function fromValue(v: LegacyEdModeSelectInterface): LegacyEdModeSelectInterfacePtr {
 		return untyped __cpp__("&({0})", v);

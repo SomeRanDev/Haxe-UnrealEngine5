@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAdditionalBlueprintCategory")
 @:include("BlueprintEditorSettings.h")
-@:structAccess
+@:valueType
 extern class AdditionalBlueprintCategory {
 	public var Name: FText;
 	public var ClassFilter: SoftClassPath;

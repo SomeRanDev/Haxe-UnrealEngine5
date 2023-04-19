@@ -3,10 +3,10 @@ package ue;
 
 @:native("FWorldPartitionStreamingQuerySource")
 @:include("WorldPartition/WorldPartitionStreamingSource.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionStreamingQuerySource {
 	public var Location: Vector;
-	public var Radius: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
 	public var bUseGridLoadingRange: Bool;
 	public var DataLayers: TArray<FName>;
 	public var bDataLayersOnly: Bool;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTypedElementSelectionOptions")
 @:include("Elements/Interfaces/TypedElementSelectionInterface.h")
-@:structAccess
+@:valueType
 extern class TypedElementSelectionOptions {
 	private var bAllowHidden: Bool;
 	private var bAllowGroups: Bool;

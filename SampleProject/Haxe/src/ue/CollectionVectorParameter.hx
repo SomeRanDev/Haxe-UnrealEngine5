@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCollectionVectorParameter")
 @:include("Materials/MaterialParameterCollection.h")
-@:structAccess
+@:valueType
 extern class CollectionVectorParameter extends CollectionParameterBase {
 	public var DefaultValue: LinearColor;
 

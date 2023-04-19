@@ -3,11 +3,11 @@ package ue;
 
 @:native("FDebugDisplayProperty")
 @:include("Engine/DebugDisplayProperty.h")
-@:structAccess
+@:valueType
 extern class DebugDisplayProperty {
-	public var Obj: cpp.Star<Object>;
+	public var Obj: ucpp.Ptr<Object>;
 	public var WithinClass: TSubclassOf<Object>;
 
 	@:native("FDebugDisplayProperty") public function new();
-	@:native("FDebugDisplayProperty") public static function make(Obj: cpp.Star<Object>, WithinClass: TSubclassOf<Object>): DebugDisplayProperty ;
+	@:native("FDebugDisplayProperty") public static function make(Obj: ucpp.Ptr<Object>, WithinClass: TSubclassOf<Object>): DebugDisplayProperty ;
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UEditMeshPolygonsToolBuilder")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class EditMeshPolygonsToolBuilder extends SingleTargetWithSelectionToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstEditMeshPolygonsToolBuilder(EditMeshPolygonsToolBuilder) from Edit
 @:forward
 @:nativeGen
 @:native("EditMeshPolygonsToolBuilder*")
-abstract EditMeshPolygonsToolBuilderPtr(cpp.Star<EditMeshPolygonsToolBuilder>) from cpp.Star<EditMeshPolygonsToolBuilder> to cpp.Star<EditMeshPolygonsToolBuilder>{
+abstract EditMeshPolygonsToolBuilderPtr(ucpp.Ptr<EditMeshPolygonsToolBuilder>) from ucpp.Ptr<EditMeshPolygonsToolBuilder> to ucpp.Ptr<EditMeshPolygonsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: EditMeshPolygonsToolBuilder): EditMeshPolygonsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

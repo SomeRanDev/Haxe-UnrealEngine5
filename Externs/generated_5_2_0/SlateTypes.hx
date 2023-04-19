@@ -3,10 +3,10 @@ package ue;
 
 @:native("USlateTypes")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class SlateTypes extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSlateTypes(SlateTypes) from SlateTypes {
 @:forward
 @:nativeGen
 @:native("SlateTypes*")
-abstract SlateTypesPtr(cpp.Star<SlateTypes>) from cpp.Star<SlateTypes> to cpp.Star<SlateTypes>{
+abstract SlateTypesPtr(ucpp.Ptr<SlateTypes>) from ucpp.Ptr<SlateTypes> to ucpp.Ptr<SlateTypes>{
 	@:from
 	public static extern inline function fromValue(v: SlateTypes): SlateTypesPtr {
 		return untyped __cpp__("&({0})", v);

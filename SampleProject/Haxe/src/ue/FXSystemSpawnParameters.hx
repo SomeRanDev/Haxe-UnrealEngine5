@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFXSystemSpawnParameters")
 @:include("Particles/ParticleSystemComponent.h")
-@:structAccess
+@:valueType
 extern class FXSystemSpawnParameters {
 	@:native("FFXSystemSpawnParameters") public function new();
 }

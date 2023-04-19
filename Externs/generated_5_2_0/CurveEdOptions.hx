@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCurveEdOptions")
 @:include("Preferences/CurveEdOptions.h")
-@:structAccess
+@:valueType
 extern class CurveEdOptions extends Object {
-	public var MinViewRange: cpp.Float32;
-	public var MaxViewRange: cpp.Float32;
+	public var MinViewRange: ucpp.num.Float32;
+	public var MaxViewRange: ucpp.num.Float32;
 	public var BackgroundColor: LinearColor;
 	public var LabelColor: LinearColor;
 	public var SelectedLabelColor: LinearColor;
@@ -15,16 +15,16 @@ extern class CurveEdOptions extends Object {
 	public var LabelBlockBkgColor: LinearColor;
 	public var SelectedKeyColor: LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCurveEdOptions(CurveEdOptions) from CurveEdOptions {
-	public extern var MinViewRange(get, never): cpp.Float32;
-	public inline extern function get_MinViewRange(): cpp.Float32 return this.MinViewRange;
-	public extern var MaxViewRange(get, never): cpp.Float32;
-	public inline extern function get_MaxViewRange(): cpp.Float32 return this.MaxViewRange;
+	public extern var MinViewRange(get, never): ucpp.num.Float32;
+	public inline extern function get_MinViewRange(): ucpp.num.Float32 return this.MinViewRange;
+	public extern var MaxViewRange(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxViewRange(): ucpp.num.Float32 return this.MaxViewRange;
 	public extern var BackgroundColor(get, never): LinearColor;
 	public inline extern function get_BackgroundColor(): LinearColor return this.BackgroundColor;
 	public extern var LabelColor(get, never): LinearColor;
@@ -44,7 +44,7 @@ abstract ConstCurveEdOptions(CurveEdOptions) from CurveEdOptions {
 @:forward
 @:nativeGen
 @:native("CurveEdOptions*")
-abstract CurveEdOptionsPtr(cpp.Star<CurveEdOptions>) from cpp.Star<CurveEdOptions> to cpp.Star<CurveEdOptions>{
+abstract CurveEdOptionsPtr(ucpp.Ptr<CurveEdOptions>) from ucpp.Ptr<CurveEdOptions> to ucpp.Ptr<CurveEdOptions>{
 	@:from
 	public static extern inline function fromValue(v: CurveEdOptions): CurveEdOptionsPtr {
 		return untyped __cpp__("&({0})", v);

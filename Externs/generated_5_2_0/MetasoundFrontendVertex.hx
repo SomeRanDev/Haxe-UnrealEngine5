@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendVertex")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendVertex {
 	public var Name: FName;
 	public var TypeName: FName;

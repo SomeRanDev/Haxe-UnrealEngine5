@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBTDecorator_SetTagCooldown")
 @:include("BehaviorTree/Decorators/BTDecorator_SetTagCooldown.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_SetTagCooldown extends BTDecorator {
 	public var CooldownTag: GameplayTag;
-	public var CooldownDuration: cpp.Float32;
+	public var CooldownDuration: ucpp.num.Float32;
 	public var bAddToExistingDuration: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,8 +17,8 @@ extern class BTDecorator_SetTagCooldown extends BTDecorator {
 abstract ConstBTDecorator_SetTagCooldown(BTDecorator_SetTagCooldown) from BTDecorator_SetTagCooldown {
 	public extern var CooldownTag(get, never): GameplayTag;
 	public inline extern function get_CooldownTag(): GameplayTag return this.CooldownTag;
-	public extern var CooldownDuration(get, never): cpp.Float32;
-	public inline extern function get_CooldownDuration(): cpp.Float32 return this.CooldownDuration;
+	public extern var CooldownDuration(get, never): ucpp.num.Float32;
+	public inline extern function get_CooldownDuration(): ucpp.num.Float32 return this.CooldownDuration;
 	public extern var bAddToExistingDuration(get, never): Bool;
 	public inline extern function get_bAddToExistingDuration(): Bool return this.bAddToExistingDuration;
 }
@@ -26,7 +26,7 @@ abstract ConstBTDecorator_SetTagCooldown(BTDecorator_SetTagCooldown) from BTDeco
 @:forward
 @:nativeGen
 @:native("BTDecorator_SetTagCooldown*")
-abstract BTDecorator_SetTagCooldownPtr(cpp.Star<BTDecorator_SetTagCooldown>) from cpp.Star<BTDecorator_SetTagCooldown> to cpp.Star<BTDecorator_SetTagCooldown>{
+abstract BTDecorator_SetTagCooldownPtr(ucpp.Ptr<BTDecorator_SetTagCooldown>) from ucpp.Ptr<BTDecorator_SetTagCooldown> to ucpp.Ptr<BTDecorator_SetTagCooldown>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_SetTagCooldown): BTDecorator_SetTagCooldownPtr {
 		return untyped __cpp__("&({0})", v);

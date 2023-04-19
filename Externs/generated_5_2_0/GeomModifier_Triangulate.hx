@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeomModifier_Triangulate")
 @:include("GeomModifier_Triangulate.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Triangulate extends GeomModifier_Edit {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeomModifier_Triangulate(GeomModifier_Triangulate) from GeomModifi
 @:forward
 @:nativeGen
 @:native("GeomModifier_Triangulate*")
-abstract GeomModifier_TriangulatePtr(cpp.Star<GeomModifier_Triangulate>) from cpp.Star<GeomModifier_Triangulate> to cpp.Star<GeomModifier_Triangulate>{
+abstract GeomModifier_TriangulatePtr(ucpp.Ptr<GeomModifier_Triangulate>) from ucpp.Ptr<GeomModifier_Triangulate> to ucpp.Ptr<GeomModifier_Triangulate>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Triangulate): GeomModifier_TriangulatePtr {
 		return untyped __cpp__("&({0})", v);

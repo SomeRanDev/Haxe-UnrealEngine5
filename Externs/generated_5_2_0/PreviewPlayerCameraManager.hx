@@ -3,10 +3,10 @@ package ue;
 
 @:native("APreviewPlayerCameraManager")
 @:include("SCameraShakePreviewer.h")
-@:structAccess
+@:valueType
 extern class PreviewPlayerCameraManager extends PlayerCameraManager {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPreviewPlayerCameraManager(PreviewPlayerCameraManager) from Previe
 @:forward
 @:nativeGen
 @:native("PreviewPlayerCameraManager*")
-abstract PreviewPlayerCameraManagerPtr(cpp.Star<PreviewPlayerCameraManager>) from cpp.Star<PreviewPlayerCameraManager> to cpp.Star<PreviewPlayerCameraManager>{
+abstract PreviewPlayerCameraManagerPtr(ucpp.Ptr<PreviewPlayerCameraManager>) from ucpp.Ptr<PreviewPlayerCameraManager> to ucpp.Ptr<PreviewPlayerCameraManager>{
 	@:from
 	public static extern inline function fromValue(v: PreviewPlayerCameraManager): PreviewPlayerCameraManagerPtr {
 		return untyped __cpp__("&({0})", v);

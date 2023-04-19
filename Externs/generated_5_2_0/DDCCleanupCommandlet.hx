@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDDCCleanupCommandlet")
 @:include("Commandlets/DDCCleanupCommandlet.h")
-@:structAccess
+@:valueType
 extern class DDCCleanupCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDDCCleanupCommandlet(DDCCleanupCommandlet) from DDCCleanupCommandl
 @:forward
 @:nativeGen
 @:native("DDCCleanupCommandlet*")
-abstract DDCCleanupCommandletPtr(cpp.Star<DDCCleanupCommandlet>) from cpp.Star<DDCCleanupCommandlet> to cpp.Star<DDCCleanupCommandlet>{
+abstract DDCCleanupCommandletPtr(ucpp.Ptr<DDCCleanupCommandlet>) from ucpp.Ptr<DDCCleanupCommandlet> to ucpp.Ptr<DDCCleanupCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DDCCleanupCommandlet): DDCCleanupCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("ALandscapeSplineActor")
 @:include("LandscapeSplineActor.h")
-@:structAccess
+@:valueType
 extern class LandscapeSplineActor extends Actor {
 	@:protected public var LandscapeGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstLandscapeSplineActor(LandscapeSplineActor) from LandscapeSplineAct
 @:forward
 @:nativeGen
 @:native("LandscapeSplineActor*")
-abstract LandscapeSplineActorPtr(cpp.Star<LandscapeSplineActor>) from cpp.Star<LandscapeSplineActor> to cpp.Star<LandscapeSplineActor>{
+abstract LandscapeSplineActorPtr(ucpp.Ptr<LandscapeSplineActor>) from ucpp.Ptr<LandscapeSplineActor> to ucpp.Ptr<LandscapeSplineActor>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSplineActor): LandscapeSplineActorPtr {
 		return untyped __cpp__("&({0})", v);

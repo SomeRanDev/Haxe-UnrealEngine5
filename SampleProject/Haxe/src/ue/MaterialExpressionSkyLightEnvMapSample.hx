@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSkyLightEnvMapSample")
 @:include("Materials/MaterialExpressionSkyLightEnvMapSample.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSkyLightEnvMapSample extends MaterialExpression {
 	public var Direction: ExpressionInput;
 	public var Roughness: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionSkyLightEnvMapSample(MaterialExpressionSkyLightE
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSkyLightEnvMapSample*")
-abstract MaterialExpressionSkyLightEnvMapSamplePtr(cpp.Star<MaterialExpressionSkyLightEnvMapSample>) from cpp.Star<MaterialExpressionSkyLightEnvMapSample> to cpp.Star<MaterialExpressionSkyLightEnvMapSample>{
+abstract MaterialExpressionSkyLightEnvMapSamplePtr(ucpp.Ptr<MaterialExpressionSkyLightEnvMapSample>) from ucpp.Ptr<MaterialExpressionSkyLightEnvMapSample> to ucpp.Ptr<MaterialExpressionSkyLightEnvMapSample>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSkyLightEnvMapSample): MaterialExpressionSkyLightEnvMapSamplePtr {
 		return untyped __cpp__("&({0})", v);

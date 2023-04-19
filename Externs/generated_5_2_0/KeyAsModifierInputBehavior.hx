@@ -3,10 +3,10 @@ package ue;
 
 @:native("UKeyAsModifierInputBehavior")
 @:include("BaseBehaviors/KeyAsModifierInputBehavior.h")
-@:structAccess
+@:valueType
 extern class KeyAsModifierInputBehavior extends InputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstKeyAsModifierInputBehavior(KeyAsModifierInputBehavior) from KeyAsM
 @:forward
 @:nativeGen
 @:native("KeyAsModifierInputBehavior*")
-abstract KeyAsModifierInputBehaviorPtr(cpp.Star<KeyAsModifierInputBehavior>) from cpp.Star<KeyAsModifierInputBehavior> to cpp.Star<KeyAsModifierInputBehavior>{
+abstract KeyAsModifierInputBehaviorPtr(ucpp.Ptr<KeyAsModifierInputBehavior>) from ucpp.Ptr<KeyAsModifierInputBehavior> to ucpp.Ptr<KeyAsModifierInputBehavior>{
 	@:from
 	public static extern inline function fromValue(v: KeyAsModifierInputBehavior): KeyAsModifierInputBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

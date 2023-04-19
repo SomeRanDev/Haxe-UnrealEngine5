@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Ualign_scale")
-@:structAccess
+@:valueType
 extern class align_scale extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constalign_scale(align_scale) from align_scale {
 @:forward
 @:nativeGen
 @:native("align_scale*")
-abstract align_scalePtr(cpp.Star<align_scale>) from cpp.Star<align_scale> to cpp.Star<align_scale>{
+abstract align_scalePtr(ucpp.Ptr<align_scale>) from ucpp.Ptr<align_scale> to ucpp.Ptr<align_scale>{
 	@:from
 	public static extern inline function fromValue(v: align_scale): align_scalePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAudioInputDeviceInfo")
 @:include("AudioCaptureBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class AudioInputDeviceInfo {
 	public var DeviceName: FString;
 	public var DeviceId: FString;
-	public var InputChannels: cpp.Int32;
-	public var PreferredSampleRate: cpp.Int32;
+	public var InputChannels: ucpp.num.Int32;
+	public var PreferredSampleRate: ucpp.num.Int32;
 	public var bSupportsHardwareAEC: Bool;
 
 	@:native("FAudioInputDeviceInfo") public function new();
-	@:native("FAudioInputDeviceInfo") public static function make(DeviceName: FString, DeviceId: FString, InputChannels: cpp.Int32, PreferredSampleRate: cpp.Int32, bSupportsHardwareAEC: Bool): AudioInputDeviceInfo ;
+	@:native("FAudioInputDeviceInfo") public static function make(DeviceName: FString, DeviceId: FString, InputChannels: ucpp.num.Int32, PreferredSampleRate: ucpp.num.Int32, bSupportsHardwareAEC: Bool): AudioInputDeviceInfo ;
 }

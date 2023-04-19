@@ -3,12 +3,12 @@ package ue;
 
 @:native("FBrushToolRadius")
 @:include("Sculpting/MeshSculptToolBase.h")
-@:structAccess
+@:valueType
 extern class BrushToolRadius {
 	public var SizeType: EBrushToolSizeType;
-	public var AdaptiveSize: cpp.Float32;
-	public var WorldRadius: cpp.Float32;
+	public var AdaptiveSize: ucpp.num.Float32;
+	public var WorldRadius: ucpp.num.Float32;
 
 	@:native("FBrushToolRadius") public function new();
-	@:native("FBrushToolRadius") public static function make(SizeType: EBrushToolSizeType, AdaptiveSize: cpp.Float32, WorldRadius: cpp.Float32): BrushToolRadius ;
+	@:native("FBrushToolRadius") public static function make(SizeType: EBrushToolSizeType, AdaptiveSize: ucpp.num.Float32, WorldRadius: ucpp.num.Float32): BrushToolRadius ;
 }

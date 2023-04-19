@@ -3,24 +3,24 @@ package ue;
 
 @:native("UEditableGameplayTagQueryExpression_NoExprMatch")
 @:include("GameplayTagContainer.h")
-@:structAccess
+@:valueType
 extern class EditableGameplayTagQueryExpression_NoExprMatch extends EditableGameplayTagQueryExpression {
-	public var Expressions: TArray<cpp.Star<EditableGameplayTagQueryExpression>>;
+	public var Expressions: TArray<ucpp.Ptr<EditableGameplayTagQueryExpression>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEditableGameplayTagQueryExpression_NoExprMatch(EditableGameplayTagQueryExpression_NoExprMatch) from EditableGameplayTagQueryExpression_NoExprMatch {
-	public extern var Expressions(get, never): TArray<cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>>;
-	public inline extern function get_Expressions(): TArray<cpp.Star<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>> return this.Expressions;
+	public extern var Expressions(get, never): TArray<ucpp.Ptr<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>>;
+	public inline extern function get_Expressions(): TArray<ucpp.Ptr<EditableGameplayTagQueryExpression.ConstEditableGameplayTagQueryExpression>> return this.Expressions;
 }
 
 @:forward
 @:nativeGen
 @:native("EditableGameplayTagQueryExpression_NoExprMatch*")
-abstract EditableGameplayTagQueryExpression_NoExprMatchPtr(cpp.Star<EditableGameplayTagQueryExpression_NoExprMatch>) from cpp.Star<EditableGameplayTagQueryExpression_NoExprMatch> to cpp.Star<EditableGameplayTagQueryExpression_NoExprMatch>{
+abstract EditableGameplayTagQueryExpression_NoExprMatchPtr(ucpp.Ptr<EditableGameplayTagQueryExpression_NoExprMatch>) from ucpp.Ptr<EditableGameplayTagQueryExpression_NoExprMatch> to ucpp.Ptr<EditableGameplayTagQueryExpression_NoExprMatch>{
 	@:from
 	public static extern inline function fromValue(v: EditableGameplayTagQueryExpression_NoExprMatch): EditableGameplayTagQueryExpression_NoExprMatchPtr {
 		return untyped __cpp__("&({0})", v);

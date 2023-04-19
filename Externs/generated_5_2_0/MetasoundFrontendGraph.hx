@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMetasoundFrontendGraph")
 @:include("MetasoundFrontendDocument.h")
-@:structAccess
+@:valueType
 extern class MetasoundFrontendGraph {
 	public var Nodes: TArray<MetasoundFrontendNode>;
 	public var Edges: TArray<MetasoundFrontendEdge>;

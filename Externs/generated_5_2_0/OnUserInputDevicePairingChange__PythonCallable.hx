@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnUserInputDevicePairingChange__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnUserInputDevicePairingChange__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnUserInputDevicePairingChange__PythonCallable(OnUserInputDevicePa
 @:forward
 @:nativeGen
 @:native("OnUserInputDevicePairingChange__PythonCallable*")
-abstract OnUserInputDevicePairingChange__PythonCallablePtr(cpp.Star<OnUserInputDevicePairingChange__PythonCallable>) from cpp.Star<OnUserInputDevicePairingChange__PythonCallable> to cpp.Star<OnUserInputDevicePairingChange__PythonCallable>{
+abstract OnUserInputDevicePairingChange__PythonCallablePtr(ucpp.Ptr<OnUserInputDevicePairingChange__PythonCallable>) from ucpp.Ptr<OnUserInputDevicePairingChange__PythonCallable> to ucpp.Ptr<OnUserInputDevicePairingChange__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnUserInputDevicePairingChange__PythonCallable): OnUserInputDevicePairingChange__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

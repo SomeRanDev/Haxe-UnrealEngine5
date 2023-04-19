@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPolyEditSetUVProperties")
 @:include("ToolActivities/PolyEditPlanarProjectionUVActivity.h")
-@:structAccess
+@:valueType
 extern class PolyEditSetUVProperties extends InteractiveToolPropertySet {
 	public var bShowMaterial: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPolyEditSetUVProperties(PolyEditSetUVProperties) from PolyEditSetU
 @:forward
 @:nativeGen
 @:native("PolyEditSetUVProperties*")
-abstract PolyEditSetUVPropertiesPtr(cpp.Star<PolyEditSetUVProperties>) from cpp.Star<PolyEditSetUVProperties> to cpp.Star<PolyEditSetUVProperties>{
+abstract PolyEditSetUVPropertiesPtr(ucpp.Ptr<PolyEditSetUVProperties>) from ucpp.Ptr<PolyEditSetUVProperties> to ucpp.Ptr<PolyEditSetUVProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditSetUVProperties): PolyEditSetUVPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

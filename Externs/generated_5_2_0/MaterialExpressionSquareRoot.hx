@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionSquareRoot")
 @:include("Materials/MaterialExpressionSquareRoot.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSquareRoot extends MaterialExpression {
 	public var Input: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionSquareRoot(MaterialExpressionSquareRoot) from Ma
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSquareRoot*")
-abstract MaterialExpressionSquareRootPtr(cpp.Star<MaterialExpressionSquareRoot>) from cpp.Star<MaterialExpressionSquareRoot> to cpp.Star<MaterialExpressionSquareRoot>{
+abstract MaterialExpressionSquareRootPtr(ucpp.Ptr<MaterialExpressionSquareRoot>) from ucpp.Ptr<MaterialExpressionSquareRoot> to ucpp.Ptr<MaterialExpressionSquareRoot>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSquareRoot): MaterialExpressionSquareRootPtr {
 		return untyped __cpp__("&({0})", v);

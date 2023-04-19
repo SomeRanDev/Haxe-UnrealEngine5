@@ -3,23 +3,23 @@ package ue;
 
 @:native("UControlRigBlueprintEditorLibrary")
 @:include("ControlRigBlueprintEditorLibrary.h")
-@:structAccess
+@:valueType
 extern class ControlRigBlueprintEditorLibrary extends BlueprintFunctionLibrary {
-	public function SetPreviewMesh(InRigBlueprint: cpp.Star<ControlRigBlueprint>, PreviewMesh: cpp.Star<SkeletalMesh>, bMarkAsDirty: Bool): Void;
-	public function RequestControlRigInit(InRigBlueprint: cpp.Star<ControlRigBlueprint>): Void;
-	public function RequestAutoVMRecompilation(InRigBlueprint: cpp.Star<ControlRigBlueprint>): Void;
-	public function RecompileVMIfRequired(InRigBlueprint: cpp.Star<ControlRigBlueprint>): Void;
-	public function RecompileVM(InRigBlueprint: cpp.Star<ControlRigBlueprint>): Void;
-	public function GetPreviewMesh(InRigBlueprint: cpp.Star<ControlRigBlueprint>): cpp.Star<SkeletalMesh>;
-	public function GetModel(InRigBlueprint: cpp.Star<ControlRigBlueprint>): cpp.Star<RigVMGraph>;
-	public function GetHierarchyController(InRigBlueprint: cpp.Star<ControlRigBlueprint>): cpp.Star<RigHierarchyController>;
-	public function GetHierarchy(InRigBlueprint: cpp.Star<ControlRigBlueprint>): cpp.Star<RigHierarchy>;
-	public function GetCurrentlyOpenRigBlueprints(): TArray<cpp.Star<ControlRigBlueprint>>;
-	public function GetController(InRigBlueprint: cpp.Star<ControlRigBlueprint>): cpp.Star<RigVMController>;
-	public function GetAvailableRigUnits(): TArray<cpp.Star<Struct>>;
-	public function CastToControlRigBlueprint(Object: cpp.Star<Object>, Branches: cpp.Reference<ECastToControlRigBlueprintCases>, AsControlRigBlueprint: cpp.Reference<cpp.Star<ControlRigBlueprint>>): Void;
+	public function SetPreviewMesh(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>, PreviewMesh: ucpp.Ptr<SkeletalMesh>, bMarkAsDirty: Bool): Void;
+	public function RequestControlRigInit(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): Void;
+	public function RequestAutoVMRecompilation(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): Void;
+	public function RecompileVMIfRequired(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): Void;
+	public function RecompileVM(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): Void;
+	public function GetPreviewMesh(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): ucpp.Ptr<SkeletalMesh>;
+	public function GetModel(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): ucpp.Ptr<RigVMGraph>;
+	public function GetHierarchyController(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): ucpp.Ptr<RigHierarchyController>;
+	public function GetHierarchy(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): ucpp.Ptr<RigHierarchy>;
+	public function GetCurrentlyOpenRigBlueprints(): TArray<ucpp.Ptr<ControlRigBlueprint>>;
+	public function GetController(InRigBlueprint: ucpp.Ptr<ControlRigBlueprint>): ucpp.Ptr<RigVMController>;
+	public function GetAvailableRigUnits(): TArray<ucpp.Ptr<Struct>>;
+	public function CastToControlRigBlueprint(Object: ucpp.Ptr<Object>, Branches: ucpp.Ref<ECastToControlRigBlueprintCases>, AsControlRigBlueprint: ucpp.Ref<ucpp.Ptr<ControlRigBlueprint>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,7 +30,7 @@ abstract ConstControlRigBlueprintEditorLibrary(ControlRigBlueprintEditorLibrary)
 @:forward
 @:nativeGen
 @:native("ControlRigBlueprintEditorLibrary*")
-abstract ControlRigBlueprintEditorLibraryPtr(cpp.Star<ControlRigBlueprintEditorLibrary>) from cpp.Star<ControlRigBlueprintEditorLibrary> to cpp.Star<ControlRigBlueprintEditorLibrary>{
+abstract ControlRigBlueprintEditorLibraryPtr(ucpp.Ptr<ControlRigBlueprintEditorLibrary>) from ucpp.Ptr<ControlRigBlueprintEditorLibrary> to ucpp.Ptr<ControlRigBlueprintEditorLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigBlueprintEditorLibrary): ControlRigBlueprintEditorLibraryPtr {
 		return untyped __cpp__("&({0})", v);

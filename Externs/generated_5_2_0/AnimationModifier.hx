@@ -3,16 +3,16 @@ package ue;
 
 @:native("UAnimationModifier")
 @:include("AnimationModifier.h")
-@:structAccess
+@:valueType
 extern class AnimationModifier extends Object {
 	public var bReapplyPostOwnerChange: Bool;
 	private var RevisionGuid: Guid;
-	private var StoredNativeRevision: cpp.Int32;
+	private var StoredNativeRevision: ucpp.num.Int32;
 
-	public function OnRevert(AnimationSequence: cpp.Star<AnimSequence>): Void;
-	public function OnApply(AnimationSequence: cpp.Star<AnimSequence>): Void;
+	public function OnRevert(AnimationSequence: ucpp.Ptr<AnimSequence>): Void;
+	public function OnApply(AnimationSequence: ucpp.Ptr<AnimSequence>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstAnimationModifier(AnimationModifier) from AnimationModifier {
 @:forward
 @:nativeGen
 @:native("AnimationModifier*")
-abstract AnimationModifierPtr(cpp.Star<AnimationModifier>) from cpp.Star<AnimationModifier> to cpp.Star<AnimationModifier>{
+abstract AnimationModifierPtr(ucpp.Ptr<AnimationModifier>) from ucpp.Ptr<AnimationModifier> to ucpp.Ptr<AnimationModifier>{
 	@:from
 	public static extern inline function fromValue(v: AnimationModifier): AnimationModifierPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UControlRigVector2DControlProxy")
 @:include("EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlRigVector2DControlProxy extends ControlRigControlsProxy {
 	public var Vector2D: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstControlRigVector2DControlProxy(ControlRigVector2DControlProxy) fro
 @:forward
 @:nativeGen
 @:native("ControlRigVector2DControlProxy*")
-abstract ControlRigVector2DControlProxyPtr(cpp.Star<ControlRigVector2DControlProxy>) from cpp.Star<ControlRigVector2DControlProxy> to cpp.Star<ControlRigVector2DControlProxy>{
+abstract ControlRigVector2DControlProxyPtr(ucpp.Ptr<ControlRigVector2DControlProxy>) from ucpp.Ptr<ControlRigVector2DControlProxy> to ucpp.Ptr<ControlRigVector2DControlProxy>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigVector2DControlProxy): ControlRigVector2DControlProxyPtr {
 		return untyped __cpp__("&({0})", v);

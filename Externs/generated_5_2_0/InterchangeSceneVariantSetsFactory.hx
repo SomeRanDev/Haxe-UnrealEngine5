@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeSceneVariantSetsFactory")
 @:include("Scene/InterchangeSceneVariantSetsFactory.h")
-@:structAccess
+@:valueType
 extern class InterchangeSceneVariantSetsFactory extends InterchangeFactoryBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeSceneVariantSetsFactory(InterchangeSceneVariantSetsFact
 @:forward
 @:nativeGen
 @:native("InterchangeSceneVariantSetsFactory*")
-abstract InterchangeSceneVariantSetsFactoryPtr(cpp.Star<InterchangeSceneVariantSetsFactory>) from cpp.Star<InterchangeSceneVariantSetsFactory> to cpp.Star<InterchangeSceneVariantSetsFactory>{
+abstract InterchangeSceneVariantSetsFactoryPtr(ucpp.Ptr<InterchangeSceneVariantSetsFactory>) from ucpp.Ptr<InterchangeSceneVariantSetsFactory> to ucpp.Ptr<InterchangeSceneVariantSetsFactory>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSceneVariantSetsFactory): InterchangeSceneVariantSetsFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationMetaData")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationMetaData {
 	public var ActiveSequences: TArray<MovieSceneSequenceID>;
 	public var ActiveEntities: TArray<MovieSceneOrderedEvaluationKey>;

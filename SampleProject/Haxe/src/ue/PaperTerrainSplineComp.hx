@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPaperTerrainSplineComponent")
 @:include("PaperTerrainSplineComponent.h")
-@:structAccess
+@:valueType
 extern class PaperTerrainSplineComp extends SplineComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPaperTerrainSplineComp(PaperTerrainSplineComp) from PaperTerrainSp
 @:forward
 @:nativeGen
 @:native("PaperTerrainSplineComp*")
-abstract PaperTerrainSplineCompPtr(cpp.Star<PaperTerrainSplineComp>) from cpp.Star<PaperTerrainSplineComp> to cpp.Star<PaperTerrainSplineComp>{
+abstract PaperTerrainSplineCompPtr(ucpp.Ptr<PaperTerrainSplineComp>) from ucpp.Ptr<PaperTerrainSplineComp> to ucpp.Ptr<PaperTerrainSplineComp>{
 	@:from
 	public static extern inline function fromValue(v: PaperTerrainSplineComp): PaperTerrainSplineCompPtr {
 		return untyped __cpp__("&({0})", v);

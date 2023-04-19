@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBodySetup")
 @:include("PhysicsEngine/BodySetup.h")
-@:structAccess
+@:valueType
 extern class BodySetup extends BodySetupCore {
 	public var AggGeom: KAggregateGeom;
 	public var bConsiderForBounds: Bool;
@@ -14,12 +14,12 @@ extern class BodySetup extends BodySetupCore {
 	public var bGenerateMirroredCollision: Bool;
 	public var bSupportUVsAndFaceRemap: Bool;
 	public var bNeverNeedsCookedCollisionData: Bool;
-	public var PhysMaterial: cpp.Star<PhysicalMaterial>;
+	public var PhysMaterial: ucpp.Ptr<PhysicalMaterial>;
 	public var WalkableSlopeOverride: WalkableSlopeOverride;
 	public var DefaultInstance: BodyInstance;
 	public var BuildScale3D: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -43,8 +43,8 @@ abstract ConstBodySetup(BodySetup) from BodySetup {
 	public inline extern function get_bSupportUVsAndFaceRemap(): Bool return this.bSupportUVsAndFaceRemap;
 	public extern var bNeverNeedsCookedCollisionData(get, never): Bool;
 	public inline extern function get_bNeverNeedsCookedCollisionData(): Bool return this.bNeverNeedsCookedCollisionData;
-	public extern var PhysMaterial(get, never): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial>;
-	public inline extern function get_PhysMaterial(): cpp.Star<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
+	public extern var PhysMaterial(get, never): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial>;
+	public inline extern function get_PhysMaterial(): ucpp.Ptr<PhysicalMaterial.ConstPhysicalMaterial> return this.PhysMaterial;
 	public extern var WalkableSlopeOverride(get, never): WalkableSlopeOverride;
 	public inline extern function get_WalkableSlopeOverride(): WalkableSlopeOverride return this.WalkableSlopeOverride;
 	public extern var DefaultInstance(get, never): BodyInstance;
@@ -56,7 +56,7 @@ abstract ConstBodySetup(BodySetup) from BodySetup {
 @:forward
 @:nativeGen
 @:native("BodySetup*")
-abstract BodySetupPtr(cpp.Star<BodySetup>) from cpp.Star<BodySetup> to cpp.Star<BodySetup>{
+abstract BodySetupPtr(ucpp.Ptr<BodySetup>) from ucpp.Ptr<BodySetup> to ucpp.Ptr<BodySetup>{
 	@:from
 	public static extern inline function fromValue(v: BodySetup): BodySetupPtr {
 		return untyped __cpp__("&({0})", v);

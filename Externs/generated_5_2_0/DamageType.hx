@@ -3,17 +3,17 @@ package ue;
 
 @:native("UDamageType")
 @:include("GameFramework/DamageType.h")
-@:structAccess
+@:valueType
 extern class DamageType extends Object {
 	public var bCausedByWorld: Bool;
 	public var bScaleMomentumByMass: Bool;
 	public var bRadialDamageVelChange: Bool;
-	public var DamageImpulse: cpp.Float32;
-	public var DestructibleImpulse: cpp.Float32;
-	public var DestructibleDamageSpreadScale: cpp.Float32;
-	public var DamageFalloff: cpp.Float32;
+	public var DamageImpulse: ucpp.num.Float32;
+	public var DestructibleImpulse: ucpp.num.Float32;
+	public var DestructibleDamageSpreadScale: ucpp.num.Float32;
+	public var DamageFalloff: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,20 +25,20 @@ abstract ConstDamageType(DamageType) from DamageType {
 	public inline extern function get_bScaleMomentumByMass(): Bool return this.bScaleMomentumByMass;
 	public extern var bRadialDamageVelChange(get, never): Bool;
 	public inline extern function get_bRadialDamageVelChange(): Bool return this.bRadialDamageVelChange;
-	public extern var DamageImpulse(get, never): cpp.Float32;
-	public inline extern function get_DamageImpulse(): cpp.Float32 return this.DamageImpulse;
-	public extern var DestructibleImpulse(get, never): cpp.Float32;
-	public inline extern function get_DestructibleImpulse(): cpp.Float32 return this.DestructibleImpulse;
-	public extern var DestructibleDamageSpreadScale(get, never): cpp.Float32;
-	public inline extern function get_DestructibleDamageSpreadScale(): cpp.Float32 return this.DestructibleDamageSpreadScale;
-	public extern var DamageFalloff(get, never): cpp.Float32;
-	public inline extern function get_DamageFalloff(): cpp.Float32 return this.DamageFalloff;
+	public extern var DamageImpulse(get, never): ucpp.num.Float32;
+	public inline extern function get_DamageImpulse(): ucpp.num.Float32 return this.DamageImpulse;
+	public extern var DestructibleImpulse(get, never): ucpp.num.Float32;
+	public inline extern function get_DestructibleImpulse(): ucpp.num.Float32 return this.DestructibleImpulse;
+	public extern var DestructibleDamageSpreadScale(get, never): ucpp.num.Float32;
+	public inline extern function get_DestructibleDamageSpreadScale(): ucpp.num.Float32 return this.DestructibleDamageSpreadScale;
+	public extern var DamageFalloff(get, never): ucpp.num.Float32;
+	public inline extern function get_DamageFalloff(): ucpp.num.Float32 return this.DamageFalloff;
 }
 
 @:forward
 @:nativeGen
 @:native("DamageType*")
-abstract DamageTypePtr(cpp.Star<DamageType>) from cpp.Star<DamageType> to cpp.Star<DamageType>{
+abstract DamageTypePtr(ucpp.Ptr<DamageType>) from ucpp.Ptr<DamageType> to ucpp.Ptr<DamageType>{
 	@:from
 	public static extern inline function fromValue(v: DamageType): DamageTypePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMirrorDataTableFactory")
 @:include("Factories/MirrorDataTableFactory.h")
-@:structAccess
+@:valueType
 extern class MirrorDataTableFactory extends Factory {
-	private var Struct: cpp.Star<ScriptStruct>;
-	private var Skeleton: cpp.Star<Skeleton>;
-	private var MirrorFindReplaceExpressions: cpp.Star<MirrorTableFindReplaceExpressions>;
+	private var Struct: ucpp.Ptr<ScriptStruct>;
+	private var Skeleton: ucpp.Ptr<Skeleton>;
+	private var MirrorFindReplaceExpressions: ucpp.Ptr<MirrorTableFindReplaceExpressions>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMirrorDataTableFactory(MirrorDataTableFactory) from MirrorDataTabl
 @:forward
 @:nativeGen
 @:native("MirrorDataTableFactory*")
-abstract MirrorDataTableFactoryPtr(cpp.Star<MirrorDataTableFactory>) from cpp.Star<MirrorDataTableFactory> to cpp.Star<MirrorDataTableFactory>{
+abstract MirrorDataTableFactoryPtr(ucpp.Ptr<MirrorDataTableFactory>) from ucpp.Ptr<MirrorDataTableFactory> to ucpp.Ptr<MirrorDataTableFactory>{
 	@:from
 	public static extern inline function fromValue(v: MirrorDataTableFactory): MirrorDataTableFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnForceFeedbackFinished__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnForceFeedbackFinished__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnForceFeedbackFinished__PythonCallable(OnForceFeedbackFinished__P
 @:forward
 @:nativeGen
 @:native("OnForceFeedbackFinished__PythonCallable*")
-abstract OnForceFeedbackFinished__PythonCallablePtr(cpp.Star<OnForceFeedbackFinished__PythonCallable>) from cpp.Star<OnForceFeedbackFinished__PythonCallable> to cpp.Star<OnForceFeedbackFinished__PythonCallable>{
+abstract OnForceFeedbackFinished__PythonCallablePtr(ucpp.Ptr<OnForceFeedbackFinished__PythonCallable>) from ucpp.Ptr<OnForceFeedbackFinished__PythonCallable> to ucpp.Ptr<OnForceFeedbackFinished__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnForceFeedbackFinished__PythonCallable): OnForceFeedbackFinished__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

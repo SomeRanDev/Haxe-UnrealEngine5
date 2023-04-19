@@ -3,15 +3,15 @@ package ue;
 
 @:native("UNewMeshMaterialProperties")
 @:include("Properties/MeshMaterialProperties.h")
-@:structAccess
+@:valueType
 extern class NewMeshMaterialProperties extends InteractiveToolPropertySet {
 	public var Material: TWeakObjectPtr<MaterialInterface>;
-	public var UVScale: cpp.Float32;
+	public var UVScale: ucpp.num.Float32;
 	public var bWorldSpaceUVScale: Bool;
 	public var bShowWireframe: Bool;
 	public var bShowExtendedOptions: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,8 +19,8 @@ extern class NewMeshMaterialProperties extends InteractiveToolPropertySet {
 abstract ConstNewMeshMaterialProperties(NewMeshMaterialProperties) from NewMeshMaterialProperties {
 	public extern var Material(get, never): TWeakObjectPtr<MaterialInterface.ConstMaterialInterface>;
 	public inline extern function get_Material(): TWeakObjectPtr<MaterialInterface.ConstMaterialInterface> return this.Material;
-	public extern var UVScale(get, never): cpp.Float32;
-	public inline extern function get_UVScale(): cpp.Float32 return this.UVScale;
+	public extern var UVScale(get, never): ucpp.num.Float32;
+	public inline extern function get_UVScale(): ucpp.num.Float32 return this.UVScale;
 	public extern var bWorldSpaceUVScale(get, never): Bool;
 	public inline extern function get_bWorldSpaceUVScale(): Bool return this.bWorldSpaceUVScale;
 	public extern var bShowWireframe(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstNewMeshMaterialProperties(NewMeshMaterialProperties) from NewMeshM
 @:forward
 @:nativeGen
 @:native("NewMeshMaterialProperties*")
-abstract NewMeshMaterialPropertiesPtr(cpp.Star<NewMeshMaterialProperties>) from cpp.Star<NewMeshMaterialProperties> to cpp.Star<NewMeshMaterialProperties>{
+abstract NewMeshMaterialPropertiesPtr(ucpp.Ptr<NewMeshMaterialProperties>) from ucpp.Ptr<NewMeshMaterialProperties> to ucpp.Ptr<NewMeshMaterialProperties>{
 	@:from
 	public static extern inline function fromValue(v: NewMeshMaterialProperties): NewMeshMaterialPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("USkinWeightsBindingToolBuilder")
 @:include("SkinWeightsBindingTool.h")
-@:structAccess
+@:valueType
 extern class SkinWeightsBindingToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSkinWeightsBindingToolBuilder(SkinWeightsBindingToolBuilder) from 
 @:forward
 @:nativeGen
 @:native("SkinWeightsBindingToolBuilder*")
-abstract SkinWeightsBindingToolBuilderPtr(cpp.Star<SkinWeightsBindingToolBuilder>) from cpp.Star<SkinWeightsBindingToolBuilder> to cpp.Star<SkinWeightsBindingToolBuilder>{
+abstract SkinWeightsBindingToolBuilderPtr(ucpp.Ptr<SkinWeightsBindingToolBuilder>) from ucpp.Ptr<SkinWeightsBindingToolBuilder> to ucpp.Ptr<SkinWeightsBindingToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: SkinWeightsBindingToolBuilder): SkinWeightsBindingToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

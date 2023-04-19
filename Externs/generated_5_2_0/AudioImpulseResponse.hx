@@ -3,28 +3,28 @@ package ue;
 
 @:native("UAudioImpulseResponse")
 @:include("EffectConvolutionReverb.h")
-@:structAccess
+@:valueType
 extern class AudioImpulseResponse extends Object {
-	public var ImpulseResponse: TArray<cpp.Float32>;
-	public var NumChannels: cpp.Int32;
-	public var SampleRate: cpp.Int32;
-	public var NormalizationVolumeDb: cpp.Float32;
+	public var ImpulseResponse: TArray<ucpp.num.Float32>;
+	public var NumChannels: ucpp.num.Int32;
+	public var SampleRate: ucpp.num.Int32;
+	public var NormalizationVolumeDb: ucpp.num.Float32;
 	public var bTrueStereo: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAudioImpulseResponse(AudioImpulseResponse) from AudioImpulseResponse {
-	public extern var ImpulseResponse(get, never): TArray<cpp.Float32>;
-	public inline extern function get_ImpulseResponse(): TArray<cpp.Float32> return this.ImpulseResponse;
-	public extern var NumChannels(get, never): cpp.Int32;
-	public inline extern function get_NumChannels(): cpp.Int32 return this.NumChannels;
-	public extern var SampleRate(get, never): cpp.Int32;
-	public inline extern function get_SampleRate(): cpp.Int32 return this.SampleRate;
-	public extern var NormalizationVolumeDb(get, never): cpp.Float32;
-	public inline extern function get_NormalizationVolumeDb(): cpp.Float32 return this.NormalizationVolumeDb;
+	public extern var ImpulseResponse(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_ImpulseResponse(): TArray<ucpp.num.Float32> return this.ImpulseResponse;
+	public extern var NumChannels(get, never): ucpp.num.Int32;
+	public inline extern function get_NumChannels(): ucpp.num.Int32 return this.NumChannels;
+	public extern var SampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_SampleRate(): ucpp.num.Int32 return this.SampleRate;
+	public extern var NormalizationVolumeDb(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalizationVolumeDb(): ucpp.num.Float32 return this.NormalizationVolumeDb;
 	public extern var bTrueStereo(get, never): Bool;
 	public inline extern function get_bTrueStereo(): Bool return this.bTrueStereo;
 }
@@ -32,7 +32,7 @@ abstract ConstAudioImpulseResponse(AudioImpulseResponse) from AudioImpulseRespon
 @:forward
 @:nativeGen
 @:native("AudioImpulseResponse*")
-abstract AudioImpulseResponsePtr(cpp.Star<AudioImpulseResponse>) from cpp.Star<AudioImpulseResponse> to cpp.Star<AudioImpulseResponse>{
+abstract AudioImpulseResponsePtr(ucpp.Ptr<AudioImpulseResponse>) from ucpp.Ptr<AudioImpulseResponse> to ucpp.Ptr<AudioImpulseResponse>{
 	@:from
 	public static extern inline function fromValue(v: AudioImpulseResponse): AudioImpulseResponsePtr {
 		return untyped __cpp__("&({0})", v);

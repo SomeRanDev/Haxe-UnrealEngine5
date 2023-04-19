@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAudioComponent")
 @:include("Components/AudioComponent.h")
-@:structAccess
+@:valueType
 extern class AudioComp extends SceneComp {
-	public var Sound: cpp.Star<SoundBase>;
+	public var Sound: ucpp.Ptr<SoundBase>;
 	public var DefaultParameters: TArray<AudioParameter>;
 	public var InstanceParameters: TArray<AudioParameter>;
-	public var SoundClassOverride: cpp.Star<SoundClass>;
+	public var SoundClassOverride: ucpp.Ptr<SoundClass>;
 	public var bAutoDestroy: Bool;
 	public var bStopWhenOwnerDestroyed: Bool;
 	public var bShouldRemainActiveIfDropped: Bool;
@@ -23,21 +23,21 @@ extern class AudioComp extends SceneComp {
 	public var bDisableParameterUpdatesWhilePlaying: Bool;
 	public var bAutoManageAttachment: Bool;
 	public var AudioComponentUserID: FName;
-	public var PitchModulationMin: cpp.Float32;
-	public var PitchModulationMax: cpp.Float32;
-	public var VolumeModulationMin: cpp.Float32;
-	public var VolumeModulationMax: cpp.Float32;
-	public var VolumeMultiplier: cpp.Float32;
-	public var EnvelopeFollowerAttackTime: cpp.Int32;
-	public var EnvelopeFollowerReleaseTime: cpp.Int32;
-	public var Priority: cpp.Float32;
-	public var SubtitlePriority: cpp.Float32;
-	public var SourceEffectChain: cpp.Star<SoundEffectSourcePresetChain>;
-	public var PitchMultiplier: cpp.Float32;
-	public var LowPassFilterFrequency: cpp.Float32;
-	public var AttenuationSettings: cpp.Star<SoundAttenuation>;
+	public var PitchModulationMin: ucpp.num.Float32;
+	public var PitchModulationMax: ucpp.num.Float32;
+	public var VolumeModulationMin: ucpp.num.Float32;
+	public var VolumeModulationMax: ucpp.num.Float32;
+	public var VolumeMultiplier: ucpp.num.Float32;
+	public var EnvelopeFollowerAttackTime: ucpp.num.Int32;
+	public var EnvelopeFollowerReleaseTime: ucpp.num.Int32;
+	public var Priority: ucpp.num.Float32;
+	public var SubtitlePriority: ucpp.num.Float32;
+	public var SourceEffectChain: ucpp.Ptr<SoundEffectSourcePresetChain>;
+	public var PitchMultiplier: ucpp.num.Float32;
+	public var LowPassFilterFrequency: ucpp.num.Float32;
+	public var AttenuationSettings: ucpp.Ptr<SoundAttenuation>;
 	public var AttenuationOverrides: SoundAttenuationSettings;
-	public var ConcurrencySet: TSet<cpp.Star<SoundConcurrency>>;
+	public var ConcurrencySet: TSet<ucpp.Ptr<SoundConcurrency>>;
 	public var AutoAttachLocationRule: EAttachmentRule;
 	public var AutoAttachRotationRule: EAttachmentRule;
 	public var AutoAttachScaleRule: EAttachmentRule;
@@ -45,63 +45,65 @@ extern class AudioComp extends SceneComp {
 	public var OnAudioPlayStateChanged: HaxeMulticastSparseDelegateProperty<(EAudioComponentPlayState) -> Void>;
 	public var OnAudioVirtualizationChanged: HaxeMulticastSparseDelegateProperty<(Bool) -> Void>;
 	public var OnAudioFinished: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var OnAudioPlaybackPercent: HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void>;
-	public var OnAudioSingleEnvelopeValue: HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void>;
-	public var OnAudioMultiEnvelopeValue: HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Int32) -> Void>;
-	public var OnQueueSubtitles: HaxeDelegateProperty<(cpp.Reference<TArray<SubtitleCue>>, cpp.Float32) -> Void>;
+	public var OnAudioPlaybackPercent: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, ucpp.num.Float32) -> Void>;
+	public var OnAudioSingleEnvelopeValue: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, ucpp.num.Float32) -> Void>;
+	public var OnAudioMultiEnvelopeValue: HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public var OnQueueSubtitles: HaxeDelegateProperty<(ucpp.Ref<TArray<SubtitleCue>>, ucpp.num.Float32) -> Void>;
 	public var AutoAttachParent: TWeakObjectPtr<SceneComp>;
 	public var AutoAttachSocketName: FName;
 
-	public function StopDelayed(DelayTime: cpp.Float32): Void;
+	public function StopDelayed(DelayTime: ucpp.num.Float32): Void;
 	public function Stop(): Void;
-	public function SetWaveParameter(InName: FName, InWave: cpp.Star<SoundWave>): Void;
-	public function SetVolumeMultiplier(NewVolumeMultiplier: cpp.Float32): Void;
+	public function SetWaveParameter(InName: FName, InWave: ucpp.Ptr<SoundWave>): Void;
+	public function SetVolumeMultiplier(NewVolumeMultiplier: ucpp.num.Float32): Void;
 	public function SetUISound(bInUISound: Bool): Void;
-	public function SetSubmixSend(Submix: cpp.Star<SoundSubmixBase>, SendLevel: cpp.Float32): Void;
-	public function SetSourceBusSendPreEffect(SoundSourceBus: cpp.Star<SoundSourceBus>, SourceBusSendLevel: cpp.Float32): Void;
-	public function SetSourceBusSendPostEffect(SoundSourceBus: cpp.Star<SoundSourceBus>, SourceBusSendLevel: cpp.Float32): Void;
-	public function SetSound(NewSound: cpp.Star<SoundBase>): Void;
-	public function SetPitchMultiplier(NewPitchMultiplier: cpp.Float32): Void;
+	public function SetSubmixSend(Submix: ucpp.Ptr<SoundSubmixBase>, SendLevel: ucpp.num.Float32): Void;
+	public function SetSourceBusSendPreEffect(SoundSourceBus: ucpp.Ptr<SoundSourceBus>, SourceBusSendLevel: ucpp.num.Float32): Void;
+	public function SetSourceBusSendPostEffect(SoundSourceBus: ucpp.Ptr<SoundSourceBus>, SourceBusSendLevel: ucpp.num.Float32): Void;
+	public function SetSound(NewSound: ucpp.Ptr<SoundBase>): Void;
+	public function SetPitchMultiplier(NewPitchMultiplier: ucpp.num.Float32): Void;
 	public function SetPaused(bPause: Bool): Void;
 	public function SetOutputToBusOnly(bInOutputToBusOnly: Bool): Void;
-	public function SetLowPassFilterFrequency(InLowPassFilterFrequency: cpp.Float32): Void;
+	public function SetModulationRouting(Modulators: ucpp.Ref<TSet<ucpp.Ptr<SoundModulatorBase>>>, Destination: EModulationDestination, RoutingMethod: EModulationRouting): Void;
+	public function SetLowPassFilterFrequency(InLowPassFilterFrequency: ucpp.num.Float32): Void;
 	public function SetLowPassFilterEnabled(InLowPassFilterEnabled: Bool): Void;
-	public function SetIntParameter(InName: FName, InInt: cpp.Int32): Void;
-	public function SetFloatParameter(InName: FName, InFloat: cpp.Float32): Void;
+	public function SetIntParameter(InName: FName, InInt: ucpp.num.Int32): Void;
+	public function SetFloatParameter(InName: FName, InFloat: ucpp.num.Float32): Void;
 	public function SetBoolParameter(InName: FName, InBool: Bool): Void;
-	public function SetAudioBusSendPreEffect(AudioBus: cpp.Star<AudioBus>, AudioBusSendLevel: cpp.Float32): Void;
-	public function SetAudioBusSendPostEffect(AudioBus: cpp.Star<AudioBus>, AudioBusSendLevel: cpp.Float32): Void;
-	public function PlayQuantized(WorldContextObject: cpp.Star<Object.ConstObject>, InClockHandle: cpp.Reference<cpp.Star<QuartzClockHandle>>, InQuantizationBoundary: cpp.Reference<QuartzQuantizationBoundary>, InDelegate: cpp.Reference<HaxeDelegateProperty<(EQuartzCommandDelegateSubType, FName) -> Void>>, InStartTime: cpp.Float32, InFadeInDuration: cpp.Float32, InFadeVolumeLevel: cpp.Float32, InFadeCurve: EAudioFaderCurve): Void;
-	public function Play(StartTime: cpp.Float32): Void;
+	public function SetAudioBusSendPreEffect(AudioBus: ucpp.Ptr<AudioBus>, AudioBusSendLevel: ucpp.num.Float32): Void;
+	public function SetAudioBusSendPostEffect(AudioBus: ucpp.Ptr<AudioBus>, AudioBusSendLevel: ucpp.num.Float32): Void;
+	public function PlayQuantized(WorldContextObject: ucpp.Ptr<Object.ConstObject>, InClockHandle: ucpp.Ref<ucpp.Ptr<QuartzClockHandle>>, InQuantizationBoundary: ucpp.Ref<QuartzQuantizationBoundary>, InDelegate: ucpp.Ref<HaxeDelegateProperty<(EQuartzCommandDelegateSubType, FName) -> Void>>, InStartTime: ucpp.num.Float32, InFadeInDuration: ucpp.num.Float32, InFadeVolumeLevel: ucpp.num.Float32, InFadeCurve: EAudioFaderCurve): Void;
+	public function Play(StartTime: ucpp.num.Float32): Void;
 	public function IsVirtualized(): Bool;
 	public function IsPlaying(): Bool;
 	public function HasCookedFFTData(): Bool;
 	public function HasCookedAmplitudeEnvelopeData(): Bool;
 	public function GetPlayState(): EAudioComponentPlayState;
-	public function GetCookedFFTDataForAllPlayingSounds(OutSoundWaveSpectralData: cpp.Reference<TArray<SoundWaveSpectralDataPerSound>>): Bool;
-	public function GetCookedFFTData(FrequenciesToGet: cpp.Reference<TArray<cpp.Float32>>, OutSoundWaveSpectralData: cpp.Reference<TArray<SoundWaveSpectralData>>): Bool;
-	public function GetCookedEnvelopeDataForAllPlayingSounds(OutEnvelopeData: cpp.Reference<TArray<SoundWaveEnvelopeDataPerSound>>): Bool;
-	public function GetCookedEnvelopeData(OutEnvelopeData: cpp.Reference<cpp.Float32>): Bool;
-	public function FadeOut(FadeOutDuration: cpp.Float32, FadeVolumeLevel: cpp.Float32, FadeCurve: EAudioFaderCurve): Void;
-	public function FadeIn(FadeInDuration: cpp.Float32, FadeVolumeLevel: cpp.Float32, StartTime: cpp.Float32, FadeCurve: EAudioFaderCurve): Void;
-	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): Bool;
-	public function AdjustVolume(AdjustVolumeDuration: cpp.Float32, AdjustVolumeLevel: cpp.Float32, FadeCurve: EAudioFaderCurve): Void;
-	public function AdjustAttenuation(InAttenuationSettings: cpp.Reference<SoundAttenuationSettings>): Void;
+	public function GetModulators(Destination: EModulationDestination): TSet<ucpp.Ptr<SoundModulatorBase>>;
+	public function GetCookedFFTDataForAllPlayingSounds(OutSoundWaveSpectralData: ucpp.Ref<TArray<SoundWaveSpectralDataPerSound>>): Bool;
+	public function GetCookedFFTData(FrequenciesToGet: ucpp.Ref<TArray<ucpp.num.Float32>>, OutSoundWaveSpectralData: ucpp.Ref<TArray<SoundWaveSpectralData>>): Bool;
+	public function GetCookedEnvelopeDataForAllPlayingSounds(OutEnvelopeData: ucpp.Ref<TArray<SoundWaveEnvelopeDataPerSound>>): Bool;
+	public function GetCookedEnvelopeData(OutEnvelopeData: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function FadeOut(FadeOutDuration: ucpp.num.Float32, FadeVolumeLevel: ucpp.num.Float32, FadeCurve: EAudioFaderCurve): Void;
+	public function FadeIn(FadeInDuration: ucpp.num.Float32, FadeVolumeLevel: ucpp.num.Float32, StartTime: ucpp.num.Float32, FadeCurve: EAudioFaderCurve): Void;
+	public function BP_GetAttenuationSettingsToApply(OutAttenuationSettings: ucpp.Ref<SoundAttenuationSettings>): Bool;
+	public function AdjustVolume(AdjustVolumeDuration: ucpp.num.Float32, AdjustVolumeLevel: ucpp.num.Float32, FadeCurve: EAudioFaderCurve): Void;
+	public function AdjustAttenuation(InAttenuationSettings: ucpp.Ref<SoundAttenuationSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsVirtualized, IsPlaying, HasCookedFFTData, HasCookedAmplitudeEnvelopeData, GetPlayState)
 @:nativeGen
 abstract ConstAudioComp(AudioComp) from AudioComp {
-	public extern var Sound(get, never): cpp.Star<SoundBase.ConstSoundBase>;
-	public inline extern function get_Sound(): cpp.Star<SoundBase.ConstSoundBase> return this.Sound;
+	public extern var Sound(get, never): ucpp.Ptr<SoundBase.ConstSoundBase>;
+	public inline extern function get_Sound(): ucpp.Ptr<SoundBase.ConstSoundBase> return this.Sound;
 	public extern var DefaultParameters(get, never): TArray<AudioParameter>;
 	public inline extern function get_DefaultParameters(): TArray<AudioParameter> return this.DefaultParameters;
 	public extern var InstanceParameters(get, never): TArray<AudioParameter>;
 	public inline extern function get_InstanceParameters(): TArray<AudioParameter> return this.InstanceParameters;
-	public extern var SoundClassOverride(get, never): cpp.Star<SoundClass.ConstSoundClass>;
-	public inline extern function get_SoundClassOverride(): cpp.Star<SoundClass.ConstSoundClass> return this.SoundClassOverride;
+	public extern var SoundClassOverride(get, never): ucpp.Ptr<SoundClass.ConstSoundClass>;
+	public inline extern function get_SoundClassOverride(): ucpp.Ptr<SoundClass.ConstSoundClass> return this.SoundClassOverride;
 	public extern var bAutoDestroy(get, never): Bool;
 	public inline extern function get_bAutoDestroy(): Bool return this.bAutoDestroy;
 	public extern var bStopWhenOwnerDestroyed(get, never): Bool;
@@ -130,36 +132,36 @@ abstract ConstAudioComp(AudioComp) from AudioComp {
 	public inline extern function get_bAutoManageAttachment(): Bool return this.bAutoManageAttachment;
 	public extern var AudioComponentUserID(get, never): FName;
 	public inline extern function get_AudioComponentUserID(): FName return this.AudioComponentUserID;
-	public extern var PitchModulationMin(get, never): cpp.Float32;
-	public inline extern function get_PitchModulationMin(): cpp.Float32 return this.PitchModulationMin;
-	public extern var PitchModulationMax(get, never): cpp.Float32;
-	public inline extern function get_PitchModulationMax(): cpp.Float32 return this.PitchModulationMax;
-	public extern var VolumeModulationMin(get, never): cpp.Float32;
-	public inline extern function get_VolumeModulationMin(): cpp.Float32 return this.VolumeModulationMin;
-	public extern var VolumeModulationMax(get, never): cpp.Float32;
-	public inline extern function get_VolumeModulationMax(): cpp.Float32 return this.VolumeModulationMax;
-	public extern var VolumeMultiplier(get, never): cpp.Float32;
-	public inline extern function get_VolumeMultiplier(): cpp.Float32 return this.VolumeMultiplier;
-	public extern var EnvelopeFollowerAttackTime(get, never): cpp.Int32;
-	public inline extern function get_EnvelopeFollowerAttackTime(): cpp.Int32 return this.EnvelopeFollowerAttackTime;
-	public extern var EnvelopeFollowerReleaseTime(get, never): cpp.Int32;
-	public inline extern function get_EnvelopeFollowerReleaseTime(): cpp.Int32 return this.EnvelopeFollowerReleaseTime;
-	public extern var Priority(get, never): cpp.Float32;
-	public inline extern function get_Priority(): cpp.Float32 return this.Priority;
-	public extern var SubtitlePriority(get, never): cpp.Float32;
-	public inline extern function get_SubtitlePriority(): cpp.Float32 return this.SubtitlePriority;
-	public extern var SourceEffectChain(get, never): cpp.Star<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain>;
-	public inline extern function get_SourceEffectChain(): cpp.Star<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain> return this.SourceEffectChain;
-	public extern var PitchMultiplier(get, never): cpp.Float32;
-	public inline extern function get_PitchMultiplier(): cpp.Float32 return this.PitchMultiplier;
-	public extern var LowPassFilterFrequency(get, never): cpp.Float32;
-	public inline extern function get_LowPassFilterFrequency(): cpp.Float32 return this.LowPassFilterFrequency;
-	public extern var AttenuationSettings(get, never): cpp.Star<SoundAttenuation.ConstSoundAttenuation>;
-	public inline extern function get_AttenuationSettings(): cpp.Star<SoundAttenuation.ConstSoundAttenuation> return this.AttenuationSettings;
+	public extern var PitchModulationMin(get, never): ucpp.num.Float32;
+	public inline extern function get_PitchModulationMin(): ucpp.num.Float32 return this.PitchModulationMin;
+	public extern var PitchModulationMax(get, never): ucpp.num.Float32;
+	public inline extern function get_PitchModulationMax(): ucpp.num.Float32 return this.PitchModulationMax;
+	public extern var VolumeModulationMin(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeModulationMin(): ucpp.num.Float32 return this.VolumeModulationMin;
+	public extern var VolumeModulationMax(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeModulationMax(): ucpp.num.Float32 return this.VolumeModulationMax;
+	public extern var VolumeMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_VolumeMultiplier(): ucpp.num.Float32 return this.VolumeMultiplier;
+	public extern var EnvelopeFollowerAttackTime(get, never): ucpp.num.Int32;
+	public inline extern function get_EnvelopeFollowerAttackTime(): ucpp.num.Int32 return this.EnvelopeFollowerAttackTime;
+	public extern var EnvelopeFollowerReleaseTime(get, never): ucpp.num.Int32;
+	public inline extern function get_EnvelopeFollowerReleaseTime(): ucpp.num.Int32 return this.EnvelopeFollowerReleaseTime;
+	public extern var Priority(get, never): ucpp.num.Float32;
+	public inline extern function get_Priority(): ucpp.num.Float32 return this.Priority;
+	public extern var SubtitlePriority(get, never): ucpp.num.Float32;
+	public inline extern function get_SubtitlePriority(): ucpp.num.Float32 return this.SubtitlePriority;
+	public extern var SourceEffectChain(get, never): ucpp.Ptr<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain>;
+	public inline extern function get_SourceEffectChain(): ucpp.Ptr<SoundEffectSourcePresetChain.ConstSoundEffectSourcePresetChain> return this.SourceEffectChain;
+	public extern var PitchMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_PitchMultiplier(): ucpp.num.Float32 return this.PitchMultiplier;
+	public extern var LowPassFilterFrequency(get, never): ucpp.num.Float32;
+	public inline extern function get_LowPassFilterFrequency(): ucpp.num.Float32 return this.LowPassFilterFrequency;
+	public extern var AttenuationSettings(get, never): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation>;
+	public inline extern function get_AttenuationSettings(): ucpp.Ptr<SoundAttenuation.ConstSoundAttenuation> return this.AttenuationSettings;
 	public extern var AttenuationOverrides(get, never): SoundAttenuationSettings;
 	public inline extern function get_AttenuationOverrides(): SoundAttenuationSettings return this.AttenuationOverrides;
-	public extern var ConcurrencySet(get, never): TSet<cpp.Star<SoundConcurrency.ConstSoundConcurrency>>;
-	public inline extern function get_ConcurrencySet(): TSet<cpp.Star<SoundConcurrency.ConstSoundConcurrency>> return this.ConcurrencySet;
+	public extern var ConcurrencySet(get, never): TSet<ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency>>;
+	public inline extern function get_ConcurrencySet(): TSet<ucpp.Ptr<SoundConcurrency.ConstSoundConcurrency>> return this.ConcurrencySet;
 	public extern var AutoAttachLocationRule(get, never): EAttachmentRule;
 	public inline extern function get_AutoAttachLocationRule(): EAttachmentRule return this.AutoAttachLocationRule;
 	public extern var AutoAttachRotationRule(get, never): EAttachmentRule;
@@ -174,14 +176,14 @@ abstract ConstAudioComp(AudioComp) from AudioComp {
 	public inline extern function get_OnAudioVirtualizationChanged(): HaxeMulticastSparseDelegateProperty<(Bool) -> Void> return this.OnAudioVirtualizationChanged;
 	public extern var OnAudioFinished(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnAudioFinished(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnAudioFinished;
-	public extern var OnAudioPlaybackPercent(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void>;
-	public inline extern function get_OnAudioPlaybackPercent(): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void> return this.OnAudioPlaybackPercent;
-	public extern var OnAudioSingleEnvelopeValue(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void>;
-	public inline extern function get_OnAudioSingleEnvelopeValue(): HaxeMulticastSparseDelegateProperty<(cpp.Star<SoundWave.ConstSoundWave>, cpp.Float32) -> Void> return this.OnAudioSingleEnvelopeValue;
-	public extern var OnAudioMultiEnvelopeValue(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Int32) -> Void>;
-	public inline extern function get_OnAudioMultiEnvelopeValue(): HaxeMulticastSparseDelegateProperty<(cpp.Float32, cpp.Float32, cpp.Int32) -> Void> return this.OnAudioMultiEnvelopeValue;
-	public extern var OnQueueSubtitles(get, never): HaxeDelegateProperty<(cpp.Reference<TArray<SubtitleCue>>, cpp.Float32) -> Void>;
-	public inline extern function get_OnQueueSubtitles(): HaxeDelegateProperty<(cpp.Reference<TArray<SubtitleCue>>, cpp.Float32) -> Void> return this.OnQueueSubtitles;
+	public extern var OnAudioPlaybackPercent(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnAudioPlaybackPercent(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, ucpp.num.Float32) -> Void> return this.OnAudioPlaybackPercent;
+	public extern var OnAudioSingleEnvelopeValue(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnAudioSingleEnvelopeValue(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<SoundWave.ConstSoundWave>, ucpp.num.Float32) -> Void> return this.OnAudioSingleEnvelopeValue;
+	public extern var OnAudioMultiEnvelopeValue(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnAudioMultiEnvelopeValue(): HaxeMulticastSparseDelegateProperty<(ucpp.num.Float32, ucpp.num.Float32, ucpp.num.Int32) -> Void> return this.OnAudioMultiEnvelopeValue;
+	public extern var OnQueueSubtitles(get, never): HaxeDelegateProperty<(ucpp.Ref<TArray<SubtitleCue>>, ucpp.num.Float32) -> Void>;
+	public inline extern function get_OnQueueSubtitles(): HaxeDelegateProperty<(ucpp.Ref<TArray<SubtitleCue>>, ucpp.num.Float32) -> Void> return this.OnQueueSubtitles;
 	public extern var AutoAttachParent(get, never): TWeakObjectPtr<SceneComp.ConstSceneComp>;
 	public inline extern function get_AutoAttachParent(): TWeakObjectPtr<SceneComp.ConstSceneComp> return this.AutoAttachParent;
 	public extern var AutoAttachSocketName(get, never): FName;
@@ -191,7 +193,7 @@ abstract ConstAudioComp(AudioComp) from AudioComp {
 @:forward
 @:nativeGen
 @:native("AudioComp*")
-abstract AudioCompPtr(cpp.Star<AudioComp>) from cpp.Star<AudioComp> to cpp.Star<AudioComp>{
+abstract AudioCompPtr(ucpp.Ptr<AudioComp>) from ucpp.Ptr<AudioComp> to ucpp.Ptr<AudioComp>{
 	@:from
 	public static extern inline function fromValue(v: AudioComp): AudioCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDynamicMeshReplacementChangeTarget")
 @:include("Changes/DynamicMeshChangeTarget.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshReplacementChangeTarget extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDynamicMeshReplacementChangeTarget(DynamicMeshReplacementChangeTar
 @:forward
 @:nativeGen
 @:native("DynamicMeshReplacementChangeTarget*")
-abstract DynamicMeshReplacementChangeTargetPtr(cpp.Star<DynamicMeshReplacementChangeTarget>) from cpp.Star<DynamicMeshReplacementChangeTarget> to cpp.Star<DynamicMeshReplacementChangeTarget>{
+abstract DynamicMeshReplacementChangeTargetPtr(ucpp.Ptr<DynamicMeshReplacementChangeTarget>) from ucpp.Ptr<DynamicMeshReplacementChangeTarget> to ucpp.Ptr<DynamicMeshReplacementChangeTarget>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshReplacementChangeTarget): DynamicMeshReplacementChangeTargetPtr {
 		return untyped __cpp__("&({0})", v);

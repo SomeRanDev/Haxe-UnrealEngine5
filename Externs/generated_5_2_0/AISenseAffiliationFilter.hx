@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAISenseAffiliationFilter")
 @:include("Perception/AIPerceptionTypes.h")
-@:structAccess
+@:valueType
 extern class AISenseAffiliationFilter {
 	public var bDetectEnemies: Bool;
 	public var bDetectNeutrals: Bool;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UResavePackagesCommandlet")
 @:include("Commandlets/ResavePackagesCommandlet.h")
-@:structAccess
+@:valueType
 extern class ResavePackagesCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstResavePackagesCommandlet(ResavePackagesCommandlet) from ResavePack
 @:forward
 @:nativeGen
 @:native("ResavePackagesCommandlet*")
-abstract ResavePackagesCommandletPtr(cpp.Star<ResavePackagesCommandlet>) from cpp.Star<ResavePackagesCommandlet> to cpp.Star<ResavePackagesCommandlet>{
+abstract ResavePackagesCommandletPtr(ucpp.Ptr<ResavePackagesCommandlet>) from ucpp.Ptr<ResavePackagesCommandlet> to ucpp.Ptr<ResavePackagesCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ResavePackagesCommandlet): ResavePackagesCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UOnlineEngineInterfaceImpl")
 @:include("OnlineEngineInterfaceImpl.h")
-@:structAccess
+@:valueType
 extern class OnlineEngineInterfaceImpl extends OnlineEngineInterface {
 	private var MappedUniqueNetIdTypes: TMap<FName, FName>;
 	private var CompatibleUniqueNetIdTypes: TArray<FName>;
 	private var VoiceSubsystemNameOverride: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstOnlineEngineInterfaceImpl(OnlineEngineInterfaceImpl) from OnlineEn
 @:forward
 @:nativeGen
 @:native("OnlineEngineInterfaceImpl*")
-abstract OnlineEngineInterfaceImplPtr(cpp.Star<OnlineEngineInterfaceImpl>) from cpp.Star<OnlineEngineInterfaceImpl> to cpp.Star<OnlineEngineInterfaceImpl>{
+abstract OnlineEngineInterfaceImplPtr(ucpp.Ptr<OnlineEngineInterfaceImpl>) from ucpp.Ptr<OnlineEngineInterfaceImpl> to ucpp.Ptr<OnlineEngineInterfaceImpl>{
 	@:from
 	public static extern inline function fromValue(v: OnlineEngineInterfaceImpl): OnlineEngineInterfaceImplPtr {
 		return untyped __cpp__("&({0})", v);

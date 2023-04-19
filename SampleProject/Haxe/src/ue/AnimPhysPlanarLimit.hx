@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimPhysPlanarLimit")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-@:structAccess
+@:valueType
 extern class AnimPhysPlanarLimit {
 	public var DrivingBone: BoneReference;
 	public var PlaneTransform: Transform;

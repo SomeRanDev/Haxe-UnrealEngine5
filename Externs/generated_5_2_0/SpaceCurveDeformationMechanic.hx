@@ -3,35 +3,35 @@ package ue;
 
 @:native("USpaceCurveDeformationMechanic")
 @:include("Mechanics/SpaceCurveDeformationMechanic.h")
-@:structAccess
+@:valueType
 extern class SpaceCurveDeformationMechanic extends InteractionMechanic {
-	public var ClickBehavior: cpp.Star<SingleClickInputBehavior>;
-	public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
-	public var TransformProperties: cpp.Star<SpaceCurveDeformationMechanicPropertySet>;
-	@:protected public var PreviewGeometryActor: cpp.Star<PreviewGeometryActor>;
-	@:protected public var RenderPoints: cpp.Star<PointSetComp>;
-	@:protected public var RenderSegments: cpp.Star<LineSetComp>;
-	@:protected public var PointTransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var PointTransformGizmo: cpp.Star<CombinedTransformGizmo>;
+	public var ClickBehavior: ucpp.Ptr<SingleClickInputBehavior>;
+	public var HoverBehavior: ucpp.Ptr<MouseHoverBehavior>;
+	public var TransformProperties: ucpp.Ptr<SpaceCurveDeformationMechanicPropertySet>;
+	@:protected public var PreviewGeometryActor: ucpp.Ptr<PreviewGeometryActor>;
+	@:protected public var RenderPoints: ucpp.Ptr<PointSetComp>;
+	@:protected public var RenderSegments: ucpp.Ptr<LineSetComp>;
+	@:protected public var PointTransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var PointTransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSpaceCurveDeformationMechanic(SpaceCurveDeformationMechanic) from SpaceCurveDeformationMechanic {
-	public extern var ClickBehavior(get, never): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
-	public inline extern function get_ClickBehavior(): cpp.Star<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.ClickBehavior;
-	public extern var HoverBehavior(get, never): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior>;
-	public inline extern function get_HoverBehavior(): cpp.Star<MouseHoverBehavior.ConstMouseHoverBehavior> return this.HoverBehavior;
-	public extern var TransformProperties(get, never): cpp.Star<SpaceCurveDeformationMechanicPropertySet.ConstSpaceCurveDeformationMechanicPropertySet>;
-	public inline extern function get_TransformProperties(): cpp.Star<SpaceCurveDeformationMechanicPropertySet.ConstSpaceCurveDeformationMechanicPropertySet> return this.TransformProperties;
+	public extern var ClickBehavior(get, never): ucpp.Ptr<SingleClickInputBehavior.ConstSingleClickInputBehavior>;
+	public inline extern function get_ClickBehavior(): ucpp.Ptr<SingleClickInputBehavior.ConstSingleClickInputBehavior> return this.ClickBehavior;
+	public extern var HoverBehavior(get, never): ucpp.Ptr<MouseHoverBehavior.ConstMouseHoverBehavior>;
+	public inline extern function get_HoverBehavior(): ucpp.Ptr<MouseHoverBehavior.ConstMouseHoverBehavior> return this.HoverBehavior;
+	public extern var TransformProperties(get, never): ucpp.Ptr<SpaceCurveDeformationMechanicPropertySet.ConstSpaceCurveDeformationMechanicPropertySet>;
+	public inline extern function get_TransformProperties(): ucpp.Ptr<SpaceCurveDeformationMechanicPropertySet.ConstSpaceCurveDeformationMechanicPropertySet> return this.TransformProperties;
 }
 
 @:forward
 @:nativeGen
 @:native("SpaceCurveDeformationMechanic*")
-abstract SpaceCurveDeformationMechanicPtr(cpp.Star<SpaceCurveDeformationMechanic>) from cpp.Star<SpaceCurveDeformationMechanic> to cpp.Star<SpaceCurveDeformationMechanic>{
+abstract SpaceCurveDeformationMechanicPtr(ucpp.Ptr<SpaceCurveDeformationMechanic>) from ucpp.Ptr<SpaceCurveDeformationMechanic> to ucpp.Ptr<SpaceCurveDeformationMechanic>{
 	@:from
 	public static extern inline function fromValue(v: SpaceCurveDeformationMechanic): SpaceCurveDeformationMechanicPtr {
 		return untyped __cpp__("&({0})", v);

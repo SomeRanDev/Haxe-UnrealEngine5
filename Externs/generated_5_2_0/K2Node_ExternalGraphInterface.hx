@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UK2Node_ExternalGraphInterface")
-@:structAccess
+@:valueType
 extern class K2Node_ExternalGraphInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstK2Node_ExternalGraphInterface(K2Node_ExternalGraphInterface) from 
 @:forward
 @:nativeGen
 @:native("K2Node_ExternalGraphInterface*")
-abstract K2Node_ExternalGraphInterfacePtr(cpp.Star<K2Node_ExternalGraphInterface>) from cpp.Star<K2Node_ExternalGraphInterface> to cpp.Star<K2Node_ExternalGraphInterface>{
+abstract K2Node_ExternalGraphInterfacePtr(ucpp.Ptr<K2Node_ExternalGraphInterface>) from ucpp.Ptr<K2Node_ExternalGraphInterface> to ucpp.Ptr<K2Node_ExternalGraphInterface>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_ExternalGraphInterface): K2Node_ExternalGraphInterfacePtr {
 		return untyped __cpp__("&({0})", v);

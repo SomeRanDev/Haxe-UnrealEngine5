@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GetSlateVisibility__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GetSlateVisibility__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GetSlateVisibility__PythonCallable(Widget_GetSlateVisibilit
 @:forward
 @:nativeGen
 @:native("Widget_GetSlateVisibility__PythonCallable*")
-abstract Widget_GetSlateVisibility__PythonCallablePtr(cpp.Star<Widget_GetSlateVisibility__PythonCallable>) from cpp.Star<Widget_GetSlateVisibility__PythonCallable> to cpp.Star<Widget_GetSlateVisibility__PythonCallable>{
+abstract Widget_GetSlateVisibility__PythonCallablePtr(ucpp.Ptr<Widget_GetSlateVisibility__PythonCallable>) from ucpp.Ptr<Widget_GetSlateVisibility__PythonCallable> to ucpp.Ptr<Widget_GetSlateVisibility__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GetSlateVisibility__PythonCallable): Widget_GetSlateVisibility__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USpinBox_OnSpinBoxValueChangedEvent__PythonCallable")
-@:structAccess
+@:valueType
 extern class SpinBox_OnSpinBoxValueChangedEvent__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSpinBox_OnSpinBoxValueChangedEvent__PythonCallable(SpinBox_OnSpinB
 @:forward
 @:nativeGen
 @:native("SpinBox_OnSpinBoxValueChangedEvent__PythonCallable*")
-abstract SpinBox_OnSpinBoxValueChangedEvent__PythonCallablePtr(cpp.Star<SpinBox_OnSpinBoxValueChangedEvent__PythonCallable>) from cpp.Star<SpinBox_OnSpinBoxValueChangedEvent__PythonCallable> to cpp.Star<SpinBox_OnSpinBoxValueChangedEvent__PythonCallable>{
+abstract SpinBox_OnSpinBoxValueChangedEvent__PythonCallablePtr(ucpp.Ptr<SpinBox_OnSpinBoxValueChangedEvent__PythonCallable>) from ucpp.Ptr<SpinBox_OnSpinBoxValueChangedEvent__PythonCallable> to ucpp.Ptr<SpinBox_OnSpinBoxValueChangedEvent__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: SpinBox_OnSpinBoxValueChangedEvent__PythonCallable): SpinBox_OnSpinBoxValueChangedEvent__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

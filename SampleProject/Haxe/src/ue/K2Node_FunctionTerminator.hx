@@ -3,11 +3,11 @@ package ue;
 
 @:native("UK2Node_FunctionTerminator")
 @:include("K2Node_FunctionTerminator.h")
-@:structAccess
+@:valueType
 extern class K2Node_FunctionTerminator extends K2Node_EditablePinBase {
 	public var FunctionReference: MemberReference;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstK2Node_FunctionTerminator(K2Node_FunctionTerminator) from K2Node_F
 @:forward
 @:nativeGen
 @:native("K2Node_FunctionTerminator*")
-abstract K2Node_FunctionTerminatorPtr(cpp.Star<K2Node_FunctionTerminator>) from cpp.Star<K2Node_FunctionTerminator> to cpp.Star<K2Node_FunctionTerminator>{
+abstract K2Node_FunctionTerminatorPtr(ucpp.Ptr<K2Node_FunctionTerminator>) from ucpp.Ptr<K2Node_FunctionTerminator> to ucpp.Ptr<K2Node_FunctionTerminator>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_FunctionTerminator): K2Node_FunctionTerminatorPtr {
 		return untyped __cpp__("&({0})", v);

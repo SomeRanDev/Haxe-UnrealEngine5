@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWeakObjectProperty")
-@:structAccess
+@:valueType
 extern class WeakObjectProperty extends ObjectPropertyBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWeakObjectProperty(WeakObjectProperty) from WeakObjectProperty {
 @:forward
 @:nativeGen
 @:native("WeakObjectProperty*")
-abstract WeakObjectPropertyPtr(cpp.Star<WeakObjectProperty>) from cpp.Star<WeakObjectProperty> to cpp.Star<WeakObjectProperty>{
+abstract WeakObjectPropertyPtr(ucpp.Ptr<WeakObjectProperty>) from ucpp.Ptr<WeakObjectProperty> to ucpp.Ptr<WeakObjectProperty>{
 	@:from
 	public static extern inline function fromValue(v: WeakObjectProperty): WeakObjectPropertyPtr {
 		return untyped __cpp__("&({0})", v);

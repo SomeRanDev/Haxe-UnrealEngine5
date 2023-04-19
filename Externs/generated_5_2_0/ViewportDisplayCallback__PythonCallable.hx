@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UViewportDisplayCallback__PythonCallable")
-@:structAccess
+@:valueType
 extern class ViewportDisplayCallback__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstViewportDisplayCallback__PythonCallable(ViewportDisplayCallback__P
 @:forward
 @:nativeGen
 @:native("ViewportDisplayCallback__PythonCallable*")
-abstract ViewportDisplayCallback__PythonCallablePtr(cpp.Star<ViewportDisplayCallback__PythonCallable>) from cpp.Star<ViewportDisplayCallback__PythonCallable> to cpp.Star<ViewportDisplayCallback__PythonCallable>{
+abstract ViewportDisplayCallback__PythonCallablePtr(ucpp.Ptr<ViewportDisplayCallback__PythonCallable>) from ucpp.Ptr<ViewportDisplayCallback__PythonCallable> to ucpp.Ptr<ViewportDisplayCallback__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ViewportDisplayCallback__PythonCallable): ViewportDisplayCallback__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

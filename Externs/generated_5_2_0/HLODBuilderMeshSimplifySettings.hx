@@ -3,12 +3,12 @@ package ue;
 
 @:native("UHLODBuilderMeshSimplifySettings")
 @:include("HLODBuilderMeshSimplify.h")
-@:structAccess
+@:valueType
 extern class HLODBuilderMeshSimplifySettings extends HLODBuilderSettings {
 	public var MeshSimplifySettings: MeshProxySettings;
 	public var HLODMaterial: TSoftObjectPtr<MaterialInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstHLODBuilderMeshSimplifySettings(HLODBuilderMeshSimplifySettings) f
 @:forward
 @:nativeGen
 @:native("HLODBuilderMeshSimplifySettings*")
-abstract HLODBuilderMeshSimplifySettingsPtr(cpp.Star<HLODBuilderMeshSimplifySettings>) from cpp.Star<HLODBuilderMeshSimplifySettings> to cpp.Star<HLODBuilderMeshSimplifySettings>{
+abstract HLODBuilderMeshSimplifySettingsPtr(ucpp.Ptr<HLODBuilderMeshSimplifySettings>) from ucpp.Ptr<HLODBuilderMeshSimplifySettings> to ucpp.Ptr<HLODBuilderMeshSimplifySettings>{
 	@:from
 	public static extern inline function fromValue(v: HLODBuilderMeshSimplifySettings): HLODBuilderMeshSimplifySettingsPtr {
 		return untyped __cpp__("&({0})", v);

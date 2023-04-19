@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInteractiveTool")
 @:include("InteractiveTool.h")
-@:structAccess
+@:valueType
 extern class InteractiveTool extends Object {
-	@:protected public var InputBehaviors: cpp.Star<InputBehaviorSet>;
-	@:protected public var ToolPropertyObjects: TArray<cpp.Star<Object>>;
+	@:protected public var InputBehaviors: ucpp.Ptr<InputBehaviorSet>;
+	@:protected public var ToolPropertyObjects: TArray<ucpp.Ptr<Object>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstInteractiveTool(InteractiveTool) from InteractiveTool {
 @:forward
 @:nativeGen
 @:native("InteractiveTool*")
-abstract InteractiveToolPtr(cpp.Star<InteractiveTool>) from cpp.Star<InteractiveTool> to cpp.Star<InteractiveTool>{
+abstract InteractiveToolPtr(ucpp.Ptr<InteractiveTool>) from ucpp.Ptr<InteractiveTool> to ucpp.Ptr<InteractiveTool>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveTool): InteractiveToolPtr {
 		return untyped __cpp__("&({0})", v);

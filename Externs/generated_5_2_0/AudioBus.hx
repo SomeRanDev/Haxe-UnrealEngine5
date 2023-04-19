@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAudioBus")
 @:include("Sound/AudioBus.h")
-@:structAccess
+@:valueType
 extern class AudioBus extends Object {
 	public var AudioBusChannels: EAudioBusChannels;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAudioBus(AudioBus) from AudioBus {
 @:forward
 @:nativeGen
 @:native("AudioBus*")
-abstract AudioBusPtr(cpp.Star<AudioBus>) from cpp.Star<AudioBus> to cpp.Star<AudioBus>{
+abstract AudioBusPtr(ucpp.Ptr<AudioBus>) from ucpp.Ptr<AudioBus> to ucpp.Ptr<AudioBus>{
 	@:from
 	public static extern inline function fromValue(v: AudioBus): AudioBusPtr {
 		return untyped __cpp__("&({0})", v);

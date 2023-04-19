@@ -3,31 +3,31 @@ package ue;
 
 @:native("AFunctionalTest")
 @:include("FunctionalTest.h")
-@:structAccess
+@:valueType
 extern class FunctionalTest extends Actor {
 	public var TestLabel: FString;
 	public var Author: FString;
 	public var Description: FString;
-	private var SpriteComponent: cpp.Star<BillboardComp>;
+	private var SpriteComponent: ucpp.Ptr<BillboardComp>;
 	@:protected public var bIsEnabled: Bool;
 	@:protected public var LogErrorHandling: EFunctionalTestLogHandling;
 	@:protected public var LogWarningHandling: EFunctionalTestLogHandling;
-	@:protected public var ObservationPoint: cpp.Star<Actor>;
+	@:protected public var ObservationPoint: ucpp.Ptr<Actor>;
 	@:protected public var RandomNumbersStream: RandomStream;
 	public var Result: EFunctionalTestResult;
-	public var PreparationTimeLimit: cpp.Float32;
-	public var TimeLimit: cpp.Float32;
+	public var PreparationTimeLimit: ucpp.num.Float32;
+	public var TimeLimit: ucpp.num.Float32;
 	public var TimesUpMessage: FText;
 	public var TimesUpResult: EFunctionalTestResult;
 	public var OnTestPrepare: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTestStart: HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public var OnTestFinished: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	public var AutoDestroyActors: TArray<cpp.Star<Actor>>;
+	public var AutoDestroyActors: TArray<ucpp.Ptr<Actor>>;
 	public var bIsRunning: Bool;
-	public var TotalTime: cpp.Float32;
+	public var TotalTime: ucpp.num.Float32;
 
-	public function SetTimeLimit(NewTimeLimit: cpp.Float32, ResultWhenTimeRunsOut: EFunctionalTestResult): Void;
-	public function RegisterAutoDestroyActor(ActorToAutoDestroy: cpp.Star<Actor>): Void;
+	public function SetTimeLimit(NewTimeLimit: ucpp.num.Float32, ResultWhenTimeRunsOut: EFunctionalTestResult): Void;
+	public function RegisterAutoDestroyActor(ActorToAutoDestroy: ucpp.Ptr<Actor>): Void;
 	@:protected public function ReceiveStartTest(): Void;
 	@:protected public function ReceivePrepareTest(): Void;
 	public function OnWantsReRunCheck(): Bool;
@@ -38,46 +38,46 @@ extern class FunctionalTest extends Actor {
 	public function IsEnabled(): Bool;
 	public function GetCurrentRerunReason(): FName;
 	public function FinishTest(TestResult: EFunctionalTestResult, Message: FString): Void;
-	public function DebugGatherRelevantActors(): TArray<cpp.Star<Actor>>;
-	public function AssertValue_Int(Actual: cpp.Int32, ShouldBe: EComparisonMethod, Expected: cpp.Int32, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertValue_Float(Actual: cpp.Float32, ShouldBe: EComparisonMethod, Expected: cpp.Float32, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertValue_Double(Actual: cpp.Float64, ShouldBe: EComparisonMethod, Expected: cpp.Float64, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertValue_DateTime(Actual: DateTime, ShouldBe: EComparisonMethod, Expected: DateTime, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertTrue(Condition: Bool, Message: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Vector4(Actual: Vector4, NotExpected: Vector4, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Vector2D(Actual: Vector2D, NotExpected: Vector2D, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Vector(Actual: Vector, NotExpected: Vector, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Transform(Actual: cpp.Reference<Transform>, NotExpected: cpp.Reference<Transform>, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_String(Actual: FString, NotExpected: FString, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Rotator(Actual: Rotator, NotExpected: Rotator, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Quat(Actual: Quat, NotExpected: Quat, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Plane(Actual: Plane, NotExpected: Plane, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Matrix(Actual: Matrix, NotExpected: Matrix, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertNotEqual_Box2D(Actual: Box2D, NotExpected: Box2D, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertIsValid(Object: cpp.Star<Object>, Message: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertFalse(Condition: Bool, Message: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Vector4(Actual: Vector4, Expected: Vector4, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Vector2D(Actual: Vector2D, Expected: Vector2D, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Vector(Actual: Vector, Expected: Vector, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Transform(Actual: cpp.Reference<Transform>, Expected: cpp.Reference<Transform>, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_TraceQueryResults(Actual: cpp.Star<TraceQueryTestResults.ConstTraceQueryTestResults>, Expected: cpp.Star<TraceQueryTestResults.ConstTraceQueryTestResults>, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_String(Actual: FString, Expected: FString, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Rotator(Actual: Rotator, Expected: Rotator, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Quat(Actual: Quat, Expected: Quat, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Plane(Actual: Plane, Expected: Plane, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Object(Actual: cpp.Star<Object>, Expected: cpp.Star<Object>, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Name(Actual: FName, Expected: FName, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Matrix(Actual: Matrix, Expected: Matrix, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Int(Actual: cpp.Int32, Expected: cpp.Int32, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Float(Actual: cpp.Float32, Expected: cpp.Float32, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Double(Actual: cpp.Float64, Expected: cpp.Float64, What: FString, Tolerance: cpp.Float64, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Box2D(Actual: Box2D, Expected: Box2D, What: FString, Tolerance: cpp.Float32, ContextObject: cpp.Star<Object.ConstObject>): Bool;
-	public function AssertEqual_Bool(Actual: Bool, Expected: Bool, What: FString, ContextObject: cpp.Star<Object.ConstObject>): Bool;
+	public function DebugGatherRelevantActors(): TArray<ucpp.Ptr<Actor>>;
+	public function AssertValue_Int(Actual: ucpp.num.Int32, ShouldBe: EComparisonMethod, Expected: ucpp.num.Int32, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertValue_Float(Actual: ucpp.num.Float32, ShouldBe: EComparisonMethod, Expected: ucpp.num.Float32, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertValue_Double(Actual: ucpp.num.Float64, ShouldBe: EComparisonMethod, Expected: ucpp.num.Float64, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertValue_DateTime(Actual: DateTime, ShouldBe: EComparisonMethod, Expected: DateTime, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertTrue(Condition: Bool, Message: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Vector4(Actual: Vector4, NotExpected: Vector4, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Vector2D(Actual: Vector2D, NotExpected: Vector2D, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Vector(Actual: Vector, NotExpected: Vector, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Transform(Actual: ucpp.Ref<Transform>, NotExpected: ucpp.Ref<Transform>, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_String(Actual: FString, NotExpected: FString, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Rotator(Actual: Rotator, NotExpected: Rotator, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Quat(Actual: Quat, NotExpected: Quat, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Plane(Actual: Plane, NotExpected: Plane, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Matrix(Actual: Matrix, NotExpected: Matrix, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertNotEqual_Box2D(Actual: Box2D, NotExpected: Box2D, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertIsValid(Object: ucpp.Ptr<Object>, Message: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertFalse(Condition: Bool, Message: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Vector4(Actual: Vector4, Expected: Vector4, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Vector2D(Actual: Vector2D, Expected: Vector2D, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Vector(Actual: Vector, Expected: Vector, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Transform(Actual: ucpp.Ref<Transform>, Expected: ucpp.Ref<Transform>, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_TraceQueryResults(Actual: ucpp.Ptr<TraceQueryTestResults.ConstTraceQueryTestResults>, Expected: ucpp.Ptr<TraceQueryTestResults.ConstTraceQueryTestResults>, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_String(Actual: FString, Expected: FString, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Rotator(Actual: Rotator, Expected: Rotator, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Quat(Actual: Quat, Expected: Quat, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Plane(Actual: Plane, Expected: Plane, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Object(Actual: ucpp.Ptr<Object>, Expected: ucpp.Ptr<Object>, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Name(Actual: FName, Expected: FName, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Matrix(Actual: Matrix, Expected: Matrix, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Int(Actual: ucpp.num.Int32, Expected: ucpp.num.Int32, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Float(Actual: ucpp.num.Float32, Expected: ucpp.num.Float32, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Double(Actual: ucpp.num.Float64, Expected: ucpp.num.Float64, What: FString, Tolerance: ucpp.num.Float64, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Box2D(Actual: Box2D, Expected: Box2D, What: FString, Tolerance: ucpp.num.Float32, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
+	public function AssertEqual_Bool(Actual: Bool, Expected: Bool, What: FString, ContextObject: ucpp.Ptr<Object.ConstObject>): Bool;
 	public function AddWarning(Message: FString): Void;
 	public function AddRerun(Reason: FName): Void;
 	public function AddError(Message: FString): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(OnWantsReRunCheck, OnAdditionalTestFinishedMessageRequest, IsRunning, IsEnabled, GetCurrentRerunReason, DebugGatherRelevantActors)
@@ -91,10 +91,10 @@ abstract ConstFunctionalTest(FunctionalTest) from FunctionalTest {
 	public inline extern function get_Description(): FString return this.Description;
 	public extern var Result(get, never): EFunctionalTestResult;
 	public inline extern function get_Result(): EFunctionalTestResult return this.Result;
-	public extern var PreparationTimeLimit(get, never): cpp.Float32;
-	public inline extern function get_PreparationTimeLimit(): cpp.Float32 return this.PreparationTimeLimit;
-	public extern var TimeLimit(get, never): cpp.Float32;
-	public inline extern function get_TimeLimit(): cpp.Float32 return this.TimeLimit;
+	public extern var PreparationTimeLimit(get, never): ucpp.num.Float32;
+	public inline extern function get_PreparationTimeLimit(): ucpp.num.Float32 return this.PreparationTimeLimit;
+	public extern var TimeLimit(get, never): ucpp.num.Float32;
+	public inline extern function get_TimeLimit(): ucpp.num.Float32 return this.TimeLimit;
 	public extern var TimesUpMessage(get, never): FText;
 	public inline extern function get_TimesUpMessage(): FText return this.TimesUpMessage;
 	public extern var TimesUpResult(get, never): EFunctionalTestResult;
@@ -105,18 +105,18 @@ abstract ConstFunctionalTest(FunctionalTest) from FunctionalTest {
 	public inline extern function get_OnTestStart(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnTestStart;
 	public extern var OnTestFinished(get, never): HaxeMulticastSparseDelegateProperty<() -> Void>;
 	public inline extern function get_OnTestFinished(): HaxeMulticastSparseDelegateProperty<() -> Void> return this.OnTestFinished;
-	public extern var AutoDestroyActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_AutoDestroyActors(): TArray<cpp.Star<Actor.ConstActor>> return this.AutoDestroyActors;
+	public extern var AutoDestroyActors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_AutoDestroyActors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.AutoDestroyActors;
 	public extern var bIsRunning(get, never): Bool;
 	public inline extern function get_bIsRunning(): Bool return this.bIsRunning;
-	public extern var TotalTime(get, never): cpp.Float32;
-	public inline extern function get_TotalTime(): cpp.Float32 return this.TotalTime;
+	public extern var TotalTime(get, never): ucpp.num.Float32;
+	public inline extern function get_TotalTime(): ucpp.num.Float32 return this.TotalTime;
 }
 
 @:forward
 @:nativeGen
 @:native("FunctionalTest*")
-abstract FunctionalTestPtr(cpp.Star<FunctionalTest>) from cpp.Star<FunctionalTest> to cpp.Star<FunctionalTest>{
+abstract FunctionalTestPtr(ucpp.Ptr<FunctionalTest>) from ucpp.Ptr<FunctionalTest> to ucpp.Ptr<FunctionalTest>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalTest): FunctionalTestPtr {
 		return untyped __cpp__("&({0})", v);

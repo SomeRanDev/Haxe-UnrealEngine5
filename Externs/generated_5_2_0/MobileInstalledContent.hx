@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMobileInstalledContent")
 @:include("MobilePatchingLibrary.h")
-@:structAccess
+@:valueType
 extern class MobileInstalledContent extends Object {
-	public function Mount(PakOrder: cpp.Int32, MountPoint: FString): Bool;
-	public function GetInstalledContentSize(): cpp.Float32;
-	public function GetDiskFreeSpace(): cpp.Float32;
+	public function Mount(PakOrder: ucpp.num.Int32, MountPoint: FString): Bool;
+	public function GetInstalledContentSize(): ucpp.num.Float32;
+	public function GetDiskFreeSpace(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMobileInstalledContent(MobileInstalledContent) from MobileInstalle
 @:forward
 @:nativeGen
 @:native("MobileInstalledContent*")
-abstract MobileInstalledContentPtr(cpp.Star<MobileInstalledContent>) from cpp.Star<MobileInstalledContent> to cpp.Star<MobileInstalledContent>{
+abstract MobileInstalledContentPtr(ucpp.Ptr<MobileInstalledContent>) from ucpp.Ptr<MobileInstalledContent> to ucpp.Ptr<MobileInstalledContent>{
 	@:from
 	public static extern inline function fromValue(v: MobileInstalledContent): MobileInstalledContentPtr {
 		return untyped __cpp__("&({0})", v);

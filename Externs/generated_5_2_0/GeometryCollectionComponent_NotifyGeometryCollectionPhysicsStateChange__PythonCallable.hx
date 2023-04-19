@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UGeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable")
-@:structAccess
+@:valueType
 extern class GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstGeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateCh
 @:forward
 @:nativeGen
 @:native("GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable*")
-abstract GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallablePtr(cpp.Star<GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable>) from cpp.Star<GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable> to cpp.Star<GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable>{
+abstract GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallablePtr(ucpp.Ptr<GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable>) from ucpp.Ptr<GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable> to ucpp.Ptr<GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallable): GeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

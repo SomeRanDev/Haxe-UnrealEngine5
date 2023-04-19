@@ -34,6 +34,9 @@ extern class EViewModeIndex {
 	static var VMI_VirtualTexturePendingMips: EViewModeIndex;
 	static var VMI_VisualizeLumen: EViewModeIndex;
 	static var VMI_VisualizeVirtualShadowMap: EViewModeIndex;
+	static var VMI_VisualizeGPUSkinCache: EViewModeIndex;
+	static var VMI_VisualizeSubstrate: EViewModeIndex;
+	static var VMI_VisualizeGroom: EViewModeIndex;
 	static var VMI_Max: EViewModeIndex;
 	static var VMI_Unknown: EViewModeIndex;
 	static var VMI_MAX: EViewModeIndex;

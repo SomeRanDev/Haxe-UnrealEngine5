@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_SubsurfaceProfile")
 @:include("AssetDefinition_SubsurfaceProfile.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_SubsurfaceProfile extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_SubsurfaceProfile(AssetDefinition_SubsurfaceProfil
 @:forward
 @:nativeGen
 @:native("AssetDefinition_SubsurfaceProfile*")
-abstract AssetDefinition_SubsurfaceProfilePtr(cpp.Star<AssetDefinition_SubsurfaceProfile>) from cpp.Star<AssetDefinition_SubsurfaceProfile> to cpp.Star<AssetDefinition_SubsurfaceProfile>{
+abstract AssetDefinition_SubsurfaceProfilePtr(ucpp.Ptr<AssetDefinition_SubsurfaceProfile>) from ucpp.Ptr<AssetDefinition_SubsurfaceProfile> to ucpp.Ptr<AssetDefinition_SubsurfaceProfile>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_SubsurfaceProfile): AssetDefinition_SubsurfaceProfilePtr {
 		return untyped __cpp__("&({0})", v);

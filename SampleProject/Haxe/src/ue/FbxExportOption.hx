@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFbxExportOption")
 @:include("Exporters/FbxExportOption.h")
-@:structAccess
+@:valueType
 extern class FbxExportOption extends Object {
 	public var FbxExportCompatibility: EFbxExportCompatibility;
 	public var bASCII: Bool;
@@ -16,7 +16,7 @@ extern class FbxExportOption extends Object {
 	public var MapSkeletalMotionToRoot: Bool;
 	public var bExportLocalTime: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -47,7 +47,7 @@ abstract ConstFbxExportOption(FbxExportOption) from FbxExportOption {
 @:forward
 @:nativeGen
 @:native("FbxExportOption*")
-abstract FbxExportOptionPtr(cpp.Star<FbxExportOption>) from cpp.Star<FbxExportOption> to cpp.Star<FbxExportOption>{
+abstract FbxExportOptionPtr(ucpp.Ptr<FbxExportOption>) from ucpp.Ptr<FbxExportOption> to ucpp.Ptr<FbxExportOption>{
 	@:from
 	public static extern inline function fromValue(v: FbxExportOption): FbxExportOptionPtr {
 		return untyped __cpp__("&({0})", v);

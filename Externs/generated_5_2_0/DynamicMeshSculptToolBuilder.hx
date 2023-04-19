@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDynamicMeshSculptToolBuilder")
 @:include("DynamicMeshSculptTool.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshSculptToolBuilder extends MeshSurfacePointMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDynamicMeshSculptToolBuilder(DynamicMeshSculptToolBuilder) from Dy
 @:forward
 @:nativeGen
 @:native("DynamicMeshSculptToolBuilder*")
-abstract DynamicMeshSculptToolBuilderPtr(cpp.Star<DynamicMeshSculptToolBuilder>) from cpp.Star<DynamicMeshSculptToolBuilder> to cpp.Star<DynamicMeshSculptToolBuilder>{
+abstract DynamicMeshSculptToolBuilderPtr(ucpp.Ptr<DynamicMeshSculptToolBuilder>) from ucpp.Ptr<DynamicMeshSculptToolBuilder> to ucpp.Ptr<DynamicMeshSculptToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshSculptToolBuilder): DynamicMeshSculptToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

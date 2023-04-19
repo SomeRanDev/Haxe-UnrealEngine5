@@ -3,18 +3,18 @@ package ue;
 
 @:native("UInterchangeCineCameraFactoryNode")
 @:include("InterchangeCineCameraFactoryNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeCineCameraFactoryNode extends InterchangeActorFactoryNode {
-	public function SetCustomSensorWidth(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomSensorHeight(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomFocusMethod(AttributeValue: cpp.Reference<ECameraFocusMethod>, bAddApplyDelegate: Bool): Bool;
-	public function SetCustomFocalLength(AttributeValue: cpp.Reference<cpp.Float32>, bAddApplyDelegate: Bool): Bool;
-	public function GetCustomSensorWidth(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomSensorHeight(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomFocusMethod(AttributeValue: cpp.Reference<ECameraFocusMethod>): Bool;
-	public function GetCustomFocalLength(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function SetCustomSensorWidth(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomSensorHeight(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomFocusMethod(AttributeValue: ucpp.Ref<ECameraFocusMethod>, bAddApplyDelegate: Bool): Bool;
+	public function SetCustomFocalLength(AttributeValue: ucpp.Ref<ucpp.num.Float32>, bAddApplyDelegate: Bool): Bool;
+	public function GetCustomSensorWidth(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomSensorHeight(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomFocusMethod(AttributeValue: ucpp.Ref<ECameraFocusMethod>): Bool;
+	public function GetCustomFocalLength(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomSensorWidth, GetCustomSensorHeight, GetCustomFocusMethod, GetCustomFocalLength)
@@ -25,7 +25,7 @@ abstract ConstInterchangeCineCameraFactoryNode(InterchangeCineCameraFactoryNode)
 @:forward
 @:nativeGen
 @:native("InterchangeCineCameraFactoryNode*")
-abstract InterchangeCineCameraFactoryNodePtr(cpp.Star<InterchangeCineCameraFactoryNode>) from cpp.Star<InterchangeCineCameraFactoryNode> to cpp.Star<InterchangeCineCameraFactoryNode>{
+abstract InterchangeCineCameraFactoryNodePtr(ucpp.Ptr<InterchangeCineCameraFactoryNode>) from ucpp.Ptr<InterchangeCineCameraFactoryNode> to ucpp.Ptr<InterchangeCineCameraFactoryNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeCineCameraFactoryNode): InterchangeCineCameraFactoryNodePtr {
 		return untyped __cpp__("&({0})", v);

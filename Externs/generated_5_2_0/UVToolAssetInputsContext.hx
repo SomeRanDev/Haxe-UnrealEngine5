@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVToolAssetInputsContext")
 @:include("ContextObjects/UVToolAssetInputsContext.h")
-@:structAccess
+@:valueType
 extern class UVToolAssetInputsContext extends UVToolContextObject {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVToolAssetInputsContext(UVToolAssetInputsContext) from UVToolAsse
 @:forward
 @:nativeGen
 @:native("UVToolAssetInputsContext*")
-abstract UVToolAssetInputsContextPtr(cpp.Star<UVToolAssetInputsContext>) from cpp.Star<UVToolAssetInputsContext> to cpp.Star<UVToolAssetInputsContext>{
+abstract UVToolAssetInputsContextPtr(ucpp.Ptr<UVToolAssetInputsContext>) from ucpp.Ptr<UVToolAssetInputsContext> to ucpp.Ptr<UVToolAssetInputsContext>{
 	@:from
 	public static extern inline function fromValue(v: UVToolAssetInputsContext): UVToolAssetInputsContextPtr {
 		return untyped __cpp__("&({0})", v);

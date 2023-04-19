@@ -3,7 +3,7 @@ package ue;
 
 @:native("FButtonStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class ButtonStyle extends SlateWidgetStyle {
 	public var Normal: SlateBrush;
 	public var Hovered: SlateBrush;

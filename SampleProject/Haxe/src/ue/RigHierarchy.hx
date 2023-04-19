@@ -3,118 +3,191 @@ package ue;
 
 @:native("URigHierarchy")
 @:include("Rigs/RigHierarchy.h")
-@:structAccess
+@:valueType
 extern class RigHierarchy extends Object {
-	private var TopologyVersion: cpp.UInt16;
+	private var TopologyVersion: ucpp.num.UInt16;
+	private var MetadataVersion: ucpp.num.UInt16;
+	private var MetadataTagVersion: ucpp.num.UInt16;
 	private var bEnableDirtyPropagation: Bool;
-	private var TransformStackIndex: cpp.Int32;
-	private var HierarchyController: cpp.Star<RigHierarchyController>;
+	private var TransformStackIndex: ucpp.num.Int32;
+	private var HierarchyController: ucpp.Ptr<RigHierarchyController>;
 	private var PreviousNameMap: TMap<RigElementKey, RigElementKey>;
-	@:protected public var HierarchyForCacheValidation: cpp.Star<RigHierarchy>;
+	@:protected public var HierarchyForCacheValidation: ucpp.Ptr<RigHierarchy>;
 
+	public function UnsetCurveValueByIndex(InElementIndex: ucpp.num.Int32, bSetupUndo: Bool): Void;
+	public function UnsetCurveValue(InKey: RigElementKey, bSetupUndo: Bool): Void;
 	public function SwitchToWorldSpace(InChild: RigElementKey, bInitial: Bool, bAffectChildren: Bool): Bool;
 	public function SwitchToParent(InChild: RigElementKey, InParent: RigElementKey, bInitial: Bool, bAffectChildren: Bool): Bool;
 	public function SwitchToDefaultParent(InChild: RigElementKey, bInitial: Bool, bAffectChildren: Bool): Bool;
-	public function SortKeys(InKeys: cpp.Reference<TArray<RigElementKey>>): TArray<RigElementKey>;
+	public function SortKeys(InKeys: ucpp.Ref<TArray<RigElementKey>>): TArray<RigElementKey>;
+	public function SetVectorMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: Vector): Bool;
+	public function SetVectorArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<Vector>): Bool;
+	public function SetTransformMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: Transform): Bool;
+	public function SetTransformArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<Transform>): Bool;
+	public function SetTag(InItem: RigElementKey, InTag: FName): Bool;
+	public function SetRotatorMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: Rotator): Bool;
+	public function SetRotatorArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<Rotator>): Bool;
+	public function SetRigElementKeyMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: RigElementKey): Bool;
+	public function SetRigElementKeyArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<RigElementKey>): Bool;
+	public function SetQuatMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: Quat): Bool;
+	public function SetQuatArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<Quat>): Bool;
 	public function SetPose_ForBlueprint(InPose: RigPose): Void;
 	public function SetParentWeightArray(InChild: RigElementKey, InWeights: TArray<RigElementWeight>, bInitial: Bool, bAffectChildren: Bool): Bool;
 	public function SetParentWeight(InChild: RigElementKey, InParent: RigElementKey, InWeight: RigElementWeight, bInitial: Bool, bAffectChildren: Bool): Bool;
-	public function SetLocalTransformByIndex(InElementIndex: cpp.Int32, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
+	public function SetNameMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: FName): Bool;
+	public function SetNameArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<FName>): Bool;
+	public function SetLocalTransformByIndex(InElementIndex: ucpp.num.Int32, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
 	public function SetLocalTransform(InKey: RigElementKey, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
-	public function SetGlobalTransformByIndex(InElementIndex: cpp.Int32, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool): Void;
-	public function SetGlobalTransform(InKey: RigElementKey, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool): Void;
-	public function SetCurveValueByIndex(InElementIndex: cpp.Int32, InValue: cpp.Float32, bSetupUndo: Bool): Void;
-	public function SetCurveValue(InKey: RigElementKey, InValue: cpp.Float32, bSetupUndo: Bool): Void;
-	public function SetControlVisibilityByIndex(InElementIndex: cpp.Int32, bVisibility: Bool): Void;
+	public function SetLinearColorMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: LinearColor): Bool;
+	public function SetLinearColorArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<LinearColor>): Bool;
+	public function SetInt32Metadata(InItem: RigElementKey, InMetadataName: FName, InValue: ucpp.num.Int32): Bool;
+	public function SetInt32ArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<ucpp.num.Int32>): Bool;
+	public function SetGlobalTransformByIndex(InElementIndex: ucpp.num.Int32, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Void;
+	public function SetGlobalTransform(InKey: RigElementKey, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommand: Bool): Void;
+	public function SetFloatMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: ucpp.num.Float32): Bool;
+	public function SetFloatArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<ucpp.num.Float32>): Bool;
+	public function SetCurveValueByIndex(InElementIndex: ucpp.num.Int32, InValue: ucpp.num.Float32, bSetupUndo: Bool): Void;
+	public function SetCurveValue(InKey: RigElementKey, InValue: ucpp.num.Float32, bSetupUndo: Bool): Void;
+	public function SetControlVisibilityByIndex(InElementIndex: ucpp.num.Int32, bVisibility: Bool): Void;
 	public function SetControlVisibility(InKey: RigElementKey, bVisibility: Bool): Void;
-	public function SetControlValueByIndex(InElementIndex: cpp.Int32, InValue: RigControlValue, InValueType: ERigControlValueType, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
+	public function SetControlValueByIndex(InElementIndex: ucpp.num.Int32, InValue: RigControlValue, InValueType: ERigControlValueType, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
 	public function SetControlValue(InKey: RigElementKey, InValue: RigControlValue, InValueType: ERigControlValueType, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
-	public function SetControlShapeTransformByIndex(InElementIndex: cpp.Int32, InTransform: Transform, bInitial: Bool, bSetupUndo: Bool): Void;
+	public function SetControlShapeTransformByIndex(InElementIndex: ucpp.num.Int32, InTransform: Transform, bInitial: Bool, bSetupUndo: Bool): Void;
 	public function SetControlShapeTransform(InKey: RigElementKey, InTransform: Transform, bInitial: Bool, bSetupUndo: Bool): Void;
-	public function SetControlSettingsByIndex(InElementIndex: cpp.Int32, InSettings: RigControlSettings, bSetupUndo: Bool, bForce: Bool, bPrintPythonCommands: Bool): Void;
+	public function SetControlSettingsByIndex(InElementIndex: ucpp.num.Int32, InSettings: RigControlSettings, bSetupUndo: Bool, bForce: Bool, bPrintPythonCommands: Bool): Void;
 	public function SetControlSettings(InKey: RigElementKey, InSettings: RigControlSettings, bSetupUndo: Bool, bForce: Bool, bPrintPythonCommands: Bool): Void;
-	public function SetControlOffsetTransformByIndex(InElementIndex: cpp.Int32, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
+	public function SetControlPreferredRotatorByIndex(InElementIndex: ucpp.num.Int32, InValue: ucpp.Ref<Rotator>, bInitial: Bool, bFixEulerFlips: Bool): Void;
+	public function SetControlPreferredRotator(InKey: RigElementKey, InValue: ucpp.Ref<Rotator>, bInitial: Bool, bFixEulerFlips: Bool): Void;
+	public function SetControlOffsetTransformByIndex(InElementIndex: ucpp.num.Int32, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
 	public function SetControlOffsetTransform(InKey: RigElementKey, InTransform: Transform, bInitial: Bool, bAffectChildren: Bool, bSetupUndo: Bool, bPrintPythonCommands: Bool): Void;
-	public function SendAutoKeyEvent(InElement: RigElementKey, InOffsetInSeconds: cpp.Float32, bAsynchronous: Bool): Void;
+	public function SetBoolMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: Bool): Bool;
+	public function SetBoolArrayMetadata(InItem: RigElementKey, InMetadataName: FName, InValue: TArray<Bool>): Bool;
+	public function SendAutoKeyEvent(InElement: RigElementKey, InOffsetInSeconds: ucpp.num.Float32, bAsynchronous: Bool): Void;
+	public function ResetToDefault(): Void;
 	public function ResetPoseToInitial(InTypeFilter: ERigElementType): Void;
 	public function ResetCurveValues(): Void;
 	public function Reset(): Void;
-	public function Num(): cpp.Int32;
+	public function RemoveMetadata(InItem: RigElementKey, InMetadataName: FName): Bool;
+	public function RemoveAllMetadata(InItem: RigElementKey): Bool;
+	public function Num(): ucpp.num.Int32;
 	public function MakeControlValueFromVector2D(InValue: Vector2D): RigControlValue;
 	public function MakeControlValueFromVector(InValue: Vector): RigControlValue;
 	public function MakeControlValueFromTransformNoScale(InValue: TransformNoScale): RigControlValue;
 	public function MakeControlValueFromTransform(InValue: Transform): RigControlValue;
 	public function MakeControlValueFromRotator(InValue: Rotator): RigControlValue;
-	public function MakeControlValueFromInt(InValue: cpp.Int32): RigControlValue;
-	public function MakeControlValueFromFloat(InValue: cpp.Float32): RigControlValue;
+	public function MakeControlValueFromInt(InValue: ucpp.num.Int32): RigControlValue;
+	public function MakeControlValueFromFloat(InValue: ucpp.num.Float32): RigControlValue;
 	public function MakeControlValueFromEulerTransform(InValue: EulerTransform): RigControlValue;
 	public function MakeControlValueFromBool(InValue: Bool): RigControlValue;
-	public function IsValidIndex(InElementIndex: cpp.Int32): Bool;
-	public function IsSelectedByIndex(InIndex: cpp.Int32): Bool;
+	public function IsValidIndex(InElementIndex: ucpp.num.Int32): Bool;
+	public function IsSelectedByIndex(InIndex: ucpp.num.Int32): Bool;
 	public function IsSelected(InKey: RigElementKey): Bool;
+	public function IsProcedural(InKey: ucpp.Ref<RigElementKey>): Bool;
 	public function IsParentedTo(InChild: RigElementKey, InParent: RigElementKey): Bool;
+	public function IsCurveValueSetByIndex(InElementIndex: ucpp.num.Int32): Bool;
+	public function IsCurveValueSet(InKey: RigElementKey): Bool;
+	public function IsControllerAvailable(): Bool;
+	public function HasTag(InItem: RigElementKey, InTag: FName): Bool;
+	public function GetVectorMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: Vector): Vector;
 	public function GetVectorFromControlValue(InValue: RigControlValue): Vector;
+	public function GetVectorArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<Vector>;
 	public function GetVector2DFromControlValue(InValue: RigControlValue): Vector2D;
 	public function GetTransformNoScaleFromControlValue(InValue: RigControlValue): TransformNoScale;
+	public function GetTransformMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: Transform): Transform;
 	public function GetTransformFromControlValue(InValue: RigControlValue): Transform;
+	public function GetTransformArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<Transform>;
+	public function GetTags(InItem: RigElementKey): TArray<FName>;
 	public function GetSelectedKeys(InTypeFilter: ERigElementType): TArray<RigElementKey>;
+	public function GetRotatorMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: Rotator): Rotator;
 	public function GetRotatorFromControlValue(InValue: RigControlValue): Rotator;
+	public function GetRotatorArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<Rotator>;
+	public function GetRootElementKeys(): TArray<RigElementKey>;
 	public function GetRigidBodyKeys(bTraverse: Bool): TArray<RigElementKey>;
+	public function GetRigElementKeyMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: RigElementKey): RigElementKey;
+	public function GetRigElementKeyArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<RigElementKey>;
 	public function GetReferenceKeys(bTraverse: Bool): TArray<RigElementKey>;
-	public function GetPreviousParent(InKey: cpp.Reference<RigElementKey>): RigElementKey;
-	public function GetPreviousName(InKey: cpp.Reference<RigElementKey>): FName;
+	public function GetQuatMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: Quat): Quat;
+	public function GetQuatArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<Quat>;
+	public function GetPreviousParent(InKey: ucpp.Ref<RigElementKey>): RigElementKey;
+	public function GetPreviousName(InKey: ucpp.Ref<RigElementKey>): FName;
 	public function GetPose(bInitial: Bool): RigPose;
 	public function GetParentWeightArray(InChild: RigElementKey, bInitial: Bool): TArray<RigElementWeight>;
 	public function GetParentWeight(InChild: RigElementKey, InParent: RigElementKey, bInitial: Bool): RigElementWeight;
-	public function GetParentTransformByIndex(InElementIndex: cpp.Int32, bInitial: Bool): Transform;
+	public function GetParentTransformByIndex(InElementIndex: ucpp.num.Int32, bInitial: Bool): Transform;
 	public function GetParentTransform(InKey: RigElementKey, bInitial: Bool): Transform;
 	public function GetParents(InKey: RigElementKey, bRecursive: Bool): TArray<RigElementKey>;
-	public function GetNumberOfParents(InKey: RigElementKey): cpp.Int32;
+	public function GetNumberOfParents(InKey: RigElementKey): ucpp.num.Int32;
 	public function GetNullKeys(bTraverse: Bool): TArray<RigElementKey>;
-	public function GetLocalTransformByIndex(InElementIndex: cpp.Int32, bInitial: Bool): Transform;
+	public function GetNameMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: FName): FName;
+	public function GetNameArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<FName>;
+	public function GetMetadataType(InItem: RigElementKey, InMetadataName: FName): ERigMetadataType;
+	public function GetMetadataNames(InItem: RigElementKey): TArray<FName>;
+	public function GetLocalTransformByIndex(InElementIndex: ucpp.num.Int32, bInitial: Bool): Transform;
 	public function GetLocalTransform(InKey: RigElementKey, bInitial: Bool): Transform;
-	public function GetKey(InElementIndex: cpp.Int32): RigElementKey;
-	public function GetIntFromControlValue(InValue: RigControlValue): cpp.Int32;
-	public function GetIndex_ForBlueprint(InKey: RigElementKey): cpp.Int32;
-	public function GetGlobalTransformByIndex(InElementIndex: cpp.Int32, bInitial: Bool): Transform;
+	public function GetLocalIndex_ForBlueprint(InKey: RigElementKey): ucpp.num.Int32;
+	public function GetLocalControlShapeTransformByIndex(InElementIndex: ucpp.num.Int32, bInitial: Bool): Transform;
+	public function GetLocalControlShapeTransform(InKey: RigElementKey, bInitial: Bool): Transform;
+	public function GetLinearColorMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: LinearColor): LinearColor;
+	public function GetLinearColorArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<LinearColor>;
+	public function GetKeys(InElementIndices: TArray<ucpp.num.Int32>): TArray<RigElementKey>;
+	public function GetKey(InElementIndex: ucpp.num.Int32): RigElementKey;
+	public function GetIntFromControlValue(InValue: RigControlValue): ucpp.num.Int32;
+	public function GetInt32Metadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetInt32ArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<ucpp.num.Int32>;
+	public function GetIndex_ForBlueprint(InKey: RigElementKey): ucpp.num.Int32;
+	public function GetGlobalTransformByIndex(InElementIndex: ucpp.num.Int32, bInitial: Bool): Transform;
 	public function GetGlobalTransform(InKey: RigElementKey, bInitial: Bool): Transform;
-	public function GetGlobalControlShapeTransformByIndex(InElementIndex: cpp.Int32, bInitial: Bool): Transform;
+	public function GetGlobalControlShapeTransformByIndex(InElementIndex: ucpp.num.Int32, bInitial: Bool): Transform;
 	public function GetGlobalControlShapeTransform(InKey: RigElementKey, bInitial: Bool): Transform;
-	public function GetGlobalControlOffsetTransformByIndex(InElementIndex: cpp.Int32, bInitial: Bool): Transform;
+	public function GetGlobalControlOffsetTransformByIndex(InElementIndex: ucpp.num.Int32, bInitial: Bool): Transform;
 	public function GetGlobalControlOffsetTransform(InKey: RigElementKey, bInitial: Bool): Transform;
-	public function GetFloatFromControlValue(InValue: RigControlValue): cpp.Float32;
+	public function GetFloatMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: ucpp.num.Float32): ucpp.num.Float32;
+	public function GetFloatFromControlValue(InValue: RigControlValue): ucpp.num.Float32;
+	public function GetFloatArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<ucpp.num.Float32>;
 	public function GetFirstParent(InKey: RigElementKey): RigElementKey;
 	public function GetEulerTransformFromControlValue(InValue: RigControlValue): EulerTransform;
-	public function GetCurveValueByIndex(InElementIndex: cpp.Int32): cpp.Float32;
-	public function GetCurveValue(InKey: RigElementKey): cpp.Float32;
+	public function GetDefaultParent(InKey: RigElementKey): RigElementKey;
+	public function GetCurveValueByIndex(InElementIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetCurveValue(InKey: RigElementKey): ucpp.num.Float32;
 	public function GetCurveKeys(): TArray<RigElementKey>;
-	public function GetControlValueByIndex(InElementIndex: cpp.Int32, InValueType: ERigControlValueType): RigControlValue;
+	public function GetControlValueByIndex(InElementIndex: ucpp.num.Int32, InValueType: ERigControlValueType): RigControlValue;
 	public function GetControlValue(InKey: RigElementKey, InValueType: ERigControlValueType): RigControlValue;
-	public function GetController(bCreateIfNeeded: Bool): cpp.Star<RigHierarchyController>;
+	public function GetControlPreferredRotatorByIndex(InElementIndex: ucpp.num.Int32, bInitial: Bool): Rotator;
+	public function GetControlPreferredRotator(InKey: RigElementKey, bInitial: Bool): Rotator;
+	public function GetController(bCreateIfNeeded: Bool): ucpp.Ptr<RigHierarchyController>;
 	public function GetControlKeys(bTraverse: Bool): TArray<RigElementKey>;
 	public function GetChildren(InKey: RigElementKey, bRecursive: Bool): TArray<RigElementKey>;
+	public function GetBoolMetadata(InItem: RigElementKey, InMetadataName: FName, DefaultValue: Bool): Bool;
+	public function GetBoolArrayMetadata(InItem: RigElementKey, InMetadataName: FName): TArray<Bool>;
 	public function GetBoneKeys(bTraverse: Bool): TArray<RigElementKey>;
 	public function GetAllKeys_ForBlueprint(bTraverse: Bool): TArray<RigElementKey>;
-	private function FindNull_ForBlueprintOnly(InKey: cpp.Reference<RigElementKey>): RigNullElement;
-	private function FindControl_ForBlueprintOnly(InKey: cpp.Reference<RigElementKey>): RigControlElement;
-	private function FindBone_ForBlueprintOnly(InKey: cpp.Reference<RigElementKey>): RigBoneElement;
-	public function CopyPose(InHierarchy: cpp.Star<RigHierarchy>, bCurrent: Bool, bInitial: Bool): Void;
-	public function CopyHierarchy(InHierarchy: cpp.Star<RigHierarchy>): Void;
+	private function FindNull_ForBlueprintOnly(InKey: ucpp.Ref<RigElementKey>): RigNullElement;
+	private function FindControl_ForBlueprintOnly(InKey: ucpp.Ref<RigElementKey>): RigControlElement;
+	private function FindBone_ForBlueprintOnly(InKey: ucpp.Ref<RigElementKey>): RigBoneElement;
+	public function CopyPose(InHierarchy: ucpp.Ptr<RigHierarchy>, bCurrent: Bool, bInitial: Bool, bWeights: Bool, bMatchPoseInGlobalIfNeeded: Bool): Void;
+	public function CopyHierarchy(InHierarchy: ucpp.Ptr<RigHierarchy>): Void;
 	public function Contains_ForBlueprint(InKey: RigElementKey): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
 	SortKeys, Num, IsValidIndex, IsSelectedByIndex, IsSelected,
-	IsParentedTo, GetSelectedKeys, GetRigidBodyKeys, GetReferenceKeys, GetPreviousParent,
-	GetPreviousName, GetPose, GetParentWeightArray, GetParentWeight, GetParentTransformByIndex,
-	GetParentTransform, GetParents, GetNumberOfParents, GetNullKeys, GetLocalTransformByIndex,
-	GetLocalTransform, GetKey, GetIndex_ForBlueprint, GetGlobalTransformByIndex, GetGlobalTransform,
-	GetGlobalControlShapeTransformByIndex, GetGlobalControlShapeTransform, GetGlobalControlOffsetTransformByIndex, GetGlobalControlOffsetTransform, GetFirstParent,
+	IsProcedural, IsParentedTo, IsCurveValueSetByIndex, IsCurveValueSet, IsControllerAvailable,
+	HasTag, GetVectorMetadata, GetVectorArrayMetadata, GetTransformMetadata, GetTransformArrayMetadata,
+	GetTags, GetSelectedKeys, GetRotatorMetadata, GetRotatorArrayMetadata, GetRootElementKeys,
+	GetRigidBodyKeys, GetRigElementKeyMetadata, GetRigElementKeyArrayMetadata, GetReferenceKeys, GetQuatMetadata,
+	GetQuatArrayMetadata, GetPreviousParent, GetPreviousName, GetPose, GetParentWeightArray,
+	GetParentWeight, GetParentTransformByIndex, GetParentTransform, GetParents, GetNumberOfParents,
+	GetNullKeys, GetNameMetadata, GetNameArrayMetadata, GetLocalTransformByIndex, GetLocalTransform,
+	GetLocalIndex_ForBlueprint, GetLocalControlShapeTransformByIndex, GetLocalControlShapeTransform, GetLinearColorMetadata, GetLinearColorArrayMetadata,
+	GetKeys, GetKey, GetInt32Metadata, GetInt32ArrayMetadata, GetIndex_ForBlueprint,
+	GetGlobalTransformByIndex, GetGlobalTransform, GetGlobalControlShapeTransformByIndex, GetGlobalControlShapeTransform, GetGlobalControlOffsetTransformByIndex,
+	GetGlobalControlOffsetTransform, GetFloatMetadata, GetFloatArrayMetadata, GetFirstParent, GetDefaultParent,
 	GetCurveValueByIndex, GetCurveValue, GetCurveKeys, GetControlValueByIndex, GetControlValue,
-	GetControlKeys, GetChildren, GetBoneKeys, GetAllKeys_ForBlueprint, FindNull_ForBlueprintOnly,
-	FindControl_ForBlueprintOnly, FindBone_ForBlueprintOnly, Contains_ForBlueprint
+	GetControlPreferredRotatorByIndex, GetControlPreferredRotator, GetControlKeys, GetChildren, GetBoolMetadata,
+	GetBoolArrayMetadata, GetBoneKeys, GetAllKeys_ForBlueprint, FindNull_ForBlueprintOnly, FindControl_ForBlueprintOnly,
+	FindBone_ForBlueprintOnly, Contains_ForBlueprint
 )
 @:nativeGen
 abstract ConstRigHierarchy(RigHierarchy) from RigHierarchy {
@@ -123,7 +196,7 @@ abstract ConstRigHierarchy(RigHierarchy) from RigHierarchy {
 @:forward
 @:nativeGen
 @:native("RigHierarchy*")
-abstract RigHierarchyPtr(cpp.Star<RigHierarchy>) from cpp.Star<RigHierarchy> to cpp.Star<RigHierarchy>{
+abstract RigHierarchyPtr(ucpp.Ptr<RigHierarchy>) from ucpp.Ptr<RigHierarchy> to ucpp.Ptr<RigHierarchy>{
 	@:from
 	public static extern inline function fromValue(v: RigHierarchy): RigHierarchyPtr {
 		return untyped __cpp__("&({0})", v);

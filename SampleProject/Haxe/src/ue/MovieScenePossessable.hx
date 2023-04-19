@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieScenePossessable")
 @:include("MovieScenePossessable.h")
-@:structAccess
+@:valueType
 extern class MovieScenePossessable {
 	public var Tags: TArray<FName>;
 	private var Guid: Guid;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UModelExporterT3D")
 @:include("Exporters/ModelExporterT3D.h")
-@:structAccess
+@:valueType
 extern class ModelExporterT3D extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstModelExporterT3D(ModelExporterT3D) from ModelExporterT3D {
 @:forward
 @:nativeGen
 @:native("ModelExporterT3D*")
-abstract ModelExporterT3DPtr(cpp.Star<ModelExporterT3D>) from cpp.Star<ModelExporterT3D> to cpp.Star<ModelExporterT3D>{
+abstract ModelExporterT3DPtr(ucpp.Ptr<ModelExporterT3D>) from ucpp.Ptr<ModelExporterT3D> to ucpp.Ptr<ModelExporterT3D>{
 	@:from
 	public static extern inline function fromValue(v: ModelExporterT3D): ModelExporterT3DPtr {
 		return untyped __cpp__("&({0})", v);

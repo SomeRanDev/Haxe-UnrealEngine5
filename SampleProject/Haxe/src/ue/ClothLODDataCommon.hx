@@ -3,12 +3,12 @@ package ue;
 
 @:native("FClothLODDataCommon")
 @:include("ClothLODData.h")
-@:structAccess
+@:valueType
 extern class ClothLODDataCommon {
 	public var PhysicalMeshData: ClothPhysicalMeshData;
 	public var CollisionData: ClothCollisionData;
 	public var bUseMultipleInfluences: Bool;
-	public var SkinningKernelRadius: cpp.Float32;
+	public var SkinningKernelRadius: ucpp.num.Float32;
 	public var bSmoothTransition: Bool;
 
 	@:native("FClothLODDataCommon") public function new();

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeGltfTranslator")
 @:include("Gltf/InterchangeGltfTranslator.h")
-@:structAccess
+@:valueType
 extern class InterchangeGltfTranslator extends InterchangeTranslatorBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeGltfTranslator(InterchangeGltfTranslator) from Intercha
 @:forward
 @:nativeGen
 @:native("InterchangeGltfTranslator*")
-abstract InterchangeGltfTranslatorPtr(cpp.Star<InterchangeGltfTranslator>) from cpp.Star<InterchangeGltfTranslator> to cpp.Star<InterchangeGltfTranslator>{
+abstract InterchangeGltfTranslatorPtr(ucpp.Ptr<InterchangeGltfTranslator>) from ucpp.Ptr<InterchangeGltfTranslator> to ucpp.Ptr<InterchangeGltfTranslator>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGltfTranslator): InterchangeGltfTranslatorPtr {
 		return untyped __cpp__("&({0})", v);

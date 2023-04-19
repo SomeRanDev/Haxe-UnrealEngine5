@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSkelMeshSkinWeightInfo")
 @:include("Components/SkinnedMeshComponent.h")
-@:structAccess
+@:valueType
 extern class SkelMeshSkinWeightInfo {
-	public var Bones: cpp.Int32;
-	public var Weights: cpp.UInt8;
+	public var Bones: ucpp.num.Int32;
+	public var Weights: ucpp.num.UInt8;
 
 	@:native("FSkelMeshSkinWeightInfo") public function new();
-	@:native("FSkelMeshSkinWeightInfo") public static function make(Bones: cpp.Int32, Weights: cpp.UInt8): SkelMeshSkinWeightInfo ;
+	@:native("FSkelMeshSkinWeightInfo") public static function make(Bones: ucpp.num.Int32, Weights: ucpp.num.UInt8): SkelMeshSkinWeightInfo ;
 }

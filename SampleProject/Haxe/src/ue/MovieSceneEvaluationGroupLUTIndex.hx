@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMovieSceneEvaluationGroupLUTIndex")
 @:include("Evaluation/MovieSceneEvaluationField.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationGroupLUTIndex {
-	public var NumInitPtrs: cpp.Int32;
-	public var NumEvalPtrs: cpp.Int32;
+	public var NumInitPtrs: ucpp.num.Int32;
+	public var NumEvalPtrs: ucpp.num.Int32;
 
 	@:native("FMovieSceneEvaluationGroupLUTIndex") public function new();
-	@:native("FMovieSceneEvaluationGroupLUTIndex") public static function make(NumInitPtrs: cpp.Int32, NumEvalPtrs: cpp.Int32): MovieSceneEvaluationGroupLUTIndex ;
+	@:native("FMovieSceneEvaluationGroupLUTIndex") public static function make(NumInitPtrs: ucpp.num.Int32, NumEvalPtrs: ucpp.num.Int32): MovieSceneEvaluationGroupLUTIndex ;
 }

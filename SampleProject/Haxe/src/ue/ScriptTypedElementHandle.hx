@@ -3,7 +3,7 @@ package ue;
 
 @:native("FScriptTypedElementHandle")
 @:include("Elements/Framework/TypedElementHandle.h")
-@:structAccess
+@:valueType
 extern class ScriptTypedElementHandle {
 	@:native("FScriptTypedElementHandle") public function new();
 }

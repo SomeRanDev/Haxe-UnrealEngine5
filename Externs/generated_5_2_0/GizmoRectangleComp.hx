@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGizmoRectangleComponent")
 @:include("BaseGizmos/GizmoRectangleComponent.h")
-@:structAccess
+@:valueType
 extern class GizmoRectangleComp extends GizmoBaseComp {
 	public var DirectionX: Vector;
 	public var DirectionY: Vector;
 	public var bOrientYAccordingToCamera: Bool;
-	public var OffsetX: cpp.Float32;
-	public var OffsetY: cpp.Float32;
-	public var LengthX: cpp.Float32;
-	public var LengthY: cpp.Float32;
-	public var Thickness: cpp.Float32;
-	public var SegmentFlags: cpp.UInt8;
+	public var OffsetX: ucpp.num.Float32;
+	public var OffsetY: ucpp.num.Float32;
+	public var LengthX: ucpp.num.Float32;
+	public var LengthY: ucpp.num.Float32;
+	public var Thickness: ucpp.num.Float32;
+	public var SegmentFlags: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,24 +27,24 @@ abstract ConstGizmoRectangleComp(GizmoRectangleComp) from GizmoRectangleComp {
 	public inline extern function get_DirectionY(): Vector return this.DirectionY;
 	public extern var bOrientYAccordingToCamera(get, never): Bool;
 	public inline extern function get_bOrientYAccordingToCamera(): Bool return this.bOrientYAccordingToCamera;
-	public extern var OffsetX(get, never): cpp.Float32;
-	public inline extern function get_OffsetX(): cpp.Float32 return this.OffsetX;
-	public extern var OffsetY(get, never): cpp.Float32;
-	public inline extern function get_OffsetY(): cpp.Float32 return this.OffsetY;
-	public extern var LengthX(get, never): cpp.Float32;
-	public inline extern function get_LengthX(): cpp.Float32 return this.LengthX;
-	public extern var LengthY(get, never): cpp.Float32;
-	public inline extern function get_LengthY(): cpp.Float32 return this.LengthY;
-	public extern var Thickness(get, never): cpp.Float32;
-	public inline extern function get_Thickness(): cpp.Float32 return this.Thickness;
-	public extern var SegmentFlags(get, never): cpp.UInt8;
-	public inline extern function get_SegmentFlags(): cpp.UInt8 return this.SegmentFlags;
+	public extern var OffsetX(get, never): ucpp.num.Float32;
+	public inline extern function get_OffsetX(): ucpp.num.Float32 return this.OffsetX;
+	public extern var OffsetY(get, never): ucpp.num.Float32;
+	public inline extern function get_OffsetY(): ucpp.num.Float32 return this.OffsetY;
+	public extern var LengthX(get, never): ucpp.num.Float32;
+	public inline extern function get_LengthX(): ucpp.num.Float32 return this.LengthX;
+	public extern var LengthY(get, never): ucpp.num.Float32;
+	public inline extern function get_LengthY(): ucpp.num.Float32 return this.LengthY;
+	public extern var Thickness(get, never): ucpp.num.Float32;
+	public inline extern function get_Thickness(): ucpp.num.Float32 return this.Thickness;
+	public extern var SegmentFlags(get, never): ucpp.num.UInt8;
+	public inline extern function get_SegmentFlags(): ucpp.num.UInt8 return this.SegmentFlags;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoRectangleComp*")
-abstract GizmoRectangleCompPtr(cpp.Star<GizmoRectangleComp>) from cpp.Star<GizmoRectangleComp> to cpp.Star<GizmoRectangleComp>{
+abstract GizmoRectangleCompPtr(ucpp.Ptr<GizmoRectangleComp>) from ucpp.Ptr<GizmoRectangleComp> to ucpp.Ptr<GizmoRectangleComp>{
 	@:from
 	public static extern inline function fromValue(v: GizmoRectangleComp): GizmoRectangleCompPtr {
 		return untyped __cpp__("&({0})", v);

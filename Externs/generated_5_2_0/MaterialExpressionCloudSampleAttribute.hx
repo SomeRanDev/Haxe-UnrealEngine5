@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionCloudSampleAttribute")
 @:include("Materials/MaterialExpressionCloudLayer.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionCloudSampleAttribute extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionCloudSampleAttribute(MaterialExpressionCloudSamp
 @:forward
 @:nativeGen
 @:native("MaterialExpressionCloudSampleAttribute*")
-abstract MaterialExpressionCloudSampleAttributePtr(cpp.Star<MaterialExpressionCloudSampleAttribute>) from cpp.Star<MaterialExpressionCloudSampleAttribute> to cpp.Star<MaterialExpressionCloudSampleAttribute>{
+abstract MaterialExpressionCloudSampleAttributePtr(ucpp.Ptr<MaterialExpressionCloudSampleAttribute>) from ucpp.Ptr<MaterialExpressionCloudSampleAttribute> to ucpp.Ptr<MaterialExpressionCloudSampleAttribute>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionCloudSampleAttribute): MaterialExpressionCloudSampleAttributePtr {
 		return untyped __cpp__("&({0})", v);

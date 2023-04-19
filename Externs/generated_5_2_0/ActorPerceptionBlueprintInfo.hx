@@ -3,12 +3,12 @@ package ue;
 
 @:native("FActorPerceptionBlueprintInfo")
 @:include("Perception/AIPerceptionComponent.h")
-@:structAccess
+@:valueType
 extern class ActorPerceptionBlueprintInfo {
-	public var Target: cpp.Star<Actor>;
+	public var Target: ucpp.Ptr<Actor>;
 	public var LastSensedStimuli: TArray<AIStimulus>;
 	public var bIsHostile: Bool;
 
 	@:native("FActorPerceptionBlueprintInfo") public function new();
-	@:native("FActorPerceptionBlueprintInfo") public static function make(Target: cpp.Star<Actor>, LastSensedStimuli: TArray<AIStimulus>, bIsHostile: Bool): ActorPerceptionBlueprintInfo ;
+	@:native("FActorPerceptionBlueprintInfo") public static function make(Target: ucpp.Ptr<Actor>, LastSensedStimuli: TArray<AIStimulus>, bIsHostile: Bool): ActorPerceptionBlueprintInfo ;
 }

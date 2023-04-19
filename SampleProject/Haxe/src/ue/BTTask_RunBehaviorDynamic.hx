@@ -3,13 +3,13 @@ package ue;
 
 @:native("UBTTask_RunBehaviorDynamic")
 @:include("BehaviorTree/Tasks/BTTask_RunBehaviorDynamic.h")
-@:structAccess
+@:valueType
 extern class BTTask_RunBehaviorDynamic extends BTTaskNode {
 	@:protected public var InjectionTag: GameplayTag;
-	@:protected public var DefaultBehaviorAsset: cpp.Star<BehaviorTree>;
-	@:protected public var BehaviorAsset: cpp.Star<BehaviorTree>;
+	@:protected public var DefaultBehaviorAsset: ucpp.Ptr<BehaviorTree>;
+	@:protected public var BehaviorAsset: ucpp.Ptr<BehaviorTree>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBTTask_RunBehaviorDynamic(BTTask_RunBehaviorDynamic) from BTTask_R
 @:forward
 @:nativeGen
 @:native("BTTask_RunBehaviorDynamic*")
-abstract BTTask_RunBehaviorDynamicPtr(cpp.Star<BTTask_RunBehaviorDynamic>) from cpp.Star<BTTask_RunBehaviorDynamic> to cpp.Star<BTTask_RunBehaviorDynamic>{
+abstract BTTask_RunBehaviorDynamicPtr(ucpp.Ptr<BTTask_RunBehaviorDynamic>) from ucpp.Ptr<BTTask_RunBehaviorDynamic> to ucpp.Ptr<BTTask_RunBehaviorDynamic>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_RunBehaviorDynamic): BTTask_RunBehaviorDynamicPtr {
 		return untyped __cpp__("&({0})", v);

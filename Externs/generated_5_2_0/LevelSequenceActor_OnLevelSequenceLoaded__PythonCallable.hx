@@ -2,10 +2,10 @@
 package ue;
 
 @:native("ULevelSequenceActor_OnLevelSequenceLoaded__PythonCallable")
-@:structAccess
+@:valueType
 extern class LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstLevelSequenceActor_OnLevelSequenceLoaded__PythonCallable(LevelSequ
 @:forward
 @:nativeGen
 @:native("LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable*")
-abstract LevelSequenceActor_OnLevelSequenceLoaded__PythonCallablePtr(cpp.Star<LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable>) from cpp.Star<LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable> to cpp.Star<LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable>{
+abstract LevelSequenceActor_OnLevelSequenceLoaded__PythonCallablePtr(ucpp.Ptr<LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable>) from ucpp.Ptr<LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable> to ucpp.Ptr<LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceActor_OnLevelSequenceLoaded__PythonCallable): LevelSequenceActor_OnLevelSequenceLoaded__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

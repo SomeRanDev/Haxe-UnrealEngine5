@@ -3,19 +3,19 @@ package ue;
 
 @:native("UPersonaPreviewSceneDescription")
 @:include("PersonaPreviewSceneDescription.h")
-@:structAccess
+@:valueType
 extern class PersonaPreviewSceneDescription extends Object {
 	public var PreviewController: TSubclassOf<PersonaPreviewSceneController>;
-	public var PreviewControllerInstance: cpp.Star<PersonaPreviewSceneController>;
-	public var PreviewControllerInstances: TArray<cpp.Star<PersonaPreviewSceneController>>;
+	public var PreviewControllerInstance: ucpp.Ptr<PersonaPreviewSceneController>;
+	public var PreviewControllerInstances: TArray<ucpp.Ptr<PersonaPreviewSceneController>>;
 	public var PreviewMesh: TSoftObjectPtr<SkeletalMesh>;
 	public var PreviewAnimationBlueprint: TSoftObjectPtr<AnimBlueprint>;
 	public var ApplicationMethod: EPreviewAnimationBlueprintApplicationMethod;
 	public var LinkedAnimGraphTag: FName;
 	public var AdditionalMeshes: TSoftObjectPtr<DataAsset>;
-	public var DefaultAdditionalMeshes: cpp.Star<PreviewMeshCollection>;
+	public var DefaultAdditionalMeshes: ucpp.Ptr<PreviewMeshCollection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,10 +23,10 @@ extern class PersonaPreviewSceneDescription extends Object {
 abstract ConstPersonaPreviewSceneDescription(PersonaPreviewSceneDescription) from PersonaPreviewSceneDescription {
 	public extern var PreviewController(get, never): TSubclassOf<PersonaPreviewSceneController.ConstPersonaPreviewSceneController>;
 	public inline extern function get_PreviewController(): TSubclassOf<PersonaPreviewSceneController.ConstPersonaPreviewSceneController> return this.PreviewController;
-	public extern var PreviewControllerInstance(get, never): cpp.Star<PersonaPreviewSceneController.ConstPersonaPreviewSceneController>;
-	public inline extern function get_PreviewControllerInstance(): cpp.Star<PersonaPreviewSceneController.ConstPersonaPreviewSceneController> return this.PreviewControllerInstance;
-	public extern var PreviewControllerInstances(get, never): TArray<cpp.Star<PersonaPreviewSceneController.ConstPersonaPreviewSceneController>>;
-	public inline extern function get_PreviewControllerInstances(): TArray<cpp.Star<PersonaPreviewSceneController.ConstPersonaPreviewSceneController>> return this.PreviewControllerInstances;
+	public extern var PreviewControllerInstance(get, never): ucpp.Ptr<PersonaPreviewSceneController.ConstPersonaPreviewSceneController>;
+	public inline extern function get_PreviewControllerInstance(): ucpp.Ptr<PersonaPreviewSceneController.ConstPersonaPreviewSceneController> return this.PreviewControllerInstance;
+	public extern var PreviewControllerInstances(get, never): TArray<ucpp.Ptr<PersonaPreviewSceneController.ConstPersonaPreviewSceneController>>;
+	public inline extern function get_PreviewControllerInstances(): TArray<ucpp.Ptr<PersonaPreviewSceneController.ConstPersonaPreviewSceneController>> return this.PreviewControllerInstances;
 	public extern var PreviewMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
 	public inline extern function get_PreviewMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewMesh;
 	public extern var PreviewAnimationBlueprint(get, never): TSoftObjectPtr<AnimBlueprint.ConstAnimBlueprint>;
@@ -37,14 +37,14 @@ abstract ConstPersonaPreviewSceneDescription(PersonaPreviewSceneDescription) fro
 	public inline extern function get_LinkedAnimGraphTag(): FName return this.LinkedAnimGraphTag;
 	public extern var AdditionalMeshes(get, never): TSoftObjectPtr<DataAsset.ConstDataAsset>;
 	public inline extern function get_AdditionalMeshes(): TSoftObjectPtr<DataAsset.ConstDataAsset> return this.AdditionalMeshes;
-	public extern var DefaultAdditionalMeshes(get, never): cpp.Star<PreviewMeshCollection.ConstPreviewMeshCollection>;
-	public inline extern function get_DefaultAdditionalMeshes(): cpp.Star<PreviewMeshCollection.ConstPreviewMeshCollection> return this.DefaultAdditionalMeshes;
+	public extern var DefaultAdditionalMeshes(get, never): ucpp.Ptr<PreviewMeshCollection.ConstPreviewMeshCollection>;
+	public inline extern function get_DefaultAdditionalMeshes(): ucpp.Ptr<PreviewMeshCollection.ConstPreviewMeshCollection> return this.DefaultAdditionalMeshes;
 }
 
 @:forward
 @:nativeGen
 @:native("PersonaPreviewSceneDescription*")
-abstract PersonaPreviewSceneDescriptionPtr(cpp.Star<PersonaPreviewSceneDescription>) from cpp.Star<PersonaPreviewSceneDescription> to cpp.Star<PersonaPreviewSceneDescription>{
+abstract PersonaPreviewSceneDescriptionPtr(ucpp.Ptr<PersonaPreviewSceneDescription>) from ucpp.Ptr<PersonaPreviewSceneDescription> to ucpp.Ptr<PersonaPreviewSceneDescription>{
 	@:from
 	public static extern inline function fromValue(v: PersonaPreviewSceneDescription): PersonaPreviewSceneDescriptionPtr {
 		return untyped __cpp__("&({0})", v);

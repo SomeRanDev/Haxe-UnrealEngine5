@@ -3,11 +3,11 @@ package ue;
 
 @:native("ATextRenderActor")
 @:include("Engine/TextRenderActor.h")
-@:structAccess
+@:valueType
 extern class TextRenderActor extends Actor {
-	private var TextRender: cpp.Star<TextRenderComp>;
+	private var TextRender: ucpp.Ptr<TextRenderComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstTextRenderActor(TextRenderActor) from TextRenderActor {
 @:forward
 @:nativeGen
 @:native("TextRenderActor*")
-abstract TextRenderActorPtr(cpp.Star<TextRenderActor>) from cpp.Star<TextRenderActor> to cpp.Star<TextRenderActor>{
+abstract TextRenderActorPtr(ucpp.Ptr<TextRenderActor>) from ucpp.Ptr<TextRenderActor> to ucpp.Ptr<TextRenderActor>{
 	@:from
 	public static extern inline function fromValue(v: TextRenderActor): TextRenderActorPtr {
 		return untyped __cpp__("&({0})", v);

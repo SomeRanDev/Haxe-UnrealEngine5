@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDocumentationSettings")
 @:include("DocumentationSettings.h")
-@:structAccess
+@:valueType
 extern class DocumentationSettings extends DeveloperSettings {
 	public var DocumentationBaseUrls: TArray<DocumentationBaseUrl>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDocumentationSettings(DocumentationSettings) from DocumentationSet
 @:forward
 @:nativeGen
 @:native("DocumentationSettings*")
-abstract DocumentationSettingsPtr(cpp.Star<DocumentationSettings>) from cpp.Star<DocumentationSettings> to cpp.Star<DocumentationSettings>{
+abstract DocumentationSettingsPtr(ucpp.Ptr<DocumentationSettings>) from ucpp.Ptr<DocumentationSettings> to ucpp.Ptr<DocumentationSettings>{
 	@:from
 	public static extern inline function fromValue(v: DocumentationSettings): DocumentationSettingsPtr {
 		return untyped __cpp__("&({0})", v);

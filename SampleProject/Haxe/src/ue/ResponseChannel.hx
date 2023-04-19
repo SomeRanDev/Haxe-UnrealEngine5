@@ -3,7 +3,7 @@ package ue;
 
 @:native("FResponseChannel")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class ResponseChannel {
 	public var Channel: FName;
 	public var Response: TEnumAsByte<ECollisionResponse>;

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UUpgradeNiagaraEmitterContext")
 @:include("UpgradeNiagaraScriptResults.h")
-@:structAccess
+@:valueType
 extern class UpgradeNiagaraEmitterContext extends Object {
 	public var bCancelledByPythonError: Bool;
-	public var OldEmitter: cpp.Star<NiagaraPythonEmitter>;
-	public var NewEmitter: cpp.Star<NiagaraPythonEmitter>;
+	public var OldEmitter: ucpp.Ptr<NiagaraPythonEmitter>;
+	public var NewEmitter: ucpp.Ptr<NiagaraPythonEmitter>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class UpgradeNiagaraEmitterContext extends Object {
 abstract ConstUpgradeNiagaraEmitterContext(UpgradeNiagaraEmitterContext) from UpgradeNiagaraEmitterContext {
 	public extern var bCancelledByPythonError(get, never): Bool;
 	public inline extern function get_bCancelledByPythonError(): Bool return this.bCancelledByPythonError;
-	public extern var OldEmitter(get, never): cpp.Star<NiagaraPythonEmitter.ConstNiagaraPythonEmitter>;
-	public inline extern function get_OldEmitter(): cpp.Star<NiagaraPythonEmitter.ConstNiagaraPythonEmitter> return this.OldEmitter;
-	public extern var NewEmitter(get, never): cpp.Star<NiagaraPythonEmitter.ConstNiagaraPythonEmitter>;
-	public inline extern function get_NewEmitter(): cpp.Star<NiagaraPythonEmitter.ConstNiagaraPythonEmitter> return this.NewEmitter;
+	public extern var OldEmitter(get, never): ucpp.Ptr<NiagaraPythonEmitter.ConstNiagaraPythonEmitter>;
+	public inline extern function get_OldEmitter(): ucpp.Ptr<NiagaraPythonEmitter.ConstNiagaraPythonEmitter> return this.OldEmitter;
+	public extern var NewEmitter(get, never): ucpp.Ptr<NiagaraPythonEmitter.ConstNiagaraPythonEmitter>;
+	public inline extern function get_NewEmitter(): ucpp.Ptr<NiagaraPythonEmitter.ConstNiagaraPythonEmitter> return this.NewEmitter;
 }
 
 @:forward
 @:nativeGen
 @:native("UpgradeNiagaraEmitterContext*")
-abstract UpgradeNiagaraEmitterContextPtr(cpp.Star<UpgradeNiagaraEmitterContext>) from cpp.Star<UpgradeNiagaraEmitterContext> to cpp.Star<UpgradeNiagaraEmitterContext>{
+abstract UpgradeNiagaraEmitterContextPtr(ucpp.Ptr<UpgradeNiagaraEmitterContext>) from ucpp.Ptr<UpgradeNiagaraEmitterContext> to ucpp.Ptr<UpgradeNiagaraEmitterContext>{
 	@:from
 	public static extern inline function fromValue(v: UpgradeNiagaraEmitterContext): UpgradeNiagaraEmitterContextPtr {
 		return untyped __cpp__("&({0})", v);

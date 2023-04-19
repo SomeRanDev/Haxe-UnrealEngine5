@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCompressAnimationsCommandlet")
 @:include("Commandlets/CompressAnimationsCommandlet.h")
-@:structAccess
+@:valueType
 extern class CompressAnimationsCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCompressAnimationsCommandlet(CompressAnimationsCommandlet) from Co
 @:forward
 @:nativeGen
 @:native("CompressAnimationsCommandlet*")
-abstract CompressAnimationsCommandletPtr(cpp.Star<CompressAnimationsCommandlet>) from cpp.Star<CompressAnimationsCommandlet> to cpp.Star<CompressAnimationsCommandlet>{
+abstract CompressAnimationsCommandletPtr(ucpp.Ptr<CompressAnimationsCommandlet>) from ucpp.Ptr<CompressAnimationsCommandlet> to ucpp.Ptr<CompressAnimationsCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: CompressAnimationsCommandlet): CompressAnimationsCommandletPtr {
 		return untyped __cpp__("&({0})", v);

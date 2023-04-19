@@ -3,10 +3,10 @@ package ue;
 
 @:native("UParticleSystemFactoryNew")
 @:include("Factories/ParticleSystemFactoryNew.h")
-@:structAccess
+@:valueType
 extern class ParticleSystemFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstParticleSystemFactoryNew(ParticleSystemFactoryNew) from ParticleSy
 @:forward
 @:nativeGen
 @:native("ParticleSystemFactoryNew*")
-abstract ParticleSystemFactoryNewPtr(cpp.Star<ParticleSystemFactoryNew>) from cpp.Star<ParticleSystemFactoryNew> to cpp.Star<ParticleSystemFactoryNew>{
+abstract ParticleSystemFactoryNewPtr(ucpp.Ptr<ParticleSystemFactoryNew>) from ucpp.Ptr<ParticleSystemFactoryNew> to ucpp.Ptr<ParticleSystemFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: ParticleSystemFactoryNew): ParticleSystemFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

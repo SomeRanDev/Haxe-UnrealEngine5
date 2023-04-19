@@ -3,11 +3,11 @@ package ue;
 
 @:native("UObjectMixerBlueprintFilterFactory")
 @:include("ObjectMixerFilterFactory.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerBlueprintFilterFactory extends Factory {
 	public var ParentClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstObjectMixerBlueprintFilterFactory(ObjectMixerBlueprintFilterFactor
 @:forward
 @:nativeGen
 @:native("ObjectMixerBlueprintFilterFactory*")
-abstract ObjectMixerBlueprintFilterFactoryPtr(cpp.Star<ObjectMixerBlueprintFilterFactory>) from cpp.Star<ObjectMixerBlueprintFilterFactory> to cpp.Star<ObjectMixerBlueprintFilterFactory>{
+abstract ObjectMixerBlueprintFilterFactoryPtr(ucpp.Ptr<ObjectMixerBlueprintFilterFactory>) from ucpp.Ptr<ObjectMixerBlueprintFilterFactory> to ucpp.Ptr<ObjectMixerBlueprintFilterFactory>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerBlueprintFilterFactory): ObjectMixerBlueprintFilterFactoryPtr {
 		return untyped __cpp__("&({0})", v);

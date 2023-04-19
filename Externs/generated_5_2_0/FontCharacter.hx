@@ -3,14 +3,14 @@ package ue;
 
 @:native("FFontCharacter")
 @:include("Engine/Font.h")
-@:structAccess
+@:valueType
 extern class FontCharacter {
-	public var StartU: cpp.Int32;
-	public var StartV: cpp.Int32;
-	public var USize: cpp.Int32;
-	public var VSize: cpp.Int32;
-	public var TextureIndex: cpp.UInt8;
-	public var VerticalOffset: cpp.Int32;
+	public var StartU: ucpp.num.Int32;
+	public var StartV: ucpp.num.Int32;
+	public var USize: ucpp.num.Int32;
+	public var VSize: ucpp.num.Int32;
+	public var TextureIndex: ucpp.num.UInt8;
+	public var VerticalOffset: ucpp.num.Int32;
 
 	@:native("FFontCharacter") public function new();
 }

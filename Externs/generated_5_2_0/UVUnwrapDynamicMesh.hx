@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UUVUnwrapDynamicMesh")
-@:structAccess
+@:valueType
 extern class UVUnwrapDynamicMesh extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstUVUnwrapDynamicMesh(UVUnwrapDynamicMesh) from UVUnwrapDynamicMesh 
 @:forward
 @:nativeGen
 @:native("UVUnwrapDynamicMesh*")
-abstract UVUnwrapDynamicMeshPtr(cpp.Star<UVUnwrapDynamicMesh>) from cpp.Star<UVUnwrapDynamicMesh> to cpp.Star<UVUnwrapDynamicMesh>{
+abstract UVUnwrapDynamicMeshPtr(ucpp.Ptr<UVUnwrapDynamicMesh>) from ucpp.Ptr<UVUnwrapDynamicMesh> to ucpp.Ptr<UVUnwrapDynamicMesh>{
 	@:from
 	public static extern inline function fromValue(v: UVUnwrapDynamicMesh): UVUnwrapDynamicMeshPtr {
 		return untyped __cpp__("&({0})", v);

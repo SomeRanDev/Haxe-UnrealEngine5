@@ -3,14 +3,14 @@ package ue;
 
 @:native("UParticleModuleKillHeight")
 @:include("Particles/Kill/ParticleModuleKillHeight.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleKillHeight extends ParticleModuleKillBase {
 	public var Height: RawDistributionFloat;
 	public var bAbsolute: Bool;
 	public var bFloor: Bool;
 	public var bApplyPSysScale: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstParticleModuleKillHeight(ParticleModuleKillHeight) from ParticleMo
 @:forward
 @:nativeGen
 @:native("ParticleModuleKillHeight*")
-abstract ParticleModuleKillHeightPtr(cpp.Star<ParticleModuleKillHeight>) from cpp.Star<ParticleModuleKillHeight> to cpp.Star<ParticleModuleKillHeight>{
+abstract ParticleModuleKillHeightPtr(ucpp.Ptr<ParticleModuleKillHeight>) from ucpp.Ptr<ParticleModuleKillHeight> to ucpp.Ptr<ParticleModuleKillHeight>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleKillHeight): ParticleModuleKillHeightPtr {
 		return untyped __cpp__("&({0})", v);

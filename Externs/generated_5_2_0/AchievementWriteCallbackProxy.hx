@@ -3,29 +3,29 @@ package ue;
 
 @:native("UAchievementWriteCallbackProxy")
 @:include("AchievementWriteCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class AchievementWriteCallbackProxy extends OnlineBlueprintCallProxyBase {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
 
-	public function WriteAchievementProgress(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>, AchievementName: FName, Progress: cpp.Float32, UserTag: cpp.Int32): cpp.Star<AchievementWriteCallbackProxy>;
+	public function WriteAchievementProgress(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>, AchievementName: FName, Progress: ucpp.num.Float32, UserTag: ucpp.num.Int32): ucpp.Ptr<AchievementWriteCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAchievementWriteCallbackProxy(AchievementWriteCallbackProxy) from AchievementWriteCallbackProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(FName, cpp.Float32, cpp.Int32) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(FName, ucpp.num.Float32, ucpp.num.Int32) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("AchievementWriteCallbackProxy*")
-abstract AchievementWriteCallbackProxyPtr(cpp.Star<AchievementWriteCallbackProxy>) from cpp.Star<AchievementWriteCallbackProxy> to cpp.Star<AchievementWriteCallbackProxy>{
+abstract AchievementWriteCallbackProxyPtr(ucpp.Ptr<AchievementWriteCallbackProxy>) from ucpp.Ptr<AchievementWriteCallbackProxy> to ucpp.Ptr<AchievementWriteCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: AchievementWriteCallbackProxy): AchievementWriteCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

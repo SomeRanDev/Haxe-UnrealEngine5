@@ -3,7 +3,7 @@ package ue;
 
 @:native("UObjectReplicationBridgeConfig")
 @:include("Iris/ReplicationSystem/ObjectReplicationBridgeConfig.h")
-@:structAccess
+@:valueType
 extern class ObjectReplicationBridgeConfig extends Object {
 	private var PollConfigs: TArray<ObjectReplicationBridgePollConfig>;
 	private var FilterConfigs: TArray<ObjectReplicationBridgeFilterConfig>;
@@ -12,7 +12,7 @@ extern class ObjectReplicationBridgeConfig extends Object {
 	private var DefaultSpatialFilterName: FName;
 	private var RequiredNetDriverChannelClassName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstObjectReplicationBridgeConfig(ObjectReplicationBridgeConfig) from 
 @:forward
 @:nativeGen
 @:native("ObjectReplicationBridgeConfig*")
-abstract ObjectReplicationBridgeConfigPtr(cpp.Star<ObjectReplicationBridgeConfig>) from cpp.Star<ObjectReplicationBridgeConfig> to cpp.Star<ObjectReplicationBridgeConfig>{
+abstract ObjectReplicationBridgeConfigPtr(ucpp.Ptr<ObjectReplicationBridgeConfig>) from ucpp.Ptr<ObjectReplicationBridgeConfig> to ucpp.Ptr<ObjectReplicationBridgeConfig>{
 	@:from
 	public static extern inline function fromValue(v: ObjectReplicationBridgeConfig): ObjectReplicationBridgeConfigPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialFunctionMaterialLayerBlend")
 @:include("Materials/MaterialFunctionMaterialLayerBlend.h")
-@:structAccess
+@:valueType
 extern class MaterialFunctionMaterialLayerBlend extends MaterialFunction {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialFunctionMaterialLayerBlend(MaterialFunctionMaterialLayerBl
 @:forward
 @:nativeGen
 @:native("MaterialFunctionMaterialLayerBlend*")
-abstract MaterialFunctionMaterialLayerBlendPtr(cpp.Star<MaterialFunctionMaterialLayerBlend>) from cpp.Star<MaterialFunctionMaterialLayerBlend> to cpp.Star<MaterialFunctionMaterialLayerBlend>{
+abstract MaterialFunctionMaterialLayerBlendPtr(ucpp.Ptr<MaterialFunctionMaterialLayerBlend>) from ucpp.Ptr<MaterialFunctionMaterialLayerBlend> to ucpp.Ptr<MaterialFunctionMaterialLayerBlend>{
 	@:from
 	public static extern inline function fromValue(v: MaterialFunctionMaterialLayerBlend): MaterialFunctionMaterialLayerBlendPtr {
 		return untyped __cpp__("&({0})", v);

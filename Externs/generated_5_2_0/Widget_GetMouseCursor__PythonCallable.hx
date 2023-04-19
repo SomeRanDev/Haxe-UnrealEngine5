@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UWidget_GetMouseCursor__PythonCallable")
-@:structAccess
+@:valueType
 extern class Widget_GetMouseCursor__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstWidget_GetMouseCursor__PythonCallable(Widget_GetMouseCursor__Pytho
 @:forward
 @:nativeGen
 @:native("Widget_GetMouseCursor__PythonCallable*")
-abstract Widget_GetMouseCursor__PythonCallablePtr(cpp.Star<Widget_GetMouseCursor__PythonCallable>) from cpp.Star<Widget_GetMouseCursor__PythonCallable> to cpp.Star<Widget_GetMouseCursor__PythonCallable>{
+abstract Widget_GetMouseCursor__PythonCallablePtr(ucpp.Ptr<Widget_GetMouseCursor__PythonCallable>) from ucpp.Ptr<Widget_GetMouseCursor__PythonCallable> to ucpp.Ptr<Widget_GetMouseCursor__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: Widget_GetMouseCursor__PythonCallable): Widget_GetMouseCursor__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

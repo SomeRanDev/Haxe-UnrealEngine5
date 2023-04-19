@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UPerceptionUpdatedDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class PerceptionUpdatedDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstPerceptionUpdatedDelegate__PythonCallable(PerceptionUpdatedDelegat
 @:forward
 @:nativeGen
 @:native("PerceptionUpdatedDelegate__PythonCallable*")
-abstract PerceptionUpdatedDelegate__PythonCallablePtr(cpp.Star<PerceptionUpdatedDelegate__PythonCallable>) from cpp.Star<PerceptionUpdatedDelegate__PythonCallable> to cpp.Star<PerceptionUpdatedDelegate__PythonCallable>{
+abstract PerceptionUpdatedDelegate__PythonCallablePtr(ucpp.Ptr<PerceptionUpdatedDelegate__PythonCallable>) from ucpp.Ptr<PerceptionUpdatedDelegate__PythonCallable> to ucpp.Ptr<PerceptionUpdatedDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: PerceptionUpdatedDelegate__PythonCallable): PerceptionUpdatedDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneLevelVisibilitySystem")
 @:include("Systems/MovieSceneLevelVisibilitySystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneLevelVisibilitySystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneLevelVisibilitySystem(MovieSceneLevelVisibilitySystem) f
 @:forward
 @:nativeGen
 @:native("MovieSceneLevelVisibilitySystem*")
-abstract MovieSceneLevelVisibilitySystemPtr(cpp.Star<MovieSceneLevelVisibilitySystem>) from cpp.Star<MovieSceneLevelVisibilitySystem> to cpp.Star<MovieSceneLevelVisibilitySystem>{
+abstract MovieSceneLevelVisibilitySystemPtr(ucpp.Ptr<MovieSceneLevelVisibilitySystem>) from ucpp.Ptr<MovieSceneLevelVisibilitySystem> to ucpp.Ptr<MovieSceneLevelVisibilitySystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneLevelVisibilitySystem): MovieSceneLevelVisibilitySystemPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,6 +3,6 @@ package ue;
 
 @:native("UObjectBaseUtility")
 @:include("UObject/UObjectBaseUtility.h")
-@:structAccess
+@:valueType
 extern class ObjectBaseUtility extends ObjectBase {
 }

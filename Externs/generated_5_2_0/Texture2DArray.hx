@@ -3,13 +3,13 @@ package ue;
 
 @:native("UTexture2DArray")
 @:include("Engine/Texture2DArray.h")
-@:structAccess
+@:valueType
 extern class Texture2DArray extends Texture {
 	public var AddressX: TEnumAsByte<TextureAddress>;
 	public var AddressY: TEnumAsByte<TextureAddress>;
 	public var AddressZ: TEnumAsByte<TextureAddress>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstTexture2DArray(Texture2DArray) from Texture2DArray {
 @:forward
 @:nativeGen
 @:native("Texture2DArray*")
-abstract Texture2DArrayPtr(cpp.Star<Texture2DArray>) from cpp.Star<Texture2DArray> to cpp.Star<Texture2DArray>{
+abstract Texture2DArrayPtr(ucpp.Ptr<Texture2DArray>) from ucpp.Ptr<Texture2DArray> to ucpp.Ptr<Texture2DArray>{
 	@:from
 	public static extern inline function fromValue(v: Texture2DArray): Texture2DArrayPtr {
 		return untyped __cpp__("&({0})", v);

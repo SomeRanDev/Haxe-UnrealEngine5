@@ -3,24 +3,24 @@ package ue;
 
 @:native("UParameterizeMeshToolXAtlasProperties")
 @:include("Properties/ParameterizeMeshProperties.h")
-@:structAccess
+@:valueType
 extern class ParameterizeMeshToolXAtlasProperties extends InteractiveToolPropertySet {
-	public var MaxIterations: cpp.Int32;
+	public var MaxIterations: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstParameterizeMeshToolXAtlasProperties(ParameterizeMeshToolXAtlasProperties) from ParameterizeMeshToolXAtlasProperties {
-	public extern var MaxIterations(get, never): cpp.Int32;
-	public inline extern function get_MaxIterations(): cpp.Int32 return this.MaxIterations;
+	public extern var MaxIterations(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxIterations(): ucpp.num.Int32 return this.MaxIterations;
 }
 
 @:forward
 @:nativeGen
 @:native("ParameterizeMeshToolXAtlasProperties*")
-abstract ParameterizeMeshToolXAtlasPropertiesPtr(cpp.Star<ParameterizeMeshToolXAtlasProperties>) from cpp.Star<ParameterizeMeshToolXAtlasProperties> to cpp.Star<ParameterizeMeshToolXAtlasProperties>{
+abstract ParameterizeMeshToolXAtlasPropertiesPtr(ucpp.Ptr<ParameterizeMeshToolXAtlasProperties>) from ucpp.Ptr<ParameterizeMeshToolXAtlasProperties> to ucpp.Ptr<ParameterizeMeshToolXAtlasProperties>{
 	@:from
 	public static extern inline function fromValue(v: ParameterizeMeshToolXAtlasProperties): ParameterizeMeshToolXAtlasPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

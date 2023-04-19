@@ -3,12 +3,12 @@ package ue;
 
 @:native("UFractureProximityActions")
 @:include("FractureToolProximity.h")
-@:structAccess
+@:valueType
 extern class FractureProximityActions extends FractureToolSettings {
 	public function SetFromDefaults(): Void;
 	public function SaveAsDefaults(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstFractureProximityActions(FractureProximityActions) from FracturePr
 @:forward
 @:nativeGen
 @:native("FractureProximityActions*")
-abstract FractureProximityActionsPtr(cpp.Star<FractureProximityActions>) from cpp.Star<FractureProximityActions> to cpp.Star<FractureProximityActions>{
+abstract FractureProximityActionsPtr(ucpp.Ptr<FractureProximityActions>) from ucpp.Ptr<FractureProximityActions> to ucpp.Ptr<FractureProximityActions>{
 	@:from
 	public static extern inline function fromValue(v: FractureProximityActions): FractureProximityActionsPtr {
 		return untyped __cpp__("&({0})", v);

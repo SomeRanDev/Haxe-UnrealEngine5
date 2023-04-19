@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInstancedStaticMeshInstanceData")
 @:include("Components/InstancedStaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class InstancedStaticMeshInstanceData {
 	public var Transform: Matrix;
 

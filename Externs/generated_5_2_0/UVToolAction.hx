@@ -3,12 +3,12 @@ package ue;
 
 @:native("UUVToolAction")
 @:include("Actions/UVToolAction.h")
-@:structAccess
+@:valueType
 extern class UVToolAction extends Object {
-	@:protected public var SelectionAPI: cpp.Star<UVToolSelectionAPI>;
-	@:protected public var EmitChangeAPI: cpp.Star<UVToolEmitChangeAPI>;
+	@:protected public var SelectionAPI: ucpp.Ptr<UVToolSelectionAPI>;
+	@:protected public var EmitChangeAPI: ucpp.Ptr<UVToolEmitChangeAPI>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstUVToolAction(UVToolAction) from UVToolAction {
 @:forward
 @:nativeGen
 @:native("UVToolAction*")
-abstract UVToolActionPtr(cpp.Star<UVToolAction>) from cpp.Star<UVToolAction> to cpp.Star<UVToolAction>{
+abstract UVToolActionPtr(ucpp.Ptr<UVToolAction>) from ucpp.Ptr<UVToolAction> to ucpp.Ptr<UVToolAction>{
 	@:from
 	public static extern inline function fromValue(v: UVToolAction): UVToolActionPtr {
 		return untyped __cpp__("&({0})", v);

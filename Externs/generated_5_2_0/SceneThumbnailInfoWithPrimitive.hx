@@ -3,13 +3,13 @@ package ue;
 
 @:native("USceneThumbnailInfoWithPrimitive")
 @:include("ThumbnailRendering/SceneThumbnailInfoWithPrimitive.h")
-@:structAccess
+@:valueType
 extern class SceneThumbnailInfoWithPrimitive extends SceneThumbnailInfo {
 	public var PrimitiveType: TEnumAsByte<EThumbnailPrimType>;
 	public var PreviewMesh: SoftObjectPath;
 	public var bUserModifiedShape: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstSceneThumbnailInfoWithPrimitive(SceneThumbnailInfoWithPrimitive) f
 @:forward
 @:nativeGen
 @:native("SceneThumbnailInfoWithPrimitive*")
-abstract SceneThumbnailInfoWithPrimitivePtr(cpp.Star<SceneThumbnailInfoWithPrimitive>) from cpp.Star<SceneThumbnailInfoWithPrimitive> to cpp.Star<SceneThumbnailInfoWithPrimitive>{
+abstract SceneThumbnailInfoWithPrimitivePtr(ucpp.Ptr<SceneThumbnailInfoWithPrimitive>) from ucpp.Ptr<SceneThumbnailInfoWithPrimitive> to ucpp.Ptr<SceneThumbnailInfoWithPrimitive>{
 	@:from
 	public static extern inline function fromValue(v: SceneThumbnailInfoWithPrimitive): SceneThumbnailInfoWithPrimitivePtr {
 		return untyped __cpp__("&({0})", v);

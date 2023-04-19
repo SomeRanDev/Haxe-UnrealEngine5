@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAnimSegment")
 @:include("Animation/AnimCompositeBase.h")
-@:structAccess
+@:valueType
 extern class AnimSegment {
-	public var AnimReference: cpp.Star<AnimSequenceBase>;
-	public var StartPos: cpp.Float32;
-	public var AnimStartTime: cpp.Float32;
-	public var AnimEndTime: cpp.Float32;
-	public var AnimPlayRate: cpp.Float32;
-	public var LoopingCount: cpp.Int32;
+	public var AnimReference: ucpp.Ptr<AnimSequenceBase>;
+	public var StartPos: ucpp.num.Float32;
+	public var AnimStartTime: ucpp.num.Float32;
+	public var AnimEndTime: ucpp.num.Float32;
+	public var AnimPlayRate: ucpp.num.Float32;
+	public var LoopingCount: ucpp.num.Int32;
 
 	@:native("FAnimSegment") public function new();
 }

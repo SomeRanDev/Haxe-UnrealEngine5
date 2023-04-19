@@ -3,12 +3,12 @@ package ue;
 
 @:native("FTypedElementPasteOptions")
 @:include("Elements/Framework/TypedElementCommonActions.h")
-@:structAccess
+@:valueType
 extern class TypedElementPasteOptions {
-	public var SelectionSetToModify: cpp.Star<TypedElementSelectionSet>;
+	public var SelectionSetToModify: ucpp.Ptr<TypedElementSelectionSet>;
 	public var bPasteAtLocation: Bool;
 	public var PasteLocation: Vector;
 
 	@:native("FTypedElementPasteOptions") public function new();
-	@:native("FTypedElementPasteOptions") public static function make(SelectionSetToModify: cpp.Star<TypedElementSelectionSet>, bPasteAtLocation: Bool, PasteLocation: Vector): TypedElementPasteOptions ;
+	@:native("FTypedElementPasteOptions") public static function make(SelectionSetToModify: ucpp.Ptr<TypedElementSelectionSet>, bPasteAtLocation: Bool, PasteLocation: Vector): TypedElementPasteOptions ;
 }

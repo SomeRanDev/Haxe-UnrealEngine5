@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNodeDependingOnEnumInterface")
-@:structAccess
+@:valueType
 extern class NodeDependingOnEnumInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNodeDependingOnEnumInterface(NodeDependingOnEnumInterface) from No
 @:forward
 @:nativeGen
 @:native("NodeDependingOnEnumInterface*")
-abstract NodeDependingOnEnumInterfacePtr(cpp.Star<NodeDependingOnEnumInterface>) from cpp.Star<NodeDependingOnEnumInterface> to cpp.Star<NodeDependingOnEnumInterface>{
+abstract NodeDependingOnEnumInterfacePtr(ucpp.Ptr<NodeDependingOnEnumInterface>) from ucpp.Ptr<NodeDependingOnEnumInterface> to ucpp.Ptr<NodeDependingOnEnumInterface>{
 	@:from
 	public static extern inline function fromValue(v: NodeDependingOnEnumInterface): NodeDependingOnEnumInterfacePtr {
 		return untyped __cpp__("&({0})", v);

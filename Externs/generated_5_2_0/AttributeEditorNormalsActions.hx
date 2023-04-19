@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAttributeEditorNormalsActions")
 @:include("AttributeEditorTool.h")
-@:structAccess
+@:valueType
 extern class AttributeEditorNormalsActions extends AttributeEditorActionPropertySet {
 	public function ResetHardNormals(): Void;
 	public function DiscardTangents(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAttributeEditorNormalsActions(AttributeEditorNormalsActions) from 
 @:forward
 @:nativeGen
 @:native("AttributeEditorNormalsActions*")
-abstract AttributeEditorNormalsActionsPtr(cpp.Star<AttributeEditorNormalsActions>) from cpp.Star<AttributeEditorNormalsActions> to cpp.Star<AttributeEditorNormalsActions>{
+abstract AttributeEditorNormalsActionsPtr(ucpp.Ptr<AttributeEditorNormalsActions>) from ucpp.Ptr<AttributeEditorNormalsActions> to ucpp.Ptr<AttributeEditorNormalsActions>{
 	@:from
 	public static extern inline function fromValue(v: AttributeEditorNormalsActions): AttributeEditorNormalsActionsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,27 +3,27 @@ package ue;
 
 @:native("UBrushComponent")
 @:include("Components/BrushComponent.h")
-@:structAccess
+@:valueType
 extern class BrushComp extends PrimitiveComp {
-	public var Brush: cpp.Star<Model>;
-	public var BrushBodySetup: cpp.Star<BodySetup>;
+	public var Brush: ucpp.Ptr<Model>;
+	public var BrushBodySetup: ucpp.Ptr<BodySetup>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBrushComp(BrushComp) from BrushComp {
-	public extern var Brush(get, never): cpp.Star<Model.ConstModel>;
-	public inline extern function get_Brush(): cpp.Star<Model.ConstModel> return this.Brush;
-	public extern var BrushBodySetup(get, never): cpp.Star<BodySetup.ConstBodySetup>;
-	public inline extern function get_BrushBodySetup(): cpp.Star<BodySetup.ConstBodySetup> return this.BrushBodySetup;
+	public extern var Brush(get, never): ucpp.Ptr<Model.ConstModel>;
+	public inline extern function get_Brush(): ucpp.Ptr<Model.ConstModel> return this.Brush;
+	public extern var BrushBodySetup(get, never): ucpp.Ptr<BodySetup.ConstBodySetup>;
+	public inline extern function get_BrushBodySetup(): ucpp.Ptr<BodySetup.ConstBodySetup> return this.BrushBodySetup;
 }
 
 @:forward
 @:nativeGen
 @:native("BrushComp*")
-abstract BrushCompPtr(cpp.Star<BrushComp>) from cpp.Star<BrushComp> to cpp.Star<BrushComp>{
+abstract BrushCompPtr(ucpp.Ptr<BrushComp>) from ucpp.Ptr<BrushComp> to ucpp.Ptr<BrushComp>{
 	@:from
 	public static extern inline function fromValue(v: BrushComp): BrushCompPtr {
 		return untyped __cpp__("&({0})", v);

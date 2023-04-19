@@ -3,11 +3,11 @@ package ue;
 
 @:native("USlateWidgetStyleAssetFactory")
 @:include("Factories/SlateWidgetStyleAssetFactory.h")
-@:structAccess
+@:valueType
 extern class SlateWidgetStyleAssetFactory extends Factory {
 	public var StyleType: TSubclassOf<SlateWidgetStyleContainerBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSlateWidgetStyleAssetFactory(SlateWidgetStyleAssetFactory) from Sl
 @:forward
 @:nativeGen
 @:native("SlateWidgetStyleAssetFactory*")
-abstract SlateWidgetStyleAssetFactoryPtr(cpp.Star<SlateWidgetStyleAssetFactory>) from cpp.Star<SlateWidgetStyleAssetFactory> to cpp.Star<SlateWidgetStyleAssetFactory>{
+abstract SlateWidgetStyleAssetFactoryPtr(ucpp.Ptr<SlateWidgetStyleAssetFactory>) from ucpp.Ptr<SlateWidgetStyleAssetFactory> to ucpp.Ptr<SlateWidgetStyleAssetFactory>{
 	@:from
 	public static extern inline function fromValue(v: SlateWidgetStyleAssetFactory): SlateWidgetStyleAssetFactoryPtr {
 		return untyped __cpp__("&({0})", v);

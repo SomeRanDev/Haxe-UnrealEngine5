@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionScreen")
 @:include("MaterialX/MaterialExpressionScreen.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionScreen extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Alpha: ExpressionInput;
-	public var ConstAlpha: cpp.Float32;
+	public var ConstAlpha: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstMaterialExpressionScreen(MaterialExpressionScreen) from MaterialEx
 	public inline extern function get_B(): ExpressionInput return this.B;
 	public extern var Alpha(get, never): ExpressionInput;
 	public inline extern function get_Alpha(): ExpressionInput return this.Alpha;
-	public extern var ConstAlpha(get, never): cpp.Float32;
-	public inline extern function get_ConstAlpha(): cpp.Float32 return this.ConstAlpha;
+	public extern var ConstAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstAlpha(): ucpp.num.Float32 return this.ConstAlpha;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionScreen*")
-abstract MaterialExpressionScreenPtr(cpp.Star<MaterialExpressionScreen>) from cpp.Star<MaterialExpressionScreen> to cpp.Star<MaterialExpressionScreen>{
+abstract MaterialExpressionScreenPtr(ucpp.Ptr<MaterialExpressionScreen>) from ucpp.Ptr<MaterialExpressionScreen> to ucpp.Ptr<MaterialExpressionScreen>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionScreen): MaterialExpressionScreenPtr {
 		return untyped __cpp__("&({0})", v);

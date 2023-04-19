@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMulticastDelegateProperty")
-@:structAccess
+@:valueType
 extern class MulticastDelegateProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMulticastDelegateProperty(MulticastDelegateProperty) from Multicas
 @:forward
 @:nativeGen
 @:native("MulticastDelegateProperty*")
-abstract MulticastDelegatePropertyPtr(cpp.Star<MulticastDelegateProperty>) from cpp.Star<MulticastDelegateProperty> to cpp.Star<MulticastDelegateProperty>{
+abstract MulticastDelegatePropertyPtr(ucpp.Ptr<MulticastDelegateProperty>) from ucpp.Ptr<MulticastDelegateProperty> to ucpp.Ptr<MulticastDelegateProperty>{
 	@:from
 	public static extern inline function fromValue(v: MulticastDelegateProperty): MulticastDelegatePropertyPtr {
 		return untyped __cpp__("&({0})", v);

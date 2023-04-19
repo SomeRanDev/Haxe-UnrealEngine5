@@ -3,10 +3,10 @@ package ue;
 
 @:native("UStatusBarSubsystem")
 @:include("StatusBarSubsystem.h")
-@:structAccess
+@:valueType
 extern class StatusBarSubsystem extends EditorSubsystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstStatusBarSubsystem(StatusBarSubsystem) from StatusBarSubsystem {
 @:forward
 @:nativeGen
 @:native("StatusBarSubsystem*")
-abstract StatusBarSubsystemPtr(cpp.Star<StatusBarSubsystem>) from cpp.Star<StatusBarSubsystem> to cpp.Star<StatusBarSubsystem>{
+abstract StatusBarSubsystemPtr(ucpp.Ptr<StatusBarSubsystem>) from ucpp.Ptr<StatusBarSubsystem> to ucpp.Ptr<StatusBarSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: StatusBarSubsystem): StatusBarSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

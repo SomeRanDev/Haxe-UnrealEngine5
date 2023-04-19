@@ -3,14 +3,14 @@ package ue;
 
 @:native("FTapDelayInfo")
 @:include("SubmixEffects/SubmixEffectTapDelay.h")
-@:structAccess
+@:valueType
 extern class TapDelayInfo {
 	public var TapLineMode: ETapLineMode;
-	public var DelayLength: cpp.Float32;
-	public var Gain: cpp.Float32;
-	public var OutputChannel: cpp.Int32;
-	public var PanInDegrees: cpp.Float32;
-	public var TapId: cpp.Int32;
+	public var DelayLength: ucpp.num.Float32;
+	public var Gain: ucpp.num.Float32;
+	public var OutputChannel: ucpp.num.Int32;
+	public var PanInDegrees: ucpp.num.Float32;
+	public var TapId: ucpp.num.Int32;
 
 	@:native("FTapDelayInfo") public function new();
 }

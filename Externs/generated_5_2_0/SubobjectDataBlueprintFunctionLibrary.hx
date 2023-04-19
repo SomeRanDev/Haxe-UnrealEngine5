@@ -3,37 +3,37 @@ package ue;
 
 @:native("USubobjectDataBlueprintFunctionLibrary")
 @:include("SubobjectDataBlueprintFunctionLibrary.h")
-@:structAccess
+@:valueType
 extern class SubobjectDataBlueprintFunctionLibrary extends BlueprintFunctionLibrary {
-	public function IsValid(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsSceneComponent(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsRootComponent(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsRootActor(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsNativeComponent(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsInstancedComponent(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsInstancedActor(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsInheritedComponent(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsHandleValid(DataHandle: cpp.Reference<SubobjectDataHandle>): Bool;
-	public function IsDefaultSceneRoot(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsComponent(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsChildActor(Data: cpp.Reference<SubobjectData>): Bool;
-	public function IsAttachedTo(Data: cpp.Reference<SubobjectData>, InHandle: cpp.Reference<SubobjectDataHandle>): Bool;
-	public function IsActor(Data: cpp.Reference<SubobjectData>): Bool;
-	public function GetVariableName(Data: cpp.Reference<SubobjectData>): FName;
-	public function GetObjectForBlueprint(Data: cpp.Reference<SubobjectData>, Blueprint: cpp.Star<Blueprint>): cpp.Star<Object.ConstObject>;
-	public function GetObject(Data: cpp.Reference<SubobjectData>, bEvenIfPendingKill: Bool): cpp.Star<Object.ConstObject>;
-	public function GetHandle(Data: cpp.Reference<SubobjectData>, OutHandle: cpp.Reference<SubobjectDataHandle>): Void;
-	public function GetDisplayName(Data: cpp.Reference<SubobjectData>): FText;
-	public function GetData(DataHandle: cpp.Reference<SubobjectDataHandle>, OutData: cpp.Reference<SubobjectData>): Void;
-	public function GetBlueprint(Data: cpp.Reference<SubobjectData>): cpp.Star<Blueprint>;
-	public function CanReparent(Data: cpp.Reference<SubobjectData>): Bool;
-	public function CanRename(Data: cpp.Reference<SubobjectData>): Bool;
-	public function CanEdit(Data: cpp.Reference<SubobjectData>): Bool;
-	public function CanDuplicate(Data: cpp.Reference<SubobjectData>): Bool;
-	public function CanDelete(Data: cpp.Reference<SubobjectData>): Bool;
-	public function CanCopy(Data: cpp.Reference<SubobjectData>): Bool;
+	public function IsValid(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsSceneComponent(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsRootComponent(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsRootActor(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsNativeComponent(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsInstancedComponent(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsInstancedActor(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsInheritedComponent(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsHandleValid(DataHandle: ucpp.Ref<SubobjectDataHandle>): Bool;
+	public function IsDefaultSceneRoot(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsComponent(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsChildActor(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function IsAttachedTo(Data: ucpp.Ref<SubobjectData>, InHandle: ucpp.Ref<SubobjectDataHandle>): Bool;
+	public function IsActor(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function GetVariableName(Data: ucpp.Ref<SubobjectData>): FName;
+	public function GetObjectForBlueprint(Data: ucpp.Ref<SubobjectData>, Blueprint: ucpp.Ptr<Blueprint>): ucpp.Ptr<Object.ConstObject>;
+	public function GetObject(Data: ucpp.Ref<SubobjectData>, bEvenIfPendingKill: Bool): ucpp.Ptr<Object.ConstObject>;
+	public function GetHandle(Data: ucpp.Ref<SubobjectData>, OutHandle: ucpp.Ref<SubobjectDataHandle>): Void;
+	public function GetDisplayName(Data: ucpp.Ref<SubobjectData>): FText;
+	public function GetData(DataHandle: ucpp.Ref<SubobjectDataHandle>, OutData: ucpp.Ref<SubobjectData>): Void;
+	public function GetBlueprint(Data: ucpp.Ref<SubobjectData>): ucpp.Ptr<Blueprint>;
+	public function CanReparent(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function CanRename(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function CanEdit(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function CanDuplicate(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function CanDelete(Data: ucpp.Ref<SubobjectData>): Bool;
+	public function CanCopy(Data: ucpp.Ref<SubobjectData>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -44,7 +44,7 @@ abstract ConstSubobjectDataBlueprintFunctionLibrary(SubobjectDataBlueprintFuncti
 @:forward
 @:nativeGen
 @:native("SubobjectDataBlueprintFunctionLibrary*")
-abstract SubobjectDataBlueprintFunctionLibraryPtr(cpp.Star<SubobjectDataBlueprintFunctionLibrary>) from cpp.Star<SubobjectDataBlueprintFunctionLibrary> to cpp.Star<SubobjectDataBlueprintFunctionLibrary>{
+abstract SubobjectDataBlueprintFunctionLibraryPtr(ucpp.Ptr<SubobjectDataBlueprintFunctionLibrary>) from ucpp.Ptr<SubobjectDataBlueprintFunctionLibrary> to ucpp.Ptr<SubobjectDataBlueprintFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SubobjectDataBlueprintFunctionLibrary): SubobjectDataBlueprintFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

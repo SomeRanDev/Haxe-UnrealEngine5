@@ -3,16 +3,16 @@ package ue;
 
 @:native("UGeomModifier_Pen")
 @:include("GeomModifier_Pen.h")
-@:structAccess
+@:valueType
 extern class GeomModifier_Pen extends GeomModifier_Edit {
 	public var bAutoExtrude: Bool;
 	public var bCreateConvexPolygons: Bool;
 	public var bCreateBrushShape: Bool;
-	public var ExtrudeDepth: cpp.Int32;
+	public var ExtrudeDepth: ucpp.num.Int32;
 	public var ShapeVertices: TArray<Vector>;
 	public var MouseWorldSpacePos: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,8 +24,8 @@ abstract ConstGeomModifier_Pen(GeomModifier_Pen) from GeomModifier_Pen {
 	public inline extern function get_bCreateConvexPolygons(): Bool return this.bCreateConvexPolygons;
 	public extern var bCreateBrushShape(get, never): Bool;
 	public inline extern function get_bCreateBrushShape(): Bool return this.bCreateBrushShape;
-	public extern var ExtrudeDepth(get, never): cpp.Int32;
-	public inline extern function get_ExtrudeDepth(): cpp.Int32 return this.ExtrudeDepth;
+	public extern var ExtrudeDepth(get, never): ucpp.num.Int32;
+	public inline extern function get_ExtrudeDepth(): ucpp.num.Int32 return this.ExtrudeDepth;
 	public extern var ShapeVertices(get, never): TArray<Vector>;
 	public inline extern function get_ShapeVertices(): TArray<Vector> return this.ShapeVertices;
 	public extern var MouseWorldSpacePos(get, never): Vector;
@@ -35,7 +35,7 @@ abstract ConstGeomModifier_Pen(GeomModifier_Pen) from GeomModifier_Pen {
 @:forward
 @:nativeGen
 @:native("GeomModifier_Pen*")
-abstract GeomModifier_PenPtr(cpp.Star<GeomModifier_Pen>) from cpp.Star<GeomModifier_Pen> to cpp.Star<GeomModifier_Pen>{
+abstract GeomModifier_PenPtr(ucpp.Ptr<GeomModifier_Pen>) from ucpp.Ptr<GeomModifier_Pen> to ucpp.Ptr<GeomModifier_Pen>{
 	@:from
 	public static extern inline function fromValue(v: GeomModifier_Pen): GeomModifier_PenPtr {
 		return untyped __cpp__("&({0})", v);

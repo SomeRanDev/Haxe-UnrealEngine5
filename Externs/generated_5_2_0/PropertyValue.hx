@@ -3,21 +3,21 @@ package ue;
 
 @:native("UPropertyValue")
 @:include("PropertyValue.h")
-@:structAccess
+@:valueType
 extern class PropertyValue extends Object {
 	@:protected public var CapturedPropSegments: TArray<CapturedPropSegment>;
 	@:protected public var FullDisplayString: FString;
 	@:protected public var PropertySetterName: FName;
 	@:protected public var PropertySetterParameterDefaults: TMap<FString, FString>;
 	@:protected public var bHasRecordedData: Bool;
-	@:protected public var ValueBytes: TArray<cpp.UInt8>;
+	@:protected public var ValueBytes: TArray<ucpp.num.UInt8>;
 	@:protected public var PropCategory: EPropertyValueCategory;
 
 	public function HasRecordedData(): Bool;
 	public function GetPropertyTooltip(): FText;
 	public function GetFullDisplayString(): FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasRecordedData, GetPropertyTooltip, GetFullDisplayString)
@@ -28,7 +28,7 @@ abstract ConstPropertyValue(PropertyValue) from PropertyValue {
 @:forward
 @:nativeGen
 @:native("PropertyValue*")
-abstract PropertyValuePtr(cpp.Star<PropertyValue>) from cpp.Star<PropertyValue> to cpp.Star<PropertyValue>{
+abstract PropertyValuePtr(ucpp.Ptr<PropertyValue>) from ucpp.Ptr<PropertyValue> to ucpp.Ptr<PropertyValue>{
 	@:from
 	public static extern inline function fromValue(v: PropertyValue): PropertyValuePtr {
 		return untyped __cpp__("&({0})", v);

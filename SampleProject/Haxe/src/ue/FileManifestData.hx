@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFileManifestData")
 @:include("Private/Data/ManifestUObject.h")
-@:structAccess
+@:valueType
 extern class FileManifestData {
 	public var Filename: FString;
 	public var FileHash: SHAHashData;

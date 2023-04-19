@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPaperSpriteSheetReimportFactory")
 @:include("PaperSpriteSheetReimportFactory.h")
-@:structAccess
+@:valueType
 extern class PaperSpriteSheetReimportFactory extends PaperSpriteSheetImportFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPaperSpriteSheetReimportFactory(PaperSpriteSheetReimportFactory) f
 @:forward
 @:nativeGen
 @:native("PaperSpriteSheetReimportFactory*")
-abstract PaperSpriteSheetReimportFactoryPtr(cpp.Star<PaperSpriteSheetReimportFactory>) from cpp.Star<PaperSpriteSheetReimportFactory> to cpp.Star<PaperSpriteSheetReimportFactory>{
+abstract PaperSpriteSheetReimportFactoryPtr(ucpp.Ptr<PaperSpriteSheetReimportFactory>) from ucpp.Ptr<PaperSpriteSheetReimportFactory> to ucpp.Ptr<PaperSpriteSheetReimportFactory>{
 	@:from
 	public static extern inline function fromValue(v: PaperSpriteSheetReimportFactory): PaperSpriteSheetReimportFactoryPtr {
 		return untyped __cpp__("&({0})", v);

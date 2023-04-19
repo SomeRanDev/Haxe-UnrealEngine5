@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGrassInstancedStaticMeshComponent")
 @:include("GrassInstancedStaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class GrassInstancedStaticMeshComp extends HierarchicalInstancedStaticMeshComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGrassInstancedStaticMeshComp(GrassInstancedStaticMeshComp) from Gr
 @:forward
 @:nativeGen
 @:native("GrassInstancedStaticMeshComp*")
-abstract GrassInstancedStaticMeshCompPtr(cpp.Star<GrassInstancedStaticMeshComp>) from cpp.Star<GrassInstancedStaticMeshComp> to cpp.Star<GrassInstancedStaticMeshComp>{
+abstract GrassInstancedStaticMeshCompPtr(ucpp.Ptr<GrassInstancedStaticMeshComp>) from ucpp.Ptr<GrassInstancedStaticMeshComp> to ucpp.Ptr<GrassInstancedStaticMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: GrassInstancedStaticMeshComp): GrassInstancedStaticMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

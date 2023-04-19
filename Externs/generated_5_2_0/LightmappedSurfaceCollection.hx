@@ -3,27 +3,27 @@ package ue;
 
 @:native("ULightmappedSurfaceCollection")
 @:include("Lightmass/LightmappedSurfaceCollection.h")
-@:structAccess
+@:valueType
 extern class LightmappedSurfaceCollection extends Object {
-	public var SourceModel: cpp.Star<Model>;
-	public var Surfaces: TArray<cpp.Int32>;
+	public var SourceModel: ucpp.Ptr<Model>;
+	public var Surfaces: TArray<ucpp.num.Int32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLightmappedSurfaceCollection(LightmappedSurfaceCollection) from LightmappedSurfaceCollection {
-	public extern var SourceModel(get, never): cpp.Star<Model.ConstModel>;
-	public inline extern function get_SourceModel(): cpp.Star<Model.ConstModel> return this.SourceModel;
-	public extern var Surfaces(get, never): TArray<cpp.Int32>;
-	public inline extern function get_Surfaces(): TArray<cpp.Int32> return this.Surfaces;
+	public extern var SourceModel(get, never): ucpp.Ptr<Model.ConstModel>;
+	public inline extern function get_SourceModel(): ucpp.Ptr<Model.ConstModel> return this.SourceModel;
+	public extern var Surfaces(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_Surfaces(): TArray<ucpp.num.Int32> return this.Surfaces;
 }
 
 @:forward
 @:nativeGen
 @:native("LightmappedSurfaceCollection*")
-abstract LightmappedSurfaceCollectionPtr(cpp.Star<LightmappedSurfaceCollection>) from cpp.Star<LightmappedSurfaceCollection> to cpp.Star<LightmappedSurfaceCollection>{
+abstract LightmappedSurfaceCollectionPtr(ucpp.Ptr<LightmappedSurfaceCollection>) from ucpp.Ptr<LightmappedSurfaceCollection> to ucpp.Ptr<LightmappedSurfaceCollection>{
 	@:from
 	public static extern inline function fromValue(v: LightmappedSurfaceCollection): LightmappedSurfaceCollectionPtr {
 		return untyped __cpp__("&({0})", v);

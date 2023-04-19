@@ -3,11 +3,11 @@ package ue;
 
 @:native("USourceCodeAccessSettings")
 @:include("SourceCodeAccessSettings.h")
-@:structAccess
+@:valueType
 extern class SourceCodeAccessSettings extends Object {
 	public var PreferredAccessor: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSourceCodeAccessSettings(SourceCodeAccessSettings) from SourceCode
 @:forward
 @:nativeGen
 @:native("SourceCodeAccessSettings*")
-abstract SourceCodeAccessSettingsPtr(cpp.Star<SourceCodeAccessSettings>) from cpp.Star<SourceCodeAccessSettings> to cpp.Star<SourceCodeAccessSettings>{
+abstract SourceCodeAccessSettingsPtr(ucpp.Ptr<SourceCodeAccessSettings>) from ucpp.Ptr<SourceCodeAccessSettings> to ucpp.Ptr<SourceCodeAccessSettings>{
 	@:from
 	public static extern inline function fromValue(v: SourceCodeAccessSettings): SourceCodeAccessSettingsPtr {
 		return untyped __cpp__("&({0})", v);

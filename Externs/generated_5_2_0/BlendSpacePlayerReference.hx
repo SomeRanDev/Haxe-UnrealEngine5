@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBlendSpacePlayerReference")
 @:include("BlendSpacePlayerLibrary.h")
-@:structAccess
+@:valueType
 extern class BlendSpacePlayerReference extends AnimNodeReference {
 	@:native("FBlendSpacePlayerReference") public function new();
 }

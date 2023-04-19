@@ -3,24 +3,24 @@ package ue;
 
 @:native("URecomputeUVsToolProperties")
 @:include("Properties/RecomputeUVsProperties.h")
-@:structAccess
+@:valueType
 extern class RecomputeUVsToolProperties extends InteractiveToolPropertySet {
 	public var bEnablePolygroupSupport: Bool;
 	public var IslandGeneration: ERecomputeUVsPropertiesIslandMode;
 	public var UnwrapType: ERecomputeUVsPropertiesUnwrapType;
 	public var AutoRotation: ERecomputeUVsToolOrientationMode;
 	public var bPreserveIrregularity: Bool;
-	public var SmoothingSteps: cpp.Int32;
-	public var SmoothingAlpha: cpp.Float32;
-	public var MergingDistortionThreshold: cpp.Float32;
-	public var MergingAngleThreshold: cpp.Float32;
+	public var SmoothingSteps: ucpp.num.Int32;
+	public var SmoothingAlpha: ucpp.num.Float32;
+	public var MergingDistortionThreshold: ucpp.num.Float32;
+	public var MergingAngleThreshold: ucpp.num.Float32;
 	public var LayoutType: ERecomputeUVsPropertiesLayoutType;
-	public var TextureResolution: cpp.Int32;
-	public var NormalizeScale: cpp.Float32;
+	public var TextureResolution: ucpp.num.Int32;
+	public var NormalizeScale: ucpp.num.Float32;
 	public var bEnableUDIMLayout: Bool;
 	public var bUDIMCVAREnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,20 +36,20 @@ abstract ConstRecomputeUVsToolProperties(RecomputeUVsToolProperties) from Recomp
 	public inline extern function get_AutoRotation(): ERecomputeUVsToolOrientationMode return this.AutoRotation;
 	public extern var bPreserveIrregularity(get, never): Bool;
 	public inline extern function get_bPreserveIrregularity(): Bool return this.bPreserveIrregularity;
-	public extern var SmoothingSteps(get, never): cpp.Int32;
-	public inline extern function get_SmoothingSteps(): cpp.Int32 return this.SmoothingSteps;
-	public extern var SmoothingAlpha(get, never): cpp.Float32;
-	public inline extern function get_SmoothingAlpha(): cpp.Float32 return this.SmoothingAlpha;
-	public extern var MergingDistortionThreshold(get, never): cpp.Float32;
-	public inline extern function get_MergingDistortionThreshold(): cpp.Float32 return this.MergingDistortionThreshold;
-	public extern var MergingAngleThreshold(get, never): cpp.Float32;
-	public inline extern function get_MergingAngleThreshold(): cpp.Float32 return this.MergingAngleThreshold;
+	public extern var SmoothingSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_SmoothingSteps(): ucpp.num.Int32 return this.SmoothingSteps;
+	public extern var SmoothingAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothingAlpha(): ucpp.num.Float32 return this.SmoothingAlpha;
+	public extern var MergingDistortionThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_MergingDistortionThreshold(): ucpp.num.Float32 return this.MergingDistortionThreshold;
+	public extern var MergingAngleThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_MergingAngleThreshold(): ucpp.num.Float32 return this.MergingAngleThreshold;
 	public extern var LayoutType(get, never): ERecomputeUVsPropertiesLayoutType;
 	public inline extern function get_LayoutType(): ERecomputeUVsPropertiesLayoutType return this.LayoutType;
-	public extern var TextureResolution(get, never): cpp.Int32;
-	public inline extern function get_TextureResolution(): cpp.Int32 return this.TextureResolution;
-	public extern var NormalizeScale(get, never): cpp.Float32;
-	public inline extern function get_NormalizeScale(): cpp.Float32 return this.NormalizeScale;
+	public extern var TextureResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_TextureResolution(): ucpp.num.Int32 return this.TextureResolution;
+	public extern var NormalizeScale(get, never): ucpp.num.Float32;
+	public inline extern function get_NormalizeScale(): ucpp.num.Float32 return this.NormalizeScale;
 	public extern var bEnableUDIMLayout(get, never): Bool;
 	public inline extern function get_bEnableUDIMLayout(): Bool return this.bEnableUDIMLayout;
 	public extern var bUDIMCVAREnabled(get, never): Bool;
@@ -59,7 +59,7 @@ abstract ConstRecomputeUVsToolProperties(RecomputeUVsToolProperties) from Recomp
 @:forward
 @:nativeGen
 @:native("RecomputeUVsToolProperties*")
-abstract RecomputeUVsToolPropertiesPtr(cpp.Star<RecomputeUVsToolProperties>) from cpp.Star<RecomputeUVsToolProperties> to cpp.Star<RecomputeUVsToolProperties>{
+abstract RecomputeUVsToolPropertiesPtr(ucpp.Ptr<RecomputeUVsToolProperties>) from ucpp.Ptr<RecomputeUVsToolProperties> to ucpp.Ptr<RecomputeUVsToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: RecomputeUVsToolProperties): RecomputeUVsToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAndroidSDKSettings")
 @:include("AndroidSDKSettings.h")
-@:structAccess
+@:valueType
 extern class AndroidSDKSettings extends Object {
 	public var SDKPath: DirectoryPath;
 	public var NDKPath: DirectoryPath;
@@ -11,7 +11,7 @@ extern class AndroidSDKSettings extends Object {
 	public var SDKAPILevel: FString;
 	public var NDKAPILevel: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstAndroidSDKSettings(AndroidSDKSettings) from AndroidSDKSettings {
 @:forward
 @:nativeGen
 @:native("AndroidSDKSettings*")
-abstract AndroidSDKSettingsPtr(cpp.Star<AndroidSDKSettings>) from cpp.Star<AndroidSDKSettings> to cpp.Star<AndroidSDKSettings>{
+abstract AndroidSDKSettingsPtr(ucpp.Ptr<AndroidSDKSettings>) from ucpp.Ptr<AndroidSDKSettings> to ucpp.Ptr<AndroidSDKSettings>{
 	@:from
 	public static extern inline function fromValue(v: AndroidSDKSettings): AndroidSDKSettingsPtr {
 		return untyped __cpp__("&({0})", v);

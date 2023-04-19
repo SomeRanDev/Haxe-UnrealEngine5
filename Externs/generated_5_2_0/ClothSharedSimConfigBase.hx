@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDEPRECATED_ClothSharedSimConfigBase")
 @:include("ClothConfigBase.h")
-@:structAccess
+@:valueType
 extern class ClothSharedSimConfigBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstClothSharedSimConfigBase(ClothSharedSimConfigBase) from ClothShare
 @:forward
 @:nativeGen
 @:native("ClothSharedSimConfigBase*")
-abstract ClothSharedSimConfigBasePtr(cpp.Star<ClothSharedSimConfigBase>) from cpp.Star<ClothSharedSimConfigBase> to cpp.Star<ClothSharedSimConfigBase>{
+abstract ClothSharedSimConfigBasePtr(ucpp.Ptr<ClothSharedSimConfigBase>) from ucpp.Ptr<ClothSharedSimConfigBase> to ucpp.Ptr<ClothSharedSimConfigBase>{
 	@:from
 	public static extern inline function fromValue(v: ClothSharedSimConfigBase): ClothSharedSimConfigBasePtr {
 		return untyped __cpp__("&({0})", v);

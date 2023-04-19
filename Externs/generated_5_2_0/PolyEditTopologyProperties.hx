@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPolyEditTopologyProperties")
 @:include("EditMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class PolyEditTopologyProperties extends EditMeshPolygonsToolActionPropertySet {
 	public var bAddExtraCorners: Bool;
-	public var ExtraCornerAngleThresholdDegrees: cpp.Float64;
+	public var ExtraCornerAngleThresholdDegrees: ucpp.num.Float64;
 
 	public function RegenerateExtraCorners(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,14 +18,14 @@ extern class PolyEditTopologyProperties extends EditMeshPolygonsToolActionProper
 abstract ConstPolyEditTopologyProperties(PolyEditTopologyProperties) from PolyEditTopologyProperties {
 	public extern var bAddExtraCorners(get, never): Bool;
 	public inline extern function get_bAddExtraCorners(): Bool return this.bAddExtraCorners;
-	public extern var ExtraCornerAngleThresholdDegrees(get, never): cpp.Float64;
-	public inline extern function get_ExtraCornerAngleThresholdDegrees(): cpp.Float64 return this.ExtraCornerAngleThresholdDegrees;
+	public extern var ExtraCornerAngleThresholdDegrees(get, never): ucpp.num.Float64;
+	public inline extern function get_ExtraCornerAngleThresholdDegrees(): ucpp.num.Float64 return this.ExtraCornerAngleThresholdDegrees;
 }
 
 @:forward
 @:nativeGen
 @:native("PolyEditTopologyProperties*")
-abstract PolyEditTopologyPropertiesPtr(cpp.Star<PolyEditTopologyProperties>) from cpp.Star<PolyEditTopologyProperties> to cpp.Star<PolyEditTopologyProperties>{
+abstract PolyEditTopologyPropertiesPtr(ucpp.Ptr<PolyEditTopologyProperties>) from ucpp.Ptr<PolyEditTopologyProperties> to ucpp.Ptr<PolyEditTopologyProperties>{
 	@:from
 	public static extern inline function fromValue(v: PolyEditTopologyProperties): PolyEditTopologyPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

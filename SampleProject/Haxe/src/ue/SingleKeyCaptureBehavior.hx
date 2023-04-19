@@ -3,10 +3,10 @@ package ue;
 
 @:native("USingleKeyCaptureBehavior")
 @:include("BaseBehaviors/SingleKeyCaptureBehavior.h")
-@:structAccess
+@:valueType
 extern class SingleKeyCaptureBehavior extends InputBehavior {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSingleKeyCaptureBehavior(SingleKeyCaptureBehavior) from SingleKeyC
 @:forward
 @:nativeGen
 @:native("SingleKeyCaptureBehavior*")
-abstract SingleKeyCaptureBehaviorPtr(cpp.Star<SingleKeyCaptureBehavior>) from cpp.Star<SingleKeyCaptureBehavior> to cpp.Star<SingleKeyCaptureBehavior>{
+abstract SingleKeyCaptureBehaviorPtr(ucpp.Ptr<SingleKeyCaptureBehavior>) from ucpp.Ptr<SingleKeyCaptureBehavior> to ucpp.Ptr<SingleKeyCaptureBehavior>{
 	@:from
 	public static extern inline function fromValue(v: SingleKeyCaptureBehavior): SingleKeyCaptureBehaviorPtr {
 		return untyped __cpp__("&({0})", v);

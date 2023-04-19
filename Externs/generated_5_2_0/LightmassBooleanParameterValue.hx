@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLightmassBooleanParameterValue")
 @:include("Editor/UnrealEdTypes.h")
-@:structAccess
+@:valueType
 extern class LightmassBooleanParameterValue extends LightmassParameterValue {
 	public var ParameterValue: Bool;
 

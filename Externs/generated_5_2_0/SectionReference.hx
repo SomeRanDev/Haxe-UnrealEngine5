@@ -3,10 +3,10 @@ package ue;
 
 @:native("FSectionReference")
 @:include("Engine/SkinnedAssetCommon.h")
-@:structAccess
+@:valueType
 extern class SectionReference {
-	public var SectionIndex: cpp.Int32;
+	public var SectionIndex: ucpp.num.Int32;
 
 	@:native("FSectionReference") public function new();
-	@:native("FSectionReference") public static function make(SectionIndex: cpp.Int32): SectionReference ;
+	@:native("FSectionReference") public static function make(SectionIndex: ucpp.num.Int32): SectionReference ;
 }

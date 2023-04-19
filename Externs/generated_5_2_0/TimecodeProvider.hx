@@ -3,9 +3,9 @@ package ue;
 
 @:native("UTimecodeProvider")
 @:include("Engine/TimecodeProvider.h")
-@:structAccess
+@:valueType
 extern class TimecodeProvider extends Object {
-	public var FrameDelay: cpp.Float32;
+	public var FrameDelay: ucpp.num.Float32;
 
 	public function GetTimecode(): Timecode;
 	public function GetSynchronizationState(): ETimecodeProviderSynchronizationState;
@@ -13,23 +13,23 @@ extern class TimecodeProvider extends Object {
 	public function GetFrameRate(): FrameRate;
 	public function GetDelayedTimecode(): Timecode;
 	public function GetDelayedQualifiedFrameTime(): QualifiedFrameTime;
-	public function FetchTimecode(OutFrameTime: cpp.Reference<QualifiedFrameTime>): Bool;
+	public function FetchTimecode(OutFrameTime: ucpp.Ref<QualifiedFrameTime>): Bool;
 	public function FetchAndUpdate(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTimecode, GetSynchronizationState, GetQualifiedFrameTime, GetFrameRate, GetDelayedTimecode, GetDelayedQualifiedFrameTime)
 @:nativeGen
 abstract ConstTimecodeProvider(TimecodeProvider) from TimecodeProvider {
-	public extern var FrameDelay(get, never): cpp.Float32;
-	public inline extern function get_FrameDelay(): cpp.Float32 return this.FrameDelay;
+	public extern var FrameDelay(get, never): ucpp.num.Float32;
+	public inline extern function get_FrameDelay(): ucpp.num.Float32 return this.FrameDelay;
 }
 
 @:forward
 @:nativeGen
 @:native("TimecodeProvider*")
-abstract TimecodeProviderPtr(cpp.Star<TimecodeProvider>) from cpp.Star<TimecodeProvider> to cpp.Star<TimecodeProvider>{
+abstract TimecodeProviderPtr(ucpp.Ptr<TimecodeProvider>) from ucpp.Ptr<TimecodeProvider> to ucpp.Ptr<TimecodeProvider>{
 	@:from
 	public static extern inline function fromValue(v: TimecodeProvider): TimecodeProviderPtr {
 		return untyped __cpp__("&({0})", v);

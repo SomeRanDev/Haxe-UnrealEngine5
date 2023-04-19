@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInteractiveToolNestedAcceptCancelAPI")
-@:structAccess
+@:valueType
 extern class InteractiveToolNestedAcceptCancelAPI extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInteractiveToolNestedAcceptCancelAPI(InteractiveToolNestedAcceptCa
 @:forward
 @:nativeGen
 @:native("InteractiveToolNestedAcceptCancelAPI*")
-abstract InteractiveToolNestedAcceptCancelAPIPtr(cpp.Star<InteractiveToolNestedAcceptCancelAPI>) from cpp.Star<InteractiveToolNestedAcceptCancelAPI> to cpp.Star<InteractiveToolNestedAcceptCancelAPI>{
+abstract InteractiveToolNestedAcceptCancelAPIPtr(ucpp.Ptr<InteractiveToolNestedAcceptCancelAPI>) from ucpp.Ptr<InteractiveToolNestedAcceptCancelAPI> to ucpp.Ptr<InteractiveToolNestedAcceptCancelAPI>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolNestedAcceptCancelAPI): InteractiveToolNestedAcceptCancelAPIPtr {
 		return untyped __cpp__("&({0})", v);

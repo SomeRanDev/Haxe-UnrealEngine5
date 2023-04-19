@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMotionTrailToolBuilder")
 @:include("MotionTrailTool.h")
-@:structAccess
+@:valueType
 extern class MotionTrailToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMotionTrailToolBuilder(MotionTrailToolBuilder) from MotionTrailToo
 @:forward
 @:nativeGen
 @:native("MotionTrailToolBuilder*")
-abstract MotionTrailToolBuilderPtr(cpp.Star<MotionTrailToolBuilder>) from cpp.Star<MotionTrailToolBuilder> to cpp.Star<MotionTrailToolBuilder>{
+abstract MotionTrailToolBuilderPtr(ucpp.Ptr<MotionTrailToolBuilder>) from ucpp.Ptr<MotionTrailToolBuilder> to ucpp.Ptr<MotionTrailToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: MotionTrailToolBuilder): MotionTrailToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

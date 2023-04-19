@@ -3,11 +3,11 @@ package ue;
 
 @:native("FUintVector2")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class UintVector2 {
-	public var X: cpp.UInt32;
-	public var Y: cpp.UInt32;
+	public var X: ucpp.num.UInt32;
+	public var Y: ucpp.num.UInt32;
 
 	@:native("FUintVector2") public function new();
-	@:native("FUintVector2") public static function make(X: cpp.UInt32, Y: cpp.UInt32): UintVector2 ;
+	@:native("FUintVector2") public static function make(X: ucpp.num.UInt32, Y: ucpp.num.UInt32): UintVector2 ;
 }

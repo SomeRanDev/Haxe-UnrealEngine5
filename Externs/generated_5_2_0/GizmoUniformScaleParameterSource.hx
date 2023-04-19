@@ -3,11 +3,11 @@ package ue;
 
 @:native("UGizmoUniformScaleParameterSource")
 @:include("BaseGizmos/ParameterToTransformAdapters.h")
-@:structAccess
+@:valueType
 extern class GizmoUniformScaleParameterSource extends GizmoBaseVec2ParameterSource {
 	public var AxisSource: GizmoAxisSource;
 	public var TransformSource: GizmoTransformSource;
-	public var ScaleMultiplier: cpp.Float32;
+	public var ScaleMultiplier: ucpp.num.Float32;
 	public var Parameter: Vector2D;
 	public var LastChange: GizmoVec2ParameterChange;
 	public var CurScaleOrigin: Vector;
@@ -16,7 +16,7 @@ extern class GizmoUniformScaleParameterSource extends GizmoBaseVec2ParameterSour
 	public var CurScaleAxisY: Vector;
 	public var InitialTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,8 +26,8 @@ abstract ConstGizmoUniformScaleParameterSource(GizmoUniformScaleParameterSource)
 	public inline extern function get_AxisSource(): GizmoAxisSource.ConstGizmoAxisSource return this.AxisSource;
 	public extern var TransformSource(get, never): GizmoTransformSource.ConstGizmoTransformSource;
 	public inline extern function get_TransformSource(): GizmoTransformSource.ConstGizmoTransformSource return this.TransformSource;
-	public extern var ScaleMultiplier(get, never): cpp.Float32;
-	public inline extern function get_ScaleMultiplier(): cpp.Float32 return this.ScaleMultiplier;
+	public extern var ScaleMultiplier(get, never): ucpp.num.Float32;
+	public inline extern function get_ScaleMultiplier(): ucpp.num.Float32 return this.ScaleMultiplier;
 	public extern var Parameter(get, never): Vector2D;
 	public inline extern function get_Parameter(): Vector2D return this.Parameter;
 	public extern var LastChange(get, never): GizmoVec2ParameterChange;
@@ -47,7 +47,7 @@ abstract ConstGizmoUniformScaleParameterSource(GizmoUniformScaleParameterSource)
 @:forward
 @:nativeGen
 @:native("GizmoUniformScaleParameterSource*")
-abstract GizmoUniformScaleParameterSourcePtr(cpp.Star<GizmoUniformScaleParameterSource>) from cpp.Star<GizmoUniformScaleParameterSource> to cpp.Star<GizmoUniformScaleParameterSource>{
+abstract GizmoUniformScaleParameterSourcePtr(ucpp.Ptr<GizmoUniformScaleParameterSource>) from ucpp.Ptr<GizmoUniformScaleParameterSource> to ucpp.Ptr<GizmoUniformScaleParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoUniformScaleParameterSource): GizmoUniformScaleParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

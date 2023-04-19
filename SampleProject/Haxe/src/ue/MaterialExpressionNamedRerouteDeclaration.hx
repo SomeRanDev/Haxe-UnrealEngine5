@@ -3,13 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionNamedRerouteDeclaration")
 @:include("Materials/MaterialExpressionNamedReroute.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionNamedRerouteDeclaration extends MaterialExpressionNamedRerouteBase {
 	public var Input: ExpressionInput;
 	public var Name: FName;
+	public var NodeColor: LinearColor;
 	public var VariableGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,6 +20,8 @@ abstract ConstMaterialExpressionNamedRerouteDeclaration(MaterialExpressionNamedR
 	public inline extern function get_Input(): ExpressionInput return this.Input;
 	public extern var Name(get, never): FName;
 	public inline extern function get_Name(): FName return this.Name;
+	public extern var NodeColor(get, never): LinearColor;
+	public inline extern function get_NodeColor(): LinearColor return this.NodeColor;
 	public extern var VariableGuid(get, never): Guid;
 	public inline extern function get_VariableGuid(): Guid return this.VariableGuid;
 }
@@ -26,7 +29,7 @@ abstract ConstMaterialExpressionNamedRerouteDeclaration(MaterialExpressionNamedR
 @:forward
 @:nativeGen
 @:native("MaterialExpressionNamedRerouteDeclaration*")
-abstract MaterialExpressionNamedRerouteDeclarationPtr(cpp.Star<MaterialExpressionNamedRerouteDeclaration>) from cpp.Star<MaterialExpressionNamedRerouteDeclaration> to cpp.Star<MaterialExpressionNamedRerouteDeclaration>{
+abstract MaterialExpressionNamedRerouteDeclarationPtr(ucpp.Ptr<MaterialExpressionNamedRerouteDeclaration>) from ucpp.Ptr<MaterialExpressionNamedRerouteDeclaration> to ucpp.Ptr<MaterialExpressionNamedRerouteDeclaration>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionNamedRerouteDeclaration): MaterialExpressionNamedRerouteDeclarationPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("FFontImportOptionsData")
 @:include("Engine/FontImportOptions.h")
-@:structAccess
+@:valueType
 extern class FontImportOptionsData {
 	public var FontName: FString;
-	public var Height: cpp.Float32;
+	public var Height: ucpp.num.Float32;
 	public var bEnableAntialiasing: Bool;
 	public var bEnableBold: Bool;
 	public var bEnableItalic: Bool;
@@ -21,19 +21,19 @@ extern class FontImportOptionsData {
 	public var bIncludeASCIIRange: Bool;
 	public var ForegroundColor: LinearColor;
 	public var bEnableDropShadow: Bool;
-	public var TexturePageWidth: cpp.Int32;
-	public var TexturePageMaxHeight: cpp.Int32;
-	public var XPadding: cpp.Int32;
-	public var YPadding: cpp.Int32;
-	public var ExtendBoxTop: cpp.Int32;
-	public var ExtendBoxBottom: cpp.Int32;
-	public var ExtendBoxRight: cpp.Int32;
-	public var ExtendBoxLeft: cpp.Int32;
+	public var TexturePageWidth: ucpp.num.Int32;
+	public var TexturePageMaxHeight: ucpp.num.Int32;
+	public var XPadding: ucpp.num.Int32;
+	public var YPadding: ucpp.num.Int32;
+	public var ExtendBoxTop: ucpp.num.Int32;
+	public var ExtendBoxBottom: ucpp.num.Int32;
+	public var ExtendBoxRight: ucpp.num.Int32;
+	public var ExtendBoxLeft: ucpp.num.Int32;
 	public var bEnableLegacyMode: Bool;
-	public var Kerning: cpp.Int32;
+	public var Kerning: ucpp.num.Int32;
 	public var bUseDistanceFieldAlpha: Bool;
-	public var DistanceFieldScaleFactor: cpp.Int32;
-	public var DistanceFieldScanRadiusScale: cpp.Float32;
+	public var DistanceFieldScaleFactor: ucpp.num.Int32;
+	public var DistanceFieldScanRadiusScale: ucpp.num.Float32;
 
 	@:native("FFontImportOptionsData") public function new();
 }

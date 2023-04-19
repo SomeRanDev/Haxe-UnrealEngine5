@@ -3,10 +3,11 @@ package ue;
 
 @:native("FActiveForceFeedbackEffect")
 @:include("GameFramework/ForceFeedbackEffect.h")
-@:structAccess
+@:valueType
 extern class ActiveForceFeedbackEffect {
-	public var ForceFeedbackEffect: cpp.Star<ForceFeedbackEffect>;
+	public var ForceFeedbackEffect: ucpp.Ptr<ForceFeedbackEffect>;
+	public var ActiveDeviceProperties: TSet<InputDevicePropertyHandle>;
 
 	@:native("FActiveForceFeedbackEffect") public function new();
-	@:native("FActiveForceFeedbackEffect") public static function make(ForceFeedbackEffect: cpp.Star<ForceFeedbackEffect>): ActiveForceFeedbackEffect ;
+	@:native("FActiveForceFeedbackEffect") public static function make(ForceFeedbackEffect: ucpp.Ptr<ForceFeedbackEffect>, ActiveDeviceProperties: TSet<InputDevicePropertyHandle>): ActiveForceFeedbackEffect ;
 }

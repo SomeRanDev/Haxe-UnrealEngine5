@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryTriggerBox")
 @:include("ActorFactories/ActorFactoryTriggerBox.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryTriggerBox extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryTriggerBox(ActorFactoryTriggerBox) from ActorFactoryTr
 @:forward
 @:nativeGen
 @:native("ActorFactoryTriggerBox*")
-abstract ActorFactoryTriggerBoxPtr(cpp.Star<ActorFactoryTriggerBox>) from cpp.Star<ActorFactoryTriggerBox> to cpp.Star<ActorFactoryTriggerBox>{
+abstract ActorFactoryTriggerBoxPtr(ucpp.Ptr<ActorFactoryTriggerBox>) from ucpp.Ptr<ActorFactoryTriggerBox> to ucpp.Ptr<ActorFactoryTriggerBox>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryTriggerBox): ActorFactoryTriggerBoxPtr {
 		return untyped __cpp__("&({0})", v);

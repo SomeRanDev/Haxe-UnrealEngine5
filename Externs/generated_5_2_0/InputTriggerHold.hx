@@ -3,19 +3,19 @@ package ue;
 
 @:native("UInputTriggerHold")
 @:include("InputTriggers.h")
-@:structAccess
+@:valueType
 extern class InputTriggerHold extends InputTriggerTimedBase {
-	public var HoldTimeThreshold: cpp.Float32;
+	public var HoldTimeThreshold: ucpp.num.Float32;
 	public var bIsOneShot: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputTriggerHold(InputTriggerHold) from InputTriggerHold {
-	public extern var HoldTimeThreshold(get, never): cpp.Float32;
-	public inline extern function get_HoldTimeThreshold(): cpp.Float32 return this.HoldTimeThreshold;
+	public extern var HoldTimeThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_HoldTimeThreshold(): ucpp.num.Float32 return this.HoldTimeThreshold;
 	public extern var bIsOneShot(get, never): Bool;
 	public inline extern function get_bIsOneShot(): Bool return this.bIsOneShot;
 }
@@ -23,7 +23,7 @@ abstract ConstInputTriggerHold(InputTriggerHold) from InputTriggerHold {
 @:forward
 @:nativeGen
 @:native("InputTriggerHold*")
-abstract InputTriggerHoldPtr(cpp.Star<InputTriggerHold>) from cpp.Star<InputTriggerHold> to cpp.Star<InputTriggerHold>{
+abstract InputTriggerHoldPtr(ucpp.Ptr<InputTriggerHold>) from ucpp.Ptr<InputTriggerHold> to ucpp.Ptr<InputTriggerHold>{
 	@:from
 	public static extern inline function fromValue(v: InputTriggerHold): InputTriggerHoldPtr {
 		return untyped __cpp__("&({0})", v);

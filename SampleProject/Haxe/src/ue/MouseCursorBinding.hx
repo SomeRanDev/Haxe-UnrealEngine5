@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMouseCursorBinding")
 @:include("Binding/MouseCursorBinding.h")
-@:structAccess
+@:valueType
 extern class MouseCursorBinding extends PropertyBinding {
 	public function GetValue(): TEnumAsByte<EMouseCursor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstMouseCursorBinding(MouseCursorBinding) from MouseCursorBinding {
 @:forward
 @:nativeGen
 @:native("MouseCursorBinding*")
-abstract MouseCursorBindingPtr(cpp.Star<MouseCursorBinding>) from cpp.Star<MouseCursorBinding> to cpp.Star<MouseCursorBinding>{
+abstract MouseCursorBindingPtr(ucpp.Ptr<MouseCursorBinding>) from ucpp.Ptr<MouseCursorBinding> to ucpp.Ptr<MouseCursorBinding>{
 	@:from
 	public static extern inline function fromValue(v: MouseCursorBinding): MouseCursorBindingPtr {
 		return untyped __cpp__("&({0})", v);

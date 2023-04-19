@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionCosine")
 @:include("Materials/MaterialExpressionCosine.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionCosine extends MaterialExpression {
 	public var Input: ExpressionInput;
-	public var Period: cpp.Float32;
+	public var Period: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class MaterialExpressionCosine extends MaterialExpression {
 abstract ConstMaterialExpressionCosine(MaterialExpressionCosine) from MaterialExpressionCosine {
 	public extern var Input(get, never): ExpressionInput;
 	public inline extern function get_Input(): ExpressionInput return this.Input;
-	public extern var Period(get, never): cpp.Float32;
-	public inline extern function get_Period(): cpp.Float32 return this.Period;
+	public extern var Period(get, never): ucpp.num.Float32;
+	public inline extern function get_Period(): ucpp.num.Float32 return this.Period;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionCosine*")
-abstract MaterialExpressionCosinePtr(cpp.Star<MaterialExpressionCosine>) from cpp.Star<MaterialExpressionCosine> to cpp.Star<MaterialExpressionCosine>{
+abstract MaterialExpressionCosinePtr(ucpp.Ptr<MaterialExpressionCosine>) from ucpp.Ptr<MaterialExpressionCosine> to ucpp.Ptr<MaterialExpressionCosine>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionCosine): MaterialExpressionCosinePtr {
 		return untyped __cpp__("&({0})", v);

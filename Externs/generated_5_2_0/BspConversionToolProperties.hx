@@ -3,7 +3,7 @@ package ue;
 
 @:native("UBspConversionToolProperties")
 @:include("BspConversionTool.h")
-@:structAccess
+@:valueType
 extern class BspConversionToolProperties extends InteractiveToolPropertySet {
 	public var ConversionMode: EBspConversionMode;
 	public var bIncludeVolumes: Bool;
@@ -13,7 +13,7 @@ extern class BspConversionToolProperties extends InteractiveToolPropertySet {
 	public var bCacheBrushes: Bool;
 	public var bShowPreview: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstBspConversionToolProperties(BspConversionToolProperties) from BspC
 @:forward
 @:nativeGen
 @:native("BspConversionToolProperties*")
-abstract BspConversionToolPropertiesPtr(cpp.Star<BspConversionToolProperties>) from cpp.Star<BspConversionToolProperties> to cpp.Star<BspConversionToolProperties>{
+abstract BspConversionToolPropertiesPtr(ucpp.Ptr<BspConversionToolProperties>) from ucpp.Ptr<BspConversionToolProperties> to ucpp.Ptr<BspConversionToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BspConversionToolProperties): BspConversionToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

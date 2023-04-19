@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneStringChannel")
 @:include("Channels/MovieSceneStringChannel.h")
-@:structAccess
+@:valueType
 extern class MovieSceneStringChannel extends MovieSceneChannel {
 	private var Times: TArray<FrameNumber>;
 	private var Values: TArray<FString>;

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraValidationRule_BannedRenderers")
 @:include("NiagaraValidationRules.h")
-@:structAccess
+@:valueType
 extern class NiagaraValidationRule_BannedRenderers extends NiagaraValidationRule {
 	public var Platforms: NiagaraPlatformSet;
 	public var BannedRenderers: TArray<TSubclassOf<NiagaraRendererProperties>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraValidationRule_BannedRenderers(NiagaraValidationRule_Banned
 @:forward
 @:nativeGen
 @:native("NiagaraValidationRule_BannedRenderers*")
-abstract NiagaraValidationRule_BannedRenderersPtr(cpp.Star<NiagaraValidationRule_BannedRenderers>) from cpp.Star<NiagaraValidationRule_BannedRenderers> to cpp.Star<NiagaraValidationRule_BannedRenderers>{
+abstract NiagaraValidationRule_BannedRenderersPtr(ucpp.Ptr<NiagaraValidationRule_BannedRenderers>) from ucpp.Ptr<NiagaraValidationRule_BannedRenderers> to ucpp.Ptr<NiagaraValidationRule_BannedRenderers>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraValidationRule_BannedRenderers): NiagaraValidationRule_BannedRenderersPtr {
 		return untyped __cpp__("&({0})", v);

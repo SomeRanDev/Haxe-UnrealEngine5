@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionComposite")
 @:include("Materials/MaterialExpressionComposite.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionComposite extends MaterialExpression {
 	public var SubgraphName: FString;
-	public var InputExpressions: cpp.Star<MaterialExpressionPinBase>;
-	public var OutputExpressions: cpp.Star<MaterialExpressionPinBase>;
+	public var InputExpressions: ucpp.Ptr<MaterialExpressionPinBase>;
+	public var OutputExpressions: ucpp.Ptr<MaterialExpressionPinBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,16 +17,16 @@ extern class MaterialExpressionComposite extends MaterialExpression {
 abstract ConstMaterialExpressionComposite(MaterialExpressionComposite) from MaterialExpressionComposite {
 	public extern var SubgraphName(get, never): FString;
 	public inline extern function get_SubgraphName(): FString return this.SubgraphName;
-	public extern var InputExpressions(get, never): cpp.Star<MaterialExpressionPinBase.ConstMaterialExpressionPinBase>;
-	public inline extern function get_InputExpressions(): cpp.Star<MaterialExpressionPinBase.ConstMaterialExpressionPinBase> return this.InputExpressions;
-	public extern var OutputExpressions(get, never): cpp.Star<MaterialExpressionPinBase.ConstMaterialExpressionPinBase>;
-	public inline extern function get_OutputExpressions(): cpp.Star<MaterialExpressionPinBase.ConstMaterialExpressionPinBase> return this.OutputExpressions;
+	public extern var InputExpressions(get, never): ucpp.Ptr<MaterialExpressionPinBase.ConstMaterialExpressionPinBase>;
+	public inline extern function get_InputExpressions(): ucpp.Ptr<MaterialExpressionPinBase.ConstMaterialExpressionPinBase> return this.InputExpressions;
+	public extern var OutputExpressions(get, never): ucpp.Ptr<MaterialExpressionPinBase.ConstMaterialExpressionPinBase>;
+	public inline extern function get_OutputExpressions(): ucpp.Ptr<MaterialExpressionPinBase.ConstMaterialExpressionPinBase> return this.OutputExpressions;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionComposite*")
-abstract MaterialExpressionCompositePtr(cpp.Star<MaterialExpressionComposite>) from cpp.Star<MaterialExpressionComposite> to cpp.Star<MaterialExpressionComposite>{
+abstract MaterialExpressionCompositePtr(ucpp.Ptr<MaterialExpressionComposite>) from ucpp.Ptr<MaterialExpressionComposite> to ucpp.Ptr<MaterialExpressionComposite>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionComposite): MaterialExpressionCompositePtr {
 		return untyped __cpp__("&({0})", v);

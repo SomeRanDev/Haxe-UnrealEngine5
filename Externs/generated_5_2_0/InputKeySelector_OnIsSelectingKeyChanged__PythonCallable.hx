@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInputKeySelector_OnIsSelectingKeyChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class InputKeySelector_OnIsSelectingKeyChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInputKeySelector_OnIsSelectingKeyChanged__PythonCallable(InputKeyS
 @:forward
 @:nativeGen
 @:native("InputKeySelector_OnIsSelectingKeyChanged__PythonCallable*")
-abstract InputKeySelector_OnIsSelectingKeyChanged__PythonCallablePtr(cpp.Star<InputKeySelector_OnIsSelectingKeyChanged__PythonCallable>) from cpp.Star<InputKeySelector_OnIsSelectingKeyChanged__PythonCallable> to cpp.Star<InputKeySelector_OnIsSelectingKeyChanged__PythonCallable>{
+abstract InputKeySelector_OnIsSelectingKeyChanged__PythonCallablePtr(ucpp.Ptr<InputKeySelector_OnIsSelectingKeyChanged__PythonCallable>) from ucpp.Ptr<InputKeySelector_OnIsSelectingKeyChanged__PythonCallable> to ucpp.Ptr<InputKeySelector_OnIsSelectingKeyChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: InputKeySelector_OnIsSelectingKeyChanged__PythonCallable): InputKeySelector_OnIsSelectingKeyChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

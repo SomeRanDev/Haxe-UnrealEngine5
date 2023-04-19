@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDirectoryPath")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class DirectoryPath {
 	public var Path: FString;
 

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMovieSceneTimeTransform")
 @:include("Evaluation/MovieSceneTimeTransform.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTimeTransform {
-	public var TimeScale: cpp.Float32;
+	public var TimeScale: ucpp.num.Float32;
 	public var Offset: FrameTime;
 
 	@:native("FMovieSceneTimeTransform") public function new();
-	@:native("FMovieSceneTimeTransform") public static function make(TimeScale: cpp.Float32, Offset: FrameTime): MovieSceneTimeTransform ;
+	@:native("FMovieSceneTimeTransform") public static function make(TimeScale: ucpp.num.Float32, Offset: FrameTime): MovieSceneTimeTransform ;
 }

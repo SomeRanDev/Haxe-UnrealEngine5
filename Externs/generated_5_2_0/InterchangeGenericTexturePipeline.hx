@@ -3,13 +3,13 @@ package ue;
 
 @:native("UInterchangeGenericTexturePipeline")
 @:include("InterchangeGenericTexturePipeline.h")
-@:structAccess
+@:valueType
 extern class InterchangeGenericTexturePipeline extends InterchangePipelineBase {
 	public var bImportTextures: Bool;
 	public var bAllowNonPowerOfTwo: Bool;
-	private var BaseNodeContainer: cpp.Star<InterchangeBaseNodeContainer>;
+	private var BaseNodeContainer: ucpp.Ptr<InterchangeBaseNodeContainer>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstInterchangeGenericTexturePipeline(InterchangeGenericTexturePipelin
 @:forward
 @:nativeGen
 @:native("InterchangeGenericTexturePipeline*")
-abstract InterchangeGenericTexturePipelinePtr(cpp.Star<InterchangeGenericTexturePipeline>) from cpp.Star<InterchangeGenericTexturePipeline> to cpp.Star<InterchangeGenericTexturePipeline>{
+abstract InterchangeGenericTexturePipelinePtr(ucpp.Ptr<InterchangeGenericTexturePipeline>) from ucpp.Ptr<InterchangeGenericTexturePipeline> to ucpp.Ptr<InterchangeGenericTexturePipeline>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGenericTexturePipeline): InterchangeGenericTexturePipelinePtr {
 		return untyped __cpp__("&({0})", v);

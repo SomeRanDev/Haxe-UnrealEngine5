@@ -3,16 +3,16 @@ package ue;
 
 @:native("UObjectLibrary")
 @:include("Engine/ObjectLibrary.h")
-@:structAccess
+@:valueType
 extern class ObjectLibrary extends Object {
 	public var ObjectBaseClass: TSubclassOf<Object>;
 	public var bHasBlueprintClasses: Bool;
-	@:protected public var Objects: TArray<cpp.Star<Object>>;
+	@:protected public var Objects: TArray<ucpp.Ptr<Object>>;
 	@:protected public var WeakObjects: TArray<TWeakObjectPtr<Object>>;
 	@:protected public var bUseWeakReferences: Bool;
 	@:protected public var bIsFullyLoaded: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstObjectLibrary(ObjectLibrary) from ObjectLibrary {
 @:forward
 @:nativeGen
 @:native("ObjectLibrary*")
-abstract ObjectLibraryPtr(cpp.Star<ObjectLibrary>) from cpp.Star<ObjectLibrary> to cpp.Star<ObjectLibrary>{
+abstract ObjectLibraryPtr(ucpp.Ptr<ObjectLibrary>) from ucpp.Ptr<ObjectLibrary> to ucpp.Ptr<ObjectLibrary>{
 	@:from
 	public static extern inline function fromValue(v: ObjectLibrary): ObjectLibraryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,17 +3,17 @@ package ue;
 
 @:native("UDynamicMeshBrushSculptProperties")
 @:include("DynamicMeshSculptTool.h")
-@:structAccess
+@:valueType
 extern class DynamicMeshBrushSculptProperties extends InteractiveToolPropertySet {
 	public var bIsRemeshingEnabled: Bool;
 	public var PrimaryBrushType: EDynamicMeshSculptBrushType;
-	public var PrimaryBrushSpeed: cpp.Float32;
+	public var PrimaryBrushSpeed: ucpp.num.Float32;
 	public var bPreserveUVFlow: Bool;
 	public var bFreezeTarget: Bool;
-	public var SmoothBrushSpeed: cpp.Float32;
+	public var SmoothBrushSpeed: ucpp.num.Float32;
 	public var bDetailPreservingSmooth: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,14 +23,14 @@ abstract ConstDynamicMeshBrushSculptProperties(DynamicMeshBrushSculptProperties)
 	public inline extern function get_bIsRemeshingEnabled(): Bool return this.bIsRemeshingEnabled;
 	public extern var PrimaryBrushType(get, never): EDynamicMeshSculptBrushType;
 	public inline extern function get_PrimaryBrushType(): EDynamicMeshSculptBrushType return this.PrimaryBrushType;
-	public extern var PrimaryBrushSpeed(get, never): cpp.Float32;
-	public inline extern function get_PrimaryBrushSpeed(): cpp.Float32 return this.PrimaryBrushSpeed;
+	public extern var PrimaryBrushSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_PrimaryBrushSpeed(): ucpp.num.Float32 return this.PrimaryBrushSpeed;
 	public extern var bPreserveUVFlow(get, never): Bool;
 	public inline extern function get_bPreserveUVFlow(): Bool return this.bPreserveUVFlow;
 	public extern var bFreezeTarget(get, never): Bool;
 	public inline extern function get_bFreezeTarget(): Bool return this.bFreezeTarget;
-	public extern var SmoothBrushSpeed(get, never): cpp.Float32;
-	public inline extern function get_SmoothBrushSpeed(): cpp.Float32 return this.SmoothBrushSpeed;
+	public extern var SmoothBrushSpeed(get, never): ucpp.num.Float32;
+	public inline extern function get_SmoothBrushSpeed(): ucpp.num.Float32 return this.SmoothBrushSpeed;
 	public extern var bDetailPreservingSmooth(get, never): Bool;
 	public inline extern function get_bDetailPreservingSmooth(): Bool return this.bDetailPreservingSmooth;
 }
@@ -38,7 +38,7 @@ abstract ConstDynamicMeshBrushSculptProperties(DynamicMeshBrushSculptProperties)
 @:forward
 @:nativeGen
 @:native("DynamicMeshBrushSculptProperties*")
-abstract DynamicMeshBrushSculptPropertiesPtr(cpp.Star<DynamicMeshBrushSculptProperties>) from cpp.Star<DynamicMeshBrushSculptProperties> to cpp.Star<DynamicMeshBrushSculptProperties>{
+abstract DynamicMeshBrushSculptPropertiesPtr(ucpp.Ptr<DynamicMeshBrushSculptProperties>) from ucpp.Ptr<DynamicMeshBrushSculptProperties> to ucpp.Ptr<DynamicMeshBrushSculptProperties>{
 	@:from
 	public static extern inline function fromValue(v: DynamicMeshBrushSculptProperties): DynamicMeshBrushSculptPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

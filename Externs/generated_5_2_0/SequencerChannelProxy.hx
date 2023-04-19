@@ -3,11 +3,11 @@ package ue;
 
 @:native("FSequencerChannelProxy")
 @:include("LevelSequenceEditorBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class SequencerChannelProxy {
 	public var ChannelName: FName;
-	public var Section: cpp.Star<MovieSceneSection>;
+	public var Section: ucpp.Ptr<MovieSceneSection>;
 
 	@:native("FSequencerChannelProxy") public function new();
-	@:native("FSequencerChannelProxy") public static function make(ChannelName: FName, Section: cpp.Star<MovieSceneSection>): SequencerChannelProxy ;
+	@:native("FSequencerChannelProxy") public static function make(ChannelName: FName, Section: ucpp.Ptr<MovieSceneSection>): SequencerChannelProxy ;
 }

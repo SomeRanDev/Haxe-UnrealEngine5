@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMeshColorPaintingToolProperties")
 @:include("MeshVertexPaintingTool.h")
-@:structAccess
+@:valueType
 extern class MeshColorPaintingToolProperties extends MeshVertexPaintingToolProperties {
 	public var bWriteRed: Bool;
 	public var bWriteGreen: Bool;
 	public var bWriteBlue: Bool;
 	public var bWriteAlpha: Bool;
 	public var bPaintOnSpecificLOD: Bool;
-	public var LODIndex: cpp.Int32;
+	public var LODIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -28,14 +28,14 @@ abstract ConstMeshColorPaintingToolProperties(MeshColorPaintingToolProperties) f
 	public inline extern function get_bWriteAlpha(): Bool return this.bWriteAlpha;
 	public extern var bPaintOnSpecificLOD(get, never): Bool;
 	public inline extern function get_bPaintOnSpecificLOD(): Bool return this.bPaintOnSpecificLOD;
-	public extern var LODIndex(get, never): cpp.Int32;
-	public inline extern function get_LODIndex(): cpp.Int32 return this.LODIndex;
+	public extern var LODIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LODIndex(): ucpp.num.Int32 return this.LODIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshColorPaintingToolProperties*")
-abstract MeshColorPaintingToolPropertiesPtr(cpp.Star<MeshColorPaintingToolProperties>) from cpp.Star<MeshColorPaintingToolProperties> to cpp.Star<MeshColorPaintingToolProperties>{
+abstract MeshColorPaintingToolPropertiesPtr(ucpp.Ptr<MeshColorPaintingToolProperties>) from ucpp.Ptr<MeshColorPaintingToolProperties> to ucpp.Ptr<MeshColorPaintingToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: MeshColorPaintingToolProperties): MeshColorPaintingToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

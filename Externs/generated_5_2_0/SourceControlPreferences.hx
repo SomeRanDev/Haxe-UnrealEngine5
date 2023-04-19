@@ -3,7 +3,7 @@ package ue;
 
 @:native("USourceControlPreferences")
 @:include("SourceControlPreferences.h")
-@:structAccess
+@:valueType
 extern class SourceControlPreferences extends DeveloperSettings {
 	public var bEnableValidationTag: Bool;
 	public var bShouldDeleteNewFilesOnRevert: Bool;
@@ -11,7 +11,7 @@ extern class SourceControlPreferences extends DeveloperSettings {
 	public var CollectionChangelistTags: TArray<FString>;
 	public var SpecificCollectionChangelistTags: TMap<FName, FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstSourceControlPreferences(SourceControlPreferences) from SourceCont
 @:forward
 @:nativeGen
 @:native("SourceControlPreferences*")
-abstract SourceControlPreferencesPtr(cpp.Star<SourceControlPreferences>) from cpp.Star<SourceControlPreferences> to cpp.Star<SourceControlPreferences>{
+abstract SourceControlPreferencesPtr(ucpp.Ptr<SourceControlPreferences>) from ucpp.Ptr<SourceControlPreferences> to ucpp.Ptr<SourceControlPreferences>{
 	@:from
 	public static extern inline function fromValue(v: SourceControlPreferences): SourceControlPreferencesPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,7 +2,7 @@
 package ue;
 
 @:native("UABP_Manny_C")
-@:structAccess
+@:valueType
 extern class ABP_Manny_C extends AnimInstance {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 	public var __AnimBlueprintMutables: AnimBlueprintGeneratedMutableData;
@@ -37,20 +37,20 @@ extern class ABP_Manny_C extends AnimInstance {
 	public var AnimGraphNode_Slot: AnimNode_Slot;
 	public var AnimGraphNode_ControlRig: AnimNode_ControlRig;
 	public var __CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C: Bool;
-	public var Character: cpp.Star<Character>;
-	public var MovementComponent: cpp.Star<CharacterMovementComp>;
+	public var Character: ucpp.Ptr<Character>;
+	public var MovementComponent: ucpp.Ptr<CharacterMovementComp>;
 	public var Velocity: Vector;
-	public var GroundSpeed: cpp.Float64;
+	public var GroundSpeed: ucpp.num.Float64;
 	public var ShouldMove: Bool;
 	public var IsFalling: Bool;
 
-	public function AnimGraph(AnimGraph: cpp.Reference<PoseLink>): Void;
+	public function AnimGraph(AnimGraph: ucpp.Ref<PoseLink>): Void;
 	public function EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Manny_AnimGraphNode_TransitionResult_305F37BB4A5AD886760B8E99A5C561E1(): Void;
-	public function BlueprintUpdateAnimation(DeltaTimeX: cpp.Float32): Void;
+	public function BlueprintUpdateAnimation(DeltaTimeX: ucpp.num.Float32): Void;
 	public function BlueprintInitializeAnimation(): Void;
-	public function ExecuteUbergraph_ABP_Manny(EntryPoint: cpp.Int32): Void;
+	public function ExecuteUbergraph_ABP_Manny(EntryPoint: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -122,14 +122,14 @@ abstract ConstABP_Manny_C(ABP_Manny_C) from ABP_Manny_C {
 	public inline extern function get_AnimGraphNode_ControlRig(): AnimNode_ControlRig return this.AnimGraphNode_ControlRig;
 	public extern var __CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C(get, never): Bool;
 	public inline extern function get___CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C(): Bool return this.__CustomProperty_ShouldDoIKTrace_385011E94C94F6DE70691192D3E0622C;
-	public extern var Character(get, never): cpp.Star<Character.ConstCharacter>;
-	public inline extern function get_Character(): cpp.Star<Character.ConstCharacter> return this.Character;
-	public extern var MovementComponent(get, never): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp>;
-	public inline extern function get_MovementComponent(): cpp.Star<CharacterMovementComp.ConstCharacterMovementComp> return this.MovementComponent;
+	public extern var Character(get, never): ucpp.Ptr<Character.ConstCharacter>;
+	public inline extern function get_Character(): ucpp.Ptr<Character.ConstCharacter> return this.Character;
+	public extern var MovementComponent(get, never): ucpp.Ptr<CharacterMovementComp.ConstCharacterMovementComp>;
+	public inline extern function get_MovementComponent(): ucpp.Ptr<CharacterMovementComp.ConstCharacterMovementComp> return this.MovementComponent;
 	public extern var Velocity(get, never): Vector;
 	public inline extern function get_Velocity(): Vector return this.Velocity;
-	public extern var GroundSpeed(get, never): cpp.Float64;
-	public inline extern function get_GroundSpeed(): cpp.Float64 return this.GroundSpeed;
+	public extern var GroundSpeed(get, never): ucpp.num.Float64;
+	public inline extern function get_GroundSpeed(): ucpp.num.Float64 return this.GroundSpeed;
 	public extern var ShouldMove(get, never): Bool;
 	public inline extern function get_ShouldMove(): Bool return this.ShouldMove;
 	public extern var IsFalling(get, never): Bool;
@@ -139,7 +139,7 @@ abstract ConstABP_Manny_C(ABP_Manny_C) from ABP_Manny_C {
 @:forward
 @:nativeGen
 @:native("ABP_Manny_C*")
-abstract ABP_Manny_CPtr(cpp.Star<ABP_Manny_C>) from cpp.Star<ABP_Manny_C> to cpp.Star<ABP_Manny_C>{
+abstract ABP_Manny_CPtr(ucpp.Ptr<ABP_Manny_C>) from ucpp.Ptr<ABP_Manny_C> to ucpp.Ptr<ABP_Manny_C>{
 	@:from
 	public static extern inline function fromValue(v: ABP_Manny_C): ABP_Manny_CPtr {
 		return untyped __cpp__("&({0})", v);

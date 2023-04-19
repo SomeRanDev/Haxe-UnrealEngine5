@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTrackableEnvProbeDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class TrackableEnvProbeDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTrackableEnvProbeDelegate__PythonCallable(TrackableEnvProbeDelegat
 @:forward
 @:nativeGen
 @:native("TrackableEnvProbeDelegate__PythonCallable*")
-abstract TrackableEnvProbeDelegate__PythonCallablePtr(cpp.Star<TrackableEnvProbeDelegate__PythonCallable>) from cpp.Star<TrackableEnvProbeDelegate__PythonCallable> to cpp.Star<TrackableEnvProbeDelegate__PythonCallable>{
+abstract TrackableEnvProbeDelegate__PythonCallablePtr(ucpp.Ptr<TrackableEnvProbeDelegate__PythonCallable>) from ucpp.Ptr<TrackableEnvProbeDelegate__PythonCallable> to ucpp.Ptr<TrackableEnvProbeDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: TrackableEnvProbeDelegate__PythonCallable): TrackableEnvProbeDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

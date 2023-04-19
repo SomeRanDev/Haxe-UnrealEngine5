@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMeshDescriptionBase")
 @:include("MeshDescriptionBase.h")
-@:structAccess
+@:valueType
 extern class MeshDescriptionBase extends Object {
-	public function SetVertexPosition(VertexID: VertexID, Position: cpp.Reference<Vector>): Void;
-	public function SetPolygonVertexInstances(PolygonID: PolygonID, VertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>): Void;
+	public function SetVertexPosition(VertexID: VertexID, Position: ucpp.Ref<Vector>): Void;
+	public function SetPolygonVertexInstances(PolygonID: PolygonID, VertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>): Void;
 	public function SetPolygonPolygonGroup(PolygonID: PolygonID, PolygonGroupID: PolygonGroupID): Void;
 	public function ReversePolygonFacing(PolygonID: PolygonID): Void;
-	public function ReserveNewVertices(NumberOfNewVertices: cpp.Int32): Void;
-	public function ReserveNewVertexInstances(NumberOfNewVertexInstances: cpp.Int32): Void;
-	public function ReserveNewTriangles(NumberOfNewTriangles: cpp.Int32): Void;
-	public function ReserveNewPolygons(NumberOfNewPolygons: cpp.Int32): Void;
-	public function ReserveNewPolygonGroups(NumberOfNewPolygonGroups: cpp.Int32): Void;
-	public function ReserveNewEdges(NumberOfNewEdges: cpp.Int32): Void;
+	public function ReserveNewVertices(NumberOfNewVertices: ucpp.num.Int32): Void;
+	public function ReserveNewVertexInstances(NumberOfNewVertexInstances: ucpp.num.Int32): Void;
+	public function ReserveNewTriangles(NumberOfNewTriangles: ucpp.num.Int32): Void;
+	public function ReserveNewPolygons(NumberOfNewPolygons: ucpp.num.Int32): Void;
+	public function ReserveNewPolygonGroups(NumberOfNewPolygonGroups: ucpp.num.Int32): Void;
+	public function ReserveNewEdges(NumberOfNewEdges: ucpp.num.Int32): Void;
 	public function IsVertexValid(VertexID: VertexID): Bool;
 	public function IsVertexOrphaned(VertexID: VertexID): Bool;
 	public function IsVertexInstanceValid(VertexInstanceID: VertexInstanceID): Bool;
@@ -26,78 +26,78 @@ extern class MeshDescriptionBase extends Object {
 	public function IsEdgeValid(EdgeID: EdgeID): Bool;
 	public function IsEdgeInternalToPolygon(EdgeID: EdgeID, PolygonID: PolygonID): Bool;
 	public function IsEdgeInternal(EdgeID: EdgeID): Bool;
-	public function GetVertexVertexInstances(VertexID: VertexID, OutVertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>): Void;
+	public function GetVertexVertexInstances(VertexID: VertexID, OutVertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>): Void;
 	public function GetVertexPosition(VertexID: VertexID): Vector;
 	public function GetVertexPairEdge(VertexID0: VertexID, VertexID1: VertexID): EdgeID;
 	public function GetVertexInstanceVertex(VertexInstanceID: VertexInstanceID): VertexID;
 	public function GetVertexInstancePairEdge(VertexInstanceID0: VertexInstanceID, VertexInstanceID1: VertexInstanceID): EdgeID;
 	public function GetVertexInstanceForTriangleVertex(TriangleID: TriangleID, VertexID: VertexID): VertexInstanceID;
 	public function GetVertexInstanceForPolygonVertex(PolygonID: PolygonID, VertexID: VertexID): VertexInstanceID;
-	public function GetVertexInstanceCount(): cpp.Int32;
-	public function GetVertexInstanceConnectedTriangles(VertexInstanceID: VertexInstanceID, OutConnectedTriangleIDs: cpp.Reference<TArray<TriangleID>>): Void;
-	public function GetVertexInstanceConnectedPolygons(VertexInstanceID: VertexInstanceID, OutConnectedPolygonIDs: cpp.Reference<TArray<PolygonID>>): Void;
-	public function GetVertexCount(): cpp.Int32;
-	public function GetVertexConnectedTriangles(VertexID: VertexID, OutConnectedTriangleIDs: cpp.Reference<TArray<TriangleID>>): Void;
-	public function GetVertexConnectedPolygons(VertexID: VertexID, OutConnectedPolygonIDs: cpp.Reference<TArray<PolygonID>>): Void;
-	public function GetVertexConnectedEdges(VertexID: VertexID, OutEdgeIDs: cpp.Reference<TArray<EdgeID>>): Void;
-	public function GetVertexAdjacentVertices(VertexID: VertexID, OutAdjacentVertexIDs: cpp.Reference<TArray<VertexID>>): Void;
-	public function GetTriangleVertices(TriangleID: TriangleID, OutVertexIDs: cpp.Reference<TArray<VertexID>>): Void;
-	public function GetTriangleVertexInstances(TriangleID: TriangleID, OutVertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>): Void;
-	public function GetTriangleVertexInstance(TriangleID: TriangleID, Index: cpp.Int32): VertexInstanceID;
+	public function GetVertexInstanceCount(): ucpp.num.Int32;
+	public function GetVertexInstanceConnectedTriangles(VertexInstanceID: VertexInstanceID, OutConnectedTriangleIDs: ucpp.Ref<TArray<TriangleID>>): Void;
+	public function GetVertexInstanceConnectedPolygons(VertexInstanceID: VertexInstanceID, OutConnectedPolygonIDs: ucpp.Ref<TArray<PolygonID>>): Void;
+	public function GetVertexCount(): ucpp.num.Int32;
+	public function GetVertexConnectedTriangles(VertexID: VertexID, OutConnectedTriangleIDs: ucpp.Ref<TArray<TriangleID>>): Void;
+	public function GetVertexConnectedPolygons(VertexID: VertexID, OutConnectedPolygonIDs: ucpp.Ref<TArray<PolygonID>>): Void;
+	public function GetVertexConnectedEdges(VertexID: VertexID, OutEdgeIDs: ucpp.Ref<TArray<EdgeID>>): Void;
+	public function GetVertexAdjacentVertices(VertexID: VertexID, OutAdjacentVertexIDs: ucpp.Ref<TArray<VertexID>>): Void;
+	public function GetTriangleVertices(TriangleID: TriangleID, OutVertexIDs: ucpp.Ref<TArray<VertexID>>): Void;
+	public function GetTriangleVertexInstances(TriangleID: TriangleID, OutVertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>): Void;
+	public function GetTriangleVertexInstance(TriangleID: TriangleID, Index: ucpp.num.Int32): VertexInstanceID;
 	public function GetTrianglePolygonGroup(TriangleID: TriangleID): PolygonGroupID;
 	public function GetTrianglePolygon(TriangleID: TriangleID): PolygonID;
-	public function GetTriangleEdges(TriangleID: TriangleID, OutEdgeIDs: cpp.Reference<TArray<EdgeID>>): Void;
-	public function GetTriangleCount(): cpp.Int32;
-	public function GetTriangleAdjacentTriangles(TriangleID: TriangleID, OutTriangleIDs: cpp.Reference<TArray<TriangleID>>): Void;
-	public function GetPolygonVertices(PolygonID: PolygonID, OutVertexIDs: cpp.Reference<TArray<VertexID>>): Void;
-	public function GetPolygonVertexInstances(PolygonID: PolygonID, OutVertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>): Void;
-	public function GetPolygonTriangles(PolygonID: PolygonID, OutTriangleIDs: cpp.Reference<TArray<TriangleID>>): Void;
+	public function GetTriangleEdges(TriangleID: TriangleID, OutEdgeIDs: ucpp.Ref<TArray<EdgeID>>): Void;
+	public function GetTriangleCount(): ucpp.num.Int32;
+	public function GetTriangleAdjacentTriangles(TriangleID: TriangleID, OutTriangleIDs: ucpp.Ref<TArray<TriangleID>>): Void;
+	public function GetPolygonVertices(PolygonID: PolygonID, OutVertexIDs: ucpp.Ref<TArray<VertexID>>): Void;
+	public function GetPolygonVertexInstances(PolygonID: PolygonID, OutVertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>): Void;
+	public function GetPolygonTriangles(PolygonID: PolygonID, OutTriangleIDs: ucpp.Ref<TArray<TriangleID>>): Void;
 	public function GetPolygonPolygonGroup(PolygonID: PolygonID): PolygonGroupID;
-	public function GetPolygonPerimeterEdges(PolygonID: PolygonID, OutEdgeIDs: cpp.Reference<TArray<EdgeID>>): Void;
-	public function GetPolygonInternalEdges(PolygonID: PolygonID, OutEdgeIDs: cpp.Reference<TArray<EdgeID>>): Void;
-	public function GetPolygonGroupPolygons(PolygonGroupID: PolygonGroupID, OutPolygonIDs: cpp.Reference<TArray<PolygonID>>): Void;
-	public function GetPolygonGroupCount(): cpp.Int32;
-	public function GetPolygonCount(): cpp.Int32;
-	public function GetPolygonAdjacentPolygons(PolygonID: PolygonID, OutPolygonIDs: cpp.Reference<TArray<PolygonID>>): Void;
-	public function GetNumVertexVertexInstances(VertexID: VertexID): cpp.Int32;
-	public function GetNumVertexInstanceConnectedTriangles(VertexInstanceID: VertexInstanceID): cpp.Int32;
-	public function GetNumVertexInstanceConnectedPolygons(VertexInstanceID: VertexInstanceID): cpp.Int32;
-	public function GetNumVertexConnectedTriangles(VertexID: VertexID): cpp.Int32;
-	public function GetNumVertexConnectedPolygons(VertexID: VertexID): cpp.Int32;
-	public function GetNumVertexConnectedEdges(VertexID: VertexID): cpp.Int32;
-	public function GetNumPolygonVertices(PolygonID: PolygonID): cpp.Int32;
-	public function GetNumPolygonTriangles(PolygonID: PolygonID): cpp.Int32;
-	public function GetNumPolygonInternalEdges(PolygonID: PolygonID): cpp.Int32;
-	public function GetNumPolygonGroupPolygons(PolygonGroupID: PolygonGroupID): cpp.Int32;
-	public function GetNumEdgeConnectedTriangles(EdgeID: EdgeID): cpp.Int32;
-	public function GetNumEdgeConnectedPolygons(EdgeID: EdgeID): cpp.Int32;
-	public function GetEdgeVertices(EdgeID: EdgeID, OutVertexIDs: cpp.Reference<TArray<VertexID>>): Void;
-	public function GetEdgeVertex(EdgeID: EdgeID, VertexNumber: cpp.Int32): VertexID;
-	public function GetEdgeCount(): cpp.Int32;
-	public function GetEdgeConnectedTriangles(EdgeID: EdgeID, OutConnectedTriangleIDs: cpp.Reference<TArray<TriangleID>>): Void;
-	public function GetEdgeConnectedPolygons(EdgeID: EdgeID, OutConnectedPolygonIDs: cpp.Reference<TArray<PolygonID>>): Void;
+	public function GetPolygonPerimeterEdges(PolygonID: PolygonID, OutEdgeIDs: ucpp.Ref<TArray<EdgeID>>): Void;
+	public function GetPolygonInternalEdges(PolygonID: PolygonID, OutEdgeIDs: ucpp.Ref<TArray<EdgeID>>): Void;
+	public function GetPolygonGroupPolygons(PolygonGroupID: PolygonGroupID, OutPolygonIDs: ucpp.Ref<TArray<PolygonID>>): Void;
+	public function GetPolygonGroupCount(): ucpp.num.Int32;
+	public function GetPolygonCount(): ucpp.num.Int32;
+	public function GetPolygonAdjacentPolygons(PolygonID: PolygonID, OutPolygonIDs: ucpp.Ref<TArray<PolygonID>>): Void;
+	public function GetNumVertexVertexInstances(VertexID: VertexID): ucpp.num.Int32;
+	public function GetNumVertexInstanceConnectedTriangles(VertexInstanceID: VertexInstanceID): ucpp.num.Int32;
+	public function GetNumVertexInstanceConnectedPolygons(VertexInstanceID: VertexInstanceID): ucpp.num.Int32;
+	public function GetNumVertexConnectedTriangles(VertexID: VertexID): ucpp.num.Int32;
+	public function GetNumVertexConnectedPolygons(VertexID: VertexID): ucpp.num.Int32;
+	public function GetNumVertexConnectedEdges(VertexID: VertexID): ucpp.num.Int32;
+	public function GetNumPolygonVertices(PolygonID: PolygonID): ucpp.num.Int32;
+	public function GetNumPolygonTriangles(PolygonID: PolygonID): ucpp.num.Int32;
+	public function GetNumPolygonInternalEdges(PolygonID: PolygonID): ucpp.num.Int32;
+	public function GetNumPolygonGroupPolygons(PolygonGroupID: PolygonGroupID): ucpp.num.Int32;
+	public function GetNumEdgeConnectedTriangles(EdgeID: EdgeID): ucpp.num.Int32;
+	public function GetNumEdgeConnectedPolygons(EdgeID: EdgeID): ucpp.num.Int32;
+	public function GetEdgeVertices(EdgeID: EdgeID, OutVertexIDs: ucpp.Ref<TArray<VertexID>>): Void;
+	public function GetEdgeVertex(EdgeID: EdgeID, VertexNumber: ucpp.num.Int32): VertexID;
+	public function GetEdgeCount(): ucpp.num.Int32;
+	public function GetEdgeConnectedTriangles(EdgeID: EdgeID, OutConnectedTriangleIDs: ucpp.Ref<TArray<TriangleID>>): Void;
+	public function GetEdgeConnectedPolygons(EdgeID: EdgeID, OutConnectedPolygonIDs: ucpp.Ref<TArray<PolygonID>>): Void;
 	public function Empty(): Void;
-	public function DeleteVertexInstance(VertexInstanceID: VertexInstanceID, OrphanedVertices: cpp.Reference<TArray<VertexID>>): Void;
+	public function DeleteVertexInstance(VertexInstanceID: VertexInstanceID, OrphanedVertices: ucpp.Ref<TArray<VertexID>>): Void;
 	public function DeleteVertex(VertexID: VertexID): Void;
-	public function DeleteTriangle(TriangleID: TriangleID, OrphanedEdges: cpp.Reference<TArray<EdgeID>>, OrphanedVertexInstances: cpp.Reference<TArray<VertexInstanceID>>, OrphanedPolygonGroupsPtr: cpp.Reference<TArray<PolygonGroupID>>): Void;
+	public function DeleteTriangle(TriangleID: TriangleID, OrphanedEdges: ucpp.Ref<TArray<EdgeID>>, OrphanedVertexInstances: ucpp.Ref<TArray<VertexInstanceID>>, OrphanedPolygonGroupsPtr: ucpp.Ref<TArray<PolygonGroupID>>): Void;
 	public function DeletePolygonGroup(PolygonGroupID: PolygonGroupID): Void;
-	public function DeletePolygon(PolygonID: PolygonID, OrphanedEdges: cpp.Reference<TArray<EdgeID>>, OrphanedVertexInstances: cpp.Reference<TArray<VertexInstanceID>>, OrphanedPolygonGroups: cpp.Reference<TArray<PolygonGroupID>>): Void;
-	public function DeleteEdge(EdgeID: EdgeID, OrphanedVertices: cpp.Reference<TArray<VertexID>>): Void;
+	public function DeletePolygon(PolygonID: PolygonID, OrphanedEdges: ucpp.Ref<TArray<EdgeID>>, OrphanedVertexInstances: ucpp.Ref<TArray<VertexInstanceID>>, OrphanedPolygonGroups: ucpp.Ref<TArray<PolygonGroupID>>): Void;
+	public function DeleteEdge(EdgeID: EdgeID, OrphanedVertices: ucpp.Ref<TArray<VertexID>>): Void;
 	public function CreateVertexWithID(VertexID: VertexID): Void;
 	public function CreateVertexInstanceWithID(VertexInstanceID: VertexInstanceID, VertexID: VertexID): Void;
 	public function CreateVertexInstance(VertexID: VertexID): VertexInstanceID;
 	public function CreateVertex(): VertexID;
-	public function CreateTriangleWithID(TriangleID: TriangleID, PolygonGroupID: PolygonGroupID, VertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>, NewEdgeIDs: cpp.Reference<TArray<EdgeID>>): Void;
-	public function CreateTriangle(PolygonGroupID: PolygonGroupID, VertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>, NewEdgeIDs: cpp.Reference<TArray<EdgeID>>): TriangleID;
-	public function CreatePolygonWithID(PolygonID: PolygonID, PolygonGroupID: PolygonGroupID, VertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>, NewEdgeIDs: cpp.Reference<TArray<EdgeID>>): Void;
+	public function CreateTriangleWithID(TriangleID: TriangleID, PolygonGroupID: PolygonGroupID, VertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>, NewEdgeIDs: ucpp.Ref<TArray<EdgeID>>): Void;
+	public function CreateTriangle(PolygonGroupID: PolygonGroupID, VertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>, NewEdgeIDs: ucpp.Ref<TArray<EdgeID>>): TriangleID;
+	public function CreatePolygonWithID(PolygonID: PolygonID, PolygonGroupID: PolygonGroupID, VertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>, NewEdgeIDs: ucpp.Ref<TArray<EdgeID>>): Void;
 	public function CreatePolygonGroupWithID(PolygonGroupID: PolygonGroupID): Void;
 	public function CreatePolygonGroup(): PolygonGroupID;
-	public function CreatePolygon(PolygonGroupID: PolygonGroupID, VertexInstanceIDs: cpp.Reference<TArray<VertexInstanceID>>, NewEdgeIDs: cpp.Reference<TArray<EdgeID>>): PolygonID;
+	public function CreatePolygon(PolygonGroupID: PolygonGroupID, VertexInstanceIDs: ucpp.Ref<TArray<VertexInstanceID>>, NewEdgeIDs: ucpp.Ref<TArray<EdgeID>>): PolygonID;
 	public function CreateEdgeWithID(EdgeID: EdgeID, VertexID0: VertexID, VertexID1: VertexID): Void;
 	public function CreateEdge(VertexID0: VertexID, VertexID1: VertexID): EdgeID;
 	public function ComputePolygonTriangulation(PolygonID: PolygonID): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -122,7 +122,7 @@ abstract ConstMeshDescriptionBase(MeshDescriptionBase) from MeshDescriptionBase 
 @:forward
 @:nativeGen
 @:native("MeshDescriptionBase*")
-abstract MeshDescriptionBasePtr(cpp.Star<MeshDescriptionBase>) from cpp.Star<MeshDescriptionBase> to cpp.Star<MeshDescriptionBase>{
+abstract MeshDescriptionBasePtr(ucpp.Ptr<MeshDescriptionBase>) from ucpp.Ptr<MeshDescriptionBase> to ucpp.Ptr<MeshDescriptionBase>{
 	@:from
 	public static extern inline function fromValue(v: MeshDescriptionBase): MeshDescriptionBasePtr {
 		return untyped __cpp__("&({0})", v);

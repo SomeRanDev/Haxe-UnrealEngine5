@@ -3,19 +3,19 @@ package ue;
 
 @:native("UAlembicImportFactory")
 @:include("AlembicImportFactory.h")
-@:structAccess
+@:valueType
 extern class AlembicImportFactory extends Factory {
-	public var ImportSettings: cpp.Star<AbcImportSettings>;
+	public var ImportSettings: ucpp.Ptr<AbcImportSettings>;
 	public var bShowOption: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAlembicImportFactory(AlembicImportFactory) from AlembicImportFactory {
-	public extern var ImportSettings(get, never): cpp.Star<AbcImportSettings.ConstAbcImportSettings>;
-	public inline extern function get_ImportSettings(): cpp.Star<AbcImportSettings.ConstAbcImportSettings> return this.ImportSettings;
+	public extern var ImportSettings(get, never): ucpp.Ptr<AbcImportSettings.ConstAbcImportSettings>;
+	public inline extern function get_ImportSettings(): ucpp.Ptr<AbcImportSettings.ConstAbcImportSettings> return this.ImportSettings;
 	public extern var bShowOption(get, never): Bool;
 	public inline extern function get_bShowOption(): Bool return this.bShowOption;
 }
@@ -23,7 +23,7 @@ abstract ConstAlembicImportFactory(AlembicImportFactory) from AlembicImportFacto
 @:forward
 @:nativeGen
 @:native("AlembicImportFactory*")
-abstract AlembicImportFactoryPtr(cpp.Star<AlembicImportFactory>) from cpp.Star<AlembicImportFactory> to cpp.Star<AlembicImportFactory>{
+abstract AlembicImportFactoryPtr(ucpp.Ptr<AlembicImportFactory>) from ucpp.Ptr<AlembicImportFactory> to ucpp.Ptr<AlembicImportFactory>{
 	@:from
 	public static extern inline function fromValue(v: AlembicImportFactory): AlembicImportFactoryPtr {
 		return untyped __cpp__("&({0})", v);

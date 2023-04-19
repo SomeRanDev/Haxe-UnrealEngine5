@@ -3,10 +3,10 @@ package ue;
 
 @:native("UParticleModuleSubUVBase")
 @:include("Particles/SubUV/ParticleModuleSubUVBase.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleSubUVBase extends ParticleModule {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstParticleModuleSubUVBase(ParticleModuleSubUVBase) from ParticleModu
 @:forward
 @:nativeGen
 @:native("ParticleModuleSubUVBase*")
-abstract ParticleModuleSubUVBasePtr(cpp.Star<ParticleModuleSubUVBase>) from cpp.Star<ParticleModuleSubUVBase> to cpp.Star<ParticleModuleSubUVBase>{
+abstract ParticleModuleSubUVBasePtr(ucpp.Ptr<ParticleModuleSubUVBase>) from ucpp.Ptr<ParticleModuleSubUVBase> to ucpp.Ptr<ParticleModuleSubUVBase>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleSubUVBase): ParticleModuleSubUVBasePtr {
 		return untyped __cpp__("&({0})", v);

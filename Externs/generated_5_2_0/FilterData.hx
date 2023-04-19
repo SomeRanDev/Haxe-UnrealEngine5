@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFilterData")
 @:include("Private/FilterPresets.h")
-@:structAccess
+@:valueType
 extern class FilterData {
 	public var Name: FString;
 	public var AllowlistedNames: TArray<FString>;

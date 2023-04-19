@@ -3,12 +3,12 @@ package ue;
 
 @:native("UVideoCaptureProtocol")
 @:include("Protocols/VideoCaptureProtocol.h")
-@:structAccess
+@:valueType
 extern class VideoCaptureProtocol extends FrameGrabberProtocol {
 	public var bUseCompression: Bool;
-	public var CompressionQuality: cpp.Float32;
+	public var CompressionQuality: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class VideoCaptureProtocol extends FrameGrabberProtocol {
 abstract ConstVideoCaptureProtocol(VideoCaptureProtocol) from VideoCaptureProtocol {
 	public extern var bUseCompression(get, never): Bool;
 	public inline extern function get_bUseCompression(): Bool return this.bUseCompression;
-	public extern var CompressionQuality(get, never): cpp.Float32;
-	public inline extern function get_CompressionQuality(): cpp.Float32 return this.CompressionQuality;
+	public extern var CompressionQuality(get, never): ucpp.num.Float32;
+	public inline extern function get_CompressionQuality(): ucpp.num.Float32 return this.CompressionQuality;
 }
 
 @:forward
 @:nativeGen
 @:native("VideoCaptureProtocol*")
-abstract VideoCaptureProtocolPtr(cpp.Star<VideoCaptureProtocol>) from cpp.Star<VideoCaptureProtocol> to cpp.Star<VideoCaptureProtocol>{
+abstract VideoCaptureProtocolPtr(ucpp.Ptr<VideoCaptureProtocol>) from ucpp.Ptr<VideoCaptureProtocol> to ucpp.Ptr<VideoCaptureProtocol>{
 	@:from
 	public static extern inline function fromValue(v: VideoCaptureProtocol): VideoCaptureProtocolPtr {
 		return untyped __cpp__("&({0})", v);

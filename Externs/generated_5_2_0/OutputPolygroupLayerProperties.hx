@@ -3,7 +3,7 @@ package ue;
 
 @:native("UOutputPolygroupLayerProperties")
 @:include("ConvertToPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class OutputPolygroupLayerProperties extends InteractiveToolPropertySet {
 	public var GroupLayer: FName;
 	public var OptionsList: TArray<FString>;
@@ -12,7 +12,7 @@ extern class OutputPolygroupLayerProperties extends InteractiveToolPropertySet {
 
 	public function GetGroupOptionsList(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstOutputPolygroupLayerProperties(OutputPolygroupLayerProperties) fro
 @:forward
 @:nativeGen
 @:native("OutputPolygroupLayerProperties*")
-abstract OutputPolygroupLayerPropertiesPtr(cpp.Star<OutputPolygroupLayerProperties>) from cpp.Star<OutputPolygroupLayerProperties> to cpp.Star<OutputPolygroupLayerProperties>{
+abstract OutputPolygroupLayerPropertiesPtr(ucpp.Ptr<OutputPolygroupLayerProperties>) from ucpp.Ptr<OutputPolygroupLayerProperties> to ucpp.Ptr<OutputPolygroupLayerProperties>{
 	@:from
 	public static extern inline function fromValue(v: OutputPolygroupLayerProperties): OutputPolygroupLayerPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

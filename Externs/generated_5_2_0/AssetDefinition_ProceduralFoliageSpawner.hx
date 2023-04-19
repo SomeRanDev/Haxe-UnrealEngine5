@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_ProceduralFoliageSpawner")
 @:include("AssetDefinition_ProceduralFoliageSpawner.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_ProceduralFoliageSpawner extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_ProceduralFoliageSpawner(AssetDefinition_Procedura
 @:forward
 @:nativeGen
 @:native("AssetDefinition_ProceduralFoliageSpawner*")
-abstract AssetDefinition_ProceduralFoliageSpawnerPtr(cpp.Star<AssetDefinition_ProceduralFoliageSpawner>) from cpp.Star<AssetDefinition_ProceduralFoliageSpawner> to cpp.Star<AssetDefinition_ProceduralFoliageSpawner>{
+abstract AssetDefinition_ProceduralFoliageSpawnerPtr(ucpp.Ptr<AssetDefinition_ProceduralFoliageSpawner>) from ucpp.Ptr<AssetDefinition_ProceduralFoliageSpawner> to ucpp.Ptr<AssetDefinition_ProceduralFoliageSpawner>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_ProceduralFoliageSpawner): AssetDefinition_ProceduralFoliageSpawnerPtr {
 		return untyped __cpp__("&({0})", v);

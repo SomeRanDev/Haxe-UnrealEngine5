@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGrassInput")
 @:include("Materials/MaterialExpressionLandscapeGrassOutput.h")
-@:structAccess
+@:valueType
 extern class GrassInput {
 	public var Name: FName;
-	public var GrassType: cpp.Star<LandscapeGrassType>;
+	public var GrassType: ucpp.Ptr<LandscapeGrassType>;
 	public var Input: ExpressionInput;
 
 	@:native("FGrassInput") public function new();
-	@:native("FGrassInput") public static function make(Name: FName, GrassType: cpp.Star<LandscapeGrassType>, Input: ExpressionInput): GrassInput ;
+	@:native("FGrassInput") public static function make(Name: FName, GrassType: ucpp.Ptr<LandscapeGrassType>, Input: ExpressionInput): GrassInput ;
 }

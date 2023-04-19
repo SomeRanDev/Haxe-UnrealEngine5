@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPaintComponentOverride")
 @:include("MeshPaintingToolsetTypes.h")
-@:structAccess
+@:valueType
 extern class PaintComponentOverride {
-	public var PaintedComponents: TArray<cpp.Star<MeshComp>>;
+	public var PaintedComponents: TArray<ucpp.Ptr<MeshComp>>;
 
 	@:native("FPaintComponentOverride") public function new();
-	@:native("FPaintComponentOverride") public static function make(PaintedComponents: TArray<cpp.Star<MeshComp>>): PaintComponentOverride ;
+	@:native("FPaintComponentOverride") public static function make(PaintedComponents: TArray<ucpp.Ptr<MeshComp>>): PaintComponentOverride ;
 }

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCameraModifier_CameraShake")
 @:include("Camera/CameraModifier_CameraShake.h")
-@:structAccess
+@:valueType
 extern class CameraModifier_CameraShake extends CameraModifier {
 	@:protected public var ActiveShakes: TArray<ActiveCameraShakeInfo>;
 	@:protected public var ExpiredPooledShakesMap: TMap<TSubclassOf<CameraShakeBase>, PooledCameraShakes>;
-	@:protected public var SplitScreenShakeScale: cpp.Float32;
+	@:protected public var SplitScreenShakeScale: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCameraModifier_CameraShake(CameraModifier_CameraShake) from Camera
 @:forward
 @:nativeGen
 @:native("CameraModifier_CameraShake*")
-abstract CameraModifier_CameraShakePtr(cpp.Star<CameraModifier_CameraShake>) from cpp.Star<CameraModifier_CameraShake> to cpp.Star<CameraModifier_CameraShake>{
+abstract CameraModifier_CameraShakePtr(ucpp.Ptr<CameraModifier_CameraShake>) from ucpp.Ptr<CameraModifier_CameraShake> to ucpp.Ptr<CameraModifier_CameraShake>{
 	@:from
 	public static extern inline function fromValue(v: CameraModifier_CameraShake): CameraModifier_CameraShakePtr {
 		return untyped __cpp__("&({0})", v);

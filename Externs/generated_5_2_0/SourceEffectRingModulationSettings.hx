@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSourceEffectRingModulationSettings")
 @:include("SourceEffects/SourceEffectRingModulation.h")
-@:structAccess
+@:valueType
 extern class SourceEffectRingModulationSettings {
 	public var ModulatorType: ERingModulatorTypeSourceEffect;
-	public var Frequency: cpp.Float32;
-	public var Depth: cpp.Float32;
-	public var DryLevel: cpp.Float32;
-	public var WetLevel: cpp.Float32;
-	public var AudioBusModulator: cpp.Star<AudioBus>;
+	public var Frequency: ucpp.num.Float32;
+	public var Depth: ucpp.num.Float32;
+	public var DryLevel: ucpp.num.Float32;
+	public var WetLevel: ucpp.num.Float32;
+	public var AudioBusModulator: ucpp.Ptr<AudioBus>;
 
 	@:native("FSourceEffectRingModulationSettings") public function new();
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBPVariableMetaDataEntry")
 @:include("Engine/Blueprint.h")
-@:structAccess
+@:valueType
 extern class BPVariableMetaDataEntry {
 	public var DataKey: FName;
 	public var DataValue: FString;

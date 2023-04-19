@@ -3,7 +3,7 @@ package ue;
 
 @:native("FHardwareDeviceIdentifier")
 @:include("GameFramework/InputSettings.h")
-@:structAccess
+@:valueType
 extern class HardwareDeviceIdentifier {
 	public var InputClassName: FName;
 	public var HardwareDeviceIdentifier: FName;

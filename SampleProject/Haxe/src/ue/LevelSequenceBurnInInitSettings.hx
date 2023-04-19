@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelSequenceBurnInInitSettings")
 @:include("LevelSequenceActor.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceBurnInInitSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelSequenceBurnInInitSettings(LevelSequenceBurnInInitSettings) f
 @:forward
 @:nativeGen
 @:native("LevelSequenceBurnInInitSettings*")
-abstract LevelSequenceBurnInInitSettingsPtr(cpp.Star<LevelSequenceBurnInInitSettings>) from cpp.Star<LevelSequenceBurnInInitSettings> to cpp.Star<LevelSequenceBurnInInitSettings>{
+abstract LevelSequenceBurnInInitSettingsPtr(ucpp.Ptr<LevelSequenceBurnInInitSettings>) from ucpp.Ptr<LevelSequenceBurnInInitSettings> to ucpp.Ptr<LevelSequenceBurnInInitSettings>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceBurnInInitSettings): LevelSequenceBurnInInitSettingsPtr {
 		return untyped __cpp__("&({0})", v);

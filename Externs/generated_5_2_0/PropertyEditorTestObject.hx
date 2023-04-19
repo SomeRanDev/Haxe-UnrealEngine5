@@ -3,18 +3,18 @@ package ue;
 
 @:native("UPropertyEditorTestObject")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class PropertyEditorTestObject extends Object {
-	private var Int8Property: cpp.Int8;
-	private var Int16Property: cpp.Int16;
-	private var Int32Property: cpp.Int32;
-	private var Int64Property: cpp.Int64;
-	private var ByteProperty: cpp.UInt8;
-	private var UnsignedInt16Property: cpp.UInt16;
-	private var UnsignedInt32Property: cpp.UInt32;
-	private var UnsignedInt64Property: cpp.UInt64;
-	private var FloatProperty: cpp.Float32;
-	private var DoubleProperty: cpp.Float64;
+	private var Int8Property: ucpp.num.Int8;
+	private var Int16Property: ucpp.num.Int16;
+	private var Int32Property: ucpp.num.Int32;
+	private var Int64Property: ucpp.num.Int64;
+	private var ByteProperty: ucpp.num.UInt8;
+	private var UnsignedInt16Property: ucpp.num.UInt16;
+	private var UnsignedInt32Property: ucpp.num.UInt32;
+	private var UnsignedInt64Property: ucpp.num.UInt64;
+	private var FloatProperty: ucpp.num.Float32;
+	private var DoubleProperty: ucpp.num.Float64;
 	private var NameProperty: FName;
 	private var BoolProperty: Bool;
 	private var StringProperty: FString;
@@ -24,7 +24,7 @@ extern class PropertyEditorTestObject extends Object {
 	private var Vector2Property: Vector2D;
 	private var Vector4Property: Vector4;
 	private var RotatorProperty: Rotator;
-	private var ObjectProperty: cpp.Star<Object>;
+	private var ObjectProperty: ucpp.Ptr<Object>;
 	private var LinearColorProperty: LinearColor;
 	private var ColorProperty: Color;
 	private var EnumByteProperty: TEnumAsByte<EPropertyEditorTestEnum>;
@@ -32,7 +32,7 @@ extern class PropertyEditorTestObject extends Object {
 	private var EnumUnderscores: EPropertyEditorTestUnderscores;
 	private var MatrixProperty: Matrix;
 	private var TransformProperty: Transform;
-	private var GigabyteProperty: cpp.Float64;
+	private var GigabyteProperty: ucpp.num.Float64;
 	private var ClassProperty: TSubclassOf<Object>;
 	private var ClassPropertyWithAllowed: TSubclassOf<Object>;
 	private var ClassPropertyWithDisallowed: TSubclassOf<Object>;
@@ -40,9 +40,9 @@ extern class PropertyEditorTestObject extends Object {
 	private var SubclassOfWithAllowed: TSubclassOf<Texture>;
 	private var SubclassOfWithDisallowed: TSubclassOf<Texture>;
 	private var AssetPointerWithAllowedAndWhitespace: TSoftObjectPtr<Object>;
-	private var IntProperty32Array: TArray<cpp.Int32>;
-	private var BytePropertyArray: TArray<cpp.UInt8>;
-	private var FloatPropertyArray: TArray<cpp.Float32>;
+	private var IntProperty32Array: TArray<ucpp.num.Int32>;
+	private var BytePropertyArray: TArray<ucpp.num.UInt8>;
+	private var FloatPropertyArray: TArray<ucpp.num.Float32>;
 	private var NamePropertyArray: TArray<FName>;
 	private var BoolPropertyArray: TArray<Bool>;
 	private var StringPropertyArray: TArray<FString>;
@@ -51,8 +51,8 @@ extern class PropertyEditorTestObject extends Object {
 	private var Vector2PropertyArray: TArray<Vector2D>;
 	private var Vector4PropertyArray: TArray<Vector4>;
 	private var RotatorPropertyArray: TArray<Rotator>;
-	private var ObjectPropertyArray: TArray<cpp.Star<Object>>;
-	private var ActorPropertyArray: TArray<cpp.Star<Actor>>;
+	private var ObjectPropertyArray: TArray<ucpp.Ptr<Object>>;
+	private var ActorPropertyArray: TArray<ucpp.Ptr<Actor>>;
 	private var LinearColorPropertyArray: TArray<LinearColor>;
 	private var ColorPropertyArray: TArray<Color>;
 	private var TimecodePropertyArray: TArray<Timecode>;
@@ -63,18 +63,18 @@ extern class PropertyEditorTestObject extends Object {
 	private var StructPropertyArrayWithTitleError: TArray<PropertyEditorTestBasicStruct>;
 	private var StructPropertyArrayWithFormattedTitleError: TArray<PropertyEditorTestBasicStruct>;
 	private var InstancedStructArray: TArray<PropertyEditorTestInstancedStruct>;
-	private var ObjectPropertyArrayWithTitle: TArray<cpp.Star<PropertyEditorTestInstancedObject>>;
-	private var InstancedUObjectArray: TArray<cpp.Star<PropertyEditorTestInstancedObject>>;
-	private var FixedArrayOfInts: TArray<cpp.Int32>;
-	private var StaticArrayOfInts: cpp.Int32;
-	private var StaticArrayOfIntsWithEnumLabels: cpp.Int32;
+	private var ObjectPropertyArrayWithTitle: TArray<ucpp.Ptr<PropertyEditorTestInstancedObject>>;
+	private var InstancedUObjectArray: TArray<ucpp.Ptr<PropertyEditorTestInstancedObject>>;
+	private var FixedArrayOfInts: TArray<ucpp.num.Int32>;
+	private var StaticArrayOfInts: ucpp.num.Int32;
+	private var StaticArrayOfIntsWithEnumLabels: ucpp.num.Int32;
 	private var FloatRange: FloatRange;
-	private var FloatPropertyWithClampedRange: cpp.Float32;
-	private var IntPropertyWithClampedRange: cpp.Int32;
-	private var IntThatCannotBeChanged: cpp.Int32;
+	private var FloatPropertyWithClampedRange: ucpp.num.Float32;
+	private var IntPropertyWithClampedRange: ucpp.num.Int32;
+	private var IntThatCannotBeChanged: ucpp.num.Int32;
 	private var StringThatCannotBeChanged: FString;
-	private var ObjectThatCannotBeChanged: cpp.Star<PrimitiveComp>;
-	private var EnumBitflags: cpp.Int32;
+	private var ObjectThatCannotBeChanged: ucpp.Ptr<PrimitiveComp>;
+	private var EnumBitflags: ucpp.num.Int32;
 	private var StringPasswordProperty: FString;
 	private var TextPasswordProperty: FText;
 	private var ThisIsBrokenIfItsVisibleInADetailsView: PropertyEditorTestBasicStruct;
@@ -96,50 +96,50 @@ extern class PropertyEditorTestObject extends Object {
 	private var DisabledByCanEditChange: SoftObjectPath;
 	private var ComponentReference: ComponentReference;
 	private var bEditCondition: Bool;
-	private var SimplePropertyWithEditCondition: cpp.Int32;
+	private var SimplePropertyWithEditCondition: ucpp.num.Int32;
 	private var bEditConditionAssetReferenceCustomStructWithEditCondition: Bool;
 	private var AssetReferenceCustomStructWithEditCondition: SoftObjectPath;
 	private var ArrayOfStructs: TArray<PropertyEditorTestBasicStruct>;
 	private var Struct: PropertyEditTestTextStruct;
-	private var EditInlineNewStaticMeshComponent: cpp.Star<StaticMeshComp>;
-	private var ArrayOfEditInlineNewSMCs: TArray<cpp.Star<StaticMeshComp>>;
-	private var TextureProp: cpp.Star<Texture>;
-	private var StaticMeshProp: cpp.Star<StaticMesh>;
-	private var AnyMaterialInterface: cpp.Star<MaterialInterface>;
-	private var MaterialNoThumbnail: cpp.Star<MaterialInterface>;
-	private var OnlyActorsAllowed: cpp.Star<Actor>;
-	private var Int32Set: TSet<cpp.Int32>;
-	private var FloatSet: TSet<cpp.Float32>;
+	private var EditInlineNewStaticMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var ArrayOfEditInlineNewSMCs: TArray<ucpp.Ptr<StaticMeshComp>>;
+	private var TextureProp: ucpp.Ptr<Texture>;
+	private var StaticMeshProp: ucpp.Ptr<StaticMesh>;
+	private var AnyMaterialInterface: ucpp.Ptr<MaterialInterface>;
+	private var MaterialNoThumbnail: ucpp.Ptr<MaterialInterface>;
+	private var OnlyActorsAllowed: ucpp.Ptr<Actor>;
+	private var Int32Set: TSet<ucpp.num.Int32>;
+	private var FloatSet: TSet<ucpp.num.Float32>;
 	private var StringSet: TSet<FString>;
-	private var ObjectSet: TSet<cpp.Star<Object>>;
-	private var ActorSet: TSet<cpp.Star<Actor>>;
+	private var ObjectSet: TSet<ucpp.Ptr<Object>>;
+	private var ActorSet: TSet<ucpp.Ptr<Actor>>;
 	private var EditColorSet: TSet<EPropertyEditorTestEditColor>;
 	private var NameSet: TSet<FName>;
-	private var Int32ToStringMap: TMap<cpp.Int32, FString>;
+	private var Int32ToStringMap: TMap<ucpp.num.Int32, FString>;
 	private var StringToMultilineTextMap: TMap<FString, FText>;
 	private var StringToColorMap: TMap<FString, LinearColor>;
-	private var Int32ToStructMap: TMap<cpp.Int32, PropertyEditorTestBasicStruct>;
-	private var StringToFloatMap: TMap<FString, cpp.Float32>;
-	private var StringToObjectMap: TMap<FString, cpp.Star<Object>>;
-	private var StringToActorMap: TMap<FString, cpp.Star<Actor>>;
-	private var ObjectToInt32Map: TMap<cpp.Star<Object>, cpp.Int32>;
-	private var ObjectToColorMap: TMap<cpp.Star<Object>, LinearColor>;
-	private var IntToEnumMap: TMap<cpp.Int32, TEnumAsByte<EPropertyEditorTestEnum>>;
+	private var Int32ToStructMap: TMap<ucpp.num.Int32, PropertyEditorTestBasicStruct>;
+	private var StringToFloatMap: TMap<FString, ucpp.num.Float32>;
+	private var StringToObjectMap: TMap<FString, ucpp.Ptr<Object>>;
+	private var StringToActorMap: TMap<FString, ucpp.Ptr<Actor>>;
+	private var ObjectToInt32Map: TMap<ucpp.Ptr<Object>, ucpp.num.Int32>;
+	private var ObjectToColorMap: TMap<ucpp.Ptr<Object>, LinearColor>;
+	private var IntToEnumMap: TMap<ucpp.num.Int32, TEnumAsByte<EPropertyEditorTestEnum>>;
 	private var NameToNameMap: TMap<FName, FName>;
-	private var NameToObjectMap: TMap<FName, cpp.Star<Object>>;
+	private var NameToObjectMap: TMap<FName, ucpp.Ptr<Object>>;
 	private var NameToCustomMap: TMap<FName, PropertyEditorTestBasicStruct>;
 	private var NameToColorMap: TMap<FName, LinearColor>;
-	private var IntToCustomMap: TMap<cpp.Int32, PropertyEditorTestBasicStruct>;
-	private var IntToSubStructMap: TMap<cpp.Int32, PropertyEditorTestSubStruct>;
+	private var IntToCustomMap: TMap<ucpp.num.Int32, PropertyEditorTestBasicStruct>;
+	private var IntToSubStructMap: TMap<ucpp.num.Int32, PropertyEditorTestSubStruct>;
 	private var LinearColorSet: TSet<LinearColor>;
 	private var VectorSet: TSet<Vector>;
 	private var LinearColorToStringMap: TMap<LinearColor, FString>;
-	private var VectorToFloatMap: TMap<Vector, cpp.Float32>;
+	private var VectorToFloatMap: TMap<Vector, ucpp.num.Float32>;
 	private var LinearColorToVectorMap: TMap<LinearColor, Vector>;
 	private var BlendableInterface: BlendableInterface;
 	private var AnimClassInterface: AnimClassInterface;
 	private var LightPropagationVolumeBlendable: BlendableInterface;
-	private var TextureOrBlendableInterface: cpp.Star<Object>;
+	private var TextureOrBlendableInterface: ucpp.Ptr<Object>;
 	private var bSubcategory: Bool;
 	private var bSubcategoryAdvanced: Bool;
 	private var bSubcategoryFooSimple: Bool;
@@ -155,48 +155,48 @@ extern class PropertyEditorTestObject extends Object {
 	private var EnumAsByteEditCondition: TEnumAsByte<EPropertyEditorTestEnum>;
 	private var bEnabledWhenEnumIs2: Bool;
 	private var bEnabledWhenEnumIs4: Bool;
-	private var IntegerEditCondition: cpp.Int32;
+	private var IntegerEditCondition: ucpp.num.Int32;
 	private var bEnabledWhenIntGreaterOrEqual5: Bool;
 	private var bEnabledWhenIntLessOrEqual10: Bool;
-	private var FloatEditCondition: cpp.Float32;
+	private var FloatEditCondition: ucpp.num.Float32;
 	private var bEnabledWhenFloatGreaterThan5: Bool;
 	private var bEnabledWhenFloatLessThan10: Bool;
 	private var bEditConditionForArrays: Bool;
-	private var ArrayWithEditCondition: TArray<cpp.Star<Texture2D>>;
+	private var ArrayWithEditCondition: TArray<ucpp.Ptr<Texture2D>>;
 	private var ArrayOfStructsWithEditCondition: TArray<PropertyEditorTestBasicStruct>;
 	private var bEditConditionForFixedArray: Bool;
 	private var FixedArrayWithEditCondition: FString;
 	private var bEditConditionForDirectoryPath: Bool;
 	private var DirectoryPath: DirectoryPath;
-	private var EditConditionFlags: cpp.Int64;
+	private var EditConditionFlags: ucpp.num.Int64;
 	private var bEnabledWhenFlagsHasTwoOrFour: Bool;
 	private var bDisabledWhenFlagsIsOdd: Bool;
-	private var AlwaysDisabled: cpp.Int32;
+	private var AlwaysDisabled: ucpp.num.Int32;
 	private var bCategoryInlineEditCondition: Bool;
-	private var EnabledWhenCategoryChecked: cpp.Float32;
+	private var EnabledWhenCategoryChecked: ucpp.num.Float32;
 	private var InlineProperty: TEnumAsByte<EComponentMobility>;
 	private var PropertyThatHides: TEnumAsByte<EComponentMobility>;
 	private var bVisibleWhenStatic: Bool;
-	private var VisibleWhenStationary: cpp.Int32;
+	private var VisibleWhenStationary: ucpp.num.Int32;
 	private var DateTime: DateTime;
 	private var Timespan: Timespan;
 	private var Guid: Guid;
 	private var PerPlatformFloat: PerPlatformFloat;
 	private var PerPlatformInt: PerPlatformInt;
 	private var bInlineEditConditionWithoutMetaToggle: Bool;
-	private var InlineEditConditionWithoutMeta: cpp.Float32;
+	private var InlineEditConditionWithoutMeta: ucpp.num.Float32;
 	private var bInlineEditConditionWithMetaToggle: Bool;
-	private var InlineEditConditionWithMeta: cpp.Float32;
+	private var InlineEditConditionWithMeta: ucpp.num.Float32;
 	private var bInlineEditConditionNotEditable: Bool;
-	private var HasNonEditableInlineCondition: cpp.Float32;
+	private var HasNonEditableInlineCondition: ucpp.num.Float32;
 	private var bSharedEditCondition: Bool;
-	private var UsesSharedEditCondition1: cpp.Float32;
-	private var UsesSharedEditCondition2: cpp.Float32;
+	private var UsesSharedEditCondition1: ucpp.num.Float32;
+	private var UsesSharedEditCondition2: ucpp.num.Float32;
 	private var StructWithInlineCondition: PropertyEditorTestEditCondition;
 	private var ArrayOfStructsWithInlineCondition: TArray<PropertyEditorTestEditCondition>;
-	private var NestedArrayOfInts: cpp.Int32;
+	private var NestedArrayOfInts: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -207,7 +207,7 @@ abstract ConstPropertyEditorTestObject(PropertyEditorTestObject) from PropertyEd
 @:forward
 @:nativeGen
 @:native("PropertyEditorTestObject*")
-abstract PropertyEditorTestObjectPtr(cpp.Star<PropertyEditorTestObject>) from cpp.Star<PropertyEditorTestObject> to cpp.Star<PropertyEditorTestObject>{
+abstract PropertyEditorTestObjectPtr(ucpp.Ptr<PropertyEditorTestObject>) from ucpp.Ptr<PropertyEditorTestObject> to ucpp.Ptr<PropertyEditorTestObject>{
 	@:from
 	public static extern inline function fromValue(v: PropertyEditorTestObject): PropertyEditorTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

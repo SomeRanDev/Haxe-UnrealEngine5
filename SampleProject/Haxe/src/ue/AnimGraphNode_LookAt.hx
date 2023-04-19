@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_LookAt")
 @:include("AnimGraphNode_LookAt.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_LookAt extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_LookAt;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_LookAt(AnimGraphNode_LookAt) from AnimGraphNode_Look
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_LookAt*")
-abstract AnimGraphNode_LookAtPtr(cpp.Star<AnimGraphNode_LookAt>) from cpp.Star<AnimGraphNode_LookAt> to cpp.Star<AnimGraphNode_LookAt>{
+abstract AnimGraphNode_LookAtPtr(ucpp.Ptr<AnimGraphNode_LookAt>) from ucpp.Ptr<AnimGraphNode_LookAt> to ucpp.Ptr<AnimGraphNode_LookAt>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_LookAt): AnimGraphNode_LookAtPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavArea")
 @:include("NavAreas/NavArea.h")
-@:structAccess
+@:valueType
 extern class NavArea extends NavAreaBase {
-	public var DefaultCost: cpp.Float32;
-	@:protected public var FixedAreaEnteringCost: cpp.Float32;
+	public var DefaultCost: ucpp.num.Float32;
+	@:protected public var FixedAreaEnteringCost: ucpp.num.Float32;
 	public var DrawColor: Color;
 	public var SupportedAgents: NavAgentSelector;
 	public var bSupportsAgent0: Bool;
@@ -26,14 +26,14 @@ extern class NavArea extends NavAreaBase {
 	public var bSupportsAgent14: Bool;
 	public var bSupportsAgent15: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNavArea(NavArea) from NavArea {
-	public extern var DefaultCost(get, never): cpp.Float32;
-	public inline extern function get_DefaultCost(): cpp.Float32 return this.DefaultCost;
+	public extern var DefaultCost(get, never): ucpp.num.Float32;
+	public inline extern function get_DefaultCost(): ucpp.num.Float32 return this.DefaultCost;
 	public extern var DrawColor(get, never): Color;
 	public inline extern function get_DrawColor(): Color return this.DrawColor;
 	public extern var SupportedAgents(get, never): NavAgentSelector;
@@ -75,7 +75,7 @@ abstract ConstNavArea(NavArea) from NavArea {
 @:forward
 @:nativeGen
 @:native("NavArea*")
-abstract NavAreaPtr(cpp.Star<NavArea>) from cpp.Star<NavArea> to cpp.Star<NavArea>{
+abstract NavAreaPtr(ucpp.Ptr<NavArea>) from ucpp.Ptr<NavArea> to ucpp.Ptr<NavArea>{
 	@:from
 	public static extern inline function fromValue(v: NavArea): NavAreaPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("FRigVMByteCodeStatistics")
 @:include("RigVMCore/RigVMStatistics.h")
-@:structAccess
+@:valueType
 extern class RigVMByteCodeStatistics {
-	public var InstructionCount: cpp.Int32;
-	public var DataBytes: cpp.Int32;
+	public var InstructionCount: ucpp.num.Int32;
+	public var DataBytes: ucpp.num.Int32;
 
 	@:native("FRigVMByteCodeStatistics") public function new();
-	@:native("FRigVMByteCodeStatistics") public static function make(InstructionCount: cpp.Int32, DataBytes: cpp.Int32): RigVMByteCodeStatistics ;
+	@:native("FRigVMByteCodeStatistics") public static function make(InstructionCount: ucpp.num.Int32, DataBytes: ucpp.num.Int32): RigVMByteCodeStatistics ;
 }

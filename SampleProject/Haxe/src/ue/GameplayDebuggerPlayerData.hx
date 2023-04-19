@@ -3,12 +3,12 @@ package ue;
 
 @:native("FGameplayDebuggerPlayerData")
 @:include("GameplayDebuggerPlayerManager.h")
-@:structAccess
+@:valueType
 extern class GameplayDebuggerPlayerData {
-	public var Controller: cpp.Star<GameplayDebuggerLocalController>;
-	public var InputComponent: cpp.Star<InputComp>;
-	public var Replicator: cpp.Star<GameplayDebuggerCategoryReplicator>;
+	public var Controller: ucpp.Ptr<GameplayDebuggerLocalController>;
+	public var InputComponent: ucpp.Ptr<InputComp>;
+	public var Replicator: ucpp.Ptr<GameplayDebuggerCategoryReplicator>;
 
 	@:native("FGameplayDebuggerPlayerData") public function new();
-	@:native("FGameplayDebuggerPlayerData") public static function make(Controller: cpp.Star<GameplayDebuggerLocalController>, InputComponent: cpp.Star<InputComp>, Replicator: cpp.Star<GameplayDebuggerCategoryReplicator>): GameplayDebuggerPlayerData ;
+	@:native("FGameplayDebuggerPlayerData") public static function make(Controller: ucpp.Ptr<GameplayDebuggerLocalController>, InputComponent: ucpp.Ptr<InputComp>, Replicator: ucpp.Ptr<GameplayDebuggerCategoryReplicator>): GameplayDebuggerPlayerData ;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("USlateThemeManager")
 @:include("Styling/StyleColors.h")
-@:structAccess
+@:valueType
 extern class SlateThemeManager extends Object {
 	public var CurrentThemeId: Guid;
 	public var ActiveColors: StyleColorList;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSlateThemeManager(SlateThemeManager) from SlateThemeManager {
 @:forward
 @:nativeGen
 @:native("SlateThemeManager*")
-abstract SlateThemeManagerPtr(cpp.Star<SlateThemeManager>) from cpp.Star<SlateThemeManager> to cpp.Star<SlateThemeManager>{
+abstract SlateThemeManagerPtr(ucpp.Ptr<SlateThemeManager>) from ucpp.Ptr<SlateThemeManager> to ucpp.Ptr<SlateThemeManager>{
 	@:from
 	public static extern inline function fromValue(v: SlateThemeManager): SlateThemeManagerPtr {
 		return untyped __cpp__("&({0})", v);

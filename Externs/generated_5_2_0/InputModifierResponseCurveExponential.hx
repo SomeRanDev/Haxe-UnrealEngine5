@@ -3,11 +3,11 @@ package ue;
 
 @:native("UInputModifierResponseCurveExponential")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierResponseCurveExponential extends InputModifier {
 	public var CurveExponent: Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstInputModifierResponseCurveExponential(InputModifierResponseCurveEx
 @:forward
 @:nativeGen
 @:native("InputModifierResponseCurveExponential*")
-abstract InputModifierResponseCurveExponentialPtr(cpp.Star<InputModifierResponseCurveExponential>) from cpp.Star<InputModifierResponseCurveExponential> to cpp.Star<InputModifierResponseCurveExponential>{
+abstract InputModifierResponseCurveExponentialPtr(ucpp.Ptr<InputModifierResponseCurveExponential>) from ucpp.Ptr<InputModifierResponseCurveExponential> to ucpp.Ptr<InputModifierResponseCurveExponential>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierResponseCurveExponential): InputModifierResponseCurveExponentialPtr {
 		return untyped __cpp__("&({0})", v);

@@ -15,5 +15,7 @@ extern class EFunctionInputType {
 	static var FunctionInput_StaticBool: EFunctionInputType;
 	static var FunctionInput_MaterialAttributes: EFunctionInputType;
 	static var FunctionInput_TextureExternal: EFunctionInputType;
+	static var FunctionInput_Bool: EFunctionInputType;
+	static var FunctionInput_Substrate: EFunctionInputType;
 	static var FunctionInput_MAX: EFunctionInputType;
 }

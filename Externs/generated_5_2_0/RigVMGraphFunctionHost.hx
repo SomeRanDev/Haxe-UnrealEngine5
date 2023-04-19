@@ -2,10 +2,10 @@
 package ue;
 
 @:native("URigVMGraphFunctionHost")
-@:structAccess
+@:valueType
 extern class RigVMGraphFunctionHost extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstRigVMGraphFunctionHost(RigVMGraphFunctionHost) from RigVMGraphFunc
 @:forward
 @:nativeGen
 @:native("RigVMGraphFunctionHost*")
-abstract RigVMGraphFunctionHostPtr(cpp.Star<RigVMGraphFunctionHost>) from cpp.Star<RigVMGraphFunctionHost> to cpp.Star<RigVMGraphFunctionHost>{
+abstract RigVMGraphFunctionHostPtr(ucpp.Ptr<RigVMGraphFunctionHost>) from ucpp.Ptr<RigVMGraphFunctionHost> to ucpp.Ptr<RigVMGraphFunctionHost>{
 	@:from
 	public static extern inline function fromValue(v: RigVMGraphFunctionHost): RigVMGraphFunctionHostPtr {
 		return untyped __cpp__("&({0})", v);

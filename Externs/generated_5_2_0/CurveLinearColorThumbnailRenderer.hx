@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCurveLinearColorThumbnailRenderer")
 @:include("ThumbnailRendering/CurveLinearColorThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class CurveLinearColorThumbnailRenderer extends ThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCurveLinearColorThumbnailRenderer(CurveLinearColorThumbnailRendere
 @:forward
 @:nativeGen
 @:native("CurveLinearColorThumbnailRenderer*")
-abstract CurveLinearColorThumbnailRendererPtr(cpp.Star<CurveLinearColorThumbnailRenderer>) from cpp.Star<CurveLinearColorThumbnailRenderer> to cpp.Star<CurveLinearColorThumbnailRenderer>{
+abstract CurveLinearColorThumbnailRendererPtr(ucpp.Ptr<CurveLinearColorThumbnailRenderer>) from ucpp.Ptr<CurveLinearColorThumbnailRenderer> to ucpp.Ptr<CurveLinearColorThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: CurveLinearColorThumbnailRenderer): CurveLinearColorThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

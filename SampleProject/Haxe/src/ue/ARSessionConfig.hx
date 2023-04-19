@@ -3,7 +3,7 @@ package ue;
 
 @:native("UARSessionConfig")
 @:include("ARSessionConfig.h")
-@:structAccess
+@:valueType
 extern class ARSessionConfig extends DataAsset {
 	public var bGenerateMeshDataFromTrackedGeometry: Bool;
 	public var bGenerateCollisionForMeshData: Bool;
@@ -26,17 +26,17 @@ extern class ARSessionConfig extends DataAsset {
 	@:protected public var bEnableAutomaticCameraTracking: Bool;
 	@:protected public var bResetCameraTracking: Bool;
 	@:protected public var bResetTrackedObjects: Bool;
-	@:protected public var CandidateImages: TArray<cpp.Star<ARCandidateImage>>;
-	@:protected public var MaxNumSimultaneousImagesTracked: cpp.Int32;
+	@:protected public var CandidateImages: TArray<ucpp.Ptr<ARCandidateImage>>;
+	@:protected public var MaxNumSimultaneousImagesTracked: ucpp.num.Int32;
 	@:protected public var EnvironmentCaptureProbeType: EAREnvironmentCaptureProbeType;
-	@:protected public var WorldMapData: TArray<cpp.UInt8>;
-	@:protected public var CandidateObjects: TArray<cpp.Star<ARCandidateObject>>;
+	@:protected public var WorldMapData: TArray<ucpp.num.UInt8>;
+	@:protected public var CandidateObjects: TArray<ucpp.Ptr<ARCandidateObject>>;
 	@:protected public var DesiredVideoFormat: ARVideoFormat;
 	@:protected public var bUseOptimalVideoFormat: Bool;
 	@:protected public var FaceTrackingDirection: EARFaceTrackingDirection;
 	@:protected public var FaceTrackingUpdate: EARFaceTrackingUpdate;
-	@:protected public var MaxNumberOfTrackedFaces: cpp.Int32;
-	@:protected public var SerializedARCandidateImageDatabase: TArray<cpp.UInt8>;
+	@:protected public var MaxNumberOfTrackedFaces: ucpp.num.Int32;
+	@:protected public var SerializedARCandidateImageDatabase: TArray<ucpp.num.UInt8>;
 	@:protected public var EnabledSessionTrackingFeature: EARSessionTrackingFeature;
 	@:protected public var SceneReconstructionMethod: EARSceneReconstruction;
 	@:protected public var PlaneComponentClass: TSubclassOf<ARPlaneComp>;
@@ -49,15 +49,15 @@ extern class ARSessionConfig extends DataAsset {
 	@:protected public var ObjectComponentClass: TSubclassOf<ARObjectComp>;
 	@:protected public var MeshComponentClass: TSubclassOf<ARMeshComp>;
 	@:protected public var GeoAnchorComponentClass: TSubclassOf<ARGeoAnchorComp>;
-	@:protected public var DefaultMeshMaterial: cpp.Star<MaterialInterface>;
-	@:protected public var DefaultWireframeMeshMaterial: cpp.Star<MaterialInterface>;
+	@:protected public var DefaultMeshMaterial: ucpp.Ptr<MaterialInterface>;
+	@:protected public var DefaultWireframeMeshMaterial: ucpp.Ptr<MaterialInterface>;
 
 	public function ShouldResetTrackedObjects(): Bool;
 	public function ShouldResetCameraTracking(): Bool;
 	public function ShouldRenderCameraOverlay(): Bool;
 	public function ShouldEnableCameraTracking(): Bool;
 	public function ShouldEnableAutoFocus(): Bool;
-	public function SetWorldMapData(WorldMapData: TArray<cpp.UInt8>): Void;
+	public function SetWorldMapData(WorldMapData: TArray<ucpp.num.UInt8>): Void;
 	public function SetSessionTrackingFeatureToEnable(InSessionTrackingFeature: EARSessionTrackingFeature): Void;
 	public function SetSceneReconstructionMethod(InSceneReconstructionMethod: EARSceneReconstruction): Void;
 	public function SetResetTrackedObjects(bNewValue: Bool): Void;
@@ -66,13 +66,13 @@ extern class ARSessionConfig extends DataAsset {
 	public function SetFaceTrackingDirection(InDirection: EARFaceTrackingDirection): Void;
 	public function SetEnableAutoFocus(bNewValue: Bool): Void;
 	public function SetDesiredVideoFormat(NewFormat: ARVideoFormat): Void;
-	public function SetCandidateObjectList(InCandidateObjects: cpp.Reference<TArray<cpp.Star<ARCandidateObject>>>): Void;
-	public function GetWorldMapData(): TArray<cpp.UInt8>;
+	public function SetCandidateObjectList(InCandidateObjects: ucpp.Ref<TArray<ucpp.Ptr<ARCandidateObject>>>): Void;
+	public function GetWorldMapData(): TArray<ucpp.num.UInt8>;
 	public function GetWorldAlignment(): EARWorldAlignment;
 	public function GetSessionType(): EARSessionType;
 	public function GetSceneReconstructionMethod(): EARSceneReconstruction;
 	public function GetPlaneDetectionMode(): EARPlaneDetectionMode;
-	public function GetMaxNumSimultaneousImagesTracked(): cpp.Int32;
+	public function GetMaxNumSimultaneousImagesTracked(): ucpp.num.Int32;
 	public function GetLightEstimationMode(): EARLightEstimationMode;
 	public function GetFrameSyncMode(): EARFrameSyncMode;
 	public function GetFaceTrackingUpdate(): EARFaceTrackingUpdate;
@@ -80,12 +80,12 @@ extern class ARSessionConfig extends DataAsset {
 	public function GetEnvironmentCaptureProbeType(): EAREnvironmentCaptureProbeType;
 	public function GetEnabledSessionTrackingFeature(): EARSessionTrackingFeature;
 	public function GetDesiredVideoFormat(): ARVideoFormat;
-	public function GetCandidateObjectList(): TArray<cpp.Star<ARCandidateObject>>;
-	public function GetCandidateImageList(): TArray<cpp.Star<ARCandidateImage>>;
-	public function AddCandidateObject(CandidateObject: cpp.Star<ARCandidateObject>): Void;
-	public function AddCandidateImage(NewCandidateImage: cpp.Star<ARCandidateImage>): Void;
+	public function GetCandidateObjectList(): TArray<ucpp.Ptr<ARCandidateObject>>;
+	public function GetCandidateImageList(): TArray<ucpp.Ptr<ARCandidateImage>>;
+	public function AddCandidateObject(CandidateObject: ucpp.Ptr<ARCandidateObject>): Void;
+	public function AddCandidateImage(NewCandidateImage: ucpp.Ptr<ARCandidateImage>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -121,7 +121,7 @@ abstract ConstARSessionConfig(ARSessionConfig) from ARSessionConfig {
 @:forward
 @:nativeGen
 @:native("ARSessionConfig*")
-abstract ARSessionConfigPtr(cpp.Star<ARSessionConfig>) from cpp.Star<ARSessionConfig> to cpp.Star<ARSessionConfig>{
+abstract ARSessionConfigPtr(ucpp.Ptr<ARSessionConfig>) from ucpp.Ptr<ARSessionConfig> to ucpp.Ptr<ARSessionConfig>{
 	@:from
 	public static extern inline function fromValue(v: ARSessionConfig): ARSessionConfigPtr {
 		return untyped __cpp__("&({0})", v);

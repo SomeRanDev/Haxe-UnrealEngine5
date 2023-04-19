@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMotionExtractorModifier")
 @:include("MotionExtractorModifier.h")
-@:structAccess
+@:valueType
 extern class MotionExtractorModifier extends AnimationModifier {
 	public var BoneName: FName;
 	public var MotionType: EMotionExtractor_MotionType;
@@ -13,13 +13,13 @@ extern class MotionExtractorModifier extends AnimationModifier {
 	public var bComponentSpace: Bool;
 	public var bAbsoluteValue: Bool;
 	public var MathOperation: EMotionExtractor_MathOperation;
-	public var Modifier: cpp.Float32;
+	public var Modifier: ucpp.num.Float32;
 	public var bNormalize: Bool;
-	public var SampleRate: cpp.Int32;
+	public var SampleRate: ucpp.num.Int32;
 	public var bUseCustomCurveName: Bool;
 	public var CustomCurveName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,12 +41,12 @@ abstract ConstMotionExtractorModifier(MotionExtractorModifier) from MotionExtrac
 	public inline extern function get_bAbsoluteValue(): Bool return this.bAbsoluteValue;
 	public extern var MathOperation(get, never): EMotionExtractor_MathOperation;
 	public inline extern function get_MathOperation(): EMotionExtractor_MathOperation return this.MathOperation;
-	public extern var Modifier(get, never): cpp.Float32;
-	public inline extern function get_Modifier(): cpp.Float32 return this.Modifier;
+	public extern var Modifier(get, never): ucpp.num.Float32;
+	public inline extern function get_Modifier(): ucpp.num.Float32 return this.Modifier;
 	public extern var bNormalize(get, never): Bool;
 	public inline extern function get_bNormalize(): Bool return this.bNormalize;
-	public extern var SampleRate(get, never): cpp.Int32;
-	public inline extern function get_SampleRate(): cpp.Int32 return this.SampleRate;
+	public extern var SampleRate(get, never): ucpp.num.Int32;
+	public inline extern function get_SampleRate(): ucpp.num.Int32 return this.SampleRate;
 	public extern var bUseCustomCurveName(get, never): Bool;
 	public inline extern function get_bUseCustomCurveName(): Bool return this.bUseCustomCurveName;
 	public extern var CustomCurveName(get, never): FName;
@@ -56,7 +56,7 @@ abstract ConstMotionExtractorModifier(MotionExtractorModifier) from MotionExtrac
 @:forward
 @:nativeGen
 @:native("MotionExtractorModifier*")
-abstract MotionExtractorModifierPtr(cpp.Star<MotionExtractorModifier>) from cpp.Star<MotionExtractorModifier> to cpp.Star<MotionExtractorModifier>{
+abstract MotionExtractorModifierPtr(ucpp.Ptr<MotionExtractorModifier>) from ucpp.Ptr<MotionExtractorModifier> to ucpp.Ptr<MotionExtractorModifier>{
 	@:from
 	public static extern inline function fromValue(v: MotionExtractorModifier): MotionExtractorModifierPtr {
 		return untyped __cpp__("&({0})", v);

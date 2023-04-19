@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWorldPartitionHLODModifier")
 @:include("WorldPartition/HLOD/HLODModifier.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionHLODModifier extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionHLODModifier(WorldPartitionHLODModifier) from WorldP
 @:forward
 @:nativeGen
 @:native("WorldPartitionHLODModifier*")
-abstract WorldPartitionHLODModifierPtr(cpp.Star<WorldPartitionHLODModifier>) from cpp.Star<WorldPartitionHLODModifier> to cpp.Star<WorldPartitionHLODModifier>{
+abstract WorldPartitionHLODModifierPtr(ucpp.Ptr<WorldPartitionHLODModifier>) from ucpp.Ptr<WorldPartitionHLODModifier> to ucpp.Ptr<WorldPartitionHLODModifier>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionHLODModifier): WorldPartitionHLODModifierPtr {
 		return untyped __cpp__("&({0})", v);

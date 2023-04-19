@@ -3,7 +3,7 @@ package ue;
 
 @:native("FComponentPropertyPath")
 @:include("ComponentVisualizer.h")
-@:structAccess
+@:valueType
 extern class ComponentPropertyPath {
 	private var ParentOwningActor: TWeakObjectPtr<Actor>;
 	private var LastResortComponentPtr: TWeakObjectPtr<ActorComp>;

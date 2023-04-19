@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNavigationSystemModuleConfig")
 @:include("NavigationSystem.h")
-@:structAccess
+@:valueType
 extern class NavigationSystemModuleConfig extends NavigationSystemConfig {
 	@:protected public var bStrictlyStatic: Bool;
 	@:protected public var bCreateOnClient: Bool;
 	@:protected public var bAutoSpawnMissingNavData: Bool;
 	@:protected public var bSpawnNavDataInNavBoundsLevel: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstNavigationSystemModuleConfig(NavigationSystemModuleConfig) from Na
 @:forward
 @:nativeGen
 @:native("NavigationSystemModuleConfig*")
-abstract NavigationSystemModuleConfigPtr(cpp.Star<NavigationSystemModuleConfig>) from cpp.Star<NavigationSystemModuleConfig> to cpp.Star<NavigationSystemModuleConfig>{
+abstract NavigationSystemModuleConfigPtr(ucpp.Ptr<NavigationSystemModuleConfig>) from ucpp.Ptr<NavigationSystemModuleConfig> to ucpp.Ptr<NavigationSystemModuleConfig>{
 	@:from
 	public static extern inline function fromValue(v: NavigationSystemModuleConfig): NavigationSystemModuleConfigPtr {
 		return untyped __cpp__("&({0})", v);

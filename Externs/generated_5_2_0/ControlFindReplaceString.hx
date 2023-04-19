@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlFindReplaceString")
 @:include("MovieSceneToolsUserSettings.h")
-@:structAccess
+@:valueType
 extern class ControlFindReplaceString {
 	public var Find: FString;
 	public var Replace: FString;

@@ -8,6 +8,7 @@ extern class EClusterUnionMethod {
 	static var DelaunayTriangulation: EClusterUnionMethod;
 	static var MinimalSpanningSubsetDelaunayTriangulation: EClusterUnionMethod;
 	static var PointImplicitAugmentedWithMinimalDelaunay: EClusterUnionMethod;
+	static var BoundsOverlapFilteredDelaunayTriangulation: EClusterUnionMethod;
 	static var None: EClusterUnionMethod;
 	static var EClusterUnionMethod_MAX: EClusterUnionMethod;
 }

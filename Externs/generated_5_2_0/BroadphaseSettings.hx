@@ -3,14 +3,14 @@ package ue;
 
 @:native("FBroadphaseSettings")
 @:include("GameFramework/WorldSettings.h")
-@:structAccess
+@:valueType
 extern class BroadphaseSettings {
 	public var bUseMBPOnClient: Bool;
 	public var bUseMBPOnServer: Bool;
 	public var bUseMBPOuterBounds: Bool;
 	public var MBPBounds: Box;
 	public var MBPOuterBounds: Box;
-	public var MBPNumSubdivs: cpp.UInt32;
+	public var MBPNumSubdivs: ucpp.num.UInt32;
 
 	@:native("FBroadphaseSettings") public function new();
 }

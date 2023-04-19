@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLinearDriveConstraint")
 @:include("PhysicsEngine/ConstraintDrives.h")
-@:structAccess
+@:valueType
 extern class LinearDriveConstraint {
 	public var PositionTarget: Vector;
 	public var VelocityTarget: Vector;

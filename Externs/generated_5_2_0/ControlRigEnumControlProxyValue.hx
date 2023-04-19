@@ -3,11 +3,11 @@ package ue;
 
 @:native("FControlRigEnumControlProxyValue")
 @:include("Private/EditMode/ControlRigControlsProxy.h")
-@:structAccess
+@:valueType
 extern class ControlRigEnumControlProxyValue {
-	public var EnumType: cpp.Star<Enum>;
-	public var EnumIndex: cpp.Int32;
+	public var EnumType: ucpp.Ptr<Enum>;
+	public var EnumIndex: ucpp.num.Int32;
 
 	@:native("FControlRigEnumControlProxyValue") public function new();
-	@:native("FControlRigEnumControlProxyValue") public static function make(EnumType: cpp.Star<Enum>, EnumIndex: cpp.Int32): ControlRigEnumControlProxyValue ;
+	@:native("FControlRigEnumControlProxyValue") public static function make(EnumType: ucpp.Ptr<Enum>, EnumIndex: ucpp.num.Int32): ControlRigEnumControlProxyValue ;
 }

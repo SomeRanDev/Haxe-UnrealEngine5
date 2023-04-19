@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMaterialFunctionInstanceFactory")
 @:include("Factories/MaterialFunctionInstanceFactory.h")
-@:structAccess
+@:valueType
 extern class MaterialFunctionInstanceFactory extends Factory {
-	public var InitialParent: cpp.Star<MaterialFunctionInterface>;
+	public var InitialParent: ucpp.Ptr<MaterialFunctionInterface>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialFunctionInstanceFactory(MaterialFunctionInstanceFactory) from MaterialFunctionInstanceFactory {
-	public extern var InitialParent(get, never): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface>;
-	public inline extern function get_InitialParent(): cpp.Star<MaterialFunctionInterface.ConstMaterialFunctionInterface> return this.InitialParent;
+	public extern var InitialParent(get, never): ucpp.Ptr<MaterialFunctionInterface.ConstMaterialFunctionInterface>;
+	public inline extern function get_InitialParent(): ucpp.Ptr<MaterialFunctionInterface.ConstMaterialFunctionInterface> return this.InitialParent;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialFunctionInstanceFactory*")
-abstract MaterialFunctionInstanceFactoryPtr(cpp.Star<MaterialFunctionInstanceFactory>) from cpp.Star<MaterialFunctionInstanceFactory> to cpp.Star<MaterialFunctionInstanceFactory>{
+abstract MaterialFunctionInstanceFactoryPtr(ucpp.Ptr<MaterialFunctionInstanceFactory>) from ucpp.Ptr<MaterialFunctionInstanceFactory> to ucpp.Ptr<MaterialFunctionInstanceFactory>{
 	@:from
 	public static extern inline function fromValue(v: MaterialFunctionInstanceFactory): MaterialFunctionInstanceFactoryPtr {
 		return untyped __cpp__("&({0})", v);

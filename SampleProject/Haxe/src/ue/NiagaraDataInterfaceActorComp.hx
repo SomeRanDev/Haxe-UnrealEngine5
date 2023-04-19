@@ -3,13 +3,15 @@ package ue;
 
 @:native("UNiagaraDataInterfaceActorComponent")
 @:include("DataInterface/NiagaraDataInterfaceActorComponent.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceActorComp extends NiagaraDataInterface {
 	public var bRequireCurrentFrameData: Bool;
+	public var SourceMode: ENDIActorComponentSourceMode;
+	public var LocalPlayerIndex: ucpp.num.Int32;
 	public var SourceActor: TLazyObjectPtr<Actor>;
 	public var ActorOrComponentParameter: NiagaraUserParameterBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,6 +19,10 @@ extern class NiagaraDataInterfaceActorComp extends NiagaraDataInterface {
 abstract ConstNiagaraDataInterfaceActorComp(NiagaraDataInterfaceActorComp) from NiagaraDataInterfaceActorComp {
 	public extern var bRequireCurrentFrameData(get, never): Bool;
 	public inline extern function get_bRequireCurrentFrameData(): Bool return this.bRequireCurrentFrameData;
+	public extern var SourceMode(get, never): ENDIActorComponentSourceMode;
+	public inline extern function get_SourceMode(): ENDIActorComponentSourceMode return this.SourceMode;
+	public extern var LocalPlayerIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LocalPlayerIndex(): ucpp.num.Int32 return this.LocalPlayerIndex;
 	public extern var SourceActor(get, never): TLazyObjectPtr<Actor.ConstActor>;
 	public inline extern function get_SourceActor(): TLazyObjectPtr<Actor.ConstActor> return this.SourceActor;
 	public extern var ActorOrComponentParameter(get, never): NiagaraUserParameterBinding;
@@ -26,7 +32,7 @@ abstract ConstNiagaraDataInterfaceActorComp(NiagaraDataInterfaceActorComp) from 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceActorComp*")
-abstract NiagaraDataInterfaceActorCompPtr(cpp.Star<NiagaraDataInterfaceActorComp>) from cpp.Star<NiagaraDataInterfaceActorComp> to cpp.Star<NiagaraDataInterfaceActorComp>{
+abstract NiagaraDataInterfaceActorCompPtr(ucpp.Ptr<NiagaraDataInterfaceActorComp>) from ucpp.Ptr<NiagaraDataInterfaceActorComp> to ucpp.Ptr<NiagaraDataInterfaceActorComp>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceActorComp): NiagaraDataInterfaceActorCompPtr {
 		return untyped __cpp__("&({0})", v);

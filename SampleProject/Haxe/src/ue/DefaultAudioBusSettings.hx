@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDefaultAudioBusSettings")
 @:include("Sound/AudioSettings.h")
-@:structAccess
+@:valueType
 extern class DefaultAudioBusSettings {
 	public var AudioBus: SoftObjectPath;
 

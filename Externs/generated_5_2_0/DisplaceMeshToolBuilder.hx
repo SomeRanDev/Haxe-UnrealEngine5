@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDisplaceMeshToolBuilder")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class DisplaceMeshToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDisplaceMeshToolBuilder(DisplaceMeshToolBuilder) from DisplaceMesh
 @:forward
 @:nativeGen
 @:native("DisplaceMeshToolBuilder*")
-abstract DisplaceMeshToolBuilderPtr(cpp.Star<DisplaceMeshToolBuilder>) from cpp.Star<DisplaceMeshToolBuilder> to cpp.Star<DisplaceMeshToolBuilder>{
+abstract DisplaceMeshToolBuilderPtr(ucpp.Ptr<DisplaceMeshToolBuilder>) from ucpp.Ptr<DisplaceMeshToolBuilder> to ucpp.Ptr<DisplaceMeshToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: DisplaceMeshToolBuilder): DisplaceMeshToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

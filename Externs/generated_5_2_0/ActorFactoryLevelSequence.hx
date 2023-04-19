@@ -3,10 +3,10 @@ package ue;
 
 @:native("UActorFactoryLevelSequence")
 @:include("Factories/ActorFactoryLevelSequence.h")
-@:structAccess
+@:valueType
 extern class ActorFactoryLevelSequence extends ActorFactory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstActorFactoryLevelSequence(ActorFactoryLevelSequence) from ActorFac
 @:forward
 @:nativeGen
 @:native("ActorFactoryLevelSequence*")
-abstract ActorFactoryLevelSequencePtr(cpp.Star<ActorFactoryLevelSequence>) from cpp.Star<ActorFactoryLevelSequence> to cpp.Star<ActorFactoryLevelSequence>{
+abstract ActorFactoryLevelSequencePtr(ucpp.Ptr<ActorFactoryLevelSequence>) from ucpp.Ptr<ActorFactoryLevelSequence> to ucpp.Ptr<ActorFactoryLevelSequence>{
 	@:from
 	public static extern inline function fromValue(v: ActorFactoryLevelSequence): ActorFactoryLevelSequencePtr {
 		return untyped __cpp__("&({0})", v);

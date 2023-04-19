@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundExporterOGG")
 @:include("Exporters/SoundExporterOGG.h")
-@:structAccess
+@:valueType
 extern class SoundExporterOGG extends Exporter {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundExporterOGG(SoundExporterOGG) from SoundExporterOGG {
 @:forward
 @:nativeGen
 @:native("SoundExporterOGG*")
-abstract SoundExporterOGGPtr(cpp.Star<SoundExporterOGG>) from cpp.Star<SoundExporterOGG> to cpp.Star<SoundExporterOGG>{
+abstract SoundExporterOGGPtr(ucpp.Ptr<SoundExporterOGG>) from ucpp.Ptr<SoundExporterOGG> to ucpp.Ptr<SoundExporterOGG>{
 	@:from
 	public static extern inline function fromValue(v: SoundExporterOGG): SoundExporterOGGPtr {
 		return untyped __cpp__("&({0})", v);

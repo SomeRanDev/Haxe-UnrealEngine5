@@ -3,12 +3,12 @@ package ue;
 
 @:native("UStatePerObjectConfig")
 @:include("Net/Core/Connection/StateStruct.h")
-@:structAccess
+@:valueType
 extern class StatePerObjectConfig extends Object {
 	private var PerObjectConfigSection: FString;
 	public var bEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstStatePerObjectConfig(StatePerObjectConfig) from StatePerObjectConf
 @:forward
 @:nativeGen
 @:native("StatePerObjectConfig*")
-abstract StatePerObjectConfigPtr(cpp.Star<StatePerObjectConfig>) from cpp.Star<StatePerObjectConfig> to cpp.Star<StatePerObjectConfig>{
+abstract StatePerObjectConfigPtr(ucpp.Ptr<StatePerObjectConfig>) from ucpp.Ptr<StatePerObjectConfig> to ucpp.Ptr<StatePerObjectConfig>{
 	@:from
 	public static extern inline function fromValue(v: StatePerObjectConfig): StatePerObjectConfigPtr {
 		return untyped __cpp__("&({0})", v);

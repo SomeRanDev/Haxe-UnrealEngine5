@@ -3,7 +3,7 @@ package ue;
 
 @:native("UKismetStringTableLibrary")
 @:include("Kismet/KismetStringTableLibrary.h")
-@:structAccess
+@:valueType
 extern class KismetStringTableLibrary extends BlueprintFunctionLibrary {
 	public function IsRegisteredTableId(TableId: FName): Bool;
 	public function IsRegisteredTableEntry(TableId: FName, Key: FString): Bool;
@@ -14,7 +14,7 @@ extern class KismetStringTableLibrary extends BlueprintFunctionLibrary {
 	public function GetMetaDataIdsFromStringTableEntry(TableId: FName, Key: FString): TArray<FName>;
 	public function GetKeysFromStringTable(TableId: FName): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstKismetStringTableLibrary(KismetStringTableLibrary) from KismetStri
 @:forward
 @:nativeGen
 @:native("KismetStringTableLibrary*")
-abstract KismetStringTableLibraryPtr(cpp.Star<KismetStringTableLibrary>) from cpp.Star<KismetStringTableLibrary> to cpp.Star<KismetStringTableLibrary>{
+abstract KismetStringTableLibraryPtr(ucpp.Ptr<KismetStringTableLibrary>) from ucpp.Ptr<KismetStringTableLibrary> to ucpp.Ptr<KismetStringTableLibrary>{
 	@:from
 	public static extern inline function fromValue(v: KismetStringTableLibrary): KismetStringTableLibraryPtr {
 		return untyped __cpp__("&({0})", v);

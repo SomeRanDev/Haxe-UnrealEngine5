@@ -2,13 +2,13 @@
 package ue;
 
 @:native("UREINST_ABP_Quinn_C_1")
-@:structAccess
+@:valueType
 extern class REINST_ABP_Quinn_C_1 extends ABP_Manny_C {
 	public var UberGraphFrame: PointerToUberGraphFrame;
 
-	public function ExecuteUbergraph_ABP_Quinn(EntryPoint: cpp.Int32): Void;
+	public function ExecuteUbergraph_ABP_Quinn(EntryPoint: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstREINST_ABP_Quinn_C_1(REINST_ABP_Quinn_C_1) from REINST_ABP_Quinn_C
 @:forward
 @:nativeGen
 @:native("REINST_ABP_Quinn_C_1*")
-abstract REINST_ABP_Quinn_C_1Ptr(cpp.Star<REINST_ABP_Quinn_C_1>) from cpp.Star<REINST_ABP_Quinn_C_1> to cpp.Star<REINST_ABP_Quinn_C_1>{
+abstract REINST_ABP_Quinn_C_1Ptr(ucpp.Ptr<REINST_ABP_Quinn_C_1>) from ucpp.Ptr<REINST_ABP_Quinn_C_1> to ucpp.Ptr<REINST_ABP_Quinn_C_1>{
 	@:from
 	public static extern inline function fromValue(v: REINST_ABP_Quinn_C_1): REINST_ABP_Quinn_C_1Ptr {
 		return untyped __cpp__("&({0})", v);

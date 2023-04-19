@@ -3,13 +3,13 @@ package ue;
 
 @:native("FChaosBreakingEventRequestSettings")
 @:include("ChaosBreakingEventFilter.h")
-@:structAccess
+@:valueType
 extern class ChaosBreakingEventRequestSettings {
-	public var MaxNumberOfResults: cpp.Int32;
-	public var MinRadius: cpp.Float32;
-	public var MinSpeed: cpp.Float32;
-	public var MinMass: cpp.Float32;
-	public var MaxDistance: cpp.Float32;
+	public var MaxNumberOfResults: ucpp.num.Int32;
+	public var MinRadius: ucpp.num.Float32;
+	public var MinSpeed: ucpp.num.Float32;
+	public var MinMass: ucpp.num.Float32;
+	public var MaxDistance: ucpp.num.Float32;
 	public var SortMethod: EChaosBreakingSortMethod;
 
 	@:native("FChaosBreakingEventRequestSettings") public function new();

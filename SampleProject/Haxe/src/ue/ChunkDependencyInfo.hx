@@ -3,11 +3,11 @@ package ue;
 
 @:native("UChunkDependencyInfo")
 @:include("Commandlets/ChunkDependencyInfo.h")
-@:structAccess
+@:valueType
 extern class ChunkDependencyInfo extends Object {
 	public var DependencyArray: TArray<ChunkDependency>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstChunkDependencyInfo(ChunkDependencyInfo) from ChunkDependencyInfo 
 @:forward
 @:nativeGen
 @:native("ChunkDependencyInfo*")
-abstract ChunkDependencyInfoPtr(cpp.Star<ChunkDependencyInfo>) from cpp.Star<ChunkDependencyInfo> to cpp.Star<ChunkDependencyInfo>{
+abstract ChunkDependencyInfoPtr(ucpp.Ptr<ChunkDependencyInfo>) from ucpp.Ptr<ChunkDependencyInfo> to ucpp.Ptr<ChunkDependencyInfo>{
 	@:from
 	public static extern inline function fromValue(v: ChunkDependencyInfo): ChunkDependencyInfoPtr {
 		return untyped __cpp__("&({0})", v);

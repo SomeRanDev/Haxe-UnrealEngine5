@@ -3,17 +3,17 @@ package ue;
 
 @:native("FSoundSubmixSendInfo")
 @:include("Sound/SoundSubmixSend.h")
-@:structAccess
+@:valueType
 extern class SoundSubmixSendInfo {
 	public var SendLevelControlMethod: ESendLevelControlMethod;
 	public var SendStage: ESubmixSendStage;
-	public var SoundSubmix: cpp.Star<SoundSubmixBase>;
-	public var SendLevel: cpp.Float32;
+	public var SoundSubmix: ucpp.Ptr<SoundSubmixBase>;
+	public var SendLevel: ucpp.num.Float32;
 	public var DisableManualSendClamp: Bool;
-	public var MinSendLevel: cpp.Float32;
-	public var MaxSendLevel: cpp.Float32;
-	public var MinSendDistance: cpp.Float32;
-	public var MaxSendDistance: cpp.Float32;
+	public var MinSendLevel: ucpp.num.Float32;
+	public var MaxSendLevel: ucpp.num.Float32;
+	public var MinSendDistance: ucpp.num.Float32;
+	public var MaxSendDistance: ucpp.num.Float32;
 	public var CustomSendLevelCurve: RuntimeFloatCurve;
 
 	@:native("FSoundSubmixSendInfo") public function new();

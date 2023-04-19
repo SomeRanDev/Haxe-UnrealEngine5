@@ -3,13 +3,13 @@ package ue;
 
 @:native("FChaosTrailingEventRequestSettings")
 @:include("ChaosTrailingEventFilter.h")
-@:structAccess
+@:valueType
 extern class ChaosTrailingEventRequestSettings {
-	public var MaxNumberOfResults: cpp.Int32;
-	public var MinMass: cpp.Float32;
-	public var MinSpeed: cpp.Float32;
-	public var MinAngularSpeed: cpp.Float32;
-	public var MaxDistance: cpp.Float32;
+	public var MaxNumberOfResults: ucpp.num.Int32;
+	public var MinMass: ucpp.num.Float32;
+	public var MinSpeed: ucpp.num.Float32;
+	public var MinAngularSpeed: ucpp.num.Float32;
+	public var MaxDistance: ucpp.num.Float32;
 	public var SortMethod: EChaosTrailingSortMethod;
 
 	@:native("FChaosTrailingEventRequestSettings") public function new();

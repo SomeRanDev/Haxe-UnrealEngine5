@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UNavigationDataInterface")
-@:structAccess
+@:valueType
 extern class NavigationDataInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstNavigationDataInterface(NavigationDataInterface) from NavigationDa
 @:forward
 @:nativeGen
 @:native("NavigationDataInterface*")
-abstract NavigationDataInterfacePtr(cpp.Star<NavigationDataInterface>) from cpp.Star<NavigationDataInterface> to cpp.Star<NavigationDataInterface>{
+abstract NavigationDataInterfacePtr(ucpp.Ptr<NavigationDataInterface>) from ucpp.Ptr<NavigationDataInterface> to ucpp.Ptr<NavigationDataInterface>{
 	@:from
 	public static extern inline function fromValue(v: NavigationDataInterface): NavigationDataInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("USourceControlMenuContext")
 @:include("SourceControlMenuContext.h")
-@:structAccess
+@:valueType
 extern class SourceControlMenuContext extends Object {
 	public var SelectedFiles: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSourceControlMenuContext(SourceControlMenuContext) from SourceCont
 @:forward
 @:nativeGen
 @:native("SourceControlMenuContext*")
-abstract SourceControlMenuContextPtr(cpp.Star<SourceControlMenuContext>) from cpp.Star<SourceControlMenuContext> to cpp.Star<SourceControlMenuContext>{
+abstract SourceControlMenuContextPtr(ucpp.Ptr<SourceControlMenuContext>) from ucpp.Ptr<SourceControlMenuContext> to ucpp.Ptr<SourceControlMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: SourceControlMenuContext): SourceControlMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

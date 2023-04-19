@@ -3,13 +3,13 @@ package ue;
 
 @:native("UGizmoElementTorus")
 @:include("BaseGizmos/GizmoElementTorus.h")
-@:structAccess
+@:valueType
 extern class GizmoElementTorus extends GizmoElementCircleBase {
-	@:protected public var InnerRadius: cpp.Float64;
-	@:protected public var NumInnerSlices: cpp.Int32;
+	@:protected public var InnerRadius: ucpp.num.Float64;
+	@:protected public var NumInnerSlices: ucpp.num.Int32;
 	@:protected public var bEndCaps: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstGizmoElementTorus(GizmoElementTorus) from GizmoElementTorus {
 @:forward
 @:nativeGen
 @:native("GizmoElementTorus*")
-abstract GizmoElementTorusPtr(cpp.Star<GizmoElementTorus>) from cpp.Star<GizmoElementTorus> to cpp.Star<GizmoElementTorus>{
+abstract GizmoElementTorusPtr(ucpp.Ptr<GizmoElementTorus>) from ucpp.Ptr<GizmoElementTorus> to ucpp.Ptr<GizmoElementTorus>{
 	@:from
 	public static extern inline function fromValue(v: GizmoElementTorus): GizmoElementTorusPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDetailsConfig")
 @:include("DetailsViewConfig.h")
-@:structAccess
+@:valueType
 extern class DetailsConfig extends EditorConfigBase {
 	public var Views: TMap<FName, DetailsViewConfig>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDetailsConfig(DetailsConfig) from DetailsConfig {
 @:forward
 @:nativeGen
 @:native("DetailsConfig*")
-abstract DetailsConfigPtr(cpp.Star<DetailsConfig>) from cpp.Star<DetailsConfig> to cpp.Star<DetailsConfig>{
+abstract DetailsConfigPtr(ucpp.Ptr<DetailsConfig>) from ucpp.Ptr<DetailsConfig> to ucpp.Ptr<DetailsConfig>{
 	@:from
 	public static extern inline function fromValue(v: DetailsConfig): DetailsConfigPtr {
 		return untyped __cpp__("&({0})", v);

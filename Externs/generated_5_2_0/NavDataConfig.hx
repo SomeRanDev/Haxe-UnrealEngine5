@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNavDataConfig")
 @:include("AI/Navigation/NavigationTypes.h")
-@:structAccess
+@:valueType
 extern class NavDataConfig extends NavAgentProperties {
 	public var Name: FName;
 	public var Color: Color;

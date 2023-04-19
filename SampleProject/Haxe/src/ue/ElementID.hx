@@ -3,10 +3,10 @@ package ue;
 
 @:native("FElementID")
 @:include("MeshTypes.h")
-@:structAccess
+@:valueType
 extern class ElementID {
-	@:protected public var IDValue: cpp.Int32;
+	@:protected public var IDValue: ucpp.num.Int32;
 
 	@:native("FElementID") public function new();
-	@:native("FElementID") public static function make(IDValue: cpp.Int32): ElementID ;
+	@:native("FElementID") public static function make(IDValue: ucpp.num.Int32): ElementID ;
 }

@@ -3,24 +3,27 @@ package ue;
 
 @:native("UMaterialExpressionSkyAtmosphereLightDiskLuminance")
 @:include("Materials/MaterialExpressionSkyAtmosphereLightIlluminance.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSkyAtmosphereLightDiskLuminance extends MaterialExpression {
-	public var LightIndex: cpp.Int32;
+	public var LightIndex: ucpp.num.Int32;
+	public var DiskAngularDiameterOverride: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionSkyAtmosphereLightDiskLuminance(MaterialExpressionSkyAtmosphereLightDiskLuminance) from MaterialExpressionSkyAtmosphereLightDiskLuminance {
-	public extern var LightIndex(get, never): cpp.Int32;
-	public inline extern function get_LightIndex(): cpp.Int32 return this.LightIndex;
+	public extern var LightIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LightIndex(): ucpp.num.Int32 return this.LightIndex;
+	public extern var DiskAngularDiameterOverride(get, never): ExpressionInput;
+	public inline extern function get_DiskAngularDiameterOverride(): ExpressionInput return this.DiskAngularDiameterOverride;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSkyAtmosphereLightDiskLuminance*")
-abstract MaterialExpressionSkyAtmosphereLightDiskLuminancePtr(cpp.Star<MaterialExpressionSkyAtmosphereLightDiskLuminance>) from cpp.Star<MaterialExpressionSkyAtmosphereLightDiskLuminance> to cpp.Star<MaterialExpressionSkyAtmosphereLightDiskLuminance>{
+abstract MaterialExpressionSkyAtmosphereLightDiskLuminancePtr(ucpp.Ptr<MaterialExpressionSkyAtmosphereLightDiskLuminance>) from ucpp.Ptr<MaterialExpressionSkyAtmosphereLightDiskLuminance> to ucpp.Ptr<MaterialExpressionSkyAtmosphereLightDiskLuminance>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSkyAtmosphereLightDiskLuminance): MaterialExpressionSkyAtmosphereLightDiskLuminancePtr {
 		return untyped __cpp__("&({0})", v);

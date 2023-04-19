@@ -3,10 +3,10 @@ package ue;
 
 @:native("URichTextBlockDecorator")
 @:include("Components/RichTextBlockDecorator.h")
-@:structAccess
+@:valueType
 extern class RichTextBlockDecorator extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRichTextBlockDecorator(RichTextBlockDecorator) from RichTextBlockD
 @:forward
 @:nativeGen
 @:native("RichTextBlockDecorator*")
-abstract RichTextBlockDecoratorPtr(cpp.Star<RichTextBlockDecorator>) from cpp.Star<RichTextBlockDecorator> to cpp.Star<RichTextBlockDecorator>{
+abstract RichTextBlockDecoratorPtr(ucpp.Ptr<RichTextBlockDecorator>) from ucpp.Ptr<RichTextBlockDecorator> to ucpp.Ptr<RichTextBlockDecorator>{
 	@:from
 	public static extern inline function fromValue(v: RichTextBlockDecorator): RichTextBlockDecoratorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,48 +3,48 @@ package ue;
 
 @:native("UBakeRenderCaptureResults")
 @:include("BakeRenderCaptureTool.h")
-@:structAccess
+@:valueType
 extern class BakeRenderCaptureResults extends InteractiveToolPropertySet {
-	public var BaseColorMap: cpp.Star<Texture2D>;
-	public var NormalMap: cpp.Star<Texture2D>;
-	public var PackedMRSMap: cpp.Star<Texture2D>;
-	public var MetallicMap: cpp.Star<Texture2D>;
-	public var RoughnessMap: cpp.Star<Texture2D>;
-	public var SpecularMap: cpp.Star<Texture2D>;
-	public var EmissiveMap: cpp.Star<Texture2D>;
-	public var OpacityMap: cpp.Star<Texture2D>;
-	public var SubsurfaceColorMap: cpp.Star<Texture2D>;
+	public var BaseColorMap: ucpp.Ptr<Texture2D>;
+	public var NormalMap: ucpp.Ptr<Texture2D>;
+	public var PackedMRSMap: ucpp.Ptr<Texture2D>;
+	public var MetallicMap: ucpp.Ptr<Texture2D>;
+	public var RoughnessMap: ucpp.Ptr<Texture2D>;
+	public var SpecularMap: ucpp.Ptr<Texture2D>;
+	public var EmissiveMap: ucpp.Ptr<Texture2D>;
+	public var OpacityMap: ucpp.Ptr<Texture2D>;
+	public var SubsurfaceColorMap: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBakeRenderCaptureResults(BakeRenderCaptureResults) from BakeRenderCaptureResults {
-	public extern var BaseColorMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_BaseColorMap(): cpp.Star<Texture2D.ConstTexture2D> return this.BaseColorMap;
-	public extern var NormalMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_NormalMap(): cpp.Star<Texture2D.ConstTexture2D> return this.NormalMap;
-	public extern var PackedMRSMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_PackedMRSMap(): cpp.Star<Texture2D.ConstTexture2D> return this.PackedMRSMap;
-	public extern var MetallicMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_MetallicMap(): cpp.Star<Texture2D.ConstTexture2D> return this.MetallicMap;
-	public extern var RoughnessMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_RoughnessMap(): cpp.Star<Texture2D.ConstTexture2D> return this.RoughnessMap;
-	public extern var SpecularMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_SpecularMap(): cpp.Star<Texture2D.ConstTexture2D> return this.SpecularMap;
-	public extern var EmissiveMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_EmissiveMap(): cpp.Star<Texture2D.ConstTexture2D> return this.EmissiveMap;
-	public extern var OpacityMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_OpacityMap(): cpp.Star<Texture2D.ConstTexture2D> return this.OpacityMap;
-	public extern var SubsurfaceColorMap(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_SubsurfaceColorMap(): cpp.Star<Texture2D.ConstTexture2D> return this.SubsurfaceColorMap;
+	public extern var BaseColorMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_BaseColorMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.BaseColorMap;
+	public extern var NormalMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_NormalMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.NormalMap;
+	public extern var PackedMRSMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_PackedMRSMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.PackedMRSMap;
+	public extern var MetallicMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_MetallicMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.MetallicMap;
+	public extern var RoughnessMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_RoughnessMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.RoughnessMap;
+	public extern var SpecularMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_SpecularMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.SpecularMap;
+	public extern var EmissiveMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_EmissiveMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.EmissiveMap;
+	public extern var OpacityMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_OpacityMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.OpacityMap;
+	public extern var SubsurfaceColorMap(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_SubsurfaceColorMap(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.SubsurfaceColorMap;
 }
 
 @:forward
 @:nativeGen
 @:native("BakeRenderCaptureResults*")
-abstract BakeRenderCaptureResultsPtr(cpp.Star<BakeRenderCaptureResults>) from cpp.Star<BakeRenderCaptureResults> to cpp.Star<BakeRenderCaptureResults>{
+abstract BakeRenderCaptureResultsPtr(ucpp.Ptr<BakeRenderCaptureResults>) from ucpp.Ptr<BakeRenderCaptureResults> to ucpp.Ptr<BakeRenderCaptureResults>{
 	@:from
 	public static extern inline function fromValue(v: BakeRenderCaptureResults): BakeRenderCaptureResultsPtr {
 		return untyped __cpp__("&({0})", v);

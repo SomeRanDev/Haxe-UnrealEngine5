@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBTDecorator_ForceSuccess")
 @:include("BehaviorTree/Decorators/BTDecorator_ForceSuccess.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_ForceSuccess extends BTDecorator {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBTDecorator_ForceSuccess(BTDecorator_ForceSuccess) from BTDecorato
 @:forward
 @:nativeGen
 @:native("BTDecorator_ForceSuccess*")
-abstract BTDecorator_ForceSuccessPtr(cpp.Star<BTDecorator_ForceSuccess>) from cpp.Star<BTDecorator_ForceSuccess> to cpp.Star<BTDecorator_ForceSuccess>{
+abstract BTDecorator_ForceSuccessPtr(ucpp.Ptr<BTDecorator_ForceSuccess>) from ucpp.Ptr<BTDecorator_ForceSuccess> to ucpp.Ptr<BTDecorator_ForceSuccess>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_ForceSuccess): BTDecorator_ForceSuccessPtr {
 		return untyped __cpp__("&({0})", v);

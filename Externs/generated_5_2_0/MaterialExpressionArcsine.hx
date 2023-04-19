@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionArcsine")
 @:include("Materials/MaterialExpressionArcsine.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionArcsine extends MaterialExpression {
 	public var Input: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionArcsine(MaterialExpressionArcsine) from Material
 @:forward
 @:nativeGen
 @:native("MaterialExpressionArcsine*")
-abstract MaterialExpressionArcsinePtr(cpp.Star<MaterialExpressionArcsine>) from cpp.Star<MaterialExpressionArcsine> to cpp.Star<MaterialExpressionArcsine>{
+abstract MaterialExpressionArcsinePtr(ucpp.Ptr<MaterialExpressionArcsine>) from ucpp.Ptr<MaterialExpressionArcsine> to ucpp.Ptr<MaterialExpressionArcsine>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionArcsine): MaterialExpressionArcsinePtr {
 		return untyped __cpp__("&({0})", v);

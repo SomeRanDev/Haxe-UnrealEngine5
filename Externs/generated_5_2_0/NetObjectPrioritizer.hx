@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNetObjectPrioritizer")
 @:include("Iris/ReplicationSystem/Prioritization/NetObjectPrioritizer.h")
-@:structAccess
+@:valueType
 extern class NetObjectPrioritizer extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNetObjectPrioritizer(NetObjectPrioritizer) from NetObjectPrioritiz
 @:forward
 @:nativeGen
 @:native("NetObjectPrioritizer*")
-abstract NetObjectPrioritizerPtr(cpp.Star<NetObjectPrioritizer>) from cpp.Star<NetObjectPrioritizer> to cpp.Star<NetObjectPrioritizer>{
+abstract NetObjectPrioritizerPtr(ucpp.Ptr<NetObjectPrioritizer>) from ucpp.Ptr<NetObjectPrioritizer> to ucpp.Ptr<NetObjectPrioritizer>{
 	@:from
 	public static extern inline function fromValue(v: NetObjectPrioritizer): NetObjectPrioritizerPtr {
 		return untyped __cpp__("&({0})", v);

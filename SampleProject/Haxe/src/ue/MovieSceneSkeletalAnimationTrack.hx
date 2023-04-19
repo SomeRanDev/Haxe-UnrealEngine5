@@ -3,21 +3,21 @@ package ue;
 
 @:native("UMovieSceneSkeletalAnimationTrack")
 @:include("Tracks/MovieSceneSkeletalAnimationTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSkeletalAnimationTrack extends MovieSceneNameableTrack {
-	public var AnimationSections: TArray<cpp.Star<MovieSceneSection>>;
+	public var AnimationSections: TArray<ucpp.Ptr<MovieSceneSection>>;
 	public var bUseLegacySectionIndexBlend: Bool;
 	public var RootMotionParams: MovieSceneSkeletalAnimRootMotionTrackParams;
 	public var bBlendFirstChildOfRoot: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMovieSceneSkeletalAnimationTrack(MovieSceneSkeletalAnimationTrack) from MovieSceneSkeletalAnimationTrack {
-	public extern var AnimationSections(get, never): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>>;
-	public inline extern function get_AnimationSections(): TArray<cpp.Star<MovieSceneSection.ConstMovieSceneSection>> return this.AnimationSections;
+	public extern var AnimationSections(get, never): TArray<ucpp.Ptr<MovieSceneSection.ConstMovieSceneSection>>;
+	public inline extern function get_AnimationSections(): TArray<ucpp.Ptr<MovieSceneSection.ConstMovieSceneSection>> return this.AnimationSections;
 	public extern var bUseLegacySectionIndexBlend(get, never): Bool;
 	public inline extern function get_bUseLegacySectionIndexBlend(): Bool return this.bUseLegacySectionIndexBlend;
 	public extern var RootMotionParams(get, never): MovieSceneSkeletalAnimRootMotionTrackParams;
@@ -29,7 +29,7 @@ abstract ConstMovieSceneSkeletalAnimationTrack(MovieSceneSkeletalAnimationTrack)
 @:forward
 @:nativeGen
 @:native("MovieSceneSkeletalAnimationTrack*")
-abstract MovieSceneSkeletalAnimationTrackPtr(cpp.Star<MovieSceneSkeletalAnimationTrack>) from cpp.Star<MovieSceneSkeletalAnimationTrack> to cpp.Star<MovieSceneSkeletalAnimationTrack>{
+abstract MovieSceneSkeletalAnimationTrackPtr(ucpp.Ptr<MovieSceneSkeletalAnimationTrack>) from ucpp.Ptr<MovieSceneSkeletalAnimationTrack> to ucpp.Ptr<MovieSceneSkeletalAnimationTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSkeletalAnimationTrack): MovieSceneSkeletalAnimationTrackPtr {
 		return untyped __cpp__("&({0})", v);

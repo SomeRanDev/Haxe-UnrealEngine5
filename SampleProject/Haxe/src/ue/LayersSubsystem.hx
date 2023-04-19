@@ -3,56 +3,56 @@ package ue;
 
 @:native("ULayersSubsystem")
 @:include("Layers/LayersSubsystem.h")
-@:structAccess
+@:valueType
 extern class LayersSubsystem extends EditorSubsystem {
-	public function UpdateAllViewVisibility(LayerThatChanged: cpp.Reference<FName>): Void;
+	public function UpdateAllViewVisibility(LayerThatChanged: ucpp.Ref<FName>): Void;
 	public function UpdateAllActorsVisibility(bNotifySelectionChange: Bool, bRedrawViewports: Bool): Bool;
-	public function UpdateActorVisibility(Actor: cpp.Star<Actor>, bOutSelectionChanged: cpp.Reference<Bool>, bOutActorModified: cpp.Reference<Bool>, bNotifySelectionChange: Bool, bRedrawViewports: Bool): Bool;
-	public function UpdateActorAllViewsVisibility(Actor: cpp.Star<Actor>): Void;
-	public function TryGetLayer(LayerName: cpp.Reference<FName>, OutLayer: cpp.Reference<cpp.Star<Layer>>): Bool;
-	public function ToggleLayerVisibility(LayerName: cpp.Reference<FName>): Void;
-	public function ToggleLayersVisibility(LayerNames: cpp.Reference<TArray<FName>>): Void;
-	public function SetLayerVisibility(LayerName: cpp.Reference<FName>, bIsVisible: Bool): Void;
-	public function SetLayersVisibility(LayerNames: cpp.Reference<TArray<FName>>, bIsVisible: Bool): Void;
-	public function SelectActorsInLayers(LayerNames: cpp.Reference<TArray<FName>>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
-	public function SelectActorsInLayer(LayerName: cpp.Reference<FName>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
-	public function RenameLayer(OriginalLayerName: cpp.Reference<FName>, NewLayerName: cpp.Reference<FName>): Bool;
-	public function RemoveSelectedActorsFromLayers(LayerNames: cpp.Reference<TArray<FName>>): Bool;
-	public function RemoveSelectedActorsFromLayer(LayerName: cpp.Reference<FName>): Bool;
-	public function RemoveLevelLayerInformation(Level: cpp.Star<Level>): Void;
-	public function RemoveActorsFromLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, LayerNames: cpp.Reference<TArray<FName>>, bUpdateStats: Bool): Bool;
-	public function RemoveActorsFromLayer(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, LayerName: cpp.Reference<FName>, bUpdateStats: Bool): Bool;
-	public function RemoveActorFromLayers(Actor: cpp.Star<Actor>, LayerNames: cpp.Reference<TArray<FName>>, bUpdateStats: Bool): Bool;
-	public function RemoveActorFromLayer(Actor: cpp.Star<Actor>, LayerToRemove: cpp.Reference<FName>, bUpdateStats: Bool): Bool;
+	public function UpdateActorVisibility(Actor: ucpp.Ptr<Actor>, bOutSelectionChanged: ucpp.Ref<Bool>, bOutActorModified: ucpp.Ref<Bool>, bNotifySelectionChange: Bool, bRedrawViewports: Bool): Bool;
+	public function UpdateActorAllViewsVisibility(Actor: ucpp.Ptr<Actor>): Void;
+	public function TryGetLayer(LayerName: ucpp.Ref<FName>, OutLayer: ucpp.Ref<ucpp.Ptr<Layer>>): Bool;
+	public function ToggleLayerVisibility(LayerName: ucpp.Ref<FName>): Void;
+	public function ToggleLayersVisibility(LayerNames: ucpp.Ref<TArray<FName>>): Void;
+	public function SetLayerVisibility(LayerName: ucpp.Ref<FName>, bIsVisible: Bool): Void;
+	public function SetLayersVisibility(LayerNames: ucpp.Ref<TArray<FName>>, bIsVisible: Bool): Void;
+	public function SelectActorsInLayers(LayerNames: ucpp.Ref<TArray<FName>>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
+	public function SelectActorsInLayer(LayerName: ucpp.Ref<FName>, bSelect: Bool, bNotify: Bool, bSelectEvenIfHidden: Bool): Bool;
+	public function RenameLayer(OriginalLayerName: ucpp.Ref<FName>, NewLayerName: ucpp.Ref<FName>): Bool;
+	public function RemoveSelectedActorsFromLayers(LayerNames: ucpp.Ref<TArray<FName>>): Bool;
+	public function RemoveSelectedActorsFromLayer(LayerName: ucpp.Ref<FName>): Bool;
+	public function RemoveLevelLayerInformation(Level: ucpp.Ptr<Level>): Void;
+	public function RemoveActorsFromLayers(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, LayerNames: ucpp.Ref<TArray<FName>>, bUpdateStats: Bool): Bool;
+	public function RemoveActorsFromLayer(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, LayerName: ucpp.Ref<FName>, bUpdateStats: Bool): Bool;
+	public function RemoveActorFromLayers(Actor: ucpp.Ptr<Actor>, LayerNames: ucpp.Ref<TArray<FName>>, bUpdateStats: Bool): Bool;
+	public function RemoveActorFromLayer(Actor: ucpp.Ptr<Actor>, LayerToRemove: ucpp.Ref<FName>, bUpdateStats: Bool): Bool;
 	public function MakeAllLayersVisible(): Void;
-	public function IsLayer(LayerName: cpp.Reference<FName>): Bool;
-	public function IsActorValidForLayer(Actor: cpp.Star<Actor>): Bool;
-	public function InitializeNewActorLayers(Actor: cpp.Star<Actor>): Bool;
-	public function GetWorld(): cpp.Star<World>;
-	public function GetSelectedActors(): TArray<cpp.Star<Actor>>;
-	public function GetLayer(LayerName: cpp.Reference<FName>): cpp.Star<Layer>;
-	public function GetActorsFromLayers(LayerNames: cpp.Reference<TArray<FName>>): TArray<cpp.Star<Actor>>;
-	public function GetActorsFromLayer(LayerName: cpp.Reference<FName>): TArray<cpp.Star<Actor>>;
+	public function IsLayer(LayerName: ucpp.Ref<FName>): Bool;
+	public function IsActorValidForLayer(Actor: ucpp.Ptr<Actor>): Bool;
+	public function InitializeNewActorLayers(Actor: ucpp.Ptr<Actor>): Bool;
+	public function GetWorld(): ucpp.Ptr<World>;
+	public function GetSelectedActors(): TArray<ucpp.Ptr<Actor>>;
+	public function GetLayer(LayerName: ucpp.Ref<FName>): ucpp.Ptr<Layer>;
+	public function GetActorsFromLayers(LayerNames: ucpp.Ref<TArray<FName>>): TArray<ucpp.Ptr<Actor>>;
+	public function GetActorsFromLayer(LayerName: ucpp.Ref<FName>): TArray<ucpp.Ptr<Actor>>;
 	public function EditorRefreshLayerBrowser(): Void;
 	public function EditorMapChange(): Void;
-	public function DisassociateActorsFromLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>): Bool;
-	public function DisassociateActorFromLayers(Actor: cpp.Star<Actor>): Bool;
-	public function DeleteLayers(LayersToDelete: cpp.Reference<TArray<FName>>): Void;
-	public function DeleteLayer(LayerToDelete: cpp.Reference<FName>): Void;
-	public function CreateLayer(LayerName: cpp.Reference<FName>): cpp.Star<Layer>;
-	public function AppendActorsFromLayers(LayerNames: cpp.Reference<TArray<FName>>, InOutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
-	public function AppendActorsFromLayer(LayerName: cpp.Reference<FName>, InOutActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
-	public function AddSelectedActorsToLayers(LayerNames: cpp.Reference<TArray<FName>>): Bool;
-	public function AddSelectedActorsToLayer(LayerName: cpp.Reference<FName>): Bool;
-	public function AddLevelLayerInformation(Level: cpp.Star<Level>): Void;
-	public function AddAllLayersTo(OutLayers: cpp.Reference<TArray<cpp.Star<Layer>>>): Void;
-	public function AddAllLayerNamesTo(OutLayerNames: cpp.Reference<TArray<FName>>): Void;
-	public function AddActorToLayers(Actor: cpp.Star<Actor>, LayerNames: cpp.Reference<TArray<FName>>): Bool;
-	public function AddActorToLayer(Actor: cpp.Star<Actor>, LayerName: cpp.Reference<FName>): Bool;
-	public function AddActorsToLayers(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, LayerNames: cpp.Reference<TArray<FName>>): Bool;
-	public function AddActorsToLayer(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, LayerName: cpp.Reference<FName>): Bool;
+	public function DisassociateActorsFromLayers(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Bool;
+	public function DisassociateActorFromLayers(Actor: ucpp.Ptr<Actor>): Bool;
+	public function DeleteLayers(LayersToDelete: ucpp.Ref<TArray<FName>>): Void;
+	public function DeleteLayer(LayerToDelete: ucpp.Ref<FName>): Void;
+	public function CreateLayer(LayerName: ucpp.Ref<FName>): ucpp.Ptr<Layer>;
+	public function AppendActorsFromLayers(LayerNames: ucpp.Ref<TArray<FName>>, InOutActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
+	public function AppendActorsFromLayer(LayerName: ucpp.Ref<FName>, InOutActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
+	public function AddSelectedActorsToLayers(LayerNames: ucpp.Ref<TArray<FName>>): Bool;
+	public function AddSelectedActorsToLayer(LayerName: ucpp.Ref<FName>): Bool;
+	public function AddLevelLayerInformation(Level: ucpp.Ptr<Level>): Void;
+	public function AddAllLayersTo(OutLayers: ucpp.Ref<TArray<ucpp.Ptr<Layer>>>): Void;
+	public function AddAllLayerNamesTo(OutLayerNames: ucpp.Ref<TArray<FName>>): Void;
+	public function AddActorToLayers(Actor: ucpp.Ptr<Actor>, LayerNames: ucpp.Ref<TArray<FName>>): Bool;
+	public function AddActorToLayer(Actor: ucpp.Ptr<Actor>, LayerName: ucpp.Ref<FName>): Bool;
+	public function AddActorsToLayers(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, LayerNames: ucpp.Ref<TArray<FName>>): Bool;
+	public function AddActorsToLayer(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, LayerName: ucpp.Ref<FName>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetWorld, GetSelectedActors, GetLayer, GetActorsFromLayers, GetActorsFromLayer, AppendActorsFromLayers, AppendActorsFromLayer, AddAllLayersTo, AddAllLayerNamesTo)
@@ -63,7 +63,7 @@ abstract ConstLayersSubsystem(LayersSubsystem) from LayersSubsystem {
 @:forward
 @:nativeGen
 @:native("LayersSubsystem*")
-abstract LayersSubsystemPtr(cpp.Star<LayersSubsystem>) from cpp.Star<LayersSubsystem> to cpp.Star<LayersSubsystem>{
+abstract LayersSubsystemPtr(ucpp.Ptr<LayersSubsystem>) from ucpp.Ptr<LayersSubsystem> to ucpp.Ptr<LayersSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: LayersSubsystem): LayersSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

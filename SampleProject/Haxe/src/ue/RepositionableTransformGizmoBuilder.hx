@@ -3,10 +3,10 @@ package ue;
 
 @:native("URepositionableTransformGizmoBuilder")
 @:include("BaseGizmos/RepositionableTransformGizmo.h")
-@:structAccess
+@:valueType
 extern class RepositionableTransformGizmoBuilder extends CombinedTransformGizmoBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRepositionableTransformGizmoBuilder(RepositionableTransformGizmoBu
 @:forward
 @:nativeGen
 @:native("RepositionableTransformGizmoBuilder*")
-abstract RepositionableTransformGizmoBuilderPtr(cpp.Star<RepositionableTransformGizmoBuilder>) from cpp.Star<RepositionableTransformGizmoBuilder> to cpp.Star<RepositionableTransformGizmoBuilder>{
+abstract RepositionableTransformGizmoBuilderPtr(ucpp.Ptr<RepositionableTransformGizmoBuilder>) from ucpp.Ptr<RepositionableTransformGizmoBuilder> to ucpp.Ptr<RepositionableTransformGizmoBuilder>{
 	@:from
 	public static extern inline function fromValue(v: RepositionableTransformGizmoBuilder): RepositionableTransformGizmoBuilderPtr {
 		return untyped __cpp__("&({0})", v);

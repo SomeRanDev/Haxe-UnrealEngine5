@@ -3,11 +3,11 @@ package ue;
 
 @:native("FAssetMapping")
 @:include("Animation/AssetMappingTable.h")
-@:structAccess
+@:valueType
 extern class AssetMapping {
-	public var SourceAsset: cpp.Star<AnimationAsset>;
-	public var TargetAsset: cpp.Star<AnimationAsset>;
+	public var SourceAsset: ucpp.Ptr<AnimationAsset>;
+	public var TargetAsset: ucpp.Ptr<AnimationAsset>;
 
 	@:native("FAssetMapping") public function new();
-	@:native("FAssetMapping") public static function make(SourceAsset: cpp.Star<AnimationAsset>, TargetAsset: cpp.Star<AnimationAsset>): AssetMapping ;
+	@:native("FAssetMapping") public static function make(SourceAsset: ucpp.Ptr<AnimationAsset>, TargetAsset: ucpp.Ptr<AnimationAsset>): AssetMapping ;
 }

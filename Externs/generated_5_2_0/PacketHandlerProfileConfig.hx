@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPacketHandlerProfileConfig")
 @:include("PacketHandlerProfileConfig.h")
-@:structAccess
+@:valueType
 extern class PacketHandlerProfileConfig extends Object {
 	public var Components: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstPacketHandlerProfileConfig(PacketHandlerProfileConfig) from Packet
 @:forward
 @:nativeGen
 @:native("PacketHandlerProfileConfig*")
-abstract PacketHandlerProfileConfigPtr(cpp.Star<PacketHandlerProfileConfig>) from cpp.Star<PacketHandlerProfileConfig> to cpp.Star<PacketHandlerProfileConfig>{
+abstract PacketHandlerProfileConfigPtr(ucpp.Ptr<PacketHandlerProfileConfig>) from ucpp.Ptr<PacketHandlerProfileConfig> to ucpp.Ptr<PacketHandlerProfileConfig>{
 	@:from
 	public static extern inline function fromValue(v: PacketHandlerProfileConfig): PacketHandlerProfileConfigPtr {
 		return untyped __cpp__("&({0})", v);

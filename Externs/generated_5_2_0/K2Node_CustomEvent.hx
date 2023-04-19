@@ -3,14 +3,14 @@ package ue;
 
 @:native("UK2Node_CustomEvent")
 @:include("K2Node_CustomEvent.h")
-@:structAccess
+@:valueType
 extern class K2Node_CustomEvent extends K2Node_Event {
 	public var DeprecationMessage: FString;
 	public var bIsDeprecated: Bool;
 	public var bCallInEditor: Bool;
 	private var MetaData: KismetUserDeclaredFunctionMetadata;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstK2Node_CustomEvent(K2Node_CustomEvent) from K2Node_CustomEvent {
 @:forward
 @:nativeGen
 @:native("K2Node_CustomEvent*")
-abstract K2Node_CustomEventPtr(cpp.Star<K2Node_CustomEvent>) from cpp.Star<K2Node_CustomEvent> to cpp.Star<K2Node_CustomEvent>{
+abstract K2Node_CustomEventPtr(ucpp.Ptr<K2Node_CustomEvent>) from ucpp.Ptr<K2Node_CustomEvent> to ucpp.Ptr<K2Node_CustomEvent>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_CustomEvent): K2Node_CustomEventPtr {
 		return untyped __cpp__("&({0})", v);

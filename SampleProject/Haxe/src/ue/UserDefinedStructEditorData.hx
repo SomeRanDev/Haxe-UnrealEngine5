@@ -3,13 +3,13 @@ package ue;
 
 @:native("UUserDefinedStructEditorData")
 @:include("UserDefinedStructure/UserDefinedStructEditorData.h")
-@:structAccess
+@:valueType
 extern class UserDefinedStructEditorData extends Object {
-	private var UniqueNameId: cpp.UInt32;
+	private var UniqueNameId: ucpp.num.UInt32;
 	public var VariablesDescriptions: TArray<StructVariableDescription>;
 	public var ToolTip: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstUserDefinedStructEditorData(UserDefinedStructEditorData) from User
 @:forward
 @:nativeGen
 @:native("UserDefinedStructEditorData*")
-abstract UserDefinedStructEditorDataPtr(cpp.Star<UserDefinedStructEditorData>) from cpp.Star<UserDefinedStructEditorData> to cpp.Star<UserDefinedStructEditorData>{
+abstract UserDefinedStructEditorDataPtr(ucpp.Ptr<UserDefinedStructEditorData>) from ucpp.Ptr<UserDefinedStructEditorData> to ucpp.Ptr<UserDefinedStructEditorData>{
 	@:from
 	public static extern inline function fromValue(v: UserDefinedStructEditorData): UserDefinedStructEditorDataPtr {
 		return untyped __cpp__("&({0})", v);

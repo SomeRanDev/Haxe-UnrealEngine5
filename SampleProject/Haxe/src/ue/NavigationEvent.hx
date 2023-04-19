@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNavigationEvent")
 @:include("Input/Events.h")
-@:structAccess
+@:valueType
 extern class NavigationEvent extends InputEvent {
 	@:native("FNavigationEvent") public function new();
 }

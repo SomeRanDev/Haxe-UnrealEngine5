@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCompileShadersTestBedCommandlet")
 @:include("Commandlets/CompileShadersTestBedCommandlet.h")
-@:structAccess
+@:valueType
 extern class CompileShadersTestBedCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCompileShadersTestBedCommandlet(CompileShadersTestBedCommandlet) f
 @:forward
 @:nativeGen
 @:native("CompileShadersTestBedCommandlet*")
-abstract CompileShadersTestBedCommandletPtr(cpp.Star<CompileShadersTestBedCommandlet>) from cpp.Star<CompileShadersTestBedCommandlet> to cpp.Star<CompileShadersTestBedCommandlet>{
+abstract CompileShadersTestBedCommandletPtr(ucpp.Ptr<CompileShadersTestBedCommandlet>) from ucpp.Ptr<CompileShadersTestBedCommandlet> to ucpp.Ptr<CompileShadersTestBedCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: CompileShadersTestBedCommandlet): CompileShadersTestBedCommandletPtr {
 		return untyped __cpp__("&({0})", v);

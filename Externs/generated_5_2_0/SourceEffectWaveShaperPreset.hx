@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectWaveShaperPreset")
 @:include("SourceEffects/SourceEffectWaveShaper.h")
-@:structAccess
+@:valueType
 extern class SourceEffectWaveShaperPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectWaveShaperSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectWaveShaperSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectWaveShaperSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectWaveShaperPreset(SourceEffectWaveShaperPreset) from So
 @:forward
 @:nativeGen
 @:native("SourceEffectWaveShaperPreset*")
-abstract SourceEffectWaveShaperPresetPtr(cpp.Star<SourceEffectWaveShaperPreset>) from cpp.Star<SourceEffectWaveShaperPreset> to cpp.Star<SourceEffectWaveShaperPreset>{
+abstract SourceEffectWaveShaperPresetPtr(ucpp.Ptr<SourceEffectWaveShaperPreset>) from ucpp.Ptr<SourceEffectWaveShaperPreset> to ucpp.Ptr<SourceEffectWaveShaperPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectWaveShaperPreset): SourceEffectWaveShaperPresetPtr {
 		return untyped __cpp__("&({0})", v);

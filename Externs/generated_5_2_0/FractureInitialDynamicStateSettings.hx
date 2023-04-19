@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureInitialDynamicStateSettings")
 @:include("FractureToolProperties.h")
-@:structAccess
+@:valueType
 extern class FractureInitialDynamicStateSettings extends FractureToolSettings {
 	public var InitialDynamicState: EDynamicStateOverrideEnum;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstFractureInitialDynamicStateSettings(FractureInitialDynamicStateSet
 @:forward
 @:nativeGen
 @:native("FractureInitialDynamicStateSettings*")
-abstract FractureInitialDynamicStateSettingsPtr(cpp.Star<FractureInitialDynamicStateSettings>) from cpp.Star<FractureInitialDynamicStateSettings> to cpp.Star<FractureInitialDynamicStateSettings>{
+abstract FractureInitialDynamicStateSettingsPtr(ucpp.Ptr<FractureInitialDynamicStateSettings>) from ucpp.Ptr<FractureInitialDynamicStateSettings> to ucpp.Ptr<FractureInitialDynamicStateSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureInitialDynamicStateSettings): FractureInitialDynamicStateSettingsPtr {
 		return untyped __cpp__("&({0})", v);

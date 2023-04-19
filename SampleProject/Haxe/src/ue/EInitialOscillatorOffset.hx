@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EInitialOscillatorOffset")
-@:include("MatineeCameraShake.h")
+@:include("LegacyCameraShake.h")
 extern class EInitialOscillatorOffset {
 	static var EOO_OffsetRandom: EInitialOscillatorOffset;
 	static var EOO_OffsetZero: EInitialOscillatorOffset;

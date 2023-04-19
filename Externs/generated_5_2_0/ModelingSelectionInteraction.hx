@@ -3,20 +3,20 @@ package ue;
 
 @:native("UModelingSelectionInteraction")
 @:include("ModelingSelectionInteraction.h")
-@:structAccess
+@:valueType
 extern class ModelingSelectionInteraction extends Object {
-	@:protected public var ClickOrDragBehavior: cpp.Star<SingleClickOrDragInputBehavior>;
-	@:protected public var HoverBehavior: cpp.Star<MouseHoverBehavior>;
-	@:protected public var BehaviorSet: cpp.Star<InputBehaviorSet>;
-	@:protected public var SelectionManager: cpp.Star<GeometrySelectionManager>;
-	@:protected public var TransformProxy: cpp.Star<TransformProxy>;
-	@:protected public var TransformGizmo: cpp.Star<CombinedTransformGizmo>;
-	@:protected public var DragAlignmentInteraction: cpp.Star<DragAlignmentInteraction>;
-	@:protected public var DragAlignmentToggleBehavior: cpp.Star<KeyAsModifierInputBehavior>;
-	@:protected public var RectangleMarqueeInteraction: cpp.Star<RectangleMarqueeInteraction>;
-	@:protected public var PathSelectionInteraction: cpp.Star<PathSelectionInteraction>;
+	@:protected public var ClickOrDragBehavior: ucpp.Ptr<SingleClickOrDragInputBehavior>;
+	@:protected public var HoverBehavior: ucpp.Ptr<MouseHoverBehavior>;
+	@:protected public var BehaviorSet: ucpp.Ptr<InputBehaviorSet>;
+	@:protected public var SelectionManager: ucpp.Ptr<GeometrySelectionManager>;
+	@:protected public var TransformProxy: ucpp.Ptr<TransformProxy>;
+	@:protected public var TransformGizmo: ucpp.Ptr<CombinedTransformGizmo>;
+	@:protected public var DragAlignmentInteraction: ucpp.Ptr<DragAlignmentInteraction>;
+	@:protected public var DragAlignmentToggleBehavior: ucpp.Ptr<KeyAsModifierInputBehavior>;
+	@:protected public var RectangleMarqueeInteraction: ucpp.Ptr<RectangleMarqueeInteraction>;
+	@:protected public var PathSelectionInteraction: ucpp.Ptr<PathSelectionInteraction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstModelingSelectionInteraction(ModelingSelectionInteraction) from Mo
 @:forward
 @:nativeGen
 @:native("ModelingSelectionInteraction*")
-abstract ModelingSelectionInteractionPtr(cpp.Star<ModelingSelectionInteraction>) from cpp.Star<ModelingSelectionInteraction> to cpp.Star<ModelingSelectionInteraction>{
+abstract ModelingSelectionInteractionPtr(ucpp.Ptr<ModelingSelectionInteraction>) from ucpp.Ptr<ModelingSelectionInteraction> to ucpp.Ptr<ModelingSelectionInteraction>{
 	@:from
 	public static extern inline function fromValue(v: ModelingSelectionInteraction): ModelingSelectionInteractionPtr {
 		return untyped __cpp__("&({0})", v);

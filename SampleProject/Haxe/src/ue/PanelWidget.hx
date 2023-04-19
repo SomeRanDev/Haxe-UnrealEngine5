@@ -3,22 +3,22 @@ package ue;
 
 @:native("UPanelWidget")
 @:include("Components/PanelWidget.h")
-@:structAccess
+@:valueType
 extern class PanelWidget extends Widget {
-	@:protected public var Slots: TArray<cpp.Star<PanelSlot>>;
+	@:protected public var Slots: TArray<ucpp.Ptr<PanelSlot>>;
 
-	public function RemoveChildAt(Index: cpp.Int32): Bool;
-	public function RemoveChild(Content: cpp.Star<Widget>): Bool;
-	public function HasChild(Content: cpp.Star<Widget>): Bool;
+	public function RemoveChildAt(Index: ucpp.num.Int32): Bool;
+	public function RemoveChild(Content: ucpp.Ptr<Widget>): Bool;
+	public function HasChild(Content: ucpp.Ptr<Widget>): Bool;
 	public function HasAnyChildren(): Bool;
-	public function GetChildrenCount(): cpp.Int32;
-	public function GetChildIndex(Content: cpp.Star<Widget.ConstWidget>): cpp.Int32;
-	public function GetChildAt(Index: cpp.Int32): cpp.Star<Widget>;
-	public function GetAllChildren(): TArray<cpp.Star<Widget>>;
+	public function GetChildrenCount(): ucpp.num.Int32;
+	public function GetChildIndex(Content: ucpp.Ptr<Widget.ConstWidget>): ucpp.num.Int32;
+	public function GetChildAt(Index: ucpp.num.Int32): ucpp.Ptr<Widget>;
+	public function GetAllChildren(): TArray<ucpp.Ptr<Widget>>;
 	public function ClearChildren(): Void;
-	public function AddChild(Content: cpp.Star<Widget>): cpp.Star<PanelSlot>;
+	public function AddChild(Content: ucpp.Ptr<Widget>): ucpp.Ptr<PanelSlot>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(HasChild, HasAnyChildren, GetChildrenCount, GetChildIndex, GetChildAt, GetAllChildren)
@@ -29,7 +29,7 @@ abstract ConstPanelWidget(PanelWidget) from PanelWidget {
 @:forward
 @:nativeGen
 @:native("PanelWidget*")
-abstract PanelWidgetPtr(cpp.Star<PanelWidget>) from cpp.Star<PanelWidget> to cpp.Star<PanelWidget>{
+abstract PanelWidgetPtr(ucpp.Ptr<PanelWidget>) from ucpp.Ptr<PanelWidget> to ucpp.Ptr<PanelWidget>{
 	@:from
 	public static extern inline function fromValue(v: PanelWidget): PanelWidgetPtr {
 		return untyped __cpp__("&({0})", v);

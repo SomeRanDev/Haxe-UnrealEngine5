@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionMask")
 @:include("MaterialX/MaterialExpressionMask.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionMask extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
 	public var Alpha: ExpressionInput;
-	public var ConstAlpha: cpp.Float32;
+	public var ConstAlpha: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstMaterialExpressionMask(MaterialExpressionMask) from MaterialExpres
 	public inline extern function get_B(): ExpressionInput return this.B;
 	public extern var Alpha(get, never): ExpressionInput;
 	public inline extern function get_Alpha(): ExpressionInput return this.Alpha;
-	public extern var ConstAlpha(get, never): cpp.Float32;
-	public inline extern function get_ConstAlpha(): cpp.Float32 return this.ConstAlpha;
+	public extern var ConstAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstAlpha(): ucpp.num.Float32 return this.ConstAlpha;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionMask*")
-abstract MaterialExpressionMaskPtr(cpp.Star<MaterialExpressionMask>) from cpp.Star<MaterialExpressionMask> to cpp.Star<MaterialExpressionMask>{
+abstract MaterialExpressionMaskPtr(ucpp.Ptr<MaterialExpressionMask>) from ucpp.Ptr<MaterialExpressionMask> to ucpp.Ptr<MaterialExpressionMask>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionMask): MaterialExpressionMaskPtr {
 		return untyped __cpp__("&({0})", v);

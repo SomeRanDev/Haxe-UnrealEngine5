@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTemplateSequenceSection")
 @:include("Sections/TemplateSequenceSection.h")
-@:structAccess
+@:valueType
 extern class TemplateSequenceSection extends MovieSceneSubSection {
 	public var PropertyScales: TArray<TemplateSectionPropertyScale>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTemplateSequenceSection(TemplateSequenceSection) from TemplateSequ
 @:forward
 @:nativeGen
 @:native("TemplateSequenceSection*")
-abstract TemplateSequenceSectionPtr(cpp.Star<TemplateSequenceSection>) from cpp.Star<TemplateSequenceSection> to cpp.Star<TemplateSequenceSection>{
+abstract TemplateSequenceSectionPtr(ucpp.Ptr<TemplateSequenceSection>) from ucpp.Ptr<TemplateSequenceSection> to ucpp.Ptr<TemplateSequenceSection>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequenceSection): TemplateSequenceSectionPtr {
 		return untyped __cpp__("&({0})", v);

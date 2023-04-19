@@ -3,19 +3,19 @@ package ue;
 
 @:native("FNiagaraVariableMetaData")
 @:include("NiagaraTypes.h")
-@:structAccess
+@:valueType
 extern class NiagaraVariableMetaData {
 	public var Description: FText;
 	public var CategoryName: FText;
 	public var bAdvancedDisplay: Bool;
 	public var bDisplayInOverviewStack: Bool;
-	public var InlineParameterSortPriority: cpp.Int32;
+	public var InlineParameterSortPriority: ucpp.num.Int32;
 	public var bOverrideColor: Bool;
 	public var InlineParameterColorOverride: LinearColor;
 	public var InlineParameterEnumOverrides: TArray<NiagaraEnumParameterMetaData>;
 	public var bEnableBoolOverride: Bool;
 	public var InlineParameterBoolOverride: NiagaraBoolParameterMetaData;
-	public var EditorSortPriority: cpp.Int32;
+	public var EditorSortPriority: ucpp.num.Int32;
 	public var bInlineEditConditionToggle: Bool;
 	public var EditCondition: NiagaraInputConditionMetadata;
 	public var VisibleCondition: NiagaraInputConditionMetadata;

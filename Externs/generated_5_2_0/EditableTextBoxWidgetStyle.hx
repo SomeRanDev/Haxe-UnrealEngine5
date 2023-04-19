@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEditableTextBoxWidgetStyle")
 @:include("Framework/Styling/EditableTextBoxWidgetStyle.h")
-@:structAccess
+@:valueType
 extern class EditableTextBoxWidgetStyle extends SlateWidgetStyleContainerBase {
 	public var EditableTextBoxStyle: EditableTextBoxStyle;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEditableTextBoxWidgetStyle(EditableTextBoxWidgetStyle) from Editab
 @:forward
 @:nativeGen
 @:native("EditableTextBoxWidgetStyle*")
-abstract EditableTextBoxWidgetStylePtr(cpp.Star<EditableTextBoxWidgetStyle>) from cpp.Star<EditableTextBoxWidgetStyle> to cpp.Star<EditableTextBoxWidgetStyle>{
+abstract EditableTextBoxWidgetStylePtr(ucpp.Ptr<EditableTextBoxWidgetStyle>) from ucpp.Ptr<EditableTextBoxWidgetStyle> to ucpp.Ptr<EditableTextBoxWidgetStyle>{
 	@:from
 	public static extern inline function fromValue(v: EditableTextBoxWidgetStyle): EditableTextBoxWidgetStylePtr {
 		return untyped __cpp__("&({0})", v);

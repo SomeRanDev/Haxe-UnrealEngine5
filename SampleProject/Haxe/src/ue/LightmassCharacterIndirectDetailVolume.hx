@@ -3,10 +3,10 @@ package ue;
 
 @:native("ALightmassCharacterIndirectDetailVolume")
 @:include("Lightmass/LightmassCharacterIndirectDetailVolume.h")
-@:structAccess
+@:valueType
 extern class LightmassCharacterIndirectDetailVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLightmassCharacterIndirectDetailVolume(LightmassCharacterIndirectD
 @:forward
 @:nativeGen
 @:native("LightmassCharacterIndirectDetailVolume*")
-abstract LightmassCharacterIndirectDetailVolumePtr(cpp.Star<LightmassCharacterIndirectDetailVolume>) from cpp.Star<LightmassCharacterIndirectDetailVolume> to cpp.Star<LightmassCharacterIndirectDetailVolume>{
+abstract LightmassCharacterIndirectDetailVolumePtr(ucpp.Ptr<LightmassCharacterIndirectDetailVolume>) from ucpp.Ptr<LightmassCharacterIndirectDetailVolume> to ucpp.Ptr<LightmassCharacterIndirectDetailVolume>{
 	@:from
 	public static extern inline function fromValue(v: LightmassCharacterIndirectDetailVolume): LightmassCharacterIndirectDetailVolumePtr {
 		return untyped __cpp__("&({0})", v);

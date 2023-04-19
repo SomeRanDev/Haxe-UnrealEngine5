@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneCameraShakeTrack")
 @:include("Tracks/MovieSceneCameraShakeTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneCameraShakeTrack extends MovieSceneNameableTrack {
-	private var CameraShakeSections: TArray<cpp.Star<MovieSceneSection>>;
+	private var CameraShakeSections: TArray<ucpp.Ptr<MovieSceneSection>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneCameraShakeTrack(MovieSceneCameraShakeTrack) from MovieS
 @:forward
 @:nativeGen
 @:native("MovieSceneCameraShakeTrack*")
-abstract MovieSceneCameraShakeTrackPtr(cpp.Star<MovieSceneCameraShakeTrack>) from cpp.Star<MovieSceneCameraShakeTrack> to cpp.Star<MovieSceneCameraShakeTrack>{
+abstract MovieSceneCameraShakeTrackPtr(ucpp.Ptr<MovieSceneCameraShakeTrack>) from ucpp.Ptr<MovieSceneCameraShakeTrack> to ucpp.Ptr<MovieSceneCameraShakeTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneCameraShakeTrack): MovieSceneCameraShakeTrackPtr {
 		return untyped __cpp__("&({0})", v);

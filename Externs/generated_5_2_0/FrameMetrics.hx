@@ -3,13 +3,13 @@ package ue;
 
 @:native("FFrameMetrics")
 @:include("MovieSceneCaptureProtocolBase.h")
-@:structAccess
+@:valueType
 extern class FrameMetrics {
-	public var TotalElapsedTime: cpp.Float32;
-	public var FrameDelta: cpp.Float32;
-	public var FrameNumber: cpp.Int32;
-	public var NumDroppedFrames: cpp.Int32;
+	public var TotalElapsedTime: ucpp.num.Float32;
+	public var FrameDelta: ucpp.num.Float32;
+	public var FrameNumber: ucpp.num.Int32;
+	public var NumDroppedFrames: ucpp.num.Int32;
 
 	@:native("FFrameMetrics") public function new();
-	@:native("FFrameMetrics") public static function make(TotalElapsedTime: cpp.Float32, FrameDelta: cpp.Float32, FrameNumber: cpp.Int32, NumDroppedFrames: cpp.Int32): FrameMetrics ;
+	@:native("FFrameMetrics") public static function make(TotalElapsedTime: ucpp.num.Float32, FrameDelta: ucpp.num.Float32, FrameNumber: ucpp.num.Int32, NumDroppedFrames: ucpp.num.Int32): FrameMetrics ;
 }

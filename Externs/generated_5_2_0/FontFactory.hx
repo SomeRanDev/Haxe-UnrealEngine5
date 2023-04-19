@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFontFactory")
 @:include("Factories/FontFactory.h")
-@:structAccess
+@:valueType
 extern class FontFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFontFactory(FontFactory) from FontFactory {
 @:forward
 @:nativeGen
 @:native("FontFactory*")
-abstract FontFactoryPtr(cpp.Star<FontFactory>) from cpp.Star<FontFactory> to cpp.Star<FontFactory>{
+abstract FontFactoryPtr(ucpp.Ptr<FontFactory>) from ucpp.Ptr<FontFactory> to ucpp.Ptr<FontFactory>{
 	@:from
 	public static extern inline function fromValue(v: FontFactory): FontFactoryPtr {
 		return untyped __cpp__("&({0})", v);

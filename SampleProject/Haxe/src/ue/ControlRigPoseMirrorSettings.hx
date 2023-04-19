@@ -3,14 +3,14 @@ package ue;
 
 @:native("UControlRigPoseMirrorSettings")
 @:include("Tools/ControlRigPoseMirrorSettings.h")
-@:structAccess
+@:valueType
 extern class ControlRigPoseMirrorSettings extends Object {
 	public var RightSide: FString;
 	public var LeftSide: FString;
 	public var MirrorAxis: TEnumAsByte<EAxis>;
 	public var AxisToFlip: TEnumAsByte<EAxis>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstControlRigPoseMirrorSettings(ControlRigPoseMirrorSettings) from Co
 @:forward
 @:nativeGen
 @:native("ControlRigPoseMirrorSettings*")
-abstract ControlRigPoseMirrorSettingsPtr(cpp.Star<ControlRigPoseMirrorSettings>) from cpp.Star<ControlRigPoseMirrorSettings> to cpp.Star<ControlRigPoseMirrorSettings>{
+abstract ControlRigPoseMirrorSettingsPtr(ucpp.Ptr<ControlRigPoseMirrorSettings>) from ucpp.Ptr<ControlRigPoseMirrorSettings> to ucpp.Ptr<ControlRigPoseMirrorSettings>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigPoseMirrorSettings): ControlRigPoseMirrorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialAssetSettings")
 @:include("MSSettings.h")
-@:structAccess
+@:valueType
 extern class MaterialAssetSettings extends Object {
 	public var MasterMaterial3d: FString;
 	public var MasterMaterialSurface: FString;
 	public var MasterMaterialPlant: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstMaterialAssetSettings(MaterialAssetSettings) from MaterialAssetSet
 @:forward
 @:nativeGen
 @:native("MaterialAssetSettings*")
-abstract MaterialAssetSettingsPtr(cpp.Star<MaterialAssetSettings>) from cpp.Star<MaterialAssetSettings> to cpp.Star<MaterialAssetSettings>{
+abstract MaterialAssetSettingsPtr(ucpp.Ptr<MaterialAssetSettings>) from ucpp.Ptr<MaterialAssetSettings> to ucpp.Ptr<MaterialAssetSettings>{
 	@:from
 	public static extern inline function fromValue(v: MaterialAssetSettings): MaterialAssetSettingsPtr {
 		return untyped __cpp__("&({0})", v);

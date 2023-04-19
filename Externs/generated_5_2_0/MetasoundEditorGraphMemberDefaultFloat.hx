@@ -3,9 +3,9 @@ package ue;
 
 @:native("UMetasoundEditorGraphMemberDefaultFloat")
 @:include("MetasoundEditorGraphMemberDefaults.h")
-@:structAccess
+@:valueType
 extern class MetasoundEditorGraphMemberDefaultFloat extends MetasoundEditorGraphMemberDefaultLiteral {
-	private var Default: cpp.Float32;
+	private var Default: ucpp.num.Float32;
 	public var ClampDefault: Bool;
 	public var Range: Vector2D;
 	public var WidgetType: EMetasoundMemberDefaultWidget;
@@ -14,7 +14,7 @@ extern class MetasoundEditorGraphMemberDefaultFloat extends MetasoundEditorGraph
 	public var VolumeWidgetUseLinearOutput: Bool;
 	public var VolumeWidgetDecibelRange: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +39,7 @@ abstract ConstMetasoundEditorGraphMemberDefaultFloat(MetasoundEditorGraphMemberD
 @:forward
 @:nativeGen
 @:native("MetasoundEditorGraphMemberDefaultFloat*")
-abstract MetasoundEditorGraphMemberDefaultFloatPtr(cpp.Star<MetasoundEditorGraphMemberDefaultFloat>) from cpp.Star<MetasoundEditorGraphMemberDefaultFloat> to cpp.Star<MetasoundEditorGraphMemberDefaultFloat>{
+abstract MetasoundEditorGraphMemberDefaultFloatPtr(ucpp.Ptr<MetasoundEditorGraphMemberDefaultFloat>) from ucpp.Ptr<MetasoundEditorGraphMemberDefaultFloat> to ucpp.Ptr<MetasoundEditorGraphMemberDefaultFloat>{
 	@:from
 	public static extern inline function fromValue(v: MetasoundEditorGraphMemberDefaultFloat): MetasoundEditorGraphMemberDefaultFloatPtr {
 		return untyped __cpp__("&({0})", v);

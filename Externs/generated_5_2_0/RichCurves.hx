@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRichCurves")
 @:include("Chaos/ChaosCache.h")
-@:structAccess
+@:valueType
 extern class RichCurves {
 	public var RichCurves: TArray<RichCurve>;
 

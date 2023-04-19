@@ -3,14 +3,16 @@ package ue;
 
 @:native("FNiagaraPlatformSetCVarCondition")
 @:include("NiagaraPlatformSet.h")
-@:structAccess
+@:valueType
 extern class NiagaraPlatformSetCVarCondition {
 	public var CVarName: FName;
+	public var PassResponse: ENiagaraCVarConditionResponse;
+	public var FailResponse: ENiagaraCVarConditionResponse;
 	public var Value: Bool;
-	public var MinInt: cpp.Int32;
-	public var MaxInt: cpp.Int32;
-	public var MinFloat: cpp.Float32;
-	public var MaxFloat: cpp.Float32;
+	public var MinInt: ucpp.num.Int32;
+	public var MaxInt: ucpp.num.Int32;
+	public var MinFloat: ucpp.num.Float32;
+	public var MaxFloat: ucpp.num.Float32;
 	public var bUseMinInt: Bool;
 	public var bUseMaxInt: Bool;
 	public var bUseMinFloat: Bool;

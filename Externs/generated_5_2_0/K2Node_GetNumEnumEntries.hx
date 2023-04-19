@@ -3,24 +3,24 @@ package ue;
 
 @:native("UK2Node_GetNumEnumEntries")
 @:include("K2Node_GetNumEnumEntries.h")
-@:structAccess
+@:valueType
 extern class K2Node_GetNumEnumEntries extends K2Node {
-	public var Enum: cpp.Star<Enum>;
+	public var Enum: ucpp.Ptr<Enum>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_GetNumEnumEntries(K2Node_GetNumEnumEntries) from K2Node_GetNumEnumEntries {
-	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
-	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
+	public extern var Enum(get, never): ucpp.Ptr<Enum.ConstEnum>;
+	public inline extern function get_Enum(): ucpp.Ptr<Enum.ConstEnum> return this.Enum;
 }
 
 @:forward
 @:nativeGen
 @:native("K2Node_GetNumEnumEntries*")
-abstract K2Node_GetNumEnumEntriesPtr(cpp.Star<K2Node_GetNumEnumEntries>) from cpp.Star<K2Node_GetNumEnumEntries> to cpp.Star<K2Node_GetNumEnumEntries>{
+abstract K2Node_GetNumEnumEntriesPtr(ucpp.Ptr<K2Node_GetNumEnumEntries>) from ucpp.Ptr<K2Node_GetNumEnumEntries> to ucpp.Ptr<K2Node_GetNumEnumEntries>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_GetNumEnumEntries): K2Node_GetNumEnumEntriesPtr {
 		return untyped __cpp__("&({0})", v);

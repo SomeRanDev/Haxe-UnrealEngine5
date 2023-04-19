@@ -2,10 +2,10 @@
 package ue;
 
 @:native("USimpleListItemEventDynamic__PythonCallable")
-@:structAccess
+@:valueType
 extern class SimpleListItemEventDynamic__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstSimpleListItemEventDynamic__PythonCallable(SimpleListItemEventDyna
 @:forward
 @:nativeGen
 @:native("SimpleListItemEventDynamic__PythonCallable*")
-abstract SimpleListItemEventDynamic__PythonCallablePtr(cpp.Star<SimpleListItemEventDynamic__PythonCallable>) from cpp.Star<SimpleListItemEventDynamic__PythonCallable> to cpp.Star<SimpleListItemEventDynamic__PythonCallable>{
+abstract SimpleListItemEventDynamic__PythonCallablePtr(ucpp.Ptr<SimpleListItemEventDynamic__PythonCallable>) from ucpp.Ptr<SimpleListItemEventDynamic__PythonCallable> to ucpp.Ptr<SimpleListItemEventDynamic__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: SimpleListItemEventDynamic__PythonCallable): SimpleListItemEventDynamic__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

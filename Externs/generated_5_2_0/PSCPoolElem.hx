@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPSCPoolElem")
 @:include("Particles/WorldPSCPool.h")
-@:structAccess
+@:valueType
 extern class PSCPoolElem {
-	public var PSC: cpp.Star<ParticleSystemComp>;
+	public var PSC: ucpp.Ptr<ParticleSystemComp>;
 
 	@:native("FPSCPoolElem") public function new();
-	@:native("FPSCPoolElem") public static function make(PSC: cpp.Star<ParticleSystemComp>): PSCPoolElem ;
+	@:native("FPSCPoolElem") public static function make(PSC: ucpp.Ptr<ParticleSystemComp>): PSCPoolElem ;
 }

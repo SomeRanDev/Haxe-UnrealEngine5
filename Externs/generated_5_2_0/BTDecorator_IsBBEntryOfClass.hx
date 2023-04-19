@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTDecorator_IsBBEntryOfClass")
 @:include("BehaviorTree/Decorators/BTDecorator_IsBBEntryOfClass.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_IsBBEntryOfClass extends BTDecorator_BlackboardBase {
 	@:protected public var TestClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTDecorator_IsBBEntryOfClass(BTDecorator_IsBBEntryOfClass) from BT
 @:forward
 @:nativeGen
 @:native("BTDecorator_IsBBEntryOfClass*")
-abstract BTDecorator_IsBBEntryOfClassPtr(cpp.Star<BTDecorator_IsBBEntryOfClass>) from cpp.Star<BTDecorator_IsBBEntryOfClass> to cpp.Star<BTDecorator_IsBBEntryOfClass>{
+abstract BTDecorator_IsBBEntryOfClassPtr(ucpp.Ptr<BTDecorator_IsBBEntryOfClass>) from ucpp.Ptr<BTDecorator_IsBBEntryOfClass> to ucpp.Ptr<BTDecorator_IsBBEntryOfClass>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_IsBBEntryOfClass): BTDecorator_IsBBEntryOfClassPtr {
 		return untyped __cpp__("&({0})", v);

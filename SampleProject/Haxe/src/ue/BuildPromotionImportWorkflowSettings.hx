@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBuildPromotionImportWorkflowSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class BuildPromotionImportWorkflowSettings {
 	public var Diffuse: EditorImportWorkflowDefinition;
 	public var Normal: EditorImportWorkflowDefinition;

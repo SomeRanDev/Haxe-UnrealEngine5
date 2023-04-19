@@ -3,14 +3,14 @@ package ue;
 
 @:native("UIKRetargetBoneDetails")
 @:include("RetargetEditor/IKRetargetDetails.h")
-@:structAccess
+@:valueType
 extern class IKRetargetBoneDetails extends Object {
 	public var SelectedBone: FName;
 	public var OffsetTransform: Transform;
 	public var CurrentTransform: Transform;
 	public var ReferenceTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstIKRetargetBoneDetails(IKRetargetBoneDetails) from IKRetargetBoneDe
 @:forward
 @:nativeGen
 @:native("IKRetargetBoneDetails*")
-abstract IKRetargetBoneDetailsPtr(cpp.Star<IKRetargetBoneDetails>) from cpp.Star<IKRetargetBoneDetails> to cpp.Star<IKRetargetBoneDetails>{
+abstract IKRetargetBoneDetailsPtr(ucpp.Ptr<IKRetargetBoneDetails>) from ucpp.Ptr<IKRetargetBoneDetails> to ucpp.Ptr<IKRetargetBoneDetails>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargetBoneDetails): IKRetargetBoneDetailsPtr {
 		return untyped __cpp__("&({0})", v);

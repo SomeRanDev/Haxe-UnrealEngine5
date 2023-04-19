@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneFolder")
 @:include("MovieSceneFolder.h")
-@:structAccess
+@:valueType
 extern class MovieSceneFolder extends Object {
 	private var FolderName: FName;
-	private var ChildFolders: TArray<cpp.Star<MovieSceneFolder>>;
-	private var ChildMasterTracks: TArray<cpp.Star<MovieSceneTrack>>;
+	private var ChildFolders: TArray<ucpp.Ptr<MovieSceneFolder>>;
+	private var ChildTracks: TArray<ucpp.Ptr<MovieSceneTrack>>;
 	private var ChildObjectBindingStrings: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMovieSceneFolder(MovieSceneFolder) from MovieSceneFolder {
 @:forward
 @:nativeGen
 @:native("MovieSceneFolder*")
-abstract MovieSceneFolderPtr(cpp.Star<MovieSceneFolder>) from cpp.Star<MovieSceneFolder> to cpp.Star<MovieSceneFolder>{
+abstract MovieSceneFolderPtr(ucpp.Ptr<MovieSceneFolder>) from ucpp.Ptr<MovieSceneFolder> to ucpp.Ptr<MovieSceneFolder>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneFolder): MovieSceneFolderPtr {
 		return untyped __cpp__("&({0})", v);

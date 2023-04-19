@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorBrowsingModeConfig")
 @:include("Private/ActorBrowsingModeSettings.h")
-@:structAccess
+@:valueType
 extern class ActorBrowsingModeConfig {
 	public var bHideTemporaryActors: Bool;
 	public var bShowOnlyActorsInCurrentLevel: Bool;

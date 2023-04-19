@@ -3,21 +3,21 @@ package ue;
 
 @:native("UCameraShakeSourceComponent")
 @:include("Camera/CameraShakeSourceComponent.h")
-@:structAccess
+@:valueType
 extern class CameraShakeSourceComp extends SceneComp {
 	public var Attenuation: ECameraShakeAttenuation;
-	public var InnerAttenuationRadius: cpp.Float32;
-	public var OuterAttenuationRadius: cpp.Float32;
+	public var InnerAttenuationRadius: ucpp.num.Float32;
+	public var OuterAttenuationRadius: ucpp.num.Float32;
 	public var CameraShake: TSubclassOf<CameraShakeBase>;
 	public var bAutoStart: Bool;
 
 	public function StopAllCameraShakesOfType(InCameraShake: TSubclassOf<CameraShakeBase>, bImmediately: Bool): Void;
 	public function StopAllCameraShakes(bImmediately: Bool): Void;
-	public function StartCameraShake(InCameraShake: TSubclassOf<CameraShakeBase>, Scale: cpp.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): Void;
+	public function StartCameraShake(InCameraShake: TSubclassOf<CameraShakeBase>, Scale: ucpp.num.Float32, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: Rotator): Void;
 	public function Start(): Void;
-	public function GetAttenuationFactor(Location: cpp.Reference<Vector>): cpp.Float32;
+	public function GetAttenuationFactor(Location: ucpp.Ref<Vector>): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAttenuationFactor)
@@ -25,10 +25,10 @@ extern class CameraShakeSourceComp extends SceneComp {
 abstract ConstCameraShakeSourceComp(CameraShakeSourceComp) from CameraShakeSourceComp {
 	public extern var Attenuation(get, never): ECameraShakeAttenuation;
 	public inline extern function get_Attenuation(): ECameraShakeAttenuation return this.Attenuation;
-	public extern var InnerAttenuationRadius(get, never): cpp.Float32;
-	public inline extern function get_InnerAttenuationRadius(): cpp.Float32 return this.InnerAttenuationRadius;
-	public extern var OuterAttenuationRadius(get, never): cpp.Float32;
-	public inline extern function get_OuterAttenuationRadius(): cpp.Float32 return this.OuterAttenuationRadius;
+	public extern var InnerAttenuationRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_InnerAttenuationRadius(): ucpp.num.Float32 return this.InnerAttenuationRadius;
+	public extern var OuterAttenuationRadius(get, never): ucpp.num.Float32;
+	public inline extern function get_OuterAttenuationRadius(): ucpp.num.Float32 return this.OuterAttenuationRadius;
 	public extern var CameraShake(get, never): TSubclassOf<CameraShakeBase.ConstCameraShakeBase>;
 	public inline extern function get_CameraShake(): TSubclassOf<CameraShakeBase.ConstCameraShakeBase> return this.CameraShake;
 	public extern var bAutoStart(get, never): Bool;
@@ -38,7 +38,7 @@ abstract ConstCameraShakeSourceComp(CameraShakeSourceComp) from CameraShakeSourc
 @:forward
 @:nativeGen
 @:native("CameraShakeSourceComp*")
-abstract CameraShakeSourceCompPtr(cpp.Star<CameraShakeSourceComp>) from cpp.Star<CameraShakeSourceComp> to cpp.Star<CameraShakeSourceComp>{
+abstract CameraShakeSourceCompPtr(ucpp.Ptr<CameraShakeSourceComp>) from ucpp.Ptr<CameraShakeSourceComp> to ucpp.Ptr<CameraShakeSourceComp>{
 	@:from
 	public static extern inline function fromValue(v: CameraShakeSourceComp): CameraShakeSourceCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UInterchangeSpotLightNode")
 @:include("InterchangeLightNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeSpotLightNode extends InterchangePointLightNode {
-	public function SetCustomOuterConeAngle(AttributeValue: cpp.Float32): Bool;
-	public function SetCustomInnerConeAngle(AttributeValue: cpp.Float32): Bool;
-	public function GetCustomOuterConeAngle(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
-	public function GetCustomInnerConeAngle(AttributeValue: cpp.Reference<cpp.Float32>): Bool;
+	public function SetCustomOuterConeAngle(AttributeValue: ucpp.num.Float32): Bool;
+	public function SetCustomInnerConeAngle(AttributeValue: ucpp.num.Float32): Bool;
+	public function GetCustomOuterConeAngle(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
+	public function GetCustomInnerConeAngle(AttributeValue: ucpp.Ref<ucpp.num.Float32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomOuterConeAngle, GetCustomInnerConeAngle)
@@ -21,7 +21,7 @@ abstract ConstInterchangeSpotLightNode(InterchangeSpotLightNode) from Interchang
 @:forward
 @:nativeGen
 @:native("InterchangeSpotLightNode*")
-abstract InterchangeSpotLightNodePtr(cpp.Star<InterchangeSpotLightNode>) from cpp.Star<InterchangeSpotLightNode> to cpp.Star<InterchangeSpotLightNode>{
+abstract InterchangeSpotLightNodePtr(ucpp.Ptr<InterchangeSpotLightNode>) from ucpp.Ptr<InterchangeSpotLightNode> to ucpp.Ptr<InterchangeSpotLightNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeSpotLightNode): InterchangeSpotLightNodePtr {
 		return untyped __cpp__("&({0})", v);

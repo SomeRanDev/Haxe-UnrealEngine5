@@ -3,14 +3,14 @@ package ue;
 
 @:native("UPatternTool_OutputSettings")
 @:include("PatternTool.h")
-@:structAccess
+@:valueType
 extern class PatternTool_OutputSettings extends InteractiveToolPropertySet {
 	public var bSeparateActors: Bool;
 	public var bConvertToDynamic: Bool;
 	public var bCreateISMCs: Bool;
 	public var bHaveStaticMeshes: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstPatternTool_OutputSettings(PatternTool_OutputSettings) from Patter
 @:forward
 @:nativeGen
 @:native("PatternTool_OutputSettings*")
-abstract PatternTool_OutputSettingsPtr(cpp.Star<PatternTool_OutputSettings>) from cpp.Star<PatternTool_OutputSettings> to cpp.Star<PatternTool_OutputSettings>{
+abstract PatternTool_OutputSettingsPtr(ucpp.Ptr<PatternTool_OutputSettings>) from ucpp.Ptr<PatternTool_OutputSettings> to ucpp.Ptr<PatternTool_OutputSettings>{
 	@:from
 	public static extern inline function fromValue(v: PatternTool_OutputSettings): PatternTool_OutputSettingsPtr {
 		return untyped __cpp__("&({0})", v);

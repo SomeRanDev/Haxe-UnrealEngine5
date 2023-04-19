@@ -3,9 +3,9 @@ package ue;
 
 @:native("FAnimNode_BlendListByInt")
 @:include("AnimNodes/AnimNode_BlendListByInt.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendListByInt extends AnimNode_BlendListBase {
 
 	@:native("FAnimNode_BlendListByInt") public function new();
-	@:native("FAnimNode_BlendListByInt") public static function make(ActiveChildIndex: cpp.Int32): AnimNode_BlendListByInt ;
+	@:native("FAnimNode_BlendListByInt") public static function make(ActiveChildIndex: ucpp.num.Int32): AnimNode_BlendListByInt ;
 }

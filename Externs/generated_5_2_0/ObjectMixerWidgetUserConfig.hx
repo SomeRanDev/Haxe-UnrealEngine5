@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectMixerWidgetUserConfig")
 @:include("Views/Widgets/ObjectMixerEditorUWidget.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerWidgetUserConfig {
 	public var DefaultFilterClass: TSubclassOf<ObjectMixerObjectFilter>;
 

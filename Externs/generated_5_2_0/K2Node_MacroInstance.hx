@@ -3,12 +3,12 @@ package ue;
 
 @:native("UK2Node_MacroInstance")
 @:include("K2Node_MacroInstance.h")
-@:structAccess
+@:valueType
 extern class K2Node_MacroInstance extends K2Node_Tunnel {
 	private var MacroGraphReference: GraphReference;
 	public var ResolvedWildcardType: EdGraphPinType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstK2Node_MacroInstance(K2Node_MacroInstance) from K2Node_MacroInstan
 @:forward
 @:nativeGen
 @:native("K2Node_MacroInstance*")
-abstract K2Node_MacroInstancePtr(cpp.Star<K2Node_MacroInstance>) from cpp.Star<K2Node_MacroInstance> to cpp.Star<K2Node_MacroInstance>{
+abstract K2Node_MacroInstancePtr(ucpp.Ptr<K2Node_MacroInstance>) from ucpp.Ptr<K2Node_MacroInstance> to ucpp.Ptr<K2Node_MacroInstance>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_MacroInstance): K2Node_MacroInstancePtr {
 		return untyped __cpp__("&({0})", v);

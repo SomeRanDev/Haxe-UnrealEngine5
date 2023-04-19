@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneMarginTrack")
 @:include("Animation/MovieSceneMarginTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMarginTrack extends MovieScenePropertyTrack {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneMarginTrack(MovieSceneMarginTrack) from MovieSceneMargin
 @:forward
 @:nativeGen
 @:native("MovieSceneMarginTrack*")
-abstract MovieSceneMarginTrackPtr(cpp.Star<MovieSceneMarginTrack>) from cpp.Star<MovieSceneMarginTrack> to cpp.Star<MovieSceneMarginTrack>{
+abstract MovieSceneMarginTrackPtr(ucpp.Ptr<MovieSceneMarginTrack>) from ucpp.Ptr<MovieSceneMarginTrack> to ucpp.Ptr<MovieSceneMarginTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMarginTrack): MovieSceneMarginTrackPtr {
 		return untyped __cpp__("&({0})", v);

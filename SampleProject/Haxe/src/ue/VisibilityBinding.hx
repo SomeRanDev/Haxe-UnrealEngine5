@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVisibilityBinding")
 @:include("Binding/VisibilityBinding.h")
-@:structAccess
+@:valueType
 extern class VisibilityBinding extends PropertyBinding {
 	public function GetValue(): ESlateVisibility;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetValue)
@@ -18,7 +18,7 @@ abstract ConstVisibilityBinding(VisibilityBinding) from VisibilityBinding {
 @:forward
 @:nativeGen
 @:native("VisibilityBinding*")
-abstract VisibilityBindingPtr(cpp.Star<VisibilityBinding>) from cpp.Star<VisibilityBinding> to cpp.Star<VisibilityBinding>{
+abstract VisibilityBindingPtr(ucpp.Ptr<VisibilityBinding>) from ucpp.Ptr<VisibilityBinding> to ucpp.Ptr<VisibilityBinding>{
 	@:from
 	public static extern inline function fromValue(v: VisibilityBinding): VisibilityBindingPtr {
 		return untyped __cpp__("&({0})", v);

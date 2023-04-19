@@ -3,29 +3,29 @@ package ue;
 
 @:native("ULogoutCallbackProxy")
 @:include("LogoutCallbackProxy.h")
-@:structAccess
+@:valueType
 extern class LogoutCallbackProxy extends BlueprintAsyncActionBase {
-	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
-	public var OnFailure: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController>) -> Void>;
+	public var OnSuccess: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController>) -> Void>;
+	public var OnFailure: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController>) -> Void>;
 
-	public function Logout(WorldContextObject: cpp.Star<Object>, PlayerController: cpp.Star<PlayerController>): cpp.Star<LogoutCallbackProxy>;
+	public function Logout(WorldContextObject: ucpp.Ptr<Object>, PlayerController: ucpp.Ptr<PlayerController>): ucpp.Ptr<LogoutCallbackProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLogoutCallbackProxy(LogoutCallbackProxy) from LogoutCallbackProxy {
-	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void>;
-	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void> return this.OnSuccess;
-	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void>;
-	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerController.ConstPlayerController>) -> Void> return this.OnFailure;
+	public extern var OnSuccess(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void>;
+	public inline extern function get_OnSuccess(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void> return this.OnSuccess;
+	public extern var OnFailure(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void>;
+	public inline extern function get_OnFailure(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerController.ConstPlayerController>) -> Void> return this.OnFailure;
 }
 
 @:forward
 @:nativeGen
 @:native("LogoutCallbackProxy*")
-abstract LogoutCallbackProxyPtr(cpp.Star<LogoutCallbackProxy>) from cpp.Star<LogoutCallbackProxy> to cpp.Star<LogoutCallbackProxy>{
+abstract LogoutCallbackProxyPtr(ucpp.Ptr<LogoutCallbackProxy>) from ucpp.Ptr<LogoutCallbackProxy> to ucpp.Ptr<LogoutCallbackProxy>{
 	@:from
 	public static extern inline function fromValue(v: LogoutCallbackProxy): LogoutCallbackProxyPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,13 +2,13 @@
 package ue;
 
 @:native("USoundEffectPresetWidgetInterface")
-@:structAccess
+@:valueType
 extern class SoundEffectPresetWidgetInterface extends AudioPanelWidgetInterface {
-	public function OnPropertyChanged(Preset: cpp.Star<SoundEffectPreset>, PropertyName: FName): Void;
-	public function OnConstructed(Preset: cpp.Star<SoundEffectPreset>): Void;
+	public function OnPropertyChanged(Preset: ucpp.Ptr<SoundEffectPreset>, PropertyName: FName): Void;
+	public function OnConstructed(Preset: ucpp.Ptr<SoundEffectPreset>): Void;
 	public function GetClass(): TSubclassOf<SoundEffectPreset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstSoundEffectPresetWidgetInterface(SoundEffectPresetWidgetInterface)
 @:forward
 @:nativeGen
 @:native("SoundEffectPresetWidgetInterface*")
-abstract SoundEffectPresetWidgetInterfacePtr(cpp.Star<SoundEffectPresetWidgetInterface>) from cpp.Star<SoundEffectPresetWidgetInterface> to cpp.Star<SoundEffectPresetWidgetInterface>{
+abstract SoundEffectPresetWidgetInterfacePtr(ucpp.Ptr<SoundEffectPresetWidgetInterface>) from ucpp.Ptr<SoundEffectPresetWidgetInterface> to ucpp.Ptr<SoundEffectPresetWidgetInterface>{
 	@:from
 	public static extern inline function fromValue(v: SoundEffectPresetWidgetInterface): SoundEffectPresetWidgetInterfacePtr {
 		return untyped __cpp__("&({0})", v);

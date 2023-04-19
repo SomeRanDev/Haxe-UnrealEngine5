@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraEditorParametersAdapter")
 @:include("NiagaraEditorData.h")
-@:structAccess
+@:valueType
 extern class NiagaraEditorParametersAdapter extends NiagaraEditorParametersAdapterBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraEditorParametersAdapter(NiagaraEditorParametersAdapter) fro
 @:forward
 @:nativeGen
 @:native("NiagaraEditorParametersAdapter*")
-abstract NiagaraEditorParametersAdapterPtr(cpp.Star<NiagaraEditorParametersAdapter>) from cpp.Star<NiagaraEditorParametersAdapter> to cpp.Star<NiagaraEditorParametersAdapter>{
+abstract NiagaraEditorParametersAdapterPtr(ucpp.Ptr<NiagaraEditorParametersAdapter>) from ucpp.Ptr<NiagaraEditorParametersAdapter> to ucpp.Ptr<NiagaraEditorParametersAdapter>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEditorParametersAdapter): NiagaraEditorParametersAdapterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDataLayerAsset")
 @:include("WorldPartition/DataLayer/DataLayerAsset.h")
-@:structAccess
+@:valueType
 extern class DataLayerAsset extends Object {
 	private var DataLayerType: EDataLayerType;
 	private var DebugColor: Color;
@@ -12,7 +12,7 @@ extern class DataLayerAsset extends Object {
 	public function GetType(): EDataLayerType;
 	public function GetDebugColor(): Color;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsRuntime, GetType, GetDebugColor)
@@ -23,7 +23,7 @@ abstract ConstDataLayerAsset(DataLayerAsset) from DataLayerAsset {
 @:forward
 @:nativeGen
 @:native("DataLayerAsset*")
-abstract DataLayerAssetPtr(cpp.Star<DataLayerAsset>) from cpp.Star<DataLayerAsset> to cpp.Star<DataLayerAsset>{
+abstract DataLayerAssetPtr(ucpp.Ptr<DataLayerAsset>) from ucpp.Ptr<DataLayerAsset> to ucpp.Ptr<DataLayerAsset>{
 	@:from
 	public static extern inline function fromValue(v: DataLayerAsset): DataLayerAssetPtr {
 		return untyped __cpp__("&({0})", v);

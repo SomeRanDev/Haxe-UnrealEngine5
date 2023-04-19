@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAutomationTestExcludelist")
 @:include("AutomationTestExcludelist.h")
-@:structAccess
+@:valueType
 extern class AutomationTestExcludelist extends Object {
 	private var ExcludeTest: TArray<AutomationTestExcludelistEntry>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstAutomationTestExcludelist(AutomationTestExcludelist) from Automati
 @:forward
 @:nativeGen
 @:native("AutomationTestExcludelist*")
-abstract AutomationTestExcludelistPtr(cpp.Star<AutomationTestExcludelist>) from cpp.Star<AutomationTestExcludelist> to cpp.Star<AutomationTestExcludelist>{
+abstract AutomationTestExcludelistPtr(ucpp.Ptr<AutomationTestExcludelist>) from ucpp.Ptr<AutomationTestExcludelist> to ucpp.Ptr<AutomationTestExcludelist>{
 	@:from
 	public static extern inline function fromValue(v: AutomationTestExcludelist): AutomationTestExcludelistPtr {
 		return untyped __cpp__("&({0})", v);

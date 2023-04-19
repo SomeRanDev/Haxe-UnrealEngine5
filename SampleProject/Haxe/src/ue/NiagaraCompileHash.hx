@@ -3,10 +3,10 @@ package ue;
 
 @:native("FNiagaraCompileHash")
 @:include("NiagaraCompileHash.h")
-@:structAccess
+@:valueType
 extern class NiagaraCompileHash {
-	private var DataHash: TArray<cpp.UInt8>;
+	private var DataHash: TArray<ucpp.num.UInt8>;
 
 	@:native("FNiagaraCompileHash") public function new();
-	@:native("FNiagaraCompileHash") public static function make(DataHash: TArray<cpp.UInt8>): NiagaraCompileHash ;
+	@:native("FNiagaraCompileHash") public static function make(DataHash: TArray<ucpp.num.UInt8>): NiagaraCompileHash ;
 }

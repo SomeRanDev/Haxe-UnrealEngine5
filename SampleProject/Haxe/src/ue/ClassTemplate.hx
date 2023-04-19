@@ -3,11 +3,11 @@ package ue;
 
 @:native("UClassTemplate")
 @:include("ClassTemplateEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class ClassTemplate extends Object {
 	private var GeneratedBaseClass: TSubclassOf<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstClassTemplate(ClassTemplate) from ClassTemplate {
 @:forward
 @:nativeGen
 @:native("ClassTemplate*")
-abstract ClassTemplatePtr(cpp.Star<ClassTemplate>) from cpp.Star<ClassTemplate> to cpp.Star<ClassTemplate>{
+abstract ClassTemplatePtr(ucpp.Ptr<ClassTemplate>) from ucpp.Ptr<ClassTemplate> to ucpp.Ptr<ClassTemplate>{
 	@:from
 	public static extern inline function fromValue(v: ClassTemplate): ClassTemplatePtr {
 		return untyped __cpp__("&({0})", v);

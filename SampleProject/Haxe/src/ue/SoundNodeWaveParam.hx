@@ -3,11 +3,11 @@ package ue;
 
 @:native("USoundNodeWaveParam")
 @:include("Sound/SoundNodeWaveParam.h")
-@:structAccess
+@:valueType
 extern class SoundNodeWaveParam extends SoundNode {
 	public var WaveParameterName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstSoundNodeWaveParam(SoundNodeWaveParam) from SoundNodeWaveParam {
 @:forward
 @:nativeGen
 @:native("SoundNodeWaveParam*")
-abstract SoundNodeWaveParamPtr(cpp.Star<SoundNodeWaveParam>) from cpp.Star<SoundNodeWaveParam> to cpp.Star<SoundNodeWaveParam>{
+abstract SoundNodeWaveParamPtr(ucpp.Ptr<SoundNodeWaveParam>) from ucpp.Ptr<SoundNodeWaveParam> to ucpp.Ptr<SoundNodeWaveParam>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeWaveParam): SoundNodeWaveParamPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("AGizmoActor")
 @:include("BaseGizmos/GizmoActor.h")
-@:structAccess
+@:valueType
 extern class GizmoActor extends InternalToolFrameworkActor {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGizmoActor(GizmoActor) from GizmoActor {
 @:forward
 @:nativeGen
 @:native("GizmoActor*")
-abstract GizmoActorPtr(cpp.Star<GizmoActor>) from cpp.Star<GizmoActor> to cpp.Star<GizmoActor>{
+abstract GizmoActorPtr(ucpp.Ptr<GizmoActor>) from ucpp.Ptr<GizmoActor> to ucpp.Ptr<GizmoActor>{
 	@:from
 	public static extern inline function fromValue(v: GizmoActor): GizmoActorPtr {
 		return untyped __cpp__("&({0})", v);

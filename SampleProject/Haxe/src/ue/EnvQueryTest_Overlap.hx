@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEnvQueryTest_Overlap")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Overlap.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_Overlap extends EnvQueryTest {
 	public var OverlapData: EnvOverlapData;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEnvQueryTest_Overlap(EnvQueryTest_Overlap) from EnvQueryTest_Overl
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_Overlap*")
-abstract EnvQueryTest_OverlapPtr(cpp.Star<EnvQueryTest_Overlap>) from cpp.Star<EnvQueryTest_Overlap> to cpp.Star<EnvQueryTest_Overlap>{
+abstract EnvQueryTest_OverlapPtr(ucpp.Ptr<EnvQueryTest_Overlap>) from ucpp.Ptr<EnvQueryTest_Overlap> to ucpp.Ptr<EnvQueryTest_Overlap>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_Overlap): EnvQueryTest_OverlapPtr {
 		return untyped __cpp__("&({0})", v);

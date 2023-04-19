@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneComponentMaterialTrack")
 @:include("Tracks/MovieSceneMaterialTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneComponentMaterialTrack extends MovieSceneMaterialTrack {
-	private var MaterialIndex: cpp.Int32;
+	private var MaterialIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneComponentMaterialTrack(MovieSceneComponentMaterialTrack)
 @:forward
 @:nativeGen
 @:native("MovieSceneComponentMaterialTrack*")
-abstract MovieSceneComponentMaterialTrackPtr(cpp.Star<MovieSceneComponentMaterialTrack>) from cpp.Star<MovieSceneComponentMaterialTrack> to cpp.Star<MovieSceneComponentMaterialTrack>{
+abstract MovieSceneComponentMaterialTrackPtr(ucpp.Ptr<MovieSceneComponentMaterialTrack>) from ucpp.Ptr<MovieSceneComponentMaterialTrack> to ucpp.Ptr<MovieSceneComponentMaterialTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneComponentMaterialTrack): MovieSceneComponentMaterialTrackPtr {
 		return untyped __cpp__("&({0})", v);

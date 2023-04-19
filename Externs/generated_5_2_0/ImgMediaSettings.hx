@@ -3,21 +3,21 @@ package ue;
 
 @:native("UImgMediaSettings")
 @:include("ImgMediaSettings.h")
-@:structAccess
+@:valueType
 extern class ImgMediaSettings extends Object {
 	public var DefaultFrameRate: FrameRate;
 	public var BandwidthThrottlingEnabled: Bool;
-	public var CacheBehindPercentage: cpp.Float32;
-	public var CacheSizeGB: cpp.Float32;
-	public var CacheThreads: cpp.Int32;
-	public var CacheThreadStackSizeKB: cpp.Int32;
-	public var GlobalCacheSizeGB: cpp.Float32;
+	public var CacheBehindPercentage: ucpp.num.Float32;
+	public var CacheSizeGB: ucpp.num.Float32;
+	public var CacheThreads: ucpp.num.Int32;
+	public var CacheThreadStackSizeKB: ucpp.num.Int32;
+	public var GlobalCacheSizeGB: ucpp.num.Float32;
 	public var UseGlobalCache: Bool;
-	public var ExrDecoderThreads: cpp.UInt32;
+	public var ExrDecoderThreads: ucpp.num.UInt32;
 	private var DefaultProxy: FString;
 	private var UseDefaultProxy: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,26 +27,26 @@ abstract ConstImgMediaSettings(ImgMediaSettings) from ImgMediaSettings {
 	public inline extern function get_DefaultFrameRate(): FrameRate return this.DefaultFrameRate;
 	public extern var BandwidthThrottlingEnabled(get, never): Bool;
 	public inline extern function get_BandwidthThrottlingEnabled(): Bool return this.BandwidthThrottlingEnabled;
-	public extern var CacheBehindPercentage(get, never): cpp.Float32;
-	public inline extern function get_CacheBehindPercentage(): cpp.Float32 return this.CacheBehindPercentage;
-	public extern var CacheSizeGB(get, never): cpp.Float32;
-	public inline extern function get_CacheSizeGB(): cpp.Float32 return this.CacheSizeGB;
-	public extern var CacheThreads(get, never): cpp.Int32;
-	public inline extern function get_CacheThreads(): cpp.Int32 return this.CacheThreads;
-	public extern var CacheThreadStackSizeKB(get, never): cpp.Int32;
-	public inline extern function get_CacheThreadStackSizeKB(): cpp.Int32 return this.CacheThreadStackSizeKB;
-	public extern var GlobalCacheSizeGB(get, never): cpp.Float32;
-	public inline extern function get_GlobalCacheSizeGB(): cpp.Float32 return this.GlobalCacheSizeGB;
+	public extern var CacheBehindPercentage(get, never): ucpp.num.Float32;
+	public inline extern function get_CacheBehindPercentage(): ucpp.num.Float32 return this.CacheBehindPercentage;
+	public extern var CacheSizeGB(get, never): ucpp.num.Float32;
+	public inline extern function get_CacheSizeGB(): ucpp.num.Float32 return this.CacheSizeGB;
+	public extern var CacheThreads(get, never): ucpp.num.Int32;
+	public inline extern function get_CacheThreads(): ucpp.num.Int32 return this.CacheThreads;
+	public extern var CacheThreadStackSizeKB(get, never): ucpp.num.Int32;
+	public inline extern function get_CacheThreadStackSizeKB(): ucpp.num.Int32 return this.CacheThreadStackSizeKB;
+	public extern var GlobalCacheSizeGB(get, never): ucpp.num.Float32;
+	public inline extern function get_GlobalCacheSizeGB(): ucpp.num.Float32 return this.GlobalCacheSizeGB;
 	public extern var UseGlobalCache(get, never): Bool;
 	public inline extern function get_UseGlobalCache(): Bool return this.UseGlobalCache;
-	public extern var ExrDecoderThreads(get, never): cpp.UInt32;
-	public inline extern function get_ExrDecoderThreads(): cpp.UInt32 return this.ExrDecoderThreads;
+	public extern var ExrDecoderThreads(get, never): ucpp.num.UInt32;
+	public inline extern function get_ExrDecoderThreads(): ucpp.num.UInt32 return this.ExrDecoderThreads;
 }
 
 @:forward
 @:nativeGen
 @:native("ImgMediaSettings*")
-abstract ImgMediaSettingsPtr(cpp.Star<ImgMediaSettings>) from cpp.Star<ImgMediaSettings> to cpp.Star<ImgMediaSettings>{
+abstract ImgMediaSettingsPtr(ucpp.Ptr<ImgMediaSettings>) from ucpp.Ptr<ImgMediaSettings> to ucpp.Ptr<ImgMediaSettings>{
 	@:from
 	public static extern inline function fromValue(v: ImgMediaSettings): ImgMediaSettingsPtr {
 		return untyped __cpp__("&({0})", v);

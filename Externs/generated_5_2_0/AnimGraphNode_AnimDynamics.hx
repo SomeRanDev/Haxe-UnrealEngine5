@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAnimGraphNode_AnimDynamics")
 @:include("AnimGraphNode_AnimDynamics.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_AnimDynamics extends AnimGraphNode_SkeletalControlBase {
 	public var Node: AnimNode_AnimDynamics;
 	public var bPreviewLive: Bool;
@@ -13,7 +13,7 @@ extern class AnimGraphNode_AnimDynamics extends AnimGraphNode_SkeletalControlBas
 	public var bShowSphericalLimit: Bool;
 	public var bShowCollisionSpheres: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -38,7 +38,7 @@ abstract ConstAnimGraphNode_AnimDynamics(AnimGraphNode_AnimDynamics) from AnimGr
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_AnimDynamics*")
-abstract AnimGraphNode_AnimDynamicsPtr(cpp.Star<AnimGraphNode_AnimDynamics>) from cpp.Star<AnimGraphNode_AnimDynamics> to cpp.Star<AnimGraphNode_AnimDynamics>{
+abstract AnimGraphNode_AnimDynamicsPtr(ucpp.Ptr<AnimGraphNode_AnimDynamics>) from ucpp.Ptr<AnimGraphNode_AnimDynamics> to ucpp.Ptr<AnimGraphNode_AnimDynamics>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_AnimDynamics): AnimGraphNode_AnimDynamicsPtr {
 		return untyped __cpp__("&({0})", v);

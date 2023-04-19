@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_LookAt")
 @:include("BoneControllers/AnimNode_LookAt.h")
-@:structAccess
+@:valueType
 extern class AnimNode_LookAt extends AnimNode_SkeletalControlBase {
 	public var BoneToModify: BoneReference;
 	public var LookAtTarget: BoneSocketTarget;
@@ -12,9 +12,9 @@ extern class AnimNode_LookAt extends AnimNode_SkeletalControlBase {
 	public var bUseLookUpAxis: Bool;
 	public var InterpolationType: TEnumAsByte<EInterpolationBlend>;
 	public var LookUp_Axis: Axis;
-	public var LookAtClamp: cpp.Float32;
-	public var InterpolationTime: cpp.Float32;
-	public var InterpolationTriggerThreashold: cpp.Float32;
+	public var LookAtClamp: ucpp.num.Float32;
+	public var InterpolationTime: ucpp.num.Float32;
+	public var InterpolationTriggerThreashold: ucpp.num.Float32;
 
 	@:native("FAnimNode_LookAt") public function new();
 }

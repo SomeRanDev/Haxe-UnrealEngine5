@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimNode_SequencePlayerBase")
 @:include("Animation/AnimNode_SequencePlayer.h")
-@:structAccess
+@:valueType
 extern class AnimNode_SequencePlayerBase extends AnimNode_AssetPlayerBase {
 	@:protected public var PlayRateScaleBiasClampState: InputScaleBiasClampState;
 

@@ -3,26 +3,26 @@ package ue;
 
 @:native("UAIBlueprintHelperLibrary")
 @:include("Blueprint/AIBlueprintHelperLibrary.h")
-@:structAccess
+@:valueType
 extern class AIBlueprintHelperLibrary extends BlueprintFunctionLibrary {
-	public function UnlockAIResourcesWithAnimation(AnimInstance: cpp.Star<AnimInstance>, bUnlockMovement: Bool, UnlockAILogic: Bool): Void;
-	public function SpawnAIFromClass(WorldContextObject: cpp.Star<Object>, PawnClass: TSubclassOf<Pawn>, BehaviorTree: cpp.Star<BehaviorTree>, Location: Vector, Rotation: Rotator, bNoCollisionFail: Bool, Owner: cpp.Star<Actor>): cpp.Star<Pawn>;
-	public function SimpleMoveToLocation(Controller: cpp.Star<Controller>, Goal: cpp.Reference<Vector>): Void;
-	public function SimpleMoveToActor(Controller: cpp.Star<Controller>, Goal: cpp.Star<Actor.ConstActor>): Void;
-	public function SendAIMessage(Target: cpp.Star<Pawn>, Message: FName, MessageSource: cpp.Star<Object>, bSuccess: Bool): Void;
-	public function LockAIResourcesWithAnimation(AnimInstance: cpp.Star<AnimInstance>, bLockMovement: Bool, LockAILogic: Bool): Void;
+	public function UnlockAIResourcesWithAnimation(AnimInstance: ucpp.Ptr<AnimInstance>, bUnlockMovement: Bool, UnlockAILogic: Bool): Void;
+	public function SpawnAIFromClass(WorldContextObject: ucpp.Ptr<Object>, PawnClass: TSubclassOf<Pawn>, BehaviorTree: ucpp.Ptr<BehaviorTree>, Location: Vector, Rotation: Rotator, bNoCollisionFail: Bool, Owner: ucpp.Ptr<Actor>): ucpp.Ptr<Pawn>;
+	public function SimpleMoveToLocation(Controller: ucpp.Ptr<Controller>, Goal: ucpp.Ref<Vector>): Void;
+	public function SimpleMoveToActor(Controller: ucpp.Ptr<Controller>, Goal: ucpp.Ptr<Actor.ConstActor>): Void;
+	public function SendAIMessage(Target: ucpp.Ptr<Pawn>, Message: FName, MessageSource: ucpp.Ptr<Object>, bSuccess: Bool): Void;
+	public function LockAIResourcesWithAnimation(AnimInstance: ucpp.Ptr<AnimInstance>, bLockMovement: Bool, LockAILogic: Bool): Void;
 	public function IsValidAIRotation(Rotation: Rotator): Bool;
 	public function IsValidAILocation(Location: Vector): Bool;
 	public function IsValidAIDirection(DirectionVector: Vector): Bool;
-	public function GetNextNavLinkIndex(Controller: cpp.Star<Controller.ConstController>): cpp.Int32;
-	public function GetCurrentPathPoints(Controller: cpp.Star<Controller>): TArray<Vector>;
-	public function GetCurrentPathIndex(Controller: cpp.Star<Controller.ConstController>): cpp.Int32;
-	public function GetCurrentPath(Controller: cpp.Star<Controller>): cpp.Star<NavigationPath>;
-	public function GetBlackboard(Target: cpp.Star<Actor>): cpp.Star<BlackboardComp>;
-	public function GetAIController(ControlledActor: cpp.Star<Actor>): cpp.Star<AIController>;
-	public function CreateMoveToProxyObject(WorldContextObject: cpp.Star<Object>, Pawn: cpp.Star<Pawn>, Destination: Vector, TargetActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, bStopOnOverlap: Bool): cpp.Star<AIAsyncTaskBlueprintProxy>;
+	public function GetNextNavLinkIndex(Controller: ucpp.Ptr<Controller.ConstController>): ucpp.num.Int32;
+	public function GetCurrentPathPoints(Controller: ucpp.Ptr<Controller>): TArray<Vector>;
+	public function GetCurrentPathIndex(Controller: ucpp.Ptr<Controller.ConstController>): ucpp.num.Int32;
+	public function GetCurrentPath(Controller: ucpp.Ptr<Controller>): ucpp.Ptr<NavigationPath>;
+	public function GetBlackboard(Target: ucpp.Ptr<Actor>): ucpp.Ptr<BlackboardComp>;
+	public function GetAIController(ControlledActor: ucpp.Ptr<Actor>): ucpp.Ptr<AIController>;
+	public function CreateMoveToProxyObject(WorldContextObject: ucpp.Ptr<Object>, Pawn: ucpp.Ptr<Pawn>, Destination: Vector, TargetActor: ucpp.Ptr<Actor>, AcceptanceRadius: ucpp.num.Float32, bStopOnOverlap: Bool): ucpp.Ptr<AIAsyncTaskBlueprintProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,7 +33,7 @@ abstract ConstAIBlueprintHelperLibrary(AIBlueprintHelperLibrary) from AIBlueprin
 @:forward
 @:nativeGen
 @:native("AIBlueprintHelperLibrary*")
-abstract AIBlueprintHelperLibraryPtr(cpp.Star<AIBlueprintHelperLibrary>) from cpp.Star<AIBlueprintHelperLibrary> to cpp.Star<AIBlueprintHelperLibrary>{
+abstract AIBlueprintHelperLibraryPtr(ucpp.Ptr<AIBlueprintHelperLibrary>) from ucpp.Ptr<AIBlueprintHelperLibrary> to ucpp.Ptr<AIBlueprintHelperLibrary>{
 	@:from
 	public static extern inline function fromValue(v: AIBlueprintHelperLibrary): AIBlueprintHelperLibraryPtr {
 		return untyped __cpp__("&({0})", v);

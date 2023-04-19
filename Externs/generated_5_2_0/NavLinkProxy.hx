@@ -3,22 +3,22 @@ package ue;
 
 @:native("ANavLinkProxy")
 @:include("Navigation/NavLinkProxy.h")
-@:structAccess
+@:valueType
 extern class NavLinkProxy extends Actor {
 	public var PointLinks: TArray<NavigationLink>;
 	public var SegmentLinks: TArray<NavigationSegmentLink>;
-	private var SmartLinkComp: cpp.Star<NavLinkCustomComp>;
+	private var SmartLinkComp: ucpp.Ptr<NavLinkCustomComp>;
 	public var bSmartLinkIsRelevant: Bool;
-	@:protected public var OnSmartLinkReached: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>, cpp.Reference<Vector>) -> Void>;
+	@:protected public var OnSmartLinkReached: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor>, ucpp.Ref<Vector>) -> Void>;
 
 	public function SetSmartLinkEnabled(bEnabled: Bool): Void;
-	public function ResumePathFollowing(Agent: cpp.Star<Actor>): Void;
-	public function ReceiveSmartLinkReached(Agent: cpp.Star<Actor>, Destination: cpp.Reference<Vector>): Void;
+	public function ResumePathFollowing(Agent: ucpp.Ptr<Actor>): Void;
+	public function ReceiveSmartLinkReached(Agent: ucpp.Ptr<Actor>, Destination: ucpp.Ref<Vector>): Void;
 	public function IsSmartLinkEnabled(): Bool;
 	public function HasMovingAgents(): Bool;
 	public function CopyEndPointsFromSimpleLinkToSmartLink(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsSmartLinkEnabled, HasMovingAgents)
@@ -35,7 +35,7 @@ abstract ConstNavLinkProxy(NavLinkProxy) from NavLinkProxy {
 @:forward
 @:nativeGen
 @:native("NavLinkProxy*")
-abstract NavLinkProxyPtr(cpp.Star<NavLinkProxy>) from cpp.Star<NavLinkProxy> to cpp.Star<NavLinkProxy>{
+abstract NavLinkProxyPtr(ucpp.Ptr<NavLinkProxy>) from ucpp.Ptr<NavLinkProxy> to ucpp.Ptr<NavLinkProxy>{
 	@:from
 	public static extern inline function fromValue(v: NavLinkProxy): NavLinkProxyPtr {
 		return untyped __cpp__("&({0})", v);

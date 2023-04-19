@@ -3,37 +3,37 @@ package ue;
 
 @:native("UAnimStreamable")
 @:include("Animation/AnimStreamable.h")
-@:structAccess
+@:valueType
 extern class AnimStreamable extends AnimSequenceBase {
-	public var NumberOfKeys: cpp.Int32;
+	public var NumberOfKeys: ucpp.num.Int32;
 	public var Interpolation: EAnimInterpolationType;
 	public var RetargetSource: FName;
 	public var SamplingFrameRate: FrameRate;
-	public var BoneCompressionSettings: cpp.Star<AnimBoneCompressionSettings>;
-	public var CurveCompressionSettings: cpp.Star<AnimCurveCompressionSettings>;
+	public var BoneCompressionSettings: ucpp.Ptr<AnimBoneCompressionSettings>;
+	public var CurveCompressionSettings: ucpp.Ptr<AnimCurveCompressionSettings>;
 	public var bEnableRootMotion: Bool;
 	public var RootMotionRootLock: TEnumAsByte<ERootMotionRootLock>;
 	public var bForceRootLock: Bool;
 	public var bUseNormalizedRootMotionScale: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimStreamable(AnimStreamable) from AnimStreamable {
-	public extern var NumberOfKeys(get, never): cpp.Int32;
-	public inline extern function get_NumberOfKeys(): cpp.Int32 return this.NumberOfKeys;
+	public extern var NumberOfKeys(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberOfKeys(): ucpp.num.Int32 return this.NumberOfKeys;
 	public extern var Interpolation(get, never): EAnimInterpolationType;
 	public inline extern function get_Interpolation(): EAnimInterpolationType return this.Interpolation;
 	public extern var RetargetSource(get, never): FName;
 	public inline extern function get_RetargetSource(): FName return this.RetargetSource;
 	public extern var SamplingFrameRate(get, never): FrameRate;
 	public inline extern function get_SamplingFrameRate(): FrameRate return this.SamplingFrameRate;
-	public extern var BoneCompressionSettings(get, never): cpp.Star<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings>;
-	public inline extern function get_BoneCompressionSettings(): cpp.Star<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings> return this.BoneCompressionSettings;
-	public extern var CurveCompressionSettings(get, never): cpp.Star<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings>;
-	public inline extern function get_CurveCompressionSettings(): cpp.Star<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings> return this.CurveCompressionSettings;
+	public extern var BoneCompressionSettings(get, never): ucpp.Ptr<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings>;
+	public inline extern function get_BoneCompressionSettings(): ucpp.Ptr<AnimBoneCompressionSettings.ConstAnimBoneCompressionSettings> return this.BoneCompressionSettings;
+	public extern var CurveCompressionSettings(get, never): ucpp.Ptr<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings>;
+	public inline extern function get_CurveCompressionSettings(): ucpp.Ptr<AnimCurveCompressionSettings.ConstAnimCurveCompressionSettings> return this.CurveCompressionSettings;
 	public extern var bEnableRootMotion(get, never): Bool;
 	public inline extern function get_bEnableRootMotion(): Bool return this.bEnableRootMotion;
 	public extern var RootMotionRootLock(get, never): TEnumAsByte<ERootMotionRootLock>;
@@ -47,7 +47,7 @@ abstract ConstAnimStreamable(AnimStreamable) from AnimStreamable {
 @:forward
 @:nativeGen
 @:native("AnimStreamable*")
-abstract AnimStreamablePtr(cpp.Star<AnimStreamable>) from cpp.Star<AnimStreamable> to cpp.Star<AnimStreamable>{
+abstract AnimStreamablePtr(ucpp.Ptr<AnimStreamable>) from ucpp.Ptr<AnimStreamable> to ucpp.Ptr<AnimStreamable>{
 	@:from
 	public static extern inline function fromValue(v: AnimStreamable): AnimStreamablePtr {
 		return untyped __cpp__("&({0})", v);

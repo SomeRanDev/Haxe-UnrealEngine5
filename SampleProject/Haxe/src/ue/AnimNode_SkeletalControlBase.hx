@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAnimNode_SkeletalControlBase")
 @:include("BoneControllers/AnimNode_SkeletalControlBase.h")
-@:structAccess
+@:valueType
 extern class AnimNode_SkeletalControlBase extends AnimNode_Base {
 	public var ComponentPose: ComponentSpacePoseLink;
-	public var LODThreshold: cpp.Int32;
-	public var ActualAlpha: cpp.Float32;
+	public var LODThreshold: ucpp.num.Int32;
+	public var ActualAlpha: ucpp.num.Float32;
 	public var AlphaInputType: EAnimAlphaInputType;
 	public var bAlphaBoolEnabled: Bool;
-	public var Alpha: cpp.Float32;
+	public var Alpha: ucpp.num.Float32;
 	public var AlphaScaleBias: InputScaleBias;
 	public var AlphaBoolBlend: InputAlphaBoolBlend;
 	public var AlphaCurveName: FName;

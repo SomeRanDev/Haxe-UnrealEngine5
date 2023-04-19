@@ -3,7 +3,7 @@ package ue;
 
 @:native("APartyBeaconClient")
 @:include("PartyBeaconClient.h")
-@:structAccess
+@:valueType
 extern class PartyBeaconClient extends OnlineBeaconClient {
 	@:protected public var DestSessionId: FString;
 	@:protected public var PendingReservation: PartyReservation;
@@ -16,12 +16,12 @@ extern class PartyBeaconClient extends OnlineBeaconClient {
 	@:protected public function ServerRemoveMemberFromReservationRequest(SessionId: FString, ReservationUpdate: PartyReservation): Void;
 	@:protected public function ServerCancelReservationRequest(PartyLeader: UniqueNetIdRepl): Void;
 	@:protected public function ServerAddOrUpdateReservationRequest(SessionId: FString, Reservation: PartyReservation): Void;
-	public function ClientSendReservationUpdates(NumRemainingReservations: cpp.Int32): Void;
+	public function ClientSendReservationUpdates(NumRemainingReservations: ucpp.num.Int32): Void;
 	public function ClientSendReservationFull(): Void;
 	public function ClientReservationResponse(ReservationResponse: TEnumAsByte<EPartyReservationResult>): Void;
 	public function ClientCancelReservationResponse(ReservationResponse: TEnumAsByte<EPartyReservationResult>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstPartyBeaconClient(PartyBeaconClient) from PartyBeaconClient {
 @:forward
 @:nativeGen
 @:native("PartyBeaconClient*")
-abstract PartyBeaconClientPtr(cpp.Star<PartyBeaconClient>) from cpp.Star<PartyBeaconClient> to cpp.Star<PartyBeaconClient>{
+abstract PartyBeaconClientPtr(ucpp.Ptr<PartyBeaconClient>) from ucpp.Ptr<PartyBeaconClient> to ucpp.Ptr<PartyBeaconClient>{
 	@:from
 	public static extern inline function fromValue(v: PartyBeaconClient): PartyBeaconClientPtr {
 		return untyped __cpp__("&({0})", v);

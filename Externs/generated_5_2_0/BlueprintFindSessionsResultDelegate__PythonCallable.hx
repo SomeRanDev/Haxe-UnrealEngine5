@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UBlueprintFindSessionsResultDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class BlueprintFindSessionsResultDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstBlueprintFindSessionsResultDelegate__PythonCallable(BlueprintFindS
 @:forward
 @:nativeGen
 @:native("BlueprintFindSessionsResultDelegate__PythonCallable*")
-abstract BlueprintFindSessionsResultDelegate__PythonCallablePtr(cpp.Star<BlueprintFindSessionsResultDelegate__PythonCallable>) from cpp.Star<BlueprintFindSessionsResultDelegate__PythonCallable> to cpp.Star<BlueprintFindSessionsResultDelegate__PythonCallable>{
+abstract BlueprintFindSessionsResultDelegate__PythonCallablePtr(ucpp.Ptr<BlueprintFindSessionsResultDelegate__PythonCallable>) from ucpp.Ptr<BlueprintFindSessionsResultDelegate__PythonCallable> to ucpp.Ptr<BlueprintFindSessionsResultDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: BlueprintFindSessionsResultDelegate__PythonCallable): BlueprintFindSessionsResultDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAdvancedCopyCustomization")
 @:include("AdvancedCopyCustomization.h")
-@:structAccess
+@:valueType
 extern class AdvancedCopyCustomization extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAdvancedCopyCustomization(AdvancedCopyCustomization) from Advanced
 @:forward
 @:nativeGen
 @:native("AdvancedCopyCustomization*")
-abstract AdvancedCopyCustomizationPtr(cpp.Star<AdvancedCopyCustomization>) from cpp.Star<AdvancedCopyCustomization> to cpp.Star<AdvancedCopyCustomization>{
+abstract AdvancedCopyCustomizationPtr(ucpp.Ptr<AdvancedCopyCustomization>) from ucpp.Ptr<AdvancedCopyCustomization> to ucpp.Ptr<AdvancedCopyCustomization>{
 	@:from
 	public static extern inline function fromValue(v: AdvancedCopyCustomization): AdvancedCopyCustomizationPtr {
 		return untyped __cpp__("&({0})", v);

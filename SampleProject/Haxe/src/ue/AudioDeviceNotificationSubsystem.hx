@@ -3,7 +3,7 @@ package ue;
 
 @:native("UAudioDeviceNotificationSubsystem")
 @:include("AudioDeviceNotificationSubsystem.h")
-@:structAccess
+@:valueType
 extern class AudioDeviceNotificationSubsystem extends EngineSubsystem {
 	public var DefaultCaptureDeviceChanged: HaxeMulticastSparseDelegateProperty<(EAudioDeviceChangedRole, FString) -> Void>;
 	public var DefaultRenderDeviceChanged: HaxeMulticastSparseDelegateProperty<(EAudioDeviceChangedRole, FString) -> Void>;
@@ -12,7 +12,7 @@ extern class AudioDeviceNotificationSubsystem extends EngineSubsystem {
 	public var DeviceStateChanged: HaxeMulticastSparseDelegateProperty<(FString, EAudioDeviceChangedState) -> Void>;
 	public var DeviceSwitched: HaxeMulticastSparseDelegateProperty<(FString) -> Void>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstAudioDeviceNotificationSubsystem(AudioDeviceNotificationSubsystem)
 @:forward
 @:nativeGen
 @:native("AudioDeviceNotificationSubsystem*")
-abstract AudioDeviceNotificationSubsystemPtr(cpp.Star<AudioDeviceNotificationSubsystem>) from cpp.Star<AudioDeviceNotificationSubsystem> to cpp.Star<AudioDeviceNotificationSubsystem>{
+abstract AudioDeviceNotificationSubsystemPtr(ucpp.Ptr<AudioDeviceNotificationSubsystem>) from ucpp.Ptr<AudioDeviceNotificationSubsystem> to ucpp.Ptr<AudioDeviceNotificationSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: AudioDeviceNotificationSubsystem): AudioDeviceNotificationSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

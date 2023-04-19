@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPythonGeneratedClass")
 @:include("PyWrapperObject.h")
-@:structAccess
+@:valueType
 extern class PythonGeneratedClass extends Class {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPythonGeneratedClass(PythonGeneratedClass) from PythonGeneratedCla
 @:forward
 @:nativeGen
 @:native("PythonGeneratedClass*")
-abstract PythonGeneratedClassPtr(cpp.Star<PythonGeneratedClass>) from cpp.Star<PythonGeneratedClass> to cpp.Star<PythonGeneratedClass>{
+abstract PythonGeneratedClassPtr(ucpp.Ptr<PythonGeneratedClass>) from ucpp.Ptr<PythonGeneratedClass> to ucpp.Ptr<PythonGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: PythonGeneratedClass): PythonGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

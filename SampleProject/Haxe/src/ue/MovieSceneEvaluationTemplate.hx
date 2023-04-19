@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneEvaluationTemplate")
 @:include("Evaluation/MovieSceneEvaluationTemplate.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEvaluationTemplate {
 	private var Tracks: TMap<MovieSceneTrackIdentifier, MovieSceneEvaluationTrack>;
 	public var SequenceSignature: Guid;

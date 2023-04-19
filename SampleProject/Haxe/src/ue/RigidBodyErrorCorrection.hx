@@ -3,21 +3,21 @@ package ue;
 
 @:native("FRigidBodyErrorCorrection")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class RigidBodyErrorCorrection {
-	public var PingExtrapolation: cpp.Float32;
-	public var PingLimit: cpp.Float32;
-	public var ErrorPerLinearDifference: cpp.Float32;
-	public var ErrorPerAngularDifference: cpp.Float32;
-	public var MaxRestoredStateError: cpp.Float32;
-	public var MaxLinearHardSnapDistance: cpp.Float32;
-	public var PositionLerp: cpp.Float32;
-	public var AngleLerp: cpp.Float32;
-	public var LinearVelocityCoefficient: cpp.Float32;
-	public var AngularVelocityCoefficient: cpp.Float32;
-	public var ErrorAccumulationSeconds: cpp.Float32;
-	public var ErrorAccumulationDistanceSq: cpp.Float32;
-	public var ErrorAccumulationSimilarity: cpp.Float32;
+	public var PingExtrapolation: ucpp.num.Float32;
+	public var PingLimit: ucpp.num.Float32;
+	public var ErrorPerLinearDifference: ucpp.num.Float32;
+	public var ErrorPerAngularDifference: ucpp.num.Float32;
+	public var MaxRestoredStateError: ucpp.num.Float32;
+	public var MaxLinearHardSnapDistance: ucpp.num.Float32;
+	public var PositionLerp: ucpp.num.Float32;
+	public var AngleLerp: ucpp.num.Float32;
+	public var LinearVelocityCoefficient: ucpp.num.Float32;
+	public var AngularVelocityCoefficient: ucpp.num.Float32;
+	public var ErrorAccumulationSeconds: ucpp.num.Float32;
+	public var ErrorAccumulationDistanceSq: ucpp.num.Float32;
+	public var ErrorAccumulationSimilarity: ucpp.num.Float32;
 
 	@:native("FRigidBodyErrorCorrection") public function new();
 }

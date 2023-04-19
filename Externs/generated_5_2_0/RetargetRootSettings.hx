@@ -3,11 +3,11 @@ package ue;
 
 @:native("URetargetRootSettings")
 @:include("Retargeter/IKRetargeter.h")
-@:structAccess
+@:valueType
 extern class RetargetRootSettings extends Object {
 	public var Settings: TargetRootSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstRetargetRootSettings(RetargetRootSettings) from RetargetRootSettin
 @:forward
 @:nativeGen
 @:native("RetargetRootSettings*")
-abstract RetargetRootSettingsPtr(cpp.Star<RetargetRootSettings>) from cpp.Star<RetargetRootSettings> to cpp.Star<RetargetRootSettings>{
+abstract RetargetRootSettingsPtr(ucpp.Ptr<RetargetRootSettings>) from ucpp.Ptr<RetargetRootSettings> to ucpp.Ptr<RetargetRootSettings>{
 	@:from
 	public static extern inline function fromValue(v: RetargetRootSettings): RetargetRootSettingsPtr {
 		return untyped __cpp__("&({0})", v);

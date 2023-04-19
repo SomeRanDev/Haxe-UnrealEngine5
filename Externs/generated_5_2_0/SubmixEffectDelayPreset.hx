@@ -3,18 +3,18 @@ package ue;
 
 @:native("USubmixEffectDelayPreset")
 @:include("SubmixEffects/SubmixEffectDelay.h")
-@:structAccess
+@:valueType
 extern class SubmixEffectDelayPreset extends SoundEffectSubmixPreset {
 	public var Settings: SubmixEffectDelaySettings;
 	public var DynamicSettings: SubmixEffectDelaySettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SubmixEffectDelaySettings>): Void;
-	public function SetInterpolationTime(Time: cpp.Float32): Void;
-	public function SetDelay(Length: cpp.Float32): Void;
-	public function SetDefaultSettings(InSettings: cpp.Reference<SubmixEffectDelaySettings>): Void;
-	public function GetMaxDelayInMilliseconds(): cpp.Float32;
+	public function SetSettings(InSettings: ucpp.Ref<SubmixEffectDelaySettings>): Void;
+	public function SetInterpolationTime(Time: ucpp.num.Float32): Void;
+	public function SetDelay(Length: ucpp.num.Float32): Void;
+	public function SetDefaultSettings(InSettings: ucpp.Ref<SubmixEffectDelaySettings>): Void;
+	public function GetMaxDelayInMilliseconds(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetMaxDelayInMilliseconds)
@@ -29,7 +29,7 @@ abstract ConstSubmixEffectDelayPreset(SubmixEffectDelayPreset) from SubmixEffect
 @:forward
 @:nativeGen
 @:native("SubmixEffectDelayPreset*")
-abstract SubmixEffectDelayPresetPtr(cpp.Star<SubmixEffectDelayPreset>) from cpp.Star<SubmixEffectDelayPreset> to cpp.Star<SubmixEffectDelayPreset>{
+abstract SubmixEffectDelayPresetPtr(ucpp.Ptr<SubmixEffectDelayPreset>) from ucpp.Ptr<SubmixEffectDelayPreset> to ucpp.Ptr<SubmixEffectDelayPreset>{
 	@:from
 	public static extern inline function fromValue(v: SubmixEffectDelayPreset): SubmixEffectDelayPresetPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,18 +3,18 @@ package ue;
 
 @:native("URecomputeUVsTool")
 @:include("RecomputeUVsTool.h")
-@:structAccess
+@:valueType
 extern class RecomputeUVsTool extends SingleSelectionMeshEditingTool {
-	@:protected public var UVChannelProperties: cpp.Star<MeshUVChannelProperties>;
-	@:protected public var Settings: cpp.Star<RecomputeUVsToolProperties>;
-	@:protected public var PolygroupLayerProperties: cpp.Star<PolygroupLayersProperties>;
-	@:protected public var MaterialSettings: cpp.Star<ExistingMeshMaterialProperties>;
+	@:protected public var UVChannelProperties: ucpp.Ptr<MeshUVChannelProperties>;
+	@:protected public var Settings: ucpp.Ptr<RecomputeUVsToolProperties>;
+	@:protected public var PolygroupLayerProperties: ucpp.Ptr<PolygroupLayersProperties>;
+	@:protected public var MaterialSettings: ucpp.Ptr<ExistingMeshMaterialProperties>;
 	@:protected public var bCreateUVLayoutViewOnSetup: Bool;
-	@:protected public var UVLayoutView: cpp.Star<UVLayoutPreview>;
-	@:protected public var RecomputeUVsOpFactory: cpp.Star<RecomputeUVsOpFactory>;
-	@:protected public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	@:protected public var UVLayoutView: ucpp.Ptr<UVLayoutPreview>;
+	@:protected public var RecomputeUVsOpFactory: ucpp.Ptr<RecomputeUVsOpFactory>;
+	@:protected public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstRecomputeUVsTool(RecomputeUVsTool) from RecomputeUVsTool {
 @:forward
 @:nativeGen
 @:native("RecomputeUVsTool*")
-abstract RecomputeUVsToolPtr(cpp.Star<RecomputeUVsTool>) from cpp.Star<RecomputeUVsTool> to cpp.Star<RecomputeUVsTool>{
+abstract RecomputeUVsToolPtr(ucpp.Ptr<RecomputeUVsTool>) from ucpp.Ptr<RecomputeUVsTool> to ucpp.Ptr<RecomputeUVsTool>{
 	@:from
 	public static extern inline function fromValue(v: RecomputeUVsTool): RecomputeUVsToolPtr {
 		return untyped __cpp__("&({0})", v);

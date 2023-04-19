@@ -3,13 +3,13 @@ package ue;
 
 @:native("AARSkyLight")
 @:include("ARSkyLight.h")
-@:structAccess
+@:valueType
 extern class ARSkyLight extends SkyLight {
-	private var CaptureProbe: cpp.Star<AREnvironmentCaptureProbe>;
+	private var CaptureProbe: ucpp.Ptr<AREnvironmentCaptureProbe>;
 
-	public function SetEnvironmentCaptureProbe(InCaptureProbe: cpp.Star<AREnvironmentCaptureProbe>): Void;
+	public function SetEnvironmentCaptureProbe(InCaptureProbe: ucpp.Ptr<AREnvironmentCaptureProbe>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstARSkyLight(ARSkyLight) from ARSkyLight {
 @:forward
 @:nativeGen
 @:native("ARSkyLight*")
-abstract ARSkyLightPtr(cpp.Star<ARSkyLight>) from cpp.Star<ARSkyLight> to cpp.Star<ARSkyLight>{
+abstract ARSkyLightPtr(ucpp.Ptr<ARSkyLight>) from ucpp.Ptr<ARSkyLight> to ucpp.Ptr<ARSkyLight>{
 	@:from
 	public static extern inline function fromValue(v: ARSkyLight): ARSkyLightPtr {
 		return untyped __cpp__("&({0})", v);

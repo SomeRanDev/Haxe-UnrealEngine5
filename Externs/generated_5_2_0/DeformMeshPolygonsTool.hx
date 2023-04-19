@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDeformMeshPolygonsTool")
 @:include("DeformMeshPolygonsTool.h")
-@:structAccess
+@:valueType
 extern class DeformMeshPolygonsTool extends MeshSurfacePointTool {
-	@:protected public var PreviewMeshActor: cpp.Star<InternalToolFrameworkActor>;
-	@:protected public var DynamicMeshComponent: cpp.Star<DynamicMeshComp>;
-	@:protected public var TransformProps: cpp.Star<DeformMeshPolygonsTransformProperties>;
+	@:protected public var PreviewMeshActor: ucpp.Ptr<InternalToolFrameworkActor>;
+	@:protected public var DynamicMeshComponent: ucpp.Ptr<DynamicMeshComp>;
+	@:protected public var TransformProps: ucpp.Ptr<DeformMeshPolygonsTransformProperties>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDeformMeshPolygonsTool(DeformMeshPolygonsTool) from DeformMeshPoly
 @:forward
 @:nativeGen
 @:native("DeformMeshPolygonsTool*")
-abstract DeformMeshPolygonsToolPtr(cpp.Star<DeformMeshPolygonsTool>) from cpp.Star<DeformMeshPolygonsTool> to cpp.Star<DeformMeshPolygonsTool>{
+abstract DeformMeshPolygonsToolPtr(ucpp.Ptr<DeformMeshPolygonsTool>) from ucpp.Ptr<DeformMeshPolygonsTool> to ucpp.Ptr<DeformMeshPolygonsTool>{
 	@:from
 	public static extern inline function fromValue(v: DeformMeshPolygonsTool): DeformMeshPolygonsToolPtr {
 		return untyped __cpp__("&({0})", v);

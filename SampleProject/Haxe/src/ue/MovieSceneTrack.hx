@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMovieSceneTrack")
 @:include("MovieSceneTrack.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTrack extends MovieSceneSignedObject {
 	public var EvalOptions: MovieSceneTrackEvalOptions;
 	@:protected public var bIsEvalDisabled: Bool;
-	@:protected public var RowsDisabled: TArray<cpp.Int32>;
+	@:protected public var RowsDisabled: TArray<ucpp.num.Int32>;
 	private var EvaluationFieldGuid: Guid;
 	private var EvaluationField: MovieSceneTrackEvaluationField;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstMovieSceneTrack(MovieSceneTrack) from MovieSceneTrack {
 @:forward
 @:nativeGen
 @:native("MovieSceneTrack*")
-abstract MovieSceneTrackPtr(cpp.Star<MovieSceneTrack>) from cpp.Star<MovieSceneTrack> to cpp.Star<MovieSceneTrack>{
+abstract MovieSceneTrackPtr(ucpp.Ptr<MovieSceneTrack>) from ucpp.Ptr<MovieSceneTrack> to ucpp.Ptr<MovieSceneTrack>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTrack): MovieSceneTrackPtr {
 		return untyped __cpp__("&({0})", v);

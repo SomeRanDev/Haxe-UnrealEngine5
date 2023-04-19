@@ -3,11 +3,11 @@ package ue;
 
 @:native("UDatasmithAssetUserData")
 @:include("DatasmithAssetUserData.h")
-@:structAccess
+@:valueType
 extern class DatasmithAssetUserData extends AssetUserData {
 	public var MetaData: TMap<FName, FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstDatasmithAssetUserData(DatasmithAssetUserData) from DatasmithAsset
 @:forward
 @:nativeGen
 @:native("DatasmithAssetUserData*")
-abstract DatasmithAssetUserDataPtr(cpp.Star<DatasmithAssetUserData>) from cpp.Star<DatasmithAssetUserData> to cpp.Star<DatasmithAssetUserData>{
+abstract DatasmithAssetUserDataPtr(ucpp.Ptr<DatasmithAssetUserData>) from ucpp.Ptr<DatasmithAssetUserData> to ucpp.Ptr<DatasmithAssetUserData>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithAssetUserData): DatasmithAssetUserDataPtr {
 		return untyped __cpp__("&({0})", v);

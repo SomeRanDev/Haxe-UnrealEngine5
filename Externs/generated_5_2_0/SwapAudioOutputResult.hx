@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSwapAudioOutputResult")
 @:include("AudioMixerBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class SwapAudioOutputResult {
 	public var CurrentDeviceId: FString;
 	public var RequestedDeviceId: FString;

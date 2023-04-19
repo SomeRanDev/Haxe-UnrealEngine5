@@ -3,11 +3,11 @@ package ue;
 
 @:native("AVisualLoggerCameraController")
 @:include("VisualLoggerCameraController.h")
-@:structAccess
+@:valueType
 extern class VisualLoggerCameraController extends DebugCameraController {
 	public var PickedActor: TWeakObjectPtr<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstVisualLoggerCameraController(VisualLoggerCameraController) from Vi
 @:forward
 @:nativeGen
 @:native("VisualLoggerCameraController*")
-abstract VisualLoggerCameraControllerPtr(cpp.Star<VisualLoggerCameraController>) from cpp.Star<VisualLoggerCameraController> to cpp.Star<VisualLoggerCameraController>{
+abstract VisualLoggerCameraControllerPtr(ucpp.Ptr<VisualLoggerCameraController>) from ucpp.Ptr<VisualLoggerCameraController> to ucpp.Ptr<VisualLoggerCameraController>{
 	@:from
 	public static extern inline function fromValue(v: VisualLoggerCameraController): VisualLoggerCameraControllerPtr {
 		return untyped __cpp__("&({0})", v);

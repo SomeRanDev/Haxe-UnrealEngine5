@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UMovieSceneValueDecomposer")
-@:structAccess
+@:valueType
 extern class MovieSceneValueDecomposer extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstMovieSceneValueDecomposer(MovieSceneValueDecomposer) from MovieSce
 @:forward
 @:nativeGen
 @:native("MovieSceneValueDecomposer*")
-abstract MovieSceneValueDecomposerPtr(cpp.Star<MovieSceneValueDecomposer>) from cpp.Star<MovieSceneValueDecomposer> to cpp.Star<MovieSceneValueDecomposer>{
+abstract MovieSceneValueDecomposerPtr(ucpp.Ptr<MovieSceneValueDecomposer>) from ucpp.Ptr<MovieSceneValueDecomposer> to ucpp.Ptr<MovieSceneValueDecomposer>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneValueDecomposer): MovieSceneValueDecomposerPtr {
 		return untyped __cpp__("&({0})", v);

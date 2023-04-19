@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCommonResolutionMenuContext")
 @:include("Settings/LevelEditorPlaySettings.h")
-@:structAccess
+@:valueType
 extern class CommonResolutionMenuContext extends ToolMenuContextBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCommonResolutionMenuContext(CommonResolutionMenuContext) from Comm
 @:forward
 @:nativeGen
 @:native("CommonResolutionMenuContext*")
-abstract CommonResolutionMenuContextPtr(cpp.Star<CommonResolutionMenuContext>) from cpp.Star<CommonResolutionMenuContext> to cpp.Star<CommonResolutionMenuContext>{
+abstract CommonResolutionMenuContextPtr(ucpp.Ptr<CommonResolutionMenuContext>) from ucpp.Ptr<CommonResolutionMenuContext> to ucpp.Ptr<CommonResolutionMenuContext>{
 	@:from
 	public static extern inline function fromValue(v: CommonResolutionMenuContext): CommonResolutionMenuContextPtr {
 		return untyped __cpp__("&({0})", v);

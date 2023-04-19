@@ -3,14 +3,14 @@ package ue;
 
 @:native("ASequencerKeyActor")
 @:include("SequencerKeyActor.h")
-@:structAccess
+@:valueType
 extern class SequencerKeyActor extends Actor {
-	private var KeyMeshComponent: cpp.Star<StaticMeshComp>;
-	private var AssociatedActor: cpp.Star<Actor>;
-	private var TrackSection: cpp.Star<MovieScene3DTransformSection>;
-	private var KeyTime: cpp.Float32;
+	private var KeyMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var AssociatedActor: ucpp.Ptr<Actor>;
+	private var TrackSection: ucpp.Ptr<MovieScene3DTransformSection>;
+	private var KeyTime: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstSequencerKeyActor(SequencerKeyActor) from SequencerKeyActor {
 @:forward
 @:nativeGen
 @:native("SequencerKeyActor*")
-abstract SequencerKeyActorPtr(cpp.Star<SequencerKeyActor>) from cpp.Star<SequencerKeyActor> to cpp.Star<SequencerKeyActor>{
+abstract SequencerKeyActorPtr(ucpp.Ptr<SequencerKeyActor>) from ucpp.Ptr<SequencerKeyActor> to ucpp.Ptr<SequencerKeyActor>{
 	@:from
 	public static extern inline function fromValue(v: SequencerKeyActor): SequencerKeyActorPtr {
 		return untyped __cpp__("&({0})", v);

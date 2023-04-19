@@ -3,11 +3,11 @@ package ue;
 
 @:native("UFractureToolVoronoiCutterBase")
 @:include("FractureToolCutter.h")
-@:structAccess
+@:valueType
 extern class FractureToolVoronoiCutterBase extends FractureToolCutterBase {
-	private var VoronoiLineSets: TArray<cpp.Star<LineSetComp>>;
+	private var VoronoiLineSets: TArray<ucpp.Ptr<LineSetComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFractureToolVoronoiCutterBase(FractureToolVoronoiCutterBase) from 
 @:forward
 @:nativeGen
 @:native("FractureToolVoronoiCutterBase*")
-abstract FractureToolVoronoiCutterBasePtr(cpp.Star<FractureToolVoronoiCutterBase>) from cpp.Star<FractureToolVoronoiCutterBase> to cpp.Star<FractureToolVoronoiCutterBase>{
+abstract FractureToolVoronoiCutterBasePtr(ucpp.Ptr<FractureToolVoronoiCutterBase>) from ucpp.Ptr<FractureToolVoronoiCutterBase> to ucpp.Ptr<FractureToolVoronoiCutterBase>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolVoronoiCutterBase): FractureToolVoronoiCutterBasePtr {
 		return untyped __cpp__("&({0})", v);

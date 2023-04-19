@@ -2,10 +2,10 @@
 package ue;
 
 @:native("Uadd_controls_for_selected")
-@:structAccess
+@:valueType
 extern class add_controls_for_selected extends ToolMenuEntryScript {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract Constadd_controls_for_selected(add_controls_for_selected) from add_cont
 @:forward
 @:nativeGen
 @:native("add_controls_for_selected*")
-abstract add_controls_for_selectedPtr(cpp.Star<add_controls_for_selected>) from cpp.Star<add_controls_for_selected> to cpp.Star<add_controls_for_selected>{
+abstract add_controls_for_selectedPtr(ucpp.Ptr<add_controls_for_selected>) from ucpp.Ptr<add_controls_for_selected> to ucpp.Ptr<add_controls_for_selected>{
 	@:from
 	public static extern inline function fromValue(v: add_controls_for_selected): add_controls_for_selectedPtr {
 		return untyped __cpp__("&({0})", v);

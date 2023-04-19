@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UFloatProperty")
-@:structAccess
+@:valueType
 extern class FloatProperty extends NumericProperty {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstFloatProperty(FloatProperty) from FloatProperty {
 @:forward
 @:nativeGen
 @:native("FloatProperty*")
-abstract FloatPropertyPtr(cpp.Star<FloatProperty>) from cpp.Star<FloatProperty> to cpp.Star<FloatProperty>{
+abstract FloatPropertyPtr(ucpp.Ptr<FloatProperty>) from ucpp.Ptr<FloatProperty> to ucpp.Ptr<FloatProperty>{
 	@:from
 	public static extern inline function fromValue(v: FloatProperty): FloatPropertyPtr {
 		return untyped __cpp__("&({0})", v);

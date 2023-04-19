@@ -3,11 +3,11 @@ package ue;
 
 @:native("UEscalationManagerConfig")
 @:include("Net/Core/Connection/EscalationStates.h")
-@:structAccess
+@:valueType
 extern class EscalationManagerConfig extends StatePerObjectConfig {
 	public var EscalationSeverity: TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstEscalationManagerConfig(EscalationManagerConfig) from EscalationMa
 @:forward
 @:nativeGen
 @:native("EscalationManagerConfig*")
-abstract EscalationManagerConfigPtr(cpp.Star<EscalationManagerConfig>) from cpp.Star<EscalationManagerConfig> to cpp.Star<EscalationManagerConfig>{
+abstract EscalationManagerConfigPtr(ucpp.Ptr<EscalationManagerConfig>) from ucpp.Ptr<EscalationManagerConfig> to ucpp.Ptr<EscalationManagerConfig>{
 	@:from
 	public static extern inline function fromValue(v: EscalationManagerConfig): EscalationManagerConfigPtr {
 		return untyped __cpp__("&({0})", v);

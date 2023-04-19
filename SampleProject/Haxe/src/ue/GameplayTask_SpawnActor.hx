@@ -3,32 +3,32 @@ package ue;
 
 @:native("UGameplayTask_SpawnActor")
 @:include("Tasks/GameplayTask_SpawnActor.h")
-@:structAccess
+@:valueType
 extern class GameplayTask_SpawnActor extends GameplayTask {
-	public var Success: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>) -> Void>;
-	public var DidNotSpawn: HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor>) -> Void>;
+	public var Success: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor>) -> Void>;
+	public var DidNotSpawn: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor>) -> Void>;
 	@:protected public var ClassToSpawn: TSubclassOf<Actor>;
 
-	public function SpawnActor(TaskOwner: GameplayTaskOwnerInterface, SpawnLocation: Vector, SpawnRotation: Rotator, Class: TSubclassOf<Actor>, bSpawnOnlyOnAuthority: Bool): cpp.Star<GameplayTask_SpawnActor>;
-	public function FinishSpawningActor(WorldContextObject: cpp.Star<Object>, SpawnedActor: cpp.Star<Actor>): Void;
-	public function BeginSpawningActor(WorldContextObject: cpp.Star<Object>, SpawnedActor: cpp.Reference<cpp.Star<Actor>>): Bool;
+	public function SpawnActor(TaskOwner: GameplayTaskOwnerInterface, SpawnLocation: Vector, SpawnRotation: Rotator, Class: TSubclassOf<Actor>, bSpawnOnlyOnAuthority: Bool): ucpp.Ptr<GameplayTask_SpawnActor>;
+	public function FinishSpawningActor(WorldContextObject: ucpp.Ptr<Object>, SpawnedActor: ucpp.Ptr<Actor>): Void;
+	public function BeginSpawningActor(WorldContextObject: ucpp.Ptr<Object>, SpawnedActor: ucpp.Ref<ucpp.Ptr<Actor>>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGameplayTask_SpawnActor(GameplayTask_SpawnActor) from GameplayTask_SpawnActor {
-	public extern var Success(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>) -> Void>;
-	public inline extern function get_Success(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>) -> Void> return this.Success;
-	public extern var DidNotSpawn(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>) -> Void>;
-	public inline extern function get_DidNotSpawn(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Actor.ConstActor>) -> Void> return this.DidNotSpawn;
+	public extern var Success(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor.ConstActor>) -> Void>;
+	public inline extern function get_Success(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor.ConstActor>) -> Void> return this.Success;
+	public extern var DidNotSpawn(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor.ConstActor>) -> Void>;
+	public inline extern function get_DidNotSpawn(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Actor.ConstActor>) -> Void> return this.DidNotSpawn;
 }
 
 @:forward
 @:nativeGen
 @:native("GameplayTask_SpawnActor*")
-abstract GameplayTask_SpawnActorPtr(cpp.Star<GameplayTask_SpawnActor>) from cpp.Star<GameplayTask_SpawnActor> to cpp.Star<GameplayTask_SpawnActor>{
+abstract GameplayTask_SpawnActorPtr(ucpp.Ptr<GameplayTask_SpawnActor>) from ucpp.Ptr<GameplayTask_SpawnActor> to ucpp.Ptr<GameplayTask_SpawnActor>{
 	@:from
 	public static extern inline function fromValue(v: GameplayTask_SpawnActor): GameplayTask_SpawnActorPtr {
 		return untyped __cpp__("&({0})", v);

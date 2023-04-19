@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnEnvelopeFollowerUpdate__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnEnvelopeFollowerUpdate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnEnvelopeFollowerUpdate__PythonCallable(OnEnvelopeFollowerUpdate_
 @:forward
 @:nativeGen
 @:native("OnEnvelopeFollowerUpdate__PythonCallable*")
-abstract OnEnvelopeFollowerUpdate__PythonCallablePtr(cpp.Star<OnEnvelopeFollowerUpdate__PythonCallable>) from cpp.Star<OnEnvelopeFollowerUpdate__PythonCallable> to cpp.Star<OnEnvelopeFollowerUpdate__PythonCallable>{
+abstract OnEnvelopeFollowerUpdate__PythonCallablePtr(ucpp.Ptr<OnEnvelopeFollowerUpdate__PythonCallable>) from ucpp.Ptr<OnEnvelopeFollowerUpdate__PythonCallable> to ucpp.Ptr<OnEnvelopeFollowerUpdate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnEnvelopeFollowerUpdate__PythonCallable): OnEnvelopeFollowerUpdate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

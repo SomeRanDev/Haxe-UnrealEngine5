@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraDebugHudTextOptions")
 @:include("NiagaraDebuggerCommon.h")
-@:structAccess
+@:valueType
 extern class NiagaraDebugHudTextOptions {
 	public var Font: ENiagaraDebugHudFont;
 	public var HorizontalAlignment: ENiagaraDebugHudHAlign;

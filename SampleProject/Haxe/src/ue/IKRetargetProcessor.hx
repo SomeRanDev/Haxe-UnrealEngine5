@@ -3,11 +3,11 @@ package ue;
 
 @:native("UIKRetargetProcessor")
 @:include("Retargeter/IKRetargetProcessor.h")
-@:structAccess
+@:valueType
 extern class IKRetargetProcessor extends Object {
-	private var IKRigProcessor: cpp.Star<IKRigProcessor>;
+	private var IKRigProcessor: ucpp.Ptr<IKRigProcessor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstIKRetargetProcessor(IKRetargetProcessor) from IKRetargetProcessor 
 @:forward
 @:nativeGen
 @:native("IKRetargetProcessor*")
-abstract IKRetargetProcessorPtr(cpp.Star<IKRetargetProcessor>) from cpp.Star<IKRetargetProcessor> to cpp.Star<IKRetargetProcessor>{
+abstract IKRetargetProcessorPtr(ucpp.Ptr<IKRetargetProcessor>) from ucpp.Ptr<IKRetargetProcessor> to ucpp.Ptr<IKRetargetProcessor>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargetProcessor): IKRetargetProcessorPtr {
 		return untyped __cpp__("&({0})", v);

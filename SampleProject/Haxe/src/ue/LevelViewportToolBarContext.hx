@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULevelViewportToolBarContext")
 @:include("LevelEditorMenuContext.h")
-@:structAccess
+@:valueType
 extern class LevelViewportToolBarContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLevelViewportToolBarContext(LevelViewportToolBarContext) from Leve
 @:forward
 @:nativeGen
 @:native("LevelViewportToolBarContext*")
-abstract LevelViewportToolBarContextPtr(cpp.Star<LevelViewportToolBarContext>) from cpp.Star<LevelViewportToolBarContext> to cpp.Star<LevelViewportToolBarContext>{
+abstract LevelViewportToolBarContextPtr(ucpp.Ptr<LevelViewportToolBarContext>) from ucpp.Ptr<LevelViewportToolBarContext> to ucpp.Ptr<LevelViewportToolBarContext>{
 	@:from
 	public static extern inline function fromValue(v: LevelViewportToolBarContext): LevelViewportToolBarContextPtr {
 		return untyped __cpp__("&({0})", v);

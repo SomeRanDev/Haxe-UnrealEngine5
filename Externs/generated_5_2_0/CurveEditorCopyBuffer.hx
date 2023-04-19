@@ -3,22 +3,22 @@ package ue;
 
 @:native("UCurveEditorCopyBuffer")
 @:include("CurveEditorCopyBuffer.h")
-@:structAccess
+@:valueType
 extern class CurveEditorCopyBuffer extends Object {
-	public var Curves: TArray<cpp.Star<CurveEditorCopyableCurveKeys>>;
-	public var TimeOffset: cpp.Float64;
+	public var Curves: TArray<ucpp.Ptr<CurveEditorCopyableCurveKeys>>;
+	public var TimeOffset: ucpp.num.Float64;
 	public var bAbsolutePosition: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstCurveEditorCopyBuffer(CurveEditorCopyBuffer) from CurveEditorCopyBuffer {
-	public extern var Curves(get, never): TArray<cpp.Star<CurveEditorCopyableCurveKeys.ConstCurveEditorCopyableCurveKeys>>;
-	public inline extern function get_Curves(): TArray<cpp.Star<CurveEditorCopyableCurveKeys.ConstCurveEditorCopyableCurveKeys>> return this.Curves;
-	public extern var TimeOffset(get, never): cpp.Float64;
-	public inline extern function get_TimeOffset(): cpp.Float64 return this.TimeOffset;
+	public extern var Curves(get, never): TArray<ucpp.Ptr<CurveEditorCopyableCurveKeys.ConstCurveEditorCopyableCurveKeys>>;
+	public inline extern function get_Curves(): TArray<ucpp.Ptr<CurveEditorCopyableCurveKeys.ConstCurveEditorCopyableCurveKeys>> return this.Curves;
+	public extern var TimeOffset(get, never): ucpp.num.Float64;
+	public inline extern function get_TimeOffset(): ucpp.num.Float64 return this.TimeOffset;
 	public extern var bAbsolutePosition(get, never): Bool;
 	public inline extern function get_bAbsolutePosition(): Bool return this.bAbsolutePosition;
 }
@@ -26,7 +26,7 @@ abstract ConstCurveEditorCopyBuffer(CurveEditorCopyBuffer) from CurveEditorCopyB
 @:forward
 @:nativeGen
 @:native("CurveEditorCopyBuffer*")
-abstract CurveEditorCopyBufferPtr(cpp.Star<CurveEditorCopyBuffer>) from cpp.Star<CurveEditorCopyBuffer> to cpp.Star<CurveEditorCopyBuffer>{
+abstract CurveEditorCopyBufferPtr(ucpp.Ptr<CurveEditorCopyBuffer>) from ucpp.Ptr<CurveEditorCopyBuffer> to ucpp.Ptr<CurveEditorCopyBuffer>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorCopyBuffer): CurveEditorCopyBufferPtr {
 		return untyped __cpp__("&({0})", v);

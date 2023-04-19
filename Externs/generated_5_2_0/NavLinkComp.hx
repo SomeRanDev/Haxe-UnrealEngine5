@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNavLinkComponent")
 @:include("NavLinkComponent.h")
-@:structAccess
+@:valueType
 extern class NavLinkComp extends PrimitiveComp {
 	public var Links: TArray<NavigationLink>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNavLinkComp(NavLinkComp) from NavLinkComp {
 @:forward
 @:nativeGen
 @:native("NavLinkComp*")
-abstract NavLinkCompPtr(cpp.Star<NavLinkComp>) from cpp.Star<NavLinkComp> to cpp.Star<NavLinkComp>{
+abstract NavLinkCompPtr(ucpp.Ptr<NavLinkComp>) from ucpp.Ptr<NavLinkComp> to ucpp.Ptr<NavLinkComp>{
 	@:from
 	public static extern inline function fromValue(v: NavLinkComp): NavLinkCompPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,36 +3,36 @@ package ue;
 
 @:native("UBakeMultiMeshInputToolProperties")
 @:include("BakeMultiMeshAttributeMapsTool.h")
-@:structAccess
+@:valueType
 extern class BakeMultiMeshInputToolProperties extends InteractiveToolPropertySet {
-	public var TargetStaticMesh: cpp.Star<StaticMesh>;
-	public var TargetSkeletalMesh: cpp.Star<SkeletalMesh>;
-	public var TargetDynamicMesh: cpp.Star<Actor>;
+	public var TargetStaticMesh: ucpp.Ptr<StaticMesh>;
+	public var TargetSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
+	public var TargetDynamicMesh: ucpp.Ptr<Actor>;
 	public var TargetUVLayer: FString;
 	public var SourceMeshes: TArray<BakeMultiMeshDetailProperties>;
-	public var ProjectionDistance: cpp.Float32;
+	public var ProjectionDistance: ucpp.num.Float32;
 	public var TargetUVLayerNamesList: TArray<FString>;
 
 	public function GetTargetUVLayerNamesFunc(): TArray<FString>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTargetUVLayerNamesFunc)
 @:nativeGen
 abstract ConstBakeMultiMeshInputToolProperties(BakeMultiMeshInputToolProperties) from BakeMultiMeshInputToolProperties {
-	public extern var TargetStaticMesh(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_TargetStaticMesh(): cpp.Star<StaticMesh.ConstStaticMesh> return this.TargetStaticMesh;
-	public extern var TargetSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_TargetSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
-	public extern var TargetDynamicMesh(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_TargetDynamicMesh(): cpp.Star<Actor.ConstActor> return this.TargetDynamicMesh;
+	public extern var TargetStaticMesh(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_TargetStaticMesh(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.TargetStaticMesh;
+	public extern var TargetSkeletalMesh(get, never): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_TargetSkeletalMesh(): ucpp.Ptr<SkeletalMesh.ConstSkeletalMesh> return this.TargetSkeletalMesh;
+	public extern var TargetDynamicMesh(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_TargetDynamicMesh(): ucpp.Ptr<Actor.ConstActor> return this.TargetDynamicMesh;
 	public extern var TargetUVLayer(get, never): FString;
 	public inline extern function get_TargetUVLayer(): FString return this.TargetUVLayer;
 	public extern var SourceMeshes(get, never): TArray<BakeMultiMeshDetailProperties>;
 	public inline extern function get_SourceMeshes(): TArray<BakeMultiMeshDetailProperties> return this.SourceMeshes;
-	public extern var ProjectionDistance(get, never): cpp.Float32;
-	public inline extern function get_ProjectionDistance(): cpp.Float32 return this.ProjectionDistance;
+	public extern var ProjectionDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_ProjectionDistance(): ucpp.num.Float32 return this.ProjectionDistance;
 	public extern var TargetUVLayerNamesList(get, never): TArray<FString>;
 	public inline extern function get_TargetUVLayerNamesList(): TArray<FString> return this.TargetUVLayerNamesList;
 }
@@ -40,7 +40,7 @@ abstract ConstBakeMultiMeshInputToolProperties(BakeMultiMeshInputToolProperties)
 @:forward
 @:nativeGen
 @:native("BakeMultiMeshInputToolProperties*")
-abstract BakeMultiMeshInputToolPropertiesPtr(cpp.Star<BakeMultiMeshInputToolProperties>) from cpp.Star<BakeMultiMeshInputToolProperties> to cpp.Star<BakeMultiMeshInputToolProperties>{
+abstract BakeMultiMeshInputToolPropertiesPtr(ucpp.Ptr<BakeMultiMeshInputToolProperties>) from ucpp.Ptr<BakeMultiMeshInputToolProperties> to ucpp.Ptr<BakeMultiMeshInputToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: BakeMultiMeshInputToolProperties): BakeMultiMeshInputToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

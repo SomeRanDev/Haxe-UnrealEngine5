@@ -3,15 +3,15 @@ package ue;
 
 @:native("FTakeRecorderUserParameters")
 @:include("Recorder/TakeRecorderParameters.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderUserParameters {
 	public var bMaximizeViewport: Bool;
-	public var CountdownSeconds: cpp.Float32;
-	public var EngineTimeDilation: cpp.Float32;
+	public var CountdownSeconds: ucpp.num.Float32;
+	public var EngineTimeDilation: ucpp.num.Float32;
 	public var bResetPlayhead: Bool;
 	public var bStopAtPlaybackEnd: Bool;
 	public var bRemoveRedundantTracks: Bool;
-	public var ReduceKeysTolerance: cpp.Float32;
+	public var ReduceKeysTolerance: ucpp.num.Float32;
 	public var bSaveRecordedAssets: Bool;
 	public var bAutoLock: Bool;
 	public var bAutoSerialize: Bool;

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UJsonUtilitiesDummyObject")
 @:include("JsonObjectWrapper.h")
-@:structAccess
+@:valueType
 extern class JsonUtilitiesDummyObject extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstJsonUtilitiesDummyObject(JsonUtilitiesDummyObject) from JsonUtilit
 @:forward
 @:nativeGen
 @:native("JsonUtilitiesDummyObject*")
-abstract JsonUtilitiesDummyObjectPtr(cpp.Star<JsonUtilitiesDummyObject>) from cpp.Star<JsonUtilitiesDummyObject> to cpp.Star<JsonUtilitiesDummyObject>{
+abstract JsonUtilitiesDummyObjectPtr(ucpp.Ptr<JsonUtilitiesDummyObject>) from ucpp.Ptr<JsonUtilitiesDummyObject> to ucpp.Ptr<JsonUtilitiesDummyObject>{
 	@:from
 	public static extern inline function fromValue(v: JsonUtilitiesDummyObject): JsonUtilitiesDummyObjectPtr {
 		return untyped __cpp__("&({0})", v);

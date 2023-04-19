@@ -3,11 +3,11 @@ package ue;
 
 @:native("UStreamMediaSource")
 @:include("StreamMediaSource.h")
-@:structAccess
+@:valueType
 extern class StreamMediaSource extends BaseMediaSource {
 	public var StreamUrl: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstStreamMediaSource(StreamMediaSource) from StreamMediaSource {
 @:forward
 @:nativeGen
 @:native("StreamMediaSource*")
-abstract StreamMediaSourcePtr(cpp.Star<StreamMediaSource>) from cpp.Star<StreamMediaSource> to cpp.Star<StreamMediaSource>{
+abstract StreamMediaSourcePtr(ucpp.Ptr<StreamMediaSource>) from ucpp.Ptr<StreamMediaSource> to ucpp.Ptr<StreamMediaSource>{
 	@:from
 	public static extern inline function fromValue(v: StreamMediaSource): StreamMediaSourcePtr {
 		return untyped __cpp__("&({0})", v);

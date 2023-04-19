@@ -3,26 +3,26 @@ package ue;
 
 @:native("UEditorPerformanceSettings")
 @:include("Editor/EditorPerformanceSettings.h")
-@:structAccess
+@:valueType
 extern class EditorPerformanceSettings extends DeveloperSettings {
 	public var bShowFrameRateAndMemory: Bool;
 	public var bThrottleCPUWhenNotForeground: Bool;
 	public var bDisableRealtimeViewportsInRemoteSessions: Bool;
 	public var bMonitorEditorPerformance: Bool;
-	public var bEnableSharedDDCPerformanceNotifications: Bool;
 	public var bEnableScalabilityWarningIndicator: Bool;
 	public var bDisplayHighDPIViewports: Bool;
 	public var bOverridePIEScreenPercentage: Bool;
 	public var RealtimeScreenPercentageMode: EEditorUserScreenPercentageModeOverride;
+	public var PathTracerScreenPercentageMode: EEditorUserScreenPercentageModeOverride;
 	public var NonRealtimeScreenPercentageMode: EEditorUserScreenPercentageModeOverride;
 	public var bOverrideManualScreenPercentage: Bool;
-	public var ManualScreenPercentage: cpp.Float32;
+	public var ManualScreenPercentage: ucpp.num.Float32;
 	public var bOverrideMinViewportRenderingResolution: Bool;
-	public var MinViewportRenderingResolution: cpp.Int32;
+	public var MinViewportRenderingResolution: ucpp.num.Int32;
 	public var bOverrideMaxViewportRenderingResolution: Bool;
-	public var MaxViewportRenderingResolution: cpp.Int32;
+	public var MaxViewportRenderingResolution: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -36,8 +36,6 @@ abstract ConstEditorPerformanceSettings(EditorPerformanceSettings) from EditorPe
 	public inline extern function get_bDisableRealtimeViewportsInRemoteSessions(): Bool return this.bDisableRealtimeViewportsInRemoteSessions;
 	public extern var bMonitorEditorPerformance(get, never): Bool;
 	public inline extern function get_bMonitorEditorPerformance(): Bool return this.bMonitorEditorPerformance;
-	public extern var bEnableSharedDDCPerformanceNotifications(get, never): Bool;
-	public inline extern function get_bEnableSharedDDCPerformanceNotifications(): Bool return this.bEnableSharedDDCPerformanceNotifications;
 	public extern var bEnableScalabilityWarningIndicator(get, never): Bool;
 	public inline extern function get_bEnableScalabilityWarningIndicator(): Bool return this.bEnableScalabilityWarningIndicator;
 	public extern var bDisplayHighDPIViewports(get, never): Bool;
@@ -46,26 +44,28 @@ abstract ConstEditorPerformanceSettings(EditorPerformanceSettings) from EditorPe
 	public inline extern function get_bOverridePIEScreenPercentage(): Bool return this.bOverridePIEScreenPercentage;
 	public extern var RealtimeScreenPercentageMode(get, never): EEditorUserScreenPercentageModeOverride;
 	public inline extern function get_RealtimeScreenPercentageMode(): EEditorUserScreenPercentageModeOverride return this.RealtimeScreenPercentageMode;
+	public extern var PathTracerScreenPercentageMode(get, never): EEditorUserScreenPercentageModeOverride;
+	public inline extern function get_PathTracerScreenPercentageMode(): EEditorUserScreenPercentageModeOverride return this.PathTracerScreenPercentageMode;
 	public extern var NonRealtimeScreenPercentageMode(get, never): EEditorUserScreenPercentageModeOverride;
 	public inline extern function get_NonRealtimeScreenPercentageMode(): EEditorUserScreenPercentageModeOverride return this.NonRealtimeScreenPercentageMode;
 	public extern var bOverrideManualScreenPercentage(get, never): Bool;
 	public inline extern function get_bOverrideManualScreenPercentage(): Bool return this.bOverrideManualScreenPercentage;
-	public extern var ManualScreenPercentage(get, never): cpp.Float32;
-	public inline extern function get_ManualScreenPercentage(): cpp.Float32 return this.ManualScreenPercentage;
+	public extern var ManualScreenPercentage(get, never): ucpp.num.Float32;
+	public inline extern function get_ManualScreenPercentage(): ucpp.num.Float32 return this.ManualScreenPercentage;
 	public extern var bOverrideMinViewportRenderingResolution(get, never): Bool;
 	public inline extern function get_bOverrideMinViewportRenderingResolution(): Bool return this.bOverrideMinViewportRenderingResolution;
-	public extern var MinViewportRenderingResolution(get, never): cpp.Int32;
-	public inline extern function get_MinViewportRenderingResolution(): cpp.Int32 return this.MinViewportRenderingResolution;
+	public extern var MinViewportRenderingResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_MinViewportRenderingResolution(): ucpp.num.Int32 return this.MinViewportRenderingResolution;
 	public extern var bOverrideMaxViewportRenderingResolution(get, never): Bool;
 	public inline extern function get_bOverrideMaxViewportRenderingResolution(): Bool return this.bOverrideMaxViewportRenderingResolution;
-	public extern var MaxViewportRenderingResolution(get, never): cpp.Int32;
-	public inline extern function get_MaxViewportRenderingResolution(): cpp.Int32 return this.MaxViewportRenderingResolution;
+	public extern var MaxViewportRenderingResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxViewportRenderingResolution(): ucpp.num.Int32 return this.MaxViewportRenderingResolution;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorPerformanceSettings*")
-abstract EditorPerformanceSettingsPtr(cpp.Star<EditorPerformanceSettings>) from cpp.Star<EditorPerformanceSettings> to cpp.Star<EditorPerformanceSettings>{
+abstract EditorPerformanceSettingsPtr(ucpp.Ptr<EditorPerformanceSettings>) from ucpp.Ptr<EditorPerformanceSettings> to ucpp.Ptr<EditorPerformanceSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorPerformanceSettings): EditorPerformanceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

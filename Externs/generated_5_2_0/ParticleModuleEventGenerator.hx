@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleEventGenerator")
 @:include("Particles/Event/ParticleModuleEventGenerator.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleEventGenerator extends ParticleModuleEventBase {
 	public var Events: TArray<ParticleEvent_GenerateInfo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleEventGenerator(ParticleModuleEventGenerator) from Pa
 @:forward
 @:nativeGen
 @:native("ParticleModuleEventGenerator*")
-abstract ParticleModuleEventGeneratorPtr(cpp.Star<ParticleModuleEventGenerator>) from cpp.Star<ParticleModuleEventGenerator> to cpp.Star<ParticleModuleEventGenerator>{
+abstract ParticleModuleEventGeneratorPtr(ucpp.Ptr<ParticleModuleEventGenerator>) from ucpp.Ptr<ParticleModuleEventGenerator> to ucpp.Ptr<ParticleModuleEventGenerator>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleEventGenerator): ParticleModuleEventGeneratorPtr {
 		return untyped __cpp__("&({0})", v);

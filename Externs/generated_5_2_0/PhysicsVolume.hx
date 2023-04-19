@@ -3,26 +3,26 @@ package ue;
 
 @:native("APhysicsVolume")
 @:include("GameFramework/PhysicsVolume.h")
-@:structAccess
+@:valueType
 extern class PhysicsVolume extends Volume {
-	public var TerminalVelocity: cpp.Float32;
-	public var Priority: cpp.Int32;
-	public var FluidFriction: cpp.Float32;
+	public var TerminalVelocity: ucpp.num.Float32;
+	public var Priority: ucpp.num.Int32;
+	public var FluidFriction: ucpp.num.Float32;
 	public var bWaterVolume: Bool;
 	public var bPhysicsOnContact: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPhysicsVolume(PhysicsVolume) from PhysicsVolume {
-	public extern var TerminalVelocity(get, never): cpp.Float32;
-	public inline extern function get_TerminalVelocity(): cpp.Float32 return this.TerminalVelocity;
-	public extern var Priority(get, never): cpp.Int32;
-	public inline extern function get_Priority(): cpp.Int32 return this.Priority;
-	public extern var FluidFriction(get, never): cpp.Float32;
-	public inline extern function get_FluidFriction(): cpp.Float32 return this.FluidFriction;
+	public extern var TerminalVelocity(get, never): ucpp.num.Float32;
+	public inline extern function get_TerminalVelocity(): ucpp.num.Float32 return this.TerminalVelocity;
+	public extern var Priority(get, never): ucpp.num.Int32;
+	public inline extern function get_Priority(): ucpp.num.Int32 return this.Priority;
+	public extern var FluidFriction(get, never): ucpp.num.Float32;
+	public inline extern function get_FluidFriction(): ucpp.num.Float32 return this.FluidFriction;
 	public extern var bWaterVolume(get, never): Bool;
 	public inline extern function get_bWaterVolume(): Bool return this.bWaterVolume;
 	public extern var bPhysicsOnContact(get, never): Bool;
@@ -32,7 +32,7 @@ abstract ConstPhysicsVolume(PhysicsVolume) from PhysicsVolume {
 @:forward
 @:nativeGen
 @:native("PhysicsVolume*")
-abstract PhysicsVolumePtr(cpp.Star<PhysicsVolume>) from cpp.Star<PhysicsVolume> to cpp.Star<PhysicsVolume>{
+abstract PhysicsVolumePtr(ucpp.Ptr<PhysicsVolume>) from ucpp.Ptr<PhysicsVolume> to ucpp.Ptr<PhysicsVolume>{
 	@:from
 	public static extern inline function fromValue(v: PhysicsVolume): PhysicsVolumePtr {
 		return untyped __cpp__("&({0})", v);

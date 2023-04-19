@@ -3,15 +3,15 @@ package ue;
 
 @:native("UFractureToolSelection")
 @:include("FractureToolSelection.h")
-@:structAccess
+@:valueType
 extern class FractureToolSelection extends FractureToolCutterBase {
-	@:protected public var SelectionBehaviorSet: cpp.Star<InputBehaviorSet>;
-	@:protected public var SelectionBehaviorSource: cpp.Star<LocalInputBehaviorSource>;
-	@:protected public var RectangleMarqueeManager: cpp.Star<RectangleMarqueeManager>;
-	@:protected public var UsedToolsContext: cpp.Star<InteractiveToolsContext>;
-	private var SelectionSettings: cpp.Star<FractureSelectionSettings>;
+	@:protected public var SelectionBehaviorSet: ucpp.Ptr<InputBehaviorSet>;
+	@:protected public var SelectionBehaviorSource: ucpp.Ptr<LocalInputBehaviorSource>;
+	@:protected public var RectangleMarqueeManager: ucpp.Ptr<RectangleMarqueeManager>;
+	@:protected public var UsedToolsContext: ucpp.Ptr<InteractiveToolsContext>;
+	private var SelectionSettings: ucpp.Ptr<FractureSelectionSettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstFractureToolSelection(FractureToolSelection) from FractureToolSele
 @:forward
 @:nativeGen
 @:native("FractureToolSelection*")
-abstract FractureToolSelectionPtr(cpp.Star<FractureToolSelection>) from cpp.Star<FractureToolSelection> to cpp.Star<FractureToolSelection>{
+abstract FractureToolSelectionPtr(ucpp.Ptr<FractureToolSelection>) from ucpp.Ptr<FractureToolSelection> to ucpp.Ptr<FractureToolSelection>{
 	@:from
 	public static extern inline function fromValue(v: FractureToolSelection): FractureToolSelectionPtr {
 		return untyped __cpp__("&({0})", v);

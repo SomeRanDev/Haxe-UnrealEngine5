@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVoipListenerSynthComponent")
 @:include("VoipListenerSynthComponent.h")
-@:structAccess
+@:valueType
 extern class VoipListenerSynthComp extends SynthComp {
 	public function IsIdling(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVoipListenerSynthComp(VoipListenerSynthComp) from VoipListenerSynt
 @:forward
 @:nativeGen
 @:native("VoipListenerSynthComp*")
-abstract VoipListenerSynthCompPtr(cpp.Star<VoipListenerSynthComp>) from cpp.Star<VoipListenerSynthComp> to cpp.Star<VoipListenerSynthComp>{
+abstract VoipListenerSynthCompPtr(ucpp.Ptr<VoipListenerSynthComp>) from ucpp.Ptr<VoipListenerSynthComp> to ucpp.Ptr<VoipListenerSynthComp>{
 	@:from
 	public static extern inline function fromValue(v: VoipListenerSynthComp): VoipListenerSynthCompPtr {
 		return untyped __cpp__("&({0})", v);

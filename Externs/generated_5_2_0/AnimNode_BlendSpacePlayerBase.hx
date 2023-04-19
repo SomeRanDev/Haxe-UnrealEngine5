@@ -3,10 +3,10 @@ package ue;
 
 @:native("FAnimNode_BlendSpacePlayerBase")
 @:include("AnimNodes/AnimNode_BlendSpacePlayer.h")
-@:structAccess
+@:valueType
 extern class AnimNode_BlendSpacePlayerBase extends AnimNode_AssetPlayerBase {
-	@:protected public var PreviousBlendSpace: cpp.Star<BlendSpace>;
+	@:protected public var PreviousBlendSpace: ucpp.Ptr<BlendSpace>;
 
 	@:native("FAnimNode_BlendSpacePlayerBase") public function new();
-	@:native("FAnimNode_BlendSpacePlayerBase") public static function make(PreviousBlendSpace: cpp.Star<BlendSpace>): AnimNode_BlendSpacePlayerBase ;
+	@:native("FAnimNode_BlendSpacePlayerBase") public static function make(PreviousBlendSpace: ucpp.Ptr<BlendSpace>): AnimNode_BlendSpacePlayerBase ;
 }

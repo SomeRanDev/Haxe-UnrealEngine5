@@ -3,16 +3,16 @@ package ue;
 
 @:native("UMaterialExpressionBumpOffset")
 @:include("Materials/MaterialExpressionBumpOffset.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionBumpOffset extends MaterialExpression {
 	public var Coordinate: ExpressionInput;
 	public var Height: ExpressionInput;
 	public var HeightRatioInput: ExpressionInput;
-	public var HeightRatio: cpp.Float32;
-	public var ReferencePlane: cpp.Float32;
-	public var ConstCoordinate: cpp.UInt32;
+	public var HeightRatio: ucpp.num.Float32;
+	public var ReferencePlane: ucpp.num.Float32;
+	public var ConstCoordinate: ucpp.num.UInt32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,18 +24,18 @@ abstract ConstMaterialExpressionBumpOffset(MaterialExpressionBumpOffset) from Ma
 	public inline extern function get_Height(): ExpressionInput return this.Height;
 	public extern var HeightRatioInput(get, never): ExpressionInput;
 	public inline extern function get_HeightRatioInput(): ExpressionInput return this.HeightRatioInput;
-	public extern var HeightRatio(get, never): cpp.Float32;
-	public inline extern function get_HeightRatio(): cpp.Float32 return this.HeightRatio;
-	public extern var ReferencePlane(get, never): cpp.Float32;
-	public inline extern function get_ReferencePlane(): cpp.Float32 return this.ReferencePlane;
-	public extern var ConstCoordinate(get, never): cpp.UInt32;
-	public inline extern function get_ConstCoordinate(): cpp.UInt32 return this.ConstCoordinate;
+	public extern var HeightRatio(get, never): ucpp.num.Float32;
+	public inline extern function get_HeightRatio(): ucpp.num.Float32 return this.HeightRatio;
+	public extern var ReferencePlane(get, never): ucpp.num.Float32;
+	public inline extern function get_ReferencePlane(): ucpp.num.Float32 return this.ReferencePlane;
+	public extern var ConstCoordinate(get, never): ucpp.num.UInt32;
+	public inline extern function get_ConstCoordinate(): ucpp.num.UInt32 return this.ConstCoordinate;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionBumpOffset*")
-abstract MaterialExpressionBumpOffsetPtr(cpp.Star<MaterialExpressionBumpOffset>) from cpp.Star<MaterialExpressionBumpOffset> to cpp.Star<MaterialExpressionBumpOffset>{
+abstract MaterialExpressionBumpOffsetPtr(ucpp.Ptr<MaterialExpressionBumpOffset>) from ucpp.Ptr<MaterialExpressionBumpOffset> to ucpp.Ptr<MaterialExpressionBumpOffset>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionBumpOffset): MaterialExpressionBumpOffsetPtr {
 		return untyped __cpp__("&({0})", v);

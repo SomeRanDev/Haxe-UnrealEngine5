@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_Knot")
 @:include("K2Node_Knot.h")
-@:structAccess
+@:valueType
 extern class K2Node_Knot extends K2Node {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_Knot(K2Node_Knot) from K2Node_Knot {
 @:forward
 @:nativeGen
 @:native("K2Node_Knot*")
-abstract K2Node_KnotPtr(cpp.Star<K2Node_Knot>) from cpp.Star<K2Node_Knot> to cpp.Star<K2Node_Knot>{
+abstract K2Node_KnotPtr(ucpp.Ptr<K2Node_Knot>) from ucpp.Ptr<K2Node_Knot> to ucpp.Ptr<K2Node_Knot>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_Knot): K2Node_KnotPtr {
 		return untyped __cpp__("&({0})", v);

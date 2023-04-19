@@ -3,10 +3,10 @@ package ue;
 
 @:native("UUVEditorSeamToolBuilder")
 @:include("UVEditorSeamTool.h")
-@:structAccess
+@:valueType
 extern class UVEditorSeamToolBuilder extends InteractiveToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstUVEditorSeamToolBuilder(UVEditorSeamToolBuilder) from UVEditorSeam
 @:forward
 @:nativeGen
 @:native("UVEditorSeamToolBuilder*")
-abstract UVEditorSeamToolBuilderPtr(cpp.Star<UVEditorSeamToolBuilder>) from cpp.Star<UVEditorSeamToolBuilder> to cpp.Star<UVEditorSeamToolBuilder>{
+abstract UVEditorSeamToolBuilderPtr(ucpp.Ptr<UVEditorSeamToolBuilder>) from ucpp.Ptr<UVEditorSeamToolBuilder> to ucpp.Ptr<UVEditorSeamToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorSeamToolBuilder): UVEditorSeamToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

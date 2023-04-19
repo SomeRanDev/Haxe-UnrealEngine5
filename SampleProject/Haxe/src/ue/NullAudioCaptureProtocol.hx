@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNullAudioCaptureProtocol")
 @:include("Protocols/AudioCaptureProtocol.h")
-@:structAccess
+@:valueType
 extern class NullAudioCaptureProtocol extends MovieSceneAudioCaptureProtocolBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNullAudioCaptureProtocol(NullAudioCaptureProtocol) from NullAudioC
 @:forward
 @:nativeGen
 @:native("NullAudioCaptureProtocol*")
-abstract NullAudioCaptureProtocolPtr(cpp.Star<NullAudioCaptureProtocol>) from cpp.Star<NullAudioCaptureProtocol> to cpp.Star<NullAudioCaptureProtocol>{
+abstract NullAudioCaptureProtocolPtr(ucpp.Ptr<NullAudioCaptureProtocol>) from ucpp.Ptr<NullAudioCaptureProtocol> to ucpp.Ptr<NullAudioCaptureProtocol>{
 	@:from
 	public static extern inline function fromValue(v: NullAudioCaptureProtocol): NullAudioCaptureProtocolPtr {
 		return untyped __cpp__("&({0})", v);

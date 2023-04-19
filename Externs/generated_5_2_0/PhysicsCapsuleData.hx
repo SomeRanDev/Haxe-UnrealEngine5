@@ -3,13 +3,13 @@ package ue;
 
 @:native("FPhysicsCapsuleData")
 @:include("Physics/CollisionPropertySets.h")
-@:structAccess
+@:valueType
 extern class PhysicsCapsuleData {
-	public var Radius: cpp.Float32;
-	public var Length: cpp.Float32;
+	public var Radius: ucpp.num.Float32;
+	public var Length: ucpp.num.Float32;
 	public var Transform: Transform;
 	public var Element: KShapeElem;
 
 	@:native("FPhysicsCapsuleData") public function new();
-	@:native("FPhysicsCapsuleData") public static function make(Radius: cpp.Float32, Length: cpp.Float32, Transform: Transform, Element: KShapeElem): PhysicsCapsuleData ;
+	@:native("FPhysicsCapsuleData") public static function make(Radius: ucpp.num.Float32, Length: ucpp.num.Float32, Transform: Transform, Element: KShapeElem): PhysicsCapsuleData ;
 }

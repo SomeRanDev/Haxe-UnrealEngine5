@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULightMapVirtualTexture")
 @:include("VT/VirtualTexture.h")
-@:structAccess
+@:valueType
 extern class LightMapVirtualTexture extends VirtualTexture {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLightMapVirtualTexture(LightMapVirtualTexture) from LightMapVirtua
 @:forward
 @:nativeGen
 @:native("LightMapVirtualTexture*")
-abstract LightMapVirtualTexturePtr(cpp.Star<LightMapVirtualTexture>) from cpp.Star<LightMapVirtualTexture> to cpp.Star<LightMapVirtualTexture>{
+abstract LightMapVirtualTexturePtr(ucpp.Ptr<LightMapVirtualTexture>) from ucpp.Ptr<LightMapVirtualTexture> to ucpp.Ptr<LightMapVirtualTexture>{
 	@:from
 	public static extern inline function fromValue(v: LightMapVirtualTexture): LightMapVirtualTexturePtr {
 		return untyped __cpp__("&({0})", v);

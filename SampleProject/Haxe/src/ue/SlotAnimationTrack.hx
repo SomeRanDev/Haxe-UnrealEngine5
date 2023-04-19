@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSlotAnimationTrack")
 @:include("Animation/AnimMontage.h")
-@:structAccess
+@:valueType
 extern class SlotAnimationTrack {
 	public var SlotName: FName;
 	public var AnimTrack: AnimTrack;

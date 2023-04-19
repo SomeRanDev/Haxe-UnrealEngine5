@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEnvQueryTest_Distance")
 @:include("EnvironmentQuery/Tests/EnvQueryTest_Distance.h")
-@:structAccess
+@:valueType
 extern class EnvQueryTest_Distance extends EnvQueryTest {
 	public var TestMode: TEnumAsByte<EEnvTestDistance>;
 	public var DistanceTo: TSubclassOf<EnvQueryContext>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstEnvQueryTest_Distance(EnvQueryTest_Distance) from EnvQueryTest_Dis
 @:forward
 @:nativeGen
 @:native("EnvQueryTest_Distance*")
-abstract EnvQueryTest_DistancePtr(cpp.Star<EnvQueryTest_Distance>) from cpp.Star<EnvQueryTest_Distance> to cpp.Star<EnvQueryTest_Distance>{
+abstract EnvQueryTest_DistancePtr(ucpp.Ptr<EnvQueryTest_Distance>) from ucpp.Ptr<EnvQueryTest_Distance> to ucpp.Ptr<EnvQueryTest_Distance>{
 	@:from
 	public static extern inline function fromValue(v: EnvQueryTest_Distance): EnvQueryTest_DistancePtr {
 		return untyped __cpp__("&({0})", v);

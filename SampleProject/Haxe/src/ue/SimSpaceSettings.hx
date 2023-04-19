@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSimSpaceSettings")
 @:include("BoneControllers/AnimNode_RigidBody.h")
-@:structAccess
+@:valueType
 extern class SimSpaceSettings {
-	public var MasterAlpha: cpp.Float32;
-	public var VelocityScaleZ: cpp.Float32;
-	public var MaxLinearVelocity: cpp.Float32;
-	public var MaxAngularVelocity: cpp.Float32;
-	public var MaxLinearAcceleration: cpp.Float32;
-	public var MaxAngularAcceleration: cpp.Float32;
+	public var WorldAlpha: ucpp.num.Float32;
+	public var VelocityScaleZ: ucpp.num.Float32;
+	public var MaxLinearVelocity: ucpp.num.Float32;
+	public var MaxAngularVelocity: ucpp.num.Float32;
+	public var MaxLinearAcceleration: ucpp.num.Float32;
+	public var MaxAngularAcceleration: ucpp.num.Float32;
 	public var ExternalLinearDragV: Vector;
 	public var ExternalLinearVelocity: Vector;
 	public var ExternalAngularVelocity: Vector;

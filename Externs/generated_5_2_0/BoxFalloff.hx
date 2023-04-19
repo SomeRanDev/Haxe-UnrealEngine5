@@ -3,31 +3,31 @@ package ue;
 
 @:native("UBoxFalloff")
 @:include("Field/FieldSystemObjects.h")
-@:structAccess
+@:valueType
 extern class BoxFalloff extends FieldNodeFloat {
-	public var Magnitude: cpp.Float32;
-	public var MinRange: cpp.Float32;
-	public var MaxRange: cpp.Float32;
-	public var Default: cpp.Float32;
+	public var Magnitude: ucpp.num.Float32;
+	public var MinRange: ucpp.num.Float32;
+	public var MaxRange: ucpp.num.Float32;
+	public var Default: ucpp.num.Float32;
 	public var Transform: Transform;
 	public var Falloff: TEnumAsByte<EFieldFalloffType>;
 
-	public function SetBoxFalloff(Magnitude: cpp.Float32, MinRange: cpp.Float32, MaxRange: cpp.Float32, Default: cpp.Float32, Transform: Transform, Falloff: TEnumAsByte<EFieldFalloffType>): cpp.Star<BoxFalloff>;
+	public function SetBoxFalloff(Magnitude: ucpp.num.Float32, MinRange: ucpp.num.Float32, MaxRange: ucpp.num.Float32, Default: ucpp.num.Float32, Transform: Transform, Falloff: TEnumAsByte<EFieldFalloffType>): ucpp.Ptr<BoxFalloff>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBoxFalloff(BoxFalloff) from BoxFalloff {
-	public extern var Magnitude(get, never): cpp.Float32;
-	public inline extern function get_Magnitude(): cpp.Float32 return this.Magnitude;
-	public extern var MinRange(get, never): cpp.Float32;
-	public inline extern function get_MinRange(): cpp.Float32 return this.MinRange;
-	public extern var MaxRange(get, never): cpp.Float32;
-	public inline extern function get_MaxRange(): cpp.Float32 return this.MaxRange;
-	public extern var Default(get, never): cpp.Float32;
-	public inline extern function get_Default(): cpp.Float32 return this.Default;
+	public extern var Magnitude(get, never): ucpp.num.Float32;
+	public inline extern function get_Magnitude(): ucpp.num.Float32 return this.Magnitude;
+	public extern var MinRange(get, never): ucpp.num.Float32;
+	public inline extern function get_MinRange(): ucpp.num.Float32 return this.MinRange;
+	public extern var MaxRange(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxRange(): ucpp.num.Float32 return this.MaxRange;
+	public extern var Default(get, never): ucpp.num.Float32;
+	public inline extern function get_Default(): ucpp.num.Float32 return this.Default;
 	public extern var Transform(get, never): Transform;
 	public inline extern function get_Transform(): Transform return this.Transform;
 	public extern var Falloff(get, never): TEnumAsByte<EFieldFalloffType>;
@@ -37,7 +37,7 @@ abstract ConstBoxFalloff(BoxFalloff) from BoxFalloff {
 @:forward
 @:nativeGen
 @:native("BoxFalloff*")
-abstract BoxFalloffPtr(cpp.Star<BoxFalloff>) from cpp.Star<BoxFalloff> to cpp.Star<BoxFalloff>{
+abstract BoxFalloffPtr(ucpp.Ptr<BoxFalloff>) from ucpp.Ptr<BoxFalloff> to ucpp.Ptr<BoxFalloff>{
 	@:from
 	public static extern inline function fromValue(v: BoxFalloff): BoxFalloffPtr {
 		return untyped __cpp__("&({0})", v);

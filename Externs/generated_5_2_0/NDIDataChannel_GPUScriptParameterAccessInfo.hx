@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNDIDataChannel_GPUScriptParameterAccessInfo")
 @:include("Private/DataInterface/NiagaraDataInterfaceDataChannelCommon.h")
-@:structAccess
+@:valueType
 extern class NDIDataChannel_GPUScriptParameterAccessInfo {
 	public var SortedParameters: TArray<NiagaraVariableBase>;
 

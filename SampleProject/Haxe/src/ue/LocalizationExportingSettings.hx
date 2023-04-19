@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLocalizationExportingSettings")
 @:include("LocalizationTargetTypes.h")
-@:structAccess
+@:valueType
 extern class LocalizationExportingSettings {
 	public var CollapseMode: ELocalizedTextCollapseMode;
 	public var POFormat: EPortableObjectFormat;

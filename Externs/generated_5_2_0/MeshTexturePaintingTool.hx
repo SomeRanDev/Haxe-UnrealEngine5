@@ -3,20 +3,20 @@ package ue;
 
 @:native("UMeshTexturePaintingTool")
 @:include("MeshTexturePaintingTool.h")
-@:structAccess
+@:valueType
 extern class MeshTexturePaintingTool extends BaseBrushTool {
-	@:protected public var SelectionMechanic: cpp.Star<MeshPaintSelectionMechanic>;
-	private var TextureProperties: cpp.Star<MeshTexturePaintingToolProperties>;
-	private var Textures: TArray<cpp.Star<Texture>>;
-	private var BrushRenderTargetTexture: cpp.Star<TextureRenderTarget2D>;
-	private var BrushMaskRenderTargetTexture: cpp.Star<TextureRenderTarget2D>;
-	private var SeamMaskRenderTargetTexture: cpp.Star<TextureRenderTarget2D>;
-	private var PaintTargetData: TMap<cpp.Star<Texture2D>, PaintTexture2DData>;
-	private var PaintComponentsOverride: TMap<cpp.Star<Texture2D>, PaintComponentOverride>;
-	private var TexturePaintingCurrentMeshComponent: cpp.Star<MeshComp>;
-	private var PaintingTexture2D: cpp.Star<Texture2D>;
+	@:protected public var SelectionMechanic: ucpp.Ptr<MeshPaintSelectionMechanic>;
+	private var TextureProperties: ucpp.Ptr<MeshTexturePaintingToolProperties>;
+	private var Textures: TArray<ucpp.Ptr<Texture>>;
+	private var BrushRenderTargetTexture: ucpp.Ptr<TextureRenderTarget2D>;
+	private var BrushMaskRenderTargetTexture: ucpp.Ptr<TextureRenderTarget2D>;
+	private var SeamMaskRenderTargetTexture: ucpp.Ptr<TextureRenderTarget2D>;
+	private var PaintTargetData: TMap<ucpp.Ptr<Texture2D>, PaintTexture2DData>;
+	private var PaintComponentsOverride: TMap<ucpp.Ptr<Texture2D>, PaintComponentOverride>;
+	private var TexturePaintingCurrentMeshComponent: ucpp.Ptr<MeshComp>;
+	private var PaintingTexture2D: ucpp.Ptr<Texture2D>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -27,7 +27,7 @@ abstract ConstMeshTexturePaintingTool(MeshTexturePaintingTool) from MeshTextureP
 @:forward
 @:nativeGen
 @:native("MeshTexturePaintingTool*")
-abstract MeshTexturePaintingToolPtr(cpp.Star<MeshTexturePaintingTool>) from cpp.Star<MeshTexturePaintingTool> to cpp.Star<MeshTexturePaintingTool>{
+abstract MeshTexturePaintingToolPtr(ucpp.Ptr<MeshTexturePaintingTool>) from ucpp.Ptr<MeshTexturePaintingTool> to ucpp.Ptr<MeshTexturePaintingTool>{
 	@:from
 	public static extern inline function fromValue(v: MeshTexturePaintingTool): MeshTexturePaintingToolPtr {
 		return untyped __cpp__("&({0})", v);

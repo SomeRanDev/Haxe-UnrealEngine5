@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonC
 @:forward
 @:nativeGen
 @:native("ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable*")
-abstract ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallablePtr(cpp.Star<ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable>) from cpp.Star<ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable> to cpp.Star<ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable>{
+abstract ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallablePtr(ucpp.Ptr<ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable>) from ucpp.Ptr<ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable> to ucpp.Ptr<ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallable): ARLifeCycleComponent_InstanceARActorToBeDestroyedDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

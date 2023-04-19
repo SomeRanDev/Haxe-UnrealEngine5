@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNavigationFilterFlags")
 @:include("NavFilters/NavigationQueryFilter.h")
-@:structAccess
+@:valueType
 extern class NavigationFilterFlags {
 	public var bNavFlag0: Bool;
 	public var bNavFlag1: Bool;

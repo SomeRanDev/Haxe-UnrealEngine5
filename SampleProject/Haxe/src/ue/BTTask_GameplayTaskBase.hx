@@ -3,11 +3,11 @@ package ue;
 
 @:native("UBTTask_GameplayTaskBase")
 @:include("BehaviorTree/Tasks/BTTask_GameplayTaskBase.h")
-@:structAccess
+@:valueType
 extern class BTTask_GameplayTaskBase extends BTTaskNode {
 	@:protected public var bWaitForGameplayTask: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstBTTask_GameplayTaskBase(BTTask_GameplayTaskBase) from BTTask_Gamep
 @:forward
 @:nativeGen
 @:native("BTTask_GameplayTaskBase*")
-abstract BTTask_GameplayTaskBasePtr(cpp.Star<BTTask_GameplayTaskBase>) from cpp.Star<BTTask_GameplayTaskBase> to cpp.Star<BTTask_GameplayTaskBase>{
+abstract BTTask_GameplayTaskBasePtr(ucpp.Ptr<BTTask_GameplayTaskBase>) from ucpp.Ptr<BTTask_GameplayTaskBase> to ucpp.Ptr<BTTask_GameplayTaskBase>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_GameplayTaskBase): BTTask_GameplayTaskBasePtr {
 		return untyped __cpp__("&({0})", v);

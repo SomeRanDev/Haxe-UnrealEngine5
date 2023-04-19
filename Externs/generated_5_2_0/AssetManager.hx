@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAssetManager")
 @:include("Engine/AssetManager.h")
-@:structAccess
+@:valueType
 extern class AssetManager extends Object {
-	@:protected public var ObjectReferenceList: TArray<cpp.Star<Object>>;
+	@:protected public var ObjectReferenceList: TArray<ucpp.Ptr<Object>>;
 	@:protected public var bIsGlobalAsyncScanEnvironment: Bool;
 	@:protected public var bShouldGuessTypeAndName: Bool;
 	@:protected public var bShouldUseSynchronousLoad: Bool;
 	@:protected public var bIsLoadingFromPakFiles: Bool;
 	@:protected public var bShouldAcquireMissingChunksOnLoad: Bool;
 	@:protected public var bOnlyCookProductionAssets: Bool;
-	@:protected public var NumBulkScanRequests: cpp.Int32;
+	@:protected public var NumBulkScanRequests: ucpp.num.Int32;
 	@:protected public var bIsPrimaryAssetDirectoryCurrent: Bool;
 	@:protected public var bIsManagementDatabaseCurrent: Bool;
 	@:protected public var bUpdateManagementDatabaseAfterScan: Bool;
 	@:protected public var bIncludeOnlyOnDiskAssets: Bool;
 	@:protected public var bHasCompletedInitialScan: Bool;
-	@:protected public var NumberOfSpawnedNotifications: cpp.Int32;
+	@:protected public var NumberOfSpawnedNotifications: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstAssetManager(AssetManager) from AssetManager {
 @:forward
 @:nativeGen
 @:native("AssetManager*")
-abstract AssetManagerPtr(cpp.Star<AssetManager>) from cpp.Star<AssetManager> to cpp.Star<AssetManager>{
+abstract AssetManagerPtr(ucpp.Ptr<AssetManager>) from ucpp.Ptr<AssetManager> to ucpp.Ptr<AssetManager>{
 	@:from
 	public static extern inline function fromValue(v: AssetManager): AssetManagerPtr {
 		return untyped __cpp__("&({0})", v);

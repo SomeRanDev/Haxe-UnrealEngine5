@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UTransformGizmoSource")
-@:structAccess
+@:valueType
 extern class TransformGizmoSource extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstTransformGizmoSource(TransformGizmoSource) from TransformGizmoSour
 @:forward
 @:nativeGen
 @:native("TransformGizmoSource*")
-abstract TransformGizmoSourcePtr(cpp.Star<TransformGizmoSource>) from cpp.Star<TransformGizmoSource> to cpp.Star<TransformGizmoSource>{
+abstract TransformGizmoSourcePtr(ucpp.Ptr<TransformGizmoSource>) from ucpp.Ptr<TransformGizmoSource> to ucpp.Ptr<TransformGizmoSource>{
 	@:from
 	public static extern inline function fromValue(v: TransformGizmoSource): TransformGizmoSourcePtr {
 		return untyped __cpp__("&({0})", v);

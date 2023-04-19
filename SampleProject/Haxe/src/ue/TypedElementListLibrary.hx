@@ -3,30 +3,30 @@ package ue;
 
 @:native("UTypedElementListLibrary")
 @:include("Elements/Framework/TypedElementListLibrary.h")
-@:structAccess
+@:valueType
 extern class TypedElementListLibrary extends Object {
 	public function Shrink(ElementList: ScriptTypedElementListProxy): Void;
 	public function Reset(ElementList: ScriptTypedElementListProxy): Void;
-	public function Reserve(ElementList: ScriptTypedElementListProxy, Size: cpp.Int32): Void;
-	public function Remove(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
-	public function Num(ElementList: ScriptTypedElementListProxy): cpp.Int32;
-	public function IsValidIndex(ElementList: ScriptTypedElementListProxy, Index: cpp.Int32): Bool;
+	public function Reserve(ElementList: ScriptTypedElementListProxy, Size: ucpp.num.Int32): Void;
+	public function Remove(ElementList: ScriptTypedElementListProxy, ElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
+	public function Num(ElementList: ScriptTypedElementListProxy): ucpp.num.Int32;
+	public function IsValidIndex(ElementList: ScriptTypedElementListProxy, Index: ucpp.num.Int32): Bool;
 	public function HasElementsOfType(ElementList: ScriptTypedElementListProxy, ElementTypeName: FName): Bool;
 	public function HasElements(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): Bool;
-	public function GetElementInterface(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Star<Object>;
+	public function GetElementInterface(ElementList: ScriptTypedElementListProxy, ElementHandle: ucpp.Ref<ScriptTypedElementHandle>, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): ucpp.Ptr<Object>;
 	public function GetElementHandles(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): TArray<ScriptTypedElementHandle>;
-	public function GetElementHandleAt(ElementList: ScriptTypedElementListProxy, Index: cpp.Int32): ScriptTypedElementHandle;
-	public function Empty(ElementList: ScriptTypedElementListProxy, Slack: cpp.Int32): Void;
-	public function CreateScriptElementList(Registry: cpp.Star<TypedElementRegistry>): ScriptTypedElementListProxy;
-	public function CountElementsOfType(ElementList: ScriptTypedElementListProxy, ElementTypeName: FName): cpp.Int32;
-	public function CountElements(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Int32;
-	public function Contains(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function GetElementHandleAt(ElementList: ScriptTypedElementListProxy, Index: ucpp.num.Int32): ScriptTypedElementHandle;
+	public function Empty(ElementList: ScriptTypedElementListProxy, Slack: ucpp.num.Int32): Void;
+	public function CreateScriptElementList(Registry: ucpp.Ptr<TypedElementRegistry>): ScriptTypedElementListProxy;
+	public function CountElementsOfType(ElementList: ScriptTypedElementListProxy, ElementTypeName: FName): ucpp.num.Int32;
+	public function CountElements(ElementList: ScriptTypedElementListProxy, BaseInterfaceType: TSubclassOf<Interface.ConstInterface>): ucpp.num.Int32;
+	public function Contains(ElementList: ScriptTypedElementListProxy, ElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
 	public function Clone(ElementList: ScriptTypedElementListProxy): ScriptTypedElementListProxy;
 	public function AppendList(ElementList: ScriptTypedElementListProxy, OtherElementList: ScriptTypedElementListProxy): Void;
-	public function Append(ElementList: ScriptTypedElementListProxy, ElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>): Void;
-	public function Add(ElementList: ScriptTypedElementListProxy, ElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function Append(ElementList: ScriptTypedElementListProxy, ElementHandles: ucpp.Ref<TArray<ScriptTypedElementHandle>>): Void;
+	public function Add(ElementList: ScriptTypedElementListProxy, ElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,7 +37,7 @@ abstract ConstTypedElementListLibrary(TypedElementListLibrary) from TypedElement
 @:forward
 @:nativeGen
 @:native("TypedElementListLibrary*")
-abstract TypedElementListLibraryPtr(cpp.Star<TypedElementListLibrary>) from cpp.Star<TypedElementListLibrary> to cpp.Star<TypedElementListLibrary>{
+abstract TypedElementListLibraryPtr(ucpp.Ptr<TypedElementListLibrary>) from ucpp.Ptr<TypedElementListLibrary> to ucpp.Ptr<TypedElementListLibrary>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementListLibrary): TypedElementListLibraryPtr {
 		return untyped __cpp__("&({0})", v);

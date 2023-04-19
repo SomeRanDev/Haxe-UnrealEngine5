@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomChannelSetup")
 @:include("Engine/CollisionProfile.h")
-@:structAccess
+@:valueType
 extern class CustomChannelSetup {
 	public var Channel: TEnumAsByte<ECollisionChannel>;
 	public var DefaultResponse: TEnumAsByte<ECollisionResponse>;

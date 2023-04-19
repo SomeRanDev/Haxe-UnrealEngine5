@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeGraphInspectorPipeline")
 @:include("InterchangeGraphInspectorPipeline.h")
-@:structAccess
+@:valueType
 extern class InterchangeGraphInspectorPipeline extends InterchangePipelineBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeGraphInspectorPipeline(InterchangeGraphInspectorPipelin
 @:forward
 @:nativeGen
 @:native("InterchangeGraphInspectorPipeline*")
-abstract InterchangeGraphInspectorPipelinePtr(cpp.Star<InterchangeGraphInspectorPipeline>) from cpp.Star<InterchangeGraphInspectorPipeline> to cpp.Star<InterchangeGraphInspectorPipeline>{
+abstract InterchangeGraphInspectorPipelinePtr(ucpp.Ptr<InterchangeGraphInspectorPipeline>) from ucpp.Ptr<InterchangeGraphInspectorPipeline> to ucpp.Ptr<InterchangeGraphInspectorPipeline>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeGraphInspectorPipeline): InterchangeGraphInspectorPipelinePtr {
 		return untyped __cpp__("&({0})", v);

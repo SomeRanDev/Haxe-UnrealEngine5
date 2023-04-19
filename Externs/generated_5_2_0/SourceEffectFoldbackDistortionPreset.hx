@@ -3,13 +3,13 @@ package ue;
 
 @:native("USourceEffectFoldbackDistortionPreset")
 @:include("SourceEffects/SourceEffectFoldbackDistortion.h")
-@:structAccess
+@:valueType
 extern class SourceEffectFoldbackDistortionPreset extends SoundEffectSourcePreset {
 	public var Settings: SourceEffectFoldbackDistortionSettings;
 
-	public function SetSettings(InSettings: cpp.Reference<SourceEffectFoldbackDistortionSettings>): Void;
+	public function SetSettings(InSettings: ucpp.Ref<SourceEffectFoldbackDistortionSettings>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstSourceEffectFoldbackDistortionPreset(SourceEffectFoldbackDistortio
 @:forward
 @:nativeGen
 @:native("SourceEffectFoldbackDistortionPreset*")
-abstract SourceEffectFoldbackDistortionPresetPtr(cpp.Star<SourceEffectFoldbackDistortionPreset>) from cpp.Star<SourceEffectFoldbackDistortionPreset> to cpp.Star<SourceEffectFoldbackDistortionPreset>{
+abstract SourceEffectFoldbackDistortionPresetPtr(ucpp.Ptr<SourceEffectFoldbackDistortionPreset>) from ucpp.Ptr<SourceEffectFoldbackDistortionPreset> to ucpp.Ptr<SourceEffectFoldbackDistortionPreset>{
 	@:from
 	public static extern inline function fromValue(v: SourceEffectFoldbackDistortionPreset): SourceEffectFoldbackDistortionPresetPtr {
 		return untyped __cpp__("&({0})", v);

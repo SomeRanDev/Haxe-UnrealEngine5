@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_BlendBoneByChannel")
 @:include("AnimGraphNode_BlendBoneByChannel.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_BlendBoneByChannel extends AnimGraphNode_Base {
 	public var BlendNode: AnimNode_BlendBoneByChannel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_BlendBoneByChannel(AnimGraphNode_BlendBoneByChannel)
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_BlendBoneByChannel*")
-abstract AnimGraphNode_BlendBoneByChannelPtr(cpp.Star<AnimGraphNode_BlendBoneByChannel>) from cpp.Star<AnimGraphNode_BlendBoneByChannel> to cpp.Star<AnimGraphNode_BlendBoneByChannel>{
+abstract AnimGraphNode_BlendBoneByChannelPtr(ucpp.Ptr<AnimGraphNode_BlendBoneByChannel>) from ucpp.Ptr<AnimGraphNode_BlendBoneByChannel> to ucpp.Ptr<AnimGraphNode_BlendBoneByChannel>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_BlendBoneByChannel): AnimGraphNode_BlendBoneByChannelPtr {
 		return untyped __cpp__("&({0})", v);

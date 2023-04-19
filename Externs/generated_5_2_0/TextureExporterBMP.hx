@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextureExporterBMP")
 @:include("Exporters/TextureExporterBMP.h")
-@:structAccess
+@:valueType
 extern class TextureExporterBMP extends TextureExporterGeneric {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextureExporterBMP(TextureExporterBMP) from TextureExporterBMP {
 @:forward
 @:nativeGen
 @:native("TextureExporterBMP*")
-abstract TextureExporterBMPPtr(cpp.Star<TextureExporterBMP>) from cpp.Star<TextureExporterBMP> to cpp.Star<TextureExporterBMP>{
+abstract TextureExporterBMPPtr(ucpp.Ptr<TextureExporterBMP>) from ucpp.Ptr<TextureExporterBMP> to ucpp.Ptr<TextureExporterBMP>{
 	@:from
 	public static extern inline function fromValue(v: TextureExporterBMP): TextureExporterBMPPtr {
 		return untyped __cpp__("&({0})", v);

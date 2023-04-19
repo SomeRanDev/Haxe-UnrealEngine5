@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRigVMExternalVariable")
 @:include("RigVMCore/RigVMExternalVariable.h")
-@:structAccess
+@:valueType
 extern class RigVMExternalVariable {
 	@:native("FRigVMExternalVariable") public function new();
 }

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UTireType")
 @:include("Vehicles/TireType.h")
-@:structAccess
+@:valueType
 extern class TireType extends DataAsset {
-	public var FrictionScale: cpp.Float32;
+	public var FrictionScale: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTireType(TireType) from TireType {
-	public extern var FrictionScale(get, never): cpp.Float32;
-	public inline extern function get_FrictionScale(): cpp.Float32 return this.FrictionScale;
+	public extern var FrictionScale(get, never): ucpp.num.Float32;
+	public inline extern function get_FrictionScale(): ucpp.num.Float32 return this.FrictionScale;
 }
 
 @:forward
 @:nativeGen
 @:native("TireType*")
-abstract TireTypePtr(cpp.Star<TireType>) from cpp.Star<TireType> to cpp.Star<TireType>{
+abstract TireTypePtr(ucpp.Ptr<TireType>) from ucpp.Ptr<TireType> to ucpp.Ptr<TireType>{
 	@:from
 	public static extern inline function fromValue(v: TireType): TireTypePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTemplateSequenceEditorSettings")
 @:include("Misc/TemplateSequenceEditorSettings.h")
-@:structAccess
+@:valueType
 extern class TemplateSequenceEditorSettings extends Object {
 	public var bShowOutdatedAssetsInCameraAnimationTrackEditor: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTemplateSequenceEditorSettings(TemplateSequenceEditorSettings) fro
 @:forward
 @:nativeGen
 @:native("TemplateSequenceEditorSettings*")
-abstract TemplateSequenceEditorSettingsPtr(cpp.Star<TemplateSequenceEditorSettings>) from cpp.Star<TemplateSequenceEditorSettings> to cpp.Star<TemplateSequenceEditorSettings>{
+abstract TemplateSequenceEditorSettingsPtr(ucpp.Ptr<TemplateSequenceEditorSettings>) from ucpp.Ptr<TemplateSequenceEditorSettings> to ucpp.Ptr<TemplateSequenceEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: TemplateSequenceEditorSettings): TemplateSequenceEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

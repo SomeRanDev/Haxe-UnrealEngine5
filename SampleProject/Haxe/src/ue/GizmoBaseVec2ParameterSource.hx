@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGizmoBaseVec2ParameterSource")
 @:include("BaseGizmos/ParameterSourcesVec2.h")
-@:structAccess
+@:valueType
 extern class GizmoBaseVec2ParameterSource extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGizmoBaseVec2ParameterSource(GizmoBaseVec2ParameterSource) from Gi
 @:forward
 @:nativeGen
 @:native("GizmoBaseVec2ParameterSource*")
-abstract GizmoBaseVec2ParameterSourcePtr(cpp.Star<GizmoBaseVec2ParameterSource>) from cpp.Star<GizmoBaseVec2ParameterSource> to cpp.Star<GizmoBaseVec2ParameterSource>{
+abstract GizmoBaseVec2ParameterSourcePtr(ucpp.Ptr<GizmoBaseVec2ParameterSource>) from ucpp.Ptr<GizmoBaseVec2ParameterSource> to ucpp.Ptr<GizmoBaseVec2ParameterSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoBaseVec2ParameterSource): GizmoBaseVec2ParameterSourcePtr {
 		return untyped __cpp__("&({0})", v);

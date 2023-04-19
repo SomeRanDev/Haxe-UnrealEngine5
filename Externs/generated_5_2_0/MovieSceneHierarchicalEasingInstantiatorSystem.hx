@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneHierarchicalEasingInstantiatorSystem")
 @:include("Systems/WeightAndEasingEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneHierarchicalEasingInstantiatorSystem extends MovieSceneEntityInstantiatorSystem {
-	private var EvaluatorSystem: cpp.Star<WeightAndEasingEvaluatorSystem>;
+	private var EvaluatorSystem: ucpp.Ptr<WeightAndEasingEvaluatorSystem>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneHierarchicalEasingInstantiatorSystem(MovieSceneHierarchi
 @:forward
 @:nativeGen
 @:native("MovieSceneHierarchicalEasingInstantiatorSystem*")
-abstract MovieSceneHierarchicalEasingInstantiatorSystemPtr(cpp.Star<MovieSceneHierarchicalEasingInstantiatorSystem>) from cpp.Star<MovieSceneHierarchicalEasingInstantiatorSystem> to cpp.Star<MovieSceneHierarchicalEasingInstantiatorSystem>{
+abstract MovieSceneHierarchicalEasingInstantiatorSystemPtr(ucpp.Ptr<MovieSceneHierarchicalEasingInstantiatorSystem>) from ucpp.Ptr<MovieSceneHierarchicalEasingInstantiatorSystem> to ucpp.Ptr<MovieSceneHierarchicalEasingInstantiatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneHierarchicalEasingInstantiatorSystem): MovieSceneHierarchicalEasingInstantiatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

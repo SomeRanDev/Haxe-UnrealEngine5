@@ -3,24 +3,24 @@ package ue;
 
 @:native("UChildConnection")
 @:include("Engine/ChildConnection.h")
-@:structAccess
+@:valueType
 extern class ChildConnection extends NetConnection {
-	public var Parent: cpp.Star<NetConnection>;
+	public var Parent: ucpp.Ptr<NetConnection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstChildConnection(ChildConnection) from ChildConnection {
-	public extern var Parent(get, never): cpp.Star<NetConnection.ConstNetConnection>;
-	public inline extern function get_Parent(): cpp.Star<NetConnection.ConstNetConnection> return this.Parent;
+	public extern var Parent(get, never): ucpp.Ptr<NetConnection.ConstNetConnection>;
+	public inline extern function get_Parent(): ucpp.Ptr<NetConnection.ConstNetConnection> return this.Parent;
 }
 
 @:forward
 @:nativeGen
 @:native("ChildConnection*")
-abstract ChildConnectionPtr(cpp.Star<ChildConnection>) from cpp.Star<ChildConnection> to cpp.Star<ChildConnection>{
+abstract ChildConnectionPtr(ucpp.Ptr<ChildConnection>) from ucpp.Ptr<ChildConnection> to ucpp.Ptr<ChildConnection>{
 	@:from
 	public static extern inline function fromValue(v: ChildConnection): ChildConnectionPtr {
 		return untyped __cpp__("&({0})", v);

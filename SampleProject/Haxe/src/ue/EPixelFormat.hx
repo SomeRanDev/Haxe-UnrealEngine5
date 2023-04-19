@@ -77,6 +77,11 @@ extern class EPixelFormat {
 	static var PF_ETC2_RG11_EAC: EPixelFormat;
 	static var PF_R8: EPixelFormat;
 	static var PF_B5G5R5A1_UNORM: EPixelFormat;
+	static var PF_ASTC_4x4_HDR: EPixelFormat;
+	static var PF_ASTC_6x6_HDR: EPixelFormat;
+	static var PF_ASTC_8x8_HDR: EPixelFormat;
+	static var PF_ASTC_10x10_HDR: EPixelFormat;
+	static var PF_ASTC_12x12_HDR: EPixelFormat;
 	static var PF_G16R16_SNORM: EPixelFormat;
 	static var PF_R8G8_UINT: EPixelFormat;
 	static var PF_R32G32B32_UINT: EPixelFormat;
@@ -84,5 +89,7 @@ extern class EPixelFormat {
 	static var PF_R32G32B32F: EPixelFormat;
 	static var PF_R8_SINT: EPixelFormat;
 	static var PF_R64_UINT: EPixelFormat;
+	static var PF_R9G9B9EXP5: EPixelFormat;
+	static var PF_P010: EPixelFormat;
 	static var PF_MAX: EPixelFormat;
 }

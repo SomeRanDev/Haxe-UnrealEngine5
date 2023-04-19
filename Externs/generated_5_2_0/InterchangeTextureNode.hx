@@ -3,17 +3,17 @@ package ue;
 
 @:native("UInterchangeTextureNode")
 @:include("InterchangeTextureNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeTextureNode extends InterchangeBaseNode {
 	public function SetPayLoadKey(PayloadKey: FString): Void;
-	public function SetCustomSRGB(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function SetCustomFilter(AttributeValue: cpp.Reference<EInterchangeTextureFilterMode>): Bool;
-	public function SetCustombFlipGreenChannel(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomSRGB(AttributeValue: cpp.Reference<Bool>): Bool;
-	public function GetCustomFilter(AttributeValue: cpp.Reference<EInterchangeTextureFilterMode>): Bool;
-	public function GetCustombFlipGreenChannel(AttributeValue: cpp.Reference<Bool>): Bool;
+	public function SetCustomSRGB(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function SetCustomFilter(AttributeValue: ucpp.Ref<EInterchangeTextureFilterMode>): Bool;
+	public function SetCustombFlipGreenChannel(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomSRGB(AttributeValue: ucpp.Ref<Bool>): Bool;
+	public function GetCustomFilter(AttributeValue: ucpp.Ref<EInterchangeTextureFilterMode>): Bool;
+	public function GetCustombFlipGreenChannel(AttributeValue: ucpp.Ref<Bool>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomSRGB, GetCustomFilter, GetCustombFlipGreenChannel)
@@ -24,7 +24,7 @@ abstract ConstInterchangeTextureNode(InterchangeTextureNode) from InterchangeTex
 @:forward
 @:nativeGen
 @:native("InterchangeTextureNode*")
-abstract InterchangeTextureNodePtr(cpp.Star<InterchangeTextureNode>) from cpp.Star<InterchangeTextureNode> to cpp.Star<InterchangeTextureNode>{
+abstract InterchangeTextureNodePtr(ucpp.Ptr<InterchangeTextureNode>) from ucpp.Ptr<InterchangeTextureNode> to ucpp.Ptr<InterchangeTextureNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTextureNode): InterchangeTextureNodePtr {
 		return untyped __cpp__("&({0})", v);

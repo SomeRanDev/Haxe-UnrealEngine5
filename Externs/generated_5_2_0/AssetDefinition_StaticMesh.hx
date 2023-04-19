@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_StaticMesh")
 @:include("AssetDefinition_StaticMesh.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_StaticMesh extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_StaticMesh(AssetDefinition_StaticMesh) from AssetD
 @:forward
 @:nativeGen
 @:native("AssetDefinition_StaticMesh*")
-abstract AssetDefinition_StaticMeshPtr(cpp.Star<AssetDefinition_StaticMesh>) from cpp.Star<AssetDefinition_StaticMesh> to cpp.Star<AssetDefinition_StaticMesh>{
+abstract AssetDefinition_StaticMeshPtr(ucpp.Ptr<AssetDefinition_StaticMesh>) from ucpp.Ptr<AssetDefinition_StaticMesh> to ucpp.Ptr<AssetDefinition_StaticMesh>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_StaticMesh): AssetDefinition_StaticMeshPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeFilePickerGeneric")
 @:include("InterchangeOpenFileDialog.h")
-@:structAccess
+@:valueType
 extern class InterchangeFilePickerGeneric extends InterchangeFilePickerBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeFilePickerGeneric(InterchangeFilePickerGeneric) from In
 @:forward
 @:nativeGen
 @:native("InterchangeFilePickerGeneric*")
-abstract InterchangeFilePickerGenericPtr(cpp.Star<InterchangeFilePickerGeneric>) from cpp.Star<InterchangeFilePickerGeneric> to cpp.Star<InterchangeFilePickerGeneric>{
+abstract InterchangeFilePickerGenericPtr(ucpp.Ptr<InterchangeFilePickerGeneric>) from ucpp.Ptr<InterchangeFilePickerGeneric> to ucpp.Ptr<InterchangeFilePickerGeneric>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeFilePickerGeneric): InterchangeFilePickerGenericPtr {
 		return untyped __cpp__("&({0})", v);

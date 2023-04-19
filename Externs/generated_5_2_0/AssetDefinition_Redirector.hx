@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_Redirector")
 @:include("AssetDefinition_Redirector.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_Redirector extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_Redirector(AssetDefinition_Redirector) from AssetD
 @:forward
 @:nativeGen
 @:native("AssetDefinition_Redirector*")
-abstract AssetDefinition_RedirectorPtr(cpp.Star<AssetDefinition_Redirector>) from cpp.Star<AssetDefinition_Redirector> to cpp.Star<AssetDefinition_Redirector>{
+abstract AssetDefinition_RedirectorPtr(ucpp.Ptr<AssetDefinition_Redirector>) from ucpp.Ptr<AssetDefinition_Redirector> to ucpp.Ptr<AssetDefinition_Redirector>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_Redirector): AssetDefinition_RedirectorPtr {
 		return untyped __cpp__("&({0})", v);

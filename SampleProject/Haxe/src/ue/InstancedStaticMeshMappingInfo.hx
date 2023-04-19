@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInstancedStaticMeshMappingInfo")
 @:include("Components/InstancedStaticMeshComponent.h")
-@:structAccess
+@:valueType
 extern class InstancedStaticMeshMappingInfo {
 	@:native("FInstancedStaticMeshMappingInfo") public function new();
 }

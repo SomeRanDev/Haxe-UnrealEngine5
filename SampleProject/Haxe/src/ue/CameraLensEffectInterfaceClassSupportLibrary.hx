@@ -3,14 +3,14 @@ package ue;
 
 @:native("UCameraLensEffectInterfaceClassSupportLibrary")
 @:include("Camera/CameraLensEffectInterface.h")
-@:structAccess
+@:valueType
 extern class CameraLensEffectInterfaceClassSupportLibrary extends BlueprintFunctionLibrary {
-	public function SetInterfaceClass(Class: TSubclassOf<Actor>, Var: cpp.Reference<CameraLensInterfaceClassSupport>, Result: cpp.Reference<EInterfaceValidResult>): Void;
-	public function IsInterfaceValid(CameraLens: cpp.Reference<CameraLensEffectInterface.ConstCameraLensEffectInterface>, Result: cpp.Reference<EInterfaceValidResult>): Void;
-	public function IsInterfaceClassValid(CameraLens: cpp.Reference<CameraLensInterfaceClassSupport>, Result: cpp.Reference<EInterfaceValidResult>): Void;
-	public function GetInterfaceClass(CameraLens: cpp.Reference<CameraLensInterfaceClassSupport>): TSubclassOf<Actor>;
+	public function SetInterfaceClass(Class: TSubclassOf<Actor>, Var: ucpp.Ref<CameraLensInterfaceClassSupport>, Result: ucpp.Ref<EInterfaceValidResult>): Void;
+	public function IsInterfaceValid(CameraLens: ucpp.Ref<CameraLensEffectInterface.ConstCameraLensEffectInterface>, Result: ucpp.Ref<EInterfaceValidResult>): Void;
+	public function IsInterfaceClassValid(CameraLens: ucpp.Ref<CameraLensInterfaceClassSupport>, Result: ucpp.Ref<EInterfaceValidResult>): Void;
+	public function GetInterfaceClass(CameraLens: ucpp.Ref<CameraLensInterfaceClassSupport>): TSubclassOf<Actor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstCameraLensEffectInterfaceClassSupportLibrary(CameraLensEffectInter
 @:forward
 @:nativeGen
 @:native("CameraLensEffectInterfaceClassSupportLibrary*")
-abstract CameraLensEffectInterfaceClassSupportLibraryPtr(cpp.Star<CameraLensEffectInterfaceClassSupportLibrary>) from cpp.Star<CameraLensEffectInterfaceClassSupportLibrary> to cpp.Star<CameraLensEffectInterfaceClassSupportLibrary>{
+abstract CameraLensEffectInterfaceClassSupportLibraryPtr(ucpp.Ptr<CameraLensEffectInterfaceClassSupportLibrary>) from ucpp.Ptr<CameraLensEffectInterfaceClassSupportLibrary> to ucpp.Ptr<CameraLensEffectInterfaceClassSupportLibrary>{
 	@:from
 	public static extern inline function fromValue(v: CameraLensEffectInterfaceClassSupportLibrary): CameraLensEffectInterfaceClassSupportLibraryPtr {
 		return untyped __cpp__("&({0})", v);

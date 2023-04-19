@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBlackboardKeyType_Rotator")
 @:include("BehaviorTree/Blackboard/BlackboardKeyType_Rotator.h")
-@:structAccess
+@:valueType
 extern class BlackboardKeyType_Rotator extends BlackboardKeyType {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBlackboardKeyType_Rotator(BlackboardKeyType_Rotator) from Blackboa
 @:forward
 @:nativeGen
 @:native("BlackboardKeyType_Rotator*")
-abstract BlackboardKeyType_RotatorPtr(cpp.Star<BlackboardKeyType_Rotator>) from cpp.Star<BlackboardKeyType_Rotator> to cpp.Star<BlackboardKeyType_Rotator>{
+abstract BlackboardKeyType_RotatorPtr(ucpp.Ptr<BlackboardKeyType_Rotator>) from ucpp.Ptr<BlackboardKeyType_Rotator> to ucpp.Ptr<BlackboardKeyType_Rotator>{
 	@:from
 	public static extern inline function fromValue(v: BlackboardKeyType_Rotator): BlackboardKeyType_RotatorPtr {
 		return untyped __cpp__("&({0})", v);

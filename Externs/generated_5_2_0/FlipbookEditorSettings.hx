@@ -3,12 +3,12 @@ package ue;
 
 @:native("UFlipbookEditorSettings")
 @:include("FlipbookEditor/FlipbookEditorSettings.h")
-@:structAccess
+@:valueType
 extern class FlipbookEditorSettings extends Object {
 	public var BackgroundColor: Color;
 	public var bShowGridByDefault: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstFlipbookEditorSettings(FlipbookEditorSettings) from FlipbookEditor
 @:forward
 @:nativeGen
 @:native("FlipbookEditorSettings*")
-abstract FlipbookEditorSettingsPtr(cpp.Star<FlipbookEditorSettings>) from cpp.Star<FlipbookEditorSettings> to cpp.Star<FlipbookEditorSettings>{
+abstract FlipbookEditorSettingsPtr(ucpp.Ptr<FlipbookEditorSettings>) from ucpp.Ptr<FlipbookEditorSettings> to ucpp.Ptr<FlipbookEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: FlipbookEditorSettings): FlipbookEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("USizeMapSettings")
 @:include("SSizeMap.h")
-@:structAccess
+@:valueType
 extern class SizeMapSettings extends Object {
 	public var SizeType: FName;
 	public var DependencyType: ESizeMapDependencyType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstSizeMapSettings(SizeMapSettings) from SizeMapSettings {
 @:forward
 @:nativeGen
 @:native("SizeMapSettings*")
-abstract SizeMapSettingsPtr(cpp.Star<SizeMapSettings>) from cpp.Star<SizeMapSettings> to cpp.Star<SizeMapSettings>{
+abstract SizeMapSettingsPtr(ucpp.Ptr<SizeMapSettings>) from ucpp.Ptr<SizeMapSettings> to ucpp.Ptr<SizeMapSettings>{
 	@:from
 	public static extern inline function fromValue(v: SizeMapSettings): SizeMapSettingsPtr {
 		return untyped __cpp__("&({0})", v);

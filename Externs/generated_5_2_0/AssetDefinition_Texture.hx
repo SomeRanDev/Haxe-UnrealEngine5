@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_Texture")
 @:include("AssetDefinition_Texture.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_Texture extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_Texture(AssetDefinition_Texture) from AssetDefinit
 @:forward
 @:nativeGen
 @:native("AssetDefinition_Texture*")
-abstract AssetDefinition_TexturePtr(cpp.Star<AssetDefinition_Texture>) from cpp.Star<AssetDefinition_Texture> to cpp.Star<AssetDefinition_Texture>{
+abstract AssetDefinition_TexturePtr(ucpp.Ptr<AssetDefinition_Texture>) from ucpp.Ptr<AssetDefinition_Texture> to ucpp.Ptr<AssetDefinition_Texture>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_Texture): AssetDefinition_TexturePtr {
 		return untyped __cpp__("&({0})", v);

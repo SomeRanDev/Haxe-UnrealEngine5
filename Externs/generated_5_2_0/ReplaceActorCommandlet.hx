@@ -3,10 +3,10 @@ package ue;
 
 @:native("UReplaceActorCommandlet")
 @:include("Commandlets/ReplaceActorCommandlet.h")
-@:structAccess
+@:valueType
 extern class ReplaceActorCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstReplaceActorCommandlet(ReplaceActorCommandlet) from ReplaceActorCo
 @:forward
 @:nativeGen
 @:native("ReplaceActorCommandlet*")
-abstract ReplaceActorCommandletPtr(cpp.Star<ReplaceActorCommandlet>) from cpp.Star<ReplaceActorCommandlet> to cpp.Star<ReplaceActorCommandlet>{
+abstract ReplaceActorCommandletPtr(ucpp.Ptr<ReplaceActorCommandlet>) from ucpp.Ptr<ReplaceActorCommandlet> to ucpp.Ptr<ReplaceActorCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: ReplaceActorCommandlet): ReplaceActorCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UNiagaraNodeDataSetBase")
 @:include("NiagaraNodeDataSetBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraNodeDataSetBase extends NiagaraNode {
 	public var DataSet: NiagaraDataSetID;
 	public var Variables: TArray<NiagaraVariable>;
 	public var VariableFriendlyNames: TArray<FString>;
-	public var ExternalStructAsset: cpp.Star<Struct>;
+	public var ExternalStructAsset: ucpp.Ptr<Struct>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,14 +22,14 @@ abstract ConstNiagaraNodeDataSetBase(NiagaraNodeDataSetBase) from NiagaraNodeDat
 	public inline extern function get_Variables(): TArray<NiagaraVariable> return this.Variables;
 	public extern var VariableFriendlyNames(get, never): TArray<FString>;
 	public inline extern function get_VariableFriendlyNames(): TArray<FString> return this.VariableFriendlyNames;
-	public extern var ExternalStructAsset(get, never): cpp.Star<Struct.ConstStruct>;
-	public inline extern function get_ExternalStructAsset(): cpp.Star<Struct.ConstStruct> return this.ExternalStructAsset;
+	public extern var ExternalStructAsset(get, never): ucpp.Ptr<Struct.ConstStruct>;
+	public inline extern function get_ExternalStructAsset(): ucpp.Ptr<Struct.ConstStruct> return this.ExternalStructAsset;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraNodeDataSetBase*")
-abstract NiagaraNodeDataSetBasePtr(cpp.Star<NiagaraNodeDataSetBase>) from cpp.Star<NiagaraNodeDataSetBase> to cpp.Star<NiagaraNodeDataSetBase>{
+abstract NiagaraNodeDataSetBasePtr(ucpp.Ptr<NiagaraNodeDataSetBase>) from ucpp.Ptr<NiagaraNodeDataSetBase> to ucpp.Ptr<NiagaraNodeDataSetBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraNodeDataSetBase): NiagaraNodeDataSetBasePtr {
 		return untyped __cpp__("&({0})", v);

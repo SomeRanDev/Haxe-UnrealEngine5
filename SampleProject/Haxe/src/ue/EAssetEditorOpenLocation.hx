@@ -2,7 +2,7 @@
 package ue;
 
 @:native("EAssetEditorOpenLocation")
-@:include("EditorStyleSettings.h")
+@:include("Settings/EditorStyleSettings.h")
 extern class EAssetEditorOpenLocation {
 	static var Default: EAssetEditorOpenLocation;
 	static var NewWindow: EAssetEditorOpenLocation;

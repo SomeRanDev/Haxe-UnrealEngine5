@@ -3,11 +3,14 @@ package ue;
 
 @:native("ALevelInstance")
 @:include("LevelInstance/LevelInstanceActor.h")
-@:structAccess
+@:valueType
 extern class LevelInstance extends Actor {
 	@:protected public var CookedWorldAsset: TSoftObjectPtr<World>;
+	@:protected public var LevelInstanceSpawnGuid: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public function OnRep_LevelInstanceSpawnGuid(): Void;
+
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +21,7 @@ abstract ConstLevelInstance(LevelInstance) from LevelInstance {
 @:forward
 @:nativeGen
 @:native("LevelInstance*")
-abstract LevelInstancePtr(cpp.Star<LevelInstance>) from cpp.Star<LevelInstance> to cpp.Star<LevelInstance>{
+abstract LevelInstancePtr(ucpp.Ptr<LevelInstance>) from ucpp.Ptr<LevelInstance> to ucpp.Ptr<LevelInstance>{
 	@:from
 	public static extern inline function fromValue(v: LevelInstance): LevelInstancePtr {
 		return untyped __cpp__("&({0})", v);

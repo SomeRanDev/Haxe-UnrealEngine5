@@ -3,11 +3,11 @@ package ue;
 
 @:native("ASphereReflectionCapture")
 @:include("Engine/SphereReflectionCapture.h")
-@:structAccess
+@:valueType
 extern class SphereReflectionCapture extends ReflectionCapture {
-	private var DrawCaptureRadius: cpp.Star<DrawSphereComp>;
+	private var DrawCaptureRadius: ucpp.Ptr<DrawSphereComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstSphereReflectionCapture(SphereReflectionCapture) from SphereReflec
 @:forward
 @:nativeGen
 @:native("SphereReflectionCapture*")
-abstract SphereReflectionCapturePtr(cpp.Star<SphereReflectionCapture>) from cpp.Star<SphereReflectionCapture> to cpp.Star<SphereReflectionCapture>{
+abstract SphereReflectionCapturePtr(ucpp.Ptr<SphereReflectionCapture>) from ucpp.Ptr<SphereReflectionCapture> to ucpp.Ptr<SphereReflectionCapture>{
 	@:from
 	public static extern inline function fromValue(v: SphereReflectionCapture): SphereReflectionCapturePtr {
 		return untyped __cpp__("&({0})", v);

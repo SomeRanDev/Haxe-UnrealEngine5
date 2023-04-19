@@ -3,24 +3,24 @@ package ue;
 
 @:native("USoundNodeConcatenator")
 @:include("Sound/SoundNodeConcatenator.h")
-@:structAccess
+@:valueType
 extern class SoundNodeConcatenator extends SoundNode {
-	public var InputVolume: TArray<cpp.Float32>;
+	public var InputVolume: TArray<ucpp.num.Float32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeConcatenator(SoundNodeConcatenator) from SoundNodeConcatenator {
-	public extern var InputVolume(get, never): TArray<cpp.Float32>;
-	public inline extern function get_InputVolume(): TArray<cpp.Float32> return this.InputVolume;
+	public extern var InputVolume(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_InputVolume(): TArray<ucpp.num.Float32> return this.InputVolume;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeConcatenator*")
-abstract SoundNodeConcatenatorPtr(cpp.Star<SoundNodeConcatenator>) from cpp.Star<SoundNodeConcatenator> to cpp.Star<SoundNodeConcatenator>{
+abstract SoundNodeConcatenatorPtr(ucpp.Ptr<SoundNodeConcatenator>) from ucpp.Ptr<SoundNodeConcatenator> to ucpp.Ptr<SoundNodeConcatenator>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeConcatenator): SoundNodeConcatenatorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,21 +3,21 @@ package ue;
 
 @:native("UNiagaraDataInterfaceVectorField")
 @:include("NiagaraDataInterfaceVectorField.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceVectorField extends NiagaraDataInterface {
-	public var Field: cpp.Star<VectorField>;
+	public var Field: ucpp.Ptr<VectorField>;
 	public var bTileX: Bool;
 	public var bTileY: Bool;
 	public var bTileZ: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceVectorField(NiagaraDataInterfaceVectorField) from NiagaraDataInterfaceVectorField {
-	public extern var Field(get, never): cpp.Star<VectorField.ConstVectorField>;
-	public inline extern function get_Field(): cpp.Star<VectorField.ConstVectorField> return this.Field;
+	public extern var Field(get, never): ucpp.Ptr<VectorField.ConstVectorField>;
+	public inline extern function get_Field(): ucpp.Ptr<VectorField.ConstVectorField> return this.Field;
 	public extern var bTileX(get, never): Bool;
 	public inline extern function get_bTileX(): Bool return this.bTileX;
 	public extern var bTileY(get, never): Bool;
@@ -29,7 +29,7 @@ abstract ConstNiagaraDataInterfaceVectorField(NiagaraDataInterfaceVectorField) f
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceVectorField*")
-abstract NiagaraDataInterfaceVectorFieldPtr(cpp.Star<NiagaraDataInterfaceVectorField>) from cpp.Star<NiagaraDataInterfaceVectorField> to cpp.Star<NiagaraDataInterfaceVectorField>{
+abstract NiagaraDataInterfaceVectorFieldPtr(ucpp.Ptr<NiagaraDataInterfaceVectorField>) from ucpp.Ptr<NiagaraDataInterfaceVectorField> to ucpp.Ptr<NiagaraDataInterfaceVectorField>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceVectorField): NiagaraDataInterfaceVectorFieldPtr {
 		return untyped __cpp__("&({0})", v);

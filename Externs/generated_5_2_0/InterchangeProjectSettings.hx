@@ -3,7 +3,7 @@ package ue;
 
 @:native("UInterchangeProjectSettings")
 @:include("InterchangeProjectSettings.h")
-@:structAccess
+@:valueType
 extern class InterchangeProjectSettings extends DeveloperSettings {
 	public var ContentImportSettings: InterchangeContentImportSettings;
 	public var SceneImportSettings: InterchangeImportSettings;
@@ -11,7 +11,7 @@ extern class InterchangeProjectSettings extends DeveloperSettings {
 	public var bStaticMeshUseSmoothEdgesIfSmoothingInformationIsMissing: Bool;
 	public var GenericPipelineClass: TSoftClassPtr<Class>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -32,7 +32,7 @@ abstract ConstInterchangeProjectSettings(InterchangeProjectSettings) from Interc
 @:forward
 @:nativeGen
 @:native("InterchangeProjectSettings*")
-abstract InterchangeProjectSettingsPtr(cpp.Star<InterchangeProjectSettings>) from cpp.Star<InterchangeProjectSettings> to cpp.Star<InterchangeProjectSettings>{
+abstract InterchangeProjectSettingsPtr(ucpp.Ptr<InterchangeProjectSettings>) from ucpp.Ptr<InterchangeProjectSettings> to ucpp.Ptr<InterchangeProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeProjectSettings): InterchangeProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

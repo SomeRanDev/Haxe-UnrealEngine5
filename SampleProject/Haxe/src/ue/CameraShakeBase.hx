@@ -3,17 +3,17 @@ package ue;
 
 @:native("UCameraShakeBase")
 @:include("Camera/CameraShakeBase.h")
-@:structAccess
+@:valueType
 extern class CameraShakeBase extends Object {
 	public var bSingleInstance: Bool;
-	public var ShakeScale: cpp.Float32;
-	private var RootShakePattern: cpp.Star<CameraShakePattern>;
-	private var CameraManager: cpp.Star<PlayerCameraManager>;
+	public var ShakeScale: ucpp.num.Float32;
+	private var RootShakePattern: ucpp.Ptr<CameraShakePattern>;
+	private var CameraManager: ucpp.Ptr<PlayerCameraManager>;
 
-	public function SetRootShakePattern(InPattern: cpp.Star<CameraShakePattern>): Void;
-	public function GetRootShakePattern(): cpp.Star<CameraShakePattern>;
+	public function SetRootShakePattern(InPattern: ucpp.Ptr<CameraShakePattern>): Void;
+	public function GetRootShakePattern(): ucpp.Ptr<CameraShakePattern>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetRootShakePattern)
@@ -21,14 +21,14 @@ extern class CameraShakeBase extends Object {
 abstract ConstCameraShakeBase(CameraShakeBase) from CameraShakeBase {
 	public extern var bSingleInstance(get, never): Bool;
 	public inline extern function get_bSingleInstance(): Bool return this.bSingleInstance;
-	public extern var ShakeScale(get, never): cpp.Float32;
-	public inline extern function get_ShakeScale(): cpp.Float32 return this.ShakeScale;
+	public extern var ShakeScale(get, never): ucpp.num.Float32;
+	public inline extern function get_ShakeScale(): ucpp.num.Float32 return this.ShakeScale;
 }
 
 @:forward
 @:nativeGen
 @:native("CameraShakeBase*")
-abstract CameraShakeBasePtr(cpp.Star<CameraShakeBase>) from cpp.Star<CameraShakeBase> to cpp.Star<CameraShakeBase>{
+abstract CameraShakeBasePtr(ucpp.Ptr<CameraShakeBase>) from ucpp.Ptr<CameraShakeBase> to ucpp.Ptr<CameraShakeBase>{
 	@:from
 	public static extern inline function fromValue(v: CameraShakeBase): CameraShakeBasePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_ConvertToPNG")
 @:include("AppleImageUtilsBlueprintSupport.h")
-@:structAccess
+@:valueType
 extern class K2Node_ConvertToPNG extends K2Node_BaseAsyncTask {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_ConvertToPNG(K2Node_ConvertToPNG) from K2Node_ConvertToPNG 
 @:forward
 @:nativeGen
 @:native("K2Node_ConvertToPNG*")
-abstract K2Node_ConvertToPNGPtr(cpp.Star<K2Node_ConvertToPNG>) from cpp.Star<K2Node_ConvertToPNG> to cpp.Star<K2Node_ConvertToPNG>{
+abstract K2Node_ConvertToPNGPtr(ucpp.Ptr<K2Node_ConvertToPNG>) from ucpp.Ptr<K2Node_ConvertToPNG> to ucpp.Ptr<K2Node_ConvertToPNG>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_ConvertToPNG): K2Node_ConvertToPNGPtr {
 		return untyped __cpp__("&({0})", v);

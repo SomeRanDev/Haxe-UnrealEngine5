@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPlatformUserId")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class PlatformUserId {
-	private var InternalId: cpp.Int32;
+	private var InternalId: ucpp.num.Int32;
 
 	@:native("FPlatformUserId") public function new();
-	@:native("FPlatformUserId") public static function make(InternalId: cpp.Int32): PlatformUserId ;
+	@:native("FPlatformUserId") public static function make(InternalId: ucpp.num.Int32): PlatformUserId ;
 }

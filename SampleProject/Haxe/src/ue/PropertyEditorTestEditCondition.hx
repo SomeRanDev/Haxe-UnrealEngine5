@@ -3,13 +3,13 @@ package ue;
 
 @:native("FPropertyEditorTestEditCondition")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class PropertyEditorTestEditCondition {
 	public var InlineEditCondition: Bool;
-	public var HasInlineEditCondition: cpp.Int32;
+	public var HasInlineEditCondition: ucpp.num.Int32;
 	public var Flags: ETestEnumFlags;
-	public var EnabledAndVisibleWhenOne: cpp.Int32;
+	public var EnabledAndVisibleWhenOne: ucpp.num.Int32;
 
 	@:native("FPropertyEditorTestEditCondition") public function new();
-	@:native("FPropertyEditorTestEditCondition") public static function make(InlineEditCondition: Bool, HasInlineEditCondition: cpp.Int32, Flags: ETestEnumFlags, EnabledAndVisibleWhenOne: cpp.Int32): PropertyEditorTestEditCondition ;
+	@:native("FPropertyEditorTestEditCondition") public static function make(InlineEditCondition: Bool, HasInlineEditCondition: ucpp.num.Int32, Flags: ETestEnumFlags, EnabledAndVisibleWhenOne: ucpp.num.Int32): PropertyEditorTestEditCondition ;
 }

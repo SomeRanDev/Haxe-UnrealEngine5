@@ -3,16 +3,16 @@ package ue;
 
 @:native("UNiagaraDataInterfaceUObjectPropertyReader")
 @:include("DataInterface/NiagaraDataInterfaceUObjectPropertyReader.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceUObjectPropertyReader extends NiagaraDataInterface {
 	public var UObjectParameterBinding: NiagaraUserParameterBinding;
 	public var PropertyRemap: TArray<NiagaraUObjectPropertyReaderRemap>;
 	public var SourceActor: TSoftObjectPtr<Actor>;
 	public var SourceActorComponentClass: TSubclassOf<Object>;
 
-	public function SetUObjectReaderPropertyRemap(NiagaraComponent: cpp.Star<NiagaraComp>, UserParameterName: FName, GraphName: FName, RemapName: FName): Void;
+	public function SetUObjectReaderPropertyRemap(NiagaraComponent: ucpp.Ptr<NiagaraComp>, UserParameterName: FName, GraphName: FName, RemapName: FName): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstNiagaraDataInterfaceUObjectPropertyReader(NiagaraDataInterfaceUObj
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceUObjectPropertyReader*")
-abstract NiagaraDataInterfaceUObjectPropertyReaderPtr(cpp.Star<NiagaraDataInterfaceUObjectPropertyReader>) from cpp.Star<NiagaraDataInterfaceUObjectPropertyReader> to cpp.Star<NiagaraDataInterfaceUObjectPropertyReader>{
+abstract NiagaraDataInterfaceUObjectPropertyReaderPtr(ucpp.Ptr<NiagaraDataInterfaceUObjectPropertyReader>) from ucpp.Ptr<NiagaraDataInterfaceUObjectPropertyReader> to ucpp.Ptr<NiagaraDataInterfaceUObjectPropertyReader>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceUObjectPropertyReader): NiagaraDataInterfaceUObjectPropertyReaderPtr {
 		return untyped __cpp__("&({0})", v);

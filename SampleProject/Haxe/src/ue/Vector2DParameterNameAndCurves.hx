@@ -3,7 +3,7 @@ package ue;
 
 @:native("FVector2DParameterNameAndCurves")
 @:include("Sections/MovieSceneParameterSection.h")
-@:structAccess
+@:valueType
 extern class Vector2DParameterNameAndCurves {
 	public var ParameterName: FName;
 	public var XCurve: MovieSceneFloatChannel;

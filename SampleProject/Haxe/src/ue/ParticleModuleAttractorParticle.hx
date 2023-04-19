@@ -3,7 +3,7 @@ package ue;
 
 @:native("UParticleModuleAttractorParticle")
 @:include("Particles/Attractor/ParticleModuleAttractorParticle.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleAttractorParticle extends ParticleModuleAttractorBase {
 	public var EmitterName: FName;
 	public var Range: RawDistributionFloat;
@@ -13,9 +13,9 @@ extern class ParticleModuleAttractorParticle extends ParticleModuleAttractorBase
 	public var SelectionMethod: TEnumAsByte<EAttractorParticleSelectionMethod>;
 	public var bRenewSource: Bool;
 	public var bInheritSourceVel: Bool;
-	public var LastSelIndex: cpp.Int32;
+	public var LastSelIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,14 +37,14 @@ abstract ConstParticleModuleAttractorParticle(ParticleModuleAttractorParticle) f
 	public inline extern function get_bRenewSource(): Bool return this.bRenewSource;
 	public extern var bInheritSourceVel(get, never): Bool;
 	public inline extern function get_bInheritSourceVel(): Bool return this.bInheritSourceVel;
-	public extern var LastSelIndex(get, never): cpp.Int32;
-	public inline extern function get_LastSelIndex(): cpp.Int32 return this.LastSelIndex;
+	public extern var LastSelIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LastSelIndex(): ucpp.num.Int32 return this.LastSelIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("ParticleModuleAttractorParticle*")
-abstract ParticleModuleAttractorParticlePtr(cpp.Star<ParticleModuleAttractorParticle>) from cpp.Star<ParticleModuleAttractorParticle> to cpp.Star<ParticleModuleAttractorParticle>{
+abstract ParticleModuleAttractorParticlePtr(ucpp.Ptr<ParticleModuleAttractorParticle>) from ucpp.Ptr<ParticleModuleAttractorParticle> to ucpp.Ptr<ParticleModuleAttractorParticle>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleAttractorParticle): ParticleModuleAttractorParticlePtr {
 		return untyped __cpp__("&({0})", v);

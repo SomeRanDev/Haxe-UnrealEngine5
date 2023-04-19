@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextureExporterDDS")
 @:include("Exporters/TextureExporterDDS.h")
-@:structAccess
+@:valueType
 extern class TextureExporterDDS extends TextureExporterGeneric {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextureExporterDDS(TextureExporterDDS) from TextureExporterDDS {
 @:forward
 @:nativeGen
 @:native("TextureExporterDDS*")
-abstract TextureExporterDDSPtr(cpp.Star<TextureExporterDDS>) from cpp.Star<TextureExporterDDS> to cpp.Star<TextureExporterDDS>{
+abstract TextureExporterDDSPtr(ucpp.Ptr<TextureExporterDDS>) from ucpp.Ptr<TextureExporterDDS> to ucpp.Ptr<TextureExporterDDS>{
 	@:from
 	public static extern inline function fromValue(v: TextureExporterDDS): TextureExporterDDSPtr {
 		return untyped __cpp__("&({0})", v);

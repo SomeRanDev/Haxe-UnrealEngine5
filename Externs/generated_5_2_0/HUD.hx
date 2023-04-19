@@ -3,79 +3,79 @@ package ue;
 
 @:native("AHUD")
 @:include("GameFramework/HUD.h")
-@:structAccess
+@:valueType
 extern class HUD extends Actor {
-	public var PlayerOwner: cpp.Star<PlayerController>;
+	public var PlayerOwner: ucpp.Ptr<PlayerController>;
 	public var bLostFocusPaused: Bool;
 	public var bShowHUD: Bool;
 	public var bShowDebugInfo: Bool;
-	public var CurrentTargetIndex: cpp.Int32;
+	public var CurrentTargetIndex: ucpp.num.Int32;
 	public var bShowHitBoxDebugInfo: Bool;
 	public var bShowOverlays: Bool;
 	public var bEnableDebugTextShadow: Bool;
-	public var PostRenderedActors: TArray<cpp.Star<Actor>>;
+	public var PostRenderedActors: TArray<ucpp.Ptr<Actor>>;
 	public var DebugDisplay: TArray<FName>;
 	public var ToggledDebugCategories: TArray<FName>;
-	@:protected public var Canvas: cpp.Star<Canvas>;
-	@:protected public var DebugCanvas: cpp.Star<Canvas>;
+	@:protected public var Canvas: ucpp.Ptr<Canvas>;
+	@:protected public var DebugCanvas: ucpp.Ptr<Canvas>;
 	@:protected public var DebugTextList: TArray<DebugTextInfo>;
 	@:protected public var ShowDebugTargetDesiredClass: TSubclassOf<Actor>;
-	@:protected public var ShowDebugTargetActor: cpp.Star<Actor>;
+	@:protected public var ShowDebugTargetActor: ucpp.Ptr<Actor>;
 
 	public function ShowHUD(): Void;
 	public function ShowDebugToggleSubCategory(Category: FName): Void;
 	public function ShowDebugForReticleTargetToggle(DesiredClass: TSubclassOf<Actor>): Void;
 	public function ShowDebug(DebugType: FName): Void;
-	public function RemoveDebugText(SrcActor: cpp.Star<Actor>, bLeaveDurationText: Bool): Void;
+	public function RemoveDebugText(SrcActor: ucpp.Ptr<Actor>, bLeaveDurationText: Bool): Void;
 	public function RemoveAllDebugStrings(): Void;
 	public function ReceiveHitBoxRelease(BoxName: FName): Void;
 	public function ReceiveHitBoxEndCursorOver(BoxName: FName): Void;
 	public function ReceiveHitBoxClick(BoxName: FName): Void;
 	public function ReceiveHitBoxBeginCursorOver(BoxName: FName): Void;
-	public function ReceiveDrawHUD(SizeX: cpp.Int32, SizeY: cpp.Int32): Void;
+	public function ReceiveDrawHUD(SizeX: ucpp.num.Int32, SizeY: ucpp.num.Int32): Void;
 	public function Project(Location: Vector, bClampToZeroPlane: Bool): Vector;
 	public function PreviousDebugTarget(): Void;
 	public function NextDebugTarget(): Void;
-	public function GetTextSize(Text: FString, OutWidth: cpp.Reference<cpp.Float32>, OutHeight: cpp.Reference<cpp.Float32>, Font: cpp.Star<Font>, Scale: cpp.Float32): Void;
-	public function GetOwningPlayerController(): cpp.Star<PlayerController>;
-	public function GetOwningPawn(): cpp.Star<Pawn>;
-	public function GetActorsInSelectionRectangle(ClassFilter: TSubclassOf<Actor>, FirstPoint: cpp.Reference<Vector2D>, SecondPoint: cpp.Reference<Vector2D>, OutActors: cpp.Reference<TArray<cpp.Star<Actor>>>, bIncludeNonCollidingComponents: Bool, bActorMustBeFullyEnclosed: Bool): Void;
-	public function DrawTextureSimple(Texture: cpp.Star<Texture>, ScreenX: cpp.Float32, ScreenY: cpp.Float32, Scale: cpp.Float32, bScalePosition: Bool): Void;
-	public function DrawTexture(Texture: cpp.Star<Texture>, ScreenX: cpp.Float32, ScreenY: cpp.Float32, ScreenW: cpp.Float32, ScreenH: cpp.Float32, TextureU: cpp.Float32, TextureV: cpp.Float32, TextureUWidth: cpp.Float32, TextureVHeight: cpp.Float32, TintColor: LinearColor, BlendMode: TEnumAsByte<EBlendMode>, Scale: cpp.Float32, bScalePosition: Bool, Rotation: cpp.Float32, RotPivot: Vector2D): Void;
-	public function DrawText(Text: FString, TextColor: LinearColor, ScreenX: cpp.Float32, ScreenY: cpp.Float32, Font: cpp.Star<Font>, Scale: cpp.Float32, bScalePosition: Bool): Void;
-	public function DrawRect(RectColor: LinearColor, ScreenX: cpp.Float32, ScreenY: cpp.Float32, ScreenW: cpp.Float32, ScreenH: cpp.Float32): Void;
-	public function DrawMaterialTriangle(Material: cpp.Star<MaterialInterface>, V0_Pos: Vector2D, V1_Pos: Vector2D, V2_Pos: Vector2D, V0_UV: Vector2D, V1_UV: Vector2D, V2_UV: Vector2D, V0_Color: LinearColor, V1_Color: LinearColor, V2_Color: LinearColor): Void;
-	public function DrawMaterialSimple(Material: cpp.Star<MaterialInterface>, ScreenX: cpp.Float32, ScreenY: cpp.Float32, ScreenW: cpp.Float32, ScreenH: cpp.Float32, Scale: cpp.Float32, bScalePosition: Bool): Void;
-	public function DrawMaterial(Material: cpp.Star<MaterialInterface>, ScreenX: cpp.Float32, ScreenY: cpp.Float32, ScreenW: cpp.Float32, ScreenH: cpp.Float32, MaterialU: cpp.Float32, MaterialV: cpp.Float32, MaterialUWidth: cpp.Float32, MaterialVHeight: cpp.Float32, Scale: cpp.Float32, bScalePosition: Bool, Rotation: cpp.Float32, RotPivot: Vector2D): Void;
-	public function DrawLine(StartScreenX: cpp.Float32, StartScreenY: cpp.Float32, EndScreenX: cpp.Float32, EndScreenY: cpp.Float32, LineColor: LinearColor, LineThickness: cpp.Float32): Void;
-	public function Deproject(ScreenX: cpp.Float32, ScreenY: cpp.Float32, WorldPosition: cpp.Reference<Vector>, WorldDirection: cpp.Reference<Vector>): Void;
-	public function AddHitBox(Position: Vector2D, Size: Vector2D, InName: FName, bConsumesInput: Bool, Priority: cpp.Int32): Void;
-	public function AddDebugText(DebugText: FString, SrcActor: cpp.Star<Actor>, Duration: cpp.Float32, Offset: Vector, DesiredOffset: Vector, TextColor: Color, bSkipOverwriteCheck: Bool, bAbsoluteLocation: Bool, bKeepAttachedToActor: Bool, InFont: cpp.Star<Font>, FontScale: cpp.Float32, bDrawShadow: Bool): Void;
+	public function GetTextSize(Text: FString, OutWidth: ucpp.Ref<ucpp.num.Float32>, OutHeight: ucpp.Ref<ucpp.num.Float32>, Font: ucpp.Ptr<Font>, Scale: ucpp.num.Float32): Void;
+	public function GetOwningPlayerController(): ucpp.Ptr<PlayerController>;
+	public function GetOwningPawn(): ucpp.Ptr<Pawn>;
+	public function GetActorsInSelectionRectangle(ClassFilter: TSubclassOf<Actor>, FirstPoint: ucpp.Ref<Vector2D>, SecondPoint: ucpp.Ref<Vector2D>, OutActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, bIncludeNonCollidingComponents: Bool, bActorMustBeFullyEnclosed: Bool): Void;
+	public function DrawTextureSimple(Texture: ucpp.Ptr<Texture>, ScreenX: ucpp.num.Float32, ScreenY: ucpp.num.Float32, Scale: ucpp.num.Float32, bScalePosition: Bool): Void;
+	public function DrawTexture(Texture: ucpp.Ptr<Texture>, ScreenX: ucpp.num.Float32, ScreenY: ucpp.num.Float32, ScreenW: ucpp.num.Float32, ScreenH: ucpp.num.Float32, TextureU: ucpp.num.Float32, TextureV: ucpp.num.Float32, TextureUWidth: ucpp.num.Float32, TextureVHeight: ucpp.num.Float32, TintColor: LinearColor, BlendMode: TEnumAsByte<EBlendMode>, Scale: ucpp.num.Float32, bScalePosition: Bool, Rotation: ucpp.num.Float32, RotPivot: Vector2D): Void;
+	public function DrawText(Text: FString, TextColor: LinearColor, ScreenX: ucpp.num.Float32, ScreenY: ucpp.num.Float32, Font: ucpp.Ptr<Font>, Scale: ucpp.num.Float32, bScalePosition: Bool): Void;
+	public function DrawRect(RectColor: LinearColor, ScreenX: ucpp.num.Float32, ScreenY: ucpp.num.Float32, ScreenW: ucpp.num.Float32, ScreenH: ucpp.num.Float32): Void;
+	public function DrawMaterialTriangle(Material: ucpp.Ptr<MaterialInterface>, V0_Pos: Vector2D, V1_Pos: Vector2D, V2_Pos: Vector2D, V0_UV: Vector2D, V1_UV: Vector2D, V2_UV: Vector2D, V0_Color: LinearColor, V1_Color: LinearColor, V2_Color: LinearColor): Void;
+	public function DrawMaterialSimple(Material: ucpp.Ptr<MaterialInterface>, ScreenX: ucpp.num.Float32, ScreenY: ucpp.num.Float32, ScreenW: ucpp.num.Float32, ScreenH: ucpp.num.Float32, Scale: ucpp.num.Float32, bScalePosition: Bool): Void;
+	public function DrawMaterial(Material: ucpp.Ptr<MaterialInterface>, ScreenX: ucpp.num.Float32, ScreenY: ucpp.num.Float32, ScreenW: ucpp.num.Float32, ScreenH: ucpp.num.Float32, MaterialU: ucpp.num.Float32, MaterialV: ucpp.num.Float32, MaterialUWidth: ucpp.num.Float32, MaterialVHeight: ucpp.num.Float32, Scale: ucpp.num.Float32, bScalePosition: Bool, Rotation: ucpp.num.Float32, RotPivot: Vector2D): Void;
+	public function DrawLine(StartScreenX: ucpp.num.Float32, StartScreenY: ucpp.num.Float32, EndScreenX: ucpp.num.Float32, EndScreenY: ucpp.num.Float32, LineColor: LinearColor, LineThickness: ucpp.num.Float32): Void;
+	public function Deproject(ScreenX: ucpp.num.Float32, ScreenY: ucpp.num.Float32, WorldPosition: ucpp.Ref<Vector>, WorldDirection: ucpp.Ref<Vector>): Void;
+	public function AddHitBox(Position: Vector2D, Size: Vector2D, InName: FName, bConsumesInput: Bool, Priority: ucpp.num.Int32): Void;
+	public function AddDebugText(DebugText: FString, SrcActor: ucpp.Ptr<Actor>, Duration: ucpp.num.Float32, Offset: Vector, DesiredOffset: Vector, TextColor: Color, bSkipOverwriteCheck: Bool, bAbsoluteLocation: Bool, bKeepAttachedToActor: Bool, InFont: ucpp.Ptr<Font>, FontScale: ucpp.num.Float32, bDrawShadow: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(Project, GetTextSize, GetOwningPlayerController, GetOwningPawn, Deproject)
 @:nativeGen
 abstract ConstHUD(HUD) from HUD {
-	public extern var PlayerOwner(get, never): cpp.Star<PlayerController.ConstPlayerController>;
-	public inline extern function get_PlayerOwner(): cpp.Star<PlayerController.ConstPlayerController> return this.PlayerOwner;
+	public extern var PlayerOwner(get, never): ucpp.Ptr<PlayerController.ConstPlayerController>;
+	public inline extern function get_PlayerOwner(): ucpp.Ptr<PlayerController.ConstPlayerController> return this.PlayerOwner;
 	public extern var bLostFocusPaused(get, never): Bool;
 	public inline extern function get_bLostFocusPaused(): Bool return this.bLostFocusPaused;
 	public extern var bShowHUD(get, never): Bool;
 	public inline extern function get_bShowHUD(): Bool return this.bShowHUD;
 	public extern var bShowDebugInfo(get, never): Bool;
 	public inline extern function get_bShowDebugInfo(): Bool return this.bShowDebugInfo;
-	public extern var CurrentTargetIndex(get, never): cpp.Int32;
-	public inline extern function get_CurrentTargetIndex(): cpp.Int32 return this.CurrentTargetIndex;
+	public extern var CurrentTargetIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_CurrentTargetIndex(): ucpp.num.Int32 return this.CurrentTargetIndex;
 	public extern var bShowHitBoxDebugInfo(get, never): Bool;
 	public inline extern function get_bShowHitBoxDebugInfo(): Bool return this.bShowHitBoxDebugInfo;
 	public extern var bShowOverlays(get, never): Bool;
 	public inline extern function get_bShowOverlays(): Bool return this.bShowOverlays;
 	public extern var bEnableDebugTextShadow(get, never): Bool;
 	public inline extern function get_bEnableDebugTextShadow(): Bool return this.bEnableDebugTextShadow;
-	public extern var PostRenderedActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_PostRenderedActors(): TArray<cpp.Star<Actor.ConstActor>> return this.PostRenderedActors;
+	public extern var PostRenderedActors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_PostRenderedActors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.PostRenderedActors;
 	public extern var DebugDisplay(get, never): TArray<FName>;
 	public inline extern function get_DebugDisplay(): TArray<FName> return this.DebugDisplay;
 	public extern var ToggledDebugCategories(get, never): TArray<FName>;
@@ -85,7 +85,7 @@ abstract ConstHUD(HUD) from HUD {
 @:forward
 @:nativeGen
 @:native("HUD*")
-abstract HUDPtr(cpp.Star<HUD>) from cpp.Star<HUD> to cpp.Star<HUD>{
+abstract HUDPtr(ucpp.Ptr<HUD>) from ucpp.Ptr<HUD> to ucpp.Ptr<HUD>{
 	@:from
 	public static extern inline function fromValue(v: HUD): HUDPtr {
 		return untyped __cpp__("&({0})", v);

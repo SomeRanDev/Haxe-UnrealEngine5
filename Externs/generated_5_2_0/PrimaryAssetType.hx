@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPrimaryAssetType")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class PrimaryAssetType {
 	public var Name: FName;
 

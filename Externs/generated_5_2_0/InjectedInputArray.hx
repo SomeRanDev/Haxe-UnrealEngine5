@@ -3,7 +3,7 @@ package ue;
 
 @:native("FInjectedInputArray")
 @:include("EnhancedPlayerInput.h")
-@:structAccess
+@:valueType
 extern class InjectedInputArray {
 	@:native("FInjectedInputArray") public function new();
 }

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCombinedTransformGizmoContextObject")
 @:include("BaseGizmos/TransformGizmoUtil.h")
-@:structAccess
+@:valueType
 extern class CombinedTransformGizmoContextObject extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCombinedTransformGizmoContextObject(CombinedTransformGizmoContextO
 @:forward
 @:nativeGen
 @:native("CombinedTransformGizmoContextObject*")
-abstract CombinedTransformGizmoContextObjectPtr(cpp.Star<CombinedTransformGizmoContextObject>) from cpp.Star<CombinedTransformGizmoContextObject> to cpp.Star<CombinedTransformGizmoContextObject>{
+abstract CombinedTransformGizmoContextObjectPtr(ucpp.Ptr<CombinedTransformGizmoContextObject>) from ucpp.Ptr<CombinedTransformGizmoContextObject> to ucpp.Ptr<CombinedTransformGizmoContextObject>{
 	@:from
 	public static extern inline function fromValue(v: CombinedTransformGizmoContextObject): CombinedTransformGizmoContextObjectPtr {
 		return untyped __cpp__("&({0})", v);

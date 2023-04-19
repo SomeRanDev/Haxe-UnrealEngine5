@@ -3,40 +3,40 @@ package ue;
 
 @:native("FRigControlValueStorage")
 @:include("Rigs/RigHierarchyDefines.h")
-@:structAccess
+@:valueType
 extern class RigControlValueStorage {
-	public var Float00: cpp.Float32;
-	public var Float01: cpp.Float32;
-	public var Float02: cpp.Float32;
-	public var Float03: cpp.Float32;
-	public var Float10: cpp.Float32;
-	public var Float11: cpp.Float32;
-	public var Float12: cpp.Float32;
-	public var Float13: cpp.Float32;
-	public var Float20: cpp.Float32;
-	public var Float21: cpp.Float32;
-	public var Float22: cpp.Float32;
-	public var Float23: cpp.Float32;
-	public var Float30: cpp.Float32;
-	public var Float31: cpp.Float32;
-	public var Float32: cpp.Float32;
-	public var Float33: cpp.Float32;
-	public var Float00_2: cpp.Float32;
-	public var Float01_2: cpp.Float32;
-	public var Float02_2: cpp.Float32;
-	public var Float03_2: cpp.Float32;
-	public var Float10_2: cpp.Float32;
-	public var Float11_2: cpp.Float32;
-	public var Float12_2: cpp.Float32;
-	public var Float13_2: cpp.Float32;
-	public var Float20_2: cpp.Float32;
-	public var Float21_2: cpp.Float32;
-	public var Float22_2: cpp.Float32;
-	public var Float23_2: cpp.Float32;
-	public var Float30_2: cpp.Float32;
-	public var Float31_2: cpp.Float32;
-	public var Float32_2: cpp.Float32;
-	public var Float33_2: cpp.Float32;
+	public var Float00: ucpp.num.Float32;
+	public var Float01: ucpp.num.Float32;
+	public var Float02: ucpp.num.Float32;
+	public var Float03: ucpp.num.Float32;
+	public var Float10: ucpp.num.Float32;
+	public var Float11: ucpp.num.Float32;
+	public var Float12: ucpp.num.Float32;
+	public var Float13: ucpp.num.Float32;
+	public var Float20: ucpp.num.Float32;
+	public var Float21: ucpp.num.Float32;
+	public var Float22: ucpp.num.Float32;
+	public var Float23: ucpp.num.Float32;
+	public var Float30: ucpp.num.Float32;
+	public var Float31: ucpp.num.Float32;
+	public var Float32: ucpp.num.Float32;
+	public var Float33: ucpp.num.Float32;
+	public var Float00_2: ucpp.num.Float32;
+	public var Float01_2: ucpp.num.Float32;
+	public var Float02_2: ucpp.num.Float32;
+	public var Float03_2: ucpp.num.Float32;
+	public var Float10_2: ucpp.num.Float32;
+	public var Float11_2: ucpp.num.Float32;
+	public var Float12_2: ucpp.num.Float32;
+	public var Float13_2: ucpp.num.Float32;
+	public var Float20_2: ucpp.num.Float32;
+	public var Float21_2: ucpp.num.Float32;
+	public var Float22_2: ucpp.num.Float32;
+	public var Float23_2: ucpp.num.Float32;
+	public var Float30_2: ucpp.num.Float32;
+	public var Float31_2: ucpp.num.Float32;
+	public var Float32_2: ucpp.num.Float32;
+	public var Float33_2: ucpp.num.Float32;
 	public var bValid: Bool;
 
 	@:native("FRigControlValueStorage") public function new();

@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionViewProperty")
 @:include("Materials/MaterialExpressionViewProperty.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionViewProperty extends MaterialExpression {
 	public var Property: TEnumAsByte<EMaterialExposedViewProperty>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionViewProperty(MaterialExpressionViewProperty) fro
 @:forward
 @:nativeGen
 @:native("MaterialExpressionViewProperty*")
-abstract MaterialExpressionViewPropertyPtr(cpp.Star<MaterialExpressionViewProperty>) from cpp.Star<MaterialExpressionViewProperty> to cpp.Star<MaterialExpressionViewProperty>{
+abstract MaterialExpressionViewPropertyPtr(ucpp.Ptr<MaterialExpressionViewProperty>) from ucpp.Ptr<MaterialExpressionViewProperty> to ucpp.Ptr<MaterialExpressionViewProperty>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionViewProperty): MaterialExpressionViewPropertyPtr {
 		return untyped __cpp__("&({0})", v);

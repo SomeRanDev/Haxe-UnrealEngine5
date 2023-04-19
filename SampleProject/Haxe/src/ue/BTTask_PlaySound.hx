@@ -3,24 +3,24 @@ package ue;
 
 @:native("UBTTask_PlaySound")
 @:include("BehaviorTree/Tasks/BTTask_PlaySound.h")
-@:structAccess
+@:valueType
 extern class BTTask_PlaySound extends BTTaskNode {
-	public var SoundToPlay: cpp.Star<SoundCue>;
+	public var SoundToPlay: ucpp.Ptr<SoundCue>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTTask_PlaySound(BTTask_PlaySound) from BTTask_PlaySound {
-	public extern var SoundToPlay(get, never): cpp.Star<SoundCue.ConstSoundCue>;
-	public inline extern function get_SoundToPlay(): cpp.Star<SoundCue.ConstSoundCue> return this.SoundToPlay;
+	public extern var SoundToPlay(get, never): ucpp.Ptr<SoundCue.ConstSoundCue>;
+	public inline extern function get_SoundToPlay(): ucpp.Ptr<SoundCue.ConstSoundCue> return this.SoundToPlay;
 }
 
 @:forward
 @:nativeGen
 @:native("BTTask_PlaySound*")
-abstract BTTask_PlaySoundPtr(cpp.Star<BTTask_PlaySound>) from cpp.Star<BTTask_PlaySound> to cpp.Star<BTTask_PlaySound>{
+abstract BTTask_PlaySoundPtr(ucpp.Ptr<BTTask_PlaySound>) from ucpp.Ptr<BTTask_PlaySound> to ucpp.Ptr<BTTask_PlaySound>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_PlaySound): BTTask_PlaySoundPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UFractureAutoUVSettings")
 @:include("FractureToolUV.h")
-@:structAccess
+@:valueType
 extern class FractureAutoUVSettings extends FractureToolSettings {
 	public var UVChannel: FString;
 	public var UVChannelNamesList: TArray<FString>;
@@ -13,24 +13,24 @@ extern class FractureAutoUVSettings extends FractureToolSettings {
 	public var ProjectionUVOffset: Vector2D;
 	public var bCenterAtPivot: Bool;
 	public var TargetMaterialIDs: ETargetMaterialIDs;
-	public var MaterialIDs: TArray<cpp.Int32>;
+	public var MaterialIDs: TArray<ucpp.num.Int32>;
 	public var Resolution: EAutoUVTextureResolution;
-	public var GutterSize: cpp.Int32;
-	public var Result: cpp.Star<Texture2D>;
+	public var GutterSize: ucpp.num.Int32;
+	public var Result: ucpp.Ptr<Texture2D>;
 	public var bPromptToSave: Bool;
 	public var bReplaceExisting: Bool;
 	public var BakeTextureType: ETextureType;
 	public var bDistToOuter: Bool;
 	public var bAmbientOcclusion: Bool;
 	public var bSmoothedCurvature: Bool;
-	public var MaxDistance: cpp.Float64;
-	public var OcclusionRays: cpp.Int32;
-	public var OcclusionBlurRadius: cpp.Float64;
-	public var CurvatureBlurRadius: cpp.Float64;
-	public var VoxelResolution: cpp.Int32;
-	public var SmoothingIterations: cpp.Int32;
-	public var ThicknessFactor: cpp.Float64;
-	public var MaxCurvature: cpp.Float64;
+	public var MaxDistance: ucpp.num.Float64;
+	public var OcclusionRays: ucpp.num.Int32;
+	public var OcclusionBlurRadius: ucpp.num.Float64;
+	public var CurvatureBlurRadius: ucpp.num.Float64;
+	public var VoxelResolution: ucpp.num.Int32;
+	public var SmoothingIterations: ucpp.num.Int32;
+	public var ThicknessFactor: ucpp.num.Float64;
+	public var MaxCurvature: ucpp.num.Float64;
 
 	public function LayoutUVs(): Void;
 	public function GetUVChannelNamesFunc(): TArray<FString>;
@@ -40,7 +40,7 @@ extern class FractureAutoUVSettings extends FractureToolSettings {
 	public function BakeTexture(): Void;
 	public function AddUVChannel(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -62,14 +62,14 @@ abstract ConstFractureAutoUVSettings(FractureAutoUVSettings) from FractureAutoUV
 	public inline extern function get_bCenterAtPivot(): Bool return this.bCenterAtPivot;
 	public extern var TargetMaterialIDs(get, never): ETargetMaterialIDs;
 	public inline extern function get_TargetMaterialIDs(): ETargetMaterialIDs return this.TargetMaterialIDs;
-	public extern var MaterialIDs(get, never): TArray<cpp.Int32>;
-	public inline extern function get_MaterialIDs(): TArray<cpp.Int32> return this.MaterialIDs;
+	public extern var MaterialIDs(get, never): TArray<ucpp.num.Int32>;
+	public inline extern function get_MaterialIDs(): TArray<ucpp.num.Int32> return this.MaterialIDs;
 	public extern var Resolution(get, never): EAutoUVTextureResolution;
 	public inline extern function get_Resolution(): EAutoUVTextureResolution return this.Resolution;
-	public extern var GutterSize(get, never): cpp.Int32;
-	public inline extern function get_GutterSize(): cpp.Int32 return this.GutterSize;
-	public extern var Result(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_Result(): cpp.Star<Texture2D.ConstTexture2D> return this.Result;
+	public extern var GutterSize(get, never): ucpp.num.Int32;
+	public inline extern function get_GutterSize(): ucpp.num.Int32 return this.GutterSize;
+	public extern var Result(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_Result(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.Result;
 	public extern var bPromptToSave(get, never): Bool;
 	public inline extern function get_bPromptToSave(): Bool return this.bPromptToSave;
 	public extern var bReplaceExisting(get, never): Bool;
@@ -82,28 +82,28 @@ abstract ConstFractureAutoUVSettings(FractureAutoUVSettings) from FractureAutoUV
 	public inline extern function get_bAmbientOcclusion(): Bool return this.bAmbientOcclusion;
 	public extern var bSmoothedCurvature(get, never): Bool;
 	public inline extern function get_bSmoothedCurvature(): Bool return this.bSmoothedCurvature;
-	public extern var MaxDistance(get, never): cpp.Float64;
-	public inline extern function get_MaxDistance(): cpp.Float64 return this.MaxDistance;
-	public extern var OcclusionRays(get, never): cpp.Int32;
-	public inline extern function get_OcclusionRays(): cpp.Int32 return this.OcclusionRays;
-	public extern var OcclusionBlurRadius(get, never): cpp.Float64;
-	public inline extern function get_OcclusionBlurRadius(): cpp.Float64 return this.OcclusionBlurRadius;
-	public extern var CurvatureBlurRadius(get, never): cpp.Float64;
-	public inline extern function get_CurvatureBlurRadius(): cpp.Float64 return this.CurvatureBlurRadius;
-	public extern var VoxelResolution(get, never): cpp.Int32;
-	public inline extern function get_VoxelResolution(): cpp.Int32 return this.VoxelResolution;
-	public extern var SmoothingIterations(get, never): cpp.Int32;
-	public inline extern function get_SmoothingIterations(): cpp.Int32 return this.SmoothingIterations;
-	public extern var ThicknessFactor(get, never): cpp.Float64;
-	public inline extern function get_ThicknessFactor(): cpp.Float64 return this.ThicknessFactor;
-	public extern var MaxCurvature(get, never): cpp.Float64;
-	public inline extern function get_MaxCurvature(): cpp.Float64 return this.MaxCurvature;
+	public extern var MaxDistance(get, never): ucpp.num.Float64;
+	public inline extern function get_MaxDistance(): ucpp.num.Float64 return this.MaxDistance;
+	public extern var OcclusionRays(get, never): ucpp.num.Int32;
+	public inline extern function get_OcclusionRays(): ucpp.num.Int32 return this.OcclusionRays;
+	public extern var OcclusionBlurRadius(get, never): ucpp.num.Float64;
+	public inline extern function get_OcclusionBlurRadius(): ucpp.num.Float64 return this.OcclusionBlurRadius;
+	public extern var CurvatureBlurRadius(get, never): ucpp.num.Float64;
+	public inline extern function get_CurvatureBlurRadius(): ucpp.num.Float64 return this.CurvatureBlurRadius;
+	public extern var VoxelResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_VoxelResolution(): ucpp.num.Int32 return this.VoxelResolution;
+	public extern var SmoothingIterations(get, never): ucpp.num.Int32;
+	public inline extern function get_SmoothingIterations(): ucpp.num.Int32 return this.SmoothingIterations;
+	public extern var ThicknessFactor(get, never): ucpp.num.Float64;
+	public inline extern function get_ThicknessFactor(): ucpp.num.Float64 return this.ThicknessFactor;
+	public extern var MaxCurvature(get, never): ucpp.num.Float64;
+	public inline extern function get_MaxCurvature(): ucpp.num.Float64 return this.MaxCurvature;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureAutoUVSettings*")
-abstract FractureAutoUVSettingsPtr(cpp.Star<FractureAutoUVSettings>) from cpp.Star<FractureAutoUVSettings> to cpp.Star<FractureAutoUVSettings>{
+abstract FractureAutoUVSettingsPtr(ucpp.Ptr<FractureAutoUVSettings>) from ucpp.Ptr<FractureAutoUVSettings> to ucpp.Ptr<FractureAutoUVSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureAutoUVSettings): FractureAutoUVSettingsPtr {
 		return untyped __cpp__("&({0})", v);

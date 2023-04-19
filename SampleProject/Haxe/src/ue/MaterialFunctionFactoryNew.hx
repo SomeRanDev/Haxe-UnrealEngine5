@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialFunctionFactoryNew")
 @:include("Factories/MaterialFunctionFactoryNew.h")
-@:structAccess
+@:valueType
 extern class MaterialFunctionFactoryNew extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialFunctionFactoryNew(MaterialFunctionFactoryNew) from Materi
 @:forward
 @:nativeGen
 @:native("MaterialFunctionFactoryNew*")
-abstract MaterialFunctionFactoryNewPtr(cpp.Star<MaterialFunctionFactoryNew>) from cpp.Star<MaterialFunctionFactoryNew> to cpp.Star<MaterialFunctionFactoryNew>{
+abstract MaterialFunctionFactoryNewPtr(ucpp.Ptr<MaterialFunctionFactoryNew>) from ucpp.Ptr<MaterialFunctionFactoryNew> to ucpp.Ptr<MaterialFunctionFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: MaterialFunctionFactoryNew): MaterialFunctionFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

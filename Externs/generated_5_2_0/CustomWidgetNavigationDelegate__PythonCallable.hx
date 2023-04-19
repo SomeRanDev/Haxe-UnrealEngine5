@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UCustomWidgetNavigationDelegate__PythonCallable")
-@:structAccess
+@:valueType
 extern class CustomWidgetNavigationDelegate__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstCustomWidgetNavigationDelegate__PythonCallable(CustomWidgetNavigat
 @:forward
 @:nativeGen
 @:native("CustomWidgetNavigationDelegate__PythonCallable*")
-abstract CustomWidgetNavigationDelegate__PythonCallablePtr(cpp.Star<CustomWidgetNavigationDelegate__PythonCallable>) from cpp.Star<CustomWidgetNavigationDelegate__PythonCallable> to cpp.Star<CustomWidgetNavigationDelegate__PythonCallable>{
+abstract CustomWidgetNavigationDelegate__PythonCallablePtr(ucpp.Ptr<CustomWidgetNavigationDelegate__PythonCallable>) from ucpp.Ptr<CustomWidgetNavigationDelegate__PythonCallable> to ucpp.Ptr<CustomWidgetNavigationDelegate__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: CustomWidgetNavigationDelegate__PythonCallable): CustomWidgetNavigationDelegate__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

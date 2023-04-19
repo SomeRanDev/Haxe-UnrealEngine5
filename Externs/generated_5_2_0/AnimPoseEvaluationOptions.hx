@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAnimPoseEvaluationOptions")
 @:include("AnimPose.h")
-@:structAccess
+@:valueType
 extern class AnimPoseEvaluationOptions {
 	public var EvaluationType: EAnimDataEvalType;
 	public var bShouldRetarget: Bool;
 	public var bExtractRootMotion: Bool;
-	public var OptionalSkeletalMesh: cpp.Star<SkeletalMesh>;
+	public var OptionalSkeletalMesh: ucpp.Ptr<SkeletalMesh>;
 	public var bRetrieveAdditiveAsFullPose: Bool;
 	public var bEvaluateCurves: Bool;
 

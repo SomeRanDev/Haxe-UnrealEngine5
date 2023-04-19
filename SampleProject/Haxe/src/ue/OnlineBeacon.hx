@@ -3,13 +3,13 @@ package ue;
 
 @:native("AOnlineBeacon")
 @:include("OnlineBeacon.h")
-@:structAccess
+@:valueType
 extern class OnlineBeacon extends Actor {
-	@:protected public var BeaconConnectionInitialTimeout: cpp.Float32;
-	@:protected public var BeaconConnectionTimeout: cpp.Float32;
-	@:protected public var NetDriver: cpp.Star<NetDriver>;
+	@:protected public var BeaconConnectionInitialTimeout: ucpp.num.Float32;
+	@:protected public var BeaconConnectionTimeout: ucpp.num.Float32;
+	@:protected public var NetDriver: ucpp.Ptr<NetDriver>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstOnlineBeacon(OnlineBeacon) from OnlineBeacon {
 @:forward
 @:nativeGen
 @:native("OnlineBeacon*")
-abstract OnlineBeaconPtr(cpp.Star<OnlineBeacon>) from cpp.Star<OnlineBeacon> to cpp.Star<OnlineBeacon>{
+abstract OnlineBeaconPtr(ucpp.Ptr<OnlineBeacon>) from ucpp.Ptr<OnlineBeacon> to ucpp.Ptr<OnlineBeacon>{
 	@:from
 	public static extern inline function fromValue(v: OnlineBeacon): OnlineBeaconPtr {
 		return untyped __cpp__("&({0})", v);

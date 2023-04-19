@@ -3,10 +3,10 @@ package ue;
 
 @:native("URecomputeUVsToolBuilder")
 @:include("RecomputeUVsTool.h")
-@:structAccess
+@:valueType
 extern class RecomputeUVsToolBuilder extends SingleSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstRecomputeUVsToolBuilder(RecomputeUVsToolBuilder) from RecomputeUVs
 @:forward
 @:nativeGen
 @:native("RecomputeUVsToolBuilder*")
-abstract RecomputeUVsToolBuilderPtr(cpp.Star<RecomputeUVsToolBuilder>) from cpp.Star<RecomputeUVsToolBuilder> to cpp.Star<RecomputeUVsToolBuilder>{
+abstract RecomputeUVsToolBuilderPtr(ucpp.Ptr<RecomputeUVsToolBuilder>) from ucpp.Ptr<RecomputeUVsToolBuilder> to ucpp.Ptr<RecomputeUVsToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: RecomputeUVsToolBuilder): RecomputeUVsToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

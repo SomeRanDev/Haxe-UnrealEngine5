@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWaveformTransformationBase")
 @:include("IWaveformTransformation.h")
-@:structAccess
+@:valueType
 extern class WaveformTransformationBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWaveformTransformationBase(WaveformTransformationBase) from Wavefo
 @:forward
 @:nativeGen
 @:native("WaveformTransformationBase*")
-abstract WaveformTransformationBasePtr(cpp.Star<WaveformTransformationBase>) from cpp.Star<WaveformTransformationBase> to cpp.Star<WaveformTransformationBase>{
+abstract WaveformTransformationBasePtr(ucpp.Ptr<WaveformTransformationBase>) from ucpp.Ptr<WaveformTransformationBase> to ucpp.Ptr<WaveformTransformationBase>{
 	@:from
 	public static extern inline function fromValue(v: WaveformTransformationBase): WaveformTransformationBasePtr {
 		return untyped __cpp__("&({0})", v);

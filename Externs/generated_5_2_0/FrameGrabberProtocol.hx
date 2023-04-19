@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFrameGrabberProtocol")
 @:include("Protocols/FrameGrabberProtocol.h")
-@:structAccess
+@:valueType
 extern class FrameGrabberProtocol extends MovieSceneImageCaptureProtocolBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFrameGrabberProtocol(FrameGrabberProtocol) from FrameGrabberProtoc
 @:forward
 @:nativeGen
 @:native("FrameGrabberProtocol*")
-abstract FrameGrabberProtocolPtr(cpp.Star<FrameGrabberProtocol>) from cpp.Star<FrameGrabberProtocol> to cpp.Star<FrameGrabberProtocol>{
+abstract FrameGrabberProtocolPtr(ucpp.Ptr<FrameGrabberProtocol>) from ucpp.Ptr<FrameGrabberProtocol> to ucpp.Ptr<FrameGrabberProtocol>{
 	@:from
 	public static extern inline function fromValue(v: FrameGrabberProtocol): FrameGrabberProtocolPtr {
 		return untyped __cpp__("&({0})", v);

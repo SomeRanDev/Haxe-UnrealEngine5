@@ -3,17 +3,17 @@ package ue;
 
 @:native("FAnimLinkableElement")
 @:include("Animation/AnimLinkableElement.h")
-@:structAccess
+@:valueType
 extern class AnimLinkableElement {
-	@:protected public var LinkedMontage: cpp.Star<AnimMontage>;
-	@:protected public var SlotIndex: cpp.Int32;
-	@:protected public var SegmentIndex: cpp.Int32;
+	@:protected public var LinkedMontage: ucpp.Ptr<AnimMontage>;
+	@:protected public var SlotIndex: ucpp.num.Int32;
+	@:protected public var SegmentIndex: ucpp.num.Int32;
 	@:protected public var LinkMethod: TEnumAsByte<EAnimLinkMethod>;
 	@:protected public var CachedLinkMethod: TEnumAsByte<EAnimLinkMethod>;
-	@:protected public var SegmentBeginTime: cpp.Float32;
-	@:protected public var SegmentLength: cpp.Float32;
-	@:protected public var LinkValue: cpp.Float32;
-	@:protected public var LinkedSequence: cpp.Star<AnimSequenceBase>;
+	@:protected public var SegmentBeginTime: ucpp.num.Float32;
+	@:protected public var SegmentLength: ucpp.num.Float32;
+	@:protected public var LinkValue: ucpp.num.Float32;
+	@:protected public var LinkedSequence: ucpp.Ptr<AnimSequenceBase>;
 
 	@:native("FAnimLinkableElement") public function new();
 }

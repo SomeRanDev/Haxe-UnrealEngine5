@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSourceEffectChorusSettings")
 @:include("SourceEffects/SourceEffectChorus.h")
-@:structAccess
+@:valueType
 extern class SourceEffectChorusSettings {
-	public var Depth: cpp.Float32;
-	public var Frequency: cpp.Float32;
-	public var Feedback: cpp.Float32;
-	public var WetLevel: cpp.Float32;
-	public var DryLevel: cpp.Float32;
-	public var Spread: cpp.Float32;
+	public var Depth: ucpp.num.Float32;
+	public var Frequency: ucpp.num.Float32;
+	public var Feedback: ucpp.num.Float32;
+	public var WetLevel: ucpp.num.Float32;
+	public var DryLevel: ucpp.num.Float32;
+	public var Spread: ucpp.num.Float32;
 	public var DepthModulation: SoundModulationDestinationSettings;
 	public var FrequencyModulation: SoundModulationDestinationSettings;
 	public var FeedbackModulation: SoundModulationDestinationSettings;

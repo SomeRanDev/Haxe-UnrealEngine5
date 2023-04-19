@@ -3,10 +3,10 @@ package ue;
 
 @:native("UK2Node_AddComponentByClass")
 @:include("K2Node_AddComponentByClass.h")
-@:structAccess
+@:valueType
 extern class K2Node_AddComponentByClass extends K2Node_ConstructObjectFromClass {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstK2Node_AddComponentByClass(K2Node_AddComponentByClass) from K2Node
 @:forward
 @:nativeGen
 @:native("K2Node_AddComponentByClass*")
-abstract K2Node_AddComponentByClassPtr(cpp.Star<K2Node_AddComponentByClass>) from cpp.Star<K2Node_AddComponentByClass> to cpp.Star<K2Node_AddComponentByClass>{
+abstract K2Node_AddComponentByClassPtr(ucpp.Ptr<K2Node_AddComponentByClass>) from ucpp.Ptr<K2Node_AddComponentByClass> to ucpp.Ptr<K2Node_AddComponentByClass>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_AddComponentByClass): K2Node_AddComponentByClassPtr {
 		return untyped __cpp__("&({0})", v);

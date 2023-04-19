@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActivateDevicePropertyParams")
 @:include("GameFramework/InputDeviceSubsystem.h")
-@:structAccess
+@:valueType
 extern class ActivateDevicePropertyParams {
 	public var UserId: PlatformUserId;
 	public var DeviceId: InputDeviceId;

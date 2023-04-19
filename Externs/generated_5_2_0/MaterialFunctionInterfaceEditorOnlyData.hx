@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialFunctionInterfaceEditorOnlyData")
 @:include("Materials/MaterialFunctionInterface.h")
-@:structAccess
+@:valueType
 extern class MaterialFunctionInterfaceEditorOnlyData extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialFunctionInterfaceEditorOnlyData(MaterialFunctionInterfaceE
 @:forward
 @:nativeGen
 @:native("MaterialFunctionInterfaceEditorOnlyData*")
-abstract MaterialFunctionInterfaceEditorOnlyDataPtr(cpp.Star<MaterialFunctionInterfaceEditorOnlyData>) from cpp.Star<MaterialFunctionInterfaceEditorOnlyData> to cpp.Star<MaterialFunctionInterfaceEditorOnlyData>{
+abstract MaterialFunctionInterfaceEditorOnlyDataPtr(ucpp.Ptr<MaterialFunctionInterfaceEditorOnlyData>) from ucpp.Ptr<MaterialFunctionInterfaceEditorOnlyData> to ucpp.Ptr<MaterialFunctionInterfaceEditorOnlyData>{
 	@:from
 	public static extern inline function fromValue(v: MaterialFunctionInterfaceEditorOnlyData): MaterialFunctionInterfaceEditorOnlyDataPtr {
 		return untyped __cpp__("&({0})", v);

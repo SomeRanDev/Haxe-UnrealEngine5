@@ -3,10 +3,10 @@ package ue;
 
 @:native("FRigHierarchySettings")
 @:include("Units/RigUnitContext.h")
-@:structAccess
+@:valueType
 extern class RigHierarchySettings {
-	public var ProceduralElementLimit: cpp.Int32;
+	public var ProceduralElementLimit: ucpp.num.Int32;
 
 	@:native("FRigHierarchySettings") public function new();
-	@:native("FRigHierarchySettings") public static function make(ProceduralElementLimit: cpp.Int32): RigHierarchySettings ;
+	@:native("FRigHierarchySettings") public static function make(ProceduralElementLimit: ucpp.num.Int32): RigHierarchySettings ;
 }

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FDelegateRuntimeBinding")
 @:include("Blueprint/WidgetBlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class DelegateRuntimeBinding {
 	public var ObjectName: FString;
 	public var PropertyName: FName;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UDistributionVectorUniformCurve")
 @:include("Distributions/DistributionVectorUniformCurve.h")
-@:structAccess
+@:valueType
 extern class DistributionVectorUniformCurve extends DistributionVector {
 	public var ConstantCurve: InterpCurveTwoVectors;
 	public var bLockAxes1: Bool;
@@ -12,7 +12,7 @@ extern class DistributionVectorUniformCurve extends DistributionVector {
 	public var MirrorFlags: TEnumAsByte<EDistributionVectorMirrorFlags>;
 	public var bUseExtremes: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstDistributionVectorUniformCurve(DistributionVectorUniformCurve) fro
 @:forward
 @:nativeGen
 @:native("DistributionVectorUniformCurve*")
-abstract DistributionVectorUniformCurvePtr(cpp.Star<DistributionVectorUniformCurve>) from cpp.Star<DistributionVectorUniformCurve> to cpp.Star<DistributionVectorUniformCurve>{
+abstract DistributionVectorUniformCurvePtr(ucpp.Ptr<DistributionVectorUniformCurve>) from ucpp.Ptr<DistributionVectorUniformCurve> to ucpp.Ptr<DistributionVectorUniformCurve>{
 	@:from
 	public static extern inline function fromValue(v: DistributionVectorUniformCurve): DistributionVectorUniformCurvePtr {
 		return untyped __cpp__("&({0})", v);

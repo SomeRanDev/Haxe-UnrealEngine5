@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFractureModeCustomToolColor")
 @:include("FractureEditorMode.h")
-@:structAccess
+@:valueType
 extern class FractureModeCustomToolColor {
 	public var ToolName: FString;
 	public var Color: LinearColor;

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FPurchaseInfo")
 @:include("Engine/MicroTransactionBase.h")
-@:structAccess
+@:valueType
 extern class PurchaseInfo {
 	public var Identifier: FString;
 	public var DisplayName: FString;

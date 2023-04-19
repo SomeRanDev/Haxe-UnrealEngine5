@@ -3,12 +3,12 @@ package ue;
 
 @:native("AManipulator")
 @:include("Manipulator.h")
-@:structAccess
+@:valueType
 extern class Manipulator extends Actor {
-	private var AssociatedComponent: cpp.Star<SceneComp>;
-	private var StaticMeshComponent: cpp.Star<StaticMeshComp>;
+	private var AssociatedComponent: ucpp.Ptr<SceneComp>;
+	private var StaticMeshComponent: ucpp.Ptr<StaticMeshComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstManipulator(Manipulator) from Manipulator {
 @:forward
 @:nativeGen
 @:native("Manipulator*")
-abstract ManipulatorPtr(cpp.Star<Manipulator>) from cpp.Star<Manipulator> to cpp.Star<Manipulator>{
+abstract ManipulatorPtr(ucpp.Ptr<Manipulator>) from ucpp.Ptr<Manipulator> to ucpp.Ptr<Manipulator>{
 	@:from
 	public static extern inline function fromValue(v: Manipulator): ManipulatorPtr {
 		return untyped __cpp__("&({0})", v);

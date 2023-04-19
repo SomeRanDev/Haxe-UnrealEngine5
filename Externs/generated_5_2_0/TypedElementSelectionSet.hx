@@ -3,37 +3,37 @@ package ue;
 
 @:native("UTypedElementSelectionSet")
 @:include("Elements/Framework/TypedElementSelectionSet.h")
-@:structAccess
+@:valueType
 extern class TypedElementSelectionSet extends Object {
-	public var OnPreSelectionChange: HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
-	public var OnSelectionChange: HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
+	public var OnPreSelectionChange: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
+	public var OnSelectionChange: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
 
-	public function SetSelection(InElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>, InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function SelectElements(InElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>, InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function SelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function RestoreSelectionState(InSelectionState: cpp.Reference<TypedElementSelectionSetState>): Void;
-	public function OnPreChangeDynamic__DelegateSignature(SelectionSet: cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>): Void;
-	public function OnChangeDynamic__DelegateSignature(SelectionSet: cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>): Void;
+	public function SetSelection(InElementHandles: ucpp.Ref<TArray<ScriptTypedElementHandle>>, InSelectionOptions: TypedElementSelectionOptions): Bool;
+	public function SelectElements(InElementHandles: ucpp.Ref<TArray<ScriptTypedElementHandle>>, InSelectionOptions: TypedElementSelectionOptions): Bool;
+	public function SelectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
+	public function RestoreSelectionState(InSelectionState: ucpp.Ref<TypedElementSelectionSetState>): Void;
+	public function OnPreChangeDynamic__DelegateSignature(SelectionSet: ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>): Void;
+	public function OnChangeDynamic__DelegateSignature(SelectionSet: ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>): Void;
 	public function K2_GetSelectedElementHandles(InBaseInterfaceType: TSubclassOf<Interface.ConstInterface>): TArray<ScriptTypedElementHandle>;
-	public function IsElementSelected(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: TypedElementIsSelectedOptions): Bool;
-	public function HasSelectedObjects(InRequiredClass: cpp.Star<Class>): Bool;
+	public function IsElementSelected(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionOptions: TypedElementIsSelectedOptions): Bool;
+	public function HasSelectedObjects(InRequiredClass: ucpp.Ptr<Class>): Bool;
 	public function HasSelectedElements(InBaseInterfaceType: TSubclassOf<Interface.ConstInterface>): Bool;
-	public function GetTopSelectedObject(InRequiredClass: cpp.Star<Class>): cpp.Star<Object>;
-	public function GetSelectionElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionMethod: ETypedElementSelectionMethod): ScriptTypedElementHandle;
-	public function GetSelectedObjects(InRequiredClass: cpp.Star<Class>): TArray<cpp.Star<Object>>;
-	public function GetNumSelectedElements(): cpp.Int32;
+	public function GetTopSelectedObject(InRequiredClass: ucpp.Ptr<Class>): ucpp.Ptr<Object>;
+	public function GetSelectionElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionMethod: ETypedElementSelectionMethod): ScriptTypedElementHandle;
+	public function GetSelectedObjects(InRequiredClass: ucpp.Ptr<Class>): TArray<ucpp.Ptr<Object>>;
+	public function GetNumSelectedElements(): ucpp.num.Int32;
 	public function GetCurrentSelectionState(): TypedElementSelectionSetState;
-	public function GetBottomSelectedObject(InRequiredClass: cpp.Star<Class>): cpp.Star<Object>;
-	public function DeselectElements(InElementHandles: cpp.Reference<TArray<ScriptTypedElementHandle>>, InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function DeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function CountSelectedObjects(InRequiredClass: cpp.Star<Class>): cpp.Int32;
-	public function CountSelectedElements(InBaseInterfaceType: TSubclassOf<Interface.ConstInterface>): cpp.Int32;
+	public function GetBottomSelectedObject(InRequiredClass: ucpp.Ptr<Class>): ucpp.Ptr<Object>;
+	public function DeselectElements(InElementHandles: ucpp.Ref<TArray<ScriptTypedElementHandle>>, InSelectionOptions: TypedElementSelectionOptions): Bool;
+	public function DeselectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
+	public function CountSelectedObjects(InRequiredClass: ucpp.Ptr<Class>): ucpp.num.Int32;
+	public function CountSelectedElements(InBaseInterfaceType: TSubclassOf<Interface.ConstInterface>): ucpp.num.Int32;
 	public function ClearSelection(InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function CanSelectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function CanDeselectElement(InElementHandle: cpp.Reference<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
-	public function AllowSelectionModifiers(InElementHandle: cpp.Reference<ScriptTypedElementHandle>): Bool;
+	public function CanSelectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
+	public function CanDeselectElement(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>, InSelectionOptions: TypedElementSelectionOptions): Bool;
+	public function AllowSelectionModifiers(InElementHandle: ucpp.Ref<ScriptTypedElementHandle>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -43,16 +43,16 @@ extern class TypedElementSelectionSet extends Object {
 )
 @:nativeGen
 abstract ConstTypedElementSelectionSet(TypedElementSelectionSet) from TypedElementSelectionSet {
-	public extern var OnPreSelectionChange(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
-	public inline extern function get_OnPreSelectionChange(): HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void> return this.OnPreSelectionChange;
-	public extern var OnSelectionChange(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
-	public inline extern function get_OnSelectionChange(): HaxeMulticastSparseDelegateProperty<(cpp.Star<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void> return this.OnSelectionChange;
+	public extern var OnPreSelectionChange(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
+	public inline extern function get_OnPreSelectionChange(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void> return this.OnPreSelectionChange;
+	public extern var OnSelectionChange(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void>;
+	public inline extern function get_OnSelectionChange(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<TypedElementSelectionSet.ConstTypedElementSelectionSet>) -> Void> return this.OnSelectionChange;
 }
 
 @:forward
 @:nativeGen
 @:native("TypedElementSelectionSet*")
-abstract TypedElementSelectionSetPtr(cpp.Star<TypedElementSelectionSet>) from cpp.Star<TypedElementSelectionSet> to cpp.Star<TypedElementSelectionSet>{
+abstract TypedElementSelectionSetPtr(ucpp.Ptr<TypedElementSelectionSet>) from ucpp.Ptr<TypedElementSelectionSet> to ucpp.Ptr<TypedElementSelectionSet>{
 	@:from
 	public static extern inline function fromValue(v: TypedElementSelectionSet): TypedElementSelectionSetPtr {
 		return untyped __cpp__("&({0})", v);

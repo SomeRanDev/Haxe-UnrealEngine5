@@ -3,7 +3,7 @@ package ue;
 
 @:native("UHoloLensTargetSettings")
 @:include("HoloLensTargetSettings.h")
-@:structAccess
+@:valueType
 extern class HoloLensTargetSettings extends Object {
 	public var bBuildForEmulation: Bool;
 	public var bBuildForDevice: Bool;
@@ -12,7 +12,7 @@ extern class HoloLensTargetSettings extends Object {
 	public var bAutoIncrementVersion: Bool;
 	public var bShouldCreateAppInstaller: Bool;
 	public var AppInstallerInstallationURL: FString;
-	public var HoursBetweenUpdateChecks: cpp.Int32;
+	public var HoursBetweenUpdateChecks: ucpp.num.Int32;
 	public var bEnablePIXProfiling: Bool;
 	public var TileBackgroundColor: Color;
 	public var SplashScreenBackgroundColor: Color;
@@ -20,8 +20,8 @@ extern class HoloLensTargetSettings extends Object {
 	public var TargetDeviceFamily: FString;
 	public var MinimumPlatformVersion: FString;
 	public var MaximumPlatformVersionTested: FString;
-	public var MaxTrianglesPerCubicMeter: cpp.Float32;
-	public var SpatialMeshingVolumeSize: cpp.Float32;
+	public var MaxTrianglesPerCubicMeter: ucpp.num.Float32;
+	public var SpatialMeshingVolumeSize: ucpp.num.Float32;
 	public var CompilerVersion: ECompilerVersion;
 	public var Windows10SDKVersion: FString;
 	public var CapabilityList: TArray<FString>;
@@ -33,9 +33,9 @@ extern class HoloLensTargetSettings extends Object {
 	public var SourceDataOverridePlugin: FString;
 	public var ReverbPlugin: FString;
 	public var OcclusionPlugin: FString;
-	public var SoundCueCookQualityIndex: cpp.Int32;
+	public var SoundCueCookQualityIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -55,8 +55,8 @@ abstract ConstHoloLensTargetSettings(HoloLensTargetSettings) from HoloLensTarget
 	public inline extern function get_bShouldCreateAppInstaller(): Bool return this.bShouldCreateAppInstaller;
 	public extern var AppInstallerInstallationURL(get, never): FString;
 	public inline extern function get_AppInstallerInstallationURL(): FString return this.AppInstallerInstallationURL;
-	public extern var HoursBetweenUpdateChecks(get, never): cpp.Int32;
-	public inline extern function get_HoursBetweenUpdateChecks(): cpp.Int32 return this.HoursBetweenUpdateChecks;
+	public extern var HoursBetweenUpdateChecks(get, never): ucpp.num.Int32;
+	public inline extern function get_HoursBetweenUpdateChecks(): ucpp.num.Int32 return this.HoursBetweenUpdateChecks;
 	public extern var bEnablePIXProfiling(get, never): Bool;
 	public inline extern function get_bEnablePIXProfiling(): Bool return this.bEnablePIXProfiling;
 	public extern var TileBackgroundColor(get, never): Color;
@@ -71,10 +71,10 @@ abstract ConstHoloLensTargetSettings(HoloLensTargetSettings) from HoloLensTarget
 	public inline extern function get_MinimumPlatformVersion(): FString return this.MinimumPlatformVersion;
 	public extern var MaximumPlatformVersionTested(get, never): FString;
 	public inline extern function get_MaximumPlatformVersionTested(): FString return this.MaximumPlatformVersionTested;
-	public extern var MaxTrianglesPerCubicMeter(get, never): cpp.Float32;
-	public inline extern function get_MaxTrianglesPerCubicMeter(): cpp.Float32 return this.MaxTrianglesPerCubicMeter;
-	public extern var SpatialMeshingVolumeSize(get, never): cpp.Float32;
-	public inline extern function get_SpatialMeshingVolumeSize(): cpp.Float32 return this.SpatialMeshingVolumeSize;
+	public extern var MaxTrianglesPerCubicMeter(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxTrianglesPerCubicMeter(): ucpp.num.Float32 return this.MaxTrianglesPerCubicMeter;
+	public extern var SpatialMeshingVolumeSize(get, never): ucpp.num.Float32;
+	public inline extern function get_SpatialMeshingVolumeSize(): ucpp.num.Float32 return this.SpatialMeshingVolumeSize;
 	public extern var CompilerVersion(get, never): ECompilerVersion;
 	public inline extern function get_CompilerVersion(): ECompilerVersion return this.CompilerVersion;
 	public extern var Windows10SDKVersion(get, never): FString;
@@ -97,14 +97,14 @@ abstract ConstHoloLensTargetSettings(HoloLensTargetSettings) from HoloLensTarget
 	public inline extern function get_ReverbPlugin(): FString return this.ReverbPlugin;
 	public extern var OcclusionPlugin(get, never): FString;
 	public inline extern function get_OcclusionPlugin(): FString return this.OcclusionPlugin;
-	public extern var SoundCueCookQualityIndex(get, never): cpp.Int32;
-	public inline extern function get_SoundCueCookQualityIndex(): cpp.Int32 return this.SoundCueCookQualityIndex;
+	public extern var SoundCueCookQualityIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_SoundCueCookQualityIndex(): ucpp.num.Int32 return this.SoundCueCookQualityIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("HoloLensTargetSettings*")
-abstract HoloLensTargetSettingsPtr(cpp.Star<HoloLensTargetSettings>) from cpp.Star<HoloLensTargetSettings> to cpp.Star<HoloLensTargetSettings>{
+abstract HoloLensTargetSettingsPtr(ucpp.Ptr<HoloLensTargetSettings>) from ucpp.Ptr<HoloLensTargetSettings> to ucpp.Ptr<HoloLensTargetSettings>{
 	@:from
 	public static extern inline function fromValue(v: HoloLensTargetSettings): HoloLensTargetSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCachedKeyToActionInfo")
 @:include("Components/InputComponent.h")
-@:structAccess
+@:valueType
 extern class CachedKeyToActionInfo {
 	public var PlayerInput: TWeakObjectPtr<PlayerInput>;
 

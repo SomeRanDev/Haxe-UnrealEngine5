@@ -3,12 +3,12 @@ package ue;
 
 @:native("FSoundWaveEnvelopeDataPerSound")
 @:include("Sound/SoundWave.h")
-@:structAccess
+@:valueType
 extern class SoundWaveEnvelopeDataPerSound {
-	public var Envelope: cpp.Float32;
-	public var PlaybackTime: cpp.Float32;
-	public var SoundWave: cpp.Star<SoundWave>;
+	public var Envelope: ucpp.num.Float32;
+	public var PlaybackTime: ucpp.num.Float32;
+	public var SoundWave: ucpp.Ptr<SoundWave>;
 
 	@:native("FSoundWaveEnvelopeDataPerSound") public function new();
-	@:native("FSoundWaveEnvelopeDataPerSound") public static function make(Envelope: cpp.Float32, PlaybackTime: cpp.Float32, SoundWave: cpp.Star<SoundWave>): SoundWaveEnvelopeDataPerSound ;
+	@:native("FSoundWaveEnvelopeDataPerSound") public static function make(Envelope: ucpp.num.Float32, PlaybackTime: ucpp.num.Float32, SoundWave: ucpp.Ptr<SoundWave>): SoundWaveEnvelopeDataPerSound ;
 }

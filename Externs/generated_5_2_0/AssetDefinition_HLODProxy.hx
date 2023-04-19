@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_HLODProxy")
 @:include("AssetDefinition_HLODProxy.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_HLODProxy extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_HLODProxy(AssetDefinition_HLODProxy) from AssetDef
 @:forward
 @:nativeGen
 @:native("AssetDefinition_HLODProxy*")
-abstract AssetDefinition_HLODProxyPtr(cpp.Star<AssetDefinition_HLODProxy>) from cpp.Star<AssetDefinition_HLODProxy> to cpp.Star<AssetDefinition_HLODProxy>{
+abstract AssetDefinition_HLODProxyPtr(ucpp.Ptr<AssetDefinition_HLODProxy>) from ucpp.Ptr<AssetDefinition_HLODProxy> to ucpp.Ptr<AssetDefinition_HLODProxy>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_HLODProxy): AssetDefinition_HLODProxyPtr {
 		return untyped __cpp__("&({0})", v);

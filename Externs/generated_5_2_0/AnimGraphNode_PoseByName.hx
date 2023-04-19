@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_PoseByName")
 @:include("AnimGraphNode_PoseByName.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_PoseByName extends AnimGraphNode_AssetPlayerBase {
 	public var Node: AnimNode_PoseByName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_PoseByName(AnimGraphNode_PoseByName) from AnimGraphN
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_PoseByName*")
-abstract AnimGraphNode_PoseByNamePtr(cpp.Star<AnimGraphNode_PoseByName>) from cpp.Star<AnimGraphNode_PoseByName> to cpp.Star<AnimGraphNode_PoseByName>{
+abstract AnimGraphNode_PoseByNamePtr(ucpp.Ptr<AnimGraphNode_PoseByName>) from ucpp.Ptr<AnimGraphNode_PoseByName> to ucpp.Ptr<AnimGraphNode_PoseByName>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_PoseByName): AnimGraphNode_PoseByNamePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMovieSceneTrackInstance")
 @:include("EntitySystem/TrackInstance/MovieSceneTrackInstance.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTrackInstance extends Object {
-	private var AnimatedObject: cpp.Star<Object>;
+	private var AnimatedObject: ucpp.Ptr<Object>;
 	private var bIsRootTrackInstance: Bool;
-	private var PrivateLinker: cpp.Star<MovieSceneEntitySystemLinker>;
+	private var PrivateLinker: ucpp.Ptr<MovieSceneEntitySystemLinker>;
 	private var Inputs: TArray<MovieSceneTrackInstanceInput>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstMovieSceneTrackInstance(MovieSceneTrackInstance) from MovieSceneTr
 @:forward
 @:nativeGen
 @:native("MovieSceneTrackInstance*")
-abstract MovieSceneTrackInstancePtr(cpp.Star<MovieSceneTrackInstance>) from cpp.Star<MovieSceneTrackInstance> to cpp.Star<MovieSceneTrackInstance>{
+abstract MovieSceneTrackInstancePtr(ucpp.Ptr<MovieSceneTrackInstance>) from ucpp.Ptr<MovieSceneTrackInstance> to ucpp.Ptr<MovieSceneTrackInstance>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTrackInstance): MovieSceneTrackInstancePtr {
 		return untyped __cpp__("&({0})", v);

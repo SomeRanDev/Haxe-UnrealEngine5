@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTableRowStyle")
 @:include("Styling/SlateTypes.h")
-@:structAccess
+@:valueType
 extern class TableRowStyle extends SlateWidgetStyle {
 	public var SelectorFocusedBrush: SlateBrush;
 	public var ActiveHoveredBrush: SlateBrush;

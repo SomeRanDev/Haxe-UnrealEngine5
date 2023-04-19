@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectMixerObjectFilter")
 @:include("ObjectFilter/ObjectMixerEditorObjectFilter.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerObjectFilter extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectMixerObjectFilter(ObjectMixerObjectFilter) from ObjectMixerO
 @:forward
 @:nativeGen
 @:native("ObjectMixerObjectFilter*")
-abstract ObjectMixerObjectFilterPtr(cpp.Star<ObjectMixerObjectFilter>) from cpp.Star<ObjectMixerObjectFilter> to cpp.Star<ObjectMixerObjectFilter>{
+abstract ObjectMixerObjectFilterPtr(ucpp.Ptr<ObjectMixerObjectFilter>) from ucpp.Ptr<ObjectMixerObjectFilter> to ucpp.Ptr<ObjectMixerObjectFilter>{
 	@:from
 	public static extern inline function fromValue(v: ObjectMixerObjectFilter): ObjectMixerObjectFilterPtr {
 		return untyped __cpp__("&({0})", v);

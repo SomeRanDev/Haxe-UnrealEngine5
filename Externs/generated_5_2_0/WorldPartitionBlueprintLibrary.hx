@@ -3,18 +3,18 @@ package ue;
 
 @:native("UWorldPartitionBlueprintLibrary")
 @:include("WorldPartition/WorldPartitionBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionBlueprintLibrary extends BlueprintFunctionLibrary {
-	public function UnpinActors(InActorsToUnpin: cpp.Reference<TArray<Guid>>): Void;
-	public function UnloadActors(InActorsToUnload: cpp.Reference<TArray<Guid>>): Void;
-	public function PinActors(InActorsToPin: cpp.Reference<TArray<Guid>>): Void;
-	public function LoadActors(InActorsToLoad: cpp.Reference<TArray<Guid>>): Void;
+	public function UnpinActors(InActorsToUnpin: ucpp.Ref<TArray<Guid>>): Void;
+	public function UnloadActors(InActorsToUnload: ucpp.Ref<TArray<Guid>>): Void;
+	public function PinActors(InActorsToPin: ucpp.Ref<TArray<Guid>>): Void;
+	public function LoadActors(InActorsToLoad: ucpp.Ref<TArray<Guid>>): Void;
 	public function GetRuntimeWorldBounds(): Box;
-	public function GetIntersectingActorDescs(InBox: cpp.Reference<Box>, OutActorDescs: cpp.Reference<TArray<ActorDesc>>): Bool;
+	public function GetIntersectingActorDescs(InBox: ucpp.Ref<Box>, OutActorDescs: ucpp.Ref<TArray<ActorDesc>>): Bool;
 	public function GetEditorWorldBounds(): Box;
-	public function GetActorDescs(OutActorDescs: cpp.Reference<TArray<ActorDesc>>): Bool;
+	public function GetActorDescs(OutActorDescs: ucpp.Ref<TArray<ActorDesc>>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,7 +25,7 @@ abstract ConstWorldPartitionBlueprintLibrary(WorldPartitionBlueprintLibrary) fro
 @:forward
 @:nativeGen
 @:native("WorldPartitionBlueprintLibrary*")
-abstract WorldPartitionBlueprintLibraryPtr(cpp.Star<WorldPartitionBlueprintLibrary>) from cpp.Star<WorldPartitionBlueprintLibrary> to cpp.Star<WorldPartitionBlueprintLibrary>{
+abstract WorldPartitionBlueprintLibraryPtr(ucpp.Ptr<WorldPartitionBlueprintLibrary>) from ucpp.Ptr<WorldPartitionBlueprintLibrary> to ucpp.Ptr<WorldPartitionBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionBlueprintLibrary): WorldPartitionBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

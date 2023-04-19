@@ -3,36 +3,36 @@ package ue;
 
 @:native("UFractureSliceSettings")
 @:include("FractureToolSlice.h")
-@:structAccess
+@:valueType
 extern class FractureSliceSettings extends FractureToolSettings {
-	public var SlicesX: cpp.Int32;
-	public var SlicesY: cpp.Int32;
-	public var SlicesZ: cpp.Int32;
-	public var SliceAngleVariation: cpp.Float32;
-	public var SliceOffsetVariation: cpp.Float32;
+	public var SlicesX: ucpp.num.Int32;
+	public var SlicesY: ucpp.num.Int32;
+	public var SlicesZ: ucpp.num.Int32;
+	public var SliceAngleVariation: ucpp.num.Float32;
+	public var SliceOffsetVariation: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFractureSliceSettings(FractureSliceSettings) from FractureSliceSettings {
-	public extern var SlicesX(get, never): cpp.Int32;
-	public inline extern function get_SlicesX(): cpp.Int32 return this.SlicesX;
-	public extern var SlicesY(get, never): cpp.Int32;
-	public inline extern function get_SlicesY(): cpp.Int32 return this.SlicesY;
-	public extern var SlicesZ(get, never): cpp.Int32;
-	public inline extern function get_SlicesZ(): cpp.Int32 return this.SlicesZ;
-	public extern var SliceAngleVariation(get, never): cpp.Float32;
-	public inline extern function get_SliceAngleVariation(): cpp.Float32 return this.SliceAngleVariation;
-	public extern var SliceOffsetVariation(get, never): cpp.Float32;
-	public inline extern function get_SliceOffsetVariation(): cpp.Float32 return this.SliceOffsetVariation;
+	public extern var SlicesX(get, never): ucpp.num.Int32;
+	public inline extern function get_SlicesX(): ucpp.num.Int32 return this.SlicesX;
+	public extern var SlicesY(get, never): ucpp.num.Int32;
+	public inline extern function get_SlicesY(): ucpp.num.Int32 return this.SlicesY;
+	public extern var SlicesZ(get, never): ucpp.num.Int32;
+	public inline extern function get_SlicesZ(): ucpp.num.Int32 return this.SlicesZ;
+	public extern var SliceAngleVariation(get, never): ucpp.num.Float32;
+	public inline extern function get_SliceAngleVariation(): ucpp.num.Float32 return this.SliceAngleVariation;
+	public extern var SliceOffsetVariation(get, never): ucpp.num.Float32;
+	public inline extern function get_SliceOffsetVariation(): ucpp.num.Float32 return this.SliceOffsetVariation;
 }
 
 @:forward
 @:nativeGen
 @:native("FractureSliceSettings*")
-abstract FractureSliceSettingsPtr(cpp.Star<FractureSliceSettings>) from cpp.Star<FractureSliceSettings> to cpp.Star<FractureSliceSettings>{
+abstract FractureSliceSettingsPtr(ucpp.Ptr<FractureSliceSettings>) from ucpp.Ptr<FractureSliceSettings> to ucpp.Ptr<FractureSliceSettings>{
 	@:from
 	public static extern inline function fromValue(v: FractureSliceSettings): FractureSliceSettingsPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionVolumetricCloudEmptySpaceSkippingInput")
 @:include("Materials/MaterialExpressionVolumetricAdvancedMaterialInput.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionVolumetricCloudEmptySpaceSkippingInput extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionVolumetricCloudEmptySpaceSkippingInput(MaterialE
 @:forward
 @:nativeGen
 @:native("MaterialExpressionVolumetricCloudEmptySpaceSkippingInput*")
-abstract MaterialExpressionVolumetricCloudEmptySpaceSkippingInputPtr(cpp.Star<MaterialExpressionVolumetricCloudEmptySpaceSkippingInput>) from cpp.Star<MaterialExpressionVolumetricCloudEmptySpaceSkippingInput> to cpp.Star<MaterialExpressionVolumetricCloudEmptySpaceSkippingInput>{
+abstract MaterialExpressionVolumetricCloudEmptySpaceSkippingInputPtr(ucpp.Ptr<MaterialExpressionVolumetricCloudEmptySpaceSkippingInput>) from ucpp.Ptr<MaterialExpressionVolumetricCloudEmptySpaceSkippingInput> to ucpp.Ptr<MaterialExpressionVolumetricCloudEmptySpaceSkippingInput>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionVolumetricCloudEmptySpaceSkippingInput): MaterialExpressionVolumetricCloudEmptySpaceSkippingInputPtr {
 		return untyped __cpp__("&({0})", v);

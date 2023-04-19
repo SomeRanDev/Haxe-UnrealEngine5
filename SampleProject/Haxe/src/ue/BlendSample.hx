@@ -3,12 +3,12 @@ package ue;
 
 @:native("FBlendSample")
 @:include("Animation/BlendSpace.h")
-@:structAccess
+@:valueType
 extern class BlendSample {
-	public var Animation: cpp.Star<AnimSequence>;
+	public var Animation: ucpp.Ptr<AnimSequence>;
 	public var SampleValue: Vector;
-	public var RateScale: cpp.Float32;
+	public var RateScale: ucpp.num.Float32;
 
 	@:native("FBlendSample") public function new();
-	@:native("FBlendSample") public static function make(Animation: cpp.Star<AnimSequence>, SampleValue: Vector, RateScale: cpp.Float32, bIsValid: Bool): BlendSample ;
+	@:native("FBlendSample") public static function make(Animation: ucpp.Ptr<AnimSequence>, SampleValue: Vector, RateScale: ucpp.num.Float32, bIsValid: Bool): BlendSample ;
 }

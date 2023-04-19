@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGatherTextFromMetaDataCommandlet")
 @:include("Commandlets/GatherTextFromMetadataCommandlet.h")
-@:structAccess
+@:valueType
 extern class GatherTextFromMetaDataCommandlet extends GatherTextCommandletBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGatherTextFromMetaDataCommandlet(GatherTextFromMetaDataCommandlet)
 @:forward
 @:nativeGen
 @:native("GatherTextFromMetaDataCommandlet*")
-abstract GatherTextFromMetaDataCommandletPtr(cpp.Star<GatherTextFromMetaDataCommandlet>) from cpp.Star<GatherTextFromMetaDataCommandlet> to cpp.Star<GatherTextFromMetaDataCommandlet>{
+abstract GatherTextFromMetaDataCommandletPtr(ucpp.Ptr<GatherTextFromMetaDataCommandlet>) from ucpp.Ptr<GatherTextFromMetaDataCommandlet> to ucpp.Ptr<GatherTextFromMetaDataCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: GatherTextFromMetaDataCommandlet): GatherTextFromMetaDataCommandletPtr {
 		return untyped __cpp__("&({0})", v);

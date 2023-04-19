@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAudioMixerCommandlet")
 @:include("Commandlets/AudioMixerCommandlet.h")
-@:structAccess
+@:valueType
 extern class AudioMixerCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAudioMixerCommandlet(AudioMixerCommandlet) from AudioMixerCommandl
 @:forward
 @:nativeGen
 @:native("AudioMixerCommandlet*")
-abstract AudioMixerCommandletPtr(cpp.Star<AudioMixerCommandlet>) from cpp.Star<AudioMixerCommandlet> to cpp.Star<AudioMixerCommandlet>{
+abstract AudioMixerCommandletPtr(ucpp.Ptr<AudioMixerCommandlet>) from ucpp.Ptr<AudioMixerCommandlet> to ucpp.Ptr<AudioMixerCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: AudioMixerCommandlet): AudioMixerCommandletPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,33 +3,33 @@ package ue;
 
 @:native("ULevelSequence")
 @:include("LevelSequence.h")
-@:structAccess
+@:valueType
 extern class LevelSequence extends MovieSceneSequence {
-	public var MovieScene: cpp.Star<MovieScene>;
+	public var MovieScene: ucpp.Ptr<MovieScene>;
 	@:protected public var ObjectReferences: LevelSequenceObjectReferenceMap;
 	@:protected public var BindingReferences: LevelSequenceBindingReferences;
 	@:protected public var DirectorClass: TSubclassOf<Object>;
-	@:protected public var AssetUserData: TArray<cpp.Star<AssetUserData>>;
+	@:protected public var AssetUserData: TArray<ucpp.Ptr<AssetUserData>>;
 
 	public function RemoveMetaDataByClass(InClass: TSubclassOf<Object>): Void;
-	public function FindOrAddMetaDataByClass(InClass: TSubclassOf<Object>): cpp.Star<Object>;
-	public function FindMetaDataByClass(InClass: TSubclassOf<Object>): cpp.Star<Object>;
-	public function CopyMetaData(InMetaData: cpp.Star<Object>): cpp.Star<Object>;
+	public function FindOrAddMetaDataByClass(InClass: TSubclassOf<Object>): ucpp.Ptr<Object>;
+	public function FindMetaDataByClass(InClass: TSubclassOf<Object>): ucpp.Ptr<Object>;
+	public function CopyMetaData(InMetaData: ucpp.Ptr<Object>): ucpp.Ptr<Object>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(FindMetaDataByClass)
 @:nativeGen
 abstract ConstLevelSequence(LevelSequence) from LevelSequence {
-	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
-	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
+	public extern var MovieScene(get, never): ucpp.Ptr<MovieScene.ConstMovieScene>;
+	public inline extern function get_MovieScene(): ucpp.Ptr<MovieScene.ConstMovieScene> return this.MovieScene;
 }
 
 @:forward
 @:nativeGen
 @:native("LevelSequence*")
-abstract LevelSequencePtr(cpp.Star<LevelSequence>) from cpp.Star<LevelSequence> to cpp.Star<LevelSequence>{
+abstract LevelSequencePtr(ucpp.Ptr<LevelSequence>) from ucpp.Ptr<LevelSequence> to ucpp.Ptr<LevelSequence>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequence): LevelSequencePtr {
 		return untyped __cpp__("&({0})", v);

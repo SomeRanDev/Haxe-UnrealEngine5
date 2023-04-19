@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGizmoViewContext")
 @:include("BaseGizmos/GizmoViewContext.h")
-@:structAccess
+@:valueType
 extern class GizmoViewContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGizmoViewContext(GizmoViewContext) from GizmoViewContext {
 @:forward
 @:nativeGen
 @:native("GizmoViewContext*")
-abstract GizmoViewContextPtr(cpp.Star<GizmoViewContext>) from cpp.Star<GizmoViewContext> to cpp.Star<GizmoViewContext>{
+abstract GizmoViewContextPtr(ucpp.Ptr<GizmoViewContext>) from ucpp.Ptr<GizmoViewContext> to ucpp.Ptr<GizmoViewContext>{
 	@:from
 	public static extern inline function fromValue(v: GizmoViewContext): GizmoViewContextPtr {
 		return untyped __cpp__("&({0})", v);

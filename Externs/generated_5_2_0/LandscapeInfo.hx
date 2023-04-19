@@ -3,17 +3,17 @@ package ue;
 
 @:native("ULandscapeInfo")
 @:include("LandscapeInfo.h")
-@:structAccess
+@:valueType
 extern class LandscapeInfo extends Object {
 	public var LandscapeActor: TWeakObjectPtr<Landscape>;
 	public var LandscapeGuid: Guid;
-	public var ComponentSizeQuads: cpp.Int32;
-	public var SubsectionSizeQuads: cpp.Int32;
-	public var ComponentNumSubsections: cpp.Int32;
+	public var ComponentSizeQuads: ucpp.num.Int32;
+	public var SubsectionSizeQuads: ucpp.num.Int32;
+	public var ComponentNumSubsections: ucpp.num.Int32;
 	public var DrawScale: Vector;
 	public var StreamingProxies: TArray<TWeakObjectPtr<LandscapeStreamingProxy>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,12 +23,12 @@ abstract ConstLandscapeInfo(LandscapeInfo) from LandscapeInfo {
 	public inline extern function get_LandscapeActor(): TWeakObjectPtr<Landscape.ConstLandscape> return this.LandscapeActor;
 	public extern var LandscapeGuid(get, never): Guid;
 	public inline extern function get_LandscapeGuid(): Guid return this.LandscapeGuid;
-	public extern var ComponentSizeQuads(get, never): cpp.Int32;
-	public inline extern function get_ComponentSizeQuads(): cpp.Int32 return this.ComponentSizeQuads;
-	public extern var SubsectionSizeQuads(get, never): cpp.Int32;
-	public inline extern function get_SubsectionSizeQuads(): cpp.Int32 return this.SubsectionSizeQuads;
-	public extern var ComponentNumSubsections(get, never): cpp.Int32;
-	public inline extern function get_ComponentNumSubsections(): cpp.Int32 return this.ComponentNumSubsections;
+	public extern var ComponentSizeQuads(get, never): ucpp.num.Int32;
+	public inline extern function get_ComponentSizeQuads(): ucpp.num.Int32 return this.ComponentSizeQuads;
+	public extern var SubsectionSizeQuads(get, never): ucpp.num.Int32;
+	public inline extern function get_SubsectionSizeQuads(): ucpp.num.Int32 return this.SubsectionSizeQuads;
+	public extern var ComponentNumSubsections(get, never): ucpp.num.Int32;
+	public inline extern function get_ComponentNumSubsections(): ucpp.num.Int32 return this.ComponentNumSubsections;
 	public extern var DrawScale(get, never): Vector;
 	public inline extern function get_DrawScale(): Vector return this.DrawScale;
 	public extern var StreamingProxies(get, never): TArray<TWeakObjectPtr<LandscapeStreamingProxy.ConstLandscapeStreamingProxy>>;
@@ -38,7 +38,7 @@ abstract ConstLandscapeInfo(LandscapeInfo) from LandscapeInfo {
 @:forward
 @:nativeGen
 @:native("LandscapeInfo*")
-abstract LandscapeInfoPtr(cpp.Star<LandscapeInfo>) from cpp.Star<LandscapeInfo> to cpp.Star<LandscapeInfo>{
+abstract LandscapeInfoPtr(ucpp.Ptr<LandscapeInfo>) from ucpp.Ptr<LandscapeInfo> to ucpp.Ptr<LandscapeInfo>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeInfo): LandscapeInfoPtr {
 		return untyped __cpp__("&({0})", v);

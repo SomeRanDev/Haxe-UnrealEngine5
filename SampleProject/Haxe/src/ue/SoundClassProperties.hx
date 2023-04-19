@@ -3,16 +3,16 @@ package ue;
 
 @:native("FSoundClassProperties")
 @:include("Sound/SoundClass.h")
-@:structAccess
+@:valueType
 extern class SoundClassProperties {
-	public var Volume: cpp.Float32;
-	public var Pitch: cpp.Float32;
-	public var LowPassFilterFrequency: cpp.Float32;
-	public var AttenuationDistanceScale: cpp.Float32;
-	public var LFEBleed: cpp.Float32;
-	public var VoiceCenterChannelVolume: cpp.Float32;
-	public var RadioFilterVolume: cpp.Float32;
-	public var RadioFilterVolumeThreshold: cpp.Float32;
+	public var Volume: ucpp.num.Float32;
+	public var Pitch: ucpp.num.Float32;
+	public var LowPassFilterFrequency: ucpp.num.Float32;
+	public var AttenuationDistanceScale: ucpp.num.Float32;
+	public var LFEBleed: ucpp.num.Float32;
+	public var VoiceCenterChannelVolume: ucpp.num.Float32;
+	public var RadioFilterVolume: ucpp.num.Float32;
+	public var RadioFilterVolumeThreshold: ucpp.num.Float32;
 	public var bApplyEffects: Bool;
 	public var bAlwaysPlay: Bool;
 	public var bIsUISound: Bool;
@@ -20,11 +20,11 @@ extern class SoundClassProperties {
 	public var bCenterChannelOnly: Bool;
 	public var bApplyAmbientVolumes: Bool;
 	public var bReverb: Bool;
-	public var Default2DReverbSendAmount: cpp.Float32;
+	public var Default2DReverbSendAmount: ucpp.num.Float32;
 	public var ModulationSettings: SoundModulationDefaultSettings;
 	public var OutputTarget: TEnumAsByte<EAudioOutputTarget>;
 	public var LoadingBehavior: ESoundWaveLoadingBehavior;
-	public var DefaultSubmix: cpp.Star<SoundSubmix>;
+	public var DefaultSubmix: ucpp.Ptr<SoundSubmix>;
 
 	@:native("FSoundClassProperties") public function new();
 }

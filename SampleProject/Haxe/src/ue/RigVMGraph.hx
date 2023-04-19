@@ -3,48 +3,49 @@ package ue;
 
 @:native("URigVMGraph")
 @:include("RigVMModel/RigVMGraph.h")
-@:structAccess
+@:valueType
 extern class RigVMGraph extends Object {
-	private var Nodes: TArray<cpp.Star<RigVMNode>>;
-	private var Links: TArray<cpp.Star<RigVMLink>>;
+	private var Nodes: TArray<ucpp.Ptr<RigVMNode>>;
+	private var Links: TArray<ucpp.Ptr<RigVMLink>>;
 	private var SelectedNodes: TArray<FName>;
 	private var DefaultFunctionLibraryPtr: TWeakObjectPtr<RigVMGraph>;
+	private var ExecuteContextStruct: ucpp.Ptr<ScriptStruct>;
+	private var bEditable: Bool;
 	private var LocalVariables: TArray<RigVMGraphVariableDescription>;
 
-	public function SetDefaultFunctionLibrary(InFunctionLibrary: cpp.Star<RigVMFunctionLibrary>): Void;
+	public function SetDefaultFunctionLibrary(InFunctionLibrary: ucpp.Ptr<RigVMFunctionLibrary>): Void;
 	public function IsTopLevelGraph(): Bool;
 	public function IsRootGraph(): Bool;
-	public function IsNodeSelected(InNodeName: cpp.Reference<FName>): Bool;
+	public function IsNodeSelected(InNodeName: ucpp.Ref<FName>): Bool;
 	public function GetVariableDescriptions(): TArray<RigVMGraphVariableDescription>;
 	public function GetSelectNodes(): TArray<FName>;
-	public function GetRootGraph(): cpp.Star<RigVMGraph>;
-	public function GetReturnNode(): cpp.Star<RigVMFunctionReturnNode>;
-	public function GetParentGraph(): cpp.Star<RigVMGraph>;
-	public function GetParameterDescriptions(): TArray<RigVMGraphParameterDescription>;
+	public function GetRootGraph(): ucpp.Ptr<RigVMGraph>;
+	public function GetReturnNode(): ucpp.Ptr<RigVMFunctionReturnNode>;
+	public function GetParentGraph(): ucpp.Ptr<RigVMGraph>;
 	public function GetOutputArguments(): TArray<RigVMGraphVariableDescription>;
-	public function GetNodes(): TArray<cpp.Star<RigVMNode>>;
+	public function GetNodes(): TArray<ucpp.Ptr<RigVMNode>>;
 	public function GetNodePath(): FString;
 	public function GetLocalVariables(bIncludeInputArguments: Bool): TArray<RigVMGraphVariableDescription>;
-	public function GetLinks(): TArray<cpp.Star<RigVMLink>>;
+	public function GetLinks(): TArray<ucpp.Ptr<RigVMLink>>;
 	public function GetInputArguments(): TArray<RigVMGraphVariableDescription>;
 	public function GetGraphName(): FString;
-	public function GetEntryNode(): cpp.Star<RigVMFunctionEntryNode>;
-	public function GetDefaultFunctionLibrary(): cpp.Star<RigVMFunctionLibrary>;
-	public function GetContainedGraphs(bRecursive: Bool): TArray<cpp.Star<RigVMGraph>>;
-	public function FindPin(InPinPath: FString): cpp.Star<RigVMPin>;
-	public function FindNodeByName(InNodeName: cpp.Reference<FName>): cpp.Star<RigVMNode>;
-	public function FindNode(InNodePath: FString): cpp.Star<RigVMNode>;
-	public function FindLink(InLinkPinPathRepresentation: FString): cpp.Star<RigVMLink>;
+	public function GetEntryNode(): ucpp.Ptr<RigVMFunctionEntryNode>;
+	public function GetDefaultFunctionLibrary(): ucpp.Ptr<RigVMFunctionLibrary>;
+	public function GetContainedGraphs(bRecursive: Bool): TArray<ucpp.Ptr<RigVMGraph>>;
+	public function FindPin(InPinPath: FString): ucpp.Ptr<RigVMPin>;
+	public function FindNodeByName(InNodeName: ucpp.Ref<FName>): ucpp.Ptr<RigVMNode>;
+	public function FindNode(InNodePath: FString): ucpp.Ptr<RigVMNode>;
+	public function FindLink(InLinkPinPathRepresentation: FString): ucpp.Ptr<RigVMLink>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
 	IsTopLevelGraph, IsRootGraph, IsNodeSelected, GetVariableDescriptions, GetSelectNodes,
-	GetRootGraph, GetReturnNode, GetParentGraph, GetParameterDescriptions, GetOutputArguments,
-	GetNodes, GetNodePath, GetLocalVariables, GetLinks, GetInputArguments,
-	GetGraphName, GetEntryNode, GetDefaultFunctionLibrary, GetContainedGraphs, FindPin,
-	FindNodeByName, FindNode, FindLink
+	GetRootGraph, GetReturnNode, GetParentGraph, GetOutputArguments, GetNodes,
+	GetNodePath, GetLocalVariables, GetLinks, GetInputArguments, GetGraphName,
+	GetEntryNode, GetDefaultFunctionLibrary, GetContainedGraphs, FindPin, FindNodeByName,
+	FindNode, FindLink
 )
 @:nativeGen
 abstract ConstRigVMGraph(RigVMGraph) from RigVMGraph {
@@ -53,7 +54,7 @@ abstract ConstRigVMGraph(RigVMGraph) from RigVMGraph {
 @:forward
 @:nativeGen
 @:native("RigVMGraph*")
-abstract RigVMGraphPtr(cpp.Star<RigVMGraph>) from cpp.Star<RigVMGraph> to cpp.Star<RigVMGraph>{
+abstract RigVMGraphPtr(ucpp.Ptr<RigVMGraph>) from ucpp.Ptr<RigVMGraph> to ucpp.Ptr<RigVMGraph>{
 	@:from
 	public static extern inline function fromValue(v: RigVMGraph): RigVMGraphPtr {
 		return untyped __cpp__("&({0})", v);

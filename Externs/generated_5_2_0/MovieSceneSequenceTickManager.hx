@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneSequenceTickManager")
 @:include("MovieSceneSequenceTickManager.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSequenceTickManager extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneSequenceTickManager(MovieSceneSequenceTickManager) from 
 @:forward
 @:nativeGen
 @:native("MovieSceneSequenceTickManager*")
-abstract MovieSceneSequenceTickManagerPtr(cpp.Star<MovieSceneSequenceTickManager>) from cpp.Star<MovieSceneSequenceTickManager> to cpp.Star<MovieSceneSequenceTickManager>{
+abstract MovieSceneSequenceTickManagerPtr(ucpp.Ptr<MovieSceneSequenceTickManager>) from ucpp.Ptr<MovieSceneSequenceTickManager> to ucpp.Ptr<MovieSceneSequenceTickManager>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSequenceTickManager): MovieSceneSequenceTickManagerPtr {
 		return untyped __cpp__("&({0})", v);

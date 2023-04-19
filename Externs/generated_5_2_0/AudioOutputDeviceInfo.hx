@@ -3,12 +3,12 @@ package ue;
 
 @:native("FAudioOutputDeviceInfo")
 @:include("AudioMixerBlueprintLibrary.h")
-@:structAccess
+@:valueType
 extern class AudioOutputDeviceInfo {
 	public var Name: FString;
 	public var DeviceId: FString;
-	public var NumChannels: cpp.Int32;
-	public var SampleRate: cpp.Int32;
+	public var NumChannels: ucpp.num.Int32;
+	public var SampleRate: ucpp.num.Int32;
 	public var Format: EAudioMixerStreamDataFormatType;
 	public var OutputChannelArray: TArray<EAudioMixerChannelType>;
 	public var bIsSystemDefault: Bool;

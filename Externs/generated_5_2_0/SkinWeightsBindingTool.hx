@@ -3,27 +3,27 @@ package ue;
 
 @:native("USkinWeightsBindingTool")
 @:include("SkinWeightsBindingTool.h")
-@:structAccess
+@:valueType
 extern class SkinWeightsBindingTool extends MultiSelectionMeshEditingTool {
-	public var Properties: cpp.Star<SkinWeightsBindingToolProperties>;
-	public var Preview: cpp.Star<MeshOpPreviewWithBackgroundCompute>;
+	public var Properties: ucpp.Ptr<SkinWeightsBindingToolProperties>;
+	public var Preview: ucpp.Ptr<MeshOpPreviewWithBackgroundCompute>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSkinWeightsBindingTool(SkinWeightsBindingTool) from SkinWeightsBindingTool {
-	public extern var Properties(get, never): cpp.Star<SkinWeightsBindingToolProperties.ConstSkinWeightsBindingToolProperties>;
-	public inline extern function get_Properties(): cpp.Star<SkinWeightsBindingToolProperties.ConstSkinWeightsBindingToolProperties> return this.Properties;
-	public extern var Preview(get, never): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
-	public inline extern function get_Preview(): cpp.Star<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
+	public extern var Properties(get, never): ucpp.Ptr<SkinWeightsBindingToolProperties.ConstSkinWeightsBindingToolProperties>;
+	public inline extern function get_Properties(): ucpp.Ptr<SkinWeightsBindingToolProperties.ConstSkinWeightsBindingToolProperties> return this.Properties;
+	public extern var Preview(get, never): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute>;
+	public inline extern function get_Preview(): ucpp.Ptr<MeshOpPreviewWithBackgroundCompute.ConstMeshOpPreviewWithBackgroundCompute> return this.Preview;
 }
 
 @:forward
 @:nativeGen
 @:native("SkinWeightsBindingTool*")
-abstract SkinWeightsBindingToolPtr(cpp.Star<SkinWeightsBindingTool>) from cpp.Star<SkinWeightsBindingTool> to cpp.Star<SkinWeightsBindingTool>{
+abstract SkinWeightsBindingToolPtr(ucpp.Ptr<SkinWeightsBindingTool>) from ucpp.Ptr<SkinWeightsBindingTool> to ucpp.Ptr<SkinWeightsBindingTool>{
 	@:from
 	public static extern inline function fromValue(v: SkinWeightsBindingTool): SkinWeightsBindingToolPtr {
 		return untyped __cpp__("&({0})", v);

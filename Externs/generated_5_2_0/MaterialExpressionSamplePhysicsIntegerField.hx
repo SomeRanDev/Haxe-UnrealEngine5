@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionSamplePhysicsIntegerField")
 @:include("Materials/MaterialExpressionSamplePhysicsField.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSamplePhysicsIntegerField extends MaterialExpression {
 	public var WorldPosition: ExpressionInput;
 	public var FieldTarget: TEnumAsByte<EFieldIntegerType>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionSamplePhysicsIntegerField(MaterialExpressionSamp
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSamplePhysicsIntegerField*")
-abstract MaterialExpressionSamplePhysicsIntegerFieldPtr(cpp.Star<MaterialExpressionSamplePhysicsIntegerField>) from cpp.Star<MaterialExpressionSamplePhysicsIntegerField> to cpp.Star<MaterialExpressionSamplePhysicsIntegerField>{
+abstract MaterialExpressionSamplePhysicsIntegerFieldPtr(ucpp.Ptr<MaterialExpressionSamplePhysicsIntegerField>) from ucpp.Ptr<MaterialExpressionSamplePhysicsIntegerField> to ucpp.Ptr<MaterialExpressionSamplePhysicsIntegerField>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSamplePhysicsIntegerField): MaterialExpressionSamplePhysicsIntegerFieldPtr {
 		return untyped __cpp__("&({0})", v);

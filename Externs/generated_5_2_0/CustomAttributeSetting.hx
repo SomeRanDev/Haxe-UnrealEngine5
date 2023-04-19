@@ -3,7 +3,7 @@ package ue;
 
 @:native("FCustomAttributeSetting")
 @:include("Animation/CustomAttributes.h")
-@:structAccess
+@:valueType
 extern class CustomAttributeSetting {
 	public var Name: FString;
 	public var Meaning: FString;

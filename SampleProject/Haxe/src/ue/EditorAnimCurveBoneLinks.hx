@@ -3,13 +3,13 @@ package ue;
 
 @:native("UEditorAnimCurveBoneLinks")
 @:include("Animation/EditorAnimCurveBoneLinks.h")
-@:structAccess
+@:valueType
 extern class EditorAnimCurveBoneLinks extends Object {
 	public var CurveName: SmartName;
 	public var ConnectedBones: TArray<BoneReference>;
-	public var MaxLOD: cpp.UInt8;
+	public var MaxLOD: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstEditorAnimCurveBoneLinks(EditorAnimCurveBoneLinks) from EditorAnim
 	public inline extern function get_CurveName(): SmartName return this.CurveName;
 	public extern var ConnectedBones(get, never): TArray<BoneReference>;
 	public inline extern function get_ConnectedBones(): TArray<BoneReference> return this.ConnectedBones;
-	public extern var MaxLOD(get, never): cpp.UInt8;
-	public inline extern function get_MaxLOD(): cpp.UInt8 return this.MaxLOD;
+	public extern var MaxLOD(get, never): ucpp.num.UInt8;
+	public inline extern function get_MaxLOD(): ucpp.num.UInt8 return this.MaxLOD;
 }
 
 @:forward
 @:nativeGen
 @:native("EditorAnimCurveBoneLinks*")
-abstract EditorAnimCurveBoneLinksPtr(cpp.Star<EditorAnimCurveBoneLinks>) from cpp.Star<EditorAnimCurveBoneLinks> to cpp.Star<EditorAnimCurveBoneLinks>{
+abstract EditorAnimCurveBoneLinksPtr(ucpp.Ptr<EditorAnimCurveBoneLinks>) from ucpp.Ptr<EditorAnimCurveBoneLinks> to ucpp.Ptr<EditorAnimCurveBoneLinks>{
 	@:from
 	public static extern inline function fromValue(v: EditorAnimCurveBoneLinks): EditorAnimCurveBoneLinksPtr {
 		return untyped __cpp__("&({0})", v);

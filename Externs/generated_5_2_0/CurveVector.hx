@@ -3,13 +3,13 @@ package ue;
 
 @:native("UCurveVector")
 @:include("Curves/CurveVector.h")
-@:structAccess
+@:valueType
 extern class CurveVector extends CurveBase {
 	public var FloatCurves: RichCurve;
 
-	public function GetVectorValue(InTime: cpp.Float32): Vector;
+	public function GetVectorValue(InTime: ucpp.num.Float32): Vector;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetVectorValue)
@@ -22,7 +22,7 @@ abstract ConstCurveVector(CurveVector) from CurveVector {
 @:forward
 @:nativeGen
 @:native("CurveVector*")
-abstract CurveVectorPtr(cpp.Star<CurveVector>) from cpp.Star<CurveVector> to cpp.Star<CurveVector>{
+abstract CurveVectorPtr(ucpp.Ptr<CurveVector>) from ucpp.Ptr<CurveVector> to ucpp.Ptr<CurveVector>{
 	@:from
 	public static extern inline function fromValue(v: CurveVector): CurveVectorPtr {
 		return untyped __cpp__("&({0})", v);

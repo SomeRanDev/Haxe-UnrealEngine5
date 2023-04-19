@@ -2,13 +2,14 @@
 package ue;
 
 @:native("FMovieSceneSequencePlaybackSettings")
-@:include("MovieSceneSequencePlayer.h")
-@:structAccess
+@:include("MovieSceneSequencePlaybackSettings.h")
+@:valueType
 extern class MovieSceneSequencePlaybackSettings {
 	public var bAutoPlay: Bool;
 	public var LoopCount: MovieSceneSequenceLoopCount;
-	public var PlayRate: cpp.Float32;
-	public var StartTime: cpp.Float32;
+	public var TickInterval: MovieSceneSequenceTickInterval;
+	public var PlayRate: ucpp.num.Float32;
+	public var StartTime: ucpp.num.Float32;
 	public var bRandomStartTime: Bool;
 	public var bRestoreState: Bool;
 	public var bDisableMovementInput: Bool;
@@ -17,6 +18,8 @@ extern class MovieSceneSequencePlaybackSettings {
 	public var bHideHud: Bool;
 	public var bDisableCameraCuts: Bool;
 	public var bPauseAtEnd: Bool;
+	public var bInheritTickIntervalFromOwner: Bool;
+	public var bDynamicWeighting: Bool;
 
 	@:native("FMovieSceneSequencePlaybackSettings") public function new();
 }

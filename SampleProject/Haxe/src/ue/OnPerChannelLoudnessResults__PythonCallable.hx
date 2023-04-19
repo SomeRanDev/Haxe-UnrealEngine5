@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnPerChannelLoudnessResults__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnPerChannelLoudnessResults__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnPerChannelLoudnessResults__PythonCallable(OnPerChannelLoudnessRe
 @:forward
 @:nativeGen
 @:native("OnPerChannelLoudnessResults__PythonCallable*")
-abstract OnPerChannelLoudnessResults__PythonCallablePtr(cpp.Star<OnPerChannelLoudnessResults__PythonCallable>) from cpp.Star<OnPerChannelLoudnessResults__PythonCallable> to cpp.Star<OnPerChannelLoudnessResults__PythonCallable>{
+abstract OnPerChannelLoudnessResults__PythonCallablePtr(ucpp.Ptr<OnPerChannelLoudnessResults__PythonCallable>) from ucpp.Ptr<OnPerChannelLoudnessResults__PythonCallable> to ucpp.Ptr<OnPerChannelLoudnessResults__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnPerChannelLoudnessResults__PythonCallable): OnPerChannelLoudnessResults__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMediaPlayerOptions")
 @:include("MediaPlayerOptions.h")
-@:structAccess
+@:valueType
 extern class MediaPlayerOptions {
 	public var Tracks: MediaPlayerTrackOptions;
 	public var SeekTime: Timespan;

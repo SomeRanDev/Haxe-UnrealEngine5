@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInterface_PreviewMeshProvider")
-@:structAccess
+@:valueType
 extern class Interface_PreviewMeshProvider extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInterface_PreviewMeshProvider(Interface_PreviewMeshProvider) from 
 @:forward
 @:nativeGen
 @:native("Interface_PreviewMeshProvider*")
-abstract Interface_PreviewMeshProviderPtr(cpp.Star<Interface_PreviewMeshProvider>) from cpp.Star<Interface_PreviewMeshProvider> to cpp.Star<Interface_PreviewMeshProvider>{
+abstract Interface_PreviewMeshProviderPtr(ucpp.Ptr<Interface_PreviewMeshProvider>) from ucpp.Ptr<Interface_PreviewMeshProvider> to ucpp.Ptr<Interface_PreviewMeshProvider>{
 	@:from
 	public static extern inline function fromValue(v: Interface_PreviewMeshProvider): Interface_PreviewMeshProviderPtr {
 		return untyped __cpp__("&({0})", v);

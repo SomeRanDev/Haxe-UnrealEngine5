@@ -3,12 +3,12 @@ package ue;
 
 @:native("UProceduralFoliageTile")
 @:include("ProceduralFoliageTile.h")
-@:structAccess
+@:valueType
 extern class ProceduralFoliageTile extends Object {
-	private var FoliageSpawner: cpp.Star<ProceduralFoliageSpawner>;
+	private var FoliageSpawner: ucpp.Ptr<ProceduralFoliageSpawner>;
 	private var InstancesArray: TArray<ProceduralFoliageInstance>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstProceduralFoliageTile(ProceduralFoliageTile) from ProceduralFoliag
 @:forward
 @:nativeGen
 @:native("ProceduralFoliageTile*")
-abstract ProceduralFoliageTilePtr(cpp.Star<ProceduralFoliageTile>) from cpp.Star<ProceduralFoliageTile> to cpp.Star<ProceduralFoliageTile>{
+abstract ProceduralFoliageTilePtr(ucpp.Ptr<ProceduralFoliageTile>) from ucpp.Ptr<ProceduralFoliageTile> to ucpp.Ptr<ProceduralFoliageTile>{
 	@:from
 	public static extern inline function fromValue(v: ProceduralFoliageTile): ProceduralFoliageTilePtr {
 		return untyped __cpp__("&({0})", v);

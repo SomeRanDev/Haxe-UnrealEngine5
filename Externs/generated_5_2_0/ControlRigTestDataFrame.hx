@@ -3,13 +3,13 @@ package ue;
 
 @:native("FControlRigTestDataFrame")
 @:include("ControlRigTestData.h")
-@:structAccess
+@:valueType
 extern class ControlRigTestDataFrame {
-	public var AbsoluteTime: cpp.Float64;
-	public var DeltaTime: cpp.Float64;
+	public var AbsoluteTime: ucpp.num.Float64;
+	public var DeltaTime: ucpp.num.Float64;
 	public var Variables: TArray<ControlRigTestDataVariable>;
 	public var Pose: RigPose;
 
 	@:native("FControlRigTestDataFrame") public function new();
-	@:native("FControlRigTestDataFrame") public static function make(AbsoluteTime: cpp.Float64, DeltaTime: cpp.Float64, Variables: TArray<ControlRigTestDataVariable>, Pose: RigPose): ControlRigTestDataFrame ;
+	@:native("FControlRigTestDataFrame") public static function make(AbsoluteTime: ucpp.num.Float64, DeltaTime: ucpp.num.Float64, Variables: TArray<ControlRigTestDataVariable>, Pose: RigPose): ControlRigTestDataFrame ;
 }

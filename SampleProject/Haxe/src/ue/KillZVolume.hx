@@ -3,10 +3,10 @@ package ue;
 
 @:native("AKillZVolume")
 @:include("GameFramework/KillZVolume.h")
-@:structAccess
+@:valueType
 extern class KillZVolume extends PhysicsVolume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstKillZVolume(KillZVolume) from KillZVolume {
 @:forward
 @:nativeGen
 @:native("KillZVolume*")
-abstract KillZVolumePtr(cpp.Star<KillZVolume>) from cpp.Star<KillZVolume> to cpp.Star<KillZVolume>{
+abstract KillZVolumePtr(ucpp.Ptr<KillZVolume>) from ucpp.Ptr<KillZVolume> to ucpp.Ptr<KillZVolume>{
 	@:from
 	public static extern inline function fromValue(v: KillZVolume): KillZVolumePtr {
 		return untyped __cpp__("&({0})", v);

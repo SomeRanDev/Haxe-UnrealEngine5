@@ -3,11 +3,13 @@ package ue;
 
 @:native("FAnimNode_Inertialization")
 @:include("Animation/AnimNode_Inertialization.h")
-@:structAccess
+@:valueType
 extern class AnimNode_Inertialization extends AnimNode_Base {
 	public var Source: PoseLink;
-	public var FilteredCurves: TArray<FName>;
+	private var DefaultBlendProfile: ucpp.Ptr<BlendProfile>;
+	private var FilteredCurves: TArray<FName>;
+	private var RequestQueue: TArray<InertializationRequest>;
 
 	@:native("FAnimNode_Inertialization") public function new();
-	@:native("FAnimNode_Inertialization") public static function make(Source: PoseLink, FilteredCurves: TArray<FName>): AnimNode_Inertialization ;
+	@:native("FAnimNode_Inertialization") public static function make(Source: PoseLink, DefaultBlendProfile: ucpp.Ptr<BlendProfile>, FilteredCurves: TArray<FName>, RequestQueue: TArray<InertializationRequest>): AnimNode_Inertialization ;
 }

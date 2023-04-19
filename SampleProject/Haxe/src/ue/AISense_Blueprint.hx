@@ -3,21 +3,21 @@ package ue;
 
 @:native("UAISense_Blueprint")
 @:include("Perception/AISense_Blueprint.h")
-@:structAccess
+@:valueType
 extern class AISense_Blueprint extends AISense {
 	@:protected public var ListenerDataType: TSubclassOf<UserDefinedStruct>;
-	@:protected public var ListenerContainer: TArray<cpp.Star<AIPerceptionComp>>;
-	@:protected public var UnprocessedEvents: TArray<cpp.Star<AISenseEvent>>;
+	@:protected public var ListenerContainer: TArray<ucpp.Ptr<AIPerceptionComp>>;
+	@:protected public var UnprocessedEvents: TArray<ucpp.Ptr<AISenseEvent>>;
 
-	public function OnUpdate(EventsToProcess: cpp.Reference<TArray<cpp.Star<AISenseEvent>>>): cpp.Float32;
-	public function OnListenerUpdated(ActorListener: cpp.Star<Actor>, PerceptionComponent: cpp.Star<AIPerceptionComp>): Void;
-	public function OnListenerUnregistered(ActorListener: cpp.Star<Actor>, PerceptionComponent: cpp.Star<AIPerceptionComp>): Void;
-	public function OnListenerRegistered(ActorListener: cpp.Star<Actor>, PerceptionComponent: cpp.Star<AIPerceptionComp>): Void;
-	public function K2_OnNewPawn(NewPawn: cpp.Star<Pawn>): Void;
-	public function GetAllListenerComponents(ListenerComponents: cpp.Reference<TArray<cpp.Star<AIPerceptionComp>>>): Void;
-	public function GetAllListenerActors(ListenerActors: cpp.Reference<TArray<cpp.Star<Actor>>>): Void;
+	public function OnUpdate(EventsToProcess: ucpp.Ref<TArray<ucpp.Ptr<AISenseEvent>>>): ucpp.num.Float32;
+	public function OnListenerUpdated(ActorListener: ucpp.Ptr<Actor>, PerceptionComponent: ucpp.Ptr<AIPerceptionComp>): Void;
+	public function OnListenerUnregistered(ActorListener: ucpp.Ptr<Actor>, PerceptionComponent: ucpp.Ptr<AIPerceptionComp>): Void;
+	public function OnListenerRegistered(ActorListener: ucpp.Ptr<Actor>, PerceptionComponent: ucpp.Ptr<AIPerceptionComp>): Void;
+	public function K2_OnNewPawn(NewPawn: ucpp.Ptr<Pawn>): Void;
+	public function GetAllListenerComponents(ListenerComponents: ucpp.Ref<TArray<ucpp.Ptr<AIPerceptionComp>>>): Void;
+	public function GetAllListenerActors(ListenerActors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetAllListenerComponents, GetAllListenerActors)
@@ -28,7 +28,7 @@ abstract ConstAISense_Blueprint(AISense_Blueprint) from AISense_Blueprint {
 @:forward
 @:nativeGen
 @:native("AISense_Blueprint*")
-abstract AISense_BlueprintPtr(cpp.Star<AISense_Blueprint>) from cpp.Star<AISense_Blueprint> to cpp.Star<AISense_Blueprint>{
+abstract AISense_BlueprintPtr(ucpp.Ptr<AISense_Blueprint>) from ucpp.Ptr<AISense_Blueprint> to ucpp.Ptr<AISense_Blueprint>{
 	@:from
 	public static extern inline function fromValue(v: AISense_Blueprint): AISense_BlueprintPtr {
 		return untyped __cpp__("&({0})", v);

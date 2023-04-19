@@ -3,10 +3,10 @@ package ue;
 
 @:native("AWorldPartitionMiniMapVolume")
 @:include("WorldPartition/WorldPartitionMiniMapVolume.h")
-@:structAccess
+@:valueType
 extern class WorldPartitionMiniMapVolume extends Volume {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWorldPartitionMiniMapVolume(WorldPartitionMiniMapVolume) from Worl
 @:forward
 @:nativeGen
 @:native("WorldPartitionMiniMapVolume*")
-abstract WorldPartitionMiniMapVolumePtr(cpp.Star<WorldPartitionMiniMapVolume>) from cpp.Star<WorldPartitionMiniMapVolume> to cpp.Star<WorldPartitionMiniMapVolume>{
+abstract WorldPartitionMiniMapVolumePtr(ucpp.Ptr<WorldPartitionMiniMapVolume>) from ucpp.Ptr<WorldPartitionMiniMapVolume> to ucpp.Ptr<WorldPartitionMiniMapVolume>{
 	@:from
 	public static extern inline function fromValue(v: WorldPartitionMiniMapVolume): WorldPartitionMiniMapVolumePtr {
 		return untyped __cpp__("&({0})", v);

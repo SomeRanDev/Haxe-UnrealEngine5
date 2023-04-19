@@ -3,10 +3,10 @@ package ue;
 
 @:native("USynthesisEditorSettings")
 @:include("SynthesisEditorSettings.h")
-@:structAccess
+@:valueType
 extern class SynthesisEditorSettings extends DeveloperSettings {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSynthesisEditorSettings(SynthesisEditorSettings) from SynthesisEdi
 @:forward
 @:nativeGen
 @:native("SynthesisEditorSettings*")
-abstract SynthesisEditorSettingsPtr(cpp.Star<SynthesisEditorSettings>) from cpp.Star<SynthesisEditorSettings> to cpp.Star<SynthesisEditorSettings>{
+abstract SynthesisEditorSettingsPtr(ucpp.Ptr<SynthesisEditorSettings>) from ucpp.Ptr<SynthesisEditorSettings> to ucpp.Ptr<SynthesisEditorSettings>{
 	@:from
 	public static extern inline function fromValue(v: SynthesisEditorSettings): SynthesisEditorSettingsPtr {
 		return untyped __cpp__("&({0})", v);

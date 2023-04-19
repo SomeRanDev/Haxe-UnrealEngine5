@@ -3,7 +3,7 @@ package ue;
 
 @:native("USinglePropertyView")
 @:include("Components/SinglePropertyView.h")
-@:structAccess
+@:valueType
 extern class SinglePropertyView extends PropertyViewBase {
 	private var PropertyName: FName;
 	private var NameOverride: FText;
@@ -13,7 +13,7 @@ extern class SinglePropertyView extends PropertyViewBase {
 	public function GetPropertyName(): FName;
 	public function GetNameOverride(): FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetPropertyName, GetNameOverride)
@@ -24,7 +24,7 @@ abstract ConstSinglePropertyView(SinglePropertyView) from SinglePropertyView {
 @:forward
 @:nativeGen
 @:native("SinglePropertyView*")
-abstract SinglePropertyViewPtr(cpp.Star<SinglePropertyView>) from cpp.Star<SinglePropertyView> to cpp.Star<SinglePropertyView>{
+abstract SinglePropertyViewPtr(ucpp.Ptr<SinglePropertyView>) from ucpp.Ptr<SinglePropertyView> to ucpp.Ptr<SinglePropertyView>{
 	@:from
 	public static extern inline function fromValue(v: SinglePropertyView): SinglePropertyViewPtr {
 		return untyped __cpp__("&({0})", v);

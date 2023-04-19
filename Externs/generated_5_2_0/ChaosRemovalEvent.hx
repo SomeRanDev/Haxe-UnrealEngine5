@@ -3,12 +3,12 @@ package ue;
 
 @:native("FChaosRemovalEvent")
 @:include("Chaos/ChaosGameplayEventDispatcher.h")
-@:structAccess
+@:valueType
 extern class ChaosRemovalEvent {
-	public var Component: cpp.Star<PrimitiveComp>;
+	public var Component: ucpp.Ptr<PrimitiveComp>;
 	public var Location: Vector;
-	public var Mass: cpp.Float32;
+	public var Mass: ucpp.num.Float32;
 
 	@:native("FChaosRemovalEvent") public function new();
-	@:native("FChaosRemovalEvent") public static function make(Component: cpp.Star<PrimitiveComp>, Location: Vector, Mass: cpp.Float32): ChaosRemovalEvent ;
+	@:native("FChaosRemovalEvent") public static function make(Component: ucpp.Ptr<PrimitiveComp>, Location: Vector, Mass: ucpp.num.Float32): ChaosRemovalEvent ;
 }

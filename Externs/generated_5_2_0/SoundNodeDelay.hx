@@ -3,27 +3,27 @@ package ue;
 
 @:native("USoundNodeDelay")
 @:include("Sound/SoundNodeDelay.h")
-@:structAccess
+@:valueType
 extern class SoundNodeDelay extends SoundNode {
-	public var DelayMin: cpp.Float32;
-	public var DelayMax: cpp.Float32;
+	public var DelayMin: ucpp.num.Float32;
+	public var DelayMax: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSoundNodeDelay(SoundNodeDelay) from SoundNodeDelay {
-	public extern var DelayMin(get, never): cpp.Float32;
-	public inline extern function get_DelayMin(): cpp.Float32 return this.DelayMin;
-	public extern var DelayMax(get, never): cpp.Float32;
-	public inline extern function get_DelayMax(): cpp.Float32 return this.DelayMax;
+	public extern var DelayMin(get, never): ucpp.num.Float32;
+	public inline extern function get_DelayMin(): ucpp.num.Float32 return this.DelayMin;
+	public extern var DelayMax(get, never): ucpp.num.Float32;
+	public inline extern function get_DelayMax(): ucpp.num.Float32 return this.DelayMax;
 }
 
 @:forward
 @:nativeGen
 @:native("SoundNodeDelay*")
-abstract SoundNodeDelayPtr(cpp.Star<SoundNodeDelay>) from cpp.Star<SoundNodeDelay> to cpp.Star<SoundNodeDelay>{
+abstract SoundNodeDelayPtr(ucpp.Ptr<SoundNodeDelay>) from ucpp.Ptr<SoundNodeDelay> to ucpp.Ptr<SoundNodeDelay>{
 	@:from
 	public static extern inline function fromValue(v: SoundNodeDelay): SoundNodeDelayPtr {
 		return untyped __cpp__("&({0})", v);

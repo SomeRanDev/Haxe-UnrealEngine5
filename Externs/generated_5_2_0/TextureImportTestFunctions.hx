@@ -3,15 +3,15 @@ package ue;
 
 @:native("UTextureImportTestFunctions")
 @:include("ImportTestFunctions/TextureImportTestFunctions.h")
-@:structAccess
+@:valueType
 extern class TextureImportTestFunctions extends ImportTestFunctionsBase {
-	public function CheckTextureFilter(Texture: cpp.Star<Texture.ConstTexture>, ExpectedTextureFilter: TEnumAsByte<TextureFilter>): InterchangeTestFunctionResult;
-	public function CheckTextureAddressZ(Texture: cpp.Star<Texture.ConstTexture>, ExpectedTextureAddressZ: TEnumAsByte<TextureAddress>): InterchangeTestFunctionResult;
-	public function CheckTextureAddressY(Texture: cpp.Star<Texture.ConstTexture>, ExpectedTextureAddressY: TEnumAsByte<TextureAddress>): InterchangeTestFunctionResult;
-	public function CheckTextureAddressX(Texture: cpp.Star<Texture.ConstTexture>, ExpectedTextureAddressX: TEnumAsByte<TextureAddress>): InterchangeTestFunctionResult;
-	public function CheckImportedTextureCount(Textures: cpp.Reference<TArray<cpp.Star<Texture>>>, ExpectedNumberOfImportedTextures: cpp.Int32): InterchangeTestFunctionResult;
+	public function CheckTextureFilter(Texture: ucpp.Ptr<Texture.ConstTexture>, ExpectedTextureFilter: TEnumAsByte<TextureFilter>): InterchangeTestFunctionResult;
+	public function CheckTextureAddressZ(Texture: ucpp.Ptr<Texture.ConstTexture>, ExpectedTextureAddressZ: TEnumAsByte<TextureAddress>): InterchangeTestFunctionResult;
+	public function CheckTextureAddressY(Texture: ucpp.Ptr<Texture.ConstTexture>, ExpectedTextureAddressY: TEnumAsByte<TextureAddress>): InterchangeTestFunctionResult;
+	public function CheckTextureAddressX(Texture: ucpp.Ptr<Texture.ConstTexture>, ExpectedTextureAddressX: TEnumAsByte<TextureAddress>): InterchangeTestFunctionResult;
+	public function CheckImportedTextureCount(Textures: ucpp.Ref<TArray<ucpp.Ptr<Texture>>>, ExpectedNumberOfImportedTextures: ucpp.num.Int32): InterchangeTestFunctionResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstTextureImportTestFunctions(TextureImportTestFunctions) from Textur
 @:forward
 @:nativeGen
 @:native("TextureImportTestFunctions*")
-abstract TextureImportTestFunctionsPtr(cpp.Star<TextureImportTestFunctions>) from cpp.Star<TextureImportTestFunctions> to cpp.Star<TextureImportTestFunctions>{
+abstract TextureImportTestFunctionsPtr(ucpp.Ptr<TextureImportTestFunctions>) from ucpp.Ptr<TextureImportTestFunctions> to ucpp.Ptr<TextureImportTestFunctions>{
 	@:from
 	public static extern inline function fromValue(v: TextureImportTestFunctions): TextureImportTestFunctionsPtr {
 		return untyped __cpp__("&({0})", v);

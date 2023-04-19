@@ -3,7 +3,7 @@ package ue;
 
 @:native("FLandscapeSplineInterpPoint")
 @:include("LandscapeSplineSegment.h")
-@:structAccess
+@:valueType
 extern class LandscapeSplineInterpPoint {
 	public var Center: Vector;
 	public var Left: Vector;
@@ -14,7 +14,7 @@ extern class LandscapeSplineInterpPoint {
 	public var LayerRight: Vector;
 	public var LayerFalloffLeft: Vector;
 	public var LayerFalloffRight: Vector;
-	public var StartEndFalloff: cpp.Float32;
+	public var StartEndFalloff: ucpp.num.Float32;
 
 	@:native("FLandscapeSplineInterpPoint") public function new();
 }

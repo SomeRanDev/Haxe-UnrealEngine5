@@ -3,10 +3,10 @@ package ue;
 
 @:native("UARTypesDummyClass")
 @:include("ARTypes.h")
-@:structAccess
+@:valueType
 extern class ARTypesDummyClass extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstARTypesDummyClass(ARTypesDummyClass) from ARTypesDummyClass {
 @:forward
 @:nativeGen
 @:native("ARTypesDummyClass*")
-abstract ARTypesDummyClassPtr(cpp.Star<ARTypesDummyClass>) from cpp.Star<ARTypesDummyClass> to cpp.Star<ARTypesDummyClass>{
+abstract ARTypesDummyClassPtr(ucpp.Ptr<ARTypesDummyClass>) from ucpp.Ptr<ARTypesDummyClass> to ucpp.Ptr<ARTypesDummyClass>{
 	@:from
 	public static extern inline function fromValue(v: ARTypesDummyClass): ARTypesDummyClassPtr {
 		return untyped __cpp__("&({0})", v);

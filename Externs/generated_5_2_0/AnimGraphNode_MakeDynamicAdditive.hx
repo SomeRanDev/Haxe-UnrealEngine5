@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_MakeDynamicAdditive")
 @:include("AnimGraphNode_MakeDynamicAdditive.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_MakeDynamicAdditive extends AnimGraphNode_Base {
 	public var Node: AnimNode_MakeDynamicAdditive;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_MakeDynamicAdditive(AnimGraphNode_MakeDynamicAdditiv
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_MakeDynamicAdditive*")
-abstract AnimGraphNode_MakeDynamicAdditivePtr(cpp.Star<AnimGraphNode_MakeDynamicAdditive>) from cpp.Star<AnimGraphNode_MakeDynamicAdditive> to cpp.Star<AnimGraphNode_MakeDynamicAdditive>{
+abstract AnimGraphNode_MakeDynamicAdditivePtr(ucpp.Ptr<AnimGraphNode_MakeDynamicAdditive>) from ucpp.Ptr<AnimGraphNode_MakeDynamicAdditive> to ucpp.Ptr<AnimGraphNode_MakeDynamicAdditive>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_MakeDynamicAdditive): AnimGraphNode_MakeDynamicAdditivePtr {
 		return untyped __cpp__("&({0})", v);

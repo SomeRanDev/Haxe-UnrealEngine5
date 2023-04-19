@@ -3,13 +3,13 @@ package ue;
 
 @:native("FFontData")
 @:include("Fonts/CompositeFont.h")
-@:structAccess
+@:valueType
 extern class FontData {
 	private var FontFilename: FString;
 	private var Hinting: EFontHinting;
 	private var LoadingPolicy: EFontLoadingPolicy;
-	private var SubFaceIndex: cpp.Int32;
-	private var FontFaceAsset: cpp.Star<Object>;
+	private var SubFaceIndex: ucpp.num.Int32;
+	private var FontFaceAsset: ucpp.Ptr<Object>;
 
 	@:native("FFontData") public function new();
 }

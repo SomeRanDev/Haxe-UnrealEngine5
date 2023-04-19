@@ -3,11 +3,11 @@ package ue;
 
 @:native("UParticleModuleAccelerationDrag")
 @:include("Particles/Acceleration/ParticleModuleAccelerationDrag.h")
-@:structAccess
+@:valueType
 extern class ParticleModuleAccelerationDrag extends ParticleModuleAccelerationBase {
 	public var DragCoefficientRaw: RawDistributionFloat;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstParticleModuleAccelerationDrag(ParticleModuleAccelerationDrag) fro
 @:forward
 @:nativeGen
 @:native("ParticleModuleAccelerationDrag*")
-abstract ParticleModuleAccelerationDragPtr(cpp.Star<ParticleModuleAccelerationDrag>) from cpp.Star<ParticleModuleAccelerationDrag> to cpp.Star<ParticleModuleAccelerationDrag>{
+abstract ParticleModuleAccelerationDragPtr(ucpp.Ptr<ParticleModuleAccelerationDrag>) from ucpp.Ptr<ParticleModuleAccelerationDrag> to ucpp.Ptr<ParticleModuleAccelerationDrag>{
 	@:from
 	public static extern inline function fromValue(v: ParticleModuleAccelerationDrag): ParticleModuleAccelerationDragPtr {
 		return untyped __cpp__("&({0})", v);

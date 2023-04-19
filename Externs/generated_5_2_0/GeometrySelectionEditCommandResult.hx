@@ -3,10 +3,10 @@ package ue;
 
 @:native("UGeometrySelectionEditCommandResult")
 @:include("Selection/SelectionEditInteractiveCommand.h")
-@:structAccess
+@:valueType
 extern class GeometrySelectionEditCommandResult extends InteractiveCommandResult {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstGeometrySelectionEditCommandResult(GeometrySelectionEditCommandRes
 @:forward
 @:nativeGen
 @:native("GeometrySelectionEditCommandResult*")
-abstract GeometrySelectionEditCommandResultPtr(cpp.Star<GeometrySelectionEditCommandResult>) from cpp.Star<GeometrySelectionEditCommandResult> to cpp.Star<GeometrySelectionEditCommandResult>{
+abstract GeometrySelectionEditCommandResultPtr(ucpp.Ptr<GeometrySelectionEditCommandResult>) from ucpp.Ptr<GeometrySelectionEditCommandResult> to ucpp.Ptr<GeometrySelectionEditCommandResult>{
 	@:from
 	public static extern inline function fromValue(v: GeometrySelectionEditCommandResult): GeometrySelectionEditCommandResultPtr {
 		return untyped __cpp__("&({0})", v);

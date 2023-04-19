@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNavigationDataChunk")
 @:include("AI/Navigation/NavigationDataChunk.h")
-@:structAccess
+@:valueType
 extern class NavigationDataChunk extends Object {
 	public var NavigationDataName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNavigationDataChunk(NavigationDataChunk) from NavigationDataChunk 
 @:forward
 @:nativeGen
 @:native("NavigationDataChunk*")
-abstract NavigationDataChunkPtr(cpp.Star<NavigationDataChunk>) from cpp.Star<NavigationDataChunk> to cpp.Star<NavigationDataChunk>{
+abstract NavigationDataChunkPtr(ucpp.Ptr<NavigationDataChunk>) from ucpp.Ptr<NavigationDataChunk> to ucpp.Ptr<NavigationDataChunk>{
 	@:from
 	public static extern inline function fromValue(v: NavigationDataChunk): NavigationDataChunkPtr {
 		return untyped __cpp__("&({0})", v);

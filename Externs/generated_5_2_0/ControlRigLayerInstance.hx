@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigLayerInstance")
 @:include("Sequencer/ControlRigLayerInstance.h")
-@:structAccess
+@:valueType
 extern class ControlRigLayerInstance extends AnimInstance {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigLayerInstance(ControlRigLayerInstance) from ControlRigLa
 @:forward
 @:nativeGen
 @:native("ControlRigLayerInstance*")
-abstract ControlRigLayerInstancePtr(cpp.Star<ControlRigLayerInstance>) from cpp.Star<ControlRigLayerInstance> to cpp.Star<ControlRigLayerInstance>{
+abstract ControlRigLayerInstancePtr(ucpp.Ptr<ControlRigLayerInstance>) from ucpp.Ptr<ControlRigLayerInstance> to ucpp.Ptr<ControlRigLayerInstance>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigLayerInstance): ControlRigLayerInstancePtr {
 		return untyped __cpp__("&({0})", v);

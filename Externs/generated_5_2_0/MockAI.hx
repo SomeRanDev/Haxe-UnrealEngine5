@@ -3,33 +3,33 @@ package ue;
 
 @:native("UMockAI")
 @:include("MockAI.h")
-@:structAccess
+@:valueType
 extern class MockAI extends Object {
-	public var Actor: cpp.Star<Actor>;
-	public var BBComp: cpp.Star<BlackboardComp>;
-	public var BrainComp: cpp.Star<BrainComp>;
-	public var PerceptionComp: cpp.Star<AIPerceptionComp>;
+	public var Actor: ucpp.Ptr<Actor>;
+	public var BBComp: ucpp.Ptr<BlackboardComp>;
+	public var BrainComp: ucpp.Ptr<BrainComp>;
+	public var PerceptionComp: ucpp.Ptr<AIPerceptionComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMockAI(MockAI) from MockAI {
-	public extern var Actor(get, never): cpp.Star<Actor.ConstActor>;
-	public inline extern function get_Actor(): cpp.Star<Actor.ConstActor> return this.Actor;
-	public extern var BBComp(get, never): cpp.Star<BlackboardComp.ConstBlackboardComp>;
-	public inline extern function get_BBComp(): cpp.Star<BlackboardComp.ConstBlackboardComp> return this.BBComp;
-	public extern var BrainComp(get, never): cpp.Star<BrainComp.ConstBrainComp>;
-	public inline extern function get_BrainComp(): cpp.Star<BrainComp.ConstBrainComp> return this.BrainComp;
-	public extern var PerceptionComp(get, never): cpp.Star<AIPerceptionComp.ConstAIPerceptionComp>;
-	public inline extern function get_PerceptionComp(): cpp.Star<AIPerceptionComp.ConstAIPerceptionComp> return this.PerceptionComp;
+	public extern var Actor(get, never): ucpp.Ptr<Actor.ConstActor>;
+	public inline extern function get_Actor(): ucpp.Ptr<Actor.ConstActor> return this.Actor;
+	public extern var BBComp(get, never): ucpp.Ptr<BlackboardComp.ConstBlackboardComp>;
+	public inline extern function get_BBComp(): ucpp.Ptr<BlackboardComp.ConstBlackboardComp> return this.BBComp;
+	public extern var BrainComp(get, never): ucpp.Ptr<BrainComp.ConstBrainComp>;
+	public inline extern function get_BrainComp(): ucpp.Ptr<BrainComp.ConstBrainComp> return this.BrainComp;
+	public extern var PerceptionComp(get, never): ucpp.Ptr<AIPerceptionComp.ConstAIPerceptionComp>;
+	public inline extern function get_PerceptionComp(): ucpp.Ptr<AIPerceptionComp.ConstAIPerceptionComp> return this.PerceptionComp;
 }
 
 @:forward
 @:nativeGen
 @:native("MockAI*")
-abstract MockAIPtr(cpp.Star<MockAI>) from cpp.Star<MockAI> to cpp.Star<MockAI>{
+abstract MockAIPtr(ucpp.Ptr<MockAI>) from ucpp.Ptr<MockAI> to ucpp.Ptr<MockAI>{
 	@:from
 	public static extern inline function fromValue(v: MockAI): MockAIPtr {
 		return untyped __cpp__("&({0})", v);

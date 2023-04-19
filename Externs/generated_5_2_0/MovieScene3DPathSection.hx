@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMovieScene3DPathSection")
 @:include("Sections/MovieScene3DPathSection.h")
-@:structAccess
+@:valueType
 extern class MovieScene3DPathSection extends MovieScene3DConstraintSection {
 	public var TimingCurve: MovieSceneFloatChannel;
 	public var FrontAxisEnum: MovieScene3DPathSection_Axis;
@@ -12,7 +12,7 @@ extern class MovieScene3DPathSection extends MovieScene3DConstraintSection {
 	public var bReverse: Bool;
 	public var bForceUpright: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -35,7 +35,7 @@ abstract ConstMovieScene3DPathSection(MovieScene3DPathSection) from MovieScene3D
 @:forward
 @:nativeGen
 @:native("MovieScene3DPathSection*")
-abstract MovieScene3DPathSectionPtr(cpp.Star<MovieScene3DPathSection>) from cpp.Star<MovieScene3DPathSection> to cpp.Star<MovieScene3DPathSection>{
+abstract MovieScene3DPathSectionPtr(ucpp.Ptr<MovieScene3DPathSection>) from ucpp.Ptr<MovieScene3DPathSection> to ucpp.Ptr<MovieScene3DPathSection>{
 	@:from
 	public static extern inline function fromValue(v: MovieScene3DPathSection): MovieScene3DPathSectionPtr {
 		return untyped __cpp__("&({0})", v);

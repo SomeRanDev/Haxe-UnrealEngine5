@@ -3,15 +3,15 @@ package ue;
 
 @:native("FNiagaraEventScriptProperties")
 @:include("NiagaraEmitter.h")
-@:structAccess
+@:valueType
 extern class NiagaraEventScriptProperties extends NiagaraEmitterScriptProperties {
 	public var ExecutionMode: EScriptExecutionMode;
-	public var SpawnNumber: cpp.UInt32;
-	public var MaxEventsPerFrame: cpp.UInt32;
+	public var SpawnNumber: ucpp.num.UInt32;
+	public var MaxEventsPerFrame: ucpp.num.UInt32;
 	public var SourceEmitterID: Guid;
 	public var SourceEventName: FName;
 	public var bRandomSpawnNumber: Bool;
-	public var MinSpawnNumber: cpp.UInt32;
+	public var MinSpawnNumber: ucpp.num.UInt32;
 	public var UpdateAttributeInitialValues: Bool;
 
 	@:native("FNiagaraEventScriptProperties") public function new();

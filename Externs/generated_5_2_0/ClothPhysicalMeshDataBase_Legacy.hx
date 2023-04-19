@@ -3,18 +3,18 @@ package ue;
 
 @:native("UClothPhysicalMeshDataBase_Legacy")
 @:include("ClothPhysicalMeshDataBase_Legacy.h")
-@:structAccess
+@:valueType
 extern class ClothPhysicalMeshDataBase_Legacy extends Object {
 	public var Vertices: TArray<Vector3f>;
 	public var Normals: TArray<Vector3f>;
-	public var Indices: TArray<cpp.UInt32>;
-	public var InverseMasses: TArray<cpp.Float32>;
+	public var Indices: TArray<ucpp.num.UInt32>;
+	public var InverseMasses: TArray<ucpp.num.Float32>;
 	public var BoneData: TArray<ClothVertBoneData>;
-	public var NumFixedVerts: cpp.Int32;
-	public var MaxBoneWeights: cpp.Int32;
-	public var SelfCollisionIndices: TArray<cpp.UInt32>;
+	public var NumFixedVerts: ucpp.num.Int32;
+	public var MaxBoneWeights: ucpp.num.Int32;
+	public var SelfCollisionIndices: TArray<ucpp.num.UInt32>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,24 +24,24 @@ abstract ConstClothPhysicalMeshDataBase_Legacy(ClothPhysicalMeshDataBase_Legacy)
 	public inline extern function get_Vertices(): TArray<Vector3f> return this.Vertices;
 	public extern var Normals(get, never): TArray<Vector3f>;
 	public inline extern function get_Normals(): TArray<Vector3f> return this.Normals;
-	public extern var Indices(get, never): TArray<cpp.UInt32>;
-	public inline extern function get_Indices(): TArray<cpp.UInt32> return this.Indices;
-	public extern var InverseMasses(get, never): TArray<cpp.Float32>;
-	public inline extern function get_InverseMasses(): TArray<cpp.Float32> return this.InverseMasses;
+	public extern var Indices(get, never): TArray<ucpp.num.UInt32>;
+	public inline extern function get_Indices(): TArray<ucpp.num.UInt32> return this.Indices;
+	public extern var InverseMasses(get, never): TArray<ucpp.num.Float32>;
+	public inline extern function get_InverseMasses(): TArray<ucpp.num.Float32> return this.InverseMasses;
 	public extern var BoneData(get, never): TArray<ClothVertBoneData>;
 	public inline extern function get_BoneData(): TArray<ClothVertBoneData> return this.BoneData;
-	public extern var NumFixedVerts(get, never): cpp.Int32;
-	public inline extern function get_NumFixedVerts(): cpp.Int32 return this.NumFixedVerts;
-	public extern var MaxBoneWeights(get, never): cpp.Int32;
-	public inline extern function get_MaxBoneWeights(): cpp.Int32 return this.MaxBoneWeights;
-	public extern var SelfCollisionIndices(get, never): TArray<cpp.UInt32>;
-	public inline extern function get_SelfCollisionIndices(): TArray<cpp.UInt32> return this.SelfCollisionIndices;
+	public extern var NumFixedVerts(get, never): ucpp.num.Int32;
+	public inline extern function get_NumFixedVerts(): ucpp.num.Int32 return this.NumFixedVerts;
+	public extern var MaxBoneWeights(get, never): ucpp.num.Int32;
+	public inline extern function get_MaxBoneWeights(): ucpp.num.Int32 return this.MaxBoneWeights;
+	public extern var SelfCollisionIndices(get, never): TArray<ucpp.num.UInt32>;
+	public inline extern function get_SelfCollisionIndices(): TArray<ucpp.num.UInt32> return this.SelfCollisionIndices;
 }
 
 @:forward
 @:nativeGen
 @:native("ClothPhysicalMeshDataBase_Legacy*")
-abstract ClothPhysicalMeshDataBase_LegacyPtr(cpp.Star<ClothPhysicalMeshDataBase_Legacy>) from cpp.Star<ClothPhysicalMeshDataBase_Legacy> to cpp.Star<ClothPhysicalMeshDataBase_Legacy>{
+abstract ClothPhysicalMeshDataBase_LegacyPtr(ucpp.Ptr<ClothPhysicalMeshDataBase_Legacy>) from ucpp.Ptr<ClothPhysicalMeshDataBase_Legacy> to ucpp.Ptr<ClothPhysicalMeshDataBase_Legacy>{
 	@:from
 	public static extern inline function fromValue(v: ClothPhysicalMeshDataBase_Legacy): ClothPhysicalMeshDataBase_LegacyPtr {
 		return untyped __cpp__("&({0})", v);

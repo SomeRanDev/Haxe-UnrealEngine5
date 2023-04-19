@@ -3,24 +3,24 @@ package ue;
 
 @:native("UAnimationStateGraph")
 @:include("AnimationStateGraph.h")
-@:structAccess
+@:valueType
 extern class AnimationStateGraph extends AnimationGraph {
-	public var MyResultNode: cpp.Star<AnimGraphNode_StateResult>;
+	public var MyResultNode: ucpp.Ptr<AnimGraphNode_StateResult>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAnimationStateGraph(AnimationStateGraph) from AnimationStateGraph {
-	public extern var MyResultNode(get, never): cpp.Star<AnimGraphNode_StateResult.ConstAnimGraphNode_StateResult>;
-	public inline extern function get_MyResultNode(): cpp.Star<AnimGraphNode_StateResult.ConstAnimGraphNode_StateResult> return this.MyResultNode;
+	public extern var MyResultNode(get, never): ucpp.Ptr<AnimGraphNode_StateResult.ConstAnimGraphNode_StateResult>;
+	public inline extern function get_MyResultNode(): ucpp.Ptr<AnimGraphNode_StateResult.ConstAnimGraphNode_StateResult> return this.MyResultNode;
 }
 
 @:forward
 @:nativeGen
 @:native("AnimationStateGraph*")
-abstract AnimationStateGraphPtr(cpp.Star<AnimationStateGraph>) from cpp.Star<AnimationStateGraph> to cpp.Star<AnimationStateGraph>{
+abstract AnimationStateGraphPtr(ucpp.Ptr<AnimationStateGraph>) from ucpp.Ptr<AnimationStateGraph> to ucpp.Ptr<AnimationStateGraph>{
 	@:from
 	public static extern inline function fromValue(v: AnimationStateGraph): AnimationStateGraphPtr {
 		return untyped __cpp__("&({0})", v);

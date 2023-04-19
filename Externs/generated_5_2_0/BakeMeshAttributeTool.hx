@@ -3,16 +3,16 @@ package ue;
 
 @:native("UBakeMeshAttributeTool")
 @:include("BakeMeshAttributeTool.h")
-@:structAccess
+@:valueType
 extern class BakeMeshAttributeTool extends MultiSelectionMeshEditingTool {
-	@:protected public var OcclusionSettings: cpp.Star<BakeOcclusionMapToolProperties>;
-	@:protected public var CurvatureSettings: cpp.Star<BakeCurvatureMapToolProperties>;
-	@:protected public var TextureSettings: cpp.Star<BakeTexture2DProperties>;
-	@:protected public var MultiTextureSettings: cpp.Star<BakeMultiTexture2DProperties>;
-	@:protected public var WorkingPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
-	@:protected public var ErrorPreviewMaterial: cpp.Star<MaterialInstanceDynamic>;
+	@:protected public var OcclusionSettings: ucpp.Ptr<BakeOcclusionMapToolProperties>;
+	@:protected public var CurvatureSettings: ucpp.Ptr<BakeCurvatureMapToolProperties>;
+	@:protected public var TextureSettings: ucpp.Ptr<BakeTexture2DProperties>;
+	@:protected public var MultiTextureSettings: ucpp.Ptr<BakeMultiTexture2DProperties>;
+	@:protected public var WorkingPreviewMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
+	@:protected public var ErrorPreviewMaterial: ucpp.Ptr<MaterialInstanceDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstBakeMeshAttributeTool(BakeMeshAttributeTool) from BakeMeshAttribut
 @:forward
 @:nativeGen
 @:native("BakeMeshAttributeTool*")
-abstract BakeMeshAttributeToolPtr(cpp.Star<BakeMeshAttributeTool>) from cpp.Star<BakeMeshAttributeTool> to cpp.Star<BakeMeshAttributeTool>{
+abstract BakeMeshAttributeToolPtr(ucpp.Ptr<BakeMeshAttributeTool>) from ucpp.Ptr<BakeMeshAttributeTool> to ucpp.Ptr<BakeMeshAttributeTool>{
 	@:from
 	public static extern inline function fromValue(v: BakeMeshAttributeTool): BakeMeshAttributeToolPtr {
 		return untyped __cpp__("&({0})", v);

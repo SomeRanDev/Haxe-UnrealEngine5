@@ -3,36 +3,36 @@ package ue;
 
 @:native("UWorldComposition")
 @:include("Engine/WorldComposition.h")
-@:structAccess
+@:valueType
 extern class WorldComposition extends Object {
-	public var TilesStreaming: TArray<cpp.Star<LevelStreaming>>;
-	public var TilesStreamingTimeThreshold: cpp.Float64;
+	public var TilesStreaming: TArray<ucpp.Ptr<LevelStreaming>>;
+	public var TilesStreamingTimeThreshold: ucpp.num.Float64;
 	public var bLoadAllTilesDuringCinematic: Bool;
 	public var bRebaseOriginIn3DSpace: Bool;
-	public var RebaseOriginDistance: cpp.Float32;
+	public var RebaseOriginDistance: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstWorldComposition(WorldComposition) from WorldComposition {
-	public extern var TilesStreaming(get, never): TArray<cpp.Star<LevelStreaming.ConstLevelStreaming>>;
-	public inline extern function get_TilesStreaming(): TArray<cpp.Star<LevelStreaming.ConstLevelStreaming>> return this.TilesStreaming;
-	public extern var TilesStreamingTimeThreshold(get, never): cpp.Float64;
-	public inline extern function get_TilesStreamingTimeThreshold(): cpp.Float64 return this.TilesStreamingTimeThreshold;
+	public extern var TilesStreaming(get, never): TArray<ucpp.Ptr<LevelStreaming.ConstLevelStreaming>>;
+	public inline extern function get_TilesStreaming(): TArray<ucpp.Ptr<LevelStreaming.ConstLevelStreaming>> return this.TilesStreaming;
+	public extern var TilesStreamingTimeThreshold(get, never): ucpp.num.Float64;
+	public inline extern function get_TilesStreamingTimeThreshold(): ucpp.num.Float64 return this.TilesStreamingTimeThreshold;
 	public extern var bLoadAllTilesDuringCinematic(get, never): Bool;
 	public inline extern function get_bLoadAllTilesDuringCinematic(): Bool return this.bLoadAllTilesDuringCinematic;
 	public extern var bRebaseOriginIn3DSpace(get, never): Bool;
 	public inline extern function get_bRebaseOriginIn3DSpace(): Bool return this.bRebaseOriginIn3DSpace;
-	public extern var RebaseOriginDistance(get, never): cpp.Float32;
-	public inline extern function get_RebaseOriginDistance(): cpp.Float32 return this.RebaseOriginDistance;
+	public extern var RebaseOriginDistance(get, never): ucpp.num.Float32;
+	public inline extern function get_RebaseOriginDistance(): ucpp.num.Float32 return this.RebaseOriginDistance;
 }
 
 @:forward
 @:nativeGen
 @:native("WorldComposition*")
-abstract WorldCompositionPtr(cpp.Star<WorldComposition>) from cpp.Star<WorldComposition> to cpp.Star<WorldComposition>{
+abstract WorldCompositionPtr(ucpp.Ptr<WorldComposition>) from ucpp.Ptr<WorldComposition> to ucpp.Ptr<WorldComposition>{
 	@:from
 	public static extern inline function fromValue(v: WorldComposition): WorldCompositionPtr {
 		return untyped __cpp__("&({0})", v);

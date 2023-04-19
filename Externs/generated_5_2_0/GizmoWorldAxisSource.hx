@@ -3,12 +3,12 @@ package ue;
 
 @:native("UGizmoWorldAxisSource")
 @:include("BaseGizmos/AxisSources.h")
-@:structAccess
+@:valueType
 extern class GizmoWorldAxisSource extends Object {
 	public var Origin: Vector;
-	public var AxisIndex: cpp.Int32;
+	public var AxisIndex: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class GizmoWorldAxisSource extends Object {
 abstract ConstGizmoWorldAxisSource(GizmoWorldAxisSource) from GizmoWorldAxisSource {
 	public extern var Origin(get, never): Vector;
 	public inline extern function get_Origin(): Vector return this.Origin;
-	public extern var AxisIndex(get, never): cpp.Int32;
-	public inline extern function get_AxisIndex(): cpp.Int32 return this.AxisIndex;
+	public extern var AxisIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_AxisIndex(): ucpp.num.Int32 return this.AxisIndex;
 }
 
 @:forward
 @:nativeGen
 @:native("GizmoWorldAxisSource*")
-abstract GizmoWorldAxisSourcePtr(cpp.Star<GizmoWorldAxisSource>) from cpp.Star<GizmoWorldAxisSource> to cpp.Star<GizmoWorldAxisSource>{
+abstract GizmoWorldAxisSourcePtr(ucpp.Ptr<GizmoWorldAxisSource>) from ucpp.Ptr<GizmoWorldAxisSource> to ucpp.Ptr<GizmoWorldAxisSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoWorldAxisSource): GizmoWorldAxisSourcePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,14 +3,14 @@ package ue;
 
 @:native("UK2Node_BaseAsyncTask")
 @:include("K2Node_BaseAsyncTask.h")
-@:structAccess
+@:valueType
 extern class K2Node_BaseAsyncTask extends K2Node {
 	@:protected public var ProxyFactoryFunctionName: FName;
 	@:protected public var ProxyFactoryClass: TSubclassOf<Object>;
 	@:protected public var ProxyClass: TSubclassOf<Object>;
 	@:protected public var ProxyActivateFunctionName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -21,7 +21,7 @@ abstract ConstK2Node_BaseAsyncTask(K2Node_BaseAsyncTask) from K2Node_BaseAsyncTa
 @:forward
 @:nativeGen
 @:native("K2Node_BaseAsyncTask*")
-abstract K2Node_BaseAsyncTaskPtr(cpp.Star<K2Node_BaseAsyncTask>) from cpp.Star<K2Node_BaseAsyncTask> to cpp.Star<K2Node_BaseAsyncTask>{
+abstract K2Node_BaseAsyncTaskPtr(ucpp.Ptr<K2Node_BaseAsyncTask>) from ucpp.Ptr<K2Node_BaseAsyncTask> to ucpp.Ptr<K2Node_BaseAsyncTask>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_BaseAsyncTask): K2Node_BaseAsyncTaskPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,12 +3,12 @@ package ue;
 
 @:native("FRigVMTemplatePreferredType")
 @:include("RigVMModel/Nodes/RigVMTemplateNode.h")
-@:structAccess
+@:valueType
 extern class RigVMTemplatePreferredType {
 	@:protected public var Argument: FName;
-	@:protected public var TypeIndex: cpp.Int32;
+	@:protected public var TypeIndex: ucpp.num.Int32;
 	@:protected public var TypeString: FString;
 
 	@:native("FRigVMTemplatePreferredType") public function new();
-	@:native("FRigVMTemplatePreferredType") public static function make(Argument: FName, TypeIndex: cpp.Int32, TypeString: FString): RigVMTemplatePreferredType ;
+	@:native("FRigVMTemplatePreferredType") public static function make(Argument: FName, TypeIndex: ucpp.num.Int32, TypeString: FString): RigVMTemplatePreferredType ;
 }

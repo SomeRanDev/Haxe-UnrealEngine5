@@ -3,12 +3,12 @@ package ue;
 
 @:native("UK2Node_TemporaryVariable")
 @:include("K2Node_TemporaryVariable.h")
-@:structAccess
+@:valueType
 extern class K2Node_TemporaryVariable extends K2Node {
 	public var VariableType: EdGraphPinType;
 	public var bIsPersistent: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstK2Node_TemporaryVariable(K2Node_TemporaryVariable) from K2Node_Tem
 @:forward
 @:nativeGen
 @:native("K2Node_TemporaryVariable*")
-abstract K2Node_TemporaryVariablePtr(cpp.Star<K2Node_TemporaryVariable>) from cpp.Star<K2Node_TemporaryVariable> to cpp.Star<K2Node_TemporaryVariable>{
+abstract K2Node_TemporaryVariablePtr(ucpp.Ptr<K2Node_TemporaryVariable>) from ucpp.Ptr<K2Node_TemporaryVariable> to ucpp.Ptr<K2Node_TemporaryVariable>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_TemporaryVariable): K2Node_TemporaryVariablePtr {
 		return untyped __cpp__("&({0})", v);

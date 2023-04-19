@@ -3,12 +3,10 @@ package ue;
 
 @:native("FComponentReference")
 @:include("Engine/EngineTypes.h")
-@:structAccess
-extern class ComponentReference {
-	public var OtherActor: cpp.Star<Actor>;
-	public var ComponentProperty: FName;
-	public var PathToComponent: FString;
+@:valueType
+extern class ComponentReference extends BaseComponentReference {
+	public var OtherActor: TWeakObjectPtr<Actor>;
 
 	@:native("FComponentReference") public function new();
-	@:native("FComponentReference") public static function make(OtherActor: cpp.Star<Actor>, ComponentProperty: FName, PathToComponent: FString): ComponentReference ;
+	@:native("FComponentReference") public static function make(OtherActor: TWeakObjectPtr<Actor>): ComponentReference ;
 }

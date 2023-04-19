@@ -3,16 +3,16 @@ package ue;
 
 @:native("UARImageComponent")
 @:include("ARComponent.h")
-@:structAccess
+@:valueType
 extern class ARImageComp extends ARComp {
 	@:protected public var ReplicatedPayload: ARImageUpdatePayload;
 
 	public function SetImageComponentDebugMode(NewDebugMode: EImageComponentDebugMode): Void;
 	@:protected public function ServerUpdatePayload(NewPayload: ARImageUpdatePayload): Void;
-	public function ReceiveUpdate(Payload: cpp.Reference<ARImageUpdatePayload>): Void;
-	public function ReceiveAdd(Payload: cpp.Reference<ARImageUpdatePayload>): Void;
+	public function ReceiveUpdate(Payload: ucpp.Ref<ARImageUpdatePayload>): Void;
+	public function ReceiveAdd(Payload: ucpp.Ref<ARImageUpdatePayload>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstARImageComp(ARImageComp) from ARImageComp {
 @:forward
 @:nativeGen
 @:native("ARImageComp*")
-abstract ARImageCompPtr(cpp.Star<ARImageComp>) from cpp.Star<ARImageComp> to cpp.Star<ARImageComp>{
+abstract ARImageCompPtr(ucpp.Ptr<ARImageComp>) from ucpp.Ptr<ARImageComp> to ucpp.Ptr<ARImageComp>{
 	@:from
 	public static extern inline function fromValue(v: ARImageComp): ARImageCompPtr {
 		return untyped __cpp__("&({0})", v);

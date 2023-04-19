@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNavArea_LowHeight")
 @:include("NavAreas/NavArea_LowHeight.h")
-@:structAccess
+@:valueType
 extern class NavArea_LowHeight extends NavArea {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNavArea_LowHeight(NavArea_LowHeight) from NavArea_LowHeight {
 @:forward
 @:nativeGen
 @:native("NavArea_LowHeight*")
-abstract NavArea_LowHeightPtr(cpp.Star<NavArea_LowHeight>) from cpp.Star<NavArea_LowHeight> to cpp.Star<NavArea_LowHeight>{
+abstract NavArea_LowHeightPtr(ucpp.Ptr<NavArea_LowHeight>) from ucpp.Ptr<NavArea_LowHeight> to ucpp.Ptr<NavArea_LowHeight>{
 	@:from
 	public static extern inline function fromValue(v: NavArea_LowHeight): NavArea_LowHeightPtr {
 		return untyped __cpp__("&({0})", v);

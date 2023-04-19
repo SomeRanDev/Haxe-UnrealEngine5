@@ -3,22 +3,22 @@ package ue;
 
 @:native("UInputModifierDeadZone")
 @:include("InputModifiers.h")
-@:structAccess
+@:valueType
 extern class InputModifierDeadZone extends InputModifier {
-	public var LowerThreshold: cpp.Float32;
-	public var UpperThreshold: cpp.Float32;
+	public var LowerThreshold: ucpp.num.Float32;
+	public var UpperThreshold: ucpp.num.Float32;
 	public var Type: EDeadZoneType;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstInputModifierDeadZone(InputModifierDeadZone) from InputModifierDeadZone {
-	public extern var LowerThreshold(get, never): cpp.Float32;
-	public inline extern function get_LowerThreshold(): cpp.Float32 return this.LowerThreshold;
-	public extern var UpperThreshold(get, never): cpp.Float32;
-	public inline extern function get_UpperThreshold(): cpp.Float32 return this.UpperThreshold;
+	public extern var LowerThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_LowerThreshold(): ucpp.num.Float32 return this.LowerThreshold;
+	public extern var UpperThreshold(get, never): ucpp.num.Float32;
+	public inline extern function get_UpperThreshold(): ucpp.num.Float32 return this.UpperThreshold;
 	public extern var Type(get, never): EDeadZoneType;
 	public inline extern function get_Type(): EDeadZoneType return this.Type;
 }
@@ -26,7 +26,7 @@ abstract ConstInputModifierDeadZone(InputModifierDeadZone) from InputModifierDea
 @:forward
 @:nativeGen
 @:native("InputModifierDeadZone*")
-abstract InputModifierDeadZonePtr(cpp.Star<InputModifierDeadZone>) from cpp.Star<InputModifierDeadZone> to cpp.Star<InputModifierDeadZone>{
+abstract InputModifierDeadZonePtr(ucpp.Ptr<InputModifierDeadZone>) from ucpp.Ptr<InputModifierDeadZone> to ucpp.Ptr<InputModifierDeadZone>{
 	@:from
 	public static extern inline function fromValue(v: InputModifierDeadZone): InputModifierDeadZonePtr {
 		return untyped __cpp__("&({0})", v);

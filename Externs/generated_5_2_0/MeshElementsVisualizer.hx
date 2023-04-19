@@ -3,27 +3,27 @@ package ue;
 
 @:native("UMeshElementsVisualizer")
 @:include("Drawing/MeshElementsVisualizer.h")
-@:structAccess
+@:valueType
 extern class MeshElementsVisualizer extends PreviewGeometry {
-	public var Settings: cpp.Star<MeshElementsVisualizerProperties>;
-	public var WireframeComponent: cpp.Star<MeshWireframeComp>;
+	public var Settings: ucpp.Ptr<MeshElementsVisualizerProperties>;
+	public var WireframeComponent: ucpp.Ptr<MeshWireframeComp>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMeshElementsVisualizer(MeshElementsVisualizer) from MeshElementsVisualizer {
-	public extern var Settings(get, never): cpp.Star<MeshElementsVisualizerProperties.ConstMeshElementsVisualizerProperties>;
-	public inline extern function get_Settings(): cpp.Star<MeshElementsVisualizerProperties.ConstMeshElementsVisualizerProperties> return this.Settings;
-	public extern var WireframeComponent(get, never): cpp.Star<MeshWireframeComp.ConstMeshWireframeComp>;
-	public inline extern function get_WireframeComponent(): cpp.Star<MeshWireframeComp.ConstMeshWireframeComp> return this.WireframeComponent;
+	public extern var Settings(get, never): ucpp.Ptr<MeshElementsVisualizerProperties.ConstMeshElementsVisualizerProperties>;
+	public inline extern function get_Settings(): ucpp.Ptr<MeshElementsVisualizerProperties.ConstMeshElementsVisualizerProperties> return this.Settings;
+	public extern var WireframeComponent(get, never): ucpp.Ptr<MeshWireframeComp.ConstMeshWireframeComp>;
+	public inline extern function get_WireframeComponent(): ucpp.Ptr<MeshWireframeComp.ConstMeshWireframeComp> return this.WireframeComponent;
 }
 
 @:forward
 @:nativeGen
 @:native("MeshElementsVisualizer*")
-abstract MeshElementsVisualizerPtr(cpp.Star<MeshElementsVisualizer>) from cpp.Star<MeshElementsVisualizer> to cpp.Star<MeshElementsVisualizer>{
+abstract MeshElementsVisualizerPtr(ucpp.Ptr<MeshElementsVisualizer>) from ucpp.Ptr<MeshElementsVisualizer> to ucpp.Ptr<MeshElementsVisualizer>{
 	@:from
 	public static extern inline function fromValue(v: MeshElementsVisualizer): MeshElementsVisualizerPtr {
 		return untyped __cpp__("&({0})", v);

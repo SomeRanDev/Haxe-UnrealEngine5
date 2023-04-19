@@ -3,10 +3,10 @@ package ue;
 
 @:native("ULocalMessage")
 @:include("GameFramework/LocalMessage.h")
-@:structAccess
+@:valueType
 extern class LocalMessage extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstLocalMessage(LocalMessage) from LocalMessage {
 @:forward
 @:nativeGen
 @:native("LocalMessage*")
-abstract LocalMessagePtr(cpp.Star<LocalMessage>) from cpp.Star<LocalMessage> to cpp.Star<LocalMessage>{
+abstract LocalMessagePtr(ucpp.Ptr<LocalMessage>) from ucpp.Ptr<LocalMessage> to ucpp.Ptr<LocalMessage>{
 	@:from
 	public static extern inline function fromValue(v: LocalMessage): LocalMessagePtr {
 		return untyped __cpp__("&({0})", v);

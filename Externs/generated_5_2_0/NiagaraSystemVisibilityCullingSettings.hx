@@ -3,14 +3,14 @@ package ue;
 
 @:native("FNiagaraSystemVisibilityCullingSettings")
 @:include("NiagaraEffectType.h")
-@:structAccess
+@:valueType
 extern class NiagaraSystemVisibilityCullingSettings {
 	public var bCullWhenNotRendered: Bool;
 	public var bCullByViewFrustum: Bool;
 	public var bAllowPreCullingByViewFrustum: Bool;
-	public var MaxTimeOutsideViewFrustum: cpp.Float32;
-	public var MaxTimeWithoutRender: cpp.Float32;
+	public var MaxTimeOutsideViewFrustum: ucpp.num.Float32;
+	public var MaxTimeWithoutRender: ucpp.num.Float32;
 
 	@:native("FNiagaraSystemVisibilityCullingSettings") public function new();
-	@:native("FNiagaraSystemVisibilityCullingSettings") public static function make(bCullWhenNotRendered: Bool, bCullByViewFrustum: Bool, bAllowPreCullingByViewFrustum: Bool, MaxTimeOutsideViewFrustum: cpp.Float32, MaxTimeWithoutRender: cpp.Float32): NiagaraSystemVisibilityCullingSettings ;
+	@:native("FNiagaraSystemVisibilityCullingSettings") public static function make(bCullWhenNotRendered: Bool, bCullByViewFrustum: Bool, bAllowPreCullingByViewFrustum: Bool, MaxTimeOutsideViewFrustum: ucpp.num.Float32, MaxTimeWithoutRender: ucpp.num.Float32): NiagaraSystemVisibilityCullingSettings ;
 }

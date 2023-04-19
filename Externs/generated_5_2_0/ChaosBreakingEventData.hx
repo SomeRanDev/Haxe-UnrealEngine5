@@ -3,12 +3,12 @@ package ue;
 
 @:native("FChaosBreakingEventData")
 @:include("ChaosBreakingEventFilter.h")
-@:structAccess
+@:valueType
 extern class ChaosBreakingEventData {
 	public var Location: Vector;
 	public var Velocity: Vector;
-	public var Mass: cpp.Float32;
+	public var Mass: ucpp.num.Float32;
 
 	@:native("FChaosBreakingEventData") public function new();
-	@:native("FChaosBreakingEventData") public static function make(Location: Vector, Velocity: Vector, Mass: cpp.Float32): ChaosBreakingEventData ;
+	@:native("FChaosBreakingEventData") public static function make(Location: Vector, Velocity: Vector, Mass: ucpp.num.Float32): ChaosBreakingEventData ;
 }

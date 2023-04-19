@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataStreamChannel")
 @:include("Net/Experimental/Iris/DataStreamChannel.h")
-@:structAccess
+@:valueType
 extern class DataStreamChannel extends Channel {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataStreamChannel(DataStreamChannel) from DataStreamChannel {
 @:forward
 @:nativeGen
 @:native("DataStreamChannel*")
-abstract DataStreamChannelPtr(cpp.Star<DataStreamChannel>) from cpp.Star<DataStreamChannel> to cpp.Star<DataStreamChannel>{
+abstract DataStreamChannelPtr(ucpp.Ptr<DataStreamChannel>) from ucpp.Ptr<DataStreamChannel> to ucpp.Ptr<DataStreamChannel>{
 	@:from
 	public static extern inline function fromValue(v: DataStreamChannel): DataStreamChannelPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("FDeviceTriggerTriggerResistanceData")
 @:include("GameFramework/InputDeviceProperties.h")
-@:structAccess
+@:valueType
 extern class DeviceTriggerTriggerResistanceData {
-	public var StartPosition: cpp.Int32;
-	public var StartStrengh: cpp.Int32;
-	public var EndPosition: cpp.Int32;
-	public var EndStrengh: cpp.Int32;
+	public var StartPosition: ucpp.num.Int32;
+	public var StartStrengh: ucpp.num.Int32;
+	public var EndPosition: ucpp.num.Int32;
+	public var EndStrengh: ucpp.num.Int32;
 
 	@:native("FDeviceTriggerTriggerResistanceData") public function new();
-	@:native("FDeviceTriggerTriggerResistanceData") public static function make(StartPosition: cpp.Int32, StartStrengh: cpp.Int32, EndPosition: cpp.Int32, EndStrengh: cpp.Int32): DeviceTriggerTriggerResistanceData ;
+	@:native("FDeviceTriggerTriggerResistanceData") public static function make(StartPosition: ucpp.num.Int32, StartStrengh: ucpp.num.Int32, EndPosition: ucpp.num.Int32, EndStrengh: ucpp.num.Int32): DeviceTriggerTriggerResistanceData ;
 }

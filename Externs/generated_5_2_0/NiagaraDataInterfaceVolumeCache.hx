@@ -3,24 +3,24 @@ package ue;
 
 @:native("UNiagaraDataInterfaceVolumeCache")
 @:include("NiagaraDataInterfaceVolumeCache.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceVolumeCache extends NiagaraDataInterface {
-	public var VolumeCache: cpp.Star<VolumeCache>;
+	public var VolumeCache: ucpp.Ptr<VolumeCache>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceVolumeCache(NiagaraDataInterfaceVolumeCache) from NiagaraDataInterfaceVolumeCache {
-	public extern var VolumeCache(get, never): cpp.Star<VolumeCache.ConstVolumeCache>;
-	public inline extern function get_VolumeCache(): cpp.Star<VolumeCache.ConstVolumeCache> return this.VolumeCache;
+	public extern var VolumeCache(get, never): ucpp.Ptr<VolumeCache.ConstVolumeCache>;
+	public inline extern function get_VolumeCache(): ucpp.Ptr<VolumeCache.ConstVolumeCache> return this.VolumeCache;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceVolumeCache*")
-abstract NiagaraDataInterfaceVolumeCachePtr(cpp.Star<NiagaraDataInterfaceVolumeCache>) from cpp.Star<NiagaraDataInterfaceVolumeCache> to cpp.Star<NiagaraDataInterfaceVolumeCache>{
+abstract NiagaraDataInterfaceVolumeCachePtr(ucpp.Ptr<NiagaraDataInterfaceVolumeCache>) from ucpp.Ptr<NiagaraDataInterfaceVolumeCache> to ucpp.Ptr<NiagaraDataInterfaceVolumeCache>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceVolumeCache): NiagaraDataInterfaceVolumeCachePtr {
 		return untyped __cpp__("&({0})", v);

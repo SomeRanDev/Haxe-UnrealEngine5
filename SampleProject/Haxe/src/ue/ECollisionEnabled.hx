@@ -8,5 +8,7 @@ extern class ECollisionEnabled {
 	static var QueryOnly: ECollisionEnabled;
 	static var PhysicsOnly: ECollisionEnabled;
 	static var QueryAndPhysics: ECollisionEnabled;
+	static var ProbeOnly: ECollisionEnabled;
+	static var QueryAndProbe: ECollisionEnabled;
 	static var ECollisionEnabled_MAX: ECollisionEnabled;
 }

@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterchangeTransformAnimationTrackNode")
 @:include("InterchangeAnimationTrackSetNode.h")
-@:structAccess
+@:valueType
 extern class InterchangeTransformAnimationTrackNode extends InterchangeAnimationTrackNode {
-	public function SetCustomUsedChannels(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
-	public function GetCustomUsedChannels(AttributeValue: cpp.Reference<cpp.Int32>): Bool;
+	public function SetCustomUsedChannels(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
+	public function GetCustomUsedChannels(AttributeValue: ucpp.Ref<ucpp.num.Int32>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCustomUsedChannels)
@@ -19,7 +19,7 @@ abstract ConstInterchangeTransformAnimationTrackNode(InterchangeTransformAnimati
 @:forward
 @:nativeGen
 @:native("InterchangeTransformAnimationTrackNode*")
-abstract InterchangeTransformAnimationTrackNodePtr(cpp.Star<InterchangeTransformAnimationTrackNode>) from cpp.Star<InterchangeTransformAnimationTrackNode> to cpp.Star<InterchangeTransformAnimationTrackNode>{
+abstract InterchangeTransformAnimationTrackNodePtr(ucpp.Ptr<InterchangeTransformAnimationTrackNode>) from ucpp.Ptr<InterchangeTransformAnimationTrackNode> to ucpp.Ptr<InterchangeTransformAnimationTrackNode>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeTransformAnimationTrackNode): InterchangeTransformAnimationTrackNodePtr {
 		return untyped __cpp__("&({0})", v);

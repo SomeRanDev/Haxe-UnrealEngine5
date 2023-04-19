@@ -3,10 +3,10 @@ package ue;
 
 @:native("UScalableSphereGizmoBuilder")
 @:include("BaseGizmos/ScalableSphereGizmo.h")
-@:structAccess
+@:valueType
 extern class ScalableSphereGizmoBuilder extends InteractiveGizmoBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstScalableSphereGizmoBuilder(ScalableSphereGizmoBuilder) from Scalab
 @:forward
 @:nativeGen
 @:native("ScalableSphereGizmoBuilder*")
-abstract ScalableSphereGizmoBuilderPtr(cpp.Star<ScalableSphereGizmoBuilder>) from cpp.Star<ScalableSphereGizmoBuilder> to cpp.Star<ScalableSphereGizmoBuilder>{
+abstract ScalableSphereGizmoBuilderPtr(ucpp.Ptr<ScalableSphereGizmoBuilder>) from ucpp.Ptr<ScalableSphereGizmoBuilder> to ucpp.Ptr<ScalableSphereGizmoBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ScalableSphereGizmoBuilder): ScalableSphereGizmoBuilderPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,57 +3,57 @@ package ue;
 
 @:native("URigVM")
 @:include("RigVMCore/RigVM.h")
-@:structAccess
+@:valueType
 extern class RigVM extends Object {
-	public var WorkMemoryStorageObject: cpp.Star<RigVMMemoryStorage>;
-	public var LiteralMemoryStorageObject: cpp.Star<RigVMMemoryStorage>;
-	public var DebugMemoryStorageObject: cpp.Star<RigVMMemoryStorage>;
+	public var WorkMemoryStorageObject: ucpp.Ptr<RigVMMemoryStorage>;
+	public var LiteralMemoryStorageObject: ucpp.Ptr<RigVMMemoryStorage>;
+	public var DebugMemoryStorageObject: ucpp.Ptr<RigVMMemoryStorage>;
 	public var ByteCodeStorage: RigVMByteCode;
 	private var Instructions: RigVMInstructionArray;
-	private var Context: RigVMExecuteContext;
-	private var NumExecutions: cpp.UInt32;
+	@:protected public var Context: RigVMExtendedExecuteContext;
+	@:protected public var NumExecutions: ucpp.num.UInt32;
 	private var FunctionNamesStorage: TArray<FName>;
 	private var Parameters: TArray<RigVMParameter>;
-	private var ParametersNameMap: TMap<FName, cpp.Int32>;
-	private var DeferredVMToCopy: cpp.Star<RigVM>;
+	private var ParametersNameMap: TMap<FName, ucpp.num.Int32>;
+	private var DeferredVMToCopy: ucpp.Ptr<RigVM>;
 
-	public function SetParameterValueVector2D(InParameterName: cpp.Reference<FName>, InValue: cpp.Reference<Vector2D>, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueVector(InParameterName: cpp.Reference<FName>, InValue: cpp.Reference<Vector>, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueTransform(InParameterName: cpp.Reference<FName>, InValue: cpp.Reference<Transform>, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueString(InParameterName: cpp.Reference<FName>, InValue: FString, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueQuat(InParameterName: cpp.Reference<FName>, InValue: cpp.Reference<Quat>, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueName(InParameterName: cpp.Reference<FName>, InValue: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueInt(InParameterName: cpp.Reference<FName>, InValue: cpp.Int32, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueFloat(InParameterName: cpp.Reference<FName>, InValue: cpp.Float32, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueDouble(InParameterName: cpp.Reference<FName>, InValue: cpp.Float64, InArrayIndex: cpp.Int32): Void;
-	public function SetParameterValueBool(InParameterName: cpp.Reference<FName>, InValue: Bool, InArrayIndex: cpp.Int32): Void;
+	public function SetParameterValueVector2D(InParameterName: ucpp.Ref<FName>, InValue: ucpp.Ref<Vector2D>, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueVector(InParameterName: ucpp.Ref<FName>, InValue: ucpp.Ref<Vector>, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueTransform(InParameterName: ucpp.Ref<FName>, InValue: ucpp.Ref<Transform>, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueString(InParameterName: ucpp.Ref<FName>, InValue: FString, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueQuat(InParameterName: ucpp.Ref<FName>, InValue: ucpp.Ref<Quat>, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueName(InParameterName: ucpp.Ref<FName>, InValue: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueInt(InParameterName: ucpp.Ref<FName>, InValue: ucpp.num.Int32, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueFloat(InParameterName: ucpp.Ref<FName>, InValue: ucpp.num.Float32, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueDouble(InParameterName: ucpp.Ref<FName>, InValue: ucpp.num.Float64, InArrayIndex: ucpp.num.Int32): Void;
+	public function SetParameterValueBool(InParameterName: ucpp.Ref<FName>, InValue: Bool, InArrayIndex: ucpp.num.Int32): Void;
 	public function GetStatistics(): RigVMStatistics;
-	public function GetRigVMFunctionName(InFunctionIndex: cpp.Int32): FString;
-	public function GetParameterValueVector2D(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Vector2D;
-	public function GetParameterValueVector(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Vector;
-	public function GetParameterValueTransform(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Transform;
-	public function GetParameterValueString(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): FString;
-	public function GetParameterValueQuat(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Quat;
-	public function GetParameterValueName(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): FName;
-	public function GetParameterValueInt(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Int32;
-	public function GetParameterValueFloat(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Float32;
-	public function GetParameterValueDouble(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): cpp.Float64;
-	public function GetParameterValueBool(InParameterName: cpp.Reference<FName>, InArrayIndex: cpp.Int32): Bool;
-	public function Execute(InEntryName: cpp.Reference<FName>): Bool;
-	public function AddRigVMFunction(InRigVMStruct: cpp.Star<ScriptStruct>, InMethodName: cpp.Reference<FName>): cpp.Int32;
+	public function GetRigVMFunctionName(InFunctionIndex: ucpp.num.Int32): FString;
+	public function GetParameterValueVector2D(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): Vector2D;
+	public function GetParameterValueVector(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): Vector;
+	public function GetParameterValueTransform(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): Transform;
+	public function GetParameterValueString(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): FString;
+	public function GetParameterValueQuat(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): Quat;
+	public function GetParameterValueName(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): FName;
+	public function GetParameterValueInt(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): ucpp.num.Int32;
+	public function GetParameterValueFloat(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): ucpp.num.Float32;
+	public function GetParameterValueDouble(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): ucpp.num.Float64;
+	public function GetParameterValueBool(InParameterName: ucpp.Ref<FName>, InArrayIndex: ucpp.num.Int32): Bool;
+	public function Execute(InEntryName: ucpp.Ref<FName>): Bool;
+	public function AddRigVMFunction(InRigVMStruct: ucpp.Ptr<ScriptStruct>, InMethodName: ucpp.Ref<FName>): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetStatistics, GetRigVMFunctionName)
 @:nativeGen
 abstract ConstRigVM(RigVM) from RigVM {
-	public extern var WorkMemoryStorageObject(get, never): cpp.Star<RigVMMemoryStorage.ConstRigVMMemoryStorage>;
-	public inline extern function get_WorkMemoryStorageObject(): cpp.Star<RigVMMemoryStorage.ConstRigVMMemoryStorage> return this.WorkMemoryStorageObject;
-	public extern var LiteralMemoryStorageObject(get, never): cpp.Star<RigVMMemoryStorage.ConstRigVMMemoryStorage>;
-	public inline extern function get_LiteralMemoryStorageObject(): cpp.Star<RigVMMemoryStorage.ConstRigVMMemoryStorage> return this.LiteralMemoryStorageObject;
-	public extern var DebugMemoryStorageObject(get, never): cpp.Star<RigVMMemoryStorage.ConstRigVMMemoryStorage>;
-	public inline extern function get_DebugMemoryStorageObject(): cpp.Star<RigVMMemoryStorage.ConstRigVMMemoryStorage> return this.DebugMemoryStorageObject;
+	public extern var WorkMemoryStorageObject(get, never): ucpp.Ptr<RigVMMemoryStorage.ConstRigVMMemoryStorage>;
+	public inline extern function get_WorkMemoryStorageObject(): ucpp.Ptr<RigVMMemoryStorage.ConstRigVMMemoryStorage> return this.WorkMemoryStorageObject;
+	public extern var LiteralMemoryStorageObject(get, never): ucpp.Ptr<RigVMMemoryStorage.ConstRigVMMemoryStorage>;
+	public inline extern function get_LiteralMemoryStorageObject(): ucpp.Ptr<RigVMMemoryStorage.ConstRigVMMemoryStorage> return this.LiteralMemoryStorageObject;
+	public extern var DebugMemoryStorageObject(get, never): ucpp.Ptr<RigVMMemoryStorage.ConstRigVMMemoryStorage>;
+	public inline extern function get_DebugMemoryStorageObject(): ucpp.Ptr<RigVMMemoryStorage.ConstRigVMMemoryStorage> return this.DebugMemoryStorageObject;
 	public extern var ByteCodeStorage(get, never): RigVMByteCode;
 	public inline extern function get_ByteCodeStorage(): RigVMByteCode return this.ByteCodeStorage;
 }
@@ -61,7 +61,7 @@ abstract ConstRigVM(RigVM) from RigVM {
 @:forward
 @:nativeGen
 @:native("RigVM*")
-abstract RigVMPtr(cpp.Star<RigVM>) from cpp.Star<RigVM> to cpp.Star<RigVM>{
+abstract RigVMPtr(ucpp.Ptr<RigVM>) from ucpp.Ptr<RigVM> to ucpp.Ptr<RigVM>{
 	@:from
 	public static extern inline function fromValue(v: RigVM): RigVMPtr {
 		return untyped __cpp__("&({0})", v);

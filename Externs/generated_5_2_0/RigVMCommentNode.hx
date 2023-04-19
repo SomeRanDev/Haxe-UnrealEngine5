@@ -3,19 +3,19 @@ package ue;
 
 @:native("URigVMCommentNode")
 @:include("RigVMModel/Nodes/RigVMCommentNode.h")
-@:structAccess
+@:valueType
 extern class RigVMCommentNode extends RigVMNode {
 	private var CommentText: FString;
-	private var FontSize: cpp.Int32;
+	private var FontSize: ucpp.num.Int32;
 	private var bBubbleVisible: Bool;
 	private var bColorBubble: Bool;
 
 	public function GetCommentText(): FString;
-	public function GetCommentFontSize(): cpp.Int32;
+	public function GetCommentFontSize(): ucpp.num.Int32;
 	public function GetCommentColorBubble(): Bool;
 	public function GetCommentBubbleVisible(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetCommentText, GetCommentFontSize, GetCommentColorBubble, GetCommentBubbleVisible)
@@ -26,7 +26,7 @@ abstract ConstRigVMCommentNode(RigVMCommentNode) from RigVMCommentNode {
 @:forward
 @:nativeGen
 @:native("RigVMCommentNode*")
-abstract RigVMCommentNodePtr(cpp.Star<RigVMCommentNode>) from cpp.Star<RigVMCommentNode> to cpp.Star<RigVMCommentNode>{
+abstract RigVMCommentNodePtr(ucpp.Ptr<RigVMCommentNode>) from ucpp.Ptr<RigVMCommentNode> to ucpp.Ptr<RigVMCommentNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMCommentNode): RigVMCommentNodePtr {
 		return untyped __cpp__("&({0})", v);

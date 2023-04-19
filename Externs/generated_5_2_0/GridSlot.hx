@@ -3,29 +3,29 @@ package ue;
 
 @:native("UGridSlot")
 @:include("Components/GridSlot.h")
-@:structAccess
+@:valueType
 extern class GridSlot extends PanelSlot {
 	public var Padding: Margin;
 	public var HorizontalAlignment: TEnumAsByte<EHorizontalAlignment>;
 	public var VerticalAlignment: TEnumAsByte<EVerticalAlignment>;
-	public var Row: cpp.Int32;
-	public var RowSpan: cpp.Int32;
-	public var Column: cpp.Int32;
-	public var ColumnSpan: cpp.Int32;
-	public var Layer: cpp.Int32;
+	public var Row: ucpp.num.Int32;
+	public var RowSpan: ucpp.num.Int32;
+	public var Column: ucpp.num.Int32;
+	public var ColumnSpan: ucpp.num.Int32;
+	public var Layer: ucpp.num.Int32;
 	public var Nudge: Vector2D;
 
 	public function SetVerticalAlignment(InVerticalAlignment: TEnumAsByte<EVerticalAlignment>): Void;
-	public function SetRowSpan(InRowSpan: cpp.Int32): Void;
-	public function SetRow(InRow: cpp.Int32): Void;
+	public function SetRowSpan(InRowSpan: ucpp.num.Int32): Void;
+	public function SetRow(InRow: ucpp.num.Int32): Void;
 	public function SetPadding(InPadding: Margin): Void;
 	public function SetNudge(InNudge: Vector2D): Void;
-	public function SetLayer(InLayer: cpp.Int32): Void;
+	public function SetLayer(InLayer: ucpp.num.Int32): Void;
 	public function SetHorizontalAlignment(InHorizontalAlignment: TEnumAsByte<EHorizontalAlignment>): Void;
-	public function SetColumnSpan(InColumnSpan: cpp.Int32): Void;
-	public function SetColumn(InColumn: cpp.Int32): Void;
+	public function SetColumnSpan(InColumnSpan: ucpp.num.Int32): Void;
+	public function SetColumn(InColumn: ucpp.num.Int32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -37,16 +37,16 @@ abstract ConstGridSlot(GridSlot) from GridSlot {
 	public inline extern function get_HorizontalAlignment(): TEnumAsByte<EHorizontalAlignment> return this.HorizontalAlignment;
 	public extern var VerticalAlignment(get, never): TEnumAsByte<EVerticalAlignment>;
 	public inline extern function get_VerticalAlignment(): TEnumAsByte<EVerticalAlignment> return this.VerticalAlignment;
-	public extern var Row(get, never): cpp.Int32;
-	public inline extern function get_Row(): cpp.Int32 return this.Row;
-	public extern var RowSpan(get, never): cpp.Int32;
-	public inline extern function get_RowSpan(): cpp.Int32 return this.RowSpan;
-	public extern var Column(get, never): cpp.Int32;
-	public inline extern function get_Column(): cpp.Int32 return this.Column;
-	public extern var ColumnSpan(get, never): cpp.Int32;
-	public inline extern function get_ColumnSpan(): cpp.Int32 return this.ColumnSpan;
-	public extern var Layer(get, never): cpp.Int32;
-	public inline extern function get_Layer(): cpp.Int32 return this.Layer;
+	public extern var Row(get, never): ucpp.num.Int32;
+	public inline extern function get_Row(): ucpp.num.Int32 return this.Row;
+	public extern var RowSpan(get, never): ucpp.num.Int32;
+	public inline extern function get_RowSpan(): ucpp.num.Int32 return this.RowSpan;
+	public extern var Column(get, never): ucpp.num.Int32;
+	public inline extern function get_Column(): ucpp.num.Int32 return this.Column;
+	public extern var ColumnSpan(get, never): ucpp.num.Int32;
+	public inline extern function get_ColumnSpan(): ucpp.num.Int32 return this.ColumnSpan;
+	public extern var Layer(get, never): ucpp.num.Int32;
+	public inline extern function get_Layer(): ucpp.num.Int32 return this.Layer;
 	public extern var Nudge(get, never): Vector2D;
 	public inline extern function get_Nudge(): Vector2D return this.Nudge;
 }
@@ -54,7 +54,7 @@ abstract ConstGridSlot(GridSlot) from GridSlot {
 @:forward
 @:nativeGen
 @:native("GridSlot*")
-abstract GridSlotPtr(cpp.Star<GridSlot>) from cpp.Star<GridSlot> to cpp.Star<GridSlot>{
+abstract GridSlotPtr(ucpp.Ptr<GridSlot>) from ucpp.Ptr<GridSlot> to ucpp.Ptr<GridSlot>{
 	@:from
 	public static extern inline function fromValue(v: GridSlot): GridSlotPtr {
 		return untyped __cpp__("&({0})", v);

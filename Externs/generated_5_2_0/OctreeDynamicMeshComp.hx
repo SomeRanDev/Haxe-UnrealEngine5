@@ -3,13 +3,13 @@ package ue;
 
 @:native("UOctreeDynamicMeshComponent")
 @:include("Components/OctreeDynamicMeshComponent.h")
-@:structAccess
+@:valueType
 extern class OctreeDynamicMeshComp extends BaseDynamicMeshComp {
-	private var MeshObject: cpp.Star<DynamicMesh>;
+	private var MeshObject: ucpp.Ptr<DynamicMesh>;
 
-	public function SetDynamicMesh(NewMesh: cpp.Star<DynamicMesh>): Void;
+	public function SetDynamicMesh(NewMesh: ucpp.Ptr<DynamicMesh>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstOctreeDynamicMeshComp(OctreeDynamicMeshComp) from OctreeDynamicMes
 @:forward
 @:nativeGen
 @:native("OctreeDynamicMeshComp*")
-abstract OctreeDynamicMeshCompPtr(cpp.Star<OctreeDynamicMeshComp>) from cpp.Star<OctreeDynamicMeshComp> to cpp.Star<OctreeDynamicMeshComp>{
+abstract OctreeDynamicMeshCompPtr(ucpp.Ptr<OctreeDynamicMeshComp>) from ucpp.Ptr<OctreeDynamicMeshComp> to ucpp.Ptr<OctreeDynamicMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: OctreeDynamicMeshComp): OctreeDynamicMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

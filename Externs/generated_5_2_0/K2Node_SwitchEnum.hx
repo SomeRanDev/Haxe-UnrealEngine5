@@ -3,20 +3,20 @@ package ue;
 
 @:native("UK2Node_SwitchEnum")
 @:include("K2Node_SwitchEnum.h")
-@:structAccess
+@:valueType
 extern class K2Node_SwitchEnum extends K2Node_Switch {
-	public var Enum: cpp.Star<Enum>;
+	public var Enum: ucpp.Ptr<Enum>;
 	public var EnumEntries: TArray<FName>;
 	public var EnumFriendlyNames: TArray<FText>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstK2Node_SwitchEnum(K2Node_SwitchEnum) from K2Node_SwitchEnum {
-	public extern var Enum(get, never): cpp.Star<Enum.ConstEnum>;
-	public inline extern function get_Enum(): cpp.Star<Enum.ConstEnum> return this.Enum;
+	public extern var Enum(get, never): ucpp.Ptr<Enum.ConstEnum>;
+	public inline extern function get_Enum(): ucpp.Ptr<Enum.ConstEnum> return this.Enum;
 	public extern var EnumEntries(get, never): TArray<FName>;
 	public inline extern function get_EnumEntries(): TArray<FName> return this.EnumEntries;
 	public extern var EnumFriendlyNames(get, never): TArray<FText>;
@@ -26,7 +26,7 @@ abstract ConstK2Node_SwitchEnum(K2Node_SwitchEnum) from K2Node_SwitchEnum {
 @:forward
 @:nativeGen
 @:native("K2Node_SwitchEnum*")
-abstract K2Node_SwitchEnumPtr(cpp.Star<K2Node_SwitchEnum>) from cpp.Star<K2Node_SwitchEnum> to cpp.Star<K2Node_SwitchEnum>{
+abstract K2Node_SwitchEnumPtr(ucpp.Ptr<K2Node_SwitchEnum>) from ucpp.Ptr<K2Node_SwitchEnum> to ucpp.Ptr<K2Node_SwitchEnum>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_SwitchEnum): K2Node_SwitchEnumPtr {
 		return untyped __cpp__("&({0})", v);

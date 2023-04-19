@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDoubleChannelEvaluatorSystem")
 @:include("Systems/DoubleChannelEvaluatorSystem.h")
-@:structAccess
+@:valueType
 extern class DoubleChannelEvaluatorSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDoubleChannelEvaluatorSystem(DoubleChannelEvaluatorSystem) from Do
 @:forward
 @:nativeGen
 @:native("DoubleChannelEvaluatorSystem*")
-abstract DoubleChannelEvaluatorSystemPtr(cpp.Star<DoubleChannelEvaluatorSystem>) from cpp.Star<DoubleChannelEvaluatorSystem> to cpp.Star<DoubleChannelEvaluatorSystem>{
+abstract DoubleChannelEvaluatorSystemPtr(ucpp.Ptr<DoubleChannelEvaluatorSystem>) from ucpp.Ptr<DoubleChannelEvaluatorSystem> to ucpp.Ptr<DoubleChannelEvaluatorSystem>{
 	@:from
 	public static extern inline function fromValue(v: DoubleChannelEvaluatorSystem): DoubleChannelEvaluatorSystemPtr {
 		return untyped __cpp__("&({0})", v);

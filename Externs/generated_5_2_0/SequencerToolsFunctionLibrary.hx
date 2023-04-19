@@ -3,26 +3,26 @@ package ue;
 
 @:native("USequencerToolsFunctionLibrary")
 @:include("SequencerTools.h")
-@:structAccess
+@:valueType
 extern class SequencerToolsFunctionLibrary extends BlueprintFunctionLibrary {
-	public function RenderMovie(InCaptureSettings: cpp.Star<MovieSceneCapture>, OnFinishedCallback: HaxeDelegateProperty<(Bool) -> Void>): Bool;
-	public function LinkAnimSequence(Sequence: cpp.Star<LevelSequence>, AnimSequence: cpp.Star<AnimSequence>, ExportOptions: cpp.Star<AnimSeqExportOption.ConstAnimSeqExportOption>, Binding: cpp.Reference<MovieSceneBindingProxy>): Bool;
+	public function RenderMovie(InCaptureSettings: ucpp.Ptr<MovieSceneCapture>, OnFinishedCallback: HaxeDelegateProperty<(Bool) -> Void>): Bool;
+	public function LinkAnimSequence(Sequence: ucpp.Ptr<LevelSequence>, AnimSequence: ucpp.Ptr<AnimSequence>, ExportOptions: ucpp.Ptr<AnimSeqExportOption.ConstAnimSeqExportOption>, Binding: ucpp.Ref<MovieSceneBindingProxy>): Bool;
 	public function IsRenderingMovie(): Bool;
-	public function IsEventEndpointValid(InEndpoint: cpp.Reference<SequencerQuickBindingResult>): Bool;
-	public function ImportLevelSequenceFBX(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<MovieSceneBindingProxy>>, InImportFBXSettings: cpp.Star<MovieSceneUserImportFBXSettings>, InImportFilename: FString): Bool;
-	public function ImportFBXToControlRig(World: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, ActorWithControlRigTrack: FString, SelectedControlRigNames: cpp.Reference<TArray<FString>>, ImportFBXControlRigSettings: cpp.Star<MovieSceneUserImportFBXControlRigSettings>, ImportFilename: FString): Bool;
-	public function GetObjectBindings(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InObject: cpp.Reference<TArray<cpp.Star<Object>>>, InRange: cpp.Reference<SequencerScriptingRange>): TArray<SequencerBoundObjects>;
-	public function GetLevelSequenceLinkFromAnimSequence(InAnimSequence: cpp.Star<AnimSequence>): cpp.Star<AnimSequenceLevelSequenceLink>;
-	public function GetBoundObjects(InWorld: cpp.Star<World>, InSequence: cpp.Star<LevelSequence>, InBindings: cpp.Reference<TArray<MovieSceneBindingProxy>>, InRange: cpp.Reference<SequencerScriptingRange>): TArray<SequencerBoundObjects>;
-	public function GetAnimSequenceLinkFromLevelSequence(InLevelSequence: cpp.Star<LevelSequence>): cpp.Star<LevelSequenceAnimSequenceLink>;
-	public function ExportLevelSequenceFBX(InParams: cpp.Reference<SequencerExportFBXParams>): Bool;
-	public function ExportAnimSequence(World: cpp.Star<World>, Sequence: cpp.Star<LevelSequence>, AnimSequence: cpp.Star<AnimSequence>, ExportOption: cpp.Star<AnimSeqExportOption>, Binding: cpp.Reference<MovieSceneBindingProxy>, bCreateLink: Bool): Bool;
-	public function CreateQuickBinding(InSequence: cpp.Star<MovieSceneSequence>, InObject: cpp.Star<Object>, InFunctionName: FString, bCallInEditor: Bool): SequencerQuickBindingResult;
-	public function CreateEvent(InSequence: cpp.Star<MovieSceneSequence>, InSection: cpp.Star<MovieSceneEventSectionBase>, InEndpoint: cpp.Reference<SequencerQuickBindingResult>, InPayload: cpp.Reference<TArray<FString>>): MovieSceneEvent;
-	public function ClearLinkedAnimSequences(InLevelSequence: cpp.Star<LevelSequence>): Void;
+	public function IsEventEndpointValid(InEndpoint: ucpp.Ref<SequencerQuickBindingResult>): Bool;
+	public function ImportLevelSequenceFBX(InWorld: ucpp.Ptr<World>, InSequence: ucpp.Ptr<LevelSequence>, InBindings: ucpp.Ref<TArray<MovieSceneBindingProxy>>, InImportFBXSettings: ucpp.Ptr<MovieSceneUserImportFBXSettings>, InImportFilename: FString): Bool;
+	public function ImportFBXToControlRig(World: ucpp.Ptr<World>, InSequence: ucpp.Ptr<LevelSequence>, ActorWithControlRigTrack: FString, SelectedControlRigNames: ucpp.Ref<TArray<FString>>, ImportFBXControlRigSettings: ucpp.Ptr<MovieSceneUserImportFBXControlRigSettings>, ImportFilename: FString): Bool;
+	public function GetObjectBindings(InWorld: ucpp.Ptr<World>, InSequence: ucpp.Ptr<LevelSequence>, InObject: ucpp.Ref<TArray<ucpp.Ptr<Object>>>, InRange: ucpp.Ref<SequencerScriptingRange>): TArray<SequencerBoundObjects>;
+	public function GetLevelSequenceLinkFromAnimSequence(InAnimSequence: ucpp.Ptr<AnimSequence>): ucpp.Ptr<AnimSequenceLevelSequenceLink>;
+	public function GetBoundObjects(InWorld: ucpp.Ptr<World>, InSequence: ucpp.Ptr<LevelSequence>, InBindings: ucpp.Ref<TArray<MovieSceneBindingProxy>>, InRange: ucpp.Ref<SequencerScriptingRange>): TArray<SequencerBoundObjects>;
+	public function GetAnimSequenceLinkFromLevelSequence(InLevelSequence: ucpp.Ptr<LevelSequence>): ucpp.Ptr<LevelSequenceAnimSequenceLink>;
+	public function ExportLevelSequenceFBX(InParams: ucpp.Ref<SequencerExportFBXParams>): Bool;
+	public function ExportAnimSequence(World: ucpp.Ptr<World>, Sequence: ucpp.Ptr<LevelSequence>, AnimSequence: ucpp.Ptr<AnimSequence>, ExportOption: ucpp.Ptr<AnimSeqExportOption>, Binding: ucpp.Ref<MovieSceneBindingProxy>, bCreateLink: Bool): Bool;
+	public function CreateQuickBinding(InSequence: ucpp.Ptr<MovieSceneSequence>, InObject: ucpp.Ptr<Object>, InFunctionName: FString, bCallInEditor: Bool): SequencerQuickBindingResult;
+	public function CreateEvent(InSequence: ucpp.Ptr<MovieSceneSequence>, InSection: ucpp.Ptr<MovieSceneEventSectionBase>, InEndpoint: ucpp.Ref<SequencerQuickBindingResult>, InPayload: ucpp.Ref<TArray<FString>>): MovieSceneEvent;
+	public function ClearLinkedAnimSequences(InLevelSequence: ucpp.Ptr<LevelSequence>): Void;
 	public function CancelMovieRender(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -33,7 +33,7 @@ abstract ConstSequencerToolsFunctionLibrary(SequencerToolsFunctionLibrary) from 
 @:forward
 @:nativeGen
 @:native("SequencerToolsFunctionLibrary*")
-abstract SequencerToolsFunctionLibraryPtr(cpp.Star<SequencerToolsFunctionLibrary>) from cpp.Star<SequencerToolsFunctionLibrary> to cpp.Star<SequencerToolsFunctionLibrary>{
+abstract SequencerToolsFunctionLibraryPtr(ucpp.Ptr<SequencerToolsFunctionLibrary>) from ucpp.Ptr<SequencerToolsFunctionLibrary> to ucpp.Ptr<SequencerToolsFunctionLibrary>{
 	@:from
 	public static extern inline function fromValue(v: SequencerToolsFunctionLibrary): SequencerToolsFunctionLibraryPtr {
 		return untyped __cpp__("&({0})", v);

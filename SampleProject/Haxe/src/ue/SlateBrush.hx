@@ -3,20 +3,20 @@ package ue;
 
 @:native("FSlateBrush")
 @:include("Styling/SlateBrush.h")
-@:structAccess
+@:valueType
 extern class SlateBrush {
-	public var ImageSize: Vector2D;
-	public var Margin: Margin;
-	public var TintColor: SlateColor;
-	public var OutlineSettings: SlateBrushOutlineSettings;
-	private var ResourceObject: cpp.Star<Object>;
-	@:protected public var ResourceName: FName;
-	@:protected public var UVRegion: Box2f;
+	@:protected public var bIsDynamicallyLoaded: Bool;
 	public var DrawAs: TEnumAsByte<ESlateBrushDrawType>;
 	public var Tiling: TEnumAsByte<ESlateBrushTileType>;
 	public var Mirroring: TEnumAsByte<ESlateBrushMirrorType>;
 	public var ImageType: TEnumAsByte<ESlateBrushImageType>;
-	@:protected public var bIsDynamicallyLoaded: Bool;
+	public var ImageSize: DeprecateSlateVector2D;
+	public var Margin: Margin;
+	public var TintColor: SlateColor;
+	public var OutlineSettings: SlateBrushOutlineSettings;
+	private var ResourceObject: ucpp.Ptr<Object>;
+	@:protected public var ResourceName: FName;
+	@:protected public var UVRegion: Box2f;
 
 	@:native("FSlateBrush") public function new();
 }

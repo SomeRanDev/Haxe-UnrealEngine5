@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTakeRecorderPropertyTrackSettings")
 @:include("TrackRecorders/IMovieSceneTrackRecorderHost.h")
-@:structAccess
+@:valueType
 extern class TakeRecorderPropertyTrackSettings {
 	public var ComponentPath: FString;
 	public var PropertyPath: FString;

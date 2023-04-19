@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDisplaceMeshDirectionalFilterProperties")
 @:include("DisplaceMeshTool.h")
-@:structAccess
+@:valueType
 extern class DisplaceMeshDirectionalFilterProperties extends InteractiveToolPropertySet {
 	public var bEnableFilter: Bool;
 	public var FilterDirection: Vector;
-	public var FilterWidth: cpp.Float32;
+	public var FilterWidth: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstDisplaceMeshDirectionalFilterProperties(DisplaceMeshDirectionalFil
 	public inline extern function get_bEnableFilter(): Bool return this.bEnableFilter;
 	public extern var FilterDirection(get, never): Vector;
 	public inline extern function get_FilterDirection(): Vector return this.FilterDirection;
-	public extern var FilterWidth(get, never): cpp.Float32;
-	public inline extern function get_FilterWidth(): cpp.Float32 return this.FilterWidth;
+	public extern var FilterWidth(get, never): ucpp.num.Float32;
+	public inline extern function get_FilterWidth(): ucpp.num.Float32 return this.FilterWidth;
 }
 
 @:forward
 @:nativeGen
 @:native("DisplaceMeshDirectionalFilterProperties*")
-abstract DisplaceMeshDirectionalFilterPropertiesPtr(cpp.Star<DisplaceMeshDirectionalFilterProperties>) from cpp.Star<DisplaceMeshDirectionalFilterProperties> to cpp.Star<DisplaceMeshDirectionalFilterProperties>{
+abstract DisplaceMeshDirectionalFilterPropertiesPtr(ucpp.Ptr<DisplaceMeshDirectionalFilterProperties>) from ucpp.Ptr<DisplaceMeshDirectionalFilterProperties> to ucpp.Ptr<DisplaceMeshDirectionalFilterProperties>{
 	@:from
 	public static extern inline function fromValue(v: DisplaceMeshDirectionalFilterProperties): DisplaceMeshDirectionalFilterPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

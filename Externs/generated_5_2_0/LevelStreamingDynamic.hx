@@ -3,15 +3,15 @@ package ue;
 
 @:native("ULevelStreamingDynamic")
 @:include("Engine/LevelStreamingDynamic.h")
-@:structAccess
+@:valueType
 extern class LevelStreamingDynamic extends LevelStreaming {
 	public var bInitiallyLoaded: Bool;
 	public var bInitiallyVisible: Bool;
 
-	public function LoadLevelInstanceBySoftObjectPtr(WorldContextObject: cpp.Star<Object>, Level: TSoftObjectPtr<World>, Location: Vector, Rotation: Rotator, bOutSuccess: cpp.Reference<Bool>, OptionalLevelNameOverride: FString, OptionalLevelStreamingClass: TSubclassOf<LevelStreamingDynamic>, bLoadAsTempPackage: Bool): cpp.Star<LevelStreamingDynamic>;
-	public function LoadLevelInstance(WorldContextObject: cpp.Star<Object>, LevelName: FString, Location: Vector, Rotation: Rotator, bOutSuccess: cpp.Reference<Bool>, OptionalLevelNameOverride: FString, OptionalLevelStreamingClass: TSubclassOf<LevelStreamingDynamic>, bLoadAsTempPackage: Bool): cpp.Star<LevelStreamingDynamic>;
+	public function LoadLevelInstanceBySoftObjectPtr(WorldContextObject: ucpp.Ptr<Object>, Level: TSoftObjectPtr<World>, Location: Vector, Rotation: Rotator, bOutSuccess: ucpp.Ref<Bool>, OptionalLevelNameOverride: FString, OptionalLevelStreamingClass: TSubclassOf<LevelStreamingDynamic>, bLoadAsTempPackage: Bool): ucpp.Ptr<LevelStreamingDynamic>;
+	public function LoadLevelInstance(WorldContextObject: ucpp.Ptr<Object>, LevelName: FString, Location: Vector, Rotation: Rotator, bOutSuccess: ucpp.Ref<Bool>, OptionalLevelNameOverride: FString, OptionalLevelStreamingClass: TSubclassOf<LevelStreamingDynamic>, bLoadAsTempPackage: Bool): ucpp.Ptr<LevelStreamingDynamic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstLevelStreamingDynamic(LevelStreamingDynamic) from LevelStreamingDy
 @:forward
 @:nativeGen
 @:native("LevelStreamingDynamic*")
-abstract LevelStreamingDynamicPtr(cpp.Star<LevelStreamingDynamic>) from cpp.Star<LevelStreamingDynamic> to cpp.Star<LevelStreamingDynamic>{
+abstract LevelStreamingDynamicPtr(ucpp.Ptr<LevelStreamingDynamic>) from ucpp.Ptr<LevelStreamingDynamic> to ucpp.Ptr<LevelStreamingDynamic>{
 	@:from
 	public static extern inline function fromValue(v: LevelStreamingDynamic): LevelStreamingDynamicPtr {
 		return untyped __cpp__("&({0})", v);

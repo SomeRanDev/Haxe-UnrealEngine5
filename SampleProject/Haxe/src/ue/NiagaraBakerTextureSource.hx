@@ -2,11 +2,12 @@
 package ue;
 
 @:native("FNiagaraBakerTextureSource")
-@:include("NiagaraBakerSettings.h")
-@:structAccess
+@:include("NiagaraBakerOutput.h")
+@:valueType
 extern class NiagaraBakerTextureSource {
+	public var DisplayString: FString;
 	public var SourceName: FName;
 
 	@:native("FNiagaraBakerTextureSource") public function new();
-	@:native("FNiagaraBakerTextureSource") public static function make(SourceName: FName): NiagaraBakerTextureSource ;
+	@:native("FNiagaraBakerTextureSource") public static function make(DisplayString: FString, SourceName: FName): NiagaraBakerTextureSource ;
 }

@@ -2,11 +2,11 @@
 package ue;
 
 @:native("UMovieSceneEasingFunction")
-@:structAccess
+@:valueType
 extern class MovieSceneEasingFunction extends Interface {
-	@:protected public function OnEvaluate(Interp: cpp.Float32): cpp.Float32;
+	@:protected public function OnEvaluate(Interp: ucpp.num.Float32): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(OnEvaluate)
@@ -17,7 +17,7 @@ abstract ConstMovieSceneEasingFunction(MovieSceneEasingFunction) from MovieScene
 @:forward
 @:nativeGen
 @:native("MovieSceneEasingFunction*")
-abstract MovieSceneEasingFunctionPtr(cpp.Star<MovieSceneEasingFunction>) from cpp.Star<MovieSceneEasingFunction> to cpp.Star<MovieSceneEasingFunction>{
+abstract MovieSceneEasingFunctionPtr(ucpp.Ptr<MovieSceneEasingFunction>) from ucpp.Ptr<MovieSceneEasingFunction> to ucpp.Ptr<MovieSceneEasingFunction>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneEasingFunction): MovieSceneEasingFunctionPtr {
 		return untyped __cpp__("&({0})", v);

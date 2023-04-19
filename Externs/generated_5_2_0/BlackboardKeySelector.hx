@@ -3,14 +3,14 @@ package ue;
 
 @:native("FBlackboardKeySelector")
 @:include("BehaviorTree/BehaviorTreeTypes.h")
-@:structAccess
+@:valueType
 extern class BlackboardKeySelector {
-	public var AllowedTypes: TArray<cpp.Star<BlackboardKeyType>>;
+	public var AllowedTypes: TArray<ucpp.Ptr<BlackboardKeyType>>;
 	public var SelectedKeyName: FName;
 	public var SelectedKeyType: TSubclassOf<BlackboardKeyType>;
-	@:protected public var SelectedKeyID: cpp.Int32;
+	@:protected public var SelectedKeyID: ucpp.num.Int32;
 	@:protected public var bNoneIsAllowedValue: Bool;
 
 	@:native("FBlackboardKeySelector") public function new();
-	@:native("FBlackboardKeySelector") public static function make(AllowedTypes: TArray<cpp.Star<BlackboardKeyType>>, SelectedKeyName: FName, SelectedKeyType: TSubclassOf<BlackboardKeyType>, SelectedKeyID: cpp.Int32, bNoneIsAllowedValue: Bool): BlackboardKeySelector ;
+	@:native("FBlackboardKeySelector") public static function make(AllowedTypes: TArray<ucpp.Ptr<BlackboardKeyType>>, SelectedKeyName: FName, SelectedKeyType: TSubclassOf<BlackboardKeyType>, SelectedKeyID: ucpp.num.Int32, bNoneIsAllowedValue: Bool): BlackboardKeySelector ;
 }

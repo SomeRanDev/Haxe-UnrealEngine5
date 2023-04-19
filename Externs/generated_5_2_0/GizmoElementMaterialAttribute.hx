@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGizmoElementMaterialAttribute")
 @:include("BaseGizmos/GizmoElementRenderState.h")
-@:structAccess
+@:valueType
 extern class GizmoElementMaterialAttribute {
 	public var Value: TWeakObjectPtr<MaterialInterface>;
 	public var bOverridesChildState: Bool;

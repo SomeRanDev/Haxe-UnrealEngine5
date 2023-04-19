@@ -3,7 +3,7 @@ package ue;
 
 @:native("UEditorPerProjectUserSettings")
 @:include("Editor/EditorPerProjectUserSettings.h")
-@:structAccess
+@:valueType
 extern class EditorPerProjectUserSettings extends Object {
 	public var bDisplayUIExtensionPoints: Bool;
 	public var bDisplayDocumentationLink: Bool;
@@ -14,9 +14,9 @@ extern class EditorPerProjectUserSettings extends Object {
 	public var bUseSimplygonSwarm: Bool;
 	public var SimplygonServerIP: FString;
 	public var bEnableSwarmDebugging: Bool;
-	public var SimplygonSwarmDelay: cpp.UInt32;
-	public var SwarmNumOfConcurrentJobs: cpp.UInt32;
-	public var SwarmMaxUploadChunkSizeInMB: cpp.UInt32;
+	public var SimplygonSwarmDelay: ucpp.num.UInt32;
+	public var SwarmNumOfConcurrentJobs: ucpp.num.UInt32;
+	public var SwarmMaxUploadChunkSizeInMB: ucpp.num.UInt32;
 	public var SwarmIntermediateFolder: FString;
 	public var bAutomaticallyHotReloadNewClasses: Bool;
 	public var bShowCompilerLogOnCompileError: Bool;
@@ -26,26 +26,28 @@ extern class EditorPerProjectUserSettings extends Object {
 	public var bKeepAttachHierarchy: Bool;
 	public var bAnimationReimportWarnings: Bool;
 	public var bUseCurvesForDistributions: Bool;
-	public var PropertyMatrix_NumberOfPasteOperationsBeforeWarning: cpp.Int32;
+	public var PropertyMatrix_NumberOfPasteOperationsBeforeWarning: ucpp.num.Int32;
 	public var bSCSEditorShowGrid: Bool;
 	public var bSCSEditorShowFloor: Bool;
 	public var bGetAttentionOnUATCompletion: Bool;
 	public var bAlwaysBuildUAT: Bool;
-	public var SCSViewportCameraSpeed: cpp.Int32;
+	public var SCSViewportCameraSpeed: ucpp.num.Int32;
 	public var bAutoloadCheckedOutPackages: Bool;
 	public var bSuppressFullyLoadPrompt: Bool;
 	public var bAllowSelectTranslucent: Bool;
-	public var BlueprintFavorites: cpp.Star<BlueprintPaletteFavorites>;
-	public var AssetViewerProfileIndex: cpp.Int32;
+	public var bShowSelectionSubcomponents: Bool;
+	public var BlueprintFavorites: ucpp.Ptr<BlueprintPaletteFavorites>;
+	public var AssetViewerProfileIndex: ucpp.num.Int32;
 	public var AssetViewerProfileName: FString;
-	public var PreviewFeatureLevel: cpp.Int32;
+	public var PreviewFeatureLevel: ucpp.num.Int32;
 	public var PreviewPlatformName: FName;
 	public var PreviewShaderFormatName: FName;
+	public var PreviewShaderPlatformName: FName;
 	public var bPreviewFeatureLevelActive: Bool;
 	public var bPreviewFeatureLevelWasDefault: Bool;
 	public var PreviewDeviceProfileName: FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -69,12 +71,12 @@ abstract ConstEditorPerProjectUserSettings(EditorPerProjectUserSettings) from Ed
 	public inline extern function get_SimplygonServerIP(): FString return this.SimplygonServerIP;
 	public extern var bEnableSwarmDebugging(get, never): Bool;
 	public inline extern function get_bEnableSwarmDebugging(): Bool return this.bEnableSwarmDebugging;
-	public extern var SimplygonSwarmDelay(get, never): cpp.UInt32;
-	public inline extern function get_SimplygonSwarmDelay(): cpp.UInt32 return this.SimplygonSwarmDelay;
-	public extern var SwarmNumOfConcurrentJobs(get, never): cpp.UInt32;
-	public inline extern function get_SwarmNumOfConcurrentJobs(): cpp.UInt32 return this.SwarmNumOfConcurrentJobs;
-	public extern var SwarmMaxUploadChunkSizeInMB(get, never): cpp.UInt32;
-	public inline extern function get_SwarmMaxUploadChunkSizeInMB(): cpp.UInt32 return this.SwarmMaxUploadChunkSizeInMB;
+	public extern var SimplygonSwarmDelay(get, never): ucpp.num.UInt32;
+	public inline extern function get_SimplygonSwarmDelay(): ucpp.num.UInt32 return this.SimplygonSwarmDelay;
+	public extern var SwarmNumOfConcurrentJobs(get, never): ucpp.num.UInt32;
+	public inline extern function get_SwarmNumOfConcurrentJobs(): ucpp.num.UInt32 return this.SwarmNumOfConcurrentJobs;
+	public extern var SwarmMaxUploadChunkSizeInMB(get, never): ucpp.num.UInt32;
+	public inline extern function get_SwarmMaxUploadChunkSizeInMB(): ucpp.num.UInt32 return this.SwarmMaxUploadChunkSizeInMB;
 	public extern var SwarmIntermediateFolder(get, never): FString;
 	public inline extern function get_SwarmIntermediateFolder(): FString return this.SwarmIntermediateFolder;
 	public extern var bAutomaticallyHotReloadNewClasses(get, never): Bool;
@@ -93,8 +95,8 @@ abstract ConstEditorPerProjectUserSettings(EditorPerProjectUserSettings) from Ed
 	public inline extern function get_bAnimationReimportWarnings(): Bool return this.bAnimationReimportWarnings;
 	public extern var bUseCurvesForDistributions(get, never): Bool;
 	public inline extern function get_bUseCurvesForDistributions(): Bool return this.bUseCurvesForDistributions;
-	public extern var PropertyMatrix_NumberOfPasteOperationsBeforeWarning(get, never): cpp.Int32;
-	public inline extern function get_PropertyMatrix_NumberOfPasteOperationsBeforeWarning(): cpp.Int32 return this.PropertyMatrix_NumberOfPasteOperationsBeforeWarning;
+	public extern var PropertyMatrix_NumberOfPasteOperationsBeforeWarning(get, never): ucpp.num.Int32;
+	public inline extern function get_PropertyMatrix_NumberOfPasteOperationsBeforeWarning(): ucpp.num.Int32 return this.PropertyMatrix_NumberOfPasteOperationsBeforeWarning;
 	public extern var bSCSEditorShowGrid(get, never): Bool;
 	public inline extern function get_bSCSEditorShowGrid(): Bool return this.bSCSEditorShowGrid;
 	public extern var bSCSEditorShowFloor(get, never): Bool;
@@ -103,26 +105,30 @@ abstract ConstEditorPerProjectUserSettings(EditorPerProjectUserSettings) from Ed
 	public inline extern function get_bGetAttentionOnUATCompletion(): Bool return this.bGetAttentionOnUATCompletion;
 	public extern var bAlwaysBuildUAT(get, never): Bool;
 	public inline extern function get_bAlwaysBuildUAT(): Bool return this.bAlwaysBuildUAT;
-	public extern var SCSViewportCameraSpeed(get, never): cpp.Int32;
-	public inline extern function get_SCSViewportCameraSpeed(): cpp.Int32 return this.SCSViewportCameraSpeed;
+	public extern var SCSViewportCameraSpeed(get, never): ucpp.num.Int32;
+	public inline extern function get_SCSViewportCameraSpeed(): ucpp.num.Int32 return this.SCSViewportCameraSpeed;
 	public extern var bAutoloadCheckedOutPackages(get, never): Bool;
 	public inline extern function get_bAutoloadCheckedOutPackages(): Bool return this.bAutoloadCheckedOutPackages;
 	public extern var bSuppressFullyLoadPrompt(get, never): Bool;
 	public inline extern function get_bSuppressFullyLoadPrompt(): Bool return this.bSuppressFullyLoadPrompt;
 	public extern var bAllowSelectTranslucent(get, never): Bool;
 	public inline extern function get_bAllowSelectTranslucent(): Bool return this.bAllowSelectTranslucent;
-	public extern var BlueprintFavorites(get, never): cpp.Star<BlueprintPaletteFavorites.ConstBlueprintPaletteFavorites>;
-	public inline extern function get_BlueprintFavorites(): cpp.Star<BlueprintPaletteFavorites.ConstBlueprintPaletteFavorites> return this.BlueprintFavorites;
-	public extern var AssetViewerProfileIndex(get, never): cpp.Int32;
-	public inline extern function get_AssetViewerProfileIndex(): cpp.Int32 return this.AssetViewerProfileIndex;
+	public extern var bShowSelectionSubcomponents(get, never): Bool;
+	public inline extern function get_bShowSelectionSubcomponents(): Bool return this.bShowSelectionSubcomponents;
+	public extern var BlueprintFavorites(get, never): ucpp.Ptr<BlueprintPaletteFavorites.ConstBlueprintPaletteFavorites>;
+	public inline extern function get_BlueprintFavorites(): ucpp.Ptr<BlueprintPaletteFavorites.ConstBlueprintPaletteFavorites> return this.BlueprintFavorites;
+	public extern var AssetViewerProfileIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_AssetViewerProfileIndex(): ucpp.num.Int32 return this.AssetViewerProfileIndex;
 	public extern var AssetViewerProfileName(get, never): FString;
 	public inline extern function get_AssetViewerProfileName(): FString return this.AssetViewerProfileName;
-	public extern var PreviewFeatureLevel(get, never): cpp.Int32;
-	public inline extern function get_PreviewFeatureLevel(): cpp.Int32 return this.PreviewFeatureLevel;
+	public extern var PreviewFeatureLevel(get, never): ucpp.num.Int32;
+	public inline extern function get_PreviewFeatureLevel(): ucpp.num.Int32 return this.PreviewFeatureLevel;
 	public extern var PreviewPlatformName(get, never): FName;
 	public inline extern function get_PreviewPlatformName(): FName return this.PreviewPlatformName;
 	public extern var PreviewShaderFormatName(get, never): FName;
 	public inline extern function get_PreviewShaderFormatName(): FName return this.PreviewShaderFormatName;
+	public extern var PreviewShaderPlatformName(get, never): FName;
+	public inline extern function get_PreviewShaderPlatformName(): FName return this.PreviewShaderPlatformName;
 	public extern var bPreviewFeatureLevelActive(get, never): Bool;
 	public inline extern function get_bPreviewFeatureLevelActive(): Bool return this.bPreviewFeatureLevelActive;
 	public extern var bPreviewFeatureLevelWasDefault(get, never): Bool;
@@ -134,7 +140,7 @@ abstract ConstEditorPerProjectUserSettings(EditorPerProjectUserSettings) from Ed
 @:forward
 @:nativeGen
 @:native("EditorPerProjectUserSettings*")
-abstract EditorPerProjectUserSettingsPtr(cpp.Star<EditorPerProjectUserSettings>) from cpp.Star<EditorPerProjectUserSettings> to cpp.Star<EditorPerProjectUserSettings>{
+abstract EditorPerProjectUserSettingsPtr(ucpp.Ptr<EditorPerProjectUserSettings>) from ucpp.Ptr<EditorPerProjectUserSettings> to ucpp.Ptr<EditorPerProjectUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: EditorPerProjectUserSettings): EditorPerProjectUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

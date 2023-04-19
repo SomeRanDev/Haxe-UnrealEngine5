@@ -3,15 +3,15 @@ package ue;
 
 @:native("ULandscapeSplineSegment")
 @:include("LandscapeSplineSegment.h")
-@:structAccess
+@:valueType
 extern class LandscapeSplineSegment extends Object {
 	public var Connections: LandscapeSplineSegmentConnection;
 	@:protected public var SplineInfo: InterpCurveVector;
 	@:protected public var Points: TArray<LandscapeSplineInterpPoint>;
 	@:protected public var Bounds: Box;
-	@:protected public var LocalMeshComponents: TArray<cpp.Star<SplineMeshComp>>;
+	@:protected public var LocalMeshComponents: TArray<ucpp.Ptr<SplineMeshComp>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstLandscapeSplineSegment(LandscapeSplineSegment) from LandscapeSplin
 @:forward
 @:nativeGen
 @:native("LandscapeSplineSegment*")
-abstract LandscapeSplineSegmentPtr(cpp.Star<LandscapeSplineSegment>) from cpp.Star<LandscapeSplineSegment> to cpp.Star<LandscapeSplineSegment>{
+abstract LandscapeSplineSegmentPtr(ucpp.Ptr<LandscapeSplineSegment>) from ucpp.Ptr<LandscapeSplineSegment> to ucpp.Ptr<LandscapeSplineSegment>{
 	@:from
 	public static extern inline function fromValue(v: LandscapeSplineSegment): LandscapeSplineSegmentPtr {
 		return untyped __cpp__("&({0})", v);

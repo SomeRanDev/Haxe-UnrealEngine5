@@ -3,11 +3,11 @@ package ue;
 
 @:native("UNiagaraBakerOutput")
 @:include("NiagaraBakerOutput.h")
-@:structAccess
+@:valueType
 extern class NiagaraBakerOutput extends Object {
 	public var OutputName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstNiagaraBakerOutput(NiagaraBakerOutput) from NiagaraBakerOutput {
 @:forward
 @:nativeGen
 @:native("NiagaraBakerOutput*")
-abstract NiagaraBakerOutputPtr(cpp.Star<NiagaraBakerOutput>) from cpp.Star<NiagaraBakerOutput> to cpp.Star<NiagaraBakerOutput>{
+abstract NiagaraBakerOutputPtr(ucpp.Ptr<NiagaraBakerOutput>) from ucpp.Ptr<NiagaraBakerOutput> to ucpp.Ptr<NiagaraBakerOutput>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraBakerOutput): NiagaraBakerOutputPtr {
 		return untyped __cpp__("&({0})", v);

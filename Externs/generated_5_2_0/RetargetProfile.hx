@@ -3,7 +3,7 @@ package ue;
 
 @:native("FRetargetProfile")
 @:include("Retargeter/IKRetargetProfile.h")
-@:structAccess
+@:valueType
 extern class RetargetProfile {
 	public var bApplyTargetRetargetPose: Bool;
 	public var TargetRetargetPoseName: FName;

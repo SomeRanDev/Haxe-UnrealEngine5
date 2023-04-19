@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMovieSceneSignedObject")
 @:include("MovieSceneSignedObject.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSignedObject extends Object {
 	private var Signature: Guid;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstMovieSceneSignedObject(MovieSceneSignedObject) from MovieSceneSign
 @:forward
 @:nativeGen
 @:native("MovieSceneSignedObject*")
-abstract MovieSceneSignedObjectPtr(cpp.Star<MovieSceneSignedObject>) from cpp.Star<MovieSceneSignedObject> to cpp.Star<MovieSceneSignedObject>{
+abstract MovieSceneSignedObjectPtr(ucpp.Ptr<MovieSceneSignedObject>) from ucpp.Ptr<MovieSceneSignedObject> to ucpp.Ptr<MovieSceneSignedObject>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSignedObject): MovieSceneSignedObjectPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("UMaterialExpressionTextureSample")
 @:include("Materials/MaterialExpressionTextureSample.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTextureSample extends MaterialExpressionTextureBase {
 	public var Coordinates: ExpressionInput;
 	public var TextureObject: ExpressionInput;
@@ -14,10 +14,10 @@ extern class MaterialExpressionTextureSample extends MaterialExpressionTextureBa
 	public var MipValueMode: TEnumAsByte<ETextureMipValueMode>;
 	public var SamplerSource: TEnumAsByte<ESamplerSourceMode>;
 	public var AutomaticViewMipBias: Bool;
-	public var ConstCoordinate: cpp.UInt8;
-	public var ConstMipValue: cpp.Int32;
+	public var ConstCoordinate: ucpp.num.UInt8;
+	public var ConstMipValue: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -41,16 +41,16 @@ abstract ConstMaterialExpressionTextureSample(MaterialExpressionTextureSample) f
 	public inline extern function get_SamplerSource(): TEnumAsByte<ESamplerSourceMode> return this.SamplerSource;
 	public extern var AutomaticViewMipBias(get, never): Bool;
 	public inline extern function get_AutomaticViewMipBias(): Bool return this.AutomaticViewMipBias;
-	public extern var ConstCoordinate(get, never): cpp.UInt8;
-	public inline extern function get_ConstCoordinate(): cpp.UInt8 return this.ConstCoordinate;
-	public extern var ConstMipValue(get, never): cpp.Int32;
-	public inline extern function get_ConstMipValue(): cpp.Int32 return this.ConstMipValue;
+	public extern var ConstCoordinate(get, never): ucpp.num.UInt8;
+	public inline extern function get_ConstCoordinate(): ucpp.num.UInt8 return this.ConstCoordinate;
+	public extern var ConstMipValue(get, never): ucpp.num.Int32;
+	public inline extern function get_ConstMipValue(): ucpp.num.Int32 return this.ConstMipValue;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTextureSample*")
-abstract MaterialExpressionTextureSamplePtr(cpp.Star<MaterialExpressionTextureSample>) from cpp.Star<MaterialExpressionTextureSample> to cpp.Star<MaterialExpressionTextureSample>{
+abstract MaterialExpressionTextureSamplePtr(ucpp.Ptr<MaterialExpressionTextureSample>) from ucpp.Ptr<MaterialExpressionTextureSample> to ucpp.Ptr<MaterialExpressionTextureSample>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTextureSample): MaterialExpressionTextureSamplePtr {
 		return untyped __cpp__("&({0})", v);

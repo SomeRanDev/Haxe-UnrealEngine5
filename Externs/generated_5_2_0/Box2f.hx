@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBox2f")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Box2f {
 	public var Min: Vector2f;
 	public var Max: Vector2f;

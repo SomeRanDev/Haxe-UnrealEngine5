@@ -3,24 +3,24 @@ package ue;
 
 @:native("UChannel")
 @:include("Engine/Channel.h")
-@:structAccess
+@:valueType
 extern class Channel extends Object {
-	public var Connection: cpp.Star<NetConnection>;
+	public var Connection: ucpp.Ptr<NetConnection>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstChannel(Channel) from Channel {
-	public extern var Connection(get, never): cpp.Star<NetConnection.ConstNetConnection>;
-	public inline extern function get_Connection(): cpp.Star<NetConnection.ConstNetConnection> return this.Connection;
+	public extern var Connection(get, never): ucpp.Ptr<NetConnection.ConstNetConnection>;
+	public inline extern function get_Connection(): ucpp.Ptr<NetConnection.ConstNetConnection> return this.Connection;
 }
 
 @:forward
 @:nativeGen
 @:native("Channel*")
-abstract ChannelPtr(cpp.Star<Channel>) from cpp.Star<Channel> to cpp.Star<Channel>{
+abstract ChannelPtr(ucpp.Ptr<Channel>) from ucpp.Ptr<Channel> to ucpp.Ptr<Channel>{
 	@:from
 	public static extern inline function fromValue(v: Channel): ChannelPtr {
 		return untyped __cpp__("&({0})", v);

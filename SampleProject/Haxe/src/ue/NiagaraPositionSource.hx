@@ -3,7 +3,7 @@ package ue;
 
 @:native("FNiagaraPositionSource")
 @:include("NiagaraParameterStore.h")
-@:structAccess
+@:valueType
 extern class NiagaraPositionSource {
 	public var Name: FName;
 	public var Value: Vector;

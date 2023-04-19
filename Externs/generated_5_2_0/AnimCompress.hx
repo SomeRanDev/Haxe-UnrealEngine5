@@ -3,14 +3,14 @@ package ue;
 
 @:native("UAnimCompress")
 @:include("Animation/AnimCompress.h")
-@:structAccess
+@:valueType
 extern class AnimCompress extends AnimBoneCompressionCodec {
 	public var bNeedsSkeleton: Bool;
 	public var TranslationCompressionFormat: TEnumAsByte<AnimationCompressionFormat>;
 	public var RotationCompressionFormat: TEnumAsByte<AnimationCompressionFormat>;
 	public var ScaleCompressionFormat: TEnumAsByte<AnimationCompressionFormat>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstAnimCompress(AnimCompress) from AnimCompress {
 @:forward
 @:nativeGen
 @:native("AnimCompress*")
-abstract AnimCompressPtr(cpp.Star<AnimCompress>) from cpp.Star<AnimCompress> to cpp.Star<AnimCompress>{
+abstract AnimCompressPtr(ucpp.Ptr<AnimCompress>) from ucpp.Ptr<AnimCompress> to ucpp.Ptr<AnimCompress>{
 	@:from
 	public static extern inline function fromValue(v: AnimCompress): AnimCompressPtr {
 		return untyped __cpp__("&({0})", v);

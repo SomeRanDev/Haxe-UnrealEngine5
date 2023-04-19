@@ -3,17 +3,17 @@ package ue;
 
 @:native("UAnimationCurveIdentifierExtensions")
 @:include("Animation/AnimData/CurveIdentifier.h")
-@:structAccess
+@:valueType
 extern class AnimationCurveIdentifierExtensions extends BlueprintFunctionLibrary {
-	public function IsValid(Identifier: cpp.Reference<AnimationCurveIdentifier>): Bool;
-	public function GetType(Identifier: cpp.Reference<AnimationCurveIdentifier>): ERawCurveTrackTypes;
-	public function GetTransformChildCurveIdentifier(InOutIdentifier: cpp.Reference<AnimationCurveIdentifier>, Channel: ETransformCurveChannel, Axis: EVectorCurveChannel): Bool;
-	public function GetName(Identifier: cpp.Reference<AnimationCurveIdentifier>): FName;
-	public function GetCurveIdentifiers(InSkeleton: cpp.Star<Skeleton>, CurveType: ERawCurveTrackTypes): TArray<AnimationCurveIdentifier>;
-	public function GetCurveIdentifier(InSkeleton: cpp.Star<Skeleton>, Name: FName, CurveType: ERawCurveTrackTypes): AnimationCurveIdentifier;
-	public function FindCurveIdentifier(InSkeleton: cpp.Star<Skeleton.ConstSkeleton>, Name: FName, CurveType: ERawCurveTrackTypes): AnimationCurveIdentifier;
+	public function IsValid(Identifier: ucpp.Ref<AnimationCurveIdentifier>): Bool;
+	public function GetType(Identifier: ucpp.Ref<AnimationCurveIdentifier>): ERawCurveTrackTypes;
+	public function GetTransformChildCurveIdentifier(InOutIdentifier: ucpp.Ref<AnimationCurveIdentifier>, Channel: ETransformCurveChannel, Axis: EVectorCurveChannel): Bool;
+	public function GetName(Identifier: ucpp.Ref<AnimationCurveIdentifier>): FName;
+	public function GetCurveIdentifiers(InSkeleton: ucpp.Ptr<Skeleton>, CurveType: ERawCurveTrackTypes): TArray<AnimationCurveIdentifier>;
+	public function GetCurveIdentifier(InSkeleton: ucpp.Ptr<Skeleton>, Name: FName, CurveType: ERawCurveTrackTypes): AnimationCurveIdentifier;
+	public function FindCurveIdentifier(InSkeleton: ucpp.Ptr<Skeleton.ConstSkeleton>, Name: FName, CurveType: ERawCurveTrackTypes): AnimationCurveIdentifier;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,7 +24,7 @@ abstract ConstAnimationCurveIdentifierExtensions(AnimationCurveIdentifierExtensi
 @:forward
 @:nativeGen
 @:native("AnimationCurveIdentifierExtensions*")
-abstract AnimationCurveIdentifierExtensionsPtr(cpp.Star<AnimationCurveIdentifierExtensions>) from cpp.Star<AnimationCurveIdentifierExtensions> to cpp.Star<AnimationCurveIdentifierExtensions>{
+abstract AnimationCurveIdentifierExtensionsPtr(ucpp.Ptr<AnimationCurveIdentifierExtensions>) from ucpp.Ptr<AnimationCurveIdentifierExtensions> to ucpp.Ptr<AnimationCurveIdentifierExtensions>{
 	@:from
 	public static extern inline function fromValue(v: AnimationCurveIdentifierExtensions): AnimationCurveIdentifierExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

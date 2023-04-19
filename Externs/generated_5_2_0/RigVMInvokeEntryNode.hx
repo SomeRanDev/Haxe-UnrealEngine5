@@ -3,11 +3,11 @@ package ue;
 
 @:native("URigVMInvokeEntryNode")
 @:include("RigVMModel/Nodes/RigVMInvokeEntryNode.h")
-@:structAccess
+@:valueType
 extern class RigVMInvokeEntryNode extends RigVMNode {
 	public function GetEntryName(): FName;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetEntryName)
@@ -18,7 +18,7 @@ abstract ConstRigVMInvokeEntryNode(RigVMInvokeEntryNode) from RigVMInvokeEntryNo
 @:forward
 @:nativeGen
 @:native("RigVMInvokeEntryNode*")
-abstract RigVMInvokeEntryNodePtr(cpp.Star<RigVMInvokeEntryNode>) from cpp.Star<RigVMInvokeEntryNode> to cpp.Star<RigVMInvokeEntryNode>{
+abstract RigVMInvokeEntryNodePtr(ucpp.Ptr<RigVMInvokeEntryNode>) from ucpp.Ptr<RigVMInvokeEntryNode> to ucpp.Ptr<RigVMInvokeEntryNode>{
 	@:from
 	public static extern inline function fromValue(v: RigVMInvokeEntryNode): RigVMInvokeEntryNodePtr {
 		return untyped __cpp__("&({0})", v);

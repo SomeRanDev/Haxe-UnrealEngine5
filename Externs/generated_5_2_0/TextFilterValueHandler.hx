@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextFilterValueHandler")
 @:include("TextFilterValueHandler.h")
-@:structAccess
+@:valueType
 extern class TextFilterValueHandler extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextFilterValueHandler(TextFilterValueHandler) from TextFilterValu
 @:forward
 @:nativeGen
 @:native("TextFilterValueHandler*")
-abstract TextFilterValueHandlerPtr(cpp.Star<TextFilterValueHandler>) from cpp.Star<TextFilterValueHandler> to cpp.Star<TextFilterValueHandler>{
+abstract TextFilterValueHandlerPtr(ucpp.Ptr<TextFilterValueHandler>) from ucpp.Ptr<TextFilterValueHandler> to ucpp.Ptr<TextFilterValueHandler>{
 	@:from
 	public static extern inline function fromValue(v: TextFilterValueHandler): TextFilterValueHandlerPtr {
 		return untyped __cpp__("&({0})", v);

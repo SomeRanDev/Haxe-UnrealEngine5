@@ -3,12 +3,12 @@ package ue;
 
 @:native("UAnimSequencerController")
 @:include("AnimSequencerController.h")
-@:structAccess
+@:valueType
 extern class AnimSequencerController extends Object {
 	private var Model: TWeakObjectPtr<AnimationSequencerDataModel>;
 	private var ModelInterface: AnimationDataModel;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstAnimSequencerController(AnimSequencerController) from AnimSequence
 @:forward
 @:nativeGen
 @:native("AnimSequencerController*")
-abstract AnimSequencerControllerPtr(cpp.Star<AnimSequencerController>) from cpp.Star<AnimSequencerController> to cpp.Star<AnimSequencerController>{
+abstract AnimSequencerControllerPtr(ucpp.Ptr<AnimSequencerController>) from ucpp.Ptr<AnimSequencerController> to ucpp.Ptr<AnimSequencerController>{
 	@:from
 	public static extern inline function fromValue(v: AnimSequencerController): AnimSequencerControllerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UViewportInteractableInterface")
-@:structAccess
+@:valueType
 extern class ViewportInteractableInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstViewportInteractableInterface(ViewportInteractableInterface) from 
 @:forward
 @:nativeGen
 @:native("ViewportInteractableInterface*")
-abstract ViewportInteractableInterfacePtr(cpp.Star<ViewportInteractableInterface>) from cpp.Star<ViewportInteractableInterface> to cpp.Star<ViewportInteractableInterface>{
+abstract ViewportInteractableInterfacePtr(ucpp.Ptr<ViewportInteractableInterface>) from ucpp.Ptr<ViewportInteractableInterface> to ucpp.Ptr<ViewportInteractableInterface>{
 	@:from
 	public static extern inline function fromValue(v: ViewportInteractableInterface): ViewportInteractableInterfacePtr {
 		return untyped __cpp__("&({0})", v);

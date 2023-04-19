@@ -3,7 +3,7 @@ package ue;
 
 @:native("FFrameNumberRangeBound")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class FrameNumberRangeBound {
 	private var Type: TEnumAsByte<ERangeBoundTypes>;
 	private var Value: FrameNumber;

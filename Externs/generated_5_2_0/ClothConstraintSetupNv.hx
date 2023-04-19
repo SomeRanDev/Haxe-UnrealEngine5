@@ -3,13 +3,13 @@ package ue;
 
 @:native("FClothConstraintSetupNv")
 @:include("ClothConfigNv.h")
-@:structAccess
+@:valueType
 extern class ClothConstraintSetupNv {
-	public var Stiffness: cpp.Float32;
-	public var StiffnessMultiplier: cpp.Float32;
-	public var StretchLimit: cpp.Float32;
-	public var CompressionLimit: cpp.Float32;
+	public var Stiffness: ucpp.num.Float32;
+	public var StiffnessMultiplier: ucpp.num.Float32;
+	public var StretchLimit: ucpp.num.Float32;
+	public var CompressionLimit: ucpp.num.Float32;
 
 	@:native("FClothConstraintSetupNv") public function new();
-	@:native("FClothConstraintSetupNv") public static function make(Stiffness: cpp.Float32, StiffnessMultiplier: cpp.Float32, StretchLimit: cpp.Float32, CompressionLimit: cpp.Float32): ClothConstraintSetupNv ;
+	@:native("FClothConstraintSetupNv") public static function make(Stiffness: ucpp.num.Float32, StiffnessMultiplier: ucpp.num.Float32, StretchLimit: ucpp.num.Float32, CompressionLimit: ucpp.num.Float32): ClothConstraintSetupNv ;
 }

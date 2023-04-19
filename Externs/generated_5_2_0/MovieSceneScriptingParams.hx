@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovieSceneScriptingParams")
 @:include("LevelSequenceEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneScriptingParams {
 	public var TimeUnit: ESequenceTimeUnit;
 

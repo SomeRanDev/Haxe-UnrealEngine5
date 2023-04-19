@@ -3,11 +3,11 @@ package ue;
 
 @:native("UAnimGraphNode_ControlRig")
 @:include("AnimGraphNode_ControlRig.h")
-@:structAccess
+@:valueType
 extern class AnimGraphNode_ControlRig extends AnimGraphNode_CustomProperty {
 	public var Node: AnimNode_ControlRig;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstAnimGraphNode_ControlRig(AnimGraphNode_ControlRig) from AnimGraphN
 @:forward
 @:nativeGen
 @:native("AnimGraphNode_ControlRig*")
-abstract AnimGraphNode_ControlRigPtr(cpp.Star<AnimGraphNode_ControlRig>) from cpp.Star<AnimGraphNode_ControlRig> to cpp.Star<AnimGraphNode_ControlRig>{
+abstract AnimGraphNode_ControlRigPtr(ucpp.Ptr<AnimGraphNode_ControlRig>) from ucpp.Ptr<AnimGraphNode_ControlRig> to ucpp.Ptr<AnimGraphNode_ControlRig>{
 	@:from
 	public static extern inline function fromValue(v: AnimGraphNode_ControlRig): AnimGraphNode_ControlRigPtr {
 		return untyped __cpp__("&({0})", v);

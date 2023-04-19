@@ -3,13 +3,13 @@ package ue;
 
 @:native("ABaseTransformGizmo")
 @:include("VIBaseTransformGizmo.h")
-@:structAccess
+@:valueType
 extern class BaseTransformGizmo extends Actor {
-	@:protected public var SceneComponent: cpp.Star<SceneComp>;
-	@:protected public var AllHandleGroups: TArray<cpp.Star<GizmoHandleGroup>>;
-	@:protected public var WorldInteraction: cpp.Star<ViewportWorldInteraction>;
+	@:protected public var SceneComponent: ucpp.Ptr<SceneComp>;
+	@:protected public var AllHandleGroups: TArray<ucpp.Ptr<GizmoHandleGroup>>;
+	@:protected public var WorldInteraction: ucpp.Ptr<ViewportWorldInteraction>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstBaseTransformGizmo(BaseTransformGizmo) from BaseTransformGizmo {
 @:forward
 @:nativeGen
 @:native("BaseTransformGizmo*")
-abstract BaseTransformGizmoPtr(cpp.Star<BaseTransformGizmo>) from cpp.Star<BaseTransformGizmo> to cpp.Star<BaseTransformGizmo>{
+abstract BaseTransformGizmoPtr(ucpp.Ptr<BaseTransformGizmo>) from ucpp.Ptr<BaseTransformGizmo> to ucpp.Ptr<BaseTransformGizmo>{
 	@:from
 	public static extern inline function fromValue(v: BaseTransformGizmo): BaseTransformGizmoPtr {
 		return untyped __cpp__("&({0})", v);

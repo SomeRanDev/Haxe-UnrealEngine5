@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraCurveSelectionViewModel")
 @:include("ViewModels/NiagaraCurveSelectionViewModel.h")
-@:structAccess
+@:valueType
 extern class NiagaraCurveSelectionViewModel extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraCurveSelectionViewModel(NiagaraCurveSelectionViewModel) fro
 @:forward
 @:nativeGen
 @:native("NiagaraCurveSelectionViewModel*")
-abstract NiagaraCurveSelectionViewModelPtr(cpp.Star<NiagaraCurveSelectionViewModel>) from cpp.Star<NiagaraCurveSelectionViewModel> to cpp.Star<NiagaraCurveSelectionViewModel>{
+abstract NiagaraCurveSelectionViewModelPtr(ucpp.Ptr<NiagaraCurveSelectionViewModel>) from ucpp.Ptr<NiagaraCurveSelectionViewModel> to ucpp.Ptr<NiagaraCurveSelectionViewModel>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraCurveSelectionViewModel): NiagaraCurveSelectionViewModelPtr {
 		return untyped __cpp__("&({0})", v);

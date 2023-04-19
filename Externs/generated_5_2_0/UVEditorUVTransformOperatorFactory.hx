@@ -3,24 +3,24 @@ package ue;
 
 @:native("UUVEditorUVTransformOperatorFactory")
 @:include("Operators/UVEditorUVTransformOp.h")
-@:structAccess
+@:valueType
 extern class UVEditorUVTransformOperatorFactory extends Object {
-	public var Settings: cpp.Star<UVEditorUVTransformPropertiesBase>;
+	public var Settings: ucpp.Ptr<UVEditorUVTransformPropertiesBase>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstUVEditorUVTransformOperatorFactory(UVEditorUVTransformOperatorFactory) from UVEditorUVTransformOperatorFactory {
-	public extern var Settings(get, never): cpp.Star<UVEditorUVTransformPropertiesBase.ConstUVEditorUVTransformPropertiesBase>;
-	public inline extern function get_Settings(): cpp.Star<UVEditorUVTransformPropertiesBase.ConstUVEditorUVTransformPropertiesBase> return this.Settings;
+	public extern var Settings(get, never): ucpp.Ptr<UVEditorUVTransformPropertiesBase.ConstUVEditorUVTransformPropertiesBase>;
+	public inline extern function get_Settings(): ucpp.Ptr<UVEditorUVTransformPropertiesBase.ConstUVEditorUVTransformPropertiesBase> return this.Settings;
 }
 
 @:forward
 @:nativeGen
 @:native("UVEditorUVTransformOperatorFactory*")
-abstract UVEditorUVTransformOperatorFactoryPtr(cpp.Star<UVEditorUVTransformOperatorFactory>) from cpp.Star<UVEditorUVTransformOperatorFactory> to cpp.Star<UVEditorUVTransformOperatorFactory>{
+abstract UVEditorUVTransformOperatorFactoryPtr(ucpp.Ptr<UVEditorUVTransformOperatorFactory>) from ucpp.Ptr<UVEditorUVTransformOperatorFactory> to ucpp.Ptr<UVEditorUVTransformOperatorFactory>{
 	@:from
 	public static extern inline function fromValue(v: UVEditorUVTransformOperatorFactory): UVEditorUVTransformOperatorFactoryPtr {
 		return untyped __cpp__("&({0})", v);

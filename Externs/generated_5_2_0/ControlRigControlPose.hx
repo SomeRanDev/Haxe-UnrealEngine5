@@ -3,7 +3,7 @@ package ue;
 
 @:native("FControlRigControlPose")
 @:include("Tools/ControlRigPose.h")
-@:structAccess
+@:valueType
 extern class ControlRigControlPose {
 	public var CopyOfControls: TArray<RigControlCopy>;
 

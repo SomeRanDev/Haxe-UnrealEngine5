@@ -3,7 +3,7 @@ package ue;
 
 @:native("UCommandlet")
 @:include("Commandlets/Commandlet.h")
-@:structAccess
+@:valueType
 extern class Commandlet extends Object {
 	public var HelpDescription: FString;
 	public var HelpUsage: FString;
@@ -18,7 +18,7 @@ extern class Commandlet extends Object {
 	public var ShowProgress: Bool;
 	public var FastExit: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -53,7 +53,7 @@ abstract ConstCommandlet(Commandlet) from Commandlet {
 @:forward
 @:nativeGen
 @:native("Commandlet*")
-abstract CommandletPtr(cpp.Star<Commandlet>) from cpp.Star<Commandlet> to cpp.Star<Commandlet>{
+abstract CommandletPtr(ucpp.Ptr<Commandlet>) from ucpp.Ptr<Commandlet> to ucpp.Ptr<Commandlet>{
 	@:from
 	public static extern inline function fromValue(v: Commandlet): CommandletPtr {
 		return untyped __cpp__("&({0})", v);

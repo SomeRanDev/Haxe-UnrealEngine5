@@ -2,7 +2,7 @@
 package ue;
 
 @:native("TextureFilter")
-@:include("Engine/Texture.h")
+@:include("Engine/TextureDefines.h")
 extern class TextureFilter {
 	static var TF_Nearest: TextureFilter;
 	static var TF_Bilinear: TextureFilter;

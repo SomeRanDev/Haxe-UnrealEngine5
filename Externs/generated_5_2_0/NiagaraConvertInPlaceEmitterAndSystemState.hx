@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraConvertInPlaceEmitterAndSystemState")
 @:include("NiagaraConvertInPlaceEmitterAndSystemState.h")
-@:structAccess
+@:valueType
 extern class NiagaraConvertInPlaceEmitterAndSystemState extends NiagaraConvertInPlaceUtilityBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraConvertInPlaceEmitterAndSystemState(NiagaraConvertInPlaceEm
 @:forward
 @:nativeGen
 @:native("NiagaraConvertInPlaceEmitterAndSystemState*")
-abstract NiagaraConvertInPlaceEmitterAndSystemStatePtr(cpp.Star<NiagaraConvertInPlaceEmitterAndSystemState>) from cpp.Star<NiagaraConvertInPlaceEmitterAndSystemState> to cpp.Star<NiagaraConvertInPlaceEmitterAndSystemState>{
+abstract NiagaraConvertInPlaceEmitterAndSystemStatePtr(ucpp.Ptr<NiagaraConvertInPlaceEmitterAndSystemState>) from ucpp.Ptr<NiagaraConvertInPlaceEmitterAndSystemState> to ucpp.Ptr<NiagaraConvertInPlaceEmitterAndSystemState>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraConvertInPlaceEmitterAndSystemState): NiagaraConvertInPlaceEmitterAndSystemStatePtr {
 		return untyped __cpp__("&({0})", v);

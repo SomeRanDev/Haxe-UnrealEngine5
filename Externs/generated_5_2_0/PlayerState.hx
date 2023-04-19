@@ -3,41 +3,41 @@ package ue;
 
 @:native("APlayerState")
 @:include("GameFramework/PlayerState.h")
-@:structAccess
+@:valueType
 extern class PlayerState extends Info {
-	public function GetScore(): cpp.Float32;
-	public function GetPlayerId(): cpp.Int32;
-	public function GetCompressedPing(): cpp.UInt8;
+	public function GetScore(): ucpp.num.Float32;
+	public function GetPlayerId(): ucpp.num.Int32;
+	public function GetCompressedPing(): ucpp.num.UInt8;
 	private var bShouldUpdateReplicatedPing: Bool;
 	public function IsSpectator(): Bool;
 	public var bOnlySpectator: Bool;
 	public function IsABot(): Bool;
 	public var bIsInactive: Bool;
 	public var bFromPreviousLevel: Bool;
-	public var StartTime: cpp.Int32;
+	public var StartTime: ucpp.num.Int32;
 	public var EngineMessageClass: TSubclassOf<LocalMessage>;
 	public var SavedNetworkAddress: FString;
 	public var UniqueId: UniqueNetIdRepl;
-	public var OnPawnSet: HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerState>, cpp.Star<Pawn>, cpp.Star<Pawn>) -> Void>;
-	private var PawnPrivate: cpp.Star<Pawn>;
+	public var OnPawnSet: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerState>, ucpp.Ptr<Pawn>, ucpp.Ptr<Pawn>) -> Void>;
+	private var PawnPrivate: ucpp.Ptr<Pawn>;
 	private var PlayerNamePrivate: FString;
 
-	@:protected public function ReceiveOverrideWith(OldPlayerState: cpp.Star<PlayerState>): Void;
-	@:protected public function ReceiveCopyProperties(NewPlayerState: cpp.Star<PlayerState>): Void;
+	@:protected public function ReceiveOverrideWith(OldPlayerState: ucpp.Ptr<PlayerState>): Void;
+	@:protected public function ReceiveCopyProperties(NewPlayerState: ucpp.Ptr<PlayerState>): Void;
 	public function OnRep_UniqueId(): Void;
 	public function OnRep_Score(): Void;
 	public function OnRep_PlayerName(): Void;
 	public function OnRep_PlayerId(): Void;
 	public function OnRep_bIsInactive(): Void;
-	private function OnPawnPrivateDestroyed(InActor: cpp.Star<Actor>): Void;
+	private function OnPawnPrivateDestroyed(InActor: ucpp.Ptr<Actor>): Void;
 	public function IsOnlyASpectator(): Bool;
 	public function GetPlayerName(): FString;
-	public function GetPlayerController(): cpp.Star<PlayerController>;
-	public function GetPingInMilliseconds(): cpp.Float32;
-	public function GetPawn(): cpp.Star<Pawn>;
+	public function GetPlayerController(): ucpp.Ptr<PlayerController>;
+	public function GetPingInMilliseconds(): ucpp.num.Float32;
+	public function GetPawn(): ucpp.Ptr<Pawn>;
 	public function BP_GetUniqueId(): UniqueNetIdRepl;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsOnlyASpectator, GetPlayerName, GetPlayerController, GetPingInMilliseconds, GetPawn, BP_GetUniqueId)
@@ -49,22 +49,22 @@ abstract ConstPlayerState(PlayerState) from PlayerState {
 	public inline extern function get_bIsInactive(): Bool return this.bIsInactive;
 	public extern var bFromPreviousLevel(get, never): Bool;
 	public inline extern function get_bFromPreviousLevel(): Bool return this.bFromPreviousLevel;
-	public extern var StartTime(get, never): cpp.Int32;
-	public inline extern function get_StartTime(): cpp.Int32 return this.StartTime;
+	public extern var StartTime(get, never): ucpp.num.Int32;
+	public inline extern function get_StartTime(): ucpp.num.Int32 return this.StartTime;
 	public extern var EngineMessageClass(get, never): TSubclassOf<LocalMessage.ConstLocalMessage>;
 	public inline extern function get_EngineMessageClass(): TSubclassOf<LocalMessage.ConstLocalMessage> return this.EngineMessageClass;
 	public extern var SavedNetworkAddress(get, never): FString;
 	public inline extern function get_SavedNetworkAddress(): FString return this.SavedNetworkAddress;
 	public extern var UniqueId(get, never): UniqueNetIdRepl;
 	public inline extern function get_UniqueId(): UniqueNetIdRepl return this.UniqueId;
-	public extern var OnPawnSet(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerState.ConstPlayerState>, cpp.Star<Pawn.ConstPawn>, cpp.Star<Pawn.ConstPawn>) -> Void>;
-	public inline extern function get_OnPawnSet(): HaxeMulticastSparseDelegateProperty<(cpp.Star<PlayerState.ConstPlayerState>, cpp.Star<Pawn.ConstPawn>, cpp.Star<Pawn.ConstPawn>) -> Void> return this.OnPawnSet;
+	public extern var OnPawnSet(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerState.ConstPlayerState>, ucpp.Ptr<Pawn.ConstPawn>, ucpp.Ptr<Pawn.ConstPawn>) -> Void>;
+	public inline extern function get_OnPawnSet(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<PlayerState.ConstPlayerState>, ucpp.Ptr<Pawn.ConstPawn>, ucpp.Ptr<Pawn.ConstPawn>) -> Void> return this.OnPawnSet;
 }
 
 @:forward
 @:nativeGen
 @:native("PlayerState*")
-abstract PlayerStatePtr(cpp.Star<PlayerState>) from cpp.Star<PlayerState> to cpp.Star<PlayerState>{
+abstract PlayerStatePtr(ucpp.Ptr<PlayerState>) from ucpp.Ptr<PlayerState> to ucpp.Ptr<PlayerState>{
 	@:from
 	public static extern inline function fromValue(v: PlayerState): PlayerStatePtr {
 		return untyped __cpp__("&({0})", v);

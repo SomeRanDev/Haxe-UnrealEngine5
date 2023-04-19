@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMeshApproximationSettingsObject")
 @:include("MeshApproximationTool/MeshApproximationTool.h")
-@:structAccess
+@:valueType
 extern class MeshApproximationSettingsObject extends Object {
 	public var Settings: MeshApproximationSettings;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMeshApproximationSettingsObject(MeshApproximationSettingsObject) f
 @:forward
 @:nativeGen
 @:native("MeshApproximationSettingsObject*")
-abstract MeshApproximationSettingsObjectPtr(cpp.Star<MeshApproximationSettingsObject>) from cpp.Star<MeshApproximationSettingsObject> to cpp.Star<MeshApproximationSettingsObject>{
+abstract MeshApproximationSettingsObjectPtr(ucpp.Ptr<MeshApproximationSettingsObject>) from ucpp.Ptr<MeshApproximationSettingsObject> to ucpp.Ptr<MeshApproximationSettingsObject>{
 	@:from
 	public static extern inline function fromValue(v: MeshApproximationSettingsObject): MeshApproximationSettingsObjectPtr {
 		return untyped __cpp__("&({0})", v);

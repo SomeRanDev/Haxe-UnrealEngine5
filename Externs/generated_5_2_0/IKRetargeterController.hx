@@ -3,38 +3,38 @@ package ue;
 
 @:native("UIKRetargeterController")
 @:include("RetargetEditor/IKRetargeterController.h")
-@:structAccess
+@:valueType
 extern class IKRetargeterController extends Object {
 	public function SetSourceChain(SourceChainName: FName, TargetChainName: FName): Bool;
-	public function SetRotationOffsetForRetargetPoseBone(BoneName: cpp.Reference<FName>, RotationOffset: cpp.Reference<Quat>, SkeletonMode: ERetargetSourceOrTarget): Void;
-	public function SetRootSettings(RootSettings: cpp.Reference<TargetRootSettings>): Void;
-	public function SetRootOffsetInRetargetPose(TranslationOffset: cpp.Reference<Vector>, SourceOrTarget: ERetargetSourceOrTarget): Void;
-	public function SetRetargetChainSettings(TargetChainName: cpp.Reference<FName>, Settings: cpp.Reference<TargetChainSettings>): Bool;
-	public function SetPreviewMesh(SourceOrTarget: ERetargetSourceOrTarget, InPreviewMesh: cpp.Star<SkeletalMesh>): Void;
-	public function SetIKRig(SourceOrTarget: ERetargetSourceOrTarget, IKRig: cpp.Star<IKRigDefinition>): Void;
-	public function SetGlobalSettings(GlobalSettings: cpp.Reference<RetargetGlobalSettings>): Void;
+	public function SetRotationOffsetForRetargetPoseBone(BoneName: ucpp.Ref<FName>, RotationOffset: ucpp.Ref<Quat>, SkeletonMode: ERetargetSourceOrTarget): Void;
+	public function SetRootSettings(RootSettings: ucpp.Ref<TargetRootSettings>): Void;
+	public function SetRootOffsetInRetargetPose(TranslationOffset: ucpp.Ref<Vector>, SourceOrTarget: ERetargetSourceOrTarget): Void;
+	public function SetRetargetChainSettings(TargetChainName: ucpp.Ref<FName>, Settings: ucpp.Ref<TargetChainSettings>): Bool;
+	public function SetPreviewMesh(SourceOrTarget: ERetargetSourceOrTarget, InPreviewMesh: ucpp.Ptr<SkeletalMesh>): Void;
+	public function SetIKRig(SourceOrTarget: ERetargetSourceOrTarget, IKRig: ucpp.Ptr<IKRigDefinition>): Void;
+	public function SetGlobalSettings(GlobalSettings: ucpp.Ref<RetargetGlobalSettings>): Void;
 	public function SetCurrentRetargetPose(CurrentPose: FName, SourceOrTarget: ERetargetSourceOrTarget): Bool;
-	public function ResetRetargetPose(PoseToReset: cpp.Reference<FName>, BonesToReset: cpp.Reference<TArray<FName>>, SourceOrTarget: ERetargetSourceOrTarget): Void;
+	public function ResetRetargetPose(PoseToReset: ucpp.Ref<FName>, BonesToReset: ucpp.Ref<TArray<FName>>, SourceOrTarget: ERetargetSourceOrTarget): Void;
 	public function RenameRetargetPose(OldPoseName: FName, NewPoseName: FName, SourceOrTarget: ERetargetSourceOrTarget): Bool;
-	public function RemoveRetargetPose(PoseToRemove: cpp.Reference<FName>, SourceOrTarget: ERetargetSourceOrTarget): Bool;
-	public function GetSourceChain(TargetChainName: cpp.Reference<FName>): FName;
-	public function GetRotationOffsetForRetargetPoseBone(BoneName: cpp.Reference<FName>, SourceOrTarget: ERetargetSourceOrTarget): Quat;
+	public function RemoveRetargetPose(PoseToRemove: ucpp.Ref<FName>, SourceOrTarget: ERetargetSourceOrTarget): Bool;
+	public function GetSourceChain(TargetChainName: ucpp.Ref<FName>): FName;
+	public function GetRotationOffsetForRetargetPoseBone(BoneName: ucpp.Ref<FName>, SourceOrTarget: ERetargetSourceOrTarget): Quat;
 	public function GetRootSettings(): TargetRootSettings;
 	public function GetRootOffsetInRetargetPose(SourceOrTarget: ERetargetSourceOrTarget): Vector;
 	public function GetRetargetPoses(SourceOrTarget: ERetargetSourceOrTarget): TMap<FName, IKRetargetPose>;
-	public function GetRetargetChainSettings(TargetChainName: cpp.Reference<FName>): TargetChainSettings;
-	public function GetPreviewMesh(SourceOrTarget: ERetargetSourceOrTarget): cpp.Star<SkeletalMesh>;
-	public function GetIKRig(SourceOrTarget: ERetargetSourceOrTarget): cpp.Star<IKRigDefinition.ConstIKRigDefinition>;
+	public function GetRetargetChainSettings(TargetChainName: ucpp.Ref<FName>): TargetChainSettings;
+	public function GetPreviewMesh(SourceOrTarget: ERetargetSourceOrTarget): ucpp.Ptr<SkeletalMesh>;
+	public function GetIKRig(SourceOrTarget: ERetargetSourceOrTarget): ucpp.Ptr<IKRigDefinition.ConstIKRigDefinition>;
 	public function GetGlobalSettings(): RetargetGlobalSettings;
 	public function GetCurrentRetargetPoseName(SourceOrTarget: ERetargetSourceOrTarget): FName;
 	public function GetCurrentRetargetPose(SourceOrTarget: ERetargetSourceOrTarget): IKRetargetPose;
-	public function GetController(InRetargeterAsset: cpp.Star<IKRetargeter.ConstIKRetargeter>): cpp.Star<IKRetargeterController>;
-	public function GetAllChainSettings(): TArray<cpp.Star<RetargetChainSettings>>;
+	public function GetController(InRetargeterAsset: ucpp.Ptr<IKRetargeter.ConstIKRetargeter>): ucpp.Ptr<IKRetargeterController>;
+	public function GetAllChainSettings(): TArray<ucpp.Ptr<RetargetChainSettings>>;
 	public function DuplicateRetargetPose(PoseToDuplicate: FName, NewName: FName, SourceOrTarget: ERetargetSourceOrTarget): FName;
-	public function CreateRetargetPose(NewPoseName: cpp.Reference<FName>, SourceOrTarget: ERetargetSourceOrTarget): FName;
+	public function CreateRetargetPose(NewPoseName: ucpp.Ref<FName>, SourceOrTarget: ERetargetSourceOrTarget): FName;
 	public function AutoMapChains(AutoMapType: EAutoMapChainType, bForceRemap: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -52,7 +52,7 @@ abstract ConstIKRetargeterController(IKRetargeterController) from IKRetargeterCo
 @:forward
 @:nativeGen
 @:native("IKRetargeterController*")
-abstract IKRetargeterControllerPtr(cpp.Star<IKRetargeterController>) from cpp.Star<IKRetargeterController> to cpp.Star<IKRetargeterController>{
+abstract IKRetargeterControllerPtr(ucpp.Ptr<IKRetargeterController>) from ucpp.Ptr<IKRetargeterController> to ucpp.Ptr<IKRetargeterController>{
 	@:from
 	public static extern inline function fromValue(v: IKRetargeterController): IKRetargeterControllerPtr {
 		return untyped __cpp__("&({0})", v);

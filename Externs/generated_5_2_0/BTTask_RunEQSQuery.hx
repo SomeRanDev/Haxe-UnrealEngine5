@@ -3,9 +3,9 @@ package ue;
 
 @:native("UBTTask_RunEQSQuery")
 @:include("BehaviorTree/Tasks/BTTask_RunEQSQuery.h")
-@:structAccess
+@:valueType
 extern class BTTask_RunEQSQuery extends BTTask_BlackboardBase {
-	public var QueryTemplate: cpp.Star<EnvQuery>;
+	public var QueryTemplate: ucpp.Ptr<EnvQuery>;
 	public var QueryParams: TArray<EnvNamedValue>;
 	public var QueryConfig: TArray<AIDynamicParam>;
 	public var RunMode: TEnumAsByte<EEnvQueryRunMode>;
@@ -14,14 +14,14 @@ extern class BTTask_RunEQSQuery extends BTTask_BlackboardBase {
 	public var EQSRequest: EQSParametrizedQueryExecutionRequest;
 	public var bUpdateBBOnFail: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstBTTask_RunEQSQuery(BTTask_RunEQSQuery) from BTTask_RunEQSQuery {
-	public extern var QueryTemplate(get, never): cpp.Star<EnvQuery.ConstEnvQuery>;
-	public inline extern function get_QueryTemplate(): cpp.Star<EnvQuery.ConstEnvQuery> return this.QueryTemplate;
+	public extern var QueryTemplate(get, never): ucpp.Ptr<EnvQuery.ConstEnvQuery>;
+	public inline extern function get_QueryTemplate(): ucpp.Ptr<EnvQuery.ConstEnvQuery> return this.QueryTemplate;
 	public extern var QueryParams(get, never): TArray<EnvNamedValue>;
 	public inline extern function get_QueryParams(): TArray<EnvNamedValue> return this.QueryParams;
 	public extern var QueryConfig(get, never): TArray<AIDynamicParam>;
@@ -41,7 +41,7 @@ abstract ConstBTTask_RunEQSQuery(BTTask_RunEQSQuery) from BTTask_RunEQSQuery {
 @:forward
 @:nativeGen
 @:native("BTTask_RunEQSQuery*")
-abstract BTTask_RunEQSQueryPtr(cpp.Star<BTTask_RunEQSQuery>) from cpp.Star<BTTask_RunEQSQuery> to cpp.Star<BTTask_RunEQSQuery>{
+abstract BTTask_RunEQSQueryPtr(ucpp.Ptr<BTTask_RunEQSQuery>) from ucpp.Ptr<BTTask_RunEQSQuery> to ucpp.Ptr<BTTask_RunEQSQuery>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_RunEQSQuery): BTTask_RunEQSQueryPtr {
 		return untyped __cpp__("&({0})", v);

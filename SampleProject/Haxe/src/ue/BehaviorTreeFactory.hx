@@ -3,10 +3,10 @@ package ue;
 
 @:native("UBehaviorTreeFactory")
 @:include("BehaviorTreeFactory.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeFactory extends Factory {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstBehaviorTreeFactory(BehaviorTreeFactory) from BehaviorTreeFactory 
 @:forward
 @:nativeGen
 @:native("BehaviorTreeFactory*")
-abstract BehaviorTreeFactoryPtr(cpp.Star<BehaviorTreeFactory>) from cpp.Star<BehaviorTreeFactory> to cpp.Star<BehaviorTreeFactory>{
+abstract BehaviorTreeFactoryPtr(ucpp.Ptr<BehaviorTreeFactory>) from ucpp.Ptr<BehaviorTreeFactory> to ucpp.Ptr<BehaviorTreeFactory>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeFactory): BehaviorTreeFactoryPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTimecodeCustomAttributeNameSettings")
 @:include("Animation/CustomAttributes.h")
-@:structAccess
+@:valueType
 extern class TimecodeCustomAttributeNameSettings {
 	public var HourAttributeName: FName;
 	public var MinuteAttributeName: FName;

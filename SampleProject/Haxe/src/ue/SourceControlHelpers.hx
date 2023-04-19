@@ -3,17 +3,19 @@ package ue;
 
 @:native("USourceControlHelpers")
 @:include("SourceControlHelpers.h")
-@:structAccess
+@:valueType
 extern class SourceControlHelpers extends Object {
-	public function SyncFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function SyncFiles(InFiles: ucpp.Ref<TArray<FString>>, bSilent: Bool): Bool;
 	public function SyncFile(InFile: FString, bSilent: Bool): Bool;
-	public function RevertUnchangedFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function RevertUnchangedFiles(InFiles: ucpp.Ref<TArray<FString>>, bSilent: Bool): Bool;
 	public function RevertUnchangedFile(InFile: FString, bSilent: Bool): Bool;
-	public function RevertFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function RevertFiles(InFiles: ucpp.Ref<TArray<FString>>, bSilent: Bool): Bool;
 	public function RevertFile(InFile: FString, bSilent: Bool): Bool;
+	public function RevertAndReloadPackages(InPackagesToRevert: ucpp.Ref<TArray<FString>>, bRevertAll: Bool, bReloadWorld: Bool): Bool;
+	public function QueryFileStateDelegate__DelegateSignature(FileStateOut: SourceControlState): Void;
 	public function QueryFileState(InFile: FString, bSilent: Bool): SourceControlState;
-	public function MarkFilesForDelete(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
-	public function MarkFilesForAdd(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function MarkFilesForDelete(InFiles: ucpp.Ref<TArray<FString>>, bSilent: Bool): Bool;
+	public function MarkFilesForAdd(InFiles: ucpp.Ref<TArray<FString>>, bSilent: Bool): Bool;
 	public function MarkFileForDelete(InFile: FString, bSilent: Bool): Bool;
 	public function MarkFileForAdd(InFile: FString, bSilent: Bool): Bool;
 	public function LastErrorMsg(): FText;
@@ -21,14 +23,15 @@ extern class SourceControlHelpers extends Object {
 	public function IsAvailable(): Bool;
 	public function CurrentProvider(): FString;
 	public function CopyFile(InSourceFile: FString, InDestFile: FString, bSilent: Bool): Bool;
-	public function CheckOutOrAddFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function CheckOutOrAddFiles(InFiles: ucpp.Ref<TArray<FString>>, bSilent: Bool): Bool;
 	public function CheckOutOrAddFile(InFile: FString, bSilent: Bool): Bool;
-	public function CheckOutFiles(InFiles: cpp.Reference<TArray<FString>>, bSilent: Bool): Bool;
+	public function CheckOutFiles(InFiles: ucpp.Ref<TArray<FString>>, bSilent: Bool): Bool;
 	public function CheckOutFile(InFile: FString, bSilent: Bool): Bool;
-	public function CheckInFiles(InFiles: cpp.Reference<TArray<FString>>, InDescription: FString, bSilent: Bool): Bool;
-	public function CheckInFile(InFile: FString, InDescription: FString, bSilent: Bool): Bool;
+	public function CheckInFiles(InFiles: ucpp.Ref<TArray<FString>>, InDescription: FString, bSilent: Bool, bKeepCheckedOut: Bool): Bool;
+	public function CheckInFile(InFile: FString, InDescription: FString, bSilent: Bool, bKeepCheckedOut: Bool): Bool;
+	public function AsyncQueryFileState(FileStateCallback: HaxeDelegateProperty<(SourceControlState) -> Void>, InFile: FString, bSilent: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +42,7 @@ abstract ConstSourceControlHelpers(SourceControlHelpers) from SourceControlHelpe
 @:forward
 @:nativeGen
 @:native("SourceControlHelpers*")
-abstract SourceControlHelpersPtr(cpp.Star<SourceControlHelpers>) from cpp.Star<SourceControlHelpers> to cpp.Star<SourceControlHelpers>{
+abstract SourceControlHelpersPtr(ucpp.Ptr<SourceControlHelpers>) from ucpp.Ptr<SourceControlHelpers> to ucpp.Ptr<SourceControlHelpers>{
 	@:from
 	public static extern inline function fromValue(v: SourceControlHelpers): SourceControlHelpersPtr {
 		return untyped __cpp__("&({0})", v);

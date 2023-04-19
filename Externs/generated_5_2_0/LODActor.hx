@@ -3,37 +3,37 @@ package ue;
 
 @:native("ALODActor")
 @:include("Engine/LODActor.h")
-@:structAccess
+@:valueType
 extern class LODActor extends Actor {
-	private var StaticMeshComponent: cpp.Star<StaticMeshComp>;
-	private var InstancedStaticMeshComponents: TMap<HLODInstancingKey, cpp.Star<InstancedStaticMeshComp>>;
-	private var Proxy: cpp.Star<HLODProxy>;
+	private var StaticMeshComponent: ucpp.Ptr<StaticMeshComp>;
+	private var InstancedStaticMeshComponents: TMap<HLODInstancingKey, ucpp.Ptr<InstancedStaticMeshComp>>;
+	private var Proxy: ucpp.Ptr<HLODProxy>;
 	private var Key: FName;
-	private var LODDrawDistance: cpp.Float32;
-	public var LODLevel: cpp.Int32;
-	public var SubActors: TArray<cpp.Star<Actor>>;
-	public var CachedNumHLODLevels: cpp.UInt8;
+	private var LODDrawDistance: ucpp.num.Float32;
+	public var LODLevel: ucpp.num.Int32;
+	public var SubActors: TArray<ucpp.Ptr<Actor>>;
+	public var CachedNumHLODLevels: ucpp.num.UInt8;
 
-	private function OnSubActorEndPlay(Actor: cpp.Star<Actor>, Reason: TEnumAsByte<EEndPlayReason>): Void;
+	private function OnSubActorEndPlay(Actor: ucpp.Ptr<Actor>, Reason: TEnumAsByte<EEndPlayReason>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstLODActor(LODActor) from LODActor {
-	public extern var LODLevel(get, never): cpp.Int32;
-	public inline extern function get_LODLevel(): cpp.Int32 return this.LODLevel;
-	public extern var SubActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_SubActors(): TArray<cpp.Star<Actor.ConstActor>> return this.SubActors;
-	public extern var CachedNumHLODLevels(get, never): cpp.UInt8;
-	public inline extern function get_CachedNumHLODLevels(): cpp.UInt8 return this.CachedNumHLODLevels;
+	public extern var LODLevel(get, never): ucpp.num.Int32;
+	public inline extern function get_LODLevel(): ucpp.num.Int32 return this.LODLevel;
+	public extern var SubActors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_SubActors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.SubActors;
+	public extern var CachedNumHLODLevels(get, never): ucpp.num.UInt8;
+	public inline extern function get_CachedNumHLODLevels(): ucpp.num.UInt8 return this.CachedNumHLODLevels;
 }
 
 @:forward
 @:nativeGen
 @:native("LODActor*")
-abstract LODActorPtr(cpp.Star<LODActor>) from cpp.Star<LODActor> to cpp.Star<LODActor>{
+abstract LODActorPtr(ucpp.Ptr<LODActor>) from ucpp.Ptr<LODActor> to ucpp.Ptr<LODActor>{
 	@:from
 	public static extern inline function fromValue(v: LODActor): LODActorPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDatasmithPostProcessVolumeTemplate")
 @:include("ObjectTemplates/DatasmithPostProcessVolumeTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithPostProcessVolumeTemplate extends DatasmithObjectTemplate {
 	public var Settings: DatasmithPostProcessSettingsTemplate;
 	public var bEnabled: Bool;
 	public var bUnbound: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstDatasmithPostProcessVolumeTemplate(DatasmithPostProcessVolumeTempl
 @:forward
 @:nativeGen
 @:native("DatasmithPostProcessVolumeTemplate*")
-abstract DatasmithPostProcessVolumeTemplatePtr(cpp.Star<DatasmithPostProcessVolumeTemplate>) from cpp.Star<DatasmithPostProcessVolumeTemplate> to cpp.Star<DatasmithPostProcessVolumeTemplate>{
+abstract DatasmithPostProcessVolumeTemplatePtr(ucpp.Ptr<DatasmithPostProcessVolumeTemplate>) from ucpp.Ptr<DatasmithPostProcessVolumeTemplate> to ucpp.Ptr<DatasmithPostProcessVolumeTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithPostProcessVolumeTemplate): DatasmithPostProcessVolumeTemplatePtr {
 		return untyped __cpp__("&({0})", v);

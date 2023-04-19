@@ -3,10 +3,10 @@ package ue;
 
 @:native("FPlane")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class Plane extends Vector {
-	public var W: cpp.Float64;
+	public var W: ucpp.num.Float64;
 
 	@:native("FPlane") public function new();
-	@:native("FPlane") public static function make(W: cpp.Float64): Plane ;
+	@:native("FPlane") public static function make(W: ucpp.num.Float64): Plane ;
 }

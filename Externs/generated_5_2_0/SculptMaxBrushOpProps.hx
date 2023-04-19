@@ -3,36 +3,36 @@ package ue;
 
 @:native("USculptMaxBrushOpProps")
 @:include("Sculpting/MeshSculptBrushOps.h")
-@:structAccess
+@:valueType
 extern class SculptMaxBrushOpProps extends MeshSculptBrushOpProps {
-	public var Strength: cpp.Float32;
-	public var Falloff: cpp.Float32;
-	public var MaxHeight: cpp.Float32;
+	public var Strength: ucpp.num.Float32;
+	public var Falloff: ucpp.num.Float32;
+	public var MaxHeight: ucpp.num.Float32;
 	public var bUseFixedHeight: Bool;
-	public var FixedHeight: cpp.Float32;
+	public var FixedHeight: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSculptMaxBrushOpProps(SculptMaxBrushOpProps) from SculptMaxBrushOpProps {
-	public extern var Strength(get, never): cpp.Float32;
-	public inline extern function get_Strength(): cpp.Float32 return this.Strength;
-	public extern var Falloff(get, never): cpp.Float32;
-	public inline extern function get_Falloff(): cpp.Float32 return this.Falloff;
-	public extern var MaxHeight(get, never): cpp.Float32;
-	public inline extern function get_MaxHeight(): cpp.Float32 return this.MaxHeight;
+	public extern var Strength(get, never): ucpp.num.Float32;
+	public inline extern function get_Strength(): ucpp.num.Float32 return this.Strength;
+	public extern var Falloff(get, never): ucpp.num.Float32;
+	public inline extern function get_Falloff(): ucpp.num.Float32 return this.Falloff;
+	public extern var MaxHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_MaxHeight(): ucpp.num.Float32 return this.MaxHeight;
 	public extern var bUseFixedHeight(get, never): Bool;
 	public inline extern function get_bUseFixedHeight(): Bool return this.bUseFixedHeight;
-	public extern var FixedHeight(get, never): cpp.Float32;
-	public inline extern function get_FixedHeight(): cpp.Float32 return this.FixedHeight;
+	public extern var FixedHeight(get, never): ucpp.num.Float32;
+	public inline extern function get_FixedHeight(): ucpp.num.Float32 return this.FixedHeight;
 }
 
 @:forward
 @:nativeGen
 @:native("SculptMaxBrushOpProps*")
-abstract SculptMaxBrushOpPropsPtr(cpp.Star<SculptMaxBrushOpProps>) from cpp.Star<SculptMaxBrushOpProps> to cpp.Star<SculptMaxBrushOpProps>{
+abstract SculptMaxBrushOpPropsPtr(ucpp.Ptr<SculptMaxBrushOpProps>) from ucpp.Ptr<SculptMaxBrushOpProps> to ucpp.Ptr<SculptMaxBrushOpProps>{
 	@:from
 	public static extern inline function fromValue(v: SculptMaxBrushOpProps): SculptMaxBrushOpPropsPtr {
 		return untyped __cpp__("&({0})", v);

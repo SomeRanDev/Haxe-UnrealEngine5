@@ -3,27 +3,27 @@ package ue;
 
 @:native("UMaterialStatsOptions")
 @:include("Preferences/MaterialStatsOptions.h")
-@:structAccess
+@:valueType
 extern class MaterialStatsOptions extends Object {
-	public var bPlatformUsed: cpp.Int32;
-	public var bMaterialQualityUsed: cpp.Int32;
+	public var bPlatformUsed: ucpp.num.Int32;
+	public var bMaterialQualityUsed: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialStatsOptions(MaterialStatsOptions) from MaterialStatsOptions {
-	public extern var bPlatformUsed(get, never): cpp.Int32;
-	public inline extern function get_bPlatformUsed(): cpp.Int32 return this.bPlatformUsed;
-	public extern var bMaterialQualityUsed(get, never): cpp.Int32;
-	public inline extern function get_bMaterialQualityUsed(): cpp.Int32 return this.bMaterialQualityUsed;
+	public extern var bPlatformUsed(get, never): ucpp.num.Int32;
+	public inline extern function get_bPlatformUsed(): ucpp.num.Int32 return this.bPlatformUsed;
+	public extern var bMaterialQualityUsed(get, never): ucpp.num.Int32;
+	public inline extern function get_bMaterialQualityUsed(): ucpp.num.Int32 return this.bMaterialQualityUsed;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialStatsOptions*")
-abstract MaterialStatsOptionsPtr(cpp.Star<MaterialStatsOptions>) from cpp.Star<MaterialStatsOptions> to cpp.Star<MaterialStatsOptions>{
+abstract MaterialStatsOptionsPtr(ucpp.Ptr<MaterialStatsOptions>) from ucpp.Ptr<MaterialStatsOptions> to ucpp.Ptr<MaterialStatsOptions>{
 	@:from
 	public static extern inline function fromValue(v: MaterialStatsOptions): MaterialStatsOptionsPtr {
 		return untyped __cpp__("&({0})", v);

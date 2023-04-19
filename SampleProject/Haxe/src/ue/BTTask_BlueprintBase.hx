@@ -3,27 +3,27 @@ package ue;
 
 @:native("UBTTask_BlueprintBase")
 @:include("BehaviorTree/Tasks/BTTask_BlueprintBase.h")
-@:structAccess
+@:valueType
 extern class BTTask_BlueprintBase extends BTTaskNode {
-	@:protected public var AIOwner: cpp.Star<AIController>;
-	@:protected public var ActorOwner: cpp.Star<Actor>;
+	@:protected public var AIOwner: ucpp.Ptr<AIController>;
+	@:protected public var ActorOwner: ucpp.Ptr<Actor>;
 	@:protected public var TickInterval: IntervalCountdown;
 	@:protected public var bShowPropertyDetails: Bool;
 
-	@:protected public function SetFinishOnMessageWithId(MessageName: FName, RequestID: cpp.Int32): Void;
+	@:protected public function SetFinishOnMessageWithId(MessageName: FName, RequestID: ucpp.num.Int32): Void;
 	@:protected public function SetFinishOnMessage(MessageName: FName): Void;
-	@:protected public function ReceiveTickAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>, DeltaSeconds: cpp.Float32): Void;
-	@:protected public function ReceiveTick(OwnerActor: cpp.Star<Actor>, DeltaSeconds: cpp.Float32): Void;
-	@:protected public function ReceiveExecuteAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
-	@:protected public function ReceiveExecute(OwnerActor: cpp.Star<Actor>): Void;
-	@:protected public function ReceiveAbortAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
-	@:protected public function ReceiveAbort(OwnerActor: cpp.Star<Actor>): Void;
+	@:protected public function ReceiveTickAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>, DeltaSeconds: ucpp.num.Float32): Void;
+	@:protected public function ReceiveTick(OwnerActor: ucpp.Ptr<Actor>, DeltaSeconds: ucpp.num.Float32): Void;
+	@:protected public function ReceiveExecuteAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>): Void;
+	@:protected public function ReceiveExecute(OwnerActor: ucpp.Ptr<Actor>): Void;
+	@:protected public function ReceiveAbortAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>): Void;
+	@:protected public function ReceiveAbort(OwnerActor: ucpp.Ptr<Actor>): Void;
 	@:protected public function IsTaskExecuting(): Bool;
 	@:protected public function IsTaskAborting(): Bool;
 	@:protected public function FinishExecute(bSuccess: Bool): Void;
 	@:protected public function FinishAbort(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsTaskExecuting, IsTaskAborting)
@@ -34,7 +34,7 @@ abstract ConstBTTask_BlueprintBase(BTTask_BlueprintBase) from BTTask_BlueprintBa
 @:forward
 @:nativeGen
 @:native("BTTask_BlueprintBase*")
-abstract BTTask_BlueprintBasePtr(cpp.Star<BTTask_BlueprintBase>) from cpp.Star<BTTask_BlueprintBase> to cpp.Star<BTTask_BlueprintBase>{
+abstract BTTask_BlueprintBasePtr(ucpp.Ptr<BTTask_BlueprintBase>) from ucpp.Ptr<BTTask_BlueprintBase> to ucpp.Ptr<BTTask_BlueprintBase>{
 	@:from
 	public static extern inline function fromValue(v: BTTask_BlueprintBase): BTTask_BlueprintBasePtr {
 		return untyped __cpp__("&({0})", v);

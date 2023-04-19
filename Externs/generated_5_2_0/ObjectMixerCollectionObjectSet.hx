@@ -3,7 +3,7 @@ package ue;
 
 @:native("FObjectMixerCollectionObjectSet")
 @:include("ObjectMixerEditorSerializedData.h")
-@:structAccess
+@:valueType
 extern class ObjectMixerCollectionObjectSet {
 	public var CollectionName: FName;
 	public var CollectionObjects: TArray<ObjectMixerCollectionObjectData>;

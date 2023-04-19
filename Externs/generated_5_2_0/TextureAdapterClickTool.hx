@@ -3,10 +3,10 @@ package ue;
 
 @:native("UTextureAdapterClickTool")
 @:include("MeshSelect.h")
-@:structAccess
+@:valueType
 extern class TextureAdapterClickTool extends MeshClickTool {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstTextureAdapterClickTool(TextureAdapterClickTool) from TextureAdapt
 @:forward
 @:nativeGen
 @:native("TextureAdapterClickTool*")
-abstract TextureAdapterClickToolPtr(cpp.Star<TextureAdapterClickTool>) from cpp.Star<TextureAdapterClickTool> to cpp.Star<TextureAdapterClickTool>{
+abstract TextureAdapterClickToolPtr(ucpp.Ptr<TextureAdapterClickTool>) from ucpp.Ptr<TextureAdapterClickTool> to ucpp.Ptr<TextureAdapterClickTool>{
 	@:from
 	public static extern inline function fromValue(v: TextureAdapterClickTool): TextureAdapterClickToolPtr {
 		return untyped __cpp__("&({0})", v);

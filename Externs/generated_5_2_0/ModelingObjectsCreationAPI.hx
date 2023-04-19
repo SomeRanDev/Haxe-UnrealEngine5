@@ -3,12 +3,12 @@ package ue;
 
 @:native("UModelingObjectsCreationAPI")
 @:include("ModelingObjectsCreationAPI.h")
-@:structAccess
+@:valueType
 extern class ModelingObjectsCreationAPI extends Object {
-	public function CreateTextureObject(CreateTexParams: cpp.Reference<CreateTextureObjectParams>): CreateTextureObjectResult;
-	public function CreateMeshObject(CreateMeshParams: cpp.Reference<CreateMeshObjectParams>): CreateMeshObjectResult;
+	public function CreateTextureObject(CreateTexParams: ucpp.Ref<CreateTextureObjectParams>): CreateTextureObjectResult;
+	public function CreateMeshObject(CreateMeshParams: ucpp.Ref<CreateMeshObjectParams>): CreateMeshObjectResult;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstModelingObjectsCreationAPI(ModelingObjectsCreationAPI) from Modeli
 @:forward
 @:nativeGen
 @:native("ModelingObjectsCreationAPI*")
-abstract ModelingObjectsCreationAPIPtr(cpp.Star<ModelingObjectsCreationAPI>) from cpp.Star<ModelingObjectsCreationAPI> to cpp.Star<ModelingObjectsCreationAPI>{
+abstract ModelingObjectsCreationAPIPtr(ucpp.Ptr<ModelingObjectsCreationAPI>) from ucpp.Ptr<ModelingObjectsCreationAPI> to ucpp.Ptr<ModelingObjectsCreationAPI>{
 	@:from
 	public static extern inline function fromValue(v: ModelingObjectsCreationAPI): ModelingObjectsCreationAPIPtr {
 		return untyped __cpp__("&({0})", v);

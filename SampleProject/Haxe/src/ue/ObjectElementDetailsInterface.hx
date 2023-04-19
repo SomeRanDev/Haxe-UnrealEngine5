@@ -3,10 +3,10 @@ package ue;
 
 @:native("UObjectElementDetailsInterface")
 @:include("Elements/Object/ObjectElementDetailsInterface.h")
-@:structAccess
+@:valueType
 extern class ObjectElementDetailsInterface extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstObjectElementDetailsInterface(ObjectElementDetailsInterface) from 
 @:forward
 @:nativeGen
 @:native("ObjectElementDetailsInterface*")
-abstract ObjectElementDetailsInterfacePtr(cpp.Star<ObjectElementDetailsInterface>) from cpp.Star<ObjectElementDetailsInterface> to cpp.Star<ObjectElementDetailsInterface>{
+abstract ObjectElementDetailsInterfacePtr(ucpp.Ptr<ObjectElementDetailsInterface>) from ucpp.Ptr<ObjectElementDetailsInterface> to ucpp.Ptr<ObjectElementDetailsInterface>{
 	@:from
 	public static extern inline function fromValue(v: ObjectElementDetailsInterface): ObjectElementDetailsInterfacePtr {
 		return untyped __cpp__("&({0})", v);

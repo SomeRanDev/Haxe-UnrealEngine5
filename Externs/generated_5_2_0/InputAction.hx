@@ -3,18 +3,18 @@ package ue;
 
 @:native("UInputAction")
 @:include("InputAction.h")
-@:structAccess
+@:valueType
 extern class InputAction extends DataAsset {
 	public var ActionDescription: FText;
 	public var bConsumeInput: Bool;
 	public var bTriggerWhenPaused: Bool;
 	public var bReserveAllMappings: Bool;
 	public var ValueType: EInputActionValueType;
-	public var Triggers: TArray<cpp.Star<InputTrigger>>;
-	public var Modifiers: TArray<cpp.Star<InputModifier>>;
-	private var PlayerMappableKeySettings: cpp.Star<PlayerMappableKeySettings>;
+	public var Triggers: TArray<ucpp.Ptr<InputTrigger>>;
+	public var Modifiers: TArray<ucpp.Ptr<InputModifier>>;
+	private var PlayerMappableKeySettings: ucpp.Ptr<PlayerMappableKeySettings>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -30,16 +30,16 @@ abstract ConstInputAction(InputAction) from InputAction {
 	public inline extern function get_bReserveAllMappings(): Bool return this.bReserveAllMappings;
 	public extern var ValueType(get, never): EInputActionValueType;
 	public inline extern function get_ValueType(): EInputActionValueType return this.ValueType;
-	public extern var Triggers(get, never): TArray<cpp.Star<InputTrigger.ConstInputTrigger>>;
-	public inline extern function get_Triggers(): TArray<cpp.Star<InputTrigger.ConstInputTrigger>> return this.Triggers;
-	public extern var Modifiers(get, never): TArray<cpp.Star<InputModifier.ConstInputModifier>>;
-	public inline extern function get_Modifiers(): TArray<cpp.Star<InputModifier.ConstInputModifier>> return this.Modifiers;
+	public extern var Triggers(get, never): TArray<ucpp.Ptr<InputTrigger.ConstInputTrigger>>;
+	public inline extern function get_Triggers(): TArray<ucpp.Ptr<InputTrigger.ConstInputTrigger>> return this.Triggers;
+	public extern var Modifiers(get, never): TArray<ucpp.Ptr<InputModifier.ConstInputModifier>>;
+	public inline extern function get_Modifiers(): TArray<ucpp.Ptr<InputModifier.ConstInputModifier>> return this.Modifiers;
 }
 
 @:forward
 @:nativeGen
 @:native("InputAction*")
-abstract InputActionPtr(cpp.Star<InputAction>) from cpp.Star<InputAction> to cpp.Star<InputAction>{
+abstract InputActionPtr(ucpp.Ptr<InputAction>) from ucpp.Ptr<InputAction> to ucpp.Ptr<InputAction>{
 	@:from
 	public static extern inline function fromValue(v: InputAction): InputActionPtr {
 		return untyped __cpp__("&({0})", v);

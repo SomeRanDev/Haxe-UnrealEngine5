@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAssetFactoryInterface")
-@:structAccess
+@:valueType
 extern class AssetFactoryInterface extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAssetFactoryInterface(AssetFactoryInterface) from AssetFactoryInte
 @:forward
 @:nativeGen
 @:native("AssetFactoryInterface*")
-abstract AssetFactoryInterfacePtr(cpp.Star<AssetFactoryInterface>) from cpp.Star<AssetFactoryInterface> to cpp.Star<AssetFactoryInterface>{
+abstract AssetFactoryInterfacePtr(ucpp.Ptr<AssetFactoryInterface>) from ucpp.Ptr<AssetFactoryInterface> to ucpp.Ptr<AssetFactoryInterface>{
 	@:from
 	public static extern inline function fromValue(v: AssetFactoryInterface): AssetFactoryInterfacePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,20 +3,20 @@ package ue;
 
 @:native("UTextureEncodingProjectSettings")
 @:include("TextureEncodingSettings.h")
-@:structAccess
+@:valueType
 extern class TextureEncodingProjectSettings extends DeveloperSettings {
 	public var bFinalUsesRDO: Bool;
-	public var FinalRDOLambda: cpp.Int8;
+	public var FinalRDOLambda: ucpp.num.Int8;
 	public var FinalEffortLevel: ETextureEncodeEffort;
 	public var FinalUniversalTiling: ETextureUniversalTiling;
 	public var bFastUsesRDO: Bool;
-	public var FastRDOLambda: cpp.Int8;
+	public var FastRDOLambda: ucpp.num.Int8;
 	public var FastEffortLevel: ETextureEncodeEffort;
 	public var FastUniversalTiling: ETextureUniversalTiling;
 	public var CookUsesSpeed: ETextureEncodeSpeed;
 	public var EditorUsesSpeed: ETextureEncodeSpeed;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,16 +24,16 @@ extern class TextureEncodingProjectSettings extends DeveloperSettings {
 abstract ConstTextureEncodingProjectSettings(TextureEncodingProjectSettings) from TextureEncodingProjectSettings {
 	public extern var bFinalUsesRDO(get, never): Bool;
 	public inline extern function get_bFinalUsesRDO(): Bool return this.bFinalUsesRDO;
-	public extern var FinalRDOLambda(get, never): cpp.Int8;
-	public inline extern function get_FinalRDOLambda(): cpp.Int8 return this.FinalRDOLambda;
+	public extern var FinalRDOLambda(get, never): ucpp.num.Int8;
+	public inline extern function get_FinalRDOLambda(): ucpp.num.Int8 return this.FinalRDOLambda;
 	public extern var FinalEffortLevel(get, never): ETextureEncodeEffort;
 	public inline extern function get_FinalEffortLevel(): ETextureEncodeEffort return this.FinalEffortLevel;
 	public extern var FinalUniversalTiling(get, never): ETextureUniversalTiling;
 	public inline extern function get_FinalUniversalTiling(): ETextureUniversalTiling return this.FinalUniversalTiling;
 	public extern var bFastUsesRDO(get, never): Bool;
 	public inline extern function get_bFastUsesRDO(): Bool return this.bFastUsesRDO;
-	public extern var FastRDOLambda(get, never): cpp.Int8;
-	public inline extern function get_FastRDOLambda(): cpp.Int8 return this.FastRDOLambda;
+	public extern var FastRDOLambda(get, never): ucpp.num.Int8;
+	public inline extern function get_FastRDOLambda(): ucpp.num.Int8 return this.FastRDOLambda;
 	public extern var FastEffortLevel(get, never): ETextureEncodeEffort;
 	public inline extern function get_FastEffortLevel(): ETextureEncodeEffort return this.FastEffortLevel;
 	public extern var FastUniversalTiling(get, never): ETextureUniversalTiling;
@@ -47,7 +47,7 @@ abstract ConstTextureEncodingProjectSettings(TextureEncodingProjectSettings) fro
 @:forward
 @:nativeGen
 @:native("TextureEncodingProjectSettings*")
-abstract TextureEncodingProjectSettingsPtr(cpp.Star<TextureEncodingProjectSettings>) from cpp.Star<TextureEncodingProjectSettings> to cpp.Star<TextureEncodingProjectSettings>{
+abstract TextureEncodingProjectSettingsPtr(ucpp.Ptr<TextureEncodingProjectSettings>) from ucpp.Ptr<TextureEncodingProjectSettings> to ucpp.Ptr<TextureEncodingProjectSettings>{
 	@:from
 	public static extern inline function fromValue(v: TextureEncodingProjectSettings): TextureEncodingProjectSettingsPtr {
 		return untyped __cpp__("&({0})", v);

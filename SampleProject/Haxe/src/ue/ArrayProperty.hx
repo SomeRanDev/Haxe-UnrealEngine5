@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UArrayProperty")
-@:structAccess
+@:valueType
 extern class ArrayProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstArrayProperty(ArrayProperty) from ArrayProperty {
 @:forward
 @:nativeGen
 @:native("ArrayProperty*")
-abstract ArrayPropertyPtr(cpp.Star<ArrayProperty>) from cpp.Star<ArrayProperty> to cpp.Star<ArrayProperty>{
+abstract ArrayPropertyPtr(ucpp.Ptr<ArrayProperty>) from ucpp.Ptr<ArrayProperty> to ucpp.Ptr<ArrayProperty>{
 	@:from
 	public static extern inline function fromValue(v: ArrayProperty): ArrayPropertyPtr {
 		return untyped __cpp__("&({0})", v);

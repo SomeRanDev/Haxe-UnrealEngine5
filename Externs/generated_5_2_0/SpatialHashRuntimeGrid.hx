@@ -3,7 +3,7 @@ package ue;
 
 @:native("FSpatialHashRuntimeGrid")
 @:include("WorldPartition/WorldPartitionRuntimeSpatialHash.h")
-@:structAccess
+@:valueType
 extern class SpatialHashRuntimeGrid {
 
 	@:native("FSpatialHashRuntimeGrid") public function new();

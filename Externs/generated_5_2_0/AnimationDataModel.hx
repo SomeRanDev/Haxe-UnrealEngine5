@@ -2,26 +2,26 @@
 package ue;
 
 @:native("UAnimationDataModel")
-@:structAccess
+@:valueType
 extern class AnimationDataModel extends Interface {
-	public function IsValidBoneTrackName(TrackName: cpp.Reference<FName>): Bool;
-	public function IsValidBoneTrackIndex(TrackIndex: cpp.Int32): Bool;
-	public function GetPlayLength(): cpp.Float64;
-	public function GetNumBoneTracks(): cpp.Int32;
-	public function GetNumberOfTransformCurves(): cpp.Int32;
-	public function GetNumberOfKeys(): cpp.Int32;
-	public function GetNumberOfFrames(): cpp.Int32;
-	public function GetNumberOfFloatCurves(): cpp.Int32;
+	public function IsValidBoneTrackName(TrackName: ucpp.Ref<FName>): Bool;
+	public function IsValidBoneTrackIndex(TrackIndex: ucpp.num.Int32): Bool;
+	public function GetPlayLength(): ucpp.num.Float64;
+	public function GetNumBoneTracks(): ucpp.num.Int32;
+	public function GetNumberOfTransformCurves(): ucpp.num.Int32;
+	public function GetNumberOfKeys(): ucpp.num.Int32;
+	public function GetNumberOfFrames(): ucpp.num.Int32;
+	public function GetNumberOfFloatCurves(): ucpp.num.Int32;
 	public function GetFrameRate(): FrameRate;
-	public function GetBoneTrackNames(OutNames: cpp.Reference<TArray<FName>>): Void;
-	public function GetBoneTrackIndexByName(TrackName: FName): cpp.Int32;
-	public function GetBoneTrackIndex(Track: cpp.Reference<BoneAnimationTrack>): cpp.Int32;
+	public function GetBoneTrackNames(OutNames: ucpp.Ref<TArray<FName>>): Void;
+	public function GetBoneTrackIndexByName(TrackName: FName): ucpp.num.Int32;
+	public function GetBoneTrackIndex(Track: ucpp.Ref<BoneAnimationTrack>): ucpp.num.Int32;
 	public function GetBoneTrackByName(TrackName: FName): BoneAnimationTrack;
-	public function GetBoneTrackByIndex(TrackIndex: cpp.Int32): BoneAnimationTrack;
+	public function GetBoneTrackByIndex(TrackIndex: ucpp.num.Int32): BoneAnimationTrack;
 	public function GetBoneAnimationTracks(): TArray<BoneAnimationTrack>;
-	public function GetAnimationSequence(): cpp.Star<AnimSequence>;
+	public function GetAnimationSequence(): ucpp.Ptr<AnimSequence>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -37,7 +37,7 @@ abstract ConstAnimationDataModel(AnimationDataModel) from AnimationDataModel {
 @:forward
 @:nativeGen
 @:native("AnimationDataModel*")
-abstract AnimationDataModelPtr(cpp.Star<AnimationDataModel>) from cpp.Star<AnimationDataModel> to cpp.Star<AnimationDataModel>{
+abstract AnimationDataModelPtr(ucpp.Ptr<AnimationDataModel>) from ucpp.Ptr<AnimationDataModel> to ucpp.Ptr<AnimationDataModel>{
 	@:from
 	public static extern inline function fromValue(v: AnimationDataModel): AnimationDataModelPtr {
 		return untyped __cpp__("&({0})", v);

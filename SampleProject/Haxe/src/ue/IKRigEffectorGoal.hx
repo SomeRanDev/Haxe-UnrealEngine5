@@ -3,16 +3,16 @@ package ue;
 
 @:native("UIKRigEffectorGoal")
 @:include("IKRigDefinition.h")
-@:structAccess
+@:valueType
 extern class IKRigEffectorGoal extends Object {
 	public var GoalName: FName;
 	public var BoneName: FName;
-	public var PositionAlpha: cpp.Float32;
-	public var RotationAlpha: cpp.Float32;
+	public var PositionAlpha: ucpp.num.Float32;
+	public var RotationAlpha: ucpp.num.Float32;
 	public var CurrentTransform: Transform;
 	public var InitialTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,10 +22,10 @@ abstract ConstIKRigEffectorGoal(IKRigEffectorGoal) from IKRigEffectorGoal {
 	public inline extern function get_GoalName(): FName return this.GoalName;
 	public extern var BoneName(get, never): FName;
 	public inline extern function get_BoneName(): FName return this.BoneName;
-	public extern var PositionAlpha(get, never): cpp.Float32;
-	public inline extern function get_PositionAlpha(): cpp.Float32 return this.PositionAlpha;
-	public extern var RotationAlpha(get, never): cpp.Float32;
-	public inline extern function get_RotationAlpha(): cpp.Float32 return this.RotationAlpha;
+	public extern var PositionAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_PositionAlpha(): ucpp.num.Float32 return this.PositionAlpha;
+	public extern var RotationAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_RotationAlpha(): ucpp.num.Float32 return this.RotationAlpha;
 	public extern var CurrentTransform(get, never): Transform;
 	public inline extern function get_CurrentTransform(): Transform return this.CurrentTransform;
 	public extern var InitialTransform(get, never): Transform;
@@ -35,7 +35,7 @@ abstract ConstIKRigEffectorGoal(IKRigEffectorGoal) from IKRigEffectorGoal {
 @:forward
 @:nativeGen
 @:native("IKRigEffectorGoal*")
-abstract IKRigEffectorGoalPtr(cpp.Star<IKRigEffectorGoal>) from cpp.Star<IKRigEffectorGoal> to cpp.Star<IKRigEffectorGoal>{
+abstract IKRigEffectorGoalPtr(ucpp.Ptr<IKRigEffectorGoal>) from ucpp.Ptr<IKRigEffectorGoal> to ucpp.Ptr<IKRigEffectorGoal>{
 	@:from
 	public static extern inline function fromValue(v: IKRigEffectorGoal): IKRigEffectorGoalPtr {
 		return untyped __cpp__("&({0})", v);

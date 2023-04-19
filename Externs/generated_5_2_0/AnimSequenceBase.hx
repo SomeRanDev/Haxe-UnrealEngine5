@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAnimSequenceBase")
 @:include("Animation/AnimSequenceBase.h")
-@:structAccess
+@:valueType
 extern class AnimSequenceBase extends AnimationAsset {
 	public var Notifies: TArray<AnimNotifyEvent>;
-	@:protected public var SequenceLength: cpp.Float32;
+	@:protected public var SequenceLength: ucpp.num.Float32;
 	@:protected public var RawCurveData: RawCurveTracks;
-	public var RateScale: cpp.Float32;
+	public var RateScale: ucpp.num.Float32;
 	public var bLoop: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,8 +19,8 @@ extern class AnimSequenceBase extends AnimationAsset {
 abstract ConstAnimSequenceBase(AnimSequenceBase) from AnimSequenceBase {
 	public extern var Notifies(get, never): TArray<AnimNotifyEvent>;
 	public inline extern function get_Notifies(): TArray<AnimNotifyEvent> return this.Notifies;
-	public extern var RateScale(get, never): cpp.Float32;
-	public inline extern function get_RateScale(): cpp.Float32 return this.RateScale;
+	public extern var RateScale(get, never): ucpp.num.Float32;
+	public inline extern function get_RateScale(): ucpp.num.Float32 return this.RateScale;
 	public extern var bLoop(get, never): Bool;
 	public inline extern function get_bLoop(): Bool return this.bLoop;
 }
@@ -28,7 +28,7 @@ abstract ConstAnimSequenceBase(AnimSequenceBase) from AnimSequenceBase {
 @:forward
 @:nativeGen
 @:native("AnimSequenceBase*")
-abstract AnimSequenceBasePtr(cpp.Star<AnimSequenceBase>) from cpp.Star<AnimSequenceBase> to cpp.Star<AnimSequenceBase>{
+abstract AnimSequenceBasePtr(ucpp.Ptr<AnimSequenceBase>) from ucpp.Ptr<AnimSequenceBase> to ucpp.Ptr<AnimSequenceBase>{
 	@:from
 	public static extern inline function fromValue(v: AnimSequenceBase): AnimSequenceBasePtr {
 		return untyped __cpp__("&({0})", v);

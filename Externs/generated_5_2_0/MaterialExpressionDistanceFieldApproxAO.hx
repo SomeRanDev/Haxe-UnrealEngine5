@@ -3,18 +3,18 @@ package ue;
 
 @:native("UMaterialExpressionDistanceFieldApproxAO")
 @:include("Materials/MaterialExpressionDistanceFieldApproxAO.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDistanceFieldApproxAO extends MaterialExpression {
 	public var Position: ExpressionInput;
 	public var Normal: ExpressionInput;
 	public var BaseDistance: ExpressionInput;
-	public var BaseDistanceDefault: cpp.Float32;
+	public var BaseDistanceDefault: ucpp.num.Float32;
 	public var Radius: ExpressionInput;
-	public var RadiusDefault: cpp.Float32;
-	public var NumSteps: cpp.UInt32;
-	public var StepScaleDefault: cpp.Float32;
+	public var RadiusDefault: ucpp.num.Float32;
+	public var NumSteps: ucpp.num.UInt32;
+	public var StepScaleDefault: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,22 +26,22 @@ abstract ConstMaterialExpressionDistanceFieldApproxAO(MaterialExpressionDistance
 	public inline extern function get_Normal(): ExpressionInput return this.Normal;
 	public extern var BaseDistance(get, never): ExpressionInput;
 	public inline extern function get_BaseDistance(): ExpressionInput return this.BaseDistance;
-	public extern var BaseDistanceDefault(get, never): cpp.Float32;
-	public inline extern function get_BaseDistanceDefault(): cpp.Float32 return this.BaseDistanceDefault;
+	public extern var BaseDistanceDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_BaseDistanceDefault(): ucpp.num.Float32 return this.BaseDistanceDefault;
 	public extern var Radius(get, never): ExpressionInput;
 	public inline extern function get_Radius(): ExpressionInput return this.Radius;
-	public extern var RadiusDefault(get, never): cpp.Float32;
-	public inline extern function get_RadiusDefault(): cpp.Float32 return this.RadiusDefault;
-	public extern var NumSteps(get, never): cpp.UInt32;
-	public inline extern function get_NumSteps(): cpp.UInt32 return this.NumSteps;
-	public extern var StepScaleDefault(get, never): cpp.Float32;
-	public inline extern function get_StepScaleDefault(): cpp.Float32 return this.StepScaleDefault;
+	public extern var RadiusDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_RadiusDefault(): ucpp.num.Float32 return this.RadiusDefault;
+	public extern var NumSteps(get, never): ucpp.num.UInt32;
+	public inline extern function get_NumSteps(): ucpp.num.UInt32 return this.NumSteps;
+	public extern var StepScaleDefault(get, never): ucpp.num.Float32;
+	public inline extern function get_StepScaleDefault(): ucpp.num.Float32 return this.StepScaleDefault;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDistanceFieldApproxAO*")
-abstract MaterialExpressionDistanceFieldApproxAOPtr(cpp.Star<MaterialExpressionDistanceFieldApproxAO>) from cpp.Star<MaterialExpressionDistanceFieldApproxAO> to cpp.Star<MaterialExpressionDistanceFieldApproxAO>{
+abstract MaterialExpressionDistanceFieldApproxAOPtr(ucpp.Ptr<MaterialExpressionDistanceFieldApproxAO>) from ucpp.Ptr<MaterialExpressionDistanceFieldApproxAO> to ucpp.Ptr<MaterialExpressionDistanceFieldApproxAO>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDistanceFieldApproxAO): MaterialExpressionDistanceFieldApproxAOPtr {
 		return untyped __cpp__("&({0})", v);

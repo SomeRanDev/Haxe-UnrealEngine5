@@ -3,27 +3,27 @@ package ue;
 
 @:native("UCapsuleComponent")
 @:include("Components/CapsuleComponent.h")
-@:structAccess
+@:valueType
 extern class CapsuleComp extends ShapeComp {
-	@:protected public var CapsuleHalfHeight: cpp.Float32;
-	@:protected public var CapsuleRadius: cpp.Float32;
+	@:protected public var CapsuleHalfHeight: ucpp.num.Float32;
+	@:protected public var CapsuleRadius: ucpp.num.Float32;
 
-	public function SetCapsuleSize(InRadius: cpp.Float32, InHalfHeight: cpp.Float32, bUpdateOverlaps: Bool): Void;
-	public function SetCapsuleRadius(Radius: cpp.Float32, bUpdateOverlaps: Bool): Void;
-	public function SetCapsuleHalfHeight(HalfHeight: cpp.Float32, bUpdateOverlaps: Bool): Void;
-	public function GetUnscaledCapsuleSize_WithoutHemisphere(OutRadius: cpp.Reference<cpp.Float32>, OutHalfHeightWithoutHemisphere: cpp.Reference<cpp.Float32>): Void;
-	public function GetUnscaledCapsuleSize(OutRadius: cpp.Reference<cpp.Float32>, OutHalfHeight: cpp.Reference<cpp.Float32>): Void;
-	public function GetUnscaledCapsuleRadius(): cpp.Float32;
-	public function GetUnscaledCapsuleHalfHeight_WithoutHemisphere(): cpp.Float32;
-	public function GetUnscaledCapsuleHalfHeight(): cpp.Float32;
-	public function GetShapeScale(): cpp.Float32;
-	public function GetScaledCapsuleSize_WithoutHemisphere(OutRadius: cpp.Reference<cpp.Float32>, OutHalfHeightWithoutHemisphere: cpp.Reference<cpp.Float32>): Void;
-	public function GetScaledCapsuleSize(OutRadius: cpp.Reference<cpp.Float32>, OutHalfHeight: cpp.Reference<cpp.Float32>): Void;
-	public function GetScaledCapsuleRadius(): cpp.Float32;
-	public function GetScaledCapsuleHalfHeight_WithoutHemisphere(): cpp.Float32;
-	public function GetScaledCapsuleHalfHeight(): cpp.Float32;
+	public function SetCapsuleSize(InRadius: ucpp.num.Float32, InHalfHeight: ucpp.num.Float32, bUpdateOverlaps: Bool): Void;
+	public function SetCapsuleRadius(Radius: ucpp.num.Float32, bUpdateOverlaps: Bool): Void;
+	public function SetCapsuleHalfHeight(HalfHeight: ucpp.num.Float32, bUpdateOverlaps: Bool): Void;
+	public function GetUnscaledCapsuleSize_WithoutHemisphere(OutRadius: ucpp.Ref<ucpp.num.Float32>, OutHalfHeightWithoutHemisphere: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetUnscaledCapsuleSize(OutRadius: ucpp.Ref<ucpp.num.Float32>, OutHalfHeight: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetUnscaledCapsuleRadius(): ucpp.num.Float32;
+	public function GetUnscaledCapsuleHalfHeight_WithoutHemisphere(): ucpp.num.Float32;
+	public function GetUnscaledCapsuleHalfHeight(): ucpp.num.Float32;
+	public function GetShapeScale(): ucpp.num.Float32;
+	public function GetScaledCapsuleSize_WithoutHemisphere(OutRadius: ucpp.Ref<ucpp.num.Float32>, OutHalfHeightWithoutHemisphere: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetScaledCapsuleSize(OutRadius: ucpp.Ref<ucpp.num.Float32>, OutHalfHeight: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetScaledCapsuleRadius(): ucpp.num.Float32;
+	public function GetScaledCapsuleHalfHeight_WithoutHemisphere(): ucpp.num.Float32;
+	public function GetScaledCapsuleHalfHeight(): ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -38,7 +38,7 @@ abstract ConstCapsuleComp(CapsuleComp) from CapsuleComp {
 @:forward
 @:nativeGen
 @:native("CapsuleComp*")
-abstract CapsuleCompPtr(cpp.Star<CapsuleComp>) from cpp.Star<CapsuleComp> to cpp.Star<CapsuleComp>{
+abstract CapsuleCompPtr(ucpp.Ptr<CapsuleComp>) from ucpp.Ptr<CapsuleComp> to ucpp.Ptr<CapsuleComp>{
 	@:from
 	public static extern inline function fromValue(v: CapsuleComp): CapsuleCompPtr {
 		return untyped __cpp__("&({0})", v);

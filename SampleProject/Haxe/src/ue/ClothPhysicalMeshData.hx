@@ -3,19 +3,19 @@ package ue;
 
 @:native("FClothPhysicalMeshData")
 @:include("ClothPhysicalMeshData.h")
-@:structAccess
+@:valueType
 extern class ClothPhysicalMeshData {
 	public var Vertices: TArray<Vector3f>;
 	public var Normals: TArray<Vector3f>;
-	public var Indices: TArray<cpp.UInt32>;
-	public var WeightMaps: TMap<cpp.UInt32, PointWeightMap>;
-	public var InverseMasses: TArray<cpp.Float32>;
+	public var Indices: TArray<ucpp.num.UInt32>;
+	public var WeightMaps: TMap<ucpp.num.UInt32, PointWeightMap>;
+	public var InverseMasses: TArray<ucpp.num.Float32>;
 	public var BoneData: TArray<ClothVertBoneData>;
-	public var SelfCollisionIndices: TArray<cpp.UInt32>;
+	public var SelfCollisionIndices: TArray<ucpp.num.UInt32>;
 	public var EuclideanTethers: ClothTetherData;
 	public var GeodesicTethers: ClothTetherData;
-	public var MaxBoneWeights: cpp.Int32;
-	public var NumFixedVerts: cpp.Int32;
+	public var MaxBoneWeights: ucpp.num.Int32;
+	public var NumFixedVerts: ucpp.num.Int32;
 
 	@:native("FClothPhysicalMeshData") public function new();
 }

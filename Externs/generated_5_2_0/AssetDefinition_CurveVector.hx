@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_CurveVector")
 @:include("AssetDefinition_CurveVector.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_CurveVector extends AssetDefinition_Curve {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_CurveVector(AssetDefinition_CurveVector) from Asse
 @:forward
 @:nativeGen
 @:native("AssetDefinition_CurveVector*")
-abstract AssetDefinition_CurveVectorPtr(cpp.Star<AssetDefinition_CurveVector>) from cpp.Star<AssetDefinition_CurveVector> to cpp.Star<AssetDefinition_CurveVector>{
+abstract AssetDefinition_CurveVectorPtr(ucpp.Ptr<AssetDefinition_CurveVector>) from ucpp.Ptr<AssetDefinition_CurveVector> to ucpp.Ptr<AssetDefinition_CurveVector>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_CurveVector): AssetDefinition_CurveVectorPtr {
 		return untyped __cpp__("&({0})", v);

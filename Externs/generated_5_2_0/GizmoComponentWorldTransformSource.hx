@@ -3,19 +3,19 @@ package ue;
 
 @:native("UGizmoComponentWorldTransformSource")
 @:include("BaseGizmos/TransformSources.h")
-@:structAccess
+@:valueType
 extern class GizmoComponentWorldTransformSource extends GizmoBaseTransformSource {
-	public var Component: cpp.Star<SceneComp>;
+	public var Component: ucpp.Ptr<SceneComp>;
 	public var bModifyComponentOnTransform: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGizmoComponentWorldTransformSource(GizmoComponentWorldTransformSource) from GizmoComponentWorldTransformSource {
-	public extern var Component(get, never): cpp.Star<SceneComp.ConstSceneComp>;
-	public inline extern function get_Component(): cpp.Star<SceneComp.ConstSceneComp> return this.Component;
+	public extern var Component(get, never): ucpp.Ptr<SceneComp.ConstSceneComp>;
+	public inline extern function get_Component(): ucpp.Ptr<SceneComp.ConstSceneComp> return this.Component;
 	public extern var bModifyComponentOnTransform(get, never): Bool;
 	public inline extern function get_bModifyComponentOnTransform(): Bool return this.bModifyComponentOnTransform;
 }
@@ -23,7 +23,7 @@ abstract ConstGizmoComponentWorldTransformSource(GizmoComponentWorldTransformSou
 @:forward
 @:nativeGen
 @:native("GizmoComponentWorldTransformSource*")
-abstract GizmoComponentWorldTransformSourcePtr(cpp.Star<GizmoComponentWorldTransformSource>) from cpp.Star<GizmoComponentWorldTransformSource> to cpp.Star<GizmoComponentWorldTransformSource>{
+abstract GizmoComponentWorldTransformSourcePtr(ucpp.Ptr<GizmoComponentWorldTransformSource>) from ucpp.Ptr<GizmoComponentWorldTransformSource> to ucpp.Ptr<GizmoComponentWorldTransformSource>{
 	@:from
 	public static extern inline function fromValue(v: GizmoComponentWorldTransformSource): GizmoComponentWorldTransformSourcePtr {
 		return untyped __cpp__("&({0})", v);

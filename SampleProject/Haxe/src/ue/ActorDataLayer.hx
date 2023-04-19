@@ -3,7 +3,7 @@ package ue;
 
 @:native("FActorDataLayer")
 @:include("WorldPartition/DataLayer/ActorDataLayer.h")
-@:structAccess
+@:valueType
 extern class ActorDataLayer {
 	public var Name: FName;
 

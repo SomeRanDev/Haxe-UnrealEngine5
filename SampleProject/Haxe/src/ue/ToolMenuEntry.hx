@@ -3,7 +3,7 @@ package ue;
 
 @:native("FToolMenuEntry")
 @:include("ToolMenuEntry.h")
-@:structAccess
+@:valueType
 extern class ToolMenuEntry {
 	public var Name: FName;
 	public var Owner: ToolMenuOwner;
@@ -12,7 +12,7 @@ extern class ToolMenuEntry {
 	public var TutorialHighlightName: FName;
 	public var InsertPosition: ToolMenuInsert;
 	public var bShouldCloseWindowAfterMenuSelection: Bool;
-	public var ScriptObject: cpp.Star<ToolMenuEntryScript>;
+	public var ScriptObject: ucpp.Ptr<ToolMenuEntryScript>;
 	public var StyleNameOverride: FName;
 	private var bCommandIsKeybindOnly: Bool;
 

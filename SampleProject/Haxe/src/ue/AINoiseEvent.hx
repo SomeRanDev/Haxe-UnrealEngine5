@@ -3,14 +3,14 @@ package ue;
 
 @:native("FAINoiseEvent")
 @:include("Perception/AISense_Hearing.h")
-@:structAccess
+@:valueType
 extern class AINoiseEvent {
 	public var NoiseLocation: Vector;
-	public var Loudness: cpp.Float32;
-	public var MaxRange: cpp.Float32;
-	public var Instigator: cpp.Star<Actor>;
+	public var Loudness: ucpp.num.Float32;
+	public var MaxRange: ucpp.num.Float32;
+	public var Instigator: ucpp.Ptr<Actor>;
 	public var Tag: FName;
 
 	@:native("FAINoiseEvent") public function new();
-	@:native("FAINoiseEvent") public static function make(NoiseLocation: Vector, Loudness: cpp.Float32, MaxRange: cpp.Float32, Instigator: cpp.Star<Actor>, Tag: FName): AINoiseEvent ;
+	@:native("FAINoiseEvent") public static function make(NoiseLocation: Vector, Loudness: ucpp.num.Float32, MaxRange: ucpp.num.Float32, Instigator: ucpp.Ptr<Actor>, Tag: FName): AINoiseEvent ;
 }

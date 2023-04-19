@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UAIMoveCompletedSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class AIMoveCompletedSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstAIMoveCompletedSignature__PythonCallable(AIMoveCompletedSignature_
 @:forward
 @:nativeGen
 @:native("AIMoveCompletedSignature__PythonCallable*")
-abstract AIMoveCompletedSignature__PythonCallablePtr(cpp.Star<AIMoveCompletedSignature__PythonCallable>) from cpp.Star<AIMoveCompletedSignature__PythonCallable> to cpp.Star<AIMoveCompletedSignature__PythonCallable>{
+abstract AIMoveCompletedSignature__PythonCallablePtr(ucpp.Ptr<AIMoveCompletedSignature__PythonCallable>) from ucpp.Ptr<AIMoveCompletedSignature__PythonCallable> to ucpp.Ptr<AIMoveCompletedSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: AIMoveCompletedSignature__PythonCallable): AIMoveCompletedSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,31 +3,31 @@ package ue;
 
 @:native("UBTDecorator_BlueprintBase")
 @:include("BehaviorTree/Decorators/BTDecorator_BlueprintBase.h")
-@:structAccess
+@:valueType
 extern class BTDecorator_BlueprintBase extends BTDecorator {
-	@:protected public var AIOwner: cpp.Star<AIController>;
-	@:protected public var ActorOwner: cpp.Star<Actor>;
+	@:protected public var AIOwner: ucpp.Ptr<AIController>;
+	@:protected public var ActorOwner: ucpp.Ptr<Actor>;
 	@:protected public var ObservedKeyNames: TArray<FName>;
 	@:protected public var bShowPropertyDetails: Bool;
 	@:protected public var bCheckConditionOnlyBlackBoardChanges: Bool;
 	@:protected public var bIsObservingBB: Bool;
 
-	@:protected public function ReceiveTickAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>, DeltaSeconds: cpp.Float32): Void;
-	@:protected public function ReceiveTick(OwnerActor: cpp.Star<Actor>, DeltaSeconds: cpp.Float32): Void;
-	@:protected public function ReceiveObserverDeactivatedAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
-	@:protected public function ReceiveObserverDeactivated(OwnerActor: cpp.Star<Actor>): Void;
-	@:protected public function ReceiveObserverActivatedAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
-	@:protected public function ReceiveObserverActivated(OwnerActor: cpp.Star<Actor>): Void;
-	@:protected public function ReceiveExecutionStartAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Void;
-	@:protected public function ReceiveExecutionStart(OwnerActor: cpp.Star<Actor>): Void;
-	@:protected public function ReceiveExecutionFinishAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>, NodeResult: TEnumAsByte<EBTNodeResult>): Void;
-	@:protected public function ReceiveExecutionFinish(OwnerActor: cpp.Star<Actor>, NodeResult: TEnumAsByte<EBTNodeResult>): Void;
-	@:protected public function PerformConditionCheckAI(OwnerController: cpp.Star<AIController>, ControlledPawn: cpp.Star<Pawn>): Bool;
-	@:protected public function PerformConditionCheck(OwnerActor: cpp.Star<Actor>): Bool;
+	@:protected public function ReceiveTickAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>, DeltaSeconds: ucpp.num.Float32): Void;
+	@:protected public function ReceiveTick(OwnerActor: ucpp.Ptr<Actor>, DeltaSeconds: ucpp.num.Float32): Void;
+	@:protected public function ReceiveObserverDeactivatedAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>): Void;
+	@:protected public function ReceiveObserverDeactivated(OwnerActor: ucpp.Ptr<Actor>): Void;
+	@:protected public function ReceiveObserverActivatedAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>): Void;
+	@:protected public function ReceiveObserverActivated(OwnerActor: ucpp.Ptr<Actor>): Void;
+	@:protected public function ReceiveExecutionStartAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>): Void;
+	@:protected public function ReceiveExecutionStart(OwnerActor: ucpp.Ptr<Actor>): Void;
+	@:protected public function ReceiveExecutionFinishAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>, NodeResult: TEnumAsByte<EBTNodeResult>): Void;
+	@:protected public function ReceiveExecutionFinish(OwnerActor: ucpp.Ptr<Actor>, NodeResult: TEnumAsByte<EBTNodeResult>): Void;
+	@:protected public function PerformConditionCheckAI(OwnerController: ucpp.Ptr<AIController>, ControlledPawn: ucpp.Ptr<Pawn>): Bool;
+	@:protected public function PerformConditionCheck(OwnerActor: ucpp.Ptr<Actor>): Bool;
 	@:protected public function IsDecoratorObserverActive(): Bool;
 	@:protected public function IsDecoratorExecutionActive(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(IsDecoratorObserverActive, IsDecoratorExecutionActive)
@@ -38,7 +38,7 @@ abstract ConstBTDecorator_BlueprintBase(BTDecorator_BlueprintBase) from BTDecora
 @:forward
 @:nativeGen
 @:native("BTDecorator_BlueprintBase*")
-abstract BTDecorator_BlueprintBasePtr(cpp.Star<BTDecorator_BlueprintBase>) from cpp.Star<BTDecorator_BlueprintBase> to cpp.Star<BTDecorator_BlueprintBase>{
+abstract BTDecorator_BlueprintBasePtr(ucpp.Ptr<BTDecorator_BlueprintBase>) from ucpp.Ptr<BTDecorator_BlueprintBase> to ucpp.Ptr<BTDecorator_BlueprintBase>{
 	@:from
 	public static extern inline function fromValue(v: BTDecorator_BlueprintBase): BTDecorator_BlueprintBasePtr {
 		return untyped __cpp__("&({0})", v);

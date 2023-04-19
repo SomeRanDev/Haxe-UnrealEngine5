@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEnumProperty")
-@:structAccess
+@:valueType
 extern class EnumProperty extends Property {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEnumProperty(EnumProperty) from EnumProperty {
 @:forward
 @:nativeGen
 @:native("EnumProperty*")
-abstract EnumPropertyPtr(cpp.Star<EnumProperty>) from cpp.Star<EnumProperty> to cpp.Star<EnumProperty>{
+abstract EnumPropertyPtr(ucpp.Ptr<EnumProperty>) from ucpp.Ptr<EnumProperty> to ucpp.Ptr<EnumProperty>{
 	@:from
 	public static extern inline function fromValue(v: EnumProperty): EnumPropertyPtr {
 		return untyped __cpp__("&({0})", v);

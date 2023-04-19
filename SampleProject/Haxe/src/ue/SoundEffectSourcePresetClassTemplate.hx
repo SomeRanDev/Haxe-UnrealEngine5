@@ -3,10 +3,10 @@ package ue;
 
 @:native("USoundEffectSourcePresetClassTemplate")
 @:include("SoundClassTemplates.h")
-@:structAccess
+@:valueType
 extern class SoundEffectSourcePresetClassTemplate extends ClassTemplate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstSoundEffectSourcePresetClassTemplate(SoundEffectSourcePresetClassT
 @:forward
 @:nativeGen
 @:native("SoundEffectSourcePresetClassTemplate*")
-abstract SoundEffectSourcePresetClassTemplatePtr(cpp.Star<SoundEffectSourcePresetClassTemplate>) from cpp.Star<SoundEffectSourcePresetClassTemplate> to cpp.Star<SoundEffectSourcePresetClassTemplate>{
+abstract SoundEffectSourcePresetClassTemplatePtr(ucpp.Ptr<SoundEffectSourcePresetClassTemplate>) from ucpp.Ptr<SoundEffectSourcePresetClassTemplate> to ucpp.Ptr<SoundEffectSourcePresetClassTemplate>{
 	@:from
 	public static extern inline function fromValue(v: SoundEffectSourcePresetClassTemplate): SoundEffectSourcePresetClassTemplatePtr {
 		return untyped __cpp__("&({0})", v);

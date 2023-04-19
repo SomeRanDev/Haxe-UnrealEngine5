@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimPhysConstraintSetup")
 @:include("BoneControllers/AnimNode_AnimDynamics.h")
-@:structAccess
+@:valueType
 extern class AnimPhysConstraintSetup {
 	public var LinearXLimitType: AnimPhysLinearConstraintType;
 	public var LinearYLimitType: AnimPhysLinearConstraintType;
@@ -13,7 +13,7 @@ extern class AnimPhysConstraintSetup {
 	public var AngularConstraintType: AnimPhysAngularConstraintType;
 	public var TwistAxis: AnimPhysTwistAxis;
 	public var AngularTargetAxis: AnimPhysTwistAxis;
-	public var ConeAngle: cpp.Float32;
+	public var ConeAngle: ucpp.num.Float32;
 	public var AngularLimitsMin: Vector;
 	public var AngularLimitsMax: Vector;
 	public var AngularTarget: Vector;

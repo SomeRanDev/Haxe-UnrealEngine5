@@ -3,13 +3,13 @@ package ue;
 
 @:native("UDEditorVectorParameterValue")
 @:include("MaterialEditor/DEditorVectorParameterValue.h")
-@:structAccess
+@:valueType
 extern class DEditorVectorParameterValue extends DEditorParameterValue {
 	public var ParameterValue: LinearColor;
 	public var bIsUsedAsChannelMask: Bool;
 	public var ChannelNames: ParameterChannelNames;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstDEditorVectorParameterValue(DEditorVectorParameterValue) from DEdi
 @:forward
 @:nativeGen
 @:native("DEditorVectorParameterValue*")
-abstract DEditorVectorParameterValuePtr(cpp.Star<DEditorVectorParameterValue>) from cpp.Star<DEditorVectorParameterValue> to cpp.Star<DEditorVectorParameterValue>{
+abstract DEditorVectorParameterValuePtr(ucpp.Ptr<DEditorVectorParameterValue>) from ucpp.Ptr<DEditorVectorParameterValue> to ucpp.Ptr<DEditorVectorParameterValue>{
 	@:from
 	public static extern inline function fromValue(v: DEditorVectorParameterValue): DEditorVectorParameterValuePtr {
 		return untyped __cpp__("&({0})", v);

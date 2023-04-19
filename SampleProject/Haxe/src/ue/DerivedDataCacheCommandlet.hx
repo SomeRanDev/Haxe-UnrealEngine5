@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDerivedDataCacheCommandlet")
 @:include("Commandlets/DerivedDataCacheCommandlet.h")
-@:structAccess
+@:valueType
 extern class DerivedDataCacheCommandlet extends Commandlet {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDerivedDataCacheCommandlet(DerivedDataCacheCommandlet) from Derive
 @:forward
 @:nativeGen
 @:native("DerivedDataCacheCommandlet*")
-abstract DerivedDataCacheCommandletPtr(cpp.Star<DerivedDataCacheCommandlet>) from cpp.Star<DerivedDataCacheCommandlet> to cpp.Star<DerivedDataCacheCommandlet>{
+abstract DerivedDataCacheCommandletPtr(ucpp.Ptr<DerivedDataCacheCommandlet>) from ucpp.Ptr<DerivedDataCacheCommandlet> to ucpp.Ptr<DerivedDataCacheCommandlet>{
 	@:from
 	public static extern inline function fromValue(v: DerivedDataCacheCommandlet): DerivedDataCacheCommandletPtr {
 		return untyped __cpp__("&({0})", v);

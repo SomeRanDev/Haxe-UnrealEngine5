@@ -3,7 +3,7 @@ package ue;
 
 @:native("FAnimationCurveIdentifier")
 @:include("Animation/AnimData/CurveIdentifier.h")
-@:structAccess
+@:valueType
 extern class AnimationCurveIdentifier {
 	public var InternalName: SmartName;
 	public var CurveType: ERawCurveTrackTypes;

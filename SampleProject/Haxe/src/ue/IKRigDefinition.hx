@@ -3,30 +3,28 @@ package ue;
 
 @:native("UIKRigDefinition")
 @:include("IKRigDefinition.h")
-@:structAccess
+@:valueType
 extern class IKRigDefinition extends Object {
-	public var PreviewSkeletalMesh: cpp.Star<SkeletalMesh>;
-	public var Skeleton: IKRigSkeleton;
-	private var Goals: TArray<cpp.Star<IKRigEffectorGoal>>;
-	private var Solvers: TArray<cpp.Star<IKRigSolver>>;
+	public var PreviewSkeletalMesh: TSoftObjectPtr<SkeletalMesh>;
+	private var Skeleton: IKRigSkeleton;
+	private var Goals: TArray<ucpp.Ptr<IKRigEffectorGoal>>;
+	private var Solvers: TArray<ucpp.Ptr<IKRigSolver>>;
 	private var RetargetDefinition: RetargetDefinition;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstIKRigDefinition(IKRigDefinition) from IKRigDefinition {
-	public extern var PreviewSkeletalMesh(get, never): cpp.Star<SkeletalMesh.ConstSkeletalMesh>;
-	public inline extern function get_PreviewSkeletalMesh(): cpp.Star<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
-	public extern var Skeleton(get, never): IKRigSkeleton;
-	public inline extern function get_Skeleton(): IKRigSkeleton return this.Skeleton;
+	public extern var PreviewSkeletalMesh(get, never): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh>;
+	public inline extern function get_PreviewSkeletalMesh(): TSoftObjectPtr<SkeletalMesh.ConstSkeletalMesh> return this.PreviewSkeletalMesh;
 }
 
 @:forward
 @:nativeGen
 @:native("IKRigDefinition*")
-abstract IKRigDefinitionPtr(cpp.Star<IKRigDefinition>) from cpp.Star<IKRigDefinition> to cpp.Star<IKRigDefinition>{
+abstract IKRigDefinitionPtr(ucpp.Ptr<IKRigDefinition>) from ucpp.Ptr<IKRigDefinition> to ucpp.Ptr<IKRigDefinition>{
 	@:from
 	public static extern inline function fromValue(v: IKRigDefinition): IKRigDefinitionPtr {
 		return untyped __cpp__("&({0})", v);

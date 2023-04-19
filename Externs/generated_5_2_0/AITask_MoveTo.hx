@@ -3,15 +3,15 @@ package ue;
 
 @:native("UAITask_MoveTo")
 @:include("Tasks/AITask_MoveTo.h")
-@:structAccess
+@:valueType
 extern class AITask_MoveTo extends AITask {
 	@:protected public var OnRequestFailed: HaxeMulticastSparseDelegateProperty<() -> Void>;
-	@:protected public var OnMoveFinished: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>, cpp.Star<AIController>) -> Void>;
+	@:protected public var OnMoveFinished: HaxeMulticastSparseDelegateProperty<(TEnumAsByte<EPathFollowingResult>, ucpp.Ptr<AIController>) -> Void>;
 	@:protected public var MoveRequest: AIMoveRequest;
 
-	public function AIMoveTo(Controller: cpp.Star<AIController>, GoalLocation: Vector, GoalActor: cpp.Star<Actor>, AcceptanceRadius: cpp.Float32, StopOnOverlap: TEnumAsByte<EAIOptionFlag>, AcceptPartialPath: TEnumAsByte<EAIOptionFlag>, bUsePathfinding: Bool, bLockAILogic: Bool, bUseContinuousGoalTracking: Bool, ProjectGoalOnNavigation: TEnumAsByte<EAIOptionFlag>): cpp.Star<AITask_MoveTo>;
+	public function AIMoveTo(Controller: ucpp.Ptr<AIController>, GoalLocation: Vector, GoalActor: ucpp.Ptr<Actor>, AcceptanceRadius: ucpp.num.Float32, StopOnOverlap: TEnumAsByte<EAIOptionFlag>, AcceptPartialPath: TEnumAsByte<EAIOptionFlag>, bUsePathfinding: Bool, bLockAILogic: Bool, bUseContinuousGoalTracking: Bool, ProjectGoalOnNavigation: TEnumAsByte<EAIOptionFlag>): ucpp.Ptr<AITask_MoveTo>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -22,7 +22,7 @@ abstract ConstAITask_MoveTo(AITask_MoveTo) from AITask_MoveTo {
 @:forward
 @:nativeGen
 @:native("AITask_MoveTo*")
-abstract AITask_MoveToPtr(cpp.Star<AITask_MoveTo>) from cpp.Star<AITask_MoveTo> to cpp.Star<AITask_MoveTo>{
+abstract AITask_MoveToPtr(ucpp.Ptr<AITask_MoveTo>) from ucpp.Ptr<AITask_MoveTo> to ucpp.Ptr<AITask_MoveTo>{
 	@:from
 	public static extern inline function fromValue(v: AITask_MoveTo): AITask_MoveToPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("ANiagaraLensEffectBase")
 @:include("NiagaraLensEffectBase.h")
-@:structAccess
+@:valueType
 extern class NiagaraLensEffectBase extends NiagaraActor {
 	@:protected public var DesiredRelativeTransform: Transform;
-	@:protected public var BaseAuthoredFOV: cpp.Float32;
+	@:protected public var BaseAuthoredFOV: ucpp.num.Float32;
 	@:protected public var bAllowMultipleInstances: Bool;
 	@:protected public var bResetWhenRetriggered: Bool;
 	@:protected public var EmittersToTreatAsSame: TArray<TSubclassOf<Actor>>;
-	@:protected public var OwningCameraManager: cpp.Star<PlayerCameraManager>;
+	@:protected public var OwningCameraManager: ucpp.Ptr<PlayerCameraManager>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstNiagaraLensEffectBase(NiagaraLensEffectBase) from NiagaraLensEffec
 @:forward
 @:nativeGen
 @:native("NiagaraLensEffectBase*")
-abstract NiagaraLensEffectBasePtr(cpp.Star<NiagaraLensEffectBase>) from cpp.Star<NiagaraLensEffectBase> to cpp.Star<NiagaraLensEffectBase>{
+abstract NiagaraLensEffectBasePtr(ucpp.Ptr<NiagaraLensEffectBase>) from ucpp.Ptr<NiagaraLensEffectBase> to ucpp.Ptr<NiagaraLensEffectBase>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraLensEffectBase): NiagaraLensEffectBasePtr {
 		return untyped __cpp__("&({0})", v);

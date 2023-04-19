@@ -3,16 +3,16 @@ package ue;
 
 @:native("UBehaviorTreeComponent")
 @:include("BehaviorTree/BehaviorTreeComponent.h")
-@:structAccess
+@:valueType
 extern class BehaviorTreeComp extends BrainComp {
-	@:protected public var NodeInstances: TArray<cpp.Star<BTNode>>;
-	@:protected public var DefaultBehaviorTreeAsset: cpp.Star<BehaviorTree>;
+	@:protected public var NodeInstances: TArray<ucpp.Ptr<BTNode>>;
+	@:protected public var DefaultBehaviorTreeAsset: ucpp.Ptr<BehaviorTree>;
 
-	public function SetDynamicSubtree(InjectTag: GameplayTag, BehaviorAsset: cpp.Star<BehaviorTree>): Void;
-	public function GetTagCooldownEndTime(CooldownTag: GameplayTag): cpp.Float64;
-	public function AddCooldownTagDuration(CooldownTag: GameplayTag, CooldownDuration: cpp.Float32, bAddToExistingDuration: Bool): Void;
+	public function SetDynamicSubtree(InjectTag: GameplayTag, BehaviorAsset: ucpp.Ptr<BehaviorTree>): Void;
+	public function GetTagCooldownEndTime(CooldownTag: GameplayTag): ucpp.num.Float64;
+	public function AddCooldownTagDuration(CooldownTag: GameplayTag, CooldownDuration: ucpp.num.Float32, bAddToExistingDuration: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetTagCooldownEndTime)
@@ -23,7 +23,7 @@ abstract ConstBehaviorTreeComp(BehaviorTreeComp) from BehaviorTreeComp {
 @:forward
 @:nativeGen
 @:native("BehaviorTreeComp*")
-abstract BehaviorTreeCompPtr(cpp.Star<BehaviorTreeComp>) from cpp.Star<BehaviorTreeComp> to cpp.Star<BehaviorTreeComp>{
+abstract BehaviorTreeCompPtr(ucpp.Ptr<BehaviorTreeComp>) from ucpp.Ptr<BehaviorTreeComp> to ucpp.Ptr<BehaviorTreeComp>{
 	@:from
 	public static extern inline function fromValue(v: BehaviorTreeComp): BehaviorTreeCompPtr {
 		return untyped __cpp__("&({0})", v);

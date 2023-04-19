@@ -3,7 +3,7 @@ package ue;
 
 @:native("FForceFeedbackEffectOverridenChannelDetails")
 @:include("GameFramework/ForceFeedbackEffect.h")
-@:structAccess
+@:valueType
 extern class ForceFeedbackEffectOverridenChannelDetails {
 	public var ChannelDetails: TArray<ForceFeedbackChannelDetails>;
 

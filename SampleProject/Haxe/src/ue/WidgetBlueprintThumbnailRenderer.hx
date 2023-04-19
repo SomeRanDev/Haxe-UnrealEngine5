@@ -3,10 +3,10 @@ package ue;
 
 @:native("UWidgetBlueprintThumbnailRenderer")
 @:include("WidgetBlueprintThumbnailRenderer.h")
-@:structAccess
+@:valueType
 extern class WidgetBlueprintThumbnailRenderer extends DefaultSizedThumbnailRenderer {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstWidgetBlueprintThumbnailRenderer(WidgetBlueprintThumbnailRenderer)
 @:forward
 @:nativeGen
 @:native("WidgetBlueprintThumbnailRenderer*")
-abstract WidgetBlueprintThumbnailRendererPtr(cpp.Star<WidgetBlueprintThumbnailRenderer>) from cpp.Star<WidgetBlueprintThumbnailRenderer> to cpp.Star<WidgetBlueprintThumbnailRenderer>{
+abstract WidgetBlueprintThumbnailRendererPtr(ucpp.Ptr<WidgetBlueprintThumbnailRenderer>) from ucpp.Ptr<WidgetBlueprintThumbnailRenderer> to ucpp.Ptr<WidgetBlueprintThumbnailRenderer>{
 	@:from
 	public static extern inline function fromValue(v: WidgetBlueprintThumbnailRenderer): WidgetBlueprintThumbnailRendererPtr {
 		return untyped __cpp__("&({0})", v);

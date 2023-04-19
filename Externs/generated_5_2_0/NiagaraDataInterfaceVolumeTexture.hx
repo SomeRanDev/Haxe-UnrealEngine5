@@ -3,19 +3,19 @@ package ue;
 
 @:native("UNiagaraDataInterfaceVolumeTexture")
 @:include("NiagaraDataInterfaceVolumeTexture.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceVolumeTexture extends NiagaraDataInterface {
-	public var Texture: cpp.Star<Texture>;
+	public var Texture: ucpp.Ptr<Texture>;
 	public var TextureUserParameter: NiagaraUserParameterBinding;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstNiagaraDataInterfaceVolumeTexture(NiagaraDataInterfaceVolumeTexture) from NiagaraDataInterfaceVolumeTexture {
-	public extern var Texture(get, never): cpp.Star<Texture.ConstTexture>;
-	public inline extern function get_Texture(): cpp.Star<Texture.ConstTexture> return this.Texture;
+	public extern var Texture(get, never): ucpp.Ptr<Texture.ConstTexture>;
+	public inline extern function get_Texture(): ucpp.Ptr<Texture.ConstTexture> return this.Texture;
 	public extern var TextureUserParameter(get, never): NiagaraUserParameterBinding;
 	public inline extern function get_TextureUserParameter(): NiagaraUserParameterBinding return this.TextureUserParameter;
 }
@@ -23,7 +23,7 @@ abstract ConstNiagaraDataInterfaceVolumeTexture(NiagaraDataInterfaceVolumeTextur
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceVolumeTexture*")
-abstract NiagaraDataInterfaceVolumeTexturePtr(cpp.Star<NiagaraDataInterfaceVolumeTexture>) from cpp.Star<NiagaraDataInterfaceVolumeTexture> to cpp.Star<NiagaraDataInterfaceVolumeTexture>{
+abstract NiagaraDataInterfaceVolumeTexturePtr(ucpp.Ptr<NiagaraDataInterfaceVolumeTexture>) from ucpp.Ptr<NiagaraDataInterfaceVolumeTexture> to ucpp.Ptr<NiagaraDataInterfaceVolumeTexture>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceVolumeTexture): NiagaraDataInterfaceVolumeTexturePtr {
 		return untyped __cpp__("&({0})", v);

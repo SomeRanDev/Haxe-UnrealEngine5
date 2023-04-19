@@ -3,14 +3,14 @@ package ue;
 
 @:native("FKTaperedCapsuleElem")
 @:include("PhysicsEngine/TaperedCapsuleElem.h")
-@:structAccess
+@:valueType
 extern class KTaperedCapsuleElem extends KShapeElem {
 	public var Center: Vector;
 	public var Rotation: Rotator;
-	public var Radius0: cpp.Float32;
-	public var Radius1: cpp.Float32;
-	public var Length: cpp.Float32;
+	public var Radius0: ucpp.num.Float32;
+	public var Radius1: ucpp.num.Float32;
+	public var Length: ucpp.num.Float32;
 
 	@:native("FKTaperedCapsuleElem") public function new();
-	@:native("FKTaperedCapsuleElem") public static function make(Center: Vector, Rotation: Rotator, Radius0: cpp.Float32, Radius1: cpp.Float32, Length: cpp.Float32): KTaperedCapsuleElem ;
+	@:native("FKTaperedCapsuleElem") public static function make(Center: Vector, Rotation: Rotator, Radius0: ucpp.num.Float32, Radius1: ucpp.num.Float32, Length: ucpp.num.Float32): KTaperedCapsuleElem ;
 }

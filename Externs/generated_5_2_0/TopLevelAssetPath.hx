@@ -3,7 +3,7 @@ package ue;
 
 @:native("FTopLevelAssetPath")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class TopLevelAssetPath {
 	private var PackageName: FName;
 	private var AssetName: FName;

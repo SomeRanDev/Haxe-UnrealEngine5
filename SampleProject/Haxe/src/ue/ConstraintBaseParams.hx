@@ -3,14 +3,14 @@ package ue;
 
 @:native("FConstraintBaseParams")
 @:include("PhysicsEngine/ConstraintTypes.h")
-@:structAccess
+@:valueType
 extern class ConstraintBaseParams {
-	public var Stiffness: cpp.Float32;
-	public var Damping: cpp.Float32;
-	public var Restitution: cpp.Float32;
-	public var ContactDistance: cpp.Float32;
+	public var Stiffness: ucpp.num.Float32;
+	public var Damping: ucpp.num.Float32;
+	public var Restitution: ucpp.num.Float32;
+	public var ContactDistance: ucpp.num.Float32;
 	public var bSoftConstraint: Bool;
 
 	@:native("FConstraintBaseParams") public function new();
-	@:native("FConstraintBaseParams") public static function make(Stiffness: cpp.Float32, Damping: cpp.Float32, Restitution: cpp.Float32, ContactDistance: cpp.Float32, bSoftConstraint: Bool): ConstraintBaseParams ;
+	@:native("FConstraintBaseParams") public static function make(Stiffness: ucpp.num.Float32, Damping: ucpp.num.Float32, Restitution: ucpp.num.Float32, ContactDistance: ucpp.num.Float32, bSoftConstraint: Bool): ConstraintBaseParams ;
 }

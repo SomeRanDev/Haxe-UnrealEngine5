@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCameraAnimationSpawnableSystem")
 @:include("CameraAnimationSequenceSubsystem.h")
-@:structAccess
+@:valueType
 extern class CameraAnimationSpawnableSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCameraAnimationSpawnableSystem(CameraAnimationSpawnableSystem) fro
 @:forward
 @:nativeGen
 @:native("CameraAnimationSpawnableSystem*")
-abstract CameraAnimationSpawnableSystemPtr(cpp.Star<CameraAnimationSpawnableSystem>) from cpp.Star<CameraAnimationSpawnableSystem> to cpp.Star<CameraAnimationSpawnableSystem>{
+abstract CameraAnimationSpawnableSystemPtr(ucpp.Ptr<CameraAnimationSpawnableSystem>) from ucpp.Ptr<CameraAnimationSpawnableSystem> to ucpp.Ptr<CameraAnimationSpawnableSystem>{
 	@:from
 	public static extern inline function fromValue(v: CameraAnimationSpawnableSystem): CameraAnimationSpawnableSystemPtr {
 		return untyped __cpp__("&({0})", v);

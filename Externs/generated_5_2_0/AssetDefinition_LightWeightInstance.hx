@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_LightWeightInstance")
 @:include("AssetDefinition_LightWeightInstance.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_LightWeightInstance extends AssetDefinitionDefault {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_LightWeightInstance(AssetDefinition_LightWeightIns
 @:forward
 @:nativeGen
 @:native("AssetDefinition_LightWeightInstance*")
-abstract AssetDefinition_LightWeightInstancePtr(cpp.Star<AssetDefinition_LightWeightInstance>) from cpp.Star<AssetDefinition_LightWeightInstance> to cpp.Star<AssetDefinition_LightWeightInstance>{
+abstract AssetDefinition_LightWeightInstancePtr(ucpp.Ptr<AssetDefinition_LightWeightInstance>) from ucpp.Ptr<AssetDefinition_LightWeightInstance> to ucpp.Ptr<AssetDefinition_LightWeightInstance>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_LightWeightInstance): AssetDefinition_LightWeightInstancePtr {
 		return untyped __cpp__("&({0})", v);

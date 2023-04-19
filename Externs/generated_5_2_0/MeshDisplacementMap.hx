@@ -3,12 +3,12 @@ package ue;
 
 @:native("FMeshDisplacementMap")
 @:include("Engine/EngineTypes.h")
-@:structAccess
+@:valueType
 extern class MeshDisplacementMap {
-	public var Texture: cpp.Star<Texture2D>;
-	public var Magnitude: cpp.Float32;
-	public var Center: cpp.Float32;
+	public var Texture: ucpp.Ptr<Texture2D>;
+	public var Magnitude: ucpp.num.Float32;
+	public var Center: ucpp.num.Float32;
 
 	@:native("FMeshDisplacementMap") public function new();
-	@:native("FMeshDisplacementMap") public static function make(Texture: cpp.Star<Texture2D>, Magnitude: cpp.Float32, Center: cpp.Float32): MeshDisplacementMap ;
+	@:native("FMeshDisplacementMap") public static function make(Texture: ucpp.Ptr<Texture2D>, Magnitude: ucpp.num.Float32, Center: ucpp.num.Float32): MeshDisplacementMap ;
 }

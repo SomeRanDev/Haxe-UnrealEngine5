@@ -3,14 +3,14 @@ package ue;
 
 @:native("FConstraintDrive")
 @:include("PhysicsEngine/ConstraintDrives.h")
-@:structAccess
+@:valueType
 extern class ConstraintDrive {
-	public var Stiffness: cpp.Float32;
-	public var Damping: cpp.Float32;
-	public var MaxForce: cpp.Float32;
+	public var Stiffness: ucpp.num.Float32;
+	public var Damping: ucpp.num.Float32;
+	public var MaxForce: ucpp.num.Float32;
 	public var bEnablePositionDrive: Bool;
 	public var bEnableVelocityDrive: Bool;
 
 	@:native("FConstraintDrive") public function new();
-	@:native("FConstraintDrive") public static function make(Stiffness: cpp.Float32, Damping: cpp.Float32, MaxForce: cpp.Float32, bEnablePositionDrive: Bool, bEnableVelocityDrive: Bool): ConstraintDrive ;
+	@:native("FConstraintDrive") public static function make(Stiffness: ucpp.num.Float32, Damping: ucpp.num.Float32, MaxForce: ucpp.num.Float32, bEnablePositionDrive: Bool, bEnableVelocityDrive: Bool): ConstraintDrive ;
 }

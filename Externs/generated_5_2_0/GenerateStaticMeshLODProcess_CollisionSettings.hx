@@ -3,15 +3,15 @@ package ue;
 
 @:native("FGenerateStaticMeshLODProcess_CollisionSettings")
 @:include("Graphs/GenerateStaticMeshLODProcess.h")
-@:structAccess
+@:valueType
 extern class GenerateStaticMeshLODProcess_CollisionSettings {
 	public var CollisionGroupLayerName: FName;
 	public var CollisionType: EGenerateStaticMeshLODSimpleCollisionGeometryType;
-	public var ConvexTriangleCount: cpp.Int32;
+	public var ConvexTriangleCount: ucpp.num.Int32;
 	public var bPrefilterVertices: Bool;
-	public var PrefilterGridResolution: cpp.Int32;
+	public var PrefilterGridResolution: ucpp.num.Int32;
 	public var bSimplifyPolygons: Bool;
-	public var HullTolerance: cpp.Float32;
+	public var HullTolerance: ucpp.num.Float32;
 	public var SweepAxis: EGenerateStaticMeshLODProjectedHullAxisMode;
 
 	@:native("FGenerateStaticMeshLODProcess_CollisionSettings") public function new();

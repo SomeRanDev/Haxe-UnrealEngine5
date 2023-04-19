@@ -3,10 +3,10 @@ package ue;
 
 @:native("UAssetDefinition_BlueprintGeneratedClass")
 @:include("Script/AssetDefinition_BlueprintGeneratedClass.h")
-@:structAccess
+@:valueType
 extern class AssetDefinition_BlueprintGeneratedClass extends AssetDefinition_ClassTypeBase {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstAssetDefinition_BlueprintGeneratedClass(AssetDefinition_BlueprintG
 @:forward
 @:nativeGen
 @:native("AssetDefinition_BlueprintGeneratedClass*")
-abstract AssetDefinition_BlueprintGeneratedClassPtr(cpp.Star<AssetDefinition_BlueprintGeneratedClass>) from cpp.Star<AssetDefinition_BlueprintGeneratedClass> to cpp.Star<AssetDefinition_BlueprintGeneratedClass>{
+abstract AssetDefinition_BlueprintGeneratedClassPtr(ucpp.Ptr<AssetDefinition_BlueprintGeneratedClass>) from ucpp.Ptr<AssetDefinition_BlueprintGeneratedClass> to ucpp.Ptr<AssetDefinition_BlueprintGeneratedClass>{
 	@:from
 	public static extern inline function fromValue(v: AssetDefinition_BlueprintGeneratedClass): AssetDefinition_BlueprintGeneratedClassPtr {
 		return untyped __cpp__("&({0})", v);

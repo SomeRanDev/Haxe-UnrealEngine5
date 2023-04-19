@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionConstant3Vector")
 @:include("Materials/MaterialExpressionConstant3Vector.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionConstant3Vector extends MaterialExpression {
 	public var Constant: LinearColor;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionConstant3Vector(MaterialExpressionConstant3Vecto
 @:forward
 @:nativeGen
 @:native("MaterialExpressionConstant3Vector*")
-abstract MaterialExpressionConstant3VectorPtr(cpp.Star<MaterialExpressionConstant3Vector>) from cpp.Star<MaterialExpressionConstant3Vector> to cpp.Star<MaterialExpressionConstant3Vector>{
+abstract MaterialExpressionConstant3VectorPtr(ucpp.Ptr<MaterialExpressionConstant3Vector>) from ucpp.Ptr<MaterialExpressionConstant3Vector> to ucpp.Ptr<MaterialExpressionConstant3Vector>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionConstant3Vector): MaterialExpressionConstant3VectorPtr {
 		return untyped __cpp__("&({0})", v);

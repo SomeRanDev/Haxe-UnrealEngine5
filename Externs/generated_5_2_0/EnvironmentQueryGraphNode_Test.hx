@@ -3,20 +3,20 @@ package ue;
 
 @:native("UEnvironmentQueryGraphNode_Test")
 @:include("EnvironmentQueryGraphNode_Test.h")
-@:structAccess
+@:valueType
 extern class EnvironmentQueryGraphNode_Test extends EnvironmentQueryGraphNode {
-	public var TestWeightPct: cpp.Float32;
+	public var TestWeightPct: ucpp.num.Float32;
 	public var bHasNamedWeight: Bool;
 	public var bTestEnabled: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstEnvironmentQueryGraphNode_Test(EnvironmentQueryGraphNode_Test) from EnvironmentQueryGraphNode_Test {
-	public extern var TestWeightPct(get, never): cpp.Float32;
-	public inline extern function get_TestWeightPct(): cpp.Float32 return this.TestWeightPct;
+	public extern var TestWeightPct(get, never): ucpp.num.Float32;
+	public inline extern function get_TestWeightPct(): ucpp.num.Float32 return this.TestWeightPct;
 	public extern var bHasNamedWeight(get, never): Bool;
 	public inline extern function get_bHasNamedWeight(): Bool return this.bHasNamedWeight;
 	public extern var bTestEnabled(get, never): Bool;
@@ -26,7 +26,7 @@ abstract ConstEnvironmentQueryGraphNode_Test(EnvironmentQueryGraphNode_Test) fro
 @:forward
 @:nativeGen
 @:native("EnvironmentQueryGraphNode_Test*")
-abstract EnvironmentQueryGraphNode_TestPtr(cpp.Star<EnvironmentQueryGraphNode_Test>) from cpp.Star<EnvironmentQueryGraphNode_Test> to cpp.Star<EnvironmentQueryGraphNode_Test>{
+abstract EnvironmentQueryGraphNode_TestPtr(ucpp.Ptr<EnvironmentQueryGraphNode_Test>) from ucpp.Ptr<EnvironmentQueryGraphNode_Test> to ucpp.Ptr<EnvironmentQueryGraphNode_Test>{
 	@:from
 	public static extern inline function fromValue(v: EnvironmentQueryGraphNode_Test): EnvironmentQueryGraphNode_TestPtr {
 		return untyped __cpp__("&({0})", v);

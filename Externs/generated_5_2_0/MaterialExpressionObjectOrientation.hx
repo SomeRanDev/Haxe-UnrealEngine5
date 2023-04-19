@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionObjectOrientation")
 @:include("Materials/MaterialExpressionObjectOrientation.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionObjectOrientation extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionObjectOrientation(MaterialExpressionObjectOrient
 @:forward
 @:nativeGen
 @:native("MaterialExpressionObjectOrientation*")
-abstract MaterialExpressionObjectOrientationPtr(cpp.Star<MaterialExpressionObjectOrientation>) from cpp.Star<MaterialExpressionObjectOrientation> to cpp.Star<MaterialExpressionObjectOrientation>{
+abstract MaterialExpressionObjectOrientationPtr(ucpp.Ptr<MaterialExpressionObjectOrientation>) from ucpp.Ptr<MaterialExpressionObjectOrientation> to ucpp.Ptr<MaterialExpressionObjectOrientation>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionObjectOrientation): MaterialExpressionObjectOrientationPtr {
 		return untyped __cpp__("&({0})", v);

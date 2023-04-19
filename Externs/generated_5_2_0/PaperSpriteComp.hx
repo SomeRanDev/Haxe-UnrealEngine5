@@ -3,16 +3,16 @@ package ue;
 
 @:native("UPaperSpriteComponent")
 @:include("PaperSpriteComponent.h")
-@:structAccess
+@:valueType
 extern class PaperSpriteComp extends MeshComp {
-	@:protected public var SourceSprite: cpp.Star<PaperSprite>;
+	@:protected public var SourceSprite: ucpp.Ptr<PaperSprite>;
 	@:protected public var SpriteColor: LinearColor;
 
 	public function SetSpriteColor(NewColor: LinearColor): Void;
-	public function SetSprite(NewSprite: cpp.Star<PaperSprite>): Bool;
-	public function GetSprite(): cpp.Star<PaperSprite>;
+	public function SetSprite(NewSprite: ucpp.Ptr<PaperSprite>): Bool;
+	public function GetSprite(): ucpp.Ptr<PaperSprite>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstPaperSpriteComp(PaperSpriteComp) from PaperSpriteComp {
 @:forward
 @:nativeGen
 @:native("PaperSpriteComp*")
-abstract PaperSpriteCompPtr(cpp.Star<PaperSpriteComp>) from cpp.Star<PaperSpriteComp> to cpp.Star<PaperSpriteComp>{
+abstract PaperSpriteCompPtr(ucpp.Ptr<PaperSpriteComp>) from ucpp.Ptr<PaperSpriteComp> to ucpp.Ptr<PaperSpriteComp>{
 	@:from
 	public static extern inline function fromValue(v: PaperSpriteComp): PaperSpriteCompPtr {
 		return untyped __cpp__("&({0})", v);

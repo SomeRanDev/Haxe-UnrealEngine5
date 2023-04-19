@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPropertyValueColor")
 @:include("PropertyValueColor.h")
-@:structAccess
+@:valueType
 extern class PropertyValueColor extends PropertyValue {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPropertyValueColor(PropertyValueColor) from PropertyValueColor {
 @:forward
 @:nativeGen
 @:native("PropertyValueColor*")
-abstract PropertyValueColorPtr(cpp.Star<PropertyValueColor>) from cpp.Star<PropertyValueColor> to cpp.Star<PropertyValueColor>{
+abstract PropertyValueColorPtr(ucpp.Ptr<PropertyValueColor>) from ucpp.Ptr<PropertyValueColor> to ucpp.Ptr<PropertyValueColor>{
 	@:from
 	public static extern inline function fromValue(v: PropertyValueColor): PropertyValueColorPtr {
 		return untyped __cpp__("&({0})", v);

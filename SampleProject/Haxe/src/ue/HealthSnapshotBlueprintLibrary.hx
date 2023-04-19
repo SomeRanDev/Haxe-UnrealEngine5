@@ -3,13 +3,13 @@ package ue;
 
 @:native("UHealthSnapshotBlueprintLibrary")
 @:include("ProfilingDebugging/HealthSnapshot.h")
-@:structAccess
+@:valueType
 extern class HealthSnapshotBlueprintLibrary extends BlueprintFunctionLibrary {
 	public function StopPerformanceSnapshots(): Void;
 	public function StartPerformanceSnapshots(): Void;
 	public function LogPerformanceSnapshot(SnapshotTitle: FString, bResetStats: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstHealthSnapshotBlueprintLibrary(HealthSnapshotBlueprintLibrary) fro
 @:forward
 @:nativeGen
 @:native("HealthSnapshotBlueprintLibrary*")
-abstract HealthSnapshotBlueprintLibraryPtr(cpp.Star<HealthSnapshotBlueprintLibrary>) from cpp.Star<HealthSnapshotBlueprintLibrary> to cpp.Star<HealthSnapshotBlueprintLibrary>{
+abstract HealthSnapshotBlueprintLibraryPtr(ucpp.Ptr<HealthSnapshotBlueprintLibrary>) from ucpp.Ptr<HealthSnapshotBlueprintLibrary> to ucpp.Ptr<HealthSnapshotBlueprintLibrary>{
 	@:from
 	public static extern inline function fromValue(v: HealthSnapshotBlueprintLibrary): HealthSnapshotBlueprintLibraryPtr {
 		return untyped __cpp__("&({0})", v);

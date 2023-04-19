@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionArctangent2")
 @:include("Materials/MaterialExpressionArctangent2.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionArctangent2 extends MaterialExpression {
 	public var Y: ExpressionInput;
 	public var X: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionArctangent2(MaterialExpressionArctangent2) from 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionArctangent2*")
-abstract MaterialExpressionArctangent2Ptr(cpp.Star<MaterialExpressionArctangent2>) from cpp.Star<MaterialExpressionArctangent2> to cpp.Star<MaterialExpressionArctangent2>{
+abstract MaterialExpressionArctangent2Ptr(ucpp.Ptr<MaterialExpressionArctangent2>) from ucpp.Ptr<MaterialExpressionArctangent2> to ucpp.Ptr<MaterialExpressionArctangent2>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionArctangent2): MaterialExpressionArctangent2Ptr {
 		return untyped __cpp__("&({0})", v);

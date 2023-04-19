@@ -3,21 +3,27 @@ package ue;
 
 @:native("UMaterialExpressionStaticSwitchParameter")
 @:include("Materials/MaterialExpressionStaticSwitchParameter.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStaticSwitchParameter extends MaterialExpressionStaticBoolParameter {
+	public var A: ExpressionInput;
+	public var B: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstMaterialExpressionStaticSwitchParameter(MaterialExpressionStaticSwitchParameter) from MaterialExpressionStaticSwitchParameter {
+	public extern var A(get, never): ExpressionInput;
+	public inline extern function get_A(): ExpressionInput return this.A;
+	public extern var B(get, never): ExpressionInput;
+	public inline extern function get_B(): ExpressionInput return this.B;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStaticSwitchParameter*")
-abstract MaterialExpressionStaticSwitchParameterPtr(cpp.Star<MaterialExpressionStaticSwitchParameter>) from cpp.Star<MaterialExpressionStaticSwitchParameter> to cpp.Star<MaterialExpressionStaticSwitchParameter>{
+abstract MaterialExpressionStaticSwitchParameterPtr(ucpp.Ptr<MaterialExpressionStaticSwitchParameter>) from ucpp.Ptr<MaterialExpressionStaticSwitchParameter> to ucpp.Ptr<MaterialExpressionStaticSwitchParameter>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStaticSwitchParameter): MaterialExpressionStaticSwitchParameterPtr {
 		return untyped __cpp__("&({0})", v);

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnlineTurnBasedMatchResult__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnlineTurnBasedMatchResult__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnlineTurnBasedMatchResult__PythonCallable(OnlineTurnBasedMatchRes
 @:forward
 @:nativeGen
 @:native("OnlineTurnBasedMatchResult__PythonCallable*")
-abstract OnlineTurnBasedMatchResult__PythonCallablePtr(cpp.Star<OnlineTurnBasedMatchResult__PythonCallable>) from cpp.Star<OnlineTurnBasedMatchResult__PythonCallable> to cpp.Star<OnlineTurnBasedMatchResult__PythonCallable>{
+abstract OnlineTurnBasedMatchResult__PythonCallablePtr(ucpp.Ptr<OnlineTurnBasedMatchResult__PythonCallable>) from ucpp.Ptr<OnlineTurnBasedMatchResult__PythonCallable> to ucpp.Ptr<OnlineTurnBasedMatchResult__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnlineTurnBasedMatchResult__PythonCallable): OnlineTurnBasedMatchResult__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

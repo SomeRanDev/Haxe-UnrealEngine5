@@ -3,12 +3,12 @@ package ue;
 
 @:native("FRigVMFunctionCompilationPropertyPath")
 @:include("RigVMCore/RigVMGraphFunctionDefinition.h")
-@:structAccess
+@:valueType
 extern class RigVMFunctionCompilationPropertyPath {
-	public var PropertyIndex: cpp.Int32;
+	public var PropertyIndex: ucpp.num.Int32;
 	public var HeadCPPType: FString;
 	public var SegmentPath: FString;
 
 	@:native("FRigVMFunctionCompilationPropertyPath") public function new();
-	@:native("FRigVMFunctionCompilationPropertyPath") public static function make(PropertyIndex: cpp.Int32, HeadCPPType: FString, SegmentPath: FString): RigVMFunctionCompilationPropertyPath ;
+	@:native("FRigVMFunctionCompilationPropertyPath") public static function make(PropertyIndex: ucpp.num.Int32, HeadCPPType: FString, SegmentPath: FString): RigVMFunctionCompilationPropertyPath ;
 }

@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnPropertyValueChanged__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnPropertyValueChanged__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnPropertyValueChanged__PythonCallable(OnPropertyValueChanged__Pyt
 @:forward
 @:nativeGen
 @:native("OnPropertyValueChanged__PythonCallable*")
-abstract OnPropertyValueChanged__PythonCallablePtr(cpp.Star<OnPropertyValueChanged__PythonCallable>) from cpp.Star<OnPropertyValueChanged__PythonCallable> to cpp.Star<OnPropertyValueChanged__PythonCallable>{
+abstract OnPropertyValueChanged__PythonCallablePtr(ucpp.Ptr<OnPropertyValueChanged__PythonCallable>) from ucpp.Ptr<OnPropertyValueChanged__PythonCallable> to ucpp.Ptr<OnPropertyValueChanged__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnPropertyValueChanged__PythonCallable): OnPropertyValueChanged__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

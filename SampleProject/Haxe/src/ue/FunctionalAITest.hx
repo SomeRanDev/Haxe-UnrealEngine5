@@ -3,11 +3,11 @@ package ue;
 
 @:native("AFunctionalAITest")
 @:include("FunctionalAITest.h")
-@:structAccess
+@:valueType
 extern class FunctionalAITest extends FunctionalAITestBase {
 	@:protected public var SpawnSets: TArray<AITestSpawnSet>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstFunctionalAITest(FunctionalAITest) from FunctionalAITest {
 @:forward
 @:nativeGen
 @:native("FunctionalAITest*")
-abstract FunctionalAITestPtr(cpp.Star<FunctionalAITest>) from cpp.Star<FunctionalAITest> to cpp.Star<FunctionalAITest>{
+abstract FunctionalAITestPtr(ucpp.Ptr<FunctionalAITest>) from ucpp.Ptr<FunctionalAITest> to ucpp.Ptr<FunctionalAITest>{
 	@:from
 	public static extern inline function fromValue(v: FunctionalAITest): FunctionalAITestPtr {
 		return untyped __cpp__("&({0})", v);

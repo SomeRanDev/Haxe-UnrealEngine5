@@ -3,19 +3,19 @@ package ue;
 
 @:native("UDrawPolyPathTool")
 @:include("DrawPolyPathTool.h")
-@:structAccess
+@:valueType
 extern class DrawPolyPathTool extends InteractiveTool {
-	@:protected public var OutputTypeProperties: cpp.Star<CreateMeshObjectTypeProperties>;
-	@:protected public var TransformProps: cpp.Star<DrawPolyPathProperties>;
-	@:protected public var ExtrudeProperties: cpp.Star<DrawPolyPathExtrudeProperties>;
-	@:protected public var MaterialProperties: cpp.Star<NewMeshMaterialProperties>;
-	@:protected public var PlaneMechanic: cpp.Star<ConstructionPlaneMechanic>;
-	@:protected public var EditPreview: cpp.Star<PolyEditPreviewMesh>;
-	@:protected public var ExtrudeHeightMechanic: cpp.Star<PlaneDistanceFromHitMechanic>;
-	@:protected public var CurveDistMechanic: cpp.Star<SpatialCurveDistanceMechanic>;
-	@:protected public var SurfacePathMechanic: cpp.Star<CollectSurfacePathMechanic>;
+	@:protected public var OutputTypeProperties: ucpp.Ptr<CreateMeshObjectTypeProperties>;
+	@:protected public var TransformProps: ucpp.Ptr<DrawPolyPathProperties>;
+	@:protected public var ExtrudeProperties: ucpp.Ptr<DrawPolyPathExtrudeProperties>;
+	@:protected public var MaterialProperties: ucpp.Ptr<NewMeshMaterialProperties>;
+	@:protected public var PlaneMechanic: ucpp.Ptr<ConstructionPlaneMechanic>;
+	@:protected public var EditPreview: ucpp.Ptr<PolyEditPreviewMesh>;
+	@:protected public var ExtrudeHeightMechanic: ucpp.Ptr<PlaneDistanceFromHitMechanic>;
+	@:protected public var CurveDistMechanic: ucpp.Ptr<SpatialCurveDistanceMechanic>;
+	@:protected public var SurfacePathMechanic: ucpp.Ptr<CollectSurfacePathMechanic>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstDrawPolyPathTool(DrawPolyPathTool) from DrawPolyPathTool {
 @:forward
 @:nativeGen
 @:native("DrawPolyPathTool*")
-abstract DrawPolyPathToolPtr(cpp.Star<DrawPolyPathTool>) from cpp.Star<DrawPolyPathTool> to cpp.Star<DrawPolyPathTool>{
+abstract DrawPolyPathToolPtr(ucpp.Ptr<DrawPolyPathTool>) from ucpp.Ptr<DrawPolyPathTool> to ucpp.Ptr<DrawPolyPathTool>{
 	@:from
 	public static extern inline function fromValue(v: DrawPolyPathTool): DrawPolyPathToolPtr {
 		return untyped __cpp__("&({0})", v);

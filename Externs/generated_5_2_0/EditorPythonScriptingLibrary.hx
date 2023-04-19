@@ -3,12 +3,12 @@ package ue;
 
 @:native("UEditorPythonScriptingLibrary")
 @:include("EditorPythonScriptingLibrary.h")
-@:structAccess
+@:valueType
 extern class EditorPythonScriptingLibrary extends BlueprintFunctionLibrary {
 	public function SetKeepPythonScriptAlive(bNewKeepAlive: Bool): Void;
 	public function GetKeepPythonScriptAlive(): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,7 +19,7 @@ abstract ConstEditorPythonScriptingLibrary(EditorPythonScriptingLibrary) from Ed
 @:forward
 @:nativeGen
 @:native("EditorPythonScriptingLibrary*")
-abstract EditorPythonScriptingLibraryPtr(cpp.Star<EditorPythonScriptingLibrary>) from cpp.Star<EditorPythonScriptingLibrary> to cpp.Star<EditorPythonScriptingLibrary>{
+abstract EditorPythonScriptingLibraryPtr(ucpp.Ptr<EditorPythonScriptingLibrary>) from ucpp.Ptr<EditorPythonScriptingLibrary> to ucpp.Ptr<EditorPythonScriptingLibrary>{
 	@:from
 	public static extern inline function fromValue(v: EditorPythonScriptingLibrary): EditorPythonScriptingLibraryPtr {
 		return untyped __cpp__("&({0})", v);

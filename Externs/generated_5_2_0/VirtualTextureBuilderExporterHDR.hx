@@ -3,10 +3,10 @@ package ue;
 
 @:native("UVirtualTextureBuilderExporterHDR")
 @:include("Exporters/TextureExporterHDR.h")
-@:structAccess
+@:valueType
 extern class VirtualTextureBuilderExporterHDR extends TextureExporterHDR {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstVirtualTextureBuilderExporterHDR(VirtualTextureBuilderExporterHDR)
 @:forward
 @:nativeGen
 @:native("VirtualTextureBuilderExporterHDR*")
-abstract VirtualTextureBuilderExporterHDRPtr(cpp.Star<VirtualTextureBuilderExporterHDR>) from cpp.Star<VirtualTextureBuilderExporterHDR> to cpp.Star<VirtualTextureBuilderExporterHDR>{
+abstract VirtualTextureBuilderExporterHDRPtr(ucpp.Ptr<VirtualTextureBuilderExporterHDR>) from ucpp.Ptr<VirtualTextureBuilderExporterHDR> to ucpp.Ptr<VirtualTextureBuilderExporterHDR>{
 	@:from
 	public static extern inline function fromValue(v: VirtualTextureBuilderExporterHDR): VirtualTextureBuilderExporterHDRPtr {
 		return untyped __cpp__("&({0})", v);

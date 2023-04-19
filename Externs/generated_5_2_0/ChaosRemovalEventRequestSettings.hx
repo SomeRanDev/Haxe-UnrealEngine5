@@ -3,13 +3,13 @@ package ue;
 
 @:native("FChaosRemovalEventRequestSettings")
 @:include("ChaosRemovalEventFilter.h")
-@:structAccess
+@:valueType
 extern class ChaosRemovalEventRequestSettings {
-	public var MaxNumberOfResults: cpp.Int32;
-	public var MinMass: cpp.Float32;
-	public var MaxDistance: cpp.Float32;
+	public var MaxNumberOfResults: ucpp.num.Int32;
+	public var MinMass: ucpp.num.Float32;
+	public var MaxDistance: ucpp.num.Float32;
 	public var SortMethod: EChaosRemovalSortMethod;
 
 	@:native("FChaosRemovalEventRequestSettings") public function new();
-	@:native("FChaosRemovalEventRequestSettings") public static function make(MaxNumberOfResults: cpp.Int32, MinMass: cpp.Float32, MaxDistance: cpp.Float32, SortMethod: EChaosRemovalSortMethod): ChaosRemovalEventRequestSettings ;
+	@:native("FChaosRemovalEventRequestSettings") public static function make(MaxNumberOfResults: ucpp.num.Int32, MinMass: ucpp.num.Float32, MaxDistance: ucpp.num.Float32, SortMethod: EChaosRemovalSortMethod): ChaosRemovalEventRequestSettings ;
 }

@@ -3,65 +3,65 @@ package ue;
 
 @:native("UGameUserSettings")
 @:include("GameFramework/GameUserSettings.h")
-@:structAccess
+@:valueType
 extern class GameUserSettings extends Object {
 	public var bUseVSync: Bool;
 	public var bUseDynamicResolution: Bool;
-	@:protected public var ResolutionSizeX: cpp.UInt32;
-	@:protected public var ResolutionSizeY: cpp.UInt32;
-	@:protected public var LastUserConfirmedResolutionSizeX: cpp.UInt32;
-	@:protected public var LastUserConfirmedResolutionSizeY: cpp.UInt32;
-	@:protected public var WindowPosX: cpp.Int32;
-	@:protected public var WindowPosY: cpp.Int32;
-	@:protected public var FullscreenMode: cpp.Int32;
-	@:protected public var LastConfirmedFullscreenMode: cpp.Int32;
-	@:protected public var PreferredFullscreenMode: cpp.Int32;
-	@:protected public var Version: cpp.UInt32;
-	@:protected public var AudioQualityLevel: cpp.Int32;
-	@:protected public var LastConfirmedAudioQualityLevel: cpp.Int32;
-	@:protected public var FrameRateLimit: cpp.Float32;
-	@:protected public var DesiredScreenWidth: cpp.Int32;
+	@:protected public var ResolutionSizeX: ucpp.num.UInt32;
+	@:protected public var ResolutionSizeY: ucpp.num.UInt32;
+	@:protected public var LastUserConfirmedResolutionSizeX: ucpp.num.UInt32;
+	@:protected public var LastUserConfirmedResolutionSizeY: ucpp.num.UInt32;
+	@:protected public var WindowPosX: ucpp.num.Int32;
+	@:protected public var WindowPosY: ucpp.num.Int32;
+	@:protected public var FullscreenMode: ucpp.num.Int32;
+	@:protected public var LastConfirmedFullscreenMode: ucpp.num.Int32;
+	@:protected public var PreferredFullscreenMode: ucpp.num.Int32;
+	@:protected public var Version: ucpp.num.UInt32;
+	@:protected public var AudioQualityLevel: ucpp.num.Int32;
+	@:protected public var LastConfirmedAudioQualityLevel: ucpp.num.Int32;
+	@:protected public var FrameRateLimit: ucpp.num.Float32;
+	@:protected public var DesiredScreenWidth: ucpp.num.Int32;
 	@:protected public var bUseDesiredScreenHeight: Bool;
-	@:protected public var DesiredScreenHeight: cpp.Int32;
-	@:protected public var LastUserConfirmedDesiredScreenWidth: cpp.Int32;
-	@:protected public var LastUserConfirmedDesiredScreenHeight: cpp.Int32;
-	@:protected public var LastRecommendedScreenWidth: cpp.Float32;
-	@:protected public var LastRecommendedScreenHeight: cpp.Float32;
-	@:protected public var LastCPUBenchmarkResult: cpp.Float32;
-	@:protected public var LastGPUBenchmarkResult: cpp.Float32;
-	@:protected public var LastCPUBenchmarkSteps: TArray<cpp.Float32>;
-	@:protected public var LastGPUBenchmarkSteps: TArray<cpp.Float32>;
-	@:protected public var LastGPUBenchmarkMultiplier: cpp.Float32;
+	@:protected public var DesiredScreenHeight: ucpp.num.Int32;
+	@:protected public var LastUserConfirmedDesiredScreenWidth: ucpp.num.Int32;
+	@:protected public var LastUserConfirmedDesiredScreenHeight: ucpp.num.Int32;
+	@:protected public var LastRecommendedScreenWidth: ucpp.num.Float32;
+	@:protected public var LastRecommendedScreenHeight: ucpp.num.Float32;
+	@:protected public var LastCPUBenchmarkResult: ucpp.num.Float32;
+	@:protected public var LastGPUBenchmarkResult: ucpp.num.Float32;
+	@:protected public var LastCPUBenchmarkSteps: TArray<ucpp.num.Float32>;
+	@:protected public var LastGPUBenchmarkSteps: TArray<ucpp.num.Float32>;
+	@:protected public var LastGPUBenchmarkMultiplier: ucpp.num.Float32;
 	@:protected public var bUseHDRDisplayOutput: Bool;
-	@:protected public var HDRDisplayOutputNits: cpp.Int32;
+	@:protected public var HDRDisplayOutputNits: ucpp.num.Int32;
 	private var OnGameUserSettingsUINeedsUpdate: HaxeMulticastSparseDelegateProperty<() -> Void>;
 
 	public function ValidateSettings(): Void;
 	public function SupportsHDRDisplayOutput(): Bool;
 	public function SetVSyncEnabled(bEnable: Bool): Void;
-	public function SetVisualEffectQuality(Value: cpp.Int32): Void;
-	public function SetViewDistanceQuality(Value: cpp.Int32): Void;
+	public function SetVisualEffectQuality(Value: ucpp.num.Int32): Void;
+	public function SetViewDistanceQuality(Value: ucpp.num.Int32): Void;
 	public function SetToDefaults(): Void;
-	public function SetTextureQuality(Value: cpp.Int32): Void;
-	public function SetShadowQuality(Value: cpp.Int32): Void;
-	public function SetShadingQuality(Value: cpp.Int32): Void;
+	public function SetTextureQuality(Value: ucpp.num.Int32): Void;
+	public function SetShadowQuality(Value: ucpp.num.Int32): Void;
+	public function SetShadingQuality(Value: ucpp.num.Int32): Void;
 	public function SetScreenResolution(Resolution: IntPoint): Void;
-	public function SetResolutionScaleValueEx(NewScaleValue: cpp.Float32): Void;
-	public function SetResolutionScaleValue(NewScaleValue: cpp.Int32): Void;
-	public function SetResolutionScaleNormalized(NewScaleNormalized: cpp.Float32): Void;
-	public function SetReflectionQuality(Value: cpp.Int32): Void;
-	public function SetPostProcessingQuality(Value: cpp.Int32): Void;
-	public function SetOverallScalabilityLevel(Value: cpp.Int32): Void;
-	public function SetGlobalIlluminationQuality(Value: cpp.Int32): Void;
+	public function SetResolutionScaleValueEx(NewScaleValue: ucpp.num.Float32): Void;
+	public function SetResolutionScaleValue(NewScaleValue: ucpp.num.Int32): Void;
+	public function SetResolutionScaleNormalized(NewScaleNormalized: ucpp.num.Float32): Void;
+	public function SetReflectionQuality(Value: ucpp.num.Int32): Void;
+	public function SetPostProcessingQuality(Value: ucpp.num.Int32): Void;
+	public function SetOverallScalabilityLevel(Value: ucpp.num.Int32): Void;
+	public function SetGlobalIlluminationQuality(Value: ucpp.num.Int32): Void;
 	public function SetFullscreenMode(InFullscreenMode: TEnumAsByte<EWindowMode>): Void;
-	public function SetFrameRateLimit(NewLimit: cpp.Float32): Void;
-	public function SetFoliageQuality(Value: cpp.Int32): Void;
+	public function SetFrameRateLimit(NewLimit: ucpp.num.Float32): Void;
+	public function SetFoliageQuality(Value: ucpp.num.Int32): Void;
 	public function SetDynamicResolutionEnabled(bEnable: Bool): Void;
 	public function SetBenchmarkFallbackValues(): Void;
-	public function SetAudioQualityLevel(QualityLevel: cpp.Int32): Void;
-	public function SetAntiAliasingQuality(Value: cpp.Int32): Void;
+	public function SetAudioQualityLevel(QualityLevel: ucpp.num.Int32): Void;
+	public function SetAntiAliasingQuality(Value: ucpp.num.Int32): Void;
 	public function SaveSettings(): Void;
-	public function RunHardwareBenchmark(WorkScale: cpp.Int32, CPUMultiplier: cpp.Float32, GPUMultiplier: cpp.Float32): Void;
+	public function RunHardwareBenchmark(WorkScale: ucpp.num.Int32, CPUMultiplier: ucpp.num.Float32, GPUMultiplier: ucpp.num.Float32): Void;
 	public function RevertVideoMode(): Void;
 	public function ResetToCurrentSettings(): Void;
 	public function LoadSettings(bForceReload: Bool): Void;
@@ -73,45 +73,45 @@ extern class GameUserSettings extends Object {
 	public function IsDynamicResolutionEnabled(): Bool;
 	public function IsDynamicResolutionDirty(): Bool;
 	public function IsDirty(): Bool;
-	public function GetVisualEffectQuality(): cpp.Int32;
-	public function GetViewDistanceQuality(): cpp.Int32;
-	public function GetTextureQuality(): cpp.Int32;
-	public function GetSyncInterval(): cpp.Int32;
-	public function GetShadowQuality(): cpp.Int32;
-	public function GetShadingQuality(): cpp.Int32;
+	public function GetVisualEffectQuality(): ucpp.num.Int32;
+	public function GetViewDistanceQuality(): ucpp.num.Int32;
+	public function GetTextureQuality(): ucpp.num.Int32;
+	public function GetSyncInterval(): ucpp.num.Int32;
+	public function GetShadowQuality(): ucpp.num.Int32;
+	public function GetShadingQuality(): ucpp.num.Int32;
 	public function GetScreenResolution(): IntPoint;
-	public function GetResolutionScaleNormalized(): cpp.Float32;
-	public function GetResolutionScaleInformationEx(CurrentScaleNormalized: cpp.Reference<cpp.Float32>, CurrentScaleValue: cpp.Reference<cpp.Float32>, MinScaleValue: cpp.Reference<cpp.Float32>, MaxScaleValue: cpp.Reference<cpp.Float32>): Void;
-	public function GetResolutionScaleInformation(CurrentScaleNormalized: cpp.Reference<cpp.Float32>, CurrentScaleValue: cpp.Reference<cpp.Int32>, MinScaleValue: cpp.Reference<cpp.Int32>, MaxScaleValue: cpp.Reference<cpp.Int32>): Void;
-	public function GetReflectionQuality(): cpp.Int32;
-	public function GetRecommendedResolutionScale(): cpp.Float32;
+	public function GetResolutionScaleNormalized(): ucpp.num.Float32;
+	public function GetResolutionScaleInformationEx(CurrentScaleNormalized: ucpp.Ref<ucpp.num.Float32>, CurrentScaleValue: ucpp.Ref<ucpp.num.Float32>, MinScaleValue: ucpp.Ref<ucpp.num.Float32>, MaxScaleValue: ucpp.Ref<ucpp.num.Float32>): Void;
+	public function GetResolutionScaleInformation(CurrentScaleNormalized: ucpp.Ref<ucpp.num.Float32>, CurrentScaleValue: ucpp.Ref<ucpp.num.Int32>, MinScaleValue: ucpp.Ref<ucpp.num.Int32>, MaxScaleValue: ucpp.Ref<ucpp.num.Int32>): Void;
+	public function GetReflectionQuality(): ucpp.num.Int32;
+	public function GetRecommendedResolutionScale(): ucpp.num.Float32;
 	public function GetPreferredFullscreenMode(): TEnumAsByte<EWindowMode>;
-	public function GetPostProcessingQuality(): cpp.Int32;
-	public function GetOverallScalabilityLevel(): cpp.Int32;
+	public function GetPostProcessingQuality(): ucpp.num.Int32;
+	public function GetOverallScalabilityLevel(): ucpp.num.Int32;
 	public function GetLastConfirmedScreenResolution(): IntPoint;
 	public function GetLastConfirmedFullscreenMode(): TEnumAsByte<EWindowMode>;
-	public function GetGlobalIlluminationQuality(): cpp.Int32;
-	public function GetGameUserSettings(): cpp.Star<GameUserSettings>;
+	public function GetGlobalIlluminationQuality(): ucpp.num.Int32;
+	public function GetGameUserSettings(): ucpp.Ptr<GameUserSettings>;
 	public function GetFullscreenMode(): TEnumAsByte<EWindowMode>;
-	public function GetFrameRateLimit(): cpp.Float32;
-	public function GetFramePace(): cpp.Int32;
-	public function GetFoliageQuality(): cpp.Int32;
+	public function GetFrameRateLimit(): ucpp.num.Float32;
+	public function GetFramePace(): ucpp.num.Int32;
+	public function GetFoliageQuality(): ucpp.num.Int32;
 	public function GetDesktopResolution(): IntPoint;
 	public function GetDefaultWindowPosition(): IntPoint;
 	public function GetDefaultWindowMode(): TEnumAsByte<EWindowMode>;
-	public function GetDefaultResolutionScale(): cpp.Float32;
+	public function GetDefaultResolutionScale(): ucpp.num.Float32;
 	public function GetDefaultResolution(): IntPoint;
-	public function GetCurrentHDRDisplayNits(): cpp.Int32;
-	public function GetAudioQualityLevel(): cpp.Int32;
-	public function GetAntiAliasingQuality(): cpp.Int32;
-	public function EnableHDRDisplayOutput(bEnable: Bool, DisplayNits: cpp.Int32): Void;
+	public function GetCurrentHDRDisplayNits(): ucpp.num.Int32;
+	public function GetAudioQualityLevel(): ucpp.num.Int32;
+	public function GetAntiAliasingQuality(): ucpp.num.Int32;
+	public function EnableHDRDisplayOutput(bEnable: Bool, DisplayNits: ucpp.num.Int32): Void;
 	public function ConfirmVideoMode(): Void;
 	public function ApplySettings(bCheckForCommandLineOverrides: Bool): Void;
 	public function ApplyResolutionSettings(bCheckForCommandLineOverrides: Bool): Void;
 	public function ApplyNonResolutionSettings(): Void;
 	public function ApplyHardwareBenchmarkResults(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(
@@ -134,7 +134,7 @@ abstract ConstGameUserSettings(GameUserSettings) from GameUserSettings {
 @:forward
 @:nativeGen
 @:native("GameUserSettings*")
-abstract GameUserSettingsPtr(cpp.Star<GameUserSettings>) from cpp.Star<GameUserSettings> to cpp.Star<GameUserSettings>{
+abstract GameUserSettingsPtr(ucpp.Ptr<GameUserSettings>) from ucpp.Ptr<GameUserSettings> to ucpp.Ptr<GameUserSettings>{
 	@:from
 	public static extern inline function fromValue(v: GameUserSettings): GameUserSettingsPtr {
 		return untyped __cpp__("&({0})", v);

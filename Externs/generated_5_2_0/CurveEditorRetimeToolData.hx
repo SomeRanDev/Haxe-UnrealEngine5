@@ -3,11 +3,11 @@ package ue;
 
 @:native("UCurveEditorRetimeToolData")
 @:include("Tools/CurveEditorRetimeTool.h")
-@:structAccess
+@:valueType
 extern class CurveEditorRetimeToolData extends Object {
 	public var RetimingAnchors: TArray<CurveEditorRetimeAnchor>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstCurveEditorRetimeToolData(CurveEditorRetimeToolData) from CurveEdi
 @:forward
 @:nativeGen
 @:native("CurveEditorRetimeToolData*")
-abstract CurveEditorRetimeToolDataPtr(cpp.Star<CurveEditorRetimeToolData>) from cpp.Star<CurveEditorRetimeToolData> to cpp.Star<CurveEditorRetimeToolData>{
+abstract CurveEditorRetimeToolDataPtr(ucpp.Ptr<CurveEditorRetimeToolData>) from ucpp.Ptr<CurveEditorRetimeToolData> to ucpp.Ptr<CurveEditorRetimeToolData>{
 	@:from
 	public static extern inline function fromValue(v: CurveEditorRetimeToolData): CurveEditorRetimeToolDataPtr {
 		return untyped __cpp__("&({0})", v);

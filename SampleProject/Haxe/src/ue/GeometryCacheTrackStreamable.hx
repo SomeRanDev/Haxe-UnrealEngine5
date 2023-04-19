@@ -3,25 +3,25 @@ package ue;
 
 @:native("UGeometryCacheTrackStreamable")
 @:include("GeometryCacheTrackStreamable.h")
-@:structAccess
+@:valueType
 extern class GeometryCacheTrackStreamable extends GeometryCacheTrack {
-	public var Codec: cpp.Star<GeometryCacheCodecBase>;
-	private var StartSampleTime: cpp.Float32;
+	public var Codec: ucpp.Ptr<GeometryCacheCodecBase>;
+	private var StartSampleTime: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstGeometryCacheTrackStreamable(GeometryCacheTrackStreamable) from GeometryCacheTrackStreamable {
-	public extern var Codec(get, never): cpp.Star<GeometryCacheCodecBase.ConstGeometryCacheCodecBase>;
-	public inline extern function get_Codec(): cpp.Star<GeometryCacheCodecBase.ConstGeometryCacheCodecBase> return this.Codec;
+	public extern var Codec(get, never): ucpp.Ptr<GeometryCacheCodecBase.ConstGeometryCacheCodecBase>;
+	public inline extern function get_Codec(): ucpp.Ptr<GeometryCacheCodecBase.ConstGeometryCacheCodecBase> return this.Codec;
 }
 
 @:forward
 @:nativeGen
 @:native("GeometryCacheTrackStreamable*")
-abstract GeometryCacheTrackStreamablePtr(cpp.Star<GeometryCacheTrackStreamable>) from cpp.Star<GeometryCacheTrackStreamable> to cpp.Star<GeometryCacheTrackStreamable>{
+abstract GeometryCacheTrackStreamablePtr(ucpp.Ptr<GeometryCacheTrackStreamable>) from ucpp.Ptr<GeometryCacheTrackStreamable> to ucpp.Ptr<GeometryCacheTrackStreamable>{
 	@:from
 	public static extern inline function fromValue(v: GeometryCacheTrackStreamable): GeometryCacheTrackStreamablePtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,16 +3,16 @@ package ue;
 
 @:native("UK2Node_Select")
 @:include("K2Node_Select.h")
-@:structAccess
+@:valueType
 extern class K2Node_Select extends K2Node {
-	private var NumOptionPins: cpp.Int32;
+	private var NumOptionPins: ucpp.num.Int32;
 	private var IndexPinType: EdGraphPinType;
-	private var Enum: cpp.Star<Enum>;
+	private var Enum: ucpp.Ptr<Enum>;
 	private var EnumEntries: TArray<FName>;
 	private var EnumEntryFriendlyNames: TArray<FText>;
 	private var bReconstructNode: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstK2Node_Select(K2Node_Select) from K2Node_Select {
 @:forward
 @:nativeGen
 @:native("K2Node_Select*")
-abstract K2Node_SelectPtr(cpp.Star<K2Node_Select>) from cpp.Star<K2Node_Select> to cpp.Star<K2Node_Select>{
+abstract K2Node_SelectPtr(ucpp.Ptr<K2Node_Select>) from ucpp.Ptr<K2Node_Select> to ucpp.Ptr<K2Node_Select>{
 	@:from
 	public static extern inline function fromValue(v: K2Node_Select): K2Node_SelectPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,32 +3,32 @@ package ue;
 
 @:native("ULevelSequenceEditorSubsystem")
 @:include("LevelSequenceEditorSubsystem.h")
-@:structAccess
+@:valueType
 extern class LevelSequenceEditorSubsystem extends EditorSubsystem {
-	public function SyncSectionsUsingSourceTimecode(Sections: cpp.Reference<TArray<cpp.Star<MovieSceneSection>>>): Void;
-	public function SnapSectionsToTimelineUsingSourceTimecode(Sections: cpp.Reference<TArray<cpp.Star<MovieSceneSection>>>): Void;
-	public function ReplaceBindingWithActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, ObjectBinding: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function RemoveInvalidBindings(ObjectBinding: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function RemoveAllBindings(ObjectBinding: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function RemoveActorsFromBinding(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, ObjectBinding: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function RebindComponent(ComponentBindings: cpp.Reference<TArray<MovieSceneBindingProxy>>, ComponentName: cpp.Reference<FName>): Void;
-	public function PasteTracks(TextToImport: FString, PasteTracksParams: MovieScenePasteTracksParams, OutTracks: cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>): Bool;
-	public function PasteSections(TextToImport: FString, PasteSectionsParams: MovieScenePasteSectionsParams, OutSections: cpp.Reference<TArray<cpp.Star<MovieSceneSection>>>): Bool;
-	public function PasteFolders(TextToImport: FString, PasteFoldersParams: MovieScenePasteFoldersParams, OutFolders: cpp.Reference<TArray<cpp.Star<MovieSceneFolder>>>): Bool;
-	public function PasteBindings(TextToImport: FString, PasteBindingsParams: MovieScenePasteBindingsParams, OutObjectBindings: cpp.Reference<TArray<MovieSceneBindingProxy>>): Bool;
+	public function SyncSectionsUsingSourceTimecode(Sections: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneSection>>>): Void;
+	public function SnapSectionsToTimelineUsingSourceTimecode(Sections: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneSection>>>): Void;
+	public function ReplaceBindingWithActors(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, ObjectBinding: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function RemoveInvalidBindings(ObjectBinding: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function RemoveAllBindings(ObjectBinding: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function RemoveActorsFromBinding(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, ObjectBinding: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function RebindComponent(ComponentBindings: ucpp.Ref<TArray<MovieSceneBindingProxy>>, ComponentName: ucpp.Ref<FName>): Void;
+	public function PasteTracks(TextToImport: FString, PasteTracksParams: MovieScenePasteTracksParams, OutTracks: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneTrack>>>): Bool;
+	public function PasteSections(TextToImport: FString, PasteSectionsParams: MovieScenePasteSectionsParams, OutSections: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneSection>>>): Bool;
+	public function PasteFolders(TextToImport: FString, PasteFoldersParams: MovieScenePasteFoldersParams, OutFolders: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneFolder>>>): Bool;
+	public function PasteBindings(TextToImport: FString, PasteBindingsParams: MovieScenePasteBindingsParams, OutObjectBindings: ucpp.Ref<TArray<MovieSceneBindingProxy>>): Bool;
 	public function FixActorReferences(): Void;
-	public function CreateCamera(bSpawnable: Bool, OutActor: cpp.Reference<cpp.Star<CineCameraActor>>): MovieSceneBindingProxy;
-	public function CopyTracks(Tracks: cpp.Reference<TArray<cpp.Star<MovieSceneTrack>>>, ExportedText: cpp.Reference<FString>): Void;
-	public function CopySections(Sections: cpp.Reference<TArray<cpp.Star<MovieSceneSection>>>, ExportedText: cpp.Reference<FString>): Void;
-	public function CopyFolders(Folders: cpp.Reference<TArray<cpp.Star<MovieSceneFolder>>>, ExportedText: cpp.Reference<FString>): Void;
-	public function CopyBindings(Bindings: cpp.Reference<TArray<MovieSceneBindingProxy>>, ExportedText: cpp.Reference<FString>): Void;
-	public function ConvertToSpawnable(ObjectBinding: cpp.Reference<MovieSceneBindingProxy>): TArray<MovieSceneBindingProxy>;
-	public function ConvertToPossessable(ObjectBinding: cpp.Reference<MovieSceneBindingProxy>): MovieSceneBindingProxy;
-	public function BakeTransform(ObjectBindings: cpp.Reference<TArray<MovieSceneBindingProxy>>, BakeInTime: cpp.Reference<FrameTime>, BakeOutTime: cpp.Reference<FrameTime>, BakeInterval: cpp.Reference<FrameTime>, Params: cpp.Reference<MovieSceneScriptingParams>): Void;
-	public function AddActorsToBinding(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>, ObjectBinding: cpp.Reference<MovieSceneBindingProxy>): Void;
-	public function AddActors(Actors: cpp.Reference<TArray<cpp.Star<Actor>>>): TArray<MovieSceneBindingProxy>;
+	public function CreateCamera(bSpawnable: Bool, OutActor: ucpp.Ref<ucpp.Ptr<CineCameraActor>>): MovieSceneBindingProxy;
+	public function CopyTracks(Tracks: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneTrack>>>, ExportedText: ucpp.Ref<FString>): Void;
+	public function CopySections(Sections: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneSection>>>, ExportedText: ucpp.Ref<FString>): Void;
+	public function CopyFolders(Folders: ucpp.Ref<TArray<ucpp.Ptr<MovieSceneFolder>>>, ExportedText: ucpp.Ref<FString>): Void;
+	public function CopyBindings(Bindings: ucpp.Ref<TArray<MovieSceneBindingProxy>>, ExportedText: ucpp.Ref<FString>): Void;
+	public function ConvertToSpawnable(ObjectBinding: ucpp.Ref<MovieSceneBindingProxy>): TArray<MovieSceneBindingProxy>;
+	public function ConvertToPossessable(ObjectBinding: ucpp.Ref<MovieSceneBindingProxy>): MovieSceneBindingProxy;
+	public function BakeTransform(ObjectBindings: ucpp.Ref<TArray<MovieSceneBindingProxy>>, BakeInTime: ucpp.Ref<FrameTime>, BakeOutTime: ucpp.Ref<FrameTime>, BakeInterval: ucpp.Ref<FrameTime>, Params: ucpp.Ref<MovieSceneScriptingParams>): Void;
+	public function AddActorsToBinding(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>, ObjectBinding: ucpp.Ref<MovieSceneBindingProxy>): Void;
+	public function AddActors(Actors: ucpp.Ref<TArray<ucpp.Ptr<Actor>>>): TArray<MovieSceneBindingProxy>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -39,7 +39,7 @@ abstract ConstLevelSequenceEditorSubsystem(LevelSequenceEditorSubsystem) from Le
 @:forward
 @:nativeGen
 @:native("LevelSequenceEditorSubsystem*")
-abstract LevelSequenceEditorSubsystemPtr(cpp.Star<LevelSequenceEditorSubsystem>) from cpp.Star<LevelSequenceEditorSubsystem> to cpp.Star<LevelSequenceEditorSubsystem>{
+abstract LevelSequenceEditorSubsystemPtr(ucpp.Ptr<LevelSequenceEditorSubsystem>) from ucpp.Ptr<LevelSequenceEditorSubsystem> to ucpp.Ptr<LevelSequenceEditorSubsystem>{
 	@:from
 	public static extern inline function fromValue(v: LevelSequenceEditorSubsystem): LevelSequenceEditorSubsystemPtr {
 		return untyped __cpp__("&({0})", v);

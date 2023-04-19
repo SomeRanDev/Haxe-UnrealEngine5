@@ -3,19 +3,19 @@ package ue;
 
 @:native("UFracturePlaneCutSettings")
 @:include("FractureToolPlaneCut.h")
-@:structAccess
+@:valueType
 extern class FracturePlaneCutSettings extends FractureToolSettings {
-	public var NumberPlanarCuts: cpp.Int32;
+	public var NumberPlanarCuts: ucpp.num.Int32;
 	public var bCanCutWithMultiplePlanes: Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstFracturePlaneCutSettings(FracturePlaneCutSettings) from FracturePlaneCutSettings {
-	public extern var NumberPlanarCuts(get, never): cpp.Int32;
-	public inline extern function get_NumberPlanarCuts(): cpp.Int32 return this.NumberPlanarCuts;
+	public extern var NumberPlanarCuts(get, never): ucpp.num.Int32;
+	public inline extern function get_NumberPlanarCuts(): ucpp.num.Int32 return this.NumberPlanarCuts;
 	public extern var bCanCutWithMultiplePlanes(get, never): Bool;
 	public inline extern function get_bCanCutWithMultiplePlanes(): Bool return this.bCanCutWithMultiplePlanes;
 }
@@ -23,7 +23,7 @@ abstract ConstFracturePlaneCutSettings(FracturePlaneCutSettings) from FracturePl
 @:forward
 @:nativeGen
 @:native("FracturePlaneCutSettings*")
-abstract FracturePlaneCutSettingsPtr(cpp.Star<FracturePlaneCutSettings>) from cpp.Star<FracturePlaneCutSettings> to cpp.Star<FracturePlaneCutSettings>{
+abstract FracturePlaneCutSettingsPtr(ucpp.Ptr<FracturePlaneCutSettings>) from ucpp.Ptr<FracturePlaneCutSettings> to ucpp.Ptr<FracturePlaneCutSettings>{
 	@:from
 	public static extern inline function fromValue(v: FracturePlaneCutSettings): FracturePlaneCutSettingsPtr {
 		return untyped __cpp__("&({0})", v);

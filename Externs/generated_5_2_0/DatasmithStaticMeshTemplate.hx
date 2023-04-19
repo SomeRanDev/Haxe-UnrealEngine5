@@ -3,15 +3,15 @@ package ue;
 
 @:native("UDatasmithStaticMeshTemplate")
 @:include("ObjectTemplates/DatasmithStaticMeshTemplate.h")
-@:structAccess
+@:valueType
 extern class DatasmithStaticMeshTemplate extends DatasmithObjectTemplate {
 	public var SectionInfoMap: DatasmithMeshSectionInfoMapTemplate;
-	public var LightMapCoordinateIndex: cpp.Int32;
-	public var LightMapResolution: cpp.Int32;
+	public var LightMapCoordinateIndex: ucpp.num.Int32;
+	public var LightMapResolution: ucpp.num.Int32;
 	public var BuildSettings: TArray<DatasmithMeshBuildSettingsTemplate>;
 	public var StaticMaterials: TArray<DatasmithStaticMaterialTemplate>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,10 +19,10 @@ extern class DatasmithStaticMeshTemplate extends DatasmithObjectTemplate {
 abstract ConstDatasmithStaticMeshTemplate(DatasmithStaticMeshTemplate) from DatasmithStaticMeshTemplate {
 	public extern var SectionInfoMap(get, never): DatasmithMeshSectionInfoMapTemplate;
 	public inline extern function get_SectionInfoMap(): DatasmithMeshSectionInfoMapTemplate return this.SectionInfoMap;
-	public extern var LightMapCoordinateIndex(get, never): cpp.Int32;
-	public inline extern function get_LightMapCoordinateIndex(): cpp.Int32 return this.LightMapCoordinateIndex;
-	public extern var LightMapResolution(get, never): cpp.Int32;
-	public inline extern function get_LightMapResolution(): cpp.Int32 return this.LightMapResolution;
+	public extern var LightMapCoordinateIndex(get, never): ucpp.num.Int32;
+	public inline extern function get_LightMapCoordinateIndex(): ucpp.num.Int32 return this.LightMapCoordinateIndex;
+	public extern var LightMapResolution(get, never): ucpp.num.Int32;
+	public inline extern function get_LightMapResolution(): ucpp.num.Int32 return this.LightMapResolution;
 	public extern var BuildSettings(get, never): TArray<DatasmithMeshBuildSettingsTemplate>;
 	public inline extern function get_BuildSettings(): TArray<DatasmithMeshBuildSettingsTemplate> return this.BuildSettings;
 	public extern var StaticMaterials(get, never): TArray<DatasmithStaticMaterialTemplate>;
@@ -32,7 +32,7 @@ abstract ConstDatasmithStaticMeshTemplate(DatasmithStaticMeshTemplate) from Data
 @:forward
 @:nativeGen
 @:native("DatasmithStaticMeshTemplate*")
-abstract DatasmithStaticMeshTemplatePtr(cpp.Star<DatasmithStaticMeshTemplate>) from cpp.Star<DatasmithStaticMeshTemplate> to cpp.Star<DatasmithStaticMeshTemplate>{
+abstract DatasmithStaticMeshTemplatePtr(ucpp.Ptr<DatasmithStaticMeshTemplate>) from ucpp.Ptr<DatasmithStaticMeshTemplate> to ucpp.Ptr<DatasmithStaticMeshTemplate>{
 	@:from
 	public static extern inline function fromValue(v: DatasmithStaticMeshTemplate): DatasmithStaticMeshTemplatePtr {
 		return untyped __cpp__("&({0})", v);

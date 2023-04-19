@@ -3,13 +3,13 @@ package ue;
 
 @:native("UMaterialExpressionTime")
 @:include("Materials/MaterialExpressionTime.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionTime extends MaterialExpression {
 	public var bIgnorePause: Bool;
 	public var bOverride_Period: Bool;
-	public var Period: cpp.Float32;
+	public var Period: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -19,14 +19,14 @@ abstract ConstMaterialExpressionTime(MaterialExpressionTime) from MaterialExpres
 	public inline extern function get_bIgnorePause(): Bool return this.bIgnorePause;
 	public extern var bOverride_Period(get, never): Bool;
 	public inline extern function get_bOverride_Period(): Bool return this.bOverride_Period;
-	public extern var Period(get, never): cpp.Float32;
-	public inline extern function get_Period(): cpp.Float32 return this.Period;
+	public extern var Period(get, never): ucpp.num.Float32;
+	public inline extern function get_Period(): ucpp.num.Float32 return this.Period;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionTime*")
-abstract MaterialExpressionTimePtr(cpp.Star<MaterialExpressionTime>) from cpp.Star<MaterialExpressionTime> to cpp.Star<MaterialExpressionTime>{
+abstract MaterialExpressionTimePtr(ucpp.Ptr<MaterialExpressionTime>) from ucpp.Ptr<MaterialExpressionTime> to ucpp.Ptr<MaterialExpressionTime>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionTime): MaterialExpressionTimePtr {
 		return untyped __cpp__("&({0})", v);

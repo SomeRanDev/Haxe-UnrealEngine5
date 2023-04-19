@@ -3,16 +3,16 @@ package ue;
 
 @:native("UVisualLoggerKismetLibrary")
 @:include("VisualLogger/VisualLoggerKismetLibrary.h")
-@:structAccess
+@:valueType
 extern class VisualLoggerKismetLibrary extends BlueprintFunctionLibrary {
-	public function RedirectVislog(SourceOwner: cpp.Star<Object>, DestinationOwner: cpp.Star<Object>): Void;
-	public function LogText(WorldContextObject: cpp.Star<Object>, Text: FString, LogCategory: FName, bAddToMessageLog: Bool): Void;
-	public function LogSegment(WorldContextObject: cpp.Star<Object>, SegmentStart: Vector, SegmentEnd: Vector, Text: FString, ObjectColor: LinearColor, Thickness: cpp.Float32, CategoryName: FName, bAddToMessageLog: Bool): Void;
-	public function LogLocation(WorldContextObject: cpp.Star<Object>, Location: Vector, Text: FString, ObjectColor: LinearColor, Radius: cpp.Float32, LogCategory: FName, bAddToMessageLog: Bool): Void;
-	public function LogBox(WorldContextObject: cpp.Star<Object>, BoxShape: Box, Text: FString, ObjectColor: LinearColor, LogCategory: FName, bAddToMessageLog: Bool): Void;
+	public function RedirectVislog(SourceOwner: ucpp.Ptr<Object>, DestinationOwner: ucpp.Ptr<Object>): Void;
+	public function LogText(WorldContextObject: ucpp.Ptr<Object>, Text: FString, LogCategory: FName, bAddToMessageLog: Bool): Void;
+	public function LogSegment(WorldContextObject: ucpp.Ptr<Object>, SegmentStart: Vector, SegmentEnd: Vector, Text: FString, ObjectColor: LinearColor, Thickness: ucpp.num.Float32, CategoryName: FName, bAddToMessageLog: Bool): Void;
+	public function LogLocation(WorldContextObject: ucpp.Ptr<Object>, Location: Vector, Text: FString, ObjectColor: LinearColor, Radius: ucpp.num.Float32, LogCategory: FName, bAddToMessageLog: Bool): Void;
+	public function LogBox(WorldContextObject: ucpp.Ptr<Object>, BoxShape: Box, Text: FString, ObjectColor: LinearColor, LogCategory: FName, bAddToMessageLog: Bool): Void;
 	public function EnableRecording(bEnabled: Bool): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstVisualLoggerKismetLibrary(VisualLoggerKismetLibrary) from VisualLo
 @:forward
 @:nativeGen
 @:native("VisualLoggerKismetLibrary*")
-abstract VisualLoggerKismetLibraryPtr(cpp.Star<VisualLoggerKismetLibrary>) from cpp.Star<VisualLoggerKismetLibrary> to cpp.Star<VisualLoggerKismetLibrary>{
+abstract VisualLoggerKismetLibraryPtr(ucpp.Ptr<VisualLoggerKismetLibrary>) from ucpp.Ptr<VisualLoggerKismetLibrary> to ucpp.Ptr<VisualLoggerKismetLibrary>{
 	@:from
 	public static extern inline function fromValue(v: VisualLoggerKismetLibrary): VisualLoggerKismetLibraryPtr {
 		return untyped __cpp__("&({0})", v);

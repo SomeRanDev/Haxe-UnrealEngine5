@@ -3,14 +3,14 @@ package ue;
 
 @:native("FSynth2DSliderStyle")
 @:include("UI/Synth2DSliderStyle.h")
-@:structAccess
+@:valueType
 extern class Synth2DSliderStyle extends SlateWidgetStyle {
 	public var NormalThumbImage: SlateBrush;
 	public var DisabledThumbImage: SlateBrush;
 	public var NormalBarImage: SlateBrush;
 	public var DisabledBarImage: SlateBrush;
 	public var BackgroundImage: SlateBrush;
-	public var BarThickness: cpp.Float32;
+	public var BarThickness: ucpp.num.Float32;
 
 	@:native("FSynth2DSliderStyle") public function new();
 }

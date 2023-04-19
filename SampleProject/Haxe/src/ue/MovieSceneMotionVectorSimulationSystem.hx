@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneMotionVectorSimulationSystem")
 @:include("Systems/MovieSceneMotionVectorSimulationSystem.h")
-@:structAccess
+@:valueType
 extern class MovieSceneMotionVectorSimulationSystem extends MovieSceneEntitySystem {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneMotionVectorSimulationSystem(MovieSceneMotionVectorSimul
 @:forward
 @:nativeGen
 @:native("MovieSceneMotionVectorSimulationSystem*")
-abstract MovieSceneMotionVectorSimulationSystemPtr(cpp.Star<MovieSceneMotionVectorSimulationSystem>) from cpp.Star<MovieSceneMotionVectorSimulationSystem> to cpp.Star<MovieSceneMotionVectorSimulationSystem>{
+abstract MovieSceneMotionVectorSimulationSystemPtr(ucpp.Ptr<MovieSceneMotionVectorSimulationSystem>) from ucpp.Ptr<MovieSceneMotionVectorSimulationSystem> to ucpp.Ptr<MovieSceneMotionVectorSimulationSystem>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneMotionVectorSimulationSystem): MovieSceneMotionVectorSimulationSystemPtr {
 		return untyped __cpp__("&({0})", v);

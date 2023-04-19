@@ -3,12 +3,12 @@ package ue;
 
 @:native("FNiagaraGeometryCacheReference")
 @:include("NiagaraGeometryCacheRendererProperties.h")
-@:structAccess
+@:valueType
 extern class NiagaraGeometryCacheReference {
-	public var GeometryCache: cpp.Star<GeometryCache>;
+	public var GeometryCache: ucpp.Ptr<GeometryCache>;
 	public var GeometryCacheUserParamBinding: NiagaraUserParameterBinding;
-	public var OverrideMaterials: TArray<cpp.Star<MaterialInterface>>;
+	public var OverrideMaterials: TArray<ucpp.Ptr<MaterialInterface>>;
 
 	@:native("FNiagaraGeometryCacheReference") public function new();
-	@:native("FNiagaraGeometryCacheReference") public static function make(GeometryCache: cpp.Star<GeometryCache>, GeometryCacheUserParamBinding: NiagaraUserParameterBinding, OverrideMaterials: TArray<cpp.Star<MaterialInterface>>): NiagaraGeometryCacheReference ;
+	@:native("FNiagaraGeometryCacheReference") public static function make(GeometryCache: ucpp.Ptr<GeometryCache>, GeometryCacheUserParamBinding: NiagaraUserParameterBinding, OverrideMaterials: TArray<ucpp.Ptr<MaterialInterface>>): NiagaraGeometryCacheReference ;
 }

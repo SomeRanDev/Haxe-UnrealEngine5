@@ -3,15 +3,15 @@ package ue;
 
 @:native("UMaterialExpressionSobol")
 @:include("Materials/MaterialExpressionSobol.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionSobol extends MaterialExpression {
 	public var Cell: ExpressionInput;
 	public var Index: ExpressionInput;
 	public var Seed: ExpressionInput;
-	public var ConstIndex: cpp.UInt32;
+	public var ConstIndex: ucpp.num.UInt32;
 	public var ConstSeed: Vector2D;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,8 +23,8 @@ abstract ConstMaterialExpressionSobol(MaterialExpressionSobol) from MaterialExpr
 	public inline extern function get_Index(): ExpressionInput return this.Index;
 	public extern var Seed(get, never): ExpressionInput;
 	public inline extern function get_Seed(): ExpressionInput return this.Seed;
-	public extern var ConstIndex(get, never): cpp.UInt32;
-	public inline extern function get_ConstIndex(): cpp.UInt32 return this.ConstIndex;
+	public extern var ConstIndex(get, never): ucpp.num.UInt32;
+	public inline extern function get_ConstIndex(): ucpp.num.UInt32 return this.ConstIndex;
 	public extern var ConstSeed(get, never): Vector2D;
 	public inline extern function get_ConstSeed(): Vector2D return this.ConstSeed;
 }
@@ -32,7 +32,7 @@ abstract ConstMaterialExpressionSobol(MaterialExpressionSobol) from MaterialExpr
 @:forward
 @:nativeGen
 @:native("MaterialExpressionSobol*")
-abstract MaterialExpressionSobolPtr(cpp.Star<MaterialExpressionSobol>) from cpp.Star<MaterialExpressionSobol> to cpp.Star<MaterialExpressionSobol>{
+abstract MaterialExpressionSobolPtr(ucpp.Ptr<MaterialExpressionSobol>) from ucpp.Ptr<MaterialExpressionSobol> to ucpp.Ptr<MaterialExpressionSobol>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionSobol): MaterialExpressionSobolPtr {
 		return untyped __cpp__("&({0})", v);

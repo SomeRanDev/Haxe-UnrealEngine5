@@ -3,33 +3,33 @@ package ue;
 
 @:native("UTextureRenderTargetVolumeFactoryNew")
 @:include("Factories/TextureRenderTargetVolumeFactoryNew.h")
-@:structAccess
+@:valueType
 extern class TextureRenderTargetVolumeFactoryNew extends Factory {
-	public var Width: cpp.Int32;
-	public var Height: cpp.Int32;
-	public var Depth: cpp.Int32;
-	public var Format: cpp.UInt8;
+	public var Width: ucpp.num.Int32;
+	public var Height: ucpp.num.Int32;
+	public var Depth: ucpp.num.Int32;
+	public var Format: ucpp.num.UInt8;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstTextureRenderTargetVolumeFactoryNew(TextureRenderTargetVolumeFactoryNew) from TextureRenderTargetVolumeFactoryNew {
-	public extern var Width(get, never): cpp.Int32;
-	public inline extern function get_Width(): cpp.Int32 return this.Width;
-	public extern var Height(get, never): cpp.Int32;
-	public inline extern function get_Height(): cpp.Int32 return this.Height;
-	public extern var Depth(get, never): cpp.Int32;
-	public inline extern function get_Depth(): cpp.Int32 return this.Depth;
-	public extern var Format(get, never): cpp.UInt8;
-	public inline extern function get_Format(): cpp.UInt8 return this.Format;
+	public extern var Width(get, never): ucpp.num.Int32;
+	public inline extern function get_Width(): ucpp.num.Int32 return this.Width;
+	public extern var Height(get, never): ucpp.num.Int32;
+	public inline extern function get_Height(): ucpp.num.Int32 return this.Height;
+	public extern var Depth(get, never): ucpp.num.Int32;
+	public inline extern function get_Depth(): ucpp.num.Int32 return this.Depth;
+	public extern var Format(get, never): ucpp.num.UInt8;
+	public inline extern function get_Format(): ucpp.num.UInt8 return this.Format;
 }
 
 @:forward
 @:nativeGen
 @:native("TextureRenderTargetVolumeFactoryNew*")
-abstract TextureRenderTargetVolumeFactoryNewPtr(cpp.Star<TextureRenderTargetVolumeFactoryNew>) from cpp.Star<TextureRenderTargetVolumeFactoryNew> to cpp.Star<TextureRenderTargetVolumeFactoryNew>{
+abstract TextureRenderTargetVolumeFactoryNewPtr(ucpp.Ptr<TextureRenderTargetVolumeFactoryNew>) from ucpp.Ptr<TextureRenderTargetVolumeFactoryNew> to ucpp.Ptr<TextureRenderTargetVolumeFactoryNew>{
 	@:from
 	public static extern inline function fromValue(v: TextureRenderTargetVolumeFactoryNew): TextureRenderTargetVolumeFactoryNewPtr {
 		return untyped __cpp__("&({0})", v);

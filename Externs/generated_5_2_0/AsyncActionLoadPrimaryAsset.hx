@@ -3,26 +3,26 @@ package ue;
 
 @:native("UAsyncActionLoadPrimaryAsset")
 @:include("AsyncActionLoadPrimaryAsset.h")
-@:structAccess
+@:valueType
 extern class AsyncActionLoadPrimaryAsset extends AsyncActionLoadPrimaryAssetBase {
-	public var Completed: HaxeMulticastSparseDelegateProperty<(cpp.Star<Object>) -> Void>;
+	public var Completed: HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object>) -> Void>;
 
-	public function AsyncLoadPrimaryAsset(WorldContextObject: cpp.Star<Object>, PrimaryAsset: PrimaryAssetId, LoadBundles: cpp.Reference<TArray<FName>>): cpp.Star<AsyncActionLoadPrimaryAsset>;
+	public function AsyncLoadPrimaryAsset(WorldContextObject: ucpp.Ptr<Object>, PrimaryAsset: PrimaryAssetId, LoadBundles: ucpp.Ref<TArray<FName>>): ucpp.Ptr<AsyncActionLoadPrimaryAsset>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstAsyncActionLoadPrimaryAsset(AsyncActionLoadPrimaryAsset) from AsyncActionLoadPrimaryAsset {
-	public extern var Completed(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>) -> Void>;
-	public inline extern function get_Completed(): HaxeMulticastSparseDelegateProperty<(cpp.Star<Object.ConstObject>) -> Void> return this.Completed;
+	public extern var Completed(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object.ConstObject>) -> Void>;
+	public inline extern function get_Completed(): HaxeMulticastSparseDelegateProperty<(ucpp.Ptr<Object.ConstObject>) -> Void> return this.Completed;
 }
 
 @:forward
 @:nativeGen
 @:native("AsyncActionLoadPrimaryAsset*")
-abstract AsyncActionLoadPrimaryAssetPtr(cpp.Star<AsyncActionLoadPrimaryAsset>) from cpp.Star<AsyncActionLoadPrimaryAsset> to cpp.Star<AsyncActionLoadPrimaryAsset>{
+abstract AsyncActionLoadPrimaryAssetPtr(ucpp.Ptr<AsyncActionLoadPrimaryAsset>) from ucpp.Ptr<AsyncActionLoadPrimaryAsset> to ucpp.Ptr<AsyncActionLoadPrimaryAsset>{
 	@:from
 	public static extern inline function fromValue(v: AsyncActionLoadPrimaryAsset): AsyncActionLoadPrimaryAssetPtr {
 		return untyped __cpp__("&({0})", v);

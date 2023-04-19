@@ -3,30 +3,30 @@ package ue;
 
 @:native("USpotLightComponent")
 @:include("Components/SpotLightComponent.h")
-@:structAccess
+@:valueType
 extern class SpotLightComp extends PointLightComp {
-	public var InnerConeAngle: cpp.Float32;
-	public var OuterConeAngle: cpp.Float32;
+	public var InnerConeAngle: ucpp.num.Float32;
+	public var OuterConeAngle: ucpp.num.Float32;
 
-	public function SetOuterConeAngle(NewOuterConeAngle: cpp.Float32): Void;
-	public function SetInnerConeAngle(NewInnerConeAngle: cpp.Float32): Void;
+	public function SetOuterConeAngle(NewOuterConeAngle: ucpp.num.Float32): Void;
+	public function SetInnerConeAngle(NewInnerConeAngle: ucpp.num.Float32): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstSpotLightComp(SpotLightComp) from SpotLightComp {
-	public extern var InnerConeAngle(get, never): cpp.Float32;
-	public inline extern function get_InnerConeAngle(): cpp.Float32 return this.InnerConeAngle;
-	public extern var OuterConeAngle(get, never): cpp.Float32;
-	public inline extern function get_OuterConeAngle(): cpp.Float32 return this.OuterConeAngle;
+	public extern var InnerConeAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_InnerConeAngle(): ucpp.num.Float32 return this.InnerConeAngle;
+	public extern var OuterConeAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_OuterConeAngle(): ucpp.num.Float32 return this.OuterConeAngle;
 }
 
 @:forward
 @:nativeGen
 @:native("SpotLightComp*")
-abstract SpotLightCompPtr(cpp.Star<SpotLightComp>) from cpp.Star<SpotLightComp> to cpp.Star<SpotLightComp>{
+abstract SpotLightCompPtr(ucpp.Ptr<SpotLightComp>) from ucpp.Ptr<SpotLightComp> to ucpp.Ptr<SpotLightComp>{
 	@:from
 	public static extern inline function fromValue(v: SpotLightComp): SpotLightCompPtr {
 		return untyped __cpp__("&({0})", v);

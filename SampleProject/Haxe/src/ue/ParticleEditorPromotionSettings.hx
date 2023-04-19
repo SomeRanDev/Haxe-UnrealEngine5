@@ -3,7 +3,7 @@ package ue;
 
 @:native("FParticleEditorPromotionSettings")
 @:include("Tests/AutomationTestSettings.h")
-@:structAccess
+@:valueType
 extern class ParticleEditorPromotionSettings {
 	public var DefaultParticleAsset: FilePath;
 

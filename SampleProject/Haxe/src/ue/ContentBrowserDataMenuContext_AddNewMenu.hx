@@ -3,14 +3,14 @@ package ue;
 
 @:native("UContentBrowserDataMenuContext_AddNewMenu")
 @:include("ContentBrowserDataMenuContexts.h")
-@:structAccess
+@:valueType
 extern class ContentBrowserDataMenuContext_AddNewMenu extends Object {
 	public var SelectedPaths: TArray<FName>;
 	public var bContainsValidPackagePath: Bool;
 	public var bCanBeModified: Bool;
 	public var OwnerDomain: EContentBrowserDataMenuContext_AddNewMenuDomain;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -29,7 +29,7 @@ abstract ConstContentBrowserDataMenuContext_AddNewMenu(ContentBrowserDataMenuCon
 @:forward
 @:nativeGen
 @:native("ContentBrowserDataMenuContext_AddNewMenu*")
-abstract ContentBrowserDataMenuContext_AddNewMenuPtr(cpp.Star<ContentBrowserDataMenuContext_AddNewMenu>) from cpp.Star<ContentBrowserDataMenuContext_AddNewMenu> to cpp.Star<ContentBrowserDataMenuContext_AddNewMenu>{
+abstract ContentBrowserDataMenuContext_AddNewMenuPtr(ucpp.Ptr<ContentBrowserDataMenuContext_AddNewMenu>) from ucpp.Ptr<ContentBrowserDataMenuContext_AddNewMenu> to ucpp.Ptr<ContentBrowserDataMenuContext_AddNewMenu>{
 	@:from
 	public static extern inline function fromValue(v: ContentBrowserDataMenuContext_AddNewMenu): ContentBrowserDataMenuContext_AddNewMenuPtr {
 		return untyped __cpp__("&({0})", v);

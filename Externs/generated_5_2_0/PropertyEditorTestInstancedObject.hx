@@ -3,11 +3,11 @@ package ue;
 
 @:native("UPropertyEditorTestInstancedObject")
 @:include("Editor/PropertyEditorTestObject.h")
-@:structAccess
+@:valueType
 extern class PropertyEditorTestInstancedObject extends Object {
-	private var Number: cpp.Int32;
+	private var Number: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstPropertyEditorTestInstancedObject(PropertyEditorTestInstancedObjec
 @:forward
 @:nativeGen
 @:native("PropertyEditorTestInstancedObject*")
-abstract PropertyEditorTestInstancedObjectPtr(cpp.Star<PropertyEditorTestInstancedObject>) from cpp.Star<PropertyEditorTestInstancedObject> to cpp.Star<PropertyEditorTestInstancedObject>{
+abstract PropertyEditorTestInstancedObjectPtr(ucpp.Ptr<PropertyEditorTestInstancedObject>) from ucpp.Ptr<PropertyEditorTestInstancedObject> to ucpp.Ptr<PropertyEditorTestInstancedObject>{
 	@:from
 	public static extern inline function fromValue(v: PropertyEditorTestInstancedObject): PropertyEditorTestInstancedObjectPtr {
 		return untyped __cpp__("&({0})", v);

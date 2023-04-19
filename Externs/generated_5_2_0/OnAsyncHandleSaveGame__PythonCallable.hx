@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UOnAsyncHandleSaveGame__PythonCallable")
-@:structAccess
+@:valueType
 extern class OnAsyncHandleSaveGame__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstOnAsyncHandleSaveGame__PythonCallable(OnAsyncHandleSaveGame__Pytho
 @:forward
 @:nativeGen
 @:native("OnAsyncHandleSaveGame__PythonCallable*")
-abstract OnAsyncHandleSaveGame__PythonCallablePtr(cpp.Star<OnAsyncHandleSaveGame__PythonCallable>) from cpp.Star<OnAsyncHandleSaveGame__PythonCallable> to cpp.Star<OnAsyncHandleSaveGame__PythonCallable>{
+abstract OnAsyncHandleSaveGame__PythonCallablePtr(ucpp.Ptr<OnAsyncHandleSaveGame__PythonCallable>) from ucpp.Ptr<OnAsyncHandleSaveGame__PythonCallable> to ucpp.Ptr<OnAsyncHandleSaveGame__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: OnAsyncHandleSaveGame__PythonCallable): OnAsyncHandleSaveGame__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

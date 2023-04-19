@@ -3,35 +3,35 @@ package ue;
 
 @:native("UMovieSceneSectionExtensions")
 @:include("ExtensionLibraries/MovieSceneSectionExtensions.h")
-@:structAccess
+@:valueType
 extern class MovieSceneSectionExtensions extends BlueprintFunctionLibrary {
-	public function SetStartFrameSeconds(Section: cpp.Star<MovieSceneSection>, StartTime: cpp.Float32): Void;
-	public function SetStartFrameBounded(Section: cpp.Star<MovieSceneSection>, bIsBounded: Bool): Void;
-	public function SetStartFrame(Section: cpp.Star<MovieSceneSection>, StartFrame: cpp.Int32): Void;
-	public function SetRangeSeconds(Section: cpp.Star<MovieSceneSection>, StartTime: cpp.Float32, EndTime: cpp.Float32): Void;
-	public function SetRange(Section: cpp.Star<MovieSceneSection>, StartFrame: cpp.Int32, EndFrame: cpp.Int32): Void;
-	public function SetEndFrameSeconds(Section: cpp.Star<MovieSceneSection>, EndTime: cpp.Float32): Void;
-	public function SetEndFrameBounded(Section: cpp.Star<MovieSceneSection>, bIsBounded: Bool): Void;
-	public function SetEndFrame(Section: cpp.Star<MovieSceneSection>, EndFrame: cpp.Int32): Void;
-	public function HasStartFrame(Section: cpp.Star<MovieSceneSection>): Bool;
-	public function HasEndFrame(Section: cpp.Star<MovieSceneSection>): Bool;
-	public function GetStartFrameSeconds(Section: cpp.Star<MovieSceneSection>): cpp.Float32;
-	public function GetStartFrame(Section: cpp.Star<MovieSceneSection>): cpp.Int32;
-	public function GetParentSequenceFrame(Section: cpp.Star<MovieSceneSubSection>, InFrame: cpp.Int32, ParentSequence: cpp.Star<MovieSceneSequence>): cpp.Int32;
-	public function GetEndFrameSeconds(Section: cpp.Star<MovieSceneSection>): cpp.Float32;
-	public function GetEndFrame(Section: cpp.Star<MovieSceneSection>): cpp.Int32;
-	public function GetChannelsByType(Section: cpp.Star<MovieSceneSection>, ChannelType: TSubclassOf<MovieSceneScriptingChannel>): TArray<cpp.Star<MovieSceneScriptingChannel>>;
-	public function GetChannels(Section: cpp.Star<MovieSceneSection>): TArray<cpp.Star<MovieSceneScriptingChannel>>;
-	public function GetAutoSizeStartFrameSeconds(Section: cpp.Star<MovieSceneSection>): cpp.Float32;
-	public function GetAutoSizeStartFrame(Section: cpp.Star<MovieSceneSection>): cpp.Int32;
-	public function GetAutoSizeHasStartFrame(Section: cpp.Star<MovieSceneSection>): Bool;
-	public function GetAutoSizeHasEndFrame(Section: cpp.Star<MovieSceneSection>): Bool;
-	public function GetAutoSizeEndFrameSeconds(Section: cpp.Star<MovieSceneSection>): cpp.Float32;
-	public function GetAutoSizeEndFrame(Section: cpp.Star<MovieSceneSection>): cpp.Int32;
-	public function GetAllChannels(Section: cpp.Star<MovieSceneSection>): TArray<cpp.Star<MovieSceneScriptingChannel>>;
-	public function FindChannelsByType(Section: cpp.Star<MovieSceneSection>, ChannelType: TSubclassOf<MovieSceneScriptingChannel>): TArray<cpp.Star<MovieSceneScriptingChannel>>;
+	public function SetStartFrameSeconds(Section: ucpp.Ptr<MovieSceneSection>, StartTime: ucpp.num.Float32): Void;
+	public function SetStartFrameBounded(Section: ucpp.Ptr<MovieSceneSection>, bIsBounded: Bool): Void;
+	public function SetStartFrame(Section: ucpp.Ptr<MovieSceneSection>, StartFrame: ucpp.num.Int32): Void;
+	public function SetRangeSeconds(Section: ucpp.Ptr<MovieSceneSection>, StartTime: ucpp.num.Float32, EndTime: ucpp.num.Float32): Void;
+	public function SetRange(Section: ucpp.Ptr<MovieSceneSection>, StartFrame: ucpp.num.Int32, EndFrame: ucpp.num.Int32): Void;
+	public function SetEndFrameSeconds(Section: ucpp.Ptr<MovieSceneSection>, EndTime: ucpp.num.Float32): Void;
+	public function SetEndFrameBounded(Section: ucpp.Ptr<MovieSceneSection>, bIsBounded: Bool): Void;
+	public function SetEndFrame(Section: ucpp.Ptr<MovieSceneSection>, EndFrame: ucpp.num.Int32): Void;
+	public function HasStartFrame(Section: ucpp.Ptr<MovieSceneSection>): Bool;
+	public function HasEndFrame(Section: ucpp.Ptr<MovieSceneSection>): Bool;
+	public function GetStartFrameSeconds(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Float32;
+	public function GetStartFrame(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Int32;
+	public function GetParentSequenceFrame(Section: ucpp.Ptr<MovieSceneSubSection>, InFrame: ucpp.num.Int32, ParentSequence: ucpp.Ptr<MovieSceneSequence>): ucpp.num.Int32;
+	public function GetEndFrameSeconds(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Float32;
+	public function GetEndFrame(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Int32;
+	public function GetChannelsByType(Section: ucpp.Ptr<MovieSceneSection>, ChannelType: TSubclassOf<MovieSceneScriptingChannel>): TArray<ucpp.Ptr<MovieSceneScriptingChannel>>;
+	public function GetChannels(Section: ucpp.Ptr<MovieSceneSection>): TArray<ucpp.Ptr<MovieSceneScriptingChannel>>;
+	public function GetAutoSizeStartFrameSeconds(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Float32;
+	public function GetAutoSizeStartFrame(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Int32;
+	public function GetAutoSizeHasStartFrame(Section: ucpp.Ptr<MovieSceneSection>): Bool;
+	public function GetAutoSizeHasEndFrame(Section: ucpp.Ptr<MovieSceneSection>): Bool;
+	public function GetAutoSizeEndFrameSeconds(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Float32;
+	public function GetAutoSizeEndFrame(Section: ucpp.Ptr<MovieSceneSection>): ucpp.num.Int32;
+	public function GetAllChannels(Section: ucpp.Ptr<MovieSceneSection>): TArray<ucpp.Ptr<MovieSceneScriptingChannel>>;
+	public function FindChannelsByType(Section: ucpp.Ptr<MovieSceneSection>, ChannelType: TSubclassOf<MovieSceneScriptingChannel>): TArray<ucpp.Ptr<MovieSceneScriptingChannel>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -42,7 +42,7 @@ abstract ConstMovieSceneSectionExtensions(MovieSceneSectionExtensions) from Movi
 @:forward
 @:nativeGen
 @:native("MovieSceneSectionExtensions*")
-abstract MovieSceneSectionExtensionsPtr(cpp.Star<MovieSceneSectionExtensions>) from cpp.Star<MovieSceneSectionExtensions> to cpp.Star<MovieSceneSectionExtensions>{
+abstract MovieSceneSectionExtensionsPtr(ucpp.Ptr<MovieSceneSectionExtensions>) from ucpp.Ptr<MovieSceneSectionExtensions> to ucpp.Ptr<MovieSceneSectionExtensions>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneSectionExtensions): MovieSceneSectionExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

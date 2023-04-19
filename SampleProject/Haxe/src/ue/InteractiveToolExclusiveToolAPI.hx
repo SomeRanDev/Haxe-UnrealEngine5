@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UInteractiveToolExclusiveToolAPI")
-@:structAccess
+@:valueType
 extern class InteractiveToolExclusiveToolAPI extends Interface {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstInteractiveToolExclusiveToolAPI(InteractiveToolExclusiveToolAPI) f
 @:forward
 @:nativeGen
 @:native("InteractiveToolExclusiveToolAPI*")
-abstract InteractiveToolExclusiveToolAPIPtr(cpp.Star<InteractiveToolExclusiveToolAPI>) from cpp.Star<InteractiveToolExclusiveToolAPI> to cpp.Star<InteractiveToolExclusiveToolAPI>{
+abstract InteractiveToolExclusiveToolAPIPtr(ucpp.Ptr<InteractiveToolExclusiveToolAPI>) from ucpp.Ptr<InteractiveToolExclusiveToolAPI> to ucpp.Ptr<InteractiveToolExclusiveToolAPI>{
 	@:from
 	public static extern inline function fromValue(v: InteractiveToolExclusiveToolAPI): InteractiveToolExclusiveToolAPIPtr {
 		return untyped __cpp__("&({0})", v);

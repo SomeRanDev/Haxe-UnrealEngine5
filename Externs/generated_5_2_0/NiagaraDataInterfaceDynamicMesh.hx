@@ -3,18 +3,18 @@ package ue;
 
 @:native("UNiagaraDataInterfaceDynamicMesh")
 @:include("DataInterface/NiagaraDataInterfaceDynamicMesh.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceDynamicMesh extends NiagaraDataInterface {
 	public var Sections: TArray<NiagaraDynamicMeshSection>;
 	public var Materials: TArray<NiagaraDynamicMeshMaterial>;
-	public var NumVertices: cpp.Int32;
-	public var NumTexCoords: cpp.Int32;
+	public var NumVertices: ucpp.num.Int32;
+	public var NumTexCoords: ucpp.num.Int32;
 	public var bHasColors: Bool;
 	public var bHasTangentBasis: Bool;
 	public var bClearTrianglesPerFrame: Bool;
 	public var DefaultBounds: Box;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -24,10 +24,10 @@ abstract ConstNiagaraDataInterfaceDynamicMesh(NiagaraDataInterfaceDynamicMesh) f
 	public inline extern function get_Sections(): TArray<NiagaraDynamicMeshSection> return this.Sections;
 	public extern var Materials(get, never): TArray<NiagaraDynamicMeshMaterial>;
 	public inline extern function get_Materials(): TArray<NiagaraDynamicMeshMaterial> return this.Materials;
-	public extern var NumVertices(get, never): cpp.Int32;
-	public inline extern function get_NumVertices(): cpp.Int32 return this.NumVertices;
-	public extern var NumTexCoords(get, never): cpp.Int32;
-	public inline extern function get_NumTexCoords(): cpp.Int32 return this.NumTexCoords;
+	public extern var NumVertices(get, never): ucpp.num.Int32;
+	public inline extern function get_NumVertices(): ucpp.num.Int32 return this.NumVertices;
+	public extern var NumTexCoords(get, never): ucpp.num.Int32;
+	public inline extern function get_NumTexCoords(): ucpp.num.Int32 return this.NumTexCoords;
 	public extern var bHasColors(get, never): Bool;
 	public inline extern function get_bHasColors(): Bool return this.bHasColors;
 	public extern var bHasTangentBasis(get, never): Bool;
@@ -41,7 +41,7 @@ abstract ConstNiagaraDataInterfaceDynamicMesh(NiagaraDataInterfaceDynamicMesh) f
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceDynamicMesh*")
-abstract NiagaraDataInterfaceDynamicMeshPtr(cpp.Star<NiagaraDataInterfaceDynamicMesh>) from cpp.Star<NiagaraDataInterfaceDynamicMesh> to cpp.Star<NiagaraDataInterfaceDynamicMesh>{
+abstract NiagaraDataInterfaceDynamicMeshPtr(ucpp.Ptr<NiagaraDataInterfaceDynamicMesh>) from ucpp.Ptr<NiagaraDataInterfaceDynamicMesh> to ucpp.Ptr<NiagaraDataInterfaceDynamicMesh>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceDynamicMesh): NiagaraDataInterfaceDynamicMeshPtr {
 		return untyped __cpp__("&({0})", v);

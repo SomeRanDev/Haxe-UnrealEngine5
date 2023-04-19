@@ -3,24 +3,24 @@ package ue;
 
 @:native("UMediaPlaylist")
 @:include("MediaPlaylist.h")
-@:structAccess
+@:valueType
 extern class MediaPlaylist extends Object {
-	@:protected public var Items: TArray<cpp.Star<MediaSource>>;
+	@:protected public var Items: TArray<ucpp.Ptr<MediaSource>>;
 
-	public function Replace(Index: cpp.Int32, Replacement: cpp.Star<MediaSource>): Bool;
-	public function RemoveAt(Index: cpp.Int32): Bool;
-	public function Remove(MediaSource: cpp.Star<MediaSource>): Bool;
-	public function Num(): cpp.Int32;
-	public function Insert(MediaSource: cpp.Star<MediaSource>, Index: cpp.Int32): Void;
-	public function GetRandom(OutIndex: cpp.Reference<cpp.Int32>): cpp.Star<MediaSource>;
-	public function GetPrevious(InOutIndex: cpp.Reference<cpp.Int32>): cpp.Star<MediaSource>;
-	public function GetNext(InOutIndex: cpp.Reference<cpp.Int32>): cpp.Star<MediaSource>;
-	public function Get(Index: cpp.Int32): cpp.Star<MediaSource>;
+	public function Replace(Index: ucpp.num.Int32, Replacement: ucpp.Ptr<MediaSource>): Bool;
+	public function RemoveAt(Index: ucpp.num.Int32): Bool;
+	public function Remove(MediaSource: ucpp.Ptr<MediaSource>): Bool;
+	public function Num(): ucpp.num.Int32;
+	public function Insert(MediaSource: ucpp.Ptr<MediaSource>, Index: ucpp.num.Int32): Void;
+	public function GetRandom(OutIndex: ucpp.Ref<ucpp.num.Int32>): ucpp.Ptr<MediaSource>;
+	public function GetPrevious(InOutIndex: ucpp.Ref<ucpp.num.Int32>): ucpp.Ptr<MediaSource>;
+	public function GetNext(InOutIndex: ucpp.Ref<ucpp.num.Int32>): ucpp.Ptr<MediaSource>;
+	public function Get(Index: ucpp.num.Int32): ucpp.Ptr<MediaSource>;
 	public function AddUrl(Url: FString): Bool;
 	public function AddFile(FilePath: FString): Bool;
-	public function Add(MediaSource: cpp.Star<MediaSource>): Bool;
+	public function Add(MediaSource: ucpp.Ptr<MediaSource>): Bool;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -31,7 +31,7 @@ abstract ConstMediaPlaylist(MediaPlaylist) from MediaPlaylist {
 @:forward
 @:nativeGen
 @:native("MediaPlaylist*")
-abstract MediaPlaylistPtr(cpp.Star<MediaPlaylist>) from cpp.Star<MediaPlaylist> to cpp.Star<MediaPlaylist>{
+abstract MediaPlaylistPtr(ucpp.Ptr<MediaPlaylist>) from ucpp.Ptr<MediaPlaylist> to ucpp.Ptr<MediaPlaylist>{
 	@:from
 	public static extern inline function fromValue(v: MediaPlaylist): MediaPlaylistPtr {
 		return untyped __cpp__("&({0})", v);

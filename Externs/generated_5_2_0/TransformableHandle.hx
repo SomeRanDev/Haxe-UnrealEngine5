@@ -3,11 +3,11 @@ package ue;
 
 @:native("UTransformableHandle")
 @:include("TransformableHandle.h")
-@:structAccess
+@:valueType
 extern class TransformableHandle extends Object {
 	public var ConstraintBindingID: MovieSceneObjectBindingID;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstTransformableHandle(TransformableHandle) from TransformableHandle 
 @:forward
 @:nativeGen
 @:native("TransformableHandle*")
-abstract TransformableHandlePtr(cpp.Star<TransformableHandle>) from cpp.Star<TransformableHandle> to cpp.Star<TransformableHandle>{
+abstract TransformableHandlePtr(ucpp.Ptr<TransformableHandle>) from ucpp.Ptr<TransformableHandle> to ucpp.Ptr<TransformableHandle>{
 	@:from
 	public static extern inline function fromValue(v: TransformableHandle): TransformableHandlePtr {
 		return untyped __cpp__("&({0})", v);

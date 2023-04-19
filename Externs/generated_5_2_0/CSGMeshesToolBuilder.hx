@@ -3,10 +3,10 @@ package ue;
 
 @:native("UCSGMeshesToolBuilder")
 @:include("CSGMeshesTool.h")
-@:structAccess
+@:valueType
 extern class CSGMeshesToolBuilder extends BaseCreateFromSelectedToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstCSGMeshesToolBuilder(CSGMeshesToolBuilder) from CSGMeshesToolBuild
 @:forward
 @:nativeGen
 @:native("CSGMeshesToolBuilder*")
-abstract CSGMeshesToolBuilderPtr(cpp.Star<CSGMeshesToolBuilder>) from cpp.Star<CSGMeshesToolBuilder> to cpp.Star<CSGMeshesToolBuilder>{
+abstract CSGMeshesToolBuilderPtr(ucpp.Ptr<CSGMeshesToolBuilder>) from ucpp.Ptr<CSGMeshesToolBuilder> to ucpp.Ptr<CSGMeshesToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: CSGMeshesToolBuilder): CSGMeshesToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

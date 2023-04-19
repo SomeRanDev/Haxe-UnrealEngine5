@@ -3,12 +3,12 @@ package ue;
 
 @:native("UNiagaraDataInterfaceSimpleCounter")
 @:include("DataInterface/NiagaraDataInterfaceSimpleCounter.h")
-@:structAccess
+@:valueType
 extern class NiagaraDataInterfaceSimpleCounter extends NiagaraDataInterface {
 	public var GpuSyncMode: ENiagaraGpuSyncMode;
-	public var InitialValue: cpp.Int32;
+	public var InitialValue: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class NiagaraDataInterfaceSimpleCounter extends NiagaraDataInterface {
 abstract ConstNiagaraDataInterfaceSimpleCounter(NiagaraDataInterfaceSimpleCounter) from NiagaraDataInterfaceSimpleCounter {
 	public extern var GpuSyncMode(get, never): ENiagaraGpuSyncMode;
 	public inline extern function get_GpuSyncMode(): ENiagaraGpuSyncMode return this.GpuSyncMode;
-	public extern var InitialValue(get, never): cpp.Int32;
-	public inline extern function get_InitialValue(): cpp.Int32 return this.InitialValue;
+	public extern var InitialValue(get, never): ucpp.num.Int32;
+	public inline extern function get_InitialValue(): ucpp.num.Int32 return this.InitialValue;
 }
 
 @:forward
 @:nativeGen
 @:native("NiagaraDataInterfaceSimpleCounter*")
-abstract NiagaraDataInterfaceSimpleCounterPtr(cpp.Star<NiagaraDataInterfaceSimpleCounter>) from cpp.Star<NiagaraDataInterfaceSimpleCounter> to cpp.Star<NiagaraDataInterfaceSimpleCounter>{
+abstract NiagaraDataInterfaceSimpleCounterPtr(ucpp.Ptr<NiagaraDataInterfaceSimpleCounter>) from ucpp.Ptr<NiagaraDataInterfaceSimpleCounter> to ucpp.Ptr<NiagaraDataInterfaceSimpleCounter>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraDataInterfaceSimpleCounter): NiagaraDataInterfaceSimpleCounterPtr {
 		return untyped __cpp__("&({0})", v);

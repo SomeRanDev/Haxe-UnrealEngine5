@@ -3,7 +3,7 @@ package ue;
 
 @:native("FQualifiedFrameTime")
 @:include("UObject/NoExportTypes.h")
-@:structAccess
+@:valueType
 extern class QualifiedFrameTime {
 	public var Time: FrameTime;
 	public var Rate: FrameRate;

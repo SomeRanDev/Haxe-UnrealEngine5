@@ -3,10 +3,10 @@ package ue;
 
 @:native("UNiagaraEventReceiverEmitterAction")
 @:include("NiagaraEvents.h")
-@:structAccess
+@:valueType
 extern class NiagaraEventReceiverEmitterAction extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstNiagaraEventReceiverEmitterAction(NiagaraEventReceiverEmitterActio
 @:forward
 @:nativeGen
 @:native("NiagaraEventReceiverEmitterAction*")
-abstract NiagaraEventReceiverEmitterActionPtr(cpp.Star<NiagaraEventReceiverEmitterAction>) from cpp.Star<NiagaraEventReceiverEmitterAction> to cpp.Star<NiagaraEventReceiverEmitterAction>{
+abstract NiagaraEventReceiverEmitterActionPtr(ucpp.Ptr<NiagaraEventReceiverEmitterAction>) from ucpp.Ptr<NiagaraEventReceiverEmitterAction> to ucpp.Ptr<NiagaraEventReceiverEmitterAction>{
 	@:from
 	public static extern inline function fromValue(v: NiagaraEventReceiverEmitterAction): NiagaraEventReceiverEmitterActionPtr {
 		return untyped __cpp__("&({0})", v);

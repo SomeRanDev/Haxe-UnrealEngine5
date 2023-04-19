@@ -3,10 +3,12 @@ package ue;
 
 @:native("UMultiLineEditableText")
 @:include("Components/MultiLineEditableText.h")
-@:structAccess
+@:valueType
 extern class MultiLineEditableText extends TextLayoutWidget {
-	public var Text: FText;
-	public var HintText: FText;
+	public function GetText(): FText;
+	public function SetText(input: FText): Void;
+	public function GetHintText(): FText;
+	public function SetHintText(input: FText): Void;
 	public var HintTextDelegate: HaxeDelegateProperty<() -> Void>;
 	public var WidgetStyle: TextBlockStyle;
 	public var bIsReadOnly: Bool;
@@ -17,28 +19,24 @@ extern class MultiLineEditableText extends TextLayoutWidget {
 	public var AllowContextMenu: Bool;
 	public var VirtualKeyboardOptions: VirtualKeyboardOptions;
 	public var VirtualKeyboardDismissAction: EVirtualKeyboardDismissAction;
-	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public var OnTextChanged: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void>;
+	public var OnTextCommitted: HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void>;
 
-	public function SetWidgetStyle(InWidgetStyle: cpp.Reference<TextBlockStyle>): Void;
-	public function SetText(InText: FText): Void;
+	public function SetWidgetStyle(InWidgetStyle: ucpp.Ref<TextBlockStyle>): Void;
 	public function SetIsReadOnly(bReadOnly: Bool): Void;
-	public function SetHintText(InHintText: FText): Void;
-	public function OnMultiLineEditableTextCommittedEvent__DelegateSignature(Text: cpp.Reference<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
-	public function OnMultiLineEditableTextChangedEvent__DelegateSignature(Text: cpp.Reference<FText>): Void;
-	public function GetText(): FText;
-	public function GetHintText(): FText;
+	public function SetFontOutlineMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetFontMaterial(InMaterial: ucpp.Ptr<MaterialInterface>): Void;
+	public function SetFont(InFontInfo: SlateFontInfo): Void;
+	public function OnMultiLineEditableTextCommittedEvent__DelegateSignature(Text: ucpp.Ref<FText>, CommitMethod: TEnumAsByte<ETextCommit>): Void;
+	public function OnMultiLineEditableTextChangedEvent__DelegateSignature(Text: ucpp.Ref<FText>): Void;
+	public function GetFont(): SlateFontInfo;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
-@:forward(GetText, GetHintText)
+@:forward(GetFont)
 @:nativeGen
 abstract ConstMultiLineEditableText(MultiLineEditableText) from MultiLineEditableText {
-	public extern var Text(get, never): FText;
-	public inline extern function get_Text(): FText return this.Text;
-	public extern var HintText(get, never): FText;
-	public inline extern function get_HintText(): FText return this.HintText;
 	public extern var HintTextDelegate(get, never): HaxeDelegateProperty<() -> Void>;
 	public inline extern function get_HintTextDelegate(): HaxeDelegateProperty<() -> Void> return this.HintTextDelegate;
 	public extern var WidgetStyle(get, never): TextBlockStyle;
@@ -59,16 +57,16 @@ abstract ConstMultiLineEditableText(MultiLineEditableText) from MultiLineEditabl
 	public inline extern function get_VirtualKeyboardOptions(): VirtualKeyboardOptions return this.VirtualKeyboardOptions;
 	public extern var VirtualKeyboardDismissAction(get, never): EVirtualKeyboardDismissAction;
 	public inline extern function get_VirtualKeyboardDismissAction(): EVirtualKeyboardDismissAction return this.VirtualKeyboardDismissAction;
-	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void>;
-	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>) -> Void> return this.OnTextChanged;
-	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void>;
-	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(cpp.Reference<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
+	public extern var OnTextChanged(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void>;
+	public inline extern function get_OnTextChanged(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>) -> Void> return this.OnTextChanged;
+	public extern var OnTextCommitted(get, never): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void>;
+	public inline extern function get_OnTextCommitted(): HaxeMulticastSparseDelegateProperty<(ucpp.Ref<FText>, TEnumAsByte<ETextCommit>) -> Void> return this.OnTextCommitted;
 }
 
 @:forward
 @:nativeGen
 @:native("MultiLineEditableText*")
-abstract MultiLineEditableTextPtr(cpp.Star<MultiLineEditableText>) from cpp.Star<MultiLineEditableText> to cpp.Star<MultiLineEditableText>{
+abstract MultiLineEditableTextPtr(ucpp.Ptr<MultiLineEditableText>) from ucpp.Ptr<MultiLineEditableText> to ucpp.Ptr<MultiLineEditableText>{
 	@:from
 	public static extern inline function fromValue(v: MultiLineEditableText): MultiLineEditableTextPtr {
 		return untyped __cpp__("&({0})", v);

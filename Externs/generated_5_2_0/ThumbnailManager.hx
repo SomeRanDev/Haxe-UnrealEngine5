@@ -3,21 +3,21 @@ package ue;
 
 @:native("UThumbnailManager")
 @:include("ThumbnailRendering/ThumbnailManager.h")
-@:structAccess
+@:valueType
 extern class ThumbnailManager extends Object {
 	public var NotSupported: ThumbnailRenderingInfo;
-	public var EditorCube: cpp.Star<StaticMesh>;
-	public var EditorSphere: cpp.Star<StaticMesh>;
-	public var EditorCylinder: cpp.Star<StaticMesh>;
-	public var EditorPlane: cpp.Star<StaticMesh>;
-	public var EditorSkySphere: cpp.Star<StaticMesh>;
-	public var FloorPlaneMaterial: cpp.Star<Material>;
-	public var AmbientCubemap: cpp.Star<TextureCube>;
-	public var CheckerboardTexture: cpp.Star<Texture2D>;
+	public var EditorCube: ucpp.Ptr<StaticMesh>;
+	public var EditorSphere: ucpp.Ptr<StaticMesh>;
+	public var EditorCylinder: ucpp.Ptr<StaticMesh>;
+	public var EditorPlane: ucpp.Ptr<StaticMesh>;
+	public var EditorSkySphere: ucpp.Ptr<StaticMesh>;
+	public var FloorPlaneMaterial: ucpp.Ptr<Material>;
+	public var AmbientCubemap: ucpp.Ptr<TextureCube>;
+	public var CheckerboardTexture: ucpp.Ptr<Texture2D>;
 	@:protected public var RenderableThumbnailTypes: TArray<ThumbnailRenderingInfo>;
 	@:protected public var ThumbnailManagerClassName: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -25,28 +25,28 @@ extern class ThumbnailManager extends Object {
 abstract ConstThumbnailManager(ThumbnailManager) from ThumbnailManager {
 	public extern var NotSupported(get, never): ThumbnailRenderingInfo;
 	public inline extern function get_NotSupported(): ThumbnailRenderingInfo return this.NotSupported;
-	public extern var EditorCube(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_EditorCube(): cpp.Star<StaticMesh.ConstStaticMesh> return this.EditorCube;
-	public extern var EditorSphere(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_EditorSphere(): cpp.Star<StaticMesh.ConstStaticMesh> return this.EditorSphere;
-	public extern var EditorCylinder(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_EditorCylinder(): cpp.Star<StaticMesh.ConstStaticMesh> return this.EditorCylinder;
-	public extern var EditorPlane(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_EditorPlane(): cpp.Star<StaticMesh.ConstStaticMesh> return this.EditorPlane;
-	public extern var EditorSkySphere(get, never): cpp.Star<StaticMesh.ConstStaticMesh>;
-	public inline extern function get_EditorSkySphere(): cpp.Star<StaticMesh.ConstStaticMesh> return this.EditorSkySphere;
-	public extern var FloorPlaneMaterial(get, never): cpp.Star<Material.ConstMaterial>;
-	public inline extern function get_FloorPlaneMaterial(): cpp.Star<Material.ConstMaterial> return this.FloorPlaneMaterial;
-	public extern var AmbientCubemap(get, never): cpp.Star<TextureCube.ConstTextureCube>;
-	public inline extern function get_AmbientCubemap(): cpp.Star<TextureCube.ConstTextureCube> return this.AmbientCubemap;
-	public extern var CheckerboardTexture(get, never): cpp.Star<Texture2D.ConstTexture2D>;
-	public inline extern function get_CheckerboardTexture(): cpp.Star<Texture2D.ConstTexture2D> return this.CheckerboardTexture;
+	public extern var EditorCube(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_EditorCube(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.EditorCube;
+	public extern var EditorSphere(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_EditorSphere(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.EditorSphere;
+	public extern var EditorCylinder(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_EditorCylinder(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.EditorCylinder;
+	public extern var EditorPlane(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_EditorPlane(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.EditorPlane;
+	public extern var EditorSkySphere(get, never): ucpp.Ptr<StaticMesh.ConstStaticMesh>;
+	public inline extern function get_EditorSkySphere(): ucpp.Ptr<StaticMesh.ConstStaticMesh> return this.EditorSkySphere;
+	public extern var FloorPlaneMaterial(get, never): ucpp.Ptr<Material.ConstMaterial>;
+	public inline extern function get_FloorPlaneMaterial(): ucpp.Ptr<Material.ConstMaterial> return this.FloorPlaneMaterial;
+	public extern var AmbientCubemap(get, never): ucpp.Ptr<TextureCube.ConstTextureCube>;
+	public inline extern function get_AmbientCubemap(): ucpp.Ptr<TextureCube.ConstTextureCube> return this.AmbientCubemap;
+	public extern var CheckerboardTexture(get, never): ucpp.Ptr<Texture2D.ConstTexture2D>;
+	public inline extern function get_CheckerboardTexture(): ucpp.Ptr<Texture2D.ConstTexture2D> return this.CheckerboardTexture;
 }
 
 @:forward
 @:nativeGen
 @:native("ThumbnailManager*")
-abstract ThumbnailManagerPtr(cpp.Star<ThumbnailManager>) from cpp.Star<ThumbnailManager> to cpp.Star<ThumbnailManager>{
+abstract ThumbnailManagerPtr(ucpp.Ptr<ThumbnailManager>) from ucpp.Ptr<ThumbnailManager> to ucpp.Ptr<ThumbnailManager>{
 	@:from
 	public static extern inline function fromValue(v: ThumbnailManager): ThumbnailManagerPtr {
 		return untyped __cpp__("&({0})", v);

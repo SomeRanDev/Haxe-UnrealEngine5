@@ -3,12 +3,12 @@ package ue;
 
 @:native("UInterpCurveEdSetup")
 @:include("Engine/InterpCurveEdSetup.h")
-@:structAccess
+@:valueType
 extern class InterpCurveEdSetup extends Object {
 	public var Tabs: TArray<CurveEdTab>;
-	public var ActiveTab: cpp.Int32;
+	public var ActiveTab: ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,14 +16,14 @@ extern class InterpCurveEdSetup extends Object {
 abstract ConstInterpCurveEdSetup(InterpCurveEdSetup) from InterpCurveEdSetup {
 	public extern var Tabs(get, never): TArray<CurveEdTab>;
 	public inline extern function get_Tabs(): TArray<CurveEdTab> return this.Tabs;
-	public extern var ActiveTab(get, never): cpp.Int32;
-	public inline extern function get_ActiveTab(): cpp.Int32 return this.ActiveTab;
+	public extern var ActiveTab(get, never): ucpp.num.Int32;
+	public inline extern function get_ActiveTab(): ucpp.num.Int32 return this.ActiveTab;
 }
 
 @:forward
 @:nativeGen
 @:native("InterpCurveEdSetup*")
-abstract InterpCurveEdSetupPtr(cpp.Star<InterpCurveEdSetup>) from cpp.Star<InterpCurveEdSetup> to cpp.Star<InterpCurveEdSetup>{
+abstract InterpCurveEdSetupPtr(ucpp.Ptr<InterpCurveEdSetup>) from ucpp.Ptr<InterpCurveEdSetup> to ucpp.Ptr<InterpCurveEdSetup>{
 	@:from
 	public static extern inline function fromValue(v: InterpCurveEdSetup): InterpCurveEdSetupPtr {
 		return untyped __cpp__("&({0})", v);

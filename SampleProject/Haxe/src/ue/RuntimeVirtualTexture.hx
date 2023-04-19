@@ -3,11 +3,11 @@ package ue;
 
 @:native("URuntimeVirtualTexture")
 @:include("VT/RuntimeVirtualTexture.h")
-@:structAccess
+@:valueType
 extern class RuntimeVirtualTexture extends Object {
-	public function GetTileCount(): cpp.Int32;
-	public function GetTileSize(): cpp.Int32;
-	public function GetTileBorderSize(): cpp.Int32;
+	public function GetTileCount(): ucpp.num.Int32;
+	public function GetTileSize(): ucpp.num.Int32;
+	public function GetTileBorderSize(): ucpp.num.Int32;
 	@:protected public var MaterialType: ERuntimeVirtualTextureMaterialType;
 	@:protected public var bCompressTextures: Bool;
 	@:protected public var bUseLowQualityCompression: Bool;
@@ -16,13 +16,13 @@ extern class RuntimeVirtualTexture extends Object {
 	@:protected public var bPrivateSpace: Bool;
 	@:protected public var bAdaptive: Bool;
 	@:protected public var bContinuousUpdate: Bool;
-	@:protected public var RemoveLowMips: cpp.Int32;
+	@:protected public var RemoveLowMips: ucpp.num.Int32;
 	@:protected public var LODGroup: TEnumAsByte<TextureGroup>;
 
-	public function GetSize(): cpp.Int32;
-	public function GetPageTableSize(): cpp.Int32;
+	public function GetSize(): ucpp.num.Int32;
+	public function GetPageTableSize(): ucpp.num.Int32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetSize, GetPageTableSize)
@@ -33,7 +33,7 @@ abstract ConstRuntimeVirtualTexture(RuntimeVirtualTexture) from RuntimeVirtualTe
 @:forward
 @:nativeGen
 @:native("RuntimeVirtualTexture*")
-abstract RuntimeVirtualTexturePtr(cpp.Star<RuntimeVirtualTexture>) from cpp.Star<RuntimeVirtualTexture> to cpp.Star<RuntimeVirtualTexture>{
+abstract RuntimeVirtualTexturePtr(ucpp.Ptr<RuntimeVirtualTexture>) from ucpp.Ptr<RuntimeVirtualTexture> to ucpp.Ptr<RuntimeVirtualTexture>{
 	@:from
 	public static extern inline function fromValue(v: RuntimeVirtualTexture): RuntimeVirtualTexturePtr {
 		return untyped __cpp__("&({0})", v);

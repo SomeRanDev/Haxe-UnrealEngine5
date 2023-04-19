@@ -3,22 +3,22 @@ package ue;
 
 @:native("APrecomputedVisibilityOverrideVolume")
 @:include("Lightmass/PrecomputedVisibilityOverrideVolume.h")
-@:structAccess
+@:valueType
 extern class PrecomputedVisibilityOverrideVolume extends Volume {
-	public var OverrideVisibleActors: TArray<cpp.Star<Actor>>;
-	public var OverrideInvisibleActors: TArray<cpp.Star<Actor>>;
+	public var OverrideVisibleActors: TArray<ucpp.Ptr<Actor>>;
+	public var OverrideInvisibleActors: TArray<ucpp.Ptr<Actor>>;
 	public var OverrideInvisibleLevels: TArray<FName>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
 @:nativeGen
 abstract ConstPrecomputedVisibilityOverrideVolume(PrecomputedVisibilityOverrideVolume) from PrecomputedVisibilityOverrideVolume {
-	public extern var OverrideVisibleActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_OverrideVisibleActors(): TArray<cpp.Star<Actor.ConstActor>> return this.OverrideVisibleActors;
-	public extern var OverrideInvisibleActors(get, never): TArray<cpp.Star<Actor.ConstActor>>;
-	public inline extern function get_OverrideInvisibleActors(): TArray<cpp.Star<Actor.ConstActor>> return this.OverrideInvisibleActors;
+	public extern var OverrideVisibleActors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_OverrideVisibleActors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.OverrideVisibleActors;
+	public extern var OverrideInvisibleActors(get, never): TArray<ucpp.Ptr<Actor.ConstActor>>;
+	public inline extern function get_OverrideInvisibleActors(): TArray<ucpp.Ptr<Actor.ConstActor>> return this.OverrideInvisibleActors;
 	public extern var OverrideInvisibleLevels(get, never): TArray<FName>;
 	public inline extern function get_OverrideInvisibleLevels(): TArray<FName> return this.OverrideInvisibleLevels;
 }
@@ -26,7 +26,7 @@ abstract ConstPrecomputedVisibilityOverrideVolume(PrecomputedVisibilityOverrideV
 @:forward
 @:nativeGen
 @:native("PrecomputedVisibilityOverrideVolume*")
-abstract PrecomputedVisibilityOverrideVolumePtr(cpp.Star<PrecomputedVisibilityOverrideVolume>) from cpp.Star<PrecomputedVisibilityOverrideVolume> to cpp.Star<PrecomputedVisibilityOverrideVolume>{
+abstract PrecomputedVisibilityOverrideVolumePtr(ucpp.Ptr<PrecomputedVisibilityOverrideVolume>) from ucpp.Ptr<PrecomputedVisibilityOverrideVolume> to ucpp.Ptr<PrecomputedVisibilityOverrideVolume>{
 	@:from
 	public static extern inline function fromValue(v: PrecomputedVisibilityOverrideVolume): PrecomputedVisibilityOverrideVolumePtr {
 		return untyped __cpp__("&({0})", v);

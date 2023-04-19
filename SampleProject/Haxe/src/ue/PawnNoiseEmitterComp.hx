@@ -3,19 +3,19 @@ package ue;
 
 @:native("UPawnNoiseEmitterComponent")
 @:include("Components/PawnNoiseEmitterComponent.h")
-@:structAccess
+@:valueType
 extern class PawnNoiseEmitterComp extends ActorComp {
 	@:protected public var bAIPerceptionSystemCompatibilityMode: Bool;
 	public var LastRemoteNoisePosition: Vector;
-	public var NoiseLifetime: cpp.Float32;
-	private var LastRemoteNoiseVolume: cpp.Float32;
-	private var LastRemoteNoiseTime: cpp.Float32;
-	private var LastLocalNoiseVolume: cpp.Float32;
-	private var LastLocalNoiseTime: cpp.Float32;
+	public var NoiseLifetime: ucpp.num.Float32;
+	private var LastRemoteNoiseVolume: ucpp.num.Float32;
+	private var LastRemoteNoiseTime: ucpp.num.Float32;
+	private var LastLocalNoiseVolume: ucpp.num.Float32;
+	private var LastLocalNoiseTime: ucpp.num.Float32;
 
-	public function MakeNoise(NoiseMaker: cpp.Star<Actor>, Loudness: cpp.Float32, NoiseLocation: cpp.Reference<Vector>): Void;
+	public function MakeNoise(NoiseMaker: ucpp.Ptr<Actor>, Loudness: ucpp.num.Float32, NoiseLocation: ucpp.Ref<Vector>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,14 +23,14 @@ extern class PawnNoiseEmitterComp extends ActorComp {
 abstract ConstPawnNoiseEmitterComp(PawnNoiseEmitterComp) from PawnNoiseEmitterComp {
 	public extern var LastRemoteNoisePosition(get, never): Vector;
 	public inline extern function get_LastRemoteNoisePosition(): Vector return this.LastRemoteNoisePosition;
-	public extern var NoiseLifetime(get, never): cpp.Float32;
-	public inline extern function get_NoiseLifetime(): cpp.Float32 return this.NoiseLifetime;
+	public extern var NoiseLifetime(get, never): ucpp.num.Float32;
+	public inline extern function get_NoiseLifetime(): ucpp.num.Float32 return this.NoiseLifetime;
 }
 
 @:forward
 @:nativeGen
 @:native("PawnNoiseEmitterComp*")
-abstract PawnNoiseEmitterCompPtr(cpp.Star<PawnNoiseEmitterComp>) from cpp.Star<PawnNoiseEmitterComp> to cpp.Star<PawnNoiseEmitterComp>{
+abstract PawnNoiseEmitterCompPtr(ucpp.Ptr<PawnNoiseEmitterComp>) from ucpp.Ptr<PawnNoiseEmitterComp> to ucpp.Ptr<PawnNoiseEmitterComp>{
 	@:from
 	public static extern inline function fromValue(v: PawnNoiseEmitterComp): PawnNoiseEmitterCompPtr {
 		return untyped __cpp__("&({0})", v);

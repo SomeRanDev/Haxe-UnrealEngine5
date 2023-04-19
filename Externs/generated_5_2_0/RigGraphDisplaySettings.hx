@@ -3,18 +3,18 @@ package ue;
 
 @:native("FRigGraphDisplaySettings")
 @:include("ControlRigBlueprint.h")
-@:structAccess
+@:valueType
 extern class RigGraphDisplaySettings {
 	public var bShowNodeInstructionIndex: Bool;
 	public var bShowNodeRunCounts: Bool;
-	public var NodeRunLowerBound: cpp.Int32;
-	public var NodeRunLimit: cpp.Int32;
-	public var MinMicroSeconds: cpp.Float64;
-	public var MaxMicroSeconds: cpp.Float64;
-	public var TotalMicroSeconds: cpp.Float64;
+	public var NodeRunLowerBound: ucpp.num.Int32;
+	public var NodeRunLimit: ucpp.num.Int32;
+	public var MinMicroSeconds: ucpp.num.Float64;
+	public var MaxMicroSeconds: ucpp.num.Float64;
+	public var TotalMicroSeconds: ucpp.num.Float64;
 	public var bAutoDetermineRange: Bool;
-	public var LastMinMicroSeconds: cpp.Float64;
-	public var LastMaxMicroSeconds: cpp.Float64;
+	public var LastMinMicroSeconds: ucpp.num.Float64;
+	public var LastMaxMicroSeconds: ucpp.num.Float64;
 	public var MinDurationColor: LinearColor;
 	public var MaxDurationColor: LinearColor;
 

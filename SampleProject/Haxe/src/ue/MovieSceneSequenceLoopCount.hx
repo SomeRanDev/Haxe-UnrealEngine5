@@ -2,11 +2,11 @@
 package ue;
 
 @:native("FMovieSceneSequenceLoopCount")
-@:include("MovieSceneSequencePlayer.h")
-@:structAccess
+@:include("MovieSceneSequencePlaybackSettings.h")
+@:valueType
 extern class MovieSceneSequenceLoopCount {
-	public var Value: cpp.Int32;
+	public var Value: ucpp.num.Int32;
 
 	@:native("FMovieSceneSequenceLoopCount") public function new();
-	@:native("FMovieSceneSequenceLoopCount") public static function make(Value: cpp.Int32): MovieSceneSequenceLoopCount ;
+	@:native("FMovieSceneSequenceLoopCount") public static function make(Value: ucpp.num.Int32): MovieSceneSequenceLoopCount ;
 }

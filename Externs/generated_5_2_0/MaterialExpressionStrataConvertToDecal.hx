@@ -3,12 +3,12 @@ package ue;
 
 @:native("UMaterialExpressionStrataConvertToDecal")
 @:include("Materials/MaterialExpressionStrata.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionStrataConvertToDecal extends MaterialExpressionStrataBSDF {
 	public var DecalMaterial: ExpressionInput;
 	public var Coverage: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -23,7 +23,7 @@ abstract ConstMaterialExpressionStrataConvertToDecal(MaterialExpressionStrataCon
 @:forward
 @:nativeGen
 @:native("MaterialExpressionStrataConvertToDecal*")
-abstract MaterialExpressionStrataConvertToDecalPtr(cpp.Star<MaterialExpressionStrataConvertToDecal>) from cpp.Star<MaterialExpressionStrataConvertToDecal> to cpp.Star<MaterialExpressionStrataConvertToDecal>{
+abstract MaterialExpressionStrataConvertToDecalPtr(ucpp.Ptr<MaterialExpressionStrataConvertToDecal>) from ucpp.Ptr<MaterialExpressionStrataConvertToDecal> to ucpp.Ptr<MaterialExpressionStrataConvertToDecal>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionStrataConvertToDecal): MaterialExpressionStrataConvertToDecalPtr {
 		return untyped __cpp__("&({0})", v);

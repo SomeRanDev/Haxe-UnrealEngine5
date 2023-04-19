@@ -3,13 +3,13 @@ package ue;
 
 @:native("UTextPropertyTestObject")
 @:include("Tests/TextPropertyTestObject.h")
-@:structAccess
+@:valueType
 extern class TextPropertyTestObject extends Object {
 	public var DefaultedText: FText;
 	public var UndefaultedText: FText;
 	public var TransientText: FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstTextPropertyTestObject(TextPropertyTestObject) from TextPropertyTe
 @:forward
 @:nativeGen
 @:native("TextPropertyTestObject*")
-abstract TextPropertyTestObjectPtr(cpp.Star<TextPropertyTestObject>) from cpp.Star<TextPropertyTestObject> to cpp.Star<TextPropertyTestObject>{
+abstract TextPropertyTestObjectPtr(ucpp.Ptr<TextPropertyTestObject>) from ucpp.Ptr<TextPropertyTestObject> to ucpp.Ptr<TextPropertyTestObject>{
 	@:from
 	public static extern inline function fromValue(v: TextPropertyTestObject): TextPropertyTestObjectPtr {
 		return untyped __cpp__("&({0})", v);

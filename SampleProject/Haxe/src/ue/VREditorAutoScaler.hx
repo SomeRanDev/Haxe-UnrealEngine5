@@ -3,11 +3,11 @@ package ue;
 
 @:native("UVREditorAutoScaler")
 @:include("Teleporter/VREditorAutoScaler.h")
-@:structAccess
+@:valueType
 extern class VREditorAutoScaler extends Object {
-	private var VRMode: cpp.Star<VREditorMode>;
+	private var VRMode: ucpp.Ptr<VREditorMode>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -18,7 +18,7 @@ abstract ConstVREditorAutoScaler(VREditorAutoScaler) from VREditorAutoScaler {
 @:forward
 @:nativeGen
 @:native("VREditorAutoScaler*")
-abstract VREditorAutoScalerPtr(cpp.Star<VREditorAutoScaler>) from cpp.Star<VREditorAutoScaler> to cpp.Star<VREditorAutoScaler>{
+abstract VREditorAutoScalerPtr(ucpp.Ptr<VREditorAutoScaler>) from ucpp.Ptr<VREditorAutoScaler> to ucpp.Ptr<VREditorAutoScaler>{
 	@:from
 	public static extern inline function fromValue(v: VREditorAutoScaler): VREditorAutoScalerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,18 +3,18 @@ package ue;
 
 @:native("UShaderCookerStats")
 @:include("ShaderCookerStats.h")
-@:structAccess
+@:valueType
 extern class ShaderCookerStats extends Object {
 	public var Name: FString;
 	public var Platform: FString;
 	public var Category: FString;
-	public var Compiled: cpp.Int32;
-	public var Cooked: cpp.Int32;
-	public var Permutations: cpp.Int32;
-	public var CompileTime: cpp.Float32;
+	public var Compiled: ucpp.num.Int32;
+	public var Cooked: ucpp.num.Int32;
+	public var Permutations: ucpp.num.Int32;
+	public var CompileTime: ucpp.num.Float32;
 	public var Path: FString;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,14 +26,14 @@ abstract ConstShaderCookerStats(ShaderCookerStats) from ShaderCookerStats {
 	public inline extern function get_Platform(): FString return this.Platform;
 	public extern var Category(get, never): FString;
 	public inline extern function get_Category(): FString return this.Category;
-	public extern var Compiled(get, never): cpp.Int32;
-	public inline extern function get_Compiled(): cpp.Int32 return this.Compiled;
-	public extern var Cooked(get, never): cpp.Int32;
-	public inline extern function get_Cooked(): cpp.Int32 return this.Cooked;
-	public extern var Permutations(get, never): cpp.Int32;
-	public inline extern function get_Permutations(): cpp.Int32 return this.Permutations;
-	public extern var CompileTime(get, never): cpp.Float32;
-	public inline extern function get_CompileTime(): cpp.Float32 return this.CompileTime;
+	public extern var Compiled(get, never): ucpp.num.Int32;
+	public inline extern function get_Compiled(): ucpp.num.Int32 return this.Compiled;
+	public extern var Cooked(get, never): ucpp.num.Int32;
+	public inline extern function get_Cooked(): ucpp.num.Int32 return this.Cooked;
+	public extern var Permutations(get, never): ucpp.num.Int32;
+	public inline extern function get_Permutations(): ucpp.num.Int32 return this.Permutations;
+	public extern var CompileTime(get, never): ucpp.num.Float32;
+	public inline extern function get_CompileTime(): ucpp.num.Float32 return this.CompileTime;
 	public extern var Path(get, never): FString;
 	public inline extern function get_Path(): FString return this.Path;
 }
@@ -41,7 +41,7 @@ abstract ConstShaderCookerStats(ShaderCookerStats) from ShaderCookerStats {
 @:forward
 @:nativeGen
 @:native("ShaderCookerStats*")
-abstract ShaderCookerStatsPtr(cpp.Star<ShaderCookerStats>) from cpp.Star<ShaderCookerStats> to cpp.Star<ShaderCookerStats>{
+abstract ShaderCookerStatsPtr(ucpp.Ptr<ShaderCookerStats>) from ucpp.Ptr<ShaderCookerStats> to ucpp.Ptr<ShaderCookerStats>{
 	@:from
 	public static extern inline function fromValue(v: ShaderCookerStats): ShaderCookerStatsPtr {
 		return untyped __cpp__("&({0})", v);

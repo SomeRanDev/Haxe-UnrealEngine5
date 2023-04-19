@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMovieSceneTrackRecorderSettings")
 @:include("TrackRecorders/MovieSceneTrackRecorderSettings.h")
-@:structAccess
+@:valueType
 extern class MovieSceneTrackRecorderSettings extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMovieSceneTrackRecorderSettings(MovieSceneTrackRecorderSettings) f
 @:forward
 @:nativeGen
 @:native("MovieSceneTrackRecorderSettings*")
-abstract MovieSceneTrackRecorderSettingsPtr(cpp.Star<MovieSceneTrackRecorderSettings>) from cpp.Star<MovieSceneTrackRecorderSettings> to cpp.Star<MovieSceneTrackRecorderSettings>{
+abstract MovieSceneTrackRecorderSettingsPtr(ucpp.Ptr<MovieSceneTrackRecorderSettings>) from ucpp.Ptr<MovieSceneTrackRecorderSettings> to ucpp.Ptr<MovieSceneTrackRecorderSettings>{
 	@:from
 	public static extern inline function fromValue(v: MovieSceneTrackRecorderSettings): MovieSceneTrackRecorderSettingsPtr {
 		return untyped __cpp__("&({0})", v);

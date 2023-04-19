@@ -3,10 +3,10 @@ package ue;
 
 @:native("UOffsetMeshSelectionToolBuilder")
 @:include("Polymodeling/OffsetMeshSelectionTool.h")
-@:structAccess
+@:valueType
 extern class OffsetMeshSelectionToolBuilder extends SingleTargetWithSelectionToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstOffsetMeshSelectionToolBuilder(OffsetMeshSelectionToolBuilder) fro
 @:forward
 @:nativeGen
 @:native("OffsetMeshSelectionToolBuilder*")
-abstract OffsetMeshSelectionToolBuilderPtr(cpp.Star<OffsetMeshSelectionToolBuilder>) from cpp.Star<OffsetMeshSelectionToolBuilder> to cpp.Star<OffsetMeshSelectionToolBuilder>{
+abstract OffsetMeshSelectionToolBuilderPtr(ucpp.Ptr<OffsetMeshSelectionToolBuilder>) from ucpp.Ptr<OffsetMeshSelectionToolBuilder> to ucpp.Ptr<OffsetMeshSelectionToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: OffsetMeshSelectionToolBuilder): OffsetMeshSelectionToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

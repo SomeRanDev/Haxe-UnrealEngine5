@@ -3,11 +3,11 @@ package ue;
 
 @:native("UMaterialExpressionDistanceToNearestSurface")
 @:include("Materials/MaterialExpressionDistanceToNearestSurface.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDistanceToNearestSurface extends MaterialExpression {
 	public var Position: ExpressionInput;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstMaterialExpressionDistanceToNearestSurface(MaterialExpressionDista
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDistanceToNearestSurface*")
-abstract MaterialExpressionDistanceToNearestSurfacePtr(cpp.Star<MaterialExpressionDistanceToNearestSurface>) from cpp.Star<MaterialExpressionDistanceToNearestSurface> to cpp.Star<MaterialExpressionDistanceToNearestSurface>{
+abstract MaterialExpressionDistanceToNearestSurfacePtr(ucpp.Ptr<MaterialExpressionDistanceToNearestSurface>) from ucpp.Ptr<MaterialExpressionDistanceToNearestSurface> to ucpp.Ptr<MaterialExpressionDistanceToNearestSurface>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDistanceToNearestSurface): MaterialExpressionDistanceToNearestSurfacePtr {
 		return untyped __cpp__("&({0})", v);

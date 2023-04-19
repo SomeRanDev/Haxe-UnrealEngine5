@@ -2,10 +2,10 @@
 package ue;
 
 @:native("UEnhancedInputActionHandlerDynamicSignature__PythonCallable")
-@:structAccess
+@:valueType
 extern class EnhancedInputActionHandlerDynamicSignature__PythonCallable extends PythonCallableForDelegate {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -16,7 +16,7 @@ abstract ConstEnhancedInputActionHandlerDynamicSignature__PythonCallable(Enhance
 @:forward
 @:nativeGen
 @:native("EnhancedInputActionHandlerDynamicSignature__PythonCallable*")
-abstract EnhancedInputActionHandlerDynamicSignature__PythonCallablePtr(cpp.Star<EnhancedInputActionHandlerDynamicSignature__PythonCallable>) from cpp.Star<EnhancedInputActionHandlerDynamicSignature__PythonCallable> to cpp.Star<EnhancedInputActionHandlerDynamicSignature__PythonCallable>{
+abstract EnhancedInputActionHandlerDynamicSignature__PythonCallablePtr(ucpp.Ptr<EnhancedInputActionHandlerDynamicSignature__PythonCallable>) from ucpp.Ptr<EnhancedInputActionHandlerDynamicSignature__PythonCallable> to ucpp.Ptr<EnhancedInputActionHandlerDynamicSignature__PythonCallable>{
 	@:from
 	public static extern inline function fromValue(v: EnhancedInputActionHandlerDynamicSignature__PythonCallable): EnhancedInputActionHandlerDynamicSignature__PythonCallablePtr {
 		return untyped __cpp__("&({0})", v);

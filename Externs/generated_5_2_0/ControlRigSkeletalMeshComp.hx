@@ -3,10 +3,10 @@ package ue;
 
 @:native("UControlRigSkeletalMeshComponent")
 @:include("Editor/ControlRigSkeletalMeshComponent.h")
-@:structAccess
+@:valueType
 extern class ControlRigSkeletalMeshComp extends DebugSkelMeshComp {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstControlRigSkeletalMeshComp(ControlRigSkeletalMeshComp) from Contro
 @:forward
 @:nativeGen
 @:native("ControlRigSkeletalMeshComp*")
-abstract ControlRigSkeletalMeshCompPtr(cpp.Star<ControlRigSkeletalMeshComp>) from cpp.Star<ControlRigSkeletalMeshComp> to cpp.Star<ControlRigSkeletalMeshComp>{
+abstract ControlRigSkeletalMeshCompPtr(ucpp.Ptr<ControlRigSkeletalMeshComp>) from ucpp.Ptr<ControlRigSkeletalMeshComp> to ucpp.Ptr<ControlRigSkeletalMeshComp>{
 	@:from
 	public static extern inline function fromValue(v: ControlRigSkeletalMeshComp): ControlRigSkeletalMeshCompPtr {
 		return untyped __cpp__("&({0})", v);

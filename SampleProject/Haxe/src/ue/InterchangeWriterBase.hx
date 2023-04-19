@@ -3,10 +3,10 @@ package ue;
 
 @:native("UInterchangeWriterBase")
 @:include("InterchangeWriterBase.h")
-@:structAccess
+@:valueType
 extern class InterchangeWriterBase extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstInterchangeWriterBase(InterchangeWriterBase) from InterchangeWrite
 @:forward
 @:nativeGen
 @:native("InterchangeWriterBase*")
-abstract InterchangeWriterBasePtr(cpp.Star<InterchangeWriterBase>) from cpp.Star<InterchangeWriterBase> to cpp.Star<InterchangeWriterBase>{
+abstract InterchangeWriterBasePtr(ucpp.Ptr<InterchangeWriterBase>) from ucpp.Ptr<InterchangeWriterBase> to ucpp.Ptr<InterchangeWriterBase>{
 	@:from
 	public static extern inline function fromValue(v: InterchangeWriterBase): InterchangeWriterBasePtr {
 		return untyped __cpp__("&({0})", v);

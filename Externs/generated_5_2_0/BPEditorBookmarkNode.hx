@@ -3,7 +3,7 @@ package ue;
 
 @:native("FBPEditorBookmarkNode")
 @:include("Engine/Blueprint.h")
-@:structAccess
+@:valueType
 extern class BPEditorBookmarkNode {
 	public var NodeGuid: Guid;
 	public var ParentGuid: Guid;

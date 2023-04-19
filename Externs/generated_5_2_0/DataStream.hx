@@ -3,10 +3,10 @@ package ue;
 
 @:native("UDataStream")
 @:include("Iris/DataStream/DataStream.h")
-@:structAccess
+@:valueType
 extern class DataStream extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstDataStream(DataStream) from DataStream {
 @:forward
 @:nativeGen
 @:native("DataStream*")
-abstract DataStreamPtr(cpp.Star<DataStream>) from cpp.Star<DataStream> to cpp.Star<DataStream>{
+abstract DataStreamPtr(ucpp.Ptr<DataStream>) from ucpp.Ptr<DataStream> to ucpp.Ptr<DataStream>{
 	@:from
 	public static extern inline function fromValue(v: DataStream): DataStreamPtr {
 		return untyped __cpp__("&({0})", v);

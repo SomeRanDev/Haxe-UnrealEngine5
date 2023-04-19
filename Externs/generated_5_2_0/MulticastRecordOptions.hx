@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMulticastRecordOptions")
 @:include("Engine/DemoNetDriver.h")
-@:structAccess
+@:valueType
 extern class MulticastRecordOptions {
 	public var FuncPathName: FString;
 	public var bServerSkip: Bool;

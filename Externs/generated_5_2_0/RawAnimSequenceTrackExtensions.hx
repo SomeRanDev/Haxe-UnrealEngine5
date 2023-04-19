@@ -3,13 +3,13 @@ package ue;
 
 @:native("URawAnimSequenceTrackExtensions")
 @:include("Animation/AnimTypes.h")
-@:structAccess
+@:valueType
 extern class RawAnimSequenceTrackExtensions extends BlueprintFunctionLibrary {
-	public function GetScaleKeys(Track: cpp.Reference<RawAnimSequenceTrack>): TArray<Vector>;
-	public function GetRotationalKeys(Track: cpp.Reference<RawAnimSequenceTrack>): TArray<Quat>;
-	public function GetPositionalKeys(Track: cpp.Reference<RawAnimSequenceTrack>): TArray<Vector>;
+	public function GetScaleKeys(Track: ucpp.Ref<RawAnimSequenceTrack>): TArray<Vector>;
+	public function GetRotationalKeys(Track: ucpp.Ref<RawAnimSequenceTrack>): TArray<Quat>;
+	public function GetPositionalKeys(Track: ucpp.Ref<RawAnimSequenceTrack>): TArray<Vector>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,7 +20,7 @@ abstract ConstRawAnimSequenceTrackExtensions(RawAnimSequenceTrackExtensions) fro
 @:forward
 @:nativeGen
 @:native("RawAnimSequenceTrackExtensions*")
-abstract RawAnimSequenceTrackExtensionsPtr(cpp.Star<RawAnimSequenceTrackExtensions>) from cpp.Star<RawAnimSequenceTrackExtensions> to cpp.Star<RawAnimSequenceTrackExtensions>{
+abstract RawAnimSequenceTrackExtensionsPtr(ucpp.Ptr<RawAnimSequenceTrackExtensions>) from ucpp.Ptr<RawAnimSequenceTrackExtensions> to ucpp.Ptr<RawAnimSequenceTrackExtensions>{
 	@:from
 	public static extern inline function fromValue(v: RawAnimSequenceTrackExtensions): RawAnimSequenceTrackExtensionsPtr {
 		return untyped __cpp__("&({0})", v);

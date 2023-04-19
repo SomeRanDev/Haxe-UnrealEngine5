@@ -3,7 +3,7 @@ package ue;
 
 @:native("USlateAccessibleWidgetData")
 @:include("Components/SlateWrapperTypes.h")
-@:structAccess
+@:valueType
 extern class SlateAccessibleWidgetData extends Object {
 	public var bCanChildrenBeAccessible: Bool;
 	public var AccessibleBehavior: ESlateAccessibleBehavior;
@@ -15,7 +15,7 @@ extern class SlateAccessibleWidgetData extends Object {
 
 	public function GetText__DelegateSignature(): FText;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -40,7 +40,7 @@ abstract ConstSlateAccessibleWidgetData(SlateAccessibleWidgetData) from SlateAcc
 @:forward
 @:nativeGen
 @:native("SlateAccessibleWidgetData*")
-abstract SlateAccessibleWidgetDataPtr(cpp.Star<SlateAccessibleWidgetData>) from cpp.Star<SlateAccessibleWidgetData> to cpp.Star<SlateAccessibleWidgetData>{
+abstract SlateAccessibleWidgetDataPtr(ucpp.Ptr<SlateAccessibleWidgetData>) from ucpp.Ptr<SlateAccessibleWidgetData> to ucpp.Ptr<SlateAccessibleWidgetData>{
 	@:from
 	public static extern inline function fromValue(v: SlateAccessibleWidgetData): SlateAccessibleWidgetDataPtr {
 		return untyped __cpp__("&({0})", v);

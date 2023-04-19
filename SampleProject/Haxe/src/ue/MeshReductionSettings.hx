@@ -3,15 +3,17 @@ package ue;
 
 @:native("FMeshReductionSettings")
 @:include("Engine/MeshMerging.h")
-@:structAccess
+@:valueType
 extern class MeshReductionSettings {
-	public var PercentTriangles: cpp.Float32;
-	public var PercentVertices: cpp.Float32;
-	public var MaxDeviation: cpp.Float32;
-	public var PixelError: cpp.Float32;
-	public var WeldingThreshold: cpp.Float32;
-	public var HardAngleThreshold: cpp.Float32;
-	public var BaseLODModel: cpp.Int32;
+	public var PercentTriangles: ucpp.num.Float32;
+	public var MaxNumOfTriangles: ucpp.num.UInt32;
+	public var PercentVertices: ucpp.num.Float32;
+	public var MaxNumOfVerts: ucpp.num.UInt32;
+	public var MaxDeviation: ucpp.num.Float32;
+	public var PixelError: ucpp.num.Float32;
+	public var WeldingThreshold: ucpp.num.Float32;
+	public var HardAngleThreshold: ucpp.num.Float32;
+	public var BaseLODModel: ucpp.num.Int32;
 	public var SilhouetteImportance: TEnumAsByte<EMeshFeatureImportance>;
 	public var TextureImportance: TEnumAsByte<EMeshFeatureImportance>;
 	public var ShadingImportance: TEnumAsByte<EMeshFeatureImportance>;

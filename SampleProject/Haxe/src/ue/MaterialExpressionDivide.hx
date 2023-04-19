@@ -3,14 +3,14 @@ package ue;
 
 @:native("UMaterialExpressionDivide")
 @:include("Materials/MaterialExpressionDivide.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionDivide extends MaterialExpression {
 	public var A: ExpressionInput;
 	public var B: ExpressionInput;
-	public var ConstA: cpp.Float32;
-	public var ConstB: cpp.Float32;
+	public var ConstA: ucpp.num.Float32;
+	public var ConstB: ucpp.num.Float32;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -20,16 +20,16 @@ abstract ConstMaterialExpressionDivide(MaterialExpressionDivide) from MaterialEx
 	public inline extern function get_A(): ExpressionInput return this.A;
 	public extern var B(get, never): ExpressionInput;
 	public inline extern function get_B(): ExpressionInput return this.B;
-	public extern var ConstA(get, never): cpp.Float32;
-	public inline extern function get_ConstA(): cpp.Float32 return this.ConstA;
-	public extern var ConstB(get, never): cpp.Float32;
-	public inline extern function get_ConstB(): cpp.Float32 return this.ConstB;
+	public extern var ConstA(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstA(): ucpp.num.Float32 return this.ConstA;
+	public extern var ConstB(get, never): ucpp.num.Float32;
+	public inline extern function get_ConstB(): ucpp.num.Float32 return this.ConstB;
 }
 
 @:forward
 @:nativeGen
 @:native("MaterialExpressionDivide*")
-abstract MaterialExpressionDividePtr(cpp.Star<MaterialExpressionDivide>) from cpp.Star<MaterialExpressionDivide> to cpp.Star<MaterialExpressionDivide>{
+abstract MaterialExpressionDividePtr(ucpp.Ptr<MaterialExpressionDivide>) from ucpp.Ptr<MaterialExpressionDivide> to ucpp.Ptr<MaterialExpressionDivide>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionDivide): MaterialExpressionDividePtr {
 		return untyped __cpp__("&({0})", v);

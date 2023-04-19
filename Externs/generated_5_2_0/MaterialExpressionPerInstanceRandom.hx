@@ -3,10 +3,10 @@ package ue;
 
 @:native("UMaterialExpressionPerInstanceRandom")
 @:include("Materials/MaterialExpressionPerInstanceRandom.h")
-@:structAccess
+@:valueType
 extern class MaterialExpressionPerInstanceRandom extends MaterialExpression {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstMaterialExpressionPerInstanceRandom(MaterialExpressionPerInstanceR
 @:forward
 @:nativeGen
 @:native("MaterialExpressionPerInstanceRandom*")
-abstract MaterialExpressionPerInstanceRandomPtr(cpp.Star<MaterialExpressionPerInstanceRandom>) from cpp.Star<MaterialExpressionPerInstanceRandom> to cpp.Star<MaterialExpressionPerInstanceRandom>{
+abstract MaterialExpressionPerInstanceRandomPtr(ucpp.Ptr<MaterialExpressionPerInstanceRandom>) from ucpp.Ptr<MaterialExpressionPerInstanceRandom> to ucpp.Ptr<MaterialExpressionPerInstanceRandom>{
 	@:from
 	public static extern inline function fromValue(v: MaterialExpressionPerInstanceRandom): MaterialExpressionPerInstanceRandomPtr {
 		return untyped __cpp__("&({0})", v);

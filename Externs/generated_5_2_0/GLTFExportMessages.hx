@@ -3,7 +3,7 @@ package ue;
 
 @:native("FGLTFExportMessages")
 @:include("Exporters/GLTFExporter.h")
-@:structAccess
+@:valueType
 extern class GLTFExportMessages {
 	public var Suggestions: TArray<FString>;
 	public var Warnings: TArray<FString>;

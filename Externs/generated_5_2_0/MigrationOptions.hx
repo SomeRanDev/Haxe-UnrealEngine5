@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMigrationOptions")
 @:include("IAssetTools.h")
-@:structAccess
+@:valueType
 extern class MigrationOptions {
 	public var AssetConflict: EAssetMigrationConflict;
 	public var OrphanFolder: FString;

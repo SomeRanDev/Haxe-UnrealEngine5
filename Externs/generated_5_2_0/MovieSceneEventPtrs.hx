@@ -3,11 +3,11 @@ package ue;
 
 @:native("FMovieSceneEventPtrs")
 @:include("Channels/MovieSceneEvent.h")
-@:structAccess
+@:valueType
 extern class MovieSceneEventPtrs {
-	public var Function: cpp.Star<Function>;
+	public var Function: ucpp.Ptr<Function>;
 	public var BoundObjectProperty: TFieldPath<FProperty>;
 
 	@:native("FMovieSceneEventPtrs") public function new();
-	@:native("FMovieSceneEventPtrs") public static function make(Function: cpp.Star<Function>, BoundObjectProperty: TFieldPath<FProperty>): MovieSceneEventPtrs ;
+	@:native("FMovieSceneEventPtrs") public static function make(Function: ucpp.Ptr<Function>, BoundObjectProperty: TFieldPath<FProperty>): MovieSceneEventPtrs ;
 }

@@ -3,24 +3,24 @@ package ue;
 
 @:native("UUVProjectionToolProperties")
 @:include("UVProjectionTool.h")
-@:structAccess
+@:valueType
 extern class UVProjectionToolProperties extends InteractiveToolPropertySet {
 	public var ProjectionType: EUVProjectionMethod;
 	public var Dimensions: Vector;
 	public var bProportionalDimensions: Bool;
 	public var Initialization: EUVProjectionToolInitializationMode;
-	public var CylinderSplitAngle: cpp.Float32;
-	public var ExpMapNormalBlending: cpp.Float32;
-	public var ExpMapSmoothingSteps: cpp.Int32;
-	public var ExpMapSmoothingAlpha: cpp.Float32;
-	public var Rotation: cpp.Float32;
+	public var CylinderSplitAngle: ucpp.num.Float32;
+	public var ExpMapNormalBlending: ucpp.num.Float32;
+	public var ExpMapSmoothingSteps: ucpp.num.Int32;
+	public var ExpMapSmoothingAlpha: ucpp.num.Float32;
+	public var Rotation: ucpp.num.Float32;
 	public var Scale: Vector2D;
 	public var Translation: Vector2D;
 	public var SavedDimensions: Vector;
 	public var bSavedProportionalDimensions: Bool;
 	public var SavedTransform: Transform;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -34,16 +34,16 @@ abstract ConstUVProjectionToolProperties(UVProjectionToolProperties) from UVProj
 	public inline extern function get_bProportionalDimensions(): Bool return this.bProportionalDimensions;
 	public extern var Initialization(get, never): EUVProjectionToolInitializationMode;
 	public inline extern function get_Initialization(): EUVProjectionToolInitializationMode return this.Initialization;
-	public extern var CylinderSplitAngle(get, never): cpp.Float32;
-	public inline extern function get_CylinderSplitAngle(): cpp.Float32 return this.CylinderSplitAngle;
-	public extern var ExpMapNormalBlending(get, never): cpp.Float32;
-	public inline extern function get_ExpMapNormalBlending(): cpp.Float32 return this.ExpMapNormalBlending;
-	public extern var ExpMapSmoothingSteps(get, never): cpp.Int32;
-	public inline extern function get_ExpMapSmoothingSteps(): cpp.Int32 return this.ExpMapSmoothingSteps;
-	public extern var ExpMapSmoothingAlpha(get, never): cpp.Float32;
-	public inline extern function get_ExpMapSmoothingAlpha(): cpp.Float32 return this.ExpMapSmoothingAlpha;
-	public extern var Rotation(get, never): cpp.Float32;
-	public inline extern function get_Rotation(): cpp.Float32 return this.Rotation;
+	public extern var CylinderSplitAngle(get, never): ucpp.num.Float32;
+	public inline extern function get_CylinderSplitAngle(): ucpp.num.Float32 return this.CylinderSplitAngle;
+	public extern var ExpMapNormalBlending(get, never): ucpp.num.Float32;
+	public inline extern function get_ExpMapNormalBlending(): ucpp.num.Float32 return this.ExpMapNormalBlending;
+	public extern var ExpMapSmoothingSteps(get, never): ucpp.num.Int32;
+	public inline extern function get_ExpMapSmoothingSteps(): ucpp.num.Int32 return this.ExpMapSmoothingSteps;
+	public extern var ExpMapSmoothingAlpha(get, never): ucpp.num.Float32;
+	public inline extern function get_ExpMapSmoothingAlpha(): ucpp.num.Float32 return this.ExpMapSmoothingAlpha;
+	public extern var Rotation(get, never): ucpp.num.Float32;
+	public inline extern function get_Rotation(): ucpp.num.Float32 return this.Rotation;
 	public extern var Scale(get, never): Vector2D;
 	public inline extern function get_Scale(): Vector2D return this.Scale;
 	public extern var Translation(get, never): Vector2D;
@@ -59,7 +59,7 @@ abstract ConstUVProjectionToolProperties(UVProjectionToolProperties) from UVProj
 @:forward
 @:nativeGen
 @:native("UVProjectionToolProperties*")
-abstract UVProjectionToolPropertiesPtr(cpp.Star<UVProjectionToolProperties>) from cpp.Star<UVProjectionToolProperties> to cpp.Star<UVProjectionToolProperties>{
+abstract UVProjectionToolPropertiesPtr(ucpp.Ptr<UVProjectionToolProperties>) from ucpp.Ptr<UVProjectionToolProperties> to ucpp.Ptr<UVProjectionToolProperties>{
 	@:from
 	public static extern inline function fromValue(v: UVProjectionToolProperties): UVProjectionToolPropertiesPtr {
 		return untyped __cpp__("&({0})", v);

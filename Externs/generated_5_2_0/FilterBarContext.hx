@@ -3,10 +3,10 @@ package ue;
 
 @:native("UFilterBarContext")
 @:include("Filters/SBasicFilterBar.h")
-@:structAccess
+@:valueType
 extern class FilterBarContext extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstFilterBarContext(FilterBarContext) from FilterBarContext {
 @:forward
 @:nativeGen
 @:native("FilterBarContext*")
-abstract FilterBarContextPtr(cpp.Star<FilterBarContext>) from cpp.Star<FilterBarContext> to cpp.Star<FilterBarContext>{
+abstract FilterBarContextPtr(ucpp.Ptr<FilterBarContext>) from ucpp.Ptr<FilterBarContext> to ucpp.Ptr<FilterBarContext>{
 	@:from
 	public static extern inline function fromValue(v: FilterBarContext): FilterBarContextPtr {
 		return untyped __cpp__("&({0})", v);

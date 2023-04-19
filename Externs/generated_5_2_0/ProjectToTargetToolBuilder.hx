@@ -3,10 +3,10 @@ package ue;
 
 @:native("UProjectToTargetToolBuilder")
 @:include("ProjectToTargetTool.h")
-@:structAccess
+@:valueType
 extern class ProjectToTargetToolBuilder extends MultiSelectionMeshEditingToolBuilder {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstProjectToTargetToolBuilder(ProjectToTargetToolBuilder) from Projec
 @:forward
 @:nativeGen
 @:native("ProjectToTargetToolBuilder*")
-abstract ProjectToTargetToolBuilderPtr(cpp.Star<ProjectToTargetToolBuilder>) from cpp.Star<ProjectToTargetToolBuilder> to cpp.Star<ProjectToTargetToolBuilder>{
+abstract ProjectToTargetToolBuilderPtr(ucpp.Ptr<ProjectToTargetToolBuilder>) from ucpp.Ptr<ProjectToTargetToolBuilder> to ucpp.Ptr<ProjectToTargetToolBuilder>{
 	@:from
 	public static extern inline function fromValue(v: ProjectToTargetToolBuilder): ProjectToTargetToolBuilderPtr {
 		return untyped __cpp__("&({0})", v);

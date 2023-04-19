@@ -3,7 +3,7 @@ package ue;
 
 @:native("FMovementProperties")
 @:include("AI/Navigation/NavigationTypes.h")
-@:structAccess
+@:valueType
 extern class MovementProperties {
 	public var bCanCrouch: Bool;
 	public var bCanJump: Bool;

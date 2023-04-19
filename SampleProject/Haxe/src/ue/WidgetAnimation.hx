@@ -3,30 +3,30 @@ package ue;
 
 @:native("UWidgetAnimation")
 @:include("Animation/WidgetAnimation.h")
-@:structAccess
+@:valueType
 extern class WidgetAnimation extends MovieSceneSequence {
-	public var MovieScene: cpp.Star<MovieScene>;
+	public var MovieScene: ucpp.Ptr<MovieScene>;
 	public var AnimationBindings: TArray<WidgetAnimationBinding>;
 	private var bLegacyFinishOnStop: Bool;
 	private var DisplayLabel: FString;
 
-	public function UnbindFromAnimationStarted(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
-	public function UnbindFromAnimationFinished(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
-	public function UnbindAllFromAnimationStarted(Widget: cpp.Star<UserWidget>): Void;
-	public function UnbindAllFromAnimationFinished(Widget: cpp.Star<UserWidget>): Void;
-	public function GetStartTime(): cpp.Float32;
-	public function GetEndTime(): cpp.Float32;
-	public function BindToAnimationStarted(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
-	public function BindToAnimationFinished(Widget: cpp.Star<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function UnbindFromAnimationStarted(Widget: ucpp.Ptr<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function UnbindFromAnimationFinished(Widget: ucpp.Ptr<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function UnbindAllFromAnimationStarted(Widget: ucpp.Ptr<UserWidget>): Void;
+	public function UnbindAllFromAnimationFinished(Widget: ucpp.Ptr<UserWidget>): Void;
+	public function GetStartTime(): ucpp.num.Float32;
+	public function GetEndTime(): ucpp.num.Float32;
+	public function BindToAnimationStarted(Widget: ucpp.Ptr<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
+	public function BindToAnimationFinished(Widget: ucpp.Ptr<UserWidget>, Delegate: HaxeDelegateProperty<() -> Void>): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(GetStartTime, GetEndTime)
 @:nativeGen
 abstract ConstWidgetAnimation(WidgetAnimation) from WidgetAnimation {
-	public extern var MovieScene(get, never): cpp.Star<MovieScene.ConstMovieScene>;
-	public inline extern function get_MovieScene(): cpp.Star<MovieScene.ConstMovieScene> return this.MovieScene;
+	public extern var MovieScene(get, never): ucpp.Ptr<MovieScene.ConstMovieScene>;
+	public inline extern function get_MovieScene(): ucpp.Ptr<MovieScene.ConstMovieScene> return this.MovieScene;
 	public extern var AnimationBindings(get, never): TArray<WidgetAnimationBinding>;
 	public inline extern function get_AnimationBindings(): TArray<WidgetAnimationBinding> return this.AnimationBindings;
 }
@@ -34,7 +34,7 @@ abstract ConstWidgetAnimation(WidgetAnimation) from WidgetAnimation {
 @:forward
 @:nativeGen
 @:native("WidgetAnimation*")
-abstract WidgetAnimationPtr(cpp.Star<WidgetAnimation>) from cpp.Star<WidgetAnimation> to cpp.Star<WidgetAnimation>{
+abstract WidgetAnimationPtr(ucpp.Ptr<WidgetAnimation>) from ucpp.Ptr<WidgetAnimation> to ucpp.Ptr<WidgetAnimation>{
 	@:from
 	public static extern inline function fromValue(v: WidgetAnimation): WidgetAnimationPtr {
 		return untyped __cpp__("&({0})", v);

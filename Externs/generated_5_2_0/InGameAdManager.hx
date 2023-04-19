@@ -3,13 +3,13 @@ package ue;
 
 @:native("UInGameAdManager")
 @:include("Engine/InGameAdManager.h")
-@:structAccess
+@:valueType
 extern class InGameAdManager extends PlatformInterfaceBase {
 	public var bShouldPauseWhileAdOpen: Bool;
 	public var ClickedBannerDelegates: TArray<HaxeDelegateProperty<() -> Void>>;
 	public var ClosedAdDelegates: TArray<HaxeDelegateProperty<() -> Void>>;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -26,7 +26,7 @@ abstract ConstInGameAdManager(InGameAdManager) from InGameAdManager {
 @:forward
 @:nativeGen
 @:native("InGameAdManager*")
-abstract InGameAdManagerPtr(cpp.Star<InGameAdManager>) from cpp.Star<InGameAdManager> to cpp.Star<InGameAdManager>{
+abstract InGameAdManagerPtr(ucpp.Ptr<InGameAdManager>) from ucpp.Ptr<InGameAdManager> to ucpp.Ptr<InGameAdManager>{
 	@:from
 	public static extern inline function fromValue(v: InGameAdManager): InGameAdManagerPtr {
 		return untyped __cpp__("&({0})", v);

@@ -3,10 +3,10 @@ package ue;
 
 @:native("UPythonCallableForDelegate")
 @:include("PyWrapperDelegate.h")
-@:structAccess
+@:valueType
 extern class PythonCallableForDelegate extends Object {
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward()
@@ -17,7 +17,7 @@ abstract ConstPythonCallableForDelegate(PythonCallableForDelegate) from PythonCa
 @:forward
 @:nativeGen
 @:native("PythonCallableForDelegate*")
-abstract PythonCallableForDelegatePtr(cpp.Star<PythonCallableForDelegate>) from cpp.Star<PythonCallableForDelegate> to cpp.Star<PythonCallableForDelegate>{
+abstract PythonCallableForDelegatePtr(ucpp.Ptr<PythonCallableForDelegate>) from ucpp.Ptr<PythonCallableForDelegate> to ucpp.Ptr<PythonCallableForDelegate>{
 	@:from
 	public static extern inline function fromValue(v: PythonCallableForDelegate): PythonCallableForDelegatePtr {
 		return untyped __cpp__("&({0})", v);

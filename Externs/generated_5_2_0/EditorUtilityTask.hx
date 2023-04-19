@@ -3,20 +3,20 @@ package ue;
 
 @:native("UEditorUtilityTask")
 @:include("EditorUtilityTask.h")
-@:structAccess
+@:valueType
 extern class EditorUtilityTask extends Object {
-	private var MyTaskManager: cpp.Star<EditorUtilitySubsystem>;
-	private var MyParentTask: cpp.Star<EditorUtilityTask>;
+	private var MyTaskManager: ucpp.Ptr<EditorUtilitySubsystem>;
+	private var MyParentTask: ucpp.Ptr<EditorUtilityTask>;
 	private var bCancelRequested: Bool;
 
 	public function WasCancelRequested(): Bool;
-	public function SetTaskNotificationText(Text: cpp.Reference<FText>): Void;
+	public function SetTaskNotificationText(Text: ucpp.Ref<FText>): Void;
 	public function Run(): Void;
 	@:protected public function ReceiveCancelRequested(): Void;
 	@:protected public function ReceiveBeginExecution(): Void;
 	public function FinishExecutingTask(): Void;
 
-	public static function StaticClass(): cpp.Star<Class>;
+	public static function StaticClass(): ucpp.Ptr<Class>;
 }
 
 @:forward(WasCancelRequested)
@@ -27,7 +27,7 @@ abstract ConstEditorUtilityTask(EditorUtilityTask) from EditorUtilityTask {
 @:forward
 @:nativeGen
 @:native("EditorUtilityTask*")
-abstract EditorUtilityTaskPtr(cpp.Star<EditorUtilityTask>) from cpp.Star<EditorUtilityTask> to cpp.Star<EditorUtilityTask>{
+abstract EditorUtilityTaskPtr(ucpp.Ptr<EditorUtilityTask>) from ucpp.Ptr<EditorUtilityTask> to ucpp.Ptr<EditorUtilityTask>{
 	@:from
 	public static extern inline function fromValue(v: EditorUtilityTask): EditorUtilityTaskPtr {
 		return untyped __cpp__("&({0})", v);
