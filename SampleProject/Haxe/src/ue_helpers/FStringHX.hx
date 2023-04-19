@@ -28,36 +28,36 @@ extern class ESearchDir {
 extern class FStringHX {
 	public var length(get, never):Int;
 
-	public extern function Len(): cpp.Int32;
-	public extern function AppendChar(InChar: cpp.Int64): cpp.Reference<FStringHX>;
+	public extern function Len(): ucpp.num.Int32;
+	public extern function AppendChar(InChar: ucpp.num.Int64): ucpp.Ref<FStringHX>;
 	public extern function ToUpper(): FStringHX;
 	public extern function ToLower(): FStringHX;
-	public extern overload function Mid(Start: cpp.Int32): FStringHX;
-	public extern overload function Mid(Start: cpp.Int32, Count: cpp.Int32): FStringHX;
-	public extern function Find(SubStr: FStringHX, SearchCase: ESearchCase, SearchDir: ESearchDir, StartPosition: cpp.Int32): cpp.Int32;
-	public extern function ParseIntoArray(OutArray: cpp.Reference<Array<FStringHX>>, pchDelim: cpp.ConstCharStar, InCullEmpty: Bool): cpp.Int32;
+	public extern overload function Mid(Start: ucpp.num.Int32): FStringHX;
+	public extern overload function Mid(Start: ucpp.num.Int32, Count: ucpp.num.Int32): FStringHX;
+	public extern function Find(SubStr: FStringHX, SearchCase: ESearchCase, SearchDir: ESearchDir, StartPosition: ucpp.num.Int32): ucpp.num.Int32;
+	public extern function ParseIntoArray(OutArray: ucpp.Ref<Array<FStringHX>>, pchDelim: ucpp.ConstCharPtr, InCullEmpty: Bool): ucpp.num.Int32;
 
 	public static extern inline function fromString(s: String): FStringHX {
-		return new FStringHX(cpp.ConstCharStar.fromString(s));
+		return new FStringHX(ucpp.ConstCharPtr.fromString(s));
 	}
 
 	@:native("operator*")
-	public extern function ToConstCharStar(): cpp.ConstCharStar;
+	public extern function ToConstCharStar(): ucpp.ConstCharPtr;
 
 	public extern inline function toInt(): Int {
 		return untyped __cpp__("FCString::Atoi(*{0})", this);
 	}
 
-	public extern inline function toFloat(): cpp.Float32 {
+	public extern inline function toFloat(): ucpp.num.Float32 {
 		return untyped __cpp__("FCString::Atof(*{0})", this);
 	}
 
 	@:native("operator[]")
-	public extern function ArrayAccess(Index: cpp.Int32): Int; // this should cpp.Int64 (and it compiles with cpp.Int64),
+	public extern function ArrayAccess(Index: ucpp.num.Int32): Int; // this should ucpp.num.Int64 (and it compiles with ucpp.num.Int64),
 															   // but editor still gives red underline???
 
 	@:native("FString")
-	public extern function new(string: cpp.ConstCharStar);
+	public extern function new(string: ucpp.ConstCharPtr);
 
 	public extern inline function get_length(): Int {
 		return Len();

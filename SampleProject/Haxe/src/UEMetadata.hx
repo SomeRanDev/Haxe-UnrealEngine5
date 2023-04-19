@@ -176,7 +176,7 @@ class UEMetadata {
 			pos: nopos,
 			kind: FFun({
 				args: [],
-				ret: macro : cpp.Star<$complexType>,
+				ret: macro : ucpp.Ptr<$complexType>,
 				expr: macro return untyped __cpp__("this")
 			}),
 			access: [APublic, AInline, AExtern]
